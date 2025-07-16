@@ -21,18 +21,15 @@
     .line 52
     invoke-direct {p0}, Landroidx/media/AudioAttributesImplApi21$Builder;-><init>()V
 
-    .line 53
     return-void
 .end method
 
 .method constructor <init>(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "aa"    # Ljava/lang/Object;
 
     .line 56
     invoke-direct {p0, p1}, Landroidx/media/AudioAttributesImplApi21$Builder;-><init>(Ljava/lang/Object;)V
 
-    .line 57
     return-void
 .end method
 
@@ -79,13 +76,11 @@
 
 .method public setUsage(I)Landroidx/media/AudioAttributesImplApi26$Builder;
     .locals 1
-    .param p1, "usage"    # I
 
     .line 66
     iget-object v0, p0, Landroidx/media/AudioAttributesImplApi26$Builder;->mFwkBuilder:Landroid/media/AudioAttributes$Builder;
 
     invoke-virtual {v0, p1}, Landroid/media/AudioAttributes$Builder;->setUsage(I)Landroid/media/AudioAttributes$Builder;
 
-    .line 67
     return-object p0
 .end method

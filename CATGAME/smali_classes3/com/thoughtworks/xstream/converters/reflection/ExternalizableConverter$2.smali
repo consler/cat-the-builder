@@ -19,7 +19,6 @@
 # direct methods
 .method constructor <init>(Lcom/thoughtworks/xstream/converters/reflection/ExternalizableConverter;Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;Ljava/io/Externalizable;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/thoughtworks/xstream/converters/reflection/ExternalizableConverter;
 
     .line 142
     iput-object p1, p0, Lcom/thoughtworks/xstream/converters/reflection/ExternalizableConverter$2;->this$0:Lcom/thoughtworks/xstream/converters/reflection/ExternalizableConverter;
@@ -94,29 +93,24 @@
     move-result-object v0
 
     .line 146
-    .local v0, "type":Ljava/lang/Class;
     iget-object v1, p0, Lcom/thoughtworks/xstream/converters/reflection/ExternalizableConverter$2;->val$context:Lcom/thoughtworks/xstream/converters/UnmarshallingContext;
 
     iget-object v2, p0, Lcom/thoughtworks/xstream/converters/reflection/ExternalizableConverter$2;->val$externalizable:Ljava/io/Externalizable;
 
     invoke-interface {v1, v2, v0}, Lcom/thoughtworks/xstream/converters/UnmarshallingContext;->convertAnother(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 147
-    .local v1, "streamItem":Ljava/lang/Object;
-    iget-object v2, p0, Lcom/thoughtworks/xstream/converters/reflection/ExternalizableConverter$2;->val$reader:Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
+    iget-object v1, p0, Lcom/thoughtworks/xstream/converters/reflection/ExternalizableConverter$2;->val$reader:Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
 
-    invoke-interface {v2}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->moveUp()V
+    invoke-interface {v1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->moveUp()V
 
-    .line 148
-    return-object v1
+    return-object v0
 .end method
 
 .method public registerValidation(Ljava/io/ObjectInputValidation;I)V
-    .locals 2
-    .param p1, "validation"    # Ljava/io/ObjectInputValidation;
-    .param p2, "priority"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/NotActiveException;
@@ -124,11 +118,11 @@
     .end annotation
 
     .line 160
-    new-instance v0, Ljava/io/NotActiveException;
+    new-instance p1, Ljava/io/NotActiveException;
 
-    const-string v1, "stream inactive"
+    const-string p2, "stream inactive"
 
-    invoke-direct {v0, v1}, Ljava/io/NotActiveException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/NotActiveException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

@@ -23,9 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/crypto/tink/prf/Prf;I)V
-    .locals 2
-    .param p1, "wrappedPrf"    # Lcom/google/crypto/tink/prf/Prf;
-    .param p2, "tagSize"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -52,37 +50,34 @@
     .line 36
     iput p2, p0, Lcom/google/crypto/tink/subtle/PrfMac;->tagSize:I
 
-    .line 39
     const/16 v0, 0xa
 
     if-lt p2, v0, :cond_0
 
-    .line 46
     const/4 v0, 0x0
 
     new-array v0, v0, [B
 
+    .line 46
     invoke-interface {p1, v0, p2}, Lcom/google/crypto/tink/prf/Prf;->compute([BI)[B
 
-    .line 47
     return-void
 
     .line 40
     :cond_0
-    new-instance v0, Ljava/security/InvalidAlgorithmParameterException;
+    new-instance p1, Ljava/security/InvalidAlgorithmParameterException;
 
-    const-string v1, "tag size too small, need at least 10 bytes"
+    const-string p2, "tag size too small, need at least 10 bytes"
 
-    invoke-direct {v0, v1}, Ljava/security/InvalidAlgorithmParameterException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/security/InvalidAlgorithmParameterException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
 # virtual methods
 .method public computeMac([B)[B
     .locals 2
-    .param p1, "data"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -105,15 +100,13 @@
 
     invoke-interface {v0, p1, v1}, Lcom/google/crypto/tink/prf/Prf;->compute([BI)[B
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public verifyMac([B[B)V
-    .locals 2
-    .param p1, "mac"    # [B
-    .param p2, "data"    # [B
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -134,24 +127,23 @@
     .line 56
     invoke-virtual {p0, p2}, Lcom/google/crypto/tink/subtle/PrfMac;->computeMac([B)[B
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-static {v0, p1}, Lcom/google/crypto/tink/subtle/Bytes;->equal([B[B)Z
+    invoke-static {p2, p1}, Lcom/google/crypto/tink/subtle/Bytes;->equal([B[B)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    .line 59
     return-void
 
     .line 57
     :cond_0
-    new-instance v0, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    const-string v1, "invalid MAC"
+    const-string p2, "invalid MAC"
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

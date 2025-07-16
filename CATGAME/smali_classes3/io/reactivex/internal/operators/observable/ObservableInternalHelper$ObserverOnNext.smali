@@ -51,14 +51,11 @@
     .end annotation
 
     .line 92
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ObserverOnNext;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ObserverOnNext<TT;>;"
-    .local p1, "observer":Lio/reactivex/Observer;, "Lio/reactivex/Observer<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 93
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ObserverOnNext;->observer:Lio/reactivex/Observer;
 
-    .line 94
     return-void
 .end method
 
@@ -79,12 +76,9 @@
     .end annotation
 
     .line 98
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ObserverOnNext;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ObserverOnNext<TT;>;"
-    .local p1, "v":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ObserverOnNext;->observer:Lio/reactivex/Observer;
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
-    .line 99
     return-void
 .end method

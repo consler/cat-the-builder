@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/huawei/hms/adapter/BinderAdapter;->a()V
+    value = Lcom/huawei/hms/adapter/BinderAdapter;->i()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -25,7 +25,7 @@
 .method constructor <init>(Lcom/huawei/hms/adapter/BinderAdapter;)V
     .locals 0
 
-    .line 83
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/adapter/BinderAdapter$1;->a:Lcom/huawei/hms/adapter/BinderAdapter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,36 +38,38 @@
 .method public handleMessage(Landroid/os/Message;)Z
     .locals 1
 
-    .line 87
     if-eqz p1, :cond_1
 
+    .line 1
     iget p1, p1, Landroid/os/Message;->what:I
 
-    const/16 v0, 0x3e9
+    iget-object v0, p0, Lcom/huawei/hms/adapter/BinderAdapter$1;->a:Lcom/huawei/hms/adapter/BinderAdapter;
+
+    invoke-virtual {v0}, Lcom/huawei/hms/adapter/BinderAdapter;->a()I
+
+    move-result v0
 
     if-eq p1, v0, :cond_0
 
     goto :goto_0
 
-    .line 91
     :cond_0
     const-string p1, "BinderAdapter"
 
     const-string v0, "In connect, bind core service time out"
 
+    .line 5
     invoke-static {p1, v0}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 92
+    .line 6
     iget-object p1, p0, Lcom/huawei/hms/adapter/BinderAdapter$1;->a:Lcom/huawei/hms/adapter/BinderAdapter;
 
     invoke-static {p1}, Lcom/huawei/hms/adapter/BinderAdapter;->a(Lcom/huawei/hms/adapter/BinderAdapter;)V
 
-    .line 93
     const/4 p1, 0x1
 
     return p1
 
-    .line 88
     :cond_1
     :goto_0
     const/4 p1, 0x0

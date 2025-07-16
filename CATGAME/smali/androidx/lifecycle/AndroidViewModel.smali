@@ -10,7 +10,6 @@
 # direct methods
 .method public constructor <init>(Landroid/app/Application;)V
     .locals 0
-    .param p1, "application"    # Landroid/app/Application;
 
     .line 34
     invoke-direct {p0}, Landroidx/lifecycle/ViewModel;-><init>()V
@@ -18,7 +17,6 @@
     .line 35
     iput-object p1, p0, Landroidx/lifecycle/AndroidViewModel;->mApplication:Landroid/app/Application;
 
-    .line 36
     return-void
 .end method
 

@@ -7,7 +7,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 16
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -29,7 +29,7 @@
         }
     .end annotation
 
-    .line 18
+    .line 1
     invoke-static {p0}, Lcom/huawei/hms/common/data/FreezableUtils;->freezeIterable(Ljava/lang/Iterable;)Ljava/util/ArrayList;
 
     move-result-object p0
@@ -51,7 +51,7 @@
         }
     .end annotation
 
-    .line 22
+    .line 2
     invoke-static {p0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object p0
@@ -79,12 +79,12 @@
         }
     .end annotation
 
-    .line 26
+    .line 1
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 27
+    .line 2
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object p0
@@ -102,17 +102,15 @@
 
     check-cast v1, Lcom/huawei/hms/common/data/Freezable;
 
-    .line 28
+    .line 3
     invoke-interface {v1}, Lcom/huawei/hms/common/data/Freezable;->freeze()Ljava/lang/Object;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 29
     goto :goto_0
 
-    .line 30
     :cond_0
     return-object v0
 .end method

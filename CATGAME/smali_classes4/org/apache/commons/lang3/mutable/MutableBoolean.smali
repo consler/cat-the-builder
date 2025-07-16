@@ -38,13 +38,11 @@
     .line 48
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 49
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Boolean;)V
-    .locals 1
-    .param p1, "value"    # Ljava/lang/Boolean;
+    .locals 0
 
     .line 68
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,17 +50,15 @@
     .line 69
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v0
+    move-result p1
 
-    iput-boolean v0, p0, Lorg/apache/commons/lang3/mutable/MutableBoolean;->value:Z
+    iput-boolean p1, p0, Lorg/apache/commons/lang3/mutable/MutableBoolean;->value:Z
 
-    .line 70
     return-void
 .end method
 
 .method public constructor <init>(Z)V
     .locals 0
-    .param p1, "value"    # Z
 
     .line 57
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -70,7 +66,6 @@
     .line 58
     iput-boolean p1, p0, Lorg/apache/commons/lang3/mutable/MutableBoolean;->value:Z
 
-    .line 59
     return-void
 .end method
 
@@ -99,52 +94,44 @@
 .end method
 
 .method public compareTo(Lorg/apache/commons/lang3/mutable/MutableBoolean;)I
-    .locals 2
-    .param p1, "other"    # Lorg/apache/commons/lang3/mutable/MutableBoolean;
+    .locals 1
 
     .line 200
     iget-boolean v0, p0, Lorg/apache/commons/lang3/mutable/MutableBoolean;->value:Z
 
-    iget-boolean v1, p1, Lorg/apache/commons/lang3/mutable/MutableBoolean;->value:Z
+    iget-boolean p1, p1, Lorg/apache/commons/lang3/mutable/MutableBoolean;->value:Z
 
-    invoke-static {v0, v1}, Lorg/apache/commons/lang3/BooleanUtils;->compare(ZZ)I
+    invoke-static {v0, p1}, Lorg/apache/commons/lang3/BooleanUtils;->compare(ZZ)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 2
 
     .line 174
     instance-of v0, p1, Lorg/apache/commons/lang3/mutable/MutableBoolean;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     .line 175
     iget-boolean v0, p0, Lorg/apache/commons/lang3/mutable/MutableBoolean;->value:Z
 
-    move-object v2, p1
+    check-cast p1, Lorg/apache/commons/lang3/mutable/MutableBoolean;
 
-    check-cast v2, Lorg/apache/commons/lang3/mutable/MutableBoolean;
+    invoke-virtual {p1}, Lorg/apache/commons/lang3/mutable/MutableBoolean;->booleanValue()Z
 
-    invoke-virtual {v2}, Lorg/apache/commons/lang3/mutable/MutableBoolean;->booleanValue()Z
+    move-result p1
 
-    move-result v2
-
-    if-ne v0, v2, :cond_0
+    if-ne v0, p1, :cond_0
 
     const/4 v1, 0x1
 
     :cond_0
-    return v1
-
-    .line 177
-    :cond_1
     return v1
 .end method
 
@@ -218,39 +205,35 @@
 .method public setFalse()V
     .locals 1
 
-    .line 98
     const/4 v0, 0x0
 
+    .line 98
     iput-boolean v0, p0, Lorg/apache/commons/lang3/mutable/MutableBoolean;->value:Z
 
-    .line 99
     return-void
 .end method
 
 .method public setTrue()V
     .locals 1
 
-    .line 107
     const/4 v0, 0x1
 
+    .line 107
     iput-boolean v0, p0, Lorg/apache/commons/lang3/mutable/MutableBoolean;->value:Z
 
-    .line 108
     return-void
 .end method
 
 .method public setValue(Ljava/lang/Boolean;)V
-    .locals 1
-    .param p1, "value"    # Ljava/lang/Boolean;
+    .locals 0
 
     .line 118
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v0
+    move-result p1
 
-    iput-boolean v0, p0, Lorg/apache/commons/lang3/mutable/MutableBoolean;->value:Z
+    iput-boolean p1, p0, Lorg/apache/commons/lang3/mutable/MutableBoolean;->value:Z
 
-    .line 119
     return-void
 .end method
 
@@ -267,12 +250,10 @@
 
 .method public setValue(Z)V
     .locals 0
-    .param p1, "value"    # Z
 
     .line 89
     iput-boolean p1, p0, Lorg/apache/commons/lang3/mutable/MutableBoolean;->value:Z
 
-    .line 90
     return-void
 .end method
 

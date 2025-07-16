@@ -32,7 +32,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/AsyncServer;ZLjava/nio/channels/DatagramChannel;Ljava/net/SocketAddress;Lcom/koushikdutta/async/AsyncDatagramSocket;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/AsyncServer;
 
     .line 517
     iput-object p1, p0, Lcom/koushikdutta/async/AsyncServer$12;->this$0:Lcom/koushikdutta/async/AsyncServer;
@@ -53,7 +52,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 3
 
     .line 521
     :try_start_0
@@ -93,36 +92,31 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 529
     goto :goto_0
 
-    .line 526
     :catch_0
     move-exception v0
 
-    .line 527
-    .local v0, "e":Ljava/io/IOException;
     const-string v1, "NIO"
 
     const-string v2, "Datagram error"
 
+    .line 527
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    const/4 v0, 0x1
+
+    new-array v0, v0, [Ljava/io/Closeable;
+
+    const/4 v1, 0x0
+
     .line 528
-    const/4 v1, 0x1
+    iget-object v2, p0, Lcom/koushikdutta/async/AsyncServer$12;->val$socket:Ljava/nio/channels/DatagramChannel;
 
-    new-array v1, v1, [Ljava/io/Closeable;
+    aput-object v2, v0, v1
 
-    const/4 v2, 0x0
+    invoke-static {v0}, Lcom/koushikdutta/async/util/StreamUtility;->closeQuietly([Ljava/io/Closeable;)V
 
-    iget-object v3, p0, Lcom/koushikdutta/async/AsyncServer$12;->val$socket:Ljava/nio/channels/DatagramChannel;
-
-    aput-object v3, v1, v2
-
-    invoke-static {v1}, Lcom/koushikdutta/async/util/StreamUtility;->closeQuietly([Ljava/io/Closeable;)V
-
-    .line 530
-    .end local v0    # "e":Ljava/io/IOException;
     :goto_0
     return-void
 .end method

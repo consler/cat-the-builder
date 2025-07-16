@@ -29,9 +29,7 @@
 
 # direct methods
 .method public constructor <init>(JJ)V
-    .locals 2
-    .param p1, "start"    # J
-    .param p3, "count"    # J
+    .locals 0
 
     .line 31
     invoke-direct {p0}, Lio/reactivex/Flowable;-><init>()V
@@ -39,12 +37,11 @@
     .line 32
     iput-wide p1, p0, Lio/reactivex/internal/operators/flowable/FlowableRangeLong;->start:J
 
+    add-long/2addr p1, p3
+
     .line 33
-    add-long v0, p1, p3
+    iput-wide p1, p0, Lio/reactivex/internal/operators/flowable/FlowableRangeLong;->end:J
 
-    iput-wide v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRangeLong;->end:J
-
-    .line 34
     return-void
 .end method
 
@@ -63,7 +60,6 @@
     .end annotation
 
     .line 38
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-Ljava/lang/Long;>;"
     instance-of v0, p1, Lio/reactivex/internal/fuseable/ConditionalSubscriber;
 
     if-eqz v0, :cond_0
@@ -103,7 +99,6 @@
 
     invoke-interface {p1, v0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
-    .line 44
     :goto_0
     return-void
 .end method

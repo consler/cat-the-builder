@@ -29,11 +29,6 @@
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;IIII)V
     .locals 0
-    .param p1, "holder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    .param p2, "fromX"    # I
-    .param p3, "fromY"    # I
-    .param p4, "toX"    # I
-    .param p5, "toY"    # I
 
     .line 61
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,6 +48,5 @@
     .line 66
     iput p5, p0, Landroidx/recyclerview/widget/DefaultItemAnimator$MoveInfo;->toY:I
 
-    .line 67
     return-void
 .end method

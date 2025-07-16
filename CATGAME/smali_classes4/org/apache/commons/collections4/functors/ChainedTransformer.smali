@@ -39,8 +39,7 @@
 
 # direct methods
 .method private constructor <init>(Z[Lorg/apache/commons/collections4/Transformer;)V
-    .locals 1
-    .param p1, "clone"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z[",
@@ -50,26 +49,18 @@
     .end annotation
 
     .line 90
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ChainedTransformer;, "Lorg/apache/commons/collections4/functors/ChainedTransformer<TT;>;"
-    .local p2, "transformers":[Lorg/apache/commons/collections4/Transformer;, "[Lorg/apache/commons/collections4/Transformer<-TT;+TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 91
     if-eqz p1, :cond_0
 
+    .line 91
     invoke-static {p2}, Lorg/apache/commons/collections4/functors/FunctorUtils;->copy([Lorg/apache/commons/collections4/Transformer;)[Lorg/apache/commons/collections4/Transformer;
 
-    move-result-object v0
-
-    goto :goto_0
+    move-result-object p2
 
     :cond_0
-    move-object v0, p2
+    iput-object p2, p0, Lorg/apache/commons/collections4/functors/ChainedTransformer;->iTransformers:[Lorg/apache/commons/collections4/Transformer;
 
-    :goto_0
-    iput-object v0, p0, Lorg/apache/commons/collections4/functors/ChainedTransformer;->iTransformers:[Lorg/apache/commons/collections4/Transformer;
-
-    .line 92
     return-void
 .end method
 
@@ -83,19 +74,16 @@
         }
     .end annotation
 
-    .line 101
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ChainedTransformer;, "Lorg/apache/commons/collections4/functors/ChainedTransformer<TT;>;"
-    .local p1, "transformers":[Lorg/apache/commons/collections4/Transformer;, "[Lorg/apache/commons/collections4/Transformer<-TT;+TT;>;"
     const/4 v0, 0x1
 
+    .line 101
     invoke-direct {p0, v0, p1}, Lorg/apache/commons/collections4/functors/ChainedTransformer;-><init>(Z[Lorg/apache/commons/collections4/Transformer;)V
 
-    .line 102
     return-void
 .end method
 
 .method public static chainedTransformer(Ljava/util/Collection;)Lorg/apache/commons/collections4/Transformer;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -110,8 +98,6 @@
         }
     .end annotation
 
-    .line 71
-    .local p0, "transformers":Ljava/util/Collection;, "Ljava/util/Collection<+Lorg/apache/commons/collections4/Transformer<-TT;+TT;>;>;"
     if-eqz p0, :cond_1
 
     .line 74
@@ -124,9 +110,9 @@
     .line 75
     invoke-static {}, Lorg/apache/commons/collections4/functors/NOPTransformer;->nopTransformer()Lorg/apache/commons/collections4/Transformer;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 78
     :cond_0
@@ -138,33 +124,31 @@
 
     invoke-interface {p0, v0}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, [Lorg/apache/commons/collections4/Transformer;
+    check-cast p0, [Lorg/apache/commons/collections4/Transformer;
 
     .line 79
-    .local v0, "cmds":[Lorg/apache/commons/collections4/Transformer;, "[Lorg/apache/commons/collections4/Transformer<TT;TT;>;"
-    invoke-static {v0}, Lorg/apache/commons/collections4/functors/FunctorUtils;->validate([Lorg/apache/commons/collections4/Transformer;)V
+    invoke-static {p0}, Lorg/apache/commons/collections4/functors/FunctorUtils;->validate([Lorg/apache/commons/collections4/Transformer;)V
 
     .line 80
-    new-instance v1, Lorg/apache/commons/collections4/functors/ChainedTransformer;
+    new-instance v0, Lorg/apache/commons/collections4/functors/ChainedTransformer;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-direct {v1, v2, v0}, Lorg/apache/commons/collections4/functors/ChainedTransformer;-><init>(Z[Lorg/apache/commons/collections4/Transformer;)V
+    invoke-direct {v0, v1, p0}, Lorg/apache/commons/collections4/functors/ChainedTransformer;-><init>(Z[Lorg/apache/commons/collections4/Transformer;)V
 
-    return-object v1
+    return-object v0
 
     .line 72
-    .end local v0    # "cmds":[Lorg/apache/commons/collections4/Transformer;, "[Lorg/apache/commons/collections4/Transformer<TT;TT;>;"
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Transformer collection must not be null"
+    const-string v0, "Transformer collection must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static varargs chainedTransformer([Lorg/apache/commons/collections4/Transformer;)Lorg/apache/commons/collections4/Transformer;
@@ -182,7 +166,6 @@
     .end annotation
 
     .line 51
-    .local p0, "transformers":[Lorg/apache/commons/collections4/Transformer;, "[Lorg/apache/commons/collections4/Transformer<-TT;+TT;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/functors/FunctorUtils;->validate([Lorg/apache/commons/collections4/Transformer;)V
 
     .line 52
@@ -193,9 +176,9 @@
     .line 53
     invoke-static {}, Lorg/apache/commons/collections4/functors/NOPTransformer;->nopTransformer()Lorg/apache/commons/collections4/Transformer;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 55
     :cond_0
@@ -219,7 +202,6 @@
     .end annotation
 
     .line 125
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ChainedTransformer;, "Lorg/apache/commons/collections4/functors/ChainedTransformer<TT;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/ChainedTransformer;->iTransformers:[Lorg/apache/commons/collections4/Transformer;
 
     invoke-static {v0}, Lorg/apache/commons/collections4/functors/FunctorUtils;->copy([Lorg/apache/commons/collections4/Transformer;)[Lorg/apache/commons/collections4/Transformer;
@@ -238,8 +220,6 @@
     .end annotation
 
     .line 112
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ChainedTransformer;, "Lorg/apache/commons/collections4/functors/ChainedTransformer<TT;>;"
-    .local p1, "object":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/ChainedTransformer;->iTransformers:[Lorg/apache/commons/collections4/Transformer;
 
     array-length v1, v0
@@ -252,18 +232,14 @@
     aget-object v3, v0, v2
 
     .line 113
-    .local v3, "iTransformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TT;+TT;>;"
     invoke-interface {v3, p1}, Lorg/apache/commons/collections4/Transformer;->transform(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
-    .line 112
-    .end local v3    # "iTransformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TT;+TT;>;"
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 115
     :cond_0
     return-object p1
 .end method

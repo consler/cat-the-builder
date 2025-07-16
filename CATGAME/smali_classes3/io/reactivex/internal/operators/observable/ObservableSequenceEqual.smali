@@ -57,7 +57,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/ObservableSource;Lio/reactivex/ObservableSource;Lio/reactivex/functions/BiPredicate;I)V
     .locals 0
-    .param p4, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,10 +70,6 @@
     .end annotation
 
     .line 32
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSequenceEqual;, "Lio/reactivex/internal/operators/observable/ObservableSequenceEqual<TT;>;"
-    .local p1, "first":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<+TT;>;"
-    .local p2, "second":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<+TT;>;"
-    .local p3, "comparer":Lio/reactivex/functions/BiPredicate;, "Lio/reactivex/functions/BiPredicate<-TT;-TT;>;"
     invoke-direct {p0}, Lio/reactivex/Observable;-><init>()V
 
     .line 33
@@ -89,7 +84,6 @@
     .line 36
     iput p4, p0, Lio/reactivex/internal/operators/observable/ObservableSequenceEqual;->bufferSize:I
 
-    .line 37
     return-void
 .end method
 
@@ -108,8 +102,6 @@
     .end annotation
 
     .line 41
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSequenceEqual;, "Lio/reactivex/internal/operators/observable/ObservableSequenceEqual<TT;>;"
-    .local p1, "s":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-Ljava/lang/Boolean;>;"
     new-instance v6, Lio/reactivex/internal/operators/observable/ObservableSequenceEqual$EqualCoordinator;
 
     iget v2, p0, Lio/reactivex/internal/operators/observable/ObservableSequenceEqual;->bufferSize:I
@@ -127,12 +119,10 @@
     invoke-direct/range {v0 .. v5}, Lio/reactivex/internal/operators/observable/ObservableSequenceEqual$EqualCoordinator;-><init>(Lio/reactivex/Observer;ILio/reactivex/ObservableSource;Lio/reactivex/ObservableSource;Lio/reactivex/functions/BiPredicate;)V
 
     .line 42
-    .local v0, "ec":Lio/reactivex/internal/operators/observable/ObservableSequenceEqual$EqualCoordinator;, "Lio/reactivex/internal/operators/observable/ObservableSequenceEqual$EqualCoordinator<TT;>;"
-    invoke-interface {p1, v0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, v6}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 43
-    invoke-virtual {v0}, Lio/reactivex/internal/operators/observable/ObservableSequenceEqual$EqualCoordinator;->subscribe()V
+    invoke-virtual {v6}, Lio/reactivex/internal/operators/observable/ObservableSequenceEqual$EqualCoordinator;->subscribe()V
 
-    .line 44
     return-void
 .end method

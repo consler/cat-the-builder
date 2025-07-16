@@ -4,7 +4,8 @@
 
 
 # virtual methods
-.method public abstract onPostMigrate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
+.method public onPostMigrate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -13,4 +14,6 @@
             "db"
         }
     .end annotation
+
+    return-void
 .end method

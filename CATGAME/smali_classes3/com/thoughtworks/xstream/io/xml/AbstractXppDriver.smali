@@ -6,12 +6,10 @@
 # direct methods
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
     .locals 0
-    .param p1, "nameCoder"    # Lcom/thoughtworks/xstream/io/naming/NameCoder;
 
     .line 46
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/io/xml/AbstractXmlDriver;-><init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 47
     return-void
 .end method
 
@@ -26,8 +24,7 @@
 .end method
 
 .method public createReader(Ljava/io/InputStream;)Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .locals 2
-    .param p1, "in"    # Ljava/io/InputStream;
+    .locals 1
 
     .line 65
     :try_start_0
@@ -37,42 +34,36 @@
 
     invoke-virtual {p0, v0}, Lcom/thoughtworks/xstream/io/xml/AbstractXppDriver;->createReader(Ljava/io/Reader;)Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
 
-    move-result-object v0
+    move-result-object p1
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p1
 
-    .line 68
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 69
-    .local v0, "e":Ljava/io/IOException;
-    new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
+    new-instance v0, Lcom/thoughtworks/xstream/io/StreamException;
 
-    invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 
-    .line 66
-    .end local v0    # "e":Ljava/io/IOException;
     :catch_1
-    move-exception v0
+    move-exception p1
 
     .line 67
-    .local v0, "e":Ljava/io/UnsupportedEncodingException;
-    new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
+    new-instance v0, Lcom/thoughtworks/xstream/io/StreamException;
 
-    invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public createReader(Ljava/io/Reader;)Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
     .locals 3
-    .param p1, "in"    # Ljava/io/Reader;
 
     .line 54
     :try_start_0
@@ -92,24 +83,21 @@
 
     return-object v0
 
-    .line 55
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 56
-    .local v0, "e":Lorg/xmlpull/v1/XmlPullParserException;
-    new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
+    new-instance v0, Lcom/thoughtworks/xstream/io/StreamException;
 
-    const-string v2, "Cannot create XmlPullParser"
+    const-string v1, "Cannot create XmlPullParser"
 
-    invoke-direct {v1, v2, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v0, v1, p1}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public createWriter(Ljava/io/OutputStream;)Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
     .locals 1
-    .param p1, "out"    # Ljava/io/OutputStream;
 
     .line 84
     new-instance v0, Ljava/io/OutputStreamWriter;
@@ -118,14 +106,13 @@
 
     invoke-virtual {p0, v0}, Lcom/thoughtworks/xstream/io/xml/AbstractXppDriver;->createWriter(Ljava/io/Writer;)Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public createWriter(Ljava/io/Writer;)Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
     .locals 2
-    .param p1, "out"    # Ljava/io/Writer;
 
     .line 77
     new-instance v0, Lcom/thoughtworks/xstream/io/xml/PrettyPrintWriter;

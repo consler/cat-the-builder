@@ -45,6 +45,5 @@
 
     invoke-interface {v0}, Lio/reactivex/CompletableObserver;->onComplete()V
 
-    .line 78
     return-void
 .end method

@@ -20,7 +20,6 @@
     .locals 0
 
     .line 23
-    .local p0, "this":Lio/reactivex/internal/subscribers/BlockingFirstSubscriber;, "Lio/reactivex/internal/subscribers/BlockingFirstSubscriber<TT;>;"
     invoke-direct {p0}, Lio/reactivex/internal/subscribers/BlockingBaseSubscriber;-><init>()V
 
     return-void
@@ -30,10 +29,8 @@
 # virtual methods
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 36
-    .local p0, "this":Lio/reactivex/internal/subscribers/BlockingFirstSubscriber;, "Lio/reactivex/internal/subscribers/BlockingFirstSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/BlockingFirstSubscriber;->value:Ljava/lang/Object;
 
     if-nez v0, :cond_0
@@ -51,7 +48,6 @@
     :goto_0
     invoke-virtual {p0}, Lio/reactivex/internal/subscribers/BlockingFirstSubscriber;->countDown()V
 
-    .line 42
     return-void
 .end method
 
@@ -64,8 +60,6 @@
     .end annotation
 
     .line 27
-    .local p0, "this":Lio/reactivex/internal/subscribers/BlockingFirstSubscriber;, "Lio/reactivex/internal/subscribers/BlockingFirstSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/BlockingFirstSubscriber;->value:Ljava/lang/Object;
 
     if-nez v0, :cond_0
@@ -74,14 +68,13 @@
     iput-object p1, p0, Lio/reactivex/internal/subscribers/BlockingFirstSubscriber;->value:Ljava/lang/Object;
 
     .line 29
-    iget-object v0, p0, Lio/reactivex/internal/subscribers/BlockingFirstSubscriber;->s:Lorg/reactivestreams/Subscription;
+    iget-object p1, p0, Lio/reactivex/internal/subscribers/BlockingFirstSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
+    invoke-interface {p1}, Lorg/reactivestreams/Subscription;->cancel()V
 
     .line 30
     invoke-virtual {p0}, Lio/reactivex/internal/subscribers/BlockingFirstSubscriber;->countDown()V
 
-    .line 32
     :cond_0
     return-void
 .end method

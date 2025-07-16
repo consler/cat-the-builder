@@ -28,9 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware;Ljava/lang/String;)V
-    .locals 2
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware;
-    .param p2, "key"    # Ljava/lang/String;
+    .locals 0
 
     .line 807
     iput-object p1, p0, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$EntryEditor;->this$0:Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware;
@@ -43,22 +41,21 @@
     .line 809
     invoke-static {p1}, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware;->access$400(Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware;)Lcom/koushikdutta/async/util/FileCache;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, 0x2
+    const/4 p2, 0x2
 
-    invoke-virtual {v0, v1}, Lcom/koushikdutta/async/util/FileCache;->getTempFiles(I)[Ljava/io/File;
+    invoke-virtual {p1, p2}, Lcom/koushikdutta/async/util/FileCache;->getTempFiles(I)[Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$EntryEditor;->temps:[Ljava/io/File;
+    iput-object p1, p0, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$EntryEditor;->temps:[Ljava/io/File;
+
+    new-array p1, p2, [Ljava/io/FileOutputStream;
 
     .line 810
-    new-array v0, v1, [Ljava/io/FileOutputStream;
+    iput-object p1, p0, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$EntryEditor;->outs:[Ljava/io/FileOutputStream;
 
-    iput-object v0, p0, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$EntryEditor;->outs:[Ljava/io/FileOutputStream;
-
-    .line 811
     return-void
 .end method
 
@@ -82,7 +79,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 832
     return-void
 
     .line 833
@@ -91,12 +87,11 @@
 
     invoke-static {v0}, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware;->access$608(Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware;)I
 
-    .line 834
     const/4 v0, 0x1
 
+    .line 834
     iput-boolean v0, p0, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$EntryEditor;->done:Z
 
-    .line 835
     return-void
 .end method
 
@@ -113,7 +108,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 816
     return-void
 
     .line 817
@@ -135,18 +129,16 @@
 
     invoke-static {v0}, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware;->access$508(Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware;)I
 
-    .line 819
     const/4 v0, 0x1
 
+    .line 819
     iput-boolean v0, p0, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$EntryEditor;->done:Z
 
-    .line 820
     return-void
 .end method
 
 .method newOutputStream(I)Ljava/io/FileOutputStream;
     .locals 3
-    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -175,7 +167,7 @@
     :cond_0
     iget-object v0, p0, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$EntryEditor;->outs:[Ljava/io/FileOutputStream;
 
-    aget-object v0, v0, p1
+    aget-object p1, v0, p1
 
-    return-object v0
+    return-object p1
 .end method

@@ -36,10 +36,8 @@
 
 # virtual methods
 .method public onCompleted(Ljava/lang/Exception;)V
-    .locals 4
-    .param p1, "ex"    # Ljava/lang/Exception;
+    .locals 3
 
-    .line 106
     const/4 v0, 0x0
 
     if-eqz p1, :cond_0
@@ -53,17 +51,16 @@
 
     .line 109
     :cond_0
-    iget-object v1, p0, Lcom/koushikdutta/async/AsyncSSLSocketWrapper$2;->val$callback:Lcom/koushikdutta/async/AsyncSSLSocketWrapper$HandshakeCallback;
+    iget-object p1, p0, Lcom/koushikdutta/async/AsyncSSLSocketWrapper$2;->val$callback:Lcom/koushikdutta/async/AsyncSSLSocketWrapper$HandshakeCallback;
 
-    new-instance v2, Ljavax/net/ssl/SSLException;
+    new-instance v1, Ljavax/net/ssl/SSLException;
 
-    const-string v3, "socket closed during handshake"
+    const-string v2, "socket closed during handshake"
 
-    invoke-direct {v2, v3}, Ljavax/net/ssl/SSLException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljavax/net/ssl/SSLException;-><init>(Ljava/lang/String;)V
 
-    invoke-interface {v1, v2, v0}, Lcom/koushikdutta/async/AsyncSSLSocketWrapper$HandshakeCallback;->onHandshakeCompleted(Ljava/lang/Exception;Lcom/koushikdutta/async/AsyncSSLSocket;)V
+    invoke-interface {p1, v1, v0}, Lcom/koushikdutta/async/AsyncSSLSocketWrapper$HandshakeCallback;->onHandshakeCompleted(Ljava/lang/Exception;Lcom/koushikdutta/async/AsyncSSLSocket;)V
 
-    .line 110
     :goto_0
     return-void
 .end method

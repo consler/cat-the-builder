@@ -43,8 +43,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/Flowable;Lio/reactivex/functions/Function;ZI)V
     .locals 0
-    .param p3, "delayError"    # Z
-    .param p4, "maxConcurrency"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -58,9 +56,6 @@
     .end annotation
 
     .line 46
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableFlatMapMaybe;, "Lio/reactivex/internal/operators/flowable/FlowableFlatMapMaybe<TT;TR;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p2, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lio/reactivex/MaybeSource<+TR;>;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
     .line 47
@@ -72,7 +67,6 @@
     .line 49
     iput p4, p0, Lio/reactivex/internal/operators/flowable/FlowableFlatMapMaybe;->maxConcurrency:I
 
-    .line 50
     return-void
 .end method
 
@@ -89,8 +83,6 @@
     .end annotation
 
     .line 54
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableFlatMapMaybe;, "Lio/reactivex/internal/operators/flowable/FlowableFlatMapMaybe<TT;TR;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableFlatMapMaybe;->source:Lio/reactivex/Flowable;
 
     new-instance v1, Lio/reactivex/internal/operators/flowable/FlowableFlatMapMaybe$FlatMapMaybeSubscriber;
@@ -105,6 +97,5 @@
 
     invoke-virtual {v0, v1}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 55
     return-void
 .end method

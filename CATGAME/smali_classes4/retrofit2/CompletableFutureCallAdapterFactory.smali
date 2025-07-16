@@ -43,10 +43,7 @@
 
 # virtual methods
 .method public get(Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lretrofit2/Retrofit;)Lretrofit2/CallAdapter;
-    .locals 4
-    .param p1, "returnType"    # Ljava/lang/reflect/Type;
-    .param p2, "annotations"    # [Ljava/lang/annotation/Annotation;
-    .param p3, "retrofit"    # Lretrofit2/Retrofit;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -66,93 +63,84 @@
     .line 32
     invoke-static {p1}, Lretrofit2/CompletableFutureCallAdapterFactory;->getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p2
 
-    const-class v1, Ljava/util/concurrent/CompletableFuture;
+    const-class p3, Ljava/util/concurrent/CompletableFuture;
 
-    if-eq v0, v1, :cond_0
+    if-eq p2, p3, :cond_0
 
-    .line 33
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 
     .line 35
     :cond_0
-    instance-of v0, p1, Ljava/lang/reflect/ParameterizedType;
+    instance-of p2, p1, Ljava/lang/reflect/ParameterizedType;
 
-    if-eqz v0, :cond_3
+    if-eqz p2, :cond_3
 
     .line 40
-    move-object v0, p1
+    check-cast p1, Ljava/lang/reflect/ParameterizedType;
 
-    check-cast v0, Ljava/lang/reflect/ParameterizedType;
+    const/4 p2, 0x0
 
-    const/4 v1, 0x0
+    invoke-static {p2, p1}, Lretrofit2/CompletableFutureCallAdapterFactory;->getParameterUpperBound(ILjava/lang/reflect/ParameterizedType;)Ljava/lang/reflect/Type;
 
-    invoke-static {v1, v0}, Lretrofit2/CompletableFutureCallAdapterFactory;->getParameterUpperBound(ILjava/lang/reflect/ParameterizedType;)Ljava/lang/reflect/Type;
-
-    move-result-object v0
+    move-result-object p1
 
     .line 42
-    .local v0, "innerType":Ljava/lang/reflect/Type;
-    invoke-static {v0}, Lretrofit2/CompletableFutureCallAdapterFactory;->getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;
+    invoke-static {p1}, Lretrofit2/CompletableFutureCallAdapterFactory;->getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object p3
 
-    const-class v3, Lretrofit2/Response;
+    const-class v0, Lretrofit2/Response;
 
-    if-eq v2, v3, :cond_1
+    if-eq p3, v0, :cond_1
 
     .line 44
-    new-instance v1, Lretrofit2/CompletableFutureCallAdapterFactory$BodyCallAdapter;
+    new-instance p2, Lretrofit2/CompletableFutureCallAdapterFactory$BodyCallAdapter;
 
-    invoke-direct {v1, v0}, Lretrofit2/CompletableFutureCallAdapterFactory$BodyCallAdapter;-><init>(Ljava/lang/reflect/Type;)V
+    invoke-direct {p2, p1}, Lretrofit2/CompletableFutureCallAdapterFactory$BodyCallAdapter;-><init>(Ljava/lang/reflect/Type;)V
 
-    return-object v1
+    return-object p2
 
     .line 48
     :cond_1
-    instance-of v2, v0, Ljava/lang/reflect/ParameterizedType;
+    instance-of p3, p1, Ljava/lang/reflect/ParameterizedType;
 
-    if-eqz v2, :cond_2
+    if-eqz p3, :cond_2
 
     .line 52
-    move-object v2, v0
+    check-cast p1, Ljava/lang/reflect/ParameterizedType;
 
-    check-cast v2, Ljava/lang/reflect/ParameterizedType;
+    invoke-static {p2, p1}, Lretrofit2/CompletableFutureCallAdapterFactory;->getParameterUpperBound(ILjava/lang/reflect/ParameterizedType;)Ljava/lang/reflect/Type;
 
-    invoke-static {v1, v2}, Lretrofit2/CompletableFutureCallAdapterFactory;->getParameterUpperBound(ILjava/lang/reflect/ParameterizedType;)Ljava/lang/reflect/Type;
-
-    move-result-object v1
+    move-result-object p1
 
     .line 53
-    .local v1, "responseType":Ljava/lang/reflect/Type;
-    new-instance v2, Lretrofit2/CompletableFutureCallAdapterFactory$ResponseCallAdapter;
+    new-instance p2, Lretrofit2/CompletableFutureCallAdapterFactory$ResponseCallAdapter;
 
-    invoke-direct {v2, v1}, Lretrofit2/CompletableFutureCallAdapterFactory$ResponseCallAdapter;-><init>(Ljava/lang/reflect/Type;)V
+    invoke-direct {p2, p1}, Lretrofit2/CompletableFutureCallAdapterFactory$ResponseCallAdapter;-><init>(Ljava/lang/reflect/Type;)V
 
-    return-object v2
+    return-object p2
 
     .line 49
-    .end local v1    # "responseType":Ljava/lang/reflect/Type;
     :cond_2
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v2, "Response must be parameterized as Response<Foo> or Response<? extends Foo>"
+    const-string p2, "Response must be parameterized as Response<Foo> or Response<? extends Foo>"
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 
     .line 36
-    .end local v0    # "innerType":Ljava/lang/reflect/Type;
     :cond_3
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "CompletableFuture return type must be parameterized as CompletableFuture<Foo> or CompletableFuture<? extends Foo>"
+    const-string p2, "CompletableFuture return type must be parameterized as CompletableFuture<Foo> or CompletableFuture<? extends Foo>"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

@@ -37,10 +37,8 @@
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/engine/DecodeJob;Lcom/bumptech/glide/load/DataSource;)V
     .locals 0
-    .param p2, "dataSource"    # Lcom/bumptech/glide/load/DataSource;
 
     .line 620
-    .local p0, "this":Lcom/bumptech/glide/load/engine/DecodeJob$DecodeCallback;, "Lcom/bumptech/glide/load/engine/DecodeJob<TR;>.DecodeCallback<TZ;>;"
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/DecodeJob$DecodeCallback;->this$0:Lcom/bumptech/glide/load/engine/DecodeJob;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +46,6 @@
     .line 621
     iput-object p2, p0, Lcom/bumptech/glide/load/engine/DecodeJob$DecodeCallback;->dataSource:Lcom/bumptech/glide/load/DataSource;
 
-    .line 622
     return-void
 .end method
 
@@ -67,15 +64,13 @@
     .end annotation
 
     .line 627
-    .local p0, "this":Lcom/bumptech/glide/load/engine/DecodeJob$DecodeCallback;, "Lcom/bumptech/glide/load/engine/DecodeJob<TR;>.DecodeCallback<TZ;>;"
-    .local p1, "decoded":Lcom/bumptech/glide/load/engine/Resource;, "Lcom/bumptech/glide/load/engine/Resource<TZ;>;"
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/DecodeJob$DecodeCallback;->this$0:Lcom/bumptech/glide/load/engine/DecodeJob;
 
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/DecodeJob$DecodeCallback;->dataSource:Lcom/bumptech/glide/load/DataSource;
 
     invoke-virtual {v0, v1, p1}, Lcom/bumptech/glide/load/engine/DecodeJob;->onResourceDecoded(Lcom/bumptech/glide/load/DataSource;Lcom/bumptech/glide/load/engine/Resource;)Lcom/bumptech/glide/load/engine/Resource;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

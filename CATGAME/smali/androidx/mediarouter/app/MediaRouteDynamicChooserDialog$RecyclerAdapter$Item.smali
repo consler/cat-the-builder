@@ -24,8 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RecyclerAdapter;Ljava/lang/Object;)V
-    .locals 1
-    .param p2, "data"    # Ljava/lang/Object;
+    .locals 0
 
     .line 416
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RecyclerAdapter$Item;->this$1:Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RecyclerAdapter;
@@ -40,9 +39,9 @@
 
     if-eqz p1, :cond_0
 
-    .line 420
     const/4 p1, 0x1
 
+    .line 420
     iput p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RecyclerAdapter$Item;->mType:I
 
     goto :goto_0
@@ -53,27 +52,26 @@
 
     if-eqz p1, :cond_1
 
-    .line 422
     const/4 p1, 0x2
 
+    .line 422
     iput p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RecyclerAdapter$Item;->mType:I
 
     goto :goto_0
 
-    .line 424
     :cond_1
     const/4 p1, 0x0
 
+    .line 424
     iput p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RecyclerAdapter$Item;->mType:I
 
-    .line 425
     const-string p1, "RecyclerAdapter"
 
-    const-string v0, "Wrong type of data passed to Item constructor"
+    const-string p2, "Wrong type of data passed to Item constructor"
 
-    invoke-static {p1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    .line 425
+    invoke-static {p1, p2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 427
     :goto_0
     return-void
 .end method

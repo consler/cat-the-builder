@@ -27,7 +27,6 @@
 
     invoke-direct {p0}, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;-><init>()V
 
-    .line 5532
     return-void
 .end method
 
@@ -73,16 +72,12 @@
 
     invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView;->requestLayout()V
 
-    .line 5543
     :cond_0
     return-void
 .end method
 
 .method public onItemRangeChanged(IILjava/lang/Object;)V
     .locals 2
-    .param p1, "positionStart"    # I
-    .param p2, "itemCount"    # I
-    .param p3, "payload"    # Ljava/lang/Object;
 
     .line 5547
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$RecyclerViewDataObserver;->this$0:Landroidx/recyclerview/widget/RecyclerView;
@@ -98,22 +93,19 @@
 
     invoke-virtual {v0, p1, p2, p3}, Landroidx/recyclerview/widget/AdapterHelper;->onItemRangeChanged(IILjava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 5549
     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$RecyclerViewDataObserver;->triggerUpdateProcessor()V
 
-    .line 5551
     :cond_0
     return-void
 .end method
 
 .method public onItemRangeInserted(II)V
     .locals 2
-    .param p1, "positionStart"    # I
-    .param p2, "itemCount"    # I
 
     .line 5555
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$RecyclerViewDataObserver;->this$0:Landroidx/recyclerview/widget/RecyclerView;
@@ -129,23 +121,19 @@
 
     invoke-virtual {v0, p1, p2}, Landroidx/recyclerview/widget/AdapterHelper;->onItemRangeInserted(II)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 5557
     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$RecyclerViewDataObserver;->triggerUpdateProcessor()V
 
-    .line 5559
     :cond_0
     return-void
 .end method
 
 .method public onItemRangeMoved(III)V
     .locals 2
-    .param p1, "fromPosition"    # I
-    .param p2, "toPosition"    # I
-    .param p3, "itemCount"    # I
 
     .line 5571
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$RecyclerViewDataObserver;->this$0:Landroidx/recyclerview/widget/RecyclerView;
@@ -161,22 +149,19 @@
 
     invoke-virtual {v0, p1, p2, p3}, Landroidx/recyclerview/widget/AdapterHelper;->onItemRangeMoved(III)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 5573
     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$RecyclerViewDataObserver;->triggerUpdateProcessor()V
 
-    .line 5575
     :cond_0
     return-void
 .end method
 
 .method public onItemRangeRemoved(II)V
     .locals 2
-    .param p1, "positionStart"    # I
-    .param p2, "itemCount"    # I
 
     .line 5563
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$RecyclerViewDataObserver;->this$0:Landroidx/recyclerview/widget/RecyclerView;
@@ -192,14 +177,13 @@
 
     invoke-virtual {v0, p1, p2}, Landroidx/recyclerview/widget/AdapterHelper;->onItemRangeRemoved(II)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 5565
     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$RecyclerViewDataObserver;->triggerUpdateProcessor()V
 
-    .line 5567
     :cond_0
     return-void
 .end method
@@ -246,7 +230,6 @@
 
     invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView;->requestLayout()V
 
-    .line 5584
     :goto_0
     return-void
 .end method

@@ -30,21 +30,26 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 1
-    .param p1, "maxPoolSize"    # I
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "maxPoolSize"
+        }
+    .end annotation
 
     .line 153
-    .local p0, "this":Landroidx/core/util/Pools$SynchronizedPool;, "Landroidx/core/util/Pools$SynchronizedPool<TT;>;"
     invoke-direct {p0, p1}, Landroidx/core/util/Pools$SimplePool;-><init>(I)V
 
     .line 143
-    new-instance v0, Ljava/lang/Object;
+    new-instance p1, Ljava/lang/Object;
 
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p1}, Ljava/lang/Object;-><init>()V
 
-    iput-object v0, p0, Landroidx/core/util/Pools$SynchronizedPool;->mLock:Ljava/lang/Object;
+    iput-object p1, p0, Landroidx/core/util/Pools$SynchronizedPool;->mLock:Ljava/lang/Object;
 
-    .line 154
     return-void
 .end method
 
@@ -59,7 +64,6 @@
     .end annotation
 
     .line 158
-    .local p0, "this":Landroidx/core/util/Pools$SynchronizedPool;, "Landroidx/core/util/Pools$SynchronizedPool<TT;>;"
     iget-object v0, p0, Landroidx/core/util/Pools$SynchronizedPool;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -74,10 +78,10 @@
 
     return-object v1
 
-    .line 160
     :catchall_0
     move-exception v1
 
+    .line 160
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -86,7 +90,16 @@
 .end method
 
 .method public release(Ljava/lang/Object;)Z
-    .locals 2
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "element"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -94,8 +107,6 @@
     .end annotation
 
     .line 165
-    .local p0, "this":Landroidx/core/util/Pools$SynchronizedPool;, "Landroidx/core/util/Pools$SynchronizedPool<TT;>;"
-    .local p1, "element":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Landroidx/core/util/Pools$SynchronizedPool;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -104,19 +115,19 @@
     :try_start_0
     invoke-super {p0, p1}, Landroidx/core/util/Pools$SimplePool;->release(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
     monitor-exit v0
 
-    return v1
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 167
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method

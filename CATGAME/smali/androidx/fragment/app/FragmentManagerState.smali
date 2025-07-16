@@ -66,25 +66,23 @@
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 31
     const/4 v0, 0x0
 
+    .line 31
     iput-object v0, p0, Landroidx/fragment/app/FragmentManagerState;->mPrimaryNavActiveWho:Ljava/lang/String;
 
-    .line 34
     return-void
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 31
     const/4 v0, 0x0
 
+    .line 31
     iput-object v0, p0, Landroidx/fragment/app/FragmentManagerState;->mPrimaryNavActiveWho:Ljava/lang/String;
 
     .line 37
@@ -124,11 +122,10 @@
     .line 41
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/fragment/app/FragmentManagerState;->mPrimaryNavActiveWho:Ljava/lang/String;
+    iput-object p1, p0, Landroidx/fragment/app/FragmentManagerState;->mPrimaryNavActiveWho:Ljava/lang/String;
 
-    .line 42
     return-void
 .end method
 
@@ -137,7 +134,6 @@
 .method public describeContents()I
     .locals 1
 
-    .line 46
     const/4 v0, 0x0
 
     return v0
@@ -145,8 +141,6 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
     .line 51
     iget-object v0, p0, Landroidx/fragment/app/FragmentManagerState;->mActive:Ljava/util/ArrayList;
@@ -164,15 +158,14 @@
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
 
     .line 54
-    iget v0, p0, Landroidx/fragment/app/FragmentManagerState;->mBackStackIndex:I
+    iget p2, p0, Landroidx/fragment/app/FragmentManagerState;->mBackStackIndex:I
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 55
-    iget-object v0, p0, Landroidx/fragment/app/FragmentManagerState;->mPrimaryNavActiveWho:Ljava/lang/String;
+    iget-object p2, p0, Landroidx/fragment/app/FragmentManagerState;->mPrimaryNavActiveWho:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 56
     return-void
 .end method

@@ -34,7 +34,6 @@
 .method static constructor <clinit>()V
     .locals 16
 
-    .line 41
     const/16 v0, 0x60
 
     new-array v1, v0, [[Ljava/lang/String;
@@ -43,6 +42,7 @@
 
     const-string v3, "&nbsp;"
 
+    .line 41
     filled-new-array {v2, v3}, [Ljava/lang/String;
 
     move-result-object v2
@@ -1200,7 +1200,6 @@
 
     sput-object v0, Lorg/apache/commons/lang3/text/translate/EntityArrays;->ISO8859_1_UNESCAPE:[[Ljava/lang/String;
 
-    .line 160
     const/16 v0, 0x98
 
     new-array v0, v0, [[Ljava/lang/String;
@@ -1209,6 +1208,7 @@
 
     const-string v2, "&fnof;"
 
+    .line 160
     filled-new-array {v1, v2}, [Ljava/lang/String;
 
     move-result-object v1
@@ -3012,13 +3012,13 @@
 
     sput-object v0, Lorg/apache/commons/lang3/text/translate/EntityArrays;->HTML40_EXTENDED_UNESCAPE:[[Ljava/lang/String;
 
-    .line 377
     new-array v0, v7, [[Ljava/lang/String;
 
     const-string v1, "\""
 
     const-string v2, "&quot;"
 
+    .line 377
     filled-new-array {v1, v2}, [Ljava/lang/String;
 
     move-result-object v1
@@ -3064,13 +3064,13 @@
 
     sput-object v0, Lorg/apache/commons/lang3/text/translate/EntityArrays;->BASIC_UNESCAPE:[[Ljava/lang/String;
 
-    .line 402
     new-array v0, v4, [[Ljava/lang/String;
 
     const-string v1, "\'"
 
     const-string v2, "&apos;"
 
+    .line 402
     filled-new-array {v1, v2}, [Ljava/lang/String;
 
     move-result-object v1
@@ -3086,13 +3086,13 @@
 
     sput-object v0, Lorg/apache/commons/lang3/text/translate/EntityArrays;->APOS_UNESCAPE:[[Ljava/lang/String;
 
-    .line 426
     new-array v0, v8, [[Ljava/lang/String;
 
     const-string v1, "\u0008"
 
     const-string v2, "\\b"
 
+    .line 426
     filled-new-array {v1, v2}, [Ljava/lang/String;
 
     move-result-object v1
@@ -3312,7 +3312,6 @@
 
 .method public static invert([[Ljava/lang/String;)[[Ljava/lang/String;
     .locals 6
-    .param p0, "array"    # [[Ljava/lang/String;
 
     .line 450
     array-length v0, p0
@@ -3337,11 +3336,9 @@
 
     check-cast v0, [[Ljava/lang/String;
 
-    .line 451
-    .local v0, "newarray":[[Ljava/lang/String;
-    const/4 v2, 0x0
+    move v2, v1
 
-    .local v2, "i":I
+    .line 451
     :goto_0
     array-length v4, p0
 
@@ -3365,13 +3362,10 @@
 
     aput-object v5, v4, v3
 
-    .line 451
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 455
-    .end local v2    # "i":I
     :cond_0
     return-object v0
 .end method

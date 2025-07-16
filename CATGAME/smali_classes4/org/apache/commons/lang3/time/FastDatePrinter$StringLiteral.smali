@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .param p1, "value"    # Ljava/lang/String;
 
     .line 841
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,16 +31,13 @@
     .line 842
     iput-object p1, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$StringLiteral;->mValue:Ljava/lang/String;
 
-    .line 843
     return-void
 .end method
 
 
 # virtual methods
 .method public appendTo(Ljava/lang/Appendable;Ljava/util/Calendar;)V
-    .locals 1
-    .param p1, "buffer"    # Ljava/lang/Appendable;
-    .param p2, "calendar"    # Ljava/util/Calendar;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -49,11 +45,10 @@
     .end annotation
 
     .line 858
-    iget-object v0, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$StringLiteral;->mValue:Ljava/lang/String;
+    iget-object p2, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$StringLiteral;->mValue:Ljava/lang/String;
 
-    invoke-interface {p1, v0}, Ljava/lang/Appendable;->append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
+    invoke-interface {p1, p2}, Ljava/lang/Appendable;->append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
 
-    .line 859
     return-void
 .end method
 

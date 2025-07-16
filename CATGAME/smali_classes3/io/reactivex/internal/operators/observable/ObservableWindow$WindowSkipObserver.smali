@@ -78,9 +78,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/Observer;JJI)V
     .locals 1
-    .param p2, "count"    # J
-    .param p4, "skip"    # J
-    .param p6, "capacityHint"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -92,8 +89,6 @@
     .end annotation
 
     .line 158
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;, "Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-Lio/reactivex/Observable<TT;>;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
 
     .line 156
@@ -116,13 +111,12 @@
     iput p6, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->capacityHint:I
 
     .line 163
-    new-instance v0, Ljava/util/ArrayDeque;
+    new-instance p1, Ljava/util/ArrayDeque;
 
-    invoke-direct {v0}, Ljava/util/ArrayDeque;-><init>()V
+    invoke-direct {p1}, Ljava/util/ArrayDeque;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->windows:Ljava/util/ArrayDeque;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->windows:Ljava/util/ArrayDeque;
 
-    .line 164
     return-void
 .end method
 
@@ -131,13 +125,11 @@
 .method public dispose()V
     .locals 1
 
-    .line 230
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;, "Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver<TT;>;"
     const/4 v0, 0x1
 
+    .line 230
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->cancelled:Z
 
-    .line 231
     return-void
 .end method
 
@@ -145,7 +137,6 @@
     .locals 1
 
     .line 235
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;, "Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->cancelled:Z
 
     return v0
@@ -155,11 +146,9 @@
     .locals 2
 
     .line 221
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;, "Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->windows:Ljava/util/ArrayDeque;
 
     .line 222
-    .local v0, "ws":Ljava/util/ArrayDeque;, "Ljava/util/ArrayDeque<Lio/reactivex/subjects/UnicastSubject<TT;>;>;"
     :goto_0
     invoke-virtual {v0}, Ljava/util/ArrayDeque;->isEmpty()Z
 
@@ -180,24 +169,20 @@
 
     .line 225
     :cond_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->actual:Lio/reactivex/Observer;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v1}, Lio/reactivex/Observer;->onComplete()V
+    invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 226
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 212
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;, "Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->windows:Ljava/util/ArrayDeque;
 
     .line 213
-    .local v0, "ws":Ljava/util/ArrayDeque;, "Ljava/util/ArrayDeque<Lio/reactivex/subjects/UnicastSubject<TT;>;>;"
     :goto_0
     invoke-virtual {v0}, Ljava/util/ArrayDeque;->isEmpty()Z
 
@@ -218,11 +203,10 @@
 
     .line 216
     :cond_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->actual:Lio/reactivex/Observer;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v1, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v0, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 217
     return-void
 .end method
 
@@ -235,20 +219,15 @@
     .end annotation
 
     .line 177
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;, "Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->windows:Ljava/util/ArrayDeque;
 
     .line 179
-    .local v0, "ws":Ljava/util/ArrayDeque;, "Ljava/util/ArrayDeque<Lio/reactivex/subjects/UnicastSubject<TT;>;>;"
     iget-wide v1, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->index:J
 
     .line 181
-    .local v1, "i":J
     iget-wide v3, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->skip:J
 
     .line 183
-    .local v3, "s":J
     rem-long v5, v1, v3
 
     const-wide/16 v7, 0x0
@@ -274,7 +253,6 @@
     move-result-object v5
 
     .line 186
-    .local v5, "w":Lio/reactivex/subjects/UnicastSubject;, "Lio/reactivex/subjects/UnicastSubject<TT;>;"
     invoke-virtual {v0, v5}, Ljava/util/ArrayDeque;->offer(Ljava/lang/Object;)Z
 
     .line 187
@@ -283,7 +261,6 @@
     invoke-interface {v6, v5}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
     .line 190
-    .end local v5    # "w":Lio/reactivex/subjects/UnicastSubject;, "Lio/reactivex/subjects/UnicastSubject<TT;>;"
     :cond_0
     iget-wide v5, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->firstEmission:J
 
@@ -292,12 +269,10 @@
     add-long/2addr v5, v7
 
     .line 192
-    .local v5, "c":J
     invoke-virtual {v0}, Ljava/util/ArrayDeque;->iterator()Ljava/util/Iterator;
 
     move-result-object v9
 
-    .local v9, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
@@ -312,55 +287,50 @@
     check-cast v10, Lio/reactivex/subjects/UnicastSubject;
 
     .line 193
-    .local v10, "w":Lio/reactivex/subjects/UnicastSubject;, "Lio/reactivex/subjects/UnicastSubject<TT;>;"
     invoke-virtual {v10, p1}, Lio/reactivex/subjects/UnicastSubject;->onNext(Ljava/lang/Object;)V
 
-    .line 194
-    .end local v10    # "w":Lio/reactivex/subjects/UnicastSubject;, "Lio/reactivex/subjects/UnicastSubject<TT;>;"
     goto :goto_0
 
     .line 196
-    .end local v9    # "i$":Ljava/util/Iterator;
     :cond_1
     iget-wide v9, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->count:J
 
-    cmp-long v9, v5, v9
+    cmp-long p1, v5, v9
 
-    if-ltz v9, :cond_3
+    if-ltz p1, :cond_3
 
     .line 197
     invoke-virtual {v0}, Ljava/util/ArrayDeque;->poll()Ljava/lang/Object;
 
-    move-result-object v9
+    move-result-object p1
 
-    check-cast v9, Lio/reactivex/subjects/UnicastSubject;
+    check-cast p1, Lio/reactivex/subjects/UnicastSubject;
 
-    invoke-virtual {v9}, Lio/reactivex/subjects/UnicastSubject;->onComplete()V
+    invoke-virtual {p1}, Lio/reactivex/subjects/UnicastSubject;->onComplete()V
 
     .line 198
     invoke-virtual {v0}, Ljava/util/ArrayDeque;->isEmpty()Z
 
-    move-result v9
+    move-result p1
 
-    if-eqz v9, :cond_2
+    if-eqz p1, :cond_2
 
-    iget-boolean v9, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->cancelled:Z
+    iget-boolean p1, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->cancelled:Z
 
-    if-eqz v9, :cond_2
+    if-eqz p1, :cond_2
 
     .line 199
-    iget-object v7, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->s:Lio/reactivex/disposables/Disposable;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->s:Lio/reactivex/disposables/Disposable;
 
-    invoke-interface {v7}, Lio/reactivex/disposables/Disposable;->dispose()V
+    invoke-interface {p1}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 200
     return-void
 
-    .line 202
     :cond_2
-    sub-long v9, v5, v3
+    sub-long/2addr v5, v3
 
-    iput-wide v9, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->firstEmission:J
+    .line 202
+    iput-wide v5, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->firstEmission:J
 
     goto :goto_1
 
@@ -368,22 +338,19 @@
     :cond_3
     iput-wide v5, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->firstEmission:J
 
-    .line 207
     :goto_1
-    add-long/2addr v7, v1
+    add-long/2addr v1, v7
 
-    iput-wide v7, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->index:J
+    .line 207
+    iput-wide v1, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->index:J
 
-    .line 208
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 168
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;, "Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -396,11 +363,10 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->s:Lio/reactivex/disposables/Disposable;
 
     .line 171
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v0, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 173
     :cond_0
     return-void
 .end method
@@ -409,7 +375,6 @@
     .locals 1
 
     .line 240
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;, "Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindow$WindowSkipObserver;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
@@ -428,7 +393,6 @@
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 245
     :cond_0
     return-void
 .end method

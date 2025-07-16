@@ -32,7 +32,6 @@
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$1;
 
     .line 52
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader;-><init>()V
@@ -41,9 +40,7 @@
 .end method
 
 .method public static newInstance(Ljava/nio/ByteBuffer;Z)Lcom/google/crypto/tink/shaded/protobuf/BinaryReader;
-    .locals 2
-    .param p0, "buffer"    # Ljava/nio/ByteBuffer;
-    .param p1, "bufferIsImmutable"    # Z
+    .locals 1
 
     .line 68
     invoke-virtual {p0}, Ljava/nio/ByteBuffer;->hasArray()Z
@@ -61,13 +58,13 @@
 
     .line 73
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Direct buffers not yet supported"
+    const-string p1, "Direct buffers not yet supported"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
@@ -78,7 +75,6 @@
 .method public shouldDiscardUnknownFields()Z
     .locals 1
 
-    .line 84
     const/4 v0, 0x0
 
     return v0

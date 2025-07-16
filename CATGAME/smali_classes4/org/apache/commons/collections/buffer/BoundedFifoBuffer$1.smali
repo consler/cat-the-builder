@@ -18,7 +18,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;)V
-    .locals 0
+    .locals 1
 
     .line 327
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,18 +28,16 @@
     .line 329
     invoke-static {p1}, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->access$000(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;)I
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer$1;->index:I
+    iput v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer$1;->index:I
+
+    const/4 v0, -0x1
 
     .line 330
-    const/4 p1, -0x1
-
-    iput p1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer$1;->lastReturnedIndex:I
+    iput v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer$1;->lastReturnedIndex:I
 
     .line 331
-    iget-object p1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer$1;->this$0:Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;
-
     invoke-static {p1}, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->access$100(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;)Z
 
     move-result p1
@@ -94,9 +92,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 342
     const/4 v0, 0x0
 
+    .line 342
     iput-boolean v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer$1;->isFirst:Z
 
     .line 343
@@ -162,7 +160,6 @@
     .line 356
     iput v1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer$1;->lastReturnedIndex:I
 
-    .line 357
     return-void
 
     .line 360
@@ -172,7 +169,6 @@
     add-int/lit8 v0, v0, 0x1
 
     .line 361
-    .local v0, "pos":I
     iget-object v2, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer$1;->this$0:Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;
 
     invoke-static {v2}, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->access$000(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;)I
@@ -247,20 +243,19 @@
 
     move-result-object v2
 
-    add-int/lit8 v3, v0, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    iget-object v5, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer$1;->this$0:Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;
+    iget-object v3, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer$1;->this$0:Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;
 
-    invoke-static {v5}, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->access$400(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;)[Ljava/lang/Object;
+    invoke-static {v3}, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->access$400(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;)[Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v3
 
-    aget-object v5, v5, v4
+    aget-object v3, v3, v4
 
-    aput-object v5, v2, v3
+    aput-object v3, v2, v0
 
-    .line 370
-    const/4 v0, 0x0
+    move v0, v4
 
     goto :goto_0
 
@@ -303,56 +298,54 @@
     iput v1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer$1;->lastReturnedIndex:I
 
     .line 379
+    iget-object v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer$1;->this$0:Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;
+
+    invoke-static {v0}, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->access$200(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;)I
+
+    move-result v1
+
+    invoke-static {v0, v1}, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->access$600(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;I)I
+
+    move-result v1
+
+    invoke-static {v0, v1}, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->access$202(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;I)I
+
+    .line 380
+    iget-object v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer$1;->this$0:Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;
+
+    invoke-static {v0}, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->access$400(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;)[Ljava/lang/Object;
+
+    move-result-object v0
+
     iget-object v1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer$1;->this$0:Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;
 
     invoke-static {v1}, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->access$200(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;)I
 
-    move-result v2
-
-    invoke-static {v1, v2}, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->access$600(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;I)I
-
-    move-result v2
-
-    invoke-static {v1, v2}, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->access$202(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;I)I
-
-    .line 380
-    iget-object v1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer$1;->this$0:Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;
-
-    invoke-static {v1}, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->access$400(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;)[Ljava/lang/Object;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer$1;->this$0:Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;
-
-    invoke-static {v2}, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->access$200(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;)I
-
-    move-result v2
-
-    const/4 v3, 0x0
-
-    aput-object v3, v1, v2
-
-    .line 381
-    iget-object v1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer$1;->this$0:Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;
-
-    invoke-static {v1, v4}, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->access$102(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;Z)Z
-
-    .line 382
-    iget-object v1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer$1;->this$0:Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;
-
-    iget v2, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer$1;->index:I
-
-    invoke-static {v1, v2}, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->access$600(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;I)I
-
     move-result v1
 
-    iput v1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer$1;->index:I
+    const/4 v2, 0x0
 
-    .line 383
+    aput-object v2, v0, v1
+
+    .line 381
+    iget-object v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer$1;->this$0:Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;
+
+    invoke-static {v0, v4}, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->access$102(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;Z)Z
+
+    .line 382
+    iget-object v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer$1;->this$0:Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;
+
+    iget v1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer$1;->index:I
+
+    invoke-static {v0, v1}, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->access$600(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;I)I
+
+    move-result v0
+
+    iput v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer$1;->index:I
+
     return-void
 
     .line 350
-    .end local v0    # "pos":I
     :cond_4
     new-instance v0, Ljava/lang/IllegalStateException;
 

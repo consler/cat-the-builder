@@ -29,7 +29,6 @@
 
     if-nez v0, :cond_0
 
-    .line 32
     const/4 v0, 0x0
 
     return-object v0
@@ -40,11 +39,9 @@
 
     new-array v0, v0, [Ljava/lang/String;
 
-    .line 34
-    .local v0, "names":[Ljava/lang/String;
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    .line 34
     :goto_0
     iget-object v2, p0, Lcom/thoughtworks/xstream/security/ExplicitTypePermission$1;->val$types:[Ljava/lang/Class;
 
@@ -61,13 +58,10 @@
 
     aput-object v2, v0, v1
 
-    .line 34
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 36
-    .end local v1    # "i":I
     :cond_1
     return-object v0
 .end method

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/backends/android/AndroidVisibilityListener$1;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/badlogic/gdx/backends/android/AndroidVisibilityListener$1;
 
     .line 31
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidVisibilityListener$1$1;->this$1:Lcom/badlogic/gdx/backends/android/AndroidVisibilityListener$1;
@@ -48,6 +47,5 @@
 
     invoke-interface {v0, v1}, Lcom/badlogic/gdx/backends/android/AndroidApplicationBase;->useImmersiveMode(Z)V
 
-    .line 35
     return-void
 .end method

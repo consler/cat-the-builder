@@ -22,26 +22,31 @@
 
 .field final synthetic val$future:Landroidx/work/impl/utils/futures/SettableFuture;
 
+.field final synthetic val$runExpedited:Lcom/google/common/util/concurrent/ListenableFuture;
+
 
 # direct methods
-.method constructor <init>(Landroidx/work/impl/WorkerWrapper;Landroidx/work/impl/utils/futures/SettableFuture;)V
+.method constructor <init>(Landroidx/work/impl/WorkerWrapper;Lcom/google/common/util/concurrent/ListenableFuture;Landroidx/work/impl/utils/futures/SettableFuture;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/work/impl/WorkerWrapper;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
+            0x1010,
             0x1010
         }
         names = {
             "this$0",
+            "val$runExpedited",
             "val$future"
         }
     .end annotation
 
-    .line 277
+    .line 287
     iput-object p1, p0, Landroidx/work/impl/WorkerWrapper$1;->this$0:Landroidx/work/impl/WorkerWrapper;
 
-    iput-object p2, p0, Landroidx/work/impl/WorkerWrapper$1;->val$future:Landroidx/work/impl/utils/futures/SettableFuture;
+    iput-object p2, p0, Landroidx/work/impl/WorkerWrapper$1;->val$runExpedited:Lcom/google/common/util/concurrent/ListenableFuture;
+
+    iput-object p3, p0, Landroidx/work/impl/WorkerWrapper$1;->val$future:Landroidx/work/impl/utils/futures/SettableFuture;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -53,8 +58,13 @@
 .method public run()V
     .locals 6
 
-    .line 281
+    .line 291
     :try_start_0
+    iget-object v0, p0, Landroidx/work/impl/WorkerWrapper$1;->val$runExpedited:Lcom/google/common/util/concurrent/ListenableFuture;
+
+    invoke-interface {v0}, Lcom/google/common/util/concurrent/ListenableFuture;->get()Ljava/lang/Object;
+
+    .line 292
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v0
@@ -77,20 +87,20 @@
 
     aput-object v4, v3, v5
 
+    .line 293
     invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
 
     new-array v3, v5, [Ljava/lang/Throwable;
 
+    .line 292
     invoke-virtual {v0, v1, v2, v3}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
-    .line 283
+    .line 295
     iget-object v0, p0, Landroidx/work/impl/WorkerWrapper$1;->this$0:Landroidx/work/impl/WorkerWrapper;
 
-    iget-object v1, p0, Landroidx/work/impl/WorkerWrapper$1;->this$0:Landroidx/work/impl/WorkerWrapper;
-
-    iget-object v1, v1, Landroidx/work/impl/WorkerWrapper;->mWorker:Landroidx/work/ListenableWorker;
+    iget-object v1, v0, Landroidx/work/impl/WorkerWrapper;->mWorker:Landroidx/work/ListenableWorker;
 
     invoke-virtual {v1}, Landroidx/work/ListenableWorker;->startWork()Lcom/google/common/util/concurrent/ListenableFuture;
 
@@ -98,7 +108,7 @@
 
     iput-object v1, v0, Landroidx/work/impl/WorkerWrapper;->mInnerFuture:Lcom/google/common/util/concurrent/ListenableFuture;
 
-    .line 284
+    .line 296
     iget-object v0, p0, Landroidx/work/impl/WorkerWrapper$1;->val$future:Landroidx/work/impl/utils/futures/SettableFuture;
 
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper$1;->this$0:Landroidx/work/impl/WorkerWrapper;
@@ -109,21 +119,16 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 287
     goto :goto_0
 
-    .line 285
     :catchall_0
     move-exception v0
 
-    .line 286
-    .local v0, "e":Ljava/lang/Throwable;
+    .line 298
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper$1;->val$future:Landroidx/work/impl/utils/futures/SettableFuture;
 
     invoke-virtual {v1, v0}, Landroidx/work/impl/utils/futures/SettableFuture;->setException(Ljava/lang/Throwable;)Z
 
-    .line 289
-    .end local v0    # "e":Ljava/lang/Throwable;
     :goto_0
     return-void
 .end method

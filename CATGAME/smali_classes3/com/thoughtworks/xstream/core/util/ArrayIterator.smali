@@ -16,8 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "array"    # Ljava/lang/Object;
+    .locals 0
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,11 +27,10 @@
     .line 27
     invoke-static {p1}, Ljava/lang/reflect/Array;->getLength(Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/thoughtworks/xstream/core/util/ArrayIterator;->length:I
+    iput p1, p0, Lcom/thoughtworks/xstream/core/util/ArrayIterator;->length:I
 
-    .line 28
     return-void
 .end method
 

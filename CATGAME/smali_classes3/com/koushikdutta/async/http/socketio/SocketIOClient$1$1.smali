@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/socketio/SocketIOClient$1;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/socketio/SocketIOClient$1;
 
     .line 91
     iput-object p1, p0, Lcom/koushikdutta/async/http/socketio/SocketIOClient$1$1;->this$0:Lcom/koushikdutta/async/http/socketio/SocketIOClient$1;
@@ -38,8 +37,6 @@
 # virtual methods
 .method public onConnectCompleted(Ljava/lang/Exception;Lcom/koushikdutta/async/http/socketio/SocketIOClient;)V
     .locals 1
-    .param p1, "ex"    # Ljava/lang/Exception;
-    .param p2, "client"    # Lcom/koushikdutta/async/http/socketio/SocketIOClient;
 
     .line 94
     iget-object v0, p0, Lcom/koushikdutta/async/http/socketio/SocketIOClient$1$1;->this$0:Lcom/koushikdutta/async/http/socketio/SocketIOClient$1;
@@ -63,6 +60,5 @@
 
     invoke-virtual {v0, p1, p2}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Exception;Ljava/lang/Object;)Z
 
-    .line 97
     return-void
 .end method

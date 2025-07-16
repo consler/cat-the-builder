@@ -455,21 +455,18 @@
 .end method
 
 .method public apply(FFF)F
-    .locals 2
-    .param p1, "start"    # F
-    .param p2, "end"    # F
-    .param p3, "a"    # F
+    .locals 0
+
+    sub-float/2addr p2, p1
 
     .line 27
-    sub-float v0, p2, p1
-
     invoke-virtual {p0, p3}, Lcom/badlogic/gdx/math/Interpolation;->apply(F)F
 
-    move-result v1
+    move-result p3
 
-    mul-float/2addr v0, v1
+    mul-float/2addr p2, p3
 
-    add-float/2addr v0, p1
+    add-float/2addr p1, p2
 
-    return v0
+    return p1
 .end method

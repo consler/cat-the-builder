@@ -27,19 +27,19 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/MouseJointDef;->target:Lcom/badlogic/gdx/math/Vector2;
 
-    .line 33
     const/4 v0, 0x0
 
+    .line 33
     iput v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/MouseJointDef;->maxForce:F
 
-    .line 36
     const/high16 v0, 0x40a00000    # 5.0f
 
+    .line 36
     iput v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/MouseJointDef;->frequencyHz:F
 
-    .line 39
     const v0, 0x3f333333    # 0.7f
 
+    .line 39
     iput v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/MouseJointDef;->dampingRatio:F
 
     .line 25
@@ -47,6 +47,5 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/MouseJointDef;->type:Lcom/badlogic/gdx/physics/box2d/JointDef$JointType;
 
-    .line 26
     return-void
 .end method

@@ -11,9 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/io/path/PathTracker;)V
-    .locals 1
-    .param p1, "writer"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
-    .param p2, "pathTracker"    # Lcom/thoughtworks/xstream/io/path/PathTracker;
+    .locals 0
 
     .line 32
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/io/WriterWrapper;-><init>(Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;)V
@@ -21,16 +19,15 @@
     .line 33
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->underlyingWriter()Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    instance-of v0, v0, Lcom/thoughtworks/xstream/io/AbstractWriter;
+    instance-of p1, p1, Lcom/thoughtworks/xstream/io/AbstractWriter;
 
-    iput-boolean v0, p0, Lcom/thoughtworks/xstream/io/path/PathTrackingWriter;->isNameEncoding:Z
+    iput-boolean p1, p0, Lcom/thoughtworks/xstream/io/path/PathTrackingWriter;->isNameEncoding:Z
 
     .line 34
     iput-object p2, p0, Lcom/thoughtworks/xstream/io/path/PathTrackingWriter;->pathTracker:Lcom/thoughtworks/xstream/io/path/PathTracker;
 
-    .line 35
     return-void
 .end method
 
@@ -47,13 +44,11 @@
 
     invoke-virtual {v0}, Lcom/thoughtworks/xstream/io/path/PathTracker;->popElement()V
 
-    .line 50
     return-void
 .end method
 
 .method public startNode(Ljava/lang/String;)V
     .locals 2
-    .param p1, "name"    # Ljava/lang/String;
 
     .line 38
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/path/PathTrackingWriter;->pathTracker:Lcom/thoughtworks/xstream/io/path/PathTracker;
@@ -85,14 +80,11 @@
     .line 39
     invoke-super {p0, p1}, Lcom/thoughtworks/xstream/io/WriterWrapper;->startNode(Ljava/lang/String;)V
 
-    .line 40
     return-void
 .end method
 
 .method public startNode(Ljava/lang/String;Ljava/lang/Class;)V
     .locals 2
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "clazz"    # Ljava/lang/Class;
 
     .line 43
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/path/PathTrackingWriter;->pathTracker:Lcom/thoughtworks/xstream/io/path/PathTracker;
@@ -124,6 +116,5 @@
     .line 44
     invoke-super {p0, p1, p2}, Lcom/thoughtworks/xstream/io/WriterWrapper;->startNode(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 45
     return-void
 .end method

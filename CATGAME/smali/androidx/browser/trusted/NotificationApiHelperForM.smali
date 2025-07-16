@@ -14,13 +14,12 @@
 .end method
 
 .method static getActiveNotifications(Landroid/app/NotificationManager;)[Landroid/os/Parcelable;
-    .locals 1
-    .param p0, "manager"    # Landroid/app/NotificationManager;
+    .locals 0
 
     .line 46
     invoke-virtual {p0}, Landroid/app/NotificationManager;->getActiveNotifications()[Landroid/service/notification/StatusBarNotification;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

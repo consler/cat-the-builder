@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/AsyncSSLSocketWrapper;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/AsyncSSLSocketWrapper;
 
     .line 149
     iput-object p1, p0, Lcom/koushikdutta/async/AsyncSSLSocketWrapper$4;->this$0:Lcom/koushikdutta/async/AsyncSSLSocketWrapper;
@@ -38,7 +37,6 @@
 # virtual methods
 .method public onCompleted(Ljava/lang/Exception;)V
     .locals 2
-    .param p1, "ex"    # Ljava/lang/Exception;
 
     .line 152
     iget-object v0, p0, Lcom/koushikdutta/async/AsyncSSLSocketWrapper$4;->this$0:Lcom/koushikdutta/async/AsyncSSLSocketWrapper;
@@ -47,7 +45,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 153
     return-void
 
     .line 154
@@ -87,7 +84,6 @@
 
     invoke-interface {v0, p1}, Lcom/koushikdutta/async/callback/CompletedCallback;->onCompleted(Ljava/lang/Exception;)V
 
-    .line 158
     :cond_1
     return-void
 .end method

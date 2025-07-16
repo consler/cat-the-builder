@@ -33,17 +33,17 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/JointDef;->type:Lcom/badlogic/gdx/physics/box2d/JointDef$JointType;
 
-    .line 41
     const/4 v0, 0x0
 
+    .line 41
     iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/JointDef;->bodyA:Lcom/badlogic/gdx/physics/box2d/Body;
 
     .line 44
     iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/JointDef;->bodyB:Lcom/badlogic/gdx/physics/box2d/Body;
 
-    .line 47
     const/4 v0, 0x0
 
+    .line 47
     iput-boolean v0, p0, Lcom/badlogic/gdx/physics/box2d/JointDef;->collideConnected:Z
 
     return-void

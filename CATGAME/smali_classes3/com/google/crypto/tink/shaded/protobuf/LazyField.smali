@@ -19,9 +19,6 @@
 # direct methods
 .method public constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
     .locals 0
-    .param p1, "defaultInstance"    # Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
-    .param p2, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
-    .param p3, "bytes"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     .line 56
     invoke-direct {p0, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/LazyFieldLite;-><init>(Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
@@ -29,7 +26,6 @@
     .line 58
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/LazyField;->defaultInstance:Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
 
-    .line 59
     return-void
 .end method
 
@@ -68,7 +64,6 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 77
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/LazyField;->getValue()Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
@@ -77,9 +72,9 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public getValue()Lcom/google/crypto/tink/shaded/protobuf/MessageLite;

@@ -17,21 +17,17 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/reflect/Field;)V
     .locals 0
-    .param p1, "field"    # Ljava/lang/reflect/Field;
 
     .line 440
     invoke-direct {p0, p1}, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;-><init>(Ljava/lang/reflect/Field;)V
 
-    .line 441
     return-void
 .end method
 
 
 # virtual methods
 .method public copy(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 4
-    .param p1, "original"    # Ljava/lang/Object;
-    .param p2, "copy"    # Ljava/lang/Object;
+    .locals 3
 
     .line 465
     :try_start_0
@@ -47,50 +43,45 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 470
-    nop
-
-    .line 471
     return-void
 
-    .line 466
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     .line 467
-    .local v0, "t":Ljava/lang/Throwable;
-    new-instance v1, Lcom/esotericsoftware/kryo/KryoException;
+    new-instance p2, Lcom/esotericsoftware/kryo/KryoException;
 
-    invoke-direct {v1, v0}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p2, p1}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/Throwable;)V
 
     .line 468
-    .local v1, "ex":Lcom/esotericsoftware/kryo/KryoException;
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v3, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField$DoubleReflectField;->name:Ljava/lang/String;
+    iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField$DoubleReflectField;->name:Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, " (double)"
+    move-result-object p1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " (double)"
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Lcom/esotericsoftware/kryo/KryoException;->addTrace(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/KryoException;->addTrace(Ljava/lang/String;)V
 
     .line 469
-    throw v1
+    throw p2
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Object;)V
-    .locals 4
-    .param p1, "input"    # Lcom/esotericsoftware/kryo/io/Input;
-    .param p2, "object"    # Ljava/lang/Object;
+    .locals 3
 
     .line 455
     :try_start_0
@@ -104,50 +95,45 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 460
-    nop
-
-    .line 461
     return-void
 
-    .line 456
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     .line 457
-    .local v0, "t":Ljava/lang/Throwable;
-    new-instance v1, Lcom/esotericsoftware/kryo/KryoException;
+    new-instance p2, Lcom/esotericsoftware/kryo/KryoException;
 
-    invoke-direct {v1, v0}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p2, p1}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/Throwable;)V
 
     .line 458
-    .local v1, "ex":Lcom/esotericsoftware/kryo/KryoException;
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v3, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField$DoubleReflectField;->name:Ljava/lang/String;
+    iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField$DoubleReflectField;->name:Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, " (double)"
+    move-result-object p1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " (double)"
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Lcom/esotericsoftware/kryo/KryoException;->addTrace(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/KryoException;->addTrace(Ljava/lang/String;)V
 
     .line 459
-    throw v1
+    throw p2
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 4
-    .param p1, "output"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p2, "object"    # Ljava/lang/Object;
+    .locals 2
 
     .line 445
     :try_start_0
@@ -161,42 +147,39 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 450
-    nop
-
-    .line 451
     return-void
 
-    .line 446
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     .line 447
-    .local v0, "t":Ljava/lang/Throwable;
-    new-instance v1, Lcom/esotericsoftware/kryo/KryoException;
+    new-instance p2, Lcom/esotericsoftware/kryo/KryoException;
 
-    invoke-direct {v1, v0}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p2, p1}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/Throwable;)V
 
     .line 448
-    .local v1, "ex":Lcom/esotericsoftware/kryo/KryoException;
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v3, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField$DoubleReflectField;->name:Ljava/lang/String;
+    iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/ReflectField$DoubleReflectField;->name:Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, " (double)"
+    move-result-object p1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " (double)"
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Lcom/esotericsoftware/kryo/KryoException;->addTrace(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/KryoException;->addTrace(Ljava/lang/String;)V
 
     .line 449
-    throw v1
+    throw p2
 .end method

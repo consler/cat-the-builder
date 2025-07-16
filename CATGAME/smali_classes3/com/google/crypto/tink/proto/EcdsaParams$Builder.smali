@@ -38,13 +38,11 @@
 
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
-    .line 302
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/proto/EcdsaParams$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/proto/EcdsaParams$1;
 
     .line 294
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/EcdsaParams$Builder;-><init>()V
@@ -67,7 +65,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/EcdsaParams;->access$600(Lcom/google/crypto/tink/proto/EcdsaParams;)V
 
-    .line 434
     return-object p0
 .end method
 
@@ -84,7 +81,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/EcdsaParams;->access$900(Lcom/google/crypto/tink/proto/EcdsaParams;)V
 
-    .line 500
     return-object p0
 .end method
 
@@ -101,7 +97,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/EcdsaParams;->access$300(Lcom/google/crypto/tink/proto/EcdsaParams;)V
 
-    .line 368
     return-object p0
 .end method
 
@@ -197,7 +192,6 @@
 
 .method public setCurve(Lcom/google/crypto/tink/proto/EllipticCurveType;)Lcom/google/crypto/tink/proto/EcdsaParams$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/EllipticCurveType;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -217,13 +211,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EcdsaParams;->access$500(Lcom/google/crypto/tink/proto/EcdsaParams;Lcom/google/crypto/tink/proto/EllipticCurveType;)V
 
-    .line 421
     return-object p0
 .end method
 
 .method public setCurveValue(I)Lcom/google/crypto/tink/proto/EcdsaParams$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -243,13 +235,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EcdsaParams;->access$400(Lcom/google/crypto/tink/proto/EcdsaParams;I)V
 
-    .line 395
     return-object p0
 .end method
 
 .method public setEncoding(Lcom/google/crypto/tink/proto/EcdsaSignatureEncoding;)Lcom/google/crypto/tink/proto/EcdsaParams$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/EcdsaSignatureEncoding;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -269,13 +259,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EcdsaParams;->access$800(Lcom/google/crypto/tink/proto/EcdsaParams;Lcom/google/crypto/tink/proto/EcdsaSignatureEncoding;)V
 
-    .line 487
     return-object p0
 .end method
 
 .method public setEncodingValue(I)Lcom/google/crypto/tink/proto/EcdsaParams$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -295,13 +283,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EcdsaParams;->access$700(Lcom/google/crypto/tink/proto/EcdsaParams;I)V
 
-    .line 461
     return-object p0
 .end method
 
 .method public setHashType(Lcom/google/crypto/tink/proto/HashType;)Lcom/google/crypto/tink/proto/EcdsaParams$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/HashType;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -321,13 +307,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EcdsaParams;->access$200(Lcom/google/crypto/tink/proto/EcdsaParams;Lcom/google/crypto/tink/proto/HashType;)V
 
-    .line 355
     return-object p0
 .end method
 
 .method public setHashTypeValue(I)Lcom/google/crypto/tink/proto/EcdsaParams$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -347,6 +331,5 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EcdsaParams;->access$100(Lcom/google/crypto/tink/proto/EcdsaParams;I)V
 
-    .line 329
     return-object p0
 .end method

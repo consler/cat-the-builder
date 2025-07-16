@@ -90,6 +90,5 @@
 
     invoke-virtual {v0}, Lorg/koin/core/Koin;->createEagerInstances$koin_core()V
 
-    .line 131
     return-void
 .end method

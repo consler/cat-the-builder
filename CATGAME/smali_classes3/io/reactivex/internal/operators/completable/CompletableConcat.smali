@@ -29,7 +29,6 @@
 # direct methods
 .method public constructor <init>(Lorg/reactivestreams/Publisher;I)V
     .locals 0
-    .param p2, "prefetch"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -41,7 +40,6 @@
     .end annotation
 
     .line 33
-    .local p1, "sources":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+Lio/reactivex/CompletableSource;>;"
     invoke-direct {p0}, Lio/reactivex/Completable;-><init>()V
 
     .line 34
@@ -50,7 +48,6 @@
     .line 35
     iput p2, p0, Lio/reactivex/internal/operators/completable/CompletableConcat;->prefetch:I
 
-    .line 36
     return-void
 .end method
 
@@ -58,7 +55,6 @@
 # virtual methods
 .method public subscribeActual(Lio/reactivex/CompletableObserver;)V
     .locals 3
-    .param p1, "s"    # Lio/reactivex/CompletableObserver;
 
     .line 40
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcat;->sources:Lorg/reactivestreams/Publisher;
@@ -71,6 +67,5 @@
 
     invoke-interface {v0, v1}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
 
-    .line 41
     return-void
 .end method

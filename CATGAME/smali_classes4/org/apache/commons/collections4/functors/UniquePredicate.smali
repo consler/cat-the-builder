@@ -41,7 +41,6 @@
     .locals 1
 
     .line 55
-    .local p0, "this":Lorg/apache/commons/collections4/functors/UniquePredicate;, "Lorg/apache/commons/collections4/functors/UniquePredicate<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 37
@@ -51,7 +50,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections4/functors/UniquePredicate;->iSet:Ljava/util/Set;
 
-    .line 56
     return-void
 .end method
 
@@ -86,13 +84,11 @@
     .end annotation
 
     .line 67
-    .local p0, "this":Lorg/apache/commons/collections4/functors/UniquePredicate;, "Lorg/apache/commons/collections4/functors/UniquePredicate<TT;>;"
-    .local p1, "object":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/UniquePredicate;->iSet:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

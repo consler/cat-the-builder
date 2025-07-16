@@ -38,7 +38,6 @@
 # direct methods
 .method constructor <init>(Lid/zelory/compressor/Compressor;Ljava/io/File;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Lid/zelory/compressor/Compressor;
 
     .line 73
     iput-object p1, p0, Lid/zelory/compressor/Compressor$1;->this$0:Lid/zelory/compressor/Compressor;
@@ -85,17 +84,15 @@
 
     return-object v0
 
-    .line 78
     :catch_0
     move-exception v0
 
     .line 79
-    .local v0, "e":Ljava/io/IOException;
     invoke-static {v0}, Lio/reactivex/Flowable;->error(Ljava/lang/Throwable;)Lio/reactivex/Flowable;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public bridge synthetic call()Ljava/lang/Object;

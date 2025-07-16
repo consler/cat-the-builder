@@ -22,7 +22,6 @@
 # direct methods
 .method public constructor <init>([B)V
     .locals 2
-    .param p1, "key"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -58,12 +57,11 @@
     .line 51
     invoke-direct {p0}, Lcom/google/crypto/tink/subtle/PrfAesCmac;->generateSubKeys()V
 
-    .line 52
     return-void
 .end method
 
 .method private generateSubKeys()V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/GeneralSecurityException;
@@ -75,41 +73,36 @@
 
     move-result-object v0
 
+    const/4 v1, 0x1
+
     .line 103
-    .local v0, "aes":Ljavax/crypto/Cipher;
-    iget-object v1, p0, Lcom/google/crypto/tink/subtle/PrfAesCmac;->keySpec:Ljavax/crypto/SecretKey;
+    iget-object v2, p0, Lcom/google/crypto/tink/subtle/PrfAesCmac;->keySpec:Ljavax/crypto/SecretKey;
 
-    const/4 v2, 0x1
+    invoke-virtual {v0, v1, v2}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;)V
 
-    invoke-virtual {v0, v2, v1}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;)V
-
-    .line 104
     const/16 v1, 0x10
 
     new-array v1, v1, [B
 
     .line 105
-    .local v1, "zeroes":[B
     invoke-virtual {v0, v1}, Ljavax/crypto/Cipher;->doFinal([B)[B
 
-    move-result-object v2
+    move-result-object v0
 
     .line 106
-    .local v2, "l":[B
-    invoke-static {v2}, Lcom/google/crypto/tink/subtle/AesUtil;->dbl([B)[B
+    invoke-static {v0}, Lcom/google/crypto/tink/subtle/AesUtil;->dbl([B)[B
 
-    move-result-object v3
+    move-result-object v0
 
-    iput-object v3, p0, Lcom/google/crypto/tink/subtle/PrfAesCmac;->subKey1:[B
+    iput-object v0, p0, Lcom/google/crypto/tink/subtle/PrfAesCmac;->subKey1:[B
 
     .line 107
-    invoke-static {v3}, Lcom/google/crypto/tink/subtle/AesUtil;->dbl([B)[B
+    invoke-static {v0}, Lcom/google/crypto/tink/subtle/AesUtil;->dbl([B)[B
 
-    move-result-object v3
+    move-result-object v0
 
-    iput-object v3, p0, Lcom/google/crypto/tink/subtle/PrfAesCmac;->subKey2:[B
+    iput-object v0, p0, Lcom/google/crypto/tink/subtle/PrfAesCmac;->subKey2:[B
 
-    .line 108
     return-void
 .end method
 
@@ -139,8 +132,6 @@
 # virtual methods
 .method public compute([BI)[B
     .locals 9
-    .param p1, "data"    # [B
-    .param p2, "outputLength"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -158,7 +149,6 @@
         }
     .end annotation
 
-    .line 57
     const/16 v0, 0x10
 
     if-gt p2, v0, :cond_3
@@ -169,7 +159,6 @@
     move-result-object v1
 
     .line 62
-    .local v1, "aes":Ljavax/crypto/Cipher;
     iget-object v2, p0, Lcom/google/crypto/tink/subtle/PrfAesCmac;->keySpec:Ljavax/crypto/SecretKey;
 
     const/4 v3, 0x1
@@ -195,47 +184,44 @@
 
     move-result v2
 
-    .line 71
-    .local v2, "n":I
     mul-int/lit8 v4, v2, 0x10
 
+    .line 71
     array-length v5, p1
 
     const/4 v6, 0x0
 
     if-ne v4, v5, :cond_0
 
+    move v4, v3
+
     goto :goto_0
 
     :cond_0
-    move v3, v6
+    move v4, v6
 
-    .line 75
-    .local v3, "flag":Z
     :goto_0
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_1
 
-    .line 76
     add-int/lit8 v4, v2, -0x1
 
     mul-int/2addr v4, v0
 
+    .line 76
     iget-object v5, p0, Lcom/google/crypto/tink/subtle/PrfAesCmac;->subKey1:[B
 
     invoke-static {p1, v4, v5, v6, v0}, Lcom/google/crypto/tink/subtle/Bytes;->xor([BI[BII)[B
 
     move-result-object v4
 
-    .local v4, "mLast":[B
     goto :goto_1
 
-    .line 78
-    .end local v4    # "mLast":[B
     :cond_1
     add-int/lit8 v4, v2, -0x1
 
     mul-int/2addr v4, v0
 
+    .line 78
     array-length v5, p1
 
     .line 80
@@ -254,75 +240,56 @@
 
     move-result-object v4
 
-    .line 85
-    .restart local v4    # "mLast":[B
     :goto_1
     new-array v5, v0, [B
 
-    .line 89
-    .local v5, "x":[B
-    const/4 v7, 0x0
+    move v7, v6
 
-    .local v7, "i":I
     :goto_2
     add-int/lit8 v8, v2, -0x1
 
     if-ge v7, v8, :cond_2
 
-    .line 90
     mul-int/lit8 v8, v7, 0x10
 
+    .line 90
     invoke-static {v5, v6, p1, v8, v0}, Lcom/google/crypto/tink/subtle/Bytes;->xor([BI[BII)[B
-
-    move-result-object v8
-
-    .line 91
-    .local v8, "y":[B
-    invoke-virtual {v1, v8}, Ljavax/crypto/Cipher;->doFinal([B)[B
 
     move-result-object v5
 
-    .line 89
+    .line 91
+    invoke-virtual {v1, v5}, Ljavax/crypto/Cipher;->doFinal([B)[B
+
+    move-result-object v5
+
     add-int/lit8 v7, v7, 0x1
 
     goto :goto_2
 
     .line 93
-    .end local v7    # "i":I
-    .end local v8    # "y":[B
     :cond_2
     invoke-static {v4, v5}, Lcom/google/crypto/tink/subtle/Bytes;->xor([B[B)[B
 
-    move-result-object v0
+    move-result-object p1
 
     .line 96
-    .local v0, "y":[B
-    invoke-virtual {v1, v0}, Ljavax/crypto/Cipher;->doFinal([B)[B
+    invoke-virtual {v1, p1}, Ljavax/crypto/Cipher;->doFinal([B)[B
 
-    move-result-object v6
+    move-result-object p1
 
-    invoke-static {v6, p2}, Ljava/util/Arrays;->copyOf([BI)[B
+    invoke-static {p1, p2}, Ljava/util/Arrays;->copyOf([BI)[B
 
-    move-result-object v6
+    move-result-object p1
 
-    .line 97
-    .local v6, "output":[B
-    return-object v6
+    return-object p1
 
     .line 58
-    .end local v0    # "y":[B
-    .end local v1    # "aes":Ljavax/crypto/Cipher;
-    .end local v2    # "n":I
-    .end local v3    # "flag":Z
-    .end local v4    # "mLast":[B
-    .end local v5    # "x":[B
-    .end local v6    # "output":[B
     :cond_3
-    new-instance v0, Ljava/security/InvalidAlgorithmParameterException;
+    new-instance p1, Ljava/security/InvalidAlgorithmParameterException;
 
-    const-string v1, "outputLength too large, max is 16 bytes"
+    const-string p2, "outputLength too large, max is 16 bytes"
 
-    invoke-direct {v0, v1}, Ljava/security/InvalidAlgorithmParameterException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/security/InvalidAlgorithmParameterException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

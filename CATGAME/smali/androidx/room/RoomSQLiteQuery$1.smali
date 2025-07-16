@@ -45,8 +45,6 @@
 # virtual methods
 .method public bindBlob(I[B)V
     .locals 1
-    .param p1, "index"    # I
-    .param p2, "value"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -63,14 +61,11 @@
 
     invoke-virtual {v0, p1, p2}, Landroidx/room/RoomSQLiteQuery;->bindBlob(I[B)V
 
-    .line 115
     return-void
 .end method
 
 .method public bindDouble(ID)V
     .locals 1
-    .param p1, "index"    # I
-    .param p2, "value"    # D
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -87,14 +82,11 @@
 
     invoke-virtual {v0, p1, p2, p3}, Landroidx/room/RoomSQLiteQuery;->bindDouble(ID)V
 
-    .line 105
     return-void
 .end method
 
 .method public bindLong(IJ)V
     .locals 1
-    .param p1, "index"    # I
-    .param p2, "value"    # J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -111,13 +103,11 @@
 
     invoke-virtual {v0, p1, p2, p3}, Landroidx/room/RoomSQLiteQuery;->bindLong(IJ)V
 
-    .line 100
     return-void
 .end method
 
 .method public bindNull(I)V
     .locals 1
-    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -132,14 +122,11 @@
 
     invoke-virtual {v0, p1}, Landroidx/room/RoomSQLiteQuery;->bindNull(I)V
 
-    .line 95
     return-void
 .end method
 
 .method public bindString(ILjava/lang/String;)V
     .locals 1
-    .param p1, "index"    # I
-    .param p2, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -156,7 +143,6 @@
 
     invoke-virtual {v0, p1, p2}, Landroidx/room/RoomSQLiteQuery;->bindString(ILjava/lang/String;)V
 
-    .line 110
     return-void
 .end method
 
@@ -168,13 +154,11 @@
 
     invoke-virtual {v0}, Landroidx/room/RoomSQLiteQuery;->clearBindings()V
 
-    .line 120
     return-void
 .end method
 
 .method public close()V
     .locals 0
 
-    .line 125
     return-void
 .end method

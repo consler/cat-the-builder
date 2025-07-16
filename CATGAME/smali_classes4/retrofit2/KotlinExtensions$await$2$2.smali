@@ -67,7 +67,6 @@
 # direct methods
 .method constructor <init>(Lkotlinx/coroutines/CancellableContinuation;)V
     .locals 0
-    .param p1, "$captured_local_variable$0"    # Lkotlinx/coroutines/CancellableContinuation;
 
     .line 36
     iput-object p1, p0, Lretrofit2/KotlinExtensions$await$2$2;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
@@ -80,9 +79,7 @@
 
 # virtual methods
 .method public onFailure(Lretrofit2/Call;Ljava/lang/Throwable;)V
-    .locals 2
-    .param p1, "call"    # Lretrofit2/Call;
-    .param p2, "t"    # Ljava/lang/Throwable;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -97,35 +94,32 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "t"
+    const-string p1, "t"
 
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 58
-    iget-object v0, p0, Lretrofit2/KotlinExtensions$await$2$2;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
+    iget-object p1, p0, Lretrofit2/KotlinExtensions$await$2$2;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
 
-    check-cast v0, Lkotlin/coroutines/Continuation;
+    check-cast p1, Lkotlin/coroutines/Continuation;
 
-    sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+    sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
     invoke-static {p2}, Lkotlin/ResultKt;->createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-static {v1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-interface {v0, v1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
+    invoke-interface {p1, p2}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
-    .line 59
     return-void
 .end method
 
 .method public onResponse(Lretrofit2/Call;Lretrofit2/Response;)V
-    .locals 7
-    .param p1, "call"    # Lretrofit2/Call;
-    .param p2, "response"    # Lretrofit2/Response;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -154,166 +148,156 @@
     .line 39
     invoke-virtual {p2}, Lretrofit2/Response;->body()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p2
 
-    .line 40
-    .local v0, "body":Ljava/lang/Object;
-    if-nez v0, :cond_1
+    if-nez p2, :cond_1
 
     .line 41
     invoke-interface {p1}, Lretrofit2/Call;->request()Lokhttp3/Request;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-class v2, Lretrofit2/Invocation;
+    const-class p2, Lretrofit2/Invocation;
 
-    invoke-virtual {v1, v2}, Lokhttp3/Request;->tag(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p1, p2}, Lokhttp3/Request;->tag(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    if-nez v1, :cond_0
+    if-nez p1, :cond_0
 
     invoke-static {}, Lkotlin/jvm/internal/Intrinsics;->throwNpe()V
 
     :cond_0
-    const-string v2, "call.request().tag(Invocation::class.java)!!"
+    const-string p2, "call.request().tag(Invocation::class.java)!!"
+
+    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+
+    check-cast p1, Lretrofit2/Invocation;
+
+    .line 42
+    invoke-virtual {p1}, Lretrofit2/Invocation;->method()Ljava/lang/reflect/Method;
+
+    move-result-object p1
+
+    .line 43
+    new-instance p2, Lkotlin/KotlinNullPointerException;
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "Response from "
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string v1, "method"
+
+    .line 44
+    invoke-static {p1, v1}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+
+    invoke-virtual {p1}, Ljava/lang/reflect/Method;->getDeclaringClass()Ljava/lang/Class;
+
+    move-result-object v1
+
+    const-string v2, "method.declaringClass"
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v1, Lretrofit2/Invocation;
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    .line 42
-    .local v1, "invocation":Lretrofit2/Invocation;
-    invoke-virtual {v1}, Lretrofit2/Invocation;->method()Ljava/lang/reflect/Method;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 43
-    .local v2, "method":Ljava/lang/reflect/Method;
-    new-instance v3, Lkotlin/KotlinNullPointerException;
+    move-result-object v0
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    const/16 v1, 0x2e
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    const-string v5, "Response from "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 44
-    const-string v5, "method"
-
-    invoke-static {v2, v5}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {v2}, Ljava/lang/reflect/Method;->getDeclaringClass()Ljava/lang/Class;
-
-    move-result-object v5
-
-    const-string v6, "method.declaringClass"
-
-    invoke-static {v5, v6}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {v5}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const/16 v5, 0x2e
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     .line 46
-    invoke-virtual {v2}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p1
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v5, " was null but response body type was declared as non-null"
+    move-result-object p1
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " was null but response body type was declared as non-null"
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
 
     .line 43
-    invoke-direct {v3, v4}, Lkotlin/KotlinNullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Lkotlin/KotlinNullPointerException;-><init>(Ljava/lang/String;)V
 
     .line 48
-    .local v3, "e":Lkotlin/KotlinNullPointerException;
-    iget-object v4, p0, Lretrofit2/KotlinExtensions$await$2$2;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
+    iget-object p1, p0, Lretrofit2/KotlinExtensions$await$2$2;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
 
-    check-cast v4, Lkotlin/coroutines/Continuation;
+    check-cast p1, Lkotlin/coroutines/Continuation;
 
-    sget-object v5, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+    sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
-    move-object v5, v3
+    check-cast p2, Ljava/lang/Throwable;
 
-    check-cast v5, Ljava/lang/Throwable;
+    invoke-static {p2}, Lkotlin/ResultKt;->createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
 
-    invoke-static {v5}, Lkotlin/ResultKt;->createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
+    move-result-object p2
 
-    move-result-object v5
+    invoke-static {p2}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {v5}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object p2
 
-    move-result-object v5
+    invoke-interface {p1, p2}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
-    invoke-interface {v4, v5}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
-
-    .end local v1    # "invocation":Lretrofit2/Invocation;
-    .end local v2    # "method":Ljava/lang/reflect/Method;
-    .end local v3    # "e":Lkotlin/KotlinNullPointerException;
     goto :goto_0
 
     .line 50
     :cond_1
-    iget-object v1, p0, Lretrofit2/KotlinExtensions$await$2$2;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
+    iget-object p1, p0, Lretrofit2/KotlinExtensions$await$2$2;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
 
-    check-cast v1, Lkotlin/coroutines/Continuation;
+    check-cast p1, Lkotlin/coroutines/Continuation;
 
-    sget-object v2, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+    sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
-    invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-interface {v1, v2}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
+    invoke-interface {p1, p2}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
-    .line 51
-    .end local v0    # "body":Ljava/lang/Object;
     goto :goto_0
 
     .line 53
     :cond_2
-    iget-object v0, p0, Lretrofit2/KotlinExtensions$await$2$2;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
+    iget-object p1, p0, Lretrofit2/KotlinExtensions$await$2$2;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
 
-    check-cast v0, Lkotlin/coroutines/Continuation;
+    check-cast p1, Lkotlin/coroutines/Continuation;
 
-    new-instance v1, Lretrofit2/HttpException;
+    new-instance v0, Lretrofit2/HttpException;
 
-    invoke-direct {v1, p2}, Lretrofit2/HttpException;-><init>(Lretrofit2/Response;)V
+    invoke-direct {v0, p2}, Lretrofit2/HttpException;-><init>(Lretrofit2/Response;)V
 
-    check-cast v1, Ljava/lang/Throwable;
+    check-cast v0, Ljava/lang/Throwable;
 
-    sget-object v2, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+    sget-object p2, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
-    invoke-static {v1}, Lkotlin/ResultKt;->createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
+    invoke-static {v0}, Lkotlin/ResultKt;->createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-static {v1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-interface {v0, v1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
+    invoke-interface {p1, p2}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
-    .line 54
     :goto_0
-    nop
-
-    .line 55
     return-void
 .end method

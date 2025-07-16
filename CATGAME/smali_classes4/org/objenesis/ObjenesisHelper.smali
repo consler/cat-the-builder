@@ -36,7 +36,6 @@
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 34
     return-void
 .end method
 
@@ -55,14 +54,13 @@
     .end annotation
 
     .line 69
-    .local p0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     sget-object v0, Lorg/objenesis/ObjenesisHelper;->OBJENESIS_STD:Lorg/objenesis/Objenesis;
 
     invoke-interface {v0, p0}, Lorg/objenesis/Objenesis;->getInstantiatorOf(Ljava/lang/Class;)Lorg/objenesis/instantiator/ObjectInstantiator;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static getSerializableObjectInstantiatorOf(Ljava/lang/Class;)Lorg/objenesis/instantiator/ObjectInstantiator;
@@ -80,14 +78,13 @@
     .end annotation
 
     .line 82
-    .local p0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     sget-object v0, Lorg/objenesis/ObjenesisHelper;->OBJENESIS_SERIALIZER:Lorg/objenesis/Objenesis;
 
     invoke-interface {v0, p0}, Lorg/objenesis/Objenesis;->getInstantiatorOf(Ljava/lang/Class;)Lorg/objenesis/instantiator/ObjectInstantiator;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static newInstance(Ljava/lang/Class;)Ljava/lang/Object;
@@ -103,14 +100,13 @@
     .end annotation
 
     .line 44
-    .local p0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     sget-object v0, Lorg/objenesis/ObjenesisHelper;->OBJENESIS_STD:Lorg/objenesis/Objenesis;
 
     invoke-interface {v0, p0}, Lorg/objenesis/Objenesis;->newInstance(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static newSerializableInstance(Ljava/lang/Class;)Ljava/io/Serializable;
@@ -126,14 +122,13 @@
     .end annotation
 
     .line 56
-    .local p0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     sget-object v0, Lorg/objenesis/ObjenesisHelper;->OBJENESIS_SERIALIZER:Lorg/objenesis/Objenesis;
 
     invoke-interface {v0, p0}, Lorg/objenesis/Objenesis;->newInstance(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Ljava/io/Serializable;
+    check-cast p0, Ljava/io/Serializable;
 
-    return-object v0
+    return-object p0
 .end method

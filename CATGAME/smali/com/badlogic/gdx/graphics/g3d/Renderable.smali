@@ -47,7 +47,6 @@
 # virtual methods
 .method public set(Lcom/badlogic/gdx/graphics/g3d/Renderable;)Lcom/badlogic/gdx/graphics/g3d/Renderable;
     .locals 2
-    .param p1, "renderable"    # Lcom/badlogic/gdx/graphics/g3d/Renderable;
 
     .line 91
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/Renderable;->worldTransform:Lcom/badlogic/gdx/math/Matrix4;
@@ -84,10 +83,9 @@
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/Renderable;->shader:Lcom/badlogic/gdx/graphics/g3d/Shader;
 
     .line 97
-    iget-object v0, p1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->userData:Ljava/lang/Object;
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->userData:Ljava/lang/Object;
 
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/Renderable;->userData:Ljava/lang/Object;
+    iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/Renderable;->userData:Ljava/lang/Object;
 
-    .line 98
     return-object p0
 .end method

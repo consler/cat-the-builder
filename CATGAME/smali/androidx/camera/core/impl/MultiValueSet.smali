@@ -30,7 +30,6 @@
     .locals 1
 
     .line 32
-    .local p0, "this":Landroidx/camera/core/impl/MultiValueSet;, "Landroidx/camera/core/impl/MultiValueSet<TC;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 34
@@ -56,13 +55,10 @@
     .end annotation
 
     .line 43
-    .local p0, "this":Landroidx/camera/core/impl/MultiValueSet;, "Landroidx/camera/core/impl/MultiValueSet<TC;>;"
-    .local p1, "value":Ljava/util/List;, "Ljava/util/List<TC;>;"
     iget-object v0, p0, Landroidx/camera/core/impl/MultiValueSet;->mSet:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
 
-    .line 44
     return-void
 .end method
 
@@ -85,7 +81,6 @@
     .end annotation
 
     .line 32
-    .local p0, "this":Landroidx/camera/core/impl/MultiValueSet;, "Landroidx/camera/core/impl/MultiValueSet<TC;>;"
     invoke-virtual {p0}, Landroidx/camera/core/impl/MultiValueSet;->clone()Landroidx/camera/core/impl/MultiValueSet;
 
     move-result-object v0
@@ -104,7 +99,6 @@
     .end annotation
 
     .line 51
-    .local p0, "this":Landroidx/camera/core/impl/MultiValueSet;, "Landroidx/camera/core/impl/MultiValueSet<TC;>;"
     new-instance v0, Ljava/util/ArrayList;
 
     iget-object v1, p0, Landroidx/camera/core/impl/MultiValueSet;->mSet:Ljava/util/Set;

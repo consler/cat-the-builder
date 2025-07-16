@@ -66,9 +66,7 @@
 .end method
 
 .method public getInstance(Ljava/lang/String;Ljava/security/Provider;)Ljava/security/MessageDigest;
-    .locals 1
-    .param p1, "algorithm"    # Ljava/lang/String;
-    .param p2, "provider"    # Ljava/security/Provider;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -86,21 +84,20 @@
         }
     .end annotation
 
-    .line 85
     if-nez p2, :cond_0
 
     .line 86
     invoke-static {p1}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 88
     :cond_0
     invoke-static {p1, p2}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;Ljava/security/Provider;)Ljava/security/MessageDigest;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

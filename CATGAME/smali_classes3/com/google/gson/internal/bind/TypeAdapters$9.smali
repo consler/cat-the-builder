@@ -26,7 +26,7 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 254
+    .line 268
     invoke-direct {p0}, Lcom/google/gson/TypeAdapter;-><init>()V
 
     return-void
@@ -42,7 +42,7 @@
         }
     .end annotation
 
-    .line 254
+    .line 268
     invoke-virtual {p0, p1}, Lcom/google/gson/internal/bind/TypeAdapters$9;->read(Lcom/google/gson/stream/JsonReader;)Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object p1
@@ -51,22 +51,21 @@
 .end method
 
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/util/concurrent/atomic/AtomicBoolean;
-    .locals 2
-    .param p1, "in"    # Lcom/google/gson/stream/JsonReader;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 256
+    .line 270
     new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextBoolean()Z
 
-    move-result v1
+    move-result p1
 
-    invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
+    invoke-direct {v0, p1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
 
     return-object v0
 .end method
@@ -79,7 +78,7 @@
         }
     .end annotation
 
-    .line 254
+    .line 268
     check-cast p2, Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {p0, p1, p2}, Lcom/google/gson/internal/bind/TypeAdapters$9;->write(Lcom/google/gson/stream/JsonWriter;Ljava/util/concurrent/atomic/AtomicBoolean;)V
@@ -88,22 +87,19 @@
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/util/concurrent/atomic/AtomicBoolean;)V
-    .locals 1
-    .param p1, "out"    # Lcom/google/gson/stream/JsonWriter;
-    .param p2, "value"    # Ljava/util/concurrent/atomic/AtomicBoolean;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 259
+    .line 273
     invoke-virtual {p2}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
 
-    move-result v0
+    move-result p2
 
-    invoke-virtual {p1, v0}, Lcom/google/gson/stream/JsonWriter;->value(Z)Lcom/google/gson/stream/JsonWriter;
+    invoke-virtual {p1, p2}, Lcom/google/gson/stream/JsonWriter;->value(Z)Lcom/google/gson/stream/JsonWriter;
 
-    .line 260
     return-void
 .end method

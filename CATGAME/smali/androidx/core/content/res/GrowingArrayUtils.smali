@@ -15,13 +15,22 @@
 
 .method public static append([III)[I
     .locals 2
-    .param p0, "array"    # [I
-    .param p1, "currentSize"    # I
-    .param p2, "element"    # I
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "array",
+            "currentSize",
+            "element"
+        }
+    .end annotation
 
-    .line 56
     add-int/lit8 v0, p1, 0x1
 
+    .line 56
     array-length v1, p0
 
     if-le v0, v1, :cond_0
@@ -33,33 +42,38 @@
 
     new-array v0, v0, [I
 
-    .line 58
-    .local v0, "newArray":[I
     const/4 v1, 0x0
 
+    .line 58
     invoke-static {p0, v1, v0, v1, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 59
     move-object p0, v0
 
     .line 61
-    .end local v0    # "newArray":[I
     :cond_0
     aput p2, p0, p1
 
-    .line 62
     return-object p0
 .end method
 
 .method public static append([JIJ)[J
     .locals 2
-    .param p0, "array"    # [J
-    .param p1, "currentSize"    # I
-    .param p2, "element"    # J
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "array",
+            "currentSize",
+            "element"
+        }
+    .end annotation
 
-    .line 69
     add-int/lit8 v0, p1, 0x1
 
+    .line 69
     array-length v1, p0
 
     if-le v0, v1, :cond_0
@@ -71,27 +85,35 @@
 
     new-array v0, v0, [J
 
-    .line 71
-    .local v0, "newArray":[J
     const/4 v1, 0x0
 
+    .line 71
     invoke-static {p0, v1, v0, v1, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 72
     move-object p0, v0
 
     .line 74
-    .end local v0    # "newArray":[J
     :cond_0
     aput-wide p2, p0, p1
 
-    .line 75
     return-object p0
 .end method
 
 .method public static append([Ljava/lang/Object;ILjava/lang/Object;)[Ljava/lang/Object;
     .locals 2
-    .param p1, "currentSize"    # I
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "array",
+            "currentSize",
+            "element"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -100,11 +122,9 @@
         }
     .end annotation
 
-    .line 42
-    .local p0, "array":[Ljava/lang/Object;, "[TT;"
-    .local p2, "element":Ljava/lang/Object;, "TT;"
     add-int/lit8 v0, p1, 0x1
 
+    .line 42
     array-length v1, p0
 
     if-le v0, v1, :cond_0
@@ -130,33 +150,38 @@
 
     check-cast v0, [Ljava/lang/Object;
 
-    .line 45
-    .local v0, "newArray":[Ljava/lang/Object;, "[TT;"
     const/4 v1, 0x0
 
+    .line 45
     invoke-static {p0, v1, v0, v1, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 46
     move-object p0, v0
 
     .line 48
-    .end local v0    # "newArray":[Ljava/lang/Object;, "[TT;"
     :cond_0
     aput-object p2, p0, p1
 
-    .line 49
     return-object p0
 .end method
 
 .method public static append([ZIZ)[Z
     .locals 2
-    .param p0, "array"    # [Z
-    .param p1, "currentSize"    # I
-    .param p2, "element"    # Z
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "array",
+            "currentSize",
+            "element"
+        }
+    .end annotation
 
-    .line 82
     add-int/lit8 v0, p1, 0x1
 
+    .line 82
     array-length v1, p0
 
     if-le v0, v1, :cond_0
@@ -168,162 +193,191 @@
 
     new-array v0, v0, [Z
 
-    .line 84
-    .local v0, "newArray":[Z
     const/4 v1, 0x0
 
+    .line 84
     invoke-static {p0, v1, v0, v1, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 85
     move-object p0, v0
 
     .line 87
-    .end local v0    # "newArray":[Z
     :cond_0
     aput-boolean p2, p0, p1
 
-    .line 88
     return-object p0
 .end method
 
 .method public static growSize(I)I
     .locals 1
-    .param p0, "currentSize"    # I
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "currentSize"
+        }
+    .end annotation
 
-    .line 175
     const/4 v0, 0x4
 
     if-gt p0, v0, :cond_0
 
-    const/16 v0, 0x8
+    const/16 p0, 0x8
 
     goto :goto_0
 
     :cond_0
-    mul-int/lit8 v0, p0, 0x2
+    mul-int/lit8 p0, p0, 0x2
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public static insert([IIII)[I
-    .locals 3
-    .param p0, "array"    # [I
-    .param p1, "currentSize"    # I
-    .param p2, "index"    # I
-    .param p3, "element"    # I
+    .locals 2
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "array",
+            "currentSize",
+            "index",
+            "element"
+        }
+    .end annotation
 
-    .line 122
     add-int/lit8 v0, p1, 0x1
 
+    .line 122
     array-length v1, p0
 
     if-gt v0, v1, :cond_0
 
-    .line 123
     add-int/lit8 v0, p2, 0x1
 
-    sub-int v1, p1, p2
+    sub-int/2addr p1, p2
 
-    invoke-static {p0, p2, p0, v0, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    .line 123
+    invoke-static {p0, p2, p0, v0, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 124
     aput p3, p0, p2
 
-    .line 125
     return-object p0
 
     .line 128
     :cond_0
     invoke-static {p1}, Landroidx/core/content/res/GrowingArrayUtils;->growSize(I)I
 
-    move-result v0
+    move-result p1
 
-    new-array v0, v0, [I
+    new-array p1, p1, [I
+
+    const/4 v0, 0x0
 
     .line 129
-    .local v0, "newArray":[I
-    const/4 v1, 0x0
-
-    invoke-static {p0, v1, v0, v1, p2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p0, v0, p1, v0, p2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 130
-    aput p3, v0, p2
+    aput p3, p1, p2
+
+    add-int/lit8 p3, p2, 0x1
 
     .line 131
-    add-int/lit8 v1, p2, 0x1
+    array-length v0, p0
 
-    array-length v2, p0
+    sub-int/2addr v0, p2
 
-    sub-int/2addr v2, p2
+    invoke-static {p0, p2, p1, p3, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    invoke-static {p0, p2, v0, v1, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    .line 132
-    return-object v0
+    return-object p1
 .end method
 
 .method public static insert([JIIJ)[J
-    .locals 3
-    .param p0, "array"    # [J
-    .param p1, "currentSize"    # I
-    .param p2, "index"    # I
-    .param p3, "element"    # J
+    .locals 2
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "array",
+            "currentSize",
+            "index",
+            "element"
+        }
+    .end annotation
 
-    .line 139
     add-int/lit8 v0, p1, 0x1
 
+    .line 139
     array-length v1, p0
 
     if-gt v0, v1, :cond_0
 
-    .line 140
     add-int/lit8 v0, p2, 0x1
 
-    sub-int v1, p1, p2
+    sub-int/2addr p1, p2
 
-    invoke-static {p0, p2, p0, v0, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    .line 140
+    invoke-static {p0, p2, p0, v0, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 141
     aput-wide p3, p0, p2
 
-    .line 142
     return-object p0
 
     .line 145
     :cond_0
     invoke-static {p1}, Landroidx/core/content/res/GrowingArrayUtils;->growSize(I)I
 
-    move-result v0
+    move-result p1
 
-    new-array v0, v0, [J
+    new-array p1, p1, [J
+
+    const/4 v0, 0x0
 
     .line 146
-    .local v0, "newArray":[J
-    const/4 v1, 0x0
-
-    invoke-static {p0, v1, v0, v1, p2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p0, v0, p1, v0, p2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 147
-    aput-wide p3, v0, p2
+    aput-wide p3, p1, p2
+
+    add-int/lit8 p3, p2, 0x1
 
     .line 148
-    add-int/lit8 v1, p2, 0x1
+    array-length p4, p0
 
-    array-length v2, p0
+    sub-int/2addr p4, p2
 
-    sub-int/2addr v2, p2
+    invoke-static {p0, p2, p1, p3, p4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    invoke-static {p0, p2, v0, v1, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    .line 149
-    return-object v0
+    return-object p1
 .end method
 
 .method public static insert([Ljava/lang/Object;IILjava/lang/Object;)[Ljava/lang/Object;
-    .locals 3
-    .param p1, "currentSize"    # I
-    .param p2, "index"    # I
+    .locals 2
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "array",
+            "currentSize",
+            "index",
+            "element"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -332,26 +386,23 @@
         }
     .end annotation
 
-    .line 104
-    .local p0, "array":[Ljava/lang/Object;, "[TT;"
-    .local p3, "element":Ljava/lang/Object;, "TT;"
     add-int/lit8 v0, p1, 0x1
 
+    .line 104
     array-length v1, p0
 
     if-gt v0, v1, :cond_0
 
-    .line 105
     add-int/lit8 v0, p2, 0x1
 
-    sub-int v1, p1, p2
+    sub-int/2addr p1, p2
 
-    invoke-static {p0, p2, p0, v0, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    .line 105
+    invoke-static {p0, p2, p0, v0, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 106
     aput-object p3, p0, p2
 
-    .line 107
     return-object p0
 
     .line 110
@@ -367,90 +418,95 @@
     .line 111
     invoke-static {p1}, Landroidx/core/content/res/GrowingArrayUtils;->growSize(I)I
 
-    move-result v1
+    move-result p1
 
     .line 110
-    invoke-static {v0, v1}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
+    invoke-static {v0, p1}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, [Ljava/lang/Object;
+    check-cast p1, [Ljava/lang/Object;
+
+    const/4 v0, 0x0
 
     .line 112
-    .local v0, "newArray":[Ljava/lang/Object;, "[TT;"
-    const/4 v1, 0x0
-
-    invoke-static {p0, v1, v0, v1, p2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p0, v0, p1, v0, p2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 113
-    aput-object p3, v0, p2
+    aput-object p3, p1, p2
+
+    add-int/lit8 p3, p2, 0x1
 
     .line 114
-    add-int/lit8 v1, p2, 0x1
+    array-length v0, p0
 
-    array-length v2, p0
+    sub-int/2addr v0, p2
 
-    sub-int/2addr v2, p2
+    invoke-static {p0, p2, p1, p3, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    invoke-static {p0, p2, v0, v1, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    .line 115
-    return-object v0
+    return-object p1
 .end method
 
 .method public static insert([ZIIZ)[Z
-    .locals 3
-    .param p0, "array"    # [Z
-    .param p1, "currentSize"    # I
-    .param p2, "index"    # I
-    .param p3, "element"    # Z
+    .locals 2
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "array",
+            "currentSize",
+            "index",
+            "element"
+        }
+    .end annotation
 
-    .line 156
     add-int/lit8 v0, p1, 0x1
 
+    .line 156
     array-length v1, p0
 
     if-gt v0, v1, :cond_0
 
-    .line 157
     add-int/lit8 v0, p2, 0x1
 
-    sub-int v1, p1, p2
+    sub-int/2addr p1, p2
 
-    invoke-static {p0, p2, p0, v0, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    .line 157
+    invoke-static {p0, p2, p0, v0, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 158
     aput-boolean p3, p0, p2
 
-    .line 159
     return-object p0
 
     .line 162
     :cond_0
     invoke-static {p1}, Landroidx/core/content/res/GrowingArrayUtils;->growSize(I)I
 
-    move-result v0
+    move-result p1
 
-    new-array v0, v0, [Z
+    new-array p1, p1, [Z
+
+    const/4 v0, 0x0
 
     .line 163
-    .local v0, "newArray":[Z
-    const/4 v1, 0x0
-
-    invoke-static {p0, v1, v0, v1, p2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p0, v0, p1, v0, p2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 164
-    aput-boolean p3, v0, p2
+    aput-boolean p3, p1, p2
+
+    add-int/lit8 p3, p2, 0x1
 
     .line 165
-    add-int/lit8 v1, p2, 0x1
+    array-length v0, p0
 
-    array-length v2, p0
+    sub-int/2addr v0, p2
 
-    sub-int/2addr v2, p2
+    invoke-static {p0, p2, p1, p3, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    invoke-static {p0, p2, v0, v1, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    .line 166
-    return-object v0
+    return-object p1
 .end method

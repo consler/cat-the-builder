@@ -27,10 +27,10 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 22
-    new-instance v0, Lcom/huawei/hms/common/webserverpic/a;
+    .line 1
+    new-instance v0, Lcom/huawei/hms/common/webserverpic/WebServerPicCreator;
 
-    invoke-direct {v0}, Lcom/huawei/hms/common/webserverpic/a;-><init>()V
+    invoke-direct {v0}, Lcom/huawei/hms/common/webserverpic/WebServerPicCreator;-><init>()V
 
     sput-object v0, Lcom/huawei/hms/common/webserverpic/WebServerPic;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -45,12 +45,11 @@
         }
     .end annotation
 
-    .line 54
     const/4 v0, 0x0
 
+    .line 10
     invoke-direct {p0, p1, v0, v0}, Lcom/huawei/hms/common/webserverpic/WebServerPic;-><init>(Landroid/net/Uri;II)V
 
-    .line 55
     return-void
 .end method
 
@@ -62,30 +61,27 @@
         }
     .end annotation
 
-    .line 37
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 38
+    .line 2
     iput-object p1, p0, Lcom/huawei/hms/common/webserverpic/WebServerPic;->a:Landroid/net/Uri;
 
-    .line 39
+    .line 3
     iput p2, p0, Lcom/huawei/hms/common/webserverpic/WebServerPic;->b:I
 
-    .line 40
+    .line 4
     iput p3, p0, Lcom/huawei/hms/common/webserverpic/WebServerPic;->c:I
 
-    .line 41
     if-eqz p1, :cond_1
 
-    .line 43
     if-ltz p2, :cond_0
 
     if-ltz p3, :cond_0
 
-    .line 46
     return-void
 
-    .line 44
+    .line 8
     :cond_0
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
@@ -95,7 +91,7 @@
 
     throw p1
 
-    .line 42
+    .line 9
     :cond_1
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
@@ -111,7 +107,7 @@
 .method public final getHeight()I
     .locals 1
 
-    .line 84
+    .line 1
     iget v0, p0, Lcom/huawei/hms/common/webserverpic/WebServerPic;->c:I
 
     return v0
@@ -120,7 +116,7 @@
 .method public final getUrl()Landroid/net/Uri;
     .locals 1
 
-    .line 64
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/webserverpic/WebServerPic;->a:Landroid/net/Uri;
 
     return-object v0
@@ -129,7 +125,7 @@
 .method public final getWidth()I
     .locals 1
 
-    .line 74
+    .line 1
     iget v0, p0, Lcom/huawei/hms/common/webserverpic/WebServerPic;->b:I
 
     return v0
@@ -138,7 +134,7 @@
 .method public final toString()Ljava/lang/String;
     .locals 4
 
-    .line 94
+    .line 1
     sget-object v0, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
     const/4 v1, 0x3
@@ -187,15 +183,15 @@
 .method public final writeToParcel(Landroid/os/Parcel;I)V
     .locals 4
 
-    .line 101
+    .line 1
     invoke-static {p1}, Lcom/huawei/hms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 102
+    .line 2
     invoke-static {p1}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelWriter;->beginObjectHeader(Landroid/os/Parcel;)I
 
     move-result v0
 
-    .line 103
+    .line 3
     invoke-virtual {p0}, Lcom/huawei/hms/common/webserverpic/WebServerPic;->getUrl()Landroid/net/Uri;
 
     move-result-object v1
@@ -206,7 +202,7 @@
 
     invoke-static {p1, v2, v1, p2, v3}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelWriter;->writeParcelable(Landroid/os/Parcel;ILandroid/os/Parcelable;IZ)V
 
-    .line 104
+    .line 4
     invoke-virtual {p0}, Lcom/huawei/hms/common/webserverpic/WebServerPic;->getWidth()I
 
     move-result p2
@@ -215,7 +211,7 @@
 
     invoke-static {p1, v1, p2}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelWriter;->writeInt(Landroid/os/Parcel;II)V
 
-    .line 105
+    .line 5
     invoke-virtual {p0}, Lcom/huawei/hms/common/webserverpic/WebServerPic;->getHeight()I
 
     move-result p2
@@ -224,9 +220,8 @@
 
     invoke-static {p1, v1, p2}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelWriter;->writeInt(Landroid/os/Parcel;II)V
 
-    .line 106
+    .line 6
     invoke-static {p1, v0}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelWriter;->finishObjectHeader(Landroid/os/Parcel;I)V
 
-    .line 107
     return-void
 .end method

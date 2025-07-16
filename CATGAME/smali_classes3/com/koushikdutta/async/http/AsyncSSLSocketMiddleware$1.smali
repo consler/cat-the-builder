@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware;Lcom/koushikdutta/async/callback/ConnectCallback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware;
 
     .line 80
     iput-object p1, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$1;->this$0:Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware;
@@ -42,14 +41,11 @@
 # virtual methods
 .method public onHandshakeCompleted(Ljava/lang/Exception;Lcom/koushikdutta/async/AsyncSSLSocket;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Exception;
-    .param p2, "socket"    # Lcom/koushikdutta/async/AsyncSSLSocket;
 
     .line 83
     iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$1;->val$callback:Lcom/koushikdutta/async/callback/ConnectCallback;
 
     invoke-interface {v0, p1, p2}, Lcom/koushikdutta/async/callback/ConnectCallback;->onConnectCompleted(Ljava/lang/Exception;Lcom/koushikdutta/async/AsyncSocket;)V
 
-    .line 84
     return-void
 .end method

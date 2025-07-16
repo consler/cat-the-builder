@@ -91,6 +91,5 @@
 
     invoke-interface {v0, v1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
-    .line 116
     return-void
 .end method

@@ -34,10 +34,8 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/lang3/concurrent/Memoizer;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "this$0"    # Lorg/apache/commons/lang3/concurrent/Memoizer;
 
     .line 118
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/Memoizer$1;, "Lorg/apache/commons/lang3/concurrent/Memoizer$1;"
     iput-object p1, p0, Lorg/apache/commons/lang3/concurrent/Memoizer$1;->this$0:Lorg/apache/commons/lang3/concurrent/Memoizer;
 
     iput-object p2, p0, Lorg/apache/commons/lang3/concurrent/Memoizer$1;->val$arg:Ljava/lang/Object;
@@ -64,7 +62,6 @@
     .end annotation
 
     .line 122
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/Memoizer$1;, "Lorg/apache/commons/lang3/concurrent/Memoizer$1;"
     iget-object v0, p0, Lorg/apache/commons/lang3/concurrent/Memoizer$1;->this$0:Lorg/apache/commons/lang3/concurrent/Memoizer;
 
     invoke-static {v0}, Lorg/apache/commons/lang3/concurrent/Memoizer;->access$000(Lorg/apache/commons/lang3/concurrent/Memoizer;)Lorg/apache/commons/lang3/concurrent/Computable;

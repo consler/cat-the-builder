@@ -34,10 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/reactivestreams/Subscriber;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)V
-    .locals 2
-    .param p2, "period"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,20 +47,17 @@
     .end annotation
 
     .line 162
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSampleTimed$SampleTimedEmitLast;, "Lio/reactivex/internal/operators/flowable/FlowableSampleTimed$SampleTimedEmitLast<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-direct/range {p0 .. p5}, Lio/reactivex/internal/operators/flowable/FlowableSampleTimed$SampleTimedSubscriber;-><init>(Lorg/reactivestreams/Subscriber;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)V
 
     .line 163
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicInteger;
 
-    const/4 v1, 0x1
+    const/4 p2, 0x1
 
-    invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
+    invoke-direct {p1, p2}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSampleTimed$SampleTimedEmitLast;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableSampleTimed$SampleTimedEmitLast;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    .line 164
     return-void
 .end method
 
@@ -73,7 +67,6 @@
     .locals 1
 
     .line 168
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSampleTimed$SampleTimedEmitLast;, "Lio/reactivex/internal/operators/flowable/FlowableSampleTimed$SampleTimedEmitLast<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableSampleTimed$SampleTimedEmitLast;->emit()V
 
     .line 169
@@ -90,7 +83,6 @@
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 172
     :cond_0
     return-void
 .end method
@@ -99,7 +91,6 @@
     .locals 2
 
     .line 176
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSampleTimed$SampleTimedEmitLast;, "Lio/reactivex/internal/operators/flowable/FlowableSampleTimed$SampleTimedEmitLast<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSampleTimed$SampleTimedEmitLast;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->incrementAndGet()I
@@ -127,7 +118,6 @@
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 182
     :cond_0
     return-void
 .end method

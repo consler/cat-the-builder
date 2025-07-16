@@ -29,14 +29,11 @@
     .line 365
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 366
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g2d/BitmapFont;Lcom/badlogic/gdx/graphics/Color;)V
     .locals 0
-    .param p1, "font"    # Lcom/badlogic/gdx/graphics/g2d/BitmapFont;
-    .param p2, "fontColor"    # Lcom/badlogic/gdx/graphics/Color;
 
     .line 368
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,13 +44,11 @@
     .line 370
     iput-object p2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Label$LabelStyle;->fontColor:Lcom/badlogic/gdx/graphics/Color;
 
-    .line 371
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/Label$LabelStyle;)V
     .locals 2
-    .param p1, "style"    # Lcom/badlogic/gdx/scenes/scene2d/ui/Label$LabelStyle;
 
     .line 373
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -78,10 +73,9 @@
 
     .line 376
     :cond_0
-    iget-object v0, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Label$LabelStyle;->background:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
+    iget-object p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Label$LabelStyle;->background:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
-    iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Label$LabelStyle;->background:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
+    iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Label$LabelStyle;->background:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
-    .line 377
     return-void
 .end method

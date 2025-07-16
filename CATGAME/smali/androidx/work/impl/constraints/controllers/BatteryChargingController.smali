@@ -15,9 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "taskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -32,23 +30,21 @@
     .line 31
     invoke-static {p1, p2}, Landroidx/work/impl/constraints/trackers/Trackers;->getInstance(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)Landroidx/work/impl/constraints/trackers/Trackers;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroidx/work/impl/constraints/trackers/Trackers;->getBatteryChargingTracker()Landroidx/work/impl/constraints/trackers/BatteryChargingTracker;
+    invoke-virtual {p1}, Landroidx/work/impl/constraints/trackers/Trackers;->getBatteryChargingTracker()Landroidx/work/impl/constraints/trackers/BatteryChargingTracker;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0}, Landroidx/work/impl/constraints/controllers/ConstraintController;-><init>(Landroidx/work/impl/constraints/trackers/ConstraintTracker;)V
+    invoke-direct {p0, p1}, Landroidx/work/impl/constraints/controllers/ConstraintController;-><init>(Landroidx/work/impl/constraints/trackers/ConstraintTracker;)V
 
-    .line 32
     return-void
 .end method
 
 
 # virtual methods
 .method hasConstraint(Landroidx/work/impl/model/WorkSpec;)Z
-    .locals 1
-    .param p1, "workSpec"    # Landroidx/work/impl/model/WorkSpec;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -59,18 +55,17 @@
     .end annotation
 
     .line 36
-    iget-object v0, p1, Landroidx/work/impl/model/WorkSpec;->constraints:Landroidx/work/Constraints;
+    iget-object p1, p1, Landroidx/work/impl/model/WorkSpec;->constraints:Landroidx/work/Constraints;
 
-    invoke-virtual {v0}, Landroidx/work/Constraints;->requiresCharging()Z
+    invoke-virtual {p1}, Landroidx/work/Constraints;->requiresCharging()Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method isConstrained(Ljava/lang/Boolean;)Z
-    .locals 1
-    .param p1, "isBatteryCharging"    # Ljava/lang/Boolean;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -83,11 +78,11 @@
     .line 41
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v0
+    move-result p1
 
-    xor-int/lit8 v0, v0, 0x1
+    xor-int/lit8 p1, p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method bridge synthetic isConstrained(Ljava/lang/Object;)Z

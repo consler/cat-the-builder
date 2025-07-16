@@ -34,10 +34,9 @@
         }
     .end annotation
 
-    .line 143
-    .local p0, "continuations":Ljava/util/List;, "Ljava/util/List<Landroidx/work/WorkContinuation;>;"
     const/4 v0, 0x0
 
+    .line 143
     invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
@@ -46,9 +45,9 @@
 
     invoke-virtual {v0, p0}, Landroidx/work/WorkContinuation;->combineInternal(Ljava/util/List;)Landroidx/work/WorkContinuation;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 
@@ -102,8 +101,7 @@
 .end method
 
 .method public final then(Landroidx/work/OneTimeWorkRequest;)Landroidx/work/WorkContinuation;
-    .locals 1
-    .param p1, "work"    # Landroidx/work/OneTimeWorkRequest;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -116,13 +114,13 @@
     .line 76
     invoke-static {p1}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Landroidx/work/WorkContinuation;->then(Ljava/util/List;)Landroidx/work/WorkContinuation;
+    invoke-virtual {p0, p1}, Landroidx/work/WorkContinuation;->then(Ljava/util/List;)Landroidx/work/WorkContinuation;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public abstract then(Ljava/util/List;)Landroidx/work/WorkContinuation;

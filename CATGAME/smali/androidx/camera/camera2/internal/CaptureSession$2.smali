@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/camera2/internal/CaptureSession;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/camera2/internal/CaptureSession;
 
     .line 213
     iput-object p1, p0, Landroidx/camera/camera2/internal/CaptureSession$2;->this$0:Landroidx/camera/camera2/internal/CaptureSession;
@@ -46,17 +45,15 @@
 
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
-    .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
+    .locals 0
 
     .line 222
-    iget-object v0, p0, Landroidx/camera/camera2/internal/CaptureSession$2;->this$0:Landroidx/camera/camera2/internal/CaptureSession;
+    iget-object p1, p0, Landroidx/camera/camera2/internal/CaptureSession$2;->this$0:Landroidx/camera/camera2/internal/CaptureSession;
 
-    iget-object v0, v0, Landroidx/camera/camera2/internal/CaptureSession;->mSynchronizedCaptureSessionOpener:Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener;
+    iget-object p1, p1, Landroidx/camera/camera2/internal/CaptureSession;->mSynchronizedCaptureSessionOpener:Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener;
 
-    invoke-virtual {v0}, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener;->stop()Z
+    invoke-virtual {p1}, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener;->stop()Z
 
-    .line 223
     return-void
 .end method
 
@@ -73,8 +70,6 @@
 
 .method public onSuccess(Ljava/lang/Void;)V
     .locals 0
-    .param p1, "result"    # Ljava/lang/Void;
 
-    .line 217
     return-void
 .end method

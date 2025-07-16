@@ -57,9 +57,6 @@
     .end annotation
 
     .line 26
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleMap;, "Lio/reactivex/internal/operators/single/SingleMap<TT;TR;>;"
-    .local p1, "source":Lio/reactivex/SingleSource;, "Lio/reactivex/SingleSource<+TT;>;"
-    .local p2, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TR;>;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 27
@@ -68,7 +65,6 @@
     .line 28
     iput-object p2, p0, Lio/reactivex/internal/operators/single/SingleMap;->mapper:Lio/reactivex/functions/Function;
 
-    .line 29
     return-void
 .end method
 
@@ -85,8 +81,6 @@
     .end annotation
 
     .line 33
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleMap;, "Lio/reactivex/internal/operators/single/SingleMap<TT;TR;>;"
-    .local p1, "t":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleMap;->source:Lio/reactivex/SingleSource;
 
     new-instance v1, Lio/reactivex/internal/operators/single/SingleMap$MapSingleObserver;
@@ -97,6 +91,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/SingleSource;->subscribe(Lio/reactivex/SingleObserver;)V
 
-    .line 34
     return-void
 .end method

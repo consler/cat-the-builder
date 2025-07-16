@@ -54,32 +54,30 @@
 
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
-    .locals 2
-    .param p1, "t"    # Ljava/lang/Throwable;
+    .locals 1
 
     .line 102
-    iget-object v0, p0, Landroidx/camera/core/impl/DeferrableSurfaces$1;->val$completer:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
+    iget-object p1, p0, Landroidx/camera/core/impl/DeferrableSurfaces$1;->val$completer:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
     .line 103
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v1}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
+    invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 102
-    invoke-virtual {v0, v1}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
 
     .line 104
-    iget-object v0, p0, Landroidx/camera/core/impl/DeferrableSurfaces$1;->val$scheduledFuture:Ljava/util/concurrent/ScheduledFuture;
+    iget-object p1, p0, Landroidx/camera/core/impl/DeferrableSurfaces$1;->val$scheduledFuture:Ljava/util/concurrent/ScheduledFuture;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    invoke-interface {v0, v1}, Ljava/util/concurrent/ScheduledFuture;->cancel(Z)Z
+    invoke-interface {p1, v0}, Ljava/util/concurrent/ScheduledFuture;->cancel(Z)Z
 
-    .line 105
     return-void
 .end method
 
@@ -95,8 +93,7 @@
 .end method
 
 .method public onSuccess(Ljava/util/List;)V
-    .locals 3
-    .param p1, "result"    # Ljava/util/List;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -112,33 +109,31 @@
     invoke-direct {v0, p1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     .line 93
-    .local v0, "surfaces":Ljava/util/List;
-    iget-boolean v1, p0, Landroidx/camera/core/impl/DeferrableSurfaces$1;->val$removeNullSurfaces:Z
+    iget-boolean p1, p0, Landroidx/camera/core/impl/DeferrableSurfaces$1;->val$removeNullSurfaces:Z
 
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
+
+    const/4 p1, 0x0
 
     .line 94
-    const/4 v1, 0x0
+    invoke-static {p1}, Ljava/util/Collections;->singleton(Ljava/lang/Object;)Ljava/util/Set;
 
-    invoke-static {v1}, Ljava/util/Collections;->singleton(Ljava/lang/Object;)Ljava/util/Set;
+    move-result-object p1
 
-    move-result-object v1
-
-    invoke-interface {v0, v1}, Ljava/util/List;->removeAll(Ljava/util/Collection;)Z
+    invoke-interface {v0, p1}, Ljava/util/List;->removeAll(Ljava/util/Collection;)Z
 
     .line 96
     :cond_0
-    iget-object v1, p0, Landroidx/camera/core/impl/DeferrableSurfaces$1;->val$completer:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
+    iget-object p1, p0, Landroidx/camera/core/impl/DeferrableSurfaces$1;->val$completer:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
-    invoke-virtual {v1, v0}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
 
     .line 97
-    iget-object v1, p0, Landroidx/camera/core/impl/DeferrableSurfaces$1;->val$scheduledFuture:Ljava/util/concurrent/ScheduledFuture;
+    iget-object p1, p0, Landroidx/camera/core/impl/DeferrableSurfaces$1;->val$scheduledFuture:Ljava/util/concurrent/ScheduledFuture;
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    invoke-interface {v1, v2}, Ljava/util/concurrent/ScheduledFuture;->cancel(Z)Z
+    invoke-interface {p1, v0}, Ljava/util/concurrent/ScheduledFuture;->cancel(Z)Z
 
-    .line 98
     return-void
 .end method

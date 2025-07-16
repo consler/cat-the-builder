@@ -50,9 +50,6 @@
     .end annotation
 
     .line 179
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator$EntrySetIterator;, "Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator<TK;TV;>.EntrySetIterator;"
-    .local p2, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;"
-    .local p3, "parent":Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator<TK;TV;>;"
     iput-object p1, p0, Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator$EntrySetIterator;->this$0:Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator;
 
     .line 180
@@ -61,7 +58,6 @@
     .line 181
     iput-object p3, p0, Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator$EntrySetIterator;->parent:Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator;
 
-    .line 182
     return-void
 .end method
 
@@ -71,7 +67,6 @@
     .locals 1
 
     .line 173
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator$EntrySetIterator;, "Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator<TK;TV;>.EntrySetIterator;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator$EntrySetIterator;->next()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -90,7 +85,6 @@
     .end annotation
 
     .line 186
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator$EntrySetIterator;, "Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator<TK;TV;>.EntrySetIterator;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator$EntrySetIterator;->getIterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -102,7 +96,6 @@
     check-cast v0, Ljava/util/Map$Entry;
 
     .line 187
-    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     new-instance v1, Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator$MapEntry;
 
     iget-object v2, p0, Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator$EntrySetIterator;->this$0:Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator;

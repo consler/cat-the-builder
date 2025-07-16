@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$GuillotineStrategy;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$GuillotineStrategy;
 
     .line 539
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$GuillotineStrategy$1;->this$0:Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$GuillotineStrategy;
@@ -46,9 +45,7 @@
 
 # virtual methods
 .method public compare(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap;)I
-    .locals 3
-    .param p1, "o1"    # Lcom/badlogic/gdx/graphics/Pixmap;
-    .param p2, "o2"    # Lcom/badlogic/gdx/graphics/Pixmap;
+    .locals 1
 
     .line 541
     invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/Pixmap;->getWidth()I
@@ -57,27 +54,27 @@
 
     invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/Pixmap;->getHeight()I
 
-    move-result v1
+    move-result p1
 
-    invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
+    invoke-static {v0, p1}, Ljava/lang/Math;->max(II)I
 
-    move-result v0
+    move-result p1
 
     invoke-virtual {p2}, Lcom/badlogic/gdx/graphics/Pixmap;->getWidth()I
 
-    move-result v1
+    move-result v0
 
     invoke-virtual {p2}, Lcom/badlogic/gdx/graphics/Pixmap;->getHeight()I
 
-    move-result v2
+    move-result p2
 
-    invoke-static {v1, v2}, Ljava/lang/Math;->max(II)I
+    invoke-static {v0, p2}, Ljava/lang/Math;->max(II)I
 
-    move-result v1
+    move-result p2
 
-    sub-int/2addr v0, v1
+    sub-int/2addr p1, p2
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I

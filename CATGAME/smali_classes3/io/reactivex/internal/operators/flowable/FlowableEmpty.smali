@@ -51,7 +51,6 @@
     .line 29
     invoke-direct {p0}, Lio/reactivex/Flowable;-><init>()V
 
-    .line 30
     return-void
 .end method
 
@@ -60,7 +59,6 @@
 .method public call()Ljava/lang/Object;
     .locals 1
 
-    .line 39
     const/4 v0, 0x0
 
     return-object v0
@@ -79,9 +77,7 @@
     .end annotation
 
     .line 34
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-Ljava/lang/Object;>;"
     invoke-static {p1}, Lio/reactivex/internal/subscriptions/EmptySubscription;->complete(Lorg/reactivestreams/Subscriber;)V
 
-    .line 35
     return-void
 .end method

@@ -21,8 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/cache/StrictLineReader;I)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/cache/StrictLineReader;
-    .param p2, "x0"    # I
 
     .line 172
     iput-object p1, p0, Lcom/koushikdutta/async/http/cache/StrictLineReader$1;->this$0:Lcom/koushikdutta/async/http/cache/StrictLineReader;
@@ -64,7 +62,6 @@
     iget v0, p0, Lcom/koushikdutta/async/http/cache/StrictLineReader$1;->count:I
 
     .line 176
-    .local v0, "length":I
     :goto_0
     new-instance v1, Ljava/lang/String;
 

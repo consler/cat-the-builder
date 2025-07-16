@@ -57,14 +57,11 @@
     .end annotation
 
     .line 58
-    .local p0, "this":Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;, "Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory<TPrimitiveT;TKeyT;>;"
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<TPrimitiveT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 59
     iput-object p1, p0, Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;->clazz:Ljava/lang/Class;
 
-    .line 60
     return-void
 .end method
 
@@ -104,7 +101,6 @@
     .end annotation
 
     .line 66
-    .local p0, "this":Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;, "Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory<TPrimitiveT;TKeyT;>;"
     iget-object v0, p0, Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;->clazz:Ljava/lang/Class;
 
     return-object v0

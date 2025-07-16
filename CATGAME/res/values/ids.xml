@@ -34,7 +34,6 @@
     <item type="id" name="accessibility_custom_action_7" />
     <item type="id" name="accessibility_custom_action_8" />
     <item type="id" name="accessibility_custom_action_9" />
-    <item type="id" name="action" />
     <item type="id" name="action0" />
     <item type="id" name="action_bar" />
     <item type="id" name="action_bar_activity_content" />
@@ -66,8 +65,6 @@
     <item type="id" name="add_brick_fragment_list" />
     <item type="id" name="add_item_to_userlist_spinner" />
     <item type="id" name="alertTitle" />
-    <item type="id" name="allsize_textview" />
-    <item type="id" name="appsize_textview" />
     <item type="id" name="argus" />
     <item type="id" name="author_title" />
     <item type="id" name="author_value" />
@@ -410,6 +407,9 @@
     <item type="id" name="brick_play_note_for_beats_beats_edit_text" />
     <item type="id" name="brick_play_note_for_beats_layout" />
     <item type="id" name="brick_play_note_for_beats_note_edit_text" />
+    <item type="id" name="brick_play_sound_at_edit_text" />
+    <item type="id" name="brick_play_sound_at_layout" />
+    <item type="id" name="brick_play_sound_at_spinner" />
     <item type="id" name="brick_play_sound_layout" />
     <item type="id" name="brick_play_sound_spinner" />
     <item type="id" name="brick_play_sound_text_view" />
@@ -461,6 +461,9 @@
     <item type="id" name="brick_reset_timer_layout" />
     <item type="id" name="brick_running_stitch_edit_text_length" />
     <item type="id" name="brick_running_stitch_layout" />
+    <item type="id" name="brick_save_plot_edit_text" />
+    <item type="id" name="brick_save_plot_layout" />
+    <item type="id" name="brick_save_plot_top" />
     <item type="id" name="brick_say_bubble_layout" />
     <item type="id" name="brick_say_for_bubble_layout" />
     <item type="id" name="brick_scene_start_label" />
@@ -610,10 +613,14 @@
     <item type="id" name="brick_stamp_text_view" />
     <item type="id" name="brick_start_listening_layout" />
     <item type="id" name="brick_start_listening_spinner" />
+    <item type="id" name="brick_start_plot_layout" />
+    <item type="id" name="brick_start_plot_text_view" />
     <item type="id" name="brick_stitch_layout" />
     <item type="id" name="brick_stitch_textview" />
     <item type="id" name="brick_stop_all_sounds_label" />
     <item type="id" name="brick_stop_all_sounds_layout" />
+    <item type="id" name="brick_stop_plot_layout" />
+    <item type="id" name="brick_stop_plot_text_view" />
     <item type="id" name="brick_stop_script_label" />
     <item type="id" name="brick_stop_script_layout" />
     <item type="id" name="brick_stop_script_spinner" />
@@ -710,12 +717,10 @@
     <item type="id" name="button_add_input" />
     <item type="id" name="button_add_label" />
     <item type="id" name="button_add_user_brick" />
+    <item type="id" name="button_ai_assist" />
     <item type="id" name="button_play" />
     <item type="id" name="cancel_action" />
-    <item type="id" name="cancel_bg" />
     <item type="id" name="cancel_button" />
-    <item type="id" name="cancel_imageview" />
-    <item type="id" name="card" />
     <item type="id" name="cast_button" />
     <item type="id" name="cast_device_list_view" />
     <item type="id" name="cast_device_name" />
@@ -744,6 +749,9 @@
     <item type="id" name="close" />
     <item type="id" name="colorPreview" />
     <item type="id" name="color_alpha_slider" />
+    <item type="id" name="color_history_text_layout" />
+    <item type="id" name="color_history_text_view" />
+    <item type="id" name="color_history_view" />
     <item type="id" name="color_picker_alpha_row" />
     <item type="id" name="color_picker_base_layout" />
     <item type="id" name="color_picker_color_rgb_hex" />
@@ -775,12 +783,11 @@
     <item type="id" name="content" />
     <item type="id" name="contentPanel" />
     <item type="id" name="content_frame" />
-    <item type="id" name="content_layout" />
-    <item type="id" name="content_textview" />
     <item type="id" name="convert" />
     <item type="id" name="convert_button" />
     <item type="id" name="coordinator" />
     <item type="id" name="copy" />
+    <item type="id" name="copyright" />
     <item type="id" name="credits_title_view" />
     <item type="id" name="credits_view" />
     <item type="id" name="currentProjectLayout" />
@@ -803,6 +810,7 @@
     <item type="id" name="design_menu_item_action_area_stub" />
     <item type="id" name="design_menu_item_text" />
     <item type="id" name="design_navigation_view" />
+    <item type="id" name="details" />
     <item type="id" name="details_view" />
     <item type="id" name="device_list_progress_bar" />
     <item type="id" name="dialog_about_text_catrobat_url" />
@@ -810,14 +818,16 @@
     <item type="id" name="dialog_about_text_view_url" />
     <item type="id" name="dialog_about_text_view_version_name" />
     <item type="id" name="dialog_button" />
+    <item type="id" name="dialog_google_play_text" />
     <item type="id" name="dialog_login_password" />
     <item type="id" name="dialog_login_username" />
     <item type="id" name="dialog_new_look_backpack" />
     <item type="id" name="dialog_new_look_camera" />
+    <item type="id" name="dialog_new_look_empty_object" />
+    <item type="id" name="dialog_new_look_from_actors_and_objects" />
     <item type="id" name="dialog_new_look_from_local" />
     <item type="id" name="dialog_new_look_gallery" />
     <item type="id" name="dialog_new_look_media_library" />
-    <item type="id" name="dialog_new_look_object_library" />
     <item type="id" name="dialog_new_look_paintroid" />
     <item type="id" name="dialog_new_sound_gallery" />
     <item type="id" name="dialog_new_sound_media_library" />
@@ -841,10 +851,9 @@
     <item type="id" name="dialog_upload_progess_message" />
     <item type="id" name="dialog_upload_progress_image" />
     <item type="id" name="dialog_upload_progress_progressbar" />
-    <item type="id" name="divider" />
     <item type="id" name="doneAction" />
-    <item type="id" name="download_info_progress" />
     <item type="id" name="drag_and_drop_list_view_image_view" />
+    <item type="id" name="edit" />
     <item type="id" name="editProject" />
     <item type="id" name="edit_query" />
     <item type="id" name="empty_view" />
@@ -888,6 +897,8 @@
     <item type="id" name="formula_editor_keyboard_bracket_open" />
     <item type="id" name="formula_editor_keyboard_color_picker" />
     <item type="id" name="formula_editor_keyboard_compute" />
+    <item type="id" name="formula_editor_keyboard_confirm" />
+    <item type="id" name="formula_editor_keyboard_copy" />
     <item type="id" name="formula_editor_keyboard_data" />
     <item type="id" name="formula_editor_keyboard_decimal_mark" />
     <item type="id" name="formula_editor_keyboard_delete" />
@@ -898,6 +909,7 @@
     <item type="id" name="formula_editor_keyboard_minus" />
     <item type="id" name="formula_editor_keyboard_mult" />
     <item type="id" name="formula_editor_keyboard_object" />
+    <item type="id" name="formula_editor_keyboard_paste" />
     <item type="id" name="formula_editor_keyboard_plus" />
     <item type="id" name="formula_editor_keyboard_sensors" />
     <item type="id" name="formula_editor_keyboard_string" />
@@ -912,7 +924,6 @@
     <item type="id" name="fragment_script_text_description" />
     <item type="id" name="fragment_user_defined_brick_list" />
     <item type="id" name="frame_container" />
-    <item type="id" name="from_library" />
     <item type="id" name="from_local" />
     <item type="id" name="gamepadBackground" />
     <item type="id" name="gamepadButtonA" />
@@ -930,9 +941,6 @@
     <item type="id" name="group_divider" />
     <item type="id" name="headline" />
     <item type="id" name="hide_variable_spinner" />
-    <item type="id" name="hms_message_text" />
-    <item type="id" name="hms_progress_bar" />
-    <item type="id" name="hms_progress_text" />
     <item type="id" name="home" />
     <item type="id" name="huaweiAppGallery" />
     <item type="id" name="ic_ripples" />
@@ -965,7 +973,7 @@
     <item type="id" name="intro_dialog_summary" />
     <item type="id" name="intro_dialog_title" />
     <item type="id" name="item_touch_helper_previous_elevation" />
-    <item type="id" name="landscape_mode_radio_button" />
+    <item type="id" name="landscape_radio_button" />
     <item type="id" name="largeLabel" />
     <item type="id" name="last_access_title" />
     <item type="id" name="last_access_value" />
@@ -986,6 +994,7 @@
     <item type="id" name="line3" />
     <item type="id" name="list_item" />
     <item type="id" name="local" />
+    <item type="id" name="logo" />
     <item type="id" name="make_list" />
     <item type="id" name="masked" />
     <item type="id" name="media_actions" />
@@ -1010,6 +1019,7 @@
     <item type="id" name="month_navigation_previous" />
     <item type="id" name="month_title" />
     <item type="id" name="more_details_layout" />
+    <item type="id" name="motion_base" />
     <item type="id" name="motor_action_speed_edit_text" />
     <item type="id" name="motor_base_layout" />
     <item type="id" name="motor_turn_angle_edit_text" />
@@ -1092,8 +1102,6 @@
     <item type="id" name="myProjectsRecyclerView" />
     <item type="id" name="myProjectsTextView" />
     <item type="id" name="name" />
-    <item type="id" name="name_layout" />
-    <item type="id" name="name_textview" />
     <item type="id" name="navigation_header_container" />
     <item type="id" name="newProjectFloatingActionButton" />
     <item type="id" name="new_devices" />
@@ -1103,6 +1111,7 @@
     <item type="id" name="nfc_fragment_container" />
     <item type="id" name="noInternetImageView" />
     <item type="id" name="noInternetLayout" />
+    <item type="id" name="no_recently_used" />
     <item type="id" name="note_picker_button_cancel" />
     <item type="id" name="note_picker_button_ok" />
     <item type="id" name="note_picker_view" />
@@ -1121,10 +1130,10 @@
     <item type="id" name="paired_devices" />
     <item type="id" name="parentPanel" />
     <item type="id" name="parent_matrix" />
-    <item type="id" name="paste" />
     <item type="id" name="phiro_sensor_label_second_part" />
     <item type="id" name="place_visually_sprite_switch" />
     <item type="id" name="place_visually_textView" />
+    <item type="id" name="playProject" />
     <item type="id" name="playStore_link" />
     <item type="id" name="play_drum_for_beats_spinner" />
     <item type="id" name="pocket_code_image" />
@@ -1135,6 +1144,7 @@
     <item type="id" name="pocketpaint_about_header" />
     <item type="id" name="pocketpaint_about_license_url" />
     <item type="id" name="pocketpaint_about_version" />
+    <item type="id" name="pocketpaint_add_to_current_layer" />
     <item type="id" name="pocketpaint_advanced_settings" />
     <item type="id" name="pocketpaint_antialiasing" />
     <item type="id" name="pocketpaint_bottom_navigation" />
@@ -1177,13 +1187,18 @@
     <item type="id" name="pocketpaint_intro_started_text" />
     <item type="id" name="pocketpaint_intro_welcome_head" />
     <item type="id" name="pocketpaint_intro_welcome_text" />
+    <item type="id" name="pocketpaint_item_layer" />
     <item type="id" name="pocketpaint_item_layer_background" />
     <item type="id" name="pocketpaint_item_layer_image" />
     <item type="id" name="pocketpaint_jpg_seekbar_save_info" />
     <item type="id" name="pocketpaint_layer_actions_container" />
     <item type="id" name="pocketpaint_layer_drag_handle" />
+    <item type="id" name="pocketpaint_layer_opacity_seekbar" />
+    <item type="id" name="pocketpaint_layer_opacity_value" />
+    <item type="id" name="pocketpaint_layer_preview_container" />
     <item type="id" name="pocketpaint_layer_side_nav_button_add" />
     <item type="id" name="pocketpaint_layer_side_nav_button_delete" />
+    <item type="id" name="pocketpaint_layer_side_nav_button_opacity" />
     <item type="id" name="pocketpaint_layer_side_nav_button_visibility" />
     <item type="id" name="pocketpaint_layer_side_nav_list" />
     <item type="id" name="pocketpaint_layer_side_nav_menu" />
@@ -1213,6 +1228,7 @@
     <item type="id" name="pocketpaint_pressure_seek_bar" />
     <item type="id" name="pocketpaint_progress_bar" />
     <item type="id" name="pocketpaint_radius_text" />
+    <item type="id" name="pocketpaint_replace_image" />
     <item type="id" name="pocketpaint_save_dialog_spinner" />
     <item type="id" name="pocketpaint_save_format_specific_options" />
     <item type="id" name="pocketpaint_save_info_title" />
@@ -1230,28 +1246,36 @@
     <item type="id" name="pocketpaint_share_image_button" />
     <item type="id" name="pocketpaint_slide_intro_tools_selection" />
     <item type="id" name="pocketpaint_smoothing" />
+    <item type="id" name="pocketpaint_smudge_bottom_layout" />
     <item type="id" name="pocketpaint_smudge_tool_dialog_drag_input" />
     <item type="id" name="pocketpaint_smudge_tool_dialog_drag_input_text_view" />
     <item type="id" name="pocketpaint_smudge_tool_dialog_pressure_input" />
     <item type="id" name="pocketpaint_smudge_tool_dialog_pressure_input_text_view" />
+    <item type="id" name="pocketpaint_smudge_top_layout" />
     <item type="id" name="pocketpaint_spray_radius_seek_bar" />
     <item type="id" name="pocketpaint_spray_radius_text_layout" />
+    <item type="id" name="pocketpaint_spray_seperator" />
+    <item type="id" name="pocketpaint_stroke_bottom_layout" />
     <item type="id" name="pocketpaint_stroke_ibtn_circle" />
     <item type="id" name="pocketpaint_stroke_ibtn_rect" />
+    <item type="id" name="pocketpaint_stroke_top_layout" />
     <item type="id" name="pocketpaint_stroke_types" />
     <item type="id" name="pocketpaint_stroke_width_seek_bar" />
     <item type="id" name="pocketpaint_stroke_width_width_text" />
     <item type="id" name="pocketpaint_stroke_width_width_text_layout" />
+    <item type="id" name="pocketpaint_text_bottom_layout" />
     <item type="id" name="pocketpaint_text_tool_dialog_input_text" />
     <item type="id" name="pocketpaint_text_tool_dialog_input_text_layout" />
     <item type="id" name="pocketpaint_text_tool_dialog_list_font" />
     <item type="id" name="pocketpaint_text_tool_dialog_toggle_bold" />
     <item type="id" name="pocketpaint_text_tool_dialog_toggle_italic" />
     <item type="id" name="pocketpaint_text_tool_dialog_toggle_underlined" />
+    <item type="id" name="pocketpaint_text_top_layout" />
     <item type="id" name="pocketpaint_textview_intro_tools_header" />
     <item type="id" name="pocketpaint_textview_intro_tools_text" />
     <item type="id" name="pocketpaint_toolbar" />
     <item type="id" name="pocketpaint_tools_brush" />
+    <item type="id" name="pocketpaint_tools_clipping" />
     <item type="id" name="pocketpaint_tools_cursor" />
     <item type="id" name="pocketpaint_tools_eraser" />
     <item type="id" name="pocketpaint_tools_fill" />
@@ -1283,6 +1307,12 @@
     <item type="id" name="pocketpaint_transform_width_text" />
     <item type="id" name="pocketpaint_transform_width_value" />
     <item type="id" name="pocketpaint_view_pager" />
+    <item type="id" name="pocketpaint_zoom_window" />
+    <item type="id" name="pocketpaint_zoom_window_enabled" />
+    <item type="id" name="pocketpaint_zoom_window_image" />
+    <item type="id" name="pocketpaint_zoom_window_settings" />
+    <item type="id" name="pocketpaint_zoom_window_slider" />
+    <item type="id" name="pocketpaint_zoom_window_slider_progress" />
     <item type="id" name="portrait_radio_button" />
     <item type="id" name="previewSurface" />
     <item type="id" name="privacy_warning" />
@@ -1314,6 +1344,7 @@
     <item type="id" name="project_size_view" />
     <item type="id" name="project_title_view" />
     <item type="id" name="project_upload_name" />
+    <item type="id" name="provider" />
     <item type="id" name="radio" />
     <item type="id" name="radio_button" />
     <item type="id" name="radio_group" />
@@ -1322,6 +1353,7 @@
     <item type="id" name="read_list_from_device_spinner" />
     <item type="id" name="read_variable_from_device_label" />
     <item type="id" name="read_variable_from_device_spinner" />
+    <item type="id" name="recent_used_header" />
     <item type="id" name="recycler_view" />
     <item type="id" name="recycler_view_finished" />
     <item type="id" name="recycler_view_in_progress" />
@@ -1356,7 +1388,6 @@
     <item type="id" name="scrollIndicatorDown" />
     <item type="id" name="scrollIndicatorUp" />
     <item type="id" name="scrollView" />
-    <item type="id" name="scroll_layout" />
     <item type="id" name="search" />
     <item type="id" name="search_badge" />
     <item type="id" name="search_bar" />
@@ -1388,7 +1419,6 @@
     <item type="id" name="single_seekbar_seekbar" />
     <item type="id" name="single_seekbar_title" />
     <item type="id" name="single_seekbar_value" />
-    <item type="id" name="size_layout" />
     <item type="id" name="size_title" />
     <item type="id" name="size_value" />
     <item type="id" name="skip_bluetooth" />
@@ -1436,10 +1466,15 @@
     <item type="id" name="tag_accessibility_clickable_spans" />
     <item type="id" name="tag_accessibility_heading" />
     <item type="id" name="tag_accessibility_pane_title" />
+    <item type="id" name="tag_on_apply_window_listener" />
+    <item type="id" name="tag_on_receive_content_listener" />
+    <item type="id" name="tag_on_receive_content_mime_types" />
     <item type="id" name="tag_screen_reader_focusable" />
+    <item type="id" name="tag_state_description" />
     <item type="id" name="tag_transition_group" />
     <item type="id" name="tag_unhandled_key_event_manager" />
     <item type="id" name="tag_unhandled_key_listeners" />
+    <item type="id" name="tag_window_insets_animation_callback" />
     <item type="id" name="tags" />
     <item type="id" name="test_checkbox_android_button_tint" />
     <item type="id" name="test_checkbox_app_button_tint" />
@@ -1458,13 +1493,11 @@
     <item type="id" name="textinput_placeholder" />
     <item type="id" name="textinput_prefix_text" />
     <item type="id" name="textinput_suffix_text" />
-    <item type="id" name="third_app_dl_progress_text" />
-    <item type="id" name="third_app_dl_progressbar" />
-    <item type="id" name="third_app_warn_text" />
     <item type="id" name="time" />
     <item type="id" name="tiro" />
     <item type="id" name="title" />
     <item type="id" name="titleDividerNoCustom" />
+    <item type="id" name="title_option_item" />
     <item type="id" name="title_template" />
     <item type="id" name="title_view" />
     <item type="id" name="toggle_selection" />
@@ -1489,20 +1522,19 @@
     <item type="id" name="user_data_user_brick_edit_field" />
     <item type="id" name="user_data_user_brick_text_layout" />
     <item type="id" name="value_view" />
-    <item type="id" name="version_layout" />
-    <item type="id" name="version_textview" />
     <item type="id" name="view_holder_sprite_group" />
     <item type="id" name="view_holder_with_checkbox" />
     <item type="id" name="view_offset_helper" />
-    <item type="id" name="visible" />
+    <item type="id" name="view_transition" />
     <item type="id" name="visible_removing_fragment_view_tag" />
     <item type="id" name="volume_item_container" />
     <item type="id" name="wait_until_label" />
     <item type="id" name="wait_until_label_second_part" />
+    <item type="id" name="waveLineView" />
     <item type="id" name="webView" />
     <item type="id" name="web_request_spinner" />
     <item type="id" name="website_link" />
-    <item type="id" name="webview_1" />
+    <item type="id" name="webview" />
     <item type="id" name="welcome" />
     <item type="id" name="when_condition_label_second_part" />
     <item type="id" name="when_conditon_label" />

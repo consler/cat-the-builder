@@ -51,10 +51,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/Observable;IJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)V
     .locals 0
-    .param p2, "bufferSize"    # I
-    .param p3, "time"    # J
-    .param p5, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p6, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,8 +63,6 @@
     .end annotation
 
     .line 362
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$BufferedTimedReplayCallable;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$BufferedTimedReplayCallable<TT;>;"
-    .local p1, "parent":Lio/reactivex/Observable;, "Lio/reactivex/Observable<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 363
@@ -86,7 +80,6 @@
     .line 367
     iput-object p6, p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$BufferedTimedReplayCallable;->scheduler:Lio/reactivex/Scheduler;
 
-    .line 368
     return-void
 .end method
 
@@ -103,7 +96,6 @@
     .end annotation
 
     .line 372
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$BufferedTimedReplayCallable;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$BufferedTimedReplayCallable<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$BufferedTimedReplayCallable;->parent:Lio/reactivex/Observable;
 
     iget v1, p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$BufferedTimedReplayCallable;->bufferSize:I
@@ -130,7 +122,6 @@
     .end annotation
 
     .line 355
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$BufferedTimedReplayCallable;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$BufferedTimedReplayCallable<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$BufferedTimedReplayCallable;->call()Lio/reactivex/observables/ConnectableObservable;
 
     move-result-object v0

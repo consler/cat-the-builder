@@ -15,8 +15,6 @@
 # direct methods
 .method constructor <init>(Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;Landroidx/room/AutoCloser;)V
     .locals 0
-    .param p1, "factory"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
-    .param p2, "autoCloser"    # Landroidx/room/AutoCloser;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -37,15 +35,13 @@
     .line 36
     iput-object p2, p0, Landroidx/room/AutoClosingRoomOpenHelperFactory;->mAutoCloser:Landroidx/room/AutoCloser;
 
-    .line 37
     return-void
 .end method
 
 
 # virtual methods
 .method public create(Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration;)Landroidx/room/AutoClosingRoomOpenHelper;
-    .locals 3
-    .param p1, "configuration"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -62,11 +58,11 @@
 
     invoke-interface {v1, p1}, Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;->create(Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration;)Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 
-    move-result-object v1
+    move-result-object p1
 
-    iget-object v2, p0, Landroidx/room/AutoClosingRoomOpenHelperFactory;->mAutoCloser:Landroidx/room/AutoCloser;
+    iget-object v1, p0, Landroidx/room/AutoClosingRoomOpenHelperFactory;->mAutoCloser:Landroidx/room/AutoCloser;
 
-    invoke-direct {v0, v1, v2}, Landroidx/room/AutoClosingRoomOpenHelper;-><init>(Landroidx/sqlite/db/SupportSQLiteOpenHelper;Landroidx/room/AutoCloser;)V
+    invoke-direct {v0, p1, v1}, Landroidx/room/AutoClosingRoomOpenHelper;-><init>(Landroidx/sqlite/db/SupportSQLiteOpenHelper;Landroidx/room/AutoCloser;)V
 
     return-object v0
 .end method

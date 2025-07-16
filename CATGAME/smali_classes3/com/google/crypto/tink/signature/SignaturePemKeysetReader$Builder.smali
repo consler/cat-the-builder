@@ -40,7 +40,6 @@
 
     iput-object v0, p0, Lcom/google/crypto/tink/signature/SignaturePemKeysetReader$Builder;->pemKeys:Ljava/util/List;
 
-    .line 76
     return-void
 .end method
 
@@ -48,8 +47,6 @@
 # virtual methods
 .method public addPem(Ljava/lang/String;Lcom/google/crypto/tink/subtle/PemKeyType;)Lcom/google/crypto/tink/signature/SignaturePemKeysetReader$Builder;
     .locals 3
-    .param p1, "pem"    # Ljava/lang/String;
-    .param p2, "keyType"    # Lcom/google/crypto/tink/subtle/PemKeyType;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -69,7 +66,6 @@
     invoke-direct {v0, v1}, Lcom/google/crypto/tink/signature/SignaturePemKeysetReader$PemKey;-><init>(Lcom/google/crypto/tink/signature/SignaturePemKeysetReader$1;)V
 
     .line 92
-    .local v0, "pemKey":Lcom/google/crypto/tink/signature/SignaturePemKeysetReader$PemKey;
     new-instance v1, Ljava/io/BufferedReader;
 
     new-instance v2, Ljava/io/StringReader;
@@ -84,11 +80,10 @@
     iput-object p2, v0, Lcom/google/crypto/tink/signature/SignaturePemKeysetReader$PemKey;->type:Lcom/google/crypto/tink/subtle/PemKeyType;
 
     .line 94
-    iget-object v1, p0, Lcom/google/crypto/tink/signature/SignaturePemKeysetReader$Builder;->pemKeys:Ljava/util/List;
+    iget-object p1, p0, Lcom/google/crypto/tink/signature/SignaturePemKeysetReader$Builder;->pemKeys:Ljava/util/List;
 
-    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 95
     return-object p0
 .end method
 

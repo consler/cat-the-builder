@@ -21,11 +21,6 @@
 # direct methods
 .method constructor <init>(Lar/com/hjg/pngj/ChunkSeqReader;ILjava/lang/String;ZJLar/com/hjg/pngj/DeflatedChunksSet;)V
     .locals 7
-    .param p2, "x0"    # I
-    .param p3, "x1"    # Ljava/lang/String;
-    .param p4, "x2"    # Z
-    .param p5, "x3"    # J
-    .param p7, "x4"    # Lar/com/hjg/pngj/DeflatedChunksSet;
 
     .line 165
     iput-object p1, p0, Lar/com/hjg/pngj/ChunkSeqReader$1;->this$0:Lar/com/hjg/pngj/ChunkSeqReader;
@@ -57,6 +52,5 @@
 
     invoke-virtual {v0, p0}, Lar/com/hjg/pngj/ChunkSeqReader;->postProcessChunk(Lar/com/hjg/pngj/ChunkReader;)V
 
-    .line 169
     return-void
 .end method

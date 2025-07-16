@@ -24,75 +24,67 @@
 .method constructor <init>()V
     .locals 1
 
-    .line 954
     const-string v0, "CodedOutputStream was writing to a flat byte array and ran out of space."
 
+    .line 954
     invoke-direct {p0, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    .line 955
     return-void
 .end method
 
 .method constructor <init>(Ljava/lang/String;)V
     .locals 2
-    .param p1, "explanationMessage"    # Ljava/lang/String;
 
     .line 958
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "CodedOutputStream was writing to a flat byte array and ran out of space.: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {p0, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    .line 959
+    invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
     return-void
 .end method
 
 .method constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "explanationMessage"    # Ljava/lang/String;
-    .param p2, "cause"    # Ljava/lang/Throwable;
 
     .line 966
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "CodedOutputStream was writing to a flat byte array and ran out of space.: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {p0, v0, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    move-result-object p1
 
-    .line 967
+    invoke-direct {p0, p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
     return-void
 .end method
 
 .method constructor <init>(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "cause"    # Ljava/lang/Throwable;
 
-    .line 962
     const-string v0, "CodedOutputStream was writing to a flat byte array and ran out of space."
 
+    .line 962
     invoke-direct {p0, v0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 963
     return-void
 .end method

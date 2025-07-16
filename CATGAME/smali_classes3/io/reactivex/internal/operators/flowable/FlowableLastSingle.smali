@@ -52,9 +52,6 @@
     .end annotation
 
     .line 36
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableLastSingle;, "Lio/reactivex/internal/operators/flowable/FlowableLastSingle<TT;>;"
-    .local p1, "source":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TT;>;"
-    .local p2, "defaultItem":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 37
@@ -63,7 +60,6 @@
     .line 38
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableLastSingle;->defaultItem:Ljava/lang/Object;
 
-    .line 39
     return-void
 .end method
 
@@ -80,8 +76,6 @@
     .end annotation
 
     .line 45
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableLastSingle;, "Lio/reactivex/internal/operators/flowable/FlowableLastSingle<TT;>;"
-    .local p1, "observer":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableLastSingle;->source:Lorg/reactivestreams/Publisher;
 
     new-instance v1, Lio/reactivex/internal/operators/flowable/FlowableLastSingle$LastSubscriber;
@@ -92,6 +86,5 @@
 
     invoke-interface {v0, v1}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
 
-    .line 46
     return-void
 .end method

@@ -36,6 +36,14 @@
 # virtual methods
 .method public bridge synthetic addShortcuts(Ljava/util/List;)Ljava/lang/Object;
     .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1000
+        }
+        names = {
+            "shortcuts"
+        }
+    .end annotation
 
     .line 56
     invoke-virtual {p0, p1}, Landroidx/core/content/pm/ShortcutInfoCompatSaver$NoopImpl;->addShortcuts(Ljava/util/List;)Ljava/lang/Void;
@@ -46,7 +54,16 @@
 .end method
 
 .method public addShortcuts(Ljava/util/List;)Ljava/lang/Void;
-    .locals 1
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "shortcuts"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -57,11 +74,9 @@
         }
     .end annotation
 
-    .line 60
-    .local p1, "shortcuts":Ljava/util/List;, "Ljava/util/List<Landroidx/core/content/pm/ShortcutInfoCompat;>;"
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic removeAllShortcuts()Ljava/lang/Object;
@@ -78,7 +93,6 @@
 .method public removeAllShortcuts()Ljava/lang/Void;
     .locals 1
 
-    .line 70
     const/4 v0, 0x0
 
     return-object v0
@@ -86,6 +100,14 @@
 
 .method public bridge synthetic removeShortcuts(Ljava/util/List;)Ljava/lang/Object;
     .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1000
+        }
+        names = {
+            "shortcutIds"
+        }
+    .end annotation
 
     .line 56
     invoke-virtual {p0, p1}, Landroidx/core/content/pm/ShortcutInfoCompatSaver$NoopImpl;->removeShortcuts(Ljava/util/List;)Ljava/lang/Void;
@@ -96,7 +118,16 @@
 .end method
 
 .method public removeShortcuts(Ljava/util/List;)Ljava/lang/Void;
-    .locals 1
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "shortcutIds"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -107,9 +138,7 @@
         }
     .end annotation
 
-    .line 65
-    .local p1, "shortcutIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method

@@ -155,11 +155,11 @@
 
     if-eqz v0, :cond_0
 
-    .line 53
     const-string v0, "GmsCore_OpenSSL"
 
     const-string v1, "AndroidOpenSSL"
 
+    .line 53
     filled-new-array {v0, v1}, [Ljava/lang/String;
 
     move-result-object v0
@@ -263,7 +263,7 @@
 .end method
 
 .method public constructor <init>(Lcom/google/crypto/tink/subtle/EngineWrapper;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -280,29 +280,26 @@
     .end annotation
 
     .line 139
-    .local p0, "this":Lcom/google/crypto/tink/subtle/EngineFactory;, "Lcom/google/crypto/tink/subtle/EngineFactory<TT_WRAPPER;TT_ENGINE;>;"
-    .local p1, "instanceBuilder":Lcom/google/crypto/tink/subtle/EngineWrapper;, "TT_WRAPPER;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 140
     iput-object p1, p0, Lcom/google/crypto/tink/subtle/EngineFactory;->instanceBuilder:Lcom/google/crypto/tink/subtle/EngineWrapper;
 
     .line 141
-    sget-object v0, Lcom/google/crypto/tink/subtle/EngineFactory;->defaultPolicy:Ljava/util/List;
+    sget-object p1, Lcom/google/crypto/tink/subtle/EngineFactory;->defaultPolicy:Ljava/util/List;
 
-    iput-object v0, p0, Lcom/google/crypto/tink/subtle/EngineFactory;->policy:Ljava/util/List;
+    iput-object p1, p0, Lcom/google/crypto/tink/subtle/EngineFactory;->policy:Ljava/util/List;
+
+    const/4 p1, 0x1
 
     .line 142
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/google/crypto/tink/subtle/EngineFactory;->letFallback:Z
 
-    iput-boolean v0, p0, Lcom/google/crypto/tink/subtle/EngineFactory;->letFallback:Z
-
-    .line 143
     return-void
 .end method
 
 .method public constructor <init>(Lcom/google/crypto/tink/subtle/EngineWrapper;Ljava/util/List;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -324,9 +321,6 @@
     .end annotation
 
     .line 145
-    .local p0, "this":Lcom/google/crypto/tink/subtle/EngineFactory;, "Lcom/google/crypto/tink/subtle/EngineFactory<TT_WRAPPER;TT_ENGINE;>;"
-    .local p1, "instanceBuilder":Lcom/google/crypto/tink/subtle/EngineWrapper;, "TT_WRAPPER;"
-    .local p2, "policy":Ljava/util/List;, "Ljava/util/List<Ljava/security/Provider;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 146
@@ -335,18 +329,16 @@
     .line 147
     iput-object p2, p0, Lcom/google/crypto/tink/subtle/EngineFactory;->policy:Ljava/util/List;
 
+    const/4 p1, 0x1
+
     .line 148
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/google/crypto/tink/subtle/EngineFactory;->letFallback:Z
 
-    iput-boolean v0, p0, Lcom/google/crypto/tink/subtle/EngineFactory;->letFallback:Z
-
-    .line 149
     return-void
 .end method
 
 .method public constructor <init>(Lcom/google/crypto/tink/subtle/EngineWrapper;Ljava/util/List;Z)V
     .locals 0
-    .param p3, "letFallback"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -370,9 +362,6 @@
     .end annotation
 
     .line 151
-    .local p0, "this":Lcom/google/crypto/tink/subtle/EngineFactory;, "Lcom/google/crypto/tink/subtle/EngineFactory<TT_WRAPPER;TT_ENGINE;>;"
-    .local p1, "instanceBuilder":Lcom/google/crypto/tink/subtle/EngineWrapper;, "TT_WRAPPER;"
-    .local p2, "policy":Ljava/util/List;, "Ljava/util/List<Ljava/security/Provider;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 152
@@ -384,14 +373,11 @@
     .line 154
     iput-boolean p3, p0, Lcom/google/crypto/tink/subtle/EngineFactory;->letFallback:Z
 
-    .line 155
     return-void
 .end method
 
 .method public static final varargs getCustomCipherProvider(Z[Ljava/lang/String;)Lcom/google/crypto/tink/subtle/EngineFactory;
-    .locals 3
-    .param p0, "letFallbackToDefault"    # Z
-    .param p1, "providerNames"    # [Ljava/lang/String;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -425,18 +411,15 @@
     .line 68
     invoke-static {p1}, Lcom/google/crypto/tink/subtle/EngineFactory;->toProviderList([Ljava/lang/String;)Ljava/util/List;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v0, v1, v2, p0}, Lcom/google/crypto/tink/subtle/EngineFactory;-><init>(Lcom/google/crypto/tink/subtle/EngineWrapper;Ljava/util/List;Z)V
+    invoke-direct {v0, v1, p1, p0}, Lcom/google/crypto/tink/subtle/EngineFactory;-><init>(Lcom/google/crypto/tink/subtle/EngineWrapper;Ljava/util/List;Z)V
 
-    .line 67
     return-object v0
 .end method
 
 .method public static final varargs getCustomKeyAgreementProvider(Z[Ljava/lang/String;)Lcom/google/crypto/tink/subtle/EngineFactory;
-    .locals 3
-    .param p0, "letFallbackToDefault"    # Z
-    .param p1, "providerNames"    # [Ljava/lang/String;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -470,18 +453,15 @@
     .line 104
     invoke-static {p1}, Lcom/google/crypto/tink/subtle/EngineFactory;->toProviderList([Ljava/lang/String;)Ljava/util/List;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v0, v1, v2, p0}, Lcom/google/crypto/tink/subtle/EngineFactory;-><init>(Lcom/google/crypto/tink/subtle/EngineWrapper;Ljava/util/List;Z)V
+    invoke-direct {v0, v1, p1, p0}, Lcom/google/crypto/tink/subtle/EngineFactory;-><init>(Lcom/google/crypto/tink/subtle/EngineWrapper;Ljava/util/List;Z)V
 
-    .line 103
     return-object v0
 .end method
 
 .method public static final varargs getCustomKeyFactoryProvider(Z[Ljava/lang/String;)Lcom/google/crypto/tink/subtle/EngineFactory;
-    .locals 3
-    .param p0, "letFallbackToDefault"    # Z
-    .param p1, "providerNames"    # [Ljava/lang/String;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -515,18 +495,15 @@
     .line 122
     invoke-static {p1}, Lcom/google/crypto/tink/subtle/EngineFactory;->toProviderList([Ljava/lang/String;)Ljava/util/List;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v0, v1, v2, p0}, Lcom/google/crypto/tink/subtle/EngineFactory;-><init>(Lcom/google/crypto/tink/subtle/EngineWrapper;Ljava/util/List;Z)V
+    invoke-direct {v0, v1, p1, p0}, Lcom/google/crypto/tink/subtle/EngineFactory;-><init>(Lcom/google/crypto/tink/subtle/EngineWrapper;Ljava/util/List;Z)V
 
-    .line 121
     return-object v0
 .end method
 
 .method public static final varargs getCustomKeyPairGeneratorProvider(Z[Ljava/lang/String;)Lcom/google/crypto/tink/subtle/EngineFactory;
-    .locals 3
-    .param p0, "letFallbackToDefault"    # Z
-    .param p1, "providerNames"    # [Ljava/lang/String;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -560,18 +537,15 @@
     .line 113
     invoke-static {p1}, Lcom/google/crypto/tink/subtle/EngineFactory;->toProviderList([Ljava/lang/String;)Ljava/util/List;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v0, v1, v2, p0}, Lcom/google/crypto/tink/subtle/EngineFactory;-><init>(Lcom/google/crypto/tink/subtle/EngineWrapper;Ljava/util/List;Z)V
+    invoke-direct {v0, v1, p1, p0}, Lcom/google/crypto/tink/subtle/EngineFactory;-><init>(Lcom/google/crypto/tink/subtle/EngineWrapper;Ljava/util/List;Z)V
 
-    .line 112
     return-object v0
 .end method
 
 .method public static final varargs getCustomMacProvider(Z[Ljava/lang/String;)Lcom/google/crypto/tink/subtle/EngineFactory;
-    .locals 3
-    .param p0, "letFallbackToDefault"    # Z
-    .param p1, "providerNames"    # [Ljava/lang/String;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -605,18 +579,15 @@
     .line 77
     invoke-static {p1}, Lcom/google/crypto/tink/subtle/EngineFactory;->toProviderList([Ljava/lang/String;)Ljava/util/List;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v0, v1, v2, p0}, Lcom/google/crypto/tink/subtle/EngineFactory;-><init>(Lcom/google/crypto/tink/subtle/EngineWrapper;Ljava/util/List;Z)V
+    invoke-direct {v0, v1, p1, p0}, Lcom/google/crypto/tink/subtle/EngineFactory;-><init>(Lcom/google/crypto/tink/subtle/EngineWrapper;Ljava/util/List;Z)V
 
-    .line 76
     return-object v0
 .end method
 
 .method public static final varargs getCustomMessageDigestProvider(Z[Ljava/lang/String;)Lcom/google/crypto/tink/subtle/EngineFactory;
-    .locals 3
-    .param p0, "letFallbackToDefault"    # Z
-    .param p1, "providerNames"    # [Ljava/lang/String;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -650,18 +621,15 @@
     .line 95
     invoke-static {p1}, Lcom/google/crypto/tink/subtle/EngineFactory;->toProviderList([Ljava/lang/String;)Ljava/util/List;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v0, v1, v2, p0}, Lcom/google/crypto/tink/subtle/EngineFactory;-><init>(Lcom/google/crypto/tink/subtle/EngineWrapper;Ljava/util/List;Z)V
+    invoke-direct {v0, v1, p1, p0}, Lcom/google/crypto/tink/subtle/EngineFactory;-><init>(Lcom/google/crypto/tink/subtle/EngineWrapper;Ljava/util/List;Z)V
 
-    .line 94
     return-object v0
 .end method
 
 .method public static final varargs getCustomSignatureProvider(Z[Ljava/lang/String;)Lcom/google/crypto/tink/subtle/EngineFactory;
-    .locals 3
-    .param p0, "letFallbackToDefault"    # Z
-    .param p1, "providerNames"    # [Ljava/lang/String;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -695,17 +663,15 @@
     .line 86
     invoke-static {p1}, Lcom/google/crypto/tink/subtle/EngineFactory;->toProviderList([Ljava/lang/String;)Ljava/util/List;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v0, v1, v2, p0}, Lcom/google/crypto/tink/subtle/EngineFactory;-><init>(Lcom/google/crypto/tink/subtle/EngineWrapper;Ljava/util/List;Z)V
+    invoke-direct {v0, v1, p1, p0}, Lcom/google/crypto/tink/subtle/EngineFactory;-><init>(Lcom/google/crypto/tink/subtle/EngineWrapper;Ljava/util/List;Z)V
 
-    .line 85
     return-object v0
 .end method
 
 .method public static varargs toProviderList([Ljava/lang/String;)Ljava/util/List;
-    .locals 9
-    .param p0, "providerNames"    # [Ljava/lang/String;
+    .locals 7
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -732,7 +698,6 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 128
-    .local v0, "providers":Ljava/util/List;, "Ljava/util/List<Ljava/security/Provider;>;"
     array-length v1, p0
 
     const/4 v2, 0x0
@@ -745,13 +710,10 @@
     aget-object v4, p0, v3
 
     .line 129
-    .local v4, "s":Ljava/lang/String;
     invoke-static {v4}, Ljava/security/Security;->getProvider(Ljava/lang/String;)Ljava/security/Provider;
 
     move-result-object v5
 
-    .line 130
-    .local v5, "p":Ljava/security/Provider;
     if-eqz v5, :cond_0
 
     .line 131
@@ -761,31 +723,27 @@
 
     .line 133
     :cond_0
-    sget-object v6, Lcom/google/crypto/tink/subtle/EngineFactory;->logger:Ljava/util/logging/Logger;
+    sget-object v5, Lcom/google/crypto/tink/subtle/EngineFactory;->logger:Ljava/util/logging/Logger;
 
-    const/4 v7, 0x1
+    const/4 v6, 0x1
 
-    new-array v7, v7, [Ljava/lang/Object;
+    new-array v6, v6, [Ljava/lang/Object;
 
-    aput-object v4, v7, v2
+    aput-object v4, v6, v2
 
-    const-string v8, "Provider %s not available"
+    const-string v4, "Provider %s not available"
 
-    invoke-static {v8, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v4, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v4
 
-    invoke-virtual {v6, v7}, Ljava/util/logging/Logger;->info(Ljava/lang/String;)V
+    invoke-virtual {v5, v4}, Ljava/util/logging/Logger;->info(Ljava/lang/String;)V
 
-    .line 128
-    .end local v4    # "s":Ljava/lang/String;
-    .end local v5    # "p":Ljava/security/Provider;
     :goto_1
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 136
     :cond_1
     return-object v0
 .end method
@@ -793,8 +751,7 @@
 
 # virtual methods
 .method public getInstance(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 4
-    .param p1, "algorithm"    # Ljava/lang/String;
+    .locals 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -818,85 +775,74 @@
         }
     .end annotation
 
-    .line 158
-    .local p0, "this":Lcom/google/crypto/tink/subtle/EngineFactory;, "Lcom/google/crypto/tink/subtle/EngineFactory<TT_WRAPPER;TT_ENGINE;>;"
-    const/4 v0, 0x0
-
     .line 159
-    .local v0, "cause":Ljava/lang/Exception;
-    iget-object v1, p0, Lcom/google/crypto/tink/subtle/EngineFactory;->policy:Ljava/util/List;
+    iget-object v0, p0, Lcom/google/crypto/tink/subtle/EngineFactory;->policy:Ljava/util/List;
 
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v0
 
+    const/4 v1, 0x0
+
+    move-object v2, v1
+
+    :cond_0
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_1
+    if-eqz v3, :cond_1
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Ljava/security/Provider;
+    check-cast v3, Ljava/security/Provider;
 
     .line 161
-    .local v2, "provider":Ljava/security/Provider;
     :try_start_0
-    iget-object v3, p0, Lcom/google/crypto/tink/subtle/EngineFactory;->instanceBuilder:Lcom/google/crypto/tink/subtle/EngineWrapper;
+    iget-object v4, p0, Lcom/google/crypto/tink/subtle/EngineFactory;->instanceBuilder:Lcom/google/crypto/tink/subtle/EngineWrapper;
 
-    invoke-interface {v3, p1, v2}, Lcom/google/crypto/tink/subtle/EngineWrapper;->getInstance(Ljava/lang/String;Ljava/security/Provider;)Ljava/lang/Object;
+    invoke-interface {v4, p1, v3}, Lcom/google/crypto/tink/subtle/EngineWrapper;->getInstance(Ljava/lang/String;Ljava/security/Provider;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v1
+    return-object p1
 
-    .line 162
     :catch_0
     move-exception v3
 
-    .line 163
-    .local v3, "e":Ljava/lang/Exception;
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
-    .line 164
-    move-object v0, v3
+    move-object v2, v3
 
-    .line 167
-    .end local v2    # "provider":Ljava/security/Provider;
-    .end local v3    # "e":Ljava/lang/Exception;
-    :cond_0
     goto :goto_0
 
     .line 168
     :cond_1
-    iget-boolean v1, p0, Lcom/google/crypto/tink/subtle/EngineFactory;->letFallback:Z
+    iget-boolean v0, p0, Lcom/google/crypto/tink/subtle/EngineFactory;->letFallback:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
     .line 169
-    iget-object v1, p0, Lcom/google/crypto/tink/subtle/EngineFactory;->instanceBuilder:Lcom/google/crypto/tink/subtle/EngineWrapper;
+    iget-object v0, p0, Lcom/google/crypto/tink/subtle/EngineFactory;->instanceBuilder:Lcom/google/crypto/tink/subtle/EngineWrapper;
 
-    const/4 v2, 0x0
+    invoke-interface {v0, p1, v1}, Lcom/google/crypto/tink/subtle/EngineWrapper;->getInstance(Ljava/lang/String;Ljava/security/Provider;)Ljava/lang/Object;
 
-    invoke-interface {v1, p1, v2}, Lcom/google/crypto/tink/subtle/EngineWrapper;->getInstance(Ljava/lang/String;Ljava/security/Provider;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v1
-
-    return-object v1
+    return-object p1
 
     .line 171
     :cond_2
-    new-instance v1, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    const-string v2, "No good Provider found."
+    const-string v0, "No good Provider found."
 
-    invoke-direct {v1, v2, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p1, v0, v2}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v1
+    throw p1
 .end method

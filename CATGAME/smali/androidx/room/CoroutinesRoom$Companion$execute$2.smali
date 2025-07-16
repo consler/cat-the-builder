@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -99,17 +99,17 @@
         }
     .end annotation
 
-    const-string v0, "completion"
+    const-string p1, "completion"
 
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    new-instance v0, Landroidx/room/CoroutinesRoom$Companion$execute$2;
+    new-instance p1, Landroidx/room/CoroutinesRoom$Companion$execute$2;
 
-    iget-object v1, p0, Landroidx/room/CoroutinesRoom$Companion$execute$2;->$callable:Ljava/util/concurrent/Callable;
+    iget-object v0, p0, Landroidx/room/CoroutinesRoom$Companion$execute$2;->$callable:Ljava/util/concurrent/Callable;
 
-    invoke-direct {v0, v1, p2}, Landroidx/room/CoroutinesRoom$Companion$execute$2;-><init>(Ljava/util/concurrent/Callable;Lkotlin/coroutines/Continuation;)V
+    invoke-direct {p1, v0, p2}, Landroidx/room/CoroutinesRoom$Companion$execute$2;-><init>(Ljava/util/concurrent/Callable;Lkotlin/coroutines/Continuation;)V
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -133,7 +133,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .locals 1
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -144,21 +144,15 @@
 
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    move-object v0, p0
-
     .line 61
-    .local v0, "this":Landroidx/room/CoroutinesRoom$Companion$execute$2;
-    .local p1, "$result":Ljava/lang/Object;
-    iget-object v1, v0, Landroidx/room/CoroutinesRoom$Companion$execute$2;->$callable:Ljava/util/concurrent/Callable;
+    iget-object p1, p0, Landroidx/room/CoroutinesRoom$Companion$execute$2;->$callable:Ljava/util/concurrent/Callable;
 
-    invoke-interface {v1}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
-    .end local v0    # "this":Landroidx/room/CoroutinesRoom$Companion$execute$2;
-    .end local p1    # "$result":Ljava/lang/Object;
     :cond_0
     new-instance p1, Ljava/lang/IllegalStateException;
 

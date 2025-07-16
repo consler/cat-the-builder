@@ -4,23 +4,25 @@
 
 
 # static fields
-.field private static a:Lcom/huawei/hms/api/ProtocolNegotiate;
+.field private static final MAX_VERSION:I = 0x2
+
+.field private static instance:Lcom/huawei/hms/api/ProtocolNegotiate;
 
 
 # instance fields
-.field private b:I
+.field private version:I
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 20
+    .line 1
     new-instance v0, Lcom/huawei/hms/api/ProtocolNegotiate;
 
     invoke-direct {v0}, Lcom/huawei/hms/api/ProtocolNegotiate;-><init>()V
 
-    sput-object v0, Lcom/huawei/hms/api/ProtocolNegotiate;->a:Lcom/huawei/hms/api/ProtocolNegotiate;
+    sput-object v0, Lcom/huawei/hms/api/ProtocolNegotiate;->instance:Lcom/huawei/hms/api/ProtocolNegotiate;
 
     return-void
 .end method
@@ -28,13 +30,13 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 15
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 24
     const/4 v0, 0x1
 
-    iput v0, p0, Lcom/huawei/hms/api/ProtocolNegotiate;->b:I
+    .line 10
+    iput v0, p0, Lcom/huawei/hms/api/ProtocolNegotiate;->version:I
 
     return-void
 .end method
@@ -42,8 +44,8 @@
 .method public static getInstance()Lcom/huawei/hms/api/ProtocolNegotiate;
     .locals 1
 
-    .line 32
-    sget-object v0, Lcom/huawei/hms/api/ProtocolNegotiate;->a:Lcom/huawei/hms/api/ProtocolNegotiate;
+    .line 1
+    sget-object v0, Lcom/huawei/hms/api/ProtocolNegotiate;->instance:Lcom/huawei/hms/api/ProtocolNegotiate;
 
     return-object v0
 .end method
@@ -53,8 +55,8 @@
 .method public getVersion()I
     .locals 1
 
-    .line 62
-    iget v0, p0, Lcom/huawei/hms/api/ProtocolNegotiate;->b:I
+    .line 1
+    iget v0, p0, Lcom/huawei/hms/api/ProtocolNegotiate;->version:I
 
     return v0
 .end method
@@ -70,11 +72,11 @@
         }
     .end annotation
 
-    .line 42
     const/4 v0, 0x1
 
     if-eqz p1, :cond_2
 
+    .line 1
     invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
 
     move-result v1
@@ -83,10 +85,10 @@
 
     goto :goto_1
 
-    .line 48
     :cond_0
     const/4 v1, 0x2
 
+    .line 7
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
@@ -97,7 +99,7 @@
 
     if-nez v2, :cond_1
 
-    .line 49
+    .line 8
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v1
@@ -114,25 +116,24 @@
 
     move-result p1
 
-    iput p1, p0, Lcom/huawei/hms/api/ProtocolNegotiate;->b:I
+    iput p1, p0, Lcom/huawei/hms/api/ProtocolNegotiate;->version:I
 
     goto :goto_0
 
-    .line 51
+    .line 10
     :cond_1
-    iput v1, p0, Lcom/huawei/hms/api/ProtocolNegotiate;->b:I
+    iput v1, p0, Lcom/huawei/hms/api/ProtocolNegotiate;->version:I
 
-    .line 53
+    .line 12
     :goto_0
-    iget p1, p0, Lcom/huawei/hms/api/ProtocolNegotiate;->b:I
+    iget p1, p0, Lcom/huawei/hms/api/ProtocolNegotiate;->version:I
 
     return p1
 
-    .line 43
+    .line 13
     :cond_2
     :goto_1
-    iput v0, p0, Lcom/huawei/hms/api/ProtocolNegotiate;->b:I
+    iput v0, p0, Lcom/huawei/hms/api/ProtocolNegotiate;->version:I
 
-    .line 44
     return v0
 .end method

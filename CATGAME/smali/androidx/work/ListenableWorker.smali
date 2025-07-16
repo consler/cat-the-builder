@@ -25,9 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/WorkerParameters;)V
-    .locals 2
-    .param p1, "appContext"    # Landroid/content/Context;
-    .param p2, "workerParams"    # Landroidx/work/WorkerParameters;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -39,43 +37,40 @@
         }
     .end annotation
 
-    .line 78
+    .line 79
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 80
     if-eqz p1, :cond_1
 
-    .line 84
     if-eqz p2, :cond_0
 
-    .line 88
+    .line 89
     iput-object p1, p0, Landroidx/work/ListenableWorker;->mAppContext:Landroid/content/Context;
 
-    .line 89
+    .line 90
     iput-object p2, p0, Landroidx/work/ListenableWorker;->mWorkerParams:Landroidx/work/WorkerParameters;
 
-    .line 90
     return-void
 
-    .line 85
+    .line 86
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "WorkerParameters is null"
+    const-string p2, "WorkerParameters is null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 81
+    .line 82
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Application Context is null"
+    const-string p2, "Application Context is null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -83,7 +78,7 @@
 .method public final getApplicationContext()Landroid/content/Context;
     .locals 1
 
-    .line 98
+    .line 99
     iget-object v0, p0, Landroidx/work/ListenableWorker;->mAppContext:Landroid/content/Context;
 
     return-object v0
@@ -92,7 +87,7 @@
 .method public getBackgroundExecutor()Ljava/util/concurrent/Executor;
     .locals 1
 
-    .line 300
+    .line 343
     iget-object v0, p0, Landroidx/work/ListenableWorker;->mWorkerParams:Landroidx/work/WorkerParameters;
 
     invoke-virtual {v0}, Landroidx/work/WorkerParameters;->getBackgroundExecutor()Ljava/util/concurrent/Executor;
@@ -102,10 +97,38 @@
     return-object v0
 .end method
 
+.method public getForegroundInfoAsync()Lcom/google/common/util/concurrent/ListenableFuture;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/google/common/util/concurrent/ListenableFuture<",
+            "Landroidx/work/ForegroundInfo;",
+            ">;"
+        }
+    .end annotation
+
+    .line 256
+    invoke-static {}, Landroidx/work/impl/utils/futures/SettableFuture;->create()Landroidx/work/impl/utils/futures/SettableFuture;
+
+    move-result-object v0
+
+    .line 260
+    new-instance v1, Ljava/lang/IllegalStateException;
+
+    const-string v2, "Expedited WorkRequests require a ListenableWorker to provide an implementation for `getForegroundInfoAsync()`"
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1}, Landroidx/work/impl/utils/futures/SettableFuture;->setException(Ljava/lang/Throwable;)Z
+
+    return-object v0
+.end method
+
 .method public final getId()Ljava/util/UUID;
     .locals 1
 
-    .line 107
+    .line 108
     iget-object v0, p0, Landroidx/work/ListenableWorker;->mWorkerParams:Landroidx/work/WorkerParameters;
 
     invoke-virtual {v0}, Landroidx/work/WorkerParameters;->getId()Ljava/util/UUID;
@@ -118,7 +141,7 @@
 .method public final getInputData()Landroidx/work/Data;
     .locals 1
 
-    .line 118
+    .line 119
     iget-object v0, p0, Landroidx/work/ListenableWorker;->mWorkerParams:Landroidx/work/WorkerParameters;
 
     invoke-virtual {v0}, Landroidx/work/WorkerParameters;->getInputData()Landroidx/work/Data;
@@ -131,7 +154,7 @@
 .method public final getNetwork()Landroid/net/Network;
     .locals 1
 
-    .line 163
+    .line 164
     iget-object v0, p0, Landroidx/work/ListenableWorker;->mWorkerParams:Landroidx/work/WorkerParameters;
 
     invoke-virtual {v0}, Landroidx/work/WorkerParameters;->getNetwork()Landroid/net/Network;
@@ -144,7 +167,7 @@
 .method public final getRunAttemptCount()I
     .locals 1
 
-    .line 174
+    .line 175
     iget-object v0, p0, Landroidx/work/ListenableWorker;->mWorkerParams:Landroidx/work/WorkerParameters;
 
     invoke-virtual {v0}, Landroidx/work/WorkerParameters;->getRunAttemptCount()I
@@ -165,7 +188,7 @@
         }
     .end annotation
 
-    .line 128
+    .line 129
     iget-object v0, p0, Landroidx/work/ListenableWorker;->mWorkerParams:Landroidx/work/WorkerParameters;
 
     invoke-virtual {v0}, Landroidx/work/WorkerParameters;->getTags()Ljava/util/Set;
@@ -178,7 +201,7 @@
 .method public getTaskExecutor()Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
     .locals 1
 
-    .line 308
+    .line 351
     iget-object v0, p0, Landroidx/work/ListenableWorker;->mWorkerParams:Landroidx/work/WorkerParameters;
 
     invoke-virtual {v0}, Landroidx/work/WorkerParameters;->getTaskExecutor()Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
@@ -199,7 +222,7 @@
         }
     .end annotation
 
-    .line 152
+    .line 153
     iget-object v0, p0, Landroidx/work/ListenableWorker;->mWorkerParams:Landroidx/work/WorkerParameters;
 
     invoke-virtual {v0}, Landroidx/work/WorkerParameters;->getTriggeredContentAuthorities()Ljava/util/List;
@@ -220,7 +243,7 @@
         }
     .end annotation
 
-    .line 140
+    .line 141
     iget-object v0, p0, Landroidx/work/ListenableWorker;->mWorkerParams:Landroidx/work/WorkerParameters;
 
     invoke-virtual {v0}, Landroidx/work/WorkerParameters;->getTriggeredContentUris()Ljava/util/List;
@@ -233,7 +256,7 @@
 .method public getWorkerFactory()Landroidx/work/WorkerFactory;
     .locals 1
 
-    .line 316
+    .line 359
     iget-object v0, p0, Landroidx/work/ListenableWorker;->mWorkerParams:Landroidx/work/WorkerParameters;
 
     invoke-virtual {v0}, Landroidx/work/WorkerParameters;->getWorkerFactory()Landroidx/work/WorkerFactory;
@@ -246,7 +269,7 @@
 .method public isRunInForeground()Z
     .locals 1
 
-    .line 292
+    .line 327
     iget-boolean v0, p0, Landroidx/work/ListenableWorker;->mRunInForeground:Z
 
     return v0
@@ -255,7 +278,7 @@
 .method public final isStopped()Z
     .locals 1
 
-    .line 239
+    .line 274
     iget-boolean v0, p0, Landroidx/work/ListenableWorker;->mStopped:Z
 
     return v0
@@ -264,7 +287,7 @@
 .method public final isUsed()Z
     .locals 1
 
-    .line 271
+    .line 306
     iget-boolean v0, p0, Landroidx/work/ListenableWorker;->mUsed:Z
 
     return v0
@@ -273,13 +296,11 @@
 .method public onStopped()V
     .locals 0
 
-    .line 262
     return-void
 .end method
 
 .method public final setForegroundAsync(Landroidx/work/ForegroundInfo;)Lcom/google/common/util/concurrent/ListenableFuture;
     .locals 3
-    .param p1, "foregroundInfo"    # Landroidx/work/ForegroundInfo;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -300,19 +321,19 @@
         }
     .end annotation
 
-    .line 225
     const/4 v0, 0x1
 
+    .line 233
     iput-boolean v0, p0, Landroidx/work/ListenableWorker;->mRunInForeground:Z
 
-    .line 226
+    .line 234
     iget-object v0, p0, Landroidx/work/ListenableWorker;->mWorkerParams:Landroidx/work/WorkerParameters;
 
     invoke-virtual {v0}, Landroidx/work/WorkerParameters;->getForegroundUpdater()Landroidx/work/ForegroundUpdater;
 
     move-result-object v0
 
-    .line 227
+    .line 235
     invoke-virtual {p0}, Landroidx/work/ListenableWorker;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v1
@@ -323,15 +344,13 @@
 
     invoke-interface {v0, v1, v2, p1}, Landroidx/work/ForegroundUpdater;->setForegroundAsync(Landroid/content/Context;Ljava/util/UUID;Landroidx/work/ForegroundInfo;)Lcom/google/common/util/concurrent/ListenableFuture;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 226
-    return-object v0
+    return-object p1
 .end method
 
-.method public final setProgressAsync(Landroidx/work/Data;)Lcom/google/common/util/concurrent/ListenableFuture;
+.method public setProgressAsync(Landroidx/work/Data;)Lcom/google/common/util/concurrent/ListenableFuture;
     .locals 3
-    .param p1, "data"    # Landroidx/work/Data;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -352,14 +371,14 @@
         }
     .end annotation
 
-    .line 203
+    .line 205
     iget-object v0, p0, Landroidx/work/ListenableWorker;->mWorkerParams:Landroidx/work/WorkerParameters;
 
     invoke-virtual {v0}, Landroidx/work/WorkerParameters;->getProgressUpdater()Landroidx/work/ProgressUpdater;
 
     move-result-object v0
 
-    .line 204
+    .line 206
     invoke-virtual {p0}, Landroidx/work/ListenableWorker;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v1
@@ -370,21 +389,36 @@
 
     invoke-interface {v0, v1, v2, p1}, Landroidx/work/ProgressUpdater;->updateProgress(Landroid/content/Context;Ljava/util/UUID;Landroidx/work/Data;)Lcom/google/common/util/concurrent/ListenableFuture;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 203
-    return-object v0
+    return-object p1
+.end method
+
+.method public setRunInForeground(Z)V
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "runInForeground"
+        }
+    .end annotation
+
+    .line 335
+    iput-boolean p1, p0, Landroidx/work/ListenableWorker;->mRunInForeground:Z
+
+    return-void
 .end method
 
 .method public final setUsed()V
     .locals 1
 
-    .line 282
     const/4 v0, 0x1
 
+    .line 317
     iput-boolean v0, p0, Landroidx/work/ListenableWorker;->mUsed:Z
 
-    .line 283
     return-void
 .end method
 
@@ -402,14 +436,13 @@
 .method public final stop()V
     .locals 1
 
-    .line 247
     const/4 v0, 0x1
 
+    .line 282
     iput-boolean v0, p0, Landroidx/work/ListenableWorker;->mStopped:Z
 
-    .line 248
+    .line 283
     invoke-virtual {p0}, Landroidx/work/ListenableWorker;->onStopped()V
 
-    .line 249
     return-void
 .end method

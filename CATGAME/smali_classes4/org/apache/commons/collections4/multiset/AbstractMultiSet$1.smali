@@ -33,10 +33,8 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections4/multiset/AbstractMultiSet;)V
     .locals 0
-    .param p1, "this$0"    # Lorg/apache/commons/collections4/multiset/AbstractMultiSet;
 
     .line 259
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMultiSet$1;, "Lorg/apache/commons/collections4/multiset/AbstractMultiSet$1;"
     iput-object p1, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$1;->this$0:Lorg/apache/commons/collections4/multiset/AbstractMultiSet;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +48,6 @@
     .locals 0
 
     .line 259
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMultiSet$1;, "Lorg/apache/commons/collections4/multiset/AbstractMultiSet$1;"
     check-cast p1, Lorg/apache/commons/collections4/MultiSet$Entry;
 
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$1;->transform(Lorg/apache/commons/collections4/MultiSet$Entry;)Ljava/lang/Object;
@@ -61,7 +58,7 @@
 .end method
 
 .method public transform(Lorg/apache/commons/collections4/MultiSet$Entry;)Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,11 +68,9 @@
     .end annotation
 
     .line 262
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMultiSet$1;, "Lorg/apache/commons/collections4/multiset/AbstractMultiSet$1;"
-    .local p1, "entry":Lorg/apache/commons/collections4/MultiSet$Entry;, "Lorg/apache/commons/collections4/MultiSet$Entry<TE;>;"
     invoke-interface {p1}, Lorg/apache/commons/collections4/MultiSet$Entry;->getElement()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

@@ -35,12 +35,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 33
-    nop
-
-    .line 34
     const-string v0, "UTF-8"
 
+    .line 34
     invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
 
     move-result-object v0
@@ -61,7 +58,6 @@
 
 .method public static decode(Ljava/lang/String;)[B
     .locals 1
-    .param p0, "input"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -71,20 +67,18 @@
         }
     .end annotation
 
-    .line 96
     const/4 v0, 0x2
 
+    .line 96
     invoke-static {p0, v0}, Lcom/google/crypto/tink/subtle/Base64;->decode(Ljava/lang/String;I)[B
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static decode(Ljava/lang/String;I)[B
     .locals 1
-    .param p0, "str"    # Ljava/lang/String;
-    .param p1, "flags"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -101,19 +95,17 @@
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0, p1}, Lcom/google/crypto/tink/subtle/Base64;->decode([BI)[B
+    invoke-static {p0, p1}, Lcom/google/crypto/tink/subtle/Base64;->decode([BI)[B
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static decode([BI)[B
     .locals 2
-    .param p0, "input"    # [B
-    .param p1, "flags"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -125,24 +117,20 @@
         }
     .end annotation
 
+    const/4 v0, 0x0
+
     .line 131
-    array-length v0, p0
+    array-length v1, p0
 
-    const/4 v1, 0x0
+    invoke-static {p0, v0, v1, p1}, Lcom/google/crypto/tink/subtle/Base64;->decode([BIII)[B
 
-    invoke-static {p0, v1, v0, p1}, Lcom/google/crypto/tink/subtle/Base64;->decode([BIII)[B
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method
 
 .method public static decode([BIII)[B
-    .locals 5
-    .param p0, "input"    # [B
-    .param p1, "offset"    # I
-    .param p2, "len"    # I
-    .param p3, "flags"    # I
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -169,64 +157,59 @@
 
     invoke-direct {v0, p3, v1}, Lcom/google/crypto/tink/subtle/Base64$Decoder;-><init>(I[B)V
 
+    const/4 p3, 0x1
+
     .line 152
-    .local v0, "decoder":Lcom/google/crypto/tink/subtle/Base64$Decoder;
-    const/4 v1, 0x1
+    invoke-virtual {v0, p0, p1, p2, p3}, Lcom/google/crypto/tink/subtle/Base64$Decoder;->process([BIIZ)Z
 
-    invoke-virtual {v0, p0, p1, p2, v1}, Lcom/google/crypto/tink/subtle/Base64$Decoder;->process([BIIZ)Z
+    move-result p0
 
-    move-result v1
-
-    if-eqz v1, :cond_1
+    if-eqz p0, :cond_1
 
     .line 157
-    iget v1, v0, Lcom/google/crypto/tink/subtle/Base64$Decoder;->op:I
+    iget p0, v0, Lcom/google/crypto/tink/subtle/Base64$Decoder;->op:I
 
-    iget-object v2, v0, Lcom/google/crypto/tink/subtle/Base64$Decoder;->output:[B
+    iget-object p1, v0, Lcom/google/crypto/tink/subtle/Base64$Decoder;->output:[B
 
-    array-length v2, v2
+    array-length p1, p1
 
-    if-ne v1, v2, :cond_0
+    if-ne p0, p1, :cond_0
 
     .line 158
-    iget-object v1, v0, Lcom/google/crypto/tink/subtle/Base64$Decoder;->output:[B
+    iget-object p0, v0, Lcom/google/crypto/tink/subtle/Base64$Decoder;->output:[B
 
-    return-object v1
+    return-object p0
 
     .line 163
     :cond_0
-    iget v1, v0, Lcom/google/crypto/tink/subtle/Base64$Decoder;->op:I
+    iget p0, v0, Lcom/google/crypto/tink/subtle/Base64$Decoder;->op:I
 
-    new-array v1, v1, [B
+    new-array p0, p0, [B
 
     .line 164
-    .local v1, "temp":[B
-    iget-object v2, v0, Lcom/google/crypto/tink/subtle/Base64$Decoder;->output:[B
+    iget-object p1, v0, Lcom/google/crypto/tink/subtle/Base64$Decoder;->output:[B
 
-    iget v3, v0, Lcom/google/crypto/tink/subtle/Base64$Decoder;->op:I
+    iget p2, v0, Lcom/google/crypto/tink/subtle/Base64$Decoder;->op:I
 
-    const/4 v4, 0x0
+    const/4 p3, 0x0
 
-    invoke-static {v2, v4, v1, v4, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p1, p3, p0, p3, p2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 165
-    return-object v1
+    return-object p0
 
     .line 153
-    .end local v1    # "temp":[B
     :cond_1
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v2, "bad base-64"
+    const-string p1, "bad base-64"
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 .end method
 
 .method public static encode([B)Ljava/lang/String;
     .locals 1
-    .param p0, "input"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -236,20 +219,18 @@
         }
     .end annotation
 
-    .line 430
     const/4 v0, 0x2
 
+    .line 430
     invoke-static {p0, v0}, Lcom/google/crypto/tink/subtle/Base64;->encodeToString([BI)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static encode([BI)[B
     .locals 2
-    .param p0, "input"    # [B
-    .param p1, "flags"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -261,24 +242,20 @@
         }
     .end annotation
 
+    const/4 v0, 0x0
+
     .line 480
-    array-length v0, p0
+    array-length v1, p0
 
-    const/4 v1, 0x0
+    invoke-static {p0, v0, v1, p1}, Lcom/google/crypto/tink/subtle/Base64;->encode([BIII)[B
 
-    invoke-static {p0, v1, v0, p1}, Lcom/google/crypto/tink/subtle/Base64;->encode([BIII)[B
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method
 
 .method public static encode([BIII)[B
-    .locals 6
-    .param p0, "input"    # [B
-    .param p1, "offset"    # I
-    .param p2, "len"    # I
-    .param p3, "flags"    # I
+    .locals 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -302,107 +279,93 @@
     invoke-direct {v0, p3, v1}, Lcom/google/crypto/tink/subtle/Base64$Encoder;-><init>(I[B)V
 
     .line 496
-    .local v0, "encoder":Lcom/google/crypto/tink/subtle/Base64$Encoder;
-    div-int/lit8 v1, p2, 0x3
+    div-int/lit8 p3, p2, 0x3
 
-    mul-int/lit8 v1, v1, 0x4
+    mul-int/lit8 p3, p3, 0x4
 
     .line 499
-    .local v1, "outputLen":I
-    iget-boolean v2, v0, Lcom/google/crypto/tink/subtle/Base64$Encoder;->doPadding:Z
+    iget-boolean v1, v0, Lcom/google/crypto/tink/subtle/Base64$Encoder;->doPadding:Z
 
-    const/4 v3, 0x2
+    const/4 v2, 0x2
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
     .line 500
-    rem-int/lit8 v2, p2, 0x3
+    rem-int/lit8 v1, p2, 0x3
 
-    if-lez v2, :cond_3
+    if-lez v1, :cond_3
 
-    .line 501
-    add-int/lit8 v1, v1, 0x4
+    add-int/lit8 p3, p3, 0x4
 
     goto :goto_0
 
     .line 504
     :cond_0
-    rem-int/lit8 v2, p2, 0x3
+    rem-int/lit8 v1, p2, 0x3
 
-    if-eq v2, v4, :cond_2
+    if-eq v1, v3, :cond_2
 
-    if-eq v2, v3, :cond_1
+    if-eq v1, v2, :cond_1
 
     goto :goto_0
 
-    .line 511
     :cond_1
-    add-int/lit8 v1, v1, 0x3
+    add-int/lit8 p3, p3, 0x3
 
-    .line 512
     goto :goto_0
 
-    .line 508
     :cond_2
-    add-int/lit8 v1, v1, 0x2
-
-    .line 509
-    nop
+    add-int/lit8 p3, p3, 0x2
 
     .line 519
     :cond_3
     :goto_0
-    iget-boolean v2, v0, Lcom/google/crypto/tink/subtle/Base64$Encoder;->doNewline:Z
+    iget-boolean v1, v0, Lcom/google/crypto/tink/subtle/Base64$Encoder;->doNewline:Z
 
-    if-eqz v2, :cond_5
+    if-eqz v1, :cond_5
 
     if-lez p2, :cond_5
 
+    add-int/lit8 v1, p2, -0x1
+
     .line 520
-    add-int/lit8 v2, p2, -0x1
+    div-int/lit8 v1, v1, 0x39
 
-    div-int/lit8 v2, v2, 0x39
+    add-int/2addr v1, v3
 
-    add-int/2addr v2, v4
+    iget-boolean v4, v0, Lcom/google/crypto/tink/subtle/Base64$Encoder;->doCr:Z
 
-    iget-boolean v5, v0, Lcom/google/crypto/tink/subtle/Base64$Encoder;->doCr:Z
-
-    if-eqz v5, :cond_4
+    if-eqz v4, :cond_4
 
     goto :goto_1
 
     :cond_4
-    move v3, v4
+    move v2, v3
 
     :goto_1
-    mul-int/2addr v2, v3
+    mul-int/2addr v1, v2
 
-    add-int/2addr v1, v2
+    add-int/2addr p3, v1
 
     .line 523
     :cond_5
-    new-array v2, v1, [B
+    new-array p3, p3, [B
 
-    iput-object v2, v0, Lcom/google/crypto/tink/subtle/Base64$Encoder;->output:[B
+    iput-object p3, v0, Lcom/google/crypto/tink/subtle/Base64$Encoder;->output:[B
 
     .line 524
-    invoke-virtual {v0, p0, p1, p2, v4}, Lcom/google/crypto/tink/subtle/Base64$Encoder;->process([BIIZ)Z
-
-    .line 526
-    nop
+    invoke-virtual {v0, p0, p1, p2, v3}, Lcom/google/crypto/tink/subtle/Base64$Encoder;->process([BIIZ)Z
 
     .line 528
-    iget-object v2, v0, Lcom/google/crypto/tink/subtle/Base64$Encoder;->output:[B
+    iget-object p0, v0, Lcom/google/crypto/tink/subtle/Base64$Encoder;->output:[B
 
-    return-object v2
+    return-object p0
 .end method
 
 .method public static encodeToString([BI)Ljava/lang/String;
-    .locals 3
-    .param p0, "input"    # [B
-    .param p1, "flags"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -420,35 +383,29 @@
 
     invoke-static {p0, p1}, Lcom/google/crypto/tink/subtle/Base64;->encode([BI)[B
 
-    move-result-object v1
+    move-result-object p0
 
-    const-string v2, "US-ASCII"
+    const-string p1, "US-ASCII"
 
-    invoke-direct {v0, v1, v2}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
+    invoke-direct {v0, p0, p1}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-object v0
 
-    .line 448
     :catch_0
-    move-exception v0
+    move-exception p0
 
     .line 450
-    .local v0, "e":Ljava/io/UnsupportedEncodingException;
-    new-instance v1, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v1, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p1, p0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
-    throw v1
+    throw p1
 .end method
 
 .method public static encodeToString([BIII)Ljava/lang/String;
-    .locals 3
-    .param p0, "input"    # [B
-    .param p1, "offset"    # I
-    .param p2, "len"    # I
-    .param p3, "flags"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -470,32 +427,29 @@
 
     invoke-static {p0, p1, p2, p3}, Lcom/google/crypto/tink/subtle/Base64;->encode([BIII)[B
 
-    move-result-object v1
+    move-result-object p0
 
-    const-string v2, "US-ASCII"
+    const-string p1, "US-ASCII"
 
-    invoke-direct {v0, v1, v2}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
+    invoke-direct {v0, p0, p1}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-object v0
 
-    .line 466
     :catch_0
-    move-exception v0
+    move-exception p0
 
     .line 468
-    .local v0, "e":Ljava/io/UnsupportedEncodingException;
-    new-instance v1, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v1, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p1, p0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
-    throw v1
+    throw p1
 .end method
 
 .method public static urlSafeDecode(Ljava/lang/String;)[B
     .locals 1
-    .param p0, "input"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -505,19 +459,18 @@
         }
     .end annotation
 
-    .line 101
     const/16 v0, 0xb
 
+    .line 101
     invoke-static {p0, v0}, Lcom/google/crypto/tink/subtle/Base64;->decode(Ljava/lang/String;I)[B
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static urlSafeEncode([B)Ljava/lang/String;
     .locals 1
-    .param p0, "input"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -527,12 +480,12 @@
         }
     .end annotation
 
-    .line 435
     const/16 v0, 0xb
 
+    .line 435
     invoke-static {p0, v0}, Lcom/google/crypto/tink/subtle/Base64;->encodeToString([BI)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

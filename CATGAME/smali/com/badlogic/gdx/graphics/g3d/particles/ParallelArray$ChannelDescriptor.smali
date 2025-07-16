@@ -32,8 +32,6 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/Class;I)V
     .locals 0
-    .param p1, "id"    # I
-    .param p3, "count"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -43,7 +41,6 @@
     .end annotation
 
     .line 38
-    .local p2, "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 39
@@ -55,6 +52,5 @@
     .line 41
     iput p3, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$ChannelDescriptor;->count:I
 
-    .line 42
     return-void
 .end method

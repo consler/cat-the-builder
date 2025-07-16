@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$SkylineStrategy;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$SkylineStrategy;
 
     .line 643
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$SkylineStrategy$1;->this$0:Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$SkylineStrategy;
@@ -46,22 +45,20 @@
 
 # virtual methods
 .method public compare(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap;)I
-    .locals 2
-    .param p1, "o1"    # Lcom/badlogic/gdx/graphics/Pixmap;
-    .param p2, "o2"    # Lcom/badlogic/gdx/graphics/Pixmap;
+    .locals 0
 
     .line 645
     invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/Pixmap;->getHeight()I
 
-    move-result v0
+    move-result p1
 
     invoke-virtual {p2}, Lcom/badlogic/gdx/graphics/Pixmap;->getHeight()I
 
-    move-result v1
+    move-result p2
 
-    sub-int/2addr v0, v1
+    sub-int/2addr p1, p2
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I

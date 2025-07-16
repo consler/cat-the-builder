@@ -34,29 +34,22 @@
     .end annotation
 
     .line 180
-    .local p0, "this":Landroidx/mediarouter/media/MediaRouterJellybeanMr1$CallbackProxy;, "Landroidx/mediarouter/media/MediaRouterJellybeanMr1$CallbackProxy<TT;>;"
-    .local p1, "callback":Landroidx/mediarouter/media/MediaRouterJellybeanMr1$Callback;, "TT;"
     invoke-direct {p0, p1}, Landroidx/mediarouter/media/MediaRouterJellybean$CallbackProxy;-><init>(Landroidx/mediarouter/media/MediaRouterJellybean$Callback;)V
 
-    .line 181
     return-void
 .end method
 
 
 # virtual methods
 .method public onRoutePresentationDisplayChanged(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
-    .locals 1
-    .param p1, "router"    # Landroid/media/MediaRouter;
-    .param p2, "route"    # Landroid/media/MediaRouter$RouteInfo;
+    .locals 0
 
     .line 186
-    .local p0, "this":Landroidx/mediarouter/media/MediaRouterJellybeanMr1$CallbackProxy;, "Landroidx/mediarouter/media/MediaRouterJellybeanMr1$CallbackProxy<TT;>;"
-    iget-object v0, p0, Landroidx/mediarouter/media/MediaRouterJellybeanMr1$CallbackProxy;->mCallback:Landroidx/mediarouter/media/MediaRouterJellybean$Callback;
+    iget-object p1, p0, Landroidx/mediarouter/media/MediaRouterJellybeanMr1$CallbackProxy;->mCallback:Landroidx/mediarouter/media/MediaRouterJellybean$Callback;
 
-    check-cast v0, Landroidx/mediarouter/media/MediaRouterJellybeanMr1$Callback;
+    check-cast p1, Landroidx/mediarouter/media/MediaRouterJellybeanMr1$Callback;
 
-    invoke-interface {v0, p2}, Landroidx/mediarouter/media/MediaRouterJellybeanMr1$Callback;->onRoutePresentationDisplayChanged(Ljava/lang/Object;)V
+    invoke-interface {p1, p2}, Landroidx/mediarouter/media/MediaRouterJellybeanMr1$Callback;->onRoutePresentationDisplayChanged(Ljava/lang/Object;)V
 
-    .line 187
     return-void
 .end method

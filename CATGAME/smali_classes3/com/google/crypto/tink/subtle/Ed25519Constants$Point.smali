@@ -32,7 +32,6 @@
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/subtle/Ed25519Constants$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/subtle/Ed25519Constants$1;
 
     .line 48
     invoke-direct {p0}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;-><init>()V
@@ -41,19 +40,16 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Ljava/math/BigInteger;
-    .locals 1
-    .param p0, "x0"    # Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
+    .locals 0
 
     .line 48
-    iget-object v0, p0, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->y:Ljava/math/BigInteger;
+    iget-object p0, p0, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->y:Ljava/math/BigInteger;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$102(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;Ljava/math/BigInteger;)Ljava/math/BigInteger;
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
-    .param p1, "x1"    # Ljava/math/BigInteger;
 
     .line 48
     iput-object p1, p0, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->y:Ljava/math/BigInteger;
@@ -62,19 +58,16 @@
 .end method
 
 .method static synthetic access$200(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Ljava/math/BigInteger;
-    .locals 1
-    .param p0, "x0"    # Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
+    .locals 0
 
     .line 48
-    iget-object v0, p0, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->x:Ljava/math/BigInteger;
+    iget-object p0, p0, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->x:Ljava/math/BigInteger;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$202(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;Ljava/math/BigInteger;)Ljava/math/BigInteger;
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
-    .param p1, "x1"    # Ljava/math/BigInteger;
 
     .line 48
     iput-object p1, p0, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->x:Ljava/math/BigInteger;

@@ -35,8 +35,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Object;J)V
     .locals 0
-    .param p1, "value"    # Ljava/lang/Object;
-    .param p2, "index"    # J
 
     .line 737
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
@@ -47,6 +45,5 @@
     .line 739
     iput-wide p2, p0, Lio/reactivex/internal/operators/flowable/FlowableReplay$Node;->index:J
 
-    .line 740
     return-void
 .end method

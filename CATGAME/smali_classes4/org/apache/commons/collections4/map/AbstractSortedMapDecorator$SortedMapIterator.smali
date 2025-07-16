@@ -44,11 +44,8 @@
     .end annotation
 
     .line 145
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator$SortedMapIterator;, "Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator$SortedMapIterator<TK;TV;>;"
-    .local p1, "entrySet":Ljava/util/Set;, "Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/map/EntrySetToMapIteratorAdapter;-><init>(Ljava/util/Set;)V
 
-    .line 146
     return-void
 .end method
 
@@ -58,7 +55,6 @@
     .locals 1
 
     .line 162
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator$SortedMapIterator;, "Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator$SortedMapIterator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator$SortedMapIterator;->iterator:Ljava/util/Iterator;
 
     check-cast v0, Ljava/util/ListIterator;
@@ -79,7 +75,6 @@
     .end annotation
 
     .line 170
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator$SortedMapIterator;, "Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator$SortedMapIterator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator$SortedMapIterator;->iterator:Ljava/util/Iterator;
 
     check-cast v0, Ljava/util/ListIterator;
@@ -103,7 +98,6 @@
 .method public declared-synchronized reset()V
     .locals 2
 
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator$SortedMapIterator;, "Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator$SortedMapIterator<TK;TV;>;"
     monitor-enter p0
 
     .line 153
@@ -126,8 +120,6 @@
 
     return-void
 
-    .line 152
-    .end local p0    # "this":Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator$SortedMapIterator;, "Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator$SortedMapIterator<TK;TV;>;"
     :catchall_0
     move-exception v0
 

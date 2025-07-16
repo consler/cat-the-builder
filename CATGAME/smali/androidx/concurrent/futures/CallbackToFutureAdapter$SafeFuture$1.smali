@@ -28,10 +28,8 @@
 # direct methods
 .method constructor <init>(Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;
 
     .line 147
-    .local p0, "this":Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture$1;, "Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture$1;"
     iput-object p1, p0, Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture$1;->this$0:Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;
 
     invoke-direct {p0}, Landroidx/concurrent/futures/AbstractResolvableFuture;-><init>()V
@@ -45,7 +43,6 @@
     .locals 3
 
     .line 151
-    .local p0, "this":Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture$1;, "Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture$1;"
     iget-object v0, p0, Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture$1;->this$0:Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;
 
     iget-object v0, v0, Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;->completerWeakReference:Ljava/lang/ref/WeakReference;
@@ -56,36 +53,35 @@
 
     check-cast v0, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
-    .line 152
-    .local v0, "completer":Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;, "Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer<TT;>;"
     if-nez v0, :cond_0
 
-    .line 153
-    const-string v1, "Completer object has been garbage collected, future will fail soon"
+    const-string v0, "Completer object has been garbage collected, future will fail soon"
 
-    return-object v1
+    return-object v0
 
     .line 155
     :cond_0
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "tag=["
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-object v2, v0, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->tag:Ljava/lang/Object;
+    iget-object v0, v0, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->tag:Ljava/lang/Object;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v2, "]"
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "]"
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method

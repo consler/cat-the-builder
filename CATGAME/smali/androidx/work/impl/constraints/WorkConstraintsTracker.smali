@@ -30,9 +30,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 46
     const-string v0, "WorkConstraintsTracker"
 
+    .line 46
     invoke-static {v0}, Landroidx/work/Logger;->tagWithPrefix(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -43,10 +43,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/impl/constraints/WorkConstraintsCallback;)V
-    .locals 4
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "taskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
-    .param p3, "callback"    # Landroidx/work/impl/constraints/WorkConstraintsCallback;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -66,89 +63,86 @@
     .line 69
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 70
-    .local v0, "appContext":Landroid/content/Context;
     iput-object p3, p0, Landroidx/work/impl/constraints/WorkConstraintsTracker;->mCallback:Landroidx/work/impl/constraints/WorkConstraintsCallback;
 
+    const/4 p3, 0x7
+
+    new-array p3, p3, [Landroidx/work/impl/constraints/controllers/ConstraintController;
+
     .line 71
-    const/4 v1, 0x7
+    new-instance v0, Landroidx/work/impl/constraints/controllers/BatteryChargingController;
 
-    new-array v1, v1, [Landroidx/work/impl/constraints/controllers/ConstraintController;
+    invoke-direct {v0, p1, p2}, Landroidx/work/impl/constraints/controllers/BatteryChargingController;-><init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
 
-    new-instance v2, Landroidx/work/impl/constraints/controllers/BatteryChargingController;
+    const/4 v1, 0x0
 
-    invoke-direct {v2, v0, p2}, Landroidx/work/impl/constraints/controllers/BatteryChargingController;-><init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
+    aput-object v0, p3, v1
 
-    const/4 v3, 0x0
+    new-instance v0, Landroidx/work/impl/constraints/controllers/BatteryNotLowController;
 
-    aput-object v2, v1, v3
+    invoke-direct {v0, p1, p2}, Landroidx/work/impl/constraints/controllers/BatteryNotLowController;-><init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
 
-    new-instance v2, Landroidx/work/impl/constraints/controllers/BatteryNotLowController;
+    const/4 v1, 0x1
 
-    invoke-direct {v2, v0, p2}, Landroidx/work/impl/constraints/controllers/BatteryNotLowController;-><init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
+    aput-object v0, p3, v1
 
-    const/4 v3, 0x1
+    new-instance v0, Landroidx/work/impl/constraints/controllers/StorageNotLowController;
 
-    aput-object v2, v1, v3
+    invoke-direct {v0, p1, p2}, Landroidx/work/impl/constraints/controllers/StorageNotLowController;-><init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
 
-    new-instance v2, Landroidx/work/impl/constraints/controllers/StorageNotLowController;
+    const/4 v1, 0x2
 
-    invoke-direct {v2, v0, p2}, Landroidx/work/impl/constraints/controllers/StorageNotLowController;-><init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
+    aput-object v0, p3, v1
 
-    const/4 v3, 0x2
+    new-instance v0, Landroidx/work/impl/constraints/controllers/NetworkConnectedController;
 
-    aput-object v2, v1, v3
+    invoke-direct {v0, p1, p2}, Landroidx/work/impl/constraints/controllers/NetworkConnectedController;-><init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
 
-    new-instance v2, Landroidx/work/impl/constraints/controllers/NetworkConnectedController;
+    const/4 v1, 0x3
 
-    invoke-direct {v2, v0, p2}, Landroidx/work/impl/constraints/controllers/NetworkConnectedController;-><init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
+    aput-object v0, p3, v1
 
-    const/4 v3, 0x3
+    new-instance v0, Landroidx/work/impl/constraints/controllers/NetworkUnmeteredController;
 
-    aput-object v2, v1, v3
+    invoke-direct {v0, p1, p2}, Landroidx/work/impl/constraints/controllers/NetworkUnmeteredController;-><init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
 
-    new-instance v2, Landroidx/work/impl/constraints/controllers/NetworkUnmeteredController;
+    const/4 v1, 0x4
 
-    invoke-direct {v2, v0, p2}, Landroidx/work/impl/constraints/controllers/NetworkUnmeteredController;-><init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
+    aput-object v0, p3, v1
 
-    const/4 v3, 0x4
+    new-instance v0, Landroidx/work/impl/constraints/controllers/NetworkNotRoamingController;
 
-    aput-object v2, v1, v3
+    invoke-direct {v0, p1, p2}, Landroidx/work/impl/constraints/controllers/NetworkNotRoamingController;-><init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
 
-    new-instance v2, Landroidx/work/impl/constraints/controllers/NetworkNotRoamingController;
+    const/4 v1, 0x5
 
-    invoke-direct {v2, v0, p2}, Landroidx/work/impl/constraints/controllers/NetworkNotRoamingController;-><init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
+    aput-object v0, p3, v1
 
-    const/4 v3, 0x5
+    new-instance v0, Landroidx/work/impl/constraints/controllers/NetworkMeteredController;
 
-    aput-object v2, v1, v3
+    invoke-direct {v0, p1, p2}, Landroidx/work/impl/constraints/controllers/NetworkMeteredController;-><init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
 
-    new-instance v2, Landroidx/work/impl/constraints/controllers/NetworkMeteredController;
+    const/4 p1, 0x6
 
-    invoke-direct {v2, v0, p2}, Landroidx/work/impl/constraints/controllers/NetworkMeteredController;-><init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
+    aput-object v0, p3, p1
 
-    const/4 v3, 0x6
-
-    aput-object v2, v1, v3
-
-    iput-object v1, p0, Landroidx/work/impl/constraints/WorkConstraintsTracker;->mConstraintControllers:[Landroidx/work/impl/constraints/controllers/ConstraintController;
+    iput-object p3, p0, Landroidx/work/impl/constraints/WorkConstraintsTracker;->mConstraintControllers:[Landroidx/work/impl/constraints/controllers/ConstraintController;
 
     .line 80
-    new-instance v1, Ljava/lang/Object;
+    new-instance p1, Ljava/lang/Object;
 
-    invoke-direct {v1}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p1}, Ljava/lang/Object;-><init>()V
 
-    iput-object v1, p0, Landroidx/work/impl/constraints/WorkConstraintsTracker;->mLock:Ljava/lang/Object;
+    iput-object p1, p0, Landroidx/work/impl/constraints/WorkConstraintsTracker;->mLock:Ljava/lang/Object;
 
-    .line 81
     return-void
 .end method
 
 .method constructor <init>(Landroidx/work/impl/constraints/WorkConstraintsCallback;[Landroidx/work/impl/constraints/controllers/ConstraintController;)V
-    .locals 1
-    .param p1, "callback"    # Landroidx/work/impl/constraints/WorkConstraintsCallback;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -171,7 +165,6 @@
     .end annotation
 
     .line 86
-    .local p2, "controllers":[Landroidx/work/impl/constraints/controllers/ConstraintController;, "[Landroidx/work/impl/constraints/controllers/ConstraintController<*>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 88
@@ -181,21 +174,19 @@
     iput-object p2, p0, Landroidx/work/impl/constraints/WorkConstraintsTracker;->mConstraintControllers:[Landroidx/work/impl/constraints/controllers/ConstraintController;
 
     .line 90
-    new-instance v0, Ljava/lang/Object;
+    new-instance p1, Ljava/lang/Object;
 
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p1}, Ljava/lang/Object;-><init>()V
 
-    iput-object v0, p0, Landroidx/work/impl/constraints/WorkConstraintsTracker;->mLock:Ljava/lang/Object;
+    iput-object p1, p0, Landroidx/work/impl/constraints/WorkConstraintsTracker;->mLock:Ljava/lang/Object;
 
-    .line 91
     return-void
 .end method
 
 
 # virtual methods
 .method public areAllConstraintsMet(Ljava/lang/String;)Z
-    .locals 9
-    .param p1, "workSpecId"    # Ljava/lang/String;
+    .locals 8
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -228,7 +219,6 @@
     aget-object v6, v1, v4
 
     .line 136
-    .local v6, "constraintController":Landroidx/work/impl/constraints/controllers/ConstraintController;, "Landroidx/work/impl/constraints/controllers/ConstraintController<*>;"
     invoke-virtual {v6, p1}, Landroidx/work/impl/constraints/controllers/ConstraintController;->isWorkSpecConstrained(Ljava/lang/String;)Z
 
     move-result v7
@@ -253,30 +243,28 @@
     .line 138
     invoke-virtual {v6}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v8
+    move-result-object p1
 
-    invoke-virtual {v8}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object p1
 
-    aput-object v8, v7, v5
+    aput-object p1, v7, v5
 
     .line 137
     invoke-static {v4, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p1
 
-    new-array v5, v3, [Ljava/lang/Throwable;
+    new-array v4, v3, [Ljava/lang/Throwable;
 
-    invoke-virtual {v1, v2, v4, v5}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {v1, v2, p1, v4}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
     .line 139
     monitor-exit v0
 
     return v3
 
-    .line 135
-    .end local v6    # "constraintController":Landroidx/work/impl/constraints/controllers/ConstraintController;, "Landroidx/work/impl/constraints/controllers/ConstraintController<*>;"
     :cond_0
     add-int/lit8 v4, v4, 0x1
 
@@ -288,19 +276,19 @@
 
     return v5
 
-    .line 143
     :catchall_0
-    move-exception v1
+    move-exception p1
 
+    .line 143
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public onConstraintMet(Ljava/util/List;)V
-    .locals 9
+    .locals 8
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -320,7 +308,6 @@
     .end annotation
 
     .line 148
-    .local p1, "workSpecIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     iget-object v0, p0, Landroidx/work/impl/constraints/WorkConstraintsTracker;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -332,93 +319,84 @@
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     .line 150
-    .local v1, "unconstrainedWorkSpecIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :cond_0
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v2, Ljava/lang/String;
+
+    .line 151
+    invoke-virtual {p0, v2}, Landroidx/work/impl/constraints/WorkConstraintsTracker;->areAllConstraintsMet(Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/lang/String;
-
-    .line 151
-    .local v3, "workSpecId":Ljava/lang/String;
-    invoke-virtual {p0, v3}, Landroidx/work/impl/constraints/WorkConstraintsTracker;->areAllConstraintsMet(Ljava/lang/String;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
     .line 152
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
-    move-result-object v4
+    move-result-object v3
 
-    sget-object v5, Landroidx/work/impl/constraints/WorkConstraintsTracker;->TAG:Ljava/lang/String;
+    sget-object v4, Landroidx/work/impl/constraints/WorkConstraintsTracker;->TAG:Ljava/lang/String;
 
-    const-string v6, "Constraints met for %s"
+    const-string v5, "Constraints met for %s"
 
-    const/4 v7, 0x1
+    const/4 v6, 0x1
 
-    new-array v7, v7, [Ljava/lang/Object;
+    new-array v6, v6, [Ljava/lang/Object;
 
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
-    aput-object v3, v7, v8
+    aput-object v2, v6, v7
 
-    invoke-static {v6, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    new-array v7, v8, [Ljava/lang/Throwable;
+    new-array v6, v7, [Ljava/lang/Throwable;
 
-    invoke-virtual {v4, v5, v6, v7}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {v3, v4, v5, v6}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
     .line 153
-    invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 155
-    .end local v3    # "workSpecId":Ljava/lang/String;
-    :cond_0
     goto :goto_0
 
     .line 156
     :cond_1
-    iget-object v2, p0, Landroidx/work/impl/constraints/WorkConstraintsTracker;->mCallback:Landroidx/work/impl/constraints/WorkConstraintsCallback;
+    iget-object p1, p0, Landroidx/work/impl/constraints/WorkConstraintsTracker;->mCallback:Landroidx/work/impl/constraints/WorkConstraintsCallback;
 
-    if-eqz v2, :cond_2
+    if-eqz p1, :cond_2
 
     .line 157
-    iget-object v2, p0, Landroidx/work/impl/constraints/WorkConstraintsTracker;->mCallback:Landroidx/work/impl/constraints/WorkConstraintsCallback;
-
-    invoke-interface {v2, v1}, Landroidx/work/impl/constraints/WorkConstraintsCallback;->onAllConstraintsMet(Ljava/util/List;)V
+    invoke-interface {p1, v1}, Landroidx/work/impl/constraints/WorkConstraintsCallback;->onAllConstraintsMet(Ljava/util/List;)V
 
     .line 159
-    .end local v1    # "unconstrainedWorkSpecIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     :cond_2
     monitor-exit v0
 
-    .line 160
     return-void
 
-    .line 159
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public onConstraintNotMet(Ljava/util/List;)V
@@ -442,7 +420,6 @@
     .end annotation
 
     .line 164
-    .local p1, "workSpecIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     iget-object v0, p0, Landroidx/work/impl/constraints/WorkConstraintsTracker;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -454,26 +431,22 @@
     if-eqz v1, :cond_0
 
     .line 166
-    iget-object v1, p0, Landroidx/work/impl/constraints/WorkConstraintsTracker;->mCallback:Landroidx/work/impl/constraints/WorkConstraintsCallback;
-
     invoke-interface {v1, p1}, Landroidx/work/impl/constraints/WorkConstraintsCallback;->onAllConstraintsNotMet(Ljava/util/List;)V
 
     .line 168
     :cond_0
     monitor-exit v0
 
-    .line 169
     return-void
 
-    .line 168
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public replace(Ljava/lang/Iterable;)V
@@ -497,7 +470,6 @@
     .end annotation
 
     .line 100
-    .local p1, "workSpecs":Ljava/lang/Iterable;, "Ljava/lang/Iterable<Landroidx/work/impl/model/WorkSpec;>;"
     iget-object v0, p0, Landroidx/work/impl/constraints/WorkConstraintsTracker;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -517,14 +489,11 @@
 
     aget-object v5, v1, v4
 
-    .line 102
-    .local v5, "controller":Landroidx/work/impl/constraints/controllers/ConstraintController;, "Landroidx/work/impl/constraints/controllers/ConstraintController<*>;"
     const/4 v6, 0x0
 
+    .line 102
     invoke-virtual {v5, v6}, Landroidx/work/impl/constraints/controllers/ConstraintController;->setCallback(Landroidx/work/impl/constraints/controllers/ConstraintController$OnConstraintUpdatedCallback;)V
 
-    .line 101
-    .end local v5    # "controller":Landroidx/work/impl/constraints/controllers/ConstraintController;, "Landroidx/work/impl/constraints/controllers/ConstraintController<*>;"
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
@@ -543,32 +512,26 @@
     aget-object v5, v1, v4
 
     .line 106
-    .restart local v5    # "controller":Landroidx/work/impl/constraints/controllers/ConstraintController;, "Landroidx/work/impl/constraints/controllers/ConstraintController<*>;"
     invoke-virtual {v5, p1}, Landroidx/work/impl/constraints/controllers/ConstraintController;->replace(Ljava/lang/Iterable;)V
 
-    .line 105
-    .end local v5    # "controller":Landroidx/work/impl/constraints/controllers/ConstraintController;, "Landroidx/work/impl/constraints/controllers/ConstraintController<*>;"
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_1
 
     .line 109
     :cond_1
-    iget-object v1, p0, Landroidx/work/impl/constraints/WorkConstraintsTracker;->mConstraintControllers:[Landroidx/work/impl/constraints/controllers/ConstraintController;
+    iget-object p1, p0, Landroidx/work/impl/constraints/WorkConstraintsTracker;->mConstraintControllers:[Landroidx/work/impl/constraints/controllers/ConstraintController;
 
-    array-length v2, v1
+    array-length v1, p1
 
     :goto_2
-    if-ge v3, v2, :cond_2
+    if-ge v3, v1, :cond_2
 
-    aget-object v4, v1, v3
+    aget-object v2, p1, v3
 
     .line 110
-    .local v4, "controller":Landroidx/work/impl/constraints/controllers/ConstraintController;, "Landroidx/work/impl/constraints/controllers/ConstraintController<*>;"
-    invoke-virtual {v4, p0}, Landroidx/work/impl/constraints/controllers/ConstraintController;->setCallback(Landroidx/work/impl/constraints/controllers/ConstraintController$OnConstraintUpdatedCallback;)V
+    invoke-virtual {v2, p0}, Landroidx/work/impl/constraints/controllers/ConstraintController;->setCallback(Landroidx/work/impl/constraints/controllers/ConstraintController$OnConstraintUpdatedCallback;)V
 
-    .line 109
-    .end local v4    # "controller":Landroidx/work/impl/constraints/controllers/ConstraintController;, "Landroidx/work/impl/constraints/controllers/ConstraintController<*>;"
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
@@ -577,18 +540,16 @@
     :cond_2
     monitor-exit v0
 
-    .line 113
     return-void
 
-    .line 112
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public reset()V
@@ -613,11 +574,8 @@
     aget-object v4, v1, v3
 
     .line 121
-    .local v4, "controller":Landroidx/work/impl/constraints/controllers/ConstraintController;, "Landroidx/work/impl/constraints/controllers/ConstraintController<*>;"
     invoke-virtual {v4}, Landroidx/work/impl/constraints/controllers/ConstraintController;->reset()V
 
-    .line 120
-    .end local v4    # "controller":Landroidx/work/impl/constraints/controllers/ConstraintController;, "Landroidx/work/impl/constraints/controllers/ConstraintController<*>;"
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
@@ -626,10 +584,8 @@
     :cond_0
     monitor-exit v0
 
-    .line 124
     return-void
 
-    .line 123
     :catchall_0
     move-exception v1
 

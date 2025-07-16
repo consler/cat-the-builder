@@ -36,15 +36,14 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 1
-    .param p1, "numAttributes"    # I
+    .locals 2
 
     .line 1301
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1295
     const/4 v0, 0x0
 
+    .line 1295
     iput-boolean v0, p0, Lcom/badlogic/gdx/math/Intersector$SplitTriangle;->frontCurrent:Z
 
     .line 1296
@@ -53,30 +52,25 @@
     .line 1297
     iput v0, p0, Lcom/badlogic/gdx/math/Intersector$SplitTriangle;->backOffset:I
 
-    .line 1302
     mul-int/lit8 v0, p1, 0x3
 
     mul-int/lit8 v0, v0, 0x2
 
-    new-array v0, v0, [F
+    .line 1302
+    new-array v1, v0, [F
 
-    iput-object v0, p0, Lcom/badlogic/gdx/math/Intersector$SplitTriangle;->front:[F
+    iput-object v1, p0, Lcom/badlogic/gdx/math/Intersector$SplitTriangle;->front:[F
 
     .line 1303
-    mul-int/lit8 v0, p1, 0x3
-
-    mul-int/lit8 v0, v0, 0x2
-
     new-array v0, v0, [F
 
     iput-object v0, p0, Lcom/badlogic/gdx/math/Intersector$SplitTriangle;->back:[F
 
     .line 1304
-    new-array v0, p1, [F
+    new-array p1, p1, [F
 
-    iput-object v0, p0, Lcom/badlogic/gdx/math/Intersector$SplitTriangle;->edgeSplit:[F
+    iput-object p1, p0, Lcom/badlogic/gdx/math/Intersector$SplitTriangle;->edgeSplit:[F
 
-    .line 1305
     return-void
 .end method
 
@@ -84,9 +78,6 @@
 # virtual methods
 .method add([FII)V
     .locals 2
-    .param p1, "vertex"    # [F
-    .param p2, "offset"    # I
-    .param p3, "stride"    # I
 
     .line 1322
     iget-boolean v0, p0, Lcom/badlogic/gdx/math/Intersector$SplitTriangle;->frontCurrent:Z
@@ -101,11 +92,11 @@
     invoke-static {p1, p2, v0, v1, p3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 1324
-    iget v0, p0, Lcom/badlogic/gdx/math/Intersector$SplitTriangle;->frontOffset:I
+    iget p1, p0, Lcom/badlogic/gdx/math/Intersector$SplitTriangle;->frontOffset:I
 
-    add-int/2addr v0, p3
+    add-int/2addr p1, p3
 
-    iput v0, p0, Lcom/badlogic/gdx/math/Intersector$SplitTriangle;->frontOffset:I
+    iput p1, p0, Lcom/badlogic/gdx/math/Intersector$SplitTriangle;->frontOffset:I
 
     goto :goto_0
 
@@ -118,13 +109,12 @@
     invoke-static {p1, p2, v0, v1, p3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 1327
-    iget v0, p0, Lcom/badlogic/gdx/math/Intersector$SplitTriangle;->backOffset:I
+    iget p1, p0, Lcom/badlogic/gdx/math/Intersector$SplitTriangle;->backOffset:I
 
-    add-int/2addr v0, p3
+    add-int/2addr p1, p3
 
-    iput v0, p0, Lcom/badlogic/gdx/math/Intersector$SplitTriangle;->backOffset:I
+    iput p1, p0, Lcom/badlogic/gdx/math/Intersector$SplitTriangle;->backOffset:I
 
-    .line 1329
     :goto_0
     return-void
 .end method
@@ -141,9 +131,9 @@
 .method reset()V
     .locals 1
 
-    .line 1332
     const/4 v0, 0x0
 
+    .line 1332
     iput-boolean v0, p0, Lcom/badlogic/gdx/math/Intersector$SplitTriangle;->frontCurrent:Z
 
     .line 1333
@@ -161,18 +151,15 @@
     .line 1337
     iput v0, p0, Lcom/badlogic/gdx/math/Intersector$SplitTriangle;->total:I
 
-    .line 1338
     return-void
 .end method
 
 .method setSide(Z)V
     .locals 0
-    .param p1, "front"    # Z
 
     .line 1314
     iput-boolean p1, p0, Lcom/badlogic/gdx/math/Intersector$SplitTriangle;->frontCurrent:Z
 
-    .line 1315
     return-void
 .end method
 
@@ -182,11 +169,9 @@
     .line 1309
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "SplitTriangle [front="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v1, p0, Lcom/badlogic/gdx/math/Intersector$SplitTriangle;->front:[F
 
@@ -196,9 +181,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", back="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Lcom/badlogic/gdx/math/Intersector$SplitTriangle;->back:[F
 
@@ -208,33 +197,49 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", numFront="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Lcom/badlogic/gdx/math/Intersector$SplitTriangle;->numFront:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", numBack="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Lcom/badlogic/gdx/math/Intersector$SplitTriangle;->numBack:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", total="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Lcom/badlogic/gdx/math/Intersector$SplitTriangle;->total:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

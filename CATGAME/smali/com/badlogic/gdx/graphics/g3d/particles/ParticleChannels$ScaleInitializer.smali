@@ -75,22 +75,20 @@
 .end method
 
 .method public init(Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;)V
-    .locals 4
-    .param p1, "channel"    # Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+    .locals 3
 
     .line 82
     iget-object v0, p1, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    iget-object v1, p1, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    array-length v1, v1
+    array-length p1, p1
+
+    const/high16 v1, 0x3f800000    # 1.0f
 
     const/4 v2, 0x0
 
-    const/high16 v3, 0x3f800000    # 1.0f
+    invoke-static {v0, v2, p1, v1}, Ljava/util/Arrays;->fill([FIIF)V
 
-    invoke-static {v0, v2, v1, v3}, Ljava/util/Arrays;->fill([FIIF)V
-
-    .line 83
     return-void
 .end method

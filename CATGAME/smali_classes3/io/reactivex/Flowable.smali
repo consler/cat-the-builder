@@ -27,11 +27,11 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .line 63
     const-string v0, "rx2.buffer-size"
 
     const/16 v1, 0x80
 
+    .line 63
     invoke-static {v0, v1}, Ljava/lang/Integer;->getInteger(Ljava/lang/String;I)Ljava/lang/Integer;
 
     move-result-object v0
@@ -48,7 +48,6 @@
 
     sput v0, Lio/reactivex/Flowable;->BUFFER_SIZE:I
 
-    .line 64
     return-void
 .end method
 
@@ -56,7 +55,6 @@
     .locals 0
 
     .line 59
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -89,10 +87,9 @@
         value = "none"
     .end annotation
 
-    .line 91
-    .local p0, "sources":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     const-string v0, "sources is null"
 
+    .line 91
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 92
@@ -104,13 +101,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs ambArray([Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -134,56 +131,52 @@
         value = "none"
     .end annotation
 
-    .line 120
-    .local p0, "sources":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<+TT;>;"
     const-string v0, "sources is null"
 
+    .line 120
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 121
     array-length v0, p0
 
-    .line 122
-    .local v0, "len":I
     if-nez v0, :cond_0
 
     .line 123
     invoke-static {}, Lio/reactivex/Flowable;->empty()Lio/reactivex/Flowable;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 
-    .line 125
     :cond_0
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_1
 
+    const/4 v0, 0x0
+
     .line 126
-    const/4 v1, 0x0
+    aget-object p0, p0, v0
 
-    aget-object v1, p0, v1
+    invoke-static {p0}, Lio/reactivex/Flowable;->fromPublisher(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    invoke-static {v1}, Lio/reactivex/Flowable;->fromPublisher(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    move-result-object p0
 
-    move-result-object v1
-
-    return-object v1
+    return-object p0
 
     .line 128
     :cond_1
-    new-instance v1, Lio/reactivex/internal/operators/flowable/FlowableAmb;
+    new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableAmb;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-direct {v1, p0, v2}, Lio/reactivex/internal/operators/flowable/FlowableAmb;-><init>([Lorg/reactivestreams/Publisher;Ljava/lang/Iterable;)V
+    invoke-direct {v0, p0, v1}, Lio/reactivex/internal/operators/flowable/FlowableAmb;-><init>([Lorg/reactivestreams/Publisher;Ljava/lang/Iterable;)V
 
-    invoke-static {v1}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
+    invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static bufferSize()I
@@ -227,17 +220,15 @@
     .end annotation
 
     .line 220
-    .local p0, "combiner":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-[Ljava/lang/Object;+TR;>;"
-    .local p1, "sources":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<+TT;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
 
     invoke-static {p1, p0, v0}, Lio/reactivex/Flowable;->combineLatest([Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static combineLatest(Ljava/lang/Iterable;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -274,22 +265,19 @@
     .end annotation
 
     .line 311
-    .local p0, "sources":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lorg/reactivestreams/Publisher<+TT;>;>;"
-    .local p1, "combiner":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-[Ljava/lang/Object;+TR;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
 
     invoke-static {p0, p1, v0}, Lio/reactivex/Flowable;->combineLatest(Ljava/lang/Iterable;Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static combineLatest(Ljava/lang/Iterable;Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
     .locals 2
-    .param p2, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -321,21 +309,19 @@
         value = "none"
     .end annotation
 
-    .line 355
-    .local p0, "sources":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lorg/reactivestreams/Publisher<+TT;>;>;"
-    .local p1, "combiner":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-[Ljava/lang/Object;+TR;>;"
     const-string v0, "sources is null"
 
+    .line 355
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 356
     const-string v0, "combiner is null"
 
+    .line 356
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 357
     const-string v0, "bufferSize"
 
+    .line 357
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 358
@@ -347,13 +333,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static combineLatest(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/BiFunction;)Lio/reactivex/Flowable;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T1:",
@@ -385,47 +371,43 @@
         value = "none"
     .end annotation
 
-    .line 672
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT1;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT2;>;"
-    .local p2, "combiner":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-TT1;-TT2;+TR;>;"
     const-string v0, "source1 is null"
 
+    .line 672
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 673
     const-string v0, "source2 is null"
 
+    .line 673
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 674
     invoke-static {p2}, Lio/reactivex/internal/functions/Functions;->toFunction(Lio/reactivex/functions/BiFunction;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p2
+
+    const/4 v0, 0x2
+
+    new-array v0, v0, [Lorg/reactivestreams/Publisher;
+
+    const/4 v1, 0x0
+
+    aput-object p0, v0, v1
+
+    const/4 p0, 0x1
+
+    aput-object p1, v0, p0
 
     .line 675
-    .local v0, "f":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<[Ljava/lang/Object;TR;>;"
-    const/4 v1, 0x2
+    invoke-static {p2, v0}, Lio/reactivex/Flowable;->combineLatest(Lio/reactivex/functions/Function;[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    new-array v1, v1, [Lorg/reactivestreams/Publisher;
+    move-result-object p0
 
-    const/4 v2, 0x0
-
-    aput-object p0, v1, v2
-
-    const/4 v2, 0x1
-
-    aput-object p1, v1, v2
-
-    invoke-static {v0, v1}, Lio/reactivex/Flowable;->combineLatest(Lio/reactivex/functions/Function;[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
-
-    move-result-object v1
-
-    return-object v1
+    return-object p0
 .end method
 
 .method public static combineLatest(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function3;)Lio/reactivex/Flowable;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T1:",
@@ -461,55 +443,51 @@
         value = "none"
     .end annotation
 
-    .line 721
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT1;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT2;>;"
-    .local p2, "source3":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT3;>;"
-    .local p3, "combiner":Lio/reactivex/functions/Function3;, "Lio/reactivex/functions/Function3<-TT1;-TT2;-TT3;+TR;>;"
     const-string v0, "source1 is null"
 
+    .line 721
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 722
     const-string v0, "source2 is null"
 
+    .line 722
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 723
     const-string v0, "source3 is null"
 
+    .line 723
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 724
     invoke-static {p3}, Lio/reactivex/internal/functions/Functions;->toFunction(Lio/reactivex/functions/Function3;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p3
 
-    const/4 v1, 0x3
+    const/4 v0, 0x3
 
-    new-array v1, v1, [Lorg/reactivestreams/Publisher;
+    new-array v0, v0, [Lorg/reactivestreams/Publisher;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aput-object p0, v1, v2
+    aput-object p0, v0, v1
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v1, v2
+    aput-object p1, v0, p0
 
-    const/4 v2, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v1, v2
+    aput-object p2, v0, p0
 
-    invoke-static {v0, v1}, Lio/reactivex/Flowable;->combineLatest(Lio/reactivex/functions/Function;[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-static {p3, v0}, Lio/reactivex/Flowable;->combineLatest(Lio/reactivex/functions/Function;[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static combineLatest(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function4;)Lio/reactivex/Flowable;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T1:",
@@ -549,65 +527,60 @@
         value = "none"
     .end annotation
 
-    .line 773
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT1;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT2;>;"
-    .local p2, "source3":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT3;>;"
-    .local p3, "source4":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT4;>;"
-    .local p4, "combiner":Lio/reactivex/functions/Function4;, "Lio/reactivex/functions/Function4<-TT1;-TT2;-TT3;-TT4;+TR;>;"
     const-string v0, "source1 is null"
 
+    .line 773
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 774
     const-string v0, "source2 is null"
 
+    .line 774
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 775
     const-string v0, "source3 is null"
 
+    .line 775
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 776
     const-string v0, "source4 is null"
 
+    .line 776
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 777
     invoke-static {p4}, Lio/reactivex/internal/functions/Functions;->toFunction(Lio/reactivex/functions/Function4;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p4
 
-    const/4 v1, 0x4
+    const/4 v0, 0x4
 
-    new-array v1, v1, [Lorg/reactivestreams/Publisher;
+    new-array v0, v0, [Lorg/reactivestreams/Publisher;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aput-object p0, v1, v2
+    aput-object p0, v0, v1
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v1, v2
+    aput-object p1, v0, p0
 
-    const/4 v2, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v1, v2
+    aput-object p2, v0, p0
 
-    const/4 v2, 0x3
+    const/4 p0, 0x3
 
-    aput-object p3, v1, v2
+    aput-object p3, v0, p0
 
-    invoke-static {v0, v1}, Lio/reactivex/Flowable;->combineLatest(Lio/reactivex/functions/Function;[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-static {p4, v0}, Lio/reactivex/Flowable;->combineLatest(Lio/reactivex/functions/Function;[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static combineLatest(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function5;)Lio/reactivex/Flowable;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T1:",
@@ -651,75 +624,69 @@
         value = "none"
     .end annotation
 
-    .line 830
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT1;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT2;>;"
-    .local p2, "source3":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT3;>;"
-    .local p3, "source4":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT4;>;"
-    .local p4, "source5":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT5;>;"
-    .local p5, "combiner":Lio/reactivex/functions/Function5;, "Lio/reactivex/functions/Function5<-TT1;-TT2;-TT3;-TT4;-TT5;+TR;>;"
     const-string v0, "source1 is null"
 
+    .line 830
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 831
     const-string v0, "source2 is null"
 
+    .line 831
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 832
     const-string v0, "source3 is null"
 
+    .line 832
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 833
     const-string v0, "source4 is null"
 
+    .line 833
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 834
     const-string v0, "source5 is null"
 
+    .line 834
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 835
     invoke-static {p5}, Lio/reactivex/internal/functions/Functions;->toFunction(Lio/reactivex/functions/Function5;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p5
 
-    const/4 v1, 0x5
+    const/4 v0, 0x5
 
-    new-array v1, v1, [Lorg/reactivestreams/Publisher;
+    new-array v0, v0, [Lorg/reactivestreams/Publisher;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aput-object p0, v1, v2
+    aput-object p0, v0, v1
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v1, v2
+    aput-object p1, v0, p0
 
-    const/4 v2, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v1, v2
+    aput-object p2, v0, p0
 
-    const/4 v2, 0x3
+    const/4 p0, 0x3
 
-    aput-object p3, v1, v2
+    aput-object p3, v0, p0
 
-    const/4 v2, 0x4
+    const/4 p0, 0x4
 
-    aput-object p4, v1, v2
+    aput-object p4, v0, p0
 
-    invoke-static {v0, v1}, Lio/reactivex/Flowable;->combineLatest(Lio/reactivex/functions/Function;[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-static {p5, v0}, Lio/reactivex/Flowable;->combineLatest(Lio/reactivex/functions/Function;[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static combineLatest(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function6;)Lio/reactivex/Flowable;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T1:",
@@ -767,85 +734,78 @@
         value = "none"
     .end annotation
 
-    .line 891
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT1;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT2;>;"
-    .local p2, "source3":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT3;>;"
-    .local p3, "source4":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT4;>;"
-    .local p4, "source5":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT5;>;"
-    .local p5, "source6":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT6;>;"
-    .local p6, "combiner":Lio/reactivex/functions/Function6;, "Lio/reactivex/functions/Function6<-TT1;-TT2;-TT3;-TT4;-TT5;-TT6;+TR;>;"
     const-string v0, "source1 is null"
 
+    .line 891
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 892
     const-string v0, "source2 is null"
 
+    .line 892
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 893
     const-string v0, "source3 is null"
 
+    .line 893
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 894
     const-string v0, "source4 is null"
 
+    .line 894
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 895
     const-string v0, "source5 is null"
 
+    .line 895
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 896
     const-string v0, "source6 is null"
 
+    .line 896
     invoke-static {p5, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 897
     invoke-static {p6}, Lio/reactivex/internal/functions/Functions;->toFunction(Lio/reactivex/functions/Function6;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p6
 
-    const/4 v1, 0x6
+    const/4 v0, 0x6
 
-    new-array v1, v1, [Lorg/reactivestreams/Publisher;
+    new-array v0, v0, [Lorg/reactivestreams/Publisher;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aput-object p0, v1, v2
+    aput-object p0, v0, v1
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v1, v2
+    aput-object p1, v0, p0
 
-    const/4 v2, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v1, v2
+    aput-object p2, v0, p0
 
-    const/4 v2, 0x3
+    const/4 p0, 0x3
 
-    aput-object p3, v1, v2
+    aput-object p3, v0, p0
 
-    const/4 v2, 0x4
+    const/4 p0, 0x4
 
-    aput-object p4, v1, v2
+    aput-object p4, v0, p0
 
-    const/4 v2, 0x5
+    const/4 p0, 0x5
 
-    aput-object p5, v1, v2
+    aput-object p5, v0, p0
 
-    invoke-static {v0, v1}, Lio/reactivex/Flowable;->combineLatest(Lio/reactivex/functions/Function;[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-static {p6, v0}, Lio/reactivex/Flowable;->combineLatest(Lio/reactivex/functions/Function;[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static combineLatest(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function7;)Lio/reactivex/Flowable;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T1:",
@@ -897,95 +857,87 @@
         value = "none"
     .end annotation
 
-    .line 957
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT1;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT2;>;"
-    .local p2, "source3":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT3;>;"
-    .local p3, "source4":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT4;>;"
-    .local p4, "source5":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT5;>;"
-    .local p5, "source6":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT6;>;"
-    .local p6, "source7":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT7;>;"
-    .local p7, "combiner":Lio/reactivex/functions/Function7;, "Lio/reactivex/functions/Function7<-TT1;-TT2;-TT3;-TT4;-TT5;-TT6;-TT7;+TR;>;"
     const-string v0, "source1 is null"
 
+    .line 957
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 958
     const-string v0, "source2 is null"
 
+    .line 958
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 959
     const-string v0, "source3 is null"
 
+    .line 959
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 960
     const-string v0, "source4 is null"
 
+    .line 960
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 961
     const-string v0, "source5 is null"
 
+    .line 961
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 962
     const-string v0, "source6 is null"
 
+    .line 962
     invoke-static {p5, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 963
     const-string v0, "source7 is null"
 
+    .line 963
     invoke-static {p6, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 964
     invoke-static {p7}, Lio/reactivex/internal/functions/Functions;->toFunction(Lio/reactivex/functions/Function7;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p7
 
-    const/4 v1, 0x7
+    const/4 v0, 0x7
 
-    new-array v1, v1, [Lorg/reactivestreams/Publisher;
+    new-array v0, v0, [Lorg/reactivestreams/Publisher;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aput-object p0, v1, v2
+    aput-object p0, v0, v1
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v1, v2
+    aput-object p1, v0, p0
 
-    const/4 v2, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v1, v2
+    aput-object p2, v0, p0
 
-    const/4 v2, 0x3
+    const/4 p0, 0x3
 
-    aput-object p3, v1, v2
+    aput-object p3, v0, p0
 
-    const/4 v2, 0x4
+    const/4 p0, 0x4
 
-    aput-object p4, v1, v2
+    aput-object p4, v0, p0
 
-    const/4 v2, 0x5
+    const/4 p0, 0x5
 
-    aput-object p5, v1, v2
+    aput-object p5, v0, p0
 
-    const/4 v2, 0x6
+    const/4 p0, 0x6
 
-    aput-object p6, v1, v2
+    aput-object p6, v0, p0
 
-    invoke-static {v0, v1}, Lio/reactivex/Flowable;->combineLatest(Lio/reactivex/functions/Function;[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-static {p7, v0}, Lio/reactivex/Flowable;->combineLatest(Lio/reactivex/functions/Function;[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static combineLatest(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function8;)Lio/reactivex/Flowable;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T1:",
@@ -1041,105 +993,96 @@
         value = "none"
     .end annotation
 
-    .line 1027
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT1;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT2;>;"
-    .local p2, "source3":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT3;>;"
-    .local p3, "source4":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT4;>;"
-    .local p4, "source5":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT5;>;"
-    .local p5, "source6":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT6;>;"
-    .local p6, "source7":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT7;>;"
-    .local p7, "source8":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT8;>;"
-    .local p8, "combiner":Lio/reactivex/functions/Function8;, "Lio/reactivex/functions/Function8<-TT1;-TT2;-TT3;-TT4;-TT5;-TT6;-TT7;-TT8;+TR;>;"
     const-string v0, "source1 is null"
 
+    .line 1027
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1028
     const-string v0, "source2 is null"
 
+    .line 1028
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1029
     const-string v0, "source3 is null"
 
+    .line 1029
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1030
     const-string v0, "source4 is null"
 
+    .line 1030
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1031
     const-string v0, "source5 is null"
 
+    .line 1031
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1032
     const-string v0, "source6 is null"
 
+    .line 1032
     invoke-static {p5, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1033
     const-string v0, "source7 is null"
 
+    .line 1033
     invoke-static {p6, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1034
     const-string v0, "source8 is null"
 
+    .line 1034
     invoke-static {p7, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 1035
     invoke-static {p8}, Lio/reactivex/internal/functions/Functions;->toFunction(Lio/reactivex/functions/Function8;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p8
 
-    const/16 v1, 0x8
+    const/16 v0, 0x8
 
-    new-array v1, v1, [Lorg/reactivestreams/Publisher;
+    new-array v0, v0, [Lorg/reactivestreams/Publisher;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aput-object p0, v1, v2
+    aput-object p0, v0, v1
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v1, v2
+    aput-object p1, v0, p0
 
-    const/4 v2, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v1, v2
+    aput-object p2, v0, p0
 
-    const/4 v2, 0x3
+    const/4 p0, 0x3
 
-    aput-object p3, v1, v2
+    aput-object p3, v0, p0
 
-    const/4 v2, 0x4
+    const/4 p0, 0x4
 
-    aput-object p4, v1, v2
+    aput-object p4, v0, p0
 
-    const/4 v2, 0x5
+    const/4 p0, 0x5
 
-    aput-object p5, v1, v2
+    aput-object p5, v0, p0
 
-    const/4 v2, 0x6
+    const/4 p0, 0x6
 
-    aput-object p6, v1, v2
+    aput-object p6, v0, p0
 
-    const/4 v2, 0x7
+    const/4 p0, 0x7
 
-    aput-object p7, v1, v2
+    aput-object p7, v0, p0
 
-    invoke-static {v0, v1}, Lio/reactivex/Flowable;->combineLatest(Lio/reactivex/functions/Function;[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-static {p8, v0}, Lio/reactivex/Flowable;->combineLatest(Lio/reactivex/functions/Function;[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static combineLatest(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function9;)Lio/reactivex/Flowable;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T1:",
@@ -1199,111 +1142,101 @@
         value = "none"
     .end annotation
 
-    .line 1102
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT1;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT2;>;"
-    .local p2, "source3":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT3;>;"
-    .local p3, "source4":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT4;>;"
-    .local p4, "source5":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT5;>;"
-    .local p5, "source6":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT6;>;"
-    .local p6, "source7":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT7;>;"
-    .local p7, "source8":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT8;>;"
-    .local p8, "source9":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT9;>;"
-    .local p9, "combiner":Lio/reactivex/functions/Function9;, "Lio/reactivex/functions/Function9<-TT1;-TT2;-TT3;-TT4;-TT5;-TT6;-TT7;-TT8;-TT9;+TR;>;"
     const-string v0, "source1 is null"
 
+    .line 1102
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1103
     const-string v0, "source2 is null"
 
+    .line 1103
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1104
     const-string v0, "source3 is null"
 
+    .line 1104
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1105
     const-string v0, "source4 is null"
 
+    .line 1105
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1106
     const-string v0, "source5 is null"
 
+    .line 1106
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1107
     const-string v0, "source6 is null"
 
+    .line 1107
     invoke-static {p5, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1108
     const-string v0, "source7 is null"
 
+    .line 1108
     invoke-static {p6, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1109
     const-string v0, "source8 is null"
 
+    .line 1109
     invoke-static {p7, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1110
     const-string v0, "source9 is null"
 
+    .line 1110
     invoke-static {p8, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 1111
     invoke-static {p9}, Lio/reactivex/internal/functions/Functions;->toFunction(Lio/reactivex/functions/Function9;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p9
 
-    const/16 v1, 0x9
+    const/16 v0, 0x9
 
-    new-array v1, v1, [Lorg/reactivestreams/Publisher;
+    new-array v0, v0, [Lorg/reactivestreams/Publisher;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aput-object p0, v1, v2
+    aput-object p0, v0, v1
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v1, v2
+    aput-object p1, v0, p0
 
-    const/4 v2, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v1, v2
+    aput-object p2, v0, p0
 
-    const/4 v2, 0x3
+    const/4 p0, 0x3
 
-    aput-object p3, v1, v2
+    aput-object p3, v0, p0
 
-    const/4 v2, 0x4
+    const/4 p0, 0x4
 
-    aput-object p4, v1, v2
+    aput-object p4, v0, p0
 
-    const/4 v2, 0x5
+    const/4 p0, 0x5
 
-    aput-object p5, v1, v2
+    aput-object p5, v0, p0
 
-    const/4 v2, 0x6
+    const/4 p0, 0x6
 
-    aput-object p6, v1, v2
+    aput-object p6, v0, p0
 
-    const/4 v2, 0x7
+    const/4 p0, 0x7
 
-    aput-object p7, v1, v2
+    aput-object p7, v0, p0
 
-    const/16 v2, 0x8
+    const/16 p0, 0x8
 
-    aput-object p8, v1, v2
+    aput-object p8, v0, p0
 
-    invoke-static {v0, v1}, Lio/reactivex/Flowable;->combineLatest(Lio/reactivex/functions/Function;[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-static {p9, v0}, Lio/reactivex/Flowable;->combineLatest(Lio/reactivex/functions/Function;[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static combineLatest([Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -1338,22 +1271,19 @@
     .end annotation
 
     .line 179
-    .local p0, "sources":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p1, "combiner":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-[Ljava/lang/Object;+TR;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
 
     invoke-static {p0, p1, v0}, Lio/reactivex/Flowable;->combineLatest([Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static combineLatest([Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
     .locals 2
-    .param p2, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1383,11 +1313,9 @@
         value = "none"
     .end annotation
 
-    .line 263
-    .local p0, "sources":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p1, "combiner":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-[Ljava/lang/Object;+TR;>;"
     const-string v0, "sources is null"
 
+    .line 263
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 264
@@ -1398,19 +1326,19 @@
     .line 265
     invoke-static {}, Lio/reactivex/Flowable;->empty()Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
-    .line 267
     :cond_0
     const-string v0, "combiner is null"
 
+    .line 267
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 268
     const-string v0, "bufferSize"
 
+    .line 268
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 269
@@ -1422,14 +1350,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs combineLatestDelayError(Lio/reactivex/functions/Function;I[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
-    .locals 1
-    .param p1, "bufferSize"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1460,13 +1387,11 @@
     .end annotation
 
     .line 488
-    .local p0, "combiner":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-[Ljava/lang/Object;+TR;>;"
-    .local p2, "sources":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<+TT;>;"
     invoke-static {p2, p0, p1}, Lio/reactivex/Flowable;->combineLatestDelayError([Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs combineLatestDelayError(Lio/reactivex/functions/Function;[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -1501,17 +1426,15 @@
     .end annotation
 
     .line 443
-    .local p0, "combiner":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-[Ljava/lang/Object;+TR;>;"
-    .local p1, "sources":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<+TT;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
 
     invoke-static {p1, p0, v0}, Lio/reactivex/Flowable;->combineLatestDelayError([Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static combineLatestDelayError(Ljava/lang/Iterable;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -1548,22 +1471,19 @@
     .end annotation
 
     .line 582
-    .local p0, "sources":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lorg/reactivestreams/Publisher<+TT;>;>;"
-    .local p1, "combiner":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-[Ljava/lang/Object;+TR;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
 
     invoke-static {p0, p1, v0}, Lio/reactivex/Flowable;->combineLatestDelayError(Ljava/lang/Iterable;Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static combineLatestDelayError(Ljava/lang/Iterable;Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
     .locals 2
-    .param p2, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1595,21 +1515,19 @@
         value = "none"
     .end annotation
 
-    .line 627
-    .local p0, "sources":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lorg/reactivestreams/Publisher<+TT;>;>;"
-    .local p1, "combiner":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-[Ljava/lang/Object;+TR;>;"
     const-string v0, "sources is null"
 
+    .line 627
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 628
     const-string v0, "combiner is null"
 
+    .line 628
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 629
     const-string v0, "bufferSize"
 
+    .line 629
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 630
@@ -1621,9 +1539,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static combineLatestDelayError([Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -1658,22 +1576,19 @@
     .end annotation
 
     .line 400
-    .local p0, "sources":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p1, "combiner":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-[Ljava/lang/Object;+TR;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
 
     invoke-static {p0, p1, v0}, Lio/reactivex/Flowable;->combineLatestDelayError([Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static combineLatestDelayError([Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
     .locals 2
-    .param p2, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1703,21 +1618,19 @@
         value = "none"
     .end annotation
 
-    .line 533
-    .local p0, "sources":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p1, "combiner":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-[Ljava/lang/Object;+TR;>;"
     const-string v0, "sources is null"
 
+    .line 533
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 534
     const-string v0, "combiner is null"
 
+    .line 534
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 535
     const-string v0, "bufferSize"
 
+    .line 535
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 536
@@ -1728,9 +1641,9 @@
     .line 537
     invoke-static {}, Lio/reactivex/Flowable;->empty()Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 539
     :cond_0
@@ -1742,13 +1655,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static concat(Ljava/lang/Iterable;)Lio/reactivex/Flowable;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1774,30 +1687,29 @@
         value = "none"
     .end annotation
 
-    .line 1137
-    .local p0, "sources":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     const-string v0, "sources is null"
 
+    .line 1137
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 1139
     invoke-static {p0}, Lio/reactivex/Flowable;->fromIterable(Ljava/lang/Iterable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
-    move-result-object v1
-
-    const/4 v2, 0x2
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v0, v1, v2, v3}, Lio/reactivex/Flowable;->concatMapDelayError(Lio/reactivex/functions/Function;IZ)Lio/reactivex/Flowable;
-
     move-result-object v0
 
-    return-object v0
+    const/4 v1, 0x2
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p0, v0, v1, v2}, Lio/reactivex/Flowable;->concatMapDelayError(Lio/reactivex/functions/Function;IZ)Lio/reactivex/Flowable;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static concat(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -1828,21 +1740,19 @@
     .end annotation
 
     .line 1168
-    .local p0, "sources":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
 
     invoke-static {p0, v0}, Lio/reactivex/Flowable;->concat(Lorg/reactivestreams/Publisher;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static concat(Lorg/reactivestreams/Publisher;I)Lio/reactivex/Flowable;
-    .locals 2
-    .param p1, "prefetch"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1869,20 +1779,19 @@
     .end annotation
 
     .line 1200
-    .local p0, "sources":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     invoke-static {p0}, Lio/reactivex/Flowable;->fromPublisher(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
-    move-result-object v1
-
-    invoke-virtual {v0, v1, p1}, Lio/reactivex/Flowable;->concatMap(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
-
     move-result-object v0
 
-    return-object v0
+    invoke-virtual {p0, v0, p1}, Lio/reactivex/Flowable;->concatMap(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static concat(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -1912,19 +1821,16 @@
         value = "none"
     .end annotation
 
-    .line 1232
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     const-string v0, "source1 is null"
 
+    .line 1232
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1233
     const-string v0, "source2 is null"
 
+    .line 1233
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1234
     const/4 v0, 0x2
 
     new-array v0, v0, [Lorg/reactivestreams/Publisher;
@@ -1933,15 +1839,16 @@
 
     aput-object p0, v0, v1
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v0, v1
+    aput-object p1, v0, p0
 
+    .line 1234
     invoke-static {v0}, Lio/reactivex/Flowable;->concatArray([Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static concat(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -1973,25 +1880,21 @@
         value = "none"
     .end annotation
 
-    .line 1270
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p2, "source3":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     const-string v0, "source1 is null"
 
+    .line 1270
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1271
     const-string v0, "source2 is null"
 
+    .line 1271
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1272
     const-string v0, "source3 is null"
 
+    .line 1272
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1273
     const/4 v0, 0x3
 
     new-array v0, v0, [Lorg/reactivestreams/Publisher;
@@ -2000,19 +1903,20 @@
 
     aput-object p0, v0, v1
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v0, v1
+    aput-object p1, v0, p0
 
-    const/4 v1, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v0, v1
+    aput-object p2, v0, p0
 
+    .line 1273
     invoke-static {v0}, Lio/reactivex/Flowable;->concatArray([Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static concat(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -2046,31 +1950,26 @@
         value = "none"
     .end annotation
 
-    .line 1311
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p2, "source3":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p3, "source4":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     const-string v0, "source1 is null"
 
+    .line 1311
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1312
     const-string v0, "source2 is null"
 
+    .line 1312
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1313
     const-string v0, "source3 is null"
 
+    .line 1313
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1314
     const-string v0, "source4 is null"
 
+    .line 1314
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1315
     const/4 v0, 0x4
 
     new-array v0, v0, [Lorg/reactivestreams/Publisher;
@@ -2079,23 +1978,24 @@
 
     aput-object p0, v0, v1
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v0, v1
+    aput-object p1, v0, p0
 
-    const/4 v1, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v0, v1
+    aput-object p2, v0, p0
 
-    const/4 v1, 0x3
+    const/4 p0, 0x3
 
-    aput-object p3, v0, v1
+    aput-object p3, v0, p0
 
+    .line 1315
     invoke-static {v0}, Lio/reactivex/Flowable;->concatArray([Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs concatArray([Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -2124,7 +2024,6 @@
     .end annotation
 
     .line 1342
-    .local p0, "sources":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<+TT;>;"
     array-length v0, p0
 
     if-nez v0, :cond_0
@@ -2132,9 +2031,9 @@
     .line 1343
     invoke-static {}, Lio/reactivex/Flowable;->empty()Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 1345
     :cond_0
@@ -2147,13 +2046,13 @@
     if-ne v0, v1, :cond_1
 
     .line 1346
-    aget-object v0, p0, v2
+    aget-object p0, p0, v2
 
-    invoke-static {v0}, Lio/reactivex/Flowable;->fromPublisher(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-static {p0}, Lio/reactivex/Flowable;->fromPublisher(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 1348
     :cond_1
@@ -2163,9 +2062,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs concatArrayDelayError([Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -2194,7 +2093,6 @@
     .end annotation
 
     .line 1374
-    .local p0, "sources":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<+TT;>;"
     array-length v0, p0
 
     if-nez v0, :cond_0
@@ -2202,9 +2100,9 @@
     .line 1375
     invoke-static {}, Lio/reactivex/Flowable;->empty()Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 1377
     :cond_0
@@ -2214,16 +2112,16 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 1378
     const/4 v0, 0x0
 
-    aget-object v0, p0, v0
+    .line 1378
+    aget-object p0, p0, v0
 
-    invoke-static {v0}, Lio/reactivex/Flowable;->fromPublisher(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-static {p0}, Lio/reactivex/Flowable;->fromPublisher(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 1380
     :cond_1
@@ -2233,15 +2131,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs concatArrayEager(II[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
     .locals 7
-    .param p0, "maxConcurrency"    # I
-    .param p1, "prefetch"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -2265,20 +2161,19 @@
         value = "none"
     .end annotation
 
-    .line 1438
-    .local p2, "sources":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<+TT;>;"
     const-string v0, "sources is null"
 
+    .line 1438
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1439
     const-string v0, "maxConcurrency"
 
+    .line 1439
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
-    .line 1440
     const-string v0, "prefetch"
 
+    .line 1440
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 1441
@@ -2304,9 +2199,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs concatArrayEager([Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -2335,7 +2230,6 @@
     .end annotation
 
     .line 1407
-    .local p0, "sources":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<+TT;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
@@ -2346,13 +2240,13 @@
 
     invoke-static {v0, v1, p0}, Lio/reactivex/Flowable;->concatArrayEager(II[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static concatDelayError(Ljava/lang/Iterable;)Lio/reactivex/Flowable;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -2378,26 +2272,25 @@
         value = "none"
     .end annotation
 
-    .line 1467
-    .local p0, "sources":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     const-string v0, "sources is null"
 
+    .line 1467
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 1468
     invoke-static {p0}, Lio/reactivex/Flowable;->fromIterable(Ljava/lang/Iterable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lio/reactivex/Flowable;->concatMapDelayError(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
-
     move-result-object v0
 
-    return-object v0
+    invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->concatMapDelayError(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static concatDelayError(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -2428,7 +2321,6 @@
     .end annotation
 
     .line 1490
-    .local p0, "sources":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
@@ -2437,15 +2329,13 @@
 
     invoke-static {p0, v0, v1}, Lio/reactivex/Flowable;->concatDelayError(Lorg/reactivestreams/Publisher;IZ)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static concatDelayError(Lorg/reactivestreams/Publisher;IZ)Lio/reactivex/Flowable;
-    .locals 2
-    .param p1, "prefetch"    # I
-    .param p2, "tillTheEnd"    # Z
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -2472,20 +2362,19 @@
     .end annotation
 
     .line 1516
-    .local p0, "sources":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     invoke-static {p0}, Lio/reactivex/Flowable;->fromPublisher(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
-    move-result-object v1
-
-    invoke-virtual {v0, v1, p1, p2}, Lio/reactivex/Flowable;->concatMapDelayError(Lio/reactivex/functions/Function;IZ)Lio/reactivex/Flowable;
-
     move-result-object v0
 
-    return-object v0
+    invoke-virtual {p0, v0, p1, p2}, Lio/reactivex/Flowable;->concatMapDelayError(Lio/reactivex/functions/Function;IZ)Lio/reactivex/Flowable;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static concatEager(Ljava/lang/Iterable;)Lio/reactivex/Flowable;
@@ -2516,7 +2405,6 @@
     .end annotation
 
     .line 1601
-    .local p0, "sources":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
@@ -2527,15 +2415,13 @@
 
     invoke-static {p0, v0, v1}, Lio/reactivex/Flowable;->concatEager(Ljava/lang/Iterable;II)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static concatEager(Ljava/lang/Iterable;II)Lio/reactivex/Flowable;
     .locals 7
-    .param p1, "maxConcurrency"    # I
-    .param p2, "prefetch"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -2561,20 +2447,19 @@
         value = "none"
     .end annotation
 
-    .line 1631
-    .local p0, "sources":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     const-string v0, "sources is null"
 
+    .line 1631
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1632
     const-string v0, "maxConcurrency"
 
+    .line 1632
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
-    .line 1633
     const-string v0, "prefetch"
 
+    .line 1633
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 1634
@@ -2600,9 +2485,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static concatEager(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -2633,7 +2518,6 @@
     .end annotation
 
     .line 1542
-    .local p0, "sources":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
@@ -2644,15 +2528,13 @@
 
     invoke-static {p0, v0, v1}, Lio/reactivex/Flowable;->concatEager(Lorg/reactivestreams/Publisher;II)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static concatEager(Lorg/reactivestreams/Publisher;II)Lio/reactivex/Flowable;
     .locals 7
-    .param p1, "maxConcurrency"    # I
-    .param p2, "prefetch"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -2678,20 +2560,19 @@
         value = "none"
     .end annotation
 
-    .line 1572
-    .local p0, "sources":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     const-string v0, "sources is null"
 
+    .line 1572
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1573
     const-string v0, "maxConcurrency"
 
+    .line 1573
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
-    .line 1574
     const-string v0, "prefetch"
 
+    .line 1574
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 1575
@@ -2715,14 +2596,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static create(Lio/reactivex/FlowableOnSubscribe;Lio/reactivex/BackpressureStrategy;)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "mode"    # Lio/reactivex/BackpressureStrategy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -2748,15 +2628,14 @@
         value = "none"
     .end annotation
 
-    .line 1687
-    .local p0, "source":Lio/reactivex/FlowableOnSubscribe;, "Lio/reactivex/FlowableOnSubscribe<TT;>;"
     const-string v0, "source is null"
 
+    .line 1687
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1688
     const-string v0, "mode is null"
 
+    .line 1688
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 1689
@@ -2766,9 +2645,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static defer(Ljava/util/concurrent/Callable;)Lio/reactivex/Flowable;
@@ -2798,10 +2677,9 @@
         value = "none"
     .end annotation
 
-    .line 1723
-    .local p0, "supplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     const-string v0, "supplier is null"
 
+    .line 1723
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 1724
@@ -2811,15 +2689,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private doOnEach(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;Lio/reactivex/functions/Action;)Lio/reactivex/Flowable;
     .locals 7
-    .param p3, "onComplete"    # Lio/reactivex/functions/Action;
-    .param p4, "onAfterTerminate"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2848,27 +2724,24 @@
         value = "none"
     .end annotation
 
-    .line 7797
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "onNext":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
-    .local p2, "onError":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Ljava/lang/Throwable;>;"
     const-string v0, "onNext is null"
 
+    .line 7797
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 7798
     const-string v0, "onError is null"
 
+    .line 7798
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 7799
     const-string v0, "onComplete is null"
 
+    .line 7799
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 7800
     const-string v0, "onAfterTerminate is null"
 
+    .line 7800
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 7801
@@ -2890,9 +2763,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public static empty()Lio/reactivex/Flowable;
@@ -2930,7 +2803,6 @@
 
 .method public static error(Ljava/lang/Throwable;)Lio/reactivex/Flowable;
     .locals 1
-    .param p0, "throwable"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -2954,21 +2826,21 @@
         value = "none"
     .end annotation
 
-    .line 1805
     const-string v0, "throwable is null"
 
+    .line 1805
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 1806
     invoke-static {p0}, Lio/reactivex/internal/functions/Functions;->justCallable(Ljava/lang/Object;)Ljava/util/concurrent/Callable;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lio/reactivex/Flowable;->error(Ljava/util/concurrent/Callable;)Lio/reactivex/Flowable;
+    invoke-static {p0}, Lio/reactivex/Flowable;->error(Ljava/util/concurrent/Callable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static error(Ljava/util/concurrent/Callable;)Lio/reactivex/Flowable;
@@ -2998,10 +2870,9 @@
         value = "none"
     .end annotation
 
-    .line 1777
-    .local p0, "supplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<+Ljava/lang/Throwable;>;"
     const-string v0, "errorSupplier is null"
 
+    .line 1777
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 1778
@@ -3011,9 +2882,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs fromArray([Ljava/lang/Object;)Lio/reactivex/Flowable;
@@ -3039,10 +2910,9 @@
         value = "none"
     .end annotation
 
-    .line 1832
-    .local p0, "items":[Ljava/lang/Object;, "[TT;"
     const-string v0, "items is null"
 
+    .line 1832
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 1833
@@ -3053,9 +2923,9 @@
     .line 1834
     invoke-static {}, Lio/reactivex/Flowable;->empty()Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 1836
     :cond_0
@@ -3065,16 +2935,16 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 1837
     const/4 v0, 0x0
 
-    aget-object v0, p0, v0
+    .line 1837
+    aget-object p0, p0, v0
 
-    invoke-static {v0}, Lio/reactivex/Flowable;->just(Ljava/lang/Object;)Lio/reactivex/Flowable;
+    invoke-static {p0}, Lio/reactivex/Flowable;->just(Ljava/lang/Object;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 1839
     :cond_1
@@ -3084,9 +2954,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static fromCallable(Ljava/util/concurrent/Callable;)Lio/reactivex/Flowable;
@@ -3114,10 +2984,9 @@
         value = "none"
     .end annotation
 
-    .line 1870
-    .local p0, "supplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<+TT;>;"
     const-string v0, "supplier is null"
 
+    .line 1870
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 1871
@@ -3127,9 +2996,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static fromFuture(Ljava/util/concurrent/Future;)Lio/reactivex/Flowable;
@@ -3157,10 +3026,9 @@
         value = "none"
     .end annotation
 
-    .line 1906
-    .local p0, "future":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<+TT;>;"
     const-string v0, "future is null"
 
+    .line 1906
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 1907
@@ -3174,15 +3042,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static fromFuture(Ljava/util/concurrent/Future;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "timeout"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3208,15 +3074,14 @@
         value = "none"
     .end annotation
 
-    .line 1946
-    .local p0, "future":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<+TT;>;"
     const-string v0, "future is null"
 
+    .line 1946
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1947
     const-string v0, "unit is null"
 
+    .line 1947
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 1948
@@ -3226,16 +3091,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static fromFuture(Ljava/util/concurrent/Future;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "timeout"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3262,27 +3124,25 @@
         value = "custom"
     .end annotation
 
-    .line 1991
-    .local p0, "future":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<+TT;>;"
     const-string v0, "scheduler is null"
 
+    .line 1991
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 1992
     invoke-static {p0, p1, p2, p3}, Lio/reactivex/Flowable;->fromFuture(Ljava/util/concurrent/Future;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0, p4}, Lio/reactivex/Flowable;->subscribeOn(Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
+    invoke-virtual {p0, p4}, Lio/reactivex/Flowable;->subscribeOn(Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static fromFuture(Ljava/util/concurrent/Future;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3308,22 +3168,21 @@
         value = "custom"
     .end annotation
 
-    .line 2029
-    .local p0, "future":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<+TT;>;"
     const-string v0, "scheduler is null"
 
+    .line 2029
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 2030
     invoke-static {p0}, Lio/reactivex/Flowable;->fromFuture(Ljava/util/concurrent/Future;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0, p1}, Lio/reactivex/Flowable;->subscribeOn(Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
+    invoke-virtual {p0, p1}, Lio/reactivex/Flowable;->subscribeOn(Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static fromIterable(Ljava/lang/Iterable;)Lio/reactivex/Flowable;
@@ -3351,10 +3210,9 @@
         value = "none"
     .end annotation
 
-    .line 2057
-    .local p0, "source":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TT;>;"
     const-string v0, "source is null"
 
+    .line 2057
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 2058
@@ -3364,9 +3222,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static fromPublisher(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -3395,26 +3253,23 @@
     .end annotation
 
     .line 2081
-    .local p0, "source":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     instance-of v0, p0, Lio/reactivex/Flowable;
 
     if-eqz v0, :cond_0
 
     .line 2082
-    move-object v0, p0
+    check-cast p0, Lio/reactivex/Flowable;
 
-    check-cast v0, Lio/reactivex/Flowable;
+    invoke-static {p0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
+    move-result-object p0
 
-    move-result-object v0
+    return-object p0
 
-    return-object v0
-
-    .line 2084
     :cond_0
     const-string v0, "publisher is null"
 
+    .line 2084
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 2086
@@ -3424,13 +3279,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static generate(Lio/reactivex/functions/Consumer;)Lio/reactivex/Flowable;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3455,10 +3310,9 @@
         value = "none"
     .end annotation
 
-    .line 2110
-    .local p0, "generator":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<Lio/reactivex/Emitter<TT;>;>;"
     const-string v0, "generator is null"
 
+    .line 2110
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 2111
@@ -3468,21 +3322,21 @@
 
     invoke-static {p0}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper;->simpleGenerator(Lio/reactivex/functions/Consumer;)Lio/reactivex/functions/BiFunction;
 
-    move-result-object v1
+    move-result-object p0
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->emptyConsumer()Lio/reactivex/functions/Consumer;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v0, v1, v2}, Lio/reactivex/Flowable;->generate(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiFunction;Lio/reactivex/functions/Consumer;)Lio/reactivex/Flowable;
+    invoke-static {v0, p0, v1}, Lio/reactivex/Flowable;->generate(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiFunction;Lio/reactivex/functions/Consumer;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static generate(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiConsumer;)Lio/reactivex/Flowable;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3512,27 +3366,25 @@
         value = "none"
     .end annotation
 
-    .line 2139
-    .local p0, "initialState":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TS;>;"
-    .local p1, "generator":Lio/reactivex/functions/BiConsumer;, "Lio/reactivex/functions/BiConsumer<TS;Lio/reactivex/Emitter<TT;>;>;"
     const-string v0, "generator is null"
 
+    .line 2139
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 2140
     invoke-static {p1}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper;->simpleBiGenerator(Lio/reactivex/functions/BiConsumer;)Lio/reactivex/functions/BiFunction;
 
-    move-result-object v0
+    move-result-object p1
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->emptyConsumer()Lio/reactivex/functions/Consumer;
 
-    move-result-object v1
-
-    invoke-static {p0, v0, v1}, Lio/reactivex/Flowable;->generate(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiFunction;Lio/reactivex/functions/Consumer;)Lio/reactivex/Flowable;
-
     move-result-object v0
 
-    return-object v0
+    invoke-static {p0, p1, v0}, Lio/reactivex/Flowable;->generate(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiFunction;Lio/reactivex/functions/Consumer;)Lio/reactivex/Flowable;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static generate(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiConsumer;Lio/reactivex/functions/Consumer;)Lio/reactivex/Flowable;
@@ -3568,24 +3420,21 @@
         value = "none"
     .end annotation
 
-    .line 2170
-    .local p0, "initialState":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TS;>;"
-    .local p1, "generator":Lio/reactivex/functions/BiConsumer;, "Lio/reactivex/functions/BiConsumer<TS;Lio/reactivex/Emitter<TT;>;>;"
-    .local p2, "disposeState":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TS;>;"
     const-string v0, "generator is null"
 
+    .line 2170
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 2171
     invoke-static {p1}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper;->simpleBiGenerator(Lio/reactivex/functions/BiConsumer;)Lio/reactivex/functions/BiFunction;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {p0, v0, p2}, Lio/reactivex/Flowable;->generate(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiFunction;Lio/reactivex/functions/Consumer;)Lio/reactivex/Flowable;
+    invoke-static {p0, p1, p2}, Lio/reactivex/Flowable;->generate(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiFunction;Lio/reactivex/functions/Consumer;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static generate(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiFunction;)Lio/reactivex/Flowable;
@@ -3620,17 +3469,15 @@
     .end annotation
 
     .line 2198
-    .local p0, "initialState":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TS;>;"
-    .local p1, "generator":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<TS;Lio/reactivex/Emitter<TT;>;TS;>;"
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->emptyConsumer()Lio/reactivex/functions/Consumer;
 
     move-result-object v0
 
     invoke-static {p0, p1, v0}, Lio/reactivex/Flowable;->generate(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiFunction;Lio/reactivex/functions/Consumer;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static generate(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiFunction;Lio/reactivex/functions/Consumer;)Lio/reactivex/Flowable;
@@ -3666,22 +3513,19 @@
         value = "none"
     .end annotation
 
-    .line 2227
-    .local p0, "initialState":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TS;>;"
-    .local p1, "generator":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<TS;Lio/reactivex/Emitter<TT;>;TS;>;"
-    .local p2, "disposeState":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TS;>;"
     const-string v0, "initialState is null"
 
+    .line 2227
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2228
     const-string v0, "generator is null"
 
+    .line 2228
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2229
     const-string v0, "disposeState is null"
 
+    .line 2229
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 2230
@@ -3691,16 +3535,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static interval(JJLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
     .locals 6
-    .param p0, "initialDelay"    # J
-    .param p2, "period"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JJ",
@@ -3736,17 +3577,13 @@
 
     invoke-static/range {v0 .. v5}, Lio/reactivex/Flowable;->interval(JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static interval(JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 8
-    .param p0, "initialDelay"    # J
-    .param p2, "period"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JJ",
@@ -3770,14 +3607,14 @@
         value = "custom"
     .end annotation
 
-    .line 2296
     const-string v0, "unit is null"
 
+    .line 2296
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2297
     const-string v0, "scheduler is null"
 
+    .line 2297
     invoke-static {p5, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 2298
@@ -3787,17 +3624,15 @@
 
     invoke-static {v1, v2, p0, p1}, Ljava/lang/Math;->max(JJ)J
 
-    move-result-wide v3
+    move-result-wide p0
 
     invoke-static {v1, v2, p2, p3}, Ljava/lang/Math;->max(JJ)J
 
-    move-result-wide v5
+    move-result-wide v4
 
     move-object v1, v0
 
-    move-wide v2, v3
-
-    move-wide v4, v5
+    move-wide v2, p0
 
     move-object v6, p4
 
@@ -3807,15 +3642,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static interval(JLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
     .locals 6
-    .param p0, "period"    # J
-    .param p2, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -3851,16 +3684,13 @@
 
     invoke-static/range {v0 .. v5}, Lio/reactivex/Flowable;->interval(JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static interval(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 6
-    .param p0, "period"    # J
-    .param p2, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p3, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -3884,7 +3714,6 @@
         value = "custom"
     .end annotation
 
-    .line 2354
     move-wide v0, p0
 
     move-wide v2, p0
@@ -3893,20 +3722,16 @@
 
     move-object v5, p3
 
+    .line 2354
     invoke-static/range {v0 .. v5}, Lio/reactivex/Flowable;->interval(JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static intervalRange(JJJJLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
     .locals 10
-    .param p0, "start"    # J
-    .param p2, "count"    # J
-    .param p4, "initialDelay"    # J
-    .param p6, "period"    # J
-    .param p8, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JJJJ",
@@ -3952,13 +3777,7 @@
 .end method
 
 .method public static intervalRange(JJJJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
-    .locals 21
-    .param p0, "start"    # J
-    .param p2, "count"    # J
-    .param p4, "initialDelay"    # J
-    .param p6, "period"    # J
-    .param p8, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p9, "scheduler"    # Lio/reactivex/Scheduler;
+    .locals 16
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JJJJ",
@@ -3982,54 +3801,47 @@
         value = "custom"
     .end annotation
 
-    .line 2403
-    move-wide/from16 v11, p2
+    move-wide/from16 v0, p2
 
-    move-wide/from16 v13, p4
+    move-wide/from16 v2, p4
 
-    move-object/from16 v15, p8
+    move-object/from16 v9, p8
 
     move-object/from16 v10, p9
 
-    const-wide/16 v0, 0x0
+    const-wide/16 v4, 0x0
 
-    cmp-long v2, v11, v0
+    cmp-long v6, v0, v4
 
-    if-ltz v2, :cond_3
+    if-ltz v6, :cond_3
 
-    .line 2406
-    cmp-long v2, v11, v0
-
-    if-nez v2, :cond_0
+    if-nez v6, :cond_0
 
     .line 2407
     invoke-static {}, Lio/reactivex/Flowable;->empty()Lio/reactivex/Flowable;
 
     move-result-object v0
 
-    invoke-virtual {v0, v13, v14, v15, v10}, Lio/reactivex/Flowable;->delay(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
+    invoke-virtual {v0, v2, v3, v9, v10}, Lio/reactivex/Flowable;->delay(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
     move-result-object v0
 
     return-object v0
 
-    .line 2410
     :cond_0
-    const-wide/16 v2, 0x1
+    const-wide/16 v6, 0x1
 
-    sub-long v2, v11, v2
+    sub-long/2addr v0, v6
 
-    add-long v16, p0, v2
+    add-long v6, p0, v0
 
-    .line 2411
-    .local v16, "end":J
-    cmp-long v2, p0, v0
+    cmp-long v0, p0, v4
 
-    if-lez v2, :cond_2
+    if-lez v0, :cond_2
 
-    cmp-long v2, v16, v0
+    cmp-long v0, v6, v4
 
-    if-ltz v2, :cond_1
+    if-ltz v0, :cond_1
 
     goto :goto_0
 
@@ -4043,38 +3855,40 @@
 
     throw v0
 
-    .line 2414
     :cond_2
     :goto_0
-    const-string v2, "unit is null"
+    const-string v0, "unit is null"
 
-    invoke-static {v15, v2}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 2414
+    invoke-static {v9, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    const-string v0, "scheduler is null"
 
     .line 2415
-    const-string v2, "scheduler is null"
-
-    invoke-static {v10, v2}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v10, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 2417
-    new-instance v18, Lio/reactivex/internal/operators/flowable/FlowableIntervalRange;
+    new-instance v11, Lio/reactivex/internal/operators/flowable/FlowableIntervalRange;
 
-    invoke-static {v0, v1, v13, v14}, Ljava/lang/Math;->max(JJ)J
+    invoke-static {v4, v5, v2, v3}, Ljava/lang/Math;->max(JJ)J
 
-    move-result-wide v5
+    move-result-wide v12
 
-    move-wide/from16 v7, p6
+    move-wide/from16 v0, p6
 
-    invoke-static {v0, v1, v7, v8}, Ljava/lang/Math;->max(JJ)J
+    invoke-static {v4, v5, v0, v1}, Ljava/lang/Math;->max(JJ)J
 
-    move-result-wide v19
+    move-result-wide v14
 
-    move-object/from16 v0, v18
+    move-object v0, v11
 
     move-wide/from16 v1, p0
 
-    move-wide/from16 v3, v16
+    move-wide v3, v6
 
-    move-wide/from16 v7, v19
+    move-wide v5, v12
+
+    move-wide v7, v14
 
     move-object/from16 v9, p8
 
@@ -4082,34 +3896,33 @@
 
     invoke-direct/range {v0 .. v10}, Lio/reactivex/internal/operators/flowable/FlowableIntervalRange;-><init>(JJJJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)V
 
-    invoke-static/range {v18 .. v18}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
+    invoke-static {v11}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
     move-result-object v0
 
     return-object v0
 
     .line 2404
-    .end local v16    # "end":J
     :cond_3
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v4, "count >= 0 required but it was "
 
-    const-string v2, "count >= 0 required but it was "
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v11, v12}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v2
 .end method
 
 .method public static just(Ljava/lang/Object;)Lio/reactivex/Flowable;
@@ -4135,10 +3948,9 @@
         value = "none"
     .end annotation
 
-    .line 2450
-    .local p0, "item":Ljava/lang/Object;, "TT;"
     const-string v0, "item is null"
 
+    .line 2450
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 2451
@@ -4148,9 +3960,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static just(Ljava/lang/Object;Ljava/lang/Object;)Lio/reactivex/Flowable;
@@ -4176,19 +3988,16 @@
         value = "none"
     .end annotation
 
-    .line 2479
-    .local p0, "item1":Ljava/lang/Object;, "TT;"
-    .local p1, "item2":Ljava/lang/Object;, "TT;"
     const-string v0, "The first item is null"
 
+    .line 2479
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2480
     const-string v0, "The second item is null"
 
+    .line 2480
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2482
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -4197,15 +4006,16 @@
 
     aput-object p0, v0, v1
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v0, v1
+    aput-object p1, v0, p0
 
+    .line 2482
     invoke-static {v0}, Lio/reactivex/Flowable;->fromArray([Ljava/lang/Object;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static just(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lio/reactivex/Flowable;
@@ -4231,25 +4041,21 @@
         value = "none"
     .end annotation
 
-    .line 2512
-    .local p0, "item1":Ljava/lang/Object;, "TT;"
-    .local p1, "item2":Ljava/lang/Object;, "TT;"
-    .local p2, "item3":Ljava/lang/Object;, "TT;"
     const-string v0, "The first item is null"
 
+    .line 2512
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2513
     const-string v0, "The second item is null"
 
+    .line 2513
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2514
     const-string v0, "The third item is null"
 
+    .line 2514
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2516
     const/4 v0, 0x3
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -4258,19 +4064,20 @@
 
     aput-object p0, v0, v1
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v0, v1
+    aput-object p1, v0, p0
 
-    const/4 v1, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v0, v1
+    aput-object p2, v0, p0
 
+    .line 2516
     invoke-static {v0}, Lio/reactivex/Flowable;->fromArray([Ljava/lang/Object;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static just(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lio/reactivex/Flowable;
@@ -4296,31 +4103,26 @@
         value = "none"
     .end annotation
 
-    .line 2548
-    .local p0, "item1":Ljava/lang/Object;, "TT;"
-    .local p1, "item2":Ljava/lang/Object;, "TT;"
-    .local p2, "item3":Ljava/lang/Object;, "TT;"
-    .local p3, "item4":Ljava/lang/Object;, "TT;"
     const-string v0, "The first item is null"
 
+    .line 2548
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2549
     const-string v0, "The second item is null"
 
+    .line 2549
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2550
     const-string v0, "The third item is null"
 
+    .line 2550
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2551
     const-string v0, "The fourth item is null"
 
+    .line 2551
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2553
     const/4 v0, 0x4
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -4329,23 +4131,24 @@
 
     aput-object p0, v0, v1
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v0, v1
+    aput-object p1, v0, p0
 
-    const/4 v1, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v0, v1
+    aput-object p2, v0, p0
 
-    const/4 v1, 0x3
+    const/4 p0, 0x3
 
-    aput-object p3, v0, v1
+    aput-object p3, v0, p0
 
+    .line 2553
     invoke-static {v0}, Lio/reactivex/Flowable;->fromArray([Ljava/lang/Object;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static just(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lio/reactivex/Flowable;
@@ -4371,37 +4174,31 @@
         value = "none"
     .end annotation
 
-    .line 2587
-    .local p0, "item1":Ljava/lang/Object;, "TT;"
-    .local p1, "item2":Ljava/lang/Object;, "TT;"
-    .local p2, "item3":Ljava/lang/Object;, "TT;"
-    .local p3, "item4":Ljava/lang/Object;, "TT;"
-    .local p4, "item5":Ljava/lang/Object;, "TT;"
     const-string v0, "The first item is null"
 
+    .line 2587
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2588
     const-string v0, "The second item is null"
 
+    .line 2588
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2589
     const-string v0, "The third item is null"
 
+    .line 2589
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2590
     const-string v0, "The fourth item is null"
 
+    .line 2590
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2591
     const-string v0, "The fifth item is null"
 
+    .line 2591
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2593
     const/4 v0, 0x5
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -4410,27 +4207,28 @@
 
     aput-object p0, v0, v1
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v0, v1
+    aput-object p1, v0, p0
 
-    const/4 v1, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v0, v1
+    aput-object p2, v0, p0
 
-    const/4 v1, 0x3
+    const/4 p0, 0x3
 
-    aput-object p3, v0, v1
+    aput-object p3, v0, p0
 
-    const/4 v1, 0x4
+    const/4 p0, 0x4
 
-    aput-object p4, v0, v1
+    aput-object p4, v0, p0
 
+    .line 2593
     invoke-static {v0}, Lio/reactivex/Flowable;->fromArray([Ljava/lang/Object;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static just(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lio/reactivex/Flowable;
@@ -4456,43 +4254,36 @@
         value = "none"
     .end annotation
 
-    .line 2629
-    .local p0, "item1":Ljava/lang/Object;, "TT;"
-    .local p1, "item2":Ljava/lang/Object;, "TT;"
-    .local p2, "item3":Ljava/lang/Object;, "TT;"
-    .local p3, "item4":Ljava/lang/Object;, "TT;"
-    .local p4, "item5":Ljava/lang/Object;, "TT;"
-    .local p5, "item6":Ljava/lang/Object;, "TT;"
     const-string v0, "The first item is null"
 
+    .line 2629
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2630
     const-string v0, "The second item is null"
 
+    .line 2630
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2631
     const-string v0, "The third item is null"
 
+    .line 2631
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2632
     const-string v0, "The fourth item is null"
 
+    .line 2632
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2633
     const-string v0, "The fifth item is null"
 
+    .line 2633
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2634
     const-string v0, "The sixth item is null"
 
+    .line 2634
     invoke-static {p5, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2636
     const/4 v0, 0x6
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -4501,31 +4292,32 @@
 
     aput-object p0, v0, v1
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v0, v1
+    aput-object p1, v0, p0
 
-    const/4 v1, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v0, v1
+    aput-object p2, v0, p0
 
-    const/4 v1, 0x3
+    const/4 p0, 0x3
 
-    aput-object p3, v0, v1
+    aput-object p3, v0, p0
 
-    const/4 v1, 0x4
+    const/4 p0, 0x4
 
-    aput-object p4, v0, v1
+    aput-object p4, v0, p0
 
-    const/4 v1, 0x5
+    const/4 p0, 0x5
 
-    aput-object p5, v0, v1
+    aput-object p5, v0, p0
 
+    .line 2636
     invoke-static {v0}, Lio/reactivex/Flowable;->fromArray([Ljava/lang/Object;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static just(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lio/reactivex/Flowable;
@@ -4551,49 +4343,41 @@
         value = "none"
     .end annotation
 
-    .line 2674
-    .local p0, "item1":Ljava/lang/Object;, "TT;"
-    .local p1, "item2":Ljava/lang/Object;, "TT;"
-    .local p2, "item3":Ljava/lang/Object;, "TT;"
-    .local p3, "item4":Ljava/lang/Object;, "TT;"
-    .local p4, "item5":Ljava/lang/Object;, "TT;"
-    .local p5, "item6":Ljava/lang/Object;, "TT;"
-    .local p6, "item7":Ljava/lang/Object;, "TT;"
     const-string v0, "The first item is null"
 
+    .line 2674
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2675
     const-string v0, "The second item is null"
 
+    .line 2675
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2676
     const-string v0, "The third item is null"
 
+    .line 2676
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2677
     const-string v0, "The fourth item is null"
 
+    .line 2677
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2678
     const-string v0, "The fifth item is null"
 
+    .line 2678
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2679
     const-string v0, "The sixth item is null"
 
+    .line 2679
     invoke-static {p5, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2680
     const-string v0, "The seventh item is null"
 
+    .line 2680
     invoke-static {p6, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2682
     const/4 v0, 0x7
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -4602,35 +4386,36 @@
 
     aput-object p0, v0, v1
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v0, v1
+    aput-object p1, v0, p0
 
-    const/4 v1, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v0, v1
+    aput-object p2, v0, p0
 
-    const/4 v1, 0x3
+    const/4 p0, 0x3
 
-    aput-object p3, v0, v1
+    aput-object p3, v0, p0
 
-    const/4 v1, 0x4
+    const/4 p0, 0x4
 
-    aput-object p4, v0, v1
+    aput-object p4, v0, p0
 
-    const/4 v1, 0x5
+    const/4 p0, 0x5
 
-    aput-object p5, v0, v1
+    aput-object p5, v0, p0
 
-    const/4 v1, 0x6
+    const/4 p0, 0x6
 
-    aput-object p6, v0, v1
+    aput-object p6, v0, p0
 
+    .line 2682
     invoke-static {v0}, Lio/reactivex/Flowable;->fromArray([Ljava/lang/Object;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static just(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lio/reactivex/Flowable;
@@ -4656,55 +4441,46 @@
         value = "none"
     .end annotation
 
-    .line 2722
-    .local p0, "item1":Ljava/lang/Object;, "TT;"
-    .local p1, "item2":Ljava/lang/Object;, "TT;"
-    .local p2, "item3":Ljava/lang/Object;, "TT;"
-    .local p3, "item4":Ljava/lang/Object;, "TT;"
-    .local p4, "item5":Ljava/lang/Object;, "TT;"
-    .local p5, "item6":Ljava/lang/Object;, "TT;"
-    .local p6, "item7":Ljava/lang/Object;, "TT;"
-    .local p7, "item8":Ljava/lang/Object;, "TT;"
     const-string v0, "The first item is null"
 
+    .line 2722
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2723
     const-string v0, "The second item is null"
 
+    .line 2723
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2724
     const-string v0, "The third item is null"
 
+    .line 2724
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2725
     const-string v0, "The fourth item is null"
 
+    .line 2725
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2726
     const-string v0, "The fifth item is null"
 
+    .line 2726
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2727
     const-string v0, "The sixth item is null"
 
+    .line 2727
     invoke-static {p5, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2728
     const-string v0, "The seventh item is null"
 
+    .line 2728
     invoke-static {p6, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2729
     const-string v0, "The eighth item is null"
 
+    .line 2729
     invoke-static {p7, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2731
     const/16 v0, 0x8
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -4713,39 +4489,40 @@
 
     aput-object p0, v0, v1
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v0, v1
+    aput-object p1, v0, p0
 
-    const/4 v1, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v0, v1
+    aput-object p2, v0, p0
 
-    const/4 v1, 0x3
+    const/4 p0, 0x3
 
-    aput-object p3, v0, v1
+    aput-object p3, v0, p0
 
-    const/4 v1, 0x4
+    const/4 p0, 0x4
 
-    aput-object p4, v0, v1
+    aput-object p4, v0, p0
 
-    const/4 v1, 0x5
+    const/4 p0, 0x5
 
-    aput-object p5, v0, v1
+    aput-object p5, v0, p0
 
-    const/4 v1, 0x6
+    const/4 p0, 0x6
 
-    aput-object p6, v0, v1
+    aput-object p6, v0, p0
 
-    const/4 v1, 0x7
+    const/4 p0, 0x7
 
-    aput-object p7, v0, v1
+    aput-object p7, v0, p0
 
+    .line 2731
     invoke-static {v0}, Lio/reactivex/Flowable;->fromArray([Ljava/lang/Object;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static just(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lio/reactivex/Flowable;
@@ -4771,61 +4548,51 @@
         value = "none"
     .end annotation
 
-    .line 2773
-    .local p0, "item1":Ljava/lang/Object;, "TT;"
-    .local p1, "item2":Ljava/lang/Object;, "TT;"
-    .local p2, "item3":Ljava/lang/Object;, "TT;"
-    .local p3, "item4":Ljava/lang/Object;, "TT;"
-    .local p4, "item5":Ljava/lang/Object;, "TT;"
-    .local p5, "item6":Ljava/lang/Object;, "TT;"
-    .local p6, "item7":Ljava/lang/Object;, "TT;"
-    .local p7, "item8":Ljava/lang/Object;, "TT;"
-    .local p8, "item9":Ljava/lang/Object;, "TT;"
     const-string v0, "The first item is null"
 
+    .line 2773
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2774
     const-string v0, "The second item is null"
 
+    .line 2774
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2775
     const-string v0, "The third item is null"
 
+    .line 2775
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2776
     const-string v0, "The fourth item is null"
 
+    .line 2776
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2777
     const-string v0, "The fifth item is null"
 
+    .line 2777
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2778
     const-string v0, "The sixth item is null"
 
+    .line 2778
     invoke-static {p5, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2779
     const-string v0, "The seventh item is null"
 
+    .line 2779
     invoke-static {p6, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2780
     const-string v0, "The eighth item is null"
 
+    .line 2780
     invoke-static {p7, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2781
     const-string v0, "The ninth is null"
 
+    .line 2781
     invoke-static {p8, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2783
     const/16 v0, 0x9
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -4834,43 +4601,44 @@
 
     aput-object p0, v0, v1
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v0, v1
+    aput-object p1, v0, p0
 
-    const/4 v1, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v0, v1
+    aput-object p2, v0, p0
 
-    const/4 v1, 0x3
+    const/4 p0, 0x3
 
-    aput-object p3, v0, v1
+    aput-object p3, v0, p0
 
-    const/4 v1, 0x4
+    const/4 p0, 0x4
 
-    aput-object p4, v0, v1
+    aput-object p4, v0, p0
 
-    const/4 v1, 0x5
+    const/4 p0, 0x5
 
-    aput-object p5, v0, v1
+    aput-object p5, v0, p0
 
-    const/4 v1, 0x6
+    const/4 p0, 0x6
 
-    aput-object p6, v0, v1
+    aput-object p6, v0, p0
 
-    const/4 v1, 0x7
+    const/4 p0, 0x7
 
-    aput-object p7, v0, v1
+    aput-object p7, v0, p0
 
-    const/16 v1, 0x8
+    const/16 p0, 0x8
 
-    aput-object p8, v0, v1
+    aput-object p8, v0, p0
 
+    .line 2783
     invoke-static {v0}, Lio/reactivex/Flowable;->fromArray([Ljava/lang/Object;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static just(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lio/reactivex/Flowable;
@@ -4896,67 +4664,56 @@
         value = "none"
     .end annotation
 
-    .line 2827
-    .local p0, "item1":Ljava/lang/Object;, "TT;"
-    .local p1, "item2":Ljava/lang/Object;, "TT;"
-    .local p2, "item3":Ljava/lang/Object;, "TT;"
-    .local p3, "item4":Ljava/lang/Object;, "TT;"
-    .local p4, "item5":Ljava/lang/Object;, "TT;"
-    .local p5, "item6":Ljava/lang/Object;, "TT;"
-    .local p6, "item7":Ljava/lang/Object;, "TT;"
-    .local p7, "item8":Ljava/lang/Object;, "TT;"
-    .local p8, "item9":Ljava/lang/Object;, "TT;"
-    .local p9, "item10":Ljava/lang/Object;, "TT;"
     const-string v0, "The first item is null"
 
+    .line 2827
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2828
     const-string v0, "The second item is null"
 
+    .line 2828
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2829
     const-string v0, "The third item is null"
 
+    .line 2829
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2830
     const-string v0, "The fourth item is null"
 
+    .line 2830
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2831
     const-string v0, "The fifth item is null"
 
+    .line 2831
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2832
     const-string v0, "The sixth item is null"
 
+    .line 2832
     invoke-static {p5, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2833
     const-string v0, "The seventh item is null"
 
+    .line 2833
     invoke-static {p6, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2834
     const-string v0, "The eighth item is null"
 
+    .line 2834
     invoke-static {p7, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2835
     const-string v0, "The ninth item is null"
 
+    .line 2835
     invoke-static {p8, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2836
     const-string v0, "The tenth item is null"
 
+    .line 2836
     invoke-static {p9, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 2838
     const/16 v0, 0xa
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -4965,51 +4722,52 @@
 
     aput-object p0, v0, v1
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v0, v1
+    aput-object p1, v0, p0
 
-    const/4 v1, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v0, v1
+    aput-object p2, v0, p0
 
-    const/4 v1, 0x3
+    const/4 p0, 0x3
 
-    aput-object p3, v0, v1
+    aput-object p3, v0, p0
 
-    const/4 v1, 0x4
+    const/4 p0, 0x4
 
-    aput-object p4, v0, v1
+    aput-object p4, v0, p0
 
-    const/4 v1, 0x5
+    const/4 p0, 0x5
 
-    aput-object p5, v0, v1
+    aput-object p5, v0, p0
 
-    const/4 v1, 0x6
+    const/4 p0, 0x6
 
-    aput-object p6, v0, v1
+    aput-object p6, v0, p0
 
-    const/4 v1, 0x7
+    const/4 p0, 0x7
 
-    aput-object p7, v0, v1
+    aput-object p7, v0, p0
 
-    const/16 v1, 0x8
+    const/16 p0, 0x8
 
-    aput-object p8, v0, v1
+    aput-object p8, v0, p0
 
-    const/16 v1, 0x9
+    const/16 p0, 0x9
 
-    aput-object p9, v0, v1
+    aput-object p9, v0, p0
 
+    .line 2838
     invoke-static {v0}, Lio/reactivex/Flowable;->fromArray([Ljava/lang/Object;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static merge(Ljava/lang/Iterable;)Lio/reactivex/Flowable;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -5036,25 +4794,23 @@
     .end annotation
 
     .line 2942
-    .local p0, "sources":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     invoke-static {p0}, Lio/reactivex/Flowable;->fromIterable(Ljava/lang/Iterable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
-
     move-result-object v0
 
-    return-object v0
+    invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static merge(Ljava/lang/Iterable;I)Lio/reactivex/Flowable;
-    .locals 2
-    .param p1, "maxConcurrency"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -5081,26 +4837,23 @@
     .end annotation
 
     .line 2977
-    .local p0, "sources":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     invoke-static {p0}, Lio/reactivex/Flowable;->fromIterable(Ljava/lang/Iterable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
-    move-result-object v1
-
-    invoke-virtual {v0, v1, p1}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
-
     move-result-object v0
 
-    return-object v0
+    invoke-virtual {p0, v0, p1}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static merge(Ljava/lang/Iterable;II)Lio/reactivex/Flowable;
-    .locals 3
-    .param p1, "maxConcurrency"    # I
-    .param p2, "bufferSize"    # I
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -5127,22 +4880,21 @@
     .end annotation
 
     .line 2875
-    .local p0, "sources":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     invoke-static {p0}, Lio/reactivex/Flowable;->fromIterable(Ljava/lang/Iterable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2, p1, p2}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZII)Lio/reactivex/Flowable;
-
     move-result-object v0
 
-    return-object v0
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v0, v1, p1, p2}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZII)Lio/reactivex/Flowable;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static merge(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -5173,21 +4925,19 @@
     .end annotation
 
     .line 3008
-    .local p0, "sources":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
 
     invoke-static {p0, v0}, Lio/reactivex/Flowable;->merge(Lorg/reactivestreams/Publisher;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static merge(Lorg/reactivestreams/Publisher;I)Lio/reactivex/Flowable;
-    .locals 2
-    .param p1, "maxConcurrency"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -5214,24 +4964,23 @@
     .end annotation
 
     .line 3045
-    .local p0, "sources":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     invoke-static {p0}, Lio/reactivex/Flowable;->fromPublisher(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
-    move-result-object v1
-
-    invoke-virtual {v0, v1, p1}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
-
     move-result-object v0
 
-    return-object v0
+    invoke-virtual {p0, v0, p1}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static merge(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -5257,19 +5006,16 @@
         value = "none"
     .end annotation
 
-    .line 3105
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     const-string v0, "source1 is null"
 
+    .line 3105
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 3106
     const-string v0, "source2 is null"
 
+    .line 3106
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 3107
     const/4 v0, 0x2
 
     new-array v1, v0, [Lorg/reactivestreams/Publisher;
@@ -5278,27 +5024,28 @@
 
     aput-object p0, v1, v2
 
-    const/4 v3, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v1, v3
+    aput-object p1, v1, p0
 
+    .line 3107
     invoke-static {v1}, Lio/reactivex/Flowable;->fromArray([Ljava/lang/Object;)Lio/reactivex/Flowable;
 
-    move-result-object v1
+    move-result-object p0
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v1, v3, v2, v0}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
+    invoke-virtual {p0, p1, v2, v0}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static merge(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -5326,25 +5073,21 @@
         value = "none"
     .end annotation
 
-    .line 3140
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p2, "source3":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     const-string v0, "source1 is null"
 
+    .line 3140
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 3141
     const-string v0, "source2 is null"
 
+    .line 3141
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 3142
     const-string v0, "source3 is null"
 
+    .line 3142
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 3143
     const/4 v0, 0x3
 
     new-array v1, v0, [Lorg/reactivestreams/Publisher;
@@ -5353,31 +5096,32 @@
 
     aput-object p0, v1, v2
 
-    const/4 v3, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v1, v3
+    aput-object p1, v1, p0
 
-    const/4 v3, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v1, v3
+    aput-object p2, v1, p0
 
+    .line 3143
     invoke-static {v1}, Lio/reactivex/Flowable;->fromArray([Ljava/lang/Object;)Lio/reactivex/Flowable;
 
-    move-result-object v1
+    move-result-object p0
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v1, v3, v2, v0}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
+    invoke-virtual {p0, p1, v2, v0}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static merge(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -5407,31 +5151,26 @@
         value = "none"
     .end annotation
 
-    .line 3180
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p2, "source3":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p3, "source4":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     const-string v0, "source1 is null"
 
+    .line 3180
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 3181
     const-string v0, "source2 is null"
 
+    .line 3181
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 3182
     const-string v0, "source3 is null"
 
+    .line 3182
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 3183
     const-string v0, "source4 is null"
 
+    .line 3183
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 3184
     const/4 v0, 0x4
 
     new-array v1, v0, [Lorg/reactivestreams/Publisher;
@@ -5440,37 +5179,36 @@
 
     aput-object p0, v1, v2
 
-    const/4 v3, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v1, v3
+    aput-object p1, v1, p0
 
-    const/4 v3, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v1, v3
+    aput-object p2, v1, p0
 
-    const/4 v3, 0x3
+    const/4 p0, 0x3
 
-    aput-object p3, v1, v3
+    aput-object p3, v1, p0
 
+    .line 3184
     invoke-static {v1}, Lio/reactivex/Flowable;->fromArray([Ljava/lang/Object;)Lio/reactivex/Flowable;
 
-    move-result-object v1
+    move-result-object p0
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v1, v3, v2, v0}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
+    invoke-virtual {p0, p1, v2, v0}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs mergeArray(II[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
-    .locals 3
-    .param p0, "maxConcurrency"    # I
-    .param p1, "bufferSize"    # I
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -5495,26 +5233,25 @@
     .end annotation
 
     .line 2912
-    .local p2, "sources":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<+TT;>;"
     invoke-static {p2}, Lio/reactivex/Flowable;->fromArray([Ljava/lang/Object;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p2
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2, p0, p1}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZII)Lio/reactivex/Flowable;
-
     move-result-object v0
 
-    return-object v0
+    const/4 v1, 0x0
+
+    invoke-virtual {p2, v0, v1, p0, p1}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZII)Lio/reactivex/Flowable;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static varargs mergeArray([Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -5539,7 +5276,6 @@
     .end annotation
 
     .line 3074
-    .local p0, "sources":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<+TT;>;"
     invoke-static {p0}, Lio/reactivex/Flowable;->fromArray([Ljava/lang/Object;)Lio/reactivex/Flowable;
 
     move-result-object v0
@@ -5548,19 +5284,17 @@
 
     move-result-object v1
 
-    array-length v2, p0
+    array-length p0, p0
 
-    invoke-virtual {v0, v1, v2}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
+    invoke-virtual {v0, v1, p0}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs mergeArrayDelayError(II[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
-    .locals 3
-    .param p0, "maxConcurrency"    # I
-    .param p1, "bufferSize"    # I
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -5585,26 +5319,25 @@
     .end annotation
 
     .line 3301
-    .local p2, "sources":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<+TT;>;"
     invoke-static {p2}, Lio/reactivex/Flowable;->fromArray([Ljava/lang/Object;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p2
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v1, v2, p0, p1}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZII)Lio/reactivex/Flowable;
-
     move-result-object v0
 
-    return-object v0
+    const/4 v1, 0x1
+
+    invoke-virtual {p2, v0, v1, p0, p1}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZII)Lio/reactivex/Flowable;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static varargs mergeArrayDelayError([Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -5629,7 +5362,6 @@
     .end annotation
 
     .line 3451
-    .local p0, "sources":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<+TT;>;"
     invoke-static {p0}, Lio/reactivex/Flowable;->fromArray([Ljava/lang/Object;)Lio/reactivex/Flowable;
 
     move-result-object v0
@@ -5638,19 +5370,19 @@
 
     move-result-object v1
 
-    array-length v2, p0
+    const/4 v2, 0x1
 
-    const/4 v3, 0x1
+    array-length p0, p0
 
-    invoke-virtual {v0, v1, v3, v2}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
+    invoke-virtual {v0, v1, v2, p0}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static mergeDelayError(Ljava/lang/Iterable;)Lio/reactivex/Flowable;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -5677,27 +5409,25 @@
     .end annotation
 
     .line 3220
-    .local p0, "sources":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     invoke-static {p0}, Lio/reactivex/Flowable;->fromIterable(Ljava/lang/Iterable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v1, v2}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;Z)Lio/reactivex/Flowable;
-
     move-result-object v0
 
-    return-object v0
+    const/4 v1, 0x1
+
+    invoke-virtual {p0, v0, v1}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;Z)Lio/reactivex/Flowable;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static mergeDelayError(Ljava/lang/Iterable;I)Lio/reactivex/Flowable;
-    .locals 3
-    .param p1, "maxConcurrency"    # I
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -5724,28 +5454,25 @@
     .end annotation
 
     .line 3339
-    .local p0, "sources":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     invoke-static {p0}, Lio/reactivex/Flowable;->fromIterable(Ljava/lang/Iterable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v1, v2, p1}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
-
     move-result-object v0
 
-    return-object v0
+    const/4 v1, 0x1
+
+    invoke-virtual {p0, v0, v1, p1}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static mergeDelayError(Ljava/lang/Iterable;II)Lio/reactivex/Flowable;
-    .locals 3
-    .param p1, "maxConcurrency"    # I
-    .param p2, "bufferSize"    # I
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -5772,22 +5499,21 @@
     .end annotation
 
     .line 3261
-    .local p0, "sources":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     invoke-static {p0}, Lio/reactivex/Flowable;->fromIterable(Ljava/lang/Iterable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v1, v2, p1, p2}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZII)Lio/reactivex/Flowable;
-
     move-result-object v0
 
-    return-object v0
+    const/4 v1, 0x1
+
+    invoke-virtual {p0, v0, v1, p1, p2}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZII)Lio/reactivex/Flowable;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static mergeDelayError(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -5818,21 +5544,19 @@
     .end annotation
 
     .line 3375
-    .local p0, "sources":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
 
     invoke-static {p0, v0}, Lio/reactivex/Flowable;->mergeDelayError(Lorg/reactivestreams/Publisher;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static mergeDelayError(Lorg/reactivestreams/Publisher;I)Lio/reactivex/Flowable;
-    .locals 3
-    .param p1, "maxConcurrency"    # I
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -5859,26 +5583,25 @@
     .end annotation
 
     .line 3415
-    .local p0, "sources":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     invoke-static {p0}, Lio/reactivex/Flowable;->fromPublisher(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v1, v2, p1}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
-
     move-result-object v0
 
-    return-object v0
+    const/4 v1, 0x1
+
+    invoke-virtual {p0, v0, v1, p1}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static mergeDelayError(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -5904,19 +5627,16 @@
         value = "none"
     .end annotation
 
-    .line 3488
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     const-string v0, "source1 is null"
 
+    .line 3488
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 3489
     const-string v0, "source2 is null"
 
+    .line 3489
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 3490
     const/4 v0, 0x2
 
     new-array v1, v0, [Lorg/reactivestreams/Publisher;
@@ -5925,27 +5645,28 @@
 
     aput-object p0, v1, v2
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v1, v2
+    aput-object p1, v1, p0
 
+    .line 3490
     invoke-static {v1}, Lio/reactivex/Flowable;->fromArray([Ljava/lang/Object;)Lio/reactivex/Flowable;
 
-    move-result-object v1
+    move-result-object p1
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v1, v3, v2, v0}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
+    invoke-virtual {p1, v1, p0, v0}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static mergeDelayError(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -5973,25 +5694,21 @@
         value = "none"
     .end annotation
 
-    .line 3530
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p2, "source3":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     const-string v0, "source1 is null"
 
+    .line 3530
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 3531
     const-string v0, "source2 is null"
 
+    .line 3531
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 3532
     const-string v0, "source3 is null"
 
+    .line 3532
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 3533
     const/4 v0, 0x3
 
     new-array v1, v0, [Lorg/reactivestreams/Publisher;
@@ -6000,31 +5717,32 @@
 
     aput-object p0, v1, v2
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v1, v2
+    aput-object p1, v1, p0
 
-    const/4 v3, 0x2
+    const/4 p1, 0x2
 
-    aput-object p2, v1, v3
+    aput-object p2, v1, p1
 
+    .line 3533
     invoke-static {v1}, Lio/reactivex/Flowable;->fromArray([Ljava/lang/Object;)Lio/reactivex/Flowable;
 
-    move-result-object v1
+    move-result-object p1
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
-    move-result-object v3
+    move-result-object p2
 
-    invoke-virtual {v1, v3, v2, v0}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
+    invoke-virtual {p1, p2, p0, v0}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static mergeDelayError(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -6054,31 +5772,26 @@
         value = "none"
     .end annotation
 
-    .line 3578
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p2, "source3":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p3, "source4":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     const-string v0, "source1 is null"
 
+    .line 3578
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 3579
     const-string v0, "source2 is null"
 
+    .line 3579
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 3580
     const-string v0, "source3 is null"
 
+    .line 3580
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 3581
     const-string v0, "source4 is null"
 
+    .line 3581
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 3582
     const/4 v0, 0x4
 
     new-array v1, v0, [Lorg/reactivestreams/Publisher;
@@ -6087,31 +5800,32 @@
 
     aput-object p0, v1, v2
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v1, v2
+    aput-object p1, v1, p0
 
-    const/4 v3, 0x2
+    const/4 p1, 0x2
 
-    aput-object p2, v1, v3
+    aput-object p2, v1, p1
 
-    const/4 v3, 0x3
+    const/4 p1, 0x3
 
-    aput-object p3, v1, v3
+    aput-object p3, v1, p1
 
+    .line 3582
     invoke-static {v1}, Lio/reactivex/Flowable;->fromArray([Ljava/lang/Object;)Lio/reactivex/Flowable;
 
-    move-result-object v1
+    move-result-object p1
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
-    move-result-object v3
+    move-result-object p2
 
-    invoke-virtual {v1, v3, v2, v0}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
+    invoke-virtual {p1, p2, p0, v0}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static never()Lio/reactivex/Flowable;
@@ -6149,8 +5863,6 @@
 
 .method public static range(II)Lio/reactivex/Flowable;
     .locals 4
-    .param p0, "start"    # I
-    .param p1, "count"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)",
@@ -6171,20 +5883,17 @@
         value = "none"
     .end annotation
 
-    .line 3636
     if-ltz p1, :cond_3
 
-    .line 3639
     if-nez p1, :cond_0
 
     .line 3640
     invoke-static {}, Lio/reactivex/Flowable;->empty()Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
-    .line 3642
     :cond_0
     const/4 v0, 0x1
 
@@ -6193,15 +5902,14 @@
     .line 3643
     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lio/reactivex/Flowable;->just(Ljava/lang/Object;)Lio/reactivex/Flowable;
+    invoke-static {p0}, Lio/reactivex/Flowable;->just(Ljava/lang/Object;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
-    .line 3645
     :cond_1
     int-to-long v0, p0
 
@@ -6224,47 +5932,45 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 3646
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Integer overflow"
+    const-string p1, "Integer overflow"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 3637
     :cond_3
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "count >= 0 required but it was "
 
-    const-string v2, "count >= 0 required but it was "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static rangeLong(JJ)Lio/reactivex/Flowable;
     .locals 5
-    .param p0, "start"    # J
-    .param p2, "count"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JJ)",
@@ -6285,26 +5991,21 @@
         value = "none"
     .end annotation
 
-    .line 3676
     const-wide/16 v0, 0x0
 
     cmp-long v2, p2, v0
 
     if-ltz v2, :cond_4
 
-    .line 3680
-    cmp-long v2, p2, v0
-
     if-nez v2, :cond_0
 
     .line 3681
     invoke-static {}, Lio/reactivex/Flowable;->empty()Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
-    .line 3684
     :cond_0
     const-wide/16 v2, 0x1
 
@@ -6315,22 +6016,19 @@
     .line 3685
     invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lio/reactivex/Flowable;->just(Ljava/lang/Object;)Lio/reactivex/Flowable;
+    invoke-static {p0}, Lio/reactivex/Flowable;->just(Ljava/lang/Object;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
-    .line 3688
     :cond_1
     sub-long v2, p2, v2
 
     add-long/2addr v2, p0
 
-    .line 3689
-    .local v2, "end":J
     cmp-long v4, p0, v0
 
     if-lez v4, :cond_3
@@ -6343,13 +6041,13 @@
 
     .line 3690
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Overflow! start + count is bigger than Long.MAX_VALUE"
+    const-string p1, "Overflow! start + count is bigger than Long.MAX_VALUE"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 3693
     :cond_3
@@ -6360,32 +6058,31 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 3677
-    .end local v2    # "end":J
     :cond_4
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "count >= 0 required but it was "
 
-    const-string v2, "count >= 0 required but it was "
+    invoke-direct {p1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static sequenceEqual(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;)Lio/reactivex/Single;
@@ -6417,8 +6114,6 @@
     .end annotation
 
     .line 3722
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     invoke-static {}, Lio/reactivex/internal/functions/ObjectHelper;->equalsPredicate()Lio/reactivex/functions/BiPredicate;
 
     move-result-object v0
@@ -6429,14 +6124,13 @@
 
     invoke-static {p0, p1, v0, v1}, Lio/reactivex/Flowable;->sequenceEqual(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/BiPredicate;I)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static sequenceEqual(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;I)Lio/reactivex/Single;
     .locals 1
-    .param p2, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -6464,17 +6158,15 @@
     .end annotation
 
     .line 3827
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     invoke-static {}, Lio/reactivex/internal/functions/ObjectHelper;->equalsPredicate()Lio/reactivex/functions/BiPredicate;
 
     move-result-object v0
 
     invoke-static {p0, p1, v0, p2}, Lio/reactivex/Flowable;->sequenceEqual(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/BiPredicate;I)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static sequenceEqual(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/BiPredicate;)Lio/reactivex/Single;
@@ -6508,23 +6200,19 @@
     .end annotation
 
     .line 3756
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p2, "isEqual":Lio/reactivex/functions/BiPredicate;, "Lio/reactivex/functions/BiPredicate<-TT;-TT;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
 
     invoke-static {p0, p1, p2, v0}, Lio/reactivex/Flowable;->sequenceEqual(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/BiPredicate;I)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static sequenceEqual(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/BiPredicate;I)Lio/reactivex/Single;
     .locals 1
-    .param p3, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -6553,27 +6241,24 @@
         value = "none"
     .end annotation
 
-    .line 3792
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p2, "isEqual":Lio/reactivex/functions/BiPredicate;, "Lio/reactivex/functions/BiPredicate<-TT;-TT;>;"
     const-string v0, "source1 is null"
 
+    .line 3792
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 3793
     const-string v0, "source2 is null"
 
+    .line 3793
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 3794
     const-string v0, "isEqual is null"
 
+    .line 3794
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 3795
     const-string v0, "bufferSize"
 
+    .line 3795
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 3796
@@ -6583,13 +6268,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Single;)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static switchOnNext(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -6616,25 +6301,23 @@
     .end annotation
 
     .line 3905
-    .local p0, "sources":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     invoke-static {p0}, Lio/reactivex/Flowable;->fromPublisher(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lio/reactivex/Flowable;->switchMap(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
-
     move-result-object v0
 
-    return-object v0
+    invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->switchMap(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static switchOnNext(Lorg/reactivestreams/Publisher;I)Lio/reactivex/Flowable;
-    .locals 2
-    .param p1, "bufferSize"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -6661,20 +6344,19 @@
     .end annotation
 
     .line 3867
-    .local p0, "sources":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     invoke-static {p0}, Lio/reactivex/Flowable;->fromPublisher(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
-    move-result-object v1
-
-    invoke-virtual {v0, v1, p1}, Lio/reactivex/Flowable;->switchMap(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
-
     move-result-object v0
 
-    return-object v0
+    invoke-virtual {p0, v0, p1}, Lio/reactivex/Flowable;->switchMap(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static switchOnNextDelayError(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -6705,21 +6387,19 @@
     .end annotation
 
     .line 3944
-    .local p0, "sources":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
 
     invoke-static {p0, v0}, Lio/reactivex/Flowable;->switchOnNextDelayError(Lorg/reactivestreams/Publisher;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static switchOnNextDelayError(Lorg/reactivestreams/Publisher;I)Lio/reactivex/Flowable;
-    .locals 2
-    .param p1, "prefetch"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -6746,27 +6426,23 @@
     .end annotation
 
     .line 3985
-    .local p0, "sources":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+Lorg/reactivestreams/Publisher<+TT;>;>;"
     invoke-static {p0}, Lio/reactivex/Flowable;->fromPublisher(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
-    move-result-object v1
-
-    invoke-virtual {v0, v1, p1}, Lio/reactivex/Flowable;->switchMapDelayError(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
-
     move-result-object v0
 
-    return-object v0
+    invoke-virtual {p0, v0, p1}, Lio/reactivex/Flowable;->switchMapDelayError(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method private timeout0(JLjava/util/concurrent/TimeUnit;Lorg/reactivestreams/Publisher;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 8
-    .param p1, "timeout"    # J
-    .param p3, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -6780,16 +6456,14 @@
         }
     .end annotation
 
-    .line 14381
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p4, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     const-string v0, "timeUnit is null"
 
+    .line 14381
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 14382
     const-string v0, "scheduler is null"
 
+    .line 14382
     invoke-static {p5, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 14383
@@ -6811,9 +6485,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method private timeout0(Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -6838,13 +6512,9 @@
         }
     .end annotation
 
-    .line 14390
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "firstTimeoutIndicator":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TU;>;"
-    .local p2, "itemTimeoutIndicator":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<TV;>;>;"
-    .local p3, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     const-string v0, "itemTimeoutIndicator is null"
 
+    .line 14390
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 14391
@@ -6854,15 +6524,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public static timer(JLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
     .locals 1
-    .param p0, "delay"    # J
-    .param p2, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -6892,16 +6560,13 @@
 
     invoke-static {p0, p1, p2, v0}, Lio/reactivex/Flowable;->timer(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static timer(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 3
-    .param p0, "delay"    # J
-    .param p2, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p3, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -6925,14 +6590,14 @@
         value = "custom"
     .end annotation
 
-    .line 4041
     const-string v0, "unit is null"
 
+    .line 4041
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4042
     const-string v0, "scheduler is null"
 
+    .line 4042
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 4044
@@ -6942,19 +6607,19 @@
 
     invoke-static {v1, v2, p0, p1}, Ljava/lang/Math;->max(JJ)J
 
-    move-result-wide v1
+    move-result-wide p0
 
-    invoke-direct {v0, v1, v2, p2, p3}, Lio/reactivex/internal/operators/flowable/FlowableTimer;-><init>(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)V
+    invoke-direct {v0, p0, p1, p2, p3}, Lio/reactivex/internal/operators/flowable/FlowableTimer;-><init>(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)V
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static unsafeCreate(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -6978,10 +6643,9 @@
         value = "none"
     .end annotation
 
-    .line 4069
-    .local p0, "onSubscribe":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TT;>;"
     const-string v0, "onSubscribe is null"
 
+    .line 4069
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 4070
@@ -6996,19 +6660,19 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 4071
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "unsafeCreate(Flowable) should be upgraded"
+    const-string v0, "unsafeCreate(Flowable) should be upgraded"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static using(Ljava/util/concurrent/Callable;Lio/reactivex/functions/Function;Lio/reactivex/functions/Consumer;)Lio/reactivex/Flowable;
@@ -7044,22 +6708,18 @@
         value = "none"
     .end annotation
 
-    .line 4104
-    .local p0, "resourceSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<+TD;>;"
-    .local p1, "sourceSupplier":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TD;+Lorg/reactivestreams/Publisher<+TT;>;>;"
-    .local p2, "resourceDisposer":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TD;>;"
     const/4 v0, 0x1
 
+    .line 4104
     invoke-static {p0, p1, p2, v0}, Lio/reactivex/Flowable;->using(Ljava/util/concurrent/Callable;Lio/reactivex/functions/Function;Lio/reactivex/functions/Consumer;Z)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static using(Ljava/util/concurrent/Callable;Lio/reactivex/functions/Function;Lio/reactivex/functions/Consumer;Z)Lio/reactivex/Flowable;
     .locals 1
-    .param p3, "eager"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -7091,22 +6751,19 @@
         value = "none"
     .end annotation
 
-    .line 4144
-    .local p0, "resourceSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<+TD;>;"
-    .local p1, "sourceSupplier":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TD;+Lorg/reactivestreams/Publisher<+TT;>;>;"
-    .local p2, "resourceDisposer":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TD;>;"
     const-string v0, "resourceSupplier is null"
 
+    .line 4144
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4145
     const-string v0, "sourceSupplier is null"
 
+    .line 4145
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4146
     const-string v0, "disposer is null"
 
+    .line 4146
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 4147
@@ -7116,9 +6773,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static zip(Ljava/lang/Iterable;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -7154,26 +6811,24 @@
         value = "none"
     .end annotation
 
-    .line 4198
-    .local p0, "sources":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lorg/reactivestreams/Publisher<+TT;>;>;"
-    .local p1, "zipper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-[Ljava/lang/Object;+TR;>;"
     const-string v0, "zipper is null"
 
+    .line 4198
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4199
     const-string v0, "sources is null"
 
+    .line 4199
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 4200
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableZip;
 
+    const/4 v2, 0x0
+
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v5
-
-    const/4 v2, 0x0
 
     const/4 v6, 0x0
 
@@ -7187,13 +6842,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static zip(Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -7225,35 +6880,33 @@
         value = "none"
     .end annotation
 
-    .line 4253
-    .local p0, "sources":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+Lorg/reactivestreams/Publisher<+TT;>;>;"
-    .local p1, "zipper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-[Ljava/lang/Object;+TR;>;"
     const-string v0, "zipper is null"
 
+    .line 4253
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 4254
     invoke-static {p0}, Lio/reactivex/Flowable;->fromPublisher(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Lio/reactivex/Flowable;->toList()Lio/reactivex/Single;
+    invoke-virtual {p0}, Lio/reactivex/Flowable;->toList()Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p0
 
     invoke-static {p1}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper;->zipIterable(Lio/reactivex/functions/Function;)Lio/reactivex/functions/Function;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Lio/reactivex/Single;->flatMapPublisher(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
+    invoke-virtual {p0, p1}, Lio/reactivex/Single;->flatMapPublisher(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static zip(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/BiFunction;)Lio/reactivex/Flowable;
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T1:",
@@ -7285,50 +6938,46 @@
         value = "none"
     .end annotation
 
-    .line 4312
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT1;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT2;>;"
-    .local p2, "zipper":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-TT1;-TT2;+TR;>;"
     const-string v0, "source1 is null"
 
+    .line 4312
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4313
     const-string v0, "source2 is null"
 
+    .line 4313
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 4314
     invoke-static {p2}, Lio/reactivex/internal/functions/Functions;->toFunction(Lio/reactivex/functions/BiFunction;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p2
 
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, 0x2
+    const/4 v1, 0x2
 
-    new-array v2, v2, [Lorg/reactivestreams/Publisher;
+    new-array v1, v1, [Lorg/reactivestreams/Publisher;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    aput-object p0, v2, v3
+    aput-object p0, v1, v2
 
-    const/4 v4, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v2, v4
+    aput-object p1, v1, p0
 
-    invoke-static {v0, v3, v1, v2}, Lio/reactivex/Flowable;->zipArray(Lio/reactivex/functions/Function;ZI[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-static {p2, v2, v0, v1}, Lio/reactivex/Flowable;->zipArray(Lio/reactivex/functions/Function;ZI[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static zip(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/BiFunction;Z)Lio/reactivex/Flowable;
-    .locals 4
-    .param p3, "delayError"    # Z
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T1:",
@@ -7360,51 +7009,46 @@
         value = "none"
     .end annotation
 
-    .line 4373
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT1;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT2;>;"
-    .local p2, "zipper":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-TT1;-TT2;+TR;>;"
     const-string v0, "source1 is null"
 
+    .line 4373
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4374
     const-string v0, "source2 is null"
 
+    .line 4374
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 4375
     invoke-static {p2}, Lio/reactivex/internal/functions/Functions;->toFunction(Lio/reactivex/functions/BiFunction;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p2
 
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, 0x2
+    const/4 v1, 0x2
 
-    new-array v2, v2, [Lorg/reactivestreams/Publisher;
+    new-array v1, v1, [Lorg/reactivestreams/Publisher;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    aput-object p0, v2, v3
+    aput-object p0, v1, v2
 
-    const/4 v3, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v2, v3
+    aput-object p1, v1, p0
 
-    invoke-static {v0, p3, v1, v2}, Lio/reactivex/Flowable;->zipArray(Lio/reactivex/functions/Function;ZI[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-static {p2, p3, v0, v1}, Lio/reactivex/Flowable;->zipArray(Lio/reactivex/functions/Function;ZI[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static zip(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/BiFunction;ZI)Lio/reactivex/Flowable;
-    .locals 3
-    .param p3, "delayError"    # Z
-    .param p4, "bufferSize"    # I
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T1:",
@@ -7436,45 +7080,42 @@
         value = "none"
     .end annotation
 
-    .line 4436
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT1;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT2;>;"
-    .local p2, "zipper":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-TT1;-TT2;+TR;>;"
     const-string v0, "source1 is null"
 
+    .line 4436
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4437
     const-string v0, "source2 is null"
 
+    .line 4437
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 4438
     invoke-static {p2}, Lio/reactivex/internal/functions/Functions;->toFunction(Lio/reactivex/functions/BiFunction;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p2
 
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
-    new-array v1, v1, [Lorg/reactivestreams/Publisher;
+    new-array v0, v0, [Lorg/reactivestreams/Publisher;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aput-object p0, v1, v2
+    aput-object p0, v0, v1
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v1, v2
+    aput-object p1, v0, p0
 
-    invoke-static {v0, p3, p4, v1}, Lio/reactivex/Flowable;->zipArray(Lio/reactivex/functions/Function;ZI[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-static {p2, p3, p4, v0}, Lio/reactivex/Flowable;->zipArray(Lio/reactivex/functions/Function;ZI[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static zip(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function3;)Lio/reactivex/Flowable;
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T1:",
@@ -7510,59 +7151,55 @@
         value = "none"
     .end annotation
 
-    .line 4500
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT1;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT2;>;"
-    .local p2, "source3":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT3;>;"
-    .local p3, "zipper":Lio/reactivex/functions/Function3;, "Lio/reactivex/functions/Function3<-TT1;-TT2;-TT3;+TR;>;"
     const-string v0, "source1 is null"
 
+    .line 4500
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4501
     const-string v0, "source2 is null"
 
+    .line 4501
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4502
     const-string v0, "source3 is null"
 
+    .line 4502
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 4503
     invoke-static {p3}, Lio/reactivex/internal/functions/Functions;->toFunction(Lio/reactivex/functions/Function3;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p3
 
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, 0x3
+    const/4 v1, 0x3
 
-    new-array v2, v2, [Lorg/reactivestreams/Publisher;
+    new-array v1, v1, [Lorg/reactivestreams/Publisher;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    aput-object p0, v2, v3
+    aput-object p0, v1, v2
 
-    const/4 v4, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v2, v4
+    aput-object p1, v1, p0
 
-    const/4 v4, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v2, v4
+    aput-object p2, v1, p0
 
-    invoke-static {v0, v3, v1, v2}, Lio/reactivex/Flowable;->zipArray(Lio/reactivex/functions/Function;ZI[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-static {p3, v2, v0, v1}, Lio/reactivex/Flowable;->zipArray(Lio/reactivex/functions/Function;ZI[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static zip(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function4;)Lio/reactivex/Flowable;
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T1:",
@@ -7602,69 +7239,64 @@
         value = "none"
     .end annotation
 
-    .line 4569
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT1;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT2;>;"
-    .local p2, "source3":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT3;>;"
-    .local p3, "source4":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT4;>;"
-    .local p4, "zipper":Lio/reactivex/functions/Function4;, "Lio/reactivex/functions/Function4<-TT1;-TT2;-TT3;-TT4;+TR;>;"
     const-string v0, "source1 is null"
 
+    .line 4569
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4570
     const-string v0, "source2 is null"
 
+    .line 4570
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4571
     const-string v0, "source3 is null"
 
+    .line 4571
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4572
     const-string v0, "source4 is null"
 
+    .line 4572
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 4573
     invoke-static {p4}, Lio/reactivex/internal/functions/Functions;->toFunction(Lio/reactivex/functions/Function4;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p4
 
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, 0x4
+    const/4 v1, 0x4
 
-    new-array v2, v2, [Lorg/reactivestreams/Publisher;
+    new-array v1, v1, [Lorg/reactivestreams/Publisher;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    aput-object p0, v2, v3
+    aput-object p0, v1, v2
 
-    const/4 v4, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v2, v4
+    aput-object p1, v1, p0
 
-    const/4 v4, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v2, v4
+    aput-object p2, v1, p0
 
-    const/4 v4, 0x3
+    const/4 p0, 0x3
 
-    aput-object p3, v2, v4
+    aput-object p3, v1, p0
 
-    invoke-static {v0, v3, v1, v2}, Lio/reactivex/Flowable;->zipArray(Lio/reactivex/functions/Function;ZI[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-static {p4, v2, v0, v1}, Lio/reactivex/Flowable;->zipArray(Lio/reactivex/functions/Function;ZI[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static zip(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function5;)Lio/reactivex/Flowable;
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T1:",
@@ -7708,79 +7340,73 @@
         value = "none"
     .end annotation
 
-    .line 4642
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT1;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT2;>;"
-    .local p2, "source3":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT3;>;"
-    .local p3, "source4":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT4;>;"
-    .local p4, "source5":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT5;>;"
-    .local p5, "zipper":Lio/reactivex/functions/Function5;, "Lio/reactivex/functions/Function5<-TT1;-TT2;-TT3;-TT4;-TT5;+TR;>;"
     const-string v0, "source1 is null"
 
+    .line 4642
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4643
     const-string v0, "source2 is null"
 
+    .line 4643
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4644
     const-string v0, "source3 is null"
 
+    .line 4644
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4645
     const-string v0, "source4 is null"
 
+    .line 4645
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4646
     const-string v0, "source5 is null"
 
+    .line 4646
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 4647
     invoke-static {p5}, Lio/reactivex/internal/functions/Functions;->toFunction(Lio/reactivex/functions/Function5;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p5
 
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, 0x5
+    const/4 v1, 0x5
 
-    new-array v2, v2, [Lorg/reactivestreams/Publisher;
+    new-array v1, v1, [Lorg/reactivestreams/Publisher;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    aput-object p0, v2, v3
+    aput-object p0, v1, v2
 
-    const/4 v4, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v2, v4
+    aput-object p1, v1, p0
 
-    const/4 v4, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v2, v4
+    aput-object p2, v1, p0
 
-    const/4 v4, 0x3
+    const/4 p0, 0x3
 
-    aput-object p3, v2, v4
+    aput-object p3, v1, p0
 
-    const/4 v4, 0x4
+    const/4 p0, 0x4
 
-    aput-object p4, v2, v4
+    aput-object p4, v1, p0
 
-    invoke-static {v0, v3, v1, v2}, Lio/reactivex/Flowable;->zipArray(Lio/reactivex/functions/Function;ZI[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-static {p5, v2, v0, v1}, Lio/reactivex/Flowable;->zipArray(Lio/reactivex/functions/Function;ZI[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static zip(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function6;)Lio/reactivex/Flowable;
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T1:",
@@ -7828,89 +7454,82 @@
         value = "none"
     .end annotation
 
-    .line 4718
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT1;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT2;>;"
-    .local p2, "source3":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT3;>;"
-    .local p3, "source4":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT4;>;"
-    .local p4, "source5":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT5;>;"
-    .local p5, "source6":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT6;>;"
-    .local p6, "zipper":Lio/reactivex/functions/Function6;, "Lio/reactivex/functions/Function6<-TT1;-TT2;-TT3;-TT4;-TT5;-TT6;+TR;>;"
     const-string v0, "source1 is null"
 
+    .line 4718
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4719
     const-string v0, "source2 is null"
 
+    .line 4719
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4720
     const-string v0, "source3 is null"
 
+    .line 4720
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4721
     const-string v0, "source4 is null"
 
+    .line 4721
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4722
     const-string v0, "source5 is null"
 
+    .line 4722
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4723
     const-string v0, "source6 is null"
 
+    .line 4723
     invoke-static {p5, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 4724
     invoke-static {p6}, Lio/reactivex/internal/functions/Functions;->toFunction(Lio/reactivex/functions/Function6;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p6
 
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, 0x6
+    const/4 v1, 0x6
 
-    new-array v2, v2, [Lorg/reactivestreams/Publisher;
+    new-array v1, v1, [Lorg/reactivestreams/Publisher;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    aput-object p0, v2, v3
+    aput-object p0, v1, v2
 
-    const/4 v4, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v2, v4
+    aput-object p1, v1, p0
 
-    const/4 v4, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v2, v4
+    aput-object p2, v1, p0
 
-    const/4 v4, 0x3
+    const/4 p0, 0x3
 
-    aput-object p3, v2, v4
+    aput-object p3, v1, p0
 
-    const/4 v4, 0x4
+    const/4 p0, 0x4
 
-    aput-object p4, v2, v4
+    aput-object p4, v1, p0
 
-    const/4 v4, 0x5
+    const/4 p0, 0x5
 
-    aput-object p5, v2, v4
+    aput-object p5, v1, p0
 
-    invoke-static {v0, v3, v1, v2}, Lio/reactivex/Flowable;->zipArray(Lio/reactivex/functions/Function;ZI[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-static {p6, v2, v0, v1}, Lio/reactivex/Flowable;->zipArray(Lio/reactivex/functions/Function;ZI[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static zip(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function7;)Lio/reactivex/Flowable;
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T1:",
@@ -7962,99 +7581,91 @@
         value = "none"
     .end annotation
 
-    .line 4799
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT1;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT2;>;"
-    .local p2, "source3":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT3;>;"
-    .local p3, "source4":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT4;>;"
-    .local p4, "source5":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT5;>;"
-    .local p5, "source6":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT6;>;"
-    .local p6, "source7":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT7;>;"
-    .local p7, "zipper":Lio/reactivex/functions/Function7;, "Lio/reactivex/functions/Function7<-TT1;-TT2;-TT3;-TT4;-TT5;-TT6;-TT7;+TR;>;"
     const-string v0, "source1 is null"
 
+    .line 4799
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4800
     const-string v0, "source2 is null"
 
+    .line 4800
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4801
     const-string v0, "source3 is null"
 
+    .line 4801
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4802
     const-string v0, "source4 is null"
 
+    .line 4802
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4803
     const-string v0, "source5 is null"
 
+    .line 4803
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4804
     const-string v0, "source6 is null"
 
+    .line 4804
     invoke-static {p5, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4805
     const-string v0, "source7 is null"
 
+    .line 4805
     invoke-static {p6, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 4806
     invoke-static {p7}, Lio/reactivex/internal/functions/Functions;->toFunction(Lio/reactivex/functions/Function7;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p7
 
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, 0x7
+    const/4 v1, 0x7
 
-    new-array v2, v2, [Lorg/reactivestreams/Publisher;
+    new-array v1, v1, [Lorg/reactivestreams/Publisher;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    aput-object p0, v2, v3
+    aput-object p0, v1, v2
 
-    const/4 v4, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v2, v4
+    aput-object p1, v1, p0
 
-    const/4 v4, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v2, v4
+    aput-object p2, v1, p0
 
-    const/4 v4, 0x3
+    const/4 p0, 0x3
 
-    aput-object p3, v2, v4
+    aput-object p3, v1, p0
 
-    const/4 v4, 0x4
+    const/4 p0, 0x4
 
-    aput-object p4, v2, v4
+    aput-object p4, v1, p0
 
-    const/4 v4, 0x5
+    const/4 p0, 0x5
 
-    aput-object p5, v2, v4
+    aput-object p5, v1, p0
 
-    const/4 v4, 0x6
+    const/4 p0, 0x6
 
-    aput-object p6, v2, v4
+    aput-object p6, v1, p0
 
-    invoke-static {v0, v3, v1, v2}, Lio/reactivex/Flowable;->zipArray(Lio/reactivex/functions/Function;ZI[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-static {p7, v2, v0, v1}, Lio/reactivex/Flowable;->zipArray(Lio/reactivex/functions/Function;ZI[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static zip(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function8;)Lio/reactivex/Flowable;
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T1:",
@@ -8110,109 +7721,100 @@
         value = "none"
     .end annotation
 
-    .line 4884
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT1;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT2;>;"
-    .local p2, "source3":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT3;>;"
-    .local p3, "source4":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT4;>;"
-    .local p4, "source5":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT5;>;"
-    .local p5, "source6":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT6;>;"
-    .local p6, "source7":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT7;>;"
-    .local p7, "source8":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT8;>;"
-    .local p8, "zipper":Lio/reactivex/functions/Function8;, "Lio/reactivex/functions/Function8<-TT1;-TT2;-TT3;-TT4;-TT5;-TT6;-TT7;-TT8;+TR;>;"
     const-string v0, "source1 is null"
 
+    .line 4884
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4885
     const-string v0, "source2 is null"
 
+    .line 4885
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4886
     const-string v0, "source3 is null"
 
+    .line 4886
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4887
     const-string v0, "source4 is null"
 
+    .line 4887
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4888
     const-string v0, "source5 is null"
 
+    .line 4888
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4889
     const-string v0, "source6 is null"
 
+    .line 4889
     invoke-static {p5, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4890
     const-string v0, "source7 is null"
 
+    .line 4890
     invoke-static {p6, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4891
     const-string v0, "source8 is null"
 
+    .line 4891
     invoke-static {p7, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 4892
     invoke-static {p8}, Lio/reactivex/internal/functions/Functions;->toFunction(Lio/reactivex/functions/Function8;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p8
 
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
-    move-result v1
+    move-result v0
 
-    const/16 v2, 0x8
+    const/16 v1, 0x8
 
-    new-array v2, v2, [Lorg/reactivestreams/Publisher;
+    new-array v1, v1, [Lorg/reactivestreams/Publisher;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    aput-object p0, v2, v3
+    aput-object p0, v1, v2
 
-    const/4 v4, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v2, v4
+    aput-object p1, v1, p0
 
-    const/4 v4, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v2, v4
+    aput-object p2, v1, p0
 
-    const/4 v4, 0x3
+    const/4 p0, 0x3
 
-    aput-object p3, v2, v4
+    aput-object p3, v1, p0
 
-    const/4 v4, 0x4
+    const/4 p0, 0x4
 
-    aput-object p4, v2, v4
+    aput-object p4, v1, p0
 
-    const/4 v4, 0x5
+    const/4 p0, 0x5
 
-    aput-object p5, v2, v4
+    aput-object p5, v1, p0
 
-    const/4 v4, 0x6
+    const/4 p0, 0x6
 
-    aput-object p6, v2, v4
+    aput-object p6, v1, p0
 
-    const/4 v4, 0x7
+    const/4 p0, 0x7
 
-    aput-object p7, v2, v4
+    aput-object p7, v1, p0
 
-    invoke-static {v0, v3, v1, v2}, Lio/reactivex/Flowable;->zipArray(Lio/reactivex/functions/Function;ZI[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-static {p8, v2, v0, v1}, Lio/reactivex/Flowable;->zipArray(Lio/reactivex/functions/Function;ZI[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static zip(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function9;)Lio/reactivex/Flowable;
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T1:",
@@ -8272,121 +7874,109 @@
         value = "none"
     .end annotation
 
-    .line 4974
-    .local p0, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT1;>;"
-    .local p1, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT2;>;"
-    .local p2, "source3":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT3;>;"
-    .local p3, "source4":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT4;>;"
-    .local p4, "source5":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT5;>;"
-    .local p5, "source6":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT6;>;"
-    .local p6, "source7":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT7;>;"
-    .local p7, "source8":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT8;>;"
-    .local p8, "source9":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT9;>;"
-    .local p9, "zipper":Lio/reactivex/functions/Function9;, "Lio/reactivex/functions/Function9<-TT1;-TT2;-TT3;-TT4;-TT5;-TT6;-TT7;-TT8;-TT9;+TR;>;"
     const-string v0, "source1 is null"
 
+    .line 4974
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4975
     const-string v0, "source2 is null"
 
+    .line 4975
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4976
     const-string v0, "source3 is null"
 
+    .line 4976
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4977
     const-string v0, "source4 is null"
 
+    .line 4977
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4978
     const-string v0, "source5 is null"
 
+    .line 4978
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4979
     const-string v0, "source6 is null"
 
+    .line 4979
     invoke-static {p5, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4980
     const-string v0, "source7 is null"
 
+    .line 4980
     invoke-static {p6, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4981
     const-string v0, "source8 is null"
 
+    .line 4981
     invoke-static {p7, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4982
     const-string v0, "source9 is null"
 
+    .line 4982
     invoke-static {p8, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 4983
     invoke-static {p9}, Lio/reactivex/internal/functions/Functions;->toFunction(Lio/reactivex/functions/Function9;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p9
 
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
-    move-result v1
+    move-result v0
 
-    const/16 v2, 0x9
+    const/16 v1, 0x9
 
-    new-array v2, v2, [Lorg/reactivestreams/Publisher;
+    new-array v1, v1, [Lorg/reactivestreams/Publisher;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    aput-object p0, v2, v3
+    aput-object p0, v1, v2
 
-    const/4 v4, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v2, v4
+    aput-object p1, v1, p0
 
-    const/4 v4, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v2, v4
+    aput-object p2, v1, p0
 
-    const/4 v4, 0x3
+    const/4 p0, 0x3
 
-    aput-object p3, v2, v4
+    aput-object p3, v1, p0
 
-    const/4 v4, 0x4
+    const/4 p0, 0x4
 
-    aput-object p4, v2, v4
+    aput-object p4, v1, p0
 
-    const/4 v4, 0x5
+    const/4 p0, 0x5
 
-    aput-object p5, v2, v4
+    aput-object p5, v1, p0
 
-    const/4 v4, 0x6
+    const/4 p0, 0x6
 
-    aput-object p6, v2, v4
+    aput-object p6, v1, p0
 
-    const/4 v4, 0x7
+    const/4 p0, 0x7
 
-    aput-object p7, v2, v4
+    aput-object p7, v1, p0
 
-    const/16 v4, 0x8
+    const/16 p0, 0x8
 
-    aput-object p8, v2, v4
+    aput-object p8, v1, p0
 
-    invoke-static {v0, v3, v1, v2}, Lio/reactivex/Flowable;->zipArray(Lio/reactivex/functions/Function;ZI[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-static {p9, v2, v0, v1}, Lio/reactivex/Flowable;->zipArray(Lio/reactivex/functions/Function;ZI[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs zipArray(Lio/reactivex/functions/Function;ZI[Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
     .locals 7
-    .param p1, "delayError"    # Z
-    .param p2, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -8417,8 +8007,6 @@
     .end annotation
 
     .line 5040
-    .local p0, "zipper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-[Ljava/lang/Object;+TR;>;"
-    .local p3, "sources":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<+TT;>;"
     array-length v0, p3
 
     if-nez v0, :cond_0
@@ -8426,19 +8014,19 @@
     .line 5041
     invoke-static {}, Lio/reactivex/Flowable;->empty()Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
-    .line 5043
     :cond_0
     const-string v0, "zipper is null"
 
+    .line 5043
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 5044
     const-string v0, "bufferSize"
 
+    .line 5044
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 5045
@@ -8460,15 +8048,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static zipIterable(Ljava/lang/Iterable;Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
     .locals 7
-    .param p2, "delayError"    # Z
-    .param p3, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -8500,21 +8086,19 @@
         value = "none"
     .end annotation
 
-    .line 5103
-    .local p0, "sources":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lorg/reactivestreams/Publisher<+TT;>;>;"
-    .local p1, "zipper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-[Ljava/lang/Object;+TR;>;"
     const-string v0, "zipper is null"
 
+    .line 5103
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 5104
     const-string v0, "sources is null"
 
+    .line 5104
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 5105
     const-string v0, "bufferSize"
 
+    .line 5105
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 5106
@@ -8536,9 +8120,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 
@@ -8567,11 +8151,9 @@
         value = "none"
     .end annotation
 
-    .line 5136
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "predicate":Lio/reactivex/functions/Predicate;, "Lio/reactivex/functions/Predicate<-TT;>;"
     const-string v0, "predicate is null"
 
+    .line 5136
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 5137
@@ -8581,9 +8163,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Single;)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final ambWith(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -8609,14 +8191,11 @@
         value = "none"
     .end annotation
 
-    .line 5165
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     const-string v0, "other is null"
 
+    .line 5165
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 5166
     const/4 v0, 0x2
 
     new-array v0, v0, [Lorg/reactivestreams/Publisher;
@@ -8629,11 +8208,12 @@
 
     aput-object p1, v0, v1
 
+    .line 5166
     invoke-static {v0}, Lio/reactivex/Flowable;->ambArray([Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final any(Lio/reactivex/functions/Predicate;)Lio/reactivex/Single;
@@ -8660,11 +8240,9 @@
         value = "none"
     .end annotation
 
-    .line 5196
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "predicate":Lio/reactivex/functions/Predicate;, "Lio/reactivex/functions/Predicate<-TT;>;"
     const-string v0, "predicate is null"
 
+    .line 5196
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 5197
@@ -8674,13 +8252,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Single;)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final blockingFirst()Ljava/lang/Object;
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -8699,38 +8277,33 @@
     .end annotation
 
     .line 5220
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v0, Lio/reactivex/internal/subscribers/BlockingFirstSubscriber;
 
     invoke-direct {v0}, Lio/reactivex/internal/subscribers/BlockingFirstSubscriber;-><init>()V
 
     .line 5221
-    .local v0, "s":Lio/reactivex/internal/subscribers/BlockingFirstSubscriber;, "Lio/reactivex/internal/subscribers/BlockingFirstSubscriber<TT;>;"
     invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
     .line 5222
     invoke-virtual {v0}, Lio/reactivex/internal/subscribers/BlockingFirstSubscriber;->blockingGet()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    .line 5223
-    .local v1, "v":Ljava/lang/Object;, "TT;"
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 5224
-    return-object v1
+    return-object v0
 
     .line 5226
     :cond_0
-    new-instance v2, Ljava/util/NoSuchElementException;
+    new-instance v0, Ljava/util/NoSuchElementException;
 
-    invoke-direct {v2}, Ljava/util/NoSuchElementException;-><init>()V
+    invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
 
-    throw v2
+    throw v0
 .end method
 
 .method public final blockingFirst(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)TT;"
@@ -8749,38 +8322,28 @@
     .end annotation
 
     .line 5250
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "defaultItem":Ljava/lang/Object;, "TT;"
     new-instance v0, Lio/reactivex/internal/subscribers/BlockingFirstSubscriber;
 
     invoke-direct {v0}, Lio/reactivex/internal/subscribers/BlockingFirstSubscriber;-><init>()V
 
     .line 5251
-    .local v0, "s":Lio/reactivex/internal/subscribers/BlockingFirstSubscriber;, "Lio/reactivex/internal/subscribers/BlockingFirstSubscriber<TT;>;"
     invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
     .line 5252
     invoke-virtual {v0}, Lio/reactivex/internal/subscribers/BlockingFirstSubscriber;->blockingGet()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    .line 5253
-    .local v1, "v":Ljava/lang/Object;, "TT;"
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    move-object v2, v1
-
-    goto :goto_0
+    move-object p1, v0
 
     :cond_0
-    move-object v2, p1
-
-    :goto_0
-    return-object v2
+    return-object p1
 .end method
 
 .method public final blockingForEach(Lio/reactivex/functions/Consumer;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -8798,8 +8361,6 @@
     .end annotation
 
     .line 5289
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "onNext":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
     invoke-virtual {p0}, Lio/reactivex/Flowable;->blockingIterable()Ljava/lang/Iterable;
 
     move-result-object v0
@@ -8809,7 +8370,6 @@
     move-result-object v0
 
     .line 5290
-    .local v0, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<TT;>;"
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -8827,33 +8387,26 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 5297
     goto :goto_0
 
-    .line 5293
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     .line 5294
-    .local v1, "e":Ljava/lang/Throwable;
-    invoke-static {v1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 5295
-    move-object v2, v0
+    check-cast v0, Lio/reactivex/disposables/Disposable;
 
-    check-cast v2, Lio/reactivex/disposables/Disposable;
-
-    invoke-interface {v2}, Lio/reactivex/disposables/Disposable;->dispose()V
+    invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
     .line 5296
-    invoke-static {v1}, Lio/reactivex/internal/util/ExceptionHelper;->wrapOrThrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
+    invoke-static {p1}, Lio/reactivex/internal/util/ExceptionHelper;->wrapOrThrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
 
-    move-result-object v2
+    move-result-object p1
 
-    throw v2
+    throw p1
 
-    .line 5299
-    .end local v1    # "e":Ljava/lang/Throwable;
     :cond_0
     return-void
 .end method
@@ -8880,7 +8433,6 @@
     .end annotation
 
     .line 5320
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
@@ -8894,7 +8446,6 @@
 
 .method public final blockingIterable(I)Ljava/lang/Iterable;
     .locals 1
-    .param p1, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -8914,10 +8465,9 @@
         value = "none"
     .end annotation
 
-    .line 5344
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "bufferSize"
 
+    .line 5344
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 5345
@@ -8929,7 +8479,7 @@
 .end method
 
 .method public final blockingLast()Ljava/lang/Object;
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -8948,38 +8498,33 @@
     .end annotation
 
     .line 5370
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v0, Lio/reactivex/internal/subscribers/BlockingLastSubscriber;
 
     invoke-direct {v0}, Lio/reactivex/internal/subscribers/BlockingLastSubscriber;-><init>()V
 
     .line 5371
-    .local v0, "s":Lio/reactivex/internal/subscribers/BlockingLastSubscriber;, "Lio/reactivex/internal/subscribers/BlockingLastSubscriber<TT;>;"
     invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
     .line 5372
     invoke-virtual {v0}, Lio/reactivex/internal/subscribers/BlockingLastSubscriber;->blockingGet()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    .line 5373
-    .local v1, "v":Ljava/lang/Object;, "TT;"
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 5374
-    return-object v1
+    return-object v0
 
     .line 5376
     :cond_0
-    new-instance v2, Ljava/util/NoSuchElementException;
+    new-instance v0, Ljava/util/NoSuchElementException;
 
-    invoke-direct {v2}, Ljava/util/NoSuchElementException;-><init>()V
+    invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
 
-    throw v2
+    throw v0
 .end method
 
 .method public final blockingLast(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)TT;"
@@ -8998,34 +8543,24 @@
     .end annotation
 
     .line 5402
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "defaultItem":Ljava/lang/Object;, "TT;"
     new-instance v0, Lio/reactivex/internal/subscribers/BlockingLastSubscriber;
 
     invoke-direct {v0}, Lio/reactivex/internal/subscribers/BlockingLastSubscriber;-><init>()V
 
     .line 5403
-    .local v0, "s":Lio/reactivex/internal/subscribers/BlockingLastSubscriber;, "Lio/reactivex/internal/subscribers/BlockingLastSubscriber<TT;>;"
     invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
     .line 5404
     invoke-virtual {v0}, Lio/reactivex/internal/subscribers/BlockingLastSubscriber;->blockingGet()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    .line 5405
-    .local v1, "v":Ljava/lang/Object;, "TT;"
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    move-object v2, v1
-
-    goto :goto_0
+    move-object p1, v0
 
     :cond_0
-    move-object v2, p1
-
-    :goto_0
-    return-object v2
+    return-object p1
 .end method
 
 .method public final blockingLatest()Ljava/lang/Iterable;
@@ -9050,7 +8585,6 @@
     .end annotation
 
     .line 5432
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/BlockingFlowableLatest;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/BlockingFlowableLatest;-><init>(Lorg/reactivestreams/Publisher;)V
@@ -9080,8 +8614,6 @@
     .end annotation
 
     .line 5459
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "initialItem":Ljava/lang/Object;, "TT;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/BlockingFlowableMostRecent;
 
     invoke-direct {v0, p0, p1}, Lio/reactivex/internal/operators/flowable/BlockingFlowableMostRecent;-><init>(Lio/reactivex/Flowable;Ljava/lang/Object;)V
@@ -9111,7 +8643,6 @@
     .end annotation
 
     .line 5483
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/BlockingFlowableNext;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/BlockingFlowableNext;-><init>(Lorg/reactivestreams/Publisher;)V
@@ -9139,7 +8670,6 @@
     .end annotation
 
     .line 5506
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/Flowable;->singleOrError()Lio/reactivex/Single;
 
     move-result-object v0
@@ -9152,7 +8682,7 @@
 .end method
 
 .method public final blockingSingle(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)TT;"
@@ -9171,17 +8701,15 @@
     .end annotation
 
     .line 5533
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "defaultItem":Ljava/lang/Object;, "TT;"
     invoke-virtual {p0, p1}, Lio/reactivex/Flowable;->single(Ljava/lang/Object;)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lio/reactivex/Single;->blockingGet()Ljava/lang/Object;
+    invoke-virtual {p1}, Lio/reactivex/Single;->blockingGet()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final blockingSubscribe()V
@@ -9195,10 +8723,8 @@
     .end annotation
 
     .line 5578
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {p0}, Lio/reactivex/internal/operators/flowable/FlowableBlockingSubscribe;->subscribe(Lorg/reactivestreams/Publisher;)V
 
-    .line 5579
     return-void
 .end method
 
@@ -9221,15 +8747,12 @@
     .end annotation
 
     .line 5601
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "onNext":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
     sget-object v0, Lio/reactivex/internal/functions/Functions;->ON_ERROR_MISSING:Lio/reactivex/functions/Consumer;
 
     sget-object v1, Lio/reactivex/internal/functions/Functions;->EMPTY_ACTION:Lio/reactivex/functions/Action;
 
     invoke-static {p0, p1, v0, v1}, Lio/reactivex/internal/operators/flowable/FlowableBlockingSubscribe;->subscribe(Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;)V
 
-    .line 5602
     return-void
 .end method
 
@@ -9256,20 +8779,15 @@
     .end annotation
 
     .line 5620
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "onNext":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
-    .local p2, "onError":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Ljava/lang/Throwable;>;"
     sget-object v0, Lio/reactivex/internal/functions/Functions;->EMPTY_ACTION:Lio/reactivex/functions/Action;
 
     invoke-static {p0, p1, p2, v0}, Lio/reactivex/internal/operators/flowable/FlowableBlockingSubscribe;->subscribe(Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;)V
 
-    .line 5621
     return-void
 .end method
 
 .method public final blockingSubscribe(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;)V
     .locals 0
-    .param p3, "onComplete"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -9293,12 +8811,8 @@
     .end annotation
 
     .line 5641
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "onNext":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
-    .local p2, "onError":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Ljava/lang/Throwable;>;"
     invoke-static {p0, p1, p2, p3}, Lio/reactivex/internal/operators/flowable/FlowableBlockingSubscribe;->subscribe(Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;)V
 
-    .line 5642
     return-void
 .end method
 
@@ -9321,17 +8835,13 @@
     .end annotation
 
     .line 5660
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "subscriber":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-static {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableBlockingSubscribe;->subscribe(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Subscriber;)V
 
-    .line 5661
     return-void
 .end method
 
 .method public final buffer(I)Lio/reactivex/Flowable;
-    .locals 1
-    .param p1, "count"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -9353,18 +8863,15 @@
     .end annotation
 
     .line 5689
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-virtual {p0, p1, p1}, Lio/reactivex/Flowable;->buffer(II)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final buffer(II)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "count"    # I
-    .param p2, "skip"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)",
@@ -9386,22 +8893,19 @@
     .end annotation
 
     .line 5722
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/internal/util/ArrayListSupplier;->asCallable()Ljava/util/concurrent/Callable;
 
     move-result-object v0
 
     invoke-virtual {p0, p1, p2, v0}, Lio/reactivex/Flowable;->buffer(IILjava/util/concurrent/Callable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final buffer(IILjava/util/concurrent/Callable;)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "count"    # I
-    .param p2, "skip"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<U::",
@@ -9425,21 +8929,19 @@
         value = "none"
     .end annotation
 
-    .line 5759
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p3, "bufferSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TU;>;"
     const-string v0, "count"
 
+    .line 5759
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
-    .line 5760
     const-string v0, "skip"
 
+    .line 5760
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
-    .line 5761
     const-string v0, "bufferSupplier is null"
 
+    .line 5761
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 5762
@@ -9449,14 +8951,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final buffer(ILjava/util/concurrent/Callable;)Lio/reactivex/Flowable;
-    .locals 1
-    .param p1, "count"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<U::",
@@ -9481,20 +8982,15 @@
     .end annotation
 
     .line 5795
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p2, "bufferSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TU;>;"
     invoke-virtual {p0, p1, p1, p2}, Lio/reactivex/Flowable;->buffer(IILjava/util/concurrent/Callable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final buffer(JJLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
     .locals 8
-    .param p1, "timespan"    # J
-    .param p3, "timeskip"    # J
-    .param p5, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JJ",
@@ -9518,7 +9014,6 @@
     .end annotation
 
     .line 5828
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v6
@@ -9537,17 +9032,13 @@
 
     invoke-virtual/range {v0 .. v7}, Lio/reactivex/Flowable;->buffer(JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;Ljava/util/concurrent/Callable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final buffer(JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 8
-    .param p1, "timespan"    # J
-    .param p3, "timeskip"    # J
-    .param p5, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p6, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JJ",
@@ -9572,7 +9063,6 @@
     .end annotation
 
     .line 5863
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/internal/util/ArrayListSupplier;->asCallable()Ljava/util/concurrent/Callable;
 
     move-result-object v7
@@ -9589,17 +9079,13 @@
 
     invoke-virtual/range {v0 .. v7}, Lio/reactivex/Flowable;->buffer(JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;Ljava/util/concurrent/Callable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final buffer(JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;Ljava/util/concurrent/Callable;)Lio/reactivex/Flowable;
-    .locals 15
-    .param p1, "timespan"    # J
-    .param p3, "timeskip"    # J
-    .param p5, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p6, "scheduler"    # Lio/reactivex/Scheduler;
+    .locals 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<U::",
@@ -9625,28 +9111,26 @@
         value = "custom"
     .end annotation
 
-    .line 5903
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p7, "bufferSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TU;>;"
     const-string v0, "unit is null"
 
-    move-object/from16 v12, p5
+    move-object/from16 v7, p5
 
-    invoke-static {v12, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 5903
+    invoke-static {v7, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 5904
     const-string v0, "scheduler is null"
 
-    move-object/from16 v13, p6
+    move-object/from16 v8, p6
 
-    invoke-static {v13, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 5904
+    invoke-static {v8, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 5905
     const-string v0, "bufferSupplier is null"
 
-    move-object/from16 v14, p7
+    move-object/from16 v9, p7
 
-    invoke-static {v14, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 5905
+    invoke-static {v9, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 5906
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed;
@@ -9659,15 +9143,9 @@
 
     move-object v2, p0
 
-    move-wide/from16 v3, p1
+    move-wide v3, p1
 
-    move-wide/from16 v5, p3
-
-    move-object/from16 v7, p5
-
-    move-object/from16 v8, p6
-
-    move-object/from16 v9, p7
+    move-wide v5, p3
 
     invoke-direct/range {v1 .. v11}, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed;-><init>(Lio/reactivex/Flowable;JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;Ljava/util/concurrent/Callable;IZ)V
 
@@ -9680,8 +9158,6 @@
 
 .method public final buffer(JLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
     .locals 6
-    .param p1, "timespan"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -9705,7 +9181,6 @@
     .end annotation
 
     .line 5937
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v4
@@ -9720,16 +9195,13 @@
 
     invoke-virtual/range {v0 .. v5}, Lio/reactivex/Flowable;->buffer(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final buffer(JLjava/util/concurrent/TimeUnit;I)Lio/reactivex/Flowable;
     .locals 6
-    .param p1, "timespan"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "count"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -9753,7 +9225,6 @@
     .end annotation
 
     .line 5972
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v4
@@ -9768,16 +9239,13 @@
 
     invoke-virtual/range {v0 .. v5}, Lio/reactivex/Flowable;->buffer(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final buffer(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 8
-    .param p1, "timespan"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -9801,13 +9269,12 @@
         value = "custom"
     .end annotation
 
+    const v5, 0x7fffffff
+
     .line 6096
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/internal/util/ArrayListSupplier;->asCallable()Ljava/util/concurrent/Callable;
 
     move-result-object v6
-
-    const v5, 0x7fffffff
 
     const/4 v7, 0x0
 
@@ -9821,17 +9288,13 @@
 
     invoke-virtual/range {v0 .. v7}, Lio/reactivex/Flowable;->buffer(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;ILjava/util/concurrent/Callable;Z)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final buffer(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;I)Lio/reactivex/Flowable;
     .locals 8
-    .param p1, "timespan"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p5, "count"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -9856,7 +9319,6 @@
     .end annotation
 
     .line 6010
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/internal/util/ArrayListSupplier;->asCallable()Ljava/util/concurrent/Callable;
 
     move-result-object v6
@@ -9875,18 +9337,13 @@
 
     invoke-virtual/range {v0 .. v7}, Lio/reactivex/Flowable;->buffer(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;ILjava/util/concurrent/Callable;Z)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final buffer(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;ILjava/util/concurrent/Callable;Z)Lio/reactivex/Flowable;
-    .locals 16
-    .param p1, "timespan"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p5, "count"    # I
-    .param p7, "restartTimerOnMaxSize"    # Z
+    .locals 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<U::",
@@ -9913,54 +9370,44 @@
         value = "custom"
     .end annotation
 
-    .line 6058
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p6, "bufferSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TU;>;"
     const-string v0, "unit is null"
 
-    move-object/from16 v12, p3
+    move-object v7, p3
 
-    invoke-static {v12, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 6058
+    invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 6059
     const-string v0, "scheduler is null"
 
-    move-object/from16 v13, p4
+    move-object/from16 v8, p4
 
-    invoke-static {v13, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 6059
+    invoke-static {v8, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 6060
     const-string v0, "bufferSupplier is null"
 
-    move-object/from16 v14, p6
+    move-object/from16 v9, p6
 
-    invoke-static {v14, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 6060
+    invoke-static {v9, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 6061
     const-string v0, "count"
 
-    move/from16 v15, p5
+    move/from16 v10, p5
 
-    invoke-static {v15, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
+    .line 6061
+    invoke-static {v10, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 6062
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed;
 
     move-object v1, v0
 
-    move-object/from16 v2, p0
+    move-object v2, p0
 
-    move-wide/from16 v3, p1
+    move-wide v3, p1
 
-    move-wide/from16 v5, p1
-
-    move-object/from16 v7, p3
-
-    move-object/from16 v8, p4
-
-    move-object/from16 v9, p6
-
-    move/from16 v10, p5
+    move-wide v5, p1
 
     move/from16 v11, p7
 
@@ -10006,18 +9453,15 @@
     .end annotation
 
     .line 6130
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "openingIndicator":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<+TTOpening;>;"
-    .local p2, "closingIndicator":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TTOpening;+Lorg/reactivestreams/Publisher<+TTClosing;>;>;"
     invoke-static {}, Lio/reactivex/internal/util/ArrayListSupplier;->asCallable()Ljava/util/concurrent/Callable;
 
     move-result-object v0
 
     invoke-virtual {p0, p1, p2, v0}, Lio/reactivex/Flowable;->buffer(Lio/reactivex/Flowable;Lio/reactivex/functions/Function;Ljava/util/concurrent/Callable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final buffer(Lio/reactivex/Flowable;Lio/reactivex/functions/Function;Ljava/util/concurrent/Callable;)Lio/reactivex/Flowable;
@@ -10055,23 +9499,19 @@
         value = "none"
     .end annotation
 
-    .line 6169
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "openingIndicator":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<+TTOpening;>;"
-    .local p2, "closingIndicator":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TTOpening;+Lorg/reactivestreams/Publisher<+TTClosing;>;>;"
-    .local p3, "bufferSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TU;>;"
     const-string v0, "openingIndicator is null"
 
+    .line 6169
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 6170
     const-string v0, "closingIndicator is null"
 
+    .line 6170
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 6171
     const-string v0, "bufferSupplier is null"
 
+    .line 6171
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 6172
@@ -10081,9 +9521,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final buffer(Ljava/util/concurrent/Callable;)Lio/reactivex/Flowable;
@@ -10115,17 +9555,15 @@
     .end annotation
 
     .line 6310
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "boundaryIndicatorSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<+Lorg/reactivestreams/Publisher<TB;>;>;"
     invoke-static {}, Lio/reactivex/internal/util/ArrayListSupplier;->asCallable()Ljava/util/concurrent/Callable;
 
     move-result-object v0
 
     invoke-virtual {p0, p1, v0}, Lio/reactivex/Flowable;->buffer(Ljava/util/concurrent/Callable;Ljava/util/concurrent/Callable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final buffer(Ljava/util/concurrent/Callable;Ljava/util/concurrent/Callable;)Lio/reactivex/Flowable;
@@ -10159,17 +9597,14 @@
         value = "none"
     .end annotation
 
-    .line 6346
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "boundaryIndicatorSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<+Lorg/reactivestreams/Publisher<TB;>;>;"
-    .local p2, "bufferSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TU;>;"
     const-string v0, "boundaryIndicatorSupplier is null"
 
+    .line 6346
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 6347
     const-string v0, "bufferSupplier is null"
 
+    .line 6347
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 6348
@@ -10179,9 +9614,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final buffer(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -10211,22 +9646,19 @@
     .end annotation
 
     .line 6205
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "boundaryIndicator":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TB;>;"
     invoke-static {}, Lio/reactivex/internal/util/ArrayListSupplier;->asCallable()Ljava/util/concurrent/Callable;
 
     move-result-object v0
 
     invoke-virtual {p0, p1, v0}, Lio/reactivex/Flowable;->buffer(Lorg/reactivestreams/Publisher;Ljava/util/concurrent/Callable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final buffer(Lorg/reactivestreams/Publisher;I)Lio/reactivex/Flowable;
     .locals 1
-    .param p2, "initialCapacity"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<B:",
@@ -10251,23 +9683,21 @@
         value = "none"
     .end annotation
 
-    .line 6240
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "boundaryIndicator":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TB;>;"
     const-string v0, "initialCapacity"
 
+    .line 6240
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 6241
     invoke-static {p2}, Lio/reactivex/internal/functions/Functions;->createArrayList(I)Ljava/util/concurrent/Callable;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {p0, p1, v0}, Lio/reactivex/Flowable;->buffer(Lorg/reactivestreams/Publisher;Ljava/util/concurrent/Callable;)Lio/reactivex/Flowable;
+    invoke-virtual {p0, p1, p2}, Lio/reactivex/Flowable;->buffer(Lorg/reactivestreams/Publisher;Ljava/util/concurrent/Callable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final buffer(Lorg/reactivestreams/Publisher;Ljava/util/concurrent/Callable;)Lio/reactivex/Flowable;
@@ -10299,17 +9729,14 @@
         value = "none"
     .end annotation
 
-    .line 6278
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "boundaryIndicator":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TB;>;"
-    .local p2, "bufferSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TU;>;"
     const-string v0, "boundaryIndicator is null"
 
+    .line 6278
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 6279
     const-string v0, "bufferSupplier is null"
 
+    .line 6279
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 6280
@@ -10319,9 +9746,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final cache()Lio/reactivex/Flowable;
@@ -10345,10 +9772,9 @@
         value = "none"
     .end annotation
 
-    .line 6406
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const/16 v0, 0x10
 
+    .line 6406
     invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->cacheWithInitialCapacity(I)Lio/reactivex/Flowable;
 
     move-result-object v0
@@ -10358,7 +9784,6 @@
 
 .method public final cacheWithInitialCapacity(I)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "initialCapacity"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -10378,10 +9803,9 @@
         value = "none"
     .end annotation
 
-    .line 6468
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "initialCapacity"
 
+    .line 6468
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 6469
@@ -10391,9 +9815,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final cast(Ljava/lang/Class;)Lio/reactivex/Flowable;
@@ -10421,23 +9845,21 @@
         value = "none"
     .end annotation
 
-    .line 6497
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<TU;>;"
     const-string v0, "clazz is null"
 
+    .line 6497
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 6498
     invoke-static {p1}, Lio/reactivex/internal/functions/Functions;->castFunction(Ljava/lang/Class;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->map(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
+    invoke-virtual {p0, p1}, Lio/reactivex/Flowable;->map(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final collect(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiConsumer;)Lio/reactivex/Single;
@@ -10467,17 +9889,14 @@
         value = "none"
     .end annotation
 
-    .line 6530
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "initialItemSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<+TU;>;"
-    .local p2, "collector":Lio/reactivex/functions/BiConsumer;, "Lio/reactivex/functions/BiConsumer<-TU;-TT;>;"
     const-string v0, "initialItemSupplier is null"
 
+    .line 6530
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 6531
     const-string v0, "collector is null"
 
+    .line 6531
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 6532
@@ -10487,9 +9906,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Single;)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final collectInto(Ljava/lang/Object;Lio/reactivex/functions/BiConsumer;)Lio/reactivex/Single;
@@ -10517,24 +9936,21 @@
         value = "none"
     .end annotation
 
-    .line 6564
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "initialItem":Ljava/lang/Object;, "TU;"
-    .local p2, "collector":Lio/reactivex/functions/BiConsumer;, "Lio/reactivex/functions/BiConsumer<-TU;-TT;>;"
     const-string v0, "initialItem is null"
 
+    .line 6564
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 6565
     invoke-static {p1}, Lio/reactivex/internal/functions/Functions;->justCallable(Ljava/lang/Object;)Ljava/util/concurrent/Callable;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0, p2}, Lio/reactivex/Flowable;->collect(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiConsumer;)Lio/reactivex/Single;
+    invoke-virtual {p0, p1, p2}, Lio/reactivex/Flowable;->collect(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiConsumer;)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final compose(Lio/reactivex/FlowableTransformer;)Lio/reactivex/Flowable;
@@ -10562,26 +9978,24 @@
         value = "none"
     .end annotation
 
-    .line 6595
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "composer":Lio/reactivex/FlowableTransformer;, "Lio/reactivex/FlowableTransformer<-TT;+TR;>;"
     const-string v0, "composer is null"
 
+    .line 6595
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lio/reactivex/FlowableTransformer;
+    check-cast p1, Lio/reactivex/FlowableTransformer;
 
-    invoke-interface {v0, p0}, Lio/reactivex/FlowableTransformer;->apply(Lio/reactivex/Flowable;)Lorg/reactivestreams/Publisher;
+    invoke-interface {p1, p0}, Lio/reactivex/FlowableTransformer;->apply(Lio/reactivex/Flowable;)Lorg/reactivestreams/Publisher;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Lio/reactivex/Flowable;->fromPublisher(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-static {p1}, Lio/reactivex/Flowable;->fromPublisher(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final concatMap(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -10611,21 +10025,18 @@
         value = "none"
     .end annotation
 
-    .line 6627
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     const/4 v0, 0x2
 
+    .line 6627
     invoke-virtual {p0, p1, v0}, Lio/reactivex/Flowable;->concatMap(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final concatMap(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
     .locals 2
-    .param p2, "prefetch"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -10651,16 +10062,14 @@
         value = "none"
     .end annotation
 
-    .line 6661
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     const-string v0, "mapper is null"
 
+    .line 6661
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 6662
     const-string v0, "prefetch"
 
+    .line 6662
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 6663
@@ -10669,35 +10078,32 @@
     if-eqz v0, :cond_1
 
     .line 6665
-    move-object v0, p0
+    move-object p2, p0
 
-    check-cast v0, Lio/reactivex/internal/fuseable/ScalarCallable;
+    check-cast p2, Lio/reactivex/internal/fuseable/ScalarCallable;
 
-    invoke-interface {v0}, Lio/reactivex/internal/fuseable/ScalarCallable;->call()Ljava/lang/Object;
+    invoke-interface {p2}, Lio/reactivex/internal/fuseable/ScalarCallable;->call()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p2
 
-    .line 6666
-    .local v0, "v":Ljava/lang/Object;, "TT;"
-    if-nez v0, :cond_0
+    if-nez p2, :cond_0
 
     .line 6667
     invoke-static {}, Lio/reactivex/Flowable;->empty()Lio/reactivex/Flowable;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 6669
     :cond_0
-    invoke-static {v0, p1}, Lio/reactivex/internal/operators/flowable/FlowableScalarXMap;->scalarXMap(Ljava/lang/Object;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
+    invoke-static {p2, p1}, Lio/reactivex/internal/operators/flowable/FlowableScalarXMap;->scalarXMap(Ljava/lang/Object;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 6671
-    .end local v0    # "v":Ljava/lang/Object;, "TT;"
     :cond_1
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap;
 
@@ -10707,9 +10113,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final concatMapDelayError(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -10739,24 +10145,20 @@
         value = "none"
     .end annotation
 
-    .line 6699
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     const/4 v0, 0x2
 
     const/4 v1, 0x1
 
+    .line 6699
     invoke-virtual {p0, p1, v0, v1}, Lio/reactivex/Flowable;->concatMapDelayError(Lio/reactivex/functions/Function;IZ)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final concatMapDelayError(Lio/reactivex/functions/Function;IZ)Lio/reactivex/Flowable;
-    .locals 2
-    .param p2, "prefetch"    # I
-    .param p3, "tillTheEnd"    # Z
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -10782,16 +10184,14 @@
         value = "none"
     .end annotation
 
-    .line 6733
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     const-string v0, "mapper is null"
 
+    .line 6733
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 6734
     const-string v0, "prefetch"
 
+    .line 6734
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 6735
@@ -10800,55 +10200,52 @@
     if-eqz v0, :cond_1
 
     .line 6737
-    move-object v0, p0
+    move-object p2, p0
 
-    check-cast v0, Lio/reactivex/internal/fuseable/ScalarCallable;
+    check-cast p2, Lio/reactivex/internal/fuseable/ScalarCallable;
 
-    invoke-interface {v0}, Lio/reactivex/internal/fuseable/ScalarCallable;->call()Ljava/lang/Object;
+    invoke-interface {p2}, Lio/reactivex/internal/fuseable/ScalarCallable;->call()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p2
 
-    .line 6738
-    .local v0, "v":Ljava/lang/Object;, "TT;"
-    if-nez v0, :cond_0
+    if-nez p2, :cond_0
 
     .line 6739
     invoke-static {}, Lio/reactivex/Flowable;->empty()Lio/reactivex/Flowable;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 6741
     :cond_0
-    invoke-static {v0, p1}, Lio/reactivex/internal/operators/flowable/FlowableScalarXMap;->scalarXMap(Ljava/lang/Object;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
+    invoke-static {p2, p1}, Lio/reactivex/internal/operators/flowable/FlowableScalarXMap;->scalarXMap(Ljava/lang/Object;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 6743
-    .end local v0    # "v":Ljava/lang/Object;, "TT;"
     :cond_1
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap;
 
     if-eqz p3, :cond_2
 
-    sget-object v1, Lio/reactivex/internal/util/ErrorMode;->END:Lio/reactivex/internal/util/ErrorMode;
+    sget-object p3, Lio/reactivex/internal/util/ErrorMode;->END:Lio/reactivex/internal/util/ErrorMode;
 
     goto :goto_0
 
     :cond_2
-    sget-object v1, Lio/reactivex/internal/util/ErrorMode;->BOUNDARY:Lio/reactivex/internal/util/ErrorMode;
+    sget-object p3, Lio/reactivex/internal/util/ErrorMode;->BOUNDARY:Lio/reactivex/internal/util/ErrorMode;
 
     :goto_0
-    invoke-direct {v0, p0, p1, p2, v1}, Lio/reactivex/internal/operators/flowable/FlowableConcatMap;-><init>(Lio/reactivex/Flowable;Lio/reactivex/functions/Function;ILio/reactivex/internal/util/ErrorMode;)V
+    invoke-direct {v0, p0, p1, p2, p3}, Lio/reactivex/internal/operators/flowable/FlowableConcatMap;-><init>(Lio/reactivex/Flowable;Lio/reactivex/functions/Function;ILio/reactivex/internal/util/ErrorMode;)V
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final concatMapEager(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -10879,8 +10276,6 @@
     .end annotation
 
     .line 6771
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
@@ -10891,15 +10286,13 @@
 
     invoke-virtual {p0, p1, v0, v1}, Lio/reactivex/Flowable;->concatMapEager(Lio/reactivex/functions/Function;II)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final concatMapEager(Lio/reactivex/functions/Function;II)Lio/reactivex/Flowable;
     .locals 7
-    .param p2, "maxConcurrency"    # I
-    .param p3, "prefetch"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -10925,21 +10318,19 @@
         value = "none"
     .end annotation
 
-    .line 6801
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     const-string v0, "mapper is null"
 
+    .line 6801
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 6802
     const-string v0, "maxConcurrency"
 
+    .line 6802
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
-    .line 6803
     const-string v0, "prefetch"
 
+    .line 6803
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 6804
@@ -10961,16 +10352,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final concatMapEagerDelayError(Lio/reactivex/functions/Function;IIZ)Lio/reactivex/Flowable;
     .locals 7
-    .param p2, "maxConcurrency"    # I
-    .param p3, "prefetch"    # I
-    .param p4, "tillTheEnd"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -10996,21 +10384,19 @@
         value = "none"
     .end annotation
 
-    .line 6870
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     const-string v0, "mapper is null"
 
+    .line 6870
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 6871
     const-string v0, "maxConcurrency"
 
+    .line 6871
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
-    .line 6872
     const-string v0, "prefetch"
 
+    .line 6872
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 6873
@@ -11018,15 +10404,15 @@
 
     if-eqz p4, :cond_0
 
-    sget-object v1, Lio/reactivex/internal/util/ErrorMode;->END:Lio/reactivex/internal/util/ErrorMode;
+    sget-object p4, Lio/reactivex/internal/util/ErrorMode;->END:Lio/reactivex/internal/util/ErrorMode;
 
     goto :goto_0
 
     :cond_0
-    sget-object v1, Lio/reactivex/internal/util/ErrorMode;->BOUNDARY:Lio/reactivex/internal/util/ErrorMode;
+    sget-object p4, Lio/reactivex/internal/util/ErrorMode;->BOUNDARY:Lio/reactivex/internal/util/ErrorMode;
 
     :goto_0
-    move-object v6, v1
+    move-object v6, p4
 
     move-object v1, v0
 
@@ -11042,14 +10428,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final concatMapEagerDelayError(Lio/reactivex/functions/Function;Z)Lio/reactivex/Flowable;
     .locals 2
-    .param p2, "tillTheEnd"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -11076,8 +10461,6 @@
     .end annotation
 
     .line 6835
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
@@ -11088,9 +10471,9 @@
 
     invoke-virtual {p0, p1, v0, v1, p2}, Lio/reactivex/Flowable;->concatMapEagerDelayError(Lio/reactivex/functions/Function;IIZ)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final concatMapIterable(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -11120,21 +10503,18 @@
         value = "none"
     .end annotation
 
-    .line 6903
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Ljava/lang/Iterable<+TU;>;>;"
     const/4 v0, 0x2
 
+    .line 6903
     invoke-virtual {p0, p1, v0}, Lio/reactivex/Flowable;->concatMapIterable(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final concatMapIterable(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
     .locals 1
-    .param p2, "prefetch"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<U:",
@@ -11160,16 +10540,14 @@
         value = "none"
     .end annotation
 
-    .line 6935
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Ljava/lang/Iterable<+TU;>;>;"
     const-string v0, "mapper is null"
 
+    .line 6935
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 6936
     const-string v0, "prefetch"
 
+    .line 6936
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 6937
@@ -11179,9 +10557,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final concatWith(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -11207,24 +10585,21 @@
         value = "none"
     .end annotation
 
-    .line 6964
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     const-string v0, "other is null"
 
+    .line 6964
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 6965
     invoke-static {p0, p1}, Lio/reactivex/Flowable;->concat(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final contains(Ljava/lang/Object;)Lio/reactivex/Single;
     .locals 1
-    .param p1, "item"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -11247,22 +10622,21 @@
         value = "none"
     .end annotation
 
-    .line 6991
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "item is null"
 
+    .line 6991
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 6992
     invoke-static {p1}, Lio/reactivex/internal/functions/Functions;->equalsWith(Ljava/lang/Object;)Lio/reactivex/functions/Predicate;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->any(Lio/reactivex/functions/Predicate;)Lio/reactivex/Single;
+    invoke-virtual {p0, p1}, Lio/reactivex/Flowable;->any(Lio/reactivex/functions/Predicate;)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final count()Lio/reactivex/Single;
@@ -11288,7 +10662,6 @@
     .end annotation
 
     .line 7017
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableCountSingle;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableCountSingle;-><init>(Lio/reactivex/Flowable;)V
@@ -11302,8 +10675,6 @@
 
 .method public final debounce(JLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "timeout"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -11326,23 +10697,19 @@
     .end annotation
 
     .line 7089
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v0
 
     invoke-virtual {p0, p1, p2, p3, v0}, Lio/reactivex/Flowable;->debounce(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final debounce(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 7
-    .param p1, "timeout"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -11365,15 +10732,14 @@
         value = "custom"
     .end annotation
 
-    .line 7134
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "unit is null"
 
+    .line 7134
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 7135
     const-string v0, "scheduler is null"
 
+    .line 7135
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 7136
@@ -11393,9 +10759,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final debounce(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -11425,11 +10791,9 @@
         value = "none"
     .end annotation
 
-    .line 7046
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "debounceIndicator":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<TU;>;>;"
     const-string v0, "debounceIndicator is null"
 
+    .line 7046
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 7047
@@ -11439,9 +10803,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final defaultIfEmpty(Ljava/lang/Object;)Lio/reactivex/Flowable;
@@ -11465,29 +10829,25 @@
         value = "none"
     .end annotation
 
-    .line 7164
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "defaultItem":Ljava/lang/Object;, "TT;"
     const-string v0, "item is null"
 
+    .line 7164
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 7165
     invoke-static {p1}, Lio/reactivex/Flowable;->just(Ljava/lang/Object;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->switchIfEmpty(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-virtual {p0, p1}, Lio/reactivex/Flowable;->switchIfEmpty(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final delay(JLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
     .locals 6
-    .param p1, "delay"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -11510,7 +10870,6 @@
     .end annotation
 
     .line 7226
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v4
@@ -11525,16 +10884,13 @@
 
     invoke-virtual/range {v0 .. v5}, Lio/reactivex/Flowable;->delay(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;Z)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final delay(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 6
-    .param p1, "delay"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -11557,8 +10913,6 @@
         value = "custom"
     .end annotation
 
-    .line 7283
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const/4 v5, 0x0
 
     move-object v0, p0
@@ -11569,19 +10923,16 @@
 
     move-object v4, p4
 
+    .line 7283
     invoke-virtual/range {v0 .. v5}, Lio/reactivex/Flowable;->delay(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;Z)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final delay(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;Z)Lio/reactivex/Flowable;
     .locals 8
-    .param p1, "delay"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p5, "delayError"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -11604,15 +10955,14 @@
         value = "custom"
     .end annotation
 
-    .line 7314
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "unit is null"
 
+    .line 7314
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 7315
     const-string v0, "scheduler is null"
 
+    .line 7315
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 7317
@@ -11638,16 +10988,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final delay(JLjava/util/concurrent/TimeUnit;Z)Lio/reactivex/Flowable;
     .locals 6
-    .param p1, "delay"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "delayError"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -11670,7 +11017,6 @@
     .end annotation
 
     .line 7255
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v4
@@ -11685,9 +11031,9 @@
 
     invoke-virtual/range {v0 .. v5}, Lio/reactivex/Flowable;->delay(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;Z)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final delay(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -11717,27 +11063,25 @@
         value = "none"
     .end annotation
 
-    .line 7199
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "itemDelayIndicator":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<TU;>;>;"
     const-string v0, "itemDelayIndicator is null"
 
+    .line 7199
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 7200
     invoke-static {p1}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper;->itemDelay(Lio/reactivex/functions/Function;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
+    invoke-virtual {p0, p1}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final delay(Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<U:",
@@ -11768,24 +11112,19 @@
     .end annotation
 
     .line 7357
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "subscriptionIndicator":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TU;>;"
-    .local p2, "itemDelayIndicator":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<TV;>;>;"
     invoke-virtual {p0, p1}, Lio/reactivex/Flowable;->delaySubscription(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Lio/reactivex/Flowable;->delay(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
+    invoke-virtual {p1, p2}, Lio/reactivex/Flowable;->delay(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final delaySubscription(JLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "delay"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -11808,23 +11147,19 @@
     .end annotation
 
     .line 7409
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v0
 
     invoke-virtual {p0, p1, p2, p3, v0}, Lio/reactivex/Flowable;->delaySubscription(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final delaySubscription(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
-    .locals 1
-    .param p1, "delay"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -11848,16 +11183,15 @@
     .end annotation
 
     .line 7438
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {p1, p2, p3, p4}, Lio/reactivex/Flowable;->timer(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->delaySubscription(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-virtual {p0, p1}, Lio/reactivex/Flowable;->delaySubscription(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final delaySubscription(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -11885,11 +11219,9 @@
         value = "none"
     .end annotation
 
-    .line 7383
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "subscriptionIndicator":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TU;>;"
     const-string v0, "subscriptionIndicator is null"
 
+    .line 7383
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 7384
@@ -11899,13 +11231,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final dematerialize()Lio/reactivex/Flowable;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T2:",
@@ -11927,21 +11259,16 @@
         value = "none"
     .end annotation
 
-    .line 7465
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    move-object v0, p0
-
     .line 7466
-    .local v0, "m":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<Lio/reactivex/Notification<TT2;>;>;"
-    new-instance v1, Lio/reactivex/internal/operators/flowable/FlowableDematerialize;
+    new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableDematerialize;
 
-    invoke-direct {v1, v0}, Lio/reactivex/internal/operators/flowable/FlowableDematerialize;-><init>(Lio/reactivex/Flowable;)V
+    invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableDematerialize;-><init>(Lio/reactivex/Flowable;)V
 
-    invoke-static {v1}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
+    invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public final distinct()Lio/reactivex/Flowable;
@@ -11966,7 +11293,6 @@
     .end annotation
 
     .line 7490
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
     move-result-object v0
@@ -12008,17 +11334,15 @@
     .end annotation
 
     .line 7517
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "keySelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;TK;>;"
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->createHashSet()Ljava/util/concurrent/Callable;
 
     move-result-object v0
 
     invoke-virtual {p0, p1, v0}, Lio/reactivex/Flowable;->distinct(Lio/reactivex/functions/Function;Ljava/util/concurrent/Callable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final distinct(Lio/reactivex/functions/Function;Ljava/util/concurrent/Callable;)Lio/reactivex/Flowable;
@@ -12050,17 +11374,14 @@
         value = "none"
     .end annotation
 
-    .line 7548
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "keySelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;TK;>;"
-    .local p2, "collectionSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<+Ljava/util/Collection<-TK;>;>;"
     const-string v0, "keySelector is null"
 
+    .line 7548
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 7549
     const-string v0, "collectionSupplier is null"
 
+    .line 7549
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 7550
@@ -12070,9 +11391,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final distinctUntilChanged()Lio/reactivex/Flowable;
@@ -12097,7 +11418,6 @@
     .end annotation
 
     .line 7574
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
     move-result-object v0
@@ -12132,11 +11452,9 @@
         value = "none"
     .end annotation
 
-    .line 7630
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "comparer":Lio/reactivex/functions/BiPredicate;, "Lio/reactivex/functions/BiPredicate<-TT;-TT;>;"
     const-string v0, "comparer is null"
 
+    .line 7630
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 7631
@@ -12150,9 +11468,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final distinctUntilChanged(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -12180,11 +11498,9 @@
         value = "none"
     .end annotation
 
-    .line 7602
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "keySelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;TK;>;"
     const-string v0, "keySelector is null"
 
+    .line 7602
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 7603
@@ -12198,9 +11514,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final doAfterNext(Lio/reactivex/functions/Consumer;)Lio/reactivex/Flowable;
@@ -12226,11 +11542,9 @@
         value = "none"
     .end annotation
 
-    .line 7687
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "onAfterNext":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
     const-string v0, "onAfterNext is null"
 
+    .line 7687
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 7688
@@ -12240,14 +11554,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final doAfterTerminate(Lio/reactivex/functions/Action;)Lio/reactivex/Flowable;
     .locals 3
-    .param p1, "onAfterTerminate"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -12270,7 +11583,6 @@
     .end annotation
 
     .line 7715
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->emptyConsumer()Lio/reactivex/functions/Consumer;
 
     move-result-object v0
@@ -12283,14 +11595,13 @@
 
     invoke-direct {p0, v0, v1, v2, p1}, Lio/reactivex/Flowable;->doOnEach(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;Lio/reactivex/functions/Action;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final doFinally(Lio/reactivex/functions/Action;)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "onFinally"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -12312,10 +11623,9 @@
         value = "none"
     .end annotation
 
-    .line 7660
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "onFinally is null"
 
+    .line 7660
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 7661
@@ -12325,14 +11635,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final doOnCancel(Lio/reactivex/functions/Action;)Lio/reactivex/Flowable;
     .locals 2
-    .param p1, "onCancel"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -12355,7 +11664,6 @@
     .end annotation
 
     .line 7748
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->emptyConsumer()Lio/reactivex/functions/Consumer;
 
     move-result-object v0
@@ -12364,14 +11672,13 @@
 
     invoke-virtual {p0, v0, v1, p1}, Lio/reactivex/Flowable;->doOnLifecycle(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/LongConsumer;Lio/reactivex/functions/Action;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final doOnComplete(Lio/reactivex/functions/Action;)Lio/reactivex/Flowable;
     .locals 3
-    .param p1, "onComplete"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -12394,7 +11701,6 @@
     .end annotation
 
     .line 7772
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->emptyConsumer()Lio/reactivex/functions/Consumer;
 
     move-result-object v0
@@ -12407,13 +11713,13 @@
 
     invoke-direct {p0, v0, v1, p1, v2}, Lio/reactivex/Flowable;->doOnEach(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;Lio/reactivex/functions/Action;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final doOnEach(Lio/reactivex/functions/Consumer;)Lio/reactivex/Flowable;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -12437,11 +11743,9 @@
         value = "none"
     .end annotation
 
-    .line 7825
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "onNotification":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Lio/reactivex/Notification<TT;>;>;"
     const-string v0, "consumer is null"
 
+    .line 7825
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 7826
@@ -12455,19 +11759,19 @@
 
     invoke-static {p1}, Lio/reactivex/internal/functions/Functions;->notificationOnComplete(Lio/reactivex/functions/Consumer;)Lio/reactivex/functions/Action;
 
-    move-result-object v2
+    move-result-object p1
 
-    sget-object v3, Lio/reactivex/internal/functions/Functions;->EMPTY_ACTION:Lio/reactivex/functions/Action;
+    sget-object v2, Lio/reactivex/internal/functions/Functions;->EMPTY_ACTION:Lio/reactivex/functions/Action;
 
-    invoke-direct {p0, v0, v1, v2, v3}, Lio/reactivex/Flowable;->doOnEach(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;Lio/reactivex/functions/Action;)Lio/reactivex/Flowable;
+    invoke-direct {p0, v0, v1, p1, v2}, Lio/reactivex/Flowable;->doOnEach(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;Lio/reactivex/functions/Action;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final doOnEach(Lorg/reactivestreams/Subscriber;)Lio/reactivex/Flowable;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -12489,11 +11793,9 @@
         value = "none"
     .end annotation
 
-    .line 7861
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "subscriber":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     const-string v0, "subscriber is null"
 
+    .line 7861
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 7862
@@ -12507,15 +11809,15 @@
 
     invoke-static {p1}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper;->subscriberOnComplete(Lorg/reactivestreams/Subscriber;)Lio/reactivex/functions/Action;
 
-    move-result-object v2
+    move-result-object p1
 
-    sget-object v3, Lio/reactivex/internal/functions/Functions;->EMPTY_ACTION:Lio/reactivex/functions/Action;
+    sget-object v2, Lio/reactivex/internal/functions/Functions;->EMPTY_ACTION:Lio/reactivex/functions/Action;
 
-    invoke-direct {p0, v0, v1, v2, v3}, Lio/reactivex/Flowable;->doOnEach(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;Lio/reactivex/functions/Action;)Lio/reactivex/Flowable;
+    invoke-direct {p0, v0, v1, p1, v2}, Lio/reactivex/Flowable;->doOnEach(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;Lio/reactivex/functions/Action;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final doOnError(Lio/reactivex/functions/Consumer;)Lio/reactivex/Flowable;
@@ -12544,8 +11846,6 @@
     .end annotation
 
     .line 7893
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "onError":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Ljava/lang/Throwable;>;"
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->emptyConsumer()Lio/reactivex/functions/Consumer;
 
     move-result-object v0
@@ -12556,15 +11856,13 @@
 
     invoke-direct {p0, v0, p1, v1, v2}, Lio/reactivex/Flowable;->doOnEach(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;Lio/reactivex/functions/Action;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final doOnLifecycle(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/LongConsumer;Lio/reactivex/functions/Action;)Lio/reactivex/Flowable;
     .locals 1
-    .param p2, "onRequest"    # Lio/reactivex/functions/LongConsumer;
-    .param p3, "onCancel"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -12591,21 +11889,19 @@
         value = "none"
     .end annotation
 
-    .line 7924
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "onSubscribe":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Lorg/reactivestreams/Subscription;>;"
     const-string v0, "onSubscribe is null"
 
+    .line 7924
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 7925
     const-string v0, "onRequest is null"
 
+    .line 7925
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 7926
     const-string v0, "onCancel is null"
 
+    .line 7926
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 7927
@@ -12615,9 +11911,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final doOnNext(Lio/reactivex/functions/Consumer;)Lio/reactivex/Flowable;
@@ -12644,8 +11940,6 @@
     .end annotation
 
     .line 7951
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "onNext":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->emptyConsumer()Lio/reactivex/functions/Consumer;
 
     move-result-object v0
@@ -12656,14 +11950,13 @@
 
     invoke-direct {p0, p1, v0, v1, v2}, Lio/reactivex/Flowable;->doOnEach(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;Lio/reactivex/functions/Action;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final doOnRequest(Lio/reactivex/functions/LongConsumer;)Lio/reactivex/Flowable;
     .locals 2
-    .param p1, "onRequest"    # Lio/reactivex/functions/LongConsumer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -12686,7 +11979,6 @@
     .end annotation
 
     .line 7981
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->emptyConsumer()Lio/reactivex/functions/Consumer;
 
     move-result-object v0
@@ -12695,9 +11987,9 @@
 
     invoke-virtual {p0, v0, p1, v1}, Lio/reactivex/Flowable;->doOnLifecycle(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/LongConsumer;Lio/reactivex/functions/Action;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final doOnSubscribe(Lio/reactivex/functions/Consumer;)Lio/reactivex/Flowable;
@@ -12726,22 +12018,19 @@
     .end annotation
 
     .line 8008
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "onSubscribe":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Lorg/reactivestreams/Subscription;>;"
     sget-object v0, Lio/reactivex/internal/functions/Functions;->EMPTY_LONG_CONSUMER:Lio/reactivex/functions/LongConsumer;
 
     sget-object v1, Lio/reactivex/internal/functions/Functions;->EMPTY_ACTION:Lio/reactivex/functions/Action;
 
     invoke-virtual {p0, p1, v0, v1}, Lio/reactivex/Flowable;->doOnLifecycle(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/LongConsumer;Lio/reactivex/functions/Action;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final doOnTerminate(Lio/reactivex/functions/Action;)Lio/reactivex/Flowable;
     .locals 3
-    .param p1, "onTerminate"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -12764,7 +12053,6 @@
     .end annotation
 
     .line 8037
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->emptyConsumer()Lio/reactivex/functions/Consumer;
 
     move-result-object v0
@@ -12777,14 +12065,13 @@
 
     invoke-direct {p0, v0, v1, p1, v2}, Lio/reactivex/Flowable;->doOnEach(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;Lio/reactivex/functions/Action;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final elementAt(J)Lio/reactivex/Maybe;
     .locals 3
-    .param p1, "index"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J)",
@@ -12804,8 +12091,6 @@
         value = "none"
     .end annotation
 
-    .line 8064
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
@@ -12819,9 +12104,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Maybe;)Lio/reactivex/Maybe;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 8065
     :cond_0
@@ -12829,26 +12114,25 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "index >= 0 required but it was "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public final elementAt(JLjava/lang/Object;)Lio/reactivex/Single;
-    .locals 3
-    .param p1, "index"    # J
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JTT;)",
@@ -12868,18 +12152,15 @@
         value = "none"
     .end annotation
 
-    .line 8097
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p3, "defaultItem":Ljava/lang/Object;, "TT;"
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
 
     if-ltz v0, :cond_0
 
-    .line 8100
     const-string v0, "defaultItem is null"
 
+    .line 8100
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 8101
@@ -12889,36 +12170,35 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Single;)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 8098
     :cond_0
-    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
+    new-instance p3, Ljava/lang/IndexOutOfBoundsException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "index >= 0 required but it was "
 
-    const-string v2, "index >= 0 required but it was "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p3, p1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p3
 .end method
 
 .method public final elementAtOrError(J)Lio/reactivex/Single;
     .locals 3
-    .param p1, "index"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J)",
@@ -12938,8 +12218,6 @@
         value = "none"
     .end annotation
 
-    .line 8129
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
@@ -12955,9 +12233,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Single;)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 8130
     :cond_0
@@ -12965,19 +12243,19 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "index >= 0 required but it was "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
@@ -13005,11 +12283,9 @@
         value = "none"
     .end annotation
 
-    .line 8158
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "predicate":Lio/reactivex/functions/Predicate;, "Lio/reactivex/functions/Predicate<-TT;>;"
     const-string v0, "predicate is null"
 
+    .line 8158
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 8159
@@ -13019,9 +12295,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final first(Ljava/lang/Object;)Lio/reactivex/Single;
@@ -13045,16 +12321,14 @@
         value = "none"
     .end annotation
 
-    .line 8208
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "defaultItem":Ljava/lang/Object;, "TT;"
     const-wide/16 v0, 0x0
 
+    .line 8208
     invoke-virtual {p0, v0, v1, p1}, Lio/reactivex/Flowable;->elementAt(JLjava/lang/Object;)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final firstElement()Lio/reactivex/Maybe;
@@ -13078,10 +12352,9 @@
         value = "none"
     .end annotation
 
-    .line 8182
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-wide/16 v0, 0x0
 
+    .line 8182
     invoke-virtual {p0, v0, v1}, Lio/reactivex/Flowable;->elementAt(J)Lio/reactivex/Maybe;
 
     move-result-object v0
@@ -13110,10 +12383,9 @@
         value = "none"
     .end annotation
 
-    .line 8231
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-wide/16 v0, 0x0
 
+    .line 8231
     invoke-virtual {p0, v0, v1}, Lio/reactivex/Flowable;->elementAtOrError(J)Lio/reactivex/Single;
 
     move-result-object v0
@@ -13149,8 +12421,6 @@
     .end annotation
 
     .line 8263
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
@@ -13163,14 +12433,13 @@
 
     invoke-virtual {p0, p1, v2, v0, v1}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZII)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMap(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
     .locals 2
-    .param p2, "maxConcurrency"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -13196,20 +12465,18 @@
         value = "none"
     .end annotation
 
+    const/4 v0, 0x0
+
     .line 8334
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x0
+    invoke-virtual {p0, p1, v0, p2, v1}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZII)Lio/reactivex/Flowable;
 
-    invoke-virtual {p0, p1, v1, p2, v0}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZII)Lio/reactivex/Flowable;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMap(Lio/reactivex/functions/Function;Lio/reactivex/functions/BiFunction;)Lio/reactivex/Flowable;
@@ -13243,10 +12510,9 @@
         value = "none"
     .end annotation
 
+    const/4 v3, 0x0
+
     .line 8552
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TU;>;>;"
-    .local p2, "combiner":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-TT;-TU;+TR;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v4
@@ -13254,8 +12520,6 @@
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v5
-
-    const/4 v3, 0x0
 
     move-object v0, p0
 
@@ -13265,14 +12529,13 @@
 
     invoke-virtual/range {v0 .. v5}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;Lio/reactivex/functions/BiFunction;ZII)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMap(Lio/reactivex/functions/Function;Lio/reactivex/functions/BiFunction;I)Lio/reactivex/Flowable;
     .locals 6
-    .param p3, "maxConcurrency"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<U:",
@@ -13302,15 +12565,12 @@
         value = "none"
     .end annotation
 
+    const/4 v3, 0x0
+
     .line 8723
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TU;>;>;"
-    .local p2, "combiner":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-TT;-TU;+TR;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v5
-
-    const/4 v3, 0x0
 
     move-object v0, p0
 
@@ -13322,14 +12582,13 @@
 
     invoke-virtual/range {v0 .. v5}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;Lio/reactivex/functions/BiFunction;ZII)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMap(Lio/reactivex/functions/Function;Lio/reactivex/functions/BiFunction;Z)Lio/reactivex/Flowable;
     .locals 6
-    .param p3, "delayErrors"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<U:",
@@ -13360,9 +12619,6 @@
     .end annotation
 
     .line 8591
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TU;>;>;"
-    .local p2, "combiner":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-TT;-TU;+TR;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v4
@@ -13381,15 +12637,13 @@
 
     invoke-virtual/range {v0 .. v5}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;Lio/reactivex/functions/BiFunction;ZII)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMap(Lio/reactivex/functions/Function;Lio/reactivex/functions/BiFunction;ZI)Lio/reactivex/Flowable;
     .locals 6
-    .param p3, "delayErrors"    # Z
-    .param p4, "maxConcurrency"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<U:",
@@ -13420,9 +12674,6 @@
     .end annotation
 
     .line 8634
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TU;>;>;"
-    .local p2, "combiner":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-TT;-TU;+TR;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v5
@@ -13439,16 +12690,13 @@
 
     invoke-virtual/range {v0 .. v5}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;Lio/reactivex/functions/BiFunction;ZII)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMap(Lio/reactivex/functions/Function;Lio/reactivex/functions/BiFunction;ZII)Lio/reactivex/Flowable;
     .locals 1
-    .param p3, "delayErrors"    # Z
-    .param p4, "maxConcurrency"    # I
-    .param p5, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<U:",
@@ -13478,39 +12726,36 @@
         value = "none"
     .end annotation
 
-    .line 8679
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TU;>;>;"
-    .local p2, "combiner":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-TT;-TU;+TR;>;"
     const-string v0, "mapper is null"
 
+    .line 8679
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 8680
     const-string v0, "combiner is null"
 
+    .line 8680
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 8681
     const-string v0, "maxConcurrency"
 
+    .line 8681
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
-    .line 8682
     const-string v0, "bufferSize"
 
+    .line 8682
     invoke-static {p5, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 8683
     invoke-static {p1, p2}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper;->flatMapWithCombiner(Lio/reactivex/functions/Function;Lio/reactivex/functions/BiFunction;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0, p3, p4, p5}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZII)Lio/reactivex/Flowable;
+    invoke-virtual {p0, p1, p3, p4, p5}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZII)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMap(Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;Ljava/util/concurrent/Callable;)Lio/reactivex/Flowable;
@@ -13550,23 +12795,19 @@
         value = "none"
     .end annotation
 
-    .line 8465
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "onNextMapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
-    .local p2, "onErrorMapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Ljava/lang/Throwable;+Lorg/reactivestreams/Publisher<+TR;>;>;"
-    .local p3, "onCompleteSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<+Lorg/reactivestreams/Publisher<+TR;>;>;"
     const-string v0, "onNextMapper is null"
 
+    .line 8465
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 8466
     const-string v0, "onErrorMapper is null"
 
+    .line 8466
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 8467
     const-string v0, "onCompleteSupplier is null"
 
+    .line 8467
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 8468
@@ -13576,14 +12817,13 @@
 
     invoke-static {v0}, Lio/reactivex/Flowable;->merge(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMap(Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;Ljava/util/concurrent/Callable;I)Lio/reactivex/Flowable;
     .locals 1
-    .param p4, "maxConcurrency"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -13618,23 +12858,19 @@
         value = "none"
     .end annotation
 
-    .line 8512
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "onNextMapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
-    .local p2, "onErrorMapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<Ljava/lang/Throwable;+Lorg/reactivestreams/Publisher<+TR;>;>;"
-    .local p3, "onCompleteSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<+Lorg/reactivestreams/Publisher<+TR;>;>;"
     const-string v0, "onNextMapper is null"
 
+    .line 8512
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 8513
     const-string v0, "onErrorMapper is null"
 
+    .line 8513
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 8514
     const-string v0, "onCompleteSupplier is null"
 
+    .line 8514
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 8515
@@ -13644,14 +12880,13 @@
 
     invoke-static {v0, p4}, Lio/reactivex/Flowable;->merge(Lorg/reactivestreams/Publisher;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMap(Lio/reactivex/functions/Function;Z)Lio/reactivex/Flowable;
     .locals 2
-    .param p2, "delayErrors"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -13678,8 +12913,6 @@
     .end annotation
 
     .line 8298
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
@@ -13690,15 +12923,13 @@
 
     invoke-virtual {p0, p1, p2, v0, v1}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZII)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMap(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
     .locals 1
-    .param p2, "delayErrors"    # Z
-    .param p3, "maxConcurrency"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -13725,24 +12956,19 @@
     .end annotation
 
     .line 8373
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
 
     invoke-virtual {p0, p1, p2, p3, v0}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;ZII)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMap(Lio/reactivex/functions/Function;ZII)Lio/reactivex/Flowable;
-    .locals 8
-    .param p2, "delayErrors"    # Z
-    .param p3, "maxConcurrency"    # I
-    .param p4, "bufferSize"    # I
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -13768,21 +12994,19 @@
         value = "none"
     .end annotation
 
-    .line 8415
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     const-string v0, "mapper is null"
 
+    .line 8415
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 8416
     const-string v0, "maxConcurrency"
 
+    .line 8416
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
-    .line 8417
     const-string v0, "bufferSize"
 
+    .line 8417
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 8418
@@ -13791,57 +13015,54 @@
     if-eqz v0, :cond_1
 
     .line 8420
-    move-object v0, p0
+    move-object p2, p0
 
-    check-cast v0, Lio/reactivex/internal/fuseable/ScalarCallable;
+    check-cast p2, Lio/reactivex/internal/fuseable/ScalarCallable;
 
-    invoke-interface {v0}, Lio/reactivex/internal/fuseable/ScalarCallable;->call()Ljava/lang/Object;
+    invoke-interface {p2}, Lio/reactivex/internal/fuseable/ScalarCallable;->call()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p2
 
-    .line 8421
-    .local v0, "v":Ljava/lang/Object;, "TT;"
-    if-nez v0, :cond_0
+    if-nez p2, :cond_0
 
     .line 8422
     invoke-static {}, Lio/reactivex/Flowable;->empty()Lio/reactivex/Flowable;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 8424
     :cond_0
-    invoke-static {v0, p1}, Lio/reactivex/internal/operators/flowable/FlowableScalarXMap;->scalarXMap(Ljava/lang/Object;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
+    invoke-static {p2, p1}, Lio/reactivex/internal/operators/flowable/FlowableScalarXMap;->scalarXMap(Ljava/lang/Object;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 8426
-    .end local v0    # "v":Ljava/lang/Object;, "TT;"
     :cond_1
-    new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableFlatMap;
+    new-instance v6, Lio/reactivex/internal/operators/flowable/FlowableFlatMap;
 
-    move-object v2, v0
+    move-object v0, v6
 
-    move-object v3, p0
+    move-object v1, p0
 
-    move-object v4, p1
+    move-object v2, p1
 
-    move v5, p2
+    move v3, p2
 
-    move v6, p3
+    move v4, p3
 
-    move v7, p4
+    move v5, p4
 
-    invoke-direct/range {v2 .. v7}, Lio/reactivex/internal/operators/flowable/FlowableFlatMap;-><init>(Lio/reactivex/Flowable;Lio/reactivex/functions/Function;ZII)V
+    invoke-direct/range {v0 .. v5}, Lio/reactivex/internal/operators/flowable/FlowableFlatMap;-><init>(Lio/reactivex/Flowable;Lio/reactivex/functions/Function;ZII)V
 
-    invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
+    invoke-static {v6}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMapCompletable(Lio/reactivex/functions/Function;)Lio/reactivex/Completable;
@@ -13868,24 +13089,20 @@
         value = "none"
     .end annotation
 
-    .line 8742
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lio/reactivex/CompletableSource;>;"
     const/4 v0, 0x0
 
     const v1, 0x7fffffff
 
+    .line 8742
     invoke-virtual {p0, p1, v0, v1}, Lio/reactivex/Flowable;->flatMapCompletable(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Completable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMapCompletable(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Completable;
     .locals 1
-    .param p2, "delayErrors"    # Z
-    .param p3, "maxConcurrency"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -13908,16 +13125,14 @@
         value = "none"
     .end annotation
 
-    .line 8766
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lio/reactivex/CompletableSource;>;"
     const-string v0, "mapper is null"
 
+    .line 8766
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 8767
     const-string v0, "maxConcurrency"
 
+    .line 8767
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 8768
@@ -13927,9 +13142,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Completable;)Lio/reactivex/Completable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMapIterable(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -13960,22 +13175,19 @@
     .end annotation
 
     .line 8798
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Ljava/lang/Iterable<+TU;>;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
 
     invoke-virtual {p0, p1, v0}, Lio/reactivex/Flowable;->flatMapIterable(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMapIterable(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
     .locals 1
-    .param p2, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<U:",
@@ -14001,16 +13213,14 @@
         value = "none"
     .end annotation
 
-    .line 8830
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Ljava/lang/Iterable<+TU;>;>;"
     const-string v0, "mapper is null"
 
+    .line 8830
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 8831
     const-string v0, "bufferSize"
 
+    .line 8831
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 8832
@@ -14020,9 +13230,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMapIterable(Lio/reactivex/functions/Function;Lio/reactivex/functions/BiFunction;)Lio/reactivex/Flowable;
@@ -14056,23 +13266,22 @@
         value = "none"
     .end annotation
 
-    .line 8867
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Ljava/lang/Iterable<+TU;>;>;"
-    .local p2, "resultSelector":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-TT;-TU;+TV;>;"
     const-string v0, "mapper is null"
 
+    .line 8867
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 8868
     const-string v0, "resultSelector is null"
 
+    .line 8868
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 8869
     invoke-static {p1}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper;->flatMapIntoIterable(Lio/reactivex/functions/Function;)Lio/reactivex/functions/Function;
 
     move-result-object v2
+
+    const/4 v4, 0x0
 
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
@@ -14082,22 +13291,19 @@
 
     move-result v6
 
-    const/4 v4, 0x0
-
     move-object v1, p0
 
     move-object v3, p2
 
     invoke-virtual/range {v1 .. v6}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;Lio/reactivex/functions/BiFunction;ZII)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMapIterable(Lio/reactivex/functions/Function;Lio/reactivex/functions/BiFunction;I)Lio/reactivex/Flowable;
     .locals 7
-    .param p3, "prefetch"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<U:",
@@ -14127,17 +13333,14 @@
         value = "none"
     .end annotation
 
-    .line 8909
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Ljava/lang/Iterable<+TU;>;>;"
-    .local p2, "resultSelector":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-TT;-TU;+TV;>;"
     const-string v0, "mapper is null"
 
+    .line 8909
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 8910
     const-string v0, "resultSelector is null"
 
+    .line 8910
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 8911
@@ -14145,11 +13348,11 @@
 
     move-result-object v2
 
+    const/4 v4, 0x0
+
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v5
-
-    const/4 v4, 0x0
 
     move-object v1, p0
 
@@ -14159,9 +13362,9 @@
 
     invoke-virtual/range {v1 .. v6}, Lio/reactivex/Flowable;->flatMap(Lio/reactivex/functions/Function;Lio/reactivex/functions/BiFunction;ZII)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMapMaybe(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -14191,24 +13394,20 @@
         value = "none"
     .end annotation
 
-    .line 8931
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lio/reactivex/MaybeSource<+TR;>;>;"
     const/4 v0, 0x0
 
     const v1, 0x7fffffff
 
+    .line 8931
     invoke-virtual {p0, p1, v0, v1}, Lio/reactivex/Flowable;->flatMapMaybe(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMapMaybe(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
     .locals 1
-    .param p2, "delayErrors"    # Z
-    .param p3, "maxConcurrency"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -14234,16 +13433,14 @@
         value = "none"
     .end annotation
 
-    .line 8956
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lio/reactivex/MaybeSource<+TR;>;>;"
     const-string v0, "mapper is null"
 
+    .line 8956
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 8957
     const-string v0, "maxConcurrency"
 
+    .line 8957
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 8958
@@ -14253,9 +13450,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMapSingle(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -14285,24 +13482,20 @@
         value = "none"
     .end annotation
 
-    .line 8978
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lio/reactivex/SingleSource<+TR;>;>;"
     const/4 v0, 0x0
 
     const v1, 0x7fffffff
 
+    .line 8978
     invoke-virtual {p0, p1, v0, v1}, Lio/reactivex/Flowable;->flatMapSingle(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMapSingle(Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
     .locals 1
-    .param p2, "delayErrors"    # Z
-    .param p3, "maxConcurrency"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -14328,16 +13521,14 @@
         value = "none"
     .end annotation
 
-    .line 9003
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lio/reactivex/SingleSource<+TR;>;>;"
     const-string v0, "mapper is null"
 
+    .line 9003
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 9004
     const-string v0, "maxConcurrency"
 
+    .line 9004
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 9005
@@ -14347,13 +13538,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final forEach(Lio/reactivex/functions/Consumer;)Lio/reactivex/disposables/Disposable;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -14375,13 +13566,11 @@
     .end annotation
 
     .line 9032
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "onNext":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
     invoke-virtual {p0, p1}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/functions/Consumer;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final forEachWhile(Lio/reactivex/functions/Predicate;)Lio/reactivex/disposables/Disposable;
@@ -14407,17 +13596,15 @@
     .end annotation
 
     .line 9062
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "onNext":Lio/reactivex/functions/Predicate;, "Lio/reactivex/functions/Predicate<-TT;>;"
     sget-object v0, Lio/reactivex/internal/functions/Functions;->ON_ERROR_MISSING:Lio/reactivex/functions/Consumer;
 
     sget-object v1, Lio/reactivex/internal/functions/Functions;->EMPTY_ACTION:Lio/reactivex/functions/Action;
 
     invoke-virtual {p0, p1, v0, v1}, Lio/reactivex/Flowable;->forEachWhile(Lio/reactivex/functions/Predicate;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final forEachWhile(Lio/reactivex/functions/Predicate;Lio/reactivex/functions/Consumer;)Lio/reactivex/disposables/Disposable;
@@ -14447,21 +13634,17 @@
     .end annotation
 
     .line 9091
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "onNext":Lio/reactivex/functions/Predicate;, "Lio/reactivex/functions/Predicate<-TT;>;"
-    .local p2, "onError":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Ljava/lang/Throwable;>;"
     sget-object v0, Lio/reactivex/internal/functions/Functions;->EMPTY_ACTION:Lio/reactivex/functions/Action;
 
     invoke-virtual {p0, p1, p2, v0}, Lio/reactivex/Flowable;->forEachWhile(Lio/reactivex/functions/Predicate;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final forEachWhile(Lio/reactivex/functions/Predicate;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;)Lio/reactivex/disposables/Disposable;
     .locals 1
-    .param p3, "onComplete"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -14488,22 +13671,19 @@
         value = "none"
     .end annotation
 
-    .line 9124
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "onNext":Lio/reactivex/functions/Predicate;, "Lio/reactivex/functions/Predicate<-TT;>;"
-    .local p2, "onError":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Ljava/lang/Throwable;>;"
     const-string v0, "onNext is null"
 
+    .line 9124
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 9125
     const-string v0, "onError is null"
 
+    .line 9125
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 9126
     const-string v0, "onComplete is null"
 
+    .line 9126
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 9128
@@ -14512,10 +13692,8 @@
     invoke-direct {v0, p1, p2, p3}, Lio/reactivex/internal/subscribers/ForEachWhileSubscriber;-><init>(Lio/reactivex/functions/Predicate;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;)V
 
     .line 9129
-    .local v0, "s":Lio/reactivex/internal/subscribers/ForEachWhileSubscriber;, "Lio/reactivex/internal/subscribers/ForEachWhileSubscriber<TT;>;"
     invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 9130
     return-object v0
 .end method
 
@@ -14546,23 +13724,21 @@
     .end annotation
 
     .line 9170
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "keySelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TK;>;"
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
     move-result-object v0
 
+    const/4 v1, 0x0
+
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
-    move-result v1
+    move-result v2
 
-    const/4 v2, 0x0
+    invoke-virtual {p0, p1, v0, v1, v2}, Lio/reactivex/Flowable;->groupBy(Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
 
-    invoke-virtual {p0, p1, v0, v2, v1}, Lio/reactivex/Flowable;->groupBy(Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public final groupBy(Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -14595,26 +13771,22 @@
         value = "none"
     .end annotation
 
+    const/4 v0, 0x0
+
     .line 9258
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "keySelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TK;>;"
-    .local p2, "valueSelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TV;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x0
+    invoke-virtual {p0, p1, p2, v0, v1}, Lio/reactivex/Flowable;->groupBy(Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
 
-    invoke-virtual {p0, p1, p2, v1, v0}, Lio/reactivex/Flowable;->groupBy(Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public final groupBy(Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;Z)Lio/reactivex/Flowable;
     .locals 1
-    .param p3, "delayError"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -14644,24 +13816,19 @@
     .end annotation
 
     .line 9306
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "keySelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TK;>;"
-    .local p2, "valueSelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TV;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
 
     invoke-virtual {p0, p1, p2, p3, v0}, Lio/reactivex/Flowable;->groupBy(Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final groupBy(Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
     .locals 7
-    .param p3, "delayError"    # Z
-    .param p4, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -14690,22 +13857,19 @@
         value = "none"
     .end annotation
 
-    .line 9357
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "keySelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TK;>;"
-    .local p2, "valueSelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TV;>;"
     const-string v0, "keySelector is null"
 
+    .line 9357
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 9358
     const-string v0, "valueSelector is null"
 
+    .line 9358
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 9359
     const-string v0, "bufferSize"
 
+    .line 9359
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 9361
@@ -14727,14 +13891,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final groupBy(Lio/reactivex/functions/Function;Z)Lio/reactivex/Flowable;
     .locals 2
-    .param p2, "delayError"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -14760,8 +13923,6 @@
     .end annotation
 
     .line 9213
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "keySelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TK;>;"
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
     move-result-object v0
@@ -14772,9 +13933,9 @@
 
     invoke-virtual {p0, p1, v0, p2, v1}, Lio/reactivex/Flowable;->groupBy(Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final groupJoin(Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;Lio/reactivex/functions/BiFunction;)Lio/reactivex/Flowable;
@@ -14822,29 +13983,24 @@
         value = "none"
     .end annotation
 
-    .line 9406
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TTRight;>;"
-    .local p2, "leftEnd":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<TTLeftEnd;>;>;"
-    .local p3, "rightEnd":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TTRight;+Lorg/reactivestreams/Publisher<TTRightEnd;>;>;"
-    .local p4, "resultSelector":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-TT;-Lio/reactivex/Flowable<TTRight;>;+TR;>;"
     const-string v0, "other is null"
 
+    .line 9406
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 9407
     const-string v0, "leftEnd is null"
 
+    .line 9407
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 9408
     const-string v0, "rightEnd is null"
 
+    .line 9408
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 9409
     const-string v0, "resultSelector is null"
 
+    .line 9409
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 9410
@@ -14866,9 +14022,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final hide()Lio/reactivex/Flowable;
@@ -14893,7 +14049,6 @@
     .end annotation
 
     .line 9434
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableHide;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableHide;-><init>(Lio/reactivex/Flowable;)V
@@ -14919,7 +14074,6 @@
     .end annotation
 
     .line 9457
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableIgnoreElementsCompletable;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableIgnoreElementsCompletable;-><init>(Lio/reactivex/Flowable;)V
@@ -14954,7 +14108,6 @@
     .end annotation
 
     .line 9482
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->alwaysFalse()Lio/reactivex/functions/Predicate;
 
     move-result-object v0
@@ -15009,29 +14162,24 @@
         value = "none"
     .end annotation
 
-    .line 9527
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TTRight;>;"
-    .local p2, "leftEnd":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<TTLeftEnd;>;>;"
-    .local p3, "rightEnd":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TTRight;+Lorg/reactivestreams/Publisher<TTRightEnd;>;>;"
-    .local p4, "resultSelector":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-TT;-TTRight;+TR;>;"
     const-string v0, "other is null"
 
+    .line 9527
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 9528
     const-string v0, "leftEnd is null"
 
+    .line 9528
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 9529
     const-string v0, "rightEnd is null"
 
+    .line 9529
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 9530
     const-string v0, "resultSelector is null"
 
+    .line 9530
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 9531
@@ -15053,9 +14201,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final last(Ljava/lang/Object;)Lio/reactivex/Single;
@@ -15079,11 +14227,9 @@
         value = "none"
     .end annotation
 
-    .line 9581
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "defaultItem":Ljava/lang/Object;, "TT;"
     const-string v0, "defaultItem"
 
+    .line 9581
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 9582
@@ -15093,9 +14239,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Single;)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final lastElement()Lio/reactivex/Maybe;
@@ -15120,7 +14266,6 @@
     .end annotation
 
     .line 9556
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableLastMaybe;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableLastMaybe;-><init>(Lorg/reactivestreams/Publisher;)V
@@ -15154,7 +14299,6 @@
     .end annotation
 
     .line 9605
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableLastSingle;
 
     const/4 v1, 0x0
@@ -15193,11 +14337,9 @@
         value = "none"
     .end annotation
 
-    .line 9642
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "lifter":Lio/reactivex/FlowableOperator;, "Lio/reactivex/FlowableOperator<+TR;-TT;>;"
     const-string v0, "lifter is null"
 
+    .line 9642
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 9643
@@ -15207,9 +14349,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final map(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -15237,11 +14379,9 @@
         value = "none"
     .end annotation
 
-    .line 9670
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TR;>;"
     const-string v0, "mapper is null"
 
+    .line 9670
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 9671
@@ -15251,9 +14391,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final materialize()Lio/reactivex/Flowable;
@@ -15279,7 +14419,6 @@
     .end annotation
 
     .line 9695
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableMaterialize;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableMaterialize;-><init>(Lio/reactivex/Flowable;)V
@@ -15314,24 +14453,21 @@
         value = "none"
     .end annotation
 
-    .line 9722
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     const-string v0, "other is null"
 
+    .line 9722
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 9723
     invoke-static {p0, p1}, Lio/reactivex/Flowable;->merge(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final observeOn(Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 2
-    .param p1, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -15353,25 +14489,22 @@
         value = "custom"
     .end annotation
 
+    const/4 v0, 0x0
+
     .line 9759
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x0
+    invoke-virtual {p0, p1, v0, v1}, Lio/reactivex/Flowable;->observeOn(Lio/reactivex/Scheduler;ZI)Lio/reactivex/Flowable;
 
-    invoke-virtual {p0, p1, v1, v0}, Lio/reactivex/Flowable;->observeOn(Lio/reactivex/Scheduler;ZI)Lio/reactivex/Flowable;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public final observeOn(Lio/reactivex/Scheduler;Z)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p2, "delayError"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -15394,23 +14527,19 @@
     .end annotation
 
     .line 9796
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
 
     invoke-virtual {p0, p1, p2, v0}, Lio/reactivex/Flowable;->observeOn(Lio/reactivex/Scheduler;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final observeOn(Lio/reactivex/Scheduler;ZI)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p2, "delayError"    # Z
-    .param p3, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -15432,15 +14561,14 @@
         value = "custom"
     .end annotation
 
-    .line 9834
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "scheduler is null"
 
+    .line 9834
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 9835
     const-string v0, "bufferSize"
 
+    .line 9835
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 9836
@@ -15450,9 +14578,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final ofType(Ljava/lang/Class;)Lio/reactivex/Flowable;
@@ -15480,11 +14608,9 @@
         value = "none"
     .end annotation
 
-    .line 9861
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<TU;>;"
     const-string v0, "clazz is null"
 
+    .line 9861
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 9862
@@ -15498,9 +14624,9 @@
 
     invoke-virtual {v0, p1}, Lio/reactivex/Flowable;->cast(Ljava/lang/Class;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final onBackpressureBuffer()Lio/reactivex/Flowable;
@@ -15525,7 +14651,6 @@
     .end annotation
 
     .line 9885
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
@@ -15543,7 +14668,6 @@
 
 .method public final onBackpressureBuffer(I)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "capacity"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -15563,21 +14687,18 @@
         value = "none"
     .end annotation
 
-    .line 9938
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const/4 v0, 0x0
 
+    .line 9938
     invoke-virtual {p0, p1, v0, v0}, Lio/reactivex/Flowable;->onBackpressureBuffer(IZZ)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final onBackpressureBuffer(ILio/reactivex/functions/Action;)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "capacity"    # I
-    .param p2, "onOverflow"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -15599,21 +14720,18 @@
         value = "none"
     .end annotation
 
-    .line 10068
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const/4 v0, 0x0
 
+    .line 10068
     invoke-virtual {p0, p1, v0, v0, p2}, Lio/reactivex/Flowable;->onBackpressureBuffer(IZZLio/reactivex/functions/Action;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final onBackpressureBuffer(IZ)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "capacity"    # I
-    .param p2, "delayError"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(IZ)",
@@ -15633,22 +14751,18 @@
         value = "none"
     .end annotation
 
-    .line 9969
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const/4 v0, 0x0
 
+    .line 9969
     invoke-virtual {p0, p1, p2, v0}, Lio/reactivex/Flowable;->onBackpressureBuffer(IZZ)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final onBackpressureBuffer(IZZ)Lio/reactivex/Flowable;
     .locals 7
-    .param p1, "capacity"    # I
-    .param p2, "delayError"    # Z
-    .param p3, "unbounded"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(IZZ)",
@@ -15668,10 +14782,9 @@
         value = "none"
     .end annotation
 
-    .line 10002
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "bufferSize"
 
+    .line 10002
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 10003
@@ -15693,17 +14806,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final onBackpressureBuffer(IZZLio/reactivex/functions/Action;)Lio/reactivex/Flowable;
     .locals 7
-    .param p1, "capacity"    # I
-    .param p2, "delayError"    # Z
-    .param p3, "unbounded"    # Z
-    .param p4, "onOverflow"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(IZZ",
@@ -15725,15 +14834,14 @@
         value = "none"
     .end annotation
 
-    .line 10038
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "onOverflow is null"
 
+    .line 10038
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 10039
     const-string v0, "capacity"
 
+    .line 10039
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 10040
@@ -15755,16 +14863,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final onBackpressureBuffer(JLio/reactivex/functions/Action;Lio/reactivex/BackpressureOverflowStrategy;)Lio/reactivex/Flowable;
     .locals 7
-    .param p1, "capacity"    # J
-    .param p3, "onOverflow"    # Lio/reactivex/functions/Action;
-    .param p4, "overflowStrategy"    # Lio/reactivex/BackpressureOverflowStrategy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -15787,15 +14892,14 @@
         value = "none"
     .end annotation
 
-    .line 10108
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "strategy is null"
 
+    .line 10108
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 10109
     const-string v0, "capacity"
 
+    .line 10109
     invoke-static {p1, p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(JLjava/lang/String;)J
 
     .line 10110
@@ -15815,14 +14919,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final onBackpressureBuffer(Z)Lio/reactivex/Flowable;
     .locals 2
-    .param p1, "delayError"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)",
@@ -15843,7 +14946,6 @@
     .end annotation
 
     .line 9911
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
@@ -15852,9 +14954,9 @@
 
     invoke-virtual {p0, v0, p1, v1}, Lio/reactivex/Flowable;->onBackpressureBuffer(IZZ)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final onBackpressureDrop()Lio/reactivex/Flowable;
@@ -15879,7 +14981,6 @@
     .end annotation
 
     .line 10136
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureDrop;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureDrop;-><init>(Lio/reactivex/Flowable;)V
@@ -15914,11 +15015,9 @@
         value = "none"
     .end annotation
 
-    .line 10164
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "onDrop":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
     const-string v0, "onDrop is null"
 
+    .line 10164
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 10165
@@ -15928,9 +15027,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final onBackpressureLatest()Lio/reactivex/Flowable;
@@ -15955,7 +15054,6 @@
     .end annotation
 
     .line 10198
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureLatest;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureLatest;-><init>(Lio/reactivex/Flowable;)V
@@ -15994,11 +15092,9 @@
         value = "none"
     .end annotation
 
-    .line 10240
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "resumeFunction":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Ljava/lang/Throwable;+Lorg/reactivestreams/Publisher<+TT;>;>;"
     const-string v0, "resumeFunction is null"
 
+    .line 10240
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 10241
@@ -16010,9 +15106,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final onErrorResumeNext(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -16038,23 +15134,21 @@
         value = "none"
     .end annotation
 
-    .line 10283
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "next":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     const-string v0, "next is null"
 
+    .line 10283
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 10284
     invoke-static {p1}, Lio/reactivex/internal/functions/Functions;->justFunction(Ljava/lang/Object;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->onErrorResumeNext(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
+    invoke-virtual {p0, p1}, Lio/reactivex/Flowable;->onErrorResumeNext(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final onErrorReturn(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -16082,11 +15176,9 @@
         value = "none"
     .end annotation
 
-    .line 10322
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "valueSupplier":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Ljava/lang/Throwable;+TT;>;"
     const-string v0, "valueSupplier is null"
 
+    .line 10322
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 10323
@@ -16096,9 +15188,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final onErrorReturnItem(Ljava/lang/Object;)Lio/reactivex/Flowable;
@@ -16122,27 +15214,25 @@
         value = "none"
     .end annotation
 
-    .line 10361
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "item":Ljava/lang/Object;, "TT;"
     const-string v0, "item is null"
 
+    .line 10361
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 10362
     invoke-static {p1}, Lio/reactivex/internal/functions/Functions;->justFunction(Ljava/lang/Object;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->onErrorReturn(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
+    invoke-virtual {p0, p1}, Lio/reactivex/Flowable;->onErrorReturn(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final onExceptionResumeNext(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -16164,11 +15254,9 @@
         value = "none"
     .end annotation
 
-    .line 10407
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "next":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     const-string v0, "next is null"
 
+    .line 10407
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 10408
@@ -16176,17 +15264,17 @@
 
     invoke-static {p1}, Lio/reactivex/internal/functions/Functions;->justFunction(Ljava/lang/Object;)Lio/reactivex/functions/Function;
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    invoke-direct {v0, p0, v1, v2}, Lio/reactivex/internal/operators/flowable/FlowableOnErrorNext;-><init>(Lio/reactivex/Flowable;Lio/reactivex/functions/Function;Z)V
+    invoke-direct {v0, p0, p1, v1}, Lio/reactivex/internal/operators/flowable/FlowableOnErrorNext;-><init>(Lio/reactivex/Flowable;Lio/reactivex/functions/Function;Z)V
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final onTerminateDetach()Lio/reactivex/Flowable;
@@ -16211,7 +15299,6 @@
     .end annotation
 
     .line 10429
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableDetach;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableDetach;-><init>(Lio/reactivex/Flowable;)V
@@ -16245,7 +15332,6 @@
     .end annotation
 
     .line 10459
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {p0}, Lio/reactivex/parallel/ParallelFlowable;->from(Lorg/reactivestreams/Publisher;)Lio/reactivex/parallel/ParallelFlowable;
 
     move-result-object v0
@@ -16255,7 +15341,6 @@
 
 .method public final parallel(I)Lio/reactivex/parallel/ParallelFlowable;
     .locals 1
-    .param p1, "parallelism"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -16275,24 +15360,21 @@
         value = "none"
     .end annotation
 
-    .line 10490
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "parallelism"
 
+    .line 10490
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 10491
     invoke-static {p0, p1}, Lio/reactivex/parallel/ParallelFlowable;->from(Lorg/reactivestreams/Publisher;I)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final parallel(II)Lio/reactivex/parallel/ParallelFlowable;
     .locals 1
-    .param p1, "parallelism"    # I
-    .param p2, "prefetch"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)",
@@ -16312,23 +15394,22 @@
         value = "none"
     .end annotation
 
-    .line 10524
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "parallelism"
 
+    .line 10524
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
-    .line 10525
     const-string v0, "prefetch"
 
+    .line 10525
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 10526
     invoke-static {p0, p1, p2}, Lio/reactivex/parallel/ParallelFlowable;->from(Lorg/reactivestreams/Publisher;II)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final publish(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -16361,22 +15442,19 @@
     .end annotation
 
     .line 10584
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "selector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Lio/reactivex/Flowable<TT;>;+Lorg/reactivestreams/Publisher<TR;>;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
 
     invoke-virtual {p0, p1, v0}, Lio/reactivex/Flowable;->publish(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final publish(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
     .locals 2
-    .param p2, "prefetch"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -16404,16 +15482,14 @@
         value = "none"
     .end annotation
 
-    .line 10618
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "selector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Lio/reactivex/Flowable<TT;>;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     const-string v0, "selector is null"
 
+    .line 10618
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 10619
     const-string v0, "prefetch"
 
+    .line 10619
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 10620
@@ -16425,9 +15501,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final publish()Lio/reactivex/flowables/ConnectableFlowable;
@@ -16452,7 +15528,6 @@
     .end annotation
 
     .line 10552
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
@@ -16466,7 +15541,6 @@
 
 .method public final publish(I)Lio/reactivex/flowables/ConnectableFlowable;
     .locals 1
-    .param p1, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -16486,23 +15560,21 @@
         value = "none"
     .end annotation
 
-    .line 10648
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "bufferSize"
 
+    .line 10648
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 10649
     invoke-static {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowablePublish;->create(Lio/reactivex/Flowable;I)Lio/reactivex/flowables/ConnectableFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final rebatchRequests(I)Lio/reactivex/Flowable;
     .locals 2
-    .param p1, "n"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -16523,16 +15595,15 @@
     .end annotation
 
     .line 10674
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     sget-object v0, Lio/reactivex/internal/schedulers/ImmediateThinScheduler;->INSTANCE:Lio/reactivex/Scheduler;
 
     const/4 v1, 0x1
 
     invoke-virtual {p0, v0, v1, p1}, Lio/reactivex/Flowable;->observeOn(Lio/reactivex/Scheduler;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final reduce(Lio/reactivex/functions/BiFunction;)Lio/reactivex/Maybe;
@@ -16558,11 +15629,9 @@
         value = "none"
     .end annotation
 
-    .line 10710
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "reducer":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<TT;TT;TT;>;"
     const-string v0, "reducer is null"
 
+    .line 10710
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 10711
@@ -16572,9 +15641,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Maybe;)Lio/reactivex/Maybe;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final reduce(Ljava/lang/Object;Lio/reactivex/functions/BiFunction;)Lio/reactivex/Single;
@@ -16602,17 +15671,14 @@
         value = "none"
     .end annotation
 
-    .line 10762
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "seed":Ljava/lang/Object;, "TR;"
-    .local p2, "reducer":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<TR;-TT;TR;>;"
     const-string v0, "seed is null"
 
+    .line 10762
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 10763
     const-string v0, "reducer is null"
 
+    .line 10763
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 10764
@@ -16622,9 +15688,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Single;)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final reduceWith(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiFunction;)Lio/reactivex/Single;
@@ -16654,17 +15720,14 @@
         value = "none"
     .end annotation
 
-    .line 10815
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "seedSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TR;>;"
-    .local p2, "reducer":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<TR;-TT;TR;>;"
     const-string v0, "seedSupplier is null"
 
+    .line 10815
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 10816
     const-string v0, "reducer is null"
 
+    .line 10816
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 10817
@@ -16674,9 +15737,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Single;)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final repeat()Lio/reactivex/Flowable;
@@ -16700,10 +15763,9 @@
         value = "none"
     .end annotation
 
-    .line 10839
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 10839
     invoke-virtual {p0, v0, v1}, Lio/reactivex/Flowable;->repeat(J)Lio/reactivex/Flowable;
 
     move-result-object v0
@@ -16713,7 +15775,6 @@
 
 .method public final repeat(J)Lio/reactivex/Flowable;
     .locals 3
-    .param p1, "times"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J)",
@@ -16733,25 +15794,20 @@
         value = "none"
     .end annotation
 
-    .line 10868
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-wide/16 v0, 0x0
 
-    cmp-long v2, p1, v0
-
-    if-ltz v2, :cond_1
-
-    .line 10871
     cmp-long v0, p1, v0
+
+    if-ltz v0, :cond_1
 
     if-nez v0, :cond_0
 
     .line 10872
     invoke-static {}, Lio/reactivex/Flowable;->empty()Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 10874
     :cond_0
@@ -16761,9 +15817,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 10869
     :cond_1
@@ -16771,26 +15827,25 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "times >= 0 required but it was "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public final repeatUntil(Lio/reactivex/functions/BooleanSupplier;)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "stop"    # Lio/reactivex/functions/BooleanSupplier;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -16812,10 +15867,9 @@
         value = "none"
     .end annotation
 
-    .line 10902
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "stop is null"
 
+    .line 10902
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 10903
@@ -16825,9 +15879,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final repeatWhen(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -16858,11 +15912,9 @@
         value = "none"
     .end annotation
 
-    .line 10932
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "handler":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Lio/reactivex/Flowable<Ljava/lang/Object;>;+Lorg/reactivestreams/Publisher<*>;>;"
     const-string v0, "handler is null"
 
+    .line 10932
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 10933
@@ -16872,9 +15924,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final replay(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -16906,11 +15958,9 @@
         value = "none"
     .end annotation
 
-    .line 10990
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "selector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Lio/reactivex/Flowable<TT;>;+Lorg/reactivestreams/Publisher<TR;>;>;"
     const-string v0, "selector is null"
 
+    .line 10990
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 10991
@@ -16920,14 +15970,13 @@
 
     invoke-static {v0, p1}, Lio/reactivex/internal/operators/flowable/FlowableReplay;->multicastSelector(Ljava/util/concurrent/Callable;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final replay(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
     .locals 1
-    .param p2, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -16955,35 +16004,30 @@
         value = "none"
     .end annotation
 
-    .line 11025
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "selector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Lio/reactivex/Flowable<TT;>;+Lorg/reactivestreams/Publisher<TR;>;>;"
     const-string v0, "selector is null"
 
+    .line 11025
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 11026
     const-string v0, "bufferSize"
 
+    .line 11026
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 11027
     invoke-static {p0, p2}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper;->replayCallable(Lio/reactivex/Flowable;I)Ljava/util/concurrent/Callable;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-static {v0, p1}, Lio/reactivex/internal/operators/flowable/FlowableReplay;->multicastSelector(Ljava/util/concurrent/Callable;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
+    invoke-static {p2, p1}, Lio/reactivex/internal/operators/flowable/FlowableReplay;->multicastSelector(Ljava/util/concurrent/Callable;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final replay(Lio/reactivex/functions/Function;IJLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
     .locals 7
-    .param p2, "bufferSize"    # I
-    .param p3, "time"    # J
-    .param p5, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -17014,8 +16058,6 @@
     .end annotation
 
     .line 11066
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "selector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Lio/reactivex/Flowable<TT;>;+Lorg/reactivestreams/Publisher<TR;>;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v6
@@ -17032,17 +16074,13 @@
 
     invoke-virtual/range {v0 .. v6}, Lio/reactivex/Flowable;->replay(Lio/reactivex/functions/Function;IJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final replay(Lio/reactivex/functions/Function;IJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 6
-    .param p2, "bufferSize"    # I
-    .param p3, "time"    # J
-    .param p5, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p6, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -17073,29 +16111,26 @@
         value = "custom"
     .end annotation
 
-    .line 11109
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "selector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Lio/reactivex/Flowable<TT;>;+Lorg/reactivestreams/Publisher<TR;>;>;"
     const-string v0, "selector is null"
 
+    .line 11109
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 11110
     const-string v0, "unit is null"
 
+    .line 11110
     invoke-static {p5, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 11111
     const-string v0, "bufferSize"
 
+    .line 11111
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
-    .line 11112
     const-string v0, "scheduler is null"
 
+    .line 11112
     invoke-static {p6, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 11113
     move-object v0, p0
 
     move v1, p2
@@ -17106,21 +16141,20 @@
 
     move-object v5, p6
 
+    .line 11113
     invoke-static/range {v0 .. v5}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper;->replayCallable(Lio/reactivex/Flowable;IJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Ljava/util/concurrent/Callable;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-static {v0, p1}, Lio/reactivex/internal/operators/flowable/FlowableReplay;->multicastSelector(Ljava/util/concurrent/Callable;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
+    invoke-static {p2, p1}, Lio/reactivex/internal/operators/flowable/FlowableReplay;->multicastSelector(Ljava/util/concurrent/Callable;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final replay(Lio/reactivex/functions/Function;ILio/reactivex/Scheduler;)Lio/reactivex/Flowable;
-    .locals 2
-    .param p2, "bufferSize"    # I
-    .param p3, "scheduler"    # Lio/reactivex/Scheduler;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -17150,43 +16184,39 @@
         value = "custom"
     .end annotation
 
-    .line 11150
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "selector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Lio/reactivex/Flowable<TT;>;+Lorg/reactivestreams/Publisher<TR;>;>;"
     const-string v0, "selector is null"
 
+    .line 11150
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 11151
     const-string v0, "scheduler is null"
 
+    .line 11151
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 11152
     const-string v0, "bufferSize"
 
+    .line 11152
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 11153
     invoke-static {p0, p2}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper;->replayCallable(Lio/reactivex/Flowable;I)Ljava/util/concurrent/Callable;
 
-    move-result-object v0
+    move-result-object p2
 
     invoke-static {p1, p3}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper;->replayFunction(Lio/reactivex/functions/Function;Lio/reactivex/Scheduler;)Lio/reactivex/functions/Function;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-static {v0, v1}, Lio/reactivex/internal/operators/flowable/FlowableReplay;->multicastSelector(Ljava/util/concurrent/Callable;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
+    invoke-static {p2, p1}, Lio/reactivex/internal/operators/flowable/FlowableReplay;->multicastSelector(Ljava/util/concurrent/Callable;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final replay(Lio/reactivex/functions/Function;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
     .locals 6
-    .param p2, "time"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -17217,8 +16247,6 @@
     .end annotation
 
     .line 11191
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "selector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Lio/reactivex/Flowable<TT;>;+Lorg/reactivestreams/Publisher<TR;>;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v5
@@ -17233,16 +16261,13 @@
 
     invoke-virtual/range {v0 .. v5}, Lio/reactivex/Flowable;->replay(Lio/reactivex/functions/Function;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final replay(Lio/reactivex/functions/Function;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 1
-    .param p2, "time"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -17273,38 +16298,35 @@
         value = "custom"
     .end annotation
 
-    .line 11229
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "selector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Lio/reactivex/Flowable<TT;>;+Lorg/reactivestreams/Publisher<TR;>;>;"
     const-string v0, "selector is null"
 
+    .line 11229
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 11230
     const-string v0, "unit is null"
 
+    .line 11230
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 11231
     const-string v0, "scheduler is null"
 
+    .line 11231
     invoke-static {p5, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 11232
     invoke-static {p0, p2, p3, p4, p5}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper;->replayCallable(Lio/reactivex/Flowable;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Ljava/util/concurrent/Callable;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-static {v0, p1}, Lio/reactivex/internal/operators/flowable/FlowableReplay;->multicastSelector(Ljava/util/concurrent/Callable;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
+    invoke-static {p2, p1}, Lio/reactivex/internal/operators/flowable/FlowableReplay;->multicastSelector(Ljava/util/concurrent/Callable;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final replay(Lio/reactivex/functions/Function;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
-    .locals 2
-    .param p2, "scheduler"    # Lio/reactivex/Scheduler;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -17334,16 +16356,14 @@
         value = "custom"
     .end annotation
 
-    .line 11265
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "selector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Lio/reactivex/Flowable<TT;>;+Lorg/reactivestreams/Publisher<TR;>;>;"
     const-string v0, "selector is null"
 
+    .line 11265
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 11266
     const-string v0, "scheduler is null"
 
+    .line 11266
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 11267
@@ -17353,13 +16373,13 @@
 
     invoke-static {p1, p2}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper;->replayFunction(Lio/reactivex/functions/Function;Lio/reactivex/Scheduler;)Lio/reactivex/functions/Function;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-static {v0, v1}, Lio/reactivex/internal/operators/flowable/FlowableReplay;->multicastSelector(Ljava/util/concurrent/Callable;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
+    invoke-static {v0, p1}, Lio/reactivex/internal/operators/flowable/FlowableReplay;->multicastSelector(Ljava/util/concurrent/Callable;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final replay()Lio/reactivex/flowables/ConnectableFlowable;
@@ -17384,7 +16404,6 @@
     .end annotation
 
     .line 10960
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {p0}, Lio/reactivex/internal/operators/flowable/FlowableReplay;->createFrom(Lio/reactivex/Flowable;)Lio/reactivex/flowables/ConnectableFlowable;
 
     move-result-object v0
@@ -17394,7 +16413,6 @@
 
 .method public final replay(I)Lio/reactivex/flowables/ConnectableFlowable;
     .locals 1
-    .param p1, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -17414,25 +16432,21 @@
         value = "none"
     .end annotation
 
-    .line 11297
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "bufferSize"
 
+    .line 11297
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 11298
     invoke-static {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableReplay;->create(Lio/reactivex/Flowable;I)Lio/reactivex/flowables/ConnectableFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final replay(IJLjava/util/concurrent/TimeUnit;)Lio/reactivex/flowables/ConnectableFlowable;
     .locals 6
-    .param p1, "bufferSize"    # I
-    .param p2, "time"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(IJ",
@@ -17455,7 +16469,6 @@
     .end annotation
 
     .line 11332
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v5
@@ -17470,17 +16483,13 @@
 
     invoke-virtual/range {v0 .. v5}, Lio/reactivex/Flowable;->replay(IJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/flowables/ConnectableFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final replay(IJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/flowables/ConnectableFlowable;
     .locals 6
-    .param p1, "bufferSize"    # I
-    .param p2, "time"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(IJ",
@@ -17503,26 +16512,24 @@
         value = "custom"
     .end annotation
 
-    .line 11370
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "bufferSize"
 
+    .line 11370
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
-    .line 11371
     const-string v1, "unit is null"
 
+    .line 11371
     invoke-static {p4, v1}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 11372
     const-string v1, "scheduler is null"
 
+    .line 11372
     invoke-static {p5, v1}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 11373
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
-    .line 11374
     move-object v0, p0
 
     move-wide v1, p2
@@ -17533,17 +16540,16 @@
 
     move v5, p1
 
+    .line 11374
     invoke-static/range {v0 .. v5}, Lio/reactivex/internal/operators/flowable/FlowableReplay;->create(Lio/reactivex/Flowable;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;I)Lio/reactivex/flowables/ConnectableFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final replay(ILio/reactivex/Scheduler;)Lio/reactivex/flowables/ConnectableFlowable;
     .locals 1
-    .param p1, "bufferSize"    # I
-    .param p2, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -17565,28 +16571,25 @@
         value = "custom"
     .end annotation
 
-    .line 11405
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "scheduler is null"
 
+    .line 11405
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 11406
     invoke-virtual {p0, p1}, Lio/reactivex/Flowable;->replay(I)Lio/reactivex/flowables/ConnectableFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0, p2}, Lio/reactivex/internal/operators/flowable/FlowableReplay;->observeOn(Lio/reactivex/flowables/ConnectableFlowable;Lio/reactivex/Scheduler;)Lio/reactivex/flowables/ConnectableFlowable;
+    invoke-static {p1, p2}, Lio/reactivex/internal/operators/flowable/FlowableReplay;->observeOn(Lio/reactivex/flowables/ConnectableFlowable;Lio/reactivex/Scheduler;)Lio/reactivex/flowables/ConnectableFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final replay(JLjava/util/concurrent/TimeUnit;)Lio/reactivex/flowables/ConnectableFlowable;
     .locals 1
-    .param p1, "time"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -17609,23 +16612,19 @@
     .end annotation
 
     .line 11437
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v0
 
     invoke-virtual {p0, p1, p2, p3, v0}, Lio/reactivex/Flowable;->replay(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/flowables/ConnectableFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final replay(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/flowables/ConnectableFlowable;
     .locals 1
-    .param p1, "time"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -17648,28 +16647,26 @@
         value = "custom"
     .end annotation
 
-    .line 11470
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "unit is null"
 
+    .line 11470
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 11471
     const-string v0, "scheduler is null"
 
+    .line 11471
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 11472
     invoke-static {p0, p1, p2, p3, p4}, Lio/reactivex/internal/operators/flowable/FlowableReplay;->create(Lio/reactivex/Flowable;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/flowables/ConnectableFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final replay(Lio/reactivex/Scheduler;)Lio/reactivex/flowables/ConnectableFlowable;
     .locals 1
-    .param p1, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -17691,10 +16688,9 @@
         value = "custom"
     .end annotation
 
-    .line 11502
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "scheduler is null"
 
+    .line 11502
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 11503
@@ -17704,9 +16700,9 @@
 
     invoke-static {v0, p1}, Lio/reactivex/internal/operators/flowable/FlowableReplay;->observeOn(Lio/reactivex/flowables/ConnectableFlowable;Lio/reactivex/Scheduler;)Lio/reactivex/flowables/ConnectableFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final retry()Lio/reactivex/Flowable;
@@ -17730,15 +16726,14 @@
         value = "none"
     .end annotation
 
+    const-wide v0, 0x7fffffffffffffffL
+
     .line 11534
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->alwaysTrue()Lio/reactivex/functions/Predicate;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-wide v1, 0x7fffffffffffffffL
-
-    invoke-virtual {p0, v1, v2, v0}, Lio/reactivex/Flowable;->retry(JLio/reactivex/functions/Predicate;)Lio/reactivex/Flowable;
+    invoke-virtual {p0, v0, v1, v2}, Lio/reactivex/Flowable;->retry(JLio/reactivex/functions/Predicate;)Lio/reactivex/Flowable;
 
     move-result-object v0
 
@@ -17747,7 +16742,6 @@
 
 .method public final retry(J)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "count"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J)",
@@ -17768,21 +16762,19 @@
     .end annotation
 
     .line 11597
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->alwaysTrue()Lio/reactivex/functions/Predicate;
 
     move-result-object v0
 
     invoke-virtual {p0, p1, p2, v0}, Lio/reactivex/Flowable;->retry(JLio/reactivex/functions/Predicate;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final retry(JLio/reactivex/functions/Predicate;)Lio/reactivex/Flowable;
-    .locals 3
-    .param p1, "times"    # J
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -17806,18 +16798,15 @@
         value = "none"
     .end annotation
 
-    .line 11618
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p3, "predicate":Lio/reactivex/functions/Predicate;, "Lio/reactivex/functions/Predicate<-Ljava/lang/Throwable;>;"
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
 
     if-ltz v0, :cond_0
 
-    .line 11621
     const-string v0, "predicate is null"
 
+    .line 11621
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 11623
@@ -17827,31 +16816,31 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 11619
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p3, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "times >= 0 required but it was "
 
-    const-string v2, "times >= 0 required but it was "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p3, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p3
 .end method
 
 .method public final retry(Lio/reactivex/functions/BiPredicate;)Lio/reactivex/Flowable;
@@ -17881,11 +16870,9 @@
         value = "none"
     .end annotation
 
-    .line 11561
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "predicate":Lio/reactivex/functions/BiPredicate;, "Lio/reactivex/functions/BiPredicate<-Ljava/lang/Integer;-Ljava/lang/Throwable;>;"
     const-string v0, "predicate is null"
 
+    .line 11561
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 11563
@@ -17895,9 +16882,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final retry(Lio/reactivex/functions/Predicate;)Lio/reactivex/Flowable;
@@ -17925,21 +16912,18 @@
         value = "none"
     .end annotation
 
-    .line 11643
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "predicate":Lio/reactivex/functions/Predicate;, "Lio/reactivex/functions/Predicate<-Ljava/lang/Throwable;>;"
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 11643
     invoke-virtual {p0, v0, v1, p1}, Lio/reactivex/Flowable;->retry(JLio/reactivex/functions/Predicate;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final retryUntil(Lio/reactivex/functions/BooleanSupplier;)Lio/reactivex/Flowable;
-    .locals 3
-    .param p1, "stop"    # Lio/reactivex/functions/BooleanSupplier;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -17961,24 +16945,23 @@
         value = "none"
     .end annotation
 
-    .line 11662
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "stop is null"
 
+    .line 11662
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    const-wide v0, 0x7fffffffffffffffL
 
     .line 11663
     invoke-static {p1}, Lio/reactivex/internal/functions/Functions;->predicateReverseFor(Lio/reactivex/functions/BooleanSupplier;)Lio/reactivex/functions/Predicate;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-wide v1, 0x7fffffffffffffffL
+    invoke-virtual {p0, v0, v1, p1}, Lio/reactivex/Flowable;->retry(JLio/reactivex/functions/Predicate;)Lio/reactivex/Flowable;
 
-    invoke-virtual {p0, v1, v2, v0}, Lio/reactivex/Flowable;->retry(JLio/reactivex/functions/Predicate;)Lio/reactivex/Flowable;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public final retryWhen(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -18009,11 +16992,9 @@
         value = "none"
     .end annotation
 
-    .line 11722
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "handler":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Lio/reactivex/Flowable<Ljava/lang/Throwable;>;+Lorg/reactivestreams/Publisher<*>;>;"
     const-string v0, "handler is null"
 
+    .line 11722
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 11724
@@ -18023,9 +17004,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final safeSubscribe(Lorg/reactivestreams/Subscriber;)V
@@ -18046,11 +17027,9 @@
         value = "none"
     .end annotation
 
-    .line 11744
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     const-string v0, "s is null"
 
+    .line 11744
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 11745
@@ -18059,11 +17038,9 @@
     if-eqz v0, :cond_0
 
     .line 11746
-    move-object v0, p1
+    check-cast p1, Lio/reactivex/subscribers/SafeSubscriber;
 
-    check-cast v0, Lio/reactivex/subscribers/SafeSubscriber;
-
-    invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
     goto :goto_0
 
@@ -18075,15 +17052,12 @@
 
     invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 11750
     :goto_0
     return-void
 .end method
 
 .method public final sample(JLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "period"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -18106,23 +17080,19 @@
     .end annotation
 
     .line 11778
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v0
 
     invoke-virtual {p0, p1, p2, p3, v0}, Lio/reactivex/Flowable;->sample(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final sample(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 8
-    .param p1, "period"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -18145,15 +17115,14 @@
         value = "custom"
     .end annotation
 
-    .line 11844
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "unit is null"
 
+    .line 11844
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 11845
     const-string v0, "scheduler is null"
 
+    .line 11845
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 11846
@@ -18175,17 +17144,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final sample(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;Z)Lio/reactivex/Flowable;
     .locals 8
-    .param p1, "period"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p5, "emitLast"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -18208,15 +17173,14 @@
         value = "custom"
     .end annotation
 
-    .line 11884
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "unit is null"
 
+    .line 11884
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 11885
     const-string v0, "scheduler is null"
 
+    .line 11885
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 11886
@@ -18238,16 +17202,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final sample(JLjava/util/concurrent/TimeUnit;Z)Lio/reactivex/Flowable;
     .locals 6
-    .param p1, "period"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "emitLast"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -18270,7 +17231,6 @@
     .end annotation
 
     .line 11813
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v4
@@ -18285,9 +17245,9 @@
 
     invoke-virtual/range {v0 .. v5}, Lio/reactivex/Flowable;->sample(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;Z)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final sample(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -18315,11 +17275,9 @@
         value = "none"
     .end annotation
 
-    .line 11915
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "sampler":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TU;>;"
     const-string v0, "sampler is null"
 
+    .line 11915
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 11916
@@ -18331,14 +17289,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final sample(Lorg/reactivestreams/Publisher;Z)Lio/reactivex/Flowable;
     .locals 1
-    .param p2, "emitLast"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<U:",
@@ -18362,11 +17319,9 @@
         value = "none"
     .end annotation
 
-    .line 11952
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "sampler":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TU;>;"
     const-string v0, "sampler is null"
 
+    .line 11952
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 11953
@@ -18376,9 +17331,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final scan(Lio/reactivex/functions/BiFunction;)Lio/reactivex/Flowable;
@@ -18404,11 +17359,9 @@
         value = "none"
     .end annotation
 
-    .line 11984
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "accumulator":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<TT;TT;TT;>;"
     const-string v0, "accumulator is null"
 
+    .line 11984
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 11985
@@ -18418,9 +17371,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final scan(Ljava/lang/Object;Lio/reactivex/functions/BiFunction;)Lio/reactivex/Flowable;
@@ -18448,24 +17401,21 @@
         value = "none"
     .end annotation
 
-    .line 12037
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "initialValue":Ljava/lang/Object;, "TR;"
-    .local p2, "accumulator":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<TR;-TT;TR;>;"
     const-string v0, "seed is null"
 
+    .line 12037
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 12038
     invoke-static {p1}, Lio/reactivex/internal/functions/Functions;->justCallable(Ljava/lang/Object;)Ljava/util/concurrent/Callable;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0, p2}, Lio/reactivex/Flowable;->scanWith(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiFunction;)Lio/reactivex/Flowable;
+    invoke-virtual {p0, p1, p2}, Lio/reactivex/Flowable;->scanWith(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiFunction;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final scanWith(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiFunction;)Lio/reactivex/Flowable;
@@ -18495,17 +17445,14 @@
         value = "none"
     .end annotation
 
-    .line 12092
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "seedSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TR;>;"
-    .local p2, "accumulator":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<TR;-TT;TR;>;"
     const-string v0, "seedSupplier is null"
 
+    .line 12092
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 12093
     const-string v0, "accumulator is null"
 
+    .line 12093
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 12094
@@ -18515,9 +17462,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final serialize()Lio/reactivex/Flowable;
@@ -18542,7 +17489,6 @@
     .end annotation
 
     .line 12124
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableSerialized;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableSerialized;-><init>(Lio/reactivex/Flowable;)V
@@ -18576,7 +17522,6 @@
     .end annotation
 
     .line 12152
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/Flowable;->publish()Lio/reactivex/flowables/ConnectableFlowable;
 
     move-result-object v0
@@ -18609,11 +17554,9 @@
         value = "none"
     .end annotation
 
-    .line 12203
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "defaultItem":Ljava/lang/Object;, "TT;"
     const-string v0, "defaultItem is null"
 
+    .line 12203
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 12204
@@ -18623,9 +17566,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Single;)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final singleElement()Lio/reactivex/Maybe;
@@ -18650,7 +17593,6 @@
     .end annotation
 
     .line 12176
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableSingleMaybe;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableSingleMaybe;-><init>(Lio/reactivex/Flowable;)V
@@ -18684,7 +17626,6 @@
     .end annotation
 
     .line 12229
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableSingleSingle;
 
     const/4 v1, 0x0
@@ -18700,7 +17641,6 @@
 
 .method public final skip(J)Lio/reactivex/Flowable;
     .locals 2
-    .param p1, "count"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J)",
@@ -18720,8 +17660,6 @@
         value = "none"
     .end annotation
 
-    .line 12255
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
@@ -18731,9 +17669,9 @@
     .line 12256
     invoke-static {p0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 12258
     :cond_0
@@ -18743,15 +17681,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final skip(JLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
-    .locals 1
-    .param p1, "time"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -18774,23 +17710,19 @@
     .end annotation
 
     .line 12287
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {p1, p2, p3}, Lio/reactivex/Flowable;->timer(JLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->skipUntil(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-virtual {p0, p1}, Lio/reactivex/Flowable;->skipUntil(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final skip(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
-    .locals 1
-    .param p1, "time"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -18814,21 +17746,19 @@
     .end annotation
 
     .line 12317
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {p1, p2, p3, p4}, Lio/reactivex/Flowable;->timer(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->skipUntil(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-virtual {p0, p1}, Lio/reactivex/Flowable;->skipUntil(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final skipLast(I)Lio/reactivex/Flowable;
     .locals 3
-    .param p1, "count"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -18848,19 +17778,16 @@
         value = "none"
     .end annotation
 
-    .line 12349
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     if-ltz p1, :cond_1
 
-    .line 12352
     if-nez p1, :cond_0
 
     .line 12353
     invoke-static {p0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 12355
     :cond_0
@@ -18870,9 +17797,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 12350
     :cond_1
@@ -18880,27 +17807,25 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "count >= 0 required but it was "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public final skipLast(JLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
     .locals 7
-    .param p1, "time"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -18923,16 +17848,15 @@
     .end annotation
 
     .line 12386
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v4
 
+    const/4 v5, 0x0
+
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v6
-
-    const/4 v5, 0x0
 
     move-object v0, p0
 
@@ -18942,16 +17866,13 @@
 
     invoke-virtual/range {v0 .. v6}, Lio/reactivex/Flowable;->skipLast(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final skipLast(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 7
-    .param p1, "time"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -18974,13 +17895,12 @@
         value = "custom"
     .end annotation
 
+    const/4 v5, 0x0
+
     .line 12452
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v6
-
-    const/4 v5, 0x0
 
     move-object v0, p0
 
@@ -18992,17 +17912,13 @@
 
     invoke-virtual/range {v0 .. v6}, Lio/reactivex/Flowable;->skipLast(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final skipLast(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;Z)Lio/reactivex/Flowable;
     .locals 7
-    .param p1, "time"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p5, "delayError"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -19026,7 +17942,6 @@
     .end annotation
 
     .line 12487
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v6
@@ -19043,18 +17958,13 @@
 
     invoke-virtual/range {v0 .. v6}, Lio/reactivex/Flowable;->skipLast(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final skipLast(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;ZI)Lio/reactivex/Flowable;
-    .locals 13
-    .param p1, "time"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p5, "delayError"    # Z
-    .param p6, "bufferSize"    # I
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -19077,63 +17987,49 @@
         value = "custom"
     .end annotation
 
+    const-string v0, "unit is null"
+
     .line 12524
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    move/from16 v0, p6
+    invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    const-string v1, "unit is null"
-
-    move-object/from16 v10, p3
-
-    invoke-static {v10, v1}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    const-string v0, "scheduler is null"
 
     .line 12525
-    const-string v1, "scheduler is null"
+    invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-object/from16 v11, p4
-
-    invoke-static {v11, v1}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    const-string v0, "bufferSize"
 
     .line 12526
-    const-string v1, "bufferSize"
+    invoke-static {p6, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
-    invoke-static {v0, v1}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
-
-    .line 12528
-    shl-int/lit8 v1, v0, 0x1
+    shl-int/lit8 v7, p6, 0x1
 
     .line 12529
-    .local v1, "s":I
-    new-instance v12, Lio/reactivex/internal/operators/flowable/FlowableSkipLastTimed;
+    new-instance p6, Lio/reactivex/internal/operators/flowable/FlowableSkipLastTimed;
 
-    move-object v2, v12
+    move-object v1, p6
 
-    move-object v3, p0
+    move-object v2, p0
 
-    move-wide v4, p1
+    move-wide v3, p1
 
-    move-object/from16 v6, p3
+    move-object v5, p3
 
-    move-object/from16 v7, p4
+    move-object v6, p4
 
-    move v8, v1
+    move v8, p5
 
-    move/from16 v9, p5
+    invoke-direct/range {v1 .. v8}, Lio/reactivex/internal/operators/flowable/FlowableSkipLastTimed;-><init>(Lio/reactivex/Flowable;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;IZ)V
 
-    invoke-direct/range {v2 .. v9}, Lio/reactivex/internal/operators/flowable/FlowableSkipLastTimed;-><init>(Lio/reactivex/Flowable;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;IZ)V
+    invoke-static {p6}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    invoke-static {v12}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
+    move-result-object p1
 
-    move-result-object v2
-
-    return-object v2
+    return-object p1
 .end method
 
 .method public final skipLast(JLjava/util/concurrent/TimeUnit;Z)Lio/reactivex/Flowable;
     .locals 7
-    .param p1, "time"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "delayError"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -19156,7 +18052,6 @@
     .end annotation
 
     .line 12420
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v4
@@ -19175,9 +18070,9 @@
 
     invoke-virtual/range {v0 .. v6}, Lio/reactivex/Flowable;->skipLast(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final skipUntil(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -19205,11 +18100,9 @@
         value = "none"
     .end annotation
 
-    .line 12557
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TU;>;"
     const-string v0, "other is null"
 
+    .line 12557
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 12558
@@ -19219,9 +18112,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final skipWhile(Lio/reactivex/functions/Predicate;)Lio/reactivex/Flowable;
@@ -19247,11 +18140,9 @@
         value = "none"
     .end annotation
 
-    .line 12584
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "predicate":Lio/reactivex/functions/Predicate;, "Lio/reactivex/functions/Predicate<-TT;>;"
     const-string v0, "predicate is null"
 
+    .line 12584
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 12585
@@ -19261,9 +18152,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final sorted()Lio/reactivex/Flowable;
@@ -19288,7 +18179,6 @@
     .end annotation
 
     .line 12612
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/Flowable;->toList()Lio/reactivex/Single;
 
     move-result-object v0
@@ -19321,7 +18211,7 @@
 .end method
 
 .method public final sorted(Ljava/util/Comparator;)Lio/reactivex/Flowable;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -19343,11 +18233,9 @@
         value = "none"
     .end annotation
 
-    .line 12639
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "sortFunction":Ljava/util/Comparator;, "Ljava/util/Comparator<-TT;>;"
     const-string v0, "sortFunction"
 
+    .line 12639
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 12640
@@ -19361,25 +18249,25 @@
 
     invoke-static {p1}, Lio/reactivex/internal/functions/Functions;->listSorter(Ljava/util/Comparator;)Lio/reactivex/functions/Function;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Lio/reactivex/Flowable;->map(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
+    invoke-virtual {v0, p1}, Lio/reactivex/Flowable;->map(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lio/reactivex/Flowable;->flatMapIterable(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
-
     move-result-object v0
 
-    return-object v0
+    invoke-virtual {p1, v0}, Lio/reactivex/Flowable;->flatMapIterable(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
+
+    move-result-object p1
+
+    return-object p1
 .end method
 
 .method public final startWith(Ljava/lang/Iterable;)Lio/reactivex/Flowable;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -19401,34 +18289,32 @@
         value = "none"
     .end annotation
 
-    .line 12668
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "items":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TT;>;"
     const/4 v0, 0x2
 
     new-array v0, v0, [Lorg/reactivestreams/Publisher;
 
+    const/4 v1, 0x0
+
+    .line 12668
     invoke-static {p1}, Lio/reactivex/Flowable;->fromIterable(Ljava/lang/Iterable;)Lio/reactivex/Flowable;
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v2, 0x0
+    aput-object p1, v0, v1
 
-    aput-object v1, v0, v2
+    const/4 p1, 0x1
 
-    const/4 v1, 0x1
-
-    aput-object p0, v0, v1
+    aput-object p0, v0, p1
 
     invoke-static {v0}, Lio/reactivex/Flowable;->concatArray([Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final startWith(Ljava/lang/Object;)Lio/reactivex/Flowable;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)",
@@ -19448,35 +18334,33 @@
         value = "none"
     .end annotation
 
-    .line 12725
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     const-string v0, "item is null"
 
+    .line 12725
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 12726
     const/4 v0, 0x2
 
     new-array v0, v0, [Lorg/reactivestreams/Publisher;
 
+    const/4 v1, 0x0
+
+    .line 12726
     invoke-static {p1}, Lio/reactivex/Flowable;->just(Ljava/lang/Object;)Lio/reactivex/Flowable;
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v2, 0x0
+    aput-object p1, v0, v1
 
-    aput-object v1, v0, v2
+    const/4 p1, 0x1
 
-    const/4 v1, 0x1
-
-    aput-object p0, v0, v1
+    aput-object p0, v0, p1
 
     invoke-static {v0}, Lio/reactivex/Flowable;->concatArray([Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final startWith(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -19502,14 +18386,11 @@
         value = "none"
     .end annotation
 
-    .line 12696
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     const-string v0, "other is null"
 
+    .line 12696
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 12697
     const/4 v0, 0x2
 
     new-array v0, v0, [Lorg/reactivestreams/Publisher;
@@ -19518,19 +18399,20 @@
 
     aput-object p1, v0, v1
 
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    aput-object p0, v0, v1
+    aput-object p0, v0, p1
 
+    .line 12697
     invoke-static {v0}, Lio/reactivex/Flowable;->concatArray([Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final varargs startWithArray([Ljava/lang/Object;)Lio/reactivex/Flowable;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TT;)",
@@ -19551,46 +18433,43 @@
     .end annotation
 
     .line 12754
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "items":[Ljava/lang/Object;, "[TT;"
     invoke-static {p1}, Lio/reactivex/Flowable;->fromArray([Ljava/lang/Object;)Lio/reactivex/Flowable;
+
+    move-result-object p1
+
+    .line 12755
+    invoke-static {}, Lio/reactivex/Flowable;->empty()Lio/reactivex/Flowable;
 
     move-result-object v0
 
-    .line 12755
-    .local v0, "fromArray":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    invoke-static {}, Lio/reactivex/Flowable;->empty()Lio/reactivex/Flowable;
-
-    move-result-object v1
-
-    if-ne v0, v1, :cond_0
+    if-ne p1, v0, :cond_0
 
     .line 12756
     invoke-static {p0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
+
+    :cond_0
+    const/4 v0, 0x2
+
+    new-array v0, v0, [Lorg/reactivestreams/Publisher;
+
+    const/4 v1, 0x0
+
+    aput-object p1, v0, v1
+
+    const/4 p1, 0x1
+
+    aput-object p0, v0, p1
 
     .line 12758
-    :cond_0
-    const/4 v1, 0x2
+    invoke-static {v0}, Lio/reactivex/Flowable;->concatArray([Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    new-array v1, v1, [Lorg/reactivestreams/Publisher;
+    move-result-object p1
 
-    const/4 v2, 0x0
-
-    aput-object v0, v1, v2
-
-    const/4 v2, 0x1
-
-    aput-object p0, v1, v2
-
-    invoke-static {v1}, Lio/reactivex/Flowable;->concatArray([Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
-
-    move-result-object v1
-
-    return-object v1
+    return-object p1
 .end method
 
 .method public final subscribe()Lio/reactivex/disposables/Disposable;
@@ -19604,7 +18483,6 @@
     .end annotation
 
     .line 12782
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->emptyConsumer()Lio/reactivex/functions/Consumer;
 
     move-result-object v0
@@ -19645,8 +18523,6 @@
     .end annotation
 
     .line 12812
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "onNext":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
     sget-object v0, Lio/reactivex/internal/functions/Functions;->ON_ERROR_MISSING:Lio/reactivex/functions/Consumer;
 
     sget-object v1, Lio/reactivex/internal/functions/Functions;->EMPTY_ACTION:Lio/reactivex/functions/Action;
@@ -19655,9 +18531,9 @@
 
     invoke-virtual {p0, p1, v0, v1, v2}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;Lio/reactivex/functions/Consumer;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final subscribe(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;)Lio/reactivex/disposables/Disposable;
@@ -19687,23 +18563,19 @@
     .end annotation
 
     .line 12843
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "onNext":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
-    .local p2, "onError":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Ljava/lang/Throwable;>;"
     sget-object v0, Lio/reactivex/internal/functions/Functions;->EMPTY_ACTION:Lio/reactivex/functions/Action;
 
     sget-object v1, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$RequestMax;->INSTANCE:Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$RequestMax;
 
     invoke-virtual {p0, p1, p2, v0, v1}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;Lio/reactivex/functions/Consumer;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final subscribe(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;)Lio/reactivex/disposables/Disposable;
     .locals 1
-    .param p3, "onComplete"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -19731,21 +18603,17 @@
     .end annotation
 
     .line 12878
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "onNext":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
-    .local p2, "onError":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Ljava/lang/Throwable;>;"
     sget-object v0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$RequestMax;->INSTANCE:Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$RequestMax;
 
     invoke-virtual {p0, p1, p2, p3, v0}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;Lio/reactivex/functions/Consumer;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final subscribe(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;Lio/reactivex/functions/Consumer;)Lio/reactivex/disposables/Disposable;
     .locals 1
-    .param p3, "onComplete"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -19775,28 +18643,24 @@
         value = "none"
     .end annotation
 
-    .line 12915
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "onNext":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
-    .local p2, "onError":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Ljava/lang/Throwable;>;"
-    .local p4, "onSubscribe":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Lorg/reactivestreams/Subscription;>;"
     const-string v0, "onNext is null"
 
+    .line 12915
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 12916
     const-string v0, "onError is null"
 
+    .line 12916
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 12917
     const-string v0, "onComplete is null"
 
+    .line 12917
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 12918
     const-string v0, "onSubscribe is null"
 
+    .line 12918
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 12920
@@ -19805,15 +18669,13 @@
     invoke-direct {v0, p1, p2, p3, p4}, Lio/reactivex/internal/subscribers/LambdaSubscriber;-><init>(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;Lio/reactivex/functions/Consumer;)V
 
     .line 12922
-    .local v0, "ls":Lio/reactivex/internal/subscribers/LambdaSubscriber;, "Lio/reactivex/internal/subscribers/LambdaSubscriber<TT;>;"
     invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 12924
     return-object v0
 .end method
 
 .method public final subscribe(Lio/reactivex/FlowableSubscriber;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -19830,72 +18692,57 @@
         value = "none"
     .end annotation
 
-    .line 12980
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "s":Lio/reactivex/FlowableSubscriber;, "Lio/reactivex/FlowableSubscriber<-TT;>;"
     const-string v0, "s is null"
 
+    .line 12980
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 12982
     :try_start_0
     invoke-static {p0, p1}, Lio/reactivex/plugins/RxJavaPlugins;->onSubscribe(Lio/reactivex/Flowable;Lorg/reactivestreams/Subscriber;)Lorg/reactivestreams/Subscriber;
 
-    move-result-object v0
+    move-result-object p1
+
+    const-string v0, "Plugin returned null Subscriber"
 
     .line 12984
-    .local v0, "z":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
-    const-string v1, "Plugin returned null Subscriber"
-
-    invoke-static {v0, v1}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 12986
-    invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->subscribeActual(Lorg/reactivestreams/Subscriber;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/Flowable;->subscribeActual(Lorg/reactivestreams/Subscriber;)V
     :try_end_0
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 12998
-    .end local v0    # "z":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
-    nop
-
-    .line 12999
     return-void
 
-    .line 12989
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     .line 12990
-    .local v0, "e":Ljava/lang/Throwable;
-    invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 12993
-    invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
     .line 12995
-    new-instance v1, Ljava/lang/NullPointerException;
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string v2, "Actually not, but can\'t throw other exceptions due to RS"
+    const-string v1, "Actually not, but can\'t throw other exceptions due to RS"
 
-    invoke-direct {v1, v2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
     .line 12996
-    .local v1, "npe":Ljava/lang/NullPointerException;
-    invoke-virtual {v1, v0}, Ljava/lang/NullPointerException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, p1}, Ljava/lang/NullPointerException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 12997
-    throw v1
+    throw v0
 
-    .line 12987
-    .end local v0    # "e":Ljava/lang/Throwable;
-    .end local v1    # "npe":Ljava/lang/NullPointerException;
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 12988
-    .local v0, "e":Ljava/lang/NullPointerException;
-    throw v0
+    throw p1
 .end method
 
 .method public final subscribe(Lorg/reactivestreams/Subscriber;)V
@@ -19917,25 +18764,21 @@
     .end annotation
 
     .line 12931
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     instance-of v0, p1, Lio/reactivex/FlowableSubscriber;
 
     if-eqz v0, :cond_0
 
     .line 12932
-    move-object v0, p1
+    check-cast p1, Lio/reactivex/FlowableSubscriber;
 
-    check-cast v0, Lio/reactivex/FlowableSubscriber;
-
-    invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
     goto :goto_0
 
-    .line 12934
     :cond_0
     const-string v0, "s is null"
 
+    .line 12934
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 12935
@@ -19945,7 +18788,6 @@
 
     invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 12937
     :goto_0
     return-void
 .end method
@@ -19962,7 +18804,6 @@
 
 .method public final subscribeOn(Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 2
-    .param p1, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -19984,10 +18825,9 @@
         value = "custom"
     .end annotation
 
-    .line 13069
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "scheduler is null"
 
+    .line 13069
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 13070
@@ -19999,9 +18839,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final subscribeWith(Lorg/reactivestreams/Subscriber;)Lorg/reactivestreams/Subscriber;
@@ -20026,11 +18866,8 @@
     .end annotation
 
     .line 13041
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "subscriber":Lorg/reactivestreams/Subscriber;, "TE;"
     invoke-virtual {p0, p1}, Lio/reactivex/Flowable;->subscribe(Lorg/reactivestreams/Subscriber;)V
 
-    .line 13042
     return-object p1
 .end method
 
@@ -20057,11 +18894,9 @@
         value = "none"
     .end annotation
 
-    .line 13099
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     const-string v0, "other is null"
 
+    .line 13099
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 13100
@@ -20071,9 +18906,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final switchMap(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -20104,22 +18939,19 @@
     .end annotation
 
     .line 13133
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
 
     invoke-virtual {p0, p1, v0}, Lio/reactivex/Flowable;->switchMap(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final switchMap(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
     .locals 1
-    .param p2, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -20145,22 +18977,18 @@
         value = "none"
     .end annotation
 
-    .line 13168
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     const/4 v0, 0x0
 
+    .line 13168
     invoke-virtual {p0, p1, p2, v0}, Lio/reactivex/Flowable;->switchMap0(Lio/reactivex/functions/Function;IZ)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method switchMap0(Lio/reactivex/functions/Function;IZ)Lio/reactivex/Flowable;
-    .locals 2
-    .param p2, "bufferSize"    # I
-    .param p3, "delayError"    # Z
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -20175,16 +19003,14 @@
         }
     .end annotation
 
-    .line 13244
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     const-string v0, "mapper is null"
 
+    .line 13244
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 13245
     const-string v0, "bufferSize"
 
+    .line 13245
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 13246
@@ -20193,35 +19019,32 @@
     if-eqz v0, :cond_1
 
     .line 13248
-    move-object v0, p0
+    move-object p2, p0
 
-    check-cast v0, Lio/reactivex/internal/fuseable/ScalarCallable;
+    check-cast p2, Lio/reactivex/internal/fuseable/ScalarCallable;
 
-    invoke-interface {v0}, Lio/reactivex/internal/fuseable/ScalarCallable;->call()Ljava/lang/Object;
+    invoke-interface {p2}, Lio/reactivex/internal/fuseable/ScalarCallable;->call()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p2
 
-    .line 13249
-    .local v0, "v":Ljava/lang/Object;, "TT;"
-    if-nez v0, :cond_0
+    if-nez p2, :cond_0
 
     .line 13250
     invoke-static {}, Lio/reactivex/Flowable;->empty()Lio/reactivex/Flowable;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 13252
     :cond_0
-    invoke-static {v0, p1}, Lio/reactivex/internal/operators/flowable/FlowableScalarXMap;->scalarXMap(Ljava/lang/Object;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
+    invoke-static {p2, p1}, Lio/reactivex/internal/operators/flowable/FlowableScalarXMap;->scalarXMap(Ljava/lang/Object;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 13254
-    .end local v0    # "v":Ljava/lang/Object;, "TT;"
     :cond_1
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableSwitchMap;
 
@@ -20229,9 +19052,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final switchMapDelayError(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -20262,22 +19085,19 @@
     .end annotation
 
     .line 13203
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
 
     invoke-virtual {p0, p1, v0}, Lio/reactivex/Flowable;->switchMapDelayError(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final switchMapDelayError(Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
     .locals 1
-    .param p2, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -20303,21 +19123,18 @@
         value = "none"
     .end annotation
 
-    .line 13240
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     const/4 v0, 0x1
 
+    .line 13240
     invoke-virtual {p0, p1, p2, v0}, Lio/reactivex/Flowable;->switchMap0(Lio/reactivex/functions/Function;IZ)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final take(J)Lio/reactivex/Flowable;
     .locals 3
-    .param p1, "count"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J)",
@@ -20337,8 +19154,6 @@
         value = "none"
     .end annotation
 
-    .line 13285
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
@@ -20352,9 +19167,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 13286
     :cond_0
@@ -20362,27 +19177,25 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "count >= 0 required but it was "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public final take(JLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
-    .locals 1
-    .param p1, "time"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -20405,23 +19218,19 @@
     .end annotation
 
     .line 13315
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {p1, p2, p3}, Lio/reactivex/Flowable;->timer(JLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->takeUntil(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-virtual {p0, p1}, Lio/reactivex/Flowable;->takeUntil(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final take(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
-    .locals 1
-    .param p1, "time"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -20445,21 +19254,19 @@
     .end annotation
 
     .line 13345
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {p1, p2, p3, p4}, Lio/reactivex/Flowable;->timer(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->takeUntil(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
+    invoke-virtual {p0, p1}, Lio/reactivex/Flowable;->takeUntil(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final takeLast(I)Lio/reactivex/Flowable;
     .locals 3
-    .param p1, "count"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -20479,40 +19286,36 @@
         value = "none"
     .end annotation
 
-    .line 13373
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     if-ltz p1, :cond_2
 
-    .line 13376
     if-nez p1, :cond_0
 
     .line 13377
-    new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableIgnoreElements;
+    new-instance p1, Lio/reactivex/internal/operators/flowable/FlowableIgnoreElements;
 
-    invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableIgnoreElements;-><init>(Lio/reactivex/Flowable;)V
+    invoke-direct {p1, p0}, Lio/reactivex/internal/operators/flowable/FlowableIgnoreElements;-><init>(Lio/reactivex/Flowable;)V
 
-    invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
+    invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
-    .line 13379
     :cond_0
     const/4 v0, 0x1
 
     if-ne p1, v0, :cond_1
 
     .line 13380
-    new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableTakeLastOne;
+    new-instance p1, Lio/reactivex/internal/operators/flowable/FlowableTakeLastOne;
 
-    invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableTakeLastOne;-><init>(Lio/reactivex/Flowable;)V
+    invoke-direct {p1, p0}, Lio/reactivex/internal/operators/flowable/FlowableTakeLastOne;-><init>(Lio/reactivex/Flowable;)V
 
-    invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
+    invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 13382
     :cond_1
@@ -20522,9 +19325,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 13374
     :cond_2
@@ -20532,28 +19335,25 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "count >= 0 required but it was "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public final takeLast(JJLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
     .locals 9
-    .param p1, "count"    # J
-    .param p3, "time"    # J
-    .param p5, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JJ",
@@ -20576,16 +19376,15 @@
     .end annotation
 
     .line 13413
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v6
 
+    const/4 v7, 0x0
+
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v8
-
-    const/4 v7, 0x0
 
     move-object v0, p0
 
@@ -20597,17 +19396,13 @@
 
     invoke-virtual/range {v0 .. v8}, Lio/reactivex/Flowable;->takeLast(JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final takeLast(JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 9
-    .param p1, "count"    # J
-    .param p3, "time"    # J
-    .param p5, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p6, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JJ",
@@ -20630,13 +19425,12 @@
         value = "custom"
     .end annotation
 
+    const/4 v7, 0x0
+
     .line 13449
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v8
-
-    const/4 v7, 0x0
 
     move-object v0, p0
 
@@ -20650,19 +19444,13 @@
 
     invoke-virtual/range {v0 .. v8}, Lio/reactivex/Flowable;->takeLast(JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final takeLast(JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;ZI)Lio/reactivex/Flowable;
-    .locals 16
-    .param p1, "count"    # J
-    .param p3, "time"    # J
-    .param p5, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p6, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p7, "delayError"    # Z
-    .param p8, "bufferSize"    # I
+    .locals 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JJ",
@@ -20685,47 +19473,45 @@
         value = "custom"
     .end annotation
 
-    .line 13490
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    move-wide/from16 v10, p1
+    move-wide v2, p1
 
     const-string v0, "unit is null"
 
-    move-object/from16 v12, p5
+    move-object/from16 v6, p5
 
-    invoke-static {v12, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 13490
+    invoke-static {v6, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 13491
     const-string v0, "scheduler is null"
 
-    move-object/from16 v13, p6
+    move-object/from16 v7, p6
 
-    invoke-static {v13, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 13491
+    invoke-static {v7, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 13492
     const-string v0, "bufferSize"
 
-    move/from16 v14, p8
+    move/from16 v8, p8
 
-    invoke-static {v14, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
+    .line 13492
+    invoke-static {v8, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
-    .line 13493
     const-wide/16 v0, 0x0
 
-    cmp-long v0, v10, v0
+    cmp-long v0, v2, v0
 
     if-ltz v0, :cond_0
 
     .line 13496
-    new-instance v15, Lio/reactivex/internal/operators/flowable/FlowableTakeLastTimed;
+    new-instance v10, Lio/reactivex/internal/operators/flowable/FlowableTakeLastTimed;
 
-    move-object v0, v15
+    move-object v0, v10
 
-    move-object/from16 v1, p0
+    move-object v1, p0
 
-    move-wide/from16 v2, p1
+    move-wide v2, p1
 
-    move-wide/from16 v4, p3
+    move-wide v4, p3
 
     move-object/from16 v6, p5
 
@@ -20737,7 +19523,7 @@
 
     invoke-direct/range {v0 .. v9}, Lio/reactivex/internal/operators/flowable/FlowableTakeLastTimed;-><init>(Lio/reactivex/Flowable;JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;IZ)V
 
-    invoke-static {v15}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
+    invoke-static {v10}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
     move-result-object v0
 
@@ -20749,13 +19535,13 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v4, "count >= 0 required but it was "
 
-    const-string v2, "count >= 0 required but it was "
+    invoke-direct {v1, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v10, v11}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -20768,8 +19554,6 @@
 
 .method public final takeLast(JLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
     .locals 7
-    .param p1, "time"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -20792,16 +19576,15 @@
     .end annotation
 
     .line 13527
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v4
 
+    const/4 v5, 0x0
+
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v6
-
-    const/4 v5, 0x0
 
     move-object v0, p0
 
@@ -20811,16 +19594,13 @@
 
     invoke-virtual/range {v0 .. v6}, Lio/reactivex/Flowable;->takeLast(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final takeLast(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 7
-    .param p1, "time"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -20843,13 +19623,12 @@
         value = "custom"
     .end annotation
 
+    const/4 v5, 0x0
+
     .line 13595
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v6
-
-    const/4 v5, 0x0
 
     move-object v0, p0
 
@@ -20861,17 +19640,13 @@
 
     invoke-virtual/range {v0 .. v6}, Lio/reactivex/Flowable;->takeLast(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final takeLast(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;Z)Lio/reactivex/Flowable;
     .locals 7
-    .param p1, "time"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p5, "delayError"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -20895,7 +19670,6 @@
     .end annotation
 
     .line 13632
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v6
@@ -20912,18 +19686,13 @@
 
     invoke-virtual/range {v0 .. v6}, Lio/reactivex/Flowable;->takeLast(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final takeLast(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;ZI)Lio/reactivex/Flowable;
     .locals 9
-    .param p1, "time"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p5, "delayError"    # Z
-    .param p6, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -20946,8 +19715,6 @@
         value = "custom"
     .end annotation
 
-    .line 13671
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-wide v1, 0x7fffffffffffffffL
 
     move-object v0, p0
@@ -20962,18 +19729,16 @@
 
     move v8, p6
 
+    .line 13671
     invoke-virtual/range {v0 .. v8}, Lio/reactivex/Flowable;->takeLast(JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final takeLast(JLjava/util/concurrent/TimeUnit;Z)Lio/reactivex/Flowable;
     .locals 7
-    .param p1, "time"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "delayError"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -20996,7 +19761,6 @@
     .end annotation
 
     .line 13561
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v4
@@ -21015,9 +19779,9 @@
 
     invoke-virtual/range {v0 .. v6}, Lio/reactivex/Flowable;->takeLast(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final takeUntil(Lio/reactivex/functions/Predicate;)Lio/reactivex/Flowable;
@@ -21043,11 +19807,9 @@
         value = "none"
     .end annotation
 
-    .line 13703
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "stopPredicate":Lio/reactivex/functions/Predicate;, "Lio/reactivex/functions/Predicate<-TT;>;"
     const-string v0, "stopPredicate is null"
 
+    .line 13703
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 13704
@@ -21057,9 +19819,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final takeUntil(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -21087,11 +19849,9 @@
         value = "none"
     .end annotation
 
-    .line 13732
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TU;>;"
     const-string v0, "other is null"
 
+    .line 13732
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 13733
@@ -21101,9 +19861,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final takeWhile(Lio/reactivex/functions/Predicate;)Lio/reactivex/Flowable;
@@ -21129,11 +19889,9 @@
         value = "none"
     .end annotation
 
-    .line 13760
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "predicate":Lio/reactivex/functions/Predicate;, "Lio/reactivex/functions/Predicate<-TT;>;"
     const-string v0, "predicate is null"
 
+    .line 13760
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 13761
@@ -21143,9 +19901,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final test()Lio/reactivex/subscribers/TestSubscriber;
@@ -21170,22 +19928,18 @@
     .end annotation
 
     .line 16181
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v0, Lio/reactivex/subscribers/TestSubscriber;
 
     invoke-direct {v0}, Lio/reactivex/subscribers/TestSubscriber;-><init>()V
 
     .line 16182
-    .local v0, "ts":Lio/reactivex/subscribers/TestSubscriber;, "Lio/reactivex/subscribers/TestSubscriber<TT;>;"
     invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 16183
     return-object v0
 .end method
 
 .method public final test(J)Lio/reactivex/subscribers/TestSubscriber;
     .locals 1
-    .param p1, "initialRequest"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J)",
@@ -21206,23 +19960,18 @@
     .end annotation
 
     .line 16203
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v0, Lio/reactivex/subscribers/TestSubscriber;
 
     invoke-direct {v0, p1, p2}, Lio/reactivex/subscribers/TestSubscriber;-><init>(J)V
 
     .line 16204
-    .local v0, "ts":Lio/reactivex/subscribers/TestSubscriber;, "Lio/reactivex/subscribers/TestSubscriber<TT;>;"
     invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 16205
     return-object v0
 .end method
 
 .method public final test(JZ)Lio/reactivex/subscribers/TestSubscriber;
     .locals 1
-    .param p1, "initialRequest"    # J
-    .param p3, "cancel"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JZ)",
@@ -21243,13 +19992,10 @@
     .end annotation
 
     .line 16227
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v0, Lio/reactivex/subscribers/TestSubscriber;
 
     invoke-direct {v0, p1, p2}, Lio/reactivex/subscribers/TestSubscriber;-><init>(J)V
 
-    .line 16228
-    .local v0, "ts":Lio/reactivex/subscribers/TestSubscriber;, "Lio/reactivex/subscribers/TestSubscriber<TT;>;"
     if-eqz p3, :cond_0
 
     .line 16229
@@ -21259,14 +20005,11 @@
     :cond_0
     invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 16232
     return-object v0
 .end method
 
 .method public final throttleFirst(JLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "windowDuration"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -21289,23 +20032,19 @@
     .end annotation
 
     .line 13791
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v0
 
     invoke-virtual {p0, p1, p2, p3, v0}, Lio/reactivex/Flowable;->throttleFirst(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final throttleFirst(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 7
-    .param p1, "skipDuration"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -21328,15 +20067,14 @@
         value = "custom"
     .end annotation
 
-    .line 13824
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "unit is null"
 
+    .line 13824
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 13825
     const-string v0, "scheduler is null"
 
+    .line 13825
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 13826
@@ -21356,15 +20094,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final throttleLast(JLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
-    .locals 1
-    .param p1, "intervalDuration"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -21387,19 +20123,15 @@
     .end annotation
 
     .line 13858
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-virtual {p0, p1, p2, p3}, Lio/reactivex/Flowable;->sample(JLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final throttleLast(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
-    .locals 1
-    .param p1, "intervalDuration"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -21423,18 +20155,15 @@
     .end annotation
 
     .line 13893
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-virtual {p0, p1, p2, p3, p4}, Lio/reactivex/Flowable;->sample(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final throttleWithTimeout(JLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
-    .locals 1
-    .param p1, "timeout"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -21457,19 +20186,15 @@
     .end annotation
 
     .line 13934
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-virtual {p0, p1, p2, p3}, Lio/reactivex/Flowable;->debounce(JLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final throttleWithTimeout(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
-    .locals 1
-    .param p1, "timeout"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -21493,12 +20218,11 @@
     .end annotation
 
     .line 13979
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-virtual {p0, p1, p2, p3, p4}, Lio/reactivex/Flowable;->debounce(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final timeInterval()Lio/reactivex/Flowable;
@@ -21524,7 +20248,6 @@
     .end annotation
 
     .line 14003
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     sget-object v0, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
@@ -21540,7 +20263,6 @@
 
 .method public final timeInterval(Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -21564,19 +20286,17 @@
     .end annotation
 
     .line 14029
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     sget-object v0, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
     invoke-virtual {p0, v0, p1}, Lio/reactivex/Flowable;->timeInterval(Ljava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final timeInterval(Ljava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -21600,22 +20320,19 @@
     .end annotation
 
     .line 14054
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v0
 
     invoke-virtual {p0, p1, v0}, Lio/reactivex/Flowable;->timeInterval(Ljava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final timeInterval(Ljava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p2, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -21639,15 +20356,14 @@
         value = "none"
     .end annotation
 
-    .line 14081
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "unit is null"
 
+    .line 14081
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 14082
     const-string v0, "scheduler is null"
 
+    .line 14082
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 14083
@@ -21657,15 +20373,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final timeout(JLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
     .locals 6
-    .param p1, "timeout"    # J
-    .param p3, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -21687,13 +20401,12 @@
         value = "io.reactivex:computation"
     .end annotation
 
+    const/4 v4, 0x0
+
     .line 14187
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v5
-
-    const/4 v4, 0x0
 
     move-object v0, p0
 
@@ -21703,16 +20416,13 @@
 
     invoke-direct/range {v0 .. v5}, Lio/reactivex/Flowable;->timeout0(JLjava/util/concurrent/TimeUnit;Lorg/reactivestreams/Publisher;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final timeout(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 6
-    .param p1, "timeout"    # J
-    .param p3, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -21735,8 +20445,6 @@
         value = "custom"
     .end annotation
 
-    .line 14288
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const/4 v4, 0x0
 
     move-object v0, p0
@@ -21747,18 +20455,16 @@
 
     move-object v5, p4
 
+    .line 14288
     invoke-direct/range {v0 .. v5}, Lio/reactivex/Flowable;->timeout0(JLjava/util/concurrent/TimeUnit;Lorg/reactivestreams/Publisher;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final timeout(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
     .locals 6
-    .param p1, "timeout"    # J
-    .param p3, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -21782,14 +20488,11 @@
         value = "custom"
     .end annotation
 
-    .line 14255
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p5, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     const-string v0, "other is null"
 
+    .line 14255
     invoke-static {p5, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 14256
     move-object v0, p0
 
     move-wide v1, p1
@@ -21800,17 +20503,16 @@
 
     move-object v5, p4
 
+    .line 14256
     invoke-direct/range {v0 .. v5}, Lio/reactivex/Flowable;->timeout0(JLjava/util/concurrent/TimeUnit;Lorg/reactivestreams/Publisher;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final timeout(JLjava/util/concurrent/TimeUnit;Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
     .locals 7
-    .param p1, "timeout"    # J
-    .param p3, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -21833,11 +20535,9 @@
         value = "io.reactivex:computation"
     .end annotation
 
-    .line 14219
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p4, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     const-string v0, "other is null"
 
+    .line 14219
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 14220
@@ -21855,9 +20555,9 @@
 
     invoke-direct/range {v1 .. v6}, Lio/reactivex/Flowable;->timeout0(JLjava/util/concurrent/TimeUnit;Lorg/reactivestreams/Publisher;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final timeout(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -21887,16 +20587,14 @@
         value = "none"
     .end annotation
 
-    .line 14119
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "itemTimeoutIndicator":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<TV;>;>;"
     const/4 v0, 0x0
 
+    .line 14119
     invoke-direct {p0, v0, p1, v0}, Lio/reactivex/Flowable;->timeout0(Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final timeout(Lio/reactivex/functions/Function;Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
@@ -21928,22 +20626,19 @@
         value = "none"
     .end annotation
 
-    .line 14157
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "itemTimeoutIndicator":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<TV;>;>;"
-    .local p2, "other":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<+TT;>;"
     const-string v0, "other is null"
 
+    .line 14157
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 14158
     const/4 v0, 0x0
 
+    .line 14158
     invoke-direct {p0, v0, p1, p2}, Lio/reactivex/Flowable;->timeout0(Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final timeout(Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -21977,22 +20672,19 @@
         value = "none"
     .end annotation
 
-    .line 14327
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "firstTimeoutIndicator":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TU;>;"
-    .local p2, "itemTimeoutIndicator":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<TV;>;>;"
     const-string v0, "firstTimeoutIndicator is null"
 
+    .line 14327
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 14328
     const/4 v0, 0x0
 
+    .line 14328
     invoke-direct {p0, p1, p2, v0}, Lio/reactivex/Flowable;->timeout0(Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final timeout(Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -22028,26 +20720,22 @@
         value = "none"
     .end annotation
 
-    .line 14374
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "firstTimeoutIndicator":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TU;>;"
-    .local p2, "itemTimeoutIndicator":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<TV;>;>;"
-    .local p3, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     const-string v0, "firstTimeoutSelector is null"
 
+    .line 14374
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 14375
     const-string v0, "other is null"
 
+    .line 14375
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 14376
     invoke-direct {p0, p1, p2, p3}, Lio/reactivex/Flowable;->timeout0(Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final timestamp()Lio/reactivex/Flowable;
@@ -22073,7 +20761,6 @@
     .end annotation
 
     .line 14415
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     sget-object v0, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
@@ -22089,7 +20776,6 @@
 
 .method public final timestamp(Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -22113,19 +20799,17 @@
     .end annotation
 
     .line 14442
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     sget-object v0, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
     invoke-virtual {p0, v0, p1}, Lio/reactivex/Flowable;->timestamp(Ljava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final timestamp(Ljava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -22149,22 +20833,19 @@
     .end annotation
 
     .line 14467
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v0
 
     invoke-virtual {p0, p1, v0}, Lio/reactivex/Flowable;->timestamp(Ljava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final timestamp(Ljava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p2, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -22188,31 +20869,30 @@
         value = "none"
     .end annotation
 
-    .line 14495
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "unit is null"
 
+    .line 14495
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 14496
     const-string v0, "scheduler is null"
 
+    .line 14496
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 14497
     invoke-static {p1, p2}, Lio/reactivex/internal/functions/Functions;->timestampWith(Ljava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lio/reactivex/Flowable;->map(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
+    invoke-virtual {p0, p1}, Lio/reactivex/Flowable;->map(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final to(Lio/reactivex/functions/Function;)Ljava/lang/Object;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -22236,40 +20916,36 @@
         value = "none"
     .end annotation
 
-    .line 14519
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "converter":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Lio/reactivex/Flowable<TT;>;TR;>;"
     :try_start_0
     const-string v0, "converter is null"
 
+    .line 14519
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lio/reactivex/functions/Function;
+    check-cast p1, Lio/reactivex/functions/Function;
 
-    invoke-interface {v0, p0}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, p0}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    return-object v0
+    return-object p1
 
-    .line 14520
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     .line 14521
-    .local v0, "ex":Ljava/lang/Throwable;
-    invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 14522
-    invoke-static {v0}, Lio/reactivex/internal/util/ExceptionHelper;->wrapOrThrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
+    invoke-static {p1}, Lio/reactivex/internal/util/ExceptionHelper;->wrapOrThrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 .end method
 
 .method public final toFuture()Ljava/util/concurrent/Future;
@@ -22294,7 +20970,6 @@
     .end annotation
 
     .line 5561
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v0, Lio/reactivex/internal/subscribers/FutureSubscriber;
 
     invoke-direct {v0}, Lio/reactivex/internal/subscribers/FutureSubscriber;-><init>()V
@@ -22331,7 +21006,6 @@
     .end annotation
 
     .line 14556
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableToListSingle;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableToListSingle;-><init>(Lio/reactivex/Flowable;)V
@@ -22344,8 +21018,7 @@
 .end method
 
 .method public final toList(I)Lio/reactivex/Single;
-    .locals 2
-    .param p1, "capacityHint"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -22366,10 +21039,9 @@
         value = "none"
     .end annotation
 
-    .line 14591
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "capacityHint"
 
+    .line 14591
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 14592
@@ -22377,15 +21049,15 @@
 
     invoke-static {p1}, Lio/reactivex/internal/functions/Functions;->createArrayList(I)Ljava/util/concurrent/Callable;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, p0, v1}, Lio/reactivex/internal/operators/flowable/FlowableToListSingle;-><init>(Lio/reactivex/Flowable;Ljava/util/concurrent/Callable;)V
+    invoke-direct {v0, p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableToListSingle;-><init>(Lio/reactivex/Flowable;Ljava/util/concurrent/Callable;)V
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Single;)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final toList(Ljava/util/concurrent/Callable;)Lio/reactivex/Single;
@@ -22413,11 +21085,9 @@
         value = "none"
     .end annotation
 
-    .line 14628
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "collectionSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TU;>;"
     const-string v0, "collectionSupplier is null"
 
+    .line 14628
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 14629
@@ -22427,13 +21097,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Single;)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final toMap(Lio/reactivex/functions/Function;)Lio/reactivex/Single;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -22458,11 +21128,9 @@
         value = "none"
     .end annotation
 
-    .line 14658
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "keySelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TK;>;"
     const-string v0, "keySelector is null"
 
+    .line 14658
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 14659
@@ -22472,17 +21140,17 @@
 
     invoke-static {p1}, Lio/reactivex/internal/functions/Functions;->toMapKeySelector(Lio/reactivex/functions/Function;)Lio/reactivex/functions/BiConsumer;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {p0, v0, v1}, Lio/reactivex/Flowable;->collect(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiConsumer;)Lio/reactivex/Single;
+    invoke-virtual {p0, v0, p1}, Lio/reactivex/Flowable;->collect(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiConsumer;)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final toMap(Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;)Lio/reactivex/Single;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -22511,17 +21179,14 @@
         value = "none"
     .end annotation
 
-    .line 14692
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "keySelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TK;>;"
-    .local p2, "valueSelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TV;>;"
     const-string v0, "keySelector is null"
 
+    .line 14692
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 14693
     const-string v0, "valueSelector is null"
 
+    .line 14693
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 14694
@@ -22531,13 +21196,13 @@
 
     invoke-static {p1, p2}, Lio/reactivex/internal/functions/Functions;->toMapKeyValueSelector(Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;)Lio/reactivex/functions/BiConsumer;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {p0, v0, v1}, Lio/reactivex/Flowable;->collect(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiConsumer;)Lio/reactivex/Single;
+    invoke-virtual {p0, v0, p1}, Lio/reactivex/Flowable;->collect(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiConsumer;)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final toMap(Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;Ljava/util/concurrent/Callable;)Lio/reactivex/Single;
@@ -22574,34 +21239,30 @@
         value = "none"
     .end annotation
 
-    .line 14728
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "keySelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TK;>;"
-    .local p2, "valueSelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TV;>;"
-    .local p3, "mapSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<+Ljava/util/Map<TK;TV;>;>;"
     const-string v0, "keySelector is null"
 
+    .line 14728
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 14729
     const-string v0, "valueSelector is null"
 
+    .line 14729
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 14730
     invoke-static {p1, p2}, Lio/reactivex/internal/functions/Functions;->toMapKeyValueSelector(Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;)Lio/reactivex/functions/BiConsumer;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, p3, v0}, Lio/reactivex/Flowable;->collect(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiConsumer;)Lio/reactivex/Single;
+    invoke-virtual {p0, p3, p1}, Lio/reactivex/Flowable;->collect(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiConsumer;)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final toMultimap(Lio/reactivex/functions/Function;)Lio/reactivex/Single;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -22629,35 +21290,30 @@
     .end annotation
 
     .line 14756
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "keySelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TK;>;"
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->identity()Lio/reactivex/functions/Function;
 
     move-result-object v0
 
     .line 14757
-    .local v0, "valueSelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<TT;TT;>;"
     invoke-static {}, Lio/reactivex/internal/util/HashMapSupplier;->asCallable()Ljava/util/concurrent/Callable;
 
     move-result-object v1
 
     .line 14758
-    .local v1, "mapSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<Ljava/util/Map<TK;Ljava/util/Collection<TT;>;>;>;"
     invoke-static {}, Lio/reactivex/internal/util/ArrayListSupplier;->asFunction()Lio/reactivex/functions/Function;
 
     move-result-object v2
 
     .line 14759
-    .local v2, "collectionFactory":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<TK;Ljava/util/List<TT;>;>;"
     invoke-virtual {p0, p1, v0, v1, v2}, Lio/reactivex/Flowable;->toMultimap(Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;Ljava/util/concurrent/Callable;Lio/reactivex/functions/Function;)Lio/reactivex/Single;
 
-    move-result-object v3
+    move-result-object p1
 
-    return-object v3
+    return-object p1
 .end method
 
 .method public final toMultimap(Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;)Lio/reactivex/Single;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -22689,26 +21345,21 @@
     .end annotation
 
     .line 14790
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "keySelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TK;>;"
-    .local p2, "valueSelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TV;>;"
     invoke-static {}, Lio/reactivex/internal/util/HashMapSupplier;->asCallable()Ljava/util/concurrent/Callable;
 
     move-result-object v0
 
     .line 14791
-    .local v0, "mapSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<Ljava/util/Map<TK;Ljava/util/Collection<TV;>;>;>;"
     invoke-static {}, Lio/reactivex/internal/util/ArrayListSupplier;->asFunction()Lio/reactivex/functions/Function;
 
     move-result-object v1
 
     .line 14792
-    .local v1, "collectionFactory":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<TK;Ljava/util/List<TV;>;>;"
     invoke-virtual {p0, p1, p2, v0, v1}, Lio/reactivex/Flowable;->toMultimap(Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;Ljava/util/concurrent/Callable;Lio/reactivex/functions/Function;)Lio/reactivex/Single;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 .end method
 
 .method public final toMultimap(Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;Ljava/util/concurrent/Callable;)Lio/reactivex/Single;
@@ -22749,19 +21400,15 @@
     .end annotation
 
     .line 14872
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "keySelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TK;>;"
-    .local p2, "valueSelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TV;>;"
-    .local p3, "mapSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<Ljava/util/Map<TK;Ljava/util/Collection<TV;>;>;>;"
     invoke-static {}, Lio/reactivex/internal/util/ArrayListSupplier;->asFunction()Lio/reactivex/functions/Function;
 
     move-result-object v0
 
     invoke-virtual {p0, p1, p2, p3, v0}, Lio/reactivex/Flowable;->toMultimap(Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;Ljava/util/concurrent/Callable;Lio/reactivex/functions/Function;)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final toMultimap(Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;Ljava/util/concurrent/Callable;Lio/reactivex/functions/Function;)Lio/reactivex/Single;
@@ -22806,41 +21453,36 @@
         value = "none"
     .end annotation
 
-    .line 14831
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "keySelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TK;>;"
-    .local p2, "valueSelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TV;>;"
-    .local p3, "mapSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<+Ljava/util/Map<TK;Ljava/util/Collection<TV;>;>;>;"
-    .local p4, "collectionFactory":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TK;+Ljava/util/Collection<-TV;>;>;"
     const-string v0, "keySelector is null"
 
+    .line 14831
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 14832
     const-string v0, "valueSelector is null"
 
+    .line 14832
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 14833
     const-string v0, "mapSupplier is null"
 
+    .line 14833
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 14834
     const-string v0, "collectionFactory is null"
 
+    .line 14834
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 14835
     invoke-static {p1, p2, p4}, Lio/reactivex/internal/functions/Functions;->toMultimapKeyValueSelector(Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;)Lio/reactivex/functions/BiConsumer;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, p3, v0}, Lio/reactivex/Flowable;->collect(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiConsumer;)Lio/reactivex/Single;
+    invoke-virtual {p0, p3, p1}, Lio/reactivex/Flowable;->collect(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiConsumer;)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final toObservable()Lio/reactivex/Observable;
@@ -22865,7 +21507,6 @@
     .end annotation
 
     .line 14891
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableFromPublisher;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/observable/ObservableFromPublisher;-><init>(Lorg/reactivestreams/Publisher;)V
@@ -22900,7 +21541,6 @@
     .end annotation
 
     .line 14919
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->naturalComparator()Ljava/util/Comparator;
 
     move-result-object v0
@@ -22914,7 +21554,6 @@
 
 .method public final toSortedList(I)Lio/reactivex/Single;
     .locals 1
-    .param p1, "capacityHint"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -22936,20 +21575,19 @@
     .end annotation
 
     .line 15010
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->naturalComparator()Ljava/util/Comparator;
 
     move-result-object v0
 
     invoke-virtual {p0, v0, p1}, Lio/reactivex/Flowable;->toSortedList(Ljava/util/Comparator;I)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final toSortedList(Ljava/util/Comparator;)Lio/reactivex/Single;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -22972,11 +21610,9 @@
         value = "none"
     .end annotation
 
-    .line 14946
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TT;>;"
     const-string v0, "comparator is null"
 
+    .line 14946
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 14947
@@ -22986,18 +21622,17 @@
 
     invoke-static {p1}, Lio/reactivex/internal/functions/Functions;->listSorter(Ljava/util/Comparator;)Lio/reactivex/functions/Function;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Lio/reactivex/Single;->map(Lio/reactivex/functions/Function;)Lio/reactivex/Single;
+    invoke-virtual {v0, p1}, Lio/reactivex/Single;->map(Lio/reactivex/functions/Function;)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final toSortedList(Ljava/util/Comparator;I)Lio/reactivex/Single;
-    .locals 2
-    .param p2, "capacityHint"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -23020,32 +21655,29 @@
         value = "none"
     .end annotation
 
-    .line 14977
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TT;>;"
     const-string v0, "comparator is null"
 
+    .line 14977
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 14978
     invoke-virtual {p0, p2}, Lio/reactivex/Flowable;->toList(I)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p2
 
     invoke-static {p1}, Lio/reactivex/internal/functions/Functions;->listSorter(Ljava/util/Comparator;)Lio/reactivex/functions/Function;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Lio/reactivex/Single;->map(Lio/reactivex/functions/Function;)Lio/reactivex/Single;
+    invoke-virtual {p2, p1}, Lio/reactivex/Single;->map(Lio/reactivex/functions/Function;)Lio/reactivex/Single;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final unsubscribeOn(Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -23067,10 +21699,9 @@
         value = "custom"
     .end annotation
 
-    .line 15034
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "scheduler is null"
 
+    .line 15034
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 15035
@@ -23080,14 +21711,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final window(J)Lio/reactivex/Flowable;
     .locals 6
-    .param p1, "count"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J)",
@@ -23109,7 +21739,6 @@
     .end annotation
 
     .line 15064
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v5
@@ -23122,15 +21751,13 @@
 
     invoke-virtual/range {v0 .. v5}, Lio/reactivex/Flowable;->window(JJI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final window(JJ)Lio/reactivex/Flowable;
     .locals 6
-    .param p1, "count"    # J
-    .param p3, "skip"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JJ)",
@@ -23152,7 +21779,6 @@
     .end annotation
 
     .line 15096
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v5
@@ -23165,16 +21791,13 @@
 
     invoke-virtual/range {v0 .. v5}, Lio/reactivex/Flowable;->window(JJI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final window(JJI)Lio/reactivex/Flowable;
     .locals 8
-    .param p1, "count"    # J
-    .param p3, "skip"    # J
-    .param p5, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JJI)",
@@ -23195,20 +21818,19 @@
         value = "none"
     .end annotation
 
-    .line 15130
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "skip"
 
+    .line 15130
     invoke-static {p3, p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(JLjava/lang/String;)J
 
-    .line 15131
     const-string v0, "count"
 
+    .line 15131
     invoke-static {p1, p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(JLjava/lang/String;)J
 
-    .line 15132
     const-string v0, "bufferSize"
 
+    .line 15132
     invoke-static {p5, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 15133
@@ -23228,16 +21850,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final window(JJLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
     .locals 8
-    .param p1, "timespan"    # J
-    .param p3, "timeskip"    # J
-    .param p5, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JJ",
@@ -23261,7 +21880,6 @@
     .end annotation
 
     .line 15168
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v6
@@ -23280,17 +21898,13 @@
 
     invoke-virtual/range {v0 .. v7}, Lio/reactivex/Flowable;->window(JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final window(JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 8
-    .param p1, "timespan"    # J
-    .param p3, "timeskip"    # J
-    .param p5, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p6, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JJ",
@@ -23315,7 +21929,6 @@
     .end annotation
 
     .line 15205
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v7
@@ -23332,18 +21945,13 @@
 
     invoke-virtual/range {v0 .. v7}, Lio/reactivex/Flowable;->window(JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final window(JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;I)Lio/reactivex/Flowable;
-    .locals 19
-    .param p1, "timespan"    # J
-    .param p3, "timeskip"    # J
-    .param p5, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p6, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p7, "bufferSize"    # I
+    .locals 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JJ",
@@ -23367,66 +21975,51 @@
         value = "custom"
     .end annotation
 
-    .line 15244
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "bufferSize"
 
-    move/from16 v13, p7
+    move/from16 v11, p7
 
-    invoke-static {v13, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
+    .line 15244
+    invoke-static {v11, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
-    .line 15245
     const-string v0, "timespan"
 
-    move-wide/from16 v14, p1
+    move-wide v3, p1
 
-    invoke-static {v14, v15, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(JLjava/lang/String;)J
+    .line 15245
+    invoke-static {p1, p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(JLjava/lang/String;)J
 
-    .line 15246
     const-string v0, "timeskip"
 
-    move-wide/from16 v11, p3
+    move-wide/from16 v5, p3
 
-    invoke-static {v11, v12, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(JLjava/lang/String;)J
+    .line 15246
+    invoke-static {v5, v6, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(JLjava/lang/String;)J
 
-    .line 15247
     const-string v0, "scheduler is null"
 
-    move-object/from16 v9, p6
+    move-object/from16 v8, p6
 
-    invoke-static {v9, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 15247
+    invoke-static {v8, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 15248
     const-string v0, "unit is null"
 
-    move-object/from16 v10, p5
+    move-object/from16 v7, p5
 
-    invoke-static {v10, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 15248
+    invoke-static {v7, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 15249
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableWindowTimed;
 
-    const-wide v16, 0x7fffffffffffffffL
+    const-wide v9, 0x7fffffffffffffffL
 
-    const/16 v18, 0x0
+    const/4 v12, 0x0
 
     move-object v1, v0
 
-    move-object/from16 v2, p0
-
-    move-wide/from16 v3, p1
-
-    move-wide/from16 v5, p3
-
-    move-object/from16 v7, p5
-
-    move-object/from16 v8, p6
-
-    move-wide/from16 v9, v16
-
-    move/from16 v11, p7
-
-    move/from16 v12, v18
+    move-object v2, p0
 
     invoke-direct/range {v1 .. v12}, Lio/reactivex/internal/operators/flowable/FlowableWindowTimed;-><init>(Lio/reactivex/Flowable;JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;JIZ)V
 
@@ -23439,8 +22032,6 @@
 
 .method public final window(JLjava/util/concurrent/TimeUnit;)Lio/reactivex/Flowable;
     .locals 8
-    .param p1, "timespan"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -23464,7 +22055,6 @@
     .end annotation
 
     .line 15282
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v4
@@ -23481,16 +22071,13 @@
 
     invoke-virtual/range {v0 .. v7}, Lio/reactivex/Flowable;->window(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;JZ)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final window(JLjava/util/concurrent/TimeUnit;J)Lio/reactivex/Flowable;
     .locals 8
-    .param p1, "timespan"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "count"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -23514,7 +22101,6 @@
     .end annotation
 
     .line 15320
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v4
@@ -23531,17 +22117,13 @@
 
     invoke-virtual/range {v0 .. v7}, Lio/reactivex/Flowable;->window(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;JZ)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final window(JLjava/util/concurrent/TimeUnit;JZ)Lio/reactivex/Flowable;
     .locals 8
-    .param p1, "timespan"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "count"    # J
-    .param p6, "restart"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -23565,7 +22147,6 @@
     .end annotation
 
     .line 15360
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/schedulers/Schedulers;->computation()Lio/reactivex/Scheduler;
 
     move-result-object v4
@@ -23582,16 +22163,13 @@
 
     invoke-virtual/range {v0 .. v7}, Lio/reactivex/Flowable;->window(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;JZ)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final window(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/Flowable;
     .locals 8
-    .param p1, "timespan"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -23615,8 +22193,6 @@
         value = "custom"
     .end annotation
 
-    .line 15397
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-wide v5, 0x7fffffffffffffffL
 
     const/4 v7, 0x0
@@ -23629,19 +22205,16 @@
 
     move-object v4, p4
 
+    .line 15397
     invoke-virtual/range {v0 .. v7}, Lio/reactivex/Flowable;->window(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;JZ)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final window(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;J)Lio/reactivex/Flowable;
     .locals 8
-    .param p1, "timespan"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p5, "count"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -23665,8 +22238,6 @@
         value = "custom"
     .end annotation
 
-    .line 15437
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const/4 v7, 0x0
 
     move-object v0, p0
@@ -23679,20 +22250,16 @@
 
     move-wide v5, p5
 
+    .line 15437
     invoke-virtual/range {v0 .. v7}, Lio/reactivex/Flowable;->window(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;JZ)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final window(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;JZ)Lio/reactivex/Flowable;
     .locals 9
-    .param p1, "timespan"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p5, "count"    # J
-    .param p7, "restart"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -23717,7 +22284,6 @@
     .end annotation
 
     .line 15479
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v8
@@ -23742,13 +22308,7 @@
 .end method
 
 .method public final window(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;JZI)Lio/reactivex/Flowable;
-    .locals 16
-    .param p1, "timespan"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p5, "count"    # J
-    .param p7, "restart"    # Z
-    .param p8, "bufferSize"    # I
+    .locals 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -23772,53 +22332,44 @@
         value = "custom"
     .end annotation
 
-    .line 15524
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     const-string v0, "bufferSize"
 
-    move/from16 v13, p8
+    move/from16 v11, p8
 
-    invoke-static {v13, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
+    .line 15524
+    invoke-static {v11, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
-    .line 15525
     const-string v0, "scheduler is null"
 
-    move-object/from16 v14, p4
+    move-object/from16 v8, p4
 
-    invoke-static {v14, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 15525
+    invoke-static {v8, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 15526
     const-string v0, "unit is null"
 
-    move-object/from16 v15, p3
+    move-object/from16 v7, p3
 
-    invoke-static {v15, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 15526
+    invoke-static {v7, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 15527
     const-string v0, "count"
 
-    move-wide/from16 v11, p5
+    move-wide/from16 v9, p5
 
-    invoke-static {v11, v12, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(JLjava/lang/String;)J
+    .line 15527
+    invoke-static {v9, v10, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(JLjava/lang/String;)J
 
     .line 15528
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableWindowTimed;
 
     move-object v1, v0
 
-    move-object/from16 v2, p0
+    move-object v2, p0
 
-    move-wide/from16 v3, p1
+    move-wide v3, p1
 
-    move-wide/from16 v5, p1
-
-    move-object/from16 v7, p3
-
-    move-object/from16 v8, p4
-
-    move-wide/from16 v9, p5
-
-    move/from16 v11, p8
+    move-wide v5, p1
 
     move/from16 v12, p7
 
@@ -23860,22 +22411,19 @@
     .end annotation
 
     .line 15704
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "boundaryIndicatorSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<+Lorg/reactivestreams/Publisher<TB;>;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
 
     invoke-virtual {p0, p1, v0}, Lio/reactivex/Flowable;->window(Ljava/util/concurrent/Callable;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final window(Ljava/util/concurrent/Callable;I)Lio/reactivex/Flowable;
     .locals 1
-    .param p2, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<B:",
@@ -23902,16 +22450,14 @@
         value = "none"
     .end annotation
 
-    .line 15739
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "boundaryIndicatorSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<+Lorg/reactivestreams/Publisher<TB;>;>;"
     const-string v0, "boundaryIndicatorSupplier is null"
 
+    .line 15739
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 15740
     const-string v0, "bufferSize"
 
+    .line 15740
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 15741
@@ -23921,9 +22467,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final window(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -23953,22 +22499,19 @@
     .end annotation
 
     .line 15558
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "boundaryIndicator":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TB;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
 
     invoke-virtual {p0, p1, v0}, Lio/reactivex/Flowable;->window(Lorg/reactivestreams/Publisher;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final window(Lorg/reactivestreams/Publisher;I)Lio/reactivex/Flowable;
     .locals 1
-    .param p2, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<B:",
@@ -23993,16 +22536,14 @@
         value = "none"
     .end annotation
 
-    .line 15590
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "boundaryIndicator":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TB;>;"
     const-string v0, "boundaryIndicator is null"
 
+    .line 15590
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 15591
     const-string v0, "bufferSize"
 
+    .line 15591
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 15592
@@ -24012,9 +22553,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final window(Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -24050,23 +22591,19 @@
     .end annotation
 
     .line 15629
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "openingIndicator":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TU;>;"
-    .local p2, "closingIndicator":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TU;+Lorg/reactivestreams/Publisher<TV;>;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
 
     invoke-virtual {p0, p1, p2, v0}, Lio/reactivex/Flowable;->window(Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final window(Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;I)Lio/reactivex/Flowable;
     .locals 1
-    .param p3, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<U:",
@@ -24097,22 +22634,19 @@
         value = "none"
     .end annotation
 
-    .line 15668
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "openingIndicator":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TU;>;"
-    .local p2, "closingIndicator":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TU;+Lorg/reactivestreams/Publisher<TV;>;>;"
     const-string v0, "openingIndicator is null"
 
+    .line 15668
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 15669
     const-string v0, "closingIndicator is null"
 
+    .line 15669
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 15670
     const-string v0, "bufferSize"
 
+    .line 15670
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 15671
@@ -24122,9 +22656,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final withLatestFrom(Ljava/lang/Iterable;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -24158,17 +22692,14 @@
         value = "none"
     .end annotation
 
-    .line 15966
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "others":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lorg/reactivestreams/Publisher<*>;>;"
-    .local p2, "combiner":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-[Ljava/lang/Object;TR;>;"
     const-string v0, "others is null"
 
+    .line 15966
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 15967
     const-string v0, "combiner is null"
 
+    .line 15967
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 15968
@@ -24178,9 +22709,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final withLatestFrom(Lorg/reactivestreams/Publisher;Lio/reactivex/functions/BiFunction;)Lio/reactivex/Flowable;
@@ -24212,17 +22743,14 @@
         value = "none"
     .end annotation
 
-    .line 15777
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TU;>;"
-    .local p2, "combiner":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-TT;-TU;+TR;>;"
     const-string v0, "other is null"
 
+    .line 15777
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 15778
     const-string v0, "combiner is null"
 
+    .line 15778
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 15780
@@ -24232,13 +22760,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final withLatestFrom(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function3;)Lio/reactivex/Flowable;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T1:",
@@ -24270,48 +22798,43 @@
         value = "none"
     .end annotation
 
-    .line 15814
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TT1;>;"
-    .local p2, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TT2;>;"
-    .local p3, "combiner":Lio/reactivex/functions/Function3;, "Lio/reactivex/functions/Function3<-TT;-TT1;-TT2;TR;>;"
     const-string v0, "source1 is null"
 
+    .line 15814
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 15815
     const-string v0, "source2 is null"
 
+    .line 15815
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 15816
     invoke-static {p3}, Lio/reactivex/internal/functions/Functions;->toFunction(Lio/reactivex/functions/Function3;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p3
+
+    const/4 v0, 0x2
+
+    new-array v0, v0, [Lorg/reactivestreams/Publisher;
+
+    const/4 v1, 0x0
+
+    aput-object p1, v0, v1
+
+    const/4 p1, 0x1
+
+    aput-object p2, v0, p1
 
     .line 15817
-    .local v0, "f":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<[Ljava/lang/Object;TR;>;"
-    const/4 v1, 0x2
+    invoke-virtual {p0, v0, p3}, Lio/reactivex/Flowable;->withLatestFrom([Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
 
-    new-array v1, v1, [Lorg/reactivestreams/Publisher;
+    move-result-object p1
 
-    const/4 v2, 0x0
-
-    aput-object p1, v1, v2
-
-    const/4 v2, 0x1
-
-    aput-object p2, v1, v2
-
-    invoke-virtual {p0, v1, v0}, Lio/reactivex/Flowable;->withLatestFrom([Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
-
-    move-result-object v1
-
-    return-object v1
+    return-object p1
 .end method
 
 .method public final withLatestFrom(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function4;)Lio/reactivex/Flowable;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T1:",
@@ -24347,58 +22870,52 @@
         value = "none"
     .end annotation
 
-    .line 15855
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TT1;>;"
-    .local p2, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TT2;>;"
-    .local p3, "source3":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TT3;>;"
-    .local p4, "combiner":Lio/reactivex/functions/Function4;, "Lio/reactivex/functions/Function4<-TT;-TT1;-TT2;-TT3;TR;>;"
     const-string v0, "source1 is null"
 
+    .line 15855
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 15856
     const-string v0, "source2 is null"
 
+    .line 15856
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 15857
     const-string v0, "source3 is null"
 
+    .line 15857
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 15858
     invoke-static {p4}, Lio/reactivex/internal/functions/Functions;->toFunction(Lio/reactivex/functions/Function4;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p4
+
+    const/4 v0, 0x3
+
+    new-array v0, v0, [Lorg/reactivestreams/Publisher;
+
+    const/4 v1, 0x0
+
+    aput-object p1, v0, v1
+
+    const/4 p1, 0x1
+
+    aput-object p2, v0, p1
+
+    const/4 p1, 0x2
+
+    aput-object p3, v0, p1
 
     .line 15859
-    .local v0, "f":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<[Ljava/lang/Object;TR;>;"
-    const/4 v1, 0x3
+    invoke-virtual {p0, v0, p4}, Lio/reactivex/Flowable;->withLatestFrom([Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
 
-    new-array v1, v1, [Lorg/reactivestreams/Publisher;
+    move-result-object p1
 
-    const/4 v2, 0x0
-
-    aput-object p1, v1, v2
-
-    const/4 v2, 0x1
-
-    aput-object p2, v1, v2
-
-    const/4 v2, 0x2
-
-    aput-object p3, v1, v2
-
-    invoke-virtual {p0, v1, v0}, Lio/reactivex/Flowable;->withLatestFrom([Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
-
-    move-result-object v1
-
-    return-object v1
+    return-object p1
 .end method
 
 .method public final withLatestFrom(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function5;)Lio/reactivex/Flowable;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T1:",
@@ -24438,64 +22955,57 @@
         value = "none"
     .end annotation
 
-    .line 15899
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "source1":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TT1;>;"
-    .local p2, "source2":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TT2;>;"
-    .local p3, "source3":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TT3;>;"
-    .local p4, "source4":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TT4;>;"
-    .local p5, "combiner":Lio/reactivex/functions/Function5;, "Lio/reactivex/functions/Function5<-TT;-TT1;-TT2;-TT3;-TT4;TR;>;"
     const-string v0, "source1 is null"
 
+    .line 15899
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 15900
     const-string v0, "source2 is null"
 
+    .line 15900
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 15901
     const-string v0, "source3 is null"
 
+    .line 15901
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 15902
     const-string v0, "source4 is null"
 
+    .line 15902
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 15903
     invoke-static {p5}, Lio/reactivex/internal/functions/Functions;->toFunction(Lio/reactivex/functions/Function5;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p5
+
+    const/4 v0, 0x4
+
+    new-array v0, v0, [Lorg/reactivestreams/Publisher;
+
+    const/4 v1, 0x0
+
+    aput-object p1, v0, v1
+
+    const/4 p1, 0x1
+
+    aput-object p2, v0, p1
+
+    const/4 p1, 0x2
+
+    aput-object p3, v0, p1
+
+    const/4 p1, 0x3
+
+    aput-object p4, v0, p1
 
     .line 15904
-    .local v0, "f":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<[Ljava/lang/Object;TR;>;"
-    const/4 v1, 0x4
+    invoke-virtual {p0, v0, p5}, Lio/reactivex/Flowable;->withLatestFrom([Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
 
-    new-array v1, v1, [Lorg/reactivestreams/Publisher;
+    move-result-object p1
 
-    const/4 v2, 0x0
-
-    aput-object p1, v1, v2
-
-    const/4 v2, 0x1
-
-    aput-object p2, v1, v2
-
-    const/4 v2, 0x2
-
-    aput-object p3, v1, v2
-
-    const/4 v2, 0x3
-
-    aput-object p4, v1, v2
-
-    invoke-virtual {p0, v1, v0}, Lio/reactivex/Flowable;->withLatestFrom([Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
-
-    move-result-object v1
-
-    return-object v1
+    return-object p1
 .end method
 
 .method public final withLatestFrom([Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
@@ -24527,17 +23037,14 @@
         value = "none"
     .end annotation
 
-    .line 15934
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "others":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<*>;"
-    .local p2, "combiner":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-[Ljava/lang/Object;TR;>;"
     const-string v0, "others is null"
 
+    .line 15934
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 15935
     const-string v0, "combiner is null"
 
+    .line 15935
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 15936
@@ -24547,9 +23054,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final zipWith(Ljava/lang/Iterable;Lio/reactivex/functions/BiFunction;)Lio/reactivex/Flowable;
@@ -24581,17 +23088,14 @@
         value = "none"
     .end annotation
 
-    .line 16005
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "other":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TU;>;"
-    .local p2, "zipper":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-TT;-TU;+TR;>;"
     const-string v0, "other is null"
 
+    .line 16005
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 16006
     const-string v0, "zipper is null"
 
+    .line 16006
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 16007
@@ -24601,9 +23105,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final zipWith(Lorg/reactivestreams/Publisher;Lio/reactivex/functions/BiFunction;)Lio/reactivex/Flowable;
@@ -24635,25 +23139,21 @@
         value = "none"
     .end annotation
 
-    .line 16054
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TU;>;"
-    .local p2, "zipper":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-TT;-TU;+TR;>;"
     const-string v0, "other is null"
 
+    .line 16054
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 16055
     invoke-static {p0, p1, p2}, Lio/reactivex/Flowable;->zip(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/BiFunction;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final zipWith(Lorg/reactivestreams/Publisher;Lio/reactivex/functions/BiFunction;Z)Lio/reactivex/Flowable;
-    .locals 1
-    .param p3, "delayError"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<U:",
@@ -24682,20 +23182,15 @@
     .end annotation
 
     .line 16106
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TU;>;"
-    .local p2, "zipper":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-TT;-TU;+TR;>;"
     invoke-static {p0, p1, p2, p3}, Lio/reactivex/Flowable;->zip(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/BiFunction;Z)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final zipWith(Lorg/reactivestreams/Publisher;Lio/reactivex/functions/BiFunction;ZI)Lio/reactivex/Flowable;
-    .locals 1
-    .param p3, "delayError"    # Z
-    .param p4, "bufferSize"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<U:",
@@ -24724,12 +23219,9 @@
     .end annotation
 
     .line 16159
-    .local p0, "this":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p1, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TU;>;"
-    .local p2, "zipper":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-TT;-TU;+TR;>;"
     invoke-static {p0, p1, p2, p3, p4}, Lio/reactivex/Flowable;->zip(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/BiFunction;ZI)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

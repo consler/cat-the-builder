@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Lio/reactivex/Observer;Lio/reactivex/ObservableSource;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -48,19 +48,15 @@
     .end annotation
 
     .line 190
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainEmitLast;, "Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainEmitLast<TT;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
-    .local p2, "other":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<*>;"
     invoke-direct {p0, p1, p2}, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;-><init>(Lio/reactivex/Observer;Lio/reactivex/ObservableSource;)V
 
     .line 191
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainEmitLast;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainEmitLast;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    .line 192
     return-void
 .end method
 
@@ -69,10 +65,9 @@
 .method completeMain()V
     .locals 1
 
-    .line 196
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainEmitLast;, "Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainEmitLast<TT;>;"
     const/4 v0, 0x1
 
+    .line 196
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainEmitLast;->done:Z
 
     .line 197
@@ -92,7 +87,6 @@
 
     invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 201
     :cond_0
     return-void
 .end method
@@ -100,10 +94,9 @@
 .method completeOther()V
     .locals 1
 
-    .line 205
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainEmitLast;, "Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainEmitLast<TT;>;"
     const/4 v0, 0x1
 
+    .line 205
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainEmitLast;->done:Z
 
     .line 206
@@ -123,16 +116,14 @@
 
     invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 210
     :cond_0
     return-void
 .end method
 
 .method run()V
-    .locals 2
+    .locals 1
 
     .line 214
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainEmitLast;, "Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainEmitLast<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainEmitLast;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
@@ -146,22 +137,18 @@
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainEmitLast;->done:Z
 
     .line 217
-    .local v0, "d":Z
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainEmitLast;->emit()V
 
-    .line 218
     if-eqz v0, :cond_1
 
     .line 219
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainEmitLast;->actual:Lio/reactivex/Observer;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainEmitLast;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v1}, Lio/reactivex/Observer;->onComplete()V
+    invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 220
     return-void
 
     .line 222
-    .end local v0    # "d":Z
     :cond_1
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainEmitLast;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
@@ -171,7 +158,6 @@
 
     if-nez v0, :cond_0
 
-    .line 224
     :cond_2
     return-void
 .end method

@@ -10,8 +10,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/io/File;)V
     .locals 3
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "file"    # Ljava/io/File;
 
     .line 15
     invoke-virtual {p2}, Ljava/io/File;->length()J
@@ -31,7 +29,6 @@
     .line 23
     iput-object p2, p0, Lcom/koushikdutta/async/http/body/FilePart;->file:Ljava/io/File;
 
-    .line 24
     return-void
 .end method
 

@@ -14,19 +14,8 @@
 .end method
 
 .method public static build(Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;FFFFFFFFI)V
-    .locals 23
-    .param p0, "builder"    # Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;
-    .param p1, "x1"    # F
-    .param p2, "y1"    # F
-    .param p3, "z1"    # F
-    .param p4, "x2"    # F
-    .param p5, "y2"    # F
-    .param p6, "z2"    # F
-    .param p7, "capLength"    # F
-    .param p8, "stemThickness"    # F
-    .param p9, "divisions"    # I
+    .locals 17
 
-    .line 37
     move-object/from16 v0, p0
 
     move/from16 v1, p1
@@ -37,6 +26,7 @@
 
     move/from16 v4, p9
 
+    .line 37
     invoke-static {}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/ArrowShapeBuilder;->obtainV3()Lcom/badlogic/gdx/math/Vector3;
 
     move-result-object v5
@@ -45,7 +35,6 @@
 
     move-result-object v5
 
-    .local v5, "begin":Lcom/badlogic/gdx/math/Vector3;
     invoke-static {}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/ArrowShapeBuilder;->obtainV3()Lcom/badlogic/gdx/math/Vector3;
 
     move-result-object v6
@@ -61,328 +50,286 @@
     move-result-object v6
 
     .line 38
-    .local v6, "end":Lcom/badlogic/gdx/math/Vector3;
     invoke-virtual {v5, v6}, Lcom/badlogic/gdx/math/Vector3;->dst(Lcom/badlogic/gdx/math/Vector3;)F
 
-    move-result v10
+    move-result v7
 
-    .line 39
-    .local v10, "length":F
-    mul-float v11, v10, p7
+    mul-float v8, v7, p7
+
+    float-to-double v9, v8
+
+    const-wide v11, 0x3fd5555560000000L    # 0.3333333432674408
 
     .line 40
-    .local v11, "coneHeight":F
-    float-to-double v12, v11
+    invoke-static {v11, v12}, Ljava/lang/Math;->sqrt(D)D
 
-    const-wide v14, 0x3fd5555560000000L    # 0.3333333432674408
+    move-result-wide v11
 
-    invoke-static {v14, v15}, Ljava/lang/Math;->sqrt(D)D
+    mul-double/2addr v9, v11
 
-    move-result-wide v14
+    double-to-float v9, v9
 
-    mul-double/2addr v12, v14
+    const/high16 v10, 0x40000000    # 2.0f
 
-    double-to-float v12, v12
+    mul-float/2addr v9, v10
 
-    const/high16 v13, 0x40000000    # 2.0f
+    sub-float/2addr v7, v8
 
-    mul-float/2addr v12, v13
-
-    .line 41
-    .local v12, "coneDiameter":F
-    sub-float v14, v10, v11
-
-    .line 42
-    .local v14, "stemLength":F
-    mul-float v15, v12, p8
+    mul-float v11, v9, p8
 
     .line 44
-    .local v15, "stemDiameter":F
     invoke-static {}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/ArrowShapeBuilder;->obtainV3()Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v13
+    move-result-object v12
 
-    invoke-virtual {v13, v6}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v12, v6}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v13
+    move-result-object v12
 
-    invoke-virtual {v13, v5}, Lcom/badlogic/gdx/math/Vector3;->sub(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v12, v5}, Lcom/badlogic/gdx/math/Vector3;->sub(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v13
+    move-result-object v12
 
-    invoke-virtual {v13}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v12}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v13
+    move-result-object v12
 
     .line 45
-    .local v13, "up":Lcom/badlogic/gdx/math/Vector3;
     invoke-static {}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/ArrowShapeBuilder;->obtainV3()Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v7
+    move-result-object v13
 
-    invoke-virtual {v7, v13}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v13, v12}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v7
+    move-result-object v13
 
-    sget-object v8, Lcom/badlogic/gdx/math/Vector3;->Z:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v14, Lcom/badlogic/gdx/math/Vector3;->Z:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v7, v8}, Lcom/badlogic/gdx/math/Vector3;->crs(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v13, v14}, Lcom/badlogic/gdx/math/Vector3;->crs(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v7
+    move-result-object v13
 
     .line 46
-    .local v7, "forward":Lcom/badlogic/gdx/math/Vector3;
-    invoke-virtual {v7}, Lcom/badlogic/gdx/math/Vector3;->isZero()Z
+    invoke-virtual {v13}, Lcom/badlogic/gdx/math/Vector3;->isZero()Z
 
-    move-result v8
+    move-result v14
 
-    if-eqz v8, :cond_0
+    if-eqz v14, :cond_0
 
-    sget-object v8, Lcom/badlogic/gdx/math/Vector3;->X:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v14, Lcom/badlogic/gdx/math/Vector3;->X:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v7, v8}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v13, v14}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
     .line 47
     :cond_0
-    invoke-virtual {v7, v13}, Lcom/badlogic/gdx/math/Vector3;->crs(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v13, v12}, Lcom/badlogic/gdx/math/Vector3;->crs(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v8
+    move-result-object v14
 
-    invoke-virtual {v8}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v14}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
 
     .line 48
     invoke-static {}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/ArrowShapeBuilder;->obtainV3()Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v8
+    move-result-object v14
 
-    invoke-virtual {v8, v13}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v14, v12}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v8
+    move-result-object v14
 
-    invoke-virtual {v8, v7}, Lcom/badlogic/gdx/math/Vector3;->crs(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v14, v13}, Lcom/badlogic/gdx/math/Vector3;->crs(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v8
+    move-result-object v14
 
-    invoke-virtual {v8}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v14}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v8
+    move-result-object v14
 
     .line 49
-    .local v8, "left":Lcom/badlogic/gdx/math/Vector3;
     invoke-static {}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/ArrowShapeBuilder;->obtainV3()Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v9
+    move-result-object v15
 
-    invoke-virtual {v9, v6}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v15, v6}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v9
+    move-result-object v6
 
-    invoke-virtual {v9, v5}, Lcom/badlogic/gdx/math/Vector3;->sub(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v6, v5}, Lcom/badlogic/gdx/math/Vector3;->sub(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v9
+    move-result-object v5
 
-    invoke-virtual {v9}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v5}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v9
+    move-result-object v5
 
     .line 52
-    .local v9, "direction":Lcom/badlogic/gdx/math/Vector3;
-    move-object/from16 v17, v5
-
-    .end local v5    # "begin":Lcom/badlogic/gdx/math/Vector3;
-    .local v17, "begin":Lcom/badlogic/gdx/math/Vector3;
-    invoke-static {}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/ArrowShapeBuilder;->obtainM4()Lcom/badlogic/gdx/math/Matrix4;
-
-    move-result-object v5
-
-    invoke-interface {v0, v5}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->getVertexTransform(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Matrix4;
-
-    move-result-object v5
-
-    .line 53
-    .local v5, "userTransform":Lcom/badlogic/gdx/math/Matrix4;
-    move-object/from16 v18, v6
-
-    .end local v6    # "end":Lcom/badlogic/gdx/math/Vector3;
-    .local v18, "end":Lcom/badlogic/gdx/math/Vector3;
     invoke-static {}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/ArrowShapeBuilder;->obtainM4()Lcom/badlogic/gdx/math/Matrix4;
 
     move-result-object v6
 
-    .line 54
-    .local v6, "transform":Lcom/badlogic/gdx/math/Matrix4;
-    move/from16 v19, v10
+    invoke-interface {v0, v6}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->getVertexTransform(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Matrix4;
 
-    .end local v10    # "length":F
-    .local v19, "length":F
-    iget-object v10, v6, Lcom/badlogic/gdx/math/Matrix4;->val:[F
+    move-result-object v6
+
+    .line 53
+    invoke-static {}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/ArrowShapeBuilder;->obtainM4()Lcom/badlogic/gdx/math/Matrix4;
+
+    move-result-object v15
+
+    .line 54
+    iget-object v10, v15, Lcom/badlogic/gdx/math/Matrix4;->val:[F
+
+    const/16 v16, 0x0
+
+    move/from16 p5, v8
 
     .line 55
-    .local v10, "val":[F
-    const/16 v20, 0x0
+    iget v8, v14, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    move/from16 v21, v11
+    aput v8, v10, v16
 
-    .end local v11    # "coneHeight":F
-    .local v21, "coneHeight":F
-    iget v11, v8, Lcom/badlogic/gdx/math/Vector3;->x:F
+    const/4 v8, 0x4
 
-    aput v11, v10, v20
+    move/from16 p6, v9
 
     .line 56
-    const/4 v11, 0x4
+    iget v9, v12, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    move/from16 v20, v12
+    aput v9, v10, v8
 
-    .end local v12    # "coneDiameter":F
-    .local v20, "coneDiameter":F
-    iget v12, v13, Lcom/badlogic/gdx/math/Vector3;->x:F
-
-    aput v12, v10, v11
+    const/16 v8, 0x8
 
     .line 57
-    const/16 v11, 0x8
+    iget v9, v13, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    iget v12, v7, Lcom/badlogic/gdx/math/Vector3;->x:F
+    aput v9, v10, v8
 
-    aput v12, v10, v11
+    const/4 v8, 0x1
 
     .line 58
-    const/4 v11, 0x1
+    iget v9, v14, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    iget v12, v8, Lcom/badlogic/gdx/math/Vector3;->y:F
+    aput v9, v10, v8
 
-    aput v12, v10, v11
+    const/4 v8, 0x5
 
     .line 59
-    const/4 v11, 0x5
+    iget v9, v12, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    iget v12, v13, Lcom/badlogic/gdx/math/Vector3;->y:F
+    aput v9, v10, v8
 
-    aput v12, v10, v11
+    const/16 v8, 0x9
 
     .line 60
-    const/16 v11, 0x9
+    iget v9, v13, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    iget v12, v7, Lcom/badlogic/gdx/math/Vector3;->y:F
+    aput v9, v10, v8
 
-    aput v12, v10, v11
+    const/4 v8, 0x2
 
     .line 61
-    const/4 v11, 0x2
+    iget v9, v14, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    iget v12, v8, Lcom/badlogic/gdx/math/Vector3;->z:F
+    aput v9, v10, v8
 
-    aput v12, v10, v11
+    const/4 v8, 0x6
 
     .line 62
-    const/4 v11, 0x6
+    iget v9, v12, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    iget v12, v13, Lcom/badlogic/gdx/math/Vector3;->z:F
+    aput v9, v10, v8
 
-    aput v12, v10, v11
+    const/16 v8, 0xa
 
     .line 63
-    const/16 v11, 0xa
+    iget v9, v13, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    iget v12, v7, Lcom/badlogic/gdx/math/Vector3;->z:F
-
-    aput v12, v10, v11
+    aput v9, v10, v8
 
     .line 64
     invoke-static {}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/ArrowShapeBuilder;->obtainM4()Lcom/badlogic/gdx/math/Matrix4;
 
-    move-result-object v11
+    move-result-object v8
 
     .line 67
-    .local v11, "temp":Lcom/badlogic/gdx/math/Matrix4;
     invoke-static {}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/ArrowShapeBuilder;->obtainV3()Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v12
+    move-result-object v9
 
-    invoke-virtual {v12, v9}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v9, v5}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v12
+    move-result-object v9
 
-    move-object/from16 v22, v7
+    const/high16 v10, 0x40000000    # 2.0f
 
-    const/high16 v16, 0x40000000    # 2.0f
+    div-float v10, v7, v10
 
-    .end local v7    # "forward":Lcom/badlogic/gdx/math/Vector3;
-    .local v22, "forward":Lcom/badlogic/gdx/math/Vector3;
-    div-float v7, v14, v16
+    invoke-virtual {v9, v10}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v12, v7}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
+    move-result-object v9
 
-    move-result-object v7
+    invoke-virtual {v9, v1, v2, v3}, Lcom/badlogic/gdx/math/Vector3;->add(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v7, v1, v2, v3}, Lcom/badlogic/gdx/math/Vector3;->add(FFF)Lcom/badlogic/gdx/math/Vector3;
+    move-result-object v9
 
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Lcom/badlogic/gdx/math/Matrix4;->setTranslation(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Matrix4;
+    invoke-virtual {v15, v9}, Lcom/badlogic/gdx/math/Matrix4;->setTranslation(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Matrix4;
 
     .line 68
-    invoke-virtual {v11, v6}, Lcom/badlogic/gdx/math/Matrix4;->set(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Matrix4;
+    invoke-virtual {v8, v15}, Lcom/badlogic/gdx/math/Matrix4;->set(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Matrix4;
 
-    move-result-object v7
+    move-result-object v9
 
-    invoke-virtual {v7, v5}, Lcom/badlogic/gdx/math/Matrix4;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Matrix4;
+    invoke-virtual {v9, v6}, Lcom/badlogic/gdx/math/Matrix4;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Matrix4;
 
-    move-result-object v7
+    move-result-object v9
 
-    invoke-interface {v0, v7}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->setVertexTransform(Lcom/badlogic/gdx/math/Matrix4;)V
+    invoke-interface {v0, v9}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->setVertexTransform(Lcom/badlogic/gdx/math/Matrix4;)V
 
     .line 69
-    invoke-static {v0, v15, v14, v15, v4}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/CylinderShapeBuilder;->build(Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;FFFI)V
+    invoke-static {v0, v11, v7, v11, v4}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/CylinderShapeBuilder;->build(Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;FFFI)V
 
     .line 72
     invoke-static {}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/ArrowShapeBuilder;->obtainV3()Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v7
+    move-result-object v9
 
-    invoke-virtual {v7, v9}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v9, v5}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v7
+    move-result-object v5
 
-    invoke-virtual {v7, v14}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v5, v7}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v7
+    move-result-object v5
 
-    invoke-virtual {v7, v1, v2, v3}, Lcom/badlogic/gdx/math/Vector3;->add(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v5, v1, v2, v3}, Lcom/badlogic/gdx/math/Vector3;->add(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-virtual {v6, v7}, Lcom/badlogic/gdx/math/Matrix4;->setTranslation(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Matrix4;
+    invoke-virtual {v15, v1}, Lcom/badlogic/gdx/math/Matrix4;->setTranslation(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Matrix4;
 
     .line 73
-    invoke-virtual {v11, v6}, Lcom/badlogic/gdx/math/Matrix4;->set(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Matrix4;
+    invoke-virtual {v8, v15}, Lcom/badlogic/gdx/math/Matrix4;->set(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Matrix4;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-virtual {v7, v5}, Lcom/badlogic/gdx/math/Matrix4;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Matrix4;
+    invoke-virtual {v1, v6}, Lcom/badlogic/gdx/math/Matrix4;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Matrix4;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-interface {v0, v7}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->setVertexTransform(Lcom/badlogic/gdx/math/Matrix4;)V
+    invoke-interface {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->setVertexTransform(Lcom/badlogic/gdx/math/Matrix4;)V
+
+    move/from16 v7, p5
+
+    move/from16 v9, p6
 
     .line 74
-    move/from16 v12, v20
-
-    move/from16 v7, v21
-
-    .end local v20    # "coneDiameter":F
-    .end local v21    # "coneHeight":F
-    .local v7, "coneHeight":F
-    .restart local v12    # "coneDiameter":F
-    invoke-static {v0, v12, v7, v12, v4}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/ConeShapeBuilder;->build(Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;FFFI)V
+    invoke-static {v0, v9, v7, v9, v4}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/ConeShapeBuilder;->build(Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;FFFI)V
 
     .line 76
-    invoke-interface {v0, v5}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->setVertexTransform(Lcom/badlogic/gdx/math/Matrix4;)V
+    invoke-interface {v0, v6}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->setVertexTransform(Lcom/badlogic/gdx/math/Matrix4;)V
 
     .line 77
     invoke-static {}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/ArrowShapeBuilder;->freeAll()V
 
-    .line 78
     return-void
 .end method

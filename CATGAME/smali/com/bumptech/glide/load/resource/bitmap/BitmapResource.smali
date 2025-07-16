@@ -28,50 +28,43 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;)V
     .locals 1
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
-    .param p2, "bitmapPool"    # Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
 
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 34
     const-string v0, "Bitmap must not be null"
 
+    .line 34
     invoke-static {p1, v0}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/graphics/Bitmap;
+    check-cast p1, Landroid/graphics/Bitmap;
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/BitmapResource;->bitmap:Landroid/graphics/Bitmap;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/BitmapResource;->bitmap:Landroid/graphics/Bitmap;
+
+    const-string p1, "BitmapPool must not be null"
 
     .line 35
-    const-string v0, "BitmapPool must not be null"
+    invoke-static {p2, p1}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-static {p2, v0}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
+    check-cast p1, Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
 
-    check-cast v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/BitmapResource;->bitmapPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/BitmapResource;->bitmapPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
-
-    .line 36
     return-void
 .end method
 
 .method public static obtain(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;)Lcom/bumptech/glide/load/resource/bitmap/BitmapResource;
     .locals 1
-    .param p0, "bitmap"    # Landroid/graphics/Bitmap;
-    .param p1, "bitmapPool"    # Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
 
-    .line 26
     if-nez p0, :cond_0
 
-    .line 27
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
     .line 29
     :cond_0
@@ -142,7 +135,6 @@
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->prepareToDraw()V
 
-    .line 63
     return-void
 .end method
 
@@ -156,6 +148,5 @@
 
     invoke-interface {v0, v1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;->put(Landroid/graphics/Bitmap;)V
 
-    .line 58
     return-void
 .end method

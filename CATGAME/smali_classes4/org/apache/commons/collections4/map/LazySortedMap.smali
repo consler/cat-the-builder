@@ -40,12 +40,8 @@
     .end annotation
 
     .line 112
-    .local p0, "this":Lorg/apache/commons/collections4/map/LazySortedMap;, "Lorg/apache/commons/collections4/map/LazySortedMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
-    .local p2, "factory":Lorg/apache/commons/collections4/Factory;, "Lorg/apache/commons/collections4/Factory<+TV;>;"
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections4/map/LazyMap;-><init>(Ljava/util/Map;Lorg/apache/commons/collections4/Factory;)V
 
-    .line 113
     return-void
 .end method
 
@@ -62,12 +58,8 @@
     .end annotation
 
     .line 123
-    .local p0, "this":Lorg/apache/commons/collections4/map/LazySortedMap;, "Lorg/apache/commons/collections4/map/LazySortedMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
-    .local p2, "factory":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TK;+TV;>;"
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections4/map/LazyMap;-><init>(Ljava/util/Map;Lorg/apache/commons/collections4/Transformer;)V
 
-    .line 124
     return-void
 .end method
 
@@ -90,8 +82,6 @@
     .end annotation
 
     .line 84
-    .local p0, "map":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
-    .local p1, "factory":Lorg/apache/commons/collections4/Factory;, "Lorg/apache/commons/collections4/Factory<+TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/map/LazySortedMap;
 
     invoke-direct {v0, p0, p1}, Lorg/apache/commons/collections4/map/LazySortedMap;-><init>(Ljava/util/SortedMap;Lorg/apache/commons/collections4/Factory;)V
@@ -118,8 +108,6 @@
     .end annotation
 
     .line 100
-    .local p0, "map":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
-    .local p1, "factory":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TK;+TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/map/LazySortedMap;
 
     invoke-direct {v0, p0, p1}, Lorg/apache/commons/collections4/map/LazySortedMap;-><init>(Ljava/util/SortedMap;Lorg/apache/commons/collections4/Transformer;)V
@@ -140,7 +128,6 @@
     .end annotation
 
     .line 149
-    .local p0, "this":Lorg/apache/commons/collections4/map/LazySortedMap;, "Lorg/apache/commons/collections4/map/LazySortedMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/LazySortedMap;->getSortedMap()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -161,7 +148,6 @@
     .end annotation
 
     .line 139
-    .local p0, "this":Lorg/apache/commons/collections4/map/LazySortedMap;, "Lorg/apache/commons/collections4/map/LazySortedMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/LazySortedMap;->getSortedMap()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -184,7 +170,6 @@
     .end annotation
 
     .line 133
-    .local p0, "this":Lorg/apache/commons/collections4/map/LazySortedMap;, "Lorg/apache/commons/collections4/map/LazySortedMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/LazySortedMap;->map:Ljava/util/Map;
 
     check-cast v0, Ljava/util/SortedMap;
@@ -193,7 +178,7 @@
 .end method
 
 .method public headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",
@@ -203,25 +188,22 @@
     .end annotation
 
     .line 160
-    .local p0, "this":Lorg/apache/commons/collections4/map/LazySortedMap;, "Lorg/apache/commons/collections4/map/LazySortedMap<TK;TV;>;"
-    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/LazySortedMap;->getSortedMap()Ljava/util/SortedMap;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/SortedMap;->headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 161
-    .local v0, "map":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
-    new-instance v1, Lorg/apache/commons/collections4/map/LazySortedMap;
+    new-instance v0, Lorg/apache/commons/collections4/map/LazySortedMap;
 
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/LazySortedMap;->factory:Lorg/apache/commons/collections4/Transformer;
+    iget-object v1, p0, Lorg/apache/commons/collections4/map/LazySortedMap;->factory:Lorg/apache/commons/collections4/Transformer;
 
-    invoke-direct {v1, v0, v2}, Lorg/apache/commons/collections4/map/LazySortedMap;-><init>(Ljava/util/SortedMap;Lorg/apache/commons/collections4/Transformer;)V
+    invoke-direct {v0, p1, v1}, Lorg/apache/commons/collections4/map/LazySortedMap;-><init>(Ljava/util/SortedMap;Lorg/apache/commons/collections4/Transformer;)V
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public lastKey()Ljava/lang/Object;
@@ -233,7 +215,6 @@
     .end annotation
 
     .line 144
-    .local p0, "this":Lorg/apache/commons/collections4/map/LazySortedMap;, "Lorg/apache/commons/collections4/map/LazySortedMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/LazySortedMap;->getSortedMap()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -246,7 +227,7 @@
 .end method
 
 .method public subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TK;)",
@@ -256,30 +237,26 @@
     .end annotation
 
     .line 154
-    .local p0, "this":Lorg/apache/commons/collections4/map/LazySortedMap;, "Lorg/apache/commons/collections4/map/LazySortedMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
-    .local p2, "toKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/LazySortedMap;->getSortedMap()Ljava/util/SortedMap;
 
     move-result-object v0
 
     invoke-interface {v0, p1, p2}, Ljava/util/SortedMap;->subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 155
-    .local v0, "map":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
-    new-instance v1, Lorg/apache/commons/collections4/map/LazySortedMap;
+    new-instance p2, Lorg/apache/commons/collections4/map/LazySortedMap;
 
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/LazySortedMap;->factory:Lorg/apache/commons/collections4/Transformer;
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/LazySortedMap;->factory:Lorg/apache/commons/collections4/Transformer;
 
-    invoke-direct {v1, v0, v2}, Lorg/apache/commons/collections4/map/LazySortedMap;-><init>(Ljava/util/SortedMap;Lorg/apache/commons/collections4/Transformer;)V
+    invoke-direct {p2, p1, v0}, Lorg/apache/commons/collections4/map/LazySortedMap;-><init>(Ljava/util/SortedMap;Lorg/apache/commons/collections4/Transformer;)V
 
-    return-object v1
+    return-object p2
 .end method
 
 .method public tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",
@@ -289,23 +266,20 @@
     .end annotation
 
     .line 166
-    .local p0, "this":Lorg/apache/commons/collections4/map/LazySortedMap;, "Lorg/apache/commons/collections4/map/LazySortedMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/LazySortedMap;->getSortedMap()Ljava/util/SortedMap;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/SortedMap;->tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 167
-    .local v0, "map":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
-    new-instance v1, Lorg/apache/commons/collections4/map/LazySortedMap;
+    new-instance v0, Lorg/apache/commons/collections4/map/LazySortedMap;
 
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/LazySortedMap;->factory:Lorg/apache/commons/collections4/Transformer;
+    iget-object v1, p0, Lorg/apache/commons/collections4/map/LazySortedMap;->factory:Lorg/apache/commons/collections4/Transformer;
 
-    invoke-direct {v1, v0, v2}, Lorg/apache/commons/collections4/map/LazySortedMap;-><init>(Ljava/util/SortedMap;Lorg/apache/commons/collections4/Transformer;)V
+    invoke-direct {v0, p1, v1}, Lorg/apache/commons/collections4/map/LazySortedMap;-><init>(Ljava/util/SortedMap;Lorg/apache/commons/collections4/Transformer;)V
 
-    return-object v1
+    return-object v0
 .end method

@@ -45,7 +45,6 @@
 
 .method synthetic constructor <init>(Lcom/koushikdutta/async/http/spdy/SpdyMiddleware$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/koushikdutta/async/http/spdy/SpdyMiddleware$1;
 
     .line 132
     invoke-direct {p0}, Lcom/koushikdutta/async/http/spdy/SpdyMiddleware$SpdyConnectionWaiter;-><init>()V

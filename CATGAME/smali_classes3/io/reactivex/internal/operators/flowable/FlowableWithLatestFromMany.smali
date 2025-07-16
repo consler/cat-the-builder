@@ -61,7 +61,7 @@
 
 # direct methods
 .method public constructor <init>(Lio/reactivex/Flowable;Ljava/lang/Iterable;Lio/reactivex/functions/Function;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -79,16 +79,12 @@
     .end annotation
 
     .line 54
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany;, "Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany<TT;TR;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p2, "otherIterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lorg/reactivestreams/Publisher<*>;>;"
-    .local p3, "combiner":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-[Ljava/lang/Object;TR;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
-    .line 55
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany;->otherArray:[Lorg/reactivestreams/Publisher;
+    .line 55
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany;->otherArray:[Lorg/reactivestreams/Publisher;
 
     .line 56
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany;->otherIterable:Ljava/lang/Iterable;
@@ -96,12 +92,11 @@
     .line 57
     iput-object p3, p0, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany;->combiner:Lio/reactivex/functions/Function;
 
-    .line 58
     return-void
 .end method
 
 .method public constructor <init>(Lio/reactivex/Flowable;[Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -117,24 +112,19 @@
     .end annotation
 
     .line 47
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany;, "Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany<TT;TR;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p2, "otherArray":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<*>;"
-    .local p3, "combiner":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-[Ljava/lang/Object;TR;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
     .line 48
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany;->otherArray:[Lorg/reactivestreams/Publisher;
 
-    .line 49
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany;->otherIterable:Ljava/lang/Iterable;
+    .line 49
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany;->otherIterable:Ljava/lang/Iterable;
 
     .line 50
     iput-object p3, p0, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany;->combiner:Lio/reactivex/functions/Function;
 
-    .line 51
     return-void
 .end method
 
@@ -151,158 +141,116 @@
     .end annotation
 
     .line 62
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany;, "Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany<TT;TR;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany;->otherArray:[Lorg/reactivestreams/Publisher;
 
-    .line 63
-    .local v0, "others":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<*>;"
-    const/4 v1, 0x0
+    if-nez v0, :cond_1
 
-    .line 64
-    .local v1, "n":I
-    if-nez v0, :cond_2
+    const/16 v0, 0x8
 
-    .line 65
-    const/16 v2, 0x8
-
-    new-array v0, v2, [Lorg/reactivestreams/Publisher;
+    new-array v0, v0, [Lorg/reactivestreams/Publisher;
 
     .line 68
     :try_start_0
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany;->otherIterable:Ljava/lang/Iterable;
+    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany;->otherIterable:Ljava/lang/Iterable;
 
-    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v1
 
-    .local v2, "i$":Ljava/util/Iterator;
+    const/4 v2, 0x0
+
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Lorg/reactivestreams/Publisher;
 
     .line 69
-    .local v3, "p":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<*>;"
     array-length v4, v0
 
-    if-ne v1, v4, :cond_0
+    if-ne v2, v4, :cond_0
+
+    shr-int/lit8 v4, v2, 0x1
+
+    add-int/2addr v4, v2
 
     .line 70
-    shr-int/lit8 v4, v1, 0x1
-
-    add-int/2addr v4, v1
-
     invoke-static {v0, v4}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v0
 
-    check-cast v4, [Lorg/reactivestreams/Publisher;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    check-cast v0, [Lorg/reactivestreams/Publisher;
 
-    move-object v0, v4
+    :cond_0
+    add-int/lit8 v4, v2, 0x1
 
     .line 72
-    :cond_0
-    add-int/lit8 v4, v1, 0x1
+    aput-object v3, v0, v2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .end local v1    # "n":I
-    .local v4, "n":I
-    :try_start_1
-    aput-object v3, v0, v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    .line 73
-    .end local v3    # "p":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<*>;"
-    move v1, v4
+    move v2, v4
 
     goto :goto_0
 
-    .line 74
-    .end local v2    # "i$":Ljava/util/Iterator;
     :catchall_0
-    move-exception v2
-
-    move v1, v4
-
-    goto :goto_1
-
-    .line 78
-    .end local v4    # "n":I
-    .restart local v1    # "n":I
-    :cond_1
-    goto :goto_2
-
-    .line 74
-    :catchall_1
-    move-exception v2
+    move-exception v0
 
     .line 75
-    .local v2, "ex":Ljava/lang/Throwable;
-    :goto_1
-    invoke-static {v2}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 76
-    invoke-static {v2, p1}, Lio/reactivex/internal/subscriptions/EmptySubscription;->error(Ljava/lang/Throwable;Lorg/reactivestreams/Subscriber;)V
+    invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/EmptySubscription;->error(Ljava/lang/Throwable;Lorg/reactivestreams/Subscriber;)V
 
-    .line 77
     return-void
 
     .line 81
-    .end local v2    # "ex":Ljava/lang/Throwable;
-    :cond_2
-    array-length v1, v0
+    :cond_1
+    array-length v2, v0
 
-    .line 84
-    :goto_2
-    if-nez v1, :cond_3
+    :cond_2
+    if-nez v2, :cond_3
 
     .line 85
-    new-instance v2, Lio/reactivex/internal/operators/flowable/FlowableMap;
+    new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableMap;
 
-    iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany;->source:Lio/reactivex/Flowable;
+    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany;->source:Lio/reactivex/Flowable;
 
-    new-instance v4, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany$SingletonArrayFunc;
+    new-instance v2, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany$SingletonArrayFunc;
 
-    invoke-direct {v4, p0}, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany$SingletonArrayFunc;-><init>(Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany;)V
+    invoke-direct {v2, p0}, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany$SingletonArrayFunc;-><init>(Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany;)V
 
-    invoke-direct {v2, v3, v4}, Lio/reactivex/internal/operators/flowable/FlowableMap;-><init>(Lio/reactivex/Flowable;Lio/reactivex/functions/Function;)V
+    invoke-direct {v0, v1, v2}, Lio/reactivex/internal/operators/flowable/FlowableMap;-><init>(Lio/reactivex/Flowable;Lio/reactivex/functions/Function;)V
 
-    invoke-virtual {v2, p1}, Lio/reactivex/internal/operators/flowable/FlowableMap;->subscribeActual(Lorg/reactivestreams/Subscriber;)V
+    invoke-virtual {v0, p1}, Lio/reactivex/internal/operators/flowable/FlowableMap;->subscribeActual(Lorg/reactivestreams/Subscriber;)V
 
-    .line 86
     return-void
 
     .line 89
     :cond_3
-    new-instance v2, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany$WithLatestFromSubscriber;
+    new-instance v1, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany$WithLatestFromSubscriber;
 
     iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany;->combiner:Lio/reactivex/functions/Function;
 
-    invoke-direct {v2, p1, v3, v1}, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany$WithLatestFromSubscriber;-><init>(Lorg/reactivestreams/Subscriber;Lio/reactivex/functions/Function;I)V
+    invoke-direct {v1, p1, v3, v2}, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany$WithLatestFromSubscriber;-><init>(Lorg/reactivestreams/Subscriber;Lio/reactivex/functions/Function;I)V
 
     .line 90
-    .local v2, "parent":Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany$WithLatestFromSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany$WithLatestFromSubscriber<TT;TR;>;"
-    invoke-interface {p1, v2}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
+    invoke-interface {p1, v1}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
     .line 91
-    invoke-virtual {v2, v0, v1}, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany$WithLatestFromSubscriber;->subscribe([Lorg/reactivestreams/Publisher;I)V
+    invoke-virtual {v1, v0, v2}, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany$WithLatestFromSubscriber;->subscribe([Lorg/reactivestreams/Publisher;I)V
 
     .line 93
-    iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany;->source:Lio/reactivex/Flowable;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany;->source:Lio/reactivex/Flowable;
 
-    invoke-virtual {v3, v2}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
+    invoke-virtual {p1, v1}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 94
     return-void
 .end method

@@ -1,5 +1,6 @@
 .class synthetic Lcom/huawei/hms/framework/common/Logger$1;
 .super Ljava/lang/Object;
+.source "Logger.java"
 
 
 # annotations

@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/reactivestreams/Subscriber;Lorg/reactivestreams/Publisher;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -48,19 +48,15 @@
     .end annotation
 
     .line 207
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainEmitLast;, "Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainEmitLast<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
-    .local p2, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<*>;"
     invoke-direct {p0, p1, p2}, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;-><init>(Lorg/reactivestreams/Subscriber;Lorg/reactivestreams/Publisher;)V
 
     .line 208
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainEmitLast;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainEmitLast;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    .line 209
     return-void
 .end method
 
@@ -69,10 +65,9 @@
 .method completeMain()V
     .locals 1
 
-    .line 213
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainEmitLast;, "Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainEmitLast<TT;>;"
     const/4 v0, 0x1
 
+    .line 213
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainEmitLast;->done:Z
 
     .line 214
@@ -92,7 +87,6 @@
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 218
     :cond_0
     return-void
 .end method
@@ -100,10 +94,9 @@
 .method completeOther()V
     .locals 1
 
-    .line 222
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainEmitLast;, "Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainEmitLast<TT;>;"
     const/4 v0, 0x1
 
+    .line 222
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainEmitLast;->done:Z
 
     .line 223
@@ -123,16 +116,14 @@
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 227
     :cond_0
     return-void
 .end method
 
 .method run()V
-    .locals 2
+    .locals 1
 
     .line 231
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainEmitLast;, "Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainEmitLast<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainEmitLast;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
@@ -146,22 +137,18 @@
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainEmitLast;->done:Z
 
     .line 234
-    .local v0, "d":Z
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainEmitLast;->emit()V
 
-    .line 235
     if-eqz v0, :cond_1
 
     .line 236
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainEmitLast;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainEmitLast;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v1}, Lorg/reactivestreams/Subscriber;->onComplete()V
+    invoke-interface {v0}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 237
     return-void
 
     .line 239
-    .end local v0    # "d":Z
     :cond_1
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainEmitLast;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
@@ -171,7 +158,6 @@
 
     if-nez v0, :cond_0
 
-    .line 241
     :cond_2
     return-void
 .end method

@@ -40,7 +40,7 @@
 
 # direct methods
 .method protected constructor <init>(Ljava/util/Collection;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,11 +50,8 @@
     .end annotation
 
     .line 73
-    .local p0, "this":Lorg/apache/commons/collections4/collection/SynchronizedCollection;, "Lorg/apache/commons/collections4/collection/SynchronizedCollection<TE;>;"
-    .local p1, "collection":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 74
     if-eqz p1, :cond_0
 
     .line 77
@@ -63,23 +60,21 @@
     .line 78
     iput-object p0, p0, Lorg/apache/commons/collections4/collection/SynchronizedCollection;->lock:Ljava/lang/Object;
 
-    .line 79
     return-void
 
     .line 75
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "Collection must not be null."
+    const-string v0, "Collection must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method protected constructor <init>(Ljava/util/Collection;Ljava/lang/Object;)V
-    .locals 2
-    .param p2, "lock"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -91,14 +86,10 @@
     .end annotation
 
     .line 88
-    .local p0, "this":Lorg/apache/commons/collections4/collection/SynchronizedCollection;, "Lorg/apache/commons/collections4/collection/SynchronizedCollection<TE;>;"
-    .local p1, "collection":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 89
     if-eqz p1, :cond_1
 
-    .line 92
     if-eqz p2, :cond_0
 
     .line 95
@@ -107,28 +98,27 @@
     .line 96
     iput-object p2, p0, Lorg/apache/commons/collections4/collection/SynchronizedCollection;->lock:Ljava/lang/Object;
 
-    .line 97
     return-void
 
     .line 93
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "Lock must not be null."
+    const-string p2, "Lock must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 90
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "Collection must not be null."
+    const-string p2, "Collection must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public static synchronizedCollection(Ljava/util/Collection;)Lorg/apache/commons/collections4/collection/SynchronizedCollection;
@@ -146,7 +136,6 @@
     .end annotation
 
     .line 63
-    .local p0, "coll":Ljava/util/Collection;, "Ljava/util/Collection<TT;>;"
     new-instance v0, Lorg/apache/commons/collections4/collection/SynchronizedCollection;
 
     invoke-direct {v0, p0}, Lorg/apache/commons/collections4/collection/SynchronizedCollection;-><init>(Ljava/util/Collection;)V
@@ -165,8 +154,6 @@
     .end annotation
 
     .line 112
-    .local p0, "this":Lorg/apache/commons/collections4/collection/SynchronizedCollection;, "Lorg/apache/commons/collections4/collection/SynchronizedCollection<TE;>;"
-    .local p1, "object":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Lorg/apache/commons/collections4/collection/SynchronizedCollection;->lock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -179,21 +166,21 @@
 
     invoke-interface {v1, p1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
     monitor-exit v0
 
-    return v1
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 114
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
@@ -207,8 +194,6 @@
     .end annotation
 
     .line 119
-    .local p0, "this":Lorg/apache/commons/collections4/collection/SynchronizedCollection;, "Lorg/apache/commons/collections4/collection/SynchronizedCollection<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<+TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/collection/SynchronizedCollection;->lock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -221,28 +206,27 @@
 
     invoke-interface {v1, p1}, Ljava/util/Collection;->addAll(Ljava/util/Collection;)Z
 
-    move-result v1
+    move-result p1
 
     monitor-exit v0
 
-    return v1
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 121
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public clear()V
     .locals 2
 
     .line 126
-    .local p0, "this":Lorg/apache/commons/collections4/collection/SynchronizedCollection;, "Lorg/apache/commons/collections4/collection/SynchronizedCollection<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/collection/SynchronizedCollection;->lock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -258,10 +242,8 @@
     .line 128
     monitor-exit v0
 
-    .line 129
     return-void
 
-    .line 128
     :catchall_0
     move-exception v1
 
@@ -274,10 +256,8 @@
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "object"    # Ljava/lang/Object;
 
     .line 133
-    .local p0, "this":Lorg/apache/commons/collections4/collection/SynchronizedCollection;, "Lorg/apache/commons/collections4/collection/SynchronizedCollection<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/collection/SynchronizedCollection;->lock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -290,21 +270,21 @@
 
     invoke-interface {v1, p1}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
     monitor-exit v0
 
-    return v1
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 135
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public containsAll(Ljava/util/Collection;)Z
@@ -318,8 +298,6 @@
     .end annotation
 
     .line 140
-    .local p0, "this":Lorg/apache/commons/collections4/collection/SynchronizedCollection;, "Lorg/apache/commons/collections4/collection/SynchronizedCollection<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/collection/SynchronizedCollection;->lock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -332,21 +310,21 @@
 
     invoke-interface {v1, p1}, Ljava/util/Collection;->containsAll(Ljava/util/Collection;)Z
 
-    move-result v1
+    move-result p1
 
     monitor-exit v0
 
-    return v1
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 142
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method protected decorated()Ljava/util/Collection;
@@ -360,7 +338,6 @@
     .end annotation
 
     .line 105
-    .local p0, "this":Lorg/apache/commons/collections4/collection/SynchronizedCollection;, "Lorg/apache/commons/collections4/collection/SynchronizedCollection<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/collection/SynchronizedCollection;->collection:Ljava/util/Collection;
 
     return-object v0
@@ -368,15 +345,12 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .param p1, "object"    # Ljava/lang/Object;
 
     .line 222
-    .local p0, "this":Lorg/apache/commons/collections4/collection/SynchronizedCollection;, "Lorg/apache/commons/collections4/collection/SynchronizedCollection<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/collection/SynchronizedCollection;->lock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 223
     const/4 v1, 0x1
 
     if-ne p1, p0, :cond_0
@@ -387,25 +361,24 @@
 
     return v1
 
-    .line 227
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     goto :goto_1
 
-    .line 226
     :cond_0
     if-eq p1, p0, :cond_2
 
+    .line 226
     invoke-virtual {p0}, Lorg/apache/commons/collections4/collection/SynchronizedCollection;->decorated()Ljava/util/Collection;
 
     move-result-object v2
 
     invoke-interface {v2, p1}, Ljava/util/Collection;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_1
+    if-eqz p1, :cond_1
 
     goto :goto_0
 
@@ -424,14 +397,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public hashCode()I
     .locals 2
 
     .line 232
-    .local p0, "this":Lorg/apache/commons/collections4/collection/SynchronizedCollection;, "Lorg/apache/commons/collections4/collection/SynchronizedCollection<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/collection/SynchronizedCollection;->lock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -450,10 +422,10 @@
 
     return v1
 
-    .line 234
     :catchall_0
     move-exception v1
 
+    .line 234
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -465,7 +437,6 @@
     .locals 2
 
     .line 147
-    .local p0, "this":Lorg/apache/commons/collections4/collection/SynchronizedCollection;, "Lorg/apache/commons/collections4/collection/SynchronizedCollection<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/collection/SynchronizedCollection;->lock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -484,10 +455,10 @@
 
     return v1
 
-    .line 149
     :catchall_0
     move-exception v1
 
+    .line 149
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -506,7 +477,6 @@
     .end annotation
 
     .line 165
-    .local p0, "this":Lorg/apache/commons/collections4/collection/SynchronizedCollection;, "Lorg/apache/commons/collections4/collection/SynchronizedCollection<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/collection/SynchronizedCollection;->decorated()Ljava/util/Collection;
 
     move-result-object v0
@@ -520,10 +490,8 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "object"    # Ljava/lang/Object;
 
     .line 184
-    .local p0, "this":Lorg/apache/commons/collections4/collection/SynchronizedCollection;, "Lorg/apache/commons/collections4/collection/SynchronizedCollection<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/collection/SynchronizedCollection;->lock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -536,21 +504,21 @@
 
     invoke-interface {v1, p1}, Ljava/util/Collection;->remove(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
     monitor-exit v0
 
-    return v1
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 186
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
@@ -564,8 +532,6 @@
     .end annotation
 
     .line 201
-    .local p0, "this":Lorg/apache/commons/collections4/collection/SynchronizedCollection;, "Lorg/apache/commons/collections4/collection/SynchronizedCollection<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/collection/SynchronizedCollection;->lock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -578,21 +544,21 @@
 
     invoke-interface {v1, p1}, Ljava/util/Collection;->removeAll(Ljava/util/Collection;)Z
 
-    move-result v1
+    move-result p1
 
     monitor-exit v0
 
-    return v1
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 203
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public removeIf(Ljava/util/function/Predicate;)Z
@@ -606,8 +572,6 @@
     .end annotation
 
     .line 194
-    .local p0, "this":Lorg/apache/commons/collections4/collection/SynchronizedCollection;, "Lorg/apache/commons/collections4/collection/SynchronizedCollection<TE;>;"
-    .local p1, "filter":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<-TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/collection/SynchronizedCollection;->lock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -620,21 +584,21 @@
 
     invoke-interface {v1, p1}, Ljava/util/Collection;->removeIf(Ljava/util/function/Predicate;)Z
 
-    move-result v1
+    move-result p1
 
     monitor-exit v0
 
-    return v1
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 196
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
@@ -648,8 +612,6 @@
     .end annotation
 
     .line 208
-    .local p0, "this":Lorg/apache/commons/collections4/collection/SynchronizedCollection;, "Lorg/apache/commons/collections4/collection/SynchronizedCollection<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/collection/SynchronizedCollection;->lock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -662,28 +624,27 @@
 
     invoke-interface {v1, p1}, Ljava/util/Collection;->retainAll(Ljava/util/Collection;)Z
 
-    move-result v1
+    move-result p1
 
     monitor-exit v0
 
-    return v1
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 210
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public size()I
     .locals 2
 
     .line 215
-    .local p0, "this":Lorg/apache/commons/collections4/collection/SynchronizedCollection;, "Lorg/apache/commons/collections4/collection/SynchronizedCollection<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/collection/SynchronizedCollection;->lock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -702,10 +663,10 @@
 
     return v1
 
-    .line 217
     :catchall_0
     move-exception v1
 
+    .line 217
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -717,7 +678,6 @@
     .locals 2
 
     .line 170
-    .local p0, "this":Lorg/apache/commons/collections4/collection/SynchronizedCollection;, "Lorg/apache/commons/collections4/collection/SynchronizedCollection<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/collection/SynchronizedCollection;->lock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -736,10 +696,10 @@
 
     return-object v1
 
-    .line 172
     :catchall_0
     move-exception v1
 
+    .line 172
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -758,8 +718,6 @@
     .end annotation
 
     .line 177
-    .local p0, "this":Lorg/apache/commons/collections4/collection/SynchronizedCollection;, "Lorg/apache/commons/collections4/collection/SynchronizedCollection<TE;>;"
-    .local p1, "object":[Ljava/lang/Object;, "[TT;"
     iget-object v0, p0, Lorg/apache/commons/collections4/collection/SynchronizedCollection;->lock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -772,28 +730,27 @@
 
     invoke-interface {v1, p1}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
     monitor-exit v0
 
-    return-object v1
+    return-object p1
+
+    :catchall_0
+    move-exception p1
 
     .line 179
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 2
 
     .line 239
-    .local p0, "this":Lorg/apache/commons/collections4/collection/SynchronizedCollection;, "Lorg/apache/commons/collections4/collection/SynchronizedCollection<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/collection/SynchronizedCollection;->lock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -812,10 +769,10 @@
 
     return-object v1
 
-    .line 241
     :catchall_0
     move-exception v1
 
+    .line 241
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0

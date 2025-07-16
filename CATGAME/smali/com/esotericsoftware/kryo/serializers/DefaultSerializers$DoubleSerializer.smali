@@ -35,9 +35,7 @@
 
 # virtual methods
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Double;
-    .locals 2
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -52,16 +50,15 @@
     .end annotation
 
     .line 151
-    .local p3, "type":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/lang/Double;>;"
     invoke-virtual {p2}, Lcom/esotericsoftware/kryo/io/Input;->readDouble()D
 
-    move-result-wide v0
+    move-result-wide p1
 
-    invoke-static {v0, v1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+    invoke-static {p1, p2}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
@@ -77,9 +74,6 @@
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Double;)V
     .locals 2
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p3, "object"    # Ljava/lang/Double;
 
     .line 147
     invoke-virtual {p3}, Ljava/lang/Double;->doubleValue()D
@@ -88,7 +82,6 @@
 
     invoke-virtual {p2, v0, v1}, Lcom/esotericsoftware/kryo/io/Output;->writeDouble(D)V
 
-    .line 148
     return-void
 .end method
 

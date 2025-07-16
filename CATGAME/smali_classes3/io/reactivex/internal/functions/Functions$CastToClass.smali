@@ -53,14 +53,11 @@
     .end annotation
 
     .line 216
-    .local p0, "this":Lio/reactivex/internal/functions/Functions$CastToClass;, "Lio/reactivex/internal/functions/Functions$CastToClass<TT;TU;>;"
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<TU;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 217
     iput-object p1, p0, Lio/reactivex/internal/functions/Functions$CastToClass;->clazz:Ljava/lang/Class;
 
-    .line 218
     return-void
 .end method
 
@@ -81,13 +78,11 @@
     .end annotation
 
     .line 222
-    .local p0, "this":Lio/reactivex/internal/functions/Functions$CastToClass;, "Lio/reactivex/internal/functions/Functions$CastToClass<TT;TU;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/functions/Functions$CastToClass;->clazz:Ljava/lang/Class;
 
     invoke-virtual {v0, p1}, Ljava/lang/Class;->cast(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/Window;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
     .line 73
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
@@ -35,8 +34,6 @@
 # virtual methods
 .method public draw(Lcom/badlogic/gdx/graphics/g2d/Batch;F)V
     .locals 1
-    .param p1, "batch"    # Lcom/badlogic/gdx/graphics/g2d/Batch;
-    .param p2, "parentAlpha"    # F
 
     .line 75
     iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
@@ -47,7 +44,6 @@
 
     invoke-super {p0, p1, p2}, Lcom/badlogic/gdx/scenes/scene2d/ui/Table;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;F)V
 
-    .line 76
     :cond_0
     return-void
 .end method

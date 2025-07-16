@@ -30,7 +30,6 @@
     .locals 1
 
     .line 523
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$DescendingEntrySet;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TK;TV;>.DescendingEntrySet;"
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$DescendingEntrySet;->this$0:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
 
     const/4 v0, 0x0
@@ -42,11 +41,8 @@
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
-    .param p2, "x1"    # Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$1;
 
     .line 523
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$DescendingEntrySet;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TK;TV;>.DescendingEntrySet;"
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$DescendingEntrySet;-><init>(Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;)V
 
     return-void
@@ -66,7 +62,6 @@
     .end annotation
 
     .line 526
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$DescendingEntrySet;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TK;TV;>.DescendingEntrySet;"
     new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$DescendingEntryIterator;
 
     iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$DescendingEntrySet;->this$0:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;

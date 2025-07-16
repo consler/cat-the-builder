@@ -17,10 +17,7 @@
 .end method
 
 .method private static getSerializedSizeLite(ILjava/lang/Object;Ljava/lang/Object;)I
-    .locals 7
-    .param p0, "fieldNumber"    # I
-    .param p1, "mapField"    # Ljava/lang/Object;
-    .param p2, "defaultEntry"    # Ljava/lang/Object;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -35,85 +32,68 @@
     .end annotation
 
     .line 95
-    move-object v0, p1
-
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;
 
     .line 96
-    .local v0, "mapFieldLite":Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;, "Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite<TK;TV;>;"
-    move-object v1, p2
-
-    check-cast v1, Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite;
+    check-cast p2, Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite;
 
     .line 98
-    .local v1, "defaultEntryLite":Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite;, "Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite<TK;TV;>;"
-    invoke-virtual {v0}, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;->isEmpty()Z
+    invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;->isEmpty()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    const/4 v1, 0x0
 
-    .line 99
-    const/4 v2, 0x0
+    if-eqz v0, :cond_0
 
-    return v2
-
-    .line 101
-    :cond_0
-    const/4 v2, 0x0
+    return v1
 
     .line 102
-    .local v2, "size":I
-    invoke-virtual {v0}, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;->entrySet()Ljava/util/Set;
+    :cond_0
+    invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;->entrySet()Ljava/util/Set;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-interface {v3}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_1
+    if-eqz v0, :cond_1
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v0
 
-    check-cast v4, Ljava/util/Map$Entry;
+    check-cast v0, Ljava/util/Map$Entry;
 
     .line 103
-    .local v4, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    invoke-interface {v4}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v2
 
-    invoke-interface {v4}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v0
 
-    invoke-virtual {v1, p0, v5, v6}, Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite;->computeMessageSize(ILjava/lang/Object;Ljava/lang/Object;)I
+    invoke-virtual {p2, p0, v2, v0}, Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite;->computeMessageSize(ILjava/lang/Object;Ljava/lang/Object;)I
 
-    move-result v5
+    move-result v0
 
-    add-int/2addr v2, v5
+    add-int/2addr v1, v0
 
-    .line 104
-    .end local v4    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     goto :goto_0
 
-    .line 105
     :cond_1
-    return v2
+    return v1
 .end method
 
 .method private static mergeFromLite(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;
-    .locals 3
-    .param p0, "destMapField"    # Ljava/lang/Object;
-    .param p1, "srcMapField"    # Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -130,50 +110,42 @@
     .end annotation
 
     .line 76
-    move-object v0, p0
-
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;
+    check-cast p0, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;
 
     .line 77
-    .local v0, "mine":Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;, "Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite<TK;TV;>;"
-    move-object v1, p1
-
-    check-cast v1, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;
 
     .line 78
-    .local v1, "other":Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;, "Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite<TK;TV;>;"
-    invoke-virtual {v1}, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;->isEmpty()Z
+    invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;->isEmpty()Z
 
-    move-result v2
+    move-result v0
 
-    if-nez v2, :cond_1
+    if-nez v0, :cond_1
 
     .line 79
-    invoke-virtual {v0}, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;->isMutable()Z
+    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;->isMutable()Z
 
-    move-result v2
+    move-result v0
 
-    if-nez v2, :cond_0
+    if-nez v0, :cond_0
 
     .line 80
-    invoke-virtual {v0}, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;->mutableCopy()Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;
+    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;->mutableCopy()Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 82
     :cond_0
-    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;->mergeFrom(Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;)V
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;->mergeFrom(Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;)V
 
-    .line 84
     :cond_1
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public forMapData(Ljava/lang/Object;)Ljava/util/Map;
-    .locals 1
-    .param p1, "mapField"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -185,16 +157,13 @@
     .end annotation
 
     .line 50
-    move-object v0, p1
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public forMapMetadata(Ljava/lang/Object;)Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;
-    .locals 1
-    .param p1, "mapDefaultEntry"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -206,20 +175,17 @@
     .end annotation
 
     .line 45
-    move-object v0, p1
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite;
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite;->getMetadata()Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;
 
-    invoke-virtual {v0}, Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite;->getMetadata()Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public forMutableMapData(Ljava/lang/Object;)Ljava/util/Map;
-    .locals 1
-    .param p1, "mapField"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -231,77 +197,65 @@
     .end annotation
 
     .line 40
-    move-object v0, p1
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public getSerializedSize(ILjava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "mapField"    # Ljava/lang/Object;
-    .param p3, "mapDefaultEntry"    # Ljava/lang/Object;
+    .locals 0
 
     .line 89
     invoke-static {p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/MapFieldSchemaLite;->getSerializedSizeLite(ILjava/lang/Object;Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public isImmutable(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "mapField"    # Ljava/lang/Object;
+    .locals 0
 
     .line 55
-    move-object v0, p1
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;->isMutable()Z
 
-    invoke-virtual {v0}, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;->isMutable()Z
+    move-result p1
 
-    move-result v0
+    xor-int/lit8 p1, p1, 0x1
 
-    xor-int/lit8 v0, v0, 0x1
-
-    return v0
+    return p1
 .end method
 
 .method public mergeFrom(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "destMapField"    # Ljava/lang/Object;
-    .param p2, "srcMapField"    # Ljava/lang/Object;
+    .locals 0
 
     .line 71
     invoke-static {p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/MapFieldSchemaLite;->mergeFromLite(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public newMapField(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "unused"    # Ljava/lang/Object;
+    .locals 0
 
     .line 66
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;->emptyMapField()Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;->mutableCopy()Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;->mutableCopy()Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public toImmutable(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "mapField"    # Ljava/lang/Object;
 
     .line 60
     move-object v0, p1
@@ -310,6 +264,5 @@
 
     invoke-virtual {v0}, Lcom/google/crypto/tink/shaded/protobuf/MapFieldLite;->makeImmutable()V
 
-    .line 61
     return-object p1
 .end method

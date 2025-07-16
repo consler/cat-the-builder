@@ -31,8 +31,6 @@
 # virtual methods
 .method public onCompleted(Ljava/lang/Exception;)V
     .locals 0
-    .param p1, "ex"    # Ljava/lang/Exception;
 
-    .line 8
     return-void
 .end method

@@ -38,8 +38,6 @@
 # direct methods
 .method protected constructor <init>(Ljava/util/UUID;Landroidx/work/impl/model/WorkSpec;Ljava/util/Set;)V
     .locals 0
-    .param p1, "id"    # Ljava/util/UUID;
-    .param p2, "workSpec"    # Landroidx/work/impl/model/WorkSpec;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -64,20 +62,18 @@
         }
     .end annotation
 
-    .line 65
-    .local p3, "tags":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
+    .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 66
+    .line 67
     iput-object p1, p0, Landroidx/work/WorkRequest;->mId:Ljava/util/UUID;
 
-    .line 67
+    .line 68
     iput-object p2, p0, Landroidx/work/WorkRequest;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
-    .line 68
+    .line 69
     iput-object p3, p0, Landroidx/work/WorkRequest;->mTags:Ljava/util/Set;
 
-    .line 69
     return-void
 .end method
 
@@ -86,7 +82,7 @@
 .method public getId()Ljava/util/UUID;
     .locals 1
 
-    .line 77
+    .line 78
     iget-object v0, p0, Landroidx/work/WorkRequest;->mId:Ljava/util/UUID;
 
     return-object v0
@@ -95,7 +91,7 @@
 .method public getStringId()Ljava/lang/String;
     .locals 1
 
-    .line 88
+    .line 89
     iget-object v0, p0, Landroidx/work/WorkRequest;->mId:Ljava/util/UUID;
 
     invoke-virtual {v0}, Ljava/util/UUID;->toString()Ljava/lang/String;
@@ -116,7 +112,7 @@
         }
     .end annotation
 
-    .line 110
+    .line 111
     iget-object v0, p0, Landroidx/work/WorkRequest;->mTags:Ljava/util/Set;
 
     return-object v0
@@ -125,7 +121,7 @@
 .method public getWorkSpec()Landroidx/work/impl/model/WorkSpec;
     .locals 1
 
-    .line 99
+    .line 100
     iget-object v0, p0, Landroidx/work/WorkRequest;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
     return-object v0

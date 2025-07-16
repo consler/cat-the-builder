@@ -24,13 +24,7 @@
 # direct methods
 .method public constructor <init>(IIIZLjava/lang/String;)V
     .locals 7
-    .param p1, "usage"    # I
-    .param p2, "numComponents"    # I
-    .param p3, "type"    # I
-    .param p4, "normalized"    # Z
-    .param p5, "alias"    # Ljava/lang/String;
 
-    .line 79
     const/4 v6, 0x0
 
     move-object v0, p0
@@ -45,20 +39,14 @@
 
     move-object v5, p5
 
+    .line 79
     invoke-direct/range {v0 .. v6}, Lcom/badlogic/gdx/graphics/VertexAttribute;-><init>(IIIZLjava/lang/String;I)V
 
-    .line 80
     return-void
 .end method
 
 .method public constructor <init>(IIIZLjava/lang/String;I)V
-    .locals 1
-    .param p1, "usage"    # I
-    .param p2, "numComponents"    # I
-    .param p3, "type"    # I
-    .param p4, "normalized"    # Z
-    .param p5, "alias"    # Ljava/lang/String;
-    .param p6, "unit"    # I
+    .locals 0
 
     .line 92
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -84,37 +72,27 @@
     .line 99
     invoke-static {p1}, Ljava/lang/Integer;->numberOfTrailingZeros(I)I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/badlogic/gdx/graphics/VertexAttribute;->usageIndex:I
+    iput p1, p0, Lcom/badlogic/gdx/graphics/VertexAttribute;->usageIndex:I
 
-    .line 100
     return-void
 .end method
 
 .method public constructor <init>(IILjava/lang/String;)V
     .locals 1
-    .param p1, "usage"    # I
-    .param p2, "numComponents"    # I
-    .param p3, "alias"    # Ljava/lang/String;
 
-    .line 55
     const/4 v0, 0x0
 
+    .line 55
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/badlogic/gdx/graphics/VertexAttribute;-><init>(IILjava/lang/String;I)V
 
-    .line 56
     return-void
 .end method
 
 .method public constructor <init>(IILjava/lang/String;I)V
     .locals 9
-    .param p1, "usage"    # I
-    .param p2, "numComponents"    # I
-    .param p3, "alias"    # Ljava/lang/String;
-    .param p4, "unit"    # I
 
-    .line 65
     const/4 v0, 0x4
 
     if-ne p1, v0, :cond_0
@@ -151,9 +129,9 @@
 
     move v8, p4
 
+    .line 65
     invoke-direct/range {v2 .. v8}, Lcom/badlogic/gdx/graphics/VertexAttribute;-><init>(IIIZLjava/lang/String;I)V
 
-    .line 67
     return-void
 .end method
 
@@ -163,33 +141,32 @@
     .line 133
     new-instance v0, Lcom/badlogic/gdx/graphics/VertexAttribute;
 
-    const/16 v1, 0x100
+    const/4 v1, 0x3
 
-    const/4 v2, 0x3
+    const-string v2, "a_binormal"
 
-    const-string v3, "a_binormal"
+    const/16 v3, 0x100
 
-    invoke-direct {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/VertexAttribute;-><init>(IILjava/lang/String;)V
+    invoke-direct {v0, v3, v1, v2}, Lcom/badlogic/gdx/graphics/VertexAttribute;-><init>(IILjava/lang/String;)V
 
     return-object v0
 .end method
 
 .method public static BoneWeight(I)Lcom/badlogic/gdx/graphics/VertexAttribute;
     .locals 4
-    .param p0, "unit"    # I
 
     .line 137
     new-instance v0, Lcom/badlogic/gdx/graphics/VertexAttribute;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "a_boneWeight"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -256,13 +233,13 @@
     .line 117
     new-instance v0, Lcom/badlogic/gdx/graphics/VertexAttribute;
 
-    const/16 v1, 0x8
+    const/4 v1, 0x3
 
-    const/4 v2, 0x3
+    const-string v2, "a_normal"
 
-    const-string v3, "a_normal"
+    const/16 v3, 0x8
 
-    invoke-direct {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/VertexAttribute;-><init>(IILjava/lang/String;)V
+    invoke-direct {v0, v3, v1, v2}, Lcom/badlogic/gdx/graphics/VertexAttribute;-><init>(IILjava/lang/String;)V
 
     return-object v0
 .end method
@@ -273,13 +250,13 @@
     .line 109
     new-instance v0, Lcom/badlogic/gdx/graphics/VertexAttribute;
 
-    const/4 v1, 0x1
+    const/4 v1, 0x3
 
-    const/4 v2, 0x3
+    const-string v2, "a_position"
 
-    const-string v3, "a_position"
+    const/4 v3, 0x1
 
-    invoke-direct {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/VertexAttribute;-><init>(IILjava/lang/String;)V
+    invoke-direct {v0, v3, v1, v2}, Lcom/badlogic/gdx/graphics/VertexAttribute;-><init>(IILjava/lang/String;)V
 
     return-object v0
 .end method
@@ -290,33 +267,32 @@
     .line 129
     new-instance v0, Lcom/badlogic/gdx/graphics/VertexAttribute;
 
-    const/16 v1, 0x80
+    const/4 v1, 0x3
 
-    const/4 v2, 0x3
+    const-string v2, "a_tangent"
 
-    const-string v3, "a_tangent"
+    const/16 v3, 0x80
 
-    invoke-direct {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/VertexAttribute;-><init>(IILjava/lang/String;)V
+    invoke-direct {v0, v3, v1, v2}, Lcom/badlogic/gdx/graphics/VertexAttribute;-><init>(IILjava/lang/String;)V
 
     return-object v0
 .end method
 
 .method public static TexCoords(I)Lcom/badlogic/gdx/graphics/VertexAttribute;
     .locals 4
-    .param p0, "unit"    # I
 
     .line 113
     new-instance v0, Lcom/badlogic/gdx/graphics/VertexAttribute;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "a_texCoord"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -360,11 +336,10 @@
 
 .method public equals(Lcom/badlogic/gdx/graphics/VertexAttribute;)Z
     .locals 2
-    .param p1, "other"    # Lcom/badlogic/gdx/graphics/VertexAttribute;
 
-    .line 150
     if-eqz p1, :cond_0
 
+    .line 150
     iget v0, p0, Lcom/badlogic/gdx/graphics/VertexAttribute;->usage:I
 
     iget v1, p1, Lcom/badlogic/gdx/graphics/VertexAttribute;->usage:I
@@ -402,47 +377,42 @@
 
     iget v0, p0, Lcom/badlogic/gdx/graphics/VertexAttribute;->unit:I
 
-    iget v1, p1, Lcom/badlogic/gdx/graphics/VertexAttribute;->unit:I
+    iget p1, p1, Lcom/badlogic/gdx/graphics/VertexAttribute;->unit:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    .line 150
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 143
     instance-of v0, p1, Lcom/badlogic/gdx/graphics/VertexAttribute;
 
     if-nez v0, :cond_0
 
-    .line 144
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 146
     :cond_0
-    move-object v0, p1
+    check-cast p1, Lcom/badlogic/gdx/graphics/VertexAttribute;
 
-    check-cast v0, Lcom/badlogic/gdx/graphics/VertexAttribute;
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/VertexAttribute;->equals(Lcom/badlogic/gdx/graphics/VertexAttribute;)Z
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/VertexAttribute;->equals(Lcom/badlogic/gdx/graphics/VertexAttribute;)Z
+    move-result p1
 
-    move-result v0
-
-    return v0
+    return p1
 .end method
 
 .method public getKey()I
@@ -478,7 +448,6 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 173
     const/4 v0, 0x0
 
     return v0
@@ -515,36 +484,30 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .locals 2
 
     .line 178
     invoke-virtual {p0}, Lcom/badlogic/gdx/graphics/VertexAttribute;->getKey()I
 
     move-result v0
 
+    mul-int/lit16 v0, v0, 0x21d
+
     .line 179
-    .local v0, "result":I
-    mul-int/lit16 v1, v0, 0x21d
+    iget v1, p0, Lcom/badlogic/gdx/graphics/VertexAttribute;->numComponents:I
 
-    iget v2, p0, Lcom/badlogic/gdx/graphics/VertexAttribute;->numComponents:I
+    add-int/2addr v0, v1
 
-    add-int/2addr v1, v2
+    mul-int/lit16 v0, v0, 0x21d
 
     .line 180
-    .end local v0    # "result":I
-    .local v1, "result":I
-    mul-int/lit16 v0, v1, 0x21d
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/VertexAttribute;->alias:Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/VertexAttribute;->alias:Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
 
-    invoke-virtual {v2}, Ljava/lang/String;->hashCode()I
+    move-result v1
 
-    move-result v2
+    add-int/2addr v0, v1
 
-    add-int/2addr v0, v2
-
-    .line 181
-    .end local v1    # "result":I
-    .restart local v0    # "result":I
     return v0
 .end method

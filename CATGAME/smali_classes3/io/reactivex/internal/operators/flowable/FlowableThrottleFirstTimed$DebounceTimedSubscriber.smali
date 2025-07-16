@@ -64,9 +64,6 @@
 # direct methods
 .method constructor <init>(Lorg/reactivestreams/Subscriber;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler$Worker;)V
     .locals 1
-    .param p2, "timeout"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "worker"    # Lio/reactivex/Scheduler$Worker;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -79,8 +76,6 @@
     .end annotation
 
     .line 68
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
 
     .line 62
@@ -102,7 +97,6 @@
     .line 72
     iput-object p5, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->worker:Lio/reactivex/Scheduler$Worker;
 
-    .line 73
     return-void
 .end method
 
@@ -112,7 +106,6 @@
     .locals 1
 
     .line 149
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
@@ -122,7 +115,6 @@
 
     invoke-virtual {v0}, Lio/reactivex/Scheduler$Worker;->dispose()V
 
-    .line 151
     return-void
 .end method
 
@@ -130,18 +122,16 @@
     .locals 1
 
     .line 132
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 133
     return-void
 
-    .line 135
     :cond_0
     const/4 v0, 0x1
 
+    .line 135
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->done:Z
 
     .line 136
@@ -154,16 +144,13 @@
 
     invoke-virtual {v0}, Lio/reactivex/Scheduler$Worker;->dispose()V
 
-    .line 138
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 121
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->done:Z
 
     if-eqz v0, :cond_0
@@ -171,13 +158,12 @@
     .line 122
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 123
     return-void
 
-    .line 125
     :cond_0
     const/4 v0, 0x1
 
+    .line 125
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->done:Z
 
     .line 126
@@ -186,16 +172,15 @@
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
     .line 127
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->worker:Lio/reactivex/Scheduler$Worker;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->worker:Lio/reactivex/Scheduler$Worker;
 
-    invoke-virtual {v0}, Lio/reactivex/Scheduler$Worker;->dispose()V
+    invoke-virtual {p1}, Lio/reactivex/Scheduler$Worker;->dispose()V
 
-    .line 128
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 8
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -203,13 +188,10 @@
     .end annotation
 
     .line 86
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 87
     return-void
 
     .line 90
@@ -218,9 +200,9 @@
 
     if-nez v0, :cond_3
 
-    .line 91
     const/4 v0, 0x1
 
+    .line 91
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->gate:Z
 
     .line 92
@@ -228,60 +210,55 @@
 
     move-result-wide v1
 
-    .line 93
-    .local v1, "r":J
     const-wide/16 v3, 0x0
 
-    cmp-long v3, v1, v3
+    cmp-long v1, v1, v3
 
-    if-eqz v3, :cond_2
+    if-eqz v1, :cond_2
 
     .line 94
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
-    .line 95
-    const-wide/16 v3, 0x1
+    const-wide/16 v0, 0x1
 
-    invoke-static {p0, v3, v4}, Lio/reactivex/internal/util/BackpressureHelper;->produced(Ljava/util/concurrent/atomic/AtomicLong;J)J
+    .line 95
+    invoke-static {p0, v0, v1}, Lio/reactivex/internal/util/BackpressureHelper;->produced(Ljava/util/concurrent/atomic/AtomicLong;J)J
 
     .line 103
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->timer:Lio/reactivex/internal/disposables/SequentialDisposable;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->timer:Lio/reactivex/internal/disposables/SequentialDisposable;
 
-    invoke-virtual {v0}, Lio/reactivex/internal/disposables/SequentialDisposable;->get()Ljava/lang/Object;
+    invoke-virtual {p1}, Lio/reactivex/internal/disposables/SequentialDisposable;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lio/reactivex/disposables/Disposable;
+    check-cast p1, Lio/reactivex/disposables/Disposable;
 
-    .line 104
-    .local v0, "d":Lio/reactivex/disposables/Disposable;
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 105
-    invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
+    invoke-interface {p1}, Lio/reactivex/disposables/Disposable;->dispose()V
 
     .line 108
     :cond_1
-    iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->timer:Lio/reactivex/internal/disposables/SequentialDisposable;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->timer:Lio/reactivex/internal/disposables/SequentialDisposable;
 
-    iget-object v4, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->worker:Lio/reactivex/Scheduler$Worker;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->worker:Lio/reactivex/Scheduler$Worker;
 
-    iget-wide v5, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->timeout:J
+    iget-wide v1, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->timeout:J
 
-    iget-object v7, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->unit:Ljava/util/concurrent/TimeUnit;
+    iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->unit:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v4, p0, v5, v6, v7}, Lio/reactivex/Scheduler$Worker;->schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
+    invoke-virtual {v0, p0, v1, v2, v3}, Lio/reactivex/Scheduler$Worker;->schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v3, v4}, Lio/reactivex/internal/disposables/SequentialDisposable;->replace(Lio/reactivex/disposables/Disposable;)Z
+    invoke-virtual {p1, v0}, Lio/reactivex/internal/disposables/SequentialDisposable;->replace(Lio/reactivex/disposables/Disposable;)Z
 
     goto :goto_0
 
     .line 97
-    .end local v0    # "d":Lio/reactivex/disposables/Disposable;
     :cond_2
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->done:Z
 
@@ -289,21 +266,16 @@
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->cancel()V
 
     .line 99
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    new-instance v3, Lio/reactivex/exceptions/MissingBackpressureException;
+    new-instance v0, Lio/reactivex/exceptions/MissingBackpressureException;
 
-    const-string v4, "Could not deliver value due to lack of requests"
+    const-string v1, "Could not deliver value due to lack of requests"
 
-    invoke-direct {v3, v4}, Lio/reactivex/exceptions/MissingBackpressureException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lio/reactivex/exceptions/MissingBackpressureException;-><init>(Ljava/lang/String;)V
 
-    invoke-interface {v0, v3}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {p1, v0}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 100
-    return-void
-
-    .line 112
-    .end local v1    # "r":J
     :cond_3
     :goto_0
     return-void
@@ -311,10 +283,8 @@
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 77
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -331,22 +301,19 @@
 
     invoke-interface {v0, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
-    .line 80
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 80
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 82
     :cond_0
     return-void
 .end method
 
 .method public request(J)V
     .locals 1
-    .param p1, "n"    # J
 
     .line 142
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber<TT;>;"
     invoke-static {p1, p2}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(J)Z
 
     move-result v0
@@ -356,7 +323,6 @@
     .line 143
     invoke-static {p0, p1, p2}, Lio/reactivex/internal/util/BackpressureHelper;->add(Ljava/util/concurrent/atomic/AtomicLong;J)J
 
-    .line 145
     :cond_0
     return-void
 .end method
@@ -364,12 +330,10 @@
 .method public run()V
     .locals 1
 
-    .line 116
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber<TT;>;"
     const/4 v0, 0x0
 
+    .line 116
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;->gate:Z
 
-    .line 117
     return-void
 .end method

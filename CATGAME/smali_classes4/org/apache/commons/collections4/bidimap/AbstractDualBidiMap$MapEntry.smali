@@ -51,22 +51,18 @@
     .end annotation
 
     .line 714
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$MapEntry;, "Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$MapEntry<TK;TV;>;"
-    .local p1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    .local p2, "parent":Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap;, "Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap<TK;TV;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator;-><init>(Ljava/util/Map$Entry;)V
 
     .line 715
     iput-object p2, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$MapEntry;->parent:Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap;
 
-    .line 716
     return-void
 .end method
 
 
 # virtual methods
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)TV;"
@@ -74,14 +70,11 @@
     .end annotation
 
     .line 720
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$MapEntry;, "Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$MapEntry<TK;TV;>;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$MapEntry;->getKey()Ljava/lang/Object;
 
     move-result-object v0
 
     .line 721
-    .local v0, "key":Ljava/lang/Object;, "TK;"
     iget-object v1, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$MapEntry;->parent:Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap;
 
     iget-object v1, v1, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap;->reverseMap:Ljava/util/Map;
@@ -107,13 +100,13 @@
 
     .line 723
     :cond_0
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v2, "Cannot use setValue() when the object being set is already in the map"
+    const-string v0, "Cannot use setValue() when the object being set is already in the map"
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 
     .line 726
     :cond_1
@@ -125,7 +118,7 @@
     .line 727
     invoke-super {p0, p1}, Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator;->setValue(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method

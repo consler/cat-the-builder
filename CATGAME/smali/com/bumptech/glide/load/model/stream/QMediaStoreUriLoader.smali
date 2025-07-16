@@ -64,8 +64,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Lcom/bumptech/glide/load/model/ModelLoader;Lcom/bumptech/glide/load/model/ModelLoader;Ljava/lang/Class;)V
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -82,18 +81,14 @@
     .end annotation
 
     .line 72
-    .local p0, "this":Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader;, "Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader<TDataT;>;"
-    .local p2, "fileDelegate":Lcom/bumptech/glide/load/model/ModelLoader;, "Lcom/bumptech/glide/load/model/ModelLoader<Ljava/io/File;TDataT;>;"
-    .local p3, "uriDelegate":Lcom/bumptech/glide/load/model/ModelLoader;, "Lcom/bumptech/glide/load/model/ModelLoader<Landroid/net/Uri;TDataT;>;"
-    .local p4, "dataClass":Ljava/lang/Class;, "Ljava/lang/Class<TDataT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 73
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader;->context:Landroid/content/Context;
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader;->context:Landroid/content/Context;
 
     .line 74
     iput-object p2, p0, Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader;->fileDelegate:Lcom/bumptech/glide/load/model/ModelLoader;
@@ -104,18 +99,13 @@
     .line 76
     iput-object p4, p0, Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader;->dataClass:Ljava/lang/Class;
 
-    .line 77
     return-void
 .end method
 
 
 # virtual methods
 .method public buildLoadData(Landroid/net/Uri;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
-    .locals 14
-    .param p1, "uri"    # Landroid/net/Uri;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
-    .param p4, "options"    # Lcom/bumptech/glide/load/Options;
+    .locals 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -128,19 +118,18 @@
         }
     .end annotation
 
-    .line 82
-    .local p0, "this":Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader;, "Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader<TDataT;>;"
     move-object v0, p0
 
+    .line 82
     new-instance v1, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
 
     new-instance v2, Lcom/bumptech/glide/signature/ObjectKey;
 
-    move-object v12, p1
+    move-object v7, p1
 
     invoke-direct {v2, p1}, Lcom/bumptech/glide/signature/ObjectKey;-><init>(Ljava/lang/Object;)V
 
-    new-instance v13, Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader$QMediaStoreUriFetcher;
+    new-instance v12, Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader$QMediaStoreUriFetcher;
 
     iget-object v4, v0, Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader;->context:Landroid/content/Context;
 
@@ -150,11 +139,9 @@
 
     iget-object v11, v0, Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader;->dataClass:Ljava/lang/Class;
 
-    move-object v3, v13
+    move-object v3, v12
 
-    move-object v7, p1
-
-    move/from16 v8, p2
+    move v8, p2
 
     move/from16 v9, p3
 
@@ -162,7 +149,7 @@
 
     invoke-direct/range {v3 .. v11}, Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader$QMediaStoreUriFetcher;-><init>(Landroid/content/Context;Lcom/bumptech/glide/load/model/ModelLoader;Lcom/bumptech/glide/load/model/ModelLoader;Landroid/net/Uri;IILcom/bumptech/glide/load/Options;Ljava/lang/Class;)V
 
-    invoke-direct {v1, v2, v13}, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;-><init>(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/data/DataFetcher;)V
+    invoke-direct {v1, v2, v12}, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;-><init>(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/data/DataFetcher;)V
 
     return-object v1
 .end method
@@ -171,7 +158,6 @@
     .locals 0
 
     .line 59
-    .local p0, "this":Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader;, "Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader<TDataT;>;"
     check-cast p1, Landroid/net/Uri;
 
     invoke-virtual {p0, p1, p2, p3, p4}, Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader;->buildLoadData(Landroid/net/Uri;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
@@ -183,10 +169,8 @@
 
 .method public handles(Landroid/net/Uri;)Z
     .locals 2
-    .param p1, "uri"    # Landroid/net/Uri;
 
     .line 90
-    .local p0, "this":Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader;, "Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader<TDataT;>;"
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1d
@@ -195,26 +179,25 @@
 
     invoke-static {p1}, Lcom/bumptech/glide/load/data/mediastore/MediaStoreUtil;->isMediaStoreUri(Landroid/net/Uri;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic handles(Ljava/lang/Object;)Z
     .locals 0
 
     .line 59
-    .local p0, "this":Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader;, "Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader<TDataT;>;"
     check-cast p1, Landroid/net/Uri;
 
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader;->handles(Landroid/net/Uri;)Z

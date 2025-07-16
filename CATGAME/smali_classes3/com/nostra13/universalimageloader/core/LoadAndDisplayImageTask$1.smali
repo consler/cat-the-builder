@@ -69,6 +69,5 @@
 
     invoke-interface {v0, v1, v2, v3, v4}, Lcom/nostra13/universalimageloader/core/listener/ImageLoadingProgressListener;->onProgressUpdate(Ljava/lang/String;Landroid/view/View;II)V
 
-    .line 345
     return-void
 .end method

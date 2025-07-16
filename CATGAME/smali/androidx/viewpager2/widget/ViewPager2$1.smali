@@ -20,15 +20,14 @@
 
 # direct methods
 .method constructor <init>(Landroidx/viewpager2/widget/ViewPager2;)V
-    .locals 1
-    .param p1, "this$0"    # Landroidx/viewpager2/widget/ViewPager2;
+    .locals 0
 
     .line 133
     iput-object p1, p0, Landroidx/viewpager2/widget/ViewPager2$1;->this$0:Landroidx/viewpager2/widget/ViewPager2;
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    invoke-direct {p0, v0}, Landroidx/viewpager2/widget/ViewPager2$DataSetChangeObserver;-><init>(Landroidx/viewpager2/widget/ViewPager2$1;)V
+    invoke-direct {p0, p1}, Landroidx/viewpager2/widget/ViewPager2$DataSetChangeObserver;-><init>(Landroidx/viewpager2/widget/ViewPager2$1;)V
 
     return-void
 .end method
@@ -52,6 +51,5 @@
 
     invoke-virtual {v0}, Landroidx/viewpager2/widget/ScrollEventAdapter;->notifyDataSetChangeHappened()V
 
-    .line 138
     return-void
 .end method

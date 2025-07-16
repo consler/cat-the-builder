@@ -18,11 +18,6 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u0000:\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0008\n\u0002\u0008\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\u0008\u0004\n\u0002\u0018\u0002\n\u0002\u0008\u0006\u0018\u0000 \u00192\u00020\u00012\u00020\u0002:\u0001\u0019B\u0005\u00a2\u0006\u0002\u0010\u0003J\u0010\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\tH\u0016J\u0008\u0010\u0011\u001a\u00020\u000fH\u0016J\u0012\u0010\u0012\u001a\u00020\u000f2\u0008\u0010\u0013\u001a\u0004\u0018\u00010\u0014H\u0014J\u0008\u0010\u0015\u001a\u00020\u000fH\u0014J\u0008\u0010\u0016\u001a\u00020\u000fH\u0002J\u0010\u0010\u0017\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\tH\u0002J\u0008\u0010\u0018\u001a\u00020\u000fH\u0002R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082.\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082.\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0008\u001a\u00020\tX\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u0005X\u0082.\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\tX\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000c\u001a\u00020\rX\u0082.\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u001a"
     }
@@ -53,14 +48,15 @@
         "setCurrentColor",
         "showSaveChangesDialog",
         "Companion",
-        "colorpicker_release"
+        "colorpicker_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -85,6 +81,38 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$JBxnDpTNK42QFrmd5z9WcOGJdhU(Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;Landroid/view/View;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->onCreate$lambda-6(Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$g3HzI4khIbVa9PyQ7Qd4yIAidVI(Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;Landroid/content/DialogInterface;I)V
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->showSaveChangesDialog$lambda-10(Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;Landroid/content/DialogInterface;I)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$l_dY1DaNpvc2vxwAdktAKK-QzQM(Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;Landroid/content/DialogInterface;I)V
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->showSaveChangesDialog$lambda-9(Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;Landroid/content/DialogInterface;I)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$rbS5n_U0p89Gct8Y2eqJHMKVv24(Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;Landroid/view/View;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->onCreate$lambda-7(Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;Landroid/view/View;)V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
@@ -117,29 +145,8 @@
     return-object v0
 .end method
 
-.method public static final synthetic access$onBackPressed$s1748172038(Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;)V
-    .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;
-
-    .line 38
-    invoke-super {p0}, Landroidx/appcompat/app/AppCompatActivity;->onBackPressed()V
-
-    return-void
-.end method
-
-.method public static final synthetic access$saveAndFinish(Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;)V
-    .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;
-
-    .line 38
-    invoke-direct {p0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->saveAndFinish()V
-
-    return-void
-.end method
-
 .method public static final synthetic access$setPickableImage$cp(Landroid/graphics/Bitmap;)V
     .locals 0
-    .param p0, "<set-?>"    # Landroid/graphics/Bitmap;
 
     .line 38
     sput-object p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->pickableImage:Landroid/graphics/Bitmap;
@@ -147,57 +154,63 @@
     return-void
 .end method
 
+.method private static final onCreate$lambda-6(Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;Landroid/view/View;)V
+    .locals 0
+
+    const-string p1, "this$0"
+
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 87
+    invoke-direct {p0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->saveAndFinish()V
+
+    return-void
+.end method
+
+.method private static final onCreate$lambda-7(Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;Landroid/view/View;)V
+    .locals 0
+
+    const-string p1, "this$0"
+
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 89
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->onBackPressed()V
+
+    return-void
+.end method
+
 .method private final saveAndFinish()V
-    .locals 5
+    .locals 3
 
     .line 93
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    move-object v1, v0
-
-    .local v1, "$this$apply":Landroid/content/Intent;
-    const/4 v2, 0x0
+    const-string v1, "colorExtra"
 
     .line 94
-    .local v2, "$i$a$-apply-ColorPickerPreviewActivity$saveAndFinish$data$1":I
-    iget v3, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->currentColor:I
+    iget v2, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->currentColor:I
 
-    const-string v4, "colorExtra"
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    invoke-virtual {v1, v4, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    .line 95
-    nop
-
-    .line 93
-    .end local v1    # "$this$apply":Landroid/content/Intent;
-    .end local v2    # "$i$a$-apply-ColorPickerPreviewActivity$saveAndFinish$data$1":I
-    nop
-
-    .line 96
-    .local v0, "data":Landroid/content/Intent;
     const/4 v1, -0x1
 
+    .line 96
     invoke-virtual {p0, v1, v0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->setResult(ILandroid/content/Intent;)V
 
     .line 97
     invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->finish()V
 
-    .line 98
     return-void
 .end method
 
 .method private final setCurrentColor(I)V
-    .locals 5
-    .param p1, "color"    # I
+    .locals 4
 
     .line 101
     iput p1, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->currentColor:I
-
-    .line 102
-    nop
 
     .line 103
     invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->getResources()Landroid/content/res/Resources;
@@ -210,11 +223,7 @@
 
     move-result-object v0
 
-    .line 102
-    nop
-
     .line 104
-    .local v0, "checkeredBitmap":Landroid/graphics/Bitmap;
     new-instance v1, Landroid/graphics/BitmapShader;
 
     sget-object v2, Landroid/graphics/Shader$TileMode;->REPEAT:Landroid/graphics/Shader$TileMode;
@@ -224,73 +233,34 @@
     invoke-direct {v1, v0, v2, v3}, Landroid/graphics/BitmapShader;-><init>(Landroid/graphics/Bitmap;Landroid/graphics/Shader$TileMode;Landroid/graphics/Shader$TileMode;)V
 
     .line 105
-    .local v1, "shader":Landroid/graphics/BitmapShader;
-    nop
+    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->colorPreview:Landroid/view/View;
+
+    if-nez v0, :cond_0
+
+    const-string v0, "colorPreview"
+
+    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    const/4 v0, 0x0
 
     .line 106
-    iget-object v2, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->colorPreview:Landroid/view/View;
-
-    if-nez v2, :cond_0
-
-    const-string v3, "colorPreview"
-
-    invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
     :cond_0
-    sget-object v3, Lorg/catrobat/paintroid/colorpicker/ColorPickerDialog$CustomColorDrawable;->Companion:Lorg/catrobat/paintroid/colorpicker/ColorPickerDialog$CustomColorDrawable$Companion;
+    sget-object v2, Lorg/catrobat/paintroid/colorpicker/ColorPickerDialog$CustomColorDrawable;->Companion:Lorg/catrobat/paintroid/colorpicker/ColorPickerDialog$CustomColorDrawable$Companion;
 
-    move-object v4, v1
+    check-cast v1, Landroid/graphics/Shader;
 
-    check-cast v4, Landroid/graphics/Shader;
+    invoke-virtual {v2, v1, p1}, Lorg/catrobat/paintroid/colorpicker/ColorPickerDialog$CustomColorDrawable$Companion;->createDrawable(Landroid/graphics/Shader;I)Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v3, v4, p1}, Lorg/catrobat/paintroid/colorpicker/ColorPickerDialog$CustomColorDrawable$Companion;->createDrawable(Landroid/graphics/Shader;I)Landroid/graphics/drawable/Drawable;
+    move-result-object p1
 
-    move-result-object v3
+    .line 105
+    invoke-virtual {v0, p1}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    invoke-virtual {v2, v3}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
-
-    .line 107
     return-void
 .end method
 
 .method private final showSaveChangesDialog()V
     .locals 3
-
-    .line 127
-    nop
-
-    .line 139
-    nop
-
-    .line 127
-    nop
-
-    .line 138
-    nop
-
-    .line 127
-    nop
-
-    .line 134
-    nop
-
-    .line 127
-    nop
-
-    .line 130
-    nop
-
-    .line 127
-    nop
-
-    .line 129
-    nop
-
-    .line 127
-    nop
-
-    .line 128
-    nop
 
     .line 127
     new-instance v0, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
@@ -318,11 +288,9 @@
     .line 130
     sget v1, Lorg/catrobat/paintroid/colorpicker/R$string;->color_picker_no:I
 
-    new-instance v2, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity$showSaveChangesDialog$1;
+    new-instance v2, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity$$ExternalSyntheticLambda0;
 
-    invoke-direct {v2, p0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity$showSaveChangesDialog$1;-><init>(Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;)V
-
-    check-cast v2, Landroid/content/DialogInterface$OnClickListener;
+    invoke-direct {v2, p0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity$$ExternalSyntheticLambda0;-><init>(Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;)V
 
     invoke-virtual {v0, v1, v2}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
 
@@ -331,11 +299,9 @@
     .line 134
     sget v1, Lorg/catrobat/paintroid/colorpicker/R$string;->color_picker_yes:I
 
-    new-instance v2, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity$showSaveChangesDialog$2;
+    new-instance v2, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity$$ExternalSyntheticLambda1;
 
-    invoke-direct {v2, p0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity$showSaveChangesDialog$2;-><init>(Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;)V
-
-    check-cast v2, Landroid/content/DialogInterface$OnClickListener;
+    invoke-direct {v2, p0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity$$ExternalSyntheticLambda1;-><init>(Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;)V
 
     invoke-virtual {v0, v1, v2}, Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;
 
@@ -349,7 +315,46 @@
     .line 139
     invoke-virtual {v0}, Landroidx/appcompat/app/AlertDialog;->show()V
 
-    .line 140
+    return-void
+.end method
+
+.method private static final showSaveChangesDialog$lambda-10(Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;Landroid/content/DialogInterface;I)V
+    .locals 0
+
+    const-string p2, "this$0"
+
+    invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string p2, "dialogInterface"
+
+    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 135
+    invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
+
+    .line 136
+    invoke-direct {p0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->saveAndFinish()V
+
+    return-void
+.end method
+
+.method private static final showSaveChangesDialog$lambda-9(Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;Landroid/content/DialogInterface;I)V
+    .locals 0
+
+    const-string p2, "this$0"
+
+    invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string p2, "dialogInterface"
+
+    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 131
+    invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
+
+    .line 132
+    invoke-super {p0}, Landroidx/appcompat/app/AppCompatActivity;->onBackPressed()V
+
     return-void
 .end method
 
@@ -357,12 +362,10 @@
 # virtual methods
 .method public colorChanged(I)V
     .locals 0
-    .param p1, "color"    # I
 
     .line 143
     invoke-direct {p0, p1}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->setCurrentColor(I)V
 
-    .line 144
     return-void
 .end method
 
@@ -385,396 +388,340 @@
     :cond_0
     invoke-super {p0}, Landroidx/appcompat/app/AppCompatActivity;->onBackPressed()V
 
-    .line 123
     :goto_0
-    nop
-
-    .line 124
     return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 10
-    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
+    .locals 4
 
     .line 53
     invoke-super {p0, p1}, Landroidx/appcompat/app/AppCompatActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 54
-    sget v0, Lorg/catrobat/paintroid/colorpicker/R$layout;->activity_color_picker_preview:I
+    sget p1, Lorg/catrobat/paintroid/colorpicker/R$layout;->activity_color_picker_preview:I
 
-    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->setContentView(I)V
+    invoke-virtual {p0, p1}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->setContentView(I)V
 
     .line 56
     invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->isFinishing()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    .line 57
     return-void
 
     .line 60
     :cond_0
-    sget v0, Lorg/catrobat/paintroid/colorpicker/R$id;->backAction:I
+    sget p1, Lorg/catrobat/paintroid/colorpicker/R$id;->backAction:I
 
-    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, p1}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "findViewById(R.id.backAction)"
+    const-string v0, "findViewById(R.id.backAction)"
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v0, Landroid/widget/ImageView;
+    check-cast p1, Landroid/widget/ImageView;
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->backAction:Landroid/widget/ImageView;
+    iput-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->backAction:Landroid/widget/ImageView;
 
     .line 61
-    sget v0, Lorg/catrobat/paintroid/colorpicker/R$id;->previewSurface:I
+    sget p1, Lorg/catrobat/paintroid/colorpicker/R$id;->previewSurface:I
 
-    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, p1}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "findViewById(R.id.previewSurface)"
+    const-string v0, "findViewById(R.id.previewSurface)"
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
+    check-cast p1, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->previewSurface:Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
+    iput-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->previewSurface:Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
+
+    const-string v0, "previewSurface"
+
+    const/4 v1, 0x0
+
+    if-nez p1, :cond_1
 
     .line 62
-    const-string v1, "previewSurface"
+    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    if-nez v0, :cond_1
-
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    move-object p1, v1
 
     :cond_1
     const/4 v2, 0x0
 
-    invoke-virtual {v0, v2}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setBackgroundColor(I)V
+    invoke-virtual {p1, v2}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setBackgroundColor(I)V
 
     .line 63
-    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->previewSurface:Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
+    iget-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->previewSurface:Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
 
-    if-nez v0, :cond_2
+    if-nez p1, :cond_2
 
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    move-object p1, v1
 
     :cond_2
     move-object v2, p0
 
     check-cast v2, Lorg/catrobat/paintroid/colorpicker/OnImageViewPointClickedListener;
 
-    invoke-virtual {v0, v2}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setListener(Lorg/catrobat/paintroid/colorpicker/OnImageViewPointClickedListener;)V
+    invoke-virtual {p1, v2}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setListener(Lorg/catrobat/paintroid/colorpicker/OnImageViewPointClickedListener;)V
 
     .line 64
-    sget v0, Lorg/catrobat/paintroid/colorpicker/R$id;->colorPreview:I
+    sget p1, Lorg/catrobat/paintroid/colorpicker/R$id;->colorPreview:I
 
-    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, p1}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
     const-string v2, "findViewById(R.id.colorPreview)"
 
-    invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->colorPreview:Landroid/view/View;
+    iput-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->colorPreview:Landroid/view/View;
 
     .line 65
-    sget v0, Lorg/catrobat/paintroid/colorpicker/R$id;->doneAction:I
+    sget p1, Lorg/catrobat/paintroid/colorpicker/R$id;->doneAction:I
 
-    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, p1}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
     const-string v2, "findViewById(R.id.doneAction)"
 
-    invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v0, Landroid/widget/ImageView;
+    check-cast p1, Landroid/widget/ImageView;
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->doneAction:Landroid/widget/ImageView;
+    iput-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->doneAction:Landroid/widget/ImageView;
 
     .line 67
     invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->getIntent()Landroid/content/Intent;
 
-    move-result-object v0
+    move-result-object p1
 
-    if-eqz v0, :cond_3
-
-    invoke-virtual {v0}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_3
-
-    const-string v2, "colorExtra"
-
-    invoke-virtual {v0, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
-
-    move-result v0
-
-    .local v0, "it":I
-    const/4 v2, 0x0
-
-    .line 68
-    .local v2, "$i$a$-let-ColorPickerPreviewActivity$onCreate$1":I
-    iput v0, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->oldChosenColor:I
-
-    .line 69
-    invoke-direct {p0, v0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->setCurrentColor(I)V
-
-    .line 70
-    nop
-
-    .line 67
-    .end local v0    # "it":I
-    .end local v2    # "$i$a$-let-ColorPickerPreviewActivity$onCreate$1":I
-    :cond_3
-    nop
-
-    .line 72
-    sget-object v0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->pickableImage:Landroid/graphics/Bitmap;
-
-    if-eqz v0, :cond_5
-
-    .line 147
-    .local v0, "it":Landroid/graphics/Bitmap;
-    const/4 v2, 0x0
-
-    .line 72
-    .local v2, "$i$a$-let-ColorPickerPreviewActivity$onCreate$2":I
-    iget-object v3, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->previewSurface:Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
-
-    if-nez v3, :cond_4
-
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    :cond_4
-    invoke-virtual {v3, v0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
-
-    .end local v0    # "it":Landroid/graphics/Bitmap;
-    .end local v2    # "$i$a$-let-ColorPickerPreviewActivity$onCreate$2":I
-    goto/16 :goto_3
-
-    :cond_5
-    move-object v0, p0
-
-    check-cast v0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;
-
-    .local v0, "$this$run":Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;
-    const/4 v2, 0x0
-
-    .line 74
-    .local v2, "$i$a$-run-ColorPickerPreviewActivity$onCreate$3":I
-    invoke-virtual {v0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->getIntent()Landroid/content/Intent;
-
-    move-result-object v3
-
-    const-string v4, "intent"
-
-    invoke-static {v3, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {v3}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
-
-    move-result-object v3
-
-    const/4 v5, 0x0
-
-    if-eqz v3, :cond_6
-
-    const-string v6, "bitmapHeightNameExtra"
-
-    invoke-virtual {v3, v6}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
-
-    move-result v3
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
+    if-nez p1, :cond_3
 
     goto :goto_0
 
-    :cond_6
-    move-object v3, v5
+    :cond_3
+    invoke-virtual {p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
-    .line 75
-    .local v3, "height":Ljava/lang/Integer;
+    move-result-object p1
+
+    if-nez p1, :cond_4
+
+    goto :goto_0
+
+    :cond_4
+    const-string v2, "colorExtra"
+
+    invoke-virtual {p1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+
+    move-result p1
+
+    .line 68
+    iput p1, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->oldChosenColor:I
+
+    .line 69
+    invoke-direct {p0, p1}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->setCurrentColor(I)V
+
+    .line 72
     :goto_0
-    invoke-virtual {v0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->getIntent()Landroid/content/Intent;
+    sget-object p1, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->pickableImage:Landroid/graphics/Bitmap;
 
-    move-result-object v6
+    if-nez p1, :cond_5
 
-    invoke-static {v6, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {v6}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
-
-    move-result-object v4
-
-    if-eqz v4, :cond_7
-
-    const-string v6, "bitmapWidthNameExtra"
-
-    invoke-virtual {v4, v6}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
-
-    move-result v4
-
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
+    move-object p1, v1
 
     goto :goto_1
 
-    :cond_7
-    move-object v4, v5
+    :cond_5
+    iget-object v2, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->previewSurface:Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
 
-    .line 76
-    .local v4, "width":Ljava/lang/Integer;
+    if-nez v2, :cond_6
+
+    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    move-object v2, v1
+
+    :cond_6
+    invoke-virtual {v2, p1}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+
+    sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+
     :goto_1
-    if-eqz v4, :cond_9
+    if-nez p1, :cond_d
 
-    move-object v6, v4
+    move-object p1, p0
 
-    check-cast v6, Ljava/lang/Number;
+    check-cast p1, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;
 
-    invoke-virtual {v6}, Ljava/lang/Number;->intValue()I
+    .line 74
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->getIntent()Landroid/content/Intent;
 
-    move-result v6
+    move-result-object p1
 
-    .local v6, "it":I
-    const/4 v7, 0x0
+    invoke-virtual {p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
-    .line 77
-    .local v7, "$i$a$-let-ColorPickerPreviewActivity$onCreate$3$bitmap$1":I
-    if-eqz v3, :cond_8
+    move-result-object p1
 
-    move-object v5, v3
+    if-nez p1, :cond_7
 
-    check-cast v5, Ljava/lang/Number;
-
-    invoke-virtual {v5}, Ljava/lang/Number;->intValue()I
-
-    move-result v5
-
-    .local v5, "it1":I
-    const/4 v8, 0x0
-
-    .line 78
-    .local v8, "$i$a$-let-ColorPickerPreviewActivity$onCreate$3$bitmap$1$1":I
-    sget-object v9, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
-
-    invoke-static {v5, v6, v9}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-
-    move-result-object v5
-
-    .line 77
-    .end local v5    # "it1":I
-    .end local v8    # "$i$a$-let-ColorPickerPreviewActivity$onCreate$3$bitmap$1$1":I
-    nop
-
-    .line 76
-    .end local v6    # "it":I
-    .end local v7    # "$i$a$-let-ColorPickerPreviewActivity$onCreate$3$bitmap$1":I
-    :cond_8
-    if-eqz v5, :cond_9
+    move-object p1, v1
 
     goto :goto_2
 
-    .line 80
-    :cond_9
-    move-object v5, v0
+    :cond_7
+    const-string v2, "bitmapHeightNameExtra"
 
-    .local v5, "$this$run":Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;
-    const/4 v6, 0x0
+    invoke-virtual {p1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
-    .line 81
-    .local v6, "$i$a$-run-ColorPickerPreviewActivity$onCreate$3$bitmap$2":I
-    sget-object v7, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+    move-result p1
 
-    const/16 v8, 0x200
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v8, v8, v7}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+    move-result-object p1
 
-    move-result-object v5
+    .line 75
+    :goto_2
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->getIntent()Landroid/content/Intent;
 
-    .line 80
-    .end local v5    # "$this$run":Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;
-    .end local v6    # "$i$a$-run-ColorPickerPreviewActivity$onCreate$3$bitmap$2":I
-    nop
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v2
+
+    if-nez v2, :cond_8
+
+    move-object v2, v1
+
+    goto :goto_3
+
+    :cond_8
+    const-string v3, "bitmapWidthNameExtra"
+
+    invoke-virtual {v2, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    :goto_3
+    if-nez v2, :cond_9
+
+    :goto_4
+    move-object p1, v1
+
+    goto :goto_5
 
     .line 76
-    :goto_2
-    nop
+    :cond_9
+    check-cast v2, Ljava/lang/Number;
+
+    invoke-virtual {v2}, Ljava/lang/Number;->intValue()I
+
+    move-result v2
+
+    if-nez p1, :cond_a
+
+    goto :goto_4
+
+    .line 77
+    :cond_a
+    check-cast p1, Ljava/lang/Number;
+
+    invoke-virtual {p1}, Ljava/lang/Number;->intValue()I
+
+    move-result p1
+
+    .line 78
+    sget-object v3, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+
+    invoke-static {p1, v2, v3}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+
+    move-result-object p1
+
+    :goto_5
+    if-nez p1, :cond_b
+
+    .line 81
+    sget-object p1, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+
+    const/16 v2, 0x200
+
+    invoke-static {v2, v2, p1}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+
+    move-result-object p1
 
     .line 83
-    .local v5, "bitmap":Landroid/graphics/Bitmap;
-    iget-object v6, v0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->previewSurface:Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
-
-    if-nez v6, :cond_a
-
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    :cond_a
-    const-string v1, "bitmap"
-
-    invoke-static {v5, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {v6, v5}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
-
-    .line 84
-    .end local v3    # "height":Ljava/lang/Integer;
-    .end local v4    # "width":Ljava/lang/Integer;
-    .end local v5    # "bitmap":Landroid/graphics/Bitmap;
-    nop
-
-    .line 72
-    .end local v0    # "$this$run":Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;
-    .end local v2    # "$i$a$-run-ColorPickerPreviewActivity$onCreate$3":I
-    nop
-
-    .line 86
-    :goto_3
-    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->doneAction:Landroid/widget/ImageView;
-
-    if-nez v0, :cond_b
-
-    const-string v1, "doneAction"
-
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
     :cond_b
-    new-instance v1, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity$onCreate$4;
+    iget-object v2, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->previewSurface:Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
 
-    invoke-direct {v1, p0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity$onCreate$4;-><init>(Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;)V
+    if-nez v2, :cond_c
 
-    check-cast v1, Landroid/view/View$OnClickListener;
+    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 89
-    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->backAction:Landroid/widget/ImageView;
-
-    if-nez v0, :cond_c
-
-    const-string v1, "backAction"
-
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    move-object v2, v1
 
     :cond_c
-    new-instance v1, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity$onCreate$5;
+    const-string v0, "bitmap"
 
-    invoke-direct {v1, p0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity$onCreate$5;-><init>(Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v1, Landroid/view/View$OnClickListener;
+    invoke-virtual {v2, p1}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    .line 86
+    :cond_d
+    iget-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->doneAction:Landroid/widget/ImageView;
 
-    .line 90
+    if-nez p1, :cond_e
+
+    const-string p1, "doneAction"
+
+    invoke-static {p1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    move-object p1, v1
+
+    :cond_e
+    new-instance v0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity$$ExternalSyntheticLambda2;
+
+    invoke-direct {v0, p0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity$$ExternalSyntheticLambda2;-><init>(Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;)V
+
+    invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 89
+    iget-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;->backAction:Landroid/widget/ImageView;
+
+    if-nez p1, :cond_f
+
+    const-string p1, "backAction"
+
+    invoke-static {p1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    goto :goto_6
+
+    :cond_f
+    move-object v1, p1
+
+    :goto_6
+    new-instance p1, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity$$ExternalSyntheticLambda3;
+
+    invoke-direct {p1, p0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity$$ExternalSyntheticLambda3;-><init>(Lorg/catrobat/paintroid/colorpicker/ColorPickerPreviewActivity;)V
+
+    invoke-virtual {v1, p1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
     return-void
 .end method
 
@@ -789,13 +736,6 @@
 
     move-result-object v0
 
-    .line 112
-    nop
-
-    .line 113
-    nop
-
-    .line 111
     const/16 v1, 0x400
 
     invoke-virtual {v0, v1, v1}, Landroid/view/Window;->setFlags(II)V
@@ -809,6 +749,5 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
 
-    .line 116
     return-void
 .end method

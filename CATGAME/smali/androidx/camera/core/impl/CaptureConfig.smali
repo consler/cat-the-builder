@@ -68,40 +68,35 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    const-string v0, "camerax.core.captureConfig.rotation"
+
     .line 49
-    sget-object v0, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+    sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
     .line 50
-    const-string v1, "camerax.core.captureConfig.rotation"
-
-    invoke-static {v1, v0}, Landroidx/camera/core/impl/Config$Option;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
+    invoke-static {v0, v1}, Landroidx/camera/core/impl/Config$Option;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
 
     move-result-object v0
 
     sput-object v0, Landroidx/camera/core/impl/CaptureConfig;->OPTION_ROTATION:Landroidx/camera/core/impl/Config$Option;
 
+    const-string v0, "camerax.core.captureConfig.jpegQuality"
+
     .line 59
-    const-class v0, Ljava/lang/Integer;
+    const-class v1, Ljava/lang/Integer;
 
     .line 60
-    const-string v1, "camerax.core.captureConfig.jpegQuality"
-
-    invoke-static {v1, v0}, Landroidx/camera/core/impl/Config$Option;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
+    invoke-static {v0, v1}, Landroidx/camera/core/impl/Config$Option;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
 
     move-result-object v0
 
     sput-object v0, Landroidx/camera/core/impl/CaptureConfig;->OPTION_JPEG_QUALITY:Landroidx/camera/core/impl/Config$Option;
 
-    .line 59
     return-void
 .end method
 
 .method constructor <init>(Ljava/util/List;Landroidx/camera/core/impl/Config;ILjava/util/List;ZLjava/lang/Object;)V
-    .locals 1
-    .param p2, "implementationOptions"    # Landroidx/camera/core/impl/Config;
-    .param p3, "templateType"    # I
-    .param p5, "useRepeatingSurface"    # Z
-    .param p6, "tag"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -119,8 +114,6 @@
     .end annotation
 
     .line 101
-    .local p1, "surfaces":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/core/impl/DeferrableSurface;>;"
-    .local p4, "cameraCaptureCallbacks":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/core/impl/CameraCaptureCallback;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 102
@@ -135,9 +128,9 @@
     .line 105
     invoke-static {p4}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/camera/core/impl/CaptureConfig;->mCameraCaptureCallbacks:Ljava/util/List;
+    iput-object p1, p0, Landroidx/camera/core/impl/CaptureConfig;->mCameraCaptureCallbacks:Ljava/util/List;
 
     .line 106
     iput-boolean p5, p0, Landroidx/camera/core/impl/CaptureConfig;->mUseRepeatingSurface:Z
@@ -145,7 +138,6 @@
     .line 107
     iput-object p6, p0, Landroidx/camera/core/impl/CaptureConfig;->mTag:Ljava/lang/Object;
 
-    .line 108
     return-void
 .end method
 

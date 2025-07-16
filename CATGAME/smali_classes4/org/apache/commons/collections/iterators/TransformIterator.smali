@@ -19,13 +19,11 @@
     .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 47
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Iterator;)V
     .locals 0
-    .param p1, "iterator"    # Ljava/util/Iterator;
 
     .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,14 +31,11 @@
     .line 57
     iput-object p1, p0, Lorg/apache/commons/collections/iterators/TransformIterator;->iterator:Ljava/util/Iterator;
 
-    .line 58
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Iterator;Lorg/apache/commons/collections/Transformer;)V
     .locals 0
-    .param p1, "iterator"    # Ljava/util/Iterator;
-    .param p2, "transformer"    # Lorg/apache/commons/collections/Transformer;
 
     .line 69
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,7 +46,6 @@
     .line 71
     iput-object p2, p0, Lorg/apache/commons/collections/iterators/TransformIterator;->transformer:Lorg/apache/commons/collections/Transformer;
 
-    .line 72
     return-void
 .end method
 
@@ -113,35 +107,29 @@
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 93
     return-void
 .end method
 
 .method public setIterator(Ljava/util/Iterator;)V
     .locals 0
-    .param p1, "iterator"    # Ljava/util/Iterator;
 
     .line 112
     iput-object p1, p0, Lorg/apache/commons/collections/iterators/TransformIterator;->iterator:Ljava/util/Iterator;
 
-    .line 113
     return-void
 .end method
 
 .method public setTransformer(Lorg/apache/commons/collections/Transformer;)V
     .locals 0
-    .param p1, "transformer"    # Lorg/apache/commons/collections/Transformer;
 
     .line 132
     iput-object p1, p0, Lorg/apache/commons/collections/iterators/TransformIterator;->transformer:Lorg/apache/commons/collections/Transformer;
 
-    .line 133
     return-void
 .end method
 
 .method protected transform(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "source"    # Ljava/lang/Object;
 
     .line 144
     iget-object v0, p0, Lorg/apache/commons/collections/iterators/TransformIterator;->transformer:Lorg/apache/commons/collections/Transformer;
@@ -151,11 +139,8 @@
     .line 145
     invoke-interface {v0, p1}, Lorg/apache/commons/collections/Transformer;->transform(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
-
-    .line 147
     :cond_0
     return-object p1
 .end method

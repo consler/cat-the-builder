@@ -24,8 +24,6 @@
         }
     .end annotation
 
-    .line 63
-    .local p0, "reflectionFactoryClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :try_start_0
     const-string v0, "getReflectionFactory"
 
@@ -33,55 +31,52 @@
 
     new-array v2, v1, [Ljava/lang/Class;
 
+    .line 63
     invoke-virtual {p0, v0, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    move-result-object v0
+    move-result-object p0
+
+    new-array v0, v1, [Ljava/lang/Object;
+
+    const/4 v1, 0x0
 
     .line 65
-    .local v0, "method":Ljava/lang/reflect/Method;
-    const/4 v2, 0x0
+    invoke-virtual {p0, v1, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-array v1, v1, [Ljava/lang/Object;
-
-    invoke-virtual {v0, v2, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_3
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v1
+    return-object p0
 
-    .line 67
-    .end local v0    # "method":Ljava/lang/reflect/Method;
     :catch_0
-    move-exception v0
+    move-exception p0
 
     goto :goto_0
 
     :catch_1
-    move-exception v0
+    move-exception p0
 
     goto :goto_0
 
     :catch_2
-    move-exception v0
+    move-exception p0
 
     goto :goto_0
 
     :catch_3
-    move-exception v0
+    move-exception p0
 
     .line 68
-    .local v0, "e":Ljava/lang/Exception;
     :goto_0
-    new-instance v1, Lorg/objenesis/ObjenesisException;
+    new-instance v0, Lorg/objenesis/ObjenesisException;
 
-    invoke-direct {v1, v0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method private static getNewConstructorForSerializationMethod(Ljava/lang/Class;)Ljava/lang/reflect/Method;
@@ -95,8 +90,6 @@
         }
     .end annotation
 
-    .line 74
-    .local p0, "reflectionFactoryClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :try_start_0
     const-string v0, "newConstructorForSerialization"
 
@@ -104,37 +97,36 @@
 
     new-array v1, v1, [Ljava/lang/Class;
 
-    const/4 v2, 0x0
+    .line 74
+    const-class v2, Ljava/lang/Class;
 
-    const-class v3, Ljava/lang/Class;
+    const/4 v3, 0x0
 
-    aput-object v3, v1, v2
+    aput-object v2, v1, v3
 
-    const/4 v2, 0x1
+    const-class v2, Ljava/lang/reflect/Constructor;
 
-    const-class v3, Ljava/lang/reflect/Constructor;
+    const/4 v3, 0x1
 
-    aput-object v3, v1, v2
+    aput-object v2, v1, v3
 
     invoke-virtual {p0, v0, v1}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
-    .line 77
     :catch_0
-    move-exception v0
+    move-exception p0
 
     .line 78
-    .local v0, "e":Ljava/lang/NoSuchMethodException;
-    new-instance v1, Lorg/objenesis/ObjenesisException;
+    new-instance v0, Lorg/objenesis/ObjenesisException;
 
-    invoke-direct {v1, v0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method private static getReflectionFactoryClass()Ljava/lang/Class;
@@ -147,10 +139,10 @@
         }
     .end annotation
 
-    .line 54
     :try_start_0
     const-string v0, "sun.reflect.ReflectionFactory"
 
+    .line 54
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v0
@@ -159,12 +151,10 @@
 
     return-object v0
 
-    .line 56
     :catch_0
     move-exception v0
 
     .line 57
-    .local v0, "e":Ljava/lang/ClassNotFoundException;
     new-instance v1, Lorg/objenesis/ObjenesisException;
 
     invoke-direct {v1, v0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V
@@ -173,7 +163,7 @@
 .end method
 
 .method public static newConstructorForSerialization(Ljava/lang/Class;Ljava/lang/reflect/Constructor;)Ljava/lang/reflect/Constructor;
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -189,71 +179,64 @@
     .end annotation
 
     .line 37
-    .local p0, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
-    .local p1, "constructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<*>;"
     invoke-static {}, Lorg/objenesis/instantiator/sun/SunReflectionFactoryHelper;->getReflectionFactoryClass()Ljava/lang/Class;
 
     move-result-object v0
 
     .line 38
-    .local v0, "reflectionFactoryClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-static {v0}, Lorg/objenesis/instantiator/sun/SunReflectionFactoryHelper;->createReflectionFactory(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v1
 
     .line 40
-    .local v1, "reflectionFactory":Ljava/lang/Object;
     invoke-static {v0}, Lorg/objenesis/instantiator/sun/SunReflectionFactoryHelper;->getNewConstructorForSerializationMethod(Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    move-result-object v2
+    move-result-object v0
 
-    .line 44
-    .local v2, "newConstructorForSerializationMethod":Ljava/lang/reflect/Method;
-    const/4 v3, 0x2
+    const/4 v2, 0x2
 
     :try_start_0
-    new-array v3, v3, [Ljava/lang/Object;
+    new-array v2, v2, [Ljava/lang/Object;
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    aput-object p0, v3, v4
+    aput-object p0, v2, v3
 
-    const/4 v4, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v3, v4
+    aput-object p1, v2, p0
 
-    invoke-virtual {v2, v1, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    .line 44
+    invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p0
 
-    check-cast v3, Ljava/lang/reflect/Constructor;
+    check-cast p0, Ljava/lang/reflect/Constructor;
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_2
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v3
+    return-object p0
 
-    .line 47
     :catch_0
-    move-exception v3
+    move-exception p0
 
     goto :goto_0
 
     :catch_1
-    move-exception v3
+    move-exception p0
 
     goto :goto_0
 
     :catch_2
-    move-exception v3
+    move-exception p0
 
     .line 48
-    .local v3, "e":Ljava/lang/Exception;
     :goto_0
-    new-instance v4, Lorg/objenesis/ObjenesisException;
+    new-instance p1, Lorg/objenesis/ObjenesisException;
 
-    invoke-direct {v4, v3}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p1, p0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v4
+    throw p1
 .end method

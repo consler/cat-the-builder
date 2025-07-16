@@ -26,10 +26,8 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/impl/LiveDataObservable$1;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)V
     .locals 0
-    .param p1, "this$1"    # Landroidx/camera/core/impl/LiveDataObservable$1;
 
     .line 88
-    .local p0, "this":Landroidx/camera/core/impl/LiveDataObservable$1$1;, "Landroidx/camera/core/impl/LiveDataObservable$1$1;"
     iput-object p1, p0, Landroidx/camera/core/impl/LiveDataObservable$1$1;->this$1:Landroidx/camera/core/impl/LiveDataObservable$1;
 
     iput-object p2, p0, Landroidx/camera/core/impl/LiveDataObservable$1$1;->val$completer:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -42,10 +40,9 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 3
 
     .line 91
-    .local p0, "this":Landroidx/camera/core/impl/LiveDataObservable$1$1;, "Landroidx/camera/core/impl/LiveDataObservable$1$1;"
     iget-object v0, p0, Landroidx/camera/core/impl/LiveDataObservable$1$1;->this$1:Landroidx/camera/core/impl/LiveDataObservable$1;
 
     iget-object v0, v0, Landroidx/camera/core/impl/LiveDataObservable$1;->this$0:Landroidx/camera/core/impl/LiveDataObservable;
@@ -58,20 +55,18 @@
 
     check-cast v0, Landroidx/camera/core/impl/LiveDataObservable$Result;
 
-    .line 92
-    .local v0, "result":Landroidx/camera/core/impl/LiveDataObservable$Result;, "Landroidx/camera/core/impl/LiveDataObservable$Result<TT;>;"
     if-nez v0, :cond_0
 
     .line 93
-    iget-object v1, p0, Landroidx/camera/core/impl/LiveDataObservable$1$1;->val$completer:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
+    iget-object v0, p0, Landroidx/camera/core/impl/LiveDataObservable$1$1;->val$completer:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
-    new-instance v2, Ljava/lang/IllegalStateException;
+    new-instance v1, Ljava/lang/IllegalStateException;
 
-    const-string v3, "Observable has not yet been initialized with a value."
+    const-string v2, "Observable has not yet been initialized with a value."
 
-    invoke-direct {v2, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->setException(Ljava/lang/Throwable;)Z
+    invoke-virtual {v0, v1}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->setException(Ljava/lang/Throwable;)Z
 
     goto :goto_0
 
@@ -88,9 +83,9 @@
 
     invoke-virtual {v0}, Landroidx/camera/core/impl/LiveDataObservable$Result;->getValue()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v0}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
 
     goto :goto_0
 
@@ -107,11 +102,10 @@
 
     invoke-virtual {v0}, Landroidx/camera/core/impl/LiveDataObservable$Result;->getError()Ljava/lang/Throwable;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->setException(Ljava/lang/Throwable;)Z
+    invoke-virtual {v1, v0}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->setException(Ljava/lang/Throwable;)Z
 
-    .line 101
     :goto_0
     return-void
 .end method

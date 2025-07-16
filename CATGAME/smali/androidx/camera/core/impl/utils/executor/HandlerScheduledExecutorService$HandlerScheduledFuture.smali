@@ -63,8 +63,6 @@
 # direct methods
 .method constructor <init>(Landroid/os/Handler;JLjava/util/concurrent/Callable;)V
     .locals 2
-    .param p1, "handler"    # Landroid/os/Handler;
-    .param p2, "runAtMillis"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -76,8 +74,6 @@
     .end annotation
 
     .line 193
-    .local p0, "this":Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;, "Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture<TV;>;"
-    .local p4, "task":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 187
@@ -96,17 +92,16 @@
     iput-object p4, p0, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;->mTask:Ljava/util/concurrent/Callable;
 
     .line 196
-    new-instance v0, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture$1;
+    new-instance p2, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture$1;
 
-    invoke-direct {v0, p0, p1, p4}, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture$1;-><init>(Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;Landroid/os/Handler;Ljava/util/concurrent/Callable;)V
+    invoke-direct {p2, p0, p1, p4}, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture$1;-><init>(Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;Landroid/os/Handler;Ljava/util/concurrent/Callable;)V
 
-    invoke-static {v0}, Landroidx/concurrent/futures/CallbackToFutureAdapter;->getFuture(Landroidx/concurrent/futures/CallbackToFutureAdapter$Resolver;)Lcom/google/common/util/concurrent/ListenableFuture;
+    invoke-static {p2}, Landroidx/concurrent/futures/CallbackToFutureAdapter;->getFuture(Landroidx/concurrent/futures/CallbackToFutureAdapter$Resolver;)Lcom/google/common/util/concurrent/ListenableFuture;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;->mDelegate:Lcom/google/common/util/concurrent/ListenableFuture;
+    iput-object p1, p0, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;->mDelegate:Lcom/google/common/util/concurrent/ListenableFuture;
 
-    .line 219
     return-void
 .end method
 
@@ -114,24 +109,21 @@
 # virtual methods
 .method public cancel(Z)Z
     .locals 1
-    .param p1, "mayInterruptIfRunning"    # Z
 
     .line 252
-    .local p0, "this":Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;, "Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture<TV;>;"
     iget-object v0, p0, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;->mDelegate:Lcom/google/common/util/concurrent/ListenableFuture;
 
     invoke-interface {v0, p1}, Lcom/google/common/util/concurrent/ListenableFuture;->cancel(Z)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
     .locals 0
 
     .line 185
-    .local p0, "this":Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;, "Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture<TV;>;"
     check-cast p1, Ljava/util/concurrent/Delayed;
 
     invoke-virtual {p0, p1}, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;->compareTo(Ljava/util/concurrent/Delayed;)I
@@ -143,10 +135,8 @@
 
 .method public compareTo(Ljava/util/concurrent/Delayed;)I
     .locals 4
-    .param p1, "o"    # Ljava/util/concurrent/Delayed;
 
     .line 234
-    .local p0, "this":Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;, "Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture<TV;>;"
     sget-object v0, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
     invoke-virtual {p0, v0}, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;->getDelay(Ljava/util/concurrent/TimeUnit;)J
@@ -161,9 +151,9 @@
 
     invoke-static {v0, v1, v2, v3}, Ljava/lang/Long;->compare(JJ)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public get()Ljava/lang/Object;
@@ -182,7 +172,6 @@
     .end annotation
 
     .line 267
-    .local p0, "this":Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;, "Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture<TV;>;"
     iget-object v0, p0, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;->mDelegate:Lcom/google/common/util/concurrent/ListenableFuture;
 
     invoke-interface {v0}, Lcom/google/common/util/concurrent/ListenableFuture;->get()Ljava/lang/Object;
@@ -194,8 +183,6 @@
 
 .method public get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
     .locals 1
-    .param p1, "timeout"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -213,22 +200,19 @@
     .end annotation
 
     .line 273
-    .local p0, "this":Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;, "Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture<TV;>;"
     iget-object v0, p0, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;->mDelegate:Lcom/google/common/util/concurrent/ListenableFuture;
 
     invoke-interface {v0, p1, p2, p3}, Lcom/google/common/util/concurrent/ListenableFuture;->get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getDelay(Ljava/util/concurrent/TimeUnit;)J
     .locals 4
-    .param p1, "unit"    # Ljava/util/concurrent/TimeUnit;
 
     .line 228
-    .local p0, "this":Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;, "Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture<TV;>;"
     iget-wide v0, p0, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;->mRunAtMillis:J
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -250,7 +234,6 @@
     .locals 1
 
     .line 257
-    .local p0, "this":Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;, "Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture<TV;>;"
     iget-object v0, p0, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;->mDelegate:Lcom/google/common/util/concurrent/ListenableFuture;
 
     invoke-interface {v0}, Lcom/google/common/util/concurrent/ListenableFuture;->isCancelled()Z
@@ -264,7 +247,6 @@
     .locals 1
 
     .line 262
-    .local p0, "this":Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;, "Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture<TV;>;"
     iget-object v0, p0, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;->mDelegate:Lcom/google/common/util/concurrent/ListenableFuture;
 
     invoke-interface {v0}, Lcom/google/common/util/concurrent/ListenableFuture;->isDone()Z
@@ -277,8 +259,6 @@
 .method public isPeriodic()Z
     .locals 1
 
-    .line 223
-    .local p0, "this":Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;, "Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture<TV;>;"
     const/4 v0, 0x0
 
     return v0
@@ -288,7 +268,6 @@
     .locals 2
 
     .line 240
-    .local p0, "this":Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;, "Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture<TV;>;"
     iget-object v0, p0, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$HandlerScheduledFuture;->mCompleter:Ljava/util/concurrent/atomic/AtomicReference;
 
     const/4 v1, 0x0
@@ -299,8 +278,6 @@
 
     check-cast v0, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
-    .line 241
-    .local v0, "completer":Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;, "Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer<TV;>;"
     if-eqz v0, :cond_0
 
     .line 243
@@ -315,19 +292,14 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 246
     goto :goto_0
 
-    .line 244
     :catch_0
     move-exception v1
 
     .line 245
-    .local v1, "e":Ljava/lang/Exception;
     invoke-virtual {v0, v1}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->setException(Ljava/lang/Throwable;)Z
 
-    .line 248
-    .end local v1    # "e":Ljava/lang/Exception;
     :cond_0
     :goto_0
     return-void

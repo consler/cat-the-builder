@@ -58,9 +58,6 @@
     .end annotation
 
     .line 1049
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableReplay$Replay;, "Lio/reactivex/internal/operators/observable/ObservableReplay$Replay<TT;>;"
-    .local p1, "co":Lio/reactivex/observables/ConnectableObservable;, "Lio/reactivex/observables/ConnectableObservable<TT;>;"
-    .local p2, "observable":Lio/reactivex/Observable;, "Lio/reactivex/Observable<TT;>;"
     invoke-direct {p0}, Lio/reactivex/observables/ConnectableObservable;-><init>()V
 
     .line 1050
@@ -69,7 +66,6 @@
     .line 1051
     iput-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableReplay$Replay;->observable:Lio/reactivex/Observable;
 
-    .line 1052
     return-void
 .end method
 
@@ -88,13 +84,10 @@
     .end annotation
 
     .line 1056
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableReplay$Replay;, "Lio/reactivex/internal/operators/observable/ObservableReplay$Replay<TT;>;"
-    .local p1, "connection":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Lio/reactivex/disposables/Disposable;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableReplay$Replay;->co:Lio/reactivex/observables/ConnectableObservable;
 
     invoke-virtual {v0, p1}, Lio/reactivex/observables/ConnectableObservable;->connect(Lio/reactivex/functions/Consumer;)V
 
-    .line 1057
     return-void
 .end method
 
@@ -109,12 +102,9 @@
     .end annotation
 
     .line 1061
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableReplay$Replay;, "Lio/reactivex/internal/operators/observable/ObservableReplay$Replay<TT;>;"
-    .local p1, "observer":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableReplay$Replay;->observable:Lio/reactivex/Observable;
 
     invoke-virtual {v0, p1}, Lio/reactivex/Observable;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 1062
     return-void
 .end method

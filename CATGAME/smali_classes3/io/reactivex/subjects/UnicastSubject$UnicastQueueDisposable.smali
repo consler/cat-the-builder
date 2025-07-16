@@ -34,7 +34,6 @@
     .locals 0
 
     .line 425
-    .local p0, "this":Lio/reactivex/subjects/UnicastSubject$UnicastQueueDisposable;, "Lio/reactivex/subjects/UnicastSubject<TT;>.UnicastQueueDisposable;"
     iput-object p1, p0, Lio/reactivex/subjects/UnicastSubject$UnicastQueueDisposable;->this$0:Lio/reactivex/subjects/UnicastSubject;
 
     invoke-direct {p0}, Lio/reactivex/internal/observers/BasicIntQueueDisposable;-><init>()V
@@ -48,14 +47,12 @@
     .locals 1
 
     .line 452
-    .local p0, "this":Lio/reactivex/subjects/UnicastSubject$UnicastQueueDisposable;, "Lio/reactivex/subjects/UnicastSubject<TT;>.UnicastQueueDisposable;"
     iget-object v0, p0, Lio/reactivex/subjects/UnicastSubject$UnicastQueueDisposable;->this$0:Lio/reactivex/subjects/UnicastSubject;
 
     iget-object v0, v0, Lio/reactivex/subjects/UnicastSubject;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
 
     invoke-virtual {v0}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->clear()V
 
-    .line 453
     return-void
 .end method
 
@@ -63,7 +60,6 @@
     .locals 2
 
     .line 457
-    .local p0, "this":Lio/reactivex/subjects/UnicastSubject$UnicastQueueDisposable;, "Lio/reactivex/subjects/UnicastSubject<TT;>.UnicastQueueDisposable;"
     iget-object v0, p0, Lio/reactivex/subjects/UnicastSubject$UnicastQueueDisposable;->this$0:Lio/reactivex/subjects/UnicastSubject;
 
     iget-boolean v0, v0, Lio/reactivex/subjects/UnicastSubject;->disposed:Z
@@ -116,7 +112,6 @@
 
     invoke-virtual {v0}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->clear()V
 
-    .line 468
     :cond_0
     return-void
 .end method
@@ -125,7 +120,6 @@
     .locals 1
 
     .line 472
-    .local p0, "this":Lio/reactivex/subjects/UnicastSubject$UnicastQueueDisposable;, "Lio/reactivex/subjects/UnicastSubject<TT;>.UnicastQueueDisposable;"
     iget-object v0, p0, Lio/reactivex/subjects/UnicastSubject$UnicastQueueDisposable;->this$0:Lio/reactivex/subjects/UnicastSubject;
 
     iget-boolean v0, v0, Lio/reactivex/subjects/UnicastSubject;->disposed:Z
@@ -137,7 +131,6 @@
     .locals 1
 
     .line 447
-    .local p0, "this":Lio/reactivex/subjects/UnicastSubject$UnicastQueueDisposable;, "Lio/reactivex/subjects/UnicastSubject<TT;>.UnicastQueueDisposable;"
     iget-object v0, p0, Lio/reactivex/subjects/UnicastSubject$UnicastQueueDisposable;->this$0:Lio/reactivex/subjects/UnicastSubject;
 
     iget-object v0, v0, Lio/reactivex/subjects/UnicastSubject;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
@@ -164,7 +157,6 @@
     .end annotation
 
     .line 442
-    .local p0, "this":Lio/reactivex/subjects/UnicastSubject$UnicastQueueDisposable;, "Lio/reactivex/subjects/UnicastSubject<TT;>.UnicastQueueDisposable;"
     iget-object v0, p0, Lio/reactivex/subjects/UnicastSubject$UnicastQueueDisposable;->this$0:Lio/reactivex/subjects/UnicastSubject;
 
     iget-object v0, v0, Lio/reactivex/subjects/UnicastSubject;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
@@ -178,29 +170,24 @@
 
 .method public requestFusion(I)I
     .locals 2
-    .param p1, "mode"    # I
 
-    .line 432
-    .local p0, "this":Lio/reactivex/subjects/UnicastSubject$UnicastQueueDisposable;, "Lio/reactivex/subjects/UnicastSubject<TT;>.UnicastQueueDisposable;"
-    and-int/lit8 v0, p1, 0x2
+    const/4 v0, 0x2
 
-    if-eqz v0, :cond_0
+    and-int/2addr p1, v0
+
+    if-eqz p1, :cond_0
 
     .line 433
-    iget-object v0, p0, Lio/reactivex/subjects/UnicastSubject$UnicastQueueDisposable;->this$0:Lio/reactivex/subjects/UnicastSubject;
+    iget-object p1, p0, Lio/reactivex/subjects/UnicastSubject$UnicastQueueDisposable;->this$0:Lio/reactivex/subjects/UnicastSubject;
 
     const/4 v1, 0x1
 
-    iput-boolean v1, v0, Lio/reactivex/subjects/UnicastSubject;->enableOperatorFusion:Z
-
-    .line 434
-    const/4 v0, 0x2
+    iput-boolean v1, p1, Lio/reactivex/subjects/UnicastSubject;->enableOperatorFusion:Z
 
     return v0
 
-    .line 436
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

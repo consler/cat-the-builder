@@ -78,7 +78,6 @@
 
     invoke-interface {v0, v1}, Lcom/koushikdutta/async/callback/CompletedCallback;->onCompleted(Ljava/lang/Exception;)V
 
-    .line 206
     :cond_0
     return-void
 .end method

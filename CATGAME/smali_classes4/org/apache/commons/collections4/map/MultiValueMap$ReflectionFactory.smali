@@ -57,20 +57,16 @@
     .end annotation
 
     .line 560
-    .local p0, "this":Lorg/apache/commons/collections4/map/MultiValueMap$ReflectionFactory;, "Lorg/apache/commons/collections4/map/MultiValueMap$ReflectionFactory<TT;>;"
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 561
     iput-object p1, p0, Lorg/apache/commons/collections4/map/MultiValueMap$ReflectionFactory;->clazz:Ljava/lang/Class;
 
-    .line 562
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
-    .param p1, "is"    # Ljava/io/ObjectInputStream;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -79,33 +75,31 @@
     .end annotation
 
     .line 574
-    .local p0, "this":Lorg/apache/commons/collections4/map/MultiValueMap$ReflectionFactory;, "Lorg/apache/commons/collections4/map/MultiValueMap$ReflectionFactory<TT;>;"
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
     .line 576
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/MultiValueMap$ReflectionFactory;->clazz:Ljava/lang/Class;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/MultiValueMap$ReflectionFactory;->clazz:Ljava/lang/Class;
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
-    const-class v1, Ljava/util/Collection;
+    const-class v0, Ljava/util/Collection;
 
-    invoke-virtual {v1, v0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
     .line 577
     :cond_0
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 
-    .line 579
     :cond_1
     :goto_0
     return-void
@@ -117,7 +111,6 @@
     .locals 1
 
     .line 553
-    .local p0, "this":Lorg/apache/commons/collections4/map/MultiValueMap$ReflectionFactory;, "Lorg/apache/commons/collections4/map/MultiValueMap$ReflectionFactory<TT;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/MultiValueMap$ReflectionFactory;->create()Ljava/util/Collection;
 
     move-result-object v0
@@ -134,7 +127,6 @@
     .end annotation
 
     .line 567
-    .local p0, "this":Lorg/apache/commons/collections4/map/MultiValueMap$ReflectionFactory;, "Lorg/apache/commons/collections4/map/MultiValueMap$ReflectionFactory<TT;>;"
     :try_start_0
     iget-object v0, p0, Lorg/apache/commons/collections4/map/MultiValueMap$ReflectionFactory;->clazz:Ljava/lang/Class;
 
@@ -158,25 +150,23 @@
 
     return-object v0
 
-    .line 568
     :catch_0
     move-exception v0
 
     .line 569
-    .local v0, "ex":Ljava/lang/Exception;
     new-instance v1, Lorg/apache/commons/collections4/FunctorException;
 
     new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v3, "Cannot instantiate class: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v3, p0, Lorg/apache/commons/collections4/map/MultiValueMap$ReflectionFactory;->clazz:Ljava/lang/Class;
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

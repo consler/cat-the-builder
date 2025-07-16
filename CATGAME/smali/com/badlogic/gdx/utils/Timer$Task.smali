@@ -41,10 +41,8 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/utils/Timer$Task;->app:Lcom/badlogic/gdx/Application;
 
-    .line 198
     if-eqz v0, :cond_0
 
-    .line 199
     return-void
 
     .line 198
@@ -66,8 +64,6 @@
     .line 207
     iget-object v0, p0, Lcom/badlogic/gdx/utils/Timer$Task;->timer:Lcom/badlogic/gdx/utils/Timer;
 
-    .line 208
-    .local v0, "timer":Lcom/badlogic/gdx/utils/Timer;
     const/4 v1, 0x0
 
     const-wide/16 v2, 0x0
@@ -110,24 +106,22 @@
 
     goto :goto_0
 
-    .line 214
     :catchall_0
     move-exception v1
 
+    .line 214
     :try_start_3
     monitor-exit p0
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .end local v0    # "timer":Lcom/badlogic/gdx/utils/Timer;
     :try_start_4
     throw v1
 
-    .line 215
-    .restart local v0    # "timer":Lcom/badlogic/gdx/utils/Timer;
     :catchall_1
     move-exception v1
 
+    .line 215
     monitor-exit v0
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
@@ -148,19 +142,17 @@
     .line 220
     monitor-exit p0
 
-    .line 222
     :goto_0
     return-void
 
-    .line 220
     :catchall_2
-    move-exception v1
+    move-exception v0
 
     monitor-exit p0
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
-    throw v1
+    throw v0
 .end method
 
 .method public declared-synchronized getExecuteTimeMillis()J
@@ -178,8 +170,6 @@
 
     return-wide v0
 
-    .line 240
-    .end local p0    # "this":Lcom/badlogic/gdx/utils/Timer$Task;
     :catchall_0
     move-exception v0
 

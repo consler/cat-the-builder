@@ -15,42 +15,39 @@
 
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/physics/box2d/World;J)V
-    .locals 1
-    .param p1, "world"    # Lcom/badlogic/gdx/physics/box2d/World;
-    .param p2, "addr"    # J
+    .locals 0
 
     .line 39
     invoke-direct {p0, p1, p2, p3}, Lcom/badlogic/gdx/physics/box2d/Joint;-><init>(Lcom/badlogic/gdx/physics/box2d/World;J)V
 
+    const/4 p1, 0x2
+
+    new-array p1, p1, [F
+
     .line 33
-    const/4 v0, 0x2
-
-    new-array v0, v0, [F
-
-    iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/WheelJoint;->tmp:[F
+    iput-object p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/WheelJoint;->tmp:[F
 
     .line 34
-    new-instance v0, Lcom/badlogic/gdx/math/Vector2;
+    new-instance p1, Lcom/badlogic/gdx/math/Vector2;
 
-    invoke-direct {v0}, Lcom/badlogic/gdx/math/Vector2;-><init>()V
+    invoke-direct {p1}, Lcom/badlogic/gdx/math/Vector2;-><init>()V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/WheelJoint;->localAnchorA:Lcom/badlogic/gdx/math/Vector2;
+    iput-object p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/WheelJoint;->localAnchorA:Lcom/badlogic/gdx/math/Vector2;
 
     .line 35
-    new-instance v0, Lcom/badlogic/gdx/math/Vector2;
+    new-instance p1, Lcom/badlogic/gdx/math/Vector2;
 
-    invoke-direct {v0}, Lcom/badlogic/gdx/math/Vector2;-><init>()V
+    invoke-direct {p1}, Lcom/badlogic/gdx/math/Vector2;-><init>()V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/WheelJoint;->localAnchorB:Lcom/badlogic/gdx/math/Vector2;
+    iput-object p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/WheelJoint;->localAnchorB:Lcom/badlogic/gdx/math/Vector2;
 
     .line 36
-    new-instance v0, Lcom/badlogic/gdx/math/Vector2;
+    new-instance p1, Lcom/badlogic/gdx/math/Vector2;
 
-    invoke-direct {v0}, Lcom/badlogic/gdx/math/Vector2;-><init>()V
+    invoke-direct {p1}, Lcom/badlogic/gdx/math/Vector2;-><init>()V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/WheelJoint;->localAxisA:Lcom/badlogic/gdx/math/Vector2;
+    iput-object p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/WheelJoint;->localAxisA:Lcom/badlogic/gdx/math/Vector2;
 
-    .line 40
     return-void
 .end method
 
@@ -106,14 +103,12 @@
 # virtual methods
 .method public enableMotor(Z)V
     .locals 2
-    .param p1, "flag"    # Z
 
     .line 110
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/WheelJoint;->addr:J
 
     invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/joints/WheelJoint;->jniEnableMotor(JZ)V
 
-    .line 111
     return-void
 .end method
 
@@ -264,16 +259,15 @@
 
 .method public getMotorTorque(F)F
     .locals 2
-    .param p1, "invDt"    # F
 
     .line 159
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/WheelJoint;->addr:J
 
     invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/joints/WheelJoint;->jniGetMotorTorque(JF)F
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public getSpringDampingRatio()F
@@ -317,52 +311,44 @@
 
 .method public setMaxMotorTorque(F)V
     .locals 2
-    .param p1, "torque"    # F
 
     .line 140
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/WheelJoint;->addr:J
 
     invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/joints/WheelJoint;->jniSetMaxMotorTorque(JF)V
 
-    .line 141
     return-void
 .end method
 
 .method public setMotorSpeed(F)V
     .locals 2
-    .param p1, "speed"    # F
 
     .line 120
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/WheelJoint;->addr:J
 
     invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/joints/WheelJoint;->jniSetMotorSpeed(JF)V
 
-    .line 121
     return-void
 .end method
 
 .method public setSpringDampingRatio(F)V
     .locals 2
-    .param p1, "ratio"    # F
 
     .line 188
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/WheelJoint;->addr:J
 
     invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/joints/WheelJoint;->jniSetSpringDampingRatio(JF)V
 
-    .line 189
     return-void
 .end method
 
 .method public setSpringFrequencyHz(F)V
     .locals 2
-    .param p1, "hz"    # F
 
     .line 169
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/WheelJoint;->addr:J
 
     invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/joints/WheelJoint;->jniSetSpringFrequencyHz(JF)V
 
-    .line 170
     return-void
 .end method

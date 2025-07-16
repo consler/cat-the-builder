@@ -36,7 +36,6 @@
     .end annotation
 
     .line 67
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<Lcom/google/crypto/tink/prf/Prf;>;"
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;-><init>(Ljava/lang/Class;)V
 
     return-void
@@ -45,8 +44,7 @@
 
 # virtual methods
 .method public getPrimitive(Lcom/google/crypto/tink/proto/HkdfPrfKey;)Lcom/google/crypto/tink/prf/Prf;
-    .locals 4
-    .param p1, "key"    # Lcom/google/crypto/tink/proto/HkdfPrfKey;
+    .locals 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -90,24 +88,24 @@
     .line 74
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/HkdfPrfKey;->getParams()Lcom/google/crypto/tink/proto/HkdfPrfParams;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v3}, Lcom/google/crypto/tink/proto/HkdfPrfParams;->getSalt()Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/HkdfPrfParams;->getSalt()Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v3}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->toByteArray()[B
+    invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->toByteArray()[B
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-direct {v0, v1, v2, v3}, Lcom/google/crypto/tink/subtle/prf/HkdfStreamingPrf;-><init>(Lcom/google/crypto/tink/subtle/Enums$HashType;[B[B)V
+    invoke-direct {v0, v1, v2, p1}, Lcom/google/crypto/tink/subtle/prf/HkdfStreamingPrf;-><init>(Lcom/google/crypto/tink/subtle/Enums$HashType;[B[B)V
 
     .line 70
     invoke-static {v0}, Lcom/google/crypto/tink/subtle/prf/PrfImpl;->wrap(Lcom/google/crypto/tink/subtle/prf/StreamingPrf;)Lcom/google/crypto/tink/subtle/prf/PrfImpl;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic getPrimitive(Ljava/lang/Object;)Ljava/lang/Object;

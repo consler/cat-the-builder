@@ -17,12 +17,10 @@
 # direct methods
 .method protected constructor <init>(Lorg/apache/commons/collections/map/AbstractLinkedMap;)V
     .locals 0
-    .param p1, "parent"    # Lorg/apache/commons/collections/map/AbstractLinkedMap;
 
     .line 456
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/map/AbstractLinkedMap$EntrySetIterator;-><init>(Lorg/apache/commons/collections/map/AbstractLinkedMap;)V
 
-    .line 457
     return-void
 .end method
 

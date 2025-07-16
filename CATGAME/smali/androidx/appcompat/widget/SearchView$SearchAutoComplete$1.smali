@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/SearchView$SearchAutoComplete;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/appcompat/widget/SearchView$SearchAutoComplete;
 
     .line 1839
     iput-object p1, p0, Landroidx/appcompat/widget/SearchView$SearchAutoComplete$1;->this$0:Landroidx/appcompat/widget/SearchView$SearchAutoComplete;
@@ -44,6 +43,5 @@
 
     invoke-virtual {v0}, Landroidx/appcompat/widget/SearchView$SearchAutoComplete;->showSoftInputIfNecessary()V
 
-    .line 1843
     return-void
 .end method

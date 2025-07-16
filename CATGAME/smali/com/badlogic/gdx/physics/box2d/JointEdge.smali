@@ -12,8 +12,6 @@
 # direct methods
 .method protected constructor <init>(Lcom/badlogic/gdx/physics/box2d/Body;Lcom/badlogic/gdx/physics/box2d/Joint;)V
     .locals 0
-    .param p1, "other"    # Lcom/badlogic/gdx/physics/box2d/Body;
-    .param p2, "joint"    # Lcom/badlogic/gdx/physics/box2d/Joint;
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,6 +22,5 @@
     .line 28
     iput-object p2, p0, Lcom/badlogic/gdx/physics/box2d/JointEdge;->joint:Lcom/badlogic/gdx/physics/box2d/Joint;
 
-    .line 29
     return-void
 .end method

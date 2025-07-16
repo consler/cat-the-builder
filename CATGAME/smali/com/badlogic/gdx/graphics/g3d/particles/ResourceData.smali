@@ -74,7 +74,6 @@
     .locals 4
 
     .line 151
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;, "Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 152
@@ -87,13 +86,13 @@
     .line 153
     new-instance v0, Lcom/badlogic/gdx/utils/Array;
 
-    const-class v1, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$SaveData;
+    const/4 v1, 0x3
 
-    const/4 v2, 0x1
+    const-class v2, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$SaveData;
 
-    const/4 v3, 0x3
+    const/4 v3, 0x1
 
-    invoke-direct {v0, v2, v3, v1}, Lcom/badlogic/gdx/utils/Array;-><init>(ZILjava/lang/Class;)V
+    invoke-direct {v0, v3, v1, v2}, Lcom/badlogic/gdx/utils/Array;-><init>(ZILjava/lang/Class;)V
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;->data:Lcom/badlogic/gdx/utils/Array;
 
@@ -104,12 +103,11 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;->sharedAssets:Lcom/badlogic/gdx/utils/Array;
 
-    .line 155
     const/4 v0, 0x0
 
+    .line 155
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;->currentLoadIndex:I
 
-    .line 156
     return-void
 .end method
 
@@ -122,14 +120,11 @@
     .end annotation
 
     .line 159
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;, "Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData<TT;>;"
-    .local p1, "resource":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;-><init>()V
 
     .line 160
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;->resource:Ljava/lang/Object;
 
-    .line 161
     return-void
 .end method
 
@@ -139,33 +134,27 @@
     .locals 2
 
     .line 188
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;, "Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData<TT;>;"
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$SaveData;
 
     invoke-direct {v0, p0}, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$SaveData;-><init>(Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;)V
 
     .line 189
-    .local v0, "saveData":Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$SaveData;
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;->data:Lcom/badlogic/gdx/utils/Array;
 
     invoke-virtual {v1, v0}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 190
     return-object v0
 .end method
 
 .method public createSaveData(Ljava/lang/String;)Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$SaveData;
-    .locals 3
-    .param p1, "key"    # Ljava/lang/String;
+    .locals 2
 
     .line 195
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;, "Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData<TT;>;"
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$SaveData;
 
     invoke-direct {v0, p0}, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$SaveData;-><init>(Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;)V
 
     .line 196
-    .local v0, "saveData":Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$SaveData;
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;->uniqueData:Lcom/badlogic/gdx/utils/ObjectMap;
 
     invoke-virtual {v1, p1}, Lcom/badlogic/gdx/utils/ObjectMap;->containsKey(Ljava/lang/Object;)Z
@@ -179,23 +168,21 @@
 
     invoke-virtual {v1, p1, v0}, Lcom/badlogic/gdx/utils/ObjectMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 198
     return-object v0
 
     .line 196
     :cond_0
-    new-instance v1, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    const-string v2, "Key already used, data must be unique, use a different key"
+    const-string v0, "Key already used, data must be unique, use a different key"
 
-    invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 .end method
 
 .method getAssetData(Ljava/lang/String;Ljava/lang/Class;)I
     .locals 4
-    .param p1, "filename"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -207,34 +194,29 @@
         }
     .end annotation
 
-    .line 164
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;, "Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData<TT;>;"
-    .local p2, "type":Ljava/lang/Class;, "Ljava/lang/Class<TK;>;"
-    const/4 v0, 0x0
-
     .line 165
-    .local v0, "i":I
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;->sharedAssets:Lcom/badlogic/gdx/utils/Array;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;->sharedAssets:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v1}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v0
+
+    const/4 v1, 0x0
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$AssetData;
 
     .line 166
-    .local v2, "data":Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$AssetData;
     iget-object v3, v2, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$AssetData;->filename:Ljava/lang/String;
 
     invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -243,36 +225,29 @@
 
     if-eqz v3, :cond_0
 
-    iget-object v3, v2, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$AssetData;->type:Ljava/lang/Class;
+    iget-object v2, v2, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$AssetData;->type:Ljava/lang/Class;
 
-    invoke-virtual {v3, p2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, p2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_0
-
-    .line 167
-    return v0
-
-    .line 169
-    :cond_0
-    nop
-
-    .end local v2    # "data":Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$AssetData;
-    add-int/lit8 v0, v0, 0x1
-
-    .line 170
-    goto :goto_0
-
-    .line 171
-    :cond_1
-    const/4 v1, -0x1
+    if-eqz v2, :cond_0
 
     return v1
+
+    :cond_0
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 p1, -0x1
+
+    return p1
 .end method
 
 .method public getAssetDescriptors()Lcom/badlogic/gdx/utils/Array;
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -283,13 +258,11 @@
     .end annotation
 
     .line 175
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;, "Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData<TT;>;"
     new-instance v0, Lcom/badlogic/gdx/utils/Array;
 
     invoke-direct {v0}, Lcom/badlogic/gdx/utils/Array;-><init>()V
 
     .line 176
-    .local v0, "descriptors":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/assets/AssetDescriptor;>;"
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;->sharedAssets:Lcom/badlogic/gdx/utils/Array;
 
     invoke-virtual {v1}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
@@ -310,22 +283,18 @@
     check-cast v2, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$AssetData;
 
     .line 177
-    .local v2, "data":Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$AssetData;
     new-instance v3, Lcom/badlogic/gdx/assets/AssetDescriptor;
 
     iget-object v4, v2, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$AssetData;->filename:Ljava/lang/String;
 
-    iget-object v5, v2, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$AssetData;->type:Ljava/lang/Class;
+    iget-object v2, v2, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$AssetData;->type:Ljava/lang/Class;
 
-    invoke-direct {v3, v4, v5}, Lcom/badlogic/gdx/assets/AssetDescriptor;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
+    invoke-direct {v3, v4, v2}, Lcom/badlogic/gdx/assets/AssetDescriptor;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
     invoke-virtual {v0, v3}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 178
-    .end local v2    # "data":Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$AssetData;
     goto :goto_0
 
-    .line 179
     :cond_0
     return-object v0
 .end method
@@ -342,7 +311,6 @@
     .end annotation
 
     .line 183
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;, "Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData<TT;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;->sharedAssets:Lcom/badlogic/gdx/utils/Array;
 
     return-object v0
@@ -352,7 +320,6 @@
     .locals 3
 
     .line 203
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;, "Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData<TT;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;->data:Lcom/badlogic/gdx/utils/Array;
 
     iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;->currentLoadIndex:I
@@ -372,33 +339,28 @@
 
 .method public getSaveData(Ljava/lang/String;)Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$SaveData;
     .locals 1
-    .param p1, "key"    # Ljava/lang/String;
 
     .line 208
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;, "Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData<TT;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;->uniqueData:Lcom/badlogic/gdx/utils/ObjectMap;
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/ObjectMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$SaveData;
+    check-cast p1, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$SaveData;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public read(Lcom/badlogic/gdx/utils/Json;Lcom/badlogic/gdx/utils/JsonValue;)V
     .locals 4
-    .param p1, "json"    # Lcom/badlogic/gdx/utils/Json;
-    .param p2, "jsonData"    # Lcom/badlogic/gdx/utils/JsonValue;
+
+    const-string v0, "unique"
 
     .line 221
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;, "Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData<TT;>;"
-    const-class v0, Lcom/badlogic/gdx/utils/ObjectMap;
+    const-class v1, Lcom/badlogic/gdx/utils/ObjectMap;
 
-    const-string/jumbo v1, "unique"
-
-    invoke-virtual {p1, v1, v0, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
+    invoke-virtual {p1, v0, v1, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -429,15 +391,12 @@
     check-cast v1, Lcom/badlogic/gdx/utils/ObjectMap$Entry;
 
     .line 223
-    .local v1, "entry":Lcom/badlogic/gdx/utils/ObjectMap$Entry;, "Lcom/badlogic/gdx/utils/ObjectMap$Entry<Ljava/lang/String;Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$SaveData;>;"
-    iget-object v2, v1, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->value:Ljava/lang/Object;
+    iget-object v1, v1, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->value:Ljava/lang/Object;
 
-    check-cast v2, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$SaveData;
+    check-cast v1, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$SaveData;
 
-    iput-object p0, v2, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$SaveData;->resources:Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;
+    iput-object p0, v1, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$SaveData;->resources:Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;
 
-    .line 224
-    .end local v1    # "entry":Lcom/badlogic/gdx/utils/ObjectMap$Entry;, "Lcom/badlogic/gdx/utils/ObjectMap$Entry<Ljava/lang/String;Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$SaveData;>;"
     goto :goto_0
 
     .line 226
@@ -475,11 +434,8 @@
     check-cast v1, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$SaveData;
 
     .line 228
-    .local v1, "saveData":Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$SaveData;
     iput-object p0, v1, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$SaveData;->resources:Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;
 
-    .line 229
-    .end local v1    # "saveData":Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData$SaveData;
     goto :goto_1
 
     .line 231
@@ -500,32 +456,29 @@
 
     invoke-virtual {v0, v1}, Lcom/badlogic/gdx/utils/Array;->addAll(Lcom/badlogic/gdx/utils/Array;)V
 
+    const-string v0, "resource"
+
+    const/4 v1, 0x0
+
     .line 232
-    const/4 v0, 0x0
+    invoke-virtual {p1, v0, v1, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
 
-    const-string v1, "resource"
+    move-result-object p1
 
-    invoke-virtual {p1, v1, v0, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
+    iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;->resource:Ljava/lang/Object;
 
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;->resource:Ljava/lang/Object;
-
-    .line 233
     return-void
 .end method
 
 .method public write(Lcom/badlogic/gdx/utils/Json;)V
     .locals 4
-    .param p1, "json"    # Lcom/badlogic/gdx/utils/Json;
 
     .line 213
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;, "Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData<TT;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;->uniqueData:Lcom/badlogic/gdx/utils/ObjectMap;
 
     const-class v1, Lcom/badlogic/gdx/utils/ObjectMap;
 
-    const-string/jumbo v2, "unique"
+    const-string v2, "unique"
 
     invoke-virtual {p1, v2, v0, v1}, Lcom/badlogic/gdx/utils/Json;->writeValue(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Class;)V
 
@@ -558,12 +511,11 @@
     .line 216
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;->resource:Ljava/lang/Object;
 
-    const-string v1, "resource"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const-string v2, "resource"
 
-    invoke-virtual {p1, v1, v0, v2}, Lcom/badlogic/gdx/utils/Json;->writeValue(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Class;)V
+    invoke-virtual {p1, v2, v0, v1}, Lcom/badlogic/gdx/utils/Json;->writeValue(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Class;)V
 
-    .line 217
     return-void
 .end method

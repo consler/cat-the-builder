@@ -39,70 +39,63 @@
 
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener;->mStopTrackingTouch:Ljava/lang/Runnable;
 
-    .line 1241
     return-void
 .end method
 
 
 # virtual methods
 .method public onProgressChanged(Landroid/widget/SeekBar;IZ)V
-    .locals 3
-    .param p1, "seekBar"    # Landroid/widget/SeekBar;
-    .param p2, "progress"    # I
-    .param p3, "fromUser"    # Z
+    .locals 1
 
-    .line 1261
     if-eqz p3, :cond_1
 
     .line 1262
     invoke-virtual {p1}, Landroid/widget/SeekBar;->getTag()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+    check-cast p1, Landroidx/mediarouter/media/MediaRouter$RouteInfo;
 
     .line 1263
-    .local v0, "route":Landroidx/mediarouter/media/MediaRouter$RouteInfo;
-    sget-boolean v1, Landroidx/mediarouter/app/MediaRouteControllerDialog;->DEBUG:Z
+    sget-boolean p3, Landroidx/mediarouter/app/MediaRouteControllerDialog;->DEBUG:Z
 
-    if-eqz v1, :cond_0
+    if-eqz p3, :cond_0
 
     .line 1264
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "onProgressChanged(): calling MediaRouter.RouteInfo.requestSetVolume("
 
-    const-string v2, "onProgressChanged(): calling MediaRouter.RouteInfo.requestSetVolume("
+    invoke-direct {p3, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p3
 
-    const-string v2, ")"
+    const-string v0, ")"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p3
 
-    move-result-object v1
+    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string v2, "MediaRouteCtrlDialog"
+    move-result-object p3
 
-    invoke-static {v2, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v0, "MediaRouteCtrlDialog"
+
+    invoke-static {v0, p3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1267
     :cond_0
-    invoke-virtual {v0, p2}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->requestSetVolume(I)V
+    invoke-virtual {p1, p2}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->requestSetVolume(I)V
 
-    .line 1269
-    .end local v0    # "route":Landroidx/mediarouter/media/MediaRouter$RouteInfo;
     :cond_1
     return-void
 .end method
 
 .method public onStartTrackingTouch(Landroid/widget/SeekBar;)V
     .locals 2
-    .param p1, "seekBar"    # Landroid/widget/SeekBar;
 
     .line 1245
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
@@ -126,31 +119,28 @@
 
     invoke-virtual {p1}, Landroid/widget/SeekBar;->getTag()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+    check-cast p1, Landroidx/mediarouter/media/MediaRouter$RouteInfo;
 
-    iput-object v1, v0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mRouteInVolumeSliderTouched:Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+    iput-object p1, v0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mRouteInVolumeSliderTouched:Landroidx/mediarouter/media/MediaRouter$RouteInfo;
 
-    .line 1249
     return-void
 .end method
 
 .method public onStopTrackingTouch(Landroid/widget/SeekBar;)V
-    .locals 4
-    .param p1, "seekBar"    # Landroid/widget/SeekBar;
+    .locals 3
 
     .line 1256
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
-    iget-object v0, v0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mVolumeSlider:Landroid/widget/SeekBar;
+    iget-object p1, p1, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mVolumeSlider:Landroid/widget/SeekBar;
 
-    iget-object v1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener;->mStopTrackingTouch:Ljava/lang/Runnable;
+    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener;->mStopTrackingTouch:Ljava/lang/Runnable;
 
-    const-wide/16 v2, 0x1f4
+    const-wide/16 v1, 0x1f4
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/widget/SeekBar;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {p1, v0, v1, v2}, Landroid/widget/SeekBar;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 1257
     return-void
 .end method

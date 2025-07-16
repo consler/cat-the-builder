@@ -47,20 +47,18 @@
 # virtual methods
 .method public onCompleted(Ljava/lang/Exception;)V
     .locals 2
-    .param p1, "ex"    # Ljava/lang/Exception;
 
     .line 144
     iget-boolean v0, p0, Lcom/koushikdutta/async/Util$5;->reported:Z
 
     if-eqz v0, :cond_0
 
-    .line 145
     return-void
 
-    .line 146
     :cond_0
     const/4 v0, 0x1
 
+    .line 146
     iput-boolean v0, p0, Lcom/koushikdutta/async/Util$5;->reported:Z
 
     .line 147
@@ -90,6 +88,5 @@
 
     invoke-interface {v0, p1}, Lcom/koushikdutta/async/callback/CompletedCallback;->onCompleted(Ljava/lang/Exception;)V
 
-    .line 152
     return-void
 .end method

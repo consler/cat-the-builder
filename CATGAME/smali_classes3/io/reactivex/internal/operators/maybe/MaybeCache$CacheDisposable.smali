@@ -58,15 +58,11 @@
     .end annotation
 
     .line 181
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeCache$CacheDisposable;, "Lio/reactivex/internal/operators/maybe/MaybeCache$CacheDisposable<TT;>;"
-    .local p1, "actual":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
-    .local p2, "parent":Lio/reactivex/internal/operators/maybe/MaybeCache;, "Lio/reactivex/internal/operators/maybe/MaybeCache<TT;>;"
     invoke-direct {p0, p2}, Ljava/util/concurrent/atomic/AtomicReference;-><init>(Ljava/lang/Object;)V
 
     .line 182
     iput-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeCache$CacheDisposable;->actual:Lio/reactivex/MaybeObserver;
 
-    .line 183
     return-void
 .end method
 
@@ -75,24 +71,20 @@
 .method public dispose()V
     .locals 1
 
-    .line 187
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeCache$CacheDisposable;, "Lio/reactivex/internal/operators/maybe/MaybeCache$CacheDisposable<TT;>;"
     const/4 v0, 0x0
 
+    .line 187
     invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/maybe/MaybeCache$CacheDisposable;->getAndSet(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lio/reactivex/internal/operators/maybe/MaybeCache;
 
-    .line 188
-    .local v0, "mc":Lio/reactivex/internal/operators/maybe/MaybeCache;, "Lio/reactivex/internal/operators/maybe/MaybeCache<TT;>;"
     if-eqz v0, :cond_0
 
     .line 189
     invoke-virtual {v0, p0}, Lio/reactivex/internal/operators/maybe/MaybeCache;->remove(Lio/reactivex/internal/operators/maybe/MaybeCache$CacheDisposable;)V
 
-    .line 191
     :cond_0
     return-void
 .end method
@@ -101,7 +93,6 @@
     .locals 1
 
     .line 195
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeCache$CacheDisposable;, "Lio/reactivex/internal/operators/maybe/MaybeCache$CacheDisposable<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/maybe/MaybeCache$CacheDisposable;->get()Ljava/lang/Object;
 
     move-result-object v0

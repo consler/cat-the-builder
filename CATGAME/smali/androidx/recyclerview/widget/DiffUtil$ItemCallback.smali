@@ -28,7 +28,6 @@
     .locals 0
 
     .line 373
-    .local p0, "this":Landroidx/recyclerview/widget/DiffUtil$ItemCallback;, "Landroidx/recyclerview/widget/DiffUtil$ItemCallback<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -53,7 +52,7 @@
 .end method
 
 .method public getChangePayload(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;TT;)",
@@ -61,11 +60,7 @@
         }
     .end annotation
 
-    .line 434
-    .local p0, "this":Landroidx/recyclerview/widget/DiffUtil$ItemCallback;, "Landroidx/recyclerview/widget/DiffUtil$ItemCallback<TT;>;"
-    .local p1, "oldItem":Ljava/lang/Object;, "TT;"
-    .local p2, "newItem":Ljava/lang/Object;, "TT;"
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method

@@ -31,6 +31,5 @@
     .line 532
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 533
     return-void
 .end method

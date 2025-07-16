@@ -59,13 +59,11 @@
     .end annotation
 
     .line 52
-    .local p1, "actual":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-Ljava/lang/Long;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 53
     iput-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeTimer$TimerDisposable;->actual:Lio/reactivex/MaybeObserver;
 
-    .line 54
     return-void
 .end method
 
@@ -77,7 +75,6 @@
     .line 63
     invoke-static {p0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 64
     return-void
 .end method
 
@@ -112,17 +109,14 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/MaybeObserver;->onSuccess(Ljava/lang/Object;)V
 
-    .line 59
     return-void
 .end method
 
 .method setFuture(Lio/reactivex/disposables/Disposable;)V
     .locals 0
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 72
     invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 73
     return-void
 .end method

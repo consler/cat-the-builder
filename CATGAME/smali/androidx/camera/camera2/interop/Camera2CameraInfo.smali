@@ -15,7 +15,6 @@
 
 .method public static extractCameraId(Landroidx/camera/core/CameraInfo;)Ljava/lang/String;
     .locals 2
-    .param p0, "cameraInfo"    # Landroidx/camera/core/CameraInfo;
 
     .line 43
     instance-of v0, p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;
@@ -25,15 +24,12 @@
     invoke-static {v0, v1}, Landroidx/core/util/Preconditions;->checkState(ZLjava/lang/String;)V
 
     .line 45
-    move-object v0, p0
-
-    check-cast v0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;
+    check-cast p0, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;
 
     .line 46
-    .local v0, "impl":Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;
-    invoke-virtual {v0}, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->getCameraId()Ljava/lang/String;
+    invoke-virtual {p0}, Landroidx/camera/camera2/internal/Camera2CameraInfoImpl;->getCameraId()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method

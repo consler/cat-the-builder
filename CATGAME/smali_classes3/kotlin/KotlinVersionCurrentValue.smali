@@ -5,11 +5,6 @@
 
 # annotations
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0000\u0008\u00c2\u0002\u0018\u00002\u00020\u0001B\u0007\u0008\u0002\u00a2\u0006\u0002\u0010\u0002J\u0008\u0010\u0003\u001a\u00020\u0004H\u0007\u00a8\u0006\u0005"
     }
@@ -24,9 +19,10 @@
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x1
+        0x6,
+        0x0
     }
+    xi = 0x30
 .end annotation
 
 
@@ -38,7 +34,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 80
     new-instance v0, Lkotlin/KotlinVersionCurrentValue;
 
     invoke-direct {v0}, Lkotlin/KotlinVersionCurrentValue;-><init>()V
@@ -65,13 +60,13 @@
     .line 82
     new-instance v0, Lkotlin/KotlinVersion;
 
-    const/4 v1, 0x1
+    const/4 v1, 0x6
 
-    const/4 v2, 0x4
+    const/16 v2, 0x15
 
-    const/16 v3, 0x20
+    const/4 v3, 0x1
 
-    invoke-direct {v0, v1, v2, v3}, Lkotlin/KotlinVersion;-><init>(III)V
+    invoke-direct {v0, v3, v1, v2}, Lkotlin/KotlinVersion;-><init>(III)V
 
     return-object v0
 .end method

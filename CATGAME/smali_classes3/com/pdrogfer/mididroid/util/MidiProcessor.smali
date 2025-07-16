@@ -64,8 +64,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/pdrogfer/mididroid/MidiFile;)V
-    .locals 3
-    .param p1, "input"    # Lcom/pdrogfer/mididroid/MidiFile;
+    .locals 2
 
     .line 48
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -73,55 +72,53 @@
     .line 50
     iput-object p1, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMidiFile:Lcom/pdrogfer/mididroid/MidiFile;
 
-    .line 52
     const v0, 0x7a120
 
+    .line 52
     iput v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMPQN:I
 
     .line 53
     invoke-virtual {p1}, Lcom/pdrogfer/mididroid/MidiFile;->getResolution()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mPPQ:I
+    iput p1, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mPPQ:I
 
     .line 55
-    new-instance v0, Ljava/util/HashMap;
+    new-instance p1, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {p1}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mEventsToListeners:Ljava/util/HashMap;
+    iput-object p1, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mEventsToListeners:Ljava/util/HashMap;
 
     .line 56
-    new-instance v0, Ljava/util/HashMap;
+    new-instance p1, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {p1}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mListenersToEvents:Ljava/util/HashMap;
+    iput-object p1, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mListenersToEvents:Ljava/util/HashMap;
 
     .line 58
-    new-instance v0, Lcom/pdrogfer/mididroid/util/MetronomeTick;
+    new-instance p1, Lcom/pdrogfer/mididroid/util/MetronomeTick;
 
-    new-instance v1, Lcom/pdrogfer/mididroid/event/meta/TimeSignature;
+    new-instance v0, Lcom/pdrogfer/mididroid/event/meta/TimeSignature;
 
-    invoke-direct {v1}, Lcom/pdrogfer/mididroid/event/meta/TimeSignature;-><init>()V
+    invoke-direct {v0}, Lcom/pdrogfer/mididroid/event/meta/TimeSignature;-><init>()V
 
-    iget v2, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mPPQ:I
+    iget v1, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mPPQ:I
 
-    invoke-direct {v0, v1, v2}, Lcom/pdrogfer/mididroid/util/MetronomeTick;-><init>(Lcom/pdrogfer/mididroid/event/meta/TimeSignature;I)V
+    invoke-direct {p1, v0, v1}, Lcom/pdrogfer/mididroid/util/MetronomeTick;-><init>(Lcom/pdrogfer/mididroid/event/meta/TimeSignature;I)V
 
-    iput-object v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMetronome:Lcom/pdrogfer/mididroid/util/MetronomeTick;
+    iput-object p1, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMetronome:Lcom/pdrogfer/mididroid/util/MetronomeTick;
 
     .line 60
     invoke-virtual {p0}, Lcom/pdrogfer/mididroid/util/MidiProcessor;->reset()V
 
-    .line 61
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/pdrogfer/mididroid/util/MidiProcessor;)V
     .locals 0
-    .param p0, "x0"    # Lcom/pdrogfer/mididroid/util/MidiProcessor;
 
     .line 29
     invoke-direct {p0}, Lcom/pdrogfer/mididroid/util/MidiProcessor;->process()V
@@ -130,283 +127,208 @@
 .end method
 
 .method private process()V
-    .locals 17
+    .locals 13
 
     .line 255
-    move-object/from16 v1, p0
+    iget-wide v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mTicksElapsed:D
 
-    iget-wide v2, v1, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mTicksElapsed:D
+    const-wide/high16 v2, 0x3ff0000000000000L    # 1.0
 
-    const-wide/high16 v4, 0x3ff0000000000000L    # 1.0
+    cmpg-double v0, v0, v2
 
-    cmpg-double v0, v2, v4
+    const/4 v1, 0x1
+
+    const/4 v4, 0x0
 
     if-gez v0, :cond_0
 
-    const/4 v0, 0x1
+    move v0, v1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    move v0, v4
 
     :goto_0
-    invoke-virtual {v1, v0}, Lcom/pdrogfer/mididroid/util/MidiProcessor;->onStart(Z)V
+    invoke-virtual {p0, v0}, Lcom/pdrogfer/mididroid/util/MidiProcessor;->onStart(Z)V
 
     .line 257
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v6
-
-    .line 259
-    .local v6, "lastMs":J
-    const/4 v3, 0x0
+    move-result-wide v5
 
     .line 261
-    .local v3, "finished":Z
+    :catch_0
     :goto_1
-    iget-boolean v0, v1, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mRunning:Z
+    iget-boolean v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mRunning:Z
 
     if-eqz v0, :cond_9
 
     .line 264
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v8
+    move-result-wide v7
 
-    .line 265
-    .local v8, "now":J
-    sub-long v10, v8, v6
+    sub-long v9, v7, v5
 
-    .line 267
-    .local v10, "msElapsed":J
-    const-wide/16 v12, 0x8
+    const-wide/16 v11, 0x8
 
-    cmp-long v0, v10, v12
+    cmp-long v0, v9, v11
 
     if-gez v0, :cond_1
 
-    .line 271
-    sub-long/2addr v12, v10
+    sub-long/2addr v11, v9
 
+    .line 271
     :try_start_0
-    invoke-static {v12, v13}, Ljava/lang/Thread;->sleep(J)V
+    invoke-static {v11, v12}, Ljava/lang/Thread;->sleep(J)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 275
-    goto :goto_1
-
-    .line 273
-    :catch_0
-    move-exception v0
-
-    .line 276
     goto :goto_1
 
     .line 279
     :cond_1
-    iget v0, v1, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMPQN:I
+    iget v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMPQN:I
 
-    iget v12, v1, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mPPQ:I
+    iget v11, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mPPQ:I
 
-    invoke-static {v10, v11, v0, v12}, Lcom/pdrogfer/mididroid/util/MidiUtil;->msToTicks(JII)D
+    invoke-static {v9, v10, v0, v11}, Lcom/pdrogfer/mididroid/util/MidiUtil;->msToTicks(JII)D
 
-    move-result-wide v12
+    move-result-wide v11
 
-    .line 281
-    .local v12, "ticksElapsed":D
-    cmpg-double v0, v12, v4
+    cmpg-double v0, v11, v2
 
     if-gez v0, :cond_2
 
-    .line 283
     goto :goto_1
 
     .line 286
     :cond_2
-    iget-object v0, v1, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMetronome:Lcom/pdrogfer/mididroid/util/MetronomeTick;
+    iget-object v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMetronome:Lcom/pdrogfer/mididroid/util/MetronomeTick;
 
-    invoke-virtual {v0, v12, v13}, Lcom/pdrogfer/mididroid/util/MetronomeTick;->update(D)Z
+    invoke-virtual {v0, v11, v12}, Lcom/pdrogfer/mididroid/util/MetronomeTick;->update(D)Z
 
     move-result v0
 
     if-eqz v0, :cond_3
 
     .line 288
-    iget-object v0, v1, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMetronome:Lcom/pdrogfer/mididroid/util/MetronomeTick;
+    iget-object v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMetronome:Lcom/pdrogfer/mididroid/util/MetronomeTick;
 
-    invoke-virtual {v1, v0}, Lcom/pdrogfer/mididroid/util/MidiProcessor;->dispatch(Lcom/pdrogfer/mididroid/event/MidiEvent;)V
-
-    .line 291
-    :cond_3
-    move-wide v6, v8
+    invoke-virtual {p0, v0}, Lcom/pdrogfer/mididroid/util/MidiProcessor;->dispatch(Lcom/pdrogfer/mididroid/event/MidiEvent;)V
 
     .line 292
-    iget-wide v14, v1, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMsElapsed:J
+    :cond_3
+    iget-wide v5, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMsElapsed:J
 
-    add-long/2addr v14, v10
+    add-long/2addr v5, v9
 
-    iput-wide v14, v1, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMsElapsed:J
+    iput-wide v5, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMsElapsed:J
 
     .line 293
-    iget-wide v14, v1, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mTicksElapsed:D
+    iget-wide v5, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mTicksElapsed:D
 
-    add-double/2addr v14, v12
+    add-double/2addr v5, v11
 
-    iput-wide v14, v1, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mTicksElapsed:D
+    iput-wide v5, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mTicksElapsed:D
 
-    .line 295
-    const/4 v0, 0x0
+    move v0, v4
+
+    move v5, v0
 
     .line 296
-    .local v0, "more":Z
-    const/4 v14, 0x0
-
-    .local v14, "i":I
     :goto_2
-    iget-object v15, v1, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mEventQueues:[Lcom/pdrogfer/mididroid/util/MidiProcessor$MidiTrackEventQueue;
+    iget-object v6, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mEventQueues:[Lcom/pdrogfer/mididroid/util/MidiProcessor$MidiTrackEventQueue;
 
-    array-length v4, v15
+    array-length v9, v6
 
-    if-ge v14, v4, :cond_7
+    if-ge v0, v9, :cond_7
 
     .line 299
-    aget-object v4, v15, v14
+    aget-object v6, v6, v0
 
     .line 300
-    .local v4, "queue":Lcom/pdrogfer/mididroid/util/MidiProcessor$MidiTrackEventQueue;
-    invoke-virtual {v4}, Lcom/pdrogfer/mididroid/util/MidiProcessor$MidiTrackEventQueue;->hasMoreEvents()Z
+    invoke-virtual {v6}, Lcom/pdrogfer/mididroid/util/MidiProcessor$MidiTrackEventQueue;->hasMoreEvents()Z
 
-    move-result v5
+    move-result v9
 
-    if-nez v5, :cond_4
-
-    .line 302
-    move v15, v3
+    if-nez v9, :cond_4
 
     goto :goto_4
 
     .line 305
     :cond_4
-    move v15, v3
+    iget-wide v9, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mTicksElapsed:D
 
-    .end local v3    # "finished":Z
-    .local v15, "finished":Z
-    iget-wide v2, v1, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mTicksElapsed:D
+    invoke-virtual {v6, v9, v10}, Lcom/pdrogfer/mididroid/util/MidiProcessor$MidiTrackEventQueue;->getNextEventsUpToTick(D)Ljava/util/ArrayList;
 
-    invoke-virtual {v4, v2, v3}, Lcom/pdrogfer/mididroid/util/MidiProcessor$MidiTrackEventQueue;->getNextEventsUpToTick(D)Ljava/util/ArrayList;
-
-    move-result-object v2
+    move-result-object v9
 
     .line 306
-    .local v2, "events":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/pdrogfer/mididroid/event/MidiEvent;>;"
-    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v9}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object v9
 
     :goto_3
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v16
+    move-result v10
 
-    if-eqz v16, :cond_5
+    if-eqz v10, :cond_5
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v16
+    move-result-object v10
 
-    move-object/from16 v5, v16
-
-    check-cast v5, Lcom/pdrogfer/mididroid/event/MidiEvent;
+    check-cast v10, Lcom/pdrogfer/mididroid/event/MidiEvent;
 
     .line 308
-    .local v5, "event":Lcom/pdrogfer/mididroid/event/MidiEvent;
-    invoke-virtual {v1, v5}, Lcom/pdrogfer/mididroid/util/MidiProcessor;->dispatch(Lcom/pdrogfer/mididroid/event/MidiEvent;)V
+    invoke-virtual {p0, v10}, Lcom/pdrogfer/mididroid/util/MidiProcessor;->dispatch(Lcom/pdrogfer/mididroid/event/MidiEvent;)V
 
-    .line 309
-    .end local v5    # "event":Lcom/pdrogfer/mididroid/event/MidiEvent;
     goto :goto_3
 
     .line 311
     :cond_5
-    invoke-virtual {v4}, Lcom/pdrogfer/mididroid/util/MidiProcessor$MidiTrackEventQueue;->hasMoreEvents()Z
+    invoke-virtual {v6}, Lcom/pdrogfer/mididroid/util/MidiProcessor$MidiTrackEventQueue;->hasMoreEvents()Z
 
-    move-result v3
+    move-result v6
 
-    if-eqz v3, :cond_6
+    if-eqz v6, :cond_6
 
-    .line 313
-    const/4 v0, 0x1
+    move v5, v1
 
-    .line 296
-    .end local v2    # "events":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/pdrogfer/mididroid/event/MidiEvent;>;"
-    .end local v4    # "queue":Lcom/pdrogfer/mididroid/util/MidiProcessor$MidiTrackEventQueue;
     :cond_6
     :goto_4
-    add-int/lit8 v14, v14, 0x1
-
-    move v3, v15
-
-    const-wide/high16 v4, 0x3ff0000000000000L    # 1.0
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_2
 
-    .end local v15    # "finished":Z
-    .restart local v3    # "finished":Z
     :cond_7
-    move v15, v3
+    if-nez v5, :cond_8
 
-    .line 317
-    .end local v3    # "finished":Z
-    .end local v14    # "i":I
-    .restart local v15    # "finished":Z
-    if-nez v0, :cond_8
-
-    .line 319
-    const/4 v3, 0x1
-
-    .line 320
-    .end local v15    # "finished":Z
-    .restart local v3    # "finished":Z
     goto :goto_5
 
-    .line 322
-    .end local v0    # "more":Z
-    .end local v3    # "finished":Z
-    .end local v8    # "now":J
-    .end local v10    # "msElapsed":J
-    .end local v12    # "ticksElapsed":D
-    .restart local v15    # "finished":Z
     :cond_8
-    move v3, v15
-
-    const-wide/high16 v4, 0x3ff0000000000000L    # 1.0
+    move-wide v5, v7
 
     goto :goto_1
 
-    .line 261
-    .end local v15    # "finished":Z
-    .restart local v3    # "finished":Z
     :cond_9
-    move v15, v3
+    move v1, v4
 
     .line 324
     :goto_5
-    const/4 v2, 0x0
-
-    iput-boolean v2, v1, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mRunning:Z
+    iput-boolean v4, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mRunning:Z
 
     .line 325
-    invoke-virtual {v1, v3}, Lcom/pdrogfer/mididroid/util/MidiProcessor;->onStop(Z)V
+    invoke-virtual {p0, v1}, Lcom/pdrogfer/mididroid/util/MidiProcessor;->onStop(Z)V
 
-    .line 326
     return-void
 .end method
 
 .method private sendOnEventForClass(Lcom/pdrogfer/mididroid/event/MidiEvent;Ljava/lang/Class;)V
-    .locals 5
-    .param p1, "event"    # Lcom/pdrogfer/mididroid/event/MidiEvent;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -419,52 +341,44 @@
     .end annotation
 
     .line 239
-    .local p2, "eventClass":Ljava/lang/Class;, "Ljava/lang/Class<+Lcom/pdrogfer/mididroid/event/MidiEvent;>;"
     iget-object v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mEventsToListeners:Ljava/util/HashMap;
 
     invoke-virtual {v0, p2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p2
 
-    check-cast v0, Ljava/util/ArrayList;
+    check-cast p2, Ljava/util/ArrayList;
 
-    .line 241
-    .local v0, "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/pdrogfer/mididroid/util/MidiEventListener;>;"
-    if-nez v0, :cond_0
+    if-nez p2, :cond_0
 
-    .line 243
     return-void
 
     .line 246
     :cond_0
-    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object p2
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_1
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Lcom/pdrogfer/mididroid/util/MidiEventListener;
+    check-cast v0, Lcom/pdrogfer/mididroid/util/MidiEventListener;
 
     .line 248
-    .local v2, "mel":Lcom/pdrogfer/mididroid/util/MidiEventListener;
-    iget-wide v3, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMsElapsed:J
+    iget-wide v1, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMsElapsed:J
 
-    invoke-interface {v2, p1, v3, v4}, Lcom/pdrogfer/mididroid/util/MidiEventListener;->onEvent(Lcom/pdrogfer/mididroid/event/MidiEvent;J)V
+    invoke-interface {v0, p1, v1, v2}, Lcom/pdrogfer/mididroid/util/MidiEventListener;->onEvent(Lcom/pdrogfer/mididroid/event/MidiEvent;J)V
 
-    .line 249
-    .end local v2    # "mel":Lcom/pdrogfer/mididroid/util/MidiEventListener;
     goto :goto_0
 
-    .line 250
     :cond_1
     return-void
 .end method
@@ -473,7 +387,6 @@
 # virtual methods
 .method protected dispatch(Lcom/pdrogfer/mididroid/event/MidiEvent;)V
     .locals 3
-    .param p1, "event"    # Lcom/pdrogfer/mididroid/event/MidiEvent;
 
     .line 216
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -531,29 +444,24 @@
     :cond_1
     const/4 v1, 0x0
 
-    :goto_0
-    move v0, v1
-
     .line 224
-    .local v0, "shouldDispatch":Z
-    iget-object v1, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMetronome:Lcom/pdrogfer/mididroid/util/MetronomeTick;
+    :goto_0
+    iget-object v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMetronome:Lcom/pdrogfer/mididroid/util/MetronomeTick;
 
     move-object v2, p1
 
     check-cast v2, Lcom/pdrogfer/mididroid/event/meta/TimeSignature;
 
-    invoke-virtual {v1, v2}, Lcom/pdrogfer/mididroid/util/MetronomeTick;->setTimeSignature(Lcom/pdrogfer/mididroid/event/meta/TimeSignature;)V
+    invoke-virtual {v0, v2}, Lcom/pdrogfer/mididroid/util/MetronomeTick;->setTimeSignature(Lcom/pdrogfer/mididroid/event/meta/TimeSignature;)V
 
-    .line 226
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
     .line 228
-    iget-object v1, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMetronome:Lcom/pdrogfer/mididroid/util/MetronomeTick;
+    iget-object v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMetronome:Lcom/pdrogfer/mididroid/util/MetronomeTick;
 
-    invoke-virtual {p0, v1}, Lcom/pdrogfer/mididroid/util/MidiProcessor;->dispatch(Lcom/pdrogfer/mididroid/event/MidiEvent;)V
+    invoke-virtual {p0, v0}, Lcom/pdrogfer/mididroid/util/MidiProcessor;->dispatch(Lcom/pdrogfer/mididroid/event/MidiEvent;)V
 
     .line 232
-    .end local v0    # "shouldDispatch":Z
     :cond_2
     :goto_1
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -567,7 +475,6 @@
 
     invoke-direct {p0, p1, v0}, Lcom/pdrogfer/mididroid/util/MidiProcessor;->sendOnEventForClass(Lcom/pdrogfer/mididroid/event/MidiEvent;Ljava/lang/Class;)V
 
-    .line 234
     return-void
 .end method
 
@@ -605,7 +512,6 @@
 
 .method protected onStart(Z)V
     .locals 2
-    .param p1, "fromBeginning"    # Z
 
     .line 118
     iget-object v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mListenersToEvents:Ljava/util/HashMap;
@@ -619,7 +525,6 @@
     move-result-object v0
 
     .line 120
-    .local v0, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/pdrogfer/mididroid/util/MidiEventListener;>;"
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -635,21 +540,16 @@
     check-cast v1, Lcom/pdrogfer/mididroid/util/MidiEventListener;
 
     .line 124
-    .local v1, "mel":Lcom/pdrogfer/mididroid/util/MidiEventListener;
     invoke-interface {v1, p1}, Lcom/pdrogfer/mididroid/util/MidiEventListener;->onStart(Z)V
 
-    .line 125
-    .end local v1    # "mel":Lcom/pdrogfer/mididroid/util/MidiEventListener;
     goto :goto_0
 
-    .line 126
     :cond_0
     return-void
 .end method
 
 .method protected onStop(Z)V
     .locals 2
-    .param p1, "finished"    # Z
 
     .line 131
     iget-object v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mListenersToEvents:Ljava/util/HashMap;
@@ -663,7 +563,6 @@
     move-result-object v0
 
     .line 133
-    .local v0, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/pdrogfer/mididroid/util/MidiEventListener;>;"
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -679,21 +578,16 @@
     check-cast v1, Lcom/pdrogfer/mididroid/util/MidiEventListener;
 
     .line 137
-    .local v1, "mel":Lcom/pdrogfer/mididroid/util/MidiEventListener;
     invoke-interface {v1, p1}, Lcom/pdrogfer/mididroid/util/MidiEventListener;->onStop(Z)V
 
-    .line 138
-    .end local v1    # "mel":Lcom/pdrogfer/mididroid/util/MidiEventListener;
     goto :goto_0
 
-    .line 139
     :cond_0
     return-void
 .end method
 
 .method public registerEventListener(Lcom/pdrogfer/mididroid/util/MidiEventListener;Ljava/lang/Class;)V
-    .locals 3
-    .param p1, "mel"    # Lcom/pdrogfer/mididroid/util/MidiEventListener;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -706,7 +600,6 @@
     .end annotation
 
     .line 144
-    .local p2, "event":Ljava/lang/Class;, "Ljava/lang/Class<+Lcom/pdrogfer/mididroid/event/MidiEvent;>;"
     iget-object v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mEventsToListeners:Ljava/util/HashMap;
 
     invoke-virtual {v0, p2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -715,16 +608,12 @@
 
     check-cast v0, Ljava/util/ArrayList;
 
-    .line 145
-    .local v0, "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/pdrogfer/mididroid/util/MidiEventListener;>;"
     if-nez v0, :cond_0
 
     .line 148
-    new-instance v1, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/ArrayList;
 
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
-
-    move-object v0, v1
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 149
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -742,40 +631,35 @@
 
     .line 157
     :goto_0
-    iget-object v1, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mListenersToEvents:Ljava/util/HashMap;
+    iget-object v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mListenersToEvents:Ljava/util/HashMap;
 
-    invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ljava/util/ArrayList;
+    check-cast v0, Ljava/util/ArrayList;
 
-    .line 158
-    .local v1, "events":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Class<+Lcom/pdrogfer/mididroid/event/MidiEvent;>;>;"
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
 
     .line 161
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/ArrayList;
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
-
-    move-object v1, v2
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 162
-    invoke-virtual {v1, p2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 163
-    iget-object v2, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mListenersToEvents:Ljava/util/HashMap;
+    iget-object p2, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mListenersToEvents:Ljava/util/HashMap;
 
-    invoke-virtual {v2, p1, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p2, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_1
 
     .line 167
     :cond_1
-    invoke-virtual {v1, p2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 169
     :goto_1
     return-void
 .end method
@@ -783,70 +667,66 @@
 .method public reset()V
     .locals 5
 
-    .line 86
     const/4 v0, 0x0
 
+    .line 86
     iput-boolean v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mRunning:Z
 
-    .line 87
-    const-wide/16 v0, 0x0
+    const-wide/16 v1, 0x0
 
-    iput-wide v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mTicksElapsed:D
+    .line 87
+    iput-wide v1, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mTicksElapsed:D
+
+    const-wide/16 v1, 0x0
 
     .line 88
-    const-wide/16 v0, 0x0
-
-    iput-wide v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMsElapsed:J
+    iput-wide v1, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMsElapsed:J
 
     .line 90
-    iget-object v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMetronome:Lcom/pdrogfer/mididroid/util/MetronomeTick;
+    iget-object v1, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMetronome:Lcom/pdrogfer/mididroid/util/MetronomeTick;
 
-    new-instance v1, Lcom/pdrogfer/mididroid/event/meta/TimeSignature;
+    new-instance v2, Lcom/pdrogfer/mididroid/event/meta/TimeSignature;
 
-    invoke-direct {v1}, Lcom/pdrogfer/mididroid/event/meta/TimeSignature;-><init>()V
+    invoke-direct {v2}, Lcom/pdrogfer/mididroid/event/meta/TimeSignature;-><init>()V
 
-    invoke-virtual {v0, v1}, Lcom/pdrogfer/mididroid/util/MetronomeTick;->setTimeSignature(Lcom/pdrogfer/mididroid/event/meta/TimeSignature;)V
+    invoke-virtual {v1, v2}, Lcom/pdrogfer/mididroid/util/MetronomeTick;->setTimeSignature(Lcom/pdrogfer/mididroid/event/meta/TimeSignature;)V
 
     .line 92
-    iget-object v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMidiFile:Lcom/pdrogfer/mididroid/MidiFile;
+    iget-object v1, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mMidiFile:Lcom/pdrogfer/mididroid/MidiFile;
 
-    invoke-virtual {v0}, Lcom/pdrogfer/mididroid/MidiFile;->getTracks()Ljava/util/ArrayList;
+    invoke-virtual {v1}, Lcom/pdrogfer/mididroid/MidiFile;->getTracks()Ljava/util/ArrayList;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 94
-    .local v0, "tracks":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/pdrogfer/mididroid/MidiTrack;>;"
-    iget-object v1, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mEventQueues:[Lcom/pdrogfer/mididroid/util/MidiProcessor$MidiTrackEventQueue;
+    iget-object v2, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mEventQueues:[Lcom/pdrogfer/mididroid/util/MidiProcessor$MidiTrackEventQueue;
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
     .line 96
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v1
-
-    new-array v1, v1, [Lcom/pdrogfer/mididroid/util/MidiProcessor$MidiTrackEventQueue;
-
-    iput-object v1, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mEventQueues:[Lcom/pdrogfer/mididroid/util/MidiProcessor$MidiTrackEventQueue;
-
-    .line 99
-    :cond_0
-    const/4 v1, 0x0
-
-    .local v1, "i":I
-    :goto_0
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1
+    new-array v2, v2, [Lcom/pdrogfer/mididroid/util/MidiProcessor$MidiTrackEventQueue;
+
+    iput-object v2, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mEventQueues:[Lcom/pdrogfer/mididroid/util/MidiProcessor$MidiTrackEventQueue;
+
+    .line 99
+    :cond_0
+    :goto_0
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v0, v2, :cond_1
 
     .line 101
     iget-object v2, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mEventQueues:[Lcom/pdrogfer/mididroid/util/MidiProcessor$MidiTrackEventQueue;
 
     new-instance v3, Lcom/pdrogfer/mididroid/util/MidiProcessor$MidiTrackEventQueue;
 
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -854,15 +734,12 @@
 
     invoke-direct {v3, p0, v4}, Lcom/pdrogfer/mididroid/util/MidiProcessor$MidiTrackEventQueue;-><init>(Lcom/pdrogfer/mididroid/util/MidiProcessor;Lcom/pdrogfer/mididroid/MidiTrack;)V
 
-    aput-object v3, v2, v1
+    aput-object v3, v2, v0
 
-    .line 99
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 103
-    .end local v1    # "i":I
     :cond_1
     return-void
 .end method
@@ -885,10 +762,10 @@
 
     return-void
 
-    .line 68
     :cond_0
     const/4 v0, 0x1
 
+    .line 68
     :try_start_1
     iput-boolean v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mRunning:Z
 
@@ -911,8 +788,6 @@
 
     return-void
 
-    .line 64
-    .end local p0    # "this":Lcom/pdrogfer/mididroid/util/MidiProcessor;
     :catchall_0
     move-exception v0
 
@@ -924,12 +799,11 @@
 .method public stop()V
     .locals 1
 
-    .line 80
     const/4 v0, 0x0
 
+    .line 80
     iput-boolean v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mRunning:Z
 
-    .line 81
     return-void
 .end method
 
@@ -946,13 +820,11 @@
 
     invoke-virtual {v0}, Ljava/util/HashMap;->clear()V
 
-    .line 210
     return-void
 .end method
 
 .method public unregisterEventListener(Lcom/pdrogfer/mididroid/util/MidiEventListener;)V
-    .locals 4
-    .param p1, "mel"    # Lcom/pdrogfer/mididroid/util/MidiEventListener;
+    .locals 3
 
     .line 174
     iget-object v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mListenersToEvents:Ljava/util/HashMap;
@@ -963,64 +835,54 @@
 
     check-cast v0, Ljava/util/ArrayList;
 
-    .line 175
-    .local v0, "events":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Class<+Lcom/pdrogfer/mididroid/event/MidiEvent;>;>;"
     if-nez v0, :cond_0
 
-    .line 177
     return-void
 
     .line 180
     :cond_0
     invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v0
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Ljava/lang/Class;
+    check-cast v1, Ljava/lang/Class;
 
     .line 183
-    .local v2, "event":Ljava/lang/Class;, "Ljava/lang/Class<+Lcom/pdrogfer/mididroid/event/MidiEvent;>;"
-    iget-object v3, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mEventsToListeners:Ljava/util/HashMap;
+    iget-object v2, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mEventsToListeners:Ljava/util/HashMap;
 
-    invoke-virtual {v3, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    check-cast v3, Ljava/util/ArrayList;
+    check-cast v1, Ljava/util/ArrayList;
 
     .line 184
-    .local v3, "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/pdrogfer/mididroid/util/MidiEventListener;>;"
-    invoke-virtual {v3, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 185
-    .end local v2    # "event":Ljava/lang/Class;, "Ljava/lang/Class<+Lcom/pdrogfer/mididroid/event/MidiEvent;>;"
-    .end local v3    # "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/pdrogfer/mididroid/util/MidiEventListener;>;"
     goto :goto_0
 
     .line 187
     :cond_1
-    iget-object v1, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mListenersToEvents:Ljava/util/HashMap;
+    iget-object v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mListenersToEvents:Ljava/util/HashMap;
 
-    invoke-virtual {v1, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 188
     return-void
 .end method
 
 .method public unregisterEventListener(Lcom/pdrogfer/mididroid/util/MidiEventListener;Ljava/lang/Class;)V
-    .locals 2
-    .param p1, "mel"    # Lcom/pdrogfer/mididroid/util/MidiEventListener;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1033,7 +895,6 @@
     .end annotation
 
     .line 193
-    .local p2, "event":Ljava/lang/Class;, "Ljava/lang/Class<+Lcom/pdrogfer/mididroid/event/MidiEvent;>;"
     iget-object v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mEventsToListeners:Ljava/util/HashMap;
 
     invoke-virtual {v0, p2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1042,8 +903,6 @@
 
     check-cast v0, Ljava/util/ArrayList;
 
-    .line 194
-    .local v0, "listeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/pdrogfer/mididroid/util/MidiEventListener;>;"
     if-eqz v0, :cond_0
 
     .line 196
@@ -1051,22 +910,19 @@
 
     .line 199
     :cond_0
-    iget-object v1, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mListenersToEvents:Ljava/util/HashMap;
+    iget-object v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor;->mListenersToEvents:Ljava/util/HashMap;
 
-    invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Ljava/util/ArrayList;
+    check-cast p1, Ljava/util/ArrayList;
 
-    .line 200
-    .local v1, "events":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Class<+Lcom/pdrogfer/mididroid/event/MidiEvent;>;>;"
-    if-eqz v1, :cond_1
+    if-eqz p1, :cond_1
 
     .line 202
-    invoke-virtual {v1, p2}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p2}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 204
     :cond_1
     return-void
 .end method

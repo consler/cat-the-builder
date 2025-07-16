@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/ProcessLifecycleOwner$3;)V
     .locals 0
-    .param p1, "this$1"    # Landroidx/lifecycle/ProcessLifecycleOwner$3;
 
     .line 171
     iput-object p1, p0, Landroidx/lifecycle/ProcessLifecycleOwner$3$1;->this$1:Landroidx/lifecycle/ProcessLifecycleOwner$3;
@@ -34,31 +33,27 @@
 
 # virtual methods
 .method public onActivityPostResumed(Landroid/app/Activity;)V
-    .locals 1
-    .param p1, "activity"    # Landroid/app/Activity;
+    .locals 0
 
     .line 179
-    iget-object v0, p0, Landroidx/lifecycle/ProcessLifecycleOwner$3$1;->this$1:Landroidx/lifecycle/ProcessLifecycleOwner$3;
+    iget-object p1, p0, Landroidx/lifecycle/ProcessLifecycleOwner$3$1;->this$1:Landroidx/lifecycle/ProcessLifecycleOwner$3;
 
-    iget-object v0, v0, Landroidx/lifecycle/ProcessLifecycleOwner$3;->this$0:Landroidx/lifecycle/ProcessLifecycleOwner;
+    iget-object p1, p1, Landroidx/lifecycle/ProcessLifecycleOwner$3;->this$0:Landroidx/lifecycle/ProcessLifecycleOwner;
 
-    invoke-virtual {v0}, Landroidx/lifecycle/ProcessLifecycleOwner;->activityResumed()V
+    invoke-virtual {p1}, Landroidx/lifecycle/ProcessLifecycleOwner;->activityResumed()V
 
-    .line 180
     return-void
 .end method
 
 .method public onActivityPostStarted(Landroid/app/Activity;)V
-    .locals 1
-    .param p1, "activity"    # Landroid/app/Activity;
+    .locals 0
 
     .line 174
-    iget-object v0, p0, Landroidx/lifecycle/ProcessLifecycleOwner$3$1;->this$1:Landroidx/lifecycle/ProcessLifecycleOwner$3;
+    iget-object p1, p0, Landroidx/lifecycle/ProcessLifecycleOwner$3$1;->this$1:Landroidx/lifecycle/ProcessLifecycleOwner$3;
 
-    iget-object v0, v0, Landroidx/lifecycle/ProcessLifecycleOwner$3;->this$0:Landroidx/lifecycle/ProcessLifecycleOwner;
+    iget-object p1, p1, Landroidx/lifecycle/ProcessLifecycleOwner$3;->this$0:Landroidx/lifecycle/ProcessLifecycleOwner;
 
-    invoke-virtual {v0}, Landroidx/lifecycle/ProcessLifecycleOwner;->activityStarted()V
+    invoke-virtual {p1}, Landroidx/lifecycle/ProcessLifecycleOwner;->activityStarted()V
 
-    .line 175
     return-void
 .end method

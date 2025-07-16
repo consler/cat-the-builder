@@ -41,9 +41,7 @@
 
 # virtual methods
 .method public compare(Lcom/badlogic/gdx/graphics/g3d/Renderable;Lcom/badlogic/gdx/graphics/g3d/Renderable;)I
-    .locals 6
-    .param p1, "arg0"    # Lcom/badlogic/gdx/graphics/g3d/Renderable;
-    .param p2, "arg1"    # Lcom/badlogic/gdx/graphics/g3d/Renderable;
+    .locals 2
 
     .line 151
     iget-object v0, p1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->meshPart:Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
@@ -55,7 +53,6 @@
     move-result-object v0
 
     .line 152
-    .local v0, "va0":Lcom/badlogic/gdx/graphics/VertexAttributes;
     iget-object v1, p2, Lcom/badlogic/gdx/graphics/g3d/Renderable;->meshPart:Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
 
     iget-object v1, v1, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->mesh:Lcom/badlogic/gdx/graphics/Mesh;
@@ -65,49 +62,38 @@
     move-result-object v1
 
     .line 153
-    .local v1, "va1":Lcom/badlogic/gdx/graphics/VertexAttributes;
     invoke-virtual {v0, v1}, Lcom/badlogic/gdx/graphics/VertexAttributes;->compareTo(Lcom/badlogic/gdx/graphics/VertexAttributes;)I
 
-    move-result v2
+    move-result v0
 
-    .line 154
-    .local v2, "vc":I
-    if-nez v2, :cond_1
+    if-nez v0, :cond_0
 
     .line 155
-    iget-object v3, p1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->material:Lcom/badlogic/gdx/graphics/g3d/Material;
+    iget-object v0, p1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->material:Lcom/badlogic/gdx/graphics/g3d/Material;
 
-    iget-object v4, p2, Lcom/badlogic/gdx/graphics/g3d/Renderable;->material:Lcom/badlogic/gdx/graphics/g3d/Material;
+    iget-object v1, p2, Lcom/badlogic/gdx/graphics/g3d/Renderable;->material:Lcom/badlogic/gdx/graphics/g3d/Material;
 
-    invoke-virtual {v3, v4}, Lcom/badlogic/gdx/graphics/g3d/Material;->compareTo(Lcom/badlogic/gdx/graphics/g3d/Attributes;)I
+    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/Material;->compareTo(Lcom/badlogic/gdx/graphics/g3d/Attributes;)I
 
-    move-result v3
+    move-result v0
 
-    .line 156
-    .local v3, "mc":I
-    if-nez v3, :cond_0
+    if-nez v0, :cond_0
 
     .line 157
-    iget-object v4, p1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->meshPart:Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->meshPart:Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
 
-    iget v4, v4, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->primitiveType:I
+    iget p1, p1, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->primitiveType:I
 
-    iget-object v5, p2, Lcom/badlogic/gdx/graphics/g3d/Renderable;->meshPart:Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
+    iget-object p2, p2, Lcom/badlogic/gdx/graphics/g3d/Renderable;->meshPart:Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
 
-    iget v5, v5, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->primitiveType:I
+    iget p2, p2, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->primitiveType:I
 
-    sub-int/2addr v4, v5
+    sub-int/2addr p1, p2
 
-    return v4
+    return p1
 
-    .line 159
     :cond_0
-    return v3
-
-    .line 161
-    .end local v3    # "mc":I
-    :cond_1
-    return v2
+    return v0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
@@ -127,7 +113,6 @@
 
 .method public sort(Lcom/badlogic/gdx/graphics/Camera;Lcom/badlogic/gdx/utils/Array;)V
     .locals 0
-    .param p1, "camera"    # Lcom/badlogic/gdx/graphics/Camera;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -139,9 +124,7 @@
     .end annotation
 
     .line 146
-    .local p2, "renderables":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/g3d/Renderable;>;"
     invoke-virtual {p2, p0}, Lcom/badlogic/gdx/utils/Array;->sort(Ljava/util/Comparator;)V
 
-    .line 147
     return-void
 .end method

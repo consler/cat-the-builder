@@ -11,11 +11,11 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 117
     const/4 v0, 0x2
 
     new-array v0, v0, [F
 
+    .line 117
     sput-object v0, Lcom/badlogic/gdx/physics/box2d/PolygonShape;->verts:[F
 
     return-void
@@ -34,13 +34,11 @@
 
     iput-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/PolygonShape;->addr:J
 
-    .line 30
     return-void
 .end method
 
 .method protected constructor <init>(J)V
     .locals 0
-    .param p1, "addr"    # J
 
     .line 32
     invoke-direct {p0}, Lcom/badlogic/gdx/physics/box2d/Shape;-><init>()V
@@ -48,7 +46,6 @@
     .line 33
     iput-wide p1, p0, Lcom/badlogic/gdx/physics/box2d/PolygonShape;->addr:J
 
-    .line 34
     return-void
 .end method
 
@@ -83,8 +80,6 @@
 
 .method public getVertex(ILcom/badlogic/gdx/math/Vector2;)V
     .locals 3
-    .param p1, "index"    # I
-    .param p2, "vertex"    # Lcom/badlogic/gdx/math/Vector2;
 
     .line 123
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/PolygonShape;->addr:J
@@ -94,24 +89,23 @@
     invoke-direct {p0, v0, v1, p1, v2}, Lcom/badlogic/gdx/physics/box2d/PolygonShape;->jniGetVertex(JI[F)V
 
     .line 124
-    sget-object v0, Lcom/badlogic/gdx/physics/box2d/PolygonShape;->verts:[F
+    sget-object p1, Lcom/badlogic/gdx/physics/box2d/PolygonShape;->verts:[F
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    aget v0, v0, v1
+    aget p1, p1, v0
 
-    iput v0, p2, Lcom/badlogic/gdx/math/Vector2;->x:F
+    iput p1, p2, Lcom/badlogic/gdx/math/Vector2;->x:F
 
     .line 125
-    sget-object v0, Lcom/badlogic/gdx/physics/box2d/PolygonShape;->verts:[F
+    sget-object p1, Lcom/badlogic/gdx/physics/box2d/PolygonShape;->verts:[F
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    aget v0, v0, v1
+    aget p1, p1, v0
 
-    iput v0, p2, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iput p1, p2, Lcom/badlogic/gdx/math/Vector2;->y:F
 
-    .line 126
     return-void
 .end method
 
@@ -130,14 +124,13 @@
 
 .method public set([F)V
     .locals 6
-    .param p1, "vertices"    # [F
 
     .line 61
     iget-wide v1, p0, Lcom/badlogic/gdx/physics/box2d/PolygonShape;->addr:J
 
-    array-length v5, p1
-
     const/4 v4, 0x0
+
+    array-length v5, p1
 
     move-object v0, p0
 
@@ -145,15 +138,11 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/physics/box2d/PolygonShape;->jniSet(J[FII)V
 
-    .line 62
     return-void
 .end method
 
 .method public set([FII)V
     .locals 6
-    .param p1, "vertices"    # [F
-    .param p2, "offset"    # I
-    .param p3, "len"    # I
 
     .line 67
     iget-wide v1, p0, Lcom/badlogic/gdx/physics/box2d/PolygonShape;->addr:J
@@ -168,99 +157,79 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/physics/box2d/PolygonShape;->jniSet(J[FII)V
 
-    .line 68
     return-void
 .end method
 
 .method public set([Lcom/badlogic/gdx/math/Vector2;)V
     .locals 7
-    .param p1, "vertices"    # [Lcom/badlogic/gdx/math/Vector2;
 
     .line 50
     array-length v0, p1
 
-    mul-int/lit8 v0, v0, 0x2
+    mul-int/lit8 v6, v0, 0x2
 
-    new-array v0, v0, [F
+    new-array v4, v6, [F
+
+    const/4 v0, 0x0
+
+    move v1, v0
 
     .line 51
-    .local v0, "verts":[F
-    const/4 v1, 0x0
-
-    .local v1, "i":I
-    const/4 v2, 0x0
-
-    .local v2, "j":I
     :goto_0
-    array-length v3, p1
+    array-length v2, p1
 
-    mul-int/lit8 v3, v3, 0x2
+    mul-int/lit8 v2, v2, 0x2
 
-    if-ge v1, v3, :cond_0
+    if-ge v0, v2, :cond_0
 
     .line 52
-    aget-object v3, p1, v2
+    aget-object v2, p1, v1
 
-    iget v3, v3, Lcom/badlogic/gdx/math/Vector2;->x:F
+    iget v2, v2, Lcom/badlogic/gdx/math/Vector2;->x:F
 
-    aput v3, v0, v1
+    aput v2, v4, v0
+
+    add-int/lit8 v2, v0, 0x1
 
     .line 53
-    add-int/lit8 v3, v1, 0x1
+    aget-object v3, p1, v1
 
-    aget-object v4, p1, v2
+    iget v3, v3, Lcom/badlogic/gdx/math/Vector2;->y:F
 
-    iget v4, v4, Lcom/badlogic/gdx/math/Vector2;->y:F
+    aput v3, v4, v2
 
-    aput v4, v0, v3
+    add-int/lit8 v0, v0, 0x2
 
-    .line 51
-    add-int/lit8 v1, v1, 0x2
-
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 55
-    .end local v1    # "i":I
-    .end local v2    # "j":I
     :cond_0
     iget-wide v2, p0, Lcom/badlogic/gdx/physics/box2d/PolygonShape;->addr:J
 
     const/4 v5, 0x0
 
-    array-length v6, v0
-
     move-object v1, p0
-
-    move-object v4, v0
 
     invoke-direct/range {v1 .. v6}, Lcom/badlogic/gdx/physics/box2d/PolygonShape;->jniSet(J[FII)V
 
-    .line 56
     return-void
 .end method
 
 .method public setAsBox(FF)V
     .locals 2
-    .param p1, "hx"    # F
-    .param p2, "hy"    # F
 
     .line 85
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/PolygonShape;->addr:J
 
     invoke-direct {p0, v0, v1, p1, p2}, Lcom/badlogic/gdx/physics/box2d/PolygonShape;->jniSetAsBox(JFF)V
 
-    .line 86
     return-void
 .end method
 
 .method public setAsBox(FFLcom/badlogic/gdx/math/Vector2;F)V
     .locals 8
-    .param p1, "hx"    # F
-    .param p2, "hy"    # F
-    .param p3, "center"    # Lcom/badlogic/gdx/math/Vector2;
-    .param p4, "angle"    # F
 
     .line 99
     iget-wide v1, p0, Lcom/badlogic/gdx/physics/box2d/PolygonShape;->addr:J
@@ -279,6 +248,5 @@
 
     invoke-direct/range {v0 .. v7}, Lcom/badlogic/gdx/physics/box2d/PolygonShape;->jniSetAsBox(JFFFFF)V
 
-    .line 100
     return-void
 .end method

@@ -58,7 +58,6 @@
     .locals 0
 
     .line 165
-    .local p0, "this":Lcom/badlogic/gdx/utils/SortedIntList$Node;, "Lcom/badlogic/gdx/utils/SortedIntList$Node<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

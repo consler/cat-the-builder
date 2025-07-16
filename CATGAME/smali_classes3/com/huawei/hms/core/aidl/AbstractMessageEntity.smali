@@ -17,10 +17,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 28
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 29
     return-void
 .end method
 
@@ -29,19 +28,17 @@
 .method public getCommonStatus()Lcom/huawei/hms/support/api/client/Status;
     .locals 1
 
-    .line 37
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/core/aidl/AbstractMessageEntity;->commonStatus:Lcom/huawei/hms/support/api/client/Status;
 
-    .line 38
     return-object v0
 .end method
 
 .method public setCommonStatus(Lcom/huawei/hms/support/api/client/Status;)V
     .locals 0
 
-    .line 47
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/core/aidl/AbstractMessageEntity;->commonStatus:Lcom/huawei/hms/support/api/client/Status;
 
-    .line 48
     return-void
 .end method

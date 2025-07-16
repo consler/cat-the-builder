@@ -22,8 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Iterator;)V
-    .locals 2
-    .param p1, "iterator"    # Ljava/util/Iterator;
+    .locals 1
 
     .line 71
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,39 +34,36 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/iterators/ListIteratorWrapper;->list:Ljava/util/List;
 
-    .line 57
     const/4 v0, 0x0
 
+    .line 57
     iput v0, p0, Lorg/apache/commons/collections/iterators/ListIteratorWrapper;->currentIndex:I
 
     .line 59
     iput v0, p0, Lorg/apache/commons/collections/iterators/ListIteratorWrapper;->wrappedIteratorIndex:I
 
-    .line 72
     if-eqz p1, :cond_0
 
     .line 75
     iput-object p1, p0, Lorg/apache/commons/collections/iterators/ListIteratorWrapper;->iterator:Ljava/util/Iterator;
 
-    .line 76
     return-void
 
     .line 73
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "Iterator must not be null"
+    const-string v0, "Iterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/UnsupportedOperationException;
@@ -75,13 +71,13 @@
     .end annotation
 
     .line 87
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "ListIteratorWrapper does not support optional operations of ListIterator."
+    const-string v0, "ListIteratorWrapper does not support optional operations of ListIterator."
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public hasNext()Z
@@ -103,7 +99,6 @@
 
     return v0
 
-    .line 99
     :cond_0
     const/4 v0, 0x1
 
@@ -118,12 +113,10 @@
 
     if-nez v0, :cond_0
 
-    .line 109
     const/4 v0, 0x0
 
     return v0
 
-    .line 111
     :cond_0
     const/4 v0, 0x1
 
@@ -145,9 +138,9 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 122
     add-int/lit8 v0, v0, 0x1
 
+    .line 122
     iput v0, p0, Lorg/apache/commons/collections/iterators/ListIteratorWrapper;->currentIndex:I
 
     .line 123
@@ -170,7 +163,6 @@
     move-result-object v0
 
     .line 127
-    .local v0, "retval":Ljava/lang/Object;
     iget-object v1, p0, Lorg/apache/commons/collections/iterators/ListIteratorWrapper;->list:Ljava/util/List;
 
     invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -189,7 +181,6 @@
 
     iput v1, p0, Lorg/apache/commons/collections/iterators/ListIteratorWrapper;->wrappedIteratorIndex:I
 
-    .line 130
     return-object v0
 .end method
 
@@ -215,9 +206,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 152
     add-int/lit8 v0, v0, -0x1
 
+    .line 152
     iput v0, p0, Lorg/apache/commons/collections/iterators/ListIteratorWrapper;->currentIndex:I
 
     .line 153
@@ -270,18 +261,16 @@
 .method public reset()V
     .locals 1
 
-    .line 193
     const/4 v0, 0x0
 
+    .line 193
     iput v0, p0, Lorg/apache/commons/collections/iterators/ListIteratorWrapper;->currentIndex:I
 
-    .line 194
     return-void
 .end method
 
 .method public set(Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/UnsupportedOperationException;
@@ -289,11 +278,11 @@
     .end annotation
 
     .line 181
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "ListIteratorWrapper does not support optional operations of ListIterator."
+    const-string v0, "ListIteratorWrapper does not support optional operations of ListIterator."
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

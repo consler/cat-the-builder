@@ -82,9 +82,6 @@
 
 .method public constructor <init>(Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Lcom/bumptech/glide/load/engine/cache/MemoryCache;Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;)V
     .locals 6
-    .param p1, "bitmapPool"    # Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
-    .param p2, "memoryCache"    # Lcom/bumptech/glide/load/engine/cache/MemoryCache;
-    .param p3, "allocationOrder"    # Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;
 
     .line 67
     sget-object v4, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->DEFAULT_CLOCK:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;
@@ -98,7 +95,6 @@
 
     invoke-direct {v5, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 67
     move-object v0, p0
 
     move-object v1, p1
@@ -107,19 +103,14 @@
 
     move-object v3, p3
 
+    .line 67
     invoke-direct/range {v0 .. v5}, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;-><init>(Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Lcom/bumptech/glide/load/engine/cache/MemoryCache;Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;Landroid/os/Handler;)V
 
-    .line 73
     return-void
 .end method
 
 .method constructor <init>(Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Lcom/bumptech/glide/load/engine/cache/MemoryCache;Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;Landroid/os/Handler;)V
     .locals 2
-    .param p1, "bitmapPool"    # Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
-    .param p2, "memoryCache"    # Lcom/bumptech/glide/load/engine/cache/MemoryCache;
-    .param p3, "allocationOrder"    # Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;
-    .param p4, "clock"    # Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;
-    .param p5, "handler"    # Landroid/os/Handler;
 
     .line 81
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -131,9 +122,9 @@
 
     iput-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->seenTypes:Ljava/util/Set;
 
-    .line 60
     const-wide/16 v0, 0x28
 
+    .line 60
     iput-wide v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->currentDelay:J
 
     .line 82
@@ -151,7 +142,6 @@
     .line 86
     iput-object p5, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->handler:Landroid/os/Handler;
 
-    .line 87
     return-void
 .end method
 
@@ -182,14 +172,11 @@
     .line 164
     iget-wide v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->currentDelay:J
 
+    const-wide/16 v2, 0x4
+
+    mul-long/2addr v2, v0
+
     .line 165
-    .local v0, "result":J
-    iget-wide v2, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->currentDelay:J
-
-    const-wide/16 v4, 0x4
-
-    mul-long/2addr v2, v4
-
     sget-wide v4, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->MAX_BACKOFF_MS:J
 
     invoke-static {v2, v3, v4, v5}, Ljava/lang/Math;->min(JJ)J
@@ -198,13 +185,11 @@
 
     iput-wide v2, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->currentDelay:J
 
-    .line 166
     return-wide v0
 .end method
 
 .method private isGcDetected(J)Z
-    .locals 4
-    .param p1, "startTimeMs"    # J
+    .locals 2
 
     .line 149
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->clock:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;
@@ -215,21 +200,21 @@
 
     sub-long/2addr v0, p1
 
-    const-wide/16 v2, 0x20
+    const-wide/16 p1, 0x20
 
-    cmp-long v0, v0, v2
+    cmp-long p1, v0, p1
 
-    if-ltz v0, :cond_0
+    if-ltz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 
@@ -245,7 +230,7 @@
     move-result-wide v0
 
     .line 100
-    .local v0, "start":J
+    :cond_0
     :goto_0
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->toPrefill:Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;
 
@@ -269,14 +254,13 @@
     move-result-object v2
 
     .line 103
-    .local v2, "toAllocate":Lcom/bumptech/glide/load/engine/prefill/PreFillType;
     iget-object v3, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->seenTypes:Ljava/util/Set;
 
     invoke-interface {v3, v2}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1
 
     .line 104
     iget-object v3, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->seenTypes:Ljava/util/Set;
@@ -304,15 +288,10 @@
 
     move-result-object v3
 
-    .local v3, "bitmap":Landroid/graphics/Bitmap;
     goto :goto_1
 
-    .line 109
-    .end local v3    # "bitmap":Landroid/graphics/Bitmap;
-    :cond_0
-    nop
-
     .line 111
+    :cond_1
     invoke-virtual {v2}, Lcom/bumptech/glide/load/engine/prefill/PreFillType;->getWidth()I
 
     move-result v3
@@ -331,14 +310,12 @@
     move-result-object v3
 
     .line 116
-    .restart local v3    # "bitmap":Landroid/graphics/Bitmap;
     :goto_1
     invoke-static {v3}, Lcom/bumptech/glide/util/Util;->getBitmapByteSize(Landroid/graphics/Bitmap;)I
 
     move-result v4
 
     .line 120
-    .local v4, "bitmapSize":I
     invoke-direct {p0}, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->getFreeMemoryCacheBytes()J
 
     move-result-wide v5
@@ -347,7 +324,7 @@
 
     cmp-long v5, v5, v7
 
-    if-ltz v5, :cond_1
+    if-ltz v5, :cond_2
 
     .line 125
     new-instance v5, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$UniqueKey;
@@ -355,131 +332,134 @@
     invoke-direct {v5}, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$UniqueKey;-><init>()V
 
     .line 126
-    .local v5, "uniqueKey":Lcom/bumptech/glide/load/Key;
     iget-object v6, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->memoryCache:Lcom/bumptech/glide/load/engine/cache/MemoryCache;
 
     iget-object v7, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->bitmapPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
 
     invoke-static {v3, v7}, Lcom/bumptech/glide/load/resource/bitmap/BitmapResource;->obtain(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;)Lcom/bumptech/glide/load/resource/bitmap/BitmapResource;
 
-    move-result-object v7
+    move-result-object v3
 
-    invoke-interface {v6, v5, v7}, Lcom/bumptech/glide/load/engine/cache/MemoryCache;->put(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/engine/Resource;)Lcom/bumptech/glide/load/engine/Resource;
+    invoke-interface {v6, v5, v3}, Lcom/bumptech/glide/load/engine/cache/MemoryCache;->put(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/engine/Resource;)Lcom/bumptech/glide/load/engine/Resource;
 
-    .line 127
-    .end local v5    # "uniqueKey":Lcom/bumptech/glide/load/Key;
     goto :goto_2
 
     .line 128
-    :cond_1
+    :cond_2
     iget-object v5, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->bitmapPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
 
     invoke-interface {v5, v3}, Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;->put(Landroid/graphics/Bitmap;)V
 
-    .line 131
     :goto_2
-    const/4 v5, 0x3
+    const/4 v3, 0x3
 
-    const-string v6, "PreFillRunner"
+    const-string v5, "PreFillRunner"
 
-    invoke-static {v6, v5}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+    .line 131
+    invoke-static {v5, v3}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
-    move-result v5
+    move-result v3
 
-    if-eqz v5, :cond_2
+    if-eqz v3, :cond_0
 
     .line 132
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v6, "allocated ["
 
-    const-string v7, "allocated ["
-
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v3, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 135
     invoke-virtual {v2}, Lcom/bumptech/glide/load/engine/prefill/PreFillType;->getWidth()I
 
-    move-result v7
+    move-result v6
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v7, "x"
+    move-result-object v3
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v6, "x"
+
+    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
 
     .line 137
     invoke-virtual {v2}, Lcom/bumptech/glide/load/engine/prefill/PreFillType;->getHeight()I
 
-    move-result v7
+    move-result v6
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v7, "] "
+    move-result-object v3
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v6, "] "
+
+    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
 
     .line 139
     invoke-virtual {v2}, Lcom/bumptech/glide/load/engine/prefill/PreFillType;->getConfig()Landroid/graphics/Bitmap$Config;
 
-    move-result-object v7
+    move-result-object v2
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v7, " size: "
+    move-result-object v2
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v3, " size: "
 
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v5
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
 
     .line 132
-    invoke-static {v6, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 143
-    .end local v2    # "toAllocate":Lcom/bumptech/glide/load/engine/prefill/PreFillType;
-    .end local v3    # "bitmap":Landroid/graphics/Bitmap;
-    .end local v4    # "bitmapSize":I
-    :cond_2
     goto/16 :goto_0
 
     .line 145
     :cond_3
-    iget-boolean v2, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->isCancelled:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->isCancelled:Z
 
-    if-nez v2, :cond_4
+    if-nez v0, :cond_4
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->toPrefill:Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->toPrefill:Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;
 
-    invoke-virtual {v2}, Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;->isEmpty()Z
+    invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;->isEmpty()Z
 
-    move-result v2
+    move-result v0
 
-    if-nez v2, :cond_4
+    if-nez v0, :cond_4
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
     goto :goto_3
 
     :cond_4
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
     :goto_3
-    return v2
+    return v0
 .end method
 
 .method public cancel()V
     .locals 1
 
-    .line 90
     const/4 v0, 0x1
 
+    .line 90
     iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->isCancelled:Z
 
-    .line 91
     return-void
 .end method
 
@@ -502,7 +482,6 @@
 
     invoke-virtual {v0, p0, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 161
     :cond_0
     return-void
 .end method

@@ -58,9 +58,9 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/BodyDef;->position:Lcom/badlogic/gdx/math/Vector2;
 
-    .line 49
     const/4 v0, 0x0
 
+    .line 49
     iput v0, p0, Lcom/badlogic/gdx/physics/box2d/BodyDef;->angle:F
 
     .line 52
@@ -79,17 +79,17 @@
     .line 63
     iput v0, p0, Lcom/badlogic/gdx/physics/box2d/BodyDef;->angularDamping:F
 
-    .line 66
     const/4 v0, 0x1
 
+    .line 66
     iput-boolean v0, p0, Lcom/badlogic/gdx/physics/box2d/BodyDef;->allowSleep:Z
 
     .line 69
     iput-boolean v0, p0, Lcom/badlogic/gdx/physics/box2d/BodyDef;->awake:Z
 
-    .line 72
     const/4 v1, 0x0
 
+    .line 72
     iput-boolean v1, p0, Lcom/badlogic/gdx/physics/box2d/BodyDef;->fixedRotation:Z
 
     .line 77
@@ -98,9 +98,9 @@
     .line 80
     iput-boolean v0, p0, Lcom/badlogic/gdx/physics/box2d/BodyDef;->active:Z
 
-    .line 83
     const/high16 v0, 0x3f800000    # 1.0f
 
+    .line 83
     iput v0, p0, Lcom/badlogic/gdx/physics/box2d/BodyDef;->gravityScale:F
 
     return-void

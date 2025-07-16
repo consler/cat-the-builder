@@ -40,15 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;Ljava/lang/reflect/Field;ZLjava/util/Locale;Lcom/opencsv/bean/CsvConverter;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 14
-    .param p2, "field"    # Ljava/lang/reflect/Field;
-    .param p3, "required"    # Z
-    .param p4, "errorLocale"    # Ljava/util/Locale;
-    .param p5, "converter"    # Lcom/opencsv/bean/CsvConverter;
-    .param p6, "splitOn"    # Ljava/lang/String;
-    .param p7, "writeDelimiter"    # Ljava/lang/String;
-    .param p9, "capture"    # Ljava/lang/String;
-    .param p10, "format"    # Ljava/lang/String;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,407 +63,376 @@
     .end annotation
 
     .line 74
-    .local p0, "this":Lcom/opencsv/bean/BeanFieldSplit;, "Lcom/opencsv/bean/BeanFieldSplit<TT;TI;>;"
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p8, "collectionType":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/util/Collection;>;"
-    move-object v0, p0
-
-    const-class v1, Lcom/opencsv/bean/BeanFieldSplit;
-
     invoke-direct/range {p0 .. p5}, Lcom/opencsv/bean/AbstractBeanField;-><init>(Ljava/lang/Class;Ljava/lang/reflect/Field;ZLjava/util/Locale;Lcom/opencsv/bean/CsvConverter;)V
 
     .line 75
-    move-object/from16 v2, p7
-
-    iput-object v2, v0, Lcom/opencsv/bean/BeanFieldSplit;->writeDelimiter:Ljava/lang/String;
+    iput-object p7, p0, Lcom/opencsv/bean/BeanFieldSplit;->writeDelimiter:Ljava/lang/String;
 
     .line 76
-    move-object/from16 v3, p10
-
-    iput-object v3, v0, Lcom/opencsv/bean/BeanFieldSplit;->writeFormat:Ljava/lang/String;
+    iput-object p10, p0, Lcom/opencsv/bean/BeanFieldSplit;->writeFormat:Ljava/lang/String;
 
     .line 79
-    const-class v4, Ljava/util/Collection;
+    const-class p1, Ljava/util/Collection;
 
-    invoke-virtual/range {p2 .. p2}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
+    invoke-virtual {p2}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
 
-    move-result-object v5
+    move-result-object p3
 
-    invoke-virtual {v4, v5}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    invoke-virtual {p1, p3}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    move-result v4
+    move-result p1
 
-    const-string v5, "invalid.collection.type"
+    const-string p3, "invalid.collection.type"
 
-    const/4 v6, 0x1
+    const/4 p4, 0x1
 
-    const-string v7, "opencsv"
+    const-string p5, "opencsv"
 
-    const/4 v8, 0x0
+    const/4 p7, 0x0
 
-    if-eqz v4, :cond_c
+    const-class v0, Lcom/opencsv/bean/BeanFieldSplit;
+
+    if-eqz p1, :cond_c
 
     .line 90
-    iget-object v4, v0, Lcom/opencsv/bean/BeanFieldSplit;->errorLocale:Ljava/util/Locale;
+    iget-object p1, p0, Lcom/opencsv/bean/BeanFieldSplit;->errorLocale:Ljava/util/Locale;
 
-    move-object/from16 v9, p6
+    invoke-static {p6, p7, v0, p1}, Lcom/opencsv/bean/OpencsvUtils;->compilePattern(Ljava/lang/String;ILjava/lang/Class;Ljava/util/Locale;)Ljava/util/regex/Pattern;
 
-    invoke-static {v9, v8, v1, v4}, Lcom/opencsv/bean/OpencsvUtils;->compilePattern(Ljava/lang/String;ILjava/lang/Class;Ljava/util/Locale;)Ljava/util/regex/Pattern;
+    move-result-object p1
 
-    move-result-object v4
-
-    iput-object v4, v0, Lcom/opencsv/bean/BeanFieldSplit;->splitOn:Ljava/util/regex/Pattern;
+    iput-object p1, p0, Lcom/opencsv/bean/BeanFieldSplit;->splitOn:Ljava/util/regex/Pattern;
 
     .line 92
-    iget-object v4, v0, Lcom/opencsv/bean/BeanFieldSplit;->errorLocale:Ljava/util/Locale;
+    iget-object p1, p0, Lcom/opencsv/bean/BeanFieldSplit;->errorLocale:Ljava/util/Locale;
 
-    move-object/from16 v10, p9
+    invoke-static {p9, p7, v0, p1}, Lcom/opencsv/bean/OpencsvUtils;->compilePatternAtLeastOneGroup(Ljava/lang/String;ILjava/lang/Class;Ljava/util/Locale;)Ljava/util/regex/Pattern;
 
-    invoke-static {v10, v8, v1, v4}, Lcom/opencsv/bean/OpencsvUtils;->compilePatternAtLeastOneGroup(Ljava/lang/String;ILjava/lang/Class;Ljava/util/Locale;)Ljava/util/regex/Pattern;
+    move-result-object p1
 
-    move-result-object v4
-
-    iput-object v4, v0, Lcom/opencsv/bean/BeanFieldSplit;->capture:Ljava/util/regex/Pattern;
+    iput-object p1, p0, Lcom/opencsv/bean/BeanFieldSplit;->capture:Ljava/util/regex/Pattern;
 
     .line 96
-    iget-object v4, v0, Lcom/opencsv/bean/BeanFieldSplit;->writeFormat:Ljava/lang/String;
+    iget-object p1, p0, Lcom/opencsv/bean/BeanFieldSplit;->errorLocale:Ljava/util/Locale;
 
-    iget-object v11, v0, Lcom/opencsv/bean/BeanFieldSplit;->errorLocale:Ljava/util/Locale;
-
-    invoke-static {v4, v1, v11}, Lcom/opencsv/bean/OpencsvUtils;->verifyFormatString(Ljava/lang/String;Ljava/lang/Class;Ljava/util/Locale;)V
+    invoke-static {p10, v0, p1}, Lcom/opencsv/bean/OpencsvUtils;->verifyFormatString(Ljava/lang/String;Ljava/lang/Class;Ljava/util/Locale;)V
 
     .line 100
-    invoke-virtual/range {p2 .. p2}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
+    invoke-virtual {p2}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
 
-    move-result-object v4
+    move-result-object p1
 
     .line 101
-    .local v4, "fieldType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    invoke-virtual {v4}, Ljava/lang/Class;->isInterface()Z
+    invoke-virtual {p1}, Ljava/lang/Class;->isInterface()Z
 
-    move-result v11
+    move-result p6
 
-    if-nez v11, :cond_0
+    if-nez p6, :cond_0
 
     .line 102
-    invoke-virtual/range {p2 .. p2}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
+    invoke-virtual {p2}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
 
-    move-result-object v5
+    move-result-object p1
 
-    iput-object v5, v0, Lcom/opencsv/bean/BeanFieldSplit;->collectionType:Ljava/lang/Class;
-
-    move-object/from16 v11, p8
+    iput-object p1, p0, Lcom/opencsv/bean/BeanFieldSplit;->collectionType:Ljava/lang/Class;
 
     goto/16 :goto_3
 
     .line 104
     :cond_0
-    invoke-virtual/range {p8 .. p8}, Ljava/lang/Class;->isInterface()Z
+    invoke-virtual {p8}, Ljava/lang/Class;->isInterface()Z
 
-    move-result v11
+    move-result p6
 
-    if-nez v11, :cond_1
+    if-nez p6, :cond_1
 
     .line 105
-    move-object/from16 v11, p8
-
-    iput-object v11, v0, Lcom/opencsv/bean/BeanFieldSplit;->collectionType:Ljava/lang/Class;
+    iput-object p8, p0, Lcom/opencsv/bean/BeanFieldSplit;->collectionType:Ljava/lang/Class;
 
     goto/16 :goto_3
 
     .line 108
     :cond_1
-    move-object/from16 v11, p8
+    const-class p6, Ljava/util/Collection;
 
-    const-class v12, Ljava/util/Collection;
+    invoke-virtual {p6, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v12, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    move-result p6
 
-    move-result v12
+    if-nez p6, :cond_a
 
-    if-nez v12, :cond_a
+    const-class p6, Ljava/util/List;
 
-    const-class v12, Ljava/util/List;
+    invoke-virtual {p6, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v12, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    move-result p6
 
-    move-result v12
-
-    if-eqz v12, :cond_2
+    if-eqz p6, :cond_2
 
     goto/16 :goto_2
 
     .line 111
     :cond_2
-    const-class v12, Ljava/util/Set;
+    const-class p6, Ljava/util/Set;
 
-    invoke-virtual {v12, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p6, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v12
+    move-result p6
 
-    if-eqz v12, :cond_3
+    if-eqz p6, :cond_3
 
     .line 112
-    const-class v5, Ljava/util/HashSet;
+    const-class p1, Ljava/util/HashSet;
 
-    iput-object v5, v0, Lcom/opencsv/bean/BeanFieldSplit;->collectionType:Ljava/lang/Class;
+    iput-object p1, p0, Lcom/opencsv/bean/BeanFieldSplit;->collectionType:Ljava/lang/Class;
 
     goto :goto_3
 
     .line 114
     :cond_3
-    const-class v12, Ljava/util/SortedSet;
+    const-class p6, Ljava/util/SortedSet;
 
-    invoke-virtual {v12, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p6, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v12
+    move-result p6
 
-    if-nez v12, :cond_9
+    if-nez p6, :cond_9
 
-    const-class v12, Ljava/util/NavigableSet;
+    const-class p6, Ljava/util/NavigableSet;
 
-    invoke-virtual {v12, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p6, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v12
+    move-result p6
 
-    if-eqz v12, :cond_4
+    if-eqz p6, :cond_4
 
     goto :goto_1
 
     .line 117
     :cond_4
-    const-class v12, Ljava/util/Queue;
+    const-class p6, Ljava/util/Queue;
 
-    invoke-virtual {v12, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p6, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v12
+    move-result p6
 
-    if-nez v12, :cond_8
+    if-nez p6, :cond_8
 
-    const-class v12, Ljava/util/Deque;
+    const-class p6, Ljava/util/Deque;
 
-    invoke-virtual {v12, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p6, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v12
+    move-result p6
 
-    if-eqz v12, :cond_5
+    if-eqz p6, :cond_5
 
     goto :goto_0
 
     .line 120
     :cond_5
-    const-class v12, Lorg/apache/commons/collections4/Bag;
+    const-class p6, Lorg/apache/commons/collections4/Bag;
 
-    invoke-virtual {v12, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p6, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v12
+    move-result p6
 
-    if-eqz v12, :cond_6
+    if-eqz p6, :cond_6
 
     .line 121
-    const-class v5, Lorg/apache/commons/collections4/bag/HashBag;
+    const-class p1, Lorg/apache/commons/collections4/bag/HashBag;
 
-    iput-object v5, v0, Lcom/opencsv/bean/BeanFieldSplit;->collectionType:Ljava/lang/Class;
+    iput-object p1, p0, Lcom/opencsv/bean/BeanFieldSplit;->collectionType:Ljava/lang/Class;
 
     goto :goto_3
 
     .line 123
     :cond_6
-    const-class v12, Lorg/apache/commons/collections4/SortedBag;
+    const-class p6, Lorg/apache/commons/collections4/SortedBag;
 
-    invoke-virtual {v12, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p6, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v12
+    move-result p1
 
-    if-eqz v12, :cond_7
+    if-eqz p1, :cond_7
 
     .line 124
-    const-class v5, Lorg/apache/commons/collections4/bag/TreeBag;
+    const-class p1, Lorg/apache/commons/collections4/bag/TreeBag;
 
-    iput-object v5, v0, Lcom/opencsv/bean/BeanFieldSplit;->collectionType:Ljava/lang/Class;
+    iput-object p1, p0, Lcom/opencsv/bean/BeanFieldSplit;->collectionType:Ljava/lang/Class;
 
     goto :goto_3
 
-    .line 127
     :cond_7
-    const/4 v12, 0x0
+    const/4 p1, 0x0
 
-    iput-object v12, v0, Lcom/opencsv/bean/BeanFieldSplit;->collectionType:Ljava/lang/Class;
+    .line 127
+    iput-object p1, p0, Lcom/opencsv/bean/BeanFieldSplit;->collectionType:Ljava/lang/Class;
 
     .line 128
-    new-instance v12, Lcom/opencsv/exceptions/CsvBadConverterException;
+    new-instance p1, Lcom/opencsv/exceptions/CsvBadConverterException;
 
-    iget-object v13, v0, Lcom/opencsv/bean/BeanFieldSplit;->errorLocale:Ljava/util/Locale;
+    iget-object p2, p0, Lcom/opencsv/bean/BeanFieldSplit;->errorLocale:Ljava/util/Locale;
 
     .line 131
-    invoke-static {v7, v13}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;
+    invoke-static {p5, p2}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;
 
-    move-result-object v7
+    move-result-object p2
 
     .line 133
-    invoke-virtual {v7, v5}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p2, p3}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p2
 
-    new-array v6, v6, [Ljava/lang/Object;
+    new-array p3, p4, [Ljava/lang/Object;
 
     .line 134
-    invoke-virtual/range {p8 .. p8}, Ljava/lang/Class;->toString()Ljava/lang/String;
+    invoke-virtual {p8}, Ljava/lang/Class;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object p4
 
-    aput-object v7, v6, v8
+    aput-object p4, p3, p7
 
     .line 130
-    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p2, p3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p2
 
-    invoke-direct {v12, v1, v5}, Lcom/opencsv/exceptions/CsvBadConverterException;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
+    invoke-direct {p1, v0, p2}, Lcom/opencsv/exceptions/CsvBadConverterException;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
 
-    throw v12
+    throw p1
 
     .line 118
     :cond_8
     :goto_0
-    const-class v5, Ljava/util/ArrayDeque;
+    const-class p1, Ljava/util/ArrayDeque;
 
-    iput-object v5, v0, Lcom/opencsv/bean/BeanFieldSplit;->collectionType:Ljava/lang/Class;
+    iput-object p1, p0, Lcom/opencsv/bean/BeanFieldSplit;->collectionType:Ljava/lang/Class;
 
     goto :goto_3
 
     .line 115
     :cond_9
     :goto_1
-    const-class v5, Ljava/util/TreeSet;
+    const-class p1, Ljava/util/TreeSet;
 
-    iput-object v5, v0, Lcom/opencsv/bean/BeanFieldSplit;->collectionType:Ljava/lang/Class;
+    iput-object p1, p0, Lcom/opencsv/bean/BeanFieldSplit;->collectionType:Ljava/lang/Class;
 
     goto :goto_3
 
     .line 109
     :cond_a
     :goto_2
-    const-class v5, Ljava/util/ArrayList;
+    const-class p1, Ljava/util/ArrayList;
 
-    iput-object v5, v0, Lcom/opencsv/bean/BeanFieldSplit;->collectionType:Ljava/lang/Class;
+    iput-object p1, p0, Lcom/opencsv/bean/BeanFieldSplit;->collectionType:Ljava/lang/Class;
 
     .line 140
     :goto_3
-    invoke-virtual/range {p2 .. p2}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
+    invoke-virtual {p2}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
 
-    move-result-object v5
+    move-result-object p1
 
-    iget-object v12, v0, Lcom/opencsv/bean/BeanFieldSplit;->collectionType:Ljava/lang/Class;
+    iget-object p3, p0, Lcom/opencsv/bean/BeanFieldSplit;->collectionType:Ljava/lang/Class;
 
-    invoke-virtual {v5, v12}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    invoke-virtual {p1, p3}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    move-result v5
+    move-result p1
 
-    if-eqz v5, :cond_b
+    if-eqz p1, :cond_b
 
-    .line 149
     return-void
 
     .line 141
     :cond_b
-    new-instance v5, Lcom/opencsv/exceptions/CsvBadConverterException;
+    new-instance p1, Lcom/opencsv/exceptions/CsvBadConverterException;
 
-    iget-object v12, v0, Lcom/opencsv/bean/BeanFieldSplit;->errorLocale:Ljava/util/Locale;
+    iget-object p3, p0, Lcom/opencsv/bean/BeanFieldSplit;->errorLocale:Ljava/util/Locale;
 
     .line 144
-    invoke-static {v7, v12}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;
+    invoke-static {p5, p3}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;
 
-    move-result-object v7
+    move-result-object p3
+
+    const-string p5, "unassignable.collection.type"
 
     .line 146
-    const-string v12, "unassignable.collection.type"
+    invoke-virtual {p3, p5}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v7, v12}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object p3
 
-    move-result-object v7
+    const/4 p5, 0x2
 
-    const/4 v12, 0x2
-
-    new-array v12, v12, [Ljava/lang/Object;
+    new-array p5, p5, [Ljava/lang/Object;
 
     .line 147
-    invoke-virtual/range {p8 .. p8}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {p8}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object p6
 
-    aput-object v13, v12, v8
+    aput-object p6, p5, p7
 
-    invoke-virtual/range {p2 .. p2}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
+    invoke-virtual {p2}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
 
-    move-result-object v8
+    move-result-object p2
 
-    invoke-virtual {v8}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object p2
 
-    aput-object v8, v12, v6
+    aput-object p2, p5, p4
 
     .line 143
-    invoke-static {v7, v12}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p3, p5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object p2
 
-    invoke-direct {v5, v1, v6}, Lcom/opencsv/exceptions/CsvBadConverterException;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
+    invoke-direct {p1, v0, p2}, Lcom/opencsv/exceptions/CsvBadConverterException;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
 
-    throw v5
+    throw p1
 
     .line 80
-    .end local v4    # "fieldType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :cond_c
-    move-object/from16 v9, p6
+    new-instance p1, Lcom/opencsv/exceptions/CsvBadConverterException;
 
-    move-object/from16 v11, p8
-
-    move-object/from16 v10, p9
-
-    new-instance v4, Lcom/opencsv/exceptions/CsvBadConverterException;
-
-    iget-object v12, v0, Lcom/opencsv/bean/BeanFieldSplit;->errorLocale:Ljava/util/Locale;
+    iget-object p6, p0, Lcom/opencsv/bean/BeanFieldSplit;->errorLocale:Ljava/util/Locale;
 
     .line 83
-    invoke-static {v7, v12}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;
+    invoke-static {p5, p6}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;
 
-    move-result-object v7
+    move-result-object p5
 
     .line 85
-    invoke-virtual {v7, v5}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p5, p3}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p3
 
-    new-array v6, v6, [Ljava/lang/Object;
+    new-array p4, p4, [Ljava/lang/Object;
 
     .line 86
-    invoke-virtual/range {p2 .. p2}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
+    invoke-virtual {p2}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
 
-    move-result-object v7
+    move-result-object p2
 
-    invoke-virtual {v7}, Ljava/lang/Class;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/Class;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object p2
 
-    aput-object v7, v6, v8
+    aput-object p2, p4, p7
 
     .line 82
-    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p3, p4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p2
 
-    invoke-direct {v4, v1, v5}, Lcom/opencsv/exceptions/CsvBadConverterException;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
+    invoke-direct {p1, v0, p2}, Lcom/opencsv/exceptions/CsvBadConverterException;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
 
-    throw v4
+    throw p1
 .end method
 
 
 # virtual methods
 .method protected convert(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 8
-    .param p1, "value"    # Ljava/lang/String;
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/opencsv/exceptions/CsvDataTypeMismatchException;,
@@ -479,12 +440,11 @@
         }
     .end annotation
 
-    .line 166
-    .local p0, "this":Lcom/opencsv/bean/BeanFieldSplit;, "Lcom/opencsv/bean/BeanFieldSplit<TT;TI;>;"
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
+    .line 166
     :try_start_0
     iget-object v2, p0, Lcom/opencsv/bean/BeanFieldSplit;->collectionType:Ljava/lang/Class;
 
@@ -497,288 +457,248 @@
     .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 177
-    .local v2, "collection":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/lang/Object;>;"
-    nop
-
     .line 179
     iget-object v3, p0, Lcom/opencsv/bean/BeanFieldSplit;->splitOn:Ljava/util/regex/Pattern;
 
     invoke-virtual {v3, p1}, Ljava/util/regex/Pattern;->split(Ljava/lang/CharSequence;)[Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
     .line 180
-    .local v3, "splitValues":[Ljava/lang/String;
-    array-length v4, v3
+    array-length v3, p1
 
     :goto_0
-    if-ge v0, v4, :cond_1
+    if-ge v0, v3, :cond_1
 
-    aget-object v5, v3, v0
+    aget-object v4, p1, v0
 
     .line 181
-    .local v5, "s":Ljava/lang/String;
-    iget-object v6, p0, Lcom/opencsv/bean/BeanFieldSplit;->capture:Ljava/util/regex/Pattern;
+    iget-object v5, p0, Lcom/opencsv/bean/BeanFieldSplit;->capture:Ljava/util/regex/Pattern;
 
-    if-eqz v6, :cond_0
+    if-eqz v5, :cond_0
 
     .line 182
-    invoke-virtual {v6, v5}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
-
-    move-result-object v6
-
-    .line 183
-    .local v6, "m":Ljava/util/regex/Matcher;
-    invoke-virtual {v6}, Ljava/util/regex/Matcher;->matches()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_0
-
-    .line 184
-    invoke-virtual {v6, v1}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
+    invoke-virtual {v5, v4}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
     move-result-object v5
 
+    .line 183
+    invoke-virtual {v5}, Ljava/util/regex/Matcher;->matches()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    .line 184
+    invoke-virtual {v5, v1}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
+
+    move-result-object v4
+
     .line 188
-    .end local v6    # "m":Ljava/util/regex/Matcher;
     :cond_0
-    iget-object v6, p0, Lcom/opencsv/bean/BeanFieldSplit;->converter:Lcom/opencsv/bean/CsvConverter;
+    iget-object v5, p0, Lcom/opencsv/bean/BeanFieldSplit;->converter:Lcom/opencsv/bean/CsvConverter;
 
-    invoke-interface {v6, v5}, Lcom/opencsv/bean/CsvConverter;->convertToRead(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-interface {v5, v4}, Lcom/opencsv/bean/CsvConverter;->convertToRead(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-interface {v2, v6}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    invoke-interface {v2, v4}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    .line 180
-    .end local v5    # "s":Ljava/lang/String;
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 190
     :cond_1
     return-object v2
 
-    .line 168
-    .end local v2    # "collection":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/lang/Object;>;"
-    .end local v3    # "splitValues":[Ljava/lang/String;
     :catch_0
-    move-exception v2
+    move-exception p1
 
     goto :goto_1
 
     :catch_1
-    move-exception v2
+    move-exception p1
 
     .line 169
-    .local v2, "e":Ljava/lang/ReflectiveOperationException;
     :goto_1
-    new-instance v3, Lcom/opencsv/exceptions/CsvBeanIntrospectionException;
+    new-instance v2, Lcom/opencsv/exceptions/CsvBeanIntrospectionException;
+
+    const-string v3, "opencsv"
 
     iget-object v4, p0, Lcom/opencsv/bean/BeanFieldSplit;->errorLocale:Ljava/util/Locale;
 
     .line 172
-    const-string v5, "opencsv"
+    invoke-static {v3, v4}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;
 
-    invoke-static {v5, v4}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;
+    move-result-object v3
 
-    move-result-object v4
+    const-string v4, "collection.cannot.be.instantiated"
 
     .line 173
-    const-string v5, "collection.cannot.be.instantiated"
+    invoke-virtual {v3, v4}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v4, v5}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
+    move-result-object v3
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    iget-object v5, p0, Lcom/opencsv/bean/BeanFieldSplit;->collectionType:Ljava/lang/Class;
+    iget-object v4, p0, Lcom/opencsv/bean/BeanFieldSplit;->collectionType:Ljava/lang/Class;
 
     .line 174
-    invoke-virtual {v5}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    aput-object v5, v1, v0
+    aput-object v4, v1, v0
 
     .line 170
-    invoke-static {v4, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v3, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {v3, v0}, Lcom/opencsv/exceptions/CsvBeanIntrospectionException;-><init>(Ljava/lang/String;)V
-
-    move-object v0, v3
+    invoke-direct {v2, v0}, Lcom/opencsv/exceptions/CsvBeanIntrospectionException;-><init>(Ljava/lang/String;)V
 
     .line 175
-    .local v0, "csve":Lcom/opencsv/exceptions/CsvBeanIntrospectionException;
-    invoke-virtual {v0, v2}, Lcom/opencsv/exceptions/CsvBeanIntrospectionException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v2, p1}, Lcom/opencsv/exceptions/CsvBeanIntrospectionException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 176
-    throw v0
+    throw v2
 .end method
 
 .method protected convertToWrite(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 10
-    .param p1, "value"    # Ljava/lang/Object;
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/opencsv/exceptions/CsvDataTypeMismatchException;
         }
     .end annotation
 
-    .line 201
-    .local p0, "this":Lcom/opencsv/bean/BeanFieldSplit;, "Lcom/opencsv/bean/BeanFieldSplit<TT;TI;>;"
-    const-string v0, ""
-
-    .line 202
-    .local v0, "retval":Ljava/lang/String;
     if-eqz p1, :cond_2
 
     .line 203
-    move-object v1, p1
-
-    check-cast v1, Ljava/util/Collection;
+    check-cast p1, Ljava/util/Collection;
 
     .line 204
-    .local v1, "collection":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/lang/Object;>;"
-    invoke-interface {v1}, Ljava/util/Collection;->size()I
+    invoke-interface {p1}, Ljava/util/Collection;->size()I
 
-    move-result v2
+    move-result v0
 
-    new-array v2, v2, [Ljava/lang/String;
-
-    .line 205
-    .local v2, "convertedValue":[Ljava/lang/String;
-    const/4 v3, 0x0
+    new-array v0, v0, [Ljava/lang/String;
 
     .line 206
-    .local v3, "i":I
-    invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v4
+    move-result-object p1
+
+    const/4 v1, 0x0
+
+    move v2, v1
 
     :goto_0
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v5
+    move-result v3
 
-    if-eqz v5, :cond_1
+    if-eqz v3, :cond_1
 
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v3
 
     .line 207
-    .local v5, "o":Ljava/lang/Object;
-    iget-object v6, p0, Lcom/opencsv/bean/BeanFieldSplit;->converter:Lcom/opencsv/bean/CsvConverter;
+    iget-object v4, p0, Lcom/opencsv/bean/BeanFieldSplit;->converter:Lcom/opencsv/bean/CsvConverter;
 
-    invoke-interface {v6, v5}, Lcom/opencsv/bean/CsvConverter;->convertToWrite(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-interface {v4, v3}, Lcom/opencsv/bean/CsvConverter;->convertToWrite(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v3
 
-    aput-object v6, v2, v3
+    aput-object v3, v0, v2
 
     .line 208
-    iget-object v6, p0, Lcom/opencsv/bean/BeanFieldSplit;->writeFormat:Ljava/lang/String;
+    iget-object v3, p0, Lcom/opencsv/bean/BeanFieldSplit;->writeFormat:Ljava/lang/String;
 
-    invoke-static {v6}, Lorg/apache/commons/lang3/StringUtils;->isNotEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v3}, Lorg/apache/commons/lang3/StringUtils;->isNotEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v6
+    move-result v3
 
-    if-eqz v6, :cond_0
+    if-eqz v3, :cond_0
 
-    aget-object v6, v2, v3
+    aget-object v3, v0, v2
 
     .line 209
-    invoke-static {v6}, Lorg/apache/commons/lang3/StringUtils;->isNotEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v3}, Lorg/apache/commons/lang3/StringUtils;->isNotEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v6
+    move-result v3
 
-    if-eqz v6, :cond_0
+    if-eqz v3, :cond_0
 
     .line 210
-    iget-object v6, p0, Lcom/opencsv/bean/BeanFieldSplit;->writeFormat:Ljava/lang/String;
+    iget-object v3, p0, Lcom/opencsv/bean/BeanFieldSplit;->writeFormat:Ljava/lang/String;
 
-    const/4 v7, 0x1
+    const/4 v4, 0x1
 
-    new-array v7, v7, [Ljava/lang/Object;
+    new-array v4, v4, [Ljava/lang/Object;
 
-    const/4 v8, 0x0
+    aget-object v5, v0, v2
 
-    aget-object v9, v2, v3
+    aput-object v5, v4, v1
 
-    aput-object v9, v7, v8
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v6, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v6
+    aput-object v3, v0, v2
 
-    aput-object v6, v2, v3
-
-    .line 212
     :cond_0
-    nop
+    add-int/lit8 v2, v2, 0x1
 
-    .end local v5    # "o":Ljava/lang/Object;
-    add-int/lit8 v3, v3, 0x1
-
-    .line 213
     goto :goto_0
 
     .line 214
     :cond_1
-    iget-object v4, p0, Lcom/opencsv/bean/BeanFieldSplit;->writeDelimiter:Ljava/lang/String;
+    iget-object p1, p0, Lcom/opencsv/bean/BeanFieldSplit;->writeDelimiter:Ljava/lang/String;
 
-    invoke-static {v2, v4}, Lorg/apache/commons/lang3/StringUtils;->join([Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0, p1}, Lorg/apache/commons/lang3/StringUtils;->join([Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 216
-    .end local v1    # "collection":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/lang/Object;>;"
-    .end local v2    # "convertedValue":[Ljava/lang/String;
-    .end local v3    # "i":I
+    goto :goto_1
+
     :cond_2
-    return-object v0
+    const-string p1, ""
+
+    :goto_1
+    return-object p1
 .end method
 
 .method protected isFieldEmptyForWrite(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "value"    # Ljava/lang/Object;
 
     .line 227
-    .local p0, "this":Lcom/opencsv/bean/BeanFieldSplit;, "Lcom/opencsv/bean/BeanFieldSplit<TT;TI;>;"
     invoke-super {p0, p1}, Lcom/opencsv/bean/AbstractBeanField;->isFieldEmptyForWrite(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    move-object v0, p1
+    check-cast p1, Ljava/util/Collection;
 
-    check-cast v0, Ljava/util/Collection;
+    invoke-interface {p1}, Ljava/util/Collection;->isEmpty()Z
 
-    invoke-interface {v0}, Ljava/util/Collection;->isEmpty()Z
+    move-result p1
 
-    move-result v0
-
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     :goto_1
-    return v0
+    return p1
 .end method

@@ -53,6 +53,10 @@
 
 .field private longSerializationPolicy:Lcom/google/gson/LongSerializationPolicy;
 
+.field private numberToNumberStrategy:Lcom/google/gson/ToNumberStrategy;
+
+.field private objectToNumberStrategy:Lcom/google/gson/ToNumberStrategy;
+
 .field private prettyPrinting:Z
 
 .field private serializeNulls:Z
@@ -61,258 +65,299 @@
 
 .field private timeStyle:I
 
+.field private useJdkUnsafe:Z
+
 
 # direct methods
 .method public constructor <init>()V
     .locals 2
 
-    .line 104
+    .line 111
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 79
+    .line 83
     sget-object v0, Lcom/google/gson/internal/Excluder;->DEFAULT:Lcom/google/gson/internal/Excluder;
 
     iput-object v0, p0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
 
-    .line 80
+    .line 84
     sget-object v0, Lcom/google/gson/LongSerializationPolicy;->DEFAULT:Lcom/google/gson/LongSerializationPolicy;
 
     iput-object v0, p0, Lcom/google/gson/GsonBuilder;->longSerializationPolicy:Lcom/google/gson/LongSerializationPolicy;
 
-    .line 81
+    .line 85
     sget-object v0, Lcom/google/gson/FieldNamingPolicy;->IDENTITY:Lcom/google/gson/FieldNamingPolicy;
 
     iput-object v0, p0, Lcom/google/gson/GsonBuilder;->fieldNamingPolicy:Lcom/google/gson/FieldNamingStrategy;
 
-    .line 82
+    .line 86
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/google/gson/GsonBuilder;->instanceCreators:Ljava/util/Map;
 
-    .line 84
+    .line 88
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/google/gson/GsonBuilder;->factories:Ljava/util/List;
 
-    .line 86
+    .line 90
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/google/gson/GsonBuilder;->hierarchyFactories:Ljava/util/List;
 
-    .line 87
     const/4 v0, 0x0
 
+    .line 91
     iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->serializeNulls:Z
 
-    .line 89
+    .line 92
+    sget-object v1, Lcom/google/gson/Gson;->DEFAULT_DATE_PATTERN:Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/google/gson/GsonBuilder;->datePattern:Ljava/lang/String;
+
     const/4 v1, 0x2
 
+    .line 93
     iput v1, p0, Lcom/google/gson/GsonBuilder;->dateStyle:I
 
-    .line 90
+    .line 94
     iput v1, p0, Lcom/google/gson/GsonBuilder;->timeStyle:I
 
-    .line 91
+    .line 95
     iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->complexMapKeySerialization:Z
 
-    .line 92
+    .line 96
     iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->serializeSpecialFloatingPointValues:Z
 
-    .line 93
     const/4 v1, 0x1
 
+    .line 97
     iput-boolean v1, p0, Lcom/google/gson/GsonBuilder;->escapeHtmlChars:Z
 
-    .line 94
+    .line 98
     iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->prettyPrinting:Z
 
-    .line 95
+    .line 99
     iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->generateNonExecutableJson:Z
 
-    .line 96
+    .line 100
     iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->lenient:Z
 
-    .line 105
+    .line 101
+    iput-boolean v1, p0, Lcom/google/gson/GsonBuilder;->useJdkUnsafe:Z
+
+    .line 102
+    sget-object v0, Lcom/google/gson/Gson;->DEFAULT_OBJECT_TO_NUMBER_STRATEGY:Lcom/google/gson/ToNumberStrategy;
+
+    iput-object v0, p0, Lcom/google/gson/GsonBuilder;->objectToNumberStrategy:Lcom/google/gson/ToNumberStrategy;
+
+    .line 103
+    sget-object v0, Lcom/google/gson/Gson;->DEFAULT_NUMBER_TO_NUMBER_STRATEGY:Lcom/google/gson/ToNumberStrategy;
+
+    iput-object v0, p0, Lcom/google/gson/GsonBuilder;->numberToNumberStrategy:Lcom/google/gson/ToNumberStrategy;
+
     return-void
 .end method
 
 .method constructor <init>(Lcom/google/gson/Gson;)V
-    .locals 2
-    .param p1, "gson"    # Lcom/google/gson/Gson;
+    .locals 5
 
-    .line 113
+    .line 120
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 79
+    .line 83
     sget-object v0, Lcom/google/gson/internal/Excluder;->DEFAULT:Lcom/google/gson/internal/Excluder;
 
     iput-object v0, p0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
 
-    .line 80
+    .line 84
     sget-object v0, Lcom/google/gson/LongSerializationPolicy;->DEFAULT:Lcom/google/gson/LongSerializationPolicy;
 
     iput-object v0, p0, Lcom/google/gson/GsonBuilder;->longSerializationPolicy:Lcom/google/gson/LongSerializationPolicy;
 
-    .line 81
+    .line 85
     sget-object v0, Lcom/google/gson/FieldNamingPolicy;->IDENTITY:Lcom/google/gson/FieldNamingPolicy;
 
     iput-object v0, p0, Lcom/google/gson/GsonBuilder;->fieldNamingPolicy:Lcom/google/gson/FieldNamingStrategy;
 
-    .line 82
+    .line 86
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/google/gson/GsonBuilder;->instanceCreators:Ljava/util/Map;
 
-    .line 84
-    new-instance v0, Ljava/util/ArrayList;
+    .line 88
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/google/gson/GsonBuilder;->factories:Ljava/util/List;
-
-    .line 86
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Lcom/google/gson/GsonBuilder;->hierarchyFactories:Ljava/util/List;
-
-    .line 87
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->serializeNulls:Z
-
-    .line 89
-    const/4 v1, 0x2
-
-    iput v1, p0, Lcom/google/gson/GsonBuilder;->dateStyle:I
+    iput-object v1, p0, Lcom/google/gson/GsonBuilder;->factories:Ljava/util/List;
 
     .line 90
-    iput v1, p0, Lcom/google/gson/GsonBuilder;->timeStyle:I
+    new-instance v2, Ljava/util/ArrayList;
+
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v2, p0, Lcom/google/gson/GsonBuilder;->hierarchyFactories:Ljava/util/List;
+
+    const/4 v3, 0x0
 
     .line 91
-    iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->complexMapKeySerialization:Z
+    iput-boolean v3, p0, Lcom/google/gson/GsonBuilder;->serializeNulls:Z
 
     .line 92
-    iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->serializeSpecialFloatingPointValues:Z
+    sget-object v4, Lcom/google/gson/Gson;->DEFAULT_DATE_PATTERN:Ljava/lang/String;
+
+    iput-object v4, p0, Lcom/google/gson/GsonBuilder;->datePattern:Ljava/lang/String;
+
+    const/4 v4, 0x2
 
     .line 93
-    const/4 v1, 0x1
-
-    iput-boolean v1, p0, Lcom/google/gson/GsonBuilder;->escapeHtmlChars:Z
+    iput v4, p0, Lcom/google/gson/GsonBuilder;->dateStyle:I
 
     .line 94
-    iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->prettyPrinting:Z
+    iput v4, p0, Lcom/google/gson/GsonBuilder;->timeStyle:I
 
     .line 95
-    iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->generateNonExecutableJson:Z
+    iput-boolean v3, p0, Lcom/google/gson/GsonBuilder;->complexMapKeySerialization:Z
 
     .line 96
-    iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->lenient:Z
+    iput-boolean v3, p0, Lcom/google/gson/GsonBuilder;->serializeSpecialFloatingPointValues:Z
 
-    .line 114
-    iget-object v0, p1, Lcom/google/gson/Gson;->excluder:Lcom/google/gson/internal/Excluder;
+    const/4 v4, 0x1
 
-    iput-object v0, p0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
+    .line 97
+    iput-boolean v4, p0, Lcom/google/gson/GsonBuilder;->escapeHtmlChars:Z
 
-    .line 115
-    iget-object v0, p1, Lcom/google/gson/Gson;->fieldNamingStrategy:Lcom/google/gson/FieldNamingStrategy;
+    .line 98
+    iput-boolean v3, p0, Lcom/google/gson/GsonBuilder;->prettyPrinting:Z
 
-    iput-object v0, p0, Lcom/google/gson/GsonBuilder;->fieldNamingPolicy:Lcom/google/gson/FieldNamingStrategy;
+    .line 99
+    iput-boolean v3, p0, Lcom/google/gson/GsonBuilder;->generateNonExecutableJson:Z
 
-    .line 116
-    iget-object v0, p0, Lcom/google/gson/GsonBuilder;->instanceCreators:Ljava/util/Map;
+    .line 100
+    iput-boolean v3, p0, Lcom/google/gson/GsonBuilder;->lenient:Z
 
-    iget-object v1, p1, Lcom/google/gson/Gson;->instanceCreators:Ljava/util/Map;
+    .line 101
+    iput-boolean v4, p0, Lcom/google/gson/GsonBuilder;->useJdkUnsafe:Z
 
-    invoke-interface {v0, v1}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
+    .line 102
+    sget-object v3, Lcom/google/gson/Gson;->DEFAULT_OBJECT_TO_NUMBER_STRATEGY:Lcom/google/gson/ToNumberStrategy;
 
-    .line 117
+    iput-object v3, p0, Lcom/google/gson/GsonBuilder;->objectToNumberStrategy:Lcom/google/gson/ToNumberStrategy;
+
+    .line 103
+    sget-object v3, Lcom/google/gson/Gson;->DEFAULT_NUMBER_TO_NUMBER_STRATEGY:Lcom/google/gson/ToNumberStrategy;
+
+    iput-object v3, p0, Lcom/google/gson/GsonBuilder;->numberToNumberStrategy:Lcom/google/gson/ToNumberStrategy;
+
+    .line 121
+    iget-object v3, p1, Lcom/google/gson/Gson;->excluder:Lcom/google/gson/internal/Excluder;
+
+    iput-object v3, p0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
+
+    .line 122
+    iget-object v3, p1, Lcom/google/gson/Gson;->fieldNamingStrategy:Lcom/google/gson/FieldNamingStrategy;
+
+    iput-object v3, p0, Lcom/google/gson/GsonBuilder;->fieldNamingPolicy:Lcom/google/gson/FieldNamingStrategy;
+
+    .line 123
+    iget-object v3, p1, Lcom/google/gson/Gson;->instanceCreators:Ljava/util/Map;
+
+    invoke-interface {v0, v3}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
+
+    .line 124
     iget-boolean v0, p1, Lcom/google/gson/Gson;->serializeNulls:Z
 
     iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->serializeNulls:Z
 
-    .line 118
+    .line 125
     iget-boolean v0, p1, Lcom/google/gson/Gson;->complexMapKeySerialization:Z
 
     iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->complexMapKeySerialization:Z
 
-    .line 119
+    .line 126
     iget-boolean v0, p1, Lcom/google/gson/Gson;->generateNonExecutableJson:Z
 
     iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->generateNonExecutableJson:Z
 
-    .line 120
+    .line 127
     iget-boolean v0, p1, Lcom/google/gson/Gson;->htmlSafe:Z
 
     iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->escapeHtmlChars:Z
 
-    .line 121
+    .line 128
     iget-boolean v0, p1, Lcom/google/gson/Gson;->prettyPrinting:Z
 
     iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->prettyPrinting:Z
 
-    .line 122
+    .line 129
     iget-boolean v0, p1, Lcom/google/gson/Gson;->lenient:Z
 
     iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->lenient:Z
 
-    .line 123
+    .line 130
     iget-boolean v0, p1, Lcom/google/gson/Gson;->serializeSpecialFloatingPointValues:Z
 
     iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->serializeSpecialFloatingPointValues:Z
 
-    .line 124
+    .line 131
     iget-object v0, p1, Lcom/google/gson/Gson;->longSerializationPolicy:Lcom/google/gson/LongSerializationPolicy;
 
     iput-object v0, p0, Lcom/google/gson/GsonBuilder;->longSerializationPolicy:Lcom/google/gson/LongSerializationPolicy;
 
-    .line 125
+    .line 132
     iget-object v0, p1, Lcom/google/gson/Gson;->datePattern:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/google/gson/GsonBuilder;->datePattern:Ljava/lang/String;
 
-    .line 126
+    .line 133
     iget v0, p1, Lcom/google/gson/Gson;->dateStyle:I
 
     iput v0, p0, Lcom/google/gson/GsonBuilder;->dateStyle:I
 
-    .line 127
+    .line 134
     iget v0, p1, Lcom/google/gson/Gson;->timeStyle:I
 
     iput v0, p0, Lcom/google/gson/GsonBuilder;->timeStyle:I
 
-    .line 128
-    iget-object v0, p0, Lcom/google/gson/GsonBuilder;->factories:Ljava/util/List;
+    .line 135
+    iget-object v0, p1, Lcom/google/gson/Gson;->builderFactories:Ljava/util/List;
 
-    iget-object v1, p1, Lcom/google/gson/Gson;->builderFactories:Ljava/util/List;
+    invoke-interface {v1, v0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    invoke-interface {v0, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+    .line 136
+    iget-object v0, p1, Lcom/google/gson/Gson;->builderHierarchyFactories:Ljava/util/List;
 
-    .line 129
-    iget-object v0, p0, Lcom/google/gson/GsonBuilder;->hierarchyFactories:Ljava/util/List;
+    invoke-interface {v2, v0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    iget-object v1, p1, Lcom/google/gson/Gson;->builderHierarchyFactories:Ljava/util/List;
+    .line 137
+    iget-boolean v0, p1, Lcom/google/gson/Gson;->useJdkUnsafe:Z
 
-    invoke-interface {v0, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+    iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->useJdkUnsafe:Z
 
-    .line 130
+    .line 138
+    iget-object v0, p1, Lcom/google/gson/Gson;->objectToNumberStrategy:Lcom/google/gson/ToNumberStrategy;
+
+    iput-object v0, p0, Lcom/google/gson/GsonBuilder;->objectToNumberStrategy:Lcom/google/gson/ToNumberStrategy;
+
+    .line 139
+    iget-object p1, p1, Lcom/google/gson/Gson;->numberToNumberStrategy:Lcom/google/gson/ToNumberStrategy;
+
+    iput-object p1, p0, Lcom/google/gson/GsonBuilder;->numberToNumberStrategy:Lcom/google/gson/ToNumberStrategy;
+
     return-void
 .end method
 
 .method private addTypeAdaptersForDate(Ljava/lang/String;IILjava/util/List;)V
     .locals 4
-    .param p1, "datePattern"    # Ljava/lang/String;
-    .param p2, "dateStyle"    # I
-    .param p3, "timeStyle"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -324,119 +369,111 @@
         }
     .end annotation
 
-    .line 611
-    .local p4, "factories":Ljava/util/List;, "Ljava/util/List<Lcom/google/gson/TypeAdapterFactory;>;"
-    if-eqz p1, :cond_0
+    .line 663
+    sget-boolean v0, Lcom/google/gson/internal/sql/SqlTypesSupport;->SUPPORTS_SQL_TYPES:Z
 
+    const/4 v1, 0x0
+
+    if-eqz p1, :cond_1
+
+    .line 667
     invoke-virtual {p1}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-string v1, ""
+    invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v2
 
-    move-result v0
+    if-nez v2, :cond_1
 
-    if-nez v0, :cond_0
+    .line 668
+    sget-object p2, Lcom/google/gson/internal/bind/DefaultDateTypeAdapter$DateType;->DATE:Lcom/google/gson/internal/bind/DefaultDateTypeAdapter$DateType;
 
-    .line 612
-    new-instance v0, Lcom/google/gson/DefaultDateTypeAdapter;
+    invoke-virtual {p2, p1}, Lcom/google/gson/internal/bind/DefaultDateTypeAdapter$DateType;->createAdapterFactory(Ljava/lang/String;)Lcom/google/gson/TypeAdapterFactory;
 
-    const-class v1, Ljava/util/Date;
+    move-result-object p2
 
-    invoke-direct {v0, v1, p1}, Lcom/google/gson/DefaultDateTypeAdapter;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
+    if-eqz v0, :cond_0
 
-    .line 613
-    .local v0, "dateTypeAdapter":Lcom/google/gson/DefaultDateTypeAdapter;
-    new-instance v1, Lcom/google/gson/DefaultDateTypeAdapter;
+    .line 671
+    sget-object p3, Lcom/google/gson/internal/sql/SqlTypesSupport;->TIMESTAMP_DATE_TYPE:Lcom/google/gson/internal/bind/DefaultDateTypeAdapter$DateType;
 
-    const-class v2, Ljava/sql/Timestamp;
+    invoke-virtual {p3, p1}, Lcom/google/gson/internal/bind/DefaultDateTypeAdapter$DateType;->createAdapterFactory(Ljava/lang/String;)Lcom/google/gson/TypeAdapterFactory;
 
-    invoke-direct {v1, v2, p1}, Lcom/google/gson/DefaultDateTypeAdapter;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
+    move-result-object v1
 
-    .line 614
-    .local v1, "timestampTypeAdapter":Lcom/google/gson/TypeAdapter;, "Lcom/google/gson/TypeAdapter<Ljava/sql/Timestamp;>;"
-    new-instance v2, Lcom/google/gson/DefaultDateTypeAdapter;
+    .line 672
+    sget-object p3, Lcom/google/gson/internal/sql/SqlTypesSupport;->DATE_DATE_TYPE:Lcom/google/gson/internal/bind/DefaultDateTypeAdapter$DateType;
 
-    const-class v3, Ljava/sql/Date;
+    invoke-virtual {p3, p1}, Lcom/google/gson/internal/bind/DefaultDateTypeAdapter$DateType;->createAdapterFactory(Ljava/lang/String;)Lcom/google/gson/TypeAdapterFactory;
 
-    invoke-direct {v2, v3, p1}, Lcom/google/gson/DefaultDateTypeAdapter;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
+    move-result-object p1
 
-    .local v2, "javaSqlDateTypeAdapter":Lcom/google/gson/TypeAdapter;, "Lcom/google/gson/TypeAdapter<Ljava/sql/Date;>;"
+    goto :goto_1
+
+    :cond_0
+    :goto_0
+    move-object p1, v1
+
+    goto :goto_1
+
+    :cond_1
+    const/4 p1, 0x2
+
+    if-eq p2, p1, :cond_3
+
+    if-eq p3, p1, :cond_3
+
+    .line 675
+    sget-object p1, Lcom/google/gson/internal/bind/DefaultDateTypeAdapter$DateType;->DATE:Lcom/google/gson/internal/bind/DefaultDateTypeAdapter$DateType;
+
+    invoke-virtual {p1, p2, p3}, Lcom/google/gson/internal/bind/DefaultDateTypeAdapter$DateType;->createAdapterFactory(II)Lcom/google/gson/TypeAdapterFactory;
+
+    move-result-object p1
+
+    if-eqz v0, :cond_2
+
+    .line 678
+    sget-object v1, Lcom/google/gson/internal/sql/SqlTypesSupport;->TIMESTAMP_DATE_TYPE:Lcom/google/gson/internal/bind/DefaultDateTypeAdapter$DateType;
+
+    invoke-virtual {v1, p2, p3}, Lcom/google/gson/internal/bind/DefaultDateTypeAdapter$DateType;->createAdapterFactory(II)Lcom/google/gson/TypeAdapterFactory;
+
+    move-result-object v1
+
+    .line 679
+    sget-object v2, Lcom/google/gson/internal/sql/SqlTypesSupport;->DATE_DATE_TYPE:Lcom/google/gson/internal/bind/DefaultDateTypeAdapter$DateType;
+
+    invoke-virtual {v2, p2, p3}, Lcom/google/gson/internal/bind/DefaultDateTypeAdapter$DateType;->createAdapterFactory(II)Lcom/google/gson/TypeAdapterFactory;
+
+    move-result-object p2
+
+    move-object v3, p2
+
+    move-object p2, p1
+
+    move-object p1, v3
+
+    goto :goto_1
+
+    :cond_2
+    move-object p2, p1
+
     goto :goto_0
 
-    .line 615
-    .end local v0    # "dateTypeAdapter":Lcom/google/gson/DefaultDateTypeAdapter;
-    .end local v1    # "timestampTypeAdapter":Lcom/google/gson/TypeAdapter;, "Lcom/google/gson/TypeAdapter<Ljava/sql/Timestamp;>;"
-    .end local v2    # "javaSqlDateTypeAdapter":Lcom/google/gson/TypeAdapter;, "Lcom/google/gson/TypeAdapter<Ljava/sql/Date;>;"
-    :cond_0
-    const/4 v0, 0x2
+    .line 685
+    :goto_1
+    invoke-interface {p4, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    if-eq p2, v0, :cond_1
+    if-eqz v0, :cond_3
 
-    if-eq p3, v0, :cond_1
+    .line 687
+    invoke-interface {p4, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 616
-    new-instance v0, Lcom/google/gson/DefaultDateTypeAdapter;
+    .line 688
+    invoke-interface {p4, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    const-class v1, Ljava/util/Date;
-
-    invoke-direct {v0, v1, p2, p3}, Lcom/google/gson/DefaultDateTypeAdapter;-><init>(Ljava/lang/Class;II)V
-
-    .line 617
-    .restart local v0    # "dateTypeAdapter":Lcom/google/gson/DefaultDateTypeAdapter;
-    new-instance v1, Lcom/google/gson/DefaultDateTypeAdapter;
-
-    const-class v2, Ljava/sql/Timestamp;
-
-    invoke-direct {v1, v2, p2, p3}, Lcom/google/gson/DefaultDateTypeAdapter;-><init>(Ljava/lang/Class;II)V
-
-    .line 618
-    .restart local v1    # "timestampTypeAdapter":Lcom/google/gson/TypeAdapter;, "Lcom/google/gson/TypeAdapter<Ljava/sql/Timestamp;>;"
-    new-instance v2, Lcom/google/gson/DefaultDateTypeAdapter;
-
-    const-class v3, Ljava/sql/Date;
-
-    invoke-direct {v2, v3, p2, p3}, Lcom/google/gson/DefaultDateTypeAdapter;-><init>(Ljava/lang/Class;II)V
-
-    .line 623
-    .restart local v2    # "javaSqlDateTypeAdapter":Lcom/google/gson/TypeAdapter;, "Lcom/google/gson/TypeAdapter<Ljava/sql/Date;>;"
-    :goto_0
-    const-class v3, Ljava/util/Date;
-
-    invoke-static {v3, v0}, Lcom/google/gson/internal/bind/TypeAdapters;->newFactory(Ljava/lang/Class;Lcom/google/gson/TypeAdapter;)Lcom/google/gson/TypeAdapterFactory;
-
-    move-result-object v3
-
-    invoke-interface {p4, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 624
-    const-class v3, Ljava/sql/Timestamp;
-
-    invoke-static {v3, v1}, Lcom/google/gson/internal/bind/TypeAdapters;->newFactory(Ljava/lang/Class;Lcom/google/gson/TypeAdapter;)Lcom/google/gson/TypeAdapterFactory;
-
-    move-result-object v3
-
-    invoke-interface {p4, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 625
-    const-class v3, Ljava/sql/Date;
-
-    invoke-static {v3, v2}, Lcom/google/gson/internal/bind/TypeAdapters;->newFactory(Ljava/lang/Class;Lcom/google/gson/TypeAdapter;)Lcom/google/gson/TypeAdapterFactory;
-
-    move-result-object v3
-
-    invoke-interface {p4, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 626
-    return-void
-
-    .line 620
-    .end local v0    # "dateTypeAdapter":Lcom/google/gson/DefaultDateTypeAdapter;
-    .end local v1    # "timestampTypeAdapter":Lcom/google/gson/TypeAdapter;, "Lcom/google/gson/TypeAdapter<Ljava/sql/Timestamp;>;"
-    .end local v2    # "javaSqlDateTypeAdapter":Lcom/google/gson/TypeAdapter;, "Lcom/google/gson/TypeAdapter<Ljava/sql/Date;>;"
-    :cond_1
+    :cond_3
     return-void
 .end method
 
@@ -444,9 +481,8 @@
 # virtual methods
 .method public addDeserializationExclusionStrategy(Lcom/google/gson/ExclusionStrategy;)Lcom/google/gson/GsonBuilder;
     .locals 3
-    .param p1, "strategy"    # Lcom/google/gson/ExclusionStrategy;
 
-    .line 375
+    .line 410
     iget-object v0, p0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
 
     const/4 v1, 0x0
@@ -455,19 +491,17 @@
 
     invoke-virtual {v0, p1, v1, v2}, Lcom/google/gson/internal/Excluder;->withExclusionStrategy(Lcom/google/gson/ExclusionStrategy;ZZ)Lcom/google/gson/internal/Excluder;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
+    iput-object p1, p0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
 
-    .line 376
     return-object p0
 .end method
 
 .method public addSerializationExclusionStrategy(Lcom/google/gson/ExclusionStrategy;)Lcom/google/gson/GsonBuilder;
     .locals 3
-    .param p1, "strategy"    # Lcom/google/gson/ExclusionStrategy;
 
-    .line 358
+    .line 393
     iget-object v0, p0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
 
     const/4 v1, 0x1
@@ -476,21 +510,22 @@
 
     invoke-virtual {v0, p1, v1, v2}, Lcom/google/gson/internal/Excluder;->withExclusionStrategy(Lcom/google/gson/ExclusionStrategy;ZZ)Lcom/google/gson/internal/Excluder;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
+    iput-object p1, p0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
 
-    .line 359
     return-object p0
 .end method
 
 .method public create()Lcom/google/gson/Gson;
-    .locals 23
+    .locals 24
 
-    .line 587
     move-object/from16 v0, p0
 
+    .line 642
     new-instance v1, Ljava/util/ArrayList;
+
+    move-object/from16 v19, v1
 
     iget-object v2, v0, Lcom/google/gson/GsonBuilder;->factories:Ljava/util/List;
 
@@ -510,110 +545,113 @@
 
     invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
 
-    .local v1, "factories":Ljava/util/List;, "Ljava/util/List<Lcom/google/gson/TypeAdapterFactory;>;"
-    move-object/from16 v20, v1
-
-    .line 588
+    .line 643
     iget-object v2, v0, Lcom/google/gson/GsonBuilder;->factories:Ljava/util/List;
 
     invoke-interface {v1, v2}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 589
+    .line 644
     invoke-static {v1}, Ljava/util/Collections;->reverse(Ljava/util/List;)V
 
-    .line 591
+    .line 646
     new-instance v2, Ljava/util/ArrayList;
 
     iget-object v3, v0, Lcom/google/gson/GsonBuilder;->hierarchyFactories:Ljava/util/List;
 
     invoke-direct {v2, v3}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    .line 592
-    .local v2, "hierarchyFactories":Ljava/util/List;, "Ljava/util/List<Lcom/google/gson/TypeAdapterFactory;>;"
+    .line 647
     invoke-static {v2}, Ljava/util/Collections;->reverse(Ljava/util/List;)V
 
-    .line 593
+    .line 648
     invoke-interface {v1, v2}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 595
-    iget-object v3, v0, Lcom/google/gson/GsonBuilder;->datePattern:Ljava/lang/String;
+    .line 650
+    iget-object v2, v0, Lcom/google/gson/GsonBuilder;->datePattern:Ljava/lang/String;
 
-    iget v4, v0, Lcom/google/gson/GsonBuilder;->dateStyle:I
+    iget v3, v0, Lcom/google/gson/GsonBuilder;->dateStyle:I
 
-    iget v5, v0, Lcom/google/gson/GsonBuilder;->timeStyle:I
+    iget v4, v0, Lcom/google/gson/GsonBuilder;->timeStyle:I
 
-    invoke-direct {v0, v3, v4, v5, v1}, Lcom/google/gson/GsonBuilder;->addTypeAdaptersForDate(Ljava/lang/String;IILjava/util/List;)V
+    invoke-direct {v0, v2, v3, v4, v1}, Lcom/google/gson/GsonBuilder;->addTypeAdaptersForDate(Ljava/lang/String;IILjava/util/List;)V
 
-    .line 597
-    new-instance v21, Lcom/google/gson/Gson;
+    .line 652
+    new-instance v22, Lcom/google/gson/Gson;
 
-    move-object/from16 v3, v21
+    move-object/from16 v1, v22
 
-    iget-object v4, v0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
+    iget-object v2, v0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
 
-    iget-object v5, v0, Lcom/google/gson/GsonBuilder;->fieldNamingPolicy:Lcom/google/gson/FieldNamingStrategy;
+    iget-object v3, v0, Lcom/google/gson/GsonBuilder;->fieldNamingPolicy:Lcom/google/gson/FieldNamingStrategy;
 
-    iget-object v6, v0, Lcom/google/gson/GsonBuilder;->instanceCreators:Ljava/util/Map;
+    iget-object v4, v0, Lcom/google/gson/GsonBuilder;->instanceCreators:Ljava/util/Map;
 
-    iget-boolean v7, v0, Lcom/google/gson/GsonBuilder;->serializeNulls:Z
+    iget-boolean v5, v0, Lcom/google/gson/GsonBuilder;->serializeNulls:Z
 
-    iget-boolean v8, v0, Lcom/google/gson/GsonBuilder;->complexMapKeySerialization:Z
+    iget-boolean v6, v0, Lcom/google/gson/GsonBuilder;->complexMapKeySerialization:Z
 
-    iget-boolean v9, v0, Lcom/google/gson/GsonBuilder;->generateNonExecutableJson:Z
+    iget-boolean v7, v0, Lcom/google/gson/GsonBuilder;->generateNonExecutableJson:Z
 
-    iget-boolean v10, v0, Lcom/google/gson/GsonBuilder;->escapeHtmlChars:Z
+    iget-boolean v8, v0, Lcom/google/gson/GsonBuilder;->escapeHtmlChars:Z
 
-    iget-boolean v11, v0, Lcom/google/gson/GsonBuilder;->prettyPrinting:Z
+    iget-boolean v9, v0, Lcom/google/gson/GsonBuilder;->prettyPrinting:Z
 
-    iget-boolean v12, v0, Lcom/google/gson/GsonBuilder;->lenient:Z
+    iget-boolean v10, v0, Lcom/google/gson/GsonBuilder;->lenient:Z
 
-    iget-boolean v13, v0, Lcom/google/gson/GsonBuilder;->serializeSpecialFloatingPointValues:Z
+    iget-boolean v11, v0, Lcom/google/gson/GsonBuilder;->serializeSpecialFloatingPointValues:Z
 
-    iget-object v14, v0, Lcom/google/gson/GsonBuilder;->longSerializationPolicy:Lcom/google/gson/LongSerializationPolicy;
+    iget-boolean v12, v0, Lcom/google/gson/GsonBuilder;->useJdkUnsafe:Z
 
-    iget-object v15, v0, Lcom/google/gson/GsonBuilder;->datePattern:Ljava/lang/String;
+    iget-object v13, v0, Lcom/google/gson/GsonBuilder;->longSerializationPolicy:Lcom/google/gson/LongSerializationPolicy;
 
-    move-object/from16 v22, v1
+    iget-object v14, v0, Lcom/google/gson/GsonBuilder;->datePattern:Ljava/lang/String;
 
-    .end local v1    # "factories":Ljava/util/List;, "Ljava/util/List<Lcom/google/gson/TypeAdapterFactory;>;"
-    .local v22, "factories":Ljava/util/List;, "Ljava/util/List<Lcom/google/gson/TypeAdapterFactory;>;"
-    iget v1, v0, Lcom/google/gson/GsonBuilder;->dateStyle:I
+    iget v15, v0, Lcom/google/gson/GsonBuilder;->dateStyle:I
 
-    move/from16 v16, v1
+    move-object/from16 v23, v1
 
     iget v1, v0, Lcom/google/gson/GsonBuilder;->timeStyle:I
 
-    move/from16 v17, v1
+    move/from16 v16, v1
 
     iget-object v1, v0, Lcom/google/gson/GsonBuilder;->factories:Ljava/util/List;
 
-    move-object/from16 v18, v1
+    move-object/from16 v17, v1
 
     iget-object v1, v0, Lcom/google/gson/GsonBuilder;->hierarchyFactories:Ljava/util/List;
 
-    move-object/from16 v19, v1
+    move-object/from16 v18, v1
 
-    invoke-direct/range {v3 .. v20}, Lcom/google/gson/Gson;-><init>(Lcom/google/gson/internal/Excluder;Lcom/google/gson/FieldNamingStrategy;Ljava/util/Map;ZZZZZZZLcom/google/gson/LongSerializationPolicy;Ljava/lang/String;IILjava/util/List;Ljava/util/List;Ljava/util/List;)V
+    iget-object v1, v0, Lcom/google/gson/GsonBuilder;->objectToNumberStrategy:Lcom/google/gson/ToNumberStrategy;
 
-    return-object v21
+    move-object/from16 v20, v1
+
+    iget-object v1, v0, Lcom/google/gson/GsonBuilder;->numberToNumberStrategy:Lcom/google/gson/ToNumberStrategy;
+
+    move-object/from16 v21, v1
+
+    move-object/from16 v1, v23
+
+    invoke-direct/range {v1 .. v21}, Lcom/google/gson/Gson;-><init>(Lcom/google/gson/internal/Excluder;Lcom/google/gson/FieldNamingStrategy;Ljava/util/Map;ZZZZZZZZLcom/google/gson/LongSerializationPolicy;Ljava/lang/String;IILjava/util/List;Ljava/util/List;Ljava/util/List;Lcom/google/gson/ToNumberStrategy;Lcom/google/gson/ToNumberStrategy;)V
+
+    return-object v22
 .end method
 
 .method public disableHtmlEscaping()Lcom/google/gson/GsonBuilder;
     .locals 1
 
-    .line 411
     const/4 v0, 0x0
 
+    .line 446
     iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->escapeHtmlChars:Z
 
-    .line 412
     return-object p0
 .end method
 
 .method public disableInnerClassSerialization()Lcom/google/gson/GsonBuilder;
     .locals 1
 
-    .line 285
+    .line 296
     iget-object v0, p0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
 
     invoke-virtual {v0}, Lcom/google/gson/internal/Excluder;->disableInnerClassSerialization()Lcom/google/gson/internal/Excluder;
@@ -622,43 +660,50 @@
 
     iput-object v0, p0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
 
-    .line 286
+    return-object p0
+.end method
+
+.method public disableJdkUnsafe()Lcom/google/gson/GsonBuilder;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    .line 631
+    iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->useJdkUnsafe:Z
+
     return-object p0
 .end method
 
 .method public enableComplexMapKeySerialization()Lcom/google/gson/GsonBuilder;
     .locals 1
 
-    .line 274
     const/4 v0, 0x1
 
+    .line 285
     iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->complexMapKeySerialization:Z
 
-    .line 275
     return-object p0
 .end method
 
 .method public varargs excludeFieldsWithModifiers([I)Lcom/google/gson/GsonBuilder;
     .locals 1
-    .param p1, "modifiers"    # [I
 
-    .line 156
+    .line 166
     iget-object v0, p0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
 
     invoke-virtual {v0, p1}, Lcom/google/gson/internal/Excluder;->withModifiers([I)Lcom/google/gson/internal/Excluder;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
+    iput-object p1, p0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
 
-    .line 157
     return-object p0
 .end method
 
 .method public excludeFieldsWithoutExposeAnnotation()Lcom/google/gson/GsonBuilder;
     .locals 1
 
-    .line 181
+    .line 191
     iget-object v0, p0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
 
     invoke-virtual {v0}, Lcom/google/gson/internal/Excluder;->excludeFieldsWithoutExposeAnnotation()Lcom/google/gson/internal/Excluder;
@@ -667,143 +712,129 @@
 
     iput-object v0, p0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
 
-    .line 182
     return-object p0
 .end method
 
 .method public generateNonExecutableJson()Lcom/google/gson/GsonBuilder;
     .locals 1
 
-    .line 170
     const/4 v0, 0x1
 
+    .line 180
     iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->generateNonExecutableJson:Z
 
-    .line 171
     return-object p0
 .end method
 
 .method public registerTypeAdapter(Ljava/lang/reflect/Type;Ljava/lang/Object;)Lcom/google/gson/GsonBuilder;
     .locals 3
-    .param p1, "type"    # Ljava/lang/reflect/Type;
-    .param p2, "typeAdapter"    # Ljava/lang/Object;
 
-    .line 497
+    .line 532
     instance-of v0, p2, Lcom/google/gson/JsonSerializer;
 
     if-nez v0, :cond_1
 
-    instance-of v0, p2, Lcom/google/gson/JsonDeserializer;
+    instance-of v1, p2, Lcom/google/gson/JsonDeserializer;
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
-    instance-of v0, p2, Lcom/google/gson/InstanceCreator;
+    instance-of v1, p2, Lcom/google/gson/InstanceCreator;
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
-    instance-of v0, p2, Lcom/google/gson/TypeAdapter;
+    instance-of v1, p2, Lcom/google/gson/TypeAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
     :goto_1
-    invoke-static {v0}, Lcom/google/gson/internal/$Gson$Preconditions;->checkArgument(Z)V
+    invoke-static {v1}, Lcom/google/gson/internal/$Gson$Preconditions;->checkArgument(Z)V
 
-    .line 501
-    instance-of v0, p2, Lcom/google/gson/InstanceCreator;
+    .line 536
+    instance-of v1, p2, Lcom/google/gson/InstanceCreator;
 
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
-    .line 502
-    iget-object v0, p0, Lcom/google/gson/GsonBuilder;->instanceCreators:Ljava/util/Map;
+    .line 537
+    iget-object v1, p0, Lcom/google/gson/GsonBuilder;->instanceCreators:Ljava/util/Map;
 
-    move-object v1, p2
+    move-object v2, p2
 
-    check-cast v1, Lcom/google/gson/InstanceCreator;
+    check-cast v2, Lcom/google/gson/InstanceCreator;
 
-    invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, p1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 504
     :cond_2
-    instance-of v0, p2, Lcom/google/gson/JsonSerializer;
-
     if-nez v0, :cond_3
 
+    .line 539
     instance-of v0, p2, Lcom/google/gson/JsonDeserializer;
 
     if-eqz v0, :cond_4
 
-    .line 505
+    .line 540
     :cond_3
     invoke-static {p1}, Lcom/google/gson/reflect/TypeToken;->get(Ljava/lang/reflect/Type;)Lcom/google/gson/reflect/TypeToken;
 
     move-result-object v0
 
-    .line 506
-    .local v0, "typeToken":Lcom/google/gson/reflect/TypeToken;, "Lcom/google/gson/reflect/TypeToken<*>;"
+    .line 541
     iget-object v1, p0, Lcom/google/gson/GsonBuilder;->factories:Ljava/util/List;
 
     invoke-static {v0, p2}, Lcom/google/gson/internal/bind/TreeTypeAdapter;->newFactoryWithMatchRawType(Lcom/google/gson/reflect/TypeToken;Ljava/lang/Object;)Lcom/google/gson/TypeAdapterFactory;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 508
-    .end local v0    # "typeToken":Lcom/google/gson/reflect/TypeToken;, "Lcom/google/gson/reflect/TypeToken<*>;"
+    .line 543
     :cond_4
     instance-of v0, p2, Lcom/google/gson/TypeAdapter;
 
     if-eqz v0, :cond_5
 
-    .line 509
+    .line 544
     iget-object v0, p0, Lcom/google/gson/GsonBuilder;->factories:Ljava/util/List;
 
     invoke-static {p1}, Lcom/google/gson/reflect/TypeToken;->get(Ljava/lang/reflect/Type;)Lcom/google/gson/reflect/TypeToken;
 
-    move-result-object v1
+    move-result-object p1
 
-    move-object v2, p2
+    check-cast p2, Lcom/google/gson/TypeAdapter;
 
-    check-cast v2, Lcom/google/gson/TypeAdapter;
+    invoke-static {p1, p2}, Lcom/google/gson/internal/bind/TypeAdapters;->newFactory(Lcom/google/gson/reflect/TypeToken;Lcom/google/gson/TypeAdapter;)Lcom/google/gson/TypeAdapterFactory;
 
-    invoke-static {v1, v2}, Lcom/google/gson/internal/bind/TypeAdapters;->newFactory(Lcom/google/gson/reflect/TypeToken;Lcom/google/gson/TypeAdapter;)Lcom/google/gson/TypeAdapterFactory;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 511
     :cond_5
     return-object p0
 .end method
 
 .method public registerTypeAdapterFactory(Lcom/google/gson/TypeAdapterFactory;)Lcom/google/gson/GsonBuilder;
     .locals 1
-    .param p1, "factory"    # Lcom/google/gson/TypeAdapterFactory;
 
-    .line 523
+    .line 558
     iget-object v0, p0, Lcom/google/gson/GsonBuilder;->factories:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 524
     return-object p0
 .end method
 
 .method public registerTypeHierarchyAdapter(Ljava/lang/Class;Ljava/lang/Object;)Lcom/google/gson/GsonBuilder;
     .locals 2
-    .param p2, "typeAdapter"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -815,44 +846,41 @@
         }
     .end annotation
 
-    .line 543
-    .local p1, "baseType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
+    .line 578
     instance-of v0, p2, Lcom/google/gson/JsonSerializer;
 
     if-nez v0, :cond_1
 
-    instance-of v0, p2, Lcom/google/gson/JsonDeserializer;
+    instance-of v1, p2, Lcom/google/gson/JsonDeserializer;
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
-    instance-of v0, p2, Lcom/google/gson/TypeAdapter;
+    instance-of v1, p2, Lcom/google/gson/TypeAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
     :goto_1
-    invoke-static {v0}, Lcom/google/gson/internal/$Gson$Preconditions;->checkArgument(Z)V
+    invoke-static {v1}, Lcom/google/gson/internal/$Gson$Preconditions;->checkArgument(Z)V
 
-    .line 546
-    instance-of v0, p2, Lcom/google/gson/JsonDeserializer;
+    .line 581
+    instance-of v1, p2, Lcom/google/gson/JsonDeserializer;
 
-    if-nez v0, :cond_2
-
-    instance-of v0, p2, Lcom/google/gson/JsonSerializer;
+    if-nez v1, :cond_2
 
     if-eqz v0, :cond_3
 
-    .line 547
+    .line 582
     :cond_2
     iget-object v0, p0, Lcom/google/gson/GsonBuilder;->hierarchyFactories:Ljava/util/List;
 
@@ -862,26 +890,23 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 549
+    .line 584
     :cond_3
     instance-of v0, p2, Lcom/google/gson/TypeAdapter;
 
     if-eqz v0, :cond_4
 
-    .line 550
+    .line 585
     iget-object v0, p0, Lcom/google/gson/GsonBuilder;->factories:Ljava/util/List;
 
-    move-object v1, p2
+    check-cast p2, Lcom/google/gson/TypeAdapter;
 
-    check-cast v1, Lcom/google/gson/TypeAdapter;
+    invoke-static {p1, p2}, Lcom/google/gson/internal/bind/TypeAdapters;->newTypeHierarchyFactory(Ljava/lang/Class;Lcom/google/gson/TypeAdapter;)Lcom/google/gson/TypeAdapterFactory;
 
-    invoke-static {p1, v1}, Lcom/google/gson/internal/bind/TypeAdapters;->newTypeHierarchyFactory(Ljava/lang/Class;Lcom/google/gson/TypeAdapter;)Lcom/google/gson/TypeAdapterFactory;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 552
     :cond_4
     return-object p0
 .end method
@@ -889,79 +914,69 @@
 .method public serializeNulls()Lcom/google/gson/GsonBuilder;
     .locals 1
 
-    .line 193
     const/4 v0, 0x1
 
+    .line 203
     iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->serializeNulls:Z
 
-    .line 194
     return-object p0
 .end method
 
 .method public serializeSpecialFloatingPointValues()Lcom/google/gson/GsonBuilder;
     .locals 1
 
-    .line 576
     const/4 v0, 0x1
 
+    .line 611
     iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->serializeSpecialFloatingPointValues:Z
 
-    .line 577
     return-object p0
 .end method
 
 .method public setDateFormat(I)Lcom/google/gson/GsonBuilder;
-    .locals 1
-    .param p1, "style"    # I
+    .locals 0
 
-    .line 452
+    .line 487
     iput p1, p0, Lcom/google/gson/GsonBuilder;->dateStyle:I
 
-    .line 453
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lcom/google/gson/GsonBuilder;->datePattern:Ljava/lang/String;
+    .line 488
+    iput-object p1, p0, Lcom/google/gson/GsonBuilder;->datePattern:Ljava/lang/String;
 
-    .line 454
     return-object p0
 .end method
 
 .method public setDateFormat(II)Lcom/google/gson/GsonBuilder;
-    .locals 1
-    .param p1, "dateStyle"    # I
-    .param p2, "timeStyle"    # I
+    .locals 0
 
-    .line 473
+    .line 508
     iput p1, p0, Lcom/google/gson/GsonBuilder;->dateStyle:I
 
-    .line 474
+    .line 509
     iput p2, p0, Lcom/google/gson/GsonBuilder;->timeStyle:I
 
-    .line 475
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lcom/google/gson/GsonBuilder;->datePattern:Ljava/lang/String;
+    .line 510
+    iput-object p1, p0, Lcom/google/gson/GsonBuilder;->datePattern:Ljava/lang/String;
 
-    .line 476
     return-object p0
 .end method
 
 .method public setDateFormat(Ljava/lang/String;)Lcom/google/gson/GsonBuilder;
     .locals 0
-    .param p1, "pattern"    # Ljava/lang/String;
 
-    .line 433
+    .line 468
     iput-object p1, p0, Lcom/google/gson/GsonBuilder;->datePattern:Ljava/lang/String;
 
-    .line 434
     return-object p0
 .end method
 
 .method public varargs setExclusionStrategies([Lcom/google/gson/ExclusionStrategy;)Lcom/google/gson/GsonBuilder;
     .locals 5
-    .param p1, "strategies"    # [Lcom/google/gson/ExclusionStrategy;
 
-    .line 339
+    .line 374
     array-length v0, p1
 
     const/4 v1, 0x0
@@ -971,99 +986,103 @@
 
     aget-object v2, p1, v1
 
-    .line 340
-    .local v2, "strategy":Lcom/google/gson/ExclusionStrategy;
+    .line 375
     iget-object v3, p0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
 
     const/4 v4, 0x1
 
     invoke-virtual {v3, v2, v4, v4}, Lcom/google/gson/internal/Excluder;->withExclusionStrategy(Lcom/google/gson/ExclusionStrategy;ZZ)Lcom/google/gson/internal/Excluder;
 
-    move-result-object v3
+    move-result-object v2
 
-    iput-object v3, p0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
+    iput-object v2, p0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
 
-    .line 339
-    .end local v2    # "strategy":Lcom/google/gson/ExclusionStrategy;
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 342
     :cond_0
     return-object p0
 .end method
 
 .method public setFieldNamingPolicy(Lcom/google/gson/FieldNamingPolicy;)Lcom/google/gson/GsonBuilder;
     .locals 0
-    .param p1, "namingConvention"    # Lcom/google/gson/FieldNamingPolicy;
 
-    .line 311
+    .line 322
     iput-object p1, p0, Lcom/google/gson/GsonBuilder;->fieldNamingPolicy:Lcom/google/gson/FieldNamingStrategy;
 
-    .line 312
     return-object p0
 .end method
 
 .method public setFieldNamingStrategy(Lcom/google/gson/FieldNamingStrategy;)Lcom/google/gson/GsonBuilder;
     .locals 0
-    .param p1, "fieldNamingStrategy"    # Lcom/google/gson/FieldNamingStrategy;
 
-    .line 324
+    .line 335
     iput-object p1, p0, Lcom/google/gson/GsonBuilder;->fieldNamingPolicy:Lcom/google/gson/FieldNamingStrategy;
 
-    .line 325
     return-object p0
 .end method
 
 .method public setLenient()Lcom/google/gson/GsonBuilder;
     .locals 1
 
-    .line 399
     const/4 v0, 0x1
 
+    .line 434
     iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->lenient:Z
 
-    .line 400
     return-object p0
 .end method
 
 .method public setLongSerializationPolicy(Lcom/google/gson/LongSerializationPolicy;)Lcom/google/gson/GsonBuilder;
     .locals 0
-    .param p1, "serializationPolicy"    # Lcom/google/gson/LongSerializationPolicy;
 
-    .line 298
+    .line 309
     iput-object p1, p0, Lcom/google/gson/GsonBuilder;->longSerializationPolicy:Lcom/google/gson/LongSerializationPolicy;
 
-    .line 299
+    return-object p0
+.end method
+
+.method public setNumberToNumberStrategy(Lcom/google/gson/ToNumberStrategy;)Lcom/google/gson/GsonBuilder;
+    .locals 0
+
+    .line 359
+    iput-object p1, p0, Lcom/google/gson/GsonBuilder;->numberToNumberStrategy:Lcom/google/gson/ToNumberStrategy;
+
+    return-object p0
+.end method
+
+.method public setObjectToNumberStrategy(Lcom/google/gson/ToNumberStrategy;)Lcom/google/gson/GsonBuilder;
+    .locals 0
+
+    .line 347
+    iput-object p1, p0, Lcom/google/gson/GsonBuilder;->objectToNumberStrategy:Lcom/google/gson/ToNumberStrategy;
+
     return-object p0
 .end method
 
 .method public setPrettyPrinting()Lcom/google/gson/GsonBuilder;
     .locals 1
 
-    .line 386
     const/4 v0, 0x1
 
+    .line 421
     iput-boolean v0, p0, Lcom/google/gson/GsonBuilder;->prettyPrinting:Z
 
-    .line 387
     return-object p0
 .end method
 
 .method public setVersion(D)Lcom/google/gson/GsonBuilder;
     .locals 1
-    .param p1, "ignoreVersionsAfter"    # D
 
-    .line 140
+    .line 150
     iget-object v0, p0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/gson/internal/Excluder;->withVersion(D)Lcom/google/gson/internal/Excluder;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
+    iput-object p1, p0, Lcom/google/gson/GsonBuilder;->excluder:Lcom/google/gson/internal/Excluder;
 
-    .line 141
     return-object p0
 .end method

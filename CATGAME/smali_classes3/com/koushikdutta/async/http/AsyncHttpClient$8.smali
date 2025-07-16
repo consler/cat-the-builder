@@ -35,7 +35,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/AsyncHttpClient;Lcom/koushikdutta/async/http/AsyncHttpClient$FutureAsyncHttpResponse;Ljava/io/OutputStream;Ljava/io/File;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/AsyncHttpClient;
 
     .line 563
     iput-object p1, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$8;->this$0:Lcom/koushikdutta/async/http/AsyncHttpClient;
@@ -85,15 +84,8 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 571
-    goto :goto_0
-
-    .line 570
-    :catch_0
-    move-exception v0
-
     .line 573
-    :goto_0
+    :catch_0
     :try_start_1
     iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$8;->val$fout:Ljava/io/OutputStream;
 
@@ -101,19 +93,11 @@
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 576
-    goto :goto_1
-
-    .line 575
-    :catch_1
-    move-exception v0
-
     .line 577
-    :goto_1
+    :catch_1
     iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$8;->val$file:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
-    .line 578
     return-void
 .end method

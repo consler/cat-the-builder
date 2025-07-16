@@ -52,10 +52,8 @@
 # direct methods
 .method public constructor <init>(Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;Ljava/lang/Object;)V
     .locals 0
-    .param p2, "key"    # Ljava/lang/Object;
 
     .line 752
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$ValuesIterator;, "Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap<TK;TV;>.ValuesIterator;"
     iput-object p1, p0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$ValuesIterator;->this$0:Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -83,7 +81,6 @@
 
     iput-object p1, p0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$ValuesIterator;->iterator:Ljava/util/Iterator;
 
-    .line 756
     return-void
 .end method
 
@@ -93,7 +90,6 @@
     .locals 1
 
     .line 768
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$ValuesIterator;, "Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap<TK;TV;>.ValuesIterator;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$ValuesIterator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -112,7 +108,6 @@
     .end annotation
 
     .line 773
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$ValuesIterator;, "Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap<TK;TV;>.ValuesIterator;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$ValuesIterator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -126,7 +121,6 @@
     .locals 2
 
     .line 760
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$ValuesIterator;, "Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap<TK;TV;>.ValuesIterator;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$ValuesIterator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
@@ -147,7 +141,6 @@
 
     invoke-virtual {v0, v1}, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;->remove(Ljava/lang/Object;)Ljava/util/Collection;
 
-    .line 764
     :cond_0
     return-void
 .end method

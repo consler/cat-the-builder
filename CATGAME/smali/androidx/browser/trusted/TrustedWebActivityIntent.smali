@@ -20,7 +20,6 @@
 # direct methods
 .method constructor <init>(Landroid/content/Intent;Ljava/util/List;)V
     .locals 0
-    .param p1, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -32,7 +31,6 @@
     .end annotation
 
     .line 38
-    .local p2, "sharedFileUris":Ljava/util/List;, "Ljava/util/List<Landroid/net/Uri;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 39
@@ -41,13 +39,11 @@
     .line 40
     iput-object p2, p0, Landroidx/browser/trusted/TrustedWebActivityIntent;->mSharedFileUris:Ljava/util/List;
 
-    .line 41
     return-void
 .end method
 
 .method private grantUriPermissionToProvider(Landroid/content/Context;)V
     .locals 4
-    .param p1, "context"    # Landroid/content/Context;
 
     .line 52
     iget-object v0, p0, Landroidx/browser/trusted/TrustedWebActivityIntent;->mSharedFileUris:Ljava/util/List;
@@ -70,7 +66,6 @@
     check-cast v1, Landroid/net/Uri;
 
     .line 53
-    .local v1, "uri":Landroid/net/Uri;
     iget-object v2, p0, Landroidx/browser/trusted/TrustedWebActivityIntent;->mIntent:Landroid/content/Intent;
 
     invoke-virtual {v2}, Landroid/content/Intent;->getPackage()Ljava/lang/String;
@@ -81,11 +76,8 @@
 
     invoke-virtual {p1, v2, v1, v3}, Landroid/content/Context;->grantUriPermission(Ljava/lang/String;Landroid/net/Uri;I)V
 
-    .line 55
-    .end local v1    # "uri":Landroid/net/Uri;
     goto :goto_0
 
-    .line 56
     :cond_0
     return-void
 .end method
@@ -103,7 +95,6 @@
 
 .method public launchTrustedWebActivity(Landroid/content/Context;)V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
 
     .line 47
     invoke-direct {p0, p1}, Landroidx/browser/trusted/TrustedWebActivityIntent;->grantUriPermissionToProvider(Landroid/content/Context;)V
@@ -115,6 +106,5 @@
 
     invoke-static {p1, v0, v1}, Landroidx/core/content/ContextCompat;->startActivity(Landroid/content/Context;Landroid/content/Intent;Landroid/os/Bundle;)V
 
-    .line 49
     return-void
 .end method

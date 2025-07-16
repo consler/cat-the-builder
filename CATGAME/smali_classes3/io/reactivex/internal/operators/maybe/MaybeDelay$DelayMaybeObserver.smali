@@ -68,9 +68,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/MaybeObserver;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)V
     .locals 0
-    .param p2, "delay"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -83,8 +80,6 @@
     .end annotation
 
     .line 66
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 67
@@ -99,7 +94,6 @@
     .line 70
     iput-object p5, p0, Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;->scheduler:Lio/reactivex/Scheduler;
 
-    .line 71
     return-void
 .end method
 
@@ -109,10 +103,8 @@
     .locals 0
 
     .line 90
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver<TT;>;"
     invoke-static {p0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 91
     return-void
 .end method
 
@@ -120,7 +112,6 @@
     .locals 1
 
     .line 95
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -138,46 +129,38 @@
     .locals 0
 
     .line 119
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;->schedule()V
 
-    .line 120
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 0
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 113
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver<TT;>;"
     iput-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;->error:Ljava/lang/Throwable;
 
     .line 114
     invoke-virtual {p0}, Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;->schedule()V
 
-    .line 115
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
-    .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
+    .locals 0
 
     .line 100
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver<TT;>;"
     invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 101
-    iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
 
-    invoke-interface {v0, p0}, Lio/reactivex/MaybeObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/MaybeObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 103
     :cond_0
     return-void
 .end method
@@ -191,26 +174,20 @@
     .end annotation
 
     .line 107
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     iput-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;->value:Ljava/lang/Object;
 
     .line 108
     invoke-virtual {p0}, Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;->schedule()V
 
-    .line 109
     return-void
 .end method
 
 .method public run()V
-    .locals 3
+    .locals 2
 
     .line 75
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;->error:Ljava/lang/Throwable;
 
-    .line 76
-    .local v0, "ex":Ljava/lang/Throwable;
     if-eqz v0, :cond_0
 
     .line 77
@@ -222,27 +199,23 @@
 
     .line 79
     :cond_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;->value:Ljava/lang/Object;
+    iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;->value:Ljava/lang/Object;
 
-    .line 80
-    .local v1, "v":Ljava/lang/Object;, "TT;"
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 81
-    iget-object v2, p0, Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
+    iget-object v1, p0, Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
 
-    invoke-interface {v2, v1}, Lio/reactivex/MaybeObserver;->onSuccess(Ljava/lang/Object;)V
+    invoke-interface {v1, v0}, Lio/reactivex/MaybeObserver;->onSuccess(Ljava/lang/Object;)V
 
     goto :goto_0
 
     .line 83
     :cond_1
-    iget-object v2, p0, Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
+    iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
 
-    invoke-interface {v2}, Lio/reactivex/MaybeObserver;->onComplete()V
+    invoke-interface {v0}, Lio/reactivex/MaybeObserver;->onComplete()V
 
-    .line 86
-    .end local v1    # "v":Ljava/lang/Object;, "TT;"
     :goto_0
     return-void
 .end method
@@ -251,7 +224,6 @@
     .locals 4
 
     .line 123
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;->scheduler:Lio/reactivex/Scheduler;
 
     iget-wide v1, p0, Lio/reactivex/internal/operators/maybe/MaybeDelay$DelayMaybeObserver;->delay:J
@@ -264,6 +236,5 @@
 
     invoke-static {p0, v0}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 124
     return-void
 .end method

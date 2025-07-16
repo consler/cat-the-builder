@@ -51,14 +51,11 @@
     .end annotation
 
     .line 269
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryInnerSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryInnerSubscriber<TT;TB;>;"
-    .local p1, "parent":Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryMainSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryMainSubscriber<TT;TB;>;"
     invoke-direct {p0}, Lio/reactivex/subscribers/DisposableSubscriber;-><init>()V
 
     .line 270
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryInnerSubscriber;->parent:Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryMainSubscriber;
 
-    .line 271
     return-void
 .end method
 
@@ -68,18 +65,16 @@
     .locals 1
 
     .line 293
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryInnerSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryInnerSubscriber<TT;TB;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryInnerSubscriber;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 294
     return-void
 
-    .line 296
     :cond_0
     const/4 v0, 0x1
 
+    .line 296
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryInnerSubscriber;->done:Z
 
     .line 297
@@ -87,16 +82,13 @@
 
     invoke-virtual {v0}, Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryMainSubscriber;->onComplete()V
 
-    .line 298
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 283
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryInnerSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryInnerSubscriber<TT;TB;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryInnerSubscriber;->done:Z
 
     if-eqz v0, :cond_0
@@ -104,13 +96,12 @@
     .line 284
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 285
     return-void
 
-    .line 287
     :cond_0
     const/4 v0, 0x1
 
+    .line 287
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryInnerSubscriber;->done:Z
 
     .line 288
@@ -118,12 +109,11 @@
 
     invoke-virtual {v0, p1}, Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryMainSubscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 289
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TB;)V"
@@ -131,21 +121,17 @@
     .end annotation
 
     .line 275
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryInnerSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryInnerSubscriber<TT;TB;>;"
-    .local p1, "t":Ljava/lang/Object;, "TB;"
-    iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryInnerSubscriber;->done:Z
+    iget-boolean p1, p0, Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryInnerSubscriber;->done:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    .line 276
     return-void
 
     .line 278
     :cond_0
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryInnerSubscriber;->parent:Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryMainSubscriber;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryInnerSubscriber;->parent:Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryMainSubscriber;
 
-    invoke-virtual {v0}, Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryMainSubscriber;->next()V
+    invoke-virtual {p1}, Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryMainSubscriber;->next()V
 
-    .line 279
     return-void
 .end method

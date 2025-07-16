@@ -14,7 +14,7 @@
 .end method
 
 .method public static unmodifiableTrie(Lorg/apache/commons/collections4/Trie;)Lorg/apache/commons/collections4/Trie;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -30,10 +30,9 @@
     .end annotation
 
     .line 45
-    .local p0, "trie":Lorg/apache/commons/collections4/Trie;, "Lorg/apache/commons/collections4/Trie<TK;+TV;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->unmodifiableTrie(Lorg/apache/commons/collections4/Trie;)Lorg/apache/commons/collections4/Trie;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

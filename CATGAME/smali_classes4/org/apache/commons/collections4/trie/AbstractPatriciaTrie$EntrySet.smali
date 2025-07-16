@@ -37,7 +37,6 @@
     .locals 0
 
     .line 1390
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.EntrySet;"
     iput-object p1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
@@ -47,11 +46,8 @@
 
 .method synthetic constructor <init>(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
-    .param p2, "x1"    # Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$1;
 
     .line 1390
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.EntrySet;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet;-><init>(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;)V
 
     return-void
@@ -63,28 +59,23 @@
     .locals 1
 
     .line 1427
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.EntrySet;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->clear()V
 
-    .line 1428
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 3
-    .param p1, "o"    # Ljava/lang/Object;
 
     .line 1399
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.EntrySet;"
     instance-of v0, p1, Ljava/util/Map$Entry;
 
     const/4 v1, 0x0
 
     if-nez v0, :cond_0
 
-    .line 1400
     return v1
 
     .line 1403
@@ -103,15 +94,14 @@
 
     move-result-object v0
 
-    .line 1404
-    .local v0, "candidate":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry<TK;TV;>;"
     if-eqz v0, :cond_1
 
+    .line 1404
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_1
+    if-eqz p1, :cond_1
 
     const/4 v1, 0x1
 
@@ -131,7 +121,6 @@
     .end annotation
 
     .line 1394
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.EntrySet;"
     new-instance v0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet$EntryIterator;
 
     const/4 v1, 0x0
@@ -142,18 +131,15 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 2
 
     .line 1409
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.EntrySet;"
     instance-of v0, p1, Ljava/util/Map$Entry;
 
     const/4 v1, 0x0
 
     if-nez v0, :cond_0
 
-    .line 1410
     return v1
 
     .line 1412
@@ -164,36 +150,30 @@
 
     if-nez v0, :cond_1
 
-    .line 1413
     return v1
 
     .line 1415
     :cond_1
-    move-object v0, p1
-
-    check-cast v0, Ljava/util/Map$Entry;
+    check-cast p1, Ljava/util/Map$Entry;
 
     .line 1416
-    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
-    iget-object v1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
+    iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1417
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    return v1
+    return p1
 .end method
 
 .method public size()I
     .locals 1
 
     .line 1422
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.EntrySet;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->size()I

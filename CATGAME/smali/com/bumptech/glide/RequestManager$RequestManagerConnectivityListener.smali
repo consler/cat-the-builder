@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/RequestManager;Lcom/bumptech/glide/manager/RequestTracker;)V
     .locals 0
-    .param p2, "requestTracker"    # Lcom/bumptech/glide/manager/RequestTracker;
 
     .line 715
     iput-object p1, p0, Lcom/bumptech/glide/RequestManager$RequestManagerConnectivityListener;->this$0:Lcom/bumptech/glide/RequestManager;
@@ -36,45 +35,41 @@
     .line 716
     iput-object p2, p0, Lcom/bumptech/glide/RequestManager$RequestManagerConnectivityListener;->requestTracker:Lcom/bumptech/glide/manager/RequestTracker;
 
-    .line 717
     return-void
 .end method
 
 
 # virtual methods
 .method public onConnectivityChanged(Z)V
-    .locals 2
-    .param p1, "isConnected"    # Z
+    .locals 1
 
-    .line 721
     if-eqz p1, :cond_0
 
     .line 722
-    iget-object v0, p0, Lcom/bumptech/glide/RequestManager$RequestManagerConnectivityListener;->this$0:Lcom/bumptech/glide/RequestManager;
+    iget-object p1, p0, Lcom/bumptech/glide/RequestManager$RequestManagerConnectivityListener;->this$0:Lcom/bumptech/glide/RequestManager;
 
-    monitor-enter v0
+    monitor-enter p1
 
     .line 723
     :try_start_0
-    iget-object v1, p0, Lcom/bumptech/glide/RequestManager$RequestManagerConnectivityListener;->requestTracker:Lcom/bumptech/glide/manager/RequestTracker;
+    iget-object v0, p0, Lcom/bumptech/glide/RequestManager$RequestManagerConnectivityListener;->requestTracker:Lcom/bumptech/glide/manager/RequestTracker;
 
-    invoke-virtual {v1}, Lcom/bumptech/glide/manager/RequestTracker;->restartRequests()V
+    invoke-virtual {v0}, Lcom/bumptech/glide/manager/RequestTracker;->restartRequests()V
 
     .line 724
-    monitor-exit v0
+    monitor-exit p1
 
     goto :goto_0
 
     :catchall_0
-    move-exception v1
+    move-exception v0
 
-    monitor-exit v0
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw v0
 
-    .line 726
     :cond_0
     :goto_0
     return-void

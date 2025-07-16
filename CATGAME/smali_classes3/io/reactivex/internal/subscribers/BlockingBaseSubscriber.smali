@@ -39,13 +39,11 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 34
-    .local p0, "this":Lio/reactivex/internal/subscribers/BlockingBaseSubscriber;, "Lio/reactivex/internal/subscribers/BlockingBaseSubscriber<TT;>;"
     const/4 v0, 0x1
 
+    .line 34
     invoke-direct {p0, v0}, Ljava/util/concurrent/CountDownLatch;-><init>(I)V
 
-    .line 35
     return-void
 .end method
 
@@ -60,7 +58,6 @@
     .end annotation
 
     .line 62
-    .local p0, "this":Lio/reactivex/internal/subscribers/BlockingBaseSubscriber;, "Lio/reactivex/internal/subscribers/BlockingBaseSubscriber<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/subscribers/BlockingBaseSubscriber;->getCount()J
 
     move-result-wide v0
@@ -80,24 +77,19 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 73
     goto :goto_0
 
-    .line 66
     :catch_0
     move-exception v0
 
     .line 67
-    .local v0, "ex":Ljava/lang/InterruptedException;
     iget-object v1, p0, Lio/reactivex/internal/subscribers/BlockingBaseSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     .line 68
-    .local v1, "s":Lorg/reactivestreams/Subscription;
     sget-object v2, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
 
     iput-object v2, p0, Lio/reactivex/internal/subscribers/BlockingBaseSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    .line 69
     if-eqz v1, :cond_0
 
     .line 70
@@ -107,52 +99,44 @@
     :cond_0
     invoke-static {v0}, Lio/reactivex/internal/util/ExceptionHelper;->wrapOrThrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
 
-    move-result-object v2
+    move-result-object v0
 
-    throw v2
+    throw v0
 
     .line 76
-    .end local v0    # "ex":Ljava/lang/InterruptedException;
-    .end local v1    # "s":Lorg/reactivestreams/Subscription;
     :cond_1
     :goto_0
     iget-object v0, p0, Lio/reactivex/internal/subscribers/BlockingBaseSubscriber;->error:Ljava/lang/Throwable;
 
-    .line 77
-    .local v0, "e":Ljava/lang/Throwable;
     if-nez v0, :cond_2
 
     .line 80
-    iget-object v1, p0, Lio/reactivex/internal/subscribers/BlockingBaseSubscriber;->value:Ljava/lang/Object;
+    iget-object v0, p0, Lio/reactivex/internal/subscribers/BlockingBaseSubscriber;->value:Ljava/lang/Object;
 
-    return-object v1
+    return-object v0
 
     .line 78
     :cond_2
     invoke-static {v0}, Lio/reactivex/internal/util/ExceptionHelper;->wrapOrThrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 .end method
 
 .method public final onComplete()V
     .locals 0
 
     .line 53
-    .local p0, "this":Lio/reactivex/internal/subscribers/BlockingBaseSubscriber;, "Lio/reactivex/internal/subscribers/BlockingBaseSubscriber<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/subscribers/BlockingBaseSubscriber;->countDown()V
 
-    .line 54
     return-void
 .end method
 
 .method public final onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 39
-    .local p0, "this":Lio/reactivex/internal/subscribers/BlockingBaseSubscriber;, "Lio/reactivex/internal/subscribers/BlockingBaseSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/BlockingBaseSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -169,9 +153,9 @@
 
     if-nez v0, :cond_0
 
-    .line 42
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 42
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
     .line 43
@@ -187,7 +171,6 @@
     .line 45
     invoke-interface {p1}, Lorg/reactivestreams/Subscription;->cancel()V
 
-    .line 49
     :cond_0
     return-void
 .end method

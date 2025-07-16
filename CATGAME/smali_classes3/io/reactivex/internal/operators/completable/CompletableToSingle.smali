@@ -45,7 +45,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/CompletableSource;Ljava/util/concurrent/Callable;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "source"    # Lio/reactivex/CompletableSource;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,9 +55,6 @@
     .end annotation
 
     .line 30
-    .local p0, "this":Lio/reactivex/internal/operators/completable/CompletableToSingle;, "Lio/reactivex/internal/operators/completable/CompletableToSingle<TT;>;"
-    .local p2, "completionValueSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<+TT;>;"
-    .local p3, "completionValue":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 31
@@ -70,7 +66,6 @@
     .line 33
     iput-object p2, p0, Lio/reactivex/internal/operators/completable/CompletableToSingle;->completionValueSupplier:Ljava/util/concurrent/Callable;
 
-    .line 34
     return-void
 .end method
 
@@ -87,8 +82,6 @@
     .end annotation
 
     .line 38
-    .local p0, "this":Lio/reactivex/internal/operators/completable/CompletableToSingle;, "Lio/reactivex/internal/operators/completable/CompletableToSingle<TT;>;"
-    .local p1, "s":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableToSingle;->source:Lio/reactivex/CompletableSource;
 
     new-instance v1, Lio/reactivex/internal/operators/completable/CompletableToSingle$ToSingle;
@@ -97,6 +90,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/CompletableSource;->subscribe(Lio/reactivex/CompletableObserver;)V
 
-    .line 39
     return-void
 .end method

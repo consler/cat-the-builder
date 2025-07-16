@@ -47,7 +47,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/utils/ObjectFloatMap;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -57,18 +57,15 @@
     .end annotation
 
     .line 692
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;, "Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries<TK;>;"
-    .local p1, "map":Lcom/badlogic/gdx/utils/ObjectFloatMap;, "Lcom/badlogic/gdx/utils/ObjectFloatMap<TK;>;"
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/ObjectFloatMap$MapIterator;-><init>(Lcom/badlogic/gdx/utils/ObjectFloatMap;)V
 
     .line 689
-    new-instance v0, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entry;
+    new-instance p1, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entry;
 
-    invoke-direct {v0}, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entry;-><init>()V
+    invoke-direct {p1}, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entry;-><init>()V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;->entry:Lcom/badlogic/gdx/utils/ObjectFloatMap$Entry;
+    iput-object p1, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;->entry:Lcom/badlogic/gdx/utils/ObjectFloatMap$Entry;
 
-    .line 693
     return-void
 .end method
 
@@ -78,7 +75,6 @@
     .locals 2
 
     .line 708
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;, "Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries<TK;>;"
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;->valid:Z
 
     if-eqz v0, :cond_0
@@ -109,8 +105,6 @@
         }
     .end annotation
 
-    .line 713
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;, "Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries<TK;>;"
     return-object p0
 .end method
 
@@ -118,7 +112,6 @@
     .locals 1
 
     .line 688
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;, "Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries<TK;>;"
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;->iterator()Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;
 
     move-result-object v0
@@ -127,7 +120,7 @@
 .end method
 
 .method public next()Lcom/badlogic/gdx/utils/ObjectFloatMap$Entry;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -137,7 +130,6 @@
     .end annotation
 
     .line 697
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;, "Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries<TK;>;"
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;->hasNext:Z
 
     if-eqz v0, :cond_1
@@ -153,43 +145,41 @@
     iget-object v0, v0, Lcom/badlogic/gdx/utils/ObjectFloatMap;->keyTable:[Ljava/lang/Object;
 
     .line 700
-    .local v0, "keyTable":[Ljava/lang/Object;, "[TK;"
     iget-object v1, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;->entry:Lcom/badlogic/gdx/utils/ObjectFloatMap$Entry;
 
     iget v2, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;->nextIndex:I
 
-    aget-object v2, v0, v2
+    aget-object v0, v0, v2
 
-    iput-object v2, v1, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entry;->key:Ljava/lang/Object;
+    iput-object v0, v1, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entry;->key:Ljava/lang/Object;
 
     .line 701
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;->entry:Lcom/badlogic/gdx/utils/ObjectFloatMap$Entry;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;->entry:Lcom/badlogic/gdx/utils/ObjectFloatMap$Entry;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;->map:Lcom/badlogic/gdx/utils/ObjectFloatMap;
+    iget-object v1, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;->map:Lcom/badlogic/gdx/utils/ObjectFloatMap;
 
-    iget-object v2, v2, Lcom/badlogic/gdx/utils/ObjectFloatMap;->valueTable:[F
+    iget-object v1, v1, Lcom/badlogic/gdx/utils/ObjectFloatMap;->valueTable:[F
 
-    iget v3, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;->nextIndex:I
+    iget v2, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;->nextIndex:I
 
-    aget v2, v2, v3
+    aget v1, v1, v2
 
-    iput v2, v1, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entry;->value:F
+    iput v1, v0, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entry;->value:F
 
     .line 702
-    iget v1, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;->nextIndex:I
+    iget v0, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;->nextIndex:I
 
-    iput v1, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;->currentIndex:I
+    iput v0, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;->currentIndex:I
 
     .line 703
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;->findNextIndex()V
 
     .line 704
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;->entry:Lcom/badlogic/gdx/utils/ObjectFloatMap$Entry;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;->entry:Lcom/badlogic/gdx/utils/ObjectFloatMap$Entry;
 
-    return-object v1
+    return-object v0
 
     .line 698
-    .end local v0    # "keyTable":[Ljava/lang/Object;, "[TK;"
     :cond_0
     new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
@@ -212,7 +202,6 @@
     .locals 1
 
     .line 688
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;, "Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries<TK;>;"
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;->next()Lcom/badlogic/gdx/utils/ObjectFloatMap$Entry;
 
     move-result-object v0
@@ -224,10 +213,8 @@
     .locals 0
 
     .line 717
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;, "Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries<TK;>;"
     invoke-super {p0}, Lcom/badlogic/gdx/utils/ObjectFloatMap$MapIterator;->remove()V
 
-    .line 718
     return-void
 .end method
 
@@ -235,7 +222,6 @@
     .locals 0
 
     .line 688
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries;, "Lcom/badlogic/gdx/utils/ObjectFloatMap$Entries<TK;>;"
     invoke-super {p0}, Lcom/badlogic/gdx/utils/ObjectFloatMap$MapIterator;->reset()V
 
     return-void

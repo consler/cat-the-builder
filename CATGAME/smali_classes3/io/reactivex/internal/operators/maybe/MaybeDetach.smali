@@ -33,11 +33,8 @@
     .end annotation
 
     .line 28
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDetach;, "Lio/reactivex/internal/operators/maybe/MaybeDetach<TT;>;"
-    .local p1, "source":Lio/reactivex/MaybeSource;, "Lio/reactivex/MaybeSource<TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/maybe/AbstractMaybeWithUpstream;-><init>(Lio/reactivex/MaybeSource;)V
 
-    .line 29
     return-void
 .end method
 
@@ -54,8 +51,6 @@
     .end annotation
 
     .line 33
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDetach;, "Lio/reactivex/internal/operators/maybe/MaybeDetach<TT;>;"
-    .local p1, "observer":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeDetach;->source:Lio/reactivex/MaybeSource;
 
     new-instance v1, Lio/reactivex/internal/operators/maybe/MaybeDetach$DetachMaybeObserver;
@@ -64,6 +59,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/MaybeSource;->subscribe(Lio/reactivex/MaybeObserver;)V
 
-    .line 34
     return-void
 .end method

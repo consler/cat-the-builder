@@ -30,8 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;I)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;
-    .param p2, "initialCapacity"    # I
 
     .line 85
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy$1;->this$0:Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;

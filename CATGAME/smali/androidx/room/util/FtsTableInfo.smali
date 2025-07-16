@@ -35,8 +35,7 @@
 .method static constructor <clinit>()V
     .locals 9
 
-    .line 40
-    const-string/jumbo v0, "tokenize="
+    const-string v0, "tokenize="
 
     const-string v1, "compress="
 
@@ -52,8 +51,9 @@
 
     const-string v7, "prefix="
 
-    const-string/jumbo v8, "uncompress="
+    const-string v8, "uncompress="
 
+    .line 40
     filled-new-array/range {v0 .. v8}, [Ljava/lang/String;
 
     move-result-object v0
@@ -64,9 +64,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/util/Set;Ljava/lang/String;)V
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p3, "createSql"    # Ljava/lang/String;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -93,7 +91,6 @@
     .end annotation
 
     .line 66
-    .local p2, "columns":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 67
@@ -105,17 +102,15 @@
     .line 69
     invoke-static {p3}, Landroidx/room/util/FtsTableInfo;->parseOptions(Ljava/lang/String;)Ljava/util/Set;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/room/util/FtsTableInfo;->options:Ljava/util/Set;
+    iput-object p1, p0, Landroidx/room/util/FtsTableInfo;->options:Ljava/util/Set;
 
-    .line 70
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;)V
     .locals 0
-    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -143,8 +138,6 @@
     .end annotation
 
     .line 60
-    .local p2, "columns":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    .local p3, "options":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 61
@@ -156,13 +149,11 @@
     .line 63
     iput-object p3, p0, Landroidx/room/util/FtsTableInfo;->options:Ljava/util/Set;
 
-    .line 64
     return-void
 .end method
 
 .method static parseOptions(Ljava/lang/String;)Ljava/util/Set;
-    .locals 12
-    .param p0, "createStatement"    # Ljava/lang/String;
+    .locals 8
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -191,13 +182,12 @@
     if-eqz v0, :cond_0
 
     .line 132
-    new-instance v0, Ljava/util/HashSet;
+    new-instance p0, Ljava/util/HashSet;
 
-    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
+    invoke-direct {p0}, Ljava/util/HashSet;-><init>()V
 
-    return-object v0
+    return-object p0
 
-    .line 136
     :cond_0
     const/16 v0, 0x28
 
@@ -218,43 +208,37 @@
     .line 136
     invoke-virtual {p0, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 144
-    .local v0, "argsString":Ljava/lang/String;
-    new-instance v1, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/ArrayList;
 
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 145
-    .local v1, "args":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    new-instance v2, Ljava/util/ArrayDeque;
+    new-instance v1, Ljava/util/ArrayDeque;
 
-    invoke-direct {v2}, Ljava/util/ArrayDeque;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayDeque;-><init>()V
 
-    .line 146
-    .local v2, "quoteStack":Ljava/util/ArrayDeque;, "Ljava/util/ArrayDeque<Ljava/lang/Character;>;"
+    const/4 v2, 0x0
+
     const/4 v3, -0x1
 
-    .line 147
-    .local v3, "lastDelimiterIndex":I
-    const/4 v4, 0x0
+    move v4, v2
 
-    .local v4, "i":I
+    .line 147
     :goto_0
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v5
 
     if-ge v4, v5, :cond_7
 
     .line 148
-    invoke-virtual {v0, v4}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, v4}, Ljava/lang/String;->charAt(I)C
 
     move-result v5
 
-    .line 149
-    .local v5, "c":C
     const/16 v6, 0x22
 
     if-eq v5, v6, :cond_4
@@ -283,32 +267,32 @@
 
     .line 165
     :cond_1
-    invoke-virtual {v2}, Ljava/util/ArrayDeque;->isEmpty()Z
+    invoke-virtual {v1}, Ljava/util/ArrayDeque;->isEmpty()Z
 
-    move-result v7
+    move-result v5
 
-    if-nez v7, :cond_6
+    if-nez v5, :cond_6
 
-    invoke-virtual {v2}, Ljava/util/ArrayDeque;->peek()Ljava/lang/Object;
+    invoke-virtual {v1}, Ljava/util/ArrayDeque;->peek()Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v5
 
-    check-cast v7, Ljava/lang/Character;
+    check-cast v5, Ljava/lang/Character;
 
-    invoke-virtual {v7}, Ljava/lang/Character;->charValue()C
+    invoke-virtual {v5}, Ljava/lang/Character;->charValue()C
 
-    move-result v7
+    move-result v5
 
-    if-ne v7, v6, :cond_6
+    if-ne v5, v6, :cond_6
 
     .line 166
-    invoke-virtual {v2}, Ljava/util/ArrayDeque;->pop()Ljava/lang/Object;
+    invoke-virtual {v1}, Ljava/util/ArrayDeque;->pop()Ljava/lang/Object;
 
     goto :goto_1
 
     .line 160
     :cond_2
-    invoke-virtual {v2}, Ljava/util/ArrayDeque;->isEmpty()Z
+    invoke-virtual {v1}, Ljava/util/ArrayDeque;->isEmpty()Z
 
     move-result v6
 
@@ -317,41 +301,40 @@
     .line 161
     invoke-static {v5}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v2, v6}, Ljava/util/ArrayDeque;->push(Ljava/lang/Object;)V
+    invoke-virtual {v1, v5}, Ljava/util/ArrayDeque;->push(Ljava/lang/Object;)V
 
     goto :goto_1
 
     .line 170
     :cond_3
-    invoke-virtual {v2}, Ljava/util/ArrayDeque;->isEmpty()Z
+    invoke-virtual {v1}, Ljava/util/ArrayDeque;->isEmpty()Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_6
+    if-eqz v5, :cond_6
+
+    add-int/lit8 v3, v3, 0x1
 
     .line 171
-    add-int/lit8 v6, v3, 0x1
+    invoke-virtual {p0, v3, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    invoke-virtual {v0, v6, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v6
+    invoke-virtual {v3}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    invoke-virtual {v6}, Ljava/lang/String;->trim()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v6
+    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {v1, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 172
     move v3, v4
 
     goto :goto_1
 
     .line 153
     :cond_4
-    invoke-virtual {v2}, Ljava/util/ArrayDeque;->isEmpty()Z
+    invoke-virtual {v1}, Ljava/util/ArrayDeque;->isEmpty()Z
 
     move-result v6
 
@@ -360,15 +343,15 @@
     .line 154
     invoke-static {v5}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v2, v6}, Ljava/util/ArrayDeque;->push(Ljava/lang/Object;)V
+    invoke-virtual {v1, v5}, Ljava/util/ArrayDeque;->push(Ljava/lang/Object;)V
 
     goto :goto_1
 
     .line 155
     :cond_5
-    invoke-virtual {v2}, Ljava/util/ArrayDeque;->peek()Ljava/lang/Object;
+    invoke-virtual {v1}, Ljava/util/ArrayDeque;->peek()Ljava/lang/Object;
 
     move-result-object v6
 
@@ -381,100 +364,84 @@
     if-ne v6, v5, :cond_6
 
     .line 156
-    invoke-virtual {v2}, Ljava/util/ArrayDeque;->pop()Ljava/lang/Object;
+    invoke-virtual {v1}, Ljava/util/ArrayDeque;->pop()Ljava/lang/Object;
 
-    .line 147
-    .end local v5    # "c":C
     :cond_6
     :goto_1
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
-    .line 177
-    .end local v4    # "i":I
     :cond_7
-    add-int/lit8 v4, v3, 0x1
+    add-int/lit8 v3, v3, 0x1
 
-    invoke-virtual {v0, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    .line 177
+    invoke-virtual {p0, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-virtual {v4}, Ljava/lang/String;->trim()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-interface {v1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 180
-    new-instance v4, Ljava/util/HashSet;
+    new-instance p0, Ljava/util/HashSet;
 
-    invoke-direct {v4}, Ljava/util/HashSet;-><init>()V
+    invoke-direct {p0}, Ljava/util/HashSet;-><init>()V
 
     .line 181
-    .local v4, "options":Ljava/util/HashSet;, "Ljava/util/HashSet<Ljava/lang/String;>;"
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v5
+    move-result-object v0
+
+    :cond_8
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_a
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/String;
+
+    .line 182
+    sget-object v3, Landroidx/room/util/FtsTableInfo;->FTS_OPTIONS:[Ljava/lang/String;
+
+    array-length v4, v3
+
+    move v5, v2
 
     :goto_2
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+    if-ge v5, v4, :cond_8
+
+    aget-object v6, v3, v5
+
+    .line 183
+    invoke-virtual {v1, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_a
-
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Ljava/lang/String;
-
-    .line 182
-    .local v6, "arg":Ljava/lang/String;
-    sget-object v7, Landroidx/room/util/FtsTableInfo;->FTS_OPTIONS:[Ljava/lang/String;
-
-    array-length v8, v7
-
-    const/4 v9, 0x0
-
-    :goto_3
-    if-ge v9, v8, :cond_9
-
-    aget-object v10, v7, v9
-
-    .line 183
-    .local v10, "validOption":Ljava/lang/String;
-    invoke-virtual {v6, v10}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_8
+    if-eqz v6, :cond_9
 
     .line 184
-    invoke-virtual {v4, v6}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 182
-    .end local v10    # "validOption":Ljava/lang/String;
-    :cond_8
-    add-int/lit8 v9, v9, 0x1
-
-    goto :goto_3
-
-    .line 187
-    .end local v6    # "arg":Ljava/lang/String;
     :cond_9
+    add-int/lit8 v5, v5, 0x1
+
     goto :goto_2
 
-    .line 189
     :cond_a
-    return-object v4
+    return-object p0
 .end method
 
 .method public static read(Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;)Landroidx/room/util/FtsTableInfo;
-    .locals 3
-    .param p0, "database"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
-    .param p1, "tableName"    # Ljava/lang/String;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -492,24 +459,20 @@
     move-result-object v0
 
     .line 81
-    .local v0, "columns":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     invoke-static {p0, p1}, Landroidx/room/util/FtsTableInfo;->readOptions(Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;)Ljava/util/Set;
 
-    move-result-object v1
+    move-result-object p0
 
     .line 83
-    .local v1, "options":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    new-instance v2, Landroidx/room/util/FtsTableInfo;
+    new-instance v1, Landroidx/room/util/FtsTableInfo;
 
-    invoke-direct {v2, p1, v0, v1}, Landroidx/room/util/FtsTableInfo;-><init>(Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;)V
+    invoke-direct {v1, p1, v0, p0}, Landroidx/room/util/FtsTableInfo;-><init>(Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;)V
 
-    return-object v2
+    return-object v1
 .end method
 
 .method private static readColumns(Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;)Ljava/util/Set;
-    .locals 4
-    .param p0, "database"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
-    .param p1, "tableName"    # Ljava/lang/String;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -536,93 +499,84 @@
     .line 88
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "PRAGMA table_info(`"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "`)"
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, "`)"
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {p0, v0}, Landroidx/sqlite/db/SupportSQLiteDatabase;->query(Ljava/lang/String;)Landroid/database/Cursor;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
+
+    invoke-interface {p0, p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->query(Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object p0
 
     .line 89
-    .local v0, "cursor":Landroid/database/Cursor;
-    new-instance v1, Ljava/util/HashSet;
+    new-instance p1, Ljava/util/HashSet;
 
-    invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
+    invoke-direct {p1}, Ljava/util/HashSet;-><init>()V
 
     .line 91
-    .local v1, "columns":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     :try_start_0
-    invoke-interface {v0}, Landroid/database/Cursor;->getColumnCount()I
+    invoke-interface {p0}, Landroid/database/Cursor;->getColumnCount()I
 
-    move-result v2
+    move-result v0
 
-    if-lez v2, :cond_0
+    if-lez v0, :cond_0
+
+    const-string v0, "name"
 
     .line 92
-    const-string v2, "name"
+    invoke-interface {p0, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
-
-    move-result v2
+    move-result v0
 
     .line 93
-    .local v2, "nameIndex":I
     :goto_0
-    invoke-interface {v0}, Landroid/database/Cursor;->moveToNext()Z
+    invoke-interface {p0}, Landroid/database/Cursor;->moveToNext()Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_0
+    if-eqz v1, :cond_0
 
     .line 94
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface {p0, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-interface {v1, v3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_0
 
     .line 98
-    .end local v2    # "nameIndex":I
     :cond_0
-    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+    invoke-interface {p0}, Landroid/database/Cursor;->close()V
 
-    .line 99
-    nop
+    return-object p1
 
-    .line 100
-    return-object v1
-
-    .line 98
     :catchall_0
-    move-exception v2
+    move-exception p1
 
-    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+    invoke-interface {p0}, Landroid/database/Cursor;->close()V
 
     .line 99
-    throw v2
+    throw p1
 .end method
 
 .method private static readOptions(Landroidx/sqlite/db/SupportSQLiteDatabase;Ljava/lang/String;)Ljava/util/Set;
-    .locals 3
-    .param p0, "database"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
-    .param p1, "tableName"    # Ljava/lang/String;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -646,86 +600,82 @@
         }
     .end annotation
 
-    .line 105
-    const-string v0, ""
-
     .line 106
-    .local v0, "sql":Ljava/lang/String;
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "SELECT * FROM sqlite_master WHERE `name` = \'"
 
-    const-string v2, "SELECT * FROM sqlite_master WHERE `name` = \'"
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    const-string v2, "\'"
+    const-string v0, "\'"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-interface {p0, v1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->query(Ljava/lang/String;)Landroid/database/Cursor;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-interface {p0, p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->query(Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object p0
 
     .line 109
-    .local v1, "cursor":Landroid/database/Cursor;
     :try_start_0
-    invoke-interface {v1}, Landroid/database/Cursor;->moveToFirst()Z
+    invoke-interface {p0}, Landroid/database/Cursor;->moveToFirst()Z
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_0
+    if-eqz p1, :cond_0
+
+    const-string p1, "sql"
 
     .line 110
-    const-string v2, "sql"
+    invoke-interface {p0, p1}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
 
-    invoke-interface {v1, v2}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
+    move-result p1
 
-    move-result v2
+    invoke-interface {p0, p1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    invoke-interface {v1, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
+    move-result-object p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-object v0, v2
+    goto :goto_0
+
+    :cond_0
+    const-string p1, ""
 
     .line 113
-    :cond_0
-    invoke-interface {v1}, Landroid/database/Cursor;->close()V
-
-    .line 114
-    nop
+    :goto_0
+    invoke-interface {p0}, Landroid/database/Cursor;->close()V
 
     .line 115
-    invoke-static {v0}, Landroidx/room/util/FtsTableInfo;->parseOptions(Ljava/lang/String;)Ljava/util/Set;
+    invoke-static {p1}, Landroidx/room/util/FtsTableInfo;->parseOptions(Ljava/lang/String;)Ljava/util/Set;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
+
+    :catchall_0
+    move-exception p1
 
     .line 113
-    :catchall_0
-    move-exception v2
-
-    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+    invoke-interface {p0}, Landroid/database/Cursor;->close()V
 
     .line 114
-    throw v2
+    throw p1
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -735,7 +685,6 @@
         }
     .end annotation
 
-    .line 194
     const/4 v0, 0x1
 
     if-ne p0, p1, :cond_0
@@ -754,76 +703,71 @@
 
     .line 197
     :cond_1
-    move-object v1, p1
-
-    check-cast v1, Landroidx/room/util/FtsTableInfo;
+    check-cast p1, Landroidx/room/util/FtsTableInfo;
 
     .line 199
-    .local v1, "that":Landroidx/room/util/FtsTableInfo;
-    iget-object v3, p0, Landroidx/room/util/FtsTableInfo;->name:Ljava/lang/String;
+    iget-object v1, p0, Landroidx/room/util/FtsTableInfo;->name:Ljava/lang/String;
 
-    if-eqz v3, :cond_2
+    if-eqz v1, :cond_2
 
-    iget-object v4, v1, Landroidx/room/util/FtsTableInfo;->name:Ljava/lang/String;
+    iget-object v3, p1, Landroidx/room/util/FtsTableInfo;->name:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_3
+    if-nez v1, :cond_3
 
     goto :goto_0
 
     :cond_2
-    iget-object v3, v1, Landroidx/room/util/FtsTableInfo;->name:Ljava/lang/String;
+    iget-object v1, p1, Landroidx/room/util/FtsTableInfo;->name:Ljava/lang/String;
 
-    if-eqz v3, :cond_3
+    if-eqz v1, :cond_3
 
     :goto_0
     return v2
 
     .line 200
     :cond_3
-    iget-object v3, p0, Landroidx/room/util/FtsTableInfo;->columns:Ljava/util/Set;
+    iget-object v1, p0, Landroidx/room/util/FtsTableInfo;->columns:Ljava/util/Set;
 
-    if-eqz v3, :cond_4
+    if-eqz v1, :cond_4
 
-    iget-object v4, v1, Landroidx/room/util/FtsTableInfo;->columns:Ljava/util/Set;
+    iget-object v3, p1, Landroidx/room/util/FtsTableInfo;->columns:Ljava/util/Set;
 
-    invoke-interface {v3, v4}, Ljava/util/Set;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v1, v3}, Ljava/util/Set;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_5
+    if-nez v1, :cond_5
 
     goto :goto_1
 
     :cond_4
-    iget-object v3, v1, Landroidx/room/util/FtsTableInfo;->columns:Ljava/util/Set;
+    iget-object v1, p1, Landroidx/room/util/FtsTableInfo;->columns:Ljava/util/Set;
 
-    if-eqz v3, :cond_5
+    if-eqz v1, :cond_5
 
     :goto_1
     return v2
 
     .line 201
     :cond_5
-    iget-object v3, p0, Landroidx/room/util/FtsTableInfo;->options:Ljava/util/Set;
+    iget-object v1, p0, Landroidx/room/util/FtsTableInfo;->options:Ljava/util/Set;
 
-    if-eqz v3, :cond_6
+    iget-object p1, p1, Landroidx/room/util/FtsTableInfo;->options:Ljava/util/Set;
 
-    iget-object v0, v1, Landroidx/room/util/FtsTableInfo;->options:Ljava/util/Set;
+    if-eqz v1, :cond_6
 
-    invoke-interface {v3, v0}, Ljava/util/Set;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v1, p1}, Ljava/util/Set;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     goto :goto_2
 
     :cond_6
-    iget-object v3, v1, Landroidx/room/util/FtsTableInfo;->options:Ljava/util/Set;
-
-    if-nez v3, :cond_7
+    if-nez p1, :cond_7
 
     goto :goto_2
 
@@ -835,7 +779,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .locals 3
 
     .line 206
     iget-object v0, p0, Landroidx/room/util/FtsTableInfo;->name:Ljava/lang/String;
@@ -853,46 +797,40 @@
     :cond_0
     move v0, v1
 
-    .line 207
-    .local v0, "result":I
     :goto_0
-    mul-int/lit8 v2, v0, 0x1f
+    mul-int/lit8 v0, v0, 0x1f
 
-    iget-object v3, p0, Landroidx/room/util/FtsTableInfo;->columns:Ljava/util/Set;
+    .line 207
+    iget-object v2, p0, Landroidx/room/util/FtsTableInfo;->columns:Ljava/util/Set;
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
-    invoke-interface {v3}, Ljava/util/Set;->hashCode()I
+    invoke-interface {v2}, Ljava/util/Set;->hashCode()I
 
-    move-result v3
+    move-result v2
 
     goto :goto_1
 
     :cond_1
-    move v3, v1
+    move v2, v1
 
     :goto_1
-    add-int/2addr v2, v3
+    add-int/2addr v0, v2
+
+    mul-int/lit8 v0, v0, 0x1f
 
     .line 208
-    .end local v0    # "result":I
-    .local v2, "result":I
-    mul-int/lit8 v0, v2, 0x1f
+    iget-object v2, p0, Landroidx/room/util/FtsTableInfo;->options:Ljava/util/Set;
 
-    iget-object v3, p0, Landroidx/room/util/FtsTableInfo;->options:Ljava/util/Set;
+    if-eqz v2, :cond_2
 
-    if-eqz v3, :cond_2
-
-    invoke-interface {v3}, Ljava/util/Set;->hashCode()I
+    invoke-interface {v2}, Ljava/util/Set;->hashCode()I
 
     move-result v1
 
     :cond_2
     add-int/2addr v0, v1
 
-    .line 209
-    .end local v2    # "result":I
-    .restart local v0    # "result":I
     return v0
 .end method
 
@@ -902,39 +840,45 @@
     .line 214
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "FtsTableInfo{name=\'"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v1, p0, Landroidx/room/util/FtsTableInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v1, 0x27
+    move-result-object v0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    const-string v1, ", columns="
+    const-string v1, "\', columns="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Landroidx/room/util/FtsTableInfo;->columns:Ljava/util/Set;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", options="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Landroidx/room/util/FtsTableInfo;->options:Ljava/util/Set;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const/16 v1, 0x7d
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

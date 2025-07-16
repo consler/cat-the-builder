@@ -37,28 +37,26 @@
     sput-object v0, Landroidx/work/ExistingPeriodicWorkPolicy;->REPLACE:Landroidx/work/ExistingPeriodicWorkPolicy;
 
     .line 36
-    new-instance v0, Landroidx/work/ExistingPeriodicWorkPolicy;
+    new-instance v1, Landroidx/work/ExistingPeriodicWorkPolicy;
 
-    const-string v1, "KEEP"
+    const-string v3, "KEEP"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Landroidx/work/ExistingPeriodicWorkPolicy;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Landroidx/work/ExistingPeriodicWorkPolicy;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/work/ExistingPeriodicWorkPolicy;->KEEP:Landroidx/work/ExistingPeriodicWorkPolicy;
+    sput-object v1, Landroidx/work/ExistingPeriodicWorkPolicy;->KEEP:Landroidx/work/ExistingPeriodicWorkPolicy;
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Landroidx/work/ExistingPeriodicWorkPolicy;
+
+    aput-object v0, v3, v2
+
+    aput-object v1, v3, v4
 
     .line 24
-    const/4 v1, 0x2
-
-    new-array v1, v1, [Landroidx/work/ExistingPeriodicWorkPolicy;
-
-    sget-object v4, Landroidx/work/ExistingPeriodicWorkPolicy;->REPLACE:Landroidx/work/ExistingPeriodicWorkPolicy;
-
-    aput-object v4, v1, v2
-
-    aput-object v0, v1, v3
-
-    sput-object v1, Landroidx/work/ExistingPeriodicWorkPolicy;->$VALUES:[Landroidx/work/ExistingPeriodicWorkPolicy;
+    sput-object v3, Landroidx/work/ExistingPeriodicWorkPolicy;->$VALUES:[Landroidx/work/ExistingPeriodicWorkPolicy;
 
     return-void
 .end method
@@ -90,7 +88,6 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/work/ExistingPeriodicWorkPolicy;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8000
@@ -105,11 +102,11 @@
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroidx/work/ExistingPeriodicWorkPolicy;
+    check-cast p0, Landroidx/work/ExistingPeriodicWorkPolicy;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Landroidx/work/ExistingPeriodicWorkPolicy;

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
     .line 215
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
@@ -34,81 +33,75 @@
 
 # virtual methods
 .method public scrolled(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;FFI)Z
-    .locals 5
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
-    .param p4, "amount"    # I
+    .locals 1
 
     .line 217
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    const/4 v1, 0x1
+    const/4 p2, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->setScrollbarsVisible(Z)V
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->setScrollbarsVisible(Z)V
 
     .line 218
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    iget-boolean v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->scrollY:Z
+    iget-boolean p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->scrollY:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 219
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+
+    iget p3, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->amountY:F
+
     iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    iget v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->amountY:F
+    invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->getMouseWheelY()F
 
-    iget-object v3, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    move-result v0
 
-    invoke-virtual {v3}, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->getMouseWheelY()F
+    int-to-float p4, p4
 
-    move-result v3
+    mul-float/2addr v0, p4
 
-    int-to-float v4, p4
+    add-float/2addr p3, v0
 
-    mul-float/2addr v3, v4
-
-    add-float/2addr v2, v3
-
-    invoke-virtual {v0, v2}, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->setScrollY(F)V
+    invoke-virtual {p1, p3}, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->setScrollY(F)V
 
     goto :goto_0
 
     .line 220
     :cond_0
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    iget-boolean v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->scrollX:Z
+    iget-boolean p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->scrollX:Z
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 221
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+
+    iget p3, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->amountX:F
+
     iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    iget v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->amountX:F
+    invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->getMouseWheelX()F
 
-    iget-object v3, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    move-result v0
 
-    invoke-virtual {v3}, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->getMouseWheelX()F
+    int-to-float p4, p4
 
-    move-result v3
+    mul-float/2addr v0, p4
 
-    int-to-float v4, p4
+    add-float/2addr p3, v0
 
-    mul-float/2addr v3, v4
+    invoke-virtual {p1, p3}, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->setScrollX(F)V
 
-    add-float/2addr v2, v3
-
-    invoke-virtual {v0, v2}, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->setScrollX(F)V
-
-    .line 224
     :goto_0
-    return v1
+    return p2
 
-    .line 223
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

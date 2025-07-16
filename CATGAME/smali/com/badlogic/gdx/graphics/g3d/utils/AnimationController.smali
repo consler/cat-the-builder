@@ -46,43 +46,34 @@
 
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/ModelInstance;)V
-    .locals 1
-    .param p1, "target"    # Lcom/badlogic/gdx/graphics/g3d/ModelInstance;
+    .locals 0
 
     .line 137
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/utils/BaseAnimationController;-><init>(Lcom/badlogic/gdx/graphics/g3d/ModelInstance;)V
 
     .line 106
-    new-instance v0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$1;
+    new-instance p1, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$1;
 
-    invoke-direct {v0, p0}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$1;-><init>(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;)V
+    invoke-direct {p1, p0}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$1;-><init>(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;)V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->animationPool:Lcom/badlogic/gdx/utils/Pool;
+    iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->animationPool:Lcom/badlogic/gdx/utils/Pool;
+
+    const/4 p1, 0x0
 
     .line 132
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->justChangedAnimation:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->justChangedAnimation:Z
-
-    .line 138
     return-void
 .end method
 
 .method private obtain(Lcom/badlogic/gdx/graphics/g3d/model/Animation;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
-    .locals 3
-    .param p1, "anim"    # Lcom/badlogic/gdx/graphics/g3d/model/Animation;
-    .param p2, "offset"    # F
-    .param p3, "duration"    # F
-    .param p4, "loopCount"    # I
-    .param p5, "speed"    # F
-    .param p6, "listener"    # Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;
+    .locals 1
 
-    .line 142
     if-nez p1, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 
     .line 143
     :cond_0
@@ -95,7 +86,6 @@
     check-cast v0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
     .line 144
-    .local v0, "result":Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
     iput-object p1, v0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->animation:Lcom/badlogic/gdx/graphics/g3d/model/Animation;
 
     .line 145
@@ -110,42 +100,35 @@
     .line 148
     iput p2, v0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->offset:F
 
+    const/4 p4, 0x0
+
+    cmpg-float p6, p3, p4
+
+    if-gez p6, :cond_1
+
     .line 149
-    const/4 v1, 0x0
+    iget p1, p1, Lcom/badlogic/gdx/graphics/g3d/model/Animation;->duration:F
 
-    cmpg-float v2, p3, v1
-
-    if-gez v2, :cond_1
-
-    iget v2, p1, Lcom/badlogic/gdx/graphics/g3d/model/Animation;->duration:F
-
-    sub-float/2addr v2, p2
-
-    goto :goto_0
+    sub-float p3, p1, p2
 
     :cond_1
-    move v2, p3
+    iput p3, v0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->duration:F
 
-    :goto_0
-    iput v2, v0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->duration:F
+    cmpg-float p1, p5, p4
+
+    if-gez p1, :cond_2
 
     .line 150
-    cmpg-float v2, p5, v1
-
-    if-gez v2, :cond_2
-
-    iget v1, v0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->duration:F
+    iget p4, v0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->duration:F
 
     :cond_2
-    iput v1, v0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->time:F
+    iput p4, v0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->time:F
 
-    .line 151
     return-object v0
 .end method
 
 .method private obtain(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
     .locals 7
-    .param p1, "anim"    # Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
     .line 163
     iget-object v1, p1, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->animation:Lcom/badlogic/gdx/graphics/g3d/model/Animation;
@@ -164,26 +147,19 @@
 
     invoke-direct/range {v0 .. v6}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->obtain(Lcom/badlogic/gdx/graphics/g3d/model/Animation;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method private obtain(Ljava/lang/String;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
     .locals 8
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "offset"    # F
-    .param p3, "duration"    # F
-    .param p4, "loopCount"    # I
-    .param p5, "speed"    # F
-    .param p6, "listener"    # Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;
 
-    .line 156
     if-nez p1, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 
     .line 157
     :cond_0
@@ -191,16 +167,11 @@
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/graphics/g3d/ModelInstance;->getAnimation(Ljava/lang/String;)Lcom/badlogic/gdx/graphics/g3d/model/Animation;
 
-    move-result-object v0
+    move-result-object v2
 
-    .line 158
-    .local v0, "anim":Lcom/badlogic/gdx/graphics/g3d/model/Animation;
-    if-eqz v0, :cond_1
+    if-eqz v2, :cond_1
 
-    .line 159
     move-object v1, p0
-
-    move-object v2, v0
 
     move v3, p2
 
@@ -212,63 +183,55 @@
 
     move-object v7, p6
 
+    .line 159
     invoke-direct/range {v1 .. v7}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->obtain(Lcom/badlogic/gdx/graphics/g3d/model/Animation;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 158
     :cond_1
-    new-instance v1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p2, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string p4, "Unknown animation: "
 
-    const-string v3, "Unknown animation: "
+    invoke-direct {p3, p4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p2
 .end method
 
 
 # virtual methods
 .method protected action(Lcom/badlogic/gdx/graphics/g3d/model/Animation;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
-    .locals 1
-    .param p1, "anim"    # Lcom/badlogic/gdx/graphics/g3d/model/Animation;
-    .param p2, "offset"    # F
-    .param p3, "duration"    # F
-    .param p4, "loopCount"    # I
-    .param p5, "speed"    # F
-    .param p6, "listener"    # Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;
-    .param p7, "transitionTime"    # F
+    .locals 0
 
     .line 472
     invoke-direct/range {p0 .. p6}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->obtain(Lcom/badlogic/gdx/graphics/g3d/model/Animation;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0, p7}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->action(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+    invoke-virtual {p0, p1, p7}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->action(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected action(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
     .locals 2
-    .param p1, "anim"    # Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
-    .param p2, "transitionTime"    # F
 
     .line 477
     iget v0, p1, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->loopCount:I
@@ -303,81 +266,65 @@
 
     move-result-object v0
 
-    .line 482
-    .local v0, "toQueue":Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
     :goto_0
     const/4 v1, 0x0
 
+    .line 482
     iput-boolean v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->inAction:Z
 
     .line 483
     invoke-virtual {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->animate(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    .line 484
     const/4 v1, 0x1
 
+    .line 484
     iput-boolean v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->inAction:Z
 
-    .line 485
     if-eqz v0, :cond_3
 
+    .line 485
     invoke-virtual {p0, v0, p2}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->queue(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
     goto :goto_2
 
     .line 479
-    .end local v0    # "toQueue":Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
     :cond_2
     :goto_1
     invoke-virtual {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->animate(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    .line 487
     :cond_3
     :goto_2
     return-object p1
 
     .line 477
     :cond_4
-    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v1, "An action cannot be continuous"
+    const-string p2, "An action cannot be continuous"
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public action(Ljava/lang/String;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
-    .locals 1
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "offset"    # F
-    .param p3, "duration"    # F
-    .param p4, "loopCount"    # I
-    .param p5, "speed"    # F
-    .param p6, "listener"    # Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;
-    .param p7, "transitionTime"    # F
+    .locals 0
 
     .line 466
     invoke-direct/range {p0 .. p6}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->obtain(Ljava/lang/String;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0, p7}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->action(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+    invoke-virtual {p0, p1, p7}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->action(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public action(Ljava/lang/String;IFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
     .locals 8
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "loopCount"    # I
-    .param p3, "speed"    # F
-    .param p4, "listener"    # Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;
-    .param p5, "transitionTime"    # F
 
-    .line 448
     const/4 v2, 0x0
 
     const/high16 v3, -0x40800000    # -1.0f
@@ -394,39 +341,31 @@
 
     move v7, p5
 
+    .line 448
     invoke-virtual/range {v0 .. v7}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->action(Ljava/lang/String;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected animate(Lcom/badlogic/gdx/graphics/g3d/model/Animation;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
-    .locals 1
-    .param p1, "anim"    # Lcom/badlogic/gdx/graphics/g3d/model/Animation;
-    .param p2, "offset"    # F
-    .param p3, "duration"    # F
-    .param p4, "loopCount"    # I
-    .param p5, "speed"    # F
-    .param p6, "listener"    # Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;
-    .param p7, "transitionTime"    # F
+    .locals 0
 
     .line 355
     invoke-direct/range {p0 .. p6}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->obtain(Lcom/badlogic/gdx/graphics/g3d/model/Animation;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0, p7}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->animate(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+    invoke-virtual {p0, p1, p7}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->animate(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected animate(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
     .locals 2
-    .param p1, "anim"    # Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
-    .param p2, "transitionTime"    # F
 
     .line 360
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
@@ -464,18 +403,18 @@
     if-ne v0, v1, :cond_2
 
     .line 365
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    iget v0, v0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->time:F
+    iget p2, p2, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->time:F
 
-    iput v0, p1, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->time:F
+    iput p2, p1, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->time:F
 
     .line 366
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->animationPool:Lcom/badlogic/gdx/utils/Pool;
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->animationPool:Lcom/badlogic/gdx/utils/Pool;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/utils/Pool;->free(Ljava/lang/Object;)V
+    invoke-virtual {p2, v0}, Lcom/badlogic/gdx/utils/Pool;->free(Ljava/lang/Object;)V
 
     .line 367
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
@@ -509,25 +448,21 @@
     .line 374
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    .line 375
     const/4 v0, 0x0
 
+    .line 375
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->transitionCurrentTime:F
 
     .line 376
     iput p2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->transitionTargetTime:F
 
-    .line 378
     :goto_0
     return-object p1
 .end method
 
 .method public animate(Ljava/lang/String;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
     .locals 6
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "transitionTime"    # F
 
-    .line 293
     const/4 v2, 0x1
 
     const/high16 v3, 0x3f800000    # 1.0f
@@ -540,44 +475,32 @@
 
     move v5, p2
 
+    .line 293
     invoke-virtual/range {v0 .. v5}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->animate(Ljava/lang/String;IFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public animate(Ljava/lang/String;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
-    .locals 1
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "offset"    # F
-    .param p3, "duration"    # F
-    .param p4, "loopCount"    # I
-    .param p5, "speed"    # F
-    .param p6, "listener"    # Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;
-    .param p7, "transitionTime"    # F
+    .locals 0
 
     .line 349
     invoke-direct/range {p0 .. p6}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->obtain(Ljava/lang/String;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0, p7}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->animate(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+    invoke-virtual {p0, p1, p7}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->animate(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public animate(Ljava/lang/String;IFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
     .locals 8
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "loopCount"    # I
-    .param p3, "speed"    # F
-    .param p4, "listener"    # Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;
-    .param p5, "transitionTime"    # F
 
-    .line 331
     const/4 v2, 0x0
 
     const/high16 v3, -0x40800000    # -1.0f
@@ -594,21 +517,17 @@
 
     move v7, p5
 
+    .line 331
     invoke-virtual/range {v0 .. v7}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->animate(Ljava/lang/String;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public animate(Ljava/lang/String;ILcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
     .locals 6
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "loopCount"    # I
-    .param p3, "listener"    # Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;
-    .param p4, "transitionTime"    # F
 
-    .line 315
     const/high16 v3, 0x3f800000    # 1.0f
 
     move-object v0, p0
@@ -621,20 +540,17 @@
 
     move v5, p4
 
+    .line 315
     invoke-virtual/range {v0 .. v5}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->animate(Ljava/lang/String;IFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public animate(Ljava/lang/String;Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
     .locals 6
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "listener"    # Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;
-    .param p3, "transitionTime"    # F
 
-    .line 303
     const/4 v2, 0x1
 
     const/high16 v3, 0x3f800000    # 1.0f
@@ -647,39 +563,31 @@
 
     move v5, p3
 
+    .line 303
     invoke-virtual/range {v0 .. v5}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->animate(Ljava/lang/String;IFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected queue(Lcom/badlogic/gdx/graphics/g3d/model/Animation;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
-    .locals 1
-    .param p1, "anim"    # Lcom/badlogic/gdx/graphics/g3d/model/Animation;
-    .param p2, "offset"    # F
-    .param p3, "duration"    # F
-    .param p4, "loopCount"    # I
-    .param p5, "speed"    # F
-    .param p6, "listener"    # Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;
-    .param p7, "transitionTime"    # F
+    .locals 0
 
     .line 419
     invoke-direct/range {p0 .. p6}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->obtain(Lcom/badlogic/gdx/graphics/g3d/model/Animation;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0, p7}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->queue(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+    invoke-virtual {p0, p1, p7}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->queue(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected queue(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
     .locals 2
-    .param p1, "anim"    # Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
-    .param p2, "transitionTime"    # F
 
     .line 424
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
@@ -710,17 +618,17 @@
     iput p2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->queuedTransitionTime:F
 
     .line 430
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    iget v0, v0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->loopCount:I
+    iget p2, p2, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->loopCount:I
 
-    if-gez v0, :cond_3
+    if-gez p2, :cond_3
 
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    iput v1, v0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->loopCount:I
+    iput v0, p2, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->loopCount:I
 
     goto :goto_1
 
@@ -729,43 +637,29 @@
     :goto_0
     invoke-virtual {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->animate(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    .line 432
     :cond_3
     :goto_1
     return-object p1
 .end method
 
 .method public queue(Ljava/lang/String;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
-    .locals 1
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "offset"    # F
-    .param p3, "duration"    # F
-    .param p4, "loopCount"    # I
-    .param p5, "speed"    # F
-    .param p6, "listener"    # Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;
-    .param p7, "transitionTime"    # F
+    .locals 0
 
     .line 413
     invoke-direct/range {p0 .. p6}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->obtain(Ljava/lang/String;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0, p7}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->queue(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+    invoke-virtual {p0, p1, p7}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->queue(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public queue(Ljava/lang/String;IFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
     .locals 8
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "loopCount"    # I
-    .param p3, "speed"    # F
-    .param p4, "listener"    # Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;
-    .param p5, "transitionTime"    # F
 
-    .line 394
     const/4 v2, 0x0
 
     const/high16 v3, -0x40800000    # -1.0f
@@ -782,37 +676,31 @@
 
     move v7, p5
 
+    .line 394
     invoke-virtual/range {v0 .. v7}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->queue(Ljava/lang/String;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected setAnimation(Lcom/badlogic/gdx/graphics/g3d/model/Animation;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
-    .locals 1
-    .param p1, "anim"    # Lcom/badlogic/gdx/graphics/g3d/model/Animation;
-    .param p2, "offset"    # F
-    .param p3, "duration"    # F
-    .param p4, "loopCount"    # I
-    .param p5, "speed"    # F
-    .param p6, "listener"    # Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;
+    .locals 0
 
     .line 268
     invoke-direct/range {p0 .. p6}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->obtain(Lcom/badlogic/gdx/graphics/g3d/model/Animation;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->setAnimation(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->setAnimation(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected setAnimation(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
     .locals 2
-    .param p1, "anim"    # Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
     .line 273
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
@@ -866,80 +754,65 @@
     .line 281
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    .line 283
     :goto_1
     const/4 v0, 0x1
 
+    .line 283
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->justChangedAnimation:Z
 
-    .line 284
     return-object p1
 .end method
 
 .method public setAnimation(Ljava/lang/String;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
     .locals 3
-    .param p1, "id"    # Ljava/lang/String;
 
-    .line 201
-    const/4 v0, 0x1
-
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    const/4 v2, 0x0
-
-    invoke-virtual {p0, p1, v0, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->setAnimation(Ljava/lang/String;IFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public setAnimation(Ljava/lang/String;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
-    .locals 1
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "offset"    # F
-    .param p3, "duration"    # F
-    .param p4, "loopCount"    # I
-    .param p5, "speed"    # F
-    .param p6, "listener"    # Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;
-
-    .line 262
-    invoke-direct/range {p0 .. p6}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->obtain(Ljava/lang/String;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->setAnimation(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public setAnimation(Ljava/lang/String;I)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
-    .locals 2
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "loopCount"    # I
-
-    .line 211
     const/high16 v0, 0x3f800000    # 1.0f
 
     const/4 v1, 0x0
 
+    const/4 v2, 0x1
+
+    .line 201
+    invoke-virtual {p0, p1, v2, v0, v1}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->setAnimation(Ljava/lang/String;IFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public setAnimation(Ljava/lang/String;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+    .locals 0
+
+    .line 262
+    invoke-direct/range {p0 .. p6}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->obtain(Ljava/lang/String;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->setAnimation(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public setAnimation(Ljava/lang/String;I)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+    .locals 2
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    const/4 v1, 0x0
+
+    .line 211
     invoke-virtual {p0, p1, p2, v0, v1}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->setAnimation(Ljava/lang/String;IFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public setAnimation(Ljava/lang/String;IFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
     .locals 7
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "loopCount"    # I
-    .param p3, "speed"    # F
-    .param p4, "listener"    # Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;
 
-    .line 245
     const/4 v2, 0x0
 
     const/high16 v3, -0x40800000    # -1.0f
@@ -954,49 +827,44 @@
 
     move-object v6, p4
 
+    .line 245
     invoke-virtual/range {v0 .. v6}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->setAnimation(Ljava/lang/String;FFIFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public setAnimation(Ljava/lang/String;ILcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
     .locals 1
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "loopCount"    # I
-    .param p3, "listener"    # Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;
 
-    .line 231
     const/high16 v0, 0x3f800000    # 1.0f
 
+    .line 231
     invoke-virtual {p0, p1, p2, v0, p3}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->setAnimation(Ljava/lang/String;IFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public setAnimation(Ljava/lang/String;Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
     .locals 2
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "listener"    # Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;
 
-    .line 220
     const/4 v0, 0x1
 
     const/high16 v1, 0x3f800000    # 1.0f
 
+    .line 220
     invoke-virtual {p0, p1, v0, v1, p2}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->setAnimation(Ljava/lang/String;IFLcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public update(F)V
-    .locals 8
-    .param p1, "delta"    # F
+    .locals 6
 
     .line 169
     iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->paused:Z
@@ -1030,9 +898,9 @@
 
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->removeAnimation(Lcom/badlogic/gdx/graphics/g3d/model/Animation;)V
 
-    .line 172
     const/4 v0, 0x1
 
+    .line 172
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->justChangedAnimation:Z
 
     .line 173
@@ -1077,7 +945,7 @@
 
     if-nez v0, :cond_3
 
-    goto :goto_1
+    goto :goto_0
 
     .line 181
     :cond_3
@@ -1085,19 +953,18 @@
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->update(F)F
 
-    move-result v0
+    move-result p1
+
+    const/4 v0, 0x0
+
+    cmpl-float v0, p1, v0
+
+    if-eqz v0, :cond_4
 
     .line 182
-    .local v0, "remain":F
-    const/4 v3, 0x0
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->queued:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    cmpl-float v3, v0, v3
-
-    if-eqz v3, :cond_4
-
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->queued:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
-
-    if-eqz v3, :cond_4
+    if-eqz v0, :cond_4
 
     .line 183
     iput-boolean v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->inAction:Z
@@ -1105,87 +972,80 @@
     .line 184
     iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->queuedTransitionTime:F
 
-    invoke-virtual {p0, v3, v2}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->animate(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+    invoke-virtual {p0, v0, v2}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->animate(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;F)Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
     .line 185
     iput-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->queued:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
     .line 186
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->update(F)V
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->update(F)V
 
-    .line 187
     return-void
 
     .line 189
     :cond_4
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->previous:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->previous:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    if-eqz v1, :cond_5
+    if-eqz p1, :cond_5
 
     .line 190
-    iget-object v3, v1, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->animation:Lcom/badlogic/gdx/graphics/g3d/model/Animation;
+    iget-object v1, p1, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->animation:Lcom/badlogic/gdx/graphics/g3d/model/Animation;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->previous:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->previous:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    iget v1, v1, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->offset:F
+    iget p1, p1, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->offset:F
 
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->previous:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->previous:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    iget v2, v2, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->time:F
+    iget v0, v0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->time:F
 
-    add-float v4, v1, v2
+    add-float v2, p1, v0
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    iget-object v5, v1, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->animation:Lcom/badlogic/gdx/graphics/g3d/model/Animation;
+    iget-object v3, p1, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->animation:Lcom/badlogic/gdx/graphics/g3d/model/Animation;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    iget v1, v1, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->offset:F
+    iget p1, p1, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->offset:F
 
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    iget v2, v2, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->time:F
+    iget v0, v0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->time:F
 
-    add-float v6, v1, v2
+    add-float v4, p1, v0
 
-    iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->transitionCurrentTime:F
+    iget p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->transitionCurrentTime:F
 
-    iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->transitionTargetTime:F
+    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->transitionTargetTime:F
 
-    div-float v7, v1, v2
+    div-float v5, p1, v0
 
-    move-object v2, p0
+    move-object v0, p0
 
-    invoke-virtual/range {v2 .. v7}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->applyAnimations(Lcom/badlogic/gdx/graphics/g3d/model/Animation;FLcom/badlogic/gdx/graphics/g3d/model/Animation;FF)V
+    invoke-virtual/range {v0 .. v5}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->applyAnimations(Lcom/badlogic/gdx/graphics/g3d/model/Animation;FLcom/badlogic/gdx/graphics/g3d/model/Animation;FF)V
 
     goto :goto_0
 
     .line 193
     :cond_5
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->animation:Lcom/badlogic/gdx/graphics/g3d/model/Animation;
+
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+
+    iget v0, v0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->offset:F
+
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
 
-    iget-object v1, v1, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->animation:Lcom/badlogic/gdx/graphics/g3d/model/Animation;
+    iget v1, v1, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->time:F
 
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
+    add-float/2addr v0, v1
 
-    iget v2, v2, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->offset:F
+    invoke-virtual {p0, p1, v0}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->applyAnimation(Lcom/badlogic/gdx/graphics/g3d/model/Animation;F)V
 
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->current:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;
-
-    iget v3, v3, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->time:F
-
-    add-float/2addr v2, v3
-
-    invoke-virtual {p0, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;->applyAnimation(Lcom/badlogic/gdx/graphics/g3d/model/Animation;F)V
-
-    .line 194
-    :goto_0
-    return-void
-
-    .line 180
-    .end local v0    # "remain":F
     :cond_6
-    :goto_1
+    :goto_0
     return-void
 .end method

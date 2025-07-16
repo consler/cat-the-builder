@@ -66,10 +66,9 @@
 
     check-cast v0, Lcom/badlogic/gdx/graphics/g3d/Renderable;
 
-    .line 54
-    .local v0, "renderable":Lcom/badlogic/gdx/graphics/g3d/Renderable;
     const/4 v1, 0x0
 
+    .line 54
     iput-object v1, v0, Lcom/badlogic/gdx/graphics/g3d/Renderable;->environment:Lcom/badlogic/gdx/graphics/g3d/Environment;
 
     .line 55
@@ -96,7 +95,6 @@
     .line 58
     iput-object v1, v0, Lcom/badlogic/gdx/graphics/g3d/Renderable;->userData:Ljava/lang/Object;
 
-    .line 59
     return-object v0
 .end method
 

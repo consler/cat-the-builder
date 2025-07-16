@@ -34,7 +34,6 @@
     .locals 0
 
     .line 297
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany$SingletonArrayFunc;, "Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany<TT;TR;>.SingletonArrayFunc;"
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany$SingletonArrayFunc;->this$0:Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,8 +58,6 @@
     .end annotation
 
     .line 300
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany$SingletonArrayFunc;, "Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany<TT;TR;>.SingletonArrayFunc;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany$SingletonArrayFunc;->this$0:Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany;
 
     iget-object v0, v0, Lio/reactivex/internal/operators/flowable/FlowableWithLatestFromMany;->combiner:Lio/reactivex/functions/Function;
@@ -75,7 +72,7 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

@@ -6,8 +6,8 @@
 # direct methods
 .method public constructor <init>(JJ)V
     .locals 7
-    .param p1, "tick"    # J
-    .param p3, "delta"    # J
+
+    const/16 v5, 0x2f
 
     .line 29
     new-instance v6, Lcom/pdrogfer/mididroid/util/VariableLengthInt;
@@ -15,8 +15,6 @@
     const/4 v0, 0x0
 
     invoke-direct {v6, v0}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;-><init>(I)V
-
-    const/16 v5, 0x2f
 
     move-object v0, p0
 
@@ -26,7 +24,6 @@
 
     invoke-direct/range {v0 .. v6}, Lcom/pdrogfer/mididroid/event/meta/MetaEvent;-><init>(JJILcom/pdrogfer/mididroid/util/VariableLengthInt;)V
 
-    .line 30
     return-void
 .end method
 
@@ -34,7 +31,6 @@
 # virtual methods
 .method public compareTo(Lcom/pdrogfer/mididroid/event/MidiEvent;)I
     .locals 7
-    .param p1, "other"    # Lcom/pdrogfer/mididroid/event/MidiEvent;
 
     .line 49
     iget-wide v0, p0, Lcom/pdrogfer/mididroid/event/meta/EndOfTrack;->mTick:J
@@ -58,9 +54,9 @@
 
     move-result-wide v5
 
-    cmp-long v0, v3, v5
+    cmp-long p1, v3, v5
 
-    if-gez v0, :cond_0
+    if-gez p1, :cond_0
 
     goto :goto_0
 
@@ -101,9 +97,9 @@
 
     move-result-wide v5
 
-    cmp-long v0, v3, v5
+    cmp-long p1, v3, v5
 
-    if-gez v0, :cond_2
+    if-gez p1, :cond_2
 
     move v1, v2
 
@@ -112,18 +108,16 @@
 
     .line 58
     :cond_3
-    instance-of v0, p1, Lcom/pdrogfer/mididroid/event/meta/EndOfTrack;
+    instance-of p1, p1, Lcom/pdrogfer/mididroid/event/meta/EndOfTrack;
 
-    if-nez v0, :cond_4
+    if-nez p1, :cond_4
 
-    .line 60
     return v2
 
-    .line 62
     :cond_4
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
@@ -142,7 +136,6 @@
 .method protected getEventSize()I
     .locals 1
 
-    .line 35
     const/4 v0, 0x3
 
     return v0
@@ -150,7 +143,6 @@
 
 .method public writeToFile(Ljava/io/OutputStream;)V
     .locals 1
-    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -160,11 +152,10 @@
     .line 41
     invoke-super {p0, p1}, Lcom/pdrogfer/mididroid/event/meta/MetaEvent;->writeToFile(Ljava/io/OutputStream;)V
 
-    .line 43
     const/4 v0, 0x0
 
+    .line 43
     invoke-virtual {p1, v0}, Ljava/io/OutputStream;->write(I)V
 
-    .line 44
     return-void
 .end method

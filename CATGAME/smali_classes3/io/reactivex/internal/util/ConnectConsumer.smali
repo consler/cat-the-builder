@@ -35,7 +35,6 @@
 # virtual methods
 .method public accept(Lio/reactivex/disposables/Disposable;)V
     .locals 0
-    .param p1, "t"    # Lio/reactivex/disposables/Disposable;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -45,13 +44,11 @@
     .line 27
     iput-object p1, p0, Lio/reactivex/internal/util/ConnectConsumer;->disposable:Lio/reactivex/disposables/Disposable;
 
-    .line 28
     return-void
 .end method
 
 .method public bridge synthetic accept(Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -59,11 +56,9 @@
     .end annotation
 
     .line 22
-    move-object v0, p1
+    check-cast p1, Lio/reactivex/disposables/Disposable;
 
-    check-cast v0, Lio/reactivex/disposables/Disposable;
-
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/util/ConnectConsumer;->accept(Lio/reactivex/disposables/Disposable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/util/ConnectConsumer;->accept(Lio/reactivex/disposables/Disposable;)V
 
     return-void
 .end method

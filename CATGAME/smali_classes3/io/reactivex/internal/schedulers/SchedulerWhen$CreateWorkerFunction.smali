@@ -40,7 +40,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/Scheduler$Worker;)V
     .locals 0
-    .param p1, "actualWorker"    # Lio/reactivex/Scheduler$Worker;
 
     .line 269
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +47,6 @@
     .line 270
     iput-object p1, p0, Lio/reactivex/internal/schedulers/SchedulerWhen$CreateWorkerFunction;->actualWorker:Lio/reactivex/Scheduler$Worker;
 
-    .line 271
     return-void
 .end method
 
@@ -56,7 +54,6 @@
 # virtual methods
 .method public apply(Lio/reactivex/internal/schedulers/SchedulerWhen$ScheduledAction;)Lio/reactivex/Completable;
     .locals 1
-    .param p1, "action"    # Lio/reactivex/internal/schedulers/SchedulerWhen$ScheduledAction;
 
     .line 275
     new-instance v0, Lio/reactivex/internal/schedulers/SchedulerWhen$CreateWorkerFunction$WorkerCompletable;
@@ -67,8 +64,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -76,13 +72,11 @@
     .end annotation
 
     .line 266
-    move-object v0, p1
+    check-cast p1, Lio/reactivex/internal/schedulers/SchedulerWhen$ScheduledAction;
 
-    check-cast v0, Lio/reactivex/internal/schedulers/SchedulerWhen$ScheduledAction;
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/schedulers/SchedulerWhen$CreateWorkerFunction;->apply(Lio/reactivex/internal/schedulers/SchedulerWhen$ScheduledAction;)Lio/reactivex/Completable;
 
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/schedulers/SchedulerWhen$CreateWorkerFunction;->apply(Lio/reactivex/internal/schedulers/SchedulerWhen$ScheduledAction;)Lio/reactivex/Completable;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method

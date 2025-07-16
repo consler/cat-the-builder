@@ -31,8 +31,6 @@
 # virtual methods
 .method public accept(J)V
     .locals 0
-    .param p1, "v"    # J
 
-    .line 710
     return-void
 .end method

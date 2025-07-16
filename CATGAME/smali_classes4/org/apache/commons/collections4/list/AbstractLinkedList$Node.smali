@@ -56,7 +56,6 @@
     .locals 0
 
     .line 671
-    .local p0, "this":Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$Node<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 672
@@ -65,7 +64,6 @@
     .line 673
     iput-object p0, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;
 
-    .line 674
     return-void
 .end method
 
@@ -78,14 +76,11 @@
     .end annotation
 
     .line 682
-    .local p0, "this":Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$Node<TE;>;"
-    .local p1, "value":Ljava/lang/Object;, "TE;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 683
     iput-object p1, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;->value:Ljava/lang/Object;
 
-    .line 684
     return-void
 .end method
 
@@ -102,10 +97,6 @@
     .end annotation
 
     .line 694
-    .local p0, "this":Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$Node<TE;>;"
-    .local p1, "previous":Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$Node<TE;>;"
-    .local p2, "next":Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$Node<TE;>;"
-    .local p3, "value":Ljava/lang/Object;, "TE;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 695
@@ -117,7 +108,6 @@
     .line 697
     iput-object p3, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;->value:Ljava/lang/Object;
 
-    .line 698
     return-void
 .end method
 
@@ -134,7 +124,6 @@
     .end annotation
 
     .line 747
-    .local p0, "this":Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$Node<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;
 
     return-object v0
@@ -151,7 +140,6 @@
     .end annotation
 
     .line 727
-    .local p0, "this":Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$Node<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;->previous:Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;
 
     return-object v0
@@ -166,7 +154,6 @@
     .end annotation
 
     .line 707
-    .local p0, "this":Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$Node<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;->value:Ljava/lang/Object;
 
     return-object v0
@@ -183,11 +170,8 @@
     .end annotation
 
     .line 757
-    .local p0, "this":Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$Node<TE;>;"
-    .local p1, "next":Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$Node<TE;>;"
     iput-object p1, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;
 
-    .line 758
     return-void
 .end method
 
@@ -202,11 +186,8 @@
     .end annotation
 
     .line 737
-    .local p0, "this":Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$Node<TE;>;"
-    .local p1, "previous":Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$Node<TE;>;"
     iput-object p1, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;->previous:Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;
 
-    .line 738
     return-void
 .end method
 
@@ -219,10 +200,7 @@
     .end annotation
 
     .line 717
-    .local p0, "this":Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$Node<TE;>;"
-    .local p1, "value":Ljava/lang/Object;, "TE;"
     iput-object p1, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;->value:Ljava/lang/Object;
 
-    .line 718
     return-void
 .end method

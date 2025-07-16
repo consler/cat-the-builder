@@ -54,7 +54,7 @@
 
 # direct methods
 .method constructor <init>(Lio/reactivex/Observer;Lio/reactivex/ObservableSource;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -66,9 +66,6 @@
     .end annotation
 
     .line 41
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSwitchIfEmpty$SwitchIfEmptyObserver;, "Lio/reactivex/internal/operators/observable/ObservableSwitchIfEmpty$SwitchIfEmptyObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
-    .local p2, "other":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<+TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 42
@@ -77,19 +74,18 @@
     .line 43
     iput-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableSwitchIfEmpty$SwitchIfEmptyObserver;->other:Lio/reactivex/ObservableSource;
 
-    .line 44
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableSwitchIfEmpty$SwitchIfEmptyObserver;->empty:Z
+    .line 44
+    iput-boolean p1, p0, Lio/reactivex/internal/operators/observable/ObservableSwitchIfEmpty$SwitchIfEmptyObserver;->empty:Z
 
     .line 45
-    new-instance v0, Lio/reactivex/internal/disposables/SequentialDisposable;
+    new-instance p1, Lio/reactivex/internal/disposables/SequentialDisposable;
 
-    invoke-direct {v0}, Lio/reactivex/internal/disposables/SequentialDisposable;-><init>()V
+    invoke-direct {p1}, Lio/reactivex/internal/disposables/SequentialDisposable;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSwitchIfEmpty$SwitchIfEmptyObserver;->arbiter:Lio/reactivex/internal/disposables/SequentialDisposable;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableSwitchIfEmpty$SwitchIfEmptyObserver;->arbiter:Lio/reactivex/internal/disposables/SequentialDisposable;
 
-    .line 46
     return-void
 .end method
 
@@ -99,14 +95,13 @@
     .locals 1
 
     .line 68
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSwitchIfEmpty$SwitchIfEmptyObserver;, "Lio/reactivex/internal/operators/observable/ObservableSwitchIfEmpty$SwitchIfEmptyObserver<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableSwitchIfEmpty$SwitchIfEmptyObserver;->empty:Z
 
     if-eqz v0, :cond_0
 
-    .line 69
     const/4 v0, 0x0
 
+    .line 69
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableSwitchIfEmpty$SwitchIfEmptyObserver;->empty:Z
 
     .line 70
@@ -122,22 +117,18 @@
 
     invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 74
     :goto_0
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 63
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSwitchIfEmpty$SwitchIfEmptyObserver;, "Lio/reactivex/internal/operators/observable/ObservableSwitchIfEmpty$SwitchIfEmptyObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSwitchIfEmpty$SwitchIfEmptyObserver;->actual:Lio/reactivex/Observer;
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 64
     return-void
 .end method
 
@@ -150,15 +141,13 @@
     .end annotation
 
     .line 55
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSwitchIfEmpty$SwitchIfEmptyObserver;, "Lio/reactivex/internal/operators/observable/ObservableSwitchIfEmpty$SwitchIfEmptyObserver<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableSwitchIfEmpty$SwitchIfEmptyObserver;->empty:Z
 
     if-eqz v0, :cond_0
 
-    .line 56
     const/4 v0, 0x0
 
+    .line 56
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableSwitchIfEmpty$SwitchIfEmptyObserver;->empty:Z
 
     .line 58
@@ -167,20 +156,16 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
-    .line 59
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 50
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSwitchIfEmpty$SwitchIfEmptyObserver;, "Lio/reactivex/internal/operators/observable/ObservableSwitchIfEmpty$SwitchIfEmptyObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSwitchIfEmpty$SwitchIfEmptyObserver;->arbiter:Lio/reactivex/internal/disposables/SequentialDisposable;
 
     invoke-virtual {v0, p1}, Lio/reactivex/internal/disposables/SequentialDisposable;->update(Lio/reactivex/disposables/Disposable;)Z
 
-    .line 51
     return-void
 .end method

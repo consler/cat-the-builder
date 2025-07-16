@@ -39,7 +39,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/input/RemoteInput;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/input/RemoteInput;
 
     .line 67
     iput-object p1, p0, Lcom/badlogic/gdx/input/RemoteInput$TouchEvent;->this$0:Lcom/badlogic/gdx/input/RemoteInput;

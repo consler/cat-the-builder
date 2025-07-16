@@ -32,7 +32,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/AsyncHttpClient;Lcom/koushikdutta/async/http/AsyncHttpRequest;ILcom/koushikdutta/async/http/AsyncHttpClient$FutureAsyncHttpResponse;Lcom/koushikdutta/async/http/callback/HttpConnectCallback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/AsyncHttpClient;
 
     .line 187
     iput-object p1, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$1;->this$0:Lcom/koushikdutta/async/http/AsyncHttpClient;
@@ -68,6 +67,5 @@
 
     invoke-static {v0, v1, v2, v3, v4}, Lcom/koushikdutta/async/http/AsyncHttpClient;->access$100(Lcom/koushikdutta/async/http/AsyncHttpClient;Lcom/koushikdutta/async/http/AsyncHttpRequest;ILcom/koushikdutta/async/http/AsyncHttpClient$FutureAsyncHttpResponse;Lcom/koushikdutta/async/http/callback/HttpConnectCallback;)V
 
-    .line 191
     return-void
 .end method

@@ -13,30 +13,24 @@
 # direct methods
 .method protected constructor <init>(Lorg/apache/commons/collections/Bag;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "bag"    # Lorg/apache/commons/collections/Bag;
-    .param p2, "lock"    # Ljava/lang/Object;
 
     .line 74
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections/bag/SynchronizedBag;-><init>(Lorg/apache/commons/collections/Bag;Ljava/lang/Object;)V
 
-    .line 75
     return-void
 .end method
 
 .method protected constructor <init>(Lorg/apache/commons/collections/SortedBag;)V
     .locals 0
-    .param p1, "bag"    # Lorg/apache/commons/collections/SortedBag;
 
     .line 63
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/bag/SynchronizedBag;-><init>(Lorg/apache/commons/collections/Bag;)V
 
-    .line 64
     return-void
 .end method
 
 .method public static decorate(Lorg/apache/commons/collections/SortedBag;)Lorg/apache/commons/collections/SortedBag;
     .locals 1
-    .param p0, "bag"    # Lorg/apache/commons/collections/SortedBag;
 
     .line 52
     new-instance v0, Lorg/apache/commons/collections/bag/SynchronizedSortedBag;
@@ -59,7 +53,7 @@
 
     monitor-enter v0
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     .line 101
     :try_start_1
@@ -79,29 +73,21 @@
 
     return-object v1
 
-    .line 102
     :catchall_0
     move-exception v1
 
-    :goto_0
+    .line 102
     :try_start_2
     monitor-exit v0
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     :try_start_3
     throw v1
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_2
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    .end local p0    # "this":Lorg/apache/commons/collections/bag/SynchronizedSortedBag;
     :catchall_1
-    move-exception v1
-
-    goto :goto_0
-
-    .line 99
-    :catchall_2
     move-exception v0
 
     monitor-exit p0
@@ -120,7 +106,7 @@
 
     monitor-enter v0
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     .line 89
     :try_start_1
@@ -140,29 +126,21 @@
 
     return-object v1
 
-    .line 90
     :catchall_0
     move-exception v1
 
-    :goto_0
+    .line 90
     :try_start_2
     monitor-exit v0
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     :try_start_3
     throw v1
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_2
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    .end local p0    # "this":Lorg/apache/commons/collections/bag/SynchronizedSortedBag;
     :catchall_1
-    move-exception v1
-
-    goto :goto_0
-
-    .line 87
-    :catchall_2
     move-exception v0
 
     monitor-exit p0
@@ -192,7 +170,7 @@
 
     monitor-enter v0
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     .line 95
     :try_start_1
@@ -212,29 +190,21 @@
 
     return-object v1
 
-    .line 96
     :catchall_0
     move-exception v1
 
-    :goto_0
+    .line 96
     :try_start_2
     monitor-exit v0
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     :try_start_3
     throw v1
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_2
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    .end local p0    # "this":Lorg/apache/commons/collections/bag/SynchronizedSortedBag;
     :catchall_1
-    move-exception v1
-
-    goto :goto_0
-
-    .line 93
-    :catchall_2
     move-exception v0
 
     monitor-exit p0

@@ -47,21 +47,19 @@
     .end annotation
 
     .line 112
-    .local p0, "value":Ljava/lang/Object;, "TT;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TU;>;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableScalarXMap$ScalarXMapFlowable;
 
     invoke-direct {v0, p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableScalarXMap$ScalarXMapFlowable;-><init>(Ljava/lang/Object;Lio/reactivex/functions/Function;)V
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static tryScalarXMapSubscribe(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Subscriber;Lio/reactivex/functions/Function;)Z
-    .locals 5
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -81,169 +79,120 @@
     .end annotation
 
     .line 50
-    .local p0, "source":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TT;>;"
-    .local p1, "subscriber":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TR;>;"
-    .local p2, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     instance-of v0, p0, Ljava/util/concurrent/Callable;
 
     if-eqz v0, :cond_3
 
+    const/4 v0, 0x1
+
     .line 54
-    const/4 v0, 0x0
-
-    const/4 v1, 0x1
-
     :try_start_0
-    move-object v2, p0
+    check-cast p0, Ljava/util/concurrent/Callable;
 
-    check-cast v2, Ljava/util/concurrent/Callable;
+    invoke-interface {p0}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
 
-    invoke-interface {v2}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
-
-    move-result-object v2
+    move-result-object p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_2
 
-    .line 59
-    .local v2, "t":Ljava/lang/Object;, "TT;"
-    nop
-
-    .line 61
-    if-nez v2, :cond_0
+    if-nez p0, :cond_0
 
     .line 62
     invoke-static {p1}, Lio/reactivex/internal/subscriptions/EmptySubscription;->complete(Lorg/reactivestreams/Subscriber;)V
 
-    .line 63
-    return v1
+    return v0
 
     .line 69
     :cond_0
     :try_start_1
-    invoke-interface {p2, v2}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p2, p0}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p0
 
-    const-string v4, "The mapper returned a null Publisher"
+    const-string p2, "The mapper returned a null Publisher"
 
-    invoke-static {v3, v4}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p0, p2}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p0
 
-    check-cast v3, Lorg/reactivestreams/Publisher;
+    check-cast p0, Lorg/reactivestreams/Publisher;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    .line 74
-    .local v3, "r":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TR;>;"
-    nop
-
     .line 76
-    instance-of v4, v3, Ljava/util/concurrent/Callable;
+    instance-of p2, p0, Ljava/util/concurrent/Callable;
 
-    if-eqz v4, :cond_2
+    if-eqz p2, :cond_2
 
     .line 80
     :try_start_2
-    move-object v4, v3
+    check-cast p0, Ljava/util/concurrent/Callable;
 
-    check-cast v4, Ljava/util/concurrent/Callable;
+    invoke-interface {p0}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
 
-    invoke-interface {v4}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
-
-    move-result-object v0
+    move-result-object p0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 85
-    .local v0, "u":Ljava/lang/Object;, "TR;"
-    nop
-
-    .line 87
-    if-nez v0, :cond_1
+    if-nez p0, :cond_1
 
     .line 88
     invoke-static {p1}, Lio/reactivex/internal/subscriptions/EmptySubscription;->complete(Lorg/reactivestreams/Subscriber;)V
 
-    .line 89
-    return v1
+    return v0
 
     .line 91
     :cond_1
-    new-instance v4, Lio/reactivex/internal/subscriptions/ScalarSubscription;
+    new-instance p2, Lio/reactivex/internal/subscriptions/ScalarSubscription;
 
-    invoke-direct {v4, p1, v0}, Lio/reactivex/internal/subscriptions/ScalarSubscription;-><init>(Lorg/reactivestreams/Subscriber;Ljava/lang/Object;)V
+    invoke-direct {p2, p1, p0}, Lio/reactivex/internal/subscriptions/ScalarSubscription;-><init>(Lorg/reactivestreams/Subscriber;Ljava/lang/Object;)V
 
-    invoke-interface {p1, v4}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
+    invoke-interface {p1, p2}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
-    .line 92
-    .end local v0    # "u":Ljava/lang/Object;, "TR;"
     goto :goto_0
 
-    .line 81
     :catchall_0
-    move-exception v4
+    move-exception p0
 
     .line 82
-    .restart local v0    # "u":Ljava/lang/Object;, "TR;"
-    .local v4, "ex":Ljava/lang/Throwable;
-    invoke-static {v4}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 83
-    invoke-static {v4, p1}, Lio/reactivex/internal/subscriptions/EmptySubscription;->error(Ljava/lang/Throwable;Lorg/reactivestreams/Subscriber;)V
-
-    .line 84
-    return v1
-
-    .line 93
-    .end local v0    # "u":Ljava/lang/Object;, "TR;"
-    .end local v4    # "ex":Ljava/lang/Throwable;
-    :cond_2
-    invoke-interface {v3, p1}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
-
-    .line 96
-    :goto_0
-    return v1
-
-    .line 70
-    .end local v3    # "r":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TR;>;"
-    :catchall_1
-    move-exception v3
-
-    .line 71
-    .local v0, "r":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TR;>;"
-    .local v3, "ex":Ljava/lang/Throwable;
-    invoke-static {v3}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
-
-    .line 72
-    invoke-static {v3, p1}, Lio/reactivex/internal/subscriptions/EmptySubscription;->error(Ljava/lang/Throwable;Lorg/reactivestreams/Subscriber;)V
-
-    .line 73
-    return v1
-
-    .line 55
-    .end local v0    # "r":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TR;>;"
-    .end local v2    # "t":Ljava/lang/Object;, "TT;"
-    .end local v3    # "ex":Ljava/lang/Throwable;
-    :catchall_2
-    move-exception v2
-
-    .line 56
-    .local v0, "t":Ljava/lang/Object;, "TT;"
-    .local v2, "ex":Ljava/lang/Throwable;
-    invoke-static {v2}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
-
-    .line 57
-    invoke-static {v2, p1}, Lio/reactivex/internal/subscriptions/EmptySubscription;->error(Ljava/lang/Throwable;Lorg/reactivestreams/Subscriber;)V
-
-    .line 58
-    return v1
-
-    .line 98
-    .end local v0    # "t":Ljava/lang/Object;, "TT;"
-    .end local v2    # "ex":Ljava/lang/Throwable;
-    :cond_3
-    const/4 v0, 0x0
+    invoke-static {p0, p1}, Lio/reactivex/internal/subscriptions/EmptySubscription;->error(Ljava/lang/Throwable;Lorg/reactivestreams/Subscriber;)V
 
     return v0
+
+    .line 93
+    :cond_2
+    invoke-interface {p0, p1}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
+
+    :goto_0
+    return v0
+
+    :catchall_1
+    move-exception p0
+
+    .line 71
+    invoke-static {p0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+
+    .line 72
+    invoke-static {p0, p1}, Lio/reactivex/internal/subscriptions/EmptySubscription;->error(Ljava/lang/Throwable;Lorg/reactivestreams/Subscriber;)V
+
+    return v0
+
+    :catchall_2
+    move-exception p0
+
+    .line 56
+    invoke-static {p0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+
+    .line 57
+    invoke-static {p0, p1}, Lio/reactivex/internal/subscriptions/EmptySubscription;->error(Ljava/lang/Throwable;Lorg/reactivestreams/Subscriber;)V
+
+    return v0
+
+    :cond_3
+    const/4 p0, 0x0
+
+    return p0
 .end method

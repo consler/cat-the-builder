@@ -38,36 +38,30 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections4/queue/CircularFifoQueue;)V
     .locals 1
-    .param p1, "this$0"    # Lorg/apache/commons/collections4/queue/CircularFifoQueue;
 
     .line 371
-    .local p0, "this":Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;, "Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;"
     iput-object p1, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->this$0:Lorg/apache/commons/collections4/queue/CircularFifoQueue;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 373
-    iget-object v0, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->this$0:Lorg/apache/commons/collections4/queue/CircularFifoQueue;
-
-    invoke-static {v0}, Lorg/apache/commons/collections4/queue/CircularFifoQueue;->access$000(Lorg/apache/commons/collections4/queue/CircularFifoQueue;)I
+    invoke-static {p1}, Lorg/apache/commons/collections4/queue/CircularFifoQueue;->access$000(Lorg/apache/commons/collections4/queue/CircularFifoQueue;)I
 
     move-result v0
 
     iput v0, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->index:I
 
-    .line 374
     const/4 v0, -0x1
 
+    .line 374
     iput v0, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->lastReturnedIndex:I
 
     .line 375
-    iget-object v0, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->this$0:Lorg/apache/commons/collections4/queue/CircularFifoQueue;
+    invoke-static {p1}, Lorg/apache/commons/collections4/queue/CircularFifoQueue;->access$100(Lorg/apache/commons/collections4/queue/CircularFifoQueue;)Z
 
-    invoke-static {v0}, Lorg/apache/commons/collections4/queue/CircularFifoQueue;->access$100(Lorg/apache/commons/collections4/queue/CircularFifoQueue;)Z
+    move-result p1
 
-    move-result v0
-
-    iput-boolean v0, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->isFirst:Z
+    iput-boolean p1, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->isFirst:Z
 
     return-void
 .end method
@@ -78,7 +72,6 @@
     .locals 2
 
     .line 379
-    .local p0, "this":Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;, "Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->isFirst:Z
 
     if-nez v0, :cond_1
@@ -117,16 +110,15 @@
     .end annotation
 
     .line 384
-    .local p0, "this":Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;, "Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->hasNext()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 387
     const/4 v0, 0x0
 
+    .line 387
     iput-boolean v0, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->isFirst:Z
 
     .line 388
@@ -169,7 +161,6 @@
     .locals 7
 
     .line 395
-    .local p0, "this":Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;, "Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;"
     iget v0, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->lastReturnedIndex:I
 
     const/4 v1, -0x1
@@ -193,7 +184,6 @@
     .line 402
     iput v1, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->lastReturnedIndex:I
 
-    .line 403
     return-void
 
     .line 406
@@ -203,7 +193,6 @@
     add-int/lit8 v0, v0, 0x1
 
     .line 407
-    .local v0, "pos":I
     iget-object v2, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->this$0:Lorg/apache/commons/collections4/queue/CircularFifoQueue;
 
     invoke-static {v2}, Lorg/apache/commons/collections4/queue/CircularFifoQueue;->access$000(Lorg/apache/commons/collections4/queue/CircularFifoQueue;)I
@@ -278,20 +267,19 @@
 
     move-result-object v2
 
-    add-int/lit8 v3, v0, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    iget-object v5, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->this$0:Lorg/apache/commons/collections4/queue/CircularFifoQueue;
+    iget-object v3, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->this$0:Lorg/apache/commons/collections4/queue/CircularFifoQueue;
 
-    invoke-static {v5}, Lorg/apache/commons/collections4/queue/CircularFifoQueue;->access$400(Lorg/apache/commons/collections4/queue/CircularFifoQueue;)[Ljava/lang/Object;
+    invoke-static {v3}, Lorg/apache/commons/collections4/queue/CircularFifoQueue;->access$400(Lorg/apache/commons/collections4/queue/CircularFifoQueue;)[Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v3
 
-    aget-object v5, v5, v4
+    aget-object v3, v3, v4
 
-    aput-object v5, v2, v3
+    aput-object v3, v2, v0
 
-    .line 415
-    const/4 v0, 0x0
+    move v0, v4
 
     goto :goto_0
 
@@ -334,56 +322,54 @@
     iput v1, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->lastReturnedIndex:I
 
     .line 424
+    iget-object v0, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->this$0:Lorg/apache/commons/collections4/queue/CircularFifoQueue;
+
+    invoke-static {v0}, Lorg/apache/commons/collections4/queue/CircularFifoQueue;->access$200(Lorg/apache/commons/collections4/queue/CircularFifoQueue;)I
+
+    move-result v1
+
+    invoke-static {v0, v1}, Lorg/apache/commons/collections4/queue/CircularFifoQueue;->access$600(Lorg/apache/commons/collections4/queue/CircularFifoQueue;I)I
+
+    move-result v1
+
+    invoke-static {v0, v1}, Lorg/apache/commons/collections4/queue/CircularFifoQueue;->access$202(Lorg/apache/commons/collections4/queue/CircularFifoQueue;I)I
+
+    .line 425
+    iget-object v0, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->this$0:Lorg/apache/commons/collections4/queue/CircularFifoQueue;
+
+    invoke-static {v0}, Lorg/apache/commons/collections4/queue/CircularFifoQueue;->access$400(Lorg/apache/commons/collections4/queue/CircularFifoQueue;)[Ljava/lang/Object;
+
+    move-result-object v0
+
     iget-object v1, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->this$0:Lorg/apache/commons/collections4/queue/CircularFifoQueue;
 
     invoke-static {v1}, Lorg/apache/commons/collections4/queue/CircularFifoQueue;->access$200(Lorg/apache/commons/collections4/queue/CircularFifoQueue;)I
 
-    move-result v2
-
-    invoke-static {v1, v2}, Lorg/apache/commons/collections4/queue/CircularFifoQueue;->access$600(Lorg/apache/commons/collections4/queue/CircularFifoQueue;I)I
-
-    move-result v2
-
-    invoke-static {v1, v2}, Lorg/apache/commons/collections4/queue/CircularFifoQueue;->access$202(Lorg/apache/commons/collections4/queue/CircularFifoQueue;I)I
-
-    .line 425
-    iget-object v1, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->this$0:Lorg/apache/commons/collections4/queue/CircularFifoQueue;
-
-    invoke-static {v1}, Lorg/apache/commons/collections4/queue/CircularFifoQueue;->access$400(Lorg/apache/commons/collections4/queue/CircularFifoQueue;)[Ljava/lang/Object;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->this$0:Lorg/apache/commons/collections4/queue/CircularFifoQueue;
-
-    invoke-static {v2}, Lorg/apache/commons/collections4/queue/CircularFifoQueue;->access$200(Lorg/apache/commons/collections4/queue/CircularFifoQueue;)I
-
-    move-result v2
-
-    const/4 v3, 0x0
-
-    aput-object v3, v1, v2
-
-    .line 426
-    iget-object v1, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->this$0:Lorg/apache/commons/collections4/queue/CircularFifoQueue;
-
-    invoke-static {v1, v4}, Lorg/apache/commons/collections4/queue/CircularFifoQueue;->access$102(Lorg/apache/commons/collections4/queue/CircularFifoQueue;Z)Z
-
-    .line 427
-    iget-object v1, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->this$0:Lorg/apache/commons/collections4/queue/CircularFifoQueue;
-
-    iget v2, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->index:I
-
-    invoke-static {v1, v2}, Lorg/apache/commons/collections4/queue/CircularFifoQueue;->access$600(Lorg/apache/commons/collections4/queue/CircularFifoQueue;I)I
-
     move-result v1
 
-    iput v1, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->index:I
+    const/4 v2, 0x0
 
-    .line 428
+    aput-object v2, v0, v1
+
+    .line 426
+    iget-object v0, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->this$0:Lorg/apache/commons/collections4/queue/CircularFifoQueue;
+
+    invoke-static {v0, v4}, Lorg/apache/commons/collections4/queue/CircularFifoQueue;->access$102(Lorg/apache/commons/collections4/queue/CircularFifoQueue;Z)Z
+
+    .line 427
+    iget-object v0, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->this$0:Lorg/apache/commons/collections4/queue/CircularFifoQueue;
+
+    iget v1, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->index:I
+
+    invoke-static {v0, v1}, Lorg/apache/commons/collections4/queue/CircularFifoQueue;->access$600(Lorg/apache/commons/collections4/queue/CircularFifoQueue;I)I
+
+    move-result v0
+
+    iput v0, p0, Lorg/apache/commons/collections4/queue/CircularFifoQueue$1;->index:I
+
     return-void
 
     .line 396
-    .end local v0    # "pos":I
     :cond_4
     new-instance v0, Ljava/lang/IllegalStateException;
 

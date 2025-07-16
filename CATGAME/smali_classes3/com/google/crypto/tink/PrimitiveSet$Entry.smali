@@ -43,11 +43,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;[BLcom/google/crypto/tink/proto/KeyStatusType;Lcom/google/crypto/tink/proto/OutputPrefixType;I)V
-    .locals 1
-    .param p2, "identifier"    # [B
-    .param p3, "status"    # Lcom/google/crypto/tink/proto/KeyStatusType;
-    .param p4, "outputPrefixType"    # Lcom/google/crypto/tink/proto/OutputPrefixType;
-    .param p5, "keyId"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -75,21 +71,19 @@
     .end annotation
 
     .line 74
-    .local p0, "this":Lcom/google/crypto/tink/PrimitiveSet$Entry;, "Lcom/google/crypto/tink/PrimitiveSet$Entry<TP;>;"
-    .local p1, "primitive":Ljava/lang/Object;, "TP;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 75
     iput-object p1, p0, Lcom/google/crypto/tink/PrimitiveSet$Entry;->primitive:Ljava/lang/Object;
 
     .line 76
-    array-length v0, p2
+    array-length p1, p2
 
-    invoke-static {p2, v0}, Ljava/util/Arrays;->copyOf([BI)[B
+    invoke-static {p2, p1}, Ljava/util/Arrays;->copyOf([BI)[B
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/google/crypto/tink/PrimitiveSet$Entry;->identifier:[B
+    iput-object p1, p0, Lcom/google/crypto/tink/PrimitiveSet$Entry;->identifier:[B
 
     .line 77
     iput-object p3, p0, Lcom/google/crypto/tink/PrimitiveSet$Entry;->status:Lcom/google/crypto/tink/proto/KeyStatusType;
@@ -100,7 +94,6 @@
     .line 79
     iput p5, p0, Lcom/google/crypto/tink/PrimitiveSet$Entry;->keyId:I
 
-    .line 80
     return-void
 .end method
 
@@ -110,12 +103,10 @@
     .locals 2
 
     .line 95
-    .local p0, "this":Lcom/google/crypto/tink/PrimitiveSet$Entry;, "Lcom/google/crypto/tink/PrimitiveSet$Entry<TP;>;"
     iget-object v0, p0, Lcom/google/crypto/tink/PrimitiveSet$Entry;->identifier:[B
 
     if-nez v0, :cond_0
 
-    .line 96
     const/4 v0, 0x0
 
     return-object v0
@@ -135,7 +126,6 @@
     .locals 1
 
     .line 103
-    .local p0, "this":Lcom/google/crypto/tink/PrimitiveSet$Entry;, "Lcom/google/crypto/tink/PrimitiveSet$Entry<TP;>;"
     iget v0, p0, Lcom/google/crypto/tink/PrimitiveSet$Entry;->keyId:I
 
     return v0
@@ -145,7 +135,6 @@
     .locals 1
 
     .line 91
-    .local p0, "this":Lcom/google/crypto/tink/PrimitiveSet$Entry;, "Lcom/google/crypto/tink/PrimitiveSet$Entry<TP;>;"
     iget-object v0, p0, Lcom/google/crypto/tink/PrimitiveSet$Entry;->outputPrefixType:Lcom/google/crypto/tink/proto/OutputPrefixType;
 
     return-object v0
@@ -160,7 +149,6 @@
     .end annotation
 
     .line 83
-    .local p0, "this":Lcom/google/crypto/tink/PrimitiveSet$Entry;, "Lcom/google/crypto/tink/PrimitiveSet$Entry<TP;>;"
     iget-object v0, p0, Lcom/google/crypto/tink/PrimitiveSet$Entry;->primitive:Ljava/lang/Object;
 
     return-object v0
@@ -170,7 +158,6 @@
     .locals 1
 
     .line 87
-    .local p0, "this":Lcom/google/crypto/tink/PrimitiveSet$Entry;, "Lcom/google/crypto/tink/PrimitiveSet$Entry<TP;>;"
     iget-object v0, p0, Lcom/google/crypto/tink/PrimitiveSet$Entry;->status:Lcom/google/crypto/tink/proto/KeyStatusType;
 
     return-object v0

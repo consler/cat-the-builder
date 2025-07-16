@@ -90,6 +90,5 @@
 
     invoke-virtual {v0}, Lorg/koin/core/Koin;->createRootScope()V
 
-    .line 71
     return-void
 .end method

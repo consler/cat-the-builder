@@ -71,7 +71,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/MaybeObserver;Lio/reactivex/functions/Function;Z)V
     .locals 0
-    .param p3, "allowFatal"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -87,9 +86,6 @@
     .end annotation
 
     .line 64
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
-    .local p2, "resumeFunction":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Ljava/lang/Throwable;+Lio/reactivex/MaybeSource<+TT;>;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 65
@@ -101,7 +97,6 @@
     .line 67
     iput-boolean p3, p0, Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver;->allowFatal:Z
 
-    .line 68
     return-void
 .end method
 
@@ -111,10 +106,8 @@
     .locals 0
 
     .line 72
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver<TT;>;"
     invoke-static {p0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 73
     return-void
 .end method
 
@@ -122,7 +115,6 @@
     .locals 1
 
     .line 77
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -140,21 +132,17 @@
     .locals 1
 
     .line 115
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
 
     invoke-interface {v0}, Lio/reactivex/MaybeObserver;->onComplete()V
 
-    .line 116
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
-    .locals 6
-    .param p1, "e"    # Ljava/lang/Throwable;
+    .locals 5
 
     .line 94
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver;->allowFatal:Z
 
     if-nez v0, :cond_0
@@ -168,102 +156,88 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/MaybeObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 96
     return-void
 
     .line 101
     :cond_0
-    const/4 v0, 0x0
-
     :try_start_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver;->resumeFunction:Lio/reactivex/functions/Function;
+    iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver;->resumeFunction:Lio/reactivex/functions/Function;
 
-    invoke-interface {v1, p1}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string v2, "The resumeFunction returned a null MaybeSource"
+    const-string v1, "The resumeFunction returned a null MaybeSource"
 
-    invoke-static {v1, v2}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v0, v1}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lio/reactivex/MaybeSource;
+    check-cast v0, Lio/reactivex/MaybeSource;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 106
-    .local v1, "m":Lio/reactivex/MaybeSource;, "Lio/reactivex/MaybeSource<+TT;>;"
-    nop
+    const/4 p1, 0x0
 
     .line 108
-    invoke-static {p0, v0}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
+    invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
     .line 110
-    new-instance v0, Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver$NextMaybeObserver;
+    new-instance p1, Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver$NextMaybeObserver;
 
-    iget-object v2, p0, Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
+    iget-object v1, p0, Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
 
-    invoke-direct {v0, v2, p0}, Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver$NextMaybeObserver;-><init>(Lio/reactivex/MaybeObserver;Ljava/util/concurrent/atomic/AtomicReference;)V
+    invoke-direct {p1, v1, p0}, Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver$NextMaybeObserver;-><init>(Lio/reactivex/MaybeObserver;Ljava/util/concurrent/atomic/AtomicReference;)V
 
-    invoke-interface {v1, v0}, Lio/reactivex/MaybeSource;->subscribe(Lio/reactivex/MaybeObserver;)V
+    invoke-interface {v0, p1}, Lio/reactivex/MaybeSource;->subscribe(Lio/reactivex/MaybeObserver;)V
 
-    .line 111
     return-void
 
-    .line 102
-    .end local v1    # "m":Lio/reactivex/MaybeSource;, "Lio/reactivex/MaybeSource<+TT;>;"
     :catchall_0
-    move-exception v1
+    move-exception v0
 
     .line 103
-    .local v0, "m":Lio/reactivex/MaybeSource;, "Lio/reactivex/MaybeSource<+TT;>;"
-    .local v1, "ex":Ljava/lang/Throwable;
-    invoke-static {v1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 104
-    iget-object v2, p0, Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
+    iget-object v1, p0, Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
 
-    new-instance v3, Lio/reactivex/exceptions/CompositeException;
+    new-instance v2, Lio/reactivex/exceptions/CompositeException;
 
-    const/4 v4, 0x2
+    const/4 v3, 0x2
 
-    new-array v4, v4, [Ljava/lang/Throwable;
+    new-array v3, v3, [Ljava/lang/Throwable;
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    aput-object p1, v4, v5
+    aput-object p1, v3, v4
 
-    const/4 v5, 0x1
+    const/4 p1, 0x1
 
-    aput-object v1, v4, v5
+    aput-object v0, v3, p1
 
-    invoke-direct {v3, v4}, Lio/reactivex/exceptions/CompositeException;-><init>([Ljava/lang/Throwable;)V
+    invoke-direct {v2, v3}, Lio/reactivex/exceptions/CompositeException;-><init>([Ljava/lang/Throwable;)V
 
-    invoke-interface {v2, v3}, Lio/reactivex/MaybeObserver;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v1, v2}, Lio/reactivex/MaybeObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 105
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
-    .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
+    .locals 0
 
     .line 82
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver<TT;>;"
     invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 83
-    iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
 
-    invoke-interface {v0, p0}, Lio/reactivex/MaybeObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/MaybeObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 85
     :cond_0
     return-void
 .end method
@@ -277,12 +251,9 @@
     .end annotation
 
     .line 89
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeOnErrorNext$OnErrorNextMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
 
     invoke-interface {v0, p1}, Lio/reactivex/MaybeObserver;->onSuccess(Ljava/lang/Object;)V
 
-    .line 90
     return-void
 .end method

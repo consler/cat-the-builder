@@ -39,8 +39,6 @@
     .end annotation
 
     .line 72
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDelay$Delay$OnSuccess;, "Lio/reactivex/internal/operators/single/SingleDelay<TT;>.Delay.OnSuccess;"
-    .local p2, "value":Ljava/lang/Object;, "TT;"
     iput-object p1, p0, Lio/reactivex/internal/operators/single/SingleDelay$Delay$OnSuccess;->this$1:Lio/reactivex/internal/operators/single/SingleDelay$Delay;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +46,6 @@
     .line 73
     iput-object p2, p0, Lio/reactivex/internal/operators/single/SingleDelay$Delay$OnSuccess;->value:Ljava/lang/Object;
 
-    .line 74
     return-void
 .end method
 
@@ -58,7 +55,6 @@
     .locals 2
 
     .line 78
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDelay$Delay$OnSuccess;, "Lio/reactivex/internal/operators/single/SingleDelay<TT;>.Delay.OnSuccess;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleDelay$Delay$OnSuccess;->this$1:Lio/reactivex/internal/operators/single/SingleDelay$Delay;
 
     iget-object v0, v0, Lio/reactivex/internal/operators/single/SingleDelay$Delay;->s:Lio/reactivex/SingleObserver;
@@ -67,6 +63,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/SingleObserver;->onSuccess(Ljava/lang/Object;)V
 
-    .line 79
     return-void
 .end method

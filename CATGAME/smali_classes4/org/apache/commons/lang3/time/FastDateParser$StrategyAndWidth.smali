@@ -23,8 +23,6 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/lang3/time/FastDateParser$Strategy;I)V
     .locals 0
-    .param p1, "strategy"    # Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
-    .param p2, "width"    # I
 
     .line 183
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,14 +33,13 @@
     .line 185
     iput p2, p0, Lorg/apache/commons/lang3/time/FastDateParser$StrategyAndWidth;->width:I
 
-    .line 186
     return-void
 .end method
 
 
 # virtual methods
 .method getMaxWidth(Ljava/util/ListIterator;)I
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -53,7 +50,6 @@
     .end annotation
 
     .line 189
-    .local p1, "lt":Ljava/util/ListIterator;, "Ljava/util/ListIterator<Lorg/apache/commons/lang3/time/FastDateParser$StrategyAndWidth;>;"
     iget-object v0, p0, Lorg/apache/commons/lang3/time/FastDateParser$StrategyAndWidth;->strategy:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
     invoke-virtual {v0}, Lorg/apache/commons/lang3/time/FastDateParser$Strategy;->isNumber()Z
@@ -62,7 +58,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     invoke-interface {p1}, Ljava/util/ListIterator;->hasNext()Z
 
@@ -83,24 +79,18 @@
     iget-object v0, v0, Lorg/apache/commons/lang3/time/FastDateParser$StrategyAndWidth;->strategy:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
     .line 193
-    .local v0, "nextStrategy":Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
     invoke-interface {p1}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
 
     .line 194
     invoke-virtual {v0}, Lorg/apache/commons/lang3/time/FastDateParser$Strategy;->isNumber()Z
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_1
+    if-eqz p1, :cond_1
 
     iget v1, p0, Lorg/apache/commons/lang3/time/FastDateParser$StrategyAndWidth;->width:I
 
     :cond_1
-    return v1
-
-    .line 190
-    .end local v0    # "nextStrategy":Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
-    :cond_2
     :goto_0
     return v1
 .end method

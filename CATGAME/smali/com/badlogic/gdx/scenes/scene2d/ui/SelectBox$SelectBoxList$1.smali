@@ -30,11 +30,8 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/SelectBox$SelectBoxList;Lcom/badlogic/gdx/scenes/scene2d/ui/List$ListStyle;Lcom/badlogic/gdx/scenes/scene2d/ui/SelectBox;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/scenes/scene2d/ui/SelectBox$SelectBoxList;
-    .param p2, "style"    # Lcom/badlogic/gdx/scenes/scene2d/ui/List$ListStyle;
 
     .line 364
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/ui/SelectBox$SelectBoxList$1;, "Lcom/badlogic/gdx/scenes/scene2d/ui/SelectBox$SelectBoxList$1;"
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/SelectBox$SelectBoxList$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/SelectBox$SelectBoxList;
 
     iput-object p3, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/SelectBox$SelectBoxList$1;->val$selectBox:Lcom/badlogic/gdx/scenes/scene2d/ui/SelectBox;
@@ -56,13 +53,11 @@
     .end annotation
 
     .line 367
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/ui/SelectBox$SelectBoxList$1;, "Lcom/badlogic/gdx/scenes/scene2d/ui/SelectBox$SelectBoxList$1;"
-    .local p1, "obj":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/SelectBox$SelectBoxList$1;->val$selectBox:Lcom/badlogic/gdx/scenes/scene2d/ui/SelectBox;
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/scenes/scene2d/ui/SelectBox;->toString(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

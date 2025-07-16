@@ -33,7 +33,6 @@
 
     iput-object v0, p0, Landroidx/camera/core/impl/utils/executor/HighPriorityExecutor;->mHighPriorityService:Ljava/util/concurrent/ExecutorService;
 
-    .line 33
     return-void
 .end method
 
@@ -80,10 +79,10 @@
 
     return-object v0
 
-    .line 57
     :catchall_0
     move-exception v1
 
+    .line 57
     :try_start_1
     monitor-exit v0
     :try_end_1
@@ -96,13 +95,11 @@
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
     .locals 1
-    .param p1, "command"    # Ljava/lang/Runnable;
 
     .line 64
     iget-object v0, p0, Landroidx/camera/core/impl/utils/executor/HighPriorityExecutor;->mHighPriorityService:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0, p1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 
-    .line 65
     return-void
 .end method

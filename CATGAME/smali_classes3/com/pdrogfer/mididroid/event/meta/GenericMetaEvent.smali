@@ -10,9 +10,6 @@
 # direct methods
 .method protected constructor <init>(JJLcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;)V
     .locals 7
-    .param p1, "tick"    # J
-    .param p3, "delta"    # J
-    .param p5, "info"    # Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;
 
     .line 14
     iget v5, p5, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->type:I
@@ -28,48 +25,53 @@
     invoke-direct/range {v0 .. v6}, Lcom/pdrogfer/mididroid/event/meta/MetaEvent;-><init>(JJILcom/pdrogfer/mididroid/util/VariableLengthInt;)V
 
     .line 16
-    iget-object v0, p5, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->data:[B
+    iget-object p1, p5, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->data:[B
 
-    iput-object v0, p0, Lcom/pdrogfer/mididroid/event/meta/GenericMetaEvent;->mData:[B
+    iput-object p1, p0, Lcom/pdrogfer/mididroid/event/meta/GenericMetaEvent;->mData:[B
 
     .line 18
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object p1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string p3, "Warning: GenericMetaEvent used because type ("
 
-    const-string v2, "Warning: GenericMetaEvent used because type ("
+    invoke-direct {p2, p3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget p3, p5, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->type:I
 
-    iget v2, p5, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->type:I
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    const-string v2, ") wasn\'t recognized or unexpected data length ("
+    const-string p3, ") wasn\'t recognized or unexpected data length ("
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p5, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->length:Lcom/pdrogfer/mididroid/util/VariableLengthInt;
+    move-result-object p2
 
-    invoke-virtual {v2}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;->getValue()I
+    iget-object p3, p5, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->length:Lcom/pdrogfer/mididroid/util/VariableLengthInt;
 
-    move-result v2
+    invoke-virtual {p3}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;->getValue()I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result p3
 
-    const-string v2, ") for type."
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string p3, ") for type."
 
-    move-result-object v1
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    move-result-object p2
 
-    .line 19
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-virtual {p1, p2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
     return-void
 .end method
 
@@ -77,7 +79,6 @@
 # virtual methods
 .method public compareTo(Lcom/pdrogfer/mididroid/event/MidiEvent;)I
     .locals 7
-    .param p1, "other"    # Lcom/pdrogfer/mididroid/event/MidiEvent;
 
     .line 38
     iget-wide v0, p0, Lcom/pdrogfer/mididroid/event/meta/GenericMetaEvent;->mTick:J
@@ -101,9 +102,9 @@
 
     move-result-wide v5
 
-    cmp-long v0, v3, v5
+    cmp-long p1, v3, v5
 
-    if-gez v0, :cond_0
+    if-gez p1, :cond_0
 
     goto :goto_0
 
@@ -144,16 +145,15 @@
 
     move-result-wide v5
 
-    cmp-long v0, v3, v5
+    cmp-long p1, v3, v5
 
-    if-gez v0, :cond_2
+    if-gez p1, :cond_2
 
     move v1, v2
 
     :cond_2
     return v1
 
-    .line 47
     :cond_3
     return v2
 .end method
@@ -196,7 +196,6 @@
 
 .method protected writeToFile(Ljava/io/OutputStream;)V
     .locals 1
-    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -220,6 +219,5 @@
 
     invoke-virtual {p1, v0}, Ljava/io/OutputStream;->write([B)V
 
-    .line 33
     return-void
 .end method

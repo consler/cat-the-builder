@@ -133,15 +133,9 @@
 
     invoke-direct {v0, v1, p2}, Landroidx/lifecycle/FlowLiveDataConversions$asLiveData$1;-><init>(Lkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/Continuation;)V
 
-    move-object v1, p1
+    check-cast p1, Landroidx/lifecycle/LiveDataScope;
 
-    check-cast v1, Landroidx/lifecycle/LiveDataScope;
-
-    move-object v1, p1
-
-    check-cast v1, Landroidx/lifecycle/LiveDataScope;
-
-    iput-object v1, v0, Landroidx/lifecycle/FlowLiveDataConversions$asLiveData$1;->p$:Landroidx/lifecycle/LiveDataScope;
+    iput-object p1, v0, Landroidx/lifecycle/FlowLiveDataConversions$asLiveData$1;->p$:Landroidx/lifecycle/LiveDataScope;
 
     return-object v0
 .end method
@@ -167,8 +161,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 6
-    .param p1, "$result"    # Ljava/lang/Object;
+    .locals 4
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -183,89 +176,62 @@
 
     if-ne v1, v2, :cond_0
 
-    const/4 v0, 0x0
-
-    move-object v1, v0
-
-    .local v0, "$this$collect$iv":Lkotlinx/coroutines/flow/Flow;
-    .local v1, "$this$liveData":Landroidx/lifecycle/LiveDataScope;
-    const/4 v2, 0x0
-
-    .local v2, "$i$f$collect":I
-    iget-object v3, p0, Landroidx/lifecycle/FlowLiveDataConversions$asLiveData$1;->L$1:Ljava/lang/Object;
-
-    move-object v0, v3
+    iget-object v0, p0, Landroidx/lifecycle/FlowLiveDataConversions$asLiveData$1;->L$1:Ljava/lang/Object;
 
     check-cast v0, Lkotlinx/coroutines/flow/Flow;
 
-    iget-object v3, p0, Landroidx/lifecycle/FlowLiveDataConversions$asLiveData$1;->L$0:Ljava/lang/Object;
+    iget-object v0, p0, Landroidx/lifecycle/FlowLiveDataConversions$asLiveData$1;->L$0:Ljava/lang/Object;
 
-    move-object v1, v3
-
-    check-cast v1, Landroidx/lifecycle/LiveDataScope;
+    check-cast v0, Landroidx/lifecycle/LiveDataScope;
 
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     goto :goto_0
 
     .line 73
-    .end local v0    # "$this$collect$iv":Lkotlinx/coroutines/flow/Flow;
-    .end local v1    # "$this$liveData":Landroidx/lifecycle/LiveDataScope;
-    .end local v2    # "$i$f$collect":I
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "call to \'resume\' before \'invoke\' with coroutine"
+    const-string v0, "call to \'resume\' before \'invoke\' with coroutine"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 69
     :cond_1
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    iget-object v1, p0, Landroidx/lifecycle/FlowLiveDataConversions$asLiveData$1;->p$:Landroidx/lifecycle/LiveDataScope;
+    iget-object p1, p0, Landroidx/lifecycle/FlowLiveDataConversions$asLiveData$1;->p$:Landroidx/lifecycle/LiveDataScope;
 
     .line 70
-    .restart local v1    # "$this$liveData":Landroidx/lifecycle/LiveDataScope;
-    iget-object v3, p0, Landroidx/lifecycle/FlowLiveDataConversions$asLiveData$1;->$this_asLiveData:Lkotlinx/coroutines/flow/Flow;
-
-    .local v3, "$this$collect$iv":Lkotlinx/coroutines/flow/Flow;
-    const/4 v4, 0x0
+    iget-object v1, p0, Landroidx/lifecycle/FlowLiveDataConversions$asLiveData$1;->$this_asLiveData:Lkotlinx/coroutines/flow/Flow;
 
     .line 139
-    .local v4, "$i$f$collect":I
-    new-instance v5, Landroidx/lifecycle/FlowLiveDataConversions$asLiveData$1$invokeSuspend$$inlined$collect$1;
+    new-instance v3, Landroidx/lifecycle/FlowLiveDataConversions$asLiveData$1$invokeSuspend$$inlined$collect$1;
 
-    invoke-direct {v5, v1}, Landroidx/lifecycle/FlowLiveDataConversions$asLiveData$1$invokeSuspend$$inlined$collect$1;-><init>(Landroidx/lifecycle/LiveDataScope;)V
+    invoke-direct {v3, p1}, Landroidx/lifecycle/FlowLiveDataConversions$asLiveData$1$invokeSuspend$$inlined$collect$1;-><init>(Landroidx/lifecycle/LiveDataScope;)V
 
-    check-cast v5, Lkotlinx/coroutines/flow/FlowCollector;
+    check-cast v3, Lkotlinx/coroutines/flow/FlowCollector;
 
-    iput-object v1, p0, Landroidx/lifecycle/FlowLiveDataConversions$asLiveData$1;->L$0:Ljava/lang/Object;
+    iput-object p1, p0, Landroidx/lifecycle/FlowLiveDataConversions$asLiveData$1;->L$0:Ljava/lang/Object;
 
-    iput-object v3, p0, Landroidx/lifecycle/FlowLiveDataConversions$asLiveData$1;->L$1:Ljava/lang/Object;
+    iput-object v1, p0, Landroidx/lifecycle/FlowLiveDataConversions$asLiveData$1;->L$1:Ljava/lang/Object;
 
     iput v2, p0, Landroidx/lifecycle/FlowLiveDataConversions$asLiveData$1;->label:I
 
-    invoke-interface {v3, v5, p0}, Lkotlinx/coroutines/flow/Flow;->collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    invoke-interface {v1, v3, p0}, Lkotlinx/coroutines/flow/Flow;->collect(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    if-ne v2, v0, :cond_2
+    if-ne p1, v0, :cond_2
 
-    .line 69
     return-object v0
-
-    .line 141
-    .end local v3    # "$this$collect$iv":Lkotlinx/coroutines/flow/Flow;
-    .end local v4    # "$i$f$collect":I
-    :cond_2
-    :goto_0
-    nop
 
     .line 73
-    sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    :cond_2
+    :goto_0
+    sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    return-object v0
+    return-object p1
 .end method

@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/AsyncSocketMiddleware;Lcom/koushikdutta/async/ArrayDeque;Lcom/koushikdutta/async/http/AsyncSocketMiddleware$IdleSocketHolder;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/AsyncSocketMiddleware;
 
     .line 301
     iput-object p1, p0, Lcom/koushikdutta/async/http/AsyncSocketMiddleware$2;->this$0:Lcom/koushikdutta/async/http/AsyncSocketMiddleware;
@@ -49,42 +48,39 @@
 
 # virtual methods
 .method public onCompleted(Ljava/lang/Exception;)V
-    .locals 3
-    .param p1, "ex"    # Ljava/lang/Exception;
+    .locals 2
 
     .line 304
-    iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncSocketMiddleware$2;->this$0:Lcom/koushikdutta/async/http/AsyncSocketMiddleware;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/AsyncSocketMiddleware$2;->this$0:Lcom/koushikdutta/async/http/AsyncSocketMiddleware;
 
-    monitor-enter v0
+    monitor-enter p1
 
     .line 305
     :try_start_0
-    iget-object v1, p0, Lcom/koushikdutta/async/http/AsyncSocketMiddleware$2;->val$sockets:Lcom/koushikdutta/async/ArrayDeque;
+    iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncSocketMiddleware$2;->val$sockets:Lcom/koushikdutta/async/ArrayDeque;
 
-    iget-object v2, p0, Lcom/koushikdutta/async/http/AsyncSocketMiddleware$2;->val$idleSocketHolder:Lcom/koushikdutta/async/http/AsyncSocketMiddleware$IdleSocketHolder;
+    iget-object v1, p0, Lcom/koushikdutta/async/http/AsyncSocketMiddleware$2;->val$idleSocketHolder:Lcom/koushikdutta/async/http/AsyncSocketMiddleware$IdleSocketHolder;
 
-    invoke-virtual {v1, v2}, Lcom/koushikdutta/async/ArrayDeque;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Lcom/koushikdutta/async/ArrayDeque;->remove(Ljava/lang/Object;)Z
 
     .line 306
-    iget-object v1, p0, Lcom/koushikdutta/async/http/AsyncSocketMiddleware$2;->this$0:Lcom/koushikdutta/async/http/AsyncSocketMiddleware;
+    iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncSocketMiddleware$2;->this$0:Lcom/koushikdutta/async/http/AsyncSocketMiddleware;
 
-    iget-object v2, p0, Lcom/koushikdutta/async/http/AsyncSocketMiddleware$2;->val$lookup:Ljava/lang/String;
+    iget-object v1, p0, Lcom/koushikdutta/async/http/AsyncSocketMiddleware$2;->val$lookup:Ljava/lang/String;
 
-    invoke-static {v1, v2}, Lcom/koushikdutta/async/http/AsyncSocketMiddleware;->access$200(Lcom/koushikdutta/async/http/AsyncSocketMiddleware;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/koushikdutta/async/http/AsyncSocketMiddleware;->access$200(Lcom/koushikdutta/async/http/AsyncSocketMiddleware;Ljava/lang/String;)V
 
     .line 307
-    monitor-exit v0
+    monitor-exit p1
 
-    .line 308
     return-void
 
-    .line 307
     :catchall_0
-    move-exception v1
+    move-exception v0
 
-    monitor-exit v0
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw v0
 .end method

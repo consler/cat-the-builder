@@ -18,7 +18,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/CompletableOnSubscribe;)V
     .locals 0
-    .param p1, "source"    # Lio/reactivex/CompletableOnSubscribe;
 
     .line 29
     invoke-direct {p0}, Lio/reactivex/Completable;-><init>()V
@@ -26,15 +25,13 @@
     .line 30
     iput-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableCreate;->source:Lio/reactivex/CompletableOnSubscribe;
 
-    .line 31
     return-void
 .end method
 
 
 # virtual methods
 .method protected subscribeActual(Lio/reactivex/CompletableObserver;)V
-    .locals 2
-    .param p1, "s"    # Lio/reactivex/CompletableObserver;
+    .locals 1
 
     .line 35
     new-instance v0, Lio/reactivex/internal/operators/completable/CompletableCreate$Emitter;
@@ -42,33 +39,27 @@
     invoke-direct {v0, p1}, Lio/reactivex/internal/operators/completable/CompletableCreate$Emitter;-><init>(Lio/reactivex/CompletableObserver;)V
 
     .line 36
-    .local v0, "parent":Lio/reactivex/internal/operators/completable/CompletableCreate$Emitter;
     invoke-interface {p1, v0}, Lio/reactivex/CompletableObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 39
     :try_start_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/completable/CompletableCreate;->source:Lio/reactivex/CompletableOnSubscribe;
+    iget-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableCreate;->source:Lio/reactivex/CompletableOnSubscribe;
 
-    invoke-interface {v1, v0}, Lio/reactivex/CompletableOnSubscribe;->subscribe(Lio/reactivex/CompletableEmitter;)V
+    invoke-interface {p1, v0}, Lio/reactivex/CompletableOnSubscribe;->subscribe(Lio/reactivex/CompletableEmitter;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 43
     goto :goto_0
 
-    .line 40
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     .line 41
-    .local v1, "ex":Ljava/lang/Throwable;
-    invoke-static {v1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 42
-    invoke-virtual {v0, v1}, Lio/reactivex/internal/operators/completable/CompletableCreate$Emitter;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {v0, p1}, Lio/reactivex/internal/operators/completable/CompletableCreate$Emitter;->onError(Ljava/lang/Throwable;)V
 
-    .line 44
-    .end local v1    # "ex":Ljava/lang/Throwable;
     :goto_0
     return-void
 .end method

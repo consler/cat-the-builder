@@ -21,54 +21,45 @@
 # direct methods
 .method public constructor <init>(Lorg/apache/commons/collections/map/AbstractReferenceMap;Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;ILjava/lang/Object;Ljava/lang/Object;)V
     .locals 1
-    .param p1, "parent"    # Lorg/apache/commons/collections/map/AbstractReferenceMap;
-    .param p2, "next"    # Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
-    .param p3, "hashCode"    # I
-    .param p4, "key"    # Ljava/lang/Object;
-    .param p5, "value"    # Ljava/lang/Object;
 
-    .line 574
     const/4 v0, 0x0
 
+    .line 574
     invoke-direct {p0, p2, p3, v0, v0}, Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;-><init>(Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;ILjava/lang/Object;Ljava/lang/Object;)V
 
     .line 575
     iput-object p1, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->parent:Lorg/apache/commons/collections/map/AbstractReferenceMap;
 
     .line 576
-    iget v0, p1, Lorg/apache/commons/collections/map/AbstractReferenceMap;->keyType:I
+    iget p2, p1, Lorg/apache/commons/collections/map/AbstractReferenceMap;->keyType:I
 
-    invoke-virtual {p0, v0, p4, p3}, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->toReference(ILjava/lang/Object;I)Ljava/lang/Object;
+    invoke-virtual {p0, p2, p4, p3}, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->toReference(ILjava/lang/Object;I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p2
 
-    iput-object v0, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->key:Ljava/lang/Object;
+    iput-object p2, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->key:Ljava/lang/Object;
 
     .line 577
-    iget v0, p1, Lorg/apache/commons/collections/map/AbstractReferenceMap;->valueType:I
+    iget p1, p1, Lorg/apache/commons/collections/map/AbstractReferenceMap;->valueType:I
 
-    invoke-virtual {p0, v0, p5, p3}, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->toReference(ILjava/lang/Object;I)Ljava/lang/Object;
+    invoke-virtual {p0, p1, p5, p3}, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->toReference(ILjava/lang/Object;I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->value:Ljava/lang/Object;
+    iput-object p1, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->value:Ljava/lang/Object;
 
-    .line 578
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 7
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 5
 
-    .line 625
     const/4 v0, 0x1
 
     if-ne p1, p0, :cond_0
 
-    .line 626
     return v0
 
     .line 628
@@ -79,58 +70,51 @@
 
     if-nez v1, :cond_1
 
-    .line 629
     return v2
 
     .line 632
     :cond_1
-    move-object v1, p1
-
-    check-cast v1, Ljava/util/Map$Entry;
+    check-cast p1, Ljava/util/Map$Entry;
 
     .line 633
-    .local v1, "entry":Ljava/util/Map$Entry;
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
     .line 634
-    .local v3, "entryKey":Ljava/lang/Object;
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object p1
 
-    .line 635
-    .local v4, "entryValue":Ljava/lang/Object;
-    if-eqz v3, :cond_4
+    if-eqz v1, :cond_4
 
-    if-nez v4, :cond_2
+    if-nez p1, :cond_2
 
     goto :goto_1
 
     .line 640
     :cond_2
-    iget-object v5, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->parent:Lorg/apache/commons/collections/map/AbstractReferenceMap;
+    iget-object v3, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->parent:Lorg/apache/commons/collections/map/AbstractReferenceMap;
 
-    iget-object v6, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->key:Ljava/lang/Object;
+    iget-object v4, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->key:Ljava/lang/Object;
 
-    invoke-virtual {v5, v3, v6}, Lorg/apache/commons/collections/map/AbstractReferenceMap;->isEqualKey(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-virtual {v3, v1, v4}, Lorg/apache/commons/collections/map/AbstractReferenceMap;->isEqualKey(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v1
 
-    if-eqz v5, :cond_3
+    if-eqz v1, :cond_3
 
-    iget-object v5, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->parent:Lorg/apache/commons/collections/map/AbstractReferenceMap;
+    iget-object v1, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->parent:Lorg/apache/commons/collections/map/AbstractReferenceMap;
 
     invoke-virtual {p0}, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->getValue()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v3
 
-    invoke-virtual {v5, v4, v6}, Lorg/apache/commons/collections/map/AbstractReferenceMap;->isEqualValue(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1, v3}, Lorg/apache/commons/collections/map/AbstractReferenceMap;->isEqualValue(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result p1
 
-    if-eqz v5, :cond_3
+    if-eqz p1, :cond_3
 
     goto :goto_0
 
@@ -140,7 +124,6 @@
     :goto_0
     return v0
 
-    .line 636
     :cond_4
     :goto_1
     return v2
@@ -233,8 +216,7 @@
 .end method
 
 .method purge(Ljava/lang/ref/Reference;)Z
-    .locals 4
-    .param p1, "ref"    # Ljava/lang/ref/Reference;
+    .locals 3
 
     .line 680
     iget-object v0, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->parent:Lorg/apache/commons/collections/map/AbstractReferenceMap;
@@ -258,20 +240,19 @@
     :cond_0
     move v0, v2
 
-    .line 681
-    .local v0, "r":Z
     :goto_0
     if-nez v0, :cond_2
 
-    iget-object v3, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->parent:Lorg/apache/commons/collections/map/AbstractReferenceMap;
+    .line 681
+    iget-object v0, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->parent:Lorg/apache/commons/collections/map/AbstractReferenceMap;
 
-    iget v3, v3, Lorg/apache/commons/collections/map/AbstractReferenceMap;->valueType:I
+    iget v0, v0, Lorg/apache/commons/collections/map/AbstractReferenceMap;->valueType:I
 
-    if-lez v3, :cond_1
+    if-lez v0, :cond_1
 
-    iget-object v3, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->value:Ljava/lang/Object;
+    iget-object v0, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->value:Ljava/lang/Object;
 
-    if-ne v3, p1, :cond_1
+    if-ne v0, p1, :cond_1
 
     goto :goto_1
 
@@ -280,64 +261,59 @@
 
     :cond_2
     :goto_1
-    move v0, v1
-
-    .line 682
-    if-eqz v0, :cond_5
+    if-eqz v1, :cond_5
 
     .line 683
-    iget-object v1, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->parent:Lorg/apache/commons/collections/map/AbstractReferenceMap;
+    iget-object p1, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->parent:Lorg/apache/commons/collections/map/AbstractReferenceMap;
 
-    iget v1, v1, Lorg/apache/commons/collections/map/AbstractReferenceMap;->keyType:I
+    iget p1, p1, Lorg/apache/commons/collections/map/AbstractReferenceMap;->keyType:I
 
-    if-lez v1, :cond_3
+    if-lez p1, :cond_3
 
     .line 684
-    iget-object v1, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->key:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->key:Ljava/lang/Object;
 
-    check-cast v1, Ljava/lang/ref/Reference;
+    check-cast p1, Ljava/lang/ref/Reference;
 
-    invoke-virtual {v1}, Ljava/lang/ref/Reference;->clear()V
+    invoke-virtual {p1}, Ljava/lang/ref/Reference;->clear()V
 
     .line 686
     :cond_3
-    iget-object v1, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->parent:Lorg/apache/commons/collections/map/AbstractReferenceMap;
+    iget-object p1, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->parent:Lorg/apache/commons/collections/map/AbstractReferenceMap;
 
-    iget v1, v1, Lorg/apache/commons/collections/map/AbstractReferenceMap;->valueType:I
+    iget p1, p1, Lorg/apache/commons/collections/map/AbstractReferenceMap;->valueType:I
 
-    if-lez v1, :cond_4
+    if-lez p1, :cond_4
 
     .line 687
-    iget-object v1, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->value:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->value:Ljava/lang/Object;
 
-    check-cast v1, Ljava/lang/ref/Reference;
+    check-cast p1, Ljava/lang/ref/Reference;
 
-    invoke-virtual {v1}, Ljava/lang/ref/Reference;->clear()V
+    invoke-virtual {p1}, Ljava/lang/ref/Reference;->clear()V
 
     goto :goto_2
 
     .line 688
     :cond_4
-    iget-object v1, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->parent:Lorg/apache/commons/collections/map/AbstractReferenceMap;
+    iget-object p1, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->parent:Lorg/apache/commons/collections/map/AbstractReferenceMap;
 
-    iget-boolean v1, v1, Lorg/apache/commons/collections/map/AbstractReferenceMap;->purgeValues:Z
+    iget-boolean p1, p1, Lorg/apache/commons/collections/map/AbstractReferenceMap;->purgeValues:Z
 
-    if-eqz v1, :cond_5
+    if-eqz p1, :cond_5
+
+    const/4 p1, 0x0
 
     .line 689
-    const/4 v1, 0x0
+    iput-object p1, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->value:Ljava/lang/Object;
 
-    iput-object v1, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->value:Ljava/lang/Object;
-
-    .line 692
     :cond_5
     :goto_2
-    return v0
+    return v1
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 3
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 607
     invoke-virtual {p0}, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->getValue()Ljava/lang/Object;
@@ -345,7 +321,6 @@
     move-result-object v0
 
     .line 608
-    .local v0, "old":Ljava/lang/Object;
     iget-object v1, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->parent:Lorg/apache/commons/collections/map/AbstractReferenceMap;
 
     iget v1, v1, Lorg/apache/commons/collections/map/AbstractReferenceMap;->valueType:I
@@ -369,21 +344,16 @@
 
     invoke-virtual {p0, v1, p1, v2}, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->toReference(ILjava/lang/Object;I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    iput-object v1, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->value:Ljava/lang/Object;
+    iput-object p1, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->value:Ljava/lang/Object;
 
-    .line 612
     return-object v0
 .end method
 
 .method protected toReference(ILjava/lang/Object;I)Ljava/lang/Object;
-    .locals 2
-    .param p1, "type"    # I
-    .param p2, "referent"    # Ljava/lang/Object;
-    .param p3, "hash"    # I
+    .locals 1
 
-    .line 666
     if-eqz p1, :cond_2
 
     const/4 v0, 0x1
@@ -395,41 +365,40 @@
     if-ne p1, v0, :cond_0
 
     .line 669
-    new-instance v0, Lorg/apache/commons/collections/map/AbstractReferenceMap$WeakRef;
+    new-instance p1, Lorg/apache/commons/collections/map/AbstractReferenceMap$WeakRef;
 
-    iget-object v1, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->parent:Lorg/apache/commons/collections/map/AbstractReferenceMap;
+    iget-object v0, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->parent:Lorg/apache/commons/collections/map/AbstractReferenceMap;
 
-    invoke-static {v1}, Lorg/apache/commons/collections/map/AbstractReferenceMap;->access$000(Lorg/apache/commons/collections/map/AbstractReferenceMap;)Ljava/lang/ref/ReferenceQueue;
+    invoke-static {v0}, Lorg/apache/commons/collections/map/AbstractReferenceMap;->access$000(Lorg/apache/commons/collections/map/AbstractReferenceMap;)Ljava/lang/ref/ReferenceQueue;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, p3, p2, v1}, Lorg/apache/commons/collections/map/AbstractReferenceMap$WeakRef;-><init>(ILjava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
+    invoke-direct {p1, p3, p2, v0}, Lorg/apache/commons/collections/map/AbstractReferenceMap$WeakRef;-><init>(ILjava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
 
-    return-object v0
+    return-object p1
 
     .line 670
     :cond_0
-    new-instance v0, Ljava/lang/Error;
+    new-instance p1, Ljava/lang/Error;
 
-    invoke-direct {v0}, Ljava/lang/Error;-><init>()V
+    invoke-direct {p1}, Ljava/lang/Error;-><init>()V
 
-    throw v0
+    throw p1
 
     .line 668
     :cond_1
-    new-instance v0, Lorg/apache/commons/collections/map/AbstractReferenceMap$SoftRef;
+    new-instance p1, Lorg/apache/commons/collections/map/AbstractReferenceMap$SoftRef;
 
-    iget-object v1, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->parent:Lorg/apache/commons/collections/map/AbstractReferenceMap;
+    iget-object v0, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntry;->parent:Lorg/apache/commons/collections/map/AbstractReferenceMap;
 
-    invoke-static {v1}, Lorg/apache/commons/collections/map/AbstractReferenceMap;->access$000(Lorg/apache/commons/collections/map/AbstractReferenceMap;)Ljava/lang/ref/ReferenceQueue;
+    invoke-static {v0}, Lorg/apache/commons/collections/map/AbstractReferenceMap;->access$000(Lorg/apache/commons/collections/map/AbstractReferenceMap;)Ljava/lang/ref/ReferenceQueue;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, p3, p2, v1}, Lorg/apache/commons/collections/map/AbstractReferenceMap$SoftRef;-><init>(ILjava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
+    invoke-direct {p1, p3, p2, v0}, Lorg/apache/commons/collections/map/AbstractReferenceMap$SoftRef;-><init>(ILjava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
 
-    return-object v0
+    return-object p1
 
-    .line 667
     :cond_2
     return-object p2
 .end method

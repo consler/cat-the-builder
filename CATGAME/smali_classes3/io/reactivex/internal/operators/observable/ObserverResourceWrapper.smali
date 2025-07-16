@@ -60,8 +60,6 @@
     .end annotation
 
     .line 30
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObserverResourceWrapper;, "Lio/reactivex/internal/operators/observable/ObserverResourceWrapper<TT;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 28
@@ -74,7 +72,6 @@
     .line 31
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObserverResourceWrapper;->actual:Lio/reactivex/Observer;
 
-    .line 32
     return-void
 .end method
 
@@ -84,7 +81,6 @@
     .locals 1
 
     .line 60
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObserverResourceWrapper;, "Lio/reactivex/internal/operators/observable/ObserverResourceWrapper<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObserverResourceWrapper;->subscription:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
@@ -92,7 +88,6 @@
     .line 62
     invoke-static {p0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 63
     return-void
 .end method
 
@@ -100,7 +95,6 @@
     .locals 2
 
     .line 67
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObserverResourceWrapper;, "Lio/reactivex/internal/operators/observable/ObserverResourceWrapper<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObserverResourceWrapper;->subscription:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -126,7 +120,6 @@
     .locals 1
 
     .line 54
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObserverResourceWrapper;, "Lio/reactivex/internal/operators/observable/ObserverResourceWrapper<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObserverResourceWrapper;->dispose()V
 
     .line 55
@@ -134,16 +127,13 @@
 
     invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 56
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 48
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObserverResourceWrapper;, "Lio/reactivex/internal/operators/observable/ObserverResourceWrapper<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObserverResourceWrapper;->dispose()V
 
     .line 49
@@ -151,7 +141,6 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 50
     return-void
 .end method
 
@@ -164,48 +153,39 @@
     .end annotation
 
     .line 43
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObserverResourceWrapper;, "Lio/reactivex/internal/operators/observable/ObserverResourceWrapper<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObserverResourceWrapper;->actual:Lio/reactivex/Observer;
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
-    .line 44
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 36
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObserverResourceWrapper;, "Lio/reactivex/internal/operators/observable/ObserverResourceWrapper<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObserverResourceWrapper;->subscription:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 37
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObserverResourceWrapper;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObserverResourceWrapper;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v0, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 39
     :cond_0
     return-void
 .end method
 
 .method public setResource(Lio/reactivex/disposables/Disposable;)V
     .locals 0
-    .param p1, "resource"    # Lio/reactivex/disposables/Disposable;
 
     .line 71
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObserverResourceWrapper;, "Lio/reactivex/internal/operators/observable/ObserverResourceWrapper<TT;>;"
     invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->set(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 72
     return-void
 .end method

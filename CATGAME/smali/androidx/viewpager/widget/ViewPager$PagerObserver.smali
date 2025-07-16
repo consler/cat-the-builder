@@ -27,7 +27,6 @@
 
     invoke-direct {p0}, Landroid/database/DataSetObserver;-><init>()V
 
-    .line 3093
     return-void
 .end method
 
@@ -41,7 +40,6 @@
 
     invoke-virtual {v0}, Landroidx/viewpager/widget/ViewPager;->dataSetChanged()V
 
-    .line 3098
     return-void
 .end method
 
@@ -53,6 +51,5 @@
 
     invoke-virtual {v0}, Landroidx/viewpager/widget/ViewPager;->dataSetChanged()V
 
-    .line 3102
     return-void
 .end method

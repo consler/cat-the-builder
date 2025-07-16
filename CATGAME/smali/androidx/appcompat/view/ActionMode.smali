@@ -71,7 +71,6 @@
 .method public isTitleOptional()Z
     .locals 1
 
-    .line 153
     const/4 v0, 0x0
 
     return v0
@@ -80,7 +79,6 @@
 .method public isUiFocusable()Z
     .locals 1
 
-    .line 225
     const/4 v0, 0x1
 
     return v0
@@ -97,12 +95,10 @@
 
 .method public setTag(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "tag"    # Ljava/lang/Object;
 
     .line 57
     iput-object p1, p0, Landroidx/appcompat/view/ActionMode;->mTag:Ljava/lang/Object;
 
-    .line 58
     return-void
 .end method
 
@@ -114,11 +110,9 @@
 
 .method public setTitleOptionalHint(Z)V
     .locals 0
-    .param p1, "titleOptional"    # Z
 
     .line 134
     iput-boolean p1, p0, Landroidx/appcompat/view/ActionMode;->mTitleOptionalHint:Z
 
-    .line 135
     return-void
 .end method

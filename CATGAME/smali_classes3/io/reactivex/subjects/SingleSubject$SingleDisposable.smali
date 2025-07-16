@@ -58,9 +58,6 @@
     .end annotation
 
     .line 239
-    .local p0, "this":Lio/reactivex/subjects/SingleSubject$SingleDisposable;, "Lio/reactivex/subjects/SingleSubject$SingleDisposable<TT;>;"
-    .local p1, "actual":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
-    .local p2, "parent":Lio/reactivex/subjects/SingleSubject;, "Lio/reactivex/subjects/SingleSubject<TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 240
@@ -69,7 +66,6 @@
     .line 241
     invoke-virtual {p0, p2}, Lio/reactivex/subjects/SingleSubject$SingleDisposable;->lazySet(Ljava/lang/Object;)V
 
-    .line 242
     return-void
 .end method
 
@@ -78,24 +74,20 @@
 .method public dispose()V
     .locals 1
 
-    .line 246
-    .local p0, "this":Lio/reactivex/subjects/SingleSubject$SingleDisposable;, "Lio/reactivex/subjects/SingleSubject$SingleDisposable<TT;>;"
     const/4 v0, 0x0
 
+    .line 246
     invoke-virtual {p0, v0}, Lio/reactivex/subjects/SingleSubject$SingleDisposable;->getAndSet(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lio/reactivex/subjects/SingleSubject;
 
-    .line 247
-    .local v0, "parent":Lio/reactivex/subjects/SingleSubject;, "Lio/reactivex/subjects/SingleSubject<TT;>;"
     if-eqz v0, :cond_0
 
     .line 248
     invoke-virtual {v0, p0}, Lio/reactivex/subjects/SingleSubject;->remove(Lio/reactivex/subjects/SingleSubject$SingleDisposable;)V
 
-    .line 250
     :cond_0
     return-void
 .end method
@@ -104,7 +96,6 @@
     .locals 1
 
     .line 254
-    .local p0, "this":Lio/reactivex/subjects/SingleSubject$SingleDisposable;, "Lio/reactivex/subjects/SingleSubject$SingleDisposable<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/subjects/SingleSubject$SingleDisposable;->get()Ljava/lang/Object;
 
     move-result-object v0

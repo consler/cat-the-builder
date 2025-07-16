@@ -17,12 +17,10 @@
 # direct methods
 .method public constructor <init>(Lcom/esotericsoftware/kryo/util/IntMap;)V
     .locals 0
-    .param p1, "map"    # Lcom/esotericsoftware/kryo/util/IntMap;
 
     .line 606
     invoke-direct {p0, p1}, Lcom/esotericsoftware/kryo/util/IntMap$MapIterator;-><init>(Lcom/esotericsoftware/kryo/util/IntMap;)V
 
-    .line 607
     return-void
 .end method
 
@@ -57,7 +55,6 @@
     aget v0, v0, v1
 
     .line 612
-    .local v0, "key":I
     :goto_0
     iget v1, p0, Lcom/esotericsoftware/kryo/util/IntMap$Keys;->nextIndex:I
 
@@ -66,11 +63,9 @@
     .line 613
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/util/IntMap$Keys;->findNextIndex()V
 
-    .line 614
     return v0
 
     .line 610
-    .end local v0    # "key":I
     :cond_1
     new-instance v0, Ljava/util/NoSuchElementException;
 
@@ -112,7 +107,6 @@
     invoke-direct {v0, v2, v1}, Lcom/esotericsoftware/kryo/util/IntArray;-><init>(ZI)V
 
     .line 620
-    .local v0, "array":Lcom/esotericsoftware/kryo/util/IntArray;
     :goto_0
     iget-boolean v1, p0, Lcom/esotericsoftware/kryo/util/IntMap$Keys;->hasNext:Z
 
@@ -127,14 +121,12 @@
 
     goto :goto_0
 
-    .line 622
     :cond_0
     return-object v0
 .end method
 
 .method public toArray(Lcom/esotericsoftware/kryo/util/IntArray;)Lcom/esotericsoftware/kryo/util/IntArray;
     .locals 1
-    .param p1, "array"    # Lcom/esotericsoftware/kryo/util/IntArray;
 
     .line 627
     :goto_0
@@ -151,7 +143,6 @@
 
     goto :goto_0
 
-    .line 629
     :cond_0
     return-object p1
 .end method

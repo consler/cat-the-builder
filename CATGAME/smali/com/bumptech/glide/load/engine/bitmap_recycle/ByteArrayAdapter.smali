@@ -46,19 +46,17 @@
 .end method
 
 .method public getArrayLength([B)I
-    .locals 1
-    .param p1, "array"    # [B
+    .locals 0
 
     .line 15
-    array-length v0, p1
+    array-length p1, p1
 
-    return v0
+    return p1
 .end method
 
 .method public getElementSizeInBytes()I
     .locals 1
 
-    .line 25
     const/4 v0, 0x1
 
     return v0
@@ -67,7 +65,6 @@
 .method public getTag()Ljava/lang/String;
     .locals 1
 
-    .line 10
     const-string v0, "ByteArrayPool"
 
     return-object v0
@@ -85,11 +82,10 @@
 .end method
 
 .method public newArray(I)[B
-    .locals 1
-    .param p1, "length"    # I
+    .locals 0
 
     .line 20
-    new-array v0, p1, [B
+    new-array p1, p1, [B
 
-    return-object v0
+    return-object p1
 .end method

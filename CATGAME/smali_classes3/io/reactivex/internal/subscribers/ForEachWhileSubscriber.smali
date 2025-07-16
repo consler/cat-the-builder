@@ -56,7 +56,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/functions/Predicate;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;)V
     .locals 0
-    .param p3, "onComplete"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -72,9 +71,6 @@
     .end annotation
 
     .line 43
-    .local p0, "this":Lio/reactivex/internal/subscribers/ForEachWhileSubscriber;, "Lio/reactivex/internal/subscribers/ForEachWhileSubscriber<TT;>;"
-    .local p1, "onNext":Lio/reactivex/functions/Predicate;, "Lio/reactivex/functions/Predicate<-TT;>;"
-    .local p2, "onError":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Ljava/lang/Throwable;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 44
@@ -86,7 +82,6 @@
     .line 46
     iput-object p3, p0, Lio/reactivex/internal/subscribers/ForEachWhileSubscriber;->onComplete:Lio/reactivex/functions/Action;
 
-    .line 47
     return-void
 .end method
 
@@ -96,10 +91,8 @@
     .locals 0
 
     .line 109
-    .local p0, "this":Lio/reactivex/internal/subscribers/ForEachWhileSubscriber;, "Lio/reactivex/internal/subscribers/ForEachWhileSubscriber<TT;>;"
     invoke-static {p0}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->cancel(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 110
     return-void
 .end method
 
@@ -107,7 +100,6 @@
     .locals 1
 
     .line 114
-    .local p0, "this":Lio/reactivex/internal/subscribers/ForEachWhileSubscriber;, "Lio/reactivex/internal/subscribers/ForEachWhileSubscriber<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/subscribers/ForEachWhileSubscriber;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -125,18 +117,16 @@
     .locals 1
 
     .line 95
-    .local p0, "this":Lio/reactivex/internal/subscribers/ForEachWhileSubscriber;, "Lio/reactivex/internal/subscribers/ForEachWhileSubscriber<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/subscribers/ForEachWhileSubscriber;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 96
     return-void
 
-    .line 98
     :cond_0
     const/4 v0, 0x1
 
+    .line 98
     iput-boolean v0, p0, Lio/reactivex/internal/subscribers/ForEachWhileSubscriber;->done:Z
 
     .line 100
@@ -147,32 +137,25 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 104
     goto :goto_0
 
-    .line 101
     :catchall_0
     move-exception v0
 
     .line 102
-    .local v0, "ex":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 103
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 105
-    .end local v0    # "ex":Ljava/lang/Throwable;
     :goto_0
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 5
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 80
-    .local p0, "this":Lio/reactivex/internal/subscribers/ForEachWhileSubscriber;, "Lio/reactivex/internal/subscribers/ForEachWhileSubscriber<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/subscribers/ForEachWhileSubscriber;->done:Z
 
     if-eqz v0, :cond_0
@@ -180,13 +163,12 @@
     .line 81
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 82
     return-void
 
-    .line 84
     :cond_0
     const/4 v0, 0x1
 
+    .line 84
     iput-boolean v0, p0, Lio/reactivex/internal/subscribers/ForEachWhileSubscriber;->done:Z
 
     .line 86
@@ -197,15 +179,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 90
     goto :goto_0
 
-    .line 87
     :catchall_0
     move-exception v1
 
     .line 88
-    .local v1, "ex":Ljava/lang/Throwable;
     invoke-static {v1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 89
@@ -225,14 +204,12 @@
 
     invoke-static {v2}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 91
-    .end local v1    # "ex":Ljava/lang/Throwable;
     :goto_0
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -240,34 +217,24 @@
     .end annotation
 
     .line 58
-    .local p0, "this":Lio/reactivex/internal/subscribers/ForEachWhileSubscriber;, "Lio/reactivex/internal/subscribers/ForEachWhileSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/internal/subscribers/ForEachWhileSubscriber;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 59
     return-void
 
     .line 64
     :cond_0
-    const/4 v0, 0x0
-
     :try_start_0
-    iget-object v1, p0, Lio/reactivex/internal/subscribers/ForEachWhileSubscriber;->onNext:Lio/reactivex/functions/Predicate;
+    iget-object v0, p0, Lio/reactivex/internal/subscribers/ForEachWhileSubscriber;->onNext:Lio/reactivex/functions/Predicate;
 
-    invoke-interface {v1, p1}, Lio/reactivex/functions/Predicate;->test(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Lio/reactivex/functions/Predicate;->test(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 70
-    .local v0, "b":Z
-    nop
-
-    .line 72
-    if-nez v0, :cond_1
+    if-nez p1, :cond_1
 
     .line 73
     invoke-virtual {p0}, Lio/reactivex/internal/subscribers/ForEachWhileSubscriber;->dispose()V
@@ -275,48 +242,39 @@
     .line 74
     invoke-virtual {p0}, Lio/reactivex/internal/subscribers/ForEachWhileSubscriber;->onComplete()V
 
-    .line 76
     :cond_1
     return-void
 
-    .line 65
-    .end local v0    # "b":Z
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     .line 66
-    .restart local v0    # "b":Z
-    .local v1, "ex":Ljava/lang/Throwable;
-    invoke-static {v1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 67
     invoke-virtual {p0}, Lio/reactivex/internal/subscribers/ForEachWhileSubscriber;->dispose()V
 
     .line 68
-    invoke-virtual {p0, v1}, Lio/reactivex/internal/subscribers/ForEachWhileSubscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/subscribers/ForEachWhileSubscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 69
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 51
-    .local p0, "this":Lio/reactivex/internal/subscribers/ForEachWhileSubscriber;, "Lio/reactivex/internal/subscribers/ForEachWhileSubscriber<TT;>;"
     invoke-static {p0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lorg/reactivestreams/Subscription;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 52
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 52
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 54
     :cond_0
     return-void
 .end method

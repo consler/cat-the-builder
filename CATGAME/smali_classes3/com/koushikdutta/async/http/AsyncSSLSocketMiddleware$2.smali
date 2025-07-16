@@ -34,7 +34,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware;Lcom/koushikdutta/async/callback/ConnectCallback;ZLcom/koushikdutta/async/http/AsyncHttpClientMiddleware$GetSocketData;Landroid/net/Uri;I)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware;
 
     .line 97
     iput-object p1, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;->this$0:Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware;
@@ -57,11 +56,8 @@
 
 # virtual methods
 .method public onConnectCompleted(Ljava/lang/Exception;Lcom/koushikdutta/async/AsyncSocket;)V
-    .locals 7
-    .param p1, "ex"    # Ljava/lang/Exception;
-    .param p2, "socket"    # Lcom/koushikdutta/async/AsyncSocket;
+    .locals 6
 
-    .line 100
     if-eqz p1, :cond_0
 
     .line 101
@@ -69,110 +65,106 @@
 
     invoke-interface {v0, p1, p2}, Lcom/koushikdutta/async/callback/ConnectCallback;->onConnectCompleted(Ljava/lang/Exception;Lcom/koushikdutta/async/AsyncSocket;)V
 
-    .line 102
     return-void
 
     .line 105
     :cond_0
-    iget-boolean v0, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;->val$proxied:Z
+    iget-boolean p1, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;->val$proxied:Z
 
-    if-nez v0, :cond_1
+    if-nez p1, :cond_1
 
     .line 106
-    iget-object v1, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;->this$0:Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware;
+    iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;->this$0:Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware;
 
-    iget-object v3, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;->val$data:Lcom/koushikdutta/async/http/AsyncHttpClientMiddleware$GetSocketData;
+    iget-object v2, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;->val$data:Lcom/koushikdutta/async/http/AsyncHttpClientMiddleware$GetSocketData;
 
-    iget-object v4, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;->val$uri:Landroid/net/Uri;
+    iget-object v3, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;->val$uri:Landroid/net/Uri;
 
-    iget v5, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;->val$port:I
+    iget v4, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;->val$port:I
 
-    iget-object v6, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;->val$callback:Lcom/koushikdutta/async/callback/ConnectCallback;
+    iget-object v5, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;->val$callback:Lcom/koushikdutta/async/callback/ConnectCallback;
 
-    move-object v2, p2
+    move-object v1, p2
 
-    invoke-virtual/range {v1 .. v6}, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware;->tryHandshake(Lcom/koushikdutta/async/AsyncSocket;Lcom/koushikdutta/async/http/AsyncHttpClientMiddleware$GetSocketData;Landroid/net/Uri;ILcom/koushikdutta/async/callback/ConnectCallback;)V
+    invoke-virtual/range {v0 .. v5}, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware;->tryHandshake(Lcom/koushikdutta/async/AsyncSocket;Lcom/koushikdutta/async/http/AsyncHttpClientMiddleware$GetSocketData;Landroid/net/Uri;ILcom/koushikdutta/async/callback/ConnectCallback;)V
 
-    .line 107
     return-void
 
     .line 113
     :cond_1
-    sget-object v0, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+    sget-object p1, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
-    const/4 v1, 0x3
+    const/4 v0, 0x3
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v2, 0x0
+    iget-object v1, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;->val$uri:Landroid/net/Uri;
 
-    iget-object v3, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;->val$uri:Landroid/net/Uri;
-
-    invoke-virtual {v3}, Landroid/net/Uri;->getHost()Ljava/lang/String;
-
-    move-result-object v3
-
-    aput-object v3, v1, v2
-
-    const/4 v2, 0x1
-
-    iget v3, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;->val$port:I
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    aput-object v3, v1, v2
-
-    const/4 v2, 0x2
-
-    iget-object v3, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;->val$uri:Landroid/net/Uri;
-
-    invoke-virtual {v3}, Landroid/net/Uri;->getHost()Ljava/lang/String;
-
-    move-result-object v3
-
-    aput-object v3, v1, v2
-
-    const-string v2, "CONNECT %s:%s HTTP/1.1\r\nHost: %s\r\n\r\n"
-
-    invoke-static {v0, v2, v1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 114
-    .local v0, "connect":Ljava/lang/String;
-    iget-object v1, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;->val$data:Lcom/koushikdutta/async/http/AsyncHttpClientMiddleware$GetSocketData;
-
-    iget-object v1, v1, Lcom/koushikdutta/async/http/AsyncHttpClientMiddleware$GetSocketData;->request:Lcom/koushikdutta/async/http/AsyncHttpRequest;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Proxying: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Lcom/koushikdutta/async/http/AsyncHttpRequest;->logv(Ljava/lang/String;)V
-
-    .line 115
-    invoke-virtual {v0}, Ljava/lang/String;->getBytes()[B
+    invoke-virtual {v1}, Landroid/net/Uri;->getHost()Ljava/lang/String;
 
     move-result-object v1
 
-    new-instance v2, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1;
+    const/4 v2, 0x0
 
-    invoke-direct {v2, p0, p2}, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1;-><init>(Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;Lcom/koushikdutta/async/AsyncSocket;)V
+    aput-object v1, v0, v2
 
-    invoke-static {p2, v1, v2}, Lcom/koushikdutta/async/Util;->writeAll(Lcom/koushikdutta/async/DataSink;[BLcom/koushikdutta/async/callback/CompletedCallback;)V
+    iget v1, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;->val$port:I
 
-    .line 157
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    aput-object v1, v0, v2
+
+    iget-object v1, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;->val$uri:Landroid/net/Uri;
+
+    invoke-virtual {v1}, Landroid/net/Uri;->getHost()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/4 v2, 0x2
+
+    aput-object v1, v0, v2
+
+    const-string v1, "CONNECT %s:%s HTTP/1.1\r\nHost: %s\r\n\r\n"
+
+    invoke-static {p1, v1, v0}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p1
+
+    .line 114
+    iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;->val$data:Lcom/koushikdutta/async/http/AsyncHttpClientMiddleware$GetSocketData;
+
+    iget-object v0, v0, Lcom/koushikdutta/async/http/AsyncHttpClientMiddleware$GetSocketData;->request:Lcom/koushikdutta/async/http/AsyncHttpRequest;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    const-string v2, "Proxying: "
+
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/koushikdutta/async/http/AsyncHttpRequest;->logv(Ljava/lang/String;)V
+
+    .line 115
+    invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
+
+    move-result-object p1
+
+    new-instance v0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1;
+
+    invoke-direct {v0, p0, p2}, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1;-><init>(Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;Lcom/koushikdutta/async/AsyncSocket;)V
+
+    invoke-static {p2, p1, v0}, Lcom/koushikdutta/async/Util;->writeAll(Lcom/koushikdutta/async/DataSink;[BLcom/koushikdutta/async/callback/CompletedCallback;)V
+
     return-void
 .end method

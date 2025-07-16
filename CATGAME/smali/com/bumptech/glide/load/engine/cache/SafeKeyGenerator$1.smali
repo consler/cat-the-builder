@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/engine/cache/SafeKeyGenerator;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/bumptech/glide/load/engine/cache/SafeKeyGenerator;
 
     .line 26
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/cache/SafeKeyGenerator$1;->this$0:Lcom/bumptech/glide/load/engine/cache/SafeKeyGenerator;
@@ -64,12 +63,10 @@
 
     return-object v0
 
-    .line 31
     :catch_0
     move-exception v0
 
     .line 32
-    .local v0, "e":Ljava/security/NoSuchAlgorithmException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V

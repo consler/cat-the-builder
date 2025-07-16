@@ -62,14 +62,11 @@
     .end annotation
 
     .line 50
-    .local p0, "this":Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;, "Lio/reactivex/internal/subscribers/BasicFuseableSubscriber<TT;TR;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TR;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 51
     iput-object p1, p0, Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    .line 52
     return-void
 .end method
 
@@ -78,16 +75,12 @@
 .method protected afterDownstream()V
     .locals 0
 
-    .line 88
-    .local p0, "this":Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;, "Lio/reactivex/internal/subscribers/BasicFuseableSubscriber<TT;TR;>;"
     return-void
 .end method
 
 .method protected beforeDownstream()Z
     .locals 1
 
-    .line 80
-    .local p0, "this":Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;, "Lio/reactivex/internal/subscribers/BasicFuseableSubscriber<TT;TR;>;"
     const/4 v0, 0x1
 
     return v0
@@ -97,12 +90,10 @@
     .locals 1
 
     .line 158
-    .local p0, "this":Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;, "Lio/reactivex/internal/subscribers/BasicFuseableSubscriber<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
 
-    .line 159
     return-void
 .end method
 
@@ -110,21 +101,17 @@
     .locals 1
 
     .line 168
-    .local p0, "this":Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;, "Lio/reactivex/internal/subscribers/BasicFuseableSubscriber<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;->qs:Lio/reactivex/internal/fuseable/QueueSubscription;
 
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/QueueSubscription;->clear()V
 
-    .line 169
     return-void
 .end method
 
 .method protected final fail(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 109
-    .local p0, "this":Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;, "Lio/reactivex/internal/subscribers/BasicFuseableSubscriber<TT;TR;>;"
     invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 110
@@ -135,7 +122,6 @@
     .line 111
     invoke-virtual {p0, p1}, Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 112
     return-void
 .end method
 
@@ -143,7 +129,6 @@
     .locals 1
 
     .line 163
-    .local p0, "this":Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;, "Lio/reactivex/internal/subscribers/BasicFuseableSubscriber<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;->qs:Lio/reactivex/internal/fuseable/QueueSubscription;
 
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/QueueSubscription;->isEmpty()Z
@@ -154,7 +139,7 @@
 .end method
 
 .method public final offer(Ljava/lang/Object;)Z
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;)Z"
@@ -162,19 +147,17 @@
     .end annotation
 
     .line 177
-    .local p0, "this":Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;, "Lio/reactivex/internal/subscribers/BasicFuseableSubscriber<TT;TR;>;"
-    .local p1, "e":Ljava/lang/Object;, "TR;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "Should not be called!"
+    const-string v0, "Should not be called!"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public final offer(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;TR;)Z"
@@ -182,34 +165,29 @@
     .end annotation
 
     .line 182
-    .local p0, "this":Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;, "Lio/reactivex/internal/subscribers/BasicFuseableSubscriber<TT;TR;>;"
-    .local p1, "v1":Ljava/lang/Object;, "TR;"
-    .local p2, "v2":Ljava/lang/Object;, "TR;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "Should not be called!"
+    const-string p2, "Should not be called!"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public onComplete()V
     .locals 1
 
     .line 116
-    .local p0, "this":Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;, "Lio/reactivex/internal/subscribers/BasicFuseableSubscriber<TT;TR;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 117
     return-void
 
-    .line 119
     :cond_0
     const/4 v0, 0x1
 
+    .line 119
     iput-boolean v0, p0, Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;->done:Z
 
     .line 120
@@ -217,16 +195,13 @@
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 121
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 96
-    .local p0, "this":Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;, "Lio/reactivex/internal/subscribers/BasicFuseableSubscriber<TT;TR;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;->done:Z
 
     if-eqz v0, :cond_0
@@ -234,13 +209,12 @@
     .line 97
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 98
     return-void
 
-    .line 100
     :cond_0
     const/4 v0, 0x1
 
+    .line 100
     iput-boolean v0, p0, Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;->done:Z
 
     .line 101
@@ -248,16 +222,13 @@
 
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 102
     return-void
 .end method
 
 .method public final onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 1
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 58
-    .local p0, "this":Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;, "Lio/reactivex/internal/subscribers/BasicFuseableSubscriber<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -275,60 +246,49 @@
     if-eqz v0, :cond_0
 
     .line 62
-    move-object v0, p1
+    check-cast p1, Lio/reactivex/internal/fuseable/QueueSubscription;
 
-    check-cast v0, Lio/reactivex/internal/fuseable/QueueSubscription;
-
-    iput-object v0, p0, Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;->qs:Lio/reactivex/internal/fuseable/QueueSubscription;
+    iput-object p1, p0, Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;->qs:Lio/reactivex/internal/fuseable/QueueSubscription;
 
     .line 65
     :cond_0
     invoke-virtual {p0}, Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;->beforeDownstream()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 67
-    iget-object v0, p0, Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object p1, p0, Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v0, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
+    invoke-interface {p1, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
     .line 69
     invoke-virtual {p0}, Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;->afterDownstream()V
 
-    .line 73
     :cond_1
     return-void
 .end method
 
 .method public request(J)V
     .locals 1
-    .param p1, "n"    # J
 
     .line 153
-    .local p0, "this":Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;, "Lio/reactivex/internal/subscribers/BasicFuseableSubscriber<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-interface {v0, p1, p2}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 154
     return-void
 .end method
 
 .method protected final transitiveBoundaryFusion(I)I
     .locals 2
-    .param p1, "mode"    # I
 
     .line 134
-    .local p0, "this":Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;, "Lio/reactivex/internal/subscribers/BasicFuseableSubscriber<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;->qs:Lio/reactivex/internal/fuseable/QueueSubscription;
 
-    .line 135
-    .local v0, "qs":Lio/reactivex/internal/fuseable/QueueSubscription;, "Lio/reactivex/internal/fuseable/QueueSubscription<TT;>;"
     if-eqz v0, :cond_1
 
-    .line 136
     and-int/lit8 v1, p1, 0x4
 
     if-nez v1, :cond_1
@@ -336,23 +296,18 @@
     .line 137
     invoke-interface {v0, p1}, Lio/reactivex/internal/fuseable/QueueSubscription;->requestFusion(I)I
 
-    move-result v1
+    move-result p1
 
-    .line 138
-    .local v1, "m":I
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
     .line 139
-    iput v1, p0, Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;->sourceMode:I
+    iput p1, p0, Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;->sourceMode:I
 
-    .line 141
     :cond_0
-    return v1
+    return p1
 
-    .line 144
-    .end local v1    # "m":I
     :cond_1
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return v1
+    return p1
 .end method

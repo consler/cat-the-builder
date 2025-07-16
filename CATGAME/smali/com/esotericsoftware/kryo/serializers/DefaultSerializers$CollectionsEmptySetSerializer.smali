@@ -46,9 +46,7 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/util/Set;
-    .locals 1
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -63,10 +61,9 @@
     .end annotation
 
     .line 518
-    .local p3, "type":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/util/Set;>;"
-    sget-object v0, Ljava/util/Collections;->EMPTY_SET:Ljava/util/Set;
+    sget-object p1, Ljava/util/Collections;->EMPTY_SET:Ljava/util/Set;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
@@ -82,10 +79,6 @@
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/util/Set;)V
     .locals 0
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p3, "object"    # Ljava/util/Set;
 
-    .line 515
     return-void
 .end method

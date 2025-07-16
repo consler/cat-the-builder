@@ -48,10 +48,6 @@
 # direct methods
 .method constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLiteMap;ILcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;ZZ)V
     .locals 0
-    .param p2, "number"    # I
-    .param p3, "type"    # Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;
-    .param p4, "isRepeated"    # Z
-    .param p5, "isPacked"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -63,7 +59,6 @@
     .end annotation
 
     .line 1084
-    .local p1, "enumTypeMap":Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLiteMap;, "Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLiteMap<*>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 1085
@@ -81,22 +76,20 @@
     .line 1089
     iput-boolean p5, p0, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$ExtensionDescriptor;->isPacked:Z
 
-    .line 1090
     return-void
 .end method
 
 
 # virtual methods
 .method public compareTo(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$ExtensionDescriptor;)I
-    .locals 2
-    .param p1, "other"    # Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$ExtensionDescriptor;
+    .locals 1
 
     .line 1137
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$ExtensionDescriptor;->number:I
 
-    iget v1, p1, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$ExtensionDescriptor;->number:I
+    iget p1, p1, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$ExtensionDescriptor;->number:I
 
-    sub-int/2addr v0, v1
+    sub-int/2addr v0, p1
 
     return v0
 .end method
@@ -162,24 +155,18 @@
 .end method
 
 .method public internalMergeFrom(Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;
-    .locals 2
-    .param p1, "to"    # Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;
-    .param p2, "from"    # Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
+    .locals 0
 
     .line 1131
-    move-object v0, p1
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;
+    check-cast p2, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-object v1, p2
+    invoke-virtual {p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;->mergeFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;
 
-    check-cast v1, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;->mergeFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;
-
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public isPacked()Z

@@ -59,9 +59,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/lifecycle/Lifecycle$Event;Ljava/lang/Object;Lorg/koin/core/scope/Scope;)V
     .locals 1
-    .param p1, "event"    # Landroidx/lifecycle/Lifecycle$Event;
-    .param p2, "target"    # Ljava/lang/Object;
-    .param p3, "scope"    # Lorg/koin/core/scope/Scope;
 
     const-string v0, "event"
 
@@ -159,9 +156,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, " received ON_DESTROY"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -174,7 +175,6 @@
 
     invoke-virtual {v0}, Lorg/koin/core/scope/Scope;->close()V
 
-    .line 55
     :cond_0
     return-void
 .end method
@@ -211,9 +211,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, " received ON_STOP"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -226,7 +230,6 @@
 
     invoke-virtual {v0}, Lorg/koin/core/scope/Scope;->close()V
 
-    .line 44
     :cond_0
     return-void
 .end method

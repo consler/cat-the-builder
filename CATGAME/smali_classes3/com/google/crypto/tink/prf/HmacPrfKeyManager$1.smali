@@ -36,7 +36,6 @@
     .end annotation
 
     .line 46
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<Lcom/google/crypto/tink/prf/Prf;>;"
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;-><init>(Ljava/lang/Class;)V
 
     return-void
@@ -45,8 +44,7 @@
 
 # virtual methods
 .method public getPrimitive(Lcom/google/crypto/tink/proto/HmacPrfKey;)Lcom/google/crypto/tink/prf/Prf;
-    .locals 5
-    .param p1, "key"    # Lcom/google/crypto/tink/proto/HmacPrfKey;
+    .locals 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -72,83 +70,80 @@
     move-result-object v0
 
     .line 50
-    .local v0, "hash":Lcom/google/crypto/tink/proto/HashType;
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/HmacPrfKey;->getKeyValue()Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->toByteArray()[B
+    invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->toByteArray()[B
 
-    move-result-object v1
+    move-result-object p1
 
     .line 51
-    .local v1, "keyValue":[B
-    new-instance v2, Ljavax/crypto/spec/SecretKeySpec;
+    new-instance v1, Ljavax/crypto/spec/SecretKeySpec;
 
-    const-string v3, "HMAC"
+    const-string v2, "HMAC"
 
-    invoke-direct {v2, v1, v3}, Ljavax/crypto/spec/SecretKeySpec;-><init>([BLjava/lang/String;)V
+    invoke-direct {v1, p1, v2}, Ljavax/crypto/spec/SecretKeySpec;-><init>([BLjava/lang/String;)V
 
     .line 52
-    .local v2, "keySpec":Ljavax/crypto/spec/SecretKeySpec;
-    sget-object v3, Lcom/google/crypto/tink/prf/HmacPrfKeyManager$3;->$SwitchMap$com$google$crypto$tink$proto$HashType:[I
+    sget-object p1, Lcom/google/crypto/tink/prf/HmacPrfKeyManager$3;->$SwitchMap$com$google$crypto$tink$proto$HashType:[I
 
     invoke-virtual {v0}, Lcom/google/crypto/tink/proto/HashType;->ordinal()I
 
-    move-result v4
+    move-result v0
 
-    aget v3, v3, v4
+    aget p1, p1, v0
 
-    const/4 v4, 0x1
+    const/4 v0, 0x1
 
-    if-eq v3, v4, :cond_2
+    if-eq p1, v0, :cond_2
 
-    const/4 v4, 0x2
+    const/4 v0, 0x2
 
-    if-eq v3, v4, :cond_1
+    if-eq p1, v0, :cond_1
 
-    const/4 v4, 0x3
+    const/4 v0, 0x3
 
-    if-ne v3, v4, :cond_0
+    if-ne p1, v0, :cond_0
 
     .line 58
-    new-instance v3, Lcom/google/crypto/tink/subtle/PrfHmacJce;
+    new-instance p1, Lcom/google/crypto/tink/subtle/PrfHmacJce;
 
-    const-string v4, "HMACSHA512"
+    const-string v0, "HMACSHA512"
 
-    invoke-direct {v3, v4, v2}, Lcom/google/crypto/tink/subtle/PrfHmacJce;-><init>(Ljava/lang/String;Ljava/security/Key;)V
+    invoke-direct {p1, v0, v1}, Lcom/google/crypto/tink/subtle/PrfHmacJce;-><init>(Ljava/lang/String;Ljava/security/Key;)V
 
-    return-object v3
+    return-object p1
 
     .line 60
     :cond_0
-    new-instance v3, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    const-string v4, "unknown hash"
+    const-string v0, "unknown hash"
 
-    invoke-direct {v3, v4}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw p1
 
     .line 56
     :cond_1
-    new-instance v3, Lcom/google/crypto/tink/subtle/PrfHmacJce;
+    new-instance p1, Lcom/google/crypto/tink/subtle/PrfHmacJce;
 
-    const-string v4, "HMACSHA256"
+    const-string v0, "HMACSHA256"
 
-    invoke-direct {v3, v4, v2}, Lcom/google/crypto/tink/subtle/PrfHmacJce;-><init>(Ljava/lang/String;Ljava/security/Key;)V
+    invoke-direct {p1, v0, v1}, Lcom/google/crypto/tink/subtle/PrfHmacJce;-><init>(Ljava/lang/String;Ljava/security/Key;)V
 
-    return-object v3
+    return-object p1
 
     .line 54
     :cond_2
-    new-instance v3, Lcom/google/crypto/tink/subtle/PrfHmacJce;
+    new-instance p1, Lcom/google/crypto/tink/subtle/PrfHmacJce;
 
-    const-string v4, "HMACSHA1"
+    const-string v0, "HMACSHA1"
 
-    invoke-direct {v3, v4, v2}, Lcom/google/crypto/tink/subtle/PrfHmacJce;-><init>(Ljava/lang/String;Ljava/security/Key;)V
+    invoke-direct {p1, v0, v1}, Lcom/google/crypto/tink/subtle/PrfHmacJce;-><init>(Ljava/lang/String;Ljava/security/Key;)V
 
-    return-object v3
+    return-object p1
 .end method
 
 .method public bridge synthetic getPrimitive(Ljava/lang/Object;)Ljava/lang/Object;

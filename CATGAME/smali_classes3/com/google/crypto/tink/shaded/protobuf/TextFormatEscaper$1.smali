@@ -37,16 +37,15 @@
 # virtual methods
 .method public byteAt(I)B
     .locals 1
-    .param p1, "offset"    # I
 
     .line 118
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/TextFormatEscaper$1;->val$input:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->byteAt(I)B
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public size()I

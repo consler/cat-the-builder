@@ -32,8 +32,6 @@
 
 .method synthetic constructor <init>(Lorg/apache/commons/collections/StaticBucketMap;Lorg/apache/commons/collections/StaticBucketMap$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/collections/StaticBucketMap;
-    .param p2, "x1"    # Lorg/apache/commons/collections/StaticBucketMap$1;
 
     .line 644
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/StaticBucketMap$Values;-><init>(Lorg/apache/commons/collections/StaticBucketMap;)V
@@ -51,7 +49,6 @@
 
     invoke-virtual {v0}, Lorg/apache/commons/collections/StaticBucketMap;->clear()V
 
-    .line 652
     return-void
 .end method
 

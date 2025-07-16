@@ -39,8 +39,6 @@
 # direct methods
 .method public constructor <init>(Ljava/util/Iterator;JJ)V
     .locals 3
-    .param p2, "offset"    # J
-    .param p4, "max"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,21 +48,16 @@
     .end annotation
 
     .line 62
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/BoundedIterator;, "Lorg/apache/commons/collections4/iterators/BoundedIterator<TE;>;"
-    .local p1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 63
     if-eqz p1, :cond_2
 
-    .line 66
     const-wide/16 v0, 0x0
 
     cmp-long v2, p2, v0
 
     if-ltz v2, :cond_1
 
-    .line 69
     cmp-long v2, p4, v0
 
     if-ltz v2, :cond_0
@@ -84,45 +77,43 @@
     .line 77
     invoke-direct {p0}, Lorg/apache/commons/collections4/iterators/BoundedIterator;->init()V
 
-    .line 78
     return-void
 
     .line 70
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Max parameter must not be negative."
+    const-string p2, "Max parameter must not be negative."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 67
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Offset parameter must not be negative."
+    const-string p2, "Offset parameter must not be negative."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 64
     :cond_2
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "Iterator must not be null"
+    const-string p2, "Iterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method private checkBounds()Z
     .locals 4
 
     .line 105
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/BoundedIterator;, "Lorg/apache/commons/collections4/iterators/BoundedIterator<TE;>;"
     iget-wide v0, p0, Lorg/apache/commons/collections4/iterators/BoundedIterator;->pos:J
 
     iget-wide v2, p0, Lorg/apache/commons/collections4/iterators/BoundedIterator;->offset:J
@@ -139,12 +130,10 @@
 
     if-lez v0, :cond_0
 
-    .line 106
     const/4 v0, 0x0
 
     return v0
 
-    .line 108
     :cond_0
     const/4 v0, 0x1
 
@@ -155,7 +144,6 @@
     .locals 4
 
     .line 84
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/BoundedIterator;, "Lorg/apache/commons/collections4/iterators/BoundedIterator<TE;>;"
     :goto_0
     iget-wide v0, p0, Lorg/apache/commons/collections4/iterators/BoundedIterator;->pos:J
 
@@ -189,7 +177,6 @@
 
     goto :goto_0
 
-    .line 88
     :cond_0
     return-void
 .end method
@@ -200,14 +187,12 @@
     .locals 1
 
     .line 94
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/BoundedIterator;, "Lorg/apache/commons/collections4/iterators/BoundedIterator<TE;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/iterators/BoundedIterator;->checkBounds()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 95
     const/4 v0, 0x0
 
     return v0
@@ -232,7 +217,6 @@
     .end annotation
 
     .line 113
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/BoundedIterator;, "Lorg/apache/commons/collections4/iterators/BoundedIterator<TE;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/iterators/BoundedIterator;->checkBounds()Z
 
     move-result v0
@@ -247,7 +231,6 @@
     move-result-object v0
 
     .line 117
-    .local v0, "next":Ljava/lang/Object;, "TE;"
     iget-wide v1, p0, Lorg/apache/commons/collections4/iterators/BoundedIterator;->pos:J
 
     const-wide/16 v3, 0x1
@@ -256,11 +239,9 @@
 
     iput-wide v1, p0, Lorg/apache/commons/collections4/iterators/BoundedIterator;->pos:J
 
-    .line 118
     return-object v0
 
     .line 114
-    .end local v0    # "next":Ljava/lang/Object;, "TE;"
     :cond_0
     new-instance v0, Ljava/util/NoSuchElementException;
 
@@ -273,7 +254,6 @@
     .locals 4
 
     .line 131
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/BoundedIterator;, "Lorg/apache/commons/collections4/iterators/BoundedIterator<TE;>;"
     iget-wide v0, p0, Lorg/apache/commons/collections4/iterators/BoundedIterator;->pos:J
 
     iget-wide v2, p0, Lorg/apache/commons/collections4/iterators/BoundedIterator;->offset:J
@@ -287,7 +267,6 @@
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 135
     return-void
 
     .line 132

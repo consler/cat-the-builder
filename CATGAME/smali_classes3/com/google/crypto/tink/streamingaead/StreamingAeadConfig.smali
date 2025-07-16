@@ -64,18 +64,12 @@
     :try_end_0
     .catch Ljava/security/GeneralSecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 56
-    nop
-
-    .line 57
     return-void
 
-    .line 54
     :catch_0
     move-exception v0
 
     .line 55
-    .local v0, "e":Ljava/security/GeneralSecurityException;
     new-instance v1, Ljava/lang/ExceptionInInitializerError;
 
     invoke-direct {v1, v0}, Ljava/lang/ExceptionInInitializerError;-><init>(Ljava/lang/Throwable;)V
@@ -106,7 +100,6 @@
     .line 67
     invoke-static {}, Lcom/google/crypto/tink/streamingaead/StreamingAeadConfig;->register()V
 
-    .line 68
     return-void
 .end method
 
@@ -118,9 +111,9 @@
         }
     .end annotation
 
-    .line 77
     const/4 v0, 0x1
 
+    .line 77
     invoke-static {v0}, Lcom/google/crypto/tink/streamingaead/AesCtrHmacStreamingKeyManager;->register(Z)V
 
     .line 78
@@ -129,6 +122,5 @@
     .line 79
     invoke-static {}, Lcom/google/crypto/tink/streamingaead/StreamingAeadWrapper;->register()V
 
-    .line 80
     return-void
 .end method

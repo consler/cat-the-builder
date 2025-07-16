@@ -33,10 +33,8 @@
     .locals 0
 
     .line 56
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator<TK;TV;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/map/AbstractMapDecorator;-><init>()V
 
-    .line 57
     return-void
 .end method
 
@@ -51,11 +49,8 @@
     .end annotation
 
     .line 66
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator<TK;TV;>;"
-    .local p1, "map":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/map/AbstractMapDecorator;-><init>(Ljava/util/Map;)V
 
-    .line 67
     return-void
 .end method
 
@@ -72,7 +67,6 @@
     .end annotation
 
     .line 82
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;->decorated()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -88,7 +82,6 @@
     .locals 1
 
     .line 48
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;->decorated()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -107,7 +100,6 @@
     .end annotation
 
     .line 76
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator<TK;TV;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/map/AbstractMapDecorator;->decorated()Ljava/util/Map;
 
     move-result-object v0
@@ -126,7 +118,6 @@
     .end annotation
 
     .line 87
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;->decorated()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -149,17 +140,15 @@
     .end annotation
 
     .line 102
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator<TK;TV;>;"
-    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;->decorated()Ljava/util/SortedMap;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/SortedMap;->headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public lastKey()Ljava/lang/Object;
@@ -171,7 +160,6 @@
     .end annotation
 
     .line 92
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;->decorated()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -187,7 +175,6 @@
     .locals 1
 
     .line 48
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;->mapIterator()Lorg/apache/commons/collections4/OrderedMapIterator;
 
     move-result-object v0
@@ -206,7 +193,6 @@
     .end annotation
 
     .line 128
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator<TK;TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator$SortedMapIterator;
 
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;->entrySet()Ljava/util/Set;
@@ -219,7 +205,7 @@
 .end method
 
 .method public nextKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TK;"
@@ -227,46 +213,43 @@
     .end annotation
 
     .line 118
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;->tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Ljava/util/SortedMap;->keySet()Ljava/util/Set;
+    invoke-interface {p1}, Ljava/util/SortedMap;->keySet()Ljava/util/Set;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 119
-    .local v0, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<TK;>;"
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     .line 120
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return-object v1
+    return-object p1
 .end method
 
 .method public previousKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TK;"
@@ -274,31 +257,28 @@
     .end annotation
 
     .line 112
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;->headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 113
-    .local v0, "headMap":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
-    invoke-interface {v0}, Ljava/util/SortedMap;->isEmpty()Z
+    invoke-interface {p1}, Ljava/util/SortedMap;->isEmpty()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
     :cond_0
-    invoke-interface {v0}, Ljava/util/SortedMap;->lastKey()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/SortedMap;->lastKey()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
     :goto_0
-    return-object v1
+    return-object p1
 .end method
 
 .method public subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
@@ -312,18 +292,15 @@
     .end annotation
 
     .line 97
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
-    .local p2, "toKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;->decorated()Ljava/util/SortedMap;
 
     move-result-object v0
 
     invoke-interface {v0, p1, p2}, Ljava/util/SortedMap;->subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
@@ -337,15 +314,13 @@
     .end annotation
 
     .line 107
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;->decorated()Ljava/util/SortedMap;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/SortedMap;->tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

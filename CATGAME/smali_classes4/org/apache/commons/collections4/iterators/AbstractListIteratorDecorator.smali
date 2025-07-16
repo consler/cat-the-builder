@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/ListIterator;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -42,28 +42,24 @@
     .end annotation
 
     .line 41
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator<TE;>;"
-    .local p1, "iterator":Ljava/util/ListIterator;, "Ljava/util/ListIterator<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 42
     if-eqz p1, :cond_0
 
     .line 45
     iput-object p1, p0, Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator;->iterator:Ljava/util/ListIterator;
 
-    .line 46
     return-void
 
     .line 43
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "ListIterator must not be null"
+    const-string v0, "ListIterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -77,13 +73,10 @@
     .end annotation
 
     .line 110
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator<TE;>;"
-    .local p1, "obj":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator;->iterator:Ljava/util/ListIterator;
 
     invoke-interface {v0, p1}, Ljava/util/ListIterator;->add(Ljava/lang/Object;)V
 
-    .line 111
     return-void
 .end method
 
@@ -98,7 +91,6 @@
     .end annotation
 
     .line 54
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator;->iterator:Ljava/util/ListIterator;
 
     return-object v0
@@ -108,7 +100,6 @@
     .locals 1
 
     .line 62
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator;->iterator:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->hasNext()Z
@@ -122,7 +113,6 @@
     .locals 1
 
     .line 80
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator;->iterator:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->hasPrevious()Z
@@ -141,7 +131,6 @@
     .end annotation
 
     .line 68
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator;->iterator:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->next()Ljava/lang/Object;
@@ -155,7 +144,6 @@
     .locals 1
 
     .line 74
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator;->iterator:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->nextIndex()I
@@ -174,7 +162,6 @@
     .end annotation
 
     .line 86
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator;->iterator:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
@@ -188,7 +175,6 @@
     .locals 1
 
     .line 92
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator;->iterator:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->previousIndex()I
@@ -202,12 +188,10 @@
     .locals 1
 
     .line 98
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator;->iterator:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->remove()V
 
-    .line 99
     return-void
 .end method
 
@@ -220,12 +204,9 @@
     .end annotation
 
     .line 104
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator<TE;>;"
-    .local p1, "obj":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/AbstractListIteratorDecorator;->iterator:Ljava/util/ListIterator;
 
     invoke-interface {v0, p1}, Ljava/util/ListIterator;->set(Ljava/lang/Object;)V
 
-    .line 105
     return-void
 .end method

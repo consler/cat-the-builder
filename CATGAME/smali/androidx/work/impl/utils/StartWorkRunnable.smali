@@ -17,9 +17,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;Landroidx/work/WorkerParameters$RuntimeExtras;)V
     .locals 0
-    .param p1, "workManagerImpl"    # Landroidx/work/impl/WorkManagerImpl;
-    .param p2, "workSpecId"    # Ljava/lang/String;
-    .param p3, "runtimeExtras"    # Landroidx/work/WorkerParameters$RuntimeExtras;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -45,7 +42,6 @@
     .line 41
     iput-object p3, p0, Landroidx/work/impl/utils/StartWorkRunnable;->mRuntimeExtras:Landroidx/work/WorkerParameters$RuntimeExtras;
 
-    .line 42
     return-void
 .end method
 
@@ -67,6 +63,5 @@
 
     invoke-virtual {v0, v1, v2}, Landroidx/work/impl/Processor;->startWork(Ljava/lang/String;Landroidx/work/WorkerParameters$RuntimeExtras;)Z
 
-    .line 47
     return-void
 .end method

@@ -4,11 +4,13 @@
     <item android:state_pressed="false">
         <shape>
             <solid android:color="@color/formula_editor_delete_button" />
+            <corners android:radius="300.0dip" />
         </shape>
     </item>
     <item android:state_pressed="true">
         <shape>
             <solid android:color="@color/formula_editor_delete_button_pressed" />
+            <corners android:radius="300.0dip" />
         </shape>
     </item>
 </selector>

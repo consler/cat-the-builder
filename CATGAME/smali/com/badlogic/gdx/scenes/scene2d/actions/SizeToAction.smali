@@ -46,7 +46,6 @@
 
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/SizeToAction;->startHeight:F
 
-    .line 28
     return-void
 .end method
 
@@ -70,19 +69,15 @@
 
 .method public setHeight(F)V
     .locals 0
-    .param p1, "height"    # F
 
     .line 63
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/SizeToAction;->endHeight:F
 
-    .line 64
     return-void
 .end method
 
 .method public setSize(FF)V
     .locals 0
-    .param p1, "width"    # F
-    .param p2, "height"    # F
 
     .line 46
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/SizeToAction;->endWidth:F
@@ -90,26 +85,21 @@
     .line 47
     iput p2, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/SizeToAction;->endHeight:F
 
-    .line 48
     return-void
 .end method
 
 .method public setWidth(F)V
     .locals 0
-    .param p1, "width"    # F
 
     .line 55
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/SizeToAction;->endWidth:F
 
-    .line 56
     return-void
 .end method
 
 .method protected update(F)V
-    .locals 3
-    .param p1, "percent"    # F
+    .locals 4
 
-    .line 32
     const/4 v0, 0x0
 
     cmpl-float v0, p1, v0
@@ -117,18 +107,13 @@
     if-nez v0, :cond_0
 
     .line 33
-    iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/SizeToAction;->startWidth:F
+    iget p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/SizeToAction;->startWidth:F
 
     .line 34
-    .local v0, "width":F
-    iget v1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/SizeToAction;->startHeight:F
+    iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/SizeToAction;->startHeight:F
 
-    .local v1, "height":F
     goto :goto_0
 
-    .line 35
-    .end local v0    # "width":F
-    .end local v1    # "height":F
     :cond_0
     const/high16 v0, 0x3f800000    # 1.0f
 
@@ -137,18 +122,14 @@
     if-nez v0, :cond_1
 
     .line 36
-    iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/SizeToAction;->endWidth:F
+    iget p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/SizeToAction;->endWidth:F
 
     .line 37
-    .restart local v0    # "width":F
-    iget v1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/SizeToAction;->endHeight:F
+    iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/SizeToAction;->endHeight:F
 
-    .restart local v1    # "height":F
     goto :goto_0
 
     .line 39
-    .end local v0    # "width":F
-    .end local v1    # "height":F
     :cond_1
     iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/SizeToAction;->startWidth:F
 
@@ -161,7 +142,6 @@
     add-float/2addr v0, v1
 
     .line 40
-    .restart local v0    # "width":F
     iget v1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/SizeToAction;->startHeight:F
 
     iget v2, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/SizeToAction;->endHeight:F
@@ -170,15 +150,19 @@
 
     mul-float/2addr v2, p1
 
-    add-float/2addr v1, v2
+    add-float p1, v1, v2
+
+    move v3, v0
+
+    move v0, p1
+
+    move p1, v3
 
     .line 42
-    .restart local v1    # "height":F
     :goto_0
-    iget-object v2, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/SizeToAction;->target:Lcom/badlogic/gdx/scenes/scene2d/Actor;
+    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/SizeToAction;->target:Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    invoke-virtual {v2, v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/Actor;->setSize(FF)V
+    invoke-virtual {v1, p1, v0}, Lcom/badlogic/gdx/scenes/scene2d/Actor;->setSize(FF)V
 
-    .line 43
     return-void
 .end method

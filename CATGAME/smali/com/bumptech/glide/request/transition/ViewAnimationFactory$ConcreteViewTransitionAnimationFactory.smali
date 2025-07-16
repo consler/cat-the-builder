@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/animation/Animation;)V
     .locals 0
-    .param p1, "animation"    # Landroid/view/animation/Animation;
 
     .line 57
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,18 +31,16 @@
     .line 58
     iput-object p1, p0, Lcom/bumptech/glide/request/transition/ViewAnimationFactory$ConcreteViewTransitionAnimationFactory;->animation:Landroid/view/animation/Animation;
 
-    .line 59
     return-void
 .end method
 
 
 # virtual methods
 .method public build(Landroid/content/Context;)Landroid/view/animation/Animation;
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 0
 
     .line 63
-    iget-object v0, p0, Lcom/bumptech/glide/request/transition/ViewAnimationFactory$ConcreteViewTransitionAnimationFactory;->animation:Landroid/view/animation/Animation;
+    iget-object p1, p0, Lcom/bumptech/glide/request/transition/ViewAnimationFactory$ConcreteViewTransitionAnimationFactory;->animation:Landroid/view/animation/Animation;
 
-    return-object v0
+    return-object p1
 .end method

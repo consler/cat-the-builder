@@ -21,8 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$Page;Lcom/badlogic/gdx/graphics/TextureData;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$Page;
-    .param p2, "data"    # Lcom/badlogic/gdx/graphics/TextureData;
 
     .line 506
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$Page$1;->this$0:Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$Page;
@@ -47,6 +45,5 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/Pixmap;->dispose()V
 
-    .line 511
     return-void
 .end method

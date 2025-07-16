@@ -47,10 +47,8 @@
     .locals 0
 
     .line 36
-    .local p0, "this":Landroidx/camera/core/impl/utils/Absent;, "Landroidx/camera/core/impl/utils/Absent<TT;>;"
     invoke-direct {p0}, Landroidx/camera/core/impl/utils/Optional;-><init>()V
 
-    .line 37
     return-void
 .end method
 
@@ -58,7 +56,6 @@
     .locals 1
 
     .line 89
-    .local p0, "this":Landroidx/camera/core/impl/utils/Absent;, "Landroidx/camera/core/impl/utils/Absent<TT;>;"
     sget-object v0, Landroidx/camera/core/impl/utils/Absent;->sInstance:Landroidx/camera/core/impl/utils/Absent;
 
     return-object v0
@@ -85,22 +82,19 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
+    .locals 0
 
-    .line 75
-    .local p0, "this":Landroidx/camera/core/impl/utils/Absent;, "Landroidx/camera/core/impl/utils/Absent<TT;>;"
     if-ne p1, p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public get()Ljava/lang/Object;
@@ -112,7 +106,6 @@
     .end annotation
 
     .line 46
-    .local p0, "this":Landroidx/camera/core/impl/utils/Absent;, "Landroidx/camera/core/impl/utils/Absent<TT;>;"
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Optional.get() cannot be called on an absent value"
@@ -125,8 +118,6 @@
 .method public hashCode()I
     .locals 1
 
-    .line 80
-    .local p0, "this":Landroidx/camera/core/impl/utils/Absent;, "Landroidx/camera/core/impl/utils/Absent<TT;>;"
     const v0, 0x79a31aac
 
     return v0
@@ -135,15 +126,13 @@
 .method public isPresent()Z
     .locals 1
 
-    .line 41
-    .local p0, "this":Landroidx/camera/core/impl/utils/Absent;, "Landroidx/camera/core/impl/utils/Absent<TT;>;"
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public or(Landroidx/camera/core/impl/utils/Optional;)Landroidx/camera/core/impl/utils/Optional;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -155,19 +144,17 @@
     .end annotation
 
     .line 58
-    .local p0, "this":Landroidx/camera/core/impl/utils/Absent;, "Landroidx/camera/core/impl/utils/Absent<TT;>;"
-    .local p1, "secondChoice":Landroidx/camera/core/impl/utils/Optional;, "Landroidx/camera/core/impl/utils/Optional<+TT;>;"
     invoke-static {p1}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroidx/camera/core/impl/utils/Optional;
+    check-cast p1, Landroidx/camera/core/impl/utils/Optional;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public or(Landroidx/core/util/Supplier;)Ljava/lang/Object;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -176,24 +163,19 @@
         }
     .end annotation
 
-    .line 63
-    .local p0, "this":Landroidx/camera/core/impl/utils/Absent;, "Landroidx/camera/core/impl/utils/Absent<TT;>;"
-    .local p1, "supplier":Landroidx/core/util/Supplier;, "Landroidx/core/util/Supplier<+TT;>;"
-    nop
-
     .line 64
     invoke-interface {p1}, Landroidx/core/util/Supplier;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
+
+    const-string v0, "use Optional.orNull() instead of a Supplier that returns null"
 
     .line 63
-    const-string/jumbo v1, "use Optional.orNull() instead of a Supplier that returns null"
+    invoke-static {p1, v0}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {v0, v1}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public or(Ljava/lang/Object;)Ljava/lang/Object;
@@ -204,16 +186,14 @@
         }
     .end annotation
 
-    .line 51
-    .local p0, "this":Landroidx/camera/core/impl/utils/Absent;, "Landroidx/camera/core/impl/utils/Absent<TT;>;"
-    .local p1, "defaultValue":Ljava/lang/Object;, "TT;"
-    const-string/jumbo v0, "use Optional.orNull() instead of Optional.or(null)"
+    const-string v0, "use Optional.orNull() instead of Optional.or(null)"
 
+    .line 51
     invoke-static {p1, v0}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public orNull()Ljava/lang/Object;
@@ -224,8 +204,6 @@
         }
     .end annotation
 
-    .line 70
-    .local p0, "this":Landroidx/camera/core/impl/utils/Absent;, "Landroidx/camera/core/impl/utils/Absent<TT;>;"
     const/4 v0, 0x0
 
     return-object v0
@@ -234,8 +212,6 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .line 85
-    .local p0, "this":Landroidx/camera/core/impl/utils/Absent;, "Landroidx/camera/core/impl/utils/Absent<TT;>;"
     const-string v0, "Optional.absent()"
 
     return-object v0

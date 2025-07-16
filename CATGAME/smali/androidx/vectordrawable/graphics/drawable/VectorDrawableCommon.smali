@@ -24,7 +24,6 @@
 # virtual methods
 .method public applyTheme(Landroid/content/res/Resources$Theme;)V
     .locals 1
-    .param p1, "t"    # Landroid/content/res/Resources$Theme;
 
     .line 95
     iget-object v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCommon;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
@@ -34,10 +33,6 @@
     .line 96
     invoke-static {v0, p1}, Landroidx/core/graphics/drawable/DrawableCompat;->applyTheme(Landroid/graphics/drawable/Drawable;Landroid/content/res/Resources$Theme;)V
 
-    .line 97
-    return-void
-
-    .line 99
     :cond_0
     return-void
 .end method
@@ -53,14 +48,12 @@
     .line 104
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->clearColorFilter()V
 
-    .line 105
     return-void
 
     .line 107
     :cond_0
     invoke-super {p0}, Landroid/graphics/drawable/Drawable;->clearColorFilter()V
 
-    .line 108
     return-void
 .end method
 
@@ -138,7 +131,6 @@
 
 .method public getPadding(Landroid/graphics/Rect;)Z
     .locals 1
-    .param p1, "padding"    # Landroid/graphics/Rect;
 
     .line 136
     iget-object v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCommon;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
@@ -148,17 +140,17 @@
     .line 137
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->getPadding(Landroid/graphics/Rect;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
     .line 139
     :cond_0
     invoke-super {p0, p1}, Landroid/graphics/drawable/Drawable;->getPadding(Landroid/graphics/Rect;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public getState()[I
@@ -220,17 +212,12 @@
     .line 87
     invoke-static {v0}, Landroidx/core/graphics/drawable/DrawableCompat;->jumpToCurrentState(Landroid/graphics/drawable/Drawable;)V
 
-    .line 88
-    return-void
-
-    .line 90
     :cond_0
     return-void
 .end method
 
 .method protected onBoundsChange(Landroid/graphics/Rect;)V
     .locals 1
-    .param p1, "bounds"    # Landroid/graphics/Rect;
 
     .line 53
     iget-object v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCommon;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
@@ -240,20 +227,17 @@
     .line 54
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
 
-    .line 55
     return-void
 
     .line 57
     :cond_0
     invoke-super {p0, p1}, Landroid/graphics/drawable/Drawable;->onBoundsChange(Landroid/graphics/Rect;)V
 
-    .line 58
     return-void
 .end method
 
 .method protected onLevelChange(I)Z
     .locals 1
-    .param p1, "level"    # I
 
     .line 45
     iget-object v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCommon;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
@@ -263,22 +247,21 @@
     .line 46
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setLevel(I)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
     .line 48
     :cond_0
     invoke-super {p0, p1}, Landroid/graphics/drawable/Drawable;->onLevelChange(I)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public setChangingConfigurations(I)V
     .locals 1
-    .param p1, "configs"    # I
 
     .line 161
     iget-object v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCommon;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
@@ -288,21 +271,17 @@
     .line 162
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setChangingConfigurations(I)V
 
-    .line 163
     return-void
 
     .line 165
     :cond_0
     invoke-super {p0, p1}, Landroid/graphics/drawable/Drawable;->setChangingConfigurations(I)V
 
-    .line 166
     return-void
 .end method
 
 .method public setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
     .locals 1
-    .param p1, "color"    # I
-    .param p2, "mode"    # Landroid/graphics/PorterDuff$Mode;
 
     .line 36
     iget-object v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCommon;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
@@ -312,20 +291,17 @@
     .line 37
     invoke-virtual {v0, p1, p2}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 38
     return-void
 
     .line 40
     :cond_0
     invoke-super {p0, p1, p2}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 41
     return-void
 .end method
 
 .method public setFilterBitmap(Z)V
     .locals 1
-    .param p1, "filter"    # Z
 
     .line 78
     iget-object v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCommon;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
@@ -335,18 +311,12 @@
     .line 79
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setFilterBitmap(Z)V
 
-    .line 80
-    return-void
-
-    .line 82
     :cond_0
     return-void
 .end method
 
 .method public setHotspot(FF)V
     .locals 1
-    .param p1, "x"    # F
-    .param p2, "y"    # F
 
     .line 62
     iget-object v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCommon;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
@@ -356,17 +326,12 @@
     .line 63
     invoke-static {v0, p1, p2}, Landroidx/core/graphics/drawable/DrawableCompat;->setHotspot(Landroid/graphics/drawable/Drawable;FF)V
 
-    .line 65
     :cond_0
     return-void
 .end method
 
 .method public setHotspotBounds(IIII)V
     .locals 1
-    .param p1, "left"    # I
-    .param p2, "top"    # I
-    .param p3, "right"    # I
-    .param p4, "bottom"    # I
 
     .line 70
     iget-object v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCommon;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
@@ -376,17 +341,12 @@
     .line 71
     invoke-static {v0, p1, p2, p3, p4}, Landroidx/core/graphics/drawable/DrawableCompat;->setHotspotBounds(Landroid/graphics/drawable/Drawable;IIII)V
 
-    .line 72
-    return-void
-
-    .line 74
     :cond_0
     return-void
 .end method
 
 .method public setState([I)Z
     .locals 1
-    .param p1, "stateSet"    # [I
 
     .line 170
     iget-object v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCommon;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
@@ -396,15 +356,15 @@
     .line 171
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setState([I)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
     .line 173
     :cond_0
     invoke-super {p0, p1}, Landroid/graphics/drawable/Drawable;->setState([I)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

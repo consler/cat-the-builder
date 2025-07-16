@@ -116,55 +116,45 @@
 
     sput-object v0, Landroidx/media/AudioAttributesCompat;->SUPPRESSIBLE_USAGES:Landroid/util/SparseIntArray;
 
-    .line 174
     const/4 v1, 0x5
 
     const/4 v2, 0x1
 
+    .line 174
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
-
-    .line 175
-    sget-object v0, Landroidx/media/AudioAttributesCompat;->SUPPRESSIBLE_USAGES:Landroid/util/SparseIntArray;
 
     const/4 v1, 0x6
 
     const/4 v3, 0x2
 
+    .line 175
     invoke-virtual {v0, v1, v3}, Landroid/util/SparseIntArray;->put(II)V
-
-    .line 176
-    sget-object v0, Landroidx/media/AudioAttributesCompat;->SUPPRESSIBLE_USAGES:Landroid/util/SparseIntArray;
 
     const/4 v1, 0x7
 
+    .line 176
     invoke-virtual {v0, v1, v3}, Landroid/util/SparseIntArray;->put(II)V
-
-    .line 177
-    sget-object v0, Landroidx/media/AudioAttributesCompat;->SUPPRESSIBLE_USAGES:Landroid/util/SparseIntArray;
 
     const/16 v1, 0x8
 
+    .line 177
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
-
-    .line 179
-    sget-object v0, Landroidx/media/AudioAttributesCompat;->SUPPRESSIBLE_USAGES:Landroid/util/SparseIntArray;
 
     const/16 v1, 0x9
 
+    .line 179
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
-
-    .line 181
-    sget-object v0, Landroidx/media/AudioAttributesCompat;->SUPPRESSIBLE_USAGES:Landroid/util/SparseIntArray;
 
     const/16 v1, 0xa
 
+    .line 181
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
 
-    .line 184
     const/16 v0, 0x10
 
     new-array v0, v0, [I
 
+    .line 184
     fill-array-data v0, :array_0
 
     sput-object v0, Landroidx/media/AudioAttributesCompat;->SDK_USAGES:[I
@@ -198,13 +188,11 @@
     .line 244
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 245
     return-void
 .end method
 
 .method constructor <init>(Landroidx/media/AudioAttributesImpl;)V
     .locals 0
-    .param p1, "impl"    # Landroidx/media/AudioAttributesImpl;
 
     .line 247
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -212,35 +200,27 @@
     .line 248
     iput-object p1, p0, Landroidx/media/AudioAttributesCompat;->mImpl:Landroidx/media/AudioAttributesImpl;
 
-    .line 249
     return-void
 .end method
 
 .method public static setForceLegacyBehavior(Z)V
     .locals 0
-    .param p0, "force"    # Z
 
     .line 543
     sput-boolean p0, Landroidx/media/AudioAttributesCompat;->sForceLegacyBehavior:Z
 
-    .line 544
     return-void
 .end method
 
 .method static toVolumeStreamType(ZII)I
-    .locals 4
-    .param p0, "fromGetVolumeControlStream"    # Z
-    .param p1, "flags"    # I
-    .param p2, "usage"    # I
+    .locals 3
 
-    .line 553
     and-int/lit8 v0, p1, 0x1
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_1
 
-    .line 554
     if-eqz p0, :cond_0
 
     goto :goto_0
@@ -251,17 +231,15 @@
     :goto_0
     return v1
 
-    .line 558
     :cond_1
-    and-int/lit8 v0, p1, 0x4
+    const/4 v0, 0x4
+
+    and-int/2addr p1, v0
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x4
+    if-ne p1, v0, :cond_3
 
-    if-ne v0, v3, :cond_3
-
-    .line 559
     if-eqz p0, :cond_2
 
     goto :goto_1
@@ -272,46 +250,37 @@
     :goto_1
     return v2
 
-    .line 565
     :cond_3
-    const/4 v0, 0x3
+    const/4 p1, 0x3
 
     packed-switch p2, :pswitch_data_0
 
-    .line 594
     :pswitch_0
     if-nez p0, :cond_5
 
-    .line 598
-    return v0
+    return p1
 
-    .line 572
     :pswitch_1
     return v1
 
-    .line 590
     :pswitch_2
-    const/16 v0, 0xa
+    const/16 p0, 0xa
 
-    return v0
+    return p0
 
-    .line 582
     :pswitch_3
-    const/4 v0, 0x2
+    const/4 p0, 0x2
 
-    return v0
+    return p0
 
-    .line 588
     :pswitch_4
-    const/4 v0, 0x5
+    const/4 p0, 0x5
 
+    return p0
+
+    :pswitch_5
     return v0
 
-    .line 580
-    :pswitch_5
-    return v3
-
-    .line 576
     :pswitch_6
     if-eqz p0, :cond_4
 
@@ -321,49 +290,43 @@
     const/16 v2, 0x8
 
     :goto_2
-    return v2
-
-    .line 574
     :pswitch_7
     return v2
 
-    .line 570
     :pswitch_8
-    return v0
-
-    .line 592
-    :pswitch_9
-    return v0
+    return p1
 
     .line 595
     :cond_5
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "Unknown usage value "
 
-    const-string v2, "Unknown usage value "
+    invoke-direct {p1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    const-string v2, " in audio attributes"
+    const-string p2, " in audio attributes"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    throw v0
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 
     :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_9
+        :pswitch_8
         :pswitch_8
         :pswitch_7
         :pswitch_6
@@ -385,124 +348,108 @@
 
 .method static usageToString(I)Ljava/lang/String;
     .locals 2
-    .param p0, "usage"    # I
 
-    .line 488
     packed-switch p0, :pswitch_data_0
 
     .line 522
     :pswitch_0
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "unknown usage "
 
-    const-string/jumbo v1, "unknown usage "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v0
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    return-object v0
+    move-result-object p0
 
-    .line 520
+    return-object p0
+
     :pswitch_1
-    const-string v0, "USAGE_ASSISTANT"
+    const-string p0, "USAGE_ASSISTANT"
 
-    return-object v0
+    return-object p0
 
-    .line 518
     :pswitch_2
-    const-string v0, "USAGE_GAME"
+    const-string p0, "USAGE_GAME"
 
-    return-object v0
+    return-object p0
 
-    .line 516
     :pswitch_3
-    const-string v0, "USAGE_ASSISTANCE_SONIFICATION"
+    const-string p0, "USAGE_ASSISTANCE_SONIFICATION"
 
-    return-object v0
+    return-object p0
 
-    .line 514
     :pswitch_4
-    const-string v0, "USAGE_ASSISTANCE_NAVIGATION_GUIDANCE"
+    const-string p0, "USAGE_ASSISTANCE_NAVIGATION_GUIDANCE"
 
-    return-object v0
+    return-object p0
 
-    .line 512
     :pswitch_5
-    const-string v0, "USAGE_ASSISTANCE_ACCESSIBILITY"
+    const-string p0, "USAGE_ASSISTANCE_ACCESSIBILITY"
 
-    return-object v0
+    return-object p0
 
-    .line 510
     :pswitch_6
-    const-string v0, "USAGE_NOTIFICATION_EVENT"
+    const-string p0, "USAGE_NOTIFICATION_EVENT"
 
-    return-object v0
+    return-object p0
 
-    .line 508
     :pswitch_7
-    const-string v0, "USAGE_NOTIFICATION_COMMUNICATION_DELAYED"
+    const-string p0, "USAGE_NOTIFICATION_COMMUNICATION_DELAYED"
 
-    return-object v0
+    return-object p0
 
-    .line 506
     :pswitch_8
-    const-string v0, "USAGE_NOTIFICATION_COMMUNICATION_INSTANT"
+    const-string p0, "USAGE_NOTIFICATION_COMMUNICATION_INSTANT"
 
-    return-object v0
+    return-object p0
 
-    .line 504
     :pswitch_9
-    const-string v0, "USAGE_NOTIFICATION_COMMUNICATION_REQUEST"
+    const-string p0, "USAGE_NOTIFICATION_COMMUNICATION_REQUEST"
 
-    return-object v0
+    return-object p0
 
-    .line 502
     :pswitch_a
-    const-string v0, "USAGE_NOTIFICATION_RINGTONE"
+    const-string p0, "USAGE_NOTIFICATION_RINGTONE"
 
-    return-object v0
+    return-object p0
 
-    .line 500
     :pswitch_b
-    const-string v0, "USAGE_NOTIFICATION"
+    const-string p0, "USAGE_NOTIFICATION"
 
-    return-object v0
+    return-object p0
 
-    .line 498
     :pswitch_c
-    const-string v0, "USAGE_ALARM"
+    const-string p0, "USAGE_ALARM"
 
-    return-object v0
+    return-object p0
 
-    .line 496
     :pswitch_d
-    const-string v0, "USAGE_VOICE_COMMUNICATION_SIGNALLING"
+    const-string p0, "USAGE_VOICE_COMMUNICATION_SIGNALLING"
 
-    return-object v0
+    return-object p0
 
-    .line 494
     :pswitch_e
-    const-string v0, "USAGE_VOICE_COMMUNICATION"
+    const-string p0, "USAGE_VOICE_COMMUNICATION"
 
-    return-object v0
+    return-object p0
 
-    .line 492
     :pswitch_f
-    const-string v0, "USAGE_MEDIA"
+    const-string p0, "USAGE_MEDIA"
 
-    return-object v0
+    return-object p0
 
-    .line 490
     :pswitch_10
-    const-string v0, "USAGE_UNKNOWN"
+    const-string p0, "USAGE_UNKNOWN"
 
-    return-object v0
+    return-object p0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -527,75 +474,36 @@
 .end method
 
 .method public static wrap(Ljava/lang/Object;)Landroidx/media/AudioAttributesCompat;
-    .locals 3
-    .param p0, "aa"    # Ljava/lang/Object;
+    .locals 2
 
     .line 299
     sget-boolean v0, Landroidx/media/AudioAttributesCompat;->sForceLegacyBehavior:Z
 
-    const/4 v1, 0x0
-
     if-eqz v0, :cond_0
 
-    .line 300
-    return-object v1
+    const/4 p0, 0x0
 
-    .line 302
-    :cond_0
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x1a
-
-    if-lt v0, v2, :cond_1
+    return-object p0
 
     .line 303
+    :cond_0
     new-instance v0, Landroidx/media/AudioAttributesCompat;
 
     new-instance v1, Landroidx/media/AudioAttributesImplApi26;
 
-    move-object v2, p0
+    check-cast p0, Landroid/media/AudioAttributes;
 
-    check-cast v2, Landroid/media/AudioAttributes;
-
-    invoke-direct {v1, v2}, Landroidx/media/AudioAttributesImplApi26;-><init>(Landroid/media/AudioAttributes;)V
+    invoke-direct {v1, p0}, Landroidx/media/AudioAttributesImplApi26;-><init>(Landroid/media/AudioAttributes;)V
 
     invoke-direct {v0, v1}, Landroidx/media/AudioAttributesCompat;-><init>(Landroidx/media/AudioAttributesImpl;)V
 
     return-object v0
-
-    .line 304
-    :cond_1
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x15
-
-    if-lt v0, v2, :cond_2
-
-    .line 305
-    new-instance v0, Landroidx/media/AudioAttributesCompat;
-
-    new-instance v1, Landroidx/media/AudioAttributesImplApi21;
-
-    move-object v2, p0
-
-    check-cast v2, Landroid/media/AudioAttributes;
-
-    invoke-direct {v1, v2}, Landroidx/media/AudioAttributesImplApi21;-><init>(Landroid/media/AudioAttributes;)V
-
-    invoke-direct {v0, v1}, Landroidx/media/AudioAttributesCompat;-><init>(Landroidx/media/AudioAttributesImpl;)V
-
-    return-object v0
-
-    .line 307
-    :cond_2
-    return-object v1
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 2
 
     .line 605
     instance-of v0, p1, Landroidx/media/AudioAttributesCompat;
@@ -604,25 +512,21 @@
 
     if-nez v0, :cond_0
 
-    .line 606
     return v1
 
     .line 608
     :cond_0
-    move-object v0, p1
-
-    check-cast v0, Landroidx/media/AudioAttributesCompat;
+    check-cast p1, Landroidx/media/AudioAttributesCompat;
 
     .line 609
-    .local v0, "that":Landroidx/media/AudioAttributesCompat;
-    iget-object v2, p0, Landroidx/media/AudioAttributesCompat;->mImpl:Landroidx/media/AudioAttributesImpl;
+    iget-object v0, p0, Landroidx/media/AudioAttributesCompat;->mImpl:Landroidx/media/AudioAttributesImpl;
 
-    if-nez v2, :cond_2
+    if-nez v0, :cond_2
 
     .line 610
-    iget-object v2, v0, Landroidx/media/AudioAttributesCompat;->mImpl:Landroidx/media/AudioAttributesImpl;
+    iget-object p1, p1, Landroidx/media/AudioAttributesCompat;->mImpl:Landroidx/media/AudioAttributesImpl;
 
-    if-nez v2, :cond_1
+    if-nez p1, :cond_1
 
     const/4 v1, 0x1
 
@@ -631,13 +535,13 @@
 
     .line 612
     :cond_2
-    iget-object v1, v0, Landroidx/media/AudioAttributesCompat;->mImpl:Landroidx/media/AudioAttributesImpl;
+    iget-object p1, p1, Landroidx/media/AudioAttributesCompat;->mImpl:Landroidx/media/AudioAttributesImpl;
 
-    invoke-virtual {v2, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 .end method
 
 .method public getContentType()I

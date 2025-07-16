@@ -25,7 +25,6 @@
     .line 1173
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1174
     return-void
 .end method
 
@@ -78,9 +77,7 @@
 
 .method public setPlaybackSpeed(F)V
     .locals 0
-    .param p1, "speed"    # F
 
-    .line 1330
     return-void
 .end method
 

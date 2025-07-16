@@ -25,34 +25,34 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .line 63
     const/16 v0, 0xa
 
     new-array v1, v0, [I
 
+    .line 63
     fill-array-data v1, :array_0
 
     sput-object v1, Lcom/google/crypto/tink/subtle/Field25519;->EXPAND_START:[I
 
-    .line 64
     new-array v0, v0, [I
 
+    .line 64
     fill-array-data v0, :array_1
 
     sput-object v0, Lcom/google/crypto/tink/subtle/Field25519;->EXPAND_SHIFT:[I
 
-    .line 65
     const/4 v0, 0x2
 
     new-array v1, v0, [I
 
+    .line 65
     fill-array-data v1, :array_2
 
     sput-object v1, Lcom/google/crypto/tink/subtle/Field25519;->MASK:[I
 
-    .line 66
     new-array v0, v0, [I
 
+    .line 66
     fill-array-data v0, :array_3
 
     sput-object v0, Lcom/google/crypto/tink/subtle/Field25519;->SHIFT:[I
@@ -110,8 +110,7 @@
 .end method
 
 .method static contract([J)[B
-    .locals 17
-    .param p0, "inputLimbs"    # [J
+    .locals 14
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -121,539 +120,440 @@
         }
     .end annotation
 
-    .line 409
     const/16 v0, 0xa
 
-    move-object/from16 v1, p0
+    .line 409
+    invoke-static {p0, v0}, Ljava/util/Arrays;->copyOf([JI)[J
 
-    invoke-static {v1, v0}, Ljava/util/Arrays;->copyOf([JI)[J
+    move-result-object p0
 
-    move-result-object v2
+    const/4 v1, 0x0
 
-    .line 410
-    .local v2, "input":[J
-    const/4 v3, 0x0
+    move v2, v1
 
-    .local v3, "j":I
     :goto_0
-    const/16 v4, 0x19
+    const/16 v3, 0x19
 
-    const/16 v5, 0x1f
+    const/16 v4, 0x1f
 
-    const/4 v6, 0x2
+    const/4 v5, 0x2
 
-    const/16 v7, 0x9
+    const/16 v6, 0x9
 
-    const/4 v8, 0x0
+    if-ge v2, v5, :cond_1
 
-    if-ge v3, v6, :cond_1
+    move v5, v1
 
-    .line 411
-    const/4 v6, 0x0
-
-    .local v6, "i":I
     :goto_1
-    if-ge v6, v7, :cond_0
+    if-ge v5, v6, :cond_0
 
     .line 414
-    aget-wide v9, v2, v6
+    aget-wide v7, p0, v5
 
-    aget-wide v11, v2, v6
+    shr-long v9, v7, v4
 
-    shr-long/2addr v11, v5
-
-    and-long/2addr v9, v11
+    and-long/2addr v9, v7
 
     sget-object v11, Lcom/google/crypto/tink/subtle/Field25519;->SHIFT:[I
 
-    and-int/lit8 v12, v6, 0x1
+    and-int/lit8 v12, v5, 0x1
 
-    aget v12, v11, v12
+    aget v11, v11, v12
 
-    shr-long/2addr v9, v12
+    shr-long/2addr v9, v11
 
     long-to-int v9, v9
 
     neg-int v9, v9
 
-    .line 415
-    .local v9, "carry":I
-    aget-wide v12, v2, v6
-
-    and-int/lit8 v10, v6, 0x1
-
-    aget v10, v11, v10
-
-    shl-int v10, v9, v10
+    shl-int v10, v9, v11
 
     int-to-long v10, v10
 
-    add-long/2addr v12, v10
+    add-long/2addr v7, v10
 
-    aput-wide v12, v2, v6
+    .line 415
+    aput-wide v7, p0, v5
+
+    add-int/lit8 v5, v5, 0x1
 
     .line 416
-    add-int/lit8 v10, v6, 0x1
-
-    aget-wide v11, v2, v10
-
-    int-to-long v13, v9
-
-    sub-long/2addr v11, v13
-
-    aput-wide v11, v2, v10
-
-    .line 411
-    .end local v9    # "carry":I
-    add-int/lit8 v6, v6, 0x1
-
-    goto :goto_1
-
-    .line 422
-    .end local v6    # "i":I
-    :cond_0
-    aget-wide v9, v2, v7
-
-    aget-wide v11, v2, v7
-
-    shr-long v5, v11, v5
-
-    and-long/2addr v5, v9
-
-    shr-long v4, v5, v4
-
-    long-to-int v4, v4
-
-    neg-int v4, v4
-
-    .line 423
-    .local v4, "carry":I
-    aget-wide v5, v2, v7
-
-    shl-int/lit8 v9, v4, 0x19
-
-    int-to-long v9, v9
-
-    add-long/2addr v5, v9
-
-    aput-wide v5, v2, v7
-
-    .line 424
-    aget-wide v5, v2, v8
-
-    mul-int/lit8 v7, v4, 0x13
-
-    int-to-long v9, v7
-
-    sub-long/2addr v5, v9
-
-    aput-wide v5, v2, v8
-
-    .line 410
-    .end local v4    # "carry":I
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_0
-
-    .line 443
-    .end local v3    # "j":I
-    :cond_1
-    aget-wide v9, v2, v8
-
-    aget-wide v11, v2, v8
-
-    shr-long/2addr v11, v5
-
-    and-long/2addr v9, v11
-
-    const/16 v3, 0x1a
-
-    shr-long/2addr v9, v3
-
-    long-to-int v3, v9
-
-    neg-int v3, v3
-
-    .line 444
-    .local v3, "carry":I
-    aget-wide v9, v2, v8
-
-    shl-int/lit8 v5, v3, 0x1a
-
-    int-to-long v11, v5
-
-    add-long/2addr v9, v11
-
-    aput-wide v9, v2, v8
-
-    .line 445
-    const/4 v5, 0x1
-
-    aget-wide v9, v2, v5
-
-    int-to-long v11, v3
-
-    sub-long/2addr v9, v11
-
-    aput-wide v9, v2, v5
-
-    .line 450
-    .end local v3    # "carry":I
-    const/4 v3, 0x0
-
-    .local v3, "j":I
-    :goto_2
-    if-ge v3, v6, :cond_3
-
-    .line 451
-    const/4 v9, 0x0
-
-    .local v9, "i":I
-    :goto_3
-    if-ge v9, v7, :cond_2
-
-    .line 452
-    aget-wide v10, v2, v9
-
-    sget-object v12, Lcom/google/crypto/tink/subtle/Field25519;->SHIFT:[I
-
-    and-int/lit8 v13, v9, 0x1
-
-    aget v12, v12, v13
-
-    shr-long/2addr v10, v12
-
-    long-to-int v10, v10
-
-    .line 453
-    .local v10, "carry":I
-    aget-wide v11, v2, v9
-
-    sget-object v13, Lcom/google/crypto/tink/subtle/Field25519;->MASK:[I
-
-    and-int/lit8 v14, v9, 0x1
-
-    aget v13, v13, v14
-
-    int-to-long v13, v13
-
-    and-long/2addr v11, v13
-
-    aput-wide v11, v2, v9
-
-    .line 454
-    add-int/lit8 v11, v9, 0x1
-
-    aget-wide v12, v2, v11
-
-    int-to-long v14, v10
-
-    add-long/2addr v12, v14
-
-    aput-wide v12, v2, v11
-
-    .line 451
-    .end local v10    # "carry":I
-    add-int/lit8 v9, v9, 0x1
-
-    goto :goto_3
-
-    .line 450
-    .end local v9    # "i":I
-    :cond_2
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_2
-
-    .line 459
-    .end local v3    # "j":I
-    :cond_3
-    aget-wide v9, v2, v7
-
-    shr-long v3, v9, v4
-
-    long-to-int v3, v3
-
-    .line 460
-    .local v3, "carry":I
-    aget-wide v9, v2, v7
-
-    const-wide/32 v11, 0x1ffffff
-
-    and-long/2addr v9, v11
-
-    aput-wide v9, v2, v7
-
-    .line 461
-    aget-wide v9, v2, v8
-
-    mul-int/lit8 v4, v3, 0x13
-
-    int-to-long v11, v4
-
-    add-long/2addr v9, v11
-
-    aput-wide v9, v2, v8
-
-    .line 474
-    .end local v3    # "carry":I
-    aget-wide v3, v2, v8
-
-    long-to-int v3, v3
-
-    const v4, 0x3ffffed
-
-    invoke-static {v3, v4}, Lcom/google/crypto/tink/subtle/Field25519;->gte(II)I
-
-    move-result v3
-
-    .line 475
-    .local v3, "mask":I
-    const/4 v7, 0x1
-
-    .local v7, "i":I
-    :goto_4
-    if-ge v7, v0, :cond_4
-
-    .line 476
-    aget-wide v9, v2, v7
-
-    long-to-int v9, v9
-
-    sget-object v10, Lcom/google/crypto/tink/subtle/Field25519;->MASK:[I
-
-    and-int/lit8 v11, v7, 0x1
-
-    aget v10, v10, v11
-
-    invoke-static {v9, v10}, Lcom/google/crypto/tink/subtle/Field25519;->eq(II)I
-
-    move-result v9
-
-    and-int/2addr v3, v9
-
-    .line 475
-    add-int/lit8 v7, v7, 0x1
-
-    goto :goto_4
-
-    .line 481
-    .end local v7    # "i":I
-    :cond_4
-    aget-wide v9, v2, v8
-
-    and-int/2addr v4, v3
-
-    int-to-long v11, v4
-
-    sub-long/2addr v9, v11
-
-    aput-wide v9, v2, v8
-
-    .line 482
-    aget-wide v7, v2, v5
-
-    const v4, 0x1ffffff
-
-    and-int v9, v3, v4
+    aget-wide v7, p0, v5
 
     int-to-long v9, v9
 
     sub-long/2addr v7, v9
 
-    aput-wide v7, v2, v5
+    aput-wide v7, p0, v5
 
-    .line 483
-    const/4 v7, 0x2
+    goto :goto_1
 
-    .restart local v7    # "i":I
-    :goto_5
-    if-ge v7, v0, :cond_5
+    .line 422
+    :cond_0
+    aget-wide v7, p0, v6
 
-    .line 484
-    aget-wide v8, v2, v7
+    shr-long v4, v7, v4
 
-    const v10, 0x3ffffff
+    and-long/2addr v4, v7
 
-    and-int/2addr v10, v3
+    shr-long v3, v4, v3
 
-    int-to-long v10, v10
+    long-to-int v3, v3
 
-    sub-long/2addr v8, v10
+    neg-int v3, v3
 
-    aput-wide v8, v2, v7
+    shl-int/lit8 v4, v3, 0x19
 
-    .line 485
-    add-int/lit8 v8, v7, 0x1
+    int-to-long v4, v4
 
-    aget-wide v9, v2, v8
+    add-long/2addr v7, v4
 
-    and-int v11, v3, v4
+    .line 423
+    aput-wide v7, p0, v6
+
+    .line 424
+    aget-wide v4, p0, v1
+
+    mul-int/lit8 v3, v3, 0x13
+
+    int-to-long v6, v3
+
+    sub-long/2addr v4, v6
+
+    aput-wide v4, p0, v1
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    .line 443
+    :cond_1
+    aget-wide v7, p0, v1
+
+    shr-long v9, v7, v4
+
+    and-long/2addr v9, v7
+
+    const/16 v2, 0x1a
+
+    shr-long/2addr v9, v2
+
+    long-to-int v2, v9
+
+    neg-int v2, v2
+
+    shl-int/lit8 v4, v2, 0x1a
+
+    int-to-long v9, v4
+
+    add-long/2addr v7, v9
+
+    .line 444
+    aput-wide v7, p0, v1
+
+    const/4 v4, 0x1
+
+    .line 445
+    aget-wide v7, p0, v4
+
+    int-to-long v9, v2
+
+    sub-long/2addr v7, v9
+
+    aput-wide v7, p0, v4
+
+    move v2, v1
+
+    :goto_2
+    if-ge v2, v5, :cond_3
+
+    move v7, v1
+
+    :goto_3
+    if-ge v7, v6, :cond_2
+
+    .line 452
+    aget-wide v8, p0, v7
+
+    sget-object v10, Lcom/google/crypto/tink/subtle/Field25519;->SHIFT:[I
+
+    and-int/lit8 v11, v7, 0x1
+
+    aget v10, v10, v11
+
+    shr-long v12, v8, v10
+
+    long-to-int v10, v12
+
+    .line 453
+    sget-object v12, Lcom/google/crypto/tink/subtle/Field25519;->MASK:[I
+
+    aget v11, v12, v11
 
     int-to-long v11, v11
 
-    sub-long/2addr v9, v11
+    and-long/2addr v8, v11
 
-    aput-wide v9, v2, v8
+    aput-wide v8, p0, v7
 
-    .line 483
-    add-int/lit8 v7, v7, 0x2
+    add-int/lit8 v7, v7, 0x1
+
+    .line 454
+    aget-wide v8, p0, v7
+
+    int-to-long v10, v10
+
+    add-long/2addr v8, v10
+
+    aput-wide v8, p0, v7
+
+    goto :goto_3
+
+    :cond_2
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_2
+
+    .line 459
+    :cond_3
+    aget-wide v7, p0, v6
+
+    shr-long v2, v7, v3
+
+    long-to-int v2, v2
+
+    const-wide/32 v9, 0x1ffffff
+
+    and-long/2addr v7, v9
+
+    .line 460
+    aput-wide v7, p0, v6
+
+    .line 461
+    aget-wide v6, p0, v1
+
+    mul-int/lit8 v2, v2, 0x13
+
+    int-to-long v2, v2
+
+    add-long/2addr v6, v2
+
+    aput-wide v6, p0, v1
+
+    long-to-int v2, v6
+
+    const v3, 0x3ffffed
+
+    .line 474
+    invoke-static {v2, v3}, Lcom/google/crypto/tink/subtle/Field25519;->gte(II)I
+
+    move-result v2
+
+    move v6, v4
+
+    :goto_4
+    if-ge v6, v0, :cond_4
+
+    .line 476
+    aget-wide v7, p0, v6
+
+    long-to-int v7, v7
+
+    sget-object v8, Lcom/google/crypto/tink/subtle/Field25519;->MASK:[I
+
+    and-int/lit8 v9, v6, 0x1
+
+    aget v8, v8, v9
+
+    invoke-static {v7, v8}, Lcom/google/crypto/tink/subtle/Field25519;->eq(II)I
+
+    move-result v7
+
+    and-int/2addr v2, v7
+
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_4
+
+    .line 481
+    :cond_4
+    aget-wide v6, p0, v1
+
+    and-int/2addr v3, v2
+
+    int-to-long v8, v3
+
+    sub-long/2addr v6, v8
+
+    aput-wide v6, p0, v1
+
+    .line 482
+    aget-wide v6, p0, v4
+
+    const v3, 0x1ffffff
+
+    and-int/2addr v3, v2
+
+    int-to-long v8, v3
+
+    sub-long/2addr v6, v8
+
+    aput-wide v6, p0, v4
+
+    :goto_5
+    if-ge v5, v0, :cond_5
+
+    .line 484
+    aget-wide v3, p0, v5
+
+    const v6, 0x3ffffff
+
+    and-int/2addr v6, v2
+
+    int-to-long v6, v6
+
+    sub-long/2addr v3, v6
+
+    aput-wide v3, p0, v5
+
+    add-int/lit8 v3, v5, 0x1
+
+    .line 485
+    aget-wide v6, p0, v3
+
+    sub-long/2addr v6, v8
+
+    aput-wide v6, p0, v3
+
+    add-int/lit8 v5, v5, 0x2
 
     goto :goto_5
 
-    .line 488
-    .end local v7    # "i":I
     :cond_5
-    const/4 v4, 0x0
+    move v2, v1
 
-    .local v4, "i":I
     :goto_6
-    if-ge v4, v0, :cond_6
+    if-ge v2, v0, :cond_6
 
     .line 489
-    aget-wide v7, v2, v4
+    aget-wide v3, p0, v2
 
-    sget-object v9, Lcom/google/crypto/tink/subtle/Field25519;->EXPAND_SHIFT:[I
+    sget-object v5, Lcom/google/crypto/tink/subtle/Field25519;->EXPAND_SHIFT:[I
 
-    aget v9, v9, v4
+    aget v5, v5, v2
 
-    shl-long/2addr v7, v9
+    shl-long/2addr v3, v5
 
-    aput-wide v7, v2, v4
+    aput-wide v3, p0, v2
 
-    .line 488
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_6
 
-    .line 491
-    .end local v4    # "i":I
     :cond_6
-    const/16 v4, 0x20
+    const/16 v2, 0x20
 
-    new-array v4, v4, [B
+    new-array v2, v2, [B
 
-    .line 492
-    .local v4, "output":[B
-    const/4 v7, 0x0
-
-    .restart local v7    # "i":I
     :goto_7
-    if-ge v7, v0, :cond_7
+    if-ge v1, v0, :cond_7
 
     .line 493
-    sget-object v8, Lcom/google/crypto/tink/subtle/Field25519;->EXPAND_START:[I
+    sget-object v3, Lcom/google/crypto/tink/subtle/Field25519;->EXPAND_START:[I
 
-    aget v9, v8, v7
+    aget v3, v3, v1
 
-    aget-byte v10, v4, v9
+    aget-byte v4, v2, v3
 
-    int-to-long v10, v10
+    int-to-long v4, v4
 
-    aget-wide v12, v2, v7
+    aget-wide v6, p0, v1
 
-    const-wide/16 v14, 0xff
+    const-wide/16 v8, 0xff
 
-    and-long/2addr v12, v14
+    and-long v10, v6, v8
 
-    or-long/2addr v10, v12
+    or-long/2addr v4, v10
 
-    long-to-int v10, v10
+    long-to-int v4, v4
 
-    int-to-byte v10, v10
+    int-to-byte v4, v4
 
-    aput-byte v10, v4, v9
+    aput-byte v4, v2, v3
+
+    add-int/lit8 v4, v3, 0x1
 
     .line 494
-    aget v9, v8, v7
+    aget-byte v5, v2, v4
 
-    add-int/2addr v9, v5
+    int-to-long v10, v5
 
-    aget-byte v10, v4, v9
+    const/16 v5, 0x8
 
-    int-to-long v10, v10
+    shr-long v12, v6, v5
 
-    aget-wide v12, v2, v7
-
-    const/16 v16, 0x8
-
-    shr-long v12, v12, v16
-
-    and-long/2addr v12, v14
+    and-long/2addr v12, v8
 
     or-long/2addr v10, v12
 
-    long-to-int v10, v10
+    long-to-int v5, v10
 
-    int-to-byte v10, v10
+    int-to-byte v5, v5
 
-    aput-byte v10, v4, v9
+    aput-byte v5, v2, v4
+
+    add-int/lit8 v4, v3, 0x2
 
     .line 495
-    aget v9, v8, v7
+    aget-byte v5, v2, v4
 
-    add-int/2addr v9, v6
+    int-to-long v10, v5
 
-    aget-byte v10, v4, v9
+    const/16 v5, 0x10
 
-    int-to-long v10, v10
+    shr-long v12, v6, v5
 
-    aget-wide v12, v2, v7
-
-    const/16 v16, 0x10
-
-    shr-long v12, v12, v16
-
-    and-long/2addr v12, v14
+    and-long/2addr v12, v8
 
     or-long/2addr v10, v12
 
-    long-to-int v10, v10
+    long-to-int v5, v10
 
-    int-to-byte v10, v10
+    int-to-byte v5, v5
 
-    aput-byte v10, v4, v9
+    aput-byte v5, v2, v4
+
+    add-int/lit8 v3, v3, 0x3
 
     .line 496
-    aget v8, v8, v7
+    aget-byte v4, v2, v3
 
-    add-int/lit8 v8, v8, 0x3
+    int-to-long v4, v4
 
-    aget-byte v9, v4, v8
+    const/16 v10, 0x18
 
-    int-to-long v9, v9
+    shr-long/2addr v6, v10
 
-    aget-wide v11, v2, v7
+    and-long/2addr v6, v8
 
-    const/16 v13, 0x18
+    or-long/2addr v4, v6
 
-    shr-long/2addr v11, v13
+    long-to-int v4, v4
 
-    and-long/2addr v11, v14
+    int-to-byte v4, v4
 
-    or-long/2addr v9, v11
+    aput-byte v4, v2, v3
 
-    long-to-int v9, v9
-
-    int-to-byte v9, v9
-
-    aput-byte v9, v4, v8
-
-    .line 492
-    add-int/lit8 v7, v7, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_7
 
-    .line 498
-    .end local v7    # "i":I
     :cond_7
-    return-object v4
+    return-object v2
 .end method
 
 .method private static eq(II)I
-    .locals 1
-    .param p0, "a"    # I
-    .param p1, "b"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -665,45 +565,37 @@
         }
     .end annotation
 
-    .line 595
-    xor-int v0, p0, p1
+    xor-int/2addr p0, p1
 
-    not-int p0, v0
+    not-int p0, p0
 
-    .line 596
-    shl-int/lit8 v0, p0, 0x10
+    shl-int/lit8 p1, p0, 0x10
 
-    and-int/2addr p0, v0
+    and-int/2addr p0, p1
 
-    .line 597
-    shl-int/lit8 v0, p0, 0x8
+    shl-int/lit8 p1, p0, 0x8
 
-    and-int/2addr p0, v0
+    and-int/2addr p0, p1
 
-    .line 598
-    shl-int/lit8 v0, p0, 0x4
+    shl-int/lit8 p1, p0, 0x4
 
-    and-int/2addr p0, v0
+    and-int/2addr p0, p1
 
-    .line 599
-    shl-int/lit8 v0, p0, 0x2
+    shl-int/lit8 p1, p0, 0x2
 
-    and-int/2addr p0, v0
+    and-int/2addr p0, p1
 
-    .line 600
-    shl-int/lit8 v0, p0, 0x1
+    shl-int/lit8 p1, p0, 0x1
 
-    and-int/2addr p0, v0
+    and-int/2addr p0, p1
 
-    .line 601
-    shr-int/lit8 v0, p0, 0x1f
+    shr-int/lit8 p0, p0, 0x1f
 
-    return v0
+    return p0
 .end method
 
 .method static expand([B)[J
     .locals 9
-    .param p0, "input"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -713,33 +605,27 @@
         }
     .end annotation
 
-    .line 391
     const/16 v0, 0xa
 
     new-array v1, v0, [J
 
-    .line 392
-    .local v1, "output":[J
     const/4 v2, 0x0
 
-    .local v2, "i":I
     :goto_0
     if-ge v2, v0, :cond_0
 
     .line 393
     sget-object v3, Lcom/google/crypto/tink/subtle/Field25519;->EXPAND_START:[I
 
-    aget v4, v3, v2
+    aget v3, v3, v2
 
-    aget-byte v4, p0, v4
+    aget-byte v4, p0, v3
 
     and-int/lit16 v4, v4, 0xff
 
     int-to-long v4, v4
 
-    aget v6, v3, v2
-
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v6, v3, 0x1
 
     aget-byte v6, p0, v6
 
@@ -753,9 +639,7 @@
 
     or-long/2addr v4, v6
 
-    aget v6, v3, v2
-
-    add-int/lit8 v6, v6, 0x2
+    add-int/lit8 v6, v3, 0x2
 
     aget-byte v6, p0, v6
 
@@ -768,8 +652,6 @@
     shl-long/2addr v6, v8
 
     or-long/2addr v4, v6
-
-    aget v3, v3, v2
 
     add-int/lit8 v3, v3, 0x3
 
@@ -803,21 +685,16 @@
 
     aput-wide v3, v1, v2
 
-    .line 392
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 398
-    .end local v2    # "i":I
     :cond_0
     return-object v1
 .end method
 
 .method private static gte(II)I
-    .locals 1
-    .param p0, "a"    # I
-    .param p1, "b"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -829,21 +706,17 @@
         }
     .end annotation
 
-    .line 608
     sub-int/2addr p0, p1
 
-    .line 610
-    shr-int/lit8 v0, p0, 0x1f
+    shr-int/lit8 p0, p0, 0x1f
 
-    not-int v0, v0
+    not-int p0, p0
 
-    return v0
+    return p0
 .end method
 
 .method static inverse([J[J)V
-    .locals 13
-    .param p0, "out"    # [J
-    .param p1, "z"    # [J
+    .locals 11
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -855,49 +728,29 @@
         }
     .end annotation
 
-    .line 508
     const/16 v0, 0xa
 
     new-array v1, v0, [J
 
-    .line 509
-    .local v1, "z2":[J
     new-array v2, v0, [J
 
-    .line 510
-    .local v2, "z9":[J
     new-array v3, v0, [J
 
-    .line 511
-    .local v3, "z11":[J
     new-array v4, v0, [J
 
-    .line 512
-    .local v4, "z2To5Minus1":[J
     new-array v5, v0, [J
 
-    .line 513
-    .local v5, "z2To10Minus1":[J
     new-array v6, v0, [J
 
-    .line 514
-    .local v6, "z2To20Minus1":[J
     new-array v7, v0, [J
 
-    .line 515
-    .local v7, "z2To50Minus1":[J
     new-array v8, v0, [J
 
-    .line 516
-    .local v8, "z2To100Minus1":[J
     new-array v9, v0, [J
 
-    .line 517
-    .local v9, "t0":[J
     new-array v10, v0, [J
 
     .line 519
-    .local v10, "t1":[J
     invoke-static {v1, p1}, Lcom/google/crypto/tink/subtle/Field25519;->square([J[J)V
 
     .line 520
@@ -942,12 +795,12 @@
     .line 535
     invoke-static {v10, v9}, Lcom/google/crypto/tink/subtle/Field25519;->square([J[J)V
 
-    .line 536
-    const/4 v11, 0x2
+    const/4 p1, 0x2
 
-    .local v11, "i":I
+    move v1, p1
+
     :goto_0
-    if-ge v11, v0, :cond_0
+    if-ge v1, v0, :cond_0
 
     .line 537
     invoke-static {v9, v10}, Lcom/google/crypto/tink/subtle/Field25519;->square([J[J)V
@@ -955,13 +808,11 @@
     .line 538
     invoke-static {v10, v9}, Lcom/google/crypto/tink/subtle/Field25519;->square([J[J)V
 
-    .line 536
-    add-int/lit8 v11, v11, 0x2
+    add-int/lit8 v1, v1, 0x2
 
     goto :goto_0
 
     .line 540
-    .end local v11    # "i":I
     :cond_0
     invoke-static {v6, v10, v5}, Lcom/google/crypto/tink/subtle/Field25519;->mult([J[J[J)V
 
@@ -971,14 +822,12 @@
     .line 543
     invoke-static {v10, v9}, Lcom/google/crypto/tink/subtle/Field25519;->square([J[J)V
 
-    .line 544
-    const/4 v11, 0x2
+    move v1, p1
 
-    .restart local v11    # "i":I
     :goto_1
-    const/16 v12, 0x14
+    const/16 v2, 0x14
 
-    if-ge v11, v12, :cond_1
+    if-ge v1, v2, :cond_1
 
     .line 545
     invoke-static {v9, v10}, Lcom/google/crypto/tink/subtle/Field25519;->square([J[J)V
@@ -986,13 +835,11 @@
     .line 546
     invoke-static {v10, v9}, Lcom/google/crypto/tink/subtle/Field25519;->square([J[J)V
 
-    .line 544
-    add-int/lit8 v11, v11, 0x2
+    add-int/lit8 v1, v1, 0x2
 
     goto :goto_1
 
     .line 548
-    .end local v11    # "i":I
     :cond_1
     invoke-static {v9, v10, v6}, Lcom/google/crypto/tink/subtle/Field25519;->mult([J[J[J)V
 
@@ -1002,12 +849,10 @@
     .line 551
     invoke-static {v9, v10}, Lcom/google/crypto/tink/subtle/Field25519;->square([J[J)V
 
-    .line 552
-    const/4 v11, 0x2
+    move v1, p1
 
-    .restart local v11    # "i":I
     :goto_2
-    if-ge v11, v0, :cond_2
+    if-ge v1, v0, :cond_2
 
     .line 553
     invoke-static {v10, v9}, Lcom/google/crypto/tink/subtle/Field25519;->square([J[J)V
@@ -1015,13 +860,11 @@
     .line 554
     invoke-static {v9, v10}, Lcom/google/crypto/tink/subtle/Field25519;->square([J[J)V
 
-    .line 552
-    add-int/lit8 v11, v11, 0x2
+    add-int/lit8 v1, v1, 0x2
 
     goto :goto_2
 
     .line 556
-    .end local v11    # "i":I
     :cond_2
     invoke-static {v7, v9, v5}, Lcom/google/crypto/tink/subtle/Field25519;->mult([J[J[J)V
 
@@ -1031,14 +874,12 @@
     .line 559
     invoke-static {v10, v9}, Lcom/google/crypto/tink/subtle/Field25519;->square([J[J)V
 
-    .line 560
-    const/4 v0, 0x2
+    move v0, p1
 
-    .local v0, "i":I
     :goto_3
-    const/16 v11, 0x32
+    const/16 v1, 0x32
 
-    if-ge v0, v11, :cond_3
+    if-ge v0, v1, :cond_3
 
     .line 561
     invoke-static {v9, v10}, Lcom/google/crypto/tink/subtle/Field25519;->square([J[J)V
@@ -1046,13 +887,11 @@
     .line 562
     invoke-static {v10, v9}, Lcom/google/crypto/tink/subtle/Field25519;->square([J[J)V
 
-    .line 560
     add-int/lit8 v0, v0, 0x2
 
     goto :goto_3
 
     .line 564
-    .end local v0    # "i":I
     :cond_3
     invoke-static {v8, v10, v7}, Lcom/google/crypto/tink/subtle/Field25519;->mult([J[J[J)V
 
@@ -1062,14 +901,12 @@
     .line 567
     invoke-static {v9, v10}, Lcom/google/crypto/tink/subtle/Field25519;->square([J[J)V
 
-    .line 568
-    const/4 v0, 0x2
+    move v0, p1
 
-    .restart local v0    # "i":I
     :goto_4
-    const/16 v12, 0x64
+    const/16 v2, 0x64
 
-    if-ge v0, v12, :cond_4
+    if-ge v0, v2, :cond_4
 
     .line 569
     invoke-static {v10, v9}, Lcom/google/crypto/tink/subtle/Field25519;->square([J[J)V
@@ -1077,13 +914,11 @@
     .line 570
     invoke-static {v9, v10}, Lcom/google/crypto/tink/subtle/Field25519;->square([J[J)V
 
-    .line 568
     add-int/lit8 v0, v0, 0x2
 
     goto :goto_4
 
     .line 572
-    .end local v0    # "i":I
     :cond_4
     invoke-static {v10, v9, v8}, Lcom/google/crypto/tink/subtle/Field25519;->mult([J[J[J)V
 
@@ -1093,12 +928,8 @@
     .line 575
     invoke-static {v10, v9}, Lcom/google/crypto/tink/subtle/Field25519;->square([J[J)V
 
-    .line 576
-    const/4 v0, 0x2
-
-    .restart local v0    # "i":I
     :goto_5
-    if-ge v0, v11, :cond_5
+    if-ge p1, v1, :cond_5
 
     .line 577
     invoke-static {v9, v10}, Lcom/google/crypto/tink/subtle/Field25519;->square([J[J)V
@@ -1106,13 +937,11 @@
     .line 578
     invoke-static {v10, v9}, Lcom/google/crypto/tink/subtle/Field25519;->square([J[J)V
 
-    .line 576
-    add-int/lit8 v0, v0, 0x2
+    add-int/lit8 p1, p1, 0x2
 
     goto :goto_5
 
     .line 580
-    .end local v0    # "i":I
     :cond_5
     invoke-static {v9, v10, v7}, Lcom/google/crypto/tink/subtle/Field25519;->mult([J[J[J)V
 
@@ -1134,15 +963,11 @@
     .line 587
     invoke-static {p0, v10, v3}, Lcom/google/crypto/tink/subtle/Field25519;->mult([J[J[J)V
 
-    .line 588
     return-void
 .end method
 
 .method static mult([J[J[J)V
     .locals 1
-    .param p0, "output"    # [J
-    .param p1, "in"    # [J
-    .param p2, "in2"    # [J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -1156,27 +981,21 @@
         }
     .end annotation
 
-    .line 328
     const/16 v0, 0x13
 
     new-array v0, v0, [J
 
     .line 329
-    .local v0, "t":[J
     invoke-static {v0, p1, p2}, Lcom/google/crypto/tink/subtle/Field25519;->product([J[J[J)V
 
     .line 331
     invoke-static {v0, p0}, Lcom/google/crypto/tink/subtle/Field25519;->reduce([J[J)V
 
-    .line 332
     return-void
 .end method
 
 .method static product([J[J[J)V
-    .locals 18
-    .param p0, "out"    # [J
-    .param p1, "in2"    # [J
-    .param p2, "in"    # [J
+    .locals 44
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -1190,9 +1009,9 @@
         }
     .end annotation
 
-    .line 128
     const/4 v0, 0x0
 
+    .line 128
     aget-wide v1, p1, v0
 
     aget-wide v3, p2, v0
@@ -1208,873 +1027,550 @@
 
     aget-wide v4, p2, v3
 
-    mul-long/2addr v1, v4
-
-    aget-wide v4, p1, v3
-
-    aget-wide v6, p2, v0
-
-    mul-long/2addr v4, v6
-
-    add-long/2addr v1, v4
-
-    aput-wide v1, p0, v3
-
-    .line 131
-    aget-wide v1, p1, v3
-
-    const-wide/16 v4, 0x2
-
-    mul-long/2addr v1, v4
-
-    aget-wide v6, p2, v3
-
-    mul-long/2addr v1, v6
-
-    aget-wide v6, p1, v0
-
-    const/4 v8, 0x2
-
-    aget-wide v9, p2, v8
-
-    mul-long/2addr v6, v9
-
-    add-long/2addr v1, v6
-
-    aget-wide v6, p1, v8
-
-    aget-wide v9, p2, v0
-
-    mul-long/2addr v6, v9
-
-    add-long/2addr v1, v6
-
-    aput-wide v1, p0, v8
-
-    .line 134
-    aget-wide v1, p1, v3
-
-    aget-wide v6, p2, v8
-
-    mul-long/2addr v1, v6
-
-    aget-wide v6, p1, v8
-
-    aget-wide v9, p2, v3
-
-    mul-long/2addr v6, v9
-
-    add-long/2addr v1, v6
-
-    aget-wide v6, p1, v0
-
-    const/4 v9, 0x3
-
-    aget-wide v10, p2, v9
-
-    mul-long/2addr v6, v10
-
-    add-long/2addr v1, v6
-
-    aget-wide v6, p1, v9
-
-    aget-wide v10, p2, v0
-
-    mul-long/2addr v6, v10
-
-    add-long/2addr v1, v6
-
-    aput-wide v1, p0, v9
-
-    .line 138
-    aget-wide v1, p1, v8
-
-    aget-wide v6, p2, v8
-
-    mul-long/2addr v1, v6
+    mul-long/2addr v4, v1
 
     aget-wide v6, p1, v3
 
-    aget-wide v10, p2, v9
+    aget-wide v8, p2, v0
 
-    mul-long/2addr v6, v10
+    mul-long/2addr v6, v8
 
-    aget-wide v10, p1, v9
+    add-long/2addr v4, v6
+
+    aput-wide v4, p0, v3
+
+    .line 131
+    aget-wide v4, p1, v3
+
+    const-wide/16 v6, 0x2
+
+    mul-long v10, v4, v6
 
     aget-wide v12, p2, v3
 
     mul-long/2addr v10, v12
 
-    add-long/2addr v6, v10
-
-    mul-long/2addr v6, v4
-
-    add-long/2addr v1, v6
-
-    aget-wide v6, p1, v0
-
-    const/4 v10, 0x4
-
-    aget-wide v11, p2, v10
-
-    mul-long/2addr v6, v11
-
-    add-long/2addr v1, v6
-
-    aget-wide v6, p1, v10
-
-    aget-wide v11, p2, v0
-
-    mul-long/2addr v6, v11
-
-    add-long/2addr v1, v6
-
-    aput-wide v1, p0, v10
-
-    .line 142
-    aget-wide v1, p1, v8
-
-    aget-wide v6, p2, v9
-
-    mul-long/2addr v1, v6
-
-    aget-wide v6, p1, v9
-
-    aget-wide v11, p2, v8
-
-    mul-long/2addr v6, v11
-
-    add-long/2addr v1, v6
-
-    aget-wide v6, p1, v3
-
-    aget-wide v11, p2, v10
-
-    mul-long/2addr v6, v11
-
-    add-long/2addr v1, v6
-
-    aget-wide v6, p1, v10
-
-    aget-wide v11, p2, v3
-
-    mul-long/2addr v6, v11
-
-    add-long/2addr v1, v6
-
-    aget-wide v6, p1, v0
-
-    const/4 v11, 0x5
-
-    aget-wide v12, p2, v11
-
-    mul-long/2addr v6, v12
-
-    add-long/2addr v1, v6
-
-    aget-wide v6, p1, v11
-
-    aget-wide v12, p2, v0
-
-    mul-long/2addr v6, v12
-
-    add-long/2addr v1, v6
-
-    aput-wide v1, p0, v11
-
-    .line 148
-    aget-wide v1, p1, v9
-
-    aget-wide v6, p2, v9
-
-    mul-long/2addr v1, v6
-
-    aget-wide v6, p1, v3
-
-    aget-wide v12, p2, v11
-
-    mul-long/2addr v6, v12
-
-    add-long/2addr v1, v6
-
-    aget-wide v6, p1, v11
-
-    aget-wide v12, p2, v3
-
-    mul-long/2addr v6, v12
-
-    add-long/2addr v1, v6
-
-    mul-long/2addr v1, v4
-
-    aget-wide v6, p1, v8
-
-    aget-wide v12, p2, v10
-
-    mul-long/2addr v6, v12
-
-    add-long/2addr v1, v6
-
-    aget-wide v6, p1, v10
-
-    aget-wide v12, p2, v8
-
-    mul-long/2addr v6, v12
-
-    add-long/2addr v1, v6
-
-    aget-wide v6, p1, v0
-
-    const/4 v12, 0x6
-
-    aget-wide v13, p2, v12
-
-    mul-long/2addr v6, v13
-
-    add-long/2addr v1, v6
-
-    aget-wide v6, p1, v12
-
-    aget-wide v13, p2, v0
-
-    mul-long/2addr v6, v13
-
-    add-long/2addr v1, v6
-
-    aput-wide v1, p0, v12
-
-    .line 153
-    aget-wide v1, p1, v9
-
-    aget-wide v6, p2, v10
-
-    mul-long/2addr v1, v6
-
-    aget-wide v6, p1, v10
-
-    aget-wide v13, p2, v9
-
-    mul-long/2addr v6, v13
-
-    add-long/2addr v1, v6
-
-    aget-wide v6, p1, v8
-
-    aget-wide v13, p2, v11
-
-    mul-long/2addr v6, v13
-
-    add-long/2addr v1, v6
-
-    aget-wide v6, p1, v11
-
-    aget-wide v13, p2, v8
-
-    mul-long/2addr v6, v13
-
-    add-long/2addr v1, v6
-
-    aget-wide v6, p1, v3
-
-    aget-wide v13, p2, v12
-
-    mul-long/2addr v6, v13
-
-    add-long/2addr v1, v6
-
-    aget-wide v6, p1, v12
-
-    aget-wide v13, p2, v3
-
-    mul-long/2addr v6, v13
-
-    add-long/2addr v1, v6
-
-    aget-wide v6, p1, v0
-
-    const/4 v13, 0x7
-
-    aget-wide v14, p2, v13
-
-    mul-long/2addr v6, v14
-
-    add-long/2addr v1, v6
-
-    aget-wide v6, p1, v13
+    const/4 v0, 0x2
 
     aget-wide v14, p2, v0
 
-    mul-long/2addr v6, v14
+    mul-long/2addr v14, v1
 
-    add-long/2addr v1, v6
+    add-long/2addr v10, v14
 
-    aput-wide v1, p0, v13
+    aget-wide v14, p1, v0
+
+    mul-long/2addr v14, v8
+
+    add-long/2addr v10, v14
+
+    aput-wide v10, p0, v0
+
+    .line 134
+    aget-wide v10, p2, v0
+
+    mul-long v14, v4, v10
+
+    aget-wide v16, p1, v0
+
+    mul-long v18, v16, v12
+
+    add-long v14, v14, v18
+
+    const/4 v0, 0x3
+
+    aget-wide v18, p2, v0
+
+    mul-long v18, v18, v1
+
+    add-long v14, v14, v18
+
+    aget-wide v18, p1, v0
+
+    mul-long v18, v18, v8
+
+    add-long v14, v14, v18
+
+    aput-wide v14, p0, v0
+
+    mul-long v14, v16, v10
+
+    .line 138
+    aget-wide v18, p2, v0
+
+    mul-long v20, v4, v18
+
+    aget-wide v22, p1, v0
+
+    mul-long v24, v22, v12
+
+    add-long v20, v20, v24
+
+    mul-long v20, v20, v6
+
+    add-long v14, v14, v20
+
+    const/4 v0, 0x4
+
+    aget-wide v20, p2, v0
+
+    mul-long v20, v20, v1
+
+    add-long v14, v14, v20
+
+    aget-wide v20, p1, v0
+
+    mul-long v20, v20, v8
+
+    add-long v14, v14, v20
+
+    aput-wide v14, p0, v0
+
+    mul-long v14, v16, v18
+
+    mul-long v20, v22, v10
+
+    add-long v14, v14, v20
+
+    .line 142
+    aget-wide v20, p2, v0
+
+    mul-long v24, v4, v20
+
+    add-long v14, v14, v24
+
+    aget-wide v24, p1, v0
+
+    mul-long v26, v24, v12
+
+    add-long v14, v14, v26
+
+    const/4 v0, 0x5
+
+    aget-wide v26, p2, v0
+
+    mul-long v26, v26, v1
+
+    add-long v14, v14, v26
+
+    aget-wide v26, p1, v0
+
+    mul-long v26, v26, v8
+
+    add-long v14, v14, v26
+
+    aput-wide v14, p0, v0
+
+    mul-long v14, v22, v18
+
+    .line 148
+    aget-wide v26, p2, v0
+
+    mul-long v28, v4, v26
+
+    add-long v14, v14, v28
+
+    aget-wide v28, p1, v0
+
+    mul-long v30, v28, v12
+
+    add-long v14, v14, v30
+
+    mul-long/2addr v14, v6
+
+    mul-long v30, v16, v20
+
+    add-long v14, v14, v30
+
+    mul-long v30, v24, v10
+
+    add-long v14, v14, v30
+
+    const/4 v0, 0x6
+
+    aget-wide v30, p2, v0
+
+    mul-long v30, v30, v1
+
+    add-long v14, v14, v30
+
+    aget-wide v30, p1, v0
+
+    mul-long v30, v30, v8
+
+    add-long v14, v14, v30
+
+    aput-wide v14, p0, v0
+
+    mul-long v14, v22, v20
+
+    mul-long v30, v24, v18
+
+    add-long v14, v14, v30
+
+    mul-long v30, v16, v26
+
+    add-long v14, v14, v30
+
+    mul-long v30, v28, v10
+
+    add-long v14, v14, v30
+
+    .line 153
+    aget-wide v30, p2, v0
+
+    mul-long v32, v4, v30
+
+    add-long v14, v14, v32
+
+    aget-wide v32, p1, v0
+
+    mul-long v34, v32, v12
+
+    add-long v14, v14, v34
+
+    const/4 v0, 0x7
+
+    aget-wide v34, p2, v0
+
+    mul-long v34, v34, v1
+
+    add-long v14, v14, v34
+
+    aget-wide v34, p1, v0
+
+    mul-long v34, v34, v8
+
+    add-long v14, v14, v34
+
+    aput-wide v14, p0, v0
+
+    mul-long v14, v24, v20
+
+    mul-long v34, v22, v26
+
+    mul-long v36, v28, v18
+
+    add-long v34, v34, v36
 
     .line 161
-    aget-wide v1, p1, v10
+    aget-wide v36, p2, v0
 
-    aget-wide v6, p2, v10
+    mul-long v38, v4, v36
 
-    mul-long/2addr v1, v6
+    add-long v34, v34, v38
 
-    aget-wide v6, p1, v9
+    aget-wide v38, p1, v0
 
-    aget-wide v14, p2, v11
+    mul-long v40, v38, v12
 
-    mul-long/2addr v6, v14
+    add-long v34, v34, v40
 
-    aget-wide v14, p1, v11
+    mul-long v34, v34, v6
 
-    aget-wide v16, p2, v9
+    add-long v14, v14, v34
 
-    mul-long v14, v14, v16
+    mul-long v34, v16, v30
 
-    add-long/2addr v6, v14
+    add-long v14, v14, v34
 
-    aget-wide v14, p1, v3
+    mul-long v34, v32, v10
 
-    aget-wide v16, p2, v13
+    add-long v14, v14, v34
 
-    mul-long v14, v14, v16
+    const/16 v0, 0x8
 
-    add-long/2addr v6, v14
+    aget-wide v34, p2, v0
 
-    aget-wide v14, p1, v13
+    mul-long v34, v34, v1
 
-    aget-wide v16, p2, v3
+    add-long v14, v14, v34
 
-    mul-long v14, v14, v16
+    aget-wide v34, p1, v0
 
-    add-long/2addr v6, v14
+    mul-long v34, v34, v8
 
-    mul-long/2addr v6, v4
+    add-long v14, v14, v34
 
-    add-long/2addr v1, v6
+    aput-wide v14, p0, v0
 
-    aget-wide v6, p1, v8
+    mul-long v14, v24, v26
 
-    aget-wide v14, p2, v12
+    mul-long v34, v28, v20
 
-    mul-long/2addr v6, v14
+    add-long v14, v14, v34
 
-    add-long/2addr v1, v6
+    mul-long v34, v22, v30
 
-    aget-wide v6, p1, v12
+    add-long v14, v14, v34
 
-    aget-wide v14, p2, v8
+    mul-long v34, v32, v18
 
-    mul-long/2addr v6, v14
+    add-long v14, v14, v34
 
-    add-long/2addr v1, v6
+    mul-long v34, v16, v36
 
-    aget-wide v6, p1, v0
+    add-long v14, v14, v34
 
-    const/16 v14, 0x8
+    mul-long v34, v38, v10
 
-    aget-wide v15, p2, v14
-
-    mul-long/2addr v6, v15
-
-    add-long/2addr v1, v6
-
-    aget-wide v6, p1, v14
-
-    aget-wide v15, p2, v0
-
-    mul-long/2addr v6, v15
-
-    add-long/2addr v1, v6
-
-    aput-wide v1, p0, v14
+    add-long v14, v14, v34
 
     .line 167
-    aget-wide v1, p1, v10
+    aget-wide v34, p2, v0
 
-    aget-wide v6, p2, v11
+    mul-long v40, v4, v34
+
+    add-long v14, v14, v40
+
+    aget-wide v40, p1, v0
+
+    mul-long v42, v40, v12
+
+    add-long v14, v14, v42
+
+    const/16 v0, 0x9
+
+    aget-wide v42, p2, v0
+
+    mul-long v1, v1, v42
+
+    add-long/2addr v14, v1
+
+    aget-wide v1, p1, v0
+
+    mul-long/2addr v1, v8
+
+    add-long/2addr v14, v1
+
+    aput-wide v14, p0, v0
+
+    mul-long v1, v28, v26
+
+    mul-long v8, v22, v36
+
+    add-long/2addr v1, v8
+
+    mul-long v8, v38, v18
+
+    add-long/2addr v1, v8
+
+    .line 177
+    aget-wide v8, p2, v0
+
+    mul-long/2addr v4, v8
+
+    add-long/2addr v1, v4
+
+    aget-wide v3, p1, v0
+
+    mul-long/2addr v12, v3
+
+    add-long/2addr v1, v12
 
     mul-long/2addr v1, v6
 
-    aget-wide v6, p1, v11
+    mul-long v12, v24, v30
 
-    aget-wide v15, p2, v10
+    add-long/2addr v1, v12
 
-    mul-long/2addr v6, v15
+    mul-long v12, v32, v20
 
-    add-long/2addr v1, v6
+    add-long/2addr v1, v12
 
-    aget-wide v6, p1, v9
+    mul-long v12, v16, v34
 
-    aget-wide v15, p2, v12
+    add-long/2addr v1, v12
 
-    mul-long/2addr v6, v15
+    mul-long v12, v40, v10
 
-    add-long/2addr v1, v6
+    add-long/2addr v1, v12
 
-    aget-wide v6, p1, v12
+    const/16 v0, 0xa
 
-    aget-wide v15, p2, v9
+    aput-wide v1, p0, v0
 
-    mul-long/2addr v6, v15
+    mul-long v0, v28, v30
 
-    add-long/2addr v1, v6
+    mul-long v12, v32, v26
 
-    aget-wide v6, p1, v8
+    add-long/2addr v0, v12
 
-    aget-wide v15, p2, v13
+    mul-long v12, v24, v36
 
-    mul-long/2addr v6, v15
+    add-long/2addr v0, v12
 
-    add-long/2addr v1, v6
+    mul-long v12, v38, v20
 
-    aget-wide v6, p1, v13
+    add-long/2addr v0, v12
 
-    aget-wide v15, p2, v8
+    mul-long v12, v22, v34
 
-    mul-long/2addr v6, v15
+    add-long/2addr v0, v12
 
-    add-long/2addr v1, v6
+    mul-long v12, v40, v18
 
-    aget-wide v6, p1, v3
+    add-long/2addr v0, v12
 
-    aget-wide v15, p2, v14
+    mul-long v16, v16, v8
 
-    mul-long/2addr v6, v15
+    add-long v0, v0, v16
 
-    add-long/2addr v1, v6
+    mul-long/2addr v10, v3
 
-    aget-wide v6, p1, v14
-
-    aget-wide v15, p2, v3
-
-    mul-long/2addr v6, v15
-
-    add-long/2addr v1, v6
-
-    aget-wide v6, p1, v0
-
-    const/16 v15, 0x9
-
-    aget-wide v16, p2, v15
-
-    mul-long v6, v6, v16
-
-    add-long/2addr v1, v6
-
-    aget-wide v6, p1, v15
-
-    aget-wide v16, p2, v0
-
-    mul-long v6, v6, v16
-
-    add-long/2addr v1, v6
-
-    aput-wide v1, p0, v15
-
-    .line 177
-    aget-wide v0, p1, v11
-
-    aget-wide v6, p2, v11
-
-    mul-long/2addr v0, v6
-
-    aget-wide v6, p1, v9
-
-    aget-wide v16, p2, v13
-
-    mul-long v6, v6, v16
-
-    add-long/2addr v0, v6
-
-    aget-wide v6, p1, v13
-
-    aget-wide v16, p2, v9
-
-    mul-long v6, v6, v16
-
-    add-long/2addr v0, v6
-
-    aget-wide v6, p1, v3
-
-    aget-wide v16, p2, v15
-
-    mul-long v6, v6, v16
-
-    add-long/2addr v0, v6
-
-    aget-wide v6, p1, v15
-
-    aget-wide v2, p2, v3
-
-    mul-long/2addr v6, v2
-
-    add-long/2addr v0, v6
-
-    mul-long/2addr v0, v4
-
-    aget-wide v2, p1, v10
-
-    aget-wide v6, p2, v12
-
-    mul-long/2addr v2, v6
-
-    add-long/2addr v0, v2
-
-    aget-wide v2, p1, v12
-
-    aget-wide v6, p2, v10
-
-    mul-long/2addr v2, v6
-
-    add-long/2addr v0, v2
-
-    aget-wide v2, p1, v8
-
-    aget-wide v6, p2, v14
-
-    mul-long/2addr v2, v6
-
-    add-long/2addr v0, v2
-
-    aget-wide v2, p1, v14
-
-    aget-wide v6, p2, v8
-
-    mul-long/2addr v2, v6
-
-    add-long/2addr v0, v2
-
-    const/16 v2, 0xa
-
-    aput-wide v0, p0, v2
-
-    .line 183
-    aget-wide v0, p1, v11
-
-    aget-wide v2, p2, v12
-
-    mul-long/2addr v0, v2
-
-    aget-wide v2, p1, v12
-
-    aget-wide v6, p2, v11
-
-    mul-long/2addr v2, v6
-
-    add-long/2addr v0, v2
-
-    aget-wide v2, p1, v10
-
-    aget-wide v6, p2, v13
-
-    mul-long/2addr v2, v6
-
-    add-long/2addr v0, v2
-
-    aget-wide v2, p1, v13
-
-    aget-wide v6, p2, v10
-
-    mul-long/2addr v2, v6
-
-    add-long/2addr v0, v2
-
-    aget-wide v2, p1, v9
-
-    aget-wide v6, p2, v14
-
-    mul-long/2addr v2, v6
-
-    add-long/2addr v0, v2
-
-    aget-wide v2, p1, v14
-
-    aget-wide v6, p2, v9
-
-    mul-long/2addr v2, v6
-
-    add-long/2addr v0, v2
-
-    aget-wide v2, p1, v8
-
-    aget-wide v6, p2, v15
-
-    mul-long/2addr v2, v6
-
-    add-long/2addr v0, v2
-
-    aget-wide v2, p1, v15
-
-    aget-wide v6, p2, v8
-
-    mul-long/2addr v2, v6
-
-    add-long/2addr v0, v2
+    add-long/2addr v0, v10
 
     const/16 v2, 0xb
 
+    .line 183
     aput-wide v0, p0, v2
 
-    .line 191
-    aget-wide v0, p1, v12
+    mul-long v0, v32, v30
 
-    aget-wide v2, p2, v12
+    mul-long v10, v28, v36
 
-    mul-long/2addr v0, v2
+    mul-long v12, v38, v26
 
-    aget-wide v2, p1, v11
+    add-long/2addr v10, v12
 
-    aget-wide v6, p2, v13
+    mul-long v22, v22, v8
 
-    mul-long/2addr v2, v6
+    add-long v10, v10, v22
 
-    aget-wide v6, p1, v13
+    mul-long v18, v18, v3
 
-    aget-wide v16, p2, v11
+    add-long v10, v10, v18
 
-    mul-long v6, v6, v16
+    mul-long/2addr v10, v6
 
-    add-long/2addr v2, v6
+    add-long/2addr v0, v10
 
-    aget-wide v6, p1, v9
+    mul-long v10, v24, v34
 
-    aget-wide v16, p2, v15
+    add-long/2addr v0, v10
 
-    mul-long v6, v6, v16
+    mul-long v10, v40, v20
 
-    add-long/2addr v2, v6
-
-    aget-wide v6, p1, v15
-
-    aget-wide v8, p2, v9
-
-    mul-long/2addr v6, v8
-
-    add-long/2addr v2, v6
-
-    mul-long/2addr v2, v4
-
-    add-long/2addr v0, v2
-
-    aget-wide v2, p1, v10
-
-    aget-wide v6, p2, v14
-
-    mul-long/2addr v2, v6
-
-    add-long/2addr v0, v2
-
-    aget-wide v2, p1, v14
-
-    aget-wide v6, p2, v10
-
-    mul-long/2addr v2, v6
-
-    add-long/2addr v0, v2
+    add-long/2addr v0, v10
 
     const/16 v2, 0xc
 
+    .line 191
     aput-wide v0, p0, v2
 
-    .line 195
-    aget-wide v0, p1, v12
+    mul-long v0, v32, v36
 
-    aget-wide v2, p2, v13
+    mul-long v10, v38, v30
 
-    mul-long/2addr v0, v2
+    add-long/2addr v0, v10
 
-    aget-wide v2, p1, v13
+    mul-long v10, v28, v34
 
-    aget-wide v6, p2, v12
+    add-long/2addr v0, v10
 
-    mul-long/2addr v2, v6
+    mul-long v10, v40, v26
 
-    add-long/2addr v0, v2
+    add-long/2addr v0, v10
 
-    aget-wide v2, p1, v11
+    mul-long v24, v24, v8
 
-    aget-wide v6, p2, v14
+    add-long v0, v0, v24
 
-    mul-long/2addr v2, v6
+    mul-long v20, v20, v3
 
-    add-long/2addr v0, v2
-
-    aget-wide v2, p1, v14
-
-    aget-wide v6, p2, v11
-
-    mul-long/2addr v2, v6
-
-    add-long/2addr v0, v2
-
-    aget-wide v2, p1, v10
-
-    aget-wide v6, p2, v15
-
-    mul-long/2addr v2, v6
-
-    add-long/2addr v0, v2
-
-    aget-wide v2, p1, v15
-
-    aget-wide v6, p2, v10
-
-    mul-long/2addr v2, v6
-
-    add-long/2addr v0, v2
+    add-long v0, v0, v20
 
     const/16 v2, 0xd
 
+    .line 195
     aput-wide v0, p0, v2
 
-    .line 201
-    aget-wide v0, p1, v13
+    mul-long v0, v38, v36
 
-    aget-wide v2, p2, v13
+    mul-long v28, v28, v8
 
-    mul-long/2addr v0, v2
+    add-long v0, v0, v28
 
-    aget-wide v2, p1, v11
+    mul-long v26, v26, v3
 
-    aget-wide v6, p2, v15
+    add-long v0, v0, v26
 
-    mul-long/2addr v2, v6
+    mul-long/2addr v0, v6
 
-    add-long/2addr v0, v2
+    mul-long v10, v32, v34
 
-    aget-wide v2, p1, v15
+    add-long/2addr v0, v10
 
-    aget-wide v6, p2, v11
+    mul-long v10, v40, v30
 
-    mul-long/2addr v2, v6
-
-    add-long/2addr v0, v2
-
-    mul-long/2addr v0, v4
-
-    aget-wide v2, p1, v12
-
-    aget-wide v6, p2, v14
-
-    mul-long/2addr v2, v6
-
-    add-long/2addr v0, v2
-
-    aget-wide v2, p1, v14
-
-    aget-wide v6, p2, v12
-
-    mul-long/2addr v2, v6
-
-    add-long/2addr v0, v2
+    add-long/2addr v0, v10
 
     const/16 v2, 0xe
 
+    .line 201
     aput-wide v0, p0, v2
 
-    .line 204
-    aget-wide v0, p1, v13
+    mul-long v0, v38, v34
 
-    aget-wide v2, p2, v14
+    mul-long v10, v40, v36
 
-    mul-long/2addr v0, v2
+    add-long/2addr v0, v10
 
-    aget-wide v2, p1, v14
+    mul-long v32, v32, v8
 
-    aget-wide v6, p2, v13
+    add-long v0, v0, v32
 
-    mul-long/2addr v2, v6
+    mul-long v30, v30, v3
 
-    add-long/2addr v0, v2
-
-    aget-wide v2, p1, v12
-
-    aget-wide v6, p2, v15
-
-    mul-long/2addr v2, v6
-
-    add-long/2addr v0, v2
-
-    aget-wide v2, p1, v15
-
-    aget-wide v6, p2, v12
-
-    mul-long/2addr v2, v6
-
-    add-long/2addr v0, v2
+    add-long v0, v0, v30
 
     const/16 v2, 0xf
 
+    .line 204
     aput-wide v0, p0, v2
 
-    .line 208
-    aget-wide v0, p1, v14
+    mul-long v0, v40, v34
 
-    aget-wide v2, p2, v14
+    mul-long v38, v38, v8
 
-    mul-long/2addr v0, v2
+    mul-long v36, v36, v3
 
-    aget-wide v2, p1, v13
+    add-long v38, v38, v36
 
-    aget-wide v6, p2, v15
+    mul-long v38, v38, v6
 
-    mul-long/2addr v2, v6
-
-    aget-wide v6, p1, v15
-
-    aget-wide v8, p2, v13
-
-    mul-long/2addr v6, v8
-
-    add-long/2addr v2, v6
-
-    mul-long/2addr v2, v4
-
-    add-long/2addr v0, v2
+    add-long v0, v0, v38
 
     const/16 v2, 0x10
 
+    .line 208
     aput-wide v0, p0, v2
+
+    mul-long v40, v40, v8
+
+    mul-long v34, v34, v3
+
+    add-long v40, v40, v34
+
+    const/16 v0, 0x11
 
     .line 210
-    aget-wide v0, p1, v14
+    aput-wide v40, p0, v0
 
-    aget-wide v2, p2, v15
+    mul-long/2addr v3, v6
 
-    mul-long/2addr v0, v2
+    mul-long/2addr v3, v8
 
-    aget-wide v2, p1, v15
-
-    aget-wide v6, p2, v14
-
-    mul-long/2addr v2, v6
-
-    add-long/2addr v0, v2
-
-    const/16 v2, 0x11
-
-    aput-wide v0, p0, v2
+    const/16 v0, 0x12
 
     .line 212
-    aget-wide v0, p1, v15
+    aput-wide v3, p0, v0
 
-    mul-long/2addr v0, v4
-
-    aget-wide v2, p2, v15
-
-    mul-long/2addr v0, v2
-
-    const/16 v2, 0x12
-
-    aput-wide v0, p0, v2
-
-    .line 213
     return-void
 .end method
 
 .method static reduce([J[J)V
     .locals 3
-    .param p0, "input"    # [J
-    .param p1, "output"    # [J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -2089,48 +1585,41 @@
     .line 225
     array-length v0, p0
 
-    const/16 v1, 0x13
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const/16 v2, 0x13
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v2, :cond_0
 
-    .line 226
-    move-object v0, p0
-
-    .local v0, "tmp":[J
     goto :goto_0
 
-    .line 228
-    .end local v0    # "tmp":[J
     :cond_0
-    new-array v0, v1, [J
+    new-array v0, v2, [J
 
     .line 229
-    .restart local v0    # "tmp":[J
-    array-length v1, p0
+    array-length v2, p0
 
-    invoke-static {p0, v2, v0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p0, v1, v0, v1, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+
+    move-object p0, v0
 
     .line 231
     :goto_0
-    invoke-static {v0}, Lcom/google/crypto/tink/subtle/Field25519;->reduceSizeByModularReduction([J)V
+    invoke-static {p0}, Lcom/google/crypto/tink/subtle/Field25519;->reduceSizeByModularReduction([J)V
 
     .line 232
-    invoke-static {v0}, Lcom/google/crypto/tink/subtle/Field25519;->reduceCoefficients([J)V
+    invoke-static {p0}, Lcom/google/crypto/tink/subtle/Field25519;->reduceCoefficients([J)V
+
+    const/16 v0, 0xa
 
     .line 233
-    const/16 v1, 0xa
+    invoke-static {p0, v1, p1, v1, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    invoke-static {v0, v2, p1, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    .line 234
     return-void
 .end method
 
 .method static reduceCoefficients([J)V
-    .locals 12
-    .param p0, "output"    # [J
+    .locals 14
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -2140,158 +1629,123 @@
         }
     .end annotation
 
-    .line 285
     const/16 v0, 0xa
 
     const-wide/16 v1, 0x0
 
+    .line 285
     aput-wide v1, p0, v0
 
-    .line 287
     const/4 v3, 0x0
 
-    .local v3, "i":I
+    move v4, v3
+
     :goto_0
-    const/16 v4, 0x1a
+    const/16 v5, 0x1a
 
-    const-wide/32 v5, 0x4000000
+    const-wide/32 v6, 0x4000000
 
-    if-ge v3, v0, :cond_0
+    if-ge v4, v0, :cond_0
 
     .line 288
-    aget-wide v7, p0, v3
+    aget-wide v8, p0, v4
 
-    div-long/2addr v7, v5
+    div-long v6, v8, v6
+
+    shl-long v10, v6, v5
+
+    sub-long/2addr v8, v10
 
     .line 292
-    .local v7, "over":J
-    aget-wide v5, p0, v3
+    aput-wide v8, p0, v4
 
-    shl-long v9, v7, v4
-
-    sub-long/2addr v5, v9
-
-    aput-wide v5, p0, v3
+    add-int/lit8 v5, v4, 0x1
 
     .line 293
-    add-int/lit8 v4, v3, 0x1
+    aget-wide v8, p0, v5
 
-    aget-wide v5, p0, v4
+    add-long/2addr v8, v6
 
-    add-long/2addr v5, v7
+    aput-wide v8, p0, v5
 
-    aput-wide v5, p0, v4
+    const-wide/32 v6, 0x2000000
 
     .line 300
-    add-int/lit8 v4, v3, 0x1
+    div-long v6, v8, v6
 
-    aget-wide v4, p0, v4
+    const/16 v10, 0x19
 
-    const-wide/32 v9, 0x2000000
+    shl-long v10, v6, v10
 
-    div-long/2addr v4, v9
+    sub-long/2addr v8, v10
 
     .line 301
-    .end local v7    # "over":J
-    .local v4, "over":J
-    add-int/lit8 v6, v3, 0x1
+    aput-wide v8, p0, v5
 
-    aget-wide v7, p0, v6
-
-    const/16 v9, 0x19
-
-    shl-long v9, v4, v9
-
-    sub-long/2addr v7, v9
-
-    aput-wide v7, p0, v6
+    add-int/lit8 v4, v4, 0x2
 
     .line 302
-    add-int/lit8 v6, v3, 0x2
+    aget-wide v8, p0, v4
 
-    aget-wide v7, p0, v6
+    add-long/2addr v8, v6
 
-    add-long/2addr v7, v4
-
-    aput-wide v7, p0, v6
-
-    .line 287
-    .end local v4    # "over":J
-    add-int/lit8 v3, v3, 0x2
+    aput-wide v8, p0, v4
 
     goto :goto_0
 
     .line 305
-    .end local v3    # "i":I
     :cond_0
-    const/4 v3, 0x0
+    aget-wide v8, p0, v3
 
-    aget-wide v7, p0, v3
+    aget-wide v10, p0, v0
 
-    aget-wide v9, p0, v0
+    const/4 v4, 0x4
 
-    const/4 v11, 0x4
+    shl-long v12, v10, v4
 
-    shl-long/2addr v9, v11
+    add-long/2addr v8, v12
 
-    add-long/2addr v7, v9
+    aput-wide v8, p0, v3
 
-    aput-wide v7, p0, v3
+    const/4 v4, 0x1
+
+    shl-long v12, v10, v4
+
+    add-long/2addr v8, v12
 
     .line 306
-    aget-wide v7, p0, v3
+    aput-wide v8, p0, v3
 
-    aget-wide v9, p0, v0
-
-    const/4 v11, 0x1
-
-    shl-long/2addr v9, v11
-
-    add-long/2addr v7, v9
-
-    aput-wide v7, p0, v3
+    add-long/2addr v8, v10
 
     .line 307
-    aget-wide v7, p0, v3
-
-    aget-wide v9, p0, v0
-
-    add-long/2addr v7, v9
-
-    aput-wide v7, p0, v3
+    aput-wide v8, p0, v3
 
     .line 309
     aput-wide v1, p0, v0
 
     .line 312
-    aget-wide v0, p0, v3
+    div-long v0, v8, v6
 
-    div-long/2addr v0, v5
+    shl-long v5, v0, v5
+
+    sub-long/2addr v8, v5
 
     .line 313
-    .local v0, "over":J
-    aget-wide v5, p0, v3
-
-    shl-long v7, v0, v4
-
-    sub-long/2addr v5, v7
-
-    aput-wide v5, p0, v3
+    aput-wide v8, p0, v3
 
     .line 314
-    aget-wide v2, p0, v11
+    aget-wide v2, p0, v4
 
     add-long/2addr v2, v0
 
-    aput-wide v2, p0, v11
+    aput-wide v2, p0, v4
 
-    .line 317
     return-void
 .end method
 
 .method static reduceSizeByModularReduction([J)V
-    .locals 8
-    .param p0, "output"    # [J
+    .locals 9
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -2301,330 +1755,254 @@
         }
     .end annotation
 
-    .line 250
     const/16 v0, 0x8
 
+    .line 250
     aget-wide v1, p0, v0
 
     const/16 v3, 0x12
 
-    aget-wide v4, p0, v3
+    aget-wide v3, p0, v3
 
-    const/4 v6, 0x4
+    const/4 v5, 0x4
 
-    shl-long/2addr v4, v6
+    shl-long v6, v3, v5
 
-    add-long/2addr v1, v4
+    add-long/2addr v1, v6
 
     aput-wide v1, p0, v0
+
+    const/4 v6, 0x1
+
+    shl-long v7, v3, v6
+
+    add-long/2addr v1, v7
 
     .line 251
-    aget-wide v1, p0, v0
-
-    aget-wide v4, p0, v3
-
-    const/4 v7, 0x1
-
-    shl-long/2addr v4, v7
-
-    add-long/2addr v1, v4
-
     aput-wide v1, p0, v0
-
-    .line 252
-    aget-wide v1, p0, v0
-
-    aget-wide v3, p0, v3
 
     add-long/2addr v1, v3
 
+    .line 252
     aput-wide v1, p0, v0
 
-    .line 253
     const/4 v0, 0x7
 
+    .line 253
     aget-wide v1, p0, v0
 
     const/16 v3, 0x11
 
-    aget-wide v4, p0, v3
+    aget-wide v3, p0, v3
 
-    shl-long/2addr v4, v6
+    shl-long v7, v3, v5
 
-    add-long/2addr v1, v4
+    add-long/2addr v1, v7
 
     aput-wide v1, p0, v0
+
+    shl-long v7, v3, v6
+
+    add-long/2addr v1, v7
 
     .line 254
-    aget-wide v1, p0, v0
-
-    aget-wide v4, p0, v3
-
-    shl-long/2addr v4, v7
-
-    add-long/2addr v1, v4
-
     aput-wide v1, p0, v0
-
-    .line 255
-    aget-wide v1, p0, v0
-
-    aget-wide v3, p0, v3
 
     add-long/2addr v1, v3
 
+    .line 255
     aput-wide v1, p0, v0
 
-    .line 256
     const/4 v0, 0x6
 
+    .line 256
     aget-wide v1, p0, v0
 
     const/16 v3, 0x10
 
-    aget-wide v4, p0, v3
+    aget-wide v3, p0, v3
 
-    shl-long/2addr v4, v6
+    shl-long v7, v3, v5
 
-    add-long/2addr v1, v4
+    add-long/2addr v1, v7
 
     aput-wide v1, p0, v0
+
+    shl-long v7, v3, v6
+
+    add-long/2addr v1, v7
 
     .line 257
-    aget-wide v1, p0, v0
-
-    aget-wide v4, p0, v3
-
-    shl-long/2addr v4, v7
-
-    add-long/2addr v1, v4
-
     aput-wide v1, p0, v0
-
-    .line 258
-    aget-wide v1, p0, v0
-
-    aget-wide v3, p0, v3
 
     add-long/2addr v1, v3
 
+    .line 258
     aput-wide v1, p0, v0
 
-    .line 259
     const/4 v0, 0x5
 
+    .line 259
     aget-wide v1, p0, v0
 
     const/16 v3, 0xf
 
-    aget-wide v4, p0, v3
+    aget-wide v3, p0, v3
 
-    shl-long/2addr v4, v6
+    shl-long v7, v3, v5
 
-    add-long/2addr v1, v4
+    add-long/2addr v1, v7
 
     aput-wide v1, p0, v0
+
+    shl-long v7, v3, v6
+
+    add-long/2addr v1, v7
 
     .line 260
-    aget-wide v1, p0, v0
-
-    aget-wide v4, p0, v3
-
-    shl-long/2addr v4, v7
-
-    add-long/2addr v1, v4
-
     aput-wide v1, p0, v0
-
-    .line 261
-    aget-wide v1, p0, v0
-
-    aget-wide v3, p0, v3
 
     add-long/2addr v1, v3
 
+    .line 261
     aput-wide v1, p0, v0
 
     .line 262
-    aget-wide v0, p0, v6
+    aget-wide v0, p0, v5
 
     const/16 v2, 0xe
 
-    aget-wide v3, p0, v2
+    aget-wide v2, p0, v2
 
-    shl-long/2addr v3, v6
+    shl-long v7, v2, v5
 
-    add-long/2addr v0, v3
+    add-long/2addr v0, v7
 
-    aput-wide v0, p0, v6
+    aput-wide v0, p0, v5
+
+    shl-long v7, v2, v6
+
+    add-long/2addr v0, v7
 
     .line 263
-    aget-wide v0, p0, v6
-
-    aget-wide v3, p0, v2
-
-    shl-long/2addr v3, v7
-
-    add-long/2addr v0, v3
-
-    aput-wide v0, p0, v6
-
-    .line 264
-    aget-wide v0, p0, v6
-
-    aget-wide v2, p0, v2
+    aput-wide v0, p0, v5
 
     add-long/2addr v0, v2
 
-    aput-wide v0, p0, v6
+    .line 264
+    aput-wide v0, p0, v5
 
-    .line 265
     const/4 v0, 0x3
 
+    .line 265
     aget-wide v1, p0, v0
 
     const/16 v3, 0xd
 
-    aget-wide v4, p0, v3
+    aget-wide v3, p0, v3
 
-    shl-long/2addr v4, v6
+    shl-long v7, v3, v5
 
-    add-long/2addr v1, v4
+    add-long/2addr v1, v7
 
     aput-wide v1, p0, v0
+
+    shl-long v7, v3, v6
+
+    add-long/2addr v1, v7
 
     .line 266
-    aget-wide v1, p0, v0
-
-    aget-wide v4, p0, v3
-
-    shl-long/2addr v4, v7
-
-    add-long/2addr v1, v4
-
     aput-wide v1, p0, v0
-
-    .line 267
-    aget-wide v1, p0, v0
-
-    aget-wide v3, p0, v3
 
     add-long/2addr v1, v3
 
+    .line 267
     aput-wide v1, p0, v0
 
-    .line 268
     const/4 v0, 0x2
 
+    .line 268
     aget-wide v1, p0, v0
 
     const/16 v3, 0xc
 
-    aget-wide v4, p0, v3
+    aget-wide v3, p0, v3
 
-    shl-long/2addr v4, v6
+    shl-long v7, v3, v5
 
-    add-long/2addr v1, v4
+    add-long/2addr v1, v7
 
     aput-wide v1, p0, v0
+
+    shl-long v7, v3, v6
+
+    add-long/2addr v1, v7
 
     .line 269
-    aget-wide v1, p0, v0
-
-    aget-wide v4, p0, v3
-
-    shl-long/2addr v4, v7
-
-    add-long/2addr v1, v4
-
     aput-wide v1, p0, v0
-
-    .line 270
-    aget-wide v1, p0, v0
-
-    aget-wide v3, p0, v3
 
     add-long/2addr v1, v3
 
+    .line 270
     aput-wide v1, p0, v0
 
     .line 271
-    aget-wide v0, p0, v7
+    aget-wide v0, p0, v6
 
     const/16 v2, 0xb
 
-    aget-wide v3, p0, v2
+    aget-wide v2, p0, v2
 
-    shl-long/2addr v3, v6
+    shl-long v7, v2, v5
 
-    add-long/2addr v0, v3
+    add-long/2addr v0, v7
 
-    aput-wide v0, p0, v7
+    aput-wide v0, p0, v6
+
+    shl-long v7, v2, v6
+
+    add-long/2addr v0, v7
 
     .line 272
-    aget-wide v0, p0, v7
-
-    aget-wide v3, p0, v2
-
-    shl-long/2addr v3, v7
-
-    add-long/2addr v0, v3
-
-    aput-wide v0, p0, v7
-
-    .line 273
-    aget-wide v0, p0, v7
-
-    aget-wide v2, p0, v2
+    aput-wide v0, p0, v6
 
     add-long/2addr v0, v2
 
-    aput-wide v0, p0, v7
+    .line 273
+    aput-wide v0, p0, v6
 
-    .line 274
     const/4 v0, 0x0
 
+    .line 274
     aget-wide v1, p0, v0
 
     const/16 v3, 0xa
 
-    aget-wide v4, p0, v3
+    aget-wide v3, p0, v3
 
-    shl-long/2addr v4, v6
+    shl-long v7, v3, v5
 
-    add-long/2addr v1, v4
+    add-long/2addr v1, v7
 
     aput-wide v1, p0, v0
+
+    shl-long v5, v3, v6
+
+    add-long/2addr v1, v5
 
     .line 275
-    aget-wide v1, p0, v0
-
-    aget-wide v4, p0, v3
-
-    shl-long/2addr v4, v7
-
-    add-long/2addr v1, v4
-
     aput-wide v1, p0, v0
-
-    .line 276
-    aget-wide v1, p0, v0
-
-    aget-wide v3, p0, v3
 
     add-long/2addr v1, v3
 
+    .line 276
     aput-wide v1, p0, v0
 
-    .line 277
     return-void
 .end method
 
 .method static scalarProduct([J[JJ)V
     .locals 3
-    .param p0, "output"    # [J
-    .param p1, "in"    # [J
-    .param p2, "scalar"    # J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -2638,10 +2016,8 @@
         }
     .end annotation
 
-    .line 114
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     const/16 v1, 0xa
 
@@ -2654,21 +2030,16 @@
 
     aput-wide v1, p0, v0
 
-    .line 114
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 117
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
 
 .method static square([J[J)V
     .locals 1
-    .param p0, "output"    # [J
-    .param p1, "in"    # [J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -2680,26 +2051,21 @@
         }
     .end annotation
 
-    .line 380
     const/16 v0, 0x13
 
     new-array v0, v0, [J
 
     .line 381
-    .local v0, "t":[J
     invoke-static {v0, p1}, Lcom/google/crypto/tink/subtle/Field25519;->squareInner([J[J)V
 
     .line 384
     invoke-static {v0, p0}, Lcom/google/crypto/tink/subtle/Field25519;->reduce([J[J)V
 
-    .line 385
     return-void
 .end method
 
 .method private static squareInner([J[J)V
-    .locals 23
-    .param p0, "out"    # [J
-    .param p1, "in"    # [J
+    .locals 30
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -2711,563 +2077,380 @@
         }
     .end annotation
 
-    .line 343
     const/4 v0, 0x0
 
+    .line 343
     aget-wide v1, p1, v0
 
-    aget-wide v3, p1, v0
-
-    mul-long/2addr v1, v3
+    mul-long/2addr v1, v1
 
     aput-wide v1, p0, v0
 
     .line 344
-    aget-wide v1, p1, v0
+    aget-wide v0, p1, v0
 
-    const-wide/16 v3, 0x2
+    const-wide/16 v2, 0x2
 
-    mul-long/2addr v1, v3
+    mul-long v4, v0, v2
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    aget-wide v6, p1, v5
+    aget-wide v7, p1, v6
 
-    mul-long/2addr v1, v6
+    mul-long/2addr v4, v7
 
-    aput-wide v1, p0, v5
+    aput-wide v4, p0, v6
 
     .line 345
-    aget-wide v1, p1, v5
+    aget-wide v4, p1, v6
 
-    aget-wide v6, p1, v5
-
-    mul-long/2addr v1, v6
-
-    aget-wide v6, p1, v0
+    mul-long v6, v4, v4
 
     const/4 v8, 0x2
 
     aget-wide v9, p1, v8
 
-    mul-long/2addr v6, v9
+    mul-long/2addr v9, v0
 
-    add-long/2addr v1, v6
+    add-long/2addr v6, v9
 
-    mul-long/2addr v1, v3
+    mul-long/2addr v6, v2
 
-    aput-wide v1, p0, v8
+    aput-wide v6, p0, v8
 
     .line 346
-    aget-wide v1, p1, v5
-
     aget-wide v6, p1, v8
 
-    mul-long/2addr v1, v6
+    mul-long v8, v4, v6
 
-    aget-wide v6, p1, v0
+    const/4 v10, 0x3
 
-    const/4 v9, 0x3
+    aget-wide v11, p1, v10
 
-    aget-wide v10, p1, v9
+    mul-long/2addr v11, v0
 
-    mul-long/2addr v6, v10
+    add-long/2addr v8, v11
 
-    add-long/2addr v1, v6
+    mul-long/2addr v8, v2
 
-    mul-long/2addr v1, v3
+    aput-wide v8, p0, v10
 
-    aput-wide v1, p0, v9
+    mul-long v8, v6, v6
+
+    const-wide/16 v11, 0x4
+
+    mul-long v13, v4, v11
 
     .line 347
-    aget-wide v1, p1, v8
+    aget-wide v15, p1, v10
 
-    aget-wide v6, p1, v8
+    mul-long/2addr v13, v15
 
-    mul-long/2addr v1, v6
+    add-long/2addr v8, v13
 
-    aget-wide v6, p1, v5
+    mul-long v13, v0, v2
 
-    const-wide/16 v10, 0x4
+    const/4 v10, 0x4
 
-    mul-long/2addr v6, v10
+    aget-wide v17, p1, v10
 
-    aget-wide v12, p1, v9
+    mul-long v13, v13, v17
 
-    mul-long/2addr v6, v12
+    add-long/2addr v8, v13
 
-    add-long/2addr v1, v6
+    aput-wide v8, p0, v10
 
-    aget-wide v6, p1, v0
-
-    mul-long/2addr v6, v3
-
-    const/4 v12, 0x4
-
-    aget-wide v13, p1, v12
-
-    mul-long/2addr v6, v13
-
-    add-long/2addr v1, v6
-
-    aput-wide v1, p0, v12
+    mul-long v8, v6, v15
 
     .line 350
-    aget-wide v1, p1, v8
+    aget-wide v13, p1, v10
 
-    aget-wide v6, p1, v9
+    mul-long v17, v4, v13
 
-    mul-long/2addr v1, v6
+    add-long v8, v8, v17
 
-    aget-wide v6, p1, v5
+    const/4 v10, 0x5
 
-    aget-wide v13, p1, v12
+    aget-wide v17, p1, v10
 
-    mul-long/2addr v6, v13
+    mul-long v17, v17, v0
 
-    add-long/2addr v1, v6
+    add-long v8, v8, v17
 
-    aget-wide v6, p1, v0
+    mul-long/2addr v8, v2
 
-    const/4 v13, 0x5
+    aput-wide v8, p0, v10
 
-    aget-wide v14, p1, v13
+    mul-long v8, v15, v15
 
-    mul-long/2addr v6, v14
+    mul-long v17, v6, v13
 
-    add-long/2addr v1, v6
+    add-long v8, v8, v17
 
-    mul-long/2addr v1, v3
-
-    aput-wide v1, p0, v13
+    const/16 v17, 0x6
 
     .line 351
-    aget-wide v1, p1, v9
+    aget-wide v18, p1, v17
 
-    aget-wide v6, p1, v9
+    mul-long v18, v18, v0
 
-    mul-long/2addr v1, v6
+    add-long v8, v8, v18
 
-    aget-wide v6, p1, v8
+    mul-long v18, v4, v2
 
-    aget-wide v14, p1, v12
+    aget-wide v20, p1, v10
 
-    mul-long/2addr v6, v14
+    mul-long v18, v18, v20
 
-    add-long/2addr v1, v6
+    add-long v8, v8, v18
 
-    aget-wide v6, p1, v0
+    mul-long/2addr v8, v2
 
-    const/4 v14, 0x6
+    aput-wide v8, p0, v17
 
-    aget-wide v15, p1, v14
+    mul-long v8, v15, v13
 
-    mul-long/2addr v6, v15
+    mul-long v18, v6, v20
 
-    add-long/2addr v1, v6
-
-    aget-wide v6, p1, v5
-
-    mul-long/2addr v6, v3
-
-    aget-wide v15, p1, v13
-
-    mul-long/2addr v6, v15
-
-    add-long/2addr v1, v6
-
-    mul-long/2addr v1, v3
-
-    aput-wide v1, p0, v14
+    add-long v8, v8, v18
 
     .line 352
-    aget-wide v1, p1, v9
+    aget-wide v17, p1, v17
 
-    aget-wide v6, p1, v12
+    mul-long v22, v4, v17
 
-    mul-long/2addr v1, v6
+    add-long v8, v8, v22
 
-    aget-wide v6, p1, v8
+    const/4 v10, 0x7
 
-    aget-wide v15, p1, v13
+    aget-wide v22, p1, v10
 
-    mul-long/2addr v6, v15
+    mul-long v22, v22, v0
 
-    add-long/2addr v1, v6
+    add-long v8, v8, v22
 
-    aget-wide v6, p1, v5
+    mul-long/2addr v8, v2
 
-    aget-wide v15, p1, v14
+    aput-wide v8, p0, v10
 
-    mul-long/2addr v6, v15
+    mul-long v8, v13, v13
 
-    add-long/2addr v1, v6
+    mul-long v22, v6, v17
 
-    aget-wide v6, p1, v0
-
-    const/4 v15, 0x7
-
-    aget-wide v16, p1, v15
-
-    mul-long v6, v6, v16
-
-    add-long/2addr v1, v6
-
-    mul-long/2addr v1, v3
-
-    aput-wide v1, p0, v15
+    const/16 v19, 0x8
 
     .line 353
-    aget-wide v1, p1, v12
+    aget-wide v24, p1, v19
 
-    aget-wide v6, p1, v12
+    mul-long v24, v24, v0
 
-    mul-long/2addr v1, v6
+    add-long v22, v22, v24
 
-    aget-wide v6, p1, v8
+    aget-wide v24, p1, v10
 
-    aget-wide v16, p1, v14
+    mul-long v26, v4, v24
 
-    mul-long v6, v6, v16
+    mul-long v28, v15, v20
 
-    aget-wide v16, p1, v0
+    add-long v26, v26, v28
 
-    const/16 v18, 0x8
+    mul-long v26, v26, v2
 
-    aget-wide v19, p1, v18
+    add-long v22, v22, v26
 
-    mul-long v16, v16, v19
+    mul-long v22, v22, v2
 
-    add-long v6, v6, v16
+    add-long v8, v8, v22
 
-    aget-wide v16, p1, v5
+    aput-wide v8, p0, v19
 
-    aget-wide v19, p1, v15
+    mul-long v8, v13, v20
 
-    mul-long v16, v16, v19
+    mul-long v22, v15, v17
 
-    aget-wide v19, p1, v9
+    add-long v8, v8, v22
 
-    aget-wide v21, p1, v13
+    mul-long v22, v6, v24
 
-    mul-long v19, v19, v21
-
-    add-long v16, v16, v19
-
-    mul-long v16, v16, v3
-
-    add-long v6, v6, v16
-
-    mul-long/2addr v6, v3
-
-    add-long/2addr v1, v6
-
-    aput-wide v1, p0, v18
+    add-long v8, v8, v22
 
     .line 355
-    aget-wide v1, p1, v12
+    aget-wide v22, p1, v19
 
-    aget-wide v6, p1, v13
+    mul-long v26, v4, v22
 
-    mul-long/2addr v1, v6
+    add-long v8, v8, v26
 
-    aget-wide v6, p1, v9
+    const/16 v10, 0x9
 
-    aget-wide v16, p1, v14
+    aget-wide v26, p1, v10
 
-    mul-long v6, v6, v16
+    mul-long v0, v0, v26
 
-    add-long/2addr v1, v6
+    add-long/2addr v8, v0
 
-    aget-wide v6, p1, v8
+    mul-long/2addr v8, v2
 
-    aget-wide v16, p1, v15
+    aput-wide v8, p0, v10
 
-    mul-long v6, v6, v16
+    mul-long v0, v20, v20
 
-    add-long/2addr v1, v6
+    mul-long v8, v13, v17
 
-    aget-wide v6, p1, v5
+    add-long/2addr v0, v8
 
-    aget-wide v16, p1, v18
+    mul-long v8, v6, v22
 
-    mul-long v6, v6, v16
+    add-long/2addr v0, v8
 
-    add-long/2addr v1, v6
-
-    aget-wide v6, p1, v0
-
-    const/16 v0, 0x9
-
-    aget-wide v16, p1, v0
-
-    mul-long v6, v6, v16
-
-    add-long/2addr v1, v6
-
-    mul-long/2addr v1, v3
-
-    aput-wide v1, p0, v0
+    mul-long v8, v15, v24
 
     .line 356
-    aget-wide v1, p1, v13
+    aget-wide v26, p1, v10
 
-    aget-wide v6, p1, v13
+    mul-long v4, v4, v26
 
-    mul-long/2addr v1, v6
+    add-long/2addr v8, v4
 
-    aget-wide v6, p1, v12
+    mul-long/2addr v8, v2
 
-    aget-wide v16, p1, v14
+    add-long/2addr v0, v8
 
-    mul-long v6, v6, v16
+    mul-long/2addr v0, v2
 
-    add-long/2addr v1, v6
+    const/16 v4, 0xa
 
-    aget-wide v6, p1, v8
+    aput-wide v0, p0, v4
 
-    aget-wide v16, p1, v18
+    mul-long v0, v20, v17
 
-    mul-long v6, v6, v16
+    mul-long v4, v13, v24
 
-    add-long/2addr v1, v6
+    add-long/2addr v0, v4
 
-    aget-wide v6, p1, v9
+    mul-long v4, v15, v22
 
-    aget-wide v16, p1, v15
+    add-long/2addr v0, v4
 
-    mul-long v6, v6, v16
+    mul-long v6, v6, v26
 
-    aget-wide v16, p1, v5
+    add-long/2addr v0, v6
 
-    aget-wide v19, p1, v0
+    mul-long/2addr v0, v2
 
-    mul-long v16, v16, v19
-
-    add-long v6, v6, v16
-
-    mul-long/2addr v6, v3
-
-    add-long/2addr v1, v6
-
-    mul-long/2addr v1, v3
-
-    const/16 v5, 0xa
-
-    aput-wide v1, p0, v5
+    const/16 v4, 0xb
 
     .line 360
-    aget-wide v1, p1, v13
+    aput-wide v0, p0, v4
 
-    aget-wide v5, p1, v14
+    mul-long v0, v17, v17
 
-    mul-long/2addr v1, v5
+    mul-long v4, v13, v22
 
-    aget-wide v5, p1, v12
+    mul-long v6, v20, v24
 
-    aget-wide v16, p1, v15
+    mul-long v15, v15, v26
 
-    mul-long v5, v5, v16
+    add-long/2addr v6, v15
 
-    add-long/2addr v1, v5
+    mul-long/2addr v6, v2
 
-    aget-wide v5, p1, v9
+    add-long/2addr v4, v6
 
-    aget-wide v16, p1, v18
+    mul-long/2addr v4, v2
 
-    mul-long v5, v5, v16
+    add-long/2addr v0, v4
 
-    add-long/2addr v1, v5
-
-    aget-wide v5, p1, v8
-
-    aget-wide v7, p1, v0
-
-    mul-long/2addr v5, v7
-
-    add-long/2addr v1, v5
-
-    mul-long/2addr v1, v3
-
-    const/16 v5, 0xb
-
-    aput-wide v1, p0, v5
+    const/16 v4, 0xc
 
     .line 361
-    aget-wide v1, p1, v14
+    aput-wide v0, p0, v4
 
-    aget-wide v5, p1, v14
+    mul-long v0, v17, v24
 
-    mul-long/2addr v1, v5
+    mul-long v4, v20, v22
 
-    aget-wide v5, p1, v12
+    add-long/2addr v0, v4
 
-    aget-wide v7, p1, v18
+    mul-long v13, v13, v26
 
-    mul-long/2addr v5, v7
+    add-long/2addr v0, v13
 
-    aget-wide v7, p1, v13
+    mul-long/2addr v0, v2
 
-    aget-wide v16, p1, v15
-
-    mul-long v7, v7, v16
-
-    aget-wide v16, p1, v9
-
-    aget-wide v19, p1, v0
-
-    mul-long v16, v16, v19
-
-    add-long v7, v7, v16
-
-    mul-long/2addr v7, v3
-
-    add-long/2addr v5, v7
-
-    mul-long/2addr v5, v3
-
-    add-long/2addr v1, v5
-
-    const/16 v5, 0xc
-
-    aput-wide v1, p0, v5
+    const/16 v4, 0xd
 
     .line 363
-    aget-wide v1, p1, v14
+    aput-wide v0, p0, v4
 
-    aget-wide v5, p1, v15
+    mul-long v0, v24, v24
 
-    mul-long/2addr v1, v5
+    mul-long v4, v17, v22
 
-    aget-wide v5, p1, v13
+    add-long/2addr v0, v4
 
-    aget-wide v7, p1, v18
+    mul-long v20, v20, v2
 
-    mul-long/2addr v5, v7
+    mul-long v20, v20, v26
 
-    add-long/2addr v1, v5
+    add-long v0, v0, v20
 
-    aget-wide v5, p1, v12
+    mul-long/2addr v0, v2
 
-    aget-wide v7, p1, v0
-
-    mul-long/2addr v5, v7
-
-    add-long/2addr v1, v5
-
-    mul-long/2addr v1, v3
-
-    const/16 v5, 0xd
-
-    aput-wide v1, p0, v5
+    const/16 v4, 0xe
 
     .line 364
-    aget-wide v1, p1, v15
+    aput-wide v0, p0, v4
 
-    aget-wide v5, p1, v15
+    mul-long v0, v24, v22
 
-    mul-long/2addr v1, v5
+    mul-long v17, v17, v26
 
-    aget-wide v5, p1, v14
+    add-long v0, v0, v17
 
-    aget-wide v7, p1, v18
+    mul-long/2addr v0, v2
 
-    mul-long/2addr v5, v7
-
-    add-long/2addr v1, v5
-
-    aget-wide v5, p1, v13
-
-    mul-long/2addr v5, v3
-
-    aget-wide v7, p1, v0
-
-    mul-long/2addr v5, v7
-
-    add-long/2addr v1, v5
-
-    mul-long/2addr v1, v3
-
-    const/16 v5, 0xe
-
-    aput-wide v1, p0, v5
+    const/16 v4, 0xf
 
     .line 365
-    aget-wide v1, p1, v15
+    aput-wide v0, p0, v4
 
-    aget-wide v5, p1, v18
+    mul-long v0, v22, v22
 
-    mul-long/2addr v1, v5
+    mul-long v24, v24, v11
 
-    aget-wide v5, p1, v14
+    mul-long v24, v24, v26
 
-    aget-wide v7, p1, v0
+    add-long v0, v0, v24
 
-    mul-long/2addr v5, v7
-
-    add-long/2addr v1, v5
-
-    mul-long/2addr v1, v3
-
-    const/16 v5, 0xf
-
-    aput-wide v1, p0, v5
+    const/16 v4, 0x10
 
     .line 366
-    aget-wide v1, p1, v18
+    aput-wide v0, p0, v4
 
-    aget-wide v5, p1, v18
+    mul-long v22, v22, v2
 
-    mul-long/2addr v1, v5
+    mul-long v22, v22, v26
 
-    aget-wide v5, p1, v15
-
-    mul-long/2addr v5, v10
-
-    aget-wide v7, p1, v0
-
-    mul-long/2addr v5, v7
-
-    add-long/2addr v1, v5
-
-    const/16 v5, 0x10
-
-    aput-wide v1, p0, v5
+    const/16 v0, 0x11
 
     .line 367
-    aget-wide v1, p1, v18
+    aput-wide v22, p0, v0
 
-    mul-long/2addr v1, v3
+    mul-long v2, v2, v26
 
-    aget-wide v5, p1, v0
-
-    mul-long/2addr v1, v5
-
-    const/16 v5, 0x11
-
-    aput-wide v1, p0, v5
-
-    .line 368
-    aget-wide v1, p1, v0
-
-    mul-long/2addr v1, v3
-
-    aget-wide v3, p1, v0
-
-    mul-long/2addr v1, v3
+    mul-long v2, v2, v26
 
     const/16 v0, 0x12
 
-    aput-wide v1, p0, v0
+    .line 368
+    aput-wide v2, p0, v0
 
-    .line 369
     return-void
 .end method
 
 .method static sub([J[J)V
     .locals 0
-    .param p0, "output"    # [J
-    .param p1, "in"    # [J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -3282,15 +2465,11 @@
     .line 107
     invoke-static {p0, p1, p0}, Lcom/google/crypto/tink/subtle/Field25519;->sub([J[J[J)V
 
-    .line 108
     return-void
 .end method
 
 .method static sub([J[J[J)V
     .locals 5
-    .param p0, "output"    # [J
-    .param p1, "in1"    # [J
-    .param p2, "in2"    # [J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -3304,10 +2483,8 @@
         }
     .end annotation
 
-    .line 95
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     const/16 v1, 0xa
 
@@ -3322,21 +2499,16 @@
 
     aput-wide v1, p0, v0
 
-    .line 95
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 98
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
 
 .method static sum([J[J)V
     .locals 0
-    .param p0, "output"    # [J
-    .param p1, "in"    # [J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -3351,15 +2523,11 @@
     .line 85
     invoke-static {p0, p0, p1}, Lcom/google/crypto/tink/subtle/Field25519;->sum([J[J[J)V
 
-    .line 86
     return-void
 .end method
 
 .method static sum([J[J[J)V
     .locals 5
-    .param p0, "output"    # [J
-    .param p1, "in1"    # [J
-    .param p2, "in2"    # [J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -3373,10 +2541,8 @@
         }
     .end annotation
 
-    .line 74
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     const/16 v1, 0xa
 
@@ -3391,13 +2557,10 @@
 
     aput-wide v1, p0, v0
 
-    .line 74
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 77
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method

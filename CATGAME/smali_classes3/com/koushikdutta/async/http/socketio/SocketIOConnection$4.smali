@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/socketio/SocketIOConnection;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/socketio/SocketIOConnection;
 
     .line 221
     iput-object p1, p0, Lcom/koushikdutta/async/http/socketio/SocketIOConnection$4;->this$0:Lcom/koushikdutta/async/http/socketio/SocketIOConnection;
@@ -46,6 +45,5 @@
 
     invoke-virtual {v0, v1}, Lcom/koushikdutta/async/http/socketio/SocketIOConnection;->reconnect(Lcom/koushikdutta/async/future/DependentCancellable;)V
 
-    .line 225
     return-void
 .end method

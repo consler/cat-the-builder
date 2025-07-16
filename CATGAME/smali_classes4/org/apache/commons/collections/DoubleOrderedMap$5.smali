@@ -20,13 +20,12 @@
 .end method
 
 .method static synthetic access$2000(Lorg/apache/commons/collections/DoubleOrderedMap$5;)Lorg/apache/commons/collections/DoubleOrderedMap;
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections/DoubleOrderedMap$5;
+    .locals 0
 
     .line 1517
-    iget-object v0, p0, Lorg/apache/commons/collections/DoubleOrderedMap$5;->this$0:Lorg/apache/commons/collections/DoubleOrderedMap;
+    iget-object p0, p0, Lorg/apache/commons/collections/DoubleOrderedMap$5;->this$0:Lorg/apache/commons/collections/DoubleOrderedMap;
 
-    return-object v0
+    return-object p0
 .end method
 
 
@@ -39,22 +38,20 @@
 
     invoke-virtual {v0}, Lorg/apache/commons/collections/DoubleOrderedMap;->clear()V
 
-    .line 1562
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
     .line 1534
     iget-object v0, p0, Lorg/apache/commons/collections/DoubleOrderedMap$5;->this$0:Lorg/apache/commons/collections/DoubleOrderedMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections/DoubleOrderedMap;->containsValue(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
@@ -72,7 +69,6 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "o"    # Ljava/lang/Object;
 
     .line 1539
     iget-object v0, p0, Lorg/apache/commons/collections/DoubleOrderedMap$5;->this$0:Lorg/apache/commons/collections/DoubleOrderedMap;
@@ -82,73 +78,66 @@
     move-result v0
 
     .line 1541
-    .local v0, "oldNodeCount":I
     iget-object v1, p0, Lorg/apache/commons/collections/DoubleOrderedMap$5;->this$0:Lorg/apache/commons/collections/DoubleOrderedMap;
 
     invoke-virtual {v1, p1}, Lorg/apache/commons/collections/DoubleOrderedMap;->removeValue(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1543
-    iget-object v1, p0, Lorg/apache/commons/collections/DoubleOrderedMap$5;->this$0:Lorg/apache/commons/collections/DoubleOrderedMap;
+    iget-object p1, p0, Lorg/apache/commons/collections/DoubleOrderedMap$5;->this$0:Lorg/apache/commons/collections/DoubleOrderedMap;
 
-    invoke-static {v1}, Lorg/apache/commons/collections/DoubleOrderedMap;->access$500(Lorg/apache/commons/collections/DoubleOrderedMap;)I
+    invoke-static {p1}, Lorg/apache/commons/collections/DoubleOrderedMap;->access$500(Lorg/apache/commons/collections/DoubleOrderedMap;)I
 
-    move-result v1
+    move-result p1
 
-    if-eq v1, v0, :cond_0
+    if-eq p1, v0, :cond_0
 
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v1
+    return p1
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 4
-    .param p1, "c"    # Ljava/util/Collection;
-
-    .line 1548
-    const/4 v0, 0x0
+    .locals 3
 
     .line 1549
-    .local v0, "modified":Z
     invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object p1
+
+    const/4 v0, 0x0
 
     .line 1551
-    .local v1, "iter":Ljava/util/Iterator;
     :cond_0
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
     .line 1552
-    iget-object v2, p0, Lorg/apache/commons/collections/DoubleOrderedMap$5;->this$0:Lorg/apache/commons/collections/DoubleOrderedMap;
+    iget-object v1, p0, Lorg/apache/commons/collections/DoubleOrderedMap$5;->this$0:Lorg/apache/commons/collections/DoubleOrderedMap;
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Lorg/apache/commons/collections/DoubleOrderedMap;->removeValue(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    invoke-virtual {v1, v2}, Lorg/apache/commons/collections/DoubleOrderedMap;->removeValue(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1553
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 1557
     :cond_1
     return v0
 .end method

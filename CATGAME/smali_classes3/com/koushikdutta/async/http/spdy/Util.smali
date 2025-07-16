@@ -15,11 +15,7 @@
 
 .method public static checkOffsetAndCount(JJJ)V
     .locals 4
-    .param p0, "arrayLength"    # J
-    .param p2, "offset"    # J
-    .param p4, "count"    # J
 
-    .line 27
     or-long v0, p2, p4
 
     const-wide/16 v2, 0x0
@@ -32,22 +28,21 @@
 
     if-gtz v0, :cond_0
 
-    sub-long v0, p0, p2
+    sub-long/2addr p0, p2
 
-    cmp-long v0, v0, p4
+    cmp-long p0, p0, p4
 
-    if-ltz v0, :cond_0
+    if-ltz p0, :cond_0
 
-    .line 30
     return-void
 
     .line 28
     :cond_0
-    new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
+    new-instance p0, Ljava/lang/ArrayIndexOutOfBoundsException;
 
-    invoke-direct {v0}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>()V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static immutableList(Ljava/util/List;)Ljava/util/List;
@@ -65,20 +60,19 @@
     .end annotation
 
     .line 34
-    .local p0, "list":Ljava/util/List;, "Ljava/util/List<TT;>;"
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0, p0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs immutableList([Ljava/lang/Object;)Ljava/util/List;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -90,20 +84,19 @@
     .end annotation
 
     .line 39
-    .local p0, "elements":[Ljava/lang/Object;, "[TT;"
     invoke-virtual {p0}, [Ljava/lang/Object;->clone()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, [Ljava/lang/Object;
+    check-cast p0, [Ljava/lang/Object;
 
-    invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {p0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
+    invoke-static {p0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

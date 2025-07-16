@@ -63,13 +63,11 @@
     .end annotation
 
     .line 83
-    .local p0, "this":Lorg/apache/commons/collections4/functors/InstantiateFactory;, "Lorg/apache/commons/collections4/functors/InstantiateFactory<TT;>;"
-    .local p1, "classToInstantiate":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 45
     const/4 v0, 0x0
 
+    .line 45
     iput-object v0, p0, Lorg/apache/commons/collections4/functors/InstantiateFactory;->iConstructor:Ljava/lang/reflect/Constructor;
 
     .line 84
@@ -84,13 +82,11 @@
     .line 87
     invoke-direct {p0}, Lorg/apache/commons/collections4/functors/InstantiateFactory;->findConstructor()V
 
-    .line 88
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;[Ljava/lang/Class;[Ljava/lang/Object;)V
     .locals 1
-    .param p3, "args"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -104,14 +100,11 @@
     .end annotation
 
     .line 99
-    .local p0, "this":Lorg/apache/commons/collections4/functors/InstantiateFactory;, "Lorg/apache/commons/collections4/functors/InstantiateFactory<TT;>;"
-    .local p1, "classToInstantiate":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
-    .local p2, "paramTypes":[Ljava/lang/Class;, "[Ljava/lang/Class<*>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 45
     const/4 v0, 0x0
 
+    .line 45
     iput-object v0, p0, Lorg/apache/commons/collections4/functors/InstantiateFactory;->iConstructor:Ljava/lang/reflect/Constructor;
 
     .line 100
@@ -120,33 +113,31 @@
     .line 101
     invoke-virtual {p2}, [Ljava/lang/Class;->clone()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, [Ljava/lang/Class;
+    check-cast p1, [Ljava/lang/Class;
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/functors/InstantiateFactory;->iParamTypes:[Ljava/lang/Class;
+    iput-object p1, p0, Lorg/apache/commons/collections4/functors/InstantiateFactory;->iParamTypes:[Ljava/lang/Class;
 
     .line 102
     invoke-virtual {p3}, [Ljava/lang/Object;->clone()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, [Ljava/lang/Object;
+    check-cast p1, [Ljava/lang/Object;
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/functors/InstantiateFactory;->iArgs:[Ljava/lang/Object;
+    iput-object p1, p0, Lorg/apache/commons/collections4/functors/InstantiateFactory;->iArgs:[Ljava/lang/Object;
 
     .line 103
     invoke-direct {p0}, Lorg/apache/commons/collections4/functors/InstantiateFactory;->findConstructor()V
 
-    .line 104
     return-void
 .end method
 
 .method private findConstructor()V
-    .locals 3
+    .locals 2
 
     .line 111
-    .local p0, "this":Lorg/apache/commons/collections4/functors/InstantiateFactory;, "Lorg/apache/commons/collections4/functors/InstantiateFactory<TT;>;"
     :try_start_0
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/InstantiateFactory;->iClassToInstantiate:Ljava/lang/Class;
 
@@ -160,30 +151,21 @@
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 114
-    nop
-
-    .line 115
     return-void
 
-    .line 112
-    :catch_0
-    move-exception v0
-
     .line 113
-    .local v0, "ex":Ljava/lang/NoSuchMethodException;
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    :catch_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v2, "InstantiateFactory: The constructor must exist and be public "
+    const-string v1, "InstantiateFactory: The constructor must exist and be public "
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public static instantiateFactory(Ljava/lang/Class;[Ljava/lang/Class;[Ljava/lang/Object;)Lorg/apache/commons/collections4/Factory;
     .locals 2
-    .param p2, "args"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -200,12 +182,8 @@
         }
     .end annotation
 
-    .line 61
-    .local p0, "classToInstantiate":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
-    .local p1, "paramTypes":[Ljava/lang/Class;, "[Ljava/lang/Class<*>;"
     if-eqz p0, :cond_6
 
-    .line 64
     if-nez p1, :cond_0
 
     if-nez p2, :cond_2
@@ -220,6 +198,7 @@
 
     if-eqz p2, :cond_3
 
+    .line 64
     array-length v0, p1
 
     array-length v1, p2
@@ -230,19 +209,19 @@
 
     .line 67
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Parameter types must match the arguments"
+    const-string p1, "Parameter types must match the arguments"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
-    .line 70
     :cond_3
     :goto_0
     if-eqz p1, :cond_5
 
+    .line 70
     array-length v0, p1
 
     if-nez v0, :cond_4
@@ -260,21 +239,21 @@
     .line 71
     :cond_5
     :goto_1
-    new-instance v0, Lorg/apache/commons/collections4/functors/InstantiateFactory;
+    new-instance p1, Lorg/apache/commons/collections4/functors/InstantiateFactory;
 
-    invoke-direct {v0, p0}, Lorg/apache/commons/collections4/functors/InstantiateFactory;-><init>(Ljava/lang/Class;)V
+    invoke-direct {p1, p0}, Lorg/apache/commons/collections4/functors/InstantiateFactory;-><init>(Ljava/lang/Class;)V
 
-    return-object v0
+    return-object p1
 
     .line 62
     :cond_6
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Class to instantiate must not be null"
+    const-string p1, "Class to instantiate must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
@@ -288,7 +267,6 @@
     .end annotation
 
     .line 125
-    .local p0, "this":Lorg/apache/commons/collections4/functors/InstantiateFactory;, "Lorg/apache/commons/collections4/functors/InstantiateFactory<TT;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/InstantiateFactory;->iConstructor:Ljava/lang/reflect/Constructor;
 
     if-nez v0, :cond_0
@@ -313,12 +291,10 @@
 
     return-object v0
 
-    .line 135
     :catch_0
     move-exception v0
 
     .line 136
-    .local v0, "ex":Ljava/lang/reflect/InvocationTargetException;
     new-instance v1, Lorg/apache/commons/collections4/FunctorException;
 
     const-string v2, "InstantiateFactory: Constructor threw an exception"
@@ -327,13 +303,10 @@
 
     throw v1
 
-    .line 133
-    .end local v0    # "ex":Ljava/lang/reflect/InvocationTargetException;
     :catch_1
     move-exception v0
 
     .line 134
-    .local v0, "ex":Ljava/lang/IllegalAccessException;
     new-instance v1, Lorg/apache/commons/collections4/FunctorException;
 
     const-string v2, "InstantiateFactory: Constructor must be public"
@@ -342,13 +315,10 @@
 
     throw v1
 
-    .line 131
-    .end local v0    # "ex":Ljava/lang/IllegalAccessException;
     :catch_2
     move-exception v0
 
     .line 132
-    .local v0, "ex":Ljava/lang/InstantiationException;
     new-instance v1, Lorg/apache/commons/collections4/FunctorException;
 
     const-string v2, "InstantiateFactory: InstantiationException"

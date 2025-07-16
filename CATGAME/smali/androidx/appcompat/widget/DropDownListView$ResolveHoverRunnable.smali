@@ -30,7 +30,6 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 699
     return-void
 .end method
 
@@ -51,7 +50,6 @@
 
     invoke-virtual {v0, p0}, Landroidx/appcompat/widget/DropDownListView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 711
     return-void
 .end method
 
@@ -63,7 +61,6 @@
 
     invoke-virtual {v0, p0}, Landroidx/appcompat/widget/DropDownListView;->post(Ljava/lang/Runnable;)Z
 
-    .line 715
     return-void
 .end method
 
@@ -82,6 +79,5 @@
 
     invoke-virtual {v0}, Landroidx/appcompat/widget/DropDownListView;->drawableStateChanged()V
 
-    .line 706
     return-void
 .end method

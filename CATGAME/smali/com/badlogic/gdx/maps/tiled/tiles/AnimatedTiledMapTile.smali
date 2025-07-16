@@ -34,11 +34,6 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .line 31
-    const-wide/16 v0, 0x0
-
-    sput-wide v0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->lastTiledMapRenderTime:J
-
     .line 46
     invoke-static {}, Lcom/badlogic/gdx/utils/TimeUtils;->millis()J
 
@@ -50,8 +45,7 @@
 .end method
 
 .method public constructor <init>(FLcom/badlogic/gdx/utils/Array;)V
-    .locals 4
-    .param p1, "interval"    # F
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(F",
@@ -62,7 +56,6 @@
     .end annotation
 
     .line 160
-    .local p2, "frameTiles":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/maps/tiled/tiles/StaticTiledMapTile;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 35
@@ -70,86 +63,75 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->blendMode:Lcom/badlogic/gdx/maps/tiled/TiledMapTile$BlendMode;
 
-    .line 44
     const/4 v0, 0x0
 
+    .line 44
     iput v0, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->frameCount:I
 
     .line 161
-    iget v0, p2, Lcom/badlogic/gdx/utils/Array;->size:I
+    iget v1, p2, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    new-array v0, v0, [Lcom/badlogic/gdx/maps/tiled/tiles/StaticTiledMapTile;
+    new-array v1, v1, [Lcom/badlogic/gdx/maps/tiled/tiles/StaticTiledMapTile;
 
-    iput-object v0, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->frameTiles:[Lcom/badlogic/gdx/maps/tiled/tiles/StaticTiledMapTile;
+    iput-object v1, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->frameTiles:[Lcom/badlogic/gdx/maps/tiled/tiles/StaticTiledMapTile;
 
     .line 162
-    iget v0, p2, Lcom/badlogic/gdx/utils/Array;->size:I
+    iget v1, p2, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    iput v0, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->frameCount:I
+    iput v1, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->frameCount:I
 
     .line 164
-    iget v0, p2, Lcom/badlogic/gdx/utils/Array;->size:I
+    iget v1, p2, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    const/high16 v1, 0x447a0000    # 1000.0f
+    const/high16 v2, 0x447a0000    # 1000.0f
 
-    mul-float v2, p1, v1
+    mul-float/2addr p1, v2
 
-    float-to-int v2, v2
+    float-to-int p1, p1
 
-    mul-int/2addr v0, v2
+    mul-int/2addr v1, p1
 
-    iput v0, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->loopDuration:I
+    iput v1, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->loopDuration:I
 
     .line 165
-    iget v0, p2, Lcom/badlogic/gdx/utils/Array;->size:I
+    iget v1, p2, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    new-array v0, v0, [I
+    new-array v1, v1, [I
 
-    iput-object v0, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->animationIntervals:[I
+    iput-object v1, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->animationIntervals:[I
 
     .line 166
-    const/4 v0, 0x0
-
-    .local v0, "i":I
     :goto_0
-    iget v2, p2, Lcom/badlogic/gdx/utils/Array;->size:I
+    iget v1, p2, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v1, :cond_0
 
     .line 167
-    iget-object v2, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->frameTiles:[Lcom/badlogic/gdx/maps/tiled/tiles/StaticTiledMapTile;
+    iget-object v1, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->frameTiles:[Lcom/badlogic/gdx/maps/tiled/tiles/StaticTiledMapTile;
 
     invoke-virtual {p2, v0}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Lcom/badlogic/gdx/maps/tiled/tiles/StaticTiledMapTile;
+    check-cast v2, Lcom/badlogic/gdx/maps/tiled/tiles/StaticTiledMapTile;
 
-    aput-object v3, v2, v0
+    aput-object v2, v1, v0
 
     .line 168
-    iget-object v2, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->animationIntervals:[I
+    iget-object v1, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->animationIntervals:[I
 
-    mul-float v3, p1, v1
+    aput p1, v1, v0
 
-    float-to-int v3, v3
-
-    aput v3, v2, v0
-
-    .line 166
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 170
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/utils/IntArray;Lcom/badlogic/gdx/utils/Array;)V
     .locals 3
-    .param p1, "intervals"    # Lcom/badlogic/gdx/utils/IntArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -161,7 +143,6 @@
     .end annotation
 
     .line 176
-    .local p2, "frameTiles":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/maps/tiled/tiles/StaticTiledMapTile;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 35
@@ -169,9 +150,9 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->blendMode:Lcom/badlogic/gdx/maps/tiled/TiledMapTile$BlendMode;
 
-    .line 44
     const/4 v0, 0x0
 
+    .line 44
     iput v0, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->frameCount:I
 
     .line 177
@@ -197,9 +178,6 @@
     iput v0, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->loopDuration:I
 
     .line 183
-    const/4 v0, 0x0
-
-    .local v0, "i":I
     :goto_0
     iget v1, p1, Lcom/badlogic/gdx/utils/IntArray;->size:I
 
@@ -227,13 +205,10 @@
 
     iput v1, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->loopDuration:I
 
-    .line 183
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 187
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
@@ -252,7 +227,6 @@
 
     sput-wide v0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->lastTiledMapRenderTime:J
 
-    .line 154
     return-void
 .end method
 
@@ -305,11 +279,9 @@
 
     long-to-int v0, v0
 
-    .line 71
-    .local v0, "currentTime":I
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    .line 71
     :goto_0
     iget-object v2, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->animationIntervals:[I
 
@@ -320,32 +292,26 @@
     .line 72
     aget v2, v2, v1
 
-    .line 73
-    .local v2, "animationInterval":I
     if-gt v0, v2, :cond_0
 
     return v1
 
-    .line 74
     :cond_0
     sub-int/2addr v0, v2
 
-    .line 71
-    .end local v2    # "animationInterval":I
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 77
-    .end local v1    # "i":I
     :cond_1
-    new-instance v1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v2, "Could not determine current animation frame in AnimatedTiledMapTile.  This should never happen."
+    const-string v1, "Could not determine current animation frame in AnimatedTiledMapTile.  This should never happen."
 
-    invoke-direct {v1, v2}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public getFrameTiles()[Lcom/badlogic/gdx/maps/tiled/tiles/StaticTiledMapTile;
@@ -457,7 +423,6 @@
 
 .method public setAnimationIntervals([I)V
     .locals 3
-    .param p1, "intervals"    # [I
 
     .line 120
     array-length v0, p1
@@ -471,15 +436,12 @@
     .line 121
     iput-object p1, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->animationIntervals:[I
 
-    .line 123
     const/4 v0, 0x0
 
+    .line 123
     iput v0, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->loopDuration:I
 
     .line 124
-    const/4 v0, 0x0
-
-    .local v0, "i":I
     :goto_0
     array-length v1, p1
 
@@ -494,13 +456,10 @@
 
     iput v1, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->loopDuration:I
 
-    .line 124
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 132
-    .end local v0    # "i":I
     :cond_0
     return-void
 
@@ -510,99 +469,98 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Cannot set "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    array-length v2, p1
+    array-length p1, p1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v2, " frame intervals. The given int[] must have a size of "
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " frame intervals. The given int[] must have a size of "
 
-    iget-object v2, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->animationIntervals:[I
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    array-length v2, v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iget-object v1, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->animationIntervals:[I
 
-    const-string v2, "."
+    array-length v1, v1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    const-string v1, "."
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public setBlendMode(Lcom/badlogic/gdx/maps/tiled/TiledMapTile$BlendMode;)V
     .locals 0
-    .param p1, "blendMode"    # Lcom/badlogic/gdx/maps/tiled/TiledMapTile$BlendMode;
 
     .line 65
     iput-object p1, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->blendMode:Lcom/badlogic/gdx/maps/tiled/TiledMapTile$BlendMode;
 
-    .line 66
     return-void
 .end method
 
 .method public setId(I)V
     .locals 0
-    .param p1, "id"    # I
 
     .line 55
     iput p1, p0, Lcom/badlogic/gdx/maps/tiled/tiles/AnimatedTiledMapTile;->id:I
 
-    .line 56
     return-void
 .end method
 
 .method public setOffsetX(F)V
-    .locals 2
-    .param p1, "offsetX"    # F
+    .locals 1
 
     .line 102
-    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v1, "Cannot set offset of AnimatedTiledMapTile."
+    const-string v0, "Cannot set offset of AnimatedTiledMapTile."
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setOffsetY(F)V
-    .locals 2
-    .param p1, "offsetY"    # F
+    .locals 1
 
     .line 112
-    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v1, "Cannot set offset of AnimatedTiledMapTile."
+    const-string v0, "Cannot set offset of AnimatedTiledMapTile."
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setTextureRegion(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
-    .locals 2
-    .param p1, "textureRegion"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+    .locals 1
 
     .line 92
-    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v1, "Cannot set the texture region of AnimatedTiledMapTile."
+    const-string v0, "Cannot set the texture region of AnimatedTiledMapTile."
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

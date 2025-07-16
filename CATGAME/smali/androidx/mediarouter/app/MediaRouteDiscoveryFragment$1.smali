@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/app/MediaRouteDiscoveryFragment;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/mediarouter/app/MediaRouteDiscoveryFragment;
 
     .line 127
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteDiscoveryFragment$1;->this$0:Landroidx/mediarouter/app/MediaRouteDiscoveryFragment;

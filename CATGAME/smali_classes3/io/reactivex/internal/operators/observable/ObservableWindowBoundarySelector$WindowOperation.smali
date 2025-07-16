@@ -56,9 +56,6 @@
     .end annotation
 
     .line 299
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWindowBoundarySelector$WindowOperation;, "Lio/reactivex/internal/operators/observable/ObservableWindowBoundarySelector$WindowOperation<TT;TB;>;"
-    .local p1, "w":Lio/reactivex/subjects/UnicastSubject;, "Lio/reactivex/subjects/UnicastSubject<TT;>;"
-    .local p2, "open":Ljava/lang/Object;, "TB;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 300
@@ -67,6 +64,5 @@
     .line 301
     iput-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableWindowBoundarySelector$WindowOperation;->open:Ljava/lang/Object;
 
-    .line 302
     return-void
 .end method

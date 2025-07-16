@@ -93,8 +93,6 @@
 # direct methods
 .method constructor <init>(Landroid/content/Intent;Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "intent"    # Landroid/content/Intent;
-    .param p2, "startAnimationBundle"    # Landroid/os/Bundle;
 
     .line 335
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -105,16 +103,12 @@
     .line 337
     iput-object p2, p0, Landroidx/browser/customtabs/CustomTabsIntent;->startAnimationBundle:Landroid/os/Bundle;
 
-    .line 338
     return-void
 .end method
 
 .method public static getColorSchemeParams(Landroid/content/Intent;I)Landroidx/browser/customtabs/CustomTabColorSchemeParams;
-    .locals 5
-    .param p0, "intent"    # Landroid/content/Intent;
-    .param p1, "colorScheme"    # I
+    .locals 2
 
-    .line 805
     if-ltz p1, :cond_2
 
     const/4 v0, 0x2
@@ -126,98 +120,84 @@
     .line 810
     invoke-virtual {p0}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
-    move-result-object v0
+    move-result-object p0
 
-    .line 811
-    .local v0, "extras":Landroid/os/Bundle;
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x0
 
     .line 812
-    const/4 v1, 0x0
+    invoke-static {p0}, Landroidx/browser/customtabs/CustomTabColorSchemeParams;->fromBundle(Landroid/os/Bundle;)Landroidx/browser/customtabs/CustomTabColorSchemeParams;
 
-    invoke-static {v1}, Landroidx/browser/customtabs/CustomTabColorSchemeParams;->fromBundle(Landroid/os/Bundle;)Landroidx/browser/customtabs/CustomTabColorSchemeParams;
+    move-result-object p0
 
-    move-result-object v1
-
-    return-object v1
+    return-object p0
 
     .line 815
     :cond_0
-    invoke-static {v0}, Landroidx/browser/customtabs/CustomTabColorSchemeParams;->fromBundle(Landroid/os/Bundle;)Landroidx/browser/customtabs/CustomTabColorSchemeParams;
+    invoke-static {p0}, Landroidx/browser/customtabs/CustomTabColorSchemeParams;->fromBundle(Landroid/os/Bundle;)Landroidx/browser/customtabs/CustomTabColorSchemeParams;
 
-    move-result-object v1
+    move-result-object v0
+
+    const-string v1, "androidx.browser.customtabs.extra.COLOR_SCHEME_PARAMS"
 
     .line 816
-    .local v1, "defaults":Landroidx/browser/customtabs/CustomTabColorSchemeParams;
-    const-string v2, "androidx.browser.customtabs.extra.COLOR_SCHEME_PARAMS"
+    invoke-virtual {p0, v1}, Landroid/os/Bundle;->getSparseParcelableArray(Ljava/lang/String;)Landroid/util/SparseArray;
 
-    invoke-virtual {v0, v2}, Landroid/os/Bundle;->getSparseParcelableArray(Ljava/lang/String;)Landroid/util/SparseArray;
+    move-result-object p0
 
-    move-result-object v2
-
-    .line 818
-    .local v2, "paramBundles":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Landroid/os/Bundle;>;"
-    if-eqz v2, :cond_1
+    if-eqz p0, :cond_1
 
     .line 819
-    invoke-virtual {v2, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p0
 
-    check-cast v3, Landroid/os/Bundle;
+    check-cast p0, Landroid/os/Bundle;
 
-    .line 820
-    .local v3, "bundleForScheme":Landroid/os/Bundle;
-    if-eqz v3, :cond_1
+    if-eqz p0, :cond_1
 
     .line 821
-    invoke-static {v3}, Landroidx/browser/customtabs/CustomTabColorSchemeParams;->fromBundle(Landroid/os/Bundle;)Landroidx/browser/customtabs/CustomTabColorSchemeParams;
+    invoke-static {p0}, Landroidx/browser/customtabs/CustomTabColorSchemeParams;->fromBundle(Landroid/os/Bundle;)Landroidx/browser/customtabs/CustomTabColorSchemeParams;
 
-    move-result-object v4
+    move-result-object p0
 
     .line 822
-    invoke-virtual {v4, v1}, Landroidx/browser/customtabs/CustomTabColorSchemeParams;->withDefaults(Landroidx/browser/customtabs/CustomTabColorSchemeParams;)Landroidx/browser/customtabs/CustomTabColorSchemeParams;
+    invoke-virtual {p0, v0}, Landroidx/browser/customtabs/CustomTabColorSchemeParams;->withDefaults(Landroidx/browser/customtabs/CustomTabColorSchemeParams;)Landroidx/browser/customtabs/CustomTabColorSchemeParams;
 
-    move-result-object v4
+    move-result-object p0
 
-    .line 821
-    return-object v4
+    return-object p0
 
-    .line 825
-    .end local v3    # "bundleForScheme":Landroid/os/Bundle;
     :cond_1
-    return-object v1
+    return-object v0
 
     .line 807
-    .end local v0    # "extras":Landroid/os/Bundle;
-    .end local v1    # "defaults":Landroidx/browser/customtabs/CustomTabColorSchemeParams;
-    .end local v2    # "paramBundles":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Landroid/os/Bundle;>;"
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Invalid colorScheme: "
 
-    const-string v2, "Invalid colorScheme: "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static getMaxToolbarItems()I
     .locals 1
 
-    .line 762
     const/4 v0, 0x5
 
     return v0
@@ -225,45 +205,40 @@
 
 .method public static setAlwaysUseBrowserUI(Landroid/content/Intent;)Landroid/content/Intent;
     .locals 2
-    .param p0, "intent"    # Landroid/content/Intent;
 
-    .line 774
     if-nez p0, :cond_0
 
-    new-instance v0, Landroid/content/Intent;
+    .line 774
+    new-instance p0, Landroid/content/Intent;
 
-    const-string v1, "android.intent.action.VIEW"
+    const-string v0, "android.intent.action.VIEW"
 
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    move-object p0, v0
-
-    .line 775
     :cond_0
     const/high16 v0, 0x10000000
 
+    .line 775
     invoke-virtual {p0, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
+    const-string v0, "android.support.customtabs.extra.user_opt_out"
+
+    const/4 v1, 0x1
+
     .line 776
-    const/4 v0, 0x1
+    invoke-virtual {p0, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    const-string v1, "android.support.customtabs.extra.user_opt_out"
-
-    invoke-virtual {p0, v1, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
-
-    .line 777
     return-object p0
 .end method
 
 .method public static shouldAlwaysUseBrowserUI(Landroid/content/Intent;)Z
-    .locals 3
-    .param p0, "intent"    # Landroid/content/Intent;
+    .locals 2
 
-    .line 788
     const-string v0, "android.support.customtabs.extra.user_opt_out"
 
     const/4 v1, 0x0
 
+    .line 788
     invoke-virtual {p0, v0, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v0
@@ -273,32 +248,24 @@
     .line 789
     invoke-virtual {p0}, Landroid/content/Intent;->getFlags()I
 
-    move-result v0
+    move-result p0
 
-    const/high16 v2, 0x10000000
+    const/high16 v0, 0x10000000
 
-    and-int/2addr v0, v2
+    and-int/2addr p0, v0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
     const/4 v1, 0x1
 
-    goto :goto_0
-
     :cond_0
-    nop
-
-    .line 788
-    :goto_0
     return v1
 .end method
 
 
 # virtual methods
 .method public launchUrl(Landroid/content/Context;Landroid/net/Uri;)V
-    .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "url"    # Landroid/net/Uri;
+    .locals 1
 
     .line 330
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent;->intent:Landroid/content/Intent;
@@ -306,12 +273,11 @@
     invoke-virtual {v0, p2}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
     .line 331
-    iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent;->intent:Landroid/content/Intent;
+    iget-object p2, p0, Landroidx/browser/customtabs/CustomTabsIntent;->intent:Landroid/content/Intent;
 
-    iget-object v1, p0, Landroidx/browser/customtabs/CustomTabsIntent;->startAnimationBundle:Landroid/os/Bundle;
+    iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsIntent;->startAnimationBundle:Landroid/os/Bundle;
 
-    invoke-static {p1, v0, v1}, Landroidx/core/content/ContextCompat;->startActivity(Landroid/content/Context;Landroid/content/Intent;Landroid/os/Bundle;)V
+    invoke-static {p1, p2, v0}, Landroidx/core/content/ContextCompat;->startActivity(Landroid/content/Context;Landroid/content/Intent;Landroid/os/Bundle;)V
 
-    .line 332
     return-void
 .end method

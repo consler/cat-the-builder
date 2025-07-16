@@ -81,7 +81,6 @@
 
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->startA:F
 
-    .line 36
     return-void
 .end method
 
@@ -109,44 +108,37 @@
     .line 53
     invoke-super {p0}, Lcom/badlogic/gdx/scenes/scene2d/actions/TemporalAction;->reset()V
 
-    .line 54
     const/4 v0, 0x0
 
+    .line 54
     iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->color:Lcom/badlogic/gdx/graphics/Color;
 
-    .line 55
     return-void
 .end method
 
 .method public setColor(Lcom/badlogic/gdx/graphics/Color;)V
     .locals 0
-    .param p1, "color"    # Lcom/badlogic/gdx/graphics/Color;
 
     .line 64
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->color:Lcom/badlogic/gdx/graphics/Color;
 
-    .line 65
     return-void
 .end method
 
 .method public setEndColor(Lcom/badlogic/gdx/graphics/Color;)V
     .locals 1
-    .param p1, "color"    # Lcom/badlogic/gdx/graphics/Color;
 
     .line 73
     iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->end:Lcom/badlogic/gdx/graphics/Color;
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/graphics/Color;->set(Lcom/badlogic/gdx/graphics/Color;)Lcom/badlogic/gdx/graphics/Color;
 
-    .line 74
     return-void
 .end method
 
 .method protected update(F)V
     .locals 6
-    .param p1, "percent"    # F
 
-    .line 39
     const/4 v0, 0x0
 
     cmpl-float v0, p1, v0
@@ -154,21 +146,20 @@
     if-nez v0, :cond_0
 
     .line 40
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->color:Lcom/badlogic/gdx/graphics/Color;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->color:Lcom/badlogic/gdx/graphics/Color;
 
-    iget v1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->startR:F
+    iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->startR:F
 
-    iget v2, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->startG:F
+    iget v1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->startG:F
 
-    iget v3, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->startB:F
+    iget v2, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->startB:F
 
-    iget v4, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->startA:F
+    iget v3, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->startA:F
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/badlogic/gdx/graphics/Color;->set(FFFF)Lcom/badlogic/gdx/graphics/Color;
+    invoke-virtual {p1, v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/Color;->set(FFFF)Lcom/badlogic/gdx/graphics/Color;
 
     goto :goto_0
 
-    .line 41
     :cond_0
     const/high16 v0, 0x3f800000    # 1.0f
 
@@ -177,11 +168,11 @@
     if-nez v0, :cond_1
 
     .line 42
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->color:Lcom/badlogic/gdx/graphics/Color;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->color:Lcom/badlogic/gdx/graphics/Color;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->end:Lcom/badlogic/gdx/graphics/Color;
+    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->end:Lcom/badlogic/gdx/graphics/Color;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/graphics/Color;->set(Lcom/badlogic/gdx/graphics/Color;)Lcom/badlogic/gdx/graphics/Color;
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/graphics/Color;->set(Lcom/badlogic/gdx/graphics/Color;)Lcom/badlogic/gdx/graphics/Color;
 
     goto :goto_0
 
@@ -202,7 +193,6 @@
     add-float/2addr v0, v1
 
     .line 45
-    .local v0, "r":F
     iget v1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->startG:F
 
     iget-object v2, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->end:Lcom/badlogic/gdx/graphics/Color;
@@ -218,7 +208,6 @@
     add-float/2addr v1, v2
 
     .line 46
-    .local v1, "g":F
     iget v2, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->startB:F
 
     iget-object v3, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->end:Lcom/badlogic/gdx/graphics/Color;
@@ -234,7 +223,6 @@
     add-float/2addr v2, v3
 
     .line 47
-    .local v2, "b":F
     iget v3, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->startA:F
 
     iget-object v4, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->end:Lcom/badlogic/gdx/graphics/Color;
@@ -250,16 +238,10 @@
     add-float/2addr v3, v4
 
     .line 48
-    .local v3, "a":F
-    iget-object v4, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->color:Lcom/badlogic/gdx/graphics/Color;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ColorAction;->color:Lcom/badlogic/gdx/graphics/Color;
 
-    invoke-virtual {v4, v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/Color;->set(FFFF)Lcom/badlogic/gdx/graphics/Color;
+    invoke-virtual {p1, v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/Color;->set(FFFF)Lcom/badlogic/gdx/graphics/Color;
 
-    .line 50
-    .end local v0    # "r":F
-    .end local v1    # "g":F
-    .end local v2    # "b":F
-    .end local v3    # "a":F
     :goto_0
     return-void
 .end method

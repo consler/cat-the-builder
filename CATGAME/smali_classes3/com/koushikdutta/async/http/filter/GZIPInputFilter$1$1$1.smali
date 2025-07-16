@@ -32,7 +32,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$1;)V
     .locals 0
-    .param p1, "this$2"    # Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$1;
 
     .line 75
     iput-object p1, p0, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$1$1;->this$2:Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$1;
@@ -57,7 +56,6 @@
 
 .method public parsed([B)V
     .locals 3
-    .param p1, "buf"    # [B
 
     .line 77
     iget-object v0, p0, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$1$1;->this$2:Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$1;
@@ -85,12 +83,11 @@
 
     .line 80
     :cond_0
-    iget-object v0, p0, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$1$1;->this$2:Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$1;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$1$1;->this$2:Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$1;
 
-    iget-object v0, v0, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$1;->this$1:Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;
+    iget-object p1, p1, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$1;->this$1:Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;
 
-    invoke-static {v0}, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;->access$000(Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;)V
+    invoke-static {p1}, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;->access$000(Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;)V
 
-    .line 81
     return-void
 .end method

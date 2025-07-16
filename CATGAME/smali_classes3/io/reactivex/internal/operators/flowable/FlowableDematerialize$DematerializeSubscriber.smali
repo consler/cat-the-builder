@@ -58,14 +58,11 @@
     .end annotation
 
     .line 40
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 41
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    .line 42
     return-void
 .end method
 
@@ -75,12 +72,10 @@
     .locals 1
 
     .line 99
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
 
-    .line 100
     return-void
 .end method
 
@@ -88,18 +83,16 @@
     .locals 1
 
     .line 84
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 85
     return-void
 
-    .line 87
     :cond_0
     const/4 v0, 0x1
 
+    .line 87
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;->done:Z
 
     .line 89
@@ -107,16 +100,13 @@
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 90
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 74
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;->done:Z
 
     if-eqz v0, :cond_0
@@ -124,13 +114,12 @@
     .line 75
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 76
     return-void
 
-    .line 78
     :cond_0
     const/4 v0, 0x1
 
+    .line 78
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;->done:Z
 
     .line 80
@@ -138,12 +127,11 @@
 
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 81
     return-void
 .end method
 
 .method public onNext(Lio/reactivex/Notification;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -153,8 +141,6 @@
     .end annotation
 
     .line 54
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber<TT;>;"
-    .local p1, "t":Lio/reactivex/Notification;, "Lio/reactivex/Notification<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;->done:Z
 
     if-eqz v0, :cond_1
@@ -169,11 +155,10 @@
     .line 56
     invoke-virtual {p1}, Lio/reactivex/Notification;->getError()Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 58
     :cond_0
     return-void
 
@@ -193,9 +178,9 @@
     .line 62
     invoke-virtual {p1}, Lio/reactivex/Notification;->getError()Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;->onError(Ljava/lang/Throwable;)V
 
     goto :goto_0
 
@@ -208,9 +193,9 @@
     if-eqz v0, :cond_3
 
     .line 65
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;->s:Lorg/reactivestreams/Subscription;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
+    invoke-interface {p1}, Lorg/reactivestreams/Subscription;->cancel()V
 
     .line 66
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;->onComplete()V
@@ -223,36 +208,29 @@
 
     invoke-virtual {p1}, Lio/reactivex/Notification;->getValue()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
+    invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
-    .line 70
     :goto_0
     return-void
 .end method
 
 .method public bridge synthetic onNext(Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
+    .locals 0
 
     .line 33
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber<TT;>;"
-    move-object v0, p1
+    check-cast p1, Lio/reactivex/Notification;
 
-    check-cast v0, Lio/reactivex/Notification;
-
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;->onNext(Lio/reactivex/Notification;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;->onNext(Lio/reactivex/Notification;)V
 
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 1
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 46
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -265,25 +243,21 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     .line 48
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v0, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
+    invoke-interface {p1, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
-    .line 50
     :cond_0
     return-void
 .end method
 
 .method public request(J)V
     .locals 1
-    .param p1, "n"    # J
 
     .line 94
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDematerialize$DematerializeSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-interface {v0, p1, p2}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 95
     return-void
 .end method

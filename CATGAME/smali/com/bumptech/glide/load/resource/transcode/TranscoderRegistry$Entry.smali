@@ -70,10 +70,6 @@
     .end annotation
 
     .line 89
-    .local p0, "this":Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry$Entry;, "Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry$Entry<TZ;TR;>;"
-    .local p1, "fromClass":Ljava/lang/Class;, "Ljava/lang/Class<TZ;>;"
-    .local p2, "toClass":Ljava/lang/Class;, "Ljava/lang/Class<TR;>;"
-    .local p3, "transcoder":Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;, "Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder<TZ;TR;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 90
@@ -85,7 +81,6 @@
     .line 92
     iput-object p3, p0, Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry$Entry;->transcoder:Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
 
-    .line 93
     return-void
 .end method
 
@@ -104,32 +99,29 @@
     .end annotation
 
     .line 102
-    .local p0, "this":Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry$Entry;, "Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry$Entry<TZ;TR;>;"
-    .local p1, "fromClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p2, "toClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry$Entry;->fromClass:Ljava/lang/Class;
 
     invoke-virtual {v0, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry$Entry;->toClass:Ljava/lang/Class;
+    iget-object p1, p0, Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry$Entry;->toClass:Ljava/lang/Class;
 
-    invoke-virtual {p2, v0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    invoke-virtual {p2, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method

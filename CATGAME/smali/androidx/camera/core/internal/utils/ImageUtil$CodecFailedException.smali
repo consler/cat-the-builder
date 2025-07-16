@@ -26,25 +26,21 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "message"    # Ljava/lang/String;
+    .locals 0
 
     .line 286
     invoke-direct {p0, p1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
 
     .line 287
-    sget-object v0, Landroidx/camera/core/internal/utils/ImageUtil$CodecFailedException$FailureType;->UNKNOWN:Landroidx/camera/core/internal/utils/ImageUtil$CodecFailedException$FailureType;
+    sget-object p1, Landroidx/camera/core/internal/utils/ImageUtil$CodecFailedException$FailureType;->UNKNOWN:Landroidx/camera/core/internal/utils/ImageUtil$CodecFailedException$FailureType;
 
-    iput-object v0, p0, Landroidx/camera/core/internal/utils/ImageUtil$CodecFailedException;->mFailureType:Landroidx/camera/core/internal/utils/ImageUtil$CodecFailedException$FailureType;
+    iput-object p1, p0, Landroidx/camera/core/internal/utils/ImageUtil$CodecFailedException;->mFailureType:Landroidx/camera/core/internal/utils/ImageUtil$CodecFailedException$FailureType;
 
-    .line 288
     return-void
 .end method
 
 .method constructor <init>(Ljava/lang/String;Landroidx/camera/core/internal/utils/ImageUtil$CodecFailedException$FailureType;)V
     .locals 0
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "failureType"    # Landroidx/camera/core/internal/utils/ImageUtil$CodecFailedException$FailureType;
 
     .line 291
     invoke-direct {p0, p1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
@@ -52,7 +48,6 @@
     .line 292
     iput-object p2, p0, Landroidx/camera/core/internal/utils/ImageUtil$CodecFailedException;->mFailureType:Landroidx/camera/core/internal/utils/ImageUtil$CodecFailedException$FailureType;
 
-    .line 293
     return-void
 .end method
 

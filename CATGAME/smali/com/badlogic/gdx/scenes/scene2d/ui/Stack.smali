@@ -26,19 +26,19 @@
     .line 45
     invoke-direct {p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/WidgetGroup;-><init>()V
 
-    .line 43
     const/4 v0, 0x1
 
+    .line 43
     iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->sizeInvalid:Z
 
-    .line 46
     const/4 v0, 0x0
 
+    .line 46
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->setTransform(Z)V
 
-    .line 47
     const/high16 v0, 0x43160000    # 150.0f
 
+    .line 47
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->setWidth(F)V
 
     .line 48
@@ -49,13 +49,11 @@
 
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->setTouchable(Lcom/badlogic/gdx/scenes/scene2d/Touchable;)V
 
-    .line 50
     return-void
 .end method
 
 .method public varargs constructor <init>([Lcom/badlogic/gdx/scenes/scene2d/Actor;)V
     .locals 3
-    .param p1, "actors"    # [Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
     .line 53
     invoke-direct {p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;-><init>()V
@@ -71,153 +69,135 @@
     aget-object v2, p1, v1
 
     .line 55
-    .local v2, "actor":Lcom/badlogic/gdx/scenes/scene2d/Actor;
     invoke-virtual {p0, v2}, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->addActor(Lcom/badlogic/gdx/scenes/scene2d/Actor;)V
 
-    .line 54
-    .end local v2    # "actor":Lcom/badlogic/gdx/scenes/scene2d/Actor;
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 56
     :cond_0
     return-void
 .end method
 
 .method private computeSize()V
-    .locals 9
+    .locals 8
+
+    const/4 v0, 0x0
 
     .line 64
-    const/4 v0, 0x0
-
     iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->sizeInvalid:Z
 
-    .line 65
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->prefWidth:F
+    .line 65
+    iput v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->prefWidth:F
 
     .line 66
-    iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->prefHeight:F
+    iput v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->prefHeight:F
 
     .line 67
-    iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->minWidth:F
+    iput v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->minWidth:F
 
     .line 68
-    iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->minHeight:F
+    iput v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->minHeight:F
 
     .line 69
-    iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->maxWidth:F
+    iput v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->maxWidth:F
 
     .line 70
-    iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->maxHeight:F
+    iput v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->maxHeight:F
 
     .line 71
     invoke-virtual {p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->getChildren()Lcom/badlogic/gdx/utils/SnapshotArray;
 
-    move-result-object v1
+    move-result-object v2
 
     .line 72
-    .local v1, "children":Lcom/badlogic/gdx/utils/SnapshotArray;, "Lcom/badlogic/gdx/utils/SnapshotArray<Lcom/badlogic/gdx/scenes/scene2d/Actor;>;"
-    const/4 v2, 0x0
+    iget v3, v2, Lcom/badlogic/gdx/utils/SnapshotArray;->size:I
 
-    .local v2, "i":I
-    iget v3, v1, Lcom/badlogic/gdx/utils/SnapshotArray;->size:I
-
-    .local v3, "n":I
     :goto_0
-    if-ge v2, v3, :cond_5
+    if-ge v0, v3, :cond_5
 
     .line 73
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/utils/SnapshotArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, v0}, Lcom/badlogic/gdx/utils/SnapshotArray;->get(I)Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
     .line 75
-    .local v4, "child":Lcom/badlogic/gdx/scenes/scene2d/Actor;
     instance-of v5, v4, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;
 
     if-eqz v5, :cond_0
 
     .line 76
-    move-object v5, v4
-
-    check-cast v5, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;
+    check-cast v4, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;
 
     .line 77
-    .local v5, "layout":Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;
-    iget v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->prefWidth:F
+    iget v5, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->prefWidth:F
 
-    invoke-interface {v5}, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;->getPrefWidth()F
-
-    move-result v7
-
-    invoke-static {v6, v7}, Ljava/lang/Math;->max(FF)F
+    invoke-interface {v4}, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;->getPrefWidth()F
 
     move-result v6
 
-    iput v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->prefWidth:F
-
-    .line 78
-    iget v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->prefHeight:F
-
-    invoke-interface {v5}, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;->getPrefHeight()F
-
-    move-result v7
-
-    invoke-static {v6, v7}, Ljava/lang/Math;->max(FF)F
-
-    move-result v6
-
-    iput v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->prefHeight:F
-
-    .line 79
-    iget v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->minWidth:F
-
-    invoke-interface {v5}, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;->getMinWidth()F
-
-    move-result v7
-
-    invoke-static {v6, v7}, Ljava/lang/Math;->max(FF)F
-
-    move-result v6
-
-    iput v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->minWidth:F
-
-    .line 80
-    iget v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->minHeight:F
-
-    invoke-interface {v5}, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;->getMinHeight()F
-
-    move-result v7
-
-    invoke-static {v6, v7}, Ljava/lang/Math;->max(FF)F
-
-    move-result v6
-
-    iput v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->minHeight:F
-
-    .line 81
-    invoke-interface {v5}, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;->getMaxWidth()F
-
-    move-result v6
-
-    .line 82
-    .local v6, "childMaxWidth":F
-    invoke-interface {v5}, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;->getMaxHeight()F
+    invoke-static {v5, v6}, Ljava/lang/Math;->max(FF)F
 
     move-result v5
 
-    .line 83
-    .local v5, "childMaxHeight":F
+    iput v5, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->prefWidth:F
+
+    .line 78
+    iget v5, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->prefHeight:F
+
+    invoke-interface {v4}, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;->getPrefHeight()F
+
+    move-result v6
+
+    invoke-static {v5, v6}, Ljava/lang/Math;->max(FF)F
+
+    move-result v5
+
+    iput v5, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->prefHeight:F
+
+    .line 79
+    iget v5, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->minWidth:F
+
+    invoke-interface {v4}, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;->getMinWidth()F
+
+    move-result v6
+
+    invoke-static {v5, v6}, Ljava/lang/Math;->max(FF)F
+
+    move-result v5
+
+    iput v5, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->minWidth:F
+
+    .line 80
+    iget v5, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->minHeight:F
+
+    invoke-interface {v4}, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;->getMinHeight()F
+
+    move-result v6
+
+    invoke-static {v5, v6}, Ljava/lang/Math;->max(FF)F
+
+    move-result v5
+
+    iput v5, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->minHeight:F
+
+    .line 81
+    invoke-interface {v4}, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;->getMaxWidth()F
+
+    move-result v5
+
+    .line 82
+    invoke-interface {v4}, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;->getMaxHeight()F
+
+    move-result v4
+
     goto :goto_1
 
     .line 84
-    .end local v5    # "childMaxHeight":F
-    .end local v6    # "childMaxWidth":F
     :cond_0
     iget v5, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->prefWidth:F
 
@@ -262,82 +242,67 @@
 
     invoke-virtual {v4}, Lcom/badlogic/gdx/scenes/scene2d/Actor;->getHeight()F
 
-    move-result v6
+    move-result v4
 
-    invoke-static {v5, v6}, Ljava/lang/Math;->max(FF)F
+    invoke-static {v5, v4}, Ljava/lang/Math;->max(FF)F
 
-    move-result v5
+    move-result v4
 
-    iput v5, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->minHeight:F
+    iput v4, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->minHeight:F
 
-    .line 88
-    const/4 v6, 0x0
+    move v4, v1
 
-    .line 89
-    .restart local v6    # "childMaxWidth":F
-    const/4 v5, 0x0
+    move v5, v4
+
+    :goto_1
+    cmpl-float v6, v5, v1
+
+    if-lez v6, :cond_2
 
     .line 91
-    .restart local v5    # "childMaxHeight":F
-    :goto_1
-    cmpl-float v7, v6, v0
+    iget v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->maxWidth:F
 
-    if-lez v7, :cond_2
+    cmpl-float v7, v6, v1
 
-    iget v7, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->maxWidth:F
-
-    cmpl-float v8, v7, v0
-
-    if-nez v8, :cond_1
-
-    move v7, v6
+    if-nez v7, :cond_1
 
     goto :goto_2
 
     :cond_1
-    invoke-static {v7, v6}, Ljava/lang/Math;->min(FF)F
+    invoke-static {v6, v5}, Ljava/lang/Math;->min(FF)F
 
-    move-result v7
+    move-result v5
 
     :goto_2
-    iput v7, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->maxWidth:F
+    iput v5, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->maxWidth:F
+
+    :cond_2
+    cmpl-float v5, v4, v1
+
+    if-lez v5, :cond_4
 
     .line 92
-    :cond_2
-    cmpl-float v7, v5, v0
+    iget v5, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->maxHeight:F
 
-    if-lez v7, :cond_4
+    cmpl-float v6, v5, v1
 
-    iget v7, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->maxHeight:F
-
-    cmpl-float v8, v7, v0
-
-    if-nez v8, :cond_3
-
-    move v7, v5
+    if-nez v6, :cond_3
 
     goto :goto_3
 
     :cond_3
-    invoke-static {v7, v5}, Ljava/lang/Math;->min(FF)F
+    invoke-static {v5, v4}, Ljava/lang/Math;->min(FF)F
 
-    move-result v7
+    move-result v4
 
     :goto_3
-    iput v7, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->maxHeight:F
+    iput v4, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->maxHeight:F
 
-    .line 72
-    .end local v4    # "child":Lcom/badlogic/gdx/scenes/scene2d/Actor;
-    .end local v5    # "childMaxHeight":F
-    .end local v6    # "childMaxWidth":F
     :cond_4
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto/16 :goto_0
 
-    .line 94
-    .end local v2    # "i":I
-    .end local v3    # "n":I
     :cond_5
     return-void
 .end method
@@ -346,12 +311,10 @@
 # virtual methods
 .method public add(Lcom/badlogic/gdx/scenes/scene2d/Actor;)V
     .locals 0
-    .param p1, "actor"    # Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
     .line 97
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->addActor(Lcom/badlogic/gdx/scenes/scene2d/Actor;)V
 
-    .line 98
     return-void
 .end method
 
@@ -463,12 +426,11 @@
     .line 59
     invoke-super {p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/WidgetGroup;->invalidate()V
 
-    .line 60
     const/4 v0, 0x1
 
+    .line 60
     iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->sizeInvalid:Z
 
-    .line 61
     return-void
 .end method
 
@@ -488,39 +450,33 @@
 
     move-result v0
 
-    .local v0, "width":F
     invoke-virtual {p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->getHeight()F
 
     move-result v1
 
     .line 103
-    .local v1, "height":F
     invoke-virtual {p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Stack;->getChildren()Lcom/badlogic/gdx/utils/SnapshotArray;
 
     move-result-object v2
 
     .line 104
-    .local v2, "children":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/scenes/scene2d/Actor;>;"
-    const/4 v3, 0x0
+    iget v3, v2, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    .local v3, "i":I
-    iget v4, v2, Lcom/badlogic/gdx/utils/Array;->size:I
+    const/4 v4, 0x0
 
-    .local v4, "n":I
     :goto_0
-    if-ge v3, v4, :cond_2
+    if-ge v4, v3, :cond_2
 
     .line 105
-    invoke-virtual {v2, v3}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, v4}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
     move-result-object v5
 
     check-cast v5, Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    .line 106
-    .local v5, "child":Lcom/badlogic/gdx/scenes/scene2d/Actor;
     const/4 v6, 0x0
 
+    .line 106
     invoke-virtual {v5, v6, v6, v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/Actor;->setBounds(FFFF)V
 
     .line 107
@@ -528,22 +484,15 @@
 
     if-eqz v6, :cond_1
 
-    move-object v6, v5
+    check-cast v5, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;
 
-    check-cast v6, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;
+    invoke-interface {v5}, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;->validate()V
 
-    invoke-interface {v6}, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;->validate()V
-
-    .line 104
-    .end local v5    # "child":Lcom/badlogic/gdx/scenes/scene2d/Actor;
     :cond_1
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
-    .line 109
-    .end local v3    # "i":I
-    .end local v4    # "n":I
     :cond_2
     return-void
 .end method

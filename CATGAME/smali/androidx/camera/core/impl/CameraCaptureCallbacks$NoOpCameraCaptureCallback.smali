@@ -28,16 +28,12 @@
 # virtual methods
 .method public onCaptureCompleted(Landroidx/camera/core/impl/CameraCaptureResult;)V
     .locals 0
-    .param p1, "cameraCaptureResult"    # Landroidx/camera/core/impl/CameraCaptureResult;
 
-    .line 60
     return-void
 .end method
 
 .method public onCaptureFailed(Landroidx/camera/core/impl/CameraCaptureFailure;)V
     .locals 0
-    .param p1, "failure"    # Landroidx/camera/core/impl/CameraCaptureFailure;
 
-    .line 64
     return-void
 .end method

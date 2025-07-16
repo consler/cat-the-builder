@@ -39,7 +39,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/AsyncServer;Lcom/koushikdutta/async/callback/ConnectCallback;Lcom/koushikdutta/async/future/SimpleFuture;Ljava/net/InetSocketAddress;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/AsyncServer;
 
     .line 403
     iput-object p1, p0, Lcom/koushikdutta/async/AsyncServer$7;->this$0:Lcom/koushikdutta/async/AsyncServer;
@@ -69,52 +68,47 @@
 .end method
 
 .method public onCompleted(Ljava/lang/Exception;Ljava/net/InetAddress;)V
-    .locals 4
-    .param p1, "e"    # Ljava/lang/Exception;
-    .param p2, "result"    # Ljava/net/InetAddress;
+    .locals 3
 
-    .line 406
     if-eqz p1, :cond_0
 
     .line 407
-    iget-object v0, p0, Lcom/koushikdutta/async/AsyncServer$7;->val$callback:Lcom/koushikdutta/async/callback/ConnectCallback;
+    iget-object p2, p0, Lcom/koushikdutta/async/AsyncServer$7;->val$callback:Lcom/koushikdutta/async/callback/ConnectCallback;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-interface {v0, p1, v1}, Lcom/koushikdutta/async/callback/ConnectCallback;->onConnectCompleted(Ljava/lang/Exception;Lcom/koushikdutta/async/AsyncSocket;)V
+    invoke-interface {p2, p1, v0}, Lcom/koushikdutta/async/callback/ConnectCallback;->onConnectCompleted(Ljava/lang/Exception;Lcom/koushikdutta/async/AsyncSocket;)V
 
     .line 408
-    iget-object v0, p0, Lcom/koushikdutta/async/AsyncServer$7;->val$ret:Lcom/koushikdutta/async/future/SimpleFuture;
+    iget-object p2, p0, Lcom/koushikdutta/async/AsyncServer$7;->val$ret:Lcom/koushikdutta/async/future/SimpleFuture;
 
-    invoke-virtual {v0, p1}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Exception;)Z
+    invoke-virtual {p2, p1}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Exception;)Z
 
-    .line 409
     return-void
 
     .line 412
     :cond_0
-    iget-object v0, p0, Lcom/koushikdutta/async/AsyncServer$7;->val$ret:Lcom/koushikdutta/async/future/SimpleFuture;
+    iget-object p1, p0, Lcom/koushikdutta/async/AsyncServer$7;->val$ret:Lcom/koushikdutta/async/future/SimpleFuture;
 
-    iget-object v1, p0, Lcom/koushikdutta/async/AsyncServer$7;->this$0:Lcom/koushikdutta/async/AsyncServer;
+    iget-object v0, p0, Lcom/koushikdutta/async/AsyncServer$7;->this$0:Lcom/koushikdutta/async/AsyncServer;
 
-    new-instance v2, Ljava/net/InetSocketAddress;
+    new-instance v1, Ljava/net/InetSocketAddress;
 
-    iget-object v3, p0, Lcom/koushikdutta/async/AsyncServer$7;->val$remote:Ljava/net/InetSocketAddress;
+    iget-object v2, p0, Lcom/koushikdutta/async/AsyncServer$7;->val$remote:Ljava/net/InetSocketAddress;
 
-    invoke-virtual {v3}, Ljava/net/InetSocketAddress;->getPort()I
+    invoke-virtual {v2}, Ljava/net/InetSocketAddress;->getPort()I
 
-    move-result v3
+    move-result v2
 
-    invoke-direct {v2, p2, v3}, Ljava/net/InetSocketAddress;-><init>(Ljava/net/InetAddress;I)V
+    invoke-direct {v1, p2, v2}, Ljava/net/InetSocketAddress;-><init>(Ljava/net/InetAddress;I)V
 
-    iget-object v3, p0, Lcom/koushikdutta/async/AsyncServer$7;->val$callback:Lcom/koushikdutta/async/callback/ConnectCallback;
+    iget-object p2, p0, Lcom/koushikdutta/async/AsyncServer$7;->val$callback:Lcom/koushikdutta/async/callback/ConnectCallback;
 
-    invoke-static {v1, v2, v3}, Lcom/koushikdutta/async/AsyncServer;->access$500(Lcom/koushikdutta/async/AsyncServer;Ljava/net/InetSocketAddress;Lcom/koushikdutta/async/callback/ConnectCallback;)Lcom/koushikdutta/async/AsyncServer$ConnectFuture;
+    invoke-static {v0, v1, p2}, Lcom/koushikdutta/async/AsyncServer;->access$500(Lcom/koushikdutta/async/AsyncServer;Ljava/net/InetSocketAddress;Lcom/koushikdutta/async/callback/ConnectCallback;)Lcom/koushikdutta/async/AsyncServer$ConnectFuture;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v0, v1}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Lcom/koushikdutta/async/future/Future;)Lcom/koushikdutta/async/future/SimpleFuture;
+    invoke-virtual {p1, p2}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Lcom/koushikdutta/async/future/Future;)Lcom/koushikdutta/async/future/SimpleFuture;
 
-    .line 413
     return-void
 .end method

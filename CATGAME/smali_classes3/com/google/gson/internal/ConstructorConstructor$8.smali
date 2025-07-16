@@ -32,9 +32,8 @@
 # direct methods
 .method constructor <init>(Lcom/google/gson/internal/ConstructorConstructor;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/google/gson/internal/ConstructorConstructor;
 
-    .line 172
+    .line 194
     iput-object p1, p0, Lcom/google/gson/internal/ConstructorConstructor$8;->this$0:Lcom/google/gson/internal/ConstructorConstructor;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,10 +51,10 @@
         }
     .end annotation
 
-    .line 174
-    new-instance v0, Ljava/util/ArrayList;
+    .line 196
+    new-instance v0, Ljava/util/ArrayDeque;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v0}, Ljava/util/ArrayDeque;-><init>()V
 
     return-object v0
 .end method

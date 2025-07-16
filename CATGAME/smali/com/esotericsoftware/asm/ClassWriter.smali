@@ -293,11 +293,11 @@
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->h:Lcom/esotericsoftware/asm/Item;
 
-    const/16 v1, 0x8
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const/16 v2, 0x8
 
-    invoke-virtual {v0, v1, p1, v2, v2}, Lcom/esotericsoftware/asm/Item;->a(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v2, p1, v1, v1}, Lcom/esotericsoftware/asm/Item;->a(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->h:Lcom/esotericsoftware/asm/Item;
 
@@ -313,7 +313,7 @@
 
     move-result p1
 
-    invoke-virtual {v0, v1, p1}, Lcom/esotericsoftware/asm/ByteVector;->b(II)Lcom/esotericsoftware/asm/ByteVector;
+    invoke-virtual {v0, v2, p1}, Lcom/esotericsoftware/asm/ByteVector;->b(II)Lcom/esotericsoftware/asm/ByteVector;
 
     new-instance v0, Lcom/esotericsoftware/asm/Item;
 
@@ -447,55 +447,57 @@
 
     iput-short p1, p0, Lcom/esotericsoftware/asm/ClassWriter;->G:S
 
-    new-instance v0, Lcom/esotericsoftware/asm/Item;
+    new-instance p1, Lcom/esotericsoftware/asm/Item;
+
+    iget-short v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->G:S
 
     iget-object v1, p0, Lcom/esotericsoftware/asm/ClassWriter;->g:Lcom/esotericsoftware/asm/Item;
 
-    invoke-direct {v0, p1, v1}, Lcom/esotericsoftware/asm/Item;-><init>(ILcom/esotericsoftware/asm/Item;)V
+    invoke-direct {p1, v0, v1}, Lcom/esotericsoftware/asm/Item;-><init>(ILcom/esotericsoftware/asm/Item;)V
 
-    invoke-direct {p0, v0}, Lcom/esotericsoftware/asm/ClassWriter;->b(Lcom/esotericsoftware/asm/Item;)V
+    invoke-direct {p0, p1}, Lcom/esotericsoftware/asm/ClassWriter;->b(Lcom/esotericsoftware/asm/Item;)V
 
-    iget-object p1, p0, Lcom/esotericsoftware/asm/ClassWriter;->H:[Lcom/esotericsoftware/asm/Item;
+    iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->H:[Lcom/esotericsoftware/asm/Item;
 
-    if-nez p1, :cond_0
+    if-nez v0, :cond_0
 
-    const/16 p1, 0x10
+    const/16 v0, 0x10
 
-    new-array p1, p1, [Lcom/esotericsoftware/asm/Item;
+    new-array v0, v0, [Lcom/esotericsoftware/asm/Item;
 
-    iput-object p1, p0, Lcom/esotericsoftware/asm/ClassWriter;->H:[Lcom/esotericsoftware/asm/Item;
+    iput-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->H:[Lcom/esotericsoftware/asm/Item;
 
     :cond_0
-    iget-short p1, p0, Lcom/esotericsoftware/asm/ClassWriter;->G:S
+    iget-short v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->G:S
 
     iget-object v1, p0, Lcom/esotericsoftware/asm/ClassWriter;->H:[Lcom/esotericsoftware/asm/Item;
 
     array-length v2, v1
 
-    if-ne p1, v2, :cond_1
+    if-ne v0, v2, :cond_1
 
-    array-length p1, v1
+    array-length v0, v1
 
-    mul-int/lit8 p1, p1, 0x2
+    mul-int/lit8 v0, v0, 0x2
 
-    new-array p1, p1, [Lcom/esotericsoftware/asm/Item;
+    new-array v0, v0, [Lcom/esotericsoftware/asm/Item;
 
     array-length v2, v1
 
     const/4 v3, 0x0
 
-    invoke-static {v1, v3, p1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    iput-object p1, p0, Lcom/esotericsoftware/asm/ClassWriter;->H:[Lcom/esotericsoftware/asm/Item;
+    iput-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->H:[Lcom/esotericsoftware/asm/Item;
 
     :cond_1
-    iget-object p1, p0, Lcom/esotericsoftware/asm/ClassWriter;->H:[Lcom/esotericsoftware/asm/Item;
+    iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->H:[Lcom/esotericsoftware/asm/Item;
 
     iget-short v1, p0, Lcom/esotericsoftware/asm/ClassWriter;->G:S
 
-    aput-object v0, p1, v1
+    aput-object p1, v0, v1
 
-    return-object v0
+    return-object p1
 .end method
 
 
@@ -1101,15 +1103,15 @@
 
     new-instance v1, Ljava/lang/StringBuffer;
 
-    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
+    const-string v2, "value "
 
-    const-string/jumbo v2, "value "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -1123,11 +1125,11 @@
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->h:Lcom/esotericsoftware/asm/Item;
 
-    const/4 v1, 0x7
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const/4 v2, 0x7
 
-    invoke-virtual {v0, v1, p1, v2, v2}, Lcom/esotericsoftware/asm/Item;->a(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v2, p1, v1, v1}, Lcom/esotericsoftware/asm/Item;->a(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->h:Lcom/esotericsoftware/asm/Item;
 
@@ -1143,7 +1145,7 @@
 
     move-result p1
 
-    invoke-virtual {v0, v1, p1}, Lcom/esotericsoftware/asm/ByteVector;->b(II)Lcom/esotericsoftware/asm/ByteVector;
+    invoke-virtual {v0, v2, p1}, Lcom/esotericsoftware/asm/ByteVector;->b(II)Lcom/esotericsoftware/asm/ByteVector;
 
     new-instance v0, Lcom/esotericsoftware/asm/Item;
 
@@ -1168,11 +1170,11 @@
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->h:Lcom/esotericsoftware/asm/Item;
 
-    const/16 v1, 0xc
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const/16 v2, 0xc
 
-    invoke-virtual {v0, v1, p1, p2, v2}, Lcom/esotericsoftware/asm/Item;->a(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v2, p1, p2, v1}, Lcom/esotericsoftware/asm/Item;->a(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->h:Lcom/esotericsoftware/asm/Item;
 
@@ -1190,7 +1192,7 @@
 
     move-result p2
 
-    invoke-direct {p0, v1, p1, p2}, Lcom/esotericsoftware/asm/ClassWriter;->a(III)V
+    invoke-direct {p0, v2, p1, p2}, Lcom/esotericsoftware/asm/ClassWriter;->a(III)V
 
     new-instance v0, Lcom/esotericsoftware/asm/Item;
 
@@ -1541,11 +1543,11 @@
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->h:Lcom/esotericsoftware/asm/Item;
 
-    const/16 v1, 0x10
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const/16 v2, 0x10
 
-    invoke-virtual {v0, v1, p1, v2, v2}, Lcom/esotericsoftware/asm/Item;->a(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v2, p1, v1, v1}, Lcom/esotericsoftware/asm/Item;->a(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->h:Lcom/esotericsoftware/asm/Item;
 
@@ -1561,7 +1563,7 @@
 
     move-result p1
 
-    invoke-virtual {v0, v1, p1}, Lcom/esotericsoftware/asm/ByteVector;->b(II)Lcom/esotericsoftware/asm/ByteVector;
+    invoke-virtual {v0, v2, p1}, Lcom/esotericsoftware/asm/ByteVector;->b(II)Lcom/esotericsoftware/asm/ByteVector;
 
     new-instance v0, Lcom/esotericsoftware/asm/Item;
 
@@ -1825,11 +1827,11 @@
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->g:Lcom/esotericsoftware/asm/Item;
 
-    const/4 v1, 0x1
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const/4 v2, 0x1
 
-    invoke-virtual {v0, v1, p1, v2, v2}, Lcom/esotericsoftware/asm/Item;->a(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v2, p1, v1, v1}, Lcom/esotericsoftware/asm/Item;->a(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->g:Lcom/esotericsoftware/asm/Item;
 
@@ -1841,7 +1843,7 @@
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ClassWriter;->d:Lcom/esotericsoftware/asm/ByteVector;
 
-    invoke-virtual {v0, v1}, Lcom/esotericsoftware/asm/ByteVector;->putByte(I)Lcom/esotericsoftware/asm/ByteVector;
+    invoke-virtual {v0, v2}, Lcom/esotericsoftware/asm/ByteVector;->putByte(I)Lcom/esotericsoftware/asm/ByteVector;
 
     move-result-object v0
 
@@ -2254,17 +2256,17 @@
 
     invoke-virtual {v0, v2, v4, v3}, Lcom/esotericsoftware/asm/ByteVector;->putByteArray([BII)Lcom/esotericsoftware/asm/ByteVector;
 
-    const/high16 v0, 0x60000
+    iget v0, v7, Lcom/esotericsoftware/asm/ClassWriter;->k:I
 
-    iget v2, v7, Lcom/esotericsoftware/asm/ClassWriter;->k:I
+    and-int v2, v0, v17
 
-    and-int v3, v2, v17
+    div-int/lit8 v2, v2, 0x40
 
-    div-int/lit8 v3, v3, 0x40
+    const/high16 v3, 0x60000
 
-    or-int/2addr v0, v3
+    or-int/2addr v2, v3
 
-    not-int v0, v0
+    not-int v2, v2
 
     and-int/2addr v0, v2
 
@@ -3094,11 +3096,11 @@
 
     new-instance p1, Lcom/esotericsoftware/asm/AnnotationWriter;
 
+    const/4 v2, 0x1
+
     iget p2, v4, Lcom/esotericsoftware/asm/ByteVector;->b:I
 
     add-int/lit8 v5, p2, -0x2
-
-    const/4 v2, 0x1
 
     move-object v0, p1
 

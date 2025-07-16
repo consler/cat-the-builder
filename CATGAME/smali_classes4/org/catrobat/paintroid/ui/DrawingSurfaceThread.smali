@@ -6,17 +6,12 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lorg/catrobat/paintroid/ui/DrawingSurfaceThread$InternalRunnable;,
-        Lorg/catrobat/paintroid/ui/DrawingSurfaceThread$Companion;
+        Lorg/catrobat/paintroid/ui/DrawingSurfaceThread$Companion;,
+        Lorg/catrobat/paintroid/ui/DrawingSurfaceThread$InternalRunnable;
     }
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u0000,\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0002\n\u0002\u0008\u0005\u0008\u0000\u0018\u0000 \u000f2\u00020\u0001:\u0002\u000f\u0010B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u00a2\u0006\u0002\u0010\u0006J\u0008\u0010\u000b\u001a\u00020\u000cH\u0002J\u0006\u0010\r\u001a\u00020\u000cJ\u0006\u0010\u000e\u001a\u00020\u000cR\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0008X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u0011"
     }
@@ -38,14 +33,15 @@
         "stop",
         "Companion",
         "InternalRunnable",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -77,22 +73,16 @@
 
     sput-object v0, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;->Companion:Lorg/catrobat/paintroid/ui/DrawingSurfaceThread$Companion;
 
+    const-string v0, "DrawingSurfaceThread"
+
     .line 37
-    const-class v0, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v0
-
     sput-object v0, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;->TAG:Ljava/lang/String;
 
     return-void
 .end method
 
 .method public constructor <init>(Lorg/catrobat/paintroid/ui/DrawingSurface;Ljava/lang/Runnable;)V
-    .locals 3
-    .param p1, "drawingSurface"    # Lorg/catrobat/paintroid/ui/DrawingSurface;
-    .param p2, "threadRunnable"    # Ljava/lang/Runnable;
+    .locals 1
 
     const-string v0, "drawingSurface"
 
@@ -105,40 +95,37 @@
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 25
     iput-object p1, p0, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;->drawingSurface:Lorg/catrobat/paintroid/ui/DrawingSurface;
 
+    .line 26
     iput-object p2, p0, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;->threadRunnable:Ljava/lang/Runnable;
 
-    .line 31
-    nop
-
     .line 32
-    new-instance v0, Ljava/lang/Thread;
+    new-instance p1, Ljava/lang/Thread;
 
-    new-instance v1, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread$InternalRunnable;
+    new-instance p2, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread$InternalRunnable;
 
-    invoke-direct {v1, p0}, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread$InternalRunnable;-><init>(Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;)V
+    invoke-direct {p2, p0}, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread$InternalRunnable;-><init>(Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;)V
 
-    check-cast v1, Ljava/lang/Runnable;
+    check-cast p2, Ljava/lang/Runnable;
 
-    const-string v2, "DrawingSurfaceThread"
+    const-string v0, "DrawingSurfaceThread"
 
-    invoke-direct {v0, v1, v2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
+    invoke-direct {p1, p2, v0}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;->internalThread:Ljava/lang/Thread;
+    iput-object p1, p0, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;->internalThread:Ljava/lang/Thread;
+
+    const/4 p2, 0x1
 
     .line 33
-    const/4 v1, 0x1
+    invoke-virtual {p1, p2}, Ljava/lang/Thread;->setDaemon(Z)V
 
-    invoke-virtual {v0, v1}, Ljava/lang/Thread;->setDaemon(Z)V
-
-    .line 34
     return-void
 .end method
 
 .method public static final synthetic access$internalRun(Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;)V
     .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;
 
     .line 24
     invoke-direct {p0}, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;->internalRun()V
@@ -160,10 +147,8 @@
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    .line 41
     goto :goto_0
 
-    .line 44
     :cond_0
     return-void
 .end method
@@ -171,7 +156,7 @@
 
 # virtual methods
 .method public final declared-synchronized start()V
-    .locals 2
+    .locals 3
 
     monitor-enter p0
 
@@ -184,19 +169,19 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 49
-    iget-boolean v0, p0, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;->running:Z
+    iget-boolean v1, p0, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;->running:Z
 
-    if-nez v0, :cond_2
+    if-nez v1, :cond_2
 
-    iget-object v0, p0, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;->internalThread:Ljava/lang/Thread;
+    iget-object v1, p0, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;->internalThread:Ljava/lang/Thread;
 
-    invoke-virtual {v0}, Ljava/lang/Thread;->getState()Ljava/lang/Thread$State;
+    invoke-virtual {v1}, Ljava/lang/Thread;->getState()Ljava/lang/Thread$State;
 
-    move-result-object v0
+    move-result-object v1
 
-    sget-object v1, Ljava/lang/Thread$State;->TERMINATED:Ljava/lang/Thread$State;
+    sget-object v2, Ljava/lang/Thread$State;->TERMINATED:Ljava/lang/Thread$State;
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v2, :cond_0
 
     goto :goto_0
 
@@ -210,9 +195,9 @@
 
     if-nez v0, :cond_1
 
-    .line 54
     const/4 v0, 0x1
 
+    .line 54
     iput-boolean v0, p0, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;->running:Z
 
     .line 55
@@ -221,7 +206,6 @@
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
     .line 57
-    .end local p0    # "this":Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;
     :cond_1
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;->drawingSurface:Lorg/catrobat/paintroid/ui/DrawingSurface;
 
@@ -234,14 +218,12 @@
 
     return-void
 
-    .line 50
     :cond_2
     :goto_0
     :try_start_1
-    sget-object v0, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;->TAG:Ljava/lang/String;
-
     const-string v1, "DrawingSurfaceThread.start returning"
 
+    .line 50
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -251,7 +233,6 @@
 
     return-void
 
-    .line 47
     :catchall_0
     move-exception v0
 
@@ -261,7 +242,7 @@
 .end method
 
 .method public final declared-synchronized stop()V
-    .locals 4
+    .locals 3
 
     monitor-enter p0
 
@@ -273,16 +254,14 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    const/4 v1, 0x0
+
     .line 63
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;->running:Z
-
-    .line 64
-    sget-object v0, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;->TAG:Ljava/lang/String;
+    iput-boolean v1, p0, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;->running:Z
 
     const-string v1, "DrawingSurfaceThread.join"
 
+    .line 64
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 65
@@ -296,9 +275,6 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     if-eqz v0, :cond_0
-
-    .line 66
-    nop
 
     .line 67
     :try_start_1
@@ -321,34 +297,23 @@
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1
+    goto :goto_0
 
-    .line 70
-    .end local p0    # "this":Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;
     :catch_0
     move-exception v0
 
     .line 71
-    .local v0, "e":Ljava/lang/InterruptedException;
     :try_start_2
     sget-object v1, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;->TAG:Ljava/lang/String;
 
     const-string v2, "Interrupt while joining DrawingSurfaceThread\n"
 
-    move-object v3, v0
+    check-cast v0, Ljava/lang/Throwable;
 
-    check-cast v3, Ljava/lang/Throwable;
-
-    invoke-static {v1, v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 72
-    .end local v0    # "e":Ljava/lang/InterruptedException;
-    :goto_1
-    nop
-
-    .line 65
     goto :goto_0
 
     .line 74
@@ -357,7 +322,6 @@
 
     return-void
 
-    .line 61
     :catchall_0
     move-exception v0
 

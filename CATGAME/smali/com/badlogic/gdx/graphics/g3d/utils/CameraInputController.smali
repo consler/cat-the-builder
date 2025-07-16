@@ -80,7 +80,6 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/Camera;)V
     .locals 1
-    .param p1, "camera"    # Lcom/badlogic/gdx/graphics/Camera;
 
     .line 132
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController$CameraGestureListener;
@@ -89,41 +88,38 @@
 
     invoke-direct {p0, v0, p1}, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;-><init>(Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController$CameraGestureListener;Lcom/badlogic/gdx/graphics/Camera;)V
 
-    .line 133
     return-void
 .end method
 
 .method protected constructor <init>(Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController$CameraGestureListener;Lcom/badlogic/gdx/graphics/Camera;)V
     .locals 4
-    .param p1, "gestureListener"    # Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController$CameraGestureListener;
-    .param p2, "camera"    # Lcom/badlogic/gdx/graphics/Camera;
 
     .line 125
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/input/GestureDetector;-><init>(Lcom/badlogic/gdx/input/GestureDetector$GestureListener;)V
 
-    .line 31
     const/4 v0, 0x0
 
+    .line 31
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->rotateButton:I
 
-    .line 33
     const/high16 v1, 0x43b40000    # 360.0f
 
+    .line 33
     iput v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->rotateAngle:F
 
-    .line 35
     const/4 v1, 0x1
 
+    .line 35
     iput v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->translateButton:I
 
-    .line 37
     const/high16 v2, 0x41200000    # 10.0f
 
+    .line 37
     iput v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->translateUnits:F
 
-    .line 39
     const/4 v3, 0x2
 
+    .line 39
     iput v3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->forwardButton:I
 
     .line 41
@@ -132,9 +128,9 @@
     .line 45
     iput-boolean v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->alwaysScroll:Z
 
-    .line 47
     const v3, -0x42333333    # -0.1f
 
+    .line 47
     iput v3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->scrollFactor:F
 
     .line 49
@@ -159,29 +155,29 @@
     .line 59
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->scrollTarget:Z
 
-    .line 60
     const/16 v0, 0x33
 
+    .line 60
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->forwardKey:I
 
-    .line 62
     const/16 v0, 0x2f
 
+    .line 62
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->backwardKey:I
 
-    .line 64
     const/16 v0, 0x1d
 
+    .line 64
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->rotateRightKey:I
 
-    .line 66
     const/16 v0, 0x20
 
+    .line 66
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->rotateLeftKey:I
 
-    .line 71
     const/4 v0, -0x1
 
+    .line 71
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->button:I
 
     .line 74
@@ -207,7 +203,6 @@
     .line 128
     iput-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->camera:Lcom/badlogic/gdx/graphics/Camera;
 
-    .line 129
     return-void
 .end method
 
@@ -215,7 +210,6 @@
 # virtual methods
 .method public keyDown(I)Z
     .locals 2
-    .param p1, "keycode"    # I
 
     .line 224
     iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->activateKey:I
@@ -267,17 +261,15 @@
 
     iput-boolean v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->rotateLeftPressed:Z
 
-    .line 232
     :cond_4
     :goto_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public keyUp(I)Z
     .locals 2
-    .param p1, "keycode"    # I
 
     .line 237
     iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->activateKey:I
@@ -289,9 +281,9 @@
     .line 238
     iput-boolean v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->activatePressed:Z
 
-    .line 239
     const/4 v0, -0x1
 
+    .line 239
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->button:I
 
     .line 241
@@ -335,7 +327,6 @@
 
     iput-boolean v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->rotateLeftPressed:Z
 
-    .line 248
     :cond_4
     :goto_0
     return v1
@@ -343,7 +334,6 @@
 
 .method protected pinchZoom(F)Z
     .locals 1
-    .param p1, "amount"    # F
 
     .line 219
     iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->pinchZoomFactor:F
@@ -352,16 +342,13 @@
 
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->zoom(F)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method protected process(FFI)Z
-    .locals 4
-    .param p1, "deltaX"    # F
-    .param p2, "deltaY"    # F
-    .param p3, "button"    # I
+    .locals 3
 
     .line 178
     iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->rotateButton:I
@@ -369,11 +356,74 @@
     if-ne p3, v0, :cond_0
 
     .line 179
+    iget-object p3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->tmpV1:Lcom/badlogic/gdx/math/Vector3;
+
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->camera:Lcom/badlogic/gdx/graphics/Camera;
+
+    iget-object v0, v0, Lcom/badlogic/gdx/graphics/Camera;->direction:Lcom/badlogic/gdx/math/Vector3;
+
+    invoke-virtual {p3, v0}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+
+    move-result-object p3
+
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->camera:Lcom/badlogic/gdx/graphics/Camera;
+
+    iget-object v0, v0, Lcom/badlogic/gdx/graphics/Camera;->up:Lcom/badlogic/gdx/math/Vector3;
+
+    invoke-virtual {p3, v0}, Lcom/badlogic/gdx/math/Vector3;->crs(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+
+    move-result-object p3
+
+    const/4 v0, 0x0
+
+    iput v0, p3, Lcom/badlogic/gdx/math/Vector3;->y:F
+
+    .line 180
+    iget-object p3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->camera:Lcom/badlogic/gdx/graphics/Camera;
+
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->target:Lcom/badlogic/gdx/math/Vector3;
+
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->tmpV1:Lcom/badlogic/gdx/math/Vector3;
+
+    invoke-virtual {v1}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
+
+    move-result-object v1
+
+    iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->rotateAngle:F
+
+    mul-float/2addr p2, v2
+
+    invoke-virtual {p3, v0, v1, p2}, Lcom/badlogic/gdx/graphics/Camera;->rotateAround(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;F)V
+
+    .line 181
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->camera:Lcom/badlogic/gdx/graphics/Camera;
+
+    iget-object p3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->target:Lcom/badlogic/gdx/math/Vector3;
+
+    sget-object v0, Lcom/badlogic/gdx/math/Vector3;->Y:Lcom/badlogic/gdx/math/Vector3;
+
+    iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->rotateAngle:F
+
+    neg-float v1, v1
+
+    mul-float/2addr p1, v1
+
+    invoke-virtual {p2, p3, v0, p1}, Lcom/badlogic/gdx/graphics/Camera;->rotateAround(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;F)V
+
+    goto :goto_0
+
+    .line 182
+    :cond_0
+    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->translateButton:I
+
+    if-ne p3, v0, :cond_1
+
+    .line 183
+    iget-object p3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->camera:Lcom/badlogic/gdx/graphics/Camera;
+
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->tmpV1:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->camera:Lcom/badlogic/gdx/graphics/Camera;
-
-    iget-object v1, v1, Lcom/badlogic/gdx/graphics/Camera;->direction:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v1, p3, Lcom/badlogic/gdx/graphics/Camera;->direction:Lcom/badlogic/gdx/math/Vector3;
 
     invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
@@ -387,211 +437,142 @@
 
     move-result-object v0
 
-    const/4 v1, 0x0
-
-    iput v1, v0, Lcom/badlogic/gdx/math/Vector3;->y:F
-
-    .line 180
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->camera:Lcom/badlogic/gdx/graphics/Camera;
-
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->target:Lcom/badlogic/gdx/math/Vector3;
-
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->tmpV1:Lcom/badlogic/gdx/math/Vector3;
-
-    invoke-virtual {v2}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
-
-    move-result-object v2
-
-    iget v3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->rotateAngle:F
-
-    mul-float/2addr v3, p2
-
-    invoke-virtual {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/Camera;->rotateAround(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;F)V
-
-    .line 181
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->camera:Lcom/badlogic/gdx/graphics/Camera;
-
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->target:Lcom/badlogic/gdx/math/Vector3;
-
-    sget-object v2, Lcom/badlogic/gdx/math/Vector3;->Y:Lcom/badlogic/gdx/math/Vector3;
-
-    iget v3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->rotateAngle:F
-
-    neg-float v3, v3
-
-    mul-float/2addr v3, p1
-
-    invoke-virtual {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/Camera;->rotateAround(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;F)V
-
-    goto :goto_0
-
-    .line 182
-    :cond_0
-    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->translateButton:I
-
-    if-ne p3, v0, :cond_1
-
-    .line 183
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->camera:Lcom/badlogic/gdx/graphics/Camera;
-
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->tmpV1:Lcom/badlogic/gdx/math/Vector3;
-
-    iget-object v2, v0, Lcom/badlogic/gdx/graphics/Camera;->direction:Lcom/badlogic/gdx/math/Vector3;
-
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->camera:Lcom/badlogic/gdx/graphics/Camera;
-
-    iget-object v2, v2, Lcom/badlogic/gdx/graphics/Camera;->up:Lcom/badlogic/gdx/math/Vector3;
-
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/math/Vector3;->crs(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
-
-    move-result-object v1
-
-    neg-float v2, p1
-
-    iget v3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->translateUnits:F
-
-    mul-float/2addr v2, v3
-
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/graphics/Camera;->translate(Lcom/badlogic/gdx/math/Vector3;)V
-
-    .line 184
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->camera:Lcom/badlogic/gdx/graphics/Camera;
-
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->tmpV2:Lcom/badlogic/gdx/math/Vector3;
-
-    iget-object v2, v0, Lcom/badlogic/gdx/graphics/Camera;->up:Lcom/badlogic/gdx/math/Vector3;
-
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
-
-    move-result-object v1
-
-    neg-float v2, p2
-
-    iget v3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->translateUnits:F
-
-    mul-float/2addr v2, v3
-
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/graphics/Camera;->translate(Lcom/badlogic/gdx/math/Vector3;)V
-
-    .line 185
-    iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->translateTarget:Z
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->target:Lcom/badlogic/gdx/math/Vector3;
-
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->tmpV1:Lcom/badlogic/gdx/math/Vector3;
-
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector3;->add(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v0}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->tmpV2:Lcom/badlogic/gdx/math/Vector3;
+    neg-float p1, p1
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector3;->add(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->translateUnits:F
+
+    mul-float/2addr p1, v1
+
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
+
+    move-result-object p1
+
+    invoke-virtual {p3, p1}, Lcom/badlogic/gdx/graphics/Camera;->translate(Lcom/badlogic/gdx/math/Vector3;)V
+
+    .line 184
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->camera:Lcom/badlogic/gdx/graphics/Camera;
+
+    iget-object p3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->tmpV2:Lcom/badlogic/gdx/math/Vector3;
+
+    iget-object v0, p1, Lcom/badlogic/gdx/graphics/Camera;->up:Lcom/badlogic/gdx/math/Vector3;
+
+    invoke-virtual {p3, v0}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+
+    move-result-object p3
+
+    neg-float p2, p2
+
+    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->translateUnits:F
+
+    mul-float/2addr p2, v0
+
+    invoke-virtual {p3, p2}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
+
+    move-result-object p2
+
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/graphics/Camera;->translate(Lcom/badlogic/gdx/math/Vector3;)V
+
+    .line 185
+    iget-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->translateTarget:Z
+
+    if-eqz p1, :cond_2
+
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->target:Lcom/badlogic/gdx/math/Vector3;
+
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->tmpV1:Lcom/badlogic/gdx/math/Vector3;
+
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/math/Vector3;->add(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+
+    move-result-object p1
+
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->tmpV2:Lcom/badlogic/gdx/math/Vector3;
+
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/math/Vector3;->add(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
     goto :goto_0
 
     .line 186
     :cond_1
-    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->forwardButton:I
+    iget p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->forwardButton:I
 
-    if-ne p3, v0, :cond_2
+    if-ne p3, p1, :cond_2
 
     .line 187
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->camera:Lcom/badlogic/gdx/graphics/Camera;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->camera:Lcom/badlogic/gdx/graphics/Camera;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->tmpV1:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->tmpV1:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v2, v0, Lcom/badlogic/gdx/graphics/Camera;->direction:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v0, p1, Lcom/badlogic/gdx/graphics/Camera;->direction:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p3, v0}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v1
+    move-result-object p3
 
-    iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->translateUnits:F
+    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->translateUnits:F
 
-    mul-float/2addr v2, p2
+    mul-float/2addr p2, v0
 
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p3, p2}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/graphics/Camera;->translate(Lcom/badlogic/gdx/math/Vector3;)V
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/graphics/Camera;->translate(Lcom/badlogic/gdx/math/Vector3;)V
 
     .line 188
-    iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->forwardTarget:Z
+    iget-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->forwardTarget:Z
 
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->target:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->target:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->tmpV1:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->tmpV1:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector3;->add(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/math/Vector3;->add(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
     .line 190
     :cond_2
     :goto_0
-    iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->autoUpdate:Z
+    iget-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->autoUpdate:Z
 
-    if-eqz v0, :cond_3
+    if-eqz p1, :cond_3
 
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->camera:Lcom/badlogic/gdx/graphics/Camera;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->camera:Lcom/badlogic/gdx/graphics/Camera;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/Camera;->update()V
+    invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/Camera;->update()V
 
-    .line 191
     :cond_3
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public scrolled(I)Z
-    .locals 2
-    .param p1, "amount"    # I
+    .locals 1
+
+    int-to-float p1, p1
 
     .line 207
-    int-to-float v0, p1
+    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->scrollFactor:F
 
-    iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->scrollFactor:F
+    mul-float/2addr p1, v0
 
-    mul-float/2addr v0, v1
+    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->translateUnits:F
 
-    iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->translateUnits:F
+    mul-float/2addr p1, v0
 
-    mul-float/2addr v0, v1
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->zoom(F)Z
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->zoom(F)Z
+    move-result p1
 
-    move-result v0
-
-    return v0
+    return p1
 .end method
 
 .method public touchDown(IIII)Z
     .locals 3
-    .param p1, "screenX"    # I
-    .param p2, "screenY"    # I
-    .param p3, "pointer"    # I
-    .param p4, "button"    # I
 
     .line 157
     iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->touched:I
@@ -613,12 +594,11 @@
 
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->multiTouch:Z
 
-    .line 159
     if-eqz v0, :cond_0
 
-    .line 160
     const/4 v0, -0x1
 
+    .line 160
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->button:I
 
     goto :goto_0
@@ -637,15 +617,15 @@
 
     if-eqz v0, :cond_2
 
-    .line 162
     :cond_1
     int-to-float v0, p1
 
+    .line 162
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->startX:F
 
-    .line 163
     int-to-float v0, p2
 
+    .line 163
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->startY:F
 
     .line 164
@@ -656,17 +636,17 @@
     :goto_0
     invoke-super {p0, p1, p2, p3, p4}, Lcom/badlogic/gdx/input/GestureDetector;->touchDown(IIII)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_4
+    if-nez p1, :cond_4
 
-    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->activateKey:I
+    iget p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->activateKey:I
 
-    if-eqz v0, :cond_4
+    if-eqz p1, :cond_4
 
-    iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->activatePressed:Z
+    iget-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->activatePressed:Z
 
-    if-eqz v0, :cond_3
+    if-eqz p1, :cond_3
 
     goto :goto_1
 
@@ -679,96 +659,79 @@
 .end method
 
 .method public touchDragged(III)Z
-    .locals 4
-    .param p1, "screenX"    # I
-    .param p2, "screenY"    # I
-    .param p3, "pointer"    # I
+    .locals 2
 
     .line 196
     invoke-super {p0, p1, p2, p3}, Lcom/badlogic/gdx/input/GestureDetector;->touchDragged(III)Z
 
-    move-result v0
+    move-result p3
+
+    if-nez p3, :cond_1
 
     .line 197
-    .local v0, "result":Z
-    if-nez v0, :cond_1
+    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->button:I
 
-    iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->button:I
-
-    if-gez v1, :cond_0
+    if-gez v0, :cond_0
 
     goto :goto_0
 
-    .line 198
     :cond_0
-    int-to-float v1, p1
+    int-to-float p1, p1
 
-    iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->startX:F
+    .line 198
+    iget p3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->startX:F
 
-    sub-float/2addr v1, v2
+    sub-float p3, p1, p3
 
-    sget-object v2, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
+    sget-object v0, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
 
-    invoke-interface {v2}, Lcom/badlogic/gdx/Graphics;->getWidth()I
+    invoke-interface {v0}, Lcom/badlogic/gdx/Graphics;->getWidth()I
 
-    move-result v2
+    move-result v0
 
-    int-to-float v2, v2
+    int-to-float v0, v0
 
-    div-float/2addr v1, v2
+    div-float/2addr p3, v0
 
     .line 199
-    .local v1, "deltaX":F
-    iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->startY:F
+    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->startY:F
 
-    int-to-float v3, p2
+    int-to-float p2, p2
 
-    sub-float/2addr v2, v3
+    sub-float/2addr v0, p2
 
-    sget-object v3, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
+    sget-object v1, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
 
-    invoke-interface {v3}, Lcom/badlogic/gdx/Graphics;->getHeight()I
+    invoke-interface {v1}, Lcom/badlogic/gdx/Graphics;->getHeight()I
 
-    move-result v3
+    move-result v1
 
-    int-to-float v3, v3
+    int-to-float v1, v1
 
-    div-float/2addr v2, v3
+    div-float/2addr v0, v1
 
     .line 200
-    .local v2, "deltaY":F
-    int-to-float v3, p1
-
-    iput v3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->startX:F
+    iput p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->startX:F
 
     .line 201
-    int-to-float v3, p2
-
-    iput v3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->startY:F
+    iput p2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->startY:F
 
     .line 202
-    iget v3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->button:I
+    iget p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->button:I
 
-    invoke-virtual {p0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->process(FFI)Z
+    invoke-virtual {p0, p3, v0, p1}, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->process(FFI)Z
 
-    move-result v3
+    move-result p1
 
-    return v3
+    return p1
 
-    .line 197
-    .end local v1    # "deltaX":F
-    .end local v2    # "deltaY":F
     :cond_1
     :goto_0
-    return v0
+    return p3
 .end method
 
 .method public touchUp(IIII)Z
     .locals 4
-    .param p1, "screenX"    # I
-    .param p2, "screenY"    # I
-    .param p3, "pointer"    # I
-    .param p4, "button"    # I
 
     .line 171
     iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->touched:I
@@ -805,13 +768,13 @@
     :cond_0
     invoke-super {p0, p1, p2, p3, p4}, Lcom/badlogic/gdx/input/GestureDetector;->touchUp(IIII)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_2
+    if-nez p1, :cond_2
 
-    iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->activatePressed:Z
+    iget-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->activatePressed:Z
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     goto :goto_0
 
@@ -852,7 +815,6 @@
     move-result v0
 
     .line 138
-    .local v0, "delta":F
     iget-boolean v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->rotateRightPressed:Z
 
     if-eqz v1, :cond_1
@@ -940,48 +902,45 @@
 
     move-result-object v2
 
-    neg-float v3, v0
+    neg-float v0, v0
 
-    iget v4, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->translateUnits:F
+    iget v3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->translateUnits:F
 
-    mul-float/2addr v3, v4
+    mul-float/2addr v0, v3
 
-    invoke-virtual {v2, v3}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v2, v0}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/graphics/Camera;->translate(Lcom/badlogic/gdx/math/Vector3;)V
+    invoke-virtual {v1, v0}, Lcom/badlogic/gdx/graphics/Camera;->translate(Lcom/badlogic/gdx/math/Vector3;)V
 
     .line 146
-    iget-boolean v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->forwardTarget:Z
+    iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->forwardTarget:Z
 
-    if-eqz v1, :cond_4
+    if-eqz v0, :cond_4
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->target:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->target:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->tmpV1:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->tmpV1:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/math/Vector3;->add(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector3;->add(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
     .line 148
     :cond_4
-    iget-boolean v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->autoUpdate:Z
+    iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->autoUpdate:Z
 
-    if-eqz v1, :cond_5
+    if-eqz v0, :cond_5
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->camera:Lcom/badlogic/gdx/graphics/Camera;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->camera:Lcom/badlogic/gdx/graphics/Camera;
 
-    invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/Camera;->update()V
+    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/Camera;->update()V
 
-    .line 150
-    .end local v0    # "delta":F
     :cond_5
     return-void
 .end method
 
 .method public zoom(F)Z
     .locals 3
-    .param p1, "amount"    # F
 
     .line 211
     iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->alwaysScroll:Z
@@ -996,9 +955,9 @@
 
     if-nez v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 212
     :cond_0
@@ -1014,34 +973,33 @@
 
     invoke-virtual {v1, p1}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/graphics/Camera;->translate(Lcom/badlogic/gdx/math/Vector3;)V
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/graphics/Camera;->translate(Lcom/badlogic/gdx/math/Vector3;)V
 
     .line 213
-    iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->scrollTarget:Z
+    iget-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->scrollTarget:Z
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->target:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->target:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->tmpV1:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->tmpV1:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector3;->add(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/math/Vector3;->add(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
     .line 214
     :cond_1
-    iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->autoUpdate:Z
+    iget-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->autoUpdate:Z
 
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->camera:Lcom/badlogic/gdx/graphics/Camera;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->camera:Lcom/badlogic/gdx/graphics/Camera;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/Camera;->update()V
+    invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/Camera;->update()V
 
-    .line 215
     :cond_2
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method

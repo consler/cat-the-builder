@@ -42,8 +42,7 @@
 
 # virtual methods
 .method public get(Landroidx/collection/SparseArrayCompat;I)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
-    .locals 1
-    .param p2, "index"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -55,14 +54,13 @@
     .end annotation
 
     .line 353
-    .local p1, "collection":Landroidx/collection/SparseArrayCompat;, "Landroidx/collection/SparseArrayCompat<Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;>;"
     invoke-virtual {p1, p2}, Landroidx/collection/SparseArrayCompat;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
+    check-cast p1, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;I)Ljava/lang/Object;
@@ -79,7 +77,7 @@
 .end method
 
 .method public size(Landroidx/collection/SparseArrayCompat;)I
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -90,12 +88,11 @@
     .end annotation
 
     .line 358
-    .local p1, "collection":Landroidx/collection/SparseArrayCompat;, "Landroidx/collection/SparseArrayCompat<Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;>;"
     invoke-virtual {p1}, Landroidx/collection/SparseArrayCompat;->size()I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic size(Ljava/lang/Object;)I

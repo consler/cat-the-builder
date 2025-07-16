@@ -95,10 +95,6 @@
     .end annotation
 
     .line 72
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;, "Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver<TT;TU;TV;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
-    .local p2, "firstTimeoutIndicator":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TU;>;"
-    .local p3, "itemTimeoutIndicator":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lio/reactivex/ObservableSource<TV;>;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 73
@@ -110,7 +106,6 @@
     .line 75
     iput-object p3, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;->itemTimeoutIndicator:Lio/reactivex/functions/Function;
 
-    .line 76
     return-void
 .end method
 
@@ -120,7 +115,6 @@
     .locals 1
 
     .line 144
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;, "Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver<TT;TU;TV;>;"
     invoke-static {p0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
     move-result v0
@@ -132,17 +126,14 @@
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 147
     :cond_0
     return-void
 .end method
 
 .method public innerError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 164
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;, "Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver<TT;TU;TV;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
@@ -152,7 +143,6 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 166
     return-void
 .end method
 
@@ -160,7 +150,6 @@
     .locals 1
 
     .line 151
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;, "Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver<TT;TU;TV;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->isDisposed()Z
@@ -174,7 +163,6 @@
     .locals 1
 
     .line 138
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;, "Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver<TT;TU;TV;>;"
     invoke-static {p0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
     .line 139
@@ -182,16 +170,13 @@
 
     invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 140
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 132
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;, "Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver<TT;TU;TV;>;"
     invoke-static {p0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
     .line 133
@@ -199,12 +184,11 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 134
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 6
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -212,8 +196,6 @@
     .end annotation
 
     .line 102
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;, "Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver<TT;TU;TV;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-wide v0, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;->index:J
 
     const-wide/16 v2, 0x1
@@ -221,7 +203,6 @@
     add-long/2addr v0, v2
 
     .line 103
-    .local v0, "idx":J
     iput-wide v0, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;->index:J
 
     .line 105
@@ -236,8 +217,6 @@
 
     check-cast v2, Lio/reactivex/disposables/Disposable;
 
-    .line 108
-    .local v2, "d":Lio/reactivex/disposables/Disposable;
     if-eqz v2, :cond_0
 
     .line 109
@@ -245,167 +224,136 @@
 
     .line 115
     :cond_0
-    const/4 v3, 0x0
-
     :try_start_0
-    iget-object v4, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;->itemTimeoutIndicator:Lio/reactivex/functions/Function;
+    iget-object v3, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;->itemTimeoutIndicator:Lio/reactivex/functions/Function;
 
-    invoke-interface {v4, p1}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, p1}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object p1
 
-    const-string v5, "The ObservableSource returned is null"
+    const-string v3, "The ObservableSource returned is null"
 
-    invoke-static {v4, v5}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p1, v3}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object p1
 
-    check-cast v4, Lio/reactivex/ObservableSource;
+    check-cast p1, Lio/reactivex/ObservableSource;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-object v3, v4
-
-    .line 121
-    .local v3, "p":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TV;>;"
-    nop
-
     .line 123
-    new-instance v4, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;
+    new-instance v3, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;
 
-    invoke-direct {v4, p0, v0, v1}, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;-><init>(Lio/reactivex/internal/operators/observable/ObservableTimeout$OnTimeout;J)V
+    invoke-direct {v3, p0, v0, v1}, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;-><init>(Lio/reactivex/internal/operators/observable/ObservableTimeout$OnTimeout;J)V
 
     .line 125
-    .local v4, "tis":Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;, "Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver<TT;TU;TV;>;"
-    invoke-virtual {p0, v2, v4}, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;->compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-virtual {p0, v2, v3}, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;->compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v0
 
-    if-eqz v5, :cond_1
+    if-eqz v0, :cond_1
 
     .line 126
-    invoke-interface {v3, v4}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
+    invoke-interface {p1, v3}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 128
     :cond_1
     return-void
 
-    .line 116
-    .end local v3    # "p":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TV;>;"
-    .end local v4    # "tis":Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;, "Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver<TT;TU;TV;>;"
     :catchall_0
-    move-exception v4
+    move-exception p1
 
     .line 117
-    .restart local v3    # "p":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TV;>;"
-    .local v4, "e":Ljava/lang/Throwable;
-    invoke-static {v4}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 118
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;->dispose()V
 
     .line 119
-    iget-object v5, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;->actual:Lio/reactivex/Observer;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v5, v4}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v0, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 120
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
-    .locals 5
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
+    .locals 4
 
     .line 80
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;, "Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver<TT;TU;TV;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     .line 81
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;->s:Lio/reactivex/disposables/Disposable;
 
     .line 83
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;->actual:Lio/reactivex/Observer;
 
     .line 85
-    .local v0, "a":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;->firstTimeoutIndicator:Lio/reactivex/ObservableSource;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;->firstTimeoutIndicator:Lio/reactivex/ObservableSource;
 
-    .line 87
-    .local v1, "p":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TU;>;"
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_0
 
     .line 88
-    new-instance v2, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;
+    new-instance v1, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;
 
-    const-wide/16 v3, 0x0
+    const-wide/16 v2, 0x0
 
-    invoke-direct {v2, p0, v3, v4}, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;-><init>(Lio/reactivex/internal/operators/observable/ObservableTimeout$OnTimeout;J)V
+    invoke-direct {v1, p0, v2, v3}, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;-><init>(Lio/reactivex/internal/operators/observable/ObservableTimeout$OnTimeout;J)V
+
+    const/4 v2, 0x0
 
     .line 90
-    .local v2, "tis":Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;, "Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver<TT;TU;TV;>;"
-    const/4 v3, 0x0
+    invoke-virtual {p0, v2, v1}, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;->compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    invoke-virtual {p0, v3, v2}, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;->compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
+    move-result v2
 
-    move-result v3
-
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_1
 
     .line 91
-    invoke-interface {v0, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 92
-    invoke-interface {v1, v2}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
+    invoke-interface {v0, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 94
-    .end local v2    # "tis":Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;, "Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver<TT;TU;TV;>;"
-    :cond_0
     goto :goto_0
 
     .line 95
-    :cond_1
-    invoke-interface {v0, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    :cond_0
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 98
-    .end local v0    # "a":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
-    .end local v1    # "p":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TU;>;"
-    :cond_2
+    :cond_1
     :goto_0
     return-void
 .end method
 
 .method public timeout(J)V
     .locals 2
-    .param p1, "idx"    # J
 
     .line 156
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;, "Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver<TT;TU;TV;>;"
     iget-wide v0, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;->index:J
 
-    cmp-long v0, p1, v0
+    cmp-long p1, p1, v0
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 157
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;->dispose()V
 
     .line 158
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutObserver;->actual:Lio/reactivex/Observer;
 
-    new-instance v1, Ljava/util/concurrent/TimeoutException;
+    new-instance p2, Ljava/util/concurrent/TimeoutException;
 
-    invoke-direct {v1}, Ljava/util/concurrent/TimeoutException;-><init>()V
+    invoke-direct {p2}, Ljava/util/concurrent/TimeoutException;-><init>()V
 
-    invoke-interface {v0, v1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {p1, p2}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 160
     :cond_0
     return-void
 .end method

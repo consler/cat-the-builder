@@ -21,203 +21,165 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
-
-    .line 47
-    const/4 v0, 0x0
+    .locals 6
 
     .line 48
-    .local v0, "value":Ljava/lang/Object;
     invoke-static {}, Lcom/thoughtworks/xstream/core/JVM;->hasOptimizedTreeSetAddAll()Z
 
-    move-result v1
+    move-result v0
+
+    const/4 v1, 0x0
 
     const-string v2, "java.util.TreeSet"
 
     const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    if-eqz v0, :cond_2
 
-    if-eqz v1, :cond_2
+    sget-object v0, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->class$java$util$TreeSet:Ljava/lang/Class;
 
-    sget-object v1, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->class$java$util$TreeSet:Ljava/lang/Class;
-
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     invoke-static {v2}, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->class$(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object v0
 
-    sput-object v1, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->class$java$util$TreeSet:Ljava/lang/Class;
+    sput-object v0, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->class$java$util$TreeSet:Ljava/lang/Class;
 
     :cond_0
-    sget-object v5, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->class$java$util$SortedMap:Ljava/lang/Class;
+    sget-object v4, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->class$java$util$SortedMap:Ljava/lang/Class;
 
-    if-nez v5, :cond_1
+    if-nez v4, :cond_1
 
-    const-string v5, "java.util.SortedMap"
+    const-string v4, "java.util.SortedMap"
 
-    invoke-static {v5}, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->class$(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-static {v4}, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->class$(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v5
+    move-result-object v4
 
-    sput-object v5, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->class$java$util$SortedMap:Ljava/lang/Class;
+    sput-object v4, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->class$java$util$SortedMap:Ljava/lang/Class;
 
     :cond_1
-    invoke-static {v1, v5, v4}, Lcom/thoughtworks/xstream/core/util/Fields;->locate(Ljava/lang/Class;Ljava/lang/Class;Z)Ljava/lang/reflect/Field;
+    invoke-static {v0, v4, v1}, Lcom/thoughtworks/xstream/core/util/Fields;->locate(Ljava/lang/Class;Ljava/lang/Class;Z)Ljava/lang/reflect/Field;
 
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_0
 
     :cond_2
-    move-object v1, v3
+    move-object v0, v3
 
     :goto_0
-    sput-object v1, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->sortedMapField:Ljava/lang/reflect/Field;
+    sput-object v0, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->sortedMapField:Ljava/lang/reflect/Field;
 
-    .line 49
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
-    if-eqz v1, :cond_4
+    if-eqz v0, :cond_3
 
     .line 50
-    new-instance v1, Ljava/util/TreeSet;
+    new-instance v2, Ljava/util/TreeSet;
 
-    invoke-direct {v1}, Ljava/util/TreeSet;-><init>()V
+    invoke-direct {v2}, Ljava/util/TreeSet;-><init>()V
+
+    const-string v5, "1"
 
     .line 51
-    .local v1, "set":Ljava/util/TreeSet;
-    const-string v2, "1"
+    invoke-virtual {v2, v5}, Ljava/util/TreeSet;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v1, v2}, Ljava/util/TreeSet;->add(Ljava/lang/Object;)Z
+    const-string v5, "2"
 
     .line 52
-    const-string v2, "2"
-
-    invoke-virtual {v1, v2}, Ljava/util/TreeSet;->add(Ljava/lang/Object;)Z
-
-    .line 54
-    const/4 v2, 0x0
+    invoke-virtual {v2, v5}, Ljava/util/TreeSet;->add(Ljava/lang/Object;)Z
 
     .line 56
-    .local v2, "backingMap":Ljava/util/Map;
     :try_start_0
-    sget-object v3, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->sortedMapField:Ljava/lang/reflect/Field;
+    invoke-virtual {v0, v2}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v3, v1}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object v3
-
-    check-cast v3, Ljava/util/Map;
+    check-cast v0, Ljava/util/Map;
     :try_end_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-object v2, v3
-
-    .line 59
     goto :goto_1
 
-    .line 57
     :catch_0
-    move-exception v3
+    move-object v0, v3
 
-    .line 60
     :goto_1
-    if-eqz v2, :cond_3
+    if-eqz v0, :cond_6
 
     .line 61
-    invoke-interface {v2}, Ljava/util/Map;->values()Ljava/util/Collection;
+    invoke-interface {v0}, Ljava/util/Map;->values()Ljava/util/Collection;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-interface {v3}, Ljava/util/Collection;->toArray()[Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Collection;->toArray()[Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v0
 
     .line 62
-    .local v3, "values":[Ljava/lang/Object;
-    aget-object v6, v3, v4
+    aget-object v1, v0, v1
 
-    aget-object v5, v3, v5
+    aget-object v0, v0, v4
 
-    if-ne v6, v5, :cond_3
+    if-ne v1, v0, :cond_6
 
-    .line 63
-    aget-object v0, v3, v4
+    move-object v3, v1
 
-    .line 66
-    .end local v1    # "set":Ljava/util/TreeSet;
-    .end local v2    # "backingMap":Ljava/util/Map;
-    .end local v3    # "values":[Ljava/lang/Object;
-    :cond_3
     goto :goto_2
 
     .line 67
+    :cond_3
+    sget-object v0, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->class$java$util$TreeSet:Ljava/lang/Class;
+
+    if-nez v0, :cond_4
+
+    invoke-static {v2}, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->class$(Ljava/lang/String;)Ljava/lang/Class;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->class$java$util$TreeSet:Ljava/lang/Class;
+
     :cond_4
-    sget-object v1, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->class$java$util$TreeSet:Ljava/lang/Class;
+    sget-object v1, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->class$java$lang$Object:Ljava/lang/Class;
 
     if-nez v1, :cond_5
 
-    invoke-static {v2}, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->class$(Ljava/lang/String;)Ljava/lang/Class;
+    const-string v1, "java.lang.Object"
+
+    invoke-static {v1}, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->class$(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v1
 
-    sput-object v1, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->class$java$util$TreeSet:Ljava/lang/Class;
+    sput-object v1, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->class$java$lang$Object:Ljava/lang/Class;
 
     :cond_5
-    sget-object v2, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->class$java$lang$Object:Ljava/lang/Class;
+    invoke-static {v0, v1, v4}, Lcom/thoughtworks/xstream/core/util/Fields;->locate(Ljava/lang/Class;Ljava/lang/Class;Z)Ljava/lang/reflect/Field;
 
-    if-nez v2, :cond_6
+    move-result-object v0
 
-    const-string v2, "java.lang.Object"
-
-    invoke-static {v2}, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->class$(Ljava/lang/String;)Ljava/lang/Class;
-
-    move-result-object v2
-
-    sput-object v2, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->class$java$lang$Object:Ljava/lang/Class;
-
-    :cond_6
-    invoke-static {v1, v2, v5}, Lcom/thoughtworks/xstream/core/util/Fields;->locate(Ljava/lang/Class;Ljava/lang/Class;Z)Ljava/lang/reflect/Field;
-
-    move-result-object v1
-
-    .line 68
-    .local v1, "valueField":Ljava/lang/reflect/Field;
-    if-eqz v1, :cond_7
+    if-eqz v0, :cond_6
 
     .line 70
     :try_start_1
-    invoke-virtual {v1, v3}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v3}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
     :try_end_1
     .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_1
 
-    move-object v0, v2
-
-    .line 73
-    goto :goto_2
-
-    .line 71
-    :catch_1
-    move-exception v2
-
     .line 76
-    .end local v1    # "valueField":Ljava/lang/reflect/Field;
-    :cond_7
+    :catch_1
+    :cond_6
     :goto_2
-    sput-object v0, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->constantValue:Ljava/lang/Object;
+    sput-object v3, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->constantValue:Ljava/lang/Object;
 
-    .line 77
-    .end local v0    # "value":Ljava/lang/Object;
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/mapper/Mapper;)V
     .locals 1
-    .param p1, "mapper"    # Lcom/thoughtworks/xstream/mapper/Mapper;
 
     .line 80
     sget-object v0, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->class$java$util$TreeSet:Ljava/lang/Class;
@@ -238,7 +200,6 @@
     .line 81
     invoke-direct {p0}, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->readResolve()Ljava/lang/Object;
 
-    .line 82
     return-void
 .end method
 
@@ -252,31 +213,30 @@
 .end method
 
 .method static synthetic class$(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 2
-    .param p0, "x0"    # Ljava/lang/String;
+    .locals 1
 
     .line 48
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/lang/NoClassDefFoundError;
+    new-instance v0, Ljava/lang/NoClassDefFoundError;
 
-    invoke-direct {v1}, Ljava/lang/NoClassDefFoundError;-><init>()V
+    invoke-direct {v0}, Ljava/lang/NoClassDefFoundError;-><init>()V
 
-    invoke-virtual {v1, v0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, p0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 .end method
 
 .method private readResolve()Ljava/lang/Object;
@@ -293,17 +253,13 @@
 
     iput-object v0, p0, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->treeMapConverter:Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;
 
-    .line 157
     return-object p0
 .end method
 
 
 # virtual methods
 .method public marshal(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
-    .locals 3
-    .param p1, "source"    # Ljava/lang/Object;
-    .param p2, "writer"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
-    .param p3, "context"    # Lcom/thoughtworks/xstream/converters/MarshallingContext;
+    .locals 2
 
     .line 85
     move-object v0, p1
@@ -311,206 +267,164 @@
     check-cast v0, Ljava/util/SortedSet;
 
     .line 86
-    .local v0, "sortedSet":Ljava/util/SortedSet;
     iget-object v1, p0, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->treeMapConverter:Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;
 
     invoke-interface {v0}, Ljava/util/SortedSet;->comparator()Ljava/util/Comparator;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v1, v2, p2, p3}, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->marshalComparator(Ljava/util/Comparator;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
+    invoke-virtual {v1, v0, p2, p3}, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->marshalComparator(Ljava/util/Comparator;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
 
     .line 87
     invoke-super {p0, p1, p2, p3}, Lcom/thoughtworks/xstream/converters/collections/CollectionConverter;->marshal(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
 
-    .line 88
     return-void
 .end method
 
 .method public unmarshal(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;)Ljava/lang/Object;
-    .locals 9
-    .param p1, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .param p2, "context"    # Lcom/thoughtworks/xstream/converters/UnmarshallingContext;
-
-    .line 91
-    const/4 v0, 0x0
+    .locals 8
 
     .line 93
-    .local v0, "result":Ljava/util/TreeSet;
-    iget-object v1, p0, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->treeMapConverter:Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->treeMapConverter:Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1, p1, p2, v2}, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->unmarshalComparator(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;Ljava/util/TreeMap;)Ljava/util/Comparator;
+    invoke-virtual {v0, p1, p2, v1}, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->unmarshalComparator(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;Ljava/util/TreeMap;)Ljava/util/Comparator;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 94
-    .local v1, "unmarshalledComparator":Ljava/util/Comparator;
-    instance-of v3, v1, Lcom/thoughtworks/xstream/mapper/Mapper$Null;
+    instance-of v2, v0, Lcom/thoughtworks/xstream/mapper/Mapper$Null;
 
-    .line 95
-    .local v3, "inFirstElement":Z
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
+
+    move-object v3, v1
 
     goto :goto_0
 
     :cond_0
-    move-object v2, v1
+    move-object v3, v0
 
     .line 96
-    .local v2, "comparator":Ljava/util/Comparator;
     :goto_0
     sget-object v4, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->sortedMapField:Ljava/lang/reflect/Field;
 
     if-eqz v4, :cond_3
 
     .line 97
-    new-instance v4, Ljava/util/TreeSet;
+    new-instance v5, Ljava/util/TreeSet;
 
-    if-nez v2, :cond_1
+    if-nez v3, :cond_1
 
-    invoke-direct {v4}, Ljava/util/TreeSet;-><init>()V
+    invoke-direct {v5}, Ljava/util/TreeSet;-><init>()V
 
     goto :goto_1
 
     :cond_1
-    invoke-direct {v4, v2}, Ljava/util/TreeSet;-><init>(Ljava/util/Comparator;)V
-
-    .line 98
-    .local v4, "possibleResult":Ljava/util/TreeSet;
-    :goto_1
-    const/4 v5, 0x0
+    invoke-direct {v5, v3}, Ljava/util/TreeSet;-><init>(Ljava/util/Comparator;)V
 
     .line 100
-    .local v5, "backingMap":Ljava/lang/Object;
+    :goto_1
     :try_start_0
-    sget-object v6, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->sortedMapField:Ljava/lang/reflect/Field;
+    invoke-virtual {v4, v5}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v6, v4}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v6
+    move-result-object v4
     :try_end_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-object v5, v6
-
-    .line 103
-    nop
-
     .line 104
-    instance-of v6, v5, Ljava/util/TreeMap;
+    instance-of v6, v4, Ljava/util/TreeMap;
 
     if-eqz v6, :cond_2
 
     .line 105
-    move-object v6, v5
+    check-cast v4, Ljava/util/TreeMap;
 
-    check-cast v6, Ljava/util/TreeMap;
-
-    .line 106
-    .local v6, "treeMap":Ljava/util/TreeMap;
-    move-object v0, v4
+    move-object v1, v5
 
     goto :goto_2
 
-    .line 108
-    .end local v6    # "treeMap":Ljava/util/TreeMap;
     :cond_2
-    const/4 v6, 0x0
+    move-object v4, v1
 
-    .line 110
-    .end local v4    # "possibleResult":Ljava/util/TreeSet;
-    .end local v5    # "backingMap":Ljava/lang/Object;
-    .restart local v6    # "treeMap":Ljava/util/TreeMap;
     :goto_2
+    move-object v7, v4
+
+    move-object v4, v1
+
+    move-object v1, v7
+
     goto :goto_3
 
-    .line 101
-    .end local v6    # "treeMap":Ljava/util/TreeMap;
-    .restart local v4    # "possibleResult":Ljava/util/TreeSet;
-    .restart local v5    # "backingMap":Ljava/lang/Object;
     :catch_0
-    move-exception v6
+    move-exception p1
 
     .line 102
-    .local v6, "e":Ljava/lang/IllegalAccessException;
-    new-instance v7, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
+    new-instance p2, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
 
-    const-string v8, "Cannot get backing map of TreeSet"
+    const-string v0, "Cannot get backing map of TreeSet"
 
-    invoke-direct {v7, v8, v6}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p2, v0, p1}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v7
+    throw p2
 
-    .line 111
-    .end local v4    # "possibleResult":Ljava/util/TreeSet;
-    .end local v5    # "backingMap":Ljava/lang/Object;
-    .end local v6    # "e":Ljava/lang/IllegalAccessException;
     :cond_3
-    const/4 v6, 0x0
+    move-object v4, v1
 
-    .line 113
-    .local v6, "treeMap":Ljava/util/TreeMap;
     :goto_3
-    if-nez v6, :cond_7
+    if-nez v1, :cond_6
 
     .line 114
-    new-instance v4, Lcom/thoughtworks/xstream/core/util/PresortedSet;
+    new-instance v0, Lcom/thoughtworks/xstream/core/util/PresortedSet;
 
-    invoke-direct {v4, v2}, Lcom/thoughtworks/xstream/core/util/PresortedSet;-><init>(Ljava/util/Comparator;)V
+    invoke-direct {v0, v3}, Lcom/thoughtworks/xstream/core/util/PresortedSet;-><init>(Ljava/util/Comparator;)V
 
     .line 115
-    .local v4, "set":Lcom/thoughtworks/xstream/core/util/PresortedSet;
-    new-instance v5, Ljava/util/TreeSet;
+    new-instance v1, Ljava/util/TreeSet;
 
-    if-nez v2, :cond_4
+    if-nez v3, :cond_4
 
-    invoke-direct {v5}, Ljava/util/TreeSet;-><init>()V
+    invoke-direct {v1}, Ljava/util/TreeSet;-><init>()V
 
     goto :goto_4
 
     :cond_4
-    invoke-direct {v5, v2}, Ljava/util/TreeSet;-><init>(Ljava/util/Comparator;)V
+    invoke-direct {v1, v3}, Ljava/util/TreeSet;-><init>(Ljava/util/Comparator;)V
 
     :goto_4
-    move-object v0, v5
+    move-object v4, v1
 
-    .line 116
-    if-eqz v3, :cond_5
+    if-eqz v2, :cond_5
 
     .line 118
-    invoke-virtual {p0, p1, p2, v0, v4}, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->addCurrentElementToCollection(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;Ljava/util/Collection;Ljava/util/Collection;)V
+    invoke-virtual {p0, p1, p2, v4, v0}, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->addCurrentElementToCollection(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;Ljava/util/Collection;Ljava/util/Collection;)V
 
     .line 119
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->moveUp()V
 
     .line 121
     :cond_5
-    invoke-virtual {p0, p1, p2, v0, v4}, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->populateCollection(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;Ljava/util/Collection;Ljava/util/Collection;)V
+    invoke-virtual {p0, p1, p2, v4, v0}, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->populateCollection(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;Ljava/util/Collection;Ljava/util/Collection;)V
 
     .line 122
-    invoke-virtual {v4}, Lcom/thoughtworks/xstream/core/util/PresortedSet;->size()I
+    invoke-virtual {v0}, Lcom/thoughtworks/xstream/core/util/PresortedSet;->size()I
 
-    move-result v5
+    move-result p1
 
-    if-lez v5, :cond_6
+    if-lez p1, :cond_7
 
     .line 123
-    invoke-virtual {v0, v4}, Ljava/util/TreeSet;->addAll(Ljava/util/Collection;)Z
+    invoke-virtual {v4, v0}, Ljava/util/TreeSet;->addAll(Ljava/util/Collection;)Z
 
-    .line 125
-    .end local v4    # "set":Lcom/thoughtworks/xstream/core/util/PresortedSet;
-    :cond_6
     goto :goto_5
 
     .line 126
+    :cond_6
+    iget-object v2, p0, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->treeMapConverter:Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;
+
+    invoke-virtual {v2, p1, p2, v1, v0}, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->populateTreeMap(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;Ljava/util/TreeMap;Ljava/util/Comparator;)V
+
     :cond_7
-    iget-object v4, p0, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter;->treeMapConverter:Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;
-
-    invoke-virtual {v4, p1, p2, v6, v1}, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->populateTreeMap(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;Ljava/util/TreeMap;Ljava/util/Comparator;)V
-
-    .line 128
     :goto_5
-    return-object v0
+    return-object v4
 .end method

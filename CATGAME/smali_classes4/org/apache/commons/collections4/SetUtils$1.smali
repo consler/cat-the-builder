@@ -52,14 +52,13 @@
     .end annotation
 
     .line 131
-    .local p1, "object":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Lorg/apache/commons/collections4/SetUtils$1;->val$b:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    xor-int/lit8 v0, v0, 0x1
+    xor-int/lit8 p1, p1, 0x1
 
-    return v0
+    return p1
 .end method

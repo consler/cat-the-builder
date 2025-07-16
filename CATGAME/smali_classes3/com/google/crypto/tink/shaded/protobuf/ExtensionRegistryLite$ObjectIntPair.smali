@@ -23,8 +23,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Object;I)V
     .locals 0
-    .param p1, "object"    # Ljava/lang/Object;
-    .param p2, "number"    # I
 
     .line 221
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,15 +33,13 @@
     .line 223
     iput p2, p0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite$ObjectIntPair;->number:I
 
-    .line 224
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 3
 
     .line 233
     instance-of v0, p1, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite$ObjectIntPair;
@@ -52,28 +48,24 @@
 
     if-nez v0, :cond_0
 
-    .line 234
     return v1
 
     .line 236
     :cond_0
-    move-object v0, p1
-
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite$ObjectIntPair;
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite$ObjectIntPair;
 
     .line 237
-    .local v0, "other":Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite$ObjectIntPair;
-    iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite$ObjectIntPair;->object:Ljava/lang/Object;
+    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite$ObjectIntPair;->object:Ljava/lang/Object;
 
-    iget-object v3, v0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite$ObjectIntPair;->object:Ljava/lang/Object;
+    iget-object v2, p1, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite$ObjectIntPair;->object:Ljava/lang/Object;
 
-    if-ne v2, v3, :cond_1
+    if-ne v0, v2, :cond_1
 
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite$ObjectIntPair;->number:I
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite$ObjectIntPair;->number:I
 
-    iget v3, v0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite$ObjectIntPair;->number:I
+    iget p1, p1, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite$ObjectIntPair;->number:I
 
-    if-ne v2, v3, :cond_1
+    if-ne v0, p1, :cond_1
 
     const/4 v1, 0x1
 

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/FragmentAnim$2;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/fragment/app/FragmentAnim$2;
 
     .line 170
     iput-object p1, p0, Landroidx/fragment/app/FragmentAnim$2$1;->this$0:Landroidx/fragment/app/FragmentAnim$2;
@@ -74,7 +73,6 @@
 
     invoke-interface {v0, v1, v2}, Landroidx/fragment/app/FragmentTransition$Callback;->onComplete(Landroidx/fragment/app/Fragment;Landroidx/core/os/CancellationSignal;)V
 
-    .line 177
     :cond_0
     return-void
 .end method

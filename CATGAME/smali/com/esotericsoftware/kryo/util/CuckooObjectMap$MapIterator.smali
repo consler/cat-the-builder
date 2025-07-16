@@ -54,8 +54,6 @@
     .end annotation
 
     .line 680
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;, "Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator<TK;TV;>;"
-    .local p1, "map":Lcom/esotericsoftware/kryo/util/CuckooObjectMap;, "Lcom/esotericsoftware/kryo/util/CuckooObjectMap<TK;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 681
@@ -64,7 +62,6 @@
     .line 682
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;->reset()V
 
-    .line 683
     return-void
 .end method
 
@@ -73,10 +70,9 @@
 .method advance()V
     .locals 4
 
-    .line 692
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;, "Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator<TK;TV;>;"
     const/4 v0, 0x0
 
+    .line 692
     iput-boolean v0, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;->hasNext:Z
 
     .line 693
@@ -85,7 +81,6 @@
     iget-object v0, v0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->keyTable:[Ljava/lang/Object;
 
     .line 694
-    .local v0, "keyTable":[Ljava/lang/Object;, "[TK;"
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;->map:Lcom/esotericsoftware/kryo/util/CuckooObjectMap;
 
     iget v1, v1, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->capacity:I
@@ -96,7 +91,6 @@
 
     add-int/2addr v1, v2
 
-    .local v1, "n":I
     :cond_0
     iget v2, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;->nextIndex:I
 
@@ -116,8 +110,6 @@
     .line 696
     iput-boolean v3, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;->hasNext:Z
 
-    .line 700
-    .end local v1    # "n":I
     :cond_1
     return-void
 .end method
@@ -126,7 +118,6 @@
     .locals 3
 
     .line 703
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;, "Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator<TK;TV;>;"
     iget v0, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;->currentIndex:I
 
     if-ltz v0, :cond_1
@@ -178,10 +169,10 @@
 
     aput-object v2, v0, v1
 
-    .line 712
     :goto_0
     const/4 v0, -0x1
 
+    .line 712
     iput v0, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;->currentIndex:I
 
     .line 713
@@ -193,7 +184,6 @@
 
     iput v1, v0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap;->size:I
 
-    .line 714
     return-void
 
     .line 703
@@ -210,10 +200,9 @@
 .method public reset()V
     .locals 1
 
-    .line 686
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;, "Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator<TK;TV;>;"
     const/4 v0, -0x1
 
+    .line 686
     iput v0, p0, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;->currentIndex:I
 
     .line 687
@@ -222,6 +211,5 @@
     .line 688
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/util/CuckooObjectMap$MapIterator;->advance()V
 
-    .line 689
     return-void
 .end method

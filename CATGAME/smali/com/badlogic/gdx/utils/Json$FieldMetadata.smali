@@ -25,7 +25,6 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/utils/reflect/Field;)V
     .locals 2
-    .param p1, "field"    # Lcom/badlogic/gdx/utils/reflect/Field;
 
     .line 1195
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -71,23 +70,21 @@
     const/4 v0, 0x1
 
     .line 1199
-    .local v0, "index":I
     :goto_1
     invoke-virtual {p1, v0}, Lcom/badlogic/gdx/utils/reflect/Field;->getElementType(I)Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/badlogic/gdx/utils/Json$FieldMetadata;->elementType:Ljava/lang/Class;
+    iput-object v0, p0, Lcom/badlogic/gdx/utils/Json$FieldMetadata;->elementType:Ljava/lang/Class;
 
     .line 1200
-    const-class v1, Ljava/lang/Deprecated;
+    const-class v0, Ljava/lang/Deprecated;
 
-    invoke-virtual {p1, v1}, Lcom/badlogic/gdx/utils/reflect/Field;->isAnnotationPresent(Ljava/lang/Class;)Z
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/utils/reflect/Field;->isAnnotationPresent(Ljava/lang/Class;)Z
 
-    move-result v1
+    move-result p1
 
-    iput-boolean v1, p0, Lcom/badlogic/gdx/utils/Json$FieldMetadata;->deprecated:Z
+    iput-boolean p1, p0, Lcom/badlogic/gdx/utils/Json$FieldMetadata;->deprecated:Z
 
-    .line 1201
     return-void
 .end method

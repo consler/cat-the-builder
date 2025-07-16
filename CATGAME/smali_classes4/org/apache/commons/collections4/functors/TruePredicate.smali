@@ -45,10 +45,8 @@
     .locals 0
 
     .line 52
-    .local p0, "this":Lorg/apache/commons/collections4/functors/TruePredicate;, "Lorg/apache/commons/collections4/functors/TruePredicate<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 53
     return-void
 .end method
 
@@ -56,7 +54,6 @@
     .locals 1
 
     .line 67
-    .local p0, "this":Lorg/apache/commons/collections4/functors/TruePredicate;, "Lorg/apache/commons/collections4/functors/TruePredicate<TT;>;"
     sget-object v0, Lorg/apache/commons/collections4/functors/TruePredicate;->INSTANCE:Lorg/apache/commons/collections4/Predicate;
 
     return-object v0
@@ -83,17 +80,14 @@
 
 # virtual methods
 .method public evaluate(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
         }
     .end annotation
 
-    .line 63
-    .local p0, "this":Lorg/apache/commons/collections4/functors/TruePredicate;, "Lorg/apache/commons/collections4/functors/TruePredicate<TT;>;"
-    .local p1, "object":Ljava/lang/Object;, "TT;"
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method

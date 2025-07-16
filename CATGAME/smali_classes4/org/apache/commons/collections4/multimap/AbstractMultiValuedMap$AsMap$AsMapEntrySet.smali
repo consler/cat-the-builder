@@ -31,10 +31,8 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap;)V
     .locals 0
-    .param p1, "this$1"    # Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap;
 
     .line 852
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap$AsMapEntrySet;, "Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap<TK;TV;>.AsMap.AsMapEntrySet;"
     iput-object p1, p0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap$AsMapEntrySet;->this$1:Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap;
 
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
@@ -48,21 +46,17 @@
     .locals 1
 
     .line 866
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap$AsMapEntrySet;, "Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap<TK;TV;>.AsMap.AsMapEntrySet;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap$AsMapEntrySet;->this$1:Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap;->clear()V
 
-    .line 867
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
     .line 871
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap$AsMapEntrySet;, "Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap<TK;TV;>.AsMap.AsMapEntrySet;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap$AsMapEntrySet;->this$1:Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap;
 
     iget-object v0, v0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap;->decoratedMap:Ljava/util/Map;
@@ -73,9 +67,9 @@
 
     invoke-interface {v0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
@@ -92,7 +86,6 @@
     .end annotation
 
     .line 856
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap$AsMapEntrySet;, "Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap<TK;TV;>.AsMap.AsMapEntrySet;"
     new-instance v0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap$AsMapEntrySetIterator;
 
     iget-object v1, p0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap$AsMapEntrySet;->this$1:Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap;
@@ -113,51 +106,43 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 1
 
     .line 876
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap$AsMapEntrySet;, "Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap<TK;TV;>.AsMap.AsMapEntrySet;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap$AsMapEntrySet;->contains(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 877
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 879
     :cond_0
-    move-object v0, p1
-
-    check-cast v0, Ljava/util/Map$Entry;
+    check-cast p1, Ljava/util/Map$Entry;
 
     .line 880
-    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
-    iget-object v1, p0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap$AsMapEntrySet;->this$1:Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap;
+    iget-object v0, p0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap$AsMapEntrySet;->this$1:Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap;
 
-    iget-object v1, v1, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap;->this$0:Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;
+    iget-object v0, v0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap;->this$0:Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;
 
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;->remove(Ljava/lang/Object;)Ljava/util/Collection;
+    invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;->remove(Ljava/lang/Object;)Ljava/util/Collection;
 
-    .line 881
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    return v1
+    return p1
 .end method
 
 .method public size()I
     .locals 1
 
     .line 861
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap$AsMapEntrySet;, "Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap<TK;TV;>.AsMap.AsMapEntrySet;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap$AsMapEntrySet;->this$1:Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$AsMap;->size()I

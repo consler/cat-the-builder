@@ -31,10 +31,7 @@
 # virtual methods
 .method public cancelAfAeTrigger(ZZ)V
     .locals 0
-    .param p1, "cancelAfTrigger"    # Z
-    .param p2, "cancelAePrecaptureTrigger"    # Z
 
-    .line 132
     return-void
 .end method
 
@@ -49,9 +46,9 @@
         }
     .end annotation
 
-    .line 154
     const/4 v0, 0x0
 
+    .line 154
     invoke-static {v0}, Landroidx/camera/core/impl/utils/futures/Futures;->immediateFuture(Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
 
     move-result-object v0
@@ -60,8 +57,7 @@
 .end method
 
 .method public enableTorch(Z)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
-    .param p1, "torch"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)",
@@ -71,20 +67,19 @@
         }
     .end annotation
 
+    const/4 p1, 0x0
+
     .line 114
-    const/4 v0, 0x0
+    invoke-static {p1}, Landroidx/camera/core/impl/utils/futures/Futures;->immediateFuture(Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
 
-    invoke-static {v0}, Landroidx/camera/core/impl/utils/futures/Futures;->immediateFuture(Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public getFlashMode()I
     .locals 1
 
-    .line 104
     const/4 v0, 0x2
 
     return v0
@@ -103,23 +98,18 @@
 
 .method public setCropRegion(Landroid/graphics/Rect;)V
     .locals 0
-    .param p1, "crop"    # Landroid/graphics/Rect;
 
-    .line 99
     return-void
 .end method
 
 .method public setFlashMode(I)V
     .locals 0
-    .param p1, "flashMode"    # I
 
-    .line 109
     return-void
 .end method
 
 .method public setLinearZoom(F)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
-    .param p1, "linearZoom"    # F
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(F)",
@@ -129,19 +119,18 @@
         }
     .end annotation
 
+    const/4 p1, 0x0
+
     .line 166
-    const/4 v0, 0x0
+    invoke-static {p1}, Landroidx/camera/core/impl/utils/futures/Futures;->immediateFuture(Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
 
-    invoke-static {v0}, Landroidx/camera/core/impl/utils/futures/Futures;->immediateFuture(Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public setZoomRatio(F)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
-    .param p1, "ratio"    # F
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(F)",
@@ -151,19 +140,18 @@
         }
     .end annotation
 
+    const/4 p1, 0x0
+
     .line 160
-    const/4 v0, 0x0
+    invoke-static {p1}, Landroidx/camera/core/impl/utils/futures/Futures;->immediateFuture(Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
 
-    invoke-static {v0}, Landroidx/camera/core/impl/utils/futures/Futures;->immediateFuture(Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public startFocusAndMetering(Landroidx/camera/core/FocusMeteringAction;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
-    .param p1, "action"    # Landroidx/camera/core/FocusMeteringAction;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -178,13 +166,13 @@
     .line 148
     invoke-static {}, Landroidx/camera/core/FocusMeteringResult;->emptyInstance()Landroidx/camera/core/FocusMeteringResult;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Landroidx/camera/core/impl/utils/futures/Futures;->immediateFuture(Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
+    invoke-static {p1}, Landroidx/camera/core/impl/utils/futures/Futures;->immediateFuture(Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public submitCaptureRequests(Ljava/util/List;)V
@@ -198,8 +186,6 @@
         }
     .end annotation
 
-    .line 136
-    .local p1, "captureConfigs":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/core/impl/CaptureConfig;>;"
     return-void
 .end method
 

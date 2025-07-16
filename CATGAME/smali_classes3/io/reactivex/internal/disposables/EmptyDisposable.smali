@@ -43,28 +43,26 @@
     sput-object v0, Lio/reactivex/internal/disposables/EmptyDisposable;->INSTANCE:Lio/reactivex/internal/disposables/EmptyDisposable;
 
     .line 38
-    new-instance v0, Lio/reactivex/internal/disposables/EmptyDisposable;
+    new-instance v1, Lio/reactivex/internal/disposables/EmptyDisposable;
 
-    const-string v1, "NEVER"
+    const-string v3, "NEVER"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Lio/reactivex/internal/disposables/EmptyDisposable;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Lio/reactivex/internal/disposables/EmptyDisposable;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lio/reactivex/internal/disposables/EmptyDisposable;->NEVER:Lio/reactivex/internal/disposables/EmptyDisposable;
+    sput-object v1, Lio/reactivex/internal/disposables/EmptyDisposable;->NEVER:Lio/reactivex/internal/disposables/EmptyDisposable;
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Lio/reactivex/internal/disposables/EmptyDisposable;
+
+    aput-object v0, v3, v2
+
+    aput-object v1, v3, v4
 
     .line 28
-    const/4 v1, 0x2
-
-    new-array v1, v1, [Lio/reactivex/internal/disposables/EmptyDisposable;
-
-    sget-object v4, Lio/reactivex/internal/disposables/EmptyDisposable;->INSTANCE:Lio/reactivex/internal/disposables/EmptyDisposable;
-
-    aput-object v4, v1, v2
-
-    aput-object v0, v1, v3
-
-    sput-object v1, Lio/reactivex/internal/disposables/EmptyDisposable;->$VALUES:[Lio/reactivex/internal/disposables/EmptyDisposable;
+    sput-object v3, Lio/reactivex/internal/disposables/EmptyDisposable;->$VALUES:[Lio/reactivex/internal/disposables/EmptyDisposable;
 
     return-void
 .end method
@@ -85,7 +83,6 @@
 
 .method public static complete(Lio/reactivex/CompletableObserver;)V
     .locals 1
-    .param p0, "s"    # Lio/reactivex/CompletableObserver;
 
     .line 67
     sget-object v0, Lio/reactivex/internal/disposables/EmptyDisposable;->INSTANCE:Lio/reactivex/internal/disposables/EmptyDisposable;
@@ -95,7 +92,6 @@
     .line 68
     invoke-interface {p0}, Lio/reactivex/CompletableObserver;->onComplete()V
 
-    .line 69
     return-void
 .end method
 
@@ -110,7 +106,6 @@
     .end annotation
 
     .line 57
-    .local p0, "s":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<*>;"
     sget-object v0, Lio/reactivex/internal/disposables/EmptyDisposable;->INSTANCE:Lio/reactivex/internal/disposables/EmptyDisposable;
 
     invoke-interface {p0, v0}, Lio/reactivex/MaybeObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
@@ -118,7 +113,6 @@
     .line 58
     invoke-interface {p0}, Lio/reactivex/MaybeObserver;->onComplete()V
 
-    .line 59
     return-void
 .end method
 
@@ -133,7 +127,6 @@
     .end annotation
 
     .line 52
-    .local p0, "s":Lio/reactivex/Observer;, "Lio/reactivex/Observer<*>;"
     sget-object v0, Lio/reactivex/internal/disposables/EmptyDisposable;->INSTANCE:Lio/reactivex/internal/disposables/EmptyDisposable;
 
     invoke-interface {p0, v0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
@@ -141,14 +134,11 @@
     .line 53
     invoke-interface {p0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 54
     return-void
 .end method
 
 .method public static error(Ljava/lang/Throwable;Lio/reactivex/CompletableObserver;)V
     .locals 1
-    .param p0, "e"    # Ljava/lang/Throwable;
-    .param p1, "s"    # Lio/reactivex/CompletableObserver;
 
     .line 72
     sget-object v0, Lio/reactivex/internal/disposables/EmptyDisposable;->INSTANCE:Lio/reactivex/internal/disposables/EmptyDisposable;
@@ -158,13 +148,11 @@
     .line 73
     invoke-interface {p1, p0}, Lio/reactivex/CompletableObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 74
     return-void
 .end method
 
 .method public static error(Ljava/lang/Throwable;Lio/reactivex/MaybeObserver;)V
     .locals 1
-    .param p0, "e"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -175,7 +163,6 @@
     .end annotation
 
     .line 82
-    .local p1, "s":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<*>;"
     sget-object v0, Lio/reactivex/internal/disposables/EmptyDisposable;->INSTANCE:Lio/reactivex/internal/disposables/EmptyDisposable;
 
     invoke-interface {p1, v0}, Lio/reactivex/MaybeObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
@@ -183,13 +170,11 @@
     .line 83
     invoke-interface {p1, p0}, Lio/reactivex/MaybeObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 84
     return-void
 .end method
 
 .method public static error(Ljava/lang/Throwable;Lio/reactivex/Observer;)V
     .locals 1
-    .param p0, "e"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -200,7 +185,6 @@
     .end annotation
 
     .line 62
-    .local p1, "s":Lio/reactivex/Observer;, "Lio/reactivex/Observer<*>;"
     sget-object v0, Lio/reactivex/internal/disposables/EmptyDisposable;->INSTANCE:Lio/reactivex/internal/disposables/EmptyDisposable;
 
     invoke-interface {p1, v0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
@@ -208,13 +192,11 @@
     .line 63
     invoke-interface {p1, p0}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 64
     return-void
 .end method
 
 .method public static error(Ljava/lang/Throwable;Lio/reactivex/SingleObserver;)V
     .locals 1
-    .param p0, "e"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -225,7 +207,6 @@
     .end annotation
 
     .line 77
-    .local p1, "s":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<*>;"
     sget-object v0, Lio/reactivex/internal/disposables/EmptyDisposable;->INSTANCE:Lio/reactivex/internal/disposables/EmptyDisposable;
 
     invoke-interface {p1, v0}, Lio/reactivex/SingleObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
@@ -233,24 +214,22 @@
     .line 78
     invoke-interface {p1, p0}, Lio/reactivex/SingleObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 79
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lio/reactivex/internal/disposables/EmptyDisposable;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 28
     const-class v0, Lio/reactivex/internal/disposables/EmptyDisposable;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lio/reactivex/internal/disposables/EmptyDisposable;
+    check-cast p0, Lio/reactivex/internal/disposables/EmptyDisposable;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lio/reactivex/internal/disposables/EmptyDisposable;
@@ -273,14 +252,12 @@
 .method public clear()V
     .locals 0
 
-    .line 111
     return-void
 .end method
 
 .method public dispose()V
     .locals 0
 
-    .line 44
     return-void
 .end method
 
@@ -306,39 +283,35 @@
 .method public isEmpty()Z
     .locals 1
 
-    .line 105
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public offer(Ljava/lang/Object;)Z
-    .locals 2
-    .param p1, "value"    # Ljava/lang/Object;
+    .locals 1
 
     .line 89
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "Should not be called!"
+    const-string v0, "Should not be called!"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public offer(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
-    .param p1, "v1"    # Ljava/lang/Object;
-    .param p2, "v2"    # Ljava/lang/Object;
+    .locals 0
 
     .line 94
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "Should not be called!"
+    const-string p2, "Should not be called!"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public poll()Ljava/lang/Object;
@@ -349,18 +322,15 @@
         }
     .end annotation
 
-    .line 100
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method public requestFusion(I)I
-    .locals 1
-    .param p1, "mode"    # I
+    .locals 0
 
-    .line 115
-    and-int/lit8 v0, p1, 0x2
+    and-int/lit8 p1, p1, 0x2
 
-    return v0
+    return p1
 .end method

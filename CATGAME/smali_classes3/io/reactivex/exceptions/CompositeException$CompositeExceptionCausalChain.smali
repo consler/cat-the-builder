@@ -35,7 +35,6 @@
 .method public getMessage()Ljava/lang/String;
     .locals 1
 
-    .line 245
     const-string v0, "Chain of Causes for CompositeException In Order Received =>"
 
     return-object v0

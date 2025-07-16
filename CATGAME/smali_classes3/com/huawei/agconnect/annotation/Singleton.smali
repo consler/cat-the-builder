@@ -1,6 +1,5 @@
 .class public interface abstract annotation Lcom/huawei/agconnect/annotation/Singleton;
 .super Ljava/lang/Object;
-.source "Singleton.java"
 
 # interfaces
 .implements Ljava/lang/annotation/Annotation;

@@ -89,10 +89,8 @@
     check-cast v1, Lcom/badlogic/gdx/graphics/Mesh;
 
     .line 93
-    .local v1, "m":Lcom/badlogic/gdx/graphics/Mesh;
     invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/Mesh;->dispose()V
 
-    .end local v1    # "m":Lcom/badlogic/gdx/graphics/Mesh;
     goto :goto_0
 
     .line 94
@@ -122,10 +120,8 @@
     check-cast v1, Lcom/badlogic/gdx/graphics/Mesh;
 
     .line 96
-    .restart local v1    # "m":Lcom/badlogic/gdx/graphics/Mesh;
     invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/Mesh;->dispose()V
 
-    .end local v1    # "m":Lcom/badlogic/gdx/graphics/Mesh;
     goto :goto_1
 
     .line 97
@@ -134,7 +130,6 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->clear()V
 
-    .line 98
     return-void
 .end method
 
@@ -153,120 +148,103 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->clear()V
 
-    .line 70
     return-void
 .end method
 
 .method public obtain(Lcom/badlogic/gdx/graphics/VertexAttributes;II)Lcom/badlogic/gdx/graphics/Mesh;
-    .locals 4
-    .param p1, "vertexAttributes"    # Lcom/badlogic/gdx/graphics/VertexAttributes;
-    .param p2, "vertexCount"    # I
-    .param p3, "indexCount"    # I
+    .locals 5
 
     .line 74
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/ModelCache$SimpleMeshPool;->freeMeshes:Lcom/badlogic/gdx/utils/Array;
 
-    .local v0, "i":I
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/ModelCache$SimpleMeshPool;->freeMeshes:Lcom/badlogic/gdx/utils/Array;
+    iget v0, v0, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    iget v1, v1, Lcom/badlogic/gdx/utils/Array;->size:I
+    const/4 v1, 0x0
 
-    .local v1, "n":I
+    move v2, v1
+
     :goto_0
-    if-ge v0, v1, :cond_1
+    if-ge v2, v0, :cond_1
 
     .line 75
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/ModelCache$SimpleMeshPool;->freeMeshes:Lcom/badlogic/gdx/utils/Array;
+    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/ModelCache$SimpleMeshPool;->freeMeshes:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v2, v0}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/badlogic/gdx/graphics/Mesh;
-
-    .line 76
-    .local v2, "mesh":Lcom/badlogic/gdx/graphics/Mesh;
-    invoke-virtual {v2}, Lcom/badlogic/gdx/graphics/Mesh;->getVertexAttributes()Lcom/badlogic/gdx/graphics/VertexAttributes;
+    invoke-virtual {v3, v2}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
-    invoke-virtual {v3, p1}, Lcom/badlogic/gdx/graphics/VertexAttributes;->equals(Ljava/lang/Object;)Z
+    check-cast v3, Lcom/badlogic/gdx/graphics/Mesh;
 
-    move-result v3
+    .line 76
+    invoke-virtual {v3}, Lcom/badlogic/gdx/graphics/Mesh;->getVertexAttributes()Lcom/badlogic/gdx/graphics/VertexAttributes;
 
-    if-eqz v3, :cond_0
+    move-result-object v4
 
-    invoke-virtual {v2}, Lcom/badlogic/gdx/graphics/Mesh;->getMaxVertices()I
+    invoke-virtual {v4, p1}, Lcom/badlogic/gdx/graphics/VertexAttributes;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v4
 
-    if-lt v3, p2, :cond_0
+    if-eqz v4, :cond_0
+
+    invoke-virtual {v3}, Lcom/badlogic/gdx/graphics/Mesh;->getMaxVertices()I
+
+    move-result v4
+
+    if-lt v4, p2, :cond_0
 
     .line 77
-    invoke-virtual {v2}, Lcom/badlogic/gdx/graphics/Mesh;->getMaxIndices()I
+    invoke-virtual {v3}, Lcom/badlogic/gdx/graphics/Mesh;->getMaxIndices()I
 
-    move-result v3
+    move-result v4
 
-    if-lt v3, p3, :cond_0
+    if-lt v4, p3, :cond_0
 
     .line 78
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/ModelCache$SimpleMeshPool;->freeMeshes:Lcom/badlogic/gdx/utils/Array;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/ModelCache$SimpleMeshPool;->freeMeshes:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v3, v0}, Lcom/badlogic/gdx/utils/Array;->removeIndex(I)Ljava/lang/Object;
+    invoke-virtual {p1, v2}, Lcom/badlogic/gdx/utils/Array;->removeIndex(I)Ljava/lang/Object;
 
     .line 79
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/ModelCache$SimpleMeshPool;->usedMeshes:Lcom/badlogic/gdx/utils/Array;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/ModelCache$SimpleMeshPool;->usedMeshes:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v3, v2}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {p1, v3}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 80
-    return-object v2
+    return-object v3
 
-    .line 74
-    .end local v2    # "mesh":Lcom/badlogic/gdx/graphics/Mesh;
     :cond_0
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 83
-    .end local v0    # "i":I
-    .end local v1    # "n":I
     :cond_1
-    const p2, 0x8000
+    const/4 p2, 0x1
+
+    sub-int/2addr p3, p2
 
     .line 84
-    const v0, 0x8000
-
-    add-int/lit8 v1, p3, -0x1
-
-    invoke-static {v1}, Ljava/lang/Integer;->numberOfLeadingZeros(I)I
-
-    move-result v1
-
-    rsub-int/lit8 v1, v1, 0x20
-
-    const/4 v2, 0x1
-
-    shl-int v1, v2, v1
-
-    invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
+    invoke-static {p3}, Ljava/lang/Integer;->numberOfLeadingZeros(I)I
 
     move-result p3
+
+    rsub-int/lit8 p3, p3, 0x20
+
+    shl-int/2addr p2, p3
+
+    const p3, 0x8000
+
+    invoke-static {p3, p2}, Ljava/lang/Math;->max(II)I
+
+    move-result p2
 
     .line 85
     new-instance v0, Lcom/badlogic/gdx/graphics/Mesh;
 
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1, p2, p3, p1}, Lcom/badlogic/gdx/graphics/Mesh;-><init>(ZIILcom/badlogic/gdx/graphics/VertexAttributes;)V
+    invoke-direct {v0, v1, p3, p2, p1}, Lcom/badlogic/gdx/graphics/Mesh;-><init>(ZIILcom/badlogic/gdx/graphics/VertexAttributes;)V
 
     .line 86
-    .local v0, "result":Lcom/badlogic/gdx/graphics/Mesh;
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/ModelCache$SimpleMeshPool;->usedMeshes:Lcom/badlogic/gdx/utils/Array;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/ModelCache$SimpleMeshPool;->usedMeshes:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v1, v0}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 87
     return-object v0
 .end method

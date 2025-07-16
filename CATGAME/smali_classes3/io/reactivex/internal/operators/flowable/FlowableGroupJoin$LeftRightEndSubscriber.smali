@@ -45,9 +45,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$JoinSupport;ZI)V
     .locals 0
-    .param p1, "parent"    # Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$JoinSupport;
-    .param p2, "isLeft"    # Z
-    .param p3, "index"    # I
 
     .line 455
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
@@ -61,7 +58,6 @@
     .line 458
     iput p3, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$LeftRightEndSubscriber;->index:I
 
-    .line 459
     return-void
 .end method
 
@@ -73,7 +69,6 @@
     .line 463
     invoke-static {p0}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->cancel(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 464
     return-void
 .end method
 
@@ -104,49 +99,43 @@
 
     invoke-interface {v0, v1, p0}, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$JoinSupport;->innerClose(ZLio/reactivex/internal/operators/flowable/FlowableGroupJoin$LeftRightEndSubscriber;)V
 
-    .line 493
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 487
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$LeftRightEndSubscriber;->parent:Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$JoinSupport;
 
     invoke-interface {v0, p1}, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$JoinSupport;->innerCloseError(Ljava/lang/Throwable;)V
 
-    .line 488
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "t"    # Ljava/lang/Object;
+    .locals 1
 
     .line 480
     invoke-static {p0}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->cancel(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 481
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$LeftRightEndSubscriber;->parent:Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$JoinSupport;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$LeftRightEndSubscriber;->parent:Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$JoinSupport;
 
-    iget-boolean v1, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$LeftRightEndSubscriber;->isLeft:Z
+    iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$LeftRightEndSubscriber;->isLeft:Z
 
-    invoke-interface {v0, v1, p0}, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$JoinSupport;->innerClose(ZLio/reactivex/internal/operators/flowable/FlowableGroupJoin$LeftRightEndSubscriber;)V
+    invoke-interface {p1, v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$JoinSupport;->innerClose(ZLio/reactivex/internal/operators/flowable/FlowableGroupJoin$LeftRightEndSubscriber;)V
 
-    .line 483
     :cond_0
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 473
     invoke-static {p0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lorg/reactivestreams/Subscription;)Z
@@ -155,12 +144,11 @@
 
     if-eqz v0, :cond_0
 
-    .line 474
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 474
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 476
     :cond_0
     return-void
 .end method

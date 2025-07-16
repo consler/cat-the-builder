@@ -7,64 +7,83 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 171
+    .line 240
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 172
     return-void
 .end method
 
 .method public static checkArgument(Z)V
-    .locals 1
-    .param p0, "expression"    # Z
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "expression"
+        }
+    .end annotation
 
-    .line 35
     if-eqz p0, :cond_0
 
-    .line 38
     return-void
 
-    .line 36
+    .line 38
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static checkArgument(ZLjava/lang/Object;)V
-    .locals 2
-    .param p0, "expression"    # Z
-    .param p1, "errorMessage"    # Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "expression",
+            "errorMessage"
+        }
+    .end annotation
 
-    .line 49
     if-eqz p0, :cond_0
 
-    .line 52
     return-void
 
-    .line 50
+    .line 52
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static checkArgumentInRange(IIILjava/lang/String;)I
-    .locals 6
-    .param p0, "value"    # I
-    .param p1, "lower"    # I
-    .param p2, "upper"    # I
-    .param p3, "valueName"    # Ljava/lang/String;
+    .locals 5
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "value",
+            "lower",
+            "upper",
+            "valueName"
+        }
+    .end annotation
 
-    .line 158
     const/4 v0, 0x2
 
     const/4 v1, 0x1
@@ -75,122 +94,208 @@
 
     if-lt p0, p1, :cond_1
 
-    .line 162
     if-gt p0, p2, :cond_0
 
-    .line 168
     return p0
 
-    .line 163
+    .line 232
     :cond_0
-    new-instance v4, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    sget-object v5, Ljava/util/Locale;->US:Ljava/util/Locale;
+    sget-object v4, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     new-array v3, v3, [Ljava/lang/Object;
 
     aput-object p3, v3, v2
 
-    .line 165
+    .line 234
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object p1
 
-    aput-object v2, v3, v1
+    aput-object p1, v3, v1
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p1
 
-    aput-object v1, v3, v0
+    aput-object p1, v3, v0
 
-    .line 164
-    const-string v0, "%s is out of range of [%d, %d] (too high)"
+    const-string p1, "%s is out of range of [%d, %d] (too high)"
 
-    invoke-static {v5, v0, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    .line 233
+    invoke-static {v4, p1, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {v4, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v4
+    throw p0
 
-    .line 159
+    .line 228
     :cond_1
-    new-instance v4, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    sget-object v5, Ljava/util/Locale;->US:Ljava/util/Locale;
+    sget-object v4, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     new-array v3, v3, [Ljava/lang/Object;
 
     aput-object p3, v3, v2
 
-    .line 161
+    .line 230
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object p1
 
-    aput-object v2, v3, v1
+    aput-object p1, v3, v1
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p1
 
-    aput-object v1, v3, v0
+    aput-object p1, v3, v0
 
-    .line 160
-    const-string v0, "%s is out of range of [%d, %d] (too low)"
+    const-string p1, "%s is out of range of [%d, %d] (too low)"
 
-    invoke-static {v5, v0, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    .line 229
+    invoke-static {v4, p1, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {v4, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v4
+    throw p0
 .end method
 
 .method public static checkArgumentNonnegative(I)I
-    .locals 1
-    .param p0, "value"    # I
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x10
+        }
+        names = {
+            "value"
+        }
+    .end annotation
 
-    .line 137
     if-ltz p0, :cond_0
 
-    .line 141
     return p0
 
-    .line 138
+    .line 207
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static checkArgumentNonnegative(ILjava/lang/String;)I
-    .locals 1
-    .param p0, "value"    # I
-    .param p1, "errorMessage"    # Ljava/lang/String;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x10,
+            0x0
+        }
+        names = {
+            "value",
+            "errorMessage"
+        }
+    .end annotation
 
-    .line 121
     if-ltz p0, :cond_0
 
-    .line 125
     return p0
 
-    .line 122
+    .line 191
+    :cond_0
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
+.method public static checkFlagsArgument(II)I
+    .locals 3
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x10,
+            0x10
+        }
+        names = {
+            "requestedFlags",
+            "allowedFlags"
+        }
+    .end annotation
+
+    and-int v0, p0, p1
+
+    if-ne v0, p0, :cond_0
+
+    return p0
+
+    .line 173
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    const-string v2, "Requested flags 0x"
+
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    .line 174
+    invoke-static {p0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    const-string v1, ", but only 0x"
+
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    .line 175
+    invoke-static {p1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    const-string p1, " are allowed"
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public static checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "reference"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -199,23 +304,25 @@
         }
     .end annotation
 
-    .line 63
-    .local p0, "reference":Ljava/lang/Object;, "TT;"
-    if-eqz p0, :cond_0
+    .line 119
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    .line 66
     return-object p0
-
-    .line 64
-    :cond_0
-    const/4 v0, 0x0
-
-    throw v0
 .end method
 
 .method public static checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
-    .param p1, "errorMessage"    # Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "reference",
+            "errorMessage"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -226,55 +333,195 @@
         }
     .end annotation
 
-    .line 80
-    .local p0, "reference":Ljava/lang/Object;, "TT;"
     if-eqz p0, :cond_0
 
-    .line 83
     return-object p0
 
-    .line 81
+    .line 136
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static checkState(Z)V
     .locals 1
-    .param p0, "expression"    # Z
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x10
+        }
+        names = {
+            "expression"
+        }
+    .end annotation
 
-    .line 108
     const/4 v0, 0x0
 
+    .line 163
     invoke-static {p0, v0}, Landroidx/core/util/Preconditions;->checkState(ZLjava/lang/String;)V
 
-    .line 109
     return-void
 .end method
 
 .method public static checkState(ZLjava/lang/String;)V
-    .locals 1
-    .param p0, "expression"    # Z
-    .param p1, "message"    # Ljava/lang/String;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "expression",
+            "message"
+        }
+    .end annotation
 
-    .line 95
     if-eqz p0, :cond_0
 
-    .line 98
     return-void
 
-    .line 96
+    .line 151
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    invoke-direct {v0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
+.end method
+
+.method public static checkStringNotEmpty(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x10
+        }
+        names = {
+            "string"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T::",
+            "Ljava/lang/CharSequence;",
+            ">(TT;)TT;"
+        }
+    .end annotation
+
+    .line 66
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-object p0
+
+    .line 67
+    :cond_0
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
+
+    throw p0
+.end method
+
+.method public static checkStringNotEmpty(Ljava/lang/CharSequence;Ljava/lang/Object;)Ljava/lang/CharSequence;
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x10,
+            0x10
+        }
+        names = {
+            "string",
+            "errorMessage"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T::",
+            "Ljava/lang/CharSequence;",
+            ">(TT;",
+            "Ljava/lang/Object;",
+            ")TT;"
+        }
+    .end annotation
+
+    .line 84
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-object p0
+
+    .line 85
+    :cond_0
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
+.method public static varargs checkStringNotEmpty(Ljava/lang/CharSequence;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/CharSequence;
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x10,
+            0x10,
+            0x10
+        }
+        names = {
+            "string",
+            "messageTemplate",
+            "messageArgs"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T::",
+            "Ljava/lang/CharSequence;",
+            ">(TT;",
+            "Ljava/lang/String;",
+            "[",
+            "Ljava/lang/Object;",
+            ")TT;"
+        }
+    .end annotation
+
+    .line 103
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-object p0
+
+    .line 104
+    :cond_0
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    invoke-static {p1, p2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method

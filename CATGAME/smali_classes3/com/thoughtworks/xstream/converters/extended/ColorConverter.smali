@@ -18,9 +18,6 @@
 
 .method private write(Ljava/lang/String;ILcom/thoughtworks/xstream/io/HierarchicalStreamWriter;)V
     .locals 1
-    .param p1, "fieldName"    # Ljava/lang/String;
-    .param p2, "value"    # I
-    .param p3, "writer"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
 
     .line 61
     sget-object v0, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
@@ -30,119 +27,107 @@
     .line 62
     invoke-static {p2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {p3, v0}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->setValue(Ljava/lang/String;)V
+    invoke-interface {p3, p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->setValue(Ljava/lang/String;)V
 
     .line 63
     invoke-interface {p3}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->endNode()V
 
-    .line 64
     return-void
 .end method
 
 
 # virtual methods
 .method public canConvert(Ljava/lang/Class;)Z
-    .locals 2
-    .param p1, "type"    # Ljava/lang/Class;
+    .locals 1
 
-    .line 36
     if-eqz p1, :cond_0
 
+    .line 36
     invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "java.awt.Color"
+    const-string v0, "java.awt.Color"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public marshal(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
-    .locals 3
-    .param p1, "source"    # Ljava/lang/Object;
-    .param p2, "writer"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
-    .param p3, "context"    # Lcom/thoughtworks/xstream/converters/MarshallingContext;
+    .locals 1
 
     .line 40
-    move-object v0, p1
+    check-cast p1, Ljava/awt/Color;
 
-    check-cast v0, Ljava/awt/Color;
+    const-string p3, "red"
 
     .line 41
-    .local v0, "color":Ljava/awt/Color;
-    invoke-virtual {v0}, Ljava/awt/Color;->getRed()I
+    invoke-virtual {p1}, Ljava/awt/Color;->getRed()I
 
-    move-result v1
+    move-result v0
 
-    const-string v2, "red"
+    invoke-direct {p0, p3, v0, p2}, Lcom/thoughtworks/xstream/converters/extended/ColorConverter;->write(Ljava/lang/String;ILcom/thoughtworks/xstream/io/HierarchicalStreamWriter;)V
 
-    invoke-direct {p0, v2, v1, p2}, Lcom/thoughtworks/xstream/converters/extended/ColorConverter;->write(Ljava/lang/String;ILcom/thoughtworks/xstream/io/HierarchicalStreamWriter;)V
+    const-string p3, "green"
 
     .line 42
-    invoke-virtual {v0}, Ljava/awt/Color;->getGreen()I
+    invoke-virtual {p1}, Ljava/awt/Color;->getGreen()I
 
-    move-result v1
+    move-result v0
 
-    const-string v2, "green"
+    invoke-direct {p0, p3, v0, p2}, Lcom/thoughtworks/xstream/converters/extended/ColorConverter;->write(Ljava/lang/String;ILcom/thoughtworks/xstream/io/HierarchicalStreamWriter;)V
 
-    invoke-direct {p0, v2, v1, p2}, Lcom/thoughtworks/xstream/converters/extended/ColorConverter;->write(Ljava/lang/String;ILcom/thoughtworks/xstream/io/HierarchicalStreamWriter;)V
+    const-string p3, "blue"
 
     .line 43
-    invoke-virtual {v0}, Ljava/awt/Color;->getBlue()I
+    invoke-virtual {p1}, Ljava/awt/Color;->getBlue()I
 
-    move-result v1
+    move-result v0
 
-    const-string v2, "blue"
+    invoke-direct {p0, p3, v0, p2}, Lcom/thoughtworks/xstream/converters/extended/ColorConverter;->write(Ljava/lang/String;ILcom/thoughtworks/xstream/io/HierarchicalStreamWriter;)V
 
-    invoke-direct {p0, v2, v1, p2}, Lcom/thoughtworks/xstream/converters/extended/ColorConverter;->write(Ljava/lang/String;ILcom/thoughtworks/xstream/io/HierarchicalStreamWriter;)V
+    const-string p3, "alpha"
 
     .line 44
-    invoke-virtual {v0}, Ljava/awt/Color;->getAlpha()I
+    invoke-virtual {p1}, Ljava/awt/Color;->getAlpha()I
 
-    move-result v1
+    move-result p1
 
-    const-string v2, "alpha"
+    invoke-direct {p0, p3, p1, p2}, Lcom/thoughtworks/xstream/converters/extended/ColorConverter;->write(Ljava/lang/String;ILcom/thoughtworks/xstream/io/HierarchicalStreamWriter;)V
 
-    invoke-direct {p0, v2, v1, p2}, Lcom/thoughtworks/xstream/converters/extended/ColorConverter;->write(Ljava/lang/String;ILcom/thoughtworks/xstream/io/HierarchicalStreamWriter;)V
-
-    .line 45
     return-void
 .end method
 
 .method public unmarshal(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;)Ljava/lang/Object;
-    .locals 6
-    .param p1, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .param p2, "context"    # Lcom/thoughtworks/xstream/converters/UnmarshallingContext;
+    .locals 4
 
     .line 48
-    new-instance v0, Ljava/util/HashMap;
+    new-instance p2, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {p2}, Ljava/util/HashMap;-><init>()V
 
     .line 49
-    .local v0, "elements":Ljava/util/Map;
     :goto_0
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->hasMoreChildren()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 50
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->moveDown()V
@@ -150,17 +135,17 @@
     .line 51
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->getNodeName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->getValue()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p2, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 52
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->moveUp()V
@@ -169,11 +154,37 @@
 
     .line 54
     :cond_0
-    new-instance v1, Ljava/awt/Color;
+    new-instance p1, Ljava/awt/Color;
 
-    const-string v2, "red"
+    const-string v0, "red"
 
-    invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    const-string v1, "green"
+
+    .line 55
+    invoke-interface {p2, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/Integer;
+
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+
+    move-result v1
+
+    const-string v2, "blue"
+
+    .line 56
+    invoke-interface {p2, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -183,47 +194,20 @@
 
     move-result v2
 
-    .line 55
-    const-string v3, "green"
-
-    invoke-interface {v0, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/lang/Integer;
-
-    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
-
-    move-result v3
-
-    .line 56
-    const-string v4, "blue"
-
-    invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/lang/Integer;
-
-    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
-
-    move-result v4
+    const-string v3, "alpha"
 
     .line 57
-    const-string v5, "alpha"
+    invoke-interface {p2, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v0, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object p2
 
-    move-result-object v5
+    check-cast p2, Ljava/lang/Integer;
 
-    check-cast v5, Ljava/lang/Integer;
+    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
-    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
+    move-result p2
 
-    move-result v5
+    invoke-direct {p1, v0, v1, v2, p2}, Ljava/awt/Color;-><init>(IIII)V
 
-    invoke-direct {v1, v2, v3, v4, v5}, Ljava/awt/Color;-><init>(IIII)V
-
-    .line 54
-    return-object v1
+    return-object p1
 .end method

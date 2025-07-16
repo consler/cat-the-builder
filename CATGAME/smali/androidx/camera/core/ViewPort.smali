@@ -36,10 +36,6 @@
 # direct methods
 .method constructor <init>(ILandroid/util/Rational;II)V
     .locals 0
-    .param p1, "scaleType"    # I
-    .param p2, "aspectRatio"    # Landroid/util/Rational;
-    .param p3, "rotation"    # I
-    .param p4, "layoutDirection"    # I
 
     .line 153
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,7 +52,6 @@
     .line 157
     iput p4, p0, Landroidx/camera/core/ViewPort;->mLayoutDirection:I
 
-    .line 158
     return-void
 .end method
 

@@ -18,9 +18,9 @@
 .method private constructor <init>()V
     .locals 1
 
-    .line 522
     const/4 v0, 0x0
 
+    .line 522
     invoke-direct {p0, v0}, Lorg/apache/commons/lang3/concurrent/EventCountCircuitBreaker$StateStrategy;-><init>(Lorg/apache/commons/lang3/concurrent/EventCountCircuitBreaker$1;)V
 
     return-void
@@ -28,7 +28,6 @@
 
 .method synthetic constructor <init>(Lorg/apache/commons/lang3/concurrent/EventCountCircuitBreaker$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/lang3/concurrent/EventCountCircuitBreaker$1;
 
     .line 522
     invoke-direct {p0}, Lorg/apache/commons/lang3/concurrent/EventCountCircuitBreaker$StateStrategyClosed;-><init>()V
@@ -40,7 +39,6 @@
 # virtual methods
 .method protected fetchCheckInterval(Lorg/apache/commons/lang3/concurrent/EventCountCircuitBreaker;)J
     .locals 2
-    .param p1, "breaker"    # Lorg/apache/commons/lang3/concurrent/EventCountCircuitBreaker;
 
     .line 538
     invoke-virtual {p1}, Lorg/apache/commons/lang3/concurrent/EventCountCircuitBreaker;->getOpeningInterval()J
@@ -51,29 +49,26 @@
 .end method
 
 .method public isStateTransition(Lorg/apache/commons/lang3/concurrent/EventCountCircuitBreaker;Lorg/apache/commons/lang3/concurrent/EventCountCircuitBreaker$CheckIntervalData;Lorg/apache/commons/lang3/concurrent/EventCountCircuitBreaker$CheckIntervalData;)Z
-    .locals 2
-    .param p1, "breaker"    # Lorg/apache/commons/lang3/concurrent/EventCountCircuitBreaker;
-    .param p2, "currentData"    # Lorg/apache/commons/lang3/concurrent/EventCountCircuitBreaker$CheckIntervalData;
-    .param p3, "nextData"    # Lorg/apache/commons/lang3/concurrent/EventCountCircuitBreaker$CheckIntervalData;
+    .locals 0
 
     .line 530
     invoke-virtual {p3}, Lorg/apache/commons/lang3/concurrent/EventCountCircuitBreaker$CheckIntervalData;->getEventCount()I
 
-    move-result v0
+    move-result p2
 
     invoke-virtual {p1}, Lorg/apache/commons/lang3/concurrent/EventCountCircuitBreaker;->getOpeningThreshold()I
 
-    move-result v1
+    move-result p1
 
-    if-le v0, v1, :cond_0
+    if-le p2, p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method

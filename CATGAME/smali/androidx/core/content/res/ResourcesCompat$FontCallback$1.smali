@@ -26,9 +26,18 @@
 # direct methods
 .method constructor <init>(Landroidx/core/content/res/ResourcesCompat$FontCallback;Landroid/graphics/Typeface;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/core/content/res/ResourcesCompat$FontCallback;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x8010,
+            0x1010
+        }
+        names = {
+            "this$0",
+            "val$typeface"
+        }
+    .end annotation
 
-    .line 281
+    .line 436
     iput-object p1, p0, Landroidx/core/content/res/ResourcesCompat$FontCallback$1;->this$0:Landroidx/core/content/res/ResourcesCompat$FontCallback;
 
     iput-object p2, p0, Landroidx/core/content/res/ResourcesCompat$FontCallback$1;->val$typeface:Landroid/graphics/Typeface;
@@ -43,13 +52,12 @@
 .method public run()V
     .locals 2
 
-    .line 284
+    .line 439
     iget-object v0, p0, Landroidx/core/content/res/ResourcesCompat$FontCallback$1;->this$0:Landroidx/core/content/res/ResourcesCompat$FontCallback;
 
     iget-object v1, p0, Landroidx/core/content/res/ResourcesCompat$FontCallback$1;->val$typeface:Landroid/graphics/Typeface;
 
     invoke-virtual {v0, v1}, Landroidx/core/content/res/ResourcesCompat$FontCallback;->onFontRetrieved(Landroid/graphics/Typeface;)V
 
-    .line 285
     return-void
 .end method

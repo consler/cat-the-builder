@@ -43,10 +43,7 @@
 .end method
 
 .method public read([CII)I
-    .locals 1
-    .param p1, "buffer"    # [C
-    .param p2, "offset"    # I
-    .param p3, "count"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -54,9 +51,9 @@
     .end annotation
 
     .line 41
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method

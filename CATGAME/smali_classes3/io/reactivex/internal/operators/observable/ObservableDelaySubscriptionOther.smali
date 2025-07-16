@@ -57,9 +57,6 @@
     .end annotation
 
     .line 31
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther;, "Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther<TT;TU;>;"
-    .local p1, "main":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<+TT;>;"
-    .local p2, "other":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TU;>;"
     invoke-direct {p0}, Lio/reactivex/Observable;-><init>()V
 
     .line 32
@@ -68,14 +65,13 @@
     .line 33
     iput-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther;->other:Lio/reactivex/ObservableSource;
 
-    .line 34
     return-void
 .end method
 
 
 # virtual methods
 .method public subscribeActual(Lio/reactivex/Observer;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -85,14 +81,11 @@
     .end annotation
 
     .line 38
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther;, "Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther<TT;TU;>;"
-    .local p1, "child":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     new-instance v0, Lio/reactivex/internal/disposables/SequentialDisposable;
 
     invoke-direct {v0}, Lio/reactivex/internal/disposables/SequentialDisposable;-><init>()V
 
     .line 39
-    .local v0, "serial":Lio/reactivex/internal/disposables/SequentialDisposable;
     invoke-interface {p1, v0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 41
@@ -101,11 +94,9 @@
     invoke-direct {v1, p0, v0, p1}, Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther$DelayObserver;-><init>(Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther;Lio/reactivex/internal/disposables/SequentialDisposable;Lio/reactivex/Observer;)V
 
     .line 43
-    .local v1, "otherObserver":Lio/reactivex/Observer;, "Lio/reactivex/Observer<TU;>;"
-    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther;->other:Lio/reactivex/ObservableSource;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther;->other:Lio/reactivex/ObservableSource;
 
-    invoke-interface {v2, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
+    invoke-interface {p1, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 44
     return-void
 .end method

@@ -63,7 +63,6 @@
 .method public hasArray()Z
     .locals 1
 
-    .line 224
     const/4 v0, 0x1
 
     return v0
@@ -72,7 +71,6 @@
 .method public hasNioBuffer()Z
     .locals 1
 
-    .line 214
     const/4 v0, 0x0
 
     return v0
@@ -109,11 +107,10 @@
 
 .method public position(I)Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
     .locals 3
-    .param p1, "position"    # I
 
-    .line 244
     if-ltz p1, :cond_0
 
+    .line 244
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer$2;->val$length:I
 
     if-gt p1, v0, :cond_0
@@ -121,7 +118,6 @@
     .line 247
     iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer$2;->position:I
 
-    .line 248
     return-object p0
 
     .line 245
@@ -130,19 +126,19 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Invalid position: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method

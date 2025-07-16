@@ -59,22 +59,18 @@
     .end annotation
 
     .line 74
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$ItemDelayFunction;, "Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$ItemDelayFunction<TT;TU;>;"
-    .local p1, "itemDelay":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<TU;>;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 75
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$ItemDelayFunction;->itemDelay:Lio/reactivex/functions/Function;
 
-    .line 76
     return-void
 .end method
 
 
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -82,12 +78,11 @@
     .end annotation
 
     .line 71
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$ItemDelayFunction;, "Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$ItemDelayFunction<TT;TU;>;"
     invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$ItemDelayFunction;->apply(Ljava/lang/Object;)Lorg/reactivestreams/Publisher;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public apply(Ljava/lang/Object;)Lorg/reactivestreams/Publisher;
@@ -107,8 +102,6 @@
     .end annotation
 
     .line 80
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$ItemDelayFunction;, "Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$ItemDelayFunction<TT;TU;>;"
-    .local p1, "v":Ljava/lang/Object;, "TT;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableTakePublisher;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$ItemDelayFunction;->itemDelay:Lio/reactivex/functions/Function;
@@ -133,7 +126,7 @@
 
     invoke-virtual {v0, p1}, Lio/reactivex/Flowable;->defaultIfEmpty(Ljava/lang/Object;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

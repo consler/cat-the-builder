@@ -46,31 +46,26 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/time/YearMonth;
-    .locals 3
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "in"    # Lcom/esotericsoftware/kryo/io/Input;
-    .param p3, "type"    # Ljava/lang/Class;
+    .locals 0
+
+    const/4 p1, 0x1
 
     .line 290
-    const/4 v0, 0x1
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Input;->readInt(Z)I
 
-    invoke-virtual {p2, v0}, Lcom/esotericsoftware/kryo/io/Input;->readInt(Z)I
-
-    move-result v0
+    move-result p1
 
     .line 291
-    .local v0, "year":I
     invoke-virtual {p2}, Lcom/esotericsoftware/kryo/io/Input;->readByte()B
 
-    move-result v1
+    move-result p2
 
     .line 292
-    .local v1, "month":B
-    invoke-static {v0, v1}, Ljava/time/YearMonth;->of(II)Ljava/time/YearMonth;
+    invoke-static {p1, p2}, Ljava/time/YearMonth;->of(II)Ljava/time/YearMonth;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
@@ -85,27 +80,23 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/time/YearMonth;)V
-    .locals 2
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "out"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p3, "obj"    # Ljava/time/YearMonth;
+    .locals 1
 
     .line 285
     invoke-virtual {p3}, Ljava/time/YearMonth;->getYear()I
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    invoke-virtual {p2, v0, v1}, Lcom/esotericsoftware/kryo/io/Output;->writeVarInt(IZ)I
+    invoke-virtual {p2, p1, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeVarInt(IZ)I
 
     .line 286
     invoke-virtual {p3}, Ljava/time/YearMonth;->getMonthValue()I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p2, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(I)V
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(I)V
 
-    .line 287
     return-void
 .end method

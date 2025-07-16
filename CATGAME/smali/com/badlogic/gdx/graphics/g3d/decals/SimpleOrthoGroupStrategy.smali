@@ -44,27 +44,24 @@
 
 # virtual methods
 .method public afterGroup(I)V
-    .locals 2
-    .param p1, "group"    # I
+    .locals 1
 
-    .line 94
     const/4 v0, 0x1
 
     if-ne p1, v0, :cond_0
 
     .line 95
-    sget-object v1, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
+    sget-object p1, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
 
-    invoke-interface {v1, v0}, Lcom/badlogic/gdx/graphics/GL20;->glDepthMask(Z)V
+    invoke-interface {p1, v0}, Lcom/badlogic/gdx/graphics/GL20;->glDepthMask(Z)V
 
     .line 96
-    sget-object v0, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
+    sget-object p1, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
 
-    const/16 v1, 0xbe2
+    const/16 v0, 0xbe2
 
-    invoke-interface {v0, v1}, Lcom/badlogic/gdx/graphics/GL20;->glDisable(I)V
+    invoke-interface {p1, v0}, Lcom/badlogic/gdx/graphics/GL20;->glDisable(I)V
 
-    .line 98
     :cond_0
     return-void
 .end method
@@ -79,13 +76,11 @@
 
     invoke-interface {v0, v1}, Lcom/badlogic/gdx/graphics/GL20;->glDisable(I)V
 
-    .line 108
     return-void
 .end method
 
 .method public beforeGroup(ILcom/badlogic/gdx/utils/Array;)V
-    .locals 2
-    .param p1, "group"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -95,8 +90,6 @@
         }
     .end annotation
 
-    .line 81
-    .local p2, "contents":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/g3d/decals/Decal;>;"
     const/4 v0, 0x1
 
     if-ne p1, v0, :cond_0
@@ -104,27 +97,26 @@
     .line 82
     invoke-static {}, Lcom/badlogic/gdx/utils/Sort;->instance()Lcom/badlogic/gdx/utils/Sort;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/SimpleOrthoGroupStrategy;->comparator:Lcom/badlogic/gdx/graphics/g3d/decals/SimpleOrthoGroupStrategy$Comparator;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/SimpleOrthoGroupStrategy;->comparator:Lcom/badlogic/gdx/graphics/g3d/decals/SimpleOrthoGroupStrategy$Comparator;
 
-    invoke-virtual {v0, p2, v1}, Lcom/badlogic/gdx/utils/Sort;->sort(Lcom/badlogic/gdx/utils/Array;Ljava/util/Comparator;)V
+    invoke-virtual {p1, p2, v0}, Lcom/badlogic/gdx/utils/Sort;->sort(Lcom/badlogic/gdx/utils/Array;Ljava/util/Comparator;)V
 
     .line 83
-    sget-object v0, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
+    sget-object p1, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
 
-    const/16 v1, 0xbe2
+    const/16 p2, 0xbe2
 
-    invoke-interface {v0, v1}, Lcom/badlogic/gdx/graphics/GL20;->glEnable(I)V
+    invoke-interface {p1, p2}, Lcom/badlogic/gdx/graphics/GL20;->glEnable(I)V
 
     .line 86
-    sget-object v0, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
+    sget-object p1, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    invoke-interface {v0, v1}, Lcom/badlogic/gdx/graphics/GL20;->glDepthMask(Z)V
+    invoke-interface {p1, p2}, Lcom/badlogic/gdx/graphics/GL20;->glDepthMask(Z)V
 
-    .line 90
     :cond_0
     return-void
 .end method
@@ -139,34 +131,30 @@
 
     invoke-interface {v0, v1}, Lcom/badlogic/gdx/graphics/GL20;->glEnable(I)V
 
-    .line 103
     return-void
 .end method
 
 .method public decideGroup(Lcom/badlogic/gdx/graphics/g3d/decals/Decal;)I
-    .locals 1
-    .param p1, "decal"    # Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
+    .locals 0
 
     .line 76
     invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->getMaterial()Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->isOpaque()Z
+    invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->isOpaque()Z
 
-    move-result v0
+    move-result p1
 
-    xor-int/lit8 v0, v0, 0x1
+    xor-int/lit8 p1, p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public getGroupShader(I)Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
-    .locals 1
-    .param p1, "group"    # I
+    .locals 0
 
-    .line 120
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method

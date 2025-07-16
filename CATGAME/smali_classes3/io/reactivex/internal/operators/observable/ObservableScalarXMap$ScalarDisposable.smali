@@ -73,9 +73,6 @@
     .end annotation
 
     .line 191
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable;, "Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable<TT;>;"
-    .local p1, "observer":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
-    .local p2, "value":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
 
     .line 192
@@ -84,7 +81,6 @@
     .line 193
     iput-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable;->value:Ljava/lang/Object;
 
-    .line 194
     return-void
 .end method
 
@@ -93,26 +89,22 @@
 .method public clear()V
     .locals 1
 
-    .line 223
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable;, "Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable<TT;>;"
     const/4 v0, 0x3
 
+    .line 223
     invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable;->lazySet(I)V
 
-    .line 224
     return-void
 .end method
 
 .method public dispose()V
     .locals 1
 
-    .line 228
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable;, "Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable<TT;>;"
     const/4 v0, 0x3
 
+    .line 228
     invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable;->set(I)V
 
-    .line 229
     return-void
 .end method
 
@@ -120,7 +112,6 @@
     .locals 2
 
     .line 233
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable;, "Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable;->get()I
 
     move-result v0
@@ -144,7 +135,6 @@
     .locals 2
 
     .line 218
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable;, "Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable;->get()I
 
     move-result v0
@@ -163,7 +153,7 @@
 .end method
 
 .method public offer(Ljava/lang/Object;)Z
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -171,19 +161,17 @@
     .end annotation
 
     .line 198
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable;, "Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "Should not be called!"
+    const-string v0, "Should not be called!"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public offer(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;TT;)Z"
@@ -191,16 +179,13 @@
     .end annotation
 
     .line 203
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable;, "Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable<TT;>;"
-    .local p1, "v1":Ljava/lang/Object;, "TT;"
-    .local p2, "v2":Ljava/lang/Object;, "TT;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "Should not be called!"
+    const-string p2, "Should not be called!"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public poll()Ljava/lang/Object;
@@ -218,7 +203,6 @@
     .end annotation
 
     .line 209
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable;, "Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable;->get()I
 
     move-result v0
@@ -227,9 +211,9 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 210
     const/4 v0, 0x3
 
+    .line 210
     invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable;->lazySet(I)V
 
     .line 211
@@ -237,7 +221,6 @@
 
     return-object v0
 
-    .line 213
     :cond_0
     const/4 v0, 0x0
 
@@ -246,34 +229,28 @@
 
 .method public requestFusion(I)I
     .locals 1
-    .param p1, "mode"    # I
 
-    .line 238
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable;, "Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable<TT;>;"
-    and-int/lit8 v0, p1, 0x1
-
-    if-eqz v0, :cond_0
-
-    .line 239
     const/4 v0, 0x1
 
+    and-int/2addr p1, v0
+
+    if-eqz p1, :cond_0
+
+    .line 239
     invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable;->lazySet(I)V
 
-    .line 240
     return v0
 
-    .line 242
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public run()V
     .locals 3
 
     .line 247
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable;, "Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable;->get()I
 
     move-result v0
@@ -304,9 +281,9 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 250
     const/4 v0, 0x3
 
+    .line 250
     invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable;->lazySet(I)V
 
     .line 251
@@ -314,7 +291,6 @@
 
     invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 254
     :cond_0
     return-void
 .end method

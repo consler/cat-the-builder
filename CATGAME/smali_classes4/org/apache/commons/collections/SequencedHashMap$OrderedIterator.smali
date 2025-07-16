@@ -30,7 +30,6 @@
 # direct methods
 .method public constructor <init>(Lorg/apache/commons/collections/SequencedHashMap;I)V
     .locals 2
-    .param p2, "returnType"    # I
 
     .line 720
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,27 +39,24 @@
     .line 705
     invoke-static {p1}, Lorg/apache/commons/collections/SequencedHashMap;->access$100(Lorg/apache/commons/collections/SequencedHashMap;)Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lorg/apache/commons/collections/SequencedHashMap$OrderedIterator;->pos:Lorg/apache/commons/collections/SequencedHashMap$Entry;
+    iput-object v0, p0, Lorg/apache/commons/collections/SequencedHashMap$OrderedIterator;->pos:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
     .line 712
-    iget-object p1, p0, Lorg/apache/commons/collections/SequencedHashMap$OrderedIterator;->this$0:Lorg/apache/commons/collections/SequencedHashMap;
-
     invoke-static {p1}, Lorg/apache/commons/collections/SequencedHashMap;->access$300(Lorg/apache/commons/collections/SequencedHashMap;)J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lorg/apache/commons/collections/SequencedHashMap$OrderedIterator;->expectedModCount:J
 
-    .line 731
     const/high16 p1, -0x80000000
 
     or-int/2addr p1, p2
 
+    .line 731
     iput p1, p0, Lorg/apache/commons/collections/SequencedHashMap$OrderedIterator;->returnType:I
 
-    .line 732
     return-void
 .end method
 
@@ -151,7 +147,6 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 774
     return-object v0
 
     .line 777
@@ -160,15 +155,15 @@
 
     new-instance v1, Ljava/lang/StringBuffer;
 
-    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
-
     const-string v2, "bad iterator type: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
     iget v2, p0, Lorg/apache/commons/collections/SequencedHashMap$OrderedIterator;->returnType:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
@@ -263,7 +258,6 @@
 
     iput v0, p0, Lorg/apache/commons/collections/SequencedHashMap$OrderedIterator;->returnType:I
 
-    .line 808
     return-void
 
     .line 798

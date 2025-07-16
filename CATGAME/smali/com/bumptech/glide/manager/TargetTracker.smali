@@ -37,7 +37,6 @@
 
     iput-object v0, p0, Lcom/bumptech/glide/manager/TargetTracker;->targets:Ljava/util/Set;
 
-    .line 16
     return-void
 .end method
 
@@ -51,7 +50,6 @@
 
     invoke-interface {v0}, Ljava/util/Set;->clear()V
 
-    .line 55
     return-void
 .end method
 
@@ -104,14 +102,10 @@
     check-cast v1, Lcom/bumptech/glide/request/target/Target;
 
     .line 44
-    .local v1, "target":Lcom/bumptech/glide/request/target/Target;, "Lcom/bumptech/glide/request/target/Target<*>;"
     invoke-interface {v1}, Lcom/bumptech/glide/request/target/Target;->onDestroy()V
 
-    .line 45
-    .end local v1    # "target":Lcom/bumptech/glide/request/target/Target;, "Lcom/bumptech/glide/request/target/Target<*>;"
     goto :goto_0
 
-    .line 46
     :cond_0
     return-void
 .end method
@@ -144,14 +138,10 @@
     check-cast v1, Lcom/bumptech/glide/request/target/Target;
 
     .line 30
-    .local v1, "target":Lcom/bumptech/glide/request/target/Target;, "Lcom/bumptech/glide/request/target/Target<*>;"
     invoke-interface {v1}, Lcom/bumptech/glide/request/target/Target;->onStart()V
 
-    .line 31
-    .end local v1    # "target":Lcom/bumptech/glide/request/target/Target;, "Lcom/bumptech/glide/request/target/Target<*>;"
     goto :goto_0
 
-    .line 32
     :cond_0
     return-void
 .end method
@@ -184,14 +174,10 @@
     check-cast v1, Lcom/bumptech/glide/request/target/Target;
 
     .line 37
-    .local v1, "target":Lcom/bumptech/glide/request/target/Target;, "Lcom/bumptech/glide/request/target/Target<*>;"
     invoke-interface {v1}, Lcom/bumptech/glide/request/target/Target;->onStop()V
 
-    .line 38
-    .end local v1    # "target":Lcom/bumptech/glide/request/target/Target;, "Lcom/bumptech/glide/request/target/Target<*>;"
     goto :goto_0
 
-    .line 39
     :cond_0
     return-void
 .end method
@@ -207,12 +193,10 @@
     .end annotation
 
     .line 20
-    .local p1, "target":Lcom/bumptech/glide/request/target/Target;, "Lcom/bumptech/glide/request/target/Target<*>;"
     iget-object v0, p0, Lcom/bumptech/glide/manager/TargetTracker;->targets:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 21
     return-void
 .end method
 
@@ -227,11 +211,9 @@
     .end annotation
 
     .line 24
-    .local p1, "target":Lcom/bumptech/glide/request/target/Target;, "Lcom/bumptech/glide/request/target/Target<*>;"
     iget-object v0, p0, Lcom/bumptech/glide/manager/TargetTracker;->targets:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
-    .line 25
     return-void
 .end method

@@ -62,8 +62,6 @@
 
 .method public copy(Lcom/esotericsoftware/kryo/Kryo;Ljava/util/List;)Ljava/util/List;
     .locals 4
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "original"    # Ljava/util/List;
 
     .line 866
     invoke-interface {p2}, Ljava/util/List;->size()I
@@ -73,19 +71,16 @@
     new-array v0, v0, [Ljava/lang/Object;
 
     .line 867
-    .local v0, "copyArr":[Ljava/lang/Object;
     invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v1
 
     .line 868
-    .local v1, "copy":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Object;>;"
     invoke-virtual {p1, v1}, Lcom/esotericsoftware/kryo/Kryo;->reference(Ljava/lang/Object;)V
 
-    .line 869
     const/4 v2, 0x0
 
-    .local v2, "i":I
+    .line 869
     :goto_0
     invoke-interface {p2}, Ljava/util/List;->size()I
 
@@ -104,13 +99,10 @@
 
     aput-object v3, v0, v2
 
-    .line 869
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 872
-    .end local v2    # "i":I
     :cond_0
     return-object v1
 .end method
@@ -127,18 +119,14 @@
 .end method
 
 .method protected create(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;I)Ljava/util/List;
-    .locals 1
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
-    .param p3, "type"    # Ljava/lang/Class;
-    .param p4, "size"    # I
+    .locals 0
 
     .line 856
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance p1, Ljava/util/ArrayList;
 
-    invoke-direct {v0, p4}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {p1, p4}, Ljava/util/ArrayList;-><init>(I)V
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
@@ -164,35 +152,30 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/util/List;
-    .locals 2
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
-    .param p3, "type"    # Ljava/lang/Class;
+    .locals 0
 
     .line 860
     invoke-super {p0, p1, p2, p3}, Lcom/esotericsoftware/kryo/serializers/CollectionSerializer;->read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/util/Collection;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/List;
+    check-cast p1, Ljava/util/List;
 
-    .line 861
-    .local v0, "list":Ljava/util/List;
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 
     .line 862
     :cond_0
-    invoke-interface {v0}, Ljava/util/List;->toArray()[Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/List;->toArray()[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-static {v1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method

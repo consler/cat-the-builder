@@ -41,12 +41,10 @@
 # direct methods
 .method public constructor <init>(Landroidx/mediarouter/media/MediaRouteDescriptor;)V
     .locals 2
-    .param p1, "descriptor"    # Landroidx/mediarouter/media/MediaRouteDescriptor;
 
     .line 412
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 413
     if-eqz p1, :cond_2
 
     .line 417
@@ -95,31 +93,28 @@
     .line 424
     new-instance v0, Ljava/util/ArrayList;
 
-    iget-object v1, p1, Landroidx/mediarouter/media/MediaRouteDescriptor;->mControlFilters:Ljava/util/List;
+    iget-object p1, p1, Landroidx/mediarouter/media/MediaRouteDescriptor;->mControlFilters:Ljava/util/List;
 
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-direct {v0, p1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     iput-object v0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->mControlFilters:Ljava/util/ArrayList;
 
-    .line 426
     :cond_1
     return-void
 
     .line 414
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "descriptor must not be null"
+    const-string v0, "descriptor must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "name"    # Ljava/lang/String;
 
     .line 402
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -137,17 +132,14 @@
     .line 405
     invoke-virtual {p0, p2}, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->setName(Ljava/lang/String;)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
 
-    .line 406
     return-void
 .end method
 
 
 # virtual methods
 .method public addControlFilter(Landroid/content/IntentFilter;)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
-    .locals 2
-    .param p1, "filter"    # Landroid/content/IntentFilter;
+    .locals 1
 
-    .line 617
     if-eqz p1, :cond_2
 
     .line 621
@@ -177,23 +169,22 @@
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 627
     :cond_1
     return-object p0
 
     .line 618
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "filter must not be null"
+    const-string v0, "filter must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public addControlFilters(Ljava/util/Collection;)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -204,8 +195,6 @@
         }
     .end annotation
 
-    .line 634
-    .local p1, "filters":Ljava/util/Collection;, "Ljava/util/Collection<Landroid/content/IntentFilter;>;"
     if-eqz p1, :cond_1
 
     .line 638
@@ -218,47 +207,42 @@
     .line 639
     invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/content/IntentFilter;
+    check-cast v0, Landroid/content/IntentFilter;
 
     .line 640
-    .local v1, "filter":Landroid/content/IntentFilter;
-    invoke-virtual {p0, v1}, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->addControlFilter(Landroid/content/IntentFilter;)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
+    invoke-virtual {p0, v0}, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->addControlFilter(Landroid/content/IntentFilter;)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
 
-    .line 641
-    .end local v1    # "filter":Landroid/content/IntentFilter;
     goto :goto_0
 
-    .line 643
     :cond_0
     return-object p0
 
     .line 635
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "filters must not be null"
+    const-string v0, "filters must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public addGroupMemberId(Ljava/lang/String;)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
-    .locals 2
-    .param p1, "groupMemberId"    # Ljava/lang/String;
+    .locals 1
 
     .line 451
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -294,23 +278,22 @@
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 461
     :cond_1
     return-object p0
 
     .line 452
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "groupMemberId must not be empty"
+    const-string v0, "groupMemberId must not be empty"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public addGroupMemberIds(Ljava/util/Collection;)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -321,8 +304,6 @@
         }
     .end annotation
 
-    .line 474
-    .local p1, "groupMemberIds":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/lang/String;>;"
     if-eqz p1, :cond_1
 
     .line 478
@@ -335,42 +316,38 @@
     .line 479
     invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ljava/lang/String;
+    check-cast v0, Ljava/lang/String;
 
     .line 480
-    .local v1, "groupMemberId":Ljava/lang/String;
-    invoke-virtual {p0, v1}, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->addGroupMemberId(Ljava/lang/String;)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
+    invoke-virtual {p0, v0}, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->addGroupMemberId(Ljava/lang/String;)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
 
-    .line 481
-    .end local v1    # "groupMemberId":Ljava/lang/String;
     goto :goto_0
 
-    .line 483
     :cond_0
     return-object p0
 
     .line 475
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "groupMemberIds must not be null"
+    const-string v0, "groupMemberIds must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public build()Landroidx/mediarouter/media/MediaRouteDescriptor;
@@ -413,8 +390,7 @@
 .end method
 
 .method public removeGroupMemberId(Ljava/lang/String;)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
-    .locals 2
-    .param p1, "memberRouteId"    # Ljava/lang/String;
+    .locals 1
 
     .line 496
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -431,24 +407,22 @@
     .line 501
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 503
     :cond_0
     return-object p0
 
     .line 497
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "memberRouteId must not be empty"
+    const-string v0, "memberRouteId must not be empty"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setCanDisconnect(Z)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
     .locals 2
-    .param p1, "canDisconnect"    # Z
 
     .line 600
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->mBundle:Landroid/os/Bundle;
@@ -457,13 +431,11 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 601
     return-object p0
 .end method
 
 .method public setConnecting(Z)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
     .locals 2
-    .param p1, "connecting"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -474,13 +446,11 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 580
     return-object p0
 .end method
 
 .method public setConnectionState(I)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
     .locals 2
-    .param p1, "connectionState"    # I
 
     .line 592
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->mBundle:Landroid/os/Bundle;
@@ -489,13 +459,11 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 593
     return-object p0
 .end method
 
 .method public setDescription(Ljava/lang/String;)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
     .locals 2
-    .param p1, "description"    # Ljava/lang/String;
 
     .line 526
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->mBundle:Landroid/os/Bundle;
@@ -504,13 +472,11 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 527
     return-object p0
 .end method
 
 .method public setDeviceType(I)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
     .locals 2
-    .param p1, "deviceType"    # I
 
     .line 674
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->mBundle:Landroid/os/Bundle;
@@ -519,13 +485,11 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 675
     return-object p0
 .end method
 
 .method public setEnabled(Z)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
     .locals 2
-    .param p1, "enabled"    # Z
 
     .line 560
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->mBundle:Landroid/os/Bundle;
@@ -534,13 +498,11 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 561
     return-object p0
 .end method
 
 .method public setExtras(Landroid/os/Bundle;)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
     .locals 2
-    .param p1, "extras"    # Landroid/os/Bundle;
 
     .line 720
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->mBundle:Landroid/os/Bundle;
@@ -549,45 +511,40 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 721
     return-object p0
 .end method
 
 .method public setIconUri(Landroid/net/Uri;)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
-    .locals 3
-    .param p1, "iconUri"    # Landroid/net/Uri;
+    .locals 2
 
-    .line 545
     if-eqz p1, :cond_0
 
     .line 548
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->mBundle:Landroid/os/Bundle;
 
+    const-string v1, "iconUri"
+
     invoke-virtual {p1}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "iconUri"
+    invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 549
     return-object p0
 
     .line 546
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "iconUri must not be null"
+    const-string v0, "iconUri must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setId(Ljava/lang/String;)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
     .locals 2
-    .param p1, "id"    # Ljava/lang/String;
 
     .line 437
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->mBundle:Landroid/os/Bundle;
@@ -596,13 +553,11 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 438
     return-object p0
 .end method
 
 .method public setIsDynamicGroupRoute(Z)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
     .locals 2
-    .param p1, "isDynamicGroupRoute"    # Z
 
     .line 569
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->mBundle:Landroid/os/Bundle;
@@ -611,13 +566,11 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 570
     return-object p0
 .end method
 
 .method public setMaxClientVersion(I)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
     .locals 2
-    .param p1, "maxVersion"    # I
 
     .line 742
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->mBundle:Landroid/os/Bundle;
@@ -626,13 +579,11 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 743
     return-object p0
 .end method
 
 .method public setMinClientVersion(I)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
     .locals 2
-    .param p1, "minVersion"    # I
 
     .line 731
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->mBundle:Landroid/os/Bundle;
@@ -641,13 +592,11 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 732
     return-object p0
 .end method
 
 .method public setName(Ljava/lang/String;)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
     .locals 2
-    .param p1, "name"    # Ljava/lang/String;
 
     .line 514
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->mBundle:Landroid/os/Bundle;
@@ -656,13 +605,11 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 515
     return-object p0
 .end method
 
 .method public setPlaybackStream(I)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
     .locals 2
-    .param p1, "playbackStream"    # I
 
     .line 662
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->mBundle:Landroid/os/Bundle;
@@ -671,13 +618,11 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 663
     return-object p0
 .end method
 
 .method public setPlaybackType(I)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
     .locals 2
-    .param p1, "playbackType"    # I
 
     .line 654
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->mBundle:Landroid/os/Bundle;
@@ -686,13 +631,11 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 655
     return-object p0
 .end method
 
 .method public setPresentationDisplayId(I)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
     .locals 2
-    .param p1, "presentationDisplayId"    # I
 
     .line 710
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->mBundle:Landroid/os/Bundle;
@@ -701,13 +644,11 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 711
     return-object p0
 .end method
 
 .method public setSettingsActivity(Landroid/content/IntentSender;)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
     .locals 2
-    .param p1, "is"    # Landroid/content/IntentSender;
 
     .line 609
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->mBundle:Landroid/os/Bundle;
@@ -716,51 +657,44 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 610
     return-object p0
 .end method
 
 .method public setVolume(I)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
     .locals 2
-    .param p1, "volume"    # I
 
     .line 682
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->mBundle:Landroid/os/Bundle;
 
-    const-string/jumbo v1, "volume"
+    const-string v1, "volume"
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 683
     return-object p0
 .end method
 
 .method public setVolumeHandling(I)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
     .locals 2
-    .param p1, "volumeHandling"    # I
 
     .line 702
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->mBundle:Landroid/os/Bundle;
 
-    const-string/jumbo v1, "volumeHandling"
+    const-string v1, "volumeHandling"
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 703
     return-object p0
 .end method
 
 .method public setVolumeMax(I)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
     .locals 2
-    .param p1, "volumeMax"    # I
 
     .line 690
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->mBundle:Landroid/os/Bundle;
 
-    const-string/jumbo v1, "volumeMax"
+    const-string v1, "volumeMax"
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 691
     return-object p0
 .end method

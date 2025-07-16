@@ -45,299 +45,233 @@
 
 # virtual methods
 .method public evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 18
-    .param p1, "fraction"    # F
-    .param p2, "startValue"    # Ljava/lang/Object;
-    .param p3, "endValue"    # Ljava/lang/Object;
+    .locals 11
 
     .line 64
-    move-object/from16 v0, p2
+    check-cast p2, Ljava/lang/Integer;
 
-    check-cast v0, Ljava/lang/Integer;
+    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    move-result p2
 
-    move-result v0
+    shr-int/lit8 v0, p2, 0x18
 
-    .line 65
-    .local v0, "startInt":I
-    shr-int/lit8 v1, v0, 0x18
+    and-int/lit16 v0, v0, 0xff
 
-    and-int/lit16 v1, v1, 0xff
+    int-to-float v0, v0
 
-    int-to-float v1, v1
+    const/high16 v1, 0x437f0000    # 255.0f
 
-    const/high16 v2, 0x437f0000    # 255.0f
+    div-float/2addr v0, v1
 
-    div-float/2addr v1, v2
+    shr-int/lit8 v2, p2, 0x10
 
-    .line 66
-    .local v1, "startA":F
-    shr-int/lit8 v3, v0, 0x10
+    and-int/lit16 v2, v2, 0xff
+
+    int-to-float v2, v2
+
+    div-float/2addr v2, v1
+
+    shr-int/lit8 v3, p2, 0x8
 
     and-int/lit16 v3, v3, 0xff
 
     int-to-float v3, v3
 
-    div-float/2addr v3, v2
+    div-float/2addr v3, v1
 
-    .line 67
-    .local v3, "startR":F
-    shr-int/lit8 v4, v0, 0x8
+    and-int/lit16 p2, p2, 0xff
+
+    int-to-float p2, p2
+
+    div-float/2addr p2, v1
+
+    .line 70
+    check-cast p3, Ljava/lang/Integer;
+
+    invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
+
+    move-result p3
+
+    shr-int/lit8 v4, p3, 0x18
 
     and-int/lit16 v4, v4, 0xff
 
     int-to-float v4, v4
 
-    div-float/2addr v4, v2
+    div-float/2addr v4, v1
 
-    .line 68
-    .local v4, "startG":F
-    and-int/lit16 v5, v0, 0xff
+    shr-int/lit8 v5, p3, 0x10
+
+    and-int/lit16 v5, v5, 0xff
 
     int-to-float v5, v5
 
-    div-float/2addr v5, v2
+    div-float/2addr v5, v1
 
-    .line 70
-    .local v5, "startB":F
-    move-object/from16 v6, p3
+    shr-int/lit8 v6, p3, 0x8
 
-    check-cast v6, Ljava/lang/Integer;
+    and-int/lit16 v6, v6, 0xff
 
-    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
+    int-to-float v6, v6
 
-    move-result v6
+    div-float/2addr v6, v1
 
-    .line 71
-    .local v6, "endInt":I
-    shr-int/lit8 v7, v6, 0x18
+    and-int/lit16 p3, p3, 0xff
 
-    and-int/lit16 v7, v7, 0xff
+    int-to-float p3, p3
 
-    int-to-float v7, v7
+    div-float/2addr p3, v1
 
-    div-float/2addr v7, v2
+    float-to-double v7, v2
 
-    .line 72
-    .local v7, "endA":F
-    shr-int/lit8 v8, v6, 0x10
-
-    and-int/lit16 v8, v8, 0xff
-
-    int-to-float v8, v8
-
-    div-float/2addr v8, v2
-
-    .line 73
-    .local v8, "endR":F
-    shr-int/lit8 v9, v6, 0x8
-
-    and-int/lit16 v9, v9, 0xff
-
-    int-to-float v9, v9
-
-    div-float/2addr v9, v2
-
-    .line 74
-    .local v9, "endG":F
-    and-int/lit16 v10, v6, 0xff
-
-    int-to-float v10, v10
-
-    div-float/2addr v10, v2
+    const-wide v9, 0x400199999999999aL    # 2.2
 
     .line 77
-    .local v10, "endB":F
-    float-to-double v11, v3
+    invoke-static {v7, v8, v9, v10}, Ljava/lang/Math;->pow(DD)D
 
-    const-wide v13, 0x400199999999999aL    # 2.2
+    move-result-wide v7
 
-    invoke-static {v11, v12, v13, v14}, Ljava/lang/Math;->pow(DD)D
+    double-to-float v2, v7
 
-    move-result-wide v11
-
-    double-to-float v3, v11
+    float-to-double v7, v3
 
     .line 78
-    float-to-double v11, v4
+    invoke-static {v7, v8, v9, v10}, Ljava/lang/Math;->pow(DD)D
 
-    invoke-static {v11, v12, v13, v14}, Ljava/lang/Math;->pow(DD)D
+    move-result-wide v7
 
-    move-result-wide v11
+    double-to-float v3, v7
 
-    double-to-float v4, v11
+    float-to-double v7, p2
 
     .line 79
-    float-to-double v11, v5
+    invoke-static {v7, v8, v9, v10}, Ljava/lang/Math;->pow(DD)D
 
-    invoke-static {v11, v12, v13, v14}, Ljava/lang/Math;->pow(DD)D
+    move-result-wide v7
 
-    move-result-wide v11
+    double-to-float p2, v7
 
-    double-to-float v5, v11
+    float-to-double v7, v5
 
     .line 81
-    float-to-double v11, v8
+    invoke-static {v7, v8, v9, v10}, Ljava/lang/Math;->pow(DD)D
 
-    invoke-static {v11, v12, v13, v14}, Ljava/lang/Math;->pow(DD)D
+    move-result-wide v7
 
-    move-result-wide v11
+    double-to-float v5, v7
 
-    double-to-float v8, v11
+    float-to-double v6, v6
 
     .line 82
-    float-to-double v11, v9
+    invoke-static {v6, v7, v9, v10}, Ljava/lang/Math;->pow(DD)D
 
-    invoke-static {v11, v12, v13, v14}, Ljava/lang/Math;->pow(DD)D
+    move-result-wide v6
 
-    move-result-wide v11
+    double-to-float v6, v6
 
-    double-to-float v9, v11
+    float-to-double v7, p3
 
     .line 83
-    float-to-double v11, v10
+    invoke-static {v7, v8, v9, v10}, Ljava/lang/Math;->pow(DD)D
 
-    invoke-static {v11, v12, v13, v14}, Ljava/lang/Math;->pow(DD)D
+    move-result-wide v7
 
-    move-result-wide v11
+    double-to-float p3, v7
 
-    double-to-float v10, v11
+    sub-float/2addr v4, v0
 
-    .line 86
-    sub-float v11, v7, v1
+    mul-float/2addr v4, p1
 
-    mul-float v11, v11, p1
+    add-float/2addr v0, v4
 
-    add-float/2addr v11, v1
+    sub-float/2addr v5, v2
 
-    .line 87
-    .local v11, "a":F
-    sub-float v12, v8, v3
+    mul-float/2addr v5, p1
 
-    mul-float v12, v12, p1
+    add-float/2addr v2, v5
 
-    add-float/2addr v12, v3
+    sub-float/2addr v6, v3
 
-    .line 88
-    .local v12, "r":F
-    sub-float v13, v9, v4
+    mul-float/2addr v6, p1
 
-    mul-float v13, v13, p1
+    add-float/2addr v3, v6
 
-    add-float/2addr v13, v4
+    sub-float/2addr p3, p2
 
-    .line 89
-    .local v13, "g":F
-    sub-float v14, v10, v5
+    mul-float/2addr p1, p3
 
-    mul-float v14, v14, p1
-
-    add-float/2addr v14, v5
-
-    .line 92
-    .local v14, "b":F
-    mul-float/2addr v11, v2
-
-    .line 93
-    move v15, v3
-
-    .end local v3    # "startR":F
-    .local v15, "startR":F
-    float-to-double v2, v12
-
-    move/from16 v16, v0
-
-    move/from16 v17, v1
-
-    .end local v0    # "startInt":I
-    .end local v1    # "startA":F
-    .local v16, "startInt":I
-    .local v17, "startA":F
-    const-wide v0, 0x3fdd1745d1745d17L    # 0.45454545454545453
-
-    invoke-static {v2, v3, v0, v1}, Ljava/lang/Math;->pow(DD)D
-
-    move-result-wide v2
-
-    double-to-float v2, v2
-
-    const/high16 v3, 0x437f0000    # 255.0f
-
-    mul-float/2addr v2, v3
-
-    .line 94
-    .end local v12    # "r":F
-    .local v2, "r":F
-    move v12, v4
-
-    .end local v4    # "startG":F
-    .local v12, "startG":F
-    float-to-double v3, v13
-
-    invoke-static {v3, v4, v0, v1}, Ljava/lang/Math;->pow(DD)D
-
-    move-result-wide v3
-
-    double-to-float v3, v3
-
-    const/high16 v4, 0x437f0000    # 255.0f
-
-    mul-float/2addr v3, v4
-
-    .line 95
-    .end local v13    # "g":F
-    .local v3, "g":F
-    move v13, v5
-
-    .end local v5    # "startB":F
-    .local v13, "startB":F
-    float-to-double v4, v14
-
-    invoke-static {v4, v5, v0, v1}, Ljava/lang/Math;->pow(DD)D
-
-    move-result-wide v0
-
-    double-to-float v0, v0
-
-    const/high16 v1, 0x437f0000    # 255.0f
+    add-float/2addr p2, p1
 
     mul-float/2addr v0, v1
 
+    float-to-double v4, v2
+
+    const-wide v6, 0x3fdd1745d1745d17L    # 0.45454545454545453
+
+    .line 93
+    invoke-static {v4, v5, v6, v7}, Ljava/lang/Math;->pow(DD)D
+
+    move-result-wide v4
+
+    double-to-float p1, v4
+
+    mul-float/2addr p1, v1
+
+    float-to-double v2, v3
+
+    .line 94
+    invoke-static {v2, v3, v6, v7}, Ljava/lang/Math;->pow(DD)D
+
+    move-result-wide v2
+
+    double-to-float p3, v2
+
+    mul-float/2addr p3, v1
+
+    float-to-double v2, p2
+
+    .line 95
+    invoke-static {v2, v3, v6, v7}, Ljava/lang/Math;->pow(DD)D
+
+    move-result-wide v2
+
+    double-to-float p2, v2
+
+    mul-float/2addr p2, v1
+
     .line 97
-    .end local v14    # "b":F
-    .local v0, "b":F
-    invoke-static {v11}, Ljava/lang/Math;->round(F)I
-
-    move-result v1
-
-    shl-int/lit8 v1, v1, 0x18
-
-    invoke-static {v2}, Ljava/lang/Math;->round(F)I
-
-    move-result v4
-
-    shl-int/lit8 v4, v4, 0x10
-
-    or-int/2addr v1, v4
-
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
-
-    move-result v4
-
-    shl-int/lit8 v4, v4, 0x8
-
-    or-int/2addr v1, v4
-
     invoke-static {v0}, Ljava/lang/Math;->round(F)I
 
-    move-result v4
+    move-result v0
 
-    or-int/2addr v1, v4
+    shl-int/lit8 v0, v0, 0x18
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p1}, Ljava/lang/Math;->round(F)I
 
-    move-result-object v1
+    move-result p1
 
-    return-object v1
+    shl-int/lit8 p1, p1, 0x10
+
+    or-int/2addr p1, v0
+
+    invoke-static {p3}, Ljava/lang/Math;->round(F)I
+
+    move-result p3
+
+    shl-int/lit8 p3, p3, 0x8
+
+    or-int/2addr p1, p3
+
+    invoke-static {p2}, Ljava/lang/Math;->round(F)I
+
+    move-result p2
+
+    or-int/2addr p1, p2
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
+
+    return-object p1
 .end method

@@ -6,6 +6,10 @@
 .implements Landroidx/work/ForegroundUpdater;
 
 
+# static fields
+.field private static final TAG:Ljava/lang/String;
+
+
 # instance fields
 .field final mForegroundProcessor:Landroidx/work/impl/foreground/ForegroundProcessor;
 
@@ -15,11 +19,23 @@
 
 
 # direct methods
-.method public constructor <init>(Landroidx/work/impl/WorkDatabase;Landroidx/work/impl/foreground/ForegroundProcessor;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
+.method static constructor <clinit>()V
     .locals 1
-    .param p1, "workDatabase"    # Landroidx/work/impl/WorkDatabase;
-    .param p2, "foregroundProcessor"    # Landroidx/work/impl/foreground/ForegroundProcessor;
-    .param p3, "taskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
+
+    const-string v0, "WMFgUpdater"
+
+    .line 50
+    invoke-static {v0}, Landroidx/work/Logger;->tagWithPrefix(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Landroidx/work/impl/utils/WorkForegroundUpdater;->TAG:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroidx/work/impl/WorkDatabase;Landroidx/work/impl/foreground/ForegroundProcessor;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -33,23 +49,22 @@
         }
     .end annotation
 
-    .line 63
+    .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 65
+    .line 68
     iput-object p2, p0, Landroidx/work/impl/utils/WorkForegroundUpdater;->mForegroundProcessor:Landroidx/work/impl/foreground/ForegroundProcessor;
 
-    .line 66
+    .line 69
     iput-object p3, p0, Landroidx/work/impl/utils/WorkForegroundUpdater;->mTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
-    .line 67
+    .line 70
     invoke-virtual {p1}, Landroidx/work/impl/WorkDatabase;->workSpecDao()Landroidx/work/impl/model/WorkSpecDao;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/work/impl/utils/WorkForegroundUpdater;->mWorkSpecDao:Landroidx/work/impl/model/WorkSpecDao;
+    iput-object p1, p0, Landroidx/work/impl/utils/WorkForegroundUpdater;->mWorkSpecDao:Landroidx/work/impl/model/WorkSpecDao;
 
-    .line 68
     return-void
 .end method
 
@@ -57,9 +72,6 @@
 # virtual methods
 .method public setForegroundAsync(Landroid/content/Context;Ljava/util/UUID;Landroidx/work/ForegroundInfo;)Lcom/google/common/util/concurrent/ListenableFuture;
     .locals 9
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "id"    # Ljava/util/UUID;
-    .param p3, "foregroundInfo"    # Landroidx/work/ForegroundInfo;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -86,13 +98,12 @@
         }
     .end annotation
 
-    .line 77
+    .line 80
     invoke-static {}, Landroidx/work/impl/utils/futures/SettableFuture;->create()Landroidx/work/impl/utils/futures/SettableFuture;
 
     move-result-object v6
 
-    .line 78
-    .local v6, "future":Landroidx/work/impl/utils/futures/SettableFuture;, "Landroidx/work/impl/utils/futures/SettableFuture<Ljava/lang/Void;>;"
+    .line 81
     iget-object v7, p0, Landroidx/work/impl/utils/WorkForegroundUpdater;->mTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
     new-instance v8, Landroidx/work/impl/utils/WorkForegroundUpdater$1;
@@ -113,6 +124,5 @@
 
     invoke-interface {v7, v8}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->executeOnBackgroundThread(Ljava/lang/Runnable;)V
 
-    .line 106
     return-object v6
 .end method

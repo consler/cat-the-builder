@@ -5,11 +5,6 @@
 
 # annotations
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u0000.\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u0008\n\u0000\u0018\u00002\u00020\u0001B\u000f\u0008\u0016\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0002\u0010\u0004B\u0019\u0008\u0016\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0008\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u00a2\u0006\u0002\u0010\u0007J\u000e\u0010\u000c\u001a\u00020\r2\u0006\u0010\u000e\u001a\u00020\u000fR\u0011\u0010\u0008\u001a\u00020\t\u00a2\u0006\u0008\n\u0000\u001a\u0004\u0008\n\u0010\u000b\u00a8\u0006\u0010"
     }
@@ -30,14 +25,15 @@
         "",
         "color",
         "",
-        "colorpicker_release"
+        "colorpicker_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -47,8 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 5
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 2
 
     const-string v0, "context"
 
@@ -58,62 +53,39 @@
     invoke-direct {p0, p1}, Landroidx/appcompat/widget/LinearLayoutCompat;-><init>(Landroid/content/Context;)V
 
     .line 27
-    new-instance v0, Lorg/catrobat/paintroid/colorpicker/HSVColorPickerView;
+    new-instance p1, Lorg/catrobat/paintroid/colorpicker/HSVColorPickerView;
 
     invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/HSVSelectorView;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Lorg/catrobat/paintroid/colorpicker/HSVColorPickerView;-><init>(Landroid/content/Context;)V
-
-    move-object v1, v0
-
-    .local v1, "$this$apply":Lorg/catrobat/paintroid/colorpicker/HSVColorPickerView;
-    const/4 v2, 0x0
+    invoke-direct {p1, v0}, Lorg/catrobat/paintroid/colorpicker/HSVColorPickerView;-><init>(Landroid/content/Context;)V
 
     .line 28
-    .local v2, "$i$a$-apply-HSVSelectorView$hsvColorPickerView$1":I
-    new-instance v3, Landroid/view/ViewGroup$LayoutParams;
+    new-instance v0, Landroid/view/ViewGroup$LayoutParams;
 
-    .line 29
-    nop
+    const/4 v1, -0x1
 
-    .line 30
-    nop
+    invoke-direct {v0, v1, v1}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
-    .line 28
-    const/4 v4, -0x1
-
-    invoke-direct {v3, v4, v4}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
-
-    invoke-virtual {v1, v3}, Lorg/catrobat/paintroid/colorpicker/HSVColorPickerView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {p1, v0}, Lorg/catrobat/paintroid/colorpicker/HSVColorPickerView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 32
-    nop
-
-    .end local v1    # "$this$apply":Lorg/catrobat/paintroid/colorpicker/HSVColorPickerView;
-    .end local v2    # "$i$a$-apply-HSVSelectorView$hsvColorPickerView$1":I
-    sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 27
-    iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/HSVSelectorView;->hsvColorPickerView:Lorg/catrobat/paintroid/colorpicker/HSVColorPickerView;
-
-    .line 38
-    nop
+    iput-object p1, p0, Lorg/catrobat/paintroid/colorpicker/HSVSelectorView;->hsvColorPickerView:Lorg/catrobat/paintroid/colorpicker/HSVColorPickerView;
 
     .line 39
-    check-cast v0, Landroid/view/View;
+    check-cast p1, Landroid/view/View;
 
-    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/colorpicker/HSVSelectorView;->addView(Landroid/view/View;)V
+    invoke-virtual {p0, p1}, Lorg/catrobat/paintroid/colorpicker/HSVSelectorView;->addView(Landroid/view/View;)V
 
-    .line 40
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 5
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .locals 1
 
     const-string v0, "context"
 
@@ -123,55 +95,34 @@
     invoke-direct {p0, p1, p2}, Landroidx/appcompat/widget/LinearLayoutCompat;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     .line 27
-    new-instance v0, Lorg/catrobat/paintroid/colorpicker/HSVColorPickerView;
+    new-instance p1, Lorg/catrobat/paintroid/colorpicker/HSVColorPickerView;
 
     invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/HSVSelectorView;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Lorg/catrobat/paintroid/colorpicker/HSVColorPickerView;-><init>(Landroid/content/Context;)V
-
-    move-object v1, v0
-
-    .local v1, "$this$apply":Lorg/catrobat/paintroid/colorpicker/HSVColorPickerView;
-    const/4 v2, 0x0
+    invoke-direct {p1, p2}, Lorg/catrobat/paintroid/colorpicker/HSVColorPickerView;-><init>(Landroid/content/Context;)V
 
     .line 28
-    .local v2, "$i$a$-apply-HSVSelectorView$hsvColorPickerView$1":I
-    new-instance v3, Landroid/view/ViewGroup$LayoutParams;
+    new-instance p2, Landroid/view/ViewGroup$LayoutParams;
 
-    .line 29
-    nop
+    const/4 v0, -0x1
 
-    .line 30
-    nop
+    invoke-direct {p2, v0, v0}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
-    .line 28
-    const/4 v4, -0x1
-
-    invoke-direct {v3, v4, v4}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
-
-    invoke-virtual {v1, v3}, Lorg/catrobat/paintroid/colorpicker/HSVColorPickerView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {p1, p2}, Lorg/catrobat/paintroid/colorpicker/HSVColorPickerView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 32
-    nop
-
-    .end local v1    # "$this$apply":Lorg/catrobat/paintroid/colorpicker/HSVColorPickerView;
-    .end local v2    # "$i$a$-apply-HSVSelectorView$hsvColorPickerView$1":I
-    sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    sget-object p2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 27
-    iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/HSVSelectorView;->hsvColorPickerView:Lorg/catrobat/paintroid/colorpicker/HSVColorPickerView;
-
-    .line 38
-    nop
+    iput-object p1, p0, Lorg/catrobat/paintroid/colorpicker/HSVSelectorView;->hsvColorPickerView:Lorg/catrobat/paintroid/colorpicker/HSVColorPickerView;
 
     .line 39
-    check-cast v0, Landroid/view/View;
+    check-cast p1, Landroid/view/View;
 
-    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/colorpicker/HSVSelectorView;->addView(Landroid/view/View;)V
+    invoke-virtual {p0, p1}, Lorg/catrobat/paintroid/colorpicker/HSVSelectorView;->addView(Landroid/view/View;)V
 
-    .line 40
     return-void
 .end method
 
@@ -188,13 +139,11 @@
 
 .method public final setSelectedColor(I)V
     .locals 1
-    .param p1, "color"    # I
 
     .line 43
     iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/HSVSelectorView;->hsvColorPickerView:Lorg/catrobat/paintroid/colorpicker/HSVColorPickerView;
 
     invoke-virtual {v0, p1}, Lorg/catrobat/paintroid/colorpicker/HSVColorPickerView;->setSelectedColor(I)V
 
-    .line 44
     return-void
 .end method

@@ -40,13 +40,13 @@
 
     sput-object v0, Lio/reactivex/internal/subscriptions/EmptySubscription;->INSTANCE:Lio/reactivex/internal/subscriptions/EmptySubscription;
 
-    .line 24
     const/4 v1, 0x1
 
     new-array v1, v1, [Lio/reactivex/internal/subscriptions/EmptySubscription;
 
     aput-object v0, v1, v2
 
+    .line 24
     sput-object v1, Lio/reactivex/internal/subscriptions/EmptySubscription;->$VALUES:[Lio/reactivex/internal/subscriptions/EmptySubscription;
 
     return-void
@@ -77,7 +77,6 @@
     .end annotation
 
     .line 67
-    .local p0, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<*>;"
     sget-object v0, Lio/reactivex/internal/subscriptions/EmptySubscription;->INSTANCE:Lio/reactivex/internal/subscriptions/EmptySubscription;
 
     invoke-interface {p0, v0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
@@ -85,13 +84,11 @@
     .line 68
     invoke-interface {p0}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 69
     return-void
 .end method
 
 .method public static error(Ljava/lang/Throwable;Lorg/reactivestreams/Subscriber;)V
     .locals 1
-    .param p0, "e"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -102,7 +99,6 @@
     .end annotation
 
     .line 53
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<*>;"
     sget-object v0, Lio/reactivex/internal/subscriptions/EmptySubscription;->INSTANCE:Lio/reactivex/internal/subscriptions/EmptySubscription;
 
     invoke-interface {p1, v0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
@@ -110,24 +106,22 @@
     .line 54
     invoke-interface {p1, p0}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 55
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lio/reactivex/internal/subscriptions/EmptySubscription;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 24
     const-class v0, Lio/reactivex/internal/subscriptions/EmptySubscription;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lio/reactivex/internal/subscriptions/EmptySubscription;
+    check-cast p0, Lio/reactivex/internal/subscriptions/EmptySubscription;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lio/reactivex/internal/subscriptions/EmptySubscription;
@@ -150,59 +144,52 @@
 .method public cancel()V
     .locals 0
 
-    .line 35
     return-void
 .end method
 
 .method public clear()V
     .locals 0
 
-    .line 82
     return-void
 .end method
 
 .method public isEmpty()Z
     .locals 1
 
-    .line 77
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public offer(Ljava/lang/Object;)Z
-    .locals 2
-    .param p1, "value"    # Ljava/lang/Object;
+    .locals 1
 
     .line 89
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "Should not be called!"
+    const-string v0, "Should not be called!"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public offer(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
-    .param p1, "v1"    # Ljava/lang/Object;
-    .param p2, "v2"    # Ljava/lang/Object;
+    .locals 0
 
     .line 93
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "Should not be called!"
+    const-string p2, "Should not be called!"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public poll()Ljava/lang/Object;
     .locals 1
 
-    .line 73
     const/4 v0, 0x0
 
     return-object v0
@@ -210,29 +197,24 @@
 
 .method public request(J)V
     .locals 0
-    .param p1, "n"    # J
 
     .line 30
     invoke-static {p1, p2}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(J)Z
 
-    .line 31
     return-void
 .end method
 
 .method public requestFusion(I)I
-    .locals 1
-    .param p1, "mode"    # I
+    .locals 0
 
-    .line 85
-    and-int/lit8 v0, p1, 0x2
+    and-int/lit8 p1, p1, 0x2
 
-    return v0
+    return p1
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .line 39
     const-string v0, "EmptySubscription"
 
     return-object v0

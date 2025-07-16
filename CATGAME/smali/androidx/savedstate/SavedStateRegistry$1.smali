@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/savedstate/SavedStateRegistry;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/savedstate/SavedStateRegistry;
 
     .line 197
     iput-object p1, p0, Landroidx/savedstate/SavedStateRegistry$1;->this$0:Landroidx/savedstate/SavedStateRegistry;
@@ -37,38 +36,35 @@
 
 # virtual methods
 .method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 2
-    .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
-    .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
+    .locals 0
 
     .line 200
-    sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_START:Landroidx/lifecycle/Lifecycle$Event;
+    sget-object p1, Landroidx/lifecycle/Lifecycle$Event;->ON_START:Landroidx/lifecycle/Lifecycle$Event;
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, p1, :cond_0
 
     .line 201
-    iget-object v0, p0, Landroidx/savedstate/SavedStateRegistry$1;->this$0:Landroidx/savedstate/SavedStateRegistry;
+    iget-object p1, p0, Landroidx/savedstate/SavedStateRegistry$1;->this$0:Landroidx/savedstate/SavedStateRegistry;
 
-    const/4 v1, 0x1
+    const/4 p2, 0x1
 
-    iput-boolean v1, v0, Landroidx/savedstate/SavedStateRegistry;->mAllowingSavingState:Z
+    iput-boolean p2, p1, Landroidx/savedstate/SavedStateRegistry;->mAllowingSavingState:Z
 
     goto :goto_0
 
     .line 202
     :cond_0
-    sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_STOP:Landroidx/lifecycle/Lifecycle$Event;
+    sget-object p1, Landroidx/lifecycle/Lifecycle$Event;->ON_STOP:Landroidx/lifecycle/Lifecycle$Event;
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, p1, :cond_1
 
     .line 203
-    iget-object v0, p0, Landroidx/savedstate/SavedStateRegistry$1;->this$0:Landroidx/savedstate/SavedStateRegistry;
+    iget-object p1, p0, Landroidx/savedstate/SavedStateRegistry$1;->this$0:Landroidx/savedstate/SavedStateRegistry;
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    iput-boolean v1, v0, Landroidx/savedstate/SavedStateRegistry;->mAllowingSavingState:Z
+    iput-boolean p2, p1, Landroidx/savedstate/SavedStateRegistry;->mAllowingSavingState:Z
 
-    .line 205
     :cond_1
     :goto_0
     return-void

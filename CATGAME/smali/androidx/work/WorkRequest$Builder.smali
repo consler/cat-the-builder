@@ -76,34 +76,32 @@
         }
     .end annotation
 
-    .line 128
-    .local p0, "this":Landroidx/work/WorkRequest$Builder;, "Landroidx/work/WorkRequest$Builder<TB;TW;>;"
-    .local p1, "workerClass":Ljava/lang/Class;, "Ljava/lang/Class<+Landroidx/work/ListenableWorker;>;"
+    .line 129
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 122
     const/4 v0, 0x0
 
+    .line 123
     iput-boolean v0, p0, Landroidx/work/WorkRequest$Builder;->mBackoffCriteriaSet:Z
 
-    .line 125
+    .line 126
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     iput-object v0, p0, Landroidx/work/WorkRequest$Builder;->mTags:Ljava/util/Set;
 
-    .line 129
+    .line 130
     invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
 
     move-result-object v0
 
     iput-object v0, p0, Landroidx/work/WorkRequest$Builder;->mId:Ljava/util/UUID;
 
-    .line 130
+    .line 131
     iput-object p1, p0, Landroidx/work/WorkRequest$Builder;->mWorkerClass:Ljava/lang/Class;
 
-    .line 131
+    .line 132
     new-instance v0, Landroidx/work/impl/model/WorkSpec;
 
     iget-object v1, p0, Landroidx/work/WorkRequest$Builder;->mId:Ljava/util/UUID;
@@ -120,14 +118,13 @@
 
     iput-object v0, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
-    .line 132
+    .line 133
     invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Landroidx/work/WorkRequest$Builder;->addTag(Ljava/lang/String;)Landroidx/work/WorkRequest$Builder;
+    invoke-virtual {p0, p1}, Landroidx/work/WorkRequest$Builder;->addTag(Ljava/lang/String;)Landroidx/work/WorkRequest$Builder;
 
-    .line 133
     return-void
 .end method
 
@@ -135,7 +132,6 @@
 # virtual methods
 .method public final addTag(Ljava/lang/String;)Landroidx/work/WorkRequest$Builder;
     .locals 1
-    .param p1, "tag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -153,43 +149,129 @@
         }
     .end annotation
 
-    .line 209
-    .local p0, "this":Landroidx/work/WorkRequest$Builder;, "Landroidx/work/WorkRequest$Builder<TB;TW;>;"
+    .line 210
     iget-object v0, p0, Landroidx/work/WorkRequest$Builder;->mTags:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 210
+    .line 211
     invoke-virtual {p0}, Landroidx/work/WorkRequest$Builder;->getThis()Landroidx/work/WorkRequest$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final build()Landroidx/work/WorkRequest;
-    .locals 3
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TW;"
         }
     .end annotation
 
-    .line 297
-    .local p0, "this":Landroidx/work/WorkRequest$Builder;, "Landroidx/work/WorkRequest$Builder<TB;TW;>;"
+    .line 311
     invoke-virtual {p0}, Landroidx/work/WorkRequest$Builder;->buildInternal()Landroidx/work/WorkRequest;
 
     move-result-object v0
 
-    .line 299
-    .local v0, "returnValue":Landroidx/work/WorkRequest;, "TW;"
+    .line 312
+    iget-object v1, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
+
+    iget-object v1, v1, Landroidx/work/impl/model/WorkSpec;->constraints:Landroidx/work/Constraints;
+
+    .line 315
+    invoke-virtual {v1}, Landroidx/work/Constraints;->hasContentUriTriggers()Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    .line 316
+    invoke-virtual {v1}, Landroidx/work/Constraints;->requiresBatteryNotLow()Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    .line 317
+    invoke-virtual {v1}, Landroidx/work/Constraints;->requiresCharging()Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    .line 318
+    invoke-virtual {v1}, Landroidx/work/Constraints;->requiresDeviceIdle()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 v1, 0x1
+
+    .line 320
+    :goto_1
+    iget-object v2, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
+
+    iget-boolean v2, v2, Landroidx/work/impl/model/WorkSpec;->expedited:Z
+
+    if-eqz v2, :cond_4
+
+    if-nez v1, :cond_3
+
+    .line 325
+    iget-object v1, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
+
+    iget-wide v1, v1, Landroidx/work/impl/model/WorkSpec;->initialDelay:J
+
+    const-wide/16 v3, 0x0
+
+    cmp-long v1, v1, v3
+
+    if-gtz v1, :cond_2
+
+    goto :goto_2
+
+    .line 326
+    :cond_2
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "Expedited jobs cannot be delayed"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 322
+    :cond_3
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "Expedited jobs only support network and storage constraints"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 330
+    :cond_4
+    :goto_2
     invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
 
     move-result-object v1
 
     iput-object v1, p0, Landroidx/work/WorkRequest$Builder;->mId:Ljava/util/UUID;
 
-    .line 300
+    .line 331
     new-instance v1, Landroidx/work/impl/model/WorkSpec;
 
     iget-object v2, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
@@ -198,7 +280,7 @@
 
     iput-object v1, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
-    .line 301
+    .line 332
     iget-object v2, p0, Landroidx/work/WorkRequest$Builder;->mId:Ljava/util/UUID;
 
     invoke-virtual {v2}, Ljava/util/UUID;->toString()Ljava/lang/String;
@@ -207,7 +289,6 @@
 
     iput-object v2, v1, Landroidx/work/impl/model/WorkSpec;->id:Ljava/lang/String;
 
-    .line 302
     return-object v0
 .end method
 
@@ -228,9 +309,7 @@
 .end method
 
 .method public final keepResultsForAtLeast(JLjava/util/concurrent/TimeUnit;)Landroidx/work/WorkRequest$Builder;
-    .locals 3
-    .param p1, "duration"    # J
-    .param p3, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -250,27 +329,25 @@
         }
     .end annotation
 
-    .line 230
-    .local p0, "this":Landroidx/work/WorkRequest$Builder;, "Landroidx/work/WorkRequest$Builder<TB;TW;>;"
+    .line 231
     iget-object v0, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
     invoke-virtual {p3, p1, p2}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
 
-    move-result-wide v1
+    move-result-wide p1
 
-    iput-wide v1, v0, Landroidx/work/impl/model/WorkSpec;->minimumRetentionDuration:J
+    iput-wide p1, v0, Landroidx/work/impl/model/WorkSpec;->minimumRetentionDuration:J
 
-    .line 231
+    .line 232
     invoke-virtual {p0}, Landroidx/work/WorkRequest$Builder;->getThis()Landroidx/work/WorkRequest$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final keepResultsForAtLeast(Ljava/time/Duration;)Landroidx/work/WorkRequest$Builder;
     .locals 3
-    .param p1, "duration"    # Ljava/time/Duration;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -288,8 +365,7 @@
         }
     .end annotation
 
-    .line 251
-    .local p0, "this":Landroidx/work/WorkRequest$Builder;, "Landroidx/work/WorkRequest$Builder<TB;TW;>;"
+    .line 252
     iget-object v0, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
     invoke-virtual {p1}, Ljava/time/Duration;->toMillis()J
@@ -298,19 +374,16 @@
 
     iput-wide v1, v0, Landroidx/work/impl/model/WorkSpec;->minimumRetentionDuration:J
 
-    .line 252
+    .line 253
     invoke-virtual {p0}, Landroidx/work/WorkRequest$Builder;->getThis()Landroidx/work/WorkRequest$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final setBackoffCriteria(Landroidx/work/BackoffPolicy;JLjava/util/concurrent/TimeUnit;)Landroidx/work/WorkRequest$Builder;
-    .locals 3
-    .param p1, "backoffPolicy"    # Landroidx/work/BackoffPolicy;
-    .param p2, "backoffDelay"    # J
-    .param p4, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -334,38 +407,35 @@
         }
     .end annotation
 
-    .line 151
-    .local p0, "this":Landroidx/work/WorkRequest$Builder;, "Landroidx/work/WorkRequest$Builder<TB;TW;>;"
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Landroidx/work/WorkRequest$Builder;->mBackoffCriteriaSet:Z
-
     .line 152
-    iget-object v0, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
-
-    iput-object p1, v0, Landroidx/work/impl/model/WorkSpec;->backoffPolicy:Landroidx/work/BackoffPolicy;
+    iput-boolean v0, p0, Landroidx/work/WorkRequest$Builder;->mBackoffCriteriaSet:Z
 
     .line 153
     iget-object v0, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
-    invoke-virtual {p4, p2, p3}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
-
-    move-result-wide v1
-
-    invoke-virtual {v0, v1, v2}, Landroidx/work/impl/model/WorkSpec;->setBackoffDelayDuration(J)V
+    iput-object p1, v0, Landroidx/work/impl/model/WorkSpec;->backoffPolicy:Landroidx/work/BackoffPolicy;
 
     .line 154
+    iget-object p1, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
+
+    invoke-virtual {p4, p2, p3}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
+
+    move-result-wide p2
+
+    invoke-virtual {p1, p2, p3}, Landroidx/work/impl/model/WorkSpec;->setBackoffDelayDuration(J)V
+
+    .line 155
     invoke-virtual {p0}, Landroidx/work/WorkRequest$Builder;->getThis()Landroidx/work/WorkRequest$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final setBackoffCriteria(Landroidx/work/BackoffPolicy;Ljava/time/Duration;)Landroidx/work/WorkRequest$Builder;
-    .locals 3
-    .param p1, "backoffPolicy"    # Landroidx/work/BackoffPolicy;
-    .param p2, "duration"    # Ljava/time/Duration;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -386,37 +456,35 @@
         }
     .end annotation
 
-    .line 172
-    .local p0, "this":Landroidx/work/WorkRequest$Builder;, "Landroidx/work/WorkRequest$Builder<TB;TW;>;"
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Landroidx/work/WorkRequest$Builder;->mBackoffCriteriaSet:Z
-
     .line 173
-    iget-object v0, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
-
-    iput-object p1, v0, Landroidx/work/impl/model/WorkSpec;->backoffPolicy:Landroidx/work/BackoffPolicy;
+    iput-boolean v0, p0, Landroidx/work/WorkRequest$Builder;->mBackoffCriteriaSet:Z
 
     .line 174
     iget-object v0, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
-    invoke-virtual {p2}, Ljava/time/Duration;->toMillis()J
-
-    move-result-wide v1
-
-    invoke-virtual {v0, v1, v2}, Landroidx/work/impl/model/WorkSpec;->setBackoffDelayDuration(J)V
+    iput-object p1, v0, Landroidx/work/impl/model/WorkSpec;->backoffPolicy:Landroidx/work/BackoffPolicy;
 
     .line 175
+    iget-object p1, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
+
+    invoke-virtual {p2}, Ljava/time/Duration;->toMillis()J
+
+    move-result-wide v0
+
+    invoke-virtual {p1, v0, v1}, Landroidx/work/impl/model/WorkSpec;->setBackoffDelayDuration(J)V
+
+    .line 176
     invoke-virtual {p0}, Landroidx/work/WorkRequest$Builder;->getThis()Landroidx/work/WorkRequest$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final setConstraints(Landroidx/work/Constraints;)Landroidx/work/WorkRequest$Builder;
     .locals 1
-    .param p1, "constraints"    # Landroidx/work/Constraints;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -434,24 +502,60 @@
         }
     .end annotation
 
-    .line 185
-    .local p0, "this":Landroidx/work/WorkRequest$Builder;, "Landroidx/work/WorkRequest$Builder<TB;TW;>;"
+    .line 186
     iget-object v0, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
     iput-object p1, v0, Landroidx/work/impl/model/WorkSpec;->constraints:Landroidx/work/Constraints;
 
-    .line 186
+    .line 187
     invoke-virtual {p0}, Landroidx/work/WorkRequest$Builder;->getThis()Landroidx/work/WorkRequest$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
+.end method
+
+.method public setExpedited(Landroidx/work/OutOfQuotaPolicy;)Landroidx/work/WorkRequest$Builder;
+    .locals 2
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "policy"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroidx/work/OutOfQuotaPolicy;",
+            ")TB;"
+        }
+    .end annotation
+
+    .line 300
+    iget-object v0, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, v0, Landroidx/work/impl/model/WorkSpec;->expedited:Z
+
+    .line 301
+    iget-object v0, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
+
+    iput-object p1, v0, Landroidx/work/impl/model/WorkSpec;->outOfQuotaPolicy:Landroidx/work/OutOfQuotaPolicy;
+
+    .line 302
+    invoke-virtual {p0}, Landroidx/work/WorkRequest$Builder;->getThis()Landroidx/work/WorkRequest$Builder;
+
+    move-result-object p1
+
+    return-object p1
 .end method
 
 .method public setInitialDelay(JLjava/util/concurrent/TimeUnit;)Landroidx/work/WorkRequest$Builder;
-    .locals 4
-    .param p1, "duration"    # J
-    .param p3, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -471,54 +575,52 @@
         }
     .end annotation
 
-    .line 265
-    .local p0, "this":Landroidx/work/WorkRequest$Builder;, "Landroidx/work/WorkRequest$Builder<TB;TW;>;"
+    .line 266
     iget-object v0, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
     invoke-virtual {p3, p1, p2}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
 
-    move-result-wide v1
+    move-result-wide p1
 
-    iput-wide v1, v0, Landroidx/work/impl/model/WorkSpec;->initialDelay:J
+    iput-wide p1, v0, Landroidx/work/impl/model/WorkSpec;->initialDelay:J
 
-    .line 266
+    const-wide p1, 0x7fffffffffffffffL
+
+    .line 267
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
-    const-wide v2, 0x7fffffffffffffffL
+    sub-long/2addr p1, v0
 
-    sub-long/2addr v2, v0
+    iget-object p3, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
-    iget-object v0, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
+    iget-wide v0, p3, Landroidx/work/impl/model/WorkSpec;->initialDelay:J
 
-    iget-wide v0, v0, Landroidx/work/impl/model/WorkSpec;->initialDelay:J
+    cmp-long p1, p1, v0
 
-    cmp-long v0, v2, v0
+    if-lez p1, :cond_0
 
-    if-lez v0, :cond_0
-
-    .line 270
+    .line 271
     invoke-virtual {p0}, Landroidx/work/WorkRequest$Builder;->getThis()Landroidx/work/WorkRequest$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
-    .line 267
+    .line 268
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "The given initial delay is too large and will cause an overflow!"
+    const-string p2, "The given initial delay is too large and will cause an overflow!"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setInitialDelay(Ljava/time/Duration;)Landroidx/work/WorkRequest$Builder;
     .locals 4
-    .param p1, "duration"    # Ljava/time/Duration;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -536,8 +638,7 @@
         }
     .end annotation
 
-    .line 283
-    .local p0, "this":Landroidx/work/WorkRequest$Builder;, "Landroidx/work/WorkRequest$Builder<TB;TW;>;"
+    .line 284
     iget-object v0, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
     invoke-virtual {p1}, Ljava/time/Duration;->toMillis()J
@@ -546,44 +647,43 @@
 
     iput-wide v1, v0, Landroidx/work/impl/model/WorkSpec;->initialDelay:J
 
-    .line 284
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v0
-
-    const-wide v2, 0x7fffffffffffffffL
-
-    sub-long/2addr v2, v0
-
-    iget-object v0, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
-
-    iget-wide v0, v0, Landroidx/work/impl/model/WorkSpec;->initialDelay:J
-
-    cmp-long v0, v2, v0
-
-    if-lez v0, :cond_0
-
-    .line 288
-    invoke-virtual {p0}, Landroidx/work/WorkRequest$Builder;->getThis()Landroidx/work/WorkRequest$Builder;
-
-    move-result-object v0
-
-    return-object v0
+    const-wide v0, 0x7fffffffffffffffL
 
     .line 285
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v2
+
+    sub-long/2addr v0, v2
+
+    iget-object p1, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
+
+    iget-wide v2, p1, Landroidx/work/impl/model/WorkSpec;->initialDelay:J
+
+    cmp-long p1, v0, v2
+
+    if-lez p1, :cond_0
+
+    .line 289
+    invoke-virtual {p0}, Landroidx/work/WorkRequest$Builder;->getThis()Landroidx/work/WorkRequest$Builder;
+
+    move-result-object p1
+
+    return-object p1
+
+    .line 286
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "The given initial delay is too large and will cause an overflow!"
+    const-string v0, "The given initial delay is too large and will cause an overflow!"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public final setInitialRunAttemptCount(I)Landroidx/work/WorkRequest$Builder;
     .locals 1
-    .param p1, "runAttemptCount"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -599,23 +699,21 @@
         }
     .end annotation
 
-    .line 333
-    .local p0, "this":Landroidx/work/WorkRequest$Builder;, "Landroidx/work/WorkRequest$Builder<TB;TW;>;"
+    .line 364
     iget-object v0, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
     iput p1, v0, Landroidx/work/impl/model/WorkSpec;->runAttemptCount:I
 
-    .line 334
+    .line 365
     invoke-virtual {p0}, Landroidx/work/WorkRequest$Builder;->getThis()Landroidx/work/WorkRequest$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final setInitialState(Landroidx/work/WorkInfo$State;)Landroidx/work/WorkRequest$Builder;
     .locals 1
-    .param p1, "state"    # Landroidx/work/WorkInfo$State;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -633,23 +731,21 @@
         }
     .end annotation
 
-    .line 319
-    .local p0, "this":Landroidx/work/WorkRequest$Builder;, "Landroidx/work/WorkRequest$Builder<TB;TW;>;"
+    .line 350
     iget-object v0, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
     iput-object p1, v0, Landroidx/work/impl/model/WorkSpec;->state:Landroidx/work/WorkInfo$State;
 
-    .line 320
+    .line 351
     invoke-virtual {p0}, Landroidx/work/WorkRequest$Builder;->getThis()Landroidx/work/WorkRequest$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final setInputData(Landroidx/work/Data;)Landroidx/work/WorkRequest$Builder;
     .locals 1
-    .param p1, "inputData"    # Landroidx/work/Data;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -667,24 +763,21 @@
         }
     .end annotation
 
-    .line 197
-    .local p0, "this":Landroidx/work/WorkRequest$Builder;, "Landroidx/work/WorkRequest$Builder<TB;TW;>;"
+    .line 198
     iget-object v0, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
     iput-object p1, v0, Landroidx/work/impl/model/WorkSpec;->input:Landroidx/work/Data;
 
-    .line 198
+    .line 199
     invoke-virtual {p0}, Landroidx/work/WorkRequest$Builder;->getThis()Landroidx/work/WorkRequest$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final setPeriodStartTime(JLjava/util/concurrent/TimeUnit;)Landroidx/work/WorkRequest$Builder;
-    .locals 3
-    .param p1, "periodStartTime"    # J
-    .param p3, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -704,28 +797,25 @@
         }
     .end annotation
 
-    .line 350
-    .local p0, "this":Landroidx/work/WorkRequest$Builder;, "Landroidx/work/WorkRequest$Builder<TB;TW;>;"
+    .line 381
     iget-object v0, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
     invoke-virtual {p3, p1, p2}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
 
-    move-result-wide v1
+    move-result-wide p1
 
-    iput-wide v1, v0, Landroidx/work/impl/model/WorkSpec;->periodStartTime:J
+    iput-wide p1, v0, Landroidx/work/impl/model/WorkSpec;->periodStartTime:J
 
-    .line 351
+    .line 382
     invoke-virtual {p0}, Landroidx/work/WorkRequest$Builder;->getThis()Landroidx/work/WorkRequest$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final setScheduleRequestedAt(JLjava/util/concurrent/TimeUnit;)Landroidx/work/WorkRequest$Builder;
-    .locals 3
-    .param p1, "scheduleRequestedAt"    # J
-    .param p3, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -745,20 +835,19 @@
         }
     .end annotation
 
-    .line 367
-    .local p0, "this":Landroidx/work/WorkRequest$Builder;, "Landroidx/work/WorkRequest$Builder<TB;TW;>;"
+    .line 398
     iget-object v0, p0, Landroidx/work/WorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
     invoke-virtual {p3, p1, p2}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
 
-    move-result-wide v1
+    move-result-wide p1
 
-    iput-wide v1, v0, Landroidx/work/impl/model/WorkSpec;->scheduleRequestedAt:J
+    iput-wide p1, v0, Landroidx/work/impl/model/WorkSpec;->scheduleRequestedAt:J
 
-    .line 368
+    .line 399
     invoke-virtual {p0}, Landroidx/work/WorkRequest$Builder;->getThis()Landroidx/work/WorkRequest$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

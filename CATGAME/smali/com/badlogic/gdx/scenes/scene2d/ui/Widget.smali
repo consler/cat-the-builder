@@ -21,9 +21,9 @@
     .line 35
     invoke-direct {p0}, Lcom/badlogic/gdx/scenes/scene2d/Actor;-><init>()V
 
-    .line 36
     const/4 v0, 0x1
 
+    .line 36
     iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Widget;->needsLayout:Z
 
     .line 38
@@ -36,20 +36,16 @@
 # virtual methods
 .method public draw(Lcom/badlogic/gdx/graphics/g2d/Batch;F)V
     .locals 0
-    .param p1, "batch"    # Lcom/badlogic/gdx/graphics/g2d/Batch;
-    .param p2, "parentAlpha"    # F
 
     .line 122
     invoke-virtual {p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Widget;->validate()V
 
-    .line 123
     return-void
 .end method
 
 .method public getMaxHeight()F
     .locals 1
 
-    .line 61
     const/4 v0, 0x0
 
     return v0
@@ -58,7 +54,6 @@
 .method public getMaxWidth()F
     .locals 1
 
-    .line 57
     const/4 v0, 0x0
 
     return v0
@@ -89,7 +84,6 @@
 .method public getPrefHeight()F
     .locals 1
 
-    .line 53
     const/4 v0, 0x0
 
     return v0
@@ -98,7 +92,6 @@
 .method public getPrefWidth()F
     .locals 1
 
-    .line 49
     const/4 v0, 0x0
 
     return v0
@@ -107,12 +100,11 @@
 .method public invalidate()V
     .locals 1
 
-    .line 97
     const/4 v0, 0x1
 
+    .line 97
     iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Widget;->needsLayout:Z
 
-    .line 98
     return-void
 .end method
 
@@ -136,18 +128,14 @@
     move-result-object v0
 
     .line 104
-    .local v0, "parent":Lcom/badlogic/gdx/scenes/scene2d/Group;
     instance-of v1, v0, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;
 
     if-eqz v1, :cond_1
 
-    move-object v1, v0
+    check-cast v0, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;
 
-    check-cast v1, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;
+    invoke-interface {v0}, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;->invalidateHierarchy()V
 
-    invoke-interface {v1}, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;->invalidateHierarchy()V
-
-    .line 105
     :cond_1
     return-void
 .end method
@@ -155,7 +143,6 @@
 .method public layout()V
     .locals 0
 
-    .line 126
     return-void
 .end method
 
@@ -185,34 +172,29 @@
     .line 113
     invoke-virtual {p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Widget;->validate()V
 
-    .line 114
     return-void
 .end method
 
 .method public setFillParent(Z)V
     .locals 0
-    .param p1, "fillParent"    # Z
 
     .line 117
     iput-boolean p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Widget;->fillParent:Z
 
-    .line 118
     return-void
 .end method
 
 .method public setLayoutEnabled(Z)V
     .locals 0
-    .param p1, "enabled"    # Z
 
     .line 65
     iput-boolean p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Widget;->layoutEnabled:Z
 
-    .line 66
     if-eqz p1, :cond_0
 
+    .line 66
     invoke-virtual {p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Widget;->invalidateHierarchy()V
 
-    .line 67
     :cond_0
     return-void
 .end method
@@ -223,7 +205,6 @@
     .line 108
     invoke-virtual {p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Widget;->invalidate()V
 
-    .line 109
     return-void
 .end method
 
@@ -244,7 +225,6 @@
     move-result-object v0
 
     .line 73
-    .local v0, "parent":Lcom/badlogic/gdx/scenes/scene2d/Group;
     iget-boolean v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Widget;->fillParent:Z
 
     if-eqz v1, :cond_2
@@ -256,10 +236,9 @@
 
     move-result-object v1
 
-    .line 76
-    .local v1, "stage":Lcom/badlogic/gdx/scenes/scene2d/Stage;
     if-eqz v1, :cond_1
 
+    .line 76
     invoke-virtual {v1}, Lcom/badlogic/gdx/scenes/scene2d/Stage;->getRoot()Lcom/badlogic/gdx/scenes/scene2d/Group;
 
     move-result-object v2
@@ -269,56 +248,52 @@
     .line 77
     invoke-virtual {v1}, Lcom/badlogic/gdx/scenes/scene2d/Stage;->getWidth()F
 
-    move-result v2
+    move-result v0
 
     .line 78
-    .local v2, "parentWidth":F
     invoke-virtual {v1}, Lcom/badlogic/gdx/scenes/scene2d/Stage;->getHeight()F
 
-    move-result v3
+    move-result v1
 
-    .local v3, "parentHeight":F
     goto :goto_0
 
     .line 80
-    .end local v2    # "parentWidth":F
-    .end local v3    # "parentHeight":F
     :cond_1
     invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/Group;->getWidth()F
 
-    move-result v2
+    move-result v1
 
     .line 81
-    .restart local v2    # "parentWidth":F
     invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/Group;->getHeight()F
 
-    move-result v3
+    move-result v0
+
+    move v3, v1
+
+    move v1, v0
+
+    move v0, v3
 
     .line 83
-    .restart local v3    # "parentHeight":F
     :goto_0
-    invoke-virtual {p0, v2, v3}, Lcom/badlogic/gdx/scenes/scene2d/ui/Widget;->setSize(FF)V
+    invoke-virtual {p0, v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Widget;->setSize(FF)V
 
     .line 86
-    .end local v1    # "stage":Lcom/badlogic/gdx/scenes/scene2d/Stage;
-    .end local v2    # "parentWidth":F
-    .end local v3    # "parentHeight":F
     :cond_2
-    iget-boolean v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Widget;->needsLayout:Z
+    iget-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Widget;->needsLayout:Z
 
-    if-nez v1, :cond_3
+    if-nez v0, :cond_3
 
     return-void
 
-    .line 87
     :cond_3
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    iput-boolean v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Widget;->needsLayout:Z
+    .line 87
+    iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Widget;->needsLayout:Z
 
     .line 88
     invoke-virtual {p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Widget;->layout()V
 
-    .line 89
     return-void
 .end method

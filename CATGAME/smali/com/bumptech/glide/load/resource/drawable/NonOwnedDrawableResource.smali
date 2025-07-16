@@ -16,18 +16,15 @@
 # direct methods
 .method private constructor <init>(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 21
     invoke-direct {p0, p1}, Lcom/bumptech/glide/load/resource/drawable/DrawableResource;-><init>(Landroid/graphics/drawable/Drawable;)V
 
-    .line 22
     return-void
 .end method
 
 .method static newInstance(Landroid/graphics/drawable/Drawable;)Lcom/bumptech/glide/load/engine/Resource;
     .locals 1
-    .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -39,9 +36,9 @@
         }
     .end annotation
 
-    .line 17
     if-eqz p0, :cond_0
 
+    .line 17
     new-instance v0, Lcom/bumptech/glide/load/resource/drawable/NonOwnedDrawableResource;
 
     invoke-direct {v0, p0}, Lcom/bumptech/glide/load/resource/drawable/NonOwnedDrawableResource;-><init>(Landroid/graphics/drawable/Drawable;)V
@@ -110,6 +107,5 @@
 .method public recycle()V
     .locals 0
 
-    .line 41
     return-void
 .end method

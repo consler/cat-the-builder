@@ -5,11 +5,6 @@
 
 # annotations
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u0000.\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0008\n\u0002\u0008\u0002\n\u0002\u0010\u000e\n\u0000\u0008\u00c7\u0002\u0018\u00002\u00020\u0001B\u0007\u0008\u0002\u00a2\u0006\u0002\u0010\u0002J\u0008\u0010\u0005\u001a\u00020\u0006H\u0002J\"\u0010\u0007\u001a\u00020\u00042\u0006\u0010\u0008\u001a\u00020\t2\u0008\u0008\u0001\u0010\n\u001a\u00020\u000b2\u0006\u0010\u000c\u001a\u00020\u000bH\u0007J \u0010\u0007\u001a\u00020\u00042\u0006\u0010\u0008\u001a\u00020\t2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000c\u001a\u00020\u000bH\u0007R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082.\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u000f"
     }
@@ -29,14 +24,15 @@
         "duration",
         "msg",
         "",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -50,7 +46,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 27
     new-instance v0, Lorg/catrobat/paintroid/ui/ToastFactory;
 
     invoke-direct {v0}, Lorg/catrobat/paintroid/ui/ToastFactory;-><init>()V
@@ -63,68 +58,38 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 27
+    .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method public static final synthetic access$getCurrentToast$p(Lorg/catrobat/paintroid/ui/ToastFactory;)Landroid/widget/Toast;
-    .locals 2
-    .param p0, "$this"    # Lorg/catrobat/paintroid/ui/ToastFactory;
-
-    .line 27
-    sget-object v0, Lorg/catrobat/paintroid/ui/ToastFactory;->currentToast:Landroid/widget/Toast;
-
-    if-nez v0, :cond_0
-
-    const-string v1, "currentToast"
-
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    :cond_0
-    return-object v0
-.end method
-
-.method public static final synthetic access$setCurrentToast$p(Lorg/catrobat/paintroid/ui/ToastFactory;Landroid/widget/Toast;)V
-    .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/ui/ToastFactory;
-    .param p1, "<set-?>"    # Landroid/widget/Toast;
-
-    .line 27
-    sput-object p1, Lorg/catrobat/paintroid/ui/ToastFactory;->currentToast:Landroid/widget/Toast;
-
-    return-void
-.end method
-
 .method private final cancelToast()V
-    .locals 2
+    .locals 1
 
     .line 31
     sget-object v0, Lorg/catrobat/paintroid/ui/ToastFactory;->currentToast:Landroid/widget/Toast;
 
     if-eqz v0, :cond_1
 
-    .line 32
     if-nez v0, :cond_0
 
-    const-string v1, "currentToast"
+    const-string v0, "currentToast"
 
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    .line 32
+    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    const/4 v0, 0x0
 
     :cond_0
     invoke-virtual {v0}, Landroid/widget/Toast;->cancel()V
 
-    .line 34
     :cond_1
     return-void
 .end method
 
 .method public static final makeText(Landroid/content/Context;II)Landroid/widget/Toast;
-    .locals 2
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "resId"    # I
-    .param p2, "duration"    # I
+    .locals 1
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -140,30 +105,29 @@
     .line 39
     invoke-static {p0, p1, p2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "Toast.makeText(context, resId, duration)"
+    const-string p1, "makeText(context, resId, duration)"
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    sput-object v0, Lorg/catrobat/paintroid/ui/ToastFactory;->currentToast:Landroid/widget/Toast;
+    sput-object p0, Lorg/catrobat/paintroid/ui/ToastFactory;->currentToast:Landroid/widget/Toast;
+
+    if-nez p0, :cond_0
+
+    const-string p0, "currentToast"
 
     .line 40
-    if-nez v0, :cond_0
+    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    const-string v1, "currentToast"
-
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    const/4 p0, 0x0
 
     :cond_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final makeText(Landroid/content/Context;Ljava/lang/String;I)Landroid/widget/Toast;
-    .locals 2
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "msg"    # Ljava/lang/String;
-    .param p2, "duration"    # I
+    .locals 1
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -181,27 +145,27 @@
     invoke-direct {v0}, Lorg/catrobat/paintroid/ui/ToastFactory;->cancelToast()V
 
     .line 46
-    move-object v0, p1
+    check-cast p1, Ljava/lang/CharSequence;
 
-    check-cast v0, Ljava/lang/CharSequence;
+    invoke-static {p0, p1, p2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
-    invoke-static {p0, v0, p2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    move-result-object p0
 
-    move-result-object v0
+    const-string p1, "makeText(context, msg, duration)"
 
-    const-string v1, "Toast.makeText(context, msg, duration)"
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    sput-object p0, Lorg/catrobat/paintroid/ui/ToastFactory;->currentToast:Landroid/widget/Toast;
 
-    sput-object v0, Lorg/catrobat/paintroid/ui/ToastFactory;->currentToast:Landroid/widget/Toast;
+    if-nez p0, :cond_0
+
+    const-string p0, "currentToast"
 
     .line 47
-    if-nez v0, :cond_0
+    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    const-string v1, "currentToast"
-
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    const/4 p0, 0x0
 
     :cond_0
-    return-object v0
+    return-object p0
 .end method

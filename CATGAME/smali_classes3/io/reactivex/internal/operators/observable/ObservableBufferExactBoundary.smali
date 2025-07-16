@@ -62,10 +62,6 @@
     .end annotation
 
     .line 35
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableBufferExactBoundary;, "Lio/reactivex/internal/operators/observable/ObservableBufferExactBoundary<TT;TU;TB;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
-    .local p2, "boundary":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TB;>;"
-    .local p3, "bufferSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TU;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/observable/AbstractObservableWithUpstream;-><init>(Lio/reactivex/ObservableSource;)V
 
     .line 36
@@ -74,14 +70,13 @@
     .line 37
     iput-object p3, p0, Lio/reactivex/internal/operators/observable/ObservableBufferExactBoundary;->bufferSupplier:Ljava/util/concurrent/Callable;
 
-    .line 38
     return-void
 .end method
 
 
 # virtual methods
 .method protected subscribeActual(Lio/reactivex/Observer;)V
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -91,8 +86,6 @@
     .end annotation
 
     .line 42
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableBufferExactBoundary;, "Lio/reactivex/internal/operators/observable/ObservableBufferExactBoundary<TT;TU;TB;>;"
-    .local p1, "t":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableBufferExactBoundary;->source:Lio/reactivex/ObservableSource;
 
     new-instance v1, Lio/reactivex/internal/operators/observable/ObservableBufferExactBoundary$BufferExactBoundaryObserver;
@@ -101,14 +94,13 @@
 
     invoke-direct {v2, p1}, Lio/reactivex/observers/SerializedObserver;-><init>(Lio/reactivex/Observer;)V
 
-    iget-object v3, p0, Lio/reactivex/internal/operators/observable/ObservableBufferExactBoundary;->bufferSupplier:Ljava/util/concurrent/Callable;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableBufferExactBoundary;->bufferSupplier:Ljava/util/concurrent/Callable;
 
-    iget-object v4, p0, Lio/reactivex/internal/operators/observable/ObservableBufferExactBoundary;->boundary:Lio/reactivex/ObservableSource;
+    iget-object v3, p0, Lio/reactivex/internal/operators/observable/ObservableBufferExactBoundary;->boundary:Lio/reactivex/ObservableSource;
 
-    invoke-direct {v1, v2, v3, v4}, Lio/reactivex/internal/operators/observable/ObservableBufferExactBoundary$BufferExactBoundaryObserver;-><init>(Lio/reactivex/Observer;Ljava/util/concurrent/Callable;Lio/reactivex/ObservableSource;)V
+    invoke-direct {v1, v2, p1, v3}, Lio/reactivex/internal/operators/observable/ObservableBufferExactBoundary$BufferExactBoundaryObserver;-><init>(Lio/reactivex/Observer;Ljava/util/concurrent/Callable;Lio/reactivex/ObservableSource;)V
 
     invoke-interface {v0, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 43
     return-void
 .end method

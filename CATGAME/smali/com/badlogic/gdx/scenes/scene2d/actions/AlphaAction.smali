@@ -47,7 +47,6 @@
 
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AlphaAction;->start:F
 
-    .line 32
     return-void
 .end method
 
@@ -75,42 +74,35 @@
     .line 44
     invoke-super {p0}, Lcom/badlogic/gdx/scenes/scene2d/actions/TemporalAction;->reset()V
 
-    .line 45
     const/4 v0, 0x0
 
+    .line 45
     iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AlphaAction;->color:Lcom/badlogic/gdx/graphics/Color;
 
-    .line 46
     return-void
 .end method
 
 .method public setAlpha(F)V
     .locals 0
-    .param p1, "alpha"    # F
 
     .line 63
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AlphaAction;->end:F
 
-    .line 64
     return-void
 .end method
 
 .method public setColor(Lcom/badlogic/gdx/graphics/Color;)V
     .locals 0
-    .param p1, "color"    # Lcom/badlogic/gdx/graphics/Color;
 
     .line 55
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AlphaAction;->color:Lcom/badlogic/gdx/graphics/Color;
 
-    .line 56
     return-void
 .end method
 
 .method protected update(F)V
     .locals 3
-    .param p1, "percent"    # F
 
-    .line 35
     const/4 v0, 0x0
 
     cmpl-float v0, p1, v0
@@ -118,15 +110,14 @@
     if-nez v0, :cond_0
 
     .line 36
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AlphaAction;->color:Lcom/badlogic/gdx/graphics/Color;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AlphaAction;->color:Lcom/badlogic/gdx/graphics/Color;
 
-    iget v1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AlphaAction;->start:F
+    iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AlphaAction;->start:F
 
-    iput v1, v0, Lcom/badlogic/gdx/graphics/Color;->a:F
+    iput v0, p1, Lcom/badlogic/gdx/graphics/Color;->a:F
 
     goto :goto_0
 
-    .line 37
     :cond_0
     const/high16 v0, 0x3f800000    # 1.0f
 
@@ -135,11 +126,11 @@
     if-nez v0, :cond_1
 
     .line 38
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AlphaAction;->color:Lcom/badlogic/gdx/graphics/Color;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AlphaAction;->color:Lcom/badlogic/gdx/graphics/Color;
 
-    iget v1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AlphaAction;->end:F
+    iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AlphaAction;->end:F
 
-    iput v1, v0, Lcom/badlogic/gdx/graphics/Color;->a:F
+    iput v0, p1, Lcom/badlogic/gdx/graphics/Color;->a:F
 
     goto :goto_0
 
@@ -159,7 +150,6 @@
 
     iput v1, v0, Lcom/badlogic/gdx/graphics/Color;->a:F
 
-    .line 41
     :goto_0
     return-void
 .end method

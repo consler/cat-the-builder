@@ -32,7 +32,6 @@
 .method protected final getTreeDepth()I
     .locals 1
 
-    .line 876
     const/4 v0, 0x0
 
     return v0
@@ -41,7 +40,6 @@
 .method protected final isBalanced()Z
     .locals 1
 
-    .line 881
     const/4 v0, 0x1
 
     return v0
@@ -49,7 +47,6 @@
 
 .method writeToReverse(Lcom/google/crypto/tink/shaded/protobuf/ByteOutput;)V
     .locals 0
-    .param p1, "byteOutput"    # Lcom/google/crypto/tink/shaded/protobuf/ByteOutput;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -59,6 +56,5 @@
     .line 886
     invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;->writeTo(Lcom/google/crypto/tink/shaded/protobuf/ByteOutput;)V
 
-    .line 887
     return-void
 .end method

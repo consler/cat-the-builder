@@ -36,16 +36,14 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;I)V
-    .locals 5
-    .param p1, "ip"    # Ljava/lang/String;
-    .param p2, "port"    # I
+    .locals 4
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 32
     const/4 v0, 0x0
 
+    .line 32
     iput-boolean v0, p0, Lcom/badlogic/gdx/input/RemoteSender;->connected:Z
 
     .line 49
@@ -54,15 +52,14 @@
 
     invoke-direct {v0, p1, p2}, Ljava/net/Socket;-><init>(Ljava/lang/String;I)V
 
-    .line 50
-    .local v0, "socket":Ljava/net/Socket;
     const/4 v1, 0x1
 
+    .line 50
     invoke-virtual {v0, v1}, Ljava/net/Socket;->setTcpNoDelay(Z)V
 
-    .line 51
     const/16 v2, 0xbb8
 
+    .line 51
     invoke-virtual {v0, v2}, Ljava/net/Socket;->setSoTimeout(I)V
 
     .line 52
@@ -70,71 +67,67 @@
 
     invoke-virtual {v0}, Ljava/net/Socket;->getOutputStream()Ljava/io/OutputStream;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-direct {v2, v3}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
+    invoke-direct {v2, v0}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
 
     iput-object v2, p0, Lcom/badlogic/gdx/input/RemoteSender;->out:Ljava/io/DataOutputStream;
 
     .line 53
-    sget-object v3, Lcom/badlogic/gdx/Gdx;->input:Lcom/badlogic/gdx/Input;
+    sget-object v0, Lcom/badlogic/gdx/Gdx;->input:Lcom/badlogic/gdx/Input;
 
-    sget-object v4, Lcom/badlogic/gdx/Input$Peripheral;->MultitouchScreen:Lcom/badlogic/gdx/Input$Peripheral;
+    sget-object v3, Lcom/badlogic/gdx/Input$Peripheral;->MultitouchScreen:Lcom/badlogic/gdx/Input$Peripheral;
 
-    invoke-interface {v3, v4}, Lcom/badlogic/gdx/Input;->isPeripheralAvailable(Lcom/badlogic/gdx/Input$Peripheral;)Z
+    invoke-interface {v0, v3}, Lcom/badlogic/gdx/Input;->isPeripheralAvailable(Lcom/badlogic/gdx/Input$Peripheral;)Z
 
-    move-result v3
+    move-result v0
 
-    invoke-virtual {v2, v3}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
+    invoke-virtual {v2, v0}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
 
     .line 54
     iput-boolean v1, p0, Lcom/badlogic/gdx/input/RemoteSender;->connected:Z
 
     .line 55
-    sget-object v1, Lcom/badlogic/gdx/Gdx;->input:Lcom/badlogic/gdx/Input;
+    sget-object v0, Lcom/badlogic/gdx/Gdx;->input:Lcom/badlogic/gdx/Input;
 
-    invoke-interface {v1, p0}, Lcom/badlogic/gdx/Input;->setInputProcessor(Lcom/badlogic/gdx/InputProcessor;)V
+    invoke-interface {v0, p0}, Lcom/badlogic/gdx/Input;->setInputProcessor(Lcom/badlogic/gdx/InputProcessor;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 58
-    .end local v0    # "socket":Ljava/net/Socket;
     goto :goto_0
 
-    .line 56
-    :catch_0
-    move-exception v0
-
     .line 57
-    .local v0, "e":Ljava/lang/Exception;
-    sget-object v1, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
+    :catch_0
+    sget-object v0, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "couldn\'t connect to "
 
-    const-string v3, "couldn\'t connect to "
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    const-string v3, ":"
+    const-string v1, ":"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object p1
 
-    const-string v3, "RemoteSender"
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-interface {v1, v3, v2}, Lcom/badlogic/gdx/Application;->log(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object p1
 
-    .line 59
-    .end local v0    # "e":Ljava/lang/Exception;
+    const-string p2, "RemoteSender"
+
+    invoke-interface {v0, p2, p1}, Lcom/badlogic/gdx/Application;->log(Ljava/lang/String;Ljava/lang/String;)V
+
     :goto_0
     return-void
 .end method
@@ -155,10 +148,10 @@
 
     return v0
 
-    .line 208
     :catchall_0
     move-exception v0
 
+    .line 208
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -168,7 +161,6 @@
 
 .method public keyDown(I)Z
     .locals 2
-    .param p1, "keycode"    # I
 
     .line 89
     monitor-enter p0
@@ -204,15 +196,10 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 100
     goto :goto_0
 
-    .line 96
-    :catchall_0
-    move-exception v0
-
     .line 97
-    .local v0, "t":Ljava/lang/Throwable;
+    :catchall_0
     monitor-enter p0
 
     .line 98
@@ -222,38 +209,32 @@
     .line 99
     monitor-exit p0
 
-    .line 101
-    .end local v0    # "t":Ljava/lang/Throwable;
     :goto_0
     return v1
 
-    .line 99
-    .restart local v0    # "t":Ljava/lang/Throwable;
     :catchall_1
-    move-exception v1
+    move-exception p1
 
     monitor-exit p0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    throw v1
+    throw p1
+
+    :catchall_2
+    move-exception p1
 
     .line 91
-    .end local v0    # "t":Ljava/lang/Throwable;
-    :catchall_2
-    move-exception v0
-
     :try_start_3
     monitor-exit p0
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_2
 
-    throw v0
+    throw p1
 .end method
 
 .method public keyTyped(C)Z
     .locals 3
-    .param p1, "character"    # C
 
     .line 123
     monitor-enter p0
@@ -291,15 +272,10 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 134
     goto :goto_0
 
-    .line 130
-    :catchall_0
-    move-exception v0
-
     .line 131
-    .local v0, "t":Ljava/lang/Throwable;
+    :catchall_0
     monitor-enter p0
 
     .line 132
@@ -309,38 +285,32 @@
     .line 133
     monitor-exit p0
 
-    .line 135
-    .end local v0    # "t":Ljava/lang/Throwable;
     :goto_0
     return v1
 
-    .line 133
-    .restart local v0    # "t":Ljava/lang/Throwable;
     :catchall_1
-    move-exception v1
+    move-exception p1
 
     monitor-exit p0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    throw v1
+    throw p1
+
+    :catchall_2
+    move-exception p1
 
     .line 125
-    .end local v0    # "t":Ljava/lang/Throwable;
-    :catchall_2
-    move-exception v0
-
     :try_start_3
     monitor-exit p0
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_2
 
-    throw v0
+    throw p1
 .end method
 
 .method public keyUp(I)Z
     .locals 3
-    .param p1, "keycode"    # I
 
     .line 106
     monitor-enter p0
@@ -378,15 +348,10 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 117
     goto :goto_0
 
-    .line 113
-    :catchall_0
-    move-exception v0
-
     .line 114
-    .local v0, "t":Ljava/lang/Throwable;
+    :catchall_0
     monitor-enter p0
 
     .line 115
@@ -396,54 +361,44 @@
     .line 116
     monitor-exit p0
 
-    .line 118
-    .end local v0    # "t":Ljava/lang/Throwable;
     :goto_0
     return v1
 
-    .line 116
-    .restart local v0    # "t":Ljava/lang/Throwable;
     :catchall_1
-    move-exception v1
+    move-exception p1
 
     monitor-exit p0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    throw v1
+    throw p1
+
+    :catchall_2
+    move-exception p1
 
     .line 108
-    .end local v0    # "t":Ljava/lang/Throwable;
-    :catchall_2
-    move-exception v0
-
     :try_start_3
     monitor-exit p0
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_2
 
-    throw v0
+    throw p1
 .end method
 
 .method public mouseMoved(II)Z
-    .locals 1
-    .param p1, "x"    # I
-    .param p2, "y"    # I
+    .locals 0
 
-    .line 197
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public scrolled(I)Z
-    .locals 1
-    .param p1, "amount"    # I
+    .locals 0
 
-    .line 202
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public sendUpdate()V
@@ -624,33 +579,26 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 84
     goto :goto_0
 
-    .line 81
     :catchall_0
-    move-exception v0
+    const/4 v0, 0x0
 
     .line 82
-    .local v0, "t":Ljava/lang/Throwable;
-    const/4 v1, 0x0
+    iput-object v0, p0, Lcom/badlogic/gdx/input/RemoteSender;->out:Ljava/io/DataOutputStream;
 
-    iput-object v1, p0, Lcom/badlogic/gdx/input/RemoteSender;->out:Ljava/io/DataOutputStream;
+    const/4 v0, 0x0
 
     .line 83
-    const/4 v1, 0x0
+    iput-boolean v0, p0, Lcom/badlogic/gdx/input/RemoteSender;->connected:Z
 
-    iput-boolean v1, p0, Lcom/badlogic/gdx/input/RemoteSender;->connected:Z
-
-    .line 85
-    .end local v0    # "t":Ljava/lang/Throwable;
     :goto_0
     return-void
 
-    .line 64
     :catchall_1
     move-exception v0
 
+    .line 64
     :try_start_2
     monitor-exit p0
     :try_end_2
@@ -660,26 +608,22 @@
 .end method
 
 .method public touchDown(IIII)Z
-    .locals 3
-    .param p1, "x"    # I
-    .param p2, "y"    # I
-    .param p3, "pointer"    # I
-    .param p4, "button"    # I
+    .locals 2
 
     .line 140
     monitor-enter p0
 
     .line 141
     :try_start_0
-    iget-boolean v0, p0, Lcom/badlogic/gdx/input/RemoteSender;->connected:Z
+    iget-boolean p4, p0, Lcom/badlogic/gdx/input/RemoteSender;->connected:Z
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    if-nez v0, :cond_0
+    if-nez p4, :cond_0
 
     monitor-exit p0
 
-    return v1
+    return v0
 
     .line 142
     :cond_0
@@ -689,81 +633,68 @@
 
     .line 145
     :try_start_1
-    iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteSender;->out:Ljava/io/DataOutputStream;
+    iget-object p4, p0, Lcom/badlogic/gdx/input/RemoteSender;->out:Ljava/io/DataOutputStream;
 
-    const/4 v2, 0x3
+    const/4 v1, 0x3
 
-    invoke-virtual {v0, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+    invoke-virtual {p4, v1}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 146
-    iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteSender;->out:Ljava/io/DataOutputStream;
+    iget-object p4, p0, Lcom/badlogic/gdx/input/RemoteSender;->out:Ljava/io/DataOutputStream;
 
-    invoke-virtual {v0, p1}, Ljava/io/DataOutputStream;->writeInt(I)V
+    invoke-virtual {p4, p1}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 147
-    iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteSender;->out:Ljava/io/DataOutputStream;
+    iget-object p1, p0, Lcom/badlogic/gdx/input/RemoteSender;->out:Ljava/io/DataOutputStream;
 
-    invoke-virtual {v0, p2}, Ljava/io/DataOutputStream;->writeInt(I)V
+    invoke-virtual {p1, p2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 148
-    iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteSender;->out:Ljava/io/DataOutputStream;
+    iget-object p1, p0, Lcom/badlogic/gdx/input/RemoteSender;->out:Ljava/io/DataOutputStream;
 
-    invoke-virtual {v0, p3}, Ljava/io/DataOutputStream;->writeInt(I)V
+    invoke-virtual {p1, p3}, Ljava/io/DataOutputStream;->writeInt(I)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 153
     goto :goto_0
 
-    .line 149
-    :catchall_0
-    move-exception v0
-
     .line 150
-    .local v0, "t":Ljava/lang/Throwable;
+    :catchall_0
     monitor-enter p0
 
     .line 151
     :try_start_2
-    iput-boolean v1, p0, Lcom/badlogic/gdx/input/RemoteSender;->connected:Z
+    iput-boolean v0, p0, Lcom/badlogic/gdx/input/RemoteSender;->connected:Z
 
     .line 152
     monitor-exit p0
 
-    .line 154
-    .end local v0    # "t":Ljava/lang/Throwable;
     :goto_0
-    return v1
+    return v0
 
-    .line 152
-    .restart local v0    # "t":Ljava/lang/Throwable;
     :catchall_1
-    move-exception v1
+    move-exception p1
 
     monitor-exit p0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    throw v1
+    throw p1
+
+    :catchall_2
+    move-exception p1
 
     .line 142
-    .end local v0    # "t":Ljava/lang/Throwable;
-    :catchall_2
-    move-exception v0
-
     :try_start_3
     monitor-exit p0
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_2
 
-    throw v0
+    throw p1
 .end method
 
 .method public touchDragged(III)Z
     .locals 3
-    .param p1, "x"    # I
-    .param p2, "y"    # I
-    .param p3, "pointer"    # I
 
     .line 178
     monitor-enter p0
@@ -800,26 +731,21 @@
     invoke-virtual {v0, p1}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 185
-    iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteSender;->out:Ljava/io/DataOutputStream;
+    iget-object p1, p0, Lcom/badlogic/gdx/input/RemoteSender;->out:Ljava/io/DataOutputStream;
 
-    invoke-virtual {v0, p2}, Ljava/io/DataOutputStream;->writeInt(I)V
+    invoke-virtual {p1, p2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 186
-    iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteSender;->out:Ljava/io/DataOutputStream;
+    iget-object p1, p0, Lcom/badlogic/gdx/input/RemoteSender;->out:Ljava/io/DataOutputStream;
 
-    invoke-virtual {v0, p3}, Ljava/io/DataOutputStream;->writeInt(I)V
+    invoke-virtual {p1, p3}, Ljava/io/DataOutputStream;->writeInt(I)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 191
     goto :goto_0
 
-    .line 187
-    :catchall_0
-    move-exception v0
-
     .line 188
-    .local v0, "t":Ljava/lang/Throwable;
+    :catchall_0
     monitor-enter p0
 
     .line 189
@@ -829,56 +755,47 @@
     .line 190
     monitor-exit p0
 
-    .line 192
-    .end local v0    # "t":Ljava/lang/Throwable;
     :goto_0
     return v1
 
-    .line 190
-    .restart local v0    # "t":Ljava/lang/Throwable;
     :catchall_1
-    move-exception v1
+    move-exception p1
 
     monitor-exit p0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    throw v1
+    throw p1
+
+    :catchall_2
+    move-exception p1
 
     .line 180
-    .end local v0    # "t":Ljava/lang/Throwable;
-    :catchall_2
-    move-exception v0
-
     :try_start_3
     monitor-exit p0
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_2
 
-    throw v0
+    throw p1
 .end method
 
 .method public touchUp(IIII)Z
-    .locals 3
-    .param p1, "x"    # I
-    .param p2, "y"    # I
-    .param p3, "pointer"    # I
-    .param p4, "button"    # I
+    .locals 2
 
     .line 159
     monitor-enter p0
 
     .line 160
     :try_start_0
-    iget-boolean v0, p0, Lcom/badlogic/gdx/input/RemoteSender;->connected:Z
+    iget-boolean p4, p0, Lcom/badlogic/gdx/input/RemoteSender;->connected:Z
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    if-nez v0, :cond_0
+    if-nez p4, :cond_0
 
     monitor-exit p0
 
-    return v1
+    return v0
 
     .line 161
     :cond_0
@@ -888,72 +805,62 @@
 
     .line 164
     :try_start_1
-    iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteSender;->out:Ljava/io/DataOutputStream;
+    iget-object p4, p0, Lcom/badlogic/gdx/input/RemoteSender;->out:Ljava/io/DataOutputStream;
 
-    const/4 v2, 0x4
+    const/4 v1, 0x4
 
-    invoke-virtual {v0, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+    invoke-virtual {p4, v1}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 165
-    iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteSender;->out:Ljava/io/DataOutputStream;
+    iget-object p4, p0, Lcom/badlogic/gdx/input/RemoteSender;->out:Ljava/io/DataOutputStream;
 
-    invoke-virtual {v0, p1}, Ljava/io/DataOutputStream;->writeInt(I)V
+    invoke-virtual {p4, p1}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 166
-    iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteSender;->out:Ljava/io/DataOutputStream;
+    iget-object p1, p0, Lcom/badlogic/gdx/input/RemoteSender;->out:Ljava/io/DataOutputStream;
 
-    invoke-virtual {v0, p2}, Ljava/io/DataOutputStream;->writeInt(I)V
+    invoke-virtual {p1, p2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 167
-    iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteSender;->out:Ljava/io/DataOutputStream;
+    iget-object p1, p0, Lcom/badlogic/gdx/input/RemoteSender;->out:Ljava/io/DataOutputStream;
 
-    invoke-virtual {v0, p3}, Ljava/io/DataOutputStream;->writeInt(I)V
+    invoke-virtual {p1, p3}, Ljava/io/DataOutputStream;->writeInt(I)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 172
     goto :goto_0
 
-    .line 168
-    :catchall_0
-    move-exception v0
-
     .line 169
-    .local v0, "t":Ljava/lang/Throwable;
+    :catchall_0
     monitor-enter p0
 
     .line 170
     :try_start_2
-    iput-boolean v1, p0, Lcom/badlogic/gdx/input/RemoteSender;->connected:Z
+    iput-boolean v0, p0, Lcom/badlogic/gdx/input/RemoteSender;->connected:Z
 
     .line 171
     monitor-exit p0
 
-    .line 173
-    .end local v0    # "t":Ljava/lang/Throwable;
     :goto_0
-    return v1
+    return v0
 
-    .line 171
-    .restart local v0    # "t":Ljava/lang/Throwable;
     :catchall_1
-    move-exception v1
+    move-exception p1
 
     monitor-exit p0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    throw v1
+    throw p1
+
+    :catchall_2
+    move-exception p1
 
     .line 161
-    .end local v0    # "t":Ljava/lang/Throwable;
-    :catchall_2
-    move-exception v0
-
     :try_start_3
     monitor-exit p0
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_2
 
-    throw v0
+    throw p1
 .end method

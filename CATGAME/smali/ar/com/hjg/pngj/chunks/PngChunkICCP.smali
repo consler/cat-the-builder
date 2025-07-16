@@ -16,14 +16,12 @@
 # direct methods
 .method public constructor <init>(Lar/com/hjg/pngj/ImageInfo;)V
     .locals 1
-    .param p1, "info"    # Lar/com/hjg/pngj/ImageInfo;
 
-    .line 19
     const-string v0, "iCCP"
 
+    .line 19
     invoke-direct {p0, v0, p1}, Lar/com/hjg/pngj/chunks/PngChunkSingle;-><init>(Ljava/lang/String;Lar/com/hjg/pngj/ImageInfo;)V
 
-    .line 20
     return-void
 .end method
 
@@ -54,7 +52,6 @@
     move-result-object v0
 
     .line 30
-    .local v0, "c":Lar/com/hjg/pngj/chunks/ChunkRaw;
     iget-object v2, p0, Lar/com/hjg/pngj/chunks/PngChunkICCP;->profileName:Ljava/lang/String;
 
     invoke-static {v2}, Lar/com/hjg/pngj/chunks/ChunkHelper;->toBytes(Ljava/lang/String;)[B
@@ -116,7 +113,6 @@
 
     invoke-static {v1, v5, v2, v3, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 35
     return-object v0
 .end method
 
@@ -169,8 +165,7 @@
 .end method
 
 .method public parseFromRaw(Lar/com/hjg/pngj/chunks/ChunkRaw;)V
-    .locals 7
-    .param p1, "chunk"    # Lar/com/hjg/pngj/chunks/ChunkRaw;
+    .locals 4
 
     .line 40
     iget-object v0, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
@@ -180,7 +175,6 @@
     move-result v0
 
     .line 41
-    .local v0, "pos0":I
     iget-object v1, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
 
     const/4 v2, 0x0
@@ -200,82 +194,69 @@
 
     and-int/lit16 v1, v1, 0xff
 
-    .line 43
-    .local v1, "comp":I
     if-nez v1, :cond_0
 
     .line 45
-    iget-object v3, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
+    iget-object v1, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
 
-    array-length v3, v3
+    array-length v1, v1
 
-    add-int/lit8 v4, v0, 0x2
+    add-int/lit8 v0, v0, 0x2
 
-    sub-int/2addr v3, v4
+    sub-int/2addr v1, v0
 
     .line 46
-    .local v3, "compdatasize":I
-    new-array v4, v3, [B
+    new-array v3, v1, [B
 
-    iput-object v4, p0, Lar/com/hjg/pngj/chunks/PngChunkICCP;->compressedProfile:[B
+    iput-object v3, p0, Lar/com/hjg/pngj/chunks/PngChunkICCP;->compressedProfile:[B
 
     .line 47
-    iget-object v4, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
+    iget-object p1, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
 
-    add-int/lit8 v5, v0, 0x2
+    iget-object v3, p0, Lar/com/hjg/pngj/chunks/PngChunkICCP;->compressedProfile:[B
 
-    iget-object v6, p0, Lar/com/hjg/pngj/chunks/PngChunkICCP;->compressedProfile:[B
+    invoke-static {p1, v0, v3, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    invoke-static {v4, v5, v6, v2, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    .line 48
     return-void
 
     .line 44
-    .end local v3    # "compdatasize":I
     :cond_0
-    new-instance v2, Lar/com/hjg/pngj/PngjException;
+    new-instance p1, Lar/com/hjg/pngj/PngjException;
 
-    const-string v3, "bad compression for ChunkTypeICCP"
+    const-string v0, "bad compression for ChunkTypeICCP"
 
-    invoke-direct {v2, v3}, Lar/com/hjg/pngj/PngjException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lar/com/hjg/pngj/PngjException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p1
 .end method
 
 .method public setProfileNameAndContent(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "profile"    # Ljava/lang/String;
+    .locals 0
 
     .line 59
     invoke-static {p2}, Lar/com/hjg/pngj/chunks/ChunkHelper;->toBytes(Ljava/lang/String;)[B
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {p0, p1, v0}, Lar/com/hjg/pngj/chunks/PngChunkICCP;->setProfileNameAndContent(Ljava/lang/String;[B)V
+    invoke-virtual {p0, p1, p2}, Lar/com/hjg/pngj/chunks/PngChunkICCP;->setProfileNameAndContent(Ljava/lang/String;[B)V
 
-    .line 60
     return-void
 .end method
 
 .method public setProfileNameAndContent(Ljava/lang/String;[B)V
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "profile"    # [B
+    .locals 0
 
     .line 54
     iput-object p1, p0, Lar/com/hjg/pngj/chunks/PngChunkICCP;->profileName:Ljava/lang/String;
 
+    const/4 p1, 0x1
+
     .line 55
-    const/4 v0, 0x1
+    invoke-static {p2, p1}, Lar/com/hjg/pngj/chunks/ChunkHelper;->compressBytes([BZ)[B
 
-    invoke-static {p2, v0}, Lar/com/hjg/pngj/chunks/ChunkHelper;->compressBytes([BZ)[B
+    move-result-object p1
 
-    move-result-object v0
+    iput-object p1, p0, Lar/com/hjg/pngj/chunks/PngChunkICCP;->compressedProfile:[B
 
-    iput-object v0, p0, Lar/com/hjg/pngj/chunks/PngChunkICCP;->compressedProfile:[B
-
-    .line 56
     return-void
 .end method

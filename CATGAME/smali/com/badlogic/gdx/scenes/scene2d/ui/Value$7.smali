@@ -33,17 +33,16 @@
 
 # virtual methods
 .method public get(Lcom/badlogic/gdx/scenes/scene2d/Actor;)F
-    .locals 2
-    .param p1, "actor"    # Lcom/badlogic/gdx/scenes/scene2d/Actor;
+    .locals 1
 
     .line 120
     invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/Actor;->getWidth()F
 
-    move-result v0
+    move-result p1
 
-    iget v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Value$7;->val$percent:F
+    iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Value$7;->val$percent:F
 
-    mul-float/2addr v0, v1
+    mul-float/2addr p1, v0
 
-    return v0
+    return p1
 .end method

@@ -50,32 +50,30 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 59
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 60
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
     .locals 0
 
-    .line 70
+    .line 2
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 71
+    .line 3
     iput-object p1, p0, Lcom/huawei/hms/core/aidl/RequestHeader;->appId:Ljava/lang/String;
 
-    .line 72
+    .line 4
     iput-object p2, p0, Lcom/huawei/hms/core/aidl/RequestHeader;->packageName:Ljava/lang/String;
 
-    .line 73
+    .line 5
     iput p3, p0, Lcom/huawei/hms/core/aidl/RequestHeader;->sdkVersion:I
 
-    .line 74
+    .line 6
     iput-object p4, p0, Lcom/huawei/hms/core/aidl/RequestHeader;->sessionId:Ljava/lang/String;
 
-    .line 75
     return-void
 .end method
 
@@ -92,60 +90,54 @@
         }
     .end annotation
 
-    .line 168
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/core/aidl/RequestHeader;->apiNameList:Ljava/util/List;
 
-    .line 169
     return-object v0
 .end method
 
 .method public getAppID()Ljava/lang/String;
     .locals 1
 
-    .line 83
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/core/aidl/RequestHeader;->appId:Ljava/lang/String;
 
-    .line 84
     return-object v0
 .end method
 
 .method public getPackageName()Ljava/lang/String;
     .locals 1
 
-    .line 111
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/core/aidl/RequestHeader;->packageName:Ljava/lang/String;
 
-    .line 112
     return-object v0
 .end method
 
 .method public getSdkVersion()I
     .locals 1
 
-    .line 130
+    .line 1
     iget v0, p0, Lcom/huawei/hms/core/aidl/RequestHeader;->sdkVersion:I
 
-    .line 131
     return v0
 .end method
 
 .method public getSessionId()Ljava/lang/String;
     .locals 1
 
-    .line 149
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/core/aidl/RequestHeader;->sessionId:Ljava/lang/String;
 
-    .line 150
     return-object v0
 .end method
 
 .method public setApiLevel(I)V
     .locals 0
 
-    .line 102
+    .line 1
     iput p1, p0, Lcom/huawei/hms/core/aidl/RequestHeader;->apiLevel:I
 
-    .line 103
     return-void
 .end method
 
@@ -160,49 +152,44 @@
         }
     .end annotation
 
-    .line 178
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/core/aidl/RequestHeader;->apiNameList:Ljava/util/List;
 
-    .line 179
     return-void
 .end method
 
 .method public setAppID(Ljava/lang/String;)V
     .locals 0
 
-    .line 93
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/core/aidl/RequestHeader;->appId:Ljava/lang/String;
 
-    .line 94
     return-void
 .end method
 
 .method public setPackageName(Ljava/lang/String;)V
     .locals 0
 
-    .line 121
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/core/aidl/RequestHeader;->packageName:Ljava/lang/String;
 
-    .line 122
     return-void
 .end method
 
 .method public setSdkVersion(I)V
     .locals 0
 
-    .line 140
+    .line 1
     iput p1, p0, Lcom/huawei/hms/core/aidl/RequestHeader;->sdkVersion:I
 
-    .line 141
     return-void
 .end method
 
 .method public setSessionId(Ljava/lang/String;)V
     .locals 0
 
-    .line 159
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/core/aidl/RequestHeader;->sessionId:Ljava/lang/String;
 
-    .line 160
     return-void
 .end method

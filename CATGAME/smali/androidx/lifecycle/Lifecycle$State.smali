@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 8
+    .locals 11
 
     .line 170
     new-instance v0, Landroidx/lifecycle/Lifecycle$State;
@@ -52,73 +52,65 @@
     sput-object v0, Landroidx/lifecycle/Lifecycle$State;->DESTROYED:Landroidx/lifecycle/Lifecycle$State;
 
     .line 177
-    new-instance v0, Landroidx/lifecycle/Lifecycle$State;
+    new-instance v1, Landroidx/lifecycle/Lifecycle$State;
 
-    const-string v1, "INITIALIZED"
+    const-string v3, "INITIALIZED"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Landroidx/lifecycle/Lifecycle$State;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Landroidx/lifecycle/Lifecycle$State;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/lifecycle/Lifecycle$State;->INITIALIZED:Landroidx/lifecycle/Lifecycle$State;
+    sput-object v1, Landroidx/lifecycle/Lifecycle$State;->INITIALIZED:Landroidx/lifecycle/Lifecycle$State;
 
     .line 187
-    new-instance v0, Landroidx/lifecycle/Lifecycle$State;
+    new-instance v3, Landroidx/lifecycle/Lifecycle$State;
 
-    const-string v1, "CREATED"
+    const-string v5, "CREATED"
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v1, v4}, Landroidx/lifecycle/Lifecycle$State;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Landroidx/lifecycle/Lifecycle$State;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/lifecycle/Lifecycle$State;->CREATED:Landroidx/lifecycle/Lifecycle$State;
+    sput-object v3, Landroidx/lifecycle/Lifecycle$State;->CREATED:Landroidx/lifecycle/Lifecycle$State;
 
     .line 197
-    new-instance v0, Landroidx/lifecycle/Lifecycle$State;
+    new-instance v5, Landroidx/lifecycle/Lifecycle$State;
 
-    const-string v1, "STARTED"
+    const-string v7, "STARTED"
 
-    const/4 v5, 0x3
+    const/4 v8, 0x3
 
-    invoke-direct {v0, v1, v5}, Landroidx/lifecycle/Lifecycle$State;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v5, v7, v8}, Landroidx/lifecycle/Lifecycle$State;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/lifecycle/Lifecycle$State;->STARTED:Landroidx/lifecycle/Lifecycle$State;
+    sput-object v5, Landroidx/lifecycle/Lifecycle$State;->STARTED:Landroidx/lifecycle/Lifecycle$State;
 
     .line 203
-    new-instance v0, Landroidx/lifecycle/Lifecycle$State;
+    new-instance v7, Landroidx/lifecycle/Lifecycle$State;
 
-    const-string v1, "RESUMED"
+    const-string v9, "RESUMED"
 
-    const/4 v6, 0x4
+    const/4 v10, 0x4
 
-    invoke-direct {v0, v1, v6}, Landroidx/lifecycle/Lifecycle$State;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v7, v9, v10}, Landroidx/lifecycle/Lifecycle$State;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/lifecycle/Lifecycle$State;->RESUMED:Landroidx/lifecycle/Lifecycle$State;
+    sput-object v7, Landroidx/lifecycle/Lifecycle$State;->RESUMED:Landroidx/lifecycle/Lifecycle$State;
+
+    const/4 v9, 0x5
+
+    new-array v9, v9, [Landroidx/lifecycle/Lifecycle$State;
+
+    aput-object v0, v9, v2
+
+    aput-object v1, v9, v4
+
+    aput-object v3, v9, v6
+
+    aput-object v5, v9, v8
+
+    aput-object v7, v9, v10
 
     .line 163
-    const/4 v1, 0x5
-
-    new-array v1, v1, [Landroidx/lifecycle/Lifecycle$State;
-
-    sget-object v7, Landroidx/lifecycle/Lifecycle$State;->DESTROYED:Landroidx/lifecycle/Lifecycle$State;
-
-    aput-object v7, v1, v2
-
-    sget-object v2, Landroidx/lifecycle/Lifecycle$State;->INITIALIZED:Landroidx/lifecycle/Lifecycle$State;
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Landroidx/lifecycle/Lifecycle$State;->CREATED:Landroidx/lifecycle/Lifecycle$State;
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Landroidx/lifecycle/Lifecycle$State;->STARTED:Landroidx/lifecycle/Lifecycle$State;
-
-    aput-object v2, v1, v5
-
-    aput-object v0, v1, v6
-
-    sput-object v1, Landroidx/lifecycle/Lifecycle$State;->$VALUES:[Landroidx/lifecycle/Lifecycle$State;
+    sput-object v9, Landroidx/lifecycle/Lifecycle$State;->$VALUES:[Landroidx/lifecycle/Lifecycle$State;
 
     return-void
 .end method
@@ -139,18 +131,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/lifecycle/Lifecycle$State;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 163
     const-class v0, Landroidx/lifecycle/Lifecycle$State;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroidx/lifecycle/Lifecycle$State;
+    check-cast p0, Landroidx/lifecycle/Lifecycle$State;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Landroidx/lifecycle/Lifecycle$State;
@@ -171,23 +162,22 @@
 
 # virtual methods
 .method public isAtLeast(Landroidx/lifecycle/Lifecycle$State;)Z
-    .locals 1
-    .param p1, "state"    # Landroidx/lifecycle/Lifecycle$State;
+    .locals 0
 
     .line 212
     invoke-virtual {p0, p1}, Landroidx/lifecycle/Lifecycle$State;->compareTo(Ljava/lang/Enum;)I
 
-    move-result v0
+    move-result p1
 
-    if-ltz v0, :cond_0
+    if-ltz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method

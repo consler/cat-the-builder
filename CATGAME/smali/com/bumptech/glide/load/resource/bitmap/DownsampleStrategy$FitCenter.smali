@@ -27,94 +27,79 @@
 
 # virtual methods
 .method public getSampleSizeRounding(IIII)Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$SampleSizeRounding;
-    .locals 1
-    .param p1, "sourceWidth"    # I
-    .param p2, "sourceHeight"    # I
-    .param p3, "requestedWidth"    # I
-    .param p4, "requestedHeight"    # I
+    .locals 0
 
     .line 162
-    sget-boolean v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$FitCenter;->IS_BITMAP_FACTORY_SCALING_SUPPORTED:Z
+    sget-boolean p1, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$FitCenter;->IS_BITMAP_FACTORY_SCALING_SUPPORTED:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 163
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$SampleSizeRounding;->QUALITY:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$SampleSizeRounding;
+    sget-object p1, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$SampleSizeRounding;->QUALITY:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$SampleSizeRounding;
 
-    return-object v0
+    return-object p1
 
     .line 168
     :cond_0
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$SampleSizeRounding;->MEMORY:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$SampleSizeRounding;
+    sget-object p1, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$SampleSizeRounding;->MEMORY:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$SampleSizeRounding;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getScaleFactor(IIII)F
-    .locals 3
-    .param p1, "sourceWidth"    # I
-    .param p2, "sourceHeight"    # I
-    .param p3, "requestedWidth"    # I
-    .param p4, "requestedHeight"    # I
+    .locals 1
 
     .line 145
     sget-boolean v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$FitCenter;->IS_BITMAP_FACTORY_SCALING_SUPPORTED:Z
 
     if-eqz v0, :cond_0
 
-    .line 146
-    int-to-float v0, p3
+    int-to-float p3, p3
 
-    int-to-float v1, p1
+    int-to-float p1, p1
 
-    div-float/2addr v0, v1
+    div-float/2addr p3, p1
 
-    .line 147
-    .local v0, "widthPercentage":F
-    int-to-float v1, p4
+    int-to-float p1, p4
 
-    int-to-float v2, p2
+    int-to-float p2, p2
 
-    div-float/2addr v1, v2
+    div-float/2addr p1, p2
 
     .line 149
-    .local v1, "heightPercentage":F
-    invoke-static {v0, v1}, Ljava/lang/Math;->min(FF)F
+    invoke-static {p3, p1}, Ljava/lang/Math;->min(FF)F
 
-    move-result v2
+    move-result p1
 
-    return v2
+    return p1
 
     .line 153
-    .end local v0    # "widthPercentage":F
-    .end local v1    # "heightPercentage":F
     :cond_0
-    div-int v0, p2, p4
+    div-int/2addr p2, p4
 
-    div-int v1, p1, p3
+    div-int/2addr p1, p3
 
     .line 154
-    invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
+    invoke-static {p2, p1}, Ljava/lang/Math;->max(II)I
 
-    move-result v0
+    move-result p1
 
-    .line 155
-    .local v0, "maxIntegerFactor":I
-    const/high16 v1, 0x3f800000    # 1.0f
+    const/high16 p2, 0x3f800000    # 1.0f
 
-    if-nez v0, :cond_1
+    if-nez p1, :cond_1
 
     goto :goto_0
 
+    .line 155
     :cond_1
-    invoke-static {v0}, Ljava/lang/Integer;->highestOneBit(I)I
+    invoke-static {p1}, Ljava/lang/Integer;->highestOneBit(I)I
 
-    move-result v2
+    move-result p1
 
-    int-to-float v2, v2
+    int-to-float p1, p1
 
-    div-float/2addr v1, v2
+    div-float/2addr p2, p1
 
     :goto_0
-    return v1
+    return p2
 .end method

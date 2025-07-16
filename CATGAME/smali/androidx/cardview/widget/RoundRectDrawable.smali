@@ -29,21 +29,19 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/res/ColorStateList;F)V
-    .locals 2
-    .param p1, "backgroundColor"    # Landroid/content/res/ColorStateList;
-    .param p2, "radius"    # F
+    .locals 1
 
     .line 55
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
 
-    .line 47
     const/4 v0, 0x0
 
+    .line 47
     iput-boolean v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mInsetForPadding:Z
 
-    .line 48
     const/4 v0, 0x1
 
+    .line 48
     iput-boolean v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mInsetForRadius:Z
 
     .line 53
@@ -55,41 +53,37 @@
     iput p2, p0, Landroidx/cardview/widget/RoundRectDrawable;->mRadius:F
 
     .line 57
-    new-instance v0, Landroid/graphics/Paint;
+    new-instance p2, Landroid/graphics/Paint;
 
-    const/4 v1, 0x5
+    const/4 v0, 0x5
 
-    invoke-direct {v0, v1}, Landroid/graphics/Paint;-><init>(I)V
+    invoke-direct {p2, v0}, Landroid/graphics/Paint;-><init>(I)V
 
-    iput-object v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mPaint:Landroid/graphics/Paint;
+    iput-object p2, p0, Landroidx/cardview/widget/RoundRectDrawable;->mPaint:Landroid/graphics/Paint;
 
     .line 58
     invoke-direct {p0, p1}, Landroidx/cardview/widget/RoundRectDrawable;->setBackground(Landroid/content/res/ColorStateList;)V
 
     .line 60
-    new-instance v0, Landroid/graphics/RectF;
+    new-instance p1, Landroid/graphics/RectF;
 
-    invoke-direct {v0}, Landroid/graphics/RectF;-><init>()V
+    invoke-direct {p1}, Landroid/graphics/RectF;-><init>()V
 
-    iput-object v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mBoundsF:Landroid/graphics/RectF;
+    iput-object p1, p0, Landroidx/cardview/widget/RoundRectDrawable;->mBoundsF:Landroid/graphics/RectF;
 
     .line 61
-    new-instance v0, Landroid/graphics/Rect;
+    new-instance p1, Landroid/graphics/Rect;
 
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {p1}, Landroid/graphics/Rect;-><init>()V
 
-    iput-object v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mBoundsI:Landroid/graphics/Rect;
+    iput-object p1, p0, Landroidx/cardview/widget/RoundRectDrawable;->mBoundsI:Landroid/graphics/Rect;
 
-    .line 62
     return-void
 .end method
 
 .method private createTintFilter(Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuffColorFilter;
     .locals 2
-    .param p1, "tint"    # Landroid/content/res/ColorStateList;
-    .param p2, "tintMode"    # Landroid/graphics/PorterDuff$Mode;
 
-    .line 206
     if-eqz p1, :cond_1
 
     if-nez p2, :cond_0
@@ -106,74 +100,62 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/content/res/ColorStateList;->getColorForState([II)I
 
-    move-result v0
+    move-result p1
 
     .line 210
-    .local v0, "color":I
-    new-instance v1, Landroid/graphics/PorterDuffColorFilter;
+    new-instance v0, Landroid/graphics/PorterDuffColorFilter;
 
-    invoke-direct {v1, v0, p2}, Landroid/graphics/PorterDuffColorFilter;-><init>(ILandroid/graphics/PorterDuff$Mode;)V
-
-    return-object v1
-
-    .line 207
-    .end local v0    # "color":I
-    :cond_1
-    :goto_0
-    const/4 v0, 0x0
+    invoke-direct {v0, p1, p2}, Landroid/graphics/PorterDuffColorFilter;-><init>(ILandroid/graphics/PorterDuff$Mode;)V
 
     return-object v0
+
+    :cond_1
+    :goto_0
+    const/4 p1, 0x0
+
+    return-object p1
 .end method
 
 .method private setBackground(Landroid/content/res/ColorStateList;)V
-    .locals 4
-    .param p1, "color"    # Landroid/content/res/ColorStateList;
+    .locals 3
 
-    .line 65
     if-nez p1, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    invoke-static {v0}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+    .line 65
+    invoke-static {p1}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
 
-    move-result-object v0
-
-    goto :goto_0
+    move-result-object p1
 
     :cond_0
-    move-object v0, p1
-
-    :goto_0
-    iput-object v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mBackground:Landroid/content/res/ColorStateList;
+    iput-object p1, p0, Landroidx/cardview/widget/RoundRectDrawable;->mBackground:Landroid/content/res/ColorStateList;
 
     .line 66
-    iget-object v1, p0, Landroidx/cardview/widget/RoundRectDrawable;->mPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mPaint:Landroid/graphics/Paint;
 
     invoke-virtual {p0}, Landroidx/cardview/widget/RoundRectDrawable;->getState()[I
 
-    move-result-object v2
+    move-result-object v1
 
-    iget-object v3, p0, Landroidx/cardview/widget/RoundRectDrawable;->mBackground:Landroid/content/res/ColorStateList;
+    iget-object v2, p0, Landroidx/cardview/widget/RoundRectDrawable;->mBackground:Landroid/content/res/ColorStateList;
 
-    invoke-virtual {v3}, Landroid/content/res/ColorStateList;->getDefaultColor()I
+    invoke-virtual {v2}, Landroid/content/res/ColorStateList;->getDefaultColor()I
 
-    move-result v3
+    move-result v2
 
-    invoke-virtual {v0, v2, v3}, Landroid/content/res/ColorStateList;->getColorForState([II)I
+    invoke-virtual {p1, v1, v2}, Landroid/content/res/ColorStateList;->getColorForState([II)I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {v1, v0}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 67
     return-void
 .end method
 
 .method private updateBounds(Landroid/graphics/Rect;)V
-    .locals 6
-    .param p1, "bounds"    # Landroid/graphics/Rect;
+    .locals 5
 
-    .line 105
     if-nez p1, :cond_0
 
     .line 106
@@ -209,65 +191,60 @@
     invoke-virtual {v0, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
     .line 110
-    iget-boolean v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mInsetForPadding:Z
+    iget-boolean p1, p0, Landroidx/cardview/widget/RoundRectDrawable;->mInsetForPadding:Z
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 111
+    iget p1, p0, Landroidx/cardview/widget/RoundRectDrawable;->mPadding:F
+
+    iget v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mRadius:F
+
+    iget-boolean v1, p0, Landroidx/cardview/widget/RoundRectDrawable;->mInsetForRadius:Z
+
+    invoke-static {p1, v0, v1}, Landroidx/cardview/widget/RoundRectDrawableWithShadow;->calculateVerticalPadding(FFZ)F
+
+    move-result p1
+
+    .line 112
     iget v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mPadding:F
 
     iget v1, p0, Landroidx/cardview/widget/RoundRectDrawable;->mRadius:F
 
     iget-boolean v2, p0, Landroidx/cardview/widget/RoundRectDrawable;->mInsetForRadius:Z
 
-    invoke-static {v0, v1, v2}, Landroidx/cardview/widget/RoundRectDrawableWithShadow;->calculateVerticalPadding(FFZ)F
+    invoke-static {v0, v1, v2}, Landroidx/cardview/widget/RoundRectDrawableWithShadow;->calculateHorizontalPadding(FFZ)F
 
     move-result v0
 
-    .line 112
-    .local v0, "vInset":F
-    iget v1, p0, Landroidx/cardview/widget/RoundRectDrawable;->mPadding:F
-
-    iget v2, p0, Landroidx/cardview/widget/RoundRectDrawable;->mRadius:F
-
-    iget-boolean v3, p0, Landroidx/cardview/widget/RoundRectDrawable;->mInsetForRadius:Z
-
-    invoke-static {v1, v2, v3}, Landroidx/cardview/widget/RoundRectDrawableWithShadow;->calculateHorizontalPadding(FFZ)F
-
-    move-result v1
-
     .line 113
-    .local v1, "hInset":F
-    iget-object v2, p0, Landroidx/cardview/widget/RoundRectDrawable;->mBoundsI:Landroid/graphics/Rect;
+    iget-object v1, p0, Landroidx/cardview/widget/RoundRectDrawable;->mBoundsI:Landroid/graphics/Rect;
 
-    float-to-double v3, v1
+    float-to-double v2, v0
 
-    invoke-static {v3, v4}, Ljava/lang/Math;->ceil(D)D
+    invoke-static {v2, v3}, Ljava/lang/Math;->ceil(D)D
 
-    move-result-wide v3
+    move-result-wide v2
 
-    double-to-int v3, v3
+    double-to-int v0, v2
 
-    float-to-double v4, v0
+    float-to-double v2, p1
 
-    invoke-static {v4, v5}, Ljava/lang/Math;->ceil(D)D
+    invoke-static {v2, v3}, Ljava/lang/Math;->ceil(D)D
 
-    move-result-wide v4
+    move-result-wide v2
 
-    double-to-int v4, v4
+    double-to-int p1, v2
 
-    invoke-virtual {v2, v3, v4}, Landroid/graphics/Rect;->inset(II)V
+    invoke-virtual {v1, v0, p1}, Landroid/graphics/Rect;->inset(II)V
 
     .line 115
-    iget-object v2, p0, Landroidx/cardview/widget/RoundRectDrawable;->mBoundsF:Landroid/graphics/RectF;
+    iget-object p1, p0, Landroidx/cardview/widget/RoundRectDrawable;->mBoundsF:Landroid/graphics/RectF;
 
-    iget-object v3, p0, Landroidx/cardview/widget/RoundRectDrawable;->mBoundsI:Landroid/graphics/Rect;
+    iget-object v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mBoundsI:Landroid/graphics/Rect;
 
-    invoke-virtual {v2, v3}, Landroid/graphics/RectF;->set(Landroid/graphics/Rect;)V
+    invoke-virtual {p1, v0}, Landroid/graphics/RectF;->set(Landroid/graphics/Rect;)V
 
-    .line 117
-    .end local v0    # "vInset":F
-    .end local v1    # "hInset":F
     :cond_1
     return-void
 .end method
@@ -276,13 +253,11 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 4
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 87
     iget-object v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mPaint:Landroid/graphics/Paint;
 
     .line 90
-    .local v0, "paint":Landroid/graphics/Paint;
     iget-object v1, p0, Landroidx/cardview/widget/RoundRectDrawable;->mTintFilter:Landroid/graphics/PorterDuffColorFilter;
 
     if-eqz v1, :cond_0
@@ -298,19 +273,14 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
 
-    .line 92
     const/4 v1, 0x1
 
-    .local v1, "clearColorFilter":Z
     goto :goto_0
 
-    .line 94
-    .end local v1    # "clearColorFilter":Z
     :cond_0
     const/4 v1, 0x0
 
     .line 97
-    .restart local v1    # "clearColorFilter":Z
     :goto_0
     iget-object v2, p0, Landroidx/cardview/widget/RoundRectDrawable;->mBoundsF:Landroid/graphics/RectF;
 
@@ -318,15 +288,13 @@
 
     invoke-virtual {p1, v2, v3, v3, v0}, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V
 
-    .line 99
     if-eqz v1, :cond_1
 
+    const/4 p1, 0x0
+
     .line 100
-    const/4 v2, 0x0
+    invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
 
-    invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
-
-    .line 102
     :cond_1
     return-void
 .end method
@@ -343,7 +311,6 @@
 .method public getOpacity()I
     .locals 1
 
-    .line 151
     const/4 v0, -0x3
 
     return v0
@@ -351,7 +318,6 @@
 
 .method public getOutline(Landroid/graphics/Outline;)V
     .locals 2
-    .param p1, "outline"    # Landroid/graphics/Outline;
 
     .line 127
     iget-object v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mBoundsI:Landroid/graphics/Rect;
@@ -360,7 +326,6 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/graphics/Outline;->setRoundRect(Landroid/graphics/Rect;F)V
 
-    .line 128
     return-void
 .end method
 
@@ -429,7 +394,6 @@
 
 .method protected onBoundsChange(Landroid/graphics/Rect;)V
     .locals 0
-    .param p1, "bounds"    # Landroid/graphics/Rect;
 
     .line 121
     invoke-super {p0, p1}, Landroid/graphics/drawable/Drawable;->onBoundsChange(Landroid/graphics/Rect;)V
@@ -437,13 +401,11 @@
     .line 122
     invoke-direct {p0, p1}, Landroidx/cardview/widget/RoundRectDrawable;->updateBounds(Landroid/graphics/Rect;)V
 
-    .line 123
     return-void
 .end method
 
 .method protected onStateChange([I)Z
-    .locals 5
-    .param p1, "stateSet"    # [I
+    .locals 3
 
     .line 183
     iget-object v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mBackground:Landroid/content/res/ColorStateList;
@@ -454,78 +416,70 @@
 
     invoke-virtual {v0, p1, v1}, Landroid/content/res/ColorStateList;->getColorForState([II)I
 
-    move-result v0
+    move-result p1
 
     .line 184
-    .local v0, "newColor":I
-    iget-object v1, p0, Landroidx/cardview/widget/RoundRectDrawable;->mPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v1}, Landroid/graphics/Paint;->getColor()I
+    invoke-virtual {v0}, Landroid/graphics/Paint;->getColor()I
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq p1, v0, :cond_0
 
-    move v1, v2
+    move v0, v1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    .line 185
-    .local v1, "colorChanged":Z
     :goto_0
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 186
-    iget-object v3, p0, Landroidx/cardview/widget/RoundRectDrawable;->mPaint:Landroid/graphics/Paint;
+    iget-object v2, p0, Landroidx/cardview/widget/RoundRectDrawable;->mPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v3, v0}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-virtual {v2, p1}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 188
     :cond_1
-    iget-object v3, p0, Landroidx/cardview/widget/RoundRectDrawable;->mTint:Landroid/content/res/ColorStateList;
+    iget-object p1, p0, Landroidx/cardview/widget/RoundRectDrawable;->mTint:Landroid/content/res/ColorStateList;
 
-    if-eqz v3, :cond_2
+    if-eqz p1, :cond_2
 
-    iget-object v4, p0, Landroidx/cardview/widget/RoundRectDrawable;->mTintMode:Landroid/graphics/PorterDuff$Mode;
+    iget-object v2, p0, Landroidx/cardview/widget/RoundRectDrawable;->mTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    if-eqz v4, :cond_2
+    if-eqz v2, :cond_2
 
     .line 189
-    invoke-direct {p0, v3, v4}, Landroidx/cardview/widget/RoundRectDrawable;->createTintFilter(Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuffColorFilter;
+    invoke-direct {p0, p1, v2}, Landroidx/cardview/widget/RoundRectDrawable;->createTintFilter(Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuffColorFilter;
 
-    move-result-object v3
+    move-result-object p1
 
-    iput-object v3, p0, Landroidx/cardview/widget/RoundRectDrawable;->mTintFilter:Landroid/graphics/PorterDuffColorFilter;
+    iput-object p1, p0, Landroidx/cardview/widget/RoundRectDrawable;->mTintFilter:Landroid/graphics/PorterDuffColorFilter;
 
-    .line 190
-    return v2
-
-    .line 192
-    :cond_2
     return v1
+
+    :cond_2
+    return v0
 .end method
 
 .method public setAlpha(I)V
     .locals 1
-    .param p1, "alpha"    # I
 
     .line 141
     iget-object v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setAlpha(I)V
 
-    .line 142
     return-void
 .end method
 
 .method public setColor(Landroid/content/res/ColorStateList;)V
     .locals 0
-    .param p1, "color"    # Landroid/content/res/ColorStateList;
 
     .line 159
     invoke-direct {p0, p1}, Landroidx/cardview/widget/RoundRectDrawable;->setBackground(Landroid/content/res/ColorStateList;)V
@@ -533,28 +487,22 @@
     .line 160
     invoke-virtual {p0}, Landroidx/cardview/widget/RoundRectDrawable;->invalidateSelf()V
 
-    .line 161
     return-void
 .end method
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 1
-    .param p1, "cf"    # Landroid/graphics/ColorFilter;
 
     .line 146
     iget-object v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
 
-    .line 147
     return-void
 .end method
 
 .method setPadding(FZZ)V
     .locals 1
-    .param p1, "padding"    # F
-    .param p2, "insetForPadding"    # Z
-    .param p3, "insetForRadius"    # Z
 
     .line 70
     iget v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mPadding:F
@@ -571,7 +519,6 @@
 
     if-ne v0, p3, :cond_0
 
-    .line 72
     return-void
 
     .line 74
@@ -584,21 +531,19 @@
     .line 76
     iput-boolean p3, p0, Landroidx/cardview/widget/RoundRectDrawable;->mInsetForRadius:Z
 
-    .line 77
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    invoke-direct {p0, v0}, Landroidx/cardview/widget/RoundRectDrawable;->updateBounds(Landroid/graphics/Rect;)V
+    .line 77
+    invoke-direct {p0, p1}, Landroidx/cardview/widget/RoundRectDrawable;->updateBounds(Landroid/graphics/Rect;)V
 
     .line 78
     invoke-virtual {p0}, Landroidx/cardview/widget/RoundRectDrawable;->invalidateSelf()V
 
-    .line 79
     return-void
 .end method
 
 .method setRadius(F)V
     .locals 1
-    .param p1, "radius"    # F
 
     .line 131
     iget v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mRadius:F
@@ -607,28 +552,25 @@
 
     if-nez v0, :cond_0
 
-    .line 132
     return-void
 
     .line 134
     :cond_0
     iput p1, p0, Landroidx/cardview/widget/RoundRectDrawable;->mRadius:F
 
-    .line 135
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    invoke-direct {p0, v0}, Landroidx/cardview/widget/RoundRectDrawable;->updateBounds(Landroid/graphics/Rect;)V
+    .line 135
+    invoke-direct {p0, p1}, Landroidx/cardview/widget/RoundRectDrawable;->updateBounds(Landroid/graphics/Rect;)V
 
     .line 136
     invoke-virtual {p0}, Landroidx/cardview/widget/RoundRectDrawable;->invalidateSelf()V
 
-    .line 137
     return-void
 .end method
 
 .method public setTintList(Landroid/content/res/ColorStateList;)V
     .locals 1
-    .param p1, "tint"    # Landroid/content/res/ColorStateList;
 
     .line 169
     iput-object p1, p0, Landroidx/cardview/widget/RoundRectDrawable;->mTint:Landroid/content/res/ColorStateList;
@@ -638,20 +580,18 @@
 
     invoke-direct {p0, p1, v0}, Landroidx/cardview/widget/RoundRectDrawable;->createTintFilter(Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuffColorFilter;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mTintFilter:Landroid/graphics/PorterDuffColorFilter;
+    iput-object p1, p0, Landroidx/cardview/widget/RoundRectDrawable;->mTintFilter:Landroid/graphics/PorterDuffColorFilter;
 
     .line 171
     invoke-virtual {p0}, Landroidx/cardview/widget/RoundRectDrawable;->invalidateSelf()V
 
-    .line 172
     return-void
 .end method
 
 .method public setTintMode(Landroid/graphics/PorterDuff$Mode;)V
     .locals 1
-    .param p1, "tintMode"    # Landroid/graphics/PorterDuff$Mode;
 
     .line 176
     iput-object p1, p0, Landroidx/cardview/widget/RoundRectDrawable;->mTintMode:Landroid/graphics/PorterDuff$Mode;
@@ -661,13 +601,12 @@
 
     invoke-direct {p0, v0, p1}, Landroidx/cardview/widget/RoundRectDrawable;->createTintFilter(Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuffColorFilter;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/cardview/widget/RoundRectDrawable;->mTintFilter:Landroid/graphics/PorterDuffColorFilter;
+    iput-object p1, p0, Landroidx/cardview/widget/RoundRectDrawable;->mTintFilter:Landroid/graphics/PorterDuffColorFilter;
 
     .line 178
     invoke-virtual {p0}, Landroidx/cardview/widget/RoundRectDrawable;->invalidateSelf()V
 
-    .line 179
     return-void
 .end method

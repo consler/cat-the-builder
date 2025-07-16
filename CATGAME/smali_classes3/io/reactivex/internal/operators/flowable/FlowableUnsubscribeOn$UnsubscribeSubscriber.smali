@@ -58,7 +58,6 @@
 # direct methods
 .method constructor <init>(Lorg/reactivestreams/Subscriber;Lio/reactivex/Scheduler;)V
     .locals 0
-    .param p2, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -70,8 +69,6 @@
     .end annotation
 
     .line 45
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableUnsubscribeOn$UnsubscribeSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableUnsubscribeOn$UnsubscribeSubscriber<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
 
     .line 46
@@ -80,7 +77,6 @@
     .line 47
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableUnsubscribeOn$UnsubscribeSubscriber;->scheduler:Lio/reactivex/Scheduler;
 
-    .line 48
     return-void
 .end method
 
@@ -89,12 +85,11 @@
 .method public cancel()V
     .locals 2
 
-    .line 88
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableUnsubscribeOn$UnsubscribeSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableUnsubscribeOn$UnsubscribeSubscriber<TT;>;"
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
+    .line 88
     invoke-virtual {p0, v0, v1}, Lio/reactivex/internal/operators/flowable/FlowableUnsubscribeOn$UnsubscribeSubscriber;->compareAndSet(ZZ)Z
 
     move-result v0
@@ -110,7 +105,6 @@
 
     invoke-virtual {v0, v1}, Lio/reactivex/Scheduler;->scheduleDirect(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
 
-    .line 91
     :cond_0
     return-void
 .end method
@@ -119,7 +113,6 @@
     .locals 1
 
     .line 76
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableUnsubscribeOn$UnsubscribeSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableUnsubscribeOn$UnsubscribeSubscriber<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableUnsubscribeOn$UnsubscribeSubscriber;->get()Z
 
     move-result v0
@@ -131,17 +124,14 @@
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 79
     :cond_0
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 67
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableUnsubscribeOn$UnsubscribeSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableUnsubscribeOn$UnsubscribeSubscriber<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableUnsubscribeOn$UnsubscribeSubscriber;->get()Z
 
     move-result v0
@@ -151,7 +141,6 @@
     .line 68
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 69
     return-void
 
     .line 71
@@ -160,7 +149,6 @@
 
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 72
     return-void
 .end method
 
@@ -173,8 +161,6 @@
     .end annotation
 
     .line 60
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableUnsubscribeOn$UnsubscribeSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableUnsubscribeOn$UnsubscribeSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableUnsubscribeOn$UnsubscribeSubscriber;->get()Z
 
     move-result v0
@@ -186,17 +172,14 @@
 
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
-    .line 63
     :cond_0
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 1
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 52
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableUnsubscribeOn$UnsubscribeSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableUnsubscribeOn$UnsubscribeSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableUnsubscribeOn$UnsubscribeSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -209,25 +192,21 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableUnsubscribeOn$UnsubscribeSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     .line 54
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableUnsubscribeOn$UnsubscribeSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableUnsubscribeOn$UnsubscribeSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v0, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
+    invoke-interface {p1, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
-    .line 56
     :cond_0
     return-void
 .end method
 
 .method public request(J)V
     .locals 1
-    .param p1, "n"    # J
 
     .line 83
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableUnsubscribeOn$UnsubscribeSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableUnsubscribeOn$UnsubscribeSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableUnsubscribeOn$UnsubscribeSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-interface {v0, p1, p2}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 84
     return-void
 .end method

@@ -19,8 +19,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/PeriodicWorkRequest$Builder;)V
-    .locals 3
-    .param p1, "builder"    # Landroidx/work/PeriodicWorkRequest$Builder;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -35,10 +34,9 @@
 
     iget-object v1, p1, Landroidx/work/PeriodicWorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
-    iget-object v2, p1, Landroidx/work/PeriodicWorkRequest$Builder;->mTags:Ljava/util/Set;
+    iget-object p1, p1, Landroidx/work/PeriodicWorkRequest$Builder;->mTags:Ljava/util/Set;
 
-    invoke-direct {p0, v0, v1, v2}, Landroidx/work/WorkRequest;-><init>(Ljava/util/UUID;Landroidx/work/impl/model/WorkSpec;Ljava/util/Set;)V
+    invoke-direct {p0, v0, v1, p1}, Landroidx/work/WorkRequest;-><init>(Ljava/util/UUID;Landroidx/work/impl/model/WorkSpec;Ljava/util/Set;)V
 
-    .line 71
     return-void
 .end method

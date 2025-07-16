@@ -26,10 +26,8 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/observable/ObservableTimeoutTimed$TimeoutTimedObserver;J)V
     .locals 0
-    .param p2, "idx"    # J
 
     .line 279
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTimeoutTimed$TimeoutTimedObserver$TimeoutTask;, "Lio/reactivex/internal/operators/observable/ObservableTimeoutTimed$TimeoutTimedObserver<TT;>.TimeoutTask;"
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableTimeoutTimed$TimeoutTimedObserver$TimeoutTask;->this$0:Lio/reactivex/internal/operators/observable/ObservableTimeoutTimed$TimeoutTimedObserver;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +35,6 @@
     .line 280
     iput-wide p2, p0, Lio/reactivex/internal/operators/observable/ObservableTimeoutTimed$TimeoutTimedObserver$TimeoutTask;->idx:J
 
-    .line 281
     return-void
 .end method
 
@@ -47,7 +44,6 @@
     .locals 4
 
     .line 285
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTimeoutTimed$TimeoutTimedObserver$TimeoutTask;, "Lio/reactivex/internal/operators/observable/ObservableTimeoutTimed$TimeoutTimedObserver<TT;>.TimeoutTask;"
     iget-wide v0, p0, Lio/reactivex/internal/operators/observable/ObservableTimeoutTimed$TimeoutTimedObserver$TimeoutTask;->idx:J
 
     iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableTimeoutTimed$TimeoutTimedObserver$TimeoutTask;->this$0:Lio/reactivex/internal/operators/observable/ObservableTimeoutTimed$TimeoutTimedObserver;
@@ -95,7 +91,6 @@
 
     invoke-virtual {v0}, Lio/reactivex/Scheduler$Worker;->dispose()V
 
-    .line 294
     :cond_0
     return-void
 .end method

@@ -37,7 +37,6 @@
 # direct methods
 .method private constructor <init>(Lorg/apache/commons/lang3/CharRange;)V
     .locals 4
-    .param p1, "r"    # Lorg/apache/commons/lang3/CharRange;
 
     .line 278
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,9 +44,9 @@
     .line 279
     iput-object p1, p0, Lorg/apache/commons/lang3/CharRange$CharacterIterator;->range:Lorg/apache/commons/lang3/CharRange;
 
-    .line 280
     const/4 v0, 0x1
 
+    .line 280
     iput-boolean v0, p0, Lorg/apache/commons/lang3/CharRange$CharacterIterator;->hasNext:Z
 
     .line 282
@@ -58,9 +57,7 @@
     if-eqz v1, :cond_2
 
     .line 283
-    iget-object v1, p0, Lorg/apache/commons/lang3/CharRange$CharacterIterator;->range:Lorg/apache/commons/lang3/CharRange;
-
-    invoke-static {v1}, Lorg/apache/commons/lang3/CharRange;->access$200(Lorg/apache/commons/lang3/CharRange;)C
+    invoke-static {p1}, Lorg/apache/commons/lang3/CharRange;->access$200(Lorg/apache/commons/lang3/CharRange;)C
 
     move-result v1
 
@@ -69,9 +66,7 @@
     if-nez v1, :cond_1
 
     .line 284
-    iget-object v1, p0, Lorg/apache/commons/lang3/CharRange$CharacterIterator;->range:Lorg/apache/commons/lang3/CharRange;
-
-    invoke-static {v1}, Lorg/apache/commons/lang3/CharRange;->access$300(Lorg/apache/commons/lang3/CharRange;)C
+    invoke-static {p1}, Lorg/apache/commons/lang3/CharRange;->access$300(Lorg/apache/commons/lang3/CharRange;)C
 
     move-result v1
 
@@ -86,17 +81,15 @@
 
     .line 288
     :cond_0
-    iget-object v1, p0, Lorg/apache/commons/lang3/CharRange$CharacterIterator;->range:Lorg/apache/commons/lang3/CharRange;
+    invoke-static {p1}, Lorg/apache/commons/lang3/CharRange;->access$300(Lorg/apache/commons/lang3/CharRange;)C
 
-    invoke-static {v1}, Lorg/apache/commons/lang3/CharRange;->access$300(Lorg/apache/commons/lang3/CharRange;)C
+    move-result p1
 
-    move-result v1
+    add-int/2addr p1, v0
 
-    add-int/2addr v1, v0
+    int-to-char p1, p1
 
-    int-to-char v0, v1
-
-    iput-char v0, p0, Lorg/apache/commons/lang3/CharRange$CharacterIterator;->current:C
+    iput-char p1, p0, Lorg/apache/commons/lang3/CharRange$CharacterIterator;->current:C
 
     goto :goto_0
 
@@ -108,23 +101,18 @@
 
     .line 294
     :cond_2
-    iget-object v0, p0, Lorg/apache/commons/lang3/CharRange$CharacterIterator;->range:Lorg/apache/commons/lang3/CharRange;
+    invoke-static {p1}, Lorg/apache/commons/lang3/CharRange;->access$200(Lorg/apache/commons/lang3/CharRange;)C
 
-    invoke-static {v0}, Lorg/apache/commons/lang3/CharRange;->access$200(Lorg/apache/commons/lang3/CharRange;)C
+    move-result p1
 
-    move-result v0
+    iput-char p1, p0, Lorg/apache/commons/lang3/CharRange$CharacterIterator;->current:C
 
-    iput-char v0, p0, Lorg/apache/commons/lang3/CharRange$CharacterIterator;->current:C
-
-    .line 296
     :goto_0
     return-void
 .end method
 
 .method synthetic constructor <init>(Lorg/apache/commons/lang3/CharRange;Lorg/apache/commons/lang3/CharRange$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/lang3/CharRange;
-    .param p2, "x1"    # Lorg/apache/commons/lang3/CharRange$1;
 
     .line 266
     invoke-direct {p0, p1}, Lorg/apache/commons/lang3/CharRange$CharacterIterator;-><init>(Lorg/apache/commons/lang3/CharRange;)V
@@ -158,10 +146,10 @@
 
     goto :goto_0
 
-    .line 305
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
+    .line 305
     iget-object v3, p0, Lorg/apache/commons/lang3/CharRange$CharacterIterator;->range:Lorg/apache/commons/lang3/CharRange;
 
     invoke-static {v3}, Lorg/apache/commons/lang3/CharRange;->access$200(Lorg/apache/commons/lang3/CharRange;)C
@@ -239,7 +227,6 @@
     :cond_4
     iput-boolean v1, p0, Lorg/apache/commons/lang3/CharRange$CharacterIterator;->hasNext:Z
 
-    .line 319
     :goto_0
     return-void
 .end method
@@ -256,7 +243,7 @@
 .end method
 
 .method public next()Ljava/lang/Character;
-    .locals 2
+    .locals 1
 
     .line 338
     iget-boolean v0, p0, Lorg/apache/commons/lang3/CharRange$CharacterIterator;->hasNext:Z
@@ -267,18 +254,16 @@
     iget-char v0, p0, Lorg/apache/commons/lang3/CharRange$CharacterIterator;->current:C
 
     .line 342
-    .local v0, "cur":C
     invoke-direct {p0}, Lorg/apache/commons/lang3/CharRange$CharacterIterator;->prepareNext()V
 
     .line 343
     invoke-static {v0}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 
     .line 339
-    .end local v0    # "cur":C
     :cond_0
     new-instance v0, Ljava/util/NoSuchElementException;
 

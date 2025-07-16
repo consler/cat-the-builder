@@ -14,18 +14,15 @@
 
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/io/AbstractDriver;-><init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 39
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
     .locals 0
-    .param p1, "nameCoder"    # Lcom/thoughtworks/xstream/io/naming/NameCoder;
 
     .line 45
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/io/AbstractDriver;-><init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 46
     return-void
 .end method
 
@@ -39,21 +36,18 @@
 
     invoke-direct {v0}, Lorg/jdom2/input/SAXBuilder;-><init>()V
 
-    .line 112
-    .local v0, "builder":Lorg/jdom2/input/SAXBuilder;
     const-string v1, "http://apache.org/xml/features/disallow-doctype-decl"
 
     const/4 v2, 0x1
 
+    .line 112
     invoke-virtual {v0, v1, v2}, Lorg/jdom2/input/SAXBuilder;->setFeature(Ljava/lang/String;Z)V
 
-    .line 113
     return-object v0
 .end method
 
 .method public createReader(Ljava/io/File;)Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .locals 4
-    .param p1, "in"    # Ljava/io/File;
+    .locals 2
 
     .line 86
     :try_start_0
@@ -62,57 +56,47 @@
     move-result-object v0
 
     .line 87
-    .local v0, "builder":Lorg/jdom2/input/SAXBuilder;
     invoke-virtual {v0, p1}, Lorg/jdom2/input/SAXBuilder;->build(Ljava/io/File;)Lorg/jdom2/Document;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 88
-    .local v1, "document":Lorg/jdom2/Document;
-    new-instance v2, Lcom/thoughtworks/xstream/io/xml/JDom2Reader;
+    new-instance v0, Lcom/thoughtworks/xstream/io/xml/JDom2Reader;
 
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/io/xml/JDom2Driver;->getNameCoder()Lcom/thoughtworks/xstream/io/naming/NameCoder;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-direct {v2, v1, v3}, Lcom/thoughtworks/xstream/io/xml/JDom2Reader;-><init>(Lorg/jdom2/Document;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
+    invoke-direct {v0, p1, v1}, Lcom/thoughtworks/xstream/io/xml/JDom2Reader;-><init>(Lorg/jdom2/Document;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Lorg/jdom2/JDOMException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v2
+    return-object v0
 
-    .line 91
-    .end local v0    # "builder":Lorg/jdom2/input/SAXBuilder;
-    .end local v1    # "document":Lorg/jdom2/Document;
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 92
-    .local v0, "e":Lorg/jdom2/JDOMException;
-    new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
+    new-instance v0, Lcom/thoughtworks/xstream/io/StreamException;
 
-    invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 
-    .line 89
-    .end local v0    # "e":Lorg/jdom2/JDOMException;
     :catch_1
-    move-exception v0
+    move-exception p1
 
     .line 90
-    .local v0, "e":Ljava/io/IOException;
-    new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
+    new-instance v0, Lcom/thoughtworks/xstream/io/StreamException;
 
-    invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public createReader(Ljava/io/InputStream;)Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .locals 4
-    .param p1, "in"    # Ljava/io/InputStream;
+    .locals 2
 
     .line 62
     :try_start_0
@@ -121,57 +105,47 @@
     move-result-object v0
 
     .line 63
-    .local v0, "builder":Lorg/jdom2/input/SAXBuilder;
     invoke-virtual {v0, p1}, Lorg/jdom2/input/SAXBuilder;->build(Ljava/io/InputStream;)Lorg/jdom2/Document;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 64
-    .local v1, "document":Lorg/jdom2/Document;
-    new-instance v2, Lcom/thoughtworks/xstream/io/xml/JDom2Reader;
+    new-instance v0, Lcom/thoughtworks/xstream/io/xml/JDom2Reader;
 
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/io/xml/JDom2Driver;->getNameCoder()Lcom/thoughtworks/xstream/io/naming/NameCoder;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-direct {v2, v1, v3}, Lcom/thoughtworks/xstream/io/xml/JDom2Reader;-><init>(Lorg/jdom2/Document;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
+    invoke-direct {v0, p1, v1}, Lcom/thoughtworks/xstream/io/xml/JDom2Reader;-><init>(Lorg/jdom2/Document;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Lorg/jdom2/JDOMException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v2
+    return-object v0
 
-    .line 67
-    .end local v0    # "builder":Lorg/jdom2/input/SAXBuilder;
-    .end local v1    # "document":Lorg/jdom2/Document;
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 68
-    .local v0, "e":Lorg/jdom2/JDOMException;
-    new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
+    new-instance v0, Lcom/thoughtworks/xstream/io/StreamException;
 
-    invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 
-    .line 65
-    .end local v0    # "e":Lorg/jdom2/JDOMException;
     :catch_1
-    move-exception v0
+    move-exception p1
 
     .line 66
-    .local v0, "e":Ljava/io/IOException;
-    new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
+    new-instance v0, Lcom/thoughtworks/xstream/io/StreamException;
 
-    invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public createReader(Ljava/io/Reader;)Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .locals 4
-    .param p1, "reader"    # Ljava/io/Reader;
+    .locals 2
 
     .line 50
     :try_start_0
@@ -180,57 +154,47 @@
     move-result-object v0
 
     .line 51
-    .local v0, "builder":Lorg/jdom2/input/SAXBuilder;
     invoke-virtual {v0, p1}, Lorg/jdom2/input/SAXBuilder;->build(Ljava/io/Reader;)Lorg/jdom2/Document;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 52
-    .local v1, "document":Lorg/jdom2/Document;
-    new-instance v2, Lcom/thoughtworks/xstream/io/xml/JDom2Reader;
+    new-instance v0, Lcom/thoughtworks/xstream/io/xml/JDom2Reader;
 
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/io/xml/JDom2Driver;->getNameCoder()Lcom/thoughtworks/xstream/io/naming/NameCoder;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-direct {v2, v1, v3}, Lcom/thoughtworks/xstream/io/xml/JDom2Reader;-><init>(Lorg/jdom2/Document;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
+    invoke-direct {v0, p1, v1}, Lcom/thoughtworks/xstream/io/xml/JDom2Reader;-><init>(Lorg/jdom2/Document;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Lorg/jdom2/JDOMException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v2
+    return-object v0
 
-    .line 55
-    .end local v0    # "builder":Lorg/jdom2/input/SAXBuilder;
-    .end local v1    # "document":Lorg/jdom2/Document;
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 56
-    .local v0, "e":Lorg/jdom2/JDOMException;
-    new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
+    new-instance v0, Lcom/thoughtworks/xstream/io/StreamException;
 
-    invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 
-    .line 53
-    .end local v0    # "e":Lorg/jdom2/JDOMException;
     :catch_1
-    move-exception v0
+    move-exception p1
 
     .line 54
-    .local v0, "e":Ljava/io/IOException;
-    new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
+    new-instance v0, Lcom/thoughtworks/xstream/io/StreamException;
 
-    invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public createReader(Ljava/net/URL;)Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .locals 4
-    .param p1, "in"    # Ljava/net/URL;
+    .locals 2
 
     .line 74
     :try_start_0
@@ -239,57 +203,47 @@
     move-result-object v0
 
     .line 75
-    .local v0, "builder":Lorg/jdom2/input/SAXBuilder;
     invoke-virtual {v0, p1}, Lorg/jdom2/input/SAXBuilder;->build(Ljava/net/URL;)Lorg/jdom2/Document;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 76
-    .local v1, "document":Lorg/jdom2/Document;
-    new-instance v2, Lcom/thoughtworks/xstream/io/xml/JDom2Reader;
+    new-instance v0, Lcom/thoughtworks/xstream/io/xml/JDom2Reader;
 
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/io/xml/JDom2Driver;->getNameCoder()Lcom/thoughtworks/xstream/io/naming/NameCoder;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-direct {v2, v1, v3}, Lcom/thoughtworks/xstream/io/xml/JDom2Reader;-><init>(Lorg/jdom2/Document;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
+    invoke-direct {v0, p1, v1}, Lcom/thoughtworks/xstream/io/xml/JDom2Reader;-><init>(Lorg/jdom2/Document;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Lorg/jdom2/JDOMException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v2
+    return-object v0
 
-    .line 79
-    .end local v0    # "builder":Lorg/jdom2/input/SAXBuilder;
-    .end local v1    # "document":Lorg/jdom2/Document;
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 80
-    .local v0, "e":Lorg/jdom2/JDOMException;
-    new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
+    new-instance v0, Lcom/thoughtworks/xstream/io/StreamException;
 
-    invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 
-    .line 77
-    .end local v0    # "e":Lorg/jdom2/JDOMException;
     :catch_1
-    move-exception v0
+    move-exception p1
 
     .line 78
-    .local v0, "e":Ljava/io/IOException;
-    new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
+    new-instance v0, Lcom/thoughtworks/xstream/io/StreamException;
 
-    invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public createWriter(Ljava/io/OutputStream;)Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
     .locals 2
-    .param p1, "out"    # Ljava/io/OutputStream;
 
     .line 101
     new-instance v0, Lcom/thoughtworks/xstream/io/xml/PrettyPrintWriter;
@@ -305,7 +259,6 @@
 
 .method public createWriter(Ljava/io/Writer;)Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
     .locals 2
-    .param p1, "out"    # Ljava/io/Writer;
 
     .line 97
     new-instance v0, Lcom/thoughtworks/xstream/io/xml/PrettyPrintWriter;

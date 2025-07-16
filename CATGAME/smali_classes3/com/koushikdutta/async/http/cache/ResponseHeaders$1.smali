@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/cache/ResponseHeaders;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/cache/ResponseHeaders;
 
     .line 121
     iput-object p1, p0, Lcom/koushikdutta/async/http/cache/ResponseHeaders$1;->this$0:Lcom/koushikdutta/async/http/cache/ResponseHeaders;
@@ -38,12 +37,10 @@
 # virtual methods
 .method public handle(Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
-    .param p1, "directive"    # Ljava/lang/String;
-    .param p2, "parameter"    # Ljava/lang/String;
 
-    .line 123
     const-string v0, "no-cache"
 
+    .line 123
     invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
@@ -53,16 +50,16 @@
     if-eqz v0, :cond_0
 
     .line 124
-    iget-object v0, p0, Lcom/koushikdutta/async/http/cache/ResponseHeaders$1;->this$0:Lcom/koushikdutta/async/http/cache/ResponseHeaders;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/cache/ResponseHeaders$1;->this$0:Lcom/koushikdutta/async/http/cache/ResponseHeaders;
 
-    invoke-static {v0, v1}, Lcom/koushikdutta/async/http/cache/ResponseHeaders;->access$002(Lcom/koushikdutta/async/http/cache/ResponseHeaders;Z)Z
+    invoke-static {p1, v1}, Lcom/koushikdutta/async/http/cache/ResponseHeaders;->access$002(Lcom/koushikdutta/async/http/cache/ResponseHeaders;Z)Z
 
     goto :goto_0
 
-    .line 125
     :cond_0
     const-string v0, "no-store"
 
+    .line 125
     invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
@@ -70,16 +67,16 @@
     if-eqz v0, :cond_1
 
     .line 126
-    iget-object v0, p0, Lcom/koushikdutta/async/http/cache/ResponseHeaders$1;->this$0:Lcom/koushikdutta/async/http/cache/ResponseHeaders;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/cache/ResponseHeaders$1;->this$0:Lcom/koushikdutta/async/http/cache/ResponseHeaders;
 
-    invoke-static {v0, v1}, Lcom/koushikdutta/async/http/cache/ResponseHeaders;->access$102(Lcom/koushikdutta/async/http/cache/ResponseHeaders;Z)Z
+    invoke-static {p1, v1}, Lcom/koushikdutta/async/http/cache/ResponseHeaders;->access$102(Lcom/koushikdutta/async/http/cache/ResponseHeaders;Z)Z
 
     goto :goto_0
 
-    .line 127
     :cond_1
     const-string v0, "max-age"
 
+    .line 127
     invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
@@ -87,20 +84,20 @@
     if-eqz v0, :cond_2
 
     .line 128
-    iget-object v0, p0, Lcom/koushikdutta/async/http/cache/ResponseHeaders$1;->this$0:Lcom/koushikdutta/async/http/cache/ResponseHeaders;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/cache/ResponseHeaders$1;->this$0:Lcom/koushikdutta/async/http/cache/ResponseHeaders;
 
     invoke-static {p2}, Lcom/koushikdutta/async/http/cache/HeaderParser;->parseSeconds(Ljava/lang/String;)I
 
-    move-result v1
+    move-result p2
 
-    invoke-static {v0, v1}, Lcom/koushikdutta/async/http/cache/ResponseHeaders;->access$202(Lcom/koushikdutta/async/http/cache/ResponseHeaders;I)I
+    invoke-static {p1, p2}, Lcom/koushikdutta/async/http/cache/ResponseHeaders;->access$202(Lcom/koushikdutta/async/http/cache/ResponseHeaders;I)I
 
     goto :goto_0
 
-    .line 129
     :cond_2
     const-string v0, "s-maxage"
 
+    .line 129
     invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
@@ -108,49 +105,48 @@
     if-eqz v0, :cond_3
 
     .line 130
-    iget-object v0, p0, Lcom/koushikdutta/async/http/cache/ResponseHeaders$1;->this$0:Lcom/koushikdutta/async/http/cache/ResponseHeaders;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/cache/ResponseHeaders$1;->this$0:Lcom/koushikdutta/async/http/cache/ResponseHeaders;
 
     invoke-static {p2}, Lcom/koushikdutta/async/http/cache/HeaderParser;->parseSeconds(Ljava/lang/String;)I
 
-    move-result v1
+    move-result p2
 
-    invoke-static {v0, v1}, Lcom/koushikdutta/async/http/cache/ResponseHeaders;->access$302(Lcom/koushikdutta/async/http/cache/ResponseHeaders;I)I
+    invoke-static {p1, p2}, Lcom/koushikdutta/async/http/cache/ResponseHeaders;->access$302(Lcom/koushikdutta/async/http/cache/ResponseHeaders;I)I
 
     goto :goto_0
+
+    :cond_3
+    const-string p2, "public"
 
     .line 131
-    :cond_3
-    const-string v0, "public"
+    invoke-virtual {p1, p2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result p2
 
-    move-result v0
-
-    if-eqz v0, :cond_4
+    if-eqz p2, :cond_4
 
     .line 132
-    iget-object v0, p0, Lcom/koushikdutta/async/http/cache/ResponseHeaders$1;->this$0:Lcom/koushikdutta/async/http/cache/ResponseHeaders;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/cache/ResponseHeaders$1;->this$0:Lcom/koushikdutta/async/http/cache/ResponseHeaders;
 
-    invoke-static {v0, v1}, Lcom/koushikdutta/async/http/cache/ResponseHeaders;->access$402(Lcom/koushikdutta/async/http/cache/ResponseHeaders;Z)Z
+    invoke-static {p1, v1}, Lcom/koushikdutta/async/http/cache/ResponseHeaders;->access$402(Lcom/koushikdutta/async/http/cache/ResponseHeaders;Z)Z
 
     goto :goto_0
 
-    .line 133
     :cond_4
-    const-string v0, "must-revalidate"
+    const-string p2, "must-revalidate"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    .line 133
+    invoke-virtual {p1, p2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_5
+    if-eqz p1, :cond_5
 
     .line 134
-    iget-object v0, p0, Lcom/koushikdutta/async/http/cache/ResponseHeaders$1;->this$0:Lcom/koushikdutta/async/http/cache/ResponseHeaders;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/cache/ResponseHeaders$1;->this$0:Lcom/koushikdutta/async/http/cache/ResponseHeaders;
 
-    invoke-static {v0, v1}, Lcom/koushikdutta/async/http/cache/ResponseHeaders;->access$502(Lcom/koushikdutta/async/http/cache/ResponseHeaders;Z)Z
+    invoke-static {p1, v1}, Lcom/koushikdutta/async/http/cache/ResponseHeaders;->access$502(Lcom/koushikdutta/async/http/cache/ResponseHeaders;Z)Z
 
-    .line 136
     :cond_5
     :goto_0
     return-void

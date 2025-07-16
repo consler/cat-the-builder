@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/HybiParser;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/HybiParser;
 
     .line 182
     iput-object p1, p0, Lcom/koushikdutta/async/http/HybiParser$4;->this$0:Lcom/koushikdutta/async/http/HybiParser;
@@ -37,38 +36,35 @@
 
 # virtual methods
 .method public onDataAvailable(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/ByteBufferList;)V
-    .locals 3
-    .param p1, "emitter"    # Lcom/koushikdutta/async/DataEmitter;
-    .param p2, "bb"    # Lcom/koushikdutta/async/ByteBufferList;
+    .locals 2
 
     .line 185
-    iget-object v0, p0, Lcom/koushikdutta/async/http/HybiParser$4;->this$0:Lcom/koushikdutta/async/http/HybiParser;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/HybiParser$4;->this$0:Lcom/koushikdutta/async/http/HybiParser;
 
-    const/4 v1, 0x4
+    const/4 v0, 0x4
 
-    new-array v2, v1, [B
+    new-array v1, v0, [B
 
-    invoke-static {v0, v2}, Lcom/koushikdutta/async/http/HybiParser;->access$402(Lcom/koushikdutta/async/http/HybiParser;[B)[B
+    invoke-static {p1, v1}, Lcom/koushikdutta/async/http/HybiParser;->access$402(Lcom/koushikdutta/async/http/HybiParser;[B)[B
 
     .line 186
-    iget-object v0, p0, Lcom/koushikdutta/async/http/HybiParser$4;->this$0:Lcom/koushikdutta/async/http/HybiParser;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/HybiParser$4;->this$0:Lcom/koushikdutta/async/http/HybiParser;
 
-    invoke-static {v0}, Lcom/koushikdutta/async/http/HybiParser;->access$400(Lcom/koushikdutta/async/http/HybiParser;)[B
+    invoke-static {p1}, Lcom/koushikdutta/async/http/HybiParser;->access$400(Lcom/koushikdutta/async/http/HybiParser;)[B
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p2, v0}, Lcom/koushikdutta/async/ByteBufferList;->get([B)V
+    invoke-virtual {p2, p1}, Lcom/koushikdutta/async/ByteBufferList;->get([B)V
 
     .line 187
-    iget-object v0, p0, Lcom/koushikdutta/async/http/HybiParser$4;->this$0:Lcom/koushikdutta/async/http/HybiParser;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/HybiParser$4;->this$0:Lcom/koushikdutta/async/http/HybiParser;
 
-    invoke-static {v0, v1}, Lcom/koushikdutta/async/http/HybiParser;->access$502(Lcom/koushikdutta/async/http/HybiParser;I)I
+    invoke-static {p1, v0}, Lcom/koushikdutta/async/http/HybiParser;->access$502(Lcom/koushikdutta/async/http/HybiParser;I)I
 
     .line 188
-    iget-object v0, p0, Lcom/koushikdutta/async/http/HybiParser$4;->this$0:Lcom/koushikdutta/async/http/HybiParser;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/HybiParser$4;->this$0:Lcom/koushikdutta/async/http/HybiParser;
 
-    invoke-virtual {v0}, Lcom/koushikdutta/async/http/HybiParser;->parse()V
+    invoke-virtual {p1}, Lcom/koushikdutta/async/http/HybiParser;->parse()V
 
-    .line 189
     return-void
 .end method

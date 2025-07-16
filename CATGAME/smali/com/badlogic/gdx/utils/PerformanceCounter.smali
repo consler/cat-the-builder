@@ -26,63 +26,58 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .param p1, "name"    # Ljava/lang/String;
 
-    .line 46
     const/4 v0, 0x5
 
+    .line 46
     invoke-direct {p0, p1, v0}, Lcom/badlogic/gdx/utils/PerformanceCounter;-><init>(Ljava/lang/String;I)V
 
-    .line 47
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 2
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "windowSize"    # I
 
     .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 30
     const-wide/16 v0, 0x0
 
+    .line 30
     iput-wide v0, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->startTime:J
 
     .line 31
     iput-wide v0, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->lastTick:J
 
-    .line 41
     const/4 v0, 0x0
 
+    .line 41
     iput v0, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->current:F
 
-    .line 43
     const/4 v0, 0x0
 
+    .line 43
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->valid:Z
 
     .line 50
     iput-object p1, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->name:Ljava/lang/String;
 
     .line 51
-    new-instance v0, Lcom/badlogic/gdx/math/FloatCounter;
+    new-instance p1, Lcom/badlogic/gdx/math/FloatCounter;
 
-    invoke-direct {v0, p2}, Lcom/badlogic/gdx/math/FloatCounter;-><init>(I)V
+    invoke-direct {p1, p2}, Lcom/badlogic/gdx/math/FloatCounter;-><init>(I)V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->time:Lcom/badlogic/gdx/math/FloatCounter;
+    iput-object p1, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->time:Lcom/badlogic/gdx/math/FloatCounter;
 
     .line 52
-    new-instance v0, Lcom/badlogic/gdx/math/FloatCounter;
+    new-instance p1, Lcom/badlogic/gdx/math/FloatCounter;
 
-    const/4 v1, 0x1
+    const/4 p2, 0x1
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/math/FloatCounter;-><init>(I)V
+    invoke-direct {p1, p2}, Lcom/badlogic/gdx/math/FloatCounter;-><init>(I)V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->load:Lcom/badlogic/gdx/math/FloatCounter;
+    iput-object p1, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->load:Lcom/badlogic/gdx/math/FloatCounter;
 
-    .line 53
     return-void
 .end method
 
@@ -101,25 +96,24 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/math/FloatCounter;->reset()V
 
-    .line 100
     const-wide/16 v0, 0x0
 
+    .line 100
     iput-wide v0, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->startTime:J
 
     .line 101
     iput-wide v0, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->lastTick:J
 
-    .line 102
     const/4 v0, 0x0
 
+    .line 102
     iput v0, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->current:F
 
-    .line 103
     const/4 v0, 0x0
 
+    .line 103
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->valid:Z
 
-    .line 104
     return-void
 .end method
 
@@ -133,12 +127,11 @@
 
     iput-wide v0, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->startTime:J
 
-    .line 83
     const/4 v0, 0x0
 
+    .line 83
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->valid:Z
 
-    .line 84
     return-void
 .end method
 
@@ -178,12 +171,11 @@
     .line 91
     iput-wide v2, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->startTime:J
 
-    .line 92
     const/4 v0, 0x1
 
+    .line 92
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->valid:Z
 
-    .line 94
     :cond_0
     return-void
 .end method
@@ -197,7 +189,6 @@
     move-result-wide v0
 
     .line 59
-    .local v0, "t":J
     iget-wide v2, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->lastTick:J
 
     const-wide/16 v4, 0x0
@@ -220,13 +211,11 @@
     :cond_0
     iput-wide v0, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->lastTick:J
 
-    .line 61
     return-void
 .end method
 
 .method public tick(F)V
-    .locals 6
-    .param p1, "delta"    # F
+    .locals 5
 
     .line 66
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->valid:Z
@@ -234,15 +223,14 @@
     if-nez v0, :cond_0
 
     .line 67
-    sget-object v0, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
+    sget-object p1, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
 
-    const-string v1, "PerformanceCounter"
+    const-string v0, "PerformanceCounter"
 
-    const-string v2, "Invalid data, check if you called PerformanceCounter#stop()"
+    const-string v1, "Invalid data, check if you called PerformanceCounter#stop()"
 
-    invoke-interface {v0, v1, v2}, Lcom/badlogic/gdx/Application;->error(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-interface {p1, v0, v1}, Lcom/badlogic/gdx/Application;->error(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 68
     return-void
 
     .line 71
@@ -253,7 +241,6 @@
 
     invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/FloatCounter;->put(F)V
 
-    .line 73
     const/4 v0, 0x0
 
     cmpl-float v1, p1, v0
@@ -264,13 +251,13 @@
 
     goto :goto_0
 
+    .line 73
     :cond_1
     iget v1, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->current:F
 
     div-float/2addr v1, p1
 
     .line 74
-    .local v1, "currentLoad":F
     :goto_0
     iget-object v2, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->load:Lcom/badlogic/gdx/math/FloatCounter;
 
@@ -280,39 +267,35 @@
 
     if-lez v4, :cond_2
 
-    move v4, v1
-
     goto :goto_1
 
     :cond_2
-    mul-float v4, p1, v1
+    mul-float/2addr v1, p1
 
     sub-float/2addr v3, p1
 
-    iget v5, v2, Lcom/badlogic/gdx/math/FloatCounter;->latest:F
+    iget p1, v2, Lcom/badlogic/gdx/math/FloatCounter;->latest:F
 
-    mul-float/2addr v3, v5
+    mul-float/2addr v3, p1
 
-    add-float/2addr v4, v3
+    add-float/2addr v1, v3
 
     :goto_1
-    invoke-virtual {v2, v4}, Lcom/badlogic/gdx/math/FloatCounter;->put(F)V
+    invoke-virtual {v2, v1}, Lcom/badlogic/gdx/math/FloatCounter;->put(F)V
 
     .line 76
     iput v0, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->current:F
 
+    const/4 p1, 0x0
+
     .line 77
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->valid:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->valid:Z
-
-    .line 78
     return-void
 .end method
 
 .method public toString(Lcom/badlogic/gdx/utils/StringBuilder;)Lcom/badlogic/gdx/utils/StringBuilder;
     .locals 2
-    .param p1, "sb"    # Lcom/badlogic/gdx/utils/StringBuilder;
 
     .line 115
     iget-object v0, p0, Lcom/badlogic/gdx/utils/PerformanceCounter;->name:Ljava/lang/String;
@@ -353,12 +336,11 @@
 
     invoke-virtual {v0, v1}, Lcom/badlogic/gdx/utils/StringBuilder;->append(Ljava/lang/String;)Lcom/badlogic/gdx/utils/StringBuilder;
 
-    .line 116
     return-object p1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .locals 1
 
     .line 109
     new-instance v0, Lcom/badlogic/gdx/utils/StringBuilder;
@@ -366,14 +348,13 @@
     invoke-direct {v0}, Lcom/badlogic/gdx/utils/StringBuilder;-><init>()V
 
     .line 110
-    .local v0, "sb":Lcom/badlogic/gdx/utils/StringBuilder;
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/PerformanceCounter;->toString(Lcom/badlogic/gdx/utils/StringBuilder;)Lcom/badlogic/gdx/utils/StringBuilder;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Lcom/badlogic/gdx/utils/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method

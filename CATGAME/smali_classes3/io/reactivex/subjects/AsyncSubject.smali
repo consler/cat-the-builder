@@ -54,16 +54,16 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .line 37
     const/4 v0, 0x0
 
     new-array v1, v0, [Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;
 
+    .line 37
     sput-object v1, Lio/reactivex/subjects/AsyncSubject;->EMPTY:[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;
 
-    .line 40
     new-array v0, v0, [Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;
 
+    .line 40
     sput-object v0, Lio/reactivex/subjects/AsyncSubject;->TERMINATED:[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;
 
     return-void
@@ -73,7 +73,6 @@
     .locals 2
 
     .line 65
-    .local p0, "this":Lio/reactivex/subjects/AsyncSubject;, "Lio/reactivex/subjects/AsyncSubject<TT;>;"
     invoke-direct {p0}, Lio/reactivex/subjects/Subject;-><init>()V
 
     .line 66
@@ -85,7 +84,6 @@
 
     iput-object v0, p0, Lio/reactivex/subjects/AsyncSubject;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
 
-    .line 67
     return-void
 .end method
 
@@ -125,9 +123,7 @@
     .end annotation
 
     .line 185
-    .local p0, "this":Lio/reactivex/subjects/AsyncSubject;, "Lio/reactivex/subjects/AsyncSubject<TT;>;"
-    .local p1, "ps":Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;, "Lio/reactivex/subjects/AsyncSubject$AsyncDisposable<TT;>;"
-    :goto_0
+    :cond_0
     iget-object v0, p0, Lio/reactivex/subjects/AsyncSubject;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -137,60 +133,47 @@
     check-cast v0, [Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;
 
     .line 186
-    .local v0, "a":[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;, "[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable<TT;>;"
     sget-object v1, Lio/reactivex/subjects/AsyncSubject;->TERMINATED:[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1
 
-    .line 187
     return v2
 
     .line 190
-    :cond_0
+    :cond_1
     array-length v1, v0
 
-    .line 192
-    .local v1, "n":I
     add-int/lit8 v3, v1, 0x1
 
+    .line 192
     new-array v3, v3, [Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;
 
     .line 193
-    .local v3, "b":[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;, "[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable<TT;>;"
     invoke-static {v0, v2, v3, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 194
     aput-object p1, v3, v1
 
     .line 196
-    iget-object v2, p0, Lio/reactivex/subjects/AsyncSubject;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object v1, p0, Lio/reactivex/subjects/AsyncSubject;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v2, v0, v3}, Ljava/util/concurrent/atomic/AtomicReference;->compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v1, v0, v3}, Lcom/google/android/gms/common/api/internal/zap$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_0
 
-    .line 197
-    const/4 v2, 0x1
+    const/4 p1, 0x1
 
-    return v2
-
-    .line 199
-    .end local v0    # "a":[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;, "[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable<TT;>;"
-    .end local v1    # "n":I
-    .end local v3    # "b":[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;, "[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable<TT;>;"
-    :cond_1
-    goto :goto_0
+    return p1
 .end method
 
 .method public getThrowable()Ljava/lang/Throwable;
     .locals 2
 
     .line 151
-    .local p0, "this":Lio/reactivex/subjects/AsyncSubject;, "Lio/reactivex/subjects/AsyncSubject<TT;>;"
     iget-object v0, p0, Lio/reactivex/subjects/AsyncSubject;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -221,7 +204,6 @@
     .end annotation
 
     .line 257
-    .local p0, "this":Lio/reactivex/subjects/AsyncSubject;, "Lio/reactivex/subjects/AsyncSubject<TT;>;"
     iget-object v0, p0, Lio/reactivex/subjects/AsyncSubject;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -247,13 +229,10 @@
     .locals 3
 
     .line 266
-    .local p0, "this":Lio/reactivex/subjects/AsyncSubject;, "Lio/reactivex/subjects/AsyncSubject<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/subjects/AsyncSubject;->getValue()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 267
-    .local v0, "v":Ljava/lang/Object;, "TT;"
     const/4 v1, 0x0
 
     if-eqz v0, :cond_0
@@ -282,14 +261,10 @@
     .end annotation
 
     .line 279
-    .local p0, "this":Lio/reactivex/subjects/AsyncSubject;, "Lio/reactivex/subjects/AsyncSubject<TT;>;"
-    .local p1, "array":[Ljava/lang/Object;, "[TT;"
     invoke-virtual {p0}, Lio/reactivex/subjects/AsyncSubject;->getValue()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 280
-    .local v0, "v":Ljava/lang/Object;, "TT;"
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -297,14 +272,13 @@
     if-nez v0, :cond_1
 
     .line 281
-    array-length v3, p1
+    array-length v0, p1
 
-    if-eqz v3, :cond_0
+    if-eqz v0, :cond_0
 
     .line 282
     aput-object v1, p1, v2
 
-    .line 284
     :cond_0
     return-object p1
 
@@ -326,14 +300,13 @@
     aput-object v0, p1, v2
 
     .line 290
-    array-length v2, p1
+    array-length v0, p1
 
-    if-eq v2, v4, :cond_3
+    if-eq v0, v4, :cond_3
 
     .line 291
     aput-object v1, p1, v4
 
-    .line 293
     :cond_3
     return-object p1
 .end method
@@ -342,7 +315,6 @@
     .locals 2
 
     .line 146
-    .local p0, "this":Lio/reactivex/subjects/AsyncSubject;, "Lio/reactivex/subjects/AsyncSubject<TT;>;"
     iget-object v0, p0, Lio/reactivex/subjects/AsyncSubject;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -372,7 +344,6 @@
     .locals 1
 
     .line 136
-    .local p0, "this":Lio/reactivex/subjects/AsyncSubject;, "Lio/reactivex/subjects/AsyncSubject<TT;>;"
     iget-object v0, p0, Lio/reactivex/subjects/AsyncSubject;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -400,7 +371,6 @@
     .locals 2
 
     .line 141
-    .local p0, "this":Lio/reactivex/subjects/AsyncSubject;, "Lio/reactivex/subjects/AsyncSubject<TT;>;"
     iget-object v0, p0, Lio/reactivex/subjects/AsyncSubject;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -430,7 +400,6 @@
     .locals 2
 
     .line 248
-    .local p0, "this":Lio/reactivex/subjects/AsyncSubject;, "Lio/reactivex/subjects/AsyncSubject<TT;>;"
     iget-object v0, p0, Lio/reactivex/subjects/AsyncSubject;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -459,10 +428,9 @@
 .method nullOnNext()V
     .locals 5
 
-    .line 90
-    .local p0, "this":Lio/reactivex/subjects/AsyncSubject;, "Lio/reactivex/subjects/AsyncSubject<TT;>;"
     const/4 v0, 0x0
 
+    .line 90
     iput-object v0, p0, Lio/reactivex/subjects/AsyncSubject;->value:Ljava/lang/Object;
 
     .line 91
@@ -473,7 +441,6 @@
     invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
     .line 92
-    .local v0, "ex":Ljava/lang/Throwable;
     iput-object v0, p0, Lio/reactivex/subjects/AsyncSubject;->error:Ljava/lang/Throwable;
 
     .line 93
@@ -487,41 +454,30 @@
 
     check-cast v1, [Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;
 
-    .local v1, "arr$":[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;
     array-length v2, v1
 
-    .local v2, "len$":I
     const/4 v3, 0x0
 
-    .local v3, "i$":I
     :goto_0
     if-ge v3, v2, :cond_0
 
     aget-object v4, v1, v3
 
     .line 94
-    .local v4, "as":Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;, "Lio/reactivex/subjects/AsyncSubject$AsyncDisposable<TT;>;"
     invoke-virtual {v4, v0}, Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;->onError(Ljava/lang/Throwable;)V
 
-    .line 93
-    .end local v4    # "as":Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;, "Lio/reactivex/subjects/AsyncSubject$AsyncDisposable<TT;>;"
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 96
-    .end local v1    # "arr$":[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;
-    .end local v2    # "len$":I
-    .end local v3    # "i$":I
     :cond_0
     return-void
 .end method
 
 .method public onComplete()V
-    .locals 6
+    .locals 5
 
     .line 118
-    .local p0, "this":Lio/reactivex/subjects/AsyncSubject;, "Lio/reactivex/subjects/AsyncSubject<TT;>;"
     iget-object v0, p0, Lio/reactivex/subjects/AsyncSubject;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -532,7 +488,6 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 119
     return-void
 
     .line 121
@@ -540,7 +495,6 @@
     iget-object v0, p0, Lio/reactivex/subjects/AsyncSubject;->value:Ljava/lang/Object;
 
     .line 122
-    .local v0, "v":Ljava/lang/Object;, "TT;"
     iget-object v2, p0, Lio/reactivex/subjects/AsyncSubject;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v2, v1}, Ljava/util/concurrent/atomic/AtomicReference;->getAndSet(Ljava/lang/Object;)Ljava/lang/Object;
@@ -549,92 +503,56 @@
 
     check-cast v1, [Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;
 
-    .line 123
-    .local v1, "array":[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;, "[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable<TT;>;"
-    if-nez v0, :cond_2
+    const/4 v2, 0x0
+
+    if-nez v0, :cond_1
 
     .line 124
-    move-object v2, v1
+    array-length v0, v1
 
-    .local v2, "arr$":[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;
-    array-length v3, v2
-
-    .local v3, "len$":I
-    const/4 v4, 0x0
-
-    .local v4, "i$":I
     :goto_0
-    if-ge v4, v3, :cond_1
+    if-ge v2, v0, :cond_2
 
-    aget-object v5, v2, v4
+    aget-object v3, v1, v2
 
     .line 125
-    .local v5, "as":Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;, "Lio/reactivex/subjects/AsyncSubject$AsyncDisposable<TT;>;"
-    invoke-virtual {v5}, Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;->onComplete()V
+    invoke-virtual {v3}, Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;->onComplete()V
 
-    .line 124
-    .end local v5    # "as":Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;, "Lio/reactivex/subjects/AsyncSubject$AsyncDisposable<TT;>;"
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .end local v2    # "arr$":[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;
-    .end local v3    # "len$":I
-    .end local v4    # "i$":I
-    :cond_1
-    goto :goto_2
-
     .line 128
-    :cond_2
-    move-object v2, v1
+    :cond_1
+    array-length v3, v1
 
-    .restart local v2    # "arr$":[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;
-    array-length v3, v2
-
-    .restart local v3    # "len$":I
-    const/4 v4, 0x0
-
-    .restart local v4    # "i$":I
     :goto_1
-    if-ge v4, v3, :cond_3
+    if-ge v2, v3, :cond_2
 
-    aget-object v5, v2, v4
+    aget-object v4, v1, v2
 
     .line 129
-    .restart local v5    # "as":Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;, "Lio/reactivex/subjects/AsyncSubject$AsyncDisposable<TT;>;"
-    invoke-virtual {v5, v0}, Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;->complete(Ljava/lang/Object;)V
+    invoke-virtual {v4, v0}, Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;->complete(Ljava/lang/Object;)V
 
-    .line 128
-    .end local v5    # "as":Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;, "Lio/reactivex/subjects/AsyncSubject$AsyncDisposable<TT;>;"
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
-    .line 132
-    .end local v2    # "arr$":[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;
-    .end local v3    # "len$":I
-    .end local v4    # "i$":I
-    :cond_3
-    :goto_2
+    :cond_2
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 4
-    .param p1, "t"    # Ljava/lang/Throwable;
 
-    .line 101
-    .local p0, "this":Lio/reactivex/subjects/AsyncSubject;, "Lio/reactivex/subjects/AsyncSubject<TT;>;"
     if-nez p1, :cond_0
 
     .line 102
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "onError called with null. Null values are generally not allowed in 2.x operators and sources."
+    const-string v0, "onError called with null. Null values are generally not allowed in 2.x operators and sources."
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    move-object p1, v0
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
     .line 104
     :cond_0
@@ -651,13 +569,12 @@
     .line 105
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 106
     return-void
 
-    .line 108
     :cond_1
     const/4 v0, 0x0
 
+    .line 108
     iput-object v0, p0, Lio/reactivex/subjects/AsyncSubject;->value:Ljava/lang/Object;
 
     .line 109
@@ -672,32 +589,22 @@
 
     check-cast v0, [Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;
 
-    .local v0, "arr$":[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;
     array-length v1, v0
 
-    .local v1, "len$":I
     const/4 v2, 0x0
 
-    .local v2, "i$":I
     :goto_0
     if-ge v2, v1, :cond_2
 
     aget-object v3, v0, v2
 
     .line 111
-    .local v3, "as":Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;, "Lio/reactivex/subjects/AsyncSubject$AsyncDisposable<TT;>;"
     invoke-virtual {v3, p1}, Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;->onError(Ljava/lang/Throwable;)V
 
-    .line 110
-    .end local v3    # "as":Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;, "Lio/reactivex/subjects/AsyncSubject$AsyncDisposable<TT;>;"
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 113
-    .end local v0    # "arr$":[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;
-    .end local v1    # "len$":I
-    .end local v2    # "i$":I
     :cond_2
     return-void
 .end method
@@ -711,8 +618,6 @@
     .end annotation
 
     .line 78
-    .local p0, "this":Lio/reactivex/subjects/AsyncSubject;, "Lio/reactivex/subjects/AsyncSubject<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/subjects/AsyncSubject;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -723,33 +628,27 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 79
     return-void
 
-    .line 81
     :cond_0
     if-nez p1, :cond_1
 
     .line 82
     invoke-virtual {p0}, Lio/reactivex/subjects/AsyncSubject;->nullOnNext()V
 
-    .line 83
     return-void
 
     .line 85
     :cond_1
     iput-object p1, p0, Lio/reactivex/subjects/AsyncSubject;->value:Ljava/lang/Object;
 
-    .line 86
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 2
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 71
-    .local p0, "this":Lio/reactivex/subjects/AsyncSubject;, "Lio/reactivex/subjects/AsyncSubject<TT;>;"
     iget-object v0, p0, Lio/reactivex/subjects/AsyncSubject;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -763,13 +662,12 @@
     .line 72
     invoke-interface {p1}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 74
     :cond_0
     return-void
 .end method
 
 .method remove(Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;)V
-    .locals 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -779,9 +677,7 @@
     .end annotation
 
     .line 209
-    .local p0, "this":Lio/reactivex/subjects/AsyncSubject;, "Lio/reactivex/subjects/AsyncSubject<TT;>;"
-    .local p1, "ps":Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;, "Lio/reactivex/subjects/AsyncSubject$AsyncDisposable<TT;>;"
-    :goto_0
+    :cond_0
     iget-object v0, p0, Lio/reactivex/subjects/AsyncSubject;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -791,116 +687,85 @@
     check-cast v0, [Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;
 
     .line 210
-    .local v0, "a":[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;, "[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable<TT;>;"
     array-length v1, v0
 
-    .line 211
-    .local v1, "n":I
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1
 
-    .line 212
     return-void
 
-    .line 215
-    :cond_0
-    const/4 v2, -0x1
+    :cond_1
+    const/4 v2, 0x0
 
-    .line 216
-    .local v2, "j":I
-    const/4 v3, 0x0
+    move v3, v2
 
-    .local v3, "i":I
-    :goto_1
-    if-ge v3, v1, :cond_2
+    :goto_0
+    if-ge v3, v1, :cond_3
 
     .line 217
     aget-object v4, v0, v3
 
-    if-ne v4, p1, :cond_1
-
-    .line 218
-    move v2, v3
-
-    .line 219
-    goto :goto_2
-
-    .line 216
-    :cond_1
-    add-int/lit8 v3, v3, 0x1
+    if-ne v4, p1, :cond_2
 
     goto :goto_1
 
-    .line 223
-    .end local v3    # "i":I
     :cond_2
-    :goto_2
-    if-gez v2, :cond_3
+    add-int/lit8 v3, v3, 0x1
 
-    .line 224
+    goto :goto_0
+
+    :cond_3
+    const/4 v3, -0x1
+
+    :goto_1
+    if-gez v3, :cond_4
+
     return-void
 
-    .line 229
-    :cond_3
-    const/4 v3, 0x1
+    :cond_4
+    const/4 v4, 0x1
 
-    if-ne v1, v3, :cond_4
+    if-ne v1, v4, :cond_5
 
     .line 230
-    sget-object v3, Lio/reactivex/subjects/AsyncSubject;->EMPTY:[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;
+    sget-object v1, Lio/reactivex/subjects/AsyncSubject;->EMPTY:[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;
 
-    .local v3, "b":[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;, "[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable<TT;>;"
-    goto :goto_3
+    goto :goto_2
+
+    :cond_5
+    add-int/lit8 v5, v1, -0x1
 
     .line 232
-    .end local v3    # "b":[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;, "[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable<TT;>;"
-    :cond_4
-    add-int/lit8 v4, v1, -0x1
-
-    new-array v4, v4, [Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;
+    new-array v5, v5, [Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;
 
     .line 233
-    .local v4, "b":[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;, "[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable<TT;>;"
-    const/4 v5, 0x0
+    invoke-static {v0, v2, v5, v2, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    invoke-static {v0, v5, v4, v5, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    add-int/lit8 v2, v3, 0x1
+
+    sub-int/2addr v1, v3
+
+    sub-int/2addr v1, v4
 
     .line 234
-    add-int/lit8 v5, v2, 0x1
+    invoke-static {v0, v2, v5, v3, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    sub-int v6, v1, v2
-
-    sub-int/2addr v6, v3
-
-    invoke-static {v0, v5, v4, v2, v6}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    move-object v3, v4
+    move-object v1, v5
 
     .line 236
-    .end local v4    # "b":[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;, "[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable<TT;>;"
-    .restart local v3    # "b":[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;, "[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable<TT;>;"
-    :goto_3
-    iget-object v4, p0, Lio/reactivex/subjects/AsyncSubject;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
+    :goto_2
+    iget-object v2, p0, Lio/reactivex/subjects/AsyncSubject;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v4, v0, v3}, Ljava/util/concurrent/atomic/AtomicReference;->compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v2, v0, v1}, Lcom/google/android/gms/common/api/internal/zap$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_5
+    if-eqz v0, :cond_0
 
-    .line 237
     return-void
-
-    .line 239
-    .end local v0    # "a":[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;, "[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable<TT;>;"
-    .end local v1    # "n":I
-    .end local v2    # "j":I
-    .end local v3    # "b":[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;, "[Lio/reactivex/subjects/AsyncSubject$AsyncDisposable<TT;>;"
-    :cond_5
-    goto :goto_0
 .end method
 
 .method protected subscribeActual(Lio/reactivex/Observer;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -910,14 +775,11 @@
     .end annotation
 
     .line 156
-    .local p0, "this":Lio/reactivex/subjects/AsyncSubject;, "Lio/reactivex/subjects/AsyncSubject<TT;>;"
-    .local p1, "s":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     new-instance v0, Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;
 
     invoke-direct {v0, p1, p0}, Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;-><init>(Lio/reactivex/Observer;Lio/reactivex/subjects/AsyncSubject;)V
 
     .line 157
-    .local v0, "as":Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;, "Lio/reactivex/subjects/AsyncSubject$AsyncDisposable<TT;>;"
     invoke-interface {p1, v0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 158
@@ -930,9 +792,9 @@
     .line 159
     invoke-virtual {v0}, Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;->isDisposed()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_3
+    if-eqz p1, :cond_3
 
     .line 160
     invoke-virtual {p0, v0}, Lio/reactivex/subjects/AsyncSubject;->remove(Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;)V
@@ -943,8 +805,6 @@
     :cond_0
     iget-object v1, p0, Lio/reactivex/subjects/AsyncSubject;->error:Ljava/lang/Throwable;
 
-    .line 164
-    .local v1, "ex":Ljava/lang/Throwable;
     if-eqz v1, :cond_1
 
     .line 165
@@ -954,14 +814,12 @@
 
     .line 167
     :cond_1
-    iget-object v2, p0, Lio/reactivex/subjects/AsyncSubject;->value:Ljava/lang/Object;
+    iget-object p1, p0, Lio/reactivex/subjects/AsyncSubject;->value:Ljava/lang/Object;
 
-    .line 168
-    .local v2, "v":Ljava/lang/Object;, "TT;"
-    if-eqz v2, :cond_2
+    if-eqz p1, :cond_2
 
     .line 169
-    invoke-virtual {v0, v2}, Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;->complete(Ljava/lang/Object;)V
+    invoke-virtual {v0, p1}, Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;->complete(Ljava/lang/Object;)V
 
     goto :goto_0
 
@@ -969,9 +827,6 @@
     :cond_2
     invoke-virtual {v0}, Lio/reactivex/subjects/AsyncSubject$AsyncDisposable;->onComplete()V
 
-    .line 175
-    .end local v1    # "ex":Ljava/lang/Throwable;
-    .end local v2    # "v":Ljava/lang/Object;, "TT;"
     :cond_3
     :goto_0
     return-void

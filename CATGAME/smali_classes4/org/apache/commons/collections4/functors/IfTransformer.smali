@@ -72,10 +72,6 @@
     .end annotation
 
     .line 107
-    .local p0, "this":Lorg/apache/commons/collections4/functors/IfTransformer;, "Lorg/apache/commons/collections4/functors/IfTransformer<TI;TO;>;"
-    .local p1, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TI;>;"
-    .local p2, "trueTransformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TI;+TO;>;"
-    .local p3, "falseTransformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TI;+TO;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 108
@@ -87,7 +83,6 @@
     .line 110
     iput-object p3, p0, Lorg/apache/commons/collections4/functors/IfTransformer;->iFalseTransformer:Lorg/apache/commons/collections4/Transformer;
 
-    .line 111
     return-void
 .end method
 
@@ -107,12 +102,8 @@
         }
     .end annotation
 
-    .line 85
-    .local p0, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TT;>;"
-    .local p1, "trueTransformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TT;+TT;>;"
     if-eqz p0, :cond_1
 
-    .line 88
     if-eqz p1, :cond_0
 
     .line 92
@@ -128,27 +119,27 @@
 
     .line 89
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Transformer must not be null"
+    const-string p1, "Transformer must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 86
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Predicate must not be null"
+    const-string p1, "Predicate must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static ifTransformer(Lorg/apache/commons/collections4/Predicate;Lorg/apache/commons/collections4/Transformer;Lorg/apache/commons/collections4/Transformer;)Lorg/apache/commons/collections4/Transformer;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<I:",
@@ -167,13 +158,8 @@
         }
     .end annotation
 
-    .line 59
-    .local p0, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TI;>;"
-    .local p1, "trueTransformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TI;+TO;>;"
-    .local p2, "falseTransformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TI;+TO;>;"
     if-eqz p0, :cond_1
 
-    .line 62
     if-eqz p1, :cond_0
 
     if-eqz p2, :cond_0
@@ -187,23 +173,23 @@
 
     .line 63
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Transformers must not be null"
+    const-string p1, "Transformers must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 60
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Predicate must not be null"
+    const-string p1, "Predicate must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
@@ -219,7 +205,6 @@
     .end annotation
 
     .line 151
-    .local p0, "this":Lorg/apache/commons/collections4/functors/IfTransformer;, "Lorg/apache/commons/collections4/functors/IfTransformer<TI;TO;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/IfTransformer;->iFalseTransformer:Lorg/apache/commons/collections4/Transformer;
 
     return-object v0
@@ -236,7 +221,6 @@
     .end annotation
 
     .line 133
-    .local p0, "this":Lorg/apache/commons/collections4/functors/IfTransformer;, "Lorg/apache/commons/collections4/functors/IfTransformer<TI;TO;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/IfTransformer;->iPredicate:Lorg/apache/commons/collections4/Predicate;
 
     return-object v0
@@ -253,7 +237,6 @@
     .end annotation
 
     .line 142
-    .local p0, "this":Lorg/apache/commons/collections4/functors/IfTransformer;, "Lorg/apache/commons/collections4/functors/IfTransformer<TI;TO;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/IfTransformer;->iTrueTransformer:Lorg/apache/commons/collections4/Transformer;
 
     return-object v0
@@ -268,8 +251,6 @@
     .end annotation
 
     .line 121
-    .local p0, "this":Lorg/apache/commons/collections4/functors/IfTransformer;, "Lorg/apache/commons/collections4/functors/IfTransformer<TI;TO;>;"
-    .local p1, "input":Ljava/lang/Object;, "TI;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/IfTransformer;->iPredicate:Lorg/apache/commons/collections4/Predicate;
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Predicate;->evaluate(Ljava/lang/Object;)Z
@@ -283,9 +264,9 @@
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Transformer;->transform(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 124
     :cond_0
@@ -293,7 +274,7 @@
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Transformer;->transform(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

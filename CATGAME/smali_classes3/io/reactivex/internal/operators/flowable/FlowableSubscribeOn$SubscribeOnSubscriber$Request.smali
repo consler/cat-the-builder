@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Lorg/reactivestreams/Subscription;J)V
     .locals 0
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
-    .param p2, "n"    # J
 
     .line 149
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +36,6 @@
     .line 151
     iput-wide p2, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber$Request;->n:J
 
-    .line 152
     return-void
 .end method
 
@@ -54,6 +51,5 @@
 
     invoke-interface {v0, v1, v2}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 157
     return-void
 .end method

@@ -65,7 +65,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbCoordinator;ILorg/reactivestreams/Subscriber;)V
     .locals 1
-    .param p2, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,9 +76,6 @@
     .end annotation
 
     .line 161
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbInnerSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbInnerSubscriber<TT;>;"
-    .local p1, "parent":Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbCoordinator;, "Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbCoordinator<TT;>;"
-    .local p3, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 159
@@ -98,7 +94,6 @@
     .line 164
     iput-object p3, p0, Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbInnerSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    .line 165
     return-void
 .end method
 
@@ -108,10 +103,8 @@
     .locals 0
 
     .line 222
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbInnerSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbInnerSubscriber<TT;>;"
     invoke-static {p0}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->cancel(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 223
     return-void
 .end method
 
@@ -119,7 +112,6 @@
     .locals 2
 
     .line 208
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbInnerSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbInnerSubscriber<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbInnerSubscriber;->won:Z
 
     if-eqz v0, :cond_0
@@ -143,9 +135,9 @@
 
     if-eqz v0, :cond_1
 
-    .line 212
     const/4 v0, 0x1
 
+    .line 212
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbInnerSubscriber;->won:Z
 
     .line 213
@@ -165,17 +157,14 @@
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
 
-    .line 218
     :goto_0
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 193
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbInnerSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbInnerSubscriber<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbInnerSubscriber;->won:Z
 
     if-eqz v0, :cond_0
@@ -199,9 +188,9 @@
 
     if-eqz v0, :cond_1
 
-    .line 197
     const/4 v0, 0x1
 
+    .line 197
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbInnerSubscriber;->won:Z
 
     .line 198
@@ -224,7 +213,6 @@
     .line 201
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 204
     :goto_0
     return-void
 .end method
@@ -238,8 +226,6 @@
     .end annotation
 
     .line 179
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbInnerSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbInnerSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbInnerSubscriber;->won:Z
 
     if-eqz v0, :cond_0
@@ -263,9 +249,9 @@
 
     if-eqz v0, :cond_1
 
-    .line 183
     const/4 v0, 0x1
 
+    .line 183
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbInnerSubscriber;->won:Z
 
     .line 184
@@ -279,41 +265,34 @@
     :cond_1
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbInnerSubscriber;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lorg/reactivestreams/Subscription;
+    check-cast p1, Lorg/reactivestreams/Subscription;
 
-    invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
+    invoke-interface {p1}, Lorg/reactivestreams/Subscription;->cancel()V
 
-    .line 189
     :goto_0
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 1
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 169
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbInnerSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbInnerSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbInnerSubscriber;->missedRequested:Ljava/util/concurrent/atomic/AtomicLong;
 
     invoke-static {p0, v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->deferredSetOnce(Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/concurrent/atomic/AtomicLong;Lorg/reactivestreams/Subscription;)Z
 
-    .line 170
     return-void
 .end method
 
 .method public request(J)V
     .locals 1
-    .param p1, "n"    # J
 
     .line 174
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbInnerSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbInnerSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableAmb$AmbInnerSubscriber;->missedRequested:Ljava/util/concurrent/atomic/AtomicLong;
 
     invoke-static {p0, v0, p1, p2}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->deferredRequest(Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/concurrent/atomic/AtomicLong;J)V
 
-    .line 175
     return-void
 .end method

@@ -18,9 +18,6 @@
 # direct methods
 .method constructor <init>(Landroidx/sqlite/db/SupportSQLiteOpenHelper;Landroidx/room/RoomDatabase$QueryCallback;Ljava/util/concurrent/Executor;)V
     .locals 0
-    .param p1, "supportSQLiteOpenHelper"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper;
-    .param p2, "queryCallback"    # Landroidx/room/RoomDatabase$QueryCallback;
-    .param p3, "queryCallbackExecutor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -46,7 +43,6 @@
     .line 40
     iput-object p3, p0, Landroidx/room/QueryInterceptorOpenHelper;->mQueryCallbackExecutor:Ljava/util/concurrent/Executor;
 
-    .line 41
     return-void
 .end method
 
@@ -60,7 +56,6 @@
 
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteOpenHelper;->close()V
 
-    .line 70
     return-void
 .end method
 
@@ -130,7 +125,6 @@
 
 .method public setWriteAheadLoggingEnabled(Z)V
     .locals 1
-    .param p1, "enabled"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -145,6 +139,5 @@
 
     invoke-interface {v0, p1}, Landroidx/sqlite/db/SupportSQLiteOpenHelper;->setWriteAheadLoggingEnabled(Z)V
 
-    .line 53
     return-void
 .end method

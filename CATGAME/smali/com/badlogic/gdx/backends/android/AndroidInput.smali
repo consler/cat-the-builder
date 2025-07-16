@@ -179,10 +179,6 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/Application;Landroid/content/Context;Ljava/lang/Object;Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;)V
     .locals 4
-    .param p1, "activity"    # Lcom/badlogic/gdx/Application;
-    .param p2, "context"    # Landroid/content/Context;
-    .param p3, "view"    # Ljava/lang/Object;
-    .param p4, "config"    # Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;
 
     .line 155
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -226,94 +222,94 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touchEvents:Ljava/util/ArrayList;
 
-    .line 106
     const/16 v0, 0x14
 
     new-array v1, v0, [I
 
+    .line 106
     iput-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touchX:[I
 
-    .line 107
     new-array v1, v0, [I
 
+    .line 107
     iput-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touchY:[I
 
-    .line 108
     new-array v1, v0, [I
 
+    .line 108
     iput-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->deltaX:[I
 
-    .line 109
     new-array v1, v0, [I
 
+    .line 109
     iput-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->deltaY:[I
 
-    .line 110
     new-array v1, v0, [Z
 
+    .line 110
     iput-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touched:[Z
 
-    .line 111
     new-array v1, v0, [I
 
+    .line 111
     iput-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->button:[I
 
-    .line 112
     new-array v1, v0, [I
 
+    .line 112
     iput-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->realId:[I
 
-    .line 113
     new-array v1, v0, [F
 
+    .line 113
     iput-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->pressure:[F
 
-    .line 115
     const/4 v1, 0x0
 
+    .line 115
     iput v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyCount:I
 
-    .line 116
     const/16 v2, 0x104
 
     new-array v3, v2, [Z
 
+    .line 116
     iput-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keys:[Z
 
     .line 117
     iput-boolean v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyJustPressed:Z
 
-    .line 118
     new-array v2, v2, [Z
 
+    .line 118
     iput-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->justPressedKeys:[Z
 
-    .line 119
     new-array v0, v0, [Z
 
+    .line 119
     iput-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->justPressedButtons:[Z
 
     .line 121
     iput-boolean v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->accelerometerAvailable:Z
 
-    .line 122
     const/4 v0, 0x3
 
     new-array v2, v0, [F
 
+    .line 122
     iput-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->accelerometerValues:[F
 
     .line 123
     iput-boolean v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->gyroscopeAvailable:Z
 
-    .line 124
     new-array v2, v0, [F
 
+    .line 124
     iput-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->gyroscopeValues:[F
 
-    .line 125
     const/4 v2, 0x0
 
+    .line 125
     iput-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->text:Ljava/lang/String;
 
     .line 126
@@ -335,19 +331,19 @@
     .line 135
     iput-boolean v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->rotationVectorAvailable:Z
 
-    .line 137
     new-array v2, v0, [F
 
+    .line 137
     iput-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->magneticFieldValues:[F
 
-    .line 138
     new-array v2, v0, [F
 
+    .line 138
     iput-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->rotationVectorValues:[F
 
-    .line 139
     const/4 v2, 0x0
 
+    .line 139
     iput v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->azimuth:F
 
     .line 140
@@ -362,26 +358,26 @@
     .line 143
     iput-boolean v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->justTouched:Z
 
-    .line 147
-    const-wide/16 v1, 0x0
+    const-wide/16 v2, 0x0
 
-    iput-wide v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->currentEventTimeStamp:J
+    .line 147
+    iput-wide v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->currentEventTimeStamp:J
+
+    const/4 v2, 0x1
 
     .line 449
-    const/4 v1, 0x1
+    iput-boolean v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->requestFocus:Z
 
-    iput-boolean v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->requestFocus:Z
+    const/16 v3, 0x9
+
+    new-array v3, v3, [F
 
     .line 696
-    const/16 v2, 0x9
+    iput-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->R:[F
 
-    new-array v2, v2, [F
-
-    iput-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->R:[F
-
-    .line 697
     new-array v0, v0, [F
 
+    .line 697
     iput-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->orientation:[F
 
     .line 158
@@ -390,71 +386,62 @@
     if-eqz v0, :cond_0
 
     .line 159
-    move-object v0, p3
-
-    check-cast v0, Landroid/view/View;
+    check-cast p3, Landroid/view/View;
 
     .line 160
-    .local v0, "v":Landroid/view/View;
-    invoke-virtual {v0, p0}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
+    invoke-virtual {p3, p0}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
     .line 161
-    invoke-virtual {v0, p0}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+    invoke-virtual {p3, p0}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
     .line 162
-    invoke-virtual {v0, v1}, Landroid/view/View;->setFocusable(Z)V
+    invoke-virtual {p3, v2}, Landroid/view/View;->setFocusable(Z)V
 
     .line 163
-    invoke-virtual {v0, v1}, Landroid/view/View;->setFocusableInTouchMode(Z)V
+    invoke-virtual {p3, v2}, Landroid/view/View;->setFocusableInTouchMode(Z)V
 
     .line 164
-    invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
+    invoke-virtual {p3}, Landroid/view/View;->requestFocus()Z
 
     .line 166
-    .end local v0    # "v":Landroid/view/View;
     :cond_0
     iput-object p4, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->config:Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;
 
     .line 167
-    new-instance v0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;
+    new-instance p3, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;
 
-    new-instance v1, Landroid/os/Handler;
-
-    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
-
-    invoke-direct {v0, p2, v1, p0}, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;-><init>(Landroid/content/Context;Landroid/os/Handler;Lcom/badlogic/gdx/backends/android/AndroidInput;)V
-
-    iput-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->onscreenKeyboard:Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;
-
-    .line 169
-    const/4 v0, 0x0
-
-    .local v0, "i":I
-    :goto_0
-    iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->realId:[I
-
-    array-length v2, v1
-
-    if-ge v0, v2, :cond_1
-
-    .line 170
-    const/4 v2, -0x1
-
-    aput v2, v1, v0
-
-    .line 169
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    .line 171
-    .end local v0    # "i":I
-    :cond_1
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->handle:Landroid/os/Handler;
+    invoke-direct {p3, p2, v0, p0}, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;-><init>(Landroid/content/Context;Landroid/os/Handler;Lcom/badlogic/gdx/backends/android/AndroidInput;)V
+
+    iput-object p3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->onscreenKeyboard:Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;
+
+    .line 169
+    :goto_0
+    iget-object p3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->realId:[I
+
+    array-length v0, p3
+
+    if-ge v1, v0, :cond_1
+
+    const/4 v0, -0x1
+
+    .line 170
+    aput v0, p3, v1
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    .line 171
+    :cond_1
+    new-instance p3, Landroid/os/Handler;
+
+    invoke-direct {p3}, Landroid/os/Handler;-><init>()V
+
+    iput-object p3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->handle:Landroid/os/Handler;
 
     .line 172
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->app:Lcom/badlogic/gdx/Application;
@@ -463,115 +450,109 @@
     iput-object p2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->context:Landroid/content/Context;
 
     .line 174
-    iget v0, p4, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;->touchSleepTime:I
+    iget p3, p4, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;->touchSleepTime:I
 
-    iput v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->sleepTime:I
+    iput p3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->sleepTime:I
 
     .line 175
-    new-instance v0, Lcom/badlogic/gdx/backends/android/AndroidMultiTouchHandler;
+    new-instance p3, Lcom/badlogic/gdx/backends/android/AndroidMultiTouchHandler;
 
-    invoke-direct {v0}, Lcom/badlogic/gdx/backends/android/AndroidMultiTouchHandler;-><init>()V
+    invoke-direct {p3}, Lcom/badlogic/gdx/backends/android/AndroidMultiTouchHandler;-><init>()V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touchHandler:Lcom/badlogic/gdx/backends/android/AndroidTouchHandler;
+    iput-object p3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touchHandler:Lcom/badlogic/gdx/backends/android/AndroidTouchHandler;
 
     .line 176
-    invoke-interface {v0, p2}, Lcom/badlogic/gdx/backends/android/AndroidTouchHandler;->supportsMultitouch(Landroid/content/Context;)Z
+    invoke-interface {p3, p2}, Lcom/badlogic/gdx/backends/android/AndroidTouchHandler;->supportsMultitouch(Landroid/content/Context;)Z
 
-    move-result v0
+    move-result p3
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->hasMultitouch:Z
+    iput-boolean p3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->hasMultitouch:Z
+
+    const-string p3, "vibrator"
 
     .line 178
-    const-string/jumbo v0, "vibrator"
+    invoke-virtual {p2, p3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-virtual {p2, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p2
 
-    move-result-object v0
+    check-cast p2, Landroid/os/Vibrator;
 
-    check-cast v0, Landroid/os/Vibrator;
-
-    iput-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->vibrator:Landroid/os/Vibrator;
+    iput-object p2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->vibrator:Landroid/os/Vibrator;
 
     .line 180
     invoke-virtual {p0}, Lcom/badlogic/gdx/backends/android/AndroidInput;->getRotation()I
 
-    move-result v0
+    move-result p2
 
     .line 181
-    .local v0, "rotation":I
-    iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->app:Lcom/badlogic/gdx/Application;
+    invoke-interface {p1}, Lcom/badlogic/gdx/Application;->getGraphics()Lcom/badlogic/gdx/Graphics;
 
-    invoke-interface {v1}, Lcom/badlogic/gdx/Application;->getGraphics()Lcom/badlogic/gdx/Graphics;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-interface {p1}, Lcom/badlogic/gdx/Graphics;->getDisplayMode()Lcom/badlogic/gdx/Graphics$DisplayMode;
 
-    invoke-interface {v1}, Lcom/badlogic/gdx/Graphics;->getDisplayMode()Lcom/badlogic/gdx/Graphics$DisplayMode;
+    move-result-object p1
 
-    move-result-object v1
+    if-eqz p2, :cond_2
+
+    const/16 p3, 0xb4
+
+    if-ne p2, p3, :cond_3
 
     .line 182
-    .local v1, "mode":Lcom/badlogic/gdx/Graphics$DisplayMode;
-    if-eqz v0, :cond_2
-
-    const/16 v2, 0xb4
-
-    if-ne v0, v2, :cond_3
-
     :cond_2
-    iget v2, v1, Lcom/badlogic/gdx/Graphics$DisplayMode;->width:I
+    iget p3, p1, Lcom/badlogic/gdx/Graphics$DisplayMode;->width:I
 
-    iget v3, v1, Lcom/badlogic/gdx/Graphics$DisplayMode;->height:I
+    iget p4, p1, Lcom/badlogic/gdx/Graphics$DisplayMode;->height:I
 
-    if-ge v2, v3, :cond_6
+    if-ge p3, p4, :cond_6
 
     :cond_3
-    const/16 v2, 0x5a
+    const/16 p3, 0x5a
 
-    if-eq v0, v2, :cond_4
+    if-eq p2, p3, :cond_4
 
-    const/16 v2, 0x10e
+    const/16 p3, 0x10e
 
-    if-ne v0, v2, :cond_5
+    if-ne p2, p3, :cond_5
 
     :cond_4
-    iget v2, v1, Lcom/badlogic/gdx/Graphics$DisplayMode;->width:I
+    iget p2, p1, Lcom/badlogic/gdx/Graphics$DisplayMode;->width:I
 
-    iget v3, v1, Lcom/badlogic/gdx/Graphics$DisplayMode;->height:I
+    iget p1, p1, Lcom/badlogic/gdx/Graphics$DisplayMode;->height:I
 
-    if-gt v2, v3, :cond_5
+    if-gt p2, p1, :cond_5
 
     goto :goto_1
 
     .line 186
     :cond_5
-    sget-object v2, Lcom/badlogic/gdx/Input$Orientation;->Portrait:Lcom/badlogic/gdx/Input$Orientation;
+    sget-object p1, Lcom/badlogic/gdx/Input$Orientation;->Portrait:Lcom/badlogic/gdx/Input$Orientation;
 
-    iput-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->nativeOrientation:Lcom/badlogic/gdx/Input$Orientation;
+    iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->nativeOrientation:Lcom/badlogic/gdx/Input$Orientation;
 
     goto :goto_2
 
     .line 184
     :cond_6
     :goto_1
-    sget-object v2, Lcom/badlogic/gdx/Input$Orientation;->Landscape:Lcom/badlogic/gdx/Input$Orientation;
+    sget-object p1, Lcom/badlogic/gdx/Input$Orientation;->Landscape:Lcom/badlogic/gdx/Input$Orientation;
 
-    iput-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->nativeOrientation:Lcom/badlogic/gdx/Input$Orientation;
+    iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->nativeOrientation:Lcom/badlogic/gdx/Input$Orientation;
 
     .line 191
     :goto_2
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keysToCatch:Lcom/badlogic/gdx/utils/IntSet;
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keysToCatch:Lcom/badlogic/gdx/utils/IntSet;
 
-    const/16 v3, 0xff
+    const/16 p2, 0xff
 
-    invoke-virtual {v2, v3}, Lcom/badlogic/gdx/utils/IntSet;->add(I)Z
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/utils/IntSet;->add(I)Z
 
-    .line 192
     return-void
 .end method
 
 .method private resize([I)[I
     .locals 3
-    .param p1, "orig"    # [I
 
     .line 876
     array-length v0, p1
@@ -580,21 +561,18 @@
 
     new-array v0, v0, [I
 
+    const/4 v1, 0x0
+
     .line 877
-    .local v0, "tmp":[I
-    array-length v1, p1
+    array-length v2, p1
 
-    const/4 v2, 0x0
+    invoke-static {p1, v1, v0, v1, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    invoke-static {p1, v2, v0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    .line 878
     return-object v0
 .end method
 
 .method private resize([Z)[Z
     .locals 3
-    .param p1, "orig"    # [Z
 
     .line 882
     array-length v0, p1
@@ -603,15 +581,13 @@
 
     new-array v0, v0, [Z
 
+    const/4 v1, 0x0
+
     .line 883
-    .local v0, "tmp":[Z
-    array-length v1, p1
+    array-length v2, p1
 
-    const/4 v2, 0x0
+    invoke-static {p1, v1, v0, v1, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    invoke-static {p1, v2, v0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    .line 884
     return-object v0
 .end method
 
@@ -636,19 +612,18 @@
     :cond_0
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->R:[F
 
-    const/4 v1, 0x0
+    iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->accelerometerValues:[F
 
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->accelerometerValues:[F
+    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->magneticFieldValues:[F
 
-    iget-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->magneticFieldValues:[F
+    const/4 v3, 0x0
 
-    invoke-static {v0, v1, v2, v3}, Landroid/hardware/SensorManager;->getRotationMatrix([F[F[F[F)Z
+    invoke-static {v0, v3, v1, v2}, Landroid/hardware/SensorManager;->getRotationMatrix([F[F[F[F)Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    .line 703
     return-void
 
     .line 705
@@ -711,7 +686,6 @@
 
     iput v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->roll:F
 
-    .line 709
     return-void
 .end method
 
@@ -719,14 +693,12 @@
 # virtual methods
 .method public addKeyListener(Landroid/view/View$OnKeyListener;)V
     .locals 1
-    .param p1, "listener"    # Landroid/view/View$OnKeyListener;
 
     .line 969
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 970
     return-void
 .end method
 
@@ -738,7 +710,6 @@
 
     invoke-virtual {v0}, Landroid/os/Vibrator;->cancel()V
 
-    .line 669
     return-void
 .end method
 
@@ -831,14 +802,13 @@
 
 .method public getDeltaX(I)I
     .locals 1
-    .param p1, "pointer"    # I
 
     .line 946
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->deltaX:[I
 
-    aget v0, v0, p1
+    aget p1, v0, p1
 
-    return v0
+    return p1
 .end method
 
 .method public getDeltaY()I
@@ -856,14 +826,13 @@
 
 .method public getDeltaY(I)I
     .locals 1
-    .param p1, "pointer"    # I
 
     .line 956
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->deltaY:[I
 
-    aget v0, v0, p1
+    aget p1, v0, p1
 
-    return v0
+    return p1
 .end method
 
 .method public getFreePointerIndex()I
@@ -874,11 +843,8 @@
 
     array-length v0, v0
 
-    .line 860
-    .local v0, "len":I
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_1
 
@@ -893,14 +859,12 @@
 
     return v1
 
-    .line 860
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 864
-    .end local v1    # "i":I
     :cond_1
     iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->realId:[I
 
@@ -964,7 +928,6 @@
 
     iput-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->button:[I
 
-    .line 872
     return v0
 .end method
 
@@ -1019,7 +982,6 @@
 .method public getMaxPointers()I
     .locals 1
 
-    .line 273
     const/16 v0, 0x14
 
     return v0
@@ -1063,9 +1025,9 @@
 .method public getPressure()F
     .locals 1
 
-    .line 312
     const/4 v0, 0x0
 
+    .line 312
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/backends/android/AndroidInput;->getPressure(I)F
 
     move-result v0
@@ -1075,14 +1037,13 @@
 
 .method public getPressure(I)F
     .locals 1
-    .param p1, "pointer"    # I
 
     .line 317
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->pressure:[F
 
-    aget v0, v0, p1
+    aget p1, v0, p1
 
-    return v0
+    return p1
 .end method
 
 .method public getRoll()F
@@ -1112,55 +1073,50 @@
 .end method
 
 .method public getRotation()I
-    .locals 3
-
-    .line 903
-    const/4 v0, 0x0
+    .locals 2
 
     .line 905
-    .local v0, "orientation":I
-    iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->context:Landroid/content/Context;
+    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->context:Landroid/content/Context;
 
-    instance-of v2, v1, Landroid/app/Activity;
+    instance-of v1, v0, Landroid/app/Activity;
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
     .line 906
-    check-cast v1, Landroid/app/Activity;
+    check-cast v0, Landroid/app/Activity;
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getWindowManager()Landroid/view/WindowManager;
+    invoke-virtual {v0}, Landroid/app/Activity;->getWindowManager()Landroid/view/WindowManager;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
+    invoke-interface {v0}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Landroid/view/Display;->getRotation()I
+    invoke-virtual {v0}, Landroid/view/Display;->getRotation()I
 
     move-result v0
 
     goto :goto_0
 
-    .line 908
     :cond_0
-    const-string/jumbo v2, "window"
+    const-string v1, "window"
 
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    .line 908
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/view/WindowManager;
+    check-cast v0, Landroid/view/WindowManager;
 
-    invoke-interface {v1}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
+    invoke-interface {v0}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Landroid/view/Display;->getRotation()I
+    invoke-virtual {v0}, Landroid/view/Display;->getRotation()I
 
     move-result v0
 
-    .line 911
     :goto_0
     const/4 v1, 0x1
 
@@ -1174,33 +1130,28 @@
 
     if-eq v0, v1, :cond_1
 
-    .line 921
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    return v1
+    return v0
 
-    .line 919
     :cond_1
-    const/16 v1, 0x10e
+    const/16 v0, 0x10e
 
-    return v1
+    return v0
 
-    .line 917
     :cond_2
-    const/16 v1, 0xb4
+    const/16 v0, 0xb4
 
-    return v1
+    return v0
 
-    .line 915
     :cond_3
-    const/16 v1, 0x5a
+    const/16 v0, 0x5a
 
-    return v1
+    return v0
 .end method
 
 .method public getRotationMatrix([F)V
     .locals 3
-    .param p1, "matrix"    # [F
 
     .line 717
     iget-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->rotationVectorAvailable:Z
@@ -1216,25 +1167,20 @@
 
     .line 720
     :cond_0
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->accelerometerValues:[F
 
-    iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->accelerometerValues:[F
+    iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->magneticFieldValues:[F
 
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->magneticFieldValues:[F
+    const/4 v2, 0x0
 
-    invoke-static {p1, v0, v1, v2}, Landroid/hardware/SensorManager;->getRotationMatrix([F[F[F[F)Z
+    invoke-static {p1, v2, v0, v1}, Landroid/hardware/SensorManager;->getRotationMatrix([F[F[F[F)Z
 
-    .line 721
     :goto_0
     return-void
 .end method
 
 .method public getTextInput(Lcom/badlogic/gdx/Input$TextInputListener;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 8
-    .param p1, "listener"    # Lcom/badlogic/gdx/Input$TextInputListener;
-    .param p2, "title"    # Ljava/lang/String;
-    .param p3, "text"    # Ljava/lang/String;
-    .param p4, "hint"    # Ljava/lang/String;
 
     .line 226
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->handle:Landroid/os/Handler;
@@ -1257,7 +1203,6 @@
 
     invoke-virtual {v0, v7}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 269
     return-void
 .end method
 
@@ -1279,10 +1224,10 @@
 
     return v0
 
-    .line 280
     :catchall_0
     move-exception v0
 
+    .line 280
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -1292,7 +1237,6 @@
 
 .method public getX(I)I
     .locals 1
-    .param p1, "pointer"    # I
 
     .line 292
     monitor-enter p0
@@ -1301,21 +1245,21 @@
     :try_start_0
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touchX:[I
 
-    aget v0, v0, p1
+    aget p1, v0, p1
 
     monitor-exit p0
 
-    return v0
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 294
-    :catchall_0
-    move-exception v0
-
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 .method public getY()I
@@ -1336,10 +1280,10 @@
 
     return v0
 
-    .line 287
     :catchall_0
     move-exception v0
 
+    .line 287
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -1349,7 +1293,6 @@
 
 .method public getY(I)I
     .locals 1
-    .param p1, "pointer"    # I
 
     .line 299
     monitor-enter p0
@@ -1358,28 +1301,26 @@
     :try_start_0
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touchY:[I
 
-    aget v0, v0, p1
+    aget p1, v0, p1
 
     monitor-exit p0
 
-    return v0
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 301
-    :catchall_0
-    move-exception v0
-
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 .method public isButtonJustPressed(I)Z
     .locals 1
-    .param p1, "button"    # I
 
-    .line 692
     if-ltz p1, :cond_1
 
     const/16 v0, 0x14
@@ -1392,21 +1333,19 @@
     :cond_0
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->justPressedButtons:[Z
 
-    aget-boolean v0, v0, p1
+    aget-boolean p1, v0, p1
 
-    return v0
+    return p1
 
-    .line 692
     :cond_1
     :goto_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public isButtonPressed(I)Z
-    .locals 3
-    .param p1, "button"    # I
+    .locals 4
 
     .line 678
     monitor-enter p0
@@ -1417,47 +1356,43 @@
 
     const/4 v1, 0x1
 
+    const/4 v2, 0x0
+
     if-eqz v0, :cond_1
 
-    .line 680
-    const/4 v0, 0x0
+    move v0, v2
 
-    .local v0, "pointer":I
     :goto_0
-    const/16 v2, 0x14
+    const/16 v3, 0x14
 
-    if-ge v0, v2, :cond_1
+    if-ge v0, v3, :cond_1
 
     .line 681
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touched:[Z
+    iget-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touched:[Z
 
-    aget-boolean v2, v2, v0
+    aget-boolean v3, v3, v0
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->button:[I
+    iget-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->button:[I
 
-    aget v2, v2, v0
+    aget v3, v3, v0
 
-    if-ne v2, p1, :cond_0
+    if-ne v3, p1, :cond_0
 
     .line 682
     monitor-exit p0
 
     return v1
 
-    .line 680
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 686
-    .end local v0    # "pointer":I
     :cond_1
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touched:[Z
-
-    const/4 v2, 0x0
 
     aget-boolean v0, v0, v2
 
@@ -1479,15 +1414,15 @@
 
     return v1
 
-    .line 687
     :catchall_0
-    move-exception v0
+    move-exception p1
 
+    .line 687
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 .method public isCatchBackKey()Z
@@ -1506,19 +1441,18 @@
 .end method
 
 .method public isCatchKey(I)Z
-    .locals 2
-    .param p1, "keycode"    # I
+    .locals 1
 
     .line 647
-    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keysToCatch:Lcom/badlogic/gdx/utils/IntSet;
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keysToCatch:Lcom/badlogic/gdx/utils/IntSet;
 
-    iget v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyCount:I
+    iget v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyCount:I
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/utils/IntSet;->contains(I)Z
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/utils/IntSet;->contains(I)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public isCatchMenuKey()Z
@@ -1539,7 +1473,6 @@
 .method public isCursorCatched()Z
     .locals 1
 
-    .line 936
     const/4 v0, 0x0
 
     return v0
@@ -1547,35 +1480,28 @@
 
 .method public declared-synchronized isKeyJustPressed(I)Z
     .locals 1
-    .param p1, "key"    # I
 
     monitor-enter p0
 
-    .line 333
     const/4 v0, -0x1
 
     if-ne p1, v0, :cond_0
 
     .line 334
     :try_start_0
-    iget-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyJustPressed:Z
+    iget-boolean p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyJustPressed:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return v0
+    return p1
 
-    .line 332
-    .end local p0    # "this":Lcom/badlogic/gdx/backends/android/AndroidInput;
-    .end local p1    # "key":I
     :catchall_0
     move-exception p1
 
     goto :goto_0
 
-    .line 336
-    .restart local p1    # "key":I
     :cond_0
     if-ltz p1, :cond_2
 
@@ -1590,39 +1516,34 @@
     :try_start_1
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->justPressedKeys:[Z
 
-    aget-boolean v0, v0, p1
+    aget-boolean p1, v0, p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     monitor-exit p0
 
-    return v0
+    return p1
 
-    .line 332
-    .end local p1    # "key":I
     :goto_0
     monitor-exit p0
 
     throw p1
 
     .line 337
-    .restart local p1    # "key":I
     :cond_2
     :goto_1
-    const/4 v0, 0x0
-
     monitor-exit p0
 
-    return v0
+    const/4 p1, 0x0
+
+    return p1
 .end method
 
 .method public declared-synchronized isKeyPressed(I)Z
     .locals 2
-    .param p1, "key"    # I
 
     monitor-enter p0
 
-    .line 322
     const/4 v0, -0x1
 
     const/4 v1, 0x0
@@ -1631,11 +1552,11 @@
 
     .line 323
     :try_start_0
-    iget v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyCount:I
+    iget p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyCount:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-lez v0, :cond_0
+    if-lez p1, :cond_0
 
     const/4 v1, 0x1
 
@@ -1644,16 +1565,11 @@
 
     return v1
 
-    .line 321
-    .end local p0    # "this":Lcom/badlogic/gdx/backends/android/AndroidInput;
-    .end local p1    # "key":I
     :catchall_0
     move-exception p1
 
     goto :goto_0
 
-    .line 325
-    .restart local p1    # "key":I
     :cond_1
     if-ltz p1, :cond_3
 
@@ -1668,23 +1584,20 @@
     :try_start_1
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keys:[Z
 
-    aget-boolean v0, v0, p1
+    aget-boolean p1, v0, p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     monitor-exit p0
 
-    return v0
+    return p1
 
-    .line 321
-    .end local p1    # "key":I
     :goto_0
     monitor-exit p0
 
     throw p1
 
     .line 326
-    .restart local p1    # "key":I
     :cond_3
     :goto_1
     monitor-exit p0
@@ -1693,17 +1606,16 @@
 .end method
 
 .method public isPeripheralAvailable(Lcom/badlogic/gdx/Input$Peripheral;)Z
-    .locals 4
-    .param p1, "peripheral"    # Lcom/badlogic/gdx/Input$Peripheral;
+    .locals 3
 
     .line 840
     sget-object v0, Lcom/badlogic/gdx/Input$Peripheral;->Accelerometer:Lcom/badlogic/gdx/Input$Peripheral;
 
     if-ne p1, v0, :cond_0
 
-    iget-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->accelerometerAvailable:Z
+    iget-boolean p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->accelerometerAvailable:Z
 
-    return v0
+    return p1
 
     .line 841
     :cond_0
@@ -1711,9 +1623,9 @@
 
     if-ne p1, v0, :cond_1
 
-    iget-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->gyroscopeAvailable:Z
+    iget-boolean p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->gyroscopeAvailable:Z
 
-    return v0
+    return p1
 
     .line 842
     :cond_1
@@ -1721,9 +1633,9 @@
 
     if-ne p1, v0, :cond_2
 
-    iget-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->compassAvailable:Z
+    iget-boolean p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->compassAvailable:Z
 
-    return v0
+    return p1
 
     .line 843
     :cond_2
@@ -1731,9 +1643,9 @@
 
     if-ne p1, v0, :cond_3
 
-    iget-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyboardAvailable:Z
+    iget-boolean p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyboardAvailable:Z
 
-    return v0
+    return p1
 
     .line 844
     :cond_3
@@ -1751,25 +1663,18 @@
 
     const/4 v2, 0x0
 
-    if-ne p1, v0, :cond_8
-
-    .line 846
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v3, 0xb
-
-    if-lt v0, v3, :cond_6
+    if-ne p1, v0, :cond_6
 
     .line 847
-    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->vibrator:Landroid/os/Vibrator;
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->vibrator:Landroid/os/Vibrator;
 
-    if-eqz v0, :cond_5
+    if-eqz p1, :cond_5
 
-    invoke-virtual {v0}, Landroid/os/Vibrator;->hasVibrator()Z
+    invoke-virtual {p1}, Landroid/os/Vibrator;->hasVibrator()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_5
+    if-eqz p1, :cond_5
 
     goto :goto_0
 
@@ -1779,55 +1684,40 @@
     :goto_0
     return v1
 
-    .line 849
-    :cond_6
-    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->vibrator:Landroid/os/Vibrator;
-
-    if-eqz v0, :cond_7
-
-    goto :goto_1
-
-    :cond_7
-    move v1, v2
-
-    :goto_1
-    return v1
-
     .line 852
-    :cond_8
+    :cond_6
     sget-object v0, Lcom/badlogic/gdx/Input$Peripheral;->MultitouchScreen:Lcom/badlogic/gdx/Input$Peripheral;
+
+    if-ne p1, v0, :cond_7
+
+    iget-boolean p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->hasMultitouch:Z
+
+    return p1
+
+    .line 853
+    :cond_7
+    sget-object v0, Lcom/badlogic/gdx/Input$Peripheral;->RotationVector:Lcom/badlogic/gdx/Input$Peripheral;
+
+    if-ne p1, v0, :cond_8
+
+    iget-boolean p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->rotationVectorAvailable:Z
+
+    return p1
+
+    .line 854
+    :cond_8
+    sget-object v0, Lcom/badlogic/gdx/Input$Peripheral;->Pressure:Lcom/badlogic/gdx/Input$Peripheral;
 
     if-ne p1, v0, :cond_9
 
-    iget-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->hasMultitouch:Z
-
-    return v0
-
-    .line 853
-    :cond_9
-    sget-object v0, Lcom/badlogic/gdx/Input$Peripheral;->RotationVector:Lcom/badlogic/gdx/Input$Peripheral;
-
-    if-ne p1, v0, :cond_a
-
-    iget-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->rotationVectorAvailable:Z
-
-    return v0
-
-    .line 854
-    :cond_a
-    sget-object v0, Lcom/badlogic/gdx/Input$Peripheral;->Pressure:Lcom/badlogic/gdx/Input$Peripheral;
-
-    if-ne p1, v0, :cond_b
-
     return v1
 
-    .line 855
-    :cond_b
+    :cond_9
     return v2
 .end method
 
 .method public isTouched()Z
-    .locals 2
+    .locals 3
 
     .line 344
     monitor-enter p0
@@ -1836,43 +1726,39 @@
     :try_start_0
     iget-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->hasMultitouch:Z
 
+    const/4 v1, 0x0
+
     if-eqz v0, :cond_1
 
-    .line 346
-    const/4 v0, 0x0
+    move v0, v1
 
-    .local v0, "pointer":I
     :goto_0
-    const/16 v1, 0x14
+    const/16 v2, 0x14
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v2, :cond_1
 
     .line 347
-    iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touched:[Z
+    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touched:[Z
 
-    aget-boolean v1, v1, v0
+    aget-boolean v2, v2, v0
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
     .line 348
     monitor-exit p0
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    return v1
+    return v0
 
-    .line 346
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 352
-    .end local v0    # "pointer":I
     :cond_1
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touched:[Z
-
-    const/4 v1, 0x0
 
     aget-boolean v0, v0, v1
 
@@ -1880,10 +1766,10 @@
 
     return v0
 
-    .line 353
     :catchall_0
     move-exception v0
 
+    .line 353
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -1893,7 +1779,6 @@
 
 .method public isTouched(I)Z
     .locals 1
-    .param p1, "pointer"    # I
 
     .line 305
     monitor-enter p0
@@ -1902,21 +1787,21 @@
     :try_start_0
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touched:[Z
 
-    aget-boolean v0, v0, p1
+    aget-boolean p1, v0, p1
 
     monitor-exit p0
 
-    return v0
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 307
-    :catchall_0
-    move-exception v0
-
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 .method public justTouched()Z
@@ -1930,327 +1815,303 @@
 
 .method public lookUpPointerIndex(I)I
     .locals 5
-    .param p1, "pointerId"    # I
 
     .line 888
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->realId:[I
 
     array-length v0, v0
 
-    .line 889
-    .local v0, "len":I
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    move v2, v1
+
     :goto_0
-    if-ge v1, v0, :cond_1
+    if-ge v2, v0, :cond_1
 
     .line 890
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->realId:[I
+    iget-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->realId:[I
 
-    aget v2, v2, v1
+    aget v3, v3, v2
 
-    if-ne v2, p1, :cond_0
+    if-ne v3, p1, :cond_0
 
-    return v1
+    return v2
 
-    .line 889
     :cond_0
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 893
-    .end local v1    # "i":I
     :cond_1
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 894
-    .local v1, "sb":Ljava/lang/StringBuilder;
-    const/4 v2, 0x0
-
-    .local v2, "i":I
     :goto_1
-    if-ge v2, v0, :cond_2
+    if-ge v1, v0, :cond_2
 
     .line 895
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
 
     const-string v4, ":"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v3
+
     iget-object v4, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->realId:[I
 
-    aget v4, v4, v2
+    aget v4, v4, v1
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
 
     const-string v4, " "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v3
+
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 894
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
     .line 897
-    .end local v2    # "i":I
     :cond_2
-    sget-object v2, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
+    sget-object v0, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "Pointer ID lookup failed: "
 
-    const-string v4, "Pointer ID lookup failed: "
+    invoke-direct {v1, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    const-string v4, ", "
+    const-string v1, ", "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v4
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object p1
 
-    const-string v4, "AndroidInput"
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-interface {v2, v4, v3}, Lcom/badlogic/gdx/Application;->log(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object p1
 
-    .line 898
-    const/4 v2, -0x1
+    const-string v1, "AndroidInput"
 
-    return v2
+    invoke-interface {v0, v1, p1}, Lcom/badlogic/gdx/Application;->log(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 p1, -0x1
+
+    return p1
 .end method
 
 .method public onDrop(II)V
     .locals 0
-    .param p1, "x"    # I
-    .param p2, "y"    # I
 
     .line 482
     invoke-virtual {p0, p1, p2}, Lcom/badlogic/gdx/backends/android/AndroidInput;->postTap(II)V
 
-    .line 483
     return-void
 .end method
 
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
     .locals 9
-    .param p1, "v"    # Landroid/view/View;
-    .param p2, "keyCode"    # I
-    .param p3, "e"    # Landroid/view/KeyEvent;
 
     .line 508
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyListeners:Ljava/util/ArrayList;
 
-    .local v0, "i":I
-    iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyListeners:Ljava/util/ArrayList;
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+    move-result v0
 
-    move-result v1
+    const/4 v1, 0x0
 
-    .local v1, "n":I
+    move v2, v1
+
     :goto_0
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    if-ge v0, v1, :cond_1
+    if-ge v2, v0, :cond_1
 
     .line 509
-    iget-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyListeners:Ljava/util/ArrayList;
+    iget-object v4, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyListeners:Ljava/util/ArrayList;
 
-    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v4, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Landroid/view/View$OnKeyListener;
+    check-cast v4, Landroid/view/View$OnKeyListener;
 
-    invoke-interface {v3, p1, p2, p3}, Landroid/view/View$OnKeyListener;->onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
+    invoke-interface {v4, p1, p2, p3}, Landroid/view/View$OnKeyListener;->onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_0
+    if-eqz v4, :cond_0
 
-    return v2
+    return v3
 
-    .line 508
     :cond_0
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 514
-    .end local v0    # "i":I
-    .end local v1    # "n":I
     :cond_1
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_2
+    if-nez p1, :cond_2
 
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getRepeatCount()I
 
-    move-result v0
+    move-result p1
 
-    if-lez v0, :cond_2
+    if-lez p1, :cond_2
 
     .line 515
-    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keysToCatch:Lcom/badlogic/gdx/utils/IntSet;
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keysToCatch:Lcom/badlogic/gdx/utils/IntSet;
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/utils/IntSet;->contains(I)Z
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/utils/IntSet;->contains(I)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
     .line 517
     :cond_2
     monitor-enter p0
 
-    .line 518
-    const/4 v0, 0x0
-
     .line 520
-    .local v0, "event":Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;
     :try_start_0
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getKeyCode()I
 
-    move-result v1
+    move-result p1
 
-    const/4 v3, 0x2
+    const/4 v0, 0x2
 
-    const/4 v4, 0x0
-
-    if-nez v1, :cond_4
+    if-nez p1, :cond_4
 
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
-    move-result v1
+    move-result p1
 
-    if-ne v1, v3, :cond_4
+    if-ne p1, v0, :cond_4
 
     .line 521
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getCharacters()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
+
+    move p2, v1
 
     .line 522
-    .local v1, "chars":Ljava/lang/String;
-    const/4 v2, 0x0
-
-    .local v2, "i":I
     :goto_1
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v5
+    move-result p3
 
-    if-ge v2, v5, :cond_3
+    if-ge p2, p3, :cond_3
 
     .line 523
-    iget-object v5, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->usedKeyEvents:Lcom/badlogic/gdx/utils/Pool;
+    iget-object p3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->usedKeyEvents:Lcom/badlogic/gdx/utils/Pool;
 
-    invoke-virtual {v5}, Lcom/badlogic/gdx/utils/Pool;->obtain()Ljava/lang/Object;
+    invoke-virtual {p3}, Lcom/badlogic/gdx/utils/Pool;->obtain()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object p3
 
-    check-cast v5, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;
-
-    move-object v0, v5
+    check-cast p3, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;
 
     .line 524
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
-    move-result-wide v5
+    move-result-wide v2
 
-    iput-wide v5, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->timeStamp:J
+    iput-wide v2, p3, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->timeStamp:J
 
     .line 525
-    iput v4, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->keyCode:I
+    iput v1, p3, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->keyCode:I
 
     .line 526
-    invoke-virtual {v1, v2}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, p2}, Ljava/lang/String;->charAt(I)C
 
-    move-result v5
+    move-result v2
 
-    iput-char v5, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->keyChar:C
+    iput-char v2, p3, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->keyChar:C
 
     .line 527
-    iput v3, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->type:I
+    iput v0, p3, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->type:I
 
     .line 528
-    iget-object v5, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyEvents:Ljava/util/ArrayList;
+    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyEvents:Ljava/util/ArrayList;
 
-    invoke-virtual {v5, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v2, p3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 522
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 p2, p2, 0x1
 
     goto :goto_1
 
     .line 530
-    .end local v2    # "i":I
     :cond_3
     monitor-exit p0
 
-    return v4
+    return v1
 
     .line 533
-    .end local v1    # "chars":Ljava/lang/String;
     :cond_4
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getUnicodeChar()I
 
-    move-result v1
+    move-result p1
 
-    int-to-char v1, v1
+    int-to-char p1, p1
 
-    .line 535
-    .local v1, "character":C
-    const/16 v5, 0x43
+    const/16 v2, 0x43
 
-    if-ne p2, v5, :cond_5
+    if-ne p2, v2, :cond_5
 
-    const/16 v1, 0x8
+    const/16 p1, 0x8
 
     .line 536
     :cond_5
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getKeyCode()I
 
-    move-result v5
+    move-result v2
 
-    if-ltz v5, :cond_d
+    if-ltz v2, :cond_d
 
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getKeyCode()I
 
-    move-result v5
+    move-result v2
 
-    const/16 v6, 0x104
+    const/16 v4, 0x104
 
-    if-lt v5, v6, :cond_6
+    if-lt v2, v4, :cond_6
 
     goto/16 :goto_3
 
@@ -2258,13 +2119,15 @@
     :cond_6
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
-    move-result v5
+    move-result v2
 
-    const/4 v6, 0x4
+    const/4 v4, 0x4
 
-    if-eqz v5, :cond_a
+    const/16 v5, 0xff
 
-    if-eq v5, v2, :cond_7
+    if-eqz v2, :cond_a
+
+    if-eq v2, v3, :cond_7
 
     goto/16 :goto_2
 
@@ -2272,266 +2135,245 @@
     :cond_7
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
-    move-result-wide v7
+    move-result-wide v6
 
     .line 562
-    .local v7, "timeStamp":J
-    iget-object v5, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->usedKeyEvents:Lcom/badlogic/gdx/utils/Pool;
+    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->usedKeyEvents:Lcom/badlogic/gdx/utils/Pool;
 
-    invoke-virtual {v5}, Lcom/badlogic/gdx/utils/Pool;->obtain()Ljava/lang/Object;
+    invoke-virtual {v2}, Lcom/badlogic/gdx/utils/Pool;->obtain()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v2
 
-    check-cast v5, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;
-
-    move-object v0, v5
+    check-cast v2, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;
 
     .line 563
-    iput-wide v7, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->timeStamp:J
+    iput-wide v6, v2, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->timeStamp:J
 
     .line 564
-    iput-char v4, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->keyChar:C
+    iput-char v1, v2, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->keyChar:C
 
     .line 565
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getKeyCode()I
 
-    move-result v5
+    move-result v8
 
-    iput v5, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->keyCode:I
+    iput v8, v2, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->keyCode:I
 
     .line 566
-    iput v2, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->type:I
+    iput v3, v2, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->type:I
+
+    if-ne p2, v4, :cond_8
 
     .line 568
-    if-ne p2, v6, :cond_8
-
     invoke-virtual {p3}, Landroid/view/KeyEvent;->isAltPressed()Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_8
-
-    .line 569
-    const/16 p2, 0xff
+    if-eqz v4, :cond_8
 
     .line 570
-    iput p2, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->keyCode:I
+    iput v5, v2, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->keyCode:I
+
+    move p2, v5
 
     .line 572
     :cond_8
-    iget-object v5, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyEvents:Ljava/util/ArrayList;
+    iget-object v4, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyEvents:Ljava/util/ArrayList;
 
-    invoke-virtual {v5, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 574
-    iget-object v5, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->usedKeyEvents:Lcom/badlogic/gdx/utils/Pool;
+    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->usedKeyEvents:Lcom/badlogic/gdx/utils/Pool;
 
-    invoke-virtual {v5}, Lcom/badlogic/gdx/utils/Pool;->obtain()Ljava/lang/Object;
+    invoke-virtual {v2}, Lcom/badlogic/gdx/utils/Pool;->obtain()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v2
 
-    check-cast v5, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;
-
-    move-object v0, v5
+    check-cast v2, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;
 
     .line 575
-    iput-wide v7, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->timeStamp:J
+    iput-wide v6, v2, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->timeStamp:J
 
     .line 576
-    iput-char v1, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->keyChar:C
+    iput-char p1, v2, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->keyChar:C
 
     .line 577
-    iput v4, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->keyCode:I
+    iput v1, v2, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->keyCode:I
 
     .line 578
-    iput v3, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->type:I
+    iput v0, v2, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->type:I
 
     .line 579
-    iget-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyEvents:Ljava/util/ArrayList;
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyEvents:Ljava/util/ArrayList;
 
-    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 581
-    const/16 v3, 0xff
-
-    if-ne p2, v3, :cond_9
+    if-ne p2, v5, :cond_9
 
     .line 582
-    iget-object v5, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keys:[Z
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keys:[Z
 
-    aget-boolean v5, v5, v3
+    aget-boolean p3, p1, v5
 
-    if-eqz v5, :cond_c
+    if-eqz p3, :cond_c
 
     .line 583
-    iget v5, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyCount:I
+    iget p3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyCount:I
 
-    sub-int/2addr v5, v2
+    sub-int/2addr p3, v3
 
-    iput v5, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyCount:I
+    iput p3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyCount:I
 
     .line 584
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keys:[Z
-
-    aput-boolean v4, v2, v3
+    aput-boolean v1, p1, v5
 
     goto :goto_2
 
     .line 587
     :cond_9
-    iget-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keys:[Z
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keys:[Z
 
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getKeyCode()I
 
-    move-result v5
+    move-result v0
 
-    aget-boolean v3, v3, v5
+    aget-boolean p1, p1, v0
 
-    if-eqz v3, :cond_c
+    if-eqz p1, :cond_c
 
     .line 588
-    iget v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyCount:I
+    iget p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyCount:I
 
-    sub-int/2addr v3, v2
+    sub-int/2addr p1, v3
 
-    iput v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyCount:I
+    iput p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyCount:I
 
     .line 589
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keys:[Z
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keys:[Z
 
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getKeyCode()I
 
-    move-result v3
+    move-result p3
 
-    aput-boolean v4, v2, v3
+    aput-boolean v1, p1, p3
 
     goto :goto_2
 
     .line 542
-    .end local v7    # "timeStamp":J
     :cond_a
-    iget-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->usedKeyEvents:Lcom/badlogic/gdx/utils/Pool;
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->usedKeyEvents:Lcom/badlogic/gdx/utils/Pool;
 
-    invoke-virtual {v3}, Lcom/badlogic/gdx/utils/Pool;->obtain()Ljava/lang/Object;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/Pool;->obtain()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p1
 
-    check-cast v3, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;
-
-    move-object v0, v3
+    check-cast p1, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;
 
     .line 543
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
-    move-result-wide v7
+    move-result-wide v6
 
-    iput-wide v7, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->timeStamp:J
+    iput-wide v6, p1, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->timeStamp:J
 
     .line 544
-    iput-char v4, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->keyChar:C
+    iput-char v1, p1, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->keyChar:C
 
     .line 545
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getKeyCode()I
 
-    move-result v3
+    move-result v0
 
-    iput v3, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->keyCode:I
+    iput v0, p1, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->keyCode:I
 
     .line 546
-    iput v4, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->type:I
+    iput v1, p1, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->type:I
+
+    if-ne p2, v4, :cond_b
 
     .line 549
-    if-ne p2, v6, :cond_b
-
     invoke-virtual {p3}, Landroid/view/KeyEvent;->isAltPressed()Z
 
-    move-result v3
+    move-result p3
 
-    if-eqz v3, :cond_b
-
-    .line 550
-    const/16 p2, 0xff
+    if-eqz p3, :cond_b
 
     .line 551
-    iput p2, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->keyCode:I
+    iput v5, p1, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->keyCode:I
+
+    move p2, v5
 
     .line 554
     :cond_b
-    iget-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyEvents:Ljava/util/ArrayList;
+    iget-object p3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyEvents:Ljava/util/ArrayList;
 
-    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p3, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 555
-    iget-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keys:[Z
+    iget-object p3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keys:[Z
 
-    iget v4, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->keyCode:I
+    iget v0, p1, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->keyCode:I
 
-    aget-boolean v3, v3, v4
+    aget-boolean p3, p3, v0
 
-    if-nez v3, :cond_c
+    if-nez p3, :cond_c
 
     .line 556
-    iget v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyCount:I
+    iget p3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyCount:I
 
-    add-int/2addr v3, v2
+    add-int/2addr p3, v3
 
-    iput v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyCount:I
+    iput p3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyCount:I
 
     .line 557
-    iget-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keys:[Z
+    iget-object p3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keys:[Z
 
-    iget v4, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->keyCode:I
+    iget p1, p1, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->keyCode:I
 
-    aput-boolean v2, v3, v4
+    aput-boolean v3, p3, p1
 
     .line 593
     :cond_c
     :goto_2
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->app:Lcom/badlogic/gdx/Application;
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->app:Lcom/badlogic/gdx/Application;
 
-    invoke-interface {v2}, Lcom/badlogic/gdx/Application;->getGraphics()Lcom/badlogic/gdx/Graphics;
+    invoke-interface {p1}, Lcom/badlogic/gdx/Application;->getGraphics()Lcom/badlogic/gdx/Graphics;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-interface {v2}, Lcom/badlogic/gdx/Graphics;->requestRendering()V
+    invoke-interface {p1}, Lcom/badlogic/gdx/Graphics;->requestRendering()V
 
     .line 594
-    .end local v0    # "event":Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;
-    .end local v1    # "character":C
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 596
-    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keysToCatch:Lcom/badlogic/gdx/utils/IntSet;
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keysToCatch:Lcom/badlogic/gdx/utils/IntSet;
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/utils/IntSet;->contains(I)Z
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/utils/IntSet;->contains(I)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
     .line 537
-    .restart local v0    # "event":Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;
-    .restart local v1    # "character":C
     :cond_d
     :goto_3
     :try_start_1
     monitor-exit p0
 
-    return v4
+    return v1
+
+    :catchall_0
+    move-exception p1
 
     .line 594
-    .end local v0    # "event":Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;
-    .end local v1    # "character":C
-    :catchall_0
-    move-exception v0
-
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 .method public onPause()V
@@ -2554,7 +2396,6 @@
 
     invoke-static {v0, v1}, Ljava/util/Arrays;->fill([ZZ)V
 
-    .line 980
     return-void
 .end method
 
@@ -2564,26 +2405,20 @@
     .line 983
     invoke-virtual {p0}, Lcom/badlogic/gdx/backends/android/AndroidInput;->registerSensorListeners()V
 
-    .line 984
     return-void
 .end method
 
 .method public onTap(II)V
     .locals 0
-    .param p1, "x"    # I
-    .param p2, "y"    # I
 
     .line 475
     invoke-virtual {p0, p1, p2}, Lcom/badlogic/gdx/backends/android/AndroidInput;->postTap(II)V
 
-    .line 476
     return-void
 .end method
 
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 4
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "event"    # Landroid/view/MotionEvent;
+    .locals 2
 
     .line 453
     iget-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->requestFocus:Z
@@ -2600,47 +2435,37 @@
     .line 455
     invoke-virtual {p1}, Landroid/view/View;->requestFocus()Z
 
-    .line 456
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->requestFocus:Z
+    .line 456
+    iput-boolean p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->requestFocus:Z
 
     .line 460
     :cond_0
-    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touchHandler:Lcom/badlogic/gdx/backends/android/AndroidTouchHandler;
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touchHandler:Lcom/badlogic/gdx/backends/android/AndroidTouchHandler;
 
-    invoke-interface {v0, p2, p0}, Lcom/badlogic/gdx/backends/android/AndroidTouchHandler;->onTouch(Landroid/view/MotionEvent;Lcom/badlogic/gdx/backends/android/AndroidInput;)V
+    invoke-interface {p1, p2, p0}, Lcom/badlogic/gdx/backends/android/AndroidTouchHandler;->onTouch(Landroid/view/MotionEvent;Lcom/badlogic/gdx/backends/android/AndroidInput;)V
 
     .line 462
-    iget v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->sleepTime:I
+    iget p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->sleepTime:I
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
+
+    int-to-long p1, p1
 
     .line 464
-    int-to-long v2, v0
-
     :try_start_0
-    invoke-static {v2, v3}, Ljava/lang/Thread;->sleep(J)V
+    invoke-static {p1, p2}, Ljava/lang/Thread;->sleep(J)V
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 466
-    goto :goto_0
-
-    .line 465
     :catch_0
-    move-exception v0
-
-    .line 468
     :cond_1
-    :goto_0
     return v1
 .end method
 
 .method protected postTap(II)V
     .locals 4
-    .param p1, "x"    # I
-    .param p2, "y"    # I
 
     .line 486
     monitor-enter p0
@@ -2656,16 +2481,15 @@
     check-cast v0, Lcom/badlogic/gdx/backends/android/AndroidInput$TouchEvent;
 
     .line 488
-    .local v0, "event":Lcom/badlogic/gdx/backends/android/AndroidInput$TouchEvent;
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v1
 
     iput-wide v1, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$TouchEvent;->timeStamp:J
 
-    .line 489
     const/4 v1, 0x0
 
+    .line 489
     iput v1, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$TouchEvent;->pointer:I
 
     .line 490
@@ -2683,15 +2507,13 @@
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 495
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->usedTouchEvents:Lcom/badlogic/gdx/utils/Pool;
+    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->usedTouchEvents:Lcom/badlogic/gdx/utils/Pool;
 
-    invoke-virtual {v2}, Lcom/badlogic/gdx/utils/Pool;->obtain()Ljava/lang/Object;
+    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Pool;->obtain()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Lcom/badlogic/gdx/backends/android/AndroidInput$TouchEvent;
-
-    move-object v0, v2
+    check-cast v0, Lcom/badlogic/gdx/backends/android/AndroidInput$TouchEvent;
 
     .line 496
     invoke-static {}, Ljava/lang/System;->nanoTime()J
@@ -2709,46 +2531,42 @@
     .line 499
     iput p2, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$TouchEvent;->y:I
 
-    .line 500
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    iput v1, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$TouchEvent;->type:I
+    .line 500
+    iput p1, v0, Lcom/badlogic/gdx/backends/android/AndroidInput$TouchEvent;->type:I
 
     .line 501
-    iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touchEvents:Ljava/util/ArrayList;
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touchEvents:Ljava/util/ArrayList;
 
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 502
-    nop
-
-    .end local v0    # "event":Lcom/badlogic/gdx/backends/android/AndroidInput$TouchEvent;
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 503
-    sget-object v0, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
+    sget-object p1, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
 
-    invoke-interface {v0}, Lcom/badlogic/gdx/Application;->getGraphics()Lcom/badlogic/gdx/Graphics;
+    invoke-interface {p1}, Lcom/badlogic/gdx/Application;->getGraphics()Lcom/badlogic/gdx/Graphics;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Lcom/badlogic/gdx/Graphics;->requestRendering()V
+    invoke-interface {p1}, Lcom/badlogic/gdx/Graphics;->requestRendering()V
 
-    .line 504
     return-void
 
-    .line 502
     :catchall_0
-    move-exception v0
+    move-exception p1
 
+    .line 502
     :try_start_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 .method processEvents()V
@@ -2768,29 +2586,24 @@
     .line 365
     iput-boolean v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->justTouched:Z
 
-    .line 366
-    const/4 v0, 0x0
+    move v0, v1
 
-    .local v0, "i":I
+    .line 366
     :goto_0
     iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->justPressedButtons:[Z
 
-    array-length v2, v2
+    array-length v3, v2
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v3, :cond_0
 
     .line 367
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->justPressedButtons:[Z
-
     aput-boolean v1, v2, v0
 
-    .line 366
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 370
-    .end local v0    # "i":I
     :cond_0
     iget-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyJustPressed:Z
 
@@ -2799,52 +2612,40 @@
     .line 371
     iput-boolean v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyJustPressed:Z
 
-    .line 372
-    const/4 v0, 0x0
+    move v0, v1
 
-    .restart local v0    # "i":I
+    .line 372
     :goto_1
     iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->justPressedKeys:[Z
 
-    array-length v2, v2
+    array-length v3, v2
 
-    if-ge v0, v2, :cond_1
+    if-ge v0, v3, :cond_1
 
     .line 373
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->justPressedKeys:[Z
-
     aput-boolean v1, v2, v0
 
-    .line 372
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
     .line 377
-    .end local v0    # "i":I
     :cond_1
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->processor:Lcom/badlogic/gdx/InputProcessor;
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_c
-
-    .line 378
-    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->processor:Lcom/badlogic/gdx/InputProcessor;
+    if-eqz v0, :cond_b
 
     .line 380
-    .local v0, "processor":Lcom/badlogic/gdx/InputProcessor;
     iget-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyEvents:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
     move-result v3
 
-    .line 381
-    .local v3, "len":I
-    const/4 v4, 0x0
+    move v4, v1
 
-    .local v4, "i":I
     :goto_2
     const/4 v5, 0x2
 
@@ -2860,7 +2661,6 @@
     check-cast v6, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;
 
     .line 383
-    .local v6, "e":Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;
     iget-wide v7, v6, Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;->timeStamp:J
 
     iput-wide v7, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->currentEventTimeStamp:J
@@ -2890,7 +2690,6 @@
 
     invoke-interface {v0, v5}, Lcom/badlogic/gdx/InputProcessor;->keyUp(I)Z
 
-    .line 392
     goto :goto_3
 
     .line 386
@@ -2909,38 +2708,28 @@
 
     aput-boolean v2, v5, v7
 
-    .line 389
-    nop
-
     .line 396
     :goto_3
     iget-object v5, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->usedKeyEvents:Lcom/badlogic/gdx/utils/Pool;
 
     invoke-virtual {v5, v6}, Lcom/badlogic/gdx/utils/Pool;->free(Ljava/lang/Object;)V
 
-    .line 381
-    .end local v6    # "e":Lcom/badlogic/gdx/backends/android/AndroidInput$KeyEvent;
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_2
 
     .line 399
-    .end local v4    # "i":I
     :cond_5
-    iget-object v4, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touchEvents:Ljava/util/ArrayList;
+    iget-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touchEvents:Ljava/util/ArrayList;
 
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
-    move-result v4
+    move-result v3
 
-    move v3, v4
+    move v4, v1
 
-    .line 400
-    const/4 v4, 0x0
-
-    .restart local v4    # "i":I
     :goto_4
-    if-ge v4, v3, :cond_b
+    if-ge v4, v3, :cond_e
 
     .line 401
     iget-object v6, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touchEvents:Ljava/util/ArrayList;
@@ -2952,7 +2741,6 @@
     check-cast v6, Lcom/badlogic/gdx/backends/android/AndroidInput$TouchEvent;
 
     .line 402
-    .local v6, "e":Lcom/badlogic/gdx/backends/android/AndroidInput$TouchEvent;
     iget-wide v7, v6, Lcom/badlogic/gdx/backends/android/AndroidInput$TouchEvent;->timeStamp:J
 
     iput-wide v7, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->currentEventTimeStamp:J
@@ -2984,7 +2772,6 @@
 
     invoke-interface {v0, v7, v8}, Lcom/badlogic/gdx/InputProcessor;->mouseMoved(II)Z
 
-    .line 417
     goto :goto_5
 
     .line 419
@@ -3005,7 +2792,6 @@
 
     invoke-interface {v0, v7, v8, v9}, Lcom/badlogic/gdx/InputProcessor;->touchDragged(III)Z
 
-    .line 414
     goto :goto_5
 
     .line 410
@@ -3020,7 +2806,6 @@
 
     invoke-interface {v0, v7, v8, v9, v10}, Lcom/badlogic/gdx/InputProcessor;->touchUp(IIII)Z
 
-    .line 411
     goto :goto_5
 
     .line 405
@@ -3045,43 +2830,28 @@
 
     aput-boolean v2, v7, v8
 
-    .line 408
-    nop
-
     .line 421
     :goto_5
     iget-object v7, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->usedTouchEvents:Lcom/badlogic/gdx/utils/Pool;
 
     invoke-virtual {v7, v6}, Lcom/badlogic/gdx/utils/Pool;->free(Ljava/lang/Object;)V
 
-    .line 400
-    .end local v6    # "e":Lcom/badlogic/gdx/backends/android/AndroidInput$TouchEvent;
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_4
 
-    .line 423
-    .end local v0    # "processor":Lcom/badlogic/gdx/InputProcessor;
-    .end local v3    # "len":I
-    .end local v4    # "i":I
-    :cond_b
-    goto :goto_8
-
     .line 424
-    :cond_c
+    :cond_b
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touchEvents:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    .line 425
-    .local v0, "len":I
-    const/4 v3, 0x0
+    move v3, v1
 
-    .local v3, "i":I
     :goto_6
-    if-ge v3, v0, :cond_e
+    if-ge v3, v0, :cond_d
 
     .line 426
     iget-object v4, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touchEvents:Ljava/util/ArrayList;
@@ -3093,42 +2863,34 @@
     check-cast v4, Lcom/badlogic/gdx/backends/android/AndroidInput$TouchEvent;
 
     .line 427
-    .local v4, "e":Lcom/badlogic/gdx/backends/android/AndroidInput$TouchEvent;
     iget v5, v4, Lcom/badlogic/gdx/backends/android/AndroidInput$TouchEvent;->type:I
 
-    if-nez v5, :cond_d
+    if-nez v5, :cond_c
 
     iput-boolean v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->justTouched:Z
 
     .line 428
-    :cond_d
+    :cond_c
     iget-object v5, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->usedTouchEvents:Lcom/badlogic/gdx/utils/Pool;
 
     invoke-virtual {v5, v4}, Lcom/badlogic/gdx/utils/Pool;->free(Ljava/lang/Object;)V
 
-    .line 425
-    .end local v4    # "e":Lcom/badlogic/gdx/backends/android/AndroidInput$TouchEvent;
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_6
 
     .line 431
-    .end local v3    # "i":I
-    :cond_e
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyEvents:Ljava/util/ArrayList;
+    :cond_d
+    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyEvents:Ljava/util/ArrayList;
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
-    move-result v2
+    move-result v0
 
-    move v0, v2
+    move v2, v1
 
-    .line 432
-    const/4 v2, 0x0
-
-    .local v2, "i":I
     :goto_7
-    if-ge v2, v0, :cond_f
+    if-ge v2, v0, :cond_e
 
     .line 433
     iget-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->usedKeyEvents:Lcom/badlogic/gdx/utils/Pool;
@@ -3141,38 +2903,31 @@
 
     invoke-virtual {v3, v4}, Lcom/badlogic/gdx/utils/Pool;->free(Ljava/lang/Object;)V
 
-    .line 432
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_7
 
     .line 437
-    .end local v0    # "len":I
-    .end local v2    # "i":I
-    :cond_f
-    :goto_8
+    :cond_e
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->touchEvents:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_f
+
+    move v0, v1
 
     .line 438
-    const/4 v0, 0x0
-
-    .local v0, "i":I
-    :goto_9
+    :goto_8
     iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->deltaX:[I
 
-    array-length v2, v2
+    array-length v3, v2
 
-    if-ge v0, v2, :cond_10
+    if-ge v0, v3, :cond_f
 
     .line 439
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->deltaX:[I
-
     aput v1, v2, v1
 
     .line 440
@@ -3180,14 +2935,12 @@
 
     aput v1, v2, v1
 
-    .line 438
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_9
+    goto :goto_8
 
     .line 444
-    .end local v0    # "i":I
-    :cond_10
+    :cond_f
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyEvents:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
@@ -3200,10 +2953,8 @@
     .line 446
     monitor-exit p0
 
-    .line 447
     return-void
 
-    .line 446
     :catchall_0
     move-exception v0
 
@@ -3239,9 +2990,9 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->manager:Landroid/hardware/SensorManager;
 
-    .line 750
     const/4 v3, 0x1
 
+    .line 750
     invoke-virtual {v0, v3}, Landroid/hardware/SensorManager;->getSensorList(I)Ljava/util/List;
 
     move-result-object v0
@@ -3272,7 +3023,6 @@
     check-cast v0, Landroid/hardware/Sensor;
 
     .line 754
-    .local v0, "accelerometer":Landroid/hardware/Sensor;
     new-instance v3, Lcom/badlogic/gdx/backends/android/AndroidInput$SensorListener;
 
     invoke-direct {v3, p0}, Lcom/badlogic/gdx/backends/android/AndroidInput$SensorListener;-><init>(Lcom/badlogic/gdx/backends/android/AndroidInput;)V
@@ -3288,12 +3038,10 @@
 
     invoke-virtual {v4, v3, v0, v5}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;I)Z
 
-    move-result v3
+    move-result v0
 
-    iput-boolean v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->accelerometerAvailable:Z
+    iput-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->accelerometerAvailable:Z
 
-    .line 757
-    .end local v0    # "accelerometer":Landroid/hardware/Sensor;
     goto :goto_0
 
     .line 759
@@ -3319,9 +3067,9 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->manager:Landroid/hardware/SensorManager;
 
-    .line 763
     const/4 v3, 0x4
 
+    .line 763
     invoke-virtual {v0, v3}, Landroid/hardware/SensorManager;->getSensorList(I)Ljava/util/List;
 
     move-result-object v0
@@ -3352,7 +3100,6 @@
     check-cast v0, Landroid/hardware/Sensor;
 
     .line 767
-    .local v0, "gyroscope":Landroid/hardware/Sensor;
     new-instance v3, Lcom/badlogic/gdx/backends/android/AndroidInput$SensorListener;
 
     invoke-direct {v3, p0}, Lcom/badlogic/gdx/backends/android/AndroidInput$SensorListener;-><init>(Lcom/badlogic/gdx/backends/android/AndroidInput;)V
@@ -3368,12 +3115,10 @@
 
     invoke-virtual {v4, v3, v0, v5}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;I)Z
 
-    move-result v3
+    move-result v0
 
-    iput-boolean v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->gyroscopeAvailable:Z
+    iput-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->gyroscopeAvailable:Z
 
-    .line 770
-    .end local v0    # "gyroscope":Landroid/hardware/Sensor;
     goto :goto_1
 
     .line 772
@@ -3417,7 +3162,6 @@
     move-result-object v0
 
     .line 778
-    .local v0, "rotationVectorSensors":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/Sensor;>;"
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v3
@@ -3436,7 +3180,7 @@
 
     move-result-object v3
 
-    :goto_2
+    :cond_5
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
@@ -3450,7 +3194,6 @@
     check-cast v4, Landroid/hardware/Sensor;
 
     .line 781
-    .local v4, "sensor":Landroid/hardware/Sensor;
     invoke-virtual {v4}, Landroid/hardware/Sensor;->getVendor()Ljava/lang/String;
 
     move-result-object v5
@@ -3486,17 +3229,8 @@
 
     iput-boolean v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->rotationVectorAvailable:Z
 
-    .line 784
-    goto :goto_3
-
-    .line 786
-    .end local v4    # "sensor":Landroid/hardware/Sensor;
-    :cond_5
-    goto :goto_2
-
     .line 787
     :cond_6
-    :goto_3
     iget-boolean v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->rotationVectorAvailable:Z
 
     if-nez v3, :cond_7
@@ -3508,32 +3242,31 @@
 
     invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v0
 
-    check-cast v5, Landroid/hardware/Sensor;
+    check-cast v0, Landroid/hardware/Sensor;
 
-    iget-object v6, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->config:Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;
+    iget-object v5, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->config:Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;
 
-    iget v6, v6, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;->sensorDelay:I
+    iget v5, v5, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;->sensorDelay:I
 
-    invoke-virtual {v3, v4, v5, v6}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;I)Z
+    invoke-virtual {v3, v4, v0, v5}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;I)Z
 
-    move-result v3
+    move-result v0
 
-    iput-boolean v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->rotationVectorAvailable:Z
+    iput-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->rotationVectorAvailable:Z
 
     .line 793
-    .end local v0    # "rotationVectorSensors":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/Sensor;>;"
     :cond_7
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->config:Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;
 
     iget-boolean v0, v0, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;->useCompass:Z
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_a
 
     iget-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->rotationVectorAvailable:Z
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_a
 
     .line 794
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->manager:Landroid/hardware/SensorManager;
@@ -3560,8 +3293,6 @@
 
     move-result-object v0
 
-    .line 796
-    .local v0, "sensor":Landroid/hardware/Sensor;
     if-eqz v0, :cond_9
 
     .line 797
@@ -3569,8 +3300,7 @@
 
     iput-boolean v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->compassAvailable:Z
 
-    .line 798
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_b
 
     .line 799
     new-instance v1, Lcom/badlogic/gdx/backends/android/AndroidInput$SensorListener;
@@ -3588,28 +3318,25 @@
 
     invoke-virtual {v2, v1, v0, v3}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;I)Z
 
-    move-result v1
+    move-result v0
 
-    iput-boolean v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->compassAvailable:Z
+    iput-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->compassAvailable:Z
 
-    goto :goto_4
+    goto :goto_2
 
     .line 803
     :cond_9
     iput-boolean v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->compassAvailable:Z
 
-    .line 805
-    .end local v0    # "sensor":Landroid/hardware/Sensor;
-    :cond_a
-    :goto_4
-    goto :goto_5
+    goto :goto_2
 
     .line 806
-    :cond_b
+    :cond_a
     iput-boolean v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->compassAvailable:Z
 
     .line 807
-    :goto_5
+    :cond_b
+    :goto_2
     sget-object v0, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
 
     const-string v1, "AndroidInput"
@@ -3618,48 +3345,40 @@
 
     invoke-interface {v0, v1, v2}, Lcom/badlogic/gdx/Application;->log(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 808
     return-void
 .end method
 
 .method public setCatchBackKey(Z)V
     .locals 1
-    .param p1, "catchBack"    # Z
 
-    .line 618
     const/4 v0, 0x4
 
+    .line 618
     invoke-virtual {p0, v0, p1}, Lcom/badlogic/gdx/backends/android/AndroidInput;->setCatchKey(IZ)V
 
-    .line 619
     return-void
 .end method
 
 .method public setCatchKey(IZ)V
-    .locals 1
-    .param p1, "keycode"    # I
-    .param p2, "catchKey"    # Z
+    .locals 0
 
-    .line 638
     if-nez p2, :cond_0
 
     .line 639
-    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keysToCatch:Lcom/badlogic/gdx/utils/IntSet;
+    iget-object p2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keysToCatch:Lcom/badlogic/gdx/utils/IntSet;
 
-    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/IntSet;->remove(I)Z
+    invoke-virtual {p2, p1}, Lcom/badlogic/gdx/utils/IntSet;->remove(I)Z
 
     goto :goto_0
 
-    .line 640
     :cond_0
     if-eqz p2, :cond_1
 
     .line 641
-    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keysToCatch:Lcom/badlogic/gdx/utils/IntSet;
+    iget-object p2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keysToCatch:Lcom/badlogic/gdx/utils/IntSet;
 
-    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/IntSet;->add(I)Z
+    invoke-virtual {p2, p1}, Lcom/badlogic/gdx/utils/IntSet;->add(I)Z
 
-    .line 643
     :cond_1
     :goto_0
     return-void
@@ -3667,37 +3386,29 @@
 
 .method public setCatchMenuKey(Z)V
     .locals 1
-    .param p1, "catchMenu"    # Z
 
-    .line 628
     const/16 v0, 0x52
 
+    .line 628
     invoke-virtual {p0, v0, p1}, Lcom/badlogic/gdx/backends/android/AndroidInput;->setCatchKey(IZ)V
 
-    .line 629
     return-void
 .end method
 
 .method public setCursorCatched(Z)V
     .locals 0
-    .param p1, "catched"    # Z
 
-    .line 932
     return-void
 .end method
 
 .method public setCursorPosition(II)V
     .locals 0
-    .param p1, "x"    # I
-    .param p2, "y"    # I
 
-    .line 961
     return-void
 .end method
 
 .method public setInputProcessor(Lcom/badlogic/gdx/InputProcessor;)V
-    .locals 1
-    .param p1, "processor"    # Lcom/badlogic/gdx/InputProcessor;
+    .locals 0
 
     .line 357
     monitor-enter p0
@@ -3709,23 +3420,20 @@
     .line 359
     monitor-exit p0
 
-    .line 360
     return-void
 
-    .line 359
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 .method public setOnscreenKeyboardVisible(Z)V
     .locals 2
-    .param p1, "visible"    # Z
 
     .line 601
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->handle:Landroid/os/Handler;
@@ -3736,7 +3444,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 614
     return-void
 .end method
 
@@ -3817,79 +3524,39 @@
 
     invoke-interface {v0, v1, v2}, Lcom/badlogic/gdx/Application;->log(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 831
     return-void
 .end method
 
 .method public vibrate(I)V
-    .locals 4
-    .param p1, "milliseconds"    # I
-
-    .line 652
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1a
-
-    if-lt v0, v1, :cond_0
+    .locals 3
 
     .line 653
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->vibrator:Landroid/os/Vibrator;
 
     int-to-long v1, p1
 
-    const/4 v3, -0x1
+    const/4 p1, -0x1
 
-    invoke-static {v1, v2, v3}, Landroid/os/VibrationEffect;->createOneShot(JI)Landroid/os/VibrationEffect;
+    invoke-static {v1, v2, p1}, Landroid/os/VibrationEffect;->createOneShot(JI)Landroid/os/VibrationEffect;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Landroid/os/Vibrator;->vibrate(Landroid/os/VibrationEffect;)V
+    invoke-virtual {v0, p1}, Landroid/os/Vibrator;->vibrate(Landroid/os/VibrationEffect;)V
 
-    goto :goto_0
-
-    .line 655
-    :cond_0
-    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->vibrator:Landroid/os/Vibrator;
-
-    int-to-long v1, p1
-
-    invoke-virtual {v0, v1, v2}, Landroid/os/Vibrator;->vibrate(J)V
-
-    .line 656
-    :goto_0
     return-void
 .end method
 
 .method public vibrate([JI)V
-    .locals 2
-    .param p1, "pattern"    # [J
-    .param p2, "repeat"    # I
-
-    .line 660
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1a
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     .line 661
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->vibrator:Landroid/os/Vibrator;
 
     invoke-static {p1, p2}, Landroid/os/VibrationEffect;->createWaveform([JI)Landroid/os/VibrationEffect;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Landroid/os/Vibrator;->vibrate(Landroid/os/VibrationEffect;)V
+    invoke-virtual {v0, p1}, Landroid/os/Vibrator;->vibrate(Landroid/os/VibrationEffect;)V
 
-    goto :goto_0
-
-    .line 663
-    :cond_0
-    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput;->vibrator:Landroid/os/Vibrator;
-
-    invoke-virtual {v0, p1, p2}, Landroid/os/Vibrator;->vibrate([JI)V
-
-    .line 664
-    :goto_0
     return-void
 .end method

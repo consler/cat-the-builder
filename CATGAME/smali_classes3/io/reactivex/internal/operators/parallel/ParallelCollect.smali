@@ -68,10 +68,6 @@
     .end annotation
 
     .line 43
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelCollect;, "Lio/reactivex/internal/operators/parallel/ParallelCollect<TT;TC;>;"
-    .local p1, "source":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<+TT;>;"
-    .local p2, "initialCollection":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<+TC;>;"
-    .local p3, "collector":Lio/reactivex/functions/BiConsumer;, "Lio/reactivex/functions/BiConsumer<-TC;-TT;>;"
     invoke-direct {p0}, Lio/reactivex/parallel/ParallelFlowable;-><init>()V
 
     .line 44
@@ -83,7 +79,6 @@
     .line 46
     iput-object p3, p0, Lio/reactivex/internal/operators/parallel/ParallelCollect;->collector:Lio/reactivex/functions/BiConsumer;
 
-    .line 47
     return-void
 .end method
 
@@ -93,7 +88,6 @@
     .locals 1
 
     .line 85
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelCollect;, "Lio/reactivex/internal/operators/parallel/ParallelCollect<TT;TC;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/parallel/ParallelCollect;->source:Lio/reactivex/parallel/ParallelFlowable;
 
     invoke-virtual {v0}, Lio/reactivex/parallel/ParallelFlowable;->parallelism()I
@@ -104,8 +98,7 @@
 .end method
 
 .method reportError([Lorg/reactivestreams/Subscriber;Ljava/lang/Throwable;)V
-    .locals 4
-    .param p2, "ex"    # Ljava/lang/Throwable;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -117,36 +110,22 @@
     .end annotation
 
     .line 78
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelCollect;, "Lio/reactivex/internal/operators/parallel/ParallelCollect<TT;TC;>;"
-    .local p1, "subscribers":[Lorg/reactivestreams/Subscriber;, "[Lorg/reactivestreams/Subscriber<*>;"
-    move-object v0, p1
+    array-length v0, p1
 
-    .local v0, "arr$":[Lorg/reactivestreams/Subscriber;
-    array-length v1, v0
+    const/4 v1, 0x0
 
-    .local v1, "len$":I
-    const/4 v2, 0x0
-
-    .local v2, "i$":I
     :goto_0
-    if-ge v2, v1, :cond_0
+    if-ge v1, v0, :cond_0
 
-    aget-object v3, v0, v2
+    aget-object v2, p1, v1
 
     .line 79
-    .local v3, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<*>;"
-    invoke-static {p2, v3}, Lio/reactivex/internal/subscriptions/EmptySubscription;->error(Ljava/lang/Throwable;Lorg/reactivestreams/Subscriber;)V
+    invoke-static {p2, v2}, Lio/reactivex/internal/subscriptions/EmptySubscription;->error(Ljava/lang/Throwable;Lorg/reactivestreams/Subscriber;)V
 
-    .line 78
-    .end local v3    # "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<*>;"
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 81
-    .end local v0    # "arr$":[Lorg/reactivestreams/Subscriber;
-    .end local v1    # "len$":I
-    .end local v2    # "i$":I
     :cond_0
     return-void
 .end method
@@ -162,15 +141,12 @@
     .end annotation
 
     .line 51
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelCollect;, "Lio/reactivex/internal/operators/parallel/ParallelCollect<TT;TC;>;"
-    .local p1, "subscribers":[Lorg/reactivestreams/Subscriber;, "[Lorg/reactivestreams/Subscriber<-TC;>;"
     invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/parallel/ParallelCollect;->validate([Lorg/reactivestreams/Subscriber;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 52
     return-void
 
     .line 55
@@ -178,38 +154,28 @@
     array-length v0, p1
 
     .line 57
-    .local v0, "n":I
     new-array v1, v0, [Lorg/reactivestreams/Subscriber;
 
-    .line 59
-    .local v1, "parents":[Lorg/reactivestreams/Subscriber;, "[Lorg/reactivestreams/Subscriber<TT;>;"
     const/4 v2, 0x0
-
-    .local v2, "i":I
-    const/4 v3, 0x0
 
     :goto_0
     if-ge v2, v0, :cond_1
 
     .line 64
     :try_start_0
-    iget-object v4, p0, Lio/reactivex/internal/operators/parallel/ParallelCollect;->initialCollection:Ljava/util/concurrent/Callable;
+    iget-object v3, p0, Lio/reactivex/internal/operators/parallel/ParallelCollect;->initialCollection:Ljava/util/concurrent/Callable;
 
-    invoke-interface {v4}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
+    invoke-interface {v3}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    const-string v5, "The initialSupplier returned a null value"
+    const-string v4, "The initialSupplier returned a null value"
 
-    invoke-static {v4, v5}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v3, v4}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v3
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 69
-    .local v3, "initialValue":Ljava/lang/Object;, "TC;"
-    nop
 
     .line 71
     new-instance v4, Lio/reactivex/internal/operators/parallel/ParallelCollect$ParallelCollectSubscriber;
@@ -222,36 +188,26 @@
 
     aput-object v4, v1, v2
 
-    .line 59
-    .end local v3    # "initialValue":Ljava/lang/Object;, "TC;"
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 65
     :catchall_0
-    move-exception v4
+    move-exception v0
 
     .line 66
-    .restart local v3    # "initialValue":Ljava/lang/Object;, "TC;"
-    .local v4, "ex":Ljava/lang/Throwable;
-    invoke-static {v4}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 67
-    invoke-virtual {p0, p1, v4}, Lio/reactivex/internal/operators/parallel/ParallelCollect;->reportError([Lorg/reactivestreams/Subscriber;Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1, v0}, Lio/reactivex/internal/operators/parallel/ParallelCollect;->reportError([Lorg/reactivestreams/Subscriber;Ljava/lang/Throwable;)V
 
-    .line 68
     return-void
 
     .line 74
-    .end local v2    # "i":I
-    .end local v3    # "initialValue":Ljava/lang/Object;, "TC;"
-    .end local v4    # "ex":Ljava/lang/Throwable;
     :cond_1
-    iget-object v2, p0, Lio/reactivex/internal/operators/parallel/ParallelCollect;->source:Lio/reactivex/parallel/ParallelFlowable;
+    iget-object p1, p0, Lio/reactivex/internal/operators/parallel/ParallelCollect;->source:Lio/reactivex/parallel/ParallelFlowable;
 
-    invoke-virtual {v2, v1}, Lio/reactivex/parallel/ParallelFlowable;->subscribe([Lorg/reactivestreams/Subscriber;)V
+    invoke-virtual {p1, v1}, Lio/reactivex/parallel/ParallelFlowable;->subscribe([Lorg/reactivestreams/Subscriber;)V
 
-    .line 75
     return-void
 .end method

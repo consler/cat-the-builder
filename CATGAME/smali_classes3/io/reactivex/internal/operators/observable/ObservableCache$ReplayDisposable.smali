@@ -73,9 +73,6 @@
     .end annotation
 
     .line 290
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;, "Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable<TT;>;"
-    .local p1, "child":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
-    .local p2, "state":Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;, "Lio/reactivex/internal/operators/observable/ObservableCache$CacheState<TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
 
     .line 291
@@ -84,7 +81,6 @@
     .line 292
     iput-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->state:Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;
 
-    .line 293
     return-void
 .end method
 
@@ -94,14 +90,13 @@
     .locals 1
 
     .line 301
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;, "Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->cancelled:Z
 
     if-nez v0, :cond_0
 
-    .line 302
     const/4 v0, 0x1
 
+    .line 302
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->cancelled:Z
 
     .line 303
@@ -109,7 +104,6 @@
 
     invoke-virtual {v0, p0}, Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;->removeChild(Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;)V
 
-    .line 305
     :cond_0
     return-void
 .end method
@@ -118,7 +112,6 @@
     .locals 1
 
     .line 297
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;, "Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->cancelled:Z
 
     return v0
@@ -128,176 +121,136 @@
     .locals 9
 
     .line 312
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;, "Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->getAndIncrement()I
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 313
     return-void
 
     .line 316
     :cond_0
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->child:Lio/reactivex/Observer;
 
-    .line 317
-    .local v0, "child":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     const/4 v1, 0x1
 
+    move v2, v1
+
     .line 321
-    .local v1, "missed":I
-    :goto_0
-    iget-boolean v2, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->cancelled:Z
+    :cond_1
+    iget-boolean v3, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->cancelled:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v3, :cond_2
 
-    .line 322
     return-void
 
     .line 327
-    :cond_1
-    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->state:Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;
+    :cond_2
+    iget-object v3, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->state:Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;
 
-    invoke-virtual {v2}, Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;->size()I
+    invoke-virtual {v3}, Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;->size()I
 
-    move-result v2
+    move-result v3
 
-    .line 328
-    .local v2, "s":I
-    if-eqz v2, :cond_8
+    if-eqz v3, :cond_9
 
     .line 329
-    iget-object v3, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->currentBuffer:[Ljava/lang/Object;
+    iget-object v4, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->currentBuffer:[Ljava/lang/Object;
 
-    .line 332
-    .local v3, "b":[Ljava/lang/Object;
-    if-nez v3, :cond_2
+    if-nez v4, :cond_3
 
     .line 333
     iget-object v4, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->state:Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;
 
     invoke-virtual {v4}, Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;->head()[Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v4
 
     .line 334
-    iput-object v3, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->currentBuffer:[Ljava/lang/Object;
+    iput-object v4, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->currentBuffer:[Ljava/lang/Object;
 
     .line 336
-    :cond_2
-    array-length v4, v3
+    :cond_3
+    array-length v5, v4
 
-    add-int/lit8 v4, v4, -0x1
+    sub-int/2addr v5, v1
 
     .line 337
-    .local v4, "n":I
-    iget v5, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->index:I
+    iget v6, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->index:I
 
     .line 338
-    .local v5, "j":I
-    iget v6, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->currentIndexInBuffer:I
+    iget v7, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->currentIndexInBuffer:I
 
-    .line 340
-    .local v6, "k":I
-    :goto_1
-    if-ge v5, v2, :cond_6
+    :goto_0
+    if-ge v6, v3, :cond_7
 
     .line 341
-    iget-boolean v7, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->cancelled:Z
+    iget-boolean v8, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->cancelled:Z
 
-    if-eqz v7, :cond_3
+    if-eqz v8, :cond_4
 
-    .line 342
     return-void
 
-    .line 344
-    :cond_3
-    if-ne v6, v4, :cond_4
+    :cond_4
+    if-ne v7, v5, :cond_5
 
     .line 345
-    aget-object v7, v3, v4
+    aget-object v4, v4, v5
 
-    check-cast v7, [Ljava/lang/Object;
+    check-cast v4, [Ljava/lang/Object;
 
-    move-object v3, v7
+    check-cast v4, [Ljava/lang/Object;
 
-    check-cast v3, [Ljava/lang/Object;
-
-    .line 346
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
     .line 348
-    :cond_4
-    aget-object v7, v3, v6
+    :cond_5
+    aget-object v8, v4, v7
 
     .line 350
-    .local v7, "o":Ljava/lang/Object;
-    invoke-static {v7, v0}, Lio/reactivex/internal/util/NotificationLite;->accept(Ljava/lang/Object;Lio/reactivex/Observer;)Z
+    invoke-static {v8, v0}, Lio/reactivex/internal/util/NotificationLite;->accept(Ljava/lang/Object;Lio/reactivex/Observer;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_6
 
-    .line 351
     return-void
 
-    .line 354
-    :cond_5
+    :cond_6
+    add-int/lit8 v7, v7, 0x1
+
     add-int/lit8 v6, v6, 0x1
 
-    .line 355
-    nop
-
-    .end local v7    # "o":Ljava/lang/Object;
-    add-int/lit8 v5, v5, 0x1
-
-    .line 356
-    goto :goto_1
+    goto :goto_0
 
     .line 358
-    :cond_6
-    iget-boolean v7, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->cancelled:Z
+    :cond_7
+    iget-boolean v3, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->cancelled:Z
 
-    if-eqz v7, :cond_7
+    if-eqz v3, :cond_8
 
-    .line 359
     return-void
 
     .line 362
-    :cond_7
-    iput v5, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->index:I
+    :cond_8
+    iput v6, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->index:I
 
     .line 363
-    iput v6, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->currentIndexInBuffer:I
+    iput v7, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->currentIndexInBuffer:I
 
     .line 364
-    iput-object v3, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->currentBuffer:[Ljava/lang/Object;
+    iput-object v4, p0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->currentBuffer:[Ljava/lang/Object;
+
+    :cond_9
+    neg-int v2, v2
 
     .line 368
-    .end local v3    # "b":[Ljava/lang/Object;
-    .end local v4    # "n":I
-    .end local v5    # "j":I
-    .end local v6    # "k":I
-    :cond_8
-    neg-int v3, v1
+    invoke-virtual {p0, v2}, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->addAndGet(I)I
 
-    invoke-virtual {p0, v3}, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->addAndGet(I)I
+    move-result v2
 
-    move-result v1
+    if-nez v2, :cond_1
 
-    .line 369
-    if-nez v1, :cond_9
-
-    .line 370
-    nop
-
-    .line 373
-    .end local v2    # "s":I
     return-void
-
-    .line 372
-    :cond_9
-    goto :goto_0
 .end method

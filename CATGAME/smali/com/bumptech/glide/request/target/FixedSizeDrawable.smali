@@ -28,9 +28,6 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/drawable/Drawable;II)V
     .locals 2
-    .param p1, "wrapped"    # Landroid/graphics/drawable/Drawable;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
 
     .line 34
     new-instance v0, Lcom/bumptech/glide/request/target/FixedSizeDrawable$State;
@@ -43,14 +40,11 @@
 
     invoke-direct {p0, v0, p1}, Lcom/bumptech/glide/request/target/FixedSizeDrawable;-><init>(Lcom/bumptech/glide/request/target/FixedSizeDrawable$State;Landroid/graphics/drawable/Drawable;)V
 
-    .line 35
     return-void
 .end method
 
 .method constructor <init>(Lcom/bumptech/glide/request/target/FixedSizeDrawable$State;Landroid/graphics/drawable/Drawable;)V
-    .locals 4
-    .param p1, "state"    # Lcom/bumptech/glide/request/target/FixedSizeDrawable$State;
-    .param p2, "wrapped"    # Landroid/graphics/drawable/Drawable;
+    .locals 2
 
     .line 37
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
@@ -58,70 +52,69 @@
     .line 38
     invoke-static {p1}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/bumptech/glide/request/target/FixedSizeDrawable$State;
+    check-cast p1, Lcom/bumptech/glide/request/target/FixedSizeDrawable$State;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/target/FixedSizeDrawable;->state:Lcom/bumptech/glide/request/target/FixedSizeDrawable$State;
+    iput-object p1, p0, Lcom/bumptech/glide/request/target/FixedSizeDrawable;->state:Lcom/bumptech/glide/request/target/FixedSizeDrawable$State;
 
     .line 39
     invoke-static {p2}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/graphics/drawable/Drawable;
+    check-cast p1, Landroid/graphics/drawable/Drawable;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/target/FixedSizeDrawable;->wrapped:Landroid/graphics/drawable/Drawable;
+    iput-object p1, p0, Lcom/bumptech/glide/request/target/FixedSizeDrawable;->wrapped:Landroid/graphics/drawable/Drawable;
 
     .line 42
     invoke-virtual {p2}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
-    move-result v0
+    move-result p1
 
     invoke-virtual {p2}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p2, v2, v2, v0, v1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+    invoke-virtual {p2, v1, v1, p1, v0}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
     .line 44
-    new-instance v0, Landroid/graphics/Matrix;
+    new-instance p1, Landroid/graphics/Matrix;
 
-    invoke-direct {v0}, Landroid/graphics/Matrix;-><init>()V
+    invoke-direct {p1}, Landroid/graphics/Matrix;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/target/FixedSizeDrawable;->matrix:Landroid/graphics/Matrix;
+    iput-object p1, p0, Lcom/bumptech/glide/request/target/FixedSizeDrawable;->matrix:Landroid/graphics/Matrix;
 
     .line 45
-    new-instance v0, Landroid/graphics/RectF;
+    new-instance p1, Landroid/graphics/RectF;
 
     invoke-virtual {p2}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
-    move-result v1
+    move-result v0
 
-    int-to-float v1, v1
+    int-to-float v0, v0
 
     invoke-virtual {p2}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
-    move-result v2
+    move-result p2
 
-    int-to-float v2, v2
+    int-to-float p2, p2
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
-    invoke-direct {v0, v3, v3, v1, v2}, Landroid/graphics/RectF;-><init>(FFFF)V
+    invoke-direct {p1, v1, v1, v0, p2}, Landroid/graphics/RectF;-><init>(FFFF)V
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/target/FixedSizeDrawable;->wrappedRect:Landroid/graphics/RectF;
+    iput-object p1, p0, Lcom/bumptech/glide/request/target/FixedSizeDrawable;->wrappedRect:Landroid/graphics/RectF;
 
     .line 46
-    new-instance v0, Landroid/graphics/RectF;
+    new-instance p1, Landroid/graphics/RectF;
 
-    invoke-direct {v0}, Landroid/graphics/RectF;-><init>()V
+    invoke-direct {p1}, Landroid/graphics/RectF;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/target/FixedSizeDrawable;->bounds:Landroid/graphics/RectF;
+    iput-object p1, p0, Lcom/bumptech/glide/request/target/FixedSizeDrawable;->bounds:Landroid/graphics/RectF;
 
-    .line 47
     return-void
 .end method
 
@@ -139,7 +132,6 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/graphics/Matrix;->setRectToRect(Landroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/Matrix$ScaleToFit;)Z
 
-    .line 65
     return-void
 .end method
 
@@ -153,13 +145,11 @@
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->clearColorFilter()V
 
-    .line 107
     return-void
 .end method
 
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 1
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 165
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
@@ -177,7 +167,6 @@
     .line 168
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
-    .line 169
     return-void
 .end method
 
@@ -305,16 +294,15 @@
 
 .method public getPadding(Landroid/graphics/Rect;)Z
     .locals 1
-    .param p1, "padding"    # Landroid/graphics/Rect;
 
     .line 142
     iget-object v0, p0, Lcom/bumptech/glide/request/target/FixedSizeDrawable;->wrapped:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->getPadding(Landroid/graphics/Rect;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public invalidateSelf()V
@@ -328,7 +316,6 @@
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
 
-    .line 149
     return-void
 .end method
 
@@ -364,20 +351,17 @@
 
     iput-object v0, p0, Lcom/bumptech/glide/request/target/FixedSizeDrawable;->state:Lcom/bumptech/glide/request/target/FixedSizeDrawable$State;
 
-    .line 192
     const/4 v0, 0x1
 
+    .line 192
     iput-boolean v0, p0, Lcom/bumptech/glide/request/target/FixedSizeDrawable;->mutated:Z
 
-    .line 194
     :cond_0
     return-object p0
 .end method
 
 .method public scheduleSelf(Ljava/lang/Runnable;J)V
     .locals 1
-    .param p1, "what"    # Ljava/lang/Runnable;
-    .param p2, "when"    # J
 
     .line 159
     invoke-super {p0, p1, p2, p3}, Landroid/graphics/drawable/Drawable;->scheduleSelf(Ljava/lang/Runnable;J)V
@@ -387,29 +371,22 @@
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/graphics/drawable/Drawable;->scheduleSelf(Ljava/lang/Runnable;J)V
 
-    .line 161
     return-void
 .end method
 
 .method public setAlpha(I)V
     .locals 1
-    .param p1, "i"    # I
 
     .line 173
     iget-object v0, p0, Lcom/bumptech/glide/request/target/FixedSizeDrawable;->wrapped:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
-    .line 174
     return-void
 .end method
 
 .method public setBounds(IIII)V
-    .locals 5
-    .param p1, "left"    # I
-    .param p2, "top"    # I
-    .param p3, "right"    # I
-    .param p4, "bottom"    # I
+    .locals 1
 
     .line 51
     invoke-super {p0, p1, p2, p3, p4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
@@ -417,26 +394,24 @@
     .line 52
     iget-object v0, p0, Lcom/bumptech/glide/request/target/FixedSizeDrawable;->bounds:Landroid/graphics/RectF;
 
-    int-to-float v1, p1
+    int-to-float p1, p1
 
-    int-to-float v2, p2
+    int-to-float p2, p2
 
-    int-to-float v3, p3
+    int-to-float p3, p3
 
-    int-to-float v4, p4
+    int-to-float p4, p4
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/RectF;->set(FFFF)V
+    invoke-virtual {v0, p1, p2, p3, p4}, Landroid/graphics/RectF;->set(FFFF)V
 
     .line 53
     invoke-direct {p0}, Lcom/bumptech/glide/request/target/FixedSizeDrawable;->updateMatrix()V
 
-    .line 54
     return-void
 .end method
 
 .method public setBounds(Landroid/graphics/Rect;)V
     .locals 1
-    .param p1, "bounds"    # Landroid/graphics/Rect;
 
     .line 58
     invoke-super {p0, p1}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
@@ -449,53 +424,44 @@
     .line 60
     invoke-direct {p0}, Lcom/bumptech/glide/request/target/FixedSizeDrawable;->updateMatrix()V
 
-    .line 61
     return-void
 .end method
 
 .method public setChangingConfigurations(I)V
     .locals 1
-    .param p1, "configs"    # I
 
     .line 69
     iget-object v0, p0, Lcom/bumptech/glide/request/target/FixedSizeDrawable;->wrapped:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setChangingConfigurations(I)V
 
-    .line 70
     return-void
 .end method
 
 .method public setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
     .locals 1
-    .param p1, "color"    # I
-    .param p2, "mode"    # Landroid/graphics/PorterDuff$Mode;
 
     .line 101
     iget-object v0, p0, Lcom/bumptech/glide/request/target/FixedSizeDrawable;->wrapped:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1, p2}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 102
     return-void
 .end method
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 1
-    .param p1, "colorFilter"    # Landroid/graphics/ColorFilter;
 
     .line 178
     iget-object v0, p0, Lcom/bumptech/glide/request/target/FixedSizeDrawable;->wrapped:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
 
-    .line 179
     return-void
 .end method
 
 .method public setDither(Z)V
     .locals 1
-    .param p1, "dither"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -504,41 +470,35 @@
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setDither(Z)V
 
-    .line 81
     return-void
 .end method
 
 .method public setFilterBitmap(Z)V
     .locals 1
-    .param p1, "filter"    # Z
 
     .line 85
     iget-object v0, p0, Lcom/bumptech/glide/request/target/FixedSizeDrawable;->wrapped:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setFilterBitmap(Z)V
 
-    .line 86
     return-void
 .end method
 
 .method public setVisible(ZZ)Z
     .locals 1
-    .param p1, "visible"    # Z
-    .param p2, "restart"    # Z
 
     .line 117
     iget-object v0, p0, Lcom/bumptech/glide/request/target/FixedSizeDrawable;->wrapped:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1, p2}, Landroid/graphics/drawable/Drawable;->setVisible(ZZ)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public unscheduleSelf(Ljava/lang/Runnable;)V
     .locals 1
-    .param p1, "what"    # Ljava/lang/Runnable;
 
     .line 153
     invoke-super {p0, p1}, Landroid/graphics/drawable/Drawable;->unscheduleSelf(Ljava/lang/Runnable;)V
@@ -548,6 +508,5 @@
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->unscheduleSelf(Ljava/lang/Runnable;)V
 
-    .line 155
     return-void
 .end method

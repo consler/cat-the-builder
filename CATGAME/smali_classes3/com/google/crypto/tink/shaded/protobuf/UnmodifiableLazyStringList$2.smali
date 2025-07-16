@@ -42,8 +42,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;)V
-    .locals 1
-    .param p1, "this$0"    # Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;
+    .locals 0
 
     .line 165
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList$2;->this$0:Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;
@@ -51,17 +50,15 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 166
-    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList$2;->this$0:Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;
+    invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;->access$000(Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;)Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
 
-    invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;->access$000(Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;)Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-interface {p1}, Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;->iterator()Ljava/util/Iterator;
 
-    invoke-interface {v0}, Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;->iterator()Ljava/util/Iterator;
+    move-result-object p1
 
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList$2;->iter:Ljava/util/Iterator;
+    iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList$2;->iter:Ljava/util/Iterator;
 
     return-void
 .end method

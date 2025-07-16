@@ -29,9 +29,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/physics/box2d/World;II)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/physics/box2d/World;
-    .param p2, "x0"    # I
-    .param p3, "x1"    # I
 
     .line 199
     iput-object p1, p0, Lcom/badlogic/gdx/physics/box2d/World$2;->this$0:Lcom/badlogic/gdx/physics/box2d/World;

@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/backends/android/AndroidVisibilityListener;Lcom/badlogic/gdx/backends/android/AndroidApplicationBase;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/backends/android/AndroidVisibilityListener;
 
     .line 28
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidVisibilityListener$1;->this$0:Lcom/badlogic/gdx/backends/android/AndroidVisibilityListener;
@@ -41,22 +40,20 @@
 
 # virtual methods
 .method public onSystemUiVisibilityChange(I)V
-    .locals 2
-    .param p1, "arg0"    # I
+    .locals 1
 
     .line 31
-    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidVisibilityListener$1;->val$application:Lcom/badlogic/gdx/backends/android/AndroidApplicationBase;
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidVisibilityListener$1;->val$application:Lcom/badlogic/gdx/backends/android/AndroidApplicationBase;
 
-    invoke-interface {v0}, Lcom/badlogic/gdx/backends/android/AndroidApplicationBase;->getHandler()Landroid/os/Handler;
+    invoke-interface {p1}, Lcom/badlogic/gdx/backends/android/AndroidApplicationBase;->getHandler()Landroid/os/Handler;
 
-    move-result-object v0
+    move-result-object p1
 
-    new-instance v1, Lcom/badlogic/gdx/backends/android/AndroidVisibilityListener$1$1;
+    new-instance v0, Lcom/badlogic/gdx/backends/android/AndroidVisibilityListener$1$1;
 
-    invoke-direct {v1, p0}, Lcom/badlogic/gdx/backends/android/AndroidVisibilityListener$1$1;-><init>(Lcom/badlogic/gdx/backends/android/AndroidVisibilityListener$1;)V
+    invoke-direct {v0, p0}, Lcom/badlogic/gdx/backends/android/AndroidVisibilityListener$1$1;-><init>(Lcom/badlogic/gdx/backends/android/AndroidVisibilityListener$1;)V
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 37
     return-void
 .end method

@@ -49,7 +49,6 @@
     .locals 1
 
     .line 20
-    .local p0, "this":Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;, "Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap<TK;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 21
@@ -80,8 +79,6 @@
     .end annotation
 
     .line 98
-    .local p0, "this":Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;, "Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap<TK;TV;>;"
-    .local p1, "entry":Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;, "Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry<TK;TV;>;"
     invoke-static {p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;->removeEntry(Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;)V
 
     .line 99
@@ -99,7 +96,6 @@
     .line 101
     invoke-static {p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;->updateEntry(Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;)V
 
-    .line 102
     return-void
 .end method
 
@@ -114,8 +110,6 @@
     .end annotation
 
     .line 106
-    .local p0, "this":Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;, "Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap<TK;TV;>;"
-    .local p1, "entry":Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;, "Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry<TK;TV;>;"
     invoke-static {p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;->removeEntry(Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;)V
 
     .line 107
@@ -133,7 +127,6 @@
     .line 109
     invoke-static {p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;->updateEntry(Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;)V
 
-    .line 110
     return-void
 .end method
 
@@ -152,7 +145,6 @@
     .end annotation
 
     .line 118
-    .local p0, "entry":Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;, "Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry<TK;TV;>;"
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;->prev:Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;
 
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;->next:Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;
@@ -162,11 +154,10 @@
     .line 119
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;->next:Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;->prev:Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;
+    iget-object p0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;->prev:Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;
 
-    iput-object v1, v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;->prev:Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;
+    iput-object p0, v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;->prev:Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;
 
-    .line 120
     return-void
 .end method
 
@@ -185,7 +176,6 @@
     .end annotation
 
     .line 113
-    .local p0, "entry":Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;, "Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry<TK;TV;>;"
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;->next:Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;
 
     iput-object p0, v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;->prev:Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;
@@ -195,7 +185,6 @@
 
     iput-object p0, v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;->next:Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;
 
-    .line 115
     return-void
 .end method
 
@@ -210,8 +199,6 @@
     .end annotation
 
     .line 40
-    .local p0, "this":Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;, "Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap<TK;TV;>;"
-    .local p1, "key":Lcom/bumptech/glide/load/engine/bitmap_recycle/Poolable;, "TK;"
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;->keyToEntry:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -220,16 +207,12 @@
 
     check-cast v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;
 
-    .line 41
-    .local v0, "entry":Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;, "Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry<TK;TV;>;"
     if-nez v0, :cond_0
 
     .line 42
-    new-instance v1, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;
+    new-instance v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;
 
-    invoke-direct {v1, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;-><init>(Ljava/lang/Object;)V
-
-    move-object v0, v1
+    invoke-direct {v0, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;-><init>(Ljava/lang/Object;)V
 
     .line 43
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;->keyToEntry:Ljava/util/Map;
@@ -249,9 +232,9 @@
     .line 50
     invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;->removeLast()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public put(Lcom/bumptech/glide/load/engine/bitmap_recycle/Poolable;Ljava/lang/Object;)V
@@ -263,9 +246,6 @@
     .end annotation
 
     .line 25
-    .local p0, "this":Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;, "Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap<TK;TV;>;"
-    .local p1, "key":Lcom/bumptech/glide/load/engine/bitmap_recycle/Poolable;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;->keyToEntry:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -274,16 +254,12 @@
 
     check-cast v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;
 
-    .line 27
-    .local v0, "entry":Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;, "Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry<TK;TV;>;"
     if-nez v0, :cond_0
 
     .line 28
-    new-instance v1, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;
+    new-instance v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;
 
-    invoke-direct {v1, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;-><init>(Ljava/lang/Object;)V
-
-    move-object v0, v1
+    invoke-direct {v0, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;-><init>(Ljava/lang/Object;)V
 
     .line 29
     invoke-direct {p0, v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;->makeTail(Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;)V
@@ -303,12 +279,11 @@
     :goto_0
     invoke-virtual {v0, p2}, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;->add(Ljava/lang/Object;)V
 
-    .line 36
     return-void
 .end method
 
 .method public removeLast()Ljava/lang/Object;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"
@@ -316,13 +291,11 @@
     .end annotation
 
     .line 55
-    .local p0, "this":Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;, "Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap<TK;TV;>;"
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;->head:Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;
 
     iget-object v0, v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;->prev:Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;
 
     .line 57
-    .local v0, "last":Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;, "Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry<TK;TV;>;"
     :goto_0
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;->head:Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;
 
@@ -337,11 +310,8 @@
 
     move-result-object v1
 
-    .line 59
-    .local v1, "removed":Ljava/lang/Object;, "TV;"
     if-eqz v1, :cond_0
 
-    .line 60
     return-object v1
 
     .line 69
@@ -349,38 +319,34 @@
     invoke-static {v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;->removeEntry(Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;)V
 
     .line 70
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;->keyToEntry:Ljava/util/Map;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;->keyToEntry:Ljava/util/Map;
 
-    iget-object v3, v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;->key:Ljava/lang/Object;
-
-    invoke-interface {v2, v3}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 71
     iget-object v2, v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;->key:Ljava/lang/Object;
 
-    check-cast v2, Lcom/bumptech/glide/load/engine/bitmap_recycle/Poolable;
+    invoke-interface {v1, v2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v2}, Lcom/bumptech/glide/load/engine/bitmap_recycle/Poolable;->offer()V
+    .line 71
+    iget-object v1, v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;->key:Ljava/lang/Object;
+
+    check-cast v1, Lcom/bumptech/glide/load/engine/bitmap_recycle/Poolable;
+
+    invoke-interface {v1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/Poolable;->offer()V
 
     .line 74
     iget-object v0, v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;->prev:Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;
 
-    .line 75
-    .end local v1    # "removed":Ljava/lang/Object;, "TV;"
     goto :goto_0
 
-    .line 77
     :cond_1
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 5
+    .locals 4
 
     .line 82
-    .local p0, "this":Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;, "Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap<TK;TV;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "GroupedLinkedMap( "
@@ -388,17 +354,13 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 83
-    .local v0, "sb":Ljava/lang/StringBuilder;
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;->head:Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;
 
     iget-object v1, v1, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;->next:Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;
 
-    .line 84
-    .local v1, "current":Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;, "Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry<TK;TV;>;"
     const/4 v2, 0x0
 
     .line 85
-    .local v2, "hadAtLeastOneItem":Z
     :goto_0
     iget-object v3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;->head:Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;
 
@@ -408,63 +370,71 @@
 
     if-nez v3, :cond_0
 
-    .line 86
-    const/4 v2, 0x1
+    const/16 v2, 0x7b
 
     .line 87
-    const/16 v3, 0x7b
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    move-result-object v2
 
     iget-object v3, v1, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;->key:Ljava/lang/Object;
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     const/16 v3, 0x3a
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     invoke-virtual {v1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;->size()I
 
     move-result v3
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v3, "}, "
+    move-result-object v2
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v3, "}, "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 88
     iget-object v1, v1, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;->next:Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap$LinkedEntry;
 
+    const/4 v2, 0x1
+
     goto :goto_0
 
-    .line 90
     :cond_0
     if-eqz v2, :cond_1
 
     .line 91
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
-    move-result v3
+    move-result v1
 
-    add-int/lit8 v3, v3, -0x2
+    add-int/lit8 v1, v1, -0x2
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
-    move-result v4
+    move-result v2
 
-    invoke-virtual {v0, v3, v4}, Ljava/lang/StringBuilder;->delete(II)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->delete(II)Ljava/lang/StringBuilder;
+
+    :cond_1
+    const-string v1, " )"
 
     .line 93
-    :cond_1
-    const-string v3, " )"
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    return-object v3
+    return-object v0
 .end method

@@ -23,14 +23,14 @@
 
     iput-object p1, p0, Lorg/apache/commons/collections/BinaryHeap$1;->this$0:Lorg/apache/commons/collections/BinaryHeap;
 
-    .line 468
     const/4 p1, 0x1
 
+    .line 468
     iput p1, p0, Lorg/apache/commons/collections/BinaryHeap$1;->index:I
 
-    .line 469
     const/4 p1, -0x1
 
+    .line 469
     iput p1, p0, Lorg/apache/commons/collections/BinaryHeap$1;->lastReturnedIndex:I
 
     return-void
@@ -76,9 +76,9 @@
 
     iput v0, p0, Lorg/apache/commons/collections/BinaryHeap$1;->lastReturnedIndex:I
 
-    .line 478
     add-int/lit8 v0, v0, 0x1
 
+    .line 478
     iput v0, p0, Lorg/apache/commons/collections/BinaryHeap$1;->index:I
 
     .line 479
@@ -102,7 +102,7 @@
 .end method
 
 .method public remove()V
-    .locals 7
+    .locals 6
 
     .line 483
     iget v0, p0, Lorg/apache/commons/collections/BinaryHeap$1;->lastReturnedIndex:I
@@ -169,40 +169,41 @@
 
     if-gt v0, v2, :cond_4
 
-    .line 490
-    const/4 v0, 0x0
-
     .line 491
-    .local v0, "compareToParent":I
-    iget v2, p0, Lorg/apache/commons/collections/BinaryHeap$1;->lastReturnedIndex:I
+    iget v0, p0, Lorg/apache/commons/collections/BinaryHeap$1;->lastReturnedIndex:I
 
-    if-le v2, v3, :cond_0
+    if-le v0, v3, :cond_0
 
     .line 492
-    iget-object v2, p0, Lorg/apache/commons/collections/BinaryHeap$1;->this$0:Lorg/apache/commons/collections/BinaryHeap;
+    iget-object v0, p0, Lorg/apache/commons/collections/BinaryHeap$1;->this$0:Lorg/apache/commons/collections/BinaryHeap;
 
-    iget-object v4, v2, Lorg/apache/commons/collections/BinaryHeap;->m_elements:[Ljava/lang/Object;
+    iget-object v2, v0, Lorg/apache/commons/collections/BinaryHeap;->m_elements:[Ljava/lang/Object;
+
+    iget v4, p0, Lorg/apache/commons/collections/BinaryHeap$1;->lastReturnedIndex:I
+
+    aget-object v2, v2, v4
+
+    iget-object v4, p0, Lorg/apache/commons/collections/BinaryHeap$1;->this$0:Lorg/apache/commons/collections/BinaryHeap;
+
+    iget-object v4, v4, Lorg/apache/commons/collections/BinaryHeap;->m_elements:[Ljava/lang/Object;
 
     iget v5, p0, Lorg/apache/commons/collections/BinaryHeap$1;->lastReturnedIndex:I
 
+    div-int/lit8 v5, v5, 0x2
+
     aget-object v4, v4, v5
 
-    iget-object v5, p0, Lorg/apache/commons/collections/BinaryHeap$1;->this$0:Lorg/apache/commons/collections/BinaryHeap;
-
-    iget-object v5, v5, Lorg/apache/commons/collections/BinaryHeap;->m_elements:[Ljava/lang/Object;
-
-    iget v6, p0, Lorg/apache/commons/collections/BinaryHeap$1;->lastReturnedIndex:I
-
-    div-int/lit8 v6, v6, 0x2
-
-    aget-object v5, v5, v6
-
-    invoke-static {v2, v4, v5}, Lorg/apache/commons/collections/BinaryHeap;->access$000(Lorg/apache/commons/collections/BinaryHeap;Ljava/lang/Object;Ljava/lang/Object;)I
+    invoke-static {v0, v2, v4}, Lorg/apache/commons/collections/BinaryHeap;->access$000(Lorg/apache/commons/collections/BinaryHeap;Ljava/lang/Object;Ljava/lang/Object;)I
 
     move-result v0
 
-    .line 495
+    goto :goto_0
+
     :cond_0
+    const/4 v0, 0x0
+
+    .line 495
+    :goto_0
     iget-object v2, p0, Lorg/apache/commons/collections/BinaryHeap$1;->this$0:Lorg/apache/commons/collections/BinaryHeap;
 
     iget-boolean v2, v2, Lorg/apache/commons/collections/BinaryHeap;->m_isMinHeap:Z
@@ -217,21 +218,19 @@
     if-gez v0, :cond_1
 
     .line 497
-    iget-object v4, p0, Lorg/apache/commons/collections/BinaryHeap$1;->this$0:Lorg/apache/commons/collections/BinaryHeap;
+    iget-object v0, p0, Lorg/apache/commons/collections/BinaryHeap$1;->this$0:Lorg/apache/commons/collections/BinaryHeap;
 
-    invoke-virtual {v4, v2}, Lorg/apache/commons/collections/BinaryHeap;->percolateUpMinHeap(I)V
+    invoke-virtual {v0, v2}, Lorg/apache/commons/collections/BinaryHeap;->percolateUpMinHeap(I)V
 
-    goto :goto_0
+    goto :goto_1
 
     .line 499
     :cond_1
-    iget-object v2, p0, Lorg/apache/commons/collections/BinaryHeap$1;->this$0:Lorg/apache/commons/collections/BinaryHeap;
+    iget-object v0, p0, Lorg/apache/commons/collections/BinaryHeap$1;->this$0:Lorg/apache/commons/collections/BinaryHeap;
 
-    iget v4, p0, Lorg/apache/commons/collections/BinaryHeap$1;->lastReturnedIndex:I
+    invoke-virtual {v0, v2}, Lorg/apache/commons/collections/BinaryHeap;->percolateDownMinHeap(I)V
 
-    invoke-virtual {v2, v4}, Lorg/apache/commons/collections/BinaryHeap;->percolateDownMinHeap(I)V
-
-    goto :goto_0
+    goto :goto_1
 
     .line 502
     :cond_2
@@ -242,24 +241,21 @@
     if-lez v0, :cond_3
 
     .line 503
-    iget-object v4, p0, Lorg/apache/commons/collections/BinaryHeap$1;->this$0:Lorg/apache/commons/collections/BinaryHeap;
+    iget-object v0, p0, Lorg/apache/commons/collections/BinaryHeap$1;->this$0:Lorg/apache/commons/collections/BinaryHeap;
 
-    invoke-virtual {v4, v2}, Lorg/apache/commons/collections/BinaryHeap;->percolateUpMaxHeap(I)V
+    invoke-virtual {v0, v2}, Lorg/apache/commons/collections/BinaryHeap;->percolateUpMaxHeap(I)V
 
-    goto :goto_0
+    goto :goto_1
 
     .line 505
     :cond_3
-    iget-object v2, p0, Lorg/apache/commons/collections/BinaryHeap$1;->this$0:Lorg/apache/commons/collections/BinaryHeap;
+    iget-object v0, p0, Lorg/apache/commons/collections/BinaryHeap$1;->this$0:Lorg/apache/commons/collections/BinaryHeap;
 
-    iget v4, p0, Lorg/apache/commons/collections/BinaryHeap$1;->lastReturnedIndex:I
-
-    invoke-virtual {v2, v4}, Lorg/apache/commons/collections/BinaryHeap;->percolateDownMaxHeap(I)V
+    invoke-virtual {v0, v2}, Lorg/apache/commons/collections/BinaryHeap;->percolateDownMaxHeap(I)V
 
     .line 509
-    .end local v0    # "compareToParent":I
     :cond_4
-    :goto_0
+    :goto_1
     iget v0, p0, Lorg/apache/commons/collections/BinaryHeap$1;->index:I
 
     sub-int/2addr v0, v3
@@ -269,7 +265,6 @@
     .line 510
     iput v1, p0, Lorg/apache/commons/collections/BinaryHeap$1;->lastReturnedIndex:I
 
-    .line 511
     return-void
 
     .line 484

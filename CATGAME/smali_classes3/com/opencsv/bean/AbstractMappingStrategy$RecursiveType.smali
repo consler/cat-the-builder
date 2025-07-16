@@ -50,7 +50,6 @@
     .end annotation
 
     .line 748
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 746
@@ -63,25 +62,22 @@
     .line 749
     iput-object p1, p0, Lcom/opencsv/bean/AbstractMappingStrategy$RecursiveType;->type:Ljava/lang/Class;
 
-    .line 750
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/opencsv/bean/AbstractMappingStrategy$RecursiveType;)Ljava/lang/Class;
-    .locals 1
-    .param p0, "x0"    # Lcom/opencsv/bean/AbstractMappingStrategy$RecursiveType;
+    .locals 0
 
     .line 744
-    iget-object v0, p0, Lcom/opencsv/bean/AbstractMappingStrategy$RecursiveType;->type:Ljava/lang/Class;
+    iget-object p0, p0, Lcom/opencsv/bean/AbstractMappingStrategy$RecursiveType;->type:Ljava/lang/Class;
 
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public addRecursiveMember(Lcom/opencsv/bean/FieldAccess;Lcom/opencsv/bean/AbstractMappingStrategy$RecursiveType;)Lcom/opencsv/bean/AbstractMappingStrategy$RecursiveType;
     .locals 1
-    .param p2, "memberType"    # Lcom/opencsv/bean/AbstractMappingStrategy$RecursiveType;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -95,16 +91,15 @@
     .end annotation
 
     .line 755
-    .local p1, "member":Lcom/opencsv/bean/FieldAccess;, "Lcom/opencsv/bean/FieldAccess<Ljava/lang/Object;>;"
     iget-object v0, p0, Lcom/opencsv/bean/AbstractMappingStrategy$RecursiveType;->recursiveMembers:Ljava/util/Map;
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/opencsv/bean/AbstractMappingStrategy$RecursiveType;
+    check-cast p1, Lcom/opencsv/bean/AbstractMappingStrategy$RecursiveType;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getRecursiveMembers()Ljava/util/Map;

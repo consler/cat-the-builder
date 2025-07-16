@@ -22,9 +22,9 @@
 .method constructor <init>()V
     .locals 1
 
-    .line 35
     const/4 v0, 0x0
 
+    .line 35
     invoke-direct {p0, v0}, Lcom/bumptech/glide/util/pool/StateVerifier;-><init>(Lcom/bumptech/glide/util/pool/StateVerifier$1;)V
 
     return-void
@@ -34,12 +34,10 @@
 # virtual methods
 .method public setRecycled(Z)V
     .locals 0
-    .param p1, "isRecycled"    # Z
 
     .line 46
     iput-boolean p1, p0, Lcom/bumptech/glide/util/pool/StateVerifier$DefaultStateVerifier;->isReleased:Z
 
-    .line 47
     return-void
 .end method
 
@@ -51,7 +49,6 @@
 
     if-nez v0, :cond_0
 
-    .line 42
     return-void
 
     .line 40

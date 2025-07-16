@@ -21,10 +21,6 @@
 # direct methods
 .method protected constructor <init>(Lcom/badlogic/gdx/backends/android/AndroidGraphics;IIII)V
     .locals 0
-    .param p2, "width"    # I
-    .param p3, "height"    # I
-    .param p4, "refreshRate"    # I
-    .param p5, "bitsPerPixel"    # I
 
     .line 739
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidGraphics$AndroidDisplayMode;->this$0:Lcom/badlogic/gdx/backends/android/AndroidGraphics;
@@ -32,6 +28,5 @@
     .line 740
     invoke-direct {p0, p2, p3, p4, p5}, Lcom/badlogic/gdx/Graphics$DisplayMode;-><init>(IIII)V
 
-    .line 741
     return-void
 .end method

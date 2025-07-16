@@ -40,7 +40,6 @@
 # virtual methods
 .method public close(Ljava/io/InputStream;)V
     .locals 0
-    .param p1, "inputStream"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -50,7 +49,6 @@
     .line 147
     invoke-virtual {p1}, Ljava/io/InputStream;->close()V
 
-    .line 148
     return-void
 .end method
 
@@ -89,7 +87,6 @@
 
 .method public open(Ljava/io/File;)Ljava/io/InputStream;
     .locals 1
-    .param p1, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;

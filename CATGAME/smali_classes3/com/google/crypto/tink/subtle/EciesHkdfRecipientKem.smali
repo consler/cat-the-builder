@@ -10,7 +10,6 @@
 # direct methods
 .method public constructor <init>(Ljava/security/interfaces/ECPrivateKey;)V
     .locals 0
-    .param p1, "recipientPrivateKey"    # Ljava/security/interfaces/ECPrivateKey;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -26,20 +25,13 @@
     .line 32
     iput-object p1, p0, Lcom/google/crypto/tink/subtle/EciesHkdfRecipientKem;->recipientPrivateKey:Ljava/security/interfaces/ECPrivateKey;
 
-    .line 33
     return-void
 .end method
 
 
 # virtual methods
 .method public generateKey([BLjava/lang/String;[B[BILcom/google/crypto/tink/subtle/EllipticCurves$PointFormatType;)[B
-    .locals 8
-    .param p1, "kemBytes"    # [B
-    .param p2, "hmacAlgo"    # Ljava/lang/String;
-    .param p3, "hkdfSalt"    # [B
-    .param p4, "hkdfInfo"    # [B
-    .param p5, "keySizeInBytes"    # I
-    .param p6, "pointFormat"    # Lcom/google/crypto/tink/subtle/EllipticCurves$PointFormatType;
+    .locals 7
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -76,33 +68,29 @@
     .line 43
     invoke-static {v0, p6, p1}, Lcom/google/crypto/tink/subtle/EllipticCurves;->getEcPublicKey(Ljava/security/spec/ECParameterSpec;Lcom/google/crypto/tink/subtle/EllipticCurves$PointFormatType;[B)Ljava/security/interfaces/ECPublicKey;
 
-    move-result-object v0
+    move-result-object p6
 
     .line 45
-    .local v0, "ephemeralPublicKey":Ljava/security/interfaces/ECPublicKey;
-    iget-object v1, p0, Lcom/google/crypto/tink/subtle/EciesHkdfRecipientKem;->recipientPrivateKey:Ljava/security/interfaces/ECPrivateKey;
+    iget-object v0, p0, Lcom/google/crypto/tink/subtle/EciesHkdfRecipientKem;->recipientPrivateKey:Ljava/security/interfaces/ECPrivateKey;
 
-    invoke-static {v1, v0}, Lcom/google/crypto/tink/subtle/EllipticCurves;->computeSharedSecret(Ljava/security/interfaces/ECPrivateKey;Ljava/security/interfaces/ECPublicKey;)[B
-
-    move-result-object v1
-
-    .line 47
-    .local v1, "sharedSecret":[B
-    move-object v2, p1
-
-    move-object v3, v1
-
-    move-object v4, p2
-
-    move-object v5, p3
-
-    move-object v6, p4
-
-    move v7, p5
-
-    invoke-static/range {v2 .. v7}, Lcom/google/crypto/tink/subtle/Hkdf;->computeEciesHkdfSymmetricKey([B[BLjava/lang/String;[B[BI)[B
+    invoke-static {v0, p6}, Lcom/google/crypto/tink/subtle/EllipticCurves;->computeSharedSecret(Ljava/security/interfaces/ECPrivateKey;Ljava/security/interfaces/ECPublicKey;)[B
 
     move-result-object v2
 
-    return-object v2
+    move-object v1, p1
+
+    move-object v3, p2
+
+    move-object v4, p3
+
+    move-object v5, p4
+
+    move v6, p5
+
+    .line 47
+    invoke-static/range {v1 .. v6}, Lcom/google/crypto/tink/subtle/Hkdf;->computeEciesHkdfSymmetricKey([B[BLjava/lang/String;[B[BI)[B
+
+    move-result-object p1
+
+    return-object p1
 .end method

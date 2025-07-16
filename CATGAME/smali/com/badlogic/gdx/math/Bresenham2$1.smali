@@ -29,7 +29,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/math/Bresenham2;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/math/Bresenham2;
 
     .line 30
     iput-object p1, p0, Lcom/badlogic/gdx/math/Bresenham2$1;->this$0:Lcom/badlogic/gdx/math/Bresenham2;

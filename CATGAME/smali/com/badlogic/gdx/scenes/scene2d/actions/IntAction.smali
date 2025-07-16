@@ -18,24 +18,21 @@
     .line 28
     invoke-direct {p0}, Lcom/badlogic/gdx/scenes/scene2d/actions/TemporalAction;-><init>()V
 
-    .line 29
     const/4 v0, 0x0
 
+    .line 29
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/IntAction;->start:I
 
-    .line 30
     const/4 v0, 0x1
 
+    .line 30
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/IntAction;->end:I
 
-    .line 31
     return-void
 .end method
 
 .method public constructor <init>(II)V
     .locals 0
-    .param p1, "start"    # I
-    .param p2, "end"    # I
 
     .line 34
     invoke-direct {p0}, Lcom/badlogic/gdx/scenes/scene2d/actions/TemporalAction;-><init>()V
@@ -46,15 +43,11 @@
     .line 36
     iput p2, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/IntAction;->end:I
 
-    .line 37
     return-void
 .end method
 
 .method public constructor <init>(IIF)V
     .locals 0
-    .param p1, "start"    # I
-    .param p2, "end"    # I
-    .param p3, "duration"    # F
 
     .line 41
     invoke-direct {p0, p3}, Lcom/badlogic/gdx/scenes/scene2d/actions/TemporalAction;-><init>(F)V
@@ -65,16 +58,11 @@
     .line 43
     iput p2, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/IntAction;->end:I
 
-    .line 44
     return-void
 .end method
 
 .method public constructor <init>(IIFLcom/badlogic/gdx/math/Interpolation;)V
     .locals 0
-    .param p1, "start"    # I
-    .param p2, "end"    # I
-    .param p3, "duration"    # F
-    .param p4, "interpolation"    # Lcom/badlogic/gdx/math/Interpolation;
 
     .line 48
     invoke-direct {p0, p3, p4}, Lcom/badlogic/gdx/scenes/scene2d/actions/TemporalAction;-><init>(FLcom/badlogic/gdx/math/Interpolation;)V
@@ -85,7 +73,6 @@
     .line 50
     iput p2, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/IntAction;->end:I
 
-    .line 51
     return-void
 .end method
 
@@ -99,7 +86,6 @@
 
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/IntAction;->value:I
 
-    .line 55
     return-void
 .end method
 
@@ -132,42 +118,34 @@
 
 .method public setEnd(I)V
     .locals 0
-    .param p1, "end"    # I
 
     .line 91
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/IntAction;->end:I
 
-    .line 92
     return-void
 .end method
 
 .method public setStart(I)V
     .locals 0
-    .param p1, "start"    # I
 
     .line 82
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/IntAction;->start:I
 
-    .line 83
     return-void
 .end method
 
 .method public setValue(I)V
     .locals 0
-    .param p1, "value"    # I
 
     .line 73
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/IntAction;->value:I
 
-    .line 74
     return-void
 .end method
 
 .method protected update(F)V
     .locals 3
-    .param p1, "percent"    # F
 
-    .line 58
     const/4 v0, 0x0
 
     cmpl-float v0, p1, v0
@@ -175,13 +153,12 @@
     if-nez v0, :cond_0
 
     .line 59
-    iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/IntAction;->start:I
+    iget p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/IntAction;->start:I
 
-    iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/IntAction;->value:I
+    iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/IntAction;->value:I
 
     goto :goto_0
 
-    .line 60
     :cond_0
     const/high16 v0, 0x3f800000    # 1.0f
 
@@ -190,9 +167,9 @@
     if-nez v0, :cond_1
 
     .line 61
-    iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/IntAction;->end:I
+    iget p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/IntAction;->end:I
 
-    iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/IntAction;->value:I
+    iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/IntAction;->value:I
 
     goto :goto_0
 
@@ -212,11 +189,10 @@
 
     add-float/2addr v1, v0
 
-    float-to-int v0, v1
+    float-to-int p1, v1
 
-    iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/IntAction;->value:I
+    iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/IntAction;->value:I
 
-    .line 64
     :goto_0
     return-void
 .end method

@@ -54,7 +54,6 @@
 # direct methods
 .method private constructor <init>(Lcom/nostra13/universalimageloader/core/DisplayImageOptions$Builder;)V
     .locals 1
-    .param p1, "builder"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions$Builder;
 
     .line 87
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -188,18 +187,15 @@
     .line 106
     invoke-static {p1}, Lcom/nostra13/universalimageloader/core/DisplayImageOptions$Builder;->access$1800(Lcom/nostra13/universalimageloader/core/DisplayImageOptions$Builder;)Z
 
-    move-result v0
+    move-result p1
 
-    iput-boolean v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->isSyncLoading:Z
+    iput-boolean p1, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->isSyncLoading:Z
 
-    .line 107
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/nostra13/universalimageloader/core/DisplayImageOptions$Builder;Lcom/nostra13/universalimageloader/core/DisplayImageOptions$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions$Builder;
-    .param p2, "x1"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions$1;
 
     .line 65
     invoke-direct {p0, p1}, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;-><init>(Lcom/nostra13/universalimageloader/core/DisplayImageOptions$Builder;)V
@@ -208,193 +204,174 @@
 .end method
 
 .method static synthetic access$1900(Lcom/nostra13/universalimageloader/core/DisplayImageOptions;)I
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
+    .locals 0
 
     .line 65
-    iget v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->imageResOnLoading:I
+    iget p0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->imageResOnLoading:I
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$2000(Lcom/nostra13/universalimageloader/core/DisplayImageOptions;)I
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
+    .locals 0
 
     .line 65
-    iget v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->imageResForEmptyUri:I
+    iget p0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->imageResForEmptyUri:I
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$2100(Lcom/nostra13/universalimageloader/core/DisplayImageOptions;)I
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
+    .locals 0
 
     .line 65
-    iget v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->imageResOnFail:I
+    iget p0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->imageResOnFail:I
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$2200(Lcom/nostra13/universalimageloader/core/DisplayImageOptions;)Landroid/graphics/drawable/Drawable;
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
+    .locals 0
 
     .line 65
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->imageOnLoading:Landroid/graphics/drawable/Drawable;
+    iget-object p0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->imageOnLoading:Landroid/graphics/drawable/Drawable;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$2300(Lcom/nostra13/universalimageloader/core/DisplayImageOptions;)Landroid/graphics/drawable/Drawable;
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
+    .locals 0
 
     .line 65
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->imageForEmptyUri:Landroid/graphics/drawable/Drawable;
+    iget-object p0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->imageForEmptyUri:Landroid/graphics/drawable/Drawable;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$2400(Lcom/nostra13/universalimageloader/core/DisplayImageOptions;)Landroid/graphics/drawable/Drawable;
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
+    .locals 0
 
     .line 65
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->imageOnFail:Landroid/graphics/drawable/Drawable;
+    iget-object p0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->imageOnFail:Landroid/graphics/drawable/Drawable;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$2500(Lcom/nostra13/universalimageloader/core/DisplayImageOptions;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
+    .locals 0
 
     .line 65
-    iget-boolean v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->resetViewBeforeLoading:Z
+    iget-boolean p0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->resetViewBeforeLoading:Z
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$2600(Lcom/nostra13/universalimageloader/core/DisplayImageOptions;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
+    .locals 0
 
     .line 65
-    iget-boolean v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->cacheInMemory:Z
+    iget-boolean p0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->cacheInMemory:Z
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$2700(Lcom/nostra13/universalimageloader/core/DisplayImageOptions;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
+    .locals 0
 
     .line 65
-    iget-boolean v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->cacheOnDisk:Z
+    iget-boolean p0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->cacheOnDisk:Z
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$2800(Lcom/nostra13/universalimageloader/core/DisplayImageOptions;)Lcom/nostra13/universalimageloader/core/assist/ImageScaleType;
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
+    .locals 0
 
     .line 65
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->imageScaleType:Lcom/nostra13/universalimageloader/core/assist/ImageScaleType;
+    iget-object p0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->imageScaleType:Lcom/nostra13/universalimageloader/core/assist/ImageScaleType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$2900(Lcom/nostra13/universalimageloader/core/DisplayImageOptions;)Landroid/graphics/BitmapFactory$Options;
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
+    .locals 0
 
     .line 65
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->decodingOptions:Landroid/graphics/BitmapFactory$Options;
+    iget-object p0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->decodingOptions:Landroid/graphics/BitmapFactory$Options;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$3000(Lcom/nostra13/universalimageloader/core/DisplayImageOptions;)I
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
+    .locals 0
 
     .line 65
-    iget v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->delayBeforeLoading:I
+    iget p0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->delayBeforeLoading:I
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$3100(Lcom/nostra13/universalimageloader/core/DisplayImageOptions;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
+    .locals 0
 
     .line 65
-    iget-boolean v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->considerExifParams:Z
+    iget-boolean p0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->considerExifParams:Z
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$3200(Lcom/nostra13/universalimageloader/core/DisplayImageOptions;)Ljava/lang/Object;
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
+    .locals 0
 
     .line 65
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->extraForDownloader:Ljava/lang/Object;
+    iget-object p0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->extraForDownloader:Ljava/lang/Object;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$3300(Lcom/nostra13/universalimageloader/core/DisplayImageOptions;)Lcom/nostra13/universalimageloader/core/process/BitmapProcessor;
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
+    .locals 0
 
     .line 65
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->preProcessor:Lcom/nostra13/universalimageloader/core/process/BitmapProcessor;
+    iget-object p0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->preProcessor:Lcom/nostra13/universalimageloader/core/process/BitmapProcessor;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$3400(Lcom/nostra13/universalimageloader/core/DisplayImageOptions;)Lcom/nostra13/universalimageloader/core/process/BitmapProcessor;
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
+    .locals 0
 
     .line 65
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->postProcessor:Lcom/nostra13/universalimageloader/core/process/BitmapProcessor;
+    iget-object p0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->postProcessor:Lcom/nostra13/universalimageloader/core/process/BitmapProcessor;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$3500(Lcom/nostra13/universalimageloader/core/DisplayImageOptions;)Lcom/nostra13/universalimageloader/core/display/BitmapDisplayer;
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
+    .locals 0
 
     .line 65
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->displayer:Lcom/nostra13/universalimageloader/core/display/BitmapDisplayer;
+    iget-object p0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->displayer:Lcom/nostra13/universalimageloader/core/display/BitmapDisplayer;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$3600(Lcom/nostra13/universalimageloader/core/DisplayImageOptions;)Landroid/os/Handler;
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
+    .locals 0
 
     .line 65
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->handler:Landroid/os/Handler;
+    iget-object p0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->handler:Landroid/os/Handler;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$3700(Lcom/nostra13/universalimageloader/core/DisplayImageOptions;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
+    .locals 0
 
     .line 65
-    iget-boolean v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->isSyncLoading:Z
+    iget-boolean p0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->isSyncLoading:Z
 
-    return v0
+    return p0
 .end method
 
 .method public static createSimple()Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
@@ -461,7 +438,6 @@
 
 .method public getImageForEmptyUri(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
     .locals 1
-    .param p1, "res"    # Landroid/content/res/Resources;
 
     .line 138
     iget v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->imageResForEmptyUri:I
@@ -470,20 +446,19 @@
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v0
+    move-result-object p1
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->imageForEmptyUri:Landroid/graphics/drawable/Drawable;
+    iget-object p1, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->imageForEmptyUri:Landroid/graphics/drawable/Drawable;
 
     :goto_0
-    return-object v0
+    return-object p1
 .end method
 
 .method public getImageOnFail(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
     .locals 1
-    .param p1, "res"    # Landroid/content/res/Resources;
 
     .line 142
     iget v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->imageResOnFail:I
@@ -492,20 +467,19 @@
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v0
+    move-result-object p1
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->imageOnFail:Landroid/graphics/drawable/Drawable;
+    iget-object p1, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->imageOnFail:Landroid/graphics/drawable/Drawable;
 
     :goto_0
-    return-object v0
+    return-object p1
 .end method
 
 .method public getImageOnLoading(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
     .locals 1
-    .param p1, "res"    # Landroid/content/res/Resources;
 
     .line 134
     iget v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->imageResOnLoading:I
@@ -514,15 +488,15 @@
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v0
+    move-result-object p1
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->imageOnLoading:Landroid/graphics/drawable/Drawable;
+    iget-object p1, p0, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->imageOnLoading:Landroid/graphics/drawable/Drawable;
 
     :goto_0
-    return-object v0
+    return-object p1
 .end method
 
 .method public getImageScaleType()Lcom/nostra13/universalimageloader/core/assist/ImageScaleType;

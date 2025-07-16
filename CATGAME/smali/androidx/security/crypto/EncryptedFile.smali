@@ -33,10 +33,6 @@
 # direct methods
 .method constructor <init>(Ljava/io/File;Ljava/lang/String;Lcom/google/crypto/tink/StreamingAead;Landroid/content/Context;)V
     .locals 0
-    .param p1, "file"    # Ljava/io/File;
-    .param p2, "masterKeyAlias"    # Ljava/lang/String;
-    .param p3, "streamingAead"    # Lcom/google/crypto/tink/StreamingAead;
-    .param p4, "context"    # Landroid/content/Context;
 
     .line 83
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,7 +49,6 @@
     .line 87
     iput-object p3, p0, Landroidx/security/crypto/EncryptedFile;->mStreamingAead:Lcom/google/crypto/tink/StreamingAead;
 
-    .line 88
     return-void
 .end method
 
@@ -85,7 +80,6 @@
     invoke-direct {v0, v1}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
 
     .line 222
-    .local v0, "fileInputStream":Ljava/io/FileInputStream;
     iget-object v1, p0, Landroidx/security/crypto/EncryptedFile;->mStreamingAead:Lcom/google/crypto/tink/StreamingAead;
 
     iget-object v2, p0, Landroidx/security/crypto/EncryptedFile;->mFile:Ljava/io/File;
@@ -107,30 +101,25 @@
     move-result-object v1
 
     .line 224
-    .local v1, "decryptingStream":Ljava/io/InputStream;
     new-instance v2, Landroidx/security/crypto/EncryptedFile$EncryptedFileInputStream;
 
     invoke-virtual {v0}, Ljava/io/FileInputStream;->getFD()Ljava/io/FileDescriptor;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-direct {v2, v3, v1}, Landroidx/security/crypto/EncryptedFile$EncryptedFileInputStream;-><init>(Ljava/io/FileDescriptor;Ljava/io/InputStream;)V
+    invoke-direct {v2, v0, v1}, Landroidx/security/crypto/EncryptedFile$EncryptedFileInputStream;-><init>(Ljava/io/FileDescriptor;Ljava/io/InputStream;)V
 
     return-object v2
 
     .line 219
-    .end local v0    # "fileInputStream":Ljava/io/FileInputStream;
-    .end local v1    # "decryptingStream":Ljava/io/InputStream;
     :cond_0
     new-instance v0, Ljava/io/IOException;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "file doesn\'t exist: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v2, p0, Landroidx/security/crypto/EncryptedFile;->mFile:Ljava/io/File;
 
@@ -139,6 +128,8 @@
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -175,7 +166,6 @@
     invoke-direct {v0, v1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
 
     .line 200
-    .local v0, "fileOutputStream":Ljava/io/FileOutputStream;
     iget-object v1, p0, Landroidx/security/crypto/EncryptedFile;->mStreamingAead:Lcom/google/crypto/tink/StreamingAead;
 
     iget-object v2, p0, Landroidx/security/crypto/EncryptedFile;->mFile:Ljava/io/File;
@@ -197,30 +187,25 @@
     move-result-object v1
 
     .line 202
-    .local v1, "encryptingStream":Ljava/io/OutputStream;
     new-instance v2, Landroidx/security/crypto/EncryptedFile$EncryptedFileOutputStream;
 
     invoke-virtual {v0}, Ljava/io/FileOutputStream;->getFD()Ljava/io/FileDescriptor;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-direct {v2, v3, v1}, Landroidx/security/crypto/EncryptedFile$EncryptedFileOutputStream;-><init>(Ljava/io/FileDescriptor;Ljava/io/OutputStream;)V
+    invoke-direct {v2, v0, v1}, Landroidx/security/crypto/EncryptedFile$EncryptedFileOutputStream;-><init>(Ljava/io/FileDescriptor;Ljava/io/OutputStream;)V
 
     return-object v2
 
     .line 196
-    .end local v0    # "fileOutputStream":Ljava/io/FileOutputStream;
-    .end local v1    # "encryptingStream":Ljava/io/OutputStream;
     :cond_0
     new-instance v0, Ljava/io/IOException;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "output file already exists, please use a new file: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v2, p0, Landroidx/security/crypto/EncryptedFile;->mFile:Ljava/io/File;
 
@@ -230,6 +215,8 @@
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

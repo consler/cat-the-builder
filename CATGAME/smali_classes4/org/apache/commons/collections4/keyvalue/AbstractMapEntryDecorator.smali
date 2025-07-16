@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Map$Entry;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -47,44 +47,36 @@
     .end annotation
 
     .line 42
-    .local p0, "this":Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator;, "Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator<TK;TV;>;"
-    .local p1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 43
     if-eqz p1, :cond_0
 
     .line 46
     iput-object p1, p0, Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator;->entry:Ljava/util/Map$Entry;
 
-    .line 47
     return-void
 
     .line 44
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "Map Entry must not be null."
+    const-string v0, "Map Entry must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
 
-    .line 77
-    .local p0, "this":Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator;, "Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator<TK;TV;>;"
     if-ne p1, p0, :cond_0
 
-    .line 78
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
     .line 80
     :cond_0
@@ -92,9 +84,9 @@
 
     invoke-interface {v0, p1}, Ljava/util/Map$Entry;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public getKey()Ljava/lang/Object;
@@ -106,7 +98,6 @@
     .end annotation
 
     .line 62
-    .local p0, "this":Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator;, "Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator;->entry:Ljava/util/Map$Entry;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -127,7 +118,6 @@
     .end annotation
 
     .line 55
-    .local p0, "this":Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator;, "Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator;->entry:Ljava/util/Map$Entry;
 
     return-object v0
@@ -142,7 +132,6 @@
     .end annotation
 
     .line 67
-    .local p0, "this":Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator;, "Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator;->entry:Ljava/util/Map$Entry;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -156,7 +145,6 @@
     .locals 1
 
     .line 85
-    .local p0, "this":Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator;, "Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator;->entry:Ljava/util/Map$Entry;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->hashCode()I
@@ -175,22 +163,19 @@
     .end annotation
 
     .line 72
-    .local p0, "this":Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator;, "Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator<TK;TV;>;"
-    .local p1, "object":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator;->entry:Ljava/util/Map$Entry;
 
     invoke-interface {v0, p1}, Ljava/util/Map$Entry;->setValue(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 1
 
     .line 90
-    .local p0, "this":Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator;, "Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/keyvalue/AbstractMapEntryDecorator;->entry:Ljava/util/Map$Entry;
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;

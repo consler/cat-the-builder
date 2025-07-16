@@ -27,7 +27,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/media/RemotePlaybackClient;Ljava/lang/String;Landroid/content/Intent;Landroidx/mediarouter/media/RemotePlaybackClient$SessionActionCallback;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/mediarouter/media/RemotePlaybackClient;
 
     .line 713
     iput-object p1, p0, Landroidx/mediarouter/media/RemotePlaybackClient$2;->this$0:Landroidx/mediarouter/media/RemotePlaybackClient;
@@ -47,8 +46,6 @@
 # virtual methods
 .method public onError(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 3
-    .param p1, "error"    # Ljava/lang/String;
-    .param p2, "data"    # Landroid/os/Bundle;
 
     .line 745
     iget-object v0, p0, Landroidx/mediarouter/media/RemotePlaybackClient$2;->this$0:Landroidx/mediarouter/media/RemotePlaybackClient;
@@ -59,15 +56,12 @@
 
     invoke-virtual {v0, v1, v2, p1, p2}, Landroidx/mediarouter/media/RemotePlaybackClient;->handleError(Landroid/content/Intent;Landroidx/mediarouter/media/RemotePlaybackClient$ActionCallback;Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 746
     return-void
 .end method
 
 .method public onResult(Landroid/os/Bundle;)V
-    .locals 6
-    .param p1, "data"    # Landroid/os/Bundle;
+    .locals 5
 
-    .line 716
     const-string v0, "android.media.intent.action.END_SESSION"
 
     if-eqz p1, :cond_3
@@ -75,9 +69,9 @@
     .line 717
     iget-object v1, p0, Landroidx/mediarouter/media/RemotePlaybackClient$2;->val$sessionId:Ljava/lang/String;
 
-    .line 718
     const-string v2, "android.media.intent.extra.SESSION_ID"
 
+    .line 718
     invoke-virtual {p1, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
@@ -87,13 +81,9 @@
 
     move-result-object v1
 
-    .line 719
-    .local v1, "sessionIdResult":Ljava/lang/String;
-    nop
-
-    .line 720
     const-string v2, "android.media.intent.extra.SESSION_STATUS"
 
+    .line 720
     invoke-virtual {p1, v2}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
 
     move-result-object v2
@@ -104,12 +94,10 @@
     move-result-object v2
 
     .line 721
-    .local v2, "sessionStatus":Landroidx/mediarouter/media/MediaSessionStatus;
     iget-object v3, p0, Landroidx/mediarouter/media/RemotePlaybackClient$2;->this$0:Landroidx/mediarouter/media/RemotePlaybackClient;
 
     invoke-virtual {v3, v1}, Landroidx/mediarouter/media/RemotePlaybackClient;->adoptSession(Ljava/lang/String;)V
 
-    .line 722
     if-eqz v1, :cond_3
 
     .line 723
@@ -120,11 +108,9 @@
     .line 724
     new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v4, "Received result from "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v4, p0, Landroidx/mediarouter/media/RemotePlaybackClient$2;->val$intent:Landroid/content/Intent;
 
@@ -134,9 +120,13 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v3
+
     const-string v4, ": data="
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
 
     .line 725
     invoke-static {p1}, Landroidx/mediarouter/media/RemotePlaybackClient;->bundleToString(Landroid/os/Bundle;)Ljava/lang/String;
@@ -145,31 +135,41 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v3
+
     const-string v4, ", sessionId="
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v3
+
     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
 
     const-string v4, ", sessionStatus="
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v3
+
     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 724
     const-string v4, "RemotePlaybackClient"
 
+    .line 724
     invoke-static {v4, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 730
     :cond_0
     const/4 v3, 0x0
 
+    .line 730
     :try_start_0
     iget-object v4, p0, Landroidx/mediarouter/media/RemotePlaybackClient$2;->val$callback:Landroidx/mediarouter/media/RemotePlaybackClient$SessionActionCallback;
 
@@ -178,49 +178,48 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 732
-    iget-object v4, p0, Landroidx/mediarouter/media/RemotePlaybackClient$2;->val$intent:Landroid/content/Intent;
+    iget-object p1, p0, Landroidx/mediarouter/media/RemotePlaybackClient$2;->val$intent:Landroid/content/Intent;
 
-    invoke-virtual {v4}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
-    iget-object v0, p0, Landroidx/mediarouter/media/RemotePlaybackClient$2;->this$0:Landroidx/mediarouter/media/RemotePlaybackClient;
+    iget-object p1, p0, Landroidx/mediarouter/media/RemotePlaybackClient$2;->this$0:Landroidx/mediarouter/media/RemotePlaybackClient;
 
-    iget-object v0, v0, Landroidx/mediarouter/media/RemotePlaybackClient;->mSessionId:Ljava/lang/String;
+    iget-object p1, p1, Landroidx/mediarouter/media/RemotePlaybackClient;->mSessionId:Ljava/lang/String;
 
     .line 733
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 734
-    iget-object v0, p0, Landroidx/mediarouter/media/RemotePlaybackClient$2;->this$0:Landroidx/mediarouter/media/RemotePlaybackClient;
+    iget-object p1, p0, Landroidx/mediarouter/media/RemotePlaybackClient$2;->this$0:Landroidx/mediarouter/media/RemotePlaybackClient;
 
-    invoke-virtual {v0, v3}, Landroidx/mediarouter/media/RemotePlaybackClient;->setSessionId(Ljava/lang/String;)V
+    invoke-virtual {p1, v3}, Landroidx/mediarouter/media/RemotePlaybackClient;->setSessionId(Ljava/lang/String;)V
 
-    .line 737
     :cond_1
     return-void
 
-    .line 732
     :catchall_0
-    move-exception v4
+    move-exception p1
 
-    iget-object v5, p0, Landroidx/mediarouter/media/RemotePlaybackClient$2;->val$intent:Landroid/content/Intent;
+    .line 732
+    iget-object v2, p0, Landroidx/mediarouter/media/RemotePlaybackClient$2;->val$intent:Landroid/content/Intent;
 
-    invoke-virtual {v5}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    invoke-virtual {v2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v2
 
-    invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -243,11 +242,9 @@
     invoke-virtual {v0, v3}, Landroidx/mediarouter/media/RemotePlaybackClient;->setSessionId(Ljava/lang/String;)V
 
     :cond_2
-    throw v4
+    throw p1
 
     .line 740
-    .end local v1    # "sessionIdResult":Ljava/lang/String;
-    .end local v2    # "sessionStatus":Landroidx/mediarouter/media/MediaSessionStatus;
     :cond_3
     iget-object v0, p0, Landroidx/mediarouter/media/RemotePlaybackClient$2;->this$0:Landroidx/mediarouter/media/RemotePlaybackClient;
 
@@ -257,6 +254,5 @@
 
     invoke-virtual {v0, v1, v2, p1}, Landroidx/mediarouter/media/RemotePlaybackClient;->handleInvalidResult(Landroid/content/Intent;Landroidx/mediarouter/media/RemotePlaybackClient$ActionCallback;Landroid/os/Bundle;)V
 
-    .line 741
     return-void
 .end method

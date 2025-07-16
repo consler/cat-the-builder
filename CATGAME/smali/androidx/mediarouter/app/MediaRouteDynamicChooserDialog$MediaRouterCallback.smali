@@ -27,64 +27,51 @@
 
     invoke-direct {p0}, Landroidx/mediarouter/media/MediaRouter$Callback;-><init>()V
 
-    .line 257
     return-void
 .end method
 
 
 # virtual methods
 .method public onRouteAdded(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
-    .locals 1
-    .param p1, "router"    # Landroidx/mediarouter/media/MediaRouter;
-    .param p2, "info"    # Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+    .locals 0
 
     .line 261
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
 
-    invoke-virtual {v0}, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;->refreshRoutes()V
+    invoke-virtual {p1}, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;->refreshRoutes()V
 
-    .line 262
     return-void
 .end method
 
 .method public onRouteChanged(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
-    .locals 1
-    .param p1, "router"    # Landroidx/mediarouter/media/MediaRouter;
-    .param p2, "info"    # Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+    .locals 0
 
     .line 271
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
 
-    invoke-virtual {v0}, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;->refreshRoutes()V
+    invoke-virtual {p1}, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;->refreshRoutes()V
 
-    .line 272
     return-void
 .end method
 
 .method public onRouteRemoved(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
-    .locals 1
-    .param p1, "router"    # Landroidx/mediarouter/media/MediaRouter;
-    .param p2, "info"    # Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+    .locals 0
 
     .line 266
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
 
-    invoke-virtual {v0}, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;->refreshRoutes()V
+    invoke-virtual {p1}, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;->refreshRoutes()V
 
-    .line 267
     return-void
 .end method
 
 .method public onRouteSelected(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
-    .locals 1
-    .param p1, "router"    # Landroidx/mediarouter/media/MediaRouter;
-    .param p2, "route"    # Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+    .locals 0
 
     .line 276
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
 
-    invoke-virtual {v0}, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;->dismiss()V
+    invoke-virtual {p1}, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;->dismiss()V
 
-    .line 277
     return-void
 .end method

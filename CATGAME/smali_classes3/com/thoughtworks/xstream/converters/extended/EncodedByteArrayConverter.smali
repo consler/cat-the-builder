@@ -39,13 +39,11 @@
 
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/converters/extended/EncodedByteArrayConverter;-><init>(Lcom/thoughtworks/xstream/core/StringCodec;)V
 
-    .line 44
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/core/StringCodec;)V
     .locals 0
-    .param p1, "stringCodec"    # Lcom/thoughtworks/xstream/core/StringCodec;
 
     .line 52
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,117 +51,98 @@
     .line 53
     iput-object p1, p0, Lcom/thoughtworks/xstream/converters/extended/EncodedByteArrayConverter;->codec:Lcom/thoughtworks/xstream/core/StringCodec;
 
-    .line 54
     return-void
 .end method
 
 .method private unmarshalIndividualByteElements(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;)Ljava/lang/Object;
-    .locals 7
-    .param p1, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .param p2, "context"    # Lcom/thoughtworks/xstream/converters/UnmarshallingContext;
+    .locals 4
 
     .line 75
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance p2, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 76
-    .local v0, "bytes":Ljava/util/List;
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    .line 77
-    .local v1, "firstIteration":Z
+    move v1, v0
+
     :goto_0
+    const/4 v2, 0x0
+
     if-nez v1, :cond_2
 
+    .line 77
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->hasMoreChildren()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
     goto :goto_2
 
     .line 84
     :cond_0
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-interface {p2}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result p1
 
-    new-array v2, v2, [B
-
-    .line 85
-    .local v2, "result":[B
-    const/4 v3, 0x0
+    new-array p1, p1, [B
 
     .line 86
-    .local v3, "i":I
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v4
+    move-result-object p2
 
-    .local v4, "iterator":Ljava/util/Iterator;
     :goto_1
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v5
+    move-result v1
 
-    if-eqz v5, :cond_1
+    if-eqz v1, :cond_1
 
     .line 87
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v1
 
-    check-cast v5, Ljava/lang/Byte;
+    check-cast v1, Ljava/lang/Byte;
 
     .line 88
-    .local v5, "b":Ljava/lang/Byte;
-    invoke-virtual {v5}, Ljava/lang/Byte;->byteValue()B
+    invoke-virtual {v1}, Ljava/lang/Byte;->byteValue()B
 
-    move-result v6
+    move-result v1
 
-    aput-byte v6, v2, v3
+    aput-byte v1, p1, v2
 
-    .line 89
-    nop
+    add-int/2addr v2, v0
 
-    .end local v5    # "b":Ljava/lang/Byte;
-    add-int/lit8 v3, v3, 0x1
-
-    .line 90
     goto :goto_1
 
-    .line 91
-    .end local v4    # "iterator":Ljava/util/Iterator;
     :cond_1
-    return-object v2
+    return-object p1
 
     .line 78
-    .end local v2    # "result":[B
-    .end local v3    # "i":I
     :cond_2
     :goto_2
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->moveDown()V
 
     .line 79
-    sget-object v2, Lcom/thoughtworks/xstream/converters/extended/EncodedByteArrayConverter;->byteConverter:Lcom/thoughtworks/xstream/converters/basic/ByteConverter;
+    sget-object v1, Lcom/thoughtworks/xstream/converters/extended/EncodedByteArrayConverter;->byteConverter:Lcom/thoughtworks/xstream/converters/basic/ByteConverter;
 
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->getValue()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Lcom/thoughtworks/xstream/converters/basic/ByteConverter;->fromString(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v1, v3}, Lcom/thoughtworks/xstream/converters/basic/ByteConverter;->fromString(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 80
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->moveUp()V
 
-    .line 81
-    const/4 v1, 0x0
+    move v1, v2
 
     goto :goto_0
 .end method
@@ -171,12 +150,11 @@
 
 # virtual methods
 .method public canConvert(Ljava/lang/Class;)Z
-    .locals 2
-    .param p1, "type"    # Ljava/lang/Class;
+    .locals 1
 
-    .line 57
     if-eqz p1, :cond_0
 
+    .line 57
     invoke-virtual {p1}, Ljava/lang/Class;->isArray()Z
 
     move-result v0
@@ -185,82 +163,72 @@
 
     invoke-virtual {p1}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p1
 
-    sget-object v1, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
+    sget-object v0, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
 
-    invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public fromString(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
-    .param p1, "str"    # Ljava/lang/String;
 
     .line 99
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/extended/EncodedByteArrayConverter;->codec:Lcom/thoughtworks/xstream/core/StringCodec;
 
     invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/core/StringCodec;->decode(Ljava/lang/String;)[B
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public marshal(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
-    .locals 1
-    .param p1, "source"    # Ljava/lang/Object;
-    .param p2, "writer"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
-    .param p3, "context"    # Lcom/thoughtworks/xstream/converters/MarshallingContext;
+    .locals 0
 
     .line 61
     invoke-virtual {p0, p1}, Lcom/thoughtworks/xstream/converters/extended/EncodedByteArrayConverter;->toString(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {p2, v0}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->setValue(Ljava/lang/String;)V
+    invoke-interface {p2, p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->setValue(Ljava/lang/String;)V
 
-    .line 62
     return-void
 .end method
 
 .method public toString(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 1
 
     .line 95
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/extended/EncodedByteArrayConverter;->codec:Lcom/thoughtworks/xstream/core/StringCodec;
 
-    move-object v1, p1
+    check-cast p1, [B
 
-    check-cast v1, [B
+    check-cast p1, [B
 
-    check-cast v1, [B
+    invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/core/StringCodec;->encode([B)Ljava/lang/String;
 
-    invoke-interface {v0, v1}, Lcom/thoughtworks/xstream/core/StringCodec;->encode([B)Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public unmarshal(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;)Ljava/lang/Object;
     .locals 2
-    .param p1, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .param p2, "context"    # Lcom/thoughtworks/xstream/converters/UnmarshallingContext;
 
     .line 65
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->getValue()Ljava/lang/String;
@@ -268,7 +236,6 @@
     move-result-object v0
 
     .line 66
-    .local v0, "data":Ljava/lang/String;
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->hasMoreChildren()Z
 
     move-result v1
@@ -278,15 +245,15 @@
     .line 67
     invoke-virtual {p0, v0}, Lcom/thoughtworks/xstream/converters/extended/EncodedByteArrayConverter;->fromString(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 70
     :cond_0
     invoke-direct {p0, p1, p2}, Lcom/thoughtworks/xstream/converters/extended/EncodedByteArrayConverter;->unmarshalIndividualByteElements(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method

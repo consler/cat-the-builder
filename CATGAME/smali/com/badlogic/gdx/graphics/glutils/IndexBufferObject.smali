@@ -29,64 +29,58 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 1
-    .param p1, "maxIndices"    # I
 
-    .line 64
     const/4 v0, 0x1
 
+    .line 64
     invoke-direct {p0, v0, p1}, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;-><init>(ZI)V
 
-    .line 65
     return-void
 .end method
 
 .method public constructor <init>(ZI)V
     .locals 2
-    .param p1, "isStatic"    # Z
-    .param p2, "maxIndices"    # I
 
     .line 71
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 53
     const/4 v0, 0x1
 
+    .line 53
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isDirty:Z
 
-    .line 54
     const/4 v1, 0x0
 
+    .line 54
     iput-boolean v1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isBound:Z
 
-    .line 73
     if-nez p2, :cond_0
 
     move v1, v0
 
+    .line 73
     :cond_0
     iput-boolean v1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->empty:Z
 
-    .line 74
     if-eqz v1, :cond_1
 
-    .line 75
-    const/4 p2, 0x1
+    move p2, v0
+
+    :cond_1
+    mul-int/lit8 p2, p2, 0x2
 
     .line 78
-    :cond_1
-    mul-int/lit8 v1, p2, 0x2
+    invoke-static {p2}, Lcom/badlogic/gdx/utils/BufferUtils;->newUnsafeByteBuffer(I)Ljava/nio/ByteBuffer;
 
-    invoke-static {v1}, Lcom/badlogic/gdx/utils/BufferUtils;->newUnsafeByteBuffer(I)Ljava/nio/ByteBuffer;
+    move-result-object p2
 
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+    iput-object p2, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
     .line 79
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isDirect:Z
 
     .line 81
-    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->asShortBuffer()Ljava/nio/ShortBuffer;
+    invoke-virtual {p2}, Ljava/nio/ByteBuffer;->asShortBuffer()Ljava/nio/ShortBuffer;
 
     move-result-object v1
 
@@ -99,52 +93,47 @@
     invoke-virtual {v1}, Ljava/nio/ShortBuffer;->flip()Ljava/nio/Buffer;
 
     .line 84
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
-
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;
+    invoke-virtual {p2}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;
 
     .line 85
-    sget-object v0, Lcom/badlogic/gdx/Gdx;->gl20:Lcom/badlogic/gdx/graphics/GL20;
+    sget-object p2, Lcom/badlogic/gdx/Gdx;->gl20:Lcom/badlogic/gdx/graphics/GL20;
 
-    invoke-interface {v0}, Lcom/badlogic/gdx/graphics/GL20;->glGenBuffer()I
+    invoke-interface {p2}, Lcom/badlogic/gdx/graphics/GL20;->glGenBuffer()I
 
-    move-result v0
+    move-result p2
 
-    iput v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->bufferHandle:I
+    iput p2, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->bufferHandle:I
 
-    .line 86
     if-eqz p1, :cond_2
 
-    const v0, 0x88e4
+    const p1, 0x88e4
 
     goto :goto_0
 
     :cond_2
-    const v0, 0x88e8
+    const p1, 0x88e8
 
+    .line 86
     :goto_0
-    iput v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->usage:I
+    iput p1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->usage:I
 
-    .line 87
     return-void
 .end method
 
 .method public constructor <init>(ZLjava/nio/ByteBuffer;)V
     .locals 3
-    .param p1, "isStatic"    # Z
-    .param p2, "data"    # Ljava/nio/ByteBuffer;
 
     .line 89
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 53
     const/4 v0, 0x1
 
+    .line 53
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isDirty:Z
 
-    .line 54
     const/4 v1, 0x0
 
+    .line 54
     iput-boolean v1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isBound:Z
 
     .line 91
@@ -173,36 +162,35 @@
     .line 95
     invoke-virtual {p2}, Ljava/nio/ByteBuffer;->asShortBuffer()Ljava/nio/ShortBuffer;
 
-    move-result-object v0
+    move-result-object p2
 
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->buffer:Ljava/nio/ShortBuffer;
+    iput-object p2, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->buffer:Ljava/nio/ShortBuffer;
 
     .line 96
     iput-boolean v1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->ownsBuffer:Z
 
     .line 97
-    sget-object v0, Lcom/badlogic/gdx/Gdx;->gl20:Lcom/badlogic/gdx/graphics/GL20;
+    sget-object p2, Lcom/badlogic/gdx/Gdx;->gl20:Lcom/badlogic/gdx/graphics/GL20;
 
-    invoke-interface {v0}, Lcom/badlogic/gdx/graphics/GL20;->glGenBuffer()I
+    invoke-interface {p2}, Lcom/badlogic/gdx/graphics/GL20;->glGenBuffer()I
 
-    move-result v0
+    move-result p2
 
-    iput v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->bufferHandle:I
+    iput p2, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->bufferHandle:I
 
-    .line 98
     if-eqz p1, :cond_1
 
-    const v0, 0x88e4
+    const p1, 0x88e4
 
     goto :goto_1
 
     :cond_1
-    const v0, 0x88e8
+    const p1, 0x88e8
 
+    .line 98
     :goto_1
-    iput v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->usage:I
+    iput p1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->usage:I
 
-    .line 99
     return-void
 .end method
 
@@ -258,18 +246,17 @@
 
     invoke-interface {v0, v2, v1, v3, v4}, Lcom/badlogic/gdx/graphics/GL20;->glBufferData(IILjava/nio/Buffer;I)V
 
-    .line 187
     const/4 v0, 0x0
 
+    .line 187
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isDirty:Z
 
-    .line 189
     :cond_0
     const/4 v0, 0x1
 
+    .line 189
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isBound:Z
 
-    .line 190
     return-void
 
     .line 181
@@ -315,7 +302,6 @@
 
     invoke-static {v0}, Lcom/badlogic/gdx/utils/BufferUtils;->disposeUnsafeByteBuffer(Ljava/nio/ByteBuffer;)V
 
-    .line 213
     :cond_0
     return-void
 .end method
@@ -323,9 +309,9 @@
 .method public getBuffer()Ljava/nio/ShortBuffer;
     .locals 1
 
-    .line 175
     const/4 v0, 0x1
 
+    .line 175
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isDirty:Z
 
     .line 176
@@ -392,22 +378,20 @@
 
     iput v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->bufferHandle:I
 
-    .line 201
     const/4 v0, 0x1
 
+    .line 201
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isDirty:Z
 
-    .line 202
     return-void
 .end method
 
 .method public setIndices(Ljava/nio/ShortBuffer;)V
-    .locals 7
-    .param p1, "indices"    # Ljava/nio/ShortBuffer;
+    .locals 5
 
-    .line 138
     const/4 v0, 0x1
 
+    .line 138
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isDirty:Z
 
     .line 139
@@ -416,7 +400,6 @@
     move-result v1
 
     .line 140
-    .local v1, "pos":I
     iget-object v2, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->buffer:Ljava/nio/ShortBuffer;
 
     invoke-virtual {v2}, Ljava/nio/ShortBuffer;->clear()Ljava/nio/Buffer;
@@ -435,121 +418,116 @@
     invoke-virtual {p1, v1}, Ljava/nio/ShortBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 144
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, v1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 145
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->buffer:Ljava/nio/ShortBuffer;
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->buffer:Ljava/nio/ShortBuffer;
 
-    invoke-virtual {v4}, Ljava/nio/ShortBuffer;->limit()I
+    invoke-virtual {v2}, Ljava/nio/ShortBuffer;->limit()I
 
-    move-result v4
+    move-result v2
 
-    shl-int/lit8 v0, v4, 0x1
+    shl-int/lit8 v0, v2, 0x1
 
-    invoke-virtual {v2, v0}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
     .line 147
-    iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isBound:Z
+    iget-boolean p1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isBound:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 148
-    sget-object v0, Lcom/badlogic/gdx/Gdx;->gl20:Lcom/badlogic/gdx/graphics/GL20;
+    sget-object p1, Lcom/badlogic/gdx/Gdx;->gl20:Lcom/badlogic/gdx/graphics/GL20;
 
-    const v2, 0x8893
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->limit()I
 
-    invoke-virtual {v4}, Ljava/nio/ByteBuffer;->limit()I
+    move-result v0
 
-    move-result v4
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    iget-object v5, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget v3, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->usage:I
 
-    iget v6, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->usage:I
+    const v4, 0x8893
 
-    invoke-interface {v0, v2, v4, v5, v6}, Lcom/badlogic/gdx/graphics/GL20;->glBufferData(IILjava/nio/Buffer;I)V
+    invoke-interface {p1, v4, v0, v2, v3}, Lcom/badlogic/gdx/graphics/GL20;->glBufferData(IILjava/nio/Buffer;I)V
 
     .line 149
-    iput-boolean v3, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isDirty:Z
+    iput-boolean v1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isDirty:Z
 
-    .line 151
     :cond_0
     return-void
 .end method
 
 .method public setIndices([SII)V
-    .locals 6
-    .param p1, "indices"    # [S
-    .param p2, "offset"    # I
-    .param p3, "count"    # I
+    .locals 3
 
-    .line 124
     const/4 v0, 0x1
 
+    .line 124
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isDirty:Z
 
     .line 125
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->buffer:Ljava/nio/ShortBuffer;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->buffer:Ljava/nio/ShortBuffer;
 
-    invoke-virtual {v0}, Ljava/nio/ShortBuffer;->clear()Ljava/nio/Buffer;
+    invoke-virtual {v1}, Ljava/nio/ShortBuffer;->clear()Ljava/nio/Buffer;
 
     .line 126
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->buffer:Ljava/nio/ShortBuffer;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->buffer:Ljava/nio/ShortBuffer;
 
-    invoke-virtual {v0, p1, p2, p3}, Ljava/nio/ShortBuffer;->put([SII)Ljava/nio/ShortBuffer;
+    invoke-virtual {v1, p1, p2, p3}, Ljava/nio/ShortBuffer;->put([SII)Ljava/nio/ShortBuffer;
 
     .line 127
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->buffer:Ljava/nio/ShortBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->buffer:Ljava/nio/ShortBuffer;
 
-    invoke-virtual {v0}, Ljava/nio/ShortBuffer;->flip()Ljava/nio/Buffer;
+    invoke-virtual {p1}, Ljava/nio/ShortBuffer;->flip()Ljava/nio/Buffer;
 
     .line 128
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, p2}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 129
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    shl-int/lit8 v2, p3, 0x1
+    shl-int/2addr p3, v0
 
-    invoke-virtual {v0, v2}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, p3}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
     .line 131
-    iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isBound:Z
+    iget-boolean p1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isBound:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 132
-    sget-object v0, Lcom/badlogic/gdx/Gdx;->gl20:Lcom/badlogic/gdx/graphics/GL20;
+    sget-object p1, Lcom/badlogic/gdx/Gdx;->gl20:Lcom/badlogic/gdx/graphics/GL20;
+
+    iget-object p3, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+
+    invoke-virtual {p3}, Ljava/nio/ByteBuffer;->limit()I
+
+    move-result p3
+
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+
+    iget v1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->usage:I
 
     const v2, 0x8893
 
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
-
-    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->limit()I
-
-    move-result v3
-
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
-
-    iget v5, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->usage:I
-
-    invoke-interface {v0, v2, v3, v4, v5}, Lcom/badlogic/gdx/graphics/GL20;->glBufferData(IILjava/nio/Buffer;I)V
+    invoke-interface {p1, v2, p3, v0, v1}, Lcom/badlogic/gdx/graphics/GL20;->glBufferData(IILjava/nio/Buffer;I)V
 
     .line 133
-    iput-boolean v1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isDirty:Z
+    iput-boolean p2, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isDirty:Z
 
-    .line 135
     :cond_0
     return-void
 .end method
@@ -569,20 +547,15 @@
     .line 195
     iput-boolean v2, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isBound:Z
 
-    .line 196
     return-void
 .end method
 
 .method public updateIndices(I[SII)V
-    .locals 7
-    .param p1, "targetOffset"    # I
-    .param p2, "indices"    # [S
-    .param p3, "offset"    # I
-    .param p4, "count"    # I
+    .locals 2
 
-    .line 155
     const/4 v0, 0x1
 
+    .line 155
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isDirty:Z
 
     .line 156
@@ -593,56 +566,54 @@
     move-result v0
 
     .line 157
-    .local v0, "pos":I
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    mul-int/lit8 v2, p1, 0x2
+    mul-int/lit8 p1, p1, 0x2
 
-    invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v1, p1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 158
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-static {p2, p3, v1, p4}, Lcom/badlogic/gdx/utils/BufferUtils;->copy([SILjava/nio/Buffer;I)V
+    invoke-static {p2, p3, p1, p4}, Lcom/badlogic/gdx/utils/BufferUtils;->copy([SILjava/nio/Buffer;I)V
 
     .line 159
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v1, v0}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 160
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->buffer:Ljava/nio/ShortBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->buffer:Ljava/nio/ShortBuffer;
 
-    const/4 v2, 0x0
+    const/4 p2, 0x0
 
-    invoke-virtual {v1, v2}, Ljava/nio/ShortBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, p2}, Ljava/nio/ShortBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 162
-    iget-boolean v1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isBound:Z
+    iget-boolean p1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isBound:Z
 
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
     .line 163
-    sget-object v1, Lcom/badlogic/gdx/Gdx;->gl20:Lcom/badlogic/gdx/graphics/GL20;
+    sget-object p1, Lcom/badlogic/gdx/Gdx;->gl20:Lcom/badlogic/gdx/graphics/GL20;
 
-    const v3, 0x8893
+    iget-object p3, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+    invoke-virtual {p3}, Ljava/nio/ByteBuffer;->limit()I
 
-    invoke-virtual {v4}, Ljava/nio/ByteBuffer;->limit()I
+    move-result p3
 
-    move-result v4
+    iget-object p4, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    iget-object v5, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->usage:I
 
-    iget v6, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->usage:I
+    const v1, 0x8893
 
-    invoke-interface {v1, v3, v4, v5, v6}, Lcom/badlogic/gdx/graphics/GL20;->glBufferData(IILjava/nio/Buffer;I)V
+    invoke-interface {p1, v1, p3, p4, v0}, Lcom/badlogic/gdx/graphics/GL20;->glBufferData(IILjava/nio/Buffer;I)V
 
     .line 164
-    iput-boolean v2, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isDirty:Z
+    iput-boolean p2, p0, Lcom/badlogic/gdx/graphics/glutils/IndexBufferObject;->isDirty:Z
 
-    .line 166
     :cond_0
     return-void
 .end method

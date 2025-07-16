@@ -22,8 +22,6 @@
 # direct methods
 .method public constructor <init>(ILorg/apache/commons/collections/Closure;)V
     .locals 0
-    .param p1, "count"    # I
-    .param p2, "closure"    # Lorg/apache/commons/collections/Closure;
 
     .line 82
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,58 +32,50 @@
     .line 84
     iput-object p2, p0, Lorg/apache/commons/collections/functors/ForClosure;->iClosure:Lorg/apache/commons/collections/Closure;
 
-    .line 85
     return-void
 .end method
 
 .method static synthetic class$(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 3
-    .param p0, "x0"    # Ljava/lang/String;
+    .locals 1
 
     .line 123
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    .local v0, "x1":Ljava/lang/ClassNotFoundException;
-    new-instance v1, Ljava/lang/NoClassDefFoundError;
+    new-instance v0, Ljava/lang/NoClassDefFoundError;
 
-    invoke-virtual {v0}, Ljava/lang/ClassNotFoundException;->getMessage()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/ClassNotFoundException;->getMessage()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-direct {v1, v2}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public static getInstance(ILorg/apache/commons/collections/Closure;)Lorg/apache/commons/collections/Closure;
     .locals 1
-    .param p0, "count"    # I
-    .param p1, "closure"    # Lorg/apache/commons/collections/Closure;
 
-    .line 65
     if-lez p0, :cond_2
 
     if-nez p1, :cond_0
 
     goto :goto_0
 
-    .line 68
     :cond_0
     const/4 v0, 0x1
 
     if-ne p0, v0, :cond_1
 
-    .line 69
     return-object p1
 
     .line 71
@@ -99,14 +89,13 @@
     .line 66
     :cond_2
     :goto_0
-    sget-object v0, Lorg/apache/commons/collections/functors/NOPClosure;->INSTANCE:Lorg/apache/commons/collections/Closure;
+    sget-object p0, Lorg/apache/commons/collections/functors/NOPClosure;->INSTANCE:Lorg/apache/commons/collections/Closure;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 1
-    .param p1, "is"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/ClassNotFoundException;,
@@ -133,13 +122,11 @@
     .line 133
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
-    .line 134
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .param p1, "os"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -165,7 +152,6 @@
     .line 124
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
-    .line 125
     return-void
 .end method
 
@@ -173,12 +159,10 @@
 # virtual methods
 .method public execute(Ljava/lang/Object;)V
     .locals 2
-    .param p1, "input"    # Ljava/lang/Object;
 
-    .line 93
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 93
     :goto_0
     iget v1, p0, Lorg/apache/commons/collections/functors/ForClosure;->iCount:I
 
@@ -189,13 +173,10 @@
 
     invoke-interface {v1, p1}, Lorg/apache/commons/collections/Closure;->execute(Ljava/lang/Object;)V
 
-    .line 93
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 96
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method

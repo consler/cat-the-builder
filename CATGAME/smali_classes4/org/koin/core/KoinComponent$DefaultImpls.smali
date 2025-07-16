@@ -30,15 +30,14 @@
 
 # direct methods
 .method public static getKoin(Lorg/koin/core/KoinComponent;)Lorg/koin/core/Koin;
-    .locals 1
-    .param p0, "$this"    # Lorg/koin/core/KoinComponent;
+    .locals 0
 
     .line 32
-    sget-object v0, Lorg/koin/core/context/KoinContextHandler;->INSTANCE:Lorg/koin/core/context/KoinContextHandler;
+    sget-object p0, Lorg/koin/core/context/KoinContextHandler;->INSTANCE:Lorg/koin/core/context/KoinContextHandler;
 
-    invoke-virtual {v0}, Lorg/koin/core/context/KoinContextHandler;->get()Lorg/koin/core/Koin;
+    invoke-virtual {p0}, Lorg/koin/core/context/KoinContextHandler;->get()Lorg/koin/core/Koin;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

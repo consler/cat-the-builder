@@ -138,12 +138,11 @@
 
     iput-object v0, p0, Landroidx/room/RoomDatabase;->mTypeConverters:Ljava/util/Map;
 
-    .line 177
     return-void
 .end method
 
 .method private internalBeginTransaction()V
-    .locals 3
+    .locals 2
 
     .line 481
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->assertNotMainThread()V
@@ -156,17 +155,9 @@
     move-result-object v0
 
     .line 483
-    .local v0, "database":Landroidx/sqlite/db/SupportSQLiteDatabase;
     iget-object v1, p0, Landroidx/room/RoomDatabase;->mInvalidationTracker:Landroidx/room/InvalidationTracker;
 
     invoke-virtual {v1, v0}, Landroidx/room/InvalidationTracker;->syncTriggers(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-
-    .line 484
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x10
-
-    if-lt v1, v2, :cond_0
 
     .line 485
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteDatabase;->isWriteAheadLoggingEnabled()Z
@@ -184,7 +175,6 @@
     :cond_0
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteDatabase;->beginTransaction()V
 
-    .line 490
     :goto_0
     return-void
 .end method
@@ -213,7 +203,6 @@
 
     invoke-virtual {v0}, Landroidx/room/InvalidationTracker;->refreshVersionsAsync()V
 
-    .line 516
     :cond_0
     return-void
 .end method
@@ -249,7 +238,6 @@
 
 .method private unwrapOpenHelper(Ljava/lang/Class;Landroidx/sqlite/db/SupportSQLiteOpenHelper;)Ljava/lang/Object;
     .locals 1
-    .param p2, "openHelper"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -274,14 +262,12 @@
     .end annotation
 
     .line 270
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-virtual {p1, p2}, Ljava/lang/Class;->isInstance(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 271
     return-object p2
 
     .line 273
@@ -291,25 +277,22 @@
     if-eqz v0, :cond_1
 
     .line 274
-    move-object v0, p2
+    check-cast p2, Landroidx/room/DelegatingOpenHelper;
 
-    check-cast v0, Landroidx/room/DelegatingOpenHelper;
+    invoke-interface {p2}, Landroidx/room/DelegatingOpenHelper;->getDelegate()Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 
-    invoke-interface {v0}, Landroidx/room/DelegatingOpenHelper;->getDelegate()Landroidx/sqlite/db/SupportSQLiteOpenHelper;
+    move-result-object p2
 
-    move-result-object v0
+    invoke-direct {p0, p1, p2}, Landroidx/room/RoomDatabase;->unwrapOpenHelper(Ljava/lang/Class;Landroidx/sqlite/db/SupportSQLiteOpenHelper;)Ljava/lang/Object;
 
-    invoke-direct {p0, p1, v0}, Landroidx/room/RoomDatabase;->unwrapOpenHelper(Ljava/lang/Class;Landroidx/sqlite/db/SupportSQLiteOpenHelper;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
+    return-object p1
 
-    return-object v0
-
-    .line 276
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 
@@ -322,7 +305,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 382
     return-void
 
     .line 384
@@ -333,7 +315,6 @@
 
     if-nez v0, :cond_1
 
-    .line 388
     return-void
 
     .line 385
@@ -377,7 +358,6 @@
 
     throw v0
 
-    .line 403
     :cond_1
     :goto_0
     return-void
@@ -403,13 +383,12 @@
 
     .line 473
     :cond_0
-    new-instance v1, Landroidx/room/-$$Lambda$RoomDatabase$MmcxTJ0RNGeDS8s3JqiozG37Vrg;
+    new-instance v1, Landroidx/room/RoomDatabase$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Landroidx/room/-$$Lambda$RoomDatabase$MmcxTJ0RNGeDS8s3JqiozG37Vrg;-><init>(Landroidx/room/RoomDatabase;)V
+    invoke-direct {v1, p0}, Landroidx/room/RoomDatabase$$ExternalSyntheticLambda0;-><init>(Landroidx/room/RoomDatabase;)V
 
     invoke-virtual {v0, v1}, Landroidx/room/AutoCloser;->executeRefCountingFunction(Landroidx/arch/core/util/Function;)Ljava/lang/Object;
 
-    .line 478
     :goto_0
     return-void
 .end method
@@ -435,7 +414,6 @@
     move-result-object v0
 
     .line 362
-    .local v0, "closeLock":Ljava/util/concurrent/locks/Lock;
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V
 
     .line 364
@@ -454,10 +432,8 @@
     .line 367
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
-    .line 368
     goto :goto_0
 
-    .line 367
     :catchall_0
     move-exception v1
 
@@ -466,8 +442,6 @@
     .line 368
     throw v1
 
-    .line 370
-    .end local v0    # "closeLock":Ljava/util/concurrent/locks/Lock;
     :cond_0
     :goto_0
     return-void
@@ -475,7 +449,6 @@
 
 .method public compileStatement(Ljava/lang/String;)Landroidx/sqlite/db/SupportSQLiteStatement;
     .locals 1
-    .param p1, "sql"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -500,9 +473,9 @@
 
     invoke-interface {v0, p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->compileStatement(Ljava/lang/String;)Landroidx/sqlite/db/SupportSQLiteStatement;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected abstract createInvalidationTracker()Landroidx/room/InvalidationTracker;
@@ -536,13 +509,12 @@
 
     .line 502
     :cond_0
-    new-instance v1, Landroidx/room/-$$Lambda$RoomDatabase$l1dZJQ0RRnTcUvfH4OLoZyOrGzI;
+    new-instance v1, Landroidx/room/RoomDatabase$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0}, Landroidx/room/-$$Lambda$RoomDatabase$l1dZJQ0RRnTcUvfH4OLoZyOrGzI;-><init>(Landroidx/room/RoomDatabase;)V
+    invoke-direct {v1, p0}, Landroidx/room/RoomDatabase$$ExternalSyntheticLambda1;-><init>(Landroidx/room/RoomDatabase;)V
 
     invoke-virtual {v0, v1}, Landroidx/room/AutoCloser;->executeRefCountingFunction(Landroidx/arch/core/util/Function;)Ljava/lang/Object;
 
-    .line 507
     :goto_0
     return-void
 .end method
@@ -675,14 +647,13 @@
     .end annotation
 
     .line 164
-    .local p1, "klass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     iget-object v0, p0, Landroidx/room/RoomDatabase;->mTypeConverters:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public inTransaction()Z
@@ -703,8 +674,7 @@
 .end method
 
 .method public init(Landroidx/room/DatabaseConfiguration;)V
-    .locals 16
-    .param p1, "configuration"    # Landroidx/room/DatabaseConfiguration;
+    .locals 9
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -715,409 +685,348 @@
     .end annotation
 
     .line 186
-    move-object/from16 v0, p0
+    invoke-virtual {p0, p1}, Landroidx/room/RoomDatabase;->createOpenHelper(Landroidx/room/DatabaseConfiguration;)Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 
-    move-object/from16 v1, p1
+    move-result-object v0
 
-    invoke-virtual/range {p0 .. p1}, Landroidx/room/RoomDatabase;->createOpenHelper(Landroidx/room/DatabaseConfiguration;)Landroidx/sqlite/db/SupportSQLiteOpenHelper;
-
-    move-result-object v2
-
-    iput-object v2, v0, Landroidx/room/RoomDatabase;->mOpenHelper:Landroidx/sqlite/db/SupportSQLiteOpenHelper;
+    iput-object v0, p0, Landroidx/room/RoomDatabase;->mOpenHelper:Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 
     .line 189
-    const-class v3, Landroidx/room/SQLiteCopyOpenHelper;
+    const-class v1, Landroidx/room/SQLiteCopyOpenHelper;
 
-    invoke-direct {v0, v3, v2}, Landroidx/room/RoomDatabase;->unwrapOpenHelper(Ljava/lang/Class;Landroidx/sqlite/db/SupportSQLiteOpenHelper;)Ljava/lang/Object;
+    invoke-direct {p0, v1, v0}, Landroidx/room/RoomDatabase;->unwrapOpenHelper(Ljava/lang/Class;Landroidx/sqlite/db/SupportSQLiteOpenHelper;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Landroidx/room/SQLiteCopyOpenHelper;
+    check-cast v0, Landroidx/room/SQLiteCopyOpenHelper;
 
-    .line 191
-    .local v2, "copyOpenHelper":Landroidx/room/SQLiteCopyOpenHelper;
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
     .line 192
-    invoke-virtual {v2, v1}, Landroidx/room/SQLiteCopyOpenHelper;->setDatabaseConfiguration(Landroidx/room/DatabaseConfiguration;)V
+    invoke-virtual {v0, p1}, Landroidx/room/SQLiteCopyOpenHelper;->setDatabaseConfiguration(Landroidx/room/DatabaseConfiguration;)V
 
     .line 195
     :cond_0
-    const-class v3, Landroidx/room/AutoClosingRoomOpenHelper;
+    const-class v0, Landroidx/room/AutoClosingRoomOpenHelper;
 
-    iget-object v4, v0, Landroidx/room/RoomDatabase;->mOpenHelper:Landroidx/sqlite/db/SupportSQLiteOpenHelper;
+    iget-object v1, p0, Landroidx/room/RoomDatabase;->mOpenHelper:Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 
     .line 196
-    invoke-direct {v0, v3, v4}, Landroidx/room/RoomDatabase;->unwrapOpenHelper(Ljava/lang/Class;Landroidx/sqlite/db/SupportSQLiteOpenHelper;)Ljava/lang/Object;
+    invoke-direct {p0, v0, v1}, Landroidx/room/RoomDatabase;->unwrapOpenHelper(Ljava/lang/Class;Landroidx/sqlite/db/SupportSQLiteOpenHelper;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v0
 
-    check-cast v3, Landroidx/room/AutoClosingRoomOpenHelper;
+    check-cast v0, Landroidx/room/AutoClosingRoomOpenHelper;
 
-    .line 198
-    .local v3, "autoClosingRoomOpenHelper":Landroidx/room/AutoClosingRoomOpenHelper;
-    if-eqz v3, :cond_1
+    if-eqz v0, :cond_1
 
     .line 199
-    invoke-virtual {v3}, Landroidx/room/AutoClosingRoomOpenHelper;->getAutoCloser()Landroidx/room/AutoCloser;
+    invoke-virtual {v0}, Landroidx/room/AutoClosingRoomOpenHelper;->getAutoCloser()Landroidx/room/AutoCloser;
 
-    move-result-object v4
+    move-result-object v0
 
-    iput-object v4, v0, Landroidx/room/RoomDatabase;->mAutoCloser:Landroidx/room/AutoCloser;
+    iput-object v0, p0, Landroidx/room/RoomDatabase;->mAutoCloser:Landroidx/room/AutoCloser;
 
     .line 200
-    iget-object v5, v0, Landroidx/room/RoomDatabase;->mInvalidationTracker:Landroidx/room/InvalidationTracker;
+    iget-object v1, p0, Landroidx/room/RoomDatabase;->mInvalidationTracker:Landroidx/room/InvalidationTracker;
 
-    invoke-virtual {v5, v4}, Landroidx/room/InvalidationTracker;->setAutoCloser(Landroidx/room/AutoCloser;)V
-
-    .line 204
-    :cond_1
-    const/4 v4, 0x0
-
-    .line 205
-    .local v4, "wal":Z
-    sget v5, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v6, 0x10
-
-    const/4 v7, 0x1
-
-    if-lt v5, v6, :cond_3
+    invoke-virtual {v1, v0}, Landroidx/room/InvalidationTracker;->setAutoCloser(Landroidx/room/AutoCloser;)V
 
     .line 206
-    iget-object v5, v1, Landroidx/room/DatabaseConfiguration;->journalMode:Landroidx/room/RoomDatabase$JournalMode;
+    :cond_1
+    iget-object v0, p1, Landroidx/room/DatabaseConfiguration;->journalMode:Landroidx/room/RoomDatabase$JournalMode;
 
-    sget-object v6, Landroidx/room/RoomDatabase$JournalMode;->WRITE_AHEAD_LOGGING:Landroidx/room/RoomDatabase$JournalMode;
+    sget-object v1, Landroidx/room/RoomDatabase$JournalMode;->WRITE_AHEAD_LOGGING:Landroidx/room/RoomDatabase$JournalMode;
 
-    if-ne v5, v6, :cond_2
+    const/4 v2, 0x1
 
-    move v5, v7
+    if-ne v0, v1, :cond_2
+
+    move v0, v2
 
     goto :goto_0
 
     :cond_2
-    const/4 v5, 0x0
-
-    :goto_0
-    move v4, v5
+    const/4 v0, 0x0
 
     .line 207
-    iget-object v5, v0, Landroidx/room/RoomDatabase;->mOpenHelper:Landroidx/sqlite/db/SupportSQLiteOpenHelper;
+    :goto_0
+    iget-object v1, p0, Landroidx/room/RoomDatabase;->mOpenHelper:Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 
-    invoke-interface {v5, v4}, Landroidx/sqlite/db/SupportSQLiteOpenHelper;->setWriteAheadLoggingEnabled(Z)V
+    invoke-interface {v1, v0}, Landroidx/sqlite/db/SupportSQLiteOpenHelper;->setWriteAheadLoggingEnabled(Z)V
 
     .line 209
-    :cond_3
-    iget-object v5, v1, Landroidx/room/DatabaseConfiguration;->callbacks:Ljava/util/List;
+    iget-object v1, p1, Landroidx/room/DatabaseConfiguration;->callbacks:Ljava/util/List;
 
-    iput-object v5, v0, Landroidx/room/RoomDatabase;->mCallbacks:Ljava/util/List;
+    iput-object v1, p0, Landroidx/room/RoomDatabase;->mCallbacks:Ljava/util/List;
 
     .line 210
-    iget-object v5, v1, Landroidx/room/DatabaseConfiguration;->queryExecutor:Ljava/util/concurrent/Executor;
+    iget-object v1, p1, Landroidx/room/DatabaseConfiguration;->queryExecutor:Ljava/util/concurrent/Executor;
 
-    iput-object v5, v0, Landroidx/room/RoomDatabase;->mQueryExecutor:Ljava/util/concurrent/Executor;
+    iput-object v1, p0, Landroidx/room/RoomDatabase;->mQueryExecutor:Ljava/util/concurrent/Executor;
 
     .line 211
-    new-instance v5, Landroidx/room/TransactionExecutor;
+    new-instance v1, Landroidx/room/TransactionExecutor;
 
-    iget-object v6, v1, Landroidx/room/DatabaseConfiguration;->transactionExecutor:Ljava/util/concurrent/Executor;
+    iget-object v3, p1, Landroidx/room/DatabaseConfiguration;->transactionExecutor:Ljava/util/concurrent/Executor;
 
-    invoke-direct {v5, v6}, Landroidx/room/TransactionExecutor;-><init>(Ljava/util/concurrent/Executor;)V
+    invoke-direct {v1, v3}, Landroidx/room/TransactionExecutor;-><init>(Ljava/util/concurrent/Executor;)V
 
-    iput-object v5, v0, Landroidx/room/RoomDatabase;->mTransactionExecutor:Ljava/util/concurrent/Executor;
+    iput-object v1, p0, Landroidx/room/RoomDatabase;->mTransactionExecutor:Ljava/util/concurrent/Executor;
 
     .line 212
-    iget-boolean v5, v1, Landroidx/room/DatabaseConfiguration;->allowMainThreadQueries:Z
+    iget-boolean v1, p1, Landroidx/room/DatabaseConfiguration;->allowMainThreadQueries:Z
 
-    iput-boolean v5, v0, Landroidx/room/RoomDatabase;->mAllowMainThreadQueries:Z
+    iput-boolean v1, p0, Landroidx/room/RoomDatabase;->mAllowMainThreadQueries:Z
 
     .line 213
-    iput-boolean v4, v0, Landroidx/room/RoomDatabase;->mWriteAheadLoggingEnabled:Z
+    iput-boolean v0, p0, Landroidx/room/RoomDatabase;->mWriteAheadLoggingEnabled:Z
 
     .line 214
-    iget-boolean v5, v1, Landroidx/room/DatabaseConfiguration;->multiInstanceInvalidation:Z
+    iget-boolean v0, p1, Landroidx/room/DatabaseConfiguration;->multiInstanceInvalidation:Z
+
+    if-eqz v0, :cond_3
+
+    .line 215
+    iget-object v0, p0, Landroidx/room/RoomDatabase;->mInvalidationTracker:Landroidx/room/InvalidationTracker;
+
+    iget-object v1, p1, Landroidx/room/DatabaseConfiguration;->context:Landroid/content/Context;
+
+    iget-object v3, p1, Landroidx/room/DatabaseConfiguration;->name:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v3}, Landroidx/room/InvalidationTracker;->startMultiInstanceInvalidation(Landroid/content/Context;Ljava/lang/String;)V
+
+    .line 219
+    :cond_3
+    invoke-virtual {p0}, Landroidx/room/RoomDatabase;->getRequiredTypeConverters()Ljava/util/Map;
+
+    move-result-object v0
+
+    .line 223
+    new-instance v1, Ljava/util/BitSet;
+
+    invoke-direct {v1}, Ljava/util/BitSet;-><init>()V
+
+    .line 224
+    invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :cond_4
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_8
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/util/Map$Entry;
+
+    .line 225
+    invoke-interface {v3}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Ljava/lang/Class;
+
+    .line 226
+    invoke-interface {v3}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/util/List;
+
+    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :goto_1
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
 
     if-eqz v5, :cond_4
 
-    .line 215
-    iget-object v5, v0, Landroidx/room/RoomDatabase;->mInvalidationTracker:Landroidx/room/InvalidationTracker;
-
-    iget-object v6, v1, Landroidx/room/DatabaseConfiguration;->context:Landroid/content/Context;
-
-    iget-object v8, v1, Landroidx/room/DatabaseConfiguration;->name:Ljava/lang/String;
-
-    invoke-virtual {v5, v6, v8}, Landroidx/room/InvalidationTracker;->startMultiInstanceInvalidation(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 219
-    :cond_4
-    invoke-virtual/range {p0 .. p0}, Landroidx/room/RoomDatabase;->getRequiredTypeConverters()Ljava/util/Map;
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v5
 
-    .line 223
-    .local v5, "requiredFactories":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/util/List<Ljava/lang/Class<*>;>;>;"
-    new-instance v6, Ljava/util/BitSet;
-
-    invoke-direct {v6}, Ljava/util/BitSet;-><init>()V
-
-    .line 224
-    .local v6, "used":Ljava/util/BitSet;
-    invoke-interface {v5}, Ljava/util/Map;->entrySet()Ljava/util/Set;
-
-    move-result-object v8
-
-    invoke-interface {v8}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v8
-
-    :goto_1
-    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v9
-
-    if-eqz v9, :cond_9
-
-    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v9
-
-    check-cast v9, Ljava/util/Map$Entry;
-
-    .line 225
-    .local v9, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Class<*>;Ljava/util/List<Ljava/lang/Class<*>;>;>;"
-    invoke-interface {v9}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v10
-
-    check-cast v10, Ljava/lang/Class;
-
-    .line 226
-    .local v10, "daoName":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    invoke-interface {v9}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v11
-
-    check-cast v11, Ljava/util/List;
-
-    invoke-interface {v11}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v11
-
-    :goto_2
-    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_8
-
-    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Ljava/lang/Class;
-
-    .line 227
-    .local v12, "converter":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    const/4 v13, -0x1
+    check-cast v5, Ljava/lang/Class;
 
     .line 229
-    .local v13, "foundIndex":I
-    iget-object v14, v1, Landroidx/room/DatabaseConfiguration;->typeConverters:Ljava/util/List;
+    iget-object v6, p1, Landroidx/room/DatabaseConfiguration;->typeConverters:Ljava/util/List;
 
-    invoke-interface {v14}, Ljava/util/List;->size()I
+    invoke-interface {v6}, Ljava/util/List;->size()I
 
-    move-result v14
+    move-result v6
 
-    sub-int/2addr v14, v7
+    sub-int/2addr v6, v2
 
-    .line 230
-    .local v14, "providedIndex":I
-    :goto_3
-    if-ltz v14, :cond_6
+    :goto_2
+    if-ltz v6, :cond_6
 
     .line 231
-    iget-object v15, v1, Landroidx/room/DatabaseConfiguration;->typeConverters:Ljava/util/List;
+    iget-object v7, p1, Landroidx/room/DatabaseConfiguration;->typeConverters:Ljava/util/List;
 
-    invoke-interface {v15, v14}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v15
-
-    .line 232
-    .local v15, "provided":Ljava/lang/Object;
-    invoke-virtual {v15}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-interface {v7, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v7
 
-    invoke-virtual {v12, v7}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    .line 232
+    invoke-virtual {v7}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v7
+
+    invoke-virtual {v5, v7}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
     move-result v7
 
     if-eqz v7, :cond_5
 
-    .line 233
-    move v13, v14
-
     .line 234
-    invoke-virtual {v6, v13}, Ljava/util/BitSet;->set(I)V
-
-    .line 235
-    goto :goto_4
-
-    .line 230
-    .end local v15    # "provided":Ljava/lang/Object;
-    :cond_5
-    add-int/lit8 v14, v14, -0x1
-
-    const/4 v7, 0x1
+    invoke-virtual {v1, v6}, Ljava/util/BitSet;->set(I)V
 
     goto :goto_3
 
-    .line 238
-    .end local v14    # "providedIndex":I
-    :cond_6
-    :goto_4
-    if-ltz v13, :cond_7
-
-    .line 244
-    iget-object v7, v0, Landroidx/room/RoomDatabase;->mTypeConverters:Ljava/util/Map;
-
-    iget-object v14, v1, Landroidx/room/DatabaseConfiguration;->typeConverters:Ljava/util/List;
-
-    invoke-interface {v14, v13}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v14
-
-    invoke-interface {v7, v12, v14}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 245
-    .end local v12    # "converter":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .end local v13    # "foundIndex":I
-    const/4 v7, 0x1
+    :cond_5
+    add-int/lit8 v6, v6, -0x1
 
     goto :goto_2
 
+    :cond_6
+    const/4 v6, -0x1
+
+    :goto_3
+    if-ltz v6, :cond_7
+
+    .line 244
+    iget-object v7, p0, Landroidx/room/RoomDatabase;->mTypeConverters:Ljava/util/Map;
+
+    iget-object v8, p1, Landroidx/room/DatabaseConfiguration;->typeConverters:Ljava/util/List;
+
+    invoke-interface {v8, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    invoke-interface {v7, v5, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_1
+
     .line 239
-    .restart local v12    # "converter":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .restart local v13    # "foundIndex":I
     :cond_7
-    new-instance v7, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "A required type converter ("
 
-    const-string v11, "A required type converter ("
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v8, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    const-string v11, ") for "
+    const-string v1, ") for "
 
-    invoke-virtual {v8, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     .line 241
-    invoke-virtual {v10}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v1
 
-    invoke-virtual {v8, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v11, " is missing in the database configuration."
+    move-result-object v0
 
-    invoke-virtual {v8, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " is missing in the database configuration."
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v8
+    move-result-object v0
 
-    invoke-direct {v7, v8}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v7
+    move-result-object v0
 
-    .line 246
-    .end local v9    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Class<*>;Ljava/util/List<Ljava/lang/Class<*>;>;>;"
-    .end local v10    # "daoName":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .end local v12    # "converter":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .end local v13    # "foundIndex":I
-    :cond_8
-    const/4 v7, 0x1
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    goto/16 :goto_1
+    throw p1
 
     .line 248
-    :cond_9
-    iget-object v7, v1, Landroidx/room/DatabaseConfiguration;->typeConverters:Ljava/util/List;
+    :cond_8
+    iget-object v0, p1, Landroidx/room/DatabaseConfiguration;->typeConverters:Ljava/util/List;
 
-    invoke-interface {v7}, Ljava/util/List;->size()I
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result v7
+    move-result v0
 
-    const/4 v8, 0x1
+    sub-int/2addr v0, v2
 
-    sub-int/2addr v7, v8
-
-    .line 249
-    .local v7, "providedIndex":I
-    :goto_5
-    if-ltz v7, :cond_b
+    :goto_4
+    if-ltz v0, :cond_a
 
     .line 250
-    invoke-virtual {v6, v7}, Ljava/util/BitSet;->get(I)Z
+    invoke-virtual {v1, v0}, Ljava/util/BitSet;->get(I)Z
 
-    move-result v8
+    move-result v2
 
-    if-eqz v8, :cond_a
+    if-eqz v2, :cond_9
 
-    .line 249
-    add-int/lit8 v7, v7, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    goto :goto_5
+    goto :goto_4
 
     .line 251
-    :cond_a
-    iget-object v8, v1, Landroidx/room/DatabaseConfiguration;->typeConverters:Ljava/util/List;
+    :cond_9
+    iget-object p1, p1, Landroidx/room/DatabaseConfiguration;->typeConverters:Ljava/util/List;
 
-    invoke-interface {v8, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object p1
 
     .line 252
-    .local v8, "converter":Ljava/lang/Object;
-    new-instance v9, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "Unexpected type converter "
 
-    const-string v11, "Unexpected type converter "
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    const-string v11, ". Annotate TypeConverter class with @ProvidedTypeConverter annotation or remove this converter from the builder."
+    const-string v1, ". Annotate TypeConverter class with @ProvidedTypeConverter annotation or remove this converter from the builder."
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v10
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v9, v10}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    throw v9
+    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    .line 257
-    .end local v7    # "providedIndex":I
-    .end local v8    # "converter":Ljava/lang/Object;
-    :cond_b
+    throw v0
+
+    :cond_a
     return-void
 .end method
 
 .method protected internalInitInvalidationTracker(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
     .locals 1
-    .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1132,12 +1041,11 @@
 
     invoke-virtual {v0, p1}, Landroidx/room/InvalidationTracker;->internalInit(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
 
-    .line 599
     return-void
 .end method
 
 .method public isOpen()Z
-    .locals 2
+    .locals 1
 
     .line 348
     iget-object v0, p0, Landroidx/room/RoomDatabase;->mAutoCloser:Landroidx/room/AutoCloser;
@@ -1155,56 +1063,50 @@
     :cond_0
     iget-object v0, p0, Landroidx/room/RoomDatabase;->mDatabase:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
-    .line 353
-    .local v0, "db":Landroidx/sqlite/db/SupportSQLiteDatabase;
     if-eqz v0, :cond_1
 
+    .line 353
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteDatabase;->isOpen()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    return v1
+    return v0
 .end method
 
-.method public synthetic lambda$beginTransaction$0$RoomDatabase(Landroidx/sqlite/db/SupportSQLiteDatabase;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
+.method synthetic lambda$beginTransaction$0$androidx-room-RoomDatabase(Landroidx/sqlite/db/SupportSQLiteDatabase;)Ljava/lang/Object;
+    .locals 0
 
     .line 474
     invoke-direct {p0}, Landroidx/room/RoomDatabase;->internalBeginTransaction()V
 
-    .line 475
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
-.method public synthetic lambda$endTransaction$1$RoomDatabase(Landroidx/sqlite/db/SupportSQLiteDatabase;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
+.method synthetic lambda$endTransaction$1$androidx-room-RoomDatabase(Landroidx/sqlite/db/SupportSQLiteDatabase;)Ljava/lang/Object;
+    .locals 0
 
     .line 503
     invoke-direct {p0}, Landroidx/room/RoomDatabase;->internalEndTransaction()V
 
-    .line 504
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public query(Landroidx/sqlite/db/SupportSQLiteQuery;)Landroid/database/Cursor;
     .locals 1
-    .param p1, "query"    # Landroidx/sqlite/db/SupportSQLiteQuery;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1214,20 +1116,18 @@
         }
     .end annotation
 
-    .line 429
     const/4 v0, 0x0
 
+    .line 429
     invoke-virtual {p0, p1, v0}, Landroidx/room/RoomDatabase;->query(Landroidx/sqlite/db/SupportSQLiteQuery;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public query(Landroidx/sqlite/db/SupportSQLiteQuery;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
-    .locals 2
-    .param p1, "query"    # Landroidx/sqlite/db/SupportSQLiteQuery;
-    .param p2, "signal"    # Landroid/os/CancellationSignal;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -1245,14 +1145,7 @@
     .line 442
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->assertNotSuspendingTransaction()V
 
-    .line 443
     if-eqz p2, :cond_0
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x10
-
-    if-lt v0, v1, :cond_0
 
     .line 444
     iget-object v0, p0, Landroidx/room/RoomDatabase;->mOpenHelper:Landroidx/sqlite/db/SupportSQLiteOpenHelper;
@@ -1263,29 +1156,27 @@
 
     invoke-interface {v0, p1, p2}, Landroidx/sqlite/db/SupportSQLiteDatabase;->query(Landroidx/sqlite/db/SupportSQLiteQuery;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 446
     :cond_0
-    iget-object v0, p0, Landroidx/room/RoomDatabase;->mOpenHelper:Landroidx/sqlite/db/SupportSQLiteOpenHelper;
+    iget-object p2, p0, Landroidx/room/RoomDatabase;->mOpenHelper:Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 
-    invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteOpenHelper;->getWritableDatabase()Landroidx/sqlite/db/SupportSQLiteDatabase;
+    invoke-interface {p2}, Landroidx/sqlite/db/SupportSQLiteOpenHelper;->getWritableDatabase()Landroidx/sqlite/db/SupportSQLiteDatabase;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-interface {v0, p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->query(Landroidx/sqlite/db/SupportSQLiteQuery;)Landroid/database/Cursor;
+    invoke-interface {p2, p1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->query(Landroidx/sqlite/db/SupportSQLiteQuery;)Landroid/database/Cursor;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public query(Ljava/lang/String;[Ljava/lang/Object;)Landroid/database/Cursor;
     .locals 2
-    .param p1, "query"    # Ljava/lang/String;
-    .param p2, "args"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -1310,13 +1201,13 @@
 
     invoke-interface {v0, v1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->query(Landroidx/sqlite/db/SupportSQLiteQuery;)Landroid/database/Cursor;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public runInTransaction(Ljava/util/concurrent/Callable;)Ljava/lang/Object;
-    .locals 2
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1337,87 +1228,66 @@
     .end annotation
 
     .line 575
-    .local p1, "body":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TV;>;"
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->beginTransaction()V
 
     .line 577
     :try_start_0
     invoke-interface {p1}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 578
-    .local v0, "result":Ljava/lang/Object;, "TV;"
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 579
-    nop
-
     .line 586
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->endTransaction()V
 
-    .line 579
-    return-object v0
+    return-object p1
 
-    .line 586
-    .end local v0    # "result":Ljava/lang/Object;, "TV;"
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     goto :goto_0
 
-    .line 582
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 583
-    .local v0, "e":Ljava/lang/Exception;
     :try_start_1
-    invoke-static {v0}, Landroidx/room/util/SneakyThrow;->reThrow(Ljava/lang/Exception;)V
+    invoke-static {p1}, Landroidx/room/util/SneakyThrow;->reThrow(Ljava/lang/Exception;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    .line 584
-    const/4 v1, 0x0
 
     .line 586
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->endTransaction()V
 
-    .line 584
-    return-object v1
+    const/4 p1, 0x0
 
-    .line 580
-    .end local v0    # "e":Ljava/lang/Exception;
+    return-object p1
+
     :catch_1
-    move-exception v0
+    move-exception p1
 
     .line 581
-    .local v0, "e":Ljava/lang/RuntimeException;
-    nop
-
-    .end local p1    # "body":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TV;>;"
     :try_start_2
-    throw v0
+    throw p1
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 586
-    .end local v0    # "e":Ljava/lang/RuntimeException;
-    .restart local p1    # "body":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TV;>;"
     :goto_0
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->endTransaction()V
 
     .line 587
-    throw v0
+    throw p1
 .end method
 
 .method public runInTransaction(Ljava/lang/Runnable;)V
-    .locals 1
-    .param p1, "body"    # Ljava/lang/Runnable;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1442,20 +1312,15 @@
     .line 559
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->endTransaction()V
 
-    .line 560
-    nop
-
-    .line 561
     return-void
 
-    .line 559
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->endTransaction()V
 
     .line 560
-    throw v0
+    throw p1
 .end method
 
 .method public setTransactionSuccessful()V
@@ -1472,6 +1337,5 @@
 
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteDatabase;->setTransactionSuccessful()V
 
-    .line 542
     return-void
 .end method

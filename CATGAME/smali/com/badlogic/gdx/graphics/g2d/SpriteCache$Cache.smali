@@ -31,8 +31,6 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 0
-    .param p1, "id"    # I
-    .param p2, "offset"    # I
 
     .line 972
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,6 +41,5 @@
     .line 974
     iput p2, p0, Lcom/badlogic/gdx/graphics/g2d/SpriteCache$Cache;->offset:I
 
-    .line 975
     return-void
 .end method

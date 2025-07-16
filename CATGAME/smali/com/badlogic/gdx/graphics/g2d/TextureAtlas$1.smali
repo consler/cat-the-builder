@@ -39,36 +39,34 @@
 
 # virtual methods
 .method public compare(Lcom/badlogic/gdx/graphics/g2d/TextureAtlas$TextureAtlasData$Region;Lcom/badlogic/gdx/graphics/g2d/TextureAtlas$TextureAtlasData$Region;)I
-    .locals 3
-    .param p1, "region1"    # Lcom/badlogic/gdx/graphics/g2d/TextureAtlas$TextureAtlasData$Region;
-    .param p2, "region2"    # Lcom/badlogic/gdx/graphics/g2d/TextureAtlas$TextureAtlasData$Region;
+    .locals 2
 
     .line 436
-    iget v0, p1, Lcom/badlogic/gdx/graphics/g2d/TextureAtlas$TextureAtlasData$Region;->index:I
-
-    .line 437
-    .local v0, "i1":I
-    const/4 v1, -0x1
-
-    if-ne v0, v1, :cond_0
+    iget p1, p1, Lcom/badlogic/gdx/graphics/g2d/TextureAtlas$TextureAtlasData$Region;->index:I
 
     const v0, 0x7fffffff
 
+    const/4 v1, -0x1
+
+    if-ne p1, v1, :cond_0
+
+    move p1, v0
+
     .line 438
     :cond_0
-    iget v2, p2, Lcom/badlogic/gdx/graphics/g2d/TextureAtlas$TextureAtlasData$Region;->index:I
+    iget p2, p2, Lcom/badlogic/gdx/graphics/g2d/TextureAtlas$TextureAtlasData$Region;->index:I
 
-    .line 439
-    .local v2, "i2":I
-    if-ne v2, v1, :cond_1
+    if-ne p2, v1, :cond_1
 
-    const v2, 0x7fffffff
+    goto :goto_0
 
-    .line 440
     :cond_1
-    sub-int v1, v0, v2
+    move v0, p2
 
-    return v1
+    :goto_0
+    sub-int/2addr p1, v0
+
+    return p1
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I

@@ -25,9 +25,6 @@
 # direct methods
 .method public constructor <init>(IIZ)V
     .locals 0
-    .param p1, "posInOwnerList"    # I
-    .param p2, "currentPos"    # I
-    .param p3, "removal"    # Z
 
     .line 973
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,6 +38,5 @@
     .line 976
     iput-boolean p3, p0, Landroidx/recyclerview/widget/DiffUtil$PostponedUpdate;->removal:Z
 
-    .line 977
     return-void
 .end method

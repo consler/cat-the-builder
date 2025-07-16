@@ -27,9 +27,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .locals 4
-    .param p1, "start"    # I
-    .param p2, "count"    # I
+    .locals 2
 
     .line 26
     invoke-direct {p0}, Lio/reactivex/Observable;-><init>()V
@@ -37,16 +35,15 @@
     .line 27
     iput p1, p0, Lio/reactivex/internal/operators/observable/ObservableRange;->start:I
 
-    .line 28
     int-to-long v0, p1
 
-    int-to-long v2, p2
+    int-to-long p1, p2
 
-    add-long/2addr v0, v2
+    add-long/2addr v0, p1
 
+    .line 28
     iput-wide v0, p0, Lio/reactivex/internal/operators/observable/ObservableRange;->end:J
 
-    .line 29
     return-void
 .end method
 
@@ -65,7 +62,6 @@
     .end annotation
 
     .line 33
-    .local p1, "o":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-Ljava/lang/Integer;>;"
     new-instance v6, Lio/reactivex/internal/operators/observable/ObservableRange$RangeDisposable;
 
     iget v0, p0, Lio/reactivex/internal/operators/observable/ObservableRange;->start:I
@@ -81,12 +77,10 @@
     invoke-direct/range {v0 .. v5}, Lio/reactivex/internal/operators/observable/ObservableRange$RangeDisposable;-><init>(Lio/reactivex/Observer;JJ)V
 
     .line 34
-    .local v0, "parent":Lio/reactivex/internal/operators/observable/ObservableRange$RangeDisposable;
-    invoke-interface {p1, v0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, v6}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 35
-    invoke-virtual {v0}, Lio/reactivex/internal/operators/observable/ObservableRange$RangeDisposable;->run()V
+    invoke-virtual {v6}, Lio/reactivex/internal/operators/observable/ObservableRange$RangeDisposable;->run()V
 
-    .line 36
     return-void
 .end method

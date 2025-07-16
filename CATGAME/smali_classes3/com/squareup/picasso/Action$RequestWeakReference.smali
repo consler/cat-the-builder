@@ -31,7 +31,6 @@
 # direct methods
 .method constructor <init>(Lcom/squareup/picasso/Action;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
     .locals 0
-    .param p1, "action"    # Lcom/squareup/picasso/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -43,14 +42,10 @@
     .end annotation
 
     .line 30
-    .local p0, "this":Lcom/squareup/picasso/Action$RequestWeakReference;, "Lcom/squareup/picasso/Action$RequestWeakReference<TM;>;"
-    .local p2, "referent":Ljava/lang/Object;, "TM;"
-    .local p3, "q":Ljava/lang/ref/ReferenceQueue;, "Ljava/lang/ref/ReferenceQueue<-TM;>;"
     invoke-direct {p0, p2, p3}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
 
     .line 31
     iput-object p1, p0, Lcom/squareup/picasso/Action$RequestWeakReference;->action:Lcom/squareup/picasso/Action;
 
-    .line 32
     return-void
 .end method

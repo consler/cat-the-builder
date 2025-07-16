@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/socketio/SocketIOConnection;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/socketio/SocketIOConnection;
 
     .line 331
     iput-object p1, p0, Lcom/koushikdutta/async/http/socketio/SocketIOConnection$10;->this$0:Lcom/koushikdutta/async/http/socketio/SocketIOConnection;
@@ -41,22 +40,18 @@
 
 # virtual methods
 .method public onSelect(Lcom/koushikdutta/async/http/socketio/SocketIOClient;)V
-    .locals 2
-    .param p1, "client"    # Lcom/koushikdutta/async/http/socketio/SocketIOClient;
+    .locals 1
 
     .line 334
-    iget-object v0, p1, Lcom/koushikdutta/async/http/socketio/SocketIOClient;->errorCallback:Lcom/koushikdutta/async/http/socketio/ErrorCallback;
+    iget-object p1, p1, Lcom/koushikdutta/async/http/socketio/SocketIOClient;->errorCallback:Lcom/koushikdutta/async/http/socketio/ErrorCallback;
 
-    .line 335
-    .local v0, "callback":Lcom/koushikdutta/async/http/socketio/ErrorCallback;
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 336
-    iget-object v1, p0, Lcom/koushikdutta/async/http/socketio/SocketIOConnection$10;->val$error:Ljava/lang/String;
+    iget-object v0, p0, Lcom/koushikdutta/async/http/socketio/SocketIOConnection$10;->val$error:Ljava/lang/String;
 
-    invoke-interface {v0, v1}, Lcom/koushikdutta/async/http/socketio/ErrorCallback;->onError(Ljava/lang/String;)V
+    invoke-interface {p1, v0}, Lcom/koushikdutta/async/http/socketio/ErrorCallback;->onError(Ljava/lang/String;)V
 
-    .line 337
     :cond_0
     return-void
 .end method

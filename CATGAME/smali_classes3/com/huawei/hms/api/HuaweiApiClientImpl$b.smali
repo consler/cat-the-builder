@@ -3,27 +3,17 @@
 .source "HuaweiApiClientImpl.java"
 
 # interfaces
-.implements Lcom/huawei/hms/support/api/client/ResultCallback;
+.implements Landroid/os/Handler$Callback;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/huawei/hms/api/HuaweiApiClientImpl;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/huawei/hms/api/HuaweiApiClientImpl;->i()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
-    name = "b"
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Lcom/huawei/hms/support/api/client/ResultCallback<",
-        "Lcom/huawei/hms/support/api/ResolveResult<",
-        "Lcom/huawei/hms/support/api/entity/core/DisconnectResp;",
-        ">;>;"
-    }
+    accessFlags = 0x0
+    name = null
 .end annotation
 
 
@@ -32,10 +22,10 @@
 
 
 # direct methods
-.method private constructor <init>(Lcom/huawei/hms/api/HuaweiApiClientImpl;)V
+.method constructor <init>(Lcom/huawei/hms/api/HuaweiApiClientImpl;)V
     .locals 0
 
-    .line 1282
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl$b;->a:Lcom/huawei/hms/api/HuaweiApiClientImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,54 +33,63 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/huawei/hms/api/HuaweiApiClientImpl;Lcom/huawei/hms/api/HuaweiApiClientImpl$1;)V
-    .locals 0
-
-    .line 1282
-    invoke-direct {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl$b;-><init>(Lcom/huawei/hms/api/HuaweiApiClientImpl;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public a(Lcom/huawei/hms/support/api/ResolveResult;)V
+.method public handleMessage(Landroid/os/Message;)Z
     .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/huawei/hms/support/api/ResolveResult<",
-            "Lcom/huawei/hms/support/api/entity/core/DisconnectResp;",
-            ">;)V"
-        }
-    .end annotation
 
-    .line 1285
-    new-instance v0, Landroid/os/Handler;
+    if-eqz p1, :cond_2
 
-    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+    .line 1
+    iget p1, p1, Landroid/os/Message;->what:I
 
-    move-result-object v1
+    const/4 v0, 0x3
 
-    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    if-eq p1, v0, :cond_0
 
-    new-instance v1, Lcom/huawei/hms/api/HuaweiApiClientImpl$b$1;
+    goto :goto_0
 
-    invoke-direct {v1, p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl$b$1;-><init>(Lcom/huawei/hms/api/HuaweiApiClientImpl$b;Lcom/huawei/hms/support/api/ResolveResult;)V
+    :cond_0
+    const-string p1, "HuaweiApiClientImpl"
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    const-string v0, "In connect, process time out"
 
-    .line 1292
-    return-void
-.end method
+    .line 4
+    invoke-static {p1, v0}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-.method public synthetic onResult(Ljava/lang/Object;)V
-    .locals 0
+    .line 5
+    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl$b;->a:Lcom/huawei/hms/api/HuaweiApiClientImpl;
 
-    .line 1282
-    check-cast p1, Lcom/huawei/hms/support/api/ResolveResult;
+    invoke-static {p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->a(Lcom/huawei/hms/api/HuaweiApiClientImpl;)Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl$b;->a(Lcom/huawei/hms/support/api/ResolveResult;)V
+    move-result-object p1
 
-    return-void
+    invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
+
+    move-result p1
+
+    const/4 v0, 0x2
+
+    const/4 v1, 0x1
+
+    if-ne p1, v0, :cond_1
+
+    .line 6
+    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl$b;->a:Lcom/huawei/hms/api/HuaweiApiClientImpl;
+
+    invoke-static {p1, v1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->a(Lcom/huawei/hms/api/HuaweiApiClientImpl;I)V
+
+    .line 7
+    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl$b;->a:Lcom/huawei/hms/api/HuaweiApiClientImpl;
+
+    invoke-static {p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b(Lcom/huawei/hms/api/HuaweiApiClientImpl;)V
+
+    :cond_1
+    return v1
+
+    :cond_2
+    :goto_0
+    const/4 p1, 0x0
+
+    return p1
 .end method

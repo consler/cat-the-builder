@@ -34,9 +34,9 @@
     .line 171
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 166
     const/4 v0, 0x0
 
+    .line 166
     iput v0, p0, Landroidx/media/AudioAttributesImplBase$Builder;->mUsage:I
 
     .line 167
@@ -45,25 +45,23 @@
     .line 168
     iput v0, p0, Landroidx/media/AudioAttributesImplBase$Builder;->mFlags:I
 
-    .line 169
     const/4 v0, -0x1
 
+    .line 169
     iput v0, p0, Landroidx/media/AudioAttributesImplBase$Builder;->mLegacyStream:I
 
-    .line 172
     return-void
 .end method
 
 .method constructor <init>(Landroidx/media/AudioAttributesCompat;)V
     .locals 1
-    .param p1, "aa"    # Landroidx/media/AudioAttributesCompat;
 
     .line 174
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 166
     const/4 v0, 0x0
 
+    .line 166
     iput v0, p0, Landroidx/media/AudioAttributesImplBase$Builder;->mUsage:I
 
     .line 167
@@ -72,9 +70,9 @@
     .line 168
     iput v0, p0, Landroidx/media/AudioAttributesImplBase$Builder;->mFlags:I
 
-    .line 169
     const/4 v0, -0x1
 
+    .line 169
     iput v0, p0, Landroidx/media/AudioAttributesImplBase$Builder;->mLegacyStream:I
 
     .line 175
@@ -101,11 +99,10 @@
     .line 178
     invoke-virtual {p1}, Landroidx/media/AudioAttributesCompat;->getRawLegacyStreamType()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Landroidx/media/AudioAttributesImplBase$Builder;->mLegacyStream:I
+    iput p1, p0, Landroidx/media/AudioAttributesImplBase$Builder;->mLegacyStream:I
 
-    .line 179
     return-void
 .end method
 
@@ -143,9 +140,7 @@
 
 .method public setContentType(I)Landroidx/media/AudioAttributesImplBase$Builder;
     .locals 1
-    .param p1, "contentType"    # I
 
-    .line 219
     if-eqz p1, :cond_0
 
     const/4 v0, 0x1
@@ -164,10 +159,10 @@
 
     if-eq p1, v0, :cond_0
 
-    .line 228
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput v0, p0, Landroidx/media/AudioAttributesImplBase$Builder;->mUsage:I
+    .line 228
+    iput p1, p0, Landroidx/media/AudioAttributesImplBase$Builder;->mUsage:I
 
     goto :goto_0
 
@@ -175,10 +170,6 @@
     :cond_0
     iput p1, p0, Landroidx/media/AudioAttributesImplBase$Builder;->mContentType:I
 
-    .line 226
-    nop
-
-    .line 230
     :goto_0
     return-object p0
 .end method
@@ -196,19 +187,16 @@
 
 .method public setFlags(I)Landroidx/media/AudioAttributesImplBase$Builder;
     .locals 1
-    .param p1, "flags"    # I
 
-    .line 235
     and-int/lit16 p1, p1, 0x3ff
 
     .line 236
     iget v0, p0, Landroidx/media/AudioAttributesImplBase$Builder;->mFlags:I
 
-    or-int/2addr v0, p1
+    or-int/2addr p1, v0
 
-    iput v0, p0, Landroidx/media/AudioAttributesImplBase$Builder;->mFlags:I
+    iput p1, p0, Landroidx/media/AudioAttributesImplBase$Builder;->mFlags:I
 
-    .line 237
     return-object p0
 .end method
 
@@ -224,10 +212,8 @@
 .end method
 
 .method public setLegacyStreamType(I)Landroidx/media/AudioAttributesImplBase$Builder;
-    .locals 2
-    .param p1, "streamType"    # I
+    .locals 1
 
-    .line 242
     const/16 v0, 0xa
 
     if-eq p1, v0, :cond_0
@@ -235,18 +221,17 @@
     .line 247
     iput p1, p0, Landroidx/media/AudioAttributesImplBase$Builder;->mLegacyStream:I
 
-    .line 248
     return-object p0
 
     .line 243
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "STREAM_ACCESSIBILITY is not a legacy stream type that was used for audio playback"
+    const-string v0, "STREAM_ACCESSIBILITY is not a legacy stream type that was used for audio playback"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public bridge synthetic setUsage(I)Landroidx/media/AudioAttributesImpl$Builder;
@@ -261,38 +246,33 @@
 .end method
 
 .method public setUsage(I)Landroidx/media/AudioAttributesImplBase$Builder;
-    .locals 1
-    .param p1, "usage"    # I
+    .locals 0
 
-    .line 188
     packed-switch p1, :pswitch_data_0
 
-    .line 212
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput v0, p0, Landroidx/media/AudioAttributesImplBase$Builder;->mUsage:I
+    .line 212
+    iput p1, p0, Landroidx/media/AudioAttributesImplBase$Builder;->mUsage:I
 
     goto :goto_0
 
-    .line 209
     :pswitch_0
-    const/16 v0, 0xc
+    const/16 p1, 0xc
 
-    iput v0, p0, Landroidx/media/AudioAttributesImplBase$Builder;->mUsage:I
+    .line 209
+    iput p1, p0, Landroidx/media/AudioAttributesImplBase$Builder;->mUsage:I
 
-    .line 210
     goto :goto_0
 
     .line 205
     :pswitch_1
     iput p1, p0, Landroidx/media/AudioAttributesImplBase$Builder;->mUsage:I
 
-    .line 206
-    nop
-
-    .line 214
     :goto_0
     return-object p0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0

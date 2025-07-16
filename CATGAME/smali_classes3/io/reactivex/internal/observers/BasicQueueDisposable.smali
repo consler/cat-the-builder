@@ -24,7 +24,6 @@
     .locals 0
 
     .line 23
-    .local p0, "this":Lio/reactivex/internal/observers/BasicQueueDisposable;, "Lio/reactivex/internal/observers/BasicQueueDisposable<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -33,7 +32,7 @@
 
 # virtual methods
 .method public final offer(Ljava/lang/Object;)Z
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -41,19 +40,17 @@
     .end annotation
 
     .line 27
-    .local p0, "this":Lio/reactivex/internal/observers/BasicQueueDisposable;, "Lio/reactivex/internal/observers/BasicQueueDisposable<TT;>;"
-    .local p1, "e":Ljava/lang/Object;, "TT;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "Should not be called"
+    const-string v0, "Should not be called"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public final offer(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;TT;)Z"
@@ -61,14 +58,11 @@
     .end annotation
 
     .line 32
-    .local p0, "this":Lio/reactivex/internal/observers/BasicQueueDisposable;, "Lio/reactivex/internal/observers/BasicQueueDisposable<TT;>;"
-    .local p1, "v1":Ljava/lang/Object;, "TT;"
-    .local p2, "v2":Ljava/lang/Object;, "TT;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "Should not be called"
+    const-string p2, "Should not be called"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

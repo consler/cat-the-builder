@@ -27,13 +27,11 @@
     .line 241
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 242
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad$TouchpadStyle;)V
     .locals 1
-    .param p1, "style"    # Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad$TouchpadStyle;
 
     .line 249
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,18 +42,15 @@
     iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad$TouchpadStyle;->background:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
     .line 251
-    iget-object v0, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad$TouchpadStyle;->knob:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
+    iget-object p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad$TouchpadStyle;->knob:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
-    iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad$TouchpadStyle;->knob:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
+    iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad$TouchpadStyle;->knob:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
-    .line 252
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;)V
     .locals 0
-    .param p1, "background"    # Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
-    .param p2, "knob"    # Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
     .line 244
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,6 +61,5 @@
     .line 246
     iput-object p2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad$TouchpadStyle;->knob:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
-    .line 247
     return-void
 .end method

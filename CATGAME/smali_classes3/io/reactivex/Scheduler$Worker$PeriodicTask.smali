@@ -36,11 +36,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/Scheduler$Worker;JLjava/lang/Runnable;JLio/reactivex/internal/disposables/SequentialDisposable;J)V
     .locals 0
-    .param p2, "firstStartInNanoseconds"    # J
-    .param p4, "decoratedRun"    # Ljava/lang/Runnable;
-    .param p5, "firstNowNanoseconds"    # J
-    .param p7, "sd"    # Lio/reactivex/internal/disposables/SequentialDisposable;
-    .param p8, "periodInNanoseconds"    # J
 
     .line 361
     iput-object p1, p0, Lio/reactivex/Scheduler$Worker$PeriodicTask;->this$0:Lio/reactivex/Scheduler$Worker;
@@ -62,7 +57,6 @@
     .line 366
     iput-wide p2, p0, Lio/reactivex/Scheduler$Worker$PeriodicTask;->startInNanoseconds:J
 
-    .line 367
     return-void
 .end method
 
@@ -95,7 +89,6 @@
     move-result-wide v0
 
     .line 379
-    .local v0, "nowNanoseconds":J
     sget-wide v2, Lio/reactivex/Scheduler;->CLOCK_DRIFT_TOLERANCE_NANOSECONDS:J
 
     add-long/2addr v2, v0
@@ -138,11 +131,9 @@
 
     add-long/2addr v2, v4
 
-    .local v2, "nextTick":J
     goto :goto_1
 
     .line 381
-    .end local v2    # "nextTick":J
     :cond_1
     :goto_0
     iget-wide v2, p0, Lio/reactivex/Scheduler$Worker$PeriodicTask;->periodInNanoseconds:J
@@ -150,7 +141,6 @@
     add-long v4, v0, v2
 
     .line 386
-    .local v4, "nextTick":J
     iget-wide v8, p0, Lio/reactivex/Scheduler$Worker$PeriodicTask;->count:J
 
     add-long/2addr v8, v6
@@ -166,32 +156,24 @@
     move-wide v2, v4
 
     .line 390
-    .end local v4    # "nextTick":J
-    .restart local v2    # "nextTick":J
     :goto_1
     iput-wide v0, p0, Lio/reactivex/Scheduler$Worker$PeriodicTask;->lastNowNanoseconds:J
 
-    .line 392
-    sub-long v4, v2, v0
+    sub-long/2addr v2, v0
 
     .line 393
-    .local v4, "delay":J
-    iget-object v6, p0, Lio/reactivex/Scheduler$Worker$PeriodicTask;->sd:Lio/reactivex/internal/disposables/SequentialDisposable;
+    iget-object v0, p0, Lio/reactivex/Scheduler$Worker$PeriodicTask;->sd:Lio/reactivex/internal/disposables/SequentialDisposable;
 
-    iget-object v7, p0, Lio/reactivex/Scheduler$Worker$PeriodicTask;->this$0:Lio/reactivex/Scheduler$Worker;
+    iget-object v1, p0, Lio/reactivex/Scheduler$Worker$PeriodicTask;->this$0:Lio/reactivex/Scheduler$Worker;
 
-    sget-object v8, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
+    sget-object v4, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v7, p0, v4, v5, v8}, Lio/reactivex/Scheduler$Worker;->schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
+    invoke-virtual {v1, p0, v2, v3, v4}, Lio/reactivex/Scheduler$Worker;->schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-virtual {v6, v7}, Lio/reactivex/internal/disposables/SequentialDisposable;->replace(Lio/reactivex/disposables/Disposable;)Z
+    invoke-virtual {v0, v1}, Lio/reactivex/internal/disposables/SequentialDisposable;->replace(Lio/reactivex/disposables/Disposable;)Z
 
-    .line 395
-    .end local v0    # "nowNanoseconds":J
-    .end local v2    # "nextTick":J
-    .end local v4    # "delay":J
     :cond_2
     return-void
 .end method

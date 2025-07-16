@@ -50,7 +50,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/Observer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;)V
     .locals 0
-    .param p3, "onDispose"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -66,9 +65,6 @@
     .end annotation
 
     .line 32
-    .local p0, "this":Lio/reactivex/internal/observers/DisposableLambdaObserver;, "Lio/reactivex/internal/observers/DisposableLambdaObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
-    .local p2, "onSubscribe":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Lio/reactivex/disposables/Disposable;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 33
@@ -80,7 +76,6 @@
     .line 35
     iput-object p3, p0, Lio/reactivex/internal/observers/DisposableLambdaObserver;->onDispose:Lio/reactivex/functions/Action;
 
-    .line 36
     return-void
 .end method
 
@@ -90,7 +85,6 @@
     .locals 1
 
     .line 81
-    .local p0, "this":Lio/reactivex/internal/observers/DisposableLambdaObserver;, "Lio/reactivex/internal/observers/DisposableLambdaObserver<TT;>;"
     :try_start_0
     iget-object v0, p0, Lio/reactivex/internal/observers/DisposableLambdaObserver;->onDispose:Lio/reactivex/functions/Action;
 
@@ -98,28 +92,23 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 85
     goto :goto_0
 
-    .line 82
     :catchall_0
     move-exception v0
 
     .line 83
-    .local v0, "e":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 84
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
     .line 86
-    .end local v0    # "e":Ljava/lang/Throwable;
     :goto_0
     iget-object v0, p0, Lio/reactivex/internal/observers/DisposableLambdaObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 87
     return-void
 .end method
 
@@ -127,7 +116,6 @@
     .locals 1
 
     .line 91
-    .local p0, "this":Lio/reactivex/internal/observers/DisposableLambdaObserver;, "Lio/reactivex/internal/observers/DisposableLambdaObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/observers/DisposableLambdaObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->isDisposed()Z
@@ -141,7 +129,6 @@
     .locals 2
 
     .line 72
-    .local p0, "this":Lio/reactivex/internal/observers/DisposableLambdaObserver;, "Lio/reactivex/internal/observers/DisposableLambdaObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/observers/DisposableLambdaObserver;->s:Lio/reactivex/disposables/Disposable;
 
     sget-object v1, Lio/reactivex/internal/disposables/DisposableHelper;->DISPOSED:Lio/reactivex/internal/disposables/DisposableHelper;
@@ -153,17 +140,14 @@
 
     invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 75
     :cond_0
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 63
-    .local p0, "this":Lio/reactivex/internal/observers/DisposableLambdaObserver;, "Lio/reactivex/internal/observers/DisposableLambdaObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/observers/DisposableLambdaObserver;->s:Lio/reactivex/disposables/Disposable;
 
     sget-object v1, Lio/reactivex/internal/disposables/DisposableHelper;->DISPOSED:Lio/reactivex/internal/disposables/DisposableHelper;
@@ -181,7 +165,6 @@
     :cond_0
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 68
     :goto_0
     return-void
 .end method
@@ -195,31 +178,23 @@
     .end annotation
 
     .line 58
-    .local p0, "this":Lio/reactivex/internal/observers/DisposableLambdaObserver;, "Lio/reactivex/internal/observers/DisposableLambdaObserver<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/observers/DisposableLambdaObserver;->actual:Lio/reactivex/Observer;
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
-    .line 59
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
-    .locals 2
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
+    .locals 1
 
     .line 42
-    .local p0, "this":Lio/reactivex/internal/observers/DisposableLambdaObserver;, "Lio/reactivex/internal/observers/DisposableLambdaObserver<TT;>;"
     :try_start_0
     iget-object v0, p0, Lio/reactivex/internal/observers/DisposableLambdaObserver;->onSubscribe:Lio/reactivex/functions/Consumer;
 
     invoke-interface {v0, p1}, Lio/reactivex/functions/Consumer;->accept(Ljava/lang/Object;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 49
-    nop
 
     .line 50
     iget-object v0, p0, Lio/reactivex/internal/observers/DisposableLambdaObserver;->s:Lio/reactivex/disposables/Disposable;
@@ -234,35 +209,31 @@
     iput-object p1, p0, Lio/reactivex/internal/observers/DisposableLambdaObserver;->s:Lio/reactivex/disposables/Disposable;
 
     .line 52
-    iget-object v0, p0, Lio/reactivex/internal/observers/DisposableLambdaObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/observers/DisposableLambdaObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v0, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 54
     :cond_0
     return-void
 
-    .line 43
     :catchall_0
     move-exception v0
 
     .line 44
-    .local v0, "e":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 45
     invoke-interface {p1}, Lio/reactivex/disposables/Disposable;->dispose()V
 
     .line 46
-    sget-object v1, Lio/reactivex/internal/disposables/DisposableHelper;->DISPOSED:Lio/reactivex/internal/disposables/DisposableHelper;
+    sget-object p1, Lio/reactivex/internal/disposables/DisposableHelper;->DISPOSED:Lio/reactivex/internal/disposables/DisposableHelper;
 
-    iput-object v1, p0, Lio/reactivex/internal/observers/DisposableLambdaObserver;->s:Lio/reactivex/disposables/Disposable;
+    iput-object p1, p0, Lio/reactivex/internal/observers/DisposableLambdaObserver;->s:Lio/reactivex/disposables/Disposable;
 
     .line 47
-    iget-object v1, p0, Lio/reactivex/internal/observers/DisposableLambdaObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/observers/DisposableLambdaObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-static {v0, v1}, Lio/reactivex/internal/disposables/EmptyDisposable;->error(Ljava/lang/Throwable;Lio/reactivex/Observer;)V
+    invoke-static {v0, p1}, Lio/reactivex/internal/disposables/EmptyDisposable;->error(Ljava/lang/Throwable;Lio/reactivex/Observer;)V
 
-    .line 48
     return-void
 .end method

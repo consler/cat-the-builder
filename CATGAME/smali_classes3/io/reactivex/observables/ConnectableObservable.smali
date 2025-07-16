@@ -20,7 +20,6 @@
     .locals 0
 
     .line 39
-    .local p0, "this":Lio/reactivex/observables/ConnectableObservable;, "Lio/reactivex/observables/ConnectableObservable<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Observable;-><init>()V
 
     return-void
@@ -38,10 +37,9 @@
         }
     .end annotation
 
-    .line 88
-    .local p0, "this":Lio/reactivex/observables/ConnectableObservable;, "Lio/reactivex/observables/ConnectableObservable<TT;>;"
     const/4 v0, 0x1
 
+    .line 88
     invoke-virtual {p0, v0}, Lio/reactivex/observables/ConnectableObservable;->autoConnect(I)Lio/reactivex/Observable;
 
     move-result-object v0
@@ -51,7 +49,6 @@
 
 .method public autoConnect(I)Lio/reactivex/Observable;
     .locals 1
-    .param p1, "numberOfSubscribers"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -61,21 +58,19 @@
     .end annotation
 
     .line 103
-    .local p0, "this":Lio/reactivex/observables/ConnectableObservable;, "Lio/reactivex/observables/ConnectableObservable<TT;>;"
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->emptyConsumer()Lio/reactivex/functions/Consumer;
 
     move-result-object v0
 
     invoke-virtual {p0, p1, v0}, Lio/reactivex/observables/ConnectableObservable;->autoConnect(ILio/reactivex/functions/Consumer;)Lio/reactivex/Observable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public autoConnect(ILio/reactivex/functions/Consumer;)Lio/reactivex/Observable;
     .locals 1
-    .param p1, "numberOfSubscribers"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -88,9 +83,6 @@
         }
     .end annotation
 
-    .line 122
-    .local p0, "this":Lio/reactivex/observables/ConnectableObservable;, "Lio/reactivex/observables/ConnectableObservable<TT;>;"
-    .local p2, "connection":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Lio/reactivex/disposables/Disposable;>;"
     if-gtz p1, :cond_0
 
     .line 123
@@ -99,9 +91,9 @@
     .line 124
     invoke-static {p0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/observables/ConnectableObservable;)Lio/reactivex/observables/ConnectableObservable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 126
     :cond_0
@@ -111,28 +103,26 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Observable;)Lio/reactivex/Observable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final connect()Lio/reactivex/disposables/Disposable;
-    .locals 2
+    .locals 1
 
     .line 62
-    .local p0, "this":Lio/reactivex/observables/ConnectableObservable;, "Lio/reactivex/observables/ConnectableObservable<TT;>;"
     new-instance v0, Lio/reactivex/internal/util/ConnectConsumer;
 
     invoke-direct {v0}, Lio/reactivex/internal/util/ConnectConsumer;-><init>()V
 
     .line 63
-    .local v0, "cc":Lio/reactivex/internal/util/ConnectConsumer;
     invoke-virtual {p0, v0}, Lio/reactivex/observables/ConnectableObservable;->connect(Lio/reactivex/functions/Consumer;)V
 
     .line 64
-    iget-object v1, v0, Lio/reactivex/internal/util/ConnectConsumer;->disposable:Lio/reactivex/disposables/Disposable;
+    iget-object v0, v0, Lio/reactivex/internal/util/ConnectConsumer;->disposable:Lio/reactivex/disposables/Disposable;
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public abstract connect(Lio/reactivex/functions/Consumer;)V
@@ -158,7 +148,6 @@
     .end annotation
 
     .line 76
-    .local p0, "this":Lio/reactivex/observables/ConnectableObservable;, "Lio/reactivex/observables/ConnectableObservable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableRefCount;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/observable/ObservableRefCount;-><init>(Lio/reactivex/observables/ConnectableObservable;)V

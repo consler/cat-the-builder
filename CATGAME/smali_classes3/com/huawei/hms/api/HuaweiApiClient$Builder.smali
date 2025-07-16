@@ -67,102 +67,85 @@
         }
     .end annotation
 
-    .line 292
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 272
+    .line 2
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->b:Ljava/util/List;
 
-    .line 274
+    .line 4
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->c:Ljava/util/List;
 
-    .line 276
+    .line 6
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->d:Ljava/util/Map;
 
-    .line 293
     const-string v0, "context must not be null."
 
+    .line 23
     invoke-static {p1, v0}, Lcom/huawei/hms/utils/Checker;->checkNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 295
+    .line 25
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->a:Landroid/content/Context;
 
-    .line 296
     const/4 v1, -0x1
 
+    .line 26
     iput v1, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->g:I
 
-    .line 297
+    .line 27
     invoke-static {v0}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->setmContext(Landroid/content/Context;)V
 
-    .line 298
+    .line 28
     invoke-direct {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->a(Landroid/content/Context;)V
 
-    .line 299
     return-void
 .end method
 
 .method private a(Landroid/content/Context;)V
     .locals 0
 
-    .line 306
+    .line 1
     invoke-static {p1}, Lcom/huawei/hms/utils/HMSBIInitializer;->getInstance(Landroid/content/Context;)Lcom/huawei/hms/utils/HMSBIInitializer;
 
     move-result-object p1
 
-    .line 307
+    .line 2
     invoke-virtual {p1}, Lcom/huawei/hms/utils/HMSBIInitializer;->initBI()V
 
-    .line 308
     return-void
 .end method
 
 .method private a(Lcom/huawei/hms/api/HuaweiApiClient;)V
     .locals 2
 
-    .line 524
+    .line 3
     iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->h:Landroid/app/Activity;
 
     invoke-static {v0}, Lcom/huawei/hms/common/internal/AutoLifecycleFragment;->getInstance(Landroid/app/Activity;)Lcom/huawei/hms/common/internal/AutoLifecycleFragment;
 
     move-result-object v0
 
-    .line 525
-    if-nez v0, :cond_0
-
-    .line 526
-    const-string p1, "HuaweiApiClient.builder"
-
-    const-string v0, "lifecycleFragment must not be NULL here"
-
-    invoke-static {p1, v0}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_0
-
-    .line 528
-    :cond_0
+    .line 4
     iget v1, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->g:I
 
     invoke-virtual {v0, v1, p1}, Lcom/huawei/hms/common/internal/AutoLifecycleFragment;->startAutoMange(ILcom/huawei/hms/api/HuaweiApiClient;)V
 
-    .line 530
-    :goto_0
     return-void
 .end method
 
@@ -181,14 +164,14 @@
         }
     .end annotation
 
-    .line 383
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->d:Ljava/util/Map;
 
     const/4 v1, 0x0
 
     invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 385
+    .line 3
     invoke-virtual {p1}, Lcom/huawei/hms/api/Api;->getApiName()Ljava/lang/String;
 
     move-result-object p1
@@ -201,43 +184,42 @@
 
     if-eqz p1, :cond_0
 
-    .line 386
+    .line 4
     invoke-static {}, Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;->getInstance()Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;
 
     move-result-object p1
 
     iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->a:Landroid/content/Context;
 
-    .line 387
+    .line 5
     invoke-virtual {v0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "|"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 388
+    .line 6
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
 
     invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 387
     const-string v2, "15060106"
 
+    .line 7
     invoke-virtual {p1, v0, v2, v1}, Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;->onEvent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 390
     :cond_0
     return-object p0
 .end method
@@ -255,29 +237,29 @@
         }
     .end annotation
 
-    .line 402
     const-string v0, "Api must not be null"
 
+    .line 8
     invoke-static {p1, v0}, Lcom/huawei/hms/utils/Checker;->checkNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 403
     const-string v0, "Null options are not permitted for this Api"
 
+    .line 9
     invoke-static {p2, v0}, Lcom/huawei/hms/utils/Checker;->checkNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 404
+    .line 10
     iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->d:Ljava/util/Map;
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 405
+    .line 11
     invoke-virtual {p1}, Lcom/huawei/hms/api/Api;->getOptions()Lcom/huawei/hms/api/Api$Options;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 406
+    .line 12
     invoke-virtual {p1}, Lcom/huawei/hms/api/Api;->getOptions()Lcom/huawei/hms/api/Api$Options;
 
     move-result-object v0
@@ -286,12 +268,12 @@
 
     move-result-object v0
 
-    .line 407
+    .line 13
     iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->b:Ljava/util/List;
 
     invoke-interface {v1, v0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 408
+    .line 14
     invoke-virtual {p1}, Lcom/huawei/hms/api/Api;->getOptions()Lcom/huawei/hms/api/Api$Options;
 
     move-result-object p1
@@ -300,12 +282,11 @@
 
     move-result-object p1
 
-    .line 409
+    .line 15
     iget-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->c:Ljava/util/List;
 
     invoke-interface {p2, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 411
     :cond_0
     return-object p0
 .end method
@@ -325,34 +306,34 @@
         }
     .end annotation
 
-    .line 487
     const-string v0, "Api must not be null"
 
+    .line 6
     invoke-static {p1, v0}, Lcom/huawei/hms/utils/Checker;->checkNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 488
     const-string v0, "Null options are not permitted for this Api"
 
+    .line 7
     invoke-static {p2, v0}, Lcom/huawei/hms/utils/Checker;->checkNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 489
     const-string v0, "Scopes must not be null"
 
+    .line 8
     invoke-static {p3, v0}, Lcom/huawei/hms/utils/Checker;->checkNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 490
+    .line 9
     iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->d:Ljava/util/Map;
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 491
+    .line 10
     invoke-virtual {p1}, Lcom/huawei/hms/api/Api;->getOptions()Lcom/huawei/hms/api/Api$Options;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 492
+    .line 11
     invoke-virtual {p1}, Lcom/huawei/hms/api/Api;->getOptions()Lcom/huawei/hms/api/Api$Options;
 
     move-result-object v0
@@ -361,12 +342,12 @@
 
     move-result-object v0
 
-    .line 493
+    .line 12
     iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->b:Ljava/util/List;
 
     invoke-interface {v1, v0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 494
+    .line 13
     invoke-virtual {p1}, Lcom/huawei/hms/api/Api;->getOptions()Lcom/huawei/hms/api/Api$Options;
 
     move-result-object p1
@@ -375,12 +356,12 @@
 
     move-result-object p1
 
-    .line 495
+    .line 14
     iget-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->c:Ljava/util/List;
 
     invoke-interface {p2, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 497
+    .line 16
     :cond_0
     new-instance p1, Ljava/util/ArrayList;
 
@@ -390,12 +371,11 @@
 
     invoke-direct {p1, p2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    .line 498
+    .line 17
     iget-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->b:Ljava/util/List;
 
     invoke-interface {p2, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 499
     return-object p0
 .end method
 
@@ -414,24 +394,24 @@
         }
     .end annotation
 
-    .line 469
     const-string v0, "Api must not be null"
 
+    .line 1
     invoke-static {p1, v0}, Lcom/huawei/hms/utils/Checker;->checkNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 470
     const-string v0, "Scopes must not be null"
 
+    .line 2
     invoke-static {p2, v0}, Lcom/huawei/hms/utils/Checker;->checkNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 471
+    .line 3
     iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->d:Ljava/util/Map;
 
     const/4 v1, 0x0
 
     invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 472
+    .line 4
     new-instance p1, Ljava/util/ArrayList;
 
     invoke-static {p2}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
@@ -440,74 +420,69 @@
 
     invoke-direct {p1, p2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    .line 473
+    .line 5
     iget-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->b:Ljava/util/List;
 
     invoke-interface {p2, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 474
     return-object p0
 .end method
 
 .method public addConnectionCallbacks(Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;)Lcom/huawei/hms/api/HuaweiApiClient$Builder;
     .locals 1
 
-    .line 339
     const-string v0, "listener must not be null."
 
+    .line 1
     invoke-static {p1, v0}, Lcom/huawei/hms/utils/Checker;->checkNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 341
+    .line 3
     iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->f:Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;
 
-    .line 343
     return-object p0
 .end method
 
 .method public addOnConnectionFailedListener(Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;)Lcom/huawei/hms/api/HuaweiApiClient$Builder;
     .locals 1
 
-    .line 354
     const-string v0, "listener must not be null."
 
+    .line 1
     invoke-static {p1, v0}, Lcom/huawei/hms/utils/Checker;->checkNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 356
+    .line 3
     iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->e:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
 
-    .line 358
     return-object p0
 .end method
 
 .method public addScope(Lcom/huawei/hms/support/api/entity/auth/Scope;)Lcom/huawei/hms/api/HuaweiApiClient$Builder;
     .locals 1
 
-    .line 369
     const-string v0, "scope must not be null."
 
+    .line 1
     invoke-static {p1, v0}, Lcom/huawei/hms/utils/Checker;->checkNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 371
+    .line 3
     iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->b:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 373
     return-object p0
 .end method
 
 .method public allowLifeCycleManagement(Landroid/app/Activity;ILcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;)Lcom/huawei/hms/api/HuaweiApiClient$Builder;
     .locals 0
 
-    .line 511
     if-ltz p2, :cond_0
 
-    .line 514
+    .line 1
     iput p2, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->g:I
 
-    .line 515
     const-string p2, "activity must not be Null."
 
+    .line 2
     invoke-static {p1, p2}, Lcom/huawei/hms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
@@ -516,10 +491,9 @@
 
     iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->h:Landroid/app/Activity;
 
-    .line 516
     return-object p0
 
-    .line 512
+    .line 3
     :cond_0
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
@@ -533,9 +507,9 @@
 .method public allowLifeCycleManagement(Landroid/app/Activity;Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;)Lcom/huawei/hms/api/HuaweiApiClient$Builder;
     .locals 1
 
-    .line 520
     const/4 v0, 0x0
 
+    .line 4
     invoke-virtual {p0, p1, v0, p2}, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->allowLifeCycleManagement(Landroid/app/Activity;ILcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;)Lcom/huawei/hms/api/HuaweiApiClient$Builder;
 
     move-result-object p1
@@ -546,14 +520,13 @@
 .method public applyDefaultAccount()Lcom/huawei/hms/api/HuaweiApiClient$Builder;
     .locals 0
 
-    .line 458
     return-object p0
 .end method
 
 .method public build()Lcom/huawei/hms/api/HuaweiApiClient;
     .locals 2
 
-    .line 316
+    .line 1
     new-instance v0, Lcom/huawei/hms/api/Api;
 
     const-string v1, "Core.API"
@@ -562,52 +535,51 @@
 
     invoke-virtual {p0, v0}, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->addApi(Lcom/huawei/hms/api/Api;)Lcom/huawei/hms/api/HuaweiApiClient$Builder;
 
-    .line 317
+    .line 2
     new-instance v0, Lcom/huawei/hms/api/HuaweiApiClientImpl;
 
     iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->a:Landroid/content/Context;
 
     invoke-direct {v0, v1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;-><init>(Landroid/content/Context;)V
 
-    .line 319
+    .line 4
     iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->b:Ljava/util/List;
 
     invoke-virtual {v0, v1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->setScopes(Ljava/util/List;)V
 
-    .line 320
+    .line 5
     iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->c:Ljava/util/List;
 
     invoke-virtual {v0, v1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->setPermissionInfos(Ljava/util/List;)V
 
-    .line 321
+    .line 6
     iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->d:Ljava/util/Map;
 
     invoke-virtual {v0, v1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->setApiMap(Ljava/util/Map;)V
 
-    .line 322
+    .line 7
     iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->f:Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;
 
     invoke-virtual {v0, v1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->setConnectionCallbacks(Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;)V
 
-    .line 323
+    .line 8
     iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->e:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
 
     invoke-virtual {v0, v1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->setConnectionFailedListener(Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;)V
 
-    .line 324
+    .line 9
     iget v1, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->g:I
 
     invoke-virtual {v0, v1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->setAutoLifecycleClientId(I)V
 
-    .line 325
+    .line 10
     iget v1, p0, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->g:I
 
     if-ltz v1, :cond_0
 
-    .line 326
+    .line 11
     invoke-direct {p0, v0}, Lcom/huawei/hms/api/HuaweiApiClient$Builder;->a(Lcom/huawei/hms/api/HuaweiApiClient;)V
 
-    .line 328
     :cond_0
     return-object v0
 .end method
@@ -615,27 +587,23 @@
 .method public setAccountName(Ljava/lang/String;)Lcom/huawei/hms/api/HuaweiApiClient$Builder;
     .locals 0
 
-    .line 421
     return-object p0
 .end method
 
 .method public setHandler(Landroid/os/Handler;)Lcom/huawei/hms/api/HuaweiApiClient$Builder;
     .locals 0
 
-    .line 440
     return-object p0
 .end method
 
 .method public setPopupsGravity(I)Lcom/huawei/hms/api/HuaweiApiClient$Builder;
     .locals 0
 
-    .line 430
     return-object p0
 .end method
 
 .method public setViewForPopups(Landroid/view/View;)Lcom/huawei/hms/api/HuaweiApiClient$Builder;
     .locals 0
 
-    .line 450
     return-object p0
 .end method

@@ -17,10 +17,7 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;ILcom/google/crypto/tink/shaded/protobuf/WireFormat$JavaType;I)V
     .locals 6
-    .param p3, "javaType"    # Lcom/google/crypto/tink/shaded/protobuf/WireFormat$JavaType;
-    .param p4, "wireType"    # I
 
-    .line 138
     const/4 v5, 0x0
 
     move-object v0, p0
@@ -33,6 +30,7 @@
 
     move v4, p4
 
+    .line 138
     invoke-direct/range {v0 .. v5}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;-><init>(Ljava/lang/String;ILcom/google/crypto/tink/shaded/protobuf/WireFormat$JavaType;ILcom/google/crypto/tink/shaded/protobuf/WireFormat$1;)V
 
     return-void
@@ -43,7 +41,6 @@
 .method public isPackable()Z
     .locals 1
 
-    .line 141
     const/4 v0, 0x0
 
     return v0

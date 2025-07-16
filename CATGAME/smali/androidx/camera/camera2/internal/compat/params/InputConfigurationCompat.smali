@@ -19,20 +19,10 @@
 
 # direct methods
 .method public constructor <init>(III)V
-    .locals 2
-    .param p1, "width"    # I
-    .param p2, "height"    # I
-    .param p3, "format"    # I
+    .locals 1
 
     .line 52
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 53
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_0
 
     .line 54
     new-instance v0, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatApi23Impl;
@@ -41,24 +31,11 @@
 
     iput-object v0, p0, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatImpl;
 
-    goto :goto_0
-
-    .line 56
-    :cond_0
-    new-instance v0, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatBaseImpl;
-
-    invoke-direct {v0, p1, p2, p3}, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatBaseImpl;-><init>(III)V
-
-    iput-object v0, p0, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatImpl;
-
-    .line 58
-    :goto_0
     return-void
 .end method
 
 .method private constructor <init>(Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatImpl;)V
     .locals 0
-    .param p1, "impl"    # Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatImpl;
 
     .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,35 +43,20 @@
     .line 61
     iput-object p1, p0, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatImpl;
 
-    .line 62
     return-void
 .end method
 
 .method public static wrap(Ljava/lang/Object;)Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat;
-    .locals 3
-    .param p0, "inputConfiguration"    # Ljava/lang/Object;
-
-    .line 77
-    const/4 v0, 0x0
+    .locals 2
 
     if-nez p0, :cond_0
 
-    .line 78
-    return-object v0
+    const/4 p0, 0x0
 
-    .line 80
-    :cond_0
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x17
-
-    if-ge v1, v2, :cond_1
-
-    .line 81
-    return-object v0
+    return-object p0
 
     .line 83
-    :cond_1
+    :cond_0
     new-instance v0, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat;
 
     new-instance v1, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatApi23Impl;
@@ -109,34 +71,30 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 1
 
     .line 125
     instance-of v0, p1, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat;
 
     if-nez v0, :cond_0
 
-    .line 126
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 129
     :cond_0
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatImpl;
 
-    move-object v1, p1
+    check-cast p1, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat;
 
-    check-cast v1, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat;
+    iget-object p1, p1, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatImpl;
 
-    iget-object v1, v1, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat;->mImpl:Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatImpl;
+    invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    move-result p1
 
-    move-result v0
-
-    return v0
+    return p1
 .end method
 
 .method public getFormat()I

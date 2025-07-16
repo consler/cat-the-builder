@@ -11,20 +11,18 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 27
     const/4 v0, 0x0
 
     new-array v0, v0, [F
 
+    .line 27
     invoke-direct {p0, v0}, Lcom/badlogic/gdx/maps/objects/PolygonMapObject;-><init>([F)V
 
-    .line 28
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/math/Polygon;)V
     .locals 0
-    .param p1, "polygon"    # Lcom/badlogic/gdx/math/Polygon;
 
     .line 36
     invoke-direct {p0}, Lcom/badlogic/gdx/maps/MapObject;-><init>()V
@@ -32,13 +30,11 @@
     .line 37
     iput-object p1, p0, Lcom/badlogic/gdx/maps/objects/PolygonMapObject;->polygon:Lcom/badlogic/gdx/math/Polygon;
 
-    .line 38
     return-void
 .end method
 
 .method public constructor <init>([F)V
     .locals 1
-    .param p1, "vertices"    # [F
 
     .line 31
     invoke-direct {p0}, Lcom/badlogic/gdx/maps/MapObject;-><init>()V
@@ -50,7 +46,6 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/maps/objects/PolygonMapObject;->polygon:Lcom/badlogic/gdx/math/Polygon;
 
-    .line 33
     return-void
 .end method
 
@@ -67,11 +62,9 @@
 
 .method public setPolygon(Lcom/badlogic/gdx/math/Polygon;)V
     .locals 0
-    .param p1, "polygon"    # Lcom/badlogic/gdx/math/Polygon;
 
     .line 22
     iput-object p1, p0, Lcom/badlogic/gdx/maps/objects/PolygonMapObject;->polygon:Lcom/badlogic/gdx/math/Polygon;
 
-    .line 23
     return-void
 .end method

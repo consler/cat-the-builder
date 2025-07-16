@@ -94,43 +94,31 @@
     .line 301
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 302
     return-void
 .end method
 
 .method public static isValidRemoteMessenger(Landroid/os/Messenger;)Z
-    .locals 2
-    .param p0, "messenger"    # Landroid/os/Messenger;
+    .locals 1
 
-    .line 293
     const/4 v0, 0x0
 
     if-eqz p0, :cond_0
 
+    .line 293
     :try_start_0
     invoke-virtual {p0}, Landroid/os/Messenger;->getBinder()Landroid/os/IBinder;
 
-    move-result-object v1
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
 
-    if-eqz v1, :cond_0
+    if-eqz p0, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    nop
 
-    .line 294
     :catch_0
-    move-exception v1
-
-    .line 297
-    .local v1, "ex":Ljava/lang/NullPointerException;
-    return v0
-
-    .line 293
-    .end local v1    # "ex":Ljava/lang/NullPointerException;
     :cond_0
-    :goto_0
     return v0
 .end method

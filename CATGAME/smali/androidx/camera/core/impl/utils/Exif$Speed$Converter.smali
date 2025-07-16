@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(D)V
     .locals 0
-    .param p1, "mph"    # D
 
     .line 647
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,7 +28,6 @@
     .line 648
     iput-wide p1, p0, Landroidx/camera/core/impl/utils/Exif$Speed$Converter;->mMph:D
 
-    .line 649
     return-void
 .end method
 

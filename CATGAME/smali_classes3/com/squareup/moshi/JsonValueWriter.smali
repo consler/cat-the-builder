@@ -19,25 +19,24 @@
     .line 38
     invoke-direct {p0}, Lcom/squareup/moshi/JsonWriter;-><init>()V
 
-    .line 35
     const/16 v0, 0x20
 
     new-array v0, v0, [Ljava/lang/Object;
 
+    .line 35
     iput-object v0, p0, Lcom/squareup/moshi/JsonValueWriter;->stack:[Ljava/lang/Object;
 
-    .line 39
     const/4 v0, 0x6
 
+    .line 39
     invoke-virtual {p0, v0}, Lcom/squareup/moshi/JsonValueWriter;->pushScope(I)V
 
-    .line 40
     return-void
 .end method
 
 .method private add(Ljava/lang/Object;)Lcom/squareup/moshi/JsonValueWriter;
-    .locals 6
-    .param p1, "newTop"    # Ljava/lang/Object;
+    .locals 4
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -48,194 +47,188 @@
     move-result v0
 
     .line 263
-    .local v0, "scope":I
     iget v1, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
 
     const/4 v2, 0x1
 
     if-ne v1, v2, :cond_1
 
-    .line 264
     const/4 v1, 0x6
 
     if-ne v0, v1, :cond_0
 
     .line 267
-    iget-object v1, p0, Lcom/squareup/moshi/JsonValueWriter;->scopes:[I
+    iget-object v0, p0, Lcom/squareup/moshi/JsonValueWriter;->scopes:[I
 
-    iget v3, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
+    iget v1, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
 
-    sub-int/2addr v3, v2
+    sub-int/2addr v1, v2
 
-    const/4 v4, 0x7
+    const/4 v3, 0x7
 
-    aput v4, v1, v3
+    aput v3, v0, v1
 
     .line 268
-    iget-object v1, p0, Lcom/squareup/moshi/JsonValueWriter;->stack:[Ljava/lang/Object;
+    iget-object v0, p0, Lcom/squareup/moshi/JsonValueWriter;->stack:[Ljava/lang/Object;
 
-    iget v3, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
+    iget v1, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
 
-    sub-int/2addr v3, v2
+    sub-int/2addr v1, v2
 
-    aput-object p1, v1, v3
+    aput-object p1, v0, v1
 
     goto :goto_0
 
     .line 265
     :cond_0
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v2, "JSON must have only one top-level value."
+    const-string v0, "JSON must have only one top-level value."
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 
-    .line 270
     :cond_1
     const/4 v1, 0x3
 
     if-ne v0, v1, :cond_5
 
+    .line 270
     iget-object v1, p0, Lcom/squareup/moshi/JsonValueWriter;->deferredName:Ljava/lang/String;
 
     if-eqz v1, :cond_5
 
-    .line 271
     if-nez p1, :cond_2
 
-    iget-boolean v1, p0, Lcom/squareup/moshi/JsonValueWriter;->serializeNulls:Z
+    .line 271
+    iget-boolean v0, p0, Lcom/squareup/moshi/JsonValueWriter;->serializeNulls:Z
 
-    if-eqz v1, :cond_3
+    if-eqz v0, :cond_3
 
     .line 273
     :cond_2
-    iget-object v1, p0, Lcom/squareup/moshi/JsonValueWriter;->stack:[Ljava/lang/Object;
+    iget-object v0, p0, Lcom/squareup/moshi/JsonValueWriter;->stack:[Ljava/lang/Object;
 
-    iget v3, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
+    iget v1, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
 
-    sub-int/2addr v3, v2
+    sub-int/2addr v1, v2
 
-    aget-object v1, v1, v3
+    aget-object v0, v0, v1
 
-    check-cast v1, Ljava/util/Map;
+    check-cast v0, Ljava/util/Map;
 
     .line 274
-    .local v1, "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
-    iget-object v2, p0, Lcom/squareup/moshi/JsonValueWriter;->deferredName:Ljava/lang/String;
+    iget-object v1, p0, Lcom/squareup/moshi/JsonValueWriter;->deferredName:Ljava/lang/String;
 
-    invoke-interface {v1, v2, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    .line 275
-    .local v2, "replaced":Ljava/lang/Object;
-    if-nez v2, :cond_4
+    if-nez v0, :cond_4
+
+    :cond_3
+    const/4 p1, 0x0
 
     .line 280
-    .end local v1    # "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
-    .end local v2    # "replaced":Ljava/lang/Object;
-    :cond_3
-    const/4 v1, 0x0
-
-    iput-object v1, p0, Lcom/squareup/moshi/JsonValueWriter;->deferredName:Ljava/lang/String;
+    iput-object p1, p0, Lcom/squareup/moshi/JsonValueWriter;->deferredName:Ljava/lang/String;
 
     goto :goto_0
 
     .line 276
-    .restart local v1    # "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
-    .restart local v2    # "replaced":Ljava/lang/Object;
     :cond_4
-    new-instance v3, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "Map key \'"
 
-    const-string v5, "Map key \'"
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lcom/squareup/moshi/JsonValueWriter;->deferredName:Ljava/lang/String;
 
-    iget-object v5, p0, Lcom/squareup/moshi/JsonValueWriter;->deferredName:Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    const-string v5, "\' has multiple values at path "
+    const-string v3, "\' has multiple values at path "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     .line 277
     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueWriter;->getPath()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v5, ": "
+    move-result-object v2
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v3, ": "
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v5, " and "
+    move-result-object v2
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v2, " and "
 
-    move-result-object v4
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object v0
 
-    throw v3
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 282
-    .end local v1    # "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
-    .end local v2    # "replaced":Ljava/lang/Object;
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v1, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
     :cond_5
     if-ne v0, v2, :cond_6
 
     .line 284
-    iget-object v1, p0, Lcom/squareup/moshi/JsonValueWriter;->stack:[Ljava/lang/Object;
+    iget-object v0, p0, Lcom/squareup/moshi/JsonValueWriter;->stack:[Ljava/lang/Object;
 
-    iget v3, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
+    iget v1, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
 
-    sub-int/2addr v3, v2
+    sub-int/2addr v1, v2
 
-    aget-object v1, v1, v3
+    aget-object v0, v0, v1
 
-    check-cast v1, Ljava/util/List;
+    check-cast v0, Ljava/util/List;
 
     .line 285
-    .local v1, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Object;>;"
-    invoke-interface {v1, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 287
-    .end local v1    # "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Object;>;"
-    nop
-
-    .line 291
     :goto_0
     return-object p0
 
     .line 288
     :cond_6
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v2, "Nesting problem."
+    const-string v0, "Nesting problem."
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 .end method
 
 
 # virtual methods
 .method public beginArray()Lcom/squareup/moshi/JsonWriter;
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -273,7 +266,6 @@
 
     iput v0, p0, Lcom/squareup/moshi/JsonValueWriter;->flattenStackSize:I
 
-    .line 58
     return-object p0
 
     .line 60
@@ -286,7 +278,6 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 62
-    .local v0, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Object;>;"
     invoke-direct {p0, v0}, Lcom/squareup/moshi/JsonValueWriter;->add(Ljava/lang/Object;)Lcom/squareup/moshi/JsonValueWriter;
 
     .line 63
@@ -297,32 +288,28 @@
     aput-object v0, v1, v3
 
     .line 64
-    iget-object v1, p0, Lcom/squareup/moshi/JsonValueWriter;->pathIndices:[I
+    iget-object v0, p0, Lcom/squareup/moshi/JsonValueWriter;->pathIndices:[I
 
-    iget v3, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
+    iget v1, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    aput v4, v1, v3
+    aput v3, v0, v1
 
     .line 65
     invoke-virtual {p0, v2}, Lcom/squareup/moshi/JsonValueWriter;->pushScope(I)V
 
-    .line 66
     return-object p0
 
     .line 52
-    .end local v0    # "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Object;>;"
     :cond_1
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Array cannot be used as a map key in JSON at path "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 53
     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueWriter;->getPath()Ljava/lang/String;
@@ -330,6 +317,8 @@
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -379,7 +368,6 @@
 
     iput v0, p0, Lcom/squareup/moshi/JsonValueWriter;->flattenStackSize:I
 
-    .line 92
     return-object p0
 
     .line 94
@@ -392,7 +380,6 @@
     invoke-direct {v0}, Lcom/squareup/moshi/LinkedHashTreeMap;-><init>()V
 
     .line 96
-    .local v0, "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     invoke-direct {p0, v0}, Lcom/squareup/moshi/JsonValueWriter;->add(Ljava/lang/Object;)Lcom/squareup/moshi/JsonValueWriter;
 
     .line 97
@@ -405,21 +392,17 @@
     .line 98
     invoke-virtual {p0, v2}, Lcom/squareup/moshi/JsonValueWriter;->pushScope(I)V
 
-    .line 99
     return-object p0
 
     .line 86
-    .end local v0    # "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     :cond_1
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Object cannot be used as a map key in JSON at path "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 87
     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueWriter;->getPath()Ljava/lang/String;
@@ -427,6 +410,8 @@
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -448,42 +433,40 @@
     .line 247
     iget v0, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
 
-    .line 248
-    .local v0, "size":I
     const/4 v1, 0x1
 
     if-gt v0, v1, :cond_1
 
     if-ne v0, v1, :cond_0
 
-    iget-object v1, p0, Lcom/squareup/moshi/JsonValueWriter;->scopes:[I
+    .line 248
+    iget-object v2, p0, Lcom/squareup/moshi/JsonValueWriter;->scopes:[I
 
-    add-int/lit8 v2, v0, -0x1
+    sub-int/2addr v0, v1
 
-    aget v1, v1, v2
+    aget v0, v2, v0
 
-    const/4 v2, 0x7
+    const/4 v1, 0x7
 
-    if-ne v1, v2, :cond_1
+    if-ne v0, v1, :cond_1
+
+    :cond_0
+    const/4 v0, 0x0
 
     .line 251
-    :cond_0
-    const/4 v1, 0x0
+    iput v0, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
 
-    iput v1, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
-
-    .line 252
     return-void
 
     .line 249
     :cond_1
-    new-instance v1, Ljava/io/IOException;
+    new-instance v0, Ljava/io/IOException;
 
-    const-string v2, "Incomplete document"
+    const-string v1, "Incomplete document"
 
-    invoke-direct {v1, v2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public endArray()Lcom/squareup/moshi/JsonWriter;
@@ -519,7 +502,6 @@
 
     iput v0, p0, Lcom/squareup/moshi/JsonValueWriter;->flattenStackSize:I
 
-    .line 76
     return-object p0
 
     .line 78
@@ -552,7 +534,6 @@
 
     aput v3, v0, v2
 
-    .line 81
     return-object p0
 
     .line 71
@@ -604,13 +585,12 @@
 
     iput v0, p0, Lcom/squareup/moshi/JsonValueWriter;->flattenStackSize:I
 
-    .line 112
     return-object p0
 
-    .line 114
     :cond_0
     const/4 v0, 0x0
 
+    .line 114
     iput-boolean v0, p0, Lcom/squareup/moshi/JsonValueWriter;->promoteValueToName:Z
 
     .line 115
@@ -649,7 +629,6 @@
 
     aput v2, v0, v1
 
-    .line 119
     return-object p0
 
     .line 107
@@ -658,15 +637,15 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Dangling name: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v2, p0, Lcom/squareup/moshi/JsonValueWriter;->deferredName:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -700,7 +679,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 258
     return-void
 
     .line 256
@@ -716,14 +694,12 @@
 
 .method public name(Ljava/lang/String;)Lcom/squareup/moshi/JsonWriter;
     .locals 2
-    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 123
     if-eqz p1, :cond_2
 
     .line 126
@@ -756,43 +732,42 @@
 
     aput-object p1, v0, v1
 
+    const/4 p1, 0x0
+
     .line 134
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/squareup/moshi/JsonValueWriter;->promoteValueToName:Z
 
-    iput-boolean v0, p0, Lcom/squareup/moshi/JsonValueWriter;->promoteValueToName:Z
-
-    .line 135
     return-object p0
 
     .line 130
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Nesting problem."
+    const-string v0, "Nesting problem."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 127
     :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "JsonWriter is closed."
+    const-string v0, "JsonWriter is closed."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 124
     :cond_2
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "name == null"
+    const-string v0, "name == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public nullValue()Lcom/squareup/moshi/JsonWriter;
@@ -808,9 +783,9 @@
 
     if-nez v0, :cond_0
 
-    .line 152
     const/4 v0, 0x0
 
+    .line 152
     invoke-direct {p0, v0}, Lcom/squareup/moshi/JsonValueWriter;->add(Ljava/lang/Object;)Lcom/squareup/moshi/JsonValueWriter;
 
     .line 153
@@ -826,7 +801,6 @@
 
     aput v2, v0, v1
 
-    .line 154
     return-object p0
 
     .line 149
@@ -835,11 +809,9 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "null cannot be used as a map key in JSON at path "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 150
     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueWriter;->getPath()Ljava/lang/String;
@@ -847,6 +819,8 @@
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -863,48 +837,46 @@
     .line 43
     iget v0, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
 
-    .line 44
-    .local v0, "size":I
     const/4 v1, 0x1
 
     if-gt v0, v1, :cond_1
 
     if-ne v0, v1, :cond_0
 
-    iget-object v1, p0, Lcom/squareup/moshi/JsonValueWriter;->scopes:[I
+    .line 44
+    iget-object v2, p0, Lcom/squareup/moshi/JsonValueWriter;->scopes:[I
 
-    add-int/lit8 v2, v0, -0x1
+    sub-int/2addr v0, v1
 
-    aget v1, v1, v2
+    aget v0, v2, v0
 
-    const/4 v2, 0x7
+    const/4 v1, 0x7
 
-    if-ne v1, v2, :cond_1
+    if-ne v0, v1, :cond_1
 
     .line 47
     :cond_0
-    iget-object v1, p0, Lcom/squareup/moshi/JsonValueWriter;->stack:[Ljava/lang/Object;
+    iget-object v0, p0, Lcom/squareup/moshi/JsonValueWriter;->stack:[Ljava/lang/Object;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aget-object v1, v1, v2
+    aget-object v0, v0, v1
 
-    return-object v1
+    return-object v0
 
     .line 45
     :cond_1
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    const-string v2, "Incomplete document"
+    const-string v1, "Incomplete document"
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public value(D)Lcom/squareup/moshi/JsonWriter;
     .locals 3
-    .param p1, "value"    # D
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -943,19 +915,19 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Numeric values must be finite, but was "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1, p2}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
@@ -969,42 +941,40 @@
     .line 183
     invoke-static {p1, p2}, Ljava/lang/Double;->toString(D)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/squareup/moshi/JsonValueWriter;->name(Ljava/lang/String;)Lcom/squareup/moshi/JsonWriter;
+    invoke-virtual {p0, p1}, Lcom/squareup/moshi/JsonValueWriter;->name(Ljava/lang/String;)Lcom/squareup/moshi/JsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 185
     :cond_2
     invoke-static {p1, p2}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0}, Lcom/squareup/moshi/JsonValueWriter;->add(Ljava/lang/Object;)Lcom/squareup/moshi/JsonValueWriter;
+    invoke-direct {p0, p1}, Lcom/squareup/moshi/JsonValueWriter;->add(Ljava/lang/Object;)Lcom/squareup/moshi/JsonValueWriter;
 
     .line 186
-    iget-object v0, p0, Lcom/squareup/moshi/JsonValueWriter;->pathIndices:[I
+    iget-object p1, p0, Lcom/squareup/moshi/JsonValueWriter;->pathIndices:[I
 
-    iget v1, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
+    iget p2, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 p2, p2, -0x1
 
-    aget v2, v0, v1
+    aget v0, p1, p2
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    aput v2, v0, v1
+    aput v0, p1, p2
 
-    .line 187
     return-object p0
 .end method
 
 .method public value(J)Lcom/squareup/moshi/JsonWriter;
-    .locals 3
-    .param p1, "value"    # J
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1019,42 +989,41 @@
     .line 192
     invoke-static {p1, p2}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/squareup/moshi/JsonValueWriter;->name(Ljava/lang/String;)Lcom/squareup/moshi/JsonWriter;
+    invoke-virtual {p0, p1}, Lcom/squareup/moshi/JsonValueWriter;->name(Ljava/lang/String;)Lcom/squareup/moshi/JsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 194
     :cond_0
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0}, Lcom/squareup/moshi/JsonValueWriter;->add(Ljava/lang/Object;)Lcom/squareup/moshi/JsonValueWriter;
+    invoke-direct {p0, p1}, Lcom/squareup/moshi/JsonValueWriter;->add(Ljava/lang/Object;)Lcom/squareup/moshi/JsonValueWriter;
 
     .line 195
-    iget-object v0, p0, Lcom/squareup/moshi/JsonValueWriter;->pathIndices:[I
+    iget-object p1, p0, Lcom/squareup/moshi/JsonValueWriter;->pathIndices:[I
 
-    iget v1, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
+    iget p2, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 p2, p2, -0x1
 
-    aget v2, v0, v1
+    aget v0, p1, p2
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    aput v2, v0, v1
+    aput v0, p1, p2
 
-    .line 196
     return-object p0
 .end method
 
 .method public value(Ljava/lang/Boolean;)Lcom/squareup/moshi/JsonWriter;
-    .locals 3
-    .param p1, "value"    # Ljava/lang/Boolean;
+    .locals 2
+    .param p1    # Ljava/lang/Boolean;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -1073,52 +1042,51 @@
     invoke-direct {p0, p1}, Lcom/squareup/moshi/JsonValueWriter;->add(Ljava/lang/Object;)Lcom/squareup/moshi/JsonValueWriter;
 
     .line 173
-    iget-object v0, p0, Lcom/squareup/moshi/JsonValueWriter;->pathIndices:[I
+    iget-object p1, p0, Lcom/squareup/moshi/JsonValueWriter;->pathIndices:[I
 
-    iget v1, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
+    iget v0, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    aget v2, v0, v1
+    aget v1, p1, v0
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    aput v2, v0, v1
+    aput v1, p1, v0
 
-    .line 174
     return-object p0
 
     .line 169
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Boolean cannot be used as a map key in JSON at path "
 
-    const-string v2, "Boolean cannot be used as a map key in JSON at path "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 170
     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueWriter;->getPath()Ljava/lang/String;
 
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    throw v0
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p1
 .end method
 
 .method public value(Ljava/lang/Number;)Lcom/squareup/moshi/JsonWriter;
-    .locals 4
-    .param p1, "value"    # Ljava/lang/Number;
+    .locals 2
+    .param p1    # Ljava/lang/Number;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -1159,16 +1127,15 @@
 
     goto :goto_1
 
-    .line 213
     :cond_1
     if-nez p1, :cond_2
 
     .line 214
     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueWriter;->nullValue()Lcom/squareup/moshi/JsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 218
     :cond_2
@@ -1177,9 +1144,7 @@
     if-eqz v0, :cond_3
 
     .line 219
-    move-object v0, p1
-
-    check-cast v0, Ljava/math/BigDecimal;
+    check-cast p1, Ljava/math/BigDecimal;
 
     goto :goto_0
 
@@ -1189,52 +1154,49 @@
 
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
 
-    :goto_0
-    nop
+    move-object p1, v0
 
     .line 221
-    .local v0, "bigDecimalValue":Ljava/math/BigDecimal;
-    iget-boolean v1, p0, Lcom/squareup/moshi/JsonValueWriter;->promoteValueToName:Z
+    :goto_0
+    iget-boolean v0, p0, Lcom/squareup/moshi/JsonValueWriter;->promoteValueToName:Z
 
-    if-eqz v1, :cond_4
+    if-eqz v0, :cond_4
 
     .line 222
-    invoke-virtual {v0}, Ljava/math/BigDecimal;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/math/BigDecimal;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {p0, v1}, Lcom/squareup/moshi/JsonValueWriter;->name(Ljava/lang/String;)Lcom/squareup/moshi/JsonWriter;
+    invoke-virtual {p0, p1}, Lcom/squareup/moshi/JsonValueWriter;->name(Ljava/lang/String;)Lcom/squareup/moshi/JsonWriter;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 224
     :cond_4
-    invoke-direct {p0, v0}, Lcom/squareup/moshi/JsonValueWriter;->add(Ljava/lang/Object;)Lcom/squareup/moshi/JsonValueWriter;
+    invoke-direct {p0, p1}, Lcom/squareup/moshi/JsonValueWriter;->add(Ljava/lang/Object;)Lcom/squareup/moshi/JsonValueWriter;
 
     .line 225
-    iget-object v1, p0, Lcom/squareup/moshi/JsonValueWriter;->pathIndices:[I
+    iget-object p1, p0, Lcom/squareup/moshi/JsonValueWriter;->pathIndices:[I
 
-    iget v2, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
+    iget v0, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
 
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    aget v3, v1, v2
+    aget v1, p1, v0
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    aput v3, v1, v2
+    aput v1, p1, v0
 
-    .line 226
     return-object p0
 
     .line 210
-    .end local v0    # "bigDecimalValue":Ljava/math/BigDecimal;
     :cond_5
     :goto_1
     invoke-virtual {p1}, Ljava/lang/Number;->doubleValue()D
@@ -1243,9 +1205,9 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/squareup/moshi/JsonValueWriter;->value(D)Lcom/squareup/moshi/JsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 205
     :cond_6
@@ -1256,14 +1218,14 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/squareup/moshi/JsonValueWriter;->value(J)Lcom/squareup/moshi/JsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public value(Ljava/lang/String;)Lcom/squareup/moshi/JsonWriter;
-    .locals 3
-    .param p1, "value"    # Ljava/lang/String;
+    .locals 2
+    .param p1    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -1281,34 +1243,32 @@
     .line 140
     invoke-virtual {p0, p1}, Lcom/squareup/moshi/JsonValueWriter;->name(Ljava/lang/String;)Lcom/squareup/moshi/JsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 142
     :cond_0
     invoke-direct {p0, p1}, Lcom/squareup/moshi/JsonValueWriter;->add(Ljava/lang/Object;)Lcom/squareup/moshi/JsonValueWriter;
 
     .line 143
-    iget-object v0, p0, Lcom/squareup/moshi/JsonValueWriter;->pathIndices:[I
+    iget-object p1, p0, Lcom/squareup/moshi/JsonValueWriter;->pathIndices:[I
 
-    iget v1, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
+    iget v0, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    aget v2, v0, v1
+    aget v1, p1, v0
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    aput v2, v0, v1
+    aput v1, p1, v0
 
-    .line 144
     return-object p0
 .end method
 
 .method public value(Lokio/BufferedSource;)Lcom/squareup/moshi/JsonWriter;
-    .locals 6
-    .param p1, "source"    # Lokio/BufferedSource;
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1323,91 +1283,82 @@
     .line 234
     invoke-static {p1}, Lcom/squareup/moshi/JsonReader;->of(Lokio/BufferedSource;)Lcom/squareup/moshi/JsonReader;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/squareup/moshi/JsonReader;->readJsonValue()Ljava/lang/Object;
+    invoke-virtual {p1}, Lcom/squareup/moshi/JsonReader;->readJsonValue()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 235
-    .local v0, "value":Ljava/lang/Object;
-    iget-boolean v1, p0, Lcom/squareup/moshi/JsonValueWriter;->serializeNulls:Z
+    iget-boolean v0, p0, Lcom/squareup/moshi/JsonValueWriter;->serializeNulls:Z
+
+    const/4 v1, 0x1
 
     .line 236
-    .local v1, "serializeNulls":Z
-    const/4 v2, 0x1
-
-    iput-boolean v2, p0, Lcom/squareup/moshi/JsonValueWriter;->serializeNulls:Z
+    iput-boolean v1, p0, Lcom/squareup/moshi/JsonValueWriter;->serializeNulls:Z
 
     .line 238
     :try_start_0
-    invoke-direct {p0, v0}, Lcom/squareup/moshi/JsonValueWriter;->add(Ljava/lang/Object;)Lcom/squareup/moshi/JsonValueWriter;
+    invoke-direct {p0, p1}, Lcom/squareup/moshi/JsonValueWriter;->add(Ljava/lang/Object;)Lcom/squareup/moshi/JsonValueWriter;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 240
-    iput-boolean v1, p0, Lcom/squareup/moshi/JsonValueWriter;->serializeNulls:Z
-
-    .line 241
-    nop
+    iput-boolean v0, p0, Lcom/squareup/moshi/JsonValueWriter;->serializeNulls:Z
 
     .line 242
-    iget-object v3, p0, Lcom/squareup/moshi/JsonValueWriter;->pathIndices:[I
+    iget-object p1, p0, Lcom/squareup/moshi/JsonValueWriter;->pathIndices:[I
 
-    iget v4, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
+    iget v0, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
 
-    sub-int/2addr v4, v2
+    sub-int/2addr v0, v1
 
-    aget v5, v3, v4
+    aget v2, p1, v0
 
-    add-int/2addr v5, v2
+    add-int/2addr v2, v1
 
-    aput v5, v3, v4
+    aput v2, p1, v0
 
-    .line 243
     return-object p0
 
-    .line 240
     :catchall_0
-    move-exception v2
+    move-exception p1
 
-    iput-boolean v1, p0, Lcom/squareup/moshi/JsonValueWriter;->serializeNulls:Z
+    .line 240
+    iput-boolean v0, p0, Lcom/squareup/moshi/JsonValueWriter;->serializeNulls:Z
 
-    throw v2
+    throw p1
 
     .line 231
-    .end local v0    # "value":Ljava/lang/Object;
-    .end local v1    # "serializeNulls":Z
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "BufferedSource cannot be used as a map key in JSON at path "
 
-    const-string v2, "BufferedSource cannot be used as a map key in JSON at path "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 232
     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueWriter;->getPath()Ljava/lang/String;
 
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    throw v0
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p1
 .end method
 
 .method public value(Z)Lcom/squareup/moshi/JsonWriter;
-    .locals 3
-    .param p1, "value"    # Z
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1422,50 +1373,49 @@
     .line 162
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0}, Lcom/squareup/moshi/JsonValueWriter;->add(Ljava/lang/Object;)Lcom/squareup/moshi/JsonValueWriter;
+    invoke-direct {p0, p1}, Lcom/squareup/moshi/JsonValueWriter;->add(Ljava/lang/Object;)Lcom/squareup/moshi/JsonValueWriter;
 
     .line 163
-    iget-object v0, p0, Lcom/squareup/moshi/JsonValueWriter;->pathIndices:[I
+    iget-object p1, p0, Lcom/squareup/moshi/JsonValueWriter;->pathIndices:[I
 
-    iget v1, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
+    iget v0, p0, Lcom/squareup/moshi/JsonValueWriter;->stackSize:I
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    aget v2, v0, v1
+    aget v1, p1, v0
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    aput v2, v0, v1
+    aput v1, p1, v0
 
-    .line 164
     return-object p0
 
     .line 159
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Boolean cannot be used as a map key in JSON at path "
 
-    const-string v2, "Boolean cannot be used as a map key in JSON at path "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 160
     invoke-virtual {p0}, Lcom/squareup/moshi/JsonValueWriter;->getPath()Ljava/lang/String;
 
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    throw v0
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p1
 .end method

@@ -47,7 +47,7 @@
 
 # virtual methods
 .method runInternal()V
-    .locals 6
+    .locals 4
 
     .line 147
     iget-object v0, p0, Landroidx/work/impl/utils/CancelWorkRunnable$2;->val$workManagerImpl:Landroidx/work/impl/WorkManagerImpl;
@@ -57,7 +57,6 @@
     move-result-object v0
 
     .line 148
-    .local v0, "workDatabase":Landroidx/work/impl/WorkDatabase;
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->beginTransaction()V
 
     .line 150
@@ -67,40 +66,35 @@
     move-result-object v1
 
     .line 151
-    .local v1, "workSpecDao":Landroidx/work/impl/model/WorkSpecDao;
     iget-object v2, p0, Landroidx/work/impl/utils/CancelWorkRunnable$2;->val$tag:Ljava/lang/String;
 
     invoke-interface {v1, v2}, Landroidx/work/impl/model/WorkSpecDao;->getUnfinishedWorkWithTag(Ljava/lang/String;)Ljava/util/List;
 
-    move-result-object v2
+    move-result-object v1
 
     .line 152
-    .local v2, "workSpecIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object v1
 
     :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_0
+    if-eqz v2, :cond_0
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v2
 
-    check-cast v4, Ljava/lang/String;
+    check-cast v2, Ljava/lang/String;
 
     .line 153
-    .local v4, "workSpecId":Ljava/lang/String;
-    iget-object v5, p0, Landroidx/work/impl/utils/CancelWorkRunnable$2;->val$workManagerImpl:Landroidx/work/impl/WorkManagerImpl;
+    iget-object v3, p0, Landroidx/work/impl/utils/CancelWorkRunnable$2;->val$workManagerImpl:Landroidx/work/impl/WorkManagerImpl;
 
-    invoke-virtual {p0, v5, v4}, Landroidx/work/impl/utils/CancelWorkRunnable$2;->cancel(Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;)V
+    invoke-virtual {p0, v3, v2}, Landroidx/work/impl/utils/CancelWorkRunnable$2;->cancel(Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;)V
 
-    .line 154
-    .end local v4    # "workSpecId":Ljava/lang/String;
     goto :goto_0
 
     .line 155
@@ -110,25 +104,19 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 157
-    .end local v1    # "workSpecDao":Landroidx/work/impl/model/WorkSpecDao;
-    .end local v2    # "workSpecIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->endTransaction()V
 
-    .line 158
-    nop
-
     .line 159
-    iget-object v1, p0, Landroidx/work/impl/utils/CancelWorkRunnable$2;->val$workManagerImpl:Landroidx/work/impl/WorkManagerImpl;
+    iget-object v0, p0, Landroidx/work/impl/utils/CancelWorkRunnable$2;->val$workManagerImpl:Landroidx/work/impl/WorkManagerImpl;
 
-    invoke-virtual {p0, v1}, Landroidx/work/impl/utils/CancelWorkRunnable$2;->reschedulePendingWorkers(Landroidx/work/impl/WorkManagerImpl;)V
+    invoke-virtual {p0, v0}, Landroidx/work/impl/utils/CancelWorkRunnable$2;->reschedulePendingWorkers(Landroidx/work/impl/WorkManagerImpl;)V
 
-    .line 160
     return-void
 
-    .line 157
     :catchall_0
     move-exception v1
 
+    .line 157
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->endTransaction()V
 
     .line 158

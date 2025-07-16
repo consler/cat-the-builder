@@ -24,7 +24,6 @@
 # direct methods
 .method public constructor <init>(Lcom/nostra13/universalimageloader/core/download/ImageDownloader;)V
     .locals 0
-    .param p1, "wrappedDownloader"    # Lcom/nostra13/universalimageloader/core/download/ImageDownloader;
 
     .line 612
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +31,6 @@
     .line 613
     iput-object p1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$NetworkDeniedImageDownloader;->wrappedDownloader:Lcom/nostra13/universalimageloader/core/download/ImageDownloader;
 
-    .line 614
     return-void
 .end method
 
@@ -40,8 +38,6 @@
 # virtual methods
 .method public getStream(Ljava/lang/String;Ljava/lang/Object;)Ljava/io/InputStream;
     .locals 2
-    .param p1, "imageUri"    # Ljava/lang/String;
-    .param p2, "extra"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -74,15 +70,15 @@
 
     invoke-interface {v0, p1, p2}, Lcom/nostra13/universalimageloader/core/download/ImageDownloader;->getStream(Ljava/lang/String;Ljava/lang/Object;)Ljava/io/InputStream;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 621
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/IllegalStateException;-><init>()V
 
-    throw v0
+    throw p1
 .end method

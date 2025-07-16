@@ -34,13 +34,11 @@
     .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 15
     return-void
 .end method
 
 .method public constructor <init>(Lorg/json/JSONObject;)V
     .locals 0
-    .param p1, "json"    # Lorg/json/JSONObject;
 
     .line 20
     invoke-direct {p0}, Lcom/koushikdutta/async/http/body/JSONObjectBody;-><init>()V
@@ -48,7 +46,6 @@
     .line 21
     iput-object p1, p0, Lcom/koushikdutta/async/http/body/JSONObjectBody;->json:Lorg/json/JSONObject;
 
-    .line 22
     return-void
 .end method
 
@@ -77,7 +74,6 @@
 .method public getContentType()Ljava/lang/String;
     .locals 1
 
-    .line 42
     const-string v0, "application/json"
 
     return-object v0
@@ -106,9 +102,7 @@
 .end method
 
 .method public parse(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/callback/CompletedCallback;)V
-    .locals 2
-    .param p1, "emitter"    # Lcom/koushikdutta/async/DataEmitter;
-    .param p2, "completed"    # Lcom/koushikdutta/async/callback/CompletedCallback;
+    .locals 1
 
     .line 26
     new-instance v0, Lcom/koushikdutta/async/parser/JSONObjectParser;
@@ -117,38 +111,32 @@
 
     invoke-virtual {v0, p1}, Lcom/koushikdutta/async/parser/JSONObjectParser;->parse(Lcom/koushikdutta/async/DataEmitter;)Lcom/koushikdutta/async/future/Future;
 
-    move-result-object v0
+    move-result-object p1
 
-    new-instance v1, Lcom/koushikdutta/async/http/body/JSONObjectBody$1;
+    new-instance v0, Lcom/koushikdutta/async/http/body/JSONObjectBody$1;
 
-    invoke-direct {v1, p0, p2}, Lcom/koushikdutta/async/http/body/JSONObjectBody$1;-><init>(Lcom/koushikdutta/async/http/body/JSONObjectBody;Lcom/koushikdutta/async/callback/CompletedCallback;)V
+    invoke-direct {v0, p0, p2}, Lcom/koushikdutta/async/http/body/JSONObjectBody$1;-><init>(Lcom/koushikdutta/async/http/body/JSONObjectBody;Lcom/koushikdutta/async/callback/CompletedCallback;)V
 
-    invoke-interface {v0, v1}, Lcom/koushikdutta/async/future/Future;->setCallback(Lcom/koushikdutta/async/future/FutureCallback;)Lcom/koushikdutta/async/future/Future;
+    invoke-interface {p1, v0}, Lcom/koushikdutta/async/future/Future;->setCallback(Lcom/koushikdutta/async/future/FutureCallback;)Lcom/koushikdutta/async/future/Future;
 
-    .line 33
     return-void
 .end method
 
 .method public readFullyOnRequest()Z
     .locals 1
 
-    .line 47
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public write(Lcom/koushikdutta/async/http/AsyncHttpRequest;Lcom/koushikdutta/async/DataSink;Lcom/koushikdutta/async/callback/CompletedCallback;)V
-    .locals 1
-    .param p1, "request"    # Lcom/koushikdutta/async/http/AsyncHttpRequest;
-    .param p2, "sink"    # Lcom/koushikdutta/async/DataSink;
-    .param p3, "completed"    # Lcom/koushikdutta/async/callback/CompletedCallback;
+    .locals 0
 
     .line 37
-    iget-object v0, p0, Lcom/koushikdutta/async/http/body/JSONObjectBody;->mBodyBytes:[B
+    iget-object p1, p0, Lcom/koushikdutta/async/http/body/JSONObjectBody;->mBodyBytes:[B
 
-    invoke-static {p2, v0, p3}, Lcom/koushikdutta/async/Util;->writeAll(Lcom/koushikdutta/async/DataSink;[BLcom/koushikdutta/async/callback/CompletedCallback;)V
+    invoke-static {p2, p1, p3}, Lcom/koushikdutta/async/Util;->writeAll(Lcom/koushikdutta/async/DataSink;[BLcom/koushikdutta/async/callback/CompletedCallback;)V
 
-    .line 38
     return-void
 .end method

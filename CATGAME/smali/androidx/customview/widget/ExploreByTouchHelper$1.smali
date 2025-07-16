@@ -40,13 +40,10 @@
 # virtual methods
 .method public obtainBounds(Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;Landroid/graphics/Rect;)V
     .locals 0
-    .param p1, "node"    # Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
-    .param p2, "outBounds"    # Landroid/graphics/Rect;
 
     .line 339
     invoke-virtual {p1, p2}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->getBoundsInParent(Landroid/graphics/Rect;)V
 
-    .line 340
     return-void
 .end method
 

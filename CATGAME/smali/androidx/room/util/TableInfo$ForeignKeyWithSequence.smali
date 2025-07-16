@@ -39,10 +39,6 @@
 # direct methods
 .method constructor <init>(IILjava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .param p1, "id"    # I
-    .param p2, "sequence"    # I
-    .param p3, "from"    # Ljava/lang/String;
-    .param p4, "to"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -73,15 +69,13 @@
     .line 591
     iput-object p4, p0, Landroidx/room/util/TableInfo$ForeignKeyWithSequence;->mTo:Ljava/lang/String;
 
-    .line 592
     return-void
 .end method
 
 
 # virtual methods
 .method public compareTo(Landroidx/room/util/TableInfo$ForeignKeyWithSequence;)I
-    .locals 3
-    .param p1, "o"    # Landroidx/room/util/TableInfo$ForeignKeyWithSequence;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -98,20 +92,15 @@
 
     sub-int/2addr v0, v1
 
-    .line 597
-    .local v0, "idCmp":I
     if-nez v0, :cond_0
 
     .line 598
-    iget v1, p0, Landroidx/room/util/TableInfo$ForeignKeyWithSequence;->mSequence:I
+    iget v0, p0, Landroidx/room/util/TableInfo$ForeignKeyWithSequence;->mSequence:I
 
-    iget v2, p1, Landroidx/room/util/TableInfo$ForeignKeyWithSequence;->mSequence:I
+    iget p1, p1, Landroidx/room/util/TableInfo$ForeignKeyWithSequence;->mSequence:I
 
-    sub-int/2addr v1, v2
+    sub-int/2addr v0, p1
 
-    return v1
-
-    .line 600
     :cond_0
     return v0
 .end method

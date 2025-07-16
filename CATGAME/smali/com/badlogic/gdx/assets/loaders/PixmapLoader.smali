@@ -27,12 +27,10 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/assets/loaders/FileHandleResolver;)V
     .locals 0
-    .param p1, "resolver"    # Lcom/badlogic/gdx/assets/loaders/FileHandleResolver;
 
     .line 30
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/assets/loaders/AsynchronousAssetLoader;-><init>(Lcom/badlogic/gdx/assets/loaders/FileHandleResolver;)V
 
-    .line 31
     return-void
 .end method
 
@@ -52,10 +50,7 @@
 .end method
 
 .method public getDependencies(Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/loaders/PixmapLoader$PixmapParameter;)Lcom/badlogic/gdx/utils/Array;
-    .locals 1
-    .param p1, "fileName"    # Ljava/lang/String;
-    .param p2, "file"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p3, "parameter"    # Lcom/badlogic/gdx/assets/loaders/PixmapLoader$PixmapParameter;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,10 +64,9 @@
         }
     .end annotation
 
-    .line 50
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic loadAsync(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/AssetLoaderParameters;)V
@@ -87,46 +81,35 @@
 .end method
 
 .method public loadAsync(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/loaders/PixmapLoader$PixmapParameter;)V
-    .locals 1
-    .param p1, "manager"    # Lcom/badlogic/gdx/assets/AssetManager;
-    .param p2, "fileName"    # Ljava/lang/String;
-    .param p3, "file"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p4, "parameter"    # Lcom/badlogic/gdx/assets/loaders/PixmapLoader$PixmapParameter;
+    .locals 0
+
+    const/4 p1, 0x0
 
     .line 37
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/badlogic/gdx/assets/loaders/PixmapLoader;->pixmap:Lcom/badlogic/gdx/graphics/Pixmap;
+    iput-object p1, p0, Lcom/badlogic/gdx/assets/loaders/PixmapLoader;->pixmap:Lcom/badlogic/gdx/graphics/Pixmap;
 
     .line 38
-    new-instance v0, Lcom/badlogic/gdx/graphics/Pixmap;
+    new-instance p1, Lcom/badlogic/gdx/graphics/Pixmap;
 
-    invoke-direct {v0, p3}, Lcom/badlogic/gdx/graphics/Pixmap;-><init>(Lcom/badlogic/gdx/files/FileHandle;)V
+    invoke-direct {p1, p3}, Lcom/badlogic/gdx/graphics/Pixmap;-><init>(Lcom/badlogic/gdx/files/FileHandle;)V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/assets/loaders/PixmapLoader;->pixmap:Lcom/badlogic/gdx/graphics/Pixmap;
+    iput-object p1, p0, Lcom/badlogic/gdx/assets/loaders/PixmapLoader;->pixmap:Lcom/badlogic/gdx/graphics/Pixmap;
 
-    .line 39
     return-void
 .end method
 
 .method public loadSync(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/loaders/PixmapLoader$PixmapParameter;)Lcom/badlogic/gdx/graphics/Pixmap;
-    .locals 2
-    .param p1, "manager"    # Lcom/badlogic/gdx/assets/AssetManager;
-    .param p2, "fileName"    # Ljava/lang/String;
-    .param p3, "file"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p4, "parameter"    # Lcom/badlogic/gdx/assets/loaders/PixmapLoader$PixmapParameter;
+    .locals 0
 
     .line 43
-    iget-object v0, p0, Lcom/badlogic/gdx/assets/loaders/PixmapLoader;->pixmap:Lcom/badlogic/gdx/graphics/Pixmap;
+    iget-object p1, p0, Lcom/badlogic/gdx/assets/loaders/PixmapLoader;->pixmap:Lcom/badlogic/gdx/graphics/Pixmap;
+
+    const/4 p2, 0x0
 
     .line 44
-    .local v0, "pixmap":Lcom/badlogic/gdx/graphics/Pixmap;
-    const/4 v1, 0x0
+    iput-object p2, p0, Lcom/badlogic/gdx/assets/loaders/PixmapLoader;->pixmap:Lcom/badlogic/gdx/graphics/Pixmap;
 
-    iput-object v1, p0, Lcom/badlogic/gdx/assets/loaders/PixmapLoader;->pixmap:Lcom/badlogic/gdx/graphics/Pixmap;
-
-    .line 45
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic loadSync(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/AssetLoaderParameters;)Ljava/lang/Object;

@@ -28,25 +28,21 @@
 # virtual methods
 .method computeAndSetTextDirection(Landroid/text/StaticLayout$Builder;Landroid/widget/TextView;)V
     .locals 2
-    .param p1, "layoutBuilder"    # Landroid/text/StaticLayout$Builder;
-    .param p2, "textView"    # Landroid/widget/TextView;
+
+    const-string v0, "getTextDirectionHeuristic"
 
     .line 127
-    sget-object v0, Landroid/text/TextDirectionHeuristics;->FIRSTSTRONG_LTR:Landroid/text/TextDirectionHeuristic;
+    sget-object v1, Landroid/text/TextDirectionHeuristics;->FIRSTSTRONG_LTR:Landroid/text/TextDirectionHeuristic;
 
     .line 128
-    const-string v1, "getTextDirectionHeuristic"
+    invoke-static {p2, v0, v1}, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->invokeAndReturnWithDefault(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {p2, v1, v0}, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->invokeAndReturnWithDefault(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object p2
 
-    move-result-object v0
-
-    check-cast v0, Landroid/text/TextDirectionHeuristic;
+    check-cast p2, Landroid/text/TextDirectionHeuristic;
 
     .line 130
-    .local v0, "textDirectionHeuristic":Landroid/text/TextDirectionHeuristic;
-    invoke-virtual {p1, v0}, Landroid/text/StaticLayout$Builder;->setTextDirection(Landroid/text/TextDirectionHeuristic;)Landroid/text/StaticLayout$Builder;
+    invoke-virtual {p1, p2}, Landroid/text/StaticLayout$Builder;->setTextDirection(Landroid/text/TextDirectionHeuristic;)Landroid/text/StaticLayout$Builder;
 
-    .line 131
     return-void
 .end method

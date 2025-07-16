@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;
 
     .line 127
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard$2;->this$0:Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;
@@ -82,7 +81,6 @@
     move-result-object v0
 
     .line 143
-    .local v0, "content":Landroid/view/View;
     invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object v1
@@ -93,6 +91,5 @@
 
     invoke-virtual {v1, v2}, Landroid/view/ViewTreeObserver;->addOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
-    .line 160
     return-void
 .end method

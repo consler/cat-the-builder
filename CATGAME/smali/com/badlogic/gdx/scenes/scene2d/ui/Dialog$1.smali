@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/Dialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/scenes/scene2d/ui/Dialog;
 
     .line 50
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Dialog$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Dialog;
@@ -34,18 +33,12 @@
 
 # virtual methods
 .method public touchDown(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;FFII)Z
-    .locals 1
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
-    .param p4, "pointer"    # I
-    .param p5, "button"    # I
+    .locals 0
 
     .line 52
     invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/InputEvent;->cancel()V
 
-    .line 53
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

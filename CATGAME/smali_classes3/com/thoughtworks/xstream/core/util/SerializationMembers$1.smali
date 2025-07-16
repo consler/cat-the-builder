@@ -16,6 +16,5 @@
 .method private noMethod()V
     .locals 0
 
-    .line 42
     return-void
 .end method

@@ -53,7 +53,6 @@
     .locals 2
 
     .line 33
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;, "Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 27
@@ -81,7 +80,6 @@
     .line 34
     iput v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->minCheckCount:I
 
-    .line 35
     return-void
 .end method
 
@@ -94,8 +92,6 @@
     .end annotation
 
     .line 37
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;, "Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup<TT;>;"
-    .local p1, "buttons":[Lcom/badlogic/gdx/scenes/scene2d/ui/Button;, "[TT;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 27
@@ -120,9 +116,9 @@
     .line 30
     iput-boolean v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->uncheckLast:Z
 
-    .line 38
     const/4 v0, 0x0
 
+    .line 38
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->minCheckCount:I
 
     .line 39
@@ -131,7 +127,6 @@
     .line 40
     iput v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->minCheckCount:I
 
-    .line 41
     return-void
 .end method
 
@@ -145,14 +140,11 @@
         }
     .end annotation
 
-    .line 44
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;, "Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup<TT;>;"
-    .local p1, "button":Lcom/badlogic/gdx/scenes/scene2d/ui/Button;, "TT;"
     if-eqz p1, :cond_2
 
-    .line 45
     const/4 v0, 0x0
 
+    .line 45
     iput-object v0, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Button;->buttonGroup:Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;
 
     .line 46
@@ -184,7 +176,6 @@
     const/4 v0, 0x1
 
     .line 47
-    .local v0, "shouldCheck":Z
     :goto_1
     invoke-virtual {p1, v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Button;->setChecked(Z)V
 
@@ -199,19 +190,17 @@
     .line 50
     invoke-virtual {p1, v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Button;->setChecked(Z)V
 
-    .line 51
     return-void
 
     .line 44
-    .end local v0    # "shouldCheck":Z
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "button cannot be null."
+    const-string v0, "button cannot be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public varargs add([Lcom/badlogic/gdx/scenes/scene2d/ui/Button;)V
@@ -222,51 +211,41 @@
         }
     .end annotation
 
-    .line 54
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;, "Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup<TT;>;"
-    .local p1, "buttons":[Lcom/badlogic/gdx/scenes/scene2d/ui/Button;, "[TT;"
     if-eqz p1, :cond_1
 
     .line 55
-    const/4 v0, 0x0
+    array-length v0, p1
 
-    .local v0, "i":I
-    array-length v1, p1
+    const/4 v1, 0x0
 
-    .local v1, "n":I
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge v1, v0, :cond_0
 
     .line 56
-    aget-object v2, p1, v0
+    aget-object v2, p1, v1
 
     invoke-virtual {p0, v2}, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->add(Lcom/badlogic/gdx/scenes/scene2d/ui/Button;)V
 
-    .line 55
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 57
-    .end local v0    # "i":I
-    .end local v1    # "n":I
     :cond_0
     return-void
 
     .line 54
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "buttons cannot be null."
+    const-string v0, "buttons cannot be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method protected canCheck(Lcom/badlogic/gdx/scenes/scene2d/ui/Button;Z)Z
-    .locals 4
-    .param p2, "newState"    # Z
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;Z)Z"
@@ -274,8 +253,6 @@
     .end annotation
 
     .line 93
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;, "Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup<TT;>;"
-    .local p1, "button":Lcom/badlogic/gdx/scenes/scene2d/ui/Button;, "TT;"
     iget-boolean v0, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Button;->isChecked:Z
 
     const/4 v1, 0x0
@@ -284,86 +261,80 @@
 
     return v1
 
-    .line 95
     :cond_0
     const/4 v0, 0x1
 
     if-nez p2, :cond_2
 
     .line 97
-    iget-object v2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->checkedButtons:Lcom/badlogic/gdx/utils/Array;
+    iget-object p2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->checkedButtons:Lcom/badlogic/gdx/utils/Array;
 
-    iget v2, v2, Lcom/badlogic/gdx/utils/Array;->size:I
+    iget p2, p2, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    iget v3, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->minCheckCount:I
+    iget v2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->minCheckCount:I
 
-    if-gt v2, v3, :cond_1
+    if-gt p2, v2, :cond_1
 
     return v1
 
     .line 98
     :cond_1
-    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->checkedButtons:Lcom/badlogic/gdx/utils/Array;
+    iget-object p2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->checkedButtons:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v1, p1, v0}, Lcom/badlogic/gdx/utils/Array;->removeValue(Ljava/lang/Object;Z)Z
+    invoke-virtual {p2, p1, v0}, Lcom/badlogic/gdx/utils/Array;->removeValue(Ljava/lang/Object;Z)Z
 
     goto :goto_1
 
     .line 101
     :cond_2
+    iget p2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->maxCheckCount:I
+
+    const/4 v2, -0x1
+
+    if-eq p2, v2, :cond_4
+
+    iget-object p2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->checkedButtons:Lcom/badlogic/gdx/utils/Array;
+
+    iget p2, p2, Lcom/badlogic/gdx/utils/Array;->size:I
+
     iget v2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->maxCheckCount:I
 
-    const/4 v3, -0x1
-
-    if-eq v2, v3, :cond_4
-
-    iget-object v2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->checkedButtons:Lcom/badlogic/gdx/utils/Array;
-
-    iget v2, v2, Lcom/badlogic/gdx/utils/Array;->size:I
-
-    iget v3, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->maxCheckCount:I
-
-    if-lt v2, v3, :cond_4
+    if-lt p2, v2, :cond_4
 
     .line 102
-    iget-boolean v2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->uncheckLast:Z
+    iget-boolean p2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->uncheckLast:Z
 
-    if-eqz v2, :cond_3
+    if-eqz p2, :cond_3
 
     .line 103
-    iget v2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->minCheckCount:I
+    iget p2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->minCheckCount:I
 
     .line 104
-    .local v2, "old":I
     iput v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->minCheckCount:I
 
     .line 105
-    iget-object v3, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->lastChecked:Lcom/badlogic/gdx/scenes/scene2d/ui/Button;
+    iget-object v2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->lastChecked:Lcom/badlogic/gdx/scenes/scene2d/ui/Button;
 
-    invoke-virtual {v3, v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Button;->setChecked(Z)V
+    invoke-virtual {v2, v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Button;->setChecked(Z)V
 
     .line 106
-    iput v2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->minCheckCount:I
+    iput p2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->minCheckCount:I
 
-    .line 107
-    .end local v2    # "old":I
     goto :goto_0
 
-    .line 108
     :cond_3
     return v1
 
     .line 110
     :cond_4
     :goto_0
-    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->checkedButtons:Lcom/badlogic/gdx/utils/Array;
+    iget-object p2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->checkedButtons:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v1, p1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {p2, p1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
     .line 111
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->lastChecked:Lcom/badlogic/gdx/scenes/scene2d/ui/Button;
 
-    .line 114
     :goto_1
     return v0
 .end method
@@ -372,7 +343,6 @@
     .locals 1
 
     .line 73
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;, "Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup<TT;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->buttons:Lcom/badlogic/gdx/utils/Array;
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->clear()V
@@ -382,7 +352,6 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->clear()V
 
-    .line 75
     return-void
 .end method
 
@@ -397,7 +366,6 @@
     .end annotation
 
     .line 141
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;, "Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup<TT;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->checkedButtons:Lcom/badlogic/gdx/utils/Array;
 
     return-object v0
@@ -414,7 +382,6 @@
     .end annotation
 
     .line 145
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;, "Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup<TT;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->buttons:Lcom/badlogic/gdx/utils/Array;
 
     return-object v0
@@ -429,7 +396,6 @@
     .end annotation
 
     .line 130
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;, "Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup<TT;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->checkedButtons:Lcom/badlogic/gdx/utils/Array;
 
     iget v0, v0, Lcom/badlogic/gdx/utils/Array;->size:I
@@ -448,7 +414,6 @@
 
     return-object v0
 
-    .line 131
     :cond_0
     const/4 v0, 0x0
 
@@ -459,7 +424,6 @@
     .locals 3
 
     .line 136
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;, "Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup<TT;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->checkedButtons:Lcom/badlogic/gdx/utils/Array;
 
     iget v0, v0, Lcom/badlogic/gdx/utils/Array;->size:I
@@ -484,7 +448,6 @@
 
     return v0
 
-    .line 137
     :cond_0
     const/4 v0, -0x1
 
@@ -499,14 +462,11 @@
         }
     .end annotation
 
-    .line 60
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;, "Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup<TT;>;"
-    .local p1, "button":Lcom/badlogic/gdx/scenes/scene2d/ui/Button;, "TT;"
     if-eqz p1, :cond_0
 
-    .line 61
     const/4 v0, 0x0
 
+    .line 61
     iput-object v0, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Button;->buttonGroup:Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;
 
     .line 62
@@ -521,18 +481,17 @@
 
     invoke-virtual {v0, p1, v1}, Lcom/badlogic/gdx/utils/Array;->removeValue(Ljava/lang/Object;Z)Z
 
-    .line 64
     return-void
 
     .line 60
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "button cannot be null."
+    const-string v0, "button cannot be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public varargs remove([Lcom/badlogic/gdx/scenes/scene2d/ui/Button;)V
@@ -543,79 +502,64 @@
         }
     .end annotation
 
-    .line 67
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;, "Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup<TT;>;"
-    .local p1, "buttons":[Lcom/badlogic/gdx/scenes/scene2d/ui/Button;, "[TT;"
     if-eqz p1, :cond_1
 
     .line 68
-    const/4 v0, 0x0
+    array-length v0, p1
 
-    .local v0, "i":I
-    array-length v1, p1
+    const/4 v1, 0x0
 
-    .local v1, "n":I
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge v1, v0, :cond_0
 
     .line 69
-    aget-object v2, p1, v0
+    aget-object v2, p1, v1
 
     invoke-virtual {p0, v2}, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->remove(Lcom/badlogic/gdx/scenes/scene2d/ui/Button;)V
 
-    .line 68
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 70
-    .end local v0    # "i":I
-    .end local v1    # "n":I
     :cond_0
     return-void
 
     .line 67
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "buttons cannot be null."
+    const-string v0, "buttons cannot be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setChecked(Ljava/lang/String;)V
     .locals 4
-    .param p1, "text"    # Ljava/lang/String;
 
-    .line 79
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;, "Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup<TT;>;"
     if-eqz p1, :cond_2
 
     .line 80
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->buttons:Lcom/badlogic/gdx/utils/Array;
 
-    .local v0, "i":I
-    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->buttons:Lcom/badlogic/gdx/utils/Array;
+    iget v0, v0, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    iget v1, v1, Lcom/badlogic/gdx/utils/Array;->size:I
+    const/4 v1, 0x0
 
-    .local v1, "n":I
     :goto_0
-    if-ge v0, v1, :cond_1
+    if-ge v1, v0, :cond_1
 
     .line 81
     iget-object v2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->buttons:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v2, v0}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, v1}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lcom/badlogic/gdx/scenes/scene2d/ui/Button;
 
     .line 82
-    .local v2, "button":Lcom/badlogic/gdx/scenes/scene2d/ui/Button;, "TT;"
     instance-of v3, v2, Lcom/badlogic/gdx/scenes/scene2d/ui/TextButton;
 
     if-eqz v3, :cond_0
@@ -634,44 +578,35 @@
 
     if-eqz v3, :cond_0
 
+    const/4 p1, 0x1
+
     .line 83
-    const/4 v3, 0x1
+    invoke-virtual {v2, p1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Button;->setChecked(Z)V
 
-    invoke-virtual {v2, v3}, Lcom/badlogic/gdx/scenes/scene2d/ui/Button;->setChecked(Z)V
-
-    .line 84
     return-void
 
-    .line 80
-    .end local v2    # "button":Lcom/badlogic/gdx/scenes/scene2d/ui/Button;, "TT;"
     :cond_0
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 87
-    .end local v0    # "i":I
-    .end local v1    # "n":I
     :cond_1
     return-void
 
     .line 79
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "text cannot be null."
+    const-string v0, "text cannot be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setMaxCheckCount(I)V
     .locals 0
-    .param p1, "maxCheckCount"    # I
 
-    .line 155
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;, "Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup<TT;>;"
     if-nez p1, :cond_0
 
     const/4 p1, -0x1
@@ -680,31 +615,24 @@
     :cond_0
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->maxCheckCount:I
 
-    .line 157
     return-void
 .end method
 
 .method public setMinCheckCount(I)V
     .locals 0
-    .param p1, "minCheckCount"    # I
 
     .line 150
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;, "Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup<TT;>;"
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->minCheckCount:I
 
-    .line 151
     return-void
 .end method
 
 .method public setUncheckLast(Z)V
     .locals 0
-    .param p1, "uncheckLast"    # Z
 
     .line 163
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;, "Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup<TT;>;"
     iput-boolean p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->uncheckLast:Z
 
-    .line 164
     return-void
 .end method
 
@@ -712,52 +640,42 @@
     .locals 5
 
     .line 119
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;, "Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup<TT;>;"
     iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->minCheckCount:I
 
-    .line 120
-    .local v0, "old":I
     const/4 v1, 0x0
 
+    .line 120
     iput v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->minCheckCount:I
 
     .line 121
-    const/4 v2, 0x0
+    iget-object v2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->buttons:Lcom/badlogic/gdx/utils/Array;
 
-    .local v2, "i":I
-    iget-object v3, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->buttons:Lcom/badlogic/gdx/utils/Array;
+    iget v2, v2, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    iget v3, v3, Lcom/badlogic/gdx/utils/Array;->size:I
+    move v3, v1
 
-    .local v3, "n":I
     :goto_0
-    if-ge v2, v3, :cond_0
+    if-ge v3, v2, :cond_0
 
     .line 122
     iget-object v4, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->buttons:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v4, v2}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
+    invoke-virtual {v4, v3}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Lcom/badlogic/gdx/scenes/scene2d/ui/Button;
 
     .line 123
-    .local v4, "button":Lcom/badlogic/gdx/scenes/scene2d/ui/Button;, "TT;"
     invoke-virtual {v4, v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Button;->setChecked(Z)V
 
-    .line 121
-    .end local v4    # "button":Lcom/badlogic/gdx/scenes/scene2d/ui/Button;, "TT;"
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     .line 125
-    .end local v2    # "i":I
-    .end local v3    # "n":I
     :cond_0
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ButtonGroup;->minCheckCount:I
 
-    .line 126
     return-void
 .end method

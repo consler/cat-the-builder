@@ -27,11 +27,10 @@
 
 # virtual methods
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .locals 1
-    .param p1, "intent"    # Landroid/content/Intent;
+    .locals 0
 
     .line 54
-    iget-object v0, p0, Landroidx/browser/customtabs/PostMessageService;->mBinder:Landroid/support/customtabs/IPostMessageService$Stub;
+    iget-object p1, p0, Landroidx/browser/customtabs/PostMessageService;->mBinder:Landroid/support/customtabs/IPostMessageService$Stub;
 
-    return-object v0
+    return-object p1
 .end method

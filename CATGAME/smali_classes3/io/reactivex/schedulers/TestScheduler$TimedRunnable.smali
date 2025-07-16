@@ -39,10 +39,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/schedulers/TestScheduler$TestWorker;JLjava/lang/Runnable;J)V
     .locals 0
-    .param p1, "scheduler"    # Lio/reactivex/schedulers/TestScheduler$TestWorker;
-    .param p2, "time"    # J
-    .param p4, "run"    # Ljava/lang/Runnable;
-    .param p5, "count"    # J
 
     .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,7 +55,6 @@
     .line 49
     iput-wide p5, p0, Lio/reactivex/schedulers/TestScheduler$TimedRunnable;->count:J
 
-    .line 50
     return-void
 .end method
 
@@ -67,7 +62,6 @@
 # virtual methods
 .method public compareTo(Lio/reactivex/schedulers/TestScheduler$TimedRunnable;)I
     .locals 5
-    .param p1, "o"    # Lio/reactivex/schedulers/TestScheduler$TimedRunnable;
 
     .line 59
     iget-wide v0, p0, Lio/reactivex/schedulers/TestScheduler$TimedRunnable;->time:J
@@ -85,43 +79,40 @@
 
     invoke-static {v0, v1, v2, v3}, Lio/reactivex/internal/functions/ObjectHelper;->compare(JJ)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
     .line 62
     :cond_0
     invoke-static {v0, v1, v2, v3}, Lio/reactivex/internal/functions/ObjectHelper;->compare(JJ)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
+    .locals 0
 
     .line 38
-    move-object v0, p1
+    check-cast p1, Lio/reactivex/schedulers/TestScheduler$TimedRunnable;
 
-    check-cast v0, Lio/reactivex/schedulers/TestScheduler$TimedRunnable;
+    invoke-virtual {p0, p1}, Lio/reactivex/schedulers/TestScheduler$TimedRunnable;->compareTo(Lio/reactivex/schedulers/TestScheduler$TimedRunnable;)I
 
-    invoke-virtual {p0, v0}, Lio/reactivex/schedulers/TestScheduler$TimedRunnable;->compareTo(Lio/reactivex/schedulers/TestScheduler$TimedRunnable;)I
+    move-result p1
 
-    move-result v0
-
-    return v0
+    return p1
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 3
 
-    .line 54
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Object;
 
+    .line 54
     iget-wide v1, p0, Lio/reactivex/schedulers/TestScheduler$TimedRunnable;->time:J
 
     invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;

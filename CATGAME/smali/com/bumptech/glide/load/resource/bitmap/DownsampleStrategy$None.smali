@@ -27,27 +27,18 @@
 
 # virtual methods
 .method public getSampleSizeRounding(IIII)Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$SampleSizeRounding;
-    .locals 1
-    .param p1, "sourceWidth"    # I
-    .param p2, "sourceHeight"    # I
-    .param p3, "requestedWidth"    # I
-    .param p4, "requestedHeight"    # I
+    .locals 0
 
     .line 253
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$SampleSizeRounding;->QUALITY:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$SampleSizeRounding;
+    sget-object p1, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$SampleSizeRounding;->QUALITY:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$SampleSizeRounding;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getScaleFactor(IIII)F
-    .locals 1
-    .param p1, "sourceWidth"    # I
-    .param p2, "sourceHeight"    # I
-    .param p3, "requestedWidth"    # I
-    .param p4, "requestedHeight"    # I
+    .locals 0
 
-    .line 247
-    const/high16 v0, 0x3f800000    # 1.0f
+    const/high16 p1, 0x3f800000    # 1.0f
 
-    return v0
+    return p1
 .end method

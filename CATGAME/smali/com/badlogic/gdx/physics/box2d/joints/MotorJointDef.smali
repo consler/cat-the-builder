@@ -29,22 +29,22 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/MotorJointDef;->linearOffset:Lcom/badlogic/gdx/math/Vector2;
 
-    .line 41
     const/4 v0, 0x0
 
+    .line 41
     iput v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/MotorJointDef;->angularOffset:F
 
-    .line 44
     const/high16 v0, 0x3f800000    # 1.0f
 
+    .line 44
     iput v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/MotorJointDef;->maxForce:F
 
     .line 47
     iput v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/MotorJointDef;->maxTorque:F
 
-    .line 50
     const v0, 0x3e99999a    # 0.3f
 
+    .line 50
     iput v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/MotorJointDef;->correctionFactor:F
 
     .line 26
@@ -52,16 +52,13 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/MotorJointDef;->type:Lcom/badlogic/gdx/physics/box2d/JointDef$JointType;
 
-    .line 27
     return-void
 .end method
 
 
 # virtual methods
 .method public initialize(Lcom/badlogic/gdx/physics/box2d/Body;Lcom/badlogic/gdx/physics/box2d/Body;)V
-    .locals 3
-    .param p1, "body1"    # Lcom/badlogic/gdx/physics/box2d/Body;
-    .param p2, "body2"    # Lcom/badlogic/gdx/physics/box2d/Body;
+    .locals 1
 
     .line 31
     iput-object p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/MotorJointDef;->bodyA:Lcom/badlogic/gdx/physics/box2d/Body;
@@ -70,39 +67,38 @@
     iput-object p2, p0, Lcom/badlogic/gdx/physics/box2d/joints/MotorJointDef;->bodyB:Lcom/badlogic/gdx/physics/box2d/Body;
 
     .line 33
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/MotorJointDef;->linearOffset:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/MotorJointDef;->linearOffset:Lcom/badlogic/gdx/math/Vector2;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/physics/box2d/joints/MotorJointDef;->bodyA:Lcom/badlogic/gdx/physics/box2d/Body;
+    iget-object p2, p0, Lcom/badlogic/gdx/physics/box2d/joints/MotorJointDef;->bodyA:Lcom/badlogic/gdx/physics/box2d/Body;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/physics/box2d/joints/MotorJointDef;->bodyB:Lcom/badlogic/gdx/physics/box2d/Body;
-
-    invoke-virtual {v2}, Lcom/badlogic/gdx/physics/box2d/Body;->getPosition()Lcom/badlogic/gdx/math/Vector2;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/physics/box2d/Body;->getLocalPoint(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector2;->set(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
-
-    .line 34
     iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/MotorJointDef;->bodyB:Lcom/badlogic/gdx/physics/box2d/Body;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/physics/box2d/Body;->getAngle()F
+    invoke-virtual {v0}, Lcom/badlogic/gdx/physics/box2d/Body;->getPosition()Lcom/badlogic/gdx/math/Vector2;
 
-    move-result v0
+    move-result-object v0
 
-    iget-object v1, p0, Lcom/badlogic/gdx/physics/box2d/joints/MotorJointDef;->bodyA:Lcom/badlogic/gdx/physics/box2d/Body;
+    invoke-virtual {p2, v0}, Lcom/badlogic/gdx/physics/box2d/Body;->getLocalPoint(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
 
-    invoke-virtual {v1}, Lcom/badlogic/gdx/physics/box2d/Body;->getAngle()F
+    move-result-object p2
 
-    move-result v1
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/math/Vector2;->set(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
 
-    sub-float/2addr v0, v1
+    .line 34
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/MotorJointDef;->bodyB:Lcom/badlogic/gdx/physics/box2d/Body;
 
-    iput v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/MotorJointDef;->angularOffset:F
+    invoke-virtual {p1}, Lcom/badlogic/gdx/physics/box2d/Body;->getAngle()F
 
-    .line 35
+    move-result p1
+
+    iget-object p2, p0, Lcom/badlogic/gdx/physics/box2d/joints/MotorJointDef;->bodyA:Lcom/badlogic/gdx/physics/box2d/Body;
+
+    invoke-virtual {p2}, Lcom/badlogic/gdx/physics/box2d/Body;->getAngle()F
+
+    move-result p2
+
+    sub-float/2addr p1, p2
+
+    iput p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/MotorJointDef;->angularOffset:F
+
     return-void
 .end method

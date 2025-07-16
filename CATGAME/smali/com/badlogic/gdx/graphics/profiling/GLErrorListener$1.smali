@@ -31,13 +31,10 @@
 # virtual methods
 .method public onError(I)V
     .locals 5
-    .param p1, "error"    # I
 
-    .line 39
     const/4 v0, 0x0
 
     .line 41
-    .local v0, "place":Ljava/lang/String;
     :try_start_0
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
@@ -47,19 +44,17 @@
 
     move-result-object v1
 
-    .line 42
-    .local v1, "stack":[Ljava/lang/StackTraceElement;
     const/4 v2, 0x0
 
-    .local v2, "i":I
+    .line 42
     :goto_0
     array-length v3, v1
 
     if-ge v2, v3, :cond_1
 
-    .line 43
     const-string v3, "check"
 
+    .line 43
     aget-object v4, v1, v2
 
     invoke-virtual {v4}, Ljava/lang/StackTraceElement;->getMethodName()Ljava/lang/String;
@@ -72,51 +67,33 @@
 
     if-eqz v3, :cond_0
 
+    add-int/lit8 v2, v2, 0x1
+
     .line 44
-    add-int/lit8 v3, v2, 0x1
+    array-length v3, v1
 
-    array-length v4, v1
-
-    if-ge v3, v4, :cond_1
+    if-ge v2, v3, :cond_1
 
     .line 45
-    add-int/lit8 v3, v2, 0x1
-
-    aget-object v3, v1, v3
+    aget-object v1, v1, v2
 
     .line 46
-    .local v3, "glMethod":Ljava/lang/StackTraceElement;
-    invoke-virtual {v3}, Ljava/lang/StackTraceElement;->getMethodName()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StackTraceElement;->getMethodName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-object v0, v4
-
-    .line 47
-    .end local v3    # "glMethod":Ljava/lang/StackTraceElement;
     goto :goto_1
 
-    .line 42
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 52
-    .end local v1    # "stack":[Ljava/lang/StackTraceElement;
-    .end local v2    # "i":I
+    :catch_0
     :cond_1
     :goto_1
-    goto :goto_2
-
-    .line 51
-    :catch_0
-    move-exception v1
-
-    .line 54
-    :goto_2
     const-string v1, "Error "
 
     const-string v2, "GLProfiler"
@@ -128,61 +105,66 @@
 
     new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v4, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-static {p1}, Lcom/badlogic/gdx/graphics/profiling/GLInterceptor;->resolveErrorNumber(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     const-string v1, " from "
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v3, v2, v1}, Lcom/badlogic/gdx/Application;->error(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    goto :goto_3
+    move-result-object p1
+
+    invoke-interface {v3, v2, p1}, Lcom/badlogic/gdx/Application;->error(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_2
 
     .line 57
     :cond_2
-    sget-object v3, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
+    sget-object v0, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v3, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-static {p1}, Lcom/badlogic/gdx/graphics/profiling/GLInterceptor;->resolveErrorNumber(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     const-string v1, " at: "
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    new-instance v4, Ljava/lang/Exception;
+    move-result-object p1
 
-    invoke-direct {v4}, Ljava/lang/Exception;-><init>()V
+    new-instance v1, Ljava/lang/Exception;
 
-    invoke-interface {v3, v2, v1, v4}, Lcom/badlogic/gdx/Application;->error(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v1}, Ljava/lang/Exception;-><init>()V
 
-    .line 60
-    :goto_3
+    invoke-interface {v0, v2, p1, v1}, Lcom/badlogic/gdx/Application;->error(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    :goto_2
     return-void
 .end method

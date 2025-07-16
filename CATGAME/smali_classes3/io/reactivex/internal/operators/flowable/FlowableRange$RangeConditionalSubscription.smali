@@ -34,8 +34,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/fuseable/ConditionalSubscriber;II)V
     .locals 0
-    .param p2, "index"    # I
-    .param p3, "end"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -47,13 +45,11 @@
     .end annotation
 
     .line 186
-    .local p1, "actual":Lio/reactivex/internal/fuseable/ConditionalSubscriber;, "Lio/reactivex/internal/fuseable/ConditionalSubscriber<-Ljava/lang/Integer;>;"
     invoke-direct {p0, p2, p3}, Lio/reactivex/internal/operators/flowable/FlowableRange$BaseRangeSubscription;-><init>(II)V
 
     .line 187
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableRange$RangeConditionalSubscription;->actual:Lio/reactivex/internal/fuseable/ConditionalSubscriber;
 
-    .line 188
     return-void
 .end method
 
@@ -66,14 +62,11 @@
     iget v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRange$RangeConditionalSubscription;->end:I
 
     .line 193
-    .local v0, "f":I
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableRange$RangeConditionalSubscription;->actual:Lio/reactivex/internal/fuseable/ConditionalSubscriber;
 
     .line 195
-    .local v1, "a":Lio/reactivex/internal/fuseable/ConditionalSubscriber;, "Lio/reactivex/internal/fuseable/ConditionalSubscriber<-Ljava/lang/Integer;>;"
     iget v2, p0, Lio/reactivex/internal/operators/flowable/FlowableRange$RangeConditionalSubscription;->index:I
 
-    .local v2, "i":I
     :goto_0
     if-eq v2, v0, :cond_1
 
@@ -82,7 +75,6 @@
 
     if-eqz v3, :cond_0
 
-    .line 197
     return-void
 
     .line 199
@@ -93,142 +85,115 @@
 
     invoke-interface {v1, v3}, Lio/reactivex/internal/fuseable/ConditionalSubscriber;->tryOnNext(Ljava/lang/Object;)Z
 
-    .line 195
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 201
-    .end local v2    # "i":I
     :cond_1
-    iget-boolean v2, p0, Lio/reactivex/internal/operators/flowable/FlowableRange$RangeConditionalSubscription;->cancelled:Z
+    iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRange$RangeConditionalSubscription;->cancelled:Z
 
-    if-eqz v2, :cond_2
+    if-eqz v0, :cond_2
 
-    .line 202
     return-void
 
     .line 204
     :cond_2
     invoke-interface {v1}, Lio/reactivex/internal/fuseable/ConditionalSubscriber;->onComplete()V
 
-    .line 205
     return-void
 .end method
 
 .method slowPath(J)V
-    .locals 7
-    .param p1, "r"    # J
-
-    .line 209
-    const-wide/16 v0, 0x0
+    .locals 9
 
     .line 210
-    .local v0, "e":J
-    iget v2, p0, Lio/reactivex/internal/operators/flowable/FlowableRange$RangeConditionalSubscription;->end:I
+    iget v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRange$RangeConditionalSubscription;->end:I
 
     .line 211
-    .local v2, "f":I
-    iget v3, p0, Lio/reactivex/internal/operators/flowable/FlowableRange$RangeConditionalSubscription;->index:I
+    iget v1, p0, Lio/reactivex/internal/operators/flowable/FlowableRange$RangeConditionalSubscription;->index:I
 
     .line 212
-    .local v3, "i":I
-    iget-object v4, p0, Lio/reactivex/internal/operators/flowable/FlowableRange$RangeConditionalSubscription;->actual:Lio/reactivex/internal/fuseable/ConditionalSubscriber;
+    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableRange$RangeConditionalSubscription;->actual:Lio/reactivex/internal/fuseable/ConditionalSubscriber;
 
-    .line 216
-    .local v4, "a":Lio/reactivex/internal/fuseable/ConditionalSubscriber;, "Lio/reactivex/internal/fuseable/ConditionalSubscriber<-Ljava/lang/Integer;>;"
+    const-wide/16 v3, 0x0
+
+    :cond_0
+    move-wide v5, v3
+
+    :cond_1
     :goto_0
-    cmp-long v5, v0, p1
+    cmp-long v7, v5, p1
 
-    if-eqz v5, :cond_2
+    if-eqz v7, :cond_4
 
-    if-eq v3, v2, :cond_2
+    if-eq v1, v0, :cond_4
 
     .line 217
-    iget-boolean v5, p0, Lio/reactivex/internal/operators/flowable/FlowableRange$RangeConditionalSubscription;->cancelled:Z
+    iget-boolean v7, p0, Lio/reactivex/internal/operators/flowable/FlowableRange$RangeConditionalSubscription;->cancelled:Z
 
-    if-eqz v5, :cond_0
+    if-eqz v7, :cond_2
 
-    .line 218
     return-void
 
     .line 221
-    :cond_0
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    :cond_2
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-interface {v4, v5}, Lio/reactivex/internal/fuseable/ConditionalSubscriber;->tryOnNext(Ljava/lang/Object;)Z
+    invoke-interface {v2, v7}, Lio/reactivex/internal/fuseable/ConditionalSubscriber;->tryOnNext(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v7
 
-    if-eqz v5, :cond_1
+    if-eqz v7, :cond_3
 
-    .line 222
-    const-wide/16 v5, 0x1
+    const-wide/16 v7, 0x1
 
-    add-long/2addr v0, v5
+    add-long/2addr v5, v7
 
-    .line 225
-    :cond_1
-    add-int/lit8 v3, v3, 0x1
+    :cond_3
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 228
-    :cond_2
-    if-ne v3, v2, :cond_4
+    :cond_4
+    if-ne v1, v0, :cond_6
 
     .line 229
-    iget-boolean v5, p0, Lio/reactivex/internal/operators/flowable/FlowableRange$RangeConditionalSubscription;->cancelled:Z
+    iget-boolean p1, p0, Lio/reactivex/internal/operators/flowable/FlowableRange$RangeConditionalSubscription;->cancelled:Z
 
-    if-nez v5, :cond_3
+    if-nez p1, :cond_5
 
     .line 230
-    invoke-interface {v4}, Lio/reactivex/internal/fuseable/ConditionalSubscriber;->onComplete()V
+    invoke-interface {v2}, Lio/reactivex/internal/fuseable/ConditionalSubscriber;->onComplete()V
 
-    .line 232
-    :cond_3
+    :cond_5
     return-void
 
     .line 235
-    :cond_4
+    :cond_6
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableRange$RangeConditionalSubscription;->get()J
 
     move-result-wide p1
 
-    .line 236
-    cmp-long v5, v0, p1
+    cmp-long v7, v5, p1
 
-    if-nez v5, :cond_6
+    if-nez v7, :cond_1
 
     .line 237
-    iput v3, p0, Lio/reactivex/internal/operators/flowable/FlowableRange$RangeConditionalSubscription;->index:I
+    iput v1, p0, Lio/reactivex/internal/operators/flowable/FlowableRange$RangeConditionalSubscription;->index:I
+
+    neg-long p1, v5
 
     .line 238
-    neg-long v5, v0
-
-    invoke-virtual {p0, v5, v6}, Lio/reactivex/internal/operators/flowable/FlowableRange$RangeConditionalSubscription;->addAndGet(J)J
+    invoke-virtual {p0, p1, p2}, Lio/reactivex/internal/operators/flowable/FlowableRange$RangeConditionalSubscription;->addAndGet(J)J
 
     move-result-wide p1
 
-    .line 239
-    const-wide/16 v5, 0x0
+    cmp-long v5, p1, v3
 
-    cmp-long v5, p1, v5
+    if-nez v5, :cond_0
 
-    if-nez v5, :cond_5
-
-    .line 240
     return-void
-
-    .line 242
-    :cond_5
-    const-wide/16 v0, 0x0
-
-    goto :goto_0
-
-    .line 236
-    :cond_6
-    goto :goto_0
 .end method

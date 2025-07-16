@@ -38,14 +38,11 @@
 .method static constructor <clinit>()V
     .locals 0
 
-    .line 31
     return-void
 .end method
 
 .method constructor <init>(Lcom/koushikdutta/async/AsyncSocket;Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;)V
-    .locals 3
-    .param p1, "socket"    # Lcom/koushikdutta/async/AsyncSocket;
-    .param p2, "req"    # Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;
+    .locals 2
 
     .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,19 +54,19 @@
 
     iput-object v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mRawHeaders:Lcom/koushikdutta/async/http/Headers;
 
-    .line 33
     const-wide/16 v0, -0x1
 
+    .line 33
     iput-wide v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mContentLength:J
 
-    .line 73
     const/4 v0, 0x0
 
+    .line 73
     iput-boolean v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->headWritten:Z
 
-    .line 340
     const/16 v0, 0xc8
 
+    .line 340
     iput v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->code:I
 
     .line 47
@@ -79,28 +76,27 @@
     iput-object p2, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mRequest:Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;
 
     .line 49
-    sget-object v0, Lcom/koushikdutta/async/http/Protocol;->HTTP_1_1:Lcom/koushikdutta/async/http/Protocol;
+    sget-object p1, Lcom/koushikdutta/async/http/Protocol;->HTTP_1_1:Lcom/koushikdutta/async/http/Protocol;
 
     invoke-virtual {p2}, Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;->getHeaders()Lcom/koushikdutta/async/http/Headers;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-static {v0, v1}, Lcom/koushikdutta/async/http/HttpUtil;->isKeepAlive(Lcom/koushikdutta/async/http/Protocol;Lcom/koushikdutta/async/http/Headers;)Z
+    invoke-static {p1, p2}, Lcom/koushikdutta/async/http/HttpUtil;->isKeepAlive(Lcom/koushikdutta/async/http/Protocol;Lcom/koushikdutta/async/http/Headers;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 50
-    iget-object v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mRawHeaders:Lcom/koushikdutta/async/http/Headers;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mRawHeaders:Lcom/koushikdutta/async/http/Headers;
 
-    const-string v1, "Connection"
+    const-string p2, "Connection"
 
-    const-string v2, "Keep-Alive"
+    const-string v0, "Keep-Alive"
 
-    invoke-virtual {v0, v1, v2}, Lcom/koushikdutta/async/http/Headers;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/koushikdutta/async/http/Headers;
+    invoke-virtual {p1, p2, v0}, Lcom/koushikdutta/async/http/Headers;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/koushikdutta/async/http/Headers;
 
-    .line 51
     :cond_0
     return-void
 .end method
@@ -118,12 +114,10 @@
 
 .method public code(I)Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;
     .locals 0
-    .param p1, "code"    # I
 
     .line 343
     iput p1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->code:I
 
-    .line 344
     return-object p0
 .end method
 
@@ -135,13 +129,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 160
     return-void
 
-    .line 161
     :cond_0
     const/4 v0, 0x1
 
+    .line 161
     iput-boolean v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->ended:Z
 
     .line 162
@@ -149,17 +142,13 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mSink:Lcom/koushikdutta/async/DataSink;
+    iget-object v1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mSink:Lcom/koushikdutta/async/DataSink;
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
-    .line 165
     return-void
 
-    .line 167
     :cond_1
-    iget-boolean v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->headWritten:Z
-
     if-nez v0, :cond_2
 
     .line 170
@@ -219,11 +208,11 @@
 
     if-nez v0, :cond_4
 
-    .line 179
     const-string v0, "text/html"
 
     const-string v1, ""
 
+    .line 179
     invoke-virtual {p0, v0, v1}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->send(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
@@ -241,7 +230,6 @@
     :cond_5
     invoke-virtual {p0}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->onEnd()V
 
-    .line 188
     :goto_0
     return-void
 .end method
@@ -322,20 +310,19 @@
 .end method
 
 .method initFirstWrite()V
-    .locals 12
+    .locals 10
 
     .line 76
     iget-boolean v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->headWritten:Z
 
     if-eqz v0, :cond_0
 
-    .line 77
     return-void
 
-    .line 79
     :cond_0
     const/4 v0, 0x1
 
+    .line 79
     iput-boolean v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->headWritten:Z
 
     .line 82
@@ -347,10 +334,9 @@
 
     move-result-object v1
 
-    .line 83
-    .local v1, "currentEncoding":Ljava/lang/String;
     const-string v3, ""
 
+    .line 83
     invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
@@ -362,10 +348,10 @@
 
     invoke-virtual {v3, v2}, Lcom/koushikdutta/async/http/Headers;->removeAll(Ljava/lang/String;)Ljava/util/List;
 
-    .line 85
     :cond_1
     const-string v3, "Chunked"
 
+    .line 85
     invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v4
@@ -377,150 +363,139 @@
     if-nez v1, :cond_3
 
     :cond_2
-    iget-object v4, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mRawHeaders:Lcom/koushikdutta/async/http/Headers;
+    iget-object v1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mRawHeaders:Lcom/koushikdutta/async/http/Headers;
+
+    const-string v4, "Connection"
 
     .line 86
-    const-string v6, "Connection"
+    invoke-virtual {v1, v4}, Lcom/koushikdutta/async/http/Headers;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v4, v6}, Lcom/koushikdutta/async/http/Headers;->get(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v4
+    const-string v4, "close"
 
-    const-string v6, "close"
+    invoke-virtual {v4, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v6, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v1
 
-    move-result v4
+    if-nez v1, :cond_3
 
-    if-nez v4, :cond_3
-
-    move v4, v0
+    move v1, v0
 
     goto :goto_0
 
     :cond_3
-    move v4, v5
+    move v1, v5
 
     .line 87
-    .local v4, "canUseChunked":Z
     :goto_0
     iget-wide v6, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mContentLength:J
 
     const-wide/16 v8, 0x0
 
-    cmp-long v6, v6, v8
+    cmp-long v4, v6, v8
 
-    if-gez v6, :cond_4
+    if-gez v4, :cond_4
 
     .line 88
-    iget-object v6, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mRawHeaders:Lcom/koushikdutta/async/http/Headers;
+    iget-object v4, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mRawHeaders:Lcom/koushikdutta/async/http/Headers;
 
-    const-string v7, "Content-Length"
+    const-string v6, "Content-Length"
 
-    invoke-virtual {v6, v7}, Lcom/koushikdutta/async/http/Headers;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v4, v6}, Lcom/koushikdutta/async/http/Headers;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v4
 
     .line 89
-    .local v6, "contentLength":Ljava/lang/String;
-    invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v7
+    move-result v6
 
-    if-nez v7, :cond_4
+    if-nez v6, :cond_4
 
     .line 90
-    invoke-static {v6}, Ljava/lang/Long;->valueOf(Ljava/lang/String;)Ljava/lang/Long;
+    invoke-static {v4}, Ljava/lang/Long;->valueOf(Ljava/lang/String;)Ljava/lang/Long;
 
-    move-result-object v7
+    move-result-object v4
 
-    invoke-virtual {v7}, Ljava/lang/Long;->longValue()J
+    invoke-virtual {v4}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v10
+    move-result-wide v6
 
-    iput-wide v10, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mContentLength:J
+    iput-wide v6, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mContentLength:J
 
     .line 92
-    .end local v6    # "contentLength":Ljava/lang/String;
     :cond_4
     iget-wide v6, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mContentLength:J
 
-    cmp-long v6, v6, v8
+    cmp-long v4, v6, v8
 
-    if-gez v6, :cond_5
+    if-gez v4, :cond_5
 
-    if-eqz v4, :cond_5
+    if-eqz v1, :cond_5
 
     .line 93
-    iget-object v6, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mRawHeaders:Lcom/koushikdutta/async/http/Headers;
+    iget-object v1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mRawHeaders:Lcom/koushikdutta/async/http/Headers;
 
-    invoke-virtual {v6, v2, v3}, Lcom/koushikdutta/async/http/Headers;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/koushikdutta/async/http/Headers;
+    invoke-virtual {v1, v2, v3}, Lcom/koushikdutta/async/http/Headers;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/koushikdutta/async/http/Headers;
 
-    .line 94
-    const/4 v2, 0x1
+    move v1, v0
 
-    .local v2, "isChunked":Z
     goto :goto_1
 
-    .line 97
-    .end local v2    # "isChunked":Z
     :cond_5
-    const/4 v2, 0x0
+    move v1, v5
 
     .line 100
-    .restart local v2    # "isChunked":Z
     :goto_1
-    sget-object v3, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+    sget-object v2, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
-    const/4 v6, 0x2
+    const/4 v3, 0x2
 
-    new-array v6, v6, [Ljava/lang/Object;
+    new-array v3, v3, [Ljava/lang/Object;
 
-    iget v7, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->code:I
+    iget v4, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->code:I
 
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v7
+    move-result-object v4
 
-    aput-object v7, v6, v5
+    aput-object v4, v3, v5
 
-    iget v5, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->code:I
+    iget v4, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->code:I
 
-    invoke-static {v5}, Lcom/koushikdutta/async/http/server/AsyncHttpServer;->getResponseCodeDescription(I)Ljava/lang/String;
+    invoke-static {v4}, Lcom/koushikdutta/async/http/server/AsyncHttpServer;->getResponseCodeDescription(I)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    aput-object v5, v6, v0
+    aput-object v4, v3, v0
 
     const-string v0, "HTTP/1.1 %s %s"
 
-    invoke-static {v3, v0, v6}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v2, v0, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 101
-    .local v0, "statusLine":Ljava/lang/String;
-    iget-object v3, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mRawHeaders:Lcom/koushikdutta/async/http/Headers;
+    iget-object v2, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mRawHeaders:Lcom/koushikdutta/async/http/Headers;
 
-    invoke-virtual {v3, v0}, Lcom/koushikdutta/async/http/Headers;->toPrefixString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v2, v0}, Lcom/koushikdutta/async/http/Headers;->toPrefixString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
     .line 103
-    .local v3, "rh":Ljava/lang/String;
-    iget-object v5, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mSocket:Lcom/koushikdutta/async/AsyncSocket;
+    iget-object v2, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mSocket:Lcom/koushikdutta/async/AsyncSocket;
 
-    invoke-virtual {v3}, Ljava/lang/String;->getBytes()[B
+    invoke-virtual {v0}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object v6
+    move-result-object v0
 
-    new-instance v7, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$1;
+    new-instance v3, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$1;
 
-    invoke-direct {v7, p0, v2}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$1;-><init>(Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;Z)V
+    invoke-direct {v3, p0, v1}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$1;-><init>(Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;Z)V
 
-    invoke-static {v5, v6, v7}, Lcom/koushikdutta/async/Util;->writeAll(Lcom/koushikdutta/async/DataSink;[BLcom/koushikdutta/async/callback/CompletedCallback;)V
+    invoke-static {v2, v0, v3}, Lcom/koushikdutta/async/Util;->writeAll(Lcom/koushikdutta/async/DataSink;[BLcom/koushikdutta/async/callback/CompletedCallback;)V
 
-    .line 138
     return-void
 .end method
 
@@ -552,30 +527,26 @@
 
 .method public onCompleted(Ljava/lang/Exception;)V
     .locals 0
-    .param p1, "ex"    # Ljava/lang/Exception;
 
     .line 361
     invoke-virtual {p0}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->end()V
 
-    .line 362
     return-void
 .end method
 
 .method protected onEnd()V
     .locals 1
 
-    .line 227
     const/4 v0, 0x1
 
+    .line 227
     iput-boolean v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mEnded:Z
 
-    .line 228
     return-void
 .end method
 
 .method public proxy(Lcom/koushikdutta/async/http/AsyncHttpResponse;)V
     .locals 3
-    .param p1, "remoteResponse"    # Lcom/koushikdutta/async/http/AsyncHttpResponse;
 
     .line 323
     invoke-interface {p1}, Lcom/koushikdutta/async/http/AsyncHttpResponse;->code()I
@@ -638,17 +609,15 @@
 
     invoke-static {p1, p0, v0}, Lcom/koushikdutta/async/Util;->pump(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/DataSink;Lcom/koushikdutta/async/callback/CompletedCallback;)V
 
-    .line 338
     return-void
 .end method
 
 .method public redirect(Ljava/lang/String;)V
     .locals 2
-    .param p1, "location"    # Ljava/lang/String;
 
-    .line 354
     const/16 v0, 0x12e
 
+    .line 354
     invoke-virtual {p0, v0}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->code(I)Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;
 
     .line 355
@@ -661,21 +630,17 @@
     .line 356
     invoke-virtual {p0}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->end()V
 
-    .line 357
     return-void
 .end method
 
 .method protected report(Ljava/lang/Exception;)V
     .locals 0
-    .param p1, "e"    # Ljava/lang/Exception;
 
-    .line 231
     return-void
 .end method
 
 .method public send(Ljava/lang/String;)V
     .locals 2
-    .param p1, "string"    # Ljava/lang/String;
 
     .line 236
     iget-object v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mRawHeaders:Lcom/koushikdutta/async/http/Headers;
@@ -686,64 +651,47 @@
 
     move-result-object v0
 
-    .line 237
-    .local v0, "contentType":Ljava/lang/String;
     if-nez v0, :cond_0
 
-    .line 238
     const-string v0, "text/html; charset=utf-8"
 
     .line 239
     :cond_0
     invoke-virtual {p0, v0, p1}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->send(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 240
     return-void
 .end method
 
 .method public send(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
-    .param p1, "contentType"    # Ljava/lang/String;
-    .param p2, "string"    # Ljava/lang/String;
+    .locals 1
 
-    .line 218
     :try_start_0
     const-string v0, "UTF-8"
 
+    .line 218
     invoke-virtual {p2, v0}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {p0, p1, v0}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->send(Ljava/lang/String;[B)V
+    invoke-virtual {p0, p1, p2}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->send(Ljava/lang/String;[B)V
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 222
-    nop
-
-    .line 223
     return-void
 
-    .line 220
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 221
-    .local v0, "e":Ljava/io/UnsupportedEncodingException;
-    new-instance v1, Ljava/lang/AssertionError;
+    new-instance p2, Ljava/lang/AssertionError;
 
-    invoke-direct {v1, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p2, p1}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
-    throw v1
+    throw p2
 .end method
 
 .method public send(Ljava/lang/String;[B)V
     .locals 3
-    .param p1, "contentType"    # Ljava/lang/String;
-    .param p2, "bytes"    # [B
-
-    .line 202
-    nop
 
     .line 203
     array-length v0, p2
@@ -773,40 +721,36 @@
     invoke-virtual {v0, v1, p1}, Lcom/koushikdutta/async/http/Headers;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/koushikdutta/async/http/Headers;
 
     .line 207
-    new-instance v0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$2;
+    new-instance p1, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$2;
 
-    invoke-direct {v0, p0}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$2;-><init>(Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;)V
+    invoke-direct {p1, p0}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$2;-><init>(Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;)V
 
-    invoke-static {p0, p2, v0}, Lcom/koushikdutta/async/Util;->writeAll(Lcom/koushikdutta/async/DataSink;[BLcom/koushikdutta/async/callback/CompletedCallback;)V
+    invoke-static {p0, p2, p1}, Lcom/koushikdutta/async/Util;->writeAll(Lcom/koushikdutta/async/DataSink;[BLcom/koushikdutta/async/callback/CompletedCallback;)V
 
-    .line 213
     return-void
 .end method
 
 .method public send(Lorg/json/JSONObject;)V
-    .locals 2
-    .param p1, "json"    # Lorg/json/JSONObject;
+    .locals 1
+
+    const-string v0, "application/json; charset=utf-8"
 
     .line 244
     invoke-virtual {p1}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "application/json; charset=utf-8"
+    invoke-virtual {p0, v0, p1}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->send(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {p0, v1, v0}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->send(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 245
     return-void
 .end method
 
 .method public sendFile(Ljava/io/File;)V
     .locals 4
-    .param p1, "file"    # Ljava/io/File;
 
-    .line 310
     const-string v0, "Content-Type"
 
+    .line 310
     :try_start_0
     iget-object v1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mRawHeaders:Lcom/koushikdutta/async/http/Headers;
 
@@ -836,7 +780,6 @@
     invoke-direct {v0, p1}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
 
     .line 313
-    .local v0, "fin":Ljava/io/FileInputStream;
     new-instance v1, Ljava/io/BufferedInputStream;
 
     const v2, 0xfa00
@@ -851,318 +794,263 @@
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 318
-    .end local v0    # "fin":Ljava/io/FileInputStream;
     goto :goto_0
 
-    .line 315
     :catch_0
-    move-exception v0
+    const/16 p1, 0x194
 
     .line 316
-    .local v0, "e":Ljava/io/FileNotFoundException;
-    const/16 v1, 0x194
-
-    invoke-virtual {p0, v1}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->code(I)Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;
+    invoke-virtual {p0, p1}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->code(I)Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;
 
     .line 317
     invoke-virtual {p0}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->end()V
 
-    .line 319
-    .end local v0    # "e":Ljava/io/FileNotFoundException;
     :goto_0
     return-void
 .end method
 
 .method public sendStream(Ljava/io/InputStream;J)V
-    .locals 19
-    .param p1, "inputStream"    # Ljava/io/InputStream;
-    .param p2, "totalLength"    # J
+    .locals 17
 
-    .line 249
-    move-object/from16 v1, p0
+    move-object/from16 v0, p0
 
-    move-object/from16 v2, p1
+    move-object/from16 v1, p1
 
-    const-wide/16 v3, 0x0
+    const-wide/16 v2, 0x1
 
-    .line 250
-    .local v3, "start":J
-    const-wide/16 v5, 0x1
-
-    sub-long v7, p2, v5
+    sub-long v4, p2, v2
 
     .line 252
-    .local v7, "end":J
-    iget-object v0, v1, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mRequest:Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;
+    iget-object v6, v0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mRequest:Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;
 
-    invoke-virtual {v0}, Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;->getHeaders()Lcom/koushikdutta/async/http/Headers;
+    invoke-virtual {v6}, Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;->getHeaders()Lcom/koushikdutta/async/http/Headers;
 
-    move-result-object v0
+    move-result-object v6
 
-    const-string v9, "Range"
+    const-string v7, "Range"
 
-    invoke-virtual {v0, v9}, Lcom/koushikdutta/async/http/Headers;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v6, v7}, Lcom/koushikdutta/async/http/Headers;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v6
 
-    .line 253
-    .local v9, "range":Ljava/lang/String;
-    const-string v0, "bytes"
+    const-string v7, "bytes"
 
-    if-eqz v9, :cond_5
+    const-wide/16 v8, 0x0
 
-    .line 254
+    if-eqz v6, :cond_5
+
     const-string v10, "="
 
-    invoke-virtual {v9, v10}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    .line 254
+    invoke-virtual {v6, v10}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v6
 
     .line 255
-    .local v10, "parts":[Ljava/lang/String;
-    array-length v11, v10
+    array-length v10, v6
 
-    const/4 v13, 0x2
+    const/16 v11, 0x1a0
 
-    if-ne v11, v13, :cond_4
+    const/4 v12, 0x2
 
-    const/4 v11, 0x0
+    if-ne v10, v12, :cond_4
 
-    aget-object v14, v10, v11
+    const/4 v10, 0x0
 
-    invoke-virtual {v0, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    aget-object v13, v6, v10
 
-    move-result v14
+    invoke-virtual {v7, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-nez v14, :cond_0
+    move-result v13
 
-    const/16 v5, 0x1a0
-
-    goto :goto_1
-
-    .line 262
-    :cond_0
-    const/4 v14, 0x1
-
-    aget-object v15, v10, v14
-
-    const-string v12, "-"
-
-    invoke-virtual {v15, v12}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v10
-
-    .line 264
-    :try_start_0
-    array-length v12, v10
-
-    if-gt v12, v13, :cond_3
-
-    .line 266
-    aget-object v12, v10, v11
-
-    invoke-static {v12}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v12
-
-    if-nez v12, :cond_1
-
-    .line 267
-    aget-object v12, v10, v11
-
-    invoke-static {v12}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-
-    move-result-wide v16
-
-    move-wide/from16 v3, v16
-
-    .line 268
-    :cond_1
-    array-length v12, v10
-
-    if-ne v12, v13, :cond_2
-
-    aget-object v12, v10, v14
-
-    invoke-static {v12}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v12
-
-    if-nez v12, :cond_2
-
-    .line 269
-    aget-object v12, v10, v14
-
-    invoke-static {v12}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-
-    move-result-wide v16
-
-    move-wide/from16 v7, v16
+    if-nez v13, :cond_0
 
     goto :goto_0
 
-    .line 271
+    :cond_0
+    const/4 v13, 0x1
+
+    .line 262
+    aget-object v6, v6, v13
+
+    const-string v14, "-"
+
+    invoke-virtual {v6, v14}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v6
+
+    .line 264
+    :try_start_0
+    array-length v14, v6
+
+    if-gt v14, v12, :cond_3
+
+    .line 266
+    aget-object v14, v6, v10
+
+    invoke-static {v14}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v14
+
+    if-nez v14, :cond_1
+
+    .line 267
+    aget-object v8, v6, v10
+
+    invoke-static {v8}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide v8
+
+    .line 268
+    :cond_1
+    array-length v14, v6
+
+    if-ne v14, v12, :cond_2
+
+    aget-object v14, v6, v13
+
+    invoke-static {v14}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v14
+
+    if-nez v14, :cond_2
+
+    .line 269
+    aget-object v4, v6, v13
+
+    invoke-static {v4}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+
+    move-result-wide v4
+
     :cond_2
-    sub-long v7, p2, v5
+    const/16 v6, 0xce
 
     .line 273
-    :goto_0
-    const/16 v12, 0xce
-
-    invoke-virtual {v1, v12}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->code(I)Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;
+    invoke-virtual {v0, v6}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->code(I)Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;
 
     .line 274
     invoke-virtual/range {p0 .. p0}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->getHeaders()Lcom/koushikdutta/async/http/Headers;
 
-    move-result-object v12
+    move-result-object v6
 
-    const-string v15, "Content-Range"
+    const-string v14, "Content-Range"
 
-    sget-object v5, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+    sget-object v15, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
-    const-string v6, "bytes %d-%d/%d"
+    const-string v2, "bytes %d-%d/%d"
 
-    const/4 v13, 0x3
+    const/4 v3, 0x3
 
-    new-array v13, v13, [Ljava/lang/Object;
+    new-array v3, v3, [Ljava/lang/Object;
 
-    invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {v8, v9}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v18
+    move-result-object v16
 
-    aput-object v18, v13, v11
+    aput-object v16, v3, v10
 
-    invoke-static {v7, v8}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v11
+    move-result-object v10
 
-    aput-object v11, v13, v14
+    aput-object v10, v3, v13
 
     invoke-static/range {p2 .. p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v11
+    move-result-object v10
 
-    const/4 v14, 0x2
+    aput-object v10, v3, v12
 
-    aput-object v11, v13, v14
+    invoke-static {v15, v2, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v5, v6, v13}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v5
+    invoke-virtual {v6, v14, v2}, Lcom/koushikdutta/async/http/Headers;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/koushikdutta/async/http/Headers;
 
-    invoke-virtual {v12, v15, v5}, Lcom/koushikdutta/async/http/Headers;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/koushikdutta/async/http/Headers;
-
-    .line 280
-    goto :goto_2
+    goto :goto_1
 
     .line 265
     :cond_3
-    new-instance v0, Lcom/koushikdutta/async/http/server/MalformedRangeException;
+    new-instance v1, Lcom/koushikdutta/async/http/server/MalformedRangeException;
 
-    invoke-direct {v0}, Lcom/koushikdutta/async/http/server/MalformedRangeException;-><init>()V
+    invoke-direct {v1}, Lcom/koushikdutta/async/http/server/MalformedRangeException;-><init>()V
 
-    .end local v3    # "start":J
-    .end local v7    # "end":J
-    .end local v9    # "range":Ljava/lang/String;
-    .end local v10    # "parts":[Ljava/lang/String;
-    .end local p1    # "inputStream":Ljava/io/InputStream;
-    .end local p2    # "totalLength":J
-    throw v0
+    throw v1
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 276
-    .restart local v3    # "start":J
-    .restart local v7    # "end":J
-    .restart local v9    # "range":Ljava/lang/String;
-    .restart local v10    # "parts":[Ljava/lang/String;
-    .restart local p1    # "inputStream":Ljava/io/InputStream;
-    .restart local p2    # "totalLength":J
-    :catch_0
-    move-exception v0
-
     .line 277
-    .local v0, "e":Ljava/lang/Exception;
-    const/16 v5, 0x1a0
-
-    invoke-virtual {v1, v5}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->code(I)Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;
+    :catch_0
+    invoke-virtual {v0, v11}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->code(I)Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;
 
     .line 278
     invoke-virtual/range {p0 .. p0}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->end()V
 
-    .line 279
     return-void
 
-    .line 255
-    .end local v0    # "e":Ljava/lang/Exception;
-    :cond_4
-    const/16 v5, 0x1a0
-
     .line 257
-    :goto_1
-    invoke-virtual {v1, v5}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->code(I)Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;
+    :cond_4
+    :goto_0
+    invoke-virtual {v0, v11}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->code(I)Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;
 
     .line 258
     invoke-virtual/range {p0 .. p0}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->end()V
 
-    .line 259
     return-void
 
     .line 283
-    .end local v10    # "parts":[Ljava/lang/String;
     :cond_5
-    :goto_2
+    :goto_1
     :try_start_1
-    invoke-virtual {v2, v3, v4}, Ljava/io/InputStream;->skip(J)J
+    invoke-virtual {v1, v8, v9}, Ljava/io/InputStream;->skip(J)J
 
-    move-result-wide v5
+    move-result-wide v2
 
-    cmp-long v5, v3, v5
+    cmp-long v2, v8, v2
 
-    if-nez v5, :cond_7
+    if-nez v2, :cond_7
+
+    sub-long/2addr v4, v8
+
+    const-wide/16 v2, 0x1
+
+    add-long/2addr v4, v2
 
     .line 285
-    sub-long v5, v7, v3
-
-    const-wide/16 v10, 0x1
-
-    add-long/2addr v5, v10
-
-    iput-wide v5, v1, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mContentLength:J
+    iput-wide v4, v0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mContentLength:J
 
     .line 286
-    iget-object v10, v1, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mRawHeaders:Lcom/koushikdutta/async/http/Headers;
+    iget-object v2, v0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mRawHeaders:Lcom/koushikdutta/async/http/Headers;
 
-    const-string v11, "Content-Length"
+    const-string v3, "Content-Length"
 
-    invoke-static {v5, v6}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+    invoke-static {v4, v5}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v10, v11, v5}, Lcom/koushikdutta/async/http/Headers;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/koushikdutta/async/http/Headers;
+    invoke-virtual {v2, v3, v4}, Lcom/koushikdutta/async/http/Headers;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/koushikdutta/async/http/Headers;
 
     .line 287
-    iget-object v5, v1, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mRawHeaders:Lcom/koushikdutta/async/http/Headers;
+    iget-object v2, v0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mRawHeaders:Lcom/koushikdutta/async/http/Headers;
 
-    const-string v6, "Accept-Ranges"
+    const-string v3, "Accept-Ranges"
 
-    invoke-virtual {v5, v6, v0}, Lcom/koushikdutta/async/http/Headers;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/koushikdutta/async/http/Headers;
+    invoke-virtual {v2, v3, v7}, Lcom/koushikdutta/async/http/Headers;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/koushikdutta/async/http/Headers;
 
     .line 288
-    iget-object v0, v1, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mRequest:Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;
+    iget-object v2, v0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mRequest:Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;
 
-    invoke-virtual {v0}, Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;->getMethod()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;->getMethod()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    const-string v5, "HEAD"
+    const-string v3, "HEAD"
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_6
+    if-eqz v2, :cond_6
 
     .line 289
     invoke-virtual/range {p0 .. p0}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->writeHead()V
@@ -1170,66 +1058,47 @@
     .line 290
     invoke-virtual/range {p0 .. p0}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->onEnd()V
 
-    .line 291
     return-void
 
     .line 293
     :cond_6
-    iget-wide v5, v1, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mContentLength:J
+    iget-wide v2, v0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mContentLength:J
 
-    new-instance v0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$3;
+    new-instance v4, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$3;
 
-    invoke-direct {v0, v1, v2}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$3;-><init>(Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;Ljava/io/InputStream;)V
+    invoke-direct {v4, v0, v1}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$3;-><init>(Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;Ljava/io/InputStream;)V
 
-    invoke-static {v2, v5, v6, v1, v0}, Lcom/koushikdutta/async/Util;->pump(Ljava/io/InputStream;JLcom/koushikdutta/async/DataSink;Lcom/koushikdutta/async/callback/CompletedCallback;)V
+    invoke-static {v1, v2, v3, v0, v4}, Lcom/koushikdutta/async/Util;->pump(Ljava/io/InputStream;JLcom/koushikdutta/async/DataSink;Lcom/koushikdutta/async/callback/CompletedCallback;)V
 
-    .line 304
-    goto :goto_3
+    goto :goto_2
 
     .line 284
     :cond_7
-    new-instance v0, Lcom/koushikdutta/async/http/server/StreamSkipException;
+    new-instance v1, Lcom/koushikdutta/async/http/server/StreamSkipException;
 
-    const-string v5, "skip failed to skip requested amount"
+    const-string v2, "skip failed to skip requested amount"
 
-    invoke-direct {v0, v5}, Lcom/koushikdutta/async/http/server/StreamSkipException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Lcom/koushikdutta/async/http/server/StreamSkipException;-><init>(Ljava/lang/String;)V
 
-    .end local v3    # "start":J
-    .end local v7    # "end":J
-    .end local v9    # "range":Ljava/lang/String;
-    .end local p1    # "inputStream":Ljava/io/InputStream;
-    .end local p2    # "totalLength":J
-    throw v0
+    throw v1
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 301
-    .restart local v3    # "start":J
-    .restart local v7    # "end":J
-    .restart local v9    # "range":Ljava/lang/String;
-    .restart local p1    # "inputStream":Ljava/io/InputStream;
-    .restart local p2    # "totalLength":J
     :catch_1
-    move-exception v0
+    const/16 v1, 0x1f4
 
     .line 302
-    .restart local v0    # "e":Ljava/lang/Exception;
-    const/16 v5, 0x1f4
-
-    invoke-virtual {v1, v5}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->code(I)Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;
+    invoke-virtual {v0, v1}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->code(I)Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;
 
     .line 303
     invoke-virtual/range {p0 .. p0}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->end()V
 
-    .line 305
-    .end local v0    # "e":Ljava/lang/Exception;
-    :goto_3
+    :goto_2
     return-void
 .end method
 
 .method public setClosedCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
     .locals 1
-    .param p1, "handler"    # Lcom/koushikdutta/async/callback/CompletedCallback;
 
     .line 374
     iget-object v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mSink:Lcom/koushikdutta/async/DataSink;
@@ -1245,14 +1114,12 @@
     :cond_0
     iput-object p1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->closedCallback:Lcom/koushikdutta/async/callback/CompletedCallback;
 
-    .line 378
     :goto_0
     return-void
 .end method
 
 .method public setContentType(Ljava/lang/String;)V
     .locals 2
-    .param p1, "contentType"    # Ljava/lang/String;
 
     .line 197
     iget-object v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mRawHeaders:Lcom/koushikdutta/async/http/Headers;
@@ -1261,13 +1128,11 @@
 
     invoke-virtual {v0, v1, p1}, Lcom/koushikdutta/async/http/Headers;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/koushikdutta/async/http/Headers;
 
-    .line 198
     return-void
 .end method
 
 .method public setWriteableCallback(Lcom/koushikdutta/async/callback/WritableCallback;)V
     .locals 1
-    .param p1, "handler"    # Lcom/koushikdutta/async/callback/WritableCallback;
 
     .line 143
     iget-object v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mSink:Lcom/koushikdutta/async/DataSink;
@@ -1283,7 +1148,6 @@
     :cond_0
     iput-object p1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->writable:Lcom/koushikdutta/async/callback/WritableCallback;
 
-    .line 147
     :goto_0
     return-void
 .end method
@@ -1311,25 +1175,25 @@
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    const/4 v2, 0x0
+    iget v2, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->code:I
 
-    iget v3, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->code:I
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v2
 
-    move-result-object v3
+    const/4 v3, 0x0
 
-    aput-object v3, v1, v2
+    aput-object v2, v1, v3
 
-    const/4 v2, 0x1
+    iget v2, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->code:I
 
-    iget v3, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->code:I
+    invoke-static {v2}, Lcom/koushikdutta/async/http/server/AsyncHttpServer;->getResponseCodeDescription(I)Ljava/lang/String;
 
-    invoke-static {v3}, Lcom/koushikdutta/async/http/server/AsyncHttpServer;->getResponseCodeDescription(I)Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v3
+    const/4 v3, 0x1
 
-    aput-object v3, v1, v2
+    aput-object v2, v1, v3
 
     const-string v2, "HTTP/1.1 %s %s"
 
@@ -1338,22 +1202,17 @@
     move-result-object v0
 
     .line 397
-    .local v0, "statusLine":Ljava/lang/String;
     iget-object v1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->mRawHeaders:Lcom/koushikdutta/async/http/Headers;
 
     invoke-virtual {v1, v0}, Lcom/koushikdutta/async/http/Headers;->toPrefixString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public write(Lcom/koushikdutta/async/ByteBufferList;)V
     .locals 1
-    .param p1, "bb"    # Lcom/koushikdutta/async/ByteBufferList;
-
-    .line 56
-    nop
 
     .line 58
     iget-boolean v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->headWritten:Z
@@ -1371,7 +1230,6 @@
 
     if-nez v0, :cond_1
 
-    .line 63
     return-void
 
     .line 66
@@ -1380,14 +1238,12 @@
 
     if-nez v0, :cond_2
 
-    .line 67
     return-void
 
     .line 70
     :cond_2
     invoke-interface {v0, p1}, Lcom/koushikdutta/async/DataSink;->write(Lcom/koushikdutta/async/ByteBufferList;)V
 
-    .line 71
     return-void
 .end method
 
@@ -1397,6 +1253,5 @@
     .line 192
     invoke-virtual {p0}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->initFirstWrite()V
 
-    .line 193
     return-void
 .end method

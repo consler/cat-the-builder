@@ -59,13 +59,11 @@
     .end annotation
 
     .line 50
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-Ljava/lang/Long;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 51
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableTimer$TimerObserver;->actual:Lio/reactivex/Observer;
 
-    .line 52
     return-void
 .end method
 
@@ -77,7 +75,6 @@
     .line 56
     invoke-static {p0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 57
     return-void
 .end method
 
@@ -135,18 +132,15 @@
 
     invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 71
     :cond_0
     return-void
 .end method
 
 .method public setResource(Lio/reactivex/disposables/Disposable;)V
     .locals 0
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 74
     invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->trySet(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 75
     return-void
 .end method

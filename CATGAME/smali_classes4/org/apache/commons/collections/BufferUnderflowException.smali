@@ -14,32 +14,27 @@
     .line 44
     invoke-direct {p0}, Ljava/util/NoSuchElementException;-><init>()V
 
-    .line 45
     const/4 v0, 0x0
 
+    .line 45
     iput-object v0, p0, Lorg/apache/commons/collections/BufferUnderflowException;->throwable:Ljava/lang/Throwable;
 
-    .line 46
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .param p1, "message"    # Ljava/lang/String;
 
-    .line 54
     const/4 v0, 0x0
 
+    .line 54
     invoke-direct {p0, p1, v0}, Lorg/apache/commons/collections/BufferUnderflowException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 55
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 0
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "exception"    # Ljava/lang/Throwable;
 
     .line 64
     invoke-direct {p0, p1}, Ljava/util/NoSuchElementException;-><init>(Ljava/lang/String;)V
@@ -47,7 +42,6 @@
     .line 65
     iput-object p2, p0, Lorg/apache/commons/collections/BufferUnderflowException;->throwable:Ljava/lang/Throwable;
 
-    .line 66
     return-void
 .end method
 

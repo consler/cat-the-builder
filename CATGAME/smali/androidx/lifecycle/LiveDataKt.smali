@@ -36,10 +36,7 @@
 
 # direct methods
 .method public static final observe(Landroidx/lifecycle/LiveData;Landroidx/lifecycle/LifecycleOwner;Lkotlin/jvm/functions/Function1;)Landroidx/lifecycle/Observer;
-    .locals 2
-    .param p0, "$this$observe"    # Landroidx/lifecycle/LiveData;
-    .param p1, "owner"    # Landroidx/lifecycle/LifecycleOwner;
-    .param p2, "onChanged"    # Lkotlin/jvm/functions/Function1;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -57,32 +54,27 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const-string v0, "$this$observe"
 
-    .local v0, "$i$f$observe":I
-    const-string v1, "$this$observe"
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {p0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v0, "owner"
 
-    const-string v1, "owner"
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {p1, v1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v0, "onChanged"
 
-    const-string v1, "onChanged"
-
-    invoke-static {p2, v1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 47
-    new-instance v1, Landroidx/lifecycle/LiveDataKt$observe$wrappedObserver$1;
+    new-instance v0, Landroidx/lifecycle/LiveDataKt$observe$wrappedObserver$1;
 
-    invoke-direct {v1, p2}, Landroidx/lifecycle/LiveDataKt$observe$wrappedObserver$1;-><init>(Lkotlin/jvm/functions/Function1;)V
+    invoke-direct {v0, p2}, Landroidx/lifecycle/LiveDataKt$observe$wrappedObserver$1;-><init>(Lkotlin/jvm/functions/Function1;)V
 
-    check-cast v1, Landroidx/lifecycle/Observer;
+    check-cast v0, Landroidx/lifecycle/Observer;
 
     .line 48
-    .local v1, "wrappedObserver":Landroidx/lifecycle/Observer;
-    invoke-virtual {p0, p1, v1}, Landroidx/lifecycle/LiveData;->observe(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Observer;)V
+    invoke-virtual {p0, p1, v0}, Landroidx/lifecycle/LiveData;->observe(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Observer;)V
 
-    .line 49
-    return-object v1
+    return-object v0
 .end method

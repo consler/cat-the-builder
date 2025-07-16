@@ -78,26 +78,18 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/PulleyJointDef;->type:Lcom/badlogic/gdx/physics/box2d/JointDef$JointType;
 
-    .line 30
     const/4 v0, 0x1
 
+    .line 30
     iput-boolean v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/PulleyJointDef;->collideConnected:Z
 
-    .line 31
     return-void
 .end method
 
 
 # virtual methods
 .method public initialize(Lcom/badlogic/gdx/physics/box2d/Body;Lcom/badlogic/gdx/physics/box2d/Body;Lcom/badlogic/gdx/math/Vector2;Lcom/badlogic/gdx/math/Vector2;Lcom/badlogic/gdx/math/Vector2;Lcom/badlogic/gdx/math/Vector2;F)V
-    .locals 2
-    .param p1, "bodyA"    # Lcom/badlogic/gdx/physics/box2d/Body;
-    .param p2, "bodyB"    # Lcom/badlogic/gdx/physics/box2d/Body;
-    .param p3, "groundAnchorA"    # Lcom/badlogic/gdx/math/Vector2;
-    .param p4, "groundAnchorB"    # Lcom/badlogic/gdx/math/Vector2;
-    .param p5, "anchorA"    # Lcom/badlogic/gdx/math/Vector2;
-    .param p6, "anchorB"    # Lcom/badlogic/gdx/math/Vector2;
-    .param p7, "ratio"    # F
+    .locals 1
 
     .line 36
     iput-object p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/PulleyJointDef;->bodyA:Lcom/badlogic/gdx/physics/box2d/Body;
@@ -120,44 +112,35 @@
 
     invoke-virtual {p1, p5}, Lcom/badlogic/gdx/physics/box2d/Body;->getLocalPoint(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector2;->set(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/math/Vector2;->set(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
 
     .line 41
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/PulleyJointDef;->localAnchorB:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/PulleyJointDef;->localAnchorB:Lcom/badlogic/gdx/math/Vector2;
 
     invoke-virtual {p2, p6}, Lcom/badlogic/gdx/physics/box2d/Body;->getLocalPoint(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector2;->set(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/math/Vector2;->set(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
 
     .line 42
     invoke-virtual {p5, p3}, Lcom/badlogic/gdx/math/Vector2;->dst(Lcom/badlogic/gdx/math/Vector2;)F
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/PulleyJointDef;->lengthA:F
+    iput p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/PulleyJointDef;->lengthA:F
 
     .line 43
     invoke-virtual {p6, p4}, Lcom/badlogic/gdx/math/Vector2;->dst(Lcom/badlogic/gdx/math/Vector2;)F
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/PulleyJointDef;->lengthB:F
+    iput p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/PulleyJointDef;->lengthB:F
 
     .line 44
     iput p7, p0, Lcom/badlogic/gdx/physics/box2d/joints/PulleyJointDef;->ratio:F
 
-    .line 45
-    iget v1, p0, Lcom/badlogic/gdx/physics/box2d/joints/PulleyJointDef;->lengthA:F
-
-    mul-float/2addr v0, p7
-
-    add-float/2addr v1, v0
-
-    .line 46
-    .local v1, "C":F
     return-void
 .end method

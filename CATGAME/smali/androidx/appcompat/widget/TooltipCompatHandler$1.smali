@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/TooltipCompatHandler;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/appcompat/widget/TooltipCompatHandler;
 
     .line 54
     iput-object p1, p0, Landroidx/appcompat/widget/TooltipCompatHandler$1;->this$0:Landroidx/appcompat/widget/TooltipCompatHandler;
@@ -46,6 +45,5 @@
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/widget/TooltipCompatHandler;->show(Z)V
 
-    .line 58
     return-void
 .end method

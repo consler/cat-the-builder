@@ -40,8 +40,6 @@
 # virtual methods
 .method public reset(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "object"    # Ljava/lang/Object;
 
-    .line 24
     return-void
 .end method

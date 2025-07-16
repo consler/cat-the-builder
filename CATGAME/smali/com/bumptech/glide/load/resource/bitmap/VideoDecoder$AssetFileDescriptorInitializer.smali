@@ -38,7 +38,6 @@
 
 .method synthetic constructor <init>(Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$1;
 
     .line 291
     invoke-direct {p0}, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$AssetFileDescriptorInitializer;-><init>()V
@@ -50,8 +49,6 @@
 # virtual methods
 .method public initialize(Landroid/media/MediaMetadataRetriever;Landroid/content/res/AssetFileDescriptor;)V
     .locals 6
-    .param p1, "retriever"    # Landroid/media/MediaMetadataRetriever;
-    .param p2, "data"    # Landroid/content/res/AssetFileDescriptor;
 
     .line 296
     invoke-virtual {p2}, Landroid/content/res/AssetFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
@@ -70,7 +67,6 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/media/MediaMetadataRetriever;->setDataSource(Ljava/io/FileDescriptor;JJ)V
 
-    .line 297
     return-void
 .end method
 

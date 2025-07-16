@@ -40,24 +40,21 @@
 .end method
 
 .method public load(Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$NumericValue;)V
-    .locals 1
-    .param p1, "value"    # Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$NumericValue;
+    .locals 0
 
     .line 1289
     invoke-super {p0, p1}, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ParticleValue;->load(Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ParticleValue;)V
 
     .line 1290
-    iget v0, p1, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$NumericValue;->value:F
+    iget p1, p1, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$NumericValue;->value:F
 
-    iput v0, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$NumericValue;->value:F
+    iput p1, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$NumericValue;->value:F
 
-    .line 1291
     return-void
 .end method
 
 .method public load(Ljava/io/BufferedReader;)V
     .locals 1
-    .param p1, "reader"    # Ljava/io/BufferedReader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -74,23 +71,21 @@
 
     return-void
 
-    .line 1285
     :cond_0
-    const-string/jumbo v0, "value"
+    const-string v0, "value"
 
+    .line 1285
     invoke-static {p1, v0}, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter;->readFloat(Ljava/io/BufferedReader;Ljava/lang/String;)F
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$NumericValue;->value:F
+    iput p1, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$NumericValue;->value:F
 
-    .line 1286
     return-void
 .end method
 
 .method public save(Ljava/io/Writer;)V
     .locals 2
-    .param p1, "output"    # Ljava/io/Writer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -111,19 +106,21 @@
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "value: "
 
-    const-string/jumbo v1, "value: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget v1, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$NumericValue;->value:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "\n"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -131,17 +128,14 @@
 
     invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    .line 1280
     return-void
 .end method
 
 .method public setValue(F)V
     .locals 0
-    .param p1, "value"    # F
 
     .line 1273
     iput p1, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$NumericValue;->value:F
 
-    .line 1274
     return-void
 .end method

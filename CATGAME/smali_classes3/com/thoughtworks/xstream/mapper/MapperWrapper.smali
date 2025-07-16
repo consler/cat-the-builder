@@ -52,14 +52,13 @@
 
 # direct methods
 .method public constructor <init>(Lcom/thoughtworks/xstream/mapper/Mapper;)V
-    .locals 28
-    .param p1, "wrapped"    # Lcom/thoughtworks/xstream/mapper/Mapper;
+    .locals 27
 
-    .line 43
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
+    .line 43
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 44
@@ -76,13 +75,11 @@
     check-cast v2, Lcom/thoughtworks/xstream/mapper/MapperWrapper;
 
     .line 48
-    .local v2, "wrapper":Lcom/thoughtworks/xstream/mapper/MapperWrapper;
     new-instance v3, Ljava/util/HashMap;
 
     invoke-direct {v3}, Ljava/util/HashMap;-><init>()V
 
     .line 49
-    .local v3, "wrapperMap":Ljava/util/Map;
     iget-object v4, v2, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->aliasForAttributeMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     const-string v5, "aliasForAttribute"
@@ -214,297 +211,271 @@
     invoke-interface {v3, v15, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 66
-    iget-object v4, v2, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->shouldSerializeMemberMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
+    iget-object v2, v2, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->shouldSerializeMemberMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    move-object/from16 v22, v2
+    const-string v4, "shouldSerializeMember"
 
-    .end local v2    # "wrapper":Lcom/thoughtworks/xstream/mapper/MapperWrapper;
-    .local v22, "wrapper":Lcom/thoughtworks/xstream/mapper/MapperWrapper;
-    const-string v2, "shouldSerializeMember"
-
-    invoke-interface {v3, v2, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v4, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 68
     invoke-virtual/range {p1 .. p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v4}, Ljava/lang/Class;->getMethods()[Ljava/lang/reflect/Method;
+    invoke-virtual {v2}, Ljava/lang/Class;->getMethods()[Ljava/lang/reflect/Method;
 
-    move-result-object v4
+    move-result-object v2
+
+    const/16 v22, 0x0
+
+    move-object/from16 v23, v4
+
+    move/from16 v4, v22
+
+    move-object/from16 v22, v15
 
     .line 69
-    .local v4, "methods":[Ljava/lang/reflect/Method;
-    const/16 v23, 0x0
+    :goto_0
+    array-length v15, v2
+
+    if-ge v4, v15, :cond_2
+
+    .line 70
+    aget-object v15, v2, v4
 
     move-object/from16 v24, v2
 
-    move/from16 v2, v23
-
-    .local v2, "i":I
-    :goto_0
-    move-object/from16 v23, v15
-
-    array-length v15, v4
-
-    if-ge v2, v15, :cond_2
-
-    .line 70
-    aget-object v15, v4, v2
-
     .line 71
-    .local v15, "method":Ljava/lang/reflect/Method;
-    move-object/from16 v25, v4
-
-    .end local v4    # "methods":[Ljava/lang/reflect/Method;
-    .local v25, "methods":[Ljava/lang/reflect/Method;
     invoke-virtual {v15}, Ljava/lang/reflect/Method;->getDeclaringClass()Ljava/lang/Class;
 
-    move-result-object v4
+    move-result-object v2
 
-    sget-object v26, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->class$com$thoughtworks$xstream$mapper$MapperWrapper:Ljava/lang/Class;
+    sget-object v25, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->class$com$thoughtworks$xstream$mapper$MapperWrapper:Ljava/lang/Class;
 
-    if-nez v26, :cond_0
+    if-nez v25, :cond_0
 
-    const-string v26, "com.thoughtworks.xstream.mapper.MapperWrapper"
+    const-string v25, "com.thoughtworks.xstream.mapper.MapperWrapper"
 
-    invoke-static/range {v26 .. v26}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->class$(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-static/range {v25 .. v25}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->class$(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v26
+    move-result-object v25
 
-    sput-object v26, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->class$com$thoughtworks$xstream$mapper$MapperWrapper:Ljava/lang/Class;
+    sput-object v25, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->class$com$thoughtworks$xstream$mapper$MapperWrapper:Ljava/lang/Class;
 
     :cond_0
-    move-object/from16 v27, v14
+    move-object/from16 v26, v14
 
-    move-object/from16 v14, v26
+    move-object/from16 v14, v25
 
-    if-eq v4, v14, :cond_1
+    if-eq v2, v14, :cond_1
 
     .line 72
     invoke-virtual {v15}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
 
     .line 73
-    .local v4, "name":Ljava/lang/String;
-    invoke-interface {v3, v4}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    invoke-interface {v3, v2}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v14
 
     if-eqz v14, :cond_1
 
     .line 74
-    invoke-interface {v3, v4, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 69
-    .end local v4    # "name":Ljava/lang/String;
-    .end local v15    # "method":Ljava/lang/reflect/Method;
     :cond_1
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v4, v4, 0x1
 
-    move-object/from16 v15, v23
+    move-object/from16 v2, v24
 
-    move-object/from16 v4, v25
-
-    move-object/from16 v14, v27
+    move-object/from16 v14, v26
 
     goto :goto_0
 
-    .end local v25    # "methods":[Ljava/lang/reflect/Method;
-    .local v4, "methods":[Ljava/lang/reflect/Method;
     :cond_2
-    move-object/from16 v25, v4
-
-    move-object/from16 v27, v14
+    move-object/from16 v26, v14
 
     .line 79
-    .end local v2    # "i":I
-    .end local v4    # "methods":[Ljava/lang/reflect/Method;
-    .restart local v25    # "methods":[Ljava/lang/reflect/Method;
     invoke-interface {v3, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Lcom/thoughtworks/xstream/mapper/Mapper;
+    check-cast v1, Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    iput-object v2, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->aliasForAttributeMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
+    iput-object v1, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->aliasForAttributeMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     .line 80
     invoke-interface {v3, v6}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Lcom/thoughtworks/xstream/mapper/Mapper;
+    check-cast v1, Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    iput-object v2, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->aliasForSystemAttributeMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
+    iput-object v1, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->aliasForSystemAttributeMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     .line 81
     invoke-interface {v3, v7}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Lcom/thoughtworks/xstream/mapper/Mapper;
+    check-cast v1, Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    iput-object v2, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->attributeForAliasMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
+    iput-object v1, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->attributeForAliasMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     .line 82
     invoke-interface {v3, v8}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Lcom/thoughtworks/xstream/mapper/Mapper;
+    check-cast v1, Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    iput-object v2, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->defaultImplementationOfMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
+    iput-object v1, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->defaultImplementationOfMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     .line 83
     invoke-interface {v3, v9}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Lcom/thoughtworks/xstream/mapper/Mapper;
+    check-cast v1, Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    iput-object v2, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getConverterFromAttributeMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
+    iput-object v1, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getConverterFromAttributeMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     .line 84
     invoke-interface {v3, v10}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Lcom/thoughtworks/xstream/mapper/Mapper;
+    check-cast v1, Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    iput-object v2, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getConverterFromItemTypeMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
+    iput-object v1, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getConverterFromItemTypeMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     .line 85
     invoke-interface {v3, v11}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Lcom/thoughtworks/xstream/mapper/Mapper;
+    check-cast v1, Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    iput-object v2, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getFieldNameForItemTypeAndNameMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
+    iput-object v1, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getFieldNameForItemTypeAndNameMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     .line 86
     invoke-interface {v3, v12}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Lcom/thoughtworks/xstream/mapper/Mapper;
+    check-cast v1, Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    iput-object v2, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getImplicitCollectionDefForFieldNameMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
+    iput-object v1, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getImplicitCollectionDefForFieldNameMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     .line 87
     invoke-interface {v3, v13}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Lcom/thoughtworks/xstream/mapper/Mapper;
+    check-cast v1, Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    iput-object v2, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getItemTypeForItemFieldNameMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
+    iput-object v1, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getItemTypeForItemFieldNameMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
+
+    move-object/from16 v1, v26
 
     .line 88
-    move-object/from16 v2, v27
+    invoke-interface {v3, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v1
 
-    move-result-object v2
+    check-cast v1, Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    check-cast v2, Lcom/thoughtworks/xstream/mapper/Mapper;
+    iput-object v1, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getLocalConverterMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    iput-object v2, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getLocalConverterMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
+    move-object/from16 v1, v16
 
     .line 89
-    move-object/from16 v2, v16
+    invoke-interface {v3, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v1
 
-    move-result-object v2
+    check-cast v1, Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    check-cast v2, Lcom/thoughtworks/xstream/mapper/Mapper;
+    iput-object v1, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->isIgnoredElementMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    iput-object v2, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->isIgnoredElementMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
+    move-object/from16 v1, v17
 
     .line 90
-    move-object/from16 v2, v17
+    invoke-interface {v3, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v1
 
-    move-result-object v2
+    check-cast v1, Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    check-cast v2, Lcom/thoughtworks/xstream/mapper/Mapper;
+    iput-object v1, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->isImmutableValueTypeMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    iput-object v2, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->isImmutableValueTypeMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
+    move-object/from16 v1, v18
 
     .line 91
-    move-object/from16 v2, v18
+    invoke-interface {v3, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v1
 
-    move-result-object v2
+    check-cast v1, Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    check-cast v2, Lcom/thoughtworks/xstream/mapper/Mapper;
+    iput-object v1, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->isReferenceableMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    iput-object v2, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->isReferenceableMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
+    move-object/from16 v1, v19
 
     .line 92
-    move-object/from16 v2, v19
+    invoke-interface {v3, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v1
 
-    move-result-object v2
+    check-cast v1, Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    check-cast v2, Lcom/thoughtworks/xstream/mapper/Mapper;
+    iput-object v1, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->realClassMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    iput-object v2, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->realClassMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
+    move-object/from16 v1, v20
 
     .line 93
-    move-object/from16 v2, v20
+    invoke-interface {v3, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v1
 
-    move-result-object v2
+    check-cast v1, Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    check-cast v2, Lcom/thoughtworks/xstream/mapper/Mapper;
+    iput-object v1, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->realMemberMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    iput-object v2, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->realMemberMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
+    move-object/from16 v1, v21
 
     .line 94
-    move-object/from16 v2, v21
+    invoke-interface {v3, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v1
 
-    move-result-object v2
+    check-cast v1, Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    check-cast v2, Lcom/thoughtworks/xstream/mapper/Mapper;
+    iput-object v1, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->serializedClassMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    iput-object v2, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->serializedClassMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
+    move-object/from16 v1, v22
 
     .line 95
-    move-object/from16 v2, v23
+    invoke-interface {v3, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v1
 
-    move-result-object v2
+    check-cast v1, Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    check-cast v2, Lcom/thoughtworks/xstream/mapper/Mapper;
+    iput-object v1, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->serializedMemberMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    iput-object v2, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->serializedMemberMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
+    move-object/from16 v1, v23
 
     .line 96
-    move-object/from16 v2, v24
+    invoke-interface {v3, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v1
 
-    move-result-object v2
+    check-cast v1, Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    check-cast v2, Lcom/thoughtworks/xstream/mapper/Mapper;
+    iput-object v1, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->shouldSerializeMemberMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    iput-object v2, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->shouldSerializeMemberMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
-
-    .line 97
-    .end local v3    # "wrapperMap":Ljava/util/Map;
-    .end local v22    # "wrapper":Lcom/thoughtworks/xstream/mapper/MapperWrapper;
-    .end local v25    # "methods":[Ljava/lang/reflect/Method;
     goto :goto_1
 
     .line 98
@@ -562,323 +533,288 @@
     .line 115
     iput-object v1, v0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->shouldSerializeMemberMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    .line 118
     :goto_1
     return-void
 .end method
 
 .method static synthetic class$(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 2
-    .param p0, "x0"    # Ljava/lang/String;
+    .locals 1
 
     .line 71
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/lang/NoClassDefFoundError;
+    new-instance v0, Ljava/lang/NoClassDefFoundError;
 
-    invoke-direct {v1}, Ljava/lang/NoClassDefFoundError;-><init>()V
+    invoke-direct {v0}, Ljava/lang/NoClassDefFoundError;-><init>()V
 
-    invoke-virtual {v1, v0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, p0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 .end method
 
 
 # virtual methods
 .method public aliasForAttribute(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p1, "definedIn"    # Ljava/lang/Class;
-    .param p2, "fieldName"    # Ljava/lang/String;
 
     .line 218
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->aliasForAttributeMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     invoke-interface {v0, p1, p2}, Lcom/thoughtworks/xstream/mapper/Mapper;->aliasForAttribute(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public aliasForAttribute(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p1, "attribute"    # Ljava/lang/String;
 
     .line 149
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->aliasForAttributeMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/mapper/Mapper;->aliasForAttribute(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public aliasForSystemAttribute(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p1, "attribute"    # Ljava/lang/String;
 
     .line 157
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->aliasForSystemAttributeMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/mapper/Mapper;->aliasForSystemAttribute(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public attributeForAlias(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p1, "definedIn"    # Ljava/lang/Class;
-    .param p2, "alias"    # Ljava/lang/String;
 
     .line 226
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->attributeForAliasMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     invoke-interface {v0, p1, p2}, Lcom/thoughtworks/xstream/mapper/Mapper;->attributeForAlias(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public attributeForAlias(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p1, "alias"    # Ljava/lang/String;
 
     .line 153
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->attributeForAliasMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/mapper/Mapper;->attributeForAlias(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public defaultImplementationOf(Ljava/lang/Class;)Ljava/lang/Class;
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
 
     .line 145
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->defaultImplementationOfMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/mapper/Mapper;->defaultImplementationOf(Ljava/lang/Class;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getConverterFromAttribute(Ljava/lang/Class;Ljava/lang/String;)Lcom/thoughtworks/xstream/converters/SingleValueConverter;
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
-    .param p2, "attribute"    # Ljava/lang/String;
 
     .line 233
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getConverterFromAttributeMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     invoke-interface {v0, p1, p2}, Lcom/thoughtworks/xstream/mapper/Mapper;->getConverterFromAttribute(Ljava/lang/Class;Ljava/lang/String;)Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getConverterFromAttribute(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)Lcom/thoughtworks/xstream/converters/SingleValueConverter;
     .locals 1
-    .param p1, "definedIn"    # Ljava/lang/Class;
-    .param p2, "attribute"    # Ljava/lang/String;
-    .param p3, "type"    # Ljava/lang/Class;
 
     .line 237
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getConverterFromAttributeMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     invoke-interface {v0, p1, p2, p3}, Lcom/thoughtworks/xstream/mapper/Mapper;->getConverterFromAttribute(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getConverterFromAttribute(Ljava/lang/String;)Lcom/thoughtworks/xstream/converters/SingleValueConverter;
     .locals 1
-    .param p1, "name"    # Ljava/lang/String;
 
     .line 198
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getConverterFromAttributeMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/mapper/Mapper;->getConverterFromAttribute(Ljava/lang/String;)Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getConverterFromItemType(Ljava/lang/Class;)Lcom/thoughtworks/xstream/converters/SingleValueConverter;
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
 
     .line 191
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getConverterFromItemTypeMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/mapper/Mapper;->getConverterFromItemType(Ljava/lang/Class;)Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getConverterFromItemType(Ljava/lang/String;Ljava/lang/Class;)Lcom/thoughtworks/xstream/converters/SingleValueConverter;
     .locals 1
-    .param p1, "fieldName"    # Ljava/lang/String;
-    .param p2, "type"    # Ljava/lang/Class;
 
     .line 184
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getConverterFromItemTypeMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     invoke-interface {v0, p1, p2}, Lcom/thoughtworks/xstream/mapper/Mapper;->getConverterFromItemType(Ljava/lang/String;Ljava/lang/Class;)Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getConverterFromItemType(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;)Lcom/thoughtworks/xstream/converters/SingleValueConverter;
     .locals 1
-    .param p1, "fieldName"    # Ljava/lang/String;
-    .param p2, "type"    # Ljava/lang/Class;
-    .param p3, "definedIn"    # Ljava/lang/Class;
 
     .line 210
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getConverterFromItemTypeMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     invoke-interface {v0, p1, p2, p3}, Lcom/thoughtworks/xstream/mapper/Mapper;->getConverterFromItemType(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;)Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getFieldNameForItemTypeAndName(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p1, "definedIn"    # Ljava/lang/Class;
-    .param p2, "itemType"    # Ljava/lang/Class;
-    .param p3, "itemFieldName"    # Ljava/lang/String;
 
     .line 161
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getFieldNameForItemTypeAndNameMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     invoke-interface {v0, p1, p2, p3}, Lcom/thoughtworks/xstream/mapper/Mapper;->getFieldNameForItemTypeAndName(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getImplicitCollectionDefForFieldName(Ljava/lang/Class;Ljava/lang/String;)Lcom/thoughtworks/xstream/mapper/Mapper$ImplicitCollectionMapping;
     .locals 1
-    .param p1, "itemType"    # Ljava/lang/Class;
-    .param p2, "fieldName"    # Ljava/lang/String;
 
     .line 169
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getImplicitCollectionDefForFieldNameMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     invoke-interface {v0, p1, p2}, Lcom/thoughtworks/xstream/mapper/Mapper;->getImplicitCollectionDefForFieldName(Ljava/lang/Class;Ljava/lang/String;)Lcom/thoughtworks/xstream/mapper/Mapper$ImplicitCollectionMapping;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getItemTypeForItemFieldName(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Class;
     .locals 1
-    .param p1, "definedIn"    # Ljava/lang/Class;
-    .param p2, "itemFieldName"    # Ljava/lang/String;
 
     .line 165
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getItemTypeForItemFieldNameMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     invoke-interface {v0, p1, p2}, Lcom/thoughtworks/xstream/mapper/Mapper;->getItemTypeForItemFieldName(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getLocalConverter(Ljava/lang/Class;Ljava/lang/String;)Lcom/thoughtworks/xstream/converters/Converter;
     .locals 1
-    .param p1, "definedIn"    # Ljava/lang/Class;
-    .param p2, "fieldName"    # Ljava/lang/String;
 
     .line 202
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getLocalConverterMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     invoke-interface {v0, p1, p2}, Lcom/thoughtworks/xstream/mapper/Mapper;->getLocalConverter(Ljava/lang/Class;Ljava/lang/String;)Lcom/thoughtworks/xstream/converters/Converter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public isIgnoredElement(Ljava/lang/String;)Z
     .locals 1
-    .param p1, "name"    # Ljava/lang/String;
 
     .line 177
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->isIgnoredElementMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/mapper/Mapper;->isIgnoredElement(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public isImmutableValueType(Ljava/lang/Class;)Z
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
 
     .line 137
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->isImmutableValueTypeMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/mapper/Mapper;->isImmutableValueType(Ljava/lang/Class;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public isReferenceable(Ljava/lang/Class;)Z
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
 
     .line 141
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->isReferenceableMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/mapper/Mapper;->isReferenceable(Ljava/lang/Class;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public lookupMapperOfType(Ljava/lang/Class;)Lcom/thoughtworks/xstream/mapper/Mapper;
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
 
     .line 206
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -891,7 +827,7 @@
 
     if-eqz v0, :cond_0
 
-    move-object v0, p0
+    move-object p1, p0
 
     goto :goto_0
 
@@ -900,81 +836,73 @@
 
     invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/mapper/Mapper;->lookupMapperOfType(Ljava/lang/Class;)Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    return-object v0
+    return-object p1
 .end method
 
 .method public realClass(Ljava/lang/String;)Ljava/lang/Class;
     .locals 1
-    .param p1, "elementName"    # Ljava/lang/String;
 
     .line 125
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->realClassMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/mapper/Mapper;->realClass(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public realMember(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
-    .param p2, "serialized"    # Ljava/lang/String;
 
     .line 133
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->realMemberMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     invoke-interface {v0, p1, p2}, Lcom/thoughtworks/xstream/mapper/Mapper;->realMember(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public serializedClass(Ljava/lang/Class;)Ljava/lang/String;
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
 
     .line 121
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->serializedClassMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/mapper/Mapper;->serializedClass(Ljava/lang/Class;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public serializedMember(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
-    .param p2, "memberName"    # Ljava/lang/String;
 
     .line 129
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->serializedMemberMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     invoke-interface {v0, p1, p2}, Lcom/thoughtworks/xstream/mapper/Mapper;->serializedMember(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public shouldSerializeMember(Ljava/lang/Class;Ljava/lang/String;)Z
     .locals 1
-    .param p1, "definedIn"    # Ljava/lang/Class;
-    .param p2, "fieldName"    # Ljava/lang/String;
 
     .line 173
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->shouldSerializeMemberMapper:Lcom/thoughtworks/xstream/mapper/Mapper;
 
     invoke-interface {v0, p1, p2}, Lcom/thoughtworks/xstream/mapper/Mapper;->shouldSerializeMember(Ljava/lang/Class;Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

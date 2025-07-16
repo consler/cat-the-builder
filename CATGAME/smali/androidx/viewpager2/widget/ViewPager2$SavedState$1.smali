@@ -40,42 +40,25 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroidx/viewpager2/widget/ViewPager2$SavedState;
     .locals 1
-    .param p1, "source"    # Landroid/os/Parcel;
 
-    .line 422
     const/4 v0, 0x0
 
+    .line 422
     invoke-virtual {p0, p1, v0}, Landroidx/viewpager2/widget/ViewPager2$SavedState$1;->createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroidx/viewpager2/widget/ViewPager2$SavedState;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroidx/viewpager2/widget/ViewPager2$SavedState;
-    .locals 2
-    .param p1, "source"    # Landroid/os/Parcel;
-    .param p2, "loader"    # Ljava/lang/ClassLoader;
+    .locals 1
 
     .line 415
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x18
-
-    if-lt v0, v1, :cond_0
-
     new-instance v0, Landroidx/viewpager2/widget/ViewPager2$SavedState;
 
     invoke-direct {v0, p1, p2}, Landroidx/viewpager2/widget/ViewPager2$SavedState;-><init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
 
-    goto :goto_0
-
-    :cond_0
-    new-instance v0, Landroidx/viewpager2/widget/ViewPager2$SavedState;
-
-    invoke-direct {v0, p1}, Landroidx/viewpager2/widget/ViewPager2$SavedState;-><init>(Landroid/os/Parcel;)V
-
-    :goto_0
     return-object v0
 .end method
 
@@ -102,13 +85,12 @@
 .end method
 
 .method public newArray(I)[Landroidx/viewpager2/widget/ViewPager2$SavedState;
-    .locals 1
-    .param p1, "size"    # I
+    .locals 0
 
     .line 427
-    new-array v0, p1, [Landroidx/viewpager2/widget/ViewPager2$SavedState;
+    new-array p1, p1, [Landroidx/viewpager2/widget/ViewPager2$SavedState;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;

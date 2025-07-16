@@ -87,13 +87,6 @@
 # direct methods
 .method constructor <init>(CLjava/lang/String;Lcom/opencsv/bean/MappingStrategy;CCZLjava/io/Writer;ZLorg/apache/commons/collections4/MultiValuedMap;)V
     .locals 1
-    .param p1, "escapechar"    # C
-    .param p2, "lineEnd"    # Ljava/lang/String;
-    .param p4, "quotechar"    # C
-    .param p5, "separator"    # C
-    .param p6, "throwExceptions"    # Z
-    .param p7, "writer"    # Ljava/io/Writer;
-    .param p8, "applyQuotesToAll"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(C",
@@ -111,14 +104,11 @@
     .end annotation
 
     .line 96
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsv;, "Lcom/opencsv/bean/StatefulBeanToCsv<TT;>;"
-    .local p3, "mappingStrategy":Lcom/opencsv/bean/MappingStrategy;, "Lcom/opencsv/bean/MappingStrategy<TT;>;"
-    .local p9, "ignoredFields":Lorg/apache/commons/collections4/MultiValuedMap;, "Lorg/apache/commons/collections4/MultiValuedMap<Ljava/lang/Class<*>;Ljava/lang/reflect/Field;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 59
     const/4 v0, 0x0
 
+    .line 59
     iput v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->lineNumber:I
 
     .line 65
@@ -131,14 +121,14 @@
 
     iput-object v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->capturedExceptions:Ljava/util/List;
 
-    .line 71
     const/4 v0, 0x1
 
+    .line 71
     iput-boolean v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->orderedResults:Z
 
-    .line 72
     const/4 v0, 0x0
 
+    .line 72
     iput-object v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
 
     .line 73
@@ -175,15 +165,11 @@
     .line 105
     iput-object p9, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->ignoredFields:Lorg/apache/commons/collections4/MultiValuedMap;
 
-    .line 106
     return-void
 .end method
 
 .method public constructor <init>(Lcom/opencsv/bean/MappingStrategy;ZZLcom/opencsv/ICSVWriter;Lorg/apache/commons/collections4/MultiValuedMap;)V
     .locals 3
-    .param p2, "throwExceptions"    # Z
-    .param p3, "applyQuotesToAll"    # Z
-    .param p4, "csvWriter"    # Lcom/opencsv/ICSVWriter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -199,14 +185,11 @@
     .end annotation
 
     .line 123
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsv;, "Lcom/opencsv/bean/StatefulBeanToCsv<TT;>;"
-    .local p1, "mappingStrategy":Lcom/opencsv/bean/MappingStrategy;, "Lcom/opencsv/bean/MappingStrategy<TT;>;"
-    .local p5, "ignoredFields":Lorg/apache/commons/collections4/MultiValuedMap;, "Lorg/apache/commons/collections4/MultiValuedMap<Ljava/lang/Class<*>;Ljava/lang/reflect/Field;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 59
     const/4 v0, 0x0
 
+    .line 59
     iput v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->lineNumber:I
 
     .line 65
@@ -219,14 +202,14 @@
 
     iput-object v1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->capturedExceptions:Ljava/util/List;
 
-    .line 71
     const/4 v1, 0x1
 
+    .line 71
     iput-boolean v1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->orderedResults:Z
 
-    .line 72
     const/4 v1, 0x0
 
+    .line 72
     iput-object v1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
 
     .line 73
@@ -251,10 +234,10 @@
     .line 129
     iput-char v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->escapechar:C
 
-    .line 130
-    const-string v2, ""
+    const-string p1, ""
 
-    iput-object v2, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->lineEnd:Ljava/lang/String;
+    .line 130
+    iput-object p1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->lineEnd:Ljava/lang/String;
 
     .line 131
     iput-char v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->quotechar:C
@@ -268,7 +251,6 @@
     .line 134
     iput-object p5, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->ignoredFields:Lorg/apache/commons/collections4/MultiValuedMap;
 
-    .line 135
     return-void
 .end method
 
@@ -287,8 +269,6 @@
     .end annotation
 
     .line 152
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsv;, "Lcom/opencsv/bean/StatefulBeanToCsv<TT;>;"
-    .local p1, "bean":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->mappingStrategy:Lcom/opencsv/bean/MappingStrategy;
 
     if-nez v0, :cond_0
@@ -354,28 +334,26 @@
 
     invoke-interface {v0, p1}, Lcom/opencsv/bean/MappingStrategy;->generateHeader(Ljava/lang/Object;)[Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 170
-    .local v0, "header":[Ljava/lang/String;
-    array-length v1, v0
+    array-length v0, p1
 
-    if-lez v1, :cond_3
+    if-lez v0, :cond_3
 
     .line 171
-    iget-object v1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->csvwriter:Lcom/opencsv/ICSVWriter;
+    iget-object v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->csvwriter:Lcom/opencsv/ICSVWriter;
 
-    iget-boolean v2, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->applyQuotesToAll:Z
+    iget-boolean v1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->applyQuotesToAll:Z
 
-    invoke-interface {v1, v0, v2}, Lcom/opencsv/ICSVWriter;->writeNext([Ljava/lang/String;Z)V
+    invoke-interface {v0, p1, v1}, Lcom/opencsv/ICSVWriter;->writeNext([Ljava/lang/String;Z)V
+
+    :cond_3
+    const/4 p1, 0x1
 
     .line 173
-    :cond_3
-    const/4 v1, 0x1
+    iput-boolean p1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->headerWritten:Z
 
-    iput-boolean v1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->headerWritten:Z
-
-    .line 174
     return-void
 .end method
 
@@ -396,8 +374,7 @@
     .end annotation
 
     .line 240
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsv;, "Lcom/opencsv/bean/StatefulBeanToCsv<TT;>;"
-    .local p1, "beans":Ljava/util/Iterator;, "Ljava/util/Iterator<TT;>;"
+    :cond_0
     :goto_0
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -408,43 +385,35 @@
     .line 241
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v5
 
-    .line 242
-    .local v0, "bean":Ljava/lang/Object;, "TT;"
-    if-eqz v0, :cond_0
+    if-eqz v5, :cond_0
 
     .line 243
     iget-object v1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
 
-    iget v2, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->lineNumber:I
+    iget v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->lineNumber:I
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    iput v2, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->lineNumber:I
+    iput v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->lineNumber:I
 
-    int-to-long v2, v2
+    int-to-long v2, v0
 
     iget-object v4, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->mappingStrategy:Lcom/opencsv/bean/MappingStrategy;
 
     iget-boolean v6, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->throwExceptions:Z
 
-    move-object v5, v0
-
     invoke-virtual/range {v1 .. v6}, Lcom/opencsv/bean/concurrent/BeanExecutor;->submitBean(JLcom/opencsv/bean/MappingStrategy;Ljava/lang/Object;Z)V
 
-    .line 245
-    .end local v0    # "bean":Ljava/lang/Object;, "TT;"
-    :cond_0
     goto :goto_0
 
     .line 246
     :cond_1
-    iget-object v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
+    iget-object p1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
 
-    invoke-virtual {v0}, Lcom/opencsv/bean/concurrent/BeanExecutor;->complete()V
+    invoke-virtual {p1}, Lcom/opencsv/bean/concurrent/BeanExecutor;->complete()V
 
-    .line 247
     return-void
 .end method
 
@@ -462,18 +431,15 @@
     .end annotation
 
     .line 379
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsv;, "Lcom/opencsv/bean/StatefulBeanToCsv<TT;>;"
     iget-object v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->capturedExceptions:Ljava/util/List;
 
     .line 380
-    .local v0, "intermediate":Ljava/util/List;, "Ljava/util/List<Lcom/opencsv/exceptions/CsvException;>;"
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->capturedExceptions:Ljava/util/List;
 
-    .line 381
     return-object v0
 .end method
 
@@ -481,18 +447,15 @@
     .locals 1
 
     .line 362
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsv;, "Lcom/opencsv/bean/StatefulBeanToCsv<TT;>;"
     iget-boolean v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->throwExceptions:Z
 
     return v0
 .end method
 
-.method public synthetic lambda$write$0$StatefulBeanToCsv([Ljava/lang/String;)V
+.method synthetic lambda$write$0$com-opencsv-bean-StatefulBeanToCsv([Ljava/lang/String;)V
     .locals 2
-    .param p1, "l"    # [Ljava/lang/String;
 
     .line 324
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsv;, "Lcom/opencsv/bean/StatefulBeanToCsv<TT;>;"
     iget-object v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->csvwriter:Lcom/opencsv/ICSVWriter;
 
     iget-boolean v1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->applyQuotesToAll:Z
@@ -504,40 +467,34 @@
 
 .method public setErrorLocale(Ljava/util/Locale;)V
     .locals 1
-    .param p1, "errorLocale"    # Ljava/util/Locale;
 
     .line 392
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsv;, "Lcom/opencsv/bean/StatefulBeanToCsv<TT;>;"
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v0
 
     invoke-static {p1, v0}, Lorg/apache/commons/lang3/ObjectUtils;->defaultIfNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Locale;
+    check-cast p1, Ljava/util/Locale;
 
-    iput-object v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->errorLocale:Ljava/util/Locale;
+    iput-object p1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->errorLocale:Ljava/util/Locale;
 
-    .line 393
     return-void
 .end method
 
 .method public setOrderedResults(Z)V
     .locals 0
-    .param p1, "orderedResults"    # Z
 
     .line 354
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsv;, "Lcom/opencsv/bean/StatefulBeanToCsv<TT;>;"
     iput-boolean p1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->orderedResults:Z
 
-    .line 355
     return-void
 .end method
 
 .method public write(Ljava/lang/Object;)V
-    .locals 10
+    .locals 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -551,10 +508,7 @@
         }
     .end annotation
 
-    .line 192
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsv;, "Lcom/opencsv/bean/StatefulBeanToCsv<TT;>;"
-    .local p1, "bean":Ljava/lang/Object;, "TT;"
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_5
 
     .line 193
     iget-boolean v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->headerWritten:Z
@@ -566,208 +520,191 @@
 
     .line 198
     :cond_0
-    new-instance v6, Ljava/util/concurrent/ArrayBlockingQueue;
+    new-instance v0, Ljava/util/concurrent/ArrayBlockingQueue;
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    invoke-direct {v6, v0}, Ljava/util/concurrent/ArrayBlockingQueue;-><init>(I)V
+    invoke-direct {v0, v1}, Ljava/util/concurrent/ArrayBlockingQueue;-><init>(I)V
 
     .line 199
-    .local v6, "resultantLineQueue":Ljava/util/concurrent/BlockingQueue;, "Ljava/util/concurrent/BlockingQueue<Lcom/opencsv/bean/concurrent/OrderedObject<[Ljava/lang/String;>;>;"
-    new-instance v7, Ljava/util/concurrent/ArrayBlockingQueue;
+    new-instance v9, Ljava/util/concurrent/ArrayBlockingQueue;
 
-    invoke-direct {v7, v0}, Ljava/util/concurrent/ArrayBlockingQueue;-><init>(I)V
+    invoke-direct {v9, v1}, Ljava/util/concurrent/ArrayBlockingQueue;-><init>(I)V
 
     .line 200
-    .local v7, "thrownExceptionsQueue":Ljava/util/concurrent/BlockingQueue;, "Ljava/util/concurrent/BlockingQueue<Lcom/opencsv/bean/concurrent/OrderedObject<Lcom/opencsv/exceptions/CsvException;>;>;"
-    new-instance v9, Lcom/opencsv/bean/concurrent/ProcessCsvBean;
+    new-instance v10, Lcom/opencsv/bean/concurrent/ProcessCsvBean;
 
-    iget v1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->lineNumber:I
+    iget v2, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->lineNumber:I
 
-    add-int/2addr v1, v0
+    add-int/2addr v2, v1
 
-    iput v1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->lineNumber:I
+    iput v2, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->lineNumber:I
 
-    int-to-long v2, v1
+    int-to-long v2, v2
 
     iget-object v4, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->mappingStrategy:Lcom/opencsv/bean/MappingStrategy;
 
     iget-boolean v8, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->throwExceptions:Z
 
-    move-object v1, v9
+    move-object v1, v10
 
     move-object v5, p1
 
+    move-object v6, v0
+
+    move-object v7, v9
+
     invoke-direct/range {v1 .. v8}, Lcom/opencsv/bean/concurrent/ProcessCsvBean;-><init>(JLcom/opencsv/bean/MappingStrategy;Ljava/lang/Object;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/BlockingQueue;Z)V
 
-    move-object v0, v9
-
     .line 204
-    .local v0, "proc":Lcom/opencsv/bean/concurrent/ProcessCsvBean;, "Lcom/opencsv/bean/concurrent/ProcessCsvBean<TT;>;"
     :try_start_0
-    invoke-virtual {v0}, Lcom/opencsv/bean/concurrent/ProcessCsvBean;->run()V
+    invoke-virtual {v10}, Lcom/opencsv/bean/concurrent/ProcessCsvBean;->run()V
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 221
-    nop
-
     .line 224
-    invoke-interface {v7}, Ljava/util/concurrent/BlockingQueue;->isEmpty()Z
+    invoke-interface {v9}, Ljava/util/concurrent/BlockingQueue;->isEmpty()Z
 
-    move-result v1
+    move-result p1
 
-    if-nez v1, :cond_2
+    if-nez p1, :cond_1
 
     .line 225
-    invoke-interface {v7}, Ljava/util/concurrent/BlockingQueue;->poll()Ljava/lang/Object;
+    invoke-interface {v9}, Ljava/util/concurrent/BlockingQueue;->poll()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Lcom/opencsv/bean/concurrent/OrderedObject;
+    check-cast p1, Lcom/opencsv/bean/concurrent/OrderedObject;
+
+    if-eqz p1, :cond_5
 
     .line 226
-    .local v1, "o":Lcom/opencsv/bean/concurrent/OrderedObject;, "Lcom/opencsv/bean/concurrent/OrderedObject<Lcom/opencsv/exceptions/CsvException;>;"
-    if-eqz v1, :cond_1
+    invoke-virtual {p1}, Lcom/opencsv/bean/concurrent/OrderedObject;->getElement()Ljava/lang/Object;
 
-    invoke-virtual {v1}, Lcom/opencsv/bean/concurrent/OrderedObject;->getElement()Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object v2
-
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_5
 
     .line 227
-    iget-object v2, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->capturedExceptions:Ljava/util/List;
+    iget-object v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->capturedExceptions:Ljava/util/List;
 
-    invoke-virtual {v1}, Lcom/opencsv/bean/concurrent/OrderedObject;->getElement()Ljava/lang/Object;
+    invoke-virtual {p1}, Lcom/opencsv/bean/concurrent/OrderedObject;->getElement()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 229
-    .end local v1    # "o":Lcom/opencsv/bean/concurrent/OrderedObject;, "Lcom/opencsv/bean/concurrent/OrderedObject<Lcom/opencsv/exceptions/CsvException;>;"
-    :cond_1
     goto :goto_0
 
     .line 231
-    :cond_2
-    invoke-interface {v6}, Ljava/util/concurrent/BlockingQueue;->poll()Ljava/lang/Object;
+    :cond_1
+    invoke-interface {v0}, Ljava/util/concurrent/BlockingQueue;->poll()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Lcom/opencsv/bean/concurrent/OrderedObject;
+    check-cast p1, Lcom/opencsv/bean/concurrent/OrderedObject;
+
+    if-eqz p1, :cond_5
 
     .line 232
-    .local v1, "result":Lcom/opencsv/bean/concurrent/OrderedObject;, "Lcom/opencsv/bean/concurrent/OrderedObject<[Ljava/lang/String;>;"
-    if-eqz v1, :cond_6
+    invoke-virtual {p1}, Lcom/opencsv/bean/concurrent/OrderedObject;->getElement()Ljava/lang/Object;
 
-    invoke-virtual {v1}, Lcom/opencsv/bean/concurrent/OrderedObject;->getElement()Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object v2
-
-    if-eqz v2, :cond_6
+    if-eqz v0, :cond_5
 
     .line 233
-    iget-object v2, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->csvwriter:Lcom/opencsv/ICSVWriter;
+    iget-object v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->csvwriter:Lcom/opencsv/ICSVWriter;
 
-    invoke-virtual {v1}, Lcom/opencsv/bean/concurrent/OrderedObject;->getElement()Ljava/lang/Object;
+    invoke-virtual {p1}, Lcom/opencsv/bean/concurrent/OrderedObject;->getElement()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p1
 
-    check-cast v3, [Ljava/lang/String;
+    check-cast p1, [Ljava/lang/String;
 
-    iget-boolean v4, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->applyQuotesToAll:Z
+    iget-boolean v1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->applyQuotesToAll:Z
 
-    invoke-interface {v2, v3, v4}, Lcom/opencsv/ICSVWriter;->writeNext([Ljava/lang/String;Z)V
+    invoke-interface {v0, p1, v1}, Lcom/opencsv/ICSVWriter;->writeNext([Ljava/lang/String;Z)V
 
     goto :goto_0
 
-    .line 205
-    .end local v1    # "result":Lcom/opencsv/bean/concurrent/OrderedObject;, "Lcom/opencsv/bean/concurrent/OrderedObject<[Ljava/lang/String;>;"
     :catch_0
-    move-exception v1
+    move-exception p1
 
     .line 206
-    .local v1, "re":Ljava/lang/RuntimeException;
-    invoke-virtual {v1}, Ljava/lang/RuntimeException;->getCause()Ljava/lang/Throwable;
+    invoke-virtual {p1}, Ljava/lang/RuntimeException;->getCause()Ljava/lang/Throwable;
 
-    move-result-object v2
+    move-result-object v0
 
-    if-eqz v2, :cond_5
+    if-eqz v0, :cond_4
 
     .line 207
-    invoke-virtual {v1}, Ljava/lang/RuntimeException;->getCause()Ljava/lang/Throwable;
+    invoke-virtual {p1}, Ljava/lang/RuntimeException;->getCause()Ljava/lang/Throwable;
 
-    move-result-object v2
+    move-result-object v0
 
-    instance-of v2, v2, Lcom/opencsv/exceptions/CsvRuntimeException;
+    instance-of v0, v0, Lcom/opencsv/exceptions/CsvRuntimeException;
 
-    if-nez v2, :cond_4
+    if-nez v0, :cond_3
 
     .line 213
-    invoke-virtual {v1}, Ljava/lang/RuntimeException;->getCause()Ljava/lang/Throwable;
+    invoke-virtual {p1}, Ljava/lang/RuntimeException;->getCause()Ljava/lang/Throwable;
 
-    move-result-object v2
+    move-result-object v0
 
-    instance-of v2, v2, Lcom/opencsv/exceptions/CsvDataTypeMismatchException;
+    instance-of v0, v0, Lcom/opencsv/exceptions/CsvDataTypeMismatchException;
 
-    if-nez v2, :cond_3
+    if-nez v0, :cond_2
 
     .line 216
-    invoke-virtual {v1}, Ljava/lang/RuntimeException;->getCause()Ljava/lang/Throwable;
+    invoke-virtual {p1}, Ljava/lang/RuntimeException;->getCause()Ljava/lang/Throwable;
 
-    move-result-object v2
+    move-result-object v0
 
-    instance-of v2, v2, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;
+    instance-of v0, v0, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;
 
-    if-eqz v2, :cond_5
+    if-eqz v0, :cond_4
 
     .line 217
-    invoke-virtual {v1}, Ljava/lang/RuntimeException;->getCause()Ljava/lang/Throwable;
+    invoke-virtual {p1}, Ljava/lang/RuntimeException;->getCause()Ljava/lang/Throwable;
 
-    move-result-object v2
+    move-result-object p1
 
-    check-cast v2, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;
+    check-cast p1, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;
 
-    throw v2
+    throw p1
 
     .line 214
-    :cond_3
-    invoke-virtual {v1}, Ljava/lang/RuntimeException;->getCause()Ljava/lang/Throwable;
+    :cond_2
+    invoke-virtual {p1}, Ljava/lang/RuntimeException;->getCause()Ljava/lang/Throwable;
 
-    move-result-object v2
+    move-result-object p1
 
-    check-cast v2, Lcom/opencsv/exceptions/CsvDataTypeMismatchException;
+    check-cast p1, Lcom/opencsv/exceptions/CsvDataTypeMismatchException;
 
-    throw v2
+    throw p1
 
     .line 211
-    :cond_4
-    invoke-virtual {v1}, Ljava/lang/RuntimeException;->getCause()Ljava/lang/Throwable;
+    :cond_3
+    invoke-virtual {p1}, Ljava/lang/RuntimeException;->getCause()Ljava/lang/Throwable;
 
-    move-result-object v2
+    move-result-object p1
 
-    check-cast v2, Lcom/opencsv/exceptions/CsvRuntimeException;
+    check-cast p1, Lcom/opencsv/exceptions/CsvRuntimeException;
 
-    throw v2
+    throw p1
 
     .line 220
-    :cond_5
-    throw v1
+    :cond_4
+    throw p1
 
-    .line 237
-    .end local v0    # "proc":Lcom/opencsv/bean/concurrent/ProcessCsvBean;, "Lcom/opencsv/bean/concurrent/ProcessCsvBean<TT;>;"
-    .end local v1    # "re":Ljava/lang/RuntimeException;
-    .end local v6    # "resultantLineQueue":Ljava/util/concurrent/BlockingQueue;, "Ljava/util/concurrent/BlockingQueue<Lcom/opencsv/bean/concurrent/OrderedObject<[Ljava/lang/String;>;>;"
-    .end local v7    # "thrownExceptionsQueue":Ljava/util/concurrent/BlockingQueue;, "Ljava/util/concurrent/BlockingQueue<Lcom/opencsv/bean/concurrent/OrderedObject<Lcom/opencsv/exceptions/CsvException;>;>;"
-    :cond_6
+    :cond_5
     :goto_0
     return-void
 .end method
 
 .method public write(Ljava/util/Iterator;)V
-    .locals 7
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -783,55 +720,50 @@
         }
     .end annotation
 
-    .line 278
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsv;, "Lcom/opencsv/bean/StatefulBeanToCsv<TT;>;"
-    .local p1, "iBeans":Ljava/util/Iterator;, "Ljava/util/Iterator<TT;>;"
     const-string v0, "error.writing.beans"
 
     const-string v1, "opencsv"
 
+    .line 278
     new-instance v2, Lorg/apache/commons/collections4/iterators/PeekingIterator;
 
     invoke-direct {v2, p1}, Lorg/apache/commons/collections4/iterators/PeekingIterator;-><init>(Ljava/util/Iterator;)V
 
     .line 279
-    .local v2, "beans":Lorg/apache/commons/collections4/iterators/PeekingIterator;, "Lorg/apache/commons/collections4/iterators/PeekingIterator<TT;>;"
     invoke-virtual {v2}, Lorg/apache/commons/collections4/iterators/PeekingIterator;->peek()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p1
 
     .line 281
-    .local v3, "firstBean":Ljava/lang/Object;, "TT;"
     invoke-virtual {v2}, Lorg/apache/commons/collections4/iterators/PeekingIterator;->hasNext()Z
 
-    move-result v4
+    move-result v3
 
-    if-nez v4, :cond_0
+    if-nez v3, :cond_0
 
-    .line 282
     return-void
 
     .line 286
     :cond_0
-    iget-boolean v4, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->headerWritten:Z
+    iget-boolean v3, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->headerWritten:Z
 
-    if-nez v4, :cond_1
+    if-nez v3, :cond_1
 
     .line 287
-    invoke-direct {p0, v3}, Lcom/opencsv/bean/StatefulBeanToCsv;->beforeFirstWrite(Ljava/lang/Object;)V
+    invoke-direct {p0, p1}, Lcom/opencsv/bean/StatefulBeanToCsv;->beforeFirstWrite(Ljava/lang/Object;)V
 
     .line 290
     :cond_1
-    new-instance v4, Lcom/opencsv/bean/concurrent/BeanExecutor;
+    new-instance p1, Lcom/opencsv/bean/concurrent/BeanExecutor;
 
-    iget-boolean v5, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->orderedResults:Z
+    iget-boolean v3, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->orderedResults:Z
 
-    invoke-direct {v4, v5}, Lcom/opencsv/bean/concurrent/BeanExecutor;-><init>(Z)V
+    invoke-direct {p1, v3}, Lcom/opencsv/bean/concurrent/BeanExecutor;-><init>(Z)V
 
-    iput-object v4, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
+    iput-object p1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
 
     .line 291
-    invoke-virtual {v4}, Lcom/opencsv/bean/concurrent/BeanExecutor;->prepare()V
+    invoke-virtual {p1}, Lcom/opencsv/bean/concurrent/BeanExecutor;->prepare()V
 
     .line 295
     :try_start_0
@@ -840,75 +772,69 @@
     .catch Ljava/util/concurrent/RejectedExecutionException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 321
-    nop
-
     .line 323
-    iget-object v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->capturedExceptions:Ljava/util/List;
+    iget-object p1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->capturedExceptions:Ljava/util/List;
 
-    iget-object v1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
+    iget-object v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
 
-    invoke-virtual {v1}, Lcom/opencsv/bean/concurrent/BeanExecutor;->getCapturedExceptions()Ljava/util/List;
+    invoke-virtual {v0}, Lcom/opencsv/bean/concurrent/BeanExecutor;->getCapturedExceptions()Ljava/util/List;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v0, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
     .line 324
-    iget-object v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
+    iget-object p1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
 
-    invoke-virtual {v0}, Lcom/opencsv/bean/concurrent/BeanExecutor;->resultStream()Ljava/util/stream/Stream;
+    invoke-virtual {p1}, Lcom/opencsv/bean/concurrent/BeanExecutor;->resultStream()Ljava/util/stream/Stream;
 
-    move-result-object v0
+    move-result-object p1
 
-    new-instance v1, Lcom/opencsv/bean/-$$Lambda$StatefulBeanToCsv$_us2tCx6oNRMuMMrODV-BkUU2ZY;
+    new-instance v0, Lcom/opencsv/bean/StatefulBeanToCsv$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Lcom/opencsv/bean/-$$Lambda$StatefulBeanToCsv$_us2tCx6oNRMuMMrODV-BkUU2ZY;-><init>(Lcom/opencsv/bean/StatefulBeanToCsv;)V
+    invoke-direct {v0, p0}, Lcom/opencsv/bean/StatefulBeanToCsv$$ExternalSyntheticLambda0;-><init>(Lcom/opencsv/bean/StatefulBeanToCsv;)V
 
-    invoke-interface {v0, v1}, Ljava/util/stream/Stream;->forEach(Ljava/util/function/Consumer;)V
+    invoke-interface {p1, v0}, Ljava/util/stream/Stream;->forEach(Ljava/util/function/Consumer;)V
 
-    .line 325
     return-void
 
-    .line 311
     :catch_0
-    move-exception v4
+    move-exception p1
 
     .line 315
-    .local v4, "e":Ljava/lang/Exception;
-    iget-object v5, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
+    iget-object v2, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
 
-    invoke-virtual {v5}, Lcom/opencsv/bean/concurrent/BeanExecutor;->shutdownNow()Ljava/util/List;
+    invoke-virtual {v2}, Lcom/opencsv/bean/concurrent/BeanExecutor;->shutdownNow()Ljava/util/List;
 
     .line 316
-    iget-object v5, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
+    iget-object v2, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
 
-    invoke-virtual {v5}, Lcom/opencsv/bean/concurrent/BeanExecutor;->getTerminalException()Ljava/lang/Throwable;
+    invoke-virtual {v2}, Lcom/opencsv/bean/concurrent/BeanExecutor;->getTerminalException()Ljava/lang/Throwable;
 
-    move-result-object v5
+    move-result-object v2
 
-    instance-of v5, v5, Ljava/lang/RuntimeException;
+    instance-of v2, v2, Ljava/lang/RuntimeException;
 
-    if-eqz v5, :cond_2
+    if-eqz v2, :cond_2
 
     .line 317
-    iget-object v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
+    iget-object p1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
 
-    invoke-virtual {v0}, Lcom/opencsv/bean/concurrent/BeanExecutor;->getTerminalException()Ljava/lang/Throwable;
+    invoke-virtual {p1}, Lcom/opencsv/bean/concurrent/BeanExecutor;->getTerminalException()Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/lang/RuntimeException;
+    check-cast p1, Ljava/lang/RuntimeException;
 
-    throw v0
+    throw p1
 
     .line 319
     :cond_2
-    new-instance v5, Ljava/lang/RuntimeException;
+    new-instance v2, Ljava/lang/RuntimeException;
 
-    iget-object v6, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->errorLocale:Ljava/util/Locale;
+    iget-object v3, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->errorLocale:Ljava/util/Locale;
 
-    invoke-static {v1, v6}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;
+    invoke-static {v1, v3}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;
 
     move-result-object v1
 
@@ -917,68 +843,63 @@
 
     move-result-object v0
 
-    invoke-direct {v5, v0, v4}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v2, v0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v5
-
-    .line 296
-    .end local v4    # "e":Ljava/lang/Exception;
-    :catch_1
-    move-exception v4
+    throw v2
 
     .line 299
-    .local v4, "e":Ljava/util/concurrent/RejectedExecutionException;
-    iget-object v5, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
+    :catch_1
+    iget-object p1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
 
-    invoke-virtual {v5}, Lcom/opencsv/bean/concurrent/BeanExecutor;->getTerminalException()Ljava/lang/Throwable;
+    invoke-virtual {p1}, Lcom/opencsv/bean/concurrent/BeanExecutor;->getTerminalException()Ljava/lang/Throwable;
 
-    move-result-object v5
+    move-result-object p1
 
-    instance-of v5, v5, Ljava/lang/RuntimeException;
+    instance-of p1, p1, Ljava/lang/RuntimeException;
 
-    if-nez v5, :cond_5
+    if-nez p1, :cond_5
 
     .line 302
-    iget-object v5, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
+    iget-object p1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
 
-    invoke-virtual {v5}, Lcom/opencsv/bean/concurrent/BeanExecutor;->getTerminalException()Ljava/lang/Throwable;
+    invoke-virtual {p1}, Lcom/opencsv/bean/concurrent/BeanExecutor;->getTerminalException()Ljava/lang/Throwable;
 
-    move-result-object v5
+    move-result-object p1
 
-    instance-of v5, v5, Lcom/opencsv/exceptions/CsvDataTypeMismatchException;
+    instance-of p1, p1, Lcom/opencsv/exceptions/CsvDataTypeMismatchException;
 
-    if-nez v5, :cond_4
+    if-nez p1, :cond_4
 
     .line 305
-    iget-object v5, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
+    iget-object p1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
 
-    invoke-virtual {v5}, Lcom/opencsv/bean/concurrent/BeanExecutor;->getTerminalException()Ljava/lang/Throwable;
+    invoke-virtual {p1}, Lcom/opencsv/bean/concurrent/BeanExecutor;->getTerminalException()Ljava/lang/Throwable;
 
-    move-result-object v5
+    move-result-object p1
 
-    instance-of v5, v5, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;
+    instance-of p1, p1, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;
 
-    if-eqz v5, :cond_3
+    if-eqz p1, :cond_3
 
     .line 306
-    iget-object v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
+    iget-object p1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
 
     .line 307
-    invoke-virtual {v0}, Lcom/opencsv/bean/concurrent/BeanExecutor;->getTerminalException()Ljava/lang/Throwable;
+    invoke-virtual {p1}, Lcom/opencsv/bean/concurrent/BeanExecutor;->getTerminalException()Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;
+    check-cast p1, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;
 
-    throw v0
+    throw p1
 
     .line 309
     :cond_3
-    new-instance v5, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    iget-object v6, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->errorLocale:Ljava/util/Locale;
+    iget-object v2, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->errorLocale:Ljava/util/Locale;
 
-    invoke-static {v1, v6}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;
+    invoke-static {v1, v2}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;
 
     move-result-object v1
 
@@ -993,33 +914,33 @@
 
     move-result-object v1
 
-    invoke-direct {v5, v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p1, v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v5
+    throw p1
 
     .line 303
     :cond_4
-    iget-object v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
+    iget-object p1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
 
-    invoke-virtual {v0}, Lcom/opencsv/bean/concurrent/BeanExecutor;->getTerminalException()Ljava/lang/Throwable;
+    invoke-virtual {p1}, Lcom/opencsv/bean/concurrent/BeanExecutor;->getTerminalException()Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/opencsv/exceptions/CsvDataTypeMismatchException;
+    check-cast p1, Lcom/opencsv/exceptions/CsvDataTypeMismatchException;
 
-    throw v0
+    throw p1
 
     .line 300
     :cond_5
-    iget-object v0, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
+    iget-object p1, p0, Lcom/opencsv/bean/StatefulBeanToCsv;->executor:Lcom/opencsv/bean/concurrent/BeanExecutor;
 
-    invoke-virtual {v0}, Lcom/opencsv/bean/concurrent/BeanExecutor;->getTerminalException()Ljava/lang/Throwable;
+    invoke-virtual {p1}, Lcom/opencsv/bean/concurrent/BeanExecutor;->getTerminalException()Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/lang/RuntimeException;
+    check-cast p1, Ljava/lang/RuntimeException;
 
-    throw v0
+    throw p1
 .end method
 
 .method public write(Ljava/util/List;)V
@@ -1040,8 +961,6 @@
     .end annotation
 
     .line 262
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsv;, "Lcom/opencsv/bean/StatefulBeanToCsv<TT;>;"
-    .local p1, "beans":Ljava/util/List;, "Ljava/util/List<TT;>;"
     invoke-static {p1}, Lorg/apache/commons/collections4/CollectionUtils;->isNotEmpty(Ljava/util/Collection;)Z
 
     move-result v0
@@ -1051,17 +970,16 @@
     .line 263
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/opencsv/bean/StatefulBeanToCsv;->write(Ljava/util/Iterator;)V
+    invoke-virtual {p0, p1}, Lcom/opencsv/bean/StatefulBeanToCsv;->write(Ljava/util/Iterator;)V
 
-    .line 265
     :cond_0
     return-void
 .end method
 
 .method public write(Ljava/util/stream/Stream;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1078,14 +996,11 @@
     .end annotation
 
     .line 337
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsv;, "Lcom/opencsv/bean/StatefulBeanToCsv<TT;>;"
-    .local p1, "beans":Ljava/util/stream/Stream;, "Ljava/util/stream/Stream<TT;>;"
     invoke-interface {p1}, Ljava/util/stream/Stream;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/opencsv/bean/StatefulBeanToCsv;->write(Ljava/util/Iterator;)V
+    invoke-virtual {p0, p1}, Lcom/opencsv/bean/StatefulBeanToCsv;->write(Ljava/util/Iterator;)V
 
-    .line 338
     return-void
 .end method

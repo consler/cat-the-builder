@@ -18,7 +18,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "defaultValue"    # Ljava/lang/Object;
 
     .line 139
     new-instance v0, Ljava/util/HashMap;
@@ -41,14 +40,11 @@
     :cond_0
     iput-object p1, p0, Lorg/apache/commons/collections/map/DefaultedMap;->value:Ljava/lang/Object;
 
-    .line 144
     return-void
 .end method
 
 .method protected constructor <init>(Ljava/util/Map;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "map"    # Ljava/util/Map;
-    .param p2, "value"    # Ljava/lang/Object;
 
     .line 154
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/map/AbstractMapDecorator;-><init>(Ljava/util/Map;)V
@@ -56,14 +52,11 @@
     .line 155
     iput-object p2, p0, Lorg/apache/commons/collections/map/DefaultedMap;->value:Ljava/lang/Object;
 
-    .line 156
     return-void
 .end method
 
 .method public static decorate(Ljava/util/Map;Ljava/lang/Object;)Ljava/util/Map;
     .locals 1
-    .param p0, "map"    # Ljava/util/Map;
-    .param p1, "defaultValue"    # Ljava/lang/Object;
 
     .line 87
     instance-of v0, p1, Lorg/apache/commons/collections/Transformer;
@@ -85,11 +78,8 @@
 .end method
 
 .method public static decorate(Ljava/util/Map;Lorg/apache/commons/collections/Factory;)Ljava/util/Map;
-    .locals 2
-    .param p0, "map"    # Ljava/util/Map;
-    .param p1, "factory"    # Lorg/apache/commons/collections/Factory;
+    .locals 1
 
-    .line 104
     if-eqz p1, :cond_0
 
     .line 107
@@ -97,29 +87,26 @@
 
     invoke-static {p1}, Lorg/apache/commons/collections/functors/FactoryTransformer;->getInstance(Lorg/apache/commons/collections/Factory;)Lorg/apache/commons/collections/Transformer;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, p0, v1}, Lorg/apache/commons/collections/map/DefaultedMap;-><init>(Ljava/util/Map;Ljava/lang/Object;)V
+    invoke-direct {v0, p0, p1}, Lorg/apache/commons/collections/map/DefaultedMap;-><init>(Ljava/util/Map;Ljava/lang/Object;)V
 
     return-object v0
 
     .line 105
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Factory must not be null"
+    const-string p1, "Factory must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static decorate(Ljava/util/Map;Lorg/apache/commons/collections/Transformer;)Ljava/util/Map;
-    .locals 2
-    .param p0, "map"    # Ljava/util/Map;
-    .param p1, "factory"    # Lorg/apache/commons/collections/Transformer;
+    .locals 1
 
-    .line 122
     if-eqz p1, :cond_0
 
     .line 125
@@ -131,18 +118,17 @@
 
     .line 123
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Transformer must not be null"
+    const-string p1, "Transformer must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 1
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -156,19 +142,17 @@
     .line 179
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Map;
+    check-cast p1, Ljava/util/Map;
 
-    iput-object v0, p0, Lorg/apache/commons/collections/map/DefaultedMap;->map:Ljava/util/Map;
+    iput-object p1, p0, Lorg/apache/commons/collections/map/DefaultedMap;->map:Ljava/util/Map;
 
-    .line 180
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -183,7 +167,6 @@
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    .line 168
     return-void
 .end method
 
@@ -191,7 +174,6 @@
 # virtual methods
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 185
     iget-object v0, p0, Lorg/apache/commons/collections/map/DefaultedMap;->map:Ljava/util/Map;
@@ -214,11 +196,10 @@
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections/Transformer;->transform(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
-    .line 189
     :cond_0
     return-object v0
 
@@ -228,7 +209,7 @@
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

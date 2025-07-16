@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/app/MediaRouteControllerDialog;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
     .line 910
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$12;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
@@ -37,32 +36,26 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
-    .locals 2
-    .param p1, "animation"    # Landroid/view/animation/Animation;
+    .locals 1
 
     .line 916
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$12;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$12;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    invoke-virtual {v0, v1}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->finishAnimation(Z)V
+    invoke-virtual {p1, v0}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->finishAnimation(Z)V
 
-    .line 917
     return-void
 .end method
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
     .locals 0
-    .param p1, "animation"    # Landroid/view/animation/Animation;
 
-    .line 920
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
     .locals 0
-    .param p1, "animation"    # Landroid/view/animation/Animation;
 
-    .line 912
     return-void
 .end method

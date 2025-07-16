@@ -33,36 +33,31 @@
 .end method
 
 .method static read(Lcom/esotericsoftware/kryo/io/Input;)Ljava/time/ZoneId;
-    .locals 2
-    .param p0, "in"    # Lcom/esotericsoftware/kryo/io/Input;
+    .locals 0
 
     .line 225
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/Input;->readString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 226
-    .local v0, "id":Ljava/lang/String;
-    invoke-static {v0}, Ljava/time/ZoneId;->of(Ljava/lang/String;)Ljava/time/ZoneId;
+    invoke-static {p0}, Ljava/time/ZoneId;->of(Ljava/lang/String;)Ljava/time/ZoneId;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method static write(Lcom/esotericsoftware/kryo/io/Output;Ljava/time/ZoneId;)V
-    .locals 1
-    .param p0, "out"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p1, "obj"    # Ljava/time/ZoneId;
+    .locals 0
 
     .line 217
     invoke-virtual {p1}, Ljava/time/ZoneId;->getId()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeString(Ljava/lang/String;)V
 
-    .line 218
     return-void
 .end method
 
@@ -80,17 +75,14 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/time/ZoneId;
-    .locals 1
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "in"    # Lcom/esotericsoftware/kryo/io/Input;
-    .param p3, "type"    # Ljava/lang/Class;
+    .locals 0
 
     .line 221
     invoke-static {p2}, Lcom/esotericsoftware/kryo/serializers/TimeSerializers$ZoneIdSerializer;->read(Lcom/esotericsoftware/kryo/io/Input;)Ljava/time/ZoneId;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
@@ -106,13 +98,9 @@
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/time/ZoneId;)V
     .locals 0
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "out"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p3, "obj"    # Ljava/time/ZoneId;
 
     .line 213
     invoke-static {p2, p3}, Lcom/esotericsoftware/kryo/serializers/TimeSerializers$ZoneIdSerializer;->write(Lcom/esotericsoftware/kryo/io/Output;Ljava/time/ZoneId;)V
 
-    .line 214
     return-void
 .end method

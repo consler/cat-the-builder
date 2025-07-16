@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/customview/widget/ViewDragHelper;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/customview/widget/ViewDragHelper;
 
     .line 340
     iput-object p1, p0, Landroidx/customview/widget/ViewDragHelper$2;->this$0:Landroidx/customview/widget/ViewDragHelper;
@@ -46,6 +45,5 @@
 
     invoke-virtual {v0, v1}, Landroidx/customview/widget/ViewDragHelper;->setDragState(I)V
 
-    .line 344
     return-void
 .end method

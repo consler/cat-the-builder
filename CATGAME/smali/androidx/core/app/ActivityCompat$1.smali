@@ -28,8 +28,20 @@
 # direct methods
 .method constructor <init>([Ljava/lang/String;Landroid/app/Activity;I)V
     .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1010,
+            0x1010,
+            0x1010
+        }
+        names = {
+            "val$permissions",
+            "val$activity",
+            "val$requestCode"
+        }
+    .end annotation
 
-    .line 505
+    .line 519
     iput-object p1, p0, Landroidx/core/app/ActivityCompat$1;->val$permissions:[Ljava/lang/String;
 
     iput-object p2, p0, Landroidx/core/app/ActivityCompat$1;->val$activity:Landroid/app/Activity;
@@ -44,46 +56,40 @@
 
 # virtual methods
 .method public run()V
-    .locals 7
+    .locals 6
 
-    .line 508
+    .line 522
     iget-object v0, p0, Landroidx/core/app/ActivityCompat$1;->val$permissions:[Ljava/lang/String;
 
     array-length v0, v0
 
     new-array v0, v0, [I
 
-    .line 510
-    .local v0, "grantResults":[I
+    .line 524
     iget-object v1, p0, Landroidx/core/app/ActivityCompat$1;->val$activity:Landroid/app/Activity;
 
     invoke-virtual {v1}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
-    .line 511
-    .local v1, "packageManager":Landroid/content/pm/PackageManager;
+    .line 525
     iget-object v2, p0, Landroidx/core/app/ActivityCompat$1;->val$activity:Landroid/app/Activity;
 
     invoke-virtual {v2}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 513
-    .local v2, "packageName":Ljava/lang/String;
+    .line 527
     iget-object v3, p0, Landroidx/core/app/ActivityCompat$1;->val$permissions:[Ljava/lang/String;
 
     array-length v3, v3
 
-    .line 514
-    .local v3, "permissionCount":I
     const/4 v4, 0x0
 
-    .local v4, "i":I
     :goto_0
     if-ge v4, v3, :cond_0
 
-    .line 515
+    .line 529
     iget-object v5, p0, Landroidx/core/app/ActivityCompat$1;->val$permissions:[Ljava/lang/String;
 
     aget-object v5, v5, v4
@@ -94,24 +100,21 @@
 
     aput v5, v0, v4
 
-    .line 514
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
-    .line 519
-    .end local v4    # "i":I
+    .line 533
     :cond_0
-    iget-object v4, p0, Landroidx/core/app/ActivityCompat$1;->val$activity:Landroid/app/Activity;
+    iget-object v1, p0, Landroidx/core/app/ActivityCompat$1;->val$activity:Landroid/app/Activity;
 
-    check-cast v4, Landroidx/core/app/ActivityCompat$OnRequestPermissionsResultCallback;
+    check-cast v1, Landroidx/core/app/ActivityCompat$OnRequestPermissionsResultCallback;
 
-    iget v5, p0, Landroidx/core/app/ActivityCompat$1;->val$requestCode:I
+    iget v2, p0, Landroidx/core/app/ActivityCompat$1;->val$requestCode:I
 
-    iget-object v6, p0, Landroidx/core/app/ActivityCompat$1;->val$permissions:[Ljava/lang/String;
+    iget-object v3, p0, Landroidx/core/app/ActivityCompat$1;->val$permissions:[Ljava/lang/String;
 
-    invoke-interface {v4, v5, v6, v0}, Landroidx/core/app/ActivityCompat$OnRequestPermissionsResultCallback;->onRequestPermissionsResult(I[Ljava/lang/String;[I)V
+    invoke-interface {v1, v2, v3, v0}, Landroidx/core/app/ActivityCompat$OnRequestPermissionsResultCallback;->onRequestPermissionsResult(I[Ljava/lang/String;[I)V
 
-    .line 521
     return-void
 .end method

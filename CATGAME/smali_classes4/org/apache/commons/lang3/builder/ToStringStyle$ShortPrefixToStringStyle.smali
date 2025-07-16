@@ -25,17 +25,16 @@
     .line 2225
     invoke-direct {p0}, Lorg/apache/commons/lang3/builder/ToStringStyle;-><init>()V
 
-    .line 2226
     const/4 v0, 0x1
 
+    .line 2226
     invoke-virtual {p0, v0}, Lorg/apache/commons/lang3/builder/ToStringStyle$ShortPrefixToStringStyle;->setUseShortClassName(Z)V
 
-    .line 2227
     const/4 v0, 0x0
 
+    .line 2227
     invoke-virtual {p0, v0}, Lorg/apache/commons/lang3/builder/ToStringStyle$ShortPrefixToStringStyle;->setUseIdentityHashCode(Z)V
 
-    .line 2228
     return-void
 .end method
 

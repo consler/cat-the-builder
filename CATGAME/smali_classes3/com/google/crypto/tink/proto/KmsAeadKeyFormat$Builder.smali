@@ -38,13 +38,11 @@
 
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
-    .line 201
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/proto/KmsAeadKeyFormat$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/proto/KmsAeadKeyFormat$1;
 
     .line 193
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/KmsAeadKeyFormat$Builder;-><init>()V
@@ -67,7 +65,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/KmsAeadKeyFormat;->access$200(Lcom/google/crypto/tink/proto/KmsAeadKeyFormat;)V
 
-    .line 275
     return-object p0
 .end method
 
@@ -103,7 +100,6 @@
 
 .method public setKeyUri(Ljava/lang/String;)Lcom/google/crypto/tink/proto/KmsAeadKeyFormat$Builder;
     .locals 1
-    .param p1, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -123,13 +119,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/KmsAeadKeyFormat;->access$100(Lcom/google/crypto/tink/proto/KmsAeadKeyFormat;Ljava/lang/String;)V
 
-    .line 257
     return-object p0
 .end method
 
 .method public setKeyUriBytes(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/KmsAeadKeyFormat$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -149,6 +143,5 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/KmsAeadKeyFormat;->access$300(Lcom/google/crypto/tink/proto/KmsAeadKeyFormat;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    .line 295
     return-object p0
 .end method

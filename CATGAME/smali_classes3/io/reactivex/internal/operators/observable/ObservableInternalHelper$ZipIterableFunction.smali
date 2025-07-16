@@ -61,14 +61,11 @@
     .end annotation
 
     .line 282
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ZipIterableFunction;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ZipIterableFunction<TT;TR;>;"
-    .local p1, "zipper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-[Ljava/lang/Object;+TR;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 283
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ZipIterableFunction;->zipper:Lio/reactivex/functions/Function;
 
-    .line 284
     return-void
 .end method
 
@@ -88,26 +85,23 @@
     .end annotation
 
     .line 288
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ZipIterableFunction;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ZipIterableFunction<TT;TR;>;"
-    .local p1, "list":Ljava/util/List;, "Ljava/util/List<Lio/reactivex/ObservableSource<+TT;>;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ZipIterableFunction;->zipper:Lio/reactivex/functions/Function;
+
+    const/4 v1, 0x0
 
     invoke-static {}, Lio/reactivex/Observable;->bufferSize()I
 
-    move-result v1
+    move-result v2
 
-    const/4 v2, 0x0
+    invoke-static {p1, v0, v1, v2}, Lio/reactivex/Observable;->zipIterable(Ljava/lang/Iterable;Lio/reactivex/functions/Function;ZI)Lio/reactivex/Observable;
 
-    invoke-static {p1, v0, v2, v1}, Lio/reactivex/Observable;->zipIterable(Ljava/lang/Iterable;Lio/reactivex/functions/Function;ZI)Lio/reactivex/Observable;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -115,14 +109,11 @@
     .end annotation
 
     .line 278
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ZipIterableFunction;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ZipIterableFunction<TT;TR;>;"
-    move-object v0, p1
+    check-cast p1, Ljava/util/List;
 
-    check-cast v0, Ljava/util/List;
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ZipIterableFunction;->apply(Ljava/util/List;)Lio/reactivex/ObservableSource;
 
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ZipIterableFunction;->apply(Ljava/util/List;)Lio/reactivex/ObservableSource;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method

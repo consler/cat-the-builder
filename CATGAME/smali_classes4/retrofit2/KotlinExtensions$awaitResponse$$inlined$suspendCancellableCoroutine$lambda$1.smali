@@ -85,14 +85,12 @@
 .end method
 
 .method public final invoke(Ljava/lang/Throwable;)V
-    .locals 1
-    .param p1, "it"    # Ljava/lang/Throwable;
+    .locals 0
 
     .line 89
-    iget-object v0, p0, Lretrofit2/KotlinExtensions$awaitResponse$$inlined$suspendCancellableCoroutine$lambda$1;->$this_awaitResponse$inlined:Lretrofit2/Call;
+    iget-object p1, p0, Lretrofit2/KotlinExtensions$awaitResponse$$inlined$suspendCancellableCoroutine$lambda$1;->$this_awaitResponse$inlined:Lretrofit2/Call;
 
-    invoke-interface {v0}, Lretrofit2/Call;->cancel()V
+    invoke-interface {p1}, Lretrofit2/Call;->cancel()V
 
-    .line 90
     return-void
 .end method

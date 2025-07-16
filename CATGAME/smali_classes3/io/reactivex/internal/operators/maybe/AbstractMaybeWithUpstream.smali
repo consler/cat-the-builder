@@ -45,14 +45,11 @@
     .end annotation
 
     .line 29
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/AbstractMaybeWithUpstream;, "Lio/reactivex/internal/operators/maybe/AbstractMaybeWithUpstream<TT;TR;>;"
-    .local p1, "source":Lio/reactivex/MaybeSource;, "Lio/reactivex/MaybeSource<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Maybe;-><init>()V
 
     .line 30
     iput-object p1, p0, Lio/reactivex/internal/operators/maybe/AbstractMaybeWithUpstream;->source:Lio/reactivex/MaybeSource;
 
-    .line 31
     return-void
 .end method
 
@@ -69,7 +66,6 @@
     .end annotation
 
     .line 35
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/AbstractMaybeWithUpstream;, "Lio/reactivex/internal/operators/maybe/AbstractMaybeWithUpstream<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/AbstractMaybeWithUpstream;->source:Lio/reactivex/MaybeSource;
 
     return-object v0

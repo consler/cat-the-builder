@@ -31,9 +31,9 @@
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 40
     const/4 v0, 0x1
 
+    .line 40
     iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/Event;->bubbles:Z
 
     return-void
@@ -44,9 +44,9 @@
 .method public cancel()V
     .locals 1
 
-    .line 55
     const/4 v0, 0x1
 
+    .line 55
     iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/Event;->cancelled:Z
 
     .line 56
@@ -55,7 +55,6 @@
     .line 57
     iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/Event;->handled:Z
 
-    .line 58
     return-void
 .end method
 
@@ -98,12 +97,11 @@
 .method public handle()V
     .locals 1
 
-    .line 48
     const/4 v0, 0x1
 
+    .line 48
     iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/Event;->handled:Z
 
-    .line 49
     return-void
 .end method
 
@@ -146,9 +144,9 @@
 .method public reset()V
     .locals 2
 
-    .line 67
     const/4 v0, 0x0
 
+    .line 67
     iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/Event;->stage:Lcom/badlogic/gdx/scenes/scene2d/Stage;
 
     .line 68
@@ -157,14 +155,14 @@
     .line 69
     iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/Event;->listenerActor:Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    .line 70
     const/4 v0, 0x0
 
+    .line 70
     iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/Event;->capture:Z
 
-    .line 71
     const/4 v1, 0x1
 
+    .line 71
     iput-boolean v1, p0, Lcom/badlogic/gdx/scenes/scene2d/Event;->bubbles:Z
 
     .line 72
@@ -176,73 +174,61 @@
     .line 74
     iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/Event;->cancelled:Z
 
-    .line 75
     return-void
 .end method
 
 .method public setBubbles(Z)V
     .locals 0
-    .param p1, "bubbles"    # Z
 
     .line 102
     iput-boolean p1, p0, Lcom/badlogic/gdx/scenes/scene2d/Event;->bubbles:Z
 
-    .line 103
     return-void
 .end method
 
 .method public setCapture(Z)V
     .locals 0
-    .param p1, "capture"    # Z
 
     .line 121
     iput-boolean p1, p0, Lcom/badlogic/gdx/scenes/scene2d/Event;->capture:Z
 
-    .line 122
     return-void
 .end method
 
 .method public setListenerActor(Lcom/badlogic/gdx/scenes/scene2d/Actor;)V
     .locals 0
-    .param p1, "listenerActor"    # Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
     .line 92
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/Event;->listenerActor:Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    .line 93
     return-void
 .end method
 
 .method public setStage(Lcom/badlogic/gdx/scenes/scene2d/Stage;)V
     .locals 0
-    .param p1, "stage"    # Lcom/badlogic/gdx/scenes/scene2d/Stage;
 
     .line 131
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/Event;->stage:Lcom/badlogic/gdx/scenes/scene2d/Stage;
 
-    .line 132
     return-void
 .end method
 
 .method public setTarget(Lcom/badlogic/gdx/scenes/scene2d/Actor;)V
     .locals 0
-    .param p1, "targetActor"    # Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
     .line 83
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/Event;->targetActor:Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    .line 84
     return-void
 .end method
 
 .method public stop()V
     .locals 1
 
-    .line 63
     const/4 v0, 0x1
 
+    .line 63
     iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/Event;->stopped:Z
 
-    .line 64
     return-void
 .end method

@@ -47,10 +47,8 @@
     .locals 0
 
     .line 71
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/EmptyListIterator;, "Lorg/apache/commons/collections4/iterators/EmptyListIterator<TE;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/iterators/AbstractEmptyIterator;-><init>()V
 
-    .line 72
     return-void
 .end method
 
@@ -96,7 +94,6 @@
     .locals 0
 
     .line 32
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/EmptyListIterator;, "Lorg/apache/commons/collections4/iterators/EmptyListIterator<TE;>;"
     invoke-super {p0, p1}, Lorg/apache/commons/collections4/iterators/AbstractEmptyIterator;->add(Ljava/lang/Object;)V
 
     return-void
@@ -106,7 +103,6 @@
     .locals 1
 
     .line 32
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/EmptyListIterator;, "Lorg/apache/commons/collections4/iterators/EmptyListIterator<TE;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/iterators/AbstractEmptyIterator;->hasNext()Z
 
     move-result v0
@@ -118,7 +114,6 @@
     .locals 1
 
     .line 32
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/EmptyListIterator;, "Lorg/apache/commons/collections4/iterators/EmptyListIterator<TE;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/iterators/AbstractEmptyIterator;->hasPrevious()Z
 
     move-result v0
@@ -130,7 +125,6 @@
     .locals 1
 
     .line 32
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/EmptyListIterator;, "Lorg/apache/commons/collections4/iterators/EmptyListIterator<TE;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/iterators/AbstractEmptyIterator;->next()Ljava/lang/Object;
 
     move-result-object v0
@@ -142,7 +136,6 @@
     .locals 1
 
     .line 32
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/EmptyListIterator;, "Lorg/apache/commons/collections4/iterators/EmptyListIterator<TE;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/iterators/AbstractEmptyIterator;->nextIndex()I
 
     move-result v0
@@ -154,7 +147,6 @@
     .locals 1
 
     .line 32
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/EmptyListIterator;, "Lorg/apache/commons/collections4/iterators/EmptyListIterator<TE;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/iterators/AbstractEmptyIterator;->previous()Ljava/lang/Object;
 
     move-result-object v0
@@ -166,7 +158,6 @@
     .locals 1
 
     .line 32
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/EmptyListIterator;, "Lorg/apache/commons/collections4/iterators/EmptyListIterator<TE;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/iterators/AbstractEmptyIterator;->previousIndex()I
 
     move-result v0
@@ -178,7 +169,6 @@
     .locals 0
 
     .line 32
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/EmptyListIterator;, "Lorg/apache/commons/collections4/iterators/EmptyListIterator<TE;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/iterators/AbstractEmptyIterator;->remove()V
 
     return-void
@@ -188,7 +178,6 @@
     .locals 0
 
     .line 32
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/EmptyListIterator;, "Lorg/apache/commons/collections4/iterators/EmptyListIterator<TE;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/iterators/AbstractEmptyIterator;->reset()V
 
     return-void
@@ -198,7 +187,6 @@
     .locals 0
 
     .line 32
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/EmptyListIterator;, "Lorg/apache/commons/collections4/iterators/EmptyListIterator<TE;>;"
     invoke-super {p0, p1}, Lorg/apache/commons/collections4/iterators/AbstractEmptyIterator;->set(Ljava/lang/Object;)V
 
     return-void

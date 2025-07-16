@@ -25,6 +25,28 @@
 
 
 # virtual methods
+.method public bridge synthetic inverseBidiMap()Lorg/apache/commons/collections4/BidiMap;
+    .locals 1
+
+    .line 34
+    invoke-interface {p0}, Lorg/apache/commons/collections4/SortedBidiMap;->inverseBidiMap()Lorg/apache/commons/collections4/SortedBidiMap;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic inverseBidiMap()Lorg/apache/commons/collections4/OrderedBidiMap;
+    .locals 1
+
+    .line 34
+    invoke-interface {p0}, Lorg/apache/commons/collections4/SortedBidiMap;->inverseBidiMap()Lorg/apache/commons/collections4/SortedBidiMap;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public abstract inverseBidiMap()Lorg/apache/commons/collections4/SortedBidiMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {

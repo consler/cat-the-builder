@@ -32,14 +32,14 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/iterators/IteratorChain;->iteratorChain:Ljava/util/List;
 
-    .line 56
     const/4 v0, 0x0
 
+    .line 56
     iput v0, p0, Lorg/apache/commons/collections/iterators/IteratorChain;->currentIteratorIndex:I
 
-    .line 58
     const/4 v1, 0x0
 
+    .line 58
     iput-object v1, p0, Lorg/apache/commons/collections/iterators/IteratorChain;->currentIterator:Ljava/util/Iterator;
 
     .line 64
@@ -48,13 +48,11 @@
     .line 69
     iput-boolean v0, p0, Lorg/apache/commons/collections/iterators/IteratorChain;->isLocked:Z
 
-    .line 80
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Collection;)V
     .locals 2
-    .param p1, "iterators"    # Ljava/util/Collection;
 
     .line 130
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,14 +64,14 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/iterators/IteratorChain;->iteratorChain:Ljava/util/List;
 
-    .line 56
     const/4 v0, 0x0
 
+    .line 56
     iput v0, p0, Lorg/apache/commons/collections/iterators/IteratorChain;->currentIteratorIndex:I
 
-    .line 58
     const/4 v1, 0x0
 
+    .line 58
     iput-object v1, p0, Lorg/apache/commons/collections/iterators/IteratorChain;->currentIterator:Ljava/util/Iterator;
 
     .line 64
@@ -85,40 +83,33 @@
     .line 131
     invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
-    .local v0, "it":Ljava/util/Iterator;
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 132
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ljava/util/Iterator;
+    check-cast v0, Ljava/util/Iterator;
 
     .line 133
-    .local v1, "item":Ljava/util/Iterator;
-    invoke-virtual {p0, v1}, Lorg/apache/commons/collections/iterators/IteratorChain;->addIterator(Ljava/util/Iterator;)V
+    invoke-virtual {p0, v0}, Lorg/apache/commons/collections/iterators/IteratorChain;->addIterator(Ljava/util/Iterator;)V
 
-    .line 134
-    .end local v1    # "item":Ljava/util/Iterator;
     goto :goto_0
 
-    .line 135
-    .end local v0    # "it":Ljava/util/Iterator;
     :cond_0
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Iterator;)V
     .locals 2
-    .param p1, "iterator"    # Ljava/util/Iterator;
 
     .line 89
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -130,14 +121,14 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/iterators/IteratorChain;->iteratorChain:Ljava/util/List;
 
-    .line 56
     const/4 v0, 0x0
 
+    .line 56
     iput v0, p0, Lorg/apache/commons/collections/iterators/IteratorChain;->currentIteratorIndex:I
 
-    .line 58
     const/4 v1, 0x0
 
+    .line 58
     iput-object v1, p0, Lorg/apache/commons/collections/iterators/IteratorChain;->currentIterator:Ljava/util/Iterator;
 
     .line 64
@@ -149,14 +140,11 @@
     .line 90
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections/iterators/IteratorChain;->addIterator(Ljava/util/Iterator;)V
 
-    .line 91
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Iterator;Ljava/util/Iterator;)V
     .locals 2
-    .param p1, "a"    # Ljava/util/Iterator;
-    .param p2, "b"    # Ljava/util/Iterator;
 
     .line 102
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -168,14 +156,14 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/iterators/IteratorChain;->iteratorChain:Ljava/util/List;
 
-    .line 56
     const/4 v0, 0x0
 
+    .line 56
     iput v0, p0, Lorg/apache/commons/collections/iterators/IteratorChain;->currentIteratorIndex:I
 
-    .line 58
     const/4 v1, 0x0
 
+    .line 58
     iput-object v1, p0, Lorg/apache/commons/collections/iterators/IteratorChain;->currentIterator:Ljava/util/Iterator;
 
     .line 64
@@ -190,13 +178,11 @@
     .line 104
     invoke-virtual {p0, p2}, Lorg/apache/commons/collections/iterators/IteratorChain;->addIterator(Ljava/util/Iterator;)V
 
-    .line 105
     return-void
 .end method
 
 .method public constructor <init>([Ljava/util/Iterator;)V
     .locals 2
-    .param p1, "iterators"    # [Ljava/util/Iterator;
 
     .line 115
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -208,14 +194,14 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/iterators/IteratorChain;->iteratorChain:Ljava/util/List;
 
-    .line 56
     const/4 v0, 0x0
 
+    .line 56
     iput v0, p0, Lorg/apache/commons/collections/iterators/IteratorChain;->currentIteratorIndex:I
 
-    .line 58
     const/4 v1, 0x0
 
+    .line 58
     iput-object v1, p0, Lorg/apache/commons/collections/iterators/IteratorChain;->currentIterator:Ljava/util/Iterator;
 
     .line 64
@@ -225,9 +211,6 @@
     iput-boolean v0, p0, Lorg/apache/commons/collections/iterators/IteratorChain;->isLocked:Z
 
     .line 116
-    const/4 v0, 0x0
-
-    .local v0, "i":I
     :goto_0
     array-length v1, p1
 
@@ -238,13 +221,10 @@
 
     invoke-virtual {p0, v1}, Lorg/apache/commons/collections/iterators/IteratorChain;->addIterator(Ljava/util/Iterator;)V
 
-    .line 116
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 119
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
@@ -259,7 +239,6 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 206
     return-void
 
     .line 204
@@ -281,12 +260,11 @@
 
     if-nez v0, :cond_0
 
-    .line 214
     const/4 v0, 0x1
 
+    .line 214
     iput-boolean v0, p0, Lorg/apache/commons/collections/iterators/IteratorChain;->isLocked:Z
 
-    .line 216
     :cond_0
     return-void
 .end method
@@ -294,13 +272,11 @@
 
 # virtual methods
 .method public addIterator(Ljava/util/Iterator;)V
-    .locals 2
-    .param p1, "iterator"    # Ljava/util/Iterator;
+    .locals 1
 
     .line 146
     invoke-direct {p0}, Lorg/apache/commons/collections/iterators/IteratorChain;->checkLocked()V
 
-    .line 147
     if-eqz p1, :cond_0
 
     .line 150
@@ -308,18 +284,17 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 151
     return-void
 
     .line 148
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "Iterator must not be null"
+    const-string v0, "Iterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public getIterators()Ljava/util/List;
@@ -408,14 +383,11 @@
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 288
     return-void
 .end method
 
 .method public setIterator(ILjava/util/Iterator;)V
-    .locals 2
-    .param p1, "index"    # I
-    .param p2, "iterator"    # Ljava/util/Iterator;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IndexOutOfBoundsException;
@@ -425,7 +397,6 @@
     .line 163
     invoke-direct {p0}, Lorg/apache/commons/collections/iterators/IteratorChain;->checkLocked()V
 
-    .line 164
     if-eqz p2, :cond_0
 
     .line 167
@@ -433,18 +404,17 @@
 
     invoke-interface {v0, p1, p2}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    .line 168
     return-void
 
     .line 165
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "Iterator must not be null"
+    const-string p2, "Iterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public size()I
@@ -547,7 +517,6 @@
 
     goto :goto_1
 
-    .line 238
     :cond_2
     return-void
 .end method

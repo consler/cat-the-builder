@@ -40,8 +40,7 @@
 
 # direct methods
 .method constructor <init>(Lio/reactivex/CompletableObserver;Ljava/util/Iterator;)V
-    .locals 1
-    .param p1, "actual"    # Lio/reactivex/CompletableObserver;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -54,7 +53,6 @@
     .end annotation
 
     .line 59
-    .local p2, "sources":Ljava/util/Iterator;, "Ljava/util/Iterator<+Lio/reactivex/CompletableSource;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
 
     .line 60
@@ -64,20 +62,19 @@
     iput-object p2, p0, Lio/reactivex/internal/operators/completable/CompletableConcatIterable$ConcatInnerObserver;->sources:Ljava/util/Iterator;
 
     .line 62
-    new-instance v0, Lio/reactivex/internal/disposables/SequentialDisposable;
+    new-instance p1, Lio/reactivex/internal/disposables/SequentialDisposable;
 
-    invoke-direct {v0}, Lio/reactivex/internal/disposables/SequentialDisposable;-><init>()V
+    invoke-direct {p1}, Lio/reactivex/internal/disposables/SequentialDisposable;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcatIterable$ConcatInnerObserver;->sd:Lio/reactivex/internal/disposables/SequentialDisposable;
+    iput-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableConcatIterable$ConcatInnerObserver;->sd:Lio/reactivex/internal/disposables/SequentialDisposable;
 
-    .line 63
     return-void
 .end method
 
 
 # virtual methods
 .method next()V
-    .locals 5
+    .locals 3
 
     .line 81
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcatIterable$ConcatInnerObserver;->sd:Lio/reactivex/internal/disposables/SequentialDisposable;
@@ -88,7 +85,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 82
     return-void
 
     .line 85
@@ -99,29 +95,22 @@
 
     if-eqz v0, :cond_1
 
-    .line 86
     return-void
 
     .line 89
     :cond_1
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcatIterable$ConcatInnerObserver;->sources:Ljava/util/Iterator;
 
-    .local v0, "a":Ljava/util/Iterator;, "Ljava/util/Iterator<+Lio/reactivex/CompletableSource;>;"
-    const/4 v1, 0x0
-
-    const/4 v2, 0x0
-
     .line 91
     :cond_2
-    iget-object v3, p0, Lio/reactivex/internal/operators/completable/CompletableConcatIterable$ConcatInnerObserver;->sd:Lio/reactivex/internal/disposables/SequentialDisposable;
+    iget-object v1, p0, Lio/reactivex/internal/operators/completable/CompletableConcatIterable$ConcatInnerObserver;->sd:Lio/reactivex/internal/disposables/SequentialDisposable;
 
-    invoke-virtual {v3}, Lio/reactivex/internal/disposables/SequentialDisposable;->isDisposed()Z
+    invoke-virtual {v1}, Lio/reactivex/internal/disposables/SequentialDisposable;->isDisposed()Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_3
+    if-eqz v1, :cond_3
 
-    .line 92
     return-void
 
     .line 97
@@ -133,19 +122,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 102
-    .local v1, "b":Z
-    nop
-
-    .line 104
     if-nez v1, :cond_4
 
     .line 105
-    iget-object v2, p0, Lio/reactivex/internal/operators/completable/CompletableConcatIterable$ConcatInnerObserver;->actual:Lio/reactivex/CompletableObserver;
+    iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcatIterable$ConcatInnerObserver;->actual:Lio/reactivex/CompletableObserver;
 
-    invoke-interface {v2}, Lio/reactivex/CompletableObserver;->onComplete()V
+    invoke-interface {v0}, Lio/reactivex/CompletableObserver;->onComplete()V
 
-    .line 106
     return-void
 
     .line 112
@@ -153,73 +136,54 @@
     :try_start_1
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    const-string v4, "The CompletableSource returned is null"
+    const-string v2, "The CompletableSource returned is null"
 
-    invoke-static {v3, v4}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v1, v2}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    check-cast v3, Lio/reactivex/CompletableSource;
+    check-cast v1, Lio/reactivex/CompletableSource;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    move-object v2, v3
-
-    .line 117
-    .local v2, "c":Lio/reactivex/CompletableSource;
-    nop
-
     .line 119
-    invoke-interface {v2, p0}, Lio/reactivex/CompletableSource;->subscribe(Lio/reactivex/CompletableObserver;)V
+    invoke-interface {v1, p0}, Lio/reactivex/CompletableSource;->subscribe(Lio/reactivex/CompletableObserver;)V
 
     .line 120
-    .end local v1    # "b":Z
-    .end local v2    # "c":Lio/reactivex/CompletableSource;
     invoke-virtual {p0}, Lio/reactivex/internal/operators/completable/CompletableConcatIterable$ConcatInnerObserver;->decrementAndGet()I
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_2
+    if-nez v1, :cond_2
 
-    .line 121
     return-void
 
-    .line 113
     :catchall_0
-    move-exception v3
+    move-exception v0
 
     .line 114
-    .restart local v2    # "c":Lio/reactivex/CompletableSource;
-    .local v3, "ex":Ljava/lang/Throwable;
-    invoke-static {v3}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 115
-    iget-object v4, p0, Lio/reactivex/internal/operators/completable/CompletableConcatIterable$ConcatInnerObserver;->actual:Lio/reactivex/CompletableObserver;
+    iget-object v1, p0, Lio/reactivex/internal/operators/completable/CompletableConcatIterable$ConcatInnerObserver;->actual:Lio/reactivex/CompletableObserver;
 
-    invoke-interface {v4, v3}, Lio/reactivex/CompletableObserver;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v1, v0}, Lio/reactivex/CompletableObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 116
     return-void
 
-    .line 98
-    .end local v2    # "c":Lio/reactivex/CompletableSource;
-    .end local v3    # "ex":Ljava/lang/Throwable;
     :catchall_1
-    move-exception v2
+    move-exception v0
 
     .line 99
-    .restart local v1    # "b":Z
-    .local v2, "ex":Ljava/lang/Throwable;
-    invoke-static {v2}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 100
-    iget-object v3, p0, Lio/reactivex/internal/operators/completable/CompletableConcatIterable$ConcatInnerObserver;->actual:Lio/reactivex/CompletableObserver;
+    iget-object v1, p0, Lio/reactivex/internal/operators/completable/CompletableConcatIterable$ConcatInnerObserver;->actual:Lio/reactivex/CompletableObserver;
 
-    invoke-interface {v3, v2}, Lio/reactivex/CompletableObserver;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v1, v0}, Lio/reactivex/CompletableObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 101
     return-void
 .end method
 
@@ -229,32 +193,27 @@
     .line 77
     invoke-virtual {p0}, Lio/reactivex/internal/operators/completable/CompletableConcatIterable$ConcatInnerObserver;->next()V
 
-    .line 78
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 72
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcatIterable$ConcatInnerObserver;->actual:Lio/reactivex/CompletableObserver;
 
     invoke-interface {v0, p1}, Lio/reactivex/CompletableObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 73
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 67
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcatIterable$ConcatInnerObserver;->sd:Lio/reactivex/internal/disposables/SequentialDisposable;
 
     invoke-virtual {v0, p1}, Lio/reactivex/internal/disposables/SequentialDisposable;->update(Lio/reactivex/disposables/Disposable;)Z
 
-    .line 68
     return-void
 .end method

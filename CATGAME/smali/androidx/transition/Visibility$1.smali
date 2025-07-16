@@ -27,7 +27,6 @@
 # direct methods
 .method constructor <init>(Landroidx/transition/Visibility;Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/View;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/transition/Visibility;
 
     .line 438
     iput-object p1, p0, Landroidx/transition/Visibility$1;->this$0:Landroidx/transition/Visibility;
@@ -47,7 +46,6 @@
 # virtual methods
 .method public onTransitionEnd(Landroidx/transition/Transition;)V
     .locals 3
-    .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 456
     iget-object v0, p0, Landroidx/transition/Visibility$1;->val$startView:Landroid/view/View;
@@ -72,62 +70,57 @@
     .line 458
     invoke-virtual {p1, p0}, Landroidx/transition/Transition;->removeListener(Landroidx/transition/Transition$TransitionListener;)Landroidx/transition/Transition;
 
-    .line 459
     return-void
 .end method
 
 .method public onTransitionPause(Landroidx/transition/Transition;)V
-    .locals 2
-    .param p1, "transition"    # Landroidx/transition/Transition;
+    .locals 1
 
     .line 442
-    iget-object v0, p0, Landroidx/transition/Visibility$1;->val$overlayHost:Landroid/view/ViewGroup;
+    iget-object p1, p0, Landroidx/transition/Visibility$1;->val$overlayHost:Landroid/view/ViewGroup;
 
-    invoke-static {v0}, Landroidx/transition/ViewGroupUtils;->getOverlay(Landroid/view/ViewGroup;)Landroidx/transition/ViewGroupOverlayImpl;
+    invoke-static {p1}, Landroidx/transition/ViewGroupUtils;->getOverlay(Landroid/view/ViewGroup;)Landroidx/transition/ViewGroupOverlayImpl;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Landroidx/transition/Visibility$1;->val$finalOverlayView:Landroid/view/View;
+    iget-object v0, p0, Landroidx/transition/Visibility$1;->val$finalOverlayView:Landroid/view/View;
 
-    invoke-interface {v0, v1}, Landroidx/transition/ViewGroupOverlayImpl;->remove(Landroid/view/View;)V
+    invoke-interface {p1, v0}, Landroidx/transition/ViewGroupOverlayImpl;->remove(Landroid/view/View;)V
 
-    .line 443
     return-void
 .end method
 
 .method public onTransitionResume(Landroidx/transition/Transition;)V
-    .locals 2
-    .param p1, "transition"    # Landroidx/transition/Transition;
+    .locals 1
 
     .line 447
-    iget-object v0, p0, Landroidx/transition/Visibility$1;->val$finalOverlayView:Landroid/view/View;
+    iget-object p1, p0, Landroidx/transition/Visibility$1;->val$finalOverlayView:Landroid/view/View;
 
-    invoke-virtual {v0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+    invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v0
+    move-result-object p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 448
-    iget-object v0, p0, Landroidx/transition/Visibility$1;->val$overlayHost:Landroid/view/ViewGroup;
+    iget-object p1, p0, Landroidx/transition/Visibility$1;->val$overlayHost:Landroid/view/ViewGroup;
 
-    invoke-static {v0}, Landroidx/transition/ViewGroupUtils;->getOverlay(Landroid/view/ViewGroup;)Landroidx/transition/ViewGroupOverlayImpl;
+    invoke-static {p1}, Landroidx/transition/ViewGroupUtils;->getOverlay(Landroid/view/ViewGroup;)Landroidx/transition/ViewGroupOverlayImpl;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Landroidx/transition/Visibility$1;->val$finalOverlayView:Landroid/view/View;
+    iget-object v0, p0, Landroidx/transition/Visibility$1;->val$finalOverlayView:Landroid/view/View;
 
-    invoke-interface {v0, v1}, Landroidx/transition/ViewGroupOverlayImpl;->add(Landroid/view/View;)V
+    invoke-interface {p1, v0}, Landroidx/transition/ViewGroupOverlayImpl;->add(Landroid/view/View;)V
 
     goto :goto_0
 
     .line 450
     :cond_0
-    iget-object v0, p0, Landroidx/transition/Visibility$1;->this$0:Landroidx/transition/Visibility;
+    iget-object p1, p0, Landroidx/transition/Visibility$1;->this$0:Landroidx/transition/Visibility;
 
-    invoke-virtual {v0}, Landroidx/transition/Visibility;->cancel()V
+    invoke-virtual {p1}, Landroidx/transition/Visibility;->cancel()V
 
-    .line 452
     :goto_0
     return-void
 .end method

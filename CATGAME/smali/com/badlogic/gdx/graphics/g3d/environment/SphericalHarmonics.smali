@@ -15,11 +15,11 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 24
     const/16 v0, 0x9
 
     new-array v0, v0, [F
 
+    .line 24
     fill-array-data v0, :array_0
 
     sput-object v0, Lcom/badlogic/gdx/graphics/g3d/environment/SphericalHarmonics;->coeff:[F
@@ -46,20 +46,18 @@
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 34
     const/16 v0, 0x1b
 
     new-array v0, v0, [F
 
+    .line 34
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/environment/SphericalHarmonics;->data:[F
 
-    .line 35
     return-void
 .end method
 
 .method public constructor <init>([F)V
     .locals 2
-    .param p1, "copyFrom"    # [F
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -74,69 +72,61 @@
     .line 39
     invoke-virtual {p1}, [F->clone()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, [F
+    check-cast p1, [F
 
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/environment/SphericalHarmonics;->data:[F
+    iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/environment/SphericalHarmonics;->data:[F
 
-    .line 40
     return-void
 
     .line 38
     :cond_0
-    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v1, "Incorrect array size"
+    const-string v0, "Incorrect array size"
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method private static final clamp(F)F
-    .locals 3
-    .param p0, "v"    # F
+    .locals 2
 
-    .line 28
     const/4 v0, 0x0
 
     cmpg-float v1, p0, v0
 
-    const/high16 v2, 0x3f800000    # 1.0f
-
     if-gez v1, :cond_0
 
-    goto :goto_0
+    :goto_0
+    move p0, v0
+
+    goto :goto_1
 
     :cond_0
-    cmpl-float v0, p0, v2
+    const/high16 v0, 0x3f800000    # 1.0f
 
-    if-lez v0, :cond_1
+    cmpl-float v1, p0, v0
 
-    move v0, v2
+    if-lez v1, :cond_1
 
     goto :goto_0
 
     :cond_1
-    move v0, p0
-
-    :goto_0
-    return v0
+    :goto_1
+    return p0
 .end method
 
 
 # virtual methods
 .method public set(FFF)Lcom/badlogic/gdx/graphics/g3d/environment/SphericalHarmonics;
     .locals 3
-    .param p1, "r"    # F
-    .param p2, "g"    # F
-    .param p3, "b"    # F
 
-    .line 57
     const/4 v0, 0x0
 
-    .local v0, "idx":I
+    .line 57
     :goto_0
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/environment/SphericalHarmonics;->data:[F
 
@@ -144,77 +134,65 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 58
     add-int/lit8 v2, v0, 0x1
 
-    .end local v0    # "idx":I
-    .local v2, "idx":I
+    .line 58
     aput p1, v1, v0
 
-    .line 59
     add-int/lit8 v0, v2, 0x1
 
-    .end local v2    # "idx":I
-    .restart local v0    # "idx":I
+    .line 59
     aput p2, v1, v2
 
-    .line 60
     add-int/lit8 v2, v0, 0x1
 
-    .end local v0    # "idx":I
-    .restart local v2    # "idx":I
+    .line 60
     aput p3, v1, v0
 
     move v0, v2
 
     goto :goto_0
 
-    .line 62
-    .end local v2    # "idx":I
     :cond_0
     return-object p0
 .end method
 
 .method public set(Lcom/badlogic/gdx/graphics/Color;)Lcom/badlogic/gdx/graphics/g3d/environment/SphericalHarmonics;
-    .locals 3
-    .param p1, "color"    # Lcom/badlogic/gdx/graphics/Color;
+    .locals 2
 
     .line 53
     iget v0, p1, Lcom/badlogic/gdx/graphics/Color;->r:F
 
     iget v1, p1, Lcom/badlogic/gdx/graphics/Color;->g:F
 
-    iget v2, p1, Lcom/badlogic/gdx/graphics/Color;->b:F
+    iget p1, p1, Lcom/badlogic/gdx/graphics/Color;->b:F
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/environment/SphericalHarmonics;->set(FFF)Lcom/badlogic/gdx/graphics/g3d/environment/SphericalHarmonics;
+    invoke-virtual {p0, v0, v1, p1}, Lcom/badlogic/gdx/graphics/g3d/environment/SphericalHarmonics;->set(FFF)Lcom/badlogic/gdx/graphics/g3d/environment/SphericalHarmonics;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public set(Lcom/badlogic/gdx/graphics/g3d/environment/AmbientCubemap;)Lcom/badlogic/gdx/graphics/g3d/environment/SphericalHarmonics;
-    .locals 1
-    .param p1, "other"    # Lcom/badlogic/gdx/graphics/g3d/environment/AmbientCubemap;
+    .locals 0
 
     .line 49
-    iget-object v0, p1, Lcom/badlogic/gdx/graphics/g3d/environment/AmbientCubemap;->data:[F
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g3d/environment/AmbientCubemap;->data:[F
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/g3d/environment/SphericalHarmonics;->set([F)Lcom/badlogic/gdx/graphics/g3d/environment/SphericalHarmonics;
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/environment/SphericalHarmonics;->set([F)Lcom/badlogic/gdx/graphics/g3d/environment/SphericalHarmonics;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public set([F)Lcom/badlogic/gdx/graphics/g3d/environment/SphericalHarmonics;
     .locals 3
-    .param p1, "values"    # [F
 
-    .line 43
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 43
     :goto_0
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/environment/SphericalHarmonics;->data:[F
 
@@ -227,13 +205,10 @@
 
     aput v2, v1, v0
 
-    .line 43
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 45
-    .end local v0    # "i":I
     :cond_0
     return-object p0
 .end method

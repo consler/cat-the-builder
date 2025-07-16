@@ -25,14 +25,12 @@
     .locals 1
 
     .line 70
-    .local p0, "this":Lorg/apache/commons/collections4/trie/PatriciaTrie;, "Lorg/apache/commons/collections4/trie/PatriciaTrie<TE;>;"
     new-instance v0, Lorg/apache/commons/collections4/trie/analyzer/StringKeyAnalyzer;
 
     invoke-direct {v0}, Lorg/apache/commons/collections4/trie/analyzer/StringKeyAnalyzer;-><init>()V
 
     invoke-direct {p0, v0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;-><init>(Lorg/apache/commons/collections4/trie/KeyAnalyzer;)V
 
-    .line 71
     return-void
 .end method
 
@@ -49,15 +47,12 @@
     .end annotation
 
     .line 74
-    .local p0, "this":Lorg/apache/commons/collections4/trie/PatriciaTrie;, "Lorg/apache/commons/collections4/trie/PatriciaTrie<TE;>;"
-    .local p1, "m":Ljava/util/Map;, "Ljava/util/Map<+Ljava/lang/String;+TE;>;"
     new-instance v0, Lorg/apache/commons/collections4/trie/analyzer/StringKeyAnalyzer;
 
     invoke-direct {v0}, Lorg/apache/commons/collections4/trie/analyzer/StringKeyAnalyzer;-><init>()V
 
     invoke-direct {p0, v0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;-><init>(Lorg/apache/commons/collections4/trie/KeyAnalyzer;Ljava/util/Map;)V
 
-    .line 75
     return-void
 .end method
 
@@ -67,7 +62,6 @@
     .locals 0
 
     .line 65
-    .local p0, "this":Lorg/apache/commons/collections4/trie/PatriciaTrie;, "Lorg/apache/commons/collections4/trie/PatriciaTrie<TE;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->clear()V
 
     return-void
@@ -77,7 +71,6 @@
     .locals 1
 
     .line 65
-    .local p0, "this":Lorg/apache/commons/collections4/trie/PatriciaTrie;, "Lorg/apache/commons/collections4/trie/PatriciaTrie<TE;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->comparator()Ljava/util/Comparator;
 
     move-result-object v0
@@ -89,7 +82,6 @@
     .locals 0
 
     .line 65
-    .local p0, "this":Lorg/apache/commons/collections4/trie/PatriciaTrie;, "Lorg/apache/commons/collections4/trie/PatriciaTrie<TE;>;"
     invoke-super {p0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->containsKey(Ljava/lang/Object;)Z
 
     move-result p1
@@ -101,7 +93,6 @@
     .locals 1
 
     .line 65
-    .local p0, "this":Lorg/apache/commons/collections4/trie/PatriciaTrie;, "Lorg/apache/commons/collections4/trie/PatriciaTrie<TE;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->entrySet()Ljava/util/Set;
 
     move-result-object v0
@@ -113,7 +104,6 @@
     .locals 0
 
     .line 65
-    .local p0, "this":Lorg/apache/commons/collections4/trie/PatriciaTrie;, "Lorg/apache/commons/collections4/trie/PatriciaTrie<TE;>;"
     invoke-super {p0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
@@ -125,7 +115,6 @@
     .locals 1
 
     .line 65
-    .local p0, "this":Lorg/apache/commons/collections4/trie/PatriciaTrie;, "Lorg/apache/commons/collections4/trie/PatriciaTrie<TE;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->keySet()Ljava/util/Set;
 
     move-result-object v0
@@ -137,7 +126,6 @@
     .locals 1
 
     .line 65
-    .local p0, "this":Lorg/apache/commons/collections4/trie/PatriciaTrie;, "Lorg/apache/commons/collections4/trie/PatriciaTrie<TE;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->mapIterator()Lorg/apache/commons/collections4/OrderedMapIterator;
 
     move-result-object v0
@@ -149,7 +137,6 @@
     .locals 0
 
     .line 65
-    .local p0, "this":Lorg/apache/commons/collections4/trie/PatriciaTrie;, "Lorg/apache/commons/collections4/trie/PatriciaTrie<TE;>;"
     invoke-super {p0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
@@ -161,7 +148,6 @@
     .locals 1
 
     .line 65
-    .local p0, "this":Lorg/apache/commons/collections4/trie/PatriciaTrie;, "Lorg/apache/commons/collections4/trie/PatriciaTrie<TE;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->size()I
 
     move-result v0
@@ -173,7 +159,6 @@
     .locals 1
 
     .line 65
-    .local p0, "this":Lorg/apache/commons/collections4/trie/PatriciaTrie;, "Lorg/apache/commons/collections4/trie/PatriciaTrie<TE;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->values()Ljava/util/Collection;
 
     move-result-object v0

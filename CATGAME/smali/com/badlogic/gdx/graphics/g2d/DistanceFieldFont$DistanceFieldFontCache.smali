@@ -17,7 +17,6 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g2d/DistanceFieldFont;)V
     .locals 1
-    .param p1, "font"    # Lcom/badlogic/gdx/graphics/g2d/DistanceFieldFont;
 
     .line 145
     invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/g2d/DistanceFieldFont;->usesIntegerPositions()Z
@@ -26,24 +25,20 @@
 
     invoke-direct {p0, p1, v0}, Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;-><init>(Lcom/badlogic/gdx/graphics/g2d/BitmapFont;Z)V
 
-    .line 146
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g2d/DistanceFieldFont;Z)V
     .locals 0
-    .param p1, "font"    # Lcom/badlogic/gdx/graphics/g2d/DistanceFieldFont;
-    .param p2, "integer"    # Z
 
     .line 149
     invoke-direct {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;-><init>(Lcom/badlogic/gdx/graphics/g2d/BitmapFont;Z)V
 
-    .line 150
     return-void
 .end method
 
 .method private getSmoothingFactor()F
-    .locals 3
+    .locals 2
 
     .line 153
     invoke-super {p0}, Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;->getFont()Lcom/badlogic/gdx/graphics/g2d/BitmapFont;
@@ -53,24 +48,21 @@
     check-cast v0, Lcom/badlogic/gdx/graphics/g2d/DistanceFieldFont;
 
     .line 154
-    .local v0, "font":Lcom/badlogic/gdx/graphics/g2d/DistanceFieldFont;
     invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g2d/DistanceFieldFont;->getDistanceFieldSmoothing()F
 
     move-result v1
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g2d/DistanceFieldFont;->getScaleX()F
 
-    move-result v2
+    move-result v0
 
-    mul-float/2addr v1, v2
+    mul-float/2addr v1, v0
 
     return v1
 .end method
 
 .method private setSmoothingUniform(Lcom/badlogic/gdx/graphics/g2d/Batch;F)V
-    .locals 2
-    .param p1, "spriteBatch"    # Lcom/badlogic/gdx/graphics/g2d/Batch;
-    .param p2, "smoothing"    # F
+    .locals 1
 
     .line 158
     invoke-interface {p1}, Lcom/badlogic/gdx/graphics/g2d/Batch;->flush()V
@@ -78,13 +70,12 @@
     .line 159
     invoke-interface {p1}, Lcom/badlogic/gdx/graphics/g2d/Batch;->getShader()Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string/jumbo v1, "u_smoothing"
+    const-string v0, "u_smoothing"
 
-    invoke-virtual {v0, v1, p2}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;->setUniformf(Ljava/lang/String;F)V
+    invoke-virtual {p1, v0, p2}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;->setUniformf(Ljava/lang/String;F)V
 
-    .line 160
     return-void
 .end method
 
@@ -92,7 +83,6 @@
 # virtual methods
 .method public draw(Lcom/badlogic/gdx/graphics/g2d/Batch;)V
     .locals 1
-    .param p1, "spriteBatch"    # Lcom/badlogic/gdx/graphics/g2d/Batch;
 
     .line 164
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/g2d/DistanceFieldFont$DistanceFieldFontCache;->getSmoothingFactor()F
@@ -104,20 +94,16 @@
     .line 165
     invoke-super {p0, p1}, Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;)V
 
-    .line 166
     const/4 v0, 0x0
 
+    .line 166
     invoke-direct {p0, p1, v0}, Lcom/badlogic/gdx/graphics/g2d/DistanceFieldFont$DistanceFieldFontCache;->setSmoothingUniform(Lcom/badlogic/gdx/graphics/g2d/Batch;F)V
 
-    .line 167
     return-void
 .end method
 
 .method public draw(Lcom/badlogic/gdx/graphics/g2d/Batch;II)V
     .locals 1
-    .param p1, "spriteBatch"    # Lcom/badlogic/gdx/graphics/g2d/Batch;
-    .param p2, "start"    # I
-    .param p3, "end"    # I
 
     .line 171
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/g2d/DistanceFieldFont$DistanceFieldFontCache;->getSmoothingFactor()F
@@ -129,11 +115,10 @@
     .line 172
     invoke-super {p0, p1, p2, p3}, Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;II)V
 
+    const/4 p2, 0x0
+
     .line 173
-    const/4 v0, 0x0
+    invoke-direct {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g2d/DistanceFieldFont$DistanceFieldFontCache;->setSmoothingUniform(Lcom/badlogic/gdx/graphics/g2d/Batch;F)V
 
-    invoke-direct {p0, p1, v0}, Lcom/badlogic/gdx/graphics/g2d/DistanceFieldFont$DistanceFieldFontCache;->setSmoothingUniform(Lcom/badlogic/gdx/graphics/g2d/Batch;F)V
-
-    .line 174
     return-void
 .end method

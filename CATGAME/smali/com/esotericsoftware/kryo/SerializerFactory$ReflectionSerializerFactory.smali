@@ -47,21 +47,16 @@
     .end annotation
 
     .line 59
-    .local p0, "this":Lcom/esotericsoftware/kryo/SerializerFactory$ReflectionSerializerFactory;, "Lcom/esotericsoftware/kryo/SerializerFactory$ReflectionSerializerFactory<TT;>;"
-    .local p1, "serializerClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/SerializerFactory$BaseSerializerFactory;-><init>()V
 
     .line 60
     iput-object p1, p0, Lcom/esotericsoftware/kryo/SerializerFactory$ReflectionSerializerFactory;->serializerClass:Ljava/lang/Class;
 
-    .line 61
     return-void
 .end method
 
 .method public static newSerializer(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Class;Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Serializer;
-    .locals 6
-    .param p0, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "type"    # Ljava/lang/Class;
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -75,8 +70,6 @@
         }
     .end annotation
 
-    .line 72
-    .local p1, "serializerClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     const/4 v0, 0x2
 
     const/4 v1, 0x1
@@ -86,6 +79,7 @@
     :try_start_0
     new-array v3, v0, [Ljava/lang/Class;
 
+    .line 72
     const-class v4, Lcom/esotericsoftware/kryo/Kryo;
 
     aput-object v4, v3, v2
@@ -115,140 +109,126 @@
 
     return-object v0
 
-    .line 84
     :catch_0
-    move-exception v0
+    move-exception p0
 
     goto :goto_0
 
-    .line 73
     :catch_1
-    move-exception v0
+    :try_start_1
+    new-array v0, v1, [Ljava/lang/Class;
 
     .line 75
-    .local v0, "ex1":Ljava/lang/NoSuchMethodException;
-    :try_start_1
-    new-array v3, v1, [Ljava/lang/Class;
+    const-class v3, Lcom/esotericsoftware/kryo/Kryo;
 
-    const-class v4, Lcom/esotericsoftware/kryo/Kryo;
+    aput-object v3, v0, v2
 
-    aput-object v4, v3, v2
+    invoke-virtual {p1, v0}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
-    invoke-virtual {p1, v3}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+    move-result-object v0
 
-    move-result-object v3
+    new-array v3, v1, [Ljava/lang/Object;
 
-    new-array v4, v1, [Ljava/lang/Object;
+    aput-object p0, v3, v2
 
-    aput-object p0, v4, v2
+    invoke-virtual {v0, v3}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v3, v4}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object p0
 
-    move-result-object v3
-
-    check-cast v3, Lcom/esotericsoftware/kryo/Serializer;
+    check-cast p0, Lcom/esotericsoftware/kryo/Serializer;
     :try_end_1
     .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_2
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    return-object v3
+    return-object p0
 
-    .line 76
     :catch_2
-    move-exception v3
+    :try_start_2
+    new-array p0, v1, [Ljava/lang/Class;
 
     .line 78
-    .local v3, "ex2":Ljava/lang/NoSuchMethodException;
-    :try_start_2
-    new-array v4, v1, [Ljava/lang/Class;
+    const-class v0, Ljava/lang/Class;
 
-    const-class v5, Ljava/lang/Class;
+    aput-object v0, p0, v2
 
-    aput-object v5, v4, v2
+    invoke-virtual {p1, p0}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
-    invoke-virtual {p1, v4}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+    move-result-object p0
 
-    move-result-object v4
+    new-array v0, v1, [Ljava/lang/Object;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    aput-object p2, v0, v2
 
-    aput-object p2, v1, v2
+    invoke-virtual {p0, v0}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v4, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object p0
 
-    move-result-object v1
-
-    check-cast v1, Lcom/esotericsoftware/kryo/Serializer;
+    check-cast p0, Lcom/esotericsoftware/kryo/Serializer;
     :try_end_2
     .catch Ljava/lang/NoSuchMethodException; {:try_start_2 .. :try_end_2} :catch_3
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
-    return-object v1
-
-    .line 79
-    :catch_3
-    move-exception v1
+    return-object p0
 
     .line 80
-    .local v1, "ex3":Ljava/lang/NoSuchMethodException;
+    :catch_3
     :try_start_3
     invoke-virtual {p1}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p0
 
-    check-cast v2, Lcom/esotericsoftware/kryo/Serializer;
+    check-cast p0, Lcom/esotericsoftware/kryo/Serializer;
     :try_end_3
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
 
-    return-object v2
+    return-object p0
 
     .line 85
-    .end local v1    # "ex3":Ljava/lang/NoSuchMethodException;
-    .end local v3    # "ex2":Ljava/lang/NoSuchMethodException;
-    .local v0, "ex":Ljava/lang/Exception;
     :goto_0
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "Unable to create serializer \""
 
-    const-string v3, "Unable to create serializer \""
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 86
     invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "\" for class: "
+    move-result-object p1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "\" for class: "
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     invoke-static {p2}, Lcom/esotericsoftware/kryo/util/Util;->className(Ljava/lang/Class;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p2
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v2
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v1, v2, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    move-result-object p1
 
-    throw v1
+    invoke-direct {v0, p1, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v0
 .end method
 
 
 # virtual methods
 .method public newSerializer(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Serializer;
     .locals 1
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "type"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -259,12 +239,11 @@
     .end annotation
 
     .line 64
-    .local p0, "this":Lcom/esotericsoftware/kryo/SerializerFactory$ReflectionSerializerFactory;, "Lcom/esotericsoftware/kryo/SerializerFactory$ReflectionSerializerFactory<TT;>;"
     iget-object v0, p0, Lcom/esotericsoftware/kryo/SerializerFactory$ReflectionSerializerFactory;->serializerClass:Ljava/lang/Class;
 
     invoke-static {p1, v0, p2}, Lcom/esotericsoftware/kryo/SerializerFactory$ReflectionSerializerFactory;->newSerializer(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Class;Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Serializer;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

@@ -44,12 +44,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
-
-    .line 33
-    const/4 v0, 0x0
-
-    sput-object v0, Lorg/objenesis/instantiator/gcj/GCJInstantiatorBase;->newObjectMethod:Ljava/lang/reflect/Method;
+    .locals 0
 
     return-void
 .end method
@@ -65,8 +60,6 @@
     .end annotation
 
     .line 56
-    .local p0, "this":Lorg/objenesis/instantiator/gcj/GCJInstantiatorBase;, "Lorg/objenesis/instantiator/gcj/GCJInstantiatorBase<TT;>;"
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 57
@@ -75,7 +68,6 @@
     .line 58
     invoke-static {}, Lorg/objenesis/instantiator/gcj/GCJInstantiatorBase;->initialize()V
 
-    .line 59
     return-void
 .end method
 
@@ -97,11 +89,11 @@
 
     new-array v2, v2, [Ljava/lang/Class;
 
-    const/4 v3, 0x0
+    const-class v3, Ljava/lang/Class;
 
-    const-class v4, Ljava/lang/Class;
+    const/4 v4, 0x0
 
-    aput-object v4, v2, v3
+    aput-object v3, v2, v4
 
     const-class v3, Ljava/lang/Class;
 
@@ -129,10 +121,8 @@
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 50
     goto :goto_1
 
-    .line 48
     :catch_0
     move-exception v0
 
@@ -147,7 +137,6 @@
     move-exception v0
 
     .line 49
-    .local v0, "e":Ljava/lang/Exception;
     :goto_0
     new-instance v1, Lorg/objenesis/ObjenesisException;
 
@@ -155,8 +144,6 @@
 
     throw v1
 
-    .line 52
-    .end local v0    # "e":Ljava/lang/Exception;
     :cond_0
     :goto_1
     return-void

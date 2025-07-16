@@ -45,7 +45,6 @@
     .line 23
     invoke-direct {p0}, Lio/reactivex/Flowable;-><init>()V
 
-    .line 24
     return-void
 .end method
 
@@ -64,11 +63,9 @@
     .end annotation
 
     .line 28
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-Ljava/lang/Object;>;"
     sget-object v0, Lio/reactivex/internal/subscriptions/EmptySubscription;->INSTANCE:Lio/reactivex/internal/subscriptions/EmptySubscription;
 
     invoke-interface {p1, v0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
-    .line 29
     return-void
 .end method

@@ -25,7 +25,6 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/lang3/text/StrBuilder;)V
     .locals 0
-    .param p1, "this$0"    # Lorg/apache/commons/lang3/text/StrBuilder;
 
     .line 2969
     iput-object p1, p0, Lorg/apache/commons/lang3/text/StrBuilder$StrBuilderReader;->this$0:Lorg/apache/commons/lang3/text/StrBuilder;
@@ -33,7 +32,6 @@
     .line 2970
     invoke-direct {p0}, Ljava/io/Reader;-><init>()V
 
-    .line 2971
     return-void
 .end method
 
@@ -42,27 +40,23 @@
 .method public close()V
     .locals 0
 
-    .line 2977
     return-void
 .end method
 
 .method public mark(I)V
-    .locals 1
-    .param p1, "readAheadLimit"    # I
+    .locals 0
 
     .line 3037
-    iget v0, p0, Lorg/apache/commons/lang3/text/StrBuilder$StrBuilderReader;->pos:I
+    iget p1, p0, Lorg/apache/commons/lang3/text/StrBuilder$StrBuilderReader;->pos:I
 
-    iput v0, p0, Lorg/apache/commons/lang3/text/StrBuilder$StrBuilderReader;->mark:I
+    iput p1, p0, Lorg/apache/commons/lang3/text/StrBuilder$StrBuilderReader;->mark:I
 
-    .line 3038
     return-void
 .end method
 
 .method public markSupported()Z
     .locals 1
 
-    .line 3031
     const/4 v0, 0x1
 
     return v0
@@ -78,7 +72,6 @@
 
     if-nez v0, :cond_0
 
-    .line 2983
     const/4 v0, -0x1
 
     return v0
@@ -102,15 +95,12 @@
 
 .method public read([CII)I
     .locals 3
-    .param p1, "b"    # [C
-    .param p2, "off"    # I
-    .param p3, "len"    # I
 
-    .line 2991
     if-ltz p2, :cond_3
 
     if-ltz p3, :cond_3
 
+    .line 2991
     array-length v0, p1
 
     if-gt p2, v0, :cond_3
@@ -121,17 +111,13 @@
 
     if-gt v0, v1, :cond_3
 
-    add-int v0, p2, p3
-
     if-ltz v0, :cond_3
 
-    .line 2995
     if-nez p3, :cond_0
 
-    .line 2996
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 2998
     :cond_0
@@ -145,10 +131,9 @@
 
     if-lt v0, v1, :cond_1
 
-    .line 2999
-    const/4 v0, -0x1
+    const/4 p1, -0x1
 
-    return v0
+    return p1
 
     .line 3001
     :cond_1
@@ -165,15 +150,15 @@
     if-le v0, v1, :cond_2
 
     .line 3002
-    iget-object v0, p0, Lorg/apache/commons/lang3/text/StrBuilder$StrBuilderReader;->this$0:Lorg/apache/commons/lang3/text/StrBuilder;
+    iget-object p3, p0, Lorg/apache/commons/lang3/text/StrBuilder$StrBuilderReader;->this$0:Lorg/apache/commons/lang3/text/StrBuilder;
 
-    invoke-virtual {v0}, Lorg/apache/commons/lang3/text/StrBuilder;->size()I
+    invoke-virtual {p3}, Lorg/apache/commons/lang3/text/StrBuilder;->size()I
 
-    move-result v0
+    move-result p3
 
-    iget v1, p0, Lorg/apache/commons/lang3/text/StrBuilder$StrBuilderReader;->pos:I
+    iget v0, p0, Lorg/apache/commons/lang3/text/StrBuilder$StrBuilderReader;->pos:I
 
-    sub-int p3, v0, v1
+    sub-int/2addr p3, v0
 
     .line 3004
     :cond_2
@@ -186,22 +171,21 @@
     invoke-virtual {v0, v1, v2, p1, p2}, Lorg/apache/commons/lang3/text/StrBuilder;->getChars(II[CI)V
 
     .line 3005
-    iget v0, p0, Lorg/apache/commons/lang3/text/StrBuilder$StrBuilderReader;->pos:I
+    iget p1, p0, Lorg/apache/commons/lang3/text/StrBuilder$StrBuilderReader;->pos:I
 
-    add-int/2addr v0, p3
+    add-int/2addr p1, p3
 
-    iput v0, p0, Lorg/apache/commons/lang3/text/StrBuilder$StrBuilderReader;->pos:I
+    iput p1, p0, Lorg/apache/commons/lang3/text/StrBuilder$StrBuilderReader;->pos:I
 
-    .line 3006
     return p3
 
     .line 2993
     :cond_3
-    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
+    new-instance p1, Ljava/lang/IndexOutOfBoundsException;
 
-    invoke-direct {v0}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public ready()Z
@@ -237,13 +221,11 @@
 
     iput v0, p0, Lorg/apache/commons/lang3/text/StrBuilder$StrBuilderReader;->pos:I
 
-    .line 3044
     return-void
 .end method
 
 .method public skip(J)J
     .locals 4
-    .param p1, "n"    # J
 
     .line 3012
     iget v0, p0, Lorg/apache/commons/lang3/text/StrBuilder$StrBuilderReader;->pos:I
@@ -265,19 +247,18 @@
     if-lez v0, :cond_0
 
     .line 3013
-    iget-object v0, p0, Lorg/apache/commons/lang3/text/StrBuilder$StrBuilderReader;->this$0:Lorg/apache/commons/lang3/text/StrBuilder;
+    iget-object p1, p0, Lorg/apache/commons/lang3/text/StrBuilder$StrBuilderReader;->this$0:Lorg/apache/commons/lang3/text/StrBuilder;
 
-    invoke-virtual {v0}, Lorg/apache/commons/lang3/text/StrBuilder;->size()I
+    invoke-virtual {p1}, Lorg/apache/commons/lang3/text/StrBuilder;->size()I
 
-    move-result v0
+    move-result p1
 
-    iget v1, p0, Lorg/apache/commons/lang3/text/StrBuilder$StrBuilderReader;->pos:I
+    iget p2, p0, Lorg/apache/commons/lang3/text/StrBuilder$StrBuilderReader;->pos:I
 
-    sub-int/2addr v0, v1
+    sub-int/2addr p1, p2
 
-    int-to-long p1, v0
+    int-to-long p1, p1
 
-    .line 3015
     :cond_0
     const-wide/16 v0, 0x0
 
@@ -285,7 +266,6 @@
 
     if-gez v2, :cond_1
 
-    .line 3016
     return-wide v0
 
     .line 3018
@@ -300,6 +280,5 @@
 
     iput v0, p0, Lorg/apache/commons/lang3/text/StrBuilder$StrBuilderReader;->pos:I
 
-    .line 3019
     return-wide p1
 .end method

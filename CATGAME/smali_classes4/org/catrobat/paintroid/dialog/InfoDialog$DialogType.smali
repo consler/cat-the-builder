@@ -22,11 +22,6 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0000\n\u0002\u0010\u0008\n\u0002\u0008\u0006\u0008\u0086\u0001\u0018\u00002\u0008\u0012\u0004\u0012\u00020\u00000\u0001B\u0011\u0008\u0002\u0012\u0008\u0008\u0001\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0002\u0010\u0004R\u0013\u0010\u0002\u001a\u00020\u00038\u0007\u00a2\u0006\u0008\n\u0000\u001a\u0004\u0008\u0005\u0010\u0006j\u0002\u0008\u0007j\u0002\u0008\u0008\u00a8\u0006\t"
     }
@@ -40,14 +35,15 @@
         "()I",
         "INFO",
         "WARNING",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -64,41 +60,59 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 5
+.method private static final synthetic $values()[Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;
+    .locals 3
 
     const/4 v0, 0x2
 
     new-array v0, v0, [Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;
 
-    new-instance v1, Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;
+    const/4 v1, 0x0
+
+    sget-object v2, Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;->INFO:Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x1
+
+    sget-object v2, Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;->WARNING:Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;
+
+    aput-object v2, v0, v1
+
+    return-object v0
+.end method
+
+.method static constructor <clinit>()V
+    .locals 4
 
     .line 52
+    new-instance v0, Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;
+
+    const/4 v1, 0x0
+
     sget v2, Lorg/catrobat/paintroid/R$drawable;->ic_pocketpaint_dialog_info:I
 
     const-string v3, "INFO"
 
-    const/4 v4, 0x0
+    invoke-direct {v0, v3, v1, v2}, Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;-><init>(Ljava/lang/String;II)V
 
-    invoke-direct {v1, v3, v4, v2}, Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;-><init>(Ljava/lang/String;II)V
+    sput-object v0, Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;->INFO:Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;
 
-    sput-object v1, Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;->INFO:Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;
+    new-instance v0, Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;
 
-    aput-object v1, v0, v4
-
-    new-instance v1, Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;
+    const/4 v1, 0x1
 
     sget v2, Lorg/catrobat/paintroid/R$drawable;->ic_pocketpaint_dialog_warning:I
 
     const-string v3, "WARNING"
 
-    const/4 v4, 0x1
+    invoke-direct {v0, v3, v1, v2}, Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;-><init>(Ljava/lang/String;II)V
 
-    invoke-direct {v1, v3, v4, v2}, Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;-><init>(Ljava/lang/String;II)V
+    sput-object v0, Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;->WARNING:Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;
 
-    sput-object v1, Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;->WARNING:Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;
+    invoke-static {}, Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;->$values()[Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;
 
-    aput-object v1, v0, v4
+    move-result-object v0
 
     sput-object v0, Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;->$VALUES:[Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;
 
@@ -107,9 +121,6 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .param p1, "$enum$name"    # Ljava/lang/String;
-    .param p2, "$enum$ordinal"    # I
-    .param p3, "imageResource"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -143,7 +154,7 @@
 
     sget-object v0, Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;->$VALUES:[Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;
 
-    invoke-virtual {v0}, [Lorg/catrobat/paintroid/dialog/InfoDialog$DialogType;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, [Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

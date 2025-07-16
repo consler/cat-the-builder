@@ -1,20 +1,26 @@
 .class public final synthetic Lorg/catrobat/paintroid/ui/tools/BrushToolView$WhenMappings;
 .super Ljava/lang/Object;
+.source "BrushToolView.kt"
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lorg/catrobat/paintroid/ui/tools/BrushToolView;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1001
+    name = "WhenMappings"
+.end annotation
+
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     k = 0x3
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -23,7 +29,7 @@
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
+.method static constructor <clinit>()V
     .locals 3
 
     invoke-static {}, Lorg/catrobat/paintroid/tools/ToolType;->values()[Lorg/catrobat/paintroid/tools/ToolType;
@@ -33,8 +39,6 @@
     array-length v0, v0
 
     new-array v0, v0, [I
-
-    sput-object v0, Lorg/catrobat/paintroid/ui/tools/BrushToolView$WhenMappings;->$EnumSwitchMapping$0:[I
 
     sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->BRUSH:Lorg/catrobat/paintroid/tools/ToolType;
 
@@ -46,8 +50,6 @@
 
     aput v2, v0, v1
 
-    sget-object v0, Lorg/catrobat/paintroid/ui/tools/BrushToolView$WhenMappings;->$EnumSwitchMapping$0:[I
-
     sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->CURSOR:Lorg/catrobat/paintroid/tools/ToolType;
 
     invoke-virtual {v1}, Lorg/catrobat/paintroid/tools/ToolType;->ordinal()I
@@ -57,8 +59,6 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-
-    sget-object v0, Lorg/catrobat/paintroid/ui/tools/BrushToolView$WhenMappings;->$EnumSwitchMapping$0:[I
 
     sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->LINE:Lorg/catrobat/paintroid/tools/ToolType;
 
@@ -70,8 +70,6 @@
 
     aput v2, v0, v1
 
-    sget-object v0, Lorg/catrobat/paintroid/ui/tools/BrushToolView$WhenMappings;->$EnumSwitchMapping$0:[I
-
     sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->WATERCOLOR:Lorg/catrobat/paintroid/tools/ToolType;
 
     invoke-virtual {v1}, Lorg/catrobat/paintroid/tools/ToolType;->ordinal()I
@@ -82,8 +80,6 @@
 
     aput v2, v0, v1
 
-    sget-object v0, Lorg/catrobat/paintroid/ui/tools/BrushToolView$WhenMappings;->$EnumSwitchMapping$0:[I
-
     sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->ERASER:Lorg/catrobat/paintroid/tools/ToolType;
 
     invoke-virtual {v1}, Lorg/catrobat/paintroid/tools/ToolType;->ordinal()I
@@ -93,6 +89,8 @@
     const/4 v2, 0x5
 
     aput v2, v0, v1
+
+    sput-object v0, Lorg/catrobat/paintroid/ui/tools/BrushToolView$WhenMappings;->$EnumSwitchMapping$0:[I
 
     return-void
 .end method

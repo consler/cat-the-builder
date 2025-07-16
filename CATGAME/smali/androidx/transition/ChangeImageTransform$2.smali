@@ -26,10 +26,8 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Class;Ljava/lang/String;)V
     .locals 0
-    .param p2, "x1"    # Ljava/lang/String;
 
     .line 62
-    .local p1, "x0":Ljava/lang/Class;, "Ljava/lang/Class<Landroid/graphics/Matrix;>;"
     invoke-direct {p0, p1, p2}, Landroid/util/Property;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
 
     return-void
@@ -38,13 +36,11 @@
 
 # virtual methods
 .method public get(Landroid/widget/ImageView;)Landroid/graphics/Matrix;
-    .locals 1
-    .param p1, "object"    # Landroid/widget/ImageView;
+    .locals 0
 
-    .line 70
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -62,13 +58,10 @@
 
 .method public set(Landroid/widget/ImageView;Landroid/graphics/Matrix;)V
     .locals 0
-    .param p1, "view"    # Landroid/widget/ImageView;
-    .param p2, "matrix"    # Landroid/graphics/Matrix;
 
     .line 65
     invoke-static {p1, p2}, Landroidx/transition/ImageViewUtils;->animateTransform(Landroid/widget/ImageView;Landroid/graphics/Matrix;)V
 
-    .line 66
     return-void
 .end method
 

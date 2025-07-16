@@ -24,9 +24,18 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/view/GestureDetector$OnGestureListener;Landroid/os/Handler;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "listener"    # Landroid/view/GestureDetector$OnGestureListener;
-    .param p3, "handler"    # Landroid/os/Handler;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "context",
+            "listener",
+            "handler"
+        }
+    .end annotation
 
     .line 469
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +47,6 @@
 
     iput-object v0, p0, Landroidx/core/view/GestureDetectorCompat$GestureDetectorCompatImplJellybeanMr2;->mDetector:Landroid/view/GestureDetector;
 
-    .line 471
     return-void
 .end method
 
@@ -59,40 +67,59 @@
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 1
-    .param p1, "ev"    # Landroid/view/MotionEvent;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "ev"
+        }
+    .end annotation
 
     .line 480
     iget-object v0, p0, Landroidx/core/view/GestureDetectorCompat$GestureDetectorCompatImplJellybeanMr2;->mDetector:Landroid/view/GestureDetector;
 
     invoke-virtual {v0, p1}, Landroid/view/GestureDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public setIsLongpressEnabled(Z)V
     .locals 1
-    .param p1, "enabled"    # Z
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "enabled"
+        }
+    .end annotation
 
     .line 485
     iget-object v0, p0, Landroidx/core/view/GestureDetectorCompat$GestureDetectorCompatImplJellybeanMr2;->mDetector:Landroid/view/GestureDetector;
 
     invoke-virtual {v0, p1}, Landroid/view/GestureDetector;->setIsLongpressEnabled(Z)V
 
-    .line 486
     return-void
 .end method
 
 .method public setOnDoubleTapListener(Landroid/view/GestureDetector$OnDoubleTapListener;)V
     .locals 1
-    .param p1, "listener"    # Landroid/view/GestureDetector$OnDoubleTapListener;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "listener"
+        }
+    .end annotation
 
     .line 490
     iget-object v0, p0, Landroidx/core/view/GestureDetectorCompat$GestureDetectorCompatImplJellybeanMr2;->mDetector:Landroid/view/GestureDetector;
 
     invoke-virtual {v0, p1}, Landroid/view/GestureDetector;->setOnDoubleTapListener(Landroid/view/GestureDetector$OnDoubleTapListener;)V
 
-    .line 491
     return-void
 .end method

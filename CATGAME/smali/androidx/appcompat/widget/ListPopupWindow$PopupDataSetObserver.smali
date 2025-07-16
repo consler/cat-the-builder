@@ -27,7 +27,6 @@
 
     invoke-direct {p0}, Landroid/database/DataSetObserver;-><init>()V
 
-    .line 1344
     return-void
 .end method
 
@@ -50,7 +49,6 @@
 
     invoke-virtual {v0}, Landroidx/appcompat/widget/ListPopupWindow;->show()V
 
-    .line 1352
     :cond_0
     return-void
 .end method
@@ -63,6 +61,5 @@
 
     invoke-virtual {v0}, Landroidx/appcompat/widget/ListPopupWindow;->dismiss()V
 
-    .line 1357
     return-void
 .end method

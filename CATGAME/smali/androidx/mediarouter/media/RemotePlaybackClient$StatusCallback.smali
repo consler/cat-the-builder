@@ -28,30 +28,18 @@
 # virtual methods
 .method public onItemStatusChanged(Landroid/os/Bundle;Ljava/lang/String;Landroidx/mediarouter/media/MediaSessionStatus;Ljava/lang/String;Landroidx/mediarouter/media/MediaItemStatus;)V
     .locals 0
-    .param p1, "data"    # Landroid/os/Bundle;
-    .param p2, "sessionId"    # Ljava/lang/String;
-    .param p3, "sessionStatus"    # Landroidx/mediarouter/media/MediaSessionStatus;
-    .param p4, "itemId"    # Ljava/lang/String;
-    .param p5, "itemStatus"    # Landroidx/mediarouter/media/MediaItemStatus;
 
-    .line 962
     return-void
 .end method
 
 .method public onSessionChanged(Ljava/lang/String;)V
     .locals 0
-    .param p1, "sessionId"    # Ljava/lang/String;
 
-    .line 981
     return-void
 .end method
 
 .method public onSessionStatusChanged(Landroid/os/Bundle;Ljava/lang/String;Landroidx/mediarouter/media/MediaSessionStatus;)V
     .locals 0
-    .param p1, "data"    # Landroid/os/Bundle;
-    .param p2, "sessionId"    # Ljava/lang/String;
-    .param p3, "sessionStatus"    # Landroidx/mediarouter/media/MediaSessionStatus;
 
-    .line 973
     return-void
 .end method

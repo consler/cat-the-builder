@@ -30,54 +30,42 @@
     .line 75
     invoke-direct {p0}, Lorg/apache/commons/collections/map/AbstractHashedMap;-><init>()V
 
-    .line 76
     return-void
 .end method
 
 .method protected constructor <init>(I)V
     .locals 0
-    .param p1, "initialCapacity"    # I
 
     .line 96
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/map/AbstractHashedMap;-><init>(I)V
 
-    .line 97
     return-void
 .end method
 
 .method protected constructor <init>(IF)V
     .locals 0
-    .param p1, "initialCapacity"    # I
-    .param p2, "loadFactor"    # F
 
     .line 109
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections/map/AbstractHashedMap;-><init>(IF)V
 
-    .line 110
     return-void
 .end method
 
 .method protected constructor <init>(IFI)V
     .locals 0
-    .param p1, "initialCapacity"    # I
-    .param p2, "loadFactor"    # F
-    .param p3, "threshold"    # I
 
     .line 86
     invoke-direct {p0, p1, p2, p3}, Lorg/apache/commons/collections/map/AbstractHashedMap;-><init>(IFI)V
 
-    .line 87
     return-void
 .end method
 
 .method protected constructor <init>(Ljava/util/Map;)V
     .locals 0
-    .param p1, "map"    # Ljava/util/Map;
 
     .line 119
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/map/AbstractHashedMap;-><init>(Ljava/util/Map;)V
 
-    .line 120
     return-void
 .end method
 
@@ -85,8 +73,6 @@
 # virtual methods
 .method protected addEntry(Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;I)V
     .locals 2
-    .param p1, "entry"    # Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
-    .param p2, "hashIndex"    # I
 
     .line 258
     move-object v0, p1
@@ -94,7 +80,6 @@
     check-cast v0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
     .line 259
-    .local v0, "link":Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
     iget-object v1, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap;->header:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
     iput-object v1, v0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->after:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
@@ -119,11 +104,10 @@
     iput-object v0, v1, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->before:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
     .line 263
-    iget-object v1, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap;->data:[Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
+    iget-object v0, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap;->data:[Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
 
-    aput-object p1, v1, p2
+    aput-object p1, v0, p2
 
-    .line 264
     return-void
 .end method
 
@@ -140,61 +124,45 @@
 
     iput-object v0, v0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->before:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
-    .line 167
     return-void
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
     .locals 3
-    .param p1, "value"    # Ljava/lang/Object;
 
-    .line 143
     const/4 v0, 0x1
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_1
 
     .line 144
+    iget-object p1, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap;->header:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
+
+    :cond_0
+    iget-object p1, p1, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->after:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
+
     iget-object v1, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap;->header:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
-    iget-object v1, v1, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->after:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
-
-    .local v1, "entry":Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
-    :goto_0
-    iget-object v2, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap;->header:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
-
-    if-eq v1, v2, :cond_1
+    if-eq p1, v1, :cond_3
 
     .line 145
-    invoke-virtual {v1}, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->getValue()Ljava/lang/Object;
+    invoke-virtual {p1}, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->getValue()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
-    .line 146
     return v0
 
-    .line 144
-    :cond_0
-    iget-object v1, v1, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->after:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
-
-    goto :goto_0
-
-    .end local v1    # "entry":Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
-    :cond_1
-    goto :goto_2
-
     .line 150
-    :cond_2
+    :cond_1
     iget-object v1, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap;->header:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
+    :cond_2
     iget-object v1, v1, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->after:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
-    .restart local v1    # "entry":Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
-    :goto_1
     iget-object v2, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap;->header:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
-    if-eq v1, v2, :cond_4
+    if-eq v1, v2, :cond_3
 
     .line 151
     invoke-virtual {v1}, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->getValue()Ljava/lang/Object;
@@ -205,32 +173,18 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2
 
-    .line 152
     return v0
 
-    .line 150
     :cond_3
-    iget-object v1, v1, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->after:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
+    const/4 p1, 0x0
 
-    goto :goto_1
-
-    .line 156
-    .end local v1    # "entry":Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
-    :cond_4
-    :goto_2
-    const/4 v0, 0x0
-
-    return v0
+    return p1
 .end method
 
 .method protected createEntry(Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;ILjava/lang/Object;Ljava/lang/Object;)Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
     .locals 1
-    .param p1, "next"    # Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
-    .param p2, "hashCode"    # I
-    .param p3, "key"    # Ljava/lang/Object;
-    .param p4, "value"    # Ljava/lang/Object;
 
     .line 278
     new-instance v0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
@@ -313,23 +267,21 @@
 .end method
 
 .method protected entryAfter(Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;)Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
-    .locals 1
-    .param p1, "entry"    # Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
+    .locals 0
 
     .line 324
-    iget-object v0, p1, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->after:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
+    iget-object p1, p1, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->after:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected entryBefore(Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;)Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
-    .locals 1
-    .param p1, "entry"    # Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
+    .locals 0
 
     .line 311
-    iget-object v0, p1, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->before:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
+    iget-object p1, p1, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->before:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public firstKey()Ljava/lang/Object;
@@ -364,127 +316,115 @@
 
 .method protected getEntry(I)Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
     .locals 3
-    .param p1, "index"    # I
 
-    .line 225
     const-string v0, "Index "
 
-    if-ltz p1, :cond_4
+    if-ltz p1, :cond_3
 
     .line 228
     iget v1, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap;->size:I
 
-    if-ge p1, v1, :cond_3
+    if-ge p1, v1, :cond_2
 
     .line 232
     iget v0, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap;->size:I
 
     div-int/lit8 v0, v0, 0x2
 
-    if-ge p1, v0, :cond_1
+    if-ge p1, v0, :cond_0
 
     .line 234
     iget-object v0, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap;->header:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
     iget-object v0, v0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->after:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
-    .line 235
-    .local v0, "entry":Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
     const/4 v1, 0x0
 
-    .local v1, "currentIndex":I
     :goto_0
-    if-ge v1, p1, :cond_0
+    if-ge v1, p1, :cond_1
 
     .line 236
     iget-object v0, v0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->after:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
-    .line 235
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .end local v1    # "currentIndex":I
-    :cond_0
-    goto :goto_2
-
     .line 240
-    .end local v0    # "entry":Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
-    :cond_1
+    :cond_0
     iget-object v0, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap;->header:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
     .line 241
-    .restart local v0    # "entry":Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
     iget v1, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap;->size:I
 
-    .restart local v1    # "currentIndex":I
     :goto_1
-    if-le v1, p1, :cond_2
+    if-le v1, p1, :cond_1
 
     .line 242
     iget-object v0, v0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->before:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
-    .line 241
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_1
 
-    .line 245
-    .end local v1    # "currentIndex":I
-    :cond_2
-    :goto_2
+    :cond_1
     return-object v0
 
     .line 229
-    .end local v0    # "entry":Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
+    :cond_2
+    new-instance v1, Ljava/lang/IndexOutOfBoundsException;
+
+    new-instance v2, Ljava/lang/StringBuffer;
+
+    invoke-direct {v2, v0}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+
+    move-result-object p1
+
+    const-string v0, " is invalid for size "
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object p1
+
+    iget v0, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap;->size:I
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v1, p1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    .line 226
     :cond_3
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v2, Ljava/lang/StringBuffer;
 
-    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-direct {v2, v0}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v2, p1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    const-string v0, " is invalid for size "
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    iget v0, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap;->size:I
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v1, v0}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    .line 226
-    :cond_4
-    new-instance v1, Ljava/lang/IndexOutOfBoundsException;
-
-    new-instance v2, Ljava/lang/StringBuffer;
-
-    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    move-result-object p1
 
     const-string v0, " is less than zero"
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    invoke-direct {v1, v0}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
+
+    invoke-direct {v1, p1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
     throw v1
 .end method
@@ -492,11 +432,11 @@
 .method protected init()V
     .locals 2
 
-    .line 130
     const/4 v0, 0x0
 
     const/4 v1, -0x1
 
+    .line 130
     invoke-virtual {p0, v0, v1, v0, v0}, Lorg/apache/commons/collections/map/AbstractLinkedMap;->createEntry(Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;ILjava/lang/Object;Ljava/lang/Object;)Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
 
     move-result-object v0
@@ -510,7 +450,6 @@
 
     iput-object v0, v0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->before:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
-    .line 132
     return-void
 .end method
 
@@ -567,43 +506,41 @@
 .end method
 
 .method public nextKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 2
 
     .line 201
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections/map/AbstractLinkedMap;->getEntry(Ljava/lang/Object;)Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
+    check-cast p1, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
+
+    if-eqz p1, :cond_1
 
     .line 202
-    .local v0, "entry":Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
-    if-eqz v0, :cond_1
+    iget-object v0, p1, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->after:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
-    iget-object v1, v0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->after:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
+    iget-object v1, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap;->header:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
-    iget-object v2, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap;->header:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
-
-    if-ne v1, v2, :cond_0
+    if-ne v0, v1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    iget-object v1, v0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->after:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
+    iget-object p1, p1, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->after:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
-    invoke-virtual {v1}, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->getKey()Ljava/lang/Object;
+    invoke-virtual {p1}, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->getKey()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     :goto_1
-    return-object v1
+    return-object p1
 .end method
 
 .method public orderedMapIterator()Lorg/apache/commons/collections/OrderedMapIterator;
@@ -629,50 +566,45 @@
 .end method
 
 .method public previousKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 2
 
     .line 212
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections/map/AbstractLinkedMap;->getEntry(Ljava/lang/Object;)Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
+    check-cast p1, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
+
+    if-eqz p1, :cond_1
 
     .line 213
-    .local v0, "entry":Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
-    if-eqz v0, :cond_1
+    iget-object v0, p1, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->before:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
-    iget-object v1, v0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->before:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
+    iget-object v1, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap;->header:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
-    iget-object v2, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap;->header:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
-
-    if-ne v1, v2, :cond_0
+    if-ne v0, v1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    iget-object v1, v0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->before:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
+    iget-object p1, p1, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->before:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
-    invoke-virtual {v1}, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->getKey()Ljava/lang/Object;
+    invoke-virtual {p1}, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->getKey()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     :goto_1
-    return-object v1
+    return-object p1
 .end method
 
 .method protected removeEntry(Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;ILorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;)V
     .locals 3
-    .param p1, "entry"    # Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
-    .param p2, "hashIndex"    # I
-    .param p3, "previous"    # Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
 
     .line 292
     move-object v0, p1
@@ -680,7 +612,6 @@
     check-cast v0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
     .line 293
-    .local v0, "link":Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
     iget-object v1, v0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->before:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
     iget-object v2, v0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->after:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
@@ -694,9 +625,9 @@
 
     iput-object v2, v1, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->before:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
-    .line 295
     const/4 v1, 0x0
 
+    .line 295
     iput-object v1, v0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->after:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
     .line 296
@@ -705,6 +636,5 @@
     .line 297
     invoke-super {p0, p1, p2, p3}, Lorg/apache/commons/collections/map/AbstractHashedMap;->removeEntry(Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;ILorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;)V
 
-    .line 298
     return-void
 .end method

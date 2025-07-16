@@ -40,7 +40,6 @@
 
 .method public parse(Lcom/koushikdutta/async/DataEmitter;)Lcom/koushikdutta/async/future/Future;
     .locals 3
-    .param p1, "emitter"    # Lcom/koushikdutta/async/DataEmitter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -58,13 +57,11 @@
     invoke-direct {v0}, Lcom/koushikdutta/async/ByteBufferList;-><init>()V
 
     .line 21
-    .local v0, "bb":Lcom/koushikdutta/async/ByteBufferList;
     new-instance v1, Lcom/koushikdutta/async/parser/ByteBufferListParser$1;
 
     invoke-direct {v1, p0, p1}, Lcom/koushikdutta/async/parser/ByteBufferListParser$1;-><init>(Lcom/koushikdutta/async/parser/ByteBufferListParser;Lcom/koushikdutta/async/DataEmitter;)V
 
     .line 27
-    .local v1, "ret":Lcom/koushikdutta/async/future/SimpleFuture;, "Lcom/koushikdutta/async/future/SimpleFuture<Lcom/koushikdutta/async/ByteBufferList;>;"
     new-instance v2, Lcom/koushikdutta/async/parser/ByteBufferListParser$2;
 
     invoke-direct {v2, p0, v0}, Lcom/koushikdutta/async/parser/ByteBufferListParser$2;-><init>(Lcom/koushikdutta/async/parser/ByteBufferListParser;Lcom/koushikdutta/async/ByteBufferList;)V
@@ -78,20 +75,15 @@
 
     invoke-interface {p1, v2}, Lcom/koushikdutta/async/DataEmitter;->setEndCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
 
-    .line 51
     return-object v1
 .end method
 
 .method public write(Lcom/koushikdutta/async/DataSink;Lcom/koushikdutta/async/ByteBufferList;Lcom/koushikdutta/async/callback/CompletedCallback;)V
     .locals 0
-    .param p1, "sink"    # Lcom/koushikdutta/async/DataSink;
-    .param p2, "value"    # Lcom/koushikdutta/async/ByteBufferList;
-    .param p3, "completed"    # Lcom/koushikdutta/async/callback/CompletedCallback;
 
     .line 56
     invoke-static {p1, p2, p3}, Lcom/koushikdutta/async/Util;->writeAll(Lcom/koushikdutta/async/DataSink;Lcom/koushikdutta/async/ByteBufferList;Lcom/koushikdutta/async/callback/CompletedCallback;)V
 
-    .line 57
     return-void
 .end method
 

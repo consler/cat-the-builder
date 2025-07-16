@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
 
     .line 138
     :try_start_0
@@ -46,23 +46,16 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 142
     goto :goto_0
 
-    .line 140
     :catch_0
-    move-exception v0
+    const-string v0, "NIO"
+
+    const-string v1, "Selector Exception? L Preview?"
 
     .line 141
-    .local v0, "e":Ljava/lang/Exception;
-    const-string v1, "NIO"
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v2, "Selector Exception? L Preview?"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 143
-    .end local v0    # "e":Ljava/lang/Exception;
     :goto_0
     return-void
 .end method

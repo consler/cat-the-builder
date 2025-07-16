@@ -4,20 +4,19 @@
 
 
 # instance fields
-.field private final a:I
+.field private final statusCode:I
 
 
 # direct methods
 .method public constructor <init>(ILjava/lang/String;Landroid/content/Intent;)V
     .locals 0
 
-    .line 19
+    .line 1
     invoke-direct {p0, p2, p3}, Lcom/huawei/hms/api/UserRecoverableException;-><init>(Ljava/lang/String;Landroid/content/Intent;)V
 
-    .line 20
-    iput p1, p0, Lcom/huawei/hms/api/HuaweiServicesRepairableException;->a:I
+    .line 2
+    iput p1, p0, Lcom/huawei/hms/api/HuaweiServicesRepairableException;->statusCode:I
 
-    .line 21
     return-void
 .end method
 
@@ -26,8 +25,8 @@
 .method public getConnectionStatusCode()I
     .locals 1
 
-    .line 24
-    iget v0, p0, Lcom/huawei/hms/api/HuaweiServicesRepairableException;->a:I
+    .line 1
+    iget v0, p0, Lcom/huawei/hms/api/HuaweiServicesRepairableException;->statusCode:I
 
     return v0
 .end method

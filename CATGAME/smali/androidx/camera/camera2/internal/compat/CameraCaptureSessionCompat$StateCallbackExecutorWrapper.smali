@@ -23,8 +23,6 @@
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/Executor;Landroid/hardware/camera2/CameraCaptureSession$StateCallback;)V
     .locals 0
-    .param p1, "executor"    # Ljava/util/concurrent/Executor;
-    .param p2, "wrappedCallback"    # Landroid/hardware/camera2/CameraCaptureSession$StateCallback;
 
     .line 412
     invoke-direct {p0}, Landroid/hardware/camera2/CameraCaptureSession$StateCallback;-><init>()V
@@ -35,7 +33,6 @@
     .line 414
     iput-object p2, p0, Landroidx/camera/camera2/internal/compat/CameraCaptureSessionCompat$StateCallbackExecutorWrapper;->mWrappedCallback:Landroid/hardware/camera2/CameraCaptureSession$StateCallback;
 
-    .line 415
     return-void
 .end method
 
@@ -43,7 +40,6 @@
 # virtual methods
 .method public onActive(Landroid/hardware/camera2/CameraCaptureSession;)V
     .locals 2
-    .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
 
     .line 452
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/CameraCaptureSessionCompat$StateCallbackExecutorWrapper;->mExecutor:Ljava/util/concurrent/Executor;
@@ -54,13 +50,11 @@
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 459
     return-void
 .end method
 
 .method public onCaptureQueueEmpty(Landroid/hardware/camera2/CameraCaptureSession;)V
     .locals 2
-    .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
 
     .line 464
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/CameraCaptureSessionCompat$StateCallbackExecutorWrapper;->mExecutor:Ljava/util/concurrent/Executor;
@@ -71,13 +65,11 @@
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 471
     return-void
 .end method
 
 .method public onClosed(Landroid/hardware/camera2/CameraCaptureSession;)V
     .locals 2
-    .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
 
     .line 476
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/CameraCaptureSessionCompat$StateCallbackExecutorWrapper;->mExecutor:Ljava/util/concurrent/Executor;
@@ -88,13 +80,11 @@
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 483
     return-void
 .end method
 
 .method public onConfigureFailed(Landroid/hardware/camera2/CameraCaptureSession;)V
     .locals 2
-    .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
 
     .line 430
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/CameraCaptureSessionCompat$StateCallbackExecutorWrapper;->mExecutor:Ljava/util/concurrent/Executor;
@@ -105,13 +95,11 @@
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 437
     return-void
 .end method
 
 .method public onConfigured(Landroid/hardware/camera2/CameraCaptureSession;)V
     .locals 2
-    .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
 
     .line 419
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/CameraCaptureSessionCompat$StateCallbackExecutorWrapper;->mExecutor:Ljava/util/concurrent/Executor;
@@ -122,13 +110,11 @@
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 426
     return-void
 .end method
 
 .method public onReady(Landroid/hardware/camera2/CameraCaptureSession;)V
     .locals 2
-    .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
 
     .line 441
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/CameraCaptureSessionCompat$StateCallbackExecutorWrapper;->mExecutor:Ljava/util/concurrent/Executor;
@@ -139,14 +125,11 @@
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 448
     return-void
 .end method
 
 .method public onSurfacePrepared(Landroid/hardware/camera2/CameraCaptureSession;Landroid/view/Surface;)V
     .locals 2
-    .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
-    .param p2, "surface"    # Landroid/view/Surface;
 
     .line 489
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/CameraCaptureSessionCompat$StateCallbackExecutorWrapper;->mExecutor:Ljava/util/concurrent/Executor;
@@ -157,6 +140,5 @@
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 496
     return-void
 .end method

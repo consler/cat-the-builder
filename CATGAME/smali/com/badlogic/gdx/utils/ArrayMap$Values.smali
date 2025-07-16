@@ -60,19 +60,16 @@
     .end annotation
 
     .line 598
-    .local p0, "this":Lcom/badlogic/gdx/utils/ArrayMap$Values;, "Lcom/badlogic/gdx/utils/ArrayMap$Values<TV;>;"
-    .local p1, "map":Lcom/badlogic/gdx/utils/ArrayMap;, "Lcom/badlogic/gdx/utils/ArrayMap<Ljava/lang/Object;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 596
     const/4 v0, 0x1
 
+    .line 596
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/ArrayMap$Values;->valid:Z
 
     .line 599
     iput-object p1, p0, Lcom/badlogic/gdx/utils/ArrayMap$Values;->map:Lcom/badlogic/gdx/utils/ArrayMap;
 
-    .line 600
     return-void
 .end method
 
@@ -82,7 +79,6 @@
     .locals 2
 
     .line 603
-    .local p0, "this":Lcom/badlogic/gdx/utils/ArrayMap$Values;, "Lcom/badlogic/gdx/utils/ArrayMap$Values<TV;>;"
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/ArrayMap$Values;->valid:Z
 
     if-eqz v0, :cond_1
@@ -127,8 +123,6 @@
         }
     .end annotation
 
-    .line 608
-    .local p0, "this":Lcom/badlogic/gdx/utils/ArrayMap$Values;, "Lcom/badlogic/gdx/utils/ArrayMap$Values<TV;>;"
     return-object p0
 .end method
 
@@ -141,7 +135,6 @@
     .end annotation
 
     .line 612
-    .local p0, "this":Lcom/badlogic/gdx/utils/ArrayMap$Values;, "Lcom/badlogic/gdx/utils/ArrayMap$Values<TV;>;"
     iget v0, p0, Lcom/badlogic/gdx/utils/ArrayMap$Values;->index:I
 
     iget-object v1, p0, Lcom/badlogic/gdx/utils/ArrayMap$Values;->map:Lcom/badlogic/gdx/utils/ArrayMap;
@@ -199,7 +192,6 @@
     .locals 2
 
     .line 618
-    .local p0, "this":Lcom/badlogic/gdx/utils/ArrayMap$Values;, "Lcom/badlogic/gdx/utils/ArrayMap$Values<TV;>;"
     iget v0, p0, Lcom/badlogic/gdx/utils/ArrayMap$Values;->index:I
 
     add-int/lit8 v0, v0, -0x1
@@ -211,20 +203,17 @@
 
     invoke-virtual {v1, v0}, Lcom/badlogic/gdx/utils/ArrayMap;->removeIndex(I)V
 
-    .line 620
     return-void
 .end method
 
 .method public reset()V
     .locals 1
 
-    .line 623
-    .local p0, "this":Lcom/badlogic/gdx/utils/ArrayMap$Values;, "Lcom/badlogic/gdx/utils/ArrayMap$Values<TV;>;"
     const/4 v0, 0x0
 
+    .line 623
     iput v0, p0, Lcom/badlogic/gdx/utils/ArrayMap$Values;->index:I
 
-    .line 624
     return-void
 .end method
 
@@ -239,7 +228,6 @@
     .end annotation
 
     .line 627
-    .local p0, "this":Lcom/badlogic/gdx/utils/ArrayMap$Values;, "Lcom/badlogic/gdx/utils/ArrayMap$Values<TV;>;"
     new-instance v0, Lcom/badlogic/gdx/utils/Array;
 
     iget-object v1, p0, Lcom/badlogic/gdx/utils/ArrayMap$Values;->map:Lcom/badlogic/gdx/utils/ArrayMap;
@@ -265,7 +253,6 @@
 
 .method public toArray(Lcom/badlogic/gdx/utils/Array;)Lcom/badlogic/gdx/utils/Array;
     .locals 4
-    .param p1, "array"    # Lcom/badlogic/gdx/utils/Array;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -277,7 +264,6 @@
     .end annotation
 
     .line 631
-    .local p0, "this":Lcom/badlogic/gdx/utils/ArrayMap$Values;, "Lcom/badlogic/gdx/utils/ArrayMap$Values<TV;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/utils/ArrayMap$Values;->map:Lcom/badlogic/gdx/utils/ArrayMap;
 
     iget-object v0, v0, Lcom/badlogic/gdx/utils/ArrayMap;->values:[Ljava/lang/Object;
@@ -294,6 +280,5 @@
 
     invoke-virtual {p1, v0, v1, v2}, Lcom/badlogic/gdx/utils/Array;->addAll([Ljava/lang/Object;II)V
 
-    .line 632
     return-object p1
 .end method

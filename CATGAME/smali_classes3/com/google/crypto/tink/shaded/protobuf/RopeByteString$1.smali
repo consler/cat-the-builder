@@ -24,8 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;)V
-    .locals 3
-    .param p1, "this$0"    # Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;
+    .locals 2
 
     .line 301
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$1;->this$0:Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;
@@ -35,20 +34,18 @@
     .line 302
     new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$PieceIterator;
 
-    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$1;->this$0:Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
-
-    invoke-direct {v0, v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$PieceIterator;-><init>(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$1;)V
+    invoke-direct {v0, p1, v1}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$PieceIterator;-><init>(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$1;)V
 
     iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$1;->pieces:Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$PieceIterator;
 
     .line 303
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$1;->nextPiece()Lcom/google/crypto/tink/shaded/protobuf/ByteString$ByteIterator;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$1;->current:Lcom/google/crypto/tink/shaded/protobuf/ByteString$ByteIterator;
+    iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$1;->current:Lcom/google/crypto/tink/shaded/protobuf/ByteString$ByteIterator;
 
     return-void
 .end method
@@ -119,7 +116,6 @@
     move-result v0
 
     .line 322
-    .local v0, "b":B
     iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$1;->current:Lcom/google/crypto/tink/shaded/protobuf/ByteString$ByteIterator;
 
     invoke-interface {v1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString$ByteIterator;->hasNext()Z
@@ -135,12 +131,10 @@
 
     iput-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$1;->current:Lcom/google/crypto/tink/shaded/protobuf/ByteString$ByteIterator;
 
-    .line 325
     :cond_0
     return v0
 
     .line 319
-    .end local v0    # "b":B
     :cond_1
     new-instance v0, Ljava/util/NoSuchElementException;
 

@@ -104,9 +104,6 @@
 # direct methods
 .method public constructor <init>(Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)V
     .locals 1
-    .param p1, "viewModelClass"    # Lkotlin/reflect/KClass;
-    .param p2, "storeProducer"    # Lkotlin/jvm/functions/Function0;
-    .param p3, "factoryProducer"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -123,7 +120,7 @@
         }
     .end annotation
 
-    const-string/jumbo v0, "viewModelClass"
+    const-string v0, "viewModelClass"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -150,7 +147,7 @@
 
 # virtual methods
 .method public getValue()Landroidx/lifecycle/ViewModel;
-    .locals 6
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TVM;"
@@ -160,75 +157,51 @@
     .line 50
     iget-object v0, p0, Landroidx/lifecycle/ViewModelLazy;->cached:Landroidx/lifecycle/ViewModel;
 
-    .line 51
-    .local v0, "viewModel":Landroidx/lifecycle/ViewModel;
     if-nez v0, :cond_0
 
     .line 52
-    iget-object v1, p0, Landroidx/lifecycle/ViewModelLazy;->factoryProducer:Lkotlin/jvm/functions/Function0;
+    iget-object v0, p0, Landroidx/lifecycle/ViewModelLazy;->factoryProducer:Lkotlin/jvm/functions/Function0;
+
+    invoke-interface {v0}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroidx/lifecycle/ViewModelProvider$Factory;
+
+    .line 53
+    iget-object v1, p0, Landroidx/lifecycle/ViewModelLazy;->storeProducer:Lkotlin/jvm/functions/Function0;
 
     invoke-interface {v1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Landroidx/lifecycle/ViewModelProvider$Factory;
-
-    .line 53
-    .local v1, "factory":Landroidx/lifecycle/ViewModelProvider$Factory;
-    iget-object v2, p0, Landroidx/lifecycle/ViewModelLazy;->storeProducer:Lkotlin/jvm/functions/Function0;
-
-    invoke-interface {v2}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroidx/lifecycle/ViewModelStore;
+    check-cast v1, Landroidx/lifecycle/ViewModelStore;
 
     .line 54
-    .local v2, "store":Landroidx/lifecycle/ViewModelStore;
-    new-instance v3, Landroidx/lifecycle/ViewModelProvider;
+    new-instance v2, Landroidx/lifecycle/ViewModelProvider;
 
-    invoke-direct {v3, v2, v1}, Landroidx/lifecycle/ViewModelProvider;-><init>(Landroidx/lifecycle/ViewModelStore;Landroidx/lifecycle/ViewModelProvider$Factory;)V
+    invoke-direct {v2, v1, v0}, Landroidx/lifecycle/ViewModelProvider;-><init>(Landroidx/lifecycle/ViewModelStore;Landroidx/lifecycle/ViewModelProvider$Factory;)V
 
-    iget-object v4, p0, Landroidx/lifecycle/ViewModelLazy;->viewModelClass:Lkotlin/reflect/KClass;
+    iget-object v0, p0, Landroidx/lifecycle/ViewModelLazy;->viewModelClass:Lkotlin/reflect/KClass;
 
-    invoke-static {v4}, Lkotlin/jvm/JvmClassMappingKt;->getJavaClass(Lkotlin/reflect/KClass;)Ljava/lang/Class;
+    invoke-static {v0}, Lkotlin/jvm/JvmClassMappingKt;->getJavaClass(Lkotlin/reflect/KClass;)Ljava/lang/Class;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v3, v4}, Landroidx/lifecycle/ViewModelProvider;->get(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
+    invoke-virtual {v2, v0}, Landroidx/lifecycle/ViewModelProvider;->get(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
 
-    move-result-object v3
-
-    move-object v4, v3
-
-    .local v4, "it":Landroidx/lifecycle/ViewModel;
-    const/4 v5, 0x0
+    move-result-object v0
 
     .line 55
-    .local v5, "$i$a$-also-ViewModelLazy$value$1":I
-    iput-object v4, p0, Landroidx/lifecycle/ViewModelLazy;->cached:Landroidx/lifecycle/ViewModel;
+    iput-object v0, p0, Landroidx/lifecycle/ViewModelLazy;->cached:Landroidx/lifecycle/ViewModel;
 
-    .line 56
-    .end local v4    # "it":Landroidx/lifecycle/ViewModel;
-    .end local v5    # "$i$a$-also-ViewModelLazy$value$1":I
-    nop
+    const-string v1, "ViewModelProvider(store,\u2026ed = it\n                }"
 
     .line 54
-    const-string v4, "ViewModelProvider(store,\u2026ed = it\n                }"
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v3, v4}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .end local v1    # "factory":Landroidx/lifecycle/ViewModelProvider$Factory;
-    .end local v2    # "store":Landroidx/lifecycle/ViewModelStore;
-    goto :goto_0
-
-    .line 58
     :cond_0
-    move-object v3, v0
-
-    .line 51
-    :goto_0
-    return-object v3
+    return-object v0
 .end method
 
 .method public bridge synthetic getValue()Ljava/lang/Object;

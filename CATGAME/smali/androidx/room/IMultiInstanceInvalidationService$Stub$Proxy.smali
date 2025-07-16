@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .param p1, "remote"    # Landroid/os/IBinder;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -44,7 +43,6 @@
     .line 139
     iput-object p1, p0, Landroidx/room/IMultiInstanceInvalidationService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    .line 140
     return-void
 .end method
 
@@ -61,8 +59,6 @@
 
 .method public broadcastInvalidation(I[Ljava/lang/String;)V
     .locals 5
-    .param p1, "clientId"    # I
-    .param p2, "tables"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -85,11 +81,10 @@
 
     move-result-object v0
 
-    .line 222
-    .local v0, "_data":Landroid/os/Parcel;
     :try_start_0
     const-string v1, "androidx.room.IMultiInstanceInvalidationService"
 
+    .line 222
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 223
@@ -101,66 +96,56 @@
     .line 225
     iget-object v1, p0, Landroidx/room/IMultiInstanceInvalidationService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v2, 0x3
+    const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    const/4 v3, 0x1
 
-    const/4 v4, 0x1
+    const/4 v4, 0x3
 
-    invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    invoke-interface {v1, v4, v0, v2, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v1
 
-    .line 226
-    .local v1, "_status":Z
     if-nez v1, :cond_0
 
+    .line 226
     invoke-static {}, Landroidx/room/IMultiInstanceInvalidationService$Stub;->getDefaultImpl()Landroidx/room/IMultiInstanceInvalidationService;
 
-    move-result-object v2
+    move-result-object v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
     .line 227
     invoke-static {}, Landroidx/room/IMultiInstanceInvalidationService$Stub;->getDefaultImpl()Landroidx/room/IMultiInstanceInvalidationService;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v2, p1, p2}, Landroidx/room/IMultiInstanceInvalidationService;->broadcastInvalidation(I[Ljava/lang/String;)V
+    invoke-interface {v1, p1, p2}, Landroidx/room/IMultiInstanceInvalidationService;->broadcastInvalidation(I[Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 232
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 228
     return-void
 
-    .line 232
-    .end local v1    # "_status":Z
     :cond_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 233
-    nop
-
-    .line 234
     return-void
 
-    .line 232
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 233
-    throw v1
+    throw p1
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
     .locals 1
 
-    .line 147
     const-string v0, "androidx.room.IMultiInstanceInvalidationService"
 
     return-object v0
@@ -168,8 +153,6 @@
 
 .method public registerCallback(Landroidx/room/IMultiInstanceInvalidationCallback;Ljava/lang/String;)I
     .locals 5
-    .param p1, "callback"    # Landroidx/room/IMultiInstanceInvalidationCallback;
-    .param p2, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -193,21 +176,19 @@
     move-result-object v0
 
     .line 160
-    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 163
-    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "androidx.room.IMultiInstanceInvalidationService"
 
+    .line 163
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 164
     if-eqz p1, :cond_0
 
+    .line 164
     invoke-interface {p1}, Landroidx/room/IMultiInstanceInvalidationCallback;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
@@ -234,24 +215,23 @@
 
     move-result v2
 
-    .line 167
-    .local v2, "_status":Z
     if-nez v2, :cond_1
 
+    .line 167
     invoke-static {}, Landroidx/room/IMultiInstanceInvalidationService$Stub;->getDefaultImpl()Landroidx/room/IMultiInstanceInvalidationService;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
     .line 168
     invoke-static {}, Landroidx/room/IMultiInstanceInvalidationService$Stub;->getDefaultImpl()Landroidx/room/IMultiInstanceInvalidationService;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v3, p1, p2}, Landroidx/room/IMultiInstanceInvalidationService;->registerCallback(Landroidx/room/IMultiInstanceInvalidationCallback;Ljava/lang/String;)I
+    invoke-interface {v2, p1, p2}, Landroidx/room/IMultiInstanceInvalidationService;->registerCallback(Landroidx/room/IMultiInstanceInvalidationCallback;Ljava/lang/String;)I
 
-    move-result v3
+    move-result p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -261,8 +241,7 @@
     .line 175
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 168
-    return v3
+    return p1
 
     .line 170
     :cond_1
@@ -272,43 +251,33 @@
     .line 171
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v3
+    move-result p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    move v2, v3
-
     .line 174
-    .local v2, "_result":I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 175
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 176
-    nop
+    return p1
 
-    .line 177
-    return v2
-
-    .line 174
-    .end local v2    # "_result":I
     :catchall_0
-    move-exception v2
+    move-exception p1
 
+    .line 174
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 175
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 176
-    throw v2
+    throw p1
 .end method
 
 .method public unregisterCallback(Landroidx/room/IMultiInstanceInvalidationCallback;I)V
     .locals 5
-    .param p1, "callback"    # Landroidx/room/IMultiInstanceInvalidationCallback;
-    .param p2, "clientId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -332,21 +301,19 @@
     move-result-object v0
 
     .line 191
-    .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 193
-    .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
     const-string v2, "androidx.room.IMultiInstanceInvalidationService"
 
+    .line 193
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 194
     if-eqz p1, :cond_0
 
+    .line 194
     invoke-interface {p1}, Landroidx/room/IMultiInstanceInvalidationCallback;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
@@ -373,22 +340,21 @@
 
     move-result v2
 
-    .line 197
-    .local v2, "_status":Z
     if-nez v2, :cond_1
 
+    .line 197
     invoke-static {}, Landroidx/room/IMultiInstanceInvalidationService$Stub;->getDefaultImpl()Landroidx/room/IMultiInstanceInvalidationService;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
     .line 198
     invoke-static {}, Landroidx/room/IMultiInstanceInvalidationService$Stub;->getDefaultImpl()Landroidx/room/IMultiInstanceInvalidationService;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v3, p1, p2}, Landroidx/room/IMultiInstanceInvalidationService;->unregisterCallback(Landroidx/room/IMultiInstanceInvalidationCallback;I)V
+    invoke-interface {v2, p1, p2}, Landroidx/room/IMultiInstanceInvalidationService;->unregisterCallback(Landroidx/room/IMultiInstanceInvalidationCallback;I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -398,7 +364,6 @@
     .line 205
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 199
     return-void
 
     .line 201
@@ -409,27 +374,22 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 204
-    .end local v2    # "_status":Z
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 205
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 206
-    nop
-
-    .line 207
     return-void
 
-    .line 204
     :catchall_0
-    move-exception v2
+    move-exception p1
 
+    .line 204
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 205
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 206
-    throw v2
+    throw p1
 .end method

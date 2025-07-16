@@ -29,11 +29,8 @@
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/model/ModelCache;J)V
     .locals 0
-    .param p1, "this$0"    # Lcom/bumptech/glide/load/model/ModelCache;
-    .param p2, "size"    # J
 
     .line 31
-    .local p0, "this":Lcom/bumptech/glide/load/model/ModelCache$1;, "Lcom/bumptech/glide/load/model/ModelCache$1;"
     iput-object p1, p0, Lcom/bumptech/glide/load/model/ModelCache$1;->this$0:Lcom/bumptech/glide/load/model/ModelCache;
 
     invoke-direct {p0, p2, p3}, Lcom/bumptech/glide/util/LruCache;-><init>(J)V
@@ -54,12 +51,8 @@
     .end annotation
 
     .line 34
-    .local p0, "this":Lcom/bumptech/glide/load/model/ModelCache$1;, "Lcom/bumptech/glide/load/model/ModelCache$1;"
-    .local p1, "key":Lcom/bumptech/glide/load/model/ModelCache$ModelKey;, "Lcom/bumptech/glide/load/model/ModelCache$ModelKey<TA;>;"
-    .local p2, "item":Ljava/lang/Object;, "TB;"
     invoke-virtual {p1}, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->release()V
 
-    .line 35
     return-void
 .end method
 
@@ -67,7 +60,6 @@
     .locals 0
 
     .line 31
-    .local p0, "this":Lcom/bumptech/glide/load/model/ModelCache$1;, "Lcom/bumptech/glide/load/model/ModelCache$1;"
     check-cast p1, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;
 
     invoke-virtual {p0, p1, p2}, Lcom/bumptech/glide/load/model/ModelCache$1;->onItemEvicted(Lcom/bumptech/glide/load/model/ModelCache$ModelKey;Ljava/lang/Object;)V

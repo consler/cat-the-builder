@@ -72,133 +72,109 @@
 
     invoke-direct {p0, v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;-><init>(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/files/FileHandle;ZZ)V
 
-    .line 74
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/files/FileHandle;)V
     .locals 1
-    .param p1, "fontFile"    # Lcom/badlogic/gdx/files/FileHandle;
 
-    .line 109
     const/4 v0, 0x0
 
+    .line 109
     invoke-direct {p0, p1, v0}, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;-><init>(Lcom/badlogic/gdx/files/FileHandle;Z)V
 
-    .line 110
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/files/FileHandle;Z)V
     .locals 1
-    .param p1, "fontFile"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p2, "imageFile"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p3, "flip"    # Z
 
-    .line 123
     const/4 v0, 0x1
 
+    .line 123
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;-><init>(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/files/FileHandle;ZZ)V
 
-    .line 124
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/files/FileHandle;ZZ)V
-    .locals 4
-    .param p1, "fontFile"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p2, "imageFile"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p3, "flip"    # Z
-    .param p4, "integer"    # Z
+    .locals 2
 
     .line 131
     new-instance v0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;
 
     invoke-direct {v0, p1, p3}, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;-><init>(Lcom/badlogic/gdx/files/FileHandle;Z)V
 
-    new-instance v1, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+    new-instance p1, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
-    new-instance v2, Lcom/badlogic/gdx/graphics/Texture;
+    new-instance p3, Lcom/badlogic/gdx/graphics/Texture;
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
-    invoke-direct {v2, p2, v3}, Lcom/badlogic/gdx/graphics/Texture;-><init>(Lcom/badlogic/gdx/files/FileHandle;Z)V
+    invoke-direct {p3, p2, v1}, Lcom/badlogic/gdx/graphics/Texture;-><init>(Lcom/badlogic/gdx/files/FileHandle;Z)V
 
-    invoke-direct {v1, v2}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;-><init>(Lcom/badlogic/gdx/graphics/Texture;)V
+    invoke-direct {p1, p3}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;-><init>(Lcom/badlogic/gdx/graphics/Texture;)V
 
-    invoke-direct {p0, v0, v1, p4}, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;-><init>(Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;Lcom/badlogic/gdx/graphics/g2d/TextureRegion;Z)V
+    invoke-direct {p0, v0, p1, p4}, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;-><init>(Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;Lcom/badlogic/gdx/graphics/g2d/TextureRegion;Z)V
+
+    const/4 p1, 0x1
 
     .line 132
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->ownsTexture:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->ownsTexture:Z
-
-    .line 133
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
     .locals 1
-    .param p1, "fontFile"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p2, "region"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
-    .line 93
     const/4 v0, 0x0
 
+    .line 93
     invoke-direct {p0, p1, p2, v0}, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;-><init>(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/graphics/g2d/TextureRegion;Z)V
 
-    .line 94
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/graphics/g2d/TextureRegion;Z)V
-    .locals 2
-    .param p1, "fontFile"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p2, "region"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
-    .param p3, "flip"    # Z
+    .locals 1
 
     .line 103
     new-instance v0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;
 
     invoke-direct {v0, p1, p3}, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;-><init>(Lcom/badlogic/gdx/files/FileHandle;Z)V
 
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    invoke-direct {p0, v0, p2, v1}, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;-><init>(Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;Lcom/badlogic/gdx/graphics/g2d/TextureRegion;Z)V
+    invoke-direct {p0, v0, p2, p1}, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;-><init>(Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;Lcom/badlogic/gdx/graphics/g2d/TextureRegion;Z)V
 
-    .line 104
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/files/FileHandle;Z)V
-    .locals 3
-    .param p1, "fontFile"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p2, "flip"    # Z
+    .locals 1
 
     .line 116
     new-instance v0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;
 
     invoke-direct {v0, p1, p2}, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;-><init>(Lcom/badlogic/gdx/files/FileHandle;Z)V
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    check-cast v1, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+    move-object p2, p1
 
-    const/4 v2, 0x1
+    check-cast p2, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
-    invoke-direct {p0, v0, v1, v2}, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;-><init>(Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;Lcom/badlogic/gdx/graphics/g2d/TextureRegion;Z)V
+    const/4 p2, 0x1
 
-    .line 117
+    invoke-direct {p0, v0, p1, p2}, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;-><init>(Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;Lcom/badlogic/gdx/graphics/g2d/TextureRegion;Z)V
+
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;Lcom/badlogic/gdx/graphics/g2d/TextureRegion;Z)V
     .locals 2
-    .param p1, "data"    # Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;
-    .param p2, "region"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
-    .param p3, "integer"    # Z
 
-    .line 144
     if-eqz p2, :cond_0
 
     const/4 v0, 0x1
@@ -209,26 +185,24 @@
 
     aput-object p2, v0, v1
 
+    .line 144
     invoke-static {v0}, Lcom/badlogic/gdx/utils/Array;->with([Ljava/lang/Object;)Lcom/badlogic/gdx/utils/Array;
 
-    move-result-object v0
+    move-result-object p2
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p2, 0x0
 
     :goto_0
-    invoke-direct {p0, p1, v0, p3}, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;-><init>(Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;Lcom/badlogic/gdx/utils/Array;Z)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;-><init>(Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;Lcom/badlogic/gdx/utils/Array;Z)V
 
-    .line 145
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;Lcom/badlogic/gdx/utils/Array;Z)V
-    .locals 7
-    .param p1, "data"    # Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;
-    .param p3, "integer"    # Z
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -240,7 +214,6 @@
     .end annotation
 
     .line 151
-    .local p2, "pageRegions":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/g2d/TextureRegion;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 152
@@ -254,14 +227,14 @@
     .line 154
     iput-boolean p3, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->integer:Z
 
-    .line 156
-    const/4 v0, 0x0
+    const/4 p3, 0x0
 
     if-eqz p2, :cond_1
 
-    iget v1, p2, Lcom/badlogic/gdx/utils/Array;->size:I
+    .line 156
+    iget v0, p2, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     goto :goto_0
 
@@ -270,135 +243,120 @@
     iput-object p2, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->regions:Lcom/badlogic/gdx/utils/Array;
 
     .line 174
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->ownsTexture:Z
+    iput-boolean p3, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->ownsTexture:Z
 
     goto :goto_3
 
     .line 157
     :cond_1
     :goto_0
-    iget-object v1, p1, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;->imagePaths:[Ljava/lang/String;
+    iget-object p2, p1, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;->imagePaths:[Ljava/lang/String;
 
-    if-eqz v1, :cond_4
+    if-eqz p2, :cond_4
 
     .line 161
-    iget-object v1, p1, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;->imagePaths:[Ljava/lang/String;
+    iget-object p2, p1, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;->imagePaths:[Ljava/lang/String;
 
-    array-length v1, v1
+    array-length p2, p2
 
     .line 162
-    .local v1, "n":I
-    new-instance v2, Lcom/badlogic/gdx/utils/Array;
+    new-instance v0, Lcom/badlogic/gdx/utils/Array;
 
-    invoke-direct {v2, v1}, Lcom/badlogic/gdx/utils/Array;-><init>(I)V
+    invoke-direct {v0, p2}, Lcom/badlogic/gdx/utils/Array;-><init>(I)V
 
-    iput-object v2, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->regions:Lcom/badlogic/gdx/utils/Array;
+    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->regions:Lcom/badlogic/gdx/utils/Array;
 
-    .line 163
-    const/4 v2, 0x0
+    move v0, p3
 
-    .local v2, "i":I
     :goto_1
-    if-ge v2, v1, :cond_3
+    if-ge v0, p2, :cond_3
 
     .line 165
-    iget-object v3, p1, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;->fontFile:Lcom/badlogic/gdx/files/FileHandle;
+    iget-object v1, p1, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;->fontFile:Lcom/badlogic/gdx/files/FileHandle;
 
-    if-nez v3, :cond_2
+    if-nez v1, :cond_2
 
     .line 166
-    sget-object v3, Lcom/badlogic/gdx/Gdx;->files:Lcom/badlogic/gdx/Files;
+    sget-object v1, Lcom/badlogic/gdx/Gdx;->files:Lcom/badlogic/gdx/Files;
 
-    iget-object v4, p1, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;->imagePaths:[Ljava/lang/String;
+    iget-object v2, p1, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;->imagePaths:[Ljava/lang/String;
 
-    aget-object v4, v4, v2
+    aget-object v2, v2, v0
 
-    invoke-interface {v3, v4}, Lcom/badlogic/gdx/Files;->internal(Ljava/lang/String;)Lcom/badlogic/gdx/files/FileHandle;
+    invoke-interface {v1, v2}, Lcom/badlogic/gdx/Files;->internal(Ljava/lang/String;)Lcom/badlogic/gdx/files/FileHandle;
 
-    move-result-object v3
+    move-result-object v1
 
-    .local v3, "file":Lcom/badlogic/gdx/files/FileHandle;
     goto :goto_2
 
     .line 168
-    .end local v3    # "file":Lcom/badlogic/gdx/files/FileHandle;
     :cond_2
-    sget-object v3, Lcom/badlogic/gdx/Gdx;->files:Lcom/badlogic/gdx/Files;
+    sget-object v1, Lcom/badlogic/gdx/Gdx;->files:Lcom/badlogic/gdx/Files;
 
-    iget-object v4, p1, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;->imagePaths:[Ljava/lang/String;
+    iget-object v2, p1, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;->imagePaths:[Ljava/lang/String;
 
-    aget-object v4, v4, v2
+    aget-object v2, v2, v0
 
-    iget-object v5, p1, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;->fontFile:Lcom/badlogic/gdx/files/FileHandle;
+    iget-object v3, p1, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;->fontFile:Lcom/badlogic/gdx/files/FileHandle;
 
-    invoke-virtual {v5}, Lcom/badlogic/gdx/files/FileHandle;->type()Lcom/badlogic/gdx/Files$FileType;
-
-    move-result-object v5
-
-    invoke-interface {v3, v4, v5}, Lcom/badlogic/gdx/Files;->getFileHandle(Ljava/lang/String;Lcom/badlogic/gdx/Files$FileType;)Lcom/badlogic/gdx/files/FileHandle;
+    invoke-virtual {v3}, Lcom/badlogic/gdx/files/FileHandle;->type()Lcom/badlogic/gdx/Files$FileType;
 
     move-result-object v3
 
+    invoke-interface {v1, v2, v3}, Lcom/badlogic/gdx/Files;->getFileHandle(Ljava/lang/String;Lcom/badlogic/gdx/Files$FileType;)Lcom/badlogic/gdx/files/FileHandle;
+
+    move-result-object v1
+
     .line 169
-    .restart local v3    # "file":Lcom/badlogic/gdx/files/FileHandle;
     :goto_2
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->regions:Lcom/badlogic/gdx/utils/Array;
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->regions:Lcom/badlogic/gdx/utils/Array;
 
-    new-instance v5, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+    new-instance v3, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
-    new-instance v6, Lcom/badlogic/gdx/graphics/Texture;
+    new-instance v4, Lcom/badlogic/gdx/graphics/Texture;
 
-    invoke-direct {v6, v3, v0}, Lcom/badlogic/gdx/graphics/Texture;-><init>(Lcom/badlogic/gdx/files/FileHandle;Z)V
+    invoke-direct {v4, v1, p3}, Lcom/badlogic/gdx/graphics/Texture;-><init>(Lcom/badlogic/gdx/files/FileHandle;Z)V
 
-    invoke-direct {v5, v6}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;-><init>(Lcom/badlogic/gdx/graphics/Texture;)V
+    invoke-direct {v3, v4}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;-><init>(Lcom/badlogic/gdx/graphics/Texture;)V
 
-    invoke-virtual {v4, v5}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v2, v3}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 163
-    .end local v3    # "file":Lcom/badlogic/gdx/files/FileHandle;
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 171
-    .end local v2    # "i":I
     :cond_3
-    const/4 v0, 0x1
+    const/4 p2, 0x1
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->ownsTexture:Z
-
-    .line 172
-    .end local v1    # "n":I
-    nop
+    .line 171
+    iput-boolean p2, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->ownsTexture:Z
 
     .line 177
     :goto_3
     invoke-virtual {p0}, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->newFontCache()Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;
 
-    move-result-object v0
+    move-result-object p2
 
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->cache:Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;
+    iput-object p2, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->cache:Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;
 
     .line 179
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->load(Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;)V
 
-    .line 180
     return-void
 
     .line 158
     :cond_4
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "If no regions are specified, the font data must have an images path."
+    const-string p2, "If no regions are specified, the font data must have an images path."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public constructor <init>(Z)V
     .locals 3
-    .param p1, "flip"    # Z
 
     .line 80
     sget-object v0, Lcom/badlogic/gdx/Gdx;->files:Lcom/badlogic/gdx/Files;
@@ -421,23 +379,17 @@
 
     invoke-direct {p0, v0, v1, p1, v2}, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;-><init>(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/files/FileHandle;ZZ)V
 
-    .line 82
     return-void
 .end method
 
 .method static indexOf(Ljava/lang/CharSequence;CI)I
     .locals 2
-    .param p0, "text"    # Ljava/lang/CharSequence;
-    .param p1, "ch"    # C
-    .param p2, "start"    # I
 
     .line 427
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
 
-    .line 428
-    .local v0, "n":I
     :goto_0
     if-ge p2, v0, :cond_1
 
@@ -450,13 +402,11 @@
 
     return p2
 
-    .line 428
     :cond_0
     add-int/lit8 p2, p2, 0x1
 
     goto :goto_0
 
-    .line 430
     :cond_1
     return v0
 .end method
@@ -471,10 +421,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 319
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 319
     :goto_0
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->regions:Lcom/badlogic/gdx/utils/Array;
 
@@ -497,23 +446,16 @@
 
     invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/Texture;->dispose()V
 
-    .line 319
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 322
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public draw(Lcom/badlogic/gdx/graphics/g2d/Batch;Ljava/lang/CharSequence;FF)Lcom/badlogic/gdx/graphics/g2d/GlyphLayout;
-    .locals 2
-    .param p1, "batch"    # Lcom/badlogic/gdx/graphics/g2d/Batch;
-    .param p2, "str"    # Ljava/lang/CharSequence;
-    .param p3, "x"    # F
-    .param p4, "y"    # F
+    .locals 1
 
     .line 194
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->cache:Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;
@@ -525,27 +467,18 @@
 
     invoke-virtual {v0, p2, p3, p4}, Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;->addText(Ljava/lang/CharSequence;FF)Lcom/badlogic/gdx/graphics/g2d/GlyphLayout;
 
-    move-result-object v0
+    move-result-object p2
 
     .line 196
-    .local v0, "layout":Lcom/badlogic/gdx/graphics/g2d/GlyphLayout;
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->cache:Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;
+    iget-object p3, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->cache:Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;
 
-    invoke-virtual {v1, p1}, Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;)V
+    invoke-virtual {p3, p1}, Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;)V
 
-    .line 197
-    return-object v0
+    return-object p2
 .end method
 
 .method public draw(Lcom/badlogic/gdx/graphics/g2d/Batch;Ljava/lang/CharSequence;FFFIZ)Lcom/badlogic/gdx/graphics/g2d/GlyphLayout;
     .locals 8
-    .param p1, "batch"    # Lcom/badlogic/gdx/graphics/g2d/Batch;
-    .param p2, "str"    # Ljava/lang/CharSequence;
-    .param p3, "x"    # F
-    .param p4, "y"    # F
-    .param p5, "targetWidth"    # F
-    .param p6, "halign"    # I
-    .param p7, "wrap"    # Z
 
     .line 203
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->cache:Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;
@@ -569,33 +502,22 @@
 
     invoke-virtual/range {v1 .. v7}, Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;->addText(Ljava/lang/CharSequence;FFFIZ)Lcom/badlogic/gdx/graphics/g2d/GlyphLayout;
 
-    move-result-object v0
+    move-result-object p2
 
     .line 205
-    .local v0, "layout":Lcom/badlogic/gdx/graphics/g2d/GlyphLayout;
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->cache:Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;
+    iget-object p3, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->cache:Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;
 
-    invoke-virtual {v1, p1}, Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;)V
+    invoke-virtual {p3, p1}, Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;)V
 
-    .line 206
-    return-object v0
+    return-object p2
 .end method
 
 .method public draw(Lcom/badlogic/gdx/graphics/g2d/Batch;Ljava/lang/CharSequence;FFIIFIZ)Lcom/badlogic/gdx/graphics/g2d/GlyphLayout;
     .locals 11
-    .param p1, "batch"    # Lcom/badlogic/gdx/graphics/g2d/Batch;
-    .param p2, "str"    # Ljava/lang/CharSequence;
-    .param p3, "x"    # F
-    .param p4, "y"    # F
-    .param p5, "start"    # I
-    .param p6, "end"    # I
-    .param p7, "targetWidth"    # F
-    .param p8, "halign"    # I
-    .param p9, "wrap"    # Z
 
-    .line 213
     move-object v0, p0
 
+    .line 213
     iget-object v1, v0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->cache:Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;
 
     invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;->clear()V
@@ -624,33 +546,21 @@
     move-result-object v1
 
     .line 215
-    .local v1, "layout":Lcom/badlogic/gdx/graphics/g2d/GlyphLayout;
     iget-object v2, v0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->cache:Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;
 
     move-object v3, p1
 
     invoke-virtual {v2, p1}, Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;)V
 
-    .line 216
     return-object v1
 .end method
 
 .method public draw(Lcom/badlogic/gdx/graphics/g2d/Batch;Ljava/lang/CharSequence;FFIIFIZLjava/lang/String;)Lcom/badlogic/gdx/graphics/g2d/GlyphLayout;
     .locals 12
-    .param p1, "batch"    # Lcom/badlogic/gdx/graphics/g2d/Batch;
-    .param p2, "str"    # Ljava/lang/CharSequence;
-    .param p3, "x"    # F
-    .param p4, "y"    # F
-    .param p5, "start"    # I
-    .param p6, "end"    # I
-    .param p7, "targetWidth"    # F
-    .param p8, "halign"    # I
-    .param p9, "wrap"    # Z
-    .param p10, "truncate"    # Ljava/lang/String;
 
-    .line 223
     move-object v0, p0
 
+    .line 223
     iget-object v1, v0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->cache:Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;
 
     invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;->clear()V
@@ -681,23 +591,17 @@
     move-result-object v1
 
     .line 225
-    .local v1, "layout":Lcom/badlogic/gdx/graphics/g2d/GlyphLayout;
     iget-object v2, v0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->cache:Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;
 
     move-object v3, p1
 
     invoke-virtual {v2, p1}, Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;)V
 
-    .line 226
     return-object v1
 .end method
 
 .method public draw(Lcom/badlogic/gdx/graphics/g2d/Batch;Lcom/badlogic/gdx/graphics/g2d/GlyphLayout;FF)V
     .locals 1
-    .param p1, "batch"    # Lcom/badlogic/gdx/graphics/g2d/Batch;
-    .param p2, "layout"    # Lcom/badlogic/gdx/graphics/g2d/GlyphLayout;
-    .param p3, "x"    # F
-    .param p4, "y"    # F
 
     .line 232
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->cache:Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;
@@ -710,11 +614,10 @@
     invoke-virtual {v0, p2, p3, p4}, Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;->addText(Lcom/badlogic/gdx/graphics/g2d/GlyphLayout;FF)V
 
     .line 234
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->cache:Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->cache:Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;
 
-    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;)V
+    invoke-virtual {p2, p1}, Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;)V
 
-    .line 235
     return-void
 .end method
 
@@ -810,18 +713,17 @@
 
 .method public getRegion(I)Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
     .locals 1
-    .param p1, "index"    # I
 
     .line 276
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->regions:Lcom/badlogic/gdx/utils/Array;
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+    check-cast p1, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getRegions()Lcom/badlogic/gdx/utils/Array;
@@ -896,7 +798,6 @@
 
 .method protected load(Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;)V
     .locals 10
-    .param p1, "data"    # Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;
 
     .line 183
     iget-object v0, p1, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;->glyphs:[[Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;
@@ -912,8 +813,6 @@
 
     aget-object v4, v0, v3
 
-    .line 184
-    .local v4, "page":[Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;
     if-nez v4, :cond_0
 
     goto :goto_2
@@ -929,10 +828,9 @@
 
     aget-object v7, v4, v6
 
-    .line 186
-    .local v7, "glyph":Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;
     if-eqz v7, :cond_1
 
+    .line 186
     iget-object v8, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->regions:Lcom/badlogic/gdx/utils/Array;
 
     iget v9, v7, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;->page:I
@@ -945,15 +843,11 @@
 
     invoke-virtual {p1, v7, v8}, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;->setGlyphRegion(Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
 
-    .line 185
-    .end local v7    # "glyph":Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;
     :cond_1
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_1
 
-    .line 183
-    .end local v4    # "page":[Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;
     :cond_2
     :goto_2
     add-int/lit8 v3, v3, 0x1
@@ -982,7 +876,6 @@
 
     invoke-virtual {p1, v0, v1}, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;->setGlyphRegion(Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
 
-    .line 189
     :cond_4
     return-void
 .end method
@@ -1011,10 +904,6 @@
 
 .method public setColor(FFFF)V
     .locals 1
-    .param p1, "r"    # F
-    .param p2, "g"    # F
-    .param p3, "b"    # F
-    .param p4, "a"    # F
 
     .line 249
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->cache:Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;
@@ -1025,13 +914,11 @@
 
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/badlogic/gdx/graphics/Color;->set(FFFF)Lcom/badlogic/gdx/graphics/Color;
 
-    .line 250
     return-void
 .end method
 
 .method public setColor(Lcom/badlogic/gdx/graphics/Color;)V
     .locals 1
-    .param p1, "color"    # Lcom/badlogic/gdx/graphics/Color;
 
     .line 244
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->cache:Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;
@@ -1042,97 +929,81 @@
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/graphics/Color;->set(Lcom/badlogic/gdx/graphics/Color;)Lcom/badlogic/gdx/graphics/Color;
 
-    .line 245
     return-void
 .end method
 
 .method public setFixedWidthGlyphs(Ljava/lang/CharSequence;)V
     .locals 7
-    .param p1, "glyphs"    # Ljava/lang/CharSequence;
 
     .line 327
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->data:Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;
 
-    .line 328
-    .local v0, "data":Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;
-    const/4 v1, 0x0
-
     .line 329
-    .local v1, "maxAdvance":I
-    const/4 v2, 0x0
-
-    .local v2, "index":I
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
-    move-result v3
+    move-result v1
 
-    .local v3, "end":I
+    const/4 v2, 0x0
+
+    move v3, v2
+
+    move v4, v3
+
     :goto_0
-    if-ge v2, v3, :cond_1
+    if-ge v3, v1, :cond_1
 
     .line 330
-    invoke-interface {p1, v2}, Ljava/lang/CharSequence;->charAt(I)C
+    invoke-interface {p1, v3}, Ljava/lang/CharSequence;->charAt(I)C
 
-    move-result v4
+    move-result v5
 
-    invoke-virtual {v0, v4}, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;->getGlyph(C)Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;
+    invoke-virtual {v0, v5}, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;->getGlyph(C)Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;
 
-    move-result-object v4
+    move-result-object v5
+
+    if-eqz v5, :cond_0
 
     .line 331
-    .local v4, "g":Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;
-    if-eqz v4, :cond_0
+    iget v6, v5, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;->xadvance:I
 
-    iget v5, v4, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;->xadvance:I
+    if-le v6, v4, :cond_0
 
-    if-le v5, v1, :cond_0
+    iget v4, v5, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;->xadvance:I
 
-    iget v1, v4, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;->xadvance:I
-
-    .line 329
-    .end local v4    # "g":Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;
     :cond_0
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     .line 333
-    .end local v2    # "index":I
-    .end local v3    # "end":I
     :cond_1
-    const/4 v2, 0x0
-
-    .restart local v2    # "index":I
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
-    move-result v3
+    move-result v1
 
-    .restart local v3    # "end":I
     :goto_1
-    if-ge v2, v3, :cond_3
+    if-ge v2, v1, :cond_3
 
     .line 334
     invoke-interface {p1, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
-    move-result v4
+    move-result v3
 
-    invoke-virtual {v0, v4}, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;->getGlyph(C)Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;
+    invoke-virtual {v0, v3}, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;->getGlyph(C)Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;
 
-    move-result-object v4
+    move-result-object v3
 
-    .line 335
-    .restart local v4    # "g":Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;
-    if-nez v4, :cond_2
+    if-nez v3, :cond_2
 
     goto :goto_2
 
     .line 336
     :cond_2
-    iget v5, v4, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;->xoffset:I
+    iget v5, v3, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;->xoffset:I
 
-    iget v6, v4, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;->xadvance:I
+    iget v6, v3, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;->xadvance:I
 
-    sub-int v6, v1, v6
+    sub-int v6, v4, v6
 
     div-int/lit8 v6, v6, 0x2
 
@@ -1144,51 +1015,45 @@
 
     add-int/2addr v5, v6
 
-    iput v5, v4, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;->xoffset:I
+    iput v5, v3, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;->xoffset:I
 
     .line 337
-    iput v1, v4, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;->xadvance:I
+    iput v4, v3, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;->xadvance:I
 
-    .line 338
     const/4 v5, 0x0
 
-    check-cast v5, [[B
+    .line 338
+    move-object v6, v5
 
-    iput-object v5, v4, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;->kerning:[[B
+    check-cast v6, [[B
 
-    .line 339
+    iput-object v5, v3, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;->kerning:[[B
+
     const/4 v5, 0x1
 
-    iput-boolean v5, v4, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;->fixedWidth:Z
+    .line 339
+    iput-boolean v5, v3, Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;->fixedWidth:Z
 
-    .line 333
-    .end local v4    # "g":Lcom/badlogic/gdx/graphics/g2d/BitmapFont$Glyph;
     :goto_2
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
-    .line 341
-    .end local v2    # "index":I
-    .end local v3    # "end":I
     :cond_3
     return-void
 .end method
 
 .method public setOwnsTexture(Z)V
     .locals 0
-    .param p1, "ownsTexture"    # Z
 
     .line 375
     iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->ownsTexture:Z
 
-    .line 376
     return-void
 .end method
 
 .method public setUseIntegerPositions(Z)V
     .locals 1
-    .param p1, "integer"    # Z
 
     .line 345
     iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g2d/BitmapFont;->integer:Z
@@ -1198,7 +1063,6 @@
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/graphics/g2d/BitmapFontCache;->setUseIntegerPositions(Z)V
 
-    .line 347
     return-void
 .end method
 

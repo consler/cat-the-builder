@@ -42,7 +42,6 @@
 
 .method public constructor <init>([B)V
     .locals 2
-    .param p1, "key"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -75,13 +74,11 @@
 
     iput-object v0, p0, Lcom/google/crypto/tink/subtle/AesGcmJce;->keySpec:Ljavax/crypto/SecretKey;
 
-    .line 55
     return-void
 .end method
 
 .method private static getParams([B)Ljava/security/spec/AlgorithmParameterSpec;
     .locals 2
-    .param p0, "iv"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -97,23 +94,20 @@
         }
     .end annotation
 
+    const/4 v0, 0x0
+
     .line 115
-    array-length v0, p0
+    array-length v1, p0
 
-    const/4 v1, 0x0
+    invoke-static {p0, v0, v1}, Lcom/google/crypto/tink/subtle/AesGcmJce;->getParams([BII)Ljava/security/spec/AlgorithmParameterSpec;
 
-    invoke-static {p0, v1, v0}, Lcom/google/crypto/tink/subtle/AesGcmJce;->getParams([BII)Ljava/security/spec/AlgorithmParameterSpec;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method
 
 .method private static getParams([BII)Ljava/security/spec/AlgorithmParameterSpec;
     .locals 2
-    .param p0, "buf"    # [B
-    .param p1, "offset"    # I
-    .param p2, "len"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -169,9 +163,7 @@
 
 # virtual methods
 .method public decrypt([B[B)[B
-    .locals 5
-    .param p1, "ciphertext"    # [B
-    .param p2, "associatedData"    # [B
+    .locals 6
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -196,88 +188,78 @@
 
     if-lt v0, v1, :cond_1
 
-    .line 104
     const/4 v0, 0x0
 
     const/16 v1, 0xc
 
+    .line 104
     invoke-static {p1, v0, v1}, Lcom/google/crypto/tink/subtle/AesGcmJce;->getParams([BII)Ljava/security/spec/AlgorithmParameterSpec;
 
     move-result-object v0
 
     .line 105
-    .local v0, "params":Ljava/security/spec/AlgorithmParameterSpec;
     sget-object v2, Lcom/google/crypto/tink/subtle/AesGcmJce;->localCipher:Ljava/lang/ThreadLocal;
 
     invoke-virtual {v2}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Ljavax/crypto/Cipher;
+    check-cast v3, Ljavax/crypto/Cipher;
 
-    const/4 v3, 0x2
+    const/4 v4, 0x2
 
-    iget-object v4, p0, Lcom/google/crypto/tink/subtle/AesGcmJce;->keySpec:Ljavax/crypto/SecretKey;
+    iget-object v5, p0, Lcom/google/crypto/tink/subtle/AesGcmJce;->keySpec:Ljavax/crypto/SecretKey;
 
-    invoke-virtual {v2, v3, v4, v0}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
+    invoke-virtual {v3, v4, v5, v0}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
 
-    .line 106
     if-eqz p2, :cond_0
 
-    array-length v2, p2
+    .line 106
+    array-length v0, p2
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
     .line 107
-    sget-object v2, Lcom/google/crypto/tink/subtle/AesGcmJce;->localCipher:Ljava/lang/ThreadLocal;
-
     invoke-virtual {v2}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Ljavax/crypto/Cipher;
+    check-cast v0, Ljavax/crypto/Cipher;
 
-    invoke-virtual {v2, p2}, Ljavax/crypto/Cipher;->updateAAD([B)V
-
-    .line 109
-    :cond_0
-    sget-object v2, Lcom/google/crypto/tink/subtle/AesGcmJce;->localCipher:Ljava/lang/ThreadLocal;
+    invoke-virtual {v0, p2}, Ljavax/crypto/Cipher;->updateAAD([B)V
 
     .line 110
+    :cond_0
     invoke-virtual {v2}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p2
 
-    check-cast v2, Ljavax/crypto/Cipher;
+    check-cast p2, Ljavax/crypto/Cipher;
 
-    array-length v3, p1
+    array-length v0, p1
 
-    sub-int/2addr v3, v1
+    sub-int/2addr v0, v1
 
     .line 111
-    invoke-virtual {v2, p1, v1, v3}, Ljavax/crypto/Cipher;->doFinal([BII)[B
+    invoke-virtual {p2, p1, v1, v0}, Ljavax/crypto/Cipher;->doFinal([BII)[B
 
-    move-result-object v1
+    move-result-object p1
 
-    .line 109
-    return-object v1
+    return-object p1
 
     .line 101
-    .end local v0    # "params":Ljava/security/spec/AlgorithmParameterSpec;
     :cond_1
-    new-instance v0, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    const-string v1, "ciphertext too short"
+    const-string p2, "ciphertext too short"
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public encrypt([B[B)[B
-    .locals 12
-    .param p1, "plaintext"    # [B
-    .param p2, "associatedData"    # [B
+    .locals 11
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -316,64 +298,58 @@
     new-array v0, v0, [B
 
     .line 69
-    .local v0, "ciphertext":[B
     invoke-static {v1}, Lcom/google/crypto/tink/subtle/Random;->randBytes(I)[B
 
-    move-result-object v9
+    move-result-object v3
+
+    const/4 v9, 0x0
 
     .line 70
-    .local v9, "iv":[B
-    const/4 v10, 0x0
-
-    invoke-static {v9, v10, v0, v10, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v3, v9, v0, v9, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 72
-    invoke-static {v9}, Lcom/google/crypto/tink/subtle/AesGcmJce;->getParams([B)Ljava/security/spec/AlgorithmParameterSpec;
+    invoke-static {v3}, Lcom/google/crypto/tink/subtle/AesGcmJce;->getParams([B)Ljava/security/spec/AlgorithmParameterSpec;
 
     move-result-object v1
 
     .line 73
-    .local v1, "params":Ljava/security/spec/AlgorithmParameterSpec;
     sget-object v3, Lcom/google/crypto/tink/subtle/AesGcmJce;->localCipher:Ljava/lang/ThreadLocal;
 
     invoke-virtual {v3}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Ljavax/crypto/Cipher;
+    check-cast v4, Ljavax/crypto/Cipher;
 
-    iget-object v4, p0, Lcom/google/crypto/tink/subtle/AesGcmJce;->keySpec:Ljavax/crypto/SecretKey;
+    iget-object v5, p0, Lcom/google/crypto/tink/subtle/AesGcmJce;->keySpec:Ljavax/crypto/SecretKey;
 
-    const/4 v11, 0x1
+    const/4 v10, 0x1
 
-    invoke-virtual {v3, v11, v4, v1}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
+    invoke-virtual {v4, v10, v5, v1}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
 
-    .line 74
     if-eqz p2, :cond_0
 
-    array-length v3, p2
+    .line 74
+    array-length v1, p2
 
-    if-eqz v3, :cond_0
+    if-eqz v1, :cond_0
 
     .line 75
-    sget-object v3, Lcom/google/crypto/tink/subtle/AesGcmJce;->localCipher:Ljava/lang/ThreadLocal;
-
     invoke-virtual {v3}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    check-cast v3, Ljavax/crypto/Cipher;
+    check-cast v1, Ljavax/crypto/Cipher;
 
-    invoke-virtual {v3, p2}, Ljavax/crypto/Cipher;->updateAAD([B)V
-
-    .line 77
-    :cond_0
-    sget-object v3, Lcom/google/crypto/tink/subtle/AesGcmJce;->localCipher:Ljava/lang/ThreadLocal;
+    invoke-virtual {v1, p2}, Ljavax/crypto/Cipher;->updateAAD([B)V
 
     .line 78
+    :cond_0
     invoke-virtual {v3}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p2
+
+    move-object v3, p2
 
     check-cast v3, Ljavax/crypto/Cipher;
 
@@ -389,69 +365,61 @@
 
     invoke-virtual/range {v3 .. v8}, Ljavax/crypto/Cipher;->doFinal([BII[BI)I
 
-    move-result v3
+    move-result p2
 
     .line 82
-    .local v3, "written":I
-    array-length v4, p1
+    array-length v1, p1
 
-    add-int/2addr v4, v2
+    add-int/2addr v1, v2
 
-    if-ne v3, v4, :cond_1
+    if-ne p2, v1, :cond_1
 
-    .line 90
     return-object v0
 
     .line 84
     :cond_1
-    array-length v4, p1
+    array-length p1, p1
 
-    sub-int v4, v3, v4
+    sub-int/2addr p2, p1
 
     .line 85
-    .local v4, "actualTagSize":I
-    new-instance v5, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    const/4 v6, 0x2
+    const/4 v0, 0x2
 
-    new-array v6, v6, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
     .line 88
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v1
 
-    aput-object v2, v6, v10
+    aput-object v1, v0, v9
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object p2
 
-    aput-object v2, v6, v11
+    aput-object p2, v0, v10
+
+    const-string p2, "encryption failed; GCM tag must be %s bytes, but got only %s bytes"
 
     .line 86
-    const-string v2, "encryption failed; GCM tag must be %s bytes, but got only %s bytes"
+    invoke-static {p2, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v2, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object p2
 
-    move-result-object v2
+    invoke-direct {p1, p2}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v5, v2}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
-
-    throw v5
+    throw p1
 
     .line 66
-    .end local v0    # "ciphertext":[B
-    .end local v1    # "params":Ljava/security/spec/AlgorithmParameterSpec;
-    .end local v3    # "written":I
-    .end local v4    # "actualTagSize":I
-    .end local v9    # "iv":[B
     :cond_2
-    new-instance v0, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    const-string v1, "plaintext too long"
+    const-string p2, "plaintext too long"
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

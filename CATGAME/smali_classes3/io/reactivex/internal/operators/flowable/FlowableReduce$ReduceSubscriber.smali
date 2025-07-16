@@ -60,15 +60,11 @@
     .end annotation
 
     .line 54
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
-    .local p2, "reducer":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<TT;TT;TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/subscriptions/DeferredScalarSubscription;-><init>(Lorg/reactivestreams/Subscriber;)V
 
     .line 55
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber;->reducer:Lio/reactivex/functions/BiFunction;
 
-    .line 56
     return-void
 .end method
 
@@ -78,7 +74,6 @@
     .locals 1
 
     .line 116
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber<TT;>;"
     invoke-super {p0}, Lio/reactivex/internal/subscriptions/DeferredScalarSubscription;->cancel()V
 
     .line 117
@@ -91,7 +86,6 @@
 
     iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    .line 119
     return-void
 .end method
 
@@ -99,14 +93,12 @@
     .locals 2
 
     .line 101
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     sget-object v1, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
 
     if-ne v0, v1, :cond_0
 
-    .line 102
     return-void
 
     .line 104
@@ -118,8 +110,6 @@
     .line 106
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber;->value:Ljava/lang/Object;
 
-    .line 107
-    .local v0, "v":Ljava/lang/Object;, "TT;"
     if-eqz v0, :cond_1
 
     .line 108
@@ -129,21 +119,18 @@
 
     .line 110
     :cond_1
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v1}, Lorg/reactivestreams/Subscriber;->onComplete()V
+    invoke-interface {v0}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 112
     :goto_0
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 91
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     sget-object v1, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
@@ -153,7 +140,6 @@
     .line 92
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 93
     return-void
 
     .line 95
@@ -167,12 +153,11 @@
 
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 97
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -180,23 +165,18 @@
     .end annotation
 
     .line 71
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     sget-object v1, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
 
     if-ne v0, v1, :cond_0
 
-    .line 72
     return-void
 
     .line 75
     :cond_0
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber;->value:Ljava/lang/Object;
 
-    .line 76
-    .local v0, "v":Ljava/lang/Object;, "TT;"
     if-nez v0, :cond_1
 
     .line 77
@@ -211,49 +191,42 @@
 
     invoke-interface {v1, v0, p1}, Lio/reactivex/functions/BiFunction;->apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "The reducer returned a null value"
+    const-string v0, "The reducer returned a null value"
 
-    invoke-static {v1, v2}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    iput-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber;->value:Ljava/lang/Object;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber;->value:Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 85
     goto :goto_0
 
-    .line 81
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     .line 82
-    .local v1, "ex":Ljava/lang/Throwable;
-    invoke-static {v1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 83
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber;->s:Lorg/reactivestreams/Subscription;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    invoke-interface {v2}, Lorg/reactivestreams/Subscription;->cancel()V
+    invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
 
     .line 84
-    invoke-virtual {p0, v1}, Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 87
-    .end local v1    # "ex":Ljava/lang/Throwable;
     :goto_0
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 60
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReduce$ReduceSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -270,12 +243,11 @@
 
     invoke-interface {v0, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
-    .line 65
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 65
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 67
     :cond_0
     return-void
 .end method

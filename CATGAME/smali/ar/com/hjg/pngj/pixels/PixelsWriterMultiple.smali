@@ -49,106 +49,98 @@
 # direct methods
 .method public constructor <init>(Lar/com/hjg/pngj/ImageInfo;)V
     .locals 3
-    .param p1, "imgInfo"    # Lar/com/hjg/pngj/ImageInfo;
 
     .line 45
     invoke-direct {p0, p1}, Lar/com/hjg/pngj/pixels/PixelsWriter;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
 
-    .line 20
     const/4 v0, 0x6
 
     new-array v0, v0, [Lar/com/hjg/pngj/pixels/CompressorStream;
 
+    .line 20
     iput-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filterBank:[Lar/com/hjg/pngj/pixels/CompressorStream;
 
-    .line 24
     const/4 v0, 0x5
 
     new-array v0, v0, [[B
 
+    .line 24
     iput-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filteredRows:[[B
 
-    .line 28
     const/4 v0, 0x0
 
+    .line 28
     iput v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rowsPerBand:I
 
     .line 29
     iput v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rowsPerBandCurrent:I
 
-    .line 31
-    const/4 v0, -0x1
+    const/4 v1, -0x1
 
-    iput v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rowInBand:I
+    .line 31
+    iput v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rowInBand:I
 
     .line 32
-    iput v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->bandNum:I
+    iput v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->bandNum:I
+
+    const/4 v1, 0x1
 
     .line 34
-    const/4 v0, 0x1
+    iput-boolean v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->tryAdaptive:Z
 
-    iput-boolean v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->tryAdaptive:Z
+    const/16 v2, 0x64
 
     .line 38
-    const/16 v1, 0x64
+    iput v2, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->hintMemoryKb:I
 
-    iput v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->hintMemoryKb:I
+    const/16 v2, 0x3e8
 
     .line 40
-    const/16 v1, 0x3e8
-
-    iput v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->hintRowsPerBand:I
+    iput v2, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->hintRowsPerBand:I
 
     .line 42
-    iput-boolean v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->useLz4:Z
+    iput-boolean v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->useLz4:Z
 
     .line 46
-    new-instance v0, Lar/com/hjg/pngj/pixels/FiltersPerformance;
+    new-instance v1, Lar/com/hjg/pngj/pixels/FiltersPerformance;
 
-    invoke-direct {v0, p1}, Lar/com/hjg/pngj/pixels/FiltersPerformance;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
+    invoke-direct {v1, p1}, Lar/com/hjg/pngj/pixels/FiltersPerformance;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
 
-    iput-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filtersPerf:Lar/com/hjg/pngj/pixels/FiltersPerformance;
+    iput-object v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filtersPerf:Lar/com/hjg/pngj/pixels/FiltersPerformance;
 
     .line 47
-    new-instance v0, Ljava/util/LinkedList;
+    new-instance p1, Ljava/util/LinkedList;
 
-    invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
+    invoke-direct {p1}, Ljava/util/LinkedList;-><init>()V
 
-    iput-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rows:Ljava/util/LinkedList;
+    iput-object p1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rows:Ljava/util/LinkedList;
 
-    .line 48
-    const/4 v0, 0x0
-
-    .local v0, "i":I
     :goto_0
-    const/4 v1, 0x2
+    const/4 p1, 0x2
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, p1, :cond_0
 
     .line 49
-    iget-object v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rows:Ljava/util/LinkedList;
+    iget-object p1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rows:Ljava/util/LinkedList;
 
-    iget v2, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->buflen:I
+    iget v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->buflen:I
 
-    new-array v2, v2, [B
+    new-array v1, v1, [B
 
-    invoke-virtual {v1, v2}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    .line 48
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 50
-    .end local v0    # "i":I
     :cond_0
-    iget v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->buflen:I
+    iget p1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->buflen:I
 
-    new-array v0, v0, [B
+    new-array p1, p1, [B
 
-    iput-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filteredRowTmp:[B
+    iput-object p1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filteredRowTmp:[B
 
-    .line 51
     return-void
 .end method
 
@@ -182,173 +174,159 @@
 
     double-to-int v0, v0
 
-    .line 164
-    .local v0, "r":I
     if-ge v0, v3, :cond_0
-
-    .line 165
-    const/4 v0, 0x1
-
-    .line 166
-    :cond_0
-    iget v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->hintRowsPerBand:I
-
-    if-lez v1, :cond_1
-
-    if-le v0, v1, :cond_1
-
-    .line 167
-    iget v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->hintRowsPerBand:I
-
-    .line 168
-    :cond_1
-    iget-object v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
-
-    iget v1, v1, Lar/com/hjg/pngj/ImageInfo;->rows:I
-
-    if-le v0, v1, :cond_2
-
-    .line 169
-    iget-object v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
-
-    iget v0, v1, Lar/com/hjg/pngj/ImageInfo;->rows:I
-
-    .line 170
-    :cond_2
-    const/4 v1, 0x2
-
-    if-le v0, v1, :cond_3
-
-    iget-object v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
-
-    iget v1, v1, Lar/com/hjg/pngj/ImageInfo;->rows:I
-
-    div-int/lit8 v1, v1, 0x8
-
-    if-le v0, v1, :cond_3
-
-    .line 171
-    iget-object v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
-
-    iget v1, v1, Lar/com/hjg/pngj/ImageInfo;->rows:I
-
-    add-int/lit8 v2, v0, -0x1
-
-    add-int/2addr v1, v2
-
-    div-int/2addr v1, v0
-
-    .line 172
-    .local v1, "k":I
-    iget-object v2, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
-
-    iget v2, v2, Lar/com/hjg/pngj/ImageInfo;->rows:I
-
-    div-int/lit8 v3, v1, 0x2
-
-    add-int/2addr v2, v3
-
-    div-int v0, v2, v1
-
-    .line 174
-    .end local v1    # "k":I
-    :cond_3
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "rows :"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v2, "/"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v2, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
-
-    iget v2, v2, Lar/com/hjg/pngj/ImageInfo;->rows:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lar/com/hjg/pngj/PngHelperInternal;->debug(Ljava/lang/Object;)V
-
-    .line 175
-    return v0
-.end method
-
-.method private getBestCompressor()I
-    .locals 8
-
-    .line 179
-    const-wide v0, 0x7fefffffffffffffL    # Double.MAX_VALUE
-
-    .line 180
-    .local v0, "bestcr":D
-    const/4 v2, -0x1
-
-    .line 181
-    .local v2, "bestb":I
-    iget-boolean v3, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->tryAdaptive:Z
-
-    if-eqz v3, :cond_0
-
-    const/4 v3, 0x5
 
     goto :goto_0
 
     :cond_0
-    const/4 v3, 0x4
+    move v3, v0
 
-    .local v3, "i":I
+    .line 166
     :goto_0
-    if-ltz v3, :cond_2
+    iget v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->hintRowsPerBand:I
+
+    if-lez v0, :cond_1
+
+    if-le v3, v0, :cond_1
+
+    move v3, v0
+
+    .line 168
+    :cond_1
+    iget-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
+
+    iget v0, v0, Lar/com/hjg/pngj/ImageInfo;->rows:I
+
+    if-le v3, v0, :cond_2
+
+    .line 169
+    iget-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
+
+    iget v3, v0, Lar/com/hjg/pngj/ImageInfo;->rows:I
+
+    :cond_2
+    const/4 v0, 0x2
+
+    if-le v3, v0, :cond_3
+
+    .line 170
+    iget-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
+
+    iget v0, v0, Lar/com/hjg/pngj/ImageInfo;->rows:I
+
+    div-int/lit8 v0, v0, 0x8
+
+    if-le v3, v0, :cond_3
+
+    .line 171
+    iget-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
+
+    iget v0, v0, Lar/com/hjg/pngj/ImageInfo;->rows:I
+
+    add-int/lit8 v1, v3, -0x1
+
+    add-int/2addr v0, v1
+
+    div-int/2addr v0, v3
+
+    .line 172
+    iget-object v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
+
+    iget v1, v1, Lar/com/hjg/pngj/ImageInfo;->rows:I
+
+    div-int/lit8 v2, v0, 0x2
+
+    add-int/2addr v1, v2
+
+    div-int v3, v1, v0
+
+    .line 174
+    :cond_3
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "rows :"
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, "/"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
+
+    iget v1, v1, Lar/com/hjg/pngj/ImageInfo;->rows:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lar/com/hjg/pngj/PngHelperInternal;->debug(Ljava/lang/Object;)V
+
+    return v3
+.end method
+
+.method private getBestCompressor()I
+    .locals 7
+
+    .line 181
+    iget-boolean v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->tryAdaptive:Z
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x5
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x4
+
+    :goto_0
+    const-wide v1, 0x7fefffffffffffffL    # Double.MAX_VALUE
+
+    const/4 v3, -0x1
+
+    :goto_1
+    if-ltz v0, :cond_2
 
     .line 182
     iget-object v4, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filterBank:[Lar/com/hjg/pngj/pixels/CompressorStream;
 
-    aget-object v4, v4, v3
+    aget-object v4, v4, v0
 
     .line 183
-    .local v4, "fb":Lar/com/hjg/pngj/pixels/CompressorStream;
     invoke-virtual {v4}, Lar/com/hjg/pngj/pixels/CompressorStream;->getCompressionRatio()D
 
-    move-result-wide v5
+    move-result-wide v4
 
-    .line 184
-    .local v5, "cr":D
-    cmpg-double v7, v5, v0
+    cmpg-double v6, v4, v1
 
-    if-gtz v7, :cond_1
+    if-gtz v6, :cond_1
 
-    .line 186
-    move v2, v3
+    move v3, v0
 
-    .line 187
-    move-wide v0, v5
+    move-wide v1, v4
 
-    .line 181
-    .end local v4    # "fb":Lar/com/hjg/pngj/pixels/CompressorStream;
-    .end local v5    # "cr":D
     :cond_1
-    add-int/lit8 v3, v3, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_1
 
-    .line 190
-    .end local v3    # "i":I
     :cond_2
-    return v2
+    return v3
 .end method
 
 .method private rebuildFiltersBank()V
-    .locals 13
+    .locals 11
 
     .line 141
     iget v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rowsPerBandCurrent:I
@@ -361,30 +339,22 @@
 
     mul-long/2addr v0, v2
 
-    .line 142
-    .local v0, "bytesPerBandCurrent":J
-    const/4 v2, 0x4
+    const/4 v2, 0x0
 
-    .line 143
-    .local v2, "DEFLATER_COMP_LEVEL":I
-    const/4 v3, 0x0
-
-    .local v3, "i":I
     :goto_0
-    const/4 v4, 0x5
+    const/4 v3, 0x5
 
-    if-gt v3, v4, :cond_4
+    if-gt v2, v3, :cond_4
 
     .line 144
-    iget-object v4, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filterBank:[Lar/com/hjg/pngj/pixels/CompressorStream;
+    iget-object v3, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filterBank:[Lar/com/hjg/pngj/pixels/CompressorStream;
 
-    aget-object v11, v4, v3
+    aget-object v3, v3, v2
+
+    if-eqz v3, :cond_1
 
     .line 145
-    .local v11, "cp":Lar/com/hjg/pngj/pixels/CompressorStream;
-    if-eqz v11, :cond_1
-
-    iget-wide v4, v11, Lar/com/hjg/pngj/pixels/CompressorStream;->totalbytes:J
+    iget-wide v4, v3, Lar/com/hjg/pngj/pixels/CompressorStream;->totalbytes:J
 
     cmp-long v4, v4, v0
 
@@ -394,44 +364,37 @@
 
     .line 156
     :cond_0
-    invoke-virtual {v11}, Lar/com/hjg/pngj/pixels/CompressorStream;->reset()V
+    invoke-virtual {v3}, Lar/com/hjg/pngj/pixels/CompressorStream;->reset()V
 
     goto :goto_3
 
-    .line 146
     :cond_1
     :goto_1
-    if-eqz v11, :cond_2
+    if-eqz v3, :cond_2
 
     .line 147
-    invoke-virtual {v11}, Lar/com/hjg/pngj/pixels/CompressorStream;->close()V
+    invoke-virtual {v3}, Lar/com/hjg/pngj/pixels/CompressorStream;->close()V
 
     .line 148
     :cond_2
-    iget-boolean v4, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->useLz4:Z
+    iget-boolean v3, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->useLz4:Z
 
-    if-eqz v4, :cond_3
+    if-eqz v3, :cond_3
 
     .line 149
-    new-instance v4, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;
+    new-instance v3, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    iget v6, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->buflen:I
+    iget v5, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->buflen:I
 
-    invoke-direct {v4, v5, v6, v0, v1}, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;-><init>(Ljava/io/OutputStream;IJ)V
+    invoke-direct {v3, v4, v5, v0, v1}, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;-><init>(Ljava/io/OutputStream;IJ)V
 
-    move-object v11, v4
-
-    .end local v11    # "cp":Lar/com/hjg/pngj/pixels/CompressorStream;
-    .local v4, "cp":Lar/com/hjg/pngj/pixels/CompressorStream;
     goto :goto_2
 
     .line 151
-    .end local v4    # "cp":Lar/com/hjg/pngj/pixels/CompressorStream;
-    .restart local v11    # "cp":Lar/com/hjg/pngj/pixels/CompressorStream;
     :cond_3
-    new-instance v12, Lar/com/hjg/pngj/pixels/CompressorStreamDeflater;
+    new-instance v3, Lar/com/hjg/pngj/pixels/CompressorStreamDeflater;
 
     const/4 v5, 0x0
 
@@ -441,19 +404,17 @@
 
     const/4 v10, 0x0
 
-    move-object v4, v12
+    move-object v4, v3
 
     move-wide v7, v0
 
     invoke-direct/range {v4 .. v10}, Lar/com/hjg/pngj/pixels/CompressorStreamDeflater;-><init>(Ljava/io/OutputStream;IJII)V
 
-    move-object v11, v4
-
     .line 154
     :goto_2
     iget-object v4, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filterBank:[Lar/com/hjg/pngj/pixels/CompressorStream;
 
-    aput-object v11, v4, v3
+    aput-object v3, v4, v2
 
     .line 157
     :goto_3
@@ -461,22 +422,18 @@
 
     const/4 v5, 0x1
 
-    invoke-virtual {v11, v5, v4}, Lar/com/hjg/pngj/pixels/CompressorStream;->setStoreFirstByte(ZI)V
+    invoke-virtual {v3, v5, v4}, Lar/com/hjg/pngj/pixels/CompressorStream;->setStoreFirstByte(ZI)V
 
-    .line 143
-    .end local v11    # "cp":Lar/com/hjg/pngj/pixels/CompressorStream;
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 159
-    .end local v3    # "i":I
     :cond_4
     return-void
 .end method
 
 .method private setBandFromNewRown()V
-    .locals 6
+    .locals 5
 
     .line 115
     iget v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->currentRow:I
@@ -505,18 +462,16 @@
     move v0, v2
 
     .line 116
-    .local v0, "newBand":Z
     :goto_1
     iget v3, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->currentRow:I
 
     if-nez v3, :cond_2
 
-    .line 117
     const/4 v3, -0x1
 
+    .line 117
     iput v3, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->bandNum:I
 
-    .line 118
     :cond_2
     if-eqz v0, :cond_3
 
@@ -540,76 +495,73 @@
 
     iput v3, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rowInBand:I
 
-    .line 124
     :goto_2
     if-eqz v0, :cond_7
 
     .line 125
-    iget v3, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->currentRow:I
+    iget v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->currentRow:I
 
-    iput v3, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->firstRowInThisBand:I
+    iput v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->firstRowInThisBand:I
 
     .line 126
-    iget v4, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rowsPerBand:I
+    iget v3, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rowsPerBand:I
 
-    add-int v5, v3, v4
-
-    sub-int/2addr v5, v2
-
-    iput v5, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->lastRowInThisBand:I
-
-    .line 127
-    mul-int/lit8 v4, v4, 0x2
-
-    add-int/2addr v3, v4
-
-    sub-int/2addr v3, v2
-
-    .line 128
-    .local v3, "lastRowInNextBand":I
-    iget-object v4, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
-
-    iget v4, v4, Lar/com/hjg/pngj/ImageInfo;->rows:I
-
-    if-lt v3, v4, :cond_4
-
-    .line 130
-    iget-object v4, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
-
-    iget v4, v4, Lar/com/hjg/pngj/ImageInfo;->rows:I
+    add-int v4, v0, v3
 
     sub-int/2addr v4, v2
 
     iput v4, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->lastRowInThisBand:I
 
+    mul-int/lit8 v3, v3, 0x2
+
+    add-int/2addr v0, v3
+
+    sub-int/2addr v0, v2
+
+    .line 128
+    iget-object v3, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
+
+    iget v3, v3, Lar/com/hjg/pngj/ImageInfo;->rows:I
+
+    if-lt v0, v3, :cond_4
+
+    .line 130
+    iget-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
+
+    iget v0, v0, Lar/com/hjg/pngj/ImageInfo;->rows:I
+
+    sub-int/2addr v0, v2
+
+    iput v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->lastRowInThisBand:I
+
     .line 131
     :cond_4
-    iget v4, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->lastRowInThisBand:I
+    iget v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->lastRowInThisBand:I
 
-    add-int/2addr v4, v2
+    add-int/2addr v0, v2
 
-    iget v5, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->firstRowInThisBand:I
+    iget v3, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->firstRowInThisBand:I
 
-    sub-int/2addr v4, v5
+    sub-int/2addr v0, v3
 
-    iput v4, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rowsPerBandCurrent:I
+    iput v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rowsPerBandCurrent:I
+
+    const/4 v3, 0x3
+
+    if-le v0, v3, :cond_6
+
+    const/16 v3, 0xa
+
+    if-ge v0, v3, :cond_5
 
     .line 132
-    const/4 v5, 0x3
+    iget-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
 
-    if-le v4, v5, :cond_6
+    iget v0, v0, Lar/com/hjg/pngj/ImageInfo;->bytesPerRow:I
 
-    const/16 v5, 0xa
+    const/16 v3, 0x40
 
-    if-ge v4, v5, :cond_5
-
-    iget-object v4, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
-
-    iget v4, v4, Lar/com/hjg/pngj/ImageInfo;->bytesPerRow:I
-
-    const/16 v5, 0x40
-
-    if-ge v4, v5, :cond_5
+    if-ge v0, v3, :cond_5
 
     goto :goto_3
 
@@ -623,8 +575,6 @@
     .line 136
     invoke-direct {p0}, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rebuildFiltersBank()V
 
-    .line 138
-    .end local v3    # "lastRowInNextBand":I
     :cond_7
     return-void
 .end method
@@ -645,39 +595,28 @@
     .line 212
     iget-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filterBank:[Lar/com/hjg/pngj/pixels/CompressorStream;
 
-    .local v0, "arr$":[Lar/com/hjg/pngj/pixels/CompressorStream;
     array-length v1, v0
 
-    .local v1, "len$":I
     const/4 v2, 0x0
 
-    .local v2, "i$":I
     :goto_0
     if-ge v2, v1, :cond_0
 
     aget-object v3, v0, v2
 
     .line 213
-    .local v3, "f":Lar/com/hjg/pngj/pixels/CompressorStream;
     invoke-virtual {v3}, Lar/com/hjg/pngj/pixels/CompressorStream;->close()V
 
-    .line 212
-    .end local v3    # "f":Lar/com/hjg/pngj/pixels/CompressorStream;
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 215
-    .end local v0    # "arr$":[Lar/com/hjg/pngj/pixels/CompressorStream;
-    .end local v1    # "len$":I
-    .end local v2    # "i$":I
     :cond_0
     return-void
 .end method
 
 .method protected filterAndWrite([B)V
-    .locals 12
-    .param p1, "rowb"    # [B
+    .locals 9
 
     .line 55
     iget-boolean v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->initdone:Z
@@ -714,25 +653,20 @@
     check-cast v0, [B
 
     .line 61
-    .local v0, "rowbprev":[B
     invoke-static {}, Lar/com/hjg/pngj/FilterType;->getAllStandardNoneLast()[Lar/com/hjg/pngj/FilterType;
 
     move-result-object v2
 
-    .local v2, "arr$":[Lar/com/hjg/pngj/FilterType;
     array-length v3, v2
 
-    .local v3, "len$":I
-    const/4 v4, 0x0
+    move v4, v1
 
-    .local v4, "i$":I
     :goto_0
     if-ge v4, v3, :cond_4
 
     aget-object v5, v2, v4
 
     .line 64
-    .local v5, "ftype":Lar/com/hjg/pngj/FilterType;
     iget v6, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->currentRow:I
 
     if-nez v6, :cond_1
@@ -745,7 +679,6 @@
 
     if-eq v5, v6, :cond_1
 
-    .line 65
     goto :goto_1
 
     .line 66
@@ -761,7 +694,6 @@
     move-result-object v6
 
     .line 67
-    .local v6, "filtered":[B
     iget-object v7, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filterBank:[Lar/com/hjg/pngj/pixels/CompressorStream;
 
     iget v8, v5, Lar/com/hjg/pngj/FilterType;->val:I
@@ -825,9 +757,6 @@
 
     invoke-virtual {v7, v5, v6, v8}, Lar/com/hjg/pngj/pixels/FiltersPerformance;->updateFromFiltered(Lar/com/hjg/pngj/FilterType;[BI)V
 
-    .line 61
-    .end local v5    # "ftype":Lar/com/hjg/pngj/FilterType;
-    .end local v6    # "filtered":[B
     :cond_3
     :goto_1
     add-int/lit8 v4, v4, 0x1
@@ -835,207 +764,171 @@
     goto :goto_0
 
     .line 78
-    .end local v2    # "arr$":[Lar/com/hjg/pngj/FilterType;
-    .end local v3    # "len$":I
-    .end local v4    # "i$":I
     :cond_4
-    iget-object v2, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filteredRows:[[B
+    iget-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filteredRows:[[B
 
-    aput-object p1, v2, v1
+    aput-object p1, v0, v1
 
     .line 79
-    iget-boolean v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->tryAdaptive:Z
+    iget-boolean p1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->tryAdaptive:Z
 
-    if-eqz v1, :cond_5
+    if-eqz p1, :cond_5
 
     .line 80
-    iget-object v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filtersPerf:Lar/com/hjg/pngj/pixels/FiltersPerformance;
+    iget-object p1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filtersPerf:Lar/com/hjg/pngj/pixels/FiltersPerformance;
 
-    invoke-virtual {v1}, Lar/com/hjg/pngj/pixels/FiltersPerformance;->getPreferred()Lar/com/hjg/pngj/FilterType;
+    invoke-virtual {p1}, Lar/com/hjg/pngj/pixels/FiltersPerformance;->getPreferred()Lar/com/hjg/pngj/FilterType;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 81
-    .local v1, "preferredAdaptive":Lar/com/hjg/pngj/FilterType;
-    iget-object v2, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filterBank:[Lar/com/hjg/pngj/pixels/CompressorStream;
+    iget-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filterBank:[Lar/com/hjg/pngj/pixels/CompressorStream;
 
-    const/4 v3, 0x5
+    const/4 v2, 0x5
 
-    aget-object v2, v2, v3
+    aget-object v0, v0, v2
 
-    iget-object v3, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filteredRows:[[B
+    iget-object v2, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filteredRows:[[B
 
-    iget v4, v1, Lar/com/hjg/pngj/FilterType;->val:I
+    iget p1, p1, Lar/com/hjg/pngj/FilterType;->val:I
 
-    aget-object v3, v3, v4
+    aget-object p1, v2, p1
 
-    invoke-virtual {v2, v3}, Lar/com/hjg/pngj/pixels/CompressorStream;->write([B)V
+    invoke-virtual {v0, p1}, Lar/com/hjg/pngj/pixels/CompressorStream;->write([B)V
 
     .line 83
-    .end local v1    # "preferredAdaptive":Lar/com/hjg/pngj/FilterType;
     :cond_5
-    iget v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->currentRow:I
+    iget p1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->currentRow:I
 
-    iget v2, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->lastRowInThisBand:I
+    iget v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->lastRowInThisBand:I
 
-    if-ne v1, v2, :cond_7
+    if-ne p1, v0, :cond_7
 
     .line 84
     invoke-direct {p0}, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->getBestCompressor()I
 
-    move-result v1
+    move-result p1
 
     .line 87
-    .local v1, "best":I
-    iget-object v2, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filterBank:[Lar/com/hjg/pngj/pixels/CompressorStream;
+    iget-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filterBank:[Lar/com/hjg/pngj/pixels/CompressorStream;
 
-    aget-object v2, v2, v1
+    aget-object p1, v0, p1
 
-    invoke-virtual {v2}, Lar/com/hjg/pngj/pixels/CompressorStream;->getFirstBytes()[B
+    invoke-virtual {p1}, Lar/com/hjg/pngj/pixels/CompressorStream;->getFirstBytes()[B
 
-    move-result-object v2
+    move-result-object p1
 
     .line 88
-    .local v2, "filtersAdapt":[B
-    iget v3, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->firstRowInThisBand:I
+    iget v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->firstRowInThisBand:I
 
-    .local v3, "r":I
-    const/4 v4, 0x0
+    iget v2, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->lastRowInThisBand:I
 
-    .local v4, "i":I
-    iget v5, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->lastRowInThisBand:I
+    sub-int/2addr v2, v0
 
-    iget v6, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->firstRowInThisBand:I
-
-    sub-int/2addr v5, v6
-
-    .local v5, "j":I
     :goto_2
-    iget v6, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->lastRowInThisBand:I
+    iget v3, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->lastRowInThisBand:I
 
-    if-gt v3, v6, :cond_7
+    if-gt v0, v3, :cond_7
 
     .line 89
-    aget-byte v7, v2, v4
+    aget-byte v4, p1, v1
 
-    .line 90
-    .local v7, "fti":I
-    const/4 v8, 0x0
-
-    .line 91
-    .local v8, "filtered":[B
-    if-eq v3, v6, :cond_6
+    if-eq v0, v3, :cond_6
 
     .line 92
-    invoke-static {v7}, Lar/com/hjg/pngj/FilterType;->getByVal(I)Lar/com/hjg/pngj/FilterType;
+    invoke-static {v4}, Lar/com/hjg/pngj/FilterType;->getByVal(I)Lar/com/hjg/pngj/FilterType;
 
-    move-result-object v6
+    move-result-object v3
 
-    iget-object v9, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rows:Ljava/util/LinkedList;
+    iget-object v4, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rows:Ljava/util/LinkedList;
 
-    invoke-virtual {v9, v5}, Ljava/util/LinkedList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v4, v2}, Ljava/util/LinkedList;->get(I)Ljava/lang/Object;
 
-    move-result-object v9
+    move-result-object v4
 
-    check-cast v9, [B
+    check-cast v4, [B
 
-    iget-object v10, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rows:Ljava/util/LinkedList;
+    iget-object v5, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rows:Ljava/util/LinkedList;
 
-    add-int/lit8 v11, v5, 0x1
+    add-int/lit8 v6, v2, 0x1
 
-    invoke-virtual {v10, v11}, Ljava/util/LinkedList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v5, v6}, Ljava/util/LinkedList;->get(I)Ljava/lang/Object;
 
-    move-result-object v10
+    move-result-object v5
 
-    check-cast v10, [B
+    check-cast v5, [B
 
-    iget-object v11, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filteredRowTmp:[B
+    iget-object v6, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filteredRowTmp:[B
 
-    invoke-virtual {p0, v6, v9, v10, v11}, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filterRowWithFilterType(Lar/com/hjg/pngj/FilterType;[B[B[B)[B
+    invoke-virtual {p0, v3, v4, v5, v6}, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filterRowWithFilterType(Lar/com/hjg/pngj/FilterType;[B[B[B)[B
 
-    move-result-object v6
+    move-result-object v3
 
-    .end local v8    # "filtered":[B
-    .restart local v6    # "filtered":[B
     goto :goto_3
 
     .line 96
-    .end local v6    # "filtered":[B
-    .restart local v8    # "filtered":[B
     :cond_6
-    iget-object v6, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filteredRows:[[B
+    iget-object v3, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filteredRows:[[B
 
-    aget-object v6, v6, v7
+    aget-object v3, v3, v4
 
     .line 98
-    .end local v8    # "filtered":[B
-    .restart local v6    # "filtered":[B
     :goto_3
-    invoke-virtual {p0, v6}, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->sendToCompressedStream([B)V
+    invoke-virtual {p0, v3}, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->sendToCompressedStream([B)V
 
-    .line 88
-    .end local v6    # "filtered":[B
-    .end local v7    # "fti":I
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    add-int/lit8 v5, v5, -0x1
+    add-int/lit8 v2, v2, -0x1
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_2
 
     .line 102
-    .end local v1    # "best":I
-    .end local v2    # "filtersAdapt":[B
-    .end local v3    # "r":I
-    .end local v4    # "i":I
-    .end local v5    # "j":I
     :cond_7
-    iget-object v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rows:Ljava/util/LinkedList;
+    iget-object p1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rows:Ljava/util/LinkedList;
 
-    invoke-virtual {v1}, Ljava/util/LinkedList;->size()I
+    invoke-virtual {p1}, Ljava/util/LinkedList;->size()I
 
-    move-result v1
+    move-result p1
 
-    iget v2, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rowsPerBandCurrent:I
+    iget v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rowsPerBandCurrent:I
 
-    if-le v1, v2, :cond_8
+    if-le p1, v0, :cond_8
 
     .line 103
-    iget-object v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rows:Ljava/util/LinkedList;
+    iget-object p1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rows:Ljava/util/LinkedList;
 
-    invoke-virtual {v1}, Ljava/util/LinkedList;->removeLast()Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/util/LinkedList;->removeLast()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/util/LinkedList;->addFirst(Ljava/lang/Object;)V
+    invoke-virtual {p1, v0}, Ljava/util/LinkedList;->addFirst(Ljava/lang/Object;)V
 
     goto :goto_4
 
     .line 105
     :cond_8
-    iget-object v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rows:Ljava/util/LinkedList;
+    iget-object p1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rows:Ljava/util/LinkedList;
 
-    iget v2, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->buflen:I
+    iget v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->buflen:I
 
-    new-array v2, v2, [B
+    new-array v0, v0, [B
 
-    invoke-virtual {v1, v2}, Ljava/util/LinkedList;->addFirst(Ljava/lang/Object;)V
+    invoke-virtual {p1, v0}, Ljava/util/LinkedList;->addFirst(Ljava/lang/Object;)V
 
-    .line 106
     :goto_4
     return-void
 
     .line 58
-    .end local v0    # "rowbprev":[B
     :cond_9
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    const-string v1, "?"
+    const-string v0, "?"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public getFiltersPerf()Lar/com/hjg/pngj/pixels/FiltersPerformance;
@@ -1110,11 +1003,9 @@
 
     iput-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filterType:Lar/com/hjg/pngj/FilterType;
 
-    .line 200
     :cond_1
     const/4 v0, 0x1
 
-    .local v0, "i":I
     :goto_0
     const/4 v1, 0x4
 
@@ -1123,11 +1014,9 @@
     .line 201
     iget-object v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->filteredRows:[[B
 
-    aget-object v2, v1, v0
-
-    if-eqz v2, :cond_2
-
     aget-object v1, v1, v0
+
+    if-eqz v1, :cond_2
 
     array-length v1, v1
 
@@ -1145,14 +1034,12 @@
 
     aput-object v2, v1, v0
 
-    .line 200
     :cond_3
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 204
-    .end local v0    # "i":I
     :cond_4
     iget v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rowsPerBand:I
 
@@ -1165,57 +1052,48 @@
 
     iput v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->rowsPerBand:I
 
-    .line 206
     :cond_5
     return-void
 .end method
 
 .method public setHintMemoryKb(I)V
     .locals 1
-    .param p1, "hintMemoryKb"    # I
-
-    .line 218
-    const/16 v0, 0x2710
 
     if-gtz p1, :cond_0
 
-    const/16 v0, 0x64
+    const/16 p1, 0x64
 
     goto :goto_0
 
     :cond_0
+    const/16 v0, 0x2710
+
     if-le p1, v0, :cond_1
 
-    goto :goto_0
+    move p1, v0
 
+    .line 218
     :cond_1
-    move v0, p1
-
     :goto_0
-    iput v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->hintMemoryKb:I
+    iput p1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->hintMemoryKb:I
 
-    .line 220
     return-void
 .end method
 
 .method public setHintRowsPerBand(I)V
     .locals 0
-    .param p1, "hintRowsPerBand"    # I
 
     .line 223
     iput p1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->hintRowsPerBand:I
 
-    .line 224
     return-void
 .end method
 
 .method public setUseLz4(Z)V
     .locals 0
-    .param p1, "lz4"    # Z
 
     .line 227
     iput-boolean p1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterMultiple;->useLz4:Z
 
-    .line 228
     return-void
 .end method

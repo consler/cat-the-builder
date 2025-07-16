@@ -39,15 +39,6 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/files/FileHandle;FFZLcom/badlogic/gdx/graphics/Pixmap$Format;Lcom/badlogic/gdx/graphics/Texture$TextureFilter;Lcom/badlogic/gdx/graphics/Texture$TextureFilter;Lcom/badlogic/gdx/graphics/Texture$TextureWrap;Lcom/badlogic/gdx/graphics/Texture$TextureWrap;)V
     .locals 0
-    .param p1, "handle"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p2, "width"    # F
-    .param p3, "height"    # F
-    .param p4, "useMipMaps"    # Z
-    .param p5, "format"    # Lcom/badlogic/gdx/graphics/Pixmap$Format;
-    .param p6, "minFilter"    # Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
-    .param p7, "magFilter"    # Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
-    .param p8, "uWrap"    # Lcom/badlogic/gdx/graphics/Texture$TextureWrap;
-    .param p9, "vWrap"    # Lcom/badlogic/gdx/graphics/Texture$TextureWrap;
 
     .line 68
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -79,6 +70,5 @@
     .line 77
     iput-object p9, p0, Lcom/badlogic/gdx/graphics/g2d/TextureAtlas$TextureAtlasData$Page;->vWrap:Lcom/badlogic/gdx/graphics/Texture$TextureWrap;
 
-    .line 78
     return-void
 .end method

@@ -17,12 +17,10 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .param p1, "message"    # Ljava/lang/String;
 
     .line 357
     invoke-direct {p0, p1}, Ljava/lang/Throwable;-><init>(Ljava/lang/String;)V
 
-    .line 358
     return-void
 .end method
 

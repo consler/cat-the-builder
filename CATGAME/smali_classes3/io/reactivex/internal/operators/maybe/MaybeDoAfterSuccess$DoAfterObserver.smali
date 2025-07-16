@@ -66,9 +66,6 @@
     .end annotation
 
     .line 52
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver;, "Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
-    .local p2, "onAfterSuccess":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 53
@@ -77,7 +74,6 @@
     .line 54
     iput-object p2, p0, Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver;->onAfterSuccess:Lio/reactivex/functions/Consumer;
 
-    .line 55
     return-void
 .end method
 
@@ -87,12 +83,10 @@
     .locals 1
 
     .line 91
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver;, "Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver;->d:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 92
     return-void
 .end method
 
@@ -100,7 +94,6 @@
     .locals 1
 
     .line 96
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver;, "Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver;->d:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->isDisposed()Z
@@ -114,35 +107,28 @@
     .locals 1
 
     .line 86
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver;, "Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver;->actual:Lio/reactivex/MaybeObserver;
 
     invoke-interface {v0}, Lio/reactivex/MaybeObserver;->onComplete()V
 
-    .line 87
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 81
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver;, "Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver;->actual:Lio/reactivex/MaybeObserver;
 
     invoke-interface {v0, p1}, Lio/reactivex/MaybeObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 82
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 59
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver;, "Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver;->d:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -155,11 +141,10 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver;->d:Lio/reactivex/disposables/Disposable;
 
     .line 62
-    iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver;->actual:Lio/reactivex/MaybeObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver;->actual:Lio/reactivex/MaybeObserver;
 
-    invoke-interface {v0, p0}, Lio/reactivex/MaybeObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/MaybeObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 64
     :cond_0
     return-void
 .end method
@@ -173,8 +158,6 @@
     .end annotation
 
     .line 68
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver;, "Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver;->actual:Lio/reactivex/MaybeObserver;
 
     invoke-interface {v0, p1}, Lio/reactivex/MaybeObserver;->onSuccess(Ljava/lang/Object;)V
@@ -187,22 +170,17 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 76
     goto :goto_0
 
-    .line 72
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     .line 73
-    .local v0, "ex":Ljava/lang/Throwable;
-    invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 75
-    invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 77
-    .end local v0    # "ex":Ljava/lang/Throwable;
     :goto_0
     return-void
 .end method

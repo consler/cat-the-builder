@@ -17,12 +17,9 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "rcc"    # Ljava/lang/Object;
 
     .line 111
     invoke-direct {p0, p1, p2}, Landroidx/mediarouter/media/RemoteControlClientCompat;-><init>(Landroid/content/Context;Ljava/lang/Object;)V
 
-    .line 112
     return-void
 .end method

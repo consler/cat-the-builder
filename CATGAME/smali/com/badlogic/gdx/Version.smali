@@ -17,18 +17,17 @@
 .method static constructor <clinit>()V
     .locals 5
 
-    .line 39
     :try_start_0
     const-string v0, "1.9.10"
 
     const-string v1, "\\."
 
+    .line 39
     invoke-virtual {v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v0
 
     .line 40
-    .local v0, "v":[Ljava/lang/String;
     array-length v1, v0
 
     const/4 v2, 0x1
@@ -87,40 +86,30 @@
 
     if-ge v1, v2, :cond_2
 
-    :goto_2
-    goto :goto_3
+    goto :goto_2
 
     :cond_2
-    aget-object v1, v0, v4
+    aget-object v0, v0, v4
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v3
 
-    goto :goto_2
-
-    :goto_3
+    :goto_2
     sput v3, Lcom/badlogic/gdx/Version;->REVISION:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 47
-    .end local v0    # "v":[Ljava/lang/String;
-    nop
-
-    .line 48
     return-void
 
-    .line 44
     :catchall_0
     move-exception v0
 
     .line 46
-    .local v0, "t":Ljava/lang/Throwable;
     new-instance v1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
     const-string v2, "Invalid version 1.9.10"
@@ -140,26 +129,20 @@
 .end method
 
 .method public static isHigher(III)Z
-    .locals 1
-    .param p0, "major"    # I
-    .param p1, "minor"    # I
-    .param p2, "revision"    # I
+    .locals 0
+
+    add-int/lit8 p2, p2, 0x1
 
     .line 51
-    add-int/lit8 v0, p2, 0x1
+    invoke-static {p0, p1, p2}, Lcom/badlogic/gdx/Version;->isHigherEqual(III)Z
 
-    invoke-static {p0, p1, v0}, Lcom/badlogic/gdx/Version;->isHigherEqual(III)Z
+    move-result p0
 
-    move-result v0
-
-    return v0
+    return p0
 .end method
 
 .method public static isHigherEqual(III)Z
     .locals 3
-    .param p0, "major"    # I
-    .param p1, "minor"    # I
-    .param p2, "revision"    # I
 
     .line 55
     sget v0, Lcom/badlogic/gdx/Version;->MAJOR:I
@@ -170,7 +153,6 @@
 
     if-eq v0, p0, :cond_1
 
-    .line 56
     if-le v0, p0, :cond_0
 
     goto :goto_0
@@ -183,12 +165,11 @@
 
     .line 57
     :cond_1
-    sget v0, Lcom/badlogic/gdx/Version;->MINOR:I
+    sget p0, Lcom/badlogic/gdx/Version;->MINOR:I
 
-    if-eq v0, p1, :cond_3
+    if-eq p0, p1, :cond_3
 
-    .line 58
-    if-le v0, p1, :cond_2
+    if-le p0, p1, :cond_2
 
     goto :goto_1
 
@@ -200,9 +181,9 @@
 
     .line 59
     :cond_3
-    sget v0, Lcom/badlogic/gdx/Version;->REVISION:I
+    sget p0, Lcom/badlogic/gdx/Version;->REVISION:I
 
-    if-lt v0, p2, :cond_4
+    if-lt p0, p2, :cond_4
 
     goto :goto_2
 
@@ -214,26 +195,20 @@
 .end method
 
 .method public static isLower(III)Z
-    .locals 1
-    .param p0, "major"    # I
-    .param p1, "minor"    # I
-    .param p2, "revision"    # I
+    .locals 0
+
+    add-int/lit8 p2, p2, -0x1
 
     .line 63
-    add-int/lit8 v0, p2, -0x1
+    invoke-static {p0, p1, p2}, Lcom/badlogic/gdx/Version;->isLowerEqual(III)Z
 
-    invoke-static {p0, p1, v0}, Lcom/badlogic/gdx/Version;->isLowerEqual(III)Z
+    move-result p0
 
-    move-result v0
-
-    return v0
+    return p0
 .end method
 
 .method public static isLowerEqual(III)Z
     .locals 3
-    .param p0, "major"    # I
-    .param p1, "minor"    # I
-    .param p2, "revision"    # I
 
     .line 67
     sget v0, Lcom/badlogic/gdx/Version;->MAJOR:I
@@ -244,7 +219,6 @@
 
     if-eq v0, p0, :cond_1
 
-    .line 68
     if-ge v0, p0, :cond_0
 
     goto :goto_0
@@ -257,12 +231,11 @@
 
     .line 69
     :cond_1
-    sget v0, Lcom/badlogic/gdx/Version;->MINOR:I
+    sget p0, Lcom/badlogic/gdx/Version;->MINOR:I
 
-    if-eq v0, p1, :cond_3
+    if-eq p0, p1, :cond_3
 
-    .line 70
-    if-ge v0, p1, :cond_2
+    if-ge p0, p1, :cond_2
 
     goto :goto_1
 
@@ -274,9 +247,9 @@
 
     .line 71
     :cond_3
-    sget v0, Lcom/badlogic/gdx/Version;->REVISION:I
+    sget p0, Lcom/badlogic/gdx/Version;->REVISION:I
 
-    if-gt v0, p2, :cond_4
+    if-gt p0, p2, :cond_4
 
     goto :goto_2
 

@@ -29,8 +29,7 @@
 
 # direct methods
 .method protected constructor <init>(Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy;)V
-    .locals 2
-    .param p1, "this$0"    # Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy;
+    .locals 1
 
     .line 89
     iput-object p1, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;->this$0:Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy;
@@ -38,41 +37,35 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 91
-    iget-object v0, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;->this$0:Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy;
-
-    invoke-static {v0}, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy;->access$100(Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy;)Ljava/io/File;
+    invoke-static {p1}, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy;->access$100(Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy;)Ljava/io/File;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;->this$0:Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy;
+    invoke-static {p1}, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy;->access$000(Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy;)Ljava/io/FilenameFilter;
 
-    invoke-static {v1}, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy;->access$000(Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy;)Ljava/io/FilenameFilter;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {v0, p1}, Ljava/io/File;->listFiles(Ljava/io/FilenameFilter;)[Ljava/io/File;
 
-    invoke-virtual {v0, v1}, Ljava/io/File;->listFiles(Ljava/io/FilenameFilter;)[Ljava/io/File;
+    move-result-object p1
 
-    move-result-object v0
+    iput-object p1, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;->files:[Ljava/io/File;
 
-    iput-object v0, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;->files:[Ljava/io/File;
+    const/4 p1, -0x1
 
     .line 93
-    const/4 v0, -0x1
+    iput p1, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;->position:I
 
-    iput v0, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;->position:I
+    const/4 p1, 0x0
 
     .line 95
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;->current:Ljava/io/File;
+    iput-object p1, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;->current:Ljava/io/File;
 
     return-void
 .end method
 
 .method static synthetic access$202(Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;Ljava/io/File;)Ljava/io/File;
     .locals 0
-    .param p0, "x0"    # Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;
-    .param p1, "x1"    # Ljava/io/File;
 
     .line 89
     iput-object p1, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;->current:Ljava/io/File;
@@ -81,18 +74,16 @@
 .end method
 
 .method static synthetic access$300(Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;)[Ljava/io/File;
-    .locals 1
-    .param p0, "x0"    # Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;
+    .locals 0
 
     .line 89
-    iget-object v0, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;->files:[Ljava/io/File;
+    iget-object p0, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;->files:[Ljava/io/File;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$404(Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;)I
     .locals 1
-    .param p0, "x0"    # Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;
 
     .line 89
     iget v0, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;->position:I
@@ -105,13 +96,12 @@
 .end method
 
 .method static synthetic access$500(Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;)Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy;
-    .locals 1
-    .param p0, "x0"    # Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;
+    .locals 0
 
     .line 89
-    iget-object v0, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;->this$0:Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy;
+    iget-object p0, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$XmlMapEntriesIterator;->this$0:Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy;
 
-    return-object v0
+    return-object p0
 .end method
 
 
@@ -163,7 +153,6 @@
     .line 106
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
-    .line 107
     return-void
 
     .line 103

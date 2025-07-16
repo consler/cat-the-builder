@@ -24,7 +24,6 @@
 # direct methods
 .method protected constructor <init>(Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy;
 
     .line 83
     iput-object p1, p0, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy$ValidFilenameFilter;->this$0:Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy;
@@ -38,8 +37,6 @@
 # virtual methods
 .method public accept(Ljava/io/File;Ljava/lang/String;)Z
     .locals 1
-    .param p1, "dir"    # Ljava/io/File;
-    .param p2, "name"    # Ljava/lang/String;
 
     .line 85
     new-instance v0, Ljava/io/File;
@@ -56,17 +53,17 @@
 
     invoke-virtual {v0, p1, p2}, Lcom/thoughtworks/xstream/persistence/AbstractFilePersistenceStrategy;->isValid(Ljava/io/File;Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method

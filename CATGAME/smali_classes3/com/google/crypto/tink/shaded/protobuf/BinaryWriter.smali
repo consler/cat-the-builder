@@ -46,8 +46,6 @@
 # direct methods
 .method private constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;I)V
     .locals 2
-    .param p1, "alloc"    # Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;
-    .param p2, "chunkSize"    # I
 
     .line 145
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/ByteOutput;-><init>()V
@@ -61,42 +59,37 @@
 
     iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->buffers:Ljava/util/ArrayDeque;
 
-    .line 146
     if-lez p2, :cond_0
 
-    .line 149
     const-string v0, "alloc"
 
+    .line 149
     invoke-static {p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;
 
-    iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->alloc:Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;
+    iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->alloc:Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;
 
     .line 150
     iput p2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->chunkSize:I
 
-    .line 151
     return-void
 
     .line 147
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "chunkSize must be > 0"
+    const-string p2, "chunkSize must be > 0"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;ILcom/google/crypto/tink/shaded/protobuf/BinaryWriter$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;
-    .param p2, "x1"    # I
-    .param p3, "x2"    # Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$1;
 
     .line 69
     invoke-direct {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;-><init>(Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;I)V
@@ -105,22 +98,19 @@
 .end method
 
 .method static synthetic access$200(J)B
-    .locals 1
-    .param p0, "x0"    # J
+    .locals 0
 
     .line 69
     invoke-static {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->computeUInt64SizeNoTag(J)B
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method private static computeUInt64SizeNoTag(J)B
     .locals 6
-    .param p0, "value"    # J
 
-    .line 890
     const-wide/16 v0, -0x80
 
     and-long/2addr v0, p0
@@ -131,48 +121,42 @@
 
     if-nez v0, :cond_0
 
-    .line 892
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 
-    .line 894
     :cond_0
     cmp-long v0, p0, v2
 
     if-gez v0, :cond_1
 
-    .line 896
-    const/16 v0, 0xa
+    const/16 p0, 0xa
 
-    return v0
+    return p0
 
-    .line 899
     :cond_1
-    const/4 v0, 0x2
+    const-wide v0, -0x800000000L
 
-    .line 900
-    .local v0, "n":B
-    const-wide v4, -0x800000000L
+    and-long/2addr v0, p0
 
-    and-long/2addr v4, p0
+    cmp-long v0, v0, v2
 
-    cmp-long v1, v4, v2
+    if-eqz v0, :cond_2
 
-    if-eqz v1, :cond_2
+    const/4 v0, 0x6
 
-    .line 902
-    add-int/lit8 v1, v0, 0x4
+    int-to-byte v0, v0
 
-    int-to-byte v0, v1
-
-    .line 903
     const/16 v1, 0x1c
 
     ushr-long/2addr p0, v1
 
-    .line 905
+    goto :goto_0
+
     :cond_2
+    const/4 v0, 0x2
+
+    :goto_0
     const-wide/32 v4, -0x200000
 
     and-long/2addr v4, p0
@@ -181,32 +165,27 @@
 
     if-eqz v1, :cond_3
 
-    .line 907
-    add-int/lit8 v1, v0, 0x2
+    add-int/lit8 v0, v0, 0x2
 
-    int-to-byte v0, v1
+    int-to-byte v0, v0
 
-    .line 908
     const/16 v1, 0xe
 
     ushr-long/2addr p0, v1
 
-    .line 910
     :cond_3
     const-wide/16 v4, -0x4000
 
-    and-long/2addr v4, p0
+    and-long/2addr p0, v4
 
-    cmp-long v1, v4, v2
+    cmp-long p0, p0, v2
 
-    if-eqz v1, :cond_4
+    if-eqz p0, :cond_4
 
-    .line 912
-    add-int/lit8 v1, v0, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    int-to-byte v0, v1
+    int-to-byte v0, v0
 
-    .line 914
     :cond_4
     return v0
 .end method
@@ -235,22 +214,19 @@
 
 .method public static newDirectInstance(Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;)Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;
     .locals 1
-    .param p0, "alloc"    # Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;
 
-    .line 101
     const/16 v0, 0x1000
 
+    .line 101
     invoke-static {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->newDirectInstance(Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;I)Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static newDirectInstance(Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;I)Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;
     .locals 1
-    .param p0, "alloc"    # Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;
-    .param p1, "chunkSize"    # I
 
     .line 109
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->isUnsafeDirectSupported()Z
@@ -262,7 +238,7 @@
     .line 110
     invoke-static {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->newUnsafeDirectInstance(Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;I)Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;
 
-    move-result-object v0
+    move-result-object p0
 
     goto :goto_0
 
@@ -270,31 +246,27 @@
     :cond_0
     invoke-static {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->newSafeDirectInstance(Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;I)Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;
 
-    move-result-object v0
+    move-result-object p0
 
-    .line 109
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public static newHeapInstance(Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;)Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;
     .locals 1
-    .param p0, "alloc"    # Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;
 
-    .line 83
     const/16 v0, 0x1000
 
+    .line 83
     invoke-static {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->newHeapInstance(Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;I)Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static newHeapInstance(Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;I)Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;
     .locals 1
-    .param p0, "alloc"    # Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;
-    .param p1, "chunkSize"    # I
 
     .line 91
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->isUnsafeHeapSupported()Z
@@ -306,7 +278,7 @@
     .line 92
     invoke-static {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->newUnsafeHeapInstance(Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;I)Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;
 
-    move-result-object v0
+    move-result-object p0
 
     goto :goto_0
 
@@ -314,17 +286,14 @@
     :cond_0
     invoke-static {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->newSafeHeapInstance(Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;I)Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;
 
-    move-result-object v0
+    move-result-object p0
 
-    .line 91
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method static newSafeDirectInstance(Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;I)Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;
     .locals 1
-    .param p0, "alloc"    # Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;
-    .param p1, "chunkSize"    # I
 
     .line 134
     new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeDirectWriter;
@@ -336,8 +305,6 @@
 
 .method static newSafeHeapInstance(Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;I)Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;
     .locals 1
-    .param p0, "alloc"    # Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;
-    .param p1, "chunkSize"    # I
 
     .line 123
     new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;
@@ -348,9 +315,7 @@
 .end method
 
 .method static newUnsafeDirectInstance(Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;I)Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;
-    .locals 2
-    .param p0, "alloc"    # Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;
-    .param p1, "chunkSize"    # I
+    .locals 1
 
     .line 138
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->isUnsafeDirectSupported()Z
@@ -368,19 +333,17 @@
 
     .line 139
     :cond_0
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p0, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "Unsafe operations not supported"
+    const-string p1, "Unsafe operations not supported"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method static newUnsafeHeapInstance(Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;I)Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;
-    .locals 2
-    .param p0, "alloc"    # Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;
-    .param p1, "chunkSize"    # I
+    .locals 1
 
     .line 127
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->isUnsafeHeapSupported()Z
@@ -398,125 +361,107 @@
 
     .line 128
     :cond_0
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p0, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "Unsafe operations not supported"
+    const-string p1, "Unsafe operations not supported"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method private final writeBoolList_Internal(ILcom/google/crypto/tink/shaded/protobuf/BooleanArrayList;Z)V
-    .locals 3
-    .param p1, "fieldNumber"    # I
-    .param p2, "list"    # Lcom/google/crypto/tink/shaded/protobuf/BooleanArrayList;
-    .param p3, "packed"    # Z
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 518
     if-eqz p3, :cond_1
 
     .line 519
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/BooleanArrayList;->size()I
 
-    move-result v0
+    move-result p3
 
-    add-int/lit8 v0, v0, 0xa
+    add-int/lit8 p3, p3, 0xa
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
+    invoke-virtual {p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
 
     .line 520
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v0
+    move-result p3
 
     .line 521
-    .local v0, "prevBytes":I
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/BooleanArrayList;->size()I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, -0x1
+
+    :goto_0
+    if-ltz v0, :cond_0
+
+    .line 522
+    invoke-virtual {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/BooleanArrayList;->getBoolean(I)Z
 
     move-result v1
 
-    add-int/lit8 v1, v1, -0x1
+    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeBool(Z)V
 
-    .local v1, "i":I
-    :goto_0
-    if-ltz v1, :cond_0
-
-    .line 522
-    invoke-virtual {p2, v1}, Lcom/google/crypto/tink/shaded/protobuf/BooleanArrayList;->getBoolean(I)Z
-
-    move-result v2
-
-    invoke-virtual {p0, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeBool(Z)V
-
-    .line 521
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
     .line 524
-    .end local v1    # "i":I
     :cond_0
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v1
+    move-result p2
 
-    sub-int/2addr v1, v0
+    sub-int/2addr p2, p3
 
     .line 525
-    .local v1, "length":I
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+
+    const/4 p2, 0x2
 
     .line 526
-    const/4 v2, 0x2
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
 
-    invoke-virtual {p0, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
-
-    .line 527
-    .end local v0    # "prevBytes":I
-    .end local v1    # "length":I
     goto :goto_2
 
     .line 528
     :cond_1
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/BooleanArrayList;->size()I
 
-    move-result v0
+    move-result p3
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p3, p3, -0x1
 
-    .local v0, "i":I
     :goto_1
-    if-ltz v0, :cond_2
+    if-ltz p3, :cond_2
 
     .line 529
-    invoke-virtual {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/BooleanArrayList;->getBoolean(I)Z
+    invoke-virtual {p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BooleanArrayList;->getBoolean(I)Z
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {p0, p1, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeBool(IZ)V
+    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeBool(IZ)V
 
-    .line 528
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p3, p3, -0x1
 
     goto :goto_1
 
-    .line 532
-    .end local v0    # "i":I
     :cond_2
     :goto_2
     return-void
 .end method
 
 .method private final writeBoolList_Internal(ILjava/util/List;Z)V
-    .locals 3
-    .param p1, "fieldNumber"    # I
-    .param p3, "packed"    # Z
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -532,90 +477,33 @@
         }
     .end annotation
 
-    .line 500
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Boolean;>;"
     if-eqz p3, :cond_1
 
     .line 501
     invoke-interface {p2}, Ljava/util/List;->size()I
 
-    move-result v0
+    move-result p3
 
-    add-int/lit8 v0, v0, 0xa
+    add-int/lit8 p3, p3, 0xa
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
+    invoke-virtual {p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
 
     .line 502
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v0
+    move-result p3
 
     .line 503
-    .local v0, "prevBytes":I
-    invoke-interface {p2}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    add-int/lit8 v1, v1, -0x1
-
-    .local v1, "i":I
-    :goto_0
-    if-ltz v1, :cond_0
-
-    .line 504
-    invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Boolean;
-
-    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v2
-
-    invoke-virtual {p0, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeBool(Z)V
-
-    .line 503
-    add-int/lit8 v1, v1, -0x1
-
-    goto :goto_0
-
-    .line 506
-    .end local v1    # "i":I
-    :cond_0
-    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
-
-    move-result v1
-
-    sub-int/2addr v1, v0
-
-    .line 507
-    .local v1, "length":I
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
-
-    .line 508
-    const/4 v2, 0x2
-
-    invoke-virtual {p0, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
-
-    .line 509
-    .end local v0    # "prevBytes":I
-    .end local v1    # "length":I
-    goto :goto_2
-
-    .line 510
-    :cond_1
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v0
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
-    :goto_1
-    if-ltz v0, :cond_2
+    :goto_0
+    if-ltz v0, :cond_0
 
-    .line 511
+    .line 504
     invoke-interface {p2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
@@ -626,136 +514,161 @@
 
     move-result v1
 
-    invoke-virtual {p0, p1, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeBool(IZ)V
+    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeBool(Z)V
+
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_0
+
+    .line 506
+    :cond_0
+    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
+
+    move-result p2
+
+    sub-int/2addr p2, p3
+
+    .line 507
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+
+    const/4 p2, 0x2
+
+    .line 508
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
+
+    goto :goto_2
 
     .line 510
-    add-int/lit8 v0, v0, -0x1
+    :cond_1
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result p3
+
+    add-int/lit8 p3, p3, -0x1
+
+    :goto_1
+    if-ltz p3, :cond_2
+
+    .line 511
+    invoke-interface {p2, p3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Boolean;
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeBool(IZ)V
+
+    add-int/lit8 p3, p3, -0x1
 
     goto :goto_1
 
-    .line 514
-    .end local v0    # "i":I
     :cond_2
     :goto_2
     return-void
 .end method
 
 .method private final writeDoubleList_Internal(ILcom/google/crypto/tink/shaded/protobuf/DoubleArrayList;Z)V
-    .locals 4
-    .param p1, "fieldNumber"    # I
-    .param p2, "list"    # Lcom/google/crypto/tink/shaded/protobuf/DoubleArrayList;
-    .param p3, "packed"    # Z
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 466
     if-eqz p3, :cond_1
 
     .line 467
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/DoubleArrayList;->size()I
 
-    move-result v0
+    move-result p3
 
-    mul-int/lit8 v0, v0, 0x8
+    mul-int/lit8 p3, p3, 0x8
 
-    add-int/lit8 v0, v0, 0xa
+    add-int/lit8 p3, p3, 0xa
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
+    invoke-virtual {p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
 
     .line 468
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v0
+    move-result p3
 
     .line 469
-    .local v0, "prevBytes":I
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/DoubleArrayList;->size()I
 
-    move-result v1
+    move-result v0
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    .local v1, "i":I
     :goto_0
-    if-ltz v1, :cond_0
+    if-ltz v0, :cond_0
 
     .line 470
-    invoke-virtual {p2, v1}, Lcom/google/crypto/tink/shaded/protobuf/DoubleArrayList;->getDouble(I)D
+    invoke-virtual {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/DoubleArrayList;->getDouble(I)D
 
-    move-result-wide v2
+    move-result-wide v1
 
-    invoke-static {v2, v3}, Ljava/lang/Double;->doubleToRawLongBits(D)J
+    invoke-static {v1, v2}, Ljava/lang/Double;->doubleToRawLongBits(D)J
 
-    move-result-wide v2
+    move-result-wide v1
 
-    invoke-virtual {p0, v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed64(J)V
+    invoke-virtual {p0, v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed64(J)V
 
-    .line 469
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
     .line 472
-    .end local v1    # "i":I
     :cond_0
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v1
+    move-result p2
 
-    sub-int/2addr v1, v0
+    sub-int/2addr p2, p3
 
     .line 473
-    .local v1, "length":I
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+
+    const/4 p2, 0x2
 
     .line 474
-    const/4 v2, 0x2
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
 
-    invoke-virtual {p0, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
-
-    .line 475
-    .end local v0    # "prevBytes":I
-    .end local v1    # "length":I
     goto :goto_2
 
     .line 476
     :cond_1
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/DoubleArrayList;->size()I
 
-    move-result v0
+    move-result p3
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p3, p3, -0x1
 
-    .local v0, "i":I
     :goto_1
-    if-ltz v0, :cond_2
+    if-ltz p3, :cond_2
 
     .line 477
-    invoke-virtual {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/DoubleArrayList;->getDouble(I)D
+    invoke-virtual {p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/DoubleArrayList;->getDouble(I)D
 
-    move-result-wide v1
+    move-result-wide v0
 
-    invoke-virtual {p0, p1, v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeDouble(ID)V
+    invoke-virtual {p0, p1, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeDouble(ID)V
 
-    .line 476
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p3, p3, -0x1
 
     goto :goto_1
 
-    .line 480
-    .end local v0    # "i":I
     :cond_2
     :goto_2
     return-void
 .end method
 
 .method private final writeDoubleList_Internal(ILjava/util/List;Z)V
-    .locals 4
-    .param p1, "fieldNumber"    # I
-    .param p3, "packed"    # Z
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -771,96 +684,35 @@
         }
     .end annotation
 
-    .line 448
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Double;>;"
     if-eqz p3, :cond_1
 
     .line 449
     invoke-interface {p2}, Ljava/util/List;->size()I
 
-    move-result v0
+    move-result p3
 
-    mul-int/lit8 v0, v0, 0x8
+    mul-int/lit8 p3, p3, 0x8
 
-    add-int/lit8 v0, v0, 0xa
+    add-int/lit8 p3, p3, 0xa
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
+    invoke-virtual {p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
 
     .line 450
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v0
+    move-result p3
 
     .line 451
-    .local v0, "prevBytes":I
-    invoke-interface {p2}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    add-int/lit8 v1, v1, -0x1
-
-    .local v1, "i":I
-    :goto_0
-    if-ltz v1, :cond_0
-
-    .line 452
-    invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Double;
-
-    invoke-virtual {v2}, Ljava/lang/Double;->doubleValue()D
-
-    move-result-wide v2
-
-    invoke-static {v2, v3}, Ljava/lang/Double;->doubleToRawLongBits(D)J
-
-    move-result-wide v2
-
-    invoke-virtual {p0, v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed64(J)V
-
-    .line 451
-    add-int/lit8 v1, v1, -0x1
-
-    goto :goto_0
-
-    .line 454
-    .end local v1    # "i":I
-    :cond_0
-    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
-
-    move-result v1
-
-    sub-int/2addr v1, v0
-
-    .line 455
-    .local v1, "length":I
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
-
-    .line 456
-    const/4 v2, 0x2
-
-    invoke-virtual {p0, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
-
-    .line 457
-    .end local v0    # "prevBytes":I
-    .end local v1    # "length":I
-    goto :goto_2
-
-    .line 458
-    :cond_1
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v0
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
-    :goto_1
-    if-ltz v0, :cond_2
+    :goto_0
+    if-ltz v0, :cond_0
 
-    .line 459
+    .line 452
     invoke-interface {p2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
@@ -871,132 +723,161 @@
 
     move-result-wide v1
 
-    invoke-virtual {p0, p1, v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeDouble(ID)V
+    invoke-static {v1, v2}, Ljava/lang/Double;->doubleToRawLongBits(D)J
+
+    move-result-wide v1
+
+    invoke-virtual {p0, v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed64(J)V
+
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_0
+
+    .line 454
+    :cond_0
+    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
+
+    move-result p2
+
+    sub-int/2addr p2, p3
+
+    .line 455
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+
+    const/4 p2, 0x2
+
+    .line 456
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
+
+    goto :goto_2
 
     .line 458
-    add-int/lit8 v0, v0, -0x1
+    :cond_1
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result p3
+
+    add-int/lit8 p3, p3, -0x1
+
+    :goto_1
+    if-ltz p3, :cond_2
+
+    .line 459
+    invoke-interface {p2, p3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Double;
+
+    invoke-virtual {v0}, Ljava/lang/Double;->doubleValue()D
+
+    move-result-wide v0
+
+    invoke-virtual {p0, p1, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeDouble(ID)V
+
+    add-int/lit8 p3, p3, -0x1
 
     goto :goto_1
 
-    .line 462
-    .end local v0    # "i":I
     :cond_2
     :goto_2
     return-void
 .end method
 
 .method private final writeFixed32List_Internal(ILcom/google/crypto/tink/shaded/protobuf/IntArrayList;Z)V
-    .locals 3
-    .param p1, "fieldNumber"    # I
-    .param p2, "list"    # Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-    .param p3, "packed"    # Z
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 276
     if-eqz p3, :cond_1
 
     .line 277
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->size()I
 
-    move-result v0
+    move-result p3
 
-    mul-int/lit8 v0, v0, 0x4
+    mul-int/lit8 p3, p3, 0x4
 
-    add-int/lit8 v0, v0, 0xa
+    add-int/lit8 p3, p3, 0xa
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
+    invoke-virtual {p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
 
     .line 278
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v0
+    move-result p3
 
     .line 279
-    .local v0, "prevBytes":I
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->size()I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, -0x1
+
+    :goto_0
+    if-ltz v0, :cond_0
+
+    .line 280
+    invoke-virtual {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->getInt(I)I
 
     move-result v1
 
-    add-int/lit8 v1, v1, -0x1
+    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed32(I)V
 
-    .local v1, "i":I
-    :goto_0
-    if-ltz v1, :cond_0
-
-    .line 280
-    invoke-virtual {p2, v1}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->getInt(I)I
-
-    move-result v2
-
-    invoke-virtual {p0, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed32(I)V
-
-    .line 279
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
     .line 282
-    .end local v1    # "i":I
     :cond_0
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v1
+    move-result p2
 
-    sub-int/2addr v1, v0
+    sub-int/2addr p2, p3
 
     .line 283
-    .local v1, "length":I
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+
+    const/4 p2, 0x2
 
     .line 284
-    const/4 v2, 0x2
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
 
-    invoke-virtual {p0, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
-
-    .line 285
-    .end local v0    # "prevBytes":I
-    .end local v1    # "length":I
     goto :goto_2
 
     .line 286
     :cond_1
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->size()I
 
-    move-result v0
+    move-result p3
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p3, p3, -0x1
 
-    .local v0, "i":I
     :goto_1
-    if-ltz v0, :cond_2
+    if-ltz p3, :cond_2
 
     .line 287
-    invoke-virtual {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->getInt(I)I
+    invoke-virtual {p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->getInt(I)I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {p0, p1, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed32(II)V
+    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed32(II)V
 
-    .line 286
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p3, p3, -0x1
 
     goto :goto_1
 
-    .line 290
-    .end local v0    # "i":I
     :cond_2
     :goto_2
     return-void
 .end method
 
 .method private final writeFixed32List_Internal(ILjava/util/List;Z)V
-    .locals 3
-    .param p1, "fieldNumber"    # I
-    .param p3, "packed"    # Z
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -1012,92 +893,35 @@
         }
     .end annotation
 
-    .line 258
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     if-eqz p3, :cond_1
 
     .line 259
     invoke-interface {p2}, Ljava/util/List;->size()I
 
-    move-result v0
+    move-result p3
 
-    mul-int/lit8 v0, v0, 0x4
+    mul-int/lit8 p3, p3, 0x4
 
-    add-int/lit8 v0, v0, 0xa
+    add-int/lit8 p3, p3, 0xa
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
+    invoke-virtual {p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
 
     .line 260
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v0
+    move-result p3
 
     .line 261
-    .local v0, "prevBytes":I
-    invoke-interface {p2}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    add-int/lit8 v1, v1, -0x1
-
-    .local v1, "i":I
-    :goto_0
-    if-ltz v1, :cond_0
-
-    .line 262
-    invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Integer;
-
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v2
-
-    invoke-virtual {p0, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed32(I)V
-
-    .line 261
-    add-int/lit8 v1, v1, -0x1
-
-    goto :goto_0
-
-    .line 264
-    .end local v1    # "i":I
-    :cond_0
-    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
-
-    move-result v1
-
-    sub-int/2addr v1, v0
-
-    .line 265
-    .local v1, "length":I
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
-
-    .line 266
-    const/4 v2, 0x2
-
-    invoke-virtual {p0, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
-
-    .line 267
-    .end local v0    # "prevBytes":I
-    .end local v1    # "length":I
-    goto :goto_2
-
-    .line 268
-    :cond_1
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v0
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
-    :goto_1
-    if-ltz v0, :cond_2
+    :goto_0
+    if-ltz v0, :cond_0
 
-    .line 269
+    .line 262
     invoke-interface {p2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
@@ -1108,132 +932,157 @@
 
     move-result v1
 
-    invoke-virtual {p0, p1, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed32(II)V
+    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed32(I)V
+
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_0
+
+    .line 264
+    :cond_0
+    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
+
+    move-result p2
+
+    sub-int/2addr p2, p3
+
+    .line 265
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+
+    const/4 p2, 0x2
+
+    .line 266
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
+
+    goto :goto_2
 
     .line 268
-    add-int/lit8 v0, v0, -0x1
+    :cond_1
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result p3
+
+    add-int/lit8 p3, p3, -0x1
+
+    :goto_1
+    if-ltz p3, :cond_2
+
+    .line 269
+    invoke-interface {p2, p3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed32(II)V
+
+    add-int/lit8 p3, p3, -0x1
 
     goto :goto_1
 
-    .line 272
-    .end local v0    # "i":I
     :cond_2
     :goto_2
     return-void
 .end method
 
 .method private final writeFixed64List_Internal(ILcom/google/crypto/tink/shaded/protobuf/LongArrayList;Z)V
-    .locals 4
-    .param p1, "fieldNumber"    # I
-    .param p2, "list"    # Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
-    .param p3, "packed"    # Z
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 374
     if-eqz p3, :cond_1
 
     .line 375
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->size()I
 
-    move-result v0
+    move-result p3
 
-    mul-int/lit8 v0, v0, 0x8
+    mul-int/lit8 p3, p3, 0x8
 
-    add-int/lit8 v0, v0, 0xa
+    add-int/lit8 p3, p3, 0xa
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
+    invoke-virtual {p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
 
     .line 376
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v0
+    move-result p3
 
     .line 377
-    .local v0, "prevBytes":I
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->size()I
 
-    move-result v1
+    move-result v0
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    .local v1, "i":I
     :goto_0
-    if-ltz v1, :cond_0
+    if-ltz v0, :cond_0
 
     .line 378
-    invoke-virtual {p2, v1}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->getLong(I)J
+    invoke-virtual {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->getLong(I)J
 
-    move-result-wide v2
+    move-result-wide v1
 
-    invoke-virtual {p0, v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed64(J)V
+    invoke-virtual {p0, v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed64(J)V
 
-    .line 377
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
     .line 380
-    .end local v1    # "i":I
     :cond_0
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v1
+    move-result p2
 
-    sub-int/2addr v1, v0
+    sub-int/2addr p2, p3
 
     .line 381
-    .local v1, "length":I
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+
+    const/4 p2, 0x2
 
     .line 382
-    const/4 v2, 0x2
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
 
-    invoke-virtual {p0, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
-
-    .line 383
-    .end local v0    # "prevBytes":I
-    .end local v1    # "length":I
     goto :goto_2
 
     .line 384
     :cond_1
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->size()I
 
-    move-result v0
+    move-result p3
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p3, p3, -0x1
 
-    .local v0, "i":I
     :goto_1
-    if-ltz v0, :cond_2
+    if-ltz p3, :cond_2
 
     .line 385
-    invoke-virtual {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->getLong(I)J
+    invoke-virtual {p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->getLong(I)J
 
-    move-result-wide v1
+    move-result-wide v0
 
-    invoke-virtual {p0, p1, v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed64(IJ)V
+    invoke-virtual {p0, p1, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed64(IJ)V
 
-    .line 384
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p3, p3, -0x1
 
     goto :goto_1
 
-    .line 388
-    .end local v0    # "i":I
     :cond_2
     :goto_2
     return-void
 .end method
 
 .method private final writeFixed64List_Internal(ILjava/util/List;Z)V
-    .locals 4
-    .param p1, "fieldNumber"    # I
-    .param p3, "packed"    # Z
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -1249,92 +1098,35 @@
         }
     .end annotation
 
-    .line 356
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Long;>;"
     if-eqz p3, :cond_1
 
     .line 357
     invoke-interface {p2}, Ljava/util/List;->size()I
 
-    move-result v0
+    move-result p3
 
-    mul-int/lit8 v0, v0, 0x8
+    mul-int/lit8 p3, p3, 0x8
 
-    add-int/lit8 v0, v0, 0xa
+    add-int/lit8 p3, p3, 0xa
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
+    invoke-virtual {p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
 
     .line 358
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v0
+    move-result p3
 
     .line 359
-    .local v0, "prevBytes":I
-    invoke-interface {p2}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    add-int/lit8 v1, v1, -0x1
-
-    .local v1, "i":I
-    :goto_0
-    if-ltz v1, :cond_0
-
-    .line 360
-    invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Long;
-
-    invoke-virtual {v2}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v2
-
-    invoke-virtual {p0, v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed64(J)V
-
-    .line 359
-    add-int/lit8 v1, v1, -0x1
-
-    goto :goto_0
-
-    .line 362
-    .end local v1    # "i":I
-    :cond_0
-    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
-
-    move-result v1
-
-    sub-int/2addr v1, v0
-
-    .line 363
-    .local v1, "length":I
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
-
-    .line 364
-    const/4 v2, 0x2
-
-    invoke-virtual {p0, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
-
-    .line 365
-    .end local v0    # "prevBytes":I
-    .end local v1    # "length":I
-    goto :goto_2
-
-    .line 366
-    :cond_1
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v0
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
-    :goto_1
-    if-ltz v0, :cond_2
+    :goto_0
+    if-ltz v0, :cond_0
 
-    .line 367
+    .line 360
     invoke-interface {p2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
@@ -1345,136 +1137,161 @@
 
     move-result-wide v1
 
-    invoke-virtual {p0, p1, v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed64(IJ)V
+    invoke-virtual {p0, v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed64(J)V
+
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_0
+
+    .line 362
+    :cond_0
+    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
+
+    move-result p2
+
+    sub-int/2addr p2, p3
+
+    .line 363
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+
+    const/4 p2, 0x2
+
+    .line 364
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
+
+    goto :goto_2
 
     .line 366
-    add-int/lit8 v0, v0, -0x1
+    :cond_1
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result p3
+
+    add-int/lit8 p3, p3, -0x1
+
+    :goto_1
+    if-ltz p3, :cond_2
+
+    .line 367
+    invoke-interface {p2, p3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Long;
+
+    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v0
+
+    invoke-virtual {p0, p1, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed64(IJ)V
+
+    add-int/lit8 p3, p3, -0x1
 
     goto :goto_1
 
-    .line 370
-    .end local v0    # "i":I
     :cond_2
     :goto_2
     return-void
 .end method
 
 .method private final writeFloatList_Internal(ILcom/google/crypto/tink/shaded/protobuf/FloatArrayList;Z)V
-    .locals 3
-    .param p1, "fieldNumber"    # I
-    .param p2, "list"    # Lcom/google/crypto/tink/shaded/protobuf/FloatArrayList;
-    .param p3, "packed"    # Z
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 420
     if-eqz p3, :cond_1
 
     .line 421
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/FloatArrayList;->size()I
 
-    move-result v0
+    move-result p3
 
-    mul-int/lit8 v0, v0, 0x4
+    mul-int/lit8 p3, p3, 0x4
 
-    add-int/lit8 v0, v0, 0xa
+    add-int/lit8 p3, p3, 0xa
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
+    invoke-virtual {p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
 
     .line 422
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v0
+    move-result p3
 
     .line 423
-    .local v0, "prevBytes":I
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/FloatArrayList;->size()I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, -0x1
+
+    :goto_0
+    if-ltz v0, :cond_0
+
+    .line 424
+    invoke-virtual {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/FloatArrayList;->getFloat(I)F
 
     move-result v1
 
-    add-int/lit8 v1, v1, -0x1
+    invoke-static {v1}, Ljava/lang/Float;->floatToRawIntBits(F)I
 
-    .local v1, "i":I
-    :goto_0
-    if-ltz v1, :cond_0
+    move-result v1
 
-    .line 424
-    invoke-virtual {p2, v1}, Lcom/google/crypto/tink/shaded/protobuf/FloatArrayList;->getFloat(I)F
+    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed32(I)V
 
-    move-result v2
-
-    invoke-static {v2}, Ljava/lang/Float;->floatToRawIntBits(F)I
-
-    move-result v2
-
-    invoke-virtual {p0, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed32(I)V
-
-    .line 423
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
     .line 426
-    .end local v1    # "i":I
     :cond_0
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v1
+    move-result p2
 
-    sub-int/2addr v1, v0
+    sub-int/2addr p2, p3
 
     .line 427
-    .local v1, "length":I
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+
+    const/4 p2, 0x2
 
     .line 428
-    const/4 v2, 0x2
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
 
-    invoke-virtual {p0, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
-
-    .line 429
-    .end local v0    # "prevBytes":I
-    .end local v1    # "length":I
     goto :goto_2
 
     .line 430
     :cond_1
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/FloatArrayList;->size()I
 
-    move-result v0
+    move-result p3
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p3, p3, -0x1
 
-    .local v0, "i":I
     :goto_1
-    if-ltz v0, :cond_2
+    if-ltz p3, :cond_2
 
     .line 431
-    invoke-virtual {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/FloatArrayList;->getFloat(I)F
+    invoke-virtual {p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/FloatArrayList;->getFloat(I)F
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {p0, p1, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFloat(IF)V
+    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFloat(IF)V
 
-    .line 430
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p3, p3, -0x1
 
     goto :goto_1
 
-    .line 434
-    .end local v0    # "i":I
     :cond_2
     :goto_2
     return-void
 .end method
 
 .method private final writeFloatList_Internal(ILjava/util/List;Z)V
-    .locals 3
-    .param p1, "fieldNumber"    # I
-    .param p3, "packed"    # Z
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -1490,96 +1307,35 @@
         }
     .end annotation
 
-    .line 402
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Float;>;"
     if-eqz p3, :cond_1
 
     .line 403
     invoke-interface {p2}, Ljava/util/List;->size()I
 
-    move-result v0
+    move-result p3
 
-    mul-int/lit8 v0, v0, 0x4
+    mul-int/lit8 p3, p3, 0x4
 
-    add-int/lit8 v0, v0, 0xa
+    add-int/lit8 p3, p3, 0xa
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
+    invoke-virtual {p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
 
     .line 404
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v0
+    move-result p3
 
     .line 405
-    .local v0, "prevBytes":I
-    invoke-interface {p2}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    add-int/lit8 v1, v1, -0x1
-
-    .local v1, "i":I
-    :goto_0
-    if-ltz v1, :cond_0
-
-    .line 406
-    invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Float;
-
-    invoke-virtual {v2}, Ljava/lang/Float;->floatValue()F
-
-    move-result v2
-
-    invoke-static {v2}, Ljava/lang/Float;->floatToRawIntBits(F)I
-
-    move-result v2
-
-    invoke-virtual {p0, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed32(I)V
-
-    .line 405
-    add-int/lit8 v1, v1, -0x1
-
-    goto :goto_0
-
-    .line 408
-    .end local v1    # "i":I
-    :cond_0
-    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
-
-    move-result v1
-
-    sub-int/2addr v1, v0
-
-    .line 409
-    .local v1, "length":I
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
-
-    .line 410
-    const/4 v2, 0x2
-
-    invoke-virtual {p0, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
-
-    .line 411
-    .end local v0    # "prevBytes":I
-    .end local v1    # "length":I
-    goto :goto_2
-
-    .line 412
-    :cond_1
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v0
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
-    :goto_1
-    if-ltz v0, :cond_2
+    :goto_0
+    if-ltz v0, :cond_0
 
-    .line 413
+    .line 406
     invoke-interface {p2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
@@ -1590,132 +1346,161 @@
 
     move-result v1
 
-    invoke-virtual {p0, p1, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFloat(IF)V
+    invoke-static {v1}, Ljava/lang/Float;->floatToRawIntBits(F)I
+
+    move-result v1
+
+    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed32(I)V
+
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_0
+
+    .line 408
+    :cond_0
+    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
+
+    move-result p2
+
+    sub-int/2addr p2, p3
+
+    .line 409
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+
+    const/4 p2, 0x2
+
+    .line 410
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
+
+    goto :goto_2
 
     .line 412
-    add-int/lit8 v0, v0, -0x1
+    :cond_1
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result p3
+
+    add-int/lit8 p3, p3, -0x1
+
+    :goto_1
+    if-ltz p3, :cond_2
+
+    .line 413
+    invoke-interface {p2, p3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Float;
+
+    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
+
+    move-result v0
+
+    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFloat(IF)V
+
+    add-int/lit8 p3, p3, -0x1
 
     goto :goto_1
 
-    .line 416
-    .end local v0    # "i":I
     :cond_2
     :goto_2
     return-void
 .end method
 
 .method private final writeInt32List_Internal(ILcom/google/crypto/tink/shaded/protobuf/IntArrayList;Z)V
-    .locals 3
-    .param p1, "fieldNumber"    # I
-    .param p2, "list"    # Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-    .param p3, "packed"    # Z
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 230
     if-eqz p3, :cond_1
 
     .line 231
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->size()I
 
-    move-result v0
+    move-result p3
 
-    mul-int/lit8 v0, v0, 0xa
+    mul-int/lit8 p3, p3, 0xa
 
-    add-int/lit8 v0, v0, 0xa
+    add-int/lit8 p3, p3, 0xa
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
+    invoke-virtual {p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
 
     .line 232
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v0
+    move-result p3
 
     .line 233
-    .local v0, "prevBytes":I
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->size()I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, -0x1
+
+    :goto_0
+    if-ltz v0, :cond_0
+
+    .line 234
+    invoke-virtual {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->getInt(I)I
 
     move-result v1
 
-    add-int/lit8 v1, v1, -0x1
+    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeInt32(I)V
 
-    .local v1, "i":I
-    :goto_0
-    if-ltz v1, :cond_0
-
-    .line 234
-    invoke-virtual {p2, v1}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->getInt(I)I
-
-    move-result v2
-
-    invoke-virtual {p0, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeInt32(I)V
-
-    .line 233
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
     .line 236
-    .end local v1    # "i":I
     :cond_0
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v1
+    move-result p2
 
-    sub-int/2addr v1, v0
+    sub-int/2addr p2, p3
 
     .line 237
-    .local v1, "length":I
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+
+    const/4 p2, 0x2
 
     .line 238
-    const/4 v2, 0x2
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
 
-    invoke-virtual {p0, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
-
-    .line 239
-    .end local v0    # "prevBytes":I
-    .end local v1    # "length":I
     goto :goto_2
 
     .line 240
     :cond_1
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->size()I
 
-    move-result v0
+    move-result p3
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p3, p3, -0x1
 
-    .local v0, "i":I
     :goto_1
-    if-ltz v0, :cond_2
+    if-ltz p3, :cond_2
 
     .line 241
-    invoke-virtual {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->getInt(I)I
+    invoke-virtual {p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->getInt(I)I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {p0, p1, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeInt32(II)V
+    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeInt32(II)V
 
-    .line 240
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p3, p3, -0x1
 
     goto :goto_1
 
-    .line 244
-    .end local v0    # "i":I
     :cond_2
     :goto_2
     return-void
 .end method
 
 .method private final writeInt32List_Internal(ILjava/util/List;Z)V
-    .locals 3
-    .param p1, "fieldNumber"    # I
-    .param p3, "packed"    # Z
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -1731,92 +1516,35 @@
         }
     .end annotation
 
-    .line 212
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     if-eqz p3, :cond_1
 
     .line 213
     invoke-interface {p2}, Ljava/util/List;->size()I
 
-    move-result v0
+    move-result p3
 
-    mul-int/lit8 v0, v0, 0xa
+    mul-int/lit8 p3, p3, 0xa
 
-    add-int/lit8 v0, v0, 0xa
+    add-int/lit8 p3, p3, 0xa
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
+    invoke-virtual {p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
 
     .line 214
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v0
+    move-result p3
 
     .line 215
-    .local v0, "prevBytes":I
-    invoke-interface {p2}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    add-int/lit8 v1, v1, -0x1
-
-    .local v1, "i":I
-    :goto_0
-    if-ltz v1, :cond_0
-
-    .line 216
-    invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Integer;
-
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v2
-
-    invoke-virtual {p0, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeInt32(I)V
-
-    .line 215
-    add-int/lit8 v1, v1, -0x1
-
-    goto :goto_0
-
-    .line 218
-    .end local v1    # "i":I
-    :cond_0
-    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
-
-    move-result v1
-
-    sub-int/2addr v1, v0
-
-    .line 219
-    .local v1, "length":I
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
-
-    .line 220
-    const/4 v2, 0x2
-
-    invoke-virtual {p0, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
-
-    .line 221
-    .end local v0    # "prevBytes":I
-    .end local v1    # "length":I
-    goto :goto_2
-
-    .line 222
-    :cond_1
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v0
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
-    :goto_1
-    if-ltz v0, :cond_2
+    :goto_0
+    if-ltz v0, :cond_0
 
-    .line 223
+    .line 216
     invoke-interface {p2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
@@ -1827,15 +1555,58 @@
 
     move-result v1
 
-    invoke-virtual {p0, p1, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeInt32(II)V
+    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeInt32(I)V
+
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_0
+
+    .line 218
+    :cond_0
+    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
+
+    move-result p2
+
+    sub-int/2addr p2, p3
+
+    .line 219
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+
+    const/4 p2, 0x2
+
+    .line 220
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
+
+    goto :goto_2
 
     .line 222
-    add-int/lit8 v0, v0, -0x1
+    :cond_1
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result p3
+
+    add-int/lit8 p3, p3, -0x1
+
+    :goto_1
+    if-ltz p3, :cond_2
+
+    .line 223
+    invoke-interface {p2, p3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeInt32(II)V
+
+    add-int/lit8 p3, p3, -0x1
 
     goto :goto_1
 
-    .line 226
-    .end local v0    # "i":I
     :cond_2
     :goto_2
     return-void
@@ -1843,8 +1614,6 @@
 
 .method private writeLazyString(ILjava/lang/Object;)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1857,33 +1626,24 @@
     if-eqz v0, :cond_0
 
     .line 550
-    move-object v0, p2
+    check-cast p2, Ljava/lang/String;
 
-    check-cast v0, Ljava/lang/String;
-
-    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeString(ILjava/lang/String;)V
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeString(ILjava/lang/String;)V
 
     goto :goto_0
 
     .line 552
     :cond_0
-    move-object v0, p2
+    check-cast p2, Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeBytes(ILcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeBytes(ILcom/google/crypto/tink/shaded/protobuf/ByteString;)V
-
-    .line 554
     :goto_0
     return-void
 .end method
 
 .method static final writeMapEntryField(Lcom/google/crypto/tink/shaded/protobuf/Writer;ILcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;Ljava/lang/Object;)V
-    .locals 3
-    .param p0, "writer"    # Lcom/google/crypto/tink/shaded/protobuf/Writer;
-    .param p1, "fieldNumber"    # I
-    .param p2, "fieldType"    # Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;
-    .param p3, "object"    # Ljava/lang/Object;
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1902,299 +1662,246 @@
     packed-switch v0, :pswitch_data_0
 
     .line 756
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string p3, "Unsupported map value type for: "
 
-    const-string v2, "Unsupported map value type for: "
+    invoke-direct {p1, p3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 747
     :pswitch_0
-    instance-of v0, p3, Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLite;
+    instance-of p2, p3, Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLite;
 
-    if-eqz v0, :cond_0
+    if-eqz p2, :cond_0
 
     .line 748
-    move-object v0, p3
+    check-cast p3, Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLite;
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLite;
+    invoke-interface {p3}, Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLite;->getNumber()I
 
-    invoke-interface {v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLite;->getNumber()I
+    move-result p2
 
-    move-result v0
-
-    invoke-interface {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeEnum(II)V
+    invoke-interface {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeEnum(II)V
 
     goto/16 :goto_0
 
     .line 749
     :cond_0
-    instance-of v0, p3, Ljava/lang/Integer;
+    instance-of p2, p3, Ljava/lang/Integer;
 
-    if-eqz v0, :cond_1
+    if-eqz p2, :cond_1
 
     .line 750
-    move-object v0, p3
+    check-cast p3, Ljava/lang/Integer;
 
-    check-cast v0, Ljava/lang/Integer;
+    invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
 
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    move-result p2
 
-    move-result v0
-
-    invoke-interface {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeEnum(II)V
+    invoke-interface {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeEnum(II)V
 
     goto/16 :goto_0
 
     .line 752
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Unexpected type for enum in map."
+    const-string p1, "Unexpected type for enum in map."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 744
     :pswitch_1
-    move-object v0, p3
+    check-cast p3, Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    invoke-interface {p0, p1, p3}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeBytes(ILcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    invoke-interface {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeBytes(ILcom/google/crypto/tink/shaded/protobuf/ByteString;)V
-
-    .line 745
     goto/16 :goto_0
 
     .line 741
     :pswitch_2
     invoke-interface {p0, p1, p3}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeMessage(ILjava/lang/Object;)V
 
-    .line 742
     goto/16 :goto_0
 
     .line 738
     :pswitch_3
-    move-object v0, p3
+    check-cast p3, Ljava/lang/Double;
 
-    check-cast v0, Ljava/lang/Double;
+    invoke-virtual {p3}, Ljava/lang/Double;->doubleValue()D
 
-    invoke-virtual {v0}, Ljava/lang/Double;->doubleValue()D
+    move-result-wide p2
 
-    move-result-wide v0
+    invoke-interface {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeDouble(ID)V
 
-    invoke-interface {p0, p1, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeDouble(ID)V
-
-    .line 739
     goto/16 :goto_0
 
     .line 735
     :pswitch_4
-    move-object v0, p3
+    check-cast p3, Ljava/lang/Float;
 
-    check-cast v0, Ljava/lang/Float;
+    invoke-virtual {p3}, Ljava/lang/Float;->floatValue()F
 
-    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
+    move-result p2
 
-    move-result v0
+    invoke-interface {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeFloat(IF)V
 
-    invoke-interface {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeFloat(IF)V
-
-    .line 736
     goto/16 :goto_0
 
     .line 732
     :pswitch_5
-    move-object v0, p3
+    check-cast p3, Ljava/lang/Long;
 
-    check-cast v0, Ljava/lang/Long;
+    invoke-virtual {p3}, Ljava/lang/Long;->longValue()J
 
-    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
+    move-result-wide p2
 
-    move-result-wide v0
+    invoke-interface {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeUInt64(IJ)V
 
-    invoke-interface {p0, p1, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeUInt64(IJ)V
-
-    .line 733
     goto/16 :goto_0
 
     .line 729
     :pswitch_6
-    move-object v0, p3
+    check-cast p3, Ljava/lang/Integer;
 
-    check-cast v0, Ljava/lang/Integer;
+    invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
 
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    move-result p2
 
-    move-result v0
+    invoke-interface {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeUInt32(II)V
 
-    invoke-interface {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeUInt32(II)V
-
-    .line 730
     goto :goto_0
 
     .line 726
     :pswitch_7
-    move-object v0, p3
+    check-cast p3, Ljava/lang/String;
 
-    check-cast v0, Ljava/lang/String;
+    invoke-interface {p0, p1, p3}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeString(ILjava/lang/String;)V
 
-    invoke-interface {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeString(ILjava/lang/String;)V
-
-    .line 727
     goto :goto_0
 
     .line 723
     :pswitch_8
-    move-object v0, p3
+    check-cast p3, Ljava/lang/Long;
 
-    check-cast v0, Ljava/lang/Long;
+    invoke-virtual {p3}, Ljava/lang/Long;->longValue()J
 
-    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
+    move-result-wide p2
 
-    move-result-wide v0
+    invoke-interface {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeSInt64(IJ)V
 
-    invoke-interface {p0, p1, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeSInt64(IJ)V
-
-    .line 724
     goto :goto_0
 
     .line 720
     :pswitch_9
-    move-object v0, p3
+    check-cast p3, Ljava/lang/Integer;
 
-    check-cast v0, Ljava/lang/Integer;
+    invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
 
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    move-result p2
 
-    move-result v0
+    invoke-interface {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeSInt32(II)V
 
-    invoke-interface {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeSInt32(II)V
-
-    .line 721
     goto :goto_0
 
     .line 717
     :pswitch_a
-    move-object v0, p3
+    check-cast p3, Ljava/lang/Long;
 
-    check-cast v0, Ljava/lang/Long;
+    invoke-virtual {p3}, Ljava/lang/Long;->longValue()J
 
-    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
+    move-result-wide p2
 
-    move-result-wide v0
+    invoke-interface {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeSFixed64(IJ)V
 
-    invoke-interface {p0, p1, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeSFixed64(IJ)V
-
-    .line 718
     goto :goto_0
 
     .line 714
     :pswitch_b
-    move-object v0, p3
+    check-cast p3, Ljava/lang/Integer;
 
-    check-cast v0, Ljava/lang/Integer;
+    invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
 
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    move-result p2
 
-    move-result v0
+    invoke-interface {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeSFixed32(II)V
 
-    invoke-interface {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeSFixed32(II)V
-
-    .line 715
     goto :goto_0
 
     .line 711
     :pswitch_c
-    move-object v0, p3
+    check-cast p3, Ljava/lang/Long;
 
-    check-cast v0, Ljava/lang/Long;
+    invoke-virtual {p3}, Ljava/lang/Long;->longValue()J
 
-    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
+    move-result-wide p2
 
-    move-result-wide v0
+    invoke-interface {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeInt64(IJ)V
 
-    invoke-interface {p0, p1, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeInt64(IJ)V
-
-    .line 712
     goto :goto_0
 
     .line 708
     :pswitch_d
-    move-object v0, p3
+    check-cast p3, Ljava/lang/Integer;
 
-    check-cast v0, Ljava/lang/Integer;
+    invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
 
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    move-result p2
 
-    move-result v0
+    invoke-interface {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeInt32(II)V
 
-    invoke-interface {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeInt32(II)V
-
-    .line 709
     goto :goto_0
 
     .line 705
     :pswitch_e
-    move-object v0, p3
+    check-cast p3, Ljava/lang/Long;
 
-    check-cast v0, Ljava/lang/Long;
+    invoke-virtual {p3}, Ljava/lang/Long;->longValue()J
 
-    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
+    move-result-wide p2
 
-    move-result-wide v0
+    invoke-interface {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeFixed64(IJ)V
 
-    invoke-interface {p0, p1, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeFixed64(IJ)V
-
-    .line 706
     goto :goto_0
 
     .line 702
     :pswitch_f
-    move-object v0, p3
+    check-cast p3, Ljava/lang/Integer;
 
-    check-cast v0, Ljava/lang/Integer;
+    invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
 
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    move-result p2
 
-    move-result v0
+    invoke-interface {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeFixed32(II)V
 
-    invoke-interface {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeFixed32(II)V
-
-    .line 703
     goto :goto_0
 
     .line 699
     :pswitch_10
-    move-object v0, p3
+    check-cast p3, Ljava/lang/Boolean;
 
-    check-cast v0, Ljava/lang/Boolean;
+    invoke-virtual {p3}, Ljava/lang/Boolean;->booleanValue()Z
 
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+    move-result p2
 
-    move-result v0
+    invoke-interface {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeBool(IZ)V
 
-    invoke-interface {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/Writer;->writeBool(IZ)V
-
-    .line 700
-    nop
-
-    .line 758
     :goto_0
     return-void
 
@@ -2223,117 +1930,99 @@
 .end method
 
 .method private final writeSInt32List_Internal(ILcom/google/crypto/tink/shaded/protobuf/IntArrayList;Z)V
-    .locals 3
-    .param p1, "fieldNumber"    # I
-    .param p2, "list"    # Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-    .param p3, "packed"    # Z
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 651
     if-eqz p3, :cond_1
 
     .line 652
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->size()I
 
-    move-result v0
+    move-result p3
 
-    mul-int/lit8 v0, v0, 0x5
+    mul-int/lit8 p3, p3, 0x5
 
-    add-int/lit8 v0, v0, 0xa
+    add-int/lit8 p3, p3, 0xa
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
+    invoke-virtual {p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
 
     .line 653
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v0
+    move-result p3
 
     .line 654
-    .local v0, "prevBytes":I
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->size()I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, -0x1
+
+    :goto_0
+    if-ltz v0, :cond_0
+
+    .line 655
+    invoke-virtual {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->getInt(I)I
 
     move-result v1
 
-    add-int/lit8 v1, v1, -0x1
+    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeSInt32(I)V
 
-    .local v1, "i":I
-    :goto_0
-    if-ltz v1, :cond_0
-
-    .line 655
-    invoke-virtual {p2, v1}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->getInt(I)I
-
-    move-result v2
-
-    invoke-virtual {p0, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeSInt32(I)V
-
-    .line 654
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
     .line 657
-    .end local v1    # "i":I
     :cond_0
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v1
+    move-result p2
 
-    sub-int/2addr v1, v0
+    sub-int/2addr p2, p3
 
     .line 658
-    .local v1, "length":I
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+
+    const/4 p2, 0x2
 
     .line 659
-    const/4 v2, 0x2
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
 
-    invoke-virtual {p0, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
-
-    .line 660
-    .end local v0    # "prevBytes":I
-    .end local v1    # "length":I
     goto :goto_2
 
     .line 661
     :cond_1
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->size()I
 
-    move-result v0
+    move-result p3
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p3, p3, -0x1
 
-    .local v0, "i":I
     :goto_1
-    if-ltz v0, :cond_2
+    if-ltz p3, :cond_2
 
     .line 662
-    invoke-virtual {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->getInt(I)I
+    invoke-virtual {p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->getInt(I)I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {p0, p1, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeSInt32(II)V
+    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeSInt32(II)V
 
-    .line 661
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p3, p3, -0x1
 
     goto :goto_1
 
-    .line 665
-    .end local v0    # "i":I
     :cond_2
     :goto_2
     return-void
 .end method
 
 .method private final writeSInt32List_Internal(ILjava/util/List;Z)V
-    .locals 3
-    .param p1, "fieldNumber"    # I
-    .param p3, "packed"    # Z
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -2349,92 +2038,35 @@
         }
     .end annotation
 
-    .line 633
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     if-eqz p3, :cond_1
 
     .line 634
     invoke-interface {p2}, Ljava/util/List;->size()I
 
-    move-result v0
+    move-result p3
 
-    mul-int/lit8 v0, v0, 0x5
+    mul-int/lit8 p3, p3, 0x5
 
-    add-int/lit8 v0, v0, 0xa
+    add-int/lit8 p3, p3, 0xa
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
+    invoke-virtual {p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
 
     .line 635
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v0
+    move-result p3
 
     .line 636
-    .local v0, "prevBytes":I
-    invoke-interface {p2}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    add-int/lit8 v1, v1, -0x1
-
-    .local v1, "i":I
-    :goto_0
-    if-ltz v1, :cond_0
-
-    .line 637
-    invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Integer;
-
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v2
-
-    invoke-virtual {p0, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeSInt32(I)V
-
-    .line 636
-    add-int/lit8 v1, v1, -0x1
-
-    goto :goto_0
-
-    .line 639
-    .end local v1    # "i":I
-    :cond_0
-    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
-
-    move-result v1
-
-    sub-int/2addr v1, v0
-
-    .line 640
-    .local v1, "length":I
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
-
-    .line 641
-    const/4 v2, 0x2
-
-    invoke-virtual {p0, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
-
-    .line 642
-    .end local v0    # "prevBytes":I
-    .end local v1    # "length":I
-    goto :goto_2
-
-    .line 643
-    :cond_1
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v0
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
-    :goto_1
-    if-ltz v0, :cond_2
+    :goto_0
+    if-ltz v0, :cond_0
 
-    .line 644
+    .line 637
     invoke-interface {p2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
@@ -2445,132 +2077,157 @@
 
     move-result v1
 
-    invoke-virtual {p0, p1, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeSInt32(II)V
+    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeSInt32(I)V
+
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_0
+
+    .line 639
+    :cond_0
+    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
+
+    move-result p2
+
+    sub-int/2addr p2, p3
+
+    .line 640
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+
+    const/4 p2, 0x2
+
+    .line 641
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
+
+    goto :goto_2
 
     .line 643
-    add-int/lit8 v0, v0, -0x1
+    :cond_1
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result p3
+
+    add-int/lit8 p3, p3, -0x1
+
+    :goto_1
+    if-ltz p3, :cond_2
+
+    .line 644
+    invoke-interface {p2, p3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeSInt32(II)V
+
+    add-int/lit8 p3, p3, -0x1
 
     goto :goto_1
 
-    .line 647
-    .end local v0    # "i":I
     :cond_2
     :goto_2
     return-void
 .end method
 
 .method private final writeSInt64List_Internal(ILcom/google/crypto/tink/shaded/protobuf/LongArrayList;Z)V
-    .locals 4
-    .param p1, "fieldNumber"    # I
-    .param p2, "list"    # Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
-    .param p3, "packed"    # Z
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 780
     if-eqz p3, :cond_1
 
     .line 781
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->size()I
 
-    move-result v0
+    move-result p3
 
-    mul-int/lit8 v0, v0, 0xa
+    mul-int/lit8 p3, p3, 0xa
 
-    add-int/lit8 v0, v0, 0xa
+    add-int/lit8 p3, p3, 0xa
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
+    invoke-virtual {p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
 
     .line 782
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v0
+    move-result p3
 
     .line 783
-    .local v0, "prevBytes":I
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->size()I
 
-    move-result v1
+    move-result v0
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    .local v1, "i":I
     :goto_0
-    if-ltz v1, :cond_0
+    if-ltz v0, :cond_0
 
     .line 784
-    invoke-virtual {p2, v1}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->getLong(I)J
+    invoke-virtual {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->getLong(I)J
 
-    move-result-wide v2
+    move-result-wide v1
 
-    invoke-virtual {p0, v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeSInt64(J)V
+    invoke-virtual {p0, v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeSInt64(J)V
 
-    .line 783
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
     .line 786
-    .end local v1    # "i":I
     :cond_0
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v1
+    move-result p2
 
-    sub-int/2addr v1, v0
+    sub-int/2addr p2, p3
 
     .line 787
-    .local v1, "length":I
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+
+    const/4 p2, 0x2
 
     .line 788
-    const/4 v2, 0x2
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
 
-    invoke-virtual {p0, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
-
-    .line 789
-    .end local v0    # "prevBytes":I
-    .end local v1    # "length":I
     goto :goto_2
 
     .line 790
     :cond_1
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->size()I
 
-    move-result v0
+    move-result p3
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p3, p3, -0x1
 
-    .local v0, "i":I
     :goto_1
-    if-ltz v0, :cond_2
+    if-ltz p3, :cond_2
 
     .line 791
-    invoke-virtual {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->getLong(I)J
+    invoke-virtual {p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->getLong(I)J
 
-    move-result-wide v1
+    move-result-wide v0
 
-    invoke-virtual {p0, p1, v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeSInt64(IJ)V
+    invoke-virtual {p0, p1, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeSInt64(IJ)V
 
-    .line 790
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p3, p3, -0x1
 
     goto :goto_1
 
-    .line 794
-    .end local v0    # "i":I
     :cond_2
     :goto_2
     return-void
 .end method
 
 .method private final writeSInt64List_Internal(ILjava/util/List;Z)V
-    .locals 4
-    .param p1, "fieldNumber"    # I
-    .param p3, "packed"    # Z
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -2586,92 +2243,35 @@
         }
     .end annotation
 
-    .line 762
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Long;>;"
     if-eqz p3, :cond_1
 
     .line 763
     invoke-interface {p2}, Ljava/util/List;->size()I
 
-    move-result v0
+    move-result p3
 
-    mul-int/lit8 v0, v0, 0xa
+    mul-int/lit8 p3, p3, 0xa
 
-    add-int/lit8 v0, v0, 0xa
+    add-int/lit8 p3, p3, 0xa
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
+    invoke-virtual {p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
 
     .line 764
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v0
+    move-result p3
 
     .line 765
-    .local v0, "prevBytes":I
-    invoke-interface {p2}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    add-int/lit8 v1, v1, -0x1
-
-    .local v1, "i":I
-    :goto_0
-    if-ltz v1, :cond_0
-
-    .line 766
-    invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Long;
-
-    invoke-virtual {v2}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v2
-
-    invoke-virtual {p0, v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeSInt64(J)V
-
-    .line 765
-    add-int/lit8 v1, v1, -0x1
-
-    goto :goto_0
-
-    .line 768
-    .end local v1    # "i":I
-    :cond_0
-    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
-
-    move-result v1
-
-    sub-int/2addr v1, v0
-
-    .line 769
-    .local v1, "length":I
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
-
-    .line 770
-    const/4 v2, 0x2
-
-    invoke-virtual {p0, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
-
-    .line 771
-    .end local v0    # "prevBytes":I
-    .end local v1    # "length":I
-    goto :goto_2
-
-    .line 772
-    :cond_1
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v0
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
-    :goto_1
-    if-ltz v0, :cond_2
+    :goto_0
+    if-ltz v0, :cond_0
 
-    .line 773
+    .line 766
     invoke-interface {p2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
@@ -2682,132 +2282,157 @@
 
     move-result-wide v1
 
-    invoke-virtual {p0, p1, v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeSInt64(IJ)V
+    invoke-virtual {p0, v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeSInt64(J)V
+
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_0
+
+    .line 768
+    :cond_0
+    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
+
+    move-result p2
+
+    sub-int/2addr p2, p3
+
+    .line 769
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+
+    const/4 p2, 0x2
+
+    .line 770
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
+
+    goto :goto_2
 
     .line 772
-    add-int/lit8 v0, v0, -0x1
+    :cond_1
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result p3
+
+    add-int/lit8 p3, p3, -0x1
+
+    :goto_1
+    if-ltz p3, :cond_2
+
+    .line 773
+    invoke-interface {p2, p3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Long;
+
+    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v0
+
+    invoke-virtual {p0, p1, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeSInt64(IJ)V
+
+    add-int/lit8 p3, p3, -0x1
 
     goto :goto_1
 
-    .line 776
-    .end local v0    # "i":I
     :cond_2
     :goto_2
     return-void
 .end method
 
 .method private final writeUInt32List_Internal(ILcom/google/crypto/tink/shaded/protobuf/IntArrayList;Z)V
-    .locals 3
-    .param p1, "fieldNumber"    # I
-    .param p2, "list"    # Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-    .param p3, "packed"    # Z
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 593
     if-eqz p3, :cond_1
 
     .line 594
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->size()I
 
-    move-result v0
+    move-result p3
 
-    mul-int/lit8 v0, v0, 0x5
+    mul-int/lit8 p3, p3, 0x5
 
-    add-int/lit8 v0, v0, 0xa
+    add-int/lit8 p3, p3, 0xa
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
+    invoke-virtual {p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
 
     .line 595
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v0
+    move-result p3
 
     .line 596
-    .local v0, "prevBytes":I
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->size()I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, -0x1
+
+    :goto_0
+    if-ltz v0, :cond_0
+
+    .line 597
+    invoke-virtual {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->getInt(I)I
 
     move-result v1
 
-    add-int/lit8 v1, v1, -0x1
+    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
 
-    .local v1, "i":I
-    :goto_0
-    if-ltz v1, :cond_0
-
-    .line 597
-    invoke-virtual {p2, v1}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->getInt(I)I
-
-    move-result v2
-
-    invoke-virtual {p0, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
-
-    .line 596
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
     .line 599
-    .end local v1    # "i":I
     :cond_0
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v1
+    move-result p2
 
-    sub-int/2addr v1, v0
+    sub-int/2addr p2, p3
 
     .line 600
-    .local v1, "length":I
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+
+    const/4 p2, 0x2
 
     .line 601
-    const/4 v2, 0x2
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
 
-    invoke-virtual {p0, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
-
-    .line 602
-    .end local v0    # "prevBytes":I
-    .end local v1    # "length":I
     goto :goto_2
 
     .line 603
     :cond_1
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->size()I
 
-    move-result v0
+    move-result p3
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p3, p3, -0x1
 
-    .local v0, "i":I
     :goto_1
-    if-ltz v0, :cond_2
+    if-ltz p3, :cond_2
 
     .line 604
-    invoke-virtual {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->getInt(I)I
+    invoke-virtual {p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->getInt(I)I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {p0, p1, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeUInt32(II)V
+    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeUInt32(II)V
 
-    .line 603
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p3, p3, -0x1
 
     goto :goto_1
 
-    .line 607
-    .end local v0    # "i":I
     :cond_2
     :goto_2
     return-void
 .end method
 
 .method private final writeUInt32List_Internal(ILjava/util/List;Z)V
-    .locals 3
-    .param p1, "fieldNumber"    # I
-    .param p3, "packed"    # Z
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -2823,92 +2448,35 @@
         }
     .end annotation
 
-    .line 575
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     if-eqz p3, :cond_1
 
     .line 576
     invoke-interface {p2}, Ljava/util/List;->size()I
 
-    move-result v0
+    move-result p3
 
-    mul-int/lit8 v0, v0, 0x5
+    mul-int/lit8 p3, p3, 0x5
 
-    add-int/lit8 v0, v0, 0xa
+    add-int/lit8 p3, p3, 0xa
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
+    invoke-virtual {p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
 
     .line 577
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v0
+    move-result p3
 
     .line 578
-    .local v0, "prevBytes":I
-    invoke-interface {p2}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    add-int/lit8 v1, v1, -0x1
-
-    .local v1, "i":I
-    :goto_0
-    if-ltz v1, :cond_0
-
-    .line 579
-    invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Integer;
-
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v2
-
-    invoke-virtual {p0, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
-
-    .line 578
-    add-int/lit8 v1, v1, -0x1
-
-    goto :goto_0
-
-    .line 581
-    .end local v1    # "i":I
-    :cond_0
-    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
-
-    move-result v1
-
-    sub-int/2addr v1, v0
-
-    .line 582
-    .local v1, "length":I
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
-
-    .line 583
-    const/4 v2, 0x2
-
-    invoke-virtual {p0, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
-
-    .line 584
-    .end local v0    # "prevBytes":I
-    .end local v1    # "length":I
-    goto :goto_2
-
-    .line 585
-    :cond_1
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v0
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
-    :goto_1
-    if-ltz v0, :cond_2
+    :goto_0
+    if-ltz v0, :cond_0
 
-    .line 586
+    .line 579
     invoke-interface {p2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
@@ -2919,132 +2487,157 @@
 
     move-result v1
 
-    invoke-virtual {p0, p1, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeUInt32(II)V
+    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_0
+
+    .line 581
+    :cond_0
+    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
+
+    move-result p2
+
+    sub-int/2addr p2, p3
+
+    .line 582
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+
+    const/4 p2, 0x2
+
+    .line 583
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
+
+    goto :goto_2
 
     .line 585
-    add-int/lit8 v0, v0, -0x1
+    :cond_1
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result p3
+
+    add-int/lit8 p3, p3, -0x1
+
+    :goto_1
+    if-ltz p3, :cond_2
+
+    .line 586
+    invoke-interface {p2, p3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeUInt32(II)V
+
+    add-int/lit8 p3, p3, -0x1
 
     goto :goto_1
 
-    .line 589
-    .end local v0    # "i":I
     :cond_2
     :goto_2
     return-void
 .end method
 
 .method private final writeUInt64List_Internal(ILcom/google/crypto/tink/shaded/protobuf/LongArrayList;Z)V
-    .locals 4
-    .param p1, "fieldNumber"    # I
-    .param p2, "list"    # Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
-    .param p3, "packed"    # Z
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 328
     if-eqz p3, :cond_1
 
     .line 329
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->size()I
 
-    move-result v0
+    move-result p3
 
-    mul-int/lit8 v0, v0, 0xa
+    mul-int/lit8 p3, p3, 0xa
 
-    add-int/lit8 v0, v0, 0xa
+    add-int/lit8 p3, p3, 0xa
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
+    invoke-virtual {p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
 
     .line 330
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v0
+    move-result p3
 
     .line 331
-    .local v0, "prevBytes":I
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->size()I
 
-    move-result v1
+    move-result v0
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    .local v1, "i":I
     :goto_0
-    if-ltz v1, :cond_0
+    if-ltz v0, :cond_0
 
     .line 332
-    invoke-virtual {p2, v1}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->getLong(I)J
+    invoke-virtual {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->getLong(I)J
 
-    move-result-wide v2
+    move-result-wide v1
 
-    invoke-virtual {p0, v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint64(J)V
+    invoke-virtual {p0, v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint64(J)V
 
-    .line 331
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
     .line 334
-    .end local v1    # "i":I
     :cond_0
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v1
+    move-result p2
 
-    sub-int/2addr v1, v0
+    sub-int/2addr p2, p3
 
     .line 335
-    .local v1, "length":I
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+
+    const/4 p2, 0x2
 
     .line 336
-    const/4 v2, 0x2
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
 
-    invoke-virtual {p0, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
-
-    .line 337
-    .end local v0    # "prevBytes":I
-    .end local v1    # "length":I
     goto :goto_2
 
     .line 338
     :cond_1
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->size()I
 
-    move-result v0
+    move-result p3
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p3, p3, -0x1
 
-    .local v0, "i":I
     :goto_1
-    if-ltz v0, :cond_2
+    if-ltz p3, :cond_2
 
     .line 339
-    invoke-virtual {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->getLong(I)J
+    invoke-virtual {p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->getLong(I)J
 
-    move-result-wide v1
+    move-result-wide v0
 
-    invoke-virtual {p0, p1, v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeUInt64(IJ)V
+    invoke-virtual {p0, p1, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeUInt64(IJ)V
 
-    .line 338
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p3, p3, -0x1
 
     goto :goto_1
 
-    .line 342
-    .end local v0    # "i":I
     :cond_2
     :goto_2
     return-void
 .end method
 
 .method private final writeUInt64List_Internal(ILjava/util/List;Z)V
-    .locals 4
-    .param p1, "fieldNumber"    # I
-    .param p3, "packed"    # Z
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -3060,92 +2653,35 @@
         }
     .end annotation
 
-    .line 310
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Long;>;"
     if-eqz p3, :cond_1
 
     .line 311
     invoke-interface {p2}, Ljava/util/List;->size()I
 
-    move-result v0
+    move-result p3
 
-    mul-int/lit8 v0, v0, 0xa
+    mul-int/lit8 p3, p3, 0xa
 
-    add-int/lit8 v0, v0, 0xa
+    add-int/lit8 p3, p3, 0xa
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
+    invoke-virtual {p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->requireSpace(I)V
 
     .line 312
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v0
+    move-result p3
 
     .line 313
-    .local v0, "prevBytes":I
-    invoke-interface {p2}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    add-int/lit8 v1, v1, -0x1
-
-    .local v1, "i":I
-    :goto_0
-    if-ltz v1, :cond_0
-
-    .line 314
-    invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Long;
-
-    invoke-virtual {v2}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v2
-
-    invoke-virtual {p0, v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint64(J)V
-
-    .line 313
-    add-int/lit8 v1, v1, -0x1
-
-    goto :goto_0
-
-    .line 316
-    .end local v1    # "i":I
-    :cond_0
-    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
-
-    move-result v1
-
-    sub-int/2addr v1, v0
-
-    .line 317
-    .local v1, "length":I
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
-
-    .line 318
-    const/4 v2, 0x2
-
-    invoke-virtual {p0, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
-
-    .line 319
-    .end local v0    # "prevBytes":I
-    .end local v1    # "length":I
-    goto :goto_2
-
-    .line 320
-    :cond_1
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v0
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
-    :goto_1
-    if-ltz v0, :cond_2
+    :goto_0
+    if-ltz v0, :cond_0
 
-    .line 321
+    .line 314
     invoke-interface {p2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
@@ -3156,15 +2692,58 @@
 
     move-result-wide v1
 
-    invoke-virtual {p0, p1, v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeUInt64(IJ)V
+    invoke-virtual {p0, v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint64(J)V
+
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_0
+
+    .line 316
+    :cond_0
+    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
+
+    move-result p2
+
+    sub-int/2addr p2, p3
+
+    .line 317
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+
+    const/4 p2, 0x2
+
+    .line 318
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
+
+    goto :goto_2
 
     .line 320
-    add-int/lit8 v0, v0, -0x1
+    :cond_1
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result p3
+
+    add-int/lit8 p3, p3, -0x1
+
+    :goto_1
+    if-ltz p3, :cond_2
+
+    .line 321
+    invoke-interface {p2, p3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Long;
+
+    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v0
+
+    invoke-virtual {p0, p1, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeUInt64(IJ)V
+
+    add-int/lit8 p3, p3, -0x1
 
     goto :goto_1
 
-    .line 324
-    .end local v0    # "i":I
     :cond_2
     :goto_2
     return-void
@@ -3224,7 +2803,6 @@
 
 .method final newDirectBuffer(I)Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
     .locals 2
-    .param p1, "capacity"    # I
 
     .line 851
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->alloc:Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;
@@ -3233,13 +2811,13 @@
 
     invoke-static {p1, v1}, Ljava/lang/Math;->max(II)I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;->allocateDirectBuffer(I)Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
+    invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;->allocateDirectBuffer(I)Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method final newHeapBuffer()Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
@@ -3259,7 +2837,6 @@
 
 .method final newHeapBuffer(I)Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
     .locals 2
-    .param p1, "capacity"    # I
 
     .line 843
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->alloc:Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;
@@ -3268,13 +2845,13 @@
 
     invoke-static {p1, v1}, Ljava/lang/Math;->max(II)I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;->allocateHeapBuffer(I)Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
+    invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;->allocateHeapBuffer(I)Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method abstract requireSpace(I)V
@@ -3285,8 +2862,6 @@
 
 .method public final writeBoolList(ILjava/util/List;Z)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p3, "packed"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -3303,17 +2878,14 @@
     .end annotation
 
     .line 491
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Boolean;>;"
     instance-of v0, p2, Lcom/google/crypto/tink/shaded/protobuf/BooleanArrayList;
 
     if-eqz v0, :cond_0
 
     .line 492
-    move-object v0, p2
+    check-cast p2, Lcom/google/crypto/tink/shaded/protobuf/BooleanArrayList;
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/BooleanArrayList;
-
-    invoke-direct {p0, p1, v0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeBoolList_Internal(ILcom/google/crypto/tink/shaded/protobuf/BooleanArrayList;Z)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeBoolList_Internal(ILcom/google/crypto/tink/shaded/protobuf/BooleanArrayList;Z)V
 
     goto :goto_0
 
@@ -3321,14 +2893,12 @@
     :cond_0
     invoke-direct {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeBoolList_Internal(ILjava/util/List;Z)V
 
-    .line 496
     :goto_0
     return-void
 .end method
 
 .method public final writeBytesList(ILjava/util/List;)V
     .locals 2
-    .param p1, "fieldNumber"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -3345,14 +2915,12 @@
     .end annotation
 
     .line 558
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Lcom/google/crypto/tink/shaded/protobuf/ByteString;>;"
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v0
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -3365,21 +2933,16 @@
 
     invoke-virtual {p0, p1, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeBytes(ILcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    .line 558
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 561
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public final writeDouble(ID)V
-    .locals 2
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # D
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3389,18 +2952,15 @@
     .line 192
     invoke-static {p2, p3}, Ljava/lang/Double;->doubleToRawLongBits(D)J
 
-    move-result-wide v0
+    move-result-wide p2
 
-    invoke-virtual {p0, p1, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed64(IJ)V
+    invoke-virtual {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed64(IJ)V
 
-    .line 193
     return-void
 .end method
 
 .method public final writeDoubleList(ILjava/util/List;Z)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p3, "packed"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -3417,17 +2977,14 @@
     .end annotation
 
     .line 439
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Double;>;"
     instance-of v0, p2, Lcom/google/crypto/tink/shaded/protobuf/DoubleArrayList;
 
     if-eqz v0, :cond_0
 
     .line 440
-    move-object v0, p2
+    check-cast p2, Lcom/google/crypto/tink/shaded/protobuf/DoubleArrayList;
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/DoubleArrayList;
-
-    invoke-direct {p0, p1, v0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeDoubleList_Internal(ILcom/google/crypto/tink/shaded/protobuf/DoubleArrayList;Z)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeDoubleList_Internal(ILcom/google/crypto/tink/shaded/protobuf/DoubleArrayList;Z)V
 
     goto :goto_0
 
@@ -3435,15 +2992,12 @@
     :cond_0
     invoke-direct {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeDoubleList_Internal(ILjava/util/List;Z)V
 
-    .line 444
     :goto_0
     return-void
 .end method
 
 .method public final writeEnum(II)V
     .locals 0
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3453,14 +3007,11 @@
     .line 197
     invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeInt32(II)V
 
-    .line 198
     return-void
 .end method
 
 .method public final writeEnumList(ILjava/util/List;Z)V
     .locals 0
-    .param p1, "fieldNumber"    # I
-    .param p3, "packed"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -3477,10 +3028,8 @@
     .end annotation
 
     .line 485
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     invoke-virtual {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeInt32List(ILjava/util/List;Z)V
 
-    .line 486
     return-void
 .end method
 
@@ -3489,8 +3038,6 @@
 
 .method public final writeFixed32List(ILjava/util/List;Z)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p3, "packed"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -3507,17 +3054,14 @@
     .end annotation
 
     .line 249
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     instance-of v0, p2, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
 
     if-eqz v0, :cond_0
 
     .line 250
-    move-object v0, p2
+    check-cast p2, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-
-    invoke-direct {p0, p1, v0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed32List_Internal(ILcom/google/crypto/tink/shaded/protobuf/IntArrayList;Z)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed32List_Internal(ILcom/google/crypto/tink/shaded/protobuf/IntArrayList;Z)V
 
     goto :goto_0
 
@@ -3525,7 +3069,6 @@
     :cond_0
     invoke-direct {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed32List_Internal(ILjava/util/List;Z)V
 
-    .line 254
     :goto_0
     return-void
 .end method
@@ -3535,8 +3078,6 @@
 
 .method public final writeFixed64List(ILjava/util/List;Z)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p3, "packed"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -3553,17 +3094,14 @@
     .end annotation
 
     .line 347
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Long;>;"
     instance-of v0, p2, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
 
     if-eqz v0, :cond_0
 
     .line 348
-    move-object v0, p2
+    check-cast p2, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
-
-    invoke-direct {p0, p1, v0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed64List_Internal(ILcom/google/crypto/tink/shaded/protobuf/LongArrayList;Z)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed64List_Internal(ILcom/google/crypto/tink/shaded/protobuf/LongArrayList;Z)V
 
     goto :goto_0
 
@@ -3571,15 +3109,12 @@
     :cond_0
     invoke-direct {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed64List_Internal(ILjava/util/List;Z)V
 
-    .line 352
     :goto_0
     return-void
 .end method
 
 .method public final writeFloat(IF)V
-    .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # F
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3589,18 +3124,15 @@
     .line 187
     invoke-static {p2}, Ljava/lang/Float;->floatToRawIntBits(F)I
 
-    move-result v0
+    move-result p2
 
-    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed32(II)V
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed32(II)V
 
-    .line 188
     return-void
 .end method
 
 .method public final writeFloatList(ILjava/util/List;Z)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p3, "packed"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -3617,17 +3149,14 @@
     .end annotation
 
     .line 393
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Float;>;"
     instance-of v0, p2, Lcom/google/crypto/tink/shaded/protobuf/FloatArrayList;
 
     if-eqz v0, :cond_0
 
     .line 394
-    move-object v0, p2
+    check-cast p2, Lcom/google/crypto/tink/shaded/protobuf/FloatArrayList;
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/FloatArrayList;
-
-    invoke-direct {p0, p1, v0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFloatList_Internal(ILcom/google/crypto/tink/shaded/protobuf/FloatArrayList;Z)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFloatList_Internal(ILcom/google/crypto/tink/shaded/protobuf/FloatArrayList;Z)V
 
     goto :goto_0
 
@@ -3635,14 +3164,12 @@
     :cond_0
     invoke-direct {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFloatList_Internal(ILjava/util/List;Z)V
 
-    .line 398
     :goto_0
     return-void
 .end method
 
 .method public final writeGroupList(ILjava/util/List;)V
     .locals 2
-    .param p1, "fieldNumber"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -3658,14 +3185,12 @@
     .end annotation
 
     .line 813
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<*>;"
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v0
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -3676,21 +3201,16 @@
 
     invoke-virtual {p0, p1, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeGroup(ILjava/lang/Object;)V
 
-    .line 813
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 816
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public final writeGroupList(ILjava/util/List;Lcom/google/crypto/tink/shaded/protobuf/Schema;)V
     .locals 2
-    .param p1, "fieldNumber"    # I
-    .param p3, "schema"    # Lcom/google/crypto/tink/shaded/protobuf/Schema;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -3708,14 +3228,12 @@
     .end annotation
 
     .line 821
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<*>;"
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v0
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -3726,13 +3244,10 @@
 
     invoke-virtual {p0, p1, v1, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeGroup(ILjava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/Schema;)V
 
-    .line 821
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 824
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
@@ -3742,8 +3257,6 @@
 
 .method public final writeInt32List(ILjava/util/List;Z)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p3, "packed"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -3760,17 +3273,14 @@
     .end annotation
 
     .line 203
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     instance-of v0, p2, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
 
     if-eqz v0, :cond_0
 
     .line 204
-    move-object v0, p2
+    check-cast p2, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-
-    invoke-direct {p0, p1, v0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeInt32List_Internal(ILcom/google/crypto/tink/shaded/protobuf/IntArrayList;Z)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeInt32List_Internal(ILcom/google/crypto/tink/shaded/protobuf/IntArrayList;Z)V
 
     goto :goto_0
 
@@ -3778,15 +3288,12 @@
     :cond_0
     invoke-direct {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeInt32List_Internal(ILjava/util/List;Z)V
 
-    .line 208
     :goto_0
     return-void
 .end method
 
 .method public final writeInt64(IJ)V
     .locals 0
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3796,14 +3303,11 @@
     .line 177
     invoke-virtual {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeUInt64(IJ)V
 
-    .line 178
     return-void
 .end method
 
 .method public final writeInt64List(ILjava/util/List;Z)V
     .locals 0
-    .param p1, "fieldNumber"    # I
-    .param p3, "packed"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -3820,16 +3324,13 @@
     .end annotation
 
     .line 295
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Long;>;"
     invoke-virtual {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeUInt64List(ILjava/util/List;Z)V
 
-    .line 296
     return-void
 .end method
 
 .method public writeMap(ILcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;Ljava/util/Map;)V
-    .locals 7
-    .param p1, "fieldNumber"    # I
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -3851,86 +3352,75 @@
     .end annotation
 
     .line 684
-    .local p2, "metadata":Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;, "Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata<TK;TV;>;"
-    .local p3, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     invoke-interface {p3}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v0
+    move-result-object p3
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p3}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p3
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {p3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map$Entry;
+
+    .line 685
+    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
     move-result v1
 
-    if-eqz v1, :cond_0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/util/Map$Entry;
-
-    .line 685
-    .local v1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
-
-    move-result v2
-
     .line 686
-    .local v2, "prevBytes":I
-    iget-object v3, p2, Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;->valueType:Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;
+    iget-object v2, p2, Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;->valueType:Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;
 
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    const/4 v5, 0x2
+    const/4 v4, 0x2
 
-    invoke-static {p0, v5, v3, v4}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeMapEntryField(Lcom/google/crypto/tink/shaded/protobuf/Writer;ILcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;Ljava/lang/Object;)V
+    invoke-static {p0, v4, v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeMapEntryField(Lcom/google/crypto/tink/shaded/protobuf/Writer;ILcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;Ljava/lang/Object;)V
 
     .line 687
+    iget-object v2, p2, Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;->keyType:Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;
+
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v0
+
     const/4 v3, 0x1
 
-    iget-object v4, p2, Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;->keyType:Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;
-
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v6
-
-    invoke-static {p0, v3, v4, v6}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeMapEntryField(Lcom/google/crypto/tink/shaded/protobuf/Writer;ILcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;Ljava/lang/Object;)V
+    invoke-static {p0, v3, v2, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeMapEntryField(Lcom/google/crypto/tink/shaded/protobuf/Writer;ILcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;Ljava/lang/Object;)V
 
     .line 688
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->getTotalBytesWritten()I
 
-    move-result v3
+    move-result v0
 
-    sub-int/2addr v3, v2
+    sub-int/2addr v0, v1
 
     .line 689
-    .local v3, "length":I
-    invoke-virtual {p0, v3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
+    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeVarint32(I)V
 
     .line 690
-    invoke-virtual {p0, p1, v5}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
+    invoke-virtual {p0, p1, v4}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
 
-    .line 691
-    .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    .end local v2    # "prevBytes":I
-    .end local v3    # "length":I
     goto :goto_0
 
-    .line 692
     :cond_0
     return-void
 .end method
 
 .method public final writeMessageList(ILjava/util/List;)V
     .locals 2
-    .param p1, "fieldNumber"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -3946,14 +3436,12 @@
     .end annotation
 
     .line 798
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<*>;"
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v0
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -3964,21 +3452,16 @@
 
     invoke-virtual {p0, p1, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeMessage(ILjava/lang/Object;)V
 
-    .line 798
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 801
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public final writeMessageList(ILjava/util/List;Lcom/google/crypto/tink/shaded/protobuf/Schema;)V
     .locals 2
-    .param p1, "fieldNumber"    # I
-    .param p3, "schema"    # Lcom/google/crypto/tink/shaded/protobuf/Schema;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -3996,14 +3479,12 @@
     .end annotation
 
     .line 806
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<*>;"
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v0
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -4014,47 +3495,40 @@
 
     invoke-virtual {p0, p1, v1, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeMessage(ILjava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/Schema;)V
 
-    .line 806
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 809
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public final writeMessageSetItem(ILjava/lang/Object;)V
     .locals 3
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    const/4 v0, 0x4
+
+    const/4 v1, 0x1
+
     .line 828
-    const/4 v0, 0x1
-
-    const/4 v1, 0x4
-
-    invoke-virtual {p0, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
+    invoke-virtual {p0, v1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
 
     .line 829
-    instance-of v1, p2, Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    instance-of v0, p2, Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     const/4 v2, 0x3
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 830
-    move-object v1, p2
+    check-cast p2, Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    check-cast v1, Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-
-    invoke-virtual {p0, v2, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeBytes(ILcom/google/crypto/tink/shaded/protobuf/ByteString;)V
+    invoke-virtual {p0, v2, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeBytes(ILcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
     goto :goto_0
 
@@ -4062,23 +3536,20 @@
     :cond_0
     invoke-virtual {p0, v2, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeMessage(ILjava/lang/Object;)V
 
-    .line 834
     :goto_0
-    const/4 v1, 0x2
+    const/4 p2, 0x2
 
-    invoke-virtual {p0, v1, p1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeUInt32(II)V
+    .line 834
+    invoke-virtual {p0, p2, p1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeUInt32(II)V
 
     .line 835
-    invoke-virtual {p0, v0, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
+    invoke-virtual {p0, v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeTag(II)V
 
-    .line 836
     return-void
 .end method
 
 .method public final writeSFixed32(II)V
     .locals 0
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -4088,14 +3559,11 @@
     .line 172
     invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed32(II)V
 
-    .line 173
     return-void
 .end method
 
 .method public final writeSFixed32List(ILjava/util/List;Z)V
     .locals 0
-    .param p1, "fieldNumber"    # I
-    .param p3, "packed"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -4112,17 +3580,13 @@
     .end annotation
 
     .line 612
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     invoke-virtual {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed32List(ILjava/util/List;Z)V
 
-    .line 613
     return-void
 .end method
 
 .method public final writeSFixed64(IJ)V
     .locals 0
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -4132,14 +3596,11 @@
     .line 182
     invoke-virtual {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed64(IJ)V
 
-    .line 183
     return-void
 .end method
 
 .method public final writeSFixed64List(ILjava/util/List;Z)V
     .locals 0
-    .param p1, "fieldNumber"    # I
-    .param p3, "packed"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -4156,10 +3617,8 @@
     .end annotation
 
     .line 618
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Long;>;"
     invoke-virtual {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeFixed64List(ILjava/util/List;Z)V
 
-    .line 619
     return-void
 .end method
 
@@ -4168,8 +3627,6 @@
 
 .method public final writeSInt32List(ILjava/util/List;Z)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p3, "packed"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -4186,17 +3643,14 @@
     .end annotation
 
     .line 624
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     instance-of v0, p2, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
 
     if-eqz v0, :cond_0
 
     .line 625
-    move-object v0, p2
+    check-cast p2, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-
-    invoke-direct {p0, p1, v0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeSInt32List_Internal(ILcom/google/crypto/tink/shaded/protobuf/IntArrayList;Z)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeSInt32List_Internal(ILcom/google/crypto/tink/shaded/protobuf/IntArrayList;Z)V
 
     goto :goto_0
 
@@ -4204,7 +3658,6 @@
     :cond_0
     invoke-direct {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeSInt32List_Internal(ILjava/util/List;Z)V
 
-    .line 629
     :goto_0
     return-void
 .end method
@@ -4214,8 +3667,6 @@
 
 .method public final writeSInt64List(ILjava/util/List;Z)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p3, "packed"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -4232,17 +3683,14 @@
     .end annotation
 
     .line 670
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Long;>;"
     instance-of v0, p2, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
 
     if-eqz v0, :cond_0
 
     .line 671
-    move-object v0, p2
+    check-cast p2, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
-
-    invoke-direct {p0, p1, v0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeSInt64List_Internal(ILcom/google/crypto/tink/shaded/protobuf/LongArrayList;Z)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeSInt64List_Internal(ILcom/google/crypto/tink/shaded/protobuf/LongArrayList;Z)V
 
     goto :goto_0
 
@@ -4250,7 +3698,6 @@
     :cond_0
     invoke-direct {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeSInt64List_Internal(ILjava/util/List;Z)V
 
-    .line 675
     :goto_0
     return-void
 .end method
@@ -4259,8 +3706,7 @@
 .end method
 
 .method public final writeStringList(ILjava/util/List;)V
-    .locals 3
-    .param p1, "fieldNumber"    # I
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -4277,10 +3723,9 @@
     .end annotation
 
     .line 536
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     instance-of v0, p2, Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     .line 537
     move-object v0, p2
@@ -4288,46 +3733,36 @@
     check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
 
     .line 538
-    .local v0, "lazyList":Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
     invoke-interface {p2}, Ljava/util/List;->size()I
 
-    move-result v1
+    move-result p2
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 p2, p2, -0x1
 
-    .local v1, "i":I
     :goto_0
-    if-ltz v1, :cond_0
+    if-ltz p2, :cond_1
 
     .line 539
-    invoke-interface {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;->getRaw(I)Ljava/lang/Object;
+    invoke-interface {v0, p2}, Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;->getRaw(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {p0, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeLazyString(ILjava/lang/Object;)V
+    invoke-direct {p0, p1, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeLazyString(ILjava/lang/Object;)V
 
-    .line 538
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 p2, p2, -0x1
 
     goto :goto_0
 
-    .line 541
-    .end local v0    # "lazyList":Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
-    .end local v1    # "i":I
-    :cond_0
-    goto :goto_2
-
     .line 542
-    :cond_1
+    :cond_0
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v0
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
     :goto_1
-    if-ltz v0, :cond_2
+    if-ltz v0, :cond_1
 
     .line 543
     invoke-interface {p2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -4338,15 +3773,11 @@
 
     invoke-virtual {p0, p1, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeString(ILjava/lang/String;)V
 
-    .line 542
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_1
 
-    .line 546
-    .end local v0    # "i":I
-    :cond_2
-    :goto_2
+    :cond_1
     return-void
 .end method
 
@@ -4355,8 +3786,6 @@
 
 .method public final writeUInt32List(ILjava/util/List;Z)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p3, "packed"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -4373,17 +3802,14 @@
     .end annotation
 
     .line 566
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     instance-of v0, p2, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
 
     if-eqz v0, :cond_0
 
     .line 567
-    move-object v0, p2
+    check-cast p2, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-
-    invoke-direct {p0, p1, v0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeUInt32List_Internal(ILcom/google/crypto/tink/shaded/protobuf/IntArrayList;Z)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeUInt32List_Internal(ILcom/google/crypto/tink/shaded/protobuf/IntArrayList;Z)V
 
     goto :goto_0
 
@@ -4391,15 +3817,12 @@
     :cond_0
     invoke-direct {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeUInt32List_Internal(ILjava/util/List;Z)V
 
-    .line 571
     :goto_0
     return-void
 .end method
 
 .method public final writeUInt64List(ILjava/util/List;Z)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p3, "packed"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -4416,17 +3839,14 @@
     .end annotation
 
     .line 301
-    .local p2, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Long;>;"
     instance-of v0, p2, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
 
     if-eqz v0, :cond_0
 
     .line 302
-    move-object v0, p2
+    check-cast p2, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
-
-    invoke-direct {p0, p1, v0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeUInt64List_Internal(ILcom/google/crypto/tink/shaded/protobuf/LongArrayList;Z)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeUInt64List_Internal(ILcom/google/crypto/tink/shaded/protobuf/LongArrayList;Z)V
 
     goto :goto_0
 
@@ -4434,7 +3854,6 @@
     :cond_0
     invoke-direct {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->writeUInt64List_Internal(ILjava/util/List;Z)V
 
-    .line 306
     :goto_0
     return-void
 .end method

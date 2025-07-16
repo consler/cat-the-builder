@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/backends/android/AndroidApplication;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/backends/android/AndroidApplication;
 
     .line 403
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication$2;->this$0:Lcom/badlogic/gdx/backends/android/AndroidApplication;
@@ -44,6 +43,5 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->finish()V
 
-    .line 407
     return-void
 .end method

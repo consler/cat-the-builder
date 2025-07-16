@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/appcompat/view/menu/StandardMenuPopup;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/appcompat/view/menu/StandardMenuPopup;
 
     .line 80
     iput-object p1, p0, Landroidx/appcompat/view/menu/StandardMenuPopup$2;->this$0:Landroidx/appcompat/view/menu/StandardMenuPopup;
@@ -38,15 +37,12 @@
 # virtual methods
 .method public onViewAttachedToWindow(Landroid/view/View;)V
     .locals 0
-    .param p1, "v"    # Landroid/view/View;
 
-    .line 83
     return-void
 .end method
 
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
     .locals 2
-    .param p1, "v"    # Landroid/view/View;
 
     .line 87
     iget-object v0, p0, Landroidx/appcompat/view/menu/StandardMenuPopup$2;->this$0:Landroidx/appcompat/view/menu/StandardMenuPopup;
@@ -90,6 +86,5 @@
     :cond_1
     invoke-virtual {p1, p0}, Landroid/view/View;->removeOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
-    .line 92
     return-void
 .end method

@@ -31,63 +31,63 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 9
     const-string v0, ":status"
 
+    .line 9
     invoke-static {v0}, Lcom/koushikdutta/async/http/spdy/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/koushikdutta/async/http/spdy/ByteString;
 
     move-result-object v0
 
     sput-object v0, Lcom/koushikdutta/async/http/spdy/Header;->RESPONSE_STATUS:Lcom/koushikdutta/async/http/spdy/ByteString;
 
-    .line 10
     const-string v0, ":method"
 
+    .line 10
     invoke-static {v0}, Lcom/koushikdutta/async/http/spdy/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/koushikdutta/async/http/spdy/ByteString;
 
     move-result-object v0
 
     sput-object v0, Lcom/koushikdutta/async/http/spdy/Header;->TARGET_METHOD:Lcom/koushikdutta/async/http/spdy/ByteString;
 
-    .line 11
     const-string v0, ":path"
 
+    .line 11
     invoke-static {v0}, Lcom/koushikdutta/async/http/spdy/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/koushikdutta/async/http/spdy/ByteString;
 
     move-result-object v0
 
     sput-object v0, Lcom/koushikdutta/async/http/spdy/Header;->TARGET_PATH:Lcom/koushikdutta/async/http/spdy/ByteString;
 
-    .line 12
     const-string v0, ":scheme"
 
+    .line 12
     invoke-static {v0}, Lcom/koushikdutta/async/http/spdy/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/koushikdutta/async/http/spdy/ByteString;
 
     move-result-object v0
 
     sput-object v0, Lcom/koushikdutta/async/http/spdy/Header;->TARGET_SCHEME:Lcom/koushikdutta/async/http/spdy/ByteString;
 
-    .line 13
     const-string v0, ":authority"
 
+    .line 13
     invoke-static {v0}, Lcom/koushikdutta/async/http/spdy/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/koushikdutta/async/http/spdy/ByteString;
 
     move-result-object v0
 
     sput-object v0, Lcom/koushikdutta/async/http/spdy/Header;->TARGET_AUTHORITY:Lcom/koushikdutta/async/http/spdy/ByteString;
 
-    .line 14
     const-string v0, ":host"
 
+    .line 14
     invoke-static {v0}, Lcom/koushikdutta/async/http/spdy/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/koushikdutta/async/http/spdy/ByteString;
 
     move-result-object v0
 
     sput-object v0, Lcom/koushikdutta/async/http/spdy/Header;->TARGET_HOST:Lcom/koushikdutta/async/http/spdy/ByteString;
 
-    .line 15
     const-string v0, ":version"
 
+    .line 15
     invoke-static {v0}, Lcom/koushikdutta/async/http/spdy/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/koushikdutta/async/http/spdy/ByteString;
 
     move-result-object v0
@@ -98,9 +98,7 @@
 .end method
 
 .method public constructor <init>(Lcom/koushikdutta/async/http/spdy/ByteString;Lcom/koushikdutta/async/http/spdy/ByteString;)V
-    .locals 2
-    .param p1, "name"    # Lcom/koushikdutta/async/http/spdy/ByteString;
-    .param p2, "value"    # Lcom/koushikdutta/async/http/spdy/ByteString;
+    .locals 0
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -114,151 +112,120 @@
     .line 35
     invoke-virtual {p1}, Lcom/koushikdutta/async/http/spdy/ByteString;->size()I
 
-    move-result v0
+    move-result p1
 
-    add-int/lit8 v0, v0, 0x20
+    add-int/lit8 p1, p1, 0x20
 
     invoke-virtual {p2}, Lcom/koushikdutta/async/http/spdy/ByteString;->size()I
 
-    move-result v1
+    move-result p2
 
-    add-int/2addr v0, v1
+    add-int/2addr p1, p2
 
-    iput v0, p0, Lcom/koushikdutta/async/http/spdy/Header;->hpackSize:I
+    iput p1, p0, Lcom/koushikdutta/async/http/spdy/Header;->hpackSize:I
 
-    .line 36
     return-void
 .end method
 
 .method public constructor <init>(Lcom/koushikdutta/async/http/spdy/ByteString;Ljava/lang/String;)V
-    .locals 1
-    .param p1, "name"    # Lcom/koushikdutta/async/http/spdy/ByteString;
-    .param p2, "value"    # Ljava/lang/String;
+    .locals 0
 
     .line 29
     invoke-static {p2}, Lcom/koushikdutta/async/http/spdy/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/koushikdutta/async/http/spdy/ByteString;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-direct {p0, p1, v0}, Lcom/koushikdutta/async/http/spdy/Header;-><init>(Lcom/koushikdutta/async/http/spdy/ByteString;Lcom/koushikdutta/async/http/spdy/ByteString;)V
+    invoke-direct {p0, p1, p2}, Lcom/koushikdutta/async/http/spdy/Header;-><init>(Lcom/koushikdutta/async/http/spdy/ByteString;Lcom/koushikdutta/async/http/spdy/ByteString;)V
 
-    .line 30
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/String;
+    .locals 0
 
     .line 25
     invoke-static {p1}, Lcom/koushikdutta/async/http/spdy/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/koushikdutta/async/http/spdy/ByteString;
 
-    move-result-object v0
+    move-result-object p1
 
     invoke-static {p2}, Lcom/koushikdutta/async/http/spdy/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/koushikdutta/async/http/spdy/ByteString;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {p0, v0, v1}, Lcom/koushikdutta/async/http/spdy/Header;-><init>(Lcom/koushikdutta/async/http/spdy/ByteString;Lcom/koushikdutta/async/http/spdy/ByteString;)V
+    invoke-direct {p0, p1, p2}, Lcom/koushikdutta/async/http/spdy/Header;-><init>(Lcom/koushikdutta/async/http/spdy/ByteString;Lcom/koushikdutta/async/http/spdy/ByteString;)V
 
-    .line 26
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
-    .param p1, "other"    # Ljava/lang/Object;
+    .locals 3
 
     .line 39
     instance-of v0, p1, Lcom/koushikdutta/async/http/spdy/Header;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     .line 40
-    move-object v0, p1
-
-    check-cast v0, Lcom/koushikdutta/async/http/spdy/Header;
+    check-cast p1, Lcom/koushikdutta/async/http/spdy/Header;
 
     .line 41
-    .local v0, "that":Lcom/koushikdutta/async/http/spdy/Header;
-    iget-object v2, p0, Lcom/koushikdutta/async/http/spdy/Header;->name:Lcom/koushikdutta/async/http/spdy/ByteString;
+    iget-object v0, p0, Lcom/koushikdutta/async/http/spdy/Header;->name:Lcom/koushikdutta/async/http/spdy/ByteString;
 
-    iget-object v3, v0, Lcom/koushikdutta/async/http/spdy/Header;->name:Lcom/koushikdutta/async/http/spdy/ByteString;
+    iget-object v2, p1, Lcom/koushikdutta/async/http/spdy/Header;->name:Lcom/koushikdutta/async/http/spdy/ByteString;
 
-    invoke-virtual {v2, v3}, Lcom/koushikdutta/async/http/spdy/ByteString;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Lcom/koushikdutta/async/http/spdy/ByteString;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v2, p0, Lcom/koushikdutta/async/http/spdy/Header;->value:Lcom/koushikdutta/async/http/spdy/ByteString;
+    iget-object v0, p0, Lcom/koushikdutta/async/http/spdy/Header;->value:Lcom/koushikdutta/async/http/spdy/ByteString;
 
-    iget-object v3, v0, Lcom/koushikdutta/async/http/spdy/Header;->value:Lcom/koushikdutta/async/http/spdy/ByteString;
+    iget-object p1, p1, Lcom/koushikdutta/async/http/spdy/Header;->value:Lcom/koushikdutta/async/http/spdy/ByteString;
 
     .line 42
-    invoke-virtual {v2, v3}, Lcom/koushikdutta/async/http/spdy/ByteString;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Lcom/koushikdutta/async/http/spdy/ByteString;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_0
+    if-eqz p1, :cond_0
 
     const/4 v1, 0x1
 
-    goto :goto_0
-
     :cond_0
-    nop
-
-    .line 41
-    :goto_0
-    return v1
-
-    .line 44
-    .end local v0    # "that":Lcom/koushikdutta/async/http/spdy/Header;
-    :cond_1
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 3
-
-    .line 48
-    const/16 v0, 0x11
+    .locals 2
 
     .line 49
-    .local v0, "result":I
-    mul-int/lit8 v1, v0, 0x1f
+    iget-object v0, p0, Lcom/koushikdutta/async/http/spdy/Header;->name:Lcom/koushikdutta/async/http/spdy/ByteString;
 
-    iget-object v2, p0, Lcom/koushikdutta/async/http/spdy/Header;->name:Lcom/koushikdutta/async/http/spdy/ByteString;
+    invoke-virtual {v0}, Lcom/koushikdutta/async/http/spdy/ByteString;->hashCode()I
 
-    invoke-virtual {v2}, Lcom/koushikdutta/async/http/spdy/ByteString;->hashCode()I
+    move-result v0
 
-    move-result v2
+    const/16 v1, 0x20f
 
-    add-int/2addr v1, v2
+    add-int/2addr v1, v0
+
+    mul-int/lit8 v1, v1, 0x1f
 
     .line 50
-    .end local v0    # "result":I
-    .local v1, "result":I
-    mul-int/lit8 v0, v1, 0x1f
+    iget-object v0, p0, Lcom/koushikdutta/async/http/spdy/Header;->value:Lcom/koushikdutta/async/http/spdy/ByteString;
 
-    iget-object v2, p0, Lcom/koushikdutta/async/http/spdy/Header;->value:Lcom/koushikdutta/async/http/spdy/ByteString;
+    invoke-virtual {v0}, Lcom/koushikdutta/async/http/spdy/ByteString;->hashCode()I
 
-    invoke-virtual {v2}, Lcom/koushikdutta/async/http/spdy/ByteString;->hashCode()I
+    move-result v0
 
-    move-result v2
+    add-int/2addr v1, v0
 
-    add-int/2addr v0, v2
-
-    .line 51
-    .end local v1    # "result":I
-    .restart local v0    # "result":I
-    return v0
+    return v1
 .end method
 
 .method public toString()Ljava/lang/String;

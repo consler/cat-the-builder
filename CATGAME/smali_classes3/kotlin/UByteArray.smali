@@ -24,14 +24,13 @@
     }
 .end annotation
 
+.annotation system Ldalvik/annotation/SourceDebugExtension;
+    value = "SMAP\nUByteArray.kt\nKotlin\n*S Kotlin\n*F\n+ 1 UByteArray.kt\nkotlin/UByteArray\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,87:1\n1720#2,3:88\n*S KotlinDebug\n*F\n+ 1 UByteArray.kt\nkotlin/UByteArray\n*L\n63#1:88,3\n*E\n"
+.end annotation
+
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
-        "\u0000F\n\u0002\u0018\u0002\n\u0002\u0010\u001e\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0008\n\u0002\u0008\u0003\n\u0002\u0010\u0012\n\u0002\u0008\u0006\n\u0002\u0010\u000b\n\u0002\u0008\t\n\u0002\u0010\u0000\n\u0002\u0008\u000c\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0010\u0002\n\u0002\u0008\u0004\n\u0002\u0010\u000e\n\u0002\u0008\u0004\u0008\u0087@\u0018\u00002\u0008\u0012\u0004\u0012\u00020\u00020\u0001:\u00012B\u0014\u0008\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u00f8\u0001\u0000\u00a2\u0006\u0004\u0008\u0005\u0010\u0006B\u0014\u0008\u0001\u0012\u0006\u0010\u0007\u001a\u00020\u0008\u00f8\u0001\u0000\u00a2\u0006\u0004\u0008\u0005\u0010\tJ\u001b\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u0002H\u0096\u0002\u00f8\u0001\u0000\u00a2\u0006\u0004\u0008\u0011\u0010\u0012J \u0010\u0013\u001a\u00020\u000f2\u000c\u0010\u0014\u001a\u0008\u0012\u0004\u0012\u00020\u00020\u0001H\u0016\u00f8\u0001\u0000\u00a2\u0006\u0004\u0008\u0015\u0010\u0016J\u001a\u0010\u0017\u001a\u00020\u000f2\u0008\u0010\u0018\u001a\u0004\u0018\u00010\u0019H\u00d6\u0003\u00a2\u0006\u0004\u0008\u001a\u0010\u001bJ\u001e\u0010\u001c\u001a\u00020\u00022\u0006\u0010\u001d\u001a\u00020\u0004H\u0086\u0002\u00f8\u0001\u0000\u00f8\u0001\u0001\u00a2\u0006\u0004\u0008\u001e\u0010\u001fJ\u0010\u0010 \u001a\u00020\u0004H\u00d6\u0001\u00a2\u0006\u0004\u0008!\u0010\u000bJ\u000f\u0010\"\u001a\u00020\u000fH\u0016\u00a2\u0006\u0004\u0008#\u0010$J\u0010\u0010%\u001a\u00020&H\u0096\u0002\u00a2\u0006\u0004\u0008\'\u0010(J#\u0010)\u001a\u00020*2\u0006\u0010\u001d\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\u0002H\u0086\u0002\u00f8\u0001\u0000\u00a2\u0006\u0004\u0008,\u0010-J\u0010\u0010.\u001a\u00020/H\u00d6\u0001\u00a2\u0006\u0004\u00080\u00101R\u0014\u0010\u0003\u001a\u00020\u00048VX\u0096\u0004\u00a2\u0006\u0006\u001a\u0004\u0008\n\u0010\u000bR\u0016\u0010\u0007\u001a\u00020\u00088\u0000X\u0081\u0004\u00a2\u0006\u0008\n\u0000\u0012\u0004\u0008\u000c\u0010\r\u00f8\u0001\u0000\u0082\u0002\u0008\n\u0002\u0008\u0019\n\u0002\u0008!\u00a8\u00063"
+        "\u0000F\n\u0002\u0018\u0002\n\u0002\u0010\u001e\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0008\n\u0002\u0008\u0003\n\u0002\u0010\u0012\n\u0002\u0008\u0006\n\u0002\u0010\u000b\n\u0002\u0008\t\n\u0002\u0010\u0000\n\u0002\u0008\u000c\n\u0002\u0010(\n\u0002\u0008\u0003\n\u0002\u0010\u0002\n\u0002\u0008\u0004\n\u0002\u0010\u000e\n\u0002\u0008\u0004\u0008\u0087@\u0018\u00002\u0008\u0012\u0004\u0012\u00020\u00020\u0001:\u00012B\u0014\u0008\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u00f8\u0001\u0000\u00a2\u0006\u0004\u0008\u0005\u0010\u0006B\u0014\u0008\u0001\u0012\u0006\u0010\u0007\u001a\u00020\u0008\u00f8\u0001\u0000\u00a2\u0006\u0004\u0008\u0005\u0010\tJ\u001b\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u0002H\u0096\u0002\u00f8\u0001\u0000\u00a2\u0006\u0004\u0008\u0011\u0010\u0012J \u0010\u0013\u001a\u00020\u000f2\u000c\u0010\u0014\u001a\u0008\u0012\u0004\u0012\u00020\u00020\u0001H\u0016\u00f8\u0001\u0000\u00a2\u0006\u0004\u0008\u0015\u0010\u0016J\u001a\u0010\u0017\u001a\u00020\u000f2\u0008\u0010\u0018\u001a\u0004\u0018\u00010\u0019H\u00d6\u0003\u00a2\u0006\u0004\u0008\u001a\u0010\u001bJ\u001e\u0010\u001c\u001a\u00020\u00022\u0006\u0010\u001d\u001a\u00020\u0004H\u0086\u0002\u00f8\u0001\u0000\u00f8\u0001\u0001\u00a2\u0006\u0004\u0008\u001e\u0010\u001fJ\u0010\u0010 \u001a\u00020\u0004H\u00d6\u0001\u00a2\u0006\u0004\u0008!\u0010\u000bJ\u000f\u0010\"\u001a\u00020\u000fH\u0016\u00a2\u0006\u0004\u0008#\u0010$J\u0019\u0010%\u001a\u0008\u0012\u0004\u0012\u00020\u00020&H\u0096\u0002\u00f8\u0001\u0000\u00a2\u0006\u0004\u0008\'\u0010(J#\u0010)\u001a\u00020*2\u0006\u0010\u001d\u001a\u00020\u00042\u0006\u0010+\u001a\u00020\u0002H\u0086\u0002\u00f8\u0001\u0000\u00a2\u0006\u0004\u0008,\u0010-J\u0010\u0010.\u001a\u00020/H\u00d6\u0001\u00a2\u0006\u0004\u00080\u00101R\u0014\u0010\u0003\u001a\u00020\u00048VX\u0096\u0004\u00a2\u0006\u0006\u001a\u0004\u0008\n\u0010\u000bR\u0016\u0010\u0007\u001a\u00020\u00088\u0000X\u0081\u0004\u00a2\u0006\u0008\n\u0000\u0012\u0004\u0008\u000c\u0010\r\u0088\u0001\u0007\u0092\u0001\u00020\u0008\u00f8\u0001\u0000\u0082\u0002\u0008\n\u0002\u0008\u0019\n\u0002\u0008!\u00a8\u00063"
     }
     d2 = {
         "Lkotlin/UByteArray;",
@@ -72,9 +71,9 @@
         "isEmpty-impl",
         "([B)Z",
         "iterator",
-        "Lkotlin/collections/UByteIterator;",
+        "",
         "iterator-impl",
-        "([B)Lkotlin/collections/UByteIterator;",
+        "([B)Ljava/util/Iterator;",
         "set",
         "",
         "value",
@@ -90,9 +89,13 @@
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x1
+        0x6,
+        0x0
     }
+    xi = 0x30
+.end annotation
+
+.annotation runtime Lkotlin/jvm/JvmInline;
 .end annotation
 
 
@@ -102,14 +105,9 @@
 
 # direct methods
 .method private synthetic constructor <init>([B)V
-    .locals 1
-    .param p1, "storage"    # [B
+    .locals 0
 
-    const-string v0, "storage"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 15
+    .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lkotlin/UByteArray;->storage:[B
@@ -120,10 +118,6 @@
 .method public static final synthetic box-impl([B)Lkotlin/UByteArray;
     .locals 1
 
-    const-string v0, "v"
-
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     new-instance v0, Lkotlin/UByteArray;
 
     invoke-direct {v0, p0}, Lkotlin/UByteArray;-><init>([B)V
@@ -132,54 +126,41 @@
 .end method
 
 .method public static constructor-impl(I)[B
-    .locals 1
-    .param p0, "size"    # I
+    .locals 0
 
-    .line 18
-    new-array v0, p0, [B
+    .line 20
+    new-array p0, p0, [B
 
-    invoke-static {v0}, Lkotlin/UByteArray;->constructor-impl([B)[B
+    invoke-static {p0}, Lkotlin/UByteArray;->constructor-impl([B)[B
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static constructor-impl([B)[B
     .locals 1
-    .param p0, "storage"    # [B
 
     const-string v0, "storage"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 15
     return-object p0
 .end method
 
 .method public static contains-7apg3OU([BB)Z
-    .locals 1
-    .param p0, "$this"    # [B
-    .param p1, "element"    # B
+    .locals 0
 
-    .line 53
-    nop
-
-    .line 54
-    nop
-
-    .line 56
+    .line 59
     invoke-static {p0, p1}, Lkotlin/collections/ArraysKt;->contains([BB)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static containsAll-impl([BLjava/util/Collection;)Z
-    .locals 9
-    .param p0, "$this"    # [B
-    .param p1, "elements"    # Ljava/util/Collection;
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([B",
@@ -193,110 +174,89 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 60
+    .line 63
+    check-cast p1, Ljava/lang/Iterable;
+
+    .line 88
     move-object v0, p1
 
-    check-cast v0, Ljava/lang/Iterable;
+    check-cast v0, Ljava/util/Collection;
 
-    .local v0, "$this$all$iv":Ljava/lang/Iterable;
-    const/4 v1, 0x0
+    invoke-interface {v0}, Ljava/util/Collection;->isEmpty()Z
 
-    .line 85
-    .local v1, "$i$f$all":I
-    move-object v2, v0
+    move-result v0
 
-    check-cast v2, Ljava/util/Collection;
+    const/4 v1, 0x1
 
-    invoke-interface {v2}, Ljava/util/Collection;->isEmpty()Z
-
-    move-result v2
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x1
-
-    if-eqz v2, :cond_0
-
-    move v3, v4
+    if-eqz v0, :cond_0
 
     goto :goto_1
 
-    .line 86
+    .line 89
     :cond_0
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object p1
 
     :cond_1
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v5
+    move-result v0
 
-    if-eqz v5, :cond_3
+    if-eqz v0, :cond_3
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v0
 
-    .local v5, "element$iv":Ljava/lang/Object;
-    move-object v6, v5
+    .line 63
+    instance-of v2, v0, Lkotlin/UByte;
 
-    .local v6, "it":Ljava/lang/Object;
-    const/4 v7, 0x0
+    const/4 v3, 0x0
 
-    .line 60
-    .local v7, "$i$a$-all-UByteArray$containsAll$1":I
-    instance-of v8, v6, Lkotlin/UByte;
+    if-eqz v2, :cond_2
 
-    if-eqz v8, :cond_2
+    check-cast v0, Lkotlin/UByte;
 
-    move-object v8, v6
+    invoke-virtual {v0}, Lkotlin/UByte;->unbox-impl()B
 
-    check-cast v8, Lkotlin/UByte;
+    move-result v0
 
-    invoke-virtual {v8}, Lkotlin/UByte;->unbox-impl()B
+    invoke-static {p0, v0}, Lkotlin/collections/ArraysKt;->contains([BB)Z
 
-    move-result v8
+    move-result v0
 
-    invoke-static {p0, v8}, Lkotlin/collections/ArraysKt;->contains([BB)Z
+    if-eqz v0, :cond_2
 
-    move-result v8
-
-    if-eqz v8, :cond_2
-
-    move v6, v4
+    move v0, v1
 
     goto :goto_0
 
     :cond_2
-    move v6, v3
+    move v0, v3
 
-    .end local v6    # "it":Ljava/lang/Object;
-    .end local v7    # "$i$a$-all-UByteArray$containsAll$1":I
     :goto_0
-    if-nez v6, :cond_1
+    if-nez v0, :cond_1
 
-    goto :goto_1
+    move v1, v3
 
-    .line 87
-    .end local v5    # "element$iv":Ljava/lang/Object;
     :cond_3
-    move v3, v4
-
-    .line 60
-    .end local v0    # "$this$all$iv":Ljava/lang/Iterable;
-    .end local v1    # "$i$f$all":I
     :goto_1
-    return v3
+    return v1
 .end method
 
 .method public static equals-impl([BLjava/lang/Object;)Z
-    .locals 1
+    .locals 2
 
     instance-of v0, p1, Lkotlin/UByteArray;
 
-    if-eqz v0, :cond_0
+    const/4 v1, 0x0
 
+    if-nez v0, :cond_0
+
+    return v1
+
+    :cond_0
     check-cast p1, Lkotlin/UByteArray;
 
     invoke-virtual {p1}, Lkotlin/UByteArray;->unbox-impl()[B
@@ -307,51 +267,46 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_1
 
+    return v1
+
+    :cond_1
     const/4 p0, 0x1
-
-    return p0
-
-    :cond_0
-    const/4 p0, 0x0
 
     return p0
 .end method
 
 .method public static final equals-impl0([B[B)Z
-    .locals 1
+    .locals 0
 
     invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static final get-w2LRezQ([BI)B
-    .locals 1
-    .param p0, "$this"    # [B
-    .param p1, "index"    # I
+    .locals 0
 
-    .line 26
-    aget-byte v0, p0, p1
+    .line 28
+    aget-byte p0, p0, p1
 
-    invoke-static {v0}, Lkotlin/UByte;->constructor-impl(B)B
+    invoke-static {p0}, Lkotlin/UByte;->constructor-impl(B)B
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static getSize-impl([B)I
-    .locals 1
-    .param p0, "$this"    # [B
+    .locals 0
 
-    .line 39
-    array-length v0, p0
+    .line 41
+    array-length p0, p0
 
-    return v0
+    return p0
 .end method
 
 .method public static synthetic getStorage$annotations()V
@@ -363,11 +318,22 @@
 .method public static hashCode-impl([B)I
     .locals 0
 
-    if-eqz p0, :cond_0
-
     invoke-static {p0}, Ljava/util/Arrays;->hashCode([B)I
 
     move-result p0
+
+    return p0
+.end method
+
+.method public static isEmpty-impl([B)Z
+    .locals 0
+
+    .line 66
+    array-length p0, p0
+
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x1
 
     goto :goto_0
 
@@ -378,50 +344,33 @@
     return p0
 .end method
 
-.method public static isEmpty-impl([B)Z
+.method public static iterator-impl([B)Ljava/util/Iterator;
     .locals 1
-    .param p0, "$this"    # [B
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "([B)",
+            "Ljava/util/Iterator<",
+            "Lkotlin/UByte;",
+            ">;"
+        }
+    .end annotation
 
-    .line 63
-    array-length v0, p0
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    return v0
-.end method
-
-.method public static iterator-impl([B)Lkotlin/collections/UByteIterator;
-    .locals 1
-    .param p0, "$this"    # [B
-
-    .line 42
+    .line 44
     new-instance v0, Lkotlin/UByteArray$Iterator;
 
     invoke-direct {v0, p0}, Lkotlin/UByteArray$Iterator;-><init>([B)V
 
-    check-cast v0, Lkotlin/collections/UByteIterator;
+    check-cast v0, Ljava/util/Iterator;
 
     return-object v0
 .end method
 
 .method public static final set-VurrAj0([BIB)V
     .locals 0
-    .param p0, "$this"    # [B
-    .param p1, "index"    # I
-    .param p2, "value"    # B
 
-    .line 35
+    .line 37
     aput-byte p2, p0, p1
 
-    .line 36
     return-void
 .end method
 
@@ -430,11 +379,9 @@
 
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "UByteArray(storage="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-static {p0}, Ljava/util/Arrays;->toString([B)Ljava/lang/String;
 
@@ -442,11 +389,15 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p0, ")"
+    move-result-object p0
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/16 v0, 0x29
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -455,7 +406,7 @@
 
 
 # virtual methods
-.method public synthetic add(Ljava/lang/Object;)Z
+.method public bridge synthetic add(Ljava/lang/Object;)Z
     .locals 1
 
     new-instance p1, Ljava/lang/UnsupportedOperationException;
@@ -518,8 +469,13 @@
     .line 12
     instance-of v0, p1, Lkotlin/UByte;
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
+    const/4 p1, 0x0
+
+    return p1
+
+    :cond_0
     check-cast p1, Lkotlin/UByte;
 
     invoke-virtual {p1}, Lkotlin/UByte;->unbox-impl()B
@@ -531,17 +487,12 @@
     move-result p1
 
     return p1
-
-    :cond_0
-    const/4 p1, 0x0
-
-    return p1
 .end method
 
 .method public contains-7apg3OU(B)Z
     .locals 1
 
-    .line 1
+    .line 53
     iget-object v0, p0, Lkotlin/UByteArray;->storage:[B
 
     invoke-static {v0, p1}, Lkotlin/UByteArray;->contains-7apg3OU([BB)Z
@@ -563,7 +514,11 @@
         }
     .end annotation
 
-    .line 1
+    const-string v0, "elements"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 62
     iget-object v0, p0, Lkotlin/UByteArray;->storage:[B
 
     invoke-static {v0, p1}, Lkotlin/UByteArray;->containsAll-impl([BLjava/util/Collection;)Z
@@ -576,7 +531,6 @@
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
 
-    .line 1
     iget-object v0, p0, Lkotlin/UByteArray;->storage:[B
 
     invoke-static {v0, p1}, Lkotlin/UByteArray;->equals-impl([BLjava/lang/Object;)Z
@@ -589,7 +543,7 @@
 .method public getSize()I
     .locals 1
 
-    .line 1
+    .line 41
     iget-object v0, p0, Lkotlin/UByteArray;->storage:[B
 
     invoke-static {v0}, Lkotlin/UByteArray;->getSize-impl([B)I
@@ -602,7 +556,6 @@
 .method public hashCode()I
     .locals 1
 
-    .line 1
     iget-object v0, p0, Lkotlin/UByteArray;->storage:[B
 
     invoke-static {v0}, Lkotlin/UByteArray;->hashCode-impl([B)I
@@ -615,7 +568,7 @@
 .method public isEmpty()Z
     .locals 1
 
-    .line 1
+    .line 66
     iget-object v0, p0, Lkotlin/UByteArray;->storage:[B
 
     invoke-static {v0}, Lkotlin/UByteArray;->isEmpty-impl([B)Z
@@ -625,26 +578,21 @@
     return v0
 .end method
 
-.method public bridge synthetic iterator()Ljava/util/Iterator;
+.method public iterator()Ljava/util/Iterator;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Iterator<",
+            "Lkotlin/UByte;",
+            ">;"
+        }
+    .end annotation
 
-    .line 12
-    invoke-virtual {p0}, Lkotlin/UByteArray;->iterator()Lkotlin/collections/UByteIterator;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/Iterator;
-
-    return-object v0
-.end method
-
-.method public iterator()Lkotlin/collections/UByteIterator;
-    .locals 1
-
-    .line 1
+    .line 44
     iget-object v0, p0, Lkotlin/UByteArray;->storage:[B
 
-    invoke-static {v0}, Lkotlin/UByteArray;->iterator-impl([B)Lkotlin/collections/UByteIterator;
+    invoke-static {v0}, Lkotlin/UByteArray;->iterator-impl([B)Ljava/util/Iterator;
 
     move-result-object v0
 
@@ -705,7 +653,7 @@
     throw p1
 .end method
 
-.method public final bridge size()I
+.method public bridge synthetic size()I
     .locals 1
 
     .line 12
@@ -719,7 +667,11 @@
 .method public toArray()[Ljava/lang/Object;
     .locals 1
 
-    invoke-static {p0}, Lkotlin/jvm/internal/CollectionToArray;->toArray(Ljava/util/Collection;)[Ljava/lang/Object;
+    move-object v0, p0
+
+    check-cast v0, Ljava/util/Collection;
+
+    invoke-static {v0}, Lkotlin/jvm/internal/CollectionToArray;->toArray(Ljava/util/Collection;)[Ljava/lang/Object;
 
     move-result-object v0
 
@@ -727,7 +679,7 @@
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 0
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -736,7 +688,15 @@
         }
     .end annotation
 
-    invoke-static {p0, p1}, Lkotlin/jvm/internal/CollectionToArray;->toArray(Ljava/util/Collection;[Ljava/lang/Object;)[Ljava/lang/Object;
+    const-string v0, "array"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    move-object v0, p0
+
+    check-cast v0, Ljava/util/Collection;
+
+    invoke-static {v0, p1}, Lkotlin/jvm/internal/CollectionToArray;->toArray(Ljava/util/Collection;[Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object p1
 
@@ -746,7 +706,6 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .line 1
     iget-object v0, p0, Lkotlin/UByteArray;->storage:[B
 
     invoke-static {v0}, Lkotlin/UByteArray;->toString-impl([B)Ljava/lang/String;

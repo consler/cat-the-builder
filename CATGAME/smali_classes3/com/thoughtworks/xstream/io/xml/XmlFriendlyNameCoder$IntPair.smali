@@ -23,8 +23,6 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 0
-    .param p1, "min"    # I
-    .param p2, "max"    # I
 
     .line 301
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,6 +33,5 @@
     .line 303
     iput p2, p0, Lcom/thoughtworks/xstream/io/xml/XmlFriendlyNameCoder$IntPair;->max:I
 
-    .line 304
     return-void
 .end method

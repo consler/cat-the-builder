@@ -50,13 +50,11 @@
     .end annotation
 
     .line 32
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;, "Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch<TT;>;"
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 28
     const/4 v0, 0x0
 
+    .line 28
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;->currentCapacity:I
 
     .line 33
@@ -75,7 +73,6 @@
 
     iput-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;->renderData:Lcom/badlogic/gdx/utils/Array;
 
-    .line 35
     return-void
 .end method
 
@@ -88,22 +85,20 @@
     .locals 1
 
     .line 38
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;, "Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch<TT;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;->renderData:Lcom/badlogic/gdx/utils/Array;
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->clear()V
 
-    .line 39
     const/4 v0, 0x0
 
+    .line 39
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;->bufferedParticlesCount:I
 
-    .line 40
     return-void
 .end method
 
 .method public draw(Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderData;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -111,8 +106,6 @@
     .end annotation
 
     .line 44
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;, "Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch<TT;>;"
-    .local p1, "data":Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderData;, "TT;"
     iget-object v0, p1, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderData;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
 
     iget-object v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->particles:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;
@@ -129,17 +122,16 @@
     .line 46
     iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;->bufferedParticlesCount:I
 
-    iget-object v1, p1, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderData;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderData;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
 
-    iget-object v1, v1, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->particles:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->particles:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;
 
-    iget v1, v1, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;->size:I
+    iget p1, p1, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;->size:I
 
-    add-int/2addr v0, v1
+    add-int/2addr v0, p1
 
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;->bufferedParticlesCount:I
 
-    .line 48
     :cond_0
     return-void
 .end method
@@ -148,7 +140,6 @@
     .locals 2
 
     .line 52
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;, "Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch<TT;>;"
     iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;->bufferedParticlesCount:I
 
     if-lez v0, :cond_0
@@ -167,17 +158,14 @@
 
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;->flush([I)V
 
-    .line 56
     :cond_0
     return-void
 .end method
 
 .method public ensureCapacity(I)V
     .locals 1
-    .param p1, "capacity"    # I
 
     .line 60
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;, "Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch<TT;>;"
     iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;->currentCapacity:I
 
     if-lt v0, p1, :cond_0
@@ -196,7 +184,6 @@
     .line 63
     iput p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;->currentCapacity:I
 
-    .line 64
     return-void
 .end method
 
@@ -207,7 +194,6 @@
     .locals 1
 
     .line 93
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;, "Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch<TT;>;"
     iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;->bufferedParticlesCount:I
 
     return v0
@@ -217,7 +203,6 @@
     .locals 1
 
     .line 78
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;, "Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch<TT;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;->sorter:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleSorter;
 
     return-object v0
@@ -226,24 +211,20 @@
 .method public resetCapacity()V
     .locals 1
 
-    .line 67
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;, "Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch<TT;>;"
     const/4 v0, 0x0
 
+    .line 67
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;->bufferedParticlesCount:I
 
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;->currentCapacity:I
 
-    .line 68
     return-void
 .end method
 
 .method public setCamera(Lcom/badlogic/gdx/graphics/Camera;)V
     .locals 1
-    .param p1, "camera"    # Lcom/badlogic/gdx/graphics/Camera;
 
     .line 73
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;, "Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch<TT;>;"
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;->camera:Lcom/badlogic/gdx/graphics/Camera;
 
     .line 74
@@ -251,16 +232,13 @@
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleSorter;->setCamera(Lcom/badlogic/gdx/graphics/Camera;)V
 
-    .line 75
     return-void
 .end method
 
 .method public setSorter(Lcom/badlogic/gdx/graphics/g3d/particles/ParticleSorter;)V
     .locals 1
-    .param p1, "sorter"    # Lcom/badlogic/gdx/graphics/g3d/particles/ParticleSorter;
 
     .line 82
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;, "Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch<TT;>;"
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/batches/BufferedParticleBatch;->sorter:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleSorter;
 
     .line 83
@@ -273,6 +251,5 @@
 
     invoke-virtual {p1, v0}, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleSorter;->ensureCapacity(I)V
 
-    .line 85
     return-void
 .end method

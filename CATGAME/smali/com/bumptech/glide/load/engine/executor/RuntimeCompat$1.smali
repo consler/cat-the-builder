@@ -36,20 +36,18 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;Ljava/lang/String;)Z
-    .locals 1
-    .param p1, "file"    # Ljava/io/File;
-    .param p2, "s"    # Ljava/lang/String;
+    .locals 0
 
     .line 54
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/executor/RuntimeCompat$1;->val$cpuNamePattern:Ljava/util/regex/Pattern;
+    iget-object p1, p0, Lcom/bumptech/glide/load/engine/executor/RuntimeCompat$1;->val$cpuNamePattern:Ljava/util/regex/Pattern;
 
-    invoke-virtual {v0, p2}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+    invoke-virtual {p1, p2}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/util/regex/Matcher;->matches()Z
+    invoke-virtual {p1}, Ljava/util/regex/Matcher;->matches()Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

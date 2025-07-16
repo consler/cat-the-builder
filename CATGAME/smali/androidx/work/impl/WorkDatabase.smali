@@ -39,10 +39,7 @@
 .end method
 
 .method public static create(Landroid/content/Context;Ljava/util/concurrent/Executor;Z)Landroidx/work/impl/WorkDatabase;
-    .locals 8
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "queryExecutor"    # Ljava/util/concurrent/Executor;
-    .param p2, "useTestDatabase"    # Z
+    .locals 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -64,207 +61,212 @@
     .line 113
     invoke-static {p0, v0}, Landroidx/room/Room;->inMemoryDatabaseBuilder(Landroid/content/Context;Ljava/lang/Class;)Landroidx/room/RoomDatabase$Builder;
 
-    move-result-object v0
+    move-result-object p2
 
     .line 114
-    invoke-virtual {v0}, Landroidx/room/RoomDatabase$Builder;->allowMainThreadQueries()Landroidx/room/RoomDatabase$Builder;
+    invoke-virtual {p2}, Landroidx/room/RoomDatabase$Builder;->allowMainThreadQueries()Landroidx/room/RoomDatabase$Builder;
 
-    move-result-object v0
+    move-result-object p2
 
-    .local v0, "builder":Landroidx/room/RoomDatabase$Builder;, "Landroidx/room/RoomDatabase$Builder<Landroidx/work/impl/WorkDatabase;>;"
     goto :goto_0
 
     .line 116
-    .end local v0    # "builder":Landroidx/room/RoomDatabase$Builder;, "Landroidx/room/RoomDatabase$Builder<Landroidx/work/impl/WorkDatabase;>;"
     :cond_0
     invoke-static {}, Landroidx/work/impl/WorkDatabasePathHelper;->getWorkDatabaseName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
     .line 117
-    .local v1, "name":Ljava/lang/String;
-    invoke-static {p0, v0, v1}, Landroidx/room/Room;->databaseBuilder(Landroid/content/Context;Ljava/lang/Class;Ljava/lang/String;)Landroidx/room/RoomDatabase$Builder;
+    invoke-static {p0, v0, p2}, Landroidx/room/Room;->databaseBuilder(Landroid/content/Context;Ljava/lang/Class;Ljava/lang/String;)Landroidx/room/RoomDatabase$Builder;
 
-    move-result-object v0
+    move-result-object p2
 
     .line 118
-    .restart local v0    # "builder":Landroidx/room/RoomDatabase$Builder;, "Landroidx/room/RoomDatabase$Builder<Landroidx/work/impl/WorkDatabase;>;"
-    new-instance v2, Landroidx/work/impl/WorkDatabase$1;
+    new-instance v0, Landroidx/work/impl/WorkDatabase$1;
 
-    invoke-direct {v2, p0}, Landroidx/work/impl/WorkDatabase$1;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p0}, Landroidx/work/impl/WorkDatabase$1;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {v0, v2}, Landroidx/room/RoomDatabase$Builder;->openHelperFactory(Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;)Landroidx/room/RoomDatabase$Builder;
+    invoke-virtual {p2, v0}, Landroidx/room/RoomDatabase$Builder;->openHelperFactory(Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;)Landroidx/room/RoomDatabase$Builder;
 
     .line 135
-    .end local v1    # "name":Ljava/lang/String;
     :goto_0
-    invoke-virtual {v0, p1}, Landroidx/room/RoomDatabase$Builder;->setQueryExecutor(Ljava/util/concurrent/Executor;)Landroidx/room/RoomDatabase$Builder;
+    invoke-virtual {p2, p1}, Landroidx/room/RoomDatabase$Builder;->setQueryExecutor(Ljava/util/concurrent/Executor;)Landroidx/room/RoomDatabase$Builder;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 136
     invoke-static {}, Landroidx/work/impl/WorkDatabase;->generateCleanupCallback()Landroidx/room/RoomDatabase$Callback;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-virtual {v1, v2}, Landroidx/room/RoomDatabase$Builder;->addCallback(Landroidx/room/RoomDatabase$Callback;)Landroidx/room/RoomDatabase$Builder;
+    invoke-virtual {p1, p2}, Landroidx/room/RoomDatabase$Builder;->addCallback(Landroidx/room/RoomDatabase$Callback;)Landroidx/room/RoomDatabase$Builder;
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v2, 0x1
+    const/4 p2, 0x1
 
-    new-array v3, v2, [Landroidx/room/migration/Migration;
+    new-array v0, p2, [Landroidx/room/migration/Migration;
 
-    sget-object v4, Landroidx/work/impl/WorkDatabaseMigrations;->MIGRATION_1_2:Landroidx/room/migration/Migration;
+    sget-object v1, Landroidx/work/impl/WorkDatabaseMigrations;->MIGRATION_1_2:Landroidx/room/migration/Migration;
 
-    const/4 v5, 0x0
+    const/4 v2, 0x0
 
-    aput-object v4, v3, v5
+    aput-object v1, v0, v2
 
     .line 137
-    invoke-virtual {v1, v3}, Landroidx/room/RoomDatabase$Builder;->addMigrations([Landroidx/room/migration/Migration;)Landroidx/room/RoomDatabase$Builder;
+    invoke-virtual {p1, v0}, Landroidx/room/RoomDatabase$Builder;->addMigrations([Landroidx/room/migration/Migration;)Landroidx/room/RoomDatabase$Builder;
 
-    move-result-object v1
+    move-result-object p1
 
-    new-array v3, v2, [Landroidx/room/migration/Migration;
+    new-array v0, p2, [Landroidx/room/migration/Migration;
 
-    new-instance v4, Landroidx/work/impl/WorkDatabaseMigrations$RescheduleMigration;
+    new-instance v1, Landroidx/work/impl/WorkDatabaseMigrations$RescheduleMigration;
 
-    const/4 v6, 0x2
+    const/4 v3, 0x2
 
-    const/4 v7, 0x3
+    const/4 v4, 0x3
 
-    invoke-direct {v4, p0, v6, v7}, Landroidx/work/impl/WorkDatabaseMigrations$RescheduleMigration;-><init>(Landroid/content/Context;II)V
+    invoke-direct {v1, p0, v3, v4}, Landroidx/work/impl/WorkDatabaseMigrations$RescheduleMigration;-><init>(Landroid/content/Context;II)V
 
-    aput-object v4, v3, v5
+    aput-object v1, v0, v2
 
     .line 138
-    invoke-virtual {v1, v3}, Landroidx/room/RoomDatabase$Builder;->addMigrations([Landroidx/room/migration/Migration;)Landroidx/room/RoomDatabase$Builder;
+    invoke-virtual {p1, v0}, Landroidx/room/RoomDatabase$Builder;->addMigrations([Landroidx/room/migration/Migration;)Landroidx/room/RoomDatabase$Builder;
 
-    move-result-object v1
+    move-result-object p1
 
-    new-array v3, v2, [Landroidx/room/migration/Migration;
+    new-array v0, p2, [Landroidx/room/migration/Migration;
 
-    sget-object v4, Landroidx/work/impl/WorkDatabaseMigrations;->MIGRATION_3_4:Landroidx/room/migration/Migration;
+    sget-object v1, Landroidx/work/impl/WorkDatabaseMigrations;->MIGRATION_3_4:Landroidx/room/migration/Migration;
 
-    aput-object v4, v3, v5
+    aput-object v1, v0, v2
 
     .line 141
-    invoke-virtual {v1, v3}, Landroidx/room/RoomDatabase$Builder;->addMigrations([Landroidx/room/migration/Migration;)Landroidx/room/RoomDatabase$Builder;
+    invoke-virtual {p1, v0}, Landroidx/room/RoomDatabase$Builder;->addMigrations([Landroidx/room/migration/Migration;)Landroidx/room/RoomDatabase$Builder;
 
-    move-result-object v1
+    move-result-object p1
 
-    new-array v3, v2, [Landroidx/room/migration/Migration;
+    new-array v0, p2, [Landroidx/room/migration/Migration;
 
-    sget-object v4, Landroidx/work/impl/WorkDatabaseMigrations;->MIGRATION_4_5:Landroidx/room/migration/Migration;
+    sget-object v1, Landroidx/work/impl/WorkDatabaseMigrations;->MIGRATION_4_5:Landroidx/room/migration/Migration;
 
-    aput-object v4, v3, v5
+    aput-object v1, v0, v2
 
     .line 142
-    invoke-virtual {v1, v3}, Landroidx/room/RoomDatabase$Builder;->addMigrations([Landroidx/room/migration/Migration;)Landroidx/room/RoomDatabase$Builder;
+    invoke-virtual {p1, v0}, Landroidx/room/RoomDatabase$Builder;->addMigrations([Landroidx/room/migration/Migration;)Landroidx/room/RoomDatabase$Builder;
 
-    move-result-object v1
+    move-result-object p1
 
-    new-array v3, v2, [Landroidx/room/migration/Migration;
+    new-array v0, p2, [Landroidx/room/migration/Migration;
 
-    new-instance v4, Landroidx/work/impl/WorkDatabaseMigrations$RescheduleMigration;
+    new-instance v1, Landroidx/work/impl/WorkDatabaseMigrations$RescheduleMigration;
 
-    const/4 v6, 0x5
+    const/4 v3, 0x5
 
-    const/4 v7, 0x6
+    const/4 v4, 0x6
 
-    invoke-direct {v4, p0, v6, v7}, Landroidx/work/impl/WorkDatabaseMigrations$RescheduleMigration;-><init>(Landroid/content/Context;II)V
+    invoke-direct {v1, p0, v3, v4}, Landroidx/work/impl/WorkDatabaseMigrations$RescheduleMigration;-><init>(Landroid/content/Context;II)V
 
-    aput-object v4, v3, v5
+    aput-object v1, v0, v2
 
     .line 143
-    invoke-virtual {v1, v3}, Landroidx/room/RoomDatabase$Builder;->addMigrations([Landroidx/room/migration/Migration;)Landroidx/room/RoomDatabase$Builder;
+    invoke-virtual {p1, v0}, Landroidx/room/RoomDatabase$Builder;->addMigrations([Landroidx/room/migration/Migration;)Landroidx/room/RoomDatabase$Builder;
 
-    move-result-object v1
+    move-result-object p1
 
-    new-array v3, v2, [Landroidx/room/migration/Migration;
+    new-array v0, p2, [Landroidx/room/migration/Migration;
 
-    sget-object v4, Landroidx/work/impl/WorkDatabaseMigrations;->MIGRATION_6_7:Landroidx/room/migration/Migration;
+    sget-object v1, Landroidx/work/impl/WorkDatabaseMigrations;->MIGRATION_6_7:Landroidx/room/migration/Migration;
 
-    aput-object v4, v3, v5
+    aput-object v1, v0, v2
 
     .line 146
-    invoke-virtual {v1, v3}, Landroidx/room/RoomDatabase$Builder;->addMigrations([Landroidx/room/migration/Migration;)Landroidx/room/RoomDatabase$Builder;
+    invoke-virtual {p1, v0}, Landroidx/room/RoomDatabase$Builder;->addMigrations([Landroidx/room/migration/Migration;)Landroidx/room/RoomDatabase$Builder;
 
-    move-result-object v1
+    move-result-object p1
 
-    new-array v3, v2, [Landroidx/room/migration/Migration;
+    new-array v0, p2, [Landroidx/room/migration/Migration;
 
-    sget-object v4, Landroidx/work/impl/WorkDatabaseMigrations;->MIGRATION_7_8:Landroidx/room/migration/Migration;
+    sget-object v1, Landroidx/work/impl/WorkDatabaseMigrations;->MIGRATION_7_8:Landroidx/room/migration/Migration;
 
-    aput-object v4, v3, v5
+    aput-object v1, v0, v2
 
     .line 147
-    invoke-virtual {v1, v3}, Landroidx/room/RoomDatabase$Builder;->addMigrations([Landroidx/room/migration/Migration;)Landroidx/room/RoomDatabase$Builder;
+    invoke-virtual {p1, v0}, Landroidx/room/RoomDatabase$Builder;->addMigrations([Landroidx/room/migration/Migration;)Landroidx/room/RoomDatabase$Builder;
 
-    move-result-object v1
+    move-result-object p1
 
-    new-array v3, v2, [Landroidx/room/migration/Migration;
+    new-array v0, p2, [Landroidx/room/migration/Migration;
 
-    sget-object v4, Landroidx/work/impl/WorkDatabaseMigrations;->MIGRATION_8_9:Landroidx/room/migration/Migration;
+    sget-object v1, Landroidx/work/impl/WorkDatabaseMigrations;->MIGRATION_8_9:Landroidx/room/migration/Migration;
 
-    aput-object v4, v3, v5
+    aput-object v1, v0, v2
 
     .line 148
-    invoke-virtual {v1, v3}, Landroidx/room/RoomDatabase$Builder;->addMigrations([Landroidx/room/migration/Migration;)Landroidx/room/RoomDatabase$Builder;
+    invoke-virtual {p1, v0}, Landroidx/room/RoomDatabase$Builder;->addMigrations([Landroidx/room/migration/Migration;)Landroidx/room/RoomDatabase$Builder;
 
-    move-result-object v1
+    move-result-object p1
 
-    new-array v3, v2, [Landroidx/room/migration/Migration;
+    new-array v0, p2, [Landroidx/room/migration/Migration;
 
-    new-instance v4, Landroidx/work/impl/WorkDatabaseMigrations$WorkMigration9To10;
+    new-instance v1, Landroidx/work/impl/WorkDatabaseMigrations$WorkMigration9To10;
 
-    invoke-direct {v4, p0}, Landroidx/work/impl/WorkDatabaseMigrations$WorkMigration9To10;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p0}, Landroidx/work/impl/WorkDatabaseMigrations$WorkMigration9To10;-><init>(Landroid/content/Context;)V
 
-    aput-object v4, v3, v5
+    aput-object v1, v0, v2
 
     .line 149
-    invoke-virtual {v1, v3}, Landroidx/room/RoomDatabase$Builder;->addMigrations([Landroidx/room/migration/Migration;)Landroidx/room/RoomDatabase$Builder;
+    invoke-virtual {p1, v0}, Landroidx/room/RoomDatabase$Builder;->addMigrations([Landroidx/room/migration/Migration;)Landroidx/room/RoomDatabase$Builder;
 
-    move-result-object v1
+    move-result-object p1
 
-    new-array v2, v2, [Landroidx/room/migration/Migration;
+    new-array v0, p2, [Landroidx/room/migration/Migration;
 
-    new-instance v3, Landroidx/work/impl/WorkDatabaseMigrations$RescheduleMigration;
+    new-instance v1, Landroidx/work/impl/WorkDatabaseMigrations$RescheduleMigration;
 
-    const/16 v4, 0xa
+    const/16 v3, 0xa
 
-    const/16 v6, 0xb
+    const/16 v4, 0xb
 
-    invoke-direct {v3, p0, v4, v6}, Landroidx/work/impl/WorkDatabaseMigrations$RescheduleMigration;-><init>(Landroid/content/Context;II)V
+    invoke-direct {v1, p0, v3, v4}, Landroidx/work/impl/WorkDatabaseMigrations$RescheduleMigration;-><init>(Landroid/content/Context;II)V
 
-    aput-object v3, v2, v5
+    aput-object v1, v0, v2
 
     .line 150
-    invoke-virtual {v1, v2}, Landroidx/room/RoomDatabase$Builder;->addMigrations([Landroidx/room/migration/Migration;)Landroidx/room/RoomDatabase$Builder;
+    invoke-virtual {p1, v0}, Landroidx/room/RoomDatabase$Builder;->addMigrations([Landroidx/room/migration/Migration;)Landroidx/room/RoomDatabase$Builder;
 
-    move-result-object v1
+    move-result-object p0
+
+    new-array p1, p2, [Landroidx/room/migration/Migration;
+
+    sget-object p2, Landroidx/work/impl/WorkDatabaseMigrations;->MIGRATION_11_12:Landroidx/room/migration/Migration;
+
+    aput-object p2, p1, v2
 
     .line 153
-    invoke-virtual {v1}, Landroidx/room/RoomDatabase$Builder;->fallbackToDestructiveMigration()Landroidx/room/RoomDatabase$Builder;
+    invoke-virtual {p0, p1}, Landroidx/room/RoomDatabase$Builder;->addMigrations([Landroidx/room/migration/Migration;)Landroidx/room/RoomDatabase$Builder;
 
-    move-result-object v1
+    move-result-object p0
 
     .line 154
-    invoke-virtual {v1}, Landroidx/room/RoomDatabase$Builder;->build()Landroidx/room/RoomDatabase;
+    invoke-virtual {p0}, Landroidx/room/RoomDatabase$Builder;->fallbackToDestructiveMigration()Landroidx/room/RoomDatabase$Builder;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Landroidx/work/impl/WorkDatabase;
+    .line 155
+    invoke-virtual {p0}, Landroidx/room/RoomDatabase$Builder;->build()Landroidx/room/RoomDatabase;
 
-    .line 135
-    return-object v1
+    move-result-object p0
+
+    check-cast p0, Landroidx/work/impl/WorkDatabase;
+
+    return-object p0
 .end method
 
 .method static generateCleanupCallback()Landroidx/room/RoomDatabase$Callback;
     .locals 1
 
-    .line 158
+    .line 159
     new-instance v0, Landroidx/work/impl/WorkDatabase$2;
 
     invoke-direct {v0}, Landroidx/work/impl/WorkDatabase$2;-><init>()V
@@ -275,7 +277,7 @@
 .method static getPruneDate()J
     .locals 4
 
-    .line 182
+    .line 183
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
@@ -290,14 +292,12 @@
 .method static getPruneSQL()Ljava/lang/String;
     .locals 3
 
-    .line 178
+    .line 179
     new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v1, "DELETE FROM workspec WHERE state IN (2, 3, 5) AND (period_start_time + minimum_retention_duration) < "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-static {}, Landroidx/work/impl/WorkDatabase;->getPruneDate()J
 
@@ -305,9 +305,13 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " AND (SELECT COUNT(*)=0 FROM dependency WHERE     prerequisite_id=id AND     work_spec_id NOT IN         (SELECT id FROM workspec WHERE state IN (2, 3, 5)))"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

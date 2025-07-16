@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="brick_go_back_layer_plural">
-        <item quantity="other">слоев</item>
+        <item quantity="other">слоя</item>
         <item quantity="one">слой</item>
         <item quantity="few">слоев</item>
         <item quantity="many">слоев</item>
     </plurals>
     <plurals name="brick_move_n_step_plural">
         <item quantity="other">шагов</item>
-        <item quantity="one">Step</item>
+        <item quantity="one">шаг</item>
         <item quantity="few">шага</item>
-        <item quantity="many">Steps</item>
+        <item quantity="many">шагов</item>
     </plurals>
     <plurals name="brick_parameterized_foreach_plural">
         <item quantity="other">Для каждых элементов</item>
         <item quantity="one">Для каждого элемента</item>
-        <item quantity="few">Для каждых элементов</item>
+        <item quantity="few">Для каждого элемента</item>
         <item quantity="many">Для каждых элементов</item>
     </plurals>
     <plurals name="brick_parameterized_stored_plural">
-        <item quantity="other">сохранены в переменных с таким же именем</item>
-        <item quantity="one">сохранена в переменной с таким же именем</item>
-        <item quantity="few">сохранены в переменных с таким же именем</item>
-        <item quantity="many">сохранены в переменных с таким же именем</item>
+        <item quantity="other">сохранены в переменные с таким же именем</item>
+        <item quantity="one">сохранена в переменную с таким же именем</item>
+        <item quantity="few">сохранены в переменные с таким же именем</item>
+        <item quantity="many">сохранены в переменные с таким же именем</item>
     </plurals>
     <plurals name="copied_looks">
         <item quantity="other">Скопировано %d образов.</item>
@@ -169,10 +169,10 @@
         <item quantity="many">Импортировано %d проектов.</item>
     </plurals>
     <plurals name="list_selection_plural">
-        <item quantity="other">%d списки выбраны</item>
+        <item quantity="other">%d списков выбрано</item>
         <item quantity="one">%d список выбран</item>
-        <item quantity="few">%d список выбран</item>
-        <item quantity="many">%d списки выбраны</item>
+        <item quantity="few">%d списков выбрано</item>
+        <item quantity="many">%d списков выбрано</item>
     </plurals>
     <plurals name="minutes">
         <item quantity="other">%d минут</item>
@@ -195,7 +195,7 @@
     <plurals name="packed_sounds">
         <item quantity="other">Упаковано %d звуков.</item>
         <item quantity="one">Упакован %d звук.</item>
-        <item quantity="few">Упаковано %d звуков.</item>
+        <item quantity="few">Упаковано %d звука.</item>
         <item quantity="many">Упаковано %d звуков.</item>
     </plurals>
     <plurals name="packed_sprites">
@@ -218,8 +218,8 @@
     </plurals>
     <plurals name="status_completed_x_jobs">
         <item quantity="other">Завершены: %d операции</item>
-        <item quantity="one">Завершены: %d операция</item>
-        <item quantity="few">Завершены: %d операций</item>
+        <item quantity="one">Завершена: %d операция</item>
+        <item quantity="few">Завершены: %d операции</item>
         <item quantity="many">Завершены: %d операции</item>
     </plurals>
     <plurals name="status_in_progress_x_jobs">
@@ -237,7 +237,7 @@
     <plurals name="unpacked_looks">
         <item quantity="other">Распаковано %d образов.</item>
         <item quantity="one">Распакован %d образ.</item>
-        <item quantity="few">Распаковано %d образов.</item>
+        <item quantity="few">Распаковано %d образа.</item>
         <item quantity="many">Распаковано %d образов.</item>
     </plurals>
     <plurals name="unpacked_scenes">
@@ -255,7 +255,7 @@
     <plurals name="unpacked_sounds">
         <item quantity="other">Распаковано %d звуков.</item>
         <item quantity="one">Распакован %d звук.</item>
-        <item quantity="few">Распаковано %d звуков.</item>
+        <item quantity="few">Распаковано %d звука.</item>
         <item quantity="many">Распаковано %d звуков.</item>
     </plurals>
     <plurals name="unpacked_sprites">
@@ -265,9 +265,9 @@
         <item quantity="many">Распаковано %d актеров или объектов.</item>
     </plurals>
     <plurals name="user_defined_brick_input_headline">
-        <item quantity="other">Введите для этих кирпичей</item>
-        <item quantity="one">Введите для этого кирпича</item>
-        <item quantity="few">Введите для этих кирпичей</item>
-        <item quantity="many">Введите для этих кирпичей</item>
+        <item quantity="other">Вводы для этого блока</item>
+        <item quantity="one">Ввод для этого блока</item>
+        <item quantity="few">Вводы для этого блока</item>
+        <item quantity="many">Вводы для этого блока</item>
     </plurals>
 </resources>

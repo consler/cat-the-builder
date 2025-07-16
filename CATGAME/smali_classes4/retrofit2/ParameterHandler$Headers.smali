@@ -31,8 +31,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/reflect/Method;I)V
     .locals 0
-    .param p1, "method"    # Ljava/lang/reflect/Method;
-    .param p2, "p"    # I
 
     .line 243
     invoke-direct {p0}, Lretrofit2/ParameterHandler;-><init>()V
@@ -43,7 +41,6 @@
     .line 245
     iput p2, p0, Lretrofit2/ParameterHandler$Headers;->p:I
 
-    .line 246
     return-void
 .end method
 
@@ -70,37 +67,34 @@
 .end method
 
 .method apply(Lretrofit2/RequestBuilder;Lokhttp3/Headers;)V
-    .locals 4
-    .param p1, "builder"    # Lretrofit2/RequestBuilder;
-    .param p2, "headers"    # Lokhttp3/Headers;
+    .locals 2
+    .param p2    # Lokhttp3/Headers;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .line 250
     if-eqz p2, :cond_0
 
     .line 253
     invoke-virtual {p1, p2}, Lretrofit2/RequestBuilder;->addHeaders(Lokhttp3/Headers;)V
 
-    .line 254
     return-void
 
     .line 251
     :cond_0
-    iget-object v0, p0, Lretrofit2/ParameterHandler$Headers;->method:Ljava/lang/reflect/Method;
+    iget-object p1, p0, Lretrofit2/ParameterHandler$Headers;->method:Ljava/lang/reflect/Method;
 
-    iget v1, p0, Lretrofit2/ParameterHandler$Headers;->p:I
+    iget p2, p0, Lretrofit2/ParameterHandler$Headers;->p:I
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const-string v3, "Headers parameter must not be null."
+    const-string v1, "Headers parameter must not be null."
 
-    invoke-static {v0, v1, v3, v2}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
+    invoke-static {p1, p2, v1, v0}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 .end method

@@ -54,15 +54,13 @@
     .locals 1
 
     .line 49
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/FilterIterator;, "Lorg/apache/commons/collections4/iterators/FilterIterator<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 41
     const/4 v0, 0x0
 
+    .line 41
     iput-boolean v0, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->nextObjectSet:Z
 
-    .line 50
     return-void
 .end method
 
@@ -77,19 +75,16 @@
     .end annotation
 
     .line 59
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/FilterIterator;, "Lorg/apache/commons/collections4/iterators/FilterIterator<TE;>;"
-    .local p1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 41
     const/4 v0, 0x0
 
+    .line 41
     iput-boolean v0, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->nextObjectSet:Z
 
     .line 60
     iput-object p1, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->iterator:Ljava/util/Iterator;
 
-    .line 61
     return-void
 .end method
 
@@ -106,14 +101,11 @@
     .end annotation
 
     .line 71
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/FilterIterator;, "Lorg/apache/commons/collections4/iterators/FilterIterator<TE;>;"
-    .local p1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
-    .local p2, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 41
     const/4 v0, 0x0
 
+    .line 41
     iput-boolean v0, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->nextObjectSet:Z
 
     .line 72
@@ -122,7 +114,6 @@
     .line 73
     iput-object p2, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->predicate:Lorg/apache/commons/collections4/Predicate;
 
-    .line 74
     return-void
 .end method
 
@@ -130,8 +121,7 @@
     .locals 2
 
     .line 174
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/FilterIterator;, "Lorg/apache/commons/collections4/iterators/FilterIterator<TE;>;"
-    :goto_0
+    :cond_0
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -148,7 +138,6 @@
     move-result-object v0
 
     .line 176
-    .local v0, "object":Ljava/lang/Object;, "TE;"
     iget-object v1, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->predicate:Lorg/apache/commons/collections4/Predicate;
 
     invoke-interface {v1, v0}, Lorg/apache/commons/collections4/Predicate;->evaluate(Ljava/lang/Object;)Z
@@ -160,20 +149,13 @@
     .line 177
     iput-object v0, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->nextObject:Ljava/lang/Object;
 
+    const/4 v0, 0x1
+
     .line 178
-    const/4 v1, 0x1
+    iput-boolean v0, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->nextObjectSet:Z
 
-    iput-boolean v1, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->nextObjectSet:Z
+    return v0
 
-    .line 179
-    return v1
-
-    .line 181
-    .end local v0    # "object":Ljava/lang/Object;, "TE;"
-    :cond_0
-    goto :goto_0
-
-    .line 182
     :cond_1
     const/4 v0, 0x0
 
@@ -193,7 +175,6 @@
     .end annotation
 
     .line 132
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/FilterIterator;, "Lorg/apache/commons/collections4/iterators/FilterIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->iterator:Ljava/util/Iterator;
 
     return-object v0
@@ -210,7 +191,6 @@
     .end annotation
 
     .line 154
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/FilterIterator;, "Lorg/apache/commons/collections4/iterators/FilterIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->predicate:Lorg/apache/commons/collections4/Predicate;
 
     return-object v0
@@ -220,7 +200,6 @@
     .locals 1
 
     .line 86
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/FilterIterator;, "Lorg/apache/commons/collections4/iterators/FilterIterator<TE;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->nextObjectSet:Z
 
     if-nez v0, :cond_1
@@ -255,7 +234,6 @@
     .end annotation
 
     .line 99
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/FilterIterator;, "Lorg/apache/commons/collections4/iterators/FilterIterator<TE;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->nextObjectSet:Z
 
     if-nez v0, :cond_1
@@ -276,11 +254,11 @@
 
     throw v0
 
-    .line 102
     :cond_1
     :goto_0
     const/4 v0, 0x0
 
+    .line 102
     iput-boolean v0, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->nextObjectSet:Z
 
     .line 103
@@ -293,7 +271,6 @@
     .locals 2
 
     .line 119
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/FilterIterator;, "Lorg/apache/commons/collections4/iterators/FilterIterator<TE;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->nextObjectSet:Z
 
     if-nez v0, :cond_0
@@ -303,7 +280,6 @@
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 123
     return-void
 
     .line 120
@@ -318,7 +294,7 @@
 .end method
 
 .method public setIterator(Ljava/util/Iterator;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -328,26 +304,23 @@
     .end annotation
 
     .line 142
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/FilterIterator;, "Lorg/apache/commons/collections4/iterators/FilterIterator<TE;>;"
-    .local p1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     iput-object p1, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->iterator:Ljava/util/Iterator;
 
-    .line 143
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->nextObject:Ljava/lang/Object;
+    .line 143
+    iput-object p1, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->nextObject:Ljava/lang/Object;
+
+    const/4 p1, 0x0
 
     .line 144
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->nextObjectSet:Z
 
-    iput-boolean v0, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->nextObjectSet:Z
-
-    .line 145
     return-void
 .end method
 
 .method public setPredicate(Lorg/apache/commons/collections4/Predicate;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -357,20 +330,17 @@
     .end annotation
 
     .line 163
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/FilterIterator;, "Lorg/apache/commons/collections4/iterators/FilterIterator<TE;>;"
-    .local p1, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TE;>;"
     iput-object p1, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->predicate:Lorg/apache/commons/collections4/Predicate;
 
-    .line 164
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->nextObject:Ljava/lang/Object;
+    .line 164
+    iput-object p1, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->nextObject:Ljava/lang/Object;
+
+    const/4 p1, 0x0
 
     .line 165
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->nextObjectSet:Z
 
-    iput-boolean v0, p0, Lorg/apache/commons/collections4/iterators/FilterIterator;->nextObjectSet:Z
-
-    .line 166
     return-void
 .end method

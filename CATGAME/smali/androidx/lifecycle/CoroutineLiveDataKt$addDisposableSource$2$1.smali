@@ -73,7 +73,6 @@
 # virtual methods
 .method public final onChanged(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "it"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -87,6 +86,5 @@
 
     invoke-virtual {v0, p1}, Landroidx/lifecycle/MediatorLiveData;->setValue(Ljava/lang/Object;)V
 
-    .line 108
     return-void
 .end method

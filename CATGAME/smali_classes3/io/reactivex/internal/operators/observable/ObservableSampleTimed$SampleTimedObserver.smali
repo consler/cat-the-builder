@@ -69,9 +69,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/Observer;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)V
     .locals 1
-    .param p2, "period"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -84,8 +81,6 @@
     .end annotation
 
     .line 63
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;, "Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 59
@@ -107,7 +102,6 @@
     .line 67
     iput-object p5, p0, Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;->scheduler:Lio/reactivex/Scheduler;
 
-    .line 68
     return-void
 .end method
 
@@ -117,12 +111,10 @@
     .locals 1
 
     .line 99
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;, "Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;->timer:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 100
     return-void
 .end method
 
@@ -133,7 +125,6 @@
     .locals 1
 
     .line 104
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;, "Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;->cancelTimer()V
 
     .line 105
@@ -141,23 +132,19 @@
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 106
     return-void
 .end method
 
 .method emit()V
     .locals 2
 
-    .line 114
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;, "Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver<TT;>;"
     const/4 v0, 0x0
 
+    .line 114
     invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;->getAndSet(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 115
-    .local v0, "value":Ljava/lang/Object;, "TT;"
     if-eqz v0, :cond_0
 
     .line 116
@@ -165,7 +152,6 @@
 
     invoke-interface {v1, v0}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
-    .line 118
     :cond_0
     return-void
 .end method
@@ -174,7 +160,6 @@
     .locals 1
 
     .line 110
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;, "Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->isDisposed()Z
@@ -188,22 +173,18 @@
     .locals 0
 
     .line 94
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;, "Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;->cancelTimer()V
 
     .line 95
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;->complete()V
 
-    .line 96
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 88
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;, "Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;->cancelTimer()V
 
     .line 89
@@ -211,7 +192,6 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 90
     return-void
 .end method
 
@@ -224,20 +204,15 @@
     .end annotation
 
     .line 83
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;, "Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;->lazySet(Ljava/lang/Object;)V
 
-    .line 84
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
-    .locals 8
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
+    .locals 7
 
     .line 72
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;, "Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -250,33 +225,30 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;->s:Lio/reactivex/disposables/Disposable;
 
     .line 74
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v0, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 76
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;->scheduler:Lio/reactivex/Scheduler;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;->scheduler:Lio/reactivex/Scheduler;
 
-    iget-wide v5, p0, Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;->period:J
+    iget-wide v4, p0, Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;->period:J
 
-    iget-object v7, p0, Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;->unit:Ljava/util/concurrent/TimeUnit;
+    iget-object v6, p0, Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;->unit:Ljava/util/concurrent/TimeUnit;
 
-    move-object v2, p0
+    move-object v1, p0
 
-    move-wide v3, v5
+    move-wide v2, v4
 
-    invoke-virtual/range {v1 .. v7}, Lio/reactivex/Scheduler;->schedulePeriodicallyDirect(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
+    invoke-virtual/range {v0 .. v6}, Lio/reactivex/Scheduler;->schedulePeriodicallyDirect(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 77
-    .local v0, "d":Lio/reactivex/disposables/Disposable;
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;->timer:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;->timer:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-static {v1, v0}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
+    invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 79
-    .end local v0    # "d":Lio/reactivex/disposables/Disposable;
     :cond_0
     return-void
 .end method

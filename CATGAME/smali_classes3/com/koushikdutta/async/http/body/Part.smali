@@ -21,46 +21,41 @@
 .method static constructor <clinit>()V
     .locals 0
 
-    .line 13
     return-void
 .end method
 
 .method public constructor <init>(Lcom/koushikdutta/async/http/Headers;)V
     .locals 2
-    .param p1, "headers"    # Lcom/koushikdutta/async/http/Headers;
 
     .line 18
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 27
     const-wide/16 v0, -0x1
 
+    .line 27
     iput-wide v0, p0, Lcom/koushikdutta/async/http/body/Part;->length:J
 
     .line 19
     iput-object p1, p0, Lcom/koushikdutta/async/http/body/Part;->mHeaders:Lcom/koushikdutta/async/http/Headers;
 
-    .line 20
     const-string v0, "Content-Disposition"
 
+    .line 20
     invoke-virtual {p1, v0}, Lcom/koushikdutta/async/http/Headers;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Lcom/koushikdutta/async/http/Multimap;->parseSemicolonDelimited(Ljava/lang/String;)Lcom/koushikdutta/async/http/Multimap;
+    invoke-static {p1}, Lcom/koushikdutta/async/http/Multimap;->parseSemicolonDelimited(Ljava/lang/String;)Lcom/koushikdutta/async/http/Multimap;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/koushikdutta/async/http/body/Part;->mContentDisposition:Lcom/koushikdutta/async/http/Multimap;
+    iput-object p1, p0, Lcom/koushikdutta/async/http/body/Part;->mContentDisposition:Lcom/koushikdutta/async/http/Multimap;
 
-    .line 21
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;JLjava/util/List;)V
-    .locals 8
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "length"    # J
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -73,125 +68,113 @@
     .end annotation
 
     .line 28
-    .local p4, "contentDisposition":Ljava/util/List;, "Ljava/util/List<Lcom/koushikdutta/async/http/NameValuePair;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 27
-    const-wide/16 v0, -0x1
-
-    iput-wide v0, p0, Lcom/koushikdutta/async/http/body/Part;->length:J
 
     .line 29
     iput-wide p2, p0, Lcom/koushikdutta/async/http/body/Part;->length:J
 
     .line 30
-    new-instance v0, Lcom/koushikdutta/async/http/Headers;
+    new-instance p2, Lcom/koushikdutta/async/http/Headers;
 
-    invoke-direct {v0}, Lcom/koushikdutta/async/http/Headers;-><init>()V
+    invoke-direct {p2}, Lcom/koushikdutta/async/http/Headers;-><init>()V
 
-    iput-object v0, p0, Lcom/koushikdutta/async/http/body/Part;->mHeaders:Lcom/koushikdutta/async/http/Headers;
+    iput-object p2, p0, Lcom/koushikdutta/async/http/body/Part;->mHeaders:Lcom/koushikdutta/async/http/Headers;
 
     .line 31
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    sget-object v1, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+    sget-object p3, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    new-array v3, v2, [Ljava/lang/Object;
+    new-array v1, v0, [Ljava/lang/Object;
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    aput-object p1, v3, v4
+    aput-object p1, v1, v2
 
-    const-string v5, "form-data; name=\"%s\""
+    const-string p1, "form-data; name=\"%s\""
 
-    invoke-static {v1, v5, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p3, p1, v1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 32
-    .local v0, "builder":Ljava/lang/StringBuilder;
     if-eqz p4, :cond_0
 
     .line 33
     invoke-interface {p4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result p3
 
-    if-eqz v3, :cond_0
+    if-eqz p3, :cond_0
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object p3
+
+    check-cast p3, Lcom/koushikdutta/async/http/NameValuePair;
+
+    .line 34
+    sget-object p4, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+
+    const/4 v1, 0x2
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    invoke-interface {p3}, Lcom/koushikdutta/async/http/NameValuePair;->getName()Ljava/lang/String;
 
     move-result-object v3
 
-    check-cast v3, Lcom/koushikdutta/async/http/NameValuePair;
+    aput-object v3, v1, v2
 
-    .line 34
-    .local v3, "pair":Lcom/koushikdutta/async/http/NameValuePair;
-    sget-object v5, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+    invoke-interface {p3}, Lcom/koushikdutta/async/http/NameValuePair;->getValue()Ljava/lang/String;
 
-    const/4 v6, 0x2
+    move-result-object p3
 
-    new-array v6, v6, [Ljava/lang/Object;
+    aput-object p3, v1, v0
 
-    invoke-interface {v3}, Lcom/koushikdutta/async/http/NameValuePair;->getName()Ljava/lang/String;
+    const-string p3, "; %s=\"%s\""
 
-    move-result-object v7
+    invoke-static {p4, p3, v1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    aput-object v7, v6, v4
+    move-result-object p3
 
-    invoke-interface {v3}, Lcom/koushikdutta/async/http/NameValuePair;->getValue()Ljava/lang/String;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
-
-    aput-object v7, v6, v2
-
-    const-string v7, "; %s=\"%s\""
-
-    invoke-static {v5, v7, v6}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 35
-    .end local v3    # "pair":Lcom/koushikdutta/async/http/NameValuePair;
     goto :goto_0
 
     .line 37
     :cond_0
-    iget-object v1, p0, Lcom/koushikdutta/async/http/body/Part;->mHeaders:Lcom/koushikdutta/async/http/Headers;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/body/Part;->mHeaders:Lcom/koushikdutta/async/http/Headers;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p2
 
-    const-string v3, "Content-Disposition"
+    const-string p3, "Content-Disposition"
 
-    invoke-virtual {v1, v3, v2}, Lcom/koushikdutta/async/http/Headers;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/koushikdutta/async/http/Headers;
+    invoke-virtual {p1, p3, p2}, Lcom/koushikdutta/async/http/Headers;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/koushikdutta/async/http/Headers;
 
     .line 38
-    iget-object v1, p0, Lcom/koushikdutta/async/http/body/Part;->mHeaders:Lcom/koushikdutta/async/http/Headers;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/body/Part;->mHeaders:Lcom/koushikdutta/async/http/Headers;
 
-    invoke-virtual {v1, v3}, Lcom/koushikdutta/async/http/Headers;->get(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p1, p3}, Lcom/koushikdutta/async/http/Headers;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-static {v1}, Lcom/koushikdutta/async/http/Multimap;->parseSemicolonDelimited(Ljava/lang/String;)Lcom/koushikdutta/async/http/Multimap;
+    invoke-static {p1}, Lcom/koushikdutta/async/http/Multimap;->parseSemicolonDelimited(Ljava/lang/String;)Lcom/koushikdutta/async/http/Multimap;
 
-    move-result-object v1
+    move-result-object p1
 
-    iput-object v1, p0, Lcom/koushikdutta/async/http/body/Part;->mContentDisposition:Lcom/koushikdutta/async/http/Multimap;
+    iput-object p1, p0, Lcom/koushikdutta/async/http/body/Part;->mContentDisposition:Lcom/koushikdutta/async/http/Multimap;
 
-    .line 39
     return-void
 .end method
 
@@ -224,14 +207,11 @@
 
     move-result-object v0
 
-    .line 55
-    .local v0, "file":Ljava/lang/String;
     if-nez v0, :cond_0
 
-    .line 56
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    return-object v1
+    return-object v0
 
     .line 57
     :cond_0
@@ -241,9 +221,9 @@
 
     invoke-virtual {v1}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public getName()Ljava/lang/String;
@@ -296,7 +276,6 @@
 
 .method public setContentType(Ljava/lang/String;)V
     .locals 2
-    .param p1, "contentType"    # Ljava/lang/String;
 
     .line 50
     iget-object v0, p0, Lcom/koushikdutta/async/http/body/Part;->mHeaders:Lcom/koushikdutta/async/http/Headers;
@@ -305,18 +284,11 @@
 
     invoke-virtual {v0, v1, p1}, Lcom/koushikdutta/async/http/Headers;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/koushikdutta/async/http/Headers;
 
-    .line 51
     return-void
 .end method
 
 .method public write(Lcom/koushikdutta/async/DataSink;Lcom/koushikdutta/async/callback/CompletedCallback;)V
     .locals 0
-    .param p1, "sink"    # Lcom/koushikdutta/async/DataSink;
-    .param p2, "callback"    # Lcom/koushikdutta/async/callback/CompletedCallback;
 
-    .line 69
-    nop
-
-    .line 70
     return-void
 .end method

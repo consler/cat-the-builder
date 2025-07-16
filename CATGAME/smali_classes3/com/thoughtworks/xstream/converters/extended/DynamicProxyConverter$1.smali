@@ -19,18 +19,14 @@
 
 # virtual methods
 .method public invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "proxy"    # Ljava/lang/Object;
-    .param p2, "method"    # Ljava/lang/reflect/Method;
-    .param p3, "args"    # [Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
         }
     .end annotation
 
-    .line 45
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method

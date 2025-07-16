@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/backends/android/AndroidInput$3;Landroid/widget/EditText;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/badlogic/gdx/backends/android/AndroidInput$3;
 
     .line 235
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput$3$1;->this$1:Lcom/badlogic/gdx/backends/android/AndroidInput$3;
@@ -41,19 +40,16 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
-    .param p2, "whichButton"    # I
+    .locals 0
 
     .line 237
-    sget-object v0, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
+    sget-object p1, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
 
-    new-instance v1, Lcom/badlogic/gdx/backends/android/AndroidInput$3$1$1;
+    new-instance p2, Lcom/badlogic/gdx/backends/android/AndroidInput$3$1$1;
 
-    invoke-direct {v1, p0}, Lcom/badlogic/gdx/backends/android/AndroidInput$3$1$1;-><init>(Lcom/badlogic/gdx/backends/android/AndroidInput$3$1;)V
+    invoke-direct {p2, p0}, Lcom/badlogic/gdx/backends/android/AndroidInput$3$1$1;-><init>(Lcom/badlogic/gdx/backends/android/AndroidInput$3$1;)V
 
-    invoke-interface {v0, v1}, Lcom/badlogic/gdx/Application;->postRunnable(Ljava/lang/Runnable;)V
+    invoke-interface {p1, p2}, Lcom/badlogic/gdx/Application;->postRunnable(Ljava/lang/Runnable;)V
 
-    .line 243
     return-void
 .end method

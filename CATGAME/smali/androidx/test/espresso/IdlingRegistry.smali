@@ -71,7 +71,6 @@
 
     iput-object v0, p0, Landroidx/test/espresso/IdlingRegistry;->loopers:Ljava/util/Set;
 
-    .line 46
     return-void
 .end method
 
@@ -129,8 +128,7 @@
 .end method
 
 .method public varargs register([Landroidx/test/espresso/IdlingResource;)Z
-    .locals 2
-    .param p1, "idlingResources"    # [Landroidx/test/espresso/IdlingResource;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -140,7 +138,6 @@
         }
     .end annotation
 
-    .line 63
     if-eqz p1, :cond_0
 
     .line 66
@@ -148,28 +145,27 @@
 
     invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
+    invoke-interface {v0, p1}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
     .line 64
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "idlingResources cannot be null!"
+    const-string v0, "idlingResources cannot be null!"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public registerLooperAsIdlingResource(Landroid/os/Looper;)V
-    .locals 2
-    .param p1, "looper"    # Landroid/os/Looper;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -179,7 +175,6 @@
         }
     .end annotation
 
-    .line 89
     if-eqz p1, :cond_1
 
     .line 92
@@ -194,33 +189,31 @@
 
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 97
     return-void
 
     .line 93
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Not intended for use with main looper!"
+    const-string v0, "Not intended for use with main looper!"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 90
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "looper cannot be null!"
+    const-string v0, "looper cannot be null!"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public varargs unregister([Landroidx/test/espresso/IdlingResource;)Z
-    .locals 2
-    .param p1, "idlingResources"    # [Landroidx/test/espresso/IdlingResource;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -230,7 +223,6 @@
         }
     .end annotation
 
-    .line 75
     if-eqz p1, :cond_0
 
     .line 78
@@ -238,21 +230,21 @@
 
     invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Ljava/util/Set;->removeAll(Ljava/util/Collection;)Z
+    invoke-interface {v0, p1}, Ljava/util/Set;->removeAll(Ljava/util/Collection;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
     .line 76
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "idlingResources cannot be null!"
+    const-string v0, "idlingResources cannot be null!"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

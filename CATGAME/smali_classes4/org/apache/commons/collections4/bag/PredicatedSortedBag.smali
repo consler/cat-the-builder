@@ -38,12 +38,8 @@
     .end annotation
 
     .line 80
-    .local p0, "this":Lorg/apache/commons/collections4/bag/PredicatedSortedBag;, "Lorg/apache/commons/collections4/bag/PredicatedSortedBag<TE;>;"
-    .local p1, "bag":Lorg/apache/commons/collections4/SortedBag;, "Lorg/apache/commons/collections4/SortedBag<TE;>;"
-    .local p2, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TE;>;"
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections4/bag/PredicatedBag;-><init>(Lorg/apache/commons/collections4/Bag;Lorg/apache/commons/collections4/Predicate;)V
 
-    .line 81
     return-void
 .end method
 
@@ -64,8 +60,6 @@
     .end annotation
 
     .line 65
-    .local p0, "bag":Lorg/apache/commons/collections4/SortedBag;, "Lorg/apache/commons/collections4/SortedBag<TE;>;"
-    .local p1, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TE;>;"
     new-instance v0, Lorg/apache/commons/collections4/bag/PredicatedSortedBag;
 
     invoke-direct {v0, p0, p1}, Lorg/apache/commons/collections4/bag/PredicatedSortedBag;-><init>(Lorg/apache/commons/collections4/SortedBag;Lorg/apache/commons/collections4/Predicate;)V
@@ -86,7 +80,6 @@
     .end annotation
 
     .line 107
-    .local p0, "this":Lorg/apache/commons/collections4/bag/PredicatedSortedBag;, "Lorg/apache/commons/collections4/bag/PredicatedSortedBag<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bag/PredicatedSortedBag;->decorated()Lorg/apache/commons/collections4/SortedBag;
 
     move-result-object v0
@@ -102,7 +95,6 @@
     .locals 1
 
     .line 44
-    .local p0, "this":Lorg/apache/commons/collections4/bag/PredicatedSortedBag;, "Lorg/apache/commons/collections4/bag/PredicatedSortedBag<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bag/PredicatedSortedBag;->decorated()Lorg/apache/commons/collections4/SortedBag;
 
     move-result-object v0
@@ -114,7 +106,6 @@
     .locals 1
 
     .line 44
-    .local p0, "this":Lorg/apache/commons/collections4/bag/PredicatedSortedBag;, "Lorg/apache/commons/collections4/bag/PredicatedSortedBag<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bag/PredicatedSortedBag;->decorated()Lorg/apache/commons/collections4/SortedBag;
 
     move-result-object v0
@@ -133,7 +124,6 @@
     .end annotation
 
     .line 90
-    .local p0, "this":Lorg/apache/commons/collections4/bag/PredicatedSortedBag;, "Lorg/apache/commons/collections4/bag/PredicatedSortedBag<TE;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/bag/PredicatedBag;->decorated()Lorg/apache/commons/collections4/Bag;
 
     move-result-object v0
@@ -152,7 +142,6 @@
     .end annotation
 
     .line 97
-    .local p0, "this":Lorg/apache/commons/collections4/bag/PredicatedSortedBag;, "Lorg/apache/commons/collections4/bag/PredicatedSortedBag<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bag/PredicatedSortedBag;->decorated()Lorg/apache/commons/collections4/SortedBag;
 
     move-result-object v0
@@ -173,7 +162,6 @@
     .end annotation
 
     .line 102
-    .local p0, "this":Lorg/apache/commons/collections4/bag/PredicatedSortedBag;, "Lorg/apache/commons/collections4/bag/PredicatedSortedBag<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bag/PredicatedSortedBag;->decorated()Lorg/apache/commons/collections4/SortedBag;
 
     move-result-object v0

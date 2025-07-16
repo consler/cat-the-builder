@@ -58,7 +58,6 @@
     .locals 1
 
     .line 203
-    .local p0, "this":Lcom/opencsv/bean/PositionToBeanField$PositionIterator;, "Lcom/opencsv/bean/PositionToBeanField<TT;>.PositionIterator;"
     iput-object p1, p0, Lcom/opencsv/bean/PositionToBeanField$PositionIterator;->this$0:Lcom/opencsv/bean/PositionToBeanField;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -74,9 +73,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 205
     const/4 p1, -0x1
 
+    .line 205
     iput p1, p0, Lcom/opencsv/bean/PositionToBeanField$PositionIterator;->position:I
 
     goto :goto_0
@@ -115,7 +114,6 @@
 
     iput p1, p0, Lcom/opencsv/bean/PositionToBeanField$PositionIterator;->position:I
 
-    .line 212
     :goto_0
     return-void
 .end method
@@ -126,7 +124,6 @@
     .locals 2
 
     .line 216
-    .local p0, "this":Lcom/opencsv/bean/PositionToBeanField$PositionIterator;, "Lcom/opencsv/bean/PositionToBeanField<TT;>.PositionIterator;"
     iget v0, p0, Lcom/opencsv/bean/PositionToBeanField$PositionIterator;->position:I
 
     const/4 v1, -0x1
@@ -155,7 +152,6 @@
     .end annotation
 
     .line 223
-    .local p0, "this":Lcom/opencsv/bean/PositionToBeanField$PositionIterator;, "Lcom/opencsv/bean/PositionToBeanField<TT;>.PositionIterator;"
     invoke-virtual {p0}, Lcom/opencsv/bean/PositionToBeanField$PositionIterator;->hasNext()Z
 
     move-result v0
@@ -174,7 +170,6 @@
     invoke-direct {v0, v1, v2}, Lcom/opencsv/bean/FieldMapByPositionEntry;-><init>(ILcom/opencsv/bean/BeanField;)V
 
     .line 233
-    .local v0, "entry":Lcom/opencsv/bean/FieldMapByPositionEntry;, "Lcom/opencsv/bean/FieldMapByPositionEntry<TT;>;"
     iget v1, p0, Lcom/opencsv/bean/PositionToBeanField$PositionIterator;->position:I
 
     iget-object v2, p0, Lcom/opencsv/bean/PositionToBeanField$PositionIterator;->currentRange:Lorg/apache/commons/lang3/Range;
@@ -191,22 +186,22 @@
 
     if-eq v1, v2, :cond_1
 
-    const v1, 0x7fffffff
-
-    iget-object v2, p0, Lcom/opencsv/bean/PositionToBeanField$PositionIterator;->currentRange:Lorg/apache/commons/lang3/Range;
+    iget-object v1, p0, Lcom/opencsv/bean/PositionToBeanField$PositionIterator;->currentRange:Lorg/apache/commons/lang3/Range;
 
     .line 234
-    invoke-virtual {v2}, Lorg/apache/commons/lang3/Range;->getMaximum()Ljava/lang/Object;
+    invoke-virtual {v1}, Lorg/apache/commons/lang3/Range;->getMaximum()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Ljava/lang/Integer;
+    check-cast v1, Ljava/lang/Integer;
 
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
-    move-result v2
+    move-result v1
 
-    if-ne v1, v2, :cond_0
+    const v2, 0x7fffffff
+
+    if-ne v2, v1, :cond_0
 
     goto :goto_0
 
@@ -231,9 +226,9 @@
 
     if-nez v1, :cond_2
 
-    .line 236
     const/4 v1, -0x1
 
+    .line 236
     iput v1, p0, Lcom/opencsv/bean/PositionToBeanField$PositionIterator;->position:I
 
     goto :goto_1
@@ -263,12 +258,10 @@
 
     iput v1, p0, Lcom/opencsv/bean/PositionToBeanField$PositionIterator;->position:I
 
-    .line 246
     :goto_1
     return-object v0
 
     .line 224
-    .end local v0    # "entry":Lcom/opencsv/bean/FieldMapByPositionEntry;, "Lcom/opencsv/bean/FieldMapByPositionEntry<TT;>;"
     :cond_3
     new-instance v0, Ljava/util/NoSuchElementException;
 
@@ -281,7 +274,6 @@
     .locals 1
 
     .line 197
-    .local p0, "this":Lcom/opencsv/bean/PositionToBeanField$PositionIterator;, "Lcom/opencsv/bean/PositionToBeanField<TT;>.PositionIterator;"
     invoke-virtual {p0}, Lcom/opencsv/bean/PositionToBeanField$PositionIterator;->next()Lcom/opencsv/bean/FieldMapByPositionEntry;
 
     move-result-object v0
@@ -293,7 +285,6 @@
     .locals 1
 
     .line 251
-    .local p0, "this":Lcom/opencsv/bean/PositionToBeanField$PositionIterator;, "Lcom/opencsv/bean/PositionToBeanField<TT;>.PositionIterator;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

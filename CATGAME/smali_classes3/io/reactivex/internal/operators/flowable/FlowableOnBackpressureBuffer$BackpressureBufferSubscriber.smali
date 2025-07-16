@@ -72,10 +72,6 @@
 # direct methods
 .method constructor <init>(Lorg/reactivestreams/Subscriber;IZZLio/reactivex/functions/Action;)V
     .locals 1
-    .param p2, "bufferSize"    # I
-    .param p3, "unbounded"    # Z
-    .param p4, "delayError"    # Z
-    .param p5, "onOverflow"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -87,8 +83,6 @@
     .end annotation
 
     .line 70
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-direct {p0}, Lio/reactivex/internal/subscriptions/BasicIntQueueSubscription;-><init>()V
 
     .line 65
@@ -107,30 +101,25 @@
     .line 73
     iput-boolean p4, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->delayError:Z
 
-    .line 77
     if-eqz p3, :cond_0
 
     .line 78
-    new-instance v0, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
+    new-instance p1, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
 
-    invoke-direct {v0, p2}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;-><init>(I)V
+    invoke-direct {p1, p2}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;-><init>(I)V
 
-    .local v0, "q":Lio/reactivex/internal/fuseable/SimplePlainQueue;, "Lio/reactivex/internal/fuseable/SimplePlainQueue<TT;>;"
     goto :goto_0
 
     .line 80
-    .end local v0    # "q":Lio/reactivex/internal/fuseable/SimplePlainQueue;, "Lio/reactivex/internal/fuseable/SimplePlainQueue<TT;>;"
     :cond_0
-    new-instance v0, Lio/reactivex/internal/queue/SpscArrayQueue;
+    new-instance p1, Lio/reactivex/internal/queue/SpscArrayQueue;
 
-    invoke-direct {v0, p2}, Lio/reactivex/internal/queue/SpscArrayQueue;-><init>(I)V
+    invoke-direct {p1, p2}, Lio/reactivex/internal/queue/SpscArrayQueue;-><init>(I)V
 
     .line 83
-    .restart local v0    # "q":Lio/reactivex/internal/fuseable/SimplePlainQueue;, "Lio/reactivex/internal/fuseable/SimplePlainQueue<TT;>;"
     :goto_0
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->queue:Lio/reactivex/internal/fuseable/SimplePlainQueue;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->queue:Lio/reactivex/internal/fuseable/SimplePlainQueue;
 
-    .line 84
     return-void
 .end method
 
@@ -140,14 +129,13 @@
     .locals 1
 
     .line 149
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->cancelled:Z
 
     if-nez v0, :cond_0
 
-    .line 150
     const/4 v0, 0x1
 
+    .line 150
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->cancelled:Z
 
     .line 151
@@ -167,15 +155,12 @@
 
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->clear()V
 
-    .line 157
     :cond_0
     return-void
 .end method
 
 .method checkTerminated(ZZLorg/reactivestreams/Subscriber;)Z
-    .locals 3
-    .param p1, "d"    # Z
-    .param p2, "empty"    # Z
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZZ",
@@ -185,8 +170,6 @@
     .end annotation
 
     .line 216
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber<TT;>;"
-    .local p3, "a":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->cancelled:Z
 
     const/4 v1, 0x1
@@ -194,34 +177,29 @@
     if-eqz v0, :cond_0
 
     .line 217
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->queue:Lio/reactivex/internal/fuseable/SimplePlainQueue;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->queue:Lio/reactivex/internal/fuseable/SimplePlainQueue;
 
-    invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->clear()V
+    invoke-interface {p1}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->clear()V
 
-    .line 218
     return v1
 
-    .line 220
     :cond_0
     if-eqz p1, :cond_4
 
     .line 221
-    iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->delayError:Z
+    iget-boolean p1, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->delayError:Z
 
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
-    .line 222
     if-eqz p2, :cond_4
 
     .line 223
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->error:Ljava/lang/Throwable;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->error:Ljava/lang/Throwable;
 
-    .line 224
-    .local v0, "e":Ljava/lang/Throwable;
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 225
-    invoke-interface {p3, v0}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {p3, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
     goto :goto_0
 
@@ -229,251 +207,195 @@
     :cond_1
     invoke-interface {p3}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 229
     :goto_0
     return v1
 
     .line 232
-    .end local v0    # "e":Ljava/lang/Throwable;
     :cond_2
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->error:Ljava/lang/Throwable;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->error:Ljava/lang/Throwable;
 
-    .line 233
-    .restart local v0    # "e":Ljava/lang/Throwable;
-    if-eqz v0, :cond_3
+    if-eqz p1, :cond_3
 
     .line 234
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->queue:Lio/reactivex/internal/fuseable/SimplePlainQueue;
+    iget-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->queue:Lio/reactivex/internal/fuseable/SimplePlainQueue;
 
-    invoke-interface {v2}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->clear()V
+    invoke-interface {p2}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->clear()V
 
     .line 235
-    invoke-interface {p3, v0}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {p3, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 236
     return v1
 
-    .line 238
     :cond_3
     if-eqz p2, :cond_4
 
     .line 239
     invoke-interface {p3}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 240
     return v1
 
-    .line 244
-    .end local v0    # "e":Ljava/lang/Throwable;
     :cond_4
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public clear()V
     .locals 1
 
     .line 264
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->queue:Lio/reactivex/internal/fuseable/SimplePlainQueue;
 
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->clear()V
 
-    .line 265
     return-void
 .end method
 
 .method drain()V
-    .locals 12
+    .locals 14
 
     .line 160
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->getAndIncrement()I
 
     move-result v0
 
     if-nez v0, :cond_8
 
-    .line 161
-    const/4 v0, 0x1
-
     .line 162
-    .local v0, "missed":I
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->queue:Lio/reactivex/internal/fuseable/SimplePlainQueue;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->queue:Lio/reactivex/internal/fuseable/SimplePlainQueue;
 
     .line 163
-    .local v1, "q":Lio/reactivex/internal/fuseable/SimplePlainQueue;, "Lio/reactivex/internal/fuseable/SimplePlainQueue<TT;>;"
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+
+    const/4 v2, 0x1
+
+    move v3, v2
 
     .line 166
-    .local v2, "a":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
-    :goto_0
-    iget-boolean v3, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->done:Z
+    :cond_0
+    iget-boolean v4, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->done:Z
 
-    invoke-interface {v1}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->isEmpty()Z
+    invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->isEmpty()Z
+
+    move-result v5
+
+    invoke-virtual {p0, v4, v5, v1}, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->checkTerminated(ZZLorg/reactivestreams/Subscriber;)Z
 
     move-result v4
 
-    invoke-virtual {p0, v3, v4, v2}, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->checkTerminated(ZZLorg/reactivestreams/Subscriber;)Z
+    if-eqz v4, :cond_1
 
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    .line 167
     return-void
 
     .line 170
-    :cond_0
-    iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
+    :cond_1
+    iget-object v4, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
-    invoke-virtual {v3}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
+    invoke-virtual {v4}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
 
-    move-result-wide v3
+    move-result-wide v4
 
-    .line 172
-    .local v3, "r":J
-    const-wide/16 v5, 0x0
+    const-wide/16 v6, 0x0
 
-    .line 174
-    .local v5, "e":J
-    :goto_1
-    cmp-long v7, v5, v3
+    move-wide v8, v6
 
-    if-eqz v7, :cond_4
+    :goto_0
+    cmp-long v10, v8, v4
+
+    if-eqz v10, :cond_5
 
     .line 175
-    iget-boolean v7, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->done:Z
+    iget-boolean v11, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->done:Z
 
     .line 176
-    .local v7, "d":Z
-    invoke-interface {v1}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->poll()Ljava/lang/Object;
+    invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->poll()Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v12
 
-    .line 177
-    .local v8, "v":Ljava/lang/Object;, "TT;"
-    if-nez v8, :cond_1
+    if-nez v12, :cond_2
 
-    const/4 v9, 0x1
+    move v13, v2
+
+    goto :goto_1
+
+    :cond_2
+    const/4 v13, 0x0
+
+    .line 179
+    :goto_1
+    invoke-virtual {p0, v11, v13, v1}, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->checkTerminated(ZZLorg/reactivestreams/Subscriber;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_3
+
+    return-void
+
+    :cond_3
+    if-eqz v13, :cond_4
 
     goto :goto_2
 
-    :cond_1
-    const/4 v9, 0x0
+    .line 187
+    :cond_4
+    invoke-interface {v1, v12}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
-    .line 179
-    .local v9, "empty":Z
+    const-wide/16 v10, 0x1
+
+    add-long/2addr v8, v10
+
+    goto :goto_0
+
+    :cond_5
     :goto_2
-    invoke-virtual {p0, v7, v9, v2}, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->checkTerminated(ZZLorg/reactivestreams/Subscriber;)Z
+    if-nez v10, :cond_6
+
+    .line 193
+    iget-boolean v10, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->done:Z
+
+    .line 194
+    invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->isEmpty()Z
+
+    move-result v11
+
+    .line 196
+    invoke-virtual {p0, v10, v11, v1}, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->checkTerminated(ZZLorg/reactivestreams/Subscriber;)Z
 
     move-result v10
 
-    if-eqz v10, :cond_2
+    if-eqz v10, :cond_6
 
-    .line 180
     return-void
 
-    .line 183
-    :cond_2
-    if-eqz v9, :cond_3
+    :cond_6
+    cmp-long v6, v8, v6
 
-    .line 184
-    goto :goto_3
+    if-eqz v6, :cond_7
 
-    .line 187
-    :cond_3
-    invoke-interface {v2, v8}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
+    const-wide v6, 0x7fffffffffffffffL
 
-    .line 189
-    const-wide/16 v10, 0x1
+    cmp-long v4, v4, v6
 
-    add-long/2addr v5, v10
-
-    .line 190
-    .end local v7    # "d":Z
-    .end local v8    # "v":Ljava/lang/Object;, "TT;"
-    .end local v9    # "empty":Z
-    goto :goto_1
-
-    .line 192
-    :cond_4
-    :goto_3
-    cmp-long v7, v5, v3
-
-    if-nez v7, :cond_5
-
-    .line 193
-    iget-boolean v7, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->done:Z
-
-    .line 194
-    .restart local v7    # "d":Z
-    invoke-interface {v1}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->isEmpty()Z
-
-    move-result v8
-
-    .line 196
-    .local v8, "empty":Z
-    invoke-virtual {p0, v7, v8, v2}, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->checkTerminated(ZZLorg/reactivestreams/Subscriber;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_5
-
-    .line 197
-    return-void
-
-    .line 201
-    .end local v7    # "d":Z
-    .end local v8    # "empty":Z
-    :cond_5
-    const-wide/16 v7, 0x0
-
-    cmp-long v7, v5, v7
-
-    if-eqz v7, :cond_6
-
-    .line 202
-    const-wide v7, 0x7fffffffffffffffL
-
-    cmp-long v7, v3, v7
-
-    if-eqz v7, :cond_6
+    if-eqz v4, :cond_7
 
     .line 203
-    iget-object v7, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
+    iget-object v4, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
-    neg-long v8, v5
+    neg-long v5, v8
 
-    invoke-virtual {v7, v8, v9}, Ljava/util/concurrent/atomic/AtomicLong;->addAndGet(J)J
+    invoke-virtual {v4, v5, v6}, Ljava/util/concurrent/atomic/AtomicLong;->addAndGet(J)J
+
+    :cond_7
+    neg-int v3, v3
 
     .line 207
-    :cond_6
-    neg-int v7, v0
+    invoke-virtual {p0, v3}, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->addAndGet(I)I
 
-    invoke-virtual {p0, v7}, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->addAndGet(I)I
+    move-result v3
 
-    move-result v0
+    if-nez v3, :cond_0
 
-    .line 208
-    if-nez v0, :cond_7
-
-    .line 209
-    goto :goto_4
-
-    .line 211
-    .end local v3    # "r":J
-    .end local v5    # "e":J
-    :cond_7
-    goto :goto_0
-
-    .line 213
-    .end local v0    # "missed":I
-    .end local v1    # "q":Lio/reactivex/internal/fuseable/SimplePlainQueue;, "Lio/reactivex/internal/fuseable/SimplePlainQueue<TT;>;"
-    .end local v2    # "a":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     :cond_8
-    :goto_4
     return-void
 .end method
 
@@ -481,7 +403,6 @@
     .locals 1
 
     .line 269
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->queue:Lio/reactivex/internal/fuseable/SimplePlainQueue;
 
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->isEmpty()Z
@@ -494,10 +415,9 @@
 .method public onComplete()V
     .locals 1
 
-    .line 129
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber<TT;>;"
     const/4 v0, 0x1
 
+    .line 129
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->done:Z
 
     .line 130
@@ -516,22 +436,19 @@
     :cond_0
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->drain()V
 
-    .line 135
     :goto_0
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 118
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber<TT;>;"
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->error:Ljava/lang/Throwable;
 
-    .line 119
     const/4 v0, 0x1
 
+    .line 119
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->done:Z
 
     .line 120
@@ -550,13 +467,12 @@
     :cond_0
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->drain()V
 
-    .line 125
     :goto_0
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -564,72 +480,63 @@
     .end annotation
 
     .line 97
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->queue:Lio/reactivex/internal/fuseable/SimplePlainQueue;
 
     invoke-interface {v0, p1}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->offer(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 98
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->s:Lorg/reactivestreams/Subscription;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
+    invoke-interface {p1}, Lorg/reactivestreams/Subscription;->cancel()V
 
     .line 99
-    new-instance v0, Lio/reactivex/exceptions/MissingBackpressureException;
+    new-instance p1, Lio/reactivex/exceptions/MissingBackpressureException;
 
-    const-string v1, "Buffer is full"
+    const-string v0, "Buffer is full"
 
-    invoke-direct {v0, v1}, Lio/reactivex/exceptions/MissingBackpressureException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lio/reactivex/exceptions/MissingBackpressureException;-><init>(Ljava/lang/String;)V
 
     .line 101
-    .local v0, "ex":Lio/reactivex/exceptions/MissingBackpressureException;
     :try_start_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->onOverflow:Lio/reactivex/functions/Action;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->onOverflow:Lio/reactivex/functions/Action;
 
-    invoke-interface {v1}, Lio/reactivex/functions/Action;->run()V
+    invoke-interface {v0}, Lio/reactivex/functions/Action;->run()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 105
     goto :goto_0
 
-    .line 102
     :catchall_0
-    move-exception v1
+    move-exception v0
 
     .line 103
-    .local v1, "e":Ljava/lang/Throwable;
-    invoke-static {v1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 104
-    invoke-virtual {v0, v1}, Lio/reactivex/exceptions/MissingBackpressureException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {p1, v0}, Lio/reactivex/exceptions/MissingBackpressureException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 106
-    .end local v1    # "e":Ljava/lang/Throwable;
     :goto_0
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 107
     return-void
 
     .line 109
-    .end local v0    # "ex":Lio/reactivex/exceptions/MissingBackpressureException;
     :cond_0
-    iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->outputFused:Z
+    iget-boolean p1, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->outputFused:Z
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 110
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-interface {v0, v1}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
+    invoke-interface {p1, v0}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
     goto :goto_1
 
@@ -637,17 +544,14 @@
     :cond_1
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->drain()V
 
-    .line 114
     :goto_1
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 88
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -664,12 +568,11 @@
 
     invoke-interface {v0, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
-    .line 91
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 91
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 93
     :cond_0
     return-void
 .end method
@@ -689,7 +592,6 @@
     .end annotation
 
     .line 259
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->queue:Lio/reactivex/internal/fuseable/SimplePlainQueue;
 
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->poll()Ljava/lang/Object;
@@ -701,10 +603,8 @@
 
 .method public request(J)V
     .locals 1
-    .param p1, "n"    # J
 
     .line 139
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->outputFused:Z
 
     if-nez v0, :cond_0
@@ -724,34 +624,28 @@
     .line 142
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->drain()V
 
-    .line 145
     :cond_0
     return-void
 .end method
 
 .method public requestFusion(I)I
     .locals 1
-    .param p1, "mode"    # I
 
-    .line 249
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber<TT;>;"
-    and-int/lit8 v0, p1, 0x2
-
-    if-eqz v0, :cond_0
-
-    .line 250
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->outputFused:Z
-
-    .line 251
     const/4 v0, 0x2
 
+    and-int/2addr p1, v0
+
+    if-eqz p1, :cond_0
+
+    const/4 p1, 0x1
+
+    .line 250
+    iput-boolean p1, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;->outputFused:Z
+
     return v0
 
-    .line 253
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

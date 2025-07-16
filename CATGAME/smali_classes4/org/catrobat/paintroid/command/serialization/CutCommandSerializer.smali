@@ -13,11 +13,6 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u00008\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0008\n\u0002\u0008\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\u0018\u00002\u0008\u0012\u0004\u0012\u00020\u00020\u0001B\r\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u00a2\u0006\u0002\u0010\u0005J(\u0010\u0006\u001a\u00020\u00022\u0006\u0010\u0007\u001a\u00020\u00082\u0006\u0010\t\u001a\u00020\n2\u000e\u0010\u000b\u001a\n\u0012\u0006\u0008\u0001\u0012\u00020\u00020\u000cH\u0016J(\u0010\r\u001a\u00020\u00022\u0006\u0010\u0007\u001a\u00020\u00082\u0006\u0010\t\u001a\u00020\n2\u000e\u0010\u000b\u001a\n\u0012\u0006\u0008\u0001\u0012\u00020\u00020\u000cH\u0016J \u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0007\u001a\u00020\u00082\u0006\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u0002H\u0016\u00a8\u0006\u0013"
     }
@@ -41,21 +36,21 @@
         "output",
         "Lcom/esotericsoftware/kryo/io/Output;",
         "command",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .param p1, "version"    # I
 
     .line 27
     invoke-direct {p0, p1}, Lorg/catrobat/paintroid/command/serialization/VersionSerializer;-><init>(I)V
@@ -78,9 +73,6 @@
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Lorg/catrobat/paintroid/command/implementation/CutCommand;
     .locals 1
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
-    .param p3, "type"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -113,11 +105,11 @@
 
     invoke-super {p0, v0, p1, p2, p3}, Lorg/catrobat/paintroid/command/serialization/VersionSerializer;->handleVersions(Lorg/catrobat/paintroid/command/serialization/VersionSerializer;Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lorg/catrobat/paintroid/command/implementation/CutCommand;
+    check-cast p1, Lorg/catrobat/paintroid/command/implementation/CutCommand;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic readCurrentVersion(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
@@ -132,10 +124,7 @@
 .end method
 
 .method public readCurrentVersion(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Lorg/catrobat/paintroid/command/implementation/CutCommand;
-    .locals 8
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
-    .param p3, "type"    # Ljava/lang/Class;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -162,56 +151,39 @@
     invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 41
-    const-class v0, Landroid/graphics/Point;
+    const-class p3, Landroid/graphics/Point;
 
-    invoke-virtual {p1, p2, v0}, Lcom/esotericsoftware/kryo/Kryo;->readObject(Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p1, p2, p3}, Lcom/esotericsoftware/kryo/Kryo;->readObject(Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/graphics/Point;
-
-    .line 42
-    .local v0, "position":Landroid/graphics/Point;
-    move-object v1, p2
-
-    .local v1, "$this$with":Lcom/esotericsoftware/kryo/io/Input;
-    const/4 v2, 0x0
+    check-cast p1, Landroid/graphics/Point;
 
     .line 43
-    .local v2, "$i$a$-with-CutCommandSerializer$readCurrentVersion$1":I
-    invoke-virtual {v1}, Lcom/esotericsoftware/kryo/io/Input;->readFloat()F
+    invoke-virtual {p2}, Lcom/esotericsoftware/kryo/io/Input;->readFloat()F
 
-    move-result v3
+    move-result p3
 
     .line 44
-    .local v3, "width":F
-    invoke-virtual {v1}, Lcom/esotericsoftware/kryo/io/Input;->readFloat()F
+    invoke-virtual {p2}, Lcom/esotericsoftware/kryo/io/Input;->readFloat()F
 
-    move-result v4
+    move-result v0
 
     .line 45
-    .local v4, "height":F
-    invoke-virtual {v1}, Lcom/esotericsoftware/kryo/io/Input;->readFloat()F
+    invoke-virtual {p2}, Lcom/esotericsoftware/kryo/io/Input;->readFloat()F
 
-    move-result v5
+    move-result p2
 
     .line 46
-    .local v5, "rotation":F
-    new-instance v6, Lorg/catrobat/paintroid/command/implementation/CutCommand;
+    new-instance v1, Lorg/catrobat/paintroid/command/implementation/CutCommand;
 
-    const-string v7, "position"
+    const-string v2, "position"
 
-    invoke-static {v0, v7}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-direct {v6, v0, v3, v4, v5}, Lorg/catrobat/paintroid/command/implementation/CutCommand;-><init>(Landroid/graphics/Point;FFF)V
+    invoke-direct {v1, p1, p3, v0, p2}, Lorg/catrobat/paintroid/command/implementation/CutCommand;-><init>(Landroid/graphics/Point;FFF)V
 
-    .line 42
-    .end local v1    # "$this$with":Lcom/esotericsoftware/kryo/io/Input;
-    .end local v2    # "$i$a$-with-CutCommandSerializer$readCurrentVersion$1":I
-    .end local v3    # "width":F
-    .end local v4    # "height":F
-    .end local v5    # "rotation":F
-    return-object v6
+    return-object v1
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
@@ -226,10 +198,7 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Lorg/catrobat/paintroid/command/implementation/CutCommand;)V
-    .locals 3
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p3, "command"    # Lorg/catrobat/paintroid/command/implementation/CutCommand;
+    .locals 1
 
     const-string v0, "kryo"
 
@@ -250,42 +219,26 @@
 
     invoke-virtual {p1, p2, v0}, Lcom/esotericsoftware/kryo/Kryo;->writeObject(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
 
-    .line 30
-    move-object v0, p2
-
-    .local v0, "$this$with":Lcom/esotericsoftware/kryo/io/Output;
-    const/4 v1, 0x0
-
     .line 31
-    .local v1, "$i$a$-with-CutCommandSerializer$write$1":I
     invoke-virtual {p3}, Lorg/catrobat/paintroid/command/implementation/CutCommand;->getBoxWidth()F
 
-    move-result v2
+    move-result p1
 
-    invoke-virtual {v0, v2}, Lcom/esotericsoftware/kryo/io/Output;->writeFloat(F)V
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeFloat(F)V
 
     .line 32
     invoke-virtual {p3}, Lorg/catrobat/paintroid/command/implementation/CutCommand;->getBoxHeight()F
 
-    move-result v2
+    move-result p1
 
-    invoke-virtual {v0, v2}, Lcom/esotericsoftware/kryo/io/Output;->writeFloat(F)V
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeFloat(F)V
 
     .line 33
     invoke-virtual {p3}, Lorg/catrobat/paintroid/command/implementation/CutCommand;->getBoxRotation()F
 
-    move-result v2
+    move-result p1
 
-    invoke-virtual {v0, v2}, Lcom/esotericsoftware/kryo/io/Output;->writeFloat(F)V
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeFloat(F)V
 
-    .line 34
-    nop
-
-    .line 30
-    .end local v0    # "$this$with":Lcom/esotericsoftware/kryo/io/Output;
-    .end local v1    # "$i$a$-with-CutCommandSerializer$write$1":I
-    nop
-
-    .line 35
     return-void
 .end method

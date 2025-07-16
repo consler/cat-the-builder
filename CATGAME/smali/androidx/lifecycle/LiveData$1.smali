@@ -24,10 +24,8 @@
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/LiveData;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/lifecycle/LiveData;
 
     .line 82
-    .local p0, "this":Landroidx/lifecycle/LiveData$1;, "Landroidx/lifecycle/LiveData$1;"
     iput-object p1, p0, Landroidx/lifecycle/LiveData$1;->this$0:Landroidx/lifecycle/LiveData;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +39,6 @@
     .locals 4
 
     .line 87
-    .local p0, "this":Landroidx/lifecycle/LiveData$1;, "Landroidx/lifecycle/LiveData$1;"
     iget-object v0, p0, Landroidx/lifecycle/LiveData$1;->this$0:Landroidx/lifecycle/LiveData;
 
     iget-object v0, v0, Landroidx/lifecycle/LiveData;->mDataLock:Ljava/lang/Object;
@@ -55,7 +52,6 @@
     iget-object v1, v1, Landroidx/lifecycle/LiveData;->mPendingData:Ljava/lang/Object;
 
     .line 89
-    .local v1, "newValue":Ljava/lang/Object;
     iget-object v2, p0, Landroidx/lifecycle/LiveData$1;->this$0:Landroidx/lifecycle/LiveData;
 
     sget-object v3, Landroidx/lifecycle/LiveData;->NOT_SET:Ljava/lang/Object;
@@ -72,14 +68,12 @@
 
     invoke-virtual {v0, v1}, Landroidx/lifecycle/LiveData;->setValue(Ljava/lang/Object;)V
 
-    .line 92
     return-void
 
-    .line 90
-    .end local v1    # "newValue":Ljava/lang/Object;
     :catchall_0
     move-exception v1
 
+    .line 90
     :try_start_1
     monitor-exit v0
     :try_end_1

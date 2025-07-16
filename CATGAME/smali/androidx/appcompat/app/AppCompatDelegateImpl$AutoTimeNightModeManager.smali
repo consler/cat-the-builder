@@ -23,7 +23,6 @@
 # direct methods
 .method constructor <init>(Landroidx/appcompat/app/AppCompatDelegateImpl;Landroidx/appcompat/app/TwilightManager;)V
     .locals 0
-    .param p2, "twilightManager"    # Landroidx/appcompat/app/TwilightManager;
 
     .line 3242
     iput-object p1, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$AutoTimeNightModeManager;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
@@ -33,7 +32,6 @@
     .line 3243
     iput-object p2, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$AutoTimeNightModeManager;->mTwilightManager:Landroidx/appcompat/app/TwilightManager;
 
-    .line 3244
     return-void
 .end method
 
@@ -47,23 +45,21 @@
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 3260
-    .local v0, "filter":Landroid/content/IntentFilter;
     const-string v1, "android.intent.action.TIME_SET"
 
+    .line 3260
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 3261
     const-string v1, "android.intent.action.TIMEZONE_CHANGED"
 
+    .line 3261
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 3262
     const-string v1, "android.intent.action.TIME_TICK"
 
+    .line 3262
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 3263
     return-object v0
 .end method
 
@@ -98,6 +94,5 @@
 
     invoke-virtual {v0}, Landroidx/appcompat/app/AppCompatDelegateImpl;->applyDayNight()Z
 
-    .line 3255
     return-void
 .end method

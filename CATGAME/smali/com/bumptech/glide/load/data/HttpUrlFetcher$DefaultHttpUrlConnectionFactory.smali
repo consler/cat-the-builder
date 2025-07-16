@@ -30,8 +30,7 @@
 
 # virtual methods
 .method public build(Ljava/net/URL;)Ljava/net/HttpURLConnection;
-    .locals 1
-    .param p1, "url"    # Ljava/net/URL;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -41,9 +40,9 @@
     .line 195
     invoke-virtual {p1}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/net/HttpURLConnection;
+    check-cast p1, Ljava/net/HttpURLConnection;
 
-    return-object v0
+    return-object p1
 .end method

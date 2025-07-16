@@ -54,7 +54,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/observable/ObservableSkipUntil;Lio/reactivex/internal/disposables/ArrayCompositeDisposable;Lio/reactivex/internal/operators/observable/ObservableSkipUntil$SkipUntilObserver;Lio/reactivex/observers/SerializedObserver;)V
     .locals 0
-    .param p2, "frc"    # Lio/reactivex/internal/disposables/ArrayCompositeDisposable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,9 +66,6 @@
     .end annotation
 
     .line 97
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSkipUntil$SkipUntil;, "Lio/reactivex/internal/operators/observable/ObservableSkipUntil<TT;TU;>.SkipUntil;"
-    .local p3, "sus":Lio/reactivex/internal/operators/observable/ObservableSkipUntil$SkipUntilObserver;, "Lio/reactivex/internal/operators/observable/ObservableSkipUntil$SkipUntilObserver<TT;>;"
-    .local p4, "serial":Lio/reactivex/observers/SerializedObserver;, "Lio/reactivex/observers/SerializedObserver<TT;>;"
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableSkipUntil$SkipUntil;->this$0:Lio/reactivex/internal/operators/observable/ObservableSkipUntil;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -83,7 +79,6 @@
     .line 100
     iput-object p4, p0, Lio/reactivex/internal/operators/observable/ObservableSkipUntil$SkipUntil;->serial:Lio/reactivex/observers/SerializedObserver;
 
-    .line 101
     return-void
 .end method
 
@@ -93,23 +88,19 @@
     .locals 2
 
     .line 125
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSkipUntil$SkipUntil;, "Lio/reactivex/internal/operators/observable/ObservableSkipUntil<TT;TU;>.SkipUntil;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSkipUntil$SkipUntil;->sus:Lio/reactivex/internal/operators/observable/ObservableSkipUntil$SkipUntilObserver;
 
     const/4 v1, 0x1
 
     iput-boolean v1, v0, Lio/reactivex/internal/operators/observable/ObservableSkipUntil$SkipUntilObserver;->notSkipping:Z
 
-    .line 126
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 119
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSkipUntil$SkipUntil;, "Lio/reactivex/internal/operators/observable/ObservableSkipUntil<TT;TU;>.SkipUntil;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSkipUntil$SkipUntil;->frc:Lio/reactivex/internal/disposables/ArrayCompositeDisposable;
 
     invoke-virtual {v0}, Lio/reactivex/internal/disposables/ArrayCompositeDisposable;->dispose()V
@@ -119,12 +110,11 @@
 
     invoke-virtual {v0, p1}, Lio/reactivex/observers/SerializedObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 121
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TU;)V"
@@ -132,29 +122,24 @@
     .end annotation
 
     .line 113
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSkipUntil$SkipUntil;, "Lio/reactivex/internal/operators/observable/ObservableSkipUntil<TT;TU;>.SkipUntil;"
-    .local p1, "t":Ljava/lang/Object;, "TU;"
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSkipUntil$SkipUntil;->s:Lio/reactivex/disposables/Disposable;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableSkipUntil$SkipUntil;->s:Lio/reactivex/disposables/Disposable;
 
-    invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
+    invoke-interface {p1}, Lio/reactivex/disposables/Disposable;->dispose()V
 
     .line 114
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSkipUntil$SkipUntil;->sus:Lio/reactivex/internal/operators/observable/ObservableSkipUntil$SkipUntilObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableSkipUntil$SkipUntil;->sus:Lio/reactivex/internal/operators/observable/ObservableSkipUntil$SkipUntilObserver;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    iput-boolean v1, v0, Lio/reactivex/internal/operators/observable/ObservableSkipUntil$SkipUntilObserver;->notSkipping:Z
+    iput-boolean v0, p1, Lio/reactivex/internal/operators/observable/ObservableSkipUntil$SkipUntilObserver;->notSkipping:Z
 
-    .line 115
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 2
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 105
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSkipUntil$SkipUntil;, "Lio/reactivex/internal/operators/observable/ObservableSkipUntil<TT;TU;>.SkipUntil;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSkipUntil$SkipUntil;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -173,7 +158,6 @@
 
     invoke-virtual {v0, v1, p1}, Lio/reactivex/internal/disposables/ArrayCompositeDisposable;->setResource(ILio/reactivex/disposables/Disposable;)Z
 
-    .line 109
     :cond_0
     return-void
 .end method

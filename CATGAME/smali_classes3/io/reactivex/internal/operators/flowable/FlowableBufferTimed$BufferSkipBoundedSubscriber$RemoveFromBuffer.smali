@@ -39,8 +39,6 @@
     .end annotation
 
     .line 373
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableBufferTimed$BufferSkipBoundedSubscriber$RemoveFromBuffer;, "Lio/reactivex/internal/operators/flowable/FlowableBufferTimed$BufferSkipBoundedSubscriber<TT;TU;>.RemoveFromBuffer;"
-    .local p2, "buffer":Ljava/util/Collection;, "TU;"
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed$BufferSkipBoundedSubscriber$RemoveFromBuffer;->this$0:Lio/reactivex/internal/operators/flowable/FlowableBufferTimed$BufferSkipBoundedSubscriber;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +46,6 @@
     .line 374
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed$BufferSkipBoundedSubscriber$RemoveFromBuffer;->buffer:Ljava/util/Collection;
 
-    .line 375
     return-void
 .end method
 
@@ -58,7 +55,6 @@
     .locals 4
 
     .line 379
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableBufferTimed$BufferSkipBoundedSubscriber$RemoveFromBuffer;, "Lio/reactivex/internal/operators/flowable/FlowableBufferTimed$BufferSkipBoundedSubscriber<TT;TU;>.RemoveFromBuffer;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed$BufferSkipBoundedSubscriber$RemoveFromBuffer;->this$0:Lio/reactivex/internal/operators/flowable/FlowableBufferTimed$BufferSkipBoundedSubscriber;
 
     monitor-enter v0
@@ -89,13 +85,12 @@
 
     invoke-static {v0, v1, v2, v3}, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed$BufferSkipBoundedSubscriber;->access$000(Lio/reactivex/internal/operators/flowable/FlowableBufferTimed$BufferSkipBoundedSubscriber;Ljava/lang/Object;ZLio/reactivex/disposables/Disposable;)V
 
-    .line 384
     return-void
 
-    .line 381
     :catchall_0
     move-exception v1
 
+    .line 381
     :try_start_1
     monitor-exit v0
     :try_end_1

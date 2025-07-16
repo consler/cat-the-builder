@@ -58,16 +58,13 @@
     invoke-direct {v0}, Ljava/security/SecureRandom;-><init>()V
 
     .line 36
-    .local v0, "retval":Ljava/security/SecureRandom;
     invoke-virtual {v0}, Ljava/security/SecureRandom;->nextLong()J
 
-    .line 37
     return-object v0
 .end method
 
 .method public static randBytes(I)[B
-    .locals 2
-    .param p0, "size"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -78,22 +75,20 @@
     .end annotation
 
     .line 42
-    new-array v0, p0, [B
+    new-array p0, p0, [B
 
     .line 43
-    .local v0, "rand":[B
-    sget-object v1, Lcom/google/crypto/tink/subtle/Random;->localRandom:Ljava/lang/ThreadLocal;
+    sget-object v0, Lcom/google/crypto/tink/subtle/Random;->localRandom:Ljava/lang/ThreadLocal;
 
-    invoke-virtual {v1}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ljava/security/SecureRandom;
+    check-cast v0, Ljava/security/SecureRandom;
 
-    invoke-virtual {v1, v0}, Ljava/security/SecureRandom;->nextBytes([B)V
+    invoke-virtual {v0, p0}, Ljava/security/SecureRandom;->nextBytes([B)V
 
-    .line 44
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final randInt()I
@@ -117,7 +112,6 @@
 
 .method public static final randInt(I)I
     .locals 1
-    .param p0, "max"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -138,7 +132,7 @@
 
     invoke-virtual {v0, p0}, Ljava/security/SecureRandom;->nextInt(I)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

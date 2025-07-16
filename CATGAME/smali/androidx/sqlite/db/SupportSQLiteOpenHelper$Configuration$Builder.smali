@@ -27,7 +27,6 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
 
     .line 392
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,7 +34,6 @@
     .line 393
     iput-object p1, p0, Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration$Builder;->mContext:Landroid/content/Context;
 
-    .line 394
     return-void
 .end method
 
@@ -119,33 +117,27 @@
 
 .method public callback(Landroidx/sqlite/db/SupportSQLiteOpenHelper$Callback;)Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration$Builder;
     .locals 0
-    .param p1, "callback"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper$Callback;
 
     .line 412
     iput-object p1, p0, Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration$Builder;->mCallback:Landroidx/sqlite/db/SupportSQLiteOpenHelper$Callback;
 
-    .line 413
     return-object p0
 .end method
 
 .method public name(Ljava/lang/String;)Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration$Builder;
     .locals 0
-    .param p1, "name"    # Ljava/lang/String;
 
     .line 402
     iput-object p1, p0, Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration$Builder;->mName:Ljava/lang/String;
 
-    .line 403
     return-object p0
 .end method
 
 .method public noBackupDirectory(Z)Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration$Builder;
     .locals 0
-    .param p1, "useNoBackUpDirectory"    # Z
 
     .line 424
     iput-boolean p1, p0, Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration$Builder;->mUseNoBackUpDirectory:Z
 
-    .line 425
     return-object p0
 .end method

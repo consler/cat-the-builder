@@ -28,10 +28,6 @@
 # virtual methods
 .method public onError(Ljava/lang/String;ILandroid/os/Bundle;)V
     .locals 0
-    .param p1, "error"    # Ljava/lang/String;
-    .param p2, "code"    # I
-    .param p3, "data"    # Landroid/os/Bundle;
 
-    .line 997
     return-void
 .end method

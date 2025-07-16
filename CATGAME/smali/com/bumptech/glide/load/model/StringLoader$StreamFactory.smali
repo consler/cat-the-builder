@@ -41,7 +41,6 @@
 # virtual methods
 .method public build(Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;)Lcom/bumptech/glide/load/model/ModelLoader;
     .locals 3
-    .param p1, "multiFactory"    # Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -63,9 +62,9 @@
 
     invoke-virtual {p1, v1, v2}, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->build(Ljava/lang/Class;Ljava/lang/Class;)Lcom/bumptech/glide/load/model/ModelLoader;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Lcom/bumptech/glide/load/model/StringLoader;-><init>(Lcom/bumptech/glide/load/model/ModelLoader;)V
+    invoke-direct {v0, p1}, Lcom/bumptech/glide/load/model/StringLoader;-><init>(Lcom/bumptech/glide/load/model/ModelLoader;)V
 
     return-object v0
 .end method
@@ -73,6 +72,5 @@
 .method public teardown()V
     .locals 0
 
-    .line 79
     return-void
 .end method

@@ -16,43 +16,42 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 1
-    .param p1, "maxIndices"    # I
+    .locals 2
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 36
+    const/4 v0, 0x1
+
     if-nez p1, :cond_0
 
-    const/4 v0, 0x1
+    move v1, v0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
+    .line 36
     :goto_0
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->empty:Z
+    iput-boolean v1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->empty:Z
 
-    .line 37
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
-    .line 38
-    const/4 p1, 0x1
+    move p1, v0
+
+    :cond_1
+    mul-int/lit8 p1, p1, 0x2
 
     .line 41
-    :cond_1
-    mul-int/lit8 v0, p1, 0x2
+    invoke-static {p1}, Lcom/badlogic/gdx/utils/BufferUtils;->newUnsafeByteBuffer(I)Ljava/nio/ByteBuffer;
 
-    invoke-static {v0}, Lcom/badlogic/gdx/utils/BufferUtils;->newUnsafeByteBuffer(I)Ljava/nio/ByteBuffer;
+    move-result-object p1
 
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->byteBuffer:Ljava/nio/ByteBuffer;
+    iput-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->byteBuffer:Ljava/nio/ByteBuffer;
 
     .line 42
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->asShortBuffer()Ljava/nio/ShortBuffer;
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->asShortBuffer()Ljava/nio/ShortBuffer;
 
     move-result-object v0
 
@@ -62,11 +61,8 @@
     invoke-virtual {v0}, Ljava/nio/ShortBuffer;->flip()Ljava/nio/Buffer;
 
     .line 44
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->byteBuffer:Ljava/nio/ByteBuffer;
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;
 
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;
-
-    .line 45
     return-void
 .end method
 
@@ -75,7 +71,6 @@
 .method public bind()V
     .locals 0
 
-    .line 108
     return-void
 .end method
 
@@ -87,7 +82,6 @@
 
     invoke-static {v0}, Lcom/badlogic/gdx/utils/BufferUtils;->disposeUnsafeByteBuffer(Ljava/nio/ByteBuffer;)V
 
-    .line 121
     return-void
 .end method
 
@@ -149,13 +143,11 @@
 .method public invalidate()V
     .locals 0
 
-    .line 116
     return-void
 .end method
 
 .method public setIndices(Ljava/nio/ShortBuffer;)V
     .locals 3
-    .param p1, "indices"    # Ljava/nio/ShortBuffer;
 
     .line 78
     invoke-virtual {p1}, Ljava/nio/ShortBuffer;->position()I
@@ -163,7 +155,6 @@
     move-result v0
 
     .line 79
-    .local v0, "pos":I
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->buffer:Ljava/nio/ShortBuffer;
 
     invoke-virtual {v1}, Ljava/nio/ShortBuffer;->clear()Ljava/nio/Buffer;
@@ -191,34 +182,30 @@
     invoke-virtual {p1, v0}, Ljava/nio/ShortBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 84
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 85
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->buffer:Ljava/nio/ShortBuffer;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->buffer:Ljava/nio/ShortBuffer;
 
-    invoke-virtual {v2}, Ljava/nio/ShortBuffer;->limit()I
+    invoke-virtual {v0}, Ljava/nio/ShortBuffer;->limit()I
 
-    move-result v2
+    move-result v0
 
-    shl-int/lit8 v2, v2, 0x1
+    shl-int/lit8 v0, v0, 0x1
 
-    invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
-    .line 86
     return-void
 .end method
 
 .method public setIndices([SII)V
-    .locals 2
-    .param p1, "indices"    # [S
-    .param p2, "offset"    # I
-    .param p3, "count"    # I
+    .locals 1
 
     .line 70
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->buffer:Ljava/nio/ShortBuffer;
@@ -231,41 +218,35 @@
     invoke-virtual {v0, p1, p2, p3}, Ljava/nio/ShortBuffer;->put([SII)Ljava/nio/ShortBuffer;
 
     .line 72
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->buffer:Ljava/nio/ShortBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->buffer:Ljava/nio/ShortBuffer;
 
-    invoke-virtual {v0}, Ljava/nio/ShortBuffer;->flip()Ljava/nio/Buffer;
+    invoke-virtual {p1}, Ljava/nio/ShortBuffer;->flip()Ljava/nio/Buffer;
 
     .line 73
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, p2}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 74
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    shl-int/lit8 v1, p3, 0x1
+    shl-int/lit8 p2, p3, 0x1
 
-    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, p2}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
-    .line 75
     return-void
 .end method
 
 .method public unbind()V
     .locals 0
 
-    .line 112
     return-void
 .end method
 
 .method public updateIndices(I[SII)V
-    .locals 3
-    .param p1, "targetOffset"    # I
-    .param p2, "indices"    # [S
-    .param p3, "offset"    # I
-    .param p4, "count"    # I
+    .locals 2
 
     .line 90
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->byteBuffer:Ljava/nio/ByteBuffer;
@@ -275,23 +256,21 @@
     move-result v0
 
     .line 91
-    .local v0, "pos":I
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    mul-int/lit8 v2, p1, 0x2
+    mul-int/lit8 p1, p1, 0x2
 
-    invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v1, p1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 92
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-static {p2, p3, v1, p4}, Lcom/badlogic/gdx/utils/BufferUtils;->copy([SILjava/nio/Buffer;I)V
+    invoke-static {p2, p3, p1, p4}, Lcom/badlogic/gdx/utils/BufferUtils;->copy([SILjava/nio/Buffer;I)V
 
     .line 93
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/IndexArray;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v1, v0}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
-    .line 94
     return-void
 .end method

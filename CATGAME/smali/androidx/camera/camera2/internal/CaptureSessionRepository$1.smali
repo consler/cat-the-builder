@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/camera2/internal/CaptureSessionRepository;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/camera2/internal/CaptureSessionRepository;
 
     .line 65
     iput-object p1, p0, Landroidx/camera/camera2/internal/CaptureSessionRepository$1;->this$0:Landroidx/camera/camera2/internal/CaptureSessionRepository;
@@ -33,7 +32,7 @@
 
 
 # virtual methods
-.method public synthetic lambda$onDisconnected$0$CaptureSessionRepository$1()V
+.method synthetic lambda$onDisconnected$0$androidx-camera-camera2-internal-CaptureSessionRepository$1()V
     .locals 4
 
     .line 90
@@ -42,7 +41,6 @@
     invoke-direct {v0}, Ljava/util/LinkedHashSet;-><init>()V
 
     .line 91
-    .local v0, "sessions":Ljava/util/LinkedHashSet;, "Ljava/util/LinkedHashSet<Landroidx/camera/camera2/internal/SynchronizedCaptureSession;>;"
     iget-object v1, p0, Landroidx/camera/camera2/internal/CaptureSessionRepository$1;->this$0:Landroidx/camera/camera2/internal/CaptureSessionRepository;
 
     iget-object v1, v1, Landroidx/camera/camera2/internal/CaptureSessionRepository;->mLock:Ljava/lang/Object;
@@ -80,53 +78,45 @@
     .line 95
     invoke-static {v0}, Landroidx/camera/camera2/internal/CaptureSessionRepository;->forceOnClosed(Ljava/util/Set;)V
 
-    .line 96
     return-void
 
-    .line 94
     :catchall_0
-    move-exception v2
+    move-exception v0
 
+    .line 94
     :try_start_1
     monitor-exit v1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v2
+    throw v0
 .end method
 
 .method public onDisconnected(Landroid/hardware/camera2/CameraDevice;)V
-    .locals 2
-    .param p1, "camera"    # Landroid/hardware/camera2/CameraDevice;
+    .locals 1
 
     .line 85
-    iget-object v0, p0, Landroidx/camera/camera2/internal/CaptureSessionRepository$1;->this$0:Landroidx/camera/camera2/internal/CaptureSessionRepository;
+    iget-object p1, p0, Landroidx/camera/camera2/internal/CaptureSessionRepository$1;->this$0:Landroidx/camera/camera2/internal/CaptureSessionRepository;
 
-    iget-object v0, v0, Landroidx/camera/camera2/internal/CaptureSessionRepository;->mExecutor:Ljava/util/concurrent/Executor;
+    iget-object p1, p1, Landroidx/camera/camera2/internal/CaptureSessionRepository;->mExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v1, Landroidx/camera/camera2/internal/-$$Lambda$CaptureSessionRepository$1$rRS948den_N41nH0jLG7y-VuOvA;
+    new-instance v0, Landroidx/camera/camera2/internal/CaptureSessionRepository$1$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Landroidx/camera/camera2/internal/-$$Lambda$CaptureSessionRepository$1$rRS948den_N41nH0jLG7y-VuOvA;-><init>(Landroidx/camera/camera2/internal/CaptureSessionRepository$1;)V
+    invoke-direct {v0, p0}, Landroidx/camera/camera2/internal/CaptureSessionRepository$1$$ExternalSyntheticLambda0;-><init>(Landroidx/camera/camera2/internal/CaptureSessionRepository$1;)V
 
-    invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+    invoke-interface {p1, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 98
     return-void
 .end method
 
 .method public onError(Landroid/hardware/camera2/CameraDevice;I)V
     .locals 0
-    .param p1, "camera"    # Landroid/hardware/camera2/CameraDevice;
-    .param p2, "error"    # I
 
-    .line 74
     return-void
 .end method
 
 .method public onOpened(Landroid/hardware/camera2/CameraDevice;)V
     .locals 0
-    .param p1, "camera"    # Landroid/hardware/camera2/CameraDevice;
 
-    .line 69
     return-void
 .end method

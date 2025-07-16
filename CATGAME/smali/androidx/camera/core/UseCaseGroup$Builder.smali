@@ -42,7 +42,6 @@
 
     iput-object v0, p0, Landroidx/camera/core/UseCaseGroup$Builder;->mUseCases:Ljava/util/List;
 
-    .line 74
     return-void
 .end method
 
@@ -50,14 +49,12 @@
 # virtual methods
 .method public addUseCase(Landroidx/camera/core/UseCase;)Landroidx/camera/core/UseCaseGroup$Builder;
     .locals 1
-    .param p1, "useCase"    # Landroidx/camera/core/UseCase;
 
     .line 90
     iget-object v0, p0, Landroidx/camera/core/UseCaseGroup$Builder;->mUseCases:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 91
     return-object p0
 .end method
 
@@ -91,11 +88,9 @@
 
 .method public setViewPort(Landroidx/camera/core/ViewPort;)Landroidx/camera/core/UseCaseGroup$Builder;
     .locals 0
-    .param p1, "viewPort"    # Landroidx/camera/core/ViewPort;
 
     .line 81
     iput-object p1, p0, Landroidx/camera/core/UseCaseGroup$Builder;->mViewPort:Landroidx/camera/core/ViewPort;
 
-    .line 82
     return-object p0
 .end method

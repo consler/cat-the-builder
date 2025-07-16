@@ -53,24 +53,24 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 83
     const-string v0, "WorkManagerImpl"
 
+    .line 85
     invoke-static {v0}, Landroidx/work/Logger;->tagWithPrefix(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     sput-object v0, Landroidx/work/impl/WorkManagerImpl;->TAG:Ljava/lang/String;
 
-    .line 100
     const/4 v0, 0x0
 
+    .line 102
     sput-object v0, Landroidx/work/impl/WorkManagerImpl;->sDelegatedInstance:Landroidx/work/impl/WorkManagerImpl;
 
-    .line 101
+    .line 103
     sput-object v0, Landroidx/work/impl/WorkManagerImpl;->sDefaultInstance:Landroidx/work/impl/WorkManagerImpl;
 
-    .line 102
+    .line 104
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
@@ -82,9 +82,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/Configuration;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "configuration"    # Landroidx/work/Configuration;
-    .param p3, "workTaskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -98,10 +95,7 @@
         }
     .end annotation
 
-    .line 217
-    nop
-
-    .line 220
+    .line 222
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -112,19 +106,14 @@
 
     move-result v0
 
-    .line 217
+    .line 219
     invoke-direct {p0, p1, p2, p3, v0}, Landroidx/work/impl/WorkManagerImpl;-><init>(Landroid/content/Context;Landroidx/work/Configuration;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Z)V
 
-    .line 221
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/Configuration;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/impl/WorkDatabase;)V
     .locals 10
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "configuration"    # Landroidx/work/Configuration;
-    .param p3, "workTaskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
-    .param p4, "database"    # Landroidx/work/impl/WorkDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -140,16 +129,15 @@
         }
     .end annotation
 
-    .line 264
+    .line 266
     invoke-direct {p0}, Landroidx/work/WorkManager;-><init>()V
 
-    .line 265
+    .line 267
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 266
-    .local v0, "applicationContext":Landroid/content/Context;
+    .line 268
     new-instance v1, Landroidx/work/Logger$LogcatLogger;
 
     invoke-virtual {p2}, Landroidx/work/Configuration;->getMinimumLoggingLevel()I
@@ -160,16 +148,12 @@
 
     invoke-static {v1}, Landroidx/work/Logger;->setLogger(Landroidx/work/Logger;)V
 
-    .line 267
-    nop
-
-    .line 268
+    .line 270
     invoke-virtual {p0, v0, p2, p3}, Landroidx/work/impl/WorkManagerImpl;->createSchedulers(Landroid/content/Context;Landroidx/work/Configuration;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object v0
 
-    .line 269
-    .local v1, "schedulers":Ljava/util/List;, "Ljava/util/List<Landroidx/work/impl/Scheduler;>;"
+    .line 271
     new-instance v9, Landroidx/work/impl/Processor;
 
     move-object v3, v9
@@ -182,27 +166,20 @@
 
     move-object v7, p4
 
-    move-object v8, v1
+    move-object v8, v0
 
     invoke-direct/range {v3 .. v8}, Landroidx/work/impl/Processor;-><init>(Landroid/content/Context;Landroidx/work/Configuration;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/impl/WorkDatabase;Ljava/util/List;)V
 
-    .line 275
-    .local v9, "processor":Landroidx/work/impl/Processor;
     move-object v3, p0
 
+    .line 277
     invoke-direct/range {v3 .. v9}, Landroidx/work/impl/WorkManagerImpl;->internalInit(Landroid/content/Context;Landroidx/work/Configuration;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/impl/WorkDatabase;Ljava/util/List;Landroidx/work/impl/Processor;)V
 
-    .line 276
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/Configuration;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/impl/WorkDatabase;Ljava/util/List;Landroidx/work/impl/Processor;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "configuration"    # Landroidx/work/Configuration;
-    .param p3, "workTaskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
-    .param p4, "workDatabase"    # Landroidx/work/impl/WorkDatabase;
-    .param p6, "processor"    # Landroidx/work/impl/Processor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -237,23 +214,17 @@
         }
     .end annotation
 
-    .line 296
-    .local p5, "schedulers":Ljava/util/List;, "Ljava/util/List<Landroidx/work/impl/Scheduler;>;"
+    .line 298
     invoke-direct {p0}, Landroidx/work/WorkManager;-><init>()V
 
-    .line 297
+    .line 299
     invoke-direct/range {p0 .. p6}, Landroidx/work/impl/WorkManagerImpl;->internalInit(Landroid/content/Context;Landroidx/work/Configuration;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/impl/WorkDatabase;Ljava/util/List;Landroidx/work/impl/Processor;)V
 
-    .line 298
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/Configuration;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Z)V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "configuration"    # Landroidx/work/Configuration;
-    .param p3, "workTaskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
-    .param p4, "useTestDatabase"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -269,28 +240,24 @@
         }
     .end annotation
 
-    .line 239
-    nop
-
-    .line 243
+    .line 245
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 244
+    .line 246
     invoke-interface {p3}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->getBackgroundExecutor()Landroidx/work/impl/utils/SerialExecutor;
 
     move-result-object v1
 
-    .line 242
+    .line 244
     invoke-static {v0, v1, p4}, Landroidx/work/impl/WorkDatabase;->create(Landroid/content/Context;Ljava/util/concurrent/Executor;Z)Landroidx/work/impl/WorkDatabase;
 
-    move-result-object v0
+    move-result-object p4
 
-    .line 239
-    invoke-direct {p0, p1, p2, p3, v0}, Landroidx/work/impl/WorkManagerImpl;-><init>(Landroid/content/Context;Landroidx/work/Configuration;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/impl/WorkDatabase;)V
+    .line 241
+    invoke-direct {p0, p1, p2, p3, p4}, Landroidx/work/impl/WorkManagerImpl;-><init>(Landroid/content/Context;Landroidx/work/Configuration;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/impl/WorkDatabase;)V
 
-    .line 247
     return-void
 .end method
 
@@ -299,25 +266,23 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 128
+    .line 130
     sget-object v0, Landroidx/work/impl/WorkManagerImpl;->sLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 129
+    .line 131
     :try_start_0
     sget-object v1, Landroidx/work/impl/WorkManagerImpl;->sDelegatedInstance:Landroidx/work/impl/WorkManagerImpl;
 
     if-eqz v1, :cond_0
 
-    .line 130
-    sget-object v1, Landroidx/work/impl/WorkManagerImpl;->sDelegatedInstance:Landroidx/work/impl/WorkManagerImpl;
-
+    .line 132
     monitor-exit v0
 
     return-object v1
 
-    .line 133
+    .line 135
     :cond_0
     sget-object v1, Landroidx/work/impl/WorkManagerImpl;->sDefaultInstance:Landroidx/work/impl/WorkManagerImpl;
 
@@ -325,10 +290,10 @@
 
     return-object v1
 
-    .line 134
     :catchall_0
     move-exception v1
 
+    .line 136
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -337,8 +302,7 @@
 .end method
 
 .method public static getInstance(Landroid/content/Context;)Landroidx/work/impl/WorkManagerImpl;
-    .locals 5
-    .param p0, "context"    # Landroid/content/Context;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -348,90 +312,79 @@
         }
     .end annotation
 
-    .line 146
+    .line 148
     sget-object v0, Landroidx/work/impl/WorkManagerImpl;->sLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 147
+    .line 149
     :try_start_0
     invoke-static {}, Landroidx/work/impl/WorkManagerImpl;->getInstance()Landroidx/work/impl/WorkManagerImpl;
 
     move-result-object v1
 
-    .line 148
-    .local v1, "instance":Landroidx/work/impl/WorkManagerImpl;
     if-nez v1, :cond_1
 
-    .line 149
+    .line 151
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object p0
 
-    .line 150
-    .local v2, "appContext":Landroid/content/Context;
-    instance-of v3, v2, Landroidx/work/Configuration$Provider;
+    .line 152
+    instance-of v1, p0, Landroidx/work/Configuration$Provider;
 
-    if-eqz v3, :cond_0
-
-    .line 151
-    move-object v3, v2
-
-    check-cast v3, Landroidx/work/Configuration$Provider;
+    if-eqz v1, :cond_0
 
     .line 153
-    invoke-interface {v3}, Landroidx/work/Configuration$Provider;->getWorkManagerConfiguration()Landroidx/work/Configuration;
+    move-object v1, p0
 
-    move-result-object v3
+    check-cast v1, Landroidx/work/Configuration$Provider;
 
-    .line 151
-    invoke-static {v2, v3}, Landroidx/work/impl/WorkManagerImpl;->initialize(Landroid/content/Context;Landroidx/work/Configuration;)V
+    .line 155
+    invoke-interface {v1}, Landroidx/work/Configuration$Provider;->getWorkManagerConfiguration()Landroidx/work/Configuration;
 
-    .line 154
-    invoke-static {v2}, Landroidx/work/impl/WorkManagerImpl;->getInstance(Landroid/content/Context;)Landroidx/work/impl/WorkManagerImpl;
+    move-result-object v1
 
-    move-result-object v3
+    .line 153
+    invoke-static {p0, v1}, Landroidx/work/impl/WorkManagerImpl;->initialize(Landroid/content/Context;Landroidx/work/Configuration;)V
 
-    move-object v1, v3
+    .line 156
+    invoke-static {p0}, Landroidx/work/impl/WorkManagerImpl;->getInstance(Landroid/content/Context;)Landroidx/work/impl/WorkManagerImpl;
+
+    move-result-object v1
 
     goto :goto_0
 
-    .line 156
+    .line 158
     :cond_0
-    new-instance v3, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v4, "WorkManager is not initialized properly.  You have explicitly disabled WorkManagerInitializer in your manifest, have not manually called WorkManager#initialize at this point, and your Application does not implement Configuration.Provider."
+    const-string v1, "WorkManager is not initialized properly.  You have explicitly disabled WorkManagerInitializer in your manifest, have not manually called WorkManager#initialize at this point, and your Application does not implement Configuration.Provider."
 
-    invoke-direct {v3, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    .end local p0    # "context":Landroid/content/Context;
-    throw v3
+    throw p0
 
-    .line 163
-    .end local v2    # "appContext":Landroid/content/Context;
-    .restart local p0    # "context":Landroid/content/Context;
+    .line 165
     :cond_1
     :goto_0
     monitor-exit v0
 
     return-object v1
 
-    .line 164
-    .end local v1    # "instance":Landroidx/work/impl/WorkManagerImpl;
     :catchall_0
-    move-exception v1
+    move-exception p0
 
+    .line 166
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public static initialize(Landroid/content/Context;Landroidx/work/Configuration;)V
     .locals 4
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "configuration"    # Landroidx/work/Configuration;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -443,62 +396,53 @@
         }
     .end annotation
 
-    .line 181
+    .line 183
     sget-object v0, Landroidx/work/impl/WorkManagerImpl;->sLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 182
+    .line 184
     :try_start_0
     sget-object v1, Landroidx/work/impl/WorkManagerImpl;->sDelegatedInstance:Landroidx/work/impl/WorkManagerImpl;
 
     if-eqz v1, :cond_1
 
-    sget-object v1, Landroidx/work/impl/WorkManagerImpl;->sDefaultInstance:Landroidx/work/impl/WorkManagerImpl;
+    sget-object v2, Landroidx/work/impl/WorkManagerImpl;->sDefaultInstance:Landroidx/work/impl/WorkManagerImpl;
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
     goto :goto_0
 
-    .line 183
+    .line 185
     :cond_0
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v2, "WorkManager is already initialized.  Did you try to initialize it manually without disabling WorkManagerInitializer? See WorkManager#initialize(Context, Configuration) or the class level Javadoc for more information."
+    const-string p1, "WorkManager is already initialized.  Did you try to initialize it manually without disabling WorkManagerInitializer? See WorkManager#initialize(Context, Configuration) or the class level Javadoc for more information."
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    .end local p0    # "context":Landroid/content/Context;
-    .end local p1    # "configuration":Landroidx/work/Configuration;
-    throw v1
+    throw p0
 
-    .line 190
-    .restart local p0    # "context":Landroid/content/Context;
-    .restart local p1    # "configuration":Landroidx/work/Configuration;
     :cond_1
     :goto_0
-    sget-object v1, Landroidx/work/impl/WorkManagerImpl;->sDelegatedInstance:Landroidx/work/impl/WorkManagerImpl;
-
     if-nez v1, :cond_3
 
-    .line 191
+    .line 193
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object p0
 
-    move-object p0, v1
-
-    .line 192
+    .line 194
     sget-object v1, Landroidx/work/impl/WorkManagerImpl;->sDefaultInstance:Landroidx/work/impl/WorkManagerImpl;
 
     if-nez v1, :cond_2
 
-    .line 193
+    .line 195
     new-instance v1, Landroidx/work/impl/WorkManagerImpl;
 
     new-instance v2, Landroidx/work/impl/utils/taskexecutor/WorkManagerTaskExecutor;
 
-    .line 196
+    .line 198
     invoke-virtual {p1}, Landroidx/work/Configuration;->getTaskExecutor()Ljava/util/concurrent/Executor;
 
     move-result-object v3
@@ -509,37 +453,30 @@
 
     sput-object v1, Landroidx/work/impl/WorkManagerImpl;->sDefaultInstance:Landroidx/work/impl/WorkManagerImpl;
 
-    .line 198
-    :cond_2
-    sget-object v1, Landroidx/work/impl/WorkManagerImpl;->sDefaultInstance:Landroidx/work/impl/WorkManagerImpl;
-
-    sput-object v1, Landroidx/work/impl/WorkManagerImpl;->sDelegatedInstance:Landroidx/work/impl/WorkManagerImpl;
-
     .line 200
+    :cond_2
+    sget-object p0, Landroidx/work/impl/WorkManagerImpl;->sDefaultInstance:Landroidx/work/impl/WorkManagerImpl;
+
+    sput-object p0, Landroidx/work/impl/WorkManagerImpl;->sDelegatedInstance:Landroidx/work/impl/WorkManagerImpl;
+
+    .line 202
     :cond_3
     monitor-exit v0
 
-    .line 201
     return-void
 
-    .line 200
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method private internalInit(Landroid/content/Context;Landroidx/work/Configuration;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/impl/WorkDatabase;Ljava/util/List;Landroidx/work/impl/Processor;)V
-    .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "configuration"    # Landroidx/work/Configuration;
-    .param p3, "workTaskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
-    .param p4, "workDatabase"    # Landroidx/work/impl/WorkDatabase;
-    .param p6, "processor"    # Landroidx/work/impl/Processor;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -574,85 +511,72 @@
         }
     .end annotation
 
-    .line 748
-    .local p5, "schedulers":Ljava/util/List;, "Ljava/util/List<Landroidx/work/impl/Scheduler;>;"
+    .line 756
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object p1
 
-    .line 749
+    .line 757
     iput-object p1, p0, Landroidx/work/impl/WorkManagerImpl;->mContext:Landroid/content/Context;
 
-    .line 750
+    .line 758
     iput-object p2, p0, Landroidx/work/impl/WorkManagerImpl;->mConfiguration:Landroidx/work/Configuration;
 
-    .line 751
+    .line 759
     iput-object p3, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
-    .line 752
+    .line 760
     iput-object p4, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
 
-    .line 753
+    .line 761
     iput-object p5, p0, Landroidx/work/impl/WorkManagerImpl;->mSchedulers:Ljava/util/List;
 
-    .line 754
+    .line 762
     iput-object p6, p0, Landroidx/work/impl/WorkManagerImpl;->mProcessor:Landroidx/work/impl/Processor;
 
-    .line 755
-    new-instance v0, Landroidx/work/impl/utils/PreferenceUtils;
+    .line 763
+    new-instance p2, Landroidx/work/impl/utils/PreferenceUtils;
 
-    invoke-direct {v0, p4}, Landroidx/work/impl/utils/PreferenceUtils;-><init>(Landroidx/work/impl/WorkDatabase;)V
+    invoke-direct {p2, p4}, Landroidx/work/impl/utils/PreferenceUtils;-><init>(Landroidx/work/impl/WorkDatabase;)V
 
-    iput-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mPreferenceUtils:Landroidx/work/impl/utils/PreferenceUtils;
+    iput-object p2, p0, Landroidx/work/impl/WorkManagerImpl;->mPreferenceUtils:Landroidx/work/impl/utils/PreferenceUtils;
 
-    .line 756
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroidx/work/impl/WorkManagerImpl;->mForceStopRunnableCompleted:Z
-
-    .line 759
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x18
-
-    if-lt v0, v1, :cond_1
-
-    invoke-virtual {p1}, Landroid/content/Context;->isDeviceProtectedStorage()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    goto :goto_0
-
-    .line 760
-    :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string v1, "Cannot initialize WorkManager in direct boot mode"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    const/4 p2, 0x0
 
     .line 764
-    :cond_1
-    :goto_0
-    iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
+    iput-boolean p2, p0, Landroidx/work/impl/WorkManagerImpl;->mForceStopRunnableCompleted:Z
 
-    new-instance v1, Landroidx/work/impl/utils/ForceStopRunnable;
+    .line 767
+    invoke-virtual {p1}, Landroid/content/Context;->isDeviceProtectedStorage()Z
 
-    invoke-direct {v1, p1, p0}, Landroidx/work/impl/utils/ForceStopRunnable;-><init>(Landroid/content/Context;Landroidx/work/impl/WorkManagerImpl;)V
+    move-result p2
 
-    invoke-interface {v0, v1}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->executeOnBackgroundThread(Ljava/lang/Runnable;)V
+    if-nez p2, :cond_0
 
-    .line 765
+    .line 772
+    iget-object p2, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
+
+    new-instance p3, Landroidx/work/impl/utils/ForceStopRunnable;
+
+    invoke-direct {p3, p1, p0}, Landroidx/work/impl/utils/ForceStopRunnable;-><init>(Landroid/content/Context;Landroidx/work/impl/WorkManagerImpl;)V
+
+    invoke-interface {p2, p3}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->executeOnBackgroundThread(Ljava/lang/Runnable;)V
+
     return-void
+
+    .line 768
+    :cond_0
+    new-instance p1, Ljava/lang/IllegalStateException;
+
+    const-string p2, "Cannot initialize WorkManager in direct boot mode"
+
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p1
 .end method
 
 .method public static setDelegate(Landroidx/work/impl/WorkManagerImpl;)V
-    .locals 2
-    .param p0, "delegate"    # Landroidx/work/impl/WorkManagerImpl;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -662,36 +586,33 @@
         }
     .end annotation
 
-    .line 112
+    .line 114
     sget-object v0, Landroidx/work/impl/WorkManagerImpl;->sLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 113
+    .line 115
     :try_start_0
     sput-object p0, Landroidx/work/impl/WorkManagerImpl;->sDelegatedInstance:Landroidx/work/impl/WorkManagerImpl;
 
-    .line 114
+    .line 116
     monitor-exit v0
 
-    .line 115
     return-void
 
-    .line 114
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method private tryInitializeMultiProcessSupport()V
     .locals 6
 
-    .line 789
     const/4 v0, 0x0
 
     const/4 v1, 0x1
@@ -699,16 +620,16 @@
     :try_start_0
     const-string v2, "androidx.work.multiprocess.RemoteWorkManagerClient"
 
+    .line 797
     invoke-static {v2}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v2
 
-    .line 790
-    .local v2, "klass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const/4 v3, 0x2
 
     new-array v4, v3, [Ljava/lang/Class;
 
+    .line 798
     const-class v5, Landroid/content/Context;
 
     aput-object v5, v4, v0
@@ -719,37 +640,33 @@
 
     invoke-virtual {v2, v4}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
-    move-result-object v4
+    move-result-object v2
 
     new-array v3, v3, [Ljava/lang/Object;
 
-    iget-object v5, p0, Landroidx/work/impl/WorkManagerImpl;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Landroidx/work/impl/WorkManagerImpl;->mContext:Landroid/content/Context;
 
-    aput-object v5, v3, v0
+    aput-object v4, v3, v0
 
     aput-object p0, v3, v1
 
-    .line 792
-    invoke-virtual {v4, v3}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+    .line 800
+    invoke-virtual {v2, v3}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Landroidx/work/multiprocess/RemoteWorkManager;
+    check-cast v2, Landroidx/work/multiprocess/RemoteWorkManager;
 
-    iput-object v3, p0, Landroidx/work/impl/WorkManagerImpl;->mRemoteWorkManager:Landroidx/work/multiprocess/RemoteWorkManager;
+    iput-object v2, p0, Landroidx/work/impl/WorkManagerImpl;->mRemoteWorkManager:Landroidx/work/multiprocess/RemoteWorkManager;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 795
-    .end local v2    # "klass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     goto :goto_0
 
-    .line 793
     :catchall_0
     move-exception v2
 
-    .line 794
-    .local v2, "throwable":Ljava/lang/Throwable;
+    .line 802
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v3
@@ -764,8 +681,6 @@
 
     invoke-virtual {v3, v4, v0, v1}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
-    .line 796
-    .end local v2    # "throwable":Ljava/lang/Throwable;
     :goto_0
     return-void
 .end method
@@ -773,9 +688,7 @@
 
 # virtual methods
 .method public beginUniqueWork(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Ljava/util/List;)Landroidx/work/WorkContinuation;
-    .locals 2
-    .param p1, "uniqueWorkName"    # Ljava/lang/String;
-    .param p2, "existingWorkPolicy"    # Landroidx/work/ExistingWorkPolicy;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -801,34 +714,33 @@
         }
     .end annotation
 
-    .line 395
-    .local p3, "work":Ljava/util/List;, "Ljava/util/List<Landroidx/work/OneTimeWorkRequest;>;"
+    .line 397
     invoke-interface {p3}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 399
+    .line 401
     new-instance v0, Landroidx/work/impl/WorkContinuationImpl;
 
     invoke-direct {v0, p0, p1, p2, p3}, Landroidx/work/impl/WorkContinuationImpl;-><init>(Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Ljava/util/List;)V
 
     return-object v0
 
-    .line 396
+    .line 398
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "beginUniqueWork needs at least one OneTimeWorkRequest."
+    const-string p2, "beginUniqueWork needs at least one OneTimeWorkRequest."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public beginWith(Ljava/util/List;)Landroidx/work/WorkContinuation;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -848,57 +760,54 @@
         }
     .end annotation
 
-    .line 383
-    .local p1, "work":Ljava/util/List;, "Ljava/util/List<Landroidx/work/OneTimeWorkRequest;>;"
+    .line 385
     invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 387
+    .line 389
     new-instance v0, Landroidx/work/impl/WorkContinuationImpl;
 
     invoke-direct {v0, p0, p1}, Landroidx/work/impl/WorkContinuationImpl;-><init>(Landroidx/work/impl/WorkManagerImpl;Ljava/util/List;)V
 
     return-object v0
 
-    .line 384
+    .line 386
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "beginWith needs at least one OneTimeWorkRequest."
+    const-string v0, "beginWith needs at least one OneTimeWorkRequest."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public cancelAllWork()Landroidx/work/Operation;
     .locals 2
 
-    .line 469
+    .line 471
     invoke-static {p0}, Landroidx/work/impl/utils/CancelWorkRunnable;->forAll(Landroidx/work/impl/WorkManagerImpl;)Landroidx/work/impl/utils/CancelWorkRunnable;
 
     move-result-object v0
 
-    .line 470
-    .local v0, "runnable":Landroidx/work/impl/utils/CancelWorkRunnable;
+    .line 472
     iget-object v1, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
     invoke-interface {v1, v0}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->executeOnBackgroundThread(Ljava/lang/Runnable;)V
 
-    .line 471
+    .line 473
     invoke-virtual {v0}, Landroidx/work/impl/utils/CancelWorkRunnable;->getOperation()Landroidx/work/Operation;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public cancelAllWorkByTag(Ljava/lang/String;)Landroidx/work/Operation;
-    .locals 2
-    .param p1, "tag"    # Ljava/lang/String;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -908,28 +817,26 @@
         }
     .end annotation
 
-    .line 454
+    .line 456
     invoke-static {p1, p0}, Landroidx/work/impl/utils/CancelWorkRunnable;->forTag(Ljava/lang/String;Landroidx/work/impl/WorkManagerImpl;)Landroidx/work/impl/utils/CancelWorkRunnable;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 455
-    .local v0, "runnable":Landroidx/work/impl/utils/CancelWorkRunnable;
-    iget-object v1, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
+    .line 457
+    iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
-    invoke-interface {v1, v0}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->executeOnBackgroundThread(Ljava/lang/Runnable;)V
+    invoke-interface {v0, p1}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->executeOnBackgroundThread(Ljava/lang/Runnable;)V
 
-    .line 456
-    invoke-virtual {v0}, Landroidx/work/impl/utils/CancelWorkRunnable;->getOperation()Landroidx/work/Operation;
+    .line 458
+    invoke-virtual {p1}, Landroidx/work/impl/utils/CancelWorkRunnable;->getOperation()Landroidx/work/Operation;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public cancelUniqueWork(Ljava/lang/String;)Landroidx/work/Operation;
-    .locals 2
-    .param p1, "uniqueWorkName"    # Ljava/lang/String;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -939,30 +846,28 @@
         }
     .end annotation
 
-    .line 462
     const/4 v0, 0x1
 
+    .line 464
     invoke-static {p1, p0, v0}, Landroidx/work/impl/utils/CancelWorkRunnable;->forName(Ljava/lang/String;Landroidx/work/impl/WorkManagerImpl;Z)Landroidx/work/impl/utils/CancelWorkRunnable;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 463
-    .local v0, "runnable":Landroidx/work/impl/utils/CancelWorkRunnable;
-    iget-object v1, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
+    .line 465
+    iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
-    invoke-interface {v1, v0}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->executeOnBackgroundThread(Ljava/lang/Runnable;)V
+    invoke-interface {v0, p1}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->executeOnBackgroundThread(Ljava/lang/Runnable;)V
 
-    .line 464
-    invoke-virtual {v0}, Landroidx/work/impl/utils/CancelWorkRunnable;->getOperation()Landroidx/work/Operation;
+    .line 466
+    invoke-virtual {p1}, Landroidx/work/impl/utils/CancelWorkRunnable;->getOperation()Landroidx/work/Operation;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public cancelWorkById(Ljava/util/UUID;)Landroidx/work/Operation;
-    .locals 2
-    .param p1, "id"    # Ljava/util/UUID;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -972,28 +877,26 @@
         }
     .end annotation
 
-    .line 447
+    .line 449
     invoke-static {p1, p0}, Landroidx/work/impl/utils/CancelWorkRunnable;->forId(Ljava/util/UUID;Landroidx/work/impl/WorkManagerImpl;)Landroidx/work/impl/utils/CancelWorkRunnable;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 448
-    .local v0, "runnable":Landroidx/work/impl/utils/CancelWorkRunnable;
-    iget-object v1, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
+    .line 450
+    iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
-    invoke-interface {v1, v0}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->executeOnBackgroundThread(Ljava/lang/Runnable;)V
+    invoke-interface {v0, p1}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->executeOnBackgroundThread(Ljava/lang/Runnable;)V
 
-    .line 449
-    invoke-virtual {v0}, Landroidx/work/impl/utils/CancelWorkRunnable;->getOperation()Landroidx/work/Operation;
+    .line 451
+    invoke-virtual {p1}, Landroidx/work/impl/utils/CancelWorkRunnable;->getOperation()Landroidx/work/Operation;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public createCancelPendingIntent(Ljava/util/UUID;)Landroid/app/PendingIntent;
-    .locals 4
-    .param p1, "id"    # Ljava/util/UUID;
+    .locals 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1003,37 +906,46 @@
         }
     .end annotation
 
-    .line 477
+    .line 479
     iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mContext:Landroid/content/Context;
 
     invoke-virtual {p1}, Ljava/util/UUID;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-static {v0, v1}, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->createCancelWorkIntent(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-static {v0, p1}, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->createCancelWorkIntent(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 478
-    .local v0, "intent":Landroid/content/Intent;
+    .line 481
+    invoke-static {}, Landroidx/core/os/BuildCompat;->isAtLeastS()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/high16 v0, 0xa000000
+
+    goto :goto_0
+
+    :cond_0
+    const/high16 v0, 0x8000000
+
+    .line 484
+    :goto_0
     iget-object v1, p0, Landroidx/work/impl/WorkManagerImpl;->mContext:Landroid/content/Context;
 
     const/4 v2, 0x0
 
-    const/high16 v3, 0x8000000
+    invoke-static {v1, v2, p1, v0}, Landroid/app/PendingIntent;->getService(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
-    invoke-static {v1, v2, v0, v3}, Landroid/app/PendingIntent;->getService(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+    move-result-object p1
 
-    move-result-object v1
-
-    return-object v1
+    return-object p1
 .end method
 
 .method public createSchedulers(Landroid/content/Context;Landroidx/work/Configuration;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)Ljava/util/List;
     .locals 3
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "configuration"    # Landroidx/work/Configuration;
-    .param p3, "taskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -1060,41 +972,37 @@
         }
     .end annotation
 
-    .line 777
     const/4 v0, 0x2
 
     new-array v0, v0, [Landroidx/work/impl/Scheduler;
 
-    .line 778
+    const/4 v1, 0x0
+
+    .line 786
     invoke-static {p1, p0}, Landroidx/work/impl/Schedulers;->createBestAvailableBackgroundScheduler(Landroid/content/Context;Landroidx/work/impl/WorkManagerImpl;)Landroidx/work/impl/Scheduler;
 
-    move-result-object v1
+    move-result-object v2
 
-    const/4 v2, 0x0
-
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     new-instance v1, Landroidx/work/impl/background/greedy/GreedyScheduler;
 
     invoke-direct {v1, p1, p2, p3, p0}, Landroidx/work/impl/background/greedy/GreedyScheduler;-><init>(Landroid/content/Context;Landroidx/work/Configuration;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/impl/WorkManagerImpl;)V
 
-    const/4 v2, 0x1
+    const/4 p1, 0x1
 
-    aput-object v1, v0, v2
+    aput-object v1, v0, p1
 
-    .line 777
+    .line 785
     invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public createWorkContinuationForUniquePeriodicWork(Ljava/lang/String;Landroidx/work/ExistingPeriodicWorkPolicy;Landroidx/work/PeriodicWorkRequest;)Landroidx/work/impl/WorkContinuationImpl;
-    .locals 3
-    .param p1, "uniqueWorkName"    # Ljava/lang/String;
-    .param p2, "existingPeriodicWorkPolicy"    # Landroidx/work/ExistingPeriodicWorkPolicy;
-    .param p3, "periodicWork"    # Landroidx/work/PeriodicWorkRequest;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -1108,46 +1016,42 @@
         }
     .end annotation
 
-    .line 433
+    .line 435
     sget-object v0, Landroidx/work/ExistingPeriodicWorkPolicy;->KEEP:Landroidx/work/ExistingPeriodicWorkPolicy;
 
     if-ne p2, v0, :cond_0
 
-    .line 434
-    sget-object v0, Landroidx/work/ExistingWorkPolicy;->KEEP:Landroidx/work/ExistingWorkPolicy;
+    .line 436
+    sget-object p2, Landroidx/work/ExistingWorkPolicy;->KEEP:Landroidx/work/ExistingWorkPolicy;
 
-    .local v0, "existingWorkPolicy":Landroidx/work/ExistingWorkPolicy;
     goto :goto_0
 
-    .line 436
-    .end local v0    # "existingWorkPolicy":Landroidx/work/ExistingWorkPolicy;
-    :cond_0
-    sget-object v0, Landroidx/work/ExistingWorkPolicy;->REPLACE:Landroidx/work/ExistingWorkPolicy;
-
     .line 438
-    .restart local v0    # "existingWorkPolicy":Landroidx/work/ExistingWorkPolicy;
-    :goto_0
-    new-instance v1, Landroidx/work/impl/WorkContinuationImpl;
+    :cond_0
+    sget-object p2, Landroidx/work/ExistingWorkPolicy;->REPLACE:Landroidx/work/ExistingWorkPolicy;
 
-    .line 442
+    .line 440
+    :goto_0
+    new-instance v0, Landroidx/work/impl/WorkContinuationImpl;
+
+    .line 444
     invoke-static {p3}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v2
+    move-result-object p3
 
-    invoke-direct {v1, p0, p1, v0, v2}, Landroidx/work/impl/WorkContinuationImpl;-><init>(Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Ljava/util/List;)V
+    invoke-direct {v0, p0, p1, p2, p3}, Landroidx/work/impl/WorkContinuationImpl;-><init>(Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Ljava/util/List;)V
 
-    .line 438
-    return-object v1
+    return-object v0
 .end method
 
 .method public enqueue(Ljava/util/List;)Landroidx/work/Operation;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
         }
         names = {
-            "workRequests"
+            "requests"
         }
     .end annotation
 
@@ -1162,41 +1066,37 @@
         }
     .end annotation
 
-    .line 374
-    .local p1, "workRequests":Ljava/util/List;, "Ljava/util/List<+Landroidx/work/WorkRequest;>;"
+    .line 376
     invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 378
+    .line 380
     new-instance v0, Landroidx/work/impl/WorkContinuationImpl;
 
     invoke-direct {v0, p0, p1}, Landroidx/work/impl/WorkContinuationImpl;-><init>(Landroidx/work/impl/WorkManagerImpl;Ljava/util/List;)V
 
     invoke-virtual {v0}, Landroidx/work/impl/WorkContinuationImpl;->enqueue()Landroidx/work/Operation;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
-    .line 375
+    .line 377
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "enqueue needs at least one WorkRequest."
+    const-string v0, "enqueue needs at least one WorkRequest."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public enqueueUniquePeriodicWork(Ljava/lang/String;Landroidx/work/ExistingPeriodicWorkPolicy;Landroidx/work/PeriodicWorkRequest;)Landroidx/work/Operation;
-    .locals 1
-    .param p1, "uniqueWorkName"    # Ljava/lang/String;
-    .param p2, "existingPeriodicWorkPolicy"    # Landroidx/work/ExistingPeriodicWorkPolicy;
-    .param p3, "periodicWork"    # Landroidx/work/PeriodicWorkRequest;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -1210,24 +1110,21 @@
         }
     .end annotation
 
-    .line 417
+    .line 419
     invoke-virtual {p0, p1, p2, p3}, Landroidx/work/impl/WorkManagerImpl;->createWorkContinuationForUniquePeriodicWork(Ljava/lang/String;Landroidx/work/ExistingPeriodicWorkPolicy;Landroidx/work/PeriodicWorkRequest;)Landroidx/work/impl/WorkContinuationImpl;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 421
-    invoke-virtual {v0}, Landroidx/work/impl/WorkContinuationImpl;->enqueue()Landroidx/work/Operation;
+    .line 423
+    invoke-virtual {p1}, Landroidx/work/impl/WorkContinuationImpl;->enqueue()Landroidx/work/Operation;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 417
-    return-object v0
+    return-object p1
 .end method
 
 .method public enqueueUniqueWork(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Ljava/util/List;)Landroidx/work/Operation;
     .locals 1
-    .param p1, "uniqueWorkName"    # Ljava/lang/String;
-    .param p2, "existingWorkPolicy"    # Landroidx/work/ExistingWorkPolicy;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -1253,23 +1150,22 @@
         }
     .end annotation
 
-    .line 407
-    .local p3, "work":Ljava/util/List;, "Ljava/util/List<Landroidx/work/OneTimeWorkRequest;>;"
+    .line 409
     new-instance v0, Landroidx/work/impl/WorkContinuationImpl;
 
     invoke-direct {v0, p0, p1, p2, p3}, Landroidx/work/impl/WorkContinuationImpl;-><init>(Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Ljava/util/List;)V
 
     invoke-virtual {v0}, Landroidx/work/impl/WorkContinuationImpl;->enqueue()Landroidx/work/Operation;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getApplicationContext()Landroid/content/Context;
     .locals 1
 
-    .line 307
+    .line 309
     iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -1278,7 +1174,7 @@
 .method public getConfiguration()Landroidx/work/Configuration;
     .locals 1
 
-    .line 327
+    .line 329
     iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mConfiguration:Landroidx/work/Configuration;
 
     return-object v0
@@ -1295,17 +1191,15 @@
         }
     .end annotation
 
-    .line 488
+    .line 494
     invoke-static {}, Landroidx/work/impl/utils/futures/SettableFuture;->create()Landroidx/work/impl/utils/futures/SettableFuture;
 
     move-result-object v0
 
-    .line 490
-    .local v0, "future":Landroidx/work/impl/utils/futures/SettableFuture;, "Landroidx/work/impl/utils/futures/SettableFuture<Ljava/lang/Long;>;"
+    .line 496
     iget-object v1, p0, Landroidx/work/impl/WorkManagerImpl;->mPreferenceUtils:Landroidx/work/impl/utils/PreferenceUtils;
 
-    .line 491
-    .local v1, "preferenceUtils":Landroidx/work/impl/utils/PreferenceUtils;
+    .line 497
     iget-object v2, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
     new-instance v3, Landroidx/work/impl/WorkManagerImpl$1;
@@ -1314,7 +1208,6 @@
 
     invoke-interface {v2, v3}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->executeOnBackgroundThread(Ljava/lang/Runnable;)V
 
-    .line 501
     return-object v0
 .end method
 
@@ -1329,7 +1222,7 @@
         }
     .end annotation
 
-    .line 483
+    .line 489
     iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mPreferenceUtils:Landroidx/work/impl/utils/PreferenceUtils;
 
     invoke-virtual {v0}, Landroidx/work/impl/utils/PreferenceUtils;->getLastCancelAllTimeMillisLiveData()Landroidx/lifecycle/LiveData;
@@ -1342,7 +1235,7 @@
 .method public getPreferenceUtils()Landroidx/work/impl/utils/PreferenceUtils;
     .locals 1
 
-    .line 364
+    .line 366
     iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mPreferenceUtils:Landroidx/work/impl/utils/PreferenceUtils;
 
     return-object v0
@@ -1351,7 +1244,7 @@
 .method public getProcessor()Landroidx/work/impl/Processor;
     .locals 1
 
-    .line 346
+    .line 348
     iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mProcessor:Landroidx/work/impl/Processor;
 
     return-object v0
@@ -1360,38 +1253,38 @@
 .method public getRemoteWorkManager()Landroidx/work/multiprocess/RemoteWorkManager;
     .locals 3
 
-    .line 616
+    .line 624
     iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mRemoteWorkManager:Landroidx/work/multiprocess/RemoteWorkManager;
 
     if-nez v0, :cond_2
 
-    .line 617
+    .line 625
     sget-object v0, Landroidx/work/impl/WorkManagerImpl;->sLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 618
+    .line 626
     :try_start_0
     iget-object v1, p0, Landroidx/work/impl/WorkManagerImpl;->mRemoteWorkManager:Landroidx/work/multiprocess/RemoteWorkManager;
 
     if-nez v1, :cond_1
 
-    .line 620
+    .line 628
     invoke-direct {p0}, Landroidx/work/impl/WorkManagerImpl;->tryInitializeMultiProcessSupport()V
 
-    .line 621
+    .line 629
     iget-object v1, p0, Landroidx/work/impl/WorkManagerImpl;->mRemoteWorkManager:Landroidx/work/multiprocess/RemoteWorkManager;
 
     if-nez v1, :cond_1
 
     iget-object v1, p0, Landroidx/work/impl/WorkManagerImpl;->mConfiguration:Landroidx/work/Configuration;
 
-    .line 622
+    .line 630
     invoke-virtual {v1}, Landroidx/work/Configuration;->getDefaultProcessName()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 621
+    .line 629
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
@@ -1400,20 +1293,17 @@
 
     goto :goto_0
 
-    .line 623
     :cond_0
     const-string v1, "Invalid multiprocess configuration. Define an `implementation` dependency on :work:work-multiprocess library"
 
-    .line 625
-    .local v1, "message":Ljava/lang/String;
+    .line 633
     new-instance v2, Ljava/lang/IllegalStateException;
 
     invoke-direct {v2, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v2
 
-    .line 628
-    .end local v1    # "message":Ljava/lang/String;
+    .line 636
     :cond_1
     :goto_0
     monitor-exit v0
@@ -1429,7 +1319,7 @@
 
     throw v1
 
-    .line 630
+    .line 638
     :cond_2
     :goto_1
     iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mRemoteWorkManager:Landroidx/work/multiprocess/RemoteWorkManager;
@@ -1448,7 +1338,7 @@
         }
     .end annotation
 
-    .line 337
+    .line 339
     iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mSchedulers:Ljava/util/List;
 
     return-object v0
@@ -1457,15 +1347,14 @@
 .method public getWorkDatabase()Landroidx/work/impl/WorkDatabase;
     .locals 1
 
-    .line 317
+    .line 319
     iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
 
     return-object v0
 .end method
 
 .method public getWorkInfoById(Ljava/util/UUID;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
-    .param p1, "id"    # Ljava/util/UUID;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1486,32 +1375,30 @@
         }
     .end annotation
 
-    .line 532
+    .line 538
     invoke-static {p0, p1}, Landroidx/work/impl/utils/StatusRunnable;->forUUID(Landroidx/work/impl/WorkManagerImpl;Ljava/util/UUID;)Landroidx/work/impl/utils/StatusRunnable;
+
+    move-result-object p1
+
+    .line 539
+    iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
+
+    invoke-interface {v0}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->getBackgroundExecutor()Landroidx/work/impl/utils/SerialExecutor;
 
     move-result-object v0
 
-    .line 533
-    .local v0, "runnable":Landroidx/work/impl/utils/StatusRunnable;, "Landroidx/work/impl/utils/StatusRunnable<Landroidx/work/WorkInfo;>;"
-    iget-object v1, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
+    invoke-virtual {v0, p1}, Landroidx/work/impl/utils/SerialExecutor;->execute(Ljava/lang/Runnable;)V
 
-    invoke-interface {v1}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->getBackgroundExecutor()Landroidx/work/impl/utils/SerialExecutor;
+    .line 540
+    invoke-virtual {p1}, Landroidx/work/impl/utils/StatusRunnable;->getFuture()Lcom/google/common/util/concurrent/ListenableFuture;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1, v0}, Landroidx/work/impl/utils/SerialExecutor;->execute(Ljava/lang/Runnable;)V
-
-    .line 534
-    invoke-virtual {v0}, Landroidx/work/impl/utils/StatusRunnable;->getFuture()Lcom/google/common/util/concurrent/ListenableFuture;
-
-    move-result-object v1
-
-    return-object v1
+    return-object p1
 .end method
 
 .method public getWorkInfoByIdLiveData(Ljava/util/UUID;)Landroidx/lifecycle/LiveData;
-    .locals 4
-    .param p1, "id"    # Ljava/util/UUID;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1532,48 +1419,42 @@
         }
     .end annotation
 
-    .line 513
+    .line 519
     iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
 
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->workSpecDao()Landroidx/work/impl/model/WorkSpecDao;
 
     move-result-object v0
 
-    .line 514
-    .local v0, "dao":Landroidx/work/impl/model/WorkSpecDao;
-    nop
-
-    .line 515
+    .line 521
     invoke-virtual {p1}, Ljava/util/UUID;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-static {v1}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {p1}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Landroidx/work/impl/model/WorkSpecDao;->getWorkStatusPojoLiveDataForIds(Ljava/util/List;)Landroidx/lifecycle/LiveData;
+    invoke-interface {v0, p1}, Landroidx/work/impl/model/WorkSpecDao;->getWorkStatusPojoLiveDataForIds(Ljava/util/List;)Landroidx/lifecycle/LiveData;
 
-    move-result-object v1
+    move-result-object p1
 
-    .line 516
-    .local v1, "inputLiveData":Landroidx/lifecycle/LiveData;, "Landroidx/lifecycle/LiveData<Ljava/util/List<Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;>;>;"
-    new-instance v2, Landroidx/work/impl/WorkManagerImpl$2;
+    .line 522
+    new-instance v0, Landroidx/work/impl/WorkManagerImpl$2;
 
-    invoke-direct {v2, p0}, Landroidx/work/impl/WorkManagerImpl$2;-><init>(Landroidx/work/impl/WorkManagerImpl;)V
+    invoke-direct {v0, p0}, Landroidx/work/impl/WorkManagerImpl$2;-><init>(Landroidx/work/impl/WorkManagerImpl;)V
 
-    iget-object v3, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
+    iget-object v1, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
-    invoke-static {v1, v2, v3}, Landroidx/work/impl/utils/LiveDataUtils;->dedupedMappedLiveDataFor(Landroidx/lifecycle/LiveData;Landroidx/arch/core/util/Function;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)Landroidx/lifecycle/LiveData;
+    invoke-static {p1, v0, v1}, Landroidx/work/impl/utils/LiveDataUtils;->dedupedMappedLiveDataFor(Landroidx/lifecycle/LiveData;Landroidx/arch/core/util/Function;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)Landroidx/lifecycle/LiveData;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 .end method
 
 .method public getWorkInfos(Landroidx/work/WorkQuery;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
-    .param p1, "workQuery"    # Landroidx/work/WorkQuery;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1595,34 +1476,30 @@
         }
     .end annotation
 
-    .line 594
-    nop
-
-    .line 595
+    .line 603
     invoke-static {p0, p1}, Landroidx/work/impl/utils/StatusRunnable;->forWorkQuerySpec(Landroidx/work/impl/WorkManagerImpl;Landroidx/work/WorkQuery;)Landroidx/work/impl/utils/StatusRunnable;
+
+    move-result-object p1
+
+    .line 604
+    iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
+
+    invoke-interface {v0}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->getBackgroundExecutor()Landroidx/work/impl/utils/SerialExecutor;
 
     move-result-object v0
 
-    .line 596
-    .local v0, "runnable":Landroidx/work/impl/utils/StatusRunnable;, "Landroidx/work/impl/utils/StatusRunnable<Ljava/util/List<Landroidx/work/WorkInfo;>;>;"
-    iget-object v1, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
+    invoke-virtual {v0, p1}, Landroidx/work/impl/utils/SerialExecutor;->execute(Ljava/lang/Runnable;)V
 
-    invoke-interface {v1}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->getBackgroundExecutor()Landroidx/work/impl/utils/SerialExecutor;
+    .line 605
+    invoke-virtual {p1}, Landroidx/work/impl/utils/StatusRunnable;->getFuture()Lcom/google/common/util/concurrent/ListenableFuture;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1, v0}, Landroidx/work/impl/utils/SerialExecutor;->execute(Ljava/lang/Runnable;)V
-
-    .line 597
-    invoke-virtual {v0}, Landroidx/work/impl/utils/StatusRunnable;->getFuture()Lcom/google/common/util/concurrent/ListenableFuture;
-
-    move-result-object v1
-
-    return-object v1
+    return-object p1
 .end method
 
 .method getWorkInfosById(Ljava/util/List;)Landroidx/lifecycle/LiveData;
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1645,39 +1522,32 @@
         }
     .end annotation
 
-    .line 601
-    .local p1, "workSpecIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
+    .line 609
     iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
 
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->workSpecDao()Landroidx/work/impl/model/WorkSpecDao;
 
     move-result-object v0
 
-    .line 602
-    .local v0, "dao":Landroidx/work/impl/model/WorkSpecDao;
-    nop
-
-    .line 603
+    .line 611
     invoke-interface {v0, p1}, Landroidx/work/impl/model/WorkSpecDao;->getWorkStatusPojoLiveDataForIds(Ljava/util/List;)Landroidx/lifecycle/LiveData;
 
-    move-result-object v1
+    move-result-object p1
 
-    .line 604
-    .local v1, "inputLiveData":Landroidx/lifecycle/LiveData;, "Landroidx/lifecycle/LiveData<Ljava/util/List<Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;>;>;"
-    sget-object v2, Landroidx/work/impl/model/WorkSpec;->WORK_INFO_MAPPER:Landroidx/arch/core/util/Function;
+    .line 612
+    sget-object v0, Landroidx/work/impl/model/WorkSpec;->WORK_INFO_MAPPER:Landroidx/arch/core/util/Function;
 
-    iget-object v3, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
+    iget-object v1, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
-    invoke-static {v1, v2, v3}, Landroidx/work/impl/utils/LiveDataUtils;->dedupedMappedLiveDataFor(Landroidx/lifecycle/LiveData;Landroidx/arch/core/util/Function;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)Landroidx/lifecycle/LiveData;
+    invoke-static {p1, v0, v1}, Landroidx/work/impl/utils/LiveDataUtils;->dedupedMappedLiveDataFor(Landroidx/lifecycle/LiveData;Landroidx/arch/core/util/Function;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)Landroidx/lifecycle/LiveData;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 .end method
 
 .method public getWorkInfosByTag(Ljava/lang/String;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
-    .param p1, "tag"    # Ljava/lang/String;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1699,32 +1569,30 @@
         }
     .end annotation
 
-    .line 550
+    .line 556
     invoke-static {p0, p1}, Landroidx/work/impl/utils/StatusRunnable;->forTag(Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;)Landroidx/work/impl/utils/StatusRunnable;
+
+    move-result-object p1
+
+    .line 557
+    iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
+
+    invoke-interface {v0}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->getBackgroundExecutor()Landroidx/work/impl/utils/SerialExecutor;
 
     move-result-object v0
 
-    .line 551
-    .local v0, "runnable":Landroidx/work/impl/utils/StatusRunnable;, "Landroidx/work/impl/utils/StatusRunnable<Ljava/util/List<Landroidx/work/WorkInfo;>;>;"
-    iget-object v1, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
+    invoke-virtual {v0, p1}, Landroidx/work/impl/utils/SerialExecutor;->execute(Ljava/lang/Runnable;)V
 
-    invoke-interface {v1}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->getBackgroundExecutor()Landroidx/work/impl/utils/SerialExecutor;
+    .line 558
+    invoke-virtual {p1}, Landroidx/work/impl/utils/StatusRunnable;->getFuture()Lcom/google/common/util/concurrent/ListenableFuture;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1, v0}, Landroidx/work/impl/utils/SerialExecutor;->execute(Ljava/lang/Runnable;)V
-
-    .line 552
-    invoke-virtual {v0}, Landroidx/work/impl/utils/StatusRunnable;->getFuture()Lcom/google/common/util/concurrent/ListenableFuture;
-
-    move-result-object v1
-
-    return-object v1
+    return-object p1
 .end method
 
 .method public getWorkInfosByTagLiveData(Ljava/lang/String;)Landroidx/lifecycle/LiveData;
-    .locals 4
-    .param p1, "tag"    # Ljava/lang/String;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1746,44 +1614,38 @@
         }
     .end annotation
 
-    .line 539
+    .line 545
     iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
 
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->workSpecDao()Landroidx/work/impl/model/WorkSpecDao;
 
     move-result-object v0
 
-    .line 540
-    .local v0, "workSpecDao":Landroidx/work/impl/model/WorkSpecDao;
-    nop
-
-    .line 541
+    .line 547
     invoke-interface {v0, p1}, Landroidx/work/impl/model/WorkSpecDao;->getWorkStatusPojoLiveDataForTag(Ljava/lang/String;)Landroidx/lifecycle/LiveData;
 
-    move-result-object v1
+    move-result-object p1
 
-    .line 542
-    .local v1, "inputLiveData":Landroidx/lifecycle/LiveData;, "Landroidx/lifecycle/LiveData<Ljava/util/List<Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;>;>;"
-    sget-object v2, Landroidx/work/impl/model/WorkSpec;->WORK_INFO_MAPPER:Landroidx/arch/core/util/Function;
+    .line 548
+    sget-object v0, Landroidx/work/impl/model/WorkSpec;->WORK_INFO_MAPPER:Landroidx/arch/core/util/Function;
 
-    iget-object v3, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
+    iget-object v1, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
-    invoke-static {v1, v2, v3}, Landroidx/work/impl/utils/LiveDataUtils;->dedupedMappedLiveDataFor(Landroidx/lifecycle/LiveData;Landroidx/arch/core/util/Function;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)Landroidx/lifecycle/LiveData;
+    invoke-static {p1, v0, v1}, Landroidx/work/impl/utils/LiveDataUtils;->dedupedMappedLiveDataFor(Landroidx/lifecycle/LiveData;Landroidx/arch/core/util/Function;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)Landroidx/lifecycle/LiveData;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 .end method
 
 .method public getWorkInfosForUniqueWork(Ljava/lang/String;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
-    .param p1, "name"    # Ljava/lang/String;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
         }
         names = {
-            "name"
+            "uniqueWorkName"
         }
     .end annotation
 
@@ -1799,41 +1661,36 @@
         }
     .end annotation
 
-    .line 570
-    nop
-
-    .line 571
+    .line 579
     invoke-static {p0, p1}, Landroidx/work/impl/utils/StatusRunnable;->forUniqueWork(Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;)Landroidx/work/impl/utils/StatusRunnable;
+
+    move-result-object p1
+
+    .line 580
+    iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
+
+    invoke-interface {v0}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->getBackgroundExecutor()Landroidx/work/impl/utils/SerialExecutor;
 
     move-result-object v0
 
-    .line 572
-    .local v0, "runnable":Landroidx/work/impl/utils/StatusRunnable;, "Landroidx/work/impl/utils/StatusRunnable<Ljava/util/List<Landroidx/work/WorkInfo;>;>;"
-    iget-object v1, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
+    invoke-virtual {v0, p1}, Landroidx/work/impl/utils/SerialExecutor;->execute(Ljava/lang/Runnable;)V
 
-    invoke-interface {v1}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->getBackgroundExecutor()Landroidx/work/impl/utils/SerialExecutor;
+    .line 581
+    invoke-virtual {p1}, Landroidx/work/impl/utils/StatusRunnable;->getFuture()Lcom/google/common/util/concurrent/ListenableFuture;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1, v0}, Landroidx/work/impl/utils/SerialExecutor;->execute(Ljava/lang/Runnable;)V
-
-    .line 573
-    invoke-virtual {v0}, Landroidx/work/impl/utils/StatusRunnable;->getFuture()Lcom/google/common/util/concurrent/ListenableFuture;
-
-    move-result-object v1
-
-    return-object v1
+    return-object p1
 .end method
 
 .method public getWorkInfosForUniqueWorkLiveData(Ljava/lang/String;)Landroidx/lifecycle/LiveData;
-    .locals 4
-    .param p1, "name"    # Ljava/lang/String;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
         }
         names = {
-            "name"
+            "uniqueWorkName"
         }
     .end annotation
 
@@ -1849,38 +1706,32 @@
         }
     .end annotation
 
-    .line 558
+    .line 565
     iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
 
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->workSpecDao()Landroidx/work/impl/model/WorkSpecDao;
 
     move-result-object v0
 
-    .line 559
-    .local v0, "workSpecDao":Landroidx/work/impl/model/WorkSpecDao;
-    nop
-
-    .line 560
+    .line 567
     invoke-interface {v0, p1}, Landroidx/work/impl/model/WorkSpecDao;->getWorkStatusPojoLiveDataForName(Ljava/lang/String;)Landroidx/lifecycle/LiveData;
 
-    move-result-object v1
+    move-result-object p1
 
-    .line 561
-    .local v1, "inputLiveData":Landroidx/lifecycle/LiveData;, "Landroidx/lifecycle/LiveData<Ljava/util/List<Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;>;>;"
-    sget-object v2, Landroidx/work/impl/model/WorkSpec;->WORK_INFO_MAPPER:Landroidx/arch/core/util/Function;
+    .line 568
+    sget-object v0, Landroidx/work/impl/model/WorkSpec;->WORK_INFO_MAPPER:Landroidx/arch/core/util/Function;
 
-    iget-object v3, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
+    iget-object v1, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
-    invoke-static {v1, v2, v3}, Landroidx/work/impl/utils/LiveDataUtils;->dedupedMappedLiveDataFor(Landroidx/lifecycle/LiveData;Landroidx/arch/core/util/Function;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)Landroidx/lifecycle/LiveData;
+    invoke-static {p1, v0, v1}, Landroidx/work/impl/utils/LiveDataUtils;->dedupedMappedLiveDataFor(Landroidx/lifecycle/LiveData;Landroidx/arch/core/util/Function;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)Landroidx/lifecycle/LiveData;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 .end method
 
 .method public getWorkInfosLiveData(Landroidx/work/WorkQuery;)Landroidx/lifecycle/LiveData;
-    .locals 4
-    .param p1, "workQuery"    # Landroidx/work/WorkQuery;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1902,44 +1753,39 @@
         }
     .end annotation
 
-    .line 580
+    .line 588
     iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
 
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->rawWorkInfoDao()Landroidx/work/impl/model/RawWorkInfoDao;
 
     move-result-object v0
 
-    .line 581
-    .local v0, "rawWorkInfoDao":Landroidx/work/impl/model/RawWorkInfoDao;
-    nop
-
-    .line 583
+    .line 591
     invoke-static {p1}, Landroidx/work/impl/utils/RawQueries;->workQueryToRawQuery(Landroidx/work/WorkQuery;)Landroidx/sqlite/db/SupportSQLiteQuery;
 
-    move-result-object v1
+    move-result-object p1
 
-    .line 582
-    invoke-interface {v0, v1}, Landroidx/work/impl/model/RawWorkInfoDao;->getWorkInfoPojosLiveData(Landroidx/sqlite/db/SupportSQLiteQuery;)Landroidx/lifecycle/LiveData;
+    .line 590
+    invoke-interface {v0, p1}, Landroidx/work/impl/model/RawWorkInfoDao;->getWorkInfoPojosLiveData(Landroidx/sqlite/db/SupportSQLiteQuery;)Landroidx/lifecycle/LiveData;
 
-    move-result-object v1
+    move-result-object p1
 
-    .line 584
-    .local v1, "inputLiveData":Landroidx/lifecycle/LiveData;, "Landroidx/lifecycle/LiveData<Ljava/util/List<Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;>;>;"
-    sget-object v2, Landroidx/work/impl/model/WorkSpec;->WORK_INFO_MAPPER:Landroidx/arch/core/util/Function;
+    .line 592
+    sget-object v0, Landroidx/work/impl/model/WorkSpec;->WORK_INFO_MAPPER:Landroidx/arch/core/util/Function;
 
-    iget-object v3, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
+    iget-object v1, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
-    invoke-static {v1, v2, v3}, Landroidx/work/impl/utils/LiveDataUtils;->dedupedMappedLiveDataFor(Landroidx/lifecycle/LiveData;Landroidx/arch/core/util/Function;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)Landroidx/lifecycle/LiveData;
+    invoke-static {p1, v0, v1}, Landroidx/work/impl/utils/LiveDataUtils;->dedupedMappedLiveDataFor(Landroidx/lifecycle/LiveData;Landroidx/arch/core/util/Function;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)Landroidx/lifecycle/LiveData;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 .end method
 
 .method public getWorkTaskExecutor()Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
     .locals 1
 
-    .line 355
+    .line 357
     iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
     return-object v0
@@ -1948,40 +1794,36 @@
 .method public onForceStopRunnableCompleted()V
     .locals 2
 
-    .line 703
+    .line 711
     sget-object v0, Landroidx/work/impl/WorkManagerImpl;->sLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 704
     const/4 v1, 0x1
 
+    .line 712
     :try_start_0
     iput-boolean v1, p0, Landroidx/work/impl/WorkManagerImpl;->mForceStopRunnableCompleted:Z
 
-    .line 705
+    .line 713
     iget-object v1, p0, Landroidx/work/impl/WorkManagerImpl;->mRescheduleReceiverResult:Landroid/content/BroadcastReceiver$PendingResult;
 
     if-eqz v1, :cond_0
 
-    .line 706
-    iget-object v1, p0, Landroidx/work/impl/WorkManagerImpl;->mRescheduleReceiverResult:Landroid/content/BroadcastReceiver$PendingResult;
-
+    .line 714
     invoke-virtual {v1}, Landroid/content/BroadcastReceiver$PendingResult;->finish()V
 
-    .line 707
     const/4 v1, 0x0
 
+    .line 715
     iput-object v1, p0, Landroidx/work/impl/WorkManagerImpl;->mRescheduleReceiverResult:Landroid/content/BroadcastReceiver$PendingResult;
 
-    .line 709
+    .line 717
     :cond_0
     monitor-exit v0
 
-    .line 710
     return-void
 
-    .line 709
     :catchall_0
     move-exception v1
 
@@ -1995,44 +1837,35 @@
 .method public pruneWork()Landroidx/work/Operation;
     .locals 2
 
-    .line 506
+    .line 512
     new-instance v0, Landroidx/work/impl/utils/PruneWorkRunnable;
 
     invoke-direct {v0, p0}, Landroidx/work/impl/utils/PruneWorkRunnable;-><init>(Landroidx/work/impl/WorkManagerImpl;)V
 
-    .line 507
-    .local v0, "runnable":Landroidx/work/impl/utils/PruneWorkRunnable;
+    .line 513
     iget-object v1, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
     invoke-interface {v1, v0}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->executeOnBackgroundThread(Ljava/lang/Runnable;)V
 
-    .line 508
+    .line 514
     invoke-virtual {v0}, Landroidx/work/impl/utils/PruneWorkRunnable;->getOperation()Landroidx/work/Operation;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public rescheduleEligibleWork()V
     .locals 3
 
-    .line 683
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_0
-
-    .line 684
+    .line 692
     invoke-virtual {p0}, Landroidx/work/impl/WorkManagerImpl;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
     invoke-static {v0}, Landroidx/work/impl/background/systemjob/SystemJobScheduler;->cancelAll(Landroid/content/Context;)V
 
-    .line 688
-    :cond_0
+    .line 696
     invoke-virtual {p0}, Landroidx/work/impl/WorkManagerImpl;->getWorkDatabase()Landroidx/work/impl/WorkDatabase;
 
     move-result-object v0
@@ -2043,7 +1876,7 @@
 
     invoke-interface {v0}, Landroidx/work/impl/model/WorkSpecDao;->resetScheduledState()I
 
-    .line 693
+    .line 701
     invoke-virtual {p0}, Landroidx/work/impl/WorkManagerImpl;->getConfiguration()Landroidx/work/Configuration;
 
     move-result-object v0
@@ -2058,13 +1891,11 @@
 
     invoke-static {v0, v1, v2}, Landroidx/work/impl/Schedulers;->schedule(Landroidx/work/Configuration;Landroidx/work/impl/WorkDatabase;Ljava/util/List;)V
 
-    .line 694
     return-void
 .end method
 
 .method public setReschedulePendingResult(Landroid/content/BroadcastReceiver$PendingResult;)V
     .locals 2
-    .param p1, "rescheduleReceiverResult"    # Landroid/content/BroadcastReceiver$PendingResult;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -2074,49 +1905,46 @@
         }
     .end annotation
 
-    .line 723
+    .line 731
     sget-object v0, Landroidx/work/impl/WorkManagerImpl;->sLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 724
+    .line 732
     :try_start_0
     iput-object p1, p0, Landroidx/work/impl/WorkManagerImpl;->mRescheduleReceiverResult:Landroid/content/BroadcastReceiver$PendingResult;
 
-    .line 725
+    .line 733
     iget-boolean v1, p0, Landroidx/work/impl/WorkManagerImpl;->mForceStopRunnableCompleted:Z
 
     if-eqz v1, :cond_0
 
-    .line 726
+    .line 734
     invoke-virtual {p1}, Landroid/content/BroadcastReceiver$PendingResult;->finish()V
 
-    .line 727
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    iput-object v1, p0, Landroidx/work/impl/WorkManagerImpl;->mRescheduleReceiverResult:Landroid/content/BroadcastReceiver$PendingResult;
+    .line 735
+    iput-object p1, p0, Landroidx/work/impl/WorkManagerImpl;->mRescheduleReceiverResult:Landroid/content/BroadcastReceiver$PendingResult;
 
-    .line 729
+    .line 737
     :cond_0
     monitor-exit v0
 
-    .line 730
     return-void
 
-    .line 729
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public startWork(Ljava/lang/String;)V
     .locals 1
-    .param p1, "workSpecId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -2126,19 +1954,16 @@
         }
     .end annotation
 
-    .line 639
     const/4 v0, 0x0
 
+    .line 647
     invoke-virtual {p0, p1, v0}, Landroidx/work/impl/WorkManagerImpl;->startWork(Ljava/lang/String;Landroidx/work/WorkerParameters$RuntimeExtras;)V
 
-    .line 640
     return-void
 .end method
 
 .method public startWork(Ljava/lang/String;Landroidx/work/WorkerParameters$RuntimeExtras;)V
     .locals 2
-    .param p1, "workSpecId"    # Ljava/lang/String;
-    .param p2, "runtimeExtras"    # Landroidx/work/WorkerParameters$RuntimeExtras;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -2150,23 +1975,21 @@
         }
     .end annotation
 
-    .line 651
+    .line 659
     iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
     new-instance v1, Landroidx/work/impl/utils/StartWorkRunnable;
 
     invoke-direct {v1, p0, p1, p2}, Landroidx/work/impl/utils/StartWorkRunnable;-><init>(Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;Landroidx/work/WorkerParameters$RuntimeExtras;)V
 
-    .line 652
+    .line 660
     invoke-interface {v0, v1}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->executeOnBackgroundThread(Ljava/lang/Runnable;)V
 
-    .line 654
     return-void
 .end method
 
 .method public stopForegroundWork(Ljava/lang/String;)V
     .locals 3
-    .param p1, "workSpecId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -2176,7 +1999,7 @@
         }
     .end annotation
 
-    .line 672
+    .line 680
     iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
     new-instance v1, Landroidx/work/impl/utils/StopWorkRunnable;
@@ -2187,13 +2010,11 @@
 
     invoke-interface {v0, v1}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->executeOnBackgroundThread(Ljava/lang/Runnable;)V
 
-    .line 673
     return-void
 .end method
 
 .method public stopWork(Ljava/lang/String;)V
     .locals 3
-    .param p1, "workSpecId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -2203,7 +2024,7 @@
         }
     .end annotation
 
-    .line 662
+    .line 670
     iget-object v0, p0, Landroidx/work/impl/WorkManagerImpl;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
     new-instance v1, Landroidx/work/impl/utils/StopWorkRunnable;
@@ -2214,6 +2035,5 @@
 
     invoke-interface {v0, v1}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->executeOnBackgroundThread(Ljava/lang/Runnable;)V
 
-    .line 663
     return-void
 .end method

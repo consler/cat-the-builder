@@ -50,17 +50,17 @@
     .line 154
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 57
     const/4 v0, 0x0
 
+    .line 57
     iput v0, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mStartedCounter:I
 
     .line 58
     iput v0, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mResumedCounter:I
 
-    .line 60
     const/4 v0, 0x1
 
+    .line 60
     iput-boolean v0, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mPauseSent:Z
 
     .line 61
@@ -87,7 +87,6 @@
 
     iput-object v0, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mInitializationListener:Landroidx/lifecycle/ReportFragment$ActivityInitializationListener;
 
-    .line 155
     return-void
 .end method
 
@@ -102,14 +101,12 @@
 
 .method static init(Landroid/content/Context;)V
     .locals 1
-    .param p0, "context"    # Landroid/content/Context;
 
     .line 105
     sget-object v0, Landroidx/lifecycle/ProcessLifecycleOwner;->sInstance:Landroidx/lifecycle/ProcessLifecycleOwner;
 
     invoke-virtual {v0, p0}, Landroidx/lifecycle/ProcessLifecycleOwner;->attach(Landroid/content/Context;)V
 
-    .line 106
     return-void
 .end method
 
@@ -125,7 +122,6 @@
 
     iput v0, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mResumedCounter:I
 
-    .line 130
     if-nez v0, :cond_0
 
     .line 131
@@ -137,7 +133,6 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 133
     :cond_0
     return-void
 .end method
@@ -154,7 +149,6 @@
 
     iput v0, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mResumedCounter:I
 
-    .line 118
     if-ne v0, v1, :cond_1
 
     .line 119
@@ -169,9 +163,9 @@
 
     invoke-virtual {v0, v1}, Landroidx/lifecycle/LifecycleRegistry;->handleLifecycleEvent(Landroidx/lifecycle/Lifecycle$Event;)V
 
-    .line 121
     const/4 v0, 0x0
 
+    .line 121
     iput-boolean v0, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mPauseSent:Z
 
     goto :goto_0
@@ -184,7 +178,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 126
     :cond_1
     :goto_0
     return-void
@@ -202,9 +195,9 @@
 
     iput v0, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mStartedCounter:I
 
-    .line 110
     if-ne v0, v1, :cond_0
 
+    .line 110
     iget-boolean v0, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mStopSent:Z
 
     if-eqz v0, :cond_0
@@ -216,12 +209,11 @@
 
     invoke-virtual {v0, v1}, Landroidx/lifecycle/LifecycleRegistry;->handleLifecycleEvent(Landroidx/lifecycle/Lifecycle$Event;)V
 
-    .line 112
     const/4 v0, 0x0
 
+    .line 112
     iput-boolean v0, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mStopSent:Z
 
-    .line 114
     :cond_0
     return-void
 .end method
@@ -239,13 +231,11 @@
     .line 137
     invoke-virtual {p0}, Landroidx/lifecycle/ProcessLifecycleOwner;->dispatchStopIfNeeded()V
 
-    .line 138
     return-void
 .end method
 
 .method attach(Landroid/content/Context;)V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
 
     .line 158
     new-instance v0, Landroid/os/Handler;
@@ -264,19 +254,17 @@
     .line 160
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/app/Application;
+    check-cast p1, Landroid/app/Application;
 
     .line 161
-    .local v0, "app":Landroid/app/Application;
-    new-instance v1, Landroidx/lifecycle/ProcessLifecycleOwner$3;
+    new-instance v0, Landroidx/lifecycle/ProcessLifecycleOwner$3;
 
-    invoke-direct {v1, p0}, Landroidx/lifecycle/ProcessLifecycleOwner$3;-><init>(Landroidx/lifecycle/ProcessLifecycleOwner;)V
+    invoke-direct {v0, p0}, Landroidx/lifecycle/ProcessLifecycleOwner$3;-><init>(Landroidx/lifecycle/ProcessLifecycleOwner;)V
 
-    invoke-virtual {v0, v1}, Landroid/app/Application;->registerActivityLifecycleCallbacks(Landroid/app/Application$ActivityLifecycleCallbacks;)V
+    invoke-virtual {p1, v0}, Landroid/app/Application;->registerActivityLifecycleCallbacks(Landroid/app/Application$ActivityLifecycleCallbacks;)V
 
-    .line 204
     return-void
 .end method
 
@@ -288,9 +276,9 @@
 
     if-nez v0, :cond_0
 
-    .line 142
     const/4 v0, 0x1
 
+    .line 142
     iput-boolean v0, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mPauseSent:Z
 
     .line 143
@@ -300,7 +288,6 @@
 
     invoke-virtual {v0, v1}, Landroidx/lifecycle/LifecycleRegistry;->handleLifecycleEvent(Landroidx/lifecycle/Lifecycle$Event;)V
 
-    .line 145
     :cond_0
     return-void
 .end method
@@ -324,12 +311,11 @@
 
     invoke-virtual {v0, v1}, Landroidx/lifecycle/LifecycleRegistry;->handleLifecycleEvent(Landroidx/lifecycle/Lifecycle$Event;)V
 
-    .line 150
     const/4 v0, 0x1
 
+    .line 150
     iput-boolean v0, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mStopSent:Z
 
-    .line 152
     :cond_0
     return-void
 .end method

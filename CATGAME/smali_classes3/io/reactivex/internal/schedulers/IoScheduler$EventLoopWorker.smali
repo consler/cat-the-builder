@@ -27,7 +27,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/schedulers/IoScheduler$CachedWorkerPool;)V
     .locals 1
-    .param p1, "pool"    # Lio/reactivex/internal/schedulers/IoScheduler$CachedWorkerPool;
 
     .line 201
     invoke-direct {p0}, Lio/reactivex/Scheduler$Worker;-><init>()V
@@ -52,11 +51,10 @@
     .line 204
     invoke-virtual {p1}, Lio/reactivex/internal/schedulers/IoScheduler$CachedWorkerPool;->get()Lio/reactivex/internal/schedulers/IoScheduler$ThreadWorker;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lio/reactivex/internal/schedulers/IoScheduler$EventLoopWorker;->threadWorker:Lio/reactivex/internal/schedulers/IoScheduler$ThreadWorker;
+    iput-object p1, p0, Lio/reactivex/internal/schedulers/IoScheduler$EventLoopWorker;->threadWorker:Lio/reactivex/internal/schedulers/IoScheduler$ThreadWorker;
 
-    .line 205
     return-void
 .end method
 
@@ -90,7 +88,6 @@
 
     invoke-virtual {v0, v1}, Lio/reactivex/internal/schedulers/IoScheduler$CachedWorkerPool;->release(Lio/reactivex/internal/schedulers/IoScheduler$ThreadWorker;)V
 
-    .line 215
     :cond_0
     return-void
 .end method
@@ -109,10 +106,7 @@
 .end method
 
 .method public schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
-    .locals 7
-    .param p1, "action"    # Ljava/lang/Runnable;
-    .param p2, "delayTime"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
+    .locals 6
 
     .line 225
     iget-object v0, p0, Lio/reactivex/internal/schedulers/IoScheduler$EventLoopWorker;->tasks:Lio/reactivex/disposables/CompositeDisposable;
@@ -124,25 +118,25 @@
     if-eqz v0, :cond_0
 
     .line 227
-    sget-object v0, Lio/reactivex/internal/disposables/EmptyDisposable;->INSTANCE:Lio/reactivex/internal/disposables/EmptyDisposable;
+    sget-object p1, Lio/reactivex/internal/disposables/EmptyDisposable;->INSTANCE:Lio/reactivex/internal/disposables/EmptyDisposable;
 
-    return-object v0
+    return-object p1
 
     .line 230
     :cond_0
-    iget-object v1, p0, Lio/reactivex/internal/schedulers/IoScheduler$EventLoopWorker;->threadWorker:Lio/reactivex/internal/schedulers/IoScheduler$ThreadWorker;
+    iget-object v0, p0, Lio/reactivex/internal/schedulers/IoScheduler$EventLoopWorker;->threadWorker:Lio/reactivex/internal/schedulers/IoScheduler$ThreadWorker;
 
-    iget-object v6, p0, Lio/reactivex/internal/schedulers/IoScheduler$EventLoopWorker;->tasks:Lio/reactivex/disposables/CompositeDisposable;
+    iget-object v5, p0, Lio/reactivex/internal/schedulers/IoScheduler$EventLoopWorker;->tasks:Lio/reactivex/disposables/CompositeDisposable;
 
-    move-object v2, p1
+    move-object v1, p1
 
-    move-wide v3, p2
+    move-wide v2, p2
 
-    move-object v5, p4
+    move-object v4, p4
 
-    invoke-virtual/range {v1 .. v6}, Lio/reactivex/internal/schedulers/IoScheduler$ThreadWorker;->scheduleActual(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;Lio/reactivex/internal/disposables/DisposableContainer;)Lio/reactivex/internal/schedulers/ScheduledRunnable;
+    invoke-virtual/range {v0 .. v5}, Lio/reactivex/internal/schedulers/IoScheduler$ThreadWorker;->scheduleActual(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;Lio/reactivex/internal/disposables/DisposableContainer;)Lio/reactivex/internal/schedulers/ScheduledRunnable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

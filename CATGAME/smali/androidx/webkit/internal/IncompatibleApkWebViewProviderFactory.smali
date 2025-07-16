@@ -16,11 +16,11 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 36
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/String;
 
+    .line 36
     sput-object v0, Landroidx/webkit/internal/IncompatibleApkWebViewProviderFactory;->EMPTY_STRING_ARRAY:[Ljava/lang/String;
 
     return-void
@@ -38,17 +38,16 @@
 
 # virtual methods
 .method public createWebView(Landroid/webkit/WebView;)Lorg/chromium/support_lib_boundary/WebViewProviderBoundaryInterface;
-    .locals 2
-    .param p1, "webview"    # Landroid/webkit/WebView;
+    .locals 1
 
     .line 45
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "This should never happen, if this method was called it means we\'re trying to reach into WebView APK code on an incompatible device. This most likely means the current method is being called too early, or is being called on start-up rather than lazily"
+    const-string v0, "This should never happen, if this method was called it means we\'re trying to reach into WebView APK code on an incompatible device. This most likely means the current method is being called too early, or is being called on start-up rather than lazily"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public getProxyController()Lorg/chromium/support_lib_boundary/ProxyControllerBoundaryInterface;

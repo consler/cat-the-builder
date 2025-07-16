@@ -36,9 +36,7 @@
 
 # virtual methods
 .method public approveCall(Ljava/lang/String;I)Z
-    .locals 7
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "type"    # I
+    .locals 4
 
     .line 36
     iget-object v0, p0, Landroidx/lifecycle/MethodCallsLogger;->mCalledMethods:Ljava/util/Map;
@@ -49,55 +47,42 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    .line 37
-    .local v0, "nullableMask":Ljava/lang/Integer;
     const/4 v1, 0x0
 
     if-eqz v0, :cond_0
 
+    .line 37
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    move-result v2
+    move-result v0
 
     goto :goto_0
 
     :cond_0
-    move v2, v1
+    move v0, v1
 
-    .line 38
-    .local v2, "mask":I
     :goto_0
-    and-int v3, v2, p2
+    and-int v2, v0, p2
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
-    move v3, v4
-
-    goto :goto_1
-
-    :cond_1
-    move v3, v1
+    move v1, v3
 
     .line 39
-    .local v3, "wasCalled":Z
-    :goto_1
-    iget-object v5, p0, Landroidx/lifecycle/MethodCallsLogger;->mCalledMethods:Ljava/util/Map;
+    :cond_1
+    iget-object v2, p0, Landroidx/lifecycle/MethodCallsLogger;->mCalledMethods:Ljava/util/Map;
 
-    or-int v6, v2, p2
+    or-int/2addr p2, v0
 
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v6
+    move-result-object p2
 
-    invoke-interface {v5, p1, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 40
-    if-nez v3, :cond_2
+    xor-int/lit8 p1, v1, 0x1
 
-    move v1, v4
-
-    :cond_2
-    return v1
+    return p1
 .end method

@@ -25,7 +25,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/Dialog;ILjava/lang/Object;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/scenes/scene2d/ui/Dialog;
 
     .line 257
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Dialog$4;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Dialog;
@@ -42,27 +41,24 @@
 
 # virtual methods
 .method public keyDown(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;I)Z
-    .locals 2
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "keycode2"    # I
+    .locals 0
 
     .line 259
-    iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Dialog$4;->val$keycode:I
+    iget p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Dialog$4;->val$keycode:I
 
-    if-ne v0, p2, :cond_0
+    if-ne p1, p2, :cond_0
 
     .line 261
-    sget-object v0, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
+    sget-object p1, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
 
-    new-instance v1, Lcom/badlogic/gdx/scenes/scene2d/ui/Dialog$4$1;
+    new-instance p2, Lcom/badlogic/gdx/scenes/scene2d/ui/Dialog$4$1;
 
-    invoke-direct {v1, p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Dialog$4$1;-><init>(Lcom/badlogic/gdx/scenes/scene2d/ui/Dialog$4;)V
+    invoke-direct {p2, p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Dialog$4$1;-><init>(Lcom/badlogic/gdx/scenes/scene2d/ui/Dialog$4;)V
 
-    invoke-interface {v0, v1}, Lcom/badlogic/gdx/Application;->postRunnable(Ljava/lang/Runnable;)V
+    invoke-interface {p1, p2}, Lcom/badlogic/gdx/Application;->postRunnable(Ljava/lang/Runnable;)V
 
-    .line 269
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

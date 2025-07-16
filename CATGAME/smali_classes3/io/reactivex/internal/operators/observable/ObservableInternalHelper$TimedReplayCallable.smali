@@ -49,9 +49,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/Observable;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)V
     .locals 0
-    .param p2, "time"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -64,8 +61,6 @@
     .end annotation
 
     .line 382
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$TimedReplayCallable;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$TimedReplayCallable<TT;>;"
-    .local p1, "parent":Lio/reactivex/Observable;, "Lio/reactivex/Observable<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 383
@@ -80,7 +75,6 @@
     .line 386
     iput-object p5, p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$TimedReplayCallable;->scheduler:Lio/reactivex/Scheduler;
 
-    .line 387
     return-void
 .end method
 
@@ -97,7 +91,6 @@
     .end annotation
 
     .line 391
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$TimedReplayCallable;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$TimedReplayCallable<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$TimedReplayCallable;->parent:Lio/reactivex/Observable;
 
     iget-wide v1, p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$TimedReplayCallable;->time:J
@@ -122,7 +115,6 @@
     .end annotation
 
     .line 376
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$TimedReplayCallable;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$TimedReplayCallable<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$TimedReplayCallable;->call()Lio/reactivex/observables/ConnectableObservable;
 
     move-result-object v0

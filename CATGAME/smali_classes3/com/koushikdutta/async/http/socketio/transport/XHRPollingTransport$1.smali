@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;
 
     .line 70
     iput-object p1, p0, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport$1;->this$0:Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;
@@ -34,29 +33,23 @@
 
 # virtual methods
 .method public onCompleted(Ljava/lang/Exception;Lcom/koushikdutta/async/http/AsyncHttpResponse;Ljava/lang/String;)V
-    .locals 1
-    .param p1, "e"    # Ljava/lang/Exception;
-    .param p2, "source"    # Lcom/koushikdutta/async/http/AsyncHttpResponse;
-    .param p3, "result"    # Ljava/lang/String;
+    .locals 0
 
-    .line 73
     if-eqz p1, :cond_0
 
     .line 74
-    iget-object v0, p0, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport$1;->this$0:Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;
+    iget-object p2, p0, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport$1;->this$0:Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;
 
-    invoke-static {v0, p1}, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->access$000(Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;Ljava/lang/Exception;)V
+    invoke-static {p2, p1}, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->access$000(Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;Ljava/lang/Exception;)V
 
-    .line 75
     return-void
 
     .line 78
     :cond_0
-    iget-object v0, p0, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport$1;->this$0:Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport$1;->this$0:Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;
 
-    invoke-static {v0, p3}, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->access$100(Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;Ljava/lang/String;)V
+    invoke-static {p1, p3}, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->access$100(Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;Ljava/lang/String;)V
 
-    .line 79
     return-void
 .end method
 

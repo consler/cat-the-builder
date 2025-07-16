@@ -48,8 +48,6 @@
 
 .method public constructor <init>([BI)V
     .locals 2
-    .param p1, "key"    # [B
-    .param p2, "ivSize"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -85,53 +83,44 @@
     iput-object v0, p0, Lcom/google/crypto/tink/subtle/AesCtrJceCipher;->keySpec:Ljavax/crypto/spec/SecretKeySpec;
 
     .line 66
-    sget-object v0, Lcom/google/crypto/tink/subtle/AesCtrJceCipher;->localCipher:Ljava/lang/ThreadLocal;
+    sget-object p1, Lcom/google/crypto/tink/subtle/AesCtrJceCipher;->localCipher:Ljava/lang/ThreadLocal;
 
-    invoke-virtual {v0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljavax/crypto/Cipher;
+    check-cast p1, Ljavax/crypto/Cipher;
 
-    invoke-virtual {v0}, Ljavax/crypto/Cipher;->getBlockSize()I
+    invoke-virtual {p1}, Ljavax/crypto/Cipher;->getBlockSize()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/google/crypto/tink/subtle/AesCtrJceCipher;->blockSize:I
+    iput p1, p0, Lcom/google/crypto/tink/subtle/AesCtrJceCipher;->blockSize:I
 
-    .line 67
-    const/16 v1, 0xc
+    const/16 v0, 0xc
 
-    if-lt p2, v1, :cond_0
+    if-lt p2, v0, :cond_0
 
-    if-gt p2, v0, :cond_0
+    if-gt p2, p1, :cond_0
 
     .line 70
     iput p2, p0, Lcom/google/crypto/tink/subtle/AesCtrJceCipher;->ivSize:I
 
-    .line 71
     return-void
 
     .line 68
     :cond_0
-    new-instance v0, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    const-string v1, "invalid IV size"
+    const-string p2, "invalid IV size"
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method private doCtr([BII[BI[BZ)V
-    .locals 11
-    .param p1, "input"    # [B
-    .param p2, "inputOffset"    # I
-    .param p3, "inputLen"    # I
-    .param p4, "output"    # [B
-    .param p5, "outputOffset"    # I
-    .param p6, "iv"    # [B
-    .param p7, "encrypt"    # Z
+    .locals 7
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -160,103 +149,87 @@
     .end annotation
 
     .line 121
-    move-object v0, p0
+    sget-object v0, Lcom/google/crypto/tink/subtle/AesCtrJceCipher;->localCipher:Ljava/lang/ThreadLocal;
 
-    sget-object v1, Lcom/google/crypto/tink/subtle/AesCtrJceCipher;->localCipher:Ljava/lang/ThreadLocal;
+    invoke-virtual {v0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
 
-    invoke-virtual {v1}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object v1
+    move-object v1, v0
 
     check-cast v1, Ljavax/crypto/Cipher;
 
     .line 123
-    .local v1, "cipher":Ljavax/crypto/Cipher;
-    iget v2, v0, Lcom/google/crypto/tink/subtle/AesCtrJceCipher;->blockSize:I
+    iget v0, p0, Lcom/google/crypto/tink/subtle/AesCtrJceCipher;->blockSize:I
 
-    new-array v8, v2, [B
+    new-array v0, v0, [B
+
+    const/4 v2, 0x0
 
     .line 124
-    .local v8, "counter":[B
-    iget v2, v0, Lcom/google/crypto/tink/subtle/AesCtrJceCipher;->ivSize:I
+    iget v3, p0, Lcom/google/crypto/tink/subtle/AesCtrJceCipher;->ivSize:I
 
-    const/4 v3, 0x0
-
-    move-object/from16 v9, p6
-
-    invoke-static {v9, v3, v8, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p6, v2, v0, v2, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 126
-    new-instance v2, Ljavax/crypto/spec/IvParameterSpec;
+    new-instance p6, Ljavax/crypto/spec/IvParameterSpec;
 
-    invoke-direct {v2, v8}, Ljavax/crypto/spec/IvParameterSpec;-><init>([B)V
+    invoke-direct {p6, v0}, Ljavax/crypto/spec/IvParameterSpec;-><init>([B)V
 
-    move-object v10, v2
-
-    .line 127
-    .local v10, "paramSpec":Ljavax/crypto/spec/IvParameterSpec;
     if-eqz p7, :cond_0
 
+    const/4 p7, 0x1
+
     .line 128
-    const/4 v2, 0x1
+    iget-object v0, p0, Lcom/google/crypto/tink/subtle/AesCtrJceCipher;->keySpec:Ljavax/crypto/spec/SecretKeySpec;
 
-    iget-object v3, v0, Lcom/google/crypto/tink/subtle/AesCtrJceCipher;->keySpec:Ljavax/crypto/spec/SecretKeySpec;
-
-    invoke-virtual {v1, v2, v3, v10}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
+    invoke-virtual {v1, p7, v0, p6}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
 
     goto :goto_0
 
-    .line 130
     :cond_0
-    const/4 v2, 0x2
+    const/4 p7, 0x2
 
-    iget-object v3, v0, Lcom/google/crypto/tink/subtle/AesCtrJceCipher;->keySpec:Ljavax/crypto/spec/SecretKeySpec;
+    .line 130
+    iget-object v0, p0, Lcom/google/crypto/tink/subtle/AesCtrJceCipher;->keySpec:Ljavax/crypto/spec/SecretKeySpec;
 
-    invoke-virtual {v1, v2, v3, v10}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
+    invoke-virtual {v1, p7, v0, p6}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
+
+    :goto_0
+    move-object v2, p1
+
+    move v3, p2
+
+    move v4, p3
+
+    move-object v5, p4
+
+    move v6, p5
 
     .line 132
-    :goto_0
-    move-object v2, v1
+    invoke-virtual/range {v1 .. v6}, Ljavax/crypto/Cipher;->doFinal([BII[BI)I
 
-    move-object v3, p1
+    move-result p1
 
-    move v4, p2
+    if-ne p1, p3, :cond_1
 
-    move v5, p3
-
-    move-object v6, p4
-
-    move/from16 v7, p5
-
-    invoke-virtual/range {v2 .. v7}, Ljavax/crypto/Cipher;->doFinal([BII[BI)I
-
-    move-result v2
-
-    .line 133
-    .local v2, "numBytes":I
-    move v3, p3
-
-    if-ne v2, v3, :cond_1
-
-    .line 136
     return-void
 
     .line 134
     :cond_1
-    new-instance v4, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    const-string v5, "stored output\'s length does not match input\'s length"
+    const-string p2, "stored output\'s length does not match input\'s length"
 
-    invoke-direct {v4, v5}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v4
+    throw p1
 .end method
 
 
 # virtual methods
 .method public decrypt([B)[B
     .locals 10
-    .param p1, "ciphertext"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -280,28 +253,26 @@
     if-lt v0, v1, :cond_0
 
     .line 105
-    new-array v0, v1, [B
+    new-array v8, v1, [B
+
+    const/4 v0, 0x0
 
     .line 106
-    .local v0, "iv":[B
-    const/4 v2, 0x0
-
-    invoke-static {p1, v2, v0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p1, v0, v8, v0, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 107
-    array-length v1, p1
+    array-length v0, p1
 
     iget v4, p0, Lcom/google/crypto/tink/subtle/AesCtrJceCipher;->ivSize:I
 
-    sub-int/2addr v1, v4
+    sub-int/2addr v0, v4
 
-    new-array v1, v1, [B
+    new-array v0, v0, [B
 
     .line 108
-    .local v1, "plaintext":[B
-    array-length v2, p1
+    array-length v1, p1
 
-    sub-int v5, v2, v4
+    sub-int v5, v1, v4
 
     const/4 v7, 0x0
 
@@ -311,31 +282,25 @@
 
     move-object v3, p1
 
-    move-object v6, v1
-
-    move-object v8, v0
+    move-object v6, v0
 
     invoke-direct/range {v2 .. v9}, Lcom/google/crypto/tink/subtle/AesCtrJceCipher;->doCtr([BII[BI[BZ)V
 
-    .line 109
-    return-object v1
+    return-object v0
 
     .line 103
-    .end local v0    # "iv":[B
-    .end local v1    # "plaintext":[B
     :cond_0
-    new-instance v0, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    const-string v1, "ciphertext too short"
+    const-string v0, "ciphertext too short"
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public encrypt([B)[B
     .locals 10
-    .param p1, "plaintext"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -370,22 +335,20 @@
     new-array v0, v0, [B
 
     .line 87
-    .local v0, "ciphertext":[B
     invoke-static {v1}, Lcom/google/crypto/tink/subtle/Random;->randBytes(I)[B
 
-    move-result-object v1
+    move-result-object v8
 
     .line 88
-    .local v1, "iv":[B
-    iget v2, p0, Lcom/google/crypto/tink/subtle/AesCtrJceCipher;->ivSize:I
+    iget v1, p0, Lcom/google/crypto/tink/subtle/AesCtrJceCipher;->ivSize:I
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v8, v2, v0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 89
     const/4 v4, 0x0
 
+    .line 89
     array-length v5, p1
 
     iget v7, p0, Lcom/google/crypto/tink/subtle/AesCtrJceCipher;->ivSize:I
@@ -398,38 +361,33 @@
 
     move-object v6, v0
 
-    move-object v8, v1
-
     invoke-direct/range {v2 .. v9}, Lcom/google/crypto/tink/subtle/AesCtrJceCipher;->doCtr([BII[BI[BZ)V
 
-    .line 90
     return-object v0
 
     .line 83
-    .end local v0    # "ciphertext":[B
-    .end local v1    # "iv":[B
     :cond_0
-    new-instance v0, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "plaintext length can not exceed "
 
-    const-string v3, "plaintext length can not exceed "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v1, p0, Lcom/google/crypto/tink/subtle/AesCtrJceCipher;->ivSize:I
 
-    iget v3, p0, Lcom/google/crypto/tink/subtle/AesCtrJceCipher;->ivSize:I
+    sub-int/2addr v2, v1
 
-    sub-int/2addr v2, v3
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

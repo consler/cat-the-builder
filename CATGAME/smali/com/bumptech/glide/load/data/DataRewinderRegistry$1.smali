@@ -40,7 +40,6 @@
 # virtual methods
 .method public build(Ljava/lang/Object;)Lcom/bumptech/glide/load/data/DataRewinder;
     .locals 1
-    .param p1, "data"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

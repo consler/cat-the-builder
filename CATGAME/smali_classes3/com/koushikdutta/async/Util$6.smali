@@ -36,20 +36,16 @@
 
 # virtual methods
 .method public onCompleted(Ljava/lang/Exception;)V
-    .locals 2
-    .param p1, "ex"    # Ljava/lang/Exception;
+    .locals 1
 
-    .line 159
     if-nez p1, :cond_0
 
     .line 160
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "sink was closed before emitter ended"
+    const-string v0, "sink was closed before emitter ended"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
-
-    move-object p1, v0
+    invoke-direct {p1, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     .line 161
     :cond_0
@@ -57,6 +53,5 @@
 
     invoke-interface {v0, p1}, Lcom/koushikdutta/async/callback/CompletedCallback;->onCompleted(Ljava/lang/Exception;)V
 
-    .line 162
     return-void
 .end method

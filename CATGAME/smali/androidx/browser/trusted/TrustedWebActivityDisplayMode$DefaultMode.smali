@@ -41,14 +41,12 @@
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 58
-    .local v0, "bundle":Landroid/os/Bundle;
     const-string v1, "androidx.browser.trusted.displaymode.KEY_ID"
 
     const/4 v2, 0x0
 
+    .line 58
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 59
     return-object v0
 .end method

@@ -36,8 +36,7 @@
 
 # virtual methods
 .method public getType(Lcom/bumptech/glide/load/ImageHeaderParser;)Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
-    .locals 2
-    .param p1, "parser"    # Lcom/bumptech/glide/load/ImageHeaderParser;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -50,25 +49,23 @@
 
     invoke-interface {p1, v0}, Lcom/bumptech/glide/load/ImageHeaderParser;->getType(Ljava/io/InputStream;)Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
 
-    move-result-object v0
+    move-result-object p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 50
-    iget-object v1, p0, Lcom/bumptech/glide/load/ImageHeaderParserUtils$1;->val$finalIs:Ljava/io/InputStream;
+    iget-object v0, p0, Lcom/bumptech/glide/load/ImageHeaderParserUtils$1;->val$finalIs:Ljava/io/InputStream;
 
-    invoke-virtual {v1}, Ljava/io/InputStream;->reset()V
+    invoke-virtual {v0}, Ljava/io/InputStream;->reset()V
 
-    .line 48
-    return-object v0
+    return-object p1
 
-    .line 50
     :catchall_0
-    move-exception v0
+    move-exception p1
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/ImageHeaderParserUtils$1;->val$finalIs:Ljava/io/InputStream;
+    iget-object v0, p0, Lcom/bumptech/glide/load/ImageHeaderParserUtils$1;->val$finalIs:Ljava/io/InputStream;
 
-    invoke-virtual {v1}, Ljava/io/InputStream;->reset()V
+    invoke-virtual {v0}, Ljava/io/InputStream;->reset()V
 
-    throw v0
+    throw p1
 .end method

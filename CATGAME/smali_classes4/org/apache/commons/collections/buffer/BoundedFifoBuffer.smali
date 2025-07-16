@@ -28,25 +28,23 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 97
     const/16 v0, 0x20
 
+    .line 97
     invoke-direct {p0, v0}, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;-><init>(I)V
 
-    .line 98
     return-void
 .end method
 
 .method public constructor <init>(I)V
-    .locals 2
-    .param p1, "size"    # I
+    .locals 1
 
     .line 107
     invoke-direct {p0}, Ljava/util/AbstractCollection;-><init>()V
 
-    .line 75
     const/4 v0, 0x0
 
+    .line 75
     iput v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->start:I
 
     .line 84
@@ -55,36 +53,33 @@
     .line 87
     iput-boolean v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->full:Z
 
-    .line 108
     if-lez p1, :cond_0
 
     .line 111
-    new-array v0, p1, [Ljava/lang/Object;
+    new-array p1, p1, [Ljava/lang/Object;
 
-    iput-object v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->elements:[Ljava/lang/Object;
+    iput-object p1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->elements:[Ljava/lang/Object;
 
     .line 112
-    array-length v0, v0
+    array-length p1, p1
 
-    iput v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->maxElements:I
+    iput p1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->maxElements:I
 
-    .line 113
     return-void
 
     .line 109
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "The size must be greater than 0"
+    const-string v0, "The size must be greater than 0"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public constructor <init>(Ljava/util/Collection;)V
     .locals 1
-    .param p1, "coll"    # Ljava/util/Collection;
 
     .line 124
     invoke-interface {p1}, Ljava/util/Collection;->size()I
@@ -96,34 +91,29 @@
     .line 125
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->addAll(Ljava/util/Collection;)Z
 
-    .line 126
     return-void
 .end method
 
 .method static synthetic access$000(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;)I
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;
+    .locals 0
 
     .line 65
-    iget v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->start:I
+    iget p0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->start:I
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$100(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;)Z
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;
+    .locals 0
 
     .line 65
-    iget-boolean v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->full:Z
+    iget-boolean p0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->full:Z
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$102(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;Z)Z
     .locals 0
-    .param p0, "x0"    # Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;
-    .param p1, "x1"    # Z
 
     .line 65
     iput-boolean p1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->full:Z
@@ -132,19 +122,16 @@
 .end method
 
 .method static synthetic access$200(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;)I
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;
+    .locals 0
 
     .line 65
-    iget v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->end:I
+    iget p0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->end:I
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$202(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;I)I
     .locals 0
-    .param p0, "x0"    # Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;
-    .param p1, "x1"    # I
 
     .line 65
     iput p1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->end:I
@@ -153,76 +140,64 @@
 .end method
 
 .method static synthetic access$300(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;I)I
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;
-    .param p1, "x1"    # I
+    .locals 0
 
     .line 65
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->increment(I)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$400(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;)[Ljava/lang/Object;
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;
+    .locals 0
 
     .line 65
-    iget-object v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->elements:[Ljava/lang/Object;
+    iget-object p0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->elements:[Ljava/lang/Object;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$500(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;)I
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;
+    .locals 0
 
     .line 65
-    iget v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->maxElements:I
+    iget p0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->maxElements:I
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$600(Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;I)I
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;
-    .param p1, "x1"    # I
+    .locals 0
 
     .line 65
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->decrement(I)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method private decrement(I)I
-    .locals 1
-    .param p1, "index"    # I
+    .locals 0
 
-    .line 314
     add-int/lit8 p1, p1, -0x1
 
-    .line 315
     if-gez p1, :cond_0
 
     .line 316
-    iget v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->maxElements:I
+    iget p1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->maxElements:I
 
-    add-int/lit8 p1, v0, -0x1
+    add-int/lit8 p1, p1, -0x1
 
-    .line 318
     :cond_0
     return p1
 .end method
 
 .method private increment(I)I
     .locals 1
-    .param p1, "index"    # I
 
-    .line 300
     add-int/lit8 p1, p1, 0x1
 
     .line 301
@@ -230,17 +205,14 @@
 
     if-lt p1, v0, :cond_0
 
-    .line 302
     const/4 p1, 0x0
 
-    .line 304
     :cond_0
     return p1
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 4
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -263,52 +235,46 @@
 
     move-result v0
 
-    .line 154
-    .local v0, "size":I
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    move v2, v1
+
     :goto_0
-    if-ge v1, v0, :cond_0
+    if-ge v2, v0, :cond_0
 
     .line 155
-    iget-object v2, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->elements:[Ljava/lang/Object;
+    iget-object v3, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->elements:[Ljava/lang/Object;
 
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v4
 
-    aput-object v3, v2, v1
+    aput-object v4, v3, v2
 
-    .line 154
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 157
-    .end local v1    # "i":I
     :cond_0
-    const/4 v1, 0x0
-
     iput v1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->start:I
 
     .line 158
-    iget v2, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->maxElements:I
+    iget p1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->maxElements:I
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, p1, :cond_1
 
-    const/4 v2, 0x1
+    const/4 p1, 0x1
 
     goto :goto_1
 
     :cond_1
-    move v2, v1
+    move p1, v1
 
     :goto_1
-    iput-boolean v2, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->full:Z
+    iput-boolean p1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->full:Z
 
-    .line 159
-    if-eqz v2, :cond_2
+    if-eqz p1, :cond_2
 
     .line 160
     iput v1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->end:I
@@ -319,14 +285,12 @@
     :cond_2
     iput v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->end:I
 
-    .line 164
     :goto_2
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 2
-    .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -348,7 +312,6 @@
 
     move-result-object v0
 
-    .local v0, "it":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -365,8 +328,6 @@
 
     goto :goto_0
 
-    .line 141
-    .end local v0    # "it":Ljava/util/Iterator;
     :cond_0
     return-void
 .end method
@@ -375,9 +336,7 @@
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
     .locals 3
-    .param p1, "element"    # Ljava/lang/Object;
 
-    .line 232
     if-eqz p1, :cond_3
 
     .line 236
@@ -397,77 +356,78 @@
     aput-object p1, v0, v1
 
     .line 242
-    iget v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->maxElements:I
+    iget p1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->maxElements:I
 
-    if-lt v2, v0, :cond_0
+    if-lt v2, p1, :cond_0
+
+    const/4 p1, 0x0
 
     .line 243
-    const/4 v0, 0x0
-
-    iput v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->end:I
+    iput p1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->end:I
 
     .line 246
     :cond_0
-    iget v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->end:I
+    iget p1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->end:I
 
-    iget v1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->start:I
+    iget v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->start:I
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne p1, v0, :cond_1
 
     .line 247
-    iput-boolean v2, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->full:Z
+    iput-boolean v1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->full:Z
 
-    .line 250
     :cond_1
-    return v2
+    return v1
 
     .line 237
     :cond_2
-    new-instance v0, Lorg/apache/commons/collections/BufferOverflowException;
+    new-instance p1, Lorg/apache/commons/collections/BufferOverflowException;
 
-    new-instance v1, Ljava/lang/StringBuffer;
+    new-instance v0, Ljava/lang/StringBuffer;
 
-    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
+    const-string v1, "The buffer cannot hold more than "
 
-    const-string v2, "The buffer cannot hold more than "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    iget v1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->maxElements:I
 
-    iget v2, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->maxElements:I
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    move-result-object v0
 
-    const-string v2, " objects."
+    const-string v1, " objects."
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Lorg/apache/commons/collections/BufferOverflowException;-><init>(Ljava/lang/String;)V
+    move-result-object v0
 
-    throw v0
+    invoke-direct {p1, v0}, Lorg/apache/commons/collections/BufferOverflowException;-><init>(Ljava/lang/String;)V
+
+    throw p1
 
     .line 233
     :cond_3
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "Attempted to add null object to buffer"
+    const-string v0, "Attempted to add null object to buffer"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public clear()V
     .locals 2
 
-    .line 217
     const/4 v0, 0x0
 
+    .line 217
     iput-boolean v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->full:Z
 
     .line 218
@@ -483,7 +443,6 @@
 
     invoke-static {v0, v1}, Ljava/util/Arrays;->fill([Ljava/lang/Object;Ljava/lang/Object;)V
 
-    .line 221
     return-void
 .end method
 
@@ -598,13 +557,11 @@
 
     aget-object v2, v0, v1
 
-    .line 280
-    .local v2, "element":Ljava/lang/Object;
     if-eqz v2, :cond_1
 
-    .line 281
     add-int/lit8 v3, v1, 0x1
 
+    .line 281
     iput v3, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->start:I
 
     const/4 v4, 0x0
@@ -625,12 +582,10 @@
     :cond_0
     iput-boolean v1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->full:Z
 
-    .line 290
     :cond_1
     return-object v2
 
     .line 275
-    .end local v2    # "element":Ljava/lang/Object;
     :cond_2
     new-instance v0, Lorg/apache/commons/collections/BufferUnderflowException;
 
@@ -642,64 +597,47 @@
 .end method
 
 .method public size()I
-    .locals 4
-
-    .line 173
-    const/4 v0, 0x0
+    .locals 3
 
     .line 175
-    .local v0, "size":I
-    iget v1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->end:I
+    iget v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->end:I
 
-    iget v2, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->start:I
+    iget v1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->start:I
 
-    if-ge v1, v2, :cond_0
+    if-ge v0, v1, :cond_0
 
     .line 176
-    iget v3, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->maxElements:I
+    iget v2, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->maxElements:I
 
-    sub-int/2addr v3, v2
+    sub-int/2addr v2, v1
 
-    add-int/2addr v3, v1
+    add-int/2addr v2, v0
 
-    .end local v0    # "size":I
-    .local v3, "size":I
     goto :goto_1
 
-    .line 177
-    .end local v3    # "size":I
-    .restart local v0    # "size":I
     :cond_0
-    if-ne v1, v2, :cond_2
+    if-ne v0, v1, :cond_2
 
     .line 178
-    iget-boolean v1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->full:Z
+    iget-boolean v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->full:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    iget v1, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->maxElements:I
+    iget v0, p0, Lorg/apache/commons/collections/buffer/BoundedFifoBuffer;->maxElements:I
 
     goto :goto_0
 
     :cond_1
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    move v3, v1
+    move v2, v0
 
-    .end local v0    # "size":I
-    .restart local v3    # "size":I
     goto :goto_1
 
-    .line 180
-    .end local v3    # "size":I
-    .restart local v0    # "size":I
     :cond_2
-    sub-int v3, v1, v2
+    sub-int v2, v0, v1
 
-    .line 183
-    .end local v0    # "size":I
-    .restart local v3    # "size":I
     :goto_1
-    return v3
+    return v2
 .end method

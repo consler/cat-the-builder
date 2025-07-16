@@ -55,14 +55,11 @@
     .end annotation
 
     .line 519
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap$SingletonValues;, "Lorg/apache/commons/collections4/map/SingletonMap$SingletonValues<TV;>;"
-    .local p1, "parent":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<*TV;>;"
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
 
     .line 520
     iput-object p1, p0, Lorg/apache/commons/collections4/map/SingletonMap$SingletonValues;->parent:Lorg/apache/commons/collections4/map/SingletonMap;
 
-    .line 521
     return-void
 .end method
 
@@ -72,7 +69,6 @@
     .locals 1
 
     .line 537
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap$SingletonValues;, "Lorg/apache/commons/collections4/map/SingletonMap$SingletonValues<TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -82,24 +78,20 @@
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
 
     .line 533
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap$SingletonValues;, "Lorg/apache/commons/collections4/map/SingletonMap$SingletonValues<TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/SingletonMap$SingletonValues;->parent:Lorg/apache/commons/collections4/map/SingletonMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/map/SingletonMap;->containsValue(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public isEmpty()Z
     .locals 1
 
-    .line 529
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap$SingletonValues;, "Lorg/apache/commons/collections4/map/SingletonMap$SingletonValues<TV;>;"
     const/4 v0, 0x0
 
     return v0
@@ -116,7 +108,6 @@
     .end annotation
 
     .line 541
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap$SingletonValues;, "Lorg/apache/commons/collections4/map/SingletonMap$SingletonValues<TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/iterators/SingletonIterator;
 
     iget-object v1, p0, Lorg/apache/commons/collections4/map/SingletonMap$SingletonValues;->parent:Lorg/apache/commons/collections4/map/SingletonMap;
@@ -135,8 +126,6 @@
 .method public size()I
     .locals 1
 
-    .line 525
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap$SingletonValues;, "Lorg/apache/commons/collections4/map/SingletonMap$SingletonValues<TV;>;"
     const/4 v0, 0x1
 
     return v0

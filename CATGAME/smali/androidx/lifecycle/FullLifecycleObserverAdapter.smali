@@ -15,8 +15,6 @@
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/FullLifecycleObserver;Landroidx/lifecycle/LifecycleEventObserver;)V
     .locals 0
-    .param p1, "fullLifecycleObserver"    # Landroidx/lifecycle/FullLifecycleObserver;
-    .param p2, "lifecycleEventObserver"    # Landroidx/lifecycle/LifecycleEventObserver;
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +25,6 @@
     .line 29
     iput-object p2, p0, Landroidx/lifecycle/FullLifecycleObserverAdapter;->mLifecycleEventObserver:Landroidx/lifecycle/LifecycleEventObserver;
 
-    .line 30
     return-void
 .end method
 
@@ -35,8 +32,6 @@
 # virtual methods
 .method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
     .locals 2
-    .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
-    .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
     .line 34
     sget-object v0, Landroidx/lifecycle/FullLifecycleObserverAdapter$1;->$SwitchMap$androidx$lifecycle$Lifecycle$Event:[I
@@ -53,13 +48,13 @@
 
     .line 54
     :pswitch_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "ON_ANY must not been send by anybody"
+    const-string p2, "ON_ANY must not been send by anybody"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 51
     :pswitch_1
@@ -67,7 +62,6 @@
 
     invoke-interface {v0, p1}, Landroidx/lifecycle/FullLifecycleObserver;->onDestroy(Landroidx/lifecycle/LifecycleOwner;)V
 
-    .line 52
     goto :goto_0
 
     .line 48
@@ -76,7 +70,6 @@
 
     invoke-interface {v0, p1}, Landroidx/lifecycle/FullLifecycleObserver;->onStop(Landroidx/lifecycle/LifecycleOwner;)V
 
-    .line 49
     goto :goto_0
 
     .line 45
@@ -85,7 +78,6 @@
 
     invoke-interface {v0, p1}, Landroidx/lifecycle/FullLifecycleObserver;->onPause(Landroidx/lifecycle/LifecycleOwner;)V
 
-    .line 46
     goto :goto_0
 
     .line 42
@@ -94,7 +86,6 @@
 
     invoke-interface {v0, p1}, Landroidx/lifecycle/FullLifecycleObserver;->onResume(Landroidx/lifecycle/LifecycleOwner;)V
 
-    .line 43
     goto :goto_0
 
     .line 39
@@ -103,7 +94,6 @@
 
     invoke-interface {v0, p1}, Landroidx/lifecycle/FullLifecycleObserver;->onStart(Landroidx/lifecycle/LifecycleOwner;)V
 
-    .line 40
     goto :goto_0
 
     .line 36
@@ -111,9 +101,6 @@
     iget-object v0, p0, Landroidx/lifecycle/FullLifecycleObserverAdapter;->mFullLifecycleObserver:Landroidx/lifecycle/FullLifecycleObserver;
 
     invoke-interface {v0, p1}, Landroidx/lifecycle/FullLifecycleObserver;->onCreate(Landroidx/lifecycle/LifecycleOwner;)V
-
-    .line 37
-    nop
 
     .line 56
     :goto_0
@@ -124,9 +111,10 @@
     .line 57
     invoke-interface {v0, p1, p2}, Landroidx/lifecycle/LifecycleEventObserver;->onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
 
-    .line 59
     :cond_0
     return-void
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1

@@ -23,6 +23,15 @@
 
 .method static checkCompatWrapper(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "obj"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -32,7 +41,6 @@
     .end annotation
 
     .line 80
-    .local p0, "obj":Ljava/lang/Object;, "TT;"
     instance-of v0, p0, Landroidx/core/app/CoreComponentFactory$CompatWrapped;
 
     if-eqz v0, :cond_0
@@ -46,15 +54,10 @@
 
     move-result-object v0
 
-    .line 82
-    .local v0, "wrapper":Ljava/lang/Object;, "TT;"
     if-eqz v0, :cond_0
 
-    .line 83
     return-object v0
 
-    .line 86
-    .end local v0    # "wrapper":Ljava/lang/Object;, "TT;"
     :cond_0
     return-object p0
 .end method
@@ -62,10 +65,20 @@
 
 # virtual methods
 .method public instantiateActivity(Ljava/lang/ClassLoader;Ljava/lang/String;Landroid/content/Intent;)Landroid/app/Activity;
-    .locals 1
-    .param p1, "cl"    # Ljava/lang/ClassLoader;
-    .param p2, "className"    # Ljava/lang/String;
-    .param p3, "intent"    # Landroid/content/Intent;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "cl",
+            "className",
+            "intent"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InstantiationException;,
@@ -77,21 +90,30 @@
     .line 45
     invoke-super {p0, p1, p2, p3}, Landroid/app/AppComponentFactory;->instantiateActivity(Ljava/lang/ClassLoader;Ljava/lang/String;Landroid/content/Intent;)Landroid/app/Activity;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Landroidx/core/app/CoreComponentFactory;->checkCompatWrapper(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Landroidx/core/app/CoreComponentFactory;->checkCompatWrapper(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/app/Activity;
+    check-cast p1, Landroid/app/Activity;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public instantiateApplication(Ljava/lang/ClassLoader;Ljava/lang/String;)Landroid/app/Application;
-    .locals 1
-    .param p1, "cl"    # Ljava/lang/ClassLoader;
-    .param p2, "className"    # Ljava/lang/String;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "cl",
+            "className"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InstantiationException;,
@@ -103,21 +125,30 @@
     .line 52
     invoke-super {p0, p1, p2}, Landroid/app/AppComponentFactory;->instantiateApplication(Ljava/lang/ClassLoader;Ljava/lang/String;)Landroid/app/Application;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Landroidx/core/app/CoreComponentFactory;->checkCompatWrapper(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Landroidx/core/app/CoreComponentFactory;->checkCompatWrapper(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/app/Application;
+    check-cast p1, Landroid/app/Application;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public instantiateProvider(Ljava/lang/ClassLoader;Ljava/lang/String;)Landroid/content/ContentProvider;
-    .locals 1
-    .param p1, "cl"    # Ljava/lang/ClassLoader;
-    .param p2, "className"    # Ljava/lang/String;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "cl",
+            "className"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InstantiationException;,
@@ -129,22 +160,32 @@
     .line 67
     invoke-super {p0, p1, p2}, Landroid/app/AppComponentFactory;->instantiateProvider(Ljava/lang/ClassLoader;Ljava/lang/String;)Landroid/content/ContentProvider;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Landroidx/core/app/CoreComponentFactory;->checkCompatWrapper(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Landroidx/core/app/CoreComponentFactory;->checkCompatWrapper(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/content/ContentProvider;
+    check-cast p1, Landroid/content/ContentProvider;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public instantiateReceiver(Ljava/lang/ClassLoader;Ljava/lang/String;Landroid/content/Intent;)Landroid/content/BroadcastReceiver;
-    .locals 1
-    .param p1, "cl"    # Ljava/lang/ClassLoader;
-    .param p2, "className"    # Ljava/lang/String;
-    .param p3, "intent"    # Landroid/content/Intent;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "cl",
+            "className",
+            "intent"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InstantiationException;,
@@ -156,22 +197,32 @@
     .line 60
     invoke-super {p0, p1, p2, p3}, Landroid/app/AppComponentFactory;->instantiateReceiver(Ljava/lang/ClassLoader;Ljava/lang/String;Landroid/content/Intent;)Landroid/content/BroadcastReceiver;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Landroidx/core/app/CoreComponentFactory;->checkCompatWrapper(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Landroidx/core/app/CoreComponentFactory;->checkCompatWrapper(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/content/BroadcastReceiver;
+    check-cast p1, Landroid/content/BroadcastReceiver;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public instantiateService(Ljava/lang/ClassLoader;Ljava/lang/String;Landroid/content/Intent;)Landroid/app/Service;
-    .locals 1
-    .param p1, "cl"    # Ljava/lang/ClassLoader;
-    .param p2, "className"    # Ljava/lang/String;
-    .param p3, "intent"    # Landroid/content/Intent;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "cl",
+            "className",
+            "intent"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InstantiationException;,
@@ -183,13 +234,13 @@
     .line 75
     invoke-super {p0, p1, p2, p3}, Landroid/app/AppComponentFactory;->instantiateService(Ljava/lang/ClassLoader;Ljava/lang/String;Landroid/content/Intent;)Landroid/app/Service;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Landroidx/core/app/CoreComponentFactory;->checkCompatWrapper(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Landroidx/core/app/CoreComponentFactory;->checkCompatWrapper(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/app/Service;
+    check-cast p1, Landroid/app/Service;
 
-    return-object v0
+    return-object p1
 .end method

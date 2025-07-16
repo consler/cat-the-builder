@@ -31,9 +31,7 @@
 
 # direct methods
 .method public static final plus(Ljava/util/List;Lorg/koin/core/module/Module;)Ljava/util/List;
-    .locals 2
-    .param p0, "$this$plus"    # Ljava/util/List;
-    .param p1, "module"    # Lorg/koin/core/module/Module;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -57,19 +55,17 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 113
-    move-object v0, p0
-
-    check-cast v0, Ljava/util/Collection;
+    check-cast p0, Ljava/util/Collection;
 
     invoke-static {p1}, Lkotlin/collections/CollectionsKt;->listOf(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Ljava/lang/Iterable;
+    check-cast p1, Ljava/lang/Iterable;
 
-    invoke-static {v0, v1}, Lkotlin/collections/CollectionsKt;->plus(Ljava/util/Collection;Ljava/lang/Iterable;)Ljava/util/List;
+    invoke-static {p0, p1}, Lkotlin/collections/CollectionsKt;->plus(Ljava/util/Collection;Ljava/lang/Iterable;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

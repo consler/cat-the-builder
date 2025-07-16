@@ -57,9 +57,6 @@
     .end annotation
 
     .line 30
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDelayWithObservable;, "Lio/reactivex/internal/operators/single/SingleDelayWithObservable<TT;TU;>;"
-    .local p1, "source":Lio/reactivex/SingleSource;, "Lio/reactivex/SingleSource<TT;>;"
-    .local p2, "other":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TU;>;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 31
@@ -68,7 +65,6 @@
     .line 32
     iput-object p2, p0, Lio/reactivex/internal/operators/single/SingleDelayWithObservable;->other:Lio/reactivex/ObservableSource;
 
-    .line 33
     return-void
 .end method
 
@@ -85,8 +81,6 @@
     .end annotation
 
     .line 37
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDelayWithObservable;, "Lio/reactivex/internal/operators/single/SingleDelayWithObservable<TT;TU;>;"
-    .local p1, "subscriber":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleDelayWithObservable;->other:Lio/reactivex/ObservableSource;
 
     new-instance v1, Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber;
@@ -97,6 +91,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 38
     return-void
 .end method

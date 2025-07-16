@@ -34,7 +34,6 @@
     .locals 0
 
     .line 403
-    .local p0, "this":Lio/reactivex/processors/UnicastProcessor$UnicastQueueSubscription;, "Lio/reactivex/processors/UnicastProcessor<TT;>.UnicastQueueSubscription;"
     iput-object p1, p0, Lio/reactivex/processors/UnicastProcessor$UnicastQueueSubscription;->this$0:Lio/reactivex/processors/UnicastProcessor;
 
     invoke-direct {p0}, Lio/reactivex/internal/subscriptions/BasicIntQueueSubscription;-><init>()V
@@ -48,14 +47,12 @@
     .locals 2
 
     .line 443
-    .local p0, "this":Lio/reactivex/processors/UnicastProcessor$UnicastQueueSubscription;, "Lio/reactivex/processors/UnicastProcessor<TT;>.UnicastQueueSubscription;"
     iget-object v0, p0, Lio/reactivex/processors/UnicastProcessor$UnicastQueueSubscription;->this$0:Lio/reactivex/processors/UnicastProcessor;
 
     iget-boolean v0, v0, Lio/reactivex/processors/UnicastProcessor;->cancelled:Z
 
     if-eqz v0, :cond_0
 
-    .line 444
     return-void
 
     .line 446
@@ -105,7 +102,6 @@
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
 
-    .line 456
     :cond_1
     return-void
 .end method
@@ -114,14 +110,12 @@
     .locals 1
 
     .line 421
-    .local p0, "this":Lio/reactivex/processors/UnicastProcessor$UnicastQueueSubscription;, "Lio/reactivex/processors/UnicastProcessor<TT;>.UnicastQueueSubscription;"
     iget-object v0, p0, Lio/reactivex/processors/UnicastProcessor$UnicastQueueSubscription;->this$0:Lio/reactivex/processors/UnicastProcessor;
 
     iget-object v0, v0, Lio/reactivex/processors/UnicastProcessor;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
 
     invoke-virtual {v0}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->clear()V
 
-    .line 422
     return-void
 .end method
 
@@ -129,7 +123,6 @@
     .locals 1
 
     .line 416
-    .local p0, "this":Lio/reactivex/processors/UnicastProcessor$UnicastQueueSubscription;, "Lio/reactivex/processors/UnicastProcessor<TT;>.UnicastQueueSubscription;"
     iget-object v0, p0, Lio/reactivex/processors/UnicastProcessor$UnicastQueueSubscription;->this$0:Lio/reactivex/processors/UnicastProcessor;
 
     iget-object v0, v0, Lio/reactivex/processors/UnicastProcessor;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
@@ -150,7 +143,6 @@
     .end annotation
 
     .line 411
-    .local p0, "this":Lio/reactivex/processors/UnicastProcessor$UnicastQueueSubscription;, "Lio/reactivex/processors/UnicastProcessor<TT;>.UnicastQueueSubscription;"
     iget-object v0, p0, Lio/reactivex/processors/UnicastProcessor$UnicastQueueSubscription;->this$0:Lio/reactivex/processors/UnicastProcessor;
 
     iget-object v0, v0, Lio/reactivex/processors/UnicastProcessor;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
@@ -164,10 +156,8 @@
 
 .method public request(J)V
     .locals 1
-    .param p1, "n"    # J
 
     .line 435
-    .local p0, "this":Lio/reactivex/processors/UnicastProcessor$UnicastQueueSubscription;, "Lio/reactivex/processors/UnicastProcessor<TT;>.UnicastQueueSubscription;"
     invoke-static {p1, p2}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(J)Z
 
     move-result v0
@@ -182,40 +172,34 @@
     invoke-static {v0, p1, p2}, Lio/reactivex/internal/util/BackpressureHelper;->add(Ljava/util/concurrent/atomic/AtomicLong;J)J
 
     .line 437
-    iget-object v0, p0, Lio/reactivex/processors/UnicastProcessor$UnicastQueueSubscription;->this$0:Lio/reactivex/processors/UnicastProcessor;
+    iget-object p1, p0, Lio/reactivex/processors/UnicastProcessor$UnicastQueueSubscription;->this$0:Lio/reactivex/processors/UnicastProcessor;
 
-    invoke-virtual {v0}, Lio/reactivex/processors/UnicastProcessor;->drain()V
+    invoke-virtual {p1}, Lio/reactivex/processors/UnicastProcessor;->drain()V
 
-    .line 439
     :cond_0
     return-void
 .end method
 
 .method public requestFusion(I)I
     .locals 2
-    .param p1, "requestedMode"    # I
 
-    .line 426
-    .local p0, "this":Lio/reactivex/processors/UnicastProcessor$UnicastQueueSubscription;, "Lio/reactivex/processors/UnicastProcessor<TT;>.UnicastQueueSubscription;"
-    and-int/lit8 v0, p1, 0x2
+    const/4 v0, 0x2
 
-    if-eqz v0, :cond_0
+    and-int/2addr p1, v0
+
+    if-eqz p1, :cond_0
 
     .line 427
-    iget-object v0, p0, Lio/reactivex/processors/UnicastProcessor$UnicastQueueSubscription;->this$0:Lio/reactivex/processors/UnicastProcessor;
+    iget-object p1, p0, Lio/reactivex/processors/UnicastProcessor$UnicastQueueSubscription;->this$0:Lio/reactivex/processors/UnicastProcessor;
 
     const/4 v1, 0x1
 
-    iput-boolean v1, v0, Lio/reactivex/processors/UnicastProcessor;->enableOperatorFusion:Z
-
-    .line 428
-    const/4 v0, 0x2
+    iput-boolean v1, p1, Lio/reactivex/processors/UnicastProcessor;->enableOperatorFusion:Z
 
     return v0
 
-    .line 430
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

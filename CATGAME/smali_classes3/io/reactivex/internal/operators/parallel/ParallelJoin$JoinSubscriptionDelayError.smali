@@ -31,8 +31,6 @@
 # direct methods
 .method constructor <init>(Lorg/reactivestreams/Subscriber;II)V
     .locals 0
-    .param p2, "n"    # I
-    .param p3, "prefetch"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -42,11 +40,8 @@
     .end annotation
 
     .line 325
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;, "Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-direct {p0, p1, p2, p3}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionBase;-><init>(Lorg/reactivestreams/Subscriber;II)V
 
-    .line 326
     return-void
 .end method
 
@@ -56,399 +51,305 @@
     .locals 1
 
     .line 384
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;, "Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->getAndIncrement()I
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 385
     return-void
 
     .line 388
     :cond_0
     invoke-virtual {p0}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->drainLoop()V
 
-    .line 389
     return-void
 .end method
 
 .method drainLoop()V
     .locals 18
 
-    .line 392
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;, "Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError<TT;>;"
     move-object/from16 v0, p0
 
-    const/4 v1, 0x1
-
     .line 394
-    .local v1, "missed":I
-    iget-object v2, v0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->subscribers:[Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;
+    iget-object v1, v0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->subscribers:[Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;
 
     .line 395
-    .local v2, "s":[Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;, "[Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber<TT;>;"
-    array-length v3, v2
+    array-length v2, v1
 
     .line 396
-    .local v3, "n":I
-    iget-object v4, v0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object v3, v0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->actual:Lorg/reactivestreams/Subscriber;
+
+    const/4 v5, 0x1
 
     .line 400
-    .local v4, "a":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     :goto_0
-    iget-object v5, v0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->requested:Ljava/util/concurrent/atomic/AtomicLong;
+    iget-object v6, v0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
-    invoke-virtual {v5}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
+    invoke-virtual {v6}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
 
-    move-result-wide v5
+    move-result-wide v6
 
-    .line 401
-    .local v5, "r":J
-    const-wide/16 v7, 0x0
+    const-wide/16 v8, 0x0
 
-    .line 404
-    .local v7, "e":J
-    :goto_1
-    cmp-long v9, v7, v5
+    move-wide v10, v8
 
-    const/4 v11, 0x1
+    :cond_0
+    cmp-long v12, v10, v6
 
-    if-eqz v9, :cond_7
+    if-eqz v12, :cond_8
 
     .line 405
-    iget-boolean v9, v0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->cancelled:Z
+    iget-boolean v12, v0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->cancelled:Z
 
-    if-eqz v9, :cond_0
+    if-eqz v12, :cond_1
 
     .line 406
     invoke-virtual/range {p0 .. p0}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->cleanup()V
 
-    .line 407
     return-void
 
     .line 410
-    :cond_0
-    iget-object v9, v0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->done:Ljava/util/concurrent/atomic/AtomicInteger;
-
-    invoke-virtual {v9}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
-
-    move-result v9
-
-    if-nez v9, :cond_1
-
-    move v9, v11
-
-    goto :goto_2
-
     :cond_1
-    const/4 v9, 0x0
+    iget-object v12, v0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->done:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    .line 412
-    .local v9, "d":Z
-    :goto_2
+    invoke-virtual {v12}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
+
+    move-result v12
+
+    if-nez v12, :cond_2
+
     const/4 v12, 0x1
 
-    .line 414
-    .local v12, "empty":Z
-    const/4 v13, 0x0
+    goto :goto_1
 
-    .local v13, "i":I
-    :goto_3
-    if-ge v13, v3, :cond_3
-
-    .line 415
-    aget-object v14, v2, v13
-
-    .line 417
-    .local v14, "inner":Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;, "Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber<TT;>;"
-    iget-object v15, v14, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;->queue:Lio/reactivex/internal/fuseable/SimplePlainQueue;
-
-    .line 418
-    .local v15, "q":Lio/reactivex/internal/fuseable/SimplePlainQueue;, "Lio/reactivex/internal/fuseable/SimplePlainQueue<TT;>;"
-    if-eqz v15, :cond_2
-
-    .line 419
-    invoke-interface {v15}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->poll()Ljava/lang/Object;
-
-    move-result-object v10
-
-    .line 421
-    .local v10, "v":Ljava/lang/Object;, "TT;"
-    if-eqz v10, :cond_2
-
-    .line 422
+    :cond_2
     const/4 v12, 0x0
 
+    :goto_1
+    const/4 v14, 0x0
+
+    const/4 v15, 0x1
+
+    :goto_2
+    if-ge v14, v2, :cond_5
+
+    .line 415
+    aget-object v4, v1, v14
+
+    .line 417
+    iget-object v13, v4, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;->queue:Lio/reactivex/internal/fuseable/SimplePlainQueue;
+
+    if-eqz v13, :cond_4
+
+    .line 419
+    invoke-interface {v13}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->poll()Ljava/lang/Object;
+
+    move-result-object v13
+
+    if-eqz v13, :cond_4
+
     .line 423
-    invoke-interface {v4, v10}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
+    invoke-interface {v3, v13}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
     .line 424
-    invoke-virtual {v14}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;->requestOne()V
+    invoke-virtual {v4}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;->requestOne()V
 
-    .line 425
     const-wide/16 v16, 0x1
 
-    add-long v16, v7, v16
+    add-long v10, v10, v16
 
-    move-wide/from16 v7, v16
+    cmp-long v4, v10, v6
 
-    cmp-long v16, v16, v5
-
-    if-nez v16, :cond_2
-
-    .line 426
-    goto :goto_5
-
-    .line 414
-    .end local v10    # "v":Ljava/lang/Object;, "TT;"
-    .end local v14    # "inner":Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;, "Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber<TT;>;"
-    .end local v15    # "q":Lio/reactivex/internal/fuseable/SimplePlainQueue;, "Lio/reactivex/internal/fuseable/SimplePlainQueue<TT;>;"
-    :cond_2
-    add-int/lit8 v13, v13, 0x1
-
-    goto :goto_3
-
-    .line 432
-    .end local v13    # "i":I
-    :cond_3
-    if-eqz v9, :cond_5
-
-    if-eqz v12, :cond_5
-
-    .line 433
-    iget-object v10, v0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->errors:Lio/reactivex/internal/util/AtomicThrowable;
-
-    invoke-virtual {v10}, Lio/reactivex/internal/util/AtomicThrowable;->get()Ljava/lang/Object;
-
-    move-result-object v10
-
-    check-cast v10, Ljava/lang/Throwable;
-
-    .line 434
-    .local v10, "ex":Ljava/lang/Throwable;
-    if-eqz v10, :cond_4
-
-    .line 435
-    iget-object v11, v0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->errors:Lio/reactivex/internal/util/AtomicThrowable;
-
-    invoke-virtual {v11}, Lio/reactivex/internal/util/AtomicThrowable;->terminate()Ljava/lang/Throwable;
-
-    move-result-object v11
-
-    invoke-interface {v4, v11}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+    if-nez v4, :cond_3
 
     goto :goto_4
 
-    .line 437
-    :cond_4
-    invoke-interface {v4}, Lorg/reactivestreams/Subscriber;->onComplete()V
+    :cond_3
+    const/4 v15, 0x0
 
-    .line 439
-    :goto_4
+    :cond_4
+    add-int/lit8 v14, v14, 0x1
+
+    goto :goto_2
+
+    :cond_5
+    if-eqz v12, :cond_7
+
+    if-eqz v15, :cond_7
+
+    .line 433
+    iget-object v1, v0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->errors:Lio/reactivex/internal/util/AtomicThrowable;
+
+    invoke-virtual {v1}, Lio/reactivex/internal/util/AtomicThrowable;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/Throwable;
+
+    if-eqz v1, :cond_6
+
+    .line 435
+    iget-object v1, v0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->errors:Lio/reactivex/internal/util/AtomicThrowable;
+
+    invoke-virtual {v1}, Lio/reactivex/internal/util/AtomicThrowable;->terminate()Ljava/lang/Throwable;
+
+    move-result-object v1
+
+    invoke-interface {v3, v1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+
+    goto :goto_3
+
+    .line 437
+    :cond_6
+    invoke-interface {v3}, Lorg/reactivestreams/Subscriber;->onComplete()V
+
+    :goto_3
     return-void
 
-    .line 442
-    .end local v10    # "ex":Ljava/lang/Throwable;
-    :cond_5
-    if-eqz v12, :cond_6
-
-    .line 443
-    goto :goto_5
-
-    .line 445
-    .end local v9    # "d":Z
-    .end local v12    # "empty":Z
-    :cond_6
-    goto :goto_1
-
-    .line 447
     :cond_7
-    :goto_5
-    cmp-long v9, v7, v5
+    if-eqz v15, :cond_0
 
-    if-nez v9, :cond_d
+    :cond_8
+    :goto_4
+    cmp-long v4, v10, v6
+
+    if-nez v4, :cond_e
 
     .line 448
-    iget-boolean v9, v0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->cancelled:Z
+    iget-boolean v4, v0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->cancelled:Z
 
-    if-eqz v9, :cond_8
+    if-eqz v4, :cond_9
 
     .line 449
     invoke-virtual/range {p0 .. p0}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->cleanup()V
 
-    .line 450
     return-void
 
     .line 453
-    :cond_8
-    iget-object v9, v0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->done:Ljava/util/concurrent/atomic/AtomicInteger;
-
-    invoke-virtual {v9}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
-
-    move-result v9
-
-    if-nez v9, :cond_9
-
-    move v10, v11
-
-    goto :goto_6
-
     :cond_9
-    const/4 v10, 0x0
+    iget-object v4, v0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->done:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    invoke-virtual {v4}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
+
+    move-result v4
+
+    if-nez v4, :cond_a
+
+    const/4 v4, 0x1
+
+    goto :goto_5
+
+    :cond_a
+    const/4 v4, 0x0
+
+    :goto_5
+    const/4 v12, 0x0
 
     :goto_6
-    move v9, v10
-
-    .line 455
-    .restart local v9    # "d":Z
-    const/4 v10, 0x1
-
-    .line 457
-    .local v10, "empty":Z
-    const/4 v11, 0x0
-
-    .local v11, "i":I
-    :goto_7
-    if-ge v11, v3, :cond_b
+    if-ge v12, v2, :cond_c
 
     .line 458
-    aget-object v12, v2, v11
+    aget-object v13, v1, v12
 
     .line 460
-    .local v12, "inner":Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;, "Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber<TT;>;"
-    iget-object v13, v12, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;->queue:Lio/reactivex/internal/fuseable/SimplePlainQueue;
+    iget-object v13, v13, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;->queue:Lio/reactivex/internal/fuseable/SimplePlainQueue;
+
+    if-eqz v13, :cond_b
 
     .line 461
-    .local v13, "q":Lio/reactivex/internal/fuseable/SimpleQueue;, "Lio/reactivex/internal/fuseable/SimpleQueue<TT;>;"
-    if-eqz v13, :cond_a
-
     invoke-interface {v13}, Lio/reactivex/internal/fuseable/SimpleQueue;->isEmpty()Z
 
-    move-result v14
+    move-result v13
 
-    if-nez v14, :cond_a
+    if-nez v13, :cond_b
 
-    .line 462
-    const/4 v10, 0x0
-
-    .line 463
-    goto :goto_8
-
-    .line 457
-    .end local v12    # "inner":Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;, "Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber<TT;>;"
-    .end local v13    # "q":Lio/reactivex/internal/fuseable/SimpleQueue;, "Lio/reactivex/internal/fuseable/SimpleQueue<TT;>;"
-    :cond_a
-    add-int/lit8 v11, v11, 0x1
+    const/4 v13, 0x0
 
     goto :goto_7
 
-    .line 467
-    .end local v11    # "i":I
     :cond_b
-    :goto_8
-    if-eqz v9, :cond_d
+    add-int/lit8 v12, v12, 0x1
 
-    if-eqz v10, :cond_d
+    goto :goto_6
+
+    :cond_c
+    const/4 v13, 0x1
+
+    :goto_7
+    if-eqz v4, :cond_e
+
+    if-eqz v13, :cond_e
 
     .line 468
-    iget-object v11, v0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->errors:Lio/reactivex/internal/util/AtomicThrowable;
+    iget-object v1, v0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->errors:Lio/reactivex/internal/util/AtomicThrowable;
 
-    invoke-virtual {v11}, Lio/reactivex/internal/util/AtomicThrowable;->get()Ljava/lang/Object;
+    invoke-virtual {v1}, Lio/reactivex/internal/util/AtomicThrowable;->get()Ljava/lang/Object;
 
-    move-result-object v11
+    move-result-object v1
 
-    check-cast v11, Ljava/lang/Throwable;
+    check-cast v1, Ljava/lang/Throwable;
 
-    .line 469
-    .local v11, "ex":Ljava/lang/Throwable;
-    if-eqz v11, :cond_c
+    if-eqz v1, :cond_d
 
     .line 470
-    iget-object v12, v0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->errors:Lio/reactivex/internal/util/AtomicThrowable;
+    iget-object v1, v0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->errors:Lio/reactivex/internal/util/AtomicThrowable;
 
-    invoke-virtual {v12}, Lio/reactivex/internal/util/AtomicThrowable;->terminate()Ljava/lang/Throwable;
+    invoke-virtual {v1}, Lio/reactivex/internal/util/AtomicThrowable;->terminate()Ljava/lang/Throwable;
 
-    move-result-object v12
+    move-result-object v1
 
-    invoke-interface {v4, v12}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v3, v1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    goto :goto_9
+    goto :goto_8
 
     .line 472
-    :cond_c
-    invoke-interface {v4}, Lorg/reactivestreams/Subscriber;->onComplete()V
+    :cond_d
+    invoke-interface {v3}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 474
-    :goto_9
+    :goto_8
     return-void
 
-    .line 478
-    .end local v9    # "d":Z
-    .end local v10    # "empty":Z
-    .end local v11    # "ex":Ljava/lang/Throwable;
-    :cond_d
-    const-wide/16 v9, 0x0
+    :cond_e
+    cmp-long v4, v10, v8
 
-    cmp-long v9, v7, v9
+    if-eqz v4, :cond_f
 
-    if-eqz v9, :cond_e
+    const-wide v8, 0x7fffffffffffffffL
 
-    const-wide v9, 0x7fffffffffffffffL
+    cmp-long v4, v6, v8
 
-    cmp-long v9, v5, v9
-
-    if-eqz v9, :cond_e
+    if-eqz v4, :cond_f
 
     .line 479
-    iget-object v9, v0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->requested:Ljava/util/concurrent/atomic/AtomicLong;
+    iget-object v4, v0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
-    neg-long v10, v7
+    neg-long v6, v10
 
-    invoke-virtual {v9, v10, v11}, Ljava/util/concurrent/atomic/AtomicLong;->addAndGet(J)J
+    invoke-virtual {v4, v6, v7}, Ljava/util/concurrent/atomic/AtomicLong;->addAndGet(J)J
 
     .line 482
-    :cond_e
+    :cond_f
     invoke-virtual/range {p0 .. p0}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->get()I
 
-    move-result v9
+    move-result v4
 
-    .line 483
-    .local v9, "w":I
-    if-ne v9, v1, :cond_f
+    if-ne v4, v5, :cond_10
+
+    neg-int v4, v5
 
     .line 484
-    neg-int v10, v1
+    invoke-virtual {v0, v4}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->addAndGet(I)I
 
-    invoke-virtual {v0, v10}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->addAndGet(I)I
+    move-result v4
 
-    move-result v1
+    if-nez v4, :cond_10
 
-    .line 485
-    if-nez v1, :cond_10
-
-    .line 486
-    nop
-
-    .line 492
-    .end local v5    # "r":J
-    .end local v7    # "e":J
-    .end local v9    # "w":I
     return-void
 
-    .line 489
-    .restart local v5    # "r":J
-    .restart local v7    # "e":J
-    .restart local v9    # "w":I
-    :cond_f
-    move v1, v9
-
-    .line 491
-    .end local v5    # "r":J
-    .end local v7    # "e":J
-    .end local v9    # "w":I
     :cond_10
+    move v5, v4
+
     goto/16 :goto_0
 .end method
 
@@ -456,7 +357,6 @@
     .locals 1
 
     .line 378
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;, "Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->done:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
@@ -464,29 +364,25 @@
     .line 379
     invoke-virtual {p0}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->drain()V
 
-    .line 380
     return-void
 .end method
 
 .method onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 371
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;, "Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->errors:Lio/reactivex/internal/util/AtomicThrowable;
 
     invoke-virtual {v0, p1}, Lio/reactivex/internal/util/AtomicThrowable;->addThrowable(Ljava/lang/Throwable;)Z
 
     .line 372
-    iget-object v0, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->done:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object p1, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->done:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
+    invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
 
     .line 373
     invoke-virtual {p0}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->drain()V
 
-    .line 374
     return-void
 .end method
 
@@ -501,9 +397,6 @@
     .end annotation
 
     .line 330
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;, "Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError<TT;>;"
-    .local p1, "inner":Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;, "Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber<TT;>;"
-    .local p2, "value":Ljava/lang/Object;, "TT;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->get()I
 
     move-result v0
@@ -541,27 +434,27 @@
     invoke-interface {v0, p2}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
     .line 333
-    iget-object v0, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->requested:Ljava/util/concurrent/atomic/AtomicLong;
+    iget-object p2, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
+    invoke-virtual {p2}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
 
     move-result-wide v0
 
     const-wide v2, 0x7fffffffffffffffL
 
-    cmp-long v0, v0, v2
+    cmp-long p2, v0, v2
 
-    if-eqz v0, :cond_0
+    if-eqz p2, :cond_0
 
     .line 334
-    iget-object v0, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->requested:Ljava/util/concurrent/atomic/AtomicLong;
+    iget-object p2, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicLong;->decrementAndGet()J
+    invoke-virtual {p2}, Ljava/util/concurrent/atomic/AtomicLong;->decrementAndGet()J
 
-    .line 336
     :cond_0
     const-wide/16 v0, 0x1
 
+    .line 336
     invoke-virtual {p1, v0, v1}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;->request(J)V
 
     goto :goto_0
@@ -573,47 +466,43 @@
     move-result-object v0
 
     .line 340
-    .local v0, "q":Lio/reactivex/internal/fuseable/SimplePlainQueue;, "Lio/reactivex/internal/fuseable/SimplePlainQueue<TT;>;"
     invoke-interface {v0, p2}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->offer(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p2
 
-    if-nez v2, :cond_2
+    if-nez p2, :cond_2
 
     .line 341
     invoke-virtual {p1}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;->cancel()Z
 
     .line 342
-    iget-object v2, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->errors:Lio/reactivex/internal/util/AtomicThrowable;
+    iget-object p1, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->errors:Lio/reactivex/internal/util/AtomicThrowable;
 
-    new-instance v3, Lio/reactivex/exceptions/MissingBackpressureException;
+    new-instance p2, Lio/reactivex/exceptions/MissingBackpressureException;
 
-    invoke-direct {v3, v1}, Lio/reactivex/exceptions/MissingBackpressureException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, v1}, Lio/reactivex/exceptions/MissingBackpressureException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Lio/reactivex/internal/util/AtomicThrowable;->addThrowable(Ljava/lang/Throwable;)Z
+    invoke-virtual {p1, p2}, Lio/reactivex/internal/util/AtomicThrowable;->addThrowable(Ljava/lang/Throwable;)Z
 
     .line 343
-    iget-object v1, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->done:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object p1, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->done:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
+    invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
 
     .line 344
     invoke-virtual {p0}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->drainLoop()V
 
-    .line 345
     return-void
 
     .line 348
-    .end local v0    # "q":Lio/reactivex/internal/fuseable/SimplePlainQueue;, "Lio/reactivex/internal/fuseable/SimplePlainQueue<TT;>;"
     :cond_2
     :goto_0
     invoke-virtual {p0}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->decrementAndGet()I
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_5
+    if-nez p1, :cond_5
 
-    .line 349
     return-void
 
     .line 352
@@ -623,50 +512,46 @@
     move-result-object v0
 
     .line 354
-    .restart local v0    # "q":Lio/reactivex/internal/fuseable/SimplePlainQueue;, "Lio/reactivex/internal/fuseable/SimplePlainQueue<TT;>;"
     invoke-interface {v0, p2}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->offer(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p2
 
-    if-nez v2, :cond_4
+    if-nez p2, :cond_4
 
     .line 355
     invoke-virtual {p1}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;->cancel()Z
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_4
+    if-eqz p1, :cond_4
 
     .line 356
-    iget-object v2, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->errors:Lio/reactivex/internal/util/AtomicThrowable;
+    iget-object p1, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->errors:Lio/reactivex/internal/util/AtomicThrowable;
 
-    new-instance v3, Lio/reactivex/exceptions/MissingBackpressureException;
+    new-instance p2, Lio/reactivex/exceptions/MissingBackpressureException;
 
-    invoke-direct {v3, v1}, Lio/reactivex/exceptions/MissingBackpressureException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, v1}, Lio/reactivex/exceptions/MissingBackpressureException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Lio/reactivex/internal/util/AtomicThrowable;->addThrowable(Ljava/lang/Throwable;)Z
+    invoke-virtual {p1, p2}, Lio/reactivex/internal/util/AtomicThrowable;->addThrowable(Ljava/lang/Throwable;)Z
 
     .line 357
-    iget-object v1, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->done:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object p1, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->done:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
+    invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
 
     .line 361
     :cond_4
     invoke-virtual {p0}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->getAndIncrement()I
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_5
+    if-eqz p1, :cond_5
 
-    .line 362
     return-void
 
     .line 366
-    .end local v0    # "q":Lio/reactivex/internal/fuseable/SimplePlainQueue;, "Lio/reactivex/internal/fuseable/SimplePlainQueue<TT;>;"
     :cond_5
     invoke-virtual {p0}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionDelayError;->drainLoop()V
 
-    .line 367
     return-void
 .end method

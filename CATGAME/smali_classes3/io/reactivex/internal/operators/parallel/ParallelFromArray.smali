@@ -39,14 +39,11 @@
     .end annotation
 
     .line 29
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelFromArray;, "Lio/reactivex/internal/operators/parallel/ParallelFromArray<TT;>;"
-    .local p1, "sources":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<TT;>;"
     invoke-direct {p0}, Lio/reactivex/parallel/ParallelFlowable;-><init>()V
 
     .line 30
     iput-object p1, p0, Lio/reactivex/internal/operators/parallel/ParallelFromArray;->sources:[Lorg/reactivestreams/Publisher;
 
-    .line 31
     return-void
 .end method
 
@@ -56,7 +53,6 @@
     .locals 1
 
     .line 35
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelFromArray;, "Lio/reactivex/internal/operators/parallel/ParallelFromArray<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/parallel/ParallelFromArray;->sources:[Lorg/reactivestreams/Publisher;
 
     array-length v0, v0
@@ -75,26 +71,20 @@
     .end annotation
 
     .line 40
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelFromArray;, "Lio/reactivex/internal/operators/parallel/ParallelFromArray<TT;>;"
-    .local p1, "subscribers":[Lorg/reactivestreams/Subscriber;, "[Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/parallel/ParallelFromArray;->validate([Lorg/reactivestreams/Subscriber;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 41
     return-void
 
     .line 44
     :cond_0
     array-length v0, p1
 
-    .line 46
-    .local v0, "n":I
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_1
 
@@ -107,13 +97,10 @@
 
     invoke-interface {v2, v3}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
 
-    .line 46
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 49
-    .end local v1    # "i":I
     :cond_1
     return-void
 .end method

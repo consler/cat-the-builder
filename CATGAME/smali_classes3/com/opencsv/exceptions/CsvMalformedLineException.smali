@@ -20,15 +20,11 @@
     .line 46
     invoke-direct {p0}, Ljava/io/IOException;-><init>()V
 
-    .line 47
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;JLjava/lang/String;)V
     .locals 0
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "lineNumber"    # J
-    .param p4, "context"    # Ljava/lang/String;
 
     .line 57
     invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
@@ -39,7 +35,6 @@
     .line 59
     iput-object p4, p0, Lcom/opencsv/exceptions/CsvMalformedLineException;->context:Ljava/lang/String;
 
-    .line 60
     return-void
 .end method
 

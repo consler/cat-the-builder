@@ -17,7 +17,6 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 0
-    .param p1, "field"    # I
 
     .line 960
     invoke-direct {p0, p1}, Lorg/apache/commons/lang3/time/FastDateParser$NumberStrategy;-><init>(I)V
@@ -28,12 +27,9 @@
 
 # virtual methods
 .method modify(Lorg/apache/commons/lang3/time/FastDateParser;I)I
-    .locals 1
-    .param p1, "parser"    # Lorg/apache/commons/lang3/time/FastDateParser;
-    .param p2, "iValue"    # I
+    .locals 0
 
-    .line 963
-    add-int/lit8 v0, p2, -0x1
+    add-int/lit8 p2, p2, -0x1
 
-    return v0
+    return p2
 .end method

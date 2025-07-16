@@ -69,10 +69,8 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 2
-    .param p1, "batchSize"    # I
 
     .line 67
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator<TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 68
@@ -82,35 +80,34 @@
 
     iput-object v0, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->queue:Lio/reactivex/internal/queue/SpscArrayQueue;
 
-    .line 69
     int-to-long v0, p1
 
+    .line 69
     iput-wide v0, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->batchSize:J
 
-    .line 70
     shr-int/lit8 v0, p1, 0x2
 
-    sub-int v0, p1, v0
+    sub-int/2addr p1, v0
 
-    int-to-long v0, v0
+    int-to-long v0, p1
 
+    .line 70
     iput-wide v0, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->limit:J
 
     .line 71
-    new-instance v0, Ljava/util/concurrent/locks/ReentrantLock;
+    new-instance p1, Ljava/util/concurrent/locks/ReentrantLock;
 
-    invoke-direct {v0}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->lock:Ljava/util/concurrent/locks/Lock;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->lock:Ljava/util/concurrent/locks/Lock;
 
     .line 72
-    invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->newCondition()Ljava/util/concurrent/locks/Condition;
+    invoke-interface {p1}, Ljava/util/concurrent/locks/Lock;->newCondition()Ljava/util/concurrent/locks/Condition;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->condition:Ljava/util/concurrent/locks/Condition;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->condition:Ljava/util/concurrent/locks/Condition;
 
-    .line 73
     return-void
 .end method
 
@@ -120,58 +117,46 @@
     .locals 0
 
     .line 179
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator<TT;>;"
     invoke-static {p0}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->cancel(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 180
     return-void
 .end method
 
 .method public hasNext()Z
-    .locals 4
+    .locals 2
 
     .line 78
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator<TT;>;"
     :goto_0
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->done:Z
 
     .line 79
-    .local v0, "d":Z
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->queue:Lio/reactivex/internal/queue/SpscArrayQueue;
 
     invoke-virtual {v1}, Lio/reactivex/internal/queue/SpscArrayQueue;->isEmpty()Z
 
     move-result v1
 
-    .line 80
-    .local v1, "empty":Z
     if-eqz v0, :cond_1
 
     .line 81
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->error:Ljava/lang/Throwable;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->error:Ljava/lang/Throwable;
 
-    .line 82
-    .local v2, "e":Ljava/lang/Throwable;
-    if-nez v2, :cond_0
+    if-nez v0, :cond_0
 
-    .line 85
     if-eqz v1, :cond_1
 
-    .line 86
-    const/4 v3, 0x0
+    const/4 v0, 0x0
 
-    return v3
+    return v0
 
     .line 83
     :cond_0
-    invoke-static {v2}, Lio/reactivex/internal/util/ExceptionHelper;->wrapOrThrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
+    invoke-static {v0}, Lio/reactivex/internal/util/ExceptionHelper;->wrapOrThrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
 
-    move-result-object v3
+    move-result-object v0
 
-    throw v3
+    throw v0
 
-    .line 89
-    .end local v2    # "e":Ljava/lang/Throwable;
     :cond_1
     if-eqz v1, :cond_3
 
@@ -179,29 +164,29 @@
     invoke-static {}, Lio/reactivex/internal/util/BlockingHelper;->verifyNonBlocking()V
 
     .line 91
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->lock:Ljava/util/concurrent/locks/Lock;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->lock:Ljava/util/concurrent/locks/Lock;
 
-    invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->lock()V
+    invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V
 
     .line 93
     :goto_1
     :try_start_0
-    iget-boolean v2, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->done:Z
+    iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->done:Z
 
-    if-nez v2, :cond_2
+    if-nez v0, :cond_2
 
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->queue:Lio/reactivex/internal/queue/SpscArrayQueue;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->queue:Lio/reactivex/internal/queue/SpscArrayQueue;
 
-    invoke-virtual {v2}, Lio/reactivex/internal/queue/SpscArrayQueue;->isEmpty()Z
+    invoke-virtual {v0}, Lio/reactivex/internal/queue/SpscArrayQueue;->isEmpty()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_2
+    if-eqz v0, :cond_2
 
     .line 94
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->condition:Ljava/util/concurrent/locks/Condition;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->condition:Ljava/util/concurrent/locks/Condition;
 
-    invoke-interface {v2}, Ljava/util/concurrent/locks/Condition;->await()V
+    invoke-interface {v0}, Ljava/util/concurrent/locks/Condition;->await()V
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -210,72 +195,51 @@
 
     .line 100
     :cond_2
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->lock:Ljava/util/concurrent/locks/Lock;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->lock:Ljava/util/concurrent/locks/Lock;
 
-    invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->unlock()V
+    invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
-    .line 101
-    nop
-
-    .line 100
-    nop
-
-    .line 105
-    .end local v0    # "d":Z
-    .end local v1    # "empty":Z
     goto :goto_0
 
-    .line 100
-    .restart local v0    # "d":Z
-    .restart local v1    # "empty":Z
     :catchall_0
-    move-exception v2
+    move-exception v0
 
     goto :goto_2
 
-    .line 96
     :catch_0
-    move-exception v2
+    move-exception v0
 
     .line 97
-    .local v2, "ex":Ljava/lang/InterruptedException;
     :try_start_1
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->run()V
 
     .line 98
-    invoke-static {v2}, Lio/reactivex/internal/util/ExceptionHelper;->wrapOrThrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
+    invoke-static {v0}, Lio/reactivex/internal/util/ExceptionHelper;->wrapOrThrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
 
-    move-result-object v3
+    move-result-object v0
 
-    .end local v0    # "d":Z
-    .end local v1    # "empty":Z
-    throw v3
+    throw v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 100
-    .end local v2    # "ex":Ljava/lang/InterruptedException;
-    .restart local v0    # "d":Z
-    .restart local v1    # "empty":Z
     :goto_2
-    iget-object v3, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->lock:Ljava/util/concurrent/locks/Lock;
+    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->lock:Ljava/util/concurrent/locks/Lock;
 
-    invoke-interface {v3}, Ljava/util/concurrent/locks/Lock;->unlock()V
+    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
-    throw v2
+    throw v0
 
-    .line 103
     :cond_3
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    return v2
+    return v0
 .end method
 
 .method public isDisposed()Z
     .locals 1
 
     .line 184
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -298,7 +262,6 @@
     .end annotation
 
     .line 110
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->hasNext()Z
 
     move-result v0
@@ -313,7 +276,6 @@
     move-result-object v0
 
     .line 113
-    .local v0, "v":Ljava/lang/Object;, "TT;"
     iget-wide v1, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->produced:J
 
     const-wide/16 v3, 0x1
@@ -321,16 +283,15 @@
     add-long/2addr v1, v3
 
     .line 114
-    .local v1, "p":J
     iget-wide v3, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->limit:J
 
     cmp-long v3, v1, v3
 
     if-nez v3, :cond_0
 
-    .line 115
     const-wide/16 v3, 0x0
 
+    .line 115
     iput-wide v3, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->produced:J
 
     .line 116
@@ -348,13 +309,10 @@
     :cond_0
     iput-wide v1, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->produced:J
 
-    .line 121
     :goto_0
     return-object v0
 
     .line 123
-    .end local v0    # "v":Ljava/lang/Object;, "TT;"
-    .end local v1    # "p":J
     :cond_1
     new-instance v0, Ljava/util/NoSuchElementException;
 
@@ -366,41 +324,36 @@
 .method public onComplete()V
     .locals 1
 
-    .line 153
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator<TT;>;"
     const/4 v0, 0x1
 
+    .line 153
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->done:Z
 
     .line 154
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->signalConsumer()V
 
-    .line 155
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
-    .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
+    .locals 0
 
     .line 146
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator<TT;>;"
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->error:Ljava/lang/Throwable;
 
-    .line 147
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->done:Z
+    .line 147
+    iput-boolean p1, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->done:Z
 
     .line 148
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->signalConsumer()V
 
-    .line 149
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -408,27 +361,25 @@
     .end annotation
 
     .line 135
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->queue:Lio/reactivex/internal/queue/SpscArrayQueue;
 
     invoke-virtual {v0, p1}, Lio/reactivex/internal/queue/SpscArrayQueue;->offer(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 136
     invoke-static {p0}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->cancel(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
     .line 138
-    new-instance v0, Lio/reactivex/exceptions/MissingBackpressureException;
+    new-instance p1, Lio/reactivex/exceptions/MissingBackpressureException;
 
-    const-string v1, "Queue full?!"
+    const-string v0, "Queue full?!"
 
-    invoke-direct {v0, v1}, Lio/reactivex/exceptions/MissingBackpressureException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lio/reactivex/exceptions/MissingBackpressureException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->onError(Ljava/lang/Throwable;)V
 
     goto :goto_0
 
@@ -436,17 +387,14 @@
     :cond_0
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->signalConsumer()V
 
-    .line 142
     :goto_0
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 128
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator<TT;>;"
     invoke-static {p0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lorg/reactivestreams/Subscription;)Z
 
     move-result v0
@@ -458,7 +406,6 @@
 
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 131
     :cond_0
     return-void
 .end method
@@ -467,7 +414,6 @@
     .locals 2
 
     .line 174
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator<TT;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "remove"
@@ -481,13 +427,11 @@
     .locals 0
 
     .line 168
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator<TT;>;"
     invoke-static {p0}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->cancel(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
     .line 169
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->signalConsumer()V
 
-    .line 170
     return-void
 .end method
 
@@ -495,7 +439,6 @@
     .locals 2
 
     .line 158
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;->lock:Ljava/util/concurrent/locks/Lock;
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V
@@ -513,13 +456,8 @@
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
-    .line 163
-    nop
-
-    .line 164
     return-void
 
-    .line 162
     :catchall_0
     move-exception v0
 

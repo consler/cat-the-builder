@@ -26,17 +26,10 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .locals 1
 
     .line 865
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 866
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_0
 
     .line 867
     new-instance v0, Landroid/support/v4/media/MediaBrowserCompat$ItemCallback$ItemCallbackApi23;
@@ -45,16 +38,6 @@
 
     iput-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;->mItemCallbackFwk:Landroid/media/browse/MediaBrowser$ItemCallback;
 
-    goto :goto_0
-
-    .line 869
-    :cond_0
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;->mItemCallbackFwk:Landroid/media/browse/MediaBrowser$ItemCallback;
-
-    .line 871
-    :goto_0
     return-void
 .end method
 
@@ -62,16 +45,12 @@
 # virtual methods
 .method public onError(Ljava/lang/String;)V
     .locals 0
-    .param p1, "itemId"    # Ljava/lang/String;
 
-    .line 887
     return-void
 .end method
 
 .method public onItemLoaded(Landroid/support/v4/media/MediaBrowserCompat$MediaItem;)V
     .locals 0
-    .param p1, "item"    # Landroid/support/v4/media/MediaBrowserCompat$MediaItem;
 
-    .line 879
     return-void
 .end method

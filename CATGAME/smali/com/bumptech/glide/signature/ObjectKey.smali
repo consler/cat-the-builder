@@ -12,8 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
+    .locals 0
 
     .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -21,19 +20,17 @@
     .line 21
     invoke-static {p1}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/bumptech/glide/signature/ObjectKey;->object:Ljava/lang/Object;
+    iput-object p1, p0, Lcom/bumptech/glide/signature/ObjectKey;->object:Ljava/lang/Object;
 
-    .line 22
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 1
 
     .line 31
     instance-of v0, p1, Lcom/bumptech/glide/signature/ObjectKey;
@@ -41,28 +38,23 @@
     if-eqz v0, :cond_0
 
     .line 32
-    move-object v0, p1
-
-    check-cast v0, Lcom/bumptech/glide/signature/ObjectKey;
+    check-cast p1, Lcom/bumptech/glide/signature/ObjectKey;
 
     .line 33
-    .local v0, "other":Lcom/bumptech/glide/signature/ObjectKey;
-    iget-object v1, p0, Lcom/bumptech/glide/signature/ObjectKey;->object:Ljava/lang/Object;
+    iget-object v0, p0, Lcom/bumptech/glide/signature/ObjectKey;->object:Ljava/lang/Object;
 
-    iget-object v2, v0, Lcom/bumptech/glide/signature/ObjectKey;->object:Ljava/lang/Object;
+    iget-object p1, p1, Lcom/bumptech/glide/signature/ObjectKey;->object:Ljava/lang/Object;
 
-    invoke-virtual {v1, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 
-    .line 35
-    .end local v0    # "other":Lcom/bumptech/glide/signature/ObjectKey;
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public hashCode()I
@@ -84,19 +76,21 @@
     .line 26
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "ObjectKey{object="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v1, p0, Lcom/bumptech/glide/signature/ObjectKey;->object:Ljava/lang/Object;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const/16 v1, 0x7d
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -107,7 +101,6 @@
 
 .method public updateDiskCacheKey(Ljava/security/MessageDigest;)V
     .locals 2
-    .param p1, "messageDigest"    # Ljava/security/MessageDigest;
 
     .line 45
     iget-object v0, p0, Lcom/bumptech/glide/signature/ObjectKey;->object:Ljava/lang/Object;
@@ -124,6 +117,5 @@
 
     invoke-virtual {p1, v0}, Ljava/security/MessageDigest;->update([B)V
 
-    .line 46
     return-void
 .end method

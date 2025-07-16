@@ -80,19 +80,16 @@
     .end annotation
 
     .line 388
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$EntrySetIterator;, "Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$EntrySetIterator<TE;>;"
-    .local p1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<TE;Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MutableInteger;>;>;"
-    .local p2, "parent":Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet;, "Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 377
     const/4 v0, 0x0
 
+    .line 377
     iput-object v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$EntrySetIterator;->last:Lorg/apache/commons/collections4/MultiSet$Entry;
 
-    .line 380
     const/4 v0, 0x0
 
+    .line 380
     iput-boolean v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$EntrySetIterator;->canRemove:Z
 
     .line 389
@@ -101,7 +98,6 @@
     .line 390
     iput-object p2, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$EntrySetIterator;->parent:Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet;
 
-    .line 391
     return-void
 .end method
 
@@ -111,7 +107,6 @@
     .locals 1
 
     .line 395
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$EntrySetIterator;, "Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$EntrySetIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$EntrySetIterator;->decorated:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -125,7 +120,6 @@
     .locals 1
 
     .line 369
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$EntrySetIterator;, "Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$EntrySetIterator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$EntrySetIterator;->next()Lorg/apache/commons/collections4/MultiSet$Entry;
 
     move-result-object v0
@@ -144,7 +138,6 @@
     .end annotation
 
     .line 400
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$EntrySetIterator;, "Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$EntrySetIterator<TE;>;"
     new-instance v0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MultiSetEntry;
 
     iget-object v1, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$EntrySetIterator;->decorated:Ljava/util/Iterator;
@@ -159,12 +152,11 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$EntrySetIterator;->last:Lorg/apache/commons/collections4/MultiSet$Entry;
 
-    .line 401
     const/4 v1, 0x1
 
+    .line 401
     iput-boolean v1, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$EntrySetIterator;->canRemove:Z
 
-    .line 402
     return-object v0
 .end method
 
@@ -172,7 +164,6 @@
     .locals 2
 
     .line 407
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$EntrySetIterator;, "Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$EntrySetIterator<TE;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$EntrySetIterator;->canRemove:Z
 
     if-eqz v0, :cond_0
@@ -182,17 +173,16 @@
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 411
     const/4 v0, 0x0
 
+    .line 411
     iput-object v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$EntrySetIterator;->last:Lorg/apache/commons/collections4/MultiSet$Entry;
 
-    .line 412
     const/4 v0, 0x0
 
+    .line 412
     iput-boolean v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$EntrySetIterator;->canRemove:Z
 
-    .line 413
     return-void
 
     .line 408

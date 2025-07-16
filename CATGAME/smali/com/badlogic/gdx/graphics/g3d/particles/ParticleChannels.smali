@@ -333,7 +333,6 @@
     .line 154
     invoke-virtual {p0}, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleChannels;->resetIds()V
 
-    .line 155
     return-void
 .end method
 
@@ -373,6 +372,5 @@
 
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleChannels;->currentId:I
 
-    .line 163
     return-void
 .end method

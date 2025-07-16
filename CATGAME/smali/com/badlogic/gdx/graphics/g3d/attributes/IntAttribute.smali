@@ -17,9 +17,9 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .line 23
     const-string v0, "cullface"
 
+    .line 23
     invoke-static {v0}, Lcom/badlogic/gdx/graphics/g3d/attributes/IntAttribute;->register(Ljava/lang/String;)J
 
     move-result-wide v0
@@ -31,19 +31,15 @@
 
 .method public constructor <init>(J)V
     .locals 0
-    .param p1, "type"    # J
 
     .line 32
     invoke-direct {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/Attribute;-><init>(J)V
 
-    .line 33
     return-void
 .end method
 
 .method public constructor <init>(JI)V
     .locals 0
-    .param p1, "type"    # J
-    .param p3, "value"    # I
 
     .line 36
     invoke-direct {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/Attribute;-><init>(J)V
@@ -51,13 +47,11 @@
     .line 37
     iput p3, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/IntAttribute;->value:I
 
-    .line 38
     return-void
 .end method
 
 .method public static createCullFace(I)Lcom/badlogic/gdx/graphics/g3d/attributes/IntAttribute;
     .locals 3
-    .param p0, "value"    # I
 
     .line 26
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/attributes/IntAttribute;
@@ -73,7 +67,6 @@
 # virtual methods
 .method public compareTo(Lcom/badlogic/gdx/graphics/g3d/Attribute;)I
     .locals 4
-    .param p1, "o"    # Lcom/badlogic/gdx/graphics/g3d/Attribute;
 
     .line 54
     iget-wide v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/IntAttribute;->type:J
@@ -90,21 +83,19 @@
 
     sub-long/2addr v0, v2
 
-    long-to-int v0, v0
+    long-to-int p1, v0
 
-    return v0
+    return p1
 
     .line 55
     :cond_0
     iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/IntAttribute;->value:I
 
-    move-object v1, p1
+    check-cast p1, Lcom/badlogic/gdx/graphics/g3d/attributes/IntAttribute;
 
-    check-cast v1, Lcom/badlogic/gdx/graphics/g3d/attributes/IntAttribute;
+    iget p1, p1, Lcom/badlogic/gdx/graphics/g3d/attributes/IntAttribute;->value:I
 
-    iget v1, v1, Lcom/badlogic/gdx/graphics/g3d/attributes/IntAttribute;->value:I
-
-    sub-int/2addr v0, v1
+    sub-int/2addr v0, p1
 
     return v0
 .end method
@@ -138,23 +129,19 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .locals 2
 
     .line 47
     invoke-super {p0}, Lcom/badlogic/gdx/graphics/g3d/Attribute;->hashCode()I
 
     move-result v0
 
+    mul-int/lit16 v0, v0, 0x3d7
+
     .line 48
-    .local v0, "result":I
-    mul-int/lit16 v1, v0, 0x3d7
+    iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/IntAttribute;->value:I
 
-    iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/IntAttribute;->value:I
+    add-int/2addr v0, v1
 
-    add-int/2addr v1, v2
-
-    .line 49
-    .end local v0    # "result":I
-    .local v1, "result":I
-    return v1
+    return v0
 .end method

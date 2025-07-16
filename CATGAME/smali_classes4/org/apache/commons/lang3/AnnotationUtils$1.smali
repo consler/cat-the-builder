@@ -25,9 +25,9 @@
     .line 50
     invoke-direct {p0}, Lorg/apache/commons/lang3/builder/ToStringStyle;-><init>()V
 
-    .line 55
     const/4 v0, 0x1
 
+    .line 55
     invoke-virtual {p0, v0}, Lorg/apache/commons/lang3/AnnotationUtils$1;->setDefaultFullDetail(Z)V
 
     .line 56
@@ -39,37 +39,36 @@
     .line 58
     invoke-virtual {p0, v0}, Lorg/apache/commons/lang3/AnnotationUtils$1;->setUseShortClassName(Z)V
 
-    .line 59
     const/4 v0, 0x0
 
+    .line 59
     invoke-virtual {p0, v0}, Lorg/apache/commons/lang3/AnnotationUtils$1;->setUseIdentityHashCode(Z)V
 
-    .line 60
     const-string v0, "("
 
+    .line 60
     invoke-virtual {p0, v0}, Lorg/apache/commons/lang3/AnnotationUtils$1;->setContentStart(Ljava/lang/String;)V
 
-    .line 61
     const-string v0, ")"
 
+    .line 61
     invoke-virtual {p0, v0}, Lorg/apache/commons/lang3/AnnotationUtils$1;->setContentEnd(Ljava/lang/String;)V
 
-    .line 62
     const-string v0, ", "
 
+    .line 62
     invoke-virtual {p0, v0}, Lorg/apache/commons/lang3/AnnotationUtils$1;->setFieldSeparator(Ljava/lang/String;)V
 
-    .line 63
     const-string v0, "["
 
+    .line 63
     invoke-virtual {p0, v0}, Lorg/apache/commons/lang3/AnnotationUtils$1;->setArrayStart(Ljava/lang/String;)V
 
-    .line 64
     const-string v0, "]"
 
+    .line 64
     invoke-virtual {p0, v0}, Lorg/apache/commons/lang3/AnnotationUtils$1;->setArrayEnd(Ljava/lang/String;)V
 
-    .line 65
     return-void
 .end method
 
@@ -77,9 +76,6 @@
 # virtual methods
 .method protected appendDetail(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/lang/Object;)V
     .locals 1
-    .param p1, "buffer"    # Ljava/lang/StringBuffer;
-    .param p2, "fieldName"    # Ljava/lang/String;
-    .param p3, "value"    # Ljava/lang/Object;
 
     .line 91
     instance-of v0, p3, Ljava/lang/annotation/Annotation;
@@ -87,11 +83,9 @@
     if-eqz v0, :cond_0
 
     .line 92
-    move-object v0, p3
+    check-cast p3, Ljava/lang/annotation/Annotation;
 
-    check-cast v0, Ljava/lang/annotation/Annotation;
-
-    invoke-static {v0}, Lorg/apache/commons/lang3/AnnotationUtils;->toString(Ljava/lang/annotation/Annotation;)Ljava/lang/String;
+    invoke-static {p3}, Lorg/apache/commons/lang3/AnnotationUtils;->toString(Ljava/lang/annotation/Annotation;)Ljava/lang/String;
 
     move-result-object p3
 
@@ -99,12 +93,11 @@
     :cond_0
     invoke-super {p0, p1, p2, p3}, Lorg/apache/commons/lang3/builder/ToStringStyle;->appendDetail(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 95
     return-void
 .end method
 
 .method protected getShortClassName(Ljava/lang/Class;)Ljava/lang/String;
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -114,91 +107,72 @@
         }
     .end annotation
 
-    .line 72
-    .local p1, "cls":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    const/4 v0, 0x0
-
     .line 73
-    .local v0, "annotationType":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;"
     invoke-static {p1}, Lorg/apache/commons/lang3/ClassUtils;->getAllInterfaces(Ljava/lang/Class;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object p1
 
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    :cond_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_1
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Ljava/lang/Class;
+    check-cast v0, Ljava/lang/Class;
 
     .line 74
-    .local v2, "iface":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    const-class v3, Ljava/lang/annotation/Annotation;
+    const-class v1, Ljava/lang/annotation/Annotation;
 
-    invoke-virtual {v3, v2}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    invoke-virtual {v1, v0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_0
+    if-eqz v1, :cond_0
 
-    .line 77
-    move-object v1, v2
-
-    .line 78
-    .local v1, "found":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;"
-    move-object v0, v1
-
-    .line 79
-    goto :goto_1
-
-    .line 81
-    .end local v1    # "found":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;"
-    .end local v2    # "iface":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    :cond_0
     goto :goto_0
 
-    .line 82
     :cond_1
-    :goto_1
-    new-instance v1, Ljava/lang/StringBuilder;
+    const/4 v0, 0x0
+
+    .line 82
+    :goto_0
+    new-instance p1, Ljava/lang/StringBuilder;
 
     if-nez v0, :cond_2
 
-    const-string v2, ""
+    const-string v0, ""
 
-    goto :goto_2
+    goto :goto_1
 
     :cond_2
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    :goto_2
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    :goto_1
+    invoke-direct {p1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    const/16 v3, 0x40
+    const/16 v1, 0x40
 
     .line 83
-    invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->insert(IC)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0, v1}, Ljava/lang/StringBuilder;->insert(IC)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    .line 82
-    return-object v1
+    return-object p1
 .end method

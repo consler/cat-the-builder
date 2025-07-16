@@ -21,8 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/PushParser;I)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/PushParser;
-    .param p2, "length"    # I
 
     .line 179
     iput-object p1, p0, Lcom/koushikdutta/async/PushParser$1;->this$0:Lcom/koushikdutta/async/PushParser;
@@ -35,21 +33,18 @@
 
 # virtual methods
 .method public onDataAvailable(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/ByteBufferList;)Lcom/koushikdutta/async/PushParser$Waiter;
-    .locals 2
-    .param p1, "emitter"    # Lcom/koushikdutta/async/DataEmitter;
-    .param p2, "bb"    # Lcom/koushikdutta/async/ByteBufferList;
+    .locals 0
 
     .line 182
-    iget-object v0, p0, Lcom/koushikdutta/async/PushParser$1;->this$0:Lcom/koushikdutta/async/PushParser;
+    iget-object p1, p0, Lcom/koushikdutta/async/PushParser$1;->this$0:Lcom/koushikdutta/async/PushParser;
 
-    invoke-static {v0}, Lcom/koushikdutta/async/PushParser;->access$000(Lcom/koushikdutta/async/PushParser;)Ljava/util/ArrayList;
+    invoke-static {p1}, Lcom/koushikdutta/async/PushParser;->access$000(Lcom/koushikdutta/async/PushParser;)Ljava/util/ArrayList;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 183
-    return-object v1
+    return-object p2
 .end method

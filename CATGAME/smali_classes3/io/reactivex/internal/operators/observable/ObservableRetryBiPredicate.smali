@@ -54,15 +54,11 @@
     .end annotation
 
     .line 29
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRetryBiPredicate;, "Lio/reactivex/internal/operators/observable/ObservableRetryBiPredicate<TT;>;"
-    .local p1, "source":Lio/reactivex/Observable;, "Lio/reactivex/Observable<TT;>;"
-    .local p2, "predicate":Lio/reactivex/functions/BiPredicate;, "Lio/reactivex/functions/BiPredicate<-Ljava/lang/Integer;-Ljava/lang/Throwable;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/observable/AbstractObservableWithUpstream;-><init>(Lio/reactivex/ObservableSource;)V
 
     .line 30
     iput-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableRetryBiPredicate;->predicate:Lio/reactivex/functions/BiPredicate;
 
-    .line 31
     return-void
 .end method
 
@@ -79,14 +75,11 @@
     .end annotation
 
     .line 35
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRetryBiPredicate;, "Lio/reactivex/internal/operators/observable/ObservableRetryBiPredicate<TT;>;"
-    .local p1, "s":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     new-instance v0, Lio/reactivex/internal/disposables/SequentialDisposable;
 
     invoke-direct {v0}, Lio/reactivex/internal/disposables/SequentialDisposable;-><init>()V
 
     .line 36
-    .local v0, "sa":Lio/reactivex/internal/disposables/SequentialDisposable;
     invoke-interface {p1, v0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 38
@@ -99,9 +92,7 @@
     invoke-direct {v1, p1, v2, v0, v3}, Lio/reactivex/internal/operators/observable/ObservableRetryBiPredicate$RetryBiObserver;-><init>(Lio/reactivex/Observer;Lio/reactivex/functions/BiPredicate;Lio/reactivex/internal/disposables/SequentialDisposable;Lio/reactivex/ObservableSource;)V
 
     .line 39
-    .local v1, "rs":Lio/reactivex/internal/operators/observable/ObservableRetryBiPredicate$RetryBiObserver;, "Lio/reactivex/internal/operators/observable/ObservableRetryBiPredicate$RetryBiObserver<TT;>;"
     invoke-virtual {v1}, Lio/reactivex/internal/operators/observable/ObservableRetryBiPredicate$RetryBiObserver;->subscribeNext()V
 
-    .line 40
     return-void
 .end method

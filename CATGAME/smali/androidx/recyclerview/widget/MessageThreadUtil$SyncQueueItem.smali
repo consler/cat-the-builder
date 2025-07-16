@@ -63,11 +63,7 @@
 
 .method static obtainMessage(III)Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
     .locals 7
-    .param p0, "what"    # I
-    .param p1, "arg1"    # I
-    .param p2, "arg2"    # I
 
-    .line 225
     const/4 v3, 0x0
 
     const/4 v4, 0x0
@@ -82,22 +78,16 @@
 
     move v2, p2
 
+    .line 225
     invoke-static/range {v0 .. v6}, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;->obtainMessage(IIIIIILjava/lang/Object;)Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static obtainMessage(IIIIIILjava/lang/Object;)Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
     .locals 3
-    .param p0, "what"    # I
-    .param p1, "arg1"    # I
-    .param p2, "arg2"    # I
-    .param p3, "arg3"    # I
-    .param p4, "arg4"    # I
-    .param p5, "arg5"    # I
-    .param p6, "data"    # Ljava/lang/Object;
 
     .line 204
     sget-object v0, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;->sPoolLock:Ljava/lang/Object;
@@ -115,25 +105,17 @@
 
     invoke-direct {v1}, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;-><init>()V
 
-    .local v1, "item":Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
     goto :goto_0
 
-    .line 209
-    .end local v1    # "item":Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
-    :cond_0
-    sget-object v1, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;->sPool:Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
-
     .line 210
-    .restart local v1    # "item":Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
-    sget-object v2, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;->sPool:Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
-
-    iget-object v2, v2, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;->next:Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
+    :cond_0
+    iget-object v2, v1, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;->next:Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
 
     sput-object v2, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;->sPool:Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
 
-    .line 211
     const/4 v2, 0x0
 
+    .line 211
     iput-object v2, v1, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;->next:Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
 
     .line 213
@@ -163,25 +145,20 @@
 
     return-object v1
 
-    .line 221
-    .end local v1    # "item":Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
     :catchall_0
-    move-exception v1
+    move-exception p0
 
+    .line 221
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method static obtainMessage(IILjava/lang/Object;)Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
     .locals 7
-    .param p0, "what"    # I
-    .param p1, "arg1"    # I
-    .param p2, "data"    # Ljava/lang/Object;
 
-    .line 229
     const/4 v2, 0x0
 
     const/4 v3, 0x0
@@ -196,11 +173,12 @@
 
     move-object v6, p2
 
+    .line 229
     invoke-static/range {v0 .. v6}, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;->obtainMessage(IIIIIILjava/lang/Object;)Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 
@@ -208,14 +186,14 @@
 .method recycle()V
     .locals 2
 
-    .line 191
     const/4 v0, 0x0
 
+    .line 191
     iput-object v0, p0, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;->next:Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
 
-    .line 192
     const/4 v1, 0x0
 
+    .line 192
     iput v1, p0, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;->arg5:I
 
     iput v1, p0, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;->arg4:I
@@ -243,8 +221,6 @@
     if-eqz v1, :cond_0
 
     .line 196
-    sget-object v1, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;->sPool:Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
-
     iput-object v1, p0, Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;->next:Landroidx/recyclerview/widget/MessageThreadUtil$SyncQueueItem;
 
     .line 198
@@ -254,10 +230,8 @@
     .line 199
     monitor-exit v0
 
-    .line 200
     return-void
 
-    .line 199
     :catchall_0
     move-exception v1
 

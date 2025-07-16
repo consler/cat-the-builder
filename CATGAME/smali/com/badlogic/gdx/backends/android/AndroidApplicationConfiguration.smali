@@ -61,9 +61,9 @@
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 33
     const/4 v0, 0x5
 
+    .line 33
     iput v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;->r:I
 
     const/4 v1, 0x6
@@ -76,9 +76,9 @@
 
     iput v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;->a:I
 
-    .line 36
     const/16 v1, 0x10
 
+    .line 36
     iput v1, p0, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;->depth:I
 
     iput v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;->stencil:I
@@ -86,9 +86,9 @@
     .line 39
     iput v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;->numSamples:I
 
-    .line 42
     const/4 v2, 0x1
 
+    .line 42
     iput-boolean v2, p0, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;->useAccelerometer:Z
 
     .line 45
@@ -137,9 +137,9 @@
     .line 106
     iput-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;->useGLSurfaceView20API18:Z
 
-    .line 109
     const v0, 0x7fffffff
 
+    .line 109
     iput v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;->maxNetThreads:I
 
     return-void

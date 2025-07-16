@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Landroidx/palette/graphics/Palette$Builder;Landroidx/palette/graphics/Palette$PaletteAsyncListener;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/palette/graphics/Palette$Builder;
 
     .line 865
     iput-object p1, p0, Landroidx/palette/graphics/Palette$Builder$1;->this$0:Landroidx/palette/graphics/Palette$Builder;
@@ -48,37 +47,33 @@
 
 # virtual methods
 .method protected varargs doInBackground([Landroid/graphics/Bitmap;)Landroidx/palette/graphics/Palette;
-    .locals 3
-    .param p1, "params"    # [Landroid/graphics/Bitmap;
+    .locals 2
 
     .line 870
     :try_start_0
-    iget-object v0, p0, Landroidx/palette/graphics/Palette$Builder$1;->this$0:Landroidx/palette/graphics/Palette$Builder;
+    iget-object p1, p0, Landroidx/palette/graphics/Palette$Builder$1;->this$0:Landroidx/palette/graphics/Palette$Builder;
 
-    invoke-virtual {v0}, Landroidx/palette/graphics/Palette$Builder;->generate()Landroidx/palette/graphics/Palette;
+    invoke-virtual {p1}, Landroidx/palette/graphics/Palette$Builder;->generate()Landroidx/palette/graphics/Palette;
 
-    move-result-object v0
+    move-result-object p1
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p1
 
-    .line 871
     :catch_0
-    move-exception v0
+    move-exception p1
+
+    const-string v0, "Palette"
+
+    const-string v1, "Exception thrown during async generate"
 
     .line 872
-    .local v0, "e":Ljava/lang/Exception;
-    const-string v1, "Palette"
+    invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    const-string v2, "Exception thrown during async generate"
+    const/4 p1, 0x0
 
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 873
-    const/4 v1, 0x0
-
-    return-object v1
+    return-object p1
 .end method
 
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
@@ -96,14 +91,12 @@
 
 .method protected onPostExecute(Landroidx/palette/graphics/Palette;)V
     .locals 1
-    .param p1, "colorExtractor"    # Landroidx/palette/graphics/Palette;
 
     .line 879
     iget-object v0, p0, Landroidx/palette/graphics/Palette$Builder$1;->val$listener:Landroidx/palette/graphics/Palette$PaletteAsyncListener;
 
     invoke-interface {v0, p1}, Landroidx/palette/graphics/Palette$PaletteAsyncListener;->onGenerated(Landroidx/palette/graphics/Palette;)V
 
-    .line 880
     return-void
 .end method
 

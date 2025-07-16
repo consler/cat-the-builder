@@ -68,17 +68,6 @@
 # direct methods
 .method private constructor <init>(Ljava/lang/reflect/Field;ILcom/google/crypto/tink/shaded/protobuf/FieldType;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/crypto/tink/shaded/protobuf/OneofInfo;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumVerifier;Ljava/lang/reflect/Field;)V
     .locals 0
-    .param p1, "field"    # Ljava/lang/reflect/Field;
-    .param p2, "fieldNumber"    # I
-    .param p3, "type"    # Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-    .param p5, "presenceField"    # Ljava/lang/reflect/Field;
-    .param p6, "presenceMask"    # I
-    .param p7, "required"    # Z
-    .param p8, "enforceUtf8"    # Z
-    .param p9, "oneof"    # Lcom/google/crypto/tink/shaded/protobuf/OneofInfo;
-    .param p11, "mapDefaultEntry"    # Ljava/lang/Object;
-    .param p12, "enumVerifier"    # Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumVerifier;
-    .param p13, "cachedSizeField"    # Ljava/lang/reflect/Field;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -100,8 +89,6 @@
     .end annotation
 
     .line 332
-    .local p4, "messageClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p10, "oneofStoredType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 333
@@ -143,18 +130,14 @@
     .line 345
     iput-object p13, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;->cachedSizeField:Ljava/lang/reflect/Field;
 
-    .line 346
     return-void
 .end method
 
 .method private static checkFieldNumber(I)V
     .locals 3
-    .param p0, "fieldNumber"    # I
 
-    .line 260
     if-lez p0, :cond_0
 
-    .line 263
     return-void
 
     .line 261
@@ -163,58 +146,54 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "fieldNumber must be positive: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v1
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public static forField(Ljava/lang/reflect/Field;ILcom/google/crypto/tink/shaded/protobuf/FieldType;Z)Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
-    .locals 17
-    .param p0, "field"    # Ljava/lang/reflect/Field;
-    .param p1, "fieldNumber"    # I
-    .param p2, "fieldType"    # Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-    .param p3, "enforceUtf8"    # Z
+    .locals 15
+
+    move-object/from16 v3, p2
 
     .line 66
-    move-object/from16 v14, p2
-
     invoke-static/range {p1 .. p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;->checkFieldNumber(I)V
 
-    .line 67
     const-string v0, "field"
 
-    move-object/from16 v15, p0
+    move-object v1, p0
 
-    invoke-static {v15, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 67
+    invoke-static {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 68
     const-string v0, "fieldType"
 
-    invoke-static {v14, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 68
+    invoke-static {v3, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 69
     sget-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->MESSAGE_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    if-eq v14, v0, :cond_0
+    if-eq v3, v0, :cond_0
 
     sget-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->GROUP_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    if-eq v14, v0, :cond_0
+    if-eq v3, v0, :cond_0
 
     .line 72
-    new-instance v16, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
+    new-instance v14, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
 
     const/4 v4, 0x0
 
@@ -234,9 +213,9 @@
 
     const/4 v13, 0x0
 
-    move-object/from16 v0, v16
+    move-object v0, v14
 
-    move-object/from16 v1, p0
+    move-object v1, p0
 
     move/from16 v2, p1
 
@@ -246,7 +225,7 @@
 
     invoke-direct/range {v0 .. v13}, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;-><init>(Ljava/lang/reflect/Field;ILcom/google/crypto/tink/shaded/protobuf/FieldType;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/crypto/tink/shaded/protobuf/OneofInfo;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumVerifier;Ljava/lang/reflect/Field;)V
 
-    return-object v16
+    return-object v14
 
     .line 70
     :cond_0
@@ -260,21 +239,17 @@
 .end method
 
 .method public static forFieldWithEnumVerifier(Ljava/lang/reflect/Field;ILcom/google/crypto/tink/shaded/protobuf/FieldType;Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumVerifier;)Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
-    .locals 16
-    .param p0, "field"    # Ljava/lang/reflect/Field;
-    .param p1, "fieldNumber"    # I
-    .param p2, "fieldType"    # Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-    .param p3, "enumVerifier"    # Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumVerifier;
+    .locals 15
 
     .line 138
     invoke-static/range {p1 .. p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;->checkFieldNumber(I)V
 
-    .line 139
     const-string v0, "field"
 
-    move-object/from16 v15, p0
+    move-object v2, p0
 
-    invoke-static {v15, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 139
+    invoke-static {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 140
     new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
@@ -299,8 +274,6 @@
 
     move-object v1, v0
 
-    move-object/from16 v2, p0
-
     move/from16 v3, p1
 
     move-object/from16 v4, p2
@@ -313,28 +286,24 @@
 .end method
 
 .method public static forMapField(Ljava/lang/reflect/Field;ILjava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumVerifier;)Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
-    .locals 17
-    .param p0, "field"    # Ljava/lang/reflect/Field;
-    .param p1, "fieldNumber"    # I
-    .param p2, "mapDefaultEntry"    # Ljava/lang/Object;
-    .param p3, "enumVerifier"    # Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumVerifier;
+    .locals 15
 
-    .line 300
     const-string v0, "mapDefaultEntry"
 
-    move-object/from16 v15, p2
+    move-object/from16 v12, p2
 
-    invoke-static {v15, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 300
+    invoke-static {v12, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 301
     invoke-static/range {p1 .. p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;->checkFieldNumber(I)V
 
-    .line 302
     const-string v0, "field"
 
-    move-object/from16 v14, p0
+    move-object v2, p0
 
-    invoke-static {v14, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 302
+    invoke-static {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 303
     new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
@@ -355,19 +324,13 @@
 
     const/4 v11, 0x0
 
-    const/16 v16, 0x0
+    const/4 v14, 0x0
 
     move-object v1, v0
 
-    move-object/from16 v2, p0
-
     move/from16 v3, p1
 
-    move-object/from16 v12, p2
-
     move-object/from16 v13, p3
-
-    move-object/from16 v14, v16
 
     invoke-direct/range {v1 .. v14}, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;-><init>(Ljava/lang/reflect/Field;ILcom/google/crypto/tink/shaded/protobuf/FieldType;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/crypto/tink/shaded/protobuf/OneofInfo;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumVerifier;Ljava/lang/reflect/Field;)V
 
@@ -375,12 +338,7 @@
 .end method
 
 .method public static forOneofMemberField(ILcom/google/crypto/tink/shaded/protobuf/FieldType;Lcom/google/crypto/tink/shaded/protobuf/OneofInfo;Ljava/lang/Class;ZLcom/google/crypto/tink/shaded/protobuf/Internal$EnumVerifier;)Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
-    .locals 18
-    .param p0, "fieldNumber"    # I
-    .param p1, "fieldType"    # Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-    .param p2, "oneof"    # Lcom/google/crypto/tink/shaded/protobuf/OneofInfo;
-    .param p4, "enforceUtf8"    # Z
-    .param p5, "enumVerifier"    # Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumVerifier;
+    .locals 15
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -394,30 +352,29 @@
         }
     .end annotation
 
+    move-object/from16 v3, p1
+
     .line 232
-    .local p3, "oneofStoredType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    move-object/from16 v14, p1
+    invoke-static {p0}, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;->checkFieldNumber(I)V
 
-    invoke-static/range {p0 .. p0}, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;->checkFieldNumber(I)V
-
-    .line 233
     const-string v0, "fieldType"
 
-    invoke-static {v14, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 233
+    invoke-static {v3, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 234
     const-string v0, "oneof"
 
-    move-object/from16 v15, p2
+    move-object/from16 v9, p2
 
-    invoke-static {v15, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 234
+    invoke-static {v9, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 235
     const-string v0, "oneofStoredType"
 
-    move-object/from16 v13, p3
+    move-object/from16 v10, p3
 
-    invoke-static {v13, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 235
+    invoke-static {v10, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 236
     invoke-virtual/range {p1 .. p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->isScalar()Z
@@ -427,7 +384,7 @@
     if-eqz v0, :cond_0
 
     .line 243
-    new-instance v16, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
+    new-instance v14, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
 
     const/4 v1, 0x0
 
@@ -441,11 +398,11 @@
 
     const/4 v11, 0x0
 
-    const/16 v17, 0x0
+    const/4 v13, 0x0
 
-    move-object/from16 v0, v16
+    move-object v0, v14
 
-    move/from16 v2, p0
+    move v2, p0
 
     move-object/from16 v3, p1
 
@@ -457,11 +414,9 @@
 
     move-object/from16 v12, p5
 
-    move-object/from16 v13, v17
-
     invoke-direct/range {v0 .. v13}, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;-><init>(Ljava/lang/reflect/Field;ILcom/google/crypto/tink/shaded/protobuf/FieldType;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/crypto/tink/shaded/protobuf/OneofInfo;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumVerifier;Ljava/lang/reflect/Field;)V
 
-    return-object v16
+    return-object v14
 
     .line 237
     :cond_0
@@ -469,21 +424,25 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Oneof is only supported for scalar fields. Field "
+
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    move v2, p0
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, " is of type "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move/from16 v2, p0
+    move-result-object v1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v3, " is of type "
-
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -495,40 +454,36 @@
 .end method
 
 .method public static forPackedField(Ljava/lang/reflect/Field;ILcom/google/crypto/tink/shaded/protobuf/FieldType;Ljava/lang/reflect/Field;)Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
-    .locals 17
-    .param p0, "field"    # Ljava/lang/reflect/Field;
-    .param p1, "fieldNumber"    # I
-    .param p2, "fieldType"    # Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-    .param p3, "cachedSizeField"    # Ljava/lang/reflect/Field;
+    .locals 15
+
+    move-object/from16 v3, p2
 
     .line 91
-    move-object/from16 v14, p2
-
     invoke-static/range {p1 .. p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;->checkFieldNumber(I)V
 
-    .line 92
     const-string v0, "field"
 
-    move-object/from16 v15, p0
+    move-object v1, p0
 
-    invoke-static {v15, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 92
+    invoke-static {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 93
     const-string v0, "fieldType"
 
-    invoke-static {v14, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 93
+    invoke-static {v3, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 94
     sget-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->MESSAGE_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    if-eq v14, v0, :cond_0
+    if-eq v3, v0, :cond_0
 
     sget-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->GROUP_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    if-eq v14, v0, :cond_0
+    if-eq v3, v0, :cond_0
 
     .line 97
-    new-instance v16, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
+    new-instance v14, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
 
     const/4 v4, 0x0
 
@@ -548,9 +503,9 @@
 
     const/4 v12, 0x0
 
-    move-object/from16 v0, v16
+    move-object v0, v14
 
-    move-object/from16 v1, p0
+    move-object v1, p0
 
     move/from16 v2, p1
 
@@ -560,7 +515,7 @@
 
     invoke-direct/range {v0 .. v13}, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;-><init>(Ljava/lang/reflect/Field;ILcom/google/crypto/tink/shaded/protobuf/FieldType;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/crypto/tink/shaded/protobuf/OneofInfo;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumVerifier;Ljava/lang/reflect/Field;)V
 
-    return-object v16
+    return-object v14
 
     .line 95
     :cond_0
@@ -574,22 +529,17 @@
 .end method
 
 .method public static forPackedFieldWithEnumVerifier(Ljava/lang/reflect/Field;ILcom/google/crypto/tink/shaded/protobuf/FieldType;Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumVerifier;Ljava/lang/reflect/Field;)Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
-    .locals 16
-    .param p0, "field"    # Ljava/lang/reflect/Field;
-    .param p1, "fieldNumber"    # I
-    .param p2, "fieldType"    # Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-    .param p3, "enumVerifier"    # Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumVerifier;
-    .param p4, "cachedSizeField"    # Ljava/lang/reflect/Field;
+    .locals 15
 
     .line 162
     invoke-static/range {p1 .. p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;->checkFieldNumber(I)V
 
-    .line 163
     const-string v0, "field"
 
-    move-object/from16 v15, p0
+    move-object v2, p0
 
-    invoke-static {v15, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 163
+    invoke-static {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 164
     new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
@@ -612,8 +562,6 @@
 
     move-object v1, v0
 
-    move-object/from16 v2, p0
-
     move/from16 v3, p1
 
     move-object/from16 v4, p2
@@ -628,49 +576,40 @@
 .end method
 
 .method public static forProto2OptionalField(Ljava/lang/reflect/Field;ILcom/google/crypto/tink/shaded/protobuf/FieldType;Ljava/lang/reflect/Field;IZLcom/google/crypto/tink/shaded/protobuf/Internal$EnumVerifier;)Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
-    .locals 18
-    .param p0, "field"    # Ljava/lang/reflect/Field;
-    .param p1, "fieldNumber"    # I
-    .param p2, "fieldType"    # Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-    .param p3, "presenceField"    # Ljava/lang/reflect/Field;
-    .param p4, "presenceMask"    # I
-    .param p5, "enforceUtf8"    # Z
-    .param p6, "enumVerifier"    # Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumVerifier;
+    .locals 15
+
+    move-object/from16 v5, p3
 
     .line 189
-    move-object/from16 v14, p3
-
     invoke-static/range {p1 .. p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;->checkFieldNumber(I)V
 
-    .line 190
     const-string v0, "field"
 
-    move-object/from16 v15, p0
+    move-object v1, p0
 
-    invoke-static {v15, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 190
+    invoke-static {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 191
     const-string v0, "fieldType"
 
-    move-object/from16 v13, p2
+    move-object/from16 v3, p2
 
-    invoke-static {v13, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 191
+    invoke-static {v3, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 192
     const-string v0, "presenceField"
 
-    invoke-static {v14, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 192
+    invoke-static {v5, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    if-eqz v5, :cond_1
 
     .line 193
-    if-eqz v14, :cond_1
-
     invoke-static/range {p4 .. p4}, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;->isExactlyOneBitSet(I)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
-
-    move/from16 v12, p4
 
     goto :goto_0
 
@@ -680,15 +619,15 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "presenceMask must have exactly one bit set: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    move/from16 v12, p4
+    move/from16 v6, p4
 
-    invoke-virtual {v1, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -698,13 +637,12 @@
 
     throw v0
 
-    .line 193
     :cond_1
-    move/from16 v12, p4
+    :goto_0
+    move/from16 v6, p4
 
     .line 197
-    :goto_0
-    new-instance v16, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
+    new-instance v14, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
 
     const/4 v4, 0x0
 
@@ -716,11 +654,11 @@
 
     const/4 v11, 0x0
 
-    const/16 v17, 0x0
+    const/4 v13, 0x0
 
-    move-object/from16 v0, v16
+    move-object v0, v14
 
-    move-object/from16 v1, p0
+    move-object v1, p0
 
     move/from16 v2, p1
 
@@ -734,57 +672,46 @@
 
     move-object/from16 v12, p6
 
-    move-object/from16 v13, v17
-
     invoke-direct/range {v0 .. v13}, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;-><init>(Ljava/lang/reflect/Field;ILcom/google/crypto/tink/shaded/protobuf/FieldType;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/crypto/tink/shaded/protobuf/OneofInfo;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumVerifier;Ljava/lang/reflect/Field;)V
 
-    return-object v16
+    return-object v14
 .end method
 
 .method public static forProto2RequiredField(Ljava/lang/reflect/Field;ILcom/google/crypto/tink/shaded/protobuf/FieldType;Ljava/lang/reflect/Field;IZLcom/google/crypto/tink/shaded/protobuf/Internal$EnumVerifier;)Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
-    .locals 18
-    .param p0, "field"    # Ljava/lang/reflect/Field;
-    .param p1, "fieldNumber"    # I
-    .param p2, "fieldType"    # Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-    .param p3, "presenceField"    # Ljava/lang/reflect/Field;
-    .param p4, "presenceMask"    # I
-    .param p5, "enforceUtf8"    # Z
-    .param p6, "enumVerifier"    # Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumVerifier;
+    .locals 15
+
+    move-object/from16 v5, p3
 
     .line 274
-    move-object/from16 v14, p3
-
     invoke-static/range {p1 .. p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;->checkFieldNumber(I)V
 
-    .line 275
     const-string v0, "field"
 
-    move-object/from16 v15, p0
+    move-object v1, p0
 
-    invoke-static {v15, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 275
+    invoke-static {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 276
     const-string v0, "fieldType"
 
-    move-object/from16 v13, p2
+    move-object/from16 v3, p2
 
-    invoke-static {v13, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 276
+    invoke-static {v3, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 277
     const-string v0, "presenceField"
 
-    invoke-static {v14, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 277
+    invoke-static {v5, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    if-eqz v5, :cond_1
 
     .line 278
-    if-eqz v14, :cond_1
-
     invoke-static/range {p4 .. p4}, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;->isExactlyOneBitSet(I)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
-
-    move/from16 v12, p4
 
     goto :goto_0
 
@@ -794,15 +721,15 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "presenceMask must have exactly one bit set: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    move/from16 v12, p4
+    move/from16 v6, p4
 
-    invoke-virtual {v1, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -812,13 +739,12 @@
 
     throw v0
 
-    .line 278
     :cond_1
-    move/from16 v12, p4
+    :goto_0
+    move/from16 v6, p4
 
     .line 282
-    :goto_0
-    new-instance v16, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
+    new-instance v14, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
 
     const/4 v4, 0x0
 
@@ -830,11 +756,11 @@
 
     const/4 v11, 0x0
 
-    const/16 v17, 0x0
+    const/4 v13, 0x0
 
-    move-object/from16 v0, v16
+    move-object v0, v14
 
-    move-object/from16 v1, p0
+    move-object v1, p0
 
     move/from16 v2, p1
 
@@ -848,18 +774,13 @@
 
     move-object/from16 v12, p6
 
-    move-object/from16 v13, v17
-
     invoke-direct/range {v0 .. v13}, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;-><init>(Ljava/lang/reflect/Field;ILcom/google/crypto/tink/shaded/protobuf/FieldType;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/crypto/tink/shaded/protobuf/OneofInfo;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumVerifier;Ljava/lang/reflect/Field;)V
 
-    return-object v16
+    return-object v14
 .end method
 
 .method public static forRepeatedMessageField(Ljava/lang/reflect/Field;ILcom/google/crypto/tink/shaded/protobuf/FieldType;Ljava/lang/Class;)Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
-    .locals 18
-    .param p0, "field"    # Ljava/lang/reflect/Field;
-    .param p1, "fieldNumber"    # I
-    .param p2, "fieldType"    # Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    .locals 15
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -873,29 +794,28 @@
     .end annotation
 
     .line 116
-    .local p3, "messageClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-static/range {p1 .. p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;->checkFieldNumber(I)V
 
-    .line 117
     const-string v0, "field"
 
-    move-object/from16 v15, p0
+    move-object v2, p0
 
-    invoke-static {v15, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 117
+    invoke-static {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 118
     const-string v0, "fieldType"
 
-    move-object/from16 v14, p2
+    move-object/from16 v4, p2
 
-    invoke-static {v14, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 118
+    invoke-static {v4, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 119
     const-string v0, "messageClass"
 
-    move-object/from16 v13, p3
+    move-object/from16 v5, p3
 
-    invoke-static {v13, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    .line 119
+    invoke-static {v5, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 120
     new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
@@ -914,23 +834,13 @@
 
     const/4 v12, 0x0
 
-    const/16 v16, 0x0
+    const/4 v13, 0x0
 
-    const/16 v17, 0x0
+    const/4 v14, 0x0
 
     move-object v1, v0
 
-    move-object/from16 v2, p0
-
     move/from16 v3, p1
-
-    move-object/from16 v4, p2
-
-    move-object/from16 v5, p3
-
-    move-object/from16 v13, v16
-
-    move-object/from16 v14, v17
 
     invoke-direct/range {v1 .. v14}, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;-><init>(Ljava/lang/reflect/Field;ILcom/google/crypto/tink/shaded/protobuf/FieldType;Ljava/lang/Class;Ljava/lang/reflect/Field;IZZLcom/google/crypto/tink/shaded/protobuf/OneofInfo;Ljava/lang/Class;Ljava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumVerifier;Ljava/lang/reflect/Field;)V
 
@@ -939,26 +849,24 @@
 
 .method private static isExactlyOneBitSet(I)Z
     .locals 1
-    .param p0, "value"    # I
 
-    .line 575
     if-eqz p0, :cond_0
 
     add-int/lit8 v0, p0, -0x1
 
-    and-int/2addr v0, p0
+    and-int/2addr p0, v0
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public static newBuilder()Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;
@@ -977,15 +885,14 @@
 
 # virtual methods
 .method public compareTo(Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;)I
-    .locals 2
-    .param p1, "o"    # Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
+    .locals 1
 
     .line 384
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;->fieldNumber:I
 
-    iget v1, p1, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;->fieldNumber:I
+    iget p1, p1, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;->fieldNumber:I
 
-    sub-int/2addr v0, v1
+    sub-int/2addr v0, p1
 
     return v0
 .end method
@@ -1101,7 +1008,6 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 441
     const/4 v0, 0x0
 
     return-object v0

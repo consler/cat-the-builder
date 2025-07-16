@@ -27,7 +27,6 @@
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
-    .line 624
     return-void
 .end method
 
@@ -35,7 +34,6 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
-    .param p1, "msg"    # Landroid/os/Message;
 
     .line 628
     iget v0, p1, Landroid/os/Message;->what:I
@@ -50,13 +48,12 @@
     :cond_0
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteProviderService$PrivateHandler;->this$0:Landroidx/mediarouter/media/MediaRouteProviderService;
 
-    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v1, Landroid/os/Messenger;
+    check-cast p1, Landroid/os/Messenger;
 
-    invoke-virtual {v0, v1}, Landroidx/mediarouter/media/MediaRouteProviderService;->onBinderDied(Landroid/os/Messenger;)V
+    invoke-virtual {v0, p1}, Landroidx/mediarouter/media/MediaRouteProviderService;->onBinderDied(Landroid/os/Messenger;)V
 
-    .line 633
     :goto_0
     return-void
 .end method

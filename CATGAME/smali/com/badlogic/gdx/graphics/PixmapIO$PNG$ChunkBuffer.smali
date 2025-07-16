@@ -22,28 +22,24 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 2
-    .param p1, "initialSize"    # I
+    .locals 1
 
     .line 333
     new-instance v0, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v0, p1}, Ljava/io/ByteArrayOutputStream;-><init>(I)V
 
-    new-instance v1, Ljava/util/zip/CRC32;
+    new-instance p1, Ljava/util/zip/CRC32;
 
-    invoke-direct {v1}, Ljava/util/zip/CRC32;-><init>()V
+    invoke-direct {p1}, Ljava/util/zip/CRC32;-><init>()V
 
-    invoke-direct {p0, v0, v1}, Lcom/badlogic/gdx/graphics/PixmapIO$PNG$ChunkBuffer;-><init>(Ljava/io/ByteArrayOutputStream;Ljava/util/zip/CRC32;)V
+    invoke-direct {p0, v0, p1}, Lcom/badlogic/gdx/graphics/PixmapIO$PNG$ChunkBuffer;-><init>(Ljava/io/ByteArrayOutputStream;Ljava/util/zip/CRC32;)V
 
-    .line 334
     return-void
 .end method
 
 .method private constructor <init>(Ljava/io/ByteArrayOutputStream;Ljava/util/zip/CRC32;)V
     .locals 1
-    .param p1, "buffer"    # Ljava/io/ByteArrayOutputStream;
-    .param p2, "crc"    # Ljava/util/zip/CRC32;
 
     .line 337
     new-instance v0, Ljava/util/zip/CheckedOutputStream;
@@ -58,7 +54,6 @@
     .line 339
     iput-object p2, p0, Lcom/badlogic/gdx/graphics/PixmapIO$PNG$ChunkBuffer;->crc:Ljava/util/zip/CRC32;
 
-    .line 340
     return-void
 .end method
 
@@ -66,7 +61,6 @@
 # virtual methods
 .method public endChunk(Ljava/io/DataOutputStream;)V
     .locals 2
-    .param p1, "target"    # Ljava/io/DataOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -104,15 +98,14 @@
     invoke-virtual {p1, v0}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 347
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/PixmapIO$PNG$ChunkBuffer;->buffer:Ljava/io/ByteArrayOutputStream;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/PixmapIO$PNG$ChunkBuffer;->buffer:Ljava/io/ByteArrayOutputStream;
 
-    invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->reset()V
+    invoke-virtual {p1}, Ljava/io/ByteArrayOutputStream;->reset()V
 
     .line 348
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/PixmapIO$PNG$ChunkBuffer;->crc:Ljava/util/zip/CRC32;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/PixmapIO$PNG$ChunkBuffer;->crc:Ljava/util/zip/CRC32;
 
-    invoke-virtual {v0}, Ljava/util/zip/CRC32;->reset()V
+    invoke-virtual {p1}, Ljava/util/zip/CRC32;->reset()V
 
-    .line 349
     return-void
 .end method

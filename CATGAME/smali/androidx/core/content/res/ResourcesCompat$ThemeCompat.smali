@@ -25,7 +25,7 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 458
+    .line 637
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -33,33 +33,31 @@
 
 .method public static rebase(Landroid/content/res/Resources$Theme;)V
     .locals 2
-    .param p0, "theme"    # Landroid/content/res/Resources$Theme;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "theme"
+        }
+    .end annotation
 
-    .line 474
+    .line 653
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1d
 
     if-lt v0, v1, :cond_0
 
-    .line 475
+    .line 654
     invoke-static {p0}, Landroidx/core/content/res/ResourcesCompat$ThemeCompat$ImplApi29;->rebase(Landroid/content/res/Resources$Theme;)V
 
     goto :goto_0
 
-    .line 476
+    .line 656
     :cond_0
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_1
-
-    .line 477
     invoke-static {p0}, Landroidx/core/content/res/ResourcesCompat$ThemeCompat$ImplApi23;->rebase(Landroid/content/res/Resources$Theme;)V
 
-    .line 479
-    :cond_1
     :goto_0
     return-void
 .end method

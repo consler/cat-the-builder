@@ -14,7 +14,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/Surface;)V
     .locals 2
-    .param p1, "surface"    # Landroid/view/Surface;
 
     .line 38
     new-instance v0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi24Impl$OutputConfigurationParamsApi24;
@@ -27,24 +26,20 @@
 
     invoke-direct {p0, v0}, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi24Impl;-><init>(Ljava/lang/Object;)V
 
-    .line 39
     return-void
 .end method
 
 .method constructor <init>(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "outputConfiguration"    # Ljava/lang/Object;
 
     .line 42
     invoke-direct {p0, p1}, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatBaseImpl;-><init>(Ljava/lang/Object;)V
 
-    .line 43
     return-void
 .end method
 
 .method static wrap(Landroid/hardware/camera2/params/OutputConfiguration;)Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi24Impl;
     .locals 2
-    .param p0, "outputConfiguration"    # Landroid/hardware/camera2/params/OutputConfiguration;
 
     .line 48
     new-instance v0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi24Impl;
@@ -72,7 +67,6 @@
 
     iput-boolean v1, v0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi24Impl$OutputConfigurationParamsApi24;->mIsShared:Z
 
-    .line 58
     return-void
 .end method
 
@@ -181,7 +175,6 @@
 
 .method public setPhysicalCameraId(Ljava/lang/String;)V
     .locals 1
-    .param p1, "physicalCameraId"    # Ljava/lang/String;
 
     .line 70
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi24Impl;->mObject:Ljava/lang/Object;
@@ -190,6 +183,5 @@
 
     iput-object p1, v0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi24Impl$OutputConfigurationParamsApi24;->mPhysicalCameraId:Ljava/lang/String;
 
-    .line 71
     return-void
 .end method

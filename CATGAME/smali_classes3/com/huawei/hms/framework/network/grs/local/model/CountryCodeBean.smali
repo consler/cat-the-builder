@@ -1,21 +1,32 @@
 .class public Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;
 .super Ljava/lang/Object;
+.source ""
 
 
 # static fields
 .field private static final ANDRIOD_SYSTEMPROP:Ljava/lang/String; = "android.os.SystemProperties"
 
+.field private static final ANDROID_9_API_LEVEL:I = 0x1c
+
 .field private static final COUNTRYCODE_SIZE:I = 0x2
 
-.field private static final LOCALE_COUNTRYSYSTEMPROP:Ljava/lang/String; = "ro.product.locale.region"
+.field private static final KEY_VERSION_EMUI:Ljava/lang/String; = "ro.build.version.emui"
+
+.field private static final LOCALE_COUNTRYSYSTEMPROP:Ljava/lang/String; = "ro.product.locale"
+
+.field private static final LOCALE_REGION_COUNTRYSYSTEMPROP:Ljava/lang/String; = "ro.product.locale.region"
 
 .field private static final SPECIAL_COUNTRYCODE_CN:Ljava/lang/String; = "cn"
 
 .field private static final SPECIAL_COUNTRYCODE_EU:Ljava/lang/String; = "eu"
 
+.field private static final SPECIAL_COUNTRYCODE_GB:Ljava/lang/String; = "gb"
+
 .field private static final SPECIAL_COUNTRYCODE_LA:Ljava/lang/String; = "la"
 
-.field private static final TAG:Ljava/lang/String;
+.field private static final SPECIAL_COUNTRYCODE_UK:Ljava/lang/String; = "uk"
+
+.field private static final TAG:Ljava/lang/String; = "CountryCodeBean"
 
 .field private static final VENDORCOUNTRY_SYSTEMPROP:Ljava/lang/String; = "ro.hw.country"
 
@@ -28,15 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
-
-    const-class v0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->TAG:Ljava/lang/String;
+    .locals 0
 
     return-void
 .end method
@@ -96,6 +99,67 @@
 .method private getLocaleCountryCode()V
     .locals 4
 
+    const-string v0, "android.os.SystemProperties"
+
+    const-string v1, ""
+
+    const-string v2, "get"
+
+    const-string v3, "ro.build.version.emui"
+
+    invoke-static {v2, v3, v0, v1}, Lcom/huawei/hms/framework/common/SystemPropUtils;->getProperty(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    invoke-static {}, Lcom/huawei/hms/framework/common/EmuiUtil;->isUpPVersion()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-direct {p0}, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->getRegionSettingCountryCode()V
+
+    sget-object v0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->TAG:Ljava/lang/String;
+
+    const-string v1, "EMUI 9.0 upper System, get countryCode form Locale.getDefault().getCountry()"
+
+    goto :goto_0
+
+    :cond_0
+    invoke-direct {p0}, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->getProductCountryCode()V
+
+    sget-object v0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->TAG:Ljava/lang/String;
+
+    const-string v1, "EMUI 9.0 lower System, get countryCode form ro.product.locale.region or locale"
+
+    goto :goto_0
+
+    :cond_1
+    invoke-direct {p0}, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->getRegionSettingCountryCode()V
+
+    sget-object v0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->TAG:Ljava/lang/String;
+
+    const-string v1, "other Android 9.0 upper\uff0c get countryCode form Locale.getDefault().getCountry()"
+
+    :goto_0
+    invoke-static {v0, v1}, Lcom/huawei/hms/framework/common/Logger;->i(Ljava/lang/String;Ljava/lang/Object;)V
+
+    const-string v0, "LOCALE_INFO"
+
+    iput-object v0, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countrySource:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method private getProductCountryCode()V
+    .locals 6
+
     const-string v0, "get"
 
     const-string v1, "ro.product.locale.region"
@@ -106,13 +170,97 @@
 
     invoke-static {v0, v1, v2, v3}, Lcom/huawei/hms/framework/common/SystemPropUtils;->getProperty(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
+
+    sget-object v1, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    const-string v5, "countryCode by ro.product.locale.region is: "
+
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    iget-object v5, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v1, v4}, Lcom/huawei/hms/framework/common/Logger;->i(Ljava/lang/String;Ljava/lang/Object;)V
+
+    iget-object v4, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
+
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    iget-object v4, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    :cond_0
+    const-string v4, "ro.product.locale"
+
+    invoke-static {v0, v4, v2, v3}, Lcom/huawei/hms/framework/common/SystemPropUtils;->getProperty(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    const-string v2, "-"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
+
+    move-result v2
+
+    const/4 v4, -0x1
+
+    if-eq v2, v4, :cond_1
+
+    add-int/lit8 v2, v2, 0x1
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
     move-result-object v0
 
     iput-object v0, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
 
-    const-string v1, "LOCALE_INFO"
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    iput-object v1, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countrySource:Ljava/lang/String;
+    const-string v2, "countryCode by ro.product.locale is: "
+
+    invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    iget-object v2, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v1, v0}, Lcom/huawei/hms/framework/common/Logger;->i(Ljava/lang/String;Ljava/lang/Object;)V
+
+    :cond_1
+    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
 
     const-string v1, "cn"
 
@@ -120,24 +268,75 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
-
-    sget-object v0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->TAG:Ljava/lang/String;
-
-    const-string v1, "countryCode from system language is not reliable."
-
-    invoke-static {v0, v1}, Lcom/huawei/hms/framework/common/Logger;->w(Ljava/lang/String;Ljava/lang/Object;)V
+    if-nez v0, :cond_2
 
     iput-object v3, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
 
-    iput-object v3, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countrySource:Ljava/lang/String;
+    :cond_2
+    return-void
+.end method
+
+.method private getRegionSettingCountryCode()V
+    .locals 3
+
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
+
+    sget-object v0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    const-string v2, "countryCode by system\'s region setting is: "
+
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    iget-object v2, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/huawei/hms/framework/common/Logger;->i(Ljava/lang/String;Ljava/lang/Object;)V
+
+    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "UNKNOWN"
+
+    iput-object v0, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
 
     :cond_0
     return-void
 .end method
 
+.method private getSimCountryCode(Landroid/content/Context;)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, v0}, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->getSimCountryCode(Landroid/content/Context;Z)V
+
+    return-void
+.end method
+
 .method private getSimCountryCode(Landroid/content/Context;Z)V
-    .locals 4
+    .locals 1
 
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
@@ -153,57 +352,67 @@
 
     if-eqz p1, :cond_1
 
-    const/4 v0, 0x0
-
-    const/4 v1, 0x1
-
-    const-string v2, "getCountryCode get country code from {%s}"
-
     if-eqz p2, :cond_0
 
     invoke-virtual {p1}, Landroid/telephony/TelephonyManager;->getPhoneType()I
 
     move-result p2
 
-    const/4 v3, 0x2
+    const/4 v0, 0x2
 
-    if-eq p2, v3, :cond_0
-
-    sget-object p2, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->TAG:Ljava/lang/String;
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    const-string v3, "NETWORK_COUNTRY"
-
-    aput-object v3, v1, v0
-
-    invoke-static {p2, v2, v1}, Lcom/huawei/hms/framework/common/Logger;->v(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+    if-eq p2, v0, :cond_0
 
     invoke-virtual {p1}, Landroid/telephony/TelephonyManager;->getNetworkCountryIso()Ljava/lang/String;
 
     move-result-object p1
 
+    iput-object p1, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
+
+    const-string p1, "NETWORK_COUNTRY"
+
+    iput-object p1, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countrySource:Ljava/lang/String;
+
+    sget-object p1, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->TAG:Ljava/lang/String;
+
+    new-instance p2, Ljava/lang/StringBuilder;
+
+    const-string v0, "countryCode by NetworkCountryIso is: "
+
+    invoke-direct {p2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
     goto :goto_0
 
     :cond_0
-    sget-object p2, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->TAG:Ljava/lang/String;
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    const-string v3, "SIM_COUNTRY"
-
-    aput-object v3, v1, v0
-
-    invoke-static {p2, v2, v1}, Lcom/huawei/hms/framework/common/Logger;->v(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
-
     invoke-virtual {p1}, Landroid/telephony/TelephonyManager;->getSimCountryIso()Ljava/lang/String;
 
     move-result-object p1
 
-    :goto_0
     iput-object p1, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
 
-    iput-object v3, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countrySource:Ljava/lang/String;
+    const-string p1, "SIM_COUNTRY"
+
+    iput-object p1, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countrySource:Ljava/lang/String;
+
+    sget-object p1, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->TAG:Ljava/lang/String;
+
+    new-instance p2, Ljava/lang/StringBuilder;
+
+    const-string v0, "countryCode by SimCountryIso is: "
+
+    invoke-direct {p2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    :goto_0
+    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
+
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-static {p1, p2}, Lcom/huawei/hms/framework/common/Logger;->i(Ljava/lang/String;Ljava/lang/Object;)V
 
     :cond_1
     invoke-direct {p0}, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->checkCodeLenth()V
@@ -212,63 +421,108 @@
 .end method
 
 .method private getVendorCountryCode()V
-    .locals 4
+    .locals 5
 
     const-string v0, "VENDOR_COUNTRY"
 
     iput-object v0, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countrySource:Ljava/lang/String;
 
-    const-string v0, "get"
+    const-string v1, "get"
 
-    const-string v1, "ro.hw.country"
+    const-string v2, "ro.hw.country"
 
-    const-string v2, "android.os.SystemProperties"
+    const-string v3, "android.os.SystemProperties"
 
-    const-string v3, "UNKNOWN"
+    const-string v4, "UNKNOWN"
 
-    invoke-static {v0, v1, v2, v3}, Lcom/huawei/hms/framework/common/SystemPropUtils;->getProperty(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1, v2, v3, v4}, Lcom/huawei/hms/framework/common/SystemPropUtils;->getProperty(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
+    iput-object v1, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
 
-    const-string v1, "eu"
+    sget-object v1, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->TAG:Ljava/lang/String;
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    move-result v0
+    const-string v3, "countryCode by ro.hw.country is: "
 
-    if-nez v0, :cond_1
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
+    iget-object v3, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
 
-    const-string v1, "la"
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result-object v2
 
-    move-result v0
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/huawei/hms/framework/common/Logger;->i(Ljava/lang/String;Ljava/lang/Object;)V
+
+    iget-object v2, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
+
+    const-string v3, "eu"
+
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    iget-object v2, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
+
+    const-string v3, "la"
+
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
 
     goto :goto_0
 
     :cond_0
-    invoke-direct {p0}, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->checkCodeLenth()V
+    iget-object v2, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
+
+    const-string v3, "uk"
+
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    const-string v2, "special country of UK to map GB."
+
+    invoke-static {v1, v2}, Lcom/huawei/hms/framework/common/Logger;->i(Ljava/lang/String;Ljava/lang/Object;)V
+
+    const-string v1, "gb"
+
+    iput-object v1, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countrySource:Ljava/lang/String;
 
     goto :goto_1
 
     :cond_1
-    :goto_0
-    iput-object v3, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
+    invoke-direct {p0}, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->checkCodeLenth()V
 
-    iput-object v3, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countrySource:Ljava/lang/String;
+    goto :goto_1
+
+    :cond_2
+    :goto_0
+    iput-object v4, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countryCode:Ljava/lang/String;
+
+    iput-object v4, p0, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->countrySource:Ljava/lang/String;
 
     :goto_1
     return-void
 .end method
 
 .method private init(Landroid/content/Context;Z)V
-    .locals 4
+    .locals 0
 
     if-eqz p1, :cond_3
 
@@ -277,33 +531,20 @@
 
     invoke-direct {p0}, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->isCodeValidate()Z
 
-    move-result v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    move-result p2
 
-    const/4 v1, 0x0
+    if-eqz p2, :cond_0
 
-    const/4 v2, 0x1
-
-    const-string v3, "getCountryCode get country code from {%s}"
-
-    if-eqz v0, :cond_0
-
-    :try_start_1
     sget-object p1, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->TAG:Ljava/lang/String;
 
-    new-array p2, v2, [Ljava/lang/Object;
+    const-string p2, "get issue_country code from VENDOR_COUNTRY"
 
-    const-string v0, "VENDOR_COUNTRY"
-
-    aput-object v0, p2, v1
-
-    invoke-static {p1, v3, p2}, Lcom/huawei/hms/framework/common/Logger;->v(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {p1, p2}, Lcom/huawei/hms/framework/common/Logger;->i(Ljava/lang/String;Ljava/lang/Object;)V
 
     return-void
 
     :cond_0
-    invoke-direct {p0, p1, p2}, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->getSimCountryCode(Landroid/content/Context;Z)V
+    invoke-direct {p0, p1}, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->getSimCountryCode(Landroid/content/Context;)V
 
     invoke-direct {p0}, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->isCodeValidate()Z
 
@@ -313,13 +554,9 @@
 
     sget-object p1, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->TAG:Ljava/lang/String;
 
-    new-array p2, v2, [Ljava/lang/Object;
+    const-string p2, "get issue_country code from SIM_COUNTRY"
 
-    const-string v0, "SIM_COUNTRY"
-
-    aput-object v0, p2, v1
-
-    invoke-static {p1, v3, p2}, Lcom/huawei/hms/framework/common/Logger;->v(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {p1, p2}, Lcom/huawei/hms/framework/common/Logger;->i(Ljava/lang/String;Ljava/lang/Object;)V
 
     return-void
 
@@ -334,21 +571,15 @@
 
     sget-object p1, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->TAG:Ljava/lang/String;
 
-    new-array p2, v2, [Ljava/lang/Object;
+    const-string p2, "get issue_country code from LOCALE_INFO"
 
-    const-string v0, "LOCALE_INFO"
-
-    aput-object v0, p2, v1
-
-    invoke-static {p1, v3, p2}, Lcom/huawei/hms/framework/common/Logger;->v(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    invoke-static {p1, p2}, Lcom/huawei/hms/framework/common/Logger;->i(Ljava/lang/String;Ljava/lang/Object;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception p1
-
     sget-object p1, Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;->TAG:Ljava/lang/String;
 
     const-string p2, "get CountryCode error"

@@ -40,8 +40,6 @@
 # virtual methods
 .method public compare(Landroidx/recyclerview/widget/GapWorker$Task;Landroidx/recyclerview/widget/GapWorker$Task;)I
     .locals 5
-    .param p1, "lhs"    # Landroidx/recyclerview/widget/GapWorker$Task;
-    .param p2, "rhs"    # Landroidx/recyclerview/widget/GapWorker$Task;
 
     .line 194
     iget-object v0, p1, Landroidx/recyclerview/widget/GapWorker$Task;->view:Landroidx/recyclerview/widget/RecyclerView;
@@ -77,9 +75,9 @@
     if-eq v0, v3, :cond_3
 
     .line 195
-    iget-object v0, p1, Landroidx/recyclerview/widget/GapWorker$Task;->view:Landroidx/recyclerview/widget/RecyclerView;
+    iget-object p1, p1, Landroidx/recyclerview/widget/GapWorker$Task;->view:Landroidx/recyclerview/widget/RecyclerView;
 
-    if-nez v0, :cond_2
+    if-nez p1, :cond_2
 
     goto :goto_2
 
@@ -98,9 +96,9 @@
     if-eq v0, v3, :cond_5
 
     .line 200
-    iget-boolean v0, p1, Landroidx/recyclerview/widget/GapWorker$Task;->immediate:Z
+    iget-boolean p1, p1, Landroidx/recyclerview/widget/GapWorker$Task;->immediate:Z
 
-    if-eqz v0, :cond_4
+    if-eqz p1, :cond_4
 
     move v2, v4
 
@@ -115,27 +113,22 @@
 
     sub-int/2addr v0, v2
 
-    .line 205
-    .local v0, "deltaViewVelocity":I
     if-eqz v0, :cond_6
 
     return v0
 
     .line 208
     :cond_6
-    iget v2, p1, Landroidx/recyclerview/widget/GapWorker$Task;->distanceToItem:I
+    iget p1, p1, Landroidx/recyclerview/widget/GapWorker$Task;->distanceToItem:I
 
-    iget v3, p2, Landroidx/recyclerview/widget/GapWorker$Task;->distanceToItem:I
+    iget p2, p2, Landroidx/recyclerview/widget/GapWorker$Task;->distanceToItem:I
 
-    sub-int/2addr v2, v3
+    sub-int/2addr p1, p2
 
-    .line 209
-    .local v2, "deltaDistanceToItem":I
-    if-eqz v2, :cond_7
+    if-eqz p1, :cond_7
 
-    return v2
+    return p1
 
-    .line 211
     :cond_7
     return v1
 .end method

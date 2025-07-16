@@ -53,9 +53,9 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/WheelJointDef;->localAxisA:Lcom/badlogic/gdx/math/Vector2;
 
-    .line 50
     const/4 v0, 0x0
 
+    .line 50
     iput-boolean v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/WheelJointDef;->enableMotor:Z
 
     .line 53
@@ -64,14 +64,14 @@
     .line 56
     iput v2, p0, Lcom/badlogic/gdx/physics/box2d/joints/WheelJointDef;->motorSpeed:F
 
-    .line 59
     const/high16 v0, 0x40000000    # 2.0f
 
+    .line 59
     iput v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/WheelJointDef;->frequencyHz:F
 
-    .line 62
     const v0, 0x3f333333    # 0.7f
 
+    .line 62
     iput v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/WheelJointDef;->dampingRatio:F
 
     .line 29
@@ -79,7 +79,6 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/WheelJointDef;->type:Lcom/badlogic/gdx/physics/box2d/JointDef$JointType;
 
-    .line 30
     return-void
 .end method
 
@@ -87,10 +86,6 @@
 # virtual methods
 .method public initialize(Lcom/badlogic/gdx/physics/box2d/Body;Lcom/badlogic/gdx/physics/box2d/Body;Lcom/badlogic/gdx/math/Vector2;Lcom/badlogic/gdx/math/Vector2;)V
     .locals 2
-    .param p1, "bodyA"    # Lcom/badlogic/gdx/physics/box2d/Body;
-    .param p2, "bodyB"    # Lcom/badlogic/gdx/physics/box2d/Body;
-    .param p3, "anchor"    # Lcom/badlogic/gdx/math/Vector2;
-    .param p4, "axis"    # Lcom/badlogic/gdx/math/Vector2;
 
     .line 33
     iput-object p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/WheelJointDef;->bodyA:Lcom/badlogic/gdx/physics/box2d/Body;
@@ -112,19 +107,18 @@
 
     invoke-virtual {p2, p3}, Lcom/badlogic/gdx/physics/box2d/Body;->getLocalPoint(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector2;->set(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
+    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/math/Vector2;->set(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
 
     .line 37
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/WheelJointDef;->localAxisA:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p2, p0, Lcom/badlogic/gdx/physics/box2d/joints/WheelJointDef;->localAxisA:Lcom/badlogic/gdx/math/Vector2;
 
     invoke-virtual {p1, p4}, Lcom/badlogic/gdx/physics/box2d/Body;->getLocalVector(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector2;->set(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
+    invoke-virtual {p2, p1}, Lcom/badlogic/gdx/math/Vector2;->set(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
 
-    .line 38
     return-void
 .end method

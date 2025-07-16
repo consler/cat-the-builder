@@ -48,20 +48,19 @@
     .locals 1
 
     .line 48
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/LazyIteratorChain;, "Lorg/apache/commons/collections4/iterators/LazyIteratorChain<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 51
     const/4 v0, 0x0
 
+    .line 51
     iput v0, p0, Lorg/apache/commons/collections4/iterators/LazyIteratorChain;->callCounter:I
 
     .line 54
     iput-boolean v0, p0, Lorg/apache/commons/collections4/iterators/LazyIteratorChain;->chainExhausted:Z
 
-    .line 57
     const/4 v0, 0x0
 
+    .line 57
     iput-object v0, p0, Lorg/apache/commons/collections4/iterators/LazyIteratorChain;->currentIterator:Ljava/util/Iterator;
 
     .line 63
@@ -74,16 +73,15 @@
     .locals 2
 
     .line 82
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/LazyIteratorChain;, "Lorg/apache/commons/collections4/iterators/LazyIteratorChain<TE;>;"
     iget v0, p0, Lorg/apache/commons/collections4/iterators/LazyIteratorChain;->callCounter:I
 
     const/4 v1, 0x1
 
     if-nez v0, :cond_1
 
-    .line 83
     add-int/2addr v0, v1
 
+    .line 83
     iput v0, p0, Lorg/apache/commons/collections4/iterators/LazyIteratorChain;->callCounter:I
 
     invoke-virtual {p0, v0}, Lorg/apache/commons/collections4/iterators/LazyIteratorChain;->nextIterator(I)Ljava/util/Iterator;
@@ -92,7 +90,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections4/iterators/LazyIteratorChain;->currentIterator:Ljava/util/Iterator;
 
-    .line 84
     if-nez v0, :cond_0
 
     .line 85
@@ -137,25 +134,19 @@
 
     move-result-object v0
 
-    .line 95
-    .local v0, "nextIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     if-eqz v0, :cond_2
 
     .line 96
     iput-object v0, p0, Lorg/apache/commons/collections4/iterators/LazyIteratorChain;->currentIterator:Ljava/util/Iterator;
 
-    goto :goto_1
+    goto :goto_0
 
     .line 98
     :cond_2
     iput-boolean v1, p0, Lorg/apache/commons/collections4/iterators/LazyIteratorChain;->chainExhausted:Z
 
-    .line 100
-    .end local v0    # "nextIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
-    :goto_1
     goto :goto_0
 
-    .line 101
     :cond_3
     return-void
 .end method
@@ -166,7 +157,6 @@
     .locals 1
 
     .line 112
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/LazyIteratorChain;, "Lorg/apache/commons/collections4/iterators/LazyIteratorChain<TE;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/iterators/LazyIteratorChain;->updateCurrentIterator()V
 
     .line 113
@@ -191,7 +181,6 @@
     .end annotation
 
     .line 126
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/LazyIteratorChain;, "Lorg/apache/commons/collections4/iterators/LazyIteratorChain<TE;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/iterators/LazyIteratorChain;->updateCurrentIterator()V
 
     .line 127
@@ -221,7 +210,6 @@
     .locals 1
 
     .line 146
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/LazyIteratorChain;, "Lorg/apache/commons/collections4/iterators/LazyIteratorChain<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/LazyIteratorChain;->currentIterator:Ljava/util/Iterator;
 
     if-nez v0, :cond_0
@@ -235,6 +223,5 @@
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 150
     return-void
 .end method

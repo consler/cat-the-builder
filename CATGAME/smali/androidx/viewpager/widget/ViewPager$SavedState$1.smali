@@ -40,7 +40,6 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroidx/viewpager/widget/ViewPager$SavedState;
     .locals 2
-    .param p1, "in"    # Landroid/os/Parcel;
 
     .line 1420
     new-instance v0, Landroidx/viewpager/widget/ViewPager$SavedState;
@@ -54,8 +53,6 @@
 
 .method public createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroidx/viewpager/widget/ViewPager$SavedState;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
-    .param p2, "loader"    # Ljava/lang/ClassLoader;
 
     .line 1415
     new-instance v0, Landroidx/viewpager/widget/ViewPager$SavedState;
@@ -88,13 +85,12 @@
 .end method
 
 .method public newArray(I)[Landroidx/viewpager/widget/ViewPager$SavedState;
-    .locals 1
-    .param p1, "size"    # I
+    .locals 0
 
     .line 1424
-    new-array v0, p1, [Landroidx/viewpager/widget/ViewPager$SavedState;
+    new-array p1, p1, [Landroidx/viewpager/widget/ViewPager$SavedState;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;

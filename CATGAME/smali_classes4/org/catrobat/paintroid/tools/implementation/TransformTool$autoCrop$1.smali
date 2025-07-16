@@ -31,27 +31,21 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
-        "\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@\u00a2\u0006\u0004\u0008\u0003\u0010\u0004"
+        "\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"
     }
     d2 = {
         "<anonymous>",
         "",
-        "Lkotlinx/coroutines/CoroutineScope;",
-        "invoke",
-        "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"
+        "Lkotlinx/coroutines/CoroutineScope;"
     }
     k = 0x3
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 .annotation runtime Lkotlin/coroutines/jvm/internal/DebugMetadata;
@@ -59,7 +53,7 @@
     f = "TransformTool.kt"
     i = {}
     l = {
-        0x19e
+        0x1ac
     }
     m = "invokeSuspend"
     n = {}
@@ -76,6 +70,16 @@
 # direct methods
 .method constructor <init>(Lorg/catrobat/paintroid/tools/implementation/TransformTool;Lkotlin/coroutines/Continuation;)V
     .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lorg/catrobat/paintroid/tools/implementation/TransformTool;",
+            "Lkotlin/coroutines/Continuation<",
+            "-",
+            "Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;",
+            ">;)V"
+        }
+    .end annotation
 
     iput-object p1, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
 
@@ -89,7 +93,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -102,23 +106,44 @@
         }
     .end annotation
 
-    const-string v0, "completion"
+    new-instance p1, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;
 
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    iget-object v0, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
 
-    new-instance v0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;
+    invoke-direct {p1, v0, p2}, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;-><init>(Lorg/catrobat/paintroid/tools/implementation/TransformTool;Lkotlin/coroutines/Continuation;)V
 
-    iget-object v1, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
+    check-cast p1, Lkotlin/coroutines/Continuation;
 
-    invoke-direct {v0, v1, p2}, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;-><init>(Lorg/catrobat/paintroid/tools/implementation/TransformTool;Lkotlin/coroutines/Continuation;)V
-
-    return-object v0
+    return-object p1
 .end method
 
-.method public final invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+.method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
+    check-cast p1, Lkotlinx/coroutines/CoroutineScope;
+
     check-cast p2, Lkotlin/coroutines/Continuation;
+
+    invoke-virtual {p0, p1, p2}, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;->invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lkotlinx/coroutines/CoroutineScope;",
+            "Lkotlin/coroutines/Continuation<",
+            "-",
+            "Lkotlin/Unit;",
+            ">;)",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
 
     invoke-virtual {p0, p1, p2}, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;->create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
 
@@ -136,13 +161,13 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 8
+    .locals 6
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 405
+    .line 418
     iget v1, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;->label:I
 
     const/4 v2, 0x1
@@ -151,17 +176,11 @@
 
     if-ne v1, v2, :cond_0
 
-    move-object v0, p0
-
-    .local v0, "this":Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;
-    .local p1, "$result":Ljava/lang/Object;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    .line 418
-    .end local v0    # "this":Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;
-    .end local p1    # "$result":Ljava/lang/Object;
+    .line 433
     :cond_0
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -171,150 +190,157 @@
 
     throw p1
 
-    .line 405
+    .line 418
     :cond_1
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    move-object v1, p0
+    .line 419
+    iget-object p1, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
 
-    .line 406
-    .local v1, "this":Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;
-    .restart local p1    # "$result":Ljava/lang/Object;
-    iget-object v3, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
+    iget-object p1, p1, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->idlingResource:Landroidx/test/espresso/idling/CountingIdlingResource;
 
-    invoke-static {v3}, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->access$getCropAlgorithm$p(Lorg/catrobat/paintroid/tools/implementation/TransformTool;)Lorg/catrobat/paintroid/tools/helper/CropAlgorithm;
+    invoke-virtual {p1}, Landroidx/test/espresso/idling/CountingIdlingResource;->increment()V
 
-    move-result-object v3
+    .line 420
+    iget-object p1, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
 
-    iget-object v4, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
+    invoke-static {p1}, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->access$getCropAlgorithm$p(Lorg/catrobat/paintroid/tools/implementation/TransformTool;)Lorg/catrobat/paintroid/tools/helper/CropAlgorithm;
 
-    iget-object v4, v4, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
+    move-result-object p1
 
-    invoke-interface {v4}, Lorg/catrobat/paintroid/tools/Workspace;->getBitmapOfAllLayers()Landroid/graphics/Bitmap;
+    iget-object v1, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
 
-    move-result-object v4
+    iget-object v1, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
 
-    invoke-interface {v3, v4}, Lorg/catrobat/paintroid/tools/helper/CropAlgorithm;->crop(Landroid/graphics/Bitmap;)Landroid/graphics/Rect;
+    invoke-interface {v1}, Lorg/catrobat/paintroid/tools/Workspace;->getBitmapOfAllLayers()Landroid/graphics/Bitmap;
 
-    move-result-object v3
+    move-result-object v1
 
-    .line 407
-    .local v3, "shapeBounds":Landroid/graphics/Rect;
-    if-eqz v3, :cond_2
+    invoke-interface {p1, v1}, Lorg/catrobat/paintroid/tools/helper/CropAlgorithm;->crop(Landroid/graphics/Bitmap;)Landroid/graphics/Rect;
 
-    .line 408
-    iget-object v4, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
+    move-result-object p1
 
-    invoke-virtual {v3}, Landroid/graphics/Rect;->width()I
+    if-eqz p1, :cond_2
 
-    move-result v5
+    .line 422
+    iget-object v1, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
 
-    int-to-float v5, v5
+    invoke-virtual {p1}, Landroid/graphics/Rect;->width()I
 
-    const/high16 v6, 0x3f800000    # 1.0f
+    move-result v3
 
-    add-float/2addr v5, v6
+    int-to-float v3, v3
 
-    iput v5, v4, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->boxWidth:F
+    const/high16 v4, 0x3f800000    # 1.0f
 
-    .line 409
-    iget-object v4, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
+    add-float/2addr v3, v4
 
-    invoke-virtual {v3}, Landroid/graphics/Rect;->height()I
+    iput v3, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->boxWidth:F
 
-    move-result v5
+    .line 423
+    iget-object v1, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
 
-    int-to-float v5, v5
+    invoke-virtual {p1}, Landroid/graphics/Rect;->height()I
 
-    add-float/2addr v5, v6
+    move-result v3
 
-    iput v5, v4, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->boxHeight:F
+    int-to-float v3, v3
 
-    .line 410
-    iget-object v4, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
+    add-float/2addr v3, v4
 
-    iget-object v4, v4, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->toolPosition:Landroid/graphics/PointF;
+    iput v3, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->boxHeight:F
 
-    iget v5, v3, Landroid/graphics/Rect;->left:I
+    .line 424
+    iget-object v1, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
 
-    int-to-float v5, v5
+    iget-object v1, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->toolPosition:Landroid/graphics/PointF;
 
-    invoke-virtual {v3}, Landroid/graphics/Rect;->width()I
+    iget v3, p1, Landroid/graphics/Rect;->left:I
 
-    move-result v6
+    int-to-float v3, v3
 
-    add-int/2addr v6, v2
+    invoke-virtual {p1}, Landroid/graphics/Rect;->width()I
 
-    int-to-float v6, v6
+    move-result v4
 
-    const/high16 v7, 0x40000000    # 2.0f
+    add-int/2addr v4, v2
 
-    div-float/2addr v6, v7
+    int-to-float v4, v4
 
-    add-float/2addr v5, v6
+    const/high16 v5, 0x40000000    # 2.0f
 
-    iput v5, v4, Landroid/graphics/PointF;->x:F
+    div-float/2addr v4, v5
 
-    .line 411
-    iget-object v4, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
+    add-float/2addr v3, v4
 
-    iget-object v4, v4, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->toolPosition:Landroid/graphics/PointF;
+    iput v3, v1, Landroid/graphics/PointF;->x:F
 
-    iget v5, v3, Landroid/graphics/Rect;->top:I
+    .line 425
+    iget-object v1, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
 
-    int-to-float v5, v5
+    iget-object v1, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->toolPosition:Landroid/graphics/PointF;
 
-    invoke-virtual {v3}, Landroid/graphics/Rect;->height()I
+    iget v3, p1, Landroid/graphics/Rect;->top:I
 
-    move-result v6
+    int-to-float v3, v3
 
-    add-int/2addr v6, v2
+    invoke-virtual {p1}, Landroid/graphics/Rect;->height()I
 
-    int-to-float v6, v6
+    move-result p1
 
-    div-float/2addr v6, v7
+    add-int/2addr p1, v2
 
-    add-float/2addr v5, v6
+    int-to-float p1, p1
 
-    iput v5, v4, Landroid/graphics/PointF;->y:F
+    div-float/2addr p1, v5
 
-    .line 414
-    .end local v3    # "shapeBounds":Landroid/graphics/Rect;
+    add-float/2addr v3, p1
+
+    iput v3, v1, Landroid/graphics/PointF;->y:F
+
+    .line 428
     :cond_2
     invoke-static {}, Lkotlinx/coroutines/Dispatchers;->getMain()Lkotlinx/coroutines/MainCoroutineDispatcher;
 
-    move-result-object v3
+    move-result-object p1
 
-    check-cast v3, Lkotlin/coroutines/CoroutineContext;
+    check-cast p1, Lkotlin/coroutines/CoroutineContext;
 
-    new-instance v4, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1$1;
+    new-instance v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1$1;
 
-    const/4 v5, 0x0
+    iget-object v3, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
 
-    invoke-direct {v4, v1, v5}, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1$1;-><init>(Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;Lkotlin/coroutines/Continuation;)V
+    const/4 v4, 0x0
 
-    check-cast v4, Lkotlin/jvm/functions/Function2;
+    invoke-direct {v1, v3, v4}, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1$1;-><init>(Lorg/catrobat/paintroid/tools/implementation/TransformTool;Lkotlin/coroutines/Continuation;)V
 
-    iput v2, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;->label:I
+    check-cast v1, Lkotlin/jvm/functions/Function2;
 
-    invoke-static {v3, v4, v1}, Lkotlinx/coroutines/BuildersKt;->withContext(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    move-object v3, p0
 
-    move-result-object v2
+    check-cast v3, Lkotlin/coroutines/Continuation;
 
-    if-ne v2, v0, :cond_3
+    iput v2, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;->label:I
 
-    .line 405
+    invoke-static {p1, v1, v3}, Lkotlinx/coroutines/BuildersKt;->withContext(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    if-ne p1, v0, :cond_3
+
     return-object v0
 
-    .line 414
+    .line 432
     :cond_3
-    move-object v0, v1
-
-    .line 418
-    .end local v1    # "this":Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;
-    .restart local v0    # "this":Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;
     :goto_0
-    sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    iget-object p1, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$autoCrop$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
 
-    return-object v1
+    iget-object p1, p1, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->idlingResource:Landroidx/test/espresso/idling/CountingIdlingResource;
+
+    invoke-virtual {p1}, Landroidx/test/espresso/idling/CountingIdlingResource;->decrement()V
+
+    .line 433
+    sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+
+    return-object p1
 .end method

@@ -19,7 +19,6 @@
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 30
     return-void
 .end method
 
@@ -36,7 +35,6 @@
     .end annotation
 
     .line 42
-    .local p0, "callbacks":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/core/impl/CameraCaptureCallback;>;"
     invoke-interface {p0}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
@@ -46,9 +44,9 @@
     .line 43
     invoke-static {}, Landroidx/camera/core/impl/CameraCaptureCallbacks;->createNoOpCallback()Landroidx/camera/core/impl/CameraCaptureCallback;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 44
     :cond_0
@@ -60,16 +58,16 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 45
     const/4 v0, 0x0
 
+    .line 45
     invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroidx/camera/core/impl/CameraCaptureCallback;
+    check-cast p0, Landroidx/camera/core/impl/CameraCaptureCallback;
 
-    return-object v0
+    return-object p0
 
     .line 47
     :cond_1
@@ -81,19 +79,18 @@
 .end method
 
 .method public static varargs createComboCallback([Landroidx/camera/core/impl/CameraCaptureCallback;)Landroidx/camera/core/impl/CameraCaptureCallback;
-    .locals 1
-    .param p0, "callbacks"    # [Landroidx/camera/core/impl/CameraCaptureCallback;
+    .locals 0
 
     .line 54
     invoke-static {p0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Landroidx/camera/core/impl/CameraCaptureCallbacks;->createComboCallback(Ljava/util/List;)Landroidx/camera/core/impl/CameraCaptureCallback;
+    invoke-static {p0}, Landroidx/camera/core/impl/CameraCaptureCallbacks;->createComboCallback(Ljava/util/List;)Landroidx/camera/core/impl/CameraCaptureCallback;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static createNoOpCallback()Landroidx/camera/core/impl/CameraCaptureCallback;

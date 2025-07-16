@@ -37,21 +37,18 @@
     .end annotation
 
     .line 29
-    .local p0, "this":Lcom/badlogic/gdx/utils/async/AsyncResult;, "Lcom/badlogic/gdx/utils/async/AsyncResult<TT;>;"
-    .local p1, "future":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 30
     iput-object p1, p0, Lcom/badlogic/gdx/utils/async/AsyncResult;->future:Ljava/util/concurrent/Future;
 
-    .line 31
     return-void
 .end method
 
 
 # virtual methods
 .method public get()Ljava/lang/Object;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -59,7 +56,6 @@
     .end annotation
 
     .line 42
-    .local p0, "this":Lcom/badlogic/gdx/utils/async/AsyncResult;, "Lcom/badlogic/gdx/utils/async/AsyncResult<TT;>;"
     :try_start_0
     iget-object v0, p0, Lcom/badlogic/gdx/utils/async/AsyncResult;->future:Ljava/util/concurrent/Future;
 
@@ -72,39 +68,30 @@
 
     return-object v0
 
-    .line 45
     :catch_0
     move-exception v0
 
     .line 46
-    .local v0, "ex":Ljava/util/concurrent/ExecutionException;
     new-instance v1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
     invoke-virtual {v0}, Ljava/util/concurrent/ExecutionException;->getCause()Ljava/lang/Throwable;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-direct {v1, v2}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v1, v0}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 
-    .line 43
-    .end local v0    # "ex":Ljava/util/concurrent/ExecutionException;
     :catch_1
-    move-exception v0
+    const/4 v0, 0x0
 
-    .line 44
-    .local v0, "ex":Ljava/lang/InterruptedException;
-    const/4 v1, 0x0
-
-    return-object v1
+    return-object v0
 .end method
 
 .method public isDone()Z
     .locals 1
 
     .line 35
-    .local p0, "this":Lcom/badlogic/gdx/utils/async/AsyncResult;, "Lcom/badlogic/gdx/utils/async/AsyncResult<TT;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/utils/async/AsyncResult;->future:Ljava/util/concurrent/Future;
 
     invoke-interface {v0}, Ljava/util/concurrent/Future;->isDone()Z

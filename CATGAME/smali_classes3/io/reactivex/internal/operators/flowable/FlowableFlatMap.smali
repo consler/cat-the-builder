@@ -46,9 +46,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/Flowable;Lio/reactivex/functions/Function;ZII)V
     .locals 0
-    .param p3, "delayErrors"    # Z
-    .param p4, "maxConcurrency"    # I
-    .param p5, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,9 +59,6 @@
     .end annotation
 
     .line 41
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableFlatMap;, "Lio/reactivex/internal/operators/flowable/FlowableFlatMap<TT;TU;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p2, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TU;>;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
     .line 42
@@ -79,15 +73,11 @@
     .line 45
     iput p5, p0, Lio/reactivex/internal/operators/flowable/FlowableFlatMap;->bufferSize:I
 
-    .line 46
     return-void
 .end method
 
 .method public static subscribe(Lorg/reactivestreams/Subscriber;Lio/reactivex/functions/Function;ZII)Lio/reactivex/FlowableSubscriber;
     .locals 7
-    .param p2, "delayErrors"    # Z
-    .param p3, "maxConcurrency"    # I
-    .param p4, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -107,8 +97,6 @@
     .end annotation
 
     .line 59
-    .local p0, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TU;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TU;>;>;"
     new-instance v6, Lio/reactivex/internal/operators/flowable/FlowableFlatMap$MergeSubscriber;
 
     move-object v0, v6
@@ -141,8 +129,6 @@
     .end annotation
 
     .line 50
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableFlatMap;, "Lio/reactivex/internal/operators/flowable/FlowableFlatMap<TT;TU;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableFlatMap;->source:Lio/reactivex/Flowable;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableFlatMap;->mapper:Lio/reactivex/functions/Function;
@@ -153,7 +139,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 51
     return-void
 
     .line 53
@@ -170,10 +155,9 @@
 
     invoke-static {p1, v1, v2, v3, v4}, Lio/reactivex/internal/operators/flowable/FlowableFlatMap;->subscribe(Lorg/reactivestreams/Subscriber;Lio/reactivex/functions/Function;ZII)Lio/reactivex/FlowableSubscriber;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
+    invoke-virtual {v0, p1}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 54
     return-void
 .end method

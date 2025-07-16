@@ -24,14 +24,12 @@
 # direct methods
 .method public constructor <init>(Lar/com/hjg/pngj/ImageInfo;)V
     .locals 1
-    .param p1, "info"    # Lar/com/hjg/pngj/ImageInfo;
 
-    .line 21
     const-string v0, "tIME"
 
+    .line 21
     invoke-direct {p0, v0, p1}, Lar/com/hjg/pngj/chunks/PngChunkSingle;-><init>(Ljava/lang/String;Lar/com/hjg/pngj/ImageInfo;)V
 
-    .line 22
     return-void
 .end method
 
@@ -40,17 +38,16 @@
 .method public createRawChunk()Lar/com/hjg/pngj/chunks/ChunkRaw;
     .locals 4
 
-    .line 31
     const/4 v0, 0x7
 
     const/4 v1, 0x1
 
+    .line 31
     invoke-virtual {p0, v0, v1}, Lar/com/hjg/pngj/chunks/PngChunkTIME;->createEmptyChunk(IZ)Lar/com/hjg/pngj/chunks/ChunkRaw;
 
     move-result-object v0
 
     .line 32
-    .local v0, "c":Lar/com/hjg/pngj/chunks/ChunkRaw;
     iget v1, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->year:I
 
     iget-object v2, v0, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
@@ -114,18 +111,17 @@
 
     aput-byte v2, v1, v3
 
-    .line 38
     return-object v0
 .end method
 
 .method public getAsString()Ljava/lang/String;
     .locals 3
 
-    .line 79
     const/4 v0, 0x6
 
     new-array v0, v0, [Ljava/lang/Object;
 
+    .line 79
     iget v1, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->year:I
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -207,53 +203,52 @@
 .method public getYMDHMS()[I
     .locals 3
 
-    .line 74
     const/4 v0, 0x6
 
     new-array v0, v0, [I
 
-    iget v1, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->year:I
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    .line 74
+    iget v2, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->year:I
 
-    aput v1, v0, v2
+    aput v2, v0, v1
 
-    iget v1, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->mon:I
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    iget v2, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->mon:I
 
-    aput v1, v0, v2
+    aput v2, v0, v1
 
-    iget v1, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->day:I
+    const/4 v1, 0x2
 
-    const/4 v2, 0x2
+    iget v2, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->day:I
 
-    aput v1, v0, v2
+    aput v2, v0, v1
 
-    iget v1, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->hour:I
+    const/4 v1, 0x3
 
-    const/4 v2, 0x3
+    iget v2, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->hour:I
 
-    aput v1, v0, v2
+    aput v2, v0, v1
 
-    iget v1, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->min:I
+    const/4 v1, 0x4
 
-    const/4 v2, 0x4
+    iget v2, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->min:I
 
-    aput v1, v0, v2
+    aput v2, v0, v1
 
-    iget v1, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->sec:I
+    const/4 v1, 0x5
 
-    const/4 v2, 0x5
+    iget v2, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->sec:I
 
-    aput v1, v0, v2
+    aput v2, v0, v1
 
     return-object v0
 .end method
 
 .method public parseFromRaw(Lar/com/hjg/pngj/chunks/ChunkRaw;)V
     .locals 3
-    .param p1, "chunk"    # Lar/com/hjg/pngj/chunks/ChunkRaw;
 
     .line 43
     iget v0, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->len:I
@@ -318,17 +313,16 @@
     iput v0, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->min:I
 
     .line 50
-    iget-object v0, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
+    iget-object p1, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
 
-    const/4 v1, 0x6
+    const/4 v0, 0x6
 
-    invoke-static {v0, v1}, Lar/com/hjg/pngj/PngHelperInternal;->readInt1fromByte([BI)I
+    invoke-static {p1, v0}, Lar/com/hjg/pngj/PngHelperInternal;->readInt1fromByte([BI)I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->sec:I
+    iput p1, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->sec:I
 
-    .line 51
     return-void
 
     .line 44
@@ -337,26 +331,25 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "bad chunk "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Lar/com/hjg/pngj/PngjException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Lar/com/hjg/pngj/PngjException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public setNow(I)V
     .locals 7
-    .param p1, "secsAgo"    # I
 
     .line 54
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
@@ -364,89 +357,81 @@
     move-result-object v0
 
     .line 55
-    .local v0, "d":Ljava/util/Calendar;
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v1
 
-    int-to-long v3, p1
+    const-wide/16 v3, 0x3e8
 
-    const-wide/16 v5, 0x3e8
+    int-to-long v5, p1
 
-    mul-long/2addr v3, v5
+    mul-long/2addr v5, v3
 
-    sub-long/2addr v1, v3
+    sub-long/2addr v1, v5
 
     invoke-virtual {v0, v1, v2}, Ljava/util/Calendar;->setTimeInMillis(J)V
 
+    const/4 p1, 0x1
+
     .line 56
-    const/4 v1, 0x1
+    invoke-virtual {v0, p1}, Ljava/util/Calendar;->get(I)I
 
-    invoke-virtual {v0, v1}, Ljava/util/Calendar;->get(I)I
+    move-result v1
 
-    move-result v2
+    iput v1, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->year:I
 
-    iput v2, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->year:I
+    const/4 v1, 0x2
 
     .line 57
-    const/4 v2, 0x2
+    invoke-virtual {v0, v1}, Ljava/util/Calendar;->get(I)I
 
-    invoke-virtual {v0, v2}, Ljava/util/Calendar;->get(I)I
+    move-result v1
 
-    move-result v2
+    add-int/2addr v1, p1
 
-    add-int/2addr v2, v1
+    iput v1, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->mon:I
 
-    iput v2, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->mon:I
+    const/4 p1, 0x5
 
     .line 58
-    const/4 v1, 0x5
+    invoke-virtual {v0, p1}, Ljava/util/Calendar;->get(I)I
 
-    invoke-virtual {v0, v1}, Ljava/util/Calendar;->get(I)I
+    move-result p1
 
-    move-result v1
+    iput p1, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->day:I
 
-    iput v1, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->day:I
+    const/16 p1, 0xb
 
     .line 59
-    const/16 v1, 0xb
+    invoke-virtual {v0, p1}, Ljava/util/Calendar;->get(I)I
 
-    invoke-virtual {v0, v1}, Ljava/util/Calendar;->get(I)I
+    move-result p1
 
-    move-result v1
+    iput p1, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->hour:I
 
-    iput v1, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->hour:I
+    const/16 p1, 0xc
 
     .line 60
-    const/16 v1, 0xc
+    invoke-virtual {v0, p1}, Ljava/util/Calendar;->get(I)I
 
-    invoke-virtual {v0, v1}, Ljava/util/Calendar;->get(I)I
+    move-result p1
 
-    move-result v1
+    iput p1, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->min:I
 
-    iput v1, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->min:I
+    const/16 p1, 0xd
 
     .line 61
-    const/16 v1, 0xd
+    invoke-virtual {v0, p1}, Ljava/util/Calendar;->get(I)I
 
-    invoke-virtual {v0, v1}, Ljava/util/Calendar;->get(I)I
+    move-result p1
 
-    move-result v1
+    iput p1, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->sec:I
 
-    iput v1, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->sec:I
-
-    .line 62
     return-void
 .end method
 
 .method public setYMDHMS(IIIIII)V
     .locals 0
-    .param p1, "yearx"    # I
-    .param p2, "monx"    # I
-    .param p3, "dayx"    # I
-    .param p4, "hourx"    # I
-    .param p5, "minx"    # I
-    .param p6, "secx"    # I
 
     .line 65
     iput p1, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->year:I
@@ -466,6 +451,5 @@
     .line 70
     iput p6, p0, Lar/com/hjg/pngj/chunks/PngChunkTIME;->sec:I
 
-    .line 71
     return-void
 .end method

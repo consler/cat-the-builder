@@ -32,7 +32,6 @@
 .method public asBinder()Landroid/os/IBinder;
     .locals 1
 
-    .line 36
     const/4 v0, 0x0
 
     return-object v0
@@ -40,44 +39,70 @@
 
 .method public cancel(Ljava/lang/String;ILjava/lang/String;)V
     .locals 0
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p2, "id"    # I
-    .param p3, "tag"    # Ljava/lang/String;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "packageName",
+            "id",
+            "tag"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .line 27
     return-void
 .end method
 
 .method public cancelAll(Ljava/lang/String;)V
     .locals 0
-    .param p1, "packageName"    # Ljava/lang/String;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "packageName"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .line 33
     return-void
 .end method
 
 .method public notify(Ljava/lang/String;ILjava/lang/String;Landroid/app/Notification;)V
     .locals 0
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p2, "id"    # I
-    .param p3, "tag"    # Ljava/lang/String;
-    .param p4, "notification"    # Landroid/app/Notification;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "packageName",
+            "id",
+            "tag",
+            "notification"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .line 21
     return-void
 .end method

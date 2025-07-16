@@ -29,9 +29,9 @@
     .line 2049
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2042
     const/4 v0, 0x0
 
+    .line 2042
     iput-object v0, p0, Landroidx/appcompat/widget/SearchView$PreQAutoCompleteTextViewReflector;->mDoBeforeTextChanged:Ljava/lang/reflect/Method;
 
     .line 2043
@@ -43,11 +43,11 @@
     .line 2050
     invoke-static {}, Landroidx/appcompat/widget/SearchView$PreQAutoCompleteTextViewReflector;->preApi29Check()V
 
-    .line 2052
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
+    .line 2052
     :try_start_0
     const-class v2, Landroid/widget/AutoCompleteTextView;
 
@@ -67,15 +67,8 @@
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2057
-    goto :goto_0
-
-    .line 2055
-    :catch_0
-    move-exception v2
-
     .line 2059
-    :goto_0
+    :catch_0
     :try_start_1
     const-class v2, Landroid/widget/AutoCompleteTextView;
 
@@ -95,15 +88,8 @@
     :try_end_1
     .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 2064
-    goto :goto_1
-
-    .line 2062
-    :catch_1
-    move-exception v2
-
     .line 2066
-    :goto_1
+    :catch_1
     :try_start_2
     const-class v2, Landroid/widget/AutoCompleteTextView;
 
@@ -127,15 +113,7 @@
     :try_end_2
     .catch Ljava/lang/NoSuchMethodException; {:try_start_2 .. :try_end_2} :catch_2
 
-    .line 2071
-    goto :goto_2
-
-    .line 2069
     :catch_2
-    move-exception v0
-
-    .line 2072
-    :goto_2
     return-void
 .end method
 
@@ -149,7 +127,6 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 2109
     return-void
 
     .line 2106
@@ -167,7 +144,6 @@
 # virtual methods
 .method doAfterTextChanged(Landroid/widget/AutoCompleteTextView;)V
     .locals 2
-    .param p1, "view"    # Landroid/widget/AutoCompleteTextView;
 
     .line 2085
     invoke-static {}, Landroidx/appcompat/widget/SearchView$PreQAutoCompleteTextViewReflector;->preApi29Check()V
@@ -177,32 +153,23 @@
 
     if-eqz v0, :cond_0
 
-    .line 2088
     const/4 v1, 0x0
 
     :try_start_0
     new-array v1, v1, [Ljava/lang/Object;
 
+    .line 2088
     invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2090
-    goto :goto_0
-
-    .line 2089
     :catch_0
-    move-exception v0
-
-    .line 2092
     :cond_0
-    :goto_0
     return-void
 .end method
 
 .method doBeforeTextChanged(Landroid/widget/AutoCompleteTextView;)V
     .locals 2
-    .param p1, "view"    # Landroid/widget/AutoCompleteTextView;
 
     .line 2075
     invoke-static {}, Landroidx/appcompat/widget/SearchView$PreQAutoCompleteTextViewReflector;->preApi29Check()V
@@ -212,32 +179,23 @@
 
     if-eqz v0, :cond_0
 
-    .line 2078
     const/4 v1, 0x0
 
     :try_start_0
     new-array v1, v1, [Ljava/lang/Object;
 
+    .line 2078
     invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2080
-    goto :goto_0
-
-    .line 2079
     :catch_0
-    move-exception v0
-
-    .line 2082
     :cond_0
-    :goto_0
     return-void
 .end method
 
 .method ensureImeVisible(Landroid/widget/AutoCompleteTextView;)V
     .locals 4
-    .param p1, "view"    # Landroid/widget/AutoCompleteTextView;
 
     .line 2095
     invoke-static {}, Landroidx/appcompat/widget/SearchView$PreQAutoCompleteTextViewReflector;->preApi29Check()V
@@ -247,17 +205,17 @@
 
     if-eqz v0, :cond_0
 
-    .line 2098
     const/4 v1, 0x1
 
     :try_start_0
     new-array v2, v1, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
-
+    .line 2098
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
+
+    const/4 v3, 0x0
 
     aput-object v1, v2, v3
 
@@ -265,15 +223,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2100
-    goto :goto_0
-
-    .line 2099
     :catch_0
-    move-exception v0
-
-    .line 2102
     :cond_0
-    :goto_0
     return-void
 .end method

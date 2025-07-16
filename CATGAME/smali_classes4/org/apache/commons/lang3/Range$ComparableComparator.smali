@@ -47,13 +47,13 @@
 
     sput-object v0, Lorg/apache/commons/lang3/Range$ComparableComparator;->INSTANCE:Lorg/apache/commons/lang3/Range$ComparableComparator;
 
-    .line 469
     const/4 v1, 0x1
 
     new-array v1, v1, [Lorg/apache/commons/lang3/Range$ComparableComparator;
 
     aput-object v0, v1, v2
 
+    .line 469
     sput-object v1, Lorg/apache/commons/lang3/Range$ComparableComparator;->$VALUES:[Lorg/apache/commons/lang3/Range$ComparableComparator;
 
     return-void
@@ -75,18 +75,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lorg/apache/commons/lang3/Range$ComparableComparator;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 469
     const-class v0, Lorg/apache/commons/lang3/Range$ComparableComparator;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lorg/apache/commons/lang3/Range$ComparableComparator;
+    check-cast p0, Lorg/apache/commons/lang3/Range$ComparableComparator;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lorg/apache/commons/lang3/Range$ComparableComparator;
@@ -107,18 +106,14 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
-    .param p1, "obj1"    # Ljava/lang/Object;
-    .param p2, "obj2"    # Ljava/lang/Object;
+    .locals 0
 
     .line 481
-    move-object v0, p1
+    check-cast p1, Ljava/lang/Comparable;
 
-    check-cast v0, Ljava/lang/Comparable;
+    invoke-interface {p1, p2}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
 
-    invoke-interface {v0, p2}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
+    move-result p1
 
-    move-result v0
-
-    return v0
+    return p1
 .end method

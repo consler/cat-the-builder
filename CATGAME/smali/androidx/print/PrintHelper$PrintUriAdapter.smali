@@ -45,10 +45,6 @@
 # direct methods
 .method constructor <init>(Landroidx/print/PrintHelper;Ljava/lang/String;Landroid/net/Uri;Landroidx/print/PrintHelper$OnPrintFinishCallback;I)V
     .locals 0
-    .param p2, "jobName"    # Ljava/lang/String;
-    .param p3, "imageFile"    # Landroid/net/Uri;
-    .param p4, "callback"    # Landroidx/print/PrintHelper$OnPrintFinishCallback;
-    .param p5, "fittingMode"    # I
 
     .line 389
     iput-object p1, p0, Landroidx/print/PrintHelper$PrintUriAdapter;->this$0:Landroidx/print/PrintHelper;
@@ -67,12 +63,11 @@
     .line 393
     iput p5, p0, Landroidx/print/PrintHelper$PrintUriAdapter;->mFittingMode:I
 
-    .line 394
     const/4 p1, 0x0
 
+    .line 394
     iput-object p1, p0, Landroidx/print/PrintHelper$PrintUriAdapter;->mBitmap:Landroid/graphics/Bitmap;
 
-    .line 395
     return-void
 .end method
 
@@ -94,24 +89,9 @@
 
     iget-object v1, v1, Landroidx/print/PrintHelper;->mDecodeOptions:Landroid/graphics/BitmapFactory$Options;
 
-    if-eqz v1, :cond_1
-
-    .line 504
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x18
-
-    if-ge v1, v2, :cond_0
-
-    .line 506
-    iget-object v1, p0, Landroidx/print/PrintHelper$PrintUriAdapter;->this$0:Landroidx/print/PrintHelper;
-
-    iget-object v1, v1, Landroidx/print/PrintHelper;->mDecodeOptions:Landroid/graphics/BitmapFactory$Options;
-
-    invoke-virtual {v1}, Landroid/graphics/BitmapFactory$Options;->requestCancelDecode()V
+    if-eqz v1, :cond_0
 
     .line 508
-    :cond_0
     iget-object v1, p0, Landroidx/print/PrintHelper$PrintUriAdapter;->this$0:Landroidx/print/PrintHelper;
 
     const/4 v2, 0x0
@@ -119,13 +99,11 @@
     iput-object v2, v1, Landroidx/print/PrintHelper;->mDecodeOptions:Landroid/graphics/BitmapFactory$Options;
 
     .line 510
-    :cond_1
+    :cond_0
     monitor-exit v0
 
-    .line 511
     return-void
 
-    .line 510
     :catchall_0
     move-exception v1
 
@@ -150,9 +128,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 518
     const/4 v1, 0x1
 
+    .line 518
     invoke-virtual {v0, v1}, Landroid/os/AsyncTask;->cancel(Z)Z
 
     .line 520
@@ -173,23 +151,17 @@
     .line 524
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
-    .line 525
     const/4 v0, 0x0
 
+    .line 525
     iput-object v0, p0, Landroidx/print/PrintHelper$PrintUriAdapter;->mBitmap:Landroid/graphics/Bitmap;
 
-    .line 527
     :cond_2
     return-void
 .end method
 
 .method public onLayout(Landroid/print/PrintAttributes;Landroid/print/PrintAttributes;Landroid/os/CancellationSignal;Landroid/print/PrintDocumentAdapter$LayoutResultCallback;Landroid/os/Bundle;)V
-    .locals 8
-    .param p1, "oldPrintAttributes"    # Landroid/print/PrintAttributes;
-    .param p2, "newPrintAttributes"    # Landroid/print/PrintAttributes;
-    .param p3, "cancellationSignal"    # Landroid/os/CancellationSignal;
-    .param p4, "layoutResultCallback"    # Landroid/print/PrintDocumentAdapter$LayoutResultCallback;
-    .param p5, "bundle"    # Landroid/os/Bundle;
+    .locals 6
 
     .line 404
     monitor-enter p0
@@ -206,113 +178,102 @@
     .line 409
     invoke-virtual {p3}, Landroid/os/CancellationSignal;->isCanceled()Z
 
-    move-result v0
+    move-result p5
 
-    if-eqz v0, :cond_0
+    if-eqz p5, :cond_0
 
     .line 410
     invoke-virtual {p4}, Landroid/print/PrintDocumentAdapter$LayoutResultCallback;->onLayoutCancelled()V
 
-    .line 411
     return-void
 
     .line 414
     :cond_0
-    iget-object v0, p0, Landroidx/print/PrintHelper$PrintUriAdapter;->mBitmap:Landroid/graphics/Bitmap;
+    iget-object p5, p0, Landroidx/print/PrintHelper$PrintUriAdapter;->mBitmap:Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_1
+    if-eqz p5, :cond_1
 
     .line 415
-    new-instance v0, Landroid/print/PrintDocumentInfo$Builder;
+    new-instance p3, Landroid/print/PrintDocumentInfo$Builder;
 
-    iget-object v1, p0, Landroidx/print/PrintHelper$PrintUriAdapter;->mJobName:Ljava/lang/String;
+    iget-object p5, p0, Landroidx/print/PrintHelper$PrintUriAdapter;->mJobName:Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Landroid/print/PrintDocumentInfo$Builder;-><init>(Ljava/lang/String;)V
+    invoke-direct {p3, p5}, Landroid/print/PrintDocumentInfo$Builder;-><init>(Ljava/lang/String;)V
+
+    const/4 p5, 0x1
 
     .line 416
-    const/4 v1, 0x1
+    invoke-virtual {p3, p5}, Landroid/print/PrintDocumentInfo$Builder;->setContentType(I)Landroid/print/PrintDocumentInfo$Builder;
 
-    invoke-virtual {v0, v1}, Landroid/print/PrintDocumentInfo$Builder;->setContentType(I)Landroid/print/PrintDocumentInfo$Builder;
-
-    move-result-object v0
+    move-result-object p3
 
     .line 417
-    invoke-virtual {v0, v1}, Landroid/print/PrintDocumentInfo$Builder;->setPageCount(I)Landroid/print/PrintDocumentInfo$Builder;
+    invoke-virtual {p3, p5}, Landroid/print/PrintDocumentInfo$Builder;->setPageCount(I)Landroid/print/PrintDocumentInfo$Builder;
 
-    move-result-object v0
+    move-result-object p3
 
     .line 418
-    invoke-virtual {v0}, Landroid/print/PrintDocumentInfo$Builder;->build()Landroid/print/PrintDocumentInfo;
+    invoke-virtual {p3}, Landroid/print/PrintDocumentInfo$Builder;->build()Landroid/print/PrintDocumentInfo;
 
-    move-result-object v0
+    move-result-object p3
 
     .line 419
-    .local v0, "info":Landroid/print/PrintDocumentInfo;
     invoke-virtual {p2, p1}, Landroid/print/PrintAttributes;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p1
 
-    xor-int/2addr v1, v2
+    xor-int/2addr p1, p5
 
     .line 420
-    .local v1, "changed":Z
-    invoke-virtual {p4, v0, v1}, Landroid/print/PrintDocumentAdapter$LayoutResultCallback;->onLayoutFinished(Landroid/print/PrintDocumentInfo;Z)V
+    invoke-virtual {p4, p3, p1}, Landroid/print/PrintDocumentAdapter$LayoutResultCallback;->onLayoutFinished(Landroid/print/PrintDocumentInfo;Z)V
 
-    .line 421
     return-void
 
     .line 424
-    .end local v0    # "info":Landroid/print/PrintDocumentInfo;
-    .end local v1    # "changed":Z
     :cond_1
-    new-instance v0, Landroidx/print/PrintHelper$PrintUriAdapter$1;
+    new-instance p5, Landroidx/print/PrintHelper$PrintUriAdapter$1;
 
-    move-object v2, v0
+    move-object v0, p5
 
-    move-object v3, p0
+    move-object v1, p0
 
-    move-object v4, p3
+    move-object v2, p3
 
-    move-object v5, p2
+    move-object v3, p2
 
-    move-object v6, p1
+    move-object v4, p1
 
-    move-object v7, p4
+    move-object v5, p4
 
-    invoke-direct/range {v2 .. v7}, Landroidx/print/PrintHelper$PrintUriAdapter$1;-><init>(Landroidx/print/PrintHelper$PrintUriAdapter;Landroid/os/CancellationSignal;Landroid/print/PrintAttributes;Landroid/print/PrintAttributes;Landroid/print/PrintDocumentAdapter$LayoutResultCallback;)V
+    invoke-direct/range {v0 .. v5}, Landroidx/print/PrintHelper$PrintUriAdapter$1;-><init>(Landroidx/print/PrintHelper$PrintUriAdapter;Landroid/os/CancellationSignal;Landroid/print/PrintAttributes;Landroid/print/PrintAttributes;Landroid/print/PrintDocumentAdapter$LayoutResultCallback;)V
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    new-array v1, v1, [Landroid/net/Uri;
+    new-array p1, p1, [Landroid/net/Uri;
 
     .line 497
-    invoke-virtual {v0, v1}, Landroidx/print/PrintHelper$PrintUriAdapter$1;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-virtual {p5, p1}, Landroidx/print/PrintHelper$PrintUriAdapter$1;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/print/PrintHelper$PrintUriAdapter;->mLoadBitmap:Landroid/os/AsyncTask;
+    iput-object p1, p0, Landroidx/print/PrintHelper$PrintUriAdapter;->mLoadBitmap:Landroid/os/AsyncTask;
 
-    .line 498
     return-void
 
-    .line 406
     :catchall_0
-    move-exception v0
+    move-exception p1
 
+    .line 406
     :try_start_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 .method public onWrite([Landroid/print/PageRange;Landroid/os/ParcelFileDescriptor;Landroid/os/CancellationSignal;Landroid/print/PrintDocumentAdapter$WriteResultCallback;)V
     .locals 7
-    .param p1, "pageRanges"    # [Landroid/print/PageRange;
-    .param p2, "fileDescriptor"    # Landroid/os/ParcelFileDescriptor;
-    .param p3, "cancellationSignal"    # Landroid/os/CancellationSignal;
-    .param p4, "writeResultCallback"    # Landroid/print/PrintDocumentAdapter$WriteResultCallback;
 
     .line 533
     iget-object v0, p0, Landroidx/print/PrintHelper$PrintUriAdapter;->this$0:Landroidx/print/PrintHelper;
@@ -331,6 +292,5 @@
 
     invoke-virtual/range {v0 .. v6}, Landroidx/print/PrintHelper;->writeBitmap(Landroid/print/PrintAttributes;ILandroid/graphics/Bitmap;Landroid/os/ParcelFileDescriptor;Landroid/os/CancellationSignal;Landroid/print/PrintDocumentAdapter$WriteResultCallback;)V
 
-    .line 535
     return-void
 .end method

@@ -39,17 +39,13 @@
     .end annotation
 
     .line 83
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableMap;, "Lorg/apache/commons/collections4/map/UnmodifiableMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/map/AbstractMapDecorator;-><init>(Ljava/util/Map;)V
 
-    .line 84
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 1
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -58,19 +54,17 @@
     .end annotation
 
     .line 109
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableMap;, "Lorg/apache/commons/collections4/map/UnmodifiableMap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
     .line 110
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Map;
+    check-cast p1, Ljava/util/Map;
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/map/UnmodifiableMap;->map:Ljava/util/Map;
+    iput-object p1, p0, Lorg/apache/commons/collections4/map/UnmodifiableMap;->map:Ljava/util/Map;
 
-    .line 111
     return-void
 .end method
 
@@ -91,20 +85,13 @@
     .end annotation
 
     .line 66
-    .local p0, "map":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     instance-of v0, p0, Lorg/apache/commons/collections4/Unmodifiable;
 
     if-eqz v0, :cond_0
 
-    .line 68
-    move-object v0, p0
-
-    .line 69
-    .local v0, "tmpMap":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    return-object v0
+    return-object p0
 
     .line 71
-    .end local v0    # "tmpMap":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     :cond_0
     new-instance v0, Lorg/apache/commons/collections4/map/UnmodifiableMap;
 
@@ -115,7 +102,6 @@
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -123,7 +109,6 @@
     .end annotation
 
     .line 95
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableMap;, "Lorg/apache/commons/collections4/map/UnmodifiableMap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
     .line 96
@@ -131,7 +116,6 @@
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    .line 97
     return-void
 .end method
 
@@ -141,7 +125,6 @@
     .locals 1
 
     .line 116
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableMap;, "Lorg/apache/commons/collections4/map/UnmodifiableMap<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -150,7 +133,7 @@
 .end method
 
 .method public entrySet()Ljava/util/Set;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -161,22 +144,20 @@
     .end annotation
 
     .line 146
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableMap;, "Lorg/apache/commons/collections4/map/UnmodifiableMap<TK;TV;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/map/AbstractMapDecorator;->entrySet()Ljava/util/Set;
 
     move-result-object v0
 
     .line 147
-    .local v0, "set":Ljava/util/Set;, "Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;"
     invoke-static {v0}, Lorg/apache/commons/collections4/map/UnmodifiableEntrySet;->unmodifiableEntrySet(Ljava/util/Set;)Ljava/util/Set;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public keySet()Ljava/util/Set;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -186,18 +167,16 @@
     .end annotation
 
     .line 152
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableMap;, "Lorg/apache/commons/collections4/map/UnmodifiableMap<TK;TV;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/map/AbstractMapDecorator;->keySet()Ljava/util/Set;
 
     move-result-object v0
 
     .line 153
-    .local v0, "set":Ljava/util/Set;, "Ljava/util/Set<TK;>;"
     invoke-static {v0}, Lorg/apache/commons/collections4/set/UnmodifiableSet;->unmodifiableSet(Ljava/util/Set;)Ljava/util/Set;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public mapIterator()Lorg/apache/commons/collections4/MapIterator;
@@ -211,7 +190,6 @@
     .end annotation
 
     .line 136
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableMap;, "Lorg/apache/commons/collections4/map/UnmodifiableMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/UnmodifiableMap;->map:Ljava/util/Map;
 
     instance-of v0, v0, Lorg/apache/commons/collections4/IterableMap;
@@ -228,15 +206,13 @@
     move-result-object v0
 
     .line 138
-    .local v0, "it":Lorg/apache/commons/collections4/MapIterator;, "Lorg/apache/commons/collections4/MapIterator<TK;TV;>;"
     invoke-static {v0}, Lorg/apache/commons/collections4/iterators/UnmodifiableMapIterator;->unmodifiableMapIterator(Lorg/apache/commons/collections4/MapIterator;)Lorg/apache/commons/collections4/MapIterator;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 
     .line 140
-    .end local v0    # "it":Lorg/apache/commons/collections4/MapIterator;, "Lorg/apache/commons/collections4/MapIterator<TK;TV;>;"
     :cond_0
     new-instance v0, Lorg/apache/commons/collections4/iterators/EntrySetMapIterator;
 
@@ -245,16 +221,15 @@
     invoke-direct {v0, v1}, Lorg/apache/commons/collections4/iterators/EntrySetMapIterator;-><init>(Ljava/util/Map;)V
 
     .line 141
-    .restart local v0    # "it":Lorg/apache/commons/collections4/MapIterator;, "Lorg/apache/commons/collections4/MapIterator<TK;TV;>;"
     invoke-static {v0}, Lorg/apache/commons/collections4/iterators/UnmodifiableMapIterator;->unmodifiableMapIterator(Lorg/apache/commons/collections4/MapIterator;)Lorg/apache/commons/collections4/MapIterator;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -262,18 +237,15 @@
     .end annotation
 
     .line 121
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableMap;, "Lorg/apache/commons/collections4/map/UnmodifiableMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -283,18 +255,15 @@
     .end annotation
 
     .line 126
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableMap;, "Lorg/apache/commons/collections4/map/UnmodifiableMap<TK;TV;>;"
-    .local p1, "mapToCopy":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -304,16 +273,15 @@
     .end annotation
 
     .line 131
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableMap;, "Lorg/apache/commons/collections4/map/UnmodifiableMap<TK;TV;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public values()Ljava/util/Collection;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -323,16 +291,14 @@
     .end annotation
 
     .line 158
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableMap;, "Lorg/apache/commons/collections4/map/UnmodifiableMap<TK;TV;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/map/AbstractMapDecorator;->values()Ljava/util/Collection;
 
     move-result-object v0
 
     .line 159
-    .local v0, "coll":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
     invoke-static {v0}, Lorg/apache/commons/collections4/collection/UnmodifiableCollection;->unmodifiableCollection(Ljava/util/Collection;)Ljava/util/Collection;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method

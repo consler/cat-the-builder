@@ -39,17 +39,15 @@
 # direct methods
 .method private constructor <init>(Ljava/nio/ByteBuffer;Z)V
     .locals 4
-    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
-    .param p2, "immutable"    # Z
 
-    .line 1321
     const/4 v0, 0x0
 
+    .line 1321
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;-><init>(Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$1;)V
 
-    .line 1315
     const v0, 0x7fffffff
 
+    .line 1315
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->currentLimit:I
 
     .line 1322
@@ -69,18 +67,16 @@
 
     int-to-long v2, v2
 
-    add-long/2addr v0, v2
+    add-long/2addr v2, v0
 
-    iput-wide v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->limit:J
+    iput-wide v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->limit:J
 
     .line 1325
-    iget-wide v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->address:J
-
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->position()I
 
-    move-result v2
+    move-result p1
 
-    int-to-long v2, v2
+    int-to-long v2, p1
 
     add-long/2addr v0, v2
 
@@ -92,15 +88,11 @@
     .line 1327
     iput-boolean p2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->immutable:Z
 
-    .line 1328
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/nio/ByteBuffer;ZLcom/google/crypto/tink/shaded/protobuf/CodedInputStream$1;)V
     .locals 0
-    .param p1, "x0"    # Ljava/nio/ByteBuffer;
-    .param p2, "x1"    # Z
-    .param p3, "x2"    # Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$1;
 
     .line 1280
     invoke-direct {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;-><init>(Ljava/nio/ByteBuffer;Z)V
@@ -110,16 +102,15 @@
 
 .method private bufferPos(J)I
     .locals 2
-    .param p1, "pos"    # J
 
     .line 2005
     iget-wide v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->address:J
 
-    sub-long v0, p1, v0
+    sub-long/2addr p1, v0
 
-    long-to-int v0, v0
+    long-to-int p1, p1
 
-    return v0
+    return p1
 .end method
 
 .method static isSupported()Z
@@ -134,7 +125,7 @@
 .end method
 
 .method private recomputeBufferSizeAfterLimit()V
-    .locals 5
+    .locals 4
 
     .line 1989
     iget-wide v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->limit:J
@@ -155,32 +146,30 @@
     long-to-int v2, v2
 
     .line 1991
-    .local v2, "bufferEnd":I
     iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->currentLimit:I
 
     if-le v2, v3, :cond_0
 
-    .line 1993
-    sub-int v3, v2, v3
+    sub-int/2addr v2, v3
 
-    iput v3, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->bufferSizeAfterLimit:I
+    .line 1993
+    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->bufferSizeAfterLimit:I
+
+    int-to-long v2, v2
+
+    sub-long/2addr v0, v2
 
     .line 1994
-    int-to-long v3, v3
-
-    sub-long/2addr v0, v3
-
     iput-wide v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->limit:J
 
     goto :goto_0
 
-    .line 1996
     :cond_0
     const/4 v0, 0x0
 
+    .line 1996
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->bufferSizeAfterLimit:I
 
-    .line 1998
     :goto_0
     return-void
 .end method
@@ -226,7 +215,6 @@
     :cond_0
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->skipRawVarintSlowPath()V
 
-    .line 1755
     :goto_0
     return-void
 .end method
@@ -239,10 +227,8 @@
         }
     .end annotation
 
-    .line 1758
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     const/16 v1, 0xa
 
@@ -263,17 +249,14 @@
 
     if-ltz v1, :cond_0
 
-    .line 1760
     return-void
 
-    .line 1758
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 1763
-    .end local v0    # "i":I
     :cond_1
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->malformedVarint()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
@@ -290,10 +273,8 @@
         }
     .end annotation
 
-    .line 1767
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     const/16 v1, 0xa
 
@@ -306,17 +287,14 @@
 
     if-ltz v1, :cond_0
 
-    .line 1769
     return-void
 
-    .line 1767
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 1772
-    .end local v0    # "i":I
     :cond_1
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->malformedVarint()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
@@ -326,9 +304,7 @@
 .end method
 
 .method private slice(JJ)Ljava/nio/ByteBuffer;
-    .locals 4
-    .param p1, "begin"    # J
-    .param p3, "end"    # J
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -343,7 +319,6 @@
     move-result v0
 
     .line 2010
-    .local v0, "prevPos":I
     iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->buffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->limit()I
@@ -351,98 +326,81 @@
     move-result v1
 
     .line 2012
-    .local v1, "prevLimit":I
     :try_start_0
     iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->buffer:Ljava/nio/ByteBuffer;
 
     invoke-direct {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->bufferPos(J)I
 
-    move-result v3
+    move-result p1
 
-    invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v2, p1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 2013
-    iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->buffer:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->buffer:Ljava/nio/ByteBuffer;
 
     invoke-direct {p0, p3, p4}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->bufferPos(J)I
 
-    move-result v3
+    move-result p2
 
-    invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, p2}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
     .line 2014
-    iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->buffer:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->buffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->slice()Ljava/nio/ByteBuffer;
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->slice()Ljava/nio/ByteBuffer;
 
-    move-result-object v2
+    move-result-object p1
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 2018
-    iget-object v3, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->buffer:Ljava/nio/ByteBuffer;
+    iget-object p2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->buffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v3, v0}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p2, v0}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 2019
-    iget-object v3, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->buffer:Ljava/nio/ByteBuffer;
+    iget-object p2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->buffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v3, v1}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {p2, v1}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
-    .line 2014
-    return-object v2
+    return-object p1
 
-    .line 2018
     :catchall_0
-    move-exception v2
+    move-exception p1
 
     goto :goto_0
 
-    .line 2015
-    :catch_0
-    move-exception v2
-
     .line 2016
-    .local v2, "e":Ljava/lang/IllegalArgumentException;
+    :catch_0
     :try_start_1
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v3
+    move-result-object p1
 
-    .end local v0    # "prevPos":I
-    .end local v1    # "prevLimit":I
-    .end local p1    # "begin":J
-    .end local p3    # "end":J
-    throw v3
+    throw p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 2018
-    .end local v2    # "e":Ljava/lang/IllegalArgumentException;
-    .restart local v0    # "prevPos":I
-    .restart local v1    # "prevLimit":I
-    .restart local p1    # "begin":J
-    .restart local p3    # "end":J
     :goto_0
-    iget-object v3, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->buffer:Ljava/nio/ByteBuffer;
+    iget-object p2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->buffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v3, v0}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p2, v0}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 2019
-    iget-object v3, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->buffer:Ljava/nio/ByteBuffer;
+    iget-object p2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->buffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v3, v1}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {p2, v1}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
     .line 2020
-    throw v2
+    throw p1
 .end method
 
 
 # virtual methods
 .method public checkLastTagWas(I)V
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
@@ -454,26 +412,23 @@
 
     if-ne v0, p1, :cond_0
 
-    .line 1351
     return-void
 
     .line 1349
     :cond_0
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidEndTag()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 .end method
 
 .method public enableAliasing(Z)V
     .locals 0
-    .param p1, "enabled"    # Z
 
     .line 1896
     iput-boolean p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->enableAliasing:Z
 
-    .line 1897
     return-void
 .end method
 
@@ -487,7 +442,6 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 1930
     const/4 v0, -0x1
 
     return v0
@@ -557,7 +511,6 @@
 
 .method public popLimit(I)V
     .locals 0
-    .param p1, "oldLimit"    # I
 
     .line 1923
     iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->currentLimit:I
@@ -565,20 +518,17 @@
     .line 1924
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recomputeBufferSizeAfterLimit()V
 
-    .line 1925
     return-void
 .end method
 
 .method public pushLimit(I)I
-    .locals 2
-    .param p1, "byteLimit"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
         }
     .end annotation
 
-    .line 1906
     if-ltz p1, :cond_1
 
     .line 1909
@@ -591,8 +541,6 @@
     .line 1910
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->currentLimit:I
 
-    .line 1911
-    .local v0, "oldLimit":I
     if-gt p1, v0, :cond_0
 
     .line 1914
@@ -601,25 +549,23 @@
     .line 1916
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recomputeBufferSizeAfterLimit()V
 
-    .line 1918
     return v0
 
     .line 1912
     :cond_0
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 
     .line 1907
-    .end local v0    # "oldLimit":I
     :cond_1
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->negativeSize()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 .end method
 
 .method public readBool()Z
@@ -673,7 +619,7 @@
 .end method
 
 .method public readByteBuffer()Ljava/nio/ByteBuffer;
-    .locals 11
+    .locals 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -685,10 +631,9 @@
 
     move-result v0
 
-    .line 1648
-    .local v0, "size":I
     if-lez v0, :cond_1
 
+    .line 1648
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->remaining()I
 
     move-result v1
@@ -709,90 +654,81 @@
 
     int-to-long v3, v0
 
-    add-long/2addr v3, v1
+    add-long v5, v1, v3
 
-    invoke-direct {p0, v1, v2, v3, v4}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->slice(JJ)Ljava/nio/ByteBuffer;
+    invoke-direct {p0, v1, v2, v5, v6}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->slice(JJ)Ljava/nio/ByteBuffer;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 1654
-    .local v1, "result":Ljava/nio/ByteBuffer;
-    iget-wide v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
+    iget-wide v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
-    int-to-long v4, v0
+    add-long/2addr v1, v3
 
-    add-long/2addr v2, v4
+    iput-wide v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
-    iput-wide v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
-
-    .line 1655
-    return-object v1
+    return-object v0
 
     .line 1658
-    .end local v1    # "result":Ljava/nio/ByteBuffer;
     :cond_0
     new-array v1, v0, [B
 
     .line 1659
-    .local v1, "bytes":[B
-    iget-wide v4, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
+    iget-wide v3, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
-    const-wide/16 v7, 0x0
+    const-wide/16 v6, 0x0
 
-    int-to-long v9, v0
+    int-to-long v10, v0
 
-    move-object v6, v1
+    move-object v5, v1
 
-    invoke-static/range {v4 .. v10}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->copyMemory(J[BJJ)V
+    move-wide v8, v10
+
+    invoke-static/range {v3 .. v9}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->copyMemory(J[BJJ)V
 
     .line 1660
     iget-wide v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
-    int-to-long v4, v0
-
-    add-long/2addr v2, v4
+    add-long/2addr v2, v10
 
     iput-wide v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
     .line 1661
     invoke-static {v1}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
-    move-result-object v2
+    move-result-object v0
 
-    return-object v2
+    return-object v0
 
-    .line 1666
-    .end local v1    # "bytes":[B
     :cond_1
     if-nez v0, :cond_2
 
     .line 1667
-    sget-object v1, Lcom/google/crypto/tink/shaded/protobuf/Internal;->EMPTY_BYTE_BUFFER:Ljava/nio/ByteBuffer;
+    sget-object v0, Lcom/google/crypto/tink/shaded/protobuf/Internal;->EMPTY_BYTE_BUFFER:Ljava/nio/ByteBuffer;
 
-    return-object v1
+    return-object v0
 
-    .line 1669
     :cond_2
     if-gez v0, :cond_3
 
     .line 1670
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->negativeSize()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 
     .line 1672
     :cond_3
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 .end method
 
 .method public readBytes()Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-    .locals 10
+    .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -804,10 +740,9 @@
 
     move-result v0
 
-    .line 1617
-    .local v0, "size":I
     if-lez v0, :cond_1
 
+    .line 1617
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->remaining()I
 
     move-result v1
@@ -828,90 +763,82 @@
 
     int-to-long v3, v0
 
-    add-long/2addr v3, v1
+    add-long v5, v1, v3
 
-    invoke-direct {p0, v1, v2, v3, v4}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->slice(JJ)Ljava/nio/ByteBuffer;
+    invoke-direct {p0, v1, v2, v5, v6}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->slice(JJ)Ljava/nio/ByteBuffer;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 1620
-    .local v1, "result":Ljava/nio/ByteBuffer;
-    iget-wide v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
+    iget-wide v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
-    int-to-long v4, v0
+    add-long/2addr v1, v3
 
-    add-long/2addr v2, v4
-
-    iput-wide v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
+    iput-wide v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
     .line 1621
-    invoke-static {v1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->wrap(Ljava/nio/ByteBuffer;)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->wrap(Ljava/nio/ByteBuffer;)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v2
+    move-result-object v0
 
-    return-object v2
+    return-object v0
 
     .line 1624
-    .end local v1    # "result":Ljava/nio/ByteBuffer;
     :cond_0
-    new-array v1, v0, [B
+    new-array v8, v0, [B
 
     .line 1625
-    .local v1, "bytes":[B
-    iget-wide v3, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
+    iget-wide v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
-    const-wide/16 v6, 0x0
+    const-wide/16 v4, 0x0
 
-    int-to-long v8, v0
+    int-to-long v9, v0
 
-    move-object v5, v1
+    move-object v3, v8
 
-    invoke-static/range {v3 .. v9}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->copyMemory(J[BJJ)V
+    move-wide v6, v9
+
+    invoke-static/range {v1 .. v7}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->copyMemory(J[BJJ)V
 
     .line 1626
-    iget-wide v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
+    iget-wide v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
-    int-to-long v4, v0
+    add-long/2addr v0, v9
 
-    add-long/2addr v2, v4
-
-    iput-wide v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
+    iput-wide v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
     .line 1627
-    invoke-static {v1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->wrap([B)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    invoke-static {v8}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->wrap([B)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v2
+    move-result-object v0
 
-    return-object v2
+    return-object v0
 
-    .line 1631
-    .end local v1    # "bytes":[B
     :cond_1
     if-nez v0, :cond_2
 
     .line 1632
-    sget-object v1, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->EMPTY:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    sget-object v0, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->EMPTY:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    return-object v1
+    return-object v0
 
-    .line 1634
     :cond_2
     if-gez v0, :cond_3
 
     .line 1635
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->negativeSize()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 
     .line 1637
     :cond_3
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 .end method
 
 .method public readDouble()D
@@ -1004,8 +931,6 @@
 
 .method public readGroup(ILcom/google/crypto/tink/shaded/protobuf/Parser;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
     .locals 2
-    .param p1, "fieldNumber"    # I
-    .param p3, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -1025,7 +950,6 @@
     .end annotation
 
     .line 1564
-    .local p2, "parser":Lcom/google/crypto/tink/shaded/protobuf/Parser;, "Lcom/google/crypto/tink/shaded/protobuf/Parser<TT;>;"
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
 
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionLimit:I
@@ -1042,45 +966,39 @@
     .line 1568
     invoke-interface {p2, p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/Parser;->parsePartialFrom(Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p2
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
+    check-cast p2, Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
+
+    const/4 p3, 0x4
 
     .line 1569
-    .local v0, "result":Lcom/google/crypto/tink/shaded/protobuf/MessageLite;, "TT;"
-    const/4 v1, 0x4
+    invoke-static {p1, p3}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->makeTag(II)I
 
-    invoke-static {p1, v1}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->makeTag(II)I
+    move-result p1
 
-    move-result v1
-
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->checkLastTagWas(I)V
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->checkLastTagWas(I)V
 
     .line 1570
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 p1, p1, -0x1
 
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
 
-    .line 1571
-    return-object v0
+    return-object p2
 
     .line 1565
-    .end local v0    # "result":Lcom/google/crypto/tink/shaded/protobuf/MessageLite;, "TT;"
     :cond_0
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->recursionLimitExceeded()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 .end method
 
 .method public readGroup(ILcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)V
     .locals 2
-    .param p1, "fieldNumber"    # I
-    .param p2, "builder"    # Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;
-    .param p3, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1104,32 +1022,31 @@
     .line 1552
     invoke-interface {p2, p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;->mergeFrom(Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;
 
+    const/4 p2, 0x4
+
     .line 1553
-    const/4 v0, 0x4
+    invoke-static {p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->makeTag(II)I
 
-    invoke-static {p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->makeTag(II)I
+    move-result p1
 
-    move-result v0
-
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->checkLastTagWas(I)V
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->checkLastTagWas(I)V
 
     .line 1554
-    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p1, p1, -0x1
 
-    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
 
-    .line 1555
     return-void
 
     .line 1549
     :cond_0
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->recursionLimitExceeded()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 .end method
 
 .method public readInt32()I
@@ -1165,8 +1082,7 @@
 .end method
 
 .method public readMessage(Lcom/google/crypto/tink/shaded/protobuf/Parser;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
-    .locals 4
-    .param p2, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -1186,13 +1102,11 @@
     .end annotation
 
     .line 1601
-    .local p1, "parser":Lcom/google/crypto/tink/shaded/protobuf/Parser;, "Lcom/google/crypto/tink/shaded/protobuf/Parser<TT;>;"
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->readRawVarint32()I
 
     move-result v0
 
     .line 1602
-    .local v0, "length":I
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
 
     iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionLimit:I
@@ -1202,57 +1116,50 @@
     .line 1605
     invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pushLimit(I)I
 
-    move-result v1
+    move-result v0
 
     .line 1606
-    .local v1, "oldLimit":I
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
+    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
+    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
 
     .line 1607
     invoke-interface {p1, p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/Parser;->parsePartialFrom(Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    check-cast v2, Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
+
+    const/4 p2, 0x0
 
     .line 1608
-    .local v2, "result":Lcom/google/crypto/tink/shaded/protobuf/MessageLite;, "TT;"
-    const/4 v3, 0x0
-
-    invoke-virtual {p0, v3}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->checkLastTagWas(I)V
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->checkLastTagWas(I)V
 
     .line 1609
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
+    iget p2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
 
-    add-int/lit8 v3, v3, -0x1
+    add-int/lit8 p2, p2, -0x1
 
-    iput v3, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
+    iput p2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
 
     .line 1610
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->popLimit(I)V
+    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->popLimit(I)V
 
-    .line 1611
-    return-object v2
+    return-object p1
 
     .line 1603
-    .end local v1    # "oldLimit":I
-    .end local v2    # "result":Lcom/google/crypto/tink/shaded/protobuf/MessageLite;, "TT;"
     :cond_0
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->recursionLimitExceeded()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 .end method
 
 .method public readMessage(Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)V
     .locals 3
-    .param p1, "builder"    # Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;
-    .param p2, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1265,7 +1172,6 @@
     move-result v0
 
     .line 1586
-    .local v0, "length":I
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
 
     iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionLimit:I
@@ -1275,45 +1181,42 @@
     .line 1589
     invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pushLimit(I)I
 
-    move-result v1
+    move-result v0
 
     .line 1590
-    .local v1, "oldLimit":I
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
+    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
+    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
 
     .line 1591
     invoke-interface {p1, p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;->mergeFrom(Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;
 
-    .line 1592
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
-    invoke-virtual {p0, v2}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->checkLastTagWas(I)V
+    .line 1592
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->checkLastTagWas(I)V
 
     .line 1593
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
 
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 p1, p1, -0x1
 
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->recursionDepth:I
 
     .line 1594
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->popLimit(I)V
+    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->popLimit(I)V
 
-    .line 1595
     return-void
 
     .line 1587
-    .end local v1    # "oldLimit":I
     :cond_0
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->recursionLimitExceeded()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 .end method
 
 .method public readRawByte()B
@@ -1333,11 +1236,11 @@
 
     if-eqz v2, :cond_0
 
-    .line 1951
     const-wide/16 v2, 0x1
 
     add-long/2addr v2, v0
 
+    .line 1951
     iput-wide v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
     invoke-static {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
@@ -1356,17 +1259,16 @@
 .end method
 
 .method public readRawBytes(I)[B
-    .locals 5
-    .param p1, "length"    # I
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 1956
     if-ltz p1, :cond_0
 
+    .line 1956
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->remaining()I
 
     move-result v0
@@ -1377,59 +1279,52 @@
     new-array v0, p1, [B
 
     .line 1958
-    .local v0, "bytes":[B
     iget-wide v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
     int-to-long v3, p1
 
-    add-long/2addr v3, v1
+    add-long v5, v1, v3
 
-    invoke-direct {p0, v1, v2, v3, v4}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->slice(JJ)Ljava/nio/ByteBuffer;
+    invoke-direct {p0, v1, v2, v5, v6}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->slice(JJ)Ljava/nio/ByteBuffer;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1, v0}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
+    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
 
     .line 1959
     iget-wide v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
-
-    int-to-long v3, p1
 
     add-long/2addr v1, v3
 
     iput-wide v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
-    .line 1960
     return-object v0
 
-    .line 1963
-    .end local v0    # "bytes":[B
     :cond_0
     if-gtz p1, :cond_2
 
-    .line 1964
     if-nez p1, :cond_1
 
     .line 1965
-    sget-object v0, Lcom/google/crypto/tink/shaded/protobuf/Internal;->EMPTY_BYTE_ARRAY:[B
+    sget-object p1, Lcom/google/crypto/tink/shaded/protobuf/Internal;->EMPTY_BYTE_ARRAY:[B
 
-    return-object v0
+    return-object p1
 
     .line 1967
     :cond_1
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->negativeSize()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 
     .line 1971
     :cond_2
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 .end method
 
 .method public readRawLittleEndian32()I
@@ -1444,7 +1339,6 @@
     iget-wide v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
     .line 1864
-    .local v0, "tempPos":J
     iget-wide v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->limit:J
 
     sub-long/2addr v2, v0
@@ -1455,9 +1349,9 @@
 
     if-ltz v2, :cond_0
 
-    .line 1868
     add-long/2addr v4, v0
 
+    .line 1868
     iput-wide v4, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
     .line 1869
@@ -1499,29 +1393,28 @@
 
     const-wide/16 v3, 0x3
 
-    add-long/2addr v3, v0
+    add-long/2addr v0, v3
 
     .line 1872
-    invoke-static {v3, v4}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
+    invoke-static {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
 
-    move-result v3
+    move-result v0
 
-    and-int/lit16 v3, v3, 0xff
+    and-int/lit16 v0, v0, 0xff
 
-    shl-int/lit8 v3, v3, 0x18
+    shl-int/lit8 v0, v0, 0x18
 
-    or-int/2addr v2, v3
+    or-int/2addr v0, v2
 
-    .line 1869
-    return v2
+    return v0
 
     .line 1865
     :cond_0
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v2
+    move-result-object v0
 
-    throw v2
+    throw v0
 .end method
 
 .method public readRawLittleEndian64()J
@@ -1536,7 +1429,6 @@
     iget-wide v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
     .line 1879
-    .local v0, "tempPos":J
     iget-wide v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->limit:J
 
     sub-long/2addr v2, v0
@@ -1547,9 +1439,9 @@
 
     if-ltz v2, :cond_0
 
-    .line 1883
     add-long/2addr v4, v0
 
+    .line 1883
     iput-wide v4, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
     .line 1884
@@ -1679,33 +1571,32 @@
 
     const-wide/16 v6, 0x7
 
-    add-long/2addr v6, v0
+    add-long/2addr v0, v6
 
     .line 1891
-    invoke-static {v6, v7}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
+    invoke-static {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
 
-    move-result v6
+    move-result v0
 
-    int-to-long v6, v6
+    int-to-long v0, v0
 
-    and-long/2addr v4, v6
+    and-long/2addr v0, v4
 
-    const/16 v6, 0x38
+    const/16 v4, 0x38
 
-    shl-long/2addr v4, v6
+    shl-long/2addr v0, v4
 
-    or-long/2addr v2, v4
+    or-long/2addr v0, v2
 
-    .line 1884
-    return-wide v2
+    return-wide v0
 
     .line 1880
     :cond_0
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v2
+    move-result-object v0
 
-    throw v2
+    throw v0
 .end method
 
 .method public readRawVarint32()I
@@ -1720,38 +1611,30 @@
     iget-wide v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
     .line 1714
-    .local v0, "tempPos":J
     iget-wide v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->limit:J
 
     cmp-long v2, v2, v0
 
     if-nez v2, :cond_0
 
-    .line 1715
     goto/16 :goto_0
 
-    .line 1719
     :cond_0
     const-wide/16 v2, 0x1
 
     add-long v4, v0, v2
 
-    .end local v0    # "tempPos":J
-    .local v4, "tempPos":J
+    .line 1719
     invoke-static {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
 
     move-result v0
 
-    move v1, v0
-
-    .local v1, "x":I
     if-ltz v0, :cond_1
 
     .line 1720
     iput-wide v4, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
-    .line 1721
-    return v1
+    return v0
 
     .line 1722
     :cond_1
@@ -1761,184 +1644,135 @@
 
     const-wide/16 v8, 0x9
 
-    cmp-long v0, v6, v8
+    cmp-long v1, v6, v8
 
-    if-gez v0, :cond_2
+    if-gez v1, :cond_2
 
-    .line 1723
-    goto/16 :goto_0
+    goto :goto_0
 
-    .line 1724
     :cond_2
     add-long v6, v4, v2
 
-    .end local v4    # "tempPos":J
-    .local v6, "tempPos":J
+    .line 1724
     invoke-static {v4, v5}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
 
-    move-result v0
+    move-result v1
 
-    shl-int/lit8 v0, v0, 0x7
+    shl-int/lit8 v1, v1, 0x7
 
     xor-int/2addr v0, v1
-
-    move v1, v0
 
     if-gez v0, :cond_3
 
-    .line 1725
-    xor-int/lit8 v0, v1, -0x80
+    xor-int/lit8 v0, v0, -0x80
 
-    .end local v1    # "x":I
-    .local v0, "x":I
-    goto/16 :goto_1
+    goto :goto_1
 
-    .line 1726
-    .end local v0    # "x":I
-    .restart local v1    # "x":I
     :cond_3
     add-long v4, v6, v2
 
-    .end local v6    # "tempPos":J
-    .restart local v4    # "tempPos":J
+    .line 1726
     invoke-static {v6, v7}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
 
-    move-result v0
+    move-result v1
 
-    shl-int/lit8 v0, v0, 0xe
+    shl-int/lit8 v1, v1, 0xe
 
     xor-int/2addr v0, v1
 
-    move v1, v0
+    if-ltz v0, :cond_5
 
-    if-ltz v0, :cond_4
+    xor-int/lit16 v0, v0, 0x3f80
 
-    .line 1727
-    xor-int/lit16 v0, v1, 0x3f80
-
+    :cond_4
     move-wide v6, v4
 
-    .end local v1    # "x":I
-    .restart local v0    # "x":I
-    goto/16 :goto_1
-
-    .line 1728
-    .end local v0    # "x":I
-    .restart local v1    # "x":I
-    :cond_4
-    add-long v6, v4, v2
-
-    .end local v4    # "tempPos":J
-    .restart local v6    # "tempPos":J
-    invoke-static {v4, v5}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
-
-    move-result v0
-
-    shl-int/lit8 v0, v0, 0x15
-
-    xor-int/2addr v0, v1
-
-    move v1, v0
-
-    if-gez v0, :cond_5
-
-    .line 1729
-    const v0, -0x1fc080
-
-    xor-int/2addr v0, v1
-
-    .end local v1    # "x":I
-    .restart local v0    # "x":I
     goto :goto_1
 
-    .line 1731
-    .end local v0    # "x":I
-    .restart local v1    # "x":I
     :cond_5
+    add-long v6, v4, v2
+
+    .line 1728
+    invoke-static {v4, v5}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
+
+    move-result v1
+
+    shl-int/lit8 v1, v1, 0x15
+
+    xor-int/2addr v0, v1
+
+    if-gez v0, :cond_6
+
+    const v1, -0x1fc080
+
+    xor-int/2addr v0, v1
+
+    goto :goto_1
+
+    :cond_6
     add-long v4, v6, v2
 
-    .end local v6    # "tempPos":J
-    .restart local v4    # "tempPos":J
+    .line 1731
     invoke-static {v6, v7}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
 
-    move-result v0
+    move-result v1
 
-    .line 1732
-    .local v0, "y":I
-    shl-int/lit8 v6, v0, 0x1c
+    shl-int/lit8 v6, v1, 0x1c
 
-    xor-int/2addr v1, v6
+    xor-int/2addr v0, v6
 
-    .line 1733
     const v6, 0xfe03f80
 
-    xor-int/2addr v1, v6
+    xor-int/2addr v0, v6
 
-    .line 1734
-    if-gez v0, :cond_b
+    if-gez v1, :cond_4
 
     add-long v6, v4, v2
 
     .line 1735
-    .end local v4    # "tempPos":J
-    .restart local v6    # "tempPos":J
     invoke-static {v4, v5}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
 
-    move-result v4
+    move-result v1
 
-    if-gez v4, :cond_a
+    if-gez v1, :cond_7
 
     add-long v4, v6, v2
 
     .line 1736
-    .end local v6    # "tempPos":J
-    .restart local v4    # "tempPos":J
     invoke-static {v6, v7}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
 
-    move-result v6
+    move-result v1
 
-    if-gez v6, :cond_9
+    if-gez v1, :cond_4
 
     add-long v6, v4, v2
 
     .line 1737
-    .end local v4    # "tempPos":J
-    .restart local v6    # "tempPos":J
     invoke-static {v4, v5}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
 
-    move-result v4
+    move-result v1
 
-    if-gez v4, :cond_8
+    if-gez v1, :cond_7
 
     add-long v4, v6, v2
 
     .line 1738
-    .end local v6    # "tempPos":J
-    .restart local v4    # "tempPos":J
     invoke-static {v6, v7}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
 
-    move-result v6
+    move-result v1
 
-    if-gez v6, :cond_7
+    if-gez v1, :cond_4
 
     add-long v6, v4, v2
 
     .line 1739
-    .end local v4    # "tempPos":J
-    .restart local v6    # "tempPos":J
     invoke-static {v4, v5}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
 
-    move-result v2
+    move-result v1
 
-    if-gez v2, :cond_6
-
-    .line 1740
-    nop
+    if-gez v1, :cond_7
 
     .line 1746
-    .end local v0    # "y":I
-    .end local v1    # "x":I
-    .end local v6    # "tempPos":J
     :goto_0
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->readRawVarint64SlowPath()J
 
@@ -1948,73 +1782,16 @@
 
     return v0
 
-    .line 1739
-    .restart local v0    # "y":I
-    .restart local v1    # "x":I
-    .restart local v6    # "tempPos":J
-    :cond_6
-    move v0, v1
-
-    goto :goto_1
-
-    .line 1738
-    .end local v6    # "tempPos":J
-    .restart local v4    # "tempPos":J
-    :cond_7
-    move v0, v1
-
-    move-wide v6, v4
-
-    goto :goto_1
-
-    .line 1737
-    .end local v4    # "tempPos":J
-    .restart local v6    # "tempPos":J
-    :cond_8
-    move v0, v1
-
-    goto :goto_1
-
-    .line 1736
-    .end local v6    # "tempPos":J
-    .restart local v4    # "tempPos":J
-    :cond_9
-    move v0, v1
-
-    move-wide v6, v4
-
-    goto :goto_1
-
-    .line 1735
-    .end local v4    # "tempPos":J
-    .restart local v6    # "tempPos":J
-    :cond_a
-    move v0, v1
-
-    goto :goto_1
-
-    .line 1734
-    .end local v6    # "tempPos":J
-    .restart local v4    # "tempPos":J
-    :cond_b
-    move v0, v1
-
-    move-wide v6, v4
-
     .line 1743
-    .end local v1    # "x":I
-    .end local v4    # "tempPos":J
-    .local v0, "x":I
-    .restart local v6    # "tempPos":J
+    :cond_7
     :goto_1
     iput-wide v6, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
-    .line 1744
     return v0
 .end method
 
 .method public readRawVarint64()J
-    .locals 12
+    .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2025,40 +1802,32 @@
     iget-wide v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
     .line 1792
-    .local v0, "tempPos":J
     iget-wide v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->limit:J
 
     cmp-long v2, v2, v0
 
     if-nez v2, :cond_0
 
-    .line 1793
-    goto/16 :goto_0
+    goto/16 :goto_4
 
-    .line 1798
     :cond_0
     const-wide/16 v2, 0x1
 
     add-long v4, v0, v2
 
-    .end local v0    # "tempPos":J
-    .local v4, "tempPos":J
+    .line 1798
     invoke-static {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
 
     move-result v0
 
-    move v1, v0
-
-    .local v1, "y":I
     if-ltz v0, :cond_1
 
     .line 1799
     iput-wide v4, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
-    .line 1800
-    int-to-long v2, v1
+    int-to-long v0, v0
 
-    return-wide v2
+    return-wide v0
 
     .line 1801
     :cond_1
@@ -2068,337 +1837,238 @@
 
     const-wide/16 v8, 0x9
 
-    cmp-long v0, v6, v8
+    cmp-long v1, v6, v8
 
-    if-gez v0, :cond_2
+    if-gez v1, :cond_2
 
-    .line 1802
-    goto/16 :goto_0
+    goto/16 :goto_4
 
-    .line 1803
     :cond_2
     add-long v6, v4, v2
 
-    .end local v4    # "tempPos":J
-    .local v6, "tempPos":J
+    .line 1803
     invoke-static {v4, v5}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
 
-    move-result v0
+    move-result v1
 
-    shl-int/lit8 v0, v0, 0x7
+    shl-int/lit8 v1, v1, 0x7
 
     xor-int/2addr v0, v1
-
-    move v1, v0
 
     if-gez v0, :cond_3
 
-    .line 1804
-    xor-int/lit8 v0, v1, -0x80
+    xor-int/lit8 v0, v0, -0x80
 
-    int-to-long v2, v0
+    :goto_0
+    int-to-long v0, v0
 
-    .local v2, "x":J
-    goto/16 :goto_1
+    goto/16 :goto_5
 
-    .line 1805
-    .end local v2    # "x":J
     :cond_3
     add-long v4, v6, v2
 
-    .end local v6    # "tempPos":J
-    .restart local v4    # "tempPos":J
+    .line 1805
     invoke-static {v6, v7}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
 
-    move-result v0
+    move-result v1
 
-    shl-int/lit8 v0, v0, 0xe
+    shl-int/lit8 v1, v1, 0xe
 
     xor-int/2addr v0, v1
 
-    move v1, v0
+    if-ltz v0, :cond_5
 
-    if-ltz v0, :cond_4
+    xor-int/lit16 v0, v0, 0x3f80
 
-    .line 1806
-    xor-int/lit16 v0, v1, 0x3f80
+    int-to-long v0, v0
 
-    int-to-long v2, v0
-
+    :cond_4
+    :goto_1
     move-wide v6, v4
 
-    .restart local v2    # "x":J
-    goto/16 :goto_1
+    goto/16 :goto_5
 
-    .line 1807
-    .end local v2    # "x":J
-    :cond_4
+    :cond_5
     add-long v6, v4, v2
 
-    .end local v4    # "tempPos":J
-    .restart local v6    # "tempPos":J
+    .line 1807
     invoke-static {v4, v5}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
 
-    move-result v0
+    move-result v1
 
-    shl-int/lit8 v0, v0, 0x15
-
-    xor-int/2addr v0, v1
-
-    move v1, v0
-
-    if-gez v0, :cond_5
-
-    .line 1808
-    const v0, -0x1fc080
+    shl-int/lit8 v1, v1, 0x15
 
     xor-int/2addr v0, v1
 
-    int-to-long v2, v0
+    if-gez v0, :cond_6
 
-    .restart local v2    # "x":J
-    goto/16 :goto_1
+    const v1, -0x1fc080
+
+    xor-int/2addr v0, v1
+
+    goto :goto_0
+
+    :cond_6
+    int-to-long v0, v0
+
+    add-long v4, v6, v2
 
     .line 1809
-    .end local v2    # "x":J
-    :cond_5
-    int-to-long v4, v1
-
-    add-long v8, v6, v2
-
-    .end local v6    # "tempPos":J
-    .local v8, "tempPos":J
     invoke-static {v6, v7}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
 
-    move-result v0
+    move-result v6
 
-    int-to-long v6, v0
+    int-to-long v6, v6
 
-    const/16 v0, 0x1c
+    const/16 v8, 0x1c
 
-    shl-long/2addr v6, v0
+    shl-long/2addr v6, v8
 
-    xor-long/2addr v4, v6
+    xor-long/2addr v0, v6
 
-    move-wide v6, v4
+    const-wide/16 v6, 0x0
 
-    .local v6, "x":J
-    const-wide/16 v10, 0x0
+    cmp-long v8, v0, v6
 
-    cmp-long v0, v4, v10
+    if-ltz v8, :cond_7
 
-    if-ltz v0, :cond_6
-
-    .line 1810
     const-wide/32 v2, 0xfe03f80
 
-    xor-long/2addr v2, v6
+    :goto_2
+    xor-long/2addr v0, v2
 
-    move-wide v6, v8
-
-    .end local v6    # "x":J
-    .restart local v2    # "x":J
-    goto/16 :goto_1
-
-    .line 1811
-    .end local v2    # "x":J
-    .restart local v6    # "x":J
-    :cond_6
-    add-long v4, v8, v2
-
-    .end local v8    # "tempPos":J
-    .restart local v4    # "tempPos":J
-    invoke-static {v8, v9}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
-
-    move-result v0
-
-    int-to-long v8, v0
-
-    const/16 v0, 0x23
-
-    shl-long/2addr v8, v0
-
-    xor-long/2addr v8, v6
-
-    move-wide v6, v8
-
-    cmp-long v0, v8, v10
-
-    if-gez v0, :cond_7
-
-    .line 1812
-    const-wide v2, -0x7f01fc080L
-
-    xor-long/2addr v2, v6
-
-    move-wide v6, v4
-
-    .end local v6    # "x":J
-    .restart local v2    # "x":J
     goto :goto_1
 
-    .line 1813
-    .end local v2    # "x":J
-    .restart local v6    # "x":J
     :cond_7
     add-long v8, v4, v2
 
-    .end local v4    # "tempPos":J
-    .restart local v8    # "tempPos":J
+    .line 1811
     invoke-static {v4, v5}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
 
-    move-result v0
+    move-result v4
 
-    int-to-long v4, v0
+    int-to-long v4, v4
 
-    const/16 v0, 0x2a
+    const/16 v10, 0x23
 
-    shl-long/2addr v4, v0
+    shl-long/2addr v4, v10
 
-    xor-long/2addr v4, v6
+    xor-long/2addr v0, v4
 
-    move-wide v6, v4
+    cmp-long v4, v0, v6
 
-    cmp-long v0, v4, v10
+    if-gez v4, :cond_8
 
-    if-ltz v0, :cond_8
+    const-wide v2, -0x7f01fc080L
 
-    .line 1814
-    const-wide v2, 0x3f80fe03f80L
-
-    xor-long/2addr v2, v6
+    :goto_3
+    xor-long/2addr v0, v2
 
     move-wide v6, v8
 
-    .end local v6    # "x":J
-    .restart local v2    # "x":J
-    goto :goto_1
+    goto :goto_5
 
-    .line 1815
-    .end local v2    # "x":J
-    .restart local v6    # "x":J
     :cond_8
     add-long v4, v8, v2
 
-    .end local v8    # "tempPos":J
-    .restart local v4    # "tempPos":J
+    .line 1813
     invoke-static {v8, v9}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
 
-    move-result v0
+    move-result v8
 
-    int-to-long v8, v0
+    int-to-long v8, v8
 
-    const/16 v0, 0x31
+    const/16 v10, 0x2a
 
-    shl-long/2addr v8, v0
+    shl-long/2addr v8, v10
 
-    xor-long/2addr v8, v6
+    xor-long/2addr v0, v8
 
-    move-wide v6, v8
+    cmp-long v8, v0, v6
 
-    cmp-long v0, v8, v10
+    if-ltz v8, :cond_9
 
-    if-gez v0, :cond_9
+    const-wide v2, 0x3f80fe03f80L
 
-    .line 1816
-    const-wide v2, -0x1fc07f01fc080L
+    goto :goto_2
 
-    xor-long/2addr v2, v6
-
-    move-wide v6, v4
-
-    .end local v6    # "x":J
-    .restart local v2    # "x":J
-    goto :goto_1
-
-    .line 1825
-    .end local v2    # "x":J
-    .restart local v6    # "x":J
     :cond_9
     add-long v8, v4, v2
 
-    .end local v4    # "tempPos":J
-    .restart local v8    # "tempPos":J
+    .line 1815
     invoke-static {v4, v5}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
 
-    move-result v0
+    move-result v4
 
-    int-to-long v4, v0
+    int-to-long v4, v4
 
-    const/16 v0, 0x38
+    const/16 v10, 0x31
 
-    shl-long/2addr v4, v0
+    shl-long/2addr v4, v10
 
-    xor-long/2addr v4, v6
+    xor-long/2addr v0, v4
 
-    .line 1826
-    .end local v6    # "x":J
-    .local v4, "x":J
-    const-wide v6, 0xfe03f80fe03f80L
+    cmp-long v4, v0, v6
 
-    xor-long/2addr v4, v6
+    if-gez v4, :cond_a
 
-    .line 1835
-    cmp-long v0, v4, v10
+    const-wide v2, -0x1fc07f01fc080L
 
-    if-gez v0, :cond_b
+    goto :goto_3
 
-    .line 1836
-    add-long v6, v8, v2
+    :cond_a
+    add-long v4, v8, v2
 
-    .end local v8    # "tempPos":J
-    .local v6, "tempPos":J
+    .line 1825
     invoke-static {v8, v9}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
 
-    move-result v0
+    move-result v8
 
-    int-to-long v2, v0
+    int-to-long v8, v8
 
-    cmp-long v0, v2, v10
+    const/16 v10, 0x38
 
-    if-gez v0, :cond_a
+    shl-long/2addr v8, v10
 
-    .line 1837
-    nop
+    xor-long/2addr v0, v8
+
+    const-wide v8, 0xfe03f80fe03f80L
+
+    xor-long/2addr v0, v8
+
+    cmp-long v8, v0, v6
+
+    if-gez v8, :cond_4
+
+    add-long/2addr v2, v4
+
+    .line 1836
+    invoke-static {v4, v5}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getByte(J)B
+
+    move-result v4
+
+    int-to-long v4, v4
+
+    cmp-long v4, v4, v6
+
+    if-gez v4, :cond_b
 
     .line 1844
-    .end local v1    # "y":I
-    .end local v4    # "x":J
-    .end local v6    # "tempPos":J
-    :goto_0
+    :goto_4
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->readRawVarint64SlowPath()J
 
     move-result-wide v0
 
     return-wide v0
 
-    .line 1836
-    .restart local v1    # "y":I
-    .restart local v4    # "x":J
-    .restart local v6    # "tempPos":J
-    :cond_a
-    move-wide v2, v4
-
-    goto :goto_1
-
-    .line 1835
-    .end local v6    # "tempPos":J
-    .restart local v8    # "tempPos":J
     :cond_b
-    move-wide v2, v4
-
-    move-wide v6, v8
+    move-wide v6, v2
 
     .line 1841
-    .end local v4    # "x":J
-    .end local v8    # "tempPos":J
-    .restart local v2    # "x":J
-    .restart local v6    # "tempPos":J
-    :goto_1
+    :goto_5
     iput-wide v6, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
-    .line 1842
-    return-wide v2
+    return-wide v0
 .end method
 
 .method readRawVarint64SlowPath()J
@@ -2409,14 +2079,10 @@
         }
     .end annotation
 
-    .line 1849
     const-wide/16 v0, 0x0
 
-    .line 1850
-    .local v0, "result":J
     const/4 v2, 0x0
 
-    .local v2, "shift":I
     :goto_0
     const/16 v3, 0x40
 
@@ -2427,8 +2093,6 @@
 
     move-result v3
 
-    .line 1852
-    .local v3, "b":B
     and-int/lit8 v4, v3, 0x7f
 
     int-to-long v4, v4
@@ -2437,29 +2101,24 @@
 
     or-long/2addr v0, v4
 
-    .line 1853
-    and-int/lit16 v4, v3, 0x80
+    and-int/lit16 v3, v3, 0x80
 
-    if-nez v4, :cond_0
+    if-nez v3, :cond_0
 
-    .line 1854
     return-wide v0
 
-    .line 1850
-    .end local v3    # "b":B
     :cond_0
     add-int/lit8 v2, v2, 0x7
 
     goto :goto_0
 
     .line 1857
-    .end local v2    # "shift":I
     :cond_1
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->malformedVarint()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v2
+    move-result-object v0
 
-    throw v2
+    throw v0
 .end method
 
 .method public readSFixed32()I
@@ -2535,7 +2194,7 @@
 .end method
 
 .method public readString()Ljava/lang/String;
-    .locals 9
+    .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2547,10 +2206,9 @@
 
     move-result v0
 
-    .line 1502
-    .local v0, "size":I
     if-lez v0, :cond_0
 
+    .line 1502
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->remaining()I
 
     move-result v1
@@ -2561,70 +2219,62 @@
     new-array v1, v0, [B
 
     .line 1508
-    .local v1, "bytes":[B
     iget-wide v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
     const-wide/16 v5, 0x0
 
-    int-to-long v7, v0
+    int-to-long v9, v0
 
     move-object v4, v1
+
+    move-wide v7, v9
 
     invoke-static/range {v2 .. v8}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->copyMemory(J[BJJ)V
 
     .line 1509
-    new-instance v2, Ljava/lang/String;
+    new-instance v0, Ljava/lang/String;
 
-    sget-object v3, Lcom/google/crypto/tink/shaded/protobuf/Internal;->UTF_8:Ljava/nio/charset/Charset;
+    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/Internal;->UTF_8:Ljava/nio/charset/Charset;
 
-    invoke-direct {v2, v1, v3}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
+    invoke-direct {v0, v1, v2}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
 
     .line 1510
-    .local v2, "result":Ljava/lang/String;
-    iget-wide v3, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
+    iget-wide v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
-    int-to-long v5, v0
+    add-long/2addr v1, v9
 
-    add-long/2addr v3, v5
+    iput-wide v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
-    iput-wide v3, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
+    return-object v0
 
-    .line 1511
-    return-object v2
-
-    .line 1514
-    .end local v1    # "bytes":[B
-    .end local v2    # "result":Ljava/lang/String;
     :cond_0
     if-nez v0, :cond_1
 
-    .line 1515
-    const-string v1, ""
+    const-string v0, ""
 
-    return-object v1
+    return-object v0
 
-    .line 1517
     :cond_1
     if-gez v0, :cond_2
 
     .line 1518
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->negativeSize()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 
     .line 1520
     :cond_2
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 .end method
 
 .method public readStringRequireUtf8()Ljava/lang/String;
-    .locals 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2636,10 +2286,9 @@
 
     move-result v0
 
-    .line 1526
-    .local v0, "size":I
     if-lez v0, :cond_0
 
+    .line 1526
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->remaining()I
 
     move-result v1
@@ -2654,55 +2303,47 @@
     move-result v1
 
     .line 1528
-    .local v1, "bufferPos":I
     iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->buffer:Ljava/nio/ByteBuffer;
 
     invoke-static {v2, v1, v0}, Lcom/google/crypto/tink/shaded/protobuf/Utf8;->decodeUtf8(Ljava/nio/ByteBuffer;II)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
     .line 1529
-    .local v2, "result":Ljava/lang/String;
-    iget-wide v3, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
+    iget-wide v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
-    int-to-long v5, v0
+    int-to-long v4, v0
 
-    add-long/2addr v3, v5
+    add-long/2addr v2, v4
 
-    iput-wide v3, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
-
-    .line 1530
-    return-object v2
-
-    .line 1533
-    .end local v1    # "bufferPos":I
-    .end local v2    # "result":Ljava/lang/String;
-    :cond_0
-    if-nez v0, :cond_1
-
-    .line 1534
-    const-string v1, ""
+    iput-wide v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
     return-object v1
 
-    .line 1536
+    :cond_0
+    if-nez v0, :cond_1
+
+    const-string v0, ""
+
+    return-object v0
+
     :cond_1
     if-gtz v0, :cond_2
 
     .line 1537
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->negativeSize()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 
     .line 1539
     :cond_2
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 .end method
 
 .method public readTag()I
@@ -2720,12 +2361,11 @@
 
     if-eqz v0, :cond_0
 
-    .line 1333
     const/4 v0, 0x0
 
+    .line 1333
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->lastTag:I
 
-    .line 1334
     return v0
 
     .line 1337
@@ -2791,8 +2431,6 @@
 
 .method public readUnknownGroup(ILcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "builder"    # Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2809,7 +2447,6 @@
 
     invoke-virtual {p0, p1, p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->readGroup(ILcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)V
 
-    .line 1579
     return-void
 .end method
 
@@ -2821,13 +2458,11 @@
 
     iput-wide v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->startPos:J
 
-    .line 1902
     return-void
 .end method
 
 .method public skipField(I)Z
     .locals 4
-    .param p1, "tag"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2857,84 +2492,73 @@
 
     if-eq v0, v3, :cond_1
 
-    const/4 v2, 0x5
+    const/4 p1, 0x5
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, p1, :cond_0
 
     .line 1378
     invoke-virtual {p0, v3}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->skipRawBytes(I)V
 
-    .line 1379
     return v1
 
     .line 1381
     :cond_0
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 
-    .line 1376
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 1371
     :cond_2
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->skipMessage()V
 
-    .line 1372
-    nop
-
     .line 1373
     invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagFieldNumber(I)I
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0, v3}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->makeTag(II)I
+    invoke-static {p1, v3}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->makeTag(II)I
 
-    move-result v0
+    move-result p1
 
     .line 1372
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->checkLastTagWas(I)V
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->checkLastTagWas(I)V
 
-    .line 1374
     return v1
 
     .line 1368
     :cond_3
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->readRawVarint32()I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->skipRawBytes(I)V
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->skipRawBytes(I)V
 
-    .line 1369
     return v1
 
-    .line 1365
     :cond_4
-    const/16 v0, 0x8
+    const/16 p1, 0x8
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->skipRawBytes(I)V
+    .line 1365
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->skipRawBytes(I)V
 
-    .line 1366
     return v1
 
     .line 1362
     :cond_5
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->skipRawVarint()V
 
-    .line 1363
     return v1
 .end method
 
 .method public skipField(ILcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;)Z
     .locals 4
-    .param p1, "tag"    # I
-    .param p2, "output"    # Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2974,29 +2598,25 @@
     move-result v0
 
     .line 1427
-    .local v0, "value":I
     invoke-virtual {p2, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->writeRawVarint32(I)V
 
     .line 1428
     invoke-virtual {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->writeFixed32NoTag(I)V
 
-    .line 1429
     return v1
 
     .line 1432
-    .end local v0    # "value":I
     :cond_0
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 
-    .line 1422
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 1411
     :cond_2
@@ -3005,83 +2625,69 @@
     .line 1412
     invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->skipMessage(Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;)V
 
-    .line 1413
-    nop
-
     .line 1415
     invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagFieldNumber(I)I
 
-    move-result v0
+    move-result p1
 
     .line 1414
-    invoke-static {v0, v3}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->makeTag(II)I
+    invoke-static {p1, v3}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->makeTag(II)I
 
-    move-result v0
+    move-result p1
 
     .line 1416
-    .local v0, "endtag":I
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->checkLastTagWas(I)V
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->checkLastTagWas(I)V
 
     .line 1417
-    invoke-virtual {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->writeRawVarint32(I)V
+    invoke-virtual {p2, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->writeRawVarint32(I)V
 
-    .line 1418
     return v1
 
     .line 1404
-    .end local v0    # "endtag":I
     :cond_3
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->readBytes()Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     move-result-object v0
 
     .line 1405
-    .local v0, "value":Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     invoke-virtual {p2, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->writeRawVarint32(I)V
 
     .line 1406
     invoke-virtual {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->writeBytesNoTag(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    .line 1407
     return v1
 
     .line 1397
-    .end local v0    # "value":Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     :cond_4
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->readRawLittleEndian64()J
 
     move-result-wide v2
 
     .line 1398
-    .local v2, "value":J
     invoke-virtual {p2, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->writeRawVarint32(I)V
 
     .line 1399
     invoke-virtual {p2, v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->writeFixed64NoTag(J)V
 
-    .line 1400
     return v1
 
     .line 1390
-    .end local v2    # "value":J
     :cond_5
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->readInt64()J
 
     move-result-wide v2
 
     .line 1391
-    .restart local v2    # "value":J
     invoke-virtual {p2, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->writeRawVarint32(I)V
 
     .line 1392
     invoke-virtual {p2, v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->writeUInt64NoTag(J)V
 
-    .line 1393
     return v1
 .end method
 
 .method public skipMessage()V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3089,38 +2695,26 @@
     .end annotation
 
     .line 1439
-    :goto_0
+    :cond_0
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->readTag()I
 
     move-result v0
 
-    .line 1440
-    .local v0, "tag":I
     if-eqz v0, :cond_1
 
+    .line 1440
     invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->skipField(I)Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    goto :goto_1
-
-    .line 1443
-    .end local v0    # "tag":I
-    :cond_0
-    goto :goto_0
-
-    .line 1441
-    .restart local v0    # "tag":I
     :cond_1
-    :goto_1
     return-void
 .end method
 
 .method public skipMessage(Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;)V
-    .locals 2
-    .param p1, "output"    # Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3128,47 +2722,35 @@
     .end annotation
 
     .line 1449
-    :goto_0
+    :cond_0
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->readTag()I
 
     move-result v0
 
-    .line 1450
-    .local v0, "tag":I
     if-eqz v0, :cond_1
 
+    .line 1450
     invoke-virtual {p0, v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->skipField(ILcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;)Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    goto :goto_1
-
-    .line 1453
-    .end local v0    # "tag":I
-    :cond_0
-    goto :goto_0
-
-    .line 1451
-    .restart local v0    # "tag":I
     :cond_1
-    :goto_1
     return-void
 .end method
 
 .method public skipRawBytes(I)V
     .locals 4
-    .param p1, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 1976
     if-ltz p1, :cond_0
 
+    .line 1976
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->remaining()I
 
     move-result v0
@@ -3184,25 +2766,23 @@
 
     iput-wide v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$UnsafeDirectNioDecoder;->pos:J
 
-    .line 1979
     return-void
 
-    .line 1982
     :cond_0
     if-gez p1, :cond_1
 
     .line 1983
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->negativeSize()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 
     .line 1985
     :cond_1
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 .end method

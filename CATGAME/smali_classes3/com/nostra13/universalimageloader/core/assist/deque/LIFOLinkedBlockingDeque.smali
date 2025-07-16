@@ -24,7 +24,6 @@
     .locals 0
 
     .line 11
-    .local p0, "this":Lcom/nostra13/universalimageloader/core/assist/deque/LIFOLinkedBlockingDeque;, "Lcom/nostra13/universalimageloader/core/assist/deque/LIFOLinkedBlockingDeque<TT;>;"
     invoke-direct {p0}, Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque;-><init>()V
 
     return-void
@@ -33,7 +32,7 @@
 
 # virtual methods
 .method public offer(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -41,13 +40,11 @@
     .end annotation
 
     .line 32
-    .local p0, "this":Lcom/nostra13/universalimageloader/core/assist/deque/LIFOLinkedBlockingDeque;, "Lcom/nostra13/universalimageloader/core/assist/deque/LIFOLinkedBlockingDeque<TT;>;"
-    .local p1, "e":Ljava/lang/Object;, "TT;"
     invoke-super {p0, p1}, Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque;->offerFirst(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public remove()Ljava/lang/Object;
@@ -59,7 +56,6 @@
     .end annotation
 
     .line 45
-    .local p0, "this":Lcom/nostra13/universalimageloader/core/assist/deque/LIFOLinkedBlockingDeque;, "Lcom/nostra13/universalimageloader/core/assist/deque/LIFOLinkedBlockingDeque<TT;>;"
     invoke-super {p0}, Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque;->removeFirst()Ljava/lang/Object;
 
     move-result-object v0

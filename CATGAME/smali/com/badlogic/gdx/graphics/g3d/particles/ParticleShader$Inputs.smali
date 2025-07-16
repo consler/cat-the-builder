@@ -31,7 +31,7 @@
     .line 109
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    const-string/jumbo v1, "u_cameraRight"
+    const-string v1, "u_cameraRight"
 
     invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;)V
 
@@ -40,7 +40,7 @@
     .line 110
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    const-string/jumbo v1, "u_cameraInvDirection"
+    const-string v1, "u_cameraInvDirection"
 
     invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;)V
 
@@ -49,7 +49,7 @@
     .line 111
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    const-string/jumbo v1, "u_screenWidth"
+    const-string v1, "u_screenWidth"
 
     invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;)V
 
@@ -58,7 +58,7 @@
     .line 112
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    const-string/jumbo v1, "u_regionSize"
+    const-string v1, "u_regionSize"
 
     invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;)V
 

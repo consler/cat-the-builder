@@ -15,10 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;II)V
-    .locals 4
-    .param p1, "type"    # Ljava/lang/Class;
-    .param p2, "initialPoolSize"    # I
-    .param p3, "maxPoolSize"    # I
+    .locals 2
 
     .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,108 +41,106 @@
     if-nez v0, :cond_2
 
     .line 42
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p2, Ljava/lang/IllegalArgumentException;
 
-    new-instance v2, Ljava/lang/StringBuffer;
+    new-instance p3, Ljava/lang/StringBuffer;
 
-    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {p3}, Ljava/lang/StringBuffer;-><init>()V
 
     invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    const-string v3, " is not a "
+    move-result-object p1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    const-string p3, " is not a "
 
-    sget-object v3, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->class$java$beans$PropertyEditor:Ljava/lang/Class;
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    if-nez v3, :cond_1
+    move-result-object p1
+
+    sget-object p3, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->class$java$beans$PropertyEditor:Ljava/lang/Class;
+
+    if-nez p3, :cond_1
 
     .line 44
     invoke-static {v1}, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->class$(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object p3
 
-    sput-object v3, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->class$java$beans$PropertyEditor:Ljava/lang/Class;
-
-    goto :goto_0
+    sput-object p3, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->class$java$beans$PropertyEditor:Ljava/lang/Class;
 
     :cond_1
-    nop
+    invoke-virtual {p3}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    :goto_0
-    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    move-result-object p3
 
-    move-result-object v1
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-result-object p1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p2
 
     .line 46
     :cond_2
     iput-object p1, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->editorType:Ljava/lang/Class;
 
     .line 47
-    new-instance v0, Lcom/thoughtworks/xstream/core/util/Pool;
+    new-instance p1, Lcom/thoughtworks/xstream/core/util/Pool;
 
-    new-instance v1, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor$1;
+    new-instance v0, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor$1;
 
-    invoke-direct {v1, p0}, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor$1;-><init>(Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;)V
+    invoke-direct {v0, p0}, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor$1;-><init>(Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;)V
 
-    invoke-direct {v0, p2, p3, v1}, Lcom/thoughtworks/xstream/core/util/Pool;-><init>(IILcom/thoughtworks/xstream/core/util/Pool$Factory;)V
+    invoke-direct {p1, p2, p3, v0}, Lcom/thoughtworks/xstream/core/util/Pool;-><init>(IILcom/thoughtworks/xstream/core/util/Pool$Factory;)V
 
-    iput-object v0, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->pool:Lcom/thoughtworks/xstream/core/util/Pool;
+    iput-object p1, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->pool:Lcom/thoughtworks/xstream/core/util/Pool;
 
-    .line 62
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;)Ljava/lang/Class;
-    .locals 1
-    .param p0, "x0"    # Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;
+    .locals 0
 
     .line 35
-    iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->editorType:Ljava/lang/Class;
+    iget-object p0, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->editorType:Ljava/lang/Class;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic class$(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 2
-    .param p0, "x0"    # Ljava/lang/String;
+    .locals 1
 
     .line 41
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/lang/NoClassDefFoundError;
+    new-instance v0, Ljava/lang/NoClassDefFoundError;
 
-    invoke-direct {v1}, Ljava/lang/NoClassDefFoundError;-><init>()V
+    invoke-direct {v0}, Ljava/lang/NoClassDefFoundError;-><init>()V
 
-    invoke-virtual {v1, v0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, p0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 .end method
 
 .method private fetchFromPool()Ljava/beans/PropertyEditor;
@@ -160,16 +155,13 @@
 
     check-cast v0, Ljava/beans/PropertyEditor;
 
-    .line 86
-    .local v0, "editor":Ljava/beans/PropertyEditor;
     return-object v0
 .end method
 
 
 # virtual methods
 .method public getAsText(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 3
-    .param p1, "object"    # Ljava/lang/Object;
+    .locals 2
 
     .line 65
     invoke-direct {p0}, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->fetchFromPool()Ljava/beans/PropertyEditor;
@@ -177,40 +169,36 @@
     move-result-object v0
 
     .line 67
-    .local v0, "editor":Ljava/beans/PropertyEditor;
     :try_start_0
     invoke-interface {v0, p1}, Ljava/beans/PropertyEditor;->setValue(Ljava/lang/Object;)V
 
     .line 68
     invoke-interface {v0}, Ljava/beans/PropertyEditor;->getAsText()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 70
-    iget-object v2, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->pool:Lcom/thoughtworks/xstream/core/util/Pool;
+    iget-object v1, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->pool:Lcom/thoughtworks/xstream/core/util/Pool;
 
-    invoke-virtual {v2, v0}, Lcom/thoughtworks/xstream/core/util/Pool;->putInPool(Ljava/lang/Object;)V
+    invoke-virtual {v1, v0}, Lcom/thoughtworks/xstream/core/util/Pool;->putInPool(Ljava/lang/Object;)V
 
-    .line 68
-    return-object v1
+    return-object p1
 
-    .line 70
     :catchall_0
-    move-exception v1
+    move-exception p1
 
-    iget-object v2, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->pool:Lcom/thoughtworks/xstream/core/util/Pool;
+    iget-object v1, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->pool:Lcom/thoughtworks/xstream/core/util/Pool;
 
-    invoke-virtual {v2, v0}, Lcom/thoughtworks/xstream/core/util/Pool;->putInPool(Ljava/lang/Object;)V
+    invoke-virtual {v1, v0}, Lcom/thoughtworks/xstream/core/util/Pool;->putInPool(Ljava/lang/Object;)V
 
     .line 71
-    throw v1
+    throw p1
 .end method
 
 .method public setAsText(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 3
-    .param p1, "str"    # Ljava/lang/String;
+    .locals 2
 
     .line 75
     invoke-direct {p0}, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->fetchFromPool()Ljava/beans/PropertyEditor;
@@ -218,33 +206,30 @@
     move-result-object v0
 
     .line 77
-    .local v0, "editor":Ljava/beans/PropertyEditor;
     :try_start_0
     invoke-interface {v0, p1}, Ljava/beans/PropertyEditor;->setAsText(Ljava/lang/String;)V
 
     .line 78
     invoke-interface {v0}, Ljava/beans/PropertyEditor;->getValue()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 80
-    iget-object v2, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->pool:Lcom/thoughtworks/xstream/core/util/Pool;
+    iget-object v1, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->pool:Lcom/thoughtworks/xstream/core/util/Pool;
 
-    invoke-virtual {v2, v0}, Lcom/thoughtworks/xstream/core/util/Pool;->putInPool(Ljava/lang/Object;)V
+    invoke-virtual {v1, v0}, Lcom/thoughtworks/xstream/core/util/Pool;->putInPool(Ljava/lang/Object;)V
 
-    .line 78
-    return-object v1
+    return-object p1
 
-    .line 80
     :catchall_0
-    move-exception v1
+    move-exception p1
 
-    iget-object v2, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->pool:Lcom/thoughtworks/xstream/core/util/Pool;
+    iget-object v1, p0, Lcom/thoughtworks/xstream/core/util/ThreadSafePropertyEditor;->pool:Lcom/thoughtworks/xstream/core/util/Pool;
 
-    invoke-virtual {v2, v0}, Lcom/thoughtworks/xstream/core/util/Pool;->putInPool(Ljava/lang/Object;)V
+    invoke-virtual {v1, v0}, Lcom/thoughtworks/xstream/core/util/Pool;->putInPool(Ljava/lang/Object;)V
 
     .line 81
-    throw v1
+    throw p1
 .end method

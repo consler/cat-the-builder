@@ -48,7 +48,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 392
+    .line 404
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -57,8 +57,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -68,14 +67,13 @@
         }
     .end annotation
 
-    .line 444
     const/4 v0, 0x1
 
     if-ne p0, p1, :cond_0
 
     return v0
 
-    .line 445
+    .line 457
     :cond_0
     instance-of v1, p1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;
 
@@ -85,122 +83,117 @@
 
     return v2
 
-    .line 447
+    .line 459
     :cond_1
-    move-object v1, p1
+    check-cast p1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;
 
-    check-cast v1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;
+    .line 461
+    iget v1, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->runAttemptCount:I
 
-    .line 449
-    .local v1, "that":Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;
-    iget v3, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->runAttemptCount:I
+    iget v3, p1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->runAttemptCount:I
 
-    iget v4, v1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->runAttemptCount:I
-
-    if-eq v3, v4, :cond_2
+    if-eq v1, v3, :cond_2
 
     return v2
 
-    .line 450
+    .line 462
     :cond_2
-    iget-object v3, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->id:Ljava/lang/String;
+    iget-object v1, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->id:Ljava/lang/String;
 
-    if-eqz v3, :cond_3
+    if-eqz v1, :cond_3
 
-    iget-object v4, v1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->id:Ljava/lang/String;
+    iget-object v3, p1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->id:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_4
+    if-nez v1, :cond_4
 
     goto :goto_0
 
     :cond_3
-    iget-object v3, v1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->id:Ljava/lang/String;
+    iget-object v1, p1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->id:Ljava/lang/String;
 
-    if-eqz v3, :cond_4
+    if-eqz v1, :cond_4
 
     :goto_0
     return v2
 
-    .line 451
+    .line 463
     :cond_4
-    iget-object v3, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->state:Landroidx/work/WorkInfo$State;
+    iget-object v1, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->state:Landroidx/work/WorkInfo$State;
 
-    iget-object v4, v1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->state:Landroidx/work/WorkInfo$State;
+    iget-object v3, p1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->state:Landroidx/work/WorkInfo$State;
 
-    if-eq v3, v4, :cond_5
+    if-eq v1, v3, :cond_5
 
     return v2
 
-    .line 452
+    .line 464
     :cond_5
-    iget-object v3, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->output:Landroidx/work/Data;
+    iget-object v1, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->output:Landroidx/work/Data;
 
-    if-eqz v3, :cond_6
+    if-eqz v1, :cond_6
 
-    iget-object v4, v1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->output:Landroidx/work/Data;
+    iget-object v3, p1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->output:Landroidx/work/Data;
 
-    invoke-virtual {v3, v4}, Landroidx/work/Data;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v3}, Landroidx/work/Data;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_7
+    if-nez v1, :cond_7
 
     goto :goto_1
 
     :cond_6
-    iget-object v3, v1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->output:Landroidx/work/Data;
+    iget-object v1, p1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->output:Landroidx/work/Data;
 
-    if-eqz v3, :cond_7
+    if-eqz v1, :cond_7
 
     :goto_1
     return v2
 
-    .line 453
+    .line 465
     :cond_7
-    iget-object v3, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->tags:Ljava/util/List;
+    iget-object v1, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->tags:Ljava/util/List;
 
-    if-eqz v3, :cond_8
+    if-eqz v1, :cond_8
 
-    iget-object v4, v1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->tags:Ljava/util/List;
+    iget-object v3, p1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->tags:Ljava/util/List;
 
-    invoke-interface {v3, v4}, Ljava/util/List;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v1, v3}, Ljava/util/List;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_9
+    if-nez v1, :cond_9
 
     goto :goto_2
 
     :cond_8
-    iget-object v3, v1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->tags:Ljava/util/List;
+    iget-object v1, p1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->tags:Ljava/util/List;
 
-    if-eqz v3, :cond_9
+    if-eqz v1, :cond_9
 
     :goto_2
     return v2
 
-    .line 454
+    .line 466
     :cond_9
-    iget-object v3, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->progress:Ljava/util/List;
+    iget-object v1, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->progress:Ljava/util/List;
 
-    if-eqz v3, :cond_a
+    iget-object p1, p1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->progress:Ljava/util/List;
 
-    iget-object v0, v1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->progress:Ljava/util/List;
+    if-eqz v1, :cond_a
 
-    invoke-interface {v3, v0}, Ljava/util/List;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v1, p1}, Ljava/util/List;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     goto :goto_3
 
     :cond_a
-    iget-object v3, v1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->progress:Ljava/util/List;
-
-    if-nez v3, :cond_b
+    if-nez p1, :cond_b
 
     goto :goto_3
 
@@ -212,9 +205,9 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .locals 3
 
-    .line 459
+    .line 471
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->id:Ljava/lang/String;
 
     const/4 v1, 0x0
@@ -230,104 +223,92 @@
     :cond_0
     move v0, v1
 
-    .line 460
-    .local v0, "result":I
     :goto_0
-    mul-int/lit8 v2, v0, 0x1f
+    mul-int/lit8 v0, v0, 0x1f
 
-    iget-object v3, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->state:Landroidx/work/WorkInfo$State;
+    .line 472
+    iget-object v2, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->state:Landroidx/work/WorkInfo$State;
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
-    invoke-virtual {v3}, Landroidx/work/WorkInfo$State;->hashCode()I
+    invoke-virtual {v2}, Landroidx/work/WorkInfo$State;->hashCode()I
 
-    move-result v3
+    move-result v2
 
     goto :goto_1
 
     :cond_1
-    move v3, v1
+    move v2, v1
 
     :goto_1
-    add-int/2addr v2, v3
+    add-int/2addr v0, v2
 
-    .line 461
-    .end local v0    # "result":I
-    .local v2, "result":I
-    mul-int/lit8 v0, v2, 0x1f
+    mul-int/lit8 v0, v0, 0x1f
 
-    iget-object v3, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->output:Landroidx/work/Data;
+    .line 473
+    iget-object v2, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->output:Landroidx/work/Data;
 
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_2
 
-    invoke-virtual {v3}, Landroidx/work/Data;->hashCode()I
+    invoke-virtual {v2}, Landroidx/work/Data;->hashCode()I
 
-    move-result v3
+    move-result v2
 
     goto :goto_2
 
     :cond_2
-    move v3, v1
+    move v2, v1
 
     :goto_2
-    add-int/2addr v0, v3
+    add-int/2addr v0, v2
 
-    .line 462
-    .end local v2    # "result":I
-    .restart local v0    # "result":I
-    mul-int/lit8 v2, v0, 0x1f
+    mul-int/lit8 v0, v0, 0x1f
 
-    iget v3, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->runAttemptCount:I
+    .line 474
+    iget v2, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->runAttemptCount:I
 
-    add-int/2addr v2, v3
+    add-int/2addr v0, v2
 
-    .line 463
-    .end local v0    # "result":I
-    .restart local v2    # "result":I
-    mul-int/lit8 v0, v2, 0x1f
+    mul-int/lit8 v0, v0, 0x1f
 
-    iget-object v3, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->tags:Ljava/util/List;
+    .line 475
+    iget-object v2, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->tags:Ljava/util/List;
 
-    if-eqz v3, :cond_3
+    if-eqz v2, :cond_3
 
-    invoke-interface {v3}, Ljava/util/List;->hashCode()I
+    invoke-interface {v2}, Ljava/util/List;->hashCode()I
 
-    move-result v3
+    move-result v2
 
     goto :goto_3
 
     :cond_3
-    move v3, v1
+    move v2, v1
 
     :goto_3
-    add-int/2addr v0, v3
+    add-int/2addr v0, v2
 
-    .line 464
-    .end local v2    # "result":I
-    .restart local v0    # "result":I
-    mul-int/lit8 v2, v0, 0x1f
+    mul-int/lit8 v0, v0, 0x1f
 
-    iget-object v3, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->progress:Ljava/util/List;
+    .line 476
+    iget-object v2, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->progress:Ljava/util/List;
 
-    if-eqz v3, :cond_4
+    if-eqz v2, :cond_4
 
-    invoke-interface {v3}, Ljava/util/List;->hashCode()I
+    invoke-interface {v2}, Ljava/util/List;->hashCode()I
 
     move-result v1
 
     :cond_4
-    add-int/2addr v2, v1
+    add-int/2addr v0, v1
 
-    .line 465
-    .end local v0    # "result":I
-    .restart local v2    # "result":I
-    return v2
+    return v0
 .end method
 
 .method public toWorkInfo()Landroidx/work/WorkInfo;
     .locals 8
 
-    .line 429
+    .line 441
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->progress:Ljava/util/List;
 
     if-eqz v0, :cond_0
@@ -338,7 +319,7 @@
 
     if-nez v0, :cond_0
 
-    .line 430
+    .line 442
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->progress:Ljava/util/List;
 
     const/4 v1, 0x0
@@ -349,26 +330,21 @@
 
     check-cast v0, Landroidx/work/Data;
 
-    move-object v6, v0
-
     goto :goto_0
 
-    .line 431
+    .line 443
     :cond_0
     sget-object v0, Landroidx/work/Data;->EMPTY:Landroidx/work/Data;
 
+    :goto_0
     move-object v6, v0
 
-    :goto_0
-    nop
-
-    .line 433
-    .local v6, "progress":Landroidx/work/Data;
+    .line 445
     new-instance v0, Landroidx/work/WorkInfo;
 
     iget-object v1, p0, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->id:Ljava/lang/String;
 
-    .line 434
+    .line 446
     invoke-static {v1}, Ljava/util/UUID;->fromString(Ljava/lang/String;)Ljava/util/UUID;
 
     move-result-object v2
@@ -385,6 +361,5 @@
 
     invoke-direct/range {v1 .. v7}, Landroidx/work/WorkInfo;-><init>(Ljava/util/UUID;Landroidx/work/WorkInfo$State;Landroidx/work/Data;Ljava/util/List;Landroidx/work/Data;I)V
 
-    .line 433
     return-object v0
 .end method

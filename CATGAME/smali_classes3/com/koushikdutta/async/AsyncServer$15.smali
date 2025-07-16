@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/AsyncServer;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/AsyncServer;
 
     .line 867
     iput-object p1, p0, Lcom/koushikdutta/async/AsyncServer$15;->this$0:Lcom/koushikdutta/async/AsyncServer;
@@ -50,23 +49,20 @@
 
     if-nez v0, :cond_0
 
-    .line 871
     const-string v0, "Server dump not possible. No selector?"
 
+    .line 871
     invoke-static {v1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 872
     return-void
 
     .line 874
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Key Count: "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v2, p0, Lcom/koushikdutta/async/AsyncServer$15;->this$0:Lcom/koushikdutta/async/AsyncServer;
 
@@ -83,6 +79,8 @@
     move-result v2
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -119,28 +117,24 @@
     check-cast v2, Ljava/nio/channels/SelectionKey;
 
     .line 877
-    .local v2, "key":Ljava/nio/channels/SelectionKey;
     new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v4, "Key: "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v3
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v1, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v2
 
-    .line 878
-    .end local v2    # "key":Ljava/nio/channels/SelectionKey;
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
     goto :goto_0
 
-    .line 879
     :cond_1
     return-void
 .end method

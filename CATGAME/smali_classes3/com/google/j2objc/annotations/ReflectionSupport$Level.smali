@@ -46,28 +46,26 @@
     sput-object v0, Lcom/google/j2objc/annotations/ReflectionSupport$Level;->NATIVE_ONLY:Lcom/google/j2objc/annotations/ReflectionSupport$Level;
 
     .line 44
-    new-instance v0, Lcom/google/j2objc/annotations/ReflectionSupport$Level;
+    new-instance v1, Lcom/google/j2objc/annotations/ReflectionSupport$Level;
 
-    const-string v1, "FULL"
+    const-string v3, "FULL"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Lcom/google/j2objc/annotations/ReflectionSupport$Level;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Lcom/google/j2objc/annotations/ReflectionSupport$Level;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/google/j2objc/annotations/ReflectionSupport$Level;->FULL:Lcom/google/j2objc/annotations/ReflectionSupport$Level;
+    sput-object v1, Lcom/google/j2objc/annotations/ReflectionSupport$Level;->FULL:Lcom/google/j2objc/annotations/ReflectionSupport$Level;
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Lcom/google/j2objc/annotations/ReflectionSupport$Level;
+
+    aput-object v0, v3, v2
+
+    aput-object v1, v3, v4
 
     .line 35
-    const/4 v1, 0x2
-
-    new-array v1, v1, [Lcom/google/j2objc/annotations/ReflectionSupport$Level;
-
-    sget-object v4, Lcom/google/j2objc/annotations/ReflectionSupport$Level;->NATIVE_ONLY:Lcom/google/j2objc/annotations/ReflectionSupport$Level;
-
-    aput-object v4, v1, v2
-
-    aput-object v0, v1, v3
-
-    sput-object v1, Lcom/google/j2objc/annotations/ReflectionSupport$Level;->$VALUES:[Lcom/google/j2objc/annotations/ReflectionSupport$Level;
+    sput-object v3, Lcom/google/j2objc/annotations/ReflectionSupport$Level;->$VALUES:[Lcom/google/j2objc/annotations/ReflectionSupport$Level;
 
     return-void
 .end method
@@ -88,18 +86,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/j2objc/annotations/ReflectionSupport$Level;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 35
     const-class v0, Lcom/google/j2objc/annotations/ReflectionSupport$Level;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/j2objc/annotations/ReflectionSupport$Level;
+    check-cast p0, Lcom/google/j2objc/annotations/ReflectionSupport$Level;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/google/j2objc/annotations/ReflectionSupport$Level;

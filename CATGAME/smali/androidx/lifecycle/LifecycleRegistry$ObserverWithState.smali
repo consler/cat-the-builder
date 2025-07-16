@@ -22,9 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/LifecycleObserver;Landroidx/lifecycle/Lifecycle$State;)V
-    .locals 1
-    .param p1, "observer"    # Landroidx/lifecycle/LifecycleObserver;
-    .param p2, "initialState"    # Landroidx/lifecycle/Lifecycle$State;
+    .locals 0
 
     .line 353
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,14 +30,13 @@
     .line 354
     invoke-static {p1}, Landroidx/lifecycle/Lifecycling;->lifecycleEventObserver(Ljava/lang/Object;)Landroidx/lifecycle/LifecycleEventObserver;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/lifecycle/LifecycleRegistry$ObserverWithState;->mLifecycleObserver:Landroidx/lifecycle/LifecycleEventObserver;
+    iput-object p1, p0, Landroidx/lifecycle/LifecycleRegistry$ObserverWithState;->mLifecycleObserver:Landroidx/lifecycle/LifecycleEventObserver;
 
     .line 355
     iput-object p2, p0, Landroidx/lifecycle/LifecycleRegistry$ObserverWithState;->mState:Landroidx/lifecycle/Lifecycle$State;
 
-    .line 356
     return-void
 .end method
 
@@ -47,8 +44,6 @@
 # virtual methods
 .method dispatchEvent(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
     .locals 2
-    .param p1, "owner"    # Landroidx/lifecycle/LifecycleOwner;
-    .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
     .line 359
     invoke-static {p2}, Landroidx/lifecycle/LifecycleRegistry;->getStateAfter(Landroidx/lifecycle/Lifecycle$Event;)Landroidx/lifecycle/Lifecycle$State;
@@ -56,7 +51,6 @@
     move-result-object v0
 
     .line 360
-    .local v0, "newState":Landroidx/lifecycle/Lifecycle$State;
     iget-object v1, p0, Landroidx/lifecycle/LifecycleRegistry$ObserverWithState;->mState:Landroidx/lifecycle/Lifecycle$State;
 
     invoke-static {v1, v0}, Landroidx/lifecycle/LifecycleRegistry;->min(Landroidx/lifecycle/Lifecycle$State;Landroidx/lifecycle/Lifecycle$State;)Landroidx/lifecycle/Lifecycle$State;
@@ -73,6 +67,5 @@
     .line 362
     iput-object v0, p0, Landroidx/lifecycle/LifecycleRegistry$ObserverWithState;->mState:Landroidx/lifecycle/Lifecycle$State;
 
-    .line 363
     return-void
 .end method

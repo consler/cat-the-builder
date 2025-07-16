@@ -37,18 +37,18 @@
 .method static constructor <clinit>()V
     .locals 4
 
-    .line 28
     const/4 v0, 0x5
 
     new-array v0, v0, [D
 
+    .line 28
     fill-array-data v0, :array_0
 
     sput-object v0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->FILTER_WEIGHTS_DEFAULT:[D
 
-    .line 33
     const-wide/high16 v0, 0x4000000000000000L    # 2.0
 
+    .line 33
     invoke-static {v0, v1}, Ljava/lang/Math;->log(D)D
 
     move-result-wide v0
@@ -73,61 +73,60 @@
 
 .method public constructor <init>(Lar/com/hjg/pngj/ImageInfo;)V
     .locals 4
-    .param p1, "imgInfo"    # Lar/com/hjg/pngj/ImageInfo;
 
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 14
     const-wide v0, 0x3fe6666666666666L    # 0.7
 
+    .line 14
     iput-wide v0, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->memoryA:D
 
-    .line 15
     const/4 v0, -0x1
 
+    .line 15
     iput v0, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->lastrow:I
 
-    .line 16
     const/4 v1, 0x5
 
     new-array v2, v1, [D
 
+    .line 16
     iput-object v2, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->absum:[D
 
-    .line 18
     new-array v2, v1, [D
 
+    .line 18
     iput-object v2, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->entropy:[D
 
-    .line 19
     new-array v2, v1, [D
 
+    .line 19
     iput-object v2, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->cost:[D
 
-    .line 20
     const/16 v2, 0x100
 
     new-array v2, v2, [I
 
+    .line 20
     iput-object v2, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->histog:[I
 
     .line 21
     iput v0, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->lastprefered:I
 
-    .line 22
     const/4 v0, 0x0
 
+    .line 22
     iput-boolean v0, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->initdone:Z
 
-    .line 23
     const-wide/high16 v2, 0x3ff0000000000000L    # 1.0
 
+    .line 23
     iput-wide v2, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->preferenceForNone:D
 
-    .line 31
     new-array v0, v1, [D
 
+    .line 31
     fill-array-data v0, :array_0
 
     iput-object v0, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->filter_weights:[D
@@ -135,7 +134,6 @@
     .line 36
     iput-object p1, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->iminfo:Lar/com/hjg/pngj/ImageInfo;
 
-    .line 37
     return-void
 
     nop
@@ -179,7 +177,6 @@
     aget-wide v2, v0, v1
 
     .line 43
-    .local v2, "wNone":D
     iget-object v0, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->iminfo:Lar/com/hjg/pngj/ImageInfo;
 
     iget v0, v0, Lar/com/hjg/pngj/ImageInfo;->bitDepth:I
@@ -188,7 +185,6 @@
 
     if-ne v0, v4, :cond_0
 
-    .line 44
     const-wide v2, 0x3ff3333333333333L    # 1.2
 
     goto :goto_0
@@ -201,7 +197,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 46
     const-wide v2, 0x3fe999999999999aL    # 0.8
 
     goto :goto_0
@@ -222,7 +217,6 @@
 
     if-ge v0, v4, :cond_3
 
-    .line 48
     :cond_2
     const-wide v2, 0x3fd999999999999aL    # 0.4
 
@@ -239,7 +233,6 @@
     aput-wide v2, v0, v1
 
     .line 52
-    .end local v2    # "wNone":D
     :cond_4
     iget-object v0, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->cost:[D
 
@@ -247,22 +240,16 @@
 
     invoke-static {v0, v1, v2}, Ljava/util/Arrays;->fill([DD)V
 
-    .line 53
     const/4 v0, 0x1
 
+    .line 53
     iput-boolean v0, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->initdone:Z
 
-    .line 54
     return-void
 .end method
 
 .method private updateFromRawOrFiltered(Lar/com/hjg/pngj/FilterType;[B[B[BI)V
-    .locals 4
-    .param p1, "ftype"    # Lar/com/hjg/pngj/FilterType;
-    .param p2, "rowff"    # [B
-    .param p3, "rowb"    # [B
-    .param p4, "rowbprev"    # [B
-    .param p5, "rown"    # I
+    .locals 3
 
     .line 67
     iget-boolean v0, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->initdone:Z
@@ -294,7 +281,6 @@
     :cond_1
     iput p5, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->lastrow:I
 
-    .line 74
     if-eqz p2, :cond_2
 
     .line 75
@@ -308,36 +294,35 @@
 
     .line 78
     :goto_0
-    sget-object v0, Lar/com/hjg/pngj/FilterType;->FILTER_NONE:Lar/com/hjg/pngj/FilterType;
+    sget-object p2, Lar/com/hjg/pngj/FilterType;->FILTER_NONE:Lar/com/hjg/pngj/FilterType;
 
-    if-ne p1, v0, :cond_3
+    if-ne p1, p2, :cond_3
 
     .line 79
-    iget-object v0, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->entropy:[D
+    iget-object p2, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->entropy:[D
 
-    iget v1, p1, Lar/com/hjg/pngj/FilterType;->val:I
+    iget p1, p1, Lar/com/hjg/pngj/FilterType;->val:I
 
     invoke-virtual {p0}, Lar/com/hjg/pngj/pixels/FiltersPerformance;->computeEntropyFromHistogram()D
 
-    move-result-wide v2
+    move-result-wide p3
 
-    aput-wide v2, v0, v1
+    aput-wide p3, p2, p1
 
     goto :goto_1
 
     .line 81
     :cond_3
-    iget-object v0, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->absum:[D
+    iget-object p2, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->absum:[D
 
-    iget v1, p1, Lar/com/hjg/pngj/FilterType;->val:I
+    iget p1, p1, Lar/com/hjg/pngj/FilterType;->val:I
 
     invoke-virtual {p0}, Lar/com/hjg/pngj/pixels/FiltersPerformance;->computeAbsFromHistogram()D
 
-    move-result-wide v2
+    move-result-wide p3
 
-    aput-wide v2, v0, v1
+    aput-wide p3, p2, p1
 
-    .line 82
     :goto_1
     return-void
 .end method
@@ -347,80 +332,68 @@
 .method public computeAbsFromHistogram()D
     .locals 5
 
-    .line 150
     const/4 v0, 0x0
 
-    .line 151
-    .local v0, "s":I
     const/4 v1, 0x1
 
-    .local v1, "i":I
-    :goto_0
-    const/16 v2, 0x80
+    move v2, v1
 
-    if-ge v1, v2, :cond_0
+    :goto_0
+    const/16 v3, 0x80
+
+    if-ge v2, v3, :cond_0
 
     .line 152
-    iget-object v2, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->histog:[I
-
-    aget v2, v2, v1
-
-    mul-int/2addr v2, v1
-
-    add-int/2addr v0, v2
-
-    .line 151
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    .line 153
-    .end local v1    # "i":I
-    :cond_0
-    const/16 v1, 0x80
-
-    .restart local v1    # "i":I
-    const/16 v2, 0x80
-
-    .local v2, "j":I
-    :goto_1
-    if-lez v2, :cond_1
-
-    .line 154
     iget-object v3, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->histog:[I
 
-    aget v3, v3, v1
+    aget v3, v3, v2
 
     mul-int/2addr v3, v2
 
     add-int/2addr v0, v3
 
-    .line 153
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
-    add-int/lit8 v2, v2, -0x1
+    goto :goto_0
+
+    :cond_0
+    move v2, v3
+
+    :goto_1
+    if-lez v3, :cond_1
+
+    .line 154
+    iget-object v4, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->histog:[I
+
+    aget v4, v4, v2
+
+    mul-int/2addr v4, v3
+
+    add-int/2addr v0, v4
+
+    add-int/2addr v2, v1
+
+    add-int/lit8 v3, v3, -0x1
 
     goto :goto_1
 
-    .line 155
-    .end local v1    # "i":I
-    .end local v2    # "j":I
     :cond_1
-    int-to-double v1, v0
+    int-to-double v0, v0
 
-    iget-object v3, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->iminfo:Lar/com/hjg/pngj/ImageInfo;
+    .line 155
+    iget-object v2, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->iminfo:Lar/com/hjg/pngj/ImageInfo;
 
-    iget v3, v3, Lar/com/hjg/pngj/ImageInfo;->bytesPerRow:I
+    iget v2, v2, Lar/com/hjg/pngj/ImageInfo;->bytesPerRow:I
 
-    int-to-double v3, v3
+    int-to-double v2, v2
 
-    div-double/2addr v1, v3
+    div-double/2addr v0, v2
 
-    return-wide v1
+    return-wide v0
 .end method
 
 .method public final computeEntropyFromHistogram()D
-    .locals 14
+    .locals 15
 
     .line 159
     iget-object v0, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->iminfo:Lar/com/hjg/pngj/ImageInfo;
@@ -434,86 +407,69 @@
     div-double/2addr v2, v0
 
     .line 160
-    .local v2, "s":D
     invoke-static {v2, v3}, Ljava/lang/Math;->log(D)D
 
     move-result-wide v0
 
-    .line 162
-    .local v0, "ls":D
-    const-wide/16 v4, 0x0
-
     .line 163
-    .local v4, "h":D
-    iget-object v6, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->histog:[I
+    iget-object v4, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->histog:[I
 
-    .local v6, "arr$":[I
-    array-length v7, v6
+    array-length v5, v4
 
-    .local v7, "len$":I
+    const-wide/16 v6, 0x0
+
     const/4 v8, 0x0
 
-    .local v8, "i$":I
+    move-wide v9, v6
+
     :goto_0
-    if-ge v8, v7, :cond_1
+    if-ge v8, v5, :cond_1
 
-    aget v9, v6, v8
+    aget v11, v4, v8
 
-    .line 164
-    .local v9, "x":I
-    if-lez v9, :cond_0
+    if-lez v11, :cond_0
+
+    int-to-double v11, v11
 
     .line 165
-    int-to-double v10, v9
+    invoke-static {v11, v12}, Ljava/lang/Math;->log(D)D
 
-    invoke-static {v10, v11}, Ljava/lang/Math;->log(D)D
+    move-result-wide v13
 
-    move-result-wide v10
+    add-double/2addr v13, v0
 
-    add-double/2addr v10, v0
+    mul-double/2addr v13, v11
 
-    int-to-double v12, v9
+    add-double/2addr v9, v13
 
-    mul-double/2addr v10, v12
-
-    add-double/2addr v4, v10
-
-    .line 163
-    .end local v9    # "x":I
     :cond_0
     add-int/lit8 v8, v8, 0x1
 
     goto :goto_0
 
     .line 167
-    .end local v6    # "arr$":[I
-    .end local v7    # "len$":I
-    .end local v8    # "i$":I
     :cond_1
-    sget-wide v6, Lar/com/hjg/pngj/pixels/FiltersPerformance;->LOG2NI:D
+    sget-wide v0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->LOG2NI:D
 
-    mul-double/2addr v6, v2
+    mul-double/2addr v2, v0
 
-    mul-double/2addr v4, v6
+    mul-double/2addr v9, v2
 
-    .line 168
-    const-wide/16 v6, 0x0
+    cmpg-double v0, v9, v6
 
-    cmpg-double v6, v4, v6
+    if-gez v0, :cond_2
 
-    if-gez v6, :cond_2
+    goto :goto_1
 
-    .line 169
-    const-wide/16 v4, 0x0
-
-    .line 170
     :cond_2
-    return-wide v4
+    move-wide v6, v9
+
+    :goto_1
+    return-wide v6
 .end method
 
 .method public computeHistogram([B)V
-    .locals 4
-    .param p1, "rowff"    # [B
+    .locals 5
 
     .line 144
     iget-object v0, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->histog:[I
@@ -522,46 +478,41 @@
 
     invoke-static {v0, v1}, Ljava/util/Arrays;->fill([II)V
 
-    .line 145
     const/4 v0, 0x1
 
-    .local v0, "i":I
-    :goto_0
-    iget-object v1, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->iminfo:Lar/com/hjg/pngj/ImageInfo;
-
-    iget v1, v1, Lar/com/hjg/pngj/ImageInfo;->bytesPerRow:I
-
-    if-ge v0, v1, :cond_0
-
-    .line 146
-    iget-object v1, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->histog:[I
-
-    aget-byte v2, p1, v0
-
-    and-int/lit16 v2, v2, 0xff
-
-    aget v3, v1, v2
-
-    add-int/lit8 v3, v3, 0x1
-
-    aput v3, v1, v2
+    move v1, v0
 
     .line 145
-    add-int/lit8 v0, v0, 0x1
+    :goto_0
+    iget-object v2, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->iminfo:Lar/com/hjg/pngj/ImageInfo;
+
+    iget v2, v2, Lar/com/hjg/pngj/ImageInfo;->bytesPerRow:I
+
+    if-ge v1, v2, :cond_0
+
+    .line 146
+    iget-object v2, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->histog:[I
+
+    aget-byte v3, p1, v1
+
+    and-int/lit16 v3, v3, 0xff
+
+    aget v4, v2, v3
+
+    add-int/2addr v4, v0
+
+    aput v4, v2, v3
+
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 147
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public final computeHistogramForFilter(Lar/com/hjg/pngj/FilterType;[B[B)V
-    .locals 9
-    .param p1, "filterType"    # Lar/com/hjg/pngj/FilterType;
-    .param p2, "rowb"    # [B
-    .param p3, "rowbprev"    # [B
+    .locals 8
 
     .line 108
     iget-object v0, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->histog:[I
@@ -576,7 +527,6 @@
     iget v0, v0, Lar/com/hjg/pngj/ImageInfo;->bytesPerRow:I
 
     .line 110
-    .local v0, "imax":I
     sget-object v2, Lar/com/hjg/pngj/pixels/FiltersPerformance$1;->$SwitchMap$ar$com$hjg$pngj$FilterType:[I
 
     invoke-virtual {p1}, Lar/com/hjg/pngj/FilterType;->ordinal()I
@@ -593,382 +543,319 @@
 
     if-eq v2, v4, :cond_5
 
-    const/4 v5, 0x3
+    const/4 v1, 0x3
 
-    if-eq v2, v5, :cond_3
+    if-eq v2, v1, :cond_3
 
-    const/4 v5, 0x4
+    const/4 v1, 0x4
 
-    if-eq v2, v5, :cond_2
+    if-eq v2, v1, :cond_2
 
-    const/4 v5, 0x5
+    const/4 v1, 0x5
 
-    if-ne v2, v5, :cond_1
+    if-ne v2, v1, :cond_1
 
-    move v2, v1
+    move p1, v3
 
     .line 133
-    .local v1, "j":I
-    .local v2, "i":I
-    const/4 v2, 0x1
-
     :goto_0
-    iget-object v5, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->iminfo:Lar/com/hjg/pngj/ImageInfo;
+    iget-object v1, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->iminfo:Lar/com/hjg/pngj/ImageInfo;
 
-    iget v5, v5, Lar/com/hjg/pngj/ImageInfo;->bytesPixel:I
+    iget v1, v1, Lar/com/hjg/pngj/ImageInfo;->bytesPixel:I
 
-    if-gt v2, v5, :cond_0
+    if-gt p1, v1, :cond_0
 
     .line 134
-    iget-object v5, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->histog:[I
+    iget-object v1, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->histog:[I
 
-    aget-byte v6, p2, v2
+    aget-byte v2, p2, p1
 
-    and-int/lit16 v6, v6, 0xff
+    and-int/lit16 v2, v2, 0xff
 
-    aget-byte v7, p3, v2
+    aget-byte v5, p3, p1
 
-    and-int/lit16 v7, v7, 0xff
+    and-int/lit16 v5, v5, 0xff
 
-    div-int/2addr v7, v4
+    div-int/2addr v5, v4
 
-    sub-int/2addr v6, v7
+    sub-int/2addr v2, v5
 
-    and-int/lit16 v6, v6, 0xff
+    and-int/lit16 v2, v2, 0xff
 
-    aget v7, v5, v6
+    aget v5, v1, v2
 
-    add-int/2addr v7, v3
+    add-int/2addr v5, v3
 
-    aput v7, v5, v6
+    aput v5, v1, v2
 
-    .line 133
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 p1, p1, 0x1
 
     goto :goto_0
 
     .line 135
     :cond_0
-    const/4 v1, 0x1
+    iget-object p1, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->iminfo:Lar/com/hjg/pngj/ImageInfo;
 
-    iget-object v5, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->iminfo:Lar/com/hjg/pngj/ImageInfo;
+    iget p1, p1, Lar/com/hjg/pngj/ImageInfo;->bytesPixel:I
 
-    iget v5, v5, Lar/com/hjg/pngj/ImageInfo;->bytesPixel:I
+    add-int/2addr p1, v3
 
-    add-int/2addr v5, v3
+    move v1, v3
 
-    .end local v2    # "i":I
-    .local v5, "i":I
     :goto_1
-    if-gt v5, v0, :cond_8
+    if-gt p1, v0, :cond_8
 
     .line 136
     iget-object v2, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->histog:[I
 
-    aget-byte v6, p2, v5
-
-    and-int/lit16 v6, v6, 0xff
-
-    aget-byte v7, p3, v5
-
-    and-int/lit16 v7, v7, 0xff
-
-    aget-byte v8, p2, v1
-
-    and-int/lit16 v8, v8, 0xff
-
-    add-int/2addr v7, v8
-
-    div-int/2addr v7, v4
-
-    sub-int/2addr v6, v7
-
-    and-int/lit16 v6, v6, 0xff
-
-    aget v7, v2, v6
-
-    add-int/2addr v7, v3
-
-    aput v7, v2, v6
-
-    .line 135
-    add-int/lit8 v5, v5, 0x1
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_1
-
-    .line 110
-    .end local v1    # "j":I
-    .end local v5    # "i":I
-    :cond_1
-    move v2, v1
-
-    .line 139
-    .restart local v1    # "j":I
-    .restart local v2    # "i":I
-    new-instance v3, Lar/com/hjg/pngj/PngjExceptionInternal;
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "Bad filter:"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-direct {v3, v4}, Lar/com/hjg/pngj/PngjExceptionInternal;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    .line 110
-    .end local v1    # "j":I
-    .end local v2    # "i":I
-    :cond_2
-    move v2, v1
-
-    .line 129
-    .restart local v1    # "j":I
-    .restart local v2    # "i":I
-    const/4 v2, 0x1
-
-    move v5, v2
-
-    .end local v2    # "i":I
-    .restart local v5    # "i":I
-    :goto_2
-    iget-object v2, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->iminfo:Lar/com/hjg/pngj/ImageInfo;
-
-    iget v2, v2, Lar/com/hjg/pngj/ImageInfo;->bytesPerRow:I
-
-    if-gt v5, v2, :cond_8
-
-    .line 130
-    iget-object v2, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->histog:[I
-
-    aget-byte v4, p2, v5
-
-    aget-byte v6, p3, v5
-
-    sub-int/2addr v4, v6
-
-    and-int/lit16 v4, v4, 0xff
-
-    aget v6, v2, v4
-
-    add-int/2addr v6, v3
-
-    aput v6, v2, v4
-
-    .line 129
-    add-int/lit8 v5, v5, 0x1
-
-    goto :goto_2
-
-    .line 110
-    .end local v1    # "j":I
-    .end local v5    # "i":I
-    :cond_3
-    move v2, v1
-
-    .line 123
-    .restart local v1    # "j":I
-    .restart local v2    # "i":I
-    const/4 v2, 0x1
-
-    :goto_3
-    iget-object v4, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->iminfo:Lar/com/hjg/pngj/ImageInfo;
-
-    iget v4, v4, Lar/com/hjg/pngj/ImageInfo;->bytesPixel:I
-
-    if-gt v2, v4, :cond_4
-
-    .line 124
-    iget-object v4, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->histog:[I
-
-    aget-byte v5, p2, v2
+    aget-byte v5, p2, p1
 
     and-int/lit16 v5, v5, 0xff
 
-    aget v6, v4, v5
+    aget-byte v6, p3, p1
+
+    and-int/lit16 v6, v6, 0xff
+
+    aget-byte v7, p2, v1
+
+    and-int/lit16 v7, v7, 0xff
+
+    add-int/2addr v6, v7
+
+    div-int/2addr v6, v4
+
+    sub-int/2addr v5, v6
+
+    and-int/lit16 v5, v5, 0xff
+
+    aget v6, v2, v5
 
     add-int/2addr v6, v3
 
-    aput v6, v4, v5
+    aput v6, v2, v5
+
+    add-int/lit8 p1, p1, 0x1
+
+    add-int/2addr v1, v3
+
+    goto :goto_1
+
+    .line 139
+    :cond_1
+    new-instance p2, Lar/com/hjg/pngj/PngjExceptionInternal;
+
+    new-instance p3, Ljava/lang/StringBuilder;
+
+    const-string v0, "Bad filter:"
+
+    invoke-direct {p3, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p2, p1}, Lar/com/hjg/pngj/PngjExceptionInternal;-><init>(Ljava/lang/String;)V
+
+    throw p2
+
+    :cond_2
+    move p1, v3
+
+    .line 129
+    :goto_2
+    iget-object v0, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->iminfo:Lar/com/hjg/pngj/ImageInfo;
+
+    iget v0, v0, Lar/com/hjg/pngj/ImageInfo;->bytesPerRow:I
+
+    if-gt p1, v0, :cond_8
+
+    .line 130
+    iget-object v0, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->histog:[I
+
+    aget-byte v1, p2, p1
+
+    aget-byte v2, p3, p1
+
+    sub-int/2addr v1, v2
+
+    and-int/lit16 v1, v1, 0xff
+
+    aget v2, v0, v1
+
+    add-int/2addr v2, v3
+
+    aput v2, v0, v1
+
+    add-int/lit8 p1, p1, 0x1
+
+    goto :goto_2
+
+    :cond_3
+    move p1, v3
 
     .line 123
-    add-int/lit8 v2, v2, 0x1
+    :goto_3
+    iget-object p3, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->iminfo:Lar/com/hjg/pngj/ImageInfo;
+
+    iget p3, p3, Lar/com/hjg/pngj/ImageInfo;->bytesPixel:I
+
+    if-gt p1, p3, :cond_4
+
+    .line 124
+    iget-object p3, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->histog:[I
+
+    aget-byte v1, p2, p1
+
+    and-int/lit16 v1, v1, 0xff
+
+    aget v2, p3, v1
+
+    add-int/2addr v2, v3
+
+    aput v2, p3, v1
+
+    add-int/lit8 p1, p1, 0x1
 
     goto :goto_3
 
     .line 125
     :cond_4
-    const/4 v1, 0x1
+    iget-object p1, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->iminfo:Lar/com/hjg/pngj/ImageInfo;
 
-    iget-object v4, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->iminfo:Lar/com/hjg/pngj/ImageInfo;
+    iget p1, p1, Lar/com/hjg/pngj/ImageInfo;->bytesPixel:I
 
-    iget v4, v4, Lar/com/hjg/pngj/ImageInfo;->bytesPixel:I
+    add-int/2addr p1, v3
+
+    move p3, v3
+
+    :goto_4
+    if-gt p1, v0, :cond_8
+
+    .line 126
+    iget-object v1, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->histog:[I
+
+    aget-byte v2, p2, p1
+
+    aget-byte v4, p2, p3
+
+    sub-int/2addr v2, v4
+
+    and-int/lit16 v2, v2, 0xff
+
+    aget v4, v1, v2
 
     add-int/2addr v4, v3
 
-    move v5, v4
+    aput v4, v1, v2
 
-    .end local v2    # "i":I
-    .restart local v5    # "i":I
-    :goto_4
-    if-gt v5, v0, :cond_8
+    add-int/lit8 p1, p1, 0x1
 
-    .line 126
-    iget-object v2, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->histog:[I
-
-    aget-byte v4, p2, v5
-
-    aget-byte v6, p2, v1
-
-    sub-int/2addr v4, v6
-
-    and-int/lit16 v4, v4, 0xff
-
-    aget v6, v2, v4
-
-    add-int/2addr v6, v3
-
-    aput v6, v2, v4
-
-    .line 125
-    add-int/lit8 v5, v5, 0x1
-
-    add-int/lit8 v1, v1, 0x1
+    add-int/2addr p3, v3
 
     goto :goto_4
 
-    .line 110
-    .end local v1    # "j":I
-    .end local v5    # "i":I
     :cond_5
-    move v2, v1
-
-    .line 116
-    .restart local v2    # "i":I
-    const/4 v2, 0x1
+    move p1, v3
 
     :goto_5
-    if-gt v2, v0, :cond_6
+    if-gt p1, v0, :cond_6
 
     .line 117
-    iget-object v4, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->histog:[I
+    iget-object v2, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->histog:[I
 
-    aget-byte v5, p2, v2
+    aget-byte v4, p2, p1
 
-    aget-byte v6, p3, v2
+    aget-byte v5, p3, p1
 
-    and-int/lit16 v6, v6, 0xff
+    and-int/lit16 v5, v5, 0xff
 
-    invoke-static {v5, v1, v6, v1}, Lar/com/hjg/pngj/PngHelperInternal;->filterRowPaeth(IIII)I
+    invoke-static {v4, v1, v5, v1}, Lar/com/hjg/pngj/PngHelperInternal;->filterRowPaeth(IIII)I
 
-    move-result v5
+    move-result v4
 
-    aget v6, v4, v5
+    aget v5, v2, v4
 
-    add-int/2addr v6, v3
+    add-int/2addr v5, v3
 
-    aput v6, v4, v5
+    aput v5, v2, v4
 
-    .line 116
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 p1, p1, 0x1
 
     goto :goto_5
 
     .line 118
     :cond_6
-    const/4 v1, 0x1
+    iget-object p1, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->iminfo:Lar/com/hjg/pngj/ImageInfo;
 
-    .restart local v1    # "j":I
-    iget-object v4, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->iminfo:Lar/com/hjg/pngj/ImageInfo;
+    iget p1, p1, Lar/com/hjg/pngj/ImageInfo;->bytesPixel:I
 
-    iget v4, v4, Lar/com/hjg/pngj/ImageInfo;->bytesPixel:I
+    add-int/2addr p1, v3
 
-    add-int/2addr v4, v3
+    move v1, v3
 
-    move v5, v4
-
-    .end local v2    # "i":I
-    .restart local v5    # "i":I
     :goto_6
-    if-gt v5, v0, :cond_8
+    if-gt p1, v0, :cond_8
 
     .line 119
     iget-object v2, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->histog:[I
 
-    aget-byte v4, p2, v5
+    aget-byte v4, p2, p1
 
-    aget-byte v6, p2, v1
+    aget-byte v5, p2, v1
+
+    and-int/lit16 v5, v5, 0xff
+
+    aget-byte v6, p3, p1
 
     and-int/lit16 v6, v6, 0xff
 
-    aget-byte v7, p3, v5
+    aget-byte v7, p3, v1
 
     and-int/lit16 v7, v7, 0xff
 
-    aget-byte v8, p3, v1
-
-    and-int/lit16 v8, v8, 0xff
-
-    invoke-static {v4, v6, v7, v8}, Lar/com/hjg/pngj/PngHelperInternal;->filterRowPaeth(IIII)I
+    invoke-static {v4, v5, v6, v7}, Lar/com/hjg/pngj/PngHelperInternal;->filterRowPaeth(IIII)I
 
     move-result v4
 
-    aget v6, v2, v4
+    aget v5, v2, v4
 
-    add-int/2addr v6, v3
+    add-int/2addr v5, v3
 
-    aput v6, v2, v4
+    aput v5, v2, v4
 
-    .line 118
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/2addr v1, v3
 
     goto :goto_6
 
-    .line 112
-    .end local v1    # "j":I
-    .end local v5    # "i":I
     :cond_7
-    const/4 v2, 0x1
+    move p1, v3
 
-    move v5, v2
-
-    .restart local v5    # "i":I
     :goto_7
-    if-gt v5, v0, :cond_8
+    if-gt p1, v0, :cond_8
 
     .line 113
-    iget-object v2, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->histog:[I
+    iget-object p3, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->histog:[I
 
-    aget-byte v4, p2, v5
+    aget-byte v1, p2, p1
 
-    and-int/lit16 v4, v4, 0xff
+    and-int/lit16 v1, v1, 0xff
 
-    aget v6, v2, v4
+    aget v2, p3, v1
 
-    add-int/2addr v6, v3
+    add-int/2addr v2, v3
 
-    aput v6, v2, v4
+    aput v2, p3, v1
 
-    .line 112
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 p1, p1, 0x1
 
     goto :goto_7
 
-    .line 141
-    .restart local v1    # "j":I
     :cond_8
     return-void
 .end method
@@ -976,177 +863,146 @@
 .method public getPreferred()Lar/com/hjg/pngj/FilterType;
     .locals 13
 
-    .line 86
     const/4 v0, 0x0
 
-    .line 87
-    .local v0, "fi":I
     const-wide v1, 0x7fefffffffffffffL    # Double.MAX_VALUE
 
-    .local v1, "vali":D
-    const-wide/16 v3, 0x0
+    move-wide v2, v1
 
-    .line 88
-    .local v3, "val":D
-    const/4 v5, 0x0
+    move v1, v0
 
-    .local v5, "i":I
     :goto_0
-    const/4 v6, 0x5
+    const/4 v4, 0x5
 
-    if-ge v5, v6, :cond_3
+    if-ge v0, v4, :cond_2
 
     .line 89
-    iget-object v6, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->absum:[D
+    iget-object v4, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->absum:[D
 
-    aget-wide v7, v6, v5
+    aget-wide v4, v4, v0
 
-    invoke-static {v7, v8}, Ljava/lang/Double;->isNaN(D)Z
+    invoke-static {v4, v5}, Ljava/lang/Double;->isNaN(D)Z
 
-    move-result v6
+    move-result v4
 
-    const-wide/high16 v7, 0x3ff0000000000000L    # 1.0
+    const-wide/high16 v5, 0x3ff0000000000000L    # 1.0
 
-    if-nez v6, :cond_0
+    if-nez v4, :cond_0
 
     .line 90
-    iget-object v6, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->absum:[D
+    iget-object v4, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->absum:[D
 
-    aget-wide v3, v6, v5
+    aget-wide v7, v4, v0
 
     goto :goto_1
 
     .line 91
     :cond_0
-    iget-object v6, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->entropy:[D
+    iget-object v4, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->entropy:[D
 
-    aget-wide v9, v6, v5
+    aget-wide v7, v4, v0
 
-    invoke-static {v9, v10}, Ljava/lang/Double;->isNaN(D)Z
+    invoke-static {v7, v8}, Ljava/lang/Double;->isNaN(D)Z
 
-    move-result v6
+    move-result v4
 
-    if-nez v6, :cond_2
+    if-nez v4, :cond_1
 
     .line 92
+    iget-object v4, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->entropy:[D
+
+    aget-wide v7, v4, v0
+
     const-wide/high16 v9, 0x4000000000000000L    # 2.0
 
-    iget-object v6, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->entropy:[D
+    invoke-static {v9, v10, v7, v8}, Ljava/lang/Math;->pow(DD)D
 
-    aget-wide v11, v6, v5
+    move-result-wide v7
 
-    invoke-static {v9, v10, v11, v12}, Ljava/lang/Math;->pow(DD)D
+    sub-double/2addr v7, v5
 
-    move-result-wide v9
+    const-wide/high16 v9, 0x3fe0000000000000L    # 0.5
 
-    sub-double/2addr v9, v7
-
-    const-wide/high16 v11, 0x3fe0000000000000L    # 0.5
-
-    mul-double v3, v9, v11
+    mul-double/2addr v7, v9
 
     .line 95
     :goto_1
-    iget-object v6, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->filter_weights:[D
+    iget-object v4, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->filter_weights:[D
 
-    aget-wide v9, v6, v5
+    aget-wide v9, v4, v0
 
-    mul-double/2addr v3, v9
+    mul-double/2addr v7, v9
 
     .line 96
-    iget-object v6, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->cost:[D
+    iget-object v4, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->cost:[D
 
-    aget-wide v9, v6, v5
+    aget-wide v9, v4, v0
 
     iget-wide v11, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->memoryA:D
 
     mul-double/2addr v9, v11
 
-    sub-double/2addr v7, v11
+    sub-double/2addr v5, v11
 
-    mul-double/2addr v7, v3
+    mul-double/2addr v5, v7
 
-    add-double/2addr v9, v7
+    add-double/2addr v9, v5
 
     .line 97
-    .end local v3    # "val":D
-    .local v9, "val":D
-    aput-wide v9, v6, v5
+    aput-wide v9, v4, v0
 
-    .line 98
-    cmpg-double v3, v9, v1
+    cmpg-double v4, v9, v2
 
-    if-gez v3, :cond_1
+    if-gez v4, :cond_1
 
-    .line 99
-    move-wide v1, v9
+    move v1, v0
 
-    .line 100
-    move v0, v5
+    move-wide v2, v9
 
-    move-wide v3, v9
-
-    goto :goto_2
-
-    .line 98
     :cond_1
-    move-wide v3, v9
-
-    .line 88
-    .end local v9    # "val":D
-    .restart local v3    # "val":D
-    :cond_2
-    :goto_2
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 103
-    .end local v5    # "i":I
-    :cond_3
-    iput v0, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->lastprefered:I
+    :cond_2
+    iput v1, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->lastprefered:I
 
     .line 104
-    invoke-static {v0}, Lar/com/hjg/pngj/FilterType;->getByVal(I)Lar/com/hjg/pngj/FilterType;
+    invoke-static {v1}, Lar/com/hjg/pngj/FilterType;->getByVal(I)Lar/com/hjg/pngj/FilterType;
 
-    move-result-object v5
+    move-result-object v0
 
-    return-object v5
+    return-object v0
 .end method
 
 .method public setFilterWeights([D)V
     .locals 3
-    .param p1, "weights"    # [D
 
     .line 201
     iget-object v0, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->filter_weights:[D
 
-    const/4 v1, 0x0
+    const/4 v1, 0x5
 
-    const/4 v2, 0x5
+    const/4 v2, 0x0
 
-    invoke-static {p1, v1, v0, v1, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p1, v2, v0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 202
     return-void
 .end method
 
 .method public setPreferenceForNone(D)V
     .locals 0
-    .param p1, "preferenceForNone"    # D
 
     .line 179
     iput-wide p1, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->preferenceForNone:D
 
-    .line 180
     return-void
 .end method
 
 .method public tuneMemory(D)V
     .locals 4
-    .param p1, "m"    # D
 
-    .line 188
     const-wide/16 v0, 0x0
 
     cmpl-double v2, p1, v0
@@ -1168,22 +1024,17 @@
 
     invoke-static {v0, v1, v2, v3}, Ljava/lang/Math;->pow(DD)D
 
-    move-result-wide v0
+    move-result-wide p1
 
-    iput-wide v0, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->memoryA:D
+    iput-wide p1, p0, Lar/com/hjg/pngj/pixels/FiltersPerformance;->memoryA:D
 
-    .line 192
     :goto_0
     return-void
 .end method
 
 .method public updateFromFiltered(Lar/com/hjg/pngj/FilterType;[BI)V
     .locals 6
-    .param p1, "ftype"    # Lar/com/hjg/pngj/FilterType;
-    .param p2, "rowff"    # [B
-    .param p3, "rown"    # I
 
-    .line 57
     const/4 v3, 0x0
 
     const/4 v4, 0x0
@@ -1196,20 +1047,15 @@
 
     move v5, p3
 
+    .line 57
     invoke-direct/range {v0 .. v5}, Lar/com/hjg/pngj/pixels/FiltersPerformance;->updateFromRawOrFiltered(Lar/com/hjg/pngj/FilterType;[B[B[BI)V
 
-    .line 58
     return-void
 .end method
 
 .method public updateFromRaw(Lar/com/hjg/pngj/FilterType;[B[BI)V
     .locals 6
-    .param p1, "ftype"    # Lar/com/hjg/pngj/FilterType;
-    .param p2, "rowb"    # [B
-    .param p3, "rowbprev"    # [B
-    .param p4, "rown"    # I
 
-    .line 62
     const/4 v2, 0x0
 
     move-object v0, p0
@@ -1222,8 +1068,8 @@
 
     move v5, p4
 
+    .line 62
     invoke-direct/range {v0 .. v5}, Lar/com/hjg/pngj/pixels/FiltersPerformance;->updateFromRawOrFiltered(Lar/com/hjg/pngj/FilterType;[B[B[BI)V
 
-    .line 63
     return-void
 .end method

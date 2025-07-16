@@ -42,8 +42,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/mediarouter/app/MediaRouteChooserDialog;Landroid/content/Context;Ljava/util/List;)V
-    .locals 6
-    .param p2, "context"    # Landroid/content/Context;
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -55,95 +54,91 @@
     .end annotation
 
     .line 257
-    .local p3, "routes":Ljava/util/List;, "Ljava/util/List<Landroidx/mediarouter/media/MediaRouter$RouteInfo;>;"
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->this$0:Landroidx/mediarouter/app/MediaRouteChooserDialog;
 
-    .line 258
     const/4 p1, 0x0
 
+    .line 258
     invoke-direct {p0, p2, p1, p3}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;ILjava/util/List;)V
 
     .line 259
     invoke-static {p2}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
-    move-result-object v0
+    move-result-object p2
 
-    iput-object v0, p0, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->mInflater:Landroid/view/LayoutInflater;
+    iput-object p2, p0, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->mInflater:Landroid/view/LayoutInflater;
 
     .line 260
     invoke-virtual {p0}, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->getContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p2
 
-    const/4 v1, 0x4
+    const/4 p3, 0x4
 
-    new-array v1, v1, [I
+    new-array p3, p3, [I
 
-    sget v2, Landroidx/mediarouter/R$attr;->mediaRouteDefaultIconDrawable:I
+    sget v0, Landroidx/mediarouter/R$attr;->mediaRouteDefaultIconDrawable:I
 
-    aput v2, v1, p1
+    aput v0, p3, p1
 
-    sget v2, Landroidx/mediarouter/R$attr;->mediaRouteTvIconDrawable:I
+    sget v0, Landroidx/mediarouter/R$attr;->mediaRouteTvIconDrawable:I
 
-    const/4 v3, 0x1
+    const/4 v1, 0x1
 
-    aput v2, v1, v3
+    aput v0, p3, v1
 
-    sget v2, Landroidx/mediarouter/R$attr;->mediaRouteSpeakerIconDrawable:I
+    sget v0, Landroidx/mediarouter/R$attr;->mediaRouteSpeakerIconDrawable:I
 
-    const/4 v4, 0x2
+    const/4 v2, 0x2
 
-    aput v2, v1, v4
+    aput v0, p3, v2
 
-    sget v2, Landroidx/mediarouter/R$attr;->mediaRouteSpeakerGroupIconDrawable:I
+    sget v0, Landroidx/mediarouter/R$attr;->mediaRouteSpeakerGroupIconDrawable:I
 
-    const/4 v5, 0x3
+    const/4 v3, 0x3
 
-    aput v2, v1, v5
+    aput v0, p3, v3
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
+    invoke-virtual {p2, p3}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
 
-    move-result-object v0
+    move-result-object p2
 
     .line 265
-    .local v0, "styledAttributes":Landroid/content/res/TypedArray;
-    invoke-virtual {v0, p1}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p2, p1}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
 
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->mDefaultIcon:Landroid/graphics/drawable/Drawable;
 
     .line 266
-    invoke-virtual {v0, v3}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p2, v1}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
 
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->mTvIcon:Landroid/graphics/drawable/Drawable;
 
     .line 267
-    invoke-virtual {v0, v4}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p2, v2}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
 
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->mSpeakerIcon:Landroid/graphics/drawable/Drawable;
 
     .line 268
-    invoke-virtual {v0, v5}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p2, v3}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
 
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->mSpeakerGroupIcon:Landroid/graphics/drawable/Drawable;
 
     .line 269
-    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
+    invoke-virtual {p2}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 270
     return-void
 .end method
 
 .method private getDefaultIconDrawable(Landroidx/mediarouter/media/MediaRouter$RouteInfo;)Landroid/graphics/drawable/Drawable;
     .locals 2
-    .param p1, "route"    # Landroidx/mediarouter/media/MediaRouter$RouteInfo;
 
     .line 343
     invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getDeviceType()I
@@ -161,46 +156,43 @@
     .line 351
     invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->isGroup()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 353
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->mSpeakerGroupIcon:Landroid/graphics/drawable/Drawable;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->mSpeakerGroupIcon:Landroid/graphics/drawable/Drawable;
 
-    return-object v0
+    return-object p1
 
     .line 355
     :cond_0
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->mDefaultIcon:Landroid/graphics/drawable/Drawable;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->mDefaultIcon:Landroid/graphics/drawable/Drawable;
 
-    return-object v0
+    return-object p1
 
     .line 347
     :cond_1
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->mSpeakerIcon:Landroid/graphics/drawable/Drawable;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->mSpeakerIcon:Landroid/graphics/drawable/Drawable;
 
-    return-object v0
+    return-object p1
 
     .line 345
     :cond_2
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->mTvIcon:Landroid/graphics/drawable/Drawable;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->mTvIcon:Landroid/graphics/drawable/Drawable;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method private getIconDrawable(Landroidx/mediarouter/media/MediaRouter$RouteInfo;)Landroid/graphics/drawable/Drawable;
     .locals 4
-    .param p1, "route"    # Landroidx/mediarouter/media/MediaRouter$RouteInfo;
 
     .line 325
     invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getIconUri()Landroid/net/Uri;
 
     move-result-object v0
 
-    .line 326
-    .local v0, "iconUri":Landroid/net/Uri;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     .line 328
     :try_start_0
@@ -216,62 +208,48 @@
 
     move-result-object v1
 
-    .line 329
-    .local v1, "is":Ljava/io/InputStream;
     const/4 v2, 0x0
 
+    .line 329
     invoke-static {v1, v2}, Landroid/graphics/drawable/Drawable;->createFromStream(Ljava/io/InputStream;Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v2
+    move-result-object v0
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 330
-    .local v2, "drawable":Landroid/graphics/drawable/Drawable;
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 331
-    return-object v2
+    return-object v0
 
-    .line 336
-    .end local v1    # "is":Ljava/io/InputStream;
-    .end local v2    # "drawable":Landroid/graphics/drawable/Drawable;
-    :cond_0
-    goto :goto_0
-
-    .line 333
     :catch_0
     move-exception v1
 
     .line 334
-    .local v1, "e":Ljava/io/IOException;
     new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v3, "Failed to load "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v2
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string v3, "MediaRouteChooserDialog"
+    move-result-object v0
 
-    invoke-static {v3, v2, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    const-string v2, "MediaRouteChooserDialog"
+
+    invoke-static {v2, v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 338
-    .end local v1    # "e":Ljava/io/IOException;
-    :cond_1
-    :goto_0
+    :cond_0
     invoke-direct {p0, p1}, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->getDefaultIconDrawable(Landroidx/mediarouter/media/MediaRouter$RouteInfo;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 
@@ -279,208 +257,177 @@
 .method public areAllItemsEnabled()Z
     .locals 1
 
-    .line 274
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 9
-    .param p1, "position"    # I
-    .param p2, "convertView"    # Landroid/view/View;
-    .param p3, "parent"    # Landroid/view/ViewGroup;
+    .locals 6
 
-    .line 284
-    move-object v0, p2
+    const/4 v0, 0x0
 
-    .line 285
-    .local v0, "view":Landroid/view/View;
-    const/4 v1, 0x0
-
-    if-nez v0, :cond_0
+    if-nez p2, :cond_0
 
     .line 286
-    iget-object v2, p0, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->mInflater:Landroid/view/LayoutInflater;
+    iget-object p2, p0, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    sget v3, Landroidx/mediarouter/R$layout;->mr_chooser_list_item:I
+    sget v1, Landroidx/mediarouter/R$layout;->mr_chooser_list_item:I
 
-    invoke-virtual {v2, v3, p3, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {p2, v1, p3, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p2
 
     .line 289
     :cond_0
     invoke-virtual {p0, p1}, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->getItem(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    check-cast v2, Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+    check-cast p1, Landroidx/mediarouter/media/MediaRouter$RouteInfo;
 
     .line 290
-    .local v2, "route":Landroidx/mediarouter/media/MediaRouter$RouteInfo;
-    sget v3, Landroidx/mediarouter/R$id;->mr_chooser_route_name:I
+    sget p3, Landroidx/mediarouter/R$id;->mr_chooser_route_name:I
 
-    invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p2, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object p3
 
-    check-cast v3, Landroid/widget/TextView;
+    check-cast p3, Landroid/widget/TextView;
 
     .line 291
-    .local v3, "text1":Landroid/widget/TextView;
-    sget v4, Landroidx/mediarouter/R$id;->mr_chooser_route_desc:I
+    sget v1, Landroidx/mediarouter/R$id;->mr_chooser_route_desc:I
 
-    invoke-virtual {v0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object v1
 
-    check-cast v4, Landroid/widget/TextView;
+    check-cast v1, Landroid/widget/TextView;
 
     .line 292
-    .local v4, "text2":Landroid/widget/TextView;
-    invoke-virtual {v2}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getName()Ljava/lang/String;
+    invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v2
 
-    invoke-virtual {v3, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {p3, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 293
-    invoke-virtual {v2}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getDescription()Ljava/lang/String;
+    invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getDescription()Ljava/lang/String;
 
-    move-result-object v5
-
-    .line 294
-    .local v5, "description":Ljava/lang/String;
-    nop
+    move-result-object v2
 
     .line 295
-    invoke-virtual {v2}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getConnectionState()I
+    invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getConnectionState()I
 
-    move-result v6
+    move-result v3
 
-    const/4 v7, 0x2
+    const/4 v4, 0x2
 
-    const/4 v8, 0x1
+    const/4 v5, 0x1
 
-    if-eq v6, v7, :cond_2
+    if-eq v3, v4, :cond_2
 
     .line 296
-    invoke-virtual {v2}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getConnectionState()I
+    invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getConnectionState()I
 
-    move-result v6
+    move-result v3
 
-    if-ne v6, v8, :cond_1
+    if-ne v3, v5, :cond_1
 
     goto :goto_0
 
     :cond_1
-    move v8, v1
-
-    goto :goto_1
+    move v5, v0
 
     :cond_2
     :goto_0
-    nop
-
-    :goto_1
-    move v6, v8
+    if-eqz v5, :cond_3
 
     .line 297
-    .local v6, "isConnectedOrConnecting":Z
-    if-eqz v6, :cond_3
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    invoke-static {v5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    move-result v3
 
-    move-result v7
+    if-nez v3, :cond_3
 
-    if-nez v7, :cond_3
+    const/16 v3, 0x50
 
     .line 298
-    const/16 v7, 0x50
-
-    invoke-virtual {v3, v7}, Landroid/widget/TextView;->setGravity(I)V
+    invoke-virtual {p3, v3}, Landroid/widget/TextView;->setGravity(I)V
 
     .line 299
-    invoke-virtual {v4, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 300
-    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_2
+    goto :goto_1
+
+    :cond_3
+    const/16 v0, 0x10
 
     .line 302
-    :cond_3
-    const/16 v1, 0x10
+    invoke-virtual {p3, v0}, Landroid/widget/TextView;->setGravity(I)V
 
-    invoke-virtual {v3, v1}, Landroid/widget/TextView;->setGravity(I)V
+    const/16 p3, 0x8
 
     .line 303
-    const/16 v1, 0x8
+    invoke-virtual {v1, p3}, Landroid/widget/TextView;->setVisibility(I)V
 
-    invoke-virtual {v4, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    const-string p3, ""
 
     .line 304
-    const-string v1, ""
-
-    invoke-virtual {v4, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, p3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 306
-    :goto_2
-    invoke-virtual {v2}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->isEnabled()Z
+    :goto_1
+    invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->isEnabled()Z
 
-    move-result v1
+    move-result p3
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setEnabled(Z)V
+    invoke-virtual {p2, p3}, Landroid/view/View;->setEnabled(Z)V
 
     .line 308
-    sget v1, Landroidx/mediarouter/R$id;->mr_chooser_route_icon:I
+    sget p3, Landroidx/mediarouter/R$id;->mr_chooser_route_icon:I
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p2, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object p3
 
-    check-cast v1, Landroid/widget/ImageView;
+    check-cast p3, Landroid/widget/ImageView;
 
-    .line 309
-    .local v1, "iconView":Landroid/widget/ImageView;
-    if-eqz v1, :cond_4
+    if-eqz p3, :cond_4
 
     .line 310
-    invoke-direct {p0, v2}, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->getIconDrawable(Landroidx/mediarouter/media/MediaRouter$RouteInfo;)Landroid/graphics/drawable/Drawable;
+    invoke-direct {p0, p1}, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->getIconDrawable(Landroidx/mediarouter/media/MediaRouter$RouteInfo;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v7
+    move-result-object p1
 
-    invoke-virtual {v1, v7}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p3, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 312
     :cond_4
-    return-object v0
+    return-object p2
 .end method
 
 .method public isEnabled(I)Z
-    .locals 1
-    .param p1, "position"    # I
+    .locals 0
 
     .line 279
     invoke-virtual {p0, p1}, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->getItem(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+    check-cast p1, Landroidx/mediarouter/media/MediaRouter$RouteInfo;
 
-    invoke-virtual {v0}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->isEnabled()Z
+    invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->isEnabled()Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 2
-    .param p2, "view"    # Landroid/view/View;
-    .param p3, "position"    # I
-    .param p4, "id"    # J
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -492,30 +439,27 @@
     .end annotation
 
     .line 317
-    .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     invoke-virtual {p0, p3}, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->getItem(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+    check-cast p1, Landroidx/mediarouter/media/MediaRouter$RouteInfo;
 
     .line 318
-    .local v0, "route":Landroidx/mediarouter/media/MediaRouter$RouteInfo;
-    invoke-virtual {v0}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->isEnabled()Z
+    invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->isEnabled()Z
 
-    move-result v1
+    move-result p2
 
-    if-eqz v1, :cond_0
+    if-eqz p2, :cond_0
 
     .line 319
-    invoke-virtual {v0}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->select()V
+    invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->select()V
 
     .line 320
-    iget-object v1, p0, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->this$0:Landroidx/mediarouter/app/MediaRouteChooserDialog;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteChooserDialog$RouteAdapter;->this$0:Landroidx/mediarouter/app/MediaRouteChooserDialog;
 
-    invoke-virtual {v1}, Landroidx/mediarouter/app/MediaRouteChooserDialog;->dismiss()V
+    invoke-virtual {p1}, Landroidx/mediarouter/app/MediaRouteChooserDialog;->dismiss()V
 
-    .line 322
     :cond_0
     return-void
 .end method

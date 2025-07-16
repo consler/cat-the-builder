@@ -53,7 +53,6 @@
 # direct methods
 .method constructor <init>(Lorg/reactivestreams/Subscriber;I)V
     .locals 0
-    .param p2, "skip"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -63,8 +62,6 @@
     .end annotation
 
     .line 45
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-direct {p0, p2}, Ljava/util/ArrayDeque;-><init>(I)V
 
     .line 46
@@ -73,7 +70,6 @@
     .line 47
     iput p2, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber;->skip:I
 
-    .line 48
     return-void
 .end method
 
@@ -83,12 +79,10 @@
     .locals 1
 
     .line 85
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
 
-    .line 86
     return-void
 .end method
 
@@ -96,26 +90,21 @@
     .locals 1
 
     .line 75
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 76
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 70
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 71
     return-void
 .end method
 
@@ -128,8 +117,6 @@
     .end annotation
 
     .line 60
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber;->skip:I
 
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber;->size()I
@@ -161,16 +148,13 @@
     :goto_0
     invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber;->offer(Ljava/lang/Object;)Z
 
-    .line 66
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 1
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 52
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -183,25 +167,21 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     .line 54
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v0, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
+    invoke-interface {p1, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
-    .line 56
     :cond_0
     return-void
 .end method
 
 .method public request(J)V
     .locals 1
-    .param p1, "n"    # J
 
     .line 80
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipLast$SkipLastSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-interface {v0, p1, p2}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 81
     return-void
 .end method

@@ -156,36 +156,36 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 123
     const/4 v0, 0x1
 
+    .line 123
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
     sput-object v0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->LEFT_VALUE:Ljava/lang/Integer;
 
-    .line 125
     const/4 v0, 0x2
 
+    .line 125
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
     sput-object v0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->RIGHT_VALUE:Ljava/lang/Integer;
 
-    .line 127
     const/4 v0, 0x3
 
+    .line 127
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
     sput-object v0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->LEFT_CLOSE:Ljava/lang/Integer;
 
-    .line 129
     const/4 v0, 0x4
 
+    .line 129
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
@@ -196,7 +196,7 @@
 .end method
 
 .method constructor <init>(Lorg/reactivestreams/Subscriber;Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;Lio/reactivex/functions/BiFunction;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -224,61 +224,56 @@
     .end annotation
 
     .line 133
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription<TTLeft;TTRight;TTLeftEnd;TTRightEnd;TR;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TR;>;"
-    .local p2, "leftEnd":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TTLeft;+Lorg/reactivestreams/Publisher<TTLeftEnd;>;>;"
-    .local p3, "rightEnd":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TTRight;+Lorg/reactivestreams/Publisher<TTRightEnd;>;>;"
-    .local p4, "resultSelector":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-TTLeft;-Lio/reactivex/Flowable<TTRight;>;+TR;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
 
     .line 134
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->actual:Lorg/reactivestreams/Subscriber;
 
     .line 135
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicLong;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicLong;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->requested:Ljava/util/concurrent/atomic/AtomicLong;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
     .line 136
-    new-instance v0, Lio/reactivex/disposables/CompositeDisposable;
+    new-instance p1, Lio/reactivex/disposables/CompositeDisposable;
 
-    invoke-direct {v0}, Lio/reactivex/disposables/CompositeDisposable;-><init>()V
+    invoke-direct {p1}, Lio/reactivex/disposables/CompositeDisposable;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->disposables:Lio/reactivex/disposables/CompositeDisposable;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->disposables:Lio/reactivex/disposables/CompositeDisposable;
 
     .line 137
-    new-instance v0, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
+    new-instance p1, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
 
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
-    move-result v1
+    move-result v0
 
-    invoke-direct {v0, v1}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;-><init>(I)V
+    invoke-direct {p1, v0}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;-><init>(I)V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
 
     .line 138
-    new-instance v0, Ljava/util/LinkedHashMap;
+    new-instance p1, Ljava/util/LinkedHashMap;
 
-    invoke-direct {v0}, Ljava/util/LinkedHashMap;-><init>()V
+    invoke-direct {p1}, Ljava/util/LinkedHashMap;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->lefts:Ljava/util/Map;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->lefts:Ljava/util/Map;
 
     .line 139
-    new-instance v0, Ljava/util/LinkedHashMap;
+    new-instance p1, Ljava/util/LinkedHashMap;
 
-    invoke-direct {v0}, Ljava/util/LinkedHashMap;-><init>()V
+    invoke-direct {p1}, Ljava/util/LinkedHashMap;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->rights:Ljava/util/Map;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->rights:Ljava/util/Map;
 
     .line 140
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicReference;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->error:Ljava/util/concurrent/atomic/AtomicReference;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->error:Ljava/util/concurrent/atomic/AtomicReference;
 
     .line 141
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->leftEnd:Lio/reactivex/functions/Function;
@@ -290,15 +285,14 @@
     iput-object p4, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->resultSelector:Lio/reactivex/functions/BiFunction;
 
     .line 144
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicInteger;
 
-    const/4 v1, 0x2
+    const/4 p2, 0x2
 
-    invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
+    invoke-direct {p1, p2}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->active:Ljava/util/concurrent/atomic/AtomicInteger;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->active:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    .line 145
     return-void
 .end method
 
@@ -308,18 +302,16 @@
     .locals 1
 
     .line 156
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription<TTLeft;TTRight;TTLeftEnd;TTRightEnd;TR;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->cancelled:Z
 
     if-eqz v0, :cond_0
 
-    .line 157
     return-void
 
-    .line 159
     :cond_0
     const/4 v0, 0x1
 
+    .line 159
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->cancelled:Z
 
     .line 160
@@ -337,7 +329,6 @@
 
     invoke-virtual {v0}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->clear()V
 
-    .line 164
     :cond_1
     return-void
 .end method
@@ -346,12 +337,10 @@
     .locals 1
 
     .line 167
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription<TTLeft;TTRight;TTLeftEnd;TTRightEnd;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->disposables:Lio/reactivex/disposables/CompositeDisposable;
 
     invoke-virtual {v0}, Lio/reactivex/disposables/CompositeDisposable;->dispose()V
 
-    .line 168
     return-void
 .end method
 
@@ -365,14 +354,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 193
     return-void
 
-    .line 196
-    :cond_0
-    nop
-
     .line 197
+    :cond_0
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
 
     .line 198
@@ -392,7 +377,6 @@
     .line 203
     invoke-virtual {v0}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->clear()V
 
-    .line 204
     return-void
 
     .line 207
@@ -405,7 +389,6 @@
 
     check-cast v4, Ljava/lang/Throwable;
 
-    .line 208
     if-eqz v4, :cond_3
 
     .line 209
@@ -417,7 +400,6 @@
     .line 211
     invoke-virtual {p0, v1}, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->errorAll(Lorg/reactivestreams/Subscriber;)V
 
-    .line 212
     return-void
 
     .line 215
@@ -447,7 +429,6 @@
 
     check-cast v6, Ljava/lang/Integer;
 
-    .line 219
     if-nez v6, :cond_5
 
     move v7, v2
@@ -457,7 +438,6 @@
     :cond_5
     move v7, v5
 
-    .line 221
     :goto_2
     if-eqz v4, :cond_7
 
@@ -490,7 +470,6 @@
     .line 223
     invoke-virtual {v2}, Lio/reactivex/processors/UnicastProcessor;->onComplete()V
 
-    .line 224
     goto :goto_3
 
     .line 226
@@ -512,30 +491,20 @@
     .line 230
     invoke-interface {v1}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 231
     return-void
 
-    .line 234
     :cond_7
     if-eqz v7, :cond_8
 
-    .line 235
-    nop
-
-    .line 343
     neg-int v3, v3
 
+    .line 343
     invoke-virtual {p0, v3}, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->addAndGet(I)I
 
     move-result v3
 
-    .line 344
     if-nez v3, :cond_1
 
-    .line 345
-    nop
-
-    .line 348
     return-void
 
     .line 238
@@ -547,10 +516,7 @@
     .line 240
     sget-object v7, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->LEFT_VALUE:Ljava/lang/Integer;
 
-    if-ne v6, v7, :cond_c
-
-    .line 242
-    nop
+    if-ne v6, v7, :cond_b
 
     .line 244
     invoke-static {}, Lio/reactivex/processors/UnicastProcessor;->create()Lio/reactivex/processors/UnicastProcessor;
@@ -591,9 +557,6 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 255
-    nop
-
     .line 257
     new-instance v8, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$LeftRightEndSubscriber;
 
@@ -616,7 +579,6 @@
 
     check-cast v6, Ljava/lang/Throwable;
 
-    .line 263
     if-eqz v6, :cond_9
 
     .line 264
@@ -628,7 +590,6 @@
     .line 266
     invoke-virtual {p0, v1}, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->errorAll(Lorg/reactivestreams/Subscriber;)V
 
-    .line 267
     return-void
 
     .line 273
@@ -648,9 +609,6 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 277
-    nop
-
     .line 280
     iget-object v6, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
@@ -662,7 +620,7 @@
 
     cmp-long v6, v6, v8
 
-    if-eqz v6, :cond_b
+    if-eqz v6, :cond_a
 
     .line 281
     invoke-interface {v1, v4}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
@@ -690,7 +648,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_a
+    if-eqz v6, :cond_1
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -699,15 +657,10 @@
     .line 289
     invoke-virtual {v5, v6}, Lio/reactivex/processors/UnicastProcessor;->onNext(Ljava/lang/Object;)V
 
-    .line 290
     goto :goto_4
 
-    .line 291
-    :cond_a
-    goto/16 :goto_6
-
     .line 284
-    :cond_b
+    :cond_a
     new-instance v2, Lio/reactivex/exceptions/MissingBackpressureException;
 
     const-string v3, "Could not emit value due to lack of requests"
@@ -716,37 +669,29 @@
 
     invoke-virtual {p0, v2, v1, v0}, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->fail(Ljava/lang/Throwable;Lorg/reactivestreams/Subscriber;Lio/reactivex/internal/fuseable/SimpleQueue;)V
 
-    .line 285
     return-void
 
-    .line 274
     :catchall_0
     move-exception v2
 
     .line 275
     invoke-virtual {p0, v2, v1, v0}, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->fail(Ljava/lang/Throwable;Lorg/reactivestreams/Subscriber;Lio/reactivex/internal/fuseable/SimpleQueue;)V
 
-    .line 276
     return-void
 
-    .line 252
     :catchall_1
     move-exception v2
 
     .line 253
     invoke-virtual {p0, v2, v1, v0}, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->fail(Ljava/lang/Throwable;Lorg/reactivestreams/Subscriber;Lio/reactivex/internal/fuseable/SimpleQueue;)V
 
-    .line 254
     return-void
 
     .line 292
-    :cond_c
+    :cond_b
     sget-object v7, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->RIGHT_VALUE:Ljava/lang/Integer;
 
-    if-ne v6, v7, :cond_f
-
-    .line 294
-    nop
+    if-ne v6, v7, :cond_d
 
     .line 296
     iget v6, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->rightIndex:I
@@ -782,9 +727,6 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
-    .line 307
-    nop
-
     .line 309
     new-instance v8, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$LeftRightEndSubscriber;
 
@@ -807,8 +749,7 @@
 
     check-cast v5, Ljava/lang/Throwable;
 
-    .line 315
-    if-eqz v5, :cond_d
+    if-eqz v5, :cond_c
 
     .line 316
     invoke-virtual {v0}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->clear()V
@@ -819,11 +760,10 @@
     .line 318
     invoke-virtual {p0, v1}, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->errorAll(Lorg/reactivestreams/Subscriber;)V
 
-    .line 319
     return-void
 
     .line 322
-    :cond_d
+    :cond_c
     iget-object v5, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->lefts:Ljava/util/Map;
 
     invoke-interface {v5}, Ljava/util/Map;->values()Ljava/util/Collection;
@@ -839,7 +779,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_e
+    if-eqz v6, :cond_1
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -850,28 +790,21 @@
     .line 323
     invoke-virtual {v6, v4}, Lio/reactivex/processors/UnicastProcessor;->onNext(Ljava/lang/Object;)V
 
-    .line 324
     goto :goto_5
 
-    .line 325
-    :cond_e
-    goto :goto_6
-
-    .line 304
     :catchall_2
     move-exception v2
 
     .line 305
     invoke-virtual {p0, v2, v1, v0}, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->fail(Ljava/lang/Throwable;Lorg/reactivestreams/Subscriber;Lio/reactivex/internal/fuseable/SimpleQueue;)V
 
-    .line 306
     return-void
 
     .line 326
-    :cond_f
+    :cond_d
     sget-object v5, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->LEFT_CLOSE:Ljava/lang/Integer;
 
-    if-ne v6, v5, :cond_11
+    if-ne v6, v5, :cond_e
 
     .line 327
     check-cast v4, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$LeftRightEndSubscriber;
@@ -896,21 +829,18 @@
 
     invoke-virtual {v6, v4}, Lio/reactivex/disposables/CompositeDisposable;->remove(Lio/reactivex/disposables/Disposable;)Z
 
-    .line 331
-    if-eqz v5, :cond_10
+    if-eqz v5, :cond_1
 
     .line 332
     invoke-virtual {v5}, Lio/reactivex/processors/UnicastProcessor;->onComplete()V
 
-    .line 334
-    :cond_10
-    goto :goto_6
+    goto/16 :goto_0
 
     .line 335
-    :cond_11
+    :cond_e
     sget-object v5, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->RIGHT_CLOSE:Ljava/lang/Integer;
 
-    if-ne v6, v5, :cond_12
+    if-ne v6, v5, :cond_1
 
     .line 336
     check-cast v4, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$LeftRightEndSubscriber;
@@ -931,9 +861,6 @@
 
     invoke-virtual {v5, v4}, Lio/reactivex/disposables/CompositeDisposable;->remove(Lio/reactivex/disposables/Disposable;)Z
 
-    .line 341
-    :cond_12
-    :goto_6
     goto/16 :goto_0
 .end method
 
@@ -948,8 +875,6 @@
     .end annotation
 
     .line 171
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription<TTLeft;TTRight;TTLeftEnd;TTRightEnd;TR;>;"
-    .local p1, "a":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<*>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->error:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0}, Lio/reactivex/internal/util/ExceptionHelper;->terminate(Ljava/util/concurrent/atomic/AtomicReference;)Ljava/lang/Throwable;
@@ -957,7 +882,6 @@
     move-result-object v0
 
     .line 173
-    .local v0, "ex":Ljava/lang/Throwable;
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->lefts:Ljava/util/Map;
 
     invoke-interface {v1}, Ljava/util/Map;->values()Ljava/util/Collection;
@@ -968,7 +892,6 @@
 
     move-result-object v1
 
-    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -983,15 +906,11 @@
     check-cast v2, Lio/reactivex/processors/UnicastProcessor;
 
     .line 174
-    .local v2, "up":Lio/reactivex/processors/UnicastProcessor;, "Lio/reactivex/processors/UnicastProcessor<TTRight;>;"
     invoke-virtual {v2, v0}, Lio/reactivex/processors/UnicastProcessor;->onError(Ljava/lang/Throwable;)V
 
-    .line 175
-    .end local v2    # "up":Lio/reactivex/processors/UnicastProcessor;, "Lio/reactivex/processors/UnicastProcessor<TTRight;>;"
     goto :goto_0
 
     .line 177
-    .end local v1    # "i$":Ljava/util/Iterator;
     :cond_0
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->lefts:Ljava/util/Map;
 
@@ -1005,13 +924,11 @@
     .line 180
     invoke-interface {p1, v0}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 181
     return-void
 .end method
 
 .method fail(Ljava/lang/Throwable;Lorg/reactivestreams/Subscriber;Lio/reactivex/internal/fuseable/SimpleQueue;)V
     .locals 1
-    .param p1, "exc"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1024,9 +941,6 @@
     .end annotation
 
     .line 184
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription<TTLeft;TTRight;TTLeftEnd;TTRightEnd;TR;>;"
-    .local p2, "a":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<*>;"
-    .local p3, "q":Lio/reactivex/internal/fuseable/SimpleQueue;, "Lio/reactivex/internal/fuseable/SimpleQueue<*>;"
     invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 185
@@ -1043,17 +957,13 @@
     .line 188
     invoke-virtual {p0, p2}, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->errorAll(Lorg/reactivestreams/Subscriber;)V
 
-    .line 189
     return-void
 .end method
 
 .method public innerClose(ZLio/reactivex/internal/operators/flowable/FlowableGroupJoin$LeftRightEndSubscriber;)V
-    .locals 2
-    .param p1, "isLeft"    # Z
-    .param p2, "index"    # Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$LeftRightEndSubscriber;
+    .locals 1
 
     .line 377
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription<TTLeft;TTRight;TTLeftEnd;TTRightEnd;TR;>;"
     monitor-enter p0
 
     .line 378
@@ -1062,15 +972,15 @@
 
     if-eqz p1, :cond_0
 
-    sget-object v1, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->LEFT_CLOSE:Ljava/lang/Integer;
+    sget-object p1, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->LEFT_CLOSE:Ljava/lang/Integer;
 
     goto :goto_0
 
     :cond_0
-    sget-object v1, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->RIGHT_CLOSE:Ljava/lang/Integer;
+    sget-object p1, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->RIGHT_CLOSE:Ljava/lang/Integer;
 
     :goto_0
-    invoke-virtual {v0, v1, p2}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->offer(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1, p2}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->offer(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     .line 379
     monitor-exit p0
@@ -1080,27 +990,24 @@
     .line 380
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->drain()V
 
-    .line 381
     return-void
 
-    .line 379
     :catchall_0
-    move-exception v0
+    move-exception p1
 
+    .line 379
     :try_start_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 .method public innerCloseError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "ex"    # Ljava/lang/Throwable;
 
     .line 385
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription<TTLeft;TTRight;TTLeftEnd;TTRightEnd;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->error:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/util/ExceptionHelper;->addThrowable(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Throwable;)Z
@@ -1118,39 +1025,33 @@
     :cond_0
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 390
     :goto_0
     return-void
 .end method
 
 .method public innerComplete(Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$LeftRightSubscriber;)V
     .locals 1
-    .param p1, "sender"    # Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$LeftRightSubscriber;
 
     .line 362
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription<TTLeft;TTRight;TTLeftEnd;TTRightEnd;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->disposables:Lio/reactivex/disposables/CompositeDisposable;
 
     invoke-virtual {v0, p1}, Lio/reactivex/disposables/CompositeDisposable;->delete(Lio/reactivex/disposables/Disposable;)Z
 
     .line 363
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->active:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->active:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
+    invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
 
     .line 364
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->drain()V
 
-    .line 365
     return-void
 .end method
 
 .method public innerError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "ex"    # Ljava/lang/Throwable;
 
     .line 352
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription<TTLeft;TTRight;TTLeftEnd;TTRightEnd;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->error:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/util/ExceptionHelper;->addThrowable(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Throwable;)Z
@@ -1160,9 +1061,9 @@
     if-eqz v0, :cond_0
 
     .line 353
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->active:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->active:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
+    invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
 
     .line 354
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->drain()V
@@ -1173,18 +1074,14 @@
     :cond_0
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 358
     :goto_0
     return-void
 .end method
 
 .method public innerValue(ZLjava/lang/Object;)V
-    .locals 2
-    .param p1, "isLeft"    # Z
-    .param p2, "o"    # Ljava/lang/Object;
+    .locals 1
 
     .line 369
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription<TTLeft;TTRight;TTLeftEnd;TTRightEnd;TR;>;"
     monitor-enter p0
 
     .line 370
@@ -1193,15 +1090,15 @@
 
     if-eqz p1, :cond_0
 
-    sget-object v1, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->LEFT_VALUE:Ljava/lang/Integer;
+    sget-object p1, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->LEFT_VALUE:Ljava/lang/Integer;
 
     goto :goto_0
 
     :cond_0
-    sget-object v1, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->RIGHT_VALUE:Ljava/lang/Integer;
+    sget-object p1, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->RIGHT_VALUE:Ljava/lang/Integer;
 
     :goto_0
-    invoke-virtual {v0, v1, p2}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->offer(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1, p2}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->offer(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     .line 371
     monitor-exit p0
@@ -1211,27 +1108,24 @@
     .line 372
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;->drain()V
 
-    .line 373
     return-void
 
-    .line 371
     :catchall_0
-    move-exception v0
+    move-exception p1
 
+    .line 371
     :try_start_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 .method public request(J)V
     .locals 1
-    .param p1, "n"    # J
 
     .line 149
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableGroupJoin$GroupJoinSubscription<TTLeft;TTRight;TTLeftEnd;TTRightEnd;TR;>;"
     invoke-static {p1, p2}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(J)Z
 
     move-result v0
@@ -1243,7 +1137,6 @@
 
     invoke-static {v0, p1, p2}, Lio/reactivex/internal/util/BackpressureHelper;->add(Ljava/util/concurrent/atomic/AtomicLong;J)J
 
-    .line 152
     :cond_0
     return-void
 .end method

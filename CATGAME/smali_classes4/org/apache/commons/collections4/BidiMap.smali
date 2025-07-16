@@ -60,6 +60,17 @@
     .end annotation
 .end method
 
+.method public bridge synthetic values()Ljava/util/Collection;
+    .locals 1
+
+    .line 46
+    invoke-interface {p0}, Lorg/apache/commons/collections4/BidiMap;->values()Ljava/util/Set;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public abstract values()Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {

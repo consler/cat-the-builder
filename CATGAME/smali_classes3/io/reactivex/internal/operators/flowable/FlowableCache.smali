@@ -38,7 +38,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/Flowable;I)V
     .locals 1
-    .param p2, "capacityHint"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -48,8 +47,6 @@
     .end annotation
 
     .line 44
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCache;, "Lio/reactivex/internal/operators/flowable/FlowableCache<TT;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
     .line 45
@@ -60,13 +57,12 @@
     iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCache;->state:Lio/reactivex/internal/operators/flowable/FlowableCache$CacheState;
 
     .line 46
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCache;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableCache;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    .line 47
     return-void
 .end method
 
@@ -76,7 +72,6 @@
     .locals 1
 
     .line 86
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCache;, "Lio/reactivex/internal/operators/flowable/FlowableCache<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCache;->state:Lio/reactivex/internal/operators/flowable/FlowableCache$CacheState;
 
     invoke-virtual {v0}, Lio/reactivex/internal/operators/flowable/FlowableCache$CacheState;->size()I
@@ -90,7 +85,6 @@
     .locals 1
 
     .line 78
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCache;, "Lio/reactivex/internal/operators/flowable/FlowableCache<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCache;->state:Lio/reactivex/internal/operators/flowable/FlowableCache$CacheState;
 
     iget-object v0, v0, Lio/reactivex/internal/operators/flowable/FlowableCache$CacheState;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
@@ -120,7 +114,6 @@
     .locals 1
 
     .line 70
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCache;, "Lio/reactivex/internal/operators/flowable/FlowableCache<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCache;->state:Lio/reactivex/internal/operators/flowable/FlowableCache$CacheState;
 
     iget-boolean v0, v0, Lio/reactivex/internal/operators/flowable/FlowableCache$CacheState;->isConnected:Z
@@ -129,7 +122,7 @@
 .end method
 
 .method protected subscribeActual(Lorg/reactivestreams/Subscriber;)V
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -139,8 +132,6 @@
     .end annotation
 
     .line 52
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCache;, "Lio/reactivex/internal/operators/flowable/FlowableCache<TT;>;"
-    .local p1, "t":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableCache$ReplaySubscription;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCache;->state:Lio/reactivex/internal/operators/flowable/FlowableCache$CacheState;
@@ -148,7 +139,6 @@
     invoke-direct {v0, p1, v1}, Lio/reactivex/internal/operators/flowable/FlowableCache$ReplaySubscription;-><init>(Lorg/reactivestreams/Subscriber;Lio/reactivex/internal/operators/flowable/FlowableCache$CacheState;)V
 
     .line 53
-    .local v0, "rp":Lio/reactivex/internal/operators/flowable/FlowableCache$ReplaySubscription;, "Lio/reactivex/internal/operators/flowable/FlowableCache$ReplaySubscription<TT;>;"
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCache;->state:Lio/reactivex/internal/operators/flowable/FlowableCache$CacheState;
 
     invoke-virtual {v1, v0}, Lio/reactivex/internal/operators/flowable/FlowableCache$CacheState;->addChild(Lio/reactivex/internal/operators/flowable/FlowableCache$ReplaySubscription;)V
@@ -157,32 +147,31 @@
     invoke-interface {p1, v0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
     .line 58
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCache;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableCache;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
+    invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
 
-    move-result v1
+    move-result p1
 
-    if-nez v1, :cond_0
+    if-nez p1, :cond_0
 
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCache;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableCache;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    const/4 v3, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {v1, v2, v3}, Ljava/util/concurrent/atomic/AtomicBoolean;->compareAndSet(ZZ)Z
+    invoke-virtual {p1, v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->compareAndSet(ZZ)Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
     .line 59
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCache;->state:Lio/reactivex/internal/operators/flowable/FlowableCache$CacheState;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableCache;->state:Lio/reactivex/internal/operators/flowable/FlowableCache$CacheState;
 
-    invoke-virtual {v1}, Lio/reactivex/internal/operators/flowable/FlowableCache$CacheState;->connect()V
+    invoke-virtual {p1}, Lio/reactivex/internal/operators/flowable/FlowableCache$CacheState;->connect()V
 
-    .line 63
     :cond_0
     return-void
 .end method

@@ -26,7 +26,7 @@
 
 # direct methods
 .method public varargs constructor <init>([Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TE;)V"
@@ -34,22 +34,18 @@
     .end annotation
 
     .line 58
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;, "Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator<TE;>;"
-    .local p1, "array":[Ljava/lang/Object;, "[TE;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/iterators/ObjectArrayIterator;-><init>([Ljava/lang/Object;)V
 
+    const/4 p1, -0x1
+
     .line 47
-    const/4 v0, -0x1
+    iput p1, p0, Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;->lastItemIndex:I
 
-    iput v0, p0, Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;->lastItemIndex:I
-
-    .line 59
     return-void
 .end method
 
 .method public constructor <init>([Ljava/lang/Object;I)V
-    .locals 1
-    .param p2, "start"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TE;I)V"
@@ -57,23 +53,18 @@
     .end annotation
 
     .line 71
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;, "Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator<TE;>;"
-    .local p1, "array":[Ljava/lang/Object;, "[TE;"
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections4/iterators/ObjectArrayIterator;-><init>([Ljava/lang/Object;I)V
 
+    const/4 p1, -0x1
+
     .line 47
-    const/4 v0, -0x1
+    iput p1, p0, Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;->lastItemIndex:I
 
-    iput v0, p0, Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;->lastItemIndex:I
-
-    .line 72
     return-void
 .end method
 
 .method public constructor <init>([Ljava/lang/Object;II)V
-    .locals 1
-    .param p2, "start"    # I
-    .param p3, "end"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TE;II)V"
@@ -81,23 +72,20 @@
     .end annotation
 
     .line 86
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;, "Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator<TE;>;"
-    .local p1, "array":[Ljava/lang/Object;, "[TE;"
     invoke-direct {p0, p1, p2, p3}, Lorg/apache/commons/collections4/iterators/ObjectArrayIterator;-><init>([Ljava/lang/Object;II)V
 
+    const/4 p1, -0x1
+
     .line 47
-    const/4 v0, -0x1
+    iput p1, p0, Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;->lastItemIndex:I
 
-    iput v0, p0, Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;->lastItemIndex:I
-
-    .line 87
     return-void
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)V"
@@ -105,22 +93,19 @@
     .end annotation
 
     .line 161
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;, "Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator<TE;>;"
-    .local p1, "obj":Ljava/lang/Object;, "TE;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "add() method is not supported"
+    const-string v0, "add() method is not supported"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public hasPrevious()Z
     .locals 2
 
     .line 99
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;, "Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator<TE;>;"
     iget v0, p0, Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;->index:I
 
     invoke-virtual {p0}, Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;->getStartIndex()I
@@ -149,7 +134,6 @@
     .end annotation
 
     .line 125
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;, "Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;->hasNext()Z
 
     move-result v0
@@ -187,7 +171,6 @@
     .locals 2
 
     .line 139
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;, "Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator<TE;>;"
     iget v0, p0, Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;->index:I
 
     invoke-virtual {p0}, Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;->getStartIndex()I
@@ -208,7 +191,6 @@
     .end annotation
 
     .line 110
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;, "Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;->hasPrevious()Z
 
     move-result v0
@@ -246,7 +228,6 @@
     .locals 2
 
     .line 149
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;, "Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator<TE;>;"
     iget v0, p0, Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;->index:I
 
     invoke-virtual {p0}, Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;->getStartIndex()I
@@ -264,15 +245,13 @@
     .locals 1
 
     .line 195
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;, "Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator<TE;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/iterators/ObjectArrayIterator;->reset()V
 
-    .line 196
     const/4 v0, -0x1
 
+    .line 196
     iput v0, p0, Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;->lastItemIndex:I
 
-    .line 197
     return-void
 .end method
 
@@ -285,8 +264,6 @@
     .end annotation
 
     .line 183
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;, "Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator<TE;>;"
-    .local p1, "obj":Ljava/lang/Object;, "TE;"
     iget v0, p0, Lorg/apache/commons/collections4/iterators/ObjectArrayListIterator;->lastItemIndex:I
 
     const/4 v1, -0x1
@@ -300,16 +277,15 @@
 
     aput-object p1, v0, v1
 
-    .line 188
     return-void
 
     .line 184
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "must call next() or previous() before a call to set()"
+    const-string v0, "must call next() or previous() before a call to set()"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

@@ -82,6 +82,5 @@
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 86
     return-void
 .end method

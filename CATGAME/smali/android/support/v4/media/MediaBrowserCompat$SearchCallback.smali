@@ -28,17 +28,12 @@
 # virtual methods
 .method public onError(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "query"    # Ljava/lang/String;
-    .param p2, "extras"    # Landroid/os/Bundle;
 
-    .line 929
     return-void
 .end method
 
 .method public onSearchResult(Ljava/lang/String;Landroid/os/Bundle;Ljava/util/List;)V
     .locals 0
-    .param p1, "query"    # Ljava/lang/String;
-    .param p2, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,7 +45,5 @@
         }
     .end annotation
 
-    .line 919
-    .local p3, "items":Ljava/util/List;, "Ljava/util/List<Landroid/support/v4/media/MediaBrowserCompat$MediaItem;>;"
     return-void
 .end method

@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Landroidx/webkit/internal/WebViewRenderProcessClientAdapter;Landroidx/webkit/WebViewRenderProcessClient;Landroid/webkit/WebView;Landroidx/webkit/WebViewRenderProcess;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/webkit/internal/WebViewRenderProcessClientAdapter;
 
     .line 83
     iput-object p1, p0, Landroidx/webkit/internal/WebViewRenderProcessClientAdapter$1;->this$0:Landroidx/webkit/internal/WebViewRenderProcessClientAdapter;
@@ -60,6 +59,5 @@
 
     invoke-virtual {v0, v1, v2}, Landroidx/webkit/WebViewRenderProcessClient;->onRenderProcessUnresponsive(Landroid/webkit/WebView;Landroidx/webkit/WebViewRenderProcess;)V
 
-    .line 87
     return-void
 .end method

@@ -38,10 +38,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 35
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 36
     return-void
 .end method
 
@@ -59,16 +58,15 @@
         }
     .end annotation
 
-    .line 44
+    .line 2
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 45
+    .line 3
     iput-object p1, p0, Lcom/huawei/hms/support/api/entity/core/DisconnectInfo;->scopeList:Ljava/util/List;
 
-    .line 46
+    .line 4
     iput-object p2, p0, Lcom/huawei/hms/support/api/entity/core/DisconnectInfo;->apiNameList:Ljava/util/List;
 
-    .line 47
     return-void
 .end method
 
@@ -85,10 +83,9 @@
         }
     .end annotation
 
-    .line 55
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/support/api/entity/core/DisconnectInfo;->apiNameList:Ljava/util/List;
 
-    .line 56
     return-object v0
 .end method
 
@@ -103,9 +100,8 @@
         }
     .end annotation
 
-    .line 65
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/support/api/entity/core/DisconnectInfo;->scopeList:Ljava/util/List;
 
-    .line 66
     return-object v0
 .end method

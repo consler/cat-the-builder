@@ -43,8 +43,8 @@
             <TextView android:textColor="@color/pocketpaint_color_picker_white" android:text="@string/button_text" style="@style/PocketPaintToolSelectionButtonTextView" />
         </LinearLayout>
         <LinearLayout android:id="@id/pocketpaint_tools_stamp" style="@style/PocketPaintToolSelectionButton">
-            <ImageView android:src="@drawable/ic_pocketpaint_tool_stamp" android:contentDescription="@string/button_stamp" app:tint="@color/pocketpaint_color_picker_white" style="@style/PocketPaintToolSelectionButtonImageView" />
-            <TextView android:textColor="@color/pocketpaint_color_picker_white" android:text="@string/button_stamp" style="@style/PocketPaintToolSelectionButtonTextView" />
+            <ImageView android:src="@drawable/ic_pocketpaint_tool_clipboard" android:contentDescription="@string/button_clipboard" app:tint="@color/pocketpaint_color_picker_white" style="@style/PocketPaintToolSelectionButtonImageView" />
+            <TextView android:textColor="@color/pocketpaint_color_picker_white" android:text="@string/button_clipboard" style="@style/PocketPaintToolSelectionButtonTextView" />
         </LinearLayout>
         <LinearLayout android:id="@id/pocketpaint_tools_transform" style="@style/PocketPaintToolSelectionButton">
             <ImageView android:src="@drawable/ic_pocketpaint_tool_transform" android:contentDescription="@string/button_transform" app:tint="@color/pocketpaint_color_picker_white" style="@style/PocketPaintToolSelectionButtonImageView" />
@@ -67,6 +67,10 @@
         <LinearLayout android:id="@id/pocketpaint_tools_smudge" style="@style/PocketPaintToolSelectionButton">
             <ImageView android:src="@drawable/ic_pocketpaint_tool_smudge" android:contentDescription="@string/button_smudge" app:tint="@color/pocketpaint_color_picker_white" style="@style/PocketPaintToolSelectionButtonImageView" />
             <TextView android:textColor="@color/pocketpaint_color_picker_white" android:text="@string/button_smudge" style="@style/PocketPaintToolSelectionButtonTextView" />
+        </LinearLayout>
+        <LinearLayout android:id="@id/pocketpaint_tools_clipping" style="@style/PocketPaintToolSelectionButton">
+            <ImageView android:src="@drawable/ic_pocketpaint_tool_clipping" android:contentDescription="@string/button_clip" app:tint="@color/pocketpaint_color_picker_white" style="@style/PocketPaintToolSelectionButtonImageView" />
+            <TextView android:textColor="@color/pocketpaint_color_picker_white" android:text="@string/button_clip" style="@style/PocketPaintToolSelectionButtonTextView" />
         </LinearLayout>
     </TableRow>
 </TableLayout>

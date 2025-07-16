@@ -26,17 +26,16 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 397
+    .line 447
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 400
     return-void
 .end method
 
 .method public static failure()Landroidx/work/ListenableWorker$Result;
     .locals 1
 
-    .line 374
+    .line 417
     new-instance v0, Landroidx/work/ListenableWorker$Result$Failure;
 
     invoke-direct {v0}, Landroidx/work/ListenableWorker$Result$Failure;-><init>()V
@@ -46,7 +45,6 @@
 
 .method public static failure(Landroidx/work/Data;)Landroidx/work/ListenableWorker$Result;
     .locals 1
-    .param p0, "outputData"    # Landroidx/work/Data;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -56,7 +54,7 @@
         }
     .end annotation
 
-    .line 390
+    .line 433
     new-instance v0, Landroidx/work/ListenableWorker$Result$Failure;
 
     invoke-direct {v0, p0}, Landroidx/work/ListenableWorker$Result$Failure;-><init>(Landroidx/work/Data;)V
@@ -67,7 +65,7 @@
 .method public static retry()Landroidx/work/ListenableWorker$Result;
     .locals 1
 
-    .line 360
+    .line 403
     new-instance v0, Landroidx/work/ListenableWorker$Result$Retry;
 
     invoke-direct {v0}, Landroidx/work/ListenableWorker$Result$Retry;-><init>()V
@@ -78,7 +76,7 @@
 .method public static success()Landroidx/work/ListenableWorker$Result;
     .locals 1
 
-    .line 334
+    .line 377
     new-instance v0, Landroidx/work/ListenableWorker$Result$Success;
 
     invoke-direct {v0}, Landroidx/work/ListenableWorker$Result$Success;-><init>()V
@@ -88,7 +86,6 @@
 
 .method public static success(Landroidx/work/Data;)Landroidx/work/ListenableWorker$Result;
     .locals 1
-    .param p0, "outputData"    # Landroidx/work/Data;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -98,10 +95,15 @@
         }
     .end annotation
 
-    .line 348
+    .line 391
     new-instance v0, Landroidx/work/ListenableWorker$Result$Success;
 
     invoke-direct {v0, p0}, Landroidx/work/ListenableWorker$Result$Success;-><init>(Landroidx/work/Data;)V
 
     return-object v0
+.end method
+
+
+# virtual methods
+.method public abstract getOutputData()Landroidx/work/Data;
 .end method

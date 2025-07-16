@@ -31,9 +31,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/Observer;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)V
     .locals 0
-    .param p2, "period"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -46,11 +43,8 @@
     .end annotation
 
     .line 128
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedNoLast;, "Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedNoLast<TT;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     invoke-direct/range {p0 .. p5}, Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedObserver;-><init>(Lio/reactivex/Observer;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)V
 
-    .line 129
     return-void
 .end method
 
@@ -60,12 +54,10 @@
     .locals 1
 
     .line 133
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedNoLast;, "Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedNoLast<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedNoLast;->actual:Lio/reactivex/Observer;
 
     invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 134
     return-void
 .end method
 
@@ -73,9 +65,7 @@
     .locals 0
 
     .line 138
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedNoLast;, "Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedNoLast<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableSampleTimed$SampleTimedNoLast;->emit()V
 
-    .line 139
     return-void
 .end method

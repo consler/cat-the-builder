@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/AsyncServer;Lcom/koushikdutta/async/callback/CompletedCallback;Ljava/lang/Exception;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/AsyncServer;
 
     .line 192
     iput-object p1, p0, Lcom/koushikdutta/async/AsyncServer$2;->this$0:Lcom/koushikdutta/async/AsyncServer;
@@ -54,6 +53,5 @@
 
     invoke-interface {v0, v1}, Lcom/koushikdutta/async/callback/CompletedCallback;->onCompleted(Ljava/lang/Exception;)V
 
-    .line 196
     return-void
 .end method

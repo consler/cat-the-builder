@@ -15,30 +15,26 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ImageProxy;Landroid/util/Size;Landroidx/camera/core/ImageInfo;)V
-    .locals 1
-    .param p1, "imageProxy"    # Landroidx/camera/core/ImageProxy;
-    .param p2, "resolution"    # Landroid/util/Size;
-    .param p3, "imageInfo"    # Landroidx/camera/core/ImageInfo;
+    .locals 0
 
     .line 55
     invoke-direct {p0, p1}, Landroidx/camera/core/ForwardingImageProxy;-><init>(Landroidx/camera/core/ImageProxy;)V
 
-    .line 56
     if-nez p2, :cond_0
 
     .line 57
     invoke-super {p0}, Landroidx/camera/core/ForwardingImageProxy;->getWidth()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Landroidx/camera/core/SettableImageProxy;->mWidth:I
+    iput p1, p0, Landroidx/camera/core/SettableImageProxy;->mWidth:I
 
     .line 58
     invoke-super {p0}, Landroidx/camera/core/ForwardingImageProxy;->getHeight()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Landroidx/camera/core/SettableImageProxy;->mHeight:I
+    iput p1, p0, Landroidx/camera/core/SettableImageProxy;->mHeight:I
 
     goto :goto_0
 
@@ -46,36 +42,32 @@
     :cond_0
     invoke-virtual {p2}, Landroid/util/Size;->getWidth()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Landroidx/camera/core/SettableImageProxy;->mWidth:I
+    iput p1, p0, Landroidx/camera/core/SettableImageProxy;->mWidth:I
 
     .line 61
     invoke-virtual {p2}, Landroid/util/Size;->getHeight()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Landroidx/camera/core/SettableImageProxy;->mHeight:I
+    iput p1, p0, Landroidx/camera/core/SettableImageProxy;->mHeight:I
 
     .line 63
     :goto_0
     iput-object p3, p0, Landroidx/camera/core/SettableImageProxy;->mImageInfo:Landroidx/camera/core/ImageInfo;
 
-    .line 64
     return-void
 .end method
 
 .method constructor <init>(Landroidx/camera/core/ImageProxy;Landroidx/camera/core/ImageInfo;)V
     .locals 1
-    .param p1, "imageProxy"    # Landroidx/camera/core/ImageProxy;
-    .param p2, "imageInfo"    # Landroidx/camera/core/ImageInfo;
 
-    .line 44
     const/4 v0, 0x0
 
+    .line 44
     invoke-direct {p0, p1, v0, p2}, Landroidx/camera/core/SettableImageProxy;-><init>(Landroidx/camera/core/ImageProxy;Landroid/util/Size;Landroidx/camera/core/ImageInfo;)V
 
-    .line 45
     return-void
 .end method
 
@@ -114,7 +106,6 @@
     return-object v0
 
     .line 72
-    .end local p0    # "this":Landroidx/camera/core/SettableImageProxy;
     :cond_0
     :try_start_1
     new-instance v0, Landroid/graphics/Rect;
@@ -129,7 +120,6 @@
 
     return-object v0
 
-    .line 68
     :catchall_0
     move-exception v0
 
@@ -153,8 +143,6 @@
 
     return v0
 
-    .line 94
-    .end local p0    # "this":Landroidx/camera/core/SettableImageProxy;
     :catchall_0
     move-exception v0
 
@@ -187,8 +175,6 @@
 
     return v0
 
-    .line 89
-    .end local p0    # "this":Landroidx/camera/core/SettableImageProxy;
     :catchall_0
     move-exception v0
 
@@ -199,12 +185,10 @@
 
 .method public declared-synchronized setCropRect(Landroid/graphics/Rect;)V
     .locals 3
-    .param p1, "cropRect"    # Landroid/graphics/Rect;
 
     monitor-enter p0
 
-    .line 78
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     .line 79
     :try_start_0
@@ -212,12 +196,10 @@
 
     invoke-direct {v0, p1}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
 
-    move-object p1, v0
-
     .line 80
     invoke-virtual {p0}, Landroidx/camera/core/SettableImageProxy;->getWidth()I
 
-    move-result v0
+    move-result p1
 
     invoke-virtual {p0}, Landroidx/camera/core/SettableImageProxy;->getHeight()I
 
@@ -225,18 +207,20 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {p1, v2, v2, v0, v1}, Landroid/graphics/Rect;->intersect(IIII)Z
+    invoke-virtual {v0, v2, v2, p1, v1}, Landroid/graphics/Rect;->intersect(IIII)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 81
-    invoke-virtual {p1}, Landroid/graphics/Rect;->setEmpty()V
+    invoke-virtual {v0}, Landroid/graphics/Rect;->setEmpty()V
+
+    :cond_0
+    move-object p1, v0
 
     .line 84
-    .end local p0    # "this":Landroidx/camera/core/SettableImageProxy;
-    :cond_0
+    :cond_1
     iput-object p1, p0, Landroidx/camera/core/SettableImageProxy;->mCropRect:Landroid/graphics/Rect;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -246,8 +230,6 @@
 
     return-void
 
-    .line 77
-    .end local p1    # "cropRect":Landroid/graphics/Rect;
     :catchall_0
     move-exception p1
 

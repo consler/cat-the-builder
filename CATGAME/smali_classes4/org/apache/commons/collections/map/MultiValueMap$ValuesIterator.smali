@@ -30,7 +30,6 @@
 # direct methods
 .method public constructor <init>(Lorg/apache/commons/collections/map/MultiValueMap;Ljava/lang/Object;)V
     .locals 0
-    .param p2, "key"    # Ljava/lang/Object;
 
     .line 400
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +53,6 @@
 
     iput-object p1, p0, Lorg/apache/commons/collections/map/MultiValueMap$ValuesIterator;->iterator:Ljava/util/Iterator;
 
-    .line 404
     return-void
 .end method
 
@@ -110,7 +108,6 @@
 
     invoke-virtual {v0, v1}, Lorg/apache/commons/collections/map/MultiValueMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 411
     :cond_0
     return-void
 .end method

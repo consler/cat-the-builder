@@ -55,14 +55,11 @@
     .end annotation
 
     .line 82
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableFromIterable$BaseRangeSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableFromIterable$BaseRangeSubscription<TT;>;"
-    .local p1, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<+TT;>;"
     invoke-direct {p0}, Lio/reactivex/internal/subscriptions/BasicQueueSubscription;-><init>()V
 
     .line 83
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableFromIterable$BaseRangeSubscription;->it:Ljava/util/Iterator;
 
-    .line 84
     return-void
 .end method
 
@@ -71,26 +68,22 @@
 .method public final cancel()V
     .locals 1
 
-    .line 134
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableFromIterable$BaseRangeSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableFromIterable$BaseRangeSubscription<TT;>;"
     const/4 v0, 0x1
 
+    .line 134
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableFromIterable$BaseRangeSubscription;->cancelled:Z
 
-    .line 135
     return-void
 .end method
 
 .method public final clear()V
     .locals 1
 
-    .line 115
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableFromIterable$BaseRangeSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableFromIterable$BaseRangeSubscription<TT;>;"
     const/4 v0, 0x0
 
+    .line 115
     iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableFromIterable$BaseRangeSubscription;->it:Ljava/util/Iterator;
 
-    .line 116
     return-void
 .end method
 
@@ -101,7 +94,6 @@
     .locals 1
 
     .line 110
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableFromIterable$BaseRangeSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableFromIterable$BaseRangeSubscription<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableFromIterable$BaseRangeSubscription;->it:Ljava/util/Iterator;
 
     if-eqz v0, :cond_1
@@ -136,14 +128,12 @@
     .end annotation
 
     .line 94
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableFromIterable$BaseRangeSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableFromIterable$BaseRangeSubscription<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableFromIterable$BaseRangeSubscription;->it:Ljava/util/Iterator;
 
     const/4 v1, 0x0
 
     if-nez v0, :cond_0
 
-    .line 95
     return-object v1
 
     .line 97
@@ -152,9 +142,9 @@
 
     if-nez v2, :cond_1
 
-    .line 98
     const/4 v0, 0x1
 
+    .line 98
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableFromIterable$BaseRangeSubscription;->once:Z
 
     goto :goto_0
@@ -167,7 +157,6 @@
 
     if-nez v0, :cond_2
 
-    .line 101
     return-object v1
 
     .line 104
@@ -190,10 +179,8 @@
 
 .method public final request(J)V
     .locals 4
-    .param p1, "n"    # J
 
     .line 120
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableFromIterable$BaseRangeSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableFromIterable$BaseRangeSubscription<TT;>;"
     invoke-static {p1, p2}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(J)Z
 
     move-result v0
@@ -211,7 +198,6 @@
 
     if-nez v0, :cond_1
 
-    .line 122
     const-wide v0, 0x7fffffffffffffffL
 
     cmp-long v0, p1, v0
@@ -227,21 +213,17 @@
     :cond_0
     invoke-virtual {p0, p1, p2}, Lio/reactivex/internal/operators/flowable/FlowableFromIterable$BaseRangeSubscription;->slowPath(J)V
 
-    .line 129
     :cond_1
     :goto_0
     return-void
 .end method
 
 .method public final requestFusion(I)I
-    .locals 1
-    .param p1, "mode"    # I
+    .locals 0
 
-    .line 88
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableFromIterable$BaseRangeSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableFromIterable$BaseRangeSubscription<TT;>;"
-    and-int/lit8 v0, p1, 0x1
+    and-int/lit8 p1, p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method abstract slowPath(J)V

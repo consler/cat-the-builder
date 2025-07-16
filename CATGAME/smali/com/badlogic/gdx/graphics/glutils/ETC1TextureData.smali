@@ -23,28 +23,24 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/files/FileHandle;)V
     .locals 1
-    .param p1, "file"    # Lcom/badlogic/gdx/files/FileHandle;
 
-    .line 37
     const/4 v0, 0x0
 
+    .line 37
     invoke-direct {p0, p1, v0}, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;-><init>(Lcom/badlogic/gdx/files/FileHandle;Z)V
 
-    .line 38
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/files/FileHandle;Z)V
     .locals 1
-    .param p1, "file"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p2, "useMipMaps"    # Z
 
     .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 32
     const/4 v0, 0x0
 
+    .line 32
     iput v0, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;->width:I
 
     .line 33
@@ -59,21 +55,18 @@
     .line 42
     iput-boolean p2, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;->useMipMaps:Z
 
-    .line 43
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;Z)V
     .locals 1
-    .param p1, "encodedImage"    # Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;
-    .param p2, "useMipMaps"    # Z
 
     .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 32
     const/4 v0, 0x0
 
+    .line 32
     iput v0, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;->width:I
 
     .line 33
@@ -88,7 +81,6 @@
     .line 47
     iput-boolean p2, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;->useMipMaps:Z
 
-    .line 48
     return-void
 .end method
 
@@ -96,7 +88,6 @@
 # virtual methods
 .method public consumeCustomData(I)V
     .locals 13
-    .param p1, "target"    # I
 
     .line 74
     iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;->isPrepared:Z
@@ -126,7 +117,6 @@
     move-result-object v0
 
     .line 78
-    .local v0, "pixmap":Lcom/badlogic/gdx/graphics/Pixmap;
     sget-object v2, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
 
     const/4 v4, 0x0
@@ -158,9 +148,9 @@
 
     move-result-object v11
 
-    .line 78
     move v3, p1
 
+    .line 78
     invoke-interface/range {v2 .. v11}, Lcom/badlogic/gdx/graphics/GL20;->glTexImage2D(IIIIIIIILjava/nio/Buffer;)V
 
     .line 80
@@ -185,8 +175,6 @@
     .line 82
     iput-boolean v1, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;->useMipMaps:Z
 
-    .line 83
-    .end local v0    # "pixmap":Lcom/badlogic/gdx/graphics/Pixmap;
     goto :goto_0
 
     .line 84
@@ -228,43 +216,42 @@
     .line 86
     invoke-virtual {p0}, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;->useMipMaps()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
-    sget-object v0, Lcom/badlogic/gdx/Gdx;->gl20:Lcom/badlogic/gdx/graphics/GL20;
+    sget-object p1, Lcom/badlogic/gdx/Gdx;->gl20:Lcom/badlogic/gdx/graphics/GL20;
 
-    const/16 v2, 0xde1
+    const/16 v0, 0xde1
 
-    invoke-interface {v0, v2}, Lcom/badlogic/gdx/graphics/GL20;->glGenerateMipmap(I)V
+    invoke-interface {p1, v0}, Lcom/badlogic/gdx/graphics/GL20;->glGenerateMipmap(I)V
 
     .line 88
     :cond_2
     :goto_0
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;->data:Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;->data:Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->dispose()V
+    invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->dispose()V
+
+    const/4 p1, 0x0
 
     .line 89
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;->data:Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;
+    iput-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;->data:Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;
 
     .line 90
     iput-boolean v1, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;->isPrepared:Z
 
-    .line 91
     return-void
 
     .line 74
     :cond_3
-    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v1, "Call prepare() before calling consumeCompressedData()"
+    const-string v0, "Call prepare() before calling consumeCompressedData()"
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public consumePixmap()Lcom/badlogic/gdx/graphics/Pixmap;
@@ -332,7 +319,6 @@
 .method public isManaged()Z
     .locals 1
 
-    .line 125
     const/4 v0, 0x1
 
     return v0
@@ -360,9 +346,9 @@
 
     if-nez v0, :cond_1
 
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;->data:Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;->data:Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     goto :goto_0
 
@@ -375,19 +361,18 @@
 
     throw v0
 
-    .line 64
     :cond_1
     :goto_0
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;->file:Lcom/badlogic/gdx/files/FileHandle;
-
     if-eqz v0, :cond_2
 
     .line 65
-    new-instance v1, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;
+    new-instance v0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;
 
-    invoke-direct {v1, v0}, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;-><init>(Lcom/badlogic/gdx/files/FileHandle;)V
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;->file:Lcom/badlogic/gdx/files/FileHandle;
 
-    iput-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;->data:Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;
+    invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;-><init>(Lcom/badlogic/gdx/files/FileHandle;)V
+
+    iput-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;->data:Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;
 
     .line 67
     :cond_2
@@ -404,12 +389,11 @@
 
     iput v0, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;->height:I
 
-    .line 69
     const/4 v0, 0x1
 
+    .line 69
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;->isPrepared:Z
 
-    .line 70
     return-void
 
     .line 62

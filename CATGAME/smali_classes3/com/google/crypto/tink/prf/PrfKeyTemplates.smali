@@ -29,23 +29,23 @@
 
     sput-object v0, Lcom/google/crypto/tink/prf/PrfKeyTemplates;->HKDF_SHA256:Lcom/google/crypto/tink/proto/KeyTemplate;
 
+    const/16 v0, 0x20
+
     .line 81
-    sget-object v0, Lcom/google/crypto/tink/proto/HashType;->SHA256:Lcom/google/crypto/tink/proto/HashType;
+    sget-object v1, Lcom/google/crypto/tink/proto/HashType;->SHA256:Lcom/google/crypto/tink/proto/HashType;
 
-    const/16 v1, 0x20
-
-    invoke-static {v1, v0}, Lcom/google/crypto/tink/prf/PrfKeyTemplates;->createHmacTemplate(ILcom/google/crypto/tink/proto/HashType;)Lcom/google/crypto/tink/proto/KeyTemplate;
+    invoke-static {v0, v1}, Lcom/google/crypto/tink/prf/PrfKeyTemplates;->createHmacTemplate(ILcom/google/crypto/tink/proto/HashType;)Lcom/google/crypto/tink/proto/KeyTemplate;
 
     move-result-object v0
 
     sput-object v0, Lcom/google/crypto/tink/prf/PrfKeyTemplates;->HMAC_SHA256_PRF:Lcom/google/crypto/tink/proto/KeyTemplate;
 
+    const/16 v0, 0x40
+
     .line 82
-    sget-object v0, Lcom/google/crypto/tink/proto/HashType;->SHA512:Lcom/google/crypto/tink/proto/HashType;
+    sget-object v1, Lcom/google/crypto/tink/proto/HashType;->SHA512:Lcom/google/crypto/tink/proto/HashType;
 
-    const/16 v1, 0x40
-
-    invoke-static {v1, v0}, Lcom/google/crypto/tink/prf/PrfKeyTemplates;->createHmacTemplate(ILcom/google/crypto/tink/proto/HashType;)Lcom/google/crypto/tink/proto/KeyTemplate;
+    invoke-static {v0, v1}, Lcom/google/crypto/tink/prf/PrfKeyTemplates;->createHmacTemplate(ILcom/google/crypto/tink/proto/HashType;)Lcom/google/crypto/tink/proto/KeyTemplate;
 
     move-result-object v0
 
@@ -91,7 +91,6 @@
     check-cast v0, Lcom/google/crypto/tink/proto/AesCmacPrfKeyFormat;
 
     .line 63
-    .local v0, "format":Lcom/google/crypto/tink/proto/AesCmacPrfKeyFormat;
     invoke-static {}, Lcom/google/crypto/tink/proto/KeyTemplate;->newBuilder()Lcom/google/crypto/tink/proto/KeyTemplate$Builder;
 
     move-result-object v1
@@ -112,28 +111,27 @@
     .line 65
     invoke-virtual {v0}, Lcom/google/crypto/tink/proto/AesCmacPrfKeyFormat;->toByteString()Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Lcom/google/crypto/tink/proto/KeyTemplate$Builder;->setValue(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/KeyTemplate$Builder;
+    invoke-virtual {v1, v0}, Lcom/google/crypto/tink/proto/KeyTemplate$Builder;->setValue(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/KeyTemplate$Builder;
 
-    move-result-object v1
+    move-result-object v0
 
-    sget-object v2, Lcom/google/crypto/tink/proto/OutputPrefixType;->RAW:Lcom/google/crypto/tink/proto/OutputPrefixType;
+    sget-object v1, Lcom/google/crypto/tink/proto/OutputPrefixType;->RAW:Lcom/google/crypto/tink/proto/OutputPrefixType;
 
     .line 66
-    invoke-virtual {v1, v2}, Lcom/google/crypto/tink/proto/KeyTemplate$Builder;->setOutputPrefixType(Lcom/google/crypto/tink/proto/OutputPrefixType;)Lcom/google/crypto/tink/proto/KeyTemplate$Builder;
+    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/proto/KeyTemplate$Builder;->setOutputPrefixType(Lcom/google/crypto/tink/proto/OutputPrefixType;)Lcom/google/crypto/tink/proto/KeyTemplate$Builder;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 67
-    invoke-virtual {v1}, Lcom/google/crypto/tink/proto/KeyTemplate$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
+    invoke-virtual {v0}, Lcom/google/crypto/tink/proto/KeyTemplate$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/google/crypto/tink/proto/KeyTemplate;
+    check-cast v0, Lcom/google/crypto/tink/proto/KeyTemplate;
 
-    .line 63
-    return-object v1
+    return-object v0
 .end method
 
 .method private static createHkdfKeyTemplate()Lcom/google/crypto/tink/proto/KeyTemplate;
@@ -144,9 +142,9 @@
 
     move-result-object v0
 
-    .line 40
     const/16 v1, 0x20
 
+    .line 40
     invoke-virtual {v0, v1}, Lcom/google/crypto/tink/proto/HkdfPrfKeyFormat$Builder;->setKeySize(I)Lcom/google/crypto/tink/proto/HkdfPrfKeyFormat$Builder;
 
     move-result-object v0
@@ -174,7 +172,6 @@
     check-cast v0, Lcom/google/crypto/tink/proto/HkdfPrfKeyFormat;
 
     .line 43
-    .local v0, "format":Lcom/google/crypto/tink/proto/HkdfPrfKeyFormat;
     invoke-static {}, Lcom/google/crypto/tink/proto/KeyTemplate;->newBuilder()Lcom/google/crypto/tink/proto/KeyTemplate$Builder;
 
     move-result-object v1
@@ -182,43 +179,40 @@
     .line 44
     invoke-virtual {v0}, Lcom/google/crypto/tink/proto/HkdfPrfKeyFormat;->toByteString()Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Lcom/google/crypto/tink/proto/KeyTemplate$Builder;->setValue(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/KeyTemplate$Builder;
+    invoke-virtual {v1, v0}, Lcom/google/crypto/tink/proto/KeyTemplate$Builder;->setValue(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/KeyTemplate$Builder;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 45
     invoke-static {}, Lcom/google/crypto/tink/prf/HkdfPrfKeyManager;->staticKeyType()Ljava/lang/String;
 
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Lcom/google/crypto/tink/proto/KeyTemplate$Builder;->setTypeUrl(Ljava/lang/String;)Lcom/google/crypto/tink/proto/KeyTemplate$Builder;
-
     move-result-object v1
 
-    sget-object v2, Lcom/google/crypto/tink/proto/OutputPrefixType;->RAW:Lcom/google/crypto/tink/proto/OutputPrefixType;
+    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/proto/KeyTemplate$Builder;->setTypeUrl(Ljava/lang/String;)Lcom/google/crypto/tink/proto/KeyTemplate$Builder;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/google/crypto/tink/proto/OutputPrefixType;->RAW:Lcom/google/crypto/tink/proto/OutputPrefixType;
 
     .line 46
-    invoke-virtual {v1, v2}, Lcom/google/crypto/tink/proto/KeyTemplate$Builder;->setOutputPrefixType(Lcom/google/crypto/tink/proto/OutputPrefixType;)Lcom/google/crypto/tink/proto/KeyTemplate$Builder;
+    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/proto/KeyTemplate$Builder;->setOutputPrefixType(Lcom/google/crypto/tink/proto/OutputPrefixType;)Lcom/google/crypto/tink/proto/KeyTemplate$Builder;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 47
-    invoke-virtual {v1}, Lcom/google/crypto/tink/proto/KeyTemplate$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
+    invoke-virtual {v0}, Lcom/google/crypto/tink/proto/KeyTemplate$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/google/crypto/tink/proto/KeyTemplate;
+    check-cast v0, Lcom/google/crypto/tink/proto/KeyTemplate;
 
-    .line 43
-    return-object v1
+    return-object v0
 .end method
 
 .method private static createHmacTemplate(ILcom/google/crypto/tink/proto/HashType;)Lcom/google/crypto/tink/proto/KeyTemplate;
-    .locals 4
-    .param p0, "keySize"    # I
-    .param p1, "hashType"    # Lcom/google/crypto/tink/proto/HashType;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -237,76 +231,73 @@
 
     invoke-virtual {v0, p1}, Lcom/google/crypto/tink/proto/HmacPrfParams$Builder;->setHash(Lcom/google/crypto/tink/proto/HashType;)Lcom/google/crypto/tink/proto/HmacPrfParams$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/google/crypto/tink/proto/HmacPrfParams$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/HmacPrfParams$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/google/crypto/tink/proto/HmacPrfParams;
+    check-cast p1, Lcom/google/crypto/tink/proto/HmacPrfParams;
 
     .line 53
-    .local v0, "params":Lcom/google/crypto/tink/proto/HmacPrfParams;
     invoke-static {}, Lcom/google/crypto/tink/proto/HmacPrfKeyFormat;->newBuilder()Lcom/google/crypto/tink/proto/HmacPrfKeyFormat$Builder;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, v0}, Lcom/google/crypto/tink/proto/HmacPrfKeyFormat$Builder;->setParams(Lcom/google/crypto/tink/proto/HmacPrfParams;)Lcom/google/crypto/tink/proto/HmacPrfKeyFormat$Builder;
+    invoke-virtual {v0, p1}, Lcom/google/crypto/tink/proto/HmacPrfKeyFormat$Builder;->setParams(Lcom/google/crypto/tink/proto/HmacPrfParams;)Lcom/google/crypto/tink/proto/HmacPrfKeyFormat$Builder;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1, p0}, Lcom/google/crypto/tink/proto/HmacPrfKeyFormat$Builder;->setKeySize(I)Lcom/google/crypto/tink/proto/HmacPrfKeyFormat$Builder;
+    invoke-virtual {p1, p0}, Lcom/google/crypto/tink/proto/HmacPrfKeyFormat$Builder;->setKeySize(I)Lcom/google/crypto/tink/proto/HmacPrfKeyFormat$Builder;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Lcom/google/crypto/tink/proto/HmacPrfKeyFormat$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
+    invoke-virtual {p0}, Lcom/google/crypto/tink/proto/HmacPrfKeyFormat$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Lcom/google/crypto/tink/proto/HmacPrfKeyFormat;
+    check-cast p0, Lcom/google/crypto/tink/proto/HmacPrfKeyFormat;
 
     .line 54
-    .local v1, "format":Lcom/google/crypto/tink/proto/HmacPrfKeyFormat;
     invoke-static {}, Lcom/google/crypto/tink/proto/KeyTemplate;->newBuilder()Lcom/google/crypto/tink/proto/KeyTemplate$Builder;
 
-    move-result-object v2
+    move-result-object p1
 
-    new-instance v3, Lcom/google/crypto/tink/prf/HmacPrfKeyManager;
+    new-instance v0, Lcom/google/crypto/tink/prf/HmacPrfKeyManager;
 
-    invoke-direct {v3}, Lcom/google/crypto/tink/prf/HmacPrfKeyManager;-><init>()V
+    invoke-direct {v0}, Lcom/google/crypto/tink/prf/HmacPrfKeyManager;-><init>()V
 
     .line 55
-    invoke-virtual {v3}, Lcom/google/crypto/tink/prf/HmacPrfKeyManager;->getKeyType()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/google/crypto/tink/prf/HmacPrfKeyManager;->getKeyType()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Lcom/google/crypto/tink/proto/KeyTemplate$Builder;->setTypeUrl(Ljava/lang/String;)Lcom/google/crypto/tink/proto/KeyTemplate$Builder;
+    invoke-virtual {p1, v0}, Lcom/google/crypto/tink/proto/KeyTemplate$Builder;->setTypeUrl(Ljava/lang/String;)Lcom/google/crypto/tink/proto/KeyTemplate$Builder;
 
-    move-result-object v2
+    move-result-object p1
 
     .line 56
-    invoke-virtual {v1}, Lcom/google/crypto/tink/proto/HmacPrfKeyFormat;->toByteString()Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    invoke-virtual {p0}, Lcom/google/crypto/tink/proto/HmacPrfKeyFormat;->toByteString()Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-virtual {v2, v3}, Lcom/google/crypto/tink/proto/KeyTemplate$Builder;->setValue(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/KeyTemplate$Builder;
+    invoke-virtual {p1, p0}, Lcom/google/crypto/tink/proto/KeyTemplate$Builder;->setValue(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/KeyTemplate$Builder;
 
-    move-result-object v2
+    move-result-object p0
 
-    sget-object v3, Lcom/google/crypto/tink/proto/OutputPrefixType;->RAW:Lcom/google/crypto/tink/proto/OutputPrefixType;
+    sget-object p1, Lcom/google/crypto/tink/proto/OutputPrefixType;->RAW:Lcom/google/crypto/tink/proto/OutputPrefixType;
 
     .line 57
-    invoke-virtual {v2, v3}, Lcom/google/crypto/tink/proto/KeyTemplate$Builder;->setOutputPrefixType(Lcom/google/crypto/tink/proto/OutputPrefixType;)Lcom/google/crypto/tink/proto/KeyTemplate$Builder;
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/proto/KeyTemplate$Builder;->setOutputPrefixType(Lcom/google/crypto/tink/proto/OutputPrefixType;)Lcom/google/crypto/tink/proto/KeyTemplate$Builder;
 
-    move-result-object v2
+    move-result-object p0
 
     .line 58
-    invoke-virtual {v2}, Lcom/google/crypto/tink/proto/KeyTemplate$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
+    invoke-virtual {p0}, Lcom/google/crypto/tink/proto/KeyTemplate$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v2
+    move-result-object p0
 
-    check-cast v2, Lcom/google/crypto/tink/proto/KeyTemplate;
+    check-cast p0, Lcom/google/crypto/tink/proto/KeyTemplate;
 
-    .line 54
-    return-object v2
+    return-object p0
 .end method

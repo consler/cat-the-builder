@@ -24,7 +24,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
     .locals 0
-    .param p1, "clazz"    # Ljava/lang/Class;
 
     .line 428
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +31,6 @@
     .line 429
     iput-object p1, p0, Lorg/apache/commons/collections/map/MultiValueMap$ReflectionFactory;->clazz:Ljava/lang/Class;
 
-    .line 430
     return-void
 .end method
 
@@ -53,25 +51,23 @@
 
     return-object v0
 
-    .line 435
     :catch_0
     move-exception v0
 
     .line 436
-    .local v0, "ex":Ljava/lang/Exception;
     new-instance v1, Lorg/apache/commons/collections/FunctorException;
 
     new-instance v2, Ljava/lang/StringBuffer;
 
-    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
-
     const-string v3, "Cannot instantiate class: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-direct {v2, v3}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
     iget-object v3, p0, Lorg/apache/commons/collections/map/MultiValueMap$ReflectionFactory;->clazz:Ljava/lang/Class;
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
+
+    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 

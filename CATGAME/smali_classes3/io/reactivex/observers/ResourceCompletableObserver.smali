@@ -49,11 +49,10 @@
 # virtual methods
 .method public final add(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "resource"    # Lio/reactivex/disposables/Disposable;
 
-    .line 90
     const-string v0, "resource is null"
 
+    .line 90
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 91
@@ -61,7 +60,6 @@
 
     invoke-virtual {v0, p1}, Lio/reactivex/internal/disposables/ListCompositeDisposable;->add(Lio/reactivex/disposables/Disposable;)Z
 
-    .line 92
     return-void
 .end method
 
@@ -82,7 +80,6 @@
 
     invoke-virtual {v0}, Lio/reactivex/internal/disposables/ListCompositeDisposable;->dispose()V
 
-    .line 122
     :cond_0
     return-void
 .end method
@@ -109,13 +106,11 @@
 .method protected onStart()V
     .locals 0
 
-    .line 108
     return-void
 .end method
 
 .method public final onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 2
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 96
     iget-object v0, p0, Lio/reactivex/observers/ResourceCompletableObserver;->s:Ljava/util/concurrent/atomic/AtomicReference;
@@ -126,14 +121,13 @@
 
     invoke-static {v0, p1, v1}, Lio/reactivex/internal/util/EndConsumerHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;Ljava/lang/Class;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 97
     invoke-virtual {p0}, Lio/reactivex/observers/ResourceCompletableObserver;->onStart()V
 
-    .line 99
     :cond_0
     return-void
 .end method

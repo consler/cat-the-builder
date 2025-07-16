@@ -30,8 +30,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
     .locals 0
-    .param p1, "title"    # Ljava/lang/String;
-    .param p2, "text"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -44,7 +42,6 @@
     .end annotation
 
     .line 60
-    .local p3, "uris":Ljava/util/List;, "Ljava/util/List<Landroid/net/Uri;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 61
@@ -56,13 +53,11 @@
     .line 63
     iput-object p3, p0, Landroidx/browser/trusted/sharing/ShareData;->uris:Ljava/util/List;
 
-    .line 64
     return-void
 .end method
 
 .method public static fromBundle(Landroid/os/Bundle;)Landroidx/browser/trusted/sharing/ShareData;
     .locals 4
-    .param p0, "bundle"    # Landroid/os/Bundle;
 
     .line 81
     new-instance v0, Landroidx/browser/trusted/sharing/ShareData;
@@ -73,23 +68,22 @@
 
     move-result-object v1
 
-    .line 82
     const-string v2, "androidx.browser.trusted.sharing.KEY_TEXT"
 
+    .line 82
     invoke-virtual {p0, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 83
     const-string v3, "androidx.browser.trusted.sharing.KEY_URIS"
 
+    .line 83
     invoke-virtual {p0, v3}, Landroid/os/Bundle;->getParcelableArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-direct {v0, v1, v2, v3}, Landroidx/browser/trusted/sharing/ShareData;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
+    invoke-direct {v0, v1, v2, p0}, Landroidx/browser/trusted/sharing/ShareData;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
 
-    .line 81
     return-object v0
 .end method
 
@@ -103,20 +97,19 @@
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
+    const-string v1, "androidx.browser.trusted.sharing.KEY_TITLE"
+
     .line 70
-    .local v0, "bundle":Landroid/os/Bundle;
-    iget-object v1, p0, Landroidx/browser/trusted/sharing/ShareData;->title:Ljava/lang/String;
+    iget-object v2, p0, Landroidx/browser/trusted/sharing/ShareData;->title:Ljava/lang/String;
 
-    const-string v2, "androidx.browser.trusted.sharing.KEY_TITLE"
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    const-string v1, "androidx.browser.trusted.sharing.KEY_TEXT"
 
     .line 71
-    iget-object v1, p0, Landroidx/browser/trusted/sharing/ShareData;->text:Ljava/lang/String;
+    iget-object v2, p0, Landroidx/browser/trusted/sharing/ShareData;->text:Ljava/lang/String;
 
-    const-string v2, "androidx.browser.trusted.sharing.KEY_TEXT"
-
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 72
     iget-object v1, p0, Landroidx/browser/trusted/sharing/ShareData;->uris:Ljava/util/List;
@@ -134,7 +127,6 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    .line 75
     :cond_0
     return-object v0
 .end method

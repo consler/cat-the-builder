@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .locals 7
 
     .line 123
     new-instance v0, Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;
@@ -47,42 +47,38 @@
 
     sput-object v0, Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;->Circle:Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;
 
-    new-instance v0, Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;
+    new-instance v1, Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;
 
-    const-string v1, "FaceA"
+    const-string v3, "FaceA"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;->FaceA:Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;
+    sput-object v1, Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;->FaceA:Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;
 
-    new-instance v0, Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;
+    new-instance v3, Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;
 
-    const-string v1, "FaceB"
+    const-string v5, "FaceB"
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v1, v4}, Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;->FaceB:Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;
+    sput-object v3, Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;->FaceB:Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;
+
+    const/4 v5, 0x3
+
+    new-array v5, v5, [Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;
+
+    aput-object v0, v5, v2
+
+    aput-object v1, v5, v4
+
+    aput-object v3, v5, v6
 
     .line 122
-    const/4 v1, 0x3
-
-    new-array v1, v1, [Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;
-
-    sget-object v5, Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;->Circle:Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;
-
-    aput-object v5, v1, v2
-
-    sget-object v2, Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;->FaceA:Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;
-
-    aput-object v2, v1, v3
-
-    aput-object v0, v1, v4
-
-    sput-object v1, Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;->$VALUES:[Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;
+    sput-object v5, Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;->$VALUES:[Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;
 
     return-void
 .end method
@@ -103,18 +99,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 122
     const-class v0, Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;
+    check-cast p0, Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/badlogic/gdx/physics/box2d/Manifold$ManifoldType;

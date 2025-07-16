@@ -58,8 +58,7 @@
 
 # direct methods
 .method private constructor <init>(Z[Lorg/apache/commons/collections4/Predicate;[Lorg/apache/commons/collections4/Closure;Lorg/apache/commons/collections4/Closure;)V
-    .locals 1
-    .param p1, "clone"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z[",
@@ -73,58 +72,38 @@
     .end annotation
 
     .line 121
-    .local p0, "this":Lorg/apache/commons/collections4/functors/SwitchClosure;, "Lorg/apache/commons/collections4/functors/SwitchClosure<TE;>;"
-    .local p2, "predicates":[Lorg/apache/commons/collections4/Predicate;, "[Lorg/apache/commons/collections4/Predicate<-TE;>;"
-    .local p3, "closures":[Lorg/apache/commons/collections4/Closure;, "[Lorg/apache/commons/collections4/Closure<-TE;>;"
-    .local p4, "defaultClosure":Lorg/apache/commons/collections4/Closure;, "Lorg/apache/commons/collections4/Closure<-TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 122
     if-eqz p1, :cond_0
 
+    .line 122
     invoke-static {p2}, Lorg/apache/commons/collections4/functors/FunctorUtils;->copy([Lorg/apache/commons/collections4/Predicate;)[Lorg/apache/commons/collections4/Predicate;
 
-    move-result-object v0
-
-    goto :goto_0
+    move-result-object p2
 
     :cond_0
-    move-object v0, p2
+    iput-object p2, p0, Lorg/apache/commons/collections4/functors/SwitchClosure;->iPredicates:[Lorg/apache/commons/collections4/Predicate;
 
-    :goto_0
-    iput-object v0, p0, Lorg/apache/commons/collections4/functors/SwitchClosure;->iPredicates:[Lorg/apache/commons/collections4/Predicate;
-
-    .line 123
     if-eqz p1, :cond_1
 
+    .line 123
     invoke-static {p3}, Lorg/apache/commons/collections4/functors/FunctorUtils;->copy([Lorg/apache/commons/collections4/Closure;)[Lorg/apache/commons/collections4/Closure;
 
-    move-result-object v0
-
-    goto :goto_1
+    move-result-object p3
 
     :cond_1
-    move-object v0, p3
+    iput-object p3, p0, Lorg/apache/commons/collections4/functors/SwitchClosure;->iClosures:[Lorg/apache/commons/collections4/Closure;
 
-    :goto_1
-    iput-object v0, p0, Lorg/apache/commons/collections4/functors/SwitchClosure;->iClosures:[Lorg/apache/commons/collections4/Closure;
-
-    .line 124
     if-nez p4, :cond_2
 
+    .line 124
     invoke-static {}, Lorg/apache/commons/collections4/functors/NOPClosure;->nopClosure()Lorg/apache/commons/collections4/Closure;
 
-    move-result-object v0
-
-    goto :goto_2
+    move-result-object p4
 
     :cond_2
-    move-object v0, p4
+    iput-object p4, p0, Lorg/apache/commons/collections4/functors/SwitchClosure;->iDefault:Lorg/apache/commons/collections4/Closure;
 
-    :goto_2
-    iput-object v0, p0, Lorg/apache/commons/collections4/functors/SwitchClosure;->iDefault:Lorg/apache/commons/collections4/Closure;
-
-    .line 125
     return-void
 .end method
 
@@ -142,21 +121,16 @@
         }
     .end annotation
 
-    .line 137
-    .local p0, "this":Lorg/apache/commons/collections4/functors/SwitchClosure;, "Lorg/apache/commons/collections4/functors/SwitchClosure<TE;>;"
-    .local p1, "predicates":[Lorg/apache/commons/collections4/Predicate;, "[Lorg/apache/commons/collections4/Predicate<-TE;>;"
-    .local p2, "closures":[Lorg/apache/commons/collections4/Closure;, "[Lorg/apache/commons/collections4/Closure<-TE;>;"
-    .local p3, "defaultClosure":Lorg/apache/commons/collections4/Closure;, "Lorg/apache/commons/collections4/Closure<-TE;>;"
     const/4 v0, 0x1
 
+    .line 137
     invoke-direct {p0, v0, p1, p2, p3}, Lorg/apache/commons/collections4/functors/SwitchClosure;-><init>(Z[Lorg/apache/commons/collections4/Predicate;[Lorg/apache/commons/collections4/Closure;Lorg/apache/commons/collections4/Closure;)V
 
-    .line 138
     return-void
 .end method
 
 .method public static switchClosure(Ljava/util/Map;)Lorg/apache/commons/collections4/Closure;
-    .locals 8
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -172,13 +146,11 @@
         }
     .end annotation
 
-    .line 90
-    .local p0, "predicatesAndClosures":Ljava/util/Map;, "Ljava/util/Map<Lorg/apache/commons/collections4/Predicate<TE;>;Lorg/apache/commons/collections4/Closure<TE;>;>;"
     if-eqz p0, :cond_3
 
-    .line 94
     const/4 v0, 0x0
 
+    .line 94
     invoke-interface {p0, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -186,117 +158,94 @@
     check-cast v0, Lorg/apache/commons/collections4/Closure;
 
     .line 95
-    .local v0, "defaultClosure":Lorg/apache/commons/collections4/Closure;, "Lorg/apache/commons/collections4/Closure<-TE;>;"
     invoke-interface {p0}, Ljava/util/Map;->size()I
 
     move-result v1
 
-    .line 96
-    .local v1, "size":I
     if-nez v1, :cond_1
 
-    .line 97
     if-nez v0, :cond_0
 
+    .line 97
     invoke-static {}, Lorg/apache/commons/collections4/functors/NOPClosure;->nopClosure()Lorg/apache/commons/collections4/Closure;
 
-    move-result-object v2
-
-    goto :goto_0
+    move-result-object v0
 
     :cond_0
-    move-object v2, v0
-
-    :goto_0
-    return-object v2
+    return-object v0
 
     .line 99
     :cond_1
     new-array v2, v1, [Lorg/apache/commons/collections4/Closure;
 
     .line 100
-    .local v2, "closures":[Lorg/apache/commons/collections4/Closure;, "[Lorg/apache/commons/collections4/Closure<TE;>;"
-    new-array v3, v1, [Lorg/apache/commons/collections4/Predicate;
-
-    .line 101
-    .local v3, "preds":[Lorg/apache/commons/collections4/Predicate;, "[Lorg/apache/commons/collections4/Predicate<TE;>;"
-    const/4 v4, 0x0
+    new-array v1, v1, [Lorg/apache/commons/collections4/Predicate;
 
     .line 102
-    .local v4, "i":I
     invoke-interface {p0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
+    move-result-object p0
+
+    invoke-interface {p0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    const/4 v3, 0x0
+
+    move v4, v3
+
+    :goto_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
     move-result-object v5
 
-    invoke-interface {v5}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    check-cast v5, Ljava/util/Map$Entry;
 
-    move-result-object v5
-
-    :goto_1
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_2
-
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    .line 103
+    invoke-interface {v5}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v6
 
-    check-cast v6, Ljava/util/Map$Entry;
+    check-cast v6, Lorg/apache/commons/collections4/Predicate;
 
-    .line 103
-    .local v6, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Lorg/apache/commons/collections4/Predicate<TE;>;Lorg/apache/commons/collections4/Closure<TE;>;>;"
-    invoke-interface {v6}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Lorg/apache/commons/collections4/Predicate;
-
-    aput-object v7, v3, v4
+    aput-object v6, v1, v4
 
     .line 104
-    invoke-interface {v6}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v5
 
-    check-cast v7, Lorg/apache/commons/collections4/Closure;
+    check-cast v5, Lorg/apache/commons/collections4/Closure;
 
-    aput-object v7, v2, v4
+    aput-object v5, v2, v4
 
-    .line 105
-    nop
-
-    .end local v6    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Lorg/apache/commons/collections4/Predicate<TE;>;Lorg/apache/commons/collections4/Closure<TE;>;>;"
     add-int/lit8 v4, v4, 0x1
 
-    .line 106
-    goto :goto_1
+    goto :goto_0
 
     .line 107
     :cond_2
-    new-instance v5, Lorg/apache/commons/collections4/functors/SwitchClosure;
+    new-instance p0, Lorg/apache/commons/collections4/functors/SwitchClosure;
 
-    const/4 v6, 0x0
+    invoke-direct {p0, v3, v1, v2, v0}, Lorg/apache/commons/collections4/functors/SwitchClosure;-><init>(Z[Lorg/apache/commons/collections4/Predicate;[Lorg/apache/commons/collections4/Closure;Lorg/apache/commons/collections4/Closure;)V
 
-    invoke-direct {v5, v6, v3, v2, v0}, Lorg/apache/commons/collections4/functors/SwitchClosure;-><init>(Z[Lorg/apache/commons/collections4/Predicate;[Lorg/apache/commons/collections4/Closure;Lorg/apache/commons/collections4/Closure;)V
-
-    return-object v5
+    return-object p0
 
     .line 91
-    .end local v0    # "defaultClosure":Lorg/apache/commons/collections4/Closure;, "Lorg/apache/commons/collections4/Closure<-TE;>;"
-    .end local v1    # "size":I
-    .end local v2    # "closures":[Lorg/apache/commons/collections4/Closure;, "[Lorg/apache/commons/collections4/Closure<TE;>;"
-    .end local v3    # "preds":[Lorg/apache/commons/collections4/Predicate;, "[Lorg/apache/commons/collections4/Predicate<TE;>;"
-    .end local v4    # "i":I
     :cond_3
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "The predicate and closure map must not be null"
+    const-string v0, "The predicate and closure map must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static switchClosure([Lorg/apache/commons/collections4/Predicate;[Lorg/apache/commons/collections4/Closure;Lorg/apache/commons/collections4/Closure;)Lorg/apache/commons/collections4/Closure;
@@ -318,9 +267,6 @@
     .end annotation
 
     .line 59
-    .local p0, "predicates":[Lorg/apache/commons/collections4/Predicate;, "[Lorg/apache/commons/collections4/Predicate<-TE;>;"
-    .local p1, "closures":[Lorg/apache/commons/collections4/Closure;, "[Lorg/apache/commons/collections4/Closure<-TE;>;"
-    .local p2, "defaultClosure":Lorg/apache/commons/collections4/Closure;, "Lorg/apache/commons/collections4/Closure<-TE;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/functors/FunctorUtils;->validate([Lorg/apache/commons/collections4/Predicate;)V
 
     .line 60
@@ -338,20 +284,15 @@
 
     if-nez v0, :cond_1
 
-    .line 65
     if-nez p2, :cond_0
 
+    .line 65
     invoke-static {}, Lorg/apache/commons/collections4/functors/NOPClosure;->nopClosure()Lorg/apache/commons/collections4/Closure;
 
-    move-result-object v0
-
-    goto :goto_0
+    move-result-object p2
 
     :cond_0
-    move-object v0, p2
-
-    :goto_0
-    return-object v0
+    return-object p2
 
     .line 67
     :cond_1
@@ -363,13 +304,13 @@
 
     .line 62
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "The predicate and closure arrays must be the same size"
+    const-string p1, "The predicate and closure arrays must be the same size"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
@@ -382,12 +323,9 @@
         }
     .end annotation
 
-    .line 147
-    .local p0, "this":Lorg/apache/commons/collections4/functors/SwitchClosure;, "Lorg/apache/commons/collections4/functors/SwitchClosure<TE;>;"
-    .local p1, "input":Ljava/lang/Object;, "TE;"
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 147
     :goto_0
     iget-object v1, p0, Lorg/apache/commons/collections4/functors/SwitchClosure;->iPredicates:[Lorg/apache/commons/collections4/Predicate;
 
@@ -409,27 +347,23 @@
     .line 149
     iget-object v1, p0, Lorg/apache/commons/collections4/functors/SwitchClosure;->iClosures:[Lorg/apache/commons/collections4/Closure;
 
-    aget-object v1, v1, v0
+    aget-object v0, v1, v0
 
-    invoke-interface {v1, p1}, Lorg/apache/commons/collections4/Closure;->execute(Ljava/lang/Object;)V
+    invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Closure;->execute(Ljava/lang/Object;)V
 
-    .line 150
     return-void
 
-    .line 147
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 153
-    .end local v0    # "i":I
     :cond_1
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/SwitchClosure;->iDefault:Lorg/apache/commons/collections4/Closure;
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Closure;->execute(Ljava/lang/Object;)V
 
-    .line 154
     return-void
 .end method
 
@@ -444,7 +378,6 @@
     .end annotation
 
     .line 173
-    .local p0, "this":Lorg/apache/commons/collections4/functors/SwitchClosure;, "Lorg/apache/commons/collections4/functors/SwitchClosure<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/SwitchClosure;->iClosures:[Lorg/apache/commons/collections4/Closure;
 
     invoke-static {v0}, Lorg/apache/commons/collections4/functors/FunctorUtils;->copy([Lorg/apache/commons/collections4/Closure;)[Lorg/apache/commons/collections4/Closure;
@@ -465,7 +398,6 @@
     .end annotation
 
     .line 183
-    .local p0, "this":Lorg/apache/commons/collections4/functors/SwitchClosure;, "Lorg/apache/commons/collections4/functors/SwitchClosure<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/SwitchClosure;->iDefault:Lorg/apache/commons/collections4/Closure;
 
     return-object v0
@@ -482,7 +414,6 @@
     .end annotation
 
     .line 163
-    .local p0, "this":Lorg/apache/commons/collections4/functors/SwitchClosure;, "Lorg/apache/commons/collections4/functors/SwitchClosure<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/SwitchClosure;->iPredicates:[Lorg/apache/commons/collections4/Predicate;
 
     invoke-static {v0}, Lorg/apache/commons/collections4/functors/FunctorUtils;->copy([Lorg/apache/commons/collections4/Predicate;)[Lorg/apache/commons/collections4/Predicate;

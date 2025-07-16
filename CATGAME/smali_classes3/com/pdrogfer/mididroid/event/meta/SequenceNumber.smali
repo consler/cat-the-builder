@@ -10,9 +10,8 @@
 # direct methods
 .method public constructor <init>(JJI)V
     .locals 7
-    .param p1, "tick"    # J
-    .param p3, "delta"    # J
-    .param p5, "number"    # I
+
+    const/4 v5, 0x0
 
     .line 31
     new-instance v6, Lcom/pdrogfer/mididroid/util/VariableLengthInt;
@@ -20,8 +19,6 @@
     const/4 v0, 0x2
 
     invoke-direct {v6, v0}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;-><init>(I)V
-
-    const/4 v5, 0x0
 
     move-object v0, p0
 
@@ -34,15 +31,11 @@
     .line 33
     iput p5, p0, Lcom/pdrogfer/mididroid/event/meta/SequenceNumber;->mNumber:I
 
-    .line 34
     return-void
 .end method
 
 .method public static parseSequenceNumber(JJLcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;)Lcom/pdrogfer/mididroid/event/meta/MetaEvent;
-    .locals 10
-    .param p0, "tick"    # J
-    .param p2, "delta"    # J
-    .param p4, "info"    # Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;
+    .locals 8
 
     .line 63
     iget-object v0, p4, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->length:Lcom/pdrogfer/mididroid/util/VariableLengthInt;
@@ -79,41 +72,34 @@
     aget-byte v0, v0, v1
 
     .line 69
-    .local v0, "msb":I
-    iget-object v1, p4, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->data:[B
+    iget-object p4, p4, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->data:[B
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    aget-byte v1, v1, v2
+    aget-byte p4, p4, v1
 
-    .line 70
-    .local v1, "lsb":I
-    shl-int/lit8 v2, v0, 0x8
+    shl-int/lit8 v0, v0, 0x8
 
-    add-int/2addr v2, v1
+    add-int v6, v0, p4
 
     .line 72
-    .local v2, "number":I
-    new-instance v9, Lcom/pdrogfer/mididroid/event/meta/SequenceNumber;
+    new-instance p4, Lcom/pdrogfer/mididroid/event/meta/SequenceNumber;
 
-    move-object v3, v9
+    move-object v1, p4
 
-    move-wide v4, p0
+    move-wide v2, p0
 
-    move-wide v6, p2
+    move-wide v4, p2
 
-    move v8, v2
+    invoke-direct/range {v1 .. v6}, Lcom/pdrogfer/mididroid/event/meta/SequenceNumber;-><init>(JJI)V
 
-    invoke-direct/range {v3 .. v8}, Lcom/pdrogfer/mididroid/event/meta/SequenceNumber;-><init>(JJI)V
-
-    return-object v9
+    return-object p4
 .end method
 
 
 # virtual methods
 .method public compareTo(Lcom/pdrogfer/mididroid/event/MidiEvent;)I
     .locals 7
-    .param p1, "other"    # Lcom/pdrogfer/mididroid/event/MidiEvent;
 
     .line 84
     iget-wide v0, p0, Lcom/pdrogfer/mididroid/event/meta/SequenceNumber;->mTick:J
@@ -137,9 +123,9 @@
 
     move-result-wide v5
 
-    cmp-long v0, v3, v5
+    cmp-long p1, v3, v5
 
-    if-gez v0, :cond_0
+    if-gez p1, :cond_0
 
     goto :goto_0
 
@@ -180,9 +166,9 @@
 
     move-result-wide v5
 
-    cmp-long v0, v3, v5
+    cmp-long p1, v3, v5
 
-    if-gez v0, :cond_2
+    if-gez p1, :cond_2
 
     move v1, v2
 
@@ -195,25 +181,20 @@
 
     if-nez v0, :cond_4
 
-    .line 95
     return v2
 
     .line 98
     :cond_4
-    move-object v0, p1
-
-    check-cast v0, Lcom/pdrogfer/mididroid/event/meta/SequenceNumber;
+    check-cast p1, Lcom/pdrogfer/mididroid/event/meta/SequenceNumber;
 
     .line 100
-    .local v0, "o":Lcom/pdrogfer/mididroid/event/meta/SequenceNumber;
-    iget v3, p0, Lcom/pdrogfer/mididroid/event/meta/SequenceNumber;->mNumber:I
+    iget v0, p0, Lcom/pdrogfer/mididroid/event/meta/SequenceNumber;->mNumber:I
 
-    iget v4, v0, Lcom/pdrogfer/mididroid/event/meta/SequenceNumber;->mNumber:I
+    iget p1, p1, Lcom/pdrogfer/mididroid/event/meta/SequenceNumber;->mNumber:I
 
-    if-eq v3, v4, :cond_6
+    if-eq v0, p1, :cond_6
 
-    .line 102
-    if-ge v3, v4, :cond_5
+    if-ge v0, p1, :cond_5
 
     goto :goto_1
 
@@ -223,11 +204,10 @@
     :goto_1
     return v1
 
-    .line 104
     :cond_6
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return v1
+    return p1
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
@@ -246,7 +226,6 @@
 .method protected getEventSize()I
     .locals 1
 
-    .line 78
     const/4 v0, 0x5
 
     return v0
@@ -285,7 +264,6 @@
 
 .method public writeToFile(Ljava/io/OutputStream;)V
     .locals 1
-    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -295,9 +273,9 @@
     .line 54
     invoke-super {p0, p1}, Lcom/pdrogfer/mididroid/event/meta/MetaEvent;->writeToFile(Ljava/io/OutputStream;)V
 
-    .line 56
     const/4 v0, 0x2
 
+    .line 56
     invoke-virtual {p1, v0}, Ljava/io/OutputStream;->write(I)V
 
     .line 57
@@ -314,6 +292,5 @@
 
     invoke-virtual {p1, v0}, Ljava/io/OutputStream;->write(I)V
 
-    .line 59
     return-void
 .end method

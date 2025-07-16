@@ -14,11 +14,6 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u0000\u001b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0008\n\u0002\u0008\u0005\n\u0002\u0010\u0002\n\u0002\u0008\u0004*\u0001\u0000\u0008\n\u0018\u00002\u00020\u0001J\u0010\u0010\u0008\u001a\u00020\t2\u0006\u0010\n\u001a\u00020\u0003H\u0016J\u0010\u0010\u000b\u001a\u00020\t2\u0006\u0010\u000c\u001a\u00020\u0003H\u0016R\u001a\u0010\u0002\u001a\u00020\u0003X\u0086\u000e\u00a2\u0006\u000e\n\u0000\u001a\u0004\u0008\u0004\u0010\u0005\"\u0004\u0008\u0006\u0010\u0007\u00a8\u0006\r"
     }
@@ -36,14 +31,15 @@
         "state",
         "onPageSelected",
         "position",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -54,19 +50,83 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$qnqA_nzedMh58WwGj0yYSjKK3ds(Lorg/catrobat/paintroid/WelcomeActivity;Lorg/catrobat/paintroid/tools/ToolType;Landroid/view/View;)V
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->onPageScrollStateChanged$lambda-0(Lorg/catrobat/paintroid/WelcomeActivity;Lorg/catrobat/paintroid/tools/ToolType;Landroid/view/View;)V
+
+    return-void
+.end method
+
 .method constructor <init>(Lorg/catrobat/paintroid/WelcomeActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lorg/catrobat/paintroid/WelcomeActivity;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
 
-    .line 61
     iput-object p1, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
 
+    .line 61
     invoke-direct {p0}, Landroidx/viewpager/widget/ViewPager$SimpleOnPageChangeListener;-><init>()V
+
+    return-void
+.end method
+
+.method private static final onPageScrollStateChanged$lambda-0(Lorg/catrobat/paintroid/WelcomeActivity;Lorg/catrobat/paintroid/tools/ToolType;Landroid/view/View;)V
+    .locals 1
+
+    const-string p2, "this$0"
+
+    invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string p2, "$type"
+
+    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 94
+    sget p2, Lorg/catrobat/paintroid/R$id;->pocketpaint_textview_intro_tools_header:I
+
+    invoke-virtual {p0, p2}, Lorg/catrobat/paintroid/WelcomeActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object p2
+
+    check-cast p2, Landroidx/appcompat/widget/AppCompatTextView;
+
+    .line 95
+    invoke-virtual {p1}, Lorg/catrobat/paintroid/tools/ToolType;->getNameResource()I
+
+    move-result v0
+
+    invoke-virtual {p2, v0}, Landroidx/appcompat/widget/AppCompatTextView;->setText(I)V
+
+    .line 97
+    sget p2, Lorg/catrobat/paintroid/R$id;->pocketpaint_tools_info_description:I
+
+    invoke-virtual {p0, p2}, Lorg/catrobat/paintroid/WelcomeActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object p2
+
+    check-cast p2, Landroidx/appcompat/widget/AppCompatTextView;
+
+    .line 98
+    invoke-virtual {p1}, Lorg/catrobat/paintroid/tools/ToolType;->getHelpTextResource()I
+
+    move-result v0
+
+    invoke-virtual {p2, v0}, Landroidx/appcompat/widget/AppCompatTextView;->setText(I)V
+
+    .line 100
+    sget p2, Lorg/catrobat/paintroid/R$id;->pocketpaint_tools_info_icon:I
+
+    invoke-virtual {p0, p2}, Lorg/catrobat/paintroid/WelcomeActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object p0
+
+    check-cast p0, Landroidx/appcompat/widget/AppCompatImageView;
+
+    .line 101
+    invoke-virtual {p1}, Lorg/catrobat/paintroid/tools/ToolType;->getDrawableResource()I
+
+    move-result p1
+
+    invoke-virtual {p0, p1}, Landroidx/appcompat/widget/AppCompatImageView;->setImageResource(I)V
 
     return-void
 .end method
@@ -84,171 +144,143 @@
 
 .method public onPageScrollStateChanged(I)V
     .locals 7
-    .param p1, "state"    # I
 
     .line 78
     invoke-super {p0, p1}, Landroidx/viewpager/widget/ViewPager$SimpleOnPageChangeListener;->onPageScrollStateChanged(I)V
 
-    .line 79
     if-nez p1, :cond_2
 
     .line 80
     invoke-static {}, Lorg/catrobat/paintroid/tools/ToolType;->values()[Lorg/catrobat/paintroid/tools/ToolType;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 81
-    .local v0, "toolTypes":[Lorg/catrobat/paintroid/tools/ToolType;
-    iget-object v1, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
+    iget-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
 
-    invoke-virtual {v1}, Lorg/catrobat/paintroid/WelcomeActivity;->getLayouts()[I
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/WelcomeActivity;->getLayouts()[I
 
-    move-result-object v1
+    move-result-object v0
 
-    iget v2, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->pos:I
+    iget v1, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->pos:I
 
-    aget v1, v1, v2
+    aget v0, v0, v1
 
-    sget v2, Lorg/catrobat/paintroid/R$layout;->pocketpaint_slide_intro_possibilities:I
+    sget v1, Lorg/catrobat/paintroid/R$layout;->pocketpaint_slide_intro_possibilities:I
 
-    if-ne v1, v2, :cond_0
-
-    .line 82
-    nop
+    if-ne v0, v1, :cond_0
 
     .line 83
-    iget-object v1, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
+    iget-object p1, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
 
-    sget v2, Lorg/catrobat/paintroid/R$id;->pocketpaint_intro_possibilities_head:I
+    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_intro_possibilities_head:I
 
-    invoke-virtual {v1, v2}, Lorg/catrobat/paintroid/WelcomeActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v0}, Lorg/catrobat/paintroid/WelcomeActivity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "findViewById(R.id.pocket\u2026intro_possibilities_head)"
+    const-string v0, "findViewById(R.id.pocket\u2026intro_possibilities_head)"
 
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 82
-    check-cast v1, Landroidx/appcompat/widget/AppCompatTextView;
-
-    .line 84
-    .local v1, "head":Landroidx/appcompat/widget/AppCompatTextView;
-    nop
+    check-cast p1, Landroidx/appcompat/widget/AppCompatTextView;
 
     .line 85
-    iget-object v2, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
+    iget-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
 
-    sget v3, Lorg/catrobat/paintroid/R$id;->pocketpaint_intro_possibilities_text:I
+    sget v1, Lorg/catrobat/paintroid/R$id;->pocketpaint_intro_possibilities_text:I
 
-    invoke-virtual {v2, v3}, Lorg/catrobat/paintroid/WelcomeActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Lorg/catrobat/paintroid/WelcomeActivity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v0
 
-    const-string v3, "findViewById(R.id.pocket\u2026intro_possibilities_text)"
+    const-string v1, "findViewById(R.id.pocket\u2026intro_possibilities_text)"
 
-    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 84
-    check-cast v2, Landroidx/appcompat/widget/AppCompatTextView;
+    check-cast v0, Landroidx/appcompat/widget/AppCompatTextView;
 
     .line 86
-    .local v2, "description":Landroidx/appcompat/widget/AppCompatTextView;
-    iget-object v3, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
+    iget-object v1, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
 
-    invoke-static {v3, v1, v2}, Lorg/catrobat/paintroid/WelcomeActivity;->access$setUpUndoAndRedoButtons(Lorg/catrobat/paintroid/WelcomeActivity;Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;)V
+    invoke-static {v1, p1, v0}, Lorg/catrobat/paintroid/WelcomeActivity;->access$setUpUndoAndRedoButtons(Lorg/catrobat/paintroid/WelcomeActivity;Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;)V
 
     .line 87
-    iget-object v3, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
+    iget-object v1, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
 
-    invoke-static {v3, v1, v2}, Lorg/catrobat/paintroid/WelcomeActivity;->access$setUpNavigationView(Lorg/catrobat/paintroid/WelcomeActivity;Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;)V
+    invoke-static {v1, p1, v0}, Lorg/catrobat/paintroid/WelcomeActivity;->access$setUpNavigationView(Lorg/catrobat/paintroid/WelcomeActivity;Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;)V
 
-    .end local v1    # "head":Landroidx/appcompat/widget/AppCompatTextView;
-    .end local v2    # "description":Landroidx/appcompat/widget/AppCompatTextView;
     goto :goto_1
 
     .line 88
     :cond_0
-    iget-object v1, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
+    iget-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
 
-    invoke-virtual {v1}, Lorg/catrobat/paintroid/WelcomeActivity;->getLayouts()[I
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/WelcomeActivity;->getLayouts()[I
 
-    move-result-object v1
+    move-result-object v0
 
-    iget v2, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->pos:I
+    iget v1, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->pos:I
 
-    aget v1, v1, v2
+    aget v0, v0, v1
 
-    sget v2, Lorg/catrobat/paintroid/R$layout;->pocketpaint_slide_intro_tools_selection:I
+    sget v1, Lorg/catrobat/paintroid/R$layout;->pocketpaint_slide_intro_tools_selection:I
 
-    if-ne v1, v2, :cond_2
+    if-ne v0, v1, :cond_2
 
     .line 89
-    iget-object v1, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
+    iget-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
 
-    sget v2, Lorg/catrobat/paintroid/R$id;->pocketpaint_intro_bottom_bar:I
+    sget v1, Lorg/catrobat/paintroid/R$id;->pocketpaint_intro_bottom_bar:I
 
-    invoke-virtual {v1, v2}, Lorg/catrobat/paintroid/WelcomeActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Lorg/catrobat/paintroid/WelcomeActivity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 90
-    .local v1, "view":Landroid/view/View;
-    array-length v2, v0
+    array-length v1, p1
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v3, v2, :cond_2
+    if-ge v2, v1, :cond_2
 
-    aget-object v4, v0, v3
+    aget-object v3, p1, v2
+
+    add-int/lit8 v2, v2, 0x1
 
     .line 91
-    .local v4, "type":Lorg/catrobat/paintroid/tools/ToolType;
-    invoke-virtual {v4}, Lorg/catrobat/paintroid/tools/ToolType;->getToolButtonID()I
+    invoke-virtual {v3}, Lorg/catrobat/paintroid/tools/ToolType;->getToolButtonID()I
 
-    move-result v5
+    move-result v4
 
-    invoke-virtual {v1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v4
 
-    if-eqz v5, :cond_1
-
-    .line 92
-    .local v5, "toolButton":Landroid/view/View;
-    new-instance v6, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1$onPageScrollStateChanged$1;
-
-    invoke-direct {v6, p0, v4}, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1$onPageScrollStateChanged$1;-><init>(Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;Lorg/catrobat/paintroid/tools/ToolType;)V
-
-    check-cast v6, Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v5, v6}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 90
-    .end local v5    # "toolButton":Landroid/view/View;
-    :cond_1
-    nop
-
-    .end local v4    # "type":Lorg/catrobat/paintroid/tools/ToolType;
-    add-int/lit8 v3, v3, 0x1
+    if-nez v4, :cond_1
 
     goto :goto_0
 
-    .line 104
-    .end local v0    # "toolTypes":[Lorg/catrobat/paintroid/tools/ToolType;
-    .end local v1    # "view":Landroid/view/View;
+    .line 92
+    :cond_1
+    iget-object v5, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
+
+    new-instance v6, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1$$ExternalSyntheticLambda0;
+
+    invoke-direct {v6, v5, v3}, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1$$ExternalSyntheticLambda0;-><init>(Lorg/catrobat/paintroid/WelcomeActivity;Lorg/catrobat/paintroid/tools/ToolType;)V
+
+    invoke-virtual {v4, v6}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    goto :goto_0
+
     :cond_2
     :goto_1
-    nop
-
-    .line 106
     return-void
 .end method
 
 .method public onPageSelected(I)V
-    .locals 2
-    .param p1, "position"    # I
+    .locals 4
 
     .line 65
     invoke-super {p0, p1}, Landroidx/viewpager/widget/ViewPager$SimpleOnPageChangeListener;->onPageSelected(I)V
@@ -266,78 +298,113 @@
 
     invoke-static {v0, p1}, Lorg/catrobat/paintroid/WelcomeActivity;->access$getDotsIndex(Lorg/catrobat/paintroid/WelcomeActivity;I)I
 
-    move-result v0
+    move-result p1
 
-    iget-object v1, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
+    iget-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
 
-    invoke-virtual {v1}, Lorg/catrobat/paintroid/WelcomeActivity;->getLayouts()[I
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/WelcomeActivity;->getLayouts()[I
 
-    move-result-object v1
+    move-result-object v0
 
-    array-length v1, v1
+    array-length v0, v0
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    if-ne v0, v1, :cond_0
+    const-string v1, "btnSkip"
+
+    const-string v2, "btnNext"
+
+    const/4 v3, 0x0
+
+    if-ne p1, v0, :cond_2
 
     .line 69
-    iget-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
+    iget-object p1, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
 
-    invoke-static {v0}, Lorg/catrobat/paintroid/WelcomeActivity;->access$getBtnNext$p(Lorg/catrobat/paintroid/WelcomeActivity;)Landroidx/appcompat/widget/AppCompatButton;
+    invoke-static {p1}, Lorg/catrobat/paintroid/WelcomeActivity;->access$getBtnNext$p(Lorg/catrobat/paintroid/WelcomeActivity;)Landroidx/appcompat/widget/AppCompatButton;
 
-    move-result-object v0
+    move-result-object p1
 
-    sget v1, Lorg/catrobat/paintroid/R$string;->lets_go:I
+    if-nez p1, :cond_0
 
-    invoke-virtual {v0, v1}, Landroidx/appcompat/widget/AppCompatButton;->setText(I)V
+    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    move-object p1, v3
+
+    :cond_0
+    sget v0, Lorg/catrobat/paintroid/R$string;->lets_go:I
+
+    invoke-virtual {p1, v0}, Landroidx/appcompat/widget/AppCompatButton;->setText(I)V
 
     .line 70
-    iget-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
+    iget-object p1, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
 
-    invoke-static {v0}, Lorg/catrobat/paintroid/WelcomeActivity;->access$getBtnSkip$p(Lorg/catrobat/paintroid/WelcomeActivity;)Landroidx/appcompat/widget/AppCompatButton;
+    invoke-static {p1}, Lorg/catrobat/paintroid/WelcomeActivity;->access$getBtnSkip$p(Lorg/catrobat/paintroid/WelcomeActivity;)Landroidx/appcompat/widget/AppCompatButton;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/16 v1, 0x8
+    if-nez p1, :cond_1
 
-    invoke-virtual {v0, v1}, Landroidx/appcompat/widget/AppCompatButton;->setVisibility(I)V
+    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
     goto :goto_0
 
+    :cond_1
+    move-object v3, p1
+
+    :goto_0
+    const/16 p1, 0x8
+
+    invoke-virtual {v3, p1}, Landroidx/appcompat/widget/AppCompatButton;->setVisibility(I)V
+
+    goto :goto_2
+
     .line 72
-    :cond_0
-    iget-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
+    :cond_2
+    iget-object p1, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
 
-    invoke-static {v0}, Lorg/catrobat/paintroid/WelcomeActivity;->access$getBtnNext$p(Lorg/catrobat/paintroid/WelcomeActivity;)Landroidx/appcompat/widget/AppCompatButton;
+    invoke-static {p1}, Lorg/catrobat/paintroid/WelcomeActivity;->access$getBtnNext$p(Lorg/catrobat/paintroid/WelcomeActivity;)Landroidx/appcompat/widget/AppCompatButton;
 
-    move-result-object v0
+    move-result-object p1
 
-    sget v1, Lorg/catrobat/paintroid/R$string;->next:I
+    if-nez p1, :cond_3
 
-    invoke-virtual {v0, v1}, Landroidx/appcompat/widget/AppCompatButton;->setText(I)V
+    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    move-object p1, v3
+
+    :cond_3
+    sget v0, Lorg/catrobat/paintroid/R$string;->next:I
+
+    invoke-virtual {p1, v0}, Landroidx/appcompat/widget/AppCompatButton;->setText(I)V
 
     .line 73
-    iget-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
+    iget-object p1, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->this$0:Lorg/catrobat/paintroid/WelcomeActivity;
 
-    invoke-static {v0}, Lorg/catrobat/paintroid/WelcomeActivity;->access$getBtnSkip$p(Lorg/catrobat/paintroid/WelcomeActivity;)Landroidx/appcompat/widget/AppCompatButton;
+    invoke-static {p1}, Lorg/catrobat/paintroid/WelcomeActivity;->access$getBtnSkip$p(Lorg/catrobat/paintroid/WelcomeActivity;)Landroidx/appcompat/widget/AppCompatButton;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, 0x0
+    if-nez p1, :cond_4
 
-    invoke-virtual {v0, v1}, Landroidx/appcompat/widget/AppCompatButton;->setVisibility(I)V
+    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    .line 74
-    :goto_0
-    nop
+    goto :goto_1
 
-    .line 75
+    :cond_4
+    move-object v3, p1
+
+    :goto_1
+    const/4 p1, 0x0
+
+    invoke-virtual {v3, p1}, Landroidx/appcompat/widget/AppCompatButton;->setVisibility(I)V
+
+    :goto_2
     return-void
 .end method
 
 .method public final setPos(I)V
     .locals 0
-    .param p1, "<set-?>"    # I
 
     .line 62
     iput p1, p0, Lorg/catrobat/paintroid/WelcomeActivity$viewPagerPageChangeListener$1;->pos:I

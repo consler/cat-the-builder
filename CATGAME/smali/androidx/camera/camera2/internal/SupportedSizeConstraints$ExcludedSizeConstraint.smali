@@ -24,7 +24,6 @@
     .line 143
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 144
     return-void
 .end method
 
@@ -47,9 +46,6 @@
     .end annotation
 
     .line 149
-    .local p0, "affectedFormats":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Integer;>;"
-    .local p1, "affectedApiLevels":Landroid/util/Range;, "Landroid/util/Range<Ljava/lang/Integer;>;"
-    .local p2, "exclusedSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
     new-instance v0, Landroidx/camera/camera2/internal/AutoValue_SupportedSizeConstraints_ExcludedSizeConstraint;
 
     invoke-direct {v0, p0, p1, p2}, Landroidx/camera/camera2/internal/AutoValue_SupportedSizeConstraints_ExcludedSizeConstraint;-><init>(Ljava/util/Set;Landroid/util/Range;Ljava/util/List;)V

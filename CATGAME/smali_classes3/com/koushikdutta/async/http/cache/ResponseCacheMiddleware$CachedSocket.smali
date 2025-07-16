@@ -30,8 +30,6 @@
 # direct methods
 .method public constructor <init>(Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware;Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$EntryCacheResponse;J)V
     .locals 0
-    .param p2, "cacheResponse"    # Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$EntryCacheResponse;
-    .param p3, "contentLength"    # J
 
     .line 742
     iput-object p1, p0, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$CachedSocket;->this$0:Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware;
@@ -39,12 +37,11 @@
     .line 743
     invoke-direct {p0, p2, p3, p4}, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$CachedBodyEmitter;-><init>(Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$EntryCacheResponse;J)V
 
-    .line 744
     const/4 p1, 0x1
 
+    .line 744
     iput-boolean p1, p0, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$CachedSocket;->allowEnd:Z
 
-    .line 745
     return-void
 .end method
 
@@ -53,19 +50,17 @@
 .method public close()V
     .locals 1
 
-    .line 783
     const/4 v0, 0x0
 
+    .line 783
     iput-boolean v0, p0, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$CachedSocket;->open:Z
 
-    .line 784
     return-void
 .end method
 
 .method public end()V
     .locals 0
 
-    .line 749
     return-void
 .end method
 
@@ -94,7 +89,6 @@
 .method public getWriteableCallback()Lcom/koushikdutta/async/callback/WritableCallback;
     .locals 1
 
-    .line 769
     const/4 v0, 0x0
 
     return-object v0
@@ -111,7 +105,6 @@
 
 .method protected report(Ljava/lang/Exception;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Exception;
 
     .line 753
     invoke-super {p0, p1}, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$CachedBodyEmitter;->report(Ljava/lang/Exception;)V
@@ -121,13 +114,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 755
     return-void
 
-    .line 756
     :cond_0
     const/4 v0, 0x1
 
+    .line 756
     iput-boolean v0, p0, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$CachedSocket;->closed:Z
 
     .line 757
@@ -138,37 +130,30 @@
     .line 758
     invoke-interface {v0, p1}, Lcom/koushikdutta/async/callback/CompletedCallback;->onCompleted(Ljava/lang/Exception;)V
 
-    .line 759
     :cond_1
     return-void
 .end method
 
 .method public setClosedCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
     .locals 0
-    .param p1, "handler"    # Lcom/koushikdutta/async/callback/CompletedCallback;
 
     .line 793
     iput-object p1, p0, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$CachedSocket;->closedCallback:Lcom/koushikdutta/async/callback/CompletedCallback;
 
-    .line 794
     return-void
 .end method
 
 .method public setWriteableCallback(Lcom/koushikdutta/async/callback/WritableCallback;)V
     .locals 0
-    .param p1, "handler"    # Lcom/koushikdutta/async/callback/WritableCallback;
 
-    .line 774
     return-void
 .end method
 
 .method public write(Lcom/koushikdutta/async/ByteBufferList;)V
     .locals 0
-    .param p1, "bb"    # Lcom/koushikdutta/async/ByteBufferList;
 
     .line 764
     invoke-virtual {p1}, Lcom/koushikdutta/async/ByteBufferList;->recycle()V
 
-    .line 765
     return-void
 .end method

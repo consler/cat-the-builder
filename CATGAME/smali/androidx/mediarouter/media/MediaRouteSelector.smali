@@ -53,7 +53,6 @@
 
 .method constructor <init>(Landroid/os/Bundle;Ljava/util/List;)V
     .locals 0
-    .param p1, "bundle"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,7 +64,6 @@
     .end annotation
 
     .line 58
-    .local p2, "controlCategories":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 59
@@ -74,19 +72,17 @@
     .line 60
     iput-object p2, p0, Landroidx/mediarouter/media/MediaRouteSelector;->mControlCategories:Ljava/util/List;
 
-    .line 61
     return-void
 .end method
 
 .method public static fromBundle(Landroid/os/Bundle;)Landroidx/mediarouter/media/MediaRouteSelector;
     .locals 2
-    .param p0, "bundle"    # Landroid/os/Bundle;
 
-    .line 207
     const/4 v0, 0x0
 
     if-eqz p0, :cond_0
 
+    .line 207
     new-instance v1, Landroidx/mediarouter/media/MediaRouteSelector;
 
     invoke-direct {v1, p0, v0}, Landroidx/mediarouter/media/MediaRouteSelector;-><init>(Landroid/os/Bundle;Ljava/util/List;)V
@@ -109,10 +105,8 @@
 .end method
 
 .method public contains(Landroidx/mediarouter/media/MediaRouteSelector;)Z
-    .locals 2
-    .param p1, "selector"    # Landroidx/mediarouter/media/MediaRouteSelector;
+    .locals 1
 
-    .line 137
     if-eqz p1, :cond_0
 
     .line 138
@@ -124,19 +118,18 @@
     .line 140
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteSelector;->mControlCategories:Ljava/util/List;
 
-    iget-object v1, p1, Landroidx/mediarouter/media/MediaRouteSelector;->mControlCategories:Ljava/util/List;
+    iget-object p1, p1, Landroidx/mediarouter/media/MediaRouteSelector;->mControlCategories:Ljava/util/List;
 
-    invoke-interface {v0, v1}, Ljava/util/List;->containsAll(Ljava/util/Collection;)Z
+    invoke-interface {v0, p1}, Ljava/util/List;->containsAll(Ljava/util/Collection;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
-    .line 142
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method ensureControlCategories()V
@@ -158,9 +151,9 @@
 
     iput-object v0, p0, Landroidx/mediarouter/media/MediaRouteSelector;->mControlCategories:Ljava/util/List;
 
-    .line 76
     if-eqz v0, :cond_0
 
+    .line 76
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
@@ -175,14 +168,12 @@
 
     iput-object v0, p0, Landroidx/mediarouter/media/MediaRouteSelector;->mControlCategories:Ljava/util/List;
 
-    .line 80
     :cond_1
     return-void
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 1
 
     .line 166
     instance-of v0, p1, Landroidx/mediarouter/media/MediaRouteSelector;
@@ -190,34 +181,29 @@
     if-eqz v0, :cond_0
 
     .line 167
-    move-object v0, p1
-
-    check-cast v0, Landroidx/mediarouter/media/MediaRouteSelector;
+    check-cast p1, Landroidx/mediarouter/media/MediaRouteSelector;
 
     .line 168
-    .local v0, "other":Landroidx/mediarouter/media/MediaRouteSelector;
     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteSelector;->ensureControlCategories()V
 
     .line 169
-    invoke-virtual {v0}, Landroidx/mediarouter/media/MediaRouteSelector;->ensureControlCategories()V
+    invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouteSelector;->ensureControlCategories()V
 
     .line 170
-    iget-object v1, p0, Landroidx/mediarouter/media/MediaRouteSelector;->mControlCategories:Ljava/util/List;
+    iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteSelector;->mControlCategories:Ljava/util/List;
 
-    iget-object v2, v0, Landroidx/mediarouter/media/MediaRouteSelector;->mControlCategories:Ljava/util/List;
+    iget-object p1, p1, Landroidx/mediarouter/media/MediaRouteSelector;->mControlCategories:Ljava/util/List;
 
-    invoke-interface {v1, v2}, Ljava/util/List;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Ljava/util/List;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 
-    .line 172
-    .end local v0    # "other":Landroidx/mediarouter/media/MediaRouteSelector;
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public getControlCategories()Ljava/util/List;
@@ -241,62 +227,52 @@
 .end method
 
 .method public hasControlCategory(Ljava/lang/String;)Z
-    .locals 3
-    .param p1, "category"    # Ljava/lang/String;
+    .locals 4
 
-    .line 89
+    const/4 v0, 0x0
+
     if-eqz p1, :cond_1
 
     .line 90
     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteSelector;->ensureControlCategories()V
 
     .line 91
-    iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteSelector;->mControlCategories:Ljava/util/List;
+    iget-object v1, p0, Landroidx/mediarouter/media/MediaRouteSelector;->mControlCategories:Ljava/util/List;
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-interface {v1}, Ljava/util/List;->size()I
 
-    move-result v0
+    move-result v1
 
-    .line 92
-    .local v0, "categoryCount":I
-    const/4 v1, 0x0
+    move v2, v0
 
-    .local v1, "i":I
     :goto_0
-    if-ge v1, v0, :cond_1
+    if-ge v2, v1, :cond_1
 
     .line 93
-    iget-object v2, p0, Landroidx/mediarouter/media/MediaRouteSelector;->mControlCategories:Ljava/util/List;
+    iget-object v3, p0, Landroidx/mediarouter/media/MediaRouteSelector;->mControlCategories:Ljava/util/List;
 
-    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v3, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Ljava/lang/String;
+    check-cast v3, Ljava/lang/String;
 
-    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
-    .line 94
-    const/4 v2, 0x1
+    const/4 p1, 0x1
 
-    return v2
+    return p1
 
-    .line 92
     :cond_0
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 98
-    .end local v0    # "categoryCount":I
-    .end local v1    # "i":I
     :cond_1
-    const/4 v0, 0x0
-
     return v0
 .end method
 
@@ -349,12 +325,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 159
     const/4 v0, 0x0
 
     return v0
 
-    .line 161
     :cond_0
     const/4 v0, 0x1
 
@@ -362,7 +336,7 @@
 .end method
 
 .method public matchesControlFilters(Ljava/util/List;)Z
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -372,96 +346,76 @@
         }
     .end annotation
 
-    .line 108
-    .local p1, "filters":Ljava/util/List;, "Ljava/util/List<Landroid/content/IntentFilter;>;"
+    const/4 v0, 0x0
+
     if-eqz p1, :cond_2
 
     .line 109
     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteSelector;->ensureControlCategories()V
 
     .line 110
-    iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteSelector;->mControlCategories:Ljava/util/List;
+    iget-object v1, p0, Landroidx/mediarouter/media/MediaRouteSelector;->mControlCategories:Ljava/util/List;
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-interface {v1}, Ljava/util/List;->size()I
 
-    move-result v0
+    move-result v1
 
-    .line 111
-    .local v0, "categoryCount":I
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
     .line 112
     invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v1
+    move-result v2
 
-    .line 113
-    .local v1, "filterCount":I
-    const/4 v2, 0x0
+    move v3, v0
 
-    .local v2, "i":I
     :goto_0
-    if-ge v2, v1, :cond_2
+    if-ge v3, v2, :cond_2
 
     .line 114
-    invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Landroid/content/IntentFilter;
+    check-cast v4, Landroid/content/IntentFilter;
 
-    .line 115
-    .local v3, "filter":Landroid/content/IntentFilter;
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_1
 
-    .line 116
-    const/4 v4, 0x0
+    move v5, v0
 
-    .local v4, "j":I
     :goto_1
-    if-ge v4, v0, :cond_1
+    if-ge v5, v1, :cond_1
 
     .line 117
-    iget-object v5, p0, Landroidx/mediarouter/media/MediaRouteSelector;->mControlCategories:Ljava/util/List;
+    iget-object v6, p0, Landroidx/mediarouter/media/MediaRouteSelector;->mControlCategories:Ljava/util/List;
 
-    invoke-interface {v5, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v6, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v6
 
-    check-cast v5, Ljava/lang/String;
+    check-cast v6, Ljava/lang/String;
 
-    invoke-virtual {v3, v5}, Landroid/content/IntentFilter;->hasCategory(Ljava/lang/String;)Z
+    invoke-virtual {v4, v6}, Landroid/content/IntentFilter;->hasCategory(Ljava/lang/String;)Z
 
-    move-result v5
+    move-result v6
 
-    if-eqz v5, :cond_0
+    if-eqz v6, :cond_0
 
-    .line 118
-    const/4 v5, 0x1
+    const/4 p1, 0x1
 
-    return v5
+    return p1
 
-    .line 116
     :cond_0
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_1
 
-    .line 113
-    .end local v3    # "filter":Landroid/content/IntentFilter;
-    .end local v4    # "j":I
     :cond_1
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 125
-    .end local v0    # "categoryCount":I
-    .end local v1    # "filterCount":I
-    .end local v2    # "i":I
     :cond_2
-    const/4 v0, 0x0
-
     return v0
 .end method
 
@@ -471,18 +425,9 @@
     .line 183
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "MediaRouteSelector{ controlCategories="
 
-    .line 184
-    .local v0, "result":Ljava/lang/StringBuilder;
-    const-string v1, "MediaRouteSelector{ "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 185
-    const-string v1, "controlCategories="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 186
     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteSelector;->getControlCategories()Ljava/util/List;
@@ -500,15 +445,15 @@
     .line 185
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 187
     const-string v1, " }"
 
+    .line 187
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 188
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method

@@ -23,8 +23,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Class;Lcom/esotericsoftware/kryo/SerializerFactory;)V
     .locals 0
-    .param p1, "type"    # Ljava/lang/Class;
-    .param p2, "serializerFactory"    # Lcom/esotericsoftware/kryo/SerializerFactory;
 
     .line 1297
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,6 +33,5 @@
     .line 1299
     iput-object p2, p0, Lcom/esotericsoftware/kryo/Kryo$DefaultSerializerEntry;->serializerFactory:Lcom/esotericsoftware/kryo/SerializerFactory;
 
-    .line 1300
     return-void
 .end method

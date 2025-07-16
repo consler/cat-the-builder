@@ -39,9 +39,6 @@
 # direct methods
 .method public static final module(ZZLkotlin/jvm/functions/Function1;)Lorg/koin/core/module/Module;
     .locals 1
-    .param p0, "createdAtStart"    # Z
-    .param p1, "override"    # Z
-    .param p2, "moduleDeclaration"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZZ",
@@ -64,10 +61,8 @@
     invoke-direct {v0, p0, p1}, Lorg/koin/core/module/Module;-><init>(ZZ)V
 
     .line 31
-    .local v0, "module":Lorg/koin/core/module/Module;
     invoke-interface {p2, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 32
     return-object v0
 .end method
 
@@ -80,7 +75,6 @@
 
     if-eqz p4, :cond_0
 
-    .line 29
     move p0, v0
 
     :cond_0
@@ -90,6 +84,7 @@
 
     move p1, v0
 
+    .line 29
     :cond_1
     invoke-static {p0, p1, p2}, Lorg/koin/dsl/ModuleKt;->module(ZZLkotlin/jvm/functions/Function1;)Lorg/koin/core/module/Module;
 

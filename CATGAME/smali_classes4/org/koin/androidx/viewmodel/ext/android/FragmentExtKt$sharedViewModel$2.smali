@@ -88,7 +88,7 @@
         }
     .end annotation
 
-    .line 43
+    .line 45
     iget-object v0, p0, Lorg/koin/androidx/viewmodel/ext/android/FragmentExtKt$sharedViewModel$2;->$this_sharedViewModel:Landroidx/fragment/app/Fragment;
 
     iget-object v1, p0, Lorg/koin/androidx/viewmodel/ext/android/FragmentExtKt$sharedViewModel$2;->$clazz:Lkotlin/reflect/KClass;

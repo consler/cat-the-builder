@@ -19,25 +19,23 @@
 
 # virtual methods
 .method public decode(Ljava/lang/String;)[B
-    .locals 1
-    .param p1, "base64"    # Ljava/lang/String;
+    .locals 0
 
     .line 28
     invoke-static {p1}, Ljavax/xml/bind/DatatypeConverter;->parseBase64Binary(Ljava/lang/String;)[B
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public encode([B)Ljava/lang/String;
-    .locals 1
-    .param p1, "data"    # [B
+    .locals 0
 
     .line 33
     invoke-static {p1}, Ljavax/xml/bind/DatatypeConverter;->printBase64Binary([B)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

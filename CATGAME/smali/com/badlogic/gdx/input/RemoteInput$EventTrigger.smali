@@ -28,9 +28,6 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/input/RemoteInput;Lcom/badlogic/gdx/input/RemoteInput$TouchEvent;Lcom/badlogic/gdx/input/RemoteInput$KeyEvent;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/input/RemoteInput;
-    .param p2, "touchEvent"    # Lcom/badlogic/gdx/input/RemoteInput$TouchEvent;
-    .param p3, "keyEvent"    # Lcom/badlogic/gdx/input/RemoteInput$KeyEvent;
 
     .line 83
     iput-object p1, p0, Lcom/badlogic/gdx/input/RemoteInput$EventTrigger;->this$0:Lcom/badlogic/gdx/input/RemoteInput;
@@ -43,7 +40,6 @@
     .line 85
     iput-object p3, p0, Lcom/badlogic/gdx/input/RemoteInput$EventTrigger;->keyEvent:Lcom/badlogic/gdx/input/RemoteInput$KeyEvent;
 
-    .line 86
     return-void
 .end method
 
@@ -71,10 +67,9 @@
 
     iput-boolean v1, v0, Lcom/badlogic/gdx/input/RemoteInput;->keyJustPressed:Z
 
-    .line 93
-    const/4 v0, 0x0
+    move v0, v1
 
-    .local v0, "i":I
+    .line 93
     :goto_0
     iget-object v2, p0, Lcom/badlogic/gdx/input/RemoteInput$EventTrigger;->this$0:Lcom/badlogic/gdx/input/RemoteInput;
 
@@ -91,13 +86,11 @@
 
     aput-boolean v1, v2, v0
 
-    .line 93
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 98
-    .end local v0    # "i":I
     :cond_0
     iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteInput$EventTrigger;->this$0:Lcom/badlogic/gdx/input/RemoteInput;
 
@@ -107,7 +100,7 @@
 
     const/4 v3, 0x1
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_9
 
     .line 99
     iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteInput$EventTrigger;->touchEvent:Lcom/badlogic/gdx/input/RemoteInput$TouchEvent;
@@ -254,7 +247,6 @@
 
     aput-boolean v1, v0, v4
 
-    .line 113
     goto :goto_1
 
     .line 102
@@ -315,9 +307,6 @@
 
     iput-boolean v3, v0, Lcom/badlogic/gdx/input/RemoteInput;->justTouched:Z
 
-    .line 107
-    nop
-
     .line 120
     :goto_1
     iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteInput$EventTrigger;->this$0:Lcom/badlogic/gdx/input/RemoteInput;
@@ -353,7 +342,7 @@
     :cond_4
     iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteInput$EventTrigger;->keyEvent:Lcom/badlogic/gdx/input/RemoteInput$KeyEvent;
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_10
 
     .line 124
     iget v0, v0, Lcom/badlogic/gdx/input/RemoteInput$KeyEvent;->type:I
@@ -364,7 +353,7 @@
 
     if-eq v0, v2, :cond_5
 
-    goto :goto_2
+    goto/16 :goto_3
 
     .line 142
     :cond_5
@@ -378,7 +367,7 @@
 
     invoke-interface {v0, v1}, Lcom/badlogic/gdx/InputProcessor;->keyTyped(C)Z
 
-    goto :goto_2
+    goto/16 :goto_3
 
     .line 135
     :cond_6
@@ -403,7 +392,7 @@
 
     aget-boolean v0, v0, v2
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_10
 
     .line 137
     iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteInput$EventTrigger;->this$0:Lcom/badlogic/gdx/input/RemoteInput;
@@ -425,7 +414,7 @@
 
     aput-boolean v1, v0, v2
 
-    goto :goto_2
+    goto/16 :goto_3
 
     .line 126
     :cond_7
@@ -489,33 +478,27 @@
 
     aput-boolean v3, v0, v1
 
-    .line 133
-    nop
-
-    .line 143
-    :cond_9
-    :goto_2
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     .line 147
-    :cond_a
+    :cond_9
     iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteInput$EventTrigger;->touchEvent:Lcom/badlogic/gdx/input/RemoteInput$TouchEvent;
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_d
 
     .line 148
     iget v0, v0, Lcom/badlogic/gdx/input/RemoteInput$TouchEvent;->type:I
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_c
 
-    if-eq v0, v3, :cond_c
+    if-eq v0, v3, :cond_b
 
-    if-eq v0, v2, :cond_b
+    if-eq v0, v2, :cond_a
 
-    goto :goto_3
+    goto :goto_2
 
     .line 161
-    :cond_b
+    :cond_a
     iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteInput$EventTrigger;->this$0:Lcom/badlogic/gdx/input/RemoteInput;
 
     iget-object v0, v0, Lcom/badlogic/gdx/input/RemoteInput;->deltaX:[I
@@ -569,10 +552,10 @@
 
     aput v4, v0, v2
 
-    goto :goto_3
+    goto :goto_2
 
     .line 156
-    :cond_c
+    :cond_b
     iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteInput$EventTrigger;->this$0:Lcom/badlogic/gdx/input/RemoteInput;
 
     iget-object v0, v0, Lcom/badlogic/gdx/input/RemoteInput;->deltaX:[I
@@ -605,11 +588,10 @@
 
     aput-boolean v1, v0, v2
 
-    .line 159
-    goto :goto_3
+    goto :goto_2
 
     .line 150
-    :cond_d
+    :cond_c
     iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteInput$EventTrigger;->this$0:Lcom/badlogic/gdx/input/RemoteInput;
 
     iget-object v0, v0, Lcom/badlogic/gdx/input/RemoteInput;->deltaX:[I
@@ -647,11 +629,8 @@
 
     iput-boolean v3, v0, Lcom/badlogic/gdx/input/RemoteInput;->justTouched:Z
 
-    .line 154
-    nop
-
     .line 165
-    :goto_3
+    :goto_2
     iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteInput$EventTrigger;->this$0:Lcom/badlogic/gdx/input/RemoteInput;
 
     iget-object v0, v0, Lcom/badlogic/gdx/input/RemoteInput;->touchX:[I
@@ -682,15 +661,15 @@
     aput v4, v0, v2
 
     .line 168
-    :cond_e
+    :cond_d
     iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteInput$EventTrigger;->keyEvent:Lcom/badlogic/gdx/input/RemoteInput$KeyEvent;
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_10
 
     .line 169
     iget v0, v0, Lcom/badlogic/gdx/input/RemoteInput$KeyEvent;->type:I
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_f
 
     .line 170
     iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteInput$EventTrigger;->this$0:Lcom/badlogic/gdx/input/RemoteInput;
@@ -703,7 +682,7 @@
 
     aget-boolean v0, v0, v2
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_e
 
     .line 171
     iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteInput$EventTrigger;->this$0:Lcom/badlogic/gdx/input/RemoteInput;
@@ -726,7 +705,7 @@
     aput-boolean v3, v0, v2
 
     .line 174
-    :cond_f
+    :cond_e
     iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteInput$EventTrigger;->this$0:Lcom/badlogic/gdx/input/RemoteInput;
 
     iput-boolean v3, v0, Lcom/badlogic/gdx/input/RemoteInput;->keyJustPressed:Z
@@ -743,12 +722,12 @@
     aput-boolean v3, v0, v2
 
     .line 177
-    :cond_10
+    :cond_f
     iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteInput$EventTrigger;->keyEvent:Lcom/badlogic/gdx/input/RemoteInput$KeyEvent;
 
     iget v0, v0, Lcom/badlogic/gdx/input/RemoteInput$KeyEvent;->type:I
 
-    if-ne v0, v3, :cond_11
+    if-ne v0, v3, :cond_10
 
     .line 178
     iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteInput$EventTrigger;->this$0:Lcom/badlogic/gdx/input/RemoteInput;
@@ -761,7 +740,7 @@
 
     aget-boolean v0, v0, v2
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_10
 
     .line 179
     iget-object v0, p0, Lcom/badlogic/gdx/input/RemoteInput$EventTrigger;->this$0:Lcom/badlogic/gdx/input/RemoteInput;
@@ -783,8 +762,7 @@
 
     aput-boolean v1, v0, v2
 
-    .line 185
-    :cond_11
-    :goto_4
+    :cond_10
+    :goto_3
     return-void
 .end method

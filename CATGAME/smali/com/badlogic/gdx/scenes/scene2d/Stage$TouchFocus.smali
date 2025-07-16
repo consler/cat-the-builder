@@ -44,9 +44,9 @@
 .method public reset()V
     .locals 1
 
-    .line 855
     const/4 v0, 0x0
 
+    .line 855
     iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/Stage$TouchFocus;->listenerActor:Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
     .line 856
@@ -55,6 +55,5 @@
     .line 857
     iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/Stage$TouchFocus;->target:Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    .line 858
     return-void
 .end method

@@ -94,9 +94,9 @@
 
     sput-object v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->buffers:Ljava/util/Map;
 
-    .line 66
     const/4 v0, 0x0
 
+    .line 66
     sput-boolean v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->defaultFramebufferHandleInitialized:Z
 
     return-void
@@ -106,7 +106,6 @@
     .locals 1
 
     .line 84
-    .local p0, "this":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;, "Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 61
@@ -116,7 +115,6 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->textureAttachments:Lcom/badlogic/gdx/utils/Array;
 
-    .line 85
     return-void
 .end method
 
@@ -133,8 +131,6 @@
     .end annotation
 
     .line 88
-    .local p0, "this":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;, "Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer<TT;>;"
-    .local p1, "bufferBuilder":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;, "Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder<+Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer<TT;>;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 61
@@ -150,204 +146,181 @@
     .line 90
     invoke-virtual {p0}, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->build()V
 
-    .line 91
     return-void
 .end method
 
 .method private static addManagedFrameBuffer(Lcom/badlogic/gdx/Application;Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;)V
     .locals 2
-    .param p0, "app"    # Lcom/badlogic/gdx/Application;
-    .param p1, "frameBuffer"    # Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;
 
     .line 381
     sget-object v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->buffers:Ljava/util/Map;
 
     invoke-interface {v0, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lcom/badlogic/gdx/utils/Array;
+    check-cast v1, Lcom/badlogic/gdx/utils/Array;
+
+    if-nez v1, :cond_0
 
     .line 382
-    .local v0, "managedResources":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;>;"
-    if-nez v0, :cond_0
-
     new-instance v1, Lcom/badlogic/gdx/utils/Array;
 
     invoke-direct {v1}, Lcom/badlogic/gdx/utils/Array;-><init>()V
 
-    move-object v0, v1
-
     .line 383
     :cond_0
-    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v1, p1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
     .line 384
-    sget-object v1, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->buffers:Ljava/util/Map;
+    invoke-interface {v0, p0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v1, p0, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 385
     return-void
 .end method
 
 .method private checkValidBuilder()V
-    .locals 5
+    .locals 3
 
     .line 269
-    .local p0, "this":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;, "Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer<TT;>;"
     sget-object v0, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
 
     invoke-interface {v0}, Lcom/badlogic/gdx/Graphics;->isGL30Available()Z
 
     move-result v0
 
-    .line 271
-    .local v0, "runningGL30":Z
     if-nez v0, :cond_6
 
     .line 272
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
 
-    iget-boolean v1, v1, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->hasPackedStencilDepthRenderBuffer:Z
+    iget-boolean v0, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->hasPackedStencilDepthRenderBuffer:Z
 
-    if-nez v1, :cond_5
+    if-nez v0, :cond_5
 
     .line 275
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
 
-    iget-object v1, v1, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->textureAttachmentSpecs:Lcom/badlogic/gdx/utils/Array;
+    iget-object v0, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->textureAttachmentSpecs:Lcom/badlogic/gdx/utils/Array;
 
-    iget v1, v1, Lcom/badlogic/gdx/utils/Array;->size:I
+    iget v0, v0, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    if-gt v1, v2, :cond_4
+    if-gt v0, v1, :cond_4
 
     .line 278
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
 
-    iget-object v1, v1, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->textureAttachmentSpecs:Lcom/badlogic/gdx/utils/Array;
+    iget-object v0, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->textureAttachmentSpecs:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v1}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :cond_0
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_6
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_6
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;
+    check-cast v1, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;
 
     .line 279
-    .local v2, "spec":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;
-    iget-boolean v3, v2, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;->isDepth:Z
+    iget-boolean v2, v1, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;->isDepth:Z
 
-    if-nez v3, :cond_3
+    if-nez v2, :cond_3
 
     .line 280
-    iget-boolean v3, v2, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;->isStencil:Z
+    iget-boolean v2, v1, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;->isStencil:Z
 
-    if-nez v3, :cond_2
+    if-nez v2, :cond_2
 
     .line 281
-    iget-boolean v3, v2, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;->isFloat:Z
+    iget-boolean v1, v1, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;->isFloat:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v1, :cond_0
 
     .line 282
-    sget-object v3, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
+    sget-object v1, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
 
-    const-string v4, "OES_texture_float"
+    const-string v2, "OES_texture_float"
 
-    invoke-interface {v3, v4}, Lcom/badlogic/gdx/Graphics;->supportsExtension(Ljava/lang/String;)Z
+    invoke-interface {v1, v2}, Lcom/badlogic/gdx/Graphics;->supportsExtension(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_0
+    if-eqz v1, :cond_1
 
-    goto :goto_1
-
-    .line 283
-    :cond_0
-    new-instance v1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
-
-    const-string v3, "Float texture FrameBuffer Attachment not available on GLES 2.0"
-
-    invoke-direct {v1, v3}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    .line 286
-    .end local v2    # "spec":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;
-    :cond_1
-    :goto_1
     goto :goto_0
 
+    .line 283
+    :cond_1
+    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+
+    const-string v1, "Float texture FrameBuffer Attachment not available on GLES 2.0"
+
+    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
     .line 280
-    .restart local v2    # "spec":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;
     :cond_2
-    new-instance v1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v3, "Stencil texture FrameBuffer Attachment not available on GLES 2.0"
+    const-string v1, "Stencil texture FrameBuffer Attachment not available on GLES 2.0"
 
-    invoke-direct {v1, v3}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 
     .line 279
     :cond_3
-    new-instance v1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v3, "Depth texture FrameBuffer Attachment not available on GLES 2.0"
+    const-string v1, "Depth texture FrameBuffer Attachment not available on GLES 2.0"
 
-    invoke-direct {v1, v3}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 
     .line 276
-    .end local v2    # "spec":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;
     :cond_4
-    new-instance v1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v2, "Multiple render targets not available on GLES 2.0"
+    const-string v1, "Multiple render targets not available on GLES 2.0"
 
-    invoke-direct {v1, v2}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 
     .line 273
     :cond_5
-    new-instance v1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v2, "Packed Stencil/Render render buffers are not available on GLES 2.0"
+    const-string v1, "Packed Stencil/Render render buffers are not available on GLES 2.0"
 
-    invoke-direct {v1, v2}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 
-    .line 288
     :cond_6
     return-void
 .end method
 
 .method public static clearAllFrameBuffers(Lcom/badlogic/gdx/Application;)V
     .locals 1
-    .param p0, "app"    # Lcom/badlogic/gdx/Application;
 
     .line 400
     sget-object v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->buffers:Ljava/util/Map;
 
     invoke-interface {v0, p0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 401
     return-void
 .end method
 
@@ -372,11 +345,10 @@
 
 .method public static getManagedStatus(Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;
     .locals 3
-    .param p0, "builder"    # Ljava/lang/StringBuilder;
 
-    .line 404
     const-string v0, "Managed buffers/app: { "
 
+    .line 404
     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 405
@@ -404,41 +376,36 @@
     check-cast v1, Lcom/badlogic/gdx/Application;
 
     .line 406
-    .local v1, "app":Lcom/badlogic/gdx/Application;
     sget-object v2, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->buffers:Ljava/util/Map;
 
     invoke-interface {v2, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Lcom/badlogic/gdx/utils/Array;
+    check-cast v1, Lcom/badlogic/gdx/utils/Array;
 
-    iget v2, v2, Lcom/badlogic/gdx/utils/Array;->size:I
+    iget v1, v1, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, " "
 
     .line 407
-    const-string v2, " "
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 408
-    .end local v1    # "app":Lcom/badlogic/gdx/Application;
     goto :goto_0
 
-    .line 409
     :cond_0
-    const-string/jumbo v0, "}"
+    const-string v0, "}"
 
+    .line 409
     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 410
     return-object p0
 .end method
 
 .method public static invalidateAllFrameBuffers(Lcom/badlogic/gdx/Application;)V
-    .locals 3
-    .param p0, "app"    # Lcom/badlogic/gdx/Application;
+    .locals 2
 
     .line 390
     sget-object v0, Lcom/badlogic/gdx/Gdx;->gl20:Lcom/badlogic/gdx/graphics/GL20;
@@ -453,42 +420,36 @@
 
     invoke-interface {v0, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/badlogic/gdx/utils/Array;
+    check-cast p0, Lcom/badlogic/gdx/utils/Array;
 
-    .line 393
-    .local v0, "bufferArray":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;>;"
-    if-nez v0, :cond_1
+    if-nez p0, :cond_1
 
     return-void
 
-    .line 394
     :cond_1
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    .local v1, "i":I
+    .line 394
     :goto_0
-    iget v2, v0, Lcom/badlogic/gdx/utils/Array;->size:I
+    iget v1, p0, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    if-ge v1, v2, :cond_2
+    if-ge v0, v1, :cond_2
 
     .line 395
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;
+    check-cast v1, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;
 
-    invoke-virtual {v2}, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->build()V
+    invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->build()V
 
-    .line 394
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 397
-    .end local v1    # "i":I
     :cond_2
     return-void
 .end method
@@ -499,13 +460,12 @@
     .line 318
     sget-object v0, Lcom/badlogic/gdx/Gdx;->gl20:Lcom/badlogic/gdx/graphics/GL20;
 
-    sget v1, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->defaultFramebufferHandle:I
+    const v1, 0x8d40
 
-    const v2, 0x8d40
+    sget v2, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->defaultFramebufferHandle:I
 
-    invoke-interface {v0, v2, v1}, Lcom/badlogic/gdx/graphics/GL20;->glBindFramebuffer(II)V
+    invoke-interface {v0, v1, v2}, Lcom/badlogic/gdx/graphics/GL20;->glBindFramebuffer(II)V
 
-    .line 319
     return-void
 .end method
 
@@ -523,13 +483,11 @@
     .locals 0
 
     .line 323
-    .local p0, "this":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;, "Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer<TT;>;"
     invoke-virtual {p0}, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bind()V
 
     .line 324
     invoke-virtual {p0}, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->setFrameBufferViewport()V
 
-    .line 325
     return-void
 .end method
 
@@ -537,30 +495,26 @@
     .locals 3
 
     .line 313
-    .local p0, "this":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;, "Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer<TT;>;"
     sget-object v0, Lcom/badlogic/gdx/Gdx;->gl20:Lcom/badlogic/gdx/graphics/GL20;
 
-    iget v1, p0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->framebufferHandle:I
+    const v1, 0x8d40
 
-    const v2, 0x8d40
+    iget v2, p0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->framebufferHandle:I
 
-    invoke-interface {v0, v2, v1}, Lcom/badlogic/gdx/graphics/GL20;->glBindFramebuffer(II)V
+    invoke-interface {v0, v1, v2}, Lcom/badlogic/gdx/graphics/GL20;->glBindFramebuffer(II)V
 
-    .line 314
     return-void
 .end method
 
 .method protected build()V
-    .locals 20
+    .locals 18
 
-    .line 113
-    .local p0, "this":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;, "Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer<TT;>;"
     move-object/from16 v0, p0
 
+    .line 113
     sget-object v7, Lcom/badlogic/gdx/Gdx;->gl20:Lcom/badlogic/gdx/graphics/GL20;
 
     .line 115
-    .local v7, "gl":Lcom/badlogic/gdx/graphics/GL20;
     invoke-direct/range {p0 .. p0}, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->checkValidBuilder()V
 
     .line 118
@@ -586,9 +540,9 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 121
     const/16 v1, 0x40
 
+    .line 121
     invoke-static {v1}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
 
     move-result-object v1
@@ -605,21 +559,18 @@
 
     move-result-object v1
 
-    .line 122
-    .local v1, "intbuf":Ljava/nio/IntBuffer;
     const v2, 0x8ca6
 
+    .line 122
     invoke-interface {v7, v2, v1}, Lcom/badlogic/gdx/graphics/GL20;->glGetIntegerv(ILjava/nio/IntBuffer;)V
 
     .line 123
     invoke-virtual {v1, v9}, Ljava/nio/IntBuffer;->get(I)I
 
-    move-result v2
+    move-result v1
 
-    sput v2, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->defaultFramebufferHandle:I
+    sput v1, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->defaultFramebufferHandle:I
 
-    .line 124
-    .end local v1    # "intbuf":Ljava/nio/IntBuffer;
     goto :goto_0
 
     .line 125
@@ -635,9 +586,9 @@
 
     iput v1, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->framebufferHandle:I
 
-    .line 130
     const v10, 0x8d40
 
+    .line 130
     invoke-interface {v7, v10, v1}, Lcom/badlogic/gdx/graphics/GL20;->glBindFramebuffer(II)V
 
     .line 132
@@ -646,13 +597,11 @@
     iget v11, v1, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->width:I
 
     .line 133
-    .local v11, "width":I
     iget-object v1, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
 
     iget v12, v1, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->height:I
 
     .line 135
-    .local v12, "height":I
     iget-object v1, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
 
     iget-boolean v1, v1, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->hasDepthRenderBuffer:Z
@@ -754,11 +703,6 @@
     :goto_1
     iput-boolean v1, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->isMRT:Z
 
-    .line 155
-    const/4 v2, 0x0
-
-    .line 156
-    .local v2, "colorTextureCounter":I
     const v14, 0x8ce0
 
     if-eqz v1, :cond_a
@@ -772,10 +716,9 @@
 
     move-result-object v15
 
-    move/from16 v16, v2
+    move/from16 v16, v9
 
-    .end local v2    # "colorTextureCounter":I
-    .local v16, "colorTextureCounter":I
+    :cond_6
     :goto_2
     invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
 
@@ -787,146 +730,135 @@
 
     move-result-object v1
 
-    move-object v6, v1
-
-    check-cast v6, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;
+    check-cast v1, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;
 
     .line 158
-    .local v6, "attachmentSpec":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;
-    invoke-virtual {v0, v6}, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->createTexture(Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;)Lcom/badlogic/gdx/graphics/GLTexture;
+    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->createTexture(Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;)Lcom/badlogic/gdx/graphics/GLTexture;
 
-    move-result-object v5
+    move-result-object v2
 
     .line 159
-    .local v5, "texture":Lcom/badlogic/gdx/graphics/GLTexture;, "TT;"
-    iget-object v1, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->textureAttachments:Lcom/badlogic/gdx/utils/Array;
+    iget-object v3, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->textureAttachments:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v1, v5}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v3, v2}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
     .line 160
-    invoke-virtual {v6}, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;->isColorTexture()Z
+    invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;->isColorTexture()Z
 
-    move-result v1
+    move-result v3
+
+    if-eqz v3, :cond_7
+
+    const v3, 0x8d40
+
+    add-int v4, v16, v14
+
+    const/16 v5, 0xde1
+
+    .line 162
+    invoke-virtual {v2}, Lcom/badlogic/gdx/graphics/GLTexture;->getTextureObjectHandle()I
+
+    move-result v6
+
+    const/16 v17, 0x0
+
+    move-object v1, v7
+
+    move v2, v3
+
+    move v3, v4
+
+    move v4, v5
+
+    move v5, v6
+
+    move/from16 v6, v17
+
+    .line 161
+    invoke-interface/range {v1 .. v6}, Lcom/badlogic/gdx/graphics/GL20;->glFramebufferTexture2D(IIIII)V
+
+    add-int/lit8 v16, v16, 0x1
+
+    goto :goto_2
+
+    .line 164
+    :cond_7
+    iget-boolean v3, v1, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;->isDepth:Z
+
+    if-eqz v3, :cond_8
+
+    const v3, 0x8d40
+
+    const v4, 0x8d00
+
+    const/16 v5, 0xde1
+
+    .line 166
+    invoke-virtual {v2}, Lcom/badlogic/gdx/graphics/GLTexture;->getTextureObjectHandle()I
+
+    move-result v6
+
+    const/16 v17, 0x0
+
+    move-object v1, v7
+
+    move v2, v3
+
+    move v3, v4
+
+    move v4, v5
+
+    move v5, v6
+
+    move/from16 v6, v17
+
+    .line 165
+    invoke-interface/range {v1 .. v6}, Lcom/badlogic/gdx/graphics/GL20;->glFramebufferTexture2D(IIIII)V
+
+    goto :goto_2
+
+    .line 167
+    :cond_8
+    iget-boolean v1, v1, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;->isStencil:Z
 
     if-eqz v1, :cond_6
 
-    .line 161
-    const v2, 0x8d40
+    const v3, 0x8d40
 
-    add-int v3, v16, v14
+    const v4, 0x8d20
 
-    const/16 v4, 0xde1
-
-    .line 162
-    invoke-virtual {v5}, Lcom/badlogic/gdx/graphics/GLTexture;->getTextureObjectHandle()I
-
-    move-result v17
-
-    const/16 v18, 0x0
-
-    .line 161
-    move-object v1, v7
-
-    move-object/from16 v19, v5
-
-    .end local v5    # "texture":Lcom/badlogic/gdx/graphics/GLTexture;, "TT;"
-    .local v19, "texture":Lcom/badlogic/gdx/graphics/GLTexture;, "TT;"
-    move/from16 v5, v17
-
-    move-object v8, v6
-
-    .end local v6    # "attachmentSpec":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;
-    .local v8, "attachmentSpec":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;
-    move/from16 v6, v18
-
-    invoke-interface/range {v1 .. v6}, Lcom/badlogic/gdx/graphics/GL20;->glFramebufferTexture2D(IIIII)V
-
-    .line 163
-    add-int/lit8 v16, v16, 0x1
-
-    goto :goto_3
-
-    .line 164
-    .end local v8    # "attachmentSpec":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;
-    .end local v19    # "texture":Lcom/badlogic/gdx/graphics/GLTexture;, "TT;"
-    .restart local v5    # "texture":Lcom/badlogic/gdx/graphics/GLTexture;, "TT;"
-    .restart local v6    # "attachmentSpec":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;
-    :cond_6
-    move-object/from16 v19, v5
-
-    move-object v8, v6
-
-    .end local v5    # "texture":Lcom/badlogic/gdx/graphics/GLTexture;, "TT;"
-    .end local v6    # "attachmentSpec":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;
-    .restart local v8    # "attachmentSpec":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;
-    .restart local v19    # "texture":Lcom/badlogic/gdx/graphics/GLTexture;, "TT;"
-    iget-boolean v1, v8, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;->isDepth:Z
-
-    if-eqz v1, :cond_7
-
-    .line 165
-    const v2, 0x8d40
-
-    const v3, 0x8d00
-
-    const/16 v4, 0xde1
-
-    .line 166
-    invoke-virtual/range {v19 .. v19}, Lcom/badlogic/gdx/graphics/GLTexture;->getTextureObjectHandle()I
-
-    move-result v5
-
-    const/4 v6, 0x0
-
-    .line 165
-    move-object v1, v7
-
-    invoke-interface/range {v1 .. v6}, Lcom/badlogic/gdx/graphics/GL20;->glFramebufferTexture2D(IIIII)V
-
-    goto :goto_3
-
-    .line 167
-    :cond_7
-    iget-boolean v1, v8, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;->isStencil:Z
-
-    if-eqz v1, :cond_8
-
-    .line 168
-    const v2, 0x8d40
-
-    const v3, 0x8d20
-
-    const/16 v4, 0xde1
+    const/16 v5, 0xde1
 
     .line 169
-    invoke-virtual/range {v19 .. v19}, Lcom/badlogic/gdx/graphics/GLTexture;->getTextureObjectHandle()I
+    invoke-virtual {v2}, Lcom/badlogic/gdx/graphics/GLTexture;->getTextureObjectHandle()I
 
-    move-result v5
+    move-result v6
 
-    const/4 v6, 0x0
+    const/16 v17, 0x0
 
-    .line 168
     move-object v1, v7
 
-    invoke-interface/range {v1 .. v6}, Lcom/badlogic/gdx/graphics/GL20;->glFramebufferTexture2D(IIIII)V
+    move v2, v3
 
-    .line 171
-    .end local v8    # "attachmentSpec":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;
-    .end local v19    # "texture":Lcom/badlogic/gdx/graphics/GLTexture;, "TT;"
-    :cond_8
-    :goto_3
-    const/4 v8, 0x1
+    move v3, v4
+
+    move v4, v5
+
+    move v5, v6
+
+    move/from16 v6, v17
+
+    .line 168
+    invoke-interface/range {v1 .. v6}, Lcom/badlogic/gdx/graphics/GL20;->glFramebufferTexture2D(IIIII)V
 
     goto :goto_2
 
     :cond_9
-    move/from16 v2, v16
+    move/from16 v1, v16
 
-    goto :goto_4
+    goto :goto_3
 
     .line 173
-    .end local v16    # "colorTextureCounter":I
-    .restart local v2    # "colorTextureCounter":I
     :cond_a
     iget-object v1, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
 
@@ -943,63 +875,56 @@
     move-result-object v1
 
     .line 174
-    .local v1, "texture":Lcom/badlogic/gdx/graphics/GLTexture;, "TT;"
-    iget-object v3, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->textureAttachments:Lcom/badlogic/gdx/utils/Array;
+    iget-object v2, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->textureAttachments:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v3, v1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v2, v1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
     .line 175
-    iget v3, v1, Lcom/badlogic/gdx/graphics/GLTexture;->glTarget:I
+    iget v2, v1, Lcom/badlogic/gdx/graphics/GLTexture;->glTarget:I
 
     invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/GLTexture;->getTextureObjectHandle()I
 
-    move-result v4
+    move-result v1
 
-    invoke-interface {v7, v3, v4}, Lcom/badlogic/gdx/graphics/GL20;->glBindTexture(II)V
+    invoke-interface {v7, v2, v1}, Lcom/badlogic/gdx/graphics/GL20;->glBindTexture(II)V
+
+    move v1, v9
 
     .line 178
-    .end local v1    # "texture":Lcom/badlogic/gdx/graphics/GLTexture;, "TT;"
-    :goto_4
-    iget-boolean v1, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->isMRT:Z
+    :goto_3
+    iget-boolean v2, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->isMRT:Z
 
-    if-eqz v1, :cond_c
+    if-eqz v2, :cond_c
 
     .line 179
-    invoke-static {v2}, Lcom/badlogic/gdx/utils/BufferUtils;->newIntBuffer(I)Ljava/nio/IntBuffer;
+    invoke-static {v1}, Lcom/badlogic/gdx/utils/BufferUtils;->newIntBuffer(I)Ljava/nio/IntBuffer;
 
-    move-result-object v1
+    move-result-object v2
 
-    .line 180
-    .local v1, "buffer":Ljava/nio/IntBuffer;
-    const/4 v3, 0x0
+    move v3, v9
 
-    .local v3, "i":I
-    :goto_5
-    if-ge v3, v2, :cond_b
+    :goto_4
+    if-ge v3, v1, :cond_b
 
-    .line 181
     add-int v4, v3, v14
 
-    invoke-virtual {v1, v4}, Ljava/nio/IntBuffer;->put(I)Ljava/nio/IntBuffer;
+    .line 181
+    invoke-virtual {v2, v4}, Ljava/nio/IntBuffer;->put(I)Ljava/nio/IntBuffer;
 
-    .line 180
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_5
+    goto :goto_4
 
     .line 183
-    .end local v3    # "i":I
     :cond_b
-    invoke-virtual {v1, v9}, Ljava/nio/IntBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v2, v9}, Ljava/nio/IntBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 184
     sget-object v3, Lcom/badlogic/gdx/Gdx;->gl30:Lcom/badlogic/gdx/graphics/GL30;
 
-    invoke-interface {v3, v2, v1}, Lcom/badlogic/gdx/graphics/GL30;->glDrawBuffers(ILjava/nio/IntBuffer;)V
+    invoke-interface {v3, v1, v2}, Lcom/badlogic/gdx/graphics/GL30;->glDrawBuffers(ILjava/nio/IntBuffer;)V
 
-    .line 185
-    .end local v1    # "buffer":Ljava/nio/IntBuffer;
-    goto :goto_6
+    goto :goto_5
 
     .line 186
     :cond_c
@@ -1014,19 +939,19 @@
     invoke-virtual {v0, v1}, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->attachFrameBufferColorTexture(Lcom/badlogic/gdx/graphics/GLTexture;)V
 
     .line 189
-    :goto_6
+    :goto_5
     iget-object v1, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
 
     iget-boolean v1, v1, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->hasDepthRenderBuffer:Z
 
-    const v3, 0x8d00
+    const v2, 0x8d00
 
     if-eqz v1, :cond_d
 
     .line 190
     iget v1, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->depthbufferHandle:I
 
-    invoke-interface {v7, v10, v3, v13, v1}, Lcom/badlogic/gdx/graphics/GL20;->glFramebufferRenderbuffer(IIII)V
+    invoke-interface {v7, v10, v2, v13, v1}, Lcom/badlogic/gdx/graphics/GL20;->glFramebufferRenderbuffer(IIII)V
 
     .line 193
     :cond_d
@@ -1034,14 +959,14 @@
 
     iget-boolean v1, v1, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->hasStencilRenderBuffer:Z
 
-    const v4, 0x8d20
+    const v3, 0x8d20
 
     if-eqz v1, :cond_e
 
     .line 194
     iget v1, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->stencilbufferHandle:I
 
-    invoke-interface {v7, v10, v4, v13, v1}, Lcom/badlogic/gdx/graphics/GL20;->glFramebufferRenderbuffer(IIII)V
+    invoke-interface {v7, v10, v3, v13, v1}, Lcom/badlogic/gdx/graphics/GL20;->glFramebufferRenderbuffer(IIII)V
 
     .line 197
     :cond_e
@@ -1051,12 +976,12 @@
 
     if-eqz v1, :cond_f
 
-    .line 198
     const v1, 0x821a
 
-    iget v5, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->depthStencilPackedBufferHandle:I
+    .line 198
+    iget v4, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->depthStencilPackedBufferHandle:I
 
-    invoke-interface {v7, v10, v1, v13, v5}, Lcom/badlogic/gdx/graphics/GL20;->glFramebufferRenderbuffer(IIII)V
+    invoke-interface {v7, v10, v1, v13, v4}, Lcom/badlogic/gdx/graphics/GL20;->glFramebufferRenderbuffer(IIII)V
 
     .line 202
     :cond_f
@@ -1069,28 +994,25 @@
 
     move-result-object v1
 
-    :goto_7
+    :goto_6
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_10
+    if-eqz v4, :cond_10
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v4
 
-    check-cast v5, Lcom/badlogic/gdx/graphics/GLTexture;
+    check-cast v4, Lcom/badlogic/gdx/graphics/GLTexture;
 
     .line 204
-    .restart local v5    # "texture":Lcom/badlogic/gdx/graphics/GLTexture;, "TT;"
-    iget v6, v5, Lcom/badlogic/gdx/graphics/GLTexture;->glTarget:I
+    iget v4, v4, Lcom/badlogic/gdx/graphics/GLTexture;->glTarget:I
 
-    invoke-interface {v7, v6, v9}, Lcom/badlogic/gdx/graphics/GL20;->glBindTexture(II)V
+    invoke-interface {v7, v4, v9}, Lcom/badlogic/gdx/graphics/GL20;->glBindTexture(II)V
 
-    .line 205
-    .end local v5    # "texture":Lcom/badlogic/gdx/graphics/GLTexture;, "TT;"
-    goto :goto_7
+    goto :goto_6
 
     .line 207
     :cond_10
@@ -1098,90 +1020,89 @@
 
     move-result v1
 
+    const v4, 0x8cdd
+
+    if-ne v1, v4, :cond_15
+
     .line 209
-    .local v1, "result":I
-    const v5, 0x8cdd
+    iget-object v5, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
 
-    if-ne v1, v5, :cond_15
+    iget-boolean v5, v5, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->hasDepthRenderBuffer:Z
 
-    iget-object v6, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
+    if-eqz v5, :cond_15
 
-    iget-boolean v6, v6, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->hasDepthRenderBuffer:Z
+    iget-object v5, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
 
-    if-eqz v6, :cond_15
+    iget-boolean v5, v5, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->hasStencilRenderBuffer:Z
 
-    iget-object v6, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
+    if-eqz v5, :cond_15
 
-    iget-boolean v6, v6, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->hasStencilRenderBuffer:Z
+    sget-object v5, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
 
-    if-eqz v6, :cond_15
-
-    sget-object v6, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
+    const-string v6, "GL_OES_packed_depth_stencil"
 
     .line 210
-    const-string v8, "GL_OES_packed_depth_stencil"
+    invoke-interface {v5, v6}, Lcom/badlogic/gdx/Graphics;->supportsExtension(Ljava/lang/String;)Z
 
-    invoke-interface {v6, v8}, Lcom/badlogic/gdx/Graphics;->supportsExtension(Ljava/lang/String;)Z
+    move-result v5
 
-    move-result v6
+    if-nez v5, :cond_11
 
-    if-nez v6, :cond_11
+    sget-object v5, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
 
-    sget-object v6, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
+    const-string v6, "GL_EXT_packed_depth_stencil"
 
     .line 211
-    const-string v8, "GL_EXT_packed_depth_stencil"
+    invoke-interface {v5, v6}, Lcom/badlogic/gdx/Graphics;->supportsExtension(Ljava/lang/String;)Z
 
-    invoke-interface {v6, v8}, Lcom/badlogic/gdx/Graphics;->supportsExtension(Ljava/lang/String;)Z
+    move-result v5
 
-    move-result v6
-
-    if-eqz v6, :cond_15
+    if-eqz v5, :cond_15
 
     .line 212
     :cond_11
-    iget-object v6, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
+    iget-object v1, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
 
-    iget-boolean v6, v6, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->hasDepthRenderBuffer:Z
+    iget-boolean v1, v1, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->hasDepthRenderBuffer:Z
 
-    if-eqz v6, :cond_12
+    if-eqz v1, :cond_12
 
     .line 213
-    iget v6, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->depthbufferHandle:I
+    iget v1, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->depthbufferHandle:I
 
-    invoke-interface {v7, v6}, Lcom/badlogic/gdx/graphics/GL20;->glDeleteRenderbuffer(I)V
+    invoke-interface {v7, v1}, Lcom/badlogic/gdx/graphics/GL20;->glDeleteRenderbuffer(I)V
 
     .line 214
     iput v9, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->depthbufferHandle:I
 
     .line 216
     :cond_12
-    iget-object v6, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
+    iget-object v1, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
 
-    iget-boolean v6, v6, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->hasStencilRenderBuffer:Z
+    iget-boolean v1, v1, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->hasStencilRenderBuffer:Z
 
-    if-eqz v6, :cond_13
+    if-eqz v1, :cond_13
 
     .line 217
-    iget v6, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->stencilbufferHandle:I
+    iget v1, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->stencilbufferHandle:I
 
-    invoke-interface {v7, v6}, Lcom/badlogic/gdx/graphics/GL20;->glDeleteRenderbuffer(I)V
+    invoke-interface {v7, v1}, Lcom/badlogic/gdx/graphics/GL20;->glDeleteRenderbuffer(I)V
 
     .line 218
     iput v9, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->stencilbufferHandle:I
 
     .line 220
     :cond_13
-    iget-object v6, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
+    iget-object v1, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
 
-    iget-boolean v6, v6, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->hasPackedStencilDepthRenderBuffer:Z
+    iget-boolean v1, v1, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->hasPackedStencilDepthRenderBuffer:Z
 
-    if-eqz v6, :cond_14
+    if-eqz v1, :cond_14
 
     .line 221
-    iget v6, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->depthStencilPackedBufferHandle:I
+    iget v1, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->depthStencilPackedBufferHandle:I
 
-    invoke-interface {v7, v6}, Lcom/badlogic/gdx/graphics/GL20;->glDeleteRenderbuffer(I)V
+    invoke-interface {v7, v1}, Lcom/badlogic/gdx/graphics/GL20;->glDeleteRenderbuffer(I)V
 
     .line 222
     iput v9, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->depthStencilPackedBufferHandle:I
@@ -1190,35 +1111,33 @@
     :cond_14
     invoke-interface {v7}, Lcom/badlogic/gdx/graphics/GL20;->glGenRenderbuffer()I
 
-    move-result v6
+    move-result v1
 
-    iput v6, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->depthStencilPackedBufferHandle:I
+    iput v1, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->depthStencilPackedBufferHandle:I
 
     .line 226
-    const/4 v8, 0x1
-
     iput-boolean v8, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->hasDepthStencilPackedBuffer:Z
 
     .line 227
-    invoke-interface {v7, v13, v6}, Lcom/badlogic/gdx/graphics/GL20;->glBindRenderbuffer(II)V
+    invoke-interface {v7, v13, v1}, Lcom/badlogic/gdx/graphics/GL20;->glBindRenderbuffer(II)V
+
+    const v1, 0x88f0
 
     .line 228
-    const v6, 0x88f0
-
-    invoke-interface {v7, v13, v6, v11, v12}, Lcom/badlogic/gdx/graphics/GL20;->glRenderbufferStorage(IIII)V
+    invoke-interface {v7, v13, v1, v11, v12}, Lcom/badlogic/gdx/graphics/GL20;->glRenderbufferStorage(IIII)V
 
     .line 229
     invoke-interface {v7, v13, v9}, Lcom/badlogic/gdx/graphics/GL20;->glBindRenderbuffer(II)V
 
     .line 231
-    iget v6, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->depthStencilPackedBufferHandle:I
+    iget v1, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->depthStencilPackedBufferHandle:I
 
-    invoke-interface {v7, v10, v3, v13, v6}, Lcom/badlogic/gdx/graphics/GL20;->glFramebufferRenderbuffer(IIII)V
+    invoke-interface {v7, v10, v2, v13, v1}, Lcom/badlogic/gdx/graphics/GL20;->glFramebufferRenderbuffer(IIII)V
 
     .line 233
-    iget v3, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->depthStencilPackedBufferHandle:I
+    iget v1, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->depthStencilPackedBufferHandle:I
 
-    invoke-interface {v7, v10, v4, v13, v3}, Lcom/badlogic/gdx/graphics/GL20;->glFramebufferRenderbuffer(IIII)V
+    invoke-interface {v7, v10, v3, v13, v1}, Lcom/badlogic/gdx/graphics/GL20;->glFramebufferRenderbuffer(IIII)V
 
     .line 235
     invoke-interface {v7, v10}, Lcom/badlogic/gdx/graphics/GL20;->glCheckFramebufferStatus(I)I
@@ -1227,173 +1146,164 @@
 
     .line 238
     :cond_15
-    sget v3, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->defaultFramebufferHandle:I
+    sget v2, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->defaultFramebufferHandle:I
 
-    invoke-interface {v7, v10, v3}, Lcom/badlogic/gdx/graphics/GL20;->glBindFramebuffer(II)V
+    invoke-interface {v7, v10, v2}, Lcom/badlogic/gdx/graphics/GL20;->glBindFramebuffer(II)V
 
-    .line 240
-    const v3, 0x8cd5
+    const v2, 0x8cd5
 
-    if-eq v1, v3, :cond_1e
+    if-eq v1, v2, :cond_1e
 
     .line 241
-    iget-object v3, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->textureAttachments:Lcom/badlogic/gdx/utils/Array;
+    iget-object v2, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->textureAttachments:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v3}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v2}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_7
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_16
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
-    :goto_8
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_16
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/badlogic/gdx/graphics/GLTexture;
+    check-cast v3, Lcom/badlogic/gdx/graphics/GLTexture;
 
     .line 242
-    .local v4, "texture":Lcom/badlogic/gdx/graphics/GLTexture;, "TT;"
-    invoke-virtual {v0, v4}, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->disposeColorTexture(Lcom/badlogic/gdx/graphics/GLTexture;)V
+    invoke-virtual {v0, v3}, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->disposeColorTexture(Lcom/badlogic/gdx/graphics/GLTexture;)V
 
-    .line 243
-    .end local v4    # "texture":Lcom/badlogic/gdx/graphics/GLTexture;, "TT;"
-    goto :goto_8
+    goto :goto_7
 
     .line 245
     :cond_16
-    iget-boolean v3, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->hasDepthStencilPackedBuffer:Z
+    iget-boolean v2, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->hasDepthStencilPackedBuffer:Z
 
-    if-eqz v3, :cond_17
+    if-eqz v2, :cond_17
 
     .line 246
-    iget v3, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->depthStencilPackedBufferHandle:I
+    iget v2, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->depthStencilPackedBufferHandle:I
 
-    invoke-interface {v7, v3}, Lcom/badlogic/gdx/graphics/GL20;->glDeleteBuffer(I)V
+    invoke-interface {v7, v2}, Lcom/badlogic/gdx/graphics/GL20;->glDeleteBuffer(I)V
 
-    goto :goto_9
+    goto :goto_8
 
     .line 248
     :cond_17
-    iget-object v3, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
+    iget-object v2, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
 
-    iget-boolean v3, v3, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->hasDepthRenderBuffer:Z
+    iget-boolean v2, v2, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->hasDepthRenderBuffer:Z
 
-    if-eqz v3, :cond_18
+    if-eqz v2, :cond_18
 
-    iget v3, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->depthbufferHandle:I
+    iget v2, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->depthbufferHandle:I
 
-    invoke-interface {v7, v3}, Lcom/badlogic/gdx/graphics/GL20;->glDeleteRenderbuffer(I)V
+    invoke-interface {v7, v2}, Lcom/badlogic/gdx/graphics/GL20;->glDeleteRenderbuffer(I)V
 
     .line 249
     :cond_18
-    iget-object v3, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
+    iget-object v2, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
 
-    iget-boolean v3, v3, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->hasStencilRenderBuffer:Z
+    iget-boolean v2, v2, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->hasStencilRenderBuffer:Z
 
-    if-eqz v3, :cond_19
+    if-eqz v2, :cond_19
 
-    iget v3, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->stencilbufferHandle:I
+    iget v2, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->stencilbufferHandle:I
 
-    invoke-interface {v7, v3}, Lcom/badlogic/gdx/graphics/GL20;->glDeleteRenderbuffer(I)V
+    invoke-interface {v7, v2}, Lcom/badlogic/gdx/graphics/GL20;->glDeleteRenderbuffer(I)V
 
     .line 252
     :cond_19
-    :goto_9
-    iget v3, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->framebufferHandle:I
+    :goto_8
+    iget v2, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->framebufferHandle:I
 
-    invoke-interface {v7, v3}, Lcom/badlogic/gdx/graphics/GL20;->glDeleteFramebuffer(I)V
+    invoke-interface {v7, v2}, Lcom/badlogic/gdx/graphics/GL20;->glDeleteFramebuffer(I)V
 
-    .line 254
-    const v3, 0x8cd6
+    const v2, 0x8cd6
 
-    if-eq v1, v3, :cond_1d
+    if-eq v1, v2, :cond_1d
 
-    .line 256
-    const v3, 0x8cd9
+    const v2, 0x8cd9
 
-    if-eq v1, v3, :cond_1c
+    if-eq v1, v2, :cond_1c
 
-    .line 258
-    const v3, 0x8cd7
+    const v2, 0x8cd7
 
-    if-eq v1, v3, :cond_1b
+    if-eq v1, v2, :cond_1b
 
-    .line 260
-    if-ne v1, v5, :cond_1a
+    if-ne v1, v4, :cond_1a
 
     .line 261
-    new-instance v3, Ljava/lang/IllegalStateException;
+    new-instance v1, Ljava/lang/IllegalStateException;
 
-    const-string v4, "Frame buffer couldn\'t be constructed: unsupported combination of formats"
+    const-string v2, "Frame buffer couldn\'t be constructed: unsupported combination of formats"
 
-    invoke-direct {v3, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw v1
 
     .line 262
     :cond_1a
-    new-instance v3, Ljava/lang/IllegalStateException;
+    new-instance v2, Ljava/lang/IllegalStateException;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v4, "Frame buffer couldn\'t be constructed: unknown error "
 
-    const-string v5, "Frame buffer couldn\'t be constructed: unknown error "
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-direct {v3, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw v2
 
     .line 259
     :cond_1b
-    new-instance v3, Ljava/lang/IllegalStateException;
+    new-instance v1, Ljava/lang/IllegalStateException;
 
-    const-string v4, "Frame buffer couldn\'t be constructed: missing attachment"
+    const-string v2, "Frame buffer couldn\'t be constructed: missing attachment"
 
-    invoke-direct {v3, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw v1
 
     .line 257
     :cond_1c
-    new-instance v3, Ljava/lang/IllegalStateException;
+    new-instance v1, Ljava/lang/IllegalStateException;
 
-    const-string v4, "Frame buffer couldn\'t be constructed: incomplete dimensions"
+    const-string v2, "Frame buffer couldn\'t be constructed: incomplete dimensions"
 
-    invoke-direct {v3, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw v1
 
     .line 255
     :cond_1d
-    new-instance v3, Ljava/lang/IllegalStateException;
+    new-instance v1, Ljava/lang/IllegalStateException;
 
-    const-string v4, "Frame buffer couldn\'t be constructed: incomplete attachment"
+    const-string v2, "Frame buffer couldn\'t be constructed: incomplete attachment"
 
-    invoke-direct {v3, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw v1
 
     .line 265
     :cond_1e
-    sget-object v3, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
+    sget-object v1, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
 
-    invoke-static {v3, v0}, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->addManagedFrameBuffer(Lcom/badlogic/gdx/Application;Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;)V
+    invoke-static {v1, v0}, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->addManagedFrameBuffer(Lcom/badlogic/gdx/Application;Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;)V
 
-    .line 266
     return-void
 .end method
 
@@ -1411,11 +1321,9 @@
     .locals 3
 
     .line 293
-    .local p0, "this":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;, "Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer<TT;>;"
     sget-object v0, Lcom/badlogic/gdx/Gdx;->gl20:Lcom/badlogic/gdx/graphics/GL20;
 
     .line 295
-    .local v0, "gl":Lcom/badlogic/gdx/graphics/GL20;
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->textureAttachments:Lcom/badlogic/gdx/utils/Array;
 
     invoke-virtual {v1}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
@@ -1436,11 +1344,8 @@
     check-cast v2, Lcom/badlogic/gdx/graphics/GLTexture;
 
     .line 296
-    .local v2, "texture":Lcom/badlogic/gdx/graphics/GLTexture;, "TT;"
     invoke-virtual {p0, v2}, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->disposeColorTexture(Lcom/badlogic/gdx/graphics/GLTexture;)V
 
-    .line 297
-    .end local v2    # "texture":Lcom/badlogic/gdx/graphics/GLTexture;, "TT;"
     goto :goto_0
 
     .line 299
@@ -1488,31 +1393,28 @@
     invoke-interface {v0, v1}, Lcom/badlogic/gdx/graphics/GL20;->glDeleteFramebuffer(I)V
 
     .line 308
-    sget-object v1, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->buffers:Ljava/util/Map;
+    sget-object v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->buffers:Ljava/util/Map;
 
-    sget-object v2, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
+    sget-object v1, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
 
-    invoke-interface {v1, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     if-eqz v1, :cond_4
 
-    sget-object v1, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->buffers:Ljava/util/Map;
+    sget-object v1, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
 
-    sget-object v2, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
+    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v1, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object v1
+    check-cast v0, Lcom/badlogic/gdx/utils/Array;
 
-    check-cast v1, Lcom/badlogic/gdx/utils/Array;
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    invoke-virtual {v0, p0, v1}, Lcom/badlogic/gdx/utils/Array;->removeValue(Ljava/lang/Object;Z)Z
 
-    invoke-virtual {v1, p0, v2}, Lcom/badlogic/gdx/utils/Array;->removeValue(Ljava/lang/Object;Z)Z
-
-    .line 309
     :cond_4
     return-void
 .end method
@@ -1529,7 +1431,6 @@
     .locals 3
 
     .line 334
-    .local p0, "this":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;, "Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer<TT;>;"
     sget-object v0, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
 
     invoke-interface {v0}, Lcom/badlogic/gdx/Graphics;->getBackBufferWidth()I
@@ -1546,19 +1447,13 @@
 
     invoke-virtual {p0, v2, v2, v0, v1}, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->end(IIII)V
 
-    .line 335
     return-void
 .end method
 
 .method public end(IIII)V
     .locals 1
-    .param p1, "x"    # I
-    .param p2, "y"    # I
-    .param p3, "width"    # I
-    .param p4, "height"    # I
 
     .line 344
-    .local p0, "this":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;, "Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer<TT;>;"
     invoke-static {}, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->unbind()V
 
     .line 345
@@ -1566,7 +1461,6 @@
 
     invoke-interface {v0, p1, p2, p3, p4}, Lcom/badlogic/gdx/graphics/GL20;->glViewport(IIII)V
 
-    .line 346
     return-void
 .end method
 
@@ -1579,7 +1473,6 @@
     .end annotation
 
     .line 95
-    .local p0, "this":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;, "Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer<TT;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->textureAttachments:Lcom/badlogic/gdx/utils/Array;
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->first()Ljava/lang/Object;
@@ -1595,7 +1488,6 @@
     .locals 1
 
     .line 356
-    .local p0, "this":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;, "Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer<TT;>;"
     iget v0, p0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->depthbufferHandle:I
 
     return v0
@@ -1605,7 +1497,6 @@
     .locals 1
 
     .line 367
-    .local p0, "this":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;, "Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer<TT;>;"
     iget v0, p0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->depthStencilPackedBufferHandle:I
 
     return v0
@@ -1615,7 +1506,6 @@
     .locals 1
 
     .line 350
-    .local p0, "this":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;, "Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer<TT;>;"
     iget v0, p0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->framebufferHandle:I
 
     return v0
@@ -1625,7 +1515,6 @@
     .locals 1
 
     .line 372
-    .local p0, "this":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;, "Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer<TT;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
 
     iget v0, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->height:I
@@ -1637,7 +1526,6 @@
     .locals 1
 
     .line 362
-    .local p0, "this":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;, "Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer<TT;>;"
     iget v0, p0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->stencilbufferHandle:I
 
     return v0
@@ -1654,7 +1542,6 @@
     .end annotation
 
     .line 100
-    .local p0, "this":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;, "Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer<TT;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->textureAttachments:Lcom/badlogic/gdx/utils/Array;
 
     return-object v0
@@ -1664,7 +1551,6 @@
     .locals 1
 
     .line 377
-    .local p0, "this":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;, "Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer<TT;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
 
     iget v0, v0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;->width:I
@@ -1676,7 +1562,6 @@
     .locals 4
 
     .line 329
-    .local p0, "this":Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;, "Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer<TT;>;"
     sget-object v0, Lcom/badlogic/gdx/Gdx;->gl20:Lcom/badlogic/gdx/graphics/GL20;
 
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer;->bufferBuilder:Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$GLFrameBufferBuilder;
@@ -1691,6 +1576,5 @@
 
     invoke-interface {v0, v3, v3, v1, v2}, Lcom/badlogic/gdx/graphics/GL20;->glViewport(IIII)V
 
-    .line 330
     return-void
 .end method

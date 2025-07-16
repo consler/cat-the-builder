@@ -15,22 +15,20 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 37
     const-string v0, "UTC"
 
+    .line 37
     invoke-static {v0}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
 
     move-result-object v0
 
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/converters/extended/SqlTimestampConverter;-><init>(Ljava/util/TimeZone;)V
 
-    .line 38
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/TimeZone;)V
     .locals 7
-    .param p1, "timeZone"    # Ljava/util/TimeZone;
 
     .line 51
     invoke-direct {p0}, Lcom/thoughtworks/xstream/converters/basic/AbstractSingleValueConverter;-><init>()V
@@ -54,43 +52,40 @@
 
     iput-object v6, p0, Lcom/thoughtworks/xstream/converters/extended/SqlTimestampConverter;->format:Lcom/thoughtworks/xstream/core/util/ThreadSafeSimpleDateFormat;
 
-    .line 53
     return-void
 .end method
 
 .method static synthetic class$(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 2
-    .param p0, "x0"    # Ljava/lang/String;
+    .locals 1
 
     .line 56
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/lang/NoClassDefFoundError;
+    new-instance v0, Ljava/lang/NoClassDefFoundError;
 
-    invoke-direct {v1}, Ljava/lang/NoClassDefFoundError;-><init>()V
+    invoke-direct {v0}, Ljava/lang/NoClassDefFoundError;-><init>()V
 
-    invoke-virtual {v1, v0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, p0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 .end method
 
 
 # virtual methods
 .method public canConvert(Ljava/lang/Class;)Z
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
 
     .line 56
     sget-object v0, Lcom/thoughtworks/xstream/converters/extended/SqlTimestampConverter;->class$java$sql$Timestamp:Ljava/lang/Class;
@@ -108,34 +103,32 @@
     :cond_0
     if-ne p1, v0, :cond_1
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public fromString(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 6
-    .param p1, "str"    # Ljava/lang/String;
+    .locals 5
 
-    .line 74
     const/16 v0, 0x2e
 
+    .line 74
     invoke-virtual {p1, v0}, Ljava/lang/String;->lastIndexOf(I)I
 
     move-result v0
 
-    .line 75
-    .local v0, "idx":I
     const-string v1, "Timestamp format must be yyyy-mm-dd hh:mm:ss[.fffffffff]"
 
     if-lez v0, :cond_1
 
+    .line 75
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v2
@@ -160,11 +153,11 @@
 
     .line 76
     :cond_0
-    new-instance v2, Lcom/thoughtworks/xstream/converters/ConversionException;
+    new-instance p1, Lcom/thoughtworks/xstream/converters/ConversionException;
 
-    invoke-direct {v2, v1}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v1}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p1
 
     .line 79
     :cond_1
@@ -198,36 +191,33 @@
 
     invoke-direct {v2, v3, v4}, Ljava/sql/Timestamp;-><init>(J)V
 
-    .line 80
-    .local v2, "timestamp":Ljava/sql/Timestamp;
     if-lez v0, :cond_4
 
     .line 81
     new-instance v3, Ljava/lang/StringBuffer;
 
-    add-int/lit8 v4, v0, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    invoke-virtual {p1, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-direct {v3, v4}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, p1}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
     .line 82
-    .local v3, "buffer":Ljava/lang/StringBuffer;
     :goto_2
     invoke-virtual {v3}, Ljava/lang/StringBuffer;->length()I
 
-    move-result v4
+    move-result p1
 
-    const/16 v5, 0x9
+    const/16 v0, 0x9
 
-    if-eq v4, v5, :cond_3
+    if-eq p1, v0, :cond_3
+
+    const/16 p1, 0x30
 
     .line 83
-    const/16 v4, 0x30
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     goto :goto_2
 
@@ -235,139 +225,120 @@
     :cond_3
     invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-static {v4}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v4
+    move-result p1
 
-    invoke-virtual {v2, v4}, Ljava/sql/Timestamp;->setNanos(I)V
+    invoke-virtual {v2, p1}, Ljava/sql/Timestamp;->setNanos(I)V
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 87
-    .end local v3    # "buffer":Ljava/lang/StringBuffer;
     :cond_4
     return-object v2
 
-    .line 91
-    .end local v2    # "timestamp":Ljava/sql/Timestamp;
     :catch_0
-    move-exception v2
+    move-exception p1
 
     .line 92
-    .local v2, "e":Ljava/text/ParseException;
-    new-instance v3, Lcom/thoughtworks/xstream/converters/ConversionException;
+    new-instance v0, Lcom/thoughtworks/xstream/converters/ConversionException;
 
-    invoke-direct {v3, v1, v2}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v0, v1, p1}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v3
+    throw v0
 
-    .line 88
-    .end local v2    # "e":Ljava/text/ParseException;
     :catch_1
-    move-exception v2
+    move-exception p1
 
     .line 89
-    .local v2, "e":Ljava/lang/NumberFormatException;
-    new-instance v3, Lcom/thoughtworks/xstream/converters/ConversionException;
+    new-instance v0, Lcom/thoughtworks/xstream/converters/ConversionException;
 
-    invoke-direct {v3, v1, v2}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v0, v1, p1}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v3
+    throw v0
 .end method
 
 .method public toString(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 6
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 4
 
     .line 60
-    move-object v0, p1
-
-    check-cast v0, Ljava/sql/Timestamp;
+    check-cast p1, Ljava/sql/Timestamp;
 
     .line 61
-    .local v0, "timestamp":Ljava/sql/Timestamp;
-    new-instance v1, Ljava/lang/StringBuffer;
+    new-instance v0, Ljava/lang/StringBuffer;
 
-    iget-object v2, p0, Lcom/thoughtworks/xstream/converters/extended/SqlTimestampConverter;->format:Lcom/thoughtworks/xstream/core/util/ThreadSafeSimpleDateFormat;
+    iget-object v1, p0, Lcom/thoughtworks/xstream/converters/extended/SqlTimestampConverter;->format:Lcom/thoughtworks/xstream/core/util/ThreadSafeSimpleDateFormat;
 
-    invoke-virtual {v2, v0}, Lcom/thoughtworks/xstream/core/util/ThreadSafeSimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+    invoke-virtual {v1, p1}, Lcom/thoughtworks/xstream/core/util/ThreadSafeSimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
     .line 62
-    .local v1, "buffer":Ljava/lang/StringBuffer;
-    invoke-virtual {v0}, Ljava/sql/Timestamp;->getNanos()I
+    invoke-virtual {p1}, Ljava/sql/Timestamp;->getNanos()I
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
+
+    const/16 v1, 0x2e
 
     .line 63
-    const/16 v2, 0x2e
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     .line 64
-    invoke-virtual {v0}, Ljava/sql/Timestamp;->getNanos()I
+    invoke-virtual {p1}, Ljava/sql/Timestamp;->getNanos()I
+
+    move-result p1
+
+    const v1, 0x3b9aca00
+
+    add-int/2addr p1, v1
+
+    invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object p1
+
+    const/16 v1, 0xa
+
+    :goto_0
+    const/4 v2, 0x2
+
+    if-le v1, v2, :cond_0
+
+    add-int/lit8 v2, v1, -0x1
+
+    .line 66
+    invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v2
 
-    const v3, 0x3b9aca00
+    const/16 v3, 0x30
 
-    add-int/2addr v2, v3
+    if-ne v2, v3, :cond_0
 
-    invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 65
-    .local v2, "nanos":Ljava/lang/String;
-    const/16 v3, 0xa
-
-    .line 66
-    .local v3, "last":I
-    :goto_0
-    const/4 v4, 0x2
-
-    if-le v3, v4, :cond_0
-
-    add-int/lit8 v4, v3, -0x1
-
-    invoke-virtual {v2, v4}, Ljava/lang/String;->charAt(I)C
-
-    move-result v4
-
-    const/16 v5, 0x30
-
-    if-ne v4, v5, :cond_0
-
-    .line 67
-    add-int/lit8 v3, v3, -0x1
+    add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
-    .line 68
     :cond_0
-    const/4 v4, 0x1
+    const/4 v2, 0x1
 
-    invoke-virtual {v2, v4, v3}, Ljava/lang/String;->subSequence(II)Ljava/lang/CharSequence;
+    .line 68
+    invoke-virtual {p1, v2, v1}, Ljava/lang/String;->subSequence(II)Ljava/lang/CharSequence;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuffer;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuffer;
 
     .line 70
-    .end local v2    # "nanos":Ljava/lang/String;
-    .end local v3    # "last":I
     :cond_1
-    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 .end method

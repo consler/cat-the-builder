@@ -31,17 +31,13 @@
     .end annotation
 
     .line 44
-    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSerializableSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSerializableSetDecorator<TE;>;"
-    .local p1, "set":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/set/AbstractSetDecorator;-><init>(Ljava/util/Set;)V
 
-    .line 45
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 1
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -50,25 +46,22 @@
     .end annotation
 
     .line 68
-    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSerializableSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSerializableSetDecorator<TE;>;"
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
     .line 69
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Collection;
+    check-cast p1, Ljava/util/Collection;
 
-    invoke-virtual {p0, v0}, Lorg/apache/commons/collections4/set/AbstractSerializableSetDecorator;->setCollection(Ljava/util/Collection;)V
+    invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/set/AbstractSerializableSetDecorator;->setCollection(Ljava/util/Collection;)V
 
-    .line 70
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -76,7 +69,6 @@
     .end annotation
 
     .line 55
-    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSerializableSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSerializableSetDecorator<TE;>;"
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
     .line 56
@@ -86,6 +78,5 @@
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    .line 57
     return-void
 .end method

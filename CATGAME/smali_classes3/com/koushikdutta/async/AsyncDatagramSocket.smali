@@ -17,7 +17,6 @@
 # virtual methods
 .method public connect(Ljava/net/InetSocketAddress;)V
     .locals 1
-    .param p1, "address"    # Ljava/net/InetSocketAddress;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -38,7 +37,6 @@
 
     invoke-virtual {v0, p1}, Ljava/nio/channels/DatagramChannel;->connect(Ljava/net/SocketAddress;)Ljava/nio/channels/DatagramChannel;
 
-    .line 23
     return-void
 .end method
 
@@ -50,9 +48,9 @@
         }
     .end annotation
 
-    .line 9
     const/4 v0, 0x0
 
+    .line 9
     iput-object v0, p0, Lcom/koushikdutta/async/AsyncDatagramSocket;->socketAddress:Ljava/net/InetSocketAddress;
 
     .line 10
@@ -64,7 +62,6 @@
 
     invoke-virtual {v0}, Lcom/koushikdutta/async/DatagramChannelWrapper;->disconnect()V
 
-    .line 11
     return-void
 .end method
 
@@ -102,9 +99,6 @@
 
 .method public send(Ljava/lang/String;ILjava/nio/ByteBuffer;)V
     .locals 2
-    .param p1, "host"    # Ljava/lang/String;
-    .param p2, "port"    # I
-    .param p3, "buffer"    # Ljava/nio/ByteBuffer;
 
     .line 26
     invoke-virtual {p0}, Lcom/koushikdutta/async/AsyncDatagramSocket;->getServer()Lcom/koushikdutta/async/AsyncServer;
@@ -132,7 +126,6 @@
 
     invoke-virtual {v0, v1}, Lcom/koushikdutta/async/AsyncServer;->run(Ljava/lang/Runnable;)V
 
-    .line 33
     return-void
 
     .line 37
@@ -154,22 +147,12 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 43
-    goto :goto_0
-
-    .line 39
     :catch_0
-    move-exception v0
-
-    .line 45
-    :goto_0
     return-void
 .end method
 
 .method public send(Ljava/net/InetSocketAddress;Ljava/nio/ByteBuffer;)V
-    .locals 4
-    .param p1, "address"    # Ljava/net/InetSocketAddress;
-    .param p2, "buffer"    # Ljava/nio/ByteBuffer;
+    .locals 3
 
     .line 47
     invoke-virtual {p0}, Lcom/koushikdutta/async/AsyncDatagramSocket;->getServer()Lcom/koushikdutta/async/AsyncServer;
@@ -197,7 +180,6 @@
 
     invoke-virtual {v0, v1}, Lcom/koushikdutta/async/AsyncServer;->run(Ljava/lang/Runnable;)V
 
-    .line 54
     return-void
 
     .line 58
@@ -219,22 +201,14 @@
 
     invoke-virtual {p1}, Ljava/net/InetSocketAddress;->getPort()I
 
-    move-result v3
+    move-result p1
 
-    invoke-direct {v1, v2, v3}, Ljava/net/InetSocketAddress;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v2, p1}, Ljava/net/InetSocketAddress;-><init>(Ljava/lang/String;I)V
 
     invoke-virtual {v0, p2, v1}, Ljava/nio/channels/DatagramChannel;->send(Ljava/nio/ByteBuffer;Ljava/net/SocketAddress;)I
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 65
-    goto :goto_0
-
-    .line 60
     :catch_0
-    move-exception v0
-
-    .line 66
-    :goto_0
     return-void
 .end method

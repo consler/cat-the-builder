@@ -45,10 +45,8 @@
     .locals 0
 
     .line 52
-    .local p0, "this":Lorg/apache/commons/collections4/functors/NOPClosure;, "Lorg/apache/commons/collections4/functors/NOPClosure<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 53
     return-void
 .end method
 
@@ -74,7 +72,6 @@
     .locals 1
 
     .line 66
-    .local p0, "this":Lorg/apache/commons/collections4/functors/NOPClosure;, "Lorg/apache/commons/collections4/functors/NOPClosure<TE;>;"
     sget-object v0, Lorg/apache/commons/collections4/functors/NOPClosure;->INSTANCE:Lorg/apache/commons/collections4/Closure;
 
     return-object v0
@@ -90,8 +87,5 @@
         }
     .end annotation
 
-    .line 63
-    .local p0, "this":Lorg/apache/commons/collections4/functors/NOPClosure;, "Lorg/apache/commons/collections4/functors/NOPClosure<TE;>;"
-    .local p1, "input":Ljava/lang/Object;, "TE;"
     return-void
 .end method

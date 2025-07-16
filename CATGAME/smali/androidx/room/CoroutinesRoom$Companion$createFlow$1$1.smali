@@ -109,7 +109,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 8
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -122,29 +122,29 @@
         }
     .end annotation
 
-    const-string v0, "completion"
+    const-string p1, "completion"
 
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    new-instance v0, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;
+    new-instance p1, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;
 
-    iget-object v2, p0, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->this$0:Landroidx/room/CoroutinesRoom$Companion$createFlow$1;
+    iget-object v1, p0, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->this$0:Landroidx/room/CoroutinesRoom$Companion$createFlow$1;
 
-    iget-object v3, p0, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->$this_flow:Lkotlinx/coroutines/flow/FlowCollector;
+    iget-object v2, p0, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->$this_flow:Lkotlinx/coroutines/flow/FlowCollector;
 
-    iget-object v4, p0, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->$observer:Lkotlin/jvm/internal/Ref$ObjectRef;
+    iget-object v3, p0, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->$observer:Lkotlin/jvm/internal/Ref$ObjectRef;
 
-    iget-object v5, p0, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->$observerChannel:Lkotlinx/coroutines/channels/Channel;
+    iget-object v4, p0, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->$observerChannel:Lkotlinx/coroutines/channels/Channel;
 
-    iget-object v6, p0, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->$flowContext:Lkotlin/jvm/internal/Ref$ObjectRef;
+    iget-object v5, p0, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->$flowContext:Lkotlin/jvm/internal/Ref$ObjectRef;
 
-    move-object v1, v0
+    move-object v0, p1
 
-    move-object v7, p2
+    move-object v6, p2
 
-    invoke-direct/range {v1 .. v7}, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;-><init>(Landroidx/room/CoroutinesRoom$Companion$createFlow$1;Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlinx/coroutines/channels/Channel;Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlin/coroutines/Continuation;)V
+    invoke-direct/range {v0 .. v6}, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;-><init>(Landroidx/room/CoroutinesRoom$Companion$createFlow$1;Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlinx/coroutines/channels/Channel;Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlin/coroutines/Continuation;)V
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -168,7 +168,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 10
+    .locals 9
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -187,24 +187,20 @@
 
     if-ne v1, v2, :cond_0
 
-    move-object v1, p0
+    iget-object v1, p0, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->L$0:Ljava/lang/Object;
 
-    .local v1, "this":Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;
-    .local p1, "$result":Ljava/lang/Object;
-    iget-object v4, v1, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->L$0:Ljava/lang/Object;
-
-    check-cast v4, Lkotlinx/coroutines/channels/ChannelIterator;
+    check-cast v1, Lkotlinx/coroutines/channels/ChannelIterator;
 
     :try_start_0
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
+    move-object p1, v1
+
     goto :goto_0
 
     .line 128
-    .end local v1    # "this":Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;
-    .end local p1    # "$result":Ljava/lang/Object;
     :cond_0
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -216,104 +212,78 @@
 
     .line 116
     :cond_1
-    move-object v1, p0
+    iget-object v1, p0, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->L$0:Ljava/lang/Object;
 
-    .restart local v1    # "this":Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;
-    .restart local p1    # "$result":Ljava/lang/Object;
-    iget-object v4, v1, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->L$0:Ljava/lang/Object;
-
-    check-cast v4, Lkotlinx/coroutines/channels/ChannelIterator;
+    check-cast v1, Lkotlinx/coroutines/channels/ChannelIterator;
 
     :try_start_1
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    move-object v5, v4
-
     move-object v4, v1
-
-    move-object v1, v0
-
-    move-object v0, p1
-
-    goto :goto_1
-
-    .end local v1    # "this":Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;
-    .end local p1    # "$result":Ljava/lang/Object;
-    :cond_2
-    invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     move-object v1, p0
 
+    goto :goto_2
+
+    :cond_2
+    invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
+
     .line 117
-    .restart local v1    # "this":Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;
-    .restart local p1    # "$result":Ljava/lang/Object;
-    iget-object v4, v1, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->this$0:Landroidx/room/CoroutinesRoom$Companion$createFlow$1;
+    iget-object p1, p0, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->this$0:Landroidx/room/CoroutinesRoom$Companion$createFlow$1;
 
-    iget-object v4, v4, Landroidx/room/CoroutinesRoom$Companion$createFlow$1;->$db:Landroidx/room/RoomDatabase;
+    iget-object p1, p1, Landroidx/room/CoroutinesRoom$Companion$createFlow$1;->$db:Landroidx/room/RoomDatabase;
 
-    invoke-virtual {v4}, Landroidx/room/RoomDatabase;->getInvalidationTracker()Landroidx/room/InvalidationTracker;
+    invoke-virtual {p1}, Landroidx/room/RoomDatabase;->getInvalidationTracker()Landroidx/room/InvalidationTracker;
 
-    move-result-object v4
+    move-result-object p1
 
-    iget-object v5, v1, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->$observer:Lkotlin/jvm/internal/Ref$ObjectRef;
+    iget-object v1, p0, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->$observer:Lkotlin/jvm/internal/Ref$ObjectRef;
 
-    iget-object v5, v5, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
+    iget-object v1, v1, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
-    check-cast v5, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$observer$1;
+    check-cast v1, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$observer$1;
 
-    check-cast v5, Landroidx/room/InvalidationTracker$Observer;
+    check-cast v1, Landroidx/room/InvalidationTracker$Observer;
 
-    invoke-virtual {v4, v5}, Landroidx/room/InvalidationTracker;->addObserver(Landroidx/room/InvalidationTracker$Observer;)V
-
-    .line 118
-    nop
+    invoke-virtual {p1, v1}, Landroidx/room/InvalidationTracker;->addObserver(Landroidx/room/InvalidationTracker$Observer;)V
 
     .line 121
     :try_start_2
-    iget-object v4, v1, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->$observerChannel:Lkotlinx/coroutines/channels/Channel;
+    iget-object p1, p0, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->$observerChannel:Lkotlinx/coroutines/channels/Channel;
 
-    invoke-interface {v4}, Lkotlinx/coroutines/channels/Channel;->iterator()Lkotlinx/coroutines/channels/ChannelIterator;
+    invoke-interface {p1}, Lkotlinx/coroutines/channels/Channel;->iterator()Lkotlinx/coroutines/channels/ChannelIterator;
 
-    move-result-object v4
-
-    :goto_0
-    iput-object v4, v1, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->L$0:Ljava/lang/Object;
-
-    iput v3, v1, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->label:I
-
-    invoke-interface {v4, v1}, Lkotlinx/coroutines/channels/ChannelIterator;->hasNext(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-
-    move-result-object v5
+    move-result-object p1
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    if-ne v5, v0, :cond_3
+    :goto_0
+    move-object v1, p0
 
-    .line 116
-    return-object v0
-
-    .line 121
-    :cond_3
-    move-object v9, v0
-
-    move-object v0, p1
-
-    move-object p1, v5
-
-    move-object v5, v4
-
-    move-object v4, v1
-
-    move-object v1, v9
-
-    .end local v1    # "this":Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;
-    .end local p1    # "$result":Ljava/lang/Object;
-    .local v0, "$result":Ljava/lang/Object;
-    .local v4, "this":Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;
     :goto_1
     :try_start_3
+    iput-object p1, v1, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->L$0:Ljava/lang/Object;
+
+    iput v3, v1, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->label:I
+
+    invoke-interface {p1, v1}, Lkotlinx/coroutines/channels/ChannelIterator;->hasNext(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    if-ne v4, v0, :cond_3
+
+    return-object v0
+
+    :cond_3
+    move-object v8, v4
+
+    move-object v4, p1
+
+    move-object p1, v8
+
+    :goto_2
     check-cast p1, Ljava/lang/Boolean;
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
@@ -322,7 +292,7 @@
 
     if-eqz p1, :cond_5
 
-    invoke-interface {v5}, Lkotlinx/coroutines/channels/ChannelIterator;->next()Ljava/lang/Object;
+    invoke-interface {v4}, Lkotlinx/coroutines/channels/ChannelIterator;->next()Ljava/lang/Object;
 
     move-result-object p1
 
@@ -333,63 +303,53 @@
 
     invoke-direct {p1}, Lkotlin/jvm/internal/Ref$ObjectRef;-><init>()V
 
-    iget-object v6, v4, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->this$0:Landroidx/room/CoroutinesRoom$Companion$createFlow$1;
+    iget-object v5, v1, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->this$0:Landroidx/room/CoroutinesRoom$Companion$createFlow$1;
 
-    iget-object v6, v6, Landroidx/room/CoroutinesRoom$Companion$createFlow$1;->$callable:Ljava/util/concurrent/Callable;
+    iget-object v5, v5, Landroidx/room/CoroutinesRoom$Companion$createFlow$1;->$callable:Ljava/util/concurrent/Callable;
 
-    invoke-interface {v6}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
+    invoke-interface {v5}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v5
 
-    iput-object v6, p1, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
+    iput-object v5, p1, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
     .line 123
-    .local p1, "result":Lkotlin/jvm/internal/Ref$ObjectRef;
-    iget-object v6, v4, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->$flowContext:Lkotlin/jvm/internal/Ref$ObjectRef;
+    iget-object v5, v1, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->$flowContext:Lkotlin/jvm/internal/Ref$ObjectRef;
 
-    iget-object v6, v6, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
+    iget-object v5, v5, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
-    check-cast v6, Lkotlin/coroutines/CoroutineContext;
+    check-cast v5, Lkotlin/coroutines/CoroutineContext;
 
-    new-instance v7, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1$1;
+    new-instance v6, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1$1;
 
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
-    invoke-direct {v7, v4, p1, v8}, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1$1;-><init>(Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlin/coroutines/Continuation;)V
+    invoke-direct {v6, v1, p1, v7}, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1$1;-><init>(Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlin/coroutines/Continuation;)V
 
-    check-cast v7, Lkotlin/jvm/functions/Function2;
+    check-cast v6, Lkotlin/jvm/functions/Function2;
 
-    iput-object v5, v4, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->L$0:Ljava/lang/Object;
+    iput-object v4, v1, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->L$0:Ljava/lang/Object;
 
-    iput v2, v4, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->label:I
+    iput v2, v1, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->label:I
 
-    invoke-static {v6, v7, v4}, Lkotlinx/coroutines/BuildersKt;->withContext(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    invoke-static {v5, v6, v1}, Lkotlinx/coroutines/BuildersKt;->withContext(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object p1
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .end local p1    # "result":Lkotlin/jvm/internal/Ref$ObjectRef;
-    if-ne v6, v1, :cond_4
+    if-ne p1, v0, :cond_4
 
-    .line 116
-    return-object v1
+    return-object v0
 
-    .line 123
     :cond_4
-    move-object p1, v0
+    move-object p1, v4
 
-    move-object v0, v1
-
-    move-object v1, v4
-
-    move-object v4, v5
-
-    goto :goto_0
+    goto :goto_1
 
     .line 126
     :cond_5
-    iget-object p1, v4, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->this$0:Landroidx/room/CoroutinesRoom$Companion$createFlow$1;
+    iget-object p1, v1, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->this$0:Landroidx/room/CoroutinesRoom$Companion$createFlow$1;
 
     iget-object p1, p1, Landroidx/room/CoroutinesRoom$Companion$createFlow$1;->$db:Landroidx/room/RoomDatabase;
 
@@ -397,7 +357,42 @@
 
     move-result-object p1
 
-    iget-object v1, v4, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->$observer:Lkotlin/jvm/internal/Ref$ObjectRef;
+    iget-object v0, v1, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->$observer:Lkotlin/jvm/internal/Ref$ObjectRef;
+
+    iget-object v0, v0, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
+
+    check-cast v0, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$observer$1;
+
+    check-cast v0, Landroidx/room/InvalidationTracker$Observer;
+
+    invoke-virtual {p1, v0}, Landroidx/room/InvalidationTracker;->removeObserver(Landroidx/room/InvalidationTracker$Observer;)V
+
+    .line 128
+    sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+
+    return-object p1
+
+    :catchall_0
+    move-exception p1
+
+    goto :goto_3
+
+    :catchall_1
+    move-exception p1
+
+    move-object v1, p0
+
+    .line 126
+    :goto_3
+    iget-object v0, v1, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->this$0:Landroidx/room/CoroutinesRoom$Companion$createFlow$1;
+
+    iget-object v0, v0, Landroidx/room/CoroutinesRoom$Companion$createFlow$1;->$db:Landroidx/room/RoomDatabase;
+
+    invoke-virtual {v0}, Landroidx/room/RoomDatabase;->getInvalidationTracker()Landroidx/room/InvalidationTracker;
+
+    move-result-object v0
+
+    iget-object v1, v1, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->$observer:Lkotlin/jvm/internal/Ref$ObjectRef;
 
     iget-object v1, v1, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
@@ -405,56 +400,7 @@
 
     check-cast v1, Landroidx/room/InvalidationTracker$Observer;
 
-    invoke-virtual {p1, v1}, Landroidx/room/InvalidationTracker;->removeObserver(Landroidx/room/InvalidationTracker$Observer;)V
+    invoke-virtual {v0, v1}, Landroidx/room/InvalidationTracker;->removeObserver(Landroidx/room/InvalidationTracker$Observer;)V
 
-    .line 127
-    nop
-
-    .line 128
-    sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-
-    return-object p1
-
-    .line 127
-    :catchall_0
-    move-exception p1
-
-    move-object v1, v4
-
-    move-object v9, v0
-
-    move-object v0, p1
-
-    move-object p1, v9
-
-    goto :goto_2
-
-    .end local v0    # "$result":Ljava/lang/Object;
-    .end local v4    # "this":Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;
-    .restart local v1    # "this":Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;
-    .local p1, "$result":Ljava/lang/Object;
-    :catchall_1
-    move-exception v0
-
-    .line 126
-    :goto_2
-    iget-object v2, v1, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->this$0:Landroidx/room/CoroutinesRoom$Companion$createFlow$1;
-
-    iget-object v2, v2, Landroidx/room/CoroutinesRoom$Companion$createFlow$1;->$db:Landroidx/room/RoomDatabase;
-
-    invoke-virtual {v2}, Landroidx/room/RoomDatabase;->getInvalidationTracker()Landroidx/room/InvalidationTracker;
-
-    move-result-object v2
-
-    iget-object v3, v1, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$1;->$observer:Lkotlin/jvm/internal/Ref$ObjectRef;
-
-    iget-object v3, v3, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
-
-    check-cast v3, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$observer$1;
-
-    check-cast v3, Landroidx/room/InvalidationTracker$Observer;
-
-    invoke-virtual {v2, v3}, Landroidx/room/InvalidationTracker;->removeObserver(Landroidx/room/InvalidationTracker$Observer;)V
-
-    throw v0
+    throw p1
 .end method

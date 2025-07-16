@@ -28,13 +28,11 @@
 # virtual methods
 .method public write(I)V
     .locals 0
-    .param p1, "b"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 761
     return-void
 .end method

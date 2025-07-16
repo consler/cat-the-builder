@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/GlideBuilder;Lcom/bumptech/glide/request/RequestOptions;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/bumptech/glide/GlideBuilder;
 
     .line 226
     iput-object p1, p0, Lcom/bumptech/glide/GlideBuilder$2;->this$0:Lcom/bumptech/glide/GlideBuilder;

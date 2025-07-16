@@ -26,10 +26,8 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/single/SingleDelay$Delay;Ljava/lang/Throwable;)V
     .locals 0
-    .param p2, "e"    # Ljava/lang/Throwable;
 
     .line 85
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDelay$Delay$OnError;, "Lio/reactivex/internal/operators/single/SingleDelay<TT;>.Delay.OnError;"
     iput-object p1, p0, Lio/reactivex/internal/operators/single/SingleDelay$Delay$OnError;->this$1:Lio/reactivex/internal/operators/single/SingleDelay$Delay;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +35,6 @@
     .line 86
     iput-object p2, p0, Lio/reactivex/internal/operators/single/SingleDelay$Delay$OnError;->e:Ljava/lang/Throwable;
 
-    .line 87
     return-void
 .end method
 
@@ -47,7 +44,6 @@
     .locals 2
 
     .line 91
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDelay$Delay$OnError;, "Lio/reactivex/internal/operators/single/SingleDelay<TT;>.Delay.OnError;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleDelay$Delay$OnError;->this$1:Lio/reactivex/internal/operators/single/SingleDelay$Delay;
 
     iget-object v0, v0, Lio/reactivex/internal/operators/single/SingleDelay$Delay;->s:Lio/reactivex/SingleObserver;
@@ -56,6 +52,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/SingleObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 92
     return-void
 .end method

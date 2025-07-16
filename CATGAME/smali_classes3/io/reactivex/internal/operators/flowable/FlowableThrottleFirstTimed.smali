@@ -32,9 +32,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/Flowable;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)V
     .locals 0
-    .param p2, "timeout"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -47,8 +44,6 @@
     .end annotation
 
     .line 37
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed;, "Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed<TT;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
     .line 38
@@ -60,7 +55,6 @@
     .line 40
     iput-object p5, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed;->scheduler:Lio/reactivex/Scheduler;
 
-    .line 41
     return-void
 .end method
 
@@ -77,8 +71,6 @@
     .end annotation
 
     .line 45
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed;, "Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed<TT;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed;->source:Lio/reactivex/Flowable;
 
     new-instance v7, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed$DebounceTimedSubscriber;
@@ -91,9 +83,9 @@
 
     iget-object v5, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed;->unit:Ljava/util/concurrent/TimeUnit;
 
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed;->scheduler:Lio/reactivex/Scheduler;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableThrottleFirstTimed;->scheduler:Lio/reactivex/Scheduler;
 
-    invoke-virtual {v1}, Lio/reactivex/Scheduler;->createWorker()Lio/reactivex/Scheduler$Worker;
+    invoke-virtual {p1}, Lio/reactivex/Scheduler;->createWorker()Lio/reactivex/Scheduler$Worker;
 
     move-result-object v6
 
@@ -103,6 +95,5 @@
 
     invoke-virtual {v0, v7}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 48
     return-void
 .end method

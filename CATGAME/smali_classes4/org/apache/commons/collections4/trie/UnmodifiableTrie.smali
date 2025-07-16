@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/apache/commons/collections4/Trie;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -52,33 +52,24 @@
     .end annotation
 
     .line 71
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
-    .local p1, "trie":Lorg/apache/commons/collections4/Trie;, "Lorg/apache/commons/collections4/Trie<TK;+TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 72
     if-eqz p1, :cond_0
 
-    .line 76
-    move-object v0, p1
-
     .line 77
-    .local v0, "tmpTrie":Lorg/apache/commons/collections4/Trie;, "Lorg/apache/commons/collections4/Trie<TK;TV;>;"
-    iput-object v0, p0, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->delegate:Lorg/apache/commons/collections4/Trie;
+    iput-object p1, p0, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->delegate:Lorg/apache/commons/collections4/Trie;
 
-    .line 78
     return-void
 
     .line 73
-    .end local v0    # "tmpTrie":Lorg/apache/commons/collections4/Trie;, "Lorg/apache/commons/collections4/Trie<TK;TV;>;"
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "Trie must not be null"
+    const-string v0, "Trie must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public static unmodifiableTrie(Lorg/apache/commons/collections4/Trie;)Lorg/apache/commons/collections4/Trie;
@@ -98,20 +89,13 @@
     .end annotation
 
     .line 56
-    .local p0, "trie":Lorg/apache/commons/collections4/Trie;, "Lorg/apache/commons/collections4/Trie<TK;+TV;>;"
     instance-of v0, p0, Lorg/apache/commons/collections4/Unmodifiable;
 
     if-eqz v0, :cond_0
 
-    .line 58
-    move-object v0, p0
-
-    .line 59
-    .local v0, "tmpTrie":Lorg/apache/commons/collections4/Trie;, "Lorg/apache/commons/collections4/Trie<TK;TV;>;"
-    return-object v0
+    return-object p0
 
     .line 61
-    .end local v0    # "tmpTrie":Lorg/apache/commons/collections4/Trie;, "Lorg/apache/commons/collections4/Trie<TK;TV;>;"
     :cond_0
     new-instance v0, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;
 
@@ -126,7 +110,6 @@
     .locals 1
 
     .line 99
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -145,7 +128,6 @@
     .end annotation
 
     .line 174
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->delegate:Lorg/apache/commons/collections4/Trie;
 
     invoke-interface {v0}, Lorg/apache/commons/collections4/Trie;->comparator()Ljava/util/Comparator;
@@ -157,32 +139,28 @@
 
 .method public containsKey(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 104
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->delegate:Lorg/apache/commons/collections4/Trie;
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Trie;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "value"    # Ljava/lang/Object;
 
     .line 109
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->delegate:Lorg/apache/commons/collections4/Trie;
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Trie;->containsValue(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public entrySet()Ljava/util/Set;
@@ -197,7 +175,6 @@
     .end annotation
 
     .line 84
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->delegate:Lorg/apache/commons/collections4/Trie;
 
     invoke-interface {v0}, Lorg/apache/commons/collections4/Trie;->entrySet()Ljava/util/Set;
@@ -213,17 +190,15 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 202
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->delegate:Lorg/apache/commons/collections4/Trie;
 
     invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public firstKey()Ljava/lang/Object;
@@ -235,7 +210,6 @@
     .end annotation
 
     .line 144
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->delegate:Lorg/apache/commons/collections4/Trie;
 
     invoke-interface {v0}, Lorg/apache/commons/collections4/Trie;->firstKey()Ljava/lang/Object;
@@ -247,7 +221,6 @@
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -257,21 +230,19 @@
     .end annotation
 
     .line 114
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->delegate:Lorg/apache/commons/collections4/Trie;
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Trie;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public hashCode()I
     .locals 1
 
     .line 197
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->delegate:Lorg/apache/commons/collections4/Trie;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
@@ -292,26 +263,23 @@
     .end annotation
 
     .line 149
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
-    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->delegate:Lorg/apache/commons/collections4/Trie;
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Trie;->headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Ljava/util/Collections;->unmodifiableSortedMap(Ljava/util/SortedMap;)Ljava/util/SortedMap;
+    invoke-static {p1}, Ljava/util/Collections;->unmodifiableSortedMap(Ljava/util/SortedMap;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public isEmpty()Z
     .locals 1
 
     .line 119
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->delegate:Lorg/apache/commons/collections4/Trie;
 
     invoke-interface {v0}, Lorg/apache/commons/collections4/Trie;->isEmpty()Z
@@ -332,7 +300,6 @@
     .end annotation
 
     .line 89
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->delegate:Lorg/apache/commons/collections4/Trie;
 
     invoke-interface {v0}, Lorg/apache/commons/collections4/Trie;->keySet()Ljava/util/Set;
@@ -355,7 +322,6 @@
     .end annotation
 
     .line 154
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->delegate:Lorg/apache/commons/collections4/Trie;
 
     invoke-interface {v0}, Lorg/apache/commons/collections4/Trie;->lastKey()Ljava/lang/Object;
@@ -369,7 +335,6 @@
     .locals 1
 
     .line 39
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->mapIterator()Lorg/apache/commons/collections4/OrderedMapIterator;
 
     move-result-object v0
@@ -378,7 +343,7 @@
 .end method
 
 .method public mapIterator()Lorg/apache/commons/collections4/OrderedMapIterator;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -388,7 +353,6 @@
     .end annotation
 
     .line 180
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->delegate:Lorg/apache/commons/collections4/Trie;
 
     invoke-interface {v0}, Lorg/apache/commons/collections4/Trie;->mapIterator()Lorg/apache/commons/collections4/OrderedMapIterator;
@@ -396,12 +360,11 @@
     move-result-object v0
 
     .line 181
-    .local v0, "it":Lorg/apache/commons/collections4/OrderedMapIterator;, "Lorg/apache/commons/collections4/OrderedMapIterator<TK;TV;>;"
     invoke-static {v0}, Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator;->unmodifiableOrderedMapIterator(Lorg/apache/commons/collections4/OrderedMapIterator;)Lorg/apache/commons/collections4/OrderedMapIterator;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public nextKey(Ljava/lang/Object;)Ljava/lang/Object;
@@ -413,15 +376,13 @@
     .end annotation
 
     .line 186
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->delegate:Lorg/apache/commons/collections4/Trie;
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Trie;->nextKey(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public prefixMap(Ljava/lang/Object;)Ljava/util/SortedMap;
@@ -435,19 +396,17 @@
     .end annotation
 
     .line 169
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->delegate:Lorg/apache/commons/collections4/Trie;
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Trie;->prefixMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Ljava/util/Collections;->unmodifiableSortedMap(Ljava/util/SortedMap;)Ljava/util/SortedMap;
+    invoke-static {p1}, Ljava/util/Collections;->unmodifiableSortedMap(Ljava/util/SortedMap;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public previousKey(Ljava/lang/Object;)Ljava/lang/Object;
@@ -459,19 +418,17 @@
     .end annotation
 
     .line 191
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->delegate:Lorg/apache/commons/collections4/Trie;
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Trie;->previousKey(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -479,18 +436,15 @@
     .end annotation
 
     .line 124
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -500,18 +454,15 @@
     .end annotation
 
     .line 129
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
-    .local p1, "m":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -521,19 +472,17 @@
     .end annotation
 
     .line 134
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public size()I
     .locals 1
 
     .line 139
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->delegate:Lorg/apache/commons/collections4/Trie;
 
     invoke-interface {v0}, Lorg/apache/commons/collections4/Trie;->size()I
@@ -554,20 +503,17 @@
     .end annotation
 
     .line 159
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
-    .local p2, "toKey":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->delegate:Lorg/apache/commons/collections4/Trie;
 
     invoke-interface {v0, p1, p2}, Lorg/apache/commons/collections4/Trie;->subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Ljava/util/Collections;->unmodifiableSortedMap(Ljava/util/SortedMap;)Ljava/util/SortedMap;
+    invoke-static {p1}, Ljava/util/Collections;->unmodifiableSortedMap(Ljava/util/SortedMap;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
@@ -581,26 +527,23 @@
     .end annotation
 
     .line 164
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->delegate:Lorg/apache/commons/collections4/Trie;
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Trie;->tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Ljava/util/Collections;->unmodifiableSortedMap(Ljava/util/SortedMap;)Ljava/util/SortedMap;
+    invoke-static {p1}, Ljava/util/Collections;->unmodifiableSortedMap(Ljava/util/SortedMap;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 1
 
     .line 207
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->delegate:Lorg/apache/commons/collections4/Trie;
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -621,7 +564,6 @@
     .end annotation
 
     .line 94
-    .local p0, "this":Lorg/apache/commons/collections4/trie/UnmodifiableTrie;, "Lorg/apache/commons/collections4/trie/UnmodifiableTrie<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/UnmodifiableTrie;->delegate:Lorg/apache/commons/collections4/Trie;
 
     invoke-interface {v0}, Lorg/apache/commons/collections4/Trie;->values()Ljava/util/Collection;

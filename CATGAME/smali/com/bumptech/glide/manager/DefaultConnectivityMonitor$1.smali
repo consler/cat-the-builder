@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;
 
     .line 31
     iput-object p1, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor$1;->this$0:Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;
@@ -34,77 +33,73 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
+    .locals 1
 
     .line 34
+    iget-object p2, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor$1;->this$0:Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;
+
+    iget-boolean p2, p2, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->isConnected:Z
+
+    .line 35
+    iget-object v0, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor$1;->this$0:Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;
+
+    invoke-virtual {v0, p1}, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->isConnected(Landroid/content/Context;)Z
+
+    move-result p1
+
+    iput-boolean p1, v0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->isConnected:Z
+
+    .line 36
+    iget-object p1, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor$1;->this$0:Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;
+
+    iget-boolean p1, p1, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->isConnected:Z
+
+    if-eq p2, p1, :cond_1
+
+    const/4 p1, 0x3
+
+    const-string p2, "ConnectivityMonitor"
+
+    .line 37
+    invoke-static {p2, p1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    .line 38
+    new-instance p1, Ljava/lang/StringBuilder;
+
+    const-string v0, "connectivity changed, isConnected: "
+
+    invoke-direct {p1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
     iget-object v0, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor$1;->this$0:Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;
 
     iget-boolean v0, v0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->isConnected:Z
 
-    .line 35
-    .local v0, "wasConnected":Z
-    iget-object v1, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor$1;->this$0:Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->isConnected(Landroid/content/Context;)Z
+    move-result-object p1
 
-    move-result v2
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    iput-boolean v2, v1, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->isConnected:Z
+    move-result-object p1
 
-    .line 36
-    iget-object v1, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor$1;->this$0:Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;
-
-    iget-boolean v1, v1, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->isConnected:Z
-
-    if-eq v0, v1, :cond_1
-
-    .line 37
-    const/4 v1, 0x3
-
-    const-string v2, "ConnectivityMonitor"
-
-    invoke-static {v2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 38
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "connectivity changed, isConnected: "
-
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v3, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor$1;->this$0:Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;
-
-    iget-boolean v3, v3, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->isConnected:Z
-
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v2, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p2, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 41
     :cond_0
-    iget-object v1, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor$1;->this$0:Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;
+    iget-object p1, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor$1;->this$0:Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;
 
-    iget-object v1, v1, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->listener:Lcom/bumptech/glide/manager/ConnectivityMonitor$ConnectivityListener;
+    iget-object p1, p1, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->listener:Lcom/bumptech/glide/manager/ConnectivityMonitor$ConnectivityListener;
 
-    iget-object v2, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor$1;->this$0:Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;
+    iget-object p2, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor$1;->this$0:Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;
 
-    iget-boolean v2, v2, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->isConnected:Z
+    iget-boolean p2, p2, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->isConnected:Z
 
-    invoke-interface {v1, v2}, Lcom/bumptech/glide/manager/ConnectivityMonitor$ConnectivityListener;->onConnectivityChanged(Z)V
+    invoke-interface {p1, p2}, Lcom/bumptech/glide/manager/ConnectivityMonitor$ConnectivityListener;->onConnectivityChanged(Z)V
 
-    .line 43
     :cond_1
     return-void
 .end method

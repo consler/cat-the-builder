@@ -52,7 +52,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/SingleObserver;Lio/reactivex/functions/Action;)V
     .locals 0
-    .param p2, "onFinally"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -64,8 +63,6 @@
     .end annotation
 
     .line 59
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver;, "Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
 
     .line 60
@@ -74,7 +71,6 @@
     .line 61
     iput-object p2, p0, Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver;->onFinally:Lio/reactivex/functions/Action;
 
-    .line 62
     return-void
 .end method
 
@@ -84,7 +80,6 @@
     .locals 1
 
     .line 87
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver;, "Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver;->d:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
@@ -92,7 +87,6 @@
     .line 88
     invoke-virtual {p0}, Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver;->runFinally()V
 
-    .line 89
     return-void
 .end method
 
@@ -100,7 +94,6 @@
     .locals 1
 
     .line 93
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver;, "Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver;->d:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->isDisposed()Z
@@ -112,10 +105,8 @@
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 81
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver;, "Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver;->actual:Lio/reactivex/SingleObserver;
 
     invoke-interface {v0, p1}, Lio/reactivex/SingleObserver;->onError(Ljava/lang/Throwable;)V
@@ -123,16 +114,13 @@
     .line 82
     invoke-virtual {p0}, Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver;->runFinally()V
 
-    .line 83
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 66
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver;, "Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver;->d:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -145,11 +133,10 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver;->d:Lio/reactivex/disposables/Disposable;
 
     .line 69
-    iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver;->actual:Lio/reactivex/SingleObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver;->actual:Lio/reactivex/SingleObserver;
 
-    invoke-interface {v0, p0}, Lio/reactivex/SingleObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/SingleObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 71
     :cond_0
     return-void
 .end method
@@ -163,8 +150,6 @@
     .end annotation
 
     .line 75
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver;, "Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver;->actual:Lio/reactivex/SingleObserver;
 
     invoke-interface {v0, p1}, Lio/reactivex/SingleObserver;->onSuccess(Ljava/lang/Object;)V
@@ -172,19 +157,17 @@
     .line 76
     invoke-virtual {p0}, Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver;->runFinally()V
 
-    .line 77
     return-void
 .end method
 
 .method runFinally()V
     .locals 2
 
-    .line 97
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver;, "Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver<TT;>;"
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
+    .line 97
     invoke-virtual {p0, v0, v1}, Lio/reactivex/internal/operators/single/SingleDoFinally$DoFinallyObserver;->compareAndSet(II)Z
 
     move-result v0
@@ -199,22 +182,17 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 103
     goto :goto_0
 
-    .line 100
     :catchall_0
     move-exception v0
 
     .line 101
-    .local v0, "ex":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 102
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 105
-    .end local v0    # "ex":Ljava/lang/Throwable;
     :cond_0
     :goto_0
     return-void

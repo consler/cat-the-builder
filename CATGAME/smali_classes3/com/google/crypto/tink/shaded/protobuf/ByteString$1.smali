@@ -25,26 +25,23 @@
 # direct methods
 .method constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
     .locals 1
-    .param p1, "this$0"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     .line 175
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$1;->this$0:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/ByteString$AbstractByteIterator;-><init>()V
 
-    .line 176
     const/4 v0, 0x0
 
+    .line 176
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$1;->position:I
 
     .line 177
-    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$1;->this$0:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->size()I
 
-    invoke-virtual {v0}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->size()I
+    move-result p1
 
-    move-result v0
-
-    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$1;->limit:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$1;->limit:I
 
     return-void
 .end method
@@ -79,14 +76,13 @@
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$1;->position:I
 
     .line 187
-    .local v0, "currentPos":I
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$1;->limit:I
 
     if-ge v0, v1, :cond_0
 
-    .line 190
     add-int/lit8 v1, v0, 0x1
 
+    .line 190
     iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$1;->position:I
 
     .line 191
@@ -94,15 +90,15 @@
 
     invoke-virtual {v1, v0}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->internalByteAt(I)B
 
-    move-result v1
+    move-result v0
 
-    return v1
+    return v0
 
     .line 188
     :cond_0
-    new-instance v1, Ljava/util/NoSuchElementException;
+    new-instance v0, Ljava/util/NoSuchElementException;
 
-    invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
+    invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
 
-    throw v1
+    throw v0
 .end method

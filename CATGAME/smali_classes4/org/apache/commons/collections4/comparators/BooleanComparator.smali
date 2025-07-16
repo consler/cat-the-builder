@@ -59,50 +59,41 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 112
     const/4 v0, 0x0
 
+    .line 112
     invoke-direct {p0, v0}, Lorg/apache/commons/collections4/comparators/BooleanComparator;-><init>(Z)V
 
-    .line 113
     return-void
 .end method
 
 .method public constructor <init>(Z)V
-    .locals 1
-    .param p1, "trueFirst"    # Z
+    .locals 0
 
     .line 125
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 44
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lorg/apache/commons/collections4/comparators/BooleanComparator;->trueFirst:Z
-
     .line 126
     iput-boolean p1, p0, Lorg/apache/commons/collections4/comparators/BooleanComparator;->trueFirst:Z
 
-    .line 127
     return-void
 .end method
 
 .method public static booleanComparator(Z)Lorg/apache/commons/collections4/comparators/BooleanComparator;
-    .locals 1
-    .param p0, "trueFirst"    # Z
+    .locals 0
 
-    .line 99
     if-eqz p0, :cond_0
 
-    sget-object v0, Lorg/apache/commons/collections4/comparators/BooleanComparator;->TRUE_FIRST:Lorg/apache/commons/collections4/comparators/BooleanComparator;
+    .line 99
+    sget-object p0, Lorg/apache/commons/collections4/comparators/BooleanComparator;->TRUE_FIRST:Lorg/apache/commons/collections4/comparators/BooleanComparator;
 
     goto :goto_0
 
     :cond_0
-    sget-object v0, Lorg/apache/commons/collections4/comparators/BooleanComparator;->FALSE_FIRST:Lorg/apache/commons/collections4/comparators/BooleanComparator;
+    sget-object p0, Lorg/apache/commons/collections4/comparators/BooleanComparator;->FALSE_FIRST:Lorg/apache/commons/collections4/comparators/BooleanComparator;
 
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public static getFalseFirstComparator()Lorg/apache/commons/collections4/comparators/BooleanComparator;
@@ -126,47 +117,43 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Boolean;Ljava/lang/Boolean;)I
-    .locals 3
-    .param p1, "b1"    # Ljava/lang/Boolean;
-    .param p2, "b2"    # Ljava/lang/Boolean;
+    .locals 0
 
     .line 141
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v0
+    move-result p1
 
     .line 142
-    .local v0, "v1":Z
     invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v1
+    move-result p2
+
+    xor-int/2addr p2, p1
+
+    if-eqz p2, :cond_1
 
     .line 144
-    .local v1, "v2":Z
-    xor-int v2, v0, v1
+    iget-boolean p2, p0, Lorg/apache/commons/collections4/comparators/BooleanComparator;->trueFirst:Z
 
-    if-eqz v2, :cond_1
+    xor-int/2addr p1, p2
 
-    iget-boolean v2, p0, Lorg/apache/commons/collections4/comparators/BooleanComparator;->trueFirst:Z
+    if-eqz p1, :cond_0
 
-    xor-int/2addr v2, v0
-
-    if-eqz v2, :cond_0
-
-    const/4 v2, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, -0x1
+    const/4 p1, -0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v2
+    return p1
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
@@ -185,66 +172,55 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
-    .param p1, "object"    # Ljava/lang/Object;
+    .locals 1
 
-    .line 174
     if-eq p0, p1, :cond_1
 
+    .line 174
     instance-of v0, p1, Lorg/apache/commons/collections4/comparators/BooleanComparator;
 
     if-eqz v0, :cond_0
 
     iget-boolean v0, p0, Lorg/apache/commons/collections4/comparators/BooleanComparator;->trueFirst:Z
 
-    move-object v1, p1
+    check-cast p1, Lorg/apache/commons/collections4/comparators/BooleanComparator;
 
-    check-cast v1, Lorg/apache/commons/collections4/comparators/BooleanComparator;
+    iget-boolean p1, p1, Lorg/apache/commons/collections4/comparators/BooleanComparator;->trueFirst:Z
 
-    iget-boolean v1, v1, Lorg/apache/commons/collections4/comparators/BooleanComparator;->trueFirst:Z
-
-    if-ne v0, v1, :cond_0
+    if-ne v0, p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     :goto_1
-    return v0
+    return p1
 .end method
 
 .method public hashCode()I
-    .locals 2
-
-    .line 156
-    const-string v0, "BooleanComparator"
-
-    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
-
-    move-result v0
+    .locals 1
 
     .line 157
-    .local v0, "hash":I
-    iget-boolean v1, p0, Lorg/apache/commons/collections4/comparators/BooleanComparator;->trueFirst:Z
+    iget-boolean v0, p0, Lorg/apache/commons/collections4/comparators/BooleanComparator;->trueFirst:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    mul-int/lit8 v1, v0, -0x1
+    const v0, -0x1c7dc2fe
 
     goto :goto_0
 
     :cond_0
-    move v1, v0
+    const v0, 0x1c7dc2fe
 
     :goto_0
-    return v1
+    return v0
 .end method
 
 .method public sortsTrueFirst()Z

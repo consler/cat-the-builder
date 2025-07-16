@@ -39,48 +39,39 @@
 
 # virtual methods
 .method public compare(Landroid/view/View;Landroid/view/View;)I
-    .locals 3
-    .param p1, "lhs"    # Landroid/view/View;
-    .param p2, "rhs"    # Landroid/view/View;
+    .locals 1
 
     .line 2034
     invoke-static {p1}, Landroidx/core/view/ViewCompat;->getZ(Landroid/view/View;)F
 
-    move-result v0
+    move-result p1
 
     .line 2035
-    .local v0, "lz":F
     invoke-static {p2}, Landroidx/core/view/ViewCompat;->getZ(Landroid/view/View;)F
 
-    move-result v1
+    move-result p2
 
-    .line 2036
-    .local v1, "rz":F
-    cmpl-float v2, v0, v1
+    cmpl-float v0, p1, p2
 
-    if-lez v2, :cond_0
+    if-lez v0, :cond_0
 
-    .line 2037
-    const/4 v2, -0x1
+    const/4 p1, -0x1
 
-    return v2
+    return p1
 
-    .line 2038
     :cond_0
-    cmpg-float v2, v0, v1
+    cmpg-float p1, p1, p2
 
-    if-gez v2, :cond_1
+    if-gez p1, :cond_1
 
-    .line 2039
-    const/4 v2, 0x1
+    const/4 p1, 0x1
 
-    return v2
+    return p1
 
-    .line 2041
     :cond_1
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
-    return v2
+    return p1
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I

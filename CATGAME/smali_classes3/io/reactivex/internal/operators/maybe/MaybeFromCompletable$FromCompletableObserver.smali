@@ -54,14 +54,11 @@
     .end annotation
 
     .line 49
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeFromCompletable$FromCompletableObserver;, "Lio/reactivex/internal/operators/maybe/MaybeFromCompletable$FromCompletableObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 50
     iput-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeFromCompletable$FromCompletableObserver;->actual:Lio/reactivex/MaybeObserver;
 
-    .line 51
     return-void
 .end method
 
@@ -71,7 +68,6 @@
     .locals 1
 
     .line 55
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeFromCompletable$FromCompletableObserver;, "Lio/reactivex/internal/operators/maybe/MaybeFromCompletable$FromCompletableObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeFromCompletable$FromCompletableObserver;->d:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
@@ -81,7 +77,6 @@
 
     iput-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeFromCompletable$FromCompletableObserver;->d:Lio/reactivex/disposables/Disposable;
 
-    .line 57
     return-void
 .end method
 
@@ -89,7 +84,6 @@
     .locals 1
 
     .line 61
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeFromCompletable$FromCompletableObserver;, "Lio/reactivex/internal/operators/maybe/MaybeFromCompletable$FromCompletableObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeFromCompletable$FromCompletableObserver;->d:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->isDisposed()Z
@@ -103,7 +97,6 @@
     .locals 1
 
     .line 75
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeFromCompletable$FromCompletableObserver;, "Lio/reactivex/internal/operators/maybe/MaybeFromCompletable$FromCompletableObserver<TT;>;"
     sget-object v0, Lio/reactivex/internal/disposables/DisposableHelper;->DISPOSED:Lio/reactivex/internal/disposables/DisposableHelper;
 
     iput-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeFromCompletable$FromCompletableObserver;->d:Lio/reactivex/disposables/Disposable;
@@ -113,16 +106,13 @@
 
     invoke-interface {v0}, Lio/reactivex/MaybeObserver;->onComplete()V
 
-    .line 77
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 81
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeFromCompletable$FromCompletableObserver;, "Lio/reactivex/internal/operators/maybe/MaybeFromCompletable$FromCompletableObserver<TT;>;"
     sget-object v0, Lio/reactivex/internal/disposables/DisposableHelper;->DISPOSED:Lio/reactivex/internal/disposables/DisposableHelper;
 
     iput-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeFromCompletable$FromCompletableObserver;->d:Lio/reactivex/disposables/Disposable;
@@ -132,16 +122,13 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/MaybeObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 83
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 66
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeFromCompletable$FromCompletableObserver;, "Lio/reactivex/internal/operators/maybe/MaybeFromCompletable$FromCompletableObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeFromCompletable$FromCompletableObserver;->d:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -154,11 +141,10 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeFromCompletable$FromCompletableObserver;->d:Lio/reactivex/disposables/Disposable;
 
     .line 69
-    iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeFromCompletable$FromCompletableObserver;->actual:Lio/reactivex/MaybeObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeFromCompletable$FromCompletableObserver;->actual:Lio/reactivex/MaybeObserver;
 
-    invoke-interface {v0, p0}, Lio/reactivex/MaybeObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/MaybeObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 71
     :cond_0
     return-void
 .end method

@@ -23,8 +23,6 @@
 # direct methods
 .method public constructor <init>(Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$Entry;Ljava/io/FileInputStream;)V
     .locals 0
-    .param p1, "entry"    # Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$Entry;
-    .param p2, "snapshot"    # Ljava/io/FileInputStream;
 
     .line 708
     invoke-direct {p0}, Ljava/net/CacheResponse;-><init>()V
@@ -35,7 +33,6 @@
     .line 710
     iput-object p2, p0, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$EntryCacheResponse;->snapshot:Ljava/io/FileInputStream;
 
-    .line 711
     return-void
 .end method
 

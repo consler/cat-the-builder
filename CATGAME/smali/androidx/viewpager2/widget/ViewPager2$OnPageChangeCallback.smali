@@ -28,26 +28,18 @@
 # virtual methods
 .method public onPageScrollStateChanged(I)V
     .locals 0
-    .param p1, "state"    # I
 
-    .line 1106
     return-void
 .end method
 
 .method public onPageScrolled(IFI)V
     .locals 0
-    .param p1, "position"    # I
-    .param p2, "positionOffset"    # F
-    .param p3, "positionOffsetPixels"    # I
 
-    .line 1088
     return-void
 .end method
 
 .method public onPageSelected(I)V
     .locals 0
-    .param p1, "position"    # I
 
-    .line 1097
     return-void
 .end method

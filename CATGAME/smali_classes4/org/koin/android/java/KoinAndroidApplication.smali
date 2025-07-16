@@ -72,15 +72,13 @@
 
     invoke-static {p0, v0, v1, v0}, Lorg/koin/android/java/KoinAndroidApplication;->create$default(Landroid/content/Context;Lorg/koin/core/logger/Level;ILjava/lang/Object;)Lorg/koin/core/KoinApplication;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final create(Landroid/content/Context;Lorg/koin/core/logger/Level;)Lorg/koin/core/KoinApplication;
     .locals 1
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "androidLoggerLevel"    # Lorg/koin/core/logger/Level;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -101,13 +99,13 @@
 
     invoke-static {v0, p0}, Lorg/koin/android/ext/koin/KoinExtKt;->androidContext(Lorg/koin/core/KoinApplication;Landroid/content/Context;)Lorg/koin/core/KoinApplication;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0, p1}, Lorg/koin/android/ext/koin/KoinExtKt;->androidLogger(Lorg/koin/core/KoinApplication;Lorg/koin/core/logger/Level;)Lorg/koin/core/KoinApplication;
+    invoke-static {p0, p1}, Lorg/koin/android/ext/koin/KoinExtKt;->androidLogger(Lorg/koin/core/KoinApplication;Lorg/koin/core/logger/Level;)Lorg/koin/core/KoinApplication;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static synthetic create$default(Landroid/content/Context;Lorg/koin/core/logger/Level;ILjava/lang/Object;)Lorg/koin/core/KoinApplication;

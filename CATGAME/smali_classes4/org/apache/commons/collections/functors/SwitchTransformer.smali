@@ -21,10 +21,7 @@
 
 # direct methods
 .method public constructor <init>([Lorg/apache/commons/collections/Predicate;[Lorg/apache/commons/collections/Transformer;Lorg/apache/commons/collections/Transformer;)V
-    .locals 1
-    .param p1, "predicates"    # [Lorg/apache/commons/collections/Predicate;
-    .param p2, "transformers"    # [Lorg/apache/commons/collections/Transformer;
-    .param p3, "defaultTransformer"    # Lorg/apache/commons/collections/Transformer;
+    .locals 0
 
     .line 124
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,174 +32,134 @@
     .line 126
     iput-object p2, p0, Lorg/apache/commons/collections/functors/SwitchTransformer;->iTransformers:[Lorg/apache/commons/collections/Transformer;
 
-    .line 127
     if-nez p3, :cond_0
 
-    sget-object v0, Lorg/apache/commons/collections/functors/ConstantTransformer;->NULL_INSTANCE:Lorg/apache/commons/collections/Transformer;
-
-    goto :goto_0
+    .line 127
+    sget-object p3, Lorg/apache/commons/collections/functors/ConstantTransformer;->NULL_INSTANCE:Lorg/apache/commons/collections/Transformer;
 
     :cond_0
-    move-object v0, p3
+    iput-object p3, p0, Lorg/apache/commons/collections/functors/SwitchTransformer;->iDefault:Lorg/apache/commons/collections/Transformer;
 
-    :goto_0
-    iput-object v0, p0, Lorg/apache/commons/collections/functors/SwitchTransformer;->iDefault:Lorg/apache/commons/collections/Transformer;
-
-    .line 128
     return-void
 .end method
 
 .method public static getInstance(Ljava/util/Map;)Lorg/apache/commons/collections/Transformer;
-    .locals 8
-    .param p0, "predicatesAndTransformers"    # Ljava/util/Map;
+    .locals 6
 
-    .line 89
-    const/4 v0, 0x0
-
-    .line 90
-    .local v0, "transformers":[Lorg/apache/commons/collections/Transformer;
-    const/4 v1, 0x0
-
-    .line 91
-    .local v1, "preds":[Lorg/apache/commons/collections/Predicate;
     if-eqz p0, :cond_4
 
     .line 94
     invoke-interface {p0}, Ljava/util/Map;->size()I
 
-    move-result v2
+    move-result v0
 
-    if-nez v2, :cond_0
+    if-nez v0, :cond_0
 
     .line 95
-    sget-object v2, Lorg/apache/commons/collections/functors/ConstantTransformer;->NULL_INSTANCE:Lorg/apache/commons/collections/Transformer;
+    sget-object p0, Lorg/apache/commons/collections/functors/ConstantTransformer;->NULL_INSTANCE:Lorg/apache/commons/collections/Transformer;
 
-    return-object v2
+    return-object p0
+
+    :cond_0
+    const/4 v0, 0x0
 
     .line 98
-    :cond_0
-    const/4 v2, 0x0
+    invoke-interface {p0, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {p0, v2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object v2
-
-    check-cast v2, Lorg/apache/commons/collections/Transformer;
+    check-cast v0, Lorg/apache/commons/collections/Transformer;
 
     .line 99
-    .local v2, "defaultTransformer":Lorg/apache/commons/collections/Transformer;
     invoke-interface {p0}, Ljava/util/Map;->size()I
 
-    move-result v3
+    move-result v1
 
-    .line 100
-    .local v3, "size":I
-    if-nez v3, :cond_2
+    if-nez v1, :cond_2
+
+    if-nez v0, :cond_1
 
     .line 101
-    if-nez v2, :cond_1
-
-    sget-object v4, Lorg/apache/commons/collections/functors/ConstantTransformer;->NULL_INSTANCE:Lorg/apache/commons/collections/Transformer;
-
-    goto :goto_0
+    sget-object v0, Lorg/apache/commons/collections/functors/ConstantTransformer;->NULL_INSTANCE:Lorg/apache/commons/collections/Transformer;
 
     :cond_1
-    move-object v4, v2
-
-    :goto_0
-    return-object v4
+    return-object v0
 
     .line 103
     :cond_2
-    new-array v0, v3, [Lorg/apache/commons/collections/Transformer;
+    new-array v2, v1, [Lorg/apache/commons/collections/Transformer;
 
     .line 104
-    new-array v1, v3, [Lorg/apache/commons/collections/Predicate;
-
-    .line 105
-    const/4 v4, 0x0
+    new-array v1, v1, [Lorg/apache/commons/collections/Predicate;
 
     .line 106
-    .local v4, "i":I
     invoke-interface {p0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v5
+    move-result-object p0
 
-    invoke-interface {v5}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v5
+    move-result-object p0
 
-    .local v5, "it":Ljava/util/Iterator;
-    :goto_1
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+    const/4 v3, 0x0
 
-    move-result v6
+    :goto_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    if-eqz v6, :cond_3
+    move-result v4
+
+    if-eqz v4, :cond_3
 
     .line 107
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v4
 
-    check-cast v6, Ljava/util/Map$Entry;
+    check-cast v4, Ljava/util/Map$Entry;
 
     .line 108
-    .local v6, "entry":Ljava/util/Map$Entry;
-    invoke-interface {v6}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {v4}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v5
 
-    check-cast v7, Lorg/apache/commons/collections/Predicate;
+    check-cast v5, Lorg/apache/commons/collections/Predicate;
 
-    aput-object v7, v1, v4
+    aput-object v5, v1, v3
 
     .line 109
-    invoke-interface {v6}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {v4}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v4
 
-    check-cast v7, Lorg/apache/commons/collections/Transformer;
+    check-cast v4, Lorg/apache/commons/collections/Transformer;
 
-    aput-object v7, v0, v4
+    aput-object v4, v2, v3
 
-    .line 110
-    nop
+    add-int/lit8 v3, v3, 0x1
 
-    .end local v6    # "entry":Ljava/util/Map$Entry;
-    add-int/lit8 v4, v4, 0x1
-
-    .line 111
-    goto :goto_1
+    goto :goto_0
 
     .line 112
-    .end local v5    # "it":Ljava/util/Iterator;
     :cond_3
-    new-instance v5, Lorg/apache/commons/collections/functors/SwitchTransformer;
+    new-instance p0, Lorg/apache/commons/collections/functors/SwitchTransformer;
 
-    invoke-direct {v5, v1, v0, v2}, Lorg/apache/commons/collections/functors/SwitchTransformer;-><init>([Lorg/apache/commons/collections/Predicate;[Lorg/apache/commons/collections/Transformer;Lorg/apache/commons/collections/Transformer;)V
+    invoke-direct {p0, v1, v2, v0}, Lorg/apache/commons/collections/functors/SwitchTransformer;-><init>([Lorg/apache/commons/collections/Predicate;[Lorg/apache/commons/collections/Transformer;Lorg/apache/commons/collections/Transformer;)V
 
-    return-object v5
+    return-object p0
 
     .line 92
-    .end local v2    # "defaultTransformer":Lorg/apache/commons/collections/Transformer;
-    .end local v3    # "size":I
-    .end local v4    # "i":I
     :cond_4
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v3, "The predicate and transformer map must not be null"
+    const-string v0, "The predicate and transformer map must not be null"
 
-    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 .end method
 
 .method public static getInstance([Lorg/apache/commons/collections/Predicate;[Lorg/apache/commons/collections/Transformer;Lorg/apache/commons/collections/Transformer;)Lorg/apache/commons/collections/Transformer;
     .locals 2
-    .param p0, "predicates"    # [Lorg/apache/commons/collections/Predicate;
-    .param p1, "transformers"    # [Lorg/apache/commons/collections/Transformer;
-    .param p2, "defaultTransformer"    # Lorg/apache/commons/collections/Transformer;
 
     .line 58
     invoke-static {p0}, Lorg/apache/commons/collections/functors/FunctorUtils;->validate([Lorg/apache/commons/collections/Predicate;)V
@@ -222,18 +179,13 @@
 
     if-nez v0, :cond_1
 
-    .line 64
     if-nez p2, :cond_0
 
-    sget-object v0, Lorg/apache/commons/collections/functors/ConstantTransformer;->NULL_INSTANCE:Lorg/apache/commons/collections/Transformer;
-
-    goto :goto_0
+    .line 64
+    sget-object p2, Lorg/apache/commons/collections/functors/ConstantTransformer;->NULL_INSTANCE:Lorg/apache/commons/collections/Transformer;
 
     :cond_0
-    move-object v0, p2
-
-    :goto_0
-    return-object v0
+    return-object p2
 
     .line 66
     :cond_1
@@ -255,13 +207,13 @@
 
     .line 61
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "The predicate and transformer arrays must be the same size"
+    const-string p1, "The predicate and transformer arrays must be the same size"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
@@ -295,12 +247,10 @@
 
 .method public transform(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 3
-    .param p1, "input"    # Ljava/lang/Object;
 
-    .line 138
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 138
     :goto_0
     iget-object v1, p0, Lorg/apache/commons/collections/functors/SwitchTransformer;->iPredicates:[Lorg/apache/commons/collections/Predicate;
 
@@ -322,28 +272,26 @@
     .line 140
     iget-object v1, p0, Lorg/apache/commons/collections/functors/SwitchTransformer;->iTransformers:[Lorg/apache/commons/collections/Transformer;
 
-    aget-object v1, v1, v0
+    aget-object v0, v1, v0
 
-    invoke-interface {v1, p1}, Lorg/apache/commons/collections/Transformer;->transform(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Lorg/apache/commons/collections/Transformer;->transform(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
-    .line 138
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 143
-    .end local v0    # "i":I
     :cond_1
     iget-object v0, p0, Lorg/apache/commons/collections/functors/SwitchTransformer;->iDefault:Lorg/apache/commons/collections/Transformer;
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections/Transformer;->transform(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

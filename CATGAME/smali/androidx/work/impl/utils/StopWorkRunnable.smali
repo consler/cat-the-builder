@@ -22,9 +22,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 36
     const-string v0, "StopWorkRunnable"
 
+    .line 36
     invoke-static {v0}, Landroidx/work/Logger;->tagWithPrefix(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -36,9 +36,6 @@
 
 .method public constructor <init>(Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;Z)V
     .locals 0
-    .param p1, "workManagerImpl"    # Landroidx/work/impl/WorkManagerImpl;
-    .param p2, "workSpecId"    # Ljava/lang/String;
-    .param p3, "stopInForeground"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -64,14 +61,13 @@
     .line 48
     iput-boolean p3, p0, Landroidx/work/impl/utils/StopWorkRunnable;->mStopInForeground:Z
 
-    .line 49
     return-void
 .end method
 
 
 # virtual methods
 .method public run()V
-    .locals 12
+    .locals 9
 
     .line 53
     iget-object v0, p0, Landroidx/work/impl/utils/StopWorkRunnable;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
@@ -81,7 +77,6 @@
     move-result-object v0
 
     .line 54
-    .local v0, "workDatabase":Landroidx/work/impl/WorkDatabase;
     iget-object v1, p0, Landroidx/work/impl/utils/StopWorkRunnable;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
 
     invoke-virtual {v1}, Landroidx/work/impl/WorkManagerImpl;->getProcessor()Landroidx/work/impl/Processor;
@@ -89,13 +84,11 @@
     move-result-object v1
 
     .line 55
-    .local v1, "processor":Landroidx/work/impl/Processor;
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->workSpecDao()Landroidx/work/impl/model/WorkSpecDao;
 
     move-result-object v2
 
     .line 56
-    .local v2, "workSpecDao":Landroidx/work/impl/model/WorkSpecDao;
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->beginTransaction()V
 
     .line 58
@@ -104,114 +97,110 @@
 
     invoke-virtual {v1, v3}, Landroidx/work/impl/Processor;->isEnqueuedInForeground(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v1
 
     .line 60
-    .local v3, "isForegroundWork":Z
-    iget-boolean v4, p0, Landroidx/work/impl/utils/StopWorkRunnable;->mStopInForeground:Z
+    iget-boolean v3, p0, Landroidx/work/impl/utils/StopWorkRunnable;->mStopInForeground:Z
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
     .line 61
-    iget-object v4, p0, Landroidx/work/impl/utils/StopWorkRunnable;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
+    iget-object v1, p0, Landroidx/work/impl/utils/StopWorkRunnable;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
 
     .line 62
-    invoke-virtual {v4}, Landroidx/work/impl/WorkManagerImpl;->getProcessor()Landroidx/work/impl/Processor;
+    invoke-virtual {v1}, Landroidx/work/impl/WorkManagerImpl;->getProcessor()Landroidx/work/impl/Processor;
 
-    move-result-object v4
+    move-result-object v1
 
-    iget-object v7, p0, Landroidx/work/impl/utils/StopWorkRunnable;->mWorkSpecId:Ljava/lang/String;
+    iget-object v2, p0, Landroidx/work/impl/utils/StopWorkRunnable;->mWorkSpecId:Ljava/lang/String;
 
     .line 63
-    invoke-virtual {v4, v7}, Landroidx/work/impl/Processor;->stopForegroundWork(Ljava/lang/String;)Z
+    invoke-virtual {v1, v2}, Landroidx/work/impl/Processor;->stopForegroundWork(Ljava/lang/String;)Z
 
-    move-result v4
+    move-result v1
 
-    .local v4, "isStopped":Z
     goto :goto_0
 
-    .line 65
-    .end local v4    # "isStopped":Z
     :cond_0
-    if-nez v3, :cond_1
+    if-nez v1, :cond_1
 
-    iget-object v4, p0, Landroidx/work/impl/utils/StopWorkRunnable;->mWorkSpecId:Ljava/lang/String;
+    .line 65
+    iget-object v1, p0, Landroidx/work/impl/utils/StopWorkRunnable;->mWorkSpecId:Ljava/lang/String;
 
     .line 66
-    invoke-interface {v2, v4}, Landroidx/work/impl/model/WorkSpecDao;->getState(Ljava/lang/String;)Landroidx/work/WorkInfo$State;
+    invoke-interface {v2, v1}, Landroidx/work/impl/model/WorkSpecDao;->getState(Ljava/lang/String;)Landroidx/work/WorkInfo$State;
 
-    move-result-object v4
+    move-result-object v1
 
-    sget-object v7, Landroidx/work/WorkInfo$State;->RUNNING:Landroidx/work/WorkInfo$State;
+    sget-object v3, Landroidx/work/WorkInfo$State;->RUNNING:Landroidx/work/WorkInfo$State;
 
-    if-ne v4, v7, :cond_1
+    if-ne v1, v3, :cond_1
 
     .line 67
-    sget-object v4, Landroidx/work/WorkInfo$State;->ENQUEUED:Landroidx/work/WorkInfo$State;
+    sget-object v1, Landroidx/work/WorkInfo$State;->ENQUEUED:Landroidx/work/WorkInfo$State;
 
-    new-array v7, v5, [Ljava/lang/String;
+    new-array v3, v4, [Ljava/lang/String;
 
-    iget-object v8, p0, Landroidx/work/impl/utils/StopWorkRunnable;->mWorkSpecId:Ljava/lang/String;
+    iget-object v6, p0, Landroidx/work/impl/utils/StopWorkRunnable;->mWorkSpecId:Ljava/lang/String;
 
-    aput-object v8, v7, v6
+    aput-object v6, v3, v5
 
-    invoke-interface {v2, v4, v7}, Landroidx/work/impl/model/WorkSpecDao;->setState(Landroidx/work/WorkInfo$State;[Ljava/lang/String;)I
+    invoke-interface {v2, v1, v3}, Landroidx/work/impl/model/WorkSpecDao;->setState(Landroidx/work/WorkInfo$State;[Ljava/lang/String;)I
 
     .line 71
     :cond_1
-    iget-object v4, p0, Landroidx/work/impl/utils/StopWorkRunnable;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
+    iget-object v1, p0, Landroidx/work/impl/utils/StopWorkRunnable;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
 
     .line 72
-    invoke-virtual {v4}, Landroidx/work/impl/WorkManagerImpl;->getProcessor()Landroidx/work/impl/Processor;
+    invoke-virtual {v1}, Landroidx/work/impl/WorkManagerImpl;->getProcessor()Landroidx/work/impl/Processor;
 
-    move-result-object v4
+    move-result-object v1
 
-    iget-object v7, p0, Landroidx/work/impl/utils/StopWorkRunnable;->mWorkSpecId:Ljava/lang/String;
+    iget-object v2, p0, Landroidx/work/impl/utils/StopWorkRunnable;->mWorkSpecId:Ljava/lang/String;
 
     .line 73
-    invoke-virtual {v4, v7}, Landroidx/work/impl/Processor;->stopWork(Ljava/lang/String;)Z
+    invoke-virtual {v1, v2}, Landroidx/work/impl/Processor;->stopWork(Ljava/lang/String;)Z
 
-    move-result v4
+    move-result v1
 
     .line 76
-    .restart local v4    # "isStopped":Z
     :goto_0
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
-    move-result-object v7
+    move-result-object v2
 
-    sget-object v8, Landroidx/work/impl/utils/StopWorkRunnable;->TAG:Ljava/lang/String;
+    sget-object v3, Landroidx/work/impl/utils/StopWorkRunnable;->TAG:Ljava/lang/String;
 
-    const-string v9, "StopWorkRunnable for %s; Processor.stopWork = %s"
+    const-string v6, "StopWorkRunnable for %s; Processor.stopWork = %s"
 
-    const/4 v10, 0x2
+    const/4 v7, 0x2
 
-    new-array v10, v10, [Ljava/lang/Object;
+    new-array v7, v7, [Ljava/lang/Object;
 
-    iget-object v11, p0, Landroidx/work/impl/utils/StopWorkRunnable;->mWorkSpecId:Ljava/lang/String;
+    iget-object v8, p0, Landroidx/work/impl/utils/StopWorkRunnable;->mWorkSpecId:Ljava/lang/String;
 
-    aput-object v11, v10, v6
+    aput-object v8, v7, v5
 
     .line 81
-    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v11
+    move-result-object v1
 
-    aput-object v11, v10, v5
+    aput-object v1, v7, v4
 
     .line 78
-    invoke-static {v9, v10}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v6, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    new-array v6, v6, [Ljava/lang/Throwable;
+    new-array v4, v5, [Ljava/lang/Throwable;
 
     .line 76
-    invoke-virtual {v7, v8, v5, v6}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {v2, v3, v1, v4}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
     .line 83
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->setTransactionSuccessful()V
@@ -219,22 +208,15 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 85
-    .end local v3    # "isForegroundWork":Z
-    .end local v4    # "isStopped":Z
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->endTransaction()V
 
-    .line 86
-    nop
-
-    .line 87
     return-void
 
-    .line 85
     :catchall_0
-    move-exception v3
+    move-exception v1
 
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->endTransaction()V
 
     .line 86
-    throw v3
+    throw v1
 .end method

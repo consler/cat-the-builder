@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/Fragment;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/fragment/app/Fragment;
 
     .line 231
     iput-object p1, p0, Landroidx/fragment/app/Fragment$1;->this$0:Landroidx/fragment/app/Fragment;
@@ -44,6 +43,5 @@
 
     invoke-virtual {v0}, Landroidx/fragment/app/Fragment;->startPostponedEnterTransition()V
 
-    .line 235
     return-void
 .end method

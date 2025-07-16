@@ -284,7 +284,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 16
+    .locals 130
 
     .line 43
     new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
@@ -297,2022 +297,2022 @@
 
     sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ACOUSTIC_GRAND_PIANO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v1, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "BRIGHT_ACOUSTIC_PIANO"
+    const-string v3, "BRIGHT_ACOUSTIC_PIANO"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BRIGHT_ACOUSTIC_PIANO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v1, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BRIGHT_ACOUSTIC_PIANO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v3, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "ELECTRIC_GRAND_PIANO"
+    const-string v5, "ELECTRIC_GRAND_PIANO"
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v1, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ELECTRIC_GRAND_PIANO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v3, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ELECTRIC_GRAND_PIANO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v5, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "HONKYTONK_PIANO"
+    const-string v7, "HONKYTONK_PIANO"
 
-    const/4 v5, 0x3
+    const/4 v8, 0x3
 
-    invoke-direct {v0, v1, v5}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v5, v7, v8}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->HONKYTONK_PIANO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v5, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->HONKYTONK_PIANO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v7, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "ELECTRIC_PIANO_1"
+    const-string v9, "ELECTRIC_PIANO_1"
 
-    const/4 v6, 0x4
+    const/4 v10, 0x4
 
-    invoke-direct {v0, v1, v6}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v7, v9, v10}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ELECTRIC_PIANO_1:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v7, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ELECTRIC_PIANO_1:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v9, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "ELECTRIC_PIANO_2"
+    const-string v11, "ELECTRIC_PIANO_2"
 
-    const/4 v7, 0x5
+    const/4 v12, 0x5
 
-    invoke-direct {v0, v1, v7}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v9, v11, v12}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ELECTRIC_PIANO_2:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v9, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ELECTRIC_PIANO_2:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v11, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "HARPSICHORD"
+    const-string v13, "HARPSICHORD"
 
-    const/4 v8, 0x6
+    const/4 v14, 0x6
 
-    invoke-direct {v0, v1, v8}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v11, v13, v14}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->HARPSICHORD:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v11, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->HARPSICHORD:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v13, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "CLAVINET"
+    const-string v15, "CLAVINET"
 
-    const/4 v9, 0x7
+    const/4 v14, 0x7
 
-    invoke-direct {v0, v1, v9}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v13, v15, v14}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->CLAVINET:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v13, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->CLAVINET:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v15, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "CELESTA"
+    const-string v14, "CELESTA"
 
-    const/16 v10, 0x8
+    const/16 v12, 0x8
 
-    invoke-direct {v0, v1, v10}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v15, v14, v12}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->CELESTA:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v15, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->CELESTA:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v14, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "GLOCKENSPIEL"
+    const-string v12, "GLOCKENSPIEL"
 
-    const/16 v11, 0x9
+    const/16 v10, 0x9
 
-    invoke-direct {v0, v1, v11}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v14, v12, v10}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->GLOCKENSPIEL:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v14, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->GLOCKENSPIEL:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v12, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "MUSIC_BOX"
+    const-string v10, "MUSIC_BOX"
 
-    const/16 v12, 0xa
+    const/16 v8, 0xa
 
-    invoke-direct {v0, v1, v12}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v12, v10, v8}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->MUSIC_BOX:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v12, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->MUSIC_BOX:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v10, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "VIBRAPHONE"
+    const-string v8, "VIBRAPHONE"
 
-    const/16 v13, 0xb
+    const/16 v6, 0xb
 
-    invoke-direct {v0, v1, v13}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v10, v8, v6}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->VIBRAPHONE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v10, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->VIBRAPHONE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v8, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "MARIMBA"
+    const-string v6, "MARIMBA"
 
-    const/16 v14, 0xc
+    const/16 v4, 0xc
 
-    invoke-direct {v0, v1, v14}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v8, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->MARIMBA:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v8, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->MARIMBA:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v6, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "XYLOPHONE"
+    const-string v4, "XYLOPHONE"
 
-    const/16 v15, 0xd
+    const/16 v2, 0xd
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v6, v4, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->XYLOPHONE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v6, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->XYLOPHONE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "TUBULAR_BELLS"
+    const-string v2, "TUBULAR_BELLS"
 
-    const/16 v15, 0xe
+    move-object/from16 v16, v6
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const/16 v6, 0xe
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TUBULAR_BELLS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v4, v2, v6}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TUBULAR_BELLS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "DULCIMER"
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0xf
+    const-string v6, "DULCIMER"
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    move-object/from16 v17, v4
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->DULCIMER:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v4, 0xf
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const-string v1, "DRAWBAR_ORGAN"
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->DULCIMER:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x10
+    new-instance v6, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const-string v4, "DRAWBAR_ORGAN"
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->DRAWBAR_ORGAN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v18, v2
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v2, 0x10
 
-    const-string v1, "PERCUSSIVE_ORGAN"
+    invoke-direct {v6, v4, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const/16 v15, 0x11
+    sput-object v6, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->DRAWBAR_ORGAN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PERCUSSIVE_ORGAN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v2, "PERCUSSIVE_ORGAN"
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v19, v6
 
-    const-string v1, "ROCK_ORGAN"
+    const/16 v6, 0x11
 
-    const/16 v15, 0x12
+    invoke-direct {v4, v2, v6}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PERCUSSIVE_ORGAN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ROCK_ORGAN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "ROCK_ORGAN"
 
-    const-string v1, "CHURCH_ORGAN"
+    move-object/from16 v20, v4
 
-    const/16 v15, 0x13
+    const/16 v4, 0x12
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->CHURCH_ORGAN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ROCK_ORGAN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v6, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "REED_ORGAN"
+    const-string v4, "CHURCH_ORGAN"
 
-    const/16 v15, 0x14
+    move-object/from16 v21, v2
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const/16 v2, 0x13
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->REED_ORGAN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v6, v4, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v6, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->CHURCH_ORGAN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "ACCORDION"
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x15
+    const-string v2, "REED_ORGAN"
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    move-object/from16 v22, v6
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ACCORDION:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v6, 0x14
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v4, v2, v6}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const-string v1, "HARMONICA"
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->REED_ORGAN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x16
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const-string v6, "ACCORDION"
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->HARMONICA:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v23, v4
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v4, 0x15
 
-    const-string v1, "TANGO_ACCORDION"
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const/16 v15, 0x17
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ACCORDION:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    new-instance v6, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TANGO_ACCORDION:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v4, "HARMONICA"
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v24, v2
 
-    const-string v1, "ACOUSTIC_GUITAR_NYLON"
+    const/16 v2, 0x16
 
-    const/16 v15, 0x18
+    invoke-direct {v6, v4, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    sput-object v6, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->HARMONICA:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ACOUSTIC_GUITAR_NYLON:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v4, "TANGO_ACCORDION"
 
-    const-string v1, "ACOUSTIC_GUITAR_STEEL"
+    move-object/from16 v25, v6
 
-    const/16 v15, 0x19
+    const/16 v6, 0x17
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v2, v4, v6}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ACOUSTIC_GUITAR_STEEL:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TANGO_ACCORDION:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "ELECTRIC_GUITAR_JAZZ"
+    const-string v6, "ACOUSTIC_GUITAR_NYLON"
 
-    const/16 v15, 0x1a
+    move-object/from16 v26, v2
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const/16 v2, 0x18
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ELECTRIC_GUITAR_JAZZ:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ACOUSTIC_GUITAR_NYLON:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "ELECTRIC_GUITAR_CLEAN"
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x1b
+    const-string v6, "ACOUSTIC_GUITAR_STEEL"
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    move-object/from16 v27, v4
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ELECTRIC_GUITAR_CLEAN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v4, 0x19
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const-string v1, "ELECTRIC_GUITAR_MUTED"
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ACOUSTIC_GUITAR_STEEL:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x1c
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const-string v6, "ELECTRIC_GUITAR_JAZZ"
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ELECTRIC_GUITAR_MUTED:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v28, v2
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v2, 0x1a
 
-    const-string v1, "OVERDRIVEN_GUITAR"
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const/16 v15, 0x1d
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ELECTRIC_GUITAR_JAZZ:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->OVERDRIVEN_GUITAR:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "ELECTRIC_GUITAR_CLEAN"
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v29, v4
 
-    const-string v1, "DISTORTION_GUITAR"
+    const/16 v4, 0x1b
 
-    const/16 v15, 0x1e
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ELECTRIC_GUITAR_CLEAN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->DISTORTION_GUITAR:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "ELECTRIC_GUITAR_MUTED"
 
-    const-string v1, "GUITAR_HARMONICS"
+    move-object/from16 v30, v2
 
-    const/16 v15, 0x1f
+    const/16 v2, 0x1c
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->GUITAR_HARMONICS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ELECTRIC_GUITAR_MUTED:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "ACOUSTIC_BASS"
+    const-string v6, "OVERDRIVEN_GUITAR"
 
-    const/16 v15, 0x20
+    move-object/from16 v31, v4
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const/16 v4, 0x1d
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ACOUSTIC_BASS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->OVERDRIVEN_GUITAR:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "ELECTRIC_BASS_FINGER"
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x21
+    const-string v6, "DISTORTION_GUITAR"
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    move-object/from16 v32, v2
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ELECTRIC_BASS_FINGER:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v2, 0x1e
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const-string v1, "ELECTRIC_BASS_PICK"
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->DISTORTION_GUITAR:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x22
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const-string v6, "GUITAR_HARMONICS"
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ELECTRIC_BASS_PICK:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v33, v4
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v4, 0x1f
 
-    const-string v1, "FRETLESS_BASS"
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const/16 v15, 0x23
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->GUITAR_HARMONICS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FRETLESS_BASS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "ACOUSTIC_BASS"
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v34, v2
 
-    const-string v1, "SLAP_BASS_1"
+    const/16 v2, 0x20
 
-    const/16 v15, 0x24
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ACOUSTIC_BASS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SLAP_BASS_1:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "ELECTRIC_BASS_FINGER"
 
-    const-string v1, "SLAP_BASS_2"
+    move-object/from16 v35, v4
 
-    const/16 v15, 0x25
+    const/16 v4, 0x21
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SLAP_BASS_2:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ELECTRIC_BASS_FINGER:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "SYNTH_BASS_1"
+    const-string v6, "ELECTRIC_BASS_PICK"
 
-    const/16 v15, 0x26
+    move-object/from16 v36, v2
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const/16 v2, 0x22
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SYNTH_BASS_1:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ELECTRIC_BASS_PICK:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "SYNTH_BASS_2"
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x27
+    const-string v6, "FRETLESS_BASS"
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    move-object/from16 v37, v4
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SYNTH_BASS_2:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v4, 0x23
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const-string v1, "VIOLIN"
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FRETLESS_BASS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x28
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const-string v6, "SLAP_BASS_1"
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->VIOLIN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v38, v2
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v2, 0x24
 
-    const-string v1, "VIOLA"
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const/16 v15, 0x29
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SLAP_BASS_1:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->VIOLA:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "SLAP_BASS_2"
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v39, v4
 
-    const-string v1, "CELLO"
+    const/16 v4, 0x25
 
-    const/16 v15, 0x2a
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SLAP_BASS_2:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->CELLO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "SYNTH_BASS_1"
 
-    const-string v1, "CONTRABASS"
+    move-object/from16 v40, v2
 
-    const/16 v15, 0x2b
+    const/16 v2, 0x26
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->CONTRABASS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SYNTH_BASS_1:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "TREMOLO_STRINGS"
+    const-string v6, "SYNTH_BASS_2"
 
-    const/16 v15, 0x2c
+    move-object/from16 v41, v4
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const/16 v4, 0x27
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TREMOLO_STRINGS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SYNTH_BASS_2:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "PIZZICATO_STRINGS"
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x2d
+    const-string v6, "VIOLIN"
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    move-object/from16 v42, v2
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PIZZICATO_STRINGS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v2, 0x28
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const-string v1, "ORCHESTRAL_HARP"
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->VIOLIN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x2e
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const-string v6, "VIOLA"
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ORCHESTRAL_HARP:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v43, v4
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v4, 0x29
 
-    const-string v1, "TIMPANI"
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const/16 v15, 0x2f
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->VIOLA:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TIMPANI:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "CELLO"
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v44, v2
 
-    const-string v1, "STRING_ENSEMBLE_1"
+    const/16 v2, 0x2a
 
-    const/16 v15, 0x30
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->CELLO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->STRING_ENSEMBLE_1:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "CONTRABASS"
 
-    const-string v1, "STRING_ENSEMBLE_2"
+    move-object/from16 v45, v4
 
-    const/16 v15, 0x31
+    const/16 v4, 0x2b
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->STRING_ENSEMBLE_2:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->CONTRABASS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "SYNTH_STRINGS_1"
+    const-string v6, "TREMOLO_STRINGS"
 
-    const/16 v15, 0x32
+    move-object/from16 v46, v2
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const/16 v2, 0x2c
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SYNTH_STRINGS_1:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TREMOLO_STRINGS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "SYNTH_STRINGS_2"
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x33
+    const-string v6, "PIZZICATO_STRINGS"
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    move-object/from16 v47, v4
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SYNTH_STRINGS_2:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v4, 0x2d
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const-string v1, "CHOIR_AAHS"
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PIZZICATO_STRINGS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x34
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const-string v6, "ORCHESTRAL_HARP"
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->CHOIR_AAHS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v48, v2
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v2, 0x2e
 
-    const-string v1, "VOICE_OOHS"
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const/16 v15, 0x35
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ORCHESTRAL_HARP:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->VOICE_OOHS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "TIMPANI"
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v49, v4
 
-    const-string v1, "SYNTH_CHOIR"
+    const/16 v4, 0x2f
 
-    const/16 v15, 0x36
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TIMPANI:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SYNTH_CHOIR:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "STRING_ENSEMBLE_1"
 
-    const-string v1, "ORCHESTRA_HIT"
+    move-object/from16 v50, v2
 
-    const/16 v15, 0x37
+    const/16 v2, 0x30
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ORCHESTRA_HIT:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->STRING_ENSEMBLE_1:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "TRUMPET"
+    const-string v6, "STRING_ENSEMBLE_2"
 
-    const/16 v15, 0x38
+    move-object/from16 v51, v4
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const/16 v4, 0x31
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TRUMPET:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->STRING_ENSEMBLE_2:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "TROMBONE"
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x39
+    const-string v6, "SYNTH_STRINGS_1"
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    move-object/from16 v52, v2
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TROMBONE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v2, 0x32
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const-string v1, "TUBA"
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SYNTH_STRINGS_1:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x3a
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const-string v6, "SYNTH_STRINGS_2"
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TUBA:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v53, v4
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v4, 0x33
 
-    const-string v1, "MUTED_TRUMPET"
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const/16 v15, 0x3b
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SYNTH_STRINGS_2:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->MUTED_TRUMPET:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "CHOIR_AAHS"
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v54, v2
 
-    const-string v1, "FRENCH_HORN"
+    const/16 v2, 0x34
 
-    const/16 v15, 0x3c
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->CHOIR_AAHS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FRENCH_HORN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "VOICE_OOHS"
 
-    const-string v1, "BRASS_SECTION"
+    move-object/from16 v55, v4
 
-    const/16 v15, 0x3d
+    const/16 v4, 0x35
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BRASS_SECTION:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->VOICE_OOHS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "SYNTH_BRASS_1"
+    const-string v6, "SYNTH_CHOIR"
 
-    const/16 v15, 0x3e
+    move-object/from16 v56, v2
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const/16 v2, 0x36
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SYNTH_BRASS_1:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SYNTH_CHOIR:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "SYNTH_BRASS_2"
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x3f
+    const-string v6, "ORCHESTRA_HIT"
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    move-object/from16 v57, v4
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SYNTH_BRASS_2:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v4, 0x37
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const-string v1, "SOPRANO_SAX"
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ORCHESTRA_HIT:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x40
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const-string v6, "TRUMPET"
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SOPRANO_SAX:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v58, v2
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v2, 0x38
 
-    const-string v1, "ALTO_SAX"
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const/16 v15, 0x41
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TRUMPET:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ALTO_SAX:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "TROMBONE"
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v59, v4
 
-    const-string v1, "TENOR_SAX"
+    const/16 v4, 0x39
 
-    const/16 v15, 0x42
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TROMBONE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TENOR_SAX:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "TUBA"
 
-    const-string v1, "BARITONE_SAX"
+    move-object/from16 v60, v2
 
-    const/16 v15, 0x43
+    const/16 v2, 0x3a
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BARITONE_SAX:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TUBA:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "OBOE"
+    const-string v6, "MUTED_TRUMPET"
 
-    const/16 v15, 0x44
+    move-object/from16 v61, v4
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const/16 v4, 0x3b
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->OBOE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->MUTED_TRUMPET:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "ENGLISH_HORN"
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x45
+    const-string v6, "FRENCH_HORN"
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    move-object/from16 v62, v2
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ENGLISH_HORN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v2, 0x3c
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const-string v1, "BASSOON"
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FRENCH_HORN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x46
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const-string v6, "BRASS_SECTION"
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BASSOON:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v63, v4
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v4, 0x3d
 
-    const-string v1, "CLARINET"
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const/16 v15, 0x47
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BRASS_SECTION:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->CLARINET:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "SYNTH_BRASS_1"
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v64, v2
 
-    const-string v1, "PICCOLO"
+    const/16 v2, 0x3e
 
-    const/16 v15, 0x48
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SYNTH_BRASS_1:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PICCOLO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "SYNTH_BRASS_2"
 
-    const-string v1, "FLUTE"
+    move-object/from16 v65, v4
 
-    const/16 v15, 0x49
+    const/16 v4, 0x3f
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FLUTE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SYNTH_BRASS_2:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "RECORDER"
+    const-string v6, "SOPRANO_SAX"
 
-    const/16 v15, 0x4a
+    move-object/from16 v66, v2
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const/16 v2, 0x40
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->RECORDER:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SOPRANO_SAX:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "PAN_FLUTE"
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x4b
+    const-string v6, "ALTO_SAX"
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    move-object/from16 v67, v4
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAN_FLUTE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v4, 0x41
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const-string v1, "BLOWN_BOTTLE"
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ALTO_SAX:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x4c
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const-string v6, "TENOR_SAX"
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BLOWN_BOTTLE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v68, v2
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v2, 0x42
 
-    const-string v1, "SHAKUHACHI"
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const/16 v15, 0x4d
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TENOR_SAX:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SHAKUHACHI:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "BARITONE_SAX"
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v69, v4
 
-    const-string v1, "WHISTLE"
+    const/16 v4, 0x43
 
-    const/16 v15, 0x4e
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BARITONE_SAX:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->WHISTLE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "OBOE"
 
-    const-string v1, "OCARINA"
+    move-object/from16 v70, v2
 
-    const/16 v15, 0x4f
+    const/16 v2, 0x44
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->OCARINA:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->OBOE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "LEAD_1_SQUARE"
+    const-string v6, "ENGLISH_HORN"
 
-    const/16 v15, 0x50
+    move-object/from16 v71, v4
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const/16 v4, 0x45
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->LEAD_1_SQUARE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ENGLISH_HORN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "LEAD_2_SAWTOOTH"
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x51
+    const-string v6, "BASSOON"
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    move-object/from16 v72, v2
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->LEAD_2_SAWTOOTH:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v2, 0x46
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const-string v1, "LEAD_3_CALLIOPE"
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BASSOON:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x52
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const-string v6, "CLARINET"
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->LEAD_3_CALLIOPE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v73, v4
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v4, 0x47
 
-    const-string v1, "LEAD_4_CHIFF"
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const/16 v15, 0x53
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->CLARINET:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->LEAD_4_CHIFF:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "PICCOLO"
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v74, v2
 
-    const-string v1, "LEAD_5_CHARANG"
+    const/16 v2, 0x48
 
-    const/16 v15, 0x54
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PICCOLO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->LEAD_5_CHARANG:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "FLUTE"
 
-    const-string v1, "LEAD_6_VOICE"
+    move-object/from16 v75, v4
 
-    const/16 v15, 0x55
+    const/16 v4, 0x49
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->LEAD_6_VOICE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FLUTE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "LEAD_7_FIFTHS"
+    const-string v6, "RECORDER"
 
-    const/16 v15, 0x56
+    move-object/from16 v76, v2
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const/16 v2, 0x4a
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->LEAD_7_FIFTHS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->RECORDER:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "LEAD_8_BASS_AND_LEAD"
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x57
+    const-string v6, "PAN_FLUTE"
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    move-object/from16 v77, v4
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->LEAD_8_BASS_AND_LEAD:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v4, 0x4b
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const-string v1, "PAD_1_NEW_AGE"
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAN_FLUTE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x58
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const-string v6, "BLOWN_BOTTLE"
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAD_1_NEW_AGE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v78, v2
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v2, 0x4c
 
-    const-string v1, "PAD_2_WARM"
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const/16 v15, 0x59
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BLOWN_BOTTLE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAD_2_WARM:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "SHAKUHACHI"
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v79, v4
 
-    const-string v1, "PAD_3_POLYSYNTH"
+    const/16 v4, 0x4d
 
-    const/16 v15, 0x5a
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SHAKUHACHI:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAD_3_POLYSYNTH:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "WHISTLE"
 
-    const-string v1, "PAD_4_CHOIR"
+    move-object/from16 v80, v2
 
-    const/16 v15, 0x5b
+    const/16 v2, 0x4e
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAD_4_CHOIR:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->WHISTLE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "PAD_5_BOWED"
+    const-string v6, "OCARINA"
 
-    const/16 v15, 0x5c
+    move-object/from16 v81, v4
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const/16 v4, 0x4f
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAD_5_BOWED:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->OCARINA:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "PAD_6_METALLIC"
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x5d
+    const-string v6, "LEAD_1_SQUARE"
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    move-object/from16 v82, v2
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAD_6_METALLIC:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v2, 0x50
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const-string v1, "PAD_7_HALO"
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->LEAD_1_SQUARE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x5e
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const-string v6, "LEAD_2_SAWTOOTH"
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAD_7_HALO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v83, v4
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v4, 0x51
 
-    const-string v1, "PAD_8_SWEEP"
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const/16 v15, 0x5f
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->LEAD_2_SAWTOOTH:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAD_8_SWEEP:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "LEAD_3_CALLIOPE"
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v84, v2
 
-    const-string v1, "FX_1_RAIN"
+    const/16 v2, 0x52
 
-    const/16 v15, 0x60
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->LEAD_3_CALLIOPE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FX_1_RAIN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "LEAD_4_CHIFF"
 
-    const-string v1, "FX_2_SOUNDTRACK"
+    move-object/from16 v85, v4
 
-    const/16 v15, 0x61
+    const/16 v4, 0x53
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FX_2_SOUNDTRACK:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->LEAD_4_CHIFF:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "FX_3_CRYSTAL"
+    const-string v6, "LEAD_5_CHARANG"
 
-    const/16 v15, 0x62
+    move-object/from16 v86, v2
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const/16 v2, 0x54
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FX_3_CRYSTAL:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->LEAD_5_CHARANG:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "FX_4_ATMOSPHERE"
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x63
+    const-string v6, "LEAD_6_VOICE"
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    move-object/from16 v87, v4
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FX_4_ATMOSPHERE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v4, 0x55
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const-string v1, "FX_5_BRIGHTNESS"
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->LEAD_6_VOICE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x64
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const-string v6, "LEAD_7_FIFTHS"
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FX_5_BRIGHTNESS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v88, v2
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v2, 0x56
 
-    const-string v1, "FX_6_GOBLINS"
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const/16 v15, 0x65
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->LEAD_7_FIFTHS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FX_6_GOBLINS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "LEAD_8_BASS_AND_LEAD"
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v89, v4
 
-    const-string v1, "FX_7_ECHOES"
+    const/16 v4, 0x57
 
-    const/16 v15, 0x66
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->LEAD_8_BASS_AND_LEAD:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FX_7_ECHOES:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "PAD_1_NEW_AGE"
 
-    const-string v1, "FX_8_SCIFI"
+    move-object/from16 v90, v2
 
-    const/16 v15, 0x67
+    const/16 v2, 0x58
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FX_8_SCIFI:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAD_1_NEW_AGE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "SITAR"
+    const-string v6, "PAD_2_WARM"
 
-    const/16 v15, 0x68
+    move-object/from16 v91, v4
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const/16 v4, 0x59
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SITAR:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAD_2_WARM:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "BANJO"
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x69
+    const-string v6, "PAD_3_POLYSYNTH"
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    move-object/from16 v92, v2
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BANJO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v2, 0x5a
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const-string v1, "SHAMISEN"
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAD_3_POLYSYNTH:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x6a
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const-string v6, "PAD_4_CHOIR"
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SHAMISEN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v93, v4
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v4, 0x5b
 
-    const-string v1, "KOTO"
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const/16 v15, 0x6b
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAD_4_CHOIR:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->KOTO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "PAD_5_BOWED"
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v94, v2
 
-    const-string v1, "KALIMBA"
+    const/16 v2, 0x5c
 
-    const/16 v15, 0x6c
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAD_5_BOWED:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->KALIMBA:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "PAD_6_METALLIC"
 
-    const-string v1, "BAGPIPE"
+    move-object/from16 v95, v4
 
-    const/16 v15, 0x6d
+    const/16 v4, 0x5d
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BAGPIPE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAD_6_METALLIC:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "FIDDLE"
+    const-string v6, "PAD_7_HALO"
 
-    const/16 v15, 0x6e
+    move-object/from16 v96, v2
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const/16 v2, 0x5e
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FIDDLE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAD_7_HALO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "SHANAI"
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x6f
+    const-string v6, "PAD_8_SWEEP"
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    move-object/from16 v97, v4
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SHANAI:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v4, 0x5f
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const-string v1, "TINKLE_BELL"
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAD_8_SWEEP:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x70
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const-string v6, "FX_1_RAIN"
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TINKLE_BELL:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v98, v2
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v2, 0x60
 
-    const-string v1, "AGOGO"
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const/16 v15, 0x71
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FX_1_RAIN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->AGOGO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "FX_2_SOUNDTRACK"
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v99, v4
 
-    const-string v1, "STEEL_DRUMS"
+    const/16 v4, 0x61
 
-    const/16 v15, 0x72
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FX_2_SOUNDTRACK:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->STEEL_DRUMS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "FX_3_CRYSTAL"
 
-    const-string v1, "WOODBLOCK"
+    move-object/from16 v100, v2
 
-    const/16 v15, 0x73
+    const/16 v2, 0x62
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->WOODBLOCK:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FX_3_CRYSTAL:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "TAIKO_DRUM"
+    const-string v6, "FX_4_ATMOSPHERE"
 
-    const/16 v15, 0x74
+    move-object/from16 v101, v4
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const/16 v4, 0x63
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TAIKO_DRUM:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FX_4_ATMOSPHERE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "MELODIC_TOM"
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x75
+    const-string v6, "FX_5_BRIGHTNESS"
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    move-object/from16 v102, v2
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->MELODIC_TOM:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v2, 0x64
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const-string v1, "SYNTH_DRUM"
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FX_5_BRIGHTNESS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x76
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const-string v6, "FX_6_GOBLINS"
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SYNTH_DRUM:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v103, v4
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v4, 0x65
 
-    const-string v1, "REVERSE_CYMBAL"
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const/16 v15, 0x77
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FX_6_GOBLINS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->REVERSE_CYMBAL:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "FX_7_ECHOES"
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v104, v2
 
-    const-string v1, "GUITAR_FRET_NOISE"
+    const/16 v2, 0x66
 
-    const/16 v15, 0x78
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FX_7_ECHOES:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->GUITAR_FRET_NOISE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "FX_8_SCIFI"
 
-    const-string v1, "BREATH_NOISE"
+    move-object/from16 v105, v4
 
-    const/16 v15, 0x79
+    const/16 v4, 0x67
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BREATH_NOISE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FX_8_SCIFI:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "SEASHORE"
+    const-string v6, "SITAR"
 
-    const/16 v15, 0x7a
+    move-object/from16 v106, v2
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const/16 v2, 0x68
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SEASHORE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SITAR:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const-string v1, "BIRD_TWEET"
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x7b
+    const-string v6, "BANJO"
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    move-object/from16 v107, v4
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BIRD_TWEET:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v4, 0x69
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const-string v1, "TELEPHONE_RING"
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BANJO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    const/16 v15, 0x7c
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    const-string v6, "SHAMISEN"
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TELEPHONE_RING:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v108, v2
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const/16 v2, 0x6a
 
-    const-string v1, "HELICOPTER"
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    const/16 v15, 0x7d
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SHAMISEN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->HELICOPTER:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "KOTO"
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    move-object/from16 v109, v4
 
-    const-string v1, "APPLAUSE"
+    const/16 v4, 0x6b
 
-    const/16 v15, 0x7e
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->KOTO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->APPLAUSE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    const-string v6, "KALIMBA"
 
-    const-string v1, "GUNSHOT"
+    move-object/from16 v110, v2
 
-    const/16 v15, 0x7f
+    const/16 v2, 0x6c
 
-    invoke-direct {v0, v1, v15}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->GUNSHOT:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->KALIMBA:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    const-string v6, "BAGPIPE"
+
+    move-object/from16 v111, v4
+
+    const/16 v4, 0x6d
+
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BAGPIPE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    const-string v6, "FIDDLE"
+
+    move-object/from16 v112, v2
+
+    const/16 v2, 0x6e
+
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FIDDLE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    const-string v6, "SHANAI"
+
+    move-object/from16 v113, v4
+
+    const/16 v4, 0x6f
+
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SHANAI:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    const-string v6, "TINKLE_BELL"
+
+    move-object/from16 v114, v2
+
+    const/16 v2, 0x70
+
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TINKLE_BELL:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    const-string v6, "AGOGO"
+
+    move-object/from16 v115, v4
+
+    const/16 v4, 0x71
+
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->AGOGO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    const-string v6, "STEEL_DRUMS"
+
+    move-object/from16 v116, v2
+
+    const/16 v2, 0x72
+
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->STEEL_DRUMS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    const-string v6, "WOODBLOCK"
+
+    move-object/from16 v117, v4
+
+    const/16 v4, 0x73
+
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->WOODBLOCK:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    const-string v6, "TAIKO_DRUM"
+
+    move-object/from16 v118, v2
+
+    const/16 v2, 0x74
+
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TAIKO_DRUM:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    const-string v6, "MELODIC_TOM"
+
+    move-object/from16 v119, v4
+
+    const/16 v4, 0x75
+
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->MELODIC_TOM:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    const-string v6, "SYNTH_DRUM"
+
+    move-object/from16 v120, v2
+
+    const/16 v2, 0x76
+
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SYNTH_DRUM:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    const-string v6, "REVERSE_CYMBAL"
+
+    move-object/from16 v121, v4
+
+    const/16 v4, 0x77
+
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->REVERSE_CYMBAL:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    const-string v6, "GUITAR_FRET_NOISE"
+
+    move-object/from16 v122, v2
+
+    const/16 v2, 0x78
+
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->GUITAR_FRET_NOISE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    const-string v6, "BREATH_NOISE"
+
+    move-object/from16 v123, v4
+
+    const/16 v4, 0x79
+
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BREATH_NOISE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    const-string v6, "SEASHORE"
+
+    move-object/from16 v124, v2
+
+    const/16 v2, 0x7a
+
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SEASHORE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    const-string v6, "BIRD_TWEET"
+
+    move-object/from16 v125, v4
+
+    const/16 v4, 0x7b
+
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BIRD_TWEET:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    const-string v6, "TELEPHONE_RING"
+
+    move-object/from16 v126, v2
+
+    const/16 v2, 0x7c
+
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TELEPHONE_RING:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    const-string v6, "HELICOPTER"
+
+    move-object/from16 v127, v4
+
+    const/16 v4, 0x7d
+
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->HELICOPTER:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    new-instance v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    const-string v6, "APPLAUSE"
+
+    move-object/from16 v128, v2
+
+    const/16 v2, 0x7e
+
+    invoke-direct {v4, v6, v2}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->APPLAUSE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    new-instance v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    const-string v6, "GUNSHOT"
+
+    move-object/from16 v129, v4
+
+    const/16 v4, 0x7f
+
+    invoke-direct {v2, v6, v4}, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;-><init>(Ljava/lang/String;I)V
+
+    sput-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->GUNSHOT:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    const/16 v4, 0x80
+
+    new-array v4, v4, [Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+
+    const/4 v6, 0x0
+
+    aput-object v0, v4, v6
+
+    const/4 v0, 0x1
+
+    aput-object v1, v4, v0
+
+    const/4 v0, 0x2
+
+    aput-object v3, v4, v0
+
+    const/4 v0, 0x3
+
+    aput-object v5, v4, v0
+
+    const/4 v0, 0x4
+
+    aput-object v7, v4, v0
+
+    const/4 v0, 0x5
+
+    aput-object v9, v4, v0
+
+    const/4 v0, 0x6
+
+    aput-object v11, v4, v0
+
+    const/4 v0, 0x7
+
+    aput-object v13, v4, v0
+
+    const/16 v0, 0x8
+
+    aput-object v15, v4, v0
+
+    const/16 v0, 0x9
+
+    aput-object v14, v4, v0
+
+    const/16 v0, 0xa
+
+    aput-object v12, v4, v0
+
+    const/16 v0, 0xb
+
+    aput-object v10, v4, v0
+
+    const/16 v0, 0xc
+
+    aput-object v8, v4, v0
+
+    const/16 v0, 0xd
+
+    aput-object v16, v4, v0
+
+    const/16 v0, 0xe
+
+    aput-object v17, v4, v0
+
+    const/16 v0, 0xf
+
+    aput-object v18, v4, v0
+
+    const/16 v0, 0x10
+
+    aput-object v19, v4, v0
+
+    const/16 v0, 0x11
+
+    aput-object v20, v4, v0
+
+    const/16 v0, 0x12
+
+    aput-object v21, v4, v0
+
+    const/16 v0, 0x13
+
+    aput-object v22, v4, v0
+
+    const/16 v0, 0x14
+
+    aput-object v23, v4, v0
+
+    const/16 v0, 0x15
+
+    aput-object v24, v4, v0
+
+    const/16 v0, 0x16
+
+    aput-object v25, v4, v0
+
+    const/16 v0, 0x17
+
+    aput-object v26, v4, v0
+
+    const/16 v0, 0x18
+
+    aput-object v27, v4, v0
+
+    const/16 v0, 0x19
+
+    aput-object v28, v4, v0
+
+    const/16 v0, 0x1a
+
+    aput-object v29, v4, v0
+
+    const/16 v0, 0x1b
+
+    aput-object v30, v4, v0
+
+    const/16 v0, 0x1c
+
+    aput-object v31, v4, v0
+
+    const/16 v0, 0x1d
+
+    aput-object v32, v4, v0
+
+    const/16 v0, 0x1e
+
+    aput-object v33, v4, v0
+
+    const/16 v0, 0x1f
+
+    aput-object v34, v4, v0
+
+    const/16 v0, 0x20
+
+    aput-object v35, v4, v0
+
+    const/16 v0, 0x21
+
+    aput-object v36, v4, v0
+
+    const/16 v0, 0x22
+
+    aput-object v37, v4, v0
+
+    const/16 v0, 0x23
+
+    aput-object v38, v4, v0
+
+    const/16 v0, 0x24
+
+    aput-object v39, v4, v0
+
+    const/16 v0, 0x25
+
+    aput-object v40, v4, v0
+
+    const/16 v0, 0x26
+
+    aput-object v41, v4, v0
+
+    const/16 v0, 0x27
+
+    aput-object v42, v4, v0
+
+    const/16 v0, 0x28
+
+    aput-object v43, v4, v0
+
+    const/16 v0, 0x29
+
+    aput-object v44, v4, v0
+
+    const/16 v0, 0x2a
+
+    aput-object v45, v4, v0
+
+    const/16 v0, 0x2b
+
+    aput-object v46, v4, v0
+
+    const/16 v0, 0x2c
+
+    aput-object v47, v4, v0
+
+    const/16 v0, 0x2d
+
+    aput-object v48, v4, v0
+
+    const/16 v0, 0x2e
+
+    aput-object v49, v4, v0
+
+    const/16 v0, 0x2f
+
+    aput-object v50, v4, v0
+
+    const/16 v0, 0x30
+
+    aput-object v51, v4, v0
+
+    const/16 v0, 0x31
+
+    aput-object v52, v4, v0
+
+    const/16 v0, 0x32
+
+    aput-object v53, v4, v0
+
+    const/16 v0, 0x33
+
+    aput-object v54, v4, v0
+
+    const/16 v0, 0x34
+
+    aput-object v55, v4, v0
+
+    const/16 v0, 0x35
+
+    aput-object v56, v4, v0
+
+    const/16 v0, 0x36
+
+    aput-object v57, v4, v0
+
+    const/16 v0, 0x37
+
+    aput-object v58, v4, v0
+
+    const/16 v0, 0x38
+
+    aput-object v59, v4, v0
+
+    const/16 v0, 0x39
+
+    aput-object v60, v4, v0
+
+    const/16 v0, 0x3a
+
+    aput-object v61, v4, v0
+
+    const/16 v0, 0x3b
+
+    aput-object v62, v4, v0
+
+    const/16 v0, 0x3c
+
+    aput-object v63, v4, v0
+
+    const/16 v0, 0x3d
+
+    aput-object v64, v4, v0
+
+    const/16 v0, 0x3e
+
+    aput-object v65, v4, v0
+
+    const/16 v0, 0x3f
+
+    aput-object v66, v4, v0
+
+    const/16 v0, 0x40
+
+    aput-object v67, v4, v0
+
+    const/16 v0, 0x41
+
+    aput-object v68, v4, v0
+
+    const/16 v0, 0x42
+
+    aput-object v69, v4, v0
+
+    const/16 v0, 0x43
+
+    aput-object v70, v4, v0
+
+    const/16 v0, 0x44
+
+    aput-object v71, v4, v0
+
+    const/16 v0, 0x45
+
+    aput-object v72, v4, v0
+
+    const/16 v0, 0x46
+
+    aput-object v73, v4, v0
+
+    const/16 v0, 0x47
+
+    aput-object v74, v4, v0
+
+    const/16 v0, 0x48
+
+    aput-object v75, v4, v0
+
+    const/16 v0, 0x49
+
+    aput-object v76, v4, v0
+
+    const/16 v0, 0x4a
+
+    aput-object v77, v4, v0
+
+    const/16 v0, 0x4b
+
+    aput-object v78, v4, v0
+
+    const/16 v0, 0x4c
+
+    aput-object v79, v4, v0
+
+    const/16 v0, 0x4d
+
+    aput-object v80, v4, v0
+
+    const/16 v0, 0x4e
+
+    aput-object v81, v4, v0
+
+    const/16 v0, 0x4f
+
+    aput-object v82, v4, v0
+
+    const/16 v0, 0x50
+
+    aput-object v83, v4, v0
+
+    const/16 v0, 0x51
+
+    aput-object v84, v4, v0
+
+    const/16 v0, 0x52
+
+    aput-object v85, v4, v0
+
+    const/16 v0, 0x53
+
+    aput-object v86, v4, v0
+
+    const/16 v0, 0x54
+
+    aput-object v87, v4, v0
+
+    const/16 v0, 0x55
+
+    aput-object v88, v4, v0
+
+    const/16 v0, 0x56
+
+    aput-object v89, v4, v0
+
+    const/16 v0, 0x57
+
+    aput-object v90, v4, v0
+
+    const/16 v0, 0x58
+
+    aput-object v91, v4, v0
+
+    const/16 v0, 0x59
+
+    aput-object v92, v4, v0
+
+    const/16 v0, 0x5a
+
+    aput-object v93, v4, v0
+
+    const/16 v0, 0x5b
+
+    aput-object v94, v4, v0
+
+    const/16 v0, 0x5c
+
+    aput-object v95, v4, v0
+
+    const/16 v0, 0x5d
+
+    aput-object v96, v4, v0
+
+    const/16 v0, 0x5e
+
+    aput-object v97, v4, v0
+
+    const/16 v0, 0x5f
+
+    aput-object v98, v4, v0
+
+    const/16 v0, 0x60
+
+    aput-object v99, v4, v0
+
+    const/16 v0, 0x61
+
+    aput-object v100, v4, v0
+
+    const/16 v0, 0x62
+
+    aput-object v101, v4, v0
+
+    const/16 v0, 0x63
+
+    aput-object v102, v4, v0
+
+    const/16 v0, 0x64
+
+    aput-object v103, v4, v0
+
+    const/16 v0, 0x65
+
+    aput-object v104, v4, v0
+
+    const/16 v0, 0x66
+
+    aput-object v105, v4, v0
+
+    const/16 v0, 0x67
+
+    aput-object v106, v4, v0
+
+    const/16 v0, 0x68
+
+    aput-object v107, v4, v0
+
+    const/16 v0, 0x69
+
+    aput-object v108, v4, v0
+
+    const/16 v0, 0x6a
+
+    aput-object v109, v4, v0
+
+    const/16 v0, 0x6b
+
+    aput-object v110, v4, v0
+
+    const/16 v0, 0x6c
+
+    aput-object v111, v4, v0
+
+    const/16 v0, 0x6d
+
+    aput-object v112, v4, v0
+
+    const/16 v0, 0x6e
+
+    aput-object v113, v4, v0
+
+    const/16 v0, 0x6f
+
+    aput-object v114, v4, v0
+
+    const/16 v0, 0x70
+
+    aput-object v115, v4, v0
+
+    const/16 v0, 0x71
+
+    aput-object v116, v4, v0
+
+    const/16 v0, 0x72
+
+    aput-object v117, v4, v0
+
+    const/16 v0, 0x73
+
+    aput-object v118, v4, v0
+
+    const/16 v0, 0x74
+
+    aput-object v119, v4, v0
+
+    const/16 v0, 0x75
+
+    aput-object v120, v4, v0
+
+    const/16 v0, 0x76
+
+    aput-object v121, v4, v0
+
+    const/16 v0, 0x77
+
+    aput-object v122, v4, v0
+
+    const/16 v0, 0x78
+
+    aput-object v123, v4, v0
+
+    const/16 v0, 0x79
+
+    aput-object v124, v4, v0
+
+    const/16 v0, 0x7a
+
+    aput-object v125, v4, v0
+
+    const/16 v0, 0x7b
+
+    aput-object v126, v4, v0
+
+    const/16 v0, 0x7c
+
+    aput-object v127, v4, v0
+
+    const/16 v0, 0x7d
+
+    aput-object v128, v4, v0
+
+    const/16 v0, 0x7e
+
+    aput-object v129, v4, v0
+
+    const/16 v0, 0x7f
+
+    aput-object v2, v4, v0
 
     .line 41
-    const/16 v1, 0x80
-
-    new-array v1, v1, [Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    sget-object v15, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ACOUSTIC_GRAND_PIANO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    aput-object v15, v1, v2
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BRIGHT_ACOUSTIC_PIANO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ELECTRIC_GRAND_PIANO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->HONKYTONK_PIANO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    aput-object v2, v1, v5
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ELECTRIC_PIANO_1:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    aput-object v2, v1, v6
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ELECTRIC_PIANO_2:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    aput-object v2, v1, v7
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->HARPSICHORD:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    aput-object v2, v1, v8
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->CLAVINET:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    aput-object v2, v1, v9
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->CELESTA:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    aput-object v2, v1, v10
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->GLOCKENSPIEL:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    aput-object v2, v1, v11
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->MUSIC_BOX:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    aput-object v2, v1, v12
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->VIBRAPHONE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    aput-object v2, v1, v13
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->MARIMBA:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    aput-object v2, v1, v14
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->XYLOPHONE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0xd
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TUBULAR_BELLS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0xe
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->DULCIMER:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0xf
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->DRAWBAR_ORGAN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x10
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PERCUSSIVE_ORGAN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x11
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ROCK_ORGAN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x12
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->CHURCH_ORGAN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x13
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->REED_ORGAN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x14
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ACCORDION:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x15
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->HARMONICA:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x16
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TANGO_ACCORDION:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x17
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ACOUSTIC_GUITAR_NYLON:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x18
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ACOUSTIC_GUITAR_STEEL:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x19
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ELECTRIC_GUITAR_JAZZ:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x1a
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ELECTRIC_GUITAR_CLEAN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x1b
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ELECTRIC_GUITAR_MUTED:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x1c
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->OVERDRIVEN_GUITAR:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x1d
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->DISTORTION_GUITAR:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x1e
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->GUITAR_HARMONICS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x1f
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ACOUSTIC_BASS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x20
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ELECTRIC_BASS_FINGER:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x21
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ELECTRIC_BASS_PICK:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x22
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FRETLESS_BASS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x23
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SLAP_BASS_1:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x24
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SLAP_BASS_2:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x25
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SYNTH_BASS_1:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x26
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SYNTH_BASS_2:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x27
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->VIOLIN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x28
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->VIOLA:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x29
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->CELLO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x2a
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->CONTRABASS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x2b
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TREMOLO_STRINGS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x2c
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PIZZICATO_STRINGS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x2d
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ORCHESTRAL_HARP:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x2e
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TIMPANI:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x2f
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->STRING_ENSEMBLE_1:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x30
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->STRING_ENSEMBLE_2:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x31
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SYNTH_STRINGS_1:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x32
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SYNTH_STRINGS_2:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x33
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->CHOIR_AAHS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x34
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->VOICE_OOHS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x35
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SYNTH_CHOIR:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x36
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ORCHESTRA_HIT:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x37
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TRUMPET:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x38
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TROMBONE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x39
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TUBA:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x3a
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->MUTED_TRUMPET:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x3b
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FRENCH_HORN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x3c
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BRASS_SECTION:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x3d
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SYNTH_BRASS_1:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x3e
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SYNTH_BRASS_2:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x3f
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SOPRANO_SAX:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x40
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ALTO_SAX:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x41
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TENOR_SAX:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x42
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BARITONE_SAX:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x43
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->OBOE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x44
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->ENGLISH_HORN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x45
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BASSOON:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x46
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->CLARINET:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x47
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PICCOLO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x48
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FLUTE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x49
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->RECORDER:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x4a
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAN_FLUTE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x4b
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BLOWN_BOTTLE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x4c
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SHAKUHACHI:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x4d
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->WHISTLE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x4e
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->OCARINA:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x4f
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->LEAD_1_SQUARE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x50
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->LEAD_2_SAWTOOTH:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x51
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->LEAD_3_CALLIOPE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x52
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->LEAD_4_CHIFF:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x53
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->LEAD_5_CHARANG:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x54
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->LEAD_6_VOICE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x55
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->LEAD_7_FIFTHS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x56
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->LEAD_8_BASS_AND_LEAD:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x57
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAD_1_NEW_AGE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x58
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAD_2_WARM:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x59
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAD_3_POLYSYNTH:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x5a
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAD_4_CHOIR:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x5b
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAD_5_BOWED:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x5c
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAD_6_METALLIC:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x5d
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAD_7_HALO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x5e
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->PAD_8_SWEEP:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x5f
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FX_1_RAIN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x60
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FX_2_SOUNDTRACK:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x61
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FX_3_CRYSTAL:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x62
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FX_4_ATMOSPHERE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x63
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FX_5_BRIGHTNESS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x64
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FX_6_GOBLINS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x65
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FX_7_ECHOES:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x66
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FX_8_SCIFI:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x67
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SITAR:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x68
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BANJO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x69
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SHAMISEN:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x6a
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->KOTO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x6b
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->KALIMBA:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x6c
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BAGPIPE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x6d
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->FIDDLE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x6e
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SHANAI:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x6f
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TINKLE_BELL:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x70
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->AGOGO:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x71
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->STEEL_DRUMS:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x72
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->WOODBLOCK:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x73
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TAIKO_DRUM:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x74
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->MELODIC_TOM:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x75
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SYNTH_DRUM:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x76
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->REVERSE_CYMBAL:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x77
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->GUITAR_FRET_NOISE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x78
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BREATH_NOISE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x79
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->SEASHORE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x7a
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->BIRD_TWEET:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x7b
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->TELEPHONE_RING:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x7c
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->HELICOPTER:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x7d
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->APPLAUSE:Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
-
-    const/16 v3, 0x7e
-
-    aput-object v2, v1, v3
-
-    const/16 v2, 0x7f
-
-    aput-object v0, v1, v2
-
-    sput-object v1, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->$VALUES:[Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    sput-object v4, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;->$VALUES:[Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
     return-void
 .end method
@@ -2333,18 +2333,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 41
     const-class v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
+    check-cast p0, Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/pdrogfer/mididroid/event/ProgramChange$MidiProgram;

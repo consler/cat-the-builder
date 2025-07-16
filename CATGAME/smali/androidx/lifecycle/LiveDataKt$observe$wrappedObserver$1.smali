@@ -77,7 +77,6 @@
 # virtual methods
 .method public final onChanged(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"

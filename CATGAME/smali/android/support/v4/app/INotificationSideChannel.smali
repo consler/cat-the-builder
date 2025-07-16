@@ -17,6 +17,19 @@
 
 # virtual methods
 .method public abstract cancel(Ljava/lang/String;ILjava/lang/String;)V
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "packageName",
+            "id",
+            "tag"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -25,6 +38,15 @@
 .end method
 
 .method public abstract cancelAll(Ljava/lang/String;)V
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "packageName"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -33,6 +55,21 @@
 .end method
 
 .method public abstract notify(Ljava/lang/String;ILjava/lang/String;Landroid/app/Notification;)V
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "packageName",
+            "id",
+            "tag",
+            "notification"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

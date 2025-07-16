@@ -56,43 +56,47 @@
 
 .method static getBitmapString(IILandroid/graphics/Bitmap$Config;)Ljava/lang/String;
     .locals 2
-    .param p0, "width"    # I
-    .param p1, "height"    # I
-    .param p2, "config"    # Landroid/graphics/Bitmap$Config;
 
     .line 62
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "["
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "x"
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, "x"
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "], "
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p0
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string p1, "], "
 
-    move-result-object v0
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    return-object v0
+    move-result-object p0
+
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method private static getBitmapString(Landroid/graphics/Bitmap;)Ljava/lang/String;
-    .locals 3
-    .param p0, "bitmap"    # Landroid/graphics/Bitmap;
+    .locals 2
 
     .line 56
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getWidth()I
@@ -105,84 +109,74 @@
 
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-static {v0, v1, v2}, Lcom/bumptech/glide/load/engine/bitmap_recycle/AttributeStrategy;->getBitmapString(IILandroid/graphics/Bitmap$Config;)Ljava/lang/String;
+    invoke-static {v0, v1, p0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/AttributeStrategy;->getBitmapString(IILandroid/graphics/Bitmap$Config;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public get(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-    .locals 2
-    .param p1, "width"    # I
-    .param p2, "height"    # I
-    .param p3, "config"    # Landroid/graphics/Bitmap$Config;
+    .locals 1
 
     .line 25
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/AttributeStrategy;->keyPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/AttributeStrategy$KeyPool;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/bumptech/glide/load/engine/bitmap_recycle/AttributeStrategy$KeyPool;->get(IILandroid/graphics/Bitmap$Config;)Lcom/bumptech/glide/load/engine/bitmap_recycle/AttributeStrategy$Key;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 27
-    .local v0, "key":Lcom/bumptech/glide/load/engine/bitmap_recycle/AttributeStrategy$Key;
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/AttributeStrategy;->groupedMap:Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;
+    iget-object p2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/AttributeStrategy;->groupedMap:Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;
 
-    invoke-virtual {v1, v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;->get(Lcom/bumptech/glide/load/engine/bitmap_recycle/Poolable;)Ljava/lang/Object;
+    invoke-virtual {p2, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;->get(Lcom/bumptech/glide/load/engine/bitmap_recycle/Poolable;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Landroid/graphics/Bitmap;
+    check-cast p1, Landroid/graphics/Bitmap;
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public getSize(Landroid/graphics/Bitmap;)I
-    .locals 1
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
+    .locals 0
 
     .line 47
     invoke-static {p1}, Lcom/bumptech/glide/util/Util;->getBitmapByteSize(Landroid/graphics/Bitmap;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public logBitmap(IILandroid/graphics/Bitmap$Config;)Ljava/lang/String;
-    .locals 1
-    .param p1, "width"    # I
-    .param p2, "height"    # I
-    .param p3, "config"    # Landroid/graphics/Bitmap$Config;
+    .locals 0
 
     .line 42
     invoke-static {p1, p2, p3}, Lcom/bumptech/glide/load/engine/bitmap_recycle/AttributeStrategy;->getBitmapString(IILandroid/graphics/Bitmap$Config;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public logBitmap(Landroid/graphics/Bitmap;)Ljava/lang/String;
-    .locals 1
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
+    .locals 0
 
     .line 37
     invoke-static {p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/AttributeStrategy;->getBitmapString(Landroid/graphics/Bitmap;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public put(Landroid/graphics/Bitmap;)V
     .locals 4
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
     .line 18
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/AttributeStrategy;->keyPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/AttributeStrategy$KeyPool;
@@ -204,12 +198,10 @@
     move-result-object v0
 
     .line 20
-    .local v0, "key":Lcom/bumptech/glide/load/engine/bitmap_recycle/AttributeStrategy$Key;
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/AttributeStrategy;->groupedMap:Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;
 
     invoke-virtual {v1, v0, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;->put(Lcom/bumptech/glide/load/engine/bitmap_recycle/Poolable;Ljava/lang/Object;)V
 
-    .line 21
     return-void
 .end method
 
@@ -234,15 +226,15 @@
     .line 52
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "AttributeStrategy:\n  "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/AttributeStrategy;->groupedMap:Lcom/bumptech/glide/load/engine/bitmap_recycle/GroupedLinkedMap;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

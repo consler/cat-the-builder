@@ -28,33 +28,52 @@
 # virtual methods
 .method public onAuthenticationError(ILjava/lang/CharSequence;)V
     .locals 0
-    .param p1, "errMsgId"    # I
-    .param p2, "errString"    # Ljava/lang/CharSequence;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "errMsgId",
+            "errString"
+        }
+    .end annotation
 
-    .line 277
     return-void
 .end method
 
 .method public onAuthenticationFailed()V
     .locals 0
 
-    .line 297
     return-void
 .end method
 
 .method public onAuthenticationHelp(ILjava/lang/CharSequence;)V
     .locals 0
-    .param p1, "helpMsgId"    # I
-    .param p2, "helpString"    # Ljava/lang/CharSequence;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "helpMsgId",
+            "helpString"
+        }
+    .end annotation
 
-    .line 286
     return-void
 .end method
 
 .method public onAuthenticationSucceeded(Landroidx/core/hardware/fingerprint/FingerprintManagerCompat$AuthenticationResult;)V
     .locals 0
-    .param p1, "result"    # Landroidx/core/hardware/fingerprint/FingerprintManagerCompat$AuthenticationResult;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "result"
+        }
+    .end annotation
 
-    .line 292
     return-void
 .end method

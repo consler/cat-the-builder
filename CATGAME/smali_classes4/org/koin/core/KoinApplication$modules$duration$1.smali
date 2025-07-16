@@ -92,6 +92,5 @@
 
     invoke-static {v0, v1}, Lorg/koin/core/KoinApplication;->access$loadModules(Lorg/koin/core/KoinApplication;Ljava/util/List;)V
 
-    .line 62
     return-void
 .end method

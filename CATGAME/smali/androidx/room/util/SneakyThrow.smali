@@ -10,13 +10,11 @@
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 46
     return-void
 .end method
 
 .method public static reThrow(Ljava/lang/Exception;)V
     .locals 0
-    .param p0, "e"    # Ljava/lang/Exception;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -29,13 +27,11 @@
     .line 36
     invoke-static {p0}, Landroidx/room/util/SneakyThrow;->sneakyThrow(Ljava/lang/Throwable;)V
 
-    .line 37
     return-void
 .end method
 
 .method private static sneakyThrow(Ljava/lang/Throwable;)V
     .locals 0
-    .param p0, "e"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0

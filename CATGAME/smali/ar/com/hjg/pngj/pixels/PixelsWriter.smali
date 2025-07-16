@@ -32,29 +32,28 @@
 # direct methods
 .method public constructor <init>(Lar/com/hjg/pngj/ImageInfo;)V
     .locals 1
-    .param p1, "imgInfo"    # Lar/com/hjg/pngj/ImageInfo;
 
     .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 31
     const/4 v0, 0x6
 
+    .line 31
     iput v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->deflaterCompLevel:I
 
-    .line 32
     const/4 v0, 0x0
 
+    .line 32
     iput v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->deflaterStrategy:I
 
     .line 34
     iput-boolean v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->initdone:Z
 
-    .line 42
     const/4 v0, 0x5
 
     new-array v0, v0, [I
 
+    .line 42
     iput-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->filtersUsed:[I
 
     .line 52
@@ -65,27 +64,26 @@
 
     iput v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->bytesRow:I
 
-    .line 54
     add-int/lit8 v0, v0, 0x1
 
+    .line 54
     iput v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->buflen:I
 
     .line 55
-    iget v0, p1, Lar/com/hjg/pngj/ImageInfo;->bytesPixel:I
+    iget p1, p1, Lar/com/hjg/pngj/ImageInfo;->bytesPixel:I
 
-    iput v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->bytesPixel:I
+    iput p1, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->bytesPixel:I
+
+    const/4 p1, -0x1
 
     .line 56
-    const/4 v0, -0x1
-
-    iput v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->currentRow:I
+    iput p1, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->currentRow:I
 
     .line 57
-    sget-object v0, Lar/com/hjg/pngj/FilterType;->FILTER_DEFAULT:Lar/com/hjg/pngj/FilterType;
+    sget-object p1, Lar/com/hjg/pngj/FilterType;->FILTER_DEFAULT:Lar/com/hjg/pngj/FilterType;
 
-    iput-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->filterType:Lar/com/hjg/pngj/FilterType;
+    iput-object p1, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->filterType:Lar/com/hjg/pngj/FilterType;
 
-    .line 58
     return-void
 .end method
 
@@ -102,7 +100,6 @@
     .line 162
     invoke-virtual {v0}, Lar/com/hjg/pngj/pixels/CompressorStream;->close()V
 
-    .line 164
     :cond_0
     return-void
 .end method
@@ -112,17 +109,12 @@
 
 .method protected final filterRowWithFilterType(Lar/com/hjg/pngj/FilterType;[B[B[B)[B
     .locals 6
-    .param p1, "_filterType"    # Lar/com/hjg/pngj/FilterType;
-    .param p2, "_rowb"    # [B
-    .param p3, "_rowbprev"    # [B
-    .param p4, "_rowf"    # [B
 
     .line 97
     sget-object v0, Lar/com/hjg/pngj/FilterType;->FILTER_NONE:Lar/com/hjg/pngj/FilterType;
 
     if-ne p1, v0, :cond_0
 
-    .line 98
     move-object p4, p2
 
     .line 99
@@ -152,132 +144,108 @@
 
     if-eq v0, v3, :cond_6
 
-    const/4 v4, 0x3
+    const/4 v1, 0x3
 
-    if-eq v0, v4, :cond_4
+    if-eq v0, v1, :cond_4
 
-    const/4 v4, 0x4
+    const/4 v1, 0x4
 
-    if-eq v0, v4, :cond_2
+    if-eq v0, v1, :cond_2
 
-    const/4 v2, 0x5
+    const/4 v1, 0x5
 
-    if-ne v0, v2, :cond_1
-
-    move v0, v1
+    if-ne v0, v1, :cond_1
 
     .line 126
-    .local v0, "j":I
-    .local v1, "i":I
-    const/4 v1, 0x1
-
     :goto_0
-    iget v2, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->bytesRow:I
+    iget p1, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->bytesRow:I
 
-    if-gt v1, v2, :cond_9
+    if-gt v2, p1, :cond_8
 
     .line 127
-    aget-byte v2, p2, v1
+    aget-byte p1, p2, v2
 
-    aget-byte v3, p3, v1
+    aget-byte v0, p3, v2
 
-    sub-int/2addr v2, v3
+    sub-int/2addr p1, v0
 
-    int-to-byte v2, v2
+    int-to-byte p1, p1
 
-    aput-byte v2, p4, v1
+    aput-byte p1, p4, v2
 
-    .line 126
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 101
-    .end local v0    # "j":I
-    .end local v1    # "i":I
-    :cond_1
-    move v0, v1
-
     .line 130
-    .restart local v0    # "j":I
-    .restart local v1    # "i":I
-    new-instance v2, Lar/com/hjg/pngj/PngjOutputException;
+    :cond_1
+    new-instance p2, Lar/com/hjg/pngj/PngjOutputException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string p4, "Filter type not recognized: "
 
-    const-string v4, "Filter type not recognized: "
+    invoke-direct {p3, p4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-direct {v2, v3}, Lar/com/hjg/pngj/PngjOutputException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Lar/com/hjg/pngj/PngjOutputException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p2
 
-    .line 101
-    .end local v0    # "j":I
-    .end local v1    # "i":I
     :cond_2
-    move v0, v1
+    move p1, v2
 
     .line 120
-    .restart local v0    # "j":I
-    .restart local v1    # "i":I
-    const/4 v1, 0x1
-
     :goto_1
-    iget v4, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->bytesPixel:I
+    iget v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->bytesPixel:I
 
-    if-gt v1, v4, :cond_3
+    if-gt p1, v0, :cond_3
 
     .line 121
-    aget-byte v4, p2, v1
+    aget-byte v0, p2, p1
 
-    aget-byte v5, p3, v1
+    aget-byte v1, p3, p1
 
-    and-int/lit16 v5, v5, 0xff
+    and-int/lit16 v1, v1, 0xff
 
-    div-int/2addr v5, v3
+    div-int/2addr v1, v3
 
-    sub-int/2addr v4, v5
+    sub-int/2addr v0, v1
 
-    int-to-byte v4, v4
+    int-to-byte v0, v0
 
-    aput-byte v4, p4, v1
+    aput-byte v0, p4, p1
 
-    .line 120
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p1, p1, 0x1
 
     goto :goto_1
 
-    .line 122
     :cond_3
-    const/4 v0, 0x1
+    add-int/2addr v0, v2
 
-    add-int/2addr v4, v2
+    move p1, v2
 
-    move v1, v4
-
+    .line 122
     :goto_2
-    iget v2, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->bytesRow:I
+    iget v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->bytesRow:I
 
-    if-gt v1, v2, :cond_9
+    if-gt v0, v1, :cond_8
 
     .line 123
-    aget-byte v2, p2, v1
+    aget-byte v1, p2, v0
 
-    aget-byte v4, p3, v1
+    aget-byte v4, p3, v0
 
     and-int/lit16 v4, v4, 0xff
 
-    aget-byte v5, p2, v0
+    aget-byte v5, p2, p1
 
     and-int/lit16 v5, v5, 0xff
 
@@ -285,166 +253,133 @@
 
     div-int/2addr v4, v3
 
-    sub-int/2addr v2, v4
+    sub-int/2addr v1, v4
 
-    int-to-byte v2, v2
+    int-to-byte v1, v1
 
-    aput-byte v2, p4, v1
-
-    .line 122
-    add-int/lit8 v1, v1, 0x1
+    aput-byte v1, p4, v0
 
     add-int/lit8 v0, v0, 0x1
+
+    add-int/2addr p1, v2
 
     goto :goto_2
 
-    .line 101
-    .end local v0    # "j":I
-    .end local v1    # "i":I
     :cond_4
-    move v0, v1
+    move p1, v2
 
     .line 114
-    .restart local v0    # "j":I
-    .restart local v1    # "i":I
-    const/4 v1, 0x1
-
     :goto_3
-    iget v3, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->bytesPixel:I
+    iget p3, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->bytesPixel:I
 
-    if-gt v1, v3, :cond_5
+    if-gt p1, p3, :cond_5
 
     .line 115
-    aget-byte v3, p2, v1
+    aget-byte p3, p2, p1
 
-    aput-byte v3, p4, v1
+    aput-byte p3, p4, p1
 
-    .line 114
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p1, p1, 0x1
 
     goto :goto_3
 
-    .line 116
     :cond_5
-    const/4 v0, 0x1
+    add-int/2addr p3, v2
 
-    add-int/2addr v3, v2
+    move p1, v2
 
-    move v1, v3
-
+    .line 116
     :goto_4
-    iget v2, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->bytesRow:I
+    iget v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->bytesRow:I
 
-    if-gt v1, v2, :cond_9
+    if-gt p3, v0, :cond_8
 
     .line 117
-    aget-byte v2, p2, v1
+    aget-byte v0, p2, p3
 
-    aget-byte v3, p2, v0
+    aget-byte v1, p2, p1
 
-    sub-int/2addr v2, v3
+    sub-int/2addr v0, v1
 
-    int-to-byte v2, v2
+    int-to-byte v0, v0
 
-    aput-byte v2, p4, v1
+    aput-byte v0, p4, p3
 
-    .line 116
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p3, p3, 0x1
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/2addr p1, v2
 
     goto :goto_4
 
-    .line 106
-    .end local v0    # "j":I
-    .end local v1    # "i":I
     :cond_6
-    const/4 v0, 0x1
+    move p1, v2
 
-    .local v0, "i":I
+    .line 106
     :goto_5
-    iget v3, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->bytesPixel:I
+    iget v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->bytesPixel:I
 
-    if-gt v0, v3, :cond_7
+    if-gt p1, v0, :cond_7
 
     .line 107
-    aget-byte v3, p2, v0
+    aget-byte v0, p2, p1
+
+    aget-byte v3, p3, p1
+
+    and-int/lit16 v3, v3, 0xff
+
+    invoke-static {v0, v1, v3, v1}, Lar/com/hjg/pngj/PngHelperInternal;->filterRowPaeth(IIII)I
+
+    move-result v0
+
+    int-to-byte v0, v0
+
+    aput-byte v0, p4, p1
+
+    add-int/lit8 p1, p1, 0x1
+
+    goto :goto_5
+
+    :cond_7
+    add-int/2addr v0, v2
+
+    move p1, v2
+
+    .line 108
+    :goto_6
+    iget v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->bytesRow:I
+
+    if-gt v0, v1, :cond_8
+
+    .line 109
+    aget-byte v1, p2, v0
+
+    aget-byte v3, p2, p1
+
+    and-int/lit16 v3, v3, 0xff
 
     aget-byte v4, p3, v0
 
     and-int/lit16 v4, v4, 0xff
 
-    invoke-static {v3, v1, v4, v1}, Lar/com/hjg/pngj/PngHelperInternal;->filterRowPaeth(IIII)I
-
-    move-result v3
-
-    int-to-byte v3, v3
-
-    aput-byte v3, p4, v0
-
-    .line 106
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_5
-
-    .line 108
-    :cond_7
-    const/4 v1, 0x1
-
-    .local v1, "j":I
-    add-int/2addr v3, v2
-
-    move v0, v1
-
-    move v1, v3
-
-    .local v0, "j":I
-    .local v1, "i":I
-    :goto_6
-    iget v2, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->bytesRow:I
-
-    if-gt v1, v2, :cond_9
-
-    .line 109
-    aget-byte v2, p2, v1
-
-    aget-byte v3, p2, v0
-
-    and-int/lit16 v3, v3, 0xff
-
-    aget-byte v4, p3, v1
-
-    and-int/lit16 v4, v4, 0xff
-
-    aget-byte v5, p3, v0
+    aget-byte v5, p3, p1
 
     and-int/lit16 v5, v5, 0xff
 
-    invoke-static {v2, v3, v4, v5}, Lar/com/hjg/pngj/PngHelperInternal;->filterRowPaeth(IIII)I
+    invoke-static {v1, v3, v4, v5}, Lar/com/hjg/pngj/PngHelperInternal;->filterRowPaeth(IIII)I
 
-    move-result v2
+    move-result v1
 
-    int-to-byte v2, v2
+    int-to-byte v1, v1
 
-    aput-byte v2, p4, v1
-
-    .line 108
-    add-int/lit8 v1, v1, 0x1
+    aput-byte v1, p4, v0
 
     add-int/lit8 v0, v0, 0x1
 
+    add-int/2addr p1, v2
+
     goto :goto_6
 
-    .line 104
-    .end local v0    # "j":I
-    .end local v1    # "i":I
     :cond_8
-    move v0, v1
-
-    .line 132
-    .restart local v0    # "j":I
-    .restart local v1    # "i":I
-    :cond_9
     return-object p4
 .end method
 
@@ -581,11 +516,11 @@
 .method public final getFiltersUsed()Ljava/lang/String;
     .locals 11
 
-    .line 235
     const/4 v0, 0x5
 
     new-array v0, v0, [Ljava/lang/Object;
 
+    .line 235
     iget-object v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->filtersUsed:[I
 
     const/4 v2, 0x0
@@ -775,12 +710,11 @@
     .line 146
     invoke-virtual {p0}, Lar/com/hjg/pngj/pixels/PixelsWriter;->initParams()V
 
-    .line 147
     const/4 v0, 0x1
 
+    .line 147
     iput-boolean v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->initdone:Z
 
-    .line 149
     :cond_0
     return-void
 .end method
@@ -816,14 +750,12 @@
 
     iput-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->compressorStream:Lar/com/hjg/pngj/pixels/CompressorStream;
 
-    .line 157
     :cond_0
     return-void
 .end method
 
 .method public final processRow([B)V
     .locals 1
-    .param p1, "rowb"    # [B
 
     .line 63
     iget-boolean v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->initdone:Z
@@ -844,13 +776,11 @@
     .line 66
     invoke-virtual {p0, p1}, Lar/com/hjg/pngj/pixels/PixelsWriter;->filterAndWrite([B)V
 
-    .line 67
     return-void
 .end method
 
 .method protected sendToCompressedStream([B)V
     .locals 3
-    .param p1, "rowf"    # [B
 
     .line 70
     iget-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->compressorStream:Lar/com/hjg/pngj/pixels/CompressorStream;
@@ -864,77 +794,66 @@
     .line 71
     iget-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->filtersUsed:[I
 
-    aget-byte v1, p1, v2
+    aget-byte p1, p1, v2
 
-    aget v2, v0, v1
+    aget v1, v0, p1
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    aput v2, v0, v1
+    aput v1, v0, p1
 
-    .line 72
     return-void
 .end method
 
 .method public setCompressorStream(Lar/com/hjg/pngj/pixels/CompressorStream;)V
     .locals 0
-    .param p1, "compressorStream"    # Lar/com/hjg/pngj/pixels/CompressorStream;
 
     .line 209
     iput-object p1, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->compressorStream:Lar/com/hjg/pngj/pixels/CompressorStream;
 
-    .line 210
     return-void
 .end method
 
 .method public setDeflaterCompLevel(Ljava/lang/Integer;)V
-    .locals 1
-    .param p1, "deflaterCompLevel"    # Ljava/lang/Integer;
+    .locals 0
 
     .line 177
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->deflaterCompLevel:I
+    iput p1, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->deflaterCompLevel:I
 
-    .line 178
     return-void
 .end method
 
 .method public setDeflaterStrategy(Ljava/lang/Integer;)V
-    .locals 1
-    .param p1, "deflaterStrategy"    # Ljava/lang/Integer;
+    .locals 0
 
     .line 170
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->deflaterStrategy:I
+    iput p1, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->deflaterStrategy:I
 
-    .line 171
     return-void
 .end method
 
 .method public final setFilterType(Lar/com/hjg/pngj/FilterType;)V
     .locals 0
-    .param p1, "filterType"    # Lar/com/hjg/pngj/FilterType;
 
     .line 200
     iput-object p1, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->filterType:Lar/com/hjg/pngj/FilterType;
 
-    .line 201
     return-void
 .end method
 
 .method public final setOs(Ljava/io/OutputStream;)V
     .locals 0
-    .param p1, "datStream"    # Ljava/io/OutputStream;
 
     .line 186
     iput-object p1, p0, Lar/com/hjg/pngj/pixels/PixelsWriter;->os:Ljava/io/OutputStream;
 
-    .line 187
     return-void
 .end method

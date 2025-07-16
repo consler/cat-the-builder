@@ -37,8 +37,6 @@
 # virtual methods
 .method public onDataAvailable(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/ByteBufferList;)V
     .locals 1
-    .param p1, "emitter"    # Lcom/koushikdutta/async/DataEmitter;
-    .param p2, "bb"    # Lcom/koushikdutta/async/ByteBufferList;
 
     .line 127
     iget-object v0, p0, Lcom/koushikdutta/async/Util$3;->val$sink:Lcom/koushikdutta/async/DataSink;
@@ -48,14 +46,13 @@
     .line 128
     invoke-virtual {p2}, Lcom/koushikdutta/async/ByteBufferList;->remaining()I
 
-    move-result v0
+    move-result p2
 
-    if-lez v0, :cond_0
+    if-lez p2, :cond_0
 
     .line 129
     invoke-interface {p1}, Lcom/koushikdutta/async/DataEmitter;->pause()V
 
-    .line 130
     :cond_0
     return-void
 .end method

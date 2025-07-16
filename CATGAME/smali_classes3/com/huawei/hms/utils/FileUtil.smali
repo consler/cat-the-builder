@@ -10,21 +10,16 @@
 
 .field public static final LOCAL_REPORT_FILE_MAX_SIZE:J = 0x2800L
 
-.field private static a:Z
+.field public static a:Z = false
 
-.field private static b:Ljava/util/concurrent/ScheduledExecutorService;
+.field public static b:Ljava/util/concurrent/ScheduledExecutorService;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
-    .line 43
-    const/4 v0, 0x0
-
-    sput-boolean v0, Lcom/huawei/hms/utils/FileUtil;->a:Z
-
-    .line 45
+    .line 1
     invoke-static {}, Ljava/util/concurrent/Executors;->newSingleThreadScheduledExecutor()Ljava/util/concurrent/ScheduledExecutorService;
 
     move-result-object v0
@@ -37,7 +32,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 23
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -46,16 +41,16 @@
 .method public static verifyHash(Ljava/lang/String;Ljava/io/File;)Z
     .locals 1
 
-    .line 136
+    .line 1
     invoke-static {p1}, Lcom/huawei/hms/utils/SHA256;->digest(Ljava/io/File;)[B
 
     move-result-object p1
 
-    .line 138
-    const/4 v0, 0x1
-
     if-eqz p1, :cond_0
 
+    const/4 v0, 0x1
+
+    .line 3
     invoke-static {p1, v0}, Lcom/huawei/hms/utils/HEX;->encodeHexString([BZ)Ljava/lang/String;
 
     move-result-object p1
@@ -78,25 +73,24 @@
 .method public static writeFile(Ljava/io/File;Ljava/lang/String;J)V
     .locals 2
 
-    .line 53
+    .line 1
     sget-object v0, Lcom/huawei/hms/utils/FileUtil;->b:Ljava/util/concurrent/ScheduledExecutorService;
 
-    new-instance v1, Lcom/huawei/hms/utils/FileUtil$1;
+    new-instance v1, Lcom/huawei/hms/utils/FileUtil$a;
 
-    invoke-direct {v1, p0, p2, p3, p1}, Lcom/huawei/hms/utils/FileUtil$1;-><init>(Ljava/io/File;JLjava/lang/String;)V
+    invoke-direct {v1, p0, p2, p3, p1}, Lcom/huawei/hms/utils/FileUtil$a;-><init>(Ljava/io/File;JLjava/lang/String;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/ScheduledExecutorService;->execute(Ljava/lang/Runnable;)V
 
-    .line 98
     return-void
 .end method
 
 .method public static writeFileReport(Landroid/content/Context;Ljava/io/File;Ljava/io/File;Ljava/lang/String;JI)V
     .locals 0
 
-    .line 113
     if-eqz p1, :cond_2
 
+    .line 1
     invoke-virtual {p1}, Ljava/io/File;->isFile()Z
 
     move-result p0
@@ -109,41 +103,41 @@
 
     if-eqz p0, :cond_2
 
-    .line 114
+    .line 2
     sget-boolean p0, Lcom/huawei/hms/utils/FileUtil;->a:Z
 
     if-nez p0, :cond_1
 
-    .line 115
     if-eqz p2, :cond_0
 
+    .line 3
     invoke-virtual {p2}, Ljava/io/File;->exists()Z
 
     move-result p0
 
     if-eqz p0, :cond_0
 
-    .line 116
+    .line 4
     invoke-virtual {p2}, Ljava/io/File;->delete()Z
 
     move-result p0
 
     if-nez p0, :cond_0
 
-    .line 117
     const-string p0, "FileUtil"
 
     const-string p1, "file delete failed."
 
+    .line 5
     invoke-static {p0, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 120
     :cond_0
     const/4 p0, 0x1
 
+    .line 8
     sput-boolean p0, Lcom/huawei/hms/utils/FileUtil;->a:Z
 
-    .line 123
+    .line 11
     :cond_1
     new-instance p0, Ljava/lang/StringBuilder;
 
@@ -151,15 +145,25 @@
 
     invoke-virtual {p0, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p0
+
     const-string p1, "|"
 
     invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p0
+
     invoke-virtual {p0, p4, p5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object p0
 
     invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p0
+
     invoke-virtual {p0, p6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object p0
 
     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -169,7 +173,6 @@
 
     invoke-static {p2, p0, p3, p4}, Lcom/huawei/hms/utils/FileUtil;->writeFile(Ljava/io/File;Ljava/lang/String;J)V
 
-    .line 126
     :cond_2
     return-void
 .end method

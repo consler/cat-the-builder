@@ -38,31 +38,26 @@
 
 # virtual methods
 .method public set(Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;ILcom/badlogic/gdx/graphics/g3d/Renderable;Lcom/badlogic/gdx/graphics/g3d/Attributes;)V
-    .locals 2
-    .param p1, "shader"    # Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;
-    .param p2, "inputID"    # I
-    .param p3, "renderable"    # Lcom/badlogic/gdx/graphics/g3d/Renderable;
-    .param p4, "combinedAttributes"    # Lcom/badlogic/gdx/graphics/g3d/Attributes;
+    .locals 0
 
     .line 194
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Setters$11;->tmpM:Lcom/badlogic/gdx/math/Matrix3;
+    iget-object p4, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Setters$11;->tmpM:Lcom/badlogic/gdx/math/Matrix3;
 
-    iget-object v1, p3, Lcom/badlogic/gdx/graphics/g3d/Renderable;->worldTransform:Lcom/badlogic/gdx/math/Matrix4;
+    iget-object p3, p3, Lcom/badlogic/gdx/graphics/g3d/Renderable;->worldTransform:Lcom/badlogic/gdx/math/Matrix4;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Matrix3;->set(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Matrix3;
+    invoke-virtual {p4, p3}, Lcom/badlogic/gdx/math/Matrix3;->set(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Matrix3;
 
-    move-result-object v0
+    move-result-object p3
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/math/Matrix3;->inv()Lcom/badlogic/gdx/math/Matrix3;
+    invoke-virtual {p3}, Lcom/badlogic/gdx/math/Matrix3;->inv()Lcom/badlogic/gdx/math/Matrix3;
 
-    move-result-object v0
+    move-result-object p3
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/math/Matrix3;->transpose()Lcom/badlogic/gdx/math/Matrix3;
+    invoke-virtual {p3}, Lcom/badlogic/gdx/math/Matrix3;->transpose()Lcom/badlogic/gdx/math/Matrix3;
 
-    move-result-object v0
+    move-result-object p3
 
-    invoke-virtual {p1, p2, v0}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;->set(ILcom/badlogic/gdx/math/Matrix3;)Z
+    invoke-virtual {p1, p2, p3}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;->set(ILcom/badlogic/gdx/math/Matrix3;)Z
 
-    .line 195
     return-void
 .end method

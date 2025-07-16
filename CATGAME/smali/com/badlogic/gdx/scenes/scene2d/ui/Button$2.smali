@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/Button;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/scenes/scene2d/ui/Button;
 
     .line 97
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Button$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Button;
@@ -34,16 +33,12 @@
 
 # virtual methods
 .method public keyboardFocusChanged(Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent;Lcom/badlogic/gdx/scenes/scene2d/Actor;Z)V
-    .locals 1
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent;
-    .param p2, "actor"    # Lcom/badlogic/gdx/scenes/scene2d/Actor;
-    .param p3, "focused"    # Z
+    .locals 0
 
     .line 99
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Button$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Button;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Button$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Button;
 
-    iput-boolean p3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Button;->focused:Z
+    iput-boolean p3, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Button;->focused:Z
 
-    .line 100
     return-void
 .end method

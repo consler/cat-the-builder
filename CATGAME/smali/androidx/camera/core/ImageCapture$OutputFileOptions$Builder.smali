@@ -31,9 +31,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/content/ContentValues;)V
     .locals 0
-    .param p1, "contentResolver"    # Landroid/content/ContentResolver;
-    .param p2, "saveCollection"    # Landroid/net/Uri;
-    .param p3, "contentValues"    # Landroid/content/ContentValues;
 
     .line 1606
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,13 +44,11 @@
     .line 1609
     iput-object p3, p0, Landroidx/camera/core/ImageCapture$OutputFileOptions$Builder;->mContentValues:Landroid/content/ContentValues;
 
-    .line 1610
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/File;)V
     .locals 0
-    .param p1, "file"    # Ljava/io/File;
 
     .line 1578
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,13 +56,11 @@
     .line 1579
     iput-object p1, p0, Landroidx/camera/core/ImageCapture$OutputFileOptions$Builder;->mFile:Ljava/io/File;
 
-    .line 1580
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/OutputStream;)V
     .locals 0
-    .param p1, "outputStream"    # Ljava/io/OutputStream;
 
     .line 1617
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -75,7 +68,6 @@
     .line 1618
     iput-object p1, p0, Landroidx/camera/core/ImageCapture$OutputFileOptions$Builder;->mOutputStream:Ljava/io/OutputStream;
 
-    .line 1619
     return-void
 .end method
 
@@ -108,11 +100,9 @@
 
 .method public setMetadata(Landroidx/camera/core/ImageCapture$Metadata;)Landroidx/camera/core/ImageCapture$OutputFileOptions$Builder;
     .locals 0
-    .param p1, "metadata"    # Landroidx/camera/core/ImageCapture$Metadata;
 
     .line 1631
     iput-object p1, p0, Landroidx/camera/core/ImageCapture$OutputFileOptions$Builder;->mMetadata:Landroidx/camera/core/ImageCapture$Metadata;
 
-    .line 1632
     return-object p0
 .end method

@@ -40,14 +40,11 @@
     .end annotation
 
     .line 27
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableJust;, "Lio/reactivex/internal/operators/observable/ObservableJust<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Lio/reactivex/Observable;-><init>()V
 
     .line 28
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableJust;->value:Ljava/lang/Object;
 
-    .line 29
     return-void
 .end method
 
@@ -62,7 +59,6 @@
     .end annotation
 
     .line 40
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableJust;, "Lio/reactivex/internal/operators/observable/ObservableJust<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableJust;->value:Ljava/lang/Object;
 
     return-object v0
@@ -79,8 +75,6 @@
     .end annotation
 
     .line 33
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableJust;, "Lio/reactivex/internal/operators/observable/ObservableJust<TT;>;"
-    .local p1, "s":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableJust;->value:Ljava/lang/Object;
@@ -88,12 +82,10 @@
     invoke-direct {v0, p1, v1}, Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable;-><init>(Lio/reactivex/Observer;Ljava/lang/Object;)V
 
     .line 34
-    .local v0, "sd":Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable;, "Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable<TT;>;"
     invoke-interface {p1, v0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 35
     invoke-virtual {v0}, Lio/reactivex/internal/operators/observable/ObservableScalarXMap$ScalarDisposable;->run()V
 
-    .line 36
     return-void
 .end method

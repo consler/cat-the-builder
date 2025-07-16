@@ -38,12 +38,8 @@
     .end annotation
 
     .line 84
-    .local p0, "this":Lorg/apache/commons/collections4/set/PredicatedSortedSet;, "Lorg/apache/commons/collections4/set/PredicatedSortedSet<TE;>;"
-    .local p1, "set":Ljava/util/SortedSet;, "Ljava/util/SortedSet<TE;>;"
-    .local p2, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TE;>;"
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections4/set/PredicatedSet;-><init>(Ljava/util/Set;Lorg/apache/commons/collections4/Predicate;)V
 
-    .line 85
     return-void
 .end method
 
@@ -64,8 +60,6 @@
     .end annotation
 
     .line 68
-    .local p0, "set":Ljava/util/SortedSet;, "Ljava/util/SortedSet<TE;>;"
-    .local p1, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TE;>;"
     new-instance v0, Lorg/apache/commons/collections4/set/PredicatedSortedSet;
 
     invoke-direct {v0, p0, p1}, Lorg/apache/commons/collections4/set/PredicatedSortedSet;-><init>(Ljava/util/SortedSet;Lorg/apache/commons/collections4/Predicate;)V
@@ -86,7 +80,6 @@
     .end annotation
 
     .line 100
-    .local p0, "this":Lorg/apache/commons/collections4/set/PredicatedSortedSet;, "Lorg/apache/commons/collections4/set/PredicatedSortedSet<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/PredicatedSortedSet;->decorated()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -102,7 +95,6 @@
     .locals 1
 
     .line 47
-    .local p0, "this":Lorg/apache/commons/collections4/set/PredicatedSortedSet;, "Lorg/apache/commons/collections4/set/PredicatedSortedSet<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/PredicatedSortedSet;->decorated()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -114,7 +106,6 @@
     .locals 1
 
     .line 47
-    .local p0, "this":Lorg/apache/commons/collections4/set/PredicatedSortedSet;, "Lorg/apache/commons/collections4/set/PredicatedSortedSet<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/PredicatedSortedSet;->decorated()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -133,7 +124,6 @@
     .end annotation
 
     .line 94
-    .local p0, "this":Lorg/apache/commons/collections4/set/PredicatedSortedSet;, "Lorg/apache/commons/collections4/set/PredicatedSortedSet<TE;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/set/PredicatedSet;->decorated()Ljava/util/Set;
 
     move-result-object v0
@@ -152,7 +142,6 @@
     .end annotation
 
     .line 105
-    .local p0, "this":Lorg/apache/commons/collections4/set/PredicatedSortedSet;, "Lorg/apache/commons/collections4/set/PredicatedSortedSet<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/PredicatedSortedSet;->decorated()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -165,7 +154,7 @@
 .end method
 
 .method public headSet(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)",
@@ -175,25 +164,22 @@
     .end annotation
 
     .line 121
-    .local p0, "this":Lorg/apache/commons/collections4/set/PredicatedSortedSet;, "Lorg/apache/commons/collections4/set/PredicatedSortedSet<TE;>;"
-    .local p1, "toElement":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/PredicatedSortedSet;->decorated()Ljava/util/SortedSet;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/SortedSet;->headSet(Ljava/lang/Object;)Ljava/util/SortedSet;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 122
-    .local v0, "head":Ljava/util/SortedSet;, "Ljava/util/SortedSet<TE;>;"
-    new-instance v1, Lorg/apache/commons/collections4/set/PredicatedSortedSet;
+    new-instance v0, Lorg/apache/commons/collections4/set/PredicatedSortedSet;
 
-    iget-object v2, p0, Lorg/apache/commons/collections4/set/PredicatedSortedSet;->predicate:Lorg/apache/commons/collections4/Predicate;
+    iget-object v1, p0, Lorg/apache/commons/collections4/set/PredicatedSortedSet;->predicate:Lorg/apache/commons/collections4/Predicate;
 
-    invoke-direct {v1, v0, v2}, Lorg/apache/commons/collections4/set/PredicatedSortedSet;-><init>(Ljava/util/SortedSet;Lorg/apache/commons/collections4/Predicate;)V
+    invoke-direct {v0, p1, v1}, Lorg/apache/commons/collections4/set/PredicatedSortedSet;-><init>(Ljava/util/SortedSet;Lorg/apache/commons/collections4/Predicate;)V
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public last()Ljava/lang/Object;
@@ -205,7 +191,6 @@
     .end annotation
 
     .line 110
-    .local p0, "this":Lorg/apache/commons/collections4/set/PredicatedSortedSet;, "Lorg/apache/commons/collections4/set/PredicatedSortedSet<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/PredicatedSortedSet;->decorated()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -218,7 +203,7 @@
 .end method
 
 .method public subSet(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;TE;)",
@@ -228,30 +213,26 @@
     .end annotation
 
     .line 115
-    .local p0, "this":Lorg/apache/commons/collections4/set/PredicatedSortedSet;, "Lorg/apache/commons/collections4/set/PredicatedSortedSet<TE;>;"
-    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
-    .local p2, "toElement":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/PredicatedSortedSet;->decorated()Ljava/util/SortedSet;
 
     move-result-object v0
 
     invoke-interface {v0, p1, p2}, Ljava/util/SortedSet;->subSet(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 116
-    .local v0, "sub":Ljava/util/SortedSet;, "Ljava/util/SortedSet<TE;>;"
-    new-instance v1, Lorg/apache/commons/collections4/set/PredicatedSortedSet;
+    new-instance p2, Lorg/apache/commons/collections4/set/PredicatedSortedSet;
 
-    iget-object v2, p0, Lorg/apache/commons/collections4/set/PredicatedSortedSet;->predicate:Lorg/apache/commons/collections4/Predicate;
+    iget-object v0, p0, Lorg/apache/commons/collections4/set/PredicatedSortedSet;->predicate:Lorg/apache/commons/collections4/Predicate;
 
-    invoke-direct {v1, v0, v2}, Lorg/apache/commons/collections4/set/PredicatedSortedSet;-><init>(Ljava/util/SortedSet;Lorg/apache/commons/collections4/Predicate;)V
+    invoke-direct {p2, p1, v0}, Lorg/apache/commons/collections4/set/PredicatedSortedSet;-><init>(Ljava/util/SortedSet;Lorg/apache/commons/collections4/Predicate;)V
 
-    return-object v1
+    return-object p2
 .end method
 
 .method public tailSet(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)",
@@ -261,23 +242,20 @@
     .end annotation
 
     .line 127
-    .local p0, "this":Lorg/apache/commons/collections4/set/PredicatedSortedSet;, "Lorg/apache/commons/collections4/set/PredicatedSortedSet<TE;>;"
-    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/PredicatedSortedSet;->decorated()Ljava/util/SortedSet;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/SortedSet;->tailSet(Ljava/lang/Object;)Ljava/util/SortedSet;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 128
-    .local v0, "tail":Ljava/util/SortedSet;, "Ljava/util/SortedSet<TE;>;"
-    new-instance v1, Lorg/apache/commons/collections4/set/PredicatedSortedSet;
+    new-instance v0, Lorg/apache/commons/collections4/set/PredicatedSortedSet;
 
-    iget-object v2, p0, Lorg/apache/commons/collections4/set/PredicatedSortedSet;->predicate:Lorg/apache/commons/collections4/Predicate;
+    iget-object v1, p0, Lorg/apache/commons/collections4/set/PredicatedSortedSet;->predicate:Lorg/apache/commons/collections4/Predicate;
 
-    invoke-direct {v1, v0, v2}, Lorg/apache/commons/collections4/set/PredicatedSortedSet;-><init>(Ljava/util/SortedSet;Lorg/apache/commons/collections4/Predicate;)V
+    invoke-direct {v0, p1, v1}, Lorg/apache/commons/collections4/set/PredicatedSortedSet;-><init>(Ljava/util/SortedSet;Lorg/apache/commons/collections4/Predicate;)V
 
-    return-object v1
+    return-object v0
 .end method

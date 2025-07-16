@@ -56,24 +56,18 @@
     .end annotation
 
     .line 142
-    .local p0, "this":Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;, "Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut<TK;TV;>;"
-    .local p1, "put":Lorg/apache/commons/collections4/Put;, "Lorg/apache/commons/collections4/Put<TK;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 143
     iput-object p1, p0, Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;->put:Lorg/apache/commons/collections4/Put;
 
-    .line 144
     return-void
 .end method
 
 .method synthetic constructor <init>(Lorg/apache/commons/collections4/Put;Lorg/apache/commons/collections4/SplitMapUtils$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/collections4/Put;
-    .param p2, "x1"    # Lorg/apache/commons/collections4/SplitMapUtils$1;
 
     .line 139
-    .local p0, "this":Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;, "Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut<TK;TV;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;-><init>(Lorg/apache/commons/collections4/Put;)V
 
     return-void
@@ -85,39 +79,33 @@
     .locals 1
 
     .line 148
-    .local p0, "this":Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;, "Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;->put:Lorg/apache/commons/collections4/Put;
 
     invoke-interface {v0}, Lorg/apache/commons/collections4/Put;->clear()V
 
-    .line 149
     return-void
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 0
 
     .line 153
-    .local p0, "this":Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;, "Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut<TK;TV;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "value"    # Ljava/lang/Object;
+    .locals 0
 
     .line 158
-    .local p0, "this":Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;, "Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut<TK;TV;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public entrySet()Ljava/util/Set;
@@ -132,7 +120,6 @@
     .end annotation
 
     .line 163
-    .local p0, "this":Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;, "Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -141,16 +128,12 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 2
 
-    .line 168
-    .local p0, "this":Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;, "Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut<TK;TV;>;"
     const/4 v0, 0x1
 
     if-ne p1, p0, :cond_0
 
-    .line 169
     return v0
 
     .line 171
@@ -159,19 +142,17 @@
 
     if-eqz v1, :cond_1
 
-    move-object v1, p1
+    check-cast p1, Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;
 
-    check-cast v1, Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;
+    iget-object p1, p1, Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;->put:Lorg/apache/commons/collections4/Put;
 
-    iget-object v1, v1, Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;->put:Lorg/apache/commons/collections4/Put;
+    iget-object v1, p0, Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;->put:Lorg/apache/commons/collections4/Put;
 
-    iget-object v2, p0, Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;->put:Lorg/apache/commons/collections4/Put;
+    invoke-virtual {p1, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v1, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    move-result p1
 
-    move-result v1
-
-    if-eqz v1, :cond_1
+    if-eqz p1, :cond_1
 
     goto :goto_0
 
@@ -183,8 +164,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -194,32 +174,24 @@
     .end annotation
 
     .line 176
-    .local p0, "this":Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;, "Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut<TK;TV;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public hashCode()I
     .locals 2
 
     .line 181
-    .local p0, "this":Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;, "Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut<TK;TV;>;"
-    const-string v0, "WrappedPut"
+    iget-object v0, p0, Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;->put:Lorg/apache/commons/collections4/Put;
 
-    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    shl-int/lit8 v0, v0, 0x4
-
-    iget-object v1, p0, Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;->put:Lorg/apache/commons/collections4/Put;
-
-    invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
-
-    move-result v1
+    const v1, 0x157886a0
 
     or-int/2addr v0, v1
 
@@ -230,7 +202,6 @@
     .locals 1
 
     .line 186
-    .local p0, "this":Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;, "Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -249,7 +220,6 @@
     .end annotation
 
     .line 191
-    .local p0, "this":Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;, "Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -266,16 +236,13 @@
     .end annotation
 
     .line 197
-    .local p0, "this":Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;, "Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;->put:Lorg/apache/commons/collections4/Put;
 
     invoke-interface {v0, p1, p2}, Lorg/apache/commons/collections4/Put;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public putAll(Ljava/util/Map;)V
@@ -289,19 +256,15 @@
     .end annotation
 
     .line 202
-    .local p0, "this":Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;, "Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut<TK;TV;>;"
-    .local p1, "t":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;->put:Lorg/apache/commons/collections4/Put;
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Put;->putAll(Ljava/util/Map;)V
 
-    .line 203
     return-void
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -311,19 +274,17 @@
     .end annotation
 
     .line 207
-    .local p0, "this":Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;, "Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut<TK;TV;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public size()I
     .locals 1
 
     .line 212
-    .local p0, "this":Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;, "Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -342,7 +303,6 @@
     .end annotation
 
     .line 217
-    .local p0, "this":Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut;, "Lorg/apache/commons/collections4/SplitMapUtils$WrappedPut<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

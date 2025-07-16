@@ -23,8 +23,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/mediarouter/media/MediaRouter$RouteInfo;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "route"    # Landroidx/mediarouter/media/MediaRouter$RouteInfo;
-    .param p2, "routeObj"    # Ljava/lang/Object;
 
     .line 705
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,6 +33,5 @@
     .line 707
     iput-object p2, p0, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl$UserRouteRecord;->mRouteObj:Ljava/lang/Object;
 
-    .line 708
     return-void
 .end method

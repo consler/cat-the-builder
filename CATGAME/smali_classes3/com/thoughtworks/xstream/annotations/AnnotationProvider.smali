@@ -21,8 +21,7 @@
 
 # virtual methods
 .method public getAnnotation(Ljava/lang/reflect/Field;Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
-    .locals 1
-    .param p1, "field"    # Ljava/lang/reflect/Field;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -38,10 +37,9 @@
     .end annotation
 
     .line 36
-    .local p2, "annotationClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-virtual {p1, p2}, Ljava/lang/reflect/Field;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

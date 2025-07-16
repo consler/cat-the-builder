@@ -151,18 +151,12 @@
     :try_end_0
     .catch Ljava/security/GeneralSecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 70
-    nop
-
-    .line 71
     return-void
 
-    .line 68
     :catch_0
     move-exception v0
 
     .line 69
-    .local v0, "e":Ljava/security/GeneralSecurityException;
     new-instance v1, Ljava/lang/ExceptionInInitializerError;
 
     invoke-direct {v1, v0}, Ljava/lang/ExceptionInInitializerError;-><init>(Ljava/lang/Throwable;)V
@@ -193,7 +187,6 @@
     .line 85
     invoke-static {}, Lcom/google/crypto/tink/aead/AeadConfig;->register()V
 
-    .line 86
     return-void
 .end method
 
@@ -208,9 +201,9 @@
     .line 99
     invoke-static {}, Lcom/google/crypto/tink/mac/MacConfig;->register()V
 
-    .line 100
     const/4 v0, 0x1
 
+    .line 100
     invoke-static {v0}, Lcom/google/crypto/tink/aead/AesCtrHmacAeadKeyManager;->register(Z)V
 
     .line 101
@@ -237,7 +230,6 @@
     .line 108
     invoke-static {}, Lcom/google/crypto/tink/aead/AeadWrapper;->register()V
 
-    .line 109
     return-void
 .end method
 
@@ -255,6 +247,5 @@
     .line 122
     invoke-static {}, Lcom/google/crypto/tink/aead/AeadConfig;->register()V
 
-    .line 123
     return-void
 .end method

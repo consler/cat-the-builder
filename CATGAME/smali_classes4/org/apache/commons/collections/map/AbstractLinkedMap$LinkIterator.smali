@@ -31,7 +31,6 @@
 # direct methods
 .method protected constructor <init>(Lorg/apache/commons/collections/map/AbstractLinkedMap;)V
     .locals 1
-    .param p1, "parent"    # Lorg/apache/commons/collections/map/AbstractLinkedMap;
 
     .line 544
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,11 +46,10 @@
     iput-object v0, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkIterator;->next:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
     .line 547
-    iget v0, p1, Lorg/apache/commons/collections/map/AbstractLinkedMap;->modCount:I
+    iget p1, p1, Lorg/apache/commons/collections/map/AbstractLinkedMap;->modCount:I
 
-    iput v0, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkIterator;->expectedModCount:I
+    iput p1, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkIterator;->expectedModCount:I
 
-    .line 548
     return-void
 .end method
 
@@ -170,7 +168,7 @@
 .end method
 
 .method protected previousEntry()Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
-    .locals 3
+    .locals 2
 
     .line 571
     iget-object v0, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkIterator;->parent:Lorg/apache/commons/collections/map/AbstractLinkedMap;
@@ -187,7 +185,6 @@
     iget-object v0, v0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;->before:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
     .line 575
-    .local v0, "previous":Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
     iget-object v1, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkIterator;->parent:Lorg/apache/commons/collections/map/AbstractLinkedMap;
 
     iget-object v1, v1, Lorg/apache/commons/collections/map/AbstractLinkedMap;->header:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
@@ -200,21 +197,19 @@
     .line 579
     iput-object v0, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkIterator;->last:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
-    .line 580
     return-object v0
 
     .line 576
     :cond_0
-    new-instance v1, Ljava/util/NoSuchElementException;
+    new-instance v0, Ljava/util/NoSuchElementException;
 
-    const-string v2, "No previous() entry in the iteration"
+    const-string v1, "No previous() entry in the iteration"
 
-    invoke-direct {v1, v2}, Ljava/util/NoSuchElementException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/util/NoSuchElementException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 
     .line 572
-    .end local v0    # "previous":Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
     :cond_1
     new-instance v0, Ljava/util/ConcurrentModificationException;
 
@@ -251,9 +246,9 @@
 
     invoke-virtual {v0, v1}, Lorg/apache/commons/collections/map/AbstractLinkedMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 595
     const/4 v0, 0x0
 
+    .line 595
     iput-object v0, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkIterator;->last:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
     .line 596
@@ -263,7 +258,6 @@
 
     iput v0, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkIterator;->expectedModCount:I
 
-    .line 597
     return-void
 
     .line 592
@@ -288,9 +282,9 @@
 .method public reset()V
     .locals 1
 
-    .line 600
     const/4 v0, 0x0
 
+    .line 600
     iput-object v0, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkIterator;->last:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
     .line 601
@@ -302,7 +296,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkIterator;->next:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
-    .line 602
     return-void
 .end method
 
@@ -317,11 +310,9 @@
     .line 606
     new-instance v0, Ljava/lang/StringBuffer;
 
-    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
-
     const-string v1, "Iterator["
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
     iget-object v1, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkIterator;->last:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
@@ -331,9 +322,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
+    move-result-object v0
+
     const-string v1, "="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
 
     iget-object v1, p0, Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkIterator;->last:Lorg/apache/commons/collections/map/AbstractLinkedMap$LinkEntry;
 
@@ -343,9 +338,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
+    move-result-object v0
+
     const-string v1, "]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
@@ -353,7 +352,6 @@
 
     return-object v0
 
-    .line 608
     :cond_0
     const-string v0, "Iterator[]"
 

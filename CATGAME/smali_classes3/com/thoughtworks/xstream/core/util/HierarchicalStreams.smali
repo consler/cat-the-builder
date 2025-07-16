@@ -14,90 +14,75 @@
 .end method
 
 .method public static readClassAttribute(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/mapper/Mapper;)Ljava/lang/String;
-    .locals 3
-    .param p0, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .param p1, "mapper"    # Lcom/thoughtworks/xstream/mapper/Mapper;
+    .locals 2
 
-    .line 37
     const-string v0, "resolves-to"
 
+    .line 37
     invoke-interface {p1, v0}, Lcom/thoughtworks/xstream/mapper/Mapper;->aliasForSystemAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 38
-    .local v0, "attributeName":Ljava/lang/String;
     if-nez v0, :cond_0
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     goto :goto_0
 
+    .line 38
     :cond_0
     invoke-interface {p0, v0}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    .line 39
-    .local v1, "classAttribute":Ljava/lang/String;
     :goto_0
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
+
+    const-string v1, "class"
 
     .line 40
-    const-string v2, "class"
+    invoke-interface {p1, v1}, Lcom/thoughtworks/xstream/mapper/Mapper;->aliasForSystemAttribute(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-interface {p1, v2}, Lcom/thoughtworks/xstream/mapper/Mapper;->aliasForSystemAttribute(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object p1
+
+    if-eqz p1, :cond_1
+
+    .line 42
+    invoke-interface {p0, p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 41
-    if-eqz v0, :cond_1
-
-    .line 42
-    invoke-interface {p0, v0}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 45
     :cond_1
-    return-object v1
+    return-object v0
 .end method
 
 .method public static readClassType(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/mapper/Mapper;)Ljava/lang/Class;
-    .locals 2
-    .param p0, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .param p1, "mapper"    # Lcom/thoughtworks/xstream/mapper/Mapper;
+    .locals 1
 
     .line 26
     invoke-static {p0, p1}, Lcom/thoughtworks/xstream/core/util/HierarchicalStreams;->readClassAttribute(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/mapper/Mapper;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 28
-    .local v0, "classAttribute":Ljava/lang/String;
     if-nez v0, :cond_0
 
     .line 29
     invoke-interface {p0}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->getNodeName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-interface {p1, v1}, Lcom/thoughtworks/xstream/mapper/Mapper;->realClass(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-interface {p1, p0}, Lcom/thoughtworks/xstream/mapper/Mapper;->realClass(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object p0
 
-    .local v1, "type":Ljava/lang/Class;
     goto :goto_0
 
     .line 31
-    .end local v1    # "type":Ljava/lang/Class;
     :cond_0
     invoke-interface {p1, v0}, Lcom/thoughtworks/xstream/mapper/Mapper;->realClass(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object p0
 
-    .line 33
-    .restart local v1    # "type":Ljava/lang/Class;
     :goto_0
-    return-object v1
+    return-object p0
 .end method

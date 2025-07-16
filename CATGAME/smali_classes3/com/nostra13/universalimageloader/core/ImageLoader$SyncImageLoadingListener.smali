@@ -30,7 +30,6 @@
 
 .method synthetic constructor <init>(Lcom/nostra13/universalimageloader/core/ImageLoader$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/nostra13/universalimageloader/core/ImageLoader$1;
 
     .line 800
     invoke-direct {p0}, Lcom/nostra13/universalimageloader/core/ImageLoader$SyncImageLoadingListener;-><init>()V
@@ -51,13 +50,9 @@
 
 .method public onLoadingComplete(Ljava/lang/String;Landroid/view/View;Landroid/graphics/Bitmap;)V
     .locals 0
-    .param p1, "imageUri"    # Ljava/lang/String;
-    .param p2, "view"    # Landroid/view/View;
-    .param p3, "loadedImage"    # Landroid/graphics/Bitmap;
 
     .line 806
     iput-object p3, p0, Lcom/nostra13/universalimageloader/core/ImageLoader$SyncImageLoadingListener;->loadedImage:Landroid/graphics/Bitmap;
 
-    .line 807
     return-void
 .end method

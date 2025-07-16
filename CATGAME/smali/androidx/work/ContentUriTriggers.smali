@@ -43,9 +43,7 @@
 
 # virtual methods
 .method public add(Landroid/net/Uri;Z)V
-    .locals 2
-    .param p1, "uri"    # Landroid/net/Uri;
-    .param p2, "triggerForDescendants"    # Z
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -63,18 +61,15 @@
     invoke-direct {v0, p1, p2}, Landroidx/work/ContentUriTriggers$Trigger;-><init>(Landroid/net/Uri;Z)V
 
     .line 52
-    .local v0, "trigger":Landroidx/work/ContentUriTriggers$Trigger;
-    iget-object v1, p0, Landroidx/work/ContentUriTriggers;->mTriggers:Ljava/util/Set;
+    iget-object p1, p0, Landroidx/work/ContentUriTriggers;->mTriggers:Ljava/util/Set;
 
-    invoke-interface {v1, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 53
     return-void
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -84,17 +79,16 @@
         }
     .end annotation
 
-    .line 68
     if-ne p0, p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
-    .line 69
     :cond_0
     if-eqz p1, :cond_2
 
+    .line 69
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -109,29 +103,24 @@
 
     .line 71
     :cond_1
-    move-object v0, p1
-
-    check-cast v0, Landroidx/work/ContentUriTriggers;
+    check-cast p1, Landroidx/work/ContentUriTriggers;
 
     .line 73
-    .local v0, "that":Landroidx/work/ContentUriTriggers;
-    iget-object v1, p0, Landroidx/work/ContentUriTriggers;->mTriggers:Ljava/util/Set;
+    iget-object v0, p0, Landroidx/work/ContentUriTriggers;->mTriggers:Ljava/util/Set;
 
-    iget-object v2, v0, Landroidx/work/ContentUriTriggers;->mTriggers:Ljava/util/Set;
+    iget-object p1, p1, Landroidx/work/ContentUriTriggers;->mTriggers:Ljava/util/Set;
 
-    invoke-interface {v1, v2}, Ljava/util/Set;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Ljava/util/Set;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 
-    .line 69
-    .end local v0    # "that":Landroidx/work/ContentUriTriggers;
     :cond_2
     :goto_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public getTriggers()Ljava/util/Set;

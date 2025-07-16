@@ -31,8 +31,6 @@
 # direct methods
 .method public constructor <init>(Lorg/reactivestreams/Publisher;IZ)V
     .locals 0
-    .param p2, "maxConcurrency"    # I
-    .param p3, "delayErrors"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -44,7 +42,6 @@
     .end annotation
 
     .line 32
-    .local p1, "source":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+Lio/reactivex/CompletableSource;>;"
     invoke-direct {p0}, Lio/reactivex/Completable;-><init>()V
 
     .line 33
@@ -56,7 +53,6 @@
     .line 35
     iput-boolean p3, p0, Lio/reactivex/internal/operators/completable/CompletableMerge;->delayErrors:Z
 
-    .line 36
     return-void
 .end method
 
@@ -64,7 +60,6 @@
 # virtual methods
 .method public subscribeActual(Lio/reactivex/CompletableObserver;)V
     .locals 3
-    .param p1, "s"    # Lio/reactivex/CompletableObserver;
 
     .line 40
     new-instance v0, Lio/reactivex/internal/operators/completable/CompletableMerge$CompletableMergeSubscriber;
@@ -76,11 +71,9 @@
     invoke-direct {v0, p1, v1, v2}, Lio/reactivex/internal/operators/completable/CompletableMerge$CompletableMergeSubscriber;-><init>(Lio/reactivex/CompletableObserver;IZ)V
 
     .line 41
-    .local v0, "parent":Lio/reactivex/internal/operators/completable/CompletableMerge$CompletableMergeSubscriber;
-    iget-object v1, p0, Lio/reactivex/internal/operators/completable/CompletableMerge;->source:Lorg/reactivestreams/Publisher;
+    iget-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableMerge;->source:Lorg/reactivestreams/Publisher;
 
-    invoke-interface {v1, v0}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
+    invoke-interface {p1, v0}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
 
-    .line 42
     return-void
 .end method

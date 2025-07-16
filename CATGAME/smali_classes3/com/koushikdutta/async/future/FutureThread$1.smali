@@ -26,10 +26,8 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/future/FutureThread;Lcom/koushikdutta/async/future/FutureRunnable;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/future/FutureThread;
 
     .line 14
-    .local p0, "this":Lcom/koushikdutta/async/future/FutureThread$1;, "Lcom/koushikdutta/async/future/FutureThread$1;"
     iput-object p1, p0, Lcom/koushikdutta/async/future/FutureThread$1;->this$0:Lcom/koushikdutta/async/future/FutureThread;
 
     iput-object p2, p0, Lcom/koushikdutta/async/future/FutureThread$1;->val$runnable:Lcom/koushikdutta/async/future/FutureRunnable;
@@ -45,7 +43,6 @@
     .locals 2
 
     .line 18
-    .local p0, "this":Lcom/koushikdutta/async/future/FutureThread$1;, "Lcom/koushikdutta/async/future/FutureThread$1;"
     :try_start_0
     iget-object v0, p0, Lcom/koushikdutta/async/future/FutureThread$1;->this$0:Lcom/koushikdutta/async/future/FutureThread;
 
@@ -59,21 +56,16 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 22
     goto :goto_0
 
-    .line 20
     :catch_0
     move-exception v0
 
     .line 21
-    .local v0, "e":Ljava/lang/Exception;
     iget-object v1, p0, Lcom/koushikdutta/async/future/FutureThread$1;->this$0:Lcom/koushikdutta/async/future/FutureThread;
 
     invoke-virtual {v1, v0}, Lcom/koushikdutta/async/future/FutureThread;->setComplete(Ljava/lang/Exception;)Z
 
-    .line 23
-    .end local v0    # "e":Ljava/lang/Exception;
     :goto_0
     return-void
 .end method

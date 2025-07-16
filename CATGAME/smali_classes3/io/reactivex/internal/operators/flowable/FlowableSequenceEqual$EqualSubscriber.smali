@@ -59,28 +59,24 @@
 
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualCoordinatorHelper;I)V
-    .locals 1
-    .param p1, "parent"    # Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualCoordinatorHelper;
-    .param p2, "prefetch"    # I
+    .locals 0
 
     .line 265
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber<TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 266
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;->parent:Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualCoordinatorHelper;
 
+    shr-int/lit8 p1, p2, 0x2
+
+    sub-int p1, p2, p1
+
     .line 267
-    shr-int/lit8 v0, p2, 0x2
-
-    sub-int v0, p2, v0
-
-    iput v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;->limit:I
+    iput p1, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;->limit:I
 
     .line 268
     iput p2, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;->prefetch:I
 
-    .line 269
     return-void
 .end method
 
@@ -90,10 +86,8 @@
     .locals 0
 
     .line 335
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber<TT;>;"
     invoke-static {p0}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->cancel(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 336
     return-void
 .end method
 
@@ -101,17 +95,13 @@
     .locals 1
 
     .line 339
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
-    .line 340
-    .local v0, "sq":Lio/reactivex/internal/fuseable/SimpleQueue;, "Lio/reactivex/internal/fuseable/SimpleQueue<TT;>;"
     if-eqz v0, :cond_0
 
     .line 341
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->clear()V
 
-    .line 343
     :cond_0
     return-void
 .end method
@@ -119,10 +109,9 @@
 .method public onComplete()V
     .locals 1
 
-    .line 318
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber<TT;>;"
     const/4 v0, 0x1
 
+    .line 318
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;->done:Z
 
     .line 319
@@ -130,21 +119,17 @@
 
     invoke-interface {v0}, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualCoordinatorHelper;->drain()V
 
-    .line 320
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 313
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;->parent:Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualCoordinatorHelper;
 
     invoke-interface {v0, p1}, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualCoordinatorHelper;->innerError(Ljava/lang/Throwable;)V
 
-    .line 314
     return-void
 .end method
 
@@ -157,8 +142,6 @@
     .end annotation
 
     .line 302
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;->sourceMode:I
 
     if-nez v0, :cond_0
@@ -168,36 +151,32 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/internal/fuseable/SimpleQueue;->offer(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 304
-    new-instance v0, Lio/reactivex/exceptions/MissingBackpressureException;
+    new-instance p1, Lio/reactivex/exceptions/MissingBackpressureException;
 
-    invoke-direct {v0}, Lio/reactivex/exceptions/MissingBackpressureException;-><init>()V
+    invoke-direct {p1}, Lio/reactivex/exceptions/MissingBackpressureException;-><init>()V
 
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 305
     return-void
 
     .line 308
     :cond_0
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;->parent:Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualCoordinatorHelper;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;->parent:Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualCoordinatorHelper;
 
-    invoke-interface {v0}, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualCoordinatorHelper;->drain()V
+    invoke-interface {p1}, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualCoordinatorHelper;->drain()V
 
-    .line 309
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
-    .locals 4
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
+    .locals 3
 
     .line 273
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber<TT;>;"
     invoke-static {p0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lorg/reactivestreams/Subscription;)Z
 
     move-result v0
@@ -214,16 +193,13 @@
 
     check-cast v0, Lio/reactivex/internal/fuseable/QueueSubscription;
 
-    .line 278
-    .local v0, "qs":Lio/reactivex/internal/fuseable/QueueSubscription;, "Lio/reactivex/internal/fuseable/QueueSubscription<TT;>;"
     const/4 v1, 0x3
 
+    .line 278
     invoke-interface {v0, v1}, Lio/reactivex/internal/fuseable/QueueSubscription;->requestFusion(I)I
 
     move-result v1
 
-    .line 279
-    .local v1, "m":I
     const/4 v2, 0x1
 
     if-ne v1, v2, :cond_0
@@ -238,14 +214,12 @@
     iput-boolean v2, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;->done:Z
 
     .line 283
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;->parent:Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualCoordinatorHelper;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;->parent:Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualCoordinatorHelper;
 
-    invoke-interface {v2}, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualCoordinatorHelper;->drain()V
+    invoke-interface {p1}, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualCoordinatorHelper;->drain()V
 
-    .line 284
     return-void
 
-    .line 286
     :cond_0
     const/4 v2, 0x2
 
@@ -258,18 +232,15 @@
     iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
     .line 289
-    iget v2, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;->prefetch:I
+    iget v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;->prefetch:I
 
-    int-to-long v2, v2
+    int-to-long v0, v0
 
-    invoke-interface {p1, v2, v3}, Lorg/reactivestreams/Subscription;->request(J)V
+    invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 290
     return-void
 
     .line 294
-    .end local v0    # "qs":Lio/reactivex/internal/fuseable/QueueSubscription;, "Lio/reactivex/internal/fuseable/QueueSubscription<TT;>;"
-    .end local v1    # "m":I
     :cond_1
     new-instance v0, Lio/reactivex/internal/queue/SpscArrayQueue;
 
@@ -286,7 +257,6 @@
 
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 298
     :cond_2
     return-void
 .end method
@@ -295,7 +265,6 @@
     .locals 4
 
     .line 323
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber<TT;>;"
     iget v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;->sourceMode:I
 
     const/4 v1, 0x1
@@ -310,7 +279,6 @@
     add-long/2addr v0, v2
 
     .line 325
-    .local v0, "p":J
     iget v2, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;->limit:I
 
     int-to-long v2, v2
@@ -319,9 +287,9 @@
 
     if-ltz v2, :cond_0
 
-    .line 326
     const-wide/16 v2, 0x0
 
+    .line 326
     iput-wide v2, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;->produced:J
 
     .line 327
@@ -339,8 +307,6 @@
     :cond_0
     iput-wide v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual$EqualSubscriber;->produced:J
 
-    .line 332
-    .end local v0    # "p":J
     :cond_1
     :goto_0
     return-void

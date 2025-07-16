@@ -34,12 +34,11 @@
     .locals 1
 
     .line 6
-    .local p0, "this":Lcom/bumptech/glide/load/engine/bitmap_recycle/BaseKeyPool;, "Lcom/bumptech/glide/load/engine/bitmap_recycle/BaseKeyPool<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 8
     const/16 v0, 0x14
 
+    .line 8
     invoke-static {v0}, Lcom/bumptech/glide/util/Util;->createQueue(I)Ljava/util/Queue;
 
     move-result-object v0
@@ -68,7 +67,6 @@
     .end annotation
 
     .line 11
-    .local p0, "this":Lcom/bumptech/glide/load/engine/bitmap_recycle/BaseKeyPool;, "Lcom/bumptech/glide/load/engine/bitmap_recycle/BaseKeyPool<TT;>;"
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/BaseKeyPool;->keyPool:Ljava/util/Queue;
 
     invoke-interface {v0}, Ljava/util/Queue;->poll()Ljava/lang/Object;
@@ -77,8 +75,6 @@
 
     check-cast v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/Poolable;
 
-    .line 12
-    .local v0, "result":Lcom/bumptech/glide/load/engine/bitmap_recycle/Poolable;, "TT;"
     if-nez v0, :cond_0
 
     .line 13
@@ -86,7 +82,6 @@
 
     move-result-object v0
 
-    .line 15
     :cond_0
     return-object v0
 .end method
@@ -100,8 +95,6 @@
     .end annotation
 
     .line 19
-    .local p0, "this":Lcom/bumptech/glide/load/engine/bitmap_recycle/BaseKeyPool;, "Lcom/bumptech/glide/load/engine/bitmap_recycle/BaseKeyPool<TT;>;"
-    .local p1, "key":Lcom/bumptech/glide/load/engine/bitmap_recycle/Poolable;, "TT;"
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/BaseKeyPool;->keyPool:Ljava/util/Queue;
 
     invoke-interface {v0}, Ljava/util/Queue;->size()I
@@ -117,7 +110,6 @@
 
     invoke-interface {v0, p1}, Ljava/util/Queue;->offer(Ljava/lang/Object;)Z
 
-    .line 22
     :cond_0
     return-void
 .end method

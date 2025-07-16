@@ -21,8 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/work/impl/model/WorkSpecDao_Impl;Landroidx/room/RoomDatabase;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/work/impl/model/WorkSpecDao_Impl;
-    .param p2, "database"    # Landroidx/room/RoomDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
@@ -34,7 +32,7 @@
         }
     .end annotation
 
-    .line 181
+    .line 184
     iput-object p1, p0, Landroidx/work/impl/model/WorkSpecDao_Impl$7;->this$0:Landroidx/work/impl/model/WorkSpecDao_Impl;
 
     invoke-direct {p0, p2}, Landroidx/room/SharedSQLiteStatement;-><init>(Landroidx/room/RoomDatabase;)V
@@ -45,14 +43,9 @@
 
 # virtual methods
 .method public createQuery()Ljava/lang/String;
-    .locals 2
+    .locals 1
 
-    .line 184
     const-string v0, "UPDATE workspec SET schedule_requested_at=? WHERE id=?"
 
-    .line 185
-    .local v0, "_query":Ljava/lang/String;
-    const-string v1, "UPDATE workspec SET schedule_requested_at=? WHERE id=?"
-
-    return-object v1
+    return-object v0
 .end method

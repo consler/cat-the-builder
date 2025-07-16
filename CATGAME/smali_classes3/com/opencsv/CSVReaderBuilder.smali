@@ -32,7 +32,6 @@
 # direct methods
 .method public constructor <init>(Ljava/io/Reader;)V
     .locals 3
-    .param p1, "reader"    # Ljava/io/Reader;
 
     .line 73
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,19 +43,19 @@
 
     iput-object v0, p0, Lcom/opencsv/CSVReaderBuilder;->parserBuilder:Lcom/opencsv/CSVParserBuilder;
 
-    .line 56
     const/4 v0, 0x0
 
+    .line 56
     iput v0, p0, Lcom/opencsv/CSVReaderBuilder;->skipLines:I
 
-    .line 57
     const/4 v1, 0x0
 
+    .line 57
     iput-object v1, p0, Lcom/opencsv/CSVReaderBuilder;->icsvParser:Lcom/opencsv/ICSVParser;
 
-    .line 59
     const/4 v2, 0x1
 
+    .line 59
     iput-boolean v2, p0, Lcom/opencsv/CSVReaderBuilder;->verifyReader:Z
 
     .line 60
@@ -91,49 +90,46 @@
     .line 65
     iput-object v1, p0, Lcom/opencsv/CSVReaderBuilder;->rowProcessor:Lcom/opencsv/processor/RowProcessor;
 
-    .line 74
     if-eqz p1, :cond_0
 
     .line 77
     iput-object p1, p0, Lcom/opencsv/CSVReaderBuilder;->reader:Ljava/io/Reader;
 
-    .line 78
     return-void
 
     .line 75
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "opencsv"
+    const-string v0, "opencsv"
 
-    invoke-static {v1}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;)Ljava/util/ResourceBundle;
+    invoke-static {v0}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;)Ljava/util/ResourceBundle;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string v2, "reader.null"
+    const-string v1, "reader.null"
 
-    invoke-virtual {v1, v2}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
 # virtual methods
 .method public build()Lcom/opencsv/CSVReader;
-    .locals 13
+    .locals 12
 
     .line 147
     invoke-virtual {p0}, Lcom/opencsv/CSVReaderBuilder;->getOrCreateCsvParser()Lcom/opencsv/ICSVParser;
 
-    move-result-object v11
+    move-result-object v3
 
     .line 148
-    .local v11, "parser":Lcom/opencsv/ICSVParser;
-    new-instance v12, Lcom/opencsv/CSVReader;
+    new-instance v11, Lcom/opencsv/CSVReader;
 
     iget-object v1, p0, Lcom/opencsv/CSVReaderBuilder;->reader:Ljava/io/Reader;
 
@@ -153,13 +149,11 @@
 
     iget-object v10, p0, Lcom/opencsv/CSVReaderBuilder;->rowProcessor:Lcom/opencsv/processor/RowProcessor;
 
-    move-object v0, v12
-
-    move-object v3, v11
+    move-object v0, v11
 
     invoke-direct/range {v0 .. v10}, Lcom/opencsv/CSVReader;-><init>(Ljava/io/Reader;ILcom/opencsv/ICSVParser;ZZILjava/util/Locale;Lcom/opencsv/validators/LineValidatorAggregator;Lcom/opencsv/validators/RowValidatorAggregator;Lcom/opencsv/processor/RowProcessor;)V
 
-    return-object v12
+    return-object v11
 .end method
 
 .method protected getCsvParser()Lcom/opencsv/ICSVParser;
@@ -282,18 +276,15 @@
 
 .method public withCSVParser(Lcom/opencsv/ICSVParser;)Lcom/opencsv/CSVReaderBuilder;
     .locals 0
-    .param p1, "icsvParser"    # Lcom/opencsv/ICSVParser;
 
     .line 137
     iput-object p1, p0, Lcom/opencsv/CSVReaderBuilder;->icsvParser:Lcom/opencsv/ICSVParser;
 
-    .line 138
     return-object p0
 .end method
 
 .method public withErrorLocale(Ljava/util/Locale;)Lcom/opencsv/CSVReaderBuilder;
     .locals 1
-    .param p1, "errorLocale"    # Ljava/util/Locale;
 
     .line 241
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
@@ -302,110 +293,93 @@
 
     invoke-static {p1, v0}, Lorg/apache/commons/lang3/ObjectUtils;->defaultIfNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Locale;
+    check-cast p1, Ljava/util/Locale;
 
-    iput-object v0, p0, Lcom/opencsv/CSVReaderBuilder;->errorLocale:Ljava/util/Locale;
+    iput-object p1, p0, Lcom/opencsv/CSVReaderBuilder;->errorLocale:Ljava/util/Locale;
 
-    .line 242
     return-object p0
 .end method
 
 .method public withFieldAsNull(Lcom/opencsv/enums/CSVReaderNullFieldIndicator;)Lcom/opencsv/CSVReaderBuilder;
     .locals 0
-    .param p1, "indicator"    # Lcom/opencsv/enums/CSVReaderNullFieldIndicator;
 
     .line 216
     iput-object p1, p0, Lcom/opencsv/CSVReaderBuilder;->nullFieldIndicator:Lcom/opencsv/enums/CSVReaderNullFieldIndicator;
 
-    .line 217
     return-object p0
 .end method
 
 .method public withKeepCarriageReturn(Z)Lcom/opencsv/CSVReaderBuilder;
     .locals 0
-    .param p1, "keepCR"    # Z
 
     .line 159
     iput-boolean p1, p0, Lcom/opencsv/CSVReaderBuilder;->keepCR:Z
 
-    .line 160
     return-object p0
 .end method
 
 .method public withLineValidator(Lcom/opencsv/validators/LineValidator;)Lcom/opencsv/CSVReaderBuilder;
     .locals 1
-    .param p1, "lineValidator"    # Lcom/opencsv/validators/LineValidator;
 
     .line 275
     iget-object v0, p0, Lcom/opencsv/CSVReaderBuilder;->lineValidatorAggregator:Lcom/opencsv/validators/LineValidatorAggregator;
 
     invoke-virtual {v0, p1}, Lcom/opencsv/validators/LineValidatorAggregator;->addValidator(Lcom/opencsv/validators/LineValidator;)V
 
-    .line 276
     return-object p0
 .end method
 
 .method public withMultilineLimit(I)Lcom/opencsv/CSVReaderBuilder;
     .locals 0
-    .param p1, "multilineLimit"    # I
 
     .line 229
     iput p1, p0, Lcom/opencsv/CSVReaderBuilder;->multilineLimit:I
 
-    .line 230
     return-object p0
 .end method
 
 .method public withRowProcessor(Lcom/opencsv/processor/RowProcessor;)Lcom/opencsv/CSVReaderBuilder;
     .locals 0
-    .param p1, "rowProcessor"    # Lcom/opencsv/processor/RowProcessor;
 
     .line 302
     iput-object p1, p0, Lcom/opencsv/CSVReaderBuilder;->rowProcessor:Lcom/opencsv/processor/RowProcessor;
 
-    .line 303
     return-object p0
 .end method
 
 .method public withRowValidator(Lcom/opencsv/validators/RowValidator;)Lcom/opencsv/CSVReaderBuilder;
     .locals 1
-    .param p1, "rowValidator"    # Lcom/opencsv/validators/RowValidator;
 
     .line 288
     iget-object v0, p0, Lcom/opencsv/CSVReaderBuilder;->rowValidatorAggregator:Lcom/opencsv/validators/RowValidatorAggregator;
 
     invoke-virtual {v0, p1}, Lcom/opencsv/validators/RowValidatorAggregator;->addValidator(Lcom/opencsv/validators/RowValidator;)V
 
-    .line 289
     return-object p0
 .end method
 
 .method public withSkipLines(I)Lcom/opencsv/CSVReaderBuilder;
     .locals 1
-    .param p1, "skipLines"    # I
 
-    .line 124
     const/4 v0, 0x0
 
+    .line 124
     invoke-static {p1, v0}, Ljava/lang/Math;->max(II)I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/opencsv/CSVReaderBuilder;->skipLines:I
+    iput p1, p0, Lcom/opencsv/CSVReaderBuilder;->skipLines:I
 
-    .line 125
     return-object p0
 .end method
 
 .method public withVerifyReader(Z)Lcom/opencsv/CSVReaderBuilder;
     .locals 0
-    .param p1, "verifyReader"    # Z
 
     .line 198
     iput-boolean p1, p0, Lcom/opencsv/CSVReaderBuilder;->verifyReader:Z
 
-    .line 199
     return-object p0
 .end method

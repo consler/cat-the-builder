@@ -26,10 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/CharSequence;I)V
-    .locals 2
-    .param p1, "action"    # Ljava/lang/String;
-    .param p2, "name"    # Ljava/lang/CharSequence;
-    .param p3, "icon"    # I
+    .locals 1
 
     .line 1054
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +45,6 @@
 
     if-nez v0, :cond_1
 
-    .line 1063
     if-eqz p3, :cond_0
 
     .line 1067
@@ -60,38 +56,37 @@
     .line 1069
     iput p3, p0, Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction$Builder;->mIcon:I
 
-    .line 1070
     return-void
 
     .line 1064
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "You must specify an icon resource id to build a CustomAction"
+    const-string p2, "You must specify an icon resource id to build a CustomAction"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 1060
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "You must specify a name to build a CustomAction"
+    const-string p2, "You must specify a name to build a CustomAction"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 1056
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "You must specify an action to build a CustomAction"
+    const-string p2, "You must specify an action to build a CustomAction"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -117,11 +112,9 @@
 
 .method public setExtras(Landroid/os/Bundle;)Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction$Builder;
     .locals 0
-    .param p1, "extras"    # Landroid/os/Bundle;
 
     .line 1082
     iput-object p1, p0, Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction$Builder;->mExtras:Landroid/os/Bundle;
 
-    .line 1083
     return-object p0
 .end method

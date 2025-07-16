@@ -35,9 +35,9 @@
     .line 40
     invoke-direct {p0}, Lcom/opencsv/exceptions/CsvException;-><init>()V
 
-    .line 41
     const/4 v0, 0x0
 
+    .line 41
     iput-object v0, p0, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;->beanClass:Ljava/lang/Class;
 
     .line 42
@@ -47,13 +47,11 @@
 
     iput-object v0, p0, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;->destinationFields:Ljava/util/List;
 
-    .line 43
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;Ljava/lang/String;)V
-    .locals 1
-    .param p2, "message"    # Ljava/lang/String;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,7 +63,6 @@
     .end annotation
 
     .line 93
-    .local p1, "beanClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-direct {p0, p2}, Lcom/opencsv/exceptions/CsvException;-><init>(Ljava/lang/String;)V
 
     .line 94
@@ -74,17 +71,15 @@
     .line 95
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;->destinationFields:Ljava/util/List;
+    iput-object p1, p0, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;->destinationFields:Ljava/util/List;
 
-    .line 96
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;Ljava/lang/reflect/Field;)V
-    .locals 1
-    .param p2, "destinationField"    # Ljava/lang/reflect/Field;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -96,7 +91,6 @@
     .end annotation
 
     .line 65
-    .local p1, "beanClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-direct {p0}, Lcom/opencsv/exceptions/CsvException;-><init>()V
 
     .line 66
@@ -105,18 +99,15 @@
     .line 67
     invoke-static {p2}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;->destinationFields:Ljava/util/List;
+    iput-object p1, p0, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;->destinationFields:Ljava/util/List;
 
-    .line 68
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;Ljava/lang/reflect/Field;Ljava/lang/String;)V
-    .locals 1
-    .param p2, "destinationField"    # Ljava/lang/reflect/Field;
-    .param p3, "message"    # Ljava/lang/String;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -129,7 +120,6 @@
     .end annotation
 
     .line 110
-    .local p1, "beanClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-direct {p0, p3}, Lcom/opencsv/exceptions/CsvException;-><init>(Ljava/lang/String;)V
 
     .line 111
@@ -138,16 +128,15 @@
     .line 112
     invoke-static {p2}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;->destinationFields:Ljava/util/List;
+    iput-object p1, p0, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;->destinationFields:Ljava/util/List;
 
-    .line 113
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;Ljava/util/List;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -160,27 +149,23 @@
     .end annotation
 
     .line 78
-    .local p1, "beanClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p2, "destinationFields":Ljava/util/List;, "Ljava/util/List<Ljava/lang/reflect/Field;>;"
     invoke-direct {p0}, Lcom/opencsv/exceptions/CsvException;-><init>()V
 
     .line 79
     iput-object p1, p0, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;->beanClass:Ljava/lang/Class;
 
     .line 80
-    new-instance v0, Lorg/apache/commons/collections4/list/UnmodifiableList;
+    new-instance p1, Lorg/apache/commons/collections4/list/UnmodifiableList;
 
-    invoke-direct {v0, p2}, Lorg/apache/commons/collections4/list/UnmodifiableList;-><init>(Ljava/util/List;)V
+    invoke-direct {p1, p2}, Lorg/apache/commons/collections4/list/UnmodifiableList;-><init>(Ljava/util/List;)V
 
-    iput-object v0, p0, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;->destinationFields:Ljava/util/List;
+    iput-object p1, p0, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;->destinationFields:Ljava/util/List;
 
-    .line 81
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;Ljava/util/List;Ljava/lang/String;)V
-    .locals 1
-    .param p3, "message"    # Ljava/lang/String;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -195,44 +180,39 @@
     .end annotation
 
     .line 126
-    .local p1, "beanClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p2, "destinationFields":Ljava/util/List;, "Ljava/util/List<Ljava/lang/reflect/Field;>;"
     invoke-direct {p0, p3}, Lcom/opencsv/exceptions/CsvException;-><init>(Ljava/lang/String;)V
 
     .line 127
     iput-object p1, p0, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;->beanClass:Ljava/lang/Class;
 
     .line 128
-    new-instance v0, Lorg/apache/commons/collections4/list/UnmodifiableList;
+    new-instance p1, Lorg/apache/commons/collections4/list/UnmodifiableList;
 
-    invoke-direct {v0, p2}, Lorg/apache/commons/collections4/list/UnmodifiableList;-><init>(Ljava/util/List;)V
+    invoke-direct {p1, p2}, Lorg/apache/commons/collections4/list/UnmodifiableList;-><init>(Ljava/util/List;)V
 
-    iput-object v0, p0, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;->destinationFields:Ljava/util/List;
+    iput-object p1, p0, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;->destinationFields:Ljava/util/List;
 
-    .line 129
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "message"    # Ljava/lang/String;
+    .locals 0
 
     .line 51
     invoke-direct {p0, p1}, Lcom/opencsv/exceptions/CsvException;-><init>(Ljava/lang/String;)V
 
-    .line 52
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;->beanClass:Ljava/lang/Class;
+    .line 52
+    iput-object p1, p0, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;->beanClass:Ljava/lang/Class;
 
     .line 53
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;->destinationFields:Ljava/util/List;
+    iput-object p1, p0, Lcom/opencsv/exceptions/CsvRequiredFieldEmptyException;->destinationFields:Ljava/util/List;
 
-    .line 54
     return-void
 .end method
 

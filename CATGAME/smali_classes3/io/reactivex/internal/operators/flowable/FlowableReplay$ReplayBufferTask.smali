@@ -36,16 +36,13 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 0
-    .param p1, "bufferSize"    # I
 
     .line 1176
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplayBufferTask;, "Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplayBufferTask<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 1177
     iput p1, p0, Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplayBufferTask;->bufferSize:I
 
-    .line 1178
     return-void
 .end method
 
@@ -62,7 +59,6 @@
     .end annotation
 
     .line 1182
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplayBufferTask;, "Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplayBufferTask<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableReplay$SizeBoundReplayBuffer;
 
     iget v1, p0, Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplayBufferTask;->bufferSize:I
@@ -81,7 +77,6 @@
     .end annotation
 
     .line 1173
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplayBufferTask;, "Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplayBufferTask<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplayBufferTask;->call()Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplayBuffer;
 
     move-result-object v0

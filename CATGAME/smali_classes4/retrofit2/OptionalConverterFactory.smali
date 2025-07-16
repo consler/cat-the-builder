@@ -41,10 +41,7 @@
 
 # virtual methods
 .method public responseBodyConverter(Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lretrofit2/Retrofit;)Lretrofit2/Converter;
-    .locals 3
-    .param p1, "type"    # Ljava/lang/reflect/Type;
-    .param p2, "annotations"    # [Ljava/lang/annotation/Annotation;
-    .param p3, "retrofit"    # Lretrofit2/Retrofit;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,37 +68,29 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 35
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 
-    .line 38
     :cond_0
     const/4 v0, 0x0
 
-    move-object v1, p1
+    .line 38
+    check-cast p1, Ljava/lang/reflect/ParameterizedType;
 
-    check-cast v1, Ljava/lang/reflect/ParameterizedType;
+    invoke-static {v0, p1}, Lretrofit2/OptionalConverterFactory;->getParameterUpperBound(ILjava/lang/reflect/ParameterizedType;)Ljava/lang/reflect/Type;
 
-    invoke-static {v0, v1}, Lretrofit2/OptionalConverterFactory;->getParameterUpperBound(ILjava/lang/reflect/ParameterizedType;)Ljava/lang/reflect/Type;
-
-    move-result-object v0
-
-    .line 39
-    .local v0, "innerType":Ljava/lang/reflect/Type;
-    nop
+    move-result-object p1
 
     .line 40
-    invoke-virtual {p3, v0, p2}, Lretrofit2/Retrofit;->responseBodyConverter(Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;)Lretrofit2/Converter;
+    invoke-virtual {p3, p1, p2}, Lretrofit2/Retrofit;->responseBodyConverter(Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;)Lretrofit2/Converter;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 41
-    .local v1, "delegate":Lretrofit2/Converter;, "Lretrofit2/Converter<Lokhttp3/ResponseBody;Ljava/lang/Object;>;"
-    new-instance v2, Lretrofit2/OptionalConverterFactory$OptionalConverter;
+    new-instance p2, Lretrofit2/OptionalConverterFactory$OptionalConverter;
 
-    invoke-direct {v2, v1}, Lretrofit2/OptionalConverterFactory$OptionalConverter;-><init>(Lretrofit2/Converter;)V
+    invoke-direct {p2, p1}, Lretrofit2/OptionalConverterFactory$OptionalConverter;-><init>(Lretrofit2/Converter;)V
 
-    return-object v2
+    return-object p2
 .end method

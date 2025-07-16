@@ -18,18 +18,17 @@
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 28
     return-void
 .end method
 
 .method static chooseCombo()Landroidx/camera/core/ImageReaderFormatRecommender$FormatCombo;
     .locals 2
 
-    .line 34
     const/16 v0, 0x100
 
     const/16 v1, 0x23
 
+    .line 34
     invoke-static {v0, v1}, Landroidx/camera/core/ImageReaderFormatRecommender$FormatCombo;->create(II)Landroidx/camera/core/ImageReaderFormatRecommender$FormatCombo;
 
     move-result-object v0

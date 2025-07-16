@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/ItemTouchHelper;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/recyclerview/widget/ItemTouchHelper;
 
     .line 257
     iput-object p1, p0, Landroidx/recyclerview/widget/ItemTouchHelper$1;->this$0:Landroidx/recyclerview/widget/ItemTouchHelper;
@@ -87,7 +86,6 @@
 
     invoke-static {v0, p0}, Landroidx/core/view/ViewCompat;->postOnAnimation(Landroid/view/View;Ljava/lang/Runnable;)V
 
-    .line 267
     :cond_1
     return-void
 .end method

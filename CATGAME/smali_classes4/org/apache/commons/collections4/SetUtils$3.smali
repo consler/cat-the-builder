@@ -53,7 +53,6 @@
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "o"    # Ljava/lang/Object;
 
     .line 175
     iget-object v0, p0, Lorg/apache/commons/collections4/SetUtils$3;->val$a:Ljava/util/Set;
@@ -66,11 +65,11 @@
 
     invoke-interface {v1, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    xor-int/2addr v0, v1
+    xor-int/2addr p1, v0
 
-    return v0
+    return p1
 .end method
 
 .method public createIterator()Ljava/util/Iterator;

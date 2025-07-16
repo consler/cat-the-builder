@@ -35,8 +35,6 @@
 
 .method public newDecryptingChannel(Ljava/nio/channels/ReadableByteChannel;[B)Ljava/nio/channels/ReadableByteChannel;
     .locals 1
-    .param p1, "ciphertextChannel"    # Ljava/nio/channels/ReadableByteChannel;
-    .param p2, "associatedData"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -65,8 +63,6 @@
 
 .method public newDecryptingStream(Ljava/io/InputStream;[B)Ljava/io/InputStream;
     .locals 1
-    .param p1, "ciphertextStream"    # Ljava/io/InputStream;
-    .param p2, "associatedData"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -95,8 +91,6 @@
 
 .method public newEncryptingChannel(Ljava/nio/channels/WritableByteChannel;[B)Ljava/nio/channels/WritableByteChannel;
     .locals 1
-    .param p1, "ciphertextChannel"    # Ljava/nio/channels/WritableByteChannel;
-    .param p2, "associatedData"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -125,8 +119,6 @@
 
 .method public newEncryptingStream(Ljava/io/OutputStream;[B)Ljava/io/OutputStream;
     .locals 1
-    .param p1, "ciphertext"    # Ljava/io/OutputStream;
-    .param p2, "associatedData"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -155,8 +147,6 @@
 
 .method public newSeekableDecryptingChannel(Ljava/nio/channels/SeekableByteChannel;[B)Ljava/nio/channels/SeekableByteChannel;
     .locals 1
-    .param p1, "ciphertextSource"    # Ljava/nio/channels/SeekableByteChannel;
-    .param p2, "associatedData"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,

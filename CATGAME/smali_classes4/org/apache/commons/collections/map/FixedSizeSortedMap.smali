@@ -15,18 +15,15 @@
 # direct methods
 .method protected constructor <init>(Ljava/util/SortedMap;)V
     .locals 0
-    .param p1, "map"    # Ljava/util/SortedMap;
 
     .line 85
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/map/AbstractSortedMapDecorator;-><init>(Ljava/util/SortedMap;)V
 
-    .line 86
     return-void
 .end method
 
 .method public static decorate(Ljava/util/SortedMap;)Ljava/util/SortedMap;
     .locals 1
-    .param p0, "map"    # Ljava/util/SortedMap;
 
     .line 74
     new-instance v0, Lorg/apache/commons/collections/map/FixedSizeSortedMap;
@@ -37,8 +34,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 1
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -52,19 +48,17 @@
     .line 111
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Map;
+    check-cast p1, Ljava/util/Map;
 
-    iput-object v0, p0, Lorg/apache/commons/collections/map/FixedSizeSortedMap;->map:Ljava/util/Map;
+    iput-object p1, p0, Lorg/apache/commons/collections/map/FixedSizeSortedMap;->map:Ljava/util/Map;
 
-    .line 112
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -79,7 +73,6 @@
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    .line 104
     return-void
 .end method
 
@@ -99,7 +92,7 @@
 .end method
 
 .method public entrySet()Ljava/util/Set;
-    .locals 2
+    .locals 1
 
     .line 140
     iget-object v0, p0, Lorg/apache/commons/collections/map/FixedSizeSortedMap;->map:Ljava/util/Map;
@@ -109,12 +102,11 @@
     move-result-object v0
 
     .line 141
-    .local v0, "set":Ljava/util/Set;
     invoke-static {v0}, Lorg/apache/commons/collections/set/UnmodifiableSet;->decorate(Ljava/util/Set;)Ljava/util/Set;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method protected getSortedMap()Ljava/util/SortedMap;
@@ -129,8 +121,7 @@
 .end method
 
 .method public headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 2
-    .param p1, "toKey"    # Ljava/lang/Object;
+    .locals 1
 
     .line 161
     invoke-virtual {p0}, Lorg/apache/commons/collections/map/FixedSizeSortedMap;->getSortedMap()Ljava/util/SortedMap;
@@ -139,28 +130,26 @@
 
     invoke-interface {v0, p1}, Ljava/util/SortedMap;->headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 162
-    .local v0, "map":Ljava/util/SortedMap;
-    new-instance v1, Lorg/apache/commons/collections/map/FixedSizeSortedMap;
+    new-instance v0, Lorg/apache/commons/collections/map/FixedSizeSortedMap;
 
-    invoke-direct {v1, v0}, Lorg/apache/commons/collections/map/FixedSizeSortedMap;-><init>(Ljava/util/SortedMap;)V
+    invoke-direct {v0, p1}, Lorg/apache/commons/collections/map/FixedSizeSortedMap;-><init>(Ljava/util/SortedMap;)V
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public isFull()Z
     .locals 1
 
-    .line 171
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public keySet()Ljava/util/Set;
-    .locals 2
+    .locals 1
 
     .line 145
     iget-object v0, p0, Lorg/apache/commons/collections/map/FixedSizeSortedMap;->map:Ljava/util/Map;
@@ -170,12 +159,11 @@
     move-result-object v0
 
     .line 146
-    .local v0, "set":Ljava/util/Set;
     invoke-static {v0}, Lorg/apache/commons/collections/set/UnmodifiableSet;->decorate(Ljava/util/Set;)Ljava/util/Set;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public maxSize()I
@@ -190,9 +178,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
-    .param p1, "key"    # Ljava/lang/Object;
-    .param p2, "value"    # Ljava/lang/Object;
+    .locals 1
 
     .line 116
     iget-object v0, p0, Lorg/apache/commons/collections/map/FixedSizeSortedMap;->map:Ljava/util/Map;
@@ -208,24 +194,23 @@
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 117
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Cannot put new key/value pair - Map is fixed size"
+    const-string p2, "Cannot put new key/value pair - Map is fixed size"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 3
-    .param p1, "mapToCopy"    # Ljava/util/Map;
+    .locals 2
 
     .line 123
     invoke-interface {p1}, Ljava/util/Map;->keySet()Ljava/util/Set;
@@ -236,7 +221,6 @@
 
     move-result-object v0
 
-    .local v0, "it":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -259,43 +243,38 @@
 
     .line 125
     :cond_0
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v2, "Cannot put new key/value pair - Map is fixed size"
+    const-string v0, "Cannot put new key/value pair - Map is fixed size"
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 
     .line 128
-    .end local v0    # "it":Ljava/util/Iterator;
     :cond_1
     iget-object v0, p0, Lorg/apache/commons/collections/map/FixedSizeSortedMap;->map:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
 
-    .line 129
     return-void
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 1
 
     .line 136
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "Map is fixed size"
+    const-string v0, "Map is fixed size"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 2
-    .param p1, "fromKey"    # Ljava/lang/Object;
-    .param p2, "toKey"    # Ljava/lang/Object;
+    .locals 1
 
     .line 156
     invoke-virtual {p0}, Lorg/apache/commons/collections/map/FixedSizeSortedMap;->getSortedMap()Ljava/util/SortedMap;
@@ -304,20 +283,18 @@
 
     invoke-interface {v0, p1, p2}, Ljava/util/SortedMap;->subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 157
-    .local v0, "map":Ljava/util/SortedMap;
-    new-instance v1, Lorg/apache/commons/collections/map/FixedSizeSortedMap;
+    new-instance p2, Lorg/apache/commons/collections/map/FixedSizeSortedMap;
 
-    invoke-direct {v1, v0}, Lorg/apache/commons/collections/map/FixedSizeSortedMap;-><init>(Ljava/util/SortedMap;)V
+    invoke-direct {p2, p1}, Lorg/apache/commons/collections/map/FixedSizeSortedMap;-><init>(Ljava/util/SortedMap;)V
 
-    return-object v1
+    return-object p2
 .end method
 
 .method public tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 2
-    .param p1, "fromKey"    # Ljava/lang/Object;
+    .locals 1
 
     .line 166
     invoke-virtual {p0}, Lorg/apache/commons/collections/map/FixedSizeSortedMap;->getSortedMap()Ljava/util/SortedMap;
@@ -326,19 +303,18 @@
 
     invoke-interface {v0, p1}, Ljava/util/SortedMap;->tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 167
-    .local v0, "map":Ljava/util/SortedMap;
-    new-instance v1, Lorg/apache/commons/collections/map/FixedSizeSortedMap;
+    new-instance v0, Lorg/apache/commons/collections/map/FixedSizeSortedMap;
 
-    invoke-direct {v1, v0}, Lorg/apache/commons/collections/map/FixedSizeSortedMap;-><init>(Ljava/util/SortedMap;)V
+    invoke-direct {v0, p1}, Lorg/apache/commons/collections/map/FixedSizeSortedMap;-><init>(Ljava/util/SortedMap;)V
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public values()Ljava/util/Collection;
-    .locals 2
+    .locals 1
 
     .line 150
     iget-object v0, p0, Lorg/apache/commons/collections/map/FixedSizeSortedMap;->map:Ljava/util/Map;
@@ -348,10 +324,9 @@
     move-result-object v0
 
     .line 151
-    .local v0, "coll":Ljava/util/Collection;
     invoke-static {v0}, Lorg/apache/commons/collections/collection/UnmodifiableCollection;->decorate(Ljava/util/Collection;)Ljava/util/Collection;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method

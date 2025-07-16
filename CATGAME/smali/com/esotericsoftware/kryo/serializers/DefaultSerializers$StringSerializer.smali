@@ -29,12 +29,11 @@
     .line 156
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/serializers/ImmutableSerializer;-><init>()V
 
-    .line 158
     const/4 v0, 0x1
 
+    .line 158
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$StringSerializer;->setAcceptsNull(Z)V
 
-    .line 159
     return-void
 .end method
 
@@ -52,9 +51,7 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/String;
-    .locals 1
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,12 +66,11 @@
     .end annotation
 
     .line 166
-    .local p3, "type":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/lang/String;>;"
     invoke-virtual {p2}, Lcom/esotericsoftware/kryo/io/Input;->readString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
@@ -90,13 +86,9 @@
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/String;)V
     .locals 0
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p3, "object"    # Ljava/lang/String;
 
     .line 162
     invoke-virtual {p2, p3}, Lcom/esotericsoftware/kryo/io/Output;->writeString(Ljava/lang/String;)V
 
-    .line 163
     return-void
 .end method

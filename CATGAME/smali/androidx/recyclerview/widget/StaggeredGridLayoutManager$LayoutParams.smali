@@ -27,58 +27,46 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 0
-    .param p1, "width"    # I
-    .param p2, "height"    # I
 
     .line 2454
     invoke-direct {p0, p1, p2}, Landroidx/recyclerview/widget/RecyclerView$LayoutParams;-><init>(II)V
 
-    .line 2455
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
-    .param p1, "c"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .line 2450
     invoke-direct {p0, p1, p2}, Landroidx/recyclerview/widget/RecyclerView$LayoutParams;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 2451
     return-void
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
     .locals 0
-    .param p1, "source"    # Landroid/view/ViewGroup$LayoutParams;
 
     .line 2462
     invoke-direct {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutParams;-><init>(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 2463
     return-void
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
     .locals 0
-    .param p1, "source"    # Landroid/view/ViewGroup$MarginLayoutParams;
 
     .line 2458
     invoke-direct {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutParams;-><init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
 
-    .line 2459
     return-void
 .end method
 
 .method public constructor <init>(Landroidx/recyclerview/widget/RecyclerView$LayoutParams;)V
     .locals 0
-    .param p1, "source"    # Landroidx/recyclerview/widget/RecyclerView$LayoutParams;
 
     .line 2466
     invoke-direct {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutParams;-><init>(Landroidx/recyclerview/widget/RecyclerView$LayoutParams;)V
 
-    .line 2467
     return-void
 .end method
 
@@ -92,7 +80,6 @@
 
     if-nez v0, :cond_0
 
-    .line 2499
     const/4 v0, -0x1
 
     return v0
@@ -115,11 +102,9 @@
 
 .method public setFullSpan(Z)V
     .locals 0
-    .param p1, "fullSpan"    # Z
 
     .line 2478
     iput-boolean p1, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$LayoutParams;->mFullSpan:Z
 
-    .line 2479
     return-void
 .end method

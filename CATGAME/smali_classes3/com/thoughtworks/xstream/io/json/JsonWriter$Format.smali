@@ -15,9 +15,9 @@
 
 
 # static fields
-.field public static COMPACT_EMPTY_ELEMENT:I
+.field public static COMPACT_EMPTY_ELEMENT:I = 0x2
 
-.field public static SPACE_AFTER_LABEL:I
+.field public static SPACE_AFTER_LABEL:I = 0x1
 
 
 # instance fields
@@ -32,17 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
-
-    .line 317
-    const/4 v0, 0x1
-
-    sput v0, Lcom/thoughtworks/xstream/io/json/JsonWriter$Format;->SPACE_AFTER_LABEL:I
-
-    .line 318
-    const/4 v0, 0x2
-
-    sput v0, Lcom/thoughtworks/xstream/io/json/JsonWriter$Format;->COMPACT_EMPTY_ELEMENT:I
+    .locals 0
 
     return-void
 .end method
@@ -50,11 +40,11 @@
 .method public constructor <init>()V
     .locals 4
 
-    .line 332
     const/4 v0, 0x2
 
     new-array v0, v0, [C
 
+    .line 332
     fill-array-data v0, :array_0
 
     const/4 v1, 0x1
@@ -75,7 +65,6 @@
 
     invoke-direct {p0, v0, v1, v2}, Lcom/thoughtworks/xstream/io/json/JsonWriter$Format;-><init>([C[CI)V
 
-    .line 334
     return-void
 
     nop
@@ -89,9 +78,6 @@
 
 .method public constructor <init>([C[CI)V
     .locals 1
-    .param p1, "lineIndenter"    # [C
-    .param p2, "newLine"    # [C
-    .param p3, "mode"    # I
 
     .line 346
     new-instance v0, Lcom/thoughtworks/xstream/io/naming/NoNameCoder;
@@ -100,16 +86,11 @@
 
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/thoughtworks/xstream/io/json/JsonWriter$Format;-><init>([C[CILcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 347
     return-void
 .end method
 
 .method public constructor <init>([C[CILcom/thoughtworks/xstream/io/naming/NameCoder;)V
     .locals 0
-    .param p1, "lineIndenter"    # [C
-    .param p2, "newLine"    # [C
-    .param p3, "mode"    # I
-    .param p4, "nameCoder"    # Lcom/thoughtworks/xstream/io/naming/NameCoder;
 
     .line 358
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -126,7 +107,6 @@
     .line 362
     iput-object p4, p0, Lcom/thoughtworks/xstream/io/json/JsonWriter$Format;->nameCoder:Lcom/thoughtworks/xstream/io/naming/NameCoder;
 
-    .line 363
     return-void
 .end method
 

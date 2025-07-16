@@ -90,11 +90,11 @@
     .line 55
     invoke-virtual {v0}, Lio/reactivex/internal/schedulers/ComputationScheduler$PoolWorker;->dispose()V
 
-    .line 57
     const-string v0, "rx2.computation-priority"
 
     const/4 v1, 0x5
 
+    .line 57
     invoke-static {v0, v1}, Ljava/lang/Integer;->getInteger(Ljava/lang/String;I)Ljava/lang/Integer;
 
     move-result-object v0
@@ -116,7 +116,6 @@
     move-result v0
 
     .line 60
-    .local v0, "priority":I
     new-instance v3, Lio/reactivex/internal/schedulers/RxThreadFactory;
 
     const-string v4, "RxComputationThreadPool"
@@ -126,17 +125,15 @@
     sput-object v3, Lio/reactivex/internal/schedulers/ComputationScheduler;->THREAD_FACTORY:Lio/reactivex/internal/schedulers/RxThreadFactory;
 
     .line 62
-    new-instance v1, Lio/reactivex/internal/schedulers/ComputationScheduler$FixedSchedulerPool;
+    new-instance v0, Lio/reactivex/internal/schedulers/ComputationScheduler$FixedSchedulerPool;
 
-    invoke-direct {v1, v2, v3}, Lio/reactivex/internal/schedulers/ComputationScheduler$FixedSchedulerPool;-><init>(ILjava/util/concurrent/ThreadFactory;)V
+    invoke-direct {v0, v2, v3}, Lio/reactivex/internal/schedulers/ComputationScheduler$FixedSchedulerPool;-><init>(ILjava/util/concurrent/ThreadFactory;)V
 
-    sput-object v1, Lio/reactivex/internal/schedulers/ComputationScheduler;->NONE:Lio/reactivex/internal/schedulers/ComputationScheduler$FixedSchedulerPool;
+    sput-object v0, Lio/reactivex/internal/schedulers/ComputationScheduler;->NONE:Lio/reactivex/internal/schedulers/ComputationScheduler$FixedSchedulerPool;
 
     .line 63
-    invoke-virtual {v1}, Lio/reactivex/internal/schedulers/ComputationScheduler$FixedSchedulerPool;->shutdown()V
+    invoke-virtual {v0}, Lio/reactivex/internal/schedulers/ComputationScheduler$FixedSchedulerPool;->shutdown()V
 
-    .line 64
-    .end local v0    # "priority":I
     return-void
 .end method
 
@@ -148,13 +145,11 @@
 
     invoke-direct {p0, v0}, Lio/reactivex/internal/schedulers/ComputationScheduler;-><init>(Ljava/util/concurrent/ThreadFactory;)V
 
-    .line 107
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/concurrent/ThreadFactory;)V
-    .locals 2
-    .param p1, "threadFactory"    # Ljava/util/concurrent/ThreadFactory;
+    .locals 1
 
     .line 116
     invoke-direct {p0}, Lio/reactivex/Scheduler;-><init>()V
@@ -163,27 +158,23 @@
     iput-object p1, p0, Lio/reactivex/internal/schedulers/ComputationScheduler;->threadFactory:Ljava/util/concurrent/ThreadFactory;
 
     .line 118
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicReference;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicReference;
 
-    sget-object v1, Lio/reactivex/internal/schedulers/ComputationScheduler;->NONE:Lio/reactivex/internal/schedulers/ComputationScheduler$FixedSchedulerPool;
+    sget-object v0, Lio/reactivex/internal/schedulers/ComputationScheduler;->NONE:Lio/reactivex/internal/schedulers/ComputationScheduler$FixedSchedulerPool;
 
-    invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicReference;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p1, v0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>(Ljava/lang/Object;)V
 
-    iput-object v0, p0, Lio/reactivex/internal/schedulers/ComputationScheduler;->pool:Ljava/util/concurrent/atomic/AtomicReference;
+    iput-object p1, p0, Lio/reactivex/internal/schedulers/ComputationScheduler;->pool:Ljava/util/concurrent/atomic/AtomicReference;
 
     .line 119
     invoke-virtual {p0}, Lio/reactivex/internal/schedulers/ComputationScheduler;->start()V
 
-    .line 120
     return-void
 .end method
 
 .method static cap(II)I
-    .locals 1
-    .param p0, "cpuCount"    # I
-    .param p1, "paramThreads"    # I
+    .locals 0
 
-    .line 67
     if-lez p1, :cond_1
 
     if-le p1, p0, :cond_0
@@ -191,16 +182,11 @@
     goto :goto_0
 
     :cond_0
-    move v0, p1
-
-    goto :goto_1
+    move p0, p1
 
     :cond_1
     :goto_0
-    move v0, p0
-
-    :goto_1
-    return v0
+    return p0
 .end method
 
 
@@ -229,10 +215,7 @@
 .end method
 
 .method public scheduleDirect(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
-    .locals 2
-    .param p1, "run"    # Ljava/lang/Runnable;
-    .param p2, "delay"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
+    .locals 1
 
     .line 131
     iget-object v0, p0, Lio/reactivex/internal/schedulers/ComputationScheduler;->pool:Ljava/util/concurrent/atomic/AtomicReference;
@@ -248,20 +231,15 @@
     move-result-object v0
 
     .line 132
-    .local v0, "w":Lio/reactivex/internal/schedulers/ComputationScheduler$PoolWorker;
     invoke-virtual {v0, p1, p2, p3, p4}, Lio/reactivex/internal/schedulers/ComputationScheduler$PoolWorker;->scheduleDirect(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public schedulePeriodicallyDirect(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
     .locals 8
-    .param p1, "run"    # Ljava/lang/Runnable;
-    .param p2, "initialDelay"    # J
-    .param p4, "period"    # J
-    .param p6, "unit"    # Ljava/util/concurrent/TimeUnit;
 
     .line 138
     iget-object v0, p0, Lio/reactivex/internal/schedulers/ComputationScheduler;->pool:Ljava/util/concurrent/atomic/AtomicReference;
@@ -274,11 +252,7 @@
 
     invoke-virtual {v0}, Lio/reactivex/internal/schedulers/ComputationScheduler$FixedSchedulerPool;->getEventLoop()Lio/reactivex/internal/schedulers/ComputationScheduler$PoolWorker;
 
-    move-result-object v0
-
-    .line 139
-    .local v0, "w":Lio/reactivex/internal/schedulers/ComputationScheduler$PoolWorker;
-    move-object v1, v0
+    move-result-object v1
 
     move-object v2, p1
 
@@ -288,18 +262,19 @@
 
     move-object v7, p6
 
+    .line 139
     invoke-virtual/range {v1 .. v7}, Lio/reactivex/internal/schedulers/ComputationScheduler$PoolWorker;->schedulePeriodicallyDirect(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public shutdown()V
     .locals 3
 
     .line 153
-    :goto_0
+    :cond_0
     iget-object v0, p0, Lio/reactivex/internal/schedulers/ComputationScheduler;->pool:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -309,34 +284,26 @@
     check-cast v0, Lio/reactivex/internal/schedulers/ComputationScheduler$FixedSchedulerPool;
 
     .line 154
-    .local v0, "curr":Lio/reactivex/internal/schedulers/ComputationScheduler$FixedSchedulerPool;
     sget-object v1, Lio/reactivex/internal/schedulers/ComputationScheduler;->NONE:Lio/reactivex/internal/schedulers/ComputationScheduler$FixedSchedulerPool;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1
 
-    .line 155
     return-void
 
     .line 157
-    :cond_0
+    :cond_1
     iget-object v2, p0, Lio/reactivex/internal/schedulers/ComputationScheduler;->pool:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v2, v0, v1}, Ljava/util/concurrent/atomic/AtomicReference;->compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v2, v0, v1}, Lcom/google/android/gms/common/api/internal/zap$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     .line 158
     invoke-virtual {v0}, Lio/reactivex/internal/schedulers/ComputationScheduler$FixedSchedulerPool;->shutdown()V
 
-    .line 159
     return-void
-
-    .line 161
-    .end local v0    # "curr":Lio/reactivex/internal/schedulers/ComputationScheduler$FixedSchedulerPool;
-    :cond_1
-    goto :goto_0
 .end method
 
 .method public start()V
@@ -352,12 +319,11 @@
     invoke-direct {v0, v1, v2}, Lio/reactivex/internal/schedulers/ComputationScheduler$FixedSchedulerPool;-><init>(ILjava/util/concurrent/ThreadFactory;)V
 
     .line 145
-    .local v0, "update":Lio/reactivex/internal/schedulers/ComputationScheduler$FixedSchedulerPool;
     iget-object v1, p0, Lio/reactivex/internal/schedulers/ComputationScheduler;->pool:Ljava/util/concurrent/atomic/AtomicReference;
 
     sget-object v2, Lio/reactivex/internal/schedulers/ComputationScheduler;->NONE:Lio/reactivex/internal/schedulers/ComputationScheduler$FixedSchedulerPool;
 
-    invoke-virtual {v1, v2, v0}, Ljava/util/concurrent/atomic/AtomicReference;->compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v1, v2, v0}, Lcom/google/android/gms/common/api/internal/zap$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
@@ -366,7 +332,6 @@
     .line 146
     invoke-virtual {v0}, Lio/reactivex/internal/schedulers/ComputationScheduler$FixedSchedulerPool;->shutdown()V
 
-    .line 148
     :cond_0
     return-void
 .end method

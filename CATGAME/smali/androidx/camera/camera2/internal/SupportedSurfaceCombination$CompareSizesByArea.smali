@@ -37,43 +37,30 @@
     .line 1161
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1159
     const/4 v0, 0x0
 
+    .line 1159
     iput-boolean v0, p0, Landroidx/camera/camera2/internal/SupportedSurfaceCombination$CompareSizesByArea;->mReverse:Z
 
-    .line 1162
     return-void
 .end method
 
 .method constructor <init>(Z)V
-    .locals 1
-    .param p1, "reverse"    # Z
+    .locals 0
 
     .line 1164
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1159
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroidx/camera/camera2/internal/SupportedSurfaceCombination$CompareSizesByArea;->mReverse:Z
-
     .line 1165
     iput-boolean p1, p0, Landroidx/camera/camera2/internal/SupportedSurfaceCombination$CompareSizesByArea;->mReverse:Z
 
-    .line 1166
     return-void
 .end method
 
 
 # virtual methods
 .method public compare(Landroid/util/Size;Landroid/util/Size;)I
-    .locals 6
-    .param p1, "lhs"    # Landroid/util/Size;
-    .param p2, "rhs"    # Landroid/util/Size;
-
-    .line 1171
-    nop
+    .locals 4
 
     .line 1173
     invoke-virtual {p1}, Landroid/util/Size;->getWidth()I
@@ -84,46 +71,43 @@
 
     invoke-virtual {p1}, Landroid/util/Size;->getHeight()I
 
-    move-result v2
+    move-result p1
 
-    int-to-long v2, v2
+    int-to-long v2, p1
 
     mul-long/2addr v0, v2
 
     .line 1174
     invoke-virtual {p2}, Landroid/util/Size;->getWidth()I
 
-    move-result v2
+    move-result p1
 
-    int-to-long v2, v2
+    int-to-long v2, p1
 
     invoke-virtual {p2}, Landroid/util/Size;->getHeight()I
 
-    move-result v4
+    move-result p1
 
-    int-to-long v4, v4
+    int-to-long p1, p1
 
-    mul-long/2addr v2, v4
+    mul-long/2addr v2, p1
 
     sub-long/2addr v0, v2
 
     .line 1172
     invoke-static {v0, v1}, Ljava/lang/Long;->signum(J)I
 
-    move-result v0
+    move-result p1
 
     .line 1176
-    .local v0, "result":I
-    iget-boolean v1, p0, Landroidx/camera/camera2/internal/SupportedSurfaceCombination$CompareSizesByArea;->mReverse:Z
+    iget-boolean p2, p0, Landroidx/camera/camera2/internal/SupportedSurfaceCombination$CompareSizesByArea;->mReverse:Z
 
-    if-eqz v1, :cond_0
+    if-eqz p2, :cond_0
 
-    .line 1177
-    mul-int/lit8 v0, v0, -0x1
+    mul-int/lit8 p1, p1, -0x1
 
-    .line 1180
     :cond_0
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I

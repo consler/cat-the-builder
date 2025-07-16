@@ -51,7 +51,6 @@
 
 .method public constructor <init>(Lorg/koin/core/logger/Level;)V
     .locals 1
-    .param p1, "level"    # Lorg/koin/core/logger/Level;
 
     const-string v0, "level"
 
@@ -80,59 +79,53 @@
 .end method
 
 .method private final logOnLevel(Ljava/lang/String;Lorg/koin/core/logger/Level;)V
-    .locals 3
-    .param p1, "msg"    # Ljava/lang/String;
-    .param p2, "level"    # Lorg/koin/core/logger/Level;
+    .locals 2
 
     .line 38
     sget-object v0, Lorg/koin/android/logger/AndroidLogger$WhenMappings;->$EnumSwitchMapping$0:[I
 
     invoke-virtual {p2}, Lorg/koin/core/logger/Level;->ordinal()I
 
-    move-result v1
+    move-result p2
 
-    aget v0, v0, v1
+    aget p2, v0, p2
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    const-string v2, "[Koin]"
+    const-string v1, "[Koin]"
 
-    if-eq v0, v1, :cond_2
+    if-eq p2, v0, :cond_2
 
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
-    if-eq v0, v1, :cond_1
+    if-eq p2, v0, :cond_1
 
-    const/4 v1, 0x3
+    const/4 v0, 0x3
 
-    if-eq v0, v1, :cond_0
+    if-eq p2, v0, :cond_0
 
     .line 42
-    invoke-static {v2, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     .line 41
     :cond_0
-    invoke-static {v2, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     .line 40
     :cond_1
-    invoke-static {v2, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     .line 39
     :cond_2
-    invoke-static {v2, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 43
     :goto_0
-    nop
-
-    .line 44
     return-void
 .end method
 
@@ -140,8 +133,6 @@
 # virtual methods
 .method public log(Lorg/koin/core/logger/Level;Ljava/lang/String;)V
     .locals 2
-    .param p1, "level"    # Lorg/koin/core/logger/Level;
-    .param p2, "msg"    # Ljava/lang/String;
 
     const-string v0, "level"
 
@@ -169,7 +160,6 @@
     .line 33
     invoke-direct {p0, p2, p1}, Lorg/koin/android/logger/AndroidLogger;->logOnLevel(Ljava/lang/String;Lorg/koin/core/logger/Level;)V
 
-    .line 35
     :cond_0
     return-void
 .end method

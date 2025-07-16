@@ -150,7 +150,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 7
+    .locals 4
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -165,42 +165,23 @@
 
     if-ne v1, v2, :cond_0
 
-    move-object v0, p0
+    iget-object v0, p0, Landroidx/room/RoomDatabaseKt$withTransaction$2;->L$0:Ljava/lang/Object;
 
-    .local v0, "this":Landroidx/room/RoomDatabaseKt$withTransaction$2;
-    .local p1, "$result":Ljava/lang/Object;
-    const/4 v1, 0x0
-
-    .local v1, "transactionElement":Landroidx/room/TransactionElement;
-    iget-object v2, v0, Landroidx/room/RoomDatabaseKt$withTransaction$2;->L$0:Ljava/lang/Object;
-
-    move-object v1, v2
-
-    check-cast v1, Landroidx/room/TransactionElement;
+    check-cast v0, Landroidx/room/TransactionElement;
 
     :try_start_0
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-object v3, v1
-
-    move-object v1, v0
-
-    move-object v0, p1
-
     goto :goto_0
 
-    .line 61
     :catchall_0
-    move-exception v2
+    move-exception p1
 
     goto :goto_1
 
     .line 67
-    .end local v0    # "this":Landroidx/room/RoomDatabaseKt$withTransaction$2;
-    .end local v1    # "transactionElement":Landroidx/room/TransactionElement;
-    .end local p1    # "$result":Ljava/lang/Object;
     :cond_0
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -214,200 +195,120 @@
     :cond_1
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    move-object v1, p0
+    iget-object p1, p0, Landroidx/room/RoomDatabaseKt$withTransaction$2;->L$0:Ljava/lang/Object;
 
-    .local v1, "this":Landroidx/room/RoomDatabaseKt$withTransaction$2;
-    .restart local p1    # "$result":Ljava/lang/Object;
-    iget-object v3, v1, Landroidx/room/RoomDatabaseKt$withTransaction$2;->L$0:Ljava/lang/Object;
-
-    check-cast v3, Lkotlinx/coroutines/CoroutineScope;
+    check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
     .line 52
-    .local v3, "$this$withContext":Lkotlinx/coroutines/CoroutineScope;
-    invoke-interface {v3}, Lkotlinx/coroutines/CoroutineScope;->getCoroutineContext()Lkotlin/coroutines/CoroutineContext;
+    invoke-interface {p1}, Lkotlinx/coroutines/CoroutineScope;->getCoroutineContext()Lkotlin/coroutines/CoroutineContext;
 
-    move-result-object v4
+    move-result-object p1
 
-    sget-object v5, Landroidx/room/TransactionElement;->Key:Landroidx/room/TransactionElement$Key;
+    sget-object v1, Landroidx/room/TransactionElement;->Key:Landroidx/room/TransactionElement$Key;
 
-    check-cast v5, Lkotlin/coroutines/CoroutineContext$Key;
+    check-cast v1, Lkotlin/coroutines/CoroutineContext$Key;
 
-    invoke-interface {v4, v5}, Lkotlin/coroutines/CoroutineContext;->get(Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext$Element;
+    invoke-interface {p1, v1}, Lkotlin/coroutines/CoroutineContext;->get(Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext$Element;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+    invoke-static {p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
-    move-object v3, v4
-
-    check-cast v3, Landroidx/room/TransactionElement;
+    check-cast p1, Landroidx/room/TransactionElement;
 
     .line 53
-    .local v3, "transactionElement":Landroidx/room/TransactionElement;
-    invoke-virtual {v3}, Landroidx/room/TransactionElement;->acquire()V
-
-    .line 54
-    nop
-
-    .line 55
-    nop
+    invoke-virtual {p1}, Landroidx/room/TransactionElement;->acquire()V
 
     .line 56
     :try_start_1
-    iget-object v4, v1, Landroidx/room/RoomDatabaseKt$withTransaction$2;->$this_withTransaction:Landroidx/room/RoomDatabase;
+    iget-object v1, p0, Landroidx/room/RoomDatabaseKt$withTransaction$2;->$this_withTransaction:Landroidx/room/RoomDatabase;
 
-    invoke-virtual {v4}, Landroidx/room/RoomDatabase;->beginTransaction()V
+    invoke-virtual {v1}, Landroidx/room/RoomDatabase;->beginTransaction()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_5
-
-    .line 57
-    nop
+    .catchall {:try_start_1 .. :try_end_1} :catchall_3
 
     .line 58
     :try_start_2
-    iget-object v4, v1, Landroidx/room/RoomDatabaseKt$withTransaction$2;->$block:Lkotlin/jvm/functions/Function1;
+    iget-object v1, p0, Landroidx/room/RoomDatabaseKt$withTransaction$2;->$block:Lkotlin/jvm/functions/Function1;
 
-    iput-object v3, v1, Landroidx/room/RoomDatabaseKt$withTransaction$2;->L$0:Ljava/lang/Object;
+    iput-object p1, p0, Landroidx/room/RoomDatabaseKt$withTransaction$2;->L$0:Ljava/lang/Object;
 
-    iput v2, v1, Landroidx/room/RoomDatabaseKt$withTransaction$2;->label:I
+    iput v2, p0, Landroidx/room/RoomDatabaseKt$withTransaction$2;->label:I
 
-    invoke-interface {v4, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_3
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    if-ne v2, v0, :cond_2
+    if-ne v1, v0, :cond_2
 
-    .line 51
     return-object v0
 
-    .line 58
     :cond_2
     move-object v0, p1
 
-    move-object p1, v2
-
-    .line 51
-    .end local p1    # "$result":Ljava/lang/Object;
-    .local v0, "$result":Ljava/lang/Object;
-    :goto_0
-    nop
-
-    .line 59
-    .local p1, "result":Ljava/lang/Object;
-    nop
+    move-object p1, v1
 
     .line 60
+    :goto_0
     :try_start_3
-    iget-object v2, v1, Landroidx/room/RoomDatabaseKt$withTransaction$2;->$this_withTransaction:Landroidx/room/RoomDatabase;
+    iget-object v1, p0, Landroidx/room/RoomDatabaseKt$withTransaction$2;->$this_withTransaction:Landroidx/room/RoomDatabase;
 
-    invoke-virtual {v2}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
+    invoke-virtual {v1}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_2
-
-    .line 61
-    nop
-
-    .line 63
-    .end local p1    # "result":Ljava/lang/Object;
-    nop
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 64
     :try_start_4
-    iget-object v2, v1, Landroidx/room/RoomDatabaseKt$withTransaction$2;->$this_withTransaction:Landroidx/room/RoomDatabase;
+    iget-object v1, p0, Landroidx/room/RoomDatabaseKt$withTransaction$2;->$this_withTransaction:Landroidx/room/RoomDatabase;
 
-    invoke-virtual {v2}, Landroidx/room/RoomDatabase;->endTransaction()V
+    invoke-virtual {v1}, Landroidx/room/RoomDatabase;->endTransaction()V
     :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
     .line 67
-    invoke-virtual {v3}, Landroidx/room/TransactionElement;->release()V
+    invoke-virtual {v0}, Landroidx/room/TransactionElement;->release()V
 
-    .line 61
     return-object p1
 
-    .line 64
     :catchall_1
+    move-exception v0
+
+    move-object v3, v0
+
+    move-object v0, p1
+
+    move-object p1, v3
+
+    .line 64
+    :goto_1
+    :try_start_5
+    iget-object v1, p0, Landroidx/room/RoomDatabaseKt$withTransaction$2;->$this_withTransaction:Landroidx/room/RoomDatabase;
+
+    invoke-virtual {v1}, Landroidx/room/RoomDatabase;->endTransaction()V
+
+    throw p1
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+
+    :catchall_2
     move-exception p1
 
     goto :goto_2
 
-    .line 61
-    :catchall_2
-    move-exception v2
-
-    move-object p1, v0
-
-    move-object v0, v1
-
-    move-object v1, v3
-
-    goto :goto_1
-
-    .end local v0    # "$result":Ljava/lang/Object;
-    .local p1, "$result":Ljava/lang/Object;
     :catchall_3
-    move-exception v2
-
-    move-object v0, v1
-
-    move-object v1, v3
-
-    .line 63
-    .end local v3    # "transactionElement":Landroidx/room/TransactionElement;
-    .local v0, "this":Landroidx/room/RoomDatabaseKt$withTransaction$2;
-    .local v1, "transactionElement":Landroidx/room/TransactionElement;
-    :goto_1
-    nop
-
-    .line 64
-    :try_start_5
-    iget-object v3, v0, Landroidx/room/RoomDatabaseKt$withTransaction$2;->$this_withTransaction:Landroidx/room/RoomDatabase;
-
-    invoke-virtual {v3}, Landroidx/room/RoomDatabase;->endTransaction()V
-
-    .end local v0    # "this":Landroidx/room/RoomDatabaseKt$withTransaction$2;
-    .end local v1    # "transactionElement":Landroidx/room/TransactionElement;
-    .end local p1    # "$result":Ljava/lang/Object;
-    throw v2
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_4
-
-    .restart local v0    # "this":Landroidx/room/RoomDatabaseKt$withTransaction$2;
-    .restart local v1    # "transactionElement":Landroidx/room/TransactionElement;
-    .restart local p1    # "$result":Ljava/lang/Object;
-    :catchall_4
-    move-exception v2
-
-    move-object v3, v1
-
-    move-object v1, v0
-
-    move-object v0, p1
-
-    move-object p1, v2
-
-    goto :goto_2
-
-    .end local v0    # "this":Landroidx/room/RoomDatabaseKt$withTransaction$2;
-    .local v1, "this":Landroidx/room/RoomDatabaseKt$withTransaction$2;
-    .restart local v3    # "transactionElement":Landroidx/room/TransactionElement;
-    :catchall_5
     move-exception v0
 
-    move-object v6, v0
+    move-object v3, v0
 
     move-object v0, p1
 
-    move-object p1, v6
+    move-object p1, v3
 
     .line 67
-    .end local p1    # "$result":Ljava/lang/Object;
-    .local v0, "$result":Ljava/lang/Object;
     :goto_2
-    invoke-virtual {v3}, Landroidx/room/TransactionElement;->release()V
+    invoke-virtual {v0}, Landroidx/room/TransactionElement;->release()V
 
-    .end local v3    # "transactionElement":Landroidx/room/TransactionElement;
     throw p1
 .end method

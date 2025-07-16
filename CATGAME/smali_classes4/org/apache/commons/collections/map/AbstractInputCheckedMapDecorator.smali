@@ -20,18 +20,15 @@
     .line 54
     invoke-direct {p0}, Lorg/apache/commons/collections/map/AbstractMapDecorator;-><init>()V
 
-    .line 55
     return-void
 .end method
 
 .method protected constructor <init>(Ljava/util/Map;)V
     .locals 0
-    .param p1, "map"    # Ljava/util/Map;
 
     .line 64
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/map/AbstractMapDecorator;-><init>(Ljava/util/Map;)V
 
-    .line 65
     return-void
 .end method
 
@@ -77,7 +74,6 @@
 .method protected isSetValueChecking()Z
     .locals 1
 
-    .line 95
     const/4 v0, 0x1
 
     return v0

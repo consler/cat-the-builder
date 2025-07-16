@@ -25,13 +25,11 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
 
     .line 239
     const-class v0, Landroid/os/ParcelFileDescriptor;
 
     invoke-direct {p0, p1, v0}, Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader$Factory;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 240
     return-void
 .end method

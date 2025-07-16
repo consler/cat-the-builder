@@ -25,21 +25,7 @@
 # direct methods
 .method constructor <init>(Lcom/squareup/picasso/Picasso;Lcom/squareup/picasso/Request;Landroid/widget/RemoteViews;IILandroid/app/Notification;Ljava/lang/String;IILjava/lang/String;Ljava/lang/Object;ILcom/squareup/picasso/Callback;)V
     .locals 12
-    .param p1, "picasso"    # Lcom/squareup/picasso/Picasso;
-    .param p2, "data"    # Lcom/squareup/picasso/Request;
-    .param p3, "remoteViews"    # Landroid/widget/RemoteViews;
-    .param p4, "viewId"    # I
-    .param p5, "notificationId"    # I
-    .param p6, "notification"    # Landroid/app/Notification;
-    .param p7, "notificationTag"    # Ljava/lang/String;
-    .param p8, "memoryPolicy"    # I
-    .param p9, "networkPolicy"    # I
-    .param p10, "key"    # Ljava/lang/String;
-    .param p11, "tag"    # Ljava/lang/Object;
-    .param p12, "errorResId"    # I
-    .param p13, "callback"    # Lcom/squareup/picasso/Callback;
 
-    .line 128
     move-object v11, p0
 
     move-object v0, p0
@@ -64,24 +50,24 @@
 
     move-object/from16 v10, p13
 
+    .line 128
     invoke-direct/range {v0 .. v10}, Lcom/squareup/picasso/RemoteViewsAction;-><init>(Lcom/squareup/picasso/Picasso;Lcom/squareup/picasso/Request;Landroid/widget/RemoteViews;IIIILjava/lang/Object;Ljava/lang/String;Lcom/squareup/picasso/Callback;)V
 
-    .line 130
     move/from16 v0, p5
 
+    .line 130
     iput v0, v11, Lcom/squareup/picasso/RemoteViewsAction$NotificationAction;->notificationId:I
 
-    .line 131
-    move-object/from16 v1, p7
+    move-object/from16 v0, p7
 
-    iput-object v1, v11, Lcom/squareup/picasso/RemoteViewsAction$NotificationAction;->notificationTag:Ljava/lang/String;
+    .line 131
+    iput-object v0, v11, Lcom/squareup/picasso/RemoteViewsAction$NotificationAction;->notificationTag:Ljava/lang/String;
+
+    move-object/from16 v0, p6
 
     .line 132
-    move-object/from16 v2, p6
+    iput-object v0, v11, Lcom/squareup/picasso/RemoteViewsAction$NotificationAction;->notification:Landroid/app/Notification;
 
-    iput-object v2, v11, Lcom/squareup/picasso/RemoteViewsAction$NotificationAction;->notification:Landroid/app/Notification;
-
-    .line 133
     return-void
 .end method
 
@@ -115,7 +101,6 @@
     check-cast v0, Landroid/app/NotificationManager;
 
     .line 137
-    .local v0, "manager":Landroid/app/NotificationManager;
     iget-object v1, p0, Lcom/squareup/picasso/RemoteViewsAction$NotificationAction;->notificationTag:Ljava/lang/String;
 
     iget v2, p0, Lcom/squareup/picasso/RemoteViewsAction$NotificationAction;->notificationId:I
@@ -124,6 +109,5 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/app/NotificationManager;->notify(Ljava/lang/String;ILandroid/app/Notification;)V
 
-    .line 138
     return-void
 .end method

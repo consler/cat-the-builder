@@ -10,7 +10,6 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections/DoubleOrderedMap$6;I)V
     .locals 1
-    .param p2, "x0"    # I
 
     .line 1592
     invoke-static {p1}, Lorg/apache/commons/collections/DoubleOrderedMap$6;->access$2100(Lorg/apache/commons/collections/DoubleOrderedMap$6;)Lorg/apache/commons/collections/DoubleOrderedMap;

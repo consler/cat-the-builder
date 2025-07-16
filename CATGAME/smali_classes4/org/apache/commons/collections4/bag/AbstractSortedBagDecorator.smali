@@ -29,10 +29,8 @@
     .locals 0
 
     .line 43
-    .local p0, "this":Lorg/apache/commons/collections4/bag/AbstractSortedBagDecorator;, "Lorg/apache/commons/collections4/bag/AbstractSortedBagDecorator<TE;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/bag/AbstractBagDecorator;-><init>()V
 
-    .line 44
     return-void
 .end method
 
@@ -47,11 +45,8 @@
     .end annotation
 
     .line 53
-    .local p0, "this":Lorg/apache/commons/collections4/bag/AbstractSortedBagDecorator;, "Lorg/apache/commons/collections4/bag/AbstractSortedBagDecorator<TE;>;"
-    .local p1, "bag":Lorg/apache/commons/collections4/SortedBag;, "Lorg/apache/commons/collections4/SortedBag<TE;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/bag/AbstractBagDecorator;-><init>(Lorg/apache/commons/collections4/Bag;)V
 
-    .line 54
     return-void
 .end method
 
@@ -68,7 +63,6 @@
     .end annotation
 
     .line 80
-    .local p0, "this":Lorg/apache/commons/collections4/bag/AbstractSortedBagDecorator;, "Lorg/apache/commons/collections4/bag/AbstractSortedBagDecorator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bag/AbstractSortedBagDecorator;->decorated()Lorg/apache/commons/collections4/SortedBag;
 
     move-result-object v0
@@ -84,7 +78,6 @@
     .locals 1
 
     .line 32
-    .local p0, "this":Lorg/apache/commons/collections4/bag/AbstractSortedBagDecorator;, "Lorg/apache/commons/collections4/bag/AbstractSortedBagDecorator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bag/AbstractSortedBagDecorator;->decorated()Lorg/apache/commons/collections4/SortedBag;
 
     move-result-object v0
@@ -96,7 +89,6 @@
     .locals 1
 
     .line 32
-    .local p0, "this":Lorg/apache/commons/collections4/bag/AbstractSortedBagDecorator;, "Lorg/apache/commons/collections4/bag/AbstractSortedBagDecorator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bag/AbstractSortedBagDecorator;->decorated()Lorg/apache/commons/collections4/SortedBag;
 
     move-result-object v0
@@ -115,7 +107,6 @@
     .end annotation
 
     .line 63
-    .local p0, "this":Lorg/apache/commons/collections4/bag/AbstractSortedBagDecorator;, "Lorg/apache/commons/collections4/bag/AbstractSortedBagDecorator<TE;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/bag/AbstractBagDecorator;->decorated()Lorg/apache/commons/collections4/Bag;
 
     move-result-object v0
@@ -134,7 +125,6 @@
     .end annotation
 
     .line 70
-    .local p0, "this":Lorg/apache/commons/collections4/bag/AbstractSortedBagDecorator;, "Lorg/apache/commons/collections4/bag/AbstractSortedBagDecorator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bag/AbstractSortedBagDecorator;->decorated()Lorg/apache/commons/collections4/SortedBag;
 
     move-result-object v0
@@ -155,7 +145,6 @@
     .end annotation
 
     .line 75
-    .local p0, "this":Lorg/apache/commons/collections4/bag/AbstractSortedBagDecorator;, "Lorg/apache/commons/collections4/bag/AbstractSortedBagDecorator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bag/AbstractSortedBagDecorator;->decorated()Lorg/apache/commons/collections4/SortedBag;
 
     move-result-object v0

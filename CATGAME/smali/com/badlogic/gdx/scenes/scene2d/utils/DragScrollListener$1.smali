@@ -23,7 +23,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/utils/DragScrollListener;Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/scenes/scene2d/utils/DragScrollListener;
 
     .line 49
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragScrollListener$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/utils/DragScrollListener;
@@ -59,6 +58,5 @@
 
     invoke-virtual {v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/utils/DragScrollListener;->scroll(F)V
 
-    .line 52
     return-void
 .end method

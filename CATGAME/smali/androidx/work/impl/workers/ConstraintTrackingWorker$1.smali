@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/work/impl/workers/ConstraintTrackingWorker;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/work/impl/workers/ConstraintTrackingWorker;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010
@@ -52,6 +51,5 @@
 
     invoke-virtual {v0}, Landroidx/work/impl/workers/ConstraintTrackingWorker;->setupAndRunConstraintTrackingWork()V
 
-    .line 86
     return-void
 .end method

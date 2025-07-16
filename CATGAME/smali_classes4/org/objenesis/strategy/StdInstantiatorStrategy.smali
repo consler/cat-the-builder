@@ -29,10 +29,9 @@
         }
     .end annotation
 
-    .line 58
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     const-string v0, "Java HotSpot"
 
+    .line 58
     invoke-static {v0}, Lorg/objenesis/strategy/PlatformDescription;->isThisJVM(Ljava/lang/String;)Z
 
     move-result v0
@@ -49,10 +48,10 @@
 
     goto :goto_0
 
-    .line 70
     :cond_0
     const-string v0, "Dalvik"
 
+    .line 70
     invoke-static {v0}, Lorg/objenesis/strategy/PlatformDescription;->isThisJVM(Ljava/lang/String;)Z
 
     move-result v0
@@ -111,10 +110,10 @@
 
     return-object v0
 
-    .line 86
     :cond_4
     const-string v0, "GNU libgcj"
 
+    .line 86
     invoke-static {v0}, Lorg/objenesis/strategy/PlatformDescription;->isThisJVM(Ljava/lang/String;)Z
 
     move-result v0
@@ -128,10 +127,10 @@
 
     return-object v0
 
-    .line 89
     :cond_5
     const-string v0, "PERC"
 
+    .line 89
     invoke-static {v0}, Lorg/objenesis/strategy/PlatformDescription;->isThisJVM(Ljava/lang/String;)Z
 
     move-result v0

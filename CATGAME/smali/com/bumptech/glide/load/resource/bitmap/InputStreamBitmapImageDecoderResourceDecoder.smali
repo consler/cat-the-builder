@@ -42,11 +42,7 @@
 
 # virtual methods
 .method public decode(Ljava/io/InputStream;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 3
-    .param p1, "stream"    # Ljava/io/InputStream;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
-    .param p4, "options"    # Lcom/bumptech/glide/load/Options;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,23 +65,21 @@
     .line 33
     invoke-static {p1}, Lcom/bumptech/glide/util/ByteBufferUtil;->fromStream(Ljava/io/InputStream;)Ljava/nio/ByteBuffer;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 34
-    .local v0, "buffer":Ljava/nio/ByteBuffer;
-    invoke-static {v0}, Landroid/graphics/ImageDecoder;->createSource(Ljava/nio/ByteBuffer;)Landroid/graphics/ImageDecoder$Source;
+    invoke-static {p1}, Landroid/graphics/ImageDecoder;->createSource(Ljava/nio/ByteBuffer;)Landroid/graphics/ImageDecoder$Source;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 35
-    .local v1, "source":Landroid/graphics/ImageDecoder$Source;
-    iget-object v2, p0, Lcom/bumptech/glide/load/resource/bitmap/InputStreamBitmapImageDecoderResourceDecoder;->wrapped:Lcom/bumptech/glide/load/resource/bitmap/BitmapImageDecoderResourceDecoder;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/InputStreamBitmapImageDecoderResourceDecoder;->wrapped:Lcom/bumptech/glide/load/resource/bitmap/BitmapImageDecoderResourceDecoder;
 
-    invoke-virtual {v2, v1, p2, p3, p4}, Lcom/bumptech/glide/load/resource/bitmap/BitmapImageDecoderResourceDecoder;->decode(Landroid/graphics/ImageDecoder$Source;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/engine/Resource;
+    invoke-virtual {v0, p1, p2, p3, p4}, Lcom/bumptech/glide/load/resource/bitmap/BitmapImageDecoderResourceDecoder;->decode(Landroid/graphics/ImageDecoder$Source;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/engine/Resource;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 .end method
 
 .method public bridge synthetic decode(Ljava/lang/Object;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/engine/Resource;
@@ -107,19 +101,16 @@
 .end method
 
 .method public handles(Ljava/io/InputStream;Lcom/bumptech/glide/load/Options;)Z
-    .locals 1
-    .param p1, "source"    # Ljava/io/InputStream;
-    .param p2, "options"    # Lcom/bumptech/glide/load/Options;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 25
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic handles(Ljava/lang/Object;Lcom/bumptech/glide/load/Options;)Z

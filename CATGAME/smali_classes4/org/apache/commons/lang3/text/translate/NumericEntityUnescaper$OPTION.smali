@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .locals 7
 
     .line 38
     new-instance v0, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;
@@ -47,41 +47,37 @@
 
     sput-object v0, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;->semiColonRequired:Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;
 
-    new-instance v0, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;
+    new-instance v1, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;
 
-    const-string v1, "semiColonOptional"
+    const-string v3, "semiColonOptional"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;->semiColonOptional:Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;
+    sput-object v1, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;->semiColonOptional:Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;
 
-    new-instance v0, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;
+    new-instance v3, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;
 
-    const-string v1, "errorIfNoSemiColon"
+    const-string v5, "errorIfNoSemiColon"
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v1, v4}, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;->errorIfNoSemiColon:Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;
+    sput-object v3, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;->errorIfNoSemiColon:Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;
 
-    const/4 v1, 0x3
+    const/4 v5, 0x3
 
-    new-array v1, v1, [Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;
+    new-array v5, v5, [Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;
 
-    sget-object v5, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;->semiColonRequired:Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;
+    aput-object v0, v5, v2
 
-    aput-object v5, v1, v2
+    aput-object v1, v5, v4
 
-    sget-object v2, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;->semiColonOptional:Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;
+    aput-object v3, v5, v6
 
-    aput-object v2, v1, v3
-
-    aput-object v0, v1, v4
-
-    sput-object v1, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;->$VALUES:[Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;
+    sput-object v5, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;->$VALUES:[Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;
 
     return-void
 .end method
@@ -102,18 +98,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 38
     const-class v0, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;
+    check-cast p0, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;

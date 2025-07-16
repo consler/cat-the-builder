@@ -55,13 +55,11 @@
 
     invoke-virtual {v0, p0, v1}, Landroidx/work/impl/utils/futures/AbstractFuture$AtomicHelper;->putThread(Landroidx/work/impl/utils/futures/AbstractFuture$Waiter;Ljava/lang/Thread;)V
 
-    .line 141
     return-void
 .end method
 
 .method constructor <init>(Z)V
     .locals 0
-    .param p1, "unused"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -74,7 +72,6 @@
     .line 135
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 136
     return-void
 .end method
 
@@ -82,7 +79,6 @@
 # virtual methods
 .method setNext(Landroidx/work/impl/utils/futures/AbstractFuture$Waiter;)V
     .locals 1
-    .param p1, "next"    # Landroidx/work/impl/utils/futures/AbstractFuture$Waiter;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -97,7 +93,6 @@
 
     invoke-virtual {v0, p0, p1}, Landroidx/work/impl/utils/futures/AbstractFuture$AtomicHelper;->putNext(Landroidx/work/impl/utils/futures/AbstractFuture$Waiter;Landroidx/work/impl/utils/futures/AbstractFuture$Waiter;)V
 
-    .line 147
     return-void
 .end method
 
@@ -107,19 +102,16 @@
     .line 154
     iget-object v0, p0, Landroidx/work/impl/utils/futures/AbstractFuture$Waiter;->thread:Ljava/lang/Thread;
 
-    .line 155
-    .local v0, "w":Ljava/lang/Thread;
     if-eqz v0, :cond_0
 
-    .line 156
     const/4 v1, 0x0
 
+    .line 156
     iput-object v1, p0, Landroidx/work/impl/utils/futures/AbstractFuture$Waiter;->thread:Ljava/lang/Thread;
 
     .line 157
     invoke-static {v0}, Ljava/util/concurrent/locks/LockSupport;->unpark(Ljava/lang/Thread;)V
 
-    .line 159
     :cond_0
     return-void
 .end method

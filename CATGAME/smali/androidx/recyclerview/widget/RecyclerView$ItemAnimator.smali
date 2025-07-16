@@ -64,9 +64,9 @@
     .line 12728
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 12784
     const/4 v0, 0x0
 
+    .line 12784
     iput-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;->mListener:Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemAnimatorListener;
 
     .line 12785
@@ -76,17 +76,17 @@
 
     iput-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;->mFinishedListeners:Ljava/util/ArrayList;
 
-    .line 12788
     const-wide/16 v0, 0x78
 
+    .line 12788
     iput-wide v0, p0, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;->mAddDuration:J
 
     .line 12789
     iput-wide v0, p0, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;->mRemoveDuration:J
 
-    .line 12790
     const-wide/16 v0, 0xfa
 
+    .line 12790
     iput-wide v0, p0, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;->mMoveDuration:J
 
     .line 12791
@@ -96,8 +96,7 @@
 .end method
 
 .method static buildAdapterChangeFlagsForAnimations(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)I
-    .locals 4
-    .param p0, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
+    .locals 3
 
     .line 13113
     iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
@@ -105,19 +104,16 @@
     and-int/lit8 v0, v0, 0xe
 
     .line 13114
-    .local v0, "flags":I
     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->isInvalid()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 13115
-    const/4 v1, 0x4
+    const/4 p0, 0x4
 
-    return v1
+    return p0
 
-    .line 13117
     :cond_0
     and-int/lit8 v1, v0, 0x4
 
@@ -129,27 +125,20 @@
     move-result v1
 
     .line 13119
-    .local v1, "oldPos":I
     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->getAdapterPosition()I
 
-    move-result v2
+    move-result p0
 
-    .line 13120
-    .local v2, "pos":I
-    const/4 v3, -0x1
-
-    if-eq v1, v3, :cond_1
-
-    if-eq v2, v3, :cond_1
+    const/4 v2, -0x1
 
     if-eq v1, v2, :cond_1
 
-    .line 13121
+    if-eq p0, v2, :cond_1
+
+    if-eq v1, p0, :cond_1
+
     or-int/lit16 v0, v0, 0x800
 
-    .line 13124
-    .end local v1    # "oldPos":I
-    .end local v2    # "pos":I
     :cond_1
     return v0
 .end method
@@ -169,18 +158,15 @@
 .end method
 
 .method public canReuseUpdatedViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Z
-    .locals 1
-    .param p1, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
+    .locals 0
 
-    .line 13302
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public canReuseUpdatedViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;Ljava/util/List;)Z
-    .locals 1
-    .param p1, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -192,17 +178,15 @@
     .end annotation
 
     .line 13332
-    .local p2, "payloads":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Object;>;"
     invoke-virtual {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;->canReuseUpdatedViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public final dispatchAnimationFinished(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
     .locals 1
-    .param p1, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
     .line 13197
     invoke-virtual {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;->onAnimationFinished(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
@@ -215,19 +199,16 @@
     .line 13199
     invoke-interface {v0, p1}, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemAnimatorListener;->onAnimationFinished(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
 
-    .line 13201
     :cond_0
     return-void
 .end method
 
 .method public final dispatchAnimationStarted(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
     .locals 0
-    .param p1, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
     .line 13238
     invoke-virtual {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;->onAnimationStarted(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
 
-    .line 13239
     return-void
 .end method
 
@@ -241,11 +222,8 @@
 
     move-result v0
 
-    .line 13341
-    .local v0, "count":I
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -260,19 +238,16 @@
 
     invoke-interface {v2}, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemAnimatorFinishedListener;->onAnimationsFinished()V
 
-    .line 13341
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 13344
-    .end local v1    # "i":I
     :cond_0
-    iget-object v1, p0, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;->mFinishedListeners:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;->mFinishedListeners:Ljava/util/ArrayList;
 
-    invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    .line 13345
     return-void
 .end method
 
@@ -323,18 +298,14 @@
 
 .method public final isRunning(Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemAnimatorFinishedListener;)Z
     .locals 2
-    .param p1, "listener"    # Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemAnimatorFinishedListener;
 
     .line 13269
     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;->isRunning()Z
 
     move-result v0
 
-    .line 13270
-    .local v0, "running":Z
     if-eqz p1, :cond_1
 
-    .line 13271
     if-nez v0, :cond_0
 
     .line 13272
@@ -348,7 +319,6 @@
 
     invoke-virtual {v1, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 13277
     :cond_1
     :goto_0
     return v0
@@ -367,42 +337,33 @@
 
 .method public onAnimationFinished(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
     .locals 0
-    .param p1, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
-    .line 13212
     return-void
 .end method
 
 .method public onAnimationStarted(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
     .locals 0
-    .param p1, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
-    .line 13250
     return-void
 .end method
 
 .method public recordPostLayoutInformation(Landroidx/recyclerview/widget/RecyclerView$State;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;
-    .locals 1
-    .param p1, "state"    # Landroidx/recyclerview/widget/RecyclerView$State;
-    .param p2, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
+    .locals 0
 
     .line 12942
     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;->obtainHolderInfo()Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;->setFrom(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;
+    invoke-virtual {p1, p2}, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;->setFrom(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public recordPreLayoutInformation(Landroidx/recyclerview/widget/RecyclerView$State;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;ILjava/util/List;)Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;
-    .locals 1
-    .param p1, "state"    # Landroidx/recyclerview/widget/RecyclerView$State;
-    .param p2, "viewHolder"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    .param p3, "changeFlags"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -417,16 +378,15 @@
     .end annotation
 
     .line 12913
-    .local p4, "payloads":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Object;>;"
     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;->obtainHolderInfo()Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;->setFrom(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;
+    invoke-virtual {p1, p2}, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;->setFrom(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public abstract runPendingAnimations()V
@@ -434,55 +394,45 @@
 
 .method public setAddDuration(J)V
     .locals 0
-    .param p1, "addDuration"    # J
 
     .line 12826
     iput-wide p1, p0, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;->mAddDuration:J
 
-    .line 12827
     return-void
 .end method
 
 .method public setChangeDuration(J)V
     .locals 0
-    .param p1, "changeDuration"    # J
 
     .line 12862
     iput-wide p1, p0, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;->mChangeDuration:J
 
-    .line 12863
     return-void
 .end method
 
 .method setListener(Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemAnimatorListener;)V
     .locals 0
-    .param p1, "listener"    # Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemAnimatorListener;
 
     .line 12874
     iput-object p1, p0, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;->mListener:Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemAnimatorListener;
 
-    .line 12875
     return-void
 .end method
 
 .method public setMoveDuration(J)V
     .locals 0
-    .param p1, "moveDuration"    # J
 
     .line 12808
     iput-wide p1, p0, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;->mMoveDuration:J
 
-    .line 12809
     return-void
 .end method
 
 .method public setRemoveDuration(J)V
     .locals 0
-    .param p1, "removeDuration"    # J
 
     .line 12844
     iput-wide p1, p0, Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;->mRemoveDuration:J
 
-    .line 12845
     return-void
 .end method

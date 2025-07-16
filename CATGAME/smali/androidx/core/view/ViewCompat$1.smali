@@ -3,12 +3,12 @@
 .source "ViewCompat.java"
 
 # interfaces
-.implements Landroid/view/View$OnApplyWindowInsetsListener;
+.implements Landroidx/core/view/OnReceiveContentViewBehavior;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/core/view/ViewCompat;->setOnApplyWindowInsetsListener(Landroid/view/View;Landroidx/core/view/OnApplyWindowInsetsListener;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroidx/core/view/ViewCompat;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,17 +17,11 @@
 .end annotation
 
 
-# instance fields
-.field final synthetic val$listener:Landroidx/core/view/OnApplyWindowInsetsListener;
-
-
 # direct methods
-.method constructor <init>(Landroidx/core/view/OnApplyWindowInsetsListener;)V
+.method constructor <init>()V
     .locals 0
 
-    .line 2469
-    iput-object p1, p0, Landroidx/core/view/ViewCompat$1;->val$listener:Landroidx/core/view/OnApplyWindowInsetsListener;
-
+    .line 2826
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -35,31 +29,16 @@
 
 
 # virtual methods
-.method public onApplyWindowInsets(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
-    .locals 2
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "insets"    # Landroid/view/WindowInsets;
+.method public onReceiveContent(Landroidx/core/view/ContentInfoCompat;)Landroidx/core/view/ContentInfoCompat;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "payload"
+        }
+    .end annotation
 
-    .line 2472
-    nop
-
-    .line 2473
-    invoke-static {p2}, Landroidx/core/view/WindowInsetsCompat;->toWindowInsetsCompat(Landroid/view/WindowInsets;)Landroidx/core/view/WindowInsetsCompat;
-
-    move-result-object v0
-
-    .line 2474
-    .local v0, "compatInsets":Landroidx/core/view/WindowInsetsCompat;
-    iget-object v1, p0, Landroidx/core/view/ViewCompat$1;->val$listener:Landroidx/core/view/OnApplyWindowInsetsListener;
-
-    invoke-interface {v1, p1, v0}, Landroidx/core/view/OnApplyWindowInsetsListener;->onApplyWindowInsets(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;
-
-    move-result-object v0
-
-    .line 2475
-    invoke-virtual {v0}, Landroidx/core/view/WindowInsetsCompat;->toWindowInsets()Landroid/view/WindowInsets;
-
-    move-result-object v1
-
-    return-object v1
+    return-object p1
 .end method

@@ -24,9 +24,6 @@
 # direct methods
 .method public constructor <init>(Lorg/apache/commons/collections/Predicate;Lorg/apache/commons/collections/Closure;Z)V
     .locals 0
-    .param p1, "predicate"    # Lorg/apache/commons/collections/Predicate;
-    .param p2, "closure"    # Lorg/apache/commons/collections/Closure;
-    .param p3, "doLoop"    # Z
 
     .line 86
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,49 +37,41 @@
     .line 89
     iput-boolean p3, p0, Lorg/apache/commons/collections/functors/WhileClosure;->iDoLoop:Z
 
-    .line 90
     return-void
 .end method
 
 .method static synthetic class$(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 3
-    .param p0, "x0"    # Ljava/lang/String;
+    .locals 1
 
     .line 141
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    .local v0, "x1":Ljava/lang/ClassNotFoundException;
-    new-instance v1, Ljava/lang/NoClassDefFoundError;
+    new-instance v0, Ljava/lang/NoClassDefFoundError;
 
-    invoke-virtual {v0}, Ljava/lang/ClassNotFoundException;->getMessage()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/ClassNotFoundException;->getMessage()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-direct {v1, v2}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public static getInstance(Lorg/apache/commons/collections/Predicate;Lorg/apache/commons/collections/Closure;Z)Lorg/apache/commons/collections/Closure;
-    .locals 2
-    .param p0, "predicate"    # Lorg/apache/commons/collections/Predicate;
-    .param p1, "closure"    # Lorg/apache/commons/collections/Closure;
-    .param p2, "doLoop"    # Z
+    .locals 1
 
-    .line 68
     if-eqz p0, :cond_1
 
-    .line 71
     if-eqz p1, :cond_0
 
     .line 74
@@ -94,28 +83,27 @@
 
     .line 72
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Closure must not be null"
+    const-string p1, "Closure must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 69
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Predicate must not be null"
+    const-string p1, "Predicate must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 1
-    .param p1, "is"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/ClassNotFoundException;,
@@ -142,13 +130,11 @@
     .line 151
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
-    .line 152
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .param p1, "os"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -174,7 +160,6 @@
     .line 142
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
-    .line 143
     return-void
 .end method
 
@@ -182,7 +167,6 @@
 # virtual methods
 .method public execute(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "input"    # Ljava/lang/Object;
 
     .line 98
     iget-boolean v0, p0, Lorg/apache/commons/collections/functors/WhileClosure;->iDoLoop:Z
@@ -212,7 +196,6 @@
 
     goto :goto_0
 
-    .line 104
     :cond_1
     return-void
 .end method

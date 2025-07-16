@@ -34,83 +34,82 @@
 
 .method static read(Lcom/esotericsoftware/kryo/io/Input;)Ljava/time/LocalTime;
     .locals 5
-    .param p0, "in"    # Lcom/esotericsoftware/kryo/io/Input;
 
     .line 164
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/Input;->readByte()B
 
     move-result v0
 
-    .line 165
-    .local v0, "hour":I
     const/4 v1, 0x0
 
-    .line 166
-    .local v1, "minute":I
-    const/4 v2, 0x0
-
-    .line 167
-    .local v2, "second":I
-    const/4 v3, 0x0
-
-    .line 168
-    .local v3, "nano":I
     if-gez v0, :cond_0
 
-    .line 169
     not-int v0, v0
 
-    goto :goto_0
+    move p0, v1
+
+    move v2, p0
+
+    goto :goto_1
 
     .line 171
     :cond_0
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/Input;->readByte()B
 
-    move-result v1
+    move-result v2
 
-    .line 172
-    if-gez v1, :cond_1
+    if-gez v2, :cond_1
 
-    .line 173
-    not-int v1, v1
+    not-int p0, v2
 
-    goto :goto_0
+    move v2, v1
+
+    move v1, p0
+
+    move p0, v2
+
+    goto :goto_1
 
     .line 175
     :cond_1
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/Input;->readByte()B
 
-    move-result v2
+    move-result v3
 
-    .line 176
-    if-gez v2, :cond_2
+    if-gez v3, :cond_2
 
-    .line 177
-    not-int v2, v2
+    not-int p0, v3
 
     goto :goto_0
 
-    .line 179
     :cond_2
-    const/4 v4, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {p0, v4}, Lcom/esotericsoftware/kryo/io/Input;->readInt(Z)I
+    .line 179
+    invoke-virtual {p0, v1}, Lcom/esotericsoftware/kryo/io/Input;->readInt(Z)I
 
-    move-result v3
+    move-result v1
+
+    move p0, v3
+
+    :goto_0
+    move v4, v2
+
+    move v2, v1
+
+    move v1, v4
 
     .line 183
-    :goto_0
-    invoke-static {v0, v1, v2, v3}, Ljava/time/LocalTime;->of(IIII)Ljava/time/LocalTime;
+    :goto_1
+    invoke-static {v0, v1, p0, v2}, Ljava/time/LocalTime;->of(IIII)Ljava/time/LocalTime;
 
-    move-result-object v4
+    move-result-object p0
 
-    return-object v4
+    return-object p0
 .end method
 
 .method static write(Lcom/esotericsoftware/kryo/io/Output;Ljava/time/LocalTime;)V
-    .locals 2
-    .param p0, "out"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p1, "time"    # Ljava/time/LocalTime;
+    .locals 1
 
     .line 138
     invoke-virtual {p1}, Ljava/time/LocalTime;->getNano()I
@@ -136,11 +135,11 @@
     .line 141
     invoke-virtual {p1}, Ljava/time/LocalTime;->getHour()I
 
-    move-result v0
+    move-result p1
 
-    not-int v0, v0
+    not-int p1, p1
 
-    invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(I)V
+    invoke-virtual {p0, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(I)V
 
     goto :goto_0
 
@@ -155,11 +154,11 @@
     .line 144
     invoke-virtual {p1}, Ljava/time/LocalTime;->getMinute()I
 
-    move-result v0
+    move-result p1
 
-    not-int v0, v0
+    not-int p1, p1
 
-    invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(I)V
+    invoke-virtual {p0, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(I)V
 
     goto :goto_0
 
@@ -181,11 +180,11 @@
     .line 149
     invoke-virtual {p1}, Ljava/time/LocalTime;->getSecond()I
 
-    move-result v0
+    move-result p1
 
-    not-int v0, v0
+    not-int p1, p1
 
-    invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(I)V
+    invoke-virtual {p0, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(I)V
 
     goto :goto_0
 
@@ -214,13 +213,12 @@
     .line 155
     invoke-virtual {p1}, Ljava/time/LocalTime;->getNano()I
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    invoke-virtual {p0, v0, v1}, Lcom/esotericsoftware/kryo/io/Output;->writeInt(IZ)I
+    invoke-virtual {p0, p1, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeInt(IZ)I
 
-    .line 157
     :goto_0
     return-void
 .end method
@@ -239,17 +237,14 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/time/LocalTime;
-    .locals 1
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "in"    # Lcom/esotericsoftware/kryo/io/Input;
-    .param p3, "type"    # Ljava/lang/Class;
+    .locals 0
 
     .line 160
     invoke-static {p2}, Lcom/esotericsoftware/kryo/serializers/TimeSerializers$LocalTimeSerializer;->read(Lcom/esotericsoftware/kryo/io/Input;)Ljava/time/LocalTime;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
@@ -265,13 +260,9 @@
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/time/LocalTime;)V
     .locals 0
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "out"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p3, "time"    # Ljava/time/LocalTime;
 
     .line 134
     invoke-static {p2, p3}, Lcom/esotericsoftware/kryo/serializers/TimeSerializers$LocalTimeSerializer;->write(Lcom/esotericsoftware/kryo/io/Output;Ljava/time/LocalTime;)V
 
-    .line 135
     return-void
 .end method

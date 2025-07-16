@@ -17,9 +17,9 @@
 
 .field static final EXTENSION_CLASS_NAME:Ljava/lang/String; = "com.google.crypto.tink.shaded.protobuf.Extension"
 
-.field private static doFullRuntimeInheritanceCheck:Z
+.field private static doFullRuntimeInheritanceCheck:Z = true
 
-.field private static volatile eagerlyParseMessageSets:Z
+.field private static volatile eagerlyParseMessageSets:Z = false
 
 .field private static volatile emptyRegistry:Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
 
@@ -41,22 +41,14 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .line 77
-    const/4 v0, 0x0
-
-    sput-boolean v0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->eagerlyParseMessageSets:Z
-
-    .line 81
-    const/4 v0, 0x1
-
-    sput-boolean v0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->doFullRuntimeInheritanceCheck:Z
-
     .line 199
-    new-instance v1, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
+    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
 
-    invoke-direct {v1, v0}, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;-><init>(Z)V
+    const/4 v1, 0x1
 
-    sput-object v1, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->EMPTY_REGISTRY_LITE:Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
+    invoke-direct {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;-><init>(Z)V
+
+    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->EMPTY_REGISTRY_LITE:Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
 
     return-void
 .end method
@@ -74,13 +66,11 @@
 
     iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->extensionsByNumber:Ljava/util/Map;
 
-    .line 197
     return-void
 .end method
 
 .method constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)V
     .locals 1
-    .param p1, "other"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
 
     .line 201
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -93,30 +83,28 @@
     .line 203
     invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->extensionsByNumber:Ljava/util/Map;
+    iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->extensionsByNumber:Ljava/util/Map;
 
     goto :goto_0
 
     .line 205
     :cond_0
-    iget-object v0, p1, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->extensionsByNumber:Ljava/util/Map;
+    iget-object p1, p1, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->extensionsByNumber:Ljava/util/Map;
 
-    invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
+    invoke-static {p1}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->extensionsByNumber:Ljava/util/Map;
+    iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->extensionsByNumber:Ljava/util/Map;
 
-    .line 207
     :goto_0
     return-void
 .end method
 
 .method constructor <init>(Z)V
-    .locals 1
-    .param p1, "empty"    # Z
+    .locals 0
 
     .line 212
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -124,22 +112,19 @@
     .line 213
     invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->extensionsByNumber:Ljava/util/Map;
+    iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->extensionsByNumber:Ljava/util/Map;
 
-    .line 214
     return-void
 .end method
 
 .method public static getEmptyRegistry()Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
-    .locals 3
+    .locals 2
 
     .line 128
     sget-object v0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->emptyRegistry:Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
 
-    .line 129
-    .local v0, "result":Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     if-nez v0, :cond_2
 
     .line 130
@@ -149,33 +134,28 @@
 
     .line 131
     :try_start_0
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->emptyRegistry:Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
+    sget-object v0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->emptyRegistry:Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
 
-    move-object v0, v2
-
-    .line 132
     if-nez v0, :cond_1
 
     .line 135
-    sget-boolean v2, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->doFullRuntimeInheritanceCheck:Z
+    sget-boolean v0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->doFullRuntimeInheritanceCheck:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
     .line 136
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryFactory;->createEmpty()Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
 
-    move-result-object v2
+    move-result-object v0
 
     goto :goto_0
 
     .line 137
     :cond_0
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->EMPTY_REGISTRY_LITE:Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
+    sget-object v0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->EMPTY_REGISTRY_LITE:Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
 
     :goto_0
-    sput-object v2, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->emptyRegistry:Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
-
-    move-object v0, v2
+    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->emptyRegistry:Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
 
     .line 139
     :cond_1
@@ -184,15 +164,14 @@
     goto :goto_1
 
     :catchall_0
-    move-exception v2
+    move-exception v0
 
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v2
+    throw v0
 
-    .line 141
     :cond_2
     :goto_1
     return-object v0
@@ -228,19 +207,16 @@
 
     invoke-direct {v0}, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;-><init>()V
 
-    .line 116
     :goto_0
     return-object v0
 .end method
 
 .method public static setEagerlyParseMessageSets(Z)V
     .locals 0
-    .param p0, "isEagerlyParse"    # Z
 
     .line 106
     sput-boolean p0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->eagerlyParseMessageSets:Z
 
-    .line 107
     return-void
 .end method
 
@@ -257,7 +233,6 @@
     .end annotation
 
     .line 175
-    .local p1, "extension":Lcom/google/crypto/tink/shaded/protobuf/ExtensionLite;, "Lcom/google/crypto/tink/shaded/protobuf/ExtensionLite<**>;"
     const-class v0, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$GeneratedExtension;
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -289,11 +264,11 @@
 
     if-eqz v0, :cond_1
 
-    .line 180
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
+    .line 180
     :try_start_0
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -319,34 +294,29 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 184
     goto :goto_0
 
-    .line 181
     :catch_0
     move-exception v2
 
     .line 182
-    .local v2, "e":Ljava/lang/Exception;
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-array v1, v1, [Ljava/lang/Object;
 
     aput-object p1, v1, v0
 
+    const-string p1, "Could not invoke ExtensionRegistry#add for %s"
+
     .line 183
-    const-string v0, "Could not invoke ExtensionRegistry#add for %s"
+    invoke-static {p1, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
-
-    invoke-direct {v3, v0, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v3, p1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v3
 
-    .line 186
-    .end local v2    # "e":Ljava/lang/Exception;
     :cond_1
     :goto_0
     return-void
@@ -363,7 +333,6 @@
     .end annotation
 
     .line 165
-    .local p1, "extension":Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$GeneratedExtension;, "Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$GeneratedExtension<**>;"
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->extensionsByNumber:Ljava/util/Map;
 
     new-instance v1, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite$ObjectIntPair;
@@ -382,13 +351,11 @@
     .line 165
     invoke-interface {v0, v1, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 168
     return-void
 .end method
 
 .method public findLiteExtensionByNumber(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;I)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$GeneratedExtension;
     .locals 2
-    .param p2, "fieldNumber"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<ContainingType::",
@@ -400,7 +367,6 @@
     .end annotation
 
     .line 159
-    .local p1, "containingTypeDefaultInstance":Lcom/google/crypto/tink/shaded/protobuf/MessageLite;, "TContainingType;"
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->extensionsByNumber:Ljava/util/Map;
 
     new-instance v1, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite$ObjectIntPair;
@@ -410,12 +376,11 @@
     .line 160
     invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$GeneratedExtension;
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$GeneratedExtension;
 
-    .line 159
-    return-object v0
+    return-object p1
 .end method
 
 .method public getUnmodifiable()Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;

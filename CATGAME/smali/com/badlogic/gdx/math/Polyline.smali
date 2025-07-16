@@ -43,16 +43,16 @@
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 25
     const/high16 v0, 0x3f800000    # 1.0f
 
+    .line 25
     iput v0, p0, Lcom/badlogic/gdx/math/Polyline;->scaleX:F
 
     iput v0, p0, Lcom/badlogic/gdx/math/Polyline;->scaleY:F
 
-    .line 28
     const/4 v0, 0x1
 
+    .line 28
     iput-boolean v0, p0, Lcom/badlogic/gdx/math/Polyline;->calculateScaledLength:Z
 
     .line 29
@@ -61,34 +61,32 @@
     .line 30
     iput-boolean v0, p0, Lcom/badlogic/gdx/math/Polyline;->dirty:Z
 
-    .line 33
     const/4 v0, 0x0
 
     new-array v0, v0, [F
 
+    .line 33
     iput-object v0, p0, Lcom/badlogic/gdx/math/Polyline;->localVertices:[F
 
-    .line 34
     return-void
 .end method
 
 .method public constructor <init>([F)V
     .locals 2
-    .param p1, "vertices"    # [F
 
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 25
     const/high16 v0, 0x3f800000    # 1.0f
 
+    .line 25
     iput v0, p0, Lcom/badlogic/gdx/math/Polyline;->scaleX:F
 
     iput v0, p0, Lcom/badlogic/gdx/math/Polyline;->scaleY:F
 
-    .line 28
     const/4 v0, 0x1
 
+    .line 28
     iput-boolean v0, p0, Lcom/badlogic/gdx/math/Polyline;->calculateScaledLength:Z
 
     .line 29
@@ -107,18 +105,17 @@
     .line 38
     iput-object p1, p0, Lcom/badlogic/gdx/math/Polyline;->localVertices:[F
 
-    .line 39
     return-void
 
     .line 37
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "polylines must contain at least 2 points."
+    const-string v0, "polylines must contain at least 2 points."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -126,62 +123,54 @@
 .method public calculateLength()V
     .locals 1
 
-    .line 190
     const/4 v0, 0x1
 
+    .line 190
     iput-boolean v0, p0, Lcom/badlogic/gdx/math/Polyline;->calculateLength:Z
 
-    .line 191
     return-void
 .end method
 
 .method public calculateScaledLength()V
     .locals 1
 
-    .line 194
     const/4 v0, 0x1
 
+    .line 194
     iput-boolean v0, p0, Lcom/badlogic/gdx/math/Polyline;->calculateScaledLength:Z
 
-    .line 195
     return-void
 .end method
 
 .method public contains(FF)Z
-    .locals 1
-    .param p1, "x"    # F
-    .param p2, "y"    # F
+    .locals 0
 
-    .line 214
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public contains(Lcom/badlogic/gdx/math/Vector2;)Z
-    .locals 1
-    .param p1, "point"    # Lcom/badlogic/gdx/math/Vector2;
+    .locals 0
 
-    .line 209
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public dirty()V
     .locals 1
 
-    .line 198
     const/4 v0, 0x1
 
+    .line 198
     iput-boolean v0, p0, Lcom/badlogic/gdx/math/Polyline;->dirty:Z
 
-    .line 199
     return-void
 .end method
 
 .method public getLength()F
-    .locals 7
+    .locals 6
 
     .line 91
     iget-boolean v0, p0, Lcom/badlogic/gdx/math/Polyline;->calculateLength:Z
@@ -192,28 +181,24 @@
 
     return v0
 
-    .line 92
     :cond_0
     const/4 v0, 0x0
 
+    .line 92
     iput-boolean v0, p0, Lcom/badlogic/gdx/math/Polyline;->calculateLength:Z
 
-    .line 94
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    iput v0, p0, Lcom/badlogic/gdx/math/Polyline;->length:F
+    .line 94
+    iput v1, p0, Lcom/badlogic/gdx/math/Polyline;->length:F
 
     .line 95
-    const/4 v0, 0x0
-
-    .local v0, "i":I
     iget-object v1, p0, Lcom/badlogic/gdx/math/Polyline;->localVertices:[F
 
     array-length v1, v1
 
     add-int/lit8 v1, v1, -0x2
 
-    .local v1, "n":I
     :goto_0
     if-ge v0, v1, :cond_1
 
@@ -222,56 +207,49 @@
 
     add-int/lit8 v3, v0, 0x2
 
-    aget v3, v2, v3
+    aget v4, v2, v3
 
-    aget v4, v2, v0
+    aget v5, v2, v0
 
-    sub-float/2addr v3, v4
+    sub-float/2addr v4, v5
+
+    add-int/lit8 v5, v0, 0x1
 
     .line 97
-    .local v3, "x":F
-    add-int/lit8 v4, v0, 0x1
+    aget v5, v2, v5
 
-    aget v4, v2, v4
+    add-int/lit8 v0, v0, 0x3
 
-    add-int/lit8 v5, v0, 0x3
+    aget v0, v2, v0
 
-    aget v2, v2, v5
-
-    sub-float/2addr v4, v2
+    sub-float/2addr v5, v0
 
     .line 98
-    .local v4, "y":F
-    iget v2, p0, Lcom/badlogic/gdx/math/Polyline;->length:F
+    iget v0, p0, Lcom/badlogic/gdx/math/Polyline;->length:F
 
-    mul-float v5, v3, v3
+    mul-float/2addr v4, v4
 
-    mul-float v6, v4, v4
+    mul-float/2addr v5, v5
 
-    add-float/2addr v5, v6
+    add-float/2addr v4, v5
 
-    float-to-double v5, v5
+    float-to-double v4, v4
 
-    invoke-static {v5, v6}, Ljava/lang/Math;->sqrt(D)D
+    invoke-static {v4, v5}, Ljava/lang/Math;->sqrt(D)D
 
-    move-result-wide v5
+    move-result-wide v4
 
-    double-to-float v5, v5
+    double-to-float v2, v4
 
-    add-float/2addr v2, v5
+    add-float/2addr v0, v2
 
-    iput v2, p0, Lcom/badlogic/gdx/math/Polyline;->length:F
+    iput v0, p0, Lcom/badlogic/gdx/math/Polyline;->length:F
 
-    .line 95
-    .end local v3    # "x":F
-    .end local v4    # "y":F
-    add-int/lit8 v0, v0, 0x2
+    move v0, v3
 
     goto :goto_0
 
     .line 101
-    .end local v0    # "i":I
-    .end local v1    # "n":I
     :cond_1
     iget v0, p0, Lcom/badlogic/gdx/math/Polyline;->length:F
 
@@ -335,28 +313,24 @@
 
     return v0
 
-    .line 107
     :cond_0
     const/4 v0, 0x0
 
+    .line 107
     iput-boolean v0, p0, Lcom/badlogic/gdx/math/Polyline;->calculateScaledLength:Z
 
-    .line 109
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    iput v0, p0, Lcom/badlogic/gdx/math/Polyline;->scaledLength:F
+    .line 109
+    iput v1, p0, Lcom/badlogic/gdx/math/Polyline;->scaledLength:F
 
     .line 110
-    const/4 v0, 0x0
-
-    .local v0, "i":I
     iget-object v1, p0, Lcom/badlogic/gdx/math/Polyline;->localVertices:[F
 
     array-length v1, v1
 
     add-int/lit8 v1, v1, -0x2
 
-    .local v1, "n":I
     :goto_0
     if-ge v0, v1, :cond_1
 
@@ -365,68 +339,61 @@
 
     add-int/lit8 v3, v0, 0x2
 
-    aget v3, v2, v3
+    aget v4, v2, v3
 
-    iget v4, p0, Lcom/badlogic/gdx/math/Polyline;->scaleX:F
-
-    mul-float/2addr v3, v4
-
-    aget v5, v2, v0
-
-    mul-float/2addr v5, v4
-
-    sub-float/2addr v3, v5
-
-    .line 112
-    .local v3, "x":F
-    add-int/lit8 v4, v0, 0x1
-
-    aget v4, v2, v4
-
-    iget v5, p0, Lcom/badlogic/gdx/math/Polyline;->scaleY:F
+    iget v5, p0, Lcom/badlogic/gdx/math/Polyline;->scaleX:F
 
     mul-float/2addr v4, v5
 
-    add-int/lit8 v6, v0, 0x3
+    aget v6, v2, v0
 
-    aget v2, v2, v6
+    mul-float/2addr v6, v5
 
-    mul-float/2addr v2, v5
+    sub-float/2addr v4, v6
 
-    sub-float/2addr v4, v2
+    add-int/lit8 v5, v0, 0x1
+
+    .line 112
+    aget v5, v2, v5
+
+    iget v6, p0, Lcom/badlogic/gdx/math/Polyline;->scaleY:F
+
+    mul-float/2addr v5, v6
+
+    add-int/lit8 v0, v0, 0x3
+
+    aget v0, v2, v0
+
+    mul-float/2addr v0, v6
+
+    sub-float/2addr v5, v0
 
     .line 113
-    .local v4, "y":F
-    iget v2, p0, Lcom/badlogic/gdx/math/Polyline;->scaledLength:F
+    iget v0, p0, Lcom/badlogic/gdx/math/Polyline;->scaledLength:F
 
-    mul-float v5, v3, v3
+    mul-float/2addr v4, v4
 
-    mul-float v6, v4, v4
+    mul-float/2addr v5, v5
 
-    add-float/2addr v5, v6
+    add-float/2addr v4, v5
 
-    float-to-double v5, v5
+    float-to-double v4, v4
 
-    invoke-static {v5, v6}, Ljava/lang/Math;->sqrt(D)D
+    invoke-static {v4, v5}, Ljava/lang/Math;->sqrt(D)D
 
-    move-result-wide v5
+    move-result-wide v4
 
-    double-to-float v5, v5
+    double-to-float v2, v4
 
-    add-float/2addr v2, v5
+    add-float/2addr v0, v2
 
-    iput v2, p0, Lcom/badlogic/gdx/math/Polyline;->scaledLength:F
+    iput v0, p0, Lcom/badlogic/gdx/math/Polyline;->scaledLength:F
 
-    .line 110
-    .end local v3    # "x":F
-    .end local v4    # "y":F
-    add-int/lit8 v0, v0, 0x2
+    move v0, v3
 
     goto :goto_0
 
     .line 116
-    .end local v0    # "i":I
-    .end local v1    # "n":I
     :cond_1
     iget v0, p0, Lcom/badlogic/gdx/math/Polyline;->scaledLength:F
 
@@ -436,9 +403,9 @@
 .method public getTransformedVertices()[F
     .locals 20
 
-    .line 48
     move-object/from16 v0, p0
 
+    .line 48
     iget-boolean v1, v0, Lcom/badlogic/gdx/math/Polyline;->dirty:Z
 
     if-nez v1, :cond_0
@@ -447,17 +414,16 @@
 
     return-object v1
 
-    .line 49
     :cond_0
     const/4 v1, 0x0
 
+    .line 49
     iput-boolean v1, v0, Lcom/badlogic/gdx/math/Polyline;->dirty:Z
 
     .line 51
     iget-object v2, v0, Lcom/badlogic/gdx/math/Polyline;->localVertices:[F
 
     .line 52
-    .local v2, "localVertices":[F
     iget-object v3, v0, Lcom/badlogic/gdx/math/Polyline;->worldVertices:[F
 
     if-eqz v3, :cond_1
@@ -480,149 +446,122 @@
     iget-object v3, v0, Lcom/badlogic/gdx/math/Polyline;->worldVertices:[F
 
     .line 55
-    .local v3, "worldVertices":[F
     iget v4, v0, Lcom/badlogic/gdx/math/Polyline;->x:F
 
     .line 56
-    .local v4, "positionX":F
     iget v5, v0, Lcom/badlogic/gdx/math/Polyline;->y:F
 
     .line 57
-    .local v5, "positionY":F
     iget v6, v0, Lcom/badlogic/gdx/math/Polyline;->originX:F
 
     .line 58
-    .local v6, "originX":F
     iget v7, v0, Lcom/badlogic/gdx/math/Polyline;->originY:F
 
     .line 59
-    .local v7, "originY":F
     iget v8, v0, Lcom/badlogic/gdx/math/Polyline;->scaleX:F
 
     .line 60
-    .local v8, "scaleX":F
     iget v9, v0, Lcom/badlogic/gdx/math/Polyline;->scaleY:F
 
-    .line 61
-    .local v9, "scaleY":F
     const/high16 v10, 0x3f800000    # 1.0f
 
     cmpl-float v11, v8, v10
 
-    if-nez v11, :cond_3
+    if-nez v11, :cond_4
 
     cmpl-float v10, v9, v10
 
-    if-eqz v10, :cond_4
-
-    :cond_3
-    const/4 v1, 0x1
-
-    .line 62
-    .local v1, "scale":Z
-    :cond_4
-    iget v10, v0, Lcom/badlogic/gdx/math/Polyline;->rotation:F
-
-    .line 63
-    .local v10, "rotation":F
-    invoke-static {v10}, Lcom/badlogic/gdx/math/MathUtils;->cosDeg(F)F
-
-    move-result v11
-
-    .line 64
-    .local v11, "cos":F
-    invoke-static {v10}, Lcom/badlogic/gdx/math/MathUtils;->sinDeg(F)F
-
-    move-result v12
-
-    .line 66
-    .local v12, "sin":F
-    const/4 v13, 0x0
-
-    .local v13, "i":I
-    array-length v14, v2
-
-    .local v14, "n":I
-    :goto_0
-    if-ge v13, v14, :cond_7
-
-    .line 67
-    aget v15, v2, v13
-
-    sub-float/2addr v15, v6
-
-    .line 68
-    .local v15, "x":F
-    add-int/lit8 v16, v13, 0x1
-
-    aget v16, v2, v16
-
-    sub-float v16, v16, v7
-
-    .line 71
-    .local v16, "y":F
-    if-eqz v1, :cond_5
-
-    .line 72
-    mul-float/2addr v15, v8
-
-    .line 73
-    mul-float v16, v16, v9
-
-    .line 77
-    :cond_5
-    const/16 v17, 0x0
-
-    cmpl-float v17, v10, v17
-
-    if-eqz v17, :cond_6
-
-    .line 78
-    move/from16 v17, v15
-
-    .line 79
-    .local v17, "oldX":F
-    mul-float v18, v11, v15
-
-    mul-float v19, v12, v16
-
-    sub-float v15, v18, v19
-
-    .line 80
-    mul-float v18, v12, v17
-
-    mul-float v19, v11, v16
-
-    add-float v16, v18, v19
-
-    .line 83
-    .end local v17    # "oldX":F
-    :cond_6
-    add-float v17, v4, v15
-
-    add-float v17, v17, v6
-
-    aput v17, v3, v13
-
-    .line 84
-    add-int/lit8 v17, v13, 0x1
-
-    add-float v18, v5, v16
-
-    add-float v18, v18, v7
-
-    aput v18, v3, v17
-
-    .line 66
-    .end local v15    # "x":F
-    .end local v16    # "y":F
-    add-int/lit8 v13, v13, 0x2
+    if-eqz v10, :cond_3
 
     goto :goto_0
 
-    .line 86
-    .end local v13    # "i":I
-    .end local v14    # "n":I
+    :cond_3
+    move v10, v1
+
+    goto :goto_1
+
+    :cond_4
+    :goto_0
+    const/4 v10, 0x1
+
+    .line 62
+    :goto_1
+    iget v11, v0, Lcom/badlogic/gdx/math/Polyline;->rotation:F
+
+    .line 63
+    invoke-static {v11}, Lcom/badlogic/gdx/math/MathUtils;->cosDeg(F)F
+
+    move-result v12
+
+    .line 64
+    invoke-static {v11}, Lcom/badlogic/gdx/math/MathUtils;->sinDeg(F)F
+
+    move-result v13
+
+    .line 66
+    array-length v14, v2
+
+    :goto_2
+    if-ge v1, v14, :cond_7
+
+    .line 67
+    aget v15, v2, v1
+
+    sub-float/2addr v15, v6
+
+    add-int/lit8 v16, v1, 0x1
+
+    .line 68
+    aget v17, v2, v16
+
+    sub-float v17, v17, v7
+
+    if-eqz v10, :cond_5
+
+    mul-float/2addr v15, v8
+
+    mul-float v17, v17, v9
+
+    :cond_5
+    const/16 v18, 0x0
+
+    cmpl-float v18, v11, v18
+
+    if-eqz v18, :cond_6
+
+    mul-float v18, v12, v15
+
+    mul-float v19, v13, v17
+
+    sub-float v18, v18, v19
+
+    mul-float/2addr v15, v13
+
+    mul-float v17, v17, v12
+
+    add-float v17, v15, v17
+
+    move/from16 v15, v18
+
+    :cond_6
+    add-float/2addr v15, v4
+
+    add-float/2addr v15, v6
+
+    .line 83
+    aput v15, v3, v1
+
+    add-float v17, v5, v17
+
+    add-float v17, v17, v7
+
+    .line 84
+    aput v17, v3, v16
+
+    add-int/lit8 v1, v1, 0x2
+
+    goto :goto_2
+
     :cond_7
     return-object v3
 .end method
@@ -656,7 +595,6 @@
 
 .method public rotate(F)V
     .locals 1
-    .param p1, "degrees"    # F
 
     .line 171
     iget v0, p0, Lcom/badlogic/gdx/math/Polyline;->rotation:F
@@ -665,18 +603,16 @@
 
     iput v0, p0, Lcom/badlogic/gdx/math/Polyline;->rotation:F
 
+    const/4 p1, 0x1
+
     .line 172
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/badlogic/gdx/math/Polyline;->dirty:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/math/Polyline;->dirty:Z
-
-    .line 173
     return-void
 .end method
 
 .method public scale(F)V
     .locals 1
-    .param p1, "amount"    # F
 
     .line 183
     iget v0, p0, Lcom/badlogic/gdx/math/Polyline;->scaleX:F
@@ -692,22 +628,19 @@
 
     iput v0, p0, Lcom/badlogic/gdx/math/Polyline;->scaleY:F
 
-    .line 185
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/math/Polyline;->dirty:Z
+    .line 185
+    iput-boolean p1, p0, Lcom/badlogic/gdx/math/Polyline;->dirty:Z
 
     .line 186
-    iput-boolean v0, p0, Lcom/badlogic/gdx/math/Polyline;->calculateScaledLength:Z
+    iput-boolean p1, p0, Lcom/badlogic/gdx/math/Polyline;->calculateScaledLength:Z
 
-    .line 187
     return-void
 .end method
 
 .method public setOrigin(FF)V
-    .locals 1
-    .param p1, "originX"    # F
-    .param p2, "originY"    # F
+    .locals 0
 
     .line 148
     iput p1, p0, Lcom/badlogic/gdx/math/Polyline;->originX:F
@@ -715,19 +648,16 @@
     .line 149
     iput p2, p0, Lcom/badlogic/gdx/math/Polyline;->originY:F
 
+    const/4 p1, 0x1
+
     .line 150
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/badlogic/gdx/math/Polyline;->dirty:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/math/Polyline;->dirty:Z
-
-    .line 151
     return-void
 .end method
 
 .method public setPosition(FF)V
-    .locals 1
-    .param p1, "x"    # F
-    .param p2, "y"    # F
+    .locals 0
 
     .line 154
     iput p1, p0, Lcom/badlogic/gdx/math/Polyline;->x:F
@@ -735,35 +665,30 @@
     .line 155
     iput p2, p0, Lcom/badlogic/gdx/math/Polyline;->y:F
 
+    const/4 p1, 0x1
+
     .line 156
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/badlogic/gdx/math/Polyline;->dirty:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/math/Polyline;->dirty:Z
-
-    .line 157
     return-void
 .end method
 
 .method public setRotation(F)V
-    .locals 1
-    .param p1, "degrees"    # F
+    .locals 0
 
     .line 166
     iput p1, p0, Lcom/badlogic/gdx/math/Polyline;->rotation:F
 
+    const/4 p1, 0x1
+
     .line 167
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/badlogic/gdx/math/Polyline;->dirty:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/math/Polyline;->dirty:Z
-
-    .line 168
     return-void
 .end method
 
 .method public setScale(FF)V
-    .locals 1
-    .param p1, "scaleX"    # F
-    .param p2, "scaleY"    # F
+    .locals 0
 
     .line 176
     iput p1, p0, Lcom/badlogic/gdx/math/Polyline;->scaleX:F
@@ -771,21 +696,19 @@
     .line 177
     iput p2, p0, Lcom/badlogic/gdx/math/Polyline;->scaleY:F
 
-    .line 178
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/math/Polyline;->dirty:Z
+    .line 178
+    iput-boolean p1, p0, Lcom/badlogic/gdx/math/Polyline;->dirty:Z
 
     .line 179
-    iput-boolean v0, p0, Lcom/badlogic/gdx/math/Polyline;->calculateScaledLength:Z
+    iput-boolean p1, p0, Lcom/badlogic/gdx/math/Polyline;->calculateScaledLength:Z
 
-    .line 180
     return-void
 .end method
 
 .method public setVertices([F)V
     .locals 2
-    .param p1, "vertices"    # [F
 
     .line 160
     array-length v0, p1
@@ -797,29 +720,26 @@
     .line 161
     iput-object p1, p0, Lcom/badlogic/gdx/math/Polyline;->localVertices:[F
 
+    const/4 p1, 0x1
+
     .line 162
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/badlogic/gdx/math/Polyline;->dirty:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/math/Polyline;->dirty:Z
-
-    .line 163
     return-void
 
     .line 160
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "polylines must contain at least 2 points."
+    const-string v0, "polylines must contain at least 2 points."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public translate(FF)V
     .locals 1
-    .param p1, "x"    # F
-    .param p2, "y"    # F
 
     .line 202
     iget v0, p0, Lcom/badlogic/gdx/math/Polyline;->x:F
@@ -829,17 +749,16 @@
     iput v0, p0, Lcom/badlogic/gdx/math/Polyline;->x:F
 
     .line 203
-    iget v0, p0, Lcom/badlogic/gdx/math/Polyline;->y:F
+    iget p1, p0, Lcom/badlogic/gdx/math/Polyline;->y:F
 
-    add-float/2addr v0, p2
+    add-float/2addr p1, p2
 
-    iput v0, p0, Lcom/badlogic/gdx/math/Polyline;->y:F
+    iput p1, p0, Lcom/badlogic/gdx/math/Polyline;->y:F
+
+    const/4 p1, 0x1
 
     .line 204
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/badlogic/gdx/math/Polyline;->dirty:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/math/Polyline;->dirty:Z
-
-    .line 205
     return-void
 .end method

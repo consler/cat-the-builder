@@ -38,13 +38,11 @@
 
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
-    .line 218
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat$1;
 
     .line 210
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat$Builder;-><init>()V
@@ -67,7 +65,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;->access$700(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;)V
 
-    .line 333
     return-object p0
 .end method
 
@@ -84,7 +81,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;->access$500(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;)V
 
-    .line 293
     return-object p0
 .end method
 
@@ -101,7 +97,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;->access$200(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;)V
 
-    .line 246
     return-object p0
 .end method
 
@@ -167,7 +162,6 @@
 
 .method public mergeParams(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;)Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -187,13 +181,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;->access$400(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;)V
 
-    .line 286
     return-object p0
 .end method
 
 .method public setKeySize(I)Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -213,13 +205,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;->access$600(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;I)V
 
-    .line 320
     return-object p0
 .end method
 
 .method public setParams(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams$Builder;)Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat$Builder;
-    .locals 2
-    .param p1, "builderForValue"    # Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams$Builder;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -239,19 +229,17 @@
 
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;
+    check-cast p1, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;
 
-    invoke-static {v0, v1}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;->access$300(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;)V
+    invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;->access$300(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;)V
 
-    .line 278
     return-object p0
 .end method
 
 .method public setParams(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;)Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -271,13 +259,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;->access$300(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;)V
 
-    .line 269
     return-object p0
 .end method
 
 .method public setVersion(I)Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -297,6 +283,5 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;->access$100(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;I)V
 
-    .line 237
     return-object p0
 .end method

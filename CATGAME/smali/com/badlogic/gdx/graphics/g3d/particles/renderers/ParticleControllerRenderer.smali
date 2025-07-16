@@ -39,10 +39,8 @@
     .locals 0
 
     .line 31
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderer;, "Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderer<TD;TT;>;"
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleControllerComponent;-><init>()V
 
-    .line 32
     return-void
 .end method
 
@@ -55,14 +53,11 @@
     .end annotation
 
     .line 34
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderer;, "Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderer<TD;TT;>;"
-    .local p1, "renderData":Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderData;, "TD;"
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleControllerComponent;-><init>()V
 
     .line 35
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderer;->renderData:Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderData;
 
-    .line 36
     return-void
 .end method
 
@@ -79,23 +74,20 @@
 .end method
 
 .method public set(Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;)V
-    .locals 2
-    .param p1, "particleController"    # Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
+    .locals 1
 
     .line 56
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderer;, "Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderer<TD;TT;>;"
     invoke-super {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleControllerComponent;->set(Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;)V
 
     .line 57
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderer;->renderData:Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderData;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderer;->renderData:Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderData;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderer;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderer;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
 
-    iput-object v1, v0, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderData;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
+    iput-object v0, p1, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderData;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
 
-    .line 58
     :cond_0
     return-void
 .end method
@@ -111,8 +103,6 @@
     .end annotation
 
     .line 45
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderer;, "Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderer<TD;TT;>;"
-    .local p1, "batch":Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch;, "Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch<*>;"
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderer;->isCompatible(Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch;)Z
 
     move-result v0
@@ -122,29 +112,25 @@
     .line 46
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderer;->batch:Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch;
 
-    .line 47
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
-    .line 49
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public update()V
     .locals 2
 
     .line 40
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderer;, "Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderer<TD;TT;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderer;->batch:Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch;
 
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderer;->renderData:Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderData;
 
     invoke-interface {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch;->draw(Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderData;)V
 
-    .line 41
     return-void
 .end method

@@ -32,15 +32,13 @@
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;I)V
     .locals 1
-    .param p1, "stream"    # Ljava/io/InputStream;
-    .param p2, "length"    # I
 
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 14
     const-string v0, "application/binary"
 
+    .line 14
     iput-object v0, p0, Lcom/koushikdutta/async/http/body/StreamBody;->contentType:Ljava/lang/String;
 
     .line 22
@@ -49,7 +47,6 @@
     .line 23
     iput p2, p0, Lcom/koushikdutta/async/http/body/StreamBody;->length:I
 
-    .line 24
     return-void
 .end method
 
@@ -94,18 +91,16 @@
 .end method
 
 .method public parse(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/callback/CompletedCallback;)V
-    .locals 2
-    .param p1, "emitter"    # Lcom/koushikdutta/async/DataEmitter;
-    .param p2, "completed"    # Lcom/koushikdutta/async/callback/CompletedCallback;
+    .locals 0
 
     .line 33
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    const-string v1, "not implemented"
+    const-string p2, "not implemented"
 
-    invoke-direct {v0, v1}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p1, p2}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public readFullyOnRequest()Z
@@ -123,38 +118,32 @@
 
 .method public setContentType(Ljava/lang/String;)Lcom/koushikdutta/async/http/body/StreamBody;
     .locals 0
-    .param p1, "contentType"    # Ljava/lang/String;
 
     .line 42
     iput-object p1, p0, Lcom/koushikdutta/async/http/body/StreamBody;->contentType:Ljava/lang/String;
 
-    .line 43
     return-object p0
 .end method
 
 .method public write(Lcom/koushikdutta/async/http/AsyncHttpRequest;Lcom/koushikdutta/async/DataSink;Lcom/koushikdutta/async/callback/CompletedCallback;)V
-    .locals 3
-    .param p1, "request"    # Lcom/koushikdutta/async/http/AsyncHttpRequest;
-    .param p2, "sink"    # Lcom/koushikdutta/async/DataSink;
-    .param p3, "completed"    # Lcom/koushikdutta/async/callback/CompletedCallback;
+    .locals 2
 
     .line 28
-    iget-object v0, p0, Lcom/koushikdutta/async/http/body/StreamBody;->stream:Ljava/io/InputStream;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/body/StreamBody;->stream:Ljava/io/InputStream;
 
-    iget v1, p0, Lcom/koushikdutta/async/http/body/StreamBody;->length:I
+    iget v0, p0, Lcom/koushikdutta/async/http/body/StreamBody;->length:I
 
-    if-gez v1, :cond_0
+    if-gez v0, :cond_0
 
-    const-wide/32 v1, 0x7fffffff
+    const-wide/32 v0, 0x7fffffff
 
     goto :goto_0
 
     :cond_0
-    int-to-long v1, v1
+    int-to-long v0, v0
 
     :goto_0
-    invoke-static {v0, v1, v2, p2, p3}, Lcom/koushikdutta/async/Util;->pump(Ljava/io/InputStream;JLcom/koushikdutta/async/DataSink;Lcom/koushikdutta/async/callback/CompletedCallback;)V
+    invoke-static {p1, v0, v1, p2, p3}, Lcom/koushikdutta/async/Util;->pump(Ljava/io/InputStream;JLcom/koushikdutta/async/DataSink;Lcom/koushikdutta/async/callback/CompletedCallback;)V
 
-    .line 29
     return-void
 .end method

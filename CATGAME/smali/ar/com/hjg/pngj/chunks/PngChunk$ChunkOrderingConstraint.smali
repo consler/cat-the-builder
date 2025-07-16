@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .locals 13
 
     .line 50
     new-instance v0, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
@@ -54,88 +54,78 @@
     sput-object v0, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;->NONE:Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
 
     .line 54
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
+    new-instance v1, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
 
-    const-string v1, "BEFORE_PLTE_AND_IDAT"
+    const-string v3, "BEFORE_PLTE_AND_IDAT"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;->BEFORE_PLTE_AND_IDAT:Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
+    sput-object v1, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;->BEFORE_PLTE_AND_IDAT:Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
 
     .line 58
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
+    new-instance v3, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
 
-    const-string v1, "AFTER_PLTE_BEFORE_IDAT"
+    const-string v5, "AFTER_PLTE_BEFORE_IDAT"
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v1, v4}, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;->AFTER_PLTE_BEFORE_IDAT:Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
+    sput-object v3, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;->AFTER_PLTE_BEFORE_IDAT:Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
 
     .line 62
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
+    new-instance v5, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
 
-    const-string v1, "AFTER_PLTE_BEFORE_IDAT_PLTE_REQUIRED"
+    const-string v7, "AFTER_PLTE_BEFORE_IDAT_PLTE_REQUIRED"
 
-    const/4 v5, 0x3
+    const/4 v8, 0x3
 
-    invoke-direct {v0, v1, v5}, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v5, v7, v8}, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;->AFTER_PLTE_BEFORE_IDAT_PLTE_REQUIRED:Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
+    sput-object v5, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;->AFTER_PLTE_BEFORE_IDAT_PLTE_REQUIRED:Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
 
     .line 66
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
+    new-instance v7, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
 
-    const-string v1, "BEFORE_IDAT"
+    const-string v9, "BEFORE_IDAT"
 
-    const/4 v6, 0x4
+    const/4 v10, 0x4
 
-    invoke-direct {v0, v1, v6}, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v7, v9, v10}, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;->BEFORE_IDAT:Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
+    sput-object v7, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;->BEFORE_IDAT:Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
 
     .line 70
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
+    new-instance v9, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
 
-    const-string v1, "NA"
+    const-string v11, "NA"
 
-    const/4 v7, 0x5
+    const/4 v12, 0x5
 
-    invoke-direct {v0, v1, v7}, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v9, v11, v12}, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;->NA:Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
+    sput-object v9, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;->NA:Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
+
+    const/4 v11, 0x6
+
+    new-array v11, v11, [Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
+
+    aput-object v0, v11, v2
+
+    aput-object v1, v11, v4
+
+    aput-object v3, v11, v6
+
+    aput-object v5, v11, v8
+
+    aput-object v7, v11, v10
+
+    aput-object v9, v11, v12
 
     .line 46
-    const/4 v1, 0x6
-
-    new-array v1, v1, [Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
-
-    sget-object v8, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;->NONE:Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
-
-    aput-object v8, v1, v2
-
-    sget-object v2, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;->BEFORE_PLTE_AND_IDAT:Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;->AFTER_PLTE_BEFORE_IDAT:Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;->AFTER_PLTE_BEFORE_IDAT_PLTE_REQUIRED:Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
-
-    aput-object v2, v1, v5
-
-    sget-object v2, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;->BEFORE_IDAT:Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
-
-    aput-object v2, v1, v6
-
-    aput-object v0, v1, v7
-
-    sput-object v1, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;->$VALUES:[Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
+    sput-object v11, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;->$VALUES:[Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
 
     return-void
 .end method
@@ -156,18 +146,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 46
     const-class v0, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
+    check-cast p0, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
@@ -189,8 +178,6 @@
 # virtual methods
 .method public isOk(IZ)Z
     .locals 5
-    .param p1, "currentChunkGroup"    # I
-    .param p2, "hasplte"    # Z
 
     .line 88
     sget-object v0, Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;->NONE:Lar/com/hjg/pngj/chunks/PngChunk$ChunkOrderingConstraint;
@@ -199,7 +186,6 @@
 
     if-ne p0, v0, :cond_0
 
-    .line 89
     return v1
 
     .line 90
@@ -212,7 +198,6 @@
 
     if-ne p0, v0, :cond_2
 
-    .line 91
     if-ge p1, v2, :cond_1
 
     goto :goto_0
@@ -231,7 +216,6 @@
 
     if-ne p0, v0, :cond_4
 
-    .line 93
     if-ge p1, v4, :cond_3
 
     goto :goto_1
@@ -248,13 +232,11 @@
 
     if-ne p0, v0, :cond_7
 
-    .line 95
     if-eqz p2, :cond_5
 
     if-ge p1, v2, :cond_6
 
-    :goto_2
-    goto :goto_3
+    goto :goto_2
 
     :cond_5
     if-ge p1, v2, :cond_6
@@ -266,10 +248,9 @@
     :cond_6
     move v1, v3
 
-    :goto_3
+    :goto_2
     return v1
 
-    .line 97
     :cond_7
     return v3
 .end method

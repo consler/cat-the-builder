@@ -50,7 +50,6 @@
 
     invoke-direct {p0, v0, v1}, Lcom/badlogic/gdx/physics/box2d/Shape;->jniDispose(J)V
 
-    .line 66
     return-void
 .end method
 
@@ -85,13 +84,11 @@
 
 .method public setRadius(F)V
     .locals 2
-    .param p1, "radius"    # F
 
     .line 55
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/Shape;->addr:J
 
     invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/Shape;->jniSetRadius(JF)V
 
-    .line 56
     return-void
 .end method

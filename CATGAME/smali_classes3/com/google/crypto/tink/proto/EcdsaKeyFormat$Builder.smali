@@ -38,13 +38,11 @@
 
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
-    .line 174
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/proto/EcdsaKeyFormat$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/proto/EcdsaKeyFormat$1;
 
     .line 166
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/EcdsaKeyFormat$Builder;-><init>()V
@@ -67,7 +65,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/EcdsaKeyFormat;->access$300(Lcom/google/crypto/tink/proto/EcdsaKeyFormat;)V
 
-    .line 245
     return-object p0
 .end method
 
@@ -103,7 +100,6 @@
 
 .method public mergeParams(Lcom/google/crypto/tink/proto/EcdsaParams;)Lcom/google/crypto/tink/proto/EcdsaKeyFormat$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/EcdsaParams;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -123,13 +119,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EcdsaKeyFormat;->access$200(Lcom/google/crypto/tink/proto/EcdsaKeyFormat;Lcom/google/crypto/tink/proto/EcdsaParams;)V
 
-    .line 234
     return-object p0
 .end method
 
 .method public setParams(Lcom/google/crypto/tink/proto/EcdsaParams$Builder;)Lcom/google/crypto/tink/proto/EcdsaKeyFormat$Builder;
-    .locals 2
-    .param p1, "builderForValue"    # Lcom/google/crypto/tink/proto/EcdsaParams$Builder;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -149,19 +143,17 @@
 
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/EcdsaParams$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Lcom/google/crypto/tink/proto/EcdsaParams;
+    check-cast p1, Lcom/google/crypto/tink/proto/EcdsaParams;
 
-    invoke-static {v0, v1}, Lcom/google/crypto/tink/proto/EcdsaKeyFormat;->access$100(Lcom/google/crypto/tink/proto/EcdsaKeyFormat;Lcom/google/crypto/tink/proto/EcdsaParams;)V
+    invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EcdsaKeyFormat;->access$100(Lcom/google/crypto/tink/proto/EcdsaKeyFormat;Lcom/google/crypto/tink/proto/EcdsaParams;)V
 
-    .line 222
     return-object p0
 .end method
 
 .method public setParams(Lcom/google/crypto/tink/proto/EcdsaParams;)Lcom/google/crypto/tink/proto/EcdsaKeyFormat$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/EcdsaParams;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -181,6 +173,5 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EcdsaKeyFormat;->access$100(Lcom/google/crypto/tink/proto/EcdsaKeyFormat;Lcom/google/crypto/tink/proto/EcdsaParams;)V
 
-    .line 209
     return-object p0
 .end method

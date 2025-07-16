@@ -46,11 +46,10 @@
 # direct methods
 .method constructor <init>(Ljava/util/Locale;)V
     .locals 14
-    .param p1, "locale"    # Ljava/util/Locale;
 
-    .line 844
     const/4 v0, 0x0
 
+    .line 844
     invoke-direct {p0, v0}, Lorg/apache/commons/lang3/time/FastDateParser$PatternStrategy;-><init>(Lorg/apache/commons/lang3/time/FastDateParser$1;)V
 
     .line 823
@@ -68,10 +67,9 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 848
-    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "((?iu)[+-]\\d{4}|GMT[+-]\\d{1,2}:\\d{2}"
 
+    .line 848
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 850
@@ -84,7 +82,6 @@
     invoke-direct {v1, v2}, Ljava/util/TreeSet;-><init>(Ljava/util/Comparator;)V
 
     .line 852
-    .local v1, "sorted":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     invoke-static {p1}, Ljava/text/DateFormatSymbols;->getInstance(Ljava/util/Locale;)Ljava/text/DateFormatSymbols;
 
     move-result-object v2
@@ -94,7 +91,6 @@
     move-result-object v2
 
     .line 853
-    .local v2, "zones":[[Ljava/lang/String;
     array-length v3, v2
 
     const/4 v4, 0x0
@@ -107,94 +103,75 @@
     aget-object v6, v2, v5
 
     .line 855
-    .local v6, "zoneNames":[Ljava/lang/String;
     aget-object v7, v6, v4
 
-    .line 856
-    .local v7, "tzId":Ljava/lang/String;
     const-string v8, "GMT"
 
+    .line 856
     invoke-virtual {v7, v8}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v8
 
     if-eqz v8, :cond_0
 
-    .line 857
     goto :goto_3
 
     .line 859
     :cond_0
     invoke-static {v7}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
 
-    move-result-object v8
+    move-result-object v7
 
     .line 862
-    .local v8, "tz":Ljava/util/TimeZone;
-    new-instance v9, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;
+    new-instance v8, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;
 
-    invoke-direct {v9, v8, v4}, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;-><init>(Ljava/util/TimeZone;Z)V
+    invoke-direct {v8, v7, v4}, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;-><init>(Ljava/util/TimeZone;Z)V
 
-    .line 863
-    .local v9, "standard":Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;
-    move-object v10, v9
+    const/4 v9, 0x1
+
+    move-object v11, v8
+
+    move v10, v9
 
     .line 864
-    .local v10, "tzInfo":Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;
-    const/4 v11, 0x1
-
-    .local v11, "i":I
     :goto_1
     array-length v12, v6
 
-    if-ge v11, v12, :cond_4
+    if-ge v10, v12, :cond_4
 
-    .line 865
     const/4 v12, 0x3
 
-    if-eq v11, v12, :cond_2
+    if-eq v10, v12, :cond_2
 
     const/4 v12, 0x5
 
-    if-eq v11, v12, :cond_1
+    if-eq v10, v12, :cond_1
 
     goto :goto_2
 
-    .line 871
     :cond_1
-    move-object v10, v9
+    move-object v11, v8
 
-    .line 872
     goto :goto_2
 
     .line 868
     :cond_2
-    new-instance v12, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;
+    new-instance v11, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;
 
-    const/4 v13, 0x1
-
-    invoke-direct {v12, v8, v13}, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;-><init>(Ljava/util/TimeZone;Z)V
-
-    move-object v10, v12
-
-    .line 869
-    nop
+    invoke-direct {v11, v7, v9}, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;-><init>(Ljava/util/TimeZone;Z)V
 
     .line 876
     :goto_2
-    aget-object v12, v6, v11
+    aget-object v12, v6, v10
 
     if-eqz v12, :cond_3
 
     .line 877
-    aget-object v12, v6, v11
-
     invoke-virtual {v12, p1}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
 
     move-result-object v12
 
     .line 880
-    .local v12, "key":Ljava/lang/String;
     invoke-interface {v1, v12}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     move-result v13
@@ -204,22 +181,13 @@
     .line 881
     iget-object v13, p0, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy;->tzNames:Ljava/util/Map;
 
-    invoke-interface {v13, v12, v10}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v13, v12, v11}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 864
-    .end local v12    # "key":Ljava/lang/String;
     :cond_3
-    add-int/lit8 v11, v11, 0x1
+    add-int/lit8 v10, v10, 0x1
 
     goto :goto_1
 
-    .line 853
-    .end local v6    # "zoneNames":[Ljava/lang/String;
-    .end local v7    # "tzId":Ljava/lang/String;
-    .end local v8    # "tz":Ljava/util/TimeZone;
-    .end local v9    # "standard":Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;
-    .end local v10    # "tzInfo":Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;
-    .end local v11    # "i":I
     :cond_4
     :goto_3
     add-int/lit8 v5, v5, 0x1
@@ -230,137 +198,128 @@
     :cond_5
     invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object p1
 
     :goto_4
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v1
 
-    if-eqz v4, :cond_6
+    if-eqz v1, :cond_6
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v1
 
-    check-cast v4, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
+
+    const/16 v2, 0x7c
 
     .line 889
-    .local v4, "zoneName":Ljava/lang/String;
-    const/16 v5, 0x7c
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    invoke-static {v0, v4}, Lorg/apache/commons/lang3/time/FastDateParser;->access$900(Ljava/lang/StringBuilder;Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v2, v1}, Lorg/apache/commons/lang3/time/FastDateParser;->access$900(Ljava/lang/StringBuilder;Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 890
-    .end local v4    # "zoneName":Ljava/lang/String;
     goto :goto_4
 
-    .line 891
     :cond_6
-    const-string v3, ")"
+    const-string p1, ")"
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 891
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 892
     invoke-virtual {p0, v0}, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy;->createPattern(Ljava/lang/StringBuilder;)V
 
-    .line 893
     return-void
 .end method
 
 
 # virtual methods
 .method setCalendar(Lorg/apache/commons/lang3/time/FastDateParser;Ljava/util/Calendar;Ljava/lang/String;)V
-    .locals 6
-    .param p1, "parser"    # Lorg/apache/commons/lang3/time/FastDateParser;
-    .param p2, "cal"    # Ljava/util/Calendar;
-    .param p3, "timeZone"    # Ljava/lang/String;
+    .locals 1
 
     .line 900
     invoke-static {p3}, Lorg/apache/commons/lang3/time/FastTimeZone;->getGmtTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 901
-    .local v0, "tz":Ljava/util/TimeZone;
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 902
-    invoke-virtual {p2, v0}, Ljava/util/Calendar;->setTimeZone(Ljava/util/TimeZone;)V
+    invoke-virtual {p2, p1}, Ljava/util/Calendar;->setTimeZone(Ljava/util/TimeZone;)V
 
     goto :goto_0
 
     .line 904
     :cond_0
-    iget-object v1, p0, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy;->locale:Ljava/util/Locale;
+    iget-object p1, p0, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy;->locale:Ljava/util/Locale;
 
-    invoke-virtual {p3, v1}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {p3, p1}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 905
-    .local v1, "lowerCase":Ljava/lang/String;
-    iget-object v2, p0, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy;->tzNames:Ljava/util/Map;
+    iget-object p3, p0, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy;->tzNames:Ljava/util/Map;
 
-    invoke-interface {v2, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p3, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p3
 
-    check-cast v2, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;
+    check-cast p3, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;
 
-    .line 906
-    .local v2, "tzInfo":Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;
-    if-nez v2, :cond_1
+    if-nez p3, :cond_1
 
     .line 908
-    iget-object v3, p0, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy;->tzNames:Ljava/util/Map;
+    iget-object p3, p0, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy;->tzNames:Ljava/util/Map;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v5, 0x2e
+    move-result-object p1
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    const/16 v0, 0x2e
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-interface {v3, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    move-object v2, v3
+    invoke-interface {p3, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast v2, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;
+    move-result-object p1
+
+    move-object p3, p1
+
+    check-cast p3, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;
+
+    :cond_1
+    const/16 p1, 0x10
 
     .line 910
-    :cond_1
-    const/16 v3, 0x10
+    iget v0, p3, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;->dstOffset:I
 
-    iget v4, v2, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;->dstOffset:I
-
-    invoke-virtual {p2, v3, v4}, Ljava/util/Calendar;->set(II)V
+    invoke-virtual {p2, p1, v0}, Ljava/util/Calendar;->set(II)V
 
     .line 911
-    const/16 v3, 0xf
+    iget-object p1, p3, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;->zone:Ljava/util/TimeZone;
 
-    iget-object v4, v2, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;->zone:Ljava/util/TimeZone;
+    invoke-virtual {p1}, Ljava/util/TimeZone;->getRawOffset()I
 
-    invoke-virtual {v4}, Ljava/util/TimeZone;->getRawOffset()I
+    move-result p1
 
-    move-result v4
+    const/16 p3, 0xf
 
-    invoke-virtual {p2, v3, v4}, Ljava/util/Calendar;->set(II)V
+    invoke-virtual {p2, p3, p1}, Ljava/util/Calendar;->set(II)V
 
-    .line 913
-    .end local v1    # "lowerCase":Ljava/lang/String;
-    .end local v2    # "tzInfo":Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;
     :goto_0
     return-void
 .end method

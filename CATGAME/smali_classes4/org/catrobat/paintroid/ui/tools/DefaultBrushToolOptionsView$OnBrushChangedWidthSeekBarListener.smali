@@ -17,11 +17,6 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u0000&\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0008\n\u0000\n\u0002\u0010\u000b\n\u0002\u0008\u0003\u0008\u0086\u0004\u0018\u00002\u00020\u0001B\u0005\u00a2\u0006\u0002\u0010\u0002J \u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\u00082\u0006\u0010\t\u001a\u00020\nH\u0016J\u0010\u0010\u000b\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J\u0010\u0010\u000c\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0016\u00a8\u0006\r"
     }
@@ -39,14 +34,15 @@
         "",
         "onStartTrackingTouch",
         "onStopTrackingTouch",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -56,15 +52,18 @@
 
 # direct methods
 .method public constructor <init>(Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView;)V
-    .locals 0
-    .param p1, "this$0"    # Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
         }
     .end annotation
 
-    .line 146
+    const-string v0, "this$0"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 177
     iput-object p1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView$OnBrushChangedWidthSeekBarListener;->this$0:Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -75,115 +74,101 @@
 
 # virtual methods
 .method public onProgressChanged(Landroid/widget/SeekBar;IZ)V
-    .locals 7
-    .param p1, "seekBar"    # Landroid/widget/SeekBar;
-    .param p2, "progress"    # I
-    .param p3, "fromUser"    # Z
+    .locals 3
 
     const-string v0, "seekBar"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 148
-    move v0, p2
-
-    .line 149
-    .local v0, "currentProgress":I
-    const/4 v1, 0x1
-
-    if-ge v0, v1, :cond_0
-
-    .line 150
     const/4 v0, 0x1
 
-    .line 151
+    if-ge p2, v0, :cond_0
+
+    .line 182
     invoke-virtual {p1, v0}, Landroid/widget/SeekBar;->setProgress(I)V
 
-    .line 153
+    move p2, v0
+
+    .line 184
     :cond_0
-    iget-object v2, p0, Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView$OnBrushChangedWidthSeekBarListener;->this$0:Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView;
+    iget-object p1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView$OnBrushChangedWidthSeekBarListener;->this$0:Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView;
 
-    invoke-static {v2, v0}, Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView;->access$updateStrokeWidthChange(Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView;I)V
+    invoke-static {p1, p2}, Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView;->access$updateStrokeWidthChange(Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView;I)V
 
-    .line 154
     if-eqz p3, :cond_1
 
-    .line 155
-    iget-object v2, p0, Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView$OnBrushChangedWidthSeekBarListener;->this$0:Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView;
+    .line 186
+    iget-object p1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView$OnBrushChangedWidthSeekBarListener;->this$0:Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView;
 
-    invoke-static {v2}, Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView;->access$getBrushSizeText$p(Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView;)Landroid/widget/EditText;
+    invoke-static {p1}, Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView;->access$getBrushSizeText$p(Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView;)Landroid/widget/EditText;
 
-    move-result-object v2
+    move-result-object p1
 
-    sget-object v3, Lkotlin/jvm/internal/StringCompanionObject;->INSTANCE:Lkotlin/jvm/internal/StringCompanionObject;
+    sget-object p3, Lkotlin/jvm/internal/StringCompanionObject;->INSTANCE:Lkotlin/jvm/internal/StringCompanionObject;
 
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
-    move-result-object v3
+    move-result-object p3
 
-    new-array v4, v1, [Ljava/lang/Object;
+    new-array v1, v0, [Ljava/lang/Object;
 
-    const/4 v5, 0x0
+    const/4 v2, 0x0
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v6
+    move-result-object p2
 
-    aput-object v6, v4, v5
+    aput-object p2, v1, v2
 
-    invoke-static {v4, v1}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+    invoke-static {v1, v0}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p2
 
-    const-string v4, "%d"
+    const-string v0, "%d"
 
-    invoke-static {v3, v4, v1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p3, v0, p2}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    const-string v3, "java.lang.String.format(locale, format, *args)"
+    const-string p3, "java.lang.String.format(locale, format, *args)"
 
-    invoke-static {v1, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p2, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v1, Ljava/lang/CharSequence;
+    check-cast p2, Ljava/lang/CharSequence;
 
-    invoke-virtual {v2, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {p1, p2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 157
+    .line 188
     :cond_1
-    iget-object v1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView$OnBrushChangedWidthSeekBarListener;->this$0:Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView;
+    iget-object p1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView$OnBrushChangedWidthSeekBarListener;->this$0:Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView;
 
-    invoke-static {v1}, Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView;->access$getBrushToolPreview$p(Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView;)Lorg/catrobat/paintroid/tools/options/BrushToolPreview;
+    invoke-static {p1}, Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView;->access$getBrushToolPreview$p(Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView;)Lorg/catrobat/paintroid/tools/options/BrushToolPreview;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v1}, Lorg/catrobat/paintroid/tools/options/BrushToolPreview;->invalidate()V
+    invoke-interface {p1}, Lorg/catrobat/paintroid/tools/options/BrushToolPreview;->invalidate()V
 
-    .line 158
     return-void
 .end method
 
 .method public onStartTrackingTouch(Landroid/widget/SeekBar;)V
     .locals 1
-    .param p1, "seekBar"    # Landroid/widget/SeekBar;
 
     const-string v0, "seekBar"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 160
     return-void
 .end method
 
 .method public onStopTrackingTouch(Landroid/widget/SeekBar;)V
-    .locals 6
-    .param p1, "seekBar"    # Landroid/widget/SeekBar;
+    .locals 5
 
     const-string v0, "seekBar"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 163
+    .line 194
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView$OnBrushChangedWidthSeekBarListener;->this$0:Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView;
 
     invoke-static {v0}, Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView;->access$getBrushSizeText$p(Lorg/catrobat/paintroid/ui/tools/DefaultBrushToolOptionsView;)Landroid/widget/EditText;
@@ -202,34 +187,33 @@
 
     invoke-virtual {p1}, Landroid/widget/SeekBar;->getProgress()I
 
-    move-result v4
+    move-result p1
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object p1
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    aput-object v4, v3, v5
+    aput-object p1, v3, v4
 
     invoke-static {v3, v2}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    const-string v3, "%d"
+    const-string v2, "%d"
 
-    invoke-static {v1, v3, v2}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, p1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "java.lang.String.format(locale, format, *args)"
+    const-string v1, "java.lang.String.format(locale, format, *args)"
 
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v1, Ljava/lang/CharSequence;
+    check-cast p1, Ljava/lang/CharSequence;
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, p1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 164
     return-void
 .end method

@@ -67,10 +67,9 @@
         }
     .end annotation
 
-    .line 307
-    .local p0, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lio/reactivex/SingleSource<+TR;>;>;"
     const-string v0, "mapper is null"
 
+    .line 307
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 308
@@ -102,7 +101,6 @@
     .end annotation
 
     .line 193
-    .local p0, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Ljava/lang/Iterable<+TU;>;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$FlatMapIntoIterable;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$FlatMapIntoIterable;-><init>(Lio/reactivex/functions/Function;)V
@@ -135,8 +133,6 @@
     .end annotation
 
     .line 176
-    .local p0, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lio/reactivex/ObservableSource<+TU;>;>;"
-    .local p1, "combiner":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-TT;-TU;+TR;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$FlatMapWithCombinerOuter;
 
     invoke-direct {v0, p1, p0}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$FlatMapWithCombinerOuter;-><init>(Lio/reactivex/functions/BiFunction;Lio/reactivex/functions/Function;)V
@@ -165,7 +161,6 @@
     .end annotation
 
     .line 85
-    .local p0, "itemDelay":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lio/reactivex/ObservableSource<TU;>;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ItemDelayFunction;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ItemDelayFunction;-><init>(Lio/reactivex/functions/Function;)V
@@ -187,7 +182,6 @@
     .end annotation
 
     .line 137
-    .local p0, "observer":Lio/reactivex/Observer;, "Lio/reactivex/Observer<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ObserverOnComplete;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ObserverOnComplete;-><init>(Lio/reactivex/Observer;)V
@@ -211,7 +205,6 @@
     .end annotation
 
     .line 133
-    .local p0, "observer":Lio/reactivex/Observer;, "Lio/reactivex/Observer<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ObserverOnError;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ObserverOnError;-><init>(Lio/reactivex/Observer;)V
@@ -234,7 +227,6 @@
     .end annotation
 
     .line 129
-    .local p0, "observer":Lio/reactivex/Observer;, "Lio/reactivex/Observer<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ObserverOnNext;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ObserverOnNext;-><init>(Lio/reactivex/Observer;)V
@@ -265,7 +257,6 @@
     .end annotation
 
     .line 219
-    .local p0, "handler":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Lio/reactivex/Observable<Ljava/lang/Object;>;+Lio/reactivex/ObservableSource<*>;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$RepeatWhenOuterHandler;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$RepeatWhenOuterHandler;-><init>(Lio/reactivex/functions/Function;)V
@@ -289,7 +280,6 @@
     .end annotation
 
     .line 223
-    .local p0, "parent":Lio/reactivex/Observable;, "Lio/reactivex/Observable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayCallable;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayCallable;-><init>(Lio/reactivex/Observable;)V
@@ -299,7 +289,6 @@
 
 .method public static replayCallable(Lio/reactivex/Observable;I)Ljava/util/concurrent/Callable;
     .locals 1
-    .param p1, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -314,7 +303,6 @@
     .end annotation
 
     .line 227
-    .local p0, "parent":Lio/reactivex/Observable;, "Lio/reactivex/Observable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$BufferedReplayCallable;
 
     invoke-direct {v0, p0, p1}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$BufferedReplayCallable;-><init>(Lio/reactivex/Observable;I)V
@@ -324,10 +312,6 @@
 
 .method public static replayCallable(Lio/reactivex/Observable;IJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Ljava/util/concurrent/Callable;
     .locals 8
-    .param p1, "bufferSize"    # I
-    .param p2, "time"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -345,7 +329,6 @@
     .end annotation
 
     .line 231
-    .local p0, "parent":Lio/reactivex/Observable;, "Lio/reactivex/Observable<TT;>;"
     new-instance v7, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$BufferedTimedReplayCallable;
 
     move-object v0, v7
@@ -367,9 +350,6 @@
 
 .method public static replayCallable(Lio/reactivex/Observable;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Ljava/util/concurrent/Callable;
     .locals 7
-    .param p1, "time"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -387,7 +367,6 @@
     .end annotation
 
     .line 235
-    .local p0, "parent":Lio/reactivex/Observable;, "Lio/reactivex/Observable<TT;>;"
     new-instance v6, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$TimedReplayCallable;
 
     move-object v0, v6
@@ -407,7 +386,6 @@
 
 .method public static replayFunction(Lio/reactivex/functions/Function;Lio/reactivex/Scheduler;)Lio/reactivex/functions/Function;
     .locals 1
-    .param p1, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -432,7 +410,6 @@
     .end annotation
 
     .line 239
-    .local p0, "selector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Lio/reactivex/Observable<TT;>;+Lio/reactivex/ObservableSource<TR;>;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayFunction;
 
     invoke-direct {v0, p0, p1}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayFunction;-><init>(Lio/reactivex/functions/Function;Lio/reactivex/Scheduler;)V
@@ -465,7 +442,6 @@
     .end annotation
 
     .line 275
-    .local p0, "handler":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Lio/reactivex/Observable<Ljava/lang/Throwable;>;+Lio/reactivex/ObservableSource<*>;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$RetryWhenInner;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$RetryWhenInner;-><init>(Lio/reactivex/functions/Function;)V
@@ -494,7 +470,6 @@
     .end annotation
 
     .line 68
-    .local p0, "consumer":Lio/reactivex/functions/BiConsumer;, "Lio/reactivex/functions/BiConsumer<TS;Lio/reactivex/Emitter<TT;>;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$SimpleBiGenerator;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$SimpleBiGenerator;-><init>(Lio/reactivex/functions/BiConsumer;)V
@@ -522,7 +497,6 @@
     .end annotation
 
     .line 50
-    .local p0, "consumer":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<Lio/reactivex/Emitter<TT;>;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$SimpleGenerator;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$SimpleGenerator;-><init>(Lio/reactivex/functions/Consumer;)V
@@ -531,7 +505,7 @@
 .end method
 
 .method public static switchMapSingle(Lio/reactivex/Observable;Lio/reactivex/functions/Function;)Lio/reactivex/Observable;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -551,23 +525,21 @@
     .end annotation
 
     .line 297
-    .local p0, "source":Lio/reactivex/Observable;, "Lio/reactivex/Observable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lio/reactivex/SingleSource<+TR;>;>;"
     invoke-static {p1}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper;->convertSingleMapperToObservableMapper(Lio/reactivex/functions/Function;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    invoke-virtual {p0, v0, v1}, Lio/reactivex/Observable;->switchMap(Lio/reactivex/functions/Function;I)Lio/reactivex/Observable;
+    invoke-virtual {p0, p1, v0}, Lio/reactivex/Observable;->switchMap(Lio/reactivex/functions/Function;I)Lio/reactivex/Observable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static switchMapSingleDelayError(Lio/reactivex/Observable;Lio/reactivex/functions/Function;)Lio/reactivex/Observable;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -587,19 +559,17 @@
     .end annotation
 
     .line 302
-    .local p0, "source":Lio/reactivex/Observable;, "Lio/reactivex/Observable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lio/reactivex/SingleSource<+TR;>;>;"
     invoke-static {p1}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper;->convertSingleMapperToObservableMapper(Lio/reactivex/functions/Function;)Lio/reactivex/functions/Function;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    invoke-virtual {p0, v0, v1}, Lio/reactivex/Observable;->switchMapDelayError(Lio/reactivex/functions/Function;I)Lio/reactivex/Observable;
+    invoke-virtual {p0, p1, v0}, Lio/reactivex/Observable;->switchMapDelayError(Lio/reactivex/functions/Function;I)Lio/reactivex/Observable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static zipIterable(Lio/reactivex/functions/Function;)Lio/reactivex/functions/Function;
@@ -625,7 +595,6 @@
     .end annotation
 
     .line 293
-    .local p0, "zipper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-[Ljava/lang/Object;+TR;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ZipIterableFunction;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ZipIterableFunction;-><init>(Lio/reactivex/functions/Function;)V

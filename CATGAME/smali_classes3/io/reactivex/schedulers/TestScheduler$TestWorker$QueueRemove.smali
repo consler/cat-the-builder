@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/schedulers/TestScheduler$TestWorker;Lio/reactivex/schedulers/TestScheduler$TimedRunnable;)V
     .locals 0
-    .param p2, "timedAction"    # Lio/reactivex/schedulers/TestScheduler$TimedRunnable;
 
     .line 173
     iput-object p1, p0, Lio/reactivex/schedulers/TestScheduler$TestWorker$QueueRemove;->this$1:Lio/reactivex/schedulers/TestScheduler$TestWorker;
@@ -36,7 +35,6 @@
     .line 174
     iput-object p2, p0, Lio/reactivex/schedulers/TestScheduler$TestWorker$QueueRemove;->timedAction:Lio/reactivex/schedulers/TestScheduler$TimedRunnable;
 
-    .line 175
     return-void
 .end method
 
@@ -56,6 +54,5 @@
 
     invoke-interface {v0, v1}, Ljava/util/Queue;->remove(Ljava/lang/Object;)Z
 
-    .line 180
     return-void
 .end method

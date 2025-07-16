@@ -36,13 +36,11 @@
 
     invoke-direct {p0, v0, v1}, Lcom/google/crypto/tink/KeyTypeManager;-><init>(Ljava/lang/Class;[Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;)V
 
-    .line 49
     return-void
 .end method
 
 .method public static register(Z)V
     .locals 1
-    .param p0, "newKeyAllowed"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -65,7 +63,6 @@
 
     invoke-static {v0, p0}, Lcom/google/crypto/tink/Registry;->registerKeyManager(Lcom/google/crypto/tink/KeyTypeManager;Z)V
 
-    .line 97
     return-void
 .end method
 
@@ -74,7 +71,6 @@
 .method public getKeyType()Ljava/lang/String;
     .locals 1
 
-    .line 53
     const-string v0, "type.googleapis.com/google.crypto.tink.KmsAeadKey"
 
     return-object v0
@@ -83,7 +79,6 @@
 .method public getVersion()I
     .locals 1
 
-    .line 58
     const/4 v0, 0x0
 
     return v0
@@ -122,7 +117,6 @@
 
 .method public parseKey(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/KmsAeadKey;
     .locals 1
-    .param p1, "byteString"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -145,9 +139,9 @@
 
     invoke-static {p1, v0}, Lcom/google/crypto/tink/proto/KmsAeadKey;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/KmsAeadKey;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic parseKey(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
@@ -176,8 +170,7 @@
 .end method
 
 .method public validateKey(Lcom/google/crypto/tink/proto/KmsAeadKey;)V
-    .locals 2
-    .param p1, "key"    # Lcom/google/crypto/tink/proto/KmsAeadKey;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -196,15 +189,14 @@
     .line 68
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/KmsAeadKey;->getVersion()I
 
-    move-result v0
+    move-result p1
 
     invoke-virtual {p0}, Lcom/google/crypto/tink/aead/KmsAeadKeyManager;->getVersion()I
 
-    move-result v1
+    move-result v0
 
-    invoke-static {v0, v1}, Lcom/google/crypto/tink/subtle/Validators;->validateVersion(II)V
+    invoke-static {p1, v0}, Lcom/google/crypto/tink/subtle/Validators;->validateVersion(II)V
 
-    .line 69
     return-void
 .end method
 

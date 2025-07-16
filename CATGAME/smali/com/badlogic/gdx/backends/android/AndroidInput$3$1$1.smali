@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/backends/android/AndroidInput$3$1;)V
     .locals 0
-    .param p1, "this$2"    # Lcom/badlogic/gdx/backends/android/AndroidInput$3$1;
 
     .line 237
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput$3$1$1;->this$2:Lcom/badlogic/gdx/backends/android/AndroidInput$3$1;
@@ -60,6 +59,5 @@
 
     invoke-interface {v0, v1}, Lcom/badlogic/gdx/Input$TextInputListener;->input(Ljava/lang/String;)V
 
-    .line 241
     return-void
 .end method

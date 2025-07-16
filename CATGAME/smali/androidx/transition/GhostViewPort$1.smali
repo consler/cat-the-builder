@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/transition/GhostViewPort;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/transition/GhostViewPort;
 
     .line 52
     iput-object p1, p0, Landroidx/transition/GhostViewPort$1;->this$0:Landroidx/transition/GhostViewPort;
@@ -87,7 +86,6 @@
 
     iput-object v1, v0, Landroidx/transition/GhostViewPort;->mStartView:Landroid/view/View;
 
-    .line 63
     :cond_0
     const/4 v0, 0x1
 

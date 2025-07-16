@@ -32,8 +32,7 @@
 
 # direct methods
 .method public static final synthetic get(Landroidx/lifecycle/ViewModelProvider;)Landroidx/lifecycle/ViewModel;
-    .locals 3
-    .param p0, "$this$get"    # Landroidx/lifecycle/ViewModelProvider;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<VM:",
@@ -44,29 +43,26 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const-string v0, "$this$get"
 
-    .local v0, "$i$f$get":I
-    const-string v1, "$this$get"
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {p0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    const/4 v0, 0x4
+
+    const-string v1, "VM"
 
     .line 29
-    const/4 v1, 0x4
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
-    const-string v2, "VM"
+    const-class v0, Landroidx/lifecycle/ViewModel;
 
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
+    invoke-virtual {p0, v0}, Landroidx/lifecycle/ViewModelProvider;->get(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
 
-    const-class v1, Landroidx/lifecycle/ViewModel;
+    move-result-object p0
 
-    invoke-virtual {p0, v1}, Landroidx/lifecycle/ViewModelProvider;->get(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
+    const-string v0, "get(VM::class.java)"
 
-    move-result-object v1
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v2, "get(VM::class.java)"
-
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
-
-    return-object v1
+    return-object p0
 .end method

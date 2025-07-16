@@ -46,15 +46,11 @@
     .end annotation
 
     .line 35
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess;, "Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess<TT;>;"
-    .local p1, "source":Lio/reactivex/MaybeSource;, "Lio/reactivex/MaybeSource<TT;>;"
-    .local p2, "onAfterSuccess":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/maybe/AbstractMaybeWithUpstream;-><init>(Lio/reactivex/MaybeSource;)V
 
     .line 36
     iput-object p2, p0, Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess;->onAfterSuccess:Lio/reactivex/functions/Consumer;
 
-    .line 37
     return-void
 .end method
 
@@ -71,8 +67,6 @@
     .end annotation
 
     .line 41
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess;, "Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess<TT;>;"
-    .local p1, "s":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess;->source:Lio/reactivex/MaybeSource;
 
     new-instance v1, Lio/reactivex/internal/operators/maybe/MaybeDoAfterSuccess$DoAfterObserver;
@@ -83,6 +77,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/MaybeSource;->subscribe(Lio/reactivex/MaybeObserver;)V
 
-    .line 42
     return-void
 .end method

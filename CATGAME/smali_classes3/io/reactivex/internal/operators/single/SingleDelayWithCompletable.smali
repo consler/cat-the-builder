@@ -37,7 +37,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/SingleSource;Lio/reactivex/CompletableSource;)V
     .locals 0
-    .param p2, "other"    # Lio/reactivex/CompletableSource;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -49,8 +48,6 @@
     .end annotation
 
     .line 29
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDelayWithCompletable;, "Lio/reactivex/internal/operators/single/SingleDelayWithCompletable<TT;>;"
-    .local p1, "source":Lio/reactivex/SingleSource;, "Lio/reactivex/SingleSource<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 30
@@ -59,7 +56,6 @@
     .line 31
     iput-object p2, p0, Lio/reactivex/internal/operators/single/SingleDelayWithCompletable;->other:Lio/reactivex/CompletableSource;
 
-    .line 32
     return-void
 .end method
 
@@ -76,8 +72,6 @@
     .end annotation
 
     .line 36
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDelayWithCompletable;, "Lio/reactivex/internal/operators/single/SingleDelayWithCompletable<TT;>;"
-    .local p1, "subscriber":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleDelayWithCompletable;->other:Lio/reactivex/CompletableSource;
 
     new-instance v1, Lio/reactivex/internal/operators/single/SingleDelayWithCompletable$OtherObserver;
@@ -88,6 +82,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/CompletableSource;->subscribe(Lio/reactivex/CompletableObserver;)V
 
-    .line 37
     return-void
 .end method

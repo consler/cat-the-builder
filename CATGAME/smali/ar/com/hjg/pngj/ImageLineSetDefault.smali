@@ -52,21 +52,15 @@
 
 # direct methods
 .method public constructor <init>(Lar/com/hjg/pngj/ImageInfo;ZIII)V
-    .locals 3
-    .param p1, "imgInfo"    # Lar/com/hjg/pngj/ImageInfo;
-    .param p2, "singleCursor"    # Z
-    .param p3, "nlines"    # I
-    .param p4, "noffset"    # I
-    .param p5, "step"    # I
+    .locals 0
 
     .line 21
-    .local p0, "this":Lar/com/hjg/pngj/ImageLineSetDefault;, "Lar/com/hjg/pngj/ImageLineSetDefault<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 18
-    const/4 v0, -0x1
+    const/4 p3, -0x1
 
-    iput v0, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->currentRow:I
+    .line 18
+    iput p3, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->currentRow:I
 
     .line 22
     iput-object p1, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
@@ -74,41 +68,39 @@
     .line 23
     iput-boolean p2, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->singleCursor:Z
 
-    .line 24
-    const/4 v0, 0x0
+    const/4 p3, 0x0
 
-    const/4 v1, 0x1
+    const/4 p4, 0x1
 
     if-eqz p2, :cond_0
 
     .line 25
-    iput v1, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->nlines:I
+    iput p4, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->nlines:I
 
     .line 26
-    iput v0, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->offset:I
+    iput p3, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->offset:I
 
     .line 27
-    iput v1, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->step:I
+    iput p4, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->step:I
 
     goto :goto_0
 
     .line 29
     :cond_0
-    iget v2, p1, Lar/com/hjg/pngj/ImageInfo;->rows:I
+    iget p1, p1, Lar/com/hjg/pngj/ImageInfo;->rows:I
 
-    iput v2, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->nlines:I
+    iput p1, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->nlines:I
 
     .line 30
-    iput v0, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->offset:I
+    iput p3, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->offset:I
 
     .line 31
-    iput v1, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->step:I
+    iput p4, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->step:I
 
     .line 33
     :goto_0
     invoke-direct {p0}, Lar/com/hjg/pngj/ImageLineSetDefault;->createImageLines()V
 
-    .line 34
     return-void
 .end method
 
@@ -116,7 +108,6 @@
     .locals 3
 
     .line 37
-    .local p0, "this":Lar/com/hjg/pngj/ImageLineSetDefault;, "Lar/com/hjg/pngj/ImageLineSetDefault<TT;>;"
     iget-boolean v0, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->singleCursor:Z
 
     if-eqz v0, :cond_0
@@ -138,10 +129,9 @@
 
     iput-object v0, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->imageLines:Ljava/util/List;
 
-    .line 41
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 41
     :goto_0
     iget v1, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->nlines:I
 
@@ -156,13 +146,10 @@
 
     invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 41
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 44
-    .end local v0    # "i":I
     :cond_1
     :goto_1
     return-void
@@ -217,8 +204,7 @@
 .end method
 
 .method public getImageLine(I)Lar/com/hjg/pngj/IImageLine;
-    .locals 2
-    .param p1, "n"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TT;"
@@ -226,7 +212,6 @@
     .end annotation
 
     .line 56
-    .local p0, "this":Lar/com/hjg/pngj/ImageLineSetDefault;, "Lar/com/hjg/pngj/ImageLineSetDefault<TT;>;"
     iput p1, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->currentRow:I
 
     .line 57
@@ -235,9 +220,9 @@
     if-eqz v0, :cond_0
 
     .line 58
-    iget-object v0, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->imageLine:Lar/com/hjg/pngj/IImageLine;
+    iget-object p1, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->imageLine:Lar/com/hjg/pngj/IImageLine;
 
-    return-object v0
+    return-object p1
 
     .line 60
     :cond_0
@@ -245,23 +230,21 @@
 
     invoke-virtual {p0, p1}, Lar/com/hjg/pngj/ImageLineSetDefault;->imageRowToMatrixRowStrict(I)I
 
-    move-result v1
+    move-result p1
 
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lar/com/hjg/pngj/IImageLine;
+    check-cast p1, Lar/com/hjg/pngj/IImageLine;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public hasImageLine(I)Z
     .locals 3
-    .param p1, "n"    # I
 
     .line 71
-    .local p0, "this":Lar/com/hjg/pngj/ImageLineSetDefault;, "Lar/com/hjg/pngj/ImageLineSetDefault<TT;>;"
     iget-boolean v0, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->singleCursor:Z
 
     const/4 v1, 0x1
@@ -279,121 +262,109 @@
     :cond_0
     invoke-virtual {p0, p1}, Lar/com/hjg/pngj/ImageLineSetDefault;->imageRowToMatrixRowStrict(I)I
 
-    move-result v0
+    move-result p1
 
-    if-ltz v0, :cond_1
+    if-ltz p1, :cond_1
 
-    :goto_0
-    goto :goto_1
+    goto :goto_0
 
     :cond_1
     move v1, v2
 
-    :goto_1
-    return v1
-.end method
-
-.method public imageRowToMatrixRow(I)I
-    .locals 2
-    .param p1, "imrow"    # I
-
-    .line 108
-    .local p0, "this":Lar/com/hjg/pngj/ImageLineSetDefault;, "Lar/com/hjg/pngj/ImageLineSetDefault<TT;>;"
-    iget v0, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->offset:I
-
-    sub-int v0, p1, v0
-
-    iget v1, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->step:I
-
-    div-int/2addr v0, v1
-
-    .line 109
-    .local v0, "r":I
-    if-gez v0, :cond_0
-
-    const/4 v1, 0x0
-
-    goto :goto_0
-
-    :cond_0
-    iget v1, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->nlines:I
-
-    if-ge v0, v1, :cond_1
-
-    move v1, v0
-
-    goto :goto_0
-
-    :cond_1
-    add-int/lit8 v1, v1, -0x1
-
     :goto_0
     return v1
 .end method
 
-.method public imageRowToMatrixRowStrict(I)I
-    .locals 3
-    .param p1, "imrow"    # I
+.method public imageRowToMatrixRow(I)I
+    .locals 1
 
-    .line 85
-    .local p0, "this":Lar/com/hjg/pngj/ImageLineSetDefault;, "Lar/com/hjg/pngj/ImageLineSetDefault<TT;>;"
+    .line 108
     iget v0, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->offset:I
 
     sub-int/2addr p1, v0
 
-    .line 86
+    iget v0, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->step:I
+
+    div-int/2addr p1, v0
+
+    if-gez p1, :cond_0
+
+    const/4 p1, 0x0
+
+    goto :goto_0
+
+    .line 109
+    :cond_0
+    iget v0, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->nlines:I
+
+    if-ge p1, v0, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    add-int/lit8 p1, v0, -0x1
+
+    :goto_0
+    return p1
+.end method
+
+.method public imageRowToMatrixRowStrict(I)I
+    .locals 3
+
+    .line 85
+    iget v0, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->offset:I
+
+    sub-int/2addr p1, v0
+
     const/4 v0, -0x1
 
     if-ltz p1, :cond_0
 
+    .line 86
     iget v1, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->step:I
 
     rem-int v2, p1, v1
 
     if-nez v2, :cond_0
 
-    div-int v1, p1, v1
+    div-int/2addr p1, v1
 
     goto :goto_0
 
     :cond_0
-    move v1, v0
+    move p1, v0
 
     .line 87
-    .local v1, "mrow":I
     :goto_0
-    iget v2, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->nlines:I
+    iget v1, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->nlines:I
 
-    if-ge v1, v2, :cond_1
+    if-ge p1, v1, :cond_1
 
-    move v0, v1
+    move v0, p1
 
     :cond_1
     return v0
 .end method
 
 .method public matrixRowToImageRow(I)I
-    .locals 2
-    .param p1, "mrow"    # I
+    .locals 1
 
     .line 97
-    .local p0, "this":Lar/com/hjg/pngj/ImageLineSetDefault;, "Lar/com/hjg/pngj/ImageLineSetDefault<TT;>;"
     iget v0, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->step:I
 
-    mul-int/2addr v0, p1
+    mul-int/2addr p1, v0
 
-    iget v1, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->offset:I
+    iget v0, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->offset:I
 
-    add-int/2addr v0, v1
+    add-int/2addr p1, v0
 
-    return v0
+    return p1
 .end method
 
 .method public size()I
     .locals 1
 
     .line 78
-    .local p0, "this":Lar/com/hjg/pngj/ImageLineSetDefault;, "Lar/com/hjg/pngj/ImageLineSetDefault<TT;>;"
     iget v0, p0, Lar/com/hjg/pngj/ImageLineSetDefault;->nlines:I
 
     return v0

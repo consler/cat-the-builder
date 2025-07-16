@@ -18,10 +18,6 @@
 
 .method public static create(FFFF)Landroidx/camera/core/ZoomState;
     .locals 1
-    .param p0, "zoomRatio"    # F
-    .param p1, "maxZoomRatio"    # F
-    .param p2, "minZoomRatio"    # F
-    .param p3, "linearZoom"    # F
 
     .line 33
     new-instance v0, Landroidx/camera/core/internal/AutoValue_ImmutableZoomState;
@@ -32,8 +28,7 @@
 .end method
 
 .method public static create(Landroidx/camera/core/ZoomState;)Landroidx/camera/core/ZoomState;
-    .locals 5
-    .param p0, "zoomState"    # Landroidx/camera/core/ZoomState;
+    .locals 4
 
     .line 39
     new-instance v0, Landroidx/camera/core/internal/AutoValue_ImmutableZoomState;
@@ -54,11 +49,10 @@
 
     invoke-interface {p0}, Landroidx/camera/core/ZoomState;->getLinearZoom()F
 
-    move-result v4
+    move-result p0
 
-    invoke-direct {v0, v1, v2, v3, v4}, Landroidx/camera/core/internal/AutoValue_ImmutableZoomState;-><init>(FFFF)V
+    invoke-direct {v0, v1, v2, v3, p0}, Landroidx/camera/core/internal/AutoValue_ImmutableZoomState;-><init>(FFFF)V
 
-    .line 39
     return-object v0
 .end method
 

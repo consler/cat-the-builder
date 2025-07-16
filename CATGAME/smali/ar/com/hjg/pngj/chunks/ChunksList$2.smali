@@ -41,7 +41,6 @@
 # virtual methods
 .method public match(Lar/com/hjg/pngj/chunks/PngChunk;)Z
     .locals 3
-    .param p1, "c"    # Lar/com/hjg/pngj/chunks/PngChunk;
 
     .line 60
     iget-object v0, p1, Lar/com/hjg/pngj/chunks/PngChunk;->id:Ljava/lang/String;
@@ -56,7 +55,6 @@
 
     if-nez v0, :cond_0
 
-    .line 61
     return v1
 
     .line 62
@@ -81,7 +79,6 @@
 
     if-nez v0, :cond_1
 
-    .line 63
     return v1
 
     .line 64
@@ -90,28 +87,24 @@
 
     if-eqz v0, :cond_2
 
-    move-object v0, p1
+    check-cast p1, Lar/com/hjg/pngj/chunks/PngChunkSPLT;
 
-    check-cast v0, Lar/com/hjg/pngj/chunks/PngChunkSPLT;
+    invoke-virtual {p1}, Lar/com/hjg/pngj/chunks/PngChunkSPLT;->getPalName()Ljava/lang/String;
 
-    invoke-virtual {v0}, Lar/com/hjg/pngj/chunks/PngChunkSPLT;->getPalName()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    iget-object v0, p0, Lar/com/hjg/pngj/chunks/ChunksList$2;->val$innerid:Ljava/lang/String;
 
-    iget-object v2, p0, Lar/com/hjg/pngj/chunks/ChunksList$2;->val$innerid:Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result p1
 
-    move-result v0
+    if-nez p1, :cond_2
 
-    if-nez v0, :cond_2
-
-    .line 65
     return v1
 
-    .line 66
     :cond_2
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method

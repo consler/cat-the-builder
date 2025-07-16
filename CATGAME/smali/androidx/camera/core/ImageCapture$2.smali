@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ImageCapture;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/core/ImageCapture;
 
     .line 333
     iput-object p1, p0, Landroidx/camera/core/ImageCapture$2;->this$0:Landroidx/camera/core/ImageCapture;

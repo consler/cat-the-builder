@@ -44,7 +44,6 @@
 # direct methods
 .method public constructor <init>(Lorg/apache/commons/collections4/Predicate;Lorg/apache/commons/collections4/Closure;Z)V
     .locals 0
-    .param p3, "doLoop"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,9 +55,6 @@
     .end annotation
 
     .line 73
-    .local p0, "this":Lorg/apache/commons/collections4/functors/WhileClosure;, "Lorg/apache/commons/collections4/functors/WhileClosure<TE;>;"
-    .local p1, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TE;>;"
-    .local p2, "closure":Lorg/apache/commons/collections4/Closure;, "Lorg/apache/commons/collections4/Closure<-TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 74
@@ -70,13 +66,11 @@
     .line 76
     iput-boolean p3, p0, Lorg/apache/commons/collections4/functors/WhileClosure;->iDoLoop:Z
 
-    .line 77
     return-void
 .end method
 
 .method public static whileClosure(Lorg/apache/commons/collections4/Predicate;Lorg/apache/commons/collections4/Closure;Z)Lorg/apache/commons/collections4/Closure;
-    .locals 2
-    .param p2, "doLoop"    # Z
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -91,12 +85,8 @@
         }
     .end annotation
 
-    .line 55
-    .local p0, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TE;>;"
-    .local p1, "closure":Lorg/apache/commons/collections4/Closure;, "Lorg/apache/commons/collections4/Closure<-TE;>;"
     if-eqz p0, :cond_1
 
-    .line 58
     if-eqz p1, :cond_0
 
     .line 61
@@ -108,23 +98,23 @@
 
     .line 59
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Closure must not be null"
+    const-string p1, "Closure must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 56
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Predicate must not be null"
+    const-string p1, "Predicate must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
@@ -138,8 +128,6 @@
     .end annotation
 
     .line 86
-    .local p0, "this":Lorg/apache/commons/collections4/functors/WhileClosure;, "Lorg/apache/commons/collections4/functors/WhileClosure<TE;>;"
-    .local p1, "input":Ljava/lang/Object;, "TE;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/functors/WhileClosure;->iDoLoop:Z
 
     if-eqz v0, :cond_0
@@ -167,7 +155,6 @@
 
     goto :goto_0
 
-    .line 92
     :cond_1
     return-void
 .end method
@@ -183,7 +170,6 @@
     .end annotation
 
     .line 111
-    .local p0, "this":Lorg/apache/commons/collections4/functors/WhileClosure;, "Lorg/apache/commons/collections4/functors/WhileClosure<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/WhileClosure;->iClosure:Lorg/apache/commons/collections4/Closure;
 
     return-object v0
@@ -200,7 +186,6 @@
     .end annotation
 
     .line 101
-    .local p0, "this":Lorg/apache/commons/collections4/functors/WhileClosure;, "Lorg/apache/commons/collections4/functors/WhileClosure<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/WhileClosure;->iPredicate:Lorg/apache/commons/collections4/Predicate;
 
     return-object v0
@@ -210,7 +195,6 @@
     .locals 1
 
     .line 121
-    .local p0, "this":Lorg/apache/commons/collections4/functors/WhileClosure;, "Lorg/apache/commons/collections4/functors/WhileClosure<TE;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/functors/WhileClosure;->iDoLoop:Z
 
     return v0

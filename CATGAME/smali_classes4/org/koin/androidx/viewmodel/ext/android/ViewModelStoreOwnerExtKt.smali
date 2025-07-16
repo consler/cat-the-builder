@@ -49,38 +49,31 @@
 
 # direct methods
 .method private static final getKoin(Landroidx/lifecycle/ViewModelStoreOwner;)Lorg/koin/core/Koin;
-    .locals 2
-    .param p0, "$this$getKoin"    # Landroidx/lifecycle/ViewModelStoreOwner;
+    .locals 1
 
-    .line 63
     if-eqz p0, :cond_0
 
-    move-object v0, p0
+    .line 63
+    check-cast p0, Landroid/content/ComponentCallbacks;
 
-    check-cast v0, Landroid/content/ComponentCallbacks;
+    invoke-static {p0}, Lorg/koin/android/ext/android/ComponentCallbackExtKt;->getKoin(Landroid/content/ComponentCallbacks;)Lorg/koin/core/Koin;
 
-    invoke-static {v0}, Lorg/koin/android/ext/android/ComponentCallbackExtKt;->getKoin(Landroid/content/ComponentCallbacks;)Lorg/koin/core/Koin;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 
     :cond_0
-    new-instance v0, Lkotlin/TypeCastException;
+    new-instance p0, Lkotlin/TypeCastException;
 
-    const-string v1, "null cannot be cast to non-null type android.content.ComponentCallbacks"
+    const-string v0, "null cannot be cast to non-null type android.content.ComponentCallbacks"
 
-    invoke-direct {v0, v1}, Lkotlin/TypeCastException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Lkotlin/TypeCastException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static final getViewModel(Landroidx/lifecycle/ViewModelStoreOwner;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Landroidx/lifecycle/ViewModel;
     .locals 1
-    .param p0, "$this$getViewModel"    # Landroidx/lifecycle/ViewModelStoreOwner;
-    .param p1, "clazz"    # Lkotlin/reflect/KClass;
-    .param p2, "qualifier"    # Lorg/koin/core/qualifier/Qualifier;
-    .param p3, "parameters"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -111,16 +104,13 @@
 
     invoke-static {v0, p0, p1, p2, p3}, Lorg/koin/androidx/viewmodel/koin/KoinExtKt;->getViewModel(Lorg/koin/core/Koin;Landroidx/lifecycle/ViewModelStoreOwner;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Landroidx/lifecycle/ViewModel;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final synthetic getViewModel(Landroidx/lifecycle/ViewModelStoreOwner;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Landroidx/lifecycle/ViewModel;
-    .locals 3
-    .param p0, "$this$getViewModel"    # Landroidx/lifecycle/ViewModelStoreOwner;
-    .param p1, "qualifier"    # Lorg/koin/core/qualifier/Qualifier;
-    .param p2, "parameters"    # Lkotlin/jvm/functions/Function0;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -134,31 +124,28 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const-string v0, "$this$getViewModel"
 
-    .local v0, "$i$f$getViewModel":I
-    const-string v1, "$this$getViewModel"
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {p0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    const/4 v0, 0x4
+
+    const-string v1, "T"
 
     .line 52
-    const/4 v1, 0x4
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
-    const-string v2, "T"
+    const-class v0, Landroidx/lifecycle/ViewModel;
 
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
+    invoke-static {v0}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    const-class v1, Landroidx/lifecycle/ViewModel;
+    move-result-object v0
 
-    invoke-static {v1}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+    invoke-static {p0, v0, p1, p2}, Lorg/koin/androidx/viewmodel/ext/android/ViewModelStoreOwnerExtKt;->getViewModel(Landroidx/lifecycle/ViewModelStoreOwner;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Landroidx/lifecycle/ViewModel;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-static {p0, v1, p1, p2}, Lorg/koin/androidx/viewmodel/ext/android/ViewModelStoreOwnerExtKt;->getViewModel(Landroidx/lifecycle/ViewModelStoreOwner;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Landroidx/lifecycle/ViewModel;
-
-    move-result-object v1
-
-    return-object v1
+    return-object p0
 .end method
 
 .method public static synthetic getViewModel$default(Landroidx/lifecycle/ViewModelStoreOwner;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Landroidx/lifecycle/ViewModel;
@@ -175,6 +162,8 @@
 
     check-cast p2, Lorg/koin/core/qualifier/Qualifier;
 
+    move-object p2, v0
+
     :cond_0
     and-int/lit8 p4, p4, 0x4
 
@@ -184,6 +173,8 @@
     move-object p3, v0
 
     check-cast p3, Lkotlin/jvm/functions/Function0;
+
+    move-object p3, v0
 
     :cond_1
     invoke-static {p0, p1, p2, p3}, Lorg/koin/androidx/viewmodel/ext/android/ViewModelStoreOwnerExtKt;->getViewModel(Landroidx/lifecycle/ViewModelStoreOwner;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Landroidx/lifecycle/ViewModel;
@@ -195,9 +186,6 @@
 
 .method public static synthetic getViewModel$default(Landroidx/lifecycle/ViewModelStoreOwner;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Landroidx/lifecycle/ViewModel;
     .locals 1
-    .param p0, "$this$getViewModel"    # Landroidx/lifecycle/ViewModelStoreOwner;
-    .param p1, "qualifier"    # Lorg/koin/core/qualifier/Qualifier;
-    .param p2, "parameters"    # Lkotlin/jvm/functions/Function0;
 
     and-int/lit8 p4, p3, 0x1
 
@@ -210,6 +198,8 @@
 
     check-cast p1, Lorg/koin/core/qualifier/Qualifier;
 
+    move-object p1, v0
+
     :cond_0
     and-int/lit8 p3, p3, 0x2
 
@@ -220,40 +210,35 @@
 
     check-cast p2, Lkotlin/jvm/functions/Function0;
 
+    move-object p2, v0
+
     :cond_1
-    const/4 p3, 0x0
+    const-string p3, "$this$getViewModel"
 
-    .local p3, "$i$f$getViewModel":I
-    const-string p4, "$this$getViewModel"
+    invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {p0, p4}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    const/4 p3, 0x4
+
+    const-string p4, "T"
 
     .line 71
-    const/4 p4, 0x4
+    invoke-static {p3, p4}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
-    const-string v0, "T"
+    const-class p3, Landroidx/lifecycle/ViewModel;
 
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
+    invoke-static {p3}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    const-class p4, Landroidx/lifecycle/ViewModel;
+    move-result-object p3
 
-    invoke-static {p4}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+    invoke-static {p0, p3, p1, p2}, Lorg/koin/androidx/viewmodel/ext/android/ViewModelStoreOwnerExtKt;->getViewModel(Landroidx/lifecycle/ViewModelStoreOwner;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Landroidx/lifecycle/ViewModel;
 
-    move-result-object p4
+    move-result-object p0
 
-    invoke-static {p0, p4, p1, p2}, Lorg/koin/androidx/viewmodel/ext/android/ViewModelStoreOwnerExtKt;->getViewModel(Landroidx/lifecycle/ViewModelStoreOwner;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Landroidx/lifecycle/ViewModel;
-
-    move-result-object p4
-
-    return-object p4
+    return-object p0
 .end method
 
 .method public static final viewModel(Landroidx/lifecycle/ViewModelStoreOwner;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
     .locals 2
-    .param p0, "$this$viewModel"    # Landroidx/lifecycle/ViewModelStoreOwner;
-    .param p1, "clazz"    # Lkotlin/reflect/KClass;
-    .param p2, "qualifier"    # Lorg/koin/core/qualifier/Qualifier;
-    .param p3, "parameters"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -290,16 +275,13 @@
 
     invoke-static {v0, v1}, Lkotlin/LazyKt;->lazy(Lkotlin/LazyThreadSafetyMode;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final synthetic viewModel(Landroidx/lifecycle/ViewModelStoreOwner;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
-    .locals 3
-    .param p0, "$this$viewModel"    # Landroidx/lifecycle/ViewModelStoreOwner;
-    .param p1, "qualifier"    # Lorg/koin/core/qualifier/Qualifier;
-    .param p2, "parameters"    # Lkotlin/jvm/functions/Function0;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -315,29 +297,26 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const-string v0, "$this$viewModel"
 
-    .local v0, "$i$f$viewModel":I
-    const-string v1, "$this$viewModel"
-
-    invoke-static {p0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 45
-    sget-object v1, Lkotlin/LazyThreadSafetyMode;->NONE:Lkotlin/LazyThreadSafetyMode;
+    sget-object v0, Lkotlin/LazyThreadSafetyMode;->NONE:Lkotlin/LazyThreadSafetyMode;
 
     invoke-static {}, Lkotlin/jvm/internal/Intrinsics;->needClassReification()V
 
-    new-instance v2, Lorg/koin/androidx/viewmodel/ext/android/ViewModelStoreOwnerExtKt$viewModel$2;
+    new-instance v1, Lorg/koin/androidx/viewmodel/ext/android/ViewModelStoreOwnerExtKt$viewModel$2;
 
-    invoke-direct {v2, p0, p1, p2}, Lorg/koin/androidx/viewmodel/ext/android/ViewModelStoreOwnerExtKt$viewModel$2;-><init>(Landroidx/lifecycle/ViewModelStoreOwner;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)V
+    invoke-direct {v1, p0, p1, p2}, Lorg/koin/androidx/viewmodel/ext/android/ViewModelStoreOwnerExtKt$viewModel$2;-><init>(Landroidx/lifecycle/ViewModelStoreOwner;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)V
 
-    check-cast v2, Lkotlin/jvm/functions/Function0;
+    check-cast v1, Lkotlin/jvm/functions/Function0;
 
-    invoke-static {v1, v2}, Lkotlin/LazyKt;->lazy(Lkotlin/LazyThreadSafetyMode;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+    invoke-static {v0, v1}, Lkotlin/LazyKt;->lazy(Lkotlin/LazyThreadSafetyMode;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static synthetic viewModel$default(Landroidx/lifecycle/ViewModelStoreOwner;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lkotlin/Lazy;
@@ -354,6 +333,8 @@
 
     check-cast p2, Lorg/koin/core/qualifier/Qualifier;
 
+    move-object p2, v0
+
     :cond_0
     and-int/lit8 p4, p4, 0x4
 
@@ -363,6 +344,8 @@
     move-object p3, v0
 
     check-cast p3, Lkotlin/jvm/functions/Function0;
+
+    move-object p3, v0
 
     :cond_1
     invoke-static {p0, p1, p2, p3}, Lorg/koin/androidx/viewmodel/ext/android/ViewModelStoreOwnerExtKt;->viewModel(Landroidx/lifecycle/ViewModelStoreOwner;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
@@ -374,9 +357,6 @@
 
 .method public static synthetic viewModel$default(Landroidx/lifecycle/ViewModelStoreOwner;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lkotlin/Lazy;
     .locals 1
-    .param p0, "$this$viewModel"    # Landroidx/lifecycle/ViewModelStoreOwner;
-    .param p1, "qualifier"    # Lorg/koin/core/qualifier/Qualifier;
-    .param p2, "parameters"    # Lkotlin/jvm/functions/Function0;
 
     and-int/lit8 p4, p3, 0x1
 
@@ -389,6 +369,8 @@
 
     check-cast p1, Lorg/koin/core/qualifier/Qualifier;
 
+    move-object p1, v0
+
     :cond_0
     and-int/lit8 p3, p3, 0x2
 
@@ -399,28 +381,27 @@
 
     check-cast p2, Lkotlin/jvm/functions/Function0;
 
+    move-object p2, v0
+
     :cond_1
-    const/4 p3, 0x0
+    const-string p3, "$this$viewModel"
 
-    .local p3, "$i$f$viewModel":I
-    const-string p4, "$this$viewModel"
-
-    invoke-static {p0, p4}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 64
-    sget-object p4, Lkotlin/LazyThreadSafetyMode;->NONE:Lkotlin/LazyThreadSafetyMode;
+    sget-object p3, Lkotlin/LazyThreadSafetyMode;->NONE:Lkotlin/LazyThreadSafetyMode;
 
     invoke-static {}, Lkotlin/jvm/internal/Intrinsics;->needClassReification()V
 
-    new-instance v0, Lorg/koin/androidx/viewmodel/ext/android/ViewModelStoreOwnerExtKt$viewModel$2;
+    new-instance p4, Lorg/koin/androidx/viewmodel/ext/android/ViewModelStoreOwnerExtKt$viewModel$2;
 
-    invoke-direct {v0, p0, p1, p2}, Lorg/koin/androidx/viewmodel/ext/android/ViewModelStoreOwnerExtKt$viewModel$2;-><init>(Landroidx/lifecycle/ViewModelStoreOwner;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)V
+    invoke-direct {p4, p0, p1, p2}, Lorg/koin/androidx/viewmodel/ext/android/ViewModelStoreOwnerExtKt$viewModel$2;-><init>(Landroidx/lifecycle/ViewModelStoreOwner;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)V
 
-    check-cast v0, Lkotlin/jvm/functions/Function0;
+    check-cast p4, Lkotlin/jvm/functions/Function0;
 
-    invoke-static {p4, v0}, Lkotlin/LazyKt;->lazy(Lkotlin/LazyThreadSafetyMode;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+    invoke-static {p3, p4}, Lkotlin/LazyKt;->lazy(Lkotlin/LazyThreadSafetyMode;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
-    move-result-object p4
+    move-result-object p0
 
-    return-object p4
+    return-object p0
 .end method

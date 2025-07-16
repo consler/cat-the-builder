@@ -85,7 +85,6 @@
 
     sput-object v0, Lio/reactivex/schedulers/Schedulers;->NEW_THREAD:Lio/reactivex/Scheduler;
 
-    .line 83
     return-void
 .end method
 
@@ -120,7 +119,6 @@
 
 .method public static from(Ljava/util/concurrent/Executor;)Lio/reactivex/Scheduler;
     .locals 1
-    .param p0, "executor"    # Ljava/util/concurrent/Executor;
 
     .line 341
     new-instance v0, Lio/reactivex/internal/schedulers/ExecutorScheduler;
@@ -197,7 +195,6 @@
     .line 354
     invoke-static {}, Lio/reactivex/internal/schedulers/SchedulerPoolFactory;->shutdown()V
 
-    .line 355
     return-void
 .end method
 
@@ -255,7 +252,6 @@
     .line 367
     invoke-static {}, Lio/reactivex/internal/schedulers/SchedulerPoolFactory;->start()V
 
-    .line 368
     return-void
 .end method
 

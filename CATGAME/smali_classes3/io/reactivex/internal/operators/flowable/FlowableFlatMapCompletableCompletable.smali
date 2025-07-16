@@ -54,8 +54,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/Flowable;Lio/reactivex/functions/Function;ZI)V
     .locals 0
-    .param p3, "delayErrors"    # Z
-    .param p4, "maxConcurrency"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,9 +67,6 @@
     .end annotation
 
     .line 47
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableFlatMapCompletableCompletable;, "Lio/reactivex/internal/operators/flowable/FlowableFlatMapCompletableCompletable<TT;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p2, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lio/reactivex/CompletableSource;>;"
     invoke-direct {p0}, Lio/reactivex/Completable;-><init>()V
 
     .line 48
@@ -86,7 +81,6 @@
     .line 51
     iput p4, p0, Lio/reactivex/internal/operators/flowable/FlowableFlatMapCompletableCompletable;->maxConcurrency:I
 
-    .line 52
     return-void
 .end method
 
@@ -103,7 +97,6 @@
     .end annotation
 
     .line 61
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableFlatMapCompletableCompletable;, "Lio/reactivex/internal/operators/flowable/FlowableFlatMapCompletableCompletable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableFlatMapCompletable;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableFlatMapCompletableCompletable;->source:Lio/reactivex/Flowable;
@@ -125,10 +118,8 @@
 
 .method protected subscribeActual(Lio/reactivex/CompletableObserver;)V
     .locals 5
-    .param p1, "observer"    # Lio/reactivex/CompletableObserver;
 
     .line 56
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableFlatMapCompletableCompletable;, "Lio/reactivex/internal/operators/flowable/FlowableFlatMapCompletableCompletable<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableFlatMapCompletableCompletable;->source:Lio/reactivex/Flowable;
 
     new-instance v1, Lio/reactivex/internal/operators/flowable/FlowableFlatMapCompletableCompletable$FlatMapCompletableMainSubscriber;
@@ -143,6 +134,5 @@
 
     invoke-virtual {v0, v1}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 57
     return-void
 .end method

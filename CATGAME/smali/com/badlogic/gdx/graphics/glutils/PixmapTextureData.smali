@@ -21,12 +21,7 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap$Format;ZZ)V
     .locals 6
-    .param p1, "pixmap"    # Lcom/badlogic/gdx/graphics/Pixmap;
-    .param p2, "format"    # Lcom/badlogic/gdx/graphics/Pixmap$Format;
-    .param p3, "useMipMaps"    # Z
-    .param p4, "disposePixmap"    # Z
 
-    .line 32
     const/4 v5, 0x0
 
     move-object v0, p0
@@ -39,19 +34,14 @@
 
     move v4, p4
 
+    .line 32
     invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;-><init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap$Format;ZZZ)V
 
-    .line 33
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap$Format;ZZZ)V
-    .locals 1
-    .param p1, "pixmap"    # Lcom/badlogic/gdx/graphics/Pixmap;
-    .param p2, "format"    # Lcom/badlogic/gdx/graphics/Pixmap$Format;
-    .param p3, "useMipMaps"    # Z
-    .param p4, "disposePixmap"    # Z
-    .param p5, "managed"    # Z
+    .locals 0
 
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,20 +49,15 @@
     .line 36
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;->pixmap:Lcom/badlogic/gdx/graphics/Pixmap;
 
-    .line 37
     if-nez p2, :cond_0
 
+    .line 37
     invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/Pixmap;->getFormat()Lcom/badlogic/gdx/graphics/Pixmap$Format;
 
-    move-result-object v0
-
-    goto :goto_0
+    move-result-object p2
 
     :cond_0
-    move-object v0, p2
-
-    :goto_0
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;->format:Lcom/badlogic/gdx/graphics/Pixmap$Format;
+    iput-object p2, p0, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;->format:Lcom/badlogic/gdx/graphics/Pixmap$Format;
 
     .line 38
     iput-boolean p3, p0, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;->useMipMaps:Z
@@ -83,24 +68,22 @@
     .line 40
     iput-boolean p5, p0, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;->managed:Z
 
-    .line 41
     return-void
 .end method
 
 
 # virtual methods
 .method public consumeCustomData(I)V
-    .locals 2
-    .param p1, "target"    # I
+    .locals 1
 
     .line 85
-    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v1, "This TextureData implementation does not upload data itself"
+    const-string v0, "This TextureData implementation does not upload data itself"
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public consumePixmap()Lcom/badlogic/gdx/graphics/Pixmap;
@@ -177,7 +160,6 @@
 .method public isPrepared()Z
     .locals 1
 
-    .line 90
     const/4 v0, 0x1
 
     return v0

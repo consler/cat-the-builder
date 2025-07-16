@@ -19,7 +19,6 @@
     .locals 0
 
     .line 24
-    .local p0, "this":Lretrofit2/ServiceMethod;, "Lretrofit2/ServiceMethod<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -27,8 +26,6 @@
 
 .method static parseAnnotations(Lretrofit2/Retrofit;Ljava/lang/reflect/Method;)Lretrofit2/ServiceMethod;
     .locals 4
-    .param p0, "retrofit"    # Lretrofit2/Retrofit;
-    .param p1, "method"    # Ljava/lang/reflect/Method;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -48,13 +45,11 @@
     move-result-object v0
 
     .line 28
-    .local v0, "requestFactory":Lretrofit2/RequestFactory;
     invoke-virtual {p1}, Ljava/lang/reflect/Method;->getGenericReturnType()Ljava/lang/reflect/Type;
 
     move-result-object v1
 
     .line 29
-    .local v1, "returnType":Ljava/lang/reflect/Type;
     invoke-static {v1}, Lretrofit2/Utils;->hasUnresolvableType(Ljava/lang/reflect/Type;)Z
 
     move-result v2
@@ -71,37 +66,37 @@
     .line 39
     invoke-static {p0, p1, v0}, Lretrofit2/HttpServiceMethod;->parseAnnotations(Lretrofit2/Retrofit;Ljava/lang/reflect/Method;Lretrofit2/RequestFactory;)Lretrofit2/HttpServiceMethod;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
+
+    :cond_0
+    const-string p0, "Service methods cannot return void."
+
+    new-array v0, v3, [Ljava/lang/Object;
 
     .line 36
-    :cond_0
-    new-array v2, v3, [Ljava/lang/Object;
+    invoke-static {p1, p0, v0}, Lretrofit2/Utils;->methodError(Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
 
-    const-string v3, "Service methods cannot return void."
+    move-result-object p0
 
-    invoke-static {p1, v3, v2}, Lretrofit2/Utils;->methodError(Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
+    throw p0
 
-    move-result-object v2
+    :cond_1
+    const/4 p0, 0x1
 
-    throw v2
+    new-array p0, p0, [Ljava/lang/Object;
+
+    aput-object v1, p0, v3
+
+    const-string v0, "Method return type must not include a type variable or wildcard: %s"
 
     .line 30
-    :cond_1
-    const/4 v2, 0x1
+    invoke-static {p1, v0, p0}, Lretrofit2/Utils;->methodError(Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move-result-object p0
 
-    aput-object v1, v2, v3
-
-    const-string v3, "Method return type must not include a type variable or wildcard: %s"
-
-    invoke-static {p1, v3, v2}, Lretrofit2/Utils;->methodError(Ljava/lang/reflect/Method;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
-
-    move-result-object v2
-
-    throw v2
+    throw p0
 .end method
 
 

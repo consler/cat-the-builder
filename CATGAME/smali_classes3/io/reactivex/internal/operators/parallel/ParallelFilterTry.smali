@@ -78,10 +78,6 @@
     .end annotation
 
     .line 40
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelFilterTry;, "Lio/reactivex/internal/operators/parallel/ParallelFilterTry<TT;>;"
-    .local p1, "source":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p2, "predicate":Lio/reactivex/functions/Predicate;, "Lio/reactivex/functions/Predicate<-TT;>;"
-    .local p3, "errorHandler":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-Ljava/lang/Long;-Ljava/lang/Throwable;Lio/reactivex/parallel/ParallelFailureHandling;>;"
     invoke-direct {p0}, Lio/reactivex/parallel/ParallelFlowable;-><init>()V
 
     .line 41
@@ -93,7 +89,6 @@
     .line 43
     iput-object p3, p0, Lio/reactivex/internal/operators/parallel/ParallelFilterTry;->errorHandler:Lio/reactivex/functions/BiFunction;
 
-    .line 44
     return-void
 .end method
 
@@ -103,7 +98,6 @@
     .locals 1
 
     .line 70
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelFilterTry;, "Lio/reactivex/internal/operators/parallel/ParallelFilterTry<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/parallel/ParallelFilterTry;->source:Lio/reactivex/parallel/ParallelFlowable;
 
     invoke-virtual {v0}, Lio/reactivex/parallel/ParallelFlowable;->parallelism()I
@@ -114,7 +108,7 @@
 .end method
 
 .method public subscribe([Lorg/reactivestreams/Subscriber;)V
-    .locals 8
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -124,15 +118,12 @@
     .end annotation
 
     .line 48
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelFilterTry;, "Lio/reactivex/internal/operators/parallel/ParallelFilterTry<TT;>;"
-    .local p1, "subscribers":[Lorg/reactivestreams/Subscriber;, "[Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/parallel/ParallelFilterTry;->validate([Lorg/reactivestreams/Subscriber;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 49
     return-void
 
     .line 52
@@ -140,14 +131,10 @@
     array-length v0, p1
 
     .line 54
-    .local v0, "n":I
     new-array v1, v0, [Lorg/reactivestreams/Subscriber;
 
-    .line 56
-    .local v1, "parents":[Lorg/reactivestreams/Subscriber;, "[Lorg/reactivestreams/Subscriber<-TT;>;"
     const/4 v2, 0x0
 
-    .local v2, "i":I
     :goto_0
     if-ge v2, v0, :cond_2
 
@@ -155,7 +142,6 @@
     aget-object v3, p1, v2
 
     .line 58
-    .local v3, "a":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     instance-of v4, v3, Lio/reactivex/internal/fuseable/ConditionalSubscriber;
 
     if-eqz v4, :cond_1
@@ -163,15 +149,13 @@
     .line 59
     new-instance v4, Lio/reactivex/internal/operators/parallel/ParallelFilterTry$ParallelFilterConditionalSubscriber;
 
-    move-object v5, v3
+    check-cast v3, Lio/reactivex/internal/fuseable/ConditionalSubscriber;
 
-    check-cast v5, Lio/reactivex/internal/fuseable/ConditionalSubscriber;
+    iget-object v5, p0, Lio/reactivex/internal/operators/parallel/ParallelFilterTry;->predicate:Lio/reactivex/functions/Predicate;
 
-    iget-object v6, p0, Lio/reactivex/internal/operators/parallel/ParallelFilterTry;->predicate:Lio/reactivex/functions/Predicate;
+    iget-object v6, p0, Lio/reactivex/internal/operators/parallel/ParallelFilterTry;->errorHandler:Lio/reactivex/functions/BiFunction;
 
-    iget-object v7, p0, Lio/reactivex/internal/operators/parallel/ParallelFilterTry;->errorHandler:Lio/reactivex/functions/BiFunction;
-
-    invoke-direct {v4, v5, v6, v7}, Lio/reactivex/internal/operators/parallel/ParallelFilterTry$ParallelFilterConditionalSubscriber;-><init>(Lio/reactivex/internal/fuseable/ConditionalSubscriber;Lio/reactivex/functions/Predicate;Lio/reactivex/functions/BiFunction;)V
+    invoke-direct {v4, v3, v5, v6}, Lio/reactivex/internal/operators/parallel/ParallelFilterTry$ParallelFilterConditionalSubscriber;-><init>(Lio/reactivex/internal/fuseable/ConditionalSubscriber;Lio/reactivex/functions/Predicate;Lio/reactivex/functions/BiFunction;)V
 
     aput-object v4, v1, v2
 
@@ -189,20 +173,16 @@
 
     aput-object v4, v1, v2
 
-    .line 56
-    .end local v3    # "a":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     :goto_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 65
-    .end local v2    # "i":I
     :cond_2
-    iget-object v2, p0, Lio/reactivex/internal/operators/parallel/ParallelFilterTry;->source:Lio/reactivex/parallel/ParallelFlowable;
+    iget-object p1, p0, Lio/reactivex/internal/operators/parallel/ParallelFilterTry;->source:Lio/reactivex/parallel/ParallelFlowable;
 
-    invoke-virtual {v2, v1}, Lio/reactivex/parallel/ParallelFlowable;->subscribe([Lorg/reactivestreams/Subscriber;)V
+    invoke-virtual {p1, v1}, Lio/reactivex/parallel/ParallelFlowable;->subscribe([Lorg/reactivestreams/Subscriber;)V
 
-    .line 66
     return-void
 .end method

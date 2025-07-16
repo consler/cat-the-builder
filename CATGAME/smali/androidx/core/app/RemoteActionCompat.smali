@@ -32,7 +32,14 @@
 
 .method public constructor <init>(Landroidx/core/app/RemoteActionCompat;)V
     .locals 1
-    .param p1, "other"    # Landroidx/core/app/RemoteActionCompat;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "other"
+        }
+    .end annotation
 
     .line 99
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,20 +73,29 @@
     iput-boolean v0, p0, Landroidx/core/app/RemoteActionCompat;->mEnabled:Z
 
     .line 106
-    iget-boolean v0, p1, Landroidx/core/app/RemoteActionCompat;->mShouldShowIcon:Z
+    iget-boolean p1, p1, Landroidx/core/app/RemoteActionCompat;->mShouldShowIcon:Z
 
-    iput-boolean v0, p0, Landroidx/core/app/RemoteActionCompat;->mShouldShowIcon:Z
+    iput-boolean p1, p0, Landroidx/core/app/RemoteActionCompat;->mShouldShowIcon:Z
 
-    .line 107
     return-void
 .end method
 
 .method public constructor <init>(Landroidx/core/graphics/drawable/IconCompat;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
-    .locals 1
-    .param p1, "icon"    # Landroidx/core/graphics/drawable/IconCompat;
-    .param p2, "title"    # Ljava/lang/CharSequence;
-    .param p3, "contentDescription"    # Ljava/lang/CharSequence;
-    .param p4, "intent"    # Landroid/app/PendingIntent;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "icon",
+            "title",
+            "contentDescription",
+            "intent"
+        }
+    .end annotation
 
     .line 80
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -87,54 +103,60 @@
     .line 81
     invoke-static {p1}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroidx/core/graphics/drawable/IconCompat;
+    check-cast p1, Landroidx/core/graphics/drawable/IconCompat;
 
-    iput-object v0, p0, Landroidx/core/app/RemoteActionCompat;->mIcon:Landroidx/core/graphics/drawable/IconCompat;
+    iput-object p1, p0, Landroidx/core/app/RemoteActionCompat;->mIcon:Landroidx/core/graphics/drawable/IconCompat;
 
     .line 82
     invoke-static {p2}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/lang/CharSequence;
+    check-cast p1, Ljava/lang/CharSequence;
 
-    iput-object v0, p0, Landroidx/core/app/RemoteActionCompat;->mTitle:Ljava/lang/CharSequence;
+    iput-object p1, p0, Landroidx/core/app/RemoteActionCompat;->mTitle:Ljava/lang/CharSequence;
 
     .line 83
     invoke-static {p3}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/lang/CharSequence;
+    check-cast p1, Ljava/lang/CharSequence;
 
-    iput-object v0, p0, Landroidx/core/app/RemoteActionCompat;->mContentDescription:Ljava/lang/CharSequence;
+    iput-object p1, p0, Landroidx/core/app/RemoteActionCompat;->mContentDescription:Ljava/lang/CharSequence;
 
     .line 84
     invoke-static {p4}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/app/PendingIntent;
+    check-cast p1, Landroid/app/PendingIntent;
 
-    iput-object v0, p0, Landroidx/core/app/RemoteActionCompat;->mActionIntent:Landroid/app/PendingIntent;
+    iput-object p1, p0, Landroidx/core/app/RemoteActionCompat;->mActionIntent:Landroid/app/PendingIntent;
+
+    const/4 p1, 0x1
 
     .line 85
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Landroidx/core/app/RemoteActionCompat;->mEnabled:Z
+    iput-boolean p1, p0, Landroidx/core/app/RemoteActionCompat;->mEnabled:Z
 
     .line 86
-    iput-boolean v0, p0, Landroidx/core/app/RemoteActionCompat;->mShouldShowIcon:Z
+    iput-boolean p1, p0, Landroidx/core/app/RemoteActionCompat;->mShouldShowIcon:Z
 
-    .line 87
     return-void
 .end method
 
 .method public static createFromRemoteAction(Landroid/app/RemoteAction;)Landroidx/core/app/RemoteActionCompat;
     .locals 5
-    .param p0, "remoteAction"    # Landroid/app/RemoteAction;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "remoteAction"
+        }
+    .end annotation
 
     .line 115
     invoke-static {p0}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -167,29 +189,19 @@
     invoke-direct {v0, v1, v2, v3, v4}, Landroidx/core/app/RemoteActionCompat;-><init>(Landroidx/core/graphics/drawable/IconCompat;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
 
     .line 119
-    .local v0, "action":Landroidx/core/app/RemoteActionCompat;
     invoke-virtual {p0}, Landroid/app/RemoteAction;->isEnabled()Z
 
     move-result v1
 
     invoke-virtual {v0, v1}, Landroidx/core/app/RemoteActionCompat;->setEnabled(Z)V
 
-    .line 120
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x1c
-
-    if-lt v1, v2, :cond_0
-
     .line 121
     invoke-virtual {p0}, Landroid/app/RemoteAction;->shouldShowIcon()Z
 
-    move-result v1
+    move-result p0
 
-    invoke-virtual {v0, v1}, Landroidx/core/app/RemoteActionCompat;->setShouldShowIcon(Z)V
+    invoke-virtual {v0, p0}, Landroidx/core/app/RemoteActionCompat;->setShouldShowIcon(Z)V
 
-    .line 123
-    :cond_0
     return-object v0
 .end method
 
@@ -242,23 +254,35 @@
 
 .method public setEnabled(Z)V
     .locals 0
-    .param p1, "enabled"    # Z
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "enabled"
+        }
+    .end annotation
 
     .line 130
     iput-boolean p1, p0, Landroidx/core/app/RemoteActionCompat;->mEnabled:Z
 
-    .line 131
     return-void
 .end method
 
 .method public setShouldShowIcon(Z)V
     .locals 0
-    .param p1, "shouldShowIcon"    # Z
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "shouldShowIcon"
+        }
+    .end annotation
 
     .line 144
     iput-boolean p1, p0, Landroidx/core/app/RemoteActionCompat;->mShouldShowIcon:Z
 
-    .line 145
     return-void
 .end method
 
@@ -292,19 +316,11 @@
     invoke-direct {v0, v1, v2, v3, v4}, Landroid/app/RemoteAction;-><init>(Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
 
     .line 192
-    .local v0, "action":Landroid/app/RemoteAction;
     invoke-virtual {p0}, Landroidx/core/app/RemoteActionCompat;->isEnabled()Z
 
     move-result v1
 
     invoke-virtual {v0, v1}, Landroid/app/RemoteAction;->setEnabled(Z)V
-
-    .line 193
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x1c
-
-    if-lt v1, v2, :cond_0
 
     .line 194
     invoke-virtual {p0}, Landroidx/core/app/RemoteActionCompat;->shouldShowIcon()Z
@@ -313,7 +329,5 @@
 
     invoke-virtual {v0, v1}, Landroid/app/RemoteAction;->setShouldShowIcon(Z)V
 
-    .line 196
-    :cond_0
     return-object v0
 .end method

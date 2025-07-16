@@ -23,8 +23,6 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 0
-    .param p1, "width"    # I
-    .param p2, "height"    # I
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,6 +33,5 @@
     .line 33
     iput p2, p0, Lcom/badlogic/gdx/backends/android/surfaceview/ResolutionStrategy$MeasuredDimension;->height:I
 
-    .line 34
     return-void
 .end method

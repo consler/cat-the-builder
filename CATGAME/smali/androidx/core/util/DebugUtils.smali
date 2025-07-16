@@ -10,22 +10,28 @@
     .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 50
     return-void
 .end method
 
 .method public static buildShortClassTag(Ljava/lang/Object;Ljava/lang/StringBuilder;)V
-    .locals 3
-    .param p0, "cls"    # Ljava/lang/Object;
-    .param p1, "out"    # Ljava/lang/StringBuilder;
+    .locals 2
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "cls",
+            "out"
+        }
+    .end annotation
 
-    .line 32
     if-nez p0, :cond_0
 
-    .line 33
-    const-string v0, "null"
+    const-string p0, "null"
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 33
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_0
 
@@ -39,10 +45,9 @@
 
     move-result-object v0
 
-    .line 36
-    .local v0, "simpleName":Ljava/lang/String;
     if-eqz v0, :cond_1
 
+    .line 36
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v1
@@ -53,53 +58,48 @@
     :cond_1
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 38
     const/16 v1, 0x2e
 
+    .line 38
     invoke-virtual {v0, v1}, Ljava/lang/String;->lastIndexOf(I)I
 
     move-result v1
 
-    .line 39
-    .local v1, "end":I
     if-lez v1, :cond_2
 
-    .line 40
-    add-int/lit8 v2, v1, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    .line 40
+    invoke-virtual {v0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v0
 
     .line 43
-    .end local v1    # "end":I
     :cond_2
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 44
-    const/16 v1, 0x7b
+    const/16 v0, 0x7b
 
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    .line 44
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 45
     invoke-static {p0}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
 
-    move-result v1
+    move-result p0
 
-    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    invoke-static {p0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 47
-    .end local v0    # "simpleName":Ljava/lang/String;
     :goto_0
     return-void
 .end method

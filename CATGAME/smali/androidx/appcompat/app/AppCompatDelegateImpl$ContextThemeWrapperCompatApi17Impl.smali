@@ -21,18 +21,14 @@
     .line 476
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 478
     return-void
 .end method
 
 .method static applyOverrideConfiguration(Landroid/view/ContextThemeWrapper;Landroid/content/res/Configuration;)V
     .locals 0
-    .param p0, "context"    # Landroid/view/ContextThemeWrapper;
-    .param p1, "overrideConfiguration"    # Landroid/content/res/Configuration;
 
     .line 482
     invoke-virtual {p0, p1}, Landroid/view/ContextThemeWrapper;->applyOverrideConfiguration(Landroid/content/res/Configuration;)V
 
-    .line 483
     return-void
 .end method

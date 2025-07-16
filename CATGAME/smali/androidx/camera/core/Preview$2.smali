@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/Preview;Ljava/lang/String;Landroidx/camera/core/impl/PreviewConfig;Landroid/util/Size;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/core/Preview;
 
     .line 237
     iput-object p1, p0, Landroidx/camera/core/Preview$2;->this$0:Landroidx/camera/core/Preview;
@@ -49,51 +48,46 @@
 
 # virtual methods
 .method public onError(Landroidx/camera/core/impl/SessionConfig;Landroidx/camera/core/impl/SessionConfig$SessionError;)V
-    .locals 4
-    .param p1, "sessionConfig"    # Landroidx/camera/core/impl/SessionConfig;
-    .param p2, "error"    # Landroidx/camera/core/impl/SessionConfig$SessionError;
+    .locals 2
 
     .line 245
-    iget-object v0, p0, Landroidx/camera/core/Preview$2;->this$0:Landroidx/camera/core/Preview;
+    iget-object p1, p0, Landroidx/camera/core/Preview$2;->this$0:Landroidx/camera/core/Preview;
 
-    iget-object v1, p0, Landroidx/camera/core/Preview$2;->val$cameraId:Ljava/lang/String;
+    iget-object p2, p0, Landroidx/camera/core/Preview$2;->val$cameraId:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Landroidx/camera/core/Preview;->isCurrentCamera(Ljava/lang/String;)Z
+    invoke-virtual {p1, p2}, Landroidx/camera/core/Preview;->isCurrentCamera(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 247
-    iget-object v0, p0, Landroidx/camera/core/Preview$2;->this$0:Landroidx/camera/core/Preview;
+    iget-object p1, p0, Landroidx/camera/core/Preview$2;->this$0:Landroidx/camera/core/Preview;
 
-    iget-object v1, p0, Landroidx/camera/core/Preview$2;->val$cameraId:Ljava/lang/String;
+    iget-object p2, p0, Landroidx/camera/core/Preview$2;->val$cameraId:Ljava/lang/String;
 
-    iget-object v2, p0, Landroidx/camera/core/Preview$2;->val$config:Landroidx/camera/core/impl/PreviewConfig;
+    iget-object v0, p0, Landroidx/camera/core/Preview$2;->val$config:Landroidx/camera/core/impl/PreviewConfig;
 
-    iget-object v3, p0, Landroidx/camera/core/Preview$2;->val$resolution:Landroid/util/Size;
+    iget-object v1, p0, Landroidx/camera/core/Preview$2;->val$resolution:Landroid/util/Size;
 
-    invoke-virtual {v0, v1, v2, v3}, Landroidx/camera/core/Preview;->createPipeline(Ljava/lang/String;Landroidx/camera/core/impl/PreviewConfig;Landroid/util/Size;)Landroidx/camera/core/impl/SessionConfig$Builder;
+    invoke-virtual {p1, p2, v0, v1}, Landroidx/camera/core/Preview;->createPipeline(Ljava/lang/String;Landroidx/camera/core/impl/PreviewConfig;Landroid/util/Size;)Landroidx/camera/core/impl/SessionConfig$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 250
-    .local v0, "sessionConfigBuilder":Landroidx/camera/core/impl/SessionConfig$Builder;
-    iget-object v1, p0, Landroidx/camera/core/Preview$2;->this$0:Landroidx/camera/core/Preview;
+    iget-object p2, p0, Landroidx/camera/core/Preview$2;->this$0:Landroidx/camera/core/Preview;
 
-    invoke-virtual {v0}, Landroidx/camera/core/impl/SessionConfig$Builder;->build()Landroidx/camera/core/impl/SessionConfig;
+    invoke-virtual {p1}, Landroidx/camera/core/impl/SessionConfig$Builder;->build()Landroidx/camera/core/impl/SessionConfig;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Landroidx/camera/core/Preview;->updateSessionConfig(Landroidx/camera/core/impl/SessionConfig;)V
+    invoke-virtual {p2, p1}, Landroidx/camera/core/Preview;->updateSessionConfig(Landroidx/camera/core/impl/SessionConfig;)V
 
     .line 251
-    iget-object v1, p0, Landroidx/camera/core/Preview$2;->this$0:Landroidx/camera/core/Preview;
+    iget-object p1, p0, Landroidx/camera/core/Preview$2;->this$0:Landroidx/camera/core/Preview;
 
-    invoke-virtual {v1}, Landroidx/camera/core/Preview;->notifyReset()V
+    invoke-virtual {p1}, Landroidx/camera/core/Preview;->notifyReset()V
 
-    .line 253
-    .end local v0    # "sessionConfigBuilder":Landroidx/camera/core/impl/SessionConfig$Builder;
     :cond_0
     return-void
 .end method

@@ -39,31 +39,29 @@
     sput-object v0, Lcom/bumptech/glide/load/DecodeFormat;->PREFER_ARGB_8888:Lcom/bumptech/glide/load/DecodeFormat;
 
     .line 40
-    new-instance v0, Lcom/bumptech/glide/load/DecodeFormat;
+    new-instance v1, Lcom/bumptech/glide/load/DecodeFormat;
 
-    const-string v1, "PREFER_RGB_565"
+    const-string v3, "PREFER_RGB_565"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Lcom/bumptech/glide/load/DecodeFormat;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Lcom/bumptech/glide/load/DecodeFormat;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/bumptech/glide/load/DecodeFormat;->PREFER_RGB_565:Lcom/bumptech/glide/load/DecodeFormat;
+    sput-object v1, Lcom/bumptech/glide/load/DecodeFormat;->PREFER_RGB_565:Lcom/bumptech/glide/load/DecodeFormat;
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Lcom/bumptech/glide/load/DecodeFormat;
+
+    aput-object v0, v3, v2
+
+    aput-object v1, v3, v4
 
     .line 12
-    const/4 v1, 0x2
-
-    new-array v1, v1, [Lcom/bumptech/glide/load/DecodeFormat;
-
-    sget-object v4, Lcom/bumptech/glide/load/DecodeFormat;->PREFER_ARGB_8888:Lcom/bumptech/glide/load/DecodeFormat;
-
-    aput-object v4, v1, v2
-
-    aput-object v0, v1, v3
-
-    sput-object v1, Lcom/bumptech/glide/load/DecodeFormat;->$VALUES:[Lcom/bumptech/glide/load/DecodeFormat;
+    sput-object v3, Lcom/bumptech/glide/load/DecodeFormat;->$VALUES:[Lcom/bumptech/glide/load/DecodeFormat;
 
     .line 43
-    sput-object v4, Lcom/bumptech/glide/load/DecodeFormat;->DEFAULT:Lcom/bumptech/glide/load/DecodeFormat;
+    sput-object v0, Lcom/bumptech/glide/load/DecodeFormat;->DEFAULT:Lcom/bumptech/glide/load/DecodeFormat;
 
     return-void
 .end method
@@ -84,18 +82,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/bumptech/glide/load/DecodeFormat;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 12
     const-class v0, Lcom/bumptech/glide/load/DecodeFormat;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/bumptech/glide/load/DecodeFormat;
+    check-cast p0, Lcom/bumptech/glide/load/DecodeFormat;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/bumptech/glide/load/DecodeFormat;

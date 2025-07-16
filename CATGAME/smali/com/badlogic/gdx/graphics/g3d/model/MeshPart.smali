@@ -59,18 +59,16 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->halfExtents:Lcom/badlogic/gdx/math/Vector3;
 
-    .line 66
     const/high16 v0, -0x40800000    # -1.0f
 
+    .line 66
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->radius:F
 
-    .line 72
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;)V
     .locals 1
-    .param p1, "copyFrom"    # Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
 
     .line 86
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -89,25 +87,19 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->halfExtents:Lcom/badlogic/gdx/math/Vector3;
 
-    .line 66
     const/high16 v0, -0x40800000    # -1.0f
 
+    .line 66
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->radius:F
 
     .line 87
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->set(Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;)Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
 
-    .line 88
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Lcom/badlogic/gdx/graphics/Mesh;III)V
     .locals 1
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "mesh"    # Lcom/badlogic/gdx/graphics/Mesh;
-    .param p3, "offset"    # I
-    .param p4, "size"    # I
-    .param p5, "type"    # I
 
     .line 80
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -126,15 +118,14 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->halfExtents:Lcom/badlogic/gdx/math/Vector3;
 
-    .line 66
     const/high16 v0, -0x40800000    # -1.0f
 
+    .line 66
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->radius:F
 
     .line 81
     invoke-virtual/range {p0 .. p5}, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->set(Ljava/lang/String;Lcom/badlogic/gdx/graphics/Mesh;III)Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
 
-    .line 82
     return-void
 .end method
 
@@ -142,13 +133,12 @@
 # virtual methods
 .method public equals(Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;)Z
     .locals 2
-    .param p1, "other"    # Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
 
-    .line 135
     if-eq p1, p0, :cond_1
 
     if-eqz p1, :cond_0
 
+    .line 135
     iget-object v0, p1, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->mesh:Lcom/badlogic/gdx/graphics/Mesh;
 
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->mesh:Lcom/badlogic/gdx/graphics/Mesh;
@@ -167,45 +157,42 @@
 
     if-ne v0, v1, :cond_0
 
-    iget v0, p1, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->size:I
+    iget p1, p1, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->size:I
 
-    iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->size:I
+    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->size:I
 
-    if-ne v0, v1, :cond_0
+    if-ne p1, v0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     :goto_1
-    return v0
+    return p1
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "arg0"    # Ljava/lang/Object;
 
-    .line 141
     const/4 v0, 0x0
 
     if-nez p1, :cond_0
 
     return v0
 
-    .line 142
     :cond_0
     if-ne p1, p0, :cond_1
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
     .line 143
     :cond_1
@@ -217,20 +204,17 @@
 
     .line 144
     :cond_2
-    move-object v0, p1
+    check-cast p1, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
 
-    check-cast v0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->equals(Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;)Z
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->equals(Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;)Z
+    move-result p1
 
-    move-result v0
-
-    return v0
+    return p1
 .end method
 
 .method public render(Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;)V
     .locals 4
-    .param p1, "shader"    # Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
 
     .line 159
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->mesh:Lcom/badlogic/gdx/graphics/Mesh;
@@ -243,14 +227,11 @@
 
     invoke-virtual {v0, p1, v1, v2, v3}, Lcom/badlogic/gdx/graphics/Mesh;->render(Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;III)V
 
-    .line 160
     return-void
 .end method
 
 .method public render(Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;Z)V
     .locals 6
-    .param p1, "shader"    # Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
-    .param p2, "autoBind"    # Z
 
     .line 152
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->mesh:Lcom/badlogic/gdx/graphics/Mesh;
@@ -267,13 +248,11 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/badlogic/gdx/graphics/Mesh;->render(Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;IIIZ)V
 
-    .line 153
     return-void
 .end method
 
 .method public set(Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;)Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
     .locals 2
-    .param p1, "other"    # Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
 
     .line 94
     iget-object v0, p1, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->id:Ljava/lang/String;
@@ -315,21 +294,15 @@
     invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
     .line 101
-    iget v0, p1, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->radius:F
+    iget p1, p1, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->radius:F
 
-    iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->radius:F
+    iput p1, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->radius:F
 
-    .line 102
     return-object p0
 .end method
 
 .method public set(Ljava/lang/String;Lcom/badlogic/gdx/graphics/Mesh;III)Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
-    .locals 2
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "mesh"    # Lcom/badlogic/gdx/graphics/Mesh;
-    .param p3, "offset"    # I
-    .param p4, "size"    # I
-    .param p5, "type"    # I
+    .locals 0
 
     .line 108
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->id:Ljava/lang/String;
@@ -347,23 +320,22 @@
     iput p5, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->primitiveType:I
 
     .line 113
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->center:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->center:Lcom/badlogic/gdx/math/Vector3;
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    invoke-virtual {v0, v1, v1, v1}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p1, p2, p2, p2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
     .line 114
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->halfExtents:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->halfExtents:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v0, v1, v1, v1}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p1, p2, p2, p2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+
+    const/high16 p1, -0x40800000    # -1.0f
 
     .line 115
-    const/high16 v0, -0x40800000    # -1.0f
+    iput p1, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->radius:F
 
-    iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->radius:F
-
-    .line 116
     return-object p0
 .end method
 
@@ -382,18 +354,14 @@
     invoke-virtual {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/Mesh;->calculateBoundingBox(Lcom/badlogic/gdx/math/collision/BoundingBox;II)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
     .line 125
-    sget-object v0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->bounds:Lcom/badlogic/gdx/math/collision/BoundingBox;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->center:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->center:Lcom/badlogic/gdx/math/Vector3;
-
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->getCenter(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v1, v0}, Lcom/badlogic/gdx/math/collision/BoundingBox;->getCenter(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
     .line 126
-    sget-object v0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->bounds:Lcom/badlogic/gdx/math/collision/BoundingBox;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->halfExtents:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->halfExtents:Lcom/badlogic/gdx/math/Vector3;
-
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->getDimensions(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v1, v0}, Lcom/badlogic/gdx/math/collision/BoundingBox;->getDimensions(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
     move-result-object v0
 
@@ -410,6 +378,5 @@
 
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->radius:F
 
-    .line 128
     return-void
 .end method

@@ -39,34 +39,26 @@
 
 # virtual methods
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 2
-    .param p1, "x0"    # Ljava/lang/Object;
-    .param p2, "x1"    # Ljava/lang/Object;
+    .locals 0
 
     .line 51
-    move-object v0, p1
+    check-cast p1, Ljava/lang/String;
 
-    check-cast v0, Ljava/lang/String;
+    check-cast p2, Ljava/lang/String;
 
-    move-object v1, p2
+    invoke-virtual {p0, p1, p2}, Lcom/nostra13/universalimageloader/utils/MemoryCacheUtils$1;->compare(Ljava/lang/String;Ljava/lang/String;)I
 
-    check-cast v1, Ljava/lang/String;
+    move-result p1
 
-    invoke-virtual {p0, v0, v1}, Lcom/nostra13/universalimageloader/utils/MemoryCacheUtils$1;->compare(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v0
-
-    return v0
+    return p1
 .end method
 
 .method public compare(Ljava/lang/String;Ljava/lang/String;)I
     .locals 3
-    .param p1, "key1"    # Ljava/lang/String;
-    .param p2, "key2"    # Ljava/lang/String;
 
-    .line 54
     const-string v0, "_"
 
+    .line 54
     invoke-virtual {p1, v0}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
 
     move-result v1
@@ -75,23 +67,21 @@
 
     invoke-virtual {p1, v2, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 55
-    .local v1, "imageUri1":Ljava/lang/String;
     invoke-virtual {p2, v0}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
 
     move-result v0
 
     invoke-virtual {p2, v2, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p2
 
     .line 56
-    .local v0, "imageUri2":Ljava/lang/String;
-    invoke-virtual {v1, v0}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
+    invoke-virtual {p1, p2}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
-    move-result v2
+    move-result p1
 
-    return v2
+    return p1
 .end method

@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public create(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -42,10 +42,9 @@
     .end annotation
 
     .line 286
-    .local p1, "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
-    new-instance v0, Landroidx/loader/app/LoaderManagerImpl$LoaderViewModel;
+    new-instance p1, Landroidx/loader/app/LoaderManagerImpl$LoaderViewModel;
 
-    invoke-direct {v0}, Landroidx/loader/app/LoaderManagerImpl$LoaderViewModel;-><init>()V
+    invoke-direct {p1}, Landroidx/loader/app/LoaderManagerImpl$LoaderViewModel;-><init>()V
 
-    return-object v0
+    return-object p1
 .end method

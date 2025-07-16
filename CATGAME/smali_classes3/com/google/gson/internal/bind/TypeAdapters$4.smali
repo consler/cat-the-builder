@@ -26,7 +26,7 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 156
+    .line 157
     invoke-direct {p0}, Lcom/google/gson/TypeAdapter;-><init>()V
 
     return-void
@@ -36,14 +36,13 @@
 # virtual methods
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Boolean;
     .locals 2
-    .param p1, "in"    # Lcom/google/gson/stream/JsonReader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 158
+    .line 159
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->peek()Lcom/google/gson/stream/JsonToken;
 
     move-result-object v0
@@ -52,25 +51,24 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 159
+    .line 160
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextNull()V
 
-    .line 160
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 
-    .line 162
+    .line 163
     :cond_0
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Ljava/lang/String;)Ljava/lang/Boolean;
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Ljava/lang/String;)Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
@@ -81,7 +79,7 @@
         }
     .end annotation
 
-    .line 156
+    .line 157
     invoke-virtual {p0, p1}, Lcom/google/gson/internal/bind/TypeAdapters$4;->read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Boolean;
 
     move-result-object p1
@@ -90,31 +88,28 @@
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Boolean;)V
-    .locals 1
-    .param p1, "out"    # Lcom/google/gson/stream/JsonWriter;
-    .param p2, "value"    # Ljava/lang/Boolean;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 166
     if-nez p2, :cond_0
 
-    const-string v0, "null"
+    const-string p2, "null"
 
     goto :goto_0
 
+    .line 167
     :cond_0
     invoke-virtual {p2}, Ljava/lang/Boolean;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p2
 
     :goto_0
-    invoke-virtual {p1, v0}, Lcom/google/gson/stream/JsonWriter;->value(Ljava/lang/String;)Lcom/google/gson/stream/JsonWriter;
+    invoke-virtual {p1, p2}, Lcom/google/gson/stream/JsonWriter;->value(Ljava/lang/String;)Lcom/google/gson/stream/JsonWriter;
 
-    .line 167
     return-void
 .end method
 
@@ -126,7 +121,7 @@
         }
     .end annotation
 
-    .line 156
+    .line 157
     check-cast p2, Ljava/lang/Boolean;
 
     invoke-virtual {p0, p1, p2}, Lcom/google/gson/internal/bind/TypeAdapters$4;->write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Boolean;)V

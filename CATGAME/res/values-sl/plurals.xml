@@ -86,7 +86,7 @@
     </plurals>
     <plurals name="delete_scripts">
         <item quantity="other">Delete these scripts?</item>
-        <item quantity="one">Delete this script?</item>
+        <item quantity="one">Izbriši ta scenarij?</item>
         <item quantity="two">Delete these scripts?</item>
         <item quantity="few">Delete these scripts?</item>
     </plurals>

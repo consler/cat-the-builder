@@ -10,7 +10,6 @@
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 34
     return-void
 .end method
 
@@ -48,13 +47,12 @@
 .end method
 
 .method public static isSequentialExecutor(Ljava/util/concurrent/Executor;)Z
-    .locals 1
-    .param p0, "executor"    # Ljava/util/concurrent/Executor;
+    .locals 0
 
     .line 73
-    instance-of v0, p0, Landroidx/camera/core/impl/utils/executor/SequentialExecutor;
+    instance-of p0, p0, Landroidx/camera/core/impl/utils/executor/SequentialExecutor;
 
-    return v0
+    return p0
 .end method
 
 .method public static mainThreadExecutor()Ljava/util/concurrent/ScheduledExecutorService;
@@ -81,7 +79,6 @@
 
 .method public static newHandlerExecutor(Landroid/os/Handler;)Ljava/util/concurrent/ScheduledExecutorService;
     .locals 1
-    .param p0, "handler"    # Landroid/os/Handler;
 
     .line 94
     new-instance v0, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService;
@@ -93,7 +90,6 @@
 
 .method public static newSequentialExecutor(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/Executor;
     .locals 1
-    .param p0, "delegate"    # Ljava/util/concurrent/Executor;
 
     .line 65
     new-instance v0, Landroidx/camera/core/impl/utils/executor/SequentialExecutor;

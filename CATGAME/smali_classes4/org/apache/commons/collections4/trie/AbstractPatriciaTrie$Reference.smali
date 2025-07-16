@@ -38,7 +38,6 @@
     .locals 0
 
     .line 1256
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$Reference;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$Reference<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -46,10 +45,8 @@
 
 .method synthetic constructor <init>(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$1;
 
     .line 1256
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$Reference;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$Reference<TE;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$Reference;-><init>()V
 
     return-void
@@ -66,7 +63,6 @@
     .end annotation
 
     .line 1265
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$Reference;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$Reference<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$Reference;->item:Ljava/lang/Object;
 
     return-object v0
@@ -81,10 +77,7 @@
     .end annotation
 
     .line 1261
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$Reference;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$Reference<TE;>;"
-    .local p1, "item":Ljava/lang/Object;, "TE;"
     iput-object p1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$Reference;->item:Ljava/lang/Object;
 
-    .line 1262
     return-void
 .end method

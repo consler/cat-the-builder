@@ -24,7 +24,6 @@
     .locals 0
 
     .line 48
-    .local p0, "this":Lorg/apache/commons/collections4/functors/CatchAndRethrowClosure;, "Lorg/apache/commons/collections4/functors/CatchAndRethrowClosure<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -33,7 +32,7 @@
 
 # virtual methods
 .method public execute(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)V"
@@ -41,40 +40,29 @@
     .end annotation
 
     .line 60
-    .local p0, "this":Lorg/apache/commons/collections4/functors/CatchAndRethrowClosure;, "Lorg/apache/commons/collections4/functors/CatchAndRethrowClosure<TE;>;"
-    .local p1, "input":Ljava/lang/Object;, "TE;"
     :try_start_0
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/functors/CatchAndRethrowClosure;->executeAndThrow(Ljava/lang/Object;)V
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 65
-    nop
-
-    .line 66
     return-void
 
-    .line 63
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     .line 64
-    .local v0, "t":Ljava/lang/Throwable;
-    new-instance v1, Lorg/apache/commons/collections4/FunctorException;
+    new-instance v0, Lorg/apache/commons/collections4/FunctorException;
 
-    invoke-direct {v1, v0}, Lorg/apache/commons/collections4/FunctorException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Lorg/apache/commons/collections4/FunctorException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 
-    .line 61
-    .end local v0    # "t":Ljava/lang/Throwable;
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 62
-    .local v0, "ex":Ljava/lang/RuntimeException;
-    throw v0
+    throw p1
 .end method
 
 .method protected abstract executeAndThrow(Ljava/lang/Object;)V

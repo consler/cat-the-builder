@@ -44,11 +44,8 @@
     .end annotation
 
     .line 752
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectIntMap$Keys;, "Lcom/badlogic/gdx/utils/ObjectIntMap$Keys<TK;>;"
-    .local p1, "map":Lcom/badlogic/gdx/utils/ObjectIntMap;, "Lcom/badlogic/gdx/utils/ObjectIntMap<TK;>;"
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/ObjectIntMap$MapIterator;-><init>(Lcom/badlogic/gdx/utils/ObjectIntMap;)V
 
-    .line 753
     return-void
 .end method
 
@@ -58,7 +55,6 @@
     .locals 2
 
     .line 756
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectIntMap$Keys;, "Lcom/badlogic/gdx/utils/ObjectIntMap$Keys<TK;>;"
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/ObjectIntMap$Keys;->valid:Z
 
     if-eqz v0, :cond_0
@@ -89,8 +85,6 @@
         }
     .end annotation
 
-    .line 770
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectIntMap$Keys;, "Lcom/badlogic/gdx/utils/ObjectIntMap$Keys<TK;>;"
     return-object p0
 .end method
 
@@ -98,7 +92,6 @@
     .locals 1
 
     .line 750
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectIntMap$Keys;, "Lcom/badlogic/gdx/utils/ObjectIntMap$Keys<TK;>;"
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/ObjectIntMap$Keys;->iterator()Lcom/badlogic/gdx/utils/ObjectIntMap$Keys;
 
     move-result-object v0
@@ -115,7 +108,6 @@
     .end annotation
 
     .line 761
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectIntMap$Keys;, "Lcom/badlogic/gdx/utils/ObjectIntMap$Keys<TK;>;"
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/ObjectIntMap$Keys;->hasNext:Z
 
     if-eqz v0, :cond_1
@@ -135,7 +127,6 @@
     aget-object v0, v0, v1
 
     .line 764
-    .local v0, "key":Ljava/lang/Object;, "TK;"
     iget v1, p0, Lcom/badlogic/gdx/utils/ObjectIntMap$Keys;->nextIndex:I
 
     iput v1, p0, Lcom/badlogic/gdx/utils/ObjectIntMap$Keys;->currentIndex:I
@@ -143,11 +134,9 @@
     .line 765
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/ObjectIntMap$Keys;->findNextIndex()V
 
-    .line 766
     return-object v0
 
     .line 762
-    .end local v0    # "key":Ljava/lang/Object;, "TK;"
     :cond_0
     new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
@@ -170,10 +159,8 @@
     .locals 0
 
     .line 789
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectIntMap$Keys;, "Lcom/badlogic/gdx/utils/ObjectIntMap$Keys<TK;>;"
     invoke-super {p0}, Lcom/badlogic/gdx/utils/ObjectIntMap$MapIterator;->remove()V
 
-    .line 790
     return-void
 .end method
 
@@ -181,7 +168,6 @@
     .locals 0
 
     .line 750
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectIntMap$Keys;, "Lcom/badlogic/gdx/utils/ObjectIntMap$Keys<TK;>;"
     invoke-super {p0}, Lcom/badlogic/gdx/utils/ObjectIntMap$MapIterator;->reset()V
 
     return-void
@@ -198,7 +184,6 @@
     .end annotation
 
     .line 775
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectIntMap$Keys;, "Lcom/badlogic/gdx/utils/ObjectIntMap$Keys<TK;>;"
     new-instance v0, Lcom/badlogic/gdx/utils/Array;
 
     iget-object v1, p0, Lcom/badlogic/gdx/utils/ObjectIntMap$Keys;->map:Lcom/badlogic/gdx/utils/ObjectIntMap;
@@ -210,7 +195,6 @@
     invoke-direct {v0, v2, v1}, Lcom/badlogic/gdx/utils/Array;-><init>(ZI)V
 
     .line 776
-    .local v0, "array":Lcom/badlogic/gdx/utils/Array;
     :goto_0
     iget-boolean v1, p0, Lcom/badlogic/gdx/utils/ObjectIntMap$Keys;->hasNext:Z
 
@@ -225,7 +209,6 @@
 
     goto :goto_0
 
-    .line 778
     :cond_0
     return-object v0
 .end method
@@ -243,8 +226,6 @@
     .end annotation
 
     .line 783
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectIntMap$Keys;, "Lcom/badlogic/gdx/utils/ObjectIntMap$Keys<TK;>;"
-    .local p1, "array":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<TK;>;"
     :goto_0
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/ObjectIntMap$Keys;->hasNext:Z
 
@@ -259,7 +240,6 @@
 
     goto :goto_0
 
-    .line 785
     :cond_0
     return-object p1
 .end method

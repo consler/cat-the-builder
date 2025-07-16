@@ -19,23 +19,22 @@
 
 # virtual methods
 .method public transform(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
-    .param p1, "input"    # Ljava/lang/Object;
+    .locals 2
 
     .line 87
     new-instance v0, Ljava/lang/Character;
 
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
 
-    move-result v1
+    move-result p1
 
-    invoke-direct {v0, v1}, Ljava/lang/Character;-><init>(C)V
+    invoke-direct {v0, p1}, Ljava/lang/Character;-><init>(C)V
 
     return-object v0
 .end method

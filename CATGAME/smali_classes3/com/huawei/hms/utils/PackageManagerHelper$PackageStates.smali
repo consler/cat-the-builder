@@ -29,14 +29,16 @@
 
 .field public static final enum NOT_INSTALLED:Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
 
-.field private static final synthetic a:[Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
+.field public static final enum SPOOF:Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
+
+.field public static final synthetic a:[Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 6
+.method public static constructor <clinit>()V
+    .locals 9
 
-    .line 254
+    .line 1
     new-instance v0, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
 
     const-string v1, "ENABLED"
@@ -47,49 +49,58 @@
 
     sput-object v0, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;->ENABLED:Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
 
-    .line 258
-    new-instance v0, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
+    .line 5
+    new-instance v1, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
 
-    const-string v1, "DISABLED"
+    const-string v3, "DISABLED"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;->DISABLED:Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
+    sput-object v1, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;->DISABLED:Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
 
-    .line 262
-    new-instance v0, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
+    .line 9
+    new-instance v3, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
 
-    const-string v1, "NOT_INSTALLED"
+    const-string v5, "NOT_INSTALLED"
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v1, v4}, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;->NOT_INSTALLED:Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
+    sput-object v3, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;->NOT_INSTALLED:Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
 
-    .line 250
-    const/4 v1, 0x3
+    .line 13
+    new-instance v5, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
 
-    new-array v1, v1, [Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
+    const-string v7, "SPOOF"
 
-    sget-object v5, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;->ENABLED:Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
+    const/4 v8, 0x3
 
-    aput-object v5, v1, v2
+    invoke-direct {v5, v7, v8}, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;-><init>(Ljava/lang/String;I)V
 
-    sget-object v2, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;->DISABLED:Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
+    sput-object v5, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;->SPOOF:Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
 
-    aput-object v2, v1, v3
+    const/4 v7, 0x4
 
-    aput-object v0, v1, v4
+    new-array v7, v7, [Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
 
-    sput-object v1, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;->a:[Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
+    aput-object v0, v7, v2
+
+    aput-object v1, v7, v4
+
+    aput-object v3, v7, v6
+
+    aput-object v5, v7, v8
+
+    .line 14
+    sput-object v7, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;->a:[Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
 
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;I)V
+.method public constructor <init>(Ljava/lang/String;I)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -97,7 +108,7 @@
         }
     .end annotation
 
-    .line 250
+    .line 1
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -106,7 +117,7 @@
 .method public static valueOf(Ljava/lang/String;)Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
     .locals 1
 
-    .line 250
+    .line 1
     const-class v0, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -121,7 +132,7 @@
 .method public static values()[Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
     .locals 1
 
-    .line 250
+    .line 1
     sget-object v0, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;->a:[Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
 
     invoke-virtual {v0}, [Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;->clone()Ljava/lang/Object;

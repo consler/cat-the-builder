@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(JLio/reactivex/internal/operators/flowable/FlowableWindowTimed$WindowExactBoundedSubscriber;)V
     .locals 0
-    .param p1, "index"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -43,7 +42,6 @@
     .end annotation
 
     .line 579
-    .local p3, "parent":Lio/reactivex/internal/operators/flowable/FlowableWindowTimed$WindowExactBoundedSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableWindowTimed$WindowExactBoundedSubscriber<*>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 580
@@ -52,7 +50,6 @@
     .line 581
     iput-object p3, p0, Lio/reactivex/internal/operators/flowable/FlowableWindowTimed$WindowExactBoundedSubscriber$ConsumerIndexHolder;->parent:Lio/reactivex/internal/operators/flowable/FlowableWindowTimed$WindowExactBoundedSubscriber;
 
-    .line 582
     return-void
 .end method
 
@@ -65,7 +62,6 @@
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableWindowTimed$WindowExactBoundedSubscriber$ConsumerIndexHolder;->parent:Lio/reactivex/internal/operators/flowable/FlowableWindowTimed$WindowExactBoundedSubscriber;
 
     .line 588
-    .local v0, "p":Lio/reactivex/internal/operators/flowable/FlowableWindowTimed$WindowExactBoundedSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableWindowTimed$WindowExactBoundedSubscriber<*>;"
     invoke-static {v0}, Lio/reactivex/internal/operators/flowable/FlowableWindowTimed$WindowExactBoundedSubscriber;->access$000(Lio/reactivex/internal/operators/flowable/FlowableWindowTimed$WindowExactBoundedSubscriber;)Z
 
     move-result v1
@@ -81,10 +77,10 @@
 
     goto :goto_0
 
-    .line 591
     :cond_0
     const/4 v1, 0x1
 
+    .line 591
     iput-boolean v1, v0, Lio/reactivex/internal/operators/flowable/FlowableWindowTimed$WindowExactBoundedSubscriber;->terminated:Z
 
     .line 592
@@ -101,7 +97,6 @@
     .line 595
     invoke-virtual {v0}, Lio/reactivex/internal/operators/flowable/FlowableWindowTimed$WindowExactBoundedSubscriber;->drainLoop()V
 
-    .line 597
     :cond_1
     return-void
 .end method

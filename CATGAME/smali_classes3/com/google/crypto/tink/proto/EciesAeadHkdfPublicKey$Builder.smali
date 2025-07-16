@@ -38,13 +38,11 @@
 
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
-    .line 308
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey$1;
 
     .line 300
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey$Builder;-><init>()V
@@ -67,7 +65,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;->access$500(Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;)V
 
-    .line 419
     return-object p0
 .end method
 
@@ -84,7 +81,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;->access$200(Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;)V
 
-    .line 348
     return-object p0
 .end method
 
@@ -101,7 +97,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;->access$700(Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;)V
 
-    .line 465
     return-object p0
 .end method
 
@@ -118,7 +113,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;->access$900(Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;)V
 
-    .line 505
     return-object p0
 .end method
 
@@ -199,7 +193,6 @@
 
 .method public mergeParams(Lcom/google/crypto/tink/proto/EciesAeadHkdfParams;)Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/EciesAeadHkdfParams;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -219,13 +212,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;->access$400(Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;Lcom/google/crypto/tink/proto/EciesAeadHkdfParams;)V
 
-    .line 408
     return-object p0
 .end method
 
 .method public setParams(Lcom/google/crypto/tink/proto/EciesAeadHkdfParams$Builder;)Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey$Builder;
-    .locals 2
-    .param p1, "builderForValue"    # Lcom/google/crypto/tink/proto/EciesAeadHkdfParams$Builder;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -245,19 +236,17 @@
 
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/EciesAeadHkdfParams$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Lcom/google/crypto/tink/proto/EciesAeadHkdfParams;
+    check-cast p1, Lcom/google/crypto/tink/proto/EciesAeadHkdfParams;
 
-    invoke-static {v0, v1}, Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;->access$300(Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;Lcom/google/crypto/tink/proto/EciesAeadHkdfParams;)V
+    invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;->access$300(Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;Lcom/google/crypto/tink/proto/EciesAeadHkdfParams;)V
 
-    .line 396
     return-object p0
 .end method
 
 .method public setParams(Lcom/google/crypto/tink/proto/EciesAeadHkdfParams;)Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/EciesAeadHkdfParams;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -277,13 +266,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;->access$300(Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;Lcom/google/crypto/tink/proto/EciesAeadHkdfParams;)V
 
-    .line 383
     return-object p0
 .end method
 
 .method public setVersion(I)Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -303,13 +290,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;->access$100(Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;I)V
 
-    .line 335
     return-object p0
 .end method
 
 .method public setX(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -329,13 +314,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;->access$600(Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    .line 450
     return-object p0
 .end method
 
 .method public setY(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -355,6 +338,5 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;->access$800(Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    .line 492
     return-object p0
 .end method

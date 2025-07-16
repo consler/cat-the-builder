@@ -39,11 +39,8 @@
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)V
     .locals 0
-    .param p1, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p2, "scheduler"    # Lio/reactivex/Scheduler;
 
     .line 391
-    .local p0, "this":Lio/reactivex/internal/functions/Functions$TimestampFunction;, "Lio/reactivex/internal/functions/Functions$TimestampFunction<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 392
@@ -52,7 +49,6 @@
     .line 393
     iput-object p2, p0, Lio/reactivex/internal/functions/Functions$TimestampFunction;->scheduler:Lio/reactivex/Scheduler;
 
-    .line 394
     return-void
 .end method
 
@@ -75,8 +71,6 @@
     .end annotation
 
     .line 398
-    .local p0, "this":Lio/reactivex/internal/functions/Functions$TimestampFunction;, "Lio/reactivex/internal/functions/Functions$TimestampFunction<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     new-instance v0, Lio/reactivex/schedulers/Timed;
 
     iget-object v1, p0, Lio/reactivex/internal/functions/Functions$TimestampFunction;->scheduler:Lio/reactivex/Scheduler;
@@ -95,8 +89,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -104,10 +97,9 @@
     .end annotation
 
     .line 386
-    .local p0, "this":Lio/reactivex/internal/functions/Functions$TimestampFunction;, "Lio/reactivex/internal/functions/Functions$TimestampFunction<TT;>;"
     invoke-virtual {p0, p1}, Lio/reactivex/internal/functions/Functions$TimestampFunction;->apply(Ljava/lang/Object;)Lio/reactivex/schedulers/Timed;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

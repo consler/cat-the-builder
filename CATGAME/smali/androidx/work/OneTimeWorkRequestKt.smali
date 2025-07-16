@@ -5,11 +5,6 @@
 
 # annotations
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u0000\u001a\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\u001a\u0015\u0010\u0000\u001a\u00020\u0001\"\n\u0008\u0000\u0010\u0002\u0018\u0001*\u00020\u0003H\u0086\u0008\u001a\u001f\u0010\u0004\u001a\u00020\u0001*\u00020\u00012\u0010\u0008\u0001\u0010\u0005\u001a\n\u0012\u0006\u0008\u0001\u0012\u00020\u00070\u0006H\u0086\u0008\u00a8\u0006\u0008"
     }
@@ -27,15 +22,16 @@
     k = 0x2
     mv = {
         0x1,
-        0x4,
+        0x5,
         0x1
     }
+    xi = 0x30
 .end annotation
 
 
 # direct methods
 .method public static final synthetic OneTimeWorkRequestBuilder()Landroidx/work/OneTimeWorkRequest$Builder;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<W:",
@@ -45,29 +41,28 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
-
     .line 29
-    .local v0, "$i$f$OneTimeWorkRequestBuilder":I
-    new-instance v1, Landroidx/work/OneTimeWorkRequest$Builder;
+    new-instance v0, Landroidx/work/OneTimeWorkRequest$Builder;
 
-    const/4 v2, 0x4
+    const/4 v1, 0x4
 
-    const-string v3, "W"
+    const-string v2, "W"
 
-    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
+    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
-    const-class v2, Landroidx/work/ListenableWorker;
+    const-class v1, Landroidx/work/ListenableWorker;
 
-    invoke-direct {v1, v2}, Landroidx/work/OneTimeWorkRequest$Builder;-><init>(Ljava/lang/Class;)V
+    move-object v2, v1
 
-    return-object v1
+    check-cast v2, Ljava/lang/Class;
+
+    invoke-direct {v0, v1}, Landroidx/work/OneTimeWorkRequest$Builder;-><init>(Ljava/lang/Class;)V
+
+    return-object v0
 .end method
 
 .method public static final setInputMerger(Landroidx/work/OneTimeWorkRequest$Builder;Lkotlin/reflect/KClass;)Landroidx/work/OneTimeWorkRequest$Builder;
-    .locals 3
-    .param p0, "$this$setInputMerger"    # Landroidx/work/OneTimeWorkRequest$Builder;
-    .param p1, "inputMerger"    # Lkotlin/reflect/KClass;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -80,29 +75,26 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const-string v0, "<this>"
 
-    .local v0, "$i$f$setInputMerger":I
-    const-string v1, "$this$setInputMerger"
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {p0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v0, "inputMerger"
 
-    const-string v1, "inputMerger"
-
-    invoke-static {p1, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 36
     invoke-static {p1}, Lkotlin/jvm/JvmClassMappingKt;->getJavaClass(Lkotlin/reflect/KClass;)Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {p0, v1}, Landroidx/work/OneTimeWorkRequest$Builder;->setInputMerger(Ljava/lang/Class;)Landroidx/work/OneTimeWorkRequest$Builder;
+    invoke-virtual {p0, p1}, Landroidx/work/OneTimeWorkRequest$Builder;->setInputMerger(Ljava/lang/Class;)Landroidx/work/OneTimeWorkRequest$Builder;
 
-    move-result-object v1
+    move-result-object p0
 
-    const-string v2, "setInputMerger(inputMerger.java)"
+    const-string p1, "setInputMerger(inputMerger.java)"
 
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    return-object v1
+    return-object p0
 .end method

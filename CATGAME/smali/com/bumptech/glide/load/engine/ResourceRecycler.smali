@@ -40,7 +40,6 @@
 
     iput-object v0, p0, Lcom/bumptech/glide/load/engine/ResourceRecycler;->handler:Landroid/os/Handler;
 
-    .line 11
     return-void
 .end method
 
@@ -48,7 +47,6 @@
 # virtual methods
 .method declared-synchronized recycle(Lcom/bumptech/glide/load/engine/Resource;Z)V
     .locals 2
-    .param p2, "forceNextFrame"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -57,7 +55,6 @@
         }
     .end annotation
 
-    .local p1, "resource":Lcom/bumptech/glide/load/engine/Resource;, "Lcom/bumptech/glide/load/engine/Resource<*>;"
     monitor-enter p0
 
     .line 15
@@ -79,24 +76,23 @@
     .line 22
     invoke-interface {p1}, Lcom/bumptech/glide/load/engine/Resource;->recycle()V
 
-    .line 23
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/ResourceRecycler;->isRecycling:Z
+    .line 23
+    iput-boolean p1, p0, Lcom/bumptech/glide/load/engine/ResourceRecycler;->isRecycling:Z
 
     goto :goto_1
 
     .line 19
-    .end local p0    # "this":Lcom/bumptech/glide/load/engine/ResourceRecycler;
     :cond_1
     :goto_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/ResourceRecycler;->handler:Landroid/os/Handler;
+    iget-object p2, p0, Lcom/bumptech/glide/load/engine/ResourceRecycler;->handler:Landroid/os/Handler;
 
-    invoke-virtual {v0, v1, p1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p2, v1, p1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual {p1}, Landroid/os/Message;->sendToTarget()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -106,9 +102,6 @@
 
     return-void
 
-    .line 14
-    .end local p1    # "resource":Lcom/bumptech/glide/load/engine/Resource;, "Lcom/bumptech/glide/load/engine/Resource<*>;"
-    .end local p2    # "forceNextFrame":Z
     :catchall_0
     move-exception p1
 

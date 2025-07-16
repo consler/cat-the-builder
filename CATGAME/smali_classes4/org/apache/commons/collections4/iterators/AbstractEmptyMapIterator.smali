@@ -22,10 +22,8 @@
     .locals 0
 
     .line 32
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator;, "Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator<TK;TV;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/iterators/AbstractEmptyIterator;-><init>()V
 
-    .line 33
     return-void
 .end method
 
@@ -35,7 +33,6 @@
     .locals 0
 
     .line 26
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator;, "Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator<TK;TV;>;"
     invoke-super {p0, p1}, Lorg/apache/commons/collections4/iterators/AbstractEmptyIterator;->add(Ljava/lang/Object;)V
 
     return-void
@@ -50,7 +47,6 @@
     .end annotation
 
     .line 36
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator;, "Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator<TK;TV;>;"
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Iterator contains no elements"
@@ -69,7 +65,6 @@
     .end annotation
 
     .line 40
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator;, "Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator<TK;TV;>;"
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Iterator contains no elements"
@@ -83,7 +78,6 @@
     .locals 1
 
     .line 26
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator;, "Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator<TK;TV;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/iterators/AbstractEmptyIterator;->hasNext()Z
 
     move-result v0
@@ -95,7 +89,6 @@
     .locals 1
 
     .line 26
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator;, "Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator<TK;TV;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/iterators/AbstractEmptyIterator;->hasPrevious()Z
 
     move-result v0
@@ -107,7 +100,6 @@
     .locals 1
 
     .line 26
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator;, "Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator<TK;TV;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/iterators/AbstractEmptyIterator;->next()Ljava/lang/Object;
 
     move-result-object v0
@@ -119,7 +111,6 @@
     .locals 1
 
     .line 26
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator;, "Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator<TK;TV;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/iterators/AbstractEmptyIterator;->nextIndex()I
 
     move-result v0
@@ -131,7 +122,6 @@
     .locals 1
 
     .line 26
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator;, "Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator<TK;TV;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/iterators/AbstractEmptyIterator;->previous()Ljava/lang/Object;
 
     move-result-object v0
@@ -143,7 +133,6 @@
     .locals 1
 
     .line 26
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator;, "Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator<TK;TV;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/iterators/AbstractEmptyIterator;->previousIndex()I
 
     move-result v0
@@ -155,7 +144,6 @@
     .locals 0
 
     .line 26
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator;, "Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator<TK;TV;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/iterators/AbstractEmptyIterator;->remove()V
 
     return-void
@@ -165,7 +153,6 @@
     .locals 0
 
     .line 26
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator;, "Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator<TK;TV;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/iterators/AbstractEmptyIterator;->reset()V
 
     return-void
@@ -175,14 +162,13 @@
     .locals 0
 
     .line 26
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator;, "Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator<TK;TV;>;"
     invoke-super {p0, p1}, Lorg/apache/commons/collections4/iterators/AbstractEmptyIterator;->set(Ljava/lang/Object;)V
 
     return-void
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)TV;"
@@ -190,13 +176,11 @@
     .end annotation
 
     .line 44
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator;, "Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator<TK;TV;>;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Iterator contains no elements"
+    const-string v0, "Iterator contains no elements"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

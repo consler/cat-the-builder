@@ -33,142 +33,103 @@
 
 # virtual methods
 .method public fling(FFI)Z
-    .locals 1
-    .param p1, "velocityX"    # F
-    .param p2, "velocityY"    # F
-    .param p3, "button"    # I
+    .locals 0
 
-    .line 99
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public longPress(FF)Z
-    .locals 1
-    .param p1, "x"    # F
-    .param p2, "y"    # F
+    .locals 0
 
-    .line 94
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public pan(FFFF)Z
-    .locals 1
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "deltaX"    # F
-    .param p4, "deltaY"    # F
+    .locals 0
 
-    .line 104
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public pinch(Lcom/badlogic/gdx/math/Vector2;Lcom/badlogic/gdx/math/Vector2;Lcom/badlogic/gdx/math/Vector2;Lcom/badlogic/gdx/math/Vector2;)Z
-    .locals 1
-    .param p1, "initialPointer1"    # Lcom/badlogic/gdx/math/Vector2;
-    .param p2, "initialPointer2"    # Lcom/badlogic/gdx/math/Vector2;
-    .param p3, "pointer1"    # Lcom/badlogic/gdx/math/Vector2;
-    .param p4, "pointer2"    # Lcom/badlogic/gdx/math/Vector2;
+    .locals 0
 
-    .line 118
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public tap(FFII)Z
-    .locals 1
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "count"    # I
-    .param p4, "button"    # I
+    .locals 0
 
-    .line 89
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public touchDown(FFII)Z
-    .locals 1
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "pointer"    # I
-    .param p4, "button"    # I
+    .locals 0
+
+    const/4 p1, 0x0
 
     .line 83
-    const/4 v0, 0x0
+    iput p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController$CameraGestureListener;->previousZoom:F
 
-    iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController$CameraGestureListener;->previousZoom:F
+    const/4 p1, 0x0
 
-    .line 84
-    const/4 v0, 0x0
-
-    return v0
+    return p1
 .end method
 
 .method public zoom(FF)Z
-    .locals 6
-    .param p1, "initialDistance"    # F
-    .param p2, "distance"    # F
+    .locals 3
 
-    .line 109
-    sub-float v0, p2, p1
+    sub-float/2addr p2, p1
 
     .line 110
-    .local v0, "newZoom":F
-    iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController$CameraGestureListener;->previousZoom:F
+    iget p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController$CameraGestureListener;->previousZoom:F
 
-    sub-float v1, v0, v1
+    sub-float p1, p2, p1
 
     .line 111
-    .local v1, "amount":F
-    iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController$CameraGestureListener;->previousZoom:F
+    iput p2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController$CameraGestureListener;->previousZoom:F
 
     .line 112
-    sget-object v2, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
+    sget-object p2, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
 
-    invoke-interface {v2}, Lcom/badlogic/gdx/Graphics;->getWidth()I
+    invoke-interface {p2}, Lcom/badlogic/gdx/Graphics;->getWidth()I
 
-    move-result v2
+    move-result p2
 
-    int-to-float v2, v2
+    int-to-float p2, p2
 
-    .local v2, "w":F
-    sget-object v3, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
+    sget-object v0, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
 
-    invoke-interface {v3}, Lcom/badlogic/gdx/Graphics;->getHeight()I
+    invoke-interface {v0}, Lcom/badlogic/gdx/Graphics;->getHeight()I
 
-    move-result v3
+    move-result v0
 
-    int-to-float v3, v3
+    int-to-float v0, v0
 
     .line 113
-    .local v3, "h":F
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController$CameraGestureListener;->controller:Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController$CameraGestureListener;->controller:Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;
 
-    cmpl-float v5, v2, v3
+    cmpl-float v2, p2, v0
 
-    if-lez v5, :cond_0
+    if-lez v2, :cond_0
 
-    move v5, v3
-
-    goto :goto_0
+    move p2, v0
 
     :cond_0
-    move v5, v2
+    div-float/2addr p1, p2
 
-    :goto_0
-    div-float v5, v1, v5
+    invoke-virtual {v1, p1}, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->pinchZoom(F)Z
 
-    invoke-virtual {v4, v5}, Lcom/badlogic/gdx/graphics/g3d/utils/CameraInputController;->pinchZoom(F)Z
+    move-result p1
 
-    move-result v4
-
-    return v4
+    return p1
 .end method

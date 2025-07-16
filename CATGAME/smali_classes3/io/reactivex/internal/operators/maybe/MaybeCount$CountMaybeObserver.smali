@@ -57,13 +57,11 @@
     .end annotation
 
     .line 49
-    .local p1, "actual":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-Ljava/lang/Long;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 50
     iput-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeCount$CountMaybeObserver;->actual:Lio/reactivex/SingleObserver;
 
-    .line 51
     return-void
 .end method
 
@@ -82,7 +80,6 @@
 
     iput-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeCount$CountMaybeObserver;->d:Lio/reactivex/disposables/Disposable;
 
-    .line 89
     return-void
 .end method
 
@@ -118,13 +115,11 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/SingleObserver;->onSuccess(Ljava/lang/Object;)V
 
-    .line 78
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 70
     sget-object v0, Lio/reactivex/internal/disposables/DisposableHelper;->DISPOSED:Lio/reactivex/internal/disposables/DisposableHelper;
@@ -136,13 +131,11 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/SingleObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 72
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 55
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeCount$CountMaybeObserver;->d:Lio/reactivex/disposables/Disposable;
@@ -157,35 +150,32 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeCount$CountMaybeObserver;->d:Lio/reactivex/disposables/Disposable;
 
     .line 58
-    iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeCount$CountMaybeObserver;->actual:Lio/reactivex/SingleObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeCount$CountMaybeObserver;->actual:Lio/reactivex/SingleObserver;
 
-    invoke-interface {v0, p0}, Lio/reactivex/SingleObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/SingleObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 60
     :cond_0
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/Object;)V
-    .locals 3
-    .param p1, "value"    # Ljava/lang/Object;
+    .locals 2
 
     .line 64
-    sget-object v0, Lio/reactivex/internal/disposables/DisposableHelper;->DISPOSED:Lio/reactivex/internal/disposables/DisposableHelper;
+    sget-object p1, Lio/reactivex/internal/disposables/DisposableHelper;->DISPOSED:Lio/reactivex/internal/disposables/DisposableHelper;
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeCount$CountMaybeObserver;->d:Lio/reactivex/disposables/Disposable;
+    iput-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeCount$CountMaybeObserver;->d:Lio/reactivex/disposables/Disposable;
 
     .line 65
-    iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeCount$CountMaybeObserver;->actual:Lio/reactivex/SingleObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeCount$CountMaybeObserver;->actual:Lio/reactivex/SingleObserver;
 
-    const-wide/16 v1, 0x1
+    const-wide/16 v0, 0x1
 
-    invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v0, v1}, Lio/reactivex/SingleObserver;->onSuccess(Ljava/lang/Object;)V
+    invoke-interface {p1, v0}, Lio/reactivex/SingleObserver;->onSuccess(Ljava/lang/Object;)V
 
-    .line 66
     return-void
 .end method

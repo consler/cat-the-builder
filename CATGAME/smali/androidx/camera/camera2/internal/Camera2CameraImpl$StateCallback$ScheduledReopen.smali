@@ -27,24 +27,21 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback;Ljava/util/concurrent/Executor;)V
-    .locals 1
-    .param p1, "this$1"    # Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback;
-    .param p2, "executor"    # Ljava/util/concurrent/Executor;
+    .locals 0
 
     .line 1444
     iput-object p1, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback$ScheduledReopen;->this$1:Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1442
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-boolean v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback$ScheduledReopen;->mCancelled:Z
+    .line 1442
+    iput-boolean p1, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback$ScheduledReopen;->mCancelled:Z
 
     .line 1445
     iput-object p2, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback$ScheduledReopen;->mExecutor:Ljava/util/concurrent/Executor;
 
-    .line 1446
     return-void
 .end method
 
@@ -53,16 +50,15 @@
 .method cancel()V
     .locals 1
 
-    .line 1449
     const/4 v0, 0x1
 
+    .line 1449
     iput-boolean v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback$ScheduledReopen;->mCancelled:Z
 
-    .line 1450
     return-void
 .end method
 
-.method public synthetic lambda$run$0$Camera2CameraImpl$StateCallback$ScheduledReopen()V
+.method synthetic lambda$run$0$androidx-camera-camera2-internal-Camera2CameraImpl$StateCallback$ScheduledReopen()V
     .locals 2
 
     .line 1457
@@ -98,7 +94,6 @@
 
     invoke-virtual {v0}, Landroidx/camera/camera2/internal/Camera2CameraImpl;->openCameraDevice()V
 
-    .line 1461
     :cond_1
     return-void
 .end method
@@ -109,12 +104,11 @@
     .line 1454
     iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback$ScheduledReopen;->mExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v1, Landroidx/camera/camera2/internal/-$$Lambda$Camera2CameraImpl$StateCallback$ScheduledReopen$as759NiVIxRtxg9ZN460DXMl1dI;
+    new-instance v1, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback$ScheduledReopen$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Landroidx/camera/camera2/internal/-$$Lambda$Camera2CameraImpl$StateCallback$ScheduledReopen$as759NiVIxRtxg9ZN460DXMl1dI;-><init>(Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback$ScheduledReopen;)V
+    invoke-direct {v1, p0}, Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback$ScheduledReopen$$ExternalSyntheticLambda0;-><init>(Landroidx/camera/camera2/internal/Camera2CameraImpl$StateCallback$ScheduledReopen;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 1462
     return-void
 .end method

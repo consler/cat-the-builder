@@ -12,7 +12,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .param p1, "data"    # Ljava/lang/String;
 
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -20,14 +19,11 @@
     .line 36
     iput-object p1, p0, Landroidx/webkit/WebMessageCompat;->mData:Ljava/lang/String;
 
-    .line 37
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;[Landroidx/webkit/WebMessagePortCompat;)V
     .locals 0
-    .param p1, "data"    # Ljava/lang/String;
-    .param p2, "ports"    # [Landroidx/webkit/WebMessagePortCompat;
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +34,6 @@
     .line 46
     iput-object p2, p0, Landroidx/webkit/WebMessageCompat;->mPorts:[Landroidx/webkit/WebMessagePortCompat;
 
-    .line 47
     return-void
 .end method
 

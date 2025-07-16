@@ -31,84 +31,76 @@
 # virtual methods
 .method public append(C)Landroid/text/Editable;
     .locals 2
-    .param p1, "text"    # C
 
     .line 242
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "append: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string v1, "Editable"
+    move-result-object p1
 
-    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v0, "Editable"
 
-    .line 243
+    invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     return-object p0
 .end method
 
 .method public append(Ljava/lang/CharSequence;)Landroid/text/Editable;
     .locals 2
-    .param p1, "text"    # Ljava/lang/CharSequence;
 
     .line 236
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "append: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string v1, "Editable"
+    move-result-object p1
 
-    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v0, "Editable"
 
-    .line 237
+    invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     return-object p0
 .end method
 
 .method public append(Ljava/lang/CharSequence;II)Landroid/text/Editable;
-    .locals 2
-    .param p1, "text"    # Ljava/lang/CharSequence;
-    .param p2, "start"    # I
-    .param p3, "end"    # I
+    .locals 0
 
     .line 248
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string p3, "append: "
 
-    const-string v1, "append: "
+    invoke-direct {p2, p3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "Editable"
+    const-string p2, "Editable"
 
-    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p2, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 249
     return-object p0
 .end method
 
@@ -161,113 +153,104 @@
 .end method
 
 .method public charAt(I)C
-    .locals 2
-    .param p1, "index"    # I
+    .locals 1
+
+    const-string p1, "Editable"
+
+    const-string v0, "charAt"
 
     .line 173
-    const-string v0, "Editable"
+    invoke-static {p1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v1, "charAt"
+    const/4 p1, 0x0
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 174
-    const/4 v0, 0x0
-
-    return v0
+    return p1
 .end method
 
 .method public clear()V
     .locals 2
 
-    .line 254
     const-string v0, "Editable"
 
     const-string v1, "clear"
 
+    .line 254
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 255
     return-void
 .end method
 
 .method public clearSpans()V
     .locals 2
 
-    .line 259
     const-string v0, "Editable"
 
     const-string v1, "clearSpanes"
 
+    .line 259
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 260
     return-void
 .end method
 
 .method public delete(II)Landroid/text/Editable;
     .locals 2
-    .param p1, "st"    # I
-    .param p2, "en"    # I
 
     .line 264
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "delete, "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v1, ", "
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, ", "
 
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v1, "Editable"
+    move-result-object p1
 
-    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    .line 265
+    move-result-object p1
+
+    const-string p2, "Editable"
+
+    invoke-static {p2, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     return-object p0
 .end method
 
 .method public getChars(II[CI)V
-    .locals 2
-    .param p1, "start"    # I
-    .param p2, "end"    # I
-    .param p3, "dest"    # [C
-    .param p4, "destoff"    # I
+    .locals 0
+
+    const-string p1, "Editable"
+
+    const-string p2, "getChars"
 
     .line 191
-    const-string v0, "Editable"
+    invoke-static {p1, p2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v1, "getChars"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 192
     return-void
 .end method
 
 .method public getFilters()[Landroid/text/InputFilter;
     .locals 2
 
-    .line 270
     const-string v0, "Editable"
 
     const-string v1, "getFilters"
 
+    .line 270
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 271
     const/4 v0, 0x0
 
     new-array v0, v0, [Landroid/text/InputFilter;
@@ -276,60 +259,52 @@
 .end method
 
 .method public getSpanEnd(Ljava/lang/Object;)I
-    .locals 2
-    .param p1, "tag"    # Ljava/lang/Object;
+    .locals 1
+
+    const-string p1, "Editable"
+
+    const-string v0, "getSpanEnd"
 
     .line 206
-    const-string v0, "Editable"
+    invoke-static {p1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v1, "getSpanEnd"
+    const/4 p1, 0x0
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 207
-    const/4 v0, 0x0
-
-    return v0
+    return p1
 .end method
 
 .method public getSpanFlags(Ljava/lang/Object;)I
-    .locals 2
-    .param p1, "tag"    # Ljava/lang/Object;
+    .locals 1
+
+    const-string p1, "Editable"
+
+    const-string v0, "getSpanFlags"
 
     .line 212
-    const-string v0, "Editable"
+    invoke-static {p1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v1, "getSpanFlags"
+    const/4 p1, 0x0
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 213
-    const/4 v0, 0x0
-
-    return v0
+    return p1
 .end method
 
 .method public getSpanStart(Ljava/lang/Object;)I
-    .locals 2
-    .param p1, "tag"    # Ljava/lang/Object;
+    .locals 1
+
+    const-string p1, "Editable"
+
+    const-string v0, "getSpanStart"
 
     .line 218
-    const-string v0, "Editable"
+    invoke-static {p1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v1, "getSpanStart"
+    const/4 p1, 0x0
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 219
-    const/4 v0, 0x0
-
-    return v0
+    return p1
 .end method
 
 .method public getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
-    .locals 2
-    .param p1, "arg0"    # I
-    .param p2, "arg1"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -340,235 +315,198 @@
         }
     .end annotation
 
+    const-string p1, "Editable"
+
+    const-string p2, "getSpans"
+
     .line 224
-    .local p3, "arg2":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
-    const-string v0, "Editable"
+    invoke-static {p1, p2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v1, "getSpans"
+    const/4 p1, 0x0
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 225
-    const/4 v0, 0x0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public insert(ILjava/lang/CharSequence;)Landroid/text/Editable;
-    .locals 2
-    .param p1, "where"    # I
-    .param p2, "text"    # Ljava/lang/CharSequence;
+    .locals 1
 
     .line 276
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "insert: "
 
-    const-string v1, "insert: "
+    invoke-direct {p1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "Editable"
+    const-string p2, "Editable"
 
-    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p2, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 277
     return-object p0
 .end method
 
 .method public insert(ILjava/lang/CharSequence;II)Landroid/text/Editable;
-    .locals 2
-    .param p1, "where"    # I
-    .param p2, "text"    # Ljava/lang/CharSequence;
-    .param p3, "start"    # I
-    .param p4, "end"    # I
+    .locals 0
 
     .line 282
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string p3, "insert: "
 
-    const-string v1, "insert: "
+    invoke-direct {p1, p3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "Editable"
+    const-string p2, "Editable"
 
-    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p2, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 283
     return-object p0
 .end method
 
 .method public length()I
     .locals 2
 
-    .line 179
     const-string v0, "Editable"
 
     const-string v1, "length"
 
+    .line 179
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 180
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public nextSpanTransition(IILjava/lang/Class;)I
-    .locals 2
-    .param p1, "start"    # I
-    .param p2, "limit"    # I
-    .param p3, "type"    # Ljava/lang/Class;
+    .locals 0
+
+    const-string p1, "Editable"
+
+    const-string p2, "nextSpanTransition"
 
     .line 230
-    const-string v0, "Editable"
+    invoke-static {p1, p2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v1, "nextSpanTransition"
+    const/4 p1, 0x0
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 231
-    const/4 v0, 0x0
-
-    return v0
+    return p1
 .end method
 
 .method public removeSpan(Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "what"    # Ljava/lang/Object;
+    .locals 1
+
+    const-string p1, "Editable"
+
+    const-string v0, "removeSpan"
 
     .line 196
-    const-string v0, "Editable"
+    invoke-static {p1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v1, "removeSpan"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 197
     return-void
 .end method
 
 .method public replace(IILjava/lang/CharSequence;)Landroid/text/Editable;
-    .locals 2
-    .param p1, "st"    # I
-    .param p2, "en"    # I
-    .param p3, "text"    # Ljava/lang/CharSequence;
+    .locals 0
 
     .line 288
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string p2, "replace: "
 
-    const-string v1, "replace: "
+    invoke-direct {p1, p2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "Editable"
+    const-string p2, "Editable"
 
-    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p2, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 289
     return-object p0
 .end method
 
 .method public replace(IILjava/lang/CharSequence;II)Landroid/text/Editable;
-    .locals 2
-    .param p1, "st"    # I
-    .param p2, "en"    # I
-    .param p3, "source"    # Ljava/lang/CharSequence;
-    .param p4, "start"    # I
-    .param p5, "end"    # I
+    .locals 0
 
     .line 294
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string p2, "replace: "
 
-    const-string v1, "replace: "
+    invoke-direct {p1, p2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "Editable"
+    const-string p2, "Editable"
 
-    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p2, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 295
     return-object p0
 .end method
 
 .method public setFilters([Landroid/text/InputFilter;)V
-    .locals 2
-    .param p1, "filters"    # [Landroid/text/InputFilter;
+    .locals 1
+
+    const-string p1, "Editable"
+
+    const-string v0, "setFilters"
 
     .line 300
-    const-string v0, "Editable"
+    invoke-static {p1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v1, "setFilters"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 301
     return-void
 .end method
 
 .method public setSpan(Ljava/lang/Object;III)V
-    .locals 2
-    .param p1, "what"    # Ljava/lang/Object;
-    .param p2, "start"    # I
-    .param p3, "end"    # I
-    .param p4, "flags"    # I
+    .locals 0
+
+    const-string p1, "Editable"
+
+    const-string p2, "setSpan"
 
     .line 201
-    const-string v0, "Editable"
+    invoke-static {p1, p2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v1, "setSpan"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 202
     return-void
 .end method
 
 .method public subSequence(II)Ljava/lang/CharSequence;
-    .locals 2
-    .param p1, "start"    # I
-    .param p2, "end"    # I
+    .locals 0
+
+    const-string p1, "Editable"
+
+    const-string p2, "subSequence"
 
     .line 185
-    const-string v0, "Editable"
+    invoke-static {p1, p2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v1, "subSequence"
+    const/4 p1, 0x0
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 186
-    const/4 v0, 0x0
-
-    return-object v0
+    return-object p1
 .end method

@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/completable/CompletableDoOnEvent;Lio/reactivex/CompletableObserver;)V
     .locals 0
-    .param p2, "observer"    # Lio/reactivex/CompletableObserver;
 
     .line 41
     iput-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableDoOnEvent$DoOnEvent;->this$0:Lio/reactivex/internal/operators/completable/CompletableDoOnEvent;
@@ -36,7 +35,6 @@
     .line 42
     iput-object p2, p0, Lio/reactivex/internal/operators/completable/CompletableDoOnEvent$DoOnEvent;->observer:Lio/reactivex/CompletableObserver;
 
-    .line 43
     return-void
 .end method
 
@@ -57,23 +55,17 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 53
-    nop
-
     .line 55
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableDoOnEvent$DoOnEvent;->observer:Lio/reactivex/CompletableObserver;
 
     invoke-interface {v0}, Lio/reactivex/CompletableObserver;->onComplete()V
 
-    .line 56
     return-void
 
-    .line 49
     :catchall_0
     move-exception v0
 
     .line 50
-    .local v0, "e":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 51
@@ -81,13 +73,11 @@
 
     invoke-interface {v1, v0}, Lio/reactivex/CompletableObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 52
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 4
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 61
     :try_start_0
@@ -99,15 +89,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 65
     goto :goto_0
 
-    .line 62
     :catchall_0
     move-exception v0
 
     .line 63
-    .local v0, "ex":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 64
@@ -121,34 +108,30 @@
 
     aput-object p1, v2, v3
 
-    const/4 v3, 0x1
+    const/4 p1, 0x1
 
-    aput-object v0, v2, v3
+    aput-object v0, v2, p1
 
     invoke-direct {v1, v2}, Lio/reactivex/exceptions/CompositeException;-><init>([Ljava/lang/Throwable;)V
 
     move-object p1, v1
 
     .line 67
-    .end local v0    # "ex":Ljava/lang/Throwable;
     :goto_0
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableDoOnEvent$DoOnEvent;->observer:Lio/reactivex/CompletableObserver;
 
     invoke-interface {v0, p1}, Lio/reactivex/CompletableObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 68
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 72
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableDoOnEvent$DoOnEvent;->observer:Lio/reactivex/CompletableObserver;
 
     invoke-interface {v0, p1}, Lio/reactivex/CompletableObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 73
     return-void
 .end method

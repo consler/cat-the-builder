@@ -31,7 +31,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/media/MediaRouteProviderService;Landroidx/mediarouter/media/MediaRouteProviderService$ClientRecord;ILandroid/content/Intent;Landroid/os/Messenger;I)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/mediarouter/media/MediaRouteProviderService;
 
     .line 447
     iput-object p1, p0, Landroidx/mediarouter/media/MediaRouteProviderService$1;->this$0:Landroidx/mediarouter/media/MediaRouteProviderService;
@@ -54,9 +53,7 @@
 
 # virtual methods
 .method public onError(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 11
-    .param p1, "error"    # Ljava/lang/String;
-    .param p2, "data"    # Landroid/os/Bundle;
+    .locals 13
 
     .line 464
     sget-boolean v0, Landroidx/mediarouter/media/MediaRouteProviderService;->DEBUG:Z
@@ -72,33 +69,51 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ": Route control request failed, controllerId="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Landroidx/mediarouter/media/MediaRouteProviderService$1;->val$controllerId:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", intent="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Landroidx/mediarouter/media/MediaRouteProviderService$1;->val$intent:Landroid/content/Intent;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", error="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     const-string v1, ", data="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -120,19 +135,17 @@
 
     if-ltz v0, :cond_2
 
-    .line 471
     if-eqz p1, :cond_1
 
     .line 472
-    new-instance v0, Landroid/os/Bundle;
+    new-instance v6, Landroid/os/Bundle;
 
-    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+    invoke-direct {v6}, Landroid/os/Bundle;-><init>()V
+
+    const-string v0, "error"
 
     .line 473
-    .local v0, "bundle":Landroid/os/Bundle;
-    const-string v1, "error"
-
-    invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v6, v0, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 474
     iget-object v1, p0, Landroidx/mediarouter/media/MediaRouteProviderService$1;->val$messenger:Landroid/os/Messenger;
@@ -145,31 +158,26 @@
 
     move-object v5, p2
 
-    move-object v6, v0
-
     invoke-static/range {v1 .. v6}, Landroidx/mediarouter/media/MediaRouteProviderService;->sendReply(Landroid/os/Messenger;IIILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 476
-    .end local v0    # "bundle":Landroid/os/Bundle;
     goto :goto_0
 
     .line 477
     :cond_1
-    iget-object v5, p0, Landroidx/mediarouter/media/MediaRouteProviderService$1;->val$messenger:Landroid/os/Messenger;
+    iget-object v7, p0, Landroidx/mediarouter/media/MediaRouteProviderService$1;->val$messenger:Landroid/os/Messenger;
 
-    const/4 v6, 0x4
+    const/4 v8, 0x4
 
-    iget v7, p0, Landroidx/mediarouter/media/MediaRouteProviderService$1;->val$requestId:I
-
-    const/4 v8, 0x0
+    iget v9, p0, Landroidx/mediarouter/media/MediaRouteProviderService$1;->val$requestId:I
 
     const/4 v10, 0x0
 
-    move-object v9, p2
+    const/4 v12, 0x0
 
-    invoke-static/range {v5 .. v10}, Landroidx/mediarouter/media/MediaRouteProviderService;->sendReply(Landroid/os/Messenger;IIILjava/lang/Object;Landroid/os/Bundle;)V
+    move-object v11, p2
 
-    .line 481
+    invoke-static/range {v7 .. v12}, Landroidx/mediarouter/media/MediaRouteProviderService;->sendReply(Landroid/os/Messenger;IIILjava/lang/Object;Landroid/os/Bundle;)V
+
     :cond_2
     :goto_0
     return-void
@@ -177,7 +185,6 @@
 
 .method public onResult(Landroid/os/Bundle;)V
     .locals 7
-    .param p1, "data"    # Landroid/os/Bundle;
 
     .line 450
     sget-boolean v0, Landroidx/mediarouter/media/MediaRouteProviderService;->DEBUG:Z
@@ -193,27 +200,41 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ": Route control request succeeded, controllerId="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Landroidx/mediarouter/media/MediaRouteProviderService$1;->val$controllerId:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", intent="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Landroidx/mediarouter/media/MediaRouteProviderService$1;->val$intent:Landroid/content/Intent;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", data="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -250,7 +271,6 @@
 
     invoke-static/range {v1 .. v6}, Landroidx/mediarouter/media/MediaRouteProviderService;->sendReply(Landroid/os/Messenger;IIILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 460
     :cond_1
     return-void
 .end method

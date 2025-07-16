@@ -74,7 +74,7 @@
 .end method
 
 .method private a()I
-    .locals 3
+    .locals 2
 
     iget v0, p0, Lcom/esotericsoftware/asm/Frame;->g:I
 
@@ -91,17 +91,17 @@
     return v0
 
     :cond_0
-    const/high16 v0, 0x3000000
+    iget-object v0, p0, Lcom/esotericsoftware/asm/Frame;->b:Lcom/esotericsoftware/asm/Label;
 
-    iget-object v1, p0, Lcom/esotericsoftware/asm/Frame;->b:Lcom/esotericsoftware/asm/Label;
+    iget v1, v0, Lcom/esotericsoftware/asm/Label;->f:I
 
-    iget v2, v1, Lcom/esotericsoftware/asm/Label;->f:I
+    add-int/lit8 v1, v1, -0x1
 
-    add-int/lit8 v2, v2, -0x1
+    iput v1, v0, Lcom/esotericsoftware/asm/Label;->f:I
 
-    iput v2, v1, Lcom/esotericsoftware/asm/Label;->f:I
+    neg-int v0, v1
 
-    neg-int v1, v2
+    const/high16 v1, 0x3000000
 
     or-int/2addr v0, v1
 
@@ -145,41 +145,41 @@
 .method private a(Lcom/esotericsoftware/asm/ClassWriter;I)I
     .locals 6
 
-    const/high16 v0, 0x1700000
+    const v0, 0x1000006
 
-    const v1, 0x1000006
+    const/high16 v1, 0x1700000
 
-    if-ne p2, v1, :cond_0
+    if-ne p2, v0, :cond_0
 
-    iget-object v1, p1, Lcom/esotericsoftware/asm/ClassWriter;->I:Ljava/lang/String;
+    iget-object v0, p1, Lcom/esotericsoftware/asm/ClassWriter;->I:Ljava/lang/String;
 
     :goto_0
-    invoke-virtual {p1, v1}, Lcom/esotericsoftware/asm/ClassWriter;->c(Ljava/lang/String;)I
+    invoke-virtual {p1, v0}, Lcom/esotericsoftware/asm/ClassWriter;->c(Ljava/lang/String;)I
 
     move-result p1
 
-    or-int/2addr p1, v0
+    or-int/2addr p1, v1
 
     goto :goto_1
 
     :cond_0
-    const/high16 v1, -0x100000
+    const/high16 v0, -0x100000
 
-    and-int/2addr v1, p2
+    and-int/2addr v0, p2
 
     const/high16 v2, 0x1800000
 
-    if-ne v1, v2, :cond_4
+    if-ne v0, v2, :cond_4
 
-    iget-object v1, p1, Lcom/esotericsoftware/asm/ClassWriter;->H:[Lcom/esotericsoftware/asm/Item;
+    iget-object v0, p1, Lcom/esotericsoftware/asm/ClassWriter;->H:[Lcom/esotericsoftware/asm/Item;
 
     const v2, 0xfffff
 
     and-int/2addr v2, p2
 
-    aget-object v1, v1, v2
+    aget-object v0, v0, v2
 
-    iget-object v1, v1, Lcom/esotericsoftware/asm/Item;->g:Ljava/lang/String;
+    iget-object v0, v0, Lcom/esotericsoftware/asm/Item;->g:Ljava/lang/String;
 
     goto :goto_0
 
@@ -335,21 +335,21 @@
 
     move-result v0
 
-    const/4 v1, 0x1
+    const/16 v1, 0x28
 
-    const/4 v2, 0x2
+    const/4 v2, 0x1
 
-    const/16 v3, 0x28
+    const/4 v3, 0x2
 
-    if-ne v0, v3, :cond_0
+    if-ne v0, v1, :cond_0
 
     invoke-static {p1}, Lcom/esotericsoftware/asm/Type;->getArgumentsAndReturnSizes(Ljava/lang/String;)I
 
     move-result p1
 
-    shr-int/2addr p1, v2
+    shr-int/2addr p1, v3
 
-    sub-int/2addr p1, v1
+    sub-int/2addr p1, v2
 
     invoke-direct {p0, p1}, Lcom/esotericsoftware/asm/Frame;->c(I)V
 
@@ -367,13 +367,13 @@
     goto :goto_0
 
     :cond_1
-    invoke-direct {p0, v1}, Lcom/esotericsoftware/asm/Frame;->c(I)V
+    invoke-direct {p0, v2}, Lcom/esotericsoftware/asm/Frame;->c(I)V
 
     goto :goto_1
 
     :cond_2
     :goto_0
-    invoke-direct {p0, v2}, Lcom/esotericsoftware/asm/Frame;->c(I)V
+    invoke-direct {p0, v3}, Lcom/esotericsoftware/asm/Frame;->c(I)V
 
     :goto_1
     return-void
@@ -995,9 +995,9 @@
 
     packed-switch v1, :pswitch_data_2
 
-    const/4 v12, 0x3
+    const/16 v12, 0x5b
 
-    const/16 v13, 0x5b
+    const/4 v13, 0x3
 
     const/4 v15, 0x0
 
@@ -1012,7 +1012,7 @@
     :goto_0
     invoke-direct {v0, v3, v1}, Lcom/esotericsoftware/asm/Frame;->a(Lcom/esotericsoftware/asm/ClassWriter;Ljava/lang/String;)V
 
-    goto/16 :goto_11
+    goto/16 :goto_12
 
     :pswitch_0
     iget-object v1, v4, Lcom/esotericsoftware/asm/Item;->g:Ljava/lang/String;
@@ -1023,7 +1023,7 @@
 
     move-result v2
 
-    if-ne v2, v13, :cond_5
+    if-ne v2, v12, :cond_5
 
     goto :goto_0
 
@@ -1036,17 +1036,19 @@
 
     move-result v2
 
-    if-ne v2, v13, :cond_0
+    if-ne v2, v12, :cond_0
 
     new-instance v2, Ljava/lang/StringBuffer;
 
-    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
+    const-string v4, "["
 
-    invoke-virtual {v2, v13}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-direct {v2, v4}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v2, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -1059,9 +1061,7 @@
 
     move-result v1
 
-    or-int/2addr v1, v2
-
-    goto/16 :goto_10
+    goto :goto_1
 
     :pswitch_2
     invoke-direct/range {p0 .. p0}, Lcom/esotericsoftware/asm/Frame;->a()I
@@ -1070,55 +1070,56 @@
 
     const v1, 0x11000004
 
-    goto/16 :goto_10
+    goto/16 :goto_11
 
     :pswitch_3
     const v1, 0x11000001
 
-    goto/16 :goto_10
+    goto/16 :goto_11
 
     :pswitch_4
     const v1, 0x1100000c
 
-    goto/16 :goto_10
+    goto/16 :goto_11
 
     :pswitch_5
     const v1, 0x1100000a
 
-    goto/16 :goto_10
+    goto/16 :goto_11
 
     :pswitch_6
     const v1, 0x11000003
 
-    goto/16 :goto_10
+    goto/16 :goto_11
 
     :pswitch_7
     const v1, 0x11000002
 
-    goto/16 :goto_10
+    goto/16 :goto_11
 
     :pswitch_8
     const v1, 0x1100000b
 
-    goto/16 :goto_10
+    goto/16 :goto_11
 
     :pswitch_9
     const v1, 0x11000009
 
-    goto/16 :goto_10
+    goto/16 :goto_11
 
     :pswitch_a
-    const/high16 v1, 0x1800000
+    iget-object v1, v4, Lcom/esotericsoftware/asm/Item;->g:Ljava/lang/String;
 
-    iget-object v4, v4, Lcom/esotericsoftware/asm/Item;->g:Ljava/lang/String;
+    invoke-virtual {v3, v1, v2}, Lcom/esotericsoftware/asm/ClassWriter;->a(Ljava/lang/String;I)I
 
-    invoke-virtual {v3, v4, v2}, Lcom/esotericsoftware/asm/ClassWriter;->a(Ljava/lang/String;I)I
+    move-result v1
 
-    move-result v2
+    const/high16 v2, 0x1800000
 
+    :goto_1
     or-int/2addr v1, v2
 
-    goto/16 :goto_10
+    goto/16 :goto_11
 
     :pswitch_b
     iget-object v1, v4, Lcom/esotericsoftware/asm/Item;->h:Ljava/lang/String;
@@ -1158,7 +1159,7 @@
 
     invoke-direct {v0, v2}, Lcom/esotericsoftware/asm/Frame;->d(I)V
 
-    goto :goto_1
+    goto :goto_2
 
     :pswitch_d
     iget-object v1, v4, Lcom/esotericsoftware/asm/Item;->i:Ljava/lang/String;
@@ -1167,22 +1168,22 @@
 
     invoke-direct/range {p0 .. p0}, Lcom/esotericsoftware/asm/Frame;->a()I
 
-    goto/16 :goto_11
+    goto/16 :goto_12
 
     :pswitch_e
     invoke-direct {v0, v6}, Lcom/esotericsoftware/asm/Frame;->c(I)V
 
-    goto :goto_1
+    goto :goto_2
 
     :pswitch_f
     iget-object v1, v4, Lcom/esotericsoftware/asm/Item;->i:Ljava/lang/String;
 
     invoke-direct {v0, v1}, Lcom/esotericsoftware/asm/Frame;->a(Ljava/lang/String;)V
 
-    goto/16 :goto_11
+    goto/16 :goto_12
 
     :cond_1
-    :goto_1
+    :goto_2
     :pswitch_10
     iget-object v1, v4, Lcom/esotericsoftware/asm/Item;->i:Ljava/lang/String;
 
@@ -1200,57 +1201,57 @@
     :pswitch_12
     invoke-direct {v0, v14}, Lcom/esotericsoftware/asm/Frame;->c(I)V
 
-    goto/16 :goto_f
+    goto/16 :goto_10
 
     :pswitch_13
     const/4 v1, 0x2
 
-    goto/16 :goto_9
+    goto/16 :goto_a
 
     :pswitch_14
     invoke-direct {v0, v6}, Lcom/esotericsoftware/asm/Frame;->c(I)V
 
-    goto/16 :goto_f
+    goto/16 :goto_10
 
     :pswitch_15
     const/4 v1, 0x2
 
-    goto/16 :goto_8
+    goto/16 :goto_9
 
     :pswitch_16
     invoke-direct {v0, v6}, Lcom/esotericsoftware/asm/Frame;->c(I)V
 
-    goto/16 :goto_b
+    goto/16 :goto_c
 
     :pswitch_17
     invoke-direct {v0, v6}, Lcom/esotericsoftware/asm/Frame;->c(I)V
 
-    goto/16 :goto_c
+    goto/16 :goto_d
 
     :pswitch_18
     invoke-direct {v0, v6}, Lcom/esotericsoftware/asm/Frame;->c(I)V
 
-    goto/16 :goto_d
+    goto/16 :goto_e
 
     :pswitch_19
     invoke-direct {v0, v2, v9}, Lcom/esotericsoftware/asm/Frame;->a(II)V
 
-    goto/16 :goto_11
+    goto/16 :goto_12
 
     :pswitch_1a
-    invoke-direct {v0, v12}, Lcom/esotericsoftware/asm/Frame;->c(I)V
+    invoke-direct {v0, v13}, Lcom/esotericsoftware/asm/Frame;->c(I)V
 
-    goto/16 :goto_d
+    goto/16 :goto_e
 
     :pswitch_1b
     invoke-direct {v0, v14}, Lcom/esotericsoftware/asm/Frame;->c(I)V
 
-    goto/16 :goto_b
+    goto/16 :goto_c
 
     :pswitch_1c
     invoke-direct {v0, v14}, Lcom/esotericsoftware/asm/Frame;->c(I)V
 
-    goto/16 :goto_d
+    goto/16 :goto_e
 
     :pswitch_1d
     invoke-direct/range {p0 .. p0}, Lcom/esotericsoftware/asm/Frame;->a()I
@@ -1265,7 +1266,7 @@
 
     invoke-direct {v0, v2}, Lcom/esotericsoftware/asm/Frame;->b(I)V
 
-    goto/16 :goto_11
+    goto/16 :goto_12
 
     :pswitch_1e
     invoke-direct/range {p0 .. p0}, Lcom/esotericsoftware/asm/Frame;->a()I
@@ -1290,7 +1291,7 @@
 
     invoke-direct {v0, v4}, Lcom/esotericsoftware/asm/Frame;->b(I)V
 
-    goto :goto_3
+    goto :goto_4
 
     :pswitch_1f
     invoke-direct/range {p0 .. p0}, Lcom/esotericsoftware/asm/Frame;->a()I
@@ -1307,7 +1308,7 @@
 
     invoke-direct {v0, v2}, Lcom/esotericsoftware/asm/Frame;->b(I)V
 
-    goto :goto_2
+    goto :goto_3
 
     :pswitch_20
     invoke-direct/range {p0 .. p0}, Lcom/esotericsoftware/asm/Frame;->a()I
@@ -1320,7 +1321,7 @@
 
     invoke-direct {v0, v2}, Lcom/esotericsoftware/asm/Frame;->b(I)V
 
-    goto :goto_4
+    goto :goto_5
 
     :pswitch_21
     invoke-direct/range {p0 .. p0}, Lcom/esotericsoftware/asm/Frame;->a()I
@@ -1335,13 +1336,13 @@
 
     move-result v3
 
-    :goto_2
+    :goto_3
     invoke-direct {v0, v1}, Lcom/esotericsoftware/asm/Frame;->b(I)V
 
-    :goto_3
+    :goto_4
     invoke-direct {v0, v3}, Lcom/esotericsoftware/asm/Frame;->b(I)V
 
-    goto :goto_5
+    goto :goto_6
 
     :pswitch_22
     invoke-direct/range {p0 .. p0}, Lcom/esotericsoftware/asm/Frame;->a()I
@@ -1352,13 +1353,13 @@
 
     move-result v2
 
-    :goto_4
+    :goto_5
     invoke-direct {v0, v1}, Lcom/esotericsoftware/asm/Frame;->b(I)V
 
-    :goto_5
+    :goto_6
     invoke-direct {v0, v2}, Lcom/esotericsoftware/asm/Frame;->b(I)V
 
-    goto/16 :goto_10
+    goto/16 :goto_11
 
     :pswitch_23
     invoke-direct/range {p0 .. p0}, Lcom/esotericsoftware/asm/Frame;->a()I
@@ -1367,24 +1368,24 @@
 
     invoke-direct {v0, v1}, Lcom/esotericsoftware/asm/Frame;->b(I)V
 
-    goto/16 :goto_10
+    goto/16 :goto_11
 
     :pswitch_24
     const/4 v1, 0x2
 
     invoke-direct {v0, v1}, Lcom/esotericsoftware/asm/Frame;->c(I)V
 
-    goto/16 :goto_11
+    goto/16 :goto_12
 
     :pswitch_25
     invoke-direct {v0, v14}, Lcom/esotericsoftware/asm/Frame;->c(I)V
 
-    goto/16 :goto_11
+    goto/16 :goto_12
 
     :pswitch_26
-    invoke-direct {v0, v12}, Lcom/esotericsoftware/asm/Frame;->c(I)V
+    invoke-direct {v0, v13}, Lcom/esotericsoftware/asm/Frame;->c(I)V
 
-    goto/16 :goto_11
+    goto/16 :goto_12
 
     :pswitch_27
     invoke-direct {v0, v6}, Lcom/esotericsoftware/asm/Frame;->c(I)V
@@ -1411,14 +1412,14 @@
 
     if-ne v2, v8, :cond_2
 
-    goto :goto_7
+    goto :goto_8
 
     :cond_2
     and-int v3, v2, v13
 
     if-eq v3, v11, :cond_8
 
-    goto :goto_6
+    goto :goto_7
 
     :pswitch_28
     invoke-direct/range {p0 .. p0}, Lcom/esotericsoftware/asm/Frame;->a()I
@@ -1439,25 +1440,25 @@
 
     if-ne v2, v8, :cond_3
 
-    goto :goto_7
+    goto :goto_8
 
     :cond_3
     and-int v3, v2, v13
 
     if-eq v3, v11, :cond_8
 
-    :goto_6
+    :goto_7
     or-int/2addr v2, v12
 
     invoke-direct {v0, v1, v2}, Lcom/esotericsoftware/asm/Frame;->a(II)V
 
-    goto/16 :goto_11
+    goto/16 :goto_12
 
     :cond_4
-    :goto_7
+    :goto_8
     invoke-direct {v0, v1, v11}, Lcom/esotericsoftware/asm/Frame;->a(II)V
 
-    goto :goto_11
+    goto :goto_12
 
     :pswitch_29
     invoke-direct {v0, v6}, Lcom/esotericsoftware/asm/Frame;->c(I)V
@@ -1470,38 +1471,38 @@
 
     add-int/2addr v1, v2
 
-    goto :goto_10
+    goto :goto_11
 
-    :goto_8
+    :goto_9
     invoke-direct {v0, v1}, Lcom/esotericsoftware/asm/Frame;->c(I)V
 
-    goto :goto_b
+    goto :goto_c
 
     :pswitch_2a
     const/4 v1, 0x2
 
     invoke-direct {v0, v1}, Lcom/esotericsoftware/asm/Frame;->c(I)V
 
-    goto :goto_c
+    goto :goto_d
 
-    :goto_9
+    :goto_a
     invoke-direct {v0, v1}, Lcom/esotericsoftware/asm/Frame;->c(I)V
 
-    goto :goto_d
+    goto :goto_e
 
     :pswitch_2b
     const/4 v1, 0x2
 
     invoke-direct {v0, v1}, Lcom/esotericsoftware/asm/Frame;->c(I)V
 
-    goto :goto_f
+    goto :goto_10
 
     :pswitch_2c
     invoke-direct {v0, v2}, Lcom/esotericsoftware/asm/Frame;->a(I)I
 
     move-result v1
 
-    goto :goto_10
+    goto :goto_11
 
     :pswitch_2d
     iget v1, v4, Lcom/esotericsoftware/asm/Item;->b:I
@@ -1514,72 +1515,72 @@
 
     const-string v1, "java/lang/invoke/MethodHandle"
 
-    goto :goto_a
+    goto :goto_b
 
     :pswitch_2e
     const-string v1, "java/lang/String"
 
-    goto :goto_a
+    goto :goto_b
 
     :pswitch_2f
     const-string v1, "java/lang/Class"
 
     :cond_5
-    :goto_a
+    :goto_b
     invoke-virtual {v3, v1}, Lcom/esotericsoftware/asm/ClassWriter;->c(Ljava/lang/String;)I
 
     move-result v1
 
     or-int/2addr v1, v5
 
-    goto :goto_10
+    goto :goto_11
 
     :cond_6
     const-string v1, "java/lang/invoke/MethodType"
 
-    goto :goto_a
+    goto :goto_b
 
-    :goto_b
+    :goto_c
     :pswitch_30
     invoke-direct {v0, v8}, Lcom/esotericsoftware/asm/Frame;->b(I)V
 
-    goto :goto_e
+    goto :goto_f
 
-    :goto_c
+    :goto_d
     :pswitch_31
     invoke-direct {v0, v7}, Lcom/esotericsoftware/asm/Frame;->b(I)V
 
-    goto :goto_11
+    goto :goto_12
 
-    :goto_d
+    :goto_e
     :pswitch_32
     invoke-direct {v0, v10}, Lcom/esotericsoftware/asm/Frame;->b(I)V
 
-    :goto_e
+    :goto_f
     invoke-direct {v0, v11}, Lcom/esotericsoftware/asm/Frame;->b(I)V
 
-    goto :goto_11
+    goto :goto_12
 
-    :goto_f
+    :goto_10
     :pswitch_33
     invoke-direct {v0, v9}, Lcom/esotericsoftware/asm/Frame;->b(I)V
 
-    goto :goto_11
+    goto :goto_12
 
     :pswitch_34
     const v1, 0x1000005
 
-    :goto_10
+    :goto_11
     invoke-direct {v0, v1}, Lcom/esotericsoftware/asm/Frame;->b(I)V
 
-    goto :goto_11
+    goto :goto_12
 
     :cond_7
     :pswitch_35
     invoke-direct {v0, v6}, Lcom/esotericsoftware/asm/Frame;->c(I)V
 
     :cond_8
-    :goto_11
+    :goto_12
     :pswitch_36
     return-void
 
@@ -1792,25 +1793,25 @@
 
     and-int/lit8 v2, p2, 0x8
 
-    const/4 v3, 0x1
-
     if-nez v2, :cond_1
 
     const/high16 v2, 0x80000
 
     and-int/2addr p2, v2
 
+    const/4 v2, 0x1
+
     if-nez p2, :cond_0
 
-    const/high16 p2, 0x1700000
+    iget-object p2, p1, Lcom/esotericsoftware/asm/ClassWriter;->I:Ljava/lang/String;
 
-    iget-object v2, p1, Lcom/esotericsoftware/asm/ClassWriter;->I:Ljava/lang/String;
+    invoke-virtual {p1, p2}, Lcom/esotericsoftware/asm/ClassWriter;->c(Ljava/lang/String;)I
 
-    invoke-virtual {p1, v2}, Lcom/esotericsoftware/asm/ClassWriter;->c(Ljava/lang/String;)I
+    move-result p2
 
-    move-result v2
+    const/high16 v3, 0x1700000
 
-    or-int/2addr p2, v2
+    or-int/2addr p2, v3
 
     aput p2, v0, v1
 
@@ -1824,7 +1825,7 @@
     goto :goto_0
 
     :cond_1
-    move v3, v1
+    move v2, v1
 
     :goto_0
     array-length p2, p3
@@ -1843,11 +1844,11 @@
 
     move-result p2
 
-    iget-object v2, p0, Lcom/esotericsoftware/asm/Frame;->c:[I
+    iget-object v3, p0, Lcom/esotericsoftware/asm/Frame;->c:[I
 
-    add-int/lit8 v4, v3, 0x1
+    add-int/lit8 v4, v2, 0x1
 
-    aput p2, v2, v3
+    aput p2, v3, v2
 
     const v2, 0x1000004
 
@@ -1860,19 +1861,17 @@
     goto :goto_1
 
     :cond_2
-    move v3, v4
+    move v2, v4
 
     goto :goto_2
 
     :cond_3
     :goto_1
-    iget-object p2, p0, Lcom/esotericsoftware/asm/Frame;->c:[I
+    add-int/lit8 p2, v4, 0x1
 
-    add-int/lit8 v2, v4, 0x1
+    aput v0, v3, v4
 
-    aput v0, p2, v4
-
-    move v3, v2
+    move v2, p2
 
     :goto_2
     add-int/lit8 v1, v1, 0x1
@@ -1881,15 +1880,15 @@
 
     :cond_4
     :goto_3
-    if-ge v3, p4, :cond_5
+    if-ge v2, p4, :cond_5
 
     iget-object p1, p0, Lcom/esotericsoftware/asm/Frame;->c:[I
 
-    add-int/lit8 p2, v3, 0x1
+    add-int/lit8 p2, v2, 0x1
 
-    aput v0, p1, v3
+    aput v0, p1, v2
 
-    move v3, p2
+    move v2, p2
 
     goto :goto_3
 
@@ -1947,36 +1946,36 @@
 
     const v16, 0x7fffff
 
-    const/high16 v7, 0x1000000
+    const/high16 v8, 0x1000000
 
     if-ge v9, v4, :cond_8
 
-    iget-object v8, v0, Lcom/esotericsoftware/asm/Frame;->e:[I
+    iget-object v7, v0, Lcom/esotericsoftware/asm/Frame;->e:[I
 
-    if-eqz v8, :cond_5
+    if-eqz v7, :cond_5
 
-    array-length v10, v8
+    array-length v10, v7
 
     if-ge v9, v10, :cond_5
 
-    aget v8, v8, v9
+    aget v7, v7, v9
 
-    if-nez v8, :cond_1
+    if-nez v7, :cond_1
 
     iget-object v7, v0, Lcom/esotericsoftware/asm/Frame;->c:[I
 
-    aget v7, v7, v9
+    aget v8, v7, v9
 
     goto :goto_3
 
     :cond_1
-    and-int v10, v8, v15
+    and-int v10, v7, v15
 
-    and-int/2addr v14, v8
+    and-int/2addr v14, v7
 
-    if-ne v14, v7, :cond_2
+    if-ne v14, v8, :cond_2
 
-    move v7, v8
+    move v8, v7
 
     goto :goto_3
 
@@ -1985,7 +1984,7 @@
 
     iget-object v13, v0, Lcom/esotericsoftware/asm/Frame;->c:[I
 
-    and-int v14, v8, v16
+    and-int v14, v7, v16
 
     aget v13, v13, v14
 
@@ -1994,7 +1993,7 @@
     :cond_3
     iget-object v13, v0, Lcom/esotericsoftware/asm/Frame;->d:[I
 
-    and-int v14, v8, v16
+    and-int v14, v7, v16
 
     sub-int v14, v5, v14
 
@@ -2003,42 +2002,42 @@
     :goto_2
     add-int/2addr v10, v13
 
-    and-int/2addr v8, v12
+    and-int/2addr v7, v12
 
-    if-eqz v8, :cond_4
+    if-eqz v7, :cond_4
 
     if-eq v10, v11, :cond_6
 
-    const v8, 0x1000003
+    const v7, 0x1000003
 
-    if-ne v10, v8, :cond_4
+    if-ne v10, v7, :cond_4
 
     goto :goto_3
 
     :cond_4
-    move v7, v10
+    move v8, v10
 
     goto :goto_3
 
     :cond_5
     iget-object v7, v0, Lcom/esotericsoftware/asm/Frame;->c:[I
 
-    aget v7, v7, v9
+    aget v8, v7, v9
 
     :cond_6
     :goto_3
-    iget-object v8, v0, Lcom/esotericsoftware/asm/Frame;->i:[I
+    iget-object v7, v0, Lcom/esotericsoftware/asm/Frame;->i:[I
 
-    if-eqz v8, :cond_7
+    if-eqz v7, :cond_7
 
-    invoke-direct {v0, v1, v7}, Lcom/esotericsoftware/asm/Frame;->a(Lcom/esotericsoftware/asm/ClassWriter;I)I
+    invoke-direct {v0, v1, v8}, Lcom/esotericsoftware/asm/Frame;->a(Lcom/esotericsoftware/asm/ClassWriter;I)I
 
-    move-result v7
+    move-result v8
 
     :cond_7
-    iget-object v8, v2, Lcom/esotericsoftware/asm/Frame;->c:[I
+    iget-object v7, v2, Lcom/esotericsoftware/asm/Frame;->c:[I
 
-    invoke-static {v1, v7, v8, v9}, Lcom/esotericsoftware/asm/Frame;->a(Lcom/esotericsoftware/asm/ClassWriter;I[II)Z
+    invoke-static {v1, v8, v7, v9}, Lcom/esotericsoftware/asm/Frame;->a(Lcom/esotericsoftware/asm/ClassWriter;I[II)Z
 
     move-result v7
 
@@ -2083,12 +2082,12 @@
 
     iput-object v5, v2, Lcom/esotericsoftware/asm/Frame;->d:[I
 
-    move v8, v4
+    move v7, v4
 
     goto :goto_5
 
     :cond_a
-    move v8, v6
+    move v7, v6
 
     :goto_5
     iget-object v2, v2, Lcom/esotericsoftware/asm/Frame;->d:[I
@@ -2099,7 +2098,7 @@
 
     move-result v1
 
-    or-int/2addr v1, v8
+    or-int/2addr v1, v7
 
     return v1
 
@@ -2112,15 +2111,15 @@
 
     array-length v3, v3
 
-    iget-object v8, v0, Lcom/esotericsoftware/asm/Frame;->b:Lcom/esotericsoftware/asm/Label;
+    iget-object v7, v0, Lcom/esotericsoftware/asm/Frame;->b:Lcom/esotericsoftware/asm/Label;
 
-    iget v8, v8, Lcom/esotericsoftware/asm/Label;->f:I
+    iget v7, v7, Lcom/esotericsoftware/asm/Label;->f:I
 
-    add-int/2addr v3, v8
+    add-int/2addr v3, v7
 
-    iget-object v8, v2, Lcom/esotericsoftware/asm/Frame;->d:[I
+    iget-object v7, v2, Lcom/esotericsoftware/asm/Frame;->d:[I
 
-    if-nez v8, :cond_c
+    if-nez v7, :cond_c
 
     iget v6, v0, Lcom/esotericsoftware/asm/Frame;->g:I
 
@@ -2130,12 +2129,12 @@
 
     iput-object v6, v2, Lcom/esotericsoftware/asm/Frame;->d:[I
 
-    move v8, v4
+    move v7, v4
 
     goto :goto_6
 
     :cond_c
-    move v8, v6
+    move v7, v6
 
     :goto_6
     move v4, v9
@@ -2162,7 +2161,7 @@
 
     move-result v6
 
-    or-int/2addr v8, v6
+    or-int/2addr v7, v6
 
     add-int/lit8 v4, v4, 0x1
 
@@ -2182,7 +2181,7 @@
 
     and-int v10, v4, v14
 
-    if-ne v10, v7, :cond_10
+    if-ne v10, v8, :cond_10
 
     move v6, v4
 
@@ -2225,7 +2224,7 @@
     if-ne v6, v4, :cond_13
 
     :cond_12
-    move v6, v7
+    move v6, v8
 
     :cond_13
     :goto_a
@@ -2246,12 +2245,12 @@
 
     move-result v4
 
-    or-int/2addr v8, v4
+    or-int/2addr v7, v4
 
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_8
 
     :cond_15
-    return v8
+    return v7
 .end method

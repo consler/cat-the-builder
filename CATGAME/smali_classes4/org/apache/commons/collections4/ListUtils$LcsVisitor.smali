@@ -44,7 +44,6 @@
     .locals 1
 
     .line 616
-    .local p0, "this":Lorg/apache/commons/collections4/ListUtils$LcsVisitor;, "Lorg/apache/commons/collections4/ListUtils$LcsVisitor<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 617
@@ -54,7 +53,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections4/ListUtils$LcsVisitor;->sequence:Ljava/util/ArrayList;
 
-    .line 618
     return-void
 .end method
 
@@ -71,7 +69,6 @@
     .end annotation
 
     .line 632
-    .local p0, "this":Lorg/apache/commons/collections4/ListUtils$LcsVisitor;, "Lorg/apache/commons/collections4/ListUtils$LcsVisitor<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/ListUtils$LcsVisitor;->sequence:Ljava/util/ArrayList;
 
     return-object v0
@@ -85,9 +82,6 @@
         }
     .end annotation
 
-    .line 624
-    .local p0, "this":Lorg/apache/commons/collections4/ListUtils$LcsVisitor;, "Lorg/apache/commons/collections4/ListUtils$LcsVisitor<TE;>;"
-    .local p1, "object":Ljava/lang/Object;, "TE;"
     return-void
 .end method
 
@@ -99,9 +93,6 @@
         }
     .end annotation
 
-    .line 621
-    .local p0, "this":Lorg/apache/commons/collections4/ListUtils$LcsVisitor;, "Lorg/apache/commons/collections4/ListUtils$LcsVisitor<TE;>;"
-    .local p1, "object":Ljava/lang/Object;, "TE;"
     return-void
 .end method
 
@@ -114,12 +105,9 @@
     .end annotation
 
     .line 628
-    .local p0, "this":Lorg/apache/commons/collections4/ListUtils$LcsVisitor;, "Lorg/apache/commons/collections4/ListUtils$LcsVisitor<TE;>;"
-    .local p1, "object":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Lorg/apache/commons/collections4/ListUtils$LcsVisitor;->sequence:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 629
     return-void
 .end method

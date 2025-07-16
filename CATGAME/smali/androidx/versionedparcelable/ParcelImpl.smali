@@ -38,7 +38,6 @@
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,17 +49,15 @@
 
     invoke-virtual {v0}, Landroidx/versionedparcelable/VersionedParcelParcel;->readVersionedParcelable()Landroidx/versionedparcelable/VersionedParcelable;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/versionedparcelable/ParcelImpl;->mParcel:Landroidx/versionedparcelable/VersionedParcelable;
+    iput-object p1, p0, Landroidx/versionedparcelable/ParcelImpl;->mParcel:Landroidx/versionedparcelable/VersionedParcelable;
 
-    .line 40
     return-void
 .end method
 
 .method public constructor <init>(Landroidx/versionedparcelable/VersionedParcelable;)V
     .locals 0
-    .param p1, "parcel"    # Landroidx/versionedparcelable/VersionedParcelable;
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -68,7 +65,6 @@
     .line 35
     iput-object p1, p0, Landroidx/versionedparcelable/ParcelImpl;->mParcel:Landroidx/versionedparcelable/VersionedParcelable;
 
-    .line 36
     return-void
 .end method
 
@@ -77,7 +73,6 @@
 .method public describeContents()I
     .locals 1
 
-    .line 51
     const/4 v0, 0x0
 
     return v0
@@ -100,21 +95,17 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 2
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
+    .locals 0
 
     .line 56
-    new-instance v0, Landroidx/versionedparcelable/VersionedParcelParcel;
+    new-instance p2, Landroidx/versionedparcelable/VersionedParcelParcel;
 
-    invoke-direct {v0, p1}, Landroidx/versionedparcelable/VersionedParcelParcel;-><init>(Landroid/os/Parcel;)V
+    invoke-direct {p2, p1}, Landroidx/versionedparcelable/VersionedParcelParcel;-><init>(Landroid/os/Parcel;)V
 
     .line 57
-    .local v0, "parcel":Landroidx/versionedparcelable/VersionedParcelParcel;
-    iget-object v1, p0, Landroidx/versionedparcelable/ParcelImpl;->mParcel:Landroidx/versionedparcelable/VersionedParcelable;
+    iget-object p1, p0, Landroidx/versionedparcelable/ParcelImpl;->mParcel:Landroidx/versionedparcelable/VersionedParcelable;
 
-    invoke-virtual {v0, v1}, Landroidx/versionedparcelable/VersionedParcelParcel;->writeVersionedParcelable(Landroidx/versionedparcelable/VersionedParcelable;)V
+    invoke-virtual {p2, p1}, Landroidx/versionedparcelable/VersionedParcelParcel;->writeVersionedParcelable(Landroidx/versionedparcelable/VersionedParcelable;)V
 
-    .line 58
     return-void
 .end method

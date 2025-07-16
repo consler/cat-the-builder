@@ -90,8 +90,7 @@
 
 # direct methods
 .method constructor <init>(Lio/reactivex/functions/Function;I)V
-    .locals 1
-    .param p2, "prefetch"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -103,8 +102,6 @@
     .end annotation
 
     .line 101
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber<TT;TR;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
 
     .line 102
@@ -113,28 +110,27 @@
     .line 103
     iput p2, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;->prefetch:I
 
+    shr-int/lit8 p1, p2, 0x2
+
+    sub-int/2addr p2, p1
+
     .line 104
-    shr-int/lit8 v0, p2, 0x2
-
-    sub-int v0, p2, v0
-
-    iput v0, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;->limit:I
+    iput p2, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;->limit:I
 
     .line 105
-    new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner;
+    new-instance p1, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner;
 
-    invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner;-><init>(Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapSupport;)V
+    invoke-direct {p1, p0}, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner;-><init>(Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapSupport;)V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;->inner:Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;->inner:Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner;
 
     .line 106
-    new-instance v0, Lio/reactivex/internal/util/AtomicThrowable;
+    new-instance p1, Lio/reactivex/internal/util/AtomicThrowable;
 
-    invoke-direct {v0}, Lio/reactivex/internal/util/AtomicThrowable;-><init>()V
+    invoke-direct {p1}, Lio/reactivex/internal/util/AtomicThrowable;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;->errors:Lio/reactivex/internal/util/AtomicThrowable;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;->errors:Lio/reactivex/internal/util/AtomicThrowable;
 
-    .line 107
     return-void
 .end method
 
@@ -146,32 +142,28 @@
 .method public final innerComplete()V
     .locals 1
 
-    .line 170
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber<TT;TR;>;"
     const/4 v0, 0x0
 
+    .line 170
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;->active:Z
 
     .line 171
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;->drain()V
 
-    .line 172
     return-void
 .end method
 
 .method public final onComplete()V
     .locals 1
 
-    .line 164
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber<TT;TR;>;"
     const/4 v0, 0x1
 
+    .line 164
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;->done:Z
 
     .line 165
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;->drain()V
 
-    .line 166
     return-void
 .end method
 
@@ -184,8 +176,6 @@
     .end annotation
 
     .line 152
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber<TT;TR;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget v0, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;->sourceMode:I
 
     const/4 v1, 0x2
@@ -197,41 +187,37 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/internal/fuseable/SimpleQueue;->offer(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 154
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;->s:Lorg/reactivestreams/Subscription;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
+    invoke-interface {p1}, Lorg/reactivestreams/Subscription;->cancel()V
 
     .line 155
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Queue full?!"
+    const-string v0, "Queue full?!"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 156
     return-void
 
     .line 159
     :cond_0
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;->drain()V
 
-    .line 160
     return-void
 .end method
 
 .method public final onSubscribe(Lorg/reactivestreams/Subscription;)V
-    .locals 4
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
+    .locals 3
 
     .line 111
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -253,16 +239,13 @@
 
     check-cast v0, Lio/reactivex/internal/fuseable/QueueSubscription;
 
-    .line 116
-    .local v0, "f":Lio/reactivex/internal/fuseable/QueueSubscription;, "Lio/reactivex/internal/fuseable/QueueSubscription<TT;>;"
     const/4 v1, 0x3
 
+    .line 116
     invoke-interface {v0, v1}, Lio/reactivex/internal/fuseable/QueueSubscription;->requestFusion(I)I
 
     move-result v1
 
-    .line 117
-    .local v1, "m":I
     const/4 v2, 0x1
 
     if-ne v1, v2, :cond_0
@@ -282,10 +265,8 @@
     .line 124
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;->drain()V
 
-    .line 125
     return-void
 
-    .line 127
     :cond_0
     const/4 v2, 0x2
 
@@ -301,18 +282,15 @@
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;->subscribeActual()V
 
     .line 133
-    iget v2, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;->prefetch:I
+    iget v0, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$BaseConcatMapSubscriber;->prefetch:I
 
-    int-to-long v2, v2
+    int-to-long v0, v0
 
-    invoke-interface {p1, v2, v3}, Lorg/reactivestreams/Subscription;->request(J)V
+    invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 134
     return-void
 
     .line 138
-    .end local v0    # "f":Lio/reactivex/internal/fuseable/QueueSubscription;, "Lio/reactivex/internal/fuseable/QueueSubscription<TT;>;"
-    .end local v1    # "m":I
     :cond_1
     new-instance v0, Lio/reactivex/internal/queue/SpscArrayQueue;
 
@@ -332,7 +310,6 @@
 
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 144
     :cond_2
     return-void
 .end method

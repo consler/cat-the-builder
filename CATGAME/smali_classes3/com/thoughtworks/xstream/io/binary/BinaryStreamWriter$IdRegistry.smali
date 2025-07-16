@@ -31,9 +31,9 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 87
     const-wide/16 v0, 0x0
 
+    .line 87
     iput-wide v0, p0, Lcom/thoughtworks/xstream/io/binary/BinaryStreamWriter$IdRegistry;->nextId:J
 
     .line 88
@@ -48,8 +48,6 @@
 
 .method synthetic constructor <init>(Lcom/thoughtworks/xstream/io/binary/BinaryStreamWriter;Lcom/thoughtworks/xstream/io/binary/BinaryStreamWriter$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/thoughtworks/xstream/io/binary/BinaryStreamWriter;
-    .param p2, "x1"    # Lcom/thoughtworks/xstream/io/binary/BinaryStreamWriter$1;
 
     .line 85
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/io/binary/BinaryStreamWriter$IdRegistry;-><init>(Lcom/thoughtworks/xstream/io/binary/BinaryStreamWriter;)V
@@ -60,8 +58,7 @@
 
 # virtual methods
 .method public getId(Ljava/lang/String;)J
-    .locals 6
-    .param p1, "value"    # Ljava/lang/String;
+    .locals 5
 
     .line 91
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/binary/BinaryStreamWriter$IdRegistry;->ids:Ljava/util/Map;
@@ -72,24 +69,20 @@
 
     check-cast v0, Ljava/lang/Long;
 
-    .line 92
-    .local v0, "id":Ljava/lang/Long;
     if-nez v0, :cond_0
 
     .line 93
-    new-instance v1, Ljava/lang/Long;
+    new-instance v0, Ljava/lang/Long;
 
-    iget-wide v2, p0, Lcom/thoughtworks/xstream/io/binary/BinaryStreamWriter$IdRegistry;->nextId:J
+    iget-wide v1, p0, Lcom/thoughtworks/xstream/io/binary/BinaryStreamWriter$IdRegistry;->nextId:J
 
-    const-wide/16 v4, 0x1
+    const-wide/16 v3, 0x1
 
-    add-long/2addr v2, v4
+    add-long/2addr v1, v3
 
-    iput-wide v2, p0, Lcom/thoughtworks/xstream/io/binary/BinaryStreamWriter$IdRegistry;->nextId:J
+    iput-wide v1, p0, Lcom/thoughtworks/xstream/io/binary/BinaryStreamWriter$IdRegistry;->nextId:J
 
-    invoke-direct {v1, v2, v3}, Ljava/lang/Long;-><init>(J)V
-
-    move-object v0, v1
+    invoke-direct {v0, v1, v2}, Ljava/lang/Long;-><init>(J)V
 
     .line 94
     iget-object v1, p0, Lcom/thoughtworks/xstream/io/binary/BinaryStreamWriter$IdRegistry;->ids:Ljava/util/Map;
@@ -113,7 +106,7 @@
     :cond_0
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v1
+    move-result-wide v0
 
-    return-wide v1
+    return-wide v0
 .end method

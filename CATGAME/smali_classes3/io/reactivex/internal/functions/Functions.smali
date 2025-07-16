@@ -256,7 +256,6 @@
 
 .method public static actionConsumer(Lio/reactivex/functions/Action;)Lio/reactivex/functions/Consumer;
     .locals 1
-    .param p0, "action"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -330,7 +329,6 @@
     .end annotation
 
     .line 234
-    .local p0, "target":Ljava/lang/Class;, "Ljava/lang/Class<TU;>;"
     new-instance v0, Lio/reactivex/internal/functions/Functions$CastToClass;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/functions/Functions$CastToClass;-><init>(Ljava/lang/Class;)V
@@ -340,7 +338,6 @@
 
 .method public static createArrayList(I)Ljava/util/concurrent/Callable;
     .locals 1
-    .param p0, "capacity"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -410,7 +407,6 @@
     .end annotation
 
     .line 268
-    .local p0, "value":Ljava/lang/Object;, "TT;"
     new-instance v0, Lio/reactivex/internal/functions/Functions$EqualsPredicate;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/functions/Functions$EqualsPredicate;-><init>(Ljava/lang/Object;)V
@@ -430,7 +426,6 @@
     .end annotation
 
     .line 171
-    .local p0, "future":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<*>;"
     new-instance v0, Lio/reactivex/internal/functions/Functions$FutureAction;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/functions/Functions$FutureAction;-><init>(Ljava/util/concurrent/Future;)V
@@ -473,7 +468,6 @@
     .end annotation
 
     .line 366
-    .local p0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<TU;>;"
     new-instance v0, Lio/reactivex/internal/functions/Functions$ClassFilter;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/functions/Functions$ClassFilter;-><init>(Ljava/lang/Class;)V
@@ -494,7 +488,6 @@
     .end annotation
 
     .line 199
-    .local p0, "value":Ljava/lang/Object;, "TT;"
     new-instance v0, Lio/reactivex/internal/functions/Functions$JustValue;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/functions/Functions$JustValue;-><init>(Ljava/lang/Object;)V
@@ -517,7 +510,6 @@
     .end annotation
 
     .line 210
-    .local p0, "value":Ljava/lang/Object;, "TU;"
     new-instance v0, Lio/reactivex/internal/functions/Functions$JustValue;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/functions/Functions$JustValue;-><init>(Ljava/lang/Object;)V
@@ -543,7 +535,6 @@
     .end annotation
 
     .line 511
-    .local p0, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TT;>;"
     new-instance v0, Lio/reactivex/internal/functions/Functions$ListSorter;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/functions/Functions$ListSorter;-><init>(Ljava/util/Comparator;)V
@@ -603,7 +594,6 @@
     .end annotation
 
     .line 332
-    .local p0, "onNotification":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Lio/reactivex/Notification<TT;>;>;"
     new-instance v0, Lio/reactivex/internal/functions/Functions$NotificationOnComplete;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/functions/Functions$NotificationOnComplete;-><init>(Lio/reactivex/functions/Consumer;)V
@@ -629,7 +619,6 @@
     .end annotation
 
     .line 328
-    .local p0, "onNotification":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Lio/reactivex/Notification<TT;>;>;"
     new-instance v0, Lio/reactivex/internal/functions/Functions$NotificationOnError;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/functions/Functions$NotificationOnError;-><init>(Lio/reactivex/functions/Consumer;)V
@@ -654,7 +643,6 @@
     .end annotation
 
     .line 324
-    .local p0, "onNotification":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Lio/reactivex/Notification<TT;>;>;"
     new-instance v0, Lio/reactivex/internal/functions/Functions$NotificationOnNext;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/functions/Functions$NotificationOnNext;-><init>(Lio/reactivex/functions/Consumer;)V
@@ -682,7 +670,6 @@
 
 .method public static predicateReverseFor(Lio/reactivex/functions/BooleanSupplier;)Lio/reactivex/functions/Predicate;
     .locals 1
-    .param p0, "supplier"    # Lio/reactivex/functions/BooleanSupplier;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -705,8 +692,6 @@
 
 .method public static timestampWith(Ljava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/functions/Function;
     .locals 1
-    .param p0, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p1, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -750,10 +735,9 @@
         }
     .end annotation
 
-    .line 37
-    .local p0, "f":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-TT1;-TT2;+TR;>;"
     const-string v0, "f is null"
 
+    .line 37
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 38
@@ -786,10 +770,9 @@
         }
     .end annotation
 
-    .line 42
-    .local p0, "f":Lio/reactivex/functions/Function3;, "Lio/reactivex/functions/Function3<TT1;TT2;TT3;TR;>;"
     const-string v0, "f is null"
 
+    .line 42
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 43
@@ -824,10 +807,9 @@
         }
     .end annotation
 
-    .line 47
-    .local p0, "f":Lio/reactivex/functions/Function4;, "Lio/reactivex/functions/Function4<TT1;TT2;TT3;TT4;TR;>;"
     const-string v0, "f is null"
 
+    .line 47
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 48
@@ -864,10 +846,9 @@
         }
     .end annotation
 
-    .line 52
-    .local p0, "f":Lio/reactivex/functions/Function5;, "Lio/reactivex/functions/Function5<TT1;TT2;TT3;TT4;TT5;TR;>;"
     const-string v0, "f is null"
 
+    .line 52
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 53
@@ -906,10 +887,9 @@
         }
     .end annotation
 
-    .line 58
-    .local p0, "f":Lio/reactivex/functions/Function6;, "Lio/reactivex/functions/Function6<TT1;TT2;TT3;TT4;TT5;TT6;TR;>;"
     const-string v0, "f is null"
 
+    .line 58
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 59
@@ -950,10 +930,9 @@
         }
     .end annotation
 
-    .line 64
-    .local p0, "f":Lio/reactivex/functions/Function7;, "Lio/reactivex/functions/Function7<TT1;TT2;TT3;TT4;TT5;TT6;TT7;TR;>;"
     const-string v0, "f is null"
 
+    .line 64
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 65
@@ -996,10 +975,9 @@
         }
     .end annotation
 
-    .line 70
-    .local p0, "f":Lio/reactivex/functions/Function8;, "Lio/reactivex/functions/Function8<TT1;TT2;TT3;TT4;TT5;TT6;TT7;TT8;TR;>;"
     const-string v0, "f is null"
 
+    .line 70
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 71
@@ -1044,10 +1022,9 @@
         }
     .end annotation
 
-    .line 76
-    .local p0, "f":Lio/reactivex/functions/Function9;, "Lio/reactivex/functions/Function9<TT1;TT2;TT3;TT4;TT5;TT6;TT7;TT8;TT9;TR;>;"
     const-string v0, "f is null"
 
+    .line 76
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 77
@@ -1076,7 +1053,6 @@
     .end annotation
 
     .line 421
-    .local p0, "keySelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TK;>;"
     new-instance v0, Lio/reactivex/internal/functions/Functions$ToMapKeySelector;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/functions/Functions$ToMapKeySelector;-><init>(Lio/reactivex/functions/Function;)V
@@ -1106,8 +1082,6 @@
     .end annotation
 
     .line 443
-    .local p0, "keySelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TK;>;"
-    .local p1, "valueSelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TV;>;"
     new-instance v0, Lio/reactivex/internal/functions/Functions$ToMapKeyValueSelector;
 
     invoke-direct {v0, p1, p0}, Lio/reactivex/internal/functions/Functions$ToMapKeyValueSelector;-><init>(Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;)V
@@ -1143,9 +1117,6 @@
     .end annotation
 
     .line 478
-    .local p0, "keySelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TK;>;"
-    .local p1, "valueSelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TV;>;"
-    .local p2, "collectionFactory":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TK;+Ljava/util/Collection<-TV;>;>;"
     new-instance v0, Lio/reactivex/internal/functions/Functions$ToMultimapKeyValueSelector;
 
     invoke-direct {v0, p2, p1, p0}, Lio/reactivex/internal/functions/Functions$ToMultimapKeyValueSelector;-><init>(Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;)V

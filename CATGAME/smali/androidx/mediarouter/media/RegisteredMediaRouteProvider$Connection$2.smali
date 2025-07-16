@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;)V
     .locals 0
-    .param p1, "this$1"    # Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;
 
     .line 840
     iput-object p1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection$2;->this$1:Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;
@@ -48,6 +47,5 @@
 
     invoke-virtual {v0, v1}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider;->onConnectionDied(Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;)V
 
-    .line 844
     return-void
 .end method

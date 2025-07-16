@@ -53,15 +53,11 @@
     .end annotation
 
     .line 57
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableToList$ToListSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableToList$ToListSubscriber<TT;TU;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TU;>;"
-    .local p2, "collection":Ljava/util/Collection;, "TU;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/subscriptions/DeferredScalarSubscription;-><init>(Lorg/reactivestreams/Subscriber;)V
 
     .line 58
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableToList$ToListSubscriber;->value:Ljava/lang/Object;
 
-    .line 59
     return-void
 .end method
 
@@ -71,7 +67,6 @@
     .locals 1
 
     .line 91
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableToList$ToListSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableToList$ToListSubscriber<TT;TU;>;"
     invoke-super {p0}, Lio/reactivex/internal/subscriptions/DeferredScalarSubscription;->cancel()V
 
     .line 92
@@ -79,7 +74,6 @@
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
 
-    .line 93
     return-void
 .end method
 
@@ -87,23 +81,19 @@
     .locals 1
 
     .line 86
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableToList$ToListSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableToList$ToListSubscriber<TT;TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableToList$ToListSubscriber;->value:Ljava/lang/Object;
 
     invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/flowable/FlowableToList$ToListSubscriber;->complete(Ljava/lang/Object;)V
 
-    .line 87
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
-    .line 80
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableToList$ToListSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableToList$ToListSubscriber<TT;TU;>;"
     const/4 v0, 0x0
 
+    .line 80
     iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableToList$ToListSubscriber;->value:Ljava/lang/Object;
 
     .line 81
@@ -111,7 +101,6 @@
 
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 82
     return-void
 .end method
 
@@ -124,30 +113,23 @@
     .end annotation
 
     .line 72
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableToList$ToListSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableToList$ToListSubscriber<TT;TU;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableToList$ToListSubscriber;->value:Ljava/lang/Object;
 
     check-cast v0, Ljava/util/Collection;
 
-    .line 73
-    .local v0, "v":Ljava/util/Collection;, "TU;"
     if-eqz v0, :cond_0
 
     .line 74
     invoke-interface {v0, p1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    .line 76
     :cond_0
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 63
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableToList$ToListSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableToList$ToListSubscriber<TT;TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableToList$ToListSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -164,12 +146,11 @@
 
     invoke-interface {v0, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
-    .line 66
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 66
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 68
     :cond_0
     return-void
 .end method

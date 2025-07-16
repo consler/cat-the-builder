@@ -20,20 +20,18 @@
 
 # virtual methods
 .method public act(F)Z
-    .locals 2
-    .param p1, "delta"    # F
+    .locals 1
 
     .line 28
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/VisibleAction;->target:Lcom/badlogic/gdx/scenes/scene2d/Actor;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/VisibleAction;->target:Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    iget-boolean v1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/VisibleAction;->visible:Z
+    iget-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/VisibleAction;->visible:Z
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/Actor;->setVisible(Z)V
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/scenes/scene2d/Actor;->setVisible(Z)V
 
-    .line 29
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public isVisible()Z
@@ -47,11 +45,9 @@
 
 .method public setVisible(Z)V
     .locals 0
-    .param p1, "visible"    # Z
 
     .line 37
     iput-boolean p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/VisibleAction;->visible:Z
 
-    .line 38
     return-void
 .end method

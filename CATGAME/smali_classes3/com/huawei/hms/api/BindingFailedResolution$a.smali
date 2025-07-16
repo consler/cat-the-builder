@@ -1,94 +1,81 @@
 .class Lcom/huawei/hms/api/BindingFailedResolution$a;
-.super Lcom/huawei/hms/ui/AbstractPromptDialog;
+.super Ljava/lang/Object;
 .source "BindingFailedResolution.java"
+
+# interfaces
+.implements Landroid/os/Handler$Callback;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/huawei/hms/api/BindingFailedResolution;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/huawei/hms/api/BindingFailedResolution;->selfDestroyHandle()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
-    name = "a"
+    accessFlags = 0x0
+    name = null
 .end annotation
 
 
+# instance fields
+.field final synthetic a:Lcom/huawei/hms/api/BindingFailedResolution;
+
+
 # direct methods
-.method private constructor <init>()V
+.method constructor <init>(Lcom/huawei/hms/api/BindingFailedResolution;)V
     .locals 0
 
-    .line 358
-    invoke-direct {p0}, Lcom/huawei/hms/ui/AbstractPromptDialog;-><init>()V
+    .line 1
+    iput-object p1, p0, Lcom/huawei/hms/api/BindingFailedResolution$a;->a:Lcom/huawei/hms/api/BindingFailedResolution;
 
-    return-void
-.end method
-
-.method synthetic constructor <init>(Lcom/huawei/hms/api/BindingFailedResolution$1;)V
-    .locals 0
-
-    .line 358
-    invoke-direct {p0}, Lcom/huawei/hms/api/BindingFailedResolution$a;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected onGetMessageString(Landroid/content/Context;)Ljava/lang/String;
-    .locals 3
+.method public handleMessage(Landroid/os/Message;)Z
+    .locals 1
 
-    .line 362
-    const/4 v0, 0x0
+    if-eqz p1, :cond_1
 
-    invoke-static {p1, v0}, Lcom/huawei/hms/utils/Util;->getAppName(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+    .line 1
+    iget p1, p1, Landroid/os/Message;->what:I
 
-    move-result-object v0
+    const/4 v0, 0x3
 
-    .line 363
-    invoke-static {p1}, Lcom/huawei/hms/utils/HMSPackageManager;->getInstance(Landroid/content/Context;)Lcom/huawei/hms/utils/HMSPackageManager;
+    if-eq p1, v0, :cond_0
 
-    move-result-object v1
+    goto :goto_0
 
-    invoke-virtual {v1}, Lcom/huawei/hms/utils/HMSPackageManager;->getHMSPackageName()Ljava/lang/String;
+    :cond_0
+    const-string p1, "BindingFailedResolution"
 
-    move-result-object v1
+    const-string v0, "selfDestroyHandle\uff1aMSG_SELF_DESTROY_TIMEOUT"
 
-    invoke-static {p1, v1}, Lcom/huawei/hms/utils/Util;->getAppName(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+    .line 5
+    invoke-static {p1, v0}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result-object p1
+    .line 6
+    iget-object p1, p0, Lcom/huawei/hms/api/BindingFailedResolution$a;->a:Lcom/huawei/hms/api/BindingFailedResolution;
 
-    .line 364
-    const/4 v1, 0x2
+    invoke-static {p1}, Lcom/huawei/hms/api/BindingFailedResolution;->access$000(Lcom/huawei/hms/api/BindingFailedResolution;)V
 
-    new-array v1, v1, [Ljava/lang/Object;
+    .line 9
+    iget-object p1, p0, Lcom/huawei/hms/api/BindingFailedResolution$a;->a:Lcom/huawei/hms/api/BindingFailedResolution;
 
-    const/4 v2, 0x0
+    const/16 v0, 0x8
 
-    aput-object v0, v1, v2
+    invoke-static {p1, v0}, Lcom/huawei/hms/api/BindingFailedResolution;->access$100(Lcom/huawei/hms/api/BindingFailedResolution;I)V
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    aput-object p1, v1, v0
+    return p1
 
-    const-string p1, "hms_bindfaildlg_message"
+    :cond_1
+    :goto_0
+    const/4 p1, 0x0
 
-    invoke-static {p1, v1}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->getString(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p1
-
-    return-object p1
-.end method
-
-.method protected onGetPositiveButtonString(Landroid/content/Context;)Ljava/lang/String;
-    .locals 0
-
-    .line 369
-    const-string p1, "hms_confirm"
-
-    invoke-static {p1}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p1
-
-    return-object p1
+    return p1
 .end method

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1;)V
     .locals 0
-    .param p1, "this$2"    # Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1;
 
     .line 147
     iput-object p1, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1$2;->this$2:Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1;
@@ -38,7 +37,6 @@
 # virtual methods
 .method public onCompleted(Ljava/lang/Exception;)V
     .locals 2
-    .param p1, "ex"    # Ljava/lang/Exception;
 
     .line 150
     iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1$2;->this$2:Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1;
@@ -54,13 +52,11 @@
     if-nez p1, :cond_0
 
     .line 151
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "socket closed before proxy connect response"
+    const-string v0, "socket closed before proxy connect response"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
-
-    move-object p1, v0
+    invoke-direct {p1, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     .line 152
     :cond_0
@@ -76,6 +72,5 @@
 
     invoke-interface {v0, p1, v1}, Lcom/koushikdutta/async/callback/ConnectCallback;->onConnectCompleted(Ljava/lang/Exception;Lcom/koushikdutta/async/AsyncSocket;)V
 
-    .line 153
     return-void
 .end method

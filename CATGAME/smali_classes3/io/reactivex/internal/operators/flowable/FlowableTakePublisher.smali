@@ -31,7 +31,6 @@
 # direct methods
 .method public constructor <init>(Lorg/reactivestreams/Publisher;J)V
     .locals 0
-    .param p2, "limit"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -41,8 +40,6 @@
     .end annotation
 
     .line 31
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTakePublisher;, "Lio/reactivex/internal/operators/flowable/FlowableTakePublisher<TT;>;"
-    .local p1, "source":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Flowable;-><init>()V
 
     .line 32
@@ -51,7 +48,6 @@
     .line 33
     iput-wide p2, p0, Lio/reactivex/internal/operators/flowable/FlowableTakePublisher;->limit:J
 
-    .line 34
     return-void
 .end method
 
@@ -68,8 +64,6 @@
     .end annotation
 
     .line 38
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTakePublisher;, "Lio/reactivex/internal/operators/flowable/FlowableTakePublisher<TT;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTakePublisher;->source:Lorg/reactivestreams/Publisher;
 
     new-instance v1, Lio/reactivex/internal/operators/flowable/FlowableTake$TakeSubscriber;
@@ -80,6 +74,5 @@
 
     invoke-interface {v0, v1}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
 
-    .line 39
     return-void
 .end method

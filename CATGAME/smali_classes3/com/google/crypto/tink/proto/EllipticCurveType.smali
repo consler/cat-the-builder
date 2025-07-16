@@ -65,7 +65,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .locals 14
 
     .line 14
     new-instance v0, Lcom/google/crypto/tink/proto/EllipticCurveType;
@@ -79,90 +79,80 @@
     sput-object v0, Lcom/google/crypto/tink/proto/EllipticCurveType;->UNKNOWN_CURVE:Lcom/google/crypto/tink/proto/EllipticCurveType;
 
     .line 18
-    new-instance v0, Lcom/google/crypto/tink/proto/EllipticCurveType;
+    new-instance v1, Lcom/google/crypto/tink/proto/EllipticCurveType;
 
-    const-string v1, "NIST_P256"
+    const-string v3, "NIST_P256"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    const/4 v4, 0x2
+    const/4 v5, 0x2
 
-    invoke-direct {v0, v1, v3, v4}, Lcom/google/crypto/tink/proto/EllipticCurveType;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v1, v3, v4, v5}, Lcom/google/crypto/tink/proto/EllipticCurveType;-><init>(Ljava/lang/String;II)V
 
-    sput-object v0, Lcom/google/crypto/tink/proto/EllipticCurveType;->NIST_P256:Lcom/google/crypto/tink/proto/EllipticCurveType;
+    sput-object v1, Lcom/google/crypto/tink/proto/EllipticCurveType;->NIST_P256:Lcom/google/crypto/tink/proto/EllipticCurveType;
 
     .line 22
-    new-instance v0, Lcom/google/crypto/tink/proto/EllipticCurveType;
+    new-instance v3, Lcom/google/crypto/tink/proto/EllipticCurveType;
 
-    const-string v1, "NIST_P384"
+    const-string v6, "NIST_P384"
 
-    const/4 v5, 0x3
+    const/4 v7, 0x3
 
-    invoke-direct {v0, v1, v4, v5}, Lcom/google/crypto/tink/proto/EllipticCurveType;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v3, v6, v5, v7}, Lcom/google/crypto/tink/proto/EllipticCurveType;-><init>(Ljava/lang/String;II)V
 
-    sput-object v0, Lcom/google/crypto/tink/proto/EllipticCurveType;->NIST_P384:Lcom/google/crypto/tink/proto/EllipticCurveType;
+    sput-object v3, Lcom/google/crypto/tink/proto/EllipticCurveType;->NIST_P384:Lcom/google/crypto/tink/proto/EllipticCurveType;
 
     .line 26
-    new-instance v0, Lcom/google/crypto/tink/proto/EllipticCurveType;
+    new-instance v6, Lcom/google/crypto/tink/proto/EllipticCurveType;
 
-    const-string v1, "NIST_P521"
+    const-string v8, "NIST_P521"
 
-    const/4 v6, 0x4
+    const/4 v9, 0x4
 
-    invoke-direct {v0, v1, v5, v6}, Lcom/google/crypto/tink/proto/EllipticCurveType;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v6, v8, v7, v9}, Lcom/google/crypto/tink/proto/EllipticCurveType;-><init>(Ljava/lang/String;II)V
 
-    sput-object v0, Lcom/google/crypto/tink/proto/EllipticCurveType;->NIST_P521:Lcom/google/crypto/tink/proto/EllipticCurveType;
+    sput-object v6, Lcom/google/crypto/tink/proto/EllipticCurveType;->NIST_P521:Lcom/google/crypto/tink/proto/EllipticCurveType;
 
     .line 30
-    new-instance v0, Lcom/google/crypto/tink/proto/EllipticCurveType;
+    new-instance v8, Lcom/google/crypto/tink/proto/EllipticCurveType;
 
-    const-string v1, "CURVE25519"
+    const-string v10, "CURVE25519"
 
-    const/4 v7, 0x5
+    const/4 v11, 0x5
 
-    invoke-direct {v0, v1, v6, v7}, Lcom/google/crypto/tink/proto/EllipticCurveType;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v8, v10, v9, v11}, Lcom/google/crypto/tink/proto/EllipticCurveType;-><init>(Ljava/lang/String;II)V
 
-    sput-object v0, Lcom/google/crypto/tink/proto/EllipticCurveType;->CURVE25519:Lcom/google/crypto/tink/proto/EllipticCurveType;
+    sput-object v8, Lcom/google/crypto/tink/proto/EllipticCurveType;->CURVE25519:Lcom/google/crypto/tink/proto/EllipticCurveType;
 
     .line 31
-    new-instance v0, Lcom/google/crypto/tink/proto/EllipticCurveType;
+    new-instance v10, Lcom/google/crypto/tink/proto/EllipticCurveType;
 
-    const-string v1, "UNRECOGNIZED"
+    const-string v12, "UNRECOGNIZED"
 
-    const/4 v8, -0x1
+    const/4 v13, -0x1
 
-    invoke-direct {v0, v1, v7, v8}, Lcom/google/crypto/tink/proto/EllipticCurveType;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v10, v12, v11, v13}, Lcom/google/crypto/tink/proto/EllipticCurveType;-><init>(Ljava/lang/String;II)V
 
-    sput-object v0, Lcom/google/crypto/tink/proto/EllipticCurveType;->UNRECOGNIZED:Lcom/google/crypto/tink/proto/EllipticCurveType;
+    sput-object v10, Lcom/google/crypto/tink/proto/EllipticCurveType;->UNRECOGNIZED:Lcom/google/crypto/tink/proto/EllipticCurveType;
+
+    const/4 v12, 0x6
+
+    new-array v12, v12, [Lcom/google/crypto/tink/proto/EllipticCurveType;
+
+    aput-object v0, v12, v2
+
+    aput-object v1, v12, v4
+
+    aput-object v3, v12, v5
+
+    aput-object v6, v12, v7
+
+    aput-object v8, v12, v9
+
+    aput-object v10, v12, v11
 
     .line 9
-    const/4 v1, 0x6
-
-    new-array v1, v1, [Lcom/google/crypto/tink/proto/EllipticCurveType;
-
-    sget-object v8, Lcom/google/crypto/tink/proto/EllipticCurveType;->UNKNOWN_CURVE:Lcom/google/crypto/tink/proto/EllipticCurveType;
-
-    aput-object v8, v1, v2
-
-    sget-object v2, Lcom/google/crypto/tink/proto/EllipticCurveType;->NIST_P256:Lcom/google/crypto/tink/proto/EllipticCurveType;
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/google/crypto/tink/proto/EllipticCurveType;->NIST_P384:Lcom/google/crypto/tink/proto/EllipticCurveType;
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/proto/EllipticCurveType;->NIST_P521:Lcom/google/crypto/tink/proto/EllipticCurveType;
-
-    aput-object v2, v1, v5
-
-    sget-object v2, Lcom/google/crypto/tink/proto/EllipticCurveType;->CURVE25519:Lcom/google/crypto/tink/proto/EllipticCurveType;
-
-    aput-object v2, v1, v6
-
-    aput-object v0, v1, v7
-
-    sput-object v1, Lcom/google/crypto/tink/proto/EllipticCurveType;->$VALUES:[Lcom/google/crypto/tink/proto/EllipticCurveType;
+    sput-object v12, Lcom/google/crypto/tink/proto/EllipticCurveType;->$VALUES:[Lcom/google/crypto/tink/proto/EllipticCurveType;
 
     .line 91
     new-instance v0, Lcom/google/crypto/tink/proto/EllipticCurveType$1;
@@ -176,7 +166,6 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .param p3, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000,
@@ -202,13 +191,11 @@
     .line 116
     iput p3, p0, Lcom/google/crypto/tink/proto/EllipticCurveType;->value:I
 
-    .line 117
     return-void
 .end method
 
 .method public static forNumber(I)Lcom/google/crypto/tink/proto/EllipticCurveType;
     .locals 1
-    .param p0, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -218,7 +205,6 @@
         }
     .end annotation
 
-    .line 76
     if-eqz p0, :cond_4
 
     const/4 v0, 0x2
@@ -237,40 +223,39 @@
 
     if-eq p0, v0, :cond_0
 
-    .line 82
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
     .line 81
     :cond_0
-    sget-object v0, Lcom/google/crypto/tink/proto/EllipticCurveType;->CURVE25519:Lcom/google/crypto/tink/proto/EllipticCurveType;
+    sget-object p0, Lcom/google/crypto/tink/proto/EllipticCurveType;->CURVE25519:Lcom/google/crypto/tink/proto/EllipticCurveType;
 
-    return-object v0
+    return-object p0
 
     .line 80
     :cond_1
-    sget-object v0, Lcom/google/crypto/tink/proto/EllipticCurveType;->NIST_P521:Lcom/google/crypto/tink/proto/EllipticCurveType;
+    sget-object p0, Lcom/google/crypto/tink/proto/EllipticCurveType;->NIST_P521:Lcom/google/crypto/tink/proto/EllipticCurveType;
 
-    return-object v0
+    return-object p0
 
     .line 79
     :cond_2
-    sget-object v0, Lcom/google/crypto/tink/proto/EllipticCurveType;->NIST_P384:Lcom/google/crypto/tink/proto/EllipticCurveType;
+    sget-object p0, Lcom/google/crypto/tink/proto/EllipticCurveType;->NIST_P384:Lcom/google/crypto/tink/proto/EllipticCurveType;
 
-    return-object v0
+    return-object p0
 
     .line 78
     :cond_3
-    sget-object v0, Lcom/google/crypto/tink/proto/EllipticCurveType;->NIST_P256:Lcom/google/crypto/tink/proto/EllipticCurveType;
+    sget-object p0, Lcom/google/crypto/tink/proto/EllipticCurveType;->NIST_P256:Lcom/google/crypto/tink/proto/EllipticCurveType;
 
-    return-object v0
+    return-object p0
 
     .line 77
     :cond_4
-    sget-object v0, Lcom/google/crypto/tink/proto/EllipticCurveType;->UNKNOWN_CURVE:Lcom/google/crypto/tink/proto/EllipticCurveType;
+    sget-object p0, Lcom/google/crypto/tink/proto/EllipticCurveType;->UNKNOWN_CURVE:Lcom/google/crypto/tink/proto/EllipticCurveType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static internalGetValueMap()Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLiteMap;
@@ -300,8 +285,7 @@
 .end method
 
 .method public static valueOf(I)Lcom/google/crypto/tink/proto/EllipticCurveType;
-    .locals 1
-    .param p0, "value"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -317,14 +301,13 @@
     .line 72
     invoke-static {p0}, Lcom/google/crypto/tink/proto/EllipticCurveType;->forNumber(I)Lcom/google/crypto/tink/proto/EllipticCurveType;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/crypto/tink/proto/EllipticCurveType;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8000
@@ -339,11 +322,11 @@
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/EllipticCurveType;
+    check-cast p0, Lcom/google/crypto/tink/proto/EllipticCurveType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/google/crypto/tink/proto/EllipticCurveType;

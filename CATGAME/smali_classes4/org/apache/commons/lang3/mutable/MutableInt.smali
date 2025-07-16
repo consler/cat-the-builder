@@ -36,13 +36,11 @@
     .line 45
     invoke-direct {p0}, Ljava/lang/Number;-><init>()V
 
-    .line 46
     return-void
 .end method
 
 .method public constructor <init>(I)V
     .locals 0
-    .param p1, "value"    # I
 
     .line 54
     invoke-direct {p0}, Ljava/lang/Number;-><init>()V
@@ -50,13 +48,11 @@
     .line 55
     iput p1, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
-    .line 56
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Number;)V
-    .locals 1
-    .param p1, "value"    # Ljava/lang/Number;
+    .locals 0
 
     .line 65
     invoke-direct {p0}, Ljava/lang/Number;-><init>()V
@@ -64,17 +60,15 @@
     .line 66
     invoke-virtual {p1}, Ljava/lang/Number;->intValue()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
+    iput p1, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
-    .line 67
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "value"    # Ljava/lang/String;
+    .locals 0
 
     .line 77
     invoke-direct {p0}, Ljava/lang/Number;-><init>()V
@@ -82,11 +76,10 @@
     .line 78
     invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
+    iput p1, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
-    .line 79
     return-void
 .end method
 
@@ -94,7 +87,6 @@
 # virtual methods
 .method public add(I)V
     .locals 1
-    .param p1, "operand"    # I
 
     .line 189
     iget v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
@@ -103,32 +95,28 @@
 
     iput v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
-    .line 190
     return-void
 .end method
 
 .method public add(Ljava/lang/Number;)V
-    .locals 2
-    .param p1, "operand"    # Ljava/lang/Number;
+    .locals 1
 
     .line 200
     iget v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
     invoke-virtual {p1}, Ljava/lang/Number;->intValue()I
 
-    move-result v1
+    move-result p1
 
-    add-int/2addr v0, v1
+    add-int/2addr v0, p1
 
     iput v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
-    .line 201
     return-void
 .end method
 
 .method public addAndGet(I)I
     .locals 1
-    .param p1, "operand"    # I
 
     .line 233
     iget v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
@@ -137,26 +125,23 @@
 
     iput v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
-    .line 234
     return v0
 .end method
 
 .method public addAndGet(Ljava/lang/Number;)I
-    .locals 2
-    .param p1, "operand"    # Ljava/lang/Number;
+    .locals 1
 
     .line 247
     iget v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
     invoke-virtual {p1}, Ljava/lang/Number;->intValue()I
 
-    move-result v1
+    move-result p1
 
-    add-int/2addr v0, v1
+    add-int/2addr v0, p1
 
     iput v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
-    .line 248
     return v0
 .end method
 
@@ -174,19 +159,18 @@
 .end method
 
 .method public compareTo(Lorg/apache/commons/lang3/mutable/MutableInt;)I
-    .locals 2
-    .param p1, "other"    # Lorg/apache/commons/lang3/mutable/MutableInt;
+    .locals 1
 
     .line 368
     iget v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
-    iget v1, p1, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
+    iget p1, p1, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
-    invoke-static {v0, v1}, Lorg/apache/commons/lang3/math/NumberUtils;->compare(II)I
+    invoke-static {v0, p1}, Lorg/apache/commons/lang3/math/NumberUtils;->compare(II)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public decrement()V
@@ -199,7 +183,6 @@
 
     iput v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
-    .line 154
     return-void
 .end method
 
@@ -213,7 +196,6 @@
 
     iput v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
-    .line 178
     return v0
 .end method
 
@@ -229,36 +211,29 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 2
 
     .line 343
     instance-of v0, p1, Lorg/apache/commons/lang3/mutable/MutableInt;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     .line 344
     iget v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
-    move-object v2, p1
+    check-cast p1, Lorg/apache/commons/lang3/mutable/MutableInt;
 
-    check-cast v2, Lorg/apache/commons/lang3/mutable/MutableInt;
+    invoke-virtual {p1}, Lorg/apache/commons/lang3/mutable/MutableInt;->intValue()I
 
-    invoke-virtual {v2}, Lorg/apache/commons/lang3/mutable/MutableInt;->intValue()I
+    move-result p1
 
-    move-result v2
-
-    if-ne v0, v2, :cond_0
+    if-ne v0, p1, :cond_0
 
     const/4 v1, 0x1
 
     :cond_0
-    return v1
-
-    .line 346
-    :cond_1
     return v1
 .end method
 
@@ -274,44 +249,34 @@
 .end method
 
 .method public getAndAdd(I)I
-    .locals 2
-    .param p1, "operand"    # I
+    .locals 1
 
     .line 260
     iget v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
+    add-int/2addr p1, v0
+
     .line 261
-    .local v0, "last":I
-    iget v1, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
+    iput p1, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
-    add-int/2addr v1, p1
-
-    iput v1, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
-
-    .line 262
     return v0
 .end method
 
 .method public getAndAdd(Ljava/lang/Number;)I
-    .locals 3
-    .param p1, "operand"    # Ljava/lang/Number;
+    .locals 1
 
     .line 275
     iget v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
     .line 276
-    .local v0, "last":I
-    iget v1, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
-
     invoke-virtual {p1}, Ljava/lang/Number;->intValue()I
 
-    move-result v2
+    move-result p1
 
-    add-int/2addr v1, v2
+    add-int/2addr p1, v0
 
-    iput v1, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
+    iput p1, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
-    .line 277
     return v0
 .end method
 
@@ -321,15 +286,11 @@
     .line 164
     iget v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
+    add-int/lit8 v1, v0, -0x1
+
     .line 165
-    .local v0, "last":I
-    iget v1, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
-
-    add-int/lit8 v1, v1, -0x1
-
     iput v1, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
-    .line 166
     return v0
 .end method
 
@@ -339,15 +300,11 @@
     .line 130
     iget v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
+    add-int/lit8 v1, v0, 0x1
+
     .line 131
-    .local v0, "last":I
-    iget v1, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
-
-    add-int/lit8 v1, v1, 0x1
-
     iput v1, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
-    .line 132
     return v0
 .end method
 
@@ -394,7 +351,6 @@
 
     iput v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
-    .line 120
     return-void
 .end method
 
@@ -408,7 +364,6 @@
 
     iput v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
-    .line 144
     return v0
 .end method
 
@@ -434,27 +389,23 @@
 
 .method public setValue(I)V
     .locals 0
-    .param p1, "value"    # I
 
     .line 98
     iput p1, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
-    .line 99
     return-void
 .end method
 
 .method public setValue(Ljava/lang/Number;)V
-    .locals 1
-    .param p1, "value"    # Ljava/lang/Number;
+    .locals 0
 
     .line 109
     invoke-virtual {p1}, Ljava/lang/Number;->intValue()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
+    iput p1, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
-    .line 110
     return-void
 .end method
 
@@ -471,7 +422,6 @@
 
 .method public subtract(I)V
     .locals 1
-    .param p1, "operand"    # I
 
     .line 210
     iget v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
@@ -480,26 +430,23 @@
 
     iput v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
-    .line 211
     return-void
 .end method
 
 .method public subtract(Ljava/lang/Number;)V
-    .locals 2
-    .param p1, "operand"    # Ljava/lang/Number;
+    .locals 1
 
     .line 221
     iget v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
     invoke-virtual {p1}, Ljava/lang/Number;->intValue()I
 
-    move-result v1
+    move-result p1
 
-    sub-int/2addr v0, v1
+    sub-int/2addr v0, p1
 
     iput v0, p0, Lorg/apache/commons/lang3/mutable/MutableInt;->value:I
 
-    .line 222
     return-void
 .end method
 

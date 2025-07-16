@@ -57,19 +57,16 @@
 .end method
 
 .method static synthetic access$000(Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;)Ljava/lang/String;
-    .locals 1
-    .param p0, "x0"    # Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;
+    .locals 0
 
     .line 17
-    iget-object v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;->statusLine:Ljava/lang/String;
+    iget-object p0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;->statusLine:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$002(Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .param p0, "x0"    # Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;
-    .param p1, "x1"    # Ljava/lang/String;
 
     .line 17
     iput-object p1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;->statusLine:Ljava/lang/String;
@@ -78,23 +75,21 @@
 .end method
 
 .method static synthetic access$100(Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;)Lcom/koushikdutta/async/http/Headers;
-    .locals 1
-    .param p0, "x0"    # Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;
+    .locals 0
 
     .line 17
-    iget-object v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;->mRawHeaders:Lcom/koushikdutta/async/http/Headers;
+    iget-object p0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;->mRawHeaders:Lcom/koushikdutta/async/http/Headers;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$200(Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;)Lcom/koushikdutta/async/callback/CompletedCallback;
-    .locals 1
-    .param p0, "x0"    # Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;
+    .locals 0
 
     .line 17
-    iget-object v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;->mReporter:Lcom/koushikdutta/async/callback/CompletedCallback;
+    iget-object p0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;->mReporter:Lcom/koushikdutta/async/callback/CompletedCallback;
 
-    return-object v0
+    return-object p0
 .end method
 
 
@@ -194,12 +189,10 @@
 
 .method public onCompleted(Ljava/lang/Exception;)V
     .locals 0
-    .param p1, "e"    # Ljava/lang/Exception;
 
     .line 38
     invoke-virtual {p0, p1}, Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;->report(Ljava/lang/Exception;)V
 
-    .line 39
     return-void
 .end method
 
@@ -216,18 +209,15 @@
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 45
     return-void
 .end method
 
 .method protected onUnknownBody(Lcom/koushikdutta/async/http/Headers;)Lcom/koushikdutta/async/http/body/AsyncHttpRequestBody;
-    .locals 1
-    .param p1, "headers"    # Lcom/koushikdutta/async/http/Headers;
+    .locals 0
 
-    .line 48
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public pause()V
@@ -238,7 +228,6 @@
 
     invoke-interface {v0}, Lcom/koushikdutta/async/AsyncSocket;->pause()V
 
-    .line 138
     return-void
 .end method
 
@@ -250,56 +239,50 @@
 
     invoke-interface {v0}, Lcom/koushikdutta/async/AsyncSocket;->resume()V
 
-    .line 143
     return-void
 .end method
 
 .method public setDataCallback(Lcom/koushikdutta/async/callback/DataCallback;)V
     .locals 1
-    .param p1, "callback"    # Lcom/koushikdutta/async/callback/DataCallback;
 
     .line 111
     iget-object v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;->mSocket:Lcom/koushikdutta/async/AsyncSocket;
 
     invoke-interface {v0, p1}, Lcom/koushikdutta/async/AsyncSocket;->setDataCallback(Lcom/koushikdutta/async/callback/DataCallback;)V
 
-    .line 112
     return-void
 .end method
 
 .method setSocket(Lcom/koushikdutta/async/AsyncSocket;)V
-    .locals 3
-    .param p1, "socket"    # Lcom/koushikdutta/async/AsyncSocket;
+    .locals 1
 
     .line 91
     iput-object p1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;->mSocket:Lcom/koushikdutta/async/AsyncSocket;
 
     .line 93
-    new-instance v0, Lcom/koushikdutta/async/LineEmitter;
+    new-instance p1, Lcom/koushikdutta/async/LineEmitter;
 
-    invoke-direct {v0}, Lcom/koushikdutta/async/LineEmitter;-><init>()V
+    invoke-direct {p1}, Lcom/koushikdutta/async/LineEmitter;-><init>()V
 
     .line 94
-    .local v0, "liner":Lcom/koushikdutta/async/LineEmitter;
-    iget-object v1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;->mSocket:Lcom/koushikdutta/async/AsyncSocket;
+    iget-object v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;->mSocket:Lcom/koushikdutta/async/AsyncSocket;
 
-    invoke-interface {v1, v0}, Lcom/koushikdutta/async/AsyncSocket;->setDataCallback(Lcom/koushikdutta/async/callback/DataCallback;)V
+    invoke-interface {v0, p1}, Lcom/koushikdutta/async/AsyncSocket;->setDataCallback(Lcom/koushikdutta/async/callback/DataCallback;)V
 
     .line 95
-    iget-object v1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;->mHeaderCallback:Lcom/koushikdutta/async/LineEmitter$StringCallback;
+    iget-object v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;->mHeaderCallback:Lcom/koushikdutta/async/LineEmitter$StringCallback;
 
-    invoke-virtual {v0, v1}, Lcom/koushikdutta/async/LineEmitter;->setLineCallback(Lcom/koushikdutta/async/LineEmitter$StringCallback;)V
+    invoke-virtual {p1, v0}, Lcom/koushikdutta/async/LineEmitter;->setLineCallback(Lcom/koushikdutta/async/LineEmitter$StringCallback;)V
 
     .line 96
-    iget-object v1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;->mSocket:Lcom/koushikdutta/async/AsyncSocket;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;->mSocket:Lcom/koushikdutta/async/AsyncSocket;
 
-    new-instance v2, Lcom/koushikdutta/async/callback/CompletedCallback$NullCompletedCallback;
+    new-instance v0, Lcom/koushikdutta/async/callback/CompletedCallback$NullCompletedCallback;
 
-    invoke-direct {v2}, Lcom/koushikdutta/async/callback/CompletedCallback$NullCompletedCallback;-><init>()V
+    invoke-direct {v0}, Lcom/koushikdutta/async/callback/CompletedCallback$NullCompletedCallback;-><init>()V
 
-    invoke-interface {v1, v2}, Lcom/koushikdutta/async/AsyncSocket;->setEndCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
+    invoke-interface {p1, v0}, Lcom/koushikdutta/async/AsyncSocket;->setEndCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
 
-    .line 97
     return-void
 .end method
 

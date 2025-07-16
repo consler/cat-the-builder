@@ -35,10 +35,20 @@
 
 .method private constructor <init>(IIII)V
     .locals 0
-    .param p1, "left"    # I
-    .param p2, "top"    # I
-    .param p3, "right"    # I
-    .param p4, "bottom"    # I
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "left",
+            "top",
+            "right",
+            "bottom"
+        }
+    .end annotation
 
     .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,18 +65,181 @@
     .line 47
     iput p4, p0, Landroidx/core/graphics/Insets;->bottom:I
 
-    .line 48
     return-void
+.end method
+
+.method public static add(Landroidx/core/graphics/Insets;Landroidx/core/graphics/Insets;)Landroidx/core/graphics/Insets;
+    .locals 4
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "a",
+            "b"
+        }
+    .end annotation
+
+    .line 89
+    iget v0, p0, Landroidx/core/graphics/Insets;->left:I
+
+    iget v1, p1, Landroidx/core/graphics/Insets;->left:I
+
+    add-int/2addr v0, v1
+
+    iget v1, p0, Landroidx/core/graphics/Insets;->top:I
+
+    iget v2, p1, Landroidx/core/graphics/Insets;->top:I
+
+    add-int/2addr v1, v2
+
+    iget v2, p0, Landroidx/core/graphics/Insets;->right:I
+
+    iget v3, p1, Landroidx/core/graphics/Insets;->right:I
+
+    add-int/2addr v2, v3
+
+    iget p0, p0, Landroidx/core/graphics/Insets;->bottom:I
+
+    iget p1, p1, Landroidx/core/graphics/Insets;->bottom:I
+
+    add-int/2addr p0, p1
+
+    invoke-static {v0, v1, v2, p0}, Landroidx/core/graphics/Insets;->of(IIII)Landroidx/core/graphics/Insets;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static max(Landroidx/core/graphics/Insets;Landroidx/core/graphics/Insets;)Landroidx/core/graphics/Insets;
+    .locals 4
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "a",
+            "b"
+        }
+    .end annotation
+
+    .line 114
+    iget v0, p0, Landroidx/core/graphics/Insets;->left:I
+
+    iget v1, p1, Landroidx/core/graphics/Insets;->left:I
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
+
+    move-result v0
+
+    iget v1, p0, Landroidx/core/graphics/Insets;->top:I
+
+    iget v2, p1, Landroidx/core/graphics/Insets;->top:I
+
+    invoke-static {v1, v2}, Ljava/lang/Math;->max(II)I
+
+    move-result v1
+
+    iget v2, p0, Landroidx/core/graphics/Insets;->right:I
+
+    iget v3, p1, Landroidx/core/graphics/Insets;->right:I
+
+    .line 115
+    invoke-static {v2, v3}, Ljava/lang/Math;->max(II)I
+
+    move-result v2
+
+    iget p0, p0, Landroidx/core/graphics/Insets;->bottom:I
+
+    iget p1, p1, Landroidx/core/graphics/Insets;->bottom:I
+
+    invoke-static {p0, p1}, Ljava/lang/Math;->max(II)I
+
+    move-result p0
+
+    .line 114
+    invoke-static {v0, v1, v2, p0}, Landroidx/core/graphics/Insets;->of(IIII)Landroidx/core/graphics/Insets;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static min(Landroidx/core/graphics/Insets;Landroidx/core/graphics/Insets;)Landroidx/core/graphics/Insets;
+    .locals 4
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "a",
+            "b"
+        }
+    .end annotation
+
+    .line 128
+    iget v0, p0, Landroidx/core/graphics/Insets;->left:I
+
+    iget v1, p1, Landroidx/core/graphics/Insets;->left:I
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
+
+    move-result v0
+
+    iget v1, p0, Landroidx/core/graphics/Insets;->top:I
+
+    iget v2, p1, Landroidx/core/graphics/Insets;->top:I
+
+    invoke-static {v1, v2}, Ljava/lang/Math;->min(II)I
+
+    move-result v1
+
+    iget v2, p0, Landroidx/core/graphics/Insets;->right:I
+
+    iget v3, p1, Landroidx/core/graphics/Insets;->right:I
+
+    .line 129
+    invoke-static {v2, v3}, Ljava/lang/Math;->min(II)I
+
+    move-result v2
+
+    iget p0, p0, Landroidx/core/graphics/Insets;->bottom:I
+
+    iget p1, p1, Landroidx/core/graphics/Insets;->bottom:I
+
+    invoke-static {p0, p1}, Ljava/lang/Math;->min(II)I
+
+    move-result p0
+
+    .line 128
+    invoke-static {v0, v1, v2, p0}, Landroidx/core/graphics/Insets;->of(IIII)Landroidx/core/graphics/Insets;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static of(IIII)Landroidx/core/graphics/Insets;
     .locals 1
-    .param p0, "left"    # I
-    .param p1, "top"    # I
-    .param p2, "right"    # I
-    .param p3, "bottom"    # I
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "left",
+            "top",
+            "right",
+            "bottom"
+        }
+    .end annotation
 
-    .line 63
     if-nez p0, :cond_0
 
     if-nez p1, :cond_0
@@ -76,9 +249,9 @@
     if-nez p3, :cond_0
 
     .line 64
-    sget-object v0, Landroidx/core/graphics/Insets;->NONE:Landroidx/core/graphics/Insets;
+    sget-object p0, Landroidx/core/graphics/Insets;->NONE:Landroidx/core/graphics/Insets;
 
-    return-object v0
+    return-object p0
 
     .line 66
     :cond_0
@@ -90,8 +263,15 @@
 .end method
 
 .method public static of(Landroid/graphics/Rect;)Landroidx/core/graphics/Insets;
-    .locals 4
-    .param p0, "r"    # Landroid/graphics/Rect;
+    .locals 3
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "r"
+        }
+    .end annotation
 
     .line 77
     iget v0, p0, Landroid/graphics/Rect;->left:I
@@ -100,68 +280,134 @@
 
     iget v2, p0, Landroid/graphics/Rect;->right:I
 
-    iget v3, p0, Landroid/graphics/Rect;->bottom:I
+    iget p0, p0, Landroid/graphics/Rect;->bottom:I
 
-    invoke-static {v0, v1, v2, v3}, Landroidx/core/graphics/Insets;->of(IIII)Landroidx/core/graphics/Insets;
+    invoke-static {v0, v1, v2, p0}, Landroidx/core/graphics/Insets;->of(IIII)Landroidx/core/graphics/Insets;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
+.end method
+
+.method public static subtract(Landroidx/core/graphics/Insets;Landroidx/core/graphics/Insets;)Landroidx/core/graphics/Insets;
+    .locals 4
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "a",
+            "b"
+        }
+    .end annotation
+
+    .line 101
+    iget v0, p0, Landroidx/core/graphics/Insets;->left:I
+
+    iget v1, p1, Landroidx/core/graphics/Insets;->left:I
+
+    sub-int/2addr v0, v1
+
+    iget v1, p0, Landroidx/core/graphics/Insets;->top:I
+
+    iget v2, p1, Landroidx/core/graphics/Insets;->top:I
+
+    sub-int/2addr v1, v2
+
+    iget v2, p0, Landroidx/core/graphics/Insets;->right:I
+
+    iget v3, p1, Landroidx/core/graphics/Insets;->right:I
+
+    sub-int/2addr v2, v3
+
+    iget p0, p0, Landroidx/core/graphics/Insets;->bottom:I
+
+    iget p1, p1, Landroidx/core/graphics/Insets;->bottom:I
+
+    sub-int/2addr p0, p1
+
+    invoke-static {v0, v1, v2, p0}, Landroidx/core/graphics/Insets;->of(IIII)Landroidx/core/graphics/Insets;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static toCompatInsets(Landroid/graphics/Insets;)Landroidx/core/graphics/Insets;
-    .locals 4
-    .param p0, "insets"    # Landroid/graphics/Insets;
+    .locals 3
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "insets"
+        }
+    .end annotation
 
-    .line 136
+    .line 188
     iget v0, p0, Landroid/graphics/Insets;->left:I
 
     iget v1, p0, Landroid/graphics/Insets;->top:I
 
     iget v2, p0, Landroid/graphics/Insets;->right:I
 
-    iget v3, p0, Landroid/graphics/Insets;->bottom:I
+    iget p0, p0, Landroid/graphics/Insets;->bottom:I
 
-    invoke-static {v0, v1, v2, v3}, Landroidx/core/graphics/Insets;->of(IIII)Landroidx/core/graphics/Insets;
+    invoke-static {v0, v1, v2, p0}, Landroidx/core/graphics/Insets;->of(IIII)Landroidx/core/graphics/Insets;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static wrap(Landroid/graphics/Insets;)Landroidx/core/graphics/Insets;
-    .locals 1
-    .param p0, "insets"    # Landroid/graphics/Insets;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "insets"
+        }
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 126
+    .line 178
     invoke-static {p0}, Landroidx/core/graphics/Insets;->toCompatInsets(Landroid/graphics/Insets;)Landroidx/core/graphics/Insets;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 4
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "o"
+        }
+    .end annotation
 
-    .line 89
     const/4 v0, 0x1
 
     if-ne p0, p1, :cond_0
 
     return v0
 
-    .line 90
     :cond_0
     const/4 v1, 0x0
 
     if-eqz p1, :cond_6
 
+    .line 142
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -174,105 +420,91 @@
 
     goto :goto_0
 
-    .line 92
+    .line 144
     :cond_1
-    move-object v2, p1
+    check-cast p1, Landroidx/core/graphics/Insets;
 
-    check-cast v2, Landroidx/core/graphics/Insets;
+    .line 146
+    iget v2, p0, Landroidx/core/graphics/Insets;->bottom:I
 
-    .line 94
-    .local v2, "insets":Landroidx/core/graphics/Insets;
-    iget v3, p0, Landroidx/core/graphics/Insets;->bottom:I
+    iget v3, p1, Landroidx/core/graphics/Insets;->bottom:I
 
-    iget v4, v2, Landroidx/core/graphics/Insets;->bottom:I
-
-    if-eq v3, v4, :cond_2
+    if-eq v2, v3, :cond_2
 
     return v1
 
-    .line 95
+    .line 147
     :cond_2
-    iget v3, p0, Landroidx/core/graphics/Insets;->left:I
+    iget v2, p0, Landroidx/core/graphics/Insets;->left:I
 
-    iget v4, v2, Landroidx/core/graphics/Insets;->left:I
+    iget v3, p1, Landroidx/core/graphics/Insets;->left:I
 
-    if-eq v3, v4, :cond_3
+    if-eq v2, v3, :cond_3
 
     return v1
 
-    .line 96
+    .line 148
     :cond_3
-    iget v3, p0, Landroidx/core/graphics/Insets;->right:I
+    iget v2, p0, Landroidx/core/graphics/Insets;->right:I
 
-    iget v4, v2, Landroidx/core/graphics/Insets;->right:I
+    iget v3, p1, Landroidx/core/graphics/Insets;->right:I
 
-    if-eq v3, v4, :cond_4
+    if-eq v2, v3, :cond_4
 
     return v1
 
-    .line 97
+    .line 149
     :cond_4
-    iget v3, p0, Landroidx/core/graphics/Insets;->top:I
+    iget v2, p0, Landroidx/core/graphics/Insets;->top:I
 
-    iget v4, v2, Landroidx/core/graphics/Insets;->top:I
+    iget p1, p1, Landroidx/core/graphics/Insets;->top:I
 
-    if-eq v3, v4, :cond_5
+    if-eq v2, p1, :cond_5
 
     return v1
 
-    .line 99
     :cond_5
     return v0
 
-    .line 90
-    .end local v2    # "insets":Landroidx/core/graphics/Insets;
     :cond_6
     :goto_0
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .locals 2
 
-    .line 104
+    .line 156
     iget v0, p0, Landroidx/core/graphics/Insets;->left:I
 
-    .line 105
-    .local v0, "result":I
-    mul-int/lit8 v1, v0, 0x1f
+    mul-int/lit8 v0, v0, 0x1f
 
-    iget v2, p0, Landroidx/core/graphics/Insets;->top:I
+    .line 157
+    iget v1, p0, Landroidx/core/graphics/Insets;->top:I
 
-    add-int/2addr v1, v2
+    add-int/2addr v0, v1
 
-    .line 106
-    .end local v0    # "result":I
-    .local v1, "result":I
-    mul-int/lit8 v0, v1, 0x1f
+    mul-int/lit8 v0, v0, 0x1f
 
-    iget v2, p0, Landroidx/core/graphics/Insets;->right:I
+    .line 158
+    iget v1, p0, Landroidx/core/graphics/Insets;->right:I
 
-    add-int/2addr v0, v2
+    add-int/2addr v0, v1
 
-    .line 107
-    .end local v1    # "result":I
-    .restart local v0    # "result":I
-    mul-int/lit8 v1, v0, 0x1f
+    mul-int/lit8 v0, v0, 0x1f
 
-    iget v2, p0, Landroidx/core/graphics/Insets;->bottom:I
+    .line 159
+    iget v1, p0, Landroidx/core/graphics/Insets;->bottom:I
 
-    add-int/2addr v1, v2
+    add-int/2addr v0, v1
 
-    .line 108
-    .end local v0    # "result":I
-    .restart local v1    # "result":I
-    return v1
+    return v0
 .end method
 
 .method public toPlatformInsets()Landroid/graphics/Insets;
     .locals 4
 
-    .line 146
+    .line 198
     iget v0, p0, Landroidx/core/graphics/Insets;->left:I
 
     iget v1, p0, Landroidx/core/graphics/Insets;->top:I
@@ -291,46 +523,60 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .line 113
+    .line 165
     new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v1, "Insets{left="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget v1, p0, Landroidx/core/graphics/Insets;->left:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", top="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Landroidx/core/graphics/Insets;->top:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", right="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Landroidx/core/graphics/Insets;->right:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", bottom="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Landroidx/core/graphics/Insets;->bottom:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const/16 v1, 0x7d
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

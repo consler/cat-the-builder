@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .locals 4
 
     .line 948
     new-instance v0, Landroid/util/Size;
@@ -66,86 +66,81 @@
     sput-object v0, Landroidx/camera/core/VideoCapture$Defaults;->DEFAULT_MAX_RESOLUTION:Landroid/util/Size;
 
     .line 955
-    new-instance v0, Landroidx/camera/core/VideoCapture$Builder;
+    new-instance v1, Landroidx/camera/core/VideoCapture$Builder;
 
-    invoke-direct {v0}, Landroidx/camera/core/VideoCapture$Builder;-><init>()V
+    invoke-direct {v1}, Landroidx/camera/core/VideoCapture$Builder;-><init>()V
+
+    const/16 v2, 0x1e
 
     .line 956
-    const/16 v1, 0x1e
+    invoke-virtual {v1, v2}, Landroidx/camera/core/VideoCapture$Builder;->setVideoFrameRate(I)Landroidx/camera/core/VideoCapture$Builder;
 
-    invoke-virtual {v0, v1}, Landroidx/camera/core/VideoCapture$Builder;->setVideoFrameRate(I)Landroidx/camera/core/VideoCapture$Builder;
+    move-result-object v1
 
-    move-result-object v0
+    const/high16 v2, 0x800000
 
     .line 957
-    const/high16 v1, 0x800000
+    invoke-virtual {v1, v2}, Landroidx/camera/core/VideoCapture$Builder;->setBitRate(I)Landroidx/camera/core/VideoCapture$Builder;
 
-    invoke-virtual {v0, v1}, Landroidx/camera/core/VideoCapture$Builder;->setBitRate(I)Landroidx/camera/core/VideoCapture$Builder;
+    move-result-object v1
 
-    move-result-object v0
+    const/4 v2, 0x1
 
     .line 958
-    const/4 v1, 0x1
+    invoke-virtual {v1, v2}, Landroidx/camera/core/VideoCapture$Builder;->setIFrameInterval(I)Landroidx/camera/core/VideoCapture$Builder;
 
-    invoke-virtual {v0, v1}, Landroidx/camera/core/VideoCapture$Builder;->setIFrameInterval(I)Landroidx/camera/core/VideoCapture$Builder;
+    move-result-object v1
 
-    move-result-object v0
+    const v3, 0xfa00
 
     .line 959
-    const v2, 0xfa00
+    invoke-virtual {v1, v3}, Landroidx/camera/core/VideoCapture$Builder;->setAudioBitRate(I)Landroidx/camera/core/VideoCapture$Builder;
 
-    invoke-virtual {v0, v2}, Landroidx/camera/core/VideoCapture$Builder;->setAudioBitRate(I)Landroidx/camera/core/VideoCapture$Builder;
+    move-result-object v1
 
-    move-result-object v0
+    const/16 v3, 0x1f40
 
     .line 960
-    const/16 v2, 0x1f40
+    invoke-virtual {v1, v3}, Landroidx/camera/core/VideoCapture$Builder;->setAudioSampleRate(I)Landroidx/camera/core/VideoCapture$Builder;
 
-    invoke-virtual {v0, v2}, Landroidx/camera/core/VideoCapture$Builder;->setAudioSampleRate(I)Landroidx/camera/core/VideoCapture$Builder;
-
-    move-result-object v0
+    move-result-object v1
 
     .line 961
-    invoke-virtual {v0, v1}, Landroidx/camera/core/VideoCapture$Builder;->setAudioChannelCount(I)Landroidx/camera/core/VideoCapture$Builder;
+    invoke-virtual {v1, v2}, Landroidx/camera/core/VideoCapture$Builder;->setAudioChannelCount(I)Landroidx/camera/core/VideoCapture$Builder;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 962
-    invoke-virtual {v0, v1}, Landroidx/camera/core/VideoCapture$Builder;->setAudioRecordSource(I)Landroidx/camera/core/VideoCapture$Builder;
+    invoke-virtual {v1, v2}, Landroidx/camera/core/VideoCapture$Builder;->setAudioRecordSource(I)Landroidx/camera/core/VideoCapture$Builder;
 
-    move-result-object v0
+    move-result-object v1
+
+    const/16 v2, 0x400
 
     .line 963
-    const/16 v1, 0x400
+    invoke-virtual {v1, v2}, Landroidx/camera/core/VideoCapture$Builder;->setAudioMinBufferSize(I)Landroidx/camera/core/VideoCapture$Builder;
 
-    invoke-virtual {v0, v1}, Landroidx/camera/core/VideoCapture$Builder;->setAudioMinBufferSize(I)Landroidx/camera/core/VideoCapture$Builder;
-
-    move-result-object v0
-
-    sget-object v1, Landroidx/camera/core/VideoCapture$Defaults;->DEFAULT_MAX_RESOLUTION:Landroid/util/Size;
+    move-result-object v1
 
     .line 964
-    invoke-virtual {v0, v1}, Landroidx/camera/core/VideoCapture$Builder;->setMaxResolution(Landroid/util/Size;)Landroidx/camera/core/VideoCapture$Builder;
+    invoke-virtual {v1, v0}, Landroidx/camera/core/VideoCapture$Builder;->setMaxResolution(Landroid/util/Size;)Landroidx/camera/core/VideoCapture$Builder;
 
     move-result-object v0
 
-    .line 965
     const/4 v1, 0x3
 
+    .line 965
     invoke-virtual {v0, v1}, Landroidx/camera/core/VideoCapture$Builder;->setSurfaceOccupancyPriority(I)Landroidx/camera/core/VideoCapture$Builder;
 
     move-result-object v0
 
     .line 967
-    .local v0, "builder":Landroidx/camera/core/VideoCapture$Builder;
     invoke-virtual {v0}, Landroidx/camera/core/VideoCapture$Builder;->getUseCaseConfig()Landroidx/camera/core/impl/VideoCaptureConfig;
 
-    move-result-object v1
+    move-result-object v0
 
-    sput-object v1, Landroidx/camera/core/VideoCapture$Defaults;->DEFAULT_CONFIG:Landroidx/camera/core/impl/VideoCaptureConfig;
+    sput-object v0, Landroidx/camera/core/VideoCapture$Defaults;->DEFAULT_CONFIG:Landroidx/camera/core/impl/VideoCaptureConfig;
 
-    .line 968
-    .end local v0    # "builder":Landroidx/camera/core/VideoCapture$Builder;
     return-void
 .end method
 
@@ -172,11 +167,10 @@
 .end method
 
 .method public getConfig(Landroidx/camera/core/CameraInfo;)Landroidx/camera/core/impl/VideoCaptureConfig;
-    .locals 1
-    .param p1, "cameraInfo"    # Landroidx/camera/core/CameraInfo;
+    .locals 0
 
     .line 973
-    sget-object v0, Landroidx/camera/core/VideoCapture$Defaults;->DEFAULT_CONFIG:Landroidx/camera/core/impl/VideoCaptureConfig;
+    sget-object p1, Landroidx/camera/core/VideoCapture$Defaults;->DEFAULT_CONFIG:Landroidx/camera/core/impl/VideoCaptureConfig;
 
-    return-object v0
+    return-object p1
 .end method

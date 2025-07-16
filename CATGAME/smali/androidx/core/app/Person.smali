@@ -42,7 +42,14 @@
 # direct methods
 .method constructor <init>(Landroidx/core/app/Person$Builder;)V
     .locals 1
-    .param p1, "builder"    # Landroidx/core/app/Person$Builder;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "builder"
+        }
+    .end annotation
 
     .line 115
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -73,17 +80,23 @@
     iput-boolean v0, p0, Landroidx/core/app/Person;->mIsBot:Z
 
     .line 121
-    iget-boolean v0, p1, Landroidx/core/app/Person$Builder;->mIsImportant:Z
+    iget-boolean p1, p1, Landroidx/core/app/Person$Builder;->mIsImportant:Z
 
-    iput-boolean v0, p0, Landroidx/core/app/Person;->mIsImportant:Z
+    iput-boolean p1, p0, Landroidx/core/app/Person;->mIsImportant:Z
 
-    .line 122
     return-void
 .end method
 
 .method public static fromAndroidPerson(Landroid/app/Person;)Landroidx/core/app/Person;
     .locals 2
-    .param p0, "person"    # Landroid/app/Person;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "person"
+        }
+    .end annotation
 
     .line 88
     new-instance v0, Landroidx/core/app/Person$Builder;
@@ -117,7 +130,6 @@
 
     goto :goto_0
 
-    .line 93
     :cond_0
     const/4 v1, 0x0
 
@@ -157,41 +169,46 @@
     .line 97
     invoke-virtual {p0}, Landroid/app/Person;->isImportant()Z
 
-    move-result v1
+    move-result p0
 
-    invoke-virtual {v0, v1}, Landroidx/core/app/Person$Builder;->setImportant(Z)Landroidx/core/app/Person$Builder;
+    invoke-virtual {v0, p0}, Landroidx/core/app/Person$Builder;->setImportant(Z)Landroidx/core/app/Person$Builder;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 98
-    invoke-virtual {v0}, Landroidx/core/app/Person$Builder;->build()Landroidx/core/app/Person;
+    invoke-virtual {p0}, Landroidx/core/app/Person$Builder;->build()Landroidx/core/app/Person;
 
-    move-result-object v0
+    move-result-object p0
 
-    .line 88
-    return-object v0
+    return-object p0
 .end method
 
 .method public static fromBundle(Landroid/os/Bundle;)Landroidx/core/app/Person;
     .locals 3
-    .param p0, "bundle"    # Landroid/os/Bundle;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "bundle"
+        }
+    .end annotation
 
-    .line 48
     const-string v0, "icon"
 
+    .line 48
     invoke-virtual {p0, v0}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
 
     move-result-object v0
 
     .line 49
-    .local v0, "iconBundle":Landroid/os/Bundle;
     new-instance v1, Landroidx/core/app/Person$Builder;
 
     invoke-direct {v1}, Landroidx/core/app/Person$Builder;-><init>()V
 
-    .line 50
     const-string v2, "name"
 
+    .line 50
     invoke-virtual {p0, v2}, Landroid/os/Bundle;->getCharSequence(Ljava/lang/String;)Ljava/lang/CharSequence;
 
     move-result-object v2
@@ -200,88 +217,94 @@
 
     move-result-object v1
 
-    .line 51
     if-eqz v0, :cond_0
 
+    .line 51
     invoke-static {v0}, Landroidx/core/graphics/drawable/IconCompat;->createFromBundle(Landroid/os/Bundle;)Landroidx/core/graphics/drawable/IconCompat;
 
-    move-result-object v2
+    move-result-object v0
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    invoke-virtual {v1, v2}, Landroidx/core/app/Person$Builder;->setIcon(Landroidx/core/graphics/drawable/IconCompat;)Landroidx/core/app/Person$Builder;
+    invoke-virtual {v1, v0}, Landroidx/core/app/Person$Builder;->setIcon(Landroidx/core/graphics/drawable/IconCompat;)Landroidx/core/app/Person$Builder;
 
-    move-result-object v1
+    move-result-object v0
+
+    const-string v1, "uri"
 
     .line 52
-    const-string/jumbo v2, "uri"
-
-    invoke-virtual {p0, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroidx/core/app/Person$Builder;->setUri(Ljava/lang/String;)Landroidx/core/app/Person$Builder;
+    invoke-virtual {p0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroidx/core/app/Person$Builder;->setUri(Ljava/lang/String;)Landroidx/core/app/Person$Builder;
+
+    move-result-object v0
+
+    const-string v1, "key"
 
     .line 53
-    const-string v2, "key"
-
-    invoke-virtual {p0, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroidx/core/app/Person$Builder;->setKey(Ljava/lang/String;)Landroidx/core/app/Person$Builder;
+    invoke-virtual {p0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroidx/core/app/Person$Builder;->setKey(Ljava/lang/String;)Landroidx/core/app/Person$Builder;
+
+    move-result-object v0
+
+    const-string v1, "isBot"
 
     .line 54
-    const-string v2, "isBot"
+    invoke-virtual {p0, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
-    invoke-virtual {p0, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    move-result v1
 
-    move-result v2
+    invoke-virtual {v0, v1}, Landroidx/core/app/Person$Builder;->setBot(Z)Landroidx/core/app/Person$Builder;
 
-    invoke-virtual {v1, v2}, Landroidx/core/app/Person$Builder;->setBot(Z)Landroidx/core/app/Person$Builder;
+    move-result-object v0
 
-    move-result-object v1
+    const-string v1, "isImportant"
 
     .line 55
-    const-string v2, "isImportant"
+    invoke-virtual {p0, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
-    invoke-virtual {p0, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    move-result p0
 
-    move-result v2
+    invoke-virtual {v0, p0}, Landroidx/core/app/Person$Builder;->setImportant(Z)Landroidx/core/app/Person$Builder;
 
-    invoke-virtual {v1, v2}, Landroidx/core/app/Person$Builder;->setImportant(Z)Landroidx/core/app/Person$Builder;
-
-    move-result-object v1
+    move-result-object p0
 
     .line 56
-    invoke-virtual {v1}, Landroidx/core/app/Person$Builder;->build()Landroidx/core/app/Person;
+    invoke-virtual {p0}, Landroidx/core/app/Person$Builder;->build()Landroidx/core/app/Person;
 
-    move-result-object v1
+    move-result-object p0
 
-    .line 49
-    return-object v1
+    return-object p0
 .end method
 
 .method public static fromPersistableBundle(Landroid/os/PersistableBundle;)Landroidx/core/app/Person;
     .locals 2
-    .param p0, "bundle"    # Landroid/os/PersistableBundle;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "bundle"
+        }
+    .end annotation
 
     .line 70
     new-instance v0, Landroidx/core/app/Person$Builder;
 
     invoke-direct {v0}, Landroidx/core/app/Person$Builder;-><init>()V
 
-    .line 71
     const-string v1, "name"
 
+    .line 71
     invoke-virtual {p0, v1}, Landroid/os/PersistableBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -290,9 +313,9 @@
 
     move-result-object v0
 
-    .line 72
-    const-string/jumbo v1, "uri"
+    const-string v1, "uri"
 
+    .line 72
     invoke-virtual {p0, v1}, Landroid/os/PersistableBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -301,9 +324,9 @@
 
     move-result-object v0
 
-    .line 73
     const-string v1, "key"
 
+    .line 73
     invoke-virtual {p0, v1}, Landroid/os/PersistableBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -312,9 +335,9 @@
 
     move-result-object v0
 
-    .line 74
     const-string v1, "isBot"
 
+    .line 74
     invoke-virtual {p0, v1}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
 
     move-result v1
@@ -323,24 +346,23 @@
 
     move-result-object v0
 
-    .line 75
     const-string v1, "isImportant"
 
+    .line 75
     invoke-virtual {p0, v1}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result p0
 
-    invoke-virtual {v0, v1}, Landroidx/core/app/Person$Builder;->setImportant(Z)Landroidx/core/app/Person$Builder;
+    invoke-virtual {v0, p0}, Landroidx/core/app/Person$Builder;->setImportant(Z)Landroidx/core/app/Person$Builder;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 76
-    invoke-virtual {v0}, Landroidx/core/app/Person$Builder;->build()Landroidx/core/app/Person;
+    invoke-virtual {p0}, Landroidx/core/app/Person$Builder;->build()Landroidx/core/app/Person;
 
-    move-result-object v0
+    move-result-object p0
 
-    .line 70
-    return-object v0
+    return-object p0
 .end method
 
 
@@ -397,6 +419,47 @@
     iget-boolean v0, p0, Landroidx/core/app/Person;->mIsImportant:Z
 
     return v0
+.end method
+
+.method public resolveToLegacyUri()Ljava/lang/String;
+    .locals 2
+
+    .line 250
+    iget-object v0, p0, Landroidx/core/app/Person;->mUri:Ljava/lang/String;
+
+    if-eqz v0, :cond_0
+
+    return-object v0
+
+    .line 253
+    :cond_0
+    iget-object v0, p0, Landroidx/core/app/Person;->mName:Ljava/lang/CharSequence;
+
+    if-eqz v0, :cond_1
+
+    .line 254
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "name:"
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    iget-object v1, p0, Landroidx/core/app/Person;->mName:Ljava/lang/CharSequence;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_1
+    const-string v0, ""
+
+    return-object v0
 .end method
 
 .method public toAndroidPerson()Landroid/app/Person;
@@ -482,7 +545,6 @@
 
     move-result-object v0
 
-    .line 175
     return-object v0
 .end method
 
@@ -505,13 +567,12 @@
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
+    const-string v1, "name"
+
     .line 131
-    .local v0, "result":Landroid/os/Bundle;
-    iget-object v1, p0, Landroidx/core/app/Person;->mName:Ljava/lang/CharSequence;
+    iget-object v2, p0, Landroidx/core/app/Person;->mName:Ljava/lang/CharSequence;
 
-    const-string v2, "name"
-
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
 
     .line 132
     iget-object v1, p0, Landroidx/core/app/Person;->mIcon:Landroidx/core/graphics/drawable/IconCompat;
@@ -532,35 +593,34 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
+    const-string v1, "uri"
+
     .line 133
-    iget-object v1, p0, Landroidx/core/app/Person;->mUri:Ljava/lang/String;
+    iget-object v2, p0, Landroidx/core/app/Person;->mUri:Ljava/lang/String;
 
-    const-string/jumbo v2, "uri"
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    const-string v1, "key"
 
     .line 134
-    iget-object v1, p0, Landroidx/core/app/Person;->mKey:Ljava/lang/String;
+    iget-object v2, p0, Landroidx/core/app/Person;->mKey:Ljava/lang/String;
 
-    const-string v2, "key"
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    const-string v1, "isBot"
 
     .line 135
-    iget-boolean v1, p0, Landroidx/core/app/Person;->mIsBot:Z
+    iget-boolean v2, p0, Landroidx/core/app/Person;->mIsBot:Z
 
-    const-string v2, "isBot"
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    const-string v1, "isImportant"
 
     .line 136
-    iget-boolean v1, p0, Landroidx/core/app/Person;->mIsImportant:Z
+    iget-boolean v2, p0, Landroidx/core/app/Person;->mIsImportant:Z
 
-    const-string v2, "isImportant"
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
-
-    .line 137
     return-object v0
 .end method
 
@@ -573,7 +633,6 @@
     invoke-direct {v0}, Landroid/os/PersistableBundle;-><init>()V
 
     .line 152
-    .local v0, "result":Landroid/os/PersistableBundle;
     iget-object v1, p0, Landroidx/core/app/Person;->mName:Ljava/lang/CharSequence;
 
     if-eqz v1, :cond_0
@@ -592,34 +651,33 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/os/PersistableBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    const-string v1, "uri"
+
     .line 153
-    iget-object v1, p0, Landroidx/core/app/Person;->mUri:Ljava/lang/String;
+    iget-object v2, p0, Landroidx/core/app/Person;->mUri:Ljava/lang/String;
 
-    const-string/jumbo v2, "uri"
+    invoke-virtual {v0, v1, v2}, Landroid/os/PersistableBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/PersistableBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    const-string v1, "key"
 
     .line 154
-    iget-object v1, p0, Landroidx/core/app/Person;->mKey:Ljava/lang/String;
+    iget-object v2, p0, Landroidx/core/app/Person;->mKey:Ljava/lang/String;
 
-    const-string v2, "key"
+    invoke-virtual {v0, v1, v2}, Landroid/os/PersistableBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/PersistableBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    const-string v1, "isBot"
 
     .line 155
-    iget-boolean v1, p0, Landroidx/core/app/Person;->mIsBot:Z
+    iget-boolean v2, p0, Landroidx/core/app/Person;->mIsBot:Z
 
-    const-string v2, "isBot"
+    invoke-virtual {v0, v1, v2}, Landroid/os/PersistableBundle;->putBoolean(Ljava/lang/String;Z)V
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/PersistableBundle;->putBoolean(Ljava/lang/String;Z)V
+    const-string v1, "isImportant"
 
     .line 156
-    iget-boolean v1, p0, Landroidx/core/app/Person;->mIsImportant:Z
+    iget-boolean v2, p0, Landroidx/core/app/Person;->mIsImportant:Z
 
-    const-string v2, "isImportant"
+    invoke-virtual {v0, v1, v2}, Landroid/os/PersistableBundle;->putBoolean(Ljava/lang/String;Z)V
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/PersistableBundle;->putBoolean(Ljava/lang/String;Z)V
-
-    .line 157
     return-object v0
 .end method

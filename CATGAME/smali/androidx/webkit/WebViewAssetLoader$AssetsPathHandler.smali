@@ -24,7 +24,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
 
     .line 140
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,13 +35,11 @@
 
     iput-object v0, p0, Landroidx/webkit/WebViewAssetLoader$AssetsPathHandler;->mAssetHelper:Landroidx/webkit/internal/AssetHelper;
 
-    .line 142
     return-void
 .end method
 
 .method constructor <init>(Landroidx/webkit/internal/AssetHelper;)V
     .locals 0
-    .param p1, "assetHelper"    # Landroidx/webkit/internal/AssetHelper;
 
     .line 145
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +47,6 @@
     .line 146
     iput-object p1, p0, Landroidx/webkit/WebViewAssetLoader$AssetsPathHandler;->mAssetHelper:Landroidx/webkit/internal/AssetHelper;
 
-    .line 147
     return-void
 .end method
 
@@ -58,11 +54,10 @@
 # virtual methods
 .method public handle(Ljava/lang/String;)Landroid/webkit/WebResourceResponse;
     .locals 4
-    .param p1, "path"    # Ljava/lang/String;
 
-    .line 172
     const/4 v0, 0x0
 
+    .line 172
     :try_start_0
     iget-object v1, p0, Landroidx/webkit/WebViewAssetLoader$AssetsPathHandler;->mAssetHelper:Landroidx/webkit/internal/AssetHelper;
 
@@ -71,13 +66,11 @@
     move-result-object v1
 
     .line 173
-    .local v1, "is":Ljava/io/InputStream;
     invoke-static {p1}, Landroidx/webkit/internal/AssetHelper;->guessMimeType(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
     .line 174
-    .local v2, "mimeType":Ljava/lang/String;
     new-instance v3, Landroid/webkit/WebResourceResponse;
 
     invoke-direct {v3, v2, v0, v1}, Landroid/webkit/WebResourceResponse;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/io/InputStream;)V
@@ -86,36 +79,32 @@
 
     return-object v3
 
-    .line 175
-    .end local v1    # "is":Ljava/io/InputStream;
-    .end local v2    # "mimeType":Ljava/lang/String;
     :catch_0
     move-exception v1
 
     .line 176
-    .local v1, "e":Ljava/io/IOException;
     new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v3, "Error opening asset path: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v2
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string v3, "WebViewAssetLoader"
+    move-result-object p1
 
-    invoke-static {v3, v2, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    const-string v2, "WebViewAssetLoader"
+
+    invoke-static {v2, p1, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 177
-    new-instance v2, Landroid/webkit/WebResourceResponse;
+    new-instance p1, Landroid/webkit/WebResourceResponse;
 
-    invoke-direct {v2, v0, v0, v0}, Landroid/webkit/WebResourceResponse;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/io/InputStream;)V
+    invoke-direct {p1, v0, v0, v0}, Landroid/webkit/WebResourceResponse;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/io/InputStream;)V
 
-    return-object v2
+    return-object p1
 .end method

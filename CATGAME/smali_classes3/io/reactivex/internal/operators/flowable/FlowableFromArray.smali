@@ -43,14 +43,11 @@
     .end annotation
 
     .line 28
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableFromArray;, "Lio/reactivex/internal/operators/flowable/FlowableFromArray<TT;>;"
-    .local p1, "array":[Ljava/lang/Object;, "[TT;"
     invoke-direct {p0}, Lio/reactivex/Flowable;-><init>()V
 
     .line 29
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableFromArray;->array:[Ljava/lang/Object;
 
-    .line 30
     return-void
 .end method
 
@@ -67,8 +64,6 @@
     .end annotation
 
     .line 33
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableFromArray;, "Lio/reactivex/internal/operators/flowable/FlowableFromArray<TT;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     instance-of v0, p1, Lio/reactivex/internal/fuseable/ConditionalSubscriber;
 
     if-eqz v0, :cond_0
@@ -98,7 +93,6 @@
 
     invoke-interface {p1, v0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
-    .line 39
     :goto_0
     return-void
 .end method

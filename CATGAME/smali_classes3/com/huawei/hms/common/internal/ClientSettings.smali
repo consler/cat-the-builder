@@ -46,6 +46,10 @@
 
 .field private i:Z
 
+.field private j:Ljava/lang/String;
+
+.field private k:Z
+
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/util/List;)V
@@ -65,25 +69,24 @@
         }
     .end annotation
 
-    .line 66
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 67
+    .line 2
     iput-object p1, p0, Lcom/huawei/hms/common/internal/ClientSettings;->a:Ljava/lang/String;
 
-    .line 68
+    .line 3
     iput-object p2, p0, Lcom/huawei/hms/common/internal/ClientSettings;->b:Ljava/lang/String;
 
-    .line 69
+    .line 4
     iput-object p3, p0, Lcom/huawei/hms/common/internal/ClientSettings;->c:Ljava/util/List;
 
-    .line 70
+    .line 5
     iput-object p4, p0, Lcom/huawei/hms/common/internal/ClientSettings;->d:Ljava/lang/String;
 
-    .line 71
+    .line 6
     iput-object p5, p0, Lcom/huawei/hms/common/internal/ClientSettings;->e:Ljava/util/List;
 
-    .line 72
     return-void
 .end method
 
@@ -106,13 +109,12 @@
         }
     .end annotation
 
-    .line 86
+    .line 7
     invoke-direct/range {p0 .. p5}, Lcom/huawei/hms/common/internal/ClientSettings;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/util/List;)V
 
-    .line 87
+    .line 8
     invoke-virtual {p0, p6}, Lcom/huawei/hms/common/internal/ClientSettings;->setSubAppId(Lcom/huawei/hms/support/api/client/SubAppInfo;)V
 
-    .line 88
     return-void
 .end method
 
@@ -129,7 +131,7 @@
         }
     .end annotation
 
-    .line 131
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/internal/ClientSettings;->e:Ljava/util/List;
 
     return-object v0
@@ -138,7 +140,7 @@
 .method public getAppID()Ljava/lang/String;
     .locals 1
 
-    .line 115
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/internal/ClientSettings;->d:Ljava/lang/String;
 
     return-object v0
@@ -147,7 +149,7 @@
 .method public getClientClassName()Ljava/lang/String;
     .locals 1
 
-    .line 99
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/internal/ClientSettings;->b:Ljava/lang/String;
 
     return-object v0
@@ -156,7 +158,7 @@
 .method public getClientPackageName()Ljava/lang/String;
     .locals 1
 
-    .line 91
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/internal/ClientSettings;->a:Ljava/lang/String;
 
     return-object v0
@@ -165,7 +167,7 @@
 .method public getCpActivity()Landroid/app/Activity;
     .locals 1
 
-    .line 147
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/internal/ClientSettings;->h:Ljava/lang/ref/WeakReference;
 
     if-nez v0, :cond_0
@@ -188,8 +190,17 @@
 .method public getCpID()Ljava/lang/String;
     .locals 1
 
-    .line 139
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/internal/ClientSettings;->f:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public getInnerHmsPkg()Ljava/lang/String;
+    .locals 1
+
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/common/internal/ClientSettings;->j:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -205,7 +216,7 @@
         }
     .end annotation
 
-    .line 107
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/internal/ClientSettings;->c:Ljava/util/List;
 
     return-object v0
@@ -214,7 +225,7 @@
 .method public getSubAppID()Lcom/huawei/hms/support/api/client/SubAppInfo;
     .locals 1
 
-    .line 123
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/internal/ClientSettings;->g:Lcom/huawei/hms/support/api/client/SubAppInfo;
 
     return-object v0
@@ -223,8 +234,17 @@
 .method public isHasActivity()Z
     .locals 1
 
-    .line 156
+    .line 1
     iget-boolean v0, p0, Lcom/huawei/hms/common/internal/ClientSettings;->i:Z
+
+    return v0
+.end method
+
+.method public isUseInnerHms()Z
+    .locals 1
+
+    .line 1
+    iget-boolean v0, p0, Lcom/huawei/hms/common/internal/ClientSettings;->k:Z
 
     return v0
 .end method
@@ -240,69 +260,72 @@
         }
     .end annotation
 
-    .line 135
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/common/internal/ClientSettings;->e:Ljava/util/List;
 
-    .line 136
     return-void
 .end method
 
 .method public setAppID(Ljava/lang/String;)V
     .locals 0
 
-    .line 119
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/common/internal/ClientSettings;->d:Ljava/lang/String;
 
-    .line 120
     return-void
 .end method
 
 .method public setClientClassName(Ljava/lang/String;)V
     .locals 0
 
-    .line 103
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/common/internal/ClientSettings;->b:Ljava/lang/String;
 
-    .line 104
     return-void
 .end method
 
 .method public setClientPackageName(Ljava/lang/String;)V
     .locals 0
 
-    .line 95
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/common/internal/ClientSettings;->a:Ljava/lang/String;
 
-    .line 96
     return-void
 .end method
 
 .method public setCpActivity(Landroid/app/Activity;)V
     .locals 1
 
-    .line 151
+    .line 1
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Lcom/huawei/hms/common/internal/ClientSettings;->h:Ljava/lang/ref/WeakReference;
 
-    .line 152
     const/4 p1, 0x1
 
+    .line 2
     iput-boolean p1, p0, Lcom/huawei/hms/common/internal/ClientSettings;->i:Z
 
-    .line 153
     return-void
 .end method
 
 .method public setCpID(Ljava/lang/String;)V
     .locals 0
 
-    .line 143
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/common/internal/ClientSettings;->f:Ljava/lang/String;
 
-    .line 144
+    return-void
+.end method
+
+.method public setInnerHmsPkg(Ljava/lang/String;)V
+    .locals 0
+
+    .line 1
+    iput-object p1, p0, Lcom/huawei/hms/common/internal/ClientSettings;->j:Ljava/lang/String;
+
     return-void
 .end method
 
@@ -317,19 +340,26 @@
         }
     .end annotation
 
-    .line 111
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/common/internal/ClientSettings;->c:Ljava/util/List;
 
-    .line 112
     return-void
 .end method
 
 .method public setSubAppId(Lcom/huawei/hms/support/api/client/SubAppInfo;)V
     .locals 0
 
-    .line 127
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/common/internal/ClientSettings;->g:Lcom/huawei/hms/support/api/client/SubAppInfo;
 
-    .line 128
+    return-void
+.end method
+
+.method public setUseInnerHms(Z)V
+    .locals 0
+
+    .line 1
+    iput-boolean p1, p0, Lcom/huawei/hms/common/internal/ClientSettings;->k:Z
+
     return-void
 .end method

@@ -60,13 +60,11 @@
     .end annotation
 
     .line 646
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;, "Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator<TK;TV;>;"
-    .local p1, "parent":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 642
     const/4 v0, 0x0
 
+    .line 642
     iput v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;->nextIndex:I
 
     .line 643
@@ -75,7 +73,6 @@
     .line 647
     iput-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;->parent:Lorg/apache/commons/collections4/map/Flat3Map;
 
-    .line 648
     return-void
 .end method
 
@@ -90,7 +87,6 @@
     .end annotation
 
     .line 677
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;, "Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator<TK;TV;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;->canRemove:Z
 
     if-eqz v0, :cond_3
@@ -125,15 +121,15 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Invalid map index: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget v2, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;->nextIndex:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -183,7 +179,6 @@
     .end annotation
 
     .line 693
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;, "Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator<TK;TV;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;->canRemove:Z
 
     if-eqz v0, :cond_3
@@ -218,15 +213,15 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Invalid map index: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget v2, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;->nextIndex:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -271,7 +266,6 @@
     .locals 2
 
     .line 652
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;, "Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator<TK;TV;>;"
     iget v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;->nextIndex:I
 
     iget-object v1, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;->parent:Lorg/apache/commons/collections4/map/Flat3Map;
@@ -302,16 +296,15 @@
     .end annotation
 
     .line 657
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;, "Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;->hasNext()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 660
     const/4 v0, 0x1
 
+    .line 660
     iput-boolean v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;->canRemove:Z
 
     .line 661
@@ -343,7 +336,6 @@
     .locals 2
 
     .line 667
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;, "Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator<TK;TV;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;->canRemove:Z
 
     if-eqz v0, :cond_0
@@ -364,12 +356,11 @@
 
     iput v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;->nextIndex:I
 
-    .line 672
     const/4 v0, 0x0
 
+    .line 672
     iput-boolean v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;->canRemove:Z
 
-    .line 673
     return-void
 
     .line 668
@@ -386,21 +377,19 @@
 .method public reset()V
     .locals 1
 
-    .line 731
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;, "Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator<TK;TV;>;"
     const/4 v0, 0x0
 
+    .line 731
     iput v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;->nextIndex:I
 
     .line 732
     iput-boolean v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;->canRemove:Z
 
-    .line 733
     return-void
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)TV;"
@@ -408,8 +397,6 @@
     .end annotation
 
     .line 709
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;, "Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator<TK;TV;>;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;->canRemove:Z
 
     if-eqz v0, :cond_3
@@ -420,7 +407,6 @@
     move-result-object v0
 
     .line 713
-    .local v0, "old":Ljava/lang/Object;, "TV;"
     iget v1, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;->nextIndex:I
 
     const/4 v2, 0x1
@@ -440,32 +426,31 @@
 
     invoke-static {v1, p1}, Lorg/apache/commons/collections4/map/Flat3Map;->access$402(Lorg/apache/commons/collections4/map/Flat3Map;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 716
     goto :goto_0
 
     .line 724
     :cond_0
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Invalid map index: "
 
-    const-string v3, "Invalid map index: "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v1, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;->nextIndex:I
 
-    iget v3, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;->nextIndex:I
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 
     .line 718
     :cond_1
@@ -473,7 +458,6 @@
 
     invoke-static {v1, p1}, Lorg/apache/commons/collections4/map/Flat3Map;->access$502(Lorg/apache/commons/collections4/map/Flat3Map;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 719
     goto :goto_0
 
     .line 721
@@ -482,30 +466,24 @@
 
     invoke-static {v1, p1}, Lorg/apache/commons/collections4/map/Flat3Map;->access$602(Lorg/apache/commons/collections4/map/Flat3Map;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 722
-    nop
-
-    .line 726
     :goto_0
     return-object v0
 
     .line 710
-    .end local v0    # "old":Ljava/lang/Object;, "TV;"
     :cond_3
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "setValue() can only be called after next() and before remove()"
+    const-string v0, "setValue() can only be called after next() and before remove()"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 2
 
     .line 737
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;, "Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator<TK;TV;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;->canRemove:Z
 
     if-eqz v0, :cond_0
@@ -513,11 +491,9 @@
     .line 738
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "Iterator["
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;->getKey()Ljava/lang/Object;
 
@@ -525,9 +501,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapIterator;->getValue()Ljava/lang/Object;
 
@@ -535,9 +515,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -545,7 +529,6 @@
 
     return-object v0
 
-    .line 740
     :cond_0
     const-string v0, "Iterator[]"
 

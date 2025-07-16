@@ -28,11 +28,11 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 39
     const/16 v0, 0x10
 
     new-array v0, v0, [B
 
+    .line 39
     fill-array-data v0, :array_0
 
     .line 40
@@ -42,7 +42,6 @@
 
     sput-object v0, Lcom/google/crypto/tink/subtle/ChaCha20Base;->SIGMA:[I
 
-    .line 39
     return-void
 
     :array_0
@@ -68,8 +67,6 @@
 
 .method constructor <init>([BI)V
     .locals 2
-    .param p1, "key"    # [B
-    .param p2, "initialCounter"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -100,32 +97,28 @@
     .line 51
     invoke-static {p1}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->toIntArray([B)[I
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/google/crypto/tink/subtle/ChaCha20Base;->key:[I
+    iput-object p1, p0, Lcom/google/crypto/tink/subtle/ChaCha20Base;->key:[I
 
     .line 52
     iput p2, p0, Lcom/google/crypto/tink/subtle/ChaCha20Base;->initialCounter:I
 
-    .line 53
     return-void
 
     .line 49
     :cond_0
-    new-instance v0, Ljava/security/InvalidKeyException;
+    new-instance p1, Ljava/security/InvalidKeyException;
 
-    const-string v1, "The key length in bytes must be 32."
+    const-string p2, "The key length in bytes must be 32."
 
-    invoke-direct {v0, v1}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/security/InvalidKeyException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method private process([BLjava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)V
-    .locals 5
-    .param p1, "nonce"    # [B
-    .param p2, "output"    # Ljava/nio/ByteBuffer;
-    .param p3, "input"    # Ljava/nio/ByteBuffer;
+    .locals 6
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -151,16 +144,12 @@
     move-result v0
 
     .line 104
-    .local v0, "length":I
     div-int/lit8 v1, v0, 0x40
 
     add-int/lit8 v1, v1, 0x1
 
-    .line 105
-    .local v1, "numBlocks":I
     const/4 v2, 0x0
 
-    .local v2, "i":I
     :goto_0
     if-ge v2, v1, :cond_1
 
@@ -173,9 +162,9 @@
 
     move-result-object v3
 
-    .line 107
-    .local v3, "keyStreamBlock":Ljava/nio/ByteBuffer;
     add-int/lit8 v4, v1, -0x1
+
+    const/16 v5, 0x40
 
     if-ne v2, v4, :cond_0
 
@@ -188,30 +177,19 @@
 
     .line 111
     :cond_0
-    const/16 v4, 0x40
+    invoke-static {p2, p3, v3, v5}, Lcom/google/crypto/tink/subtle/Bytes;->xor(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;I)V
 
-    invoke-static {p2, p3, v3, v4}, Lcom/google/crypto/tink/subtle/Bytes;->xor(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;I)V
-
-    .line 105
-    .end local v3    # "keyStreamBlock":Ljava/nio/ByteBuffer;
     :goto_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 114
-    .end local v2    # "i":I
     :cond_1
     return-void
 .end method
 
 .method static quarterRound([IIIII)V
     .locals 2
-    .param p0, "x"    # [I
-    .param p1, "a"    # I
-    .param p2, "b"    # I
-    .param p3, "c"    # I
-    .param p4, "d"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -239,9 +217,7 @@
     aput v0, p0, p1
 
     .line 149
-    aget v0, p0, p4
-
-    aget v1, p0, p1
+    aget v1, p0, p4
 
     xor-int/2addr v0, v1
 
@@ -254,18 +230,14 @@
     aput v0, p0, p4
 
     .line 150
-    aget v0, p0, p3
+    aget v1, p0, p3
 
-    aget v1, p0, p4
+    add-int/2addr v1, v0
 
-    add-int/2addr v0, v1
-
-    aput v0, p0, p3
+    aput v1, p0, p3
 
     .line 151
     aget v0, p0, p2
-
-    aget v1, p0, p3
 
     xor-int/2addr v0, v1
 
@@ -278,61 +250,50 @@
     aput v0, p0, p2
 
     .line 152
-    aget v0, p0, p1
-
-    aget v1, p0, p2
-
-    add-int/2addr v0, v1
-
-    aput v0, p0, p1
-
-    .line 153
-    aget v0, p0, p4
-
     aget v1, p0, p1
 
-    xor-int/2addr v0, v1
+    add-int/2addr v1, v0
 
-    const/16 v1, 0x8
+    aput v1, p0, p1
 
-    invoke-static {v0, v1}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->rotateLeft(II)I
+    .line 153
+    aget p1, p0, p4
 
-    move-result v0
+    xor-int/2addr p1, v1
 
-    aput v0, p0, p4
+    const/16 v0, 0x8
+
+    invoke-static {p1, v0}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->rotateLeft(II)I
+
+    move-result p1
+
+    aput p1, p0, p4
 
     .line 154
-    aget v0, p0, p3
+    aget p4, p0, p3
 
-    aget v1, p0, p4
+    add-int/2addr p4, p1
 
-    add-int/2addr v0, v1
-
-    aput v0, p0, p3
+    aput p4, p0, p3
 
     .line 155
-    aget v0, p0, p2
+    aget p1, p0, p2
 
-    aget v1, p0, p3
+    xor-int/2addr p1, p4
 
-    xor-int/2addr v0, v1
+    const/4 p3, 0x7
 
-    const/4 v1, 0x7
+    invoke-static {p1, p3}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->rotateLeft(II)I
 
-    invoke-static {v0, v1}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->rotateLeft(II)I
+    move-result p1
 
-    move-result v0
+    aput p1, p0, p2
 
-    aput v0, p0, p2
-
-    .line 156
     return-void
 .end method
 
 .method private static rotateLeft(II)I
-    .locals 2
-    .param p0, "x"    # I
-    .param p1, "y"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -344,22 +305,19 @@
         }
     .end annotation
 
-    .line 166
     shl-int v0, p0, p1
 
-    neg-int v1, p1
+    neg-int p1, p1
 
-    ushr-int v1, p0, v1
+    ushr-int/2addr p0, p1
 
-    or-int/2addr v0, v1
+    or-int/2addr p0, v0
 
-    return v0
+    return p0
 .end method
 
 .method static setSigmaAndKey([I[I)V
     .locals 3
-    .param p0, "state"    # [I
-    .param p1, "key"    # [I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -381,21 +339,17 @@
     invoke-static {v0, v2, p0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 131
-    sget-object v0, Lcom/google/crypto/tink/subtle/ChaCha20Base;->SIGMA:[I
-
     array-length v0, v0
 
     const/16 v1, 0x8
 
     invoke-static {p1, v2, p0, v0, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 132
     return-void
 .end method
 
 .method static shuffleState([I)V
     .locals 16
-    .param p0, "state"    # [I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -405,19 +359,16 @@
         }
     .end annotation
 
-    .line 135
     move-object/from16 v0, p0
 
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    move v2, v1
+
     :goto_0
-    const/16 v2, 0xa
+    const/16 v3, 0xa
 
-    if-ge v1, v2, :cond_0
-
-    .line 136
-    const/4 v3, 0x0
+    if-ge v2, v3, :cond_0
 
     const/4 v4, 0x4
 
@@ -425,9 +376,9 @@
 
     const/16 v6, 0xc
 
-    invoke-static {v0, v3, v4, v5, v6}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->quarterRound([IIIII)V
+    .line 136
+    invoke-static {v0, v1, v4, v5, v6}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->quarterRound([IIIII)V
 
-    .line 137
     const/4 v7, 0x1
 
     const/4 v8, 0x5
@@ -436,18 +387,18 @@
 
     const/16 v10, 0xd
 
+    .line 137
     invoke-static {v0, v7, v8, v9, v10}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->quarterRound([IIIII)V
 
-    .line 138
     const/4 v11, 0x2
 
     const/4 v12, 0x6
 
     const/16 v13, 0xe
 
-    invoke-static {v0, v11, v12, v2, v13}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->quarterRound([IIIII)V
+    .line 138
+    invoke-static {v0, v11, v12, v3, v13}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->quarterRound([IIIII)V
 
-    .line 139
     const/4 v14, 0x3
 
     const/4 v15, 0x7
@@ -456,10 +407,11 @@
 
     const/16 v9, 0xf
 
+    .line 139
     invoke-static {v0, v14, v15, v4, v9}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->quarterRound([IIIII)V
 
     .line 140
-    invoke-static {v0, v3, v8, v2, v9}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->quarterRound([IIIII)V
+    invoke-static {v0, v1, v8, v3, v9}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->quarterRound([IIIII)V
 
     .line 141
     invoke-static {v0, v7, v12, v4, v6}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->quarterRound([IIIII)V
@@ -467,27 +419,23 @@
     .line 142
     invoke-static {v0, v11, v15, v5, v10}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->quarterRound([IIIII)V
 
+    const/16 v3, 0x9
+
+    const/4 v4, 0x4
+
     .line 143
-    const/16 v2, 0x9
+    invoke-static {v0, v14, v4, v3, v13}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->quarterRound([IIIII)V
 
-    const/4 v3, 0x4
-
-    invoke-static {v0, v14, v3, v2, v13}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->quarterRound([IIIII)V
-
-    .line 135
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 145
-    .end local v1    # "i":I
     :cond_0
     return-void
 .end method
 
 .method static toIntArray([B)[I
-    .locals 2
-    .param p0, "input"    # [B
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -500,40 +448,35 @@
     .line 159
     invoke-static {p0}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
-    move-result-object v0
+    move-result-object p0
 
-    sget-object v1, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
+    sget-object v0, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
-    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {p0, v0}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->asIntBuffer()Ljava/nio/IntBuffer;
+    invoke-virtual {p0}, Ljava/nio/ByteBuffer;->asIntBuffer()Ljava/nio/IntBuffer;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 160
-    .local v0, "intBuffer":Ljava/nio/IntBuffer;
-    invoke-virtual {v0}, Ljava/nio/IntBuffer;->remaining()I
+    invoke-virtual {p0}, Ljava/nio/IntBuffer;->remaining()I
 
-    move-result v1
+    move-result v0
 
-    new-array v1, v1, [I
+    new-array v0, v0, [I
 
     .line 161
-    .local v1, "ret":[I
-    invoke-virtual {v0, v1}, Ljava/nio/IntBuffer;->get([I)Ljava/nio/IntBuffer;
+    invoke-virtual {p0, v0}, Ljava/nio/IntBuffer;->get([I)Ljava/nio/IntBuffer;
 
-    .line 162
-    return-object v1
+    return-object v0
 .end method
 
 
 # virtual methods
 .method chacha20Block([BI)Ljava/nio/ByteBuffer;
-    .locals 6
-    .param p1, "nonce"    # [B
-    .param p2, "counter"    # I
+    .locals 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -548,76 +491,69 @@
     .line 118
     invoke-static {p1}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->toIntArray([B)[I
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0, p2}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->createInitialState([II)[I
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->createInitialState([II)[I
 
-    move-result-object v0
+    move-result-object p1
 
     .line 119
-    .local v0, "state":[I
-    invoke-virtual {v0}, [I->clone()Ljava/lang/Object;
+    invoke-virtual {p1}, [I->clone()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p2
 
-    check-cast v1, [I
+    check-cast p2, [I
 
     .line 120
-    .local v1, "workingState":[I
-    invoke-static {v1}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->shuffleState([I)V
+    invoke-static {p2}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->shuffleState([I)V
+
+    const/4 v0, 0x0
+
+    move v1, v0
 
     .line 121
-    const/4 v2, 0x0
-
-    .local v2, "i":I
     :goto_0
-    array-length v3, v0
+    array-length v2, p1
 
-    if-ge v2, v3, :cond_0
+    if-ge v1, v2, :cond_0
 
     .line 122
-    aget v3, v0, v2
+    aget v2, p1, v1
 
-    aget v4, v1, v2
+    aget v3, p2, v1
 
-    add-int/2addr v3, v4
+    add-int/2addr v2, v3
 
-    aput v3, v0, v2
+    aput v2, p1, v1
 
-    .line 121
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 124
-    .end local v2    # "i":I
     :cond_0
-    const/16 v2, 0x40
+    const/16 p2, 0x40
 
-    invoke-static {v2}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
+    .line 124
+    invoke-static {p2}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v2
+    move-result-object p2
 
-    sget-object v3, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
+    sget-object v1, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
-    invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {p2, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    move-result-object v2
+    move-result-object p2
 
     .line 125
-    .local v2, "out":Ljava/nio/ByteBuffer;
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->asIntBuffer()Ljava/nio/IntBuffer;
+    invoke-virtual {p2}, Ljava/nio/ByteBuffer;->asIntBuffer()Ljava/nio/IntBuffer;
 
-    move-result-object v3
+    move-result-object v1
 
-    const/4 v4, 0x0
+    const/16 v2, 0x10
 
-    const/16 v5, 0x10
+    invoke-virtual {v1, p1, v0, v2}, Ljava/nio/IntBuffer;->put([III)Ljava/nio/IntBuffer;
 
-    invoke-virtual {v3, v0, v4, v5}, Ljava/nio/IntBuffer;->put([III)Ljava/nio/IntBuffer;
-
-    .line 126
-    return-object v2
+    return-object p2
 .end method
 
 .method abstract createInitialState([II)[I
@@ -634,8 +570,7 @@
 .end method
 
 .method decrypt(Ljava/nio/ByteBuffer;)[B
-    .locals 3
-    .param p1, "ciphertext"    # Ljava/nio/ByteBuffer;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -670,7 +605,6 @@
     new-array v0, v0, [B
 
     .line 95
-    .local v0, "nonce":[B
     invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
 
     .line 96
@@ -683,32 +617,28 @@
     move-result-object v1
 
     .line 97
-    .local v1, "plaintext":Ljava/nio/ByteBuffer;
     invoke-direct {p0, v0, v1, p1}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->process([BLjava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)V
 
     .line 98
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->array()[B
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 
     .line 92
-    .end local v0    # "nonce":[B
-    .end local v1    # "plaintext":Ljava/nio/ByteBuffer;
     :cond_0
-    new-instance v0, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    const-string v1, "ciphertext too short"
+    const-string v0, "ciphertext too short"
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public decrypt([B)[B
-    .locals 1
-    .param p1, "ciphertext"    # [B
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -727,19 +657,17 @@
     .line 87
     invoke-static {p1}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->decrypt(Ljava/nio/ByteBuffer;)[B
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->decrypt(Ljava/nio/ByteBuffer;)[B
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method encrypt(Ljava/nio/ByteBuffer;[B)V
     .locals 2
-    .param p1, "output"    # Ljava/nio/ByteBuffer;
-    .param p2, "plaintext"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -782,34 +710,30 @@
     move-result-object v0
 
     .line 81
-    .local v0, "nonce":[B
     invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
     .line 82
     invoke-static {p2}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {p0, v0, p1, v1}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->process([BLjava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)V
+    invoke-direct {p0, v0, p1, p2}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->process([BLjava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)V
 
-    .line 83
     return-void
 
     .line 77
-    .end local v0    # "nonce":[B
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Given ByteBuffer output is too small"
+    const-string p2, "Given ByteBuffer output is too small"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public encrypt([B)[B
     .locals 3
-    .param p1, "plaintext"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -828,15 +752,15 @@
     .line 67
     array-length v0, p1
 
+    const v1, 0x7fffffff
+
     invoke-virtual {p0}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->nonceSizeInBytes()I
 
-    move-result v1
+    move-result v2
 
-    const v2, 0x7fffffff
+    sub-int/2addr v1, v2
 
-    sub-int/2addr v2, v1
-
-    if-gt v0, v2, :cond_0
+    if-gt v0, v1, :cond_0
 
     .line 70
     invoke-virtual {p0}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->nonceSizeInBytes()I
@@ -852,26 +776,24 @@
     move-result-object v0
 
     .line 71
-    .local v0, "ciphertext":Ljava/nio/ByteBuffer;
     invoke-virtual {p0, v0, p1}, Lcom/google/crypto/tink/subtle/ChaCha20Base;->encrypt(Ljava/nio/ByteBuffer;[B)V
 
     .line 72
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->array()[B
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 68
-    .end local v0    # "ciphertext":Ljava/nio/ByteBuffer;
     :cond_0
-    new-instance v0, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    const-string v1, "plaintext too long"
+    const-string v0, "plaintext too long"
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method abstract nonceSizeInBytes()I

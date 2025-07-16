@@ -70,12 +70,9 @@
 
     sput-object v0, Lorg/apache/commons/lang3/time/DateFormatUtils;->UTC_TIME_ZONE:Ljava/util/TimeZone;
 
-    .line 53
-    nop
-
-    .line 54
     const-string v0, "yyyy-MM-dd\'T\'HH:mm:ss"
 
+    .line 54
     invoke-static {v0}, Lorg/apache/commons/lang3/time/FastDateFormat;->getInstance(Ljava/lang/String;)Lorg/apache/commons/lang3/time/FastDateFormat;
 
     move-result-object v0
@@ -85,12 +82,9 @@
     .line 60
     sput-object v0, Lorg/apache/commons/lang3/time/DateFormatUtils;->ISO_DATETIME_FORMAT:Lorg/apache/commons/lang3/time/FastDateFormat;
 
-    .line 72
-    nop
-
-    .line 73
     const-string v0, "yyyy-MM-dd\'T\'HH:mm:ssZZ"
 
+    .line 73
     invoke-static {v0}, Lorg/apache/commons/lang3/time/FastDateFormat;->getInstance(Ljava/lang/String;)Lorg/apache/commons/lang3/time/FastDateFormat;
 
     move-result-object v0
@@ -100,12 +94,9 @@
     .line 79
     sput-object v0, Lorg/apache/commons/lang3/time/DateFormatUtils;->ISO_DATETIME_TIME_ZONE_FORMAT:Lorg/apache/commons/lang3/time/FastDateFormat;
 
-    .line 91
-    nop
-
-    .line 92
     const-string v0, "yyyy-MM-dd"
 
+    .line 92
     invoke-static {v0}, Lorg/apache/commons/lang3/time/FastDateFormat;->getInstance(Ljava/lang/String;)Lorg/apache/commons/lang3/time/FastDateFormat;
 
     move-result-object v0
@@ -115,48 +106,36 @@
     .line 98
     sput-object v0, Lorg/apache/commons/lang3/time/DateFormatUtils;->ISO_DATE_FORMAT:Lorg/apache/commons/lang3/time/FastDateFormat;
 
-    .line 113
-    nop
-
-    .line 114
     const-string v0, "yyyy-MM-ddZZ"
 
+    .line 114
     invoke-static {v0}, Lorg/apache/commons/lang3/time/FastDateFormat;->getInstance(Ljava/lang/String;)Lorg/apache/commons/lang3/time/FastDateFormat;
 
     move-result-object v0
 
     sput-object v0, Lorg/apache/commons/lang3/time/DateFormatUtils;->ISO_DATE_TIME_ZONE_FORMAT:Lorg/apache/commons/lang3/time/FastDateFormat;
 
-    .line 128
-    nop
-
-    .line 129
     const-string v0, "\'T\'HH:mm:ss"
 
+    .line 129
     invoke-static {v0}, Lorg/apache/commons/lang3/time/FastDateFormat;->getInstance(Ljava/lang/String;)Lorg/apache/commons/lang3/time/FastDateFormat;
 
     move-result-object v0
 
     sput-object v0, Lorg/apache/commons/lang3/time/DateFormatUtils;->ISO_TIME_FORMAT:Lorg/apache/commons/lang3/time/FastDateFormat;
 
-    .line 143
-    nop
-
-    .line 144
     const-string v0, "\'T\'HH:mm:ssZZ"
 
+    .line 144
     invoke-static {v0}, Lorg/apache/commons/lang3/time/FastDateFormat;->getInstance(Ljava/lang/String;)Lorg/apache/commons/lang3/time/FastDateFormat;
 
     move-result-object v0
 
     sput-object v0, Lorg/apache/commons/lang3/time/DateFormatUtils;->ISO_TIME_TIME_ZONE_FORMAT:Lorg/apache/commons/lang3/time/FastDateFormat;
 
-    .line 156
-    nop
-
-    .line 157
     const-string v0, "HH:mm:ss"
 
+    .line 157
     invoke-static {v0}, Lorg/apache/commons/lang3/time/FastDateFormat;->getInstance(Ljava/lang/String;)Lorg/apache/commons/lang3/time/FastDateFormat;
 
     move-result-object v0
@@ -166,12 +145,9 @@
     .line 163
     sput-object v0, Lorg/apache/commons/lang3/time/DateFormatUtils;->ISO_TIME_NO_T_FORMAT:Lorg/apache/commons/lang3/time/FastDateFormat;
 
-    .line 175
-    nop
-
-    .line 176
     const-string v0, "HH:mm:ssZZ"
 
+    .line 176
     invoke-static {v0}, Lorg/apache/commons/lang3/time/FastDateFormat;->getInstance(Ljava/lang/String;)Lorg/apache/commons/lang3/time/FastDateFormat;
 
     move-result-object v0
@@ -181,19 +157,18 @@
     .line 182
     sput-object v0, Lorg/apache/commons/lang3/time/DateFormatUtils;->ISO_TIME_NO_T_TIME_ZONE_FORMAT:Lorg/apache/commons/lang3/time/FastDateFormat;
 
+    const-string v0, "EEE, dd MMM yyyy HH:mm:ss Z"
+
     .line 193
-    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
+    sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     .line 194
-    const-string v1, "EEE, dd MMM yyyy HH:mm:ss Z"
-
-    invoke-static {v1, v0}, Lorg/apache/commons/lang3/time/FastDateFormat;->getInstance(Ljava/lang/String;Ljava/util/Locale;)Lorg/apache/commons/lang3/time/FastDateFormat;
+    invoke-static {v0, v1}, Lorg/apache/commons/lang3/time/FastDateFormat;->getInstance(Ljava/lang/String;Ljava/util/Locale;)Lorg/apache/commons/lang3/time/FastDateFormat;
 
     move-result-object v0
 
     sput-object v0, Lorg/apache/commons/lang3/time/DateFormatUtils;->SMTP_DATETIME_FORMAT:Lorg/apache/commons/lang3/time/FastDateFormat;
 
-    .line 193
     return-void
 .end method
 
@@ -203,75 +178,62 @@
     .line 204
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 205
     return-void
 .end method
 
 .method public static format(JLjava/lang/String;)Ljava/lang/String;
-    .locals 2
-    .param p0, "millis"    # J
-    .param p2, "pattern"    # Ljava/lang/String;
+    .locals 1
 
     .line 261
     new-instance v0, Ljava/util/Date;
 
     invoke-direct {v0, p0, p1}, Ljava/util/Date;-><init>(J)V
 
-    const/4 v1, 0x0
+    const/4 p0, 0x0
 
-    invoke-static {v0, p2, v1, v1}, Lorg/apache/commons/lang3/time/DateFormatUtils;->format(Ljava/util/Date;Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/lang/String;
+    invoke-static {v0, p2, p0, p0}, Lorg/apache/commons/lang3/time/DateFormatUtils;->format(Ljava/util/Date;Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static format(JLjava/lang/String;Ljava/util/Locale;)Ljava/lang/String;
-    .locals 2
-    .param p0, "millis"    # J
-    .param p2, "pattern"    # Ljava/lang/String;
-    .param p3, "locale"    # Ljava/util/Locale;
+    .locals 1
 
     .line 335
     new-instance v0, Ljava/util/Date;
 
     invoke-direct {v0, p0, p1}, Ljava/util/Date;-><init>(J)V
 
-    const/4 v1, 0x0
+    const/4 p0, 0x0
 
-    invoke-static {v0, p2, v1, p3}, Lorg/apache/commons/lang3/time/DateFormatUtils;->format(Ljava/util/Date;Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/lang/String;
+    invoke-static {v0, p2, p0, p3}, Lorg/apache/commons/lang3/time/DateFormatUtils;->format(Ljava/util/Date;Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static format(JLjava/lang/String;Ljava/util/TimeZone;)Ljava/lang/String;
-    .locals 2
-    .param p0, "millis"    # J
-    .param p2, "pattern"    # Ljava/lang/String;
-    .param p3, "timeZone"    # Ljava/util/TimeZone;
+    .locals 1
 
     .line 297
     new-instance v0, Ljava/util/Date;
 
     invoke-direct {v0, p0, p1}, Ljava/util/Date;-><init>(J)V
 
-    const/4 v1, 0x0
+    const/4 p0, 0x0
 
-    invoke-static {v0, p2, p3, v1}, Lorg/apache/commons/lang3/time/DateFormatUtils;->format(Ljava/util/Date;Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/lang/String;
+    invoke-static {v0, p2, p3, p0}, Lorg/apache/commons/lang3/time/DateFormatUtils;->format(Ljava/util/Date;Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static format(JLjava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/lang/String;
     .locals 1
-    .param p0, "millis"    # J
-    .param p2, "pattern"    # Ljava/lang/String;
-    .param p3, "timeZone"    # Ljava/util/TimeZone;
-    .param p4, "locale"    # Ljava/util/Locale;
 
     .line 374
     new-instance v0, Ljava/util/Date;
@@ -280,192 +242,159 @@
 
     invoke-static {v0, p2, p3, p4}, Lorg/apache/commons/lang3/time/DateFormatUtils;->format(Ljava/util/Date;Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static format(Ljava/util/Calendar;Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p0, "calendar"    # Ljava/util/Calendar;
-    .param p1, "pattern"    # Ljava/lang/String;
 
-    .line 285
     const/4 v0, 0x0
 
+    .line 285
     invoke-static {p0, p1, v0, v0}, Lorg/apache/commons/lang3/time/DateFormatUtils;->format(Ljava/util/Calendar;Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static format(Ljava/util/Calendar;Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;
     .locals 1
-    .param p0, "calendar"    # Ljava/util/Calendar;
-    .param p1, "pattern"    # Ljava/lang/String;
-    .param p2, "locale"    # Ljava/util/Locale;
 
-    .line 361
     const/4 v0, 0x0
 
+    .line 361
     invoke-static {p0, p1, v0, p2}, Lorg/apache/commons/lang3/time/DateFormatUtils;->format(Ljava/util/Calendar;Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static format(Ljava/util/Calendar;Ljava/lang/String;Ljava/util/TimeZone;)Ljava/lang/String;
     .locals 1
-    .param p0, "calendar"    # Ljava/util/Calendar;
-    .param p1, "pattern"    # Ljava/lang/String;
-    .param p2, "timeZone"    # Ljava/util/TimeZone;
 
-    .line 323
     const/4 v0, 0x0
 
+    .line 323
     invoke-static {p0, p1, p2, v0}, Lorg/apache/commons/lang3/time/DateFormatUtils;->format(Ljava/util/Calendar;Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static format(Ljava/util/Calendar;Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/lang/String;
-    .locals 2
-    .param p0, "calendar"    # Ljava/util/Calendar;
-    .param p1, "pattern"    # Ljava/lang/String;
-    .param p2, "timeZone"    # Ljava/util/TimeZone;
-    .param p3, "locale"    # Ljava/util/Locale;
+    .locals 0
 
     .line 403
     invoke-static {p1, p2, p3}, Lorg/apache/commons/lang3/time/FastDateFormat;->getInstance(Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Lorg/apache/commons/lang3/time/FastDateFormat;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 404
-    .local v0, "df":Lorg/apache/commons/lang3/time/FastDateFormat;
-    invoke-virtual {v0, p0}, Lorg/apache/commons/lang3/time/FastDateFormat;->format(Ljava/util/Calendar;)Ljava/lang/String;
+    invoke-virtual {p1, p0}, Lorg/apache/commons/lang3/time/FastDateFormat;->format(Ljava/util/Calendar;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static format(Ljava/util/Date;Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p0, "date"    # Ljava/util/Date;
-    .param p1, "pattern"    # Ljava/lang/String;
 
-    .line 272
     const/4 v0, 0x0
 
+    .line 272
     invoke-static {p0, p1, v0, v0}, Lorg/apache/commons/lang3/time/DateFormatUtils;->format(Ljava/util/Date;Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static format(Ljava/util/Date;Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;
     .locals 1
-    .param p0, "date"    # Ljava/util/Date;
-    .param p1, "pattern"    # Ljava/lang/String;
-    .param p2, "locale"    # Ljava/util/Locale;
 
-    .line 347
     const/4 v0, 0x0
 
+    .line 347
     invoke-static {p0, p1, v0, p2}, Lorg/apache/commons/lang3/time/DateFormatUtils;->format(Ljava/util/Date;Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static format(Ljava/util/Date;Ljava/lang/String;Ljava/util/TimeZone;)Ljava/lang/String;
     .locals 1
-    .param p0, "date"    # Ljava/util/Date;
-    .param p1, "pattern"    # Ljava/lang/String;
-    .param p2, "timeZone"    # Ljava/util/TimeZone;
 
-    .line 309
     const/4 v0, 0x0
 
+    .line 309
     invoke-static {p0, p1, p2, v0}, Lorg/apache/commons/lang3/time/DateFormatUtils;->format(Ljava/util/Date;Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static format(Ljava/util/Date;Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/lang/String;
-    .locals 2
-    .param p0, "date"    # Ljava/util/Date;
-    .param p1, "pattern"    # Ljava/lang/String;
-    .param p2, "timeZone"    # Ljava/util/TimeZone;
-    .param p3, "locale"    # Ljava/util/Locale;
+    .locals 0
 
     .line 387
     invoke-static {p1, p2, p3}, Lorg/apache/commons/lang3/time/FastDateFormat;->getInstance(Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Lorg/apache/commons/lang3/time/FastDateFormat;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 388
-    .local v0, "df":Lorg/apache/commons/lang3/time/FastDateFormat;
-    invoke-virtual {v0, p0}, Lorg/apache/commons/lang3/time/FastDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+    invoke-virtual {p1, p0}, Lorg/apache/commons/lang3/time/FastDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static formatUTC(JLjava/lang/String;)Ljava/lang/String;
-    .locals 3
-    .param p0, "millis"    # J
-    .param p2, "pattern"    # Ljava/lang/String;
+    .locals 1
 
     .line 215
     new-instance v0, Ljava/util/Date;
 
     invoke-direct {v0, p0, p1}, Ljava/util/Date;-><init>(J)V
 
-    sget-object v1, Lorg/apache/commons/lang3/time/DateFormatUtils;->UTC_TIME_ZONE:Ljava/util/TimeZone;
+    sget-object p0, Lorg/apache/commons/lang3/time/DateFormatUtils;->UTC_TIME_ZONE:Ljava/util/TimeZone;
 
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
-    invoke-static {v0, p2, v1, v2}, Lorg/apache/commons/lang3/time/DateFormatUtils;->format(Ljava/util/Date;Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/lang/String;
+    invoke-static {v0, p2, p0, p1}, Lorg/apache/commons/lang3/time/DateFormatUtils;->format(Ljava/util/Date;Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static formatUTC(JLjava/lang/String;Ljava/util/Locale;)Ljava/lang/String;
-    .locals 2
-    .param p0, "millis"    # J
-    .param p2, "pattern"    # Ljava/lang/String;
-    .param p3, "locale"    # Ljava/util/Locale;
+    .locals 1
 
     .line 238
     new-instance v0, Ljava/util/Date;
 
     invoke-direct {v0, p0, p1}, Ljava/util/Date;-><init>(J)V
 
-    sget-object v1, Lorg/apache/commons/lang3/time/DateFormatUtils;->UTC_TIME_ZONE:Ljava/util/TimeZone;
+    sget-object p0, Lorg/apache/commons/lang3/time/DateFormatUtils;->UTC_TIME_ZONE:Ljava/util/TimeZone;
 
-    invoke-static {v0, p2, v1, p3}, Lorg/apache/commons/lang3/time/DateFormatUtils;->format(Ljava/util/Date;Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/lang/String;
+    invoke-static {v0, p2, p0, p3}, Lorg/apache/commons/lang3/time/DateFormatUtils;->format(Ljava/util/Date;Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static formatUTC(Ljava/util/Date;Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .param p0, "date"    # Ljava/util/Date;
-    .param p1, "pattern"    # Ljava/lang/String;
 
     .line 226
     sget-object v0, Lorg/apache/commons/lang3/time/DateFormatUtils;->UTC_TIME_ZONE:Ljava/util/TimeZone;
@@ -474,23 +403,20 @@
 
     invoke-static {p0, p1, v0, v1}, Lorg/apache/commons/lang3/time/DateFormatUtils;->format(Ljava/util/Date;Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static formatUTC(Ljava/util/Date;Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;
     .locals 1
-    .param p0, "date"    # Ljava/util/Date;
-    .param p1, "pattern"    # Ljava/lang/String;
-    .param p2, "locale"    # Ljava/util/Locale;
 
     .line 250
     sget-object v0, Lorg/apache/commons/lang3/time/DateFormatUtils;->UTC_TIME_ZONE:Ljava/util/TimeZone;
 
     invoke-static {p0, p1, v0, p2}, Lorg/apache/commons/lang3/time/DateFormatUtils;->format(Ljava/util/Date;Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

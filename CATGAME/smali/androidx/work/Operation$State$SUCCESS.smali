@@ -21,13 +21,11 @@
     .line 97
     invoke-direct {p0}, Landroidx/work/Operation$State;-><init>()V
 
-    .line 98
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroidx/work/Operation$1;)V
     .locals 0
-    .param p1, "x0"    # Landroidx/work/Operation$1;
 
     .line 95
     invoke-direct {p0}, Landroidx/work/Operation$State$SUCCESS;-><init>()V
@@ -40,7 +38,6 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .line 103
     const-string v0, "SUCCESS"
 
     return-object v0

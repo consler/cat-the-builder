@@ -61,9 +61,6 @@
     .end annotation
 
     .line 327
-    .local p0, "this":Landroidx/camera/core/impl/utils/futures/Futures$CallbackListener;, "Landroidx/camera/core/impl/utils/futures/Futures$CallbackListener<TV;>;"
-    .local p1, "future":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<TV;>;"
-    .local p2, "callback":Landroidx/camera/core/impl/utils/futures/FutureCallback;, "Landroidx/camera/core/impl/utils/futures/FutureCallback<-TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 328
@@ -72,17 +69,15 @@
     .line 329
     iput-object p2, p0, Landroidx/camera/core/impl/utils/futures/Futures$CallbackListener;->mCallback:Landroidx/camera/core/impl/utils/futures/FutureCallback;
 
-    .line 330
     return-void
 .end method
 
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
 
     .line 336
-    .local p0, "this":Landroidx/camera/core/impl/utils/futures/Futures$CallbackListener;, "Landroidx/camera/core/impl/utils/futures/Futures$CallbackListener<TV;>;"
     :try_start_0
     iget-object v0, p0, Landroidx/camera/core/impl/utils/futures/Futures$CallbackListener;->mFuture:Ljava/util/concurrent/Future;
 
@@ -94,20 +89,13 @@
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/Error; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 343
-    .local v0, "value":Ljava/lang/Object;, "TV;"
-    nop
-
     .line 344
     iget-object v1, p0, Landroidx/camera/core/impl/utils/futures/Futures$CallbackListener;->mCallback:Landroidx/camera/core/impl/utils/futures/FutureCallback;
 
     invoke-interface {v1, v0}, Landroidx/camera/core/impl/utils/futures/FutureCallback;->onSuccess(Ljava/lang/Object;)V
 
-    .line 345
     return-void
 
-    .line 340
-    .end local v0    # "value":Ljava/lang/Object;, "TV;"
     :catch_0
     move-exception v0
 
@@ -117,31 +105,25 @@
     move-exception v0
 
     .line 341
-    .local v0, "e":Ljava/lang/Throwable;
     :goto_0
     iget-object v1, p0, Landroidx/camera/core/impl/utils/futures/Futures$CallbackListener;->mCallback:Landroidx/camera/core/impl/utils/futures/FutureCallback;
 
     invoke-interface {v1, v0}, Landroidx/camera/core/impl/utils/futures/FutureCallback;->onFailure(Ljava/lang/Throwable;)V
 
-    .line 342
     return-void
 
-    .line 337
-    .end local v0    # "e":Ljava/lang/Throwable;
     :catch_2
     move-exception v0
 
     .line 338
-    .local v0, "e":Ljava/util/concurrent/ExecutionException;
     iget-object v1, p0, Landroidx/camera/core/impl/utils/futures/Futures$CallbackListener;->mCallback:Landroidx/camera/core/impl/utils/futures/FutureCallback;
 
     invoke-virtual {v0}, Ljava/util/concurrent/ExecutionException;->getCause()Ljava/lang/Throwable;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {v1, v2}, Landroidx/camera/core/impl/utils/futures/FutureCallback;->onFailure(Ljava/lang/Throwable;)V
+    invoke-interface {v1, v0}, Landroidx/camera/core/impl/utils/futures/FutureCallback;->onFailure(Ljava/lang/Throwable;)V
 
-    .line 339
     return-void
 .end method
 
@@ -149,7 +131,6 @@
     .locals 2
 
     .line 349
-    .local p0, "this":Landroidx/camera/core/impl/utils/futures/Futures$CallbackListener;, "Landroidx/camera/core/impl/utils/futures/Futures$CallbackListener<TV;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -164,13 +145,19 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ","
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Landroidx/camera/core/impl/utils/futures/Futures$CallbackListener;->mCallback:Landroidx/camera/core/impl/utils/futures/FutureCallback;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

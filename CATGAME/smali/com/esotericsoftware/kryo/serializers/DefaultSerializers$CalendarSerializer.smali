@@ -63,18 +63,16 @@
 .end method
 
 .method public copy(Lcom/esotericsoftware/kryo/Kryo;Ljava/util/Calendar;)Ljava/util/Calendar;
-    .locals 1
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "original"    # Ljava/util/Calendar;
+    .locals 0
 
     .line 620
     invoke-virtual {p2}, Ljava/util/Calendar;->clone()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Calendar;
+    check-cast p1, Ljava/util/Calendar;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
@@ -89,9 +87,7 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/util/Calendar;
-    .locals 5
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -106,83 +102,78 @@
     .end annotation
 
     .line 608
-    .local p3, "type":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/util/Calendar;>;"
-    iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$CalendarSerializer;->timeZoneSerializer:Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$TimeZoneSerializer;
+    iget-object p3, p0, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$CalendarSerializer;->timeZoneSerializer:Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$TimeZoneSerializer;
 
-    const-class v1, Ljava/util/TimeZone;
+    const-class v0, Ljava/util/TimeZone;
 
-    invoke-virtual {v0, p1, p2, v1}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$TimeZoneSerializer;->read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/util/TimeZone;
+    invoke-virtual {p3, p1, p2, v0}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$TimeZoneSerializer;->read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/util/TimeZone;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Ljava/util/Calendar;->getInstance(Ljava/util/TimeZone;)Ljava/util/Calendar;
+    invoke-static {p1}, Ljava/util/Calendar;->getInstance(Ljava/util/TimeZone;)Ljava/util/Calendar;
 
-    move-result-object v0
+    move-result-object p1
+
+    const/4 p3, 0x1
 
     .line 609
-    .local v0, "result":Ljava/util/Calendar;
-    const/4 v1, 0x1
+    invoke-virtual {p2, p3}, Lcom/esotericsoftware/kryo/io/Input;->readVarLong(Z)J
 
-    invoke-virtual {p2, v1}, Lcom/esotericsoftware/kryo/io/Input;->readVarLong(Z)J
+    move-result-wide v0
 
-    move-result-wide v2
-
-    invoke-virtual {v0, v2, v3}, Ljava/util/Calendar;->setTimeInMillis(J)V
+    invoke-virtual {p1, v0, v1}, Ljava/util/Calendar;->setTimeInMillis(J)V
 
     .line 610
     invoke-virtual {p2}, Lcom/esotericsoftware/kryo/io/Input;->readBoolean()Z
 
-    move-result v2
+    move-result v0
 
-    invoke-virtual {v0, v2}, Ljava/util/Calendar;->setLenient(Z)V
+    invoke-virtual {p1, v0}, Ljava/util/Calendar;->setLenient(Z)V
 
     .line 611
-    invoke-virtual {p2, v1}, Lcom/esotericsoftware/kryo/io/Input;->readInt(Z)I
+    invoke-virtual {p2, p3}, Lcom/esotericsoftware/kryo/io/Input;->readInt(Z)I
 
-    move-result v2
+    move-result v0
 
-    invoke-virtual {v0, v2}, Ljava/util/Calendar;->setFirstDayOfWeek(I)V
+    invoke-virtual {p1, v0}, Ljava/util/Calendar;->setFirstDayOfWeek(I)V
 
     .line 612
-    invoke-virtual {p2, v1}, Lcom/esotericsoftware/kryo/io/Input;->readInt(Z)I
+    invoke-virtual {p2, p3}, Lcom/esotericsoftware/kryo/io/Input;->readInt(Z)I
 
-    move-result v1
+    move-result p3
 
-    invoke-virtual {v0, v1}, Ljava/util/Calendar;->setMinimalDaysInFirstWeek(I)V
+    invoke-virtual {p1, p3}, Ljava/util/Calendar;->setMinimalDaysInFirstWeek(I)V
+
+    const/4 p3, 0x0
 
     .line 613
-    const/4 v1, 0x0
+    invoke-virtual {p2, p3}, Lcom/esotericsoftware/kryo/io/Input;->readVarLong(Z)J
 
-    invoke-virtual {p2, v1}, Lcom/esotericsoftware/kryo/io/Input;->readVarLong(Z)J
+    move-result-wide p2
 
-    move-result-wide v1
+    const-wide v0, -0xb1d069b5400L
 
-    .line 614
-    .local v1, "gregorianChange":J
-    const-wide v3, -0xb1d069b5400L
+    cmp-long v0, p2, v0
 
-    cmp-long v3, v1, v3
-
-    if-eqz v3, :cond_0
+    if-eqz v0, :cond_0
 
     .line 615
-    instance-of v3, v0, Ljava/util/GregorianCalendar;
+    instance-of v0, p1, Ljava/util/GregorianCalendar;
 
-    if-eqz v3, :cond_0
+    if-eqz v0, :cond_0
 
-    move-object v3, v0
+    move-object v0, p1
 
-    check-cast v3, Ljava/util/GregorianCalendar;
+    check-cast v0, Ljava/util/GregorianCalendar;
 
-    new-instance v4, Ljava/util/Date;
+    new-instance v1, Ljava/util/Date;
 
-    invoke-direct {v4, v1, v2}, Ljava/util/Date;-><init>(J)V
+    invoke-direct {v1, p2, p3}, Ljava/util/Date;-><init>(J)V
 
-    invoke-virtual {v3, v4}, Ljava/util/GregorianCalendar;->setGregorianChange(Ljava/util/Date;)V
+    invoke-virtual {v0, v1}, Ljava/util/GregorianCalendar;->setGregorianChange(Ljava/util/Date;)V
 
-    .line 616
     :cond_0
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
@@ -197,10 +188,7 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/util/Calendar;)V
-    .locals 4
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p3, "object"    # Ljava/util/Calendar;
+    .locals 3
 
     .line 596
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$CalendarSerializer;->timeZoneSerializer:Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$TimeZoneSerializer;
@@ -216,9 +204,9 @@
 
     move-result-wide v0
 
-    const/4 v2, 0x1
+    const/4 p1, 0x1
 
-    invoke-virtual {p2, v0, v1, v2}, Lcom/esotericsoftware/kryo/io/Output;->writeVarLong(JZ)I
+    invoke-virtual {p2, v0, v1, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeVarLong(JZ)I
 
     .line 598
     invoke-virtual {p3}, Ljava/util/Calendar;->isLenient()Z
@@ -232,46 +220,43 @@
 
     move-result v0
 
-    invoke-virtual {p2, v0, v2}, Lcom/esotericsoftware/kryo/io/Output;->writeInt(IZ)I
+    invoke-virtual {p2, v0, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeInt(IZ)I
 
     .line 600
     invoke-virtual {p3}, Ljava/util/Calendar;->getMinimalDaysInFirstWeek()I
 
     move-result v0
 
-    invoke-virtual {p2, v0, v2}, Lcom/esotericsoftware/kryo/io/Output;->writeInt(IZ)I
+    invoke-virtual {p2, v0, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeInt(IZ)I
 
     .line 601
-    instance-of v0, p3, Ljava/util/GregorianCalendar;
+    instance-of p1, p3, Ljava/util/GregorianCalendar;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 602
-    move-object v0, p3
+    check-cast p3, Ljava/util/GregorianCalendar;
 
-    check-cast v0, Ljava/util/GregorianCalendar;
+    invoke-virtual {p3}, Ljava/util/GregorianCalendar;->getGregorianChange()Ljava/util/Date;
 
-    invoke-virtual {v0}, Ljava/util/GregorianCalendar;->getGregorianChange()Ljava/util/Date;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-virtual {p1}, Ljava/util/Date;->getTime()J
 
-    invoke-virtual {v0}, Ljava/util/Date;->getTime()J
+    move-result-wide v1
 
-    move-result-wide v2
-
-    invoke-virtual {p2, v2, v3, v1}, Lcom/esotericsoftware/kryo/io/Output;->writeVarLong(JZ)I
+    invoke-virtual {p2, v1, v2, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeVarLong(JZ)I
 
     goto :goto_0
 
-    .line 604
     :cond_0
-    const-wide v2, -0xb1d069b5400L
+    const-wide v1, -0xb1d069b5400L
 
-    invoke-virtual {p2, v2, v3, v1}, Lcom/esotericsoftware/kryo/io/Output;->writeVarLong(JZ)I
+    .line 604
+    invoke-virtual {p2, v1, v2, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeVarLong(JZ)I
 
-    .line 605
     :goto_0
     return-void
 .end method

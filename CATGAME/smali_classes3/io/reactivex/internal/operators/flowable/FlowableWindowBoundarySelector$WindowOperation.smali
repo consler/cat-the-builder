@@ -56,9 +56,6 @@
     .end annotation
 
     .line 317
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableWindowBoundarySelector$WindowOperation;, "Lio/reactivex/internal/operators/flowable/FlowableWindowBoundarySelector$WindowOperation<TT;TB;>;"
-    .local p1, "w":Lio/reactivex/processors/UnicastProcessor;, "Lio/reactivex/processors/UnicastProcessor<TT;>;"
-    .local p2, "open":Ljava/lang/Object;, "TB;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 318
@@ -67,6 +64,5 @@
     .line 319
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableWindowBoundarySelector$WindowOperation;->open:Ljava/lang/Object;
 
-    .line 320
     return-void
 .end method

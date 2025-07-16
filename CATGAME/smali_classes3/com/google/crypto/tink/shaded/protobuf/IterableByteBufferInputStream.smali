@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Iterable;)V
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -44,7 +44,6 @@
     .end annotation
 
     .line 70
-    .local p1, "data":Ljava/lang/Iterable;, "Ljava/lang/Iterable<Ljava/nio/ByteBuffer;>;"
     invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
 
     .line 71
@@ -54,58 +53,55 @@
 
     iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->iterator:Ljava/util/Iterator;
 
-    .line 72
     const/4 v0, 0x0
 
+    .line 72
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->dataSize:I
 
     .line 73
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Ljava/nio/ByteBuffer;
+    check-cast v1, Ljava/nio/ByteBuffer;
 
     .line 74
-    .local v2, "unused":Ljava/nio/ByteBuffer;
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->dataSize:I
+    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->dataSize:I
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    iput v3, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->dataSize:I
+    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->dataSize:I
 
-    .line 75
-    .end local v2    # "unused":Ljava/nio/ByteBuffer;
     goto :goto_0
 
-    .line 76
     :cond_0
-    const/4 v1, -0x1
+    const/4 p1, -0x1
 
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentIndex:I
+    .line 76
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentIndex:I
 
     .line 78
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->getNextByteBuffer()Z
 
-    move-result v1
+    move-result p1
 
-    if-nez v1, :cond_1
+    if-nez p1, :cond_1
 
     .line 79
-    sget-object v1, Lcom/google/crypto/tink/shaded/protobuf/Internal;->EMPTY_BYTE_BUFFER:Ljava/nio/ByteBuffer;
+    sget-object p1, Lcom/google/crypto/tink/shaded/protobuf/Internal;->EMPTY_BYTE_BUFFER:Ljava/nio/ByteBuffer;
 
-    iput-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentByteBuffer:Ljava/nio/ByteBuffer;
+    iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentByteBuffer:Ljava/nio/ByteBuffer;
 
     .line 80
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentIndex:I
@@ -113,12 +109,11 @@
     .line 81
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentByteBufferPos:I
 
-    .line 82
     const-wide/16 v0, 0x0
 
+    .line 82
     iput-wide v0, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentAddress:J
 
-    .line 84
     :cond_1
     return-void
 .end method
@@ -146,7 +141,6 @@
 
     if-nez v0, :cond_0
 
-    .line 89
     return v2
 
     .line 91
@@ -213,19 +207,17 @@
 
     iput-wide v2, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentAddress:J
 
-    .line 100
     const/4 v0, 0x0
 
+    .line 100
     iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentArray:[B
 
-    .line 102
     :goto_0
     return v1
 .end method
 
 .method private updateCurrentByteBufferPos(I)V
-    .locals 2
-    .param p1, "numberOfBytesRead"    # I
+    .locals 1
 
     .line 106
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentByteBufferPos:I
@@ -235,18 +227,17 @@
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentByteBufferPos:I
 
     .line 107
-    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentByteBuffer:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentByteBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->limit()I
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->limit()I
 
-    move-result v1
+    move-result p1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, p1, :cond_0
 
     .line 108
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->getNextByteBuffer()Z
 
-    .line 110
     :cond_0
     return-void
 .end method
@@ -268,7 +259,6 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 115
     const/4 v0, -0x1
 
     return v0
@@ -295,14 +285,11 @@
     and-int/lit16 v0, v0, 0xff
 
     .line 119
-    .local v0, "result":I
     invoke-direct {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->updateCurrentByteBufferPos(I)V
 
-    .line 120
     return v0
 
     .line 122
-    .end local v0    # "result":I
     :cond_1
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentByteBufferPos:I
 
@@ -319,18 +306,13 @@
     and-int/lit16 v0, v0, 0xff
 
     .line 123
-    .restart local v0    # "result":I
     invoke-direct {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->updateCurrentByteBufferPos(I)V
 
-    .line 124
     return v0
 .end method
 
 .method public read([BII)I
-    .locals 4
-    .param p1, "output"    # [B
-    .param p2, "offset"    # I
-    .param p3, "length"    # I
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -344,10 +326,9 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 131
-    const/4 v0, -0x1
+    const/4 p1, -0x1
 
-    return v0
+    return p1
 
     .line 133
     :cond_0
@@ -361,29 +342,24 @@
 
     sub-int/2addr v0, v1
 
-    .line 134
-    .local v0, "remaining":I
     if-le p3, v0, :cond_1
 
-    .line 135
     move p3, v0
 
     .line 137
     :cond_1
-    iget-boolean v1, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->hasArray:Z
+    iget-boolean v0, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->hasArray:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
     .line 138
-    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentArray:[B
+    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentArray:[B
 
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentByteBufferPos:I
+    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentArrayOffset:I
 
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentArrayOffset:I
+    add-int/2addr v1, v2
 
-    add-int/2addr v2, v3
-
-    invoke-static {v1, v2, p1, p2, p3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v0, v1, p1, p2, p3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 140
     invoke-direct {p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->updateCurrentByteBufferPos(I)V
@@ -392,35 +368,32 @@
 
     .line 142
     :cond_2
-    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentByteBuffer:Ljava/nio/ByteBuffer;
+    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentByteBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->position()I
+    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->position()I
 
-    move-result v1
+    move-result v0
 
     .line 143
-    .local v1, "prevPos":I
-    iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentByteBuffer:Ljava/nio/ByteBuffer;
+    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentByteBuffer:Ljava/nio/ByteBuffer;
 
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentByteBufferPos:I
+    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentByteBufferPos:I
 
-    invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 144
-    iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentByteBuffer:Ljava/nio/ByteBuffer;
+    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentByteBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v2, p1, p2, p3}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
+    invoke-virtual {v1, p1, p2, p3}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
 
     .line 145
-    iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentByteBuffer:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->currentByteBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v2, v1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 146
     invoke-direct {p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/IterableByteBufferInputStream;->updateCurrentByteBufferPos(I)V
 
-    .line 148
-    .end local v1    # "prevPos":I
     :goto_0
     return p3
 .end method

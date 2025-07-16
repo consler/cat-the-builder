@@ -49,7 +49,7 @@
 .end method
 
 .method static resolveExtensionClass()Ljava/lang/Class;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -58,10 +58,10 @@
         }
     .end annotation
 
-    .line 93
     :try_start_0
     const-string v0, "com.google.crypto.tink.shaded.protobuf.Extension"
 
+    .line 93
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v0
@@ -70,13 +70,8 @@
 
     return-object v0
 
-    .line 94
     :catch_0
-    move-exception v0
+    const/4 v0, 0x0
 
-    .line 96
-    .local v0, "e":Ljava/lang/ClassNotFoundException;
-    const/4 v1, 0x0
-
-    return-object v1
+    return-object v0
 .end method

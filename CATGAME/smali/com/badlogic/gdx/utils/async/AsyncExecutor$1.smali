@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/utils/async/AsyncExecutor;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/utils/async/AsyncExecutor;
 
     .line 44
     iput-object p1, p0, Lcom/badlogic/gdx/utils/async/AsyncExecutor$1;->this$0:Lcom/badlogic/gdx/utils/async/AsyncExecutor;
@@ -42,7 +41,6 @@
 # virtual methods
 .method public newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
     .locals 2
-    .param p1, "r"    # Ljava/lang/Runnable;
 
     .line 47
     new-instance v0, Ljava/lang/Thread;
@@ -51,12 +49,10 @@
 
     invoke-direct {v0, p1, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
 
+    const/4 p1, 0x1
+
     .line 48
-    .local v0, "thread":Ljava/lang/Thread;
-    const/4 v1, 0x1
+    invoke-virtual {v0, p1}, Ljava/lang/Thread;->setDaemon(Z)V
 
-    invoke-virtual {v0, v1}, Ljava/lang/Thread;->setDaemon(Z)V
-
-    .line 49
     return-object v0
 .end method

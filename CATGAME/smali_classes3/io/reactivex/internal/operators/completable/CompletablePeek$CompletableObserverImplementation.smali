@@ -29,7 +29,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/completable/CompletablePeek;Lio/reactivex/CompletableObserver;)V
     .locals 0
-    .param p2, "actual"    # Lio/reactivex/CompletableObserver;
 
     .line 60
     iput-object p1, p0, Lio/reactivex/internal/operators/completable/CompletablePeek$CompletableObserverImplementation;->this$0:Lio/reactivex/internal/operators/completable/CompletablePeek;
@@ -39,7 +38,6 @@
     .line 61
     iput-object p2, p0, Lio/reactivex/internal/operators/completable/CompletablePeek$CompletableObserverImplementation;->actual:Lio/reactivex/CompletableObserver;
 
-    .line 62
     return-void
 .end method
 
@@ -58,28 +56,23 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 137
     goto :goto_0
 
-    .line 134
     :catchall_0
     move-exception v0
 
     .line 135
-    .local v0, "e":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 136
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
     .line 138
-    .end local v0    # "e":Ljava/lang/Throwable;
     :goto_0
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletablePeek$CompletableObserverImplementation;->d:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 139
     return-void
 .end method
 
@@ -96,22 +89,17 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 127
     goto :goto_0
 
-    .line 124
     :catchall_0
     move-exception v0
 
     .line 125
-    .local v0, "ex":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 126
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 128
-    .end local v0    # "ex":Ljava/lang/Throwable;
     :goto_0
     return-void
 .end method
@@ -139,7 +127,6 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 104
     return-void
 
     .line 108
@@ -160,9 +147,6 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 114
-    nop
-
     .line 116
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletablePeek$CompletableObserverImplementation;->actual:Lio/reactivex/CompletableObserver;
 
@@ -171,15 +155,12 @@
     .line 118
     invoke-virtual {p0}, Lio/reactivex/internal/operators/completable/CompletablePeek$CompletableObserverImplementation;->doAfter()V
 
-    .line 119
     return-void
 
-    .line 110
     :catchall_0
     move-exception v0
 
     .line 111
-    .local v0, "e":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 112
@@ -187,13 +168,11 @@
 
     invoke-interface {v1, v0}, Lio/reactivex/CompletableObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 113
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 4
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 84
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletablePeek$CompletableObserverImplementation;->d:Lio/reactivex/disposables/Disposable;
@@ -205,7 +184,6 @@
     .line 85
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 86
     return-void
 
     .line 89
@@ -226,15 +204,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 94
     goto :goto_0
 
-    .line 91
     :catchall_0
     move-exception v0
 
     .line 92
-    .local v0, "ex":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 93
@@ -248,16 +223,15 @@
 
     aput-object p1, v2, v3
 
-    const/4 v3, 0x1
+    const/4 p1, 0x1
 
-    aput-object v0, v2, v3
+    aput-object v0, v2, p1
 
     invoke-direct {v1, v2}, Lio/reactivex/exceptions/CompositeException;-><init>([Ljava/lang/Throwable;)V
 
     move-object p1, v1
 
     .line 96
-    .end local v0    # "ex":Ljava/lang/Throwable;
     :goto_0
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletablePeek$CompletableObserverImplementation;->actual:Lio/reactivex/CompletableObserver;
 
@@ -266,13 +240,11 @@
     .line 98
     invoke-virtual {p0}, Lio/reactivex/internal/operators/completable/CompletablePeek$CompletableObserverImplementation;->doAfter()V
 
-    .line 99
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
-    .locals 2
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
+    .locals 1
 
     .line 68
     :try_start_0
@@ -283,9 +255,6 @@
     invoke-interface {v0, p1}, Lio/reactivex/functions/Consumer;->accept(Ljava/lang/Object;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 75
-    nop
 
     .line 76
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletablePeek$CompletableObserverImplementation;->d:Lio/reactivex/disposables/Disposable;
@@ -300,35 +269,31 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/completable/CompletablePeek$CompletableObserverImplementation;->d:Lio/reactivex/disposables/Disposable;
 
     .line 78
-    iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletablePeek$CompletableObserverImplementation;->actual:Lio/reactivex/CompletableObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/completable/CompletablePeek$CompletableObserverImplementation;->actual:Lio/reactivex/CompletableObserver;
 
-    invoke-interface {v0, p0}, Lio/reactivex/CompletableObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/CompletableObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 80
     :cond_0
     return-void
 
-    .line 69
     :catchall_0
     move-exception v0
 
     .line 70
-    .local v0, "ex":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 71
     invoke-interface {p1}, Lio/reactivex/disposables/Disposable;->dispose()V
 
     .line 72
-    sget-object v1, Lio/reactivex/internal/disposables/DisposableHelper;->DISPOSED:Lio/reactivex/internal/disposables/DisposableHelper;
+    sget-object p1, Lio/reactivex/internal/disposables/DisposableHelper;->DISPOSED:Lio/reactivex/internal/disposables/DisposableHelper;
 
-    iput-object v1, p0, Lio/reactivex/internal/operators/completable/CompletablePeek$CompletableObserverImplementation;->d:Lio/reactivex/disposables/Disposable;
+    iput-object p1, p0, Lio/reactivex/internal/operators/completable/CompletablePeek$CompletableObserverImplementation;->d:Lio/reactivex/disposables/Disposable;
 
     .line 73
-    iget-object v1, p0, Lio/reactivex/internal/operators/completable/CompletablePeek$CompletableObserverImplementation;->actual:Lio/reactivex/CompletableObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/completable/CompletablePeek$CompletableObserverImplementation;->actual:Lio/reactivex/CompletableObserver;
 
-    invoke-static {v0, v1}, Lio/reactivex/internal/disposables/EmptyDisposable;->error(Ljava/lang/Throwable;Lio/reactivex/CompletableObserver;)V
+    invoke-static {v0, p1}, Lio/reactivex/internal/disposables/EmptyDisposable;->error(Ljava/lang/Throwable;Lio/reactivex/CompletableObserver;)V
 
-    .line 74
     return-void
 .end method

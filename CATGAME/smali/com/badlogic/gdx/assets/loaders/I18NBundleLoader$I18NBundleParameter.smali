@@ -32,32 +32,27 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 89
     const/4 v0, 0x0
 
+    .line 89
     invoke-direct {p0, v0, v0}, Lcom/badlogic/gdx/assets/loaders/I18NBundleLoader$I18NBundleParameter;-><init>(Ljava/util/Locale;Ljava/lang/String;)V
 
-    .line 90
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Locale;)V
     .locals 1
-    .param p1, "locale"    # Ljava/util/Locale;
 
-    .line 93
     const/4 v0, 0x0
 
+    .line 93
     invoke-direct {p0, p1, v0}, Lcom/badlogic/gdx/assets/loaders/I18NBundleLoader$I18NBundleParameter;-><init>(Ljava/util/Locale;Ljava/lang/String;)V
 
-    .line 94
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Locale;Ljava/lang/String;)V
     .locals 0
-    .param p1, "locale"    # Ljava/util/Locale;
-    .param p2, "encoding"    # Ljava/lang/String;
 
     .line 96
     invoke-direct {p0}, Lcom/badlogic/gdx/assets/AssetLoaderParameters;-><init>()V
@@ -68,6 +63,5 @@
     .line 98
     iput-object p2, p0, Lcom/badlogic/gdx/assets/loaders/I18NBundleLoader$I18NBundleParameter;->encoding:Ljava/lang/String;
 
-    .line 99
     return-void
 .end method

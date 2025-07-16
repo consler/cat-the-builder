@@ -64,22 +64,19 @@
     .end annotation
 
     .line 2287
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeEntrySet;"
-    .local p2, "delegate":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeMap;"
     iput-object p1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
     .line 2288
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeEntrySet;-><init>(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;)V
 
-    .line 2282
     const/4 p1, 0x0
 
+    .line 2282
     iput p1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet;->expectedModCount:I
 
     .line 2289
     iput-object p2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet;->delegate:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;
 
-    .line 2290
     return-void
 .end method
 
@@ -97,7 +94,6 @@
     .end annotation
 
     .line 2299
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeEntrySet;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
     iget v0, v0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->modCount:I
@@ -152,15 +148,13 @@
     move-result-object v0
 
     .line 2306
-    .local v0, "empty":Ljava/util/Set;, "Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;"
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 
     .line 2307
-    .end local v0    # "empty":Ljava/util/Set;, "Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;"
     :cond_1
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet;->delegate:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;
 
@@ -220,7 +214,6 @@
     .locals 1
 
     .line 2294
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeEntrySet;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet;->delegate:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;
 
     invoke-static {v0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->access$1100(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;)I

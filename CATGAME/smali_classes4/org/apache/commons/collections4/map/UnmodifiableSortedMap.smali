@@ -39,17 +39,13 @@
     .end annotation
 
     .line 81
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;, "Lorg/apache/commons/collections4/map/UnmodifiableSortedMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;+TV;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;-><init>(Ljava/util/SortedMap;)V
 
-    .line 82
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 1
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -58,19 +54,17 @@
     .end annotation
 
     .line 107
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;, "Lorg/apache/commons/collections4/map/UnmodifiableSortedMap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
     .line 108
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Map;
+    check-cast p1, Ljava/util/Map;
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;->map:Ljava/util/Map;
+    iput-object p1, p0, Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;->map:Ljava/util/Map;
 
-    .line 109
     return-void
 .end method
 
@@ -91,20 +85,13 @@
     .end annotation
 
     .line 64
-    .local p0, "map":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;+TV;>;"
     instance-of v0, p0, Lorg/apache/commons/collections4/Unmodifiable;
 
     if-eqz v0, :cond_0
 
-    .line 66
-    move-object v0, p0
-
-    .line 67
-    .local v0, "tmpMap":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
-    return-object v0
+    return-object p0
 
     .line 69
-    .end local v0    # "tmpMap":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
     :cond_0
     new-instance v0, Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;
 
@@ -115,7 +102,6 @@
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -123,7 +109,6 @@
     .end annotation
 
     .line 93
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;, "Lorg/apache/commons/collections4/map/UnmodifiableSortedMap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
     .line 94
@@ -131,7 +116,6 @@
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    .line 95
     return-void
 .end method
 
@@ -141,7 +125,6 @@
     .locals 1
 
     .line 114
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;, "Lorg/apache/commons/collections4/map/UnmodifiableSortedMap<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -160,7 +143,6 @@
     .end annotation
 
     .line 160
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;, "Lorg/apache/commons/collections4/map/UnmodifiableSortedMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;->decorated()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -184,7 +166,6 @@
     .end annotation
 
     .line 134
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;, "Lorg/apache/commons/collections4/map/UnmodifiableSortedMap<TK;TV;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;->entrySet()Ljava/util/Set;
 
     move-result-object v0
@@ -205,7 +186,6 @@
     .end annotation
 
     .line 150
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;, "Lorg/apache/commons/collections4/map/UnmodifiableSortedMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;->decorated()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -228,8 +208,6 @@
     .end annotation
 
     .line 170
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;, "Lorg/apache/commons/collections4/map/UnmodifiableSortedMap<TK;TV;>;"
-    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     new-instance v0, Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;
 
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;->decorated()Ljava/util/SortedMap;
@@ -238,9 +216,9 @@
 
     invoke-interface {v1, p1}, Ljava/util/SortedMap;->headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;-><init>(Ljava/util/SortedMap;)V
+    invoke-direct {v0, p1}, Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;-><init>(Ljava/util/SortedMap;)V
 
     return-object v0
 .end method
@@ -256,7 +234,6 @@
     .end annotation
 
     .line 139
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;, "Lorg/apache/commons/collections4/map/UnmodifiableSortedMap<TK;TV;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;->keySet()Ljava/util/Set;
 
     move-result-object v0
@@ -277,7 +254,6 @@
     .end annotation
 
     .line 155
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;, "Lorg/apache/commons/collections4/map/UnmodifiableSortedMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;->decorated()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -290,7 +266,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -298,18 +274,15 @@
     .end annotation
 
     .line 119
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;, "Lorg/apache/commons/collections4/map/UnmodifiableSortedMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -319,18 +292,15 @@
     .end annotation
 
     .line 124
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;, "Lorg/apache/commons/collections4/map/UnmodifiableSortedMap<TK;TV;>;"
-    .local p1, "mapToCopy":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -340,12 +310,11 @@
     .end annotation
 
     .line 129
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;, "Lorg/apache/commons/collections4/map/UnmodifiableSortedMap<TK;TV;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
@@ -359,9 +328,6 @@
     .end annotation
 
     .line 165
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;, "Lorg/apache/commons/collections4/map/UnmodifiableSortedMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
-    .local p2, "toKey":Ljava/lang/Object;, "TK;"
     new-instance v0, Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;
 
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;->decorated()Ljava/util/SortedMap;
@@ -370,9 +336,9 @@
 
     invoke-interface {v1, p1, p2}, Ljava/util/SortedMap;->subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;-><init>(Ljava/util/SortedMap;)V
+    invoke-direct {v0, p1}, Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;-><init>(Ljava/util/SortedMap;)V
 
     return-object v0
 .end method
@@ -388,8 +354,6 @@
     .end annotation
 
     .line 175
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;, "Lorg/apache/commons/collections4/map/UnmodifiableSortedMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     new-instance v0, Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;
 
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;->decorated()Ljava/util/SortedMap;
@@ -398,9 +362,9 @@
 
     invoke-interface {v1, p1}, Ljava/util/SortedMap;->tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;-><init>(Ljava/util/SortedMap;)V
+    invoke-direct {v0, p1}, Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;-><init>(Ljava/util/SortedMap;)V
 
     return-object v0
 .end method
@@ -416,7 +380,6 @@
     .end annotation
 
     .line 144
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableSortedMap;, "Lorg/apache/commons/collections4/map/UnmodifiableSortedMap<TK;TV;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;->values()Ljava/util/Collection;
 
     move-result-object v0

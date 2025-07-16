@@ -23,7 +23,6 @@
 # direct methods
 .method public constructor <init>(F)V
     .locals 0
-    .param p1, "value"    # F
 
     .line 228
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,7 +30,6 @@
     .line 229
     iput p1, p0, Lcom/badlogic/gdx/utils/BinaryHeap$Node;->value:F
 
-    .line 230
     return-void
 .end method
 

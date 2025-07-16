@@ -43,7 +43,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/Registry;->registerPrimitiveWrapper(Lcom/google/crypto/tink/PrimitiveWrapper;)V
 
-    .line 58
     return-void
 .end method
 
@@ -111,7 +110,6 @@
     .end annotation
 
     .line 43
-    .local p1, "primitives":Lcom/google/crypto/tink/PrimitiveSet;, "Lcom/google/crypto/tink/PrimitiveSet<Lcom/google/crypto/tink/StreamingAead;>;"
     new-instance v0, Lcom/google/crypto/tink/streamingaead/StreamingAeadHelper;
 
     invoke-direct {v0, p1}, Lcom/google/crypto/tink/streamingaead/StreamingAeadHelper;-><init>(Lcom/google/crypto/tink/PrimitiveSet;)V

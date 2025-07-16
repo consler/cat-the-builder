@@ -21,9 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/esotericsoftware/kryo/serializers/BlowfishSerializer;Ljava/io/OutputStream;I)V
     .locals 0
-    .param p1, "this$0"    # Lcom/esotericsoftware/kryo/serializers/BlowfishSerializer;
-    .param p2, "outputStream"    # Ljava/io/OutputStream;
-    .param p3, "bufferSize"    # I
 
     .line 49
     iput-object p1, p0, Lcom/esotericsoftware/kryo/serializers/BlowfishSerializer$1;->this$0:Lcom/esotericsoftware/kryo/serializers/BlowfishSerializer;
@@ -43,6 +40,5 @@
         }
     .end annotation
 
-    .line 52
     return-void
 .end method

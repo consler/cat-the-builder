@@ -50,23 +50,18 @@
     .end annotation
 
     .line 22
-    .local p0, "this":Lcom/bumptech/glide/request/transition/BitmapContainerTransitionFactory;, "Lcom/bumptech/glide/request/transition/BitmapContainerTransitionFactory<TR;>;"
-    .local p1, "realFactory":Lcom/bumptech/glide/request/transition/TransitionFactory;, "Lcom/bumptech/glide/request/transition/TransitionFactory<Landroid/graphics/drawable/Drawable;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 23
     iput-object p1, p0, Lcom/bumptech/glide/request/transition/BitmapContainerTransitionFactory;->realFactory:Lcom/bumptech/glide/request/transition/TransitionFactory;
 
-    .line 24
     return-void
 .end method
 
 
 # virtual methods
 .method public build(Lcom/bumptech/glide/load/DataSource;Z)Lcom/bumptech/glide/request/transition/Transition;
-    .locals 2
-    .param p1, "dataSource"    # Lcom/bumptech/glide/load/DataSource;
-    .param p2, "isFirstResource"    # Z
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -78,20 +73,18 @@
     .end annotation
 
     .line 28
-    .local p0, "this":Lcom/bumptech/glide/request/transition/BitmapContainerTransitionFactory;, "Lcom/bumptech/glide/request/transition/BitmapContainerTransitionFactory<TR;>;"
     iget-object v0, p0, Lcom/bumptech/glide/request/transition/BitmapContainerTransitionFactory;->realFactory:Lcom/bumptech/glide/request/transition/TransitionFactory;
 
     invoke-interface {v0, p1, p2}, Lcom/bumptech/glide/request/transition/TransitionFactory;->build(Lcom/bumptech/glide/load/DataSource;Z)Lcom/bumptech/glide/request/transition/Transition;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 29
-    .local v0, "transition":Lcom/bumptech/glide/request/transition/Transition;, "Lcom/bumptech/glide/request/transition/Transition<Landroid/graphics/drawable/Drawable;>;"
-    new-instance v1, Lcom/bumptech/glide/request/transition/BitmapContainerTransitionFactory$BitmapGlideAnimation;
+    new-instance p2, Lcom/bumptech/glide/request/transition/BitmapContainerTransitionFactory$BitmapGlideAnimation;
 
-    invoke-direct {v1, p0, v0}, Lcom/bumptech/glide/request/transition/BitmapContainerTransitionFactory$BitmapGlideAnimation;-><init>(Lcom/bumptech/glide/request/transition/BitmapContainerTransitionFactory;Lcom/bumptech/glide/request/transition/Transition;)V
+    invoke-direct {p2, p0, p1}, Lcom/bumptech/glide/request/transition/BitmapContainerTransitionFactory$BitmapGlideAnimation;-><init>(Lcom/bumptech/glide/request/transition/BitmapContainerTransitionFactory;Lcom/bumptech/glide/request/transition/Transition;)V
 
-    return-object v1
+    return-object p2
 .end method
 
 .method protected abstract getBitmap(Ljava/lang/Object;)Landroid/graphics/Bitmap;

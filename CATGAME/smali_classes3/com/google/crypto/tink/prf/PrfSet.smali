@@ -22,8 +22,6 @@
 # virtual methods
 .method public computePrimary([BI)[B
     .locals 2
-    .param p1, "input"    # [B
-    .param p2, "outputLength"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -62,9 +60,9 @@
 
     invoke-interface {v0, p1, p2}, Lcom/google/crypto/tink/prf/Prf;->compute([BI)[B
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public abstract getPrfs()Ljava/util/Map;

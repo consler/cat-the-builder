@@ -65,7 +65,6 @@
 
 .method constructor <init>(I)V
     .locals 0
-    .param p1, "length"    # I
 
     .line 1474
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -73,15 +72,12 @@
     .line 1475
     iput p1, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$Iso8601_Rule;->length:I
 
-    .line 1476
     return-void
 .end method
 
 .method static getRule(I)Lorg/apache/commons/lang3/time/FastDatePrinter$Iso8601_Rule;
-    .locals 2
-    .param p0, "tokenLen"    # I
+    .locals 1
 
-    .line 1455
     const/4 v0, 0x1
 
     if-eq p0, v0, :cond_2
@@ -95,48 +91,46 @@
     if-ne p0, v0, :cond_0
 
     .line 1461
-    sget-object v0, Lorg/apache/commons/lang3/time/FastDatePrinter$Iso8601_Rule;->ISO8601_HOURS_COLON_MINUTES:Lorg/apache/commons/lang3/time/FastDatePrinter$Iso8601_Rule;
+    sget-object p0, Lorg/apache/commons/lang3/time/FastDatePrinter$Iso8601_Rule;->ISO8601_HOURS_COLON_MINUTES:Lorg/apache/commons/lang3/time/FastDatePrinter$Iso8601_Rule;
 
-    return-object v0
+    return-object p0
 
     .line 1463
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "invalid number of X"
+    const-string v0, "invalid number of X"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 1459
     :cond_1
-    sget-object v0, Lorg/apache/commons/lang3/time/FastDatePrinter$Iso8601_Rule;->ISO8601_HOURS_MINUTES:Lorg/apache/commons/lang3/time/FastDatePrinter$Iso8601_Rule;
+    sget-object p0, Lorg/apache/commons/lang3/time/FastDatePrinter$Iso8601_Rule;->ISO8601_HOURS_MINUTES:Lorg/apache/commons/lang3/time/FastDatePrinter$Iso8601_Rule;
 
-    return-object v0
+    return-object p0
 
     .line 1457
     :cond_2
-    sget-object v0, Lorg/apache/commons/lang3/time/FastDatePrinter$Iso8601_Rule;->ISO8601_HOURS:Lorg/apache/commons/lang3/time/FastDatePrinter$Iso8601_Rule;
+    sget-object p0, Lorg/apache/commons/lang3/time/FastDatePrinter$Iso8601_Rule;->ISO8601_HOURS:Lorg/apache/commons/lang3/time/FastDatePrinter$Iso8601_Rule;
 
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public appendTo(Ljava/lang/Appendable;Ljava/util/Calendar;)V
-    .locals 4
-    .param p1, "buffer"    # Ljava/lang/Appendable;
-    .param p2, "calendar"    # Ljava/util/Calendar;
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 1491
     const/16 v0, 0xf
 
+    .line 1491
     invoke-virtual {p2, v0}, Ljava/util/Calendar;->get(I)I
 
     move-result v0
@@ -145,88 +139,78 @@
 
     invoke-virtual {p2, v1}, Ljava/util/Calendar;->get(I)I
 
-    move-result v1
+    move-result p2
 
-    add-int/2addr v0, v1
+    add-int/2addr v0, p2
 
-    .line 1492
-    .local v0, "offset":I
     if-nez v0, :cond_0
 
+    const-string p2, "Z"
+
     .line 1493
-    const-string v1, "Z"
+    invoke-interface {p1, p2}, Ljava/lang/Appendable;->append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
 
-    invoke-interface {p1, v1}, Ljava/lang/Appendable;->append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
-
-    .line 1494
     return-void
 
-    .line 1497
     :cond_0
     if-gez v0, :cond_1
 
+    const/16 p2, 0x2d
+
     .line 1498
-    const/16 v1, 0x2d
+    invoke-interface {p1, p2}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
 
-    invoke-interface {p1, v1}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
-
-    .line 1499
     neg-int v0, v0
 
     goto :goto_0
 
-    .line 1501
     :cond_1
-    const/16 v1, 0x2b
+    const/16 p2, 0x2b
 
-    invoke-interface {p1, v1}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
+    .line 1501
+    invoke-interface {p1, p2}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
+
+    :goto_0
+    const p2, 0x36ee80
 
     .line 1504
-    :goto_0
-    const v1, 0x36ee80
-
-    div-int v1, v0, v1
+    div-int p2, v0, p2
 
     .line 1505
-    .local v1, "hours":I
-    invoke-static {p1, v1}, Lorg/apache/commons/lang3/time/FastDatePrinter;->access$000(Ljava/lang/Appendable;I)V
+    invoke-static {p1, p2}, Lorg/apache/commons/lang3/time/FastDatePrinter;->access$000(Ljava/lang/Appendable;I)V
 
     .line 1507
-    iget v2, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$Iso8601_Rule;->length:I
+    iget v1, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$Iso8601_Rule;->length:I
 
-    const/4 v3, 0x5
+    const/4 v2, 0x5
 
-    if-ge v2, v3, :cond_2
+    if-ge v1, v2, :cond_2
 
-    .line 1508
     return-void
 
-    .line 1511
     :cond_2
-    const/4 v3, 0x6
+    const/4 v2, 0x6
 
-    if-ne v2, v3, :cond_3
+    if-ne v1, v2, :cond_3
+
+    const/16 v1, 0x3a
 
     .line 1512
-    const/16 v2, 0x3a
+    invoke-interface {p1, v1}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
 
-    invoke-interface {p1, v2}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
+    :cond_3
+    const v1, 0xea60
 
     .line 1515
-    :cond_3
-    const v2, 0xea60
+    div-int/2addr v0, v1
 
-    div-int v2, v0, v2
+    mul-int/lit8 p2, p2, 0x3c
 
-    mul-int/lit8 v3, v1, 0x3c
-
-    sub-int/2addr v2, v3
+    sub-int/2addr v0, p2
 
     .line 1516
-    .local v2, "minutes":I
-    invoke-static {p1, v2}, Lorg/apache/commons/lang3/time/FastDatePrinter;->access$000(Ljava/lang/Appendable;I)V
+    invoke-static {p1, v0}, Lorg/apache/commons/lang3/time/FastDatePrinter;->access$000(Ljava/lang/Appendable;I)V
 
-    .line 1517
     return-void
 .end method
 

@@ -78,7 +78,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/reactivestreams/Subscriber;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -88,42 +88,39 @@
     .end annotation
 
     .line 58
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
 
     .line 59
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
     .line 60
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicReference;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     .line 61
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicLong;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicLong;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
     .line 62
-    new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber$OtherSubscriber;
+    new-instance p1, Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber$OtherSubscriber;
 
-    invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber$OtherSubscriber;-><init>(Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;)V
+    invoke-direct {p1, p0}, Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber$OtherSubscriber;-><init>(Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;)V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;->other:Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber$OtherSubscriber;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;->other:Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber$OtherSubscriber;
 
     .line 63
-    new-instance v0, Lio/reactivex/internal/util/AtomicThrowable;
+    new-instance p1, Lio/reactivex/internal/util/AtomicThrowable;
 
-    invoke-direct {v0}, Lio/reactivex/internal/util/AtomicThrowable;-><init>()V
+    invoke-direct {p1}, Lio/reactivex/internal/util/AtomicThrowable;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;->error:Lio/reactivex/internal/util/AtomicThrowable;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;->error:Lio/reactivex/internal/util/AtomicThrowable;
 
-    .line 64
     return-void
 .end method
 
@@ -133,7 +130,6 @@
     .locals 1
 
     .line 106
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->cancel(Ljava/util/concurrent/atomic/AtomicReference;)Z
@@ -143,7 +139,6 @@
 
     invoke-static {v0}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->cancel(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 108
     return-void
 .end method
 
@@ -151,7 +146,6 @@
     .locals 2
 
     .line 95
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;->other:Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber$OtherSubscriber;
 
     invoke-static {v0}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->cancel(Ljava/util/concurrent/atomic/AtomicReference;)Z
@@ -163,16 +157,13 @@
 
     invoke-static {v0, p0, v1}, Lio/reactivex/internal/util/HalfSerializer;->onComplete(Lorg/reactivestreams/Subscriber;Ljava/util/concurrent/atomic/AtomicInteger;Lio/reactivex/internal/util/AtomicThrowable;)V
 
-    .line 97
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 89
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;->other:Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber$OtherSubscriber;
 
     invoke-static {v0}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->cancel(Ljava/util/concurrent/atomic/AtomicReference;)Z
@@ -184,12 +175,11 @@
 
     invoke-static {v0, p1, p0, v1}, Lio/reactivex/internal/util/HalfSerializer;->onError(Lorg/reactivestreams/Subscriber;Ljava/lang/Throwable;Ljava/util/concurrent/atomic/AtomicInteger;Lio/reactivex/internal/util/AtomicThrowable;)V
 
-    .line 91
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -197,61 +187,52 @@
     .end annotation
 
     .line 73
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;->tryOnNext(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 74
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lorg/reactivestreams/Subscription;
+    check-cast p1, Lorg/reactivestreams/Subscription;
 
-    const-wide/16 v1, 0x1
+    const-wide/16 v0, 0x1
 
-    invoke-interface {v0, v1, v2}, Lorg/reactivestreams/Subscription;->request(J)V
+    invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 76
     :cond_0
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 68
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
     invoke-static {v0, v1, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->deferredSetOnce(Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/concurrent/atomic/AtomicLong;Lorg/reactivestreams/Subscription;)Z
 
-    .line 69
     return-void
 .end method
 
 .method public request(J)V
     .locals 2
-    .param p1, "n"    # J
 
     .line 101
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
     invoke-static {v0, v1, p1, p2}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->deferredRequest(Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/concurrent/atomic/AtomicLong;J)V
 
-    .line 102
     return-void
 .end method
 
@@ -264,8 +245,6 @@
     .end annotation
 
     .line 80
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipUntil$SkipUntilMainSubscriber;->gate:Z
 
     if-eqz v0, :cond_0
@@ -277,14 +256,12 @@
 
     invoke-static {v0, p1, p0, v1}, Lio/reactivex/internal/util/HalfSerializer;->onNext(Lorg/reactivestreams/Subscriber;Ljava/lang/Object;Ljava/util/concurrent/atomic/AtomicInteger;Lio/reactivex/internal/util/AtomicThrowable;)V
 
-    .line 82
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
-    .line 84
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

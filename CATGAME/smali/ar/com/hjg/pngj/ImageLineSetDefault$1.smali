@@ -40,11 +40,6 @@
 # virtual methods
 .method public create(Lar/com/hjg/pngj/ImageInfo;ZIII)Lar/com/hjg/pngj/IImageLineSet;
     .locals 8
-    .param p1, "iminfo"    # Lar/com/hjg/pngj/ImageInfo;
-    .param p2, "singleCursor"    # Z
-    .param p3, "nlines"    # I
-    .param p4, "noffset"    # I
-    .param p5, "step"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

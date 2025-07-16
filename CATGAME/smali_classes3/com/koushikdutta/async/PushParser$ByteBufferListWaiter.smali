@@ -28,8 +28,7 @@
 
 # direct methods
 .method public constructor <init>(ILcom/koushikdutta/async/PushParser$ParseCallback;)V
-    .locals 2
-    .param p1, "length"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -40,49 +39,43 @@
     .end annotation
 
     .line 87
-    .local p2, "callback":Lcom/koushikdutta/async/PushParser$ParseCallback;, "Lcom/koushikdutta/async/PushParser$ParseCallback<Lcom/koushikdutta/async/ByteBufferList;>;"
     invoke-direct {p0, p1}, Lcom/koushikdutta/async/PushParser$Waiter;-><init>(I)V
 
-    .line 88
     if-lez p1, :cond_0
 
     .line 89
     iput-object p2, p0, Lcom/koushikdutta/async/PushParser$ByteBufferListWaiter;->callback:Lcom/koushikdutta/async/PushParser$ParseCallback;
 
-    .line 90
     return-void
 
     .line 88
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "length should be > 0"
+    const-string p2, "length should be > 0"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
 # virtual methods
 .method public onDataAvailable(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/ByteBufferList;)Lcom/koushikdutta/async/PushParser$Waiter;
-    .locals 2
-    .param p1, "emitter"    # Lcom/koushikdutta/async/DataEmitter;
-    .param p2, "bb"    # Lcom/koushikdutta/async/ByteBufferList;
+    .locals 1
 
     .line 94
-    iget-object v0, p0, Lcom/koushikdutta/async/PushParser$ByteBufferListWaiter;->callback:Lcom/koushikdutta/async/PushParser$ParseCallback;
+    iget-object p1, p0, Lcom/koushikdutta/async/PushParser$ByteBufferListWaiter;->callback:Lcom/koushikdutta/async/PushParser$ParseCallback;
 
-    iget v1, p0, Lcom/koushikdutta/async/PushParser$ByteBufferListWaiter;->length:I
+    iget v0, p0, Lcom/koushikdutta/async/PushParser$ByteBufferListWaiter;->length:I
 
-    invoke-virtual {p2, v1}, Lcom/koushikdutta/async/ByteBufferList;->get(I)Lcom/koushikdutta/async/ByteBufferList;
+    invoke-virtual {p2, v0}, Lcom/koushikdutta/async/ByteBufferList;->get(I)Lcom/koushikdutta/async/ByteBufferList;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-interface {v0, v1}, Lcom/koushikdutta/async/PushParser$ParseCallback;->parsed(Ljava/lang/Object;)V
+    invoke-interface {p1, p2}, Lcom/koushikdutta/async/PushParser$ParseCallback;->parsed(Ljava/lang/Object;)V
 
-    .line 95
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method

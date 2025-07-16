@@ -33,18 +33,15 @@
 # direct methods
 .method constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;I)V
     .locals 1
-    .param p1, "alloc"    # Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;
-    .param p2, "chunkSize"    # I
 
-    .line 928
     const/4 v0, 0x0
 
+    .line 928
     invoke-direct {p0, p1, p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;-><init>(Lcom/google/crypto/tink/shaded/protobuf/BufferAllocator;ILcom/google/crypto/tink/shaded/protobuf/BinaryWriter$1;)V
 
     .line 929
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->nextBuffer()V
 
-    .line 930
     return-void
 .end method
 
@@ -58,28 +55,24 @@
 
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->nextBuffer(Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;)V
 
-    .line 945
     return-void
 .end method
 
 .method private nextBuffer(I)V
-    .locals 1
-    .param p1, "capacity"    # I
+    .locals 0
 
     .line 948
     invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->newHeapBuffer(I)Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->nextBuffer(Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;)V
+    invoke-direct {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->nextBuffer(Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;)V
 
-    .line 949
     return-void
 .end method
 
 .method private nextBuffer(Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;)V
     .locals 2
-    .param p1, "allocatedBuffer"    # Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
 
     .line 952
     invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;->hasArray()Z
@@ -112,7 +105,6 @@
     move-result v0
 
     .line 963
-    .local v0, "arrayOffset":I
     invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;->limit()I
 
     move-result v1
@@ -124,45 +116,42 @@
     .line 964
     invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;->position()I
 
-    move-result v1
+    move-result p1
 
-    add-int/2addr v1, v0
+    add-int/2addr v0, p1
 
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->offset:I
+    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->offset:I
+
+    add-int/lit8 v0, v0, -0x1
 
     .line 965
-    add-int/lit8 v1, v1, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->offsetMinusOne:I
+    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->offsetMinusOne:I
 
     .line 966
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->limit:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->limit:I
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 p1, p1, -0x1
 
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->limitMinusOne:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->limitMinusOne:I
 
     .line 967
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    .line 968
     return-void
 
     .line 953
-    .end local v0    # "arrayOffset":I
     :cond_0
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    const-string v1, "Allocator returned non-heap buffer"
+    const-string v0, "Allocator returned non-heap buffer"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method private writeVarint32FiveBytes(I)V
     .locals 4
-    .param p1, "value"    # I
 
     .line 1174
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->buffer:[B
@@ -171,18 +160,13 @@
 
     add-int/lit8 v2, v1, -0x1
 
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
-
     ushr-int/lit8 v3, p1, 0x1c
 
     int-to-byte v3, v3
 
     aput-byte v3, v0, v1
 
-    .line 1175
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     ushr-int/lit8 v3, p1, 0x15
 
@@ -192,12 +176,10 @@
 
     int-to-byte v3, v3
 
+    .line 1175
     aput-byte v3, v0, v2
 
-    .line 1176
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     ushr-int/lit8 v3, p1, 0xe
 
@@ -207,12 +189,10 @@
 
     int-to-byte v3, v3
 
+    .line 1176
     aput-byte v3, v0, v1
 
-    .line 1177
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     ushr-int/lit8 v3, p1, 0x7
 
@@ -222,28 +202,27 @@
 
     int-to-byte v3, v3
 
+    .line 1177
     aput-byte v3, v0, v2
 
-    .line 1178
     add-int/lit8 v2, v1, -0x1
 
+    .line 1178
     iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    and-int/lit8 v2, p1, 0x7f
+    and-int/lit8 p1, p1, 0x7f
 
-    or-int/lit16 v2, v2, 0x80
+    or-int/lit16 p1, p1, 0x80
 
-    int-to-byte v2, v2
+    int-to-byte p1, p1
 
-    aput-byte v2, v0, v1
+    aput-byte p1, v0, v1
 
-    .line 1179
     return-void
 .end method
 
 .method private writeVarint32FourBytes(I)V
     .locals 4
-    .param p1, "value"    # I
 
     .line 1167
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->buffer:[B
@@ -252,18 +231,13 @@
 
     add-int/lit8 v2, v1, -0x1
 
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
-
     ushr-int/lit8 v3, p1, 0x15
 
     int-to-byte v3, v3
 
     aput-byte v3, v0, v1
 
-    .line 1168
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     ushr-int/lit8 v3, p1, 0xe
 
@@ -273,12 +247,10 @@
 
     int-to-byte v3, v3
 
+    .line 1168
     aput-byte v3, v0, v2
 
-    .line 1169
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     ushr-int/lit8 v3, p1, 0x7
 
@@ -288,28 +260,27 @@
 
     int-to-byte v3, v3
 
+    .line 1169
     aput-byte v3, v0, v1
 
-    .line 1170
     add-int/lit8 v1, v2, -0x1
 
+    .line 1170
     iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    and-int/lit8 v1, p1, 0x7f
+    and-int/lit8 p1, p1, 0x7f
 
-    or-int/lit16 v1, v1, 0x80
+    or-int/lit16 p1, p1, 0x80
 
-    int-to-byte v1, v1
+    int-to-byte p1, p1
 
-    aput-byte v1, v0, v2
+    aput-byte p1, v0, v2
 
-    .line 1171
     return-void
 .end method
 
 .method private writeVarint32OneByte(I)V
     .locals 3
-    .param p1, "value"    # I
 
     .line 1152
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->buffer:[B
@@ -320,17 +291,15 @@
 
     iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    int-to-byte v2, p1
+    int-to-byte p1, p1
 
-    aput-byte v2, v0, v1
+    aput-byte p1, v0, v1
 
-    .line 1153
     return-void
 .end method
 
 .method private writeVarint32ThreeBytes(I)V
     .locals 4
-    .param p1, "value"    # I
 
     .line 1161
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->buffer:[B
@@ -339,18 +308,13 @@
 
     add-int/lit8 v2, v1, -0x1
 
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
-
     ushr-int/lit8 v3, p1, 0xe
 
     int-to-byte v3, v3
 
     aput-byte v3, v0, v1
 
-    .line 1162
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     ushr-int/lit8 v3, p1, 0x7
 
@@ -360,28 +324,27 @@
 
     int-to-byte v3, v3
 
+    .line 1162
     aput-byte v3, v0, v2
 
-    .line 1163
     add-int/lit8 v2, v1, -0x1
 
+    .line 1163
     iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    and-int/lit8 v2, p1, 0x7f
+    and-int/lit8 p1, p1, 0x7f
 
-    or-int/lit16 v2, v2, 0x80
+    or-int/lit16 p1, p1, 0x80
 
-    int-to-byte v2, v2
+    int-to-byte p1, p1
 
-    aput-byte v2, v0, v1
+    aput-byte p1, v0, v1
 
-    .line 1164
     return-void
 .end method
 
 .method private writeVarint32TwoBytes(I)V
     .locals 4
-    .param p1, "value"    # I
 
     .line 1156
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->buffer:[B
@@ -390,34 +353,30 @@
 
     add-int/lit8 v2, v1, -0x1
 
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
-
     ushr-int/lit8 v3, p1, 0x7
 
     int-to-byte v3, v3
 
     aput-byte v3, v0, v1
 
-    .line 1157
     add-int/lit8 v1, v2, -0x1
 
+    .line 1157
     iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    and-int/lit8 v1, p1, 0x7f
+    and-int/lit8 p1, p1, 0x7f
 
-    or-int/lit16 v1, v1, 0x80
+    or-int/lit16 p1, p1, 0x80
 
-    int-to-byte v1, v1
+    int-to-byte p1, p1
 
-    aput-byte v1, v0, v2
+    aput-byte p1, v0, v2
 
-    .line 1158
     return-void
 .end method
 
 .method private writeVarint64EightBytes(J)V
     .locals 9
-    .param p1, "value"    # J
 
     .line 1267
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->buffer:[B
@@ -425,8 +384,6 @@
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x31
 
@@ -438,10 +395,7 @@
 
     aput-byte v3, v0, v1
 
-    .line 1268
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x2a
 
@@ -459,12 +413,10 @@
 
     int-to-byte v3, v3
 
+    .line 1268
     aput-byte v3, v0, v2
 
-    .line 1269
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x23
 
@@ -478,12 +430,10 @@
 
     int-to-byte v3, v3
 
+    .line 1269
     aput-byte v3, v0, v1
 
-    .line 1270
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x1c
 
@@ -497,12 +447,10 @@
 
     int-to-byte v3, v3
 
+    .line 1270
     aput-byte v3, v0, v2
 
-    .line 1271
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x15
 
@@ -516,12 +464,10 @@
 
     int-to-byte v3, v3
 
+    .line 1271
     aput-byte v3, v0, v1
 
-    .line 1272
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0xe
 
@@ -535,12 +481,10 @@
 
     int-to-byte v3, v3
 
+    .line 1272
     aput-byte v3, v0, v2
 
-    .line 1273
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/4 v3, 0x7
 
@@ -554,30 +498,29 @@
 
     int-to-byte v3, v3
 
+    .line 1273
     aput-byte v3, v0, v1
 
-    .line 1274
     add-int/lit8 v1, v2, -0x1
 
+    .line 1274
     iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    and-long v3, p1, v5
+    and-long/2addr p1, v5
 
-    or-long/2addr v3, v7
+    or-long/2addr p1, v7
 
-    long-to-int v1, v3
+    long-to-int p1, p1
 
-    int-to-byte v1, v1
+    int-to-byte p1, p1
 
-    aput-byte v1, v0, v2
+    aput-byte p1, v0, v2
 
-    .line 1275
     return-void
 .end method
 
 .method private writeVarint64FiveBytes(J)V
     .locals 9
-    .param p1, "value"    # J
 
     .line 1240
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->buffer:[B
@@ -586,8 +529,6 @@
 
     add-int/lit8 v2, v1, -0x1
 
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
-
     const/16 v3, 0x1c
 
     ushr-long v3, p1, v3
@@ -598,10 +539,7 @@
 
     aput-byte v3, v0, v1
 
-    .line 1241
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x15
 
@@ -619,12 +557,10 @@
 
     int-to-byte v3, v3
 
+    .line 1241
     aput-byte v3, v0, v2
 
-    .line 1242
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0xe
 
@@ -638,12 +574,10 @@
 
     int-to-byte v3, v3
 
+    .line 1242
     aput-byte v3, v0, v1
 
-    .line 1243
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/4 v3, 0x7
 
@@ -657,30 +591,29 @@
 
     int-to-byte v3, v3
 
+    .line 1243
     aput-byte v3, v0, v2
 
-    .line 1244
     add-int/lit8 v2, v1, -0x1
 
+    .line 1244
     iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    and-long v2, p1, v5
+    and-long/2addr p1, v5
 
-    or-long/2addr v2, v7
+    or-long/2addr p1, v7
 
-    long-to-int v2, v2
+    long-to-int p1, p1
 
-    int-to-byte v2, v2
+    int-to-byte p1, p1
 
-    aput-byte v2, v0, v1
+    aput-byte p1, v0, v1
 
-    .line 1245
     return-void
 .end method
 
 .method private writeVarint64FourBytes(J)V
     .locals 9
-    .param p1, "value"    # J
 
     .line 1233
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->buffer:[B
@@ -689,8 +622,6 @@
 
     add-int/lit8 v2, v1, -0x1
 
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
-
     const/16 v3, 0x15
 
     ushr-long v3, p1, v3
@@ -701,10 +632,7 @@
 
     aput-byte v3, v0, v1
 
-    .line 1234
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0xe
 
@@ -722,12 +650,10 @@
 
     int-to-byte v3, v3
 
+    .line 1234
     aput-byte v3, v0, v2
 
-    .line 1235
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/4 v3, 0x7
 
@@ -741,30 +667,29 @@
 
     int-to-byte v3, v3
 
+    .line 1235
     aput-byte v3, v0, v1
 
-    .line 1236
     add-int/lit8 v1, v2, -0x1
 
+    .line 1236
     iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    and-long v3, p1, v5
+    and-long/2addr p1, v5
 
-    or-long/2addr v3, v7
+    or-long/2addr p1, v7
 
-    long-to-int v1, v3
+    long-to-int p1, p1
 
-    int-to-byte v1, v1
+    int-to-byte p1, p1
 
-    aput-byte v1, v0, v2
+    aput-byte p1, v0, v2
 
-    .line 1237
     return-void
 .end method
 
 .method private writeVarint64NineBytes(J)V
     .locals 9
-    .param p1, "value"    # J
 
     .line 1278
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->buffer:[B
@@ -772,8 +697,6 @@
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x38
 
@@ -785,10 +708,7 @@
 
     aput-byte v3, v0, v1
 
-    .line 1279
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x31
 
@@ -806,12 +726,10 @@
 
     int-to-byte v3, v3
 
+    .line 1279
     aput-byte v3, v0, v2
 
-    .line 1280
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x2a
 
@@ -825,12 +743,10 @@
 
     int-to-byte v3, v3
 
+    .line 1280
     aput-byte v3, v0, v1
 
-    .line 1281
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x23
 
@@ -844,12 +760,10 @@
 
     int-to-byte v3, v3
 
+    .line 1281
     aput-byte v3, v0, v2
 
-    .line 1282
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x1c
 
@@ -863,12 +777,10 @@
 
     int-to-byte v3, v3
 
+    .line 1282
     aput-byte v3, v0, v1
 
-    .line 1283
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x15
 
@@ -882,12 +794,10 @@
 
     int-to-byte v3, v3
 
+    .line 1283
     aput-byte v3, v0, v2
 
-    .line 1284
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0xe
 
@@ -901,12 +811,10 @@
 
     int-to-byte v3, v3
 
+    .line 1284
     aput-byte v3, v0, v1
 
-    .line 1285
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/4 v3, 0x7
 
@@ -920,30 +828,29 @@
 
     int-to-byte v3, v3
 
+    .line 1285
     aput-byte v3, v0, v2
 
-    .line 1286
     add-int/lit8 v2, v1, -0x1
 
+    .line 1286
     iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    and-long v2, p1, v5
+    and-long/2addr p1, v5
 
-    or-long/2addr v2, v7
+    or-long/2addr p1, v7
 
-    long-to-int v2, v2
+    long-to-int p1, p1
 
-    int-to-byte v2, v2
+    int-to-byte p1, p1
 
-    aput-byte v2, v0, v1
+    aput-byte p1, v0, v1
 
-    .line 1287
     return-void
 .end method
 
 .method private writeVarint64OneByte(J)V
     .locals 3
-    .param p1, "value"    # J
 
     .line 1218
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->buffer:[B
@@ -954,19 +861,17 @@
 
     iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    long-to-int v2, p1
+    long-to-int p1, p1
 
-    int-to-byte v2, v2
+    int-to-byte p1, p1
 
-    aput-byte v2, v0, v1
+    aput-byte p1, v0, v1
 
-    .line 1219
     return-void
 .end method
 
 .method private writeVarint64SevenBytes(J)V
     .locals 9
-    .param p1, "value"    # J
 
     .line 1257
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->buffer:[B
@@ -974,8 +879,6 @@
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x2a
 
@@ -987,10 +890,7 @@
 
     aput-byte v3, v0, v1
 
-    .line 1258
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x23
 
@@ -1008,12 +908,10 @@
 
     int-to-byte v3, v3
 
+    .line 1258
     aput-byte v3, v0, v2
 
-    .line 1259
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x1c
 
@@ -1027,12 +925,10 @@
 
     int-to-byte v3, v3
 
+    .line 1259
     aput-byte v3, v0, v1
 
-    .line 1260
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x15
 
@@ -1046,12 +942,10 @@
 
     int-to-byte v3, v3
 
+    .line 1260
     aput-byte v3, v0, v2
 
-    .line 1261
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0xe
 
@@ -1065,12 +959,10 @@
 
     int-to-byte v3, v3
 
+    .line 1261
     aput-byte v3, v0, v1
 
-    .line 1262
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/4 v3, 0x7
 
@@ -1084,30 +976,29 @@
 
     int-to-byte v3, v3
 
+    .line 1262
     aput-byte v3, v0, v2
 
-    .line 1263
     add-int/lit8 v2, v1, -0x1
 
+    .line 1263
     iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    and-long v2, p1, v5
+    and-long/2addr p1, v5
 
-    or-long/2addr v2, v7
+    or-long/2addr p1, v7
 
-    long-to-int v2, v2
+    long-to-int p1, p1
 
-    int-to-byte v2, v2
+    int-to-byte p1, p1
 
-    aput-byte v2, v0, v1
+    aput-byte p1, v0, v1
 
-    .line 1264
     return-void
 .end method
 
 .method private writeVarint64SixBytes(J)V
     .locals 9
-    .param p1, "value"    # J
 
     .line 1248
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->buffer:[B
@@ -1116,8 +1007,6 @@
 
     add-int/lit8 v2, v1, -0x1
 
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
-
     const/16 v3, 0x23
 
     ushr-long v3, p1, v3
@@ -1128,10 +1017,7 @@
 
     aput-byte v3, v0, v1
 
-    .line 1249
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x1c
 
@@ -1149,12 +1035,10 @@
 
     int-to-byte v3, v3
 
+    .line 1249
     aput-byte v3, v0, v2
 
-    .line 1250
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x15
 
@@ -1168,12 +1052,10 @@
 
     int-to-byte v3, v3
 
+    .line 1250
     aput-byte v3, v0, v1
 
-    .line 1251
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0xe
 
@@ -1187,12 +1069,10 @@
 
     int-to-byte v3, v3
 
+    .line 1251
     aput-byte v3, v0, v2
 
-    .line 1252
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/4 v3, 0x7
 
@@ -1206,30 +1086,29 @@
 
     int-to-byte v3, v3
 
+    .line 1252
     aput-byte v3, v0, v1
 
-    .line 1253
     add-int/lit8 v1, v2, -0x1
 
+    .line 1253
     iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    and-long v3, p1, v5
+    and-long/2addr p1, v5
 
-    or-long/2addr v3, v7
+    or-long/2addr p1, v7
 
-    long-to-int v1, v3
+    long-to-int p1, p1
 
-    int-to-byte v1, v1
+    int-to-byte p1, p1
 
-    aput-byte v1, v0, v2
+    aput-byte p1, v0, v2
 
-    .line 1254
     return-void
 .end method
 
 .method private writeVarint64TenBytes(J)V
     .locals 9
-    .param p1, "value"    # J
 
     .line 1290
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->buffer:[B
@@ -1237,8 +1116,6 @@
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x3f
 
@@ -1250,10 +1127,7 @@
 
     aput-byte v3, v0, v1
 
-    .line 1291
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x38
 
@@ -1271,12 +1145,10 @@
 
     int-to-byte v3, v3
 
+    .line 1291
     aput-byte v3, v0, v2
 
-    .line 1292
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x31
 
@@ -1290,12 +1162,10 @@
 
     int-to-byte v3, v3
 
+    .line 1292
     aput-byte v3, v0, v1
 
-    .line 1293
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x2a
 
@@ -1309,12 +1179,10 @@
 
     int-to-byte v3, v3
 
+    .line 1293
     aput-byte v3, v0, v2
 
-    .line 1294
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x23
 
@@ -1328,12 +1196,10 @@
 
     int-to-byte v3, v3
 
+    .line 1294
     aput-byte v3, v0, v1
 
-    .line 1295
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x1c
 
@@ -1347,12 +1213,10 @@
 
     int-to-byte v3, v3
 
+    .line 1295
     aput-byte v3, v0, v2
 
-    .line 1296
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x15
 
@@ -1366,12 +1230,10 @@
 
     int-to-byte v3, v3
 
+    .line 1296
     aput-byte v3, v0, v1
 
-    .line 1297
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0xe
 
@@ -1385,12 +1247,10 @@
 
     int-to-byte v3, v3
 
+    .line 1297
     aput-byte v3, v0, v2
 
-    .line 1298
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/4 v3, 0x7
 
@@ -1404,30 +1264,29 @@
 
     int-to-byte v3, v3
 
+    .line 1298
     aput-byte v3, v0, v1
 
-    .line 1299
     add-int/lit8 v1, v2, -0x1
 
+    .line 1299
     iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    and-long v3, p1, v5
+    and-long/2addr p1, v5
 
-    or-long/2addr v3, v7
+    or-long/2addr p1, v7
 
-    long-to-int v1, v3
+    long-to-int p1, p1
 
-    int-to-byte v1, v1
+    int-to-byte p1, p1
 
-    aput-byte v1, v0, v2
+    aput-byte p1, v0, v2
 
-    .line 1300
     return-void
 .end method
 
 .method private writeVarint64ThreeBytes(J)V
     .locals 9
-    .param p1, "value"    # J
 
     .line 1227
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->buffer:[B
@@ -1435,8 +1294,6 @@
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     long-to-int v3, p1
 
@@ -1446,10 +1303,7 @@
 
     aput-byte v3, v0, v1
 
-    .line 1228
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/4 v3, 0x7
 
@@ -1467,30 +1321,29 @@
 
     int-to-byte v3, v3
 
+    .line 1228
     aput-byte v3, v0, v2
 
-    .line 1229
     add-int/lit8 v2, v1, -0x1
 
+    .line 1229
     iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    and-long v2, p1, v5
+    and-long/2addr p1, v5
 
-    or-long/2addr v2, v7
+    or-long/2addr p1, v7
 
-    long-to-int v2, v2
+    long-to-int p1, p1
 
-    int-to-byte v2, v2
+    int-to-byte p1, p1
 
-    aput-byte v2, v0, v1
+    aput-byte p1, v0, v1
 
-    .line 1230
     return-void
 .end method
 
 .method private writeVarint64TwoBytes(J)V
     .locals 5
-    .param p1, "value"    # J
 
     .line 1222
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->buffer:[B
@@ -1498,8 +1351,6 @@
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/4 v3, 0x7
 
@@ -1511,22 +1362,21 @@
 
     aput-byte v3, v0, v1
 
-    .line 1223
     add-int/lit8 v1, v2, -0x1
 
+    .line 1223
     iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    long-to-int v1, p1
+    long-to-int p1, p1
 
-    and-int/lit8 v1, v1, 0x7f
+    and-int/lit8 p1, p1, 0x7f
 
-    or-int/lit16 v1, v1, 0x80
+    or-int/lit16 p1, p1, 0x80
 
-    int-to-byte v1, v1
+    int-to-byte p1, p1
 
-    aput-byte v1, v0, v2
+    aput-byte p1, v0, v2
 
-    .line 1224
     return-void
 .end method
 
@@ -1579,20 +1429,19 @@
 
     invoke-virtual {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;->position(I)Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
 
-    .line 937
     const/4 v0, 0x0
 
+    .line 937
     iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->allocatedBuffer:Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
 
-    .line 938
     const/4 v0, 0x0
 
+    .line 938
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     .line 939
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->limitMinusOne:I
 
-    .line 941
     :cond_0
     return-void
 .end method
@@ -1614,7 +1463,6 @@
 
 .method requireSpace(I)V
     .locals 1
-    .param p1, "size"    # I
 
     .line 1440
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->spaceLeft()I
@@ -1626,7 +1474,6 @@
     .line 1441
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->nextBuffer(I)V
 
-    .line 1443
     :cond_0
     return-void
 .end method
@@ -1646,7 +1493,6 @@
 
 .method public write(B)V
     .locals 3
-    .param p1, "value"    # B
 
     .line 1378
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->buffer:[B
@@ -1659,13 +1505,11 @@
 
     aput-byte p1, v0, v1
 
-    .line 1379
     return-void
 .end method
 
 .method public write(Ljava/nio/ByteBuffer;)V
     .locals 3
-    .param p1, "value"    # Ljava/nio/ByteBuffer;
 
     .line 1411
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
@@ -1673,7 +1517,6 @@
     move-result v0
 
     .line 1412
-    .local v0, "length":I
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->spaceLeft()I
 
     move-result v1
@@ -1698,15 +1541,11 @@
 
     invoke-virtual {p1, v2, v1, v0}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
 
-    .line 1418
     return-void
 .end method
 
 .method public write([BII)V
     .locals 2
-    .param p1, "value"    # [B
-    .param p2, "offset"    # I
-    .param p3, "length"    # I
 
     .line 1383
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->spaceLeft()I
@@ -1733,56 +1572,48 @@
 
     invoke-static {p1, p2, v1, v0, p3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 1389
     return-void
 .end method
 
 .method public writeBool(IZ)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 1034
     const/4 v0, 0x6
 
+    .line 1034
     invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->requireSpace(I)V
 
-    .line 1035
-    int-to-byte v0, p2
+    int-to-byte p2, p2
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->write(B)V
+    .line 1035
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->write(B)V
+
+    const/4 p2, 0x0
 
     .line 1036
-    const/4 v0, 0x0
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
 
-    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
-
-    .line 1037
     return-void
 .end method
 
 .method writeBool(Z)V
-    .locals 1
-    .param p1, "value"    # Z
+    .locals 0
+
+    int-to-byte p1, p1
 
     .line 1128
-    int-to-byte v0, p1
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->write(B)V
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->write(B)V
-
-    .line 1129
     return-void
 .end method
 
 .method public writeBytes(ILcom/google/crypto/tink/shaded/protobuf/ByteString;)V
-    .locals 2
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1795,58 +1626,49 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1056
-    nop
-
-    .line 1058
     const/16 v0, 0xa
 
+    .line 1058
     invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->requireSpace(I)V
 
     .line 1059
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->size()I
 
-    move-result v0
+    move-result p2
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint32(I)V
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint32(I)V
+
+    const/4 p2, 0x2
 
     .line 1060
-    const/4 v0, 0x2
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
 
-    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
-
-    .line 1061
     return-void
 
-    .line 1053
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 1055
-    .local v0, "e":Ljava/io/IOException;
-    new-instance v1, Ljava/lang/RuntimeException;
+    new-instance p2, Ljava/lang/RuntimeException;
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p2, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw p2
 .end method
 
 .method public writeEndGroup(I)V
     .locals 1
-    .param p1, "fieldNumber"    # I
 
-    .line 1104
     const/4 v0, 0x4
 
+    .line 1104
     invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
 
-    .line 1105
     return-void
 .end method
 
 .method writeFixed32(I)V
     .locals 4
-    .param p1, "value"    # I
 
     .line 1304
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->buffer:[B
@@ -1854,8 +1676,6 @@
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     shr-int/lit8 v3, p1, 0x18
 
@@ -1865,10 +1685,7 @@
 
     aput-byte v3, v0, v1
 
-    .line 1305
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     shr-int/lit8 v3, p1, 0x10
 
@@ -1876,12 +1693,10 @@
 
     int-to-byte v3, v3
 
+    .line 1305
     aput-byte v3, v0, v2
 
-    .line 1306
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     shr-int/lit8 v3, p1, 0x8
 
@@ -1889,80 +1704,73 @@
 
     int-to-byte v3, v3
 
+    .line 1306
     aput-byte v3, v0, v1
 
-    .line 1307
     add-int/lit8 v1, v2, -0x1
 
+    .line 1307
     iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    and-int/lit16 v1, p1, 0xff
+    and-int/lit16 p1, p1, 0xff
 
-    int-to-byte v1, v1
+    int-to-byte p1, p1
 
-    aput-byte v1, v0, v2
+    aput-byte p1, v0, v2
 
-    .line 1308
     return-void
 .end method
 
 .method public writeFixed32(II)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 1006
     const/16 v0, 0x9
 
+    .line 1006
     invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->requireSpace(I)V
 
     .line 1007
     invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeFixed32(I)V
 
+    const/4 p2, 0x5
+
     .line 1008
-    const/4 v0, 0x5
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
 
-    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
-
-    .line 1009
     return-void
 .end method
 
 .method public writeFixed64(IJ)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 1027
     const/16 v0, 0xd
 
+    .line 1027
     invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->requireSpace(I)V
 
     .line 1028
     invoke-virtual {p0, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeFixed64(J)V
 
+    const/4 p2, 0x1
+
     .line 1029
-    const/4 v0, 0x1
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
 
-    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
-
-    .line 1030
     return-void
 .end method
 
 .method writeFixed64(J)V
     .locals 5
-    .param p1, "value"    # J
 
     .line 1312
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->buffer:[B
@@ -1970,8 +1778,6 @@
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x38
 
@@ -1985,10 +1791,7 @@
 
     aput-byte v3, v0, v1
 
-    .line 1313
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x30
 
@@ -2000,12 +1803,10 @@
 
     int-to-byte v3, v3
 
+    .line 1313
     aput-byte v3, v0, v2
 
-    .line 1314
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x28
 
@@ -2017,12 +1818,10 @@
 
     int-to-byte v3, v3
 
+    .line 1314
     aput-byte v3, v0, v1
 
-    .line 1315
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x20
 
@@ -2034,12 +1833,10 @@
 
     int-to-byte v3, v3
 
+    .line 1315
     aput-byte v3, v0, v2
 
-    .line 1316
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x18
 
@@ -2051,12 +1848,10 @@
 
     int-to-byte v3, v3
 
+    .line 1316
     aput-byte v3, v0, v1
 
-    .line 1317
     add-int/lit8 v1, v2, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x10
 
@@ -2068,12 +1863,10 @@
 
     int-to-byte v3, v3
 
+    .line 1317
     aput-byte v3, v0, v2
 
-    .line 1318
     add-int/lit8 v2, v1, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     const/16 v3, 0x8
 
@@ -2085,38 +1878,36 @@
 
     int-to-byte v3, v3
 
+    .line 1318
     aput-byte v3, v0, v1
 
-    .line 1319
     add-int/lit8 v1, v2, -0x1
 
+    .line 1319
     iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    long-to-int v1, p1
+    long-to-int p1, p1
 
-    and-int/lit16 v1, v1, 0xff
+    and-int/lit16 p1, p1, 0xff
 
-    int-to-byte v1, v1
+    int-to-byte p1, p1
 
-    aput-byte v1, v0, v2
+    aput-byte p1, v0, v2
 
-    .line 1320
     return-void
 .end method
 
 .method public writeGroup(ILjava/lang/Object;)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 1085
     const/4 v0, 0x4
 
+    .line 1085
     invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
 
     .line 1086
@@ -2126,48 +1917,41 @@
 
     invoke-virtual {v0, p2, p0}, Lcom/google/crypto/tink/shaded/protobuf/Protobuf;->writeTo(Ljava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/Writer;)V
 
+    const/4 p2, 0x3
+
     .line 1087
-    const/4 v0, 0x3
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
 
-    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
-
-    .line 1088
     return-void
 .end method
 
 .method public writeGroup(ILjava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/Schema;)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # Ljava/lang/Object;
-    .param p3, "schema"    # Lcom/google/crypto/tink/shaded/protobuf/Schema;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 1092
     const/4 v0, 0x4
 
+    .line 1092
     invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
 
     .line 1093
     invoke-interface {p3, p2, p0}, Lcom/google/crypto/tink/shaded/protobuf/Schema;->writeTo(Ljava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/Writer;)V
 
+    const/4 p2, 0x3
+
     .line 1094
-    const/4 v0, 0x3
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
 
-    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
-
-    .line 1095
     return-void
 .end method
 
 .method writeInt32(I)V
     .locals 2
-    .param p1, "value"    # I
 
-    .line 1109
     if-ltz p1, :cond_0
 
     .line 1110
@@ -2175,47 +1959,42 @@
 
     goto :goto_0
 
-    .line 1112
     :cond_0
     int-to-long v0, p1
 
+    .line 1112
     invoke-virtual {p0, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint64(J)V
 
-    .line 1114
     :goto_0
     return-void
 .end method
 
 .method public writeInt32(II)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 992
     const/16 v0, 0xf
 
+    .line 992
     invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->requireSpace(I)V
 
     .line 993
     invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeInt32(I)V
 
+    const/4 p2, 0x0
+
     .line 994
-    const/4 v0, 0x0
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
 
-    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
-
-    .line 995
     return-void
 .end method
 
 .method public writeLazy(Ljava/nio/ByteBuffer;)V
     .locals 3
-    .param p1, "value"    # Ljava/nio/ByteBuffer;
 
     .line 1422
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
@@ -2223,7 +2002,6 @@
     move-result v0
 
     .line 1423
-    .local v0, "length":I
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->spaceLeft()I
 
     move-result v1
@@ -2264,15 +2042,11 @@
 
     invoke-virtual {p1, v2, v1, v0}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
 
-    .line 1436
     return-void
 .end method
 
 .method public writeLazy([BII)V
     .locals 2
-    .param p1, "value"    # [B
-    .param p2, "offset"    # I
-    .param p3, "length"    # I
 
     .line 1393
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->spaceLeft()I
@@ -2293,14 +2067,13 @@
 
     invoke-static {p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;->wrap([BII)Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Ljava/util/ArrayDeque;->addFirst(Ljava/lang/Object;)V
+    invoke-virtual {v0, p1}, Ljava/util/ArrayDeque;->addFirst(Ljava/lang/Object;)V
 
     .line 1401
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->nextBuffer()V
 
-    .line 1402
     return-void
 
     .line 1405
@@ -2318,14 +2091,11 @@
 
     invoke-static {p1, p2, v1, v0, p3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 1407
     return-void
 .end method
 
 .method public writeMessage(ILjava/lang/Object;)V
-    .locals 3
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # Ljava/lang/Object;
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2338,7 +2108,6 @@
     move-result v0
 
     .line 1066
-    .local v0, "prevBytes":I
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/Protobuf;->getInstance()Lcom/google/crypto/tink/shaded/protobuf/Protobuf;
 
     move-result-object v1
@@ -2348,33 +2117,28 @@
     .line 1067
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->getTotalBytesWritten()I
 
-    move-result v1
+    move-result p2
 
-    sub-int/2addr v1, v0
+    sub-int/2addr p2, v0
+
+    const/16 v0, 0xa
 
     .line 1068
-    .local v1, "length":I
-    const/16 v2, 0xa
-
-    invoke-virtual {p0, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->requireSpace(I)V
+    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->requireSpace(I)V
 
     .line 1069
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint32(I)V
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint32(I)V
+
+    const/4 p2, 0x2
 
     .line 1070
-    const/4 v2, 0x2
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
 
-    invoke-virtual {p0, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
-
-    .line 1071
     return-void
 .end method
 
 .method public writeMessage(ILjava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/Schema;)V
-    .locals 3
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # Ljava/lang/Object;
-    .param p3, "schema"    # Lcom/google/crypto/tink/shaded/protobuf/Schema;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2387,135 +2151,118 @@
     move-result v0
 
     .line 1076
-    .local v0, "prevBytes":I
     invoke-interface {p3, p2, p0}, Lcom/google/crypto/tink/shaded/protobuf/Schema;->writeTo(Ljava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/Writer;)V
 
     .line 1077
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->getTotalBytesWritten()I
 
-    move-result v1
+    move-result p2
 
-    sub-int/2addr v1, v0
+    sub-int/2addr p2, v0
+
+    const/16 p3, 0xa
 
     .line 1078
-    .local v1, "length":I
-    const/16 v2, 0xa
-
-    invoke-virtual {p0, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->requireSpace(I)V
+    invoke-virtual {p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->requireSpace(I)V
 
     .line 1079
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint32(I)V
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint32(I)V
+
+    const/4 p2, 0x2
 
     .line 1080
-    const/4 v2, 0x2
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
 
-    invoke-virtual {p0, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
-
-    .line 1081
     return-void
 .end method
 
 .method writeSInt32(I)V
-    .locals 1
-    .param p1, "value"    # I
+    .locals 0
 
     .line 1118
     invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->encodeZigZag32(I)I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint32(I)V
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint32(I)V
 
-    .line 1119
     return-void
 .end method
 
 .method public writeSInt32(II)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 999
     const/16 v0, 0xa
 
+    .line 999
     invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->requireSpace(I)V
 
     .line 1000
     invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeSInt32(I)V
 
+    const/4 p2, 0x0
+
     .line 1001
-    const/4 v0, 0x0
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
 
-    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
-
-    .line 1002
     return-void
 .end method
 
 .method public writeSInt64(IJ)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 1020
     const/16 v0, 0xf
 
+    .line 1020
     invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->requireSpace(I)V
 
     .line 1021
     invoke-virtual {p0, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeSInt64(J)V
 
+    const/4 p2, 0x0
+
     .line 1022
-    const/4 v0, 0x0
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
 
-    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
-
-    .line 1023
     return-void
 .end method
 
 .method writeSInt64(J)V
-    .locals 2
-    .param p1, "value"    # J
+    .locals 0
 
     .line 1123
     invoke-static {p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->encodeZigZag64(J)J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    invoke-virtual {p0, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint64(J)V
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint64(J)V
 
-    .line 1124
     return-void
 .end method
 
 .method public writeStartGroup(I)V
     .locals 1
-    .param p1, "fieldNumber"    # I
 
-    .line 1099
     const/4 v0, 0x3
 
+    .line 1099
     invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
 
-    .line 1100
     return-void
 .end method
 
 .method public writeString(ILjava/lang/String;)V
-    .locals 3
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # Ljava/lang/String;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2528,37 +2275,33 @@
     move-result v0
 
     .line 1042
-    .local v0, "prevBytes":I
     invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeString(Ljava/lang/String;)V
 
     .line 1043
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->getTotalBytesWritten()I
 
-    move-result v1
+    move-result p2
 
-    sub-int/2addr v1, v0
+    sub-int/2addr p2, v0
+
+    const/16 v0, 0xa
 
     .line 1044
-    .local v1, "length":I
-    const/16 v2, 0xa
-
-    invoke-virtual {p0, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->requireSpace(I)V
+    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->requireSpace(I)V
 
     .line 1045
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint32(I)V
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint32(I)V
+
+    const/4 p2, 0x2
 
     .line 1046
-    const/4 v2, 0x2
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
 
-    invoke-virtual {p0, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
-
-    .line 1047
     return-void
 .end method
 
 .method writeString(Ljava/lang/String;)V
-    .locals 10
-    .param p1, "in"    # Ljava/lang/String;
+    .locals 8
 
     .line 1325
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -2575,59 +2318,51 @@
     add-int/lit8 v0, v0, -0x1
 
     .line 1330
-    .local v0, "i":I
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     sub-int/2addr v1, v0
 
     iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    .line 1333
     :goto_0
     const/16 v1, 0x80
 
     if-ltz v0, :cond_0
 
+    .line 1333
     invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
 
     move-result v2
 
-    move v3, v2
-
-    .local v3, "c":C
     if-ge v2, v1, :cond_0
 
     .line 1334
     iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->buffer:[B
 
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
+    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    add-int/2addr v2, v0
+    add-int/2addr v3, v0
 
-    int-to-byte v4, v3
+    int-to-byte v2, v2
 
-    aput-byte v4, v1, v2
+    aput-byte v2, v1, v3
 
-    .line 1333
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 1336
-    .end local v3    # "c":C
     :cond_0
     const/4 v2, -0x1
 
     if-ne v0, v2, :cond_1
 
     .line 1338
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 p1, p1, -0x1
 
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    .line 1339
     return-void
 
     .line 1341
@@ -2638,7 +2373,6 @@
 
     iput v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    .line 1342
     :goto_1
     if-ltz v0, :cond_8
 
@@ -2647,10 +2381,9 @@
 
     move-result v3
 
-    .line 1344
-    .restart local v3    # "c":C
     if-ge v3, v1, :cond_2
 
+    .line 1344
     iget v4, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     iget v5, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->offsetMinusOne:I
@@ -2664,18 +2397,18 @@
 
     iput v6, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    int-to-byte v6, v3
+    int-to-byte v3, v3
 
-    aput-byte v6, v5, v4
+    aput-byte v3, v5, v4
 
     goto/16 :goto_2
 
-    .line 1346
     :cond_2
     const/16 v4, 0x800
 
     if-ge v3, v4, :cond_3
 
+    .line 1346
     iget v4, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     iget v5, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->offset:I
@@ -2687,8 +2420,6 @@
 
     add-int/lit8 v6, v4, -0x1
 
-    iput v6, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
-
     and-int/lit8 v7, v3, 0x3f
 
     or-int/2addr v7, v1
@@ -2697,22 +2428,21 @@
 
     aput-byte v7, v5, v4
 
-    .line 1348
     add-int/lit8 v4, v6, -0x1
 
+    .line 1348
     iput v4, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    ushr-int/lit8 v4, v3, 0x6
+    ushr-int/lit8 v3, v3, 0x6
 
-    or-int/lit16 v4, v4, 0x3c0
+    or-int/lit16 v3, v3, 0x3c0
 
-    int-to-byte v4, v4
+    int-to-byte v3, v3
 
-    aput-byte v4, v5, v6
+    aput-byte v3, v5, v6
 
     goto/16 :goto_2
 
-    .line 1349
     :cond_3
     const v4, 0xd800
 
@@ -2722,6 +2452,7 @@
 
     if-ge v4, v3, :cond_5
 
+    .line 1349
     :cond_4
     iget v4, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
@@ -2736,8 +2467,6 @@
 
     add-int/lit8 v6, v4, -0x1
 
-    iput v6, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
-
     and-int/lit8 v7, v3, 0x3f
 
     or-int/2addr v7, v1
@@ -2746,10 +2475,7 @@
 
     aput-byte v7, v5, v4
 
-    .line 1353
     add-int/lit8 v4, v6, -0x1
-
-    iput v4, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
     ushr-int/lit8 v7, v3, 0x6
 
@@ -2759,20 +2485,21 @@
 
     int-to-byte v7, v7
 
+    .line 1353
     aput-byte v7, v5, v6
 
-    .line 1354
     add-int/lit8 v6, v4, -0x1
 
+    .line 1354
     iput v6, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    ushr-int/lit8 v6, v3, 0xc
+    ushr-int/lit8 v3, v3, 0xc
 
-    or-int/lit16 v6, v6, 0x1e0
+    or-int/lit16 v3, v3, 0x1e0
 
-    int-to-byte v6, v6
+    int-to-byte v3, v3
 
-    aput-byte v6, v5, v4
+    aput-byte v3, v5, v4
 
     goto :goto_2
 
@@ -2786,207 +2513,173 @@
 
     if-le v4, v5, :cond_7
 
-    .line 1358
-    const/4 v4, 0x0
-
-    .line 1359
-    .local v4, "high":C
     if-eqz v0, :cond_6
 
-    add-int/lit8 v5, v0, -0x1
+    add-int/lit8 v4, v0, -0x1
 
-    invoke-virtual {p1, v5}, Ljava/lang/String;->charAt(I)C
+    .line 1359
+    invoke-virtual {p1, v4}, Ljava/lang/String;->charAt(I)C
 
-    move-result v5
+    move-result v4
 
-    move v4, v5
-
-    invoke-static {v5, v3}, Ljava/lang/Character;->isSurrogatePair(CC)Z
+    invoke-static {v4, v3}, Ljava/lang/Character;->isSurrogatePair(CC)Z
 
     move-result v5
 
     if-eqz v5, :cond_6
 
-    .line 1362
     add-int/lit8 v0, v0, -0x1
 
     .line 1363
     invoke-static {v4, v3}, Ljava/lang/Character;->toCodePoint(CC)I
 
-    move-result v5
+    move-result v3
 
     .line 1364
-    .local v5, "codePoint":I
-    iget-object v6, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->buffer:[B
+    iget-object v4, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->buffer:[B
 
-    iget v7, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
+    iget v5, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
 
-    add-int/lit8 v8, v7, -0x1
+    add-int/lit8 v6, v5, -0x1
 
-    iput v8, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
+    and-int/lit8 v7, v3, 0x3f
 
-    and-int/lit8 v9, v5, 0x3f
-
-    or-int/2addr v9, v1
-
-    int-to-byte v9, v9
-
-    aput-byte v9, v6, v7
-
-    .line 1365
-    add-int/lit8 v7, v8, -0x1
-
-    iput v7, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
-
-    ushr-int/lit8 v9, v5, 0x6
-
-    and-int/lit8 v9, v9, 0x3f
-
-    or-int/2addr v9, v1
-
-    int-to-byte v9, v9
-
-    aput-byte v9, v6, v8
-
-    .line 1366
-    add-int/lit8 v8, v7, -0x1
-
-    iput v8, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
-
-    ushr-int/lit8 v9, v5, 0xc
-
-    and-int/lit8 v9, v9, 0x3f
-
-    or-int/2addr v9, v1
-
-    int-to-byte v9, v9
-
-    aput-byte v9, v6, v7
-
-    .line 1367
-    add-int/lit8 v7, v8, -0x1
-
-    iput v7, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
-
-    ushr-int/lit8 v7, v5, 0x12
-
-    or-int/lit16 v7, v7, 0xf0
+    or-int/2addr v7, v1
 
     int-to-byte v7, v7
 
-    aput-byte v7, v6, v8
+    aput-byte v7, v4, v5
 
-    .line 1368
-    .end local v4    # "high":C
-    .end local v5    # "codePoint":I
+    add-int/lit8 v5, v6, -0x1
+
+    ushr-int/lit8 v7, v3, 0x6
+
+    and-int/lit8 v7, v7, 0x3f
+
+    or-int/2addr v7, v1
+
+    int-to-byte v7, v7
+
+    .line 1365
+    aput-byte v7, v4, v6
+
+    add-int/lit8 v6, v5, -0x1
+
+    ushr-int/lit8 v7, v3, 0xc
+
+    and-int/lit8 v7, v7, 0x3f
+
+    or-int/2addr v7, v1
+
+    int-to-byte v7, v7
+
+    .line 1366
+    aput-byte v7, v4, v5
+
+    add-int/lit8 v5, v6, -0x1
+
+    .line 1367
+    iput v5, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->pos:I
+
+    ushr-int/lit8 v3, v3, 0x12
+
+    or-int/lit16 v3, v3, 0xf0
+
+    int-to-byte v3, v3
+
+    aput-byte v3, v4, v6
+
     goto :goto_2
 
     .line 1360
-    .restart local v4    # "high":C
     :cond_6
-    new-instance v1, Lcom/google/crypto/tink/shaded/protobuf/Utf8$UnpairedSurrogateException;
+    new-instance p1, Lcom/google/crypto/tink/shaded/protobuf/Utf8$UnpairedSurrogateException;
 
-    add-int/lit8 v2, v0, -0x1
+    add-int/lit8 v1, v0, -0x1
 
-    invoke-direct {v1, v2, v0}, Lcom/google/crypto/tink/shaded/protobuf/Utf8$UnpairedSurrogateException;-><init>(II)V
+    invoke-direct {p1, v1, v0}, Lcom/google/crypto/tink/shaded/protobuf/Utf8$UnpairedSurrogateException;-><init>(II)V
 
-    throw v1
+    throw p1
 
     .line 1370
-    .end local v4    # "high":C
     :cond_7
     invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->requireSpace(I)V
 
-    .line 1371
     add-int/lit8 v0, v0, 0x1
 
-    .line 1342
     :goto_2
     add-int/2addr v0, v2
 
     goto/16 :goto_1
 
-    .line 1374
-    .end local v3    # "c":C
     :cond_8
     return-void
 .end method
 
 .method writeTag(II)V
-    .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "wireType"    # I
+    .locals 0
 
     .line 1133
     invoke-static {p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->makeTag(II)I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint32(I)V
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint32(I)V
 
-    .line 1134
     return-void
 .end method
 
 .method public writeUInt32(II)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 985
     const/16 v0, 0xa
 
+    .line 985
     invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->requireSpace(I)V
 
     .line 986
     invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint32(I)V
 
+    const/4 p2, 0x0
+
     .line 987
-    const/4 v0, 0x0
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
 
-    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
-
-    .line 988
     return-void
 .end method
 
 .method public writeUInt64(IJ)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 1013
     const/16 v0, 0xf
 
+    .line 1013
     invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->requireSpace(I)V
 
     .line 1014
     invoke-virtual {p0, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint64(J)V
 
+    const/4 p2, 0x0
+
     .line 1015
-    const/4 v0, 0x0
+    invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
 
-    invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeTag(II)V
-
-    .line 1016
     return-void
 .end method
 
 .method writeVarint32(I)V
     .locals 1
-    .param p1, "value"    # I
 
-    .line 1138
     and-int/lit8 v0, p1, -0x80
 
     if-nez v0, :cond_0
@@ -2996,7 +2689,6 @@
 
     goto :goto_0
 
-    .line 1140
     :cond_0
     and-int/lit16 v0, p1, -0x4000
 
@@ -3007,7 +2699,6 @@
 
     goto :goto_0
 
-    .line 1142
     :cond_1
     const/high16 v0, -0x200000
 
@@ -3020,7 +2711,6 @@
 
     goto :goto_0
 
-    .line 1144
     :cond_2
     const/high16 v0, -0x10000000
 
@@ -3037,14 +2727,12 @@
     :cond_3
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint32FiveBytes(I)V
 
-    .line 1149
     :goto_0
     return-void
 .end method
 
 .method writeVarint64(J)V
     .locals 1
-    .param p1, "value"    # J
 
     .line 1183
     invoke-static {p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter;->access$200(J)B
@@ -3065,70 +2753,56 @@
     :pswitch_1
     invoke-direct {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint64NineBytes(J)V
 
-    .line 1210
     goto :goto_0
 
     .line 1206
     :pswitch_2
     invoke-direct {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint64EightBytes(J)V
 
-    .line 1207
     goto :goto_0
 
     .line 1203
     :pswitch_3
     invoke-direct {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint64SevenBytes(J)V
 
-    .line 1204
     goto :goto_0
 
     .line 1200
     :pswitch_4
     invoke-direct {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint64SixBytes(J)V
 
-    .line 1201
     goto :goto_0
 
     .line 1197
     :pswitch_5
     invoke-direct {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint64FiveBytes(J)V
 
-    .line 1198
     goto :goto_0
 
     .line 1194
     :pswitch_6
     invoke-direct {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint64FourBytes(J)V
 
-    .line 1195
     goto :goto_0
 
     .line 1191
     :pswitch_7
     invoke-direct {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint64ThreeBytes(J)V
 
-    .line 1192
     goto :goto_0
 
     .line 1188
     :pswitch_8
     invoke-direct {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint64TwoBytes(J)V
 
-    .line 1189
     goto :goto_0
 
     .line 1185
     :pswitch_9
     invoke-direct {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryWriter$SafeHeapWriter;->writeVarint64OneByte(J)V
 
-    .line 1186
-    nop
-
-    .line 1215
     :goto_0
     return-void
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1

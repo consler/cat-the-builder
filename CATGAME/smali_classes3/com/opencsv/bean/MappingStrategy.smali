@@ -39,7 +39,8 @@
     .end annotation
 .end method
 
-.method public abstract ignoreFields(Lorg/apache/commons/collections4/MultiValuedMap;)V
+.method public ignoreFields(Lorg/apache/commons/collections4/MultiValuedMap;)V
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,11 +57,23 @@
             Ljava/lang/IllegalArgumentException;
         }
     .end annotation
+
+    .line 161
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
+
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
+
+    throw p1
 .end method
 
-.method public abstract isAnnotationDriven()Z
+.method public isAnnotationDriven()Z
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
+
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public abstract populateNewBean([Ljava/lang/String;)Ljava/lang/Object;
@@ -83,7 +96,10 @@
     .end annotation
 .end method
 
-.method public abstract setErrorLocale(Ljava/util/Locale;)V
+.method public setErrorLocale(Ljava/util/Locale;)V
+    .locals 0
+
+    return-void
 .end method
 
 .method public abstract setType(Ljava/lang/Class;)V

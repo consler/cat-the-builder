@@ -17,13 +17,11 @@
     .line 33
     invoke-direct {p0}, Lcom/badlogic/gdx/scenes/scene2d/utils/BaseDrawable;-><init>()V
 
-    .line 34
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/Texture;)V
     .locals 1
-    .param p1, "texture"    # Lcom/badlogic/gdx/graphics/Texture;
 
     .line 36
     invoke-direct {p0}, Lcom/badlogic/gdx/scenes/scene2d/utils/BaseDrawable;-><init>()V
@@ -35,13 +33,11 @@
 
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/scenes/scene2d/utils/TextureRegionDrawable;->setRegion(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
 
-    .line 38
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
     .locals 0
-    .param p1, "region"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
     .line 40
     invoke-direct {p0}, Lcom/badlogic/gdx/scenes/scene2d/utils/BaseDrawable;-><init>()V
@@ -49,23 +45,20 @@
     .line 41
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/scenes/scene2d/utils/TextureRegionDrawable;->setRegion(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
 
-    .line 42
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/utils/TextureRegionDrawable;)V
-    .locals 1
-    .param p1, "drawable"    # Lcom/badlogic/gdx/scenes/scene2d/utils/TextureRegionDrawable;
+    .locals 0
 
     .line 45
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/scenes/scene2d/utils/BaseDrawable;-><init>(Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;)V
 
     .line 46
-    iget-object v0, p1, Lcom/badlogic/gdx/scenes/scene2d/utils/TextureRegionDrawable;->region:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+    iget-object p1, p1, Lcom/badlogic/gdx/scenes/scene2d/utils/TextureRegionDrawable;->region:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/scenes/scene2d/utils/TextureRegionDrawable;->setRegion(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/scenes/scene2d/utils/TextureRegionDrawable;->setRegion(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
 
-    .line 47
     return-void
 .end method
 
@@ -73,11 +66,6 @@
 # virtual methods
 .method public draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
     .locals 6
-    .param p1, "batch"    # Lcom/badlogic/gdx/graphics/g2d/Batch;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
-    .param p4, "width"    # F
-    .param p5, "height"    # F
 
     .line 50
     iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/TextureRegionDrawable;->region:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
@@ -94,26 +82,15 @@
 
     invoke-interface/range {v0 .. v5}, Lcom/badlogic/gdx/graphics/g2d/Batch;->draw(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;FFFF)V
 
-    .line 51
     return-void
 .end method
 
 .method public draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFFFFFFF)V
     .locals 12
-    .param p1, "batch"    # Lcom/badlogic/gdx/graphics/g2d/Batch;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
-    .param p4, "originX"    # F
-    .param p5, "originY"    # F
-    .param p6, "width"    # F
-    .param p7, "height"    # F
-    .param p8, "scaleX"    # F
-    .param p9, "scaleY"    # F
-    .param p10, "rotation"    # F
 
-    .line 55
     move-object v0, p0
 
+    .line 55
     iget-object v2, v0, Lcom/badlogic/gdx/scenes/scene2d/utils/TextureRegionDrawable;->region:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
     move-object v1, p1
@@ -138,7 +115,6 @@
 
     invoke-interface/range {v1 .. v11}, Lcom/badlogic/gdx/graphics/g2d/Batch;->draw(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;FFFFFFFFF)V
 
-    .line 56
     return-void
 .end method
 
@@ -153,12 +129,10 @@
 
 .method public setRegion(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
     .locals 1
-    .param p1, "region"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
     .line 59
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/TextureRegionDrawable;->region:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
-    .line 60
     if-eqz p1, :cond_0
 
     .line 61
@@ -173,99 +147,92 @@
     .line 62
     invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->getRegionHeight()I
 
-    move-result v0
+    move-result p1
 
-    int-to-float v0, v0
+    int-to-float p1, p1
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/scenes/scene2d/utils/TextureRegionDrawable;->setMinHeight(F)V
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/scenes/scene2d/utils/TextureRegionDrawable;->setMinHeight(F)V
 
-    .line 64
     :cond_0
     return-void
 .end method
 
 .method public tint(Lcom/badlogic/gdx/graphics/Color;)Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
-    .locals 3
-    .param p1, "tint"    # Lcom/badlogic/gdx/graphics/Color;
+    .locals 2
 
     .line 73
     iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/TextureRegionDrawable;->region:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
-    instance-of v1, v0, Lcom/badlogic/gdx/graphics/g2d/TextureAtlas$AtlasRegion;
+    instance-of v0, v0, Lcom/badlogic/gdx/graphics/g2d/TextureAtlas$AtlasRegion;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 74
-    new-instance v1, Lcom/badlogic/gdx/graphics/g2d/TextureAtlas$AtlasSprite;
+    new-instance v0, Lcom/badlogic/gdx/graphics/g2d/TextureAtlas$AtlasSprite;
 
-    check-cast v0, Lcom/badlogic/gdx/graphics/g2d/TextureAtlas$AtlasRegion;
+    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/TextureRegionDrawable;->region:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
-    invoke-direct {v1, v0}, Lcom/badlogic/gdx/graphics/g2d/TextureAtlas$AtlasSprite;-><init>(Lcom/badlogic/gdx/graphics/g2d/TextureAtlas$AtlasRegion;)V
+    check-cast v1, Lcom/badlogic/gdx/graphics/g2d/TextureAtlas$AtlasRegion;
 
-    move-object v0, v1
+    invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g2d/TextureAtlas$AtlasSprite;-><init>(Lcom/badlogic/gdx/graphics/g2d/TextureAtlas$AtlasRegion;)V
 
-    .local v0, "sprite":Lcom/badlogic/gdx/graphics/g2d/Sprite;
     goto :goto_0
 
     .line 76
-    .end local v0    # "sprite":Lcom/badlogic/gdx/graphics/g2d/Sprite;
     :cond_0
-    new-instance v1, Lcom/badlogic/gdx/graphics/g2d/Sprite;
+    new-instance v0, Lcom/badlogic/gdx/graphics/g2d/Sprite;
 
-    invoke-direct {v1, v0}, Lcom/badlogic/gdx/graphics/g2d/Sprite;-><init>(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
+    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/TextureRegionDrawable;->region:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
-    move-object v0, v1
+    invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g2d/Sprite;-><init>(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
 
     .line 77
-    .restart local v0    # "sprite":Lcom/badlogic/gdx/graphics/g2d/Sprite;
     :goto_0
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/graphics/g2d/Sprite;->setColor(Lcom/badlogic/gdx/graphics/Color;)V
 
     .line 78
     invoke-virtual {p0}, Lcom/badlogic/gdx/scenes/scene2d/utils/TextureRegionDrawable;->getMinWidth()F
 
-    move-result v1
+    move-result p1
 
     invoke-virtual {p0}, Lcom/badlogic/gdx/scenes/scene2d/utils/TextureRegionDrawable;->getMinHeight()F
 
-    move-result v2
+    move-result v1
 
-    invoke-virtual {v0, v1, v2}, Lcom/badlogic/gdx/graphics/g2d/Sprite;->setSize(FF)V
+    invoke-virtual {v0, p1, v1}, Lcom/badlogic/gdx/graphics/g2d/Sprite;->setSize(FF)V
 
     .line 79
-    new-instance v1, Lcom/badlogic/gdx/scenes/scene2d/utils/SpriteDrawable;
+    new-instance p1, Lcom/badlogic/gdx/scenes/scene2d/utils/SpriteDrawable;
 
-    invoke-direct {v1, v0}, Lcom/badlogic/gdx/scenes/scene2d/utils/SpriteDrawable;-><init>(Lcom/badlogic/gdx/graphics/g2d/Sprite;)V
+    invoke-direct {p1, v0}, Lcom/badlogic/gdx/scenes/scene2d/utils/SpriteDrawable;-><init>(Lcom/badlogic/gdx/graphics/g2d/Sprite;)V
 
     .line 80
-    .local v1, "drawable":Lcom/badlogic/gdx/scenes/scene2d/utils/SpriteDrawable;
     invoke-virtual {p0}, Lcom/badlogic/gdx/scenes/scene2d/utils/TextureRegionDrawable;->getLeftWidth()F
 
-    move-result v2
+    move-result v0
 
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/scenes/scene2d/utils/SpriteDrawable;->setLeftWidth(F)V
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/scenes/scene2d/utils/SpriteDrawable;->setLeftWidth(F)V
 
     .line 81
     invoke-virtual {p0}, Lcom/badlogic/gdx/scenes/scene2d/utils/TextureRegionDrawable;->getRightWidth()F
 
-    move-result v2
+    move-result v0
 
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/scenes/scene2d/utils/SpriteDrawable;->setRightWidth(F)V
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/scenes/scene2d/utils/SpriteDrawable;->setRightWidth(F)V
 
     .line 82
     invoke-virtual {p0}, Lcom/badlogic/gdx/scenes/scene2d/utils/TextureRegionDrawable;->getTopHeight()F
 
-    move-result v2
+    move-result v0
 
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/scenes/scene2d/utils/SpriteDrawable;->setTopHeight(F)V
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/scenes/scene2d/utils/SpriteDrawable;->setTopHeight(F)V
 
     .line 83
     invoke-virtual {p0}, Lcom/badlogic/gdx/scenes/scene2d/utils/TextureRegionDrawable;->getBottomHeight()F
 
-    move-result v2
+    move-result v0
 
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/scenes/scene2d/utils/SpriteDrawable;->setBottomHeight(F)V
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/scenes/scene2d/utils/SpriteDrawable;->setBottomHeight(F)V
 
-    .line 84
-    return-object v1
+    return-object p1
 .end method

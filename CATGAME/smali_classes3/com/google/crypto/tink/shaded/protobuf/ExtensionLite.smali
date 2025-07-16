@@ -21,7 +21,6 @@
     .locals 0
 
     .line 39
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/ExtensionLite;, "Lcom/google/crypto/tink/shaded/protobuf/ExtensionLite<TContainingType;TType;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -49,8 +48,6 @@
 .method isLite()Z
     .locals 1
 
-    .line 58
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/ExtensionLite;, "Lcom/google/crypto/tink/shaded/protobuf/ExtensionLite<TContainingType;TType;>;"
     const/4 v0, 0x1
 
     return v0

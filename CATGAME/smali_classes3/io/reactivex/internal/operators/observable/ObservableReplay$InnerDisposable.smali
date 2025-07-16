@@ -69,9 +69,6 @@
     .end annotation
 
     .line 442
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableReplay$InnerDisposable;, "Lio/reactivex/internal/operators/observable/ObservableReplay$InnerDisposable<TT;>;"
-    .local p1, "parent":Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayObserver;, "Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayObserver<TT;>;"
-    .local p2, "child":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
 
     .line 443
@@ -80,7 +77,6 @@
     .line 444
     iput-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableReplay$InnerDisposable;->child:Lio/reactivex/Observer;
 
-    .line 445
     return-void
 .end method
 
@@ -90,14 +86,13 @@
     .locals 1
 
     .line 454
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableReplay$InnerDisposable;, "Lio/reactivex/internal/operators/observable/ObservableReplay$InnerDisposable<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableReplay$InnerDisposable;->cancelled:Z
 
     if-nez v0, :cond_0
 
-    .line 455
     const/4 v0, 0x1
 
+    .line 455
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableReplay$InnerDisposable;->cancelled:Z
 
     .line 457
@@ -105,7 +100,6 @@
 
     invoke-virtual {v0, p0}, Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayObserver;->remove(Lio/reactivex/internal/operators/observable/ObservableReplay$InnerDisposable;)V
 
-    .line 459
     :cond_0
     return-void
 .end method
@@ -121,7 +115,6 @@
     .end annotation
 
     .line 466
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableReplay$InnerDisposable;, "Lio/reactivex/internal/operators/observable/ObservableReplay$InnerDisposable<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableReplay$InnerDisposable;->index:Ljava/lang/Object;
 
     return-object v0
@@ -131,7 +124,6 @@
     .locals 1
 
     .line 449
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableReplay$InnerDisposable;, "Lio/reactivex/internal/operators/observable/ObservableReplay$InnerDisposable<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableReplay$InnerDisposable;->cancelled:Z
 
     return v0

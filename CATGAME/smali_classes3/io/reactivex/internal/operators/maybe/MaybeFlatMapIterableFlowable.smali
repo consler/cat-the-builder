@@ -61,9 +61,6 @@
     .end annotation
 
     .line 44
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeFlatMapIterableFlowable;, "Lio/reactivex/internal/operators/maybe/MaybeFlatMapIterableFlowable<TT;TR;>;"
-    .local p1, "source":Lio/reactivex/MaybeSource;, "Lio/reactivex/MaybeSource<TT;>;"
-    .local p2, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Ljava/lang/Iterable<+TR;>;>;"
     invoke-direct {p0}, Lio/reactivex/Flowable;-><init>()V
 
     .line 45
@@ -72,7 +69,6 @@
     .line 46
     iput-object p2, p0, Lio/reactivex/internal/operators/maybe/MaybeFlatMapIterableFlowable;->mapper:Lio/reactivex/functions/Function;
 
-    .line 47
     return-void
 .end method
 
@@ -89,8 +85,6 @@
     .end annotation
 
     .line 51
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeFlatMapIterableFlowable;, "Lio/reactivex/internal/operators/maybe/MaybeFlatMapIterableFlowable<TT;TR;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeFlatMapIterableFlowable;->source:Lio/reactivex/MaybeSource;
 
     new-instance v1, Lio/reactivex/internal/operators/maybe/MaybeFlatMapIterableFlowable$FlatMapIterableObserver;
@@ -101,6 +95,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/MaybeSource;->subscribe(Lio/reactivex/MaybeObserver;)V
 
-    .line 52
     return-void
 .end method

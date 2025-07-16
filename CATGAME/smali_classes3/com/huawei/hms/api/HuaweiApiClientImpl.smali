@@ -3,55 +3,49 @@
 .source "HuaweiApiClientImpl.java"
 
 # interfaces
-.implements Landroid/content/ServiceConnection;
 .implements Lcom/huawei/hms/support/api/client/InnerApiClient;
+.implements Landroid/content/ServiceConnection;
 
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/huawei/hms/api/HuaweiApiClientImpl$d;,
-        Lcom/huawei/hms/api/HuaweiApiClientImpl$c;,
-        Lcom/huawei/hms/api/HuaweiApiClientImpl$a;,
-        Lcom/huawei/hms/api/HuaweiApiClientImpl$b;
+        Lcom/huawei/hms/api/HuaweiApiClientImpl$g;,
+        Lcom/huawei/hms/api/HuaweiApiClientImpl$e;,
+        Lcom/huawei/hms/api/HuaweiApiClientImpl$f;
     }
 .end annotation
 
 
 # static fields
+.field private static final A:Ljava/lang/Object;
+
+.field private static final B:Ljava/lang/Object;
+
 .field public static final DEFAULT_ACCOUNT:Ljava/lang/String; = "<<default account>>"
 
 .field public static final SIGN_IN_MODE_OPTIONAL:I = 0x2
 
 .field public static final SIGN_IN_MODE_REQUIRED:I = 0x1
 
-.field private static final a:Ljava/lang/Object;
-
-.field private static final b:Ljava/lang/Object;
-
 
 # instance fields
-.field private A:Landroid/os/Handler;
+.field private a:I
 
-.field private B:Lcom/huawei/hms/api/CheckUpdatelistener;
+.field private final b:Landroid/content/Context;
 
-.field private C:Lcom/huawei/updatesdk/service/otaupdate/CheckUpdateCallBack;
+.field private final c:Ljava/lang/String;
 
-.field private c:I
+.field private d:Ljava/lang/String;
 
-.field private final d:Landroid/content/Context;
+.field private e:Ljava/lang/String;
 
-.field private final e:Ljava/lang/String;
-
-.field private f:Ljava/lang/String;
+.field private volatile f:Lcom/huawei/hms/core/aidl/IAIDLInvoke;
 
 .field private g:Ljava/lang/String;
 
-.field private volatile h:Lcom/huawei/hms/core/aidl/d;
-
-.field private i:Ljava/lang/String;
-
-.field private j:Ljava/lang/ref/WeakReference;
+.field private h:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/ref/WeakReference<",
@@ -61,7 +55,7 @@
     .end annotation
 .end field
 
-.field private k:Ljava/lang/ref/WeakReference;
+.field private i:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/ref/WeakReference<",
@@ -71,11 +65,11 @@
     .end annotation
 .end field
 
-.field private l:Z
+.field private j:Z
 
-.field private m:Ljava/util/concurrent/atomic/AtomicInteger;
+.field private k:Ljava/util/concurrent/atomic/AtomicInteger;
 
-.field private n:Ljava/util/List;
+.field private l:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -85,7 +79,7 @@
     .end annotation
 .end field
 
-.field private o:Ljava/util/List;
+.field private m:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -95,7 +89,7 @@
     .end annotation
 .end field
 
-.field private p:Ljava/util/Map;
+.field private n:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -107,44 +101,48 @@
     .end annotation
 .end field
 
-.field private q:Lcom/huawei/hms/support/api/client/SubAppInfo;
+.field private o:Lcom/huawei/hms/support/api/client/SubAppInfo;
 
-.field private r:J
+.field private p:J
 
-.field private s:I
+.field private q:I
 
-.field private final t:Ljava/lang/Object;
+.field private final r:Ljava/lang/Object;
 
-.field private final u:Ljava/util/concurrent/locks/ReentrantLock;
+.field private final s:Ljava/util/concurrent/locks/ReentrantLock;
 
-.field private final v:Ljava/util/concurrent/locks/Condition;
+.field private final t:Ljava/util/concurrent/locks/Condition;
 
-.field private w:Lcom/huawei/hms/api/ConnectionResult;
+.field private u:Lcom/huawei/hms/api/ConnectionResult;
 
-.field private x:Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;
+.field private v:Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;
 
-.field private y:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
+.field private w:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
 
-.field private z:Landroid/os/Handler;
+.field private x:Landroid/os/Handler;
+
+.field private y:Landroid/os/Handler;
+
+.field private z:Lcom/huawei/hms/api/CheckUpdatelistener;
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 128
+    .line 1
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
-    sput-object v0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->a:Ljava/lang/Object;
+    sput-object v0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->A:Ljava/lang/Object;
 
-    .line 130
+    .line 3
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
-    sput-object v0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b:Ljava/lang/Object;
+    sput-object v0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->B:Ljava/lang/Object;
 
     return-void
 .end method
@@ -152,805 +150,226 @@
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 3
 
-    .line 299
+    .line 1
     invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClient;-><init>()V
 
-    .line 132
     const/4 v0, -0x1
 
-    iput v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c:I
+    .line 2
+    iput v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->a:I
 
-    .line 178
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->l:Z
+    .line 48
+    iput-boolean v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->j:Z
 
-    .line 180
+    .line 50
     new-instance v1, Ljava/util/concurrent/atomic/AtomicInteger;
 
     const/4 v2, 0x1
 
     invoke-direct {v1, v2}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
 
-    iput-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->m:Ljava/util/concurrent/atomic/AtomicInteger;
+    iput-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->k:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    .line 193
     const-wide/16 v1, 0x0
 
-    iput-wide v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->r:J
+    .line 63
+    iput-wide v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->p:J
 
-    .line 195
-    iput v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->s:I
+    .line 65
+    iput v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->q:I
 
-    .line 197
+    .line 67
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
-    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->t:Ljava/lang/Object;
+    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->r:Ljava/lang/Object;
 
-    .line 199
+    .line 69
     new-instance v0, Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-direct {v0}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V
 
-    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Ljava/util/concurrent/locks/ReentrantLock;
+    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->s:Ljava/util/concurrent/locks/ReentrantLock;
 
-    .line 201
+    .line 71
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->newCondition()Ljava/util/concurrent/locks/Condition;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->v:Ljava/util/concurrent/locks/Condition;
+    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->t:Ljava/util/concurrent/locks/Condition;
 
-    .line 216
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->z:Landroid/os/Handler;
+    .line 86
+    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->x:Landroid/os/Handler;
 
-    .line 221
-    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->A:Landroid/os/Handler;
+    .line 91
+    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->y:Landroid/os/Handler;
 
-    .line 224
-    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->B:Lcom/huawei/hms/api/CheckUpdatelistener;
+    .line 94
+    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->z:Lcom/huawei/hms/api/CheckUpdatelistener;
 
-    .line 300
-    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Landroid/content/Context;
+    .line 102
+    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b:Landroid/content/Context;
 
-    .line 301
+    .line 103
     invoke-static {p1}, Lcom/huawei/hms/utils/Util;->getAppId(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->e:Ljava/lang/String;
+    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c:Ljava/lang/String;
 
-    .line 302
-    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->f:Ljava/lang/String;
+    .line 104
+    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Ljava/lang/String;
 
-    .line 303
+    .line 105
     invoke-static {p1}, Lcom/huawei/hms/utils/Util;->getCpId(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->g:Ljava/lang/String;
+    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->e:Ljava/lang/String;
 
-    .line 304
     return-void
 .end method
 
-.method static synthetic a(Lcom/huawei/hms/api/HuaweiApiClientImpl;)Lcom/huawei/hms/api/CheckUpdatelistener;
+.method static synthetic a(Lcom/huawei/hms/api/HuaweiApiClientImpl;)Ljava/util/concurrent/atomic/AtomicInteger;
     .locals 0
 
-    .line 88
-    iget-object p0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->B:Lcom/huawei/hms/api/CheckUpdatelistener;
+    .line 1
+    iget-object p0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->k:Ljava/util/concurrent/atomic/AtomicInteger;
 
     return-object p0
-.end method
-
-.method static synthetic a(Lcom/huawei/hms/api/HuaweiApiClientImpl;Lcom/huawei/hms/api/CheckUpdatelistener;)Lcom/huawei/hms/api/CheckUpdatelistener;
-    .locals 0
-
-    .line 88
-    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->B:Lcom/huawei/hms/api/CheckUpdatelistener;
-
-    return-object p1
 .end method
 
 .method private a()V
-    .locals 1
+    .locals 4
 
-    .line 229
-    new-instance v0, Lcom/huawei/hms/api/HuaweiApiClientImpl$1;
+    .line 5
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b:Landroid/content/Context;
 
-    invoke-direct {v0, p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl$1;-><init>(Lcom/huawei/hms/api/HuaweiApiClientImpl;)V
-
-    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->C:Lcom/huawei/updatesdk/service/otaupdate/CheckUpdateCallBack;
-
-    .line 292
-    return-void
-.end method
-
-.method static synthetic a(Lcom/huawei/hms/api/HuaweiApiClientImpl;I)V
-    .locals 0
-
-    .line 88
-    invoke-direct {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b(I)V
-
-    return-void
-.end method
-
-.method static synthetic a(Lcom/huawei/hms/api/HuaweiApiClientImpl;Lcom/huawei/hms/support/api/ResolveResult;)V
-    .locals 0
-
-    .line 88
-    invoke-direct {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->a(Lcom/huawei/hms/support/api/ResolveResult;)V
-
-    return-void
-.end method
-
-.method private a(Lcom/huawei/hms/support/api/ResolveResult;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/huawei/hms/support/api/ResolveResult<",
-            "Lcom/huawei/hms/support/api/entity/core/DisconnectResp;",
-            ">;)V"
-        }
-    .end annotation
-
-    .line 1002
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "Enter onDisconnectionResult, disconnect from server result: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 1003
-    invoke-virtual {p1}, Lcom/huawei/hms/support/api/ResolveResult;->getStatus()Lcom/huawei/hms/support/api/client/Status;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Lcom/huawei/hms/support/api/client/Status;->getStatusCode()I
-
-    move-result p1
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    .line 1002
-    const-string v0, "HuaweiApiClientImpl"
-
-    invoke-static {v0, p1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 1005
-    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->n()V
-
-    .line 1006
-    const/4 p1, 0x1
-
-    invoke-direct {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b(I)V
-
-    .line 1007
-    return-void
-.end method
-
-.method private a(I)Z
-    .locals 2
-
-    .line 509
-    const/4 v0, 0x1
-
-    if-eq p1, v0, :cond_0
-
-    const/4 v1, 0x2
-
-    if-eq p1, v1, :cond_0
-
-    .line 514
-    const/4 p1, 0x0
-
-    return p1
-
-    .line 512
-    :cond_0
-    return v0
-.end method
-
-.method static synthetic a(Lcom/huawei/hms/api/HuaweiApiClientImpl;Z)Z
-    .locals 0
-
-    .line 88
-    iput-boolean p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->l:Z
-
-    return p1
-.end method
-
-.method static synthetic b(Lcom/huawei/hms/api/HuaweiApiClientImpl;)Ljava/util/concurrent/atomic/AtomicInteger;
-    .locals 0
-
-    .line 88
-    iget-object p0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->m:Ljava/util/concurrent/atomic/AtomicInteger;
-
-    return-object p0
-.end method
-
-.method private b()V
-    .locals 3
-
-    .line 519
-    const-string v0, "HuaweiApiClientImpl"
-
-    const-string v1, "Enter sendForceConnectApiServceRequest."
-
-    invoke-static {v0, v1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 520
-    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->m()Lcom/huawei/hms/support/api/entity/core/ConnectInfo;
+    invoke-static {v0}, Lcom/huawei/hms/utils/HMSPackageManager;->getInstance(Landroid/content/Context;)Lcom/huawei/hms/utils/HMSPackageManager;
 
     move-result-object v0
 
-    .line 523
-    invoke-static {p0, v0}, Lcom/huawei/hms/support/api/core/ConnectService;->forceConnect(Lcom/huawei/hms/support/api/client/ApiClient;Lcom/huawei/hms/support/api/entity/core/ConnectInfo;)Lcom/huawei/hms/support/api/client/PendingResult;
+    invoke-virtual {v0}, Lcom/huawei/hms/utils/HMSPackageManager;->getServiceAction()Ljava/lang/String;
 
     move-result-object v0
 
-    new-instance v1, Lcom/huawei/hms/api/HuaweiApiClientImpl$a;
+    .line 6
+    new-instance v1, Landroid/content/Intent;
 
-    const/4 v2, 0x0
+    invoke-direct {v1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v1, p0, v2}, Lcom/huawei/hms/api/HuaweiApiClientImpl$a;-><init>(Lcom/huawei/hms/api/HuaweiApiClientImpl;Lcom/huawei/hms/api/HuaweiApiClientImpl$1;)V
+    .line 7
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b:Landroid/content/Context;
 
-    invoke-virtual {v0, v1}, Lcom/huawei/hms/support/api/client/PendingResult;->setResultCallback(Lcom/huawei/hms/support/api/client/ResultCallback;)V
+    invoke-static {v0}, Lcom/huawei/hms/utils/HMSPackageManager;->getInstance(Landroid/content/Context;)Lcom/huawei/hms/utils/HMSPackageManager;
 
-    .line 524
-    return-void
-.end method
+    move-result-object v0
 
-.method private b(I)V
-    .locals 1
+    invoke-virtual {v0}, Lcom/huawei/hms/utils/HMSPackageManager;->refreshForMultiService()V
 
-    .line 657
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->m:Ljava/util/concurrent/atomic/AtomicInteger;
+    .line 8
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b:Landroid/content/Context;
 
-    invoke-virtual {v0, p1}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V
+    invoke-static {v0}, Lcom/huawei/hms/utils/HMSPackageManager;->getInstance(Landroid/content/Context;)Lcom/huawei/hms/utils/HMSPackageManager;
 
-    .line 658
-    const/4 v0, 0x1
+    move-result-object v0
 
-    if-eq p1, v0, :cond_0
+    invoke-virtual {v0}, Lcom/huawei/hms/utils/HMSPackageManager;->getHMSPackageNameForMultiService()Ljava/lang/String;
 
-    const/4 v0, 0x3
+    move-result-object v0
 
-    if-eq p1, v0, :cond_0
+    invoke-virtual {v1, v0}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    const/4 v0, 0x2
+    .line 9
+    sget-object v0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->A:Ljava/lang/Object;
 
-    if-ne p1, v0, :cond_1
+    monitor-enter v0
 
-    .line 659
-    :cond_0
-    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Ljava/util/concurrent/locks/ReentrantLock;
-
-    invoke-virtual {p1}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
-
-    .line 661
+    .line 10
     :try_start_0
-    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->v:Ljava/util/concurrent/locks/Condition;
+    iget-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b:Landroid/content/Context;
 
-    invoke-interface {p1}, Ljava/util/concurrent/locks/Condition;->signalAll()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    const/4 v3, 0x1
 
-    .line 663
-    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Ljava/util/concurrent/locks/ReentrantLock;
-
-    invoke-virtual {p1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
-
-    .line 664
-    nop
-
-    .line 666
-    :cond_1
-    return-void
-
-    .line 663
-    :catchall_0
-    move-exception p1
-
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Ljava/util/concurrent/locks/ReentrantLock;
-
-    invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
-
-    .line 664
-    throw p1
-.end method
-
-.method static synthetic b(Lcom/huawei/hms/api/HuaweiApiClientImpl;Lcom/huawei/hms/support/api/ResolveResult;)V
-    .locals 0
-
-    .line 88
-    invoke-direct {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b(Lcom/huawei/hms/support/api/ResolveResult;)V
-
-    return-void
-.end method
-
-.method private b(Lcom/huawei/hms/support/api/ResolveResult;)V
-    .locals 6
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/huawei/hms/support/api/ResolveResult<",
-            "Lcom/huawei/hms/support/api/entity/core/ConnectResp;",
-            ">;)V"
-        }
-    .end annotation
-
-    .line 1082
-    const-string v0, "HuaweiApiClientImpl"
-
-    const-string v1, "Enter onConnectionResult"
-
-    invoke-static {v0, v1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 1085
-    const/4 v1, 0x3
-
-    invoke-direct {p0, v1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c(I)V
-
-    .line 1088
-    invoke-virtual {p1}, Lcom/huawei/hms/support/api/ResolveResult;->getValue()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/huawei/hms/support/api/entity/core/ConnectResp;
-
-    .line 1089
-    if-eqz v2, :cond_0
-
-    .line 1090
-    iget-object v2, v2, Lcom/huawei/hms/support/api/entity/core/ConnectResp;->sessionId:Ljava/lang/String;
-
-    iput-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->i:Ljava/lang/String;
-
-    .line 1094
-    :cond_0
-    iget-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->q:Lcom/huawei/hms/support/api/client/SubAppInfo;
-
-    const/4 v3, 0x0
-
-    if-nez v2, :cond_1
-
-    move-object v2, v3
-
-    goto :goto_0
-
-    :cond_1
-    invoke-virtual {v2}, Lcom/huawei/hms/support/api/client/SubAppInfo;->getSubAppID()Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 1095
-    :goto_0
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_2
-
-    .line 1096
-    iput-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->f:Ljava/lang/String;
-
-    .line 1099
-    :cond_2
-    invoke-virtual {p1}, Lcom/huawei/hms/support/api/ResolveResult;->getStatus()Lcom/huawei/hms/support/api/client/Status;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/huawei/hms/support/api/client/Status;->getStatusCode()I
-
-    move-result v2
-
-    .line 1100
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "Enter onConnectionResult, connect to server result: "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v0, v4}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 1102
-    sget-object v4, Lcom/huawei/hms/support/api/client/Status;->SUCCESS:Lcom/huawei/hms/support/api/client/Status;
-
-    invoke-virtual {p1}, Lcom/huawei/hms/support/api/ResolveResult;->getStatus()Lcom/huawei/hms/support/api/client/Status;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Lcom/huawei/hms/support/api/client/Status;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_8
-
-    .line 1103
-    invoke-virtual {p1}, Lcom/huawei/hms/support/api/ResolveResult;->getValue()Ljava/lang/Object;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_3
-
-    .line 1104
-    invoke-static {}, Lcom/huawei/hms/api/ProtocolNegotiate;->getInstance()Lcom/huawei/hms/api/ProtocolNegotiate;
-
-    move-result-object v2
-
-    invoke-virtual {p1}, Lcom/huawei/hms/support/api/ResolveResult;->getValue()Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/huawei/hms/support/api/entity/core/ConnectResp;
-
-    iget-object p1, p1, Lcom/huawei/hms/support/api/entity/core/ConnectResp;->protocolVersion:Ljava/util/List;
-
-    invoke-virtual {v2, p1}, Lcom/huawei/hms/api/ProtocolNegotiate;->negotiate(Ljava/util/List;)I
-
-    .line 1107
-    :cond_3
-    invoke-direct {p0, v1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b(I)V
-
-    .line 1108
-    iput-object v3, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/ConnectionResult;
-
-    .line 1110
-    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->x:Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;
-
-    if-eqz p1, :cond_4
-
-    .line 1111
-    invoke-interface {p1}, Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;->onConnected()V
-
-    .line 1115
-    :cond_4
-    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->j:Ljava/lang/ref/WeakReference;
-
-    if-eqz p1, :cond_5
-
-    .line 1116
-    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->o()V
-
-    .line 1119
-    :cond_5
-    invoke-virtual {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->getApiMap()Ljava/util/Map;
-
-    move-result-object p1
-
-    invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
-
-    move-result-object p1
-
-    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object p1
-
-    :goto_1
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-virtual {v2, v1, p0, v3}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_0
 
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    .line 12
+    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->h()V
 
-    move-result-object v1
+    .line 13
+    monitor-exit v0
 
-    check-cast v1, Ljava/util/Map$Entry;
-
-    .line 1120
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/huawei/hms/api/Api;
-
-    invoke-virtual {v2}, Lcom/huawei/hms/api/Api;->getmConnetctPostList()Ljava/util/List;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_6
-
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/huawei/hms/api/Api;
-
-    invoke-virtual {v2}, Lcom/huawei/hms/api/Api;->getmConnetctPostList()Ljava/util/List;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
-
-    move-result v2
-
-    if-nez v2, :cond_6
-
-    .line 1122
-    const-string v2, "Enter onConnectionResult, get the ConnetctPostList "
-
-    invoke-static {v0, v2}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 1123
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/huawei/hms/api/Api;
-
-    invoke-virtual {v1}, Lcom/huawei/hms/api/Api;->getmConnetctPostList()Ljava/util/List;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_2
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_6
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/huawei/hms/common/api/ConnectionPostProcessor;
-
-    .line 1125
-    const-string v3, "Enter onConnectionResult, processor.run"
-
-    invoke-static {v0, v3}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 1126
-    iget-object v3, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->j:Ljava/lang/ref/WeakReference;
-
-    invoke-interface {v2, p0, v3}, Lcom/huawei/hms/common/api/ConnectionPostProcessor;->run(Lcom/huawei/hms/api/HuaweiApiClient;Ljava/lang/ref/WeakReference;)V
-
-    .line 1127
-    goto :goto_2
-
-    .line 1129
-    :cond_6
-    goto :goto_1
-
-    :cond_7
-    goto :goto_3
-
-    .line 1131
-    :cond_8
-    invoke-virtual {p1}, Lcom/huawei/hms/support/api/ResolveResult;->getStatus()Lcom/huawei/hms/support/api/client/Status;
-
-    move-result-object v0
-
-    const/4 v4, 0x1
-
-    if-eqz v0, :cond_9
-
-    .line 1132
-    invoke-virtual {p1}, Lcom/huawei/hms/support/api/ResolveResult;->getStatus()Lcom/huawei/hms/support/api/client/Status;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Lcom/huawei/hms/support/api/client/Status;->getStatusCode()I
-
-    move-result p1
-
-    const/16 v0, 0x3e9
-
-    if-ne p1, v0, :cond_9
-
-    .line 1133
-    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->n()V
-
-    .line 1134
-    invoke-direct {p0, v4}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b(I)V
-
-    .line 1136
-    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->x:Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;
-
-    if-eqz p1, :cond_b
-
-    .line 1137
-    invoke-interface {p1, v1}, Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;->onConnectionSuspended(I)V
-
-    goto :goto_3
-
-    .line 1140
-    :cond_9
-    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->n()V
-
-    .line 1142
-    invoke-direct {p0, v4}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b(I)V
-
-    .line 1144
-    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->y:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
-
-    if-eqz p1, :cond_b
-
-    .line 1145
-    nop
-
-    .line 1146
-    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->j:Ljava/lang/ref/WeakReference;
-
-    if-eqz p1, :cond_a
-
-    invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object p1
-
-    if-eqz p1, :cond_a
-
-    .line 1147
-    invoke-static {}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getInstance()Lcom/huawei/hms/api/HuaweiApiAvailability;
-
-    move-result-object p1
-
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->j:Ljava/lang/ref/WeakReference;
-
-    .line 1148
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/app/Activity;
-
-    invoke-virtual {p1, v0, v2}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getResolveErrorPendingIntent(Landroid/app/Activity;I)Landroid/app/PendingIntent;
-
-    move-result-object v3
-
-    .line 1150
-    :cond_a
-    new-instance p1, Lcom/huawei/hms/api/ConnectionResult;
-
-    invoke-direct {p1, v2, v3}, Lcom/huawei/hms/api/ConnectionResult;-><init>(ILandroid/app/PendingIntent;)V
-
-    .line 1151
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->y:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
-
-    invoke-interface {v0, p1}, Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;->onConnectionFailed(Lcom/huawei/hms/api/ConnectionResult;)V
-
-    .line 1152
-    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/ConnectionResult;
-
-    .line 1155
-    :cond_b
-    :goto_3
     return-void
-.end method
 
-.method private c()V
-    .locals 3
-
-    .line 549
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->y:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
-
-    if-eqz v0, :cond_2
-
-    .line 551
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/huawei/hms/utils/Util;->isBackground(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 552
-    const/4 v0, 0x7
-
-    goto :goto_0
-
-    .line 554
+    .line 15
     :cond_0
-    const/4 v0, 0x6
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 557
-    :goto_0
-    const/4 v1, 0x0
+    .line 16
+    invoke-direct {p0, v3}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c(I)V
 
-    .line 558
-    iget-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->j:Ljava/lang/ref/WeakReference;
+    const-string v0, "HuaweiApiClientImpl"
 
-    if-eqz v2, :cond_1
+    const-string v1, "In connect, bind core service fail"
 
-    invoke-virtual {v2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    .line 17
+    invoke-static {v0, v1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result-object v2
+    .line 18
+    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b()V
 
-    if-eqz v2, :cond_1
-
-    .line 560
-    invoke-static {}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getInstance()Lcom/huawei/hms/api/HuaweiApiAvailability;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->j:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/app/Activity;
-
-    invoke-virtual {v1, v2, v0}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getResolveErrorPendingIntent(Landroid/app/Activity;I)Landroid/app/PendingIntent;
-
-    move-result-object v1
-
-    .line 562
-    :cond_1
-    new-instance v2, Lcom/huawei/hms/api/ConnectionResult;
-
-    invoke-direct {v2, v0, v1}, Lcom/huawei/hms/api/ConnectionResult;-><init>(ILandroid/app/PendingIntent;)V
-
-    .line 563
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->y:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
-
-    invoke-interface {v0, v2}, Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;->onConnectionFailed(Lcom/huawei/hms/api/ConnectionResult;)V
-
-    .line 564
-    iput-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/ConnectionResult;
-
-    .line 566
-    :cond_2
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    .line 19
+    :try_start_1
+    monitor-exit v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v1
 .end method
 
-.method private c(I)V
+.method private a(I)V
     .locals 4
 
-    .line 742
-    const/4 v0, 0x2
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    const/4 v1, 0x2
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v1, :cond_1
 
-    .line 743
-    sget-object v2, Lcom/huawei/hms/api/HuaweiApiClientImpl;->a:Ljava/lang/Object;
+    .line 20
+    sget-object v2, Lcom/huawei/hms/api/HuaweiApiClientImpl;->A:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 744
+    .line 21
     :try_start_0
-    iget-object v3, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->z:Landroid/os/Handler;
+    iget-object v3, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->x:Landroid/os/Handler;
 
     if-eqz v3, :cond_0
 
-    .line 745
-    iget-object v3, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->z:Landroid/os/Handler;
-
+    .line 22
     invoke-virtual {v3, p1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 746
-    iput-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->z:Landroid/os/Handler;
+    .line 23
+    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->x:Landroid/os/Handler;
 
-    .line 748
+    .line 25
     :cond_0
     monitor-exit v2
 
@@ -965,33 +384,30 @@
 
     throw p1
 
-    .line 750
     :cond_1
     :goto_0
     const/4 v2, 0x3
 
     if-ne p1, v2, :cond_3
 
-    .line 751
-    sget-object v2, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b:Ljava/lang/Object;
+    .line 28
+    sget-object v2, Lcom/huawei/hms/api/HuaweiApiClientImpl;->B:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 752
+    .line 29
     :try_start_1
-    iget-object v3, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->A:Landroid/os/Handler;
+    iget-object v3, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->y:Landroid/os/Handler;
 
     if-eqz v3, :cond_2
 
-    .line 753
-    iget-object v3, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->A:Landroid/os/Handler;
-
+    .line 30
     invoke-virtual {v3, p1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 754
-    iput-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->A:Landroid/os/Handler;
+    .line 31
+    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->y:Landroid/os/Handler;
 
-    .line 756
+    .line 33
     :cond_2
     monitor-exit v2
 
@@ -1006,35 +422,31 @@
 
     throw p1
 
-    .line 759
+    .line 36
     :cond_3
     :goto_1
-    sget-object p1, Lcom/huawei/hms/api/HuaweiApiClientImpl;->a:Ljava/lang/Object;
+    sget-object p1, Lcom/huawei/hms/api/HuaweiApiClientImpl;->A:Ljava/lang/Object;
 
     monitor-enter p1
 
-    .line 760
+    .line 37
     :try_start_2
-    iget-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->z:Landroid/os/Handler;
+    iget-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->x:Landroid/os/Handler;
 
     if-eqz v2, :cond_4
 
-    .line 761
-    iget-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->z:Landroid/os/Handler;
+    .line 38
+    invoke-virtual {v2, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    invoke-virtual {v2, v0}, Landroid/os/Handler;->removeMessages(I)V
+    .line 39
+    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->x:Landroid/os/Handler;
 
-    .line 762
-    iput-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->z:Landroid/os/Handler;
-
-    .line 764
+    .line 41
     :cond_4
     monitor-exit p1
 
-    .line 765
     return-void
 
-    .line 764
     :catchall_2
     move-exception v0
 
@@ -1045,26 +457,840 @@
     throw v0
 .end method
 
-.method static synthetic c(Lcom/huawei/hms/api/HuaweiApiClientImpl;)V
+.method static synthetic a(Lcom/huawei/hms/api/HuaweiApiClientImpl;I)V
     .locals 0
 
-    .line 88
-    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c()V
+    .line 2
+    invoke-direct {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c(I)V
 
     return-void
 .end method
 
-.method private d()I
+.method static synthetic a(Lcom/huawei/hms/api/HuaweiApiClientImpl;Lcom/huawei/hms/support/api/ResolveResult;)V
+    .locals 0
+
+    .line 3
+    invoke-direct {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b(Lcom/huawei/hms/support/api/ResolveResult;)V
+
+    return-void
+.end method
+
+.method private a(Lcom/huawei/hms/support/api/ResolveResult;)V
+    .locals 6
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/huawei/hms/support/api/ResolveResult<",
+            "Lcom/huawei/hms/support/api/entity/core/ConnectResp;",
+            ">;)V"
+        }
+    .end annotation
+
+    const-string v0, "Enter onConnectionResult"
+
+    const-string v1, "HuaweiApiClientImpl"
+
+    .line 42
+    invoke-static {v1, v0}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 43
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->f:Lcom/huawei/hms/core/aidl/IAIDLInvoke;
+
+    if-eqz v0, :cond_8
+
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->k:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
+
+    move-result v0
+
+    const/4 v2, 0x2
+
+    if-eq v0, v2, :cond_0
+
+    goto/16 :goto_2
+
+    :cond_0
+    const/4 v0, 0x3
+
+    .line 50
+    invoke-direct {p0, v0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->a(I)V
+
+    .line 53
+    invoke-virtual {p1}, Lcom/huawei/hms/support/api/ResolveResult;->getValue()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/huawei/hms/support/api/entity/core/ConnectResp;
+
+    if-eqz v2, :cond_1
+
+    .line 55
+    iget-object v2, v2, Lcom/huawei/hms/support/api/entity/core/ConnectResp;->sessionId:Ljava/lang/String;
+
+    iput-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->g:Ljava/lang/String;
+
+    .line 59
+    :cond_1
+    iget-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->o:Lcom/huawei/hms/support/api/client/SubAppInfo;
+
+    const/4 v3, 0x0
+
+    if-nez v2, :cond_2
+
+    move-object v2, v3
+
+    goto :goto_0
+
+    :cond_2
+    invoke-virtual {v2}, Lcom/huawei/hms/support/api/client/SubAppInfo;->getSubAppID()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 60
+    :goto_0
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_3
+
+    .line 61
+    iput-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Ljava/lang/String;
+
+    .line 64
+    :cond_3
+    invoke-virtual {p1}, Lcom/huawei/hms/support/api/ResolveResult;->getStatus()Lcom/huawei/hms/support/api/client/Status;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/huawei/hms/support/api/client/Status;->getStatusCode()I
+
+    move-result v2
+
+    .line 65
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    const-string v5, "Enter onConnectionResult, connect to server result: "
+
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v1, v4}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 67
+    sget-object v1, Lcom/huawei/hms/support/api/client/Status;->SUCCESS:Lcom/huawei/hms/support/api/client/Status;
+
+    invoke-virtual {p1}, Lcom/huawei/hms/support/api/ResolveResult;->getStatus()Lcom/huawei/hms/support/api/client/Status;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v4}, Lcom/huawei/hms/support/api/client/Status;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    .line 68
+    invoke-direct {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c(Lcom/huawei/hms/support/api/ResolveResult;)V
+
+    goto :goto_1
+
+    .line 69
+    :cond_4
+    invoke-virtual {p1}, Lcom/huawei/hms/support/api/ResolveResult;->getStatus()Lcom/huawei/hms/support/api/client/Status;
+
+    move-result-object v1
+
+    const/4 v4, 0x1
+
+    if-eqz v1, :cond_5
+
+    .line 70
+    invoke-virtual {p1}, Lcom/huawei/hms/support/api/ResolveResult;->getStatus()Lcom/huawei/hms/support/api/client/Status;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Lcom/huawei/hms/support/api/client/Status;->getStatusCode()I
+
+    move-result p1
+
+    const/16 v1, 0x3e9
+
+    if-ne p1, v1, :cond_5
+
+    .line 71
+    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->n()V
+
+    .line 72
+    invoke-direct {p0, v4}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c(I)V
+
+    .line 74
+    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->v:Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;
+
+    if-eqz p1, :cond_7
+
+    .line 75
+    invoke-interface {p1, v0}, Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;->onConnectionSuspended(I)V
+
+    goto :goto_1
+
+    .line 78
+    :cond_5
+    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->n()V
+
+    .line 80
+    invoke-direct {p0, v4}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c(I)V
+
+    .line 82
+    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
+
+    if-eqz p1, :cond_7
+
+    .line 84
+    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->h:Ljava/lang/ref/WeakReference;
+
+    if-eqz p1, :cond_6
+
+    invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_6
+
+    .line 85
+    invoke-static {}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getInstance()Lcom/huawei/hms/api/HuaweiApiAvailability;
+
+    move-result-object p1
+
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->h:Ljava/lang/ref/WeakReference;
+
+    .line 86
+    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/Activity;
+
+    invoke-virtual {p1, v0, v2}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getResolveErrorPendingIntent(Landroid/app/Activity;I)Landroid/app/PendingIntent;
+
+    move-result-object v3
+
+    .line 88
+    :cond_6
+    new-instance p1, Lcom/huawei/hms/api/ConnectionResult;
+
+    invoke-direct {p1, v2, v3}, Lcom/huawei/hms/api/ConnectionResult;-><init>(ILandroid/app/PendingIntent;)V
+
+    .line 89
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
+
+    invoke-interface {v0, p1}, Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;->onConnectionFailed(Lcom/huawei/hms/api/ConnectionResult;)V
+
+    .line 90
+    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Lcom/huawei/hms/api/ConnectionResult;
+
+    :cond_7
+    :goto_1
+    return-void
+
+    :cond_8
+    :goto_2
+    const-string p1, "Invalid onConnectionResult"
+
+    .line 91
+    invoke-static {v1, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic a(Lcom/huawei/hms/api/HuaweiApiClientImpl;Z)Z
+    .locals 0
+
+    .line 4
+    iput-boolean p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->j:Z
+
+    return p1
+.end method
+
+.method private b()V
     .locals 3
 
-    .line 578
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Landroid/content/Context;
+    .line 11
+    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->n()V
+
+    .line 12
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
+
+    if-eqz v0, :cond_2
+
+    .line 14
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/huawei/hms/utils/UIUtil;->isBackground(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x7
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x6
+
+    .line 21
+    :goto_0
+    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->h:Ljava/lang/ref/WeakReference;
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    .line 23
+    invoke-static {}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getInstance()Lcom/huawei/hms/api/HuaweiApiAvailability;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->h:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/app/Activity;
+
+    invoke-virtual {v1, v2, v0}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getResolveErrorPendingIntent(Landroid/app/Activity;I)Landroid/app/PendingIntent;
+
+    move-result-object v1
+
+    goto :goto_1
+
+    :cond_1
+    const/4 v1, 0x0
+
+    .line 25
+    :goto_1
+    new-instance v2, Lcom/huawei/hms/api/ConnectionResult;
+
+    invoke-direct {v2, v0, v1}, Lcom/huawei/hms/api/ConnectionResult;-><init>(ILandroid/app/PendingIntent;)V
+
+    .line 26
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
+
+    invoke-interface {v0, v2}, Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;->onConnectionFailed(Lcom/huawei/hms/api/ConnectionResult;)V
+
+    .line 27
+    iput-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Lcom/huawei/hms/api/ConnectionResult;
+
+    :cond_2
+    return-void
+.end method
+
+.method private b(I)V
+    .locals 3
+
+    .line 3
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->h:Ljava/lang/ref/WeakReference;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    .line 5
+    invoke-static {}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getInstance()Lcom/huawei/hms/api/HuaweiApiAvailability;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->h:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/app/Activity;
+
+    invoke-virtual {v0, v1, p1}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getResolveErrorPendingIntent(Landroid/app/Activity;I)Landroid/app/PendingIntent;
+
+    move-result-object v0
+
+    .line 6
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    const-string v2, "connect 2.0 fail: "
+
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "HuaweiApiClientImpl"
+
+    invoke-static {v2, v1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    .line 8
+    :goto_0
+    new-instance v1, Lcom/huawei/hms/api/ConnectionResult;
+
+    invoke-direct {v1, p1, v0}, Lcom/huawei/hms/api/ConnectionResult;-><init>(ILandroid/app/PendingIntent;)V
+
+    .line 9
+    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
+
+    invoke-interface {p1, v1}, Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;->onConnectionFailed(Lcom/huawei/hms/api/ConnectionResult;)V
+
+    .line 10
+    iput-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Lcom/huawei/hms/api/ConnectionResult;
+
+    return-void
+.end method
+
+.method static synthetic b(Lcom/huawei/hms/api/HuaweiApiClientImpl;)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b()V
+
+    return-void
+.end method
+
+.method static synthetic b(Lcom/huawei/hms/api/HuaweiApiClientImpl;Lcom/huawei/hms/support/api/ResolveResult;)V
+    .locals 0
+
+    .line 2
+    invoke-direct {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->a(Lcom/huawei/hms/support/api/ResolveResult;)V
+
+    return-void
+.end method
+
+.method private b(Lcom/huawei/hms/support/api/ResolveResult;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/huawei/hms/support/api/ResolveResult<",
+            "Lcom/huawei/hms/support/api/entity/core/DisconnectResp;",
+            ">;)V"
+        }
+    .end annotation
+
+    .line 28
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "Enter onDisconnectionResult, disconnect from server result: "
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    .line 29
+    invoke-virtual {p1}, Lcom/huawei/hms/support/api/ResolveResult;->getStatus()Lcom/huawei/hms/support/api/client/Status;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Lcom/huawei/hms/support/api/client/Status;->getStatusCode()I
+
+    move-result p1
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v0, "HuaweiApiClientImpl"
+
+    .line 30
+    invoke-static {v0, p1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 33
+    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->n()V
+
+    const/4 p1, 0x1
+
+    .line 34
+    invoke-direct {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c(I)V
+
+    return-void
+.end method
+
+.method private c()Lcom/huawei/hms/support/api/entity/core/ConnectInfo;
+    .locals 5
+
+    .line 10
+    new-instance v0, Lcom/huawei/hms/utils/PackageManagerHelper;
+
+    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b:Landroid/content/Context;
+
+    invoke-direct {v0, v1}, Lcom/huawei/hms/utils/PackageManagerHelper;-><init>(Landroid/content/Context;)V
+
+    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/huawei/hms/utils/PackageManagerHelper;->getPackageSignature(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    const-string v0, ""
+
+    .line 13
+    :cond_0
+    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->o:Lcom/huawei/hms/support/api/client/SubAppInfo;
+
+    if-nez v1, :cond_1
+
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {v1}, Lcom/huawei/hms/support/api/client/SubAppInfo;->getSubAppID()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 15
+    :goto_0
+    new-instance v2, Lcom/huawei/hms/support/api/entity/core/ConnectInfo;
+
+    invoke-virtual {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->getApiNameList()Ljava/util/List;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->l:Ljava/util/List;
+
+    invoke-direct {v2, v3, v4, v0, v1}, Lcom/huawei/hms/support/api/entity/core/ConnectInfo;-><init>(Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)V
+
+    return-object v2
+.end method
+
+.method static synthetic c(Lcom/huawei/hms/api/HuaweiApiClientImpl;)Ljava/lang/ref/WeakReference;
+    .locals 0
+
+    .line 1
+    iget-object p0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->h:Ljava/lang/ref/WeakReference;
+
+    return-object p0
+.end method
+
+.method private c(I)V
+    .locals 1
+
+    .line 2
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->k:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    invoke-virtual {v0, p1}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V
+
+    const/4 v0, 0x1
+
+    if-eq p1, v0, :cond_0
+
+    const/4 v0, 0x3
+
+    if-eq p1, v0, :cond_0
+
+    const/4 v0, 0x2
+
+    if-ne p1, v0, :cond_1
+
+    .line 4
+    :cond_0
+    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->s:Ljava/util/concurrent/locks/ReentrantLock;
+
+    invoke-virtual {p1}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
+
+    .line 6
+    :try_start_0
+    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->t:Ljava/util/concurrent/locks/Condition;
+
+    invoke-interface {p1}, Ljava/util/concurrent/locks/Condition;->signalAll()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 8
+    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->s:Ljava/util/concurrent/locks/ReentrantLock;
+
+    invoke-virtual {p1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
+
+    :cond_1
+    return-void
+
+    :catchall_0
+    move-exception p1
+
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->s:Ljava/util/concurrent/locks/ReentrantLock;
+
+    invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
+
+    .line 9
+    throw p1
+.end method
+
+.method private c(Lcom/huawei/hms/support/api/ResolveResult;)V
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/huawei/hms/support/api/ResolveResult<",
+            "Lcom/huawei/hms/support/api/entity/core/ConnectResp;",
+            ">;)V"
+        }
+    .end annotation
+
+    .line 16
+    invoke-virtual {p1}, Lcom/huawei/hms/support/api/ResolveResult;->getValue()Ljava/lang/Object;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    .line 17
+    invoke-static {}, Lcom/huawei/hms/api/ProtocolNegotiate;->getInstance()Lcom/huawei/hms/api/ProtocolNegotiate;
+
+    move-result-object v0
+
+    invoke-virtual {p1}, Lcom/huawei/hms/support/api/ResolveResult;->getValue()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/huawei/hms/support/api/entity/core/ConnectResp;
+
+    iget-object p1, p1, Lcom/huawei/hms/support/api/entity/core/ConnectResp;->protocolVersion:Ljava/util/List;
+
+    invoke-virtual {v0, p1}, Lcom/huawei/hms/api/ProtocolNegotiate;->negotiate(Ljava/util/List;)I
+
+    :cond_0
+    const/4 p1, 0x3
+
+    .line 20
+    invoke-direct {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c(I)V
+
+    const/4 p1, 0x0
+
+    .line 21
+    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Lcom/huawei/hms/api/ConnectionResult;
+
+    .line 23
+    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->v:Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;
+
+    if-eqz p1, :cond_1
+
+    .line 24
+    invoke-interface {p1}, Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;->onConnected()V
+
+    .line 28
+    :cond_1
+    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->h:Ljava/lang/ref/WeakReference;
+
+    if-eqz p1, :cond_2
+
+    .line 29
+    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->m()V
+
+    .line 32
+    :cond_2
+    invoke-virtual {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->getApiMap()Ljava/util/Map;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :cond_3
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map$Entry;
+
+    .line 33
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/huawei/hms/api/Api;
+
+    invoke-virtual {v1}, Lcom/huawei/hms/api/Api;->getmConnetctPostList()Ljava/util/List;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_3
+
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/huawei/hms/api/Api;
+
+    invoke-virtual {v1}, Lcom/huawei/hms/api/Api;->getmConnetctPostList()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_3
+
+    const-string v1, "Enter onConnectionResult, get the ConnetctPostList "
+
+    const-string v2, "HuaweiApiClientImpl"
+
+    .line 34
+    invoke-static {v2, v1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 35
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/huawei/hms/api/Api;
+
+    invoke-virtual {v0}, Lcom/huawei/hms/api/Api;->getmConnetctPostList()Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/huawei/hms/common/api/ConnectionPostProcessor;
+
+    const-string v3, "Enter onConnectionResult, processor.run"
+
+    .line 36
+    invoke-static {v2, v3}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 37
+    iget-object v3, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->h:Ljava/lang/ref/WeakReference;
+
+    invoke-interface {v1, p0, v3}, Lcom/huawei/hms/common/api/ConnectionPostProcessor;->run(Lcom/huawei/hms/api/HuaweiApiClient;Ljava/lang/ref/WeakReference;)V
+
+    goto :goto_0
+
+    :cond_4
+    return-void
+.end method
+
+.method private d()Lcom/huawei/hms/support/api/entity/core/DisconnectInfo;
+    .locals 3
+
+    .line 1
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    .line 3
+    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->n:Ljava/util/Map;
+
+    if-eqz v1, :cond_0
+
+    .line 4
+    invoke-interface {v1}, Ljava/util/Map;->keySet()Ljava/util/Set;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    .line 5
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 6
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/huawei/hms/api/Api;
+
+    .line 7
+    invoke-virtual {v2}, Lcom/huawei/hms/api/Api;->getApiName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    .line 10
+    :cond_0
+    new-instance v1, Lcom/huawei/hms/support/api/entity/core/DisconnectInfo;
+
+    iget-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->l:Ljava/util/List;
+
+    invoke-direct {v1, v2, v0}, Lcom/huawei/hms/support/api/entity/core/DisconnectInfo;-><init>(Ljava/util/List;Ljava/util/List;)V
+
+    return-object v1
+.end method
+
+.method private e()I
+    .locals 3
+
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/huawei/hms/utils/Util;->getHmsVersion(Landroid/content/Context;)I
 
     move-result v0
 
-    .line 580
     const v1, 0x138d9d8
 
     if-eqz v0, :cond_1
@@ -1073,91 +1299,70 @@
 
     goto :goto_0
 
-    .line 602
     :cond_0
     return v0
 
-    .line 584
+    .line 7
     :cond_1
     :goto_0
-    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->e()I
+    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->f()I
 
     move-result v0
 
-    .line 587
-    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->f()Z
+    .line 10
+    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->g()Z
 
     move-result v2
 
     if-eqz v2, :cond_3
 
-    .line 589
     if-ge v0, v1, :cond_2
 
-    .line 590
     goto :goto_1
 
-    .line 589
     :cond_2
     move v1, v0
 
-    .line 592
     :goto_1
     return v1
 
-    .line 595
     :cond_3
     const v1, 0x13a54c0
 
     if-ge v0, v1, :cond_4
 
-    .line 596
     move v0, v1
 
-    .line 598
     :cond_4
     return v0
 .end method
 
-.method static synthetic d(Lcom/huawei/hms/api/HuaweiApiClientImpl;)Ljava/lang/ref/WeakReference;
-    .locals 0
-
-    .line 88
-    iget-object p0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->j:Ljava/lang/ref/WeakReference;
-
-    return-object p0
-.end method
-
-.method private e()I
+.method private f()I
     .locals 4
 
-    .line 614
+    .line 1
     invoke-virtual {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->getApiMap()Ljava/util/Map;
 
     move-result-object v0
 
-    .line 615
     const/4 v1, 0x0
 
     if-nez v0, :cond_0
 
-    .line 616
     return v1
 
-    .line 618
+    .line 5
     :cond_0
     invoke-interface {v0}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
     move-result-object v0
 
-    .line 620
-    nop
-
-    .line 621
+    .line 8
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
+    :cond_1
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1171,62 +1376,56 @@
 
     check-cast v2, Lcom/huawei/hms/api/Api;
 
-    .line 622
+    .line 9
     invoke-virtual {v2}, Lcom/huawei/hms/api/Api;->getApiName()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 623
+    .line 10
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
     if-nez v3, :cond_1
 
-    .line 624
+    .line 11
     invoke-static {}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getApiMap()Ljava/util/Map;
 
     move-result-object v3
 
-    .line 625
+    .line 12
     invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Ljava/lang/Integer;
 
-    .line 626
     if-eqz v2, :cond_1
 
-    .line 627
+    .line 14
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
 
-    .line 628
     if-le v2, v1, :cond_1
 
-    .line 629
     move v1, v2
 
-    .line 633
-    :cond_1
     goto :goto_0
 
-    .line 635
     :cond_2
     return v1
 .end method
 
-.method private f()Z
+.method private g()Z
     .locals 3
 
-    .line 639
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->p:Ljava/util/Map;
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->n:Ljava/util/Map;
 
     if-eqz v0, :cond_1
 
-    .line 640
+    .line 2
     invoke-interface {v0}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
     move-result-object v0
@@ -1235,22 +1434,22 @@
 
     move-result-object v0
 
-    .line 641
-    :goto_0
+    .line 3
+    :cond_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 642
+    .line 4
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Lcom/huawei/hms/api/Api;
 
-    .line 643
+    .line 5
     invoke-virtual {v1}, Lcom/huawei/hms/api/Api;->getApiName()Ljava/lang/String;
 
     move-result-object v1
@@ -1263,120 +1462,32 @@
 
     if-eqz v1, :cond_0
 
-    .line 644
     const/4 v0, 0x1
 
     return v0
 
-    .line 646
-    :cond_0
-    goto :goto_0
-
-    .line 648
     :cond_1
     const/4 v0, 0x0
 
     return v0
 .end method
 
-.method private g()V
-    .locals 4
-
-    .line 672
-    new-instance v0, Landroid/content/Intent;
-
-    const-string v1, "com.huawei.hms.core.aidlservice"
-
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .line 673
-    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Landroid/content/Context;
-
-    invoke-static {v1}, Lcom/huawei/hms/utils/HMSPackageManager;->getInstance(Landroid/content/Context;)Lcom/huawei/hms/utils/HMSPackageManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/huawei/hms/utils/HMSPackageManager;->getHMSPackageName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 674
-    sget-object v1, Lcom/huawei/hms/api/HuaweiApiClientImpl;->a:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    .line 675
-    :try_start_0
-    iget-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Landroid/content/Context;
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v2, v0, p0, v3}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 677
-    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->h()V
-
-    .line 678
-    monitor-exit v1
-
-    return-void
-
-    .line 680
-    :cond_0
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 681
-    invoke-direct {p0, v3}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b(I)V
-
-    .line 682
-    const-string v0, "HuaweiApiClientImpl"
-
-    const-string v1, "In connect, bind core service fail"
-
-    invoke-static {v0, v1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 683
-    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c()V
-
-    .line 684
-    return-void
-
-    .line 680
-    :catchall_0
-    move-exception v0
-
-    :try_start_1
-    monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    throw v0
-.end method
-
 .method private h()V
     .locals 4
 
-    .line 690
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->z:Landroid/os/Handler;
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->x:Landroid/os/Handler;
 
     const/4 v1, 0x2
 
     if-eqz v0, :cond_0
 
-    .line 691
+    .line 2
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
     goto :goto_0
 
-    .line 693
+    .line 4
     :cond_0
     new-instance v0, Landroid/os/Handler;
 
@@ -1384,323 +1495,219 @@
 
     move-result-object v2
 
-    new-instance v3, Lcom/huawei/hms/api/HuaweiApiClientImpl$2;
+    new-instance v3, Lcom/huawei/hms/api/HuaweiApiClientImpl$a;
 
-    invoke-direct {v3, p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl$2;-><init>(Lcom/huawei/hms/api/HuaweiApiClientImpl;)V
+    invoke-direct {v3, p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl$a;-><init>(Lcom/huawei/hms/api/HuaweiApiClientImpl;)V
 
     invoke-direct {v0, v2, v3}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;)V
 
-    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->z:Landroid/os/Handler;
+    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->x:Landroid/os/Handler;
 
-    .line 711
+    .line 22
     :goto_0
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->z:Landroid/os/Handler;
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->x:Landroid/os/Handler;
 
     const-wide/16 v2, 0x1388
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 712
     return-void
 .end method
 
 .method private i()V
-    .locals 5
+    .locals 6
 
-    .line 718
-    sget-object v0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b:Ljava/lang/Object;
+    const-string v0, "sendEmptyMessageDelayed for onConnectionResult 3 seconds. the result is : "
 
-    monitor-enter v0
+    .line 1
+    sget-object v1, Lcom/huawei/hms/api/HuaweiApiClientImpl;->B:Ljava/lang/Object;
 
-    .line 719
+    monitor-enter v1
+
+    .line 2
     :try_start_0
-    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->A:Landroid/os/Handler;
+    iget-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->y:Landroid/os/Handler;
 
-    const/4 v2, 0x3
+    const/4 v3, 0x3
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    .line 720
-    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->A:Landroid/os/Handler;
-
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->removeMessages(I)V
+    .line 3
+    invoke-virtual {v2, v3}, Landroid/os/Handler;->removeMessages(I)V
 
     goto :goto_0
 
-    .line 722
+    .line 5
     :cond_0
-    new-instance v1, Landroid/os/Handler;
+    new-instance v2, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
-    move-result-object v3
+    move-result-object v4
 
-    new-instance v4, Lcom/huawei/hms/api/HuaweiApiClientImpl$3;
+    new-instance v5, Lcom/huawei/hms/api/HuaweiApiClientImpl$b;
 
-    invoke-direct {v4, p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl$3;-><init>(Lcom/huawei/hms/api/HuaweiApiClientImpl;)V
+    invoke-direct {v5, p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl$b;-><init>(Lcom/huawei/hms/api/HuaweiApiClientImpl;)V
 
-    invoke-direct {v1, v3, v4}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;)V
+    invoke-direct {v2, v4, v5}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;)V
 
-    iput-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->A:Landroid/os/Handler;
+    iput-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->y:Landroid/os/Handler;
 
-    .line 736
+    .line 20
     :goto_0
-    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->A:Landroid/os/Handler;
+    iget-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->y:Landroid/os/Handler;
 
-    const-wide/16 v3, 0xbb8
+    const-wide/16 v4, 0xbb8
 
-    invoke-virtual {v1, v2, v3, v4}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+    invoke-virtual {v2, v3, v4, v5}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    move-result v1
-
-    .line 737
-    const-string v2, "HuaweiApiClientImpl"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "sendEmptyMessageDelayed for onConnectionResult 3 seconds. the result is : "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v2, v1}, Lcom/huawei/hms/support/log/HMSLog;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 738
-    monitor-exit v0
-
-    .line 739
-    return-void
-
-    .line 738
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
+    move-result v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    const-string v3, "HuaweiApiClientImpl"
+
+    .line 21
+    :try_start_1
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v3, v0}, Lcom/huawei/hms/support/log/HMSLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 22
+    monitor-exit v1
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v0
 .end method
 
 .method private j()V
     .locals 3
 
-    .line 971
-    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->k()Lcom/huawei/hms/support/api/entity/core/DisconnectInfo;
+    const-string v0, "HuaweiApiClientImpl"
+
+    const-string v1, "Enter sendConnectApiServceRequest."
+
+    .line 1
+    invoke-static {v0, v1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 2
+    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c()Lcom/huawei/hms/support/api/entity/core/ConnectInfo;
 
     move-result-object v0
 
-    .line 974
+    .line 5
+    invoke-static {p0, v0}, Lcom/huawei/hms/support/api/core/ConnectService;->connect(Lcom/huawei/hms/support/api/client/ApiClient;Lcom/huawei/hms/support/api/entity/core/ConnectInfo;)Lcom/huawei/hms/support/api/client/PendingResult;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/huawei/hms/api/HuaweiApiClientImpl$e;
+
+    const/4 v2, 0x0
+
+    invoke-direct {v1, p0, v2}, Lcom/huawei/hms/api/HuaweiApiClientImpl$e;-><init>(Lcom/huawei/hms/api/HuaweiApiClientImpl;Lcom/huawei/hms/api/HuaweiApiClientImpl$a;)V
+
+    invoke-virtual {v0, v1}, Lcom/huawei/hms/support/api/client/PendingResult;->setResultCallback(Lcom/huawei/hms/support/api/client/ResultCallback;)V
+
+    return-void
+.end method
+
+.method private k()V
+    .locals 3
+
+    .line 1
+    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d()Lcom/huawei/hms/support/api/entity/core/DisconnectInfo;
+
+    move-result-object v0
+
+    .line 4
     invoke-static {p0, v0}, Lcom/huawei/hms/support/api/core/ConnectService;->disconnect(Lcom/huawei/hms/support/api/client/ApiClient;Lcom/huawei/hms/support/api/entity/core/DisconnectInfo;)Lcom/huawei/hms/support/api/ResolvePendingResult;
 
     move-result-object v0
 
-    new-instance v1, Lcom/huawei/hms/api/HuaweiApiClientImpl$b;
+    new-instance v1, Lcom/huawei/hms/api/HuaweiApiClientImpl$f;
 
     const/4 v2, 0x0
 
-    invoke-direct {v1, p0, v2}, Lcom/huawei/hms/api/HuaweiApiClientImpl$b;-><init>(Lcom/huawei/hms/api/HuaweiApiClientImpl;Lcom/huawei/hms/api/HuaweiApiClientImpl$1;)V
+    invoke-direct {v1, p0, v2}, Lcom/huawei/hms/api/HuaweiApiClientImpl$f;-><init>(Lcom/huawei/hms/api/HuaweiApiClientImpl;Lcom/huawei/hms/api/HuaweiApiClientImpl$a;)V
 
-    invoke-virtual {v0, v1}, Lcom/huawei/hms/support/api/ResolvePendingResult;->setResultCallback(Lcom/huawei/hms/support/api/client/ResultCallback;)V
+    invoke-virtual {v0, v1}, Lcom/huawei/hms/support/api/PendingResultImpl;->setResultCallback(Lcom/huawei/hms/support/api/client/ResultCallback;)V
 
-    .line 975
     return-void
-.end method
-
-.method private k()Lcom/huawei/hms/support/api/entity/core/DisconnectInfo;
-    .locals 3
-
-    .line 984
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    .line 986
-    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->p:Ljava/util/Map;
-
-    if-eqz v1, :cond_0
-
-    .line 987
-    invoke-interface {v1}, Ljava/util/Map;->keySet()Ljava/util/Set;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    .line 988
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    .line 989
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/huawei/hms/api/Api;
-
-    .line 990
-    invoke-virtual {v2}, Lcom/huawei/hms/api/Api;->getApiName()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 991
-    goto :goto_0
-
-    .line 993
-    :cond_0
-    new-instance v1, Lcom/huawei/hms/support/api/entity/core/DisconnectInfo;
-
-    iget-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->n:Ljava/util/List;
-
-    invoke-direct {v1, v2, v0}, Lcom/huawei/hms/support/api/entity/core/DisconnectInfo;-><init>(Ljava/util/List;Ljava/util/List;)V
-
-    return-object v1
 .end method
 
 .method private l()V
     .locals 3
 
-    .line 1054
     const-string v0, "HuaweiApiClientImpl"
 
-    const-string v1, "Enter sendConnectApiServceRequest."
+    const-string v1, "Enter sendForceConnectApiServceRequest."
 
+    .line 1
     invoke-static {v0, v1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1055
-    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->m()Lcom/huawei/hms/support/api/entity/core/ConnectInfo;
+    .line 2
+    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c()Lcom/huawei/hms/support/api/entity/core/ConnectInfo;
 
     move-result-object v0
 
-    .line 1058
-    invoke-static {p0, v0}, Lcom/huawei/hms/support/api/core/ConnectService;->connect(Lcom/huawei/hms/support/api/client/ApiClient;Lcom/huawei/hms/support/api/entity/core/ConnectInfo;)Lcom/huawei/hms/support/api/client/PendingResult;
+    .line 5
+    invoke-static {p0, v0}, Lcom/huawei/hms/support/api/core/ConnectService;->forceConnect(Lcom/huawei/hms/support/api/client/ApiClient;Lcom/huawei/hms/support/api/entity/core/ConnectInfo;)Lcom/huawei/hms/support/api/client/PendingResult;
 
     move-result-object v0
 
-    new-instance v1, Lcom/huawei/hms/api/HuaweiApiClientImpl$a;
+    new-instance v1, Lcom/huawei/hms/api/HuaweiApiClientImpl$e;
 
     const/4 v2, 0x0
 
-    invoke-direct {v1, p0, v2}, Lcom/huawei/hms/api/HuaweiApiClientImpl$a;-><init>(Lcom/huawei/hms/api/HuaweiApiClientImpl;Lcom/huawei/hms/api/HuaweiApiClientImpl$1;)V
+    invoke-direct {v1, p0, v2}, Lcom/huawei/hms/api/HuaweiApiClientImpl$e;-><init>(Lcom/huawei/hms/api/HuaweiApiClientImpl;Lcom/huawei/hms/api/HuaweiApiClientImpl$a;)V
 
     invoke-virtual {v0, v1}, Lcom/huawei/hms/support/api/client/PendingResult;->setResultCallback(Lcom/huawei/hms/support/api/client/ResultCallback;)V
 
-    .line 1059
     return-void
 .end method
 
-.method private m()Lcom/huawei/hms/support/api/entity/core/ConnectInfo;
-    .locals 5
-
-    .line 1068
-    new-instance v0, Lcom/huawei/hms/utils/PackageManagerHelper;
-
-    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Landroid/content/Context;
-
-    invoke-direct {v0, v1}, Lcom/huawei/hms/utils/PackageManagerHelper;-><init>(Landroid/content/Context;)V
-
-    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/huawei/hms/utils/PackageManagerHelper;->getPackageSignature(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 1069
-    if-nez v0, :cond_0
-
-    const-string v0, ""
-
-    .line 1071
-    :cond_0
-    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->q:Lcom/huawei/hms/support/api/client/SubAppInfo;
-
-    if-nez v1, :cond_1
-
-    const/4 v1, 0x0
-
-    goto :goto_0
-
-    :cond_1
-    invoke-virtual {v1}, Lcom/huawei/hms/support/api/client/SubAppInfo;->getSubAppID()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 1073
-    :goto_0
-    new-instance v2, Lcom/huawei/hms/support/api/entity/core/ConnectInfo;
-
-    invoke-virtual {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->getApiNameList()Ljava/util/List;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->n:Ljava/util/List;
-
-    invoke-direct {v2, v3, v4, v0, v1}, Lcom/huawei/hms/support/api/entity/core/ConnectInfo;-><init>(Ljava/util/List;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)V
-
-    return-object v2
-.end method
-
-.method private n()V
-    .locals 1
-
-    .line 1161
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Landroid/content/Context;
-
-    invoke-static {v0, p0}, Lcom/huawei/hms/utils/Util;->unBindServiceCatchException(Landroid/content/Context;Landroid/content/ServiceConnection;)V
-
-    .line 1162
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->h:Lcom/huawei/hms/core/aidl/d;
-
-    .line 1163
-    return-void
-.end method
-
-.method private o()V
+.method private m()V
     .locals 3
 
-    .line 1169
-    iget-boolean v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->l:Z
+    .line 1
+    iget-boolean v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->j:Z
 
     if-eqz v0, :cond_0
 
-    .line 1170
     const-string v0, "HuaweiApiClientImpl"
 
     const-string v1, "Connect notice has been shown."
 
+    .line 2
     invoke-static {v0, v1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1171
     return-void
 
-    .line 1174
+    .line 6
     :cond_0
     invoke-static {}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getInstance()Lcom/huawei/hms/api/HuaweiApiAvailability;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Landroid/content/Context;
+    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b:Landroid/content/Context;
 
     invoke-virtual {v0, v1}, Lcom/huawei/hms/api/HuaweiApiAvailability;->isHuaweiMobileNoticeAvailable(Landroid/content/Context;)I
 
@@ -1708,27 +1715,41 @@
 
     if-nez v0, :cond_1
 
-    .line 1175
     const/4 v0, 0x0
 
-    .line 1176
-    const-string v1, "4.0.3.300"
+    const-string v1, "6.6.0.300"
 
+    .line 8
     invoke-static {p0, v0, v1}, Lcom/huawei/hms/support/api/core/ConnectService;->getNotice(Lcom/huawei/hms/support/api/client/ApiClient;ILjava/lang/String;)Lcom/huawei/hms/support/api/client/PendingResult;
 
     move-result-object v0
 
-    new-instance v1, Lcom/huawei/hms/api/HuaweiApiClientImpl$c;
+    new-instance v1, Lcom/huawei/hms/api/HuaweiApiClientImpl$g;
 
     const/4 v2, 0x0
 
-    invoke-direct {v1, p0, v2}, Lcom/huawei/hms/api/HuaweiApiClientImpl$c;-><init>(Lcom/huawei/hms/api/HuaweiApiClientImpl;Lcom/huawei/hms/api/HuaweiApiClientImpl$1;)V
+    invoke-direct {v1, p0, v2}, Lcom/huawei/hms/api/HuaweiApiClientImpl$g;-><init>(Lcom/huawei/hms/api/HuaweiApiClientImpl;Lcom/huawei/hms/api/HuaweiApiClientImpl$a;)V
 
-    .line 1178
+    .line 10
     invoke-virtual {v0, v1}, Lcom/huawei/hms/support/api/client/PendingResult;->setResultCallback(Lcom/huawei/hms/support/api/client/ResultCallback;)V
 
-    .line 1180
     :cond_1
+    return-void
+.end method
+
+.method private n()V
+    .locals 1
+
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b:Landroid/content/Context;
+
+    invoke-static {v0, p0}, Lcom/huawei/hms/utils/Util;->unBindServiceCatchException(Landroid/content/Context;Landroid/content/ServiceConnection;)V
+
+    const/4 v0, 0x0
+
+    .line 2
+    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->f:Lcom/huawei/hms/core/aidl/IAIDLInvoke;
+
     return-void
 .end method
 
@@ -1748,14 +1769,13 @@
         }
     .end annotation
 
-    .line 1214
-    const-string v0, "HuaweiApiClientImpl"
+    const-string v0, "Enter asyncRequest."
 
-    const-string v1, "Enter asyncRequest."
+    const-string v1, "HuaweiApiClientImpl"
 
-    invoke-static {v0, v1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+    .line 1
+    invoke-static {v1, v0}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1216
     if-eqz p4, :cond_2
 
     if-eqz p2, :cond_2
@@ -1764,46 +1784,45 @@
 
     goto :goto_0
 
-    .line 1222
+    .line 9
     :cond_0
     invoke-virtual {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->innerIsConnected()Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
 
-    .line 1223
     const-string p1, "client is unConnect."
 
-    invoke-static {v0, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    .line 10
+    invoke-static {v1, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1224
     const p1, 0x3611c81b
 
     return p1
 
-    .line 1228
+    .line 15
     :cond_1
-    new-instance v1, Lcom/huawei/hms/core/aidl/b;
+    new-instance v0, Lcom/huawei/hms/core/aidl/DataBuffer;
 
-    invoke-direct {v1, p2, p3}, Lcom/huawei/hms/core/aidl/b;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, p2, p3}, Lcom/huawei/hms/core/aidl/DataBuffer;-><init>(Ljava/lang/String;I)V
 
-    .line 1229
-    invoke-virtual {v1}, Lcom/huawei/hms/core/aidl/b;->c()I
+    .line 16
+    invoke-virtual {v0}, Lcom/huawei/hms/core/aidl/DataBuffer;->getProtocol()I
 
     move-result p2
 
-    invoke-static {p2}, Lcom/huawei/hms/core/aidl/a;->a(I)Lcom/huawei/hms/core/aidl/e;
+    invoke-static {p2}, Lcom/huawei/hms/core/aidl/CodecLookup;->find(I)Lcom/huawei/hms/core/aidl/MessageCodec;
 
     move-result-object p2
 
-    .line 1232
-    invoke-virtual {v1, p1}, Lcom/huawei/hms/core/aidl/b;->a(Landroid/os/Bundle;)Lcom/huawei/hms/core/aidl/b;
+    .line 19
+    invoke-virtual {v0, p1}, Lcom/huawei/hms/core/aidl/DataBuffer;->addBody(Landroid/os/Bundle;)Lcom/huawei/hms/core/aidl/DataBuffer;
 
-    .line 1235
+    .line 22
     new-instance p1, Lcom/huawei/hms/core/aidl/RequestHeader;
 
-    .line 1236
+    .line 23
     invoke-virtual {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->getAppID()Ljava/lang/String;
 
     move-result-object p3
@@ -1812,63 +1831,59 @@
 
     move-result-object v2
 
-    const v3, 0x26266e4
-
     invoke-virtual {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->getSessionId()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-direct {p1, p3, v2, v3, v4}, Lcom/huawei/hms/core/aidl/RequestHeader;-><init>(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
+    const v4, 0x39cafec
 
-    .line 1237
+    invoke-direct {p1, p3, v2, v4, v3}, Lcom/huawei/hms/core/aidl/RequestHeader;-><init>(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
+
+    .line 24
     invoke-virtual {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->getApiNameList()Ljava/util/List;
 
     move-result-object p3
 
     invoke-virtual {p1, p3}, Lcom/huawei/hms/core/aidl/RequestHeader;->setApiNameList(Ljava/util/List;)V
 
-    .line 1239
+    .line 26
     new-instance p3, Landroid/os/Bundle;
 
     invoke-direct {p3}, Landroid/os/Bundle;-><init>()V
 
-    invoke-virtual {p2, p1, p3}, Lcom/huawei/hms/core/aidl/e;->a(Lcom/huawei/hms/core/aidl/IMessageEntity;Landroid/os/Bundle;)Landroid/os/Bundle;
+    invoke-virtual {p2, p1, p3}, Lcom/huawei/hms/core/aidl/MessageCodec;->encode(Lcom/huawei/hms/core/aidl/IMessageEntity;Landroid/os/Bundle;)Landroid/os/Bundle;
 
     move-result-object p1
 
-    iput-object p1, v1, Lcom/huawei/hms/core/aidl/b;->b:Landroid/os/Bundle;
+    iput-object p1, v0, Lcom/huawei/hms/core/aidl/DataBuffer;->header:Landroid/os/Bundle;
 
-    .line 1242
+    .line 29
     :try_start_0
-    invoke-virtual {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->getService()Lcom/huawei/hms/core/aidl/d;
+    invoke-virtual {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->getService()Lcom/huawei/hms/core/aidl/IAIDLInvoke;
 
     move-result-object p1
 
-    new-instance p2, Lcom/huawei/hms/api/HuaweiApiClientImpl$4;
+    new-instance p2, Lcom/huawei/hms/api/HuaweiApiClientImpl$c;
 
-    invoke-direct {p2, p0, p4}, Lcom/huawei/hms/api/HuaweiApiClientImpl$4;-><init>(Lcom/huawei/hms/api/HuaweiApiClientImpl;Lcom/huawei/hms/support/api/client/ResultCallback;)V
+    invoke-direct {p2, p0, p4}, Lcom/huawei/hms/api/HuaweiApiClientImpl$c;-><init>(Lcom/huawei/hms/api/HuaweiApiClientImpl;Lcom/huawei/hms/support/api/client/ResultCallback;)V
 
-    invoke-interface {p1, v1, p2}, Lcom/huawei/hms/core/aidl/d;->a(Lcom/huawei/hms/core/aidl/b;Lcom/huawei/hms/core/aidl/c;)V
+    invoke-interface {p1, v0, p2}, Lcom/huawei/hms/core/aidl/IAIDLInvoke;->asyncCall(Lcom/huawei/hms/core/aidl/DataBuffer;Lcom/huawei/hms/core/aidl/IAIDLCallback;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1258
     const/4 p1, 0x0
 
     return p1
 
-    .line 1259
     :catch_0
     move-exception p1
 
-    .line 1260
+    .line 47
     new-instance p2, Ljava/lang/StringBuilder;
-
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string p3, "remote exception:"
 
-    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {p2, p3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Landroid/os/RemoteException;->getMessage()Ljava/lang/String;
 
@@ -1876,220 +1891,303 @@
 
     invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
-    invoke-static {v0, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v1, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1261
     const p1, 0x3611c819
 
     return p1
 
-    .line 1217
     :cond_2
     :goto_0
     const-string p1, "arguments is invalid."
 
-    invoke-static {v0, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    .line 48
+    invoke-static {v1, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1218
     const p1, 0x3611c818
 
     return p1
 .end method
 
 .method public checkUpdate(Landroid/app/Activity;Lcom/huawei/hms/api/CheckUpdatelistener;)V
-    .locals 3
+    .locals 10
 
-    .line 895
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Landroid/content/Context;
+    const-string v0, "HuaweiApiClientImpl"
 
-    invoke-static {v0}, Lcom/huawei/hms/utils/Util;->isAvailableLibExist(Landroid/content/Context;)Z
-
-    move-result v0
-
-    const-string v1, "HuaweiApiClientImpl"
-
-    if-eqz v0, :cond_4
-
-    .line 896
-    const-string v0, "Enter checkUpdate"
-
-    invoke-static {v1, v0}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 898
     if-nez p2, :cond_0
 
-    .line 899
     const-string p1, "listener is null!"
 
-    invoke-static {v1, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    .line 1
+    invoke-static {v0, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 900
     return-void
 
-    .line 903
     :cond_0
-    if-eqz p1, :cond_3
+    const/4 v1, -0x1
 
+    if-eqz p1, :cond_2
+
+    .line 5
     invoke-virtual {p1}, Landroid/app/Activity;->isFinishing()Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_1
+    if-eqz v2, :cond_1
 
-    goto :goto_0
+    goto :goto_2
 
-    .line 909
+    .line 11
     :cond_1
-    iput-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->B:Lcom/huawei/hms/api/CheckUpdatelistener;
+    iput-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->z:Lcom/huawei/hms/api/CheckUpdatelistener;
 
-    .line 910
-    iget-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->C:Lcom/huawei/updatesdk/service/otaupdate/CheckUpdateCallBack;
+    const-string v2, "com.huawei.hms.update.manager.CheckUpdateLegacy"
 
-    if-nez p2, :cond_2
+    .line 14
+    :try_start_0
+    invoke-static {v2}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    .line 911
-    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->a()V
+    move-result-object v2
 
-    .line 914
-    :cond_2
-    iget-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->C:Lcom/huawei/updatesdk/service/otaupdate/CheckUpdateCallBack;
+    const/4 v3, 0x0
 
-    const/4 v0, 0x0
+    new-array v4, v3, [Ljava/lang/Class;
 
-    const/4 v1, 0x1
+    .line 15
+    invoke-virtual {v2, v4}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
-    invoke-static {p1, p2, v1, v0, v1}, Lcom/huawei/updatesdk/UpdateSdkAPI;->checkClientOTAUpdate(Landroid/content/Context;Lcom/huawei/updatesdk/service/otaupdate/CheckUpdateCallBack;ZIZ)V
+    move-result-object v4
+
+    new-array v5, v3, [Ljava/lang/Object;
+
+    invoke-virtual {v4, v5}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v4
+    :try_end_0
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_6
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_5
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_4
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_3
+    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_2
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
+
+    const-string v5, "initCheckUpdateCallBack"
+
+    const/4 v6, 0x2
+
+    :try_start_1
+    new-array v7, v6, [Ljava/lang/Class;
+
+    .line 16
+    const-class v8, Ljava/lang/Object;
+
+    aput-object v8, v7, v3
+
+    const-class v8, Landroid/app/Activity;
+
+    const/4 v9, 0x1
+
+    aput-object v8, v7, v9
+
+    invoke-virtual {v2, v5, v7}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v2
+
+    new-array v5, v6, [Ljava/lang/Object;
+
+    aput-object p0, v5, v3
+
+    aput-object p1, v5, v9
+
+    .line 17
+    invoke-virtual {v2, v4, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_1
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_6
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_5
+    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_4
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_3
+    .catch Ljava/lang/InstantiationException; {:try_start_1 .. :try_end_1} :catch_2
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/lang/ClassCastException; {:try_start_1 .. :try_end_1} :catch_0
 
     goto :goto_1
 
-    .line 904
-    :cond_3
+    :catch_0
+    move-exception p1
+
+    goto :goto_0
+
+    :catch_1
+    move-exception p1
+
+    goto :goto_0
+
+    :catch_2
+    move-exception p1
+
+    goto :goto_0
+
+    :catch_3
+    move-exception p1
+
+    goto :goto_0
+
+    :catch_4
+    move-exception p1
+
+    goto :goto_0
+
+    :catch_5
+    move-exception p1
+
+    goto :goto_0
+
+    :catch_6
+    move-exception p1
+
+    .line 20
     :goto_0
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "invoke CheckUpdateLegacy.initCheckUpdateCallBack fail. "
 
-    const-string v2, "checkUpdate, activity is illegal: "
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object p1
 
-    invoke-static {v1, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 905
-    const/4 p1, -0x1
+    move-result-object p1
 
-    invoke-interface {p2, p1}, Lcom/huawei/hms/api/CheckUpdatelistener;->onResult(I)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    .line 906
+    move-result-object p1
+
+    invoke-static {v0, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 22
+    invoke-interface {p2, v1}, Lcom/huawei/hms/api/CheckUpdatelistener;->onResult(I)V
+
+    :goto_1
     return-void
 
-    .line 916
-    :cond_4
-    const-string p1, "available lib does not exist."
+    .line 23
+    :cond_2
+    :goto_2
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-static {v1, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    const-string v3, "checkUpdate, activity is illegal: "
 
-    .line 918
-    :goto_1
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {v0, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 24
+    invoke-interface {p2, v1}, Lcom/huawei/hms/api/CheckUpdatelistener;->onResult(I)V
+
     return-void
 .end method
 
 .method public connect(I)V
     .locals 0
 
-    .line 1527
     const/4 p1, 0x0
 
+    .line 49
     invoke-virtual {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->connect(Landroid/app/Activity;)V
 
-    .line 1528
     return-void
 .end method
 
 .method public connect(Landroid/app/Activity;)V
     .locals 5
 
-    .line 440
-    const-string v0, "HuaweiApiClientImpl"
+    const-string v0, "====== HMSSDK version: 60600300 ======"
 
-    const-string v1, "====== HMSSDK version: 40003300 ======"
+    const-string v1, "HuaweiApiClientImpl"
 
-    invoke-static {v0, v1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+    .line 1
+    invoke-static {v1, v0}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 442
-    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->m:Ljava/util/concurrent/atomic/AtomicInteger;
+    .line 3
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->k:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
 
-    move-result v1
+    move-result v0
 
-    .line 444
+    .line 5
     new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v3, "Enter connect, Connection Status: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-static {v0, v2}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v1, v2}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 447
     const/4 v2, 0x3
 
-    if-eq v1, v2, :cond_8
+    if-eq v0, v2, :cond_5
 
     const/4 v2, 0x5
 
-    if-eq v1, v2, :cond_8
+    if-eq v0, v2, :cond_5
 
     const/4 v3, 0x2
 
-    if-eq v1, v3, :cond_8
+    if-eq v0, v3, :cond_5
 
     const/4 v4, 0x4
 
-    if-ne v1, v4, :cond_0
+    if-ne v0, v4, :cond_0
 
-    goto/16 :goto_3
+    goto/16 :goto_1
 
-    .line 451
     :cond_0
     if-eqz p1, :cond_1
 
-    .line 452
-    new-instance v1, Ljava/lang/ref/WeakReference;
+    .line 13
+    new-instance v0, Ljava/lang/ref/WeakReference;
 
-    invoke-direct {v1, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+    invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
-    iput-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->j:Ljava/lang/ref/WeakReference;
+    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->h:Ljava/lang/ref/WeakReference;
 
-    .line 453
-    new-instance v1, Ljava/lang/ref/WeakReference;
+    .line 14
+    new-instance v0, Ljava/lang/ref/WeakReference;
 
-    invoke-direct {v1, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+    invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
-    iput-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->k:Ljava/lang/ref/WeakReference;
+    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->i:Ljava/lang/ref/WeakReference;
 
-    .line 460
+    .line 21
     :cond_1
-    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->e:Ljava/lang/String;
+    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c:Ljava/lang/String;
 
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -2097,7 +2195,7 @@
 
     if-eqz p1, :cond_2
 
-    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Landroid/content/Context;
+    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b:Landroid/content/Context;
 
     invoke-static {p1}, Lcom/huawei/hms/utils/Util;->getAppId(Landroid/content/Context;)Ljava/lang/String;
 
@@ -2106,297 +2204,169 @@
     goto :goto_0
 
     :cond_2
-    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->e:Ljava/lang/String;
+    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c:Ljava/lang/String;
 
     :goto_0
-    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->f:Ljava/lang/String;
+    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Ljava/lang/String;
 
-    .line 462
-    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d()I
+    .line 23
+    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->e()I
 
     move-result p1
 
-    .line 463
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    .line 24
+    new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v4, "connect minVersion:"
 
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v0, v1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v0
 
-    .line 465
+    invoke-static {v1, v0}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 26
     invoke-static {p1}, Lcom/huawei/hms/api/HuaweiApiAvailability;->setServicesVersionCode(I)V
 
-    .line 466
-    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Landroid/content/Context;
+    .line 27
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b:Landroid/content/Context;
 
-    invoke-static {v1, p1}, Lcom/huawei/hms/api/HuaweiMobileServicesUtil;->isHuaweiMobileServicesAvailable(Landroid/content/Context;I)I
+    invoke-static {v0, p1}, Lcom/huawei/hms/api/HuaweiMobileServicesUtil;->isHuaweiMobileServicesAvailable(Landroid/content/Context;I)I
 
     move-result p1
 
-    .line 467
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    .line 28
+    new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v4, "In connect, isHuaweiMobileServicesAvailable result: "
 
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v0, v1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v0
 
-    .line 469
-    new-instance v1, Lcom/huawei/hms/utils/PackageManagerHelper;
+    invoke-static {v1, v0}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    iget-object v4, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Landroid/content/Context;
+    .line 30
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b:Landroid/content/Context;
 
-    invoke-direct {v1, v4}, Lcom/huawei/hms/utils/PackageManagerHelper;-><init>(Landroid/content/Context;)V
+    invoke-static {v0}, Lcom/huawei/hms/utils/HMSPackageManager;->getInstance(Landroid/content/Context;)Lcom/huawei/hms/utils/HMSPackageManager;
 
-    .line 470
-    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Landroid/content/Context;
+    move-result-object v0
 
-    invoke-static {v1}, Lcom/huawei/hms/utils/HMSPackageManager;->getInstance(Landroid/content/Context;)Lcom/huawei/hms/utils/HMSPackageManager;
+    invoke-virtual {v0}, Lcom/huawei/hms/utils/HMSPackageManager;->getHmsMultiServiceVersion()I
 
-    move-result-object v1
+    move-result v0
 
-    invoke-virtual {v1}, Lcom/huawei/hms/utils/HMSPackageManager;->getHmsVersionCode()I
+    iput v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->q:I
 
-    move-result v1
-
-    iput v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->s:I
-
-    .line 472
     if-nez p1, :cond_4
 
-    .line 473
-    invoke-direct {p0, v2}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b(I)V
+    .line 33
+    invoke-direct {p0, v2}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c(I)V
 
-    .line 475
-    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->h:Lcom/huawei/hms/core/aidl/d;
+    .line 35
+    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->f:Lcom/huawei/hms/core/aidl/IAIDLInvoke;
 
     if-nez p1, :cond_3
 
-    .line 477
-    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->g()V
-
-    goto/16 :goto_2
-
-    .line 480
-    :cond_3
-    invoke-direct {p0, v3}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b(I)V
-
-    .line 482
-    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->l()V
-
-    .line 484
-    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->i()V
-
-    goto :goto_2
-
-    .line 487
-    :cond_4
-    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->y:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
-
-    if-eqz v1, :cond_7
-
-    .line 488
-    const/4 v1, 0x0
-
-    .line 490
-    invoke-direct {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->a(I)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_5
-
-    iget-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Landroid/content/Context;
-
-    invoke-static {v2}, Lcom/huawei/hms/utils/HMSPackageManager;->getInstance(Landroid/content/Context;)Lcom/huawei/hms/utils/HMSPackageManager;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/huawei/hms/utils/HMSPackageManager;->getHMSPackageName()Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 491
-    const-string v3, "com.huawei.hwid.tv"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_5
-
-    .line 492
-    new-instance v1, Lcom/huawei/hms/api/ConnectionResult;
-
-    invoke-direct {v1, p1}, Lcom/huawei/hms/api/ConnectionResult;-><init>(I)V
-
-    .line 493
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "connect 2.0 fail! HMS-TV needs to be updated: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {v0, p1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+    .line 37
+    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->a()V
 
     goto :goto_1
 
-    .line 495
+    .line 40
+    :cond_3
+    invoke-direct {p0, v3}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c(I)V
+
+    .line 42
+    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->j()V
+
+    .line 44
+    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->i()V
+
+    goto :goto_1
+
+    .line 47
+    :cond_4
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
+
+    if-eqz v0, :cond_5
+
+    .line 48
+    invoke-direct {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b(I)V
+
     :cond_5
-    iget-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->j:Ljava/lang/ref/WeakReference;
-
-    if-eqz v2, :cond_6
-
-    invoke-virtual {v2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_6
-
-    .line 497
-    invoke-static {}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getInstance()Lcom/huawei/hms/api/HuaweiApiAvailability;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->j:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/app/Activity;
-
-    invoke-virtual {v1, v2, p1}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getResolveErrorPendingIntent(Landroid/app/Activity;I)Landroid/app/PendingIntent;
-
-    move-result-object v1
-
-    .line 498
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "connect2.0 fail: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v0, v2}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 500
-    :cond_6
-    new-instance v0, Lcom/huawei/hms/api/ConnectionResult;
-
-    invoke-direct {v0, p1, v1}, Lcom/huawei/hms/api/ConnectionResult;-><init>(ILandroid/app/PendingIntent;)V
-
-    move-object v1, v0
-
-    .line 502
     :goto_1
-    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->y:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
-
-    invoke-interface {p1, v1}, Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;->onConnectionFailed(Lcom/huawei/hms/api/ConnectionResult;)V
-
-    .line 503
-    iput-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/ConnectionResult;
-
-    .line 506
-    :cond_7
-    :goto_2
-    return-void
-
-    .line 448
-    :cond_8
-    :goto_3
     return-void
 .end method
 
 .method public connectForeground()V
     .locals 4
 
-    .line 528
-    const-string v0, "HuaweiApiClientImpl"
+    const-string v0, "====== HMSSDK version: 60600300 ======"
 
-    const-string v1, "====== HMSSDK version: 40003300 ======"
+    const-string v1, "HuaweiApiClientImpl"
 
-    invoke-static {v0, v1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+    .line 1
+    invoke-static {v1, v0}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 530
-    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->m:Ljava/util/concurrent/atomic/AtomicInteger;
+    .line 3
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->k:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
 
-    move-result v1
+    move-result v0
 
-    .line 532
+    .line 5
     new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v3, "Enter forceConnect, Connection Status: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-static {v0, v2}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v1, v2}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 535
-    const/4 v0, 0x3
+    const/4 v1, 0x3
 
-    if-eq v1, v0, :cond_2
+    if-eq v0, v1, :cond_2
 
-    const/4 v0, 0x5
+    const/4 v1, 0x5
 
-    if-eq v1, v0, :cond_2
+    if-eq v0, v1, :cond_2
 
-    const/4 v0, 0x2
+    const/4 v1, 0x2
 
-    if-eq v1, v0, :cond_2
+    if-eq v0, v1, :cond_2
 
-    const/4 v0, 0x4
+    const/4 v1, 0x4
 
-    if-ne v1, v0, :cond_0
+    if-ne v0, v1, :cond_0
 
     goto :goto_1
 
-    .line 543
+    .line 14
     :cond_0
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->e:Ljava/lang/String;
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c:Ljava/lang/String;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -2404,7 +2374,7 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Landroid/content/Context;
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/huawei/hms/utils/Util;->getAppId(Landroid/content/Context;)Ljava/lang/String;
 
@@ -2413,18 +2383,14 @@
     goto :goto_0
 
     :cond_1
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->e:Ljava/lang/String;
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c:Ljava/lang/String;
 
     :goto_0
-    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->f:Ljava/lang/String;
+    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Ljava/lang/String;
 
-    .line 545
-    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b()V
+    .line 16
+    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->l()V
 
-    .line 546
-    return-void
-
-    .line 536
     :cond_2
     :goto_1
     return-void
@@ -2433,33 +2399,25 @@
 .method public disableLifeCycleManagement(Landroid/app/Activity;)V
     .locals 1
 
-    .line 1532
-    iget v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c:I
+    .line 1
+    iget v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->a:I
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_0
 
-    .line 1533
+    .line 2
     invoke-static {p1}, Lcom/huawei/hms/common/internal/AutoLifecycleFragment;->getInstance(Landroid/app/Activity;)Lcom/huawei/hms/common/internal/AutoLifecycleFragment;
 
     move-result-object p1
 
-    .line 1534
-    if-nez p1, :cond_0
-
-    .line 1535
-    return-void
-
-    .line 1537
-    :cond_0
-    iget v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c:I
+    .line 3
+    iget v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->a:I
 
     invoke-virtual {p1, v0}, Lcom/huawei/hms/common/internal/AutoLifecycleFragment;->stopAutoManage(I)V
 
-    .line 1538
     return-void
 
-    .line 1540
-    :cond_1
+    .line 6
+    :cond_0
     new-instance p1, Ljava/lang/IllegalStateException;
 
     const-string v0, "disableLifeCycleManagement failed"
@@ -2480,7 +2438,7 @@
         }
     .end annotation
 
-    .line 1494
+    .line 1
     new-instance v0, Lcom/huawei/hms/api/HuaweiApiClientImpl$d;
 
     const/4 v1, 0x0
@@ -2493,23 +2451,23 @@
 .method public disconnect()V
     .locals 4
 
-    .line 769
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->m:Ljava/util/concurrent/atomic/AtomicInteger;
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->k:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
 
     move-result v0
 
-    .line 771
+    .line 3
     new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v2, "Enter disconnect, Connection Status: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2519,7 +2477,6 @@
 
     invoke-static {v2, v1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 773
     const/4 v1, 0x2
 
     const/4 v2, 0x4
@@ -2536,34 +2493,28 @@
 
     goto :goto_0
 
-    .line 780
+    .line 12
     :cond_0
-    invoke-direct {p0, v1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c(I)V
+    invoke-direct {p0, v1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->a(I)V
 
-    .line 781
-    invoke-direct {p0, v2}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b(I)V
+    .line 13
+    invoke-direct {p0, v2}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c(I)V
 
-    .line 782
     goto :goto_0
 
-    .line 789
+    .line 21
     :cond_1
-    invoke-direct {p0, v2}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b(I)V
+    invoke-direct {p0, v2}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c(I)V
 
-    .line 791
-    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->j()V
+    .line 23
+    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->k()V
 
-    .line 792
     goto :goto_0
 
-    .line 784
+    .line 24
     :cond_2
-    invoke-direct {p0, v2}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b(I)V
+    invoke-direct {p0, v2}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c(I)V
 
-    .line 785
-    nop
-
-    .line 801
     :goto_0
     return-void
 .end method
@@ -2581,8 +2532,8 @@
         }
     .end annotation
 
-    .line 404
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->p:Ljava/util/Map;
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->n:Ljava/util/Map;
 
     return-object v0
 .end method
@@ -2598,17 +2549,17 @@
         }
     .end annotation
 
-    .line 1271
+    .line 1
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 1272
-    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->p:Ljava/util/Map;
+    .line 2
+    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->n:Ljava/util/Map;
 
     if-eqz v1, :cond_0
 
-    .line 1273
+    .line 3
     invoke-interface {v1}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
     move-result-object v1
@@ -2617,7 +2568,7 @@
 
     move-result-object v1
 
-    .line 1274
+    .line 4
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -2625,24 +2576,22 @@
 
     if-eqz v2, :cond_0
 
-    .line 1275
+    .line 5
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lcom/huawei/hms/api/Api;
 
-    .line 1276
+    .line 6
     invoke-virtual {v2}, Lcom/huawei/hms/api/Api;->getApiName()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 1277
     goto :goto_0
 
-    .line 1279
     :cond_0
     return-object v0
 .end method
@@ -2650,8 +2599,8 @@
 .method public getAppID()Ljava/lang/String;
     .locals 1
 
-    .line 333
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->f:Ljava/lang/String;
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -2667,7 +2616,7 @@
         }
     .end annotation
 
-    .line 1504
+    .line 1
     invoke-virtual {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->isConnected()Z
 
     move-result p1
@@ -2676,10 +2625,10 @@
 
     if-eqz p1, :cond_0
 
-    .line 1505
-    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/ConnectionResult;
+    .line 2
+    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Lcom/huawei/hms/api/ConnectionResult;
 
-    .line 1506
+    .line 3
     new-instance p1, Lcom/huawei/hms/api/ConnectionResult;
 
     const/4 v1, 0x0
@@ -2688,16 +2637,15 @@
 
     return-object p1
 
-    .line 1508
+    .line 5
     :cond_0
-    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/ConnectionResult;
+    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Lcom/huawei/hms/api/ConnectionResult;
 
     if-eqz p1, :cond_1
 
-    .line 1509
     return-object p1
 
-    .line 1511
+    .line 8
     :cond_1
     new-instance p1, Lcom/huawei/hms/api/ConnectionResult;
 
@@ -2711,8 +2659,8 @@
 .method public getContext()Landroid/content/Context;
     .locals 1
 
-    .line 313
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Landroid/content/Context;
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -2720,8 +2668,8 @@
 .method public getCpID()Ljava/lang/String;
     .locals 1
 
-    .line 338
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->g:Ljava/lang/String;
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->e:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -2729,8 +2677,8 @@
 .method public getPackageName()Ljava/lang/String;
     .locals 1
 
-    .line 323
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Landroid/content/Context;
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
@@ -2750,8 +2698,8 @@
         }
     .end annotation
 
-    .line 385
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->o:Ljava/util/List;
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->m:Ljava/util/List;
 
     return-object v0
 .end method
@@ -2767,17 +2715,17 @@
         }
     .end annotation
 
-    .line 367
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->n:Ljava/util/List;
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->l:Ljava/util/List;
 
     return-object v0
 .end method
 
-.method public getService()Lcom/huawei/hms/core/aidl/d;
+.method public getService()Lcom/huawei/hms/core/aidl/IAIDLInvoke;
     .locals 1
 
-    .line 422
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->h:Lcom/huawei/hms/core/aidl/d;
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->f:Lcom/huawei/hms/core/aidl/IAIDLInvoke;
 
     return-object v0
 .end method
@@ -2785,8 +2733,8 @@
 .method public getSessionId()Ljava/lang/String;
     .locals 1
 
-    .line 431
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->i:Ljava/lang/String;
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->g:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -2794,8 +2742,8 @@
 .method public final getSubAppInfo()Lcom/huawei/hms/support/api/client/SubAppInfo;
     .locals 1
 
-    .line 358
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->q:Lcom/huawei/hms/support/api/client/SubAppInfo;
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->o:Lcom/huawei/hms/support/api/client/SubAppInfo;
 
     return-object v0
 .end method
@@ -2803,17 +2751,16 @@
 .method public getTopActivity()Landroid/app/Activity;
     .locals 1
 
-    .line 950
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->k:Ljava/lang/ref/WeakReference;
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->i:Ljava/lang/ref/WeakReference;
 
     if-nez v0, :cond_0
 
-    .line 951
     const/4 v0, 0x0
 
     return-object v0
 
-    .line 953
+    .line 4
     :cond_0
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
@@ -2827,7 +2774,7 @@
 .method public getTransportName()Ljava/lang/String;
     .locals 1
 
-    .line 348
+    .line 1
     const-class v0, Lcom/huawei/hms/api/IPCTransport;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -2847,7 +2794,7 @@
         }
     .end annotation
 
-    .line 1523
+    .line 1
     invoke-virtual {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->isConnected()Z
 
     move-result p1
@@ -2858,39 +2805,37 @@
 .method public hasConnectionFailureListener(Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;)Z
     .locals 2
 
-    .line 1362
     const-string v0, "onConnectionFailedListener should not be null"
 
+    .line 1
     invoke-static {p1, v0}, Lcom/huawei/hms/utils/Checker;->checkNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1363
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->t:Ljava/lang/Object;
+    .line 2
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->r:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 1364
+    .line 3
     :try_start_0
-    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->y:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
+    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
 
     if-ne v1, p1, :cond_0
 
-    .line 1365
-    const/4 p1, 0x1
-
+    .line 4
     monitor-exit v0
+
+    const/4 p1, 0x1
 
     return p1
 
-    .line 1367
+    .line 6
     :cond_0
     monitor-exit v0
 
-    .line 1368
     const/4 p1, 0x0
 
     return p1
 
-    .line 1367
     :catchall_0
     move-exception p1
 
@@ -2904,39 +2849,37 @@
 .method public hasConnectionSuccessListener(Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;)Z
     .locals 2
 
-    .line 1345
     const-string v0, "connectionCallbacksListener should not be null"
 
+    .line 1
     invoke-static {p1, v0}, Lcom/huawei/hms/utils/Checker;->checkNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1346
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->t:Ljava/lang/Object;
+    .line 2
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->r:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 1347
+    .line 3
     :try_start_0
-    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->x:Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;
+    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->v:Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;
 
     if-ne v1, p1, :cond_0
 
-    .line 1348
-    const/4 p1, 0x1
-
+    .line 4
     monitor-exit v0
+
+    const/4 p1, 0x1
 
     return p1
 
-    .line 1350
+    .line 6
     :cond_0
     monitor-exit v0
 
-    .line 1351
     const/4 p1, 0x0
 
     return p1
 
-    .line 1350
     :catchall_0
     move-exception p1
 
@@ -2950,7 +2893,7 @@
 .method public holdUpConnect()Lcom/huawei/hms/api/ConnectionResult;
     .locals 3
 
-    .line 1407
+    .line 1
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
     move-result-object v0
@@ -2961,18 +2904,18 @@
 
     if-eq v0, v1, :cond_3
 
-    .line 1410
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Ljava/util/concurrent/locks/ReentrantLock;
+    .line 4
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->s:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
-    .line 1412
     const/4 v0, 0x0
 
+    .line 6
     :try_start_0
     invoke-virtual {p0, v0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->connect(Landroid/app/Activity;)V
 
-    .line 1413
+    .line 7
     :goto_0
     invoke-virtual {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->isConnecting()Z
 
@@ -2982,23 +2925,19 @@
 
     if-eqz v1, :cond_0
 
-    .line 1415
+    .line 9
     :try_start_1
-    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->v:Ljava/util/concurrent/locks/Condition;
+    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->t:Ljava/util/concurrent/locks/Condition;
 
     invoke-interface {v1}, Ljava/util/concurrent/locks/Condition;->await()V
     :try_end_1
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 1419
     goto :goto_0
 
-    .line 1416
+    .line 11
     :catch_0
-    move-exception v1
-
-    .line 1417
     :try_start_2
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
@@ -3006,7 +2945,7 @@
 
     invoke-virtual {v1}, Ljava/lang/Thread;->interrupt()V
 
-    .line 1418
+    .line 12
     new-instance v1, Lcom/huawei/hms/api/ConnectionResult;
 
     const/16 v2, 0xf
@@ -3015,15 +2954,14 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 1433
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Ljava/util/concurrent/locks/ReentrantLock;
+    .line 27
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->s:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 1418
     return-object v1
 
-    .line 1422
+    .line 28
     :cond_0
     :try_start_3
     invoke-virtual {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->isConnected()Z
@@ -3032,10 +2970,10 @@
 
     if-eqz v1, :cond_1
 
-    .line 1423
-    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/ConnectionResult;
+    .line 29
+    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Lcom/huawei/hms/api/ConnectionResult;
 
-    .line 1424
+    .line 30
     new-instance v1, Lcom/huawei/hms/api/ConnectionResult;
 
     const/4 v2, 0x0
@@ -3044,35 +2982,30 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 1433
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Ljava/util/concurrent/locks/ReentrantLock;
+    .line 39
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->s:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 1424
     return-object v1
 
-    .line 1428
+    .line 40
     :cond_1
     :try_start_4
-    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/ConnectionResult;
-
-    if-eqz v1, :cond_2
-
-    .line 1429
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/ConnectionResult;
+    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Lcom/huawei/hms/api/ConnectionResult;
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    .line 1433
-    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Ljava/util/concurrent/locks/ReentrantLock;
+    if-eqz v1, :cond_2
 
-    invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
+    .line 45
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->s:Ljava/util/concurrent/locks/ReentrantLock;
 
-    .line 1429
-    return-object v0
+    invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 1431
+    return-object v1
+
+    .line 46
     :cond_2
     :try_start_5
     new-instance v1, Lcom/huawei/hms/api/ConnectionResult;
@@ -3083,26 +3016,24 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    .line 1433
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Ljava/util/concurrent/locks/ReentrantLock;
+    .line 48
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->s:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 1431
     return-object v1
 
-    .line 1433
     :catchall_0
     move-exception v0
 
-    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Ljava/util/concurrent/locks/ReentrantLock;
+    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->s:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 1434
+    .line 49
     throw v0
 
-    .line 1408
+    .line 50
     :cond_3
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -3116,7 +3047,7 @@
 .method public holdUpConnect(JLjava/util/concurrent/TimeUnit;)Lcom/huawei/hms/api/ConnectionResult;
     .locals 3
 
-    .line 1440
+    .line 51
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
     move-result-object v0
@@ -3127,23 +3058,23 @@
 
     if-eq v0, v1, :cond_4
 
-    .line 1443
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Ljava/util/concurrent/locks/ReentrantLock;
+    .line 54
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->s:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
-    .line 1445
     const/4 v0, 0x0
 
+    .line 56
     :try_start_0
     invoke-virtual {p0, v0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->connect(Landroid/app/Activity;)V
 
-    .line 1446
+    .line 57
     invoke-virtual {p3, p1, p2}, Ljava/util/concurrent/TimeUnit;->toNanos(J)J
 
     move-result-wide p1
 
-    .line 1447
+    .line 58
     :goto_0
     invoke-virtual {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->isConnecting()Z
 
@@ -3151,17 +3082,16 @@
 
     if-eqz p3, :cond_1
 
-    .line 1448
     const-wide/16 v1, 0x0
 
     cmp-long p3, p1, v1
 
     if-gtz p3, :cond_0
 
-    .line 1449
+    .line 60
     invoke-virtual {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->disconnect()V
 
-    .line 1450
+    .line 61
     new-instance p1, Lcom/huawei/hms/api/ConnectionResult;
 
     const/16 p2, 0xe
@@ -3170,18 +3100,17 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1471
-    iget-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Ljava/util/concurrent/locks/ReentrantLock;
+    .line 82
+    iget-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->s:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {p2}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 1450
     return-object p1
 
-    .line 1453
+    .line 83
     :cond_0
     :try_start_1
-    iget-object p3, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->v:Ljava/util/concurrent/locks/Condition;
+    iget-object p3, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->t:Ljava/util/concurrent/locks/Condition;
 
     invoke-interface {p3, p1, p2}, Ljava/util/concurrent/locks/Condition;->awaitNanos(J)J
 
@@ -3190,14 +3119,10 @@
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 1457
     goto :goto_0
 
-    .line 1454
+    .line 85
     :catch_0
-    move-exception p1
-
-    .line 1455
     :try_start_2
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
@@ -3205,7 +3130,7 @@
 
     invoke-virtual {p1}, Ljava/lang/Thread;->interrupt()V
 
-    .line 1456
+    .line 86
     new-instance p1, Lcom/huawei/hms/api/ConnectionResult;
 
     const/16 p2, 0xf
@@ -3214,15 +3139,14 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 1471
-    iget-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Ljava/util/concurrent/locks/ReentrantLock;
+    .line 101
+    iget-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->s:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {p2}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 1456
     return-object p1
 
-    .line 1460
+    .line 102
     :cond_1
     :try_start_3
     invoke-virtual {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->isConnected()Z
@@ -3231,10 +3155,10 @@
 
     if-eqz p1, :cond_2
 
-    .line 1461
-    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/ConnectionResult;
+    .line 103
+    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Lcom/huawei/hms/api/ConnectionResult;
 
-    .line 1462
+    .line 104
     new-instance p1, Lcom/huawei/hms/api/ConnectionResult;
 
     const/4 p2, 0x0
@@ -3243,35 +3167,30 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 1471
-    iget-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Ljava/util/concurrent/locks/ReentrantLock;
+    .line 113
+    iget-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->s:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {p2}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 1462
     return-object p1
 
-    .line 1466
+    .line 114
     :cond_2
     :try_start_4
-    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/ConnectionResult;
-
-    if-eqz p1, :cond_3
-
-    .line 1467
-    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/ConnectionResult;
+    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Lcom/huawei/hms/api/ConnectionResult;
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    .line 1471
-    iget-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Ljava/util/concurrent/locks/ReentrantLock;
+    if-eqz p1, :cond_3
+
+    .line 119
+    iget-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->s:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {p2}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 1467
     return-object p1
 
-    .line 1469
+    .line 120
     :cond_3
     :try_start_5
     new-instance p1, Lcom/huawei/hms/api/ConnectionResult;
@@ -3282,26 +3201,24 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    .line 1471
-    iget-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Ljava/util/concurrent/locks/ReentrantLock;
+    .line 122
+    iget-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->s:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {p2}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 1469
     return-object p1
 
-    .line 1471
     :catchall_0
     move-exception p1
 
-    iget-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Ljava/util/concurrent/locks/ReentrantLock;
+    iget-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->s:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {p2}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 1472
+    .line 123
     throw p1
 
-    .line 1441
+    .line 124
     :cond_4
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -3315,8 +3232,8 @@
 .method public innerIsConnected()Z
     .locals 2
 
-    .line 854
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->m:Ljava/util/concurrent/atomic/AtomicInteger;
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->k:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
 
@@ -3326,7 +3243,7 @@
 
     if-eq v0, v1, :cond_1
 
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->m:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->k:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
 
@@ -3354,42 +3271,41 @@
 .method public isConnected()Z
     .locals 4
 
-    .line 806
-    iget v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->s:I
+    .line 1
+    iget v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->q:I
 
     if-nez v0, :cond_0
 
-    .line 807
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Landroid/content/Context;
+    .line 2
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/huawei/hms/utils/HMSPackageManager;->getInstance(Landroid/content/Context;)Lcom/huawei/hms/utils/HMSPackageManager;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/huawei/hms/utils/HMSPackageManager;->getHmsVersionCode()I
+    invoke-virtual {v0}, Lcom/huawei/hms/utils/HMSPackageManager;->getHmsMultiServiceVersion()I
 
     move-result v0
 
-    iput v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->s:I
+    iput v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->q:I
 
-    .line 810
+    .line 5
     :cond_0
-    iget v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->s:I
+    iget v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->q:I
 
     const v1, 0x138ddc0
 
     if-ge v0, v1, :cond_4
 
-    .line 812
+    .line 7
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
-    iget-wide v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->r:J
+    iget-wide v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->p:J
 
     sub-long/2addr v0, v2
 
-    .line 814
     const-wide/16 v2, 0x0
 
     cmp-long v2, v0, v2
@@ -3402,14 +3318,14 @@
 
     if-gez v0, :cond_1
 
-    .line 815
+    .line 10
     invoke-virtual {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->innerIsConnected()Z
 
     move-result v0
 
     return v0
 
-    .line 818
+    .line 13
     :cond_1
     invoke-virtual {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->innerIsConnected()Z
 
@@ -3417,34 +3333,34 @@
 
     if-eqz v0, :cond_3
 
-    .line 819
+    .line 14
     new-instance v0, Lcom/huawei/hms/support/api/entity/core/CheckConnectInfo;
 
     invoke-direct {v0}, Lcom/huawei/hms/support/api/entity/core/CheckConnectInfo;-><init>()V
 
-    .line 820
+    .line 15
     invoke-static {p0, v0}, Lcom/huawei/hms/support/api/core/ConnectService;->checkconnect(Lcom/huawei/hms/support/api/client/ApiClient;Lcom/huawei/hms/support/api/entity/core/CheckConnectInfo;)Lcom/huawei/hms/support/api/client/InnerPendingResult;
 
     move-result-object v0
 
-    .line 821
-    const-wide/16 v1, 0x7d0
+    .line 16
+    sget-object v1, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    sget-object v3, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+    const-wide/16 v2, 0x7d0
 
-    .line 822
-    invoke-virtual {v0, v1, v2, v3}, Lcom/huawei/hms/support/api/client/InnerPendingResult;->awaitOnAnyThread(JLjava/util/concurrent/TimeUnit;)Lcom/huawei/hms/support/api/client/Result;
+    .line 17
+    invoke-virtual {v0, v2, v3, v1}, Lcom/huawei/hms/support/api/client/InnerPendingResult;->awaitOnAnyThread(JLjava/util/concurrent/TimeUnit;)Lcom/huawei/hms/support/api/client/Result;
 
     move-result-object v0
 
     check-cast v0, Lcom/huawei/hms/support/api/ResolveResult;
 
-    .line 824
+    .line 19
     invoke-virtual {v0}, Lcom/huawei/hms/support/api/ResolveResult;->getStatus()Lcom/huawei/hms/support/api/client/Status;
 
     move-result-object v0
 
-    .line 825
+    .line 20
     invoke-virtual {v0}, Lcom/huawei/hms/support/api/client/Status;->isSuccess()Z
 
     move-result v1
@@ -3453,32 +3369,31 @@
 
     if-eqz v1, :cond_2
 
-    .line 826
+    .line 21
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
-    iput-wide v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->r:J
+    iput-wide v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->p:J
 
-    .line 827
     return v2
 
-    .line 830
+    .line 25
     :cond_2
     invoke-virtual {v0}, Lcom/huawei/hms/support/api/client/Status;->getStatusCode()I
 
     move-result v0
 
-    .line 831
+    .line 26
     new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v3, "isConnected is false, statuscode:"
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -3486,33 +3401,31 @@
 
     const-string v3, "HuaweiApiClientImpl"
 
-    invoke-static {v3, v1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v3, v1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 832
     const v1, 0x3611c81c
 
     if-eq v0, v1, :cond_3
 
-    .line 833
+    .line 28
     invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->n()V
 
-    .line 834
-    invoke-direct {p0, v2}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b(I)V
+    .line 29
+    invoke-direct {p0, v2}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c(I)V
 
-    .line 835
+    .line 30
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
-    iput-wide v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->r:J
+    iput-wide v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->p:J
 
-    .line 838
     :cond_3
     const/4 v0, 0x0
 
     return v0
 
-    .line 842
+    .line 37
     :cond_4
     invoke-virtual {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->innerIsConnected()Z
 
@@ -3524,14 +3437,13 @@
 .method public isConnecting()Z
     .locals 2
 
-    .line 848
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->m:Ljava/util/concurrent/atomic/AtomicInteger;
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->k:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
 
     move-result v0
 
-    .line 849
     const/4 v1, 0x2
 
     if-eq v0, v1, :cond_1
@@ -3558,38 +3470,46 @@
 .method public onPause(Landroid/app/Activity;)V
     .locals 1
 
-    .line 940
     const-string p1, "HuaweiApiClientImpl"
 
     const-string v0, "onPause"
 
+    .line 1
     invoke-static {p1, v0}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 941
+    return-void
+.end method
+
+.method public onResult(I)V
+    .locals 1
+
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->z:Lcom/huawei/hms/api/CheckUpdatelistener;
+
+    invoke-interface {v0, p1}, Lcom/huawei/hms/api/CheckUpdatelistener;->onResult(I)V
+
     return-void
 .end method
 
 .method public onResume(Landroid/app/Activity;)V
     .locals 2
 
-    .line 927
     if-eqz p1, :cond_0
 
-    .line 928
     const-string v0, "HuaweiApiClientImpl"
 
     const-string v1, "onResume"
 
+    .line 1
     invoke-static {v0, v1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 929
+    .line 2
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
-    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->k:Ljava/lang/ref/WeakReference;
+    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->i:Ljava/lang/ref/WeakReference;
 
-    .line 931
     :cond_0
     return-void
 .end method
@@ -3597,126 +3517,127 @@
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 1
 
-    .line 1011
-    const-string p1, "HuaweiApiClientImpl"
+    const-string p1, "HuaweiApiClientImpl Enter onServiceConnected."
 
-    const-string v0, "Enter onServiceConnected."
+    const-string v0, "HuaweiApiClientImpl"
 
-    invoke-static {p1, v0}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+    .line 1
+    invoke-static {v0, p1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1014
-    const/4 v0, 0x2
+    const/4 p1, 0x2
 
-    invoke-direct {p0, v0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c(I)V
+    .line 4
+    invoke-direct {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->a(I)V
 
-    .line 1016
-    invoke-static {p2}, Lcom/huawei/hms/core/aidl/d$a;->a(Landroid/os/IBinder;)Lcom/huawei/hms/core/aidl/d;
+    .line 6
+    invoke-static {p2}, Lcom/huawei/hms/core/aidl/IAIDLInvoke$Stub;->asInterface(Landroid/os/IBinder;)Lcom/huawei/hms/core/aidl/IAIDLInvoke;
 
     move-result-object p2
 
-    iput-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->h:Lcom/huawei/hms/core/aidl/d;
+    iput-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->f:Lcom/huawei/hms/core/aidl/IAIDLInvoke;
 
-    .line 1018
-    iget-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->h:Lcom/huawei/hms/core/aidl/d;
+    .line 8
+    iget-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->f:Lcom/huawei/hms/core/aidl/IAIDLInvoke;
 
     if-nez p2, :cond_2
 
-    .line 1019
-    const-string p2, "In onServiceConnected, mCoreService must not be null."
+    const-string p1, "In onServiceConnected, mCoreService must not be null."
 
-    invoke-static {p1, p2}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    .line 9
+    invoke-static {v0, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1021
+    .line 11
     invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->n()V
 
-    .line 1022
     const/4 p1, 0x1
 
-    invoke-direct {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b(I)V
+    .line 12
+    invoke-direct {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c(I)V
 
-    .line 1024
-    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->y:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
+    .line 14
+    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
 
     if-eqz p1, :cond_1
 
-    .line 1025
-    const/4 p1, 0x0
+    .line 16
+    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->h:Ljava/lang/ref/WeakReference;
 
-    .line 1026
-    iget-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->j:Ljava/lang/ref/WeakReference;
+    const/16 p2, 0xa
 
-    const/16 v0, 0xa
+    if-eqz p1, :cond_0
 
-    if-eqz p2, :cond_0
+    invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
-    invoke-virtual {p2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object p2
+    if-eqz p1, :cond_0
 
-    if-eqz p2, :cond_0
-
-    .line 1027
+    .line 17
     invoke-static {}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getInstance()Lcom/huawei/hms/api/HuaweiApiAvailability;
 
     move-result-object p1
 
-    iget-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->j:Ljava/lang/ref/WeakReference;
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->h:Ljava/lang/ref/WeakReference;
 
-    .line 1028
-    invoke-virtual {p2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    .line 18
+    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object v0
 
-    check-cast p2, Landroid/app/Activity;
+    check-cast v0, Landroid/app/Activity;
 
-    invoke-virtual {p1, p2, v0}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getResolveErrorPendingIntent(Landroid/app/Activity;I)Landroid/app/PendingIntent;
+    invoke-virtual {p1, v0, p2}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getResolveErrorPendingIntent(Landroid/app/Activity;I)Landroid/app/PendingIntent;
 
     move-result-object p1
 
-    .line 1030
+    goto :goto_0
+
     :cond_0
-    new-instance p2, Lcom/huawei/hms/api/ConnectionResult;
+    const/4 p1, 0x0
 
-    invoke-direct {p2, v0, p1}, Lcom/huawei/hms/api/ConnectionResult;-><init>(ILandroid/app/PendingIntent;)V
+    .line 20
+    :goto_0
+    new-instance v0, Lcom/huawei/hms/api/ConnectionResult;
 
-    .line 1032
-    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->y:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
+    invoke-direct {v0, p2, p1}, Lcom/huawei/hms/api/ConnectionResult;-><init>(ILandroid/app/PendingIntent;)V
 
-    invoke-interface {p1, p2}, Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;->onConnectionFailed(Lcom/huawei/hms/api/ConnectionResult;)V
+    .line 22
+    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
 
-    .line 1033
-    iput-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/ConnectionResult;
+    invoke-interface {p1, v0}, Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;->onConnectionFailed(Lcom/huawei/hms/api/ConnectionResult;)V
 
-    .line 1036
+    .line 23
+    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->u:Lcom/huawei/hms/api/ConnectionResult;
+
     :cond_1
     return-void
 
-    .line 1039
+    .line 29
     :cond_2
-    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->m:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->k:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
+    invoke-virtual {p2}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
 
-    move-result p1
+    move-result p2
 
-    const/4 p2, 0x5
+    const/4 v0, 0x5
 
-    if-ne p1, p2, :cond_3
+    if-ne p2, v0, :cond_3
 
-    .line 1040
-    invoke-direct {p0, v0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b(I)V
+    .line 30
+    invoke-direct {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c(I)V
 
-    .line 1042
-    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->l()V
+    .line 32
+    invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->j()V
 
-    .line 1044
+    .line 34
     invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->i()V
 
-    goto :goto_0
+    goto :goto_1
 
-    .line 1045
+    .line 35
     :cond_3
-    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->m:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->k:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
 
@@ -3726,44 +3647,42 @@
 
     if-eq p1, p2, :cond_4
 
-    .line 1046
+    .line 36
     invoke-direct {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->n()V
 
-    .line 1048
     :cond_4
-    :goto_0
+    :goto_1
     return-void
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 1
 
-    .line 1187
     const-string p1, "HuaweiApiClientImpl"
 
     const-string v0, "Enter onServiceDisconnected."
 
+    .line 1
     invoke-static {p1, v0}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1189
     const/4 p1, 0x0
 
-    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->h:Lcom/huawei/hms/core/aidl/d;
+    .line 3
+    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->f:Lcom/huawei/hms/core/aidl/IAIDLInvoke;
 
-    .line 1191
     const/4 p1, 0x1
 
-    invoke-direct {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b(I)V
+    .line 5
+    invoke-direct {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c(I)V
 
-    .line 1193
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->x:Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;
+    .line 7
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->v:Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;
 
     if-eqz v0, :cond_0
 
-    .line 1194
+    .line 8
     invoke-interface {v0, p1}, Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;->onConnectionSuspended(I)V
 
-    .line 1196
     :cond_0
     return-void
 .end method
@@ -3771,67 +3690,63 @@
 .method public print(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 0
 
-    .line 1500
     return-void
 .end method
 
 .method public reconnect()V
     .locals 1
 
-    .line 1517
+    .line 1
     invoke-virtual {p0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->disconnect()V
 
-    .line 1518
     const/4 v0, 0x0
 
+    .line 2
     invoke-virtual {p0, v0}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->connect(Landroid/app/Activity;)V
 
-    .line 1519
     return-void
 .end method
 
 .method public removeConnectionFailureListener(Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;)V
     .locals 2
 
-    .line 1394
     const-string v0, "onConnectionFailedListener should not be null"
 
+    .line 1
     invoke-static {p1, v0}, Lcom/huawei/hms/utils/Checker;->checkNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1395
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->t:Ljava/lang/Object;
+    .line 2
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->r:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 1396
+    .line 3
     :try_start_0
-    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->y:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
+    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
 
     if-eq v1, p1, :cond_0
 
-    .line 1397
     const-string p1, "HuaweiApiClientImpl"
 
     const-string v1, "unregisterConnectionFailedListener: this onConnectionFailedListener has not been registered"
 
+    .line 4
     invoke-static {p1, v1}, Lcom/huawei/hms/support/log/HMSLog;->w(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 1400
     :cond_0
     const/4 p1, 0x0
 
-    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->y:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
+    .line 7
+    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
 
-    .line 1402
+    .line 9
     :goto_0
     monitor-exit v0
 
-    .line 1403
     return-void
 
-    .line 1402
     :catchall_0
     move-exception p1
 
@@ -3845,45 +3760,43 @@
 .method public removeConnectionSuccessListener(Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;)V
     .locals 2
 
-    .line 1377
     const-string v0, "connectionCallbacksListener should not be null"
 
+    .line 1
     invoke-static {p1, v0}, Lcom/huawei/hms/utils/Checker;->checkNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 1378
-    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->t:Ljava/lang/Object;
+    .line 2
+    iget-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->r:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 1379
+    .line 3
     :try_start_0
-    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->x:Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;
+    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->v:Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;
 
     if-eq v1, p1, :cond_0
 
-    .line 1380
     const-string p1, "HuaweiApiClientImpl"
 
     const-string v1, "unregisterConnectionCallback: this connectionCallbacksListener has not been registered"
 
+    .line 4
     invoke-static {p1, v1}, Lcom/huawei/hms/support/log/HMSLog;->w(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 1382
     :cond_0
     const/4 p1, 0x0
 
-    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->x:Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;
+    .line 6
+    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->v:Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;
 
-    .line 1384
+    .line 8
     :goto_0
     monitor-exit v0
 
-    .line 1385
     return-void
 
-    .line 1384
     :catchall_0
     move-exception p1
 
@@ -3892,6 +3805,17 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw p1
+.end method
+
+.method public resetListener()V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    .line 1
+    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->z:Lcom/huawei/hms/api/CheckUpdatelistener;
+
+    return-void
 .end method
 
 .method public setApiMap(Ljava/util/Map;)V
@@ -3907,50 +3831,45 @@
         }
     .end annotation
 
-    .line 413
-    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->p:Ljava/util/Map;
+    .line 1
+    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->n:Ljava/util/Map;
 
-    .line 414
     return-void
 .end method
 
 .method protected setAutoLifecycleClientId(I)V
     .locals 0
 
-    .line 1544
-    iput p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c:I
+    .line 1
+    iput p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->a:I
 
-    .line 1545
     return-void
 .end method
 
 .method public setConnectionCallbacks(Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;)V
     .locals 0
 
-    .line 958
-    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->x:Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;
+    .line 1
+    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->v:Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;
 
-    .line 959
     return-void
 .end method
 
 .method public setConnectionFailedListener(Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;)V
     .locals 0
 
-    .line 963
-    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->y:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
+    .line 1
+    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->w:Lcom/huawei/hms/api/HuaweiApiClient$OnConnectionFailedListener;
 
-    .line 964
     return-void
 .end method
 
 .method public setHasShowNotice(Z)V
     .locals 0
 
-    .line 435
-    iput-boolean p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->l:Z
+    .line 1
+    iput-boolean p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->j:Z
 
-    .line 436
     return-void
 .end method
 
@@ -3965,10 +3884,9 @@
         }
     .end annotation
 
-    .line 394
-    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->o:Ljava/util/List;
+    .line 1
+    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->m:Ljava/util/List;
 
-    .line 395
     return-void
 .end method
 
@@ -3983,60 +3901,56 @@
         }
     .end annotation
 
-    .line 376
-    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->n:Ljava/util/List;
+    .line 1
+    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->l:Ljava/util/List;
 
-    .line 377
     return-void
 .end method
 
 .method public setSubAppInfo(Lcom/huawei/hms/support/api/client/SubAppInfo;)Z
     .locals 4
 
-    .line 865
-    const-string v0, "HuaweiApiClientImpl"
+    const-string v0, "Enter setSubAppInfo"
 
-    const-string v1, "Enter setSubAppInfo"
+    const-string v1, "HuaweiApiClientImpl"
 
-    invoke-static {v0, v1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+    .line 1
+    invoke-static {v1, v0}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 866
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     if-nez p1, :cond_0
 
-    .line 867
     const-string p1, "subAppInfo is null"
 
-    invoke-static {v0, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    .line 3
+    invoke-static {v1, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 868
-    return v1
+    return v0
 
-    .line 871
+    .line 7
     :cond_0
     invoke-virtual {p1}, Lcom/huawei/hms/support/api/client/SubAppInfo;->getSubAppID()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 872
+    .line 8
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
     if-eqz v3, :cond_1
 
-    .line 873
     const-string p1, "subAppId is empty"
 
-    invoke-static {v0, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    .line 9
+    invoke-static {v1, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 874
-    return v1
+    return v0
 
-    .line 877
+    .line 13
     :cond_1
-    iget-object v3, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->e:Ljava/lang/String;
+    iget-object v3, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c:Ljava/lang/String;
 
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -4044,7 +3958,7 @@
 
     if-eqz v3, :cond_2
 
-    iget-object v3, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d:Landroid/content/Context;
+    iget-object v3, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->b:Landroid/content/Context;
 
     invoke-static {v3}, Lcom/huawei/hms/utils/Util;->getAppId(Landroid/content/Context;)Ljava/lang/String;
 
@@ -4053,9 +3967,9 @@
     goto :goto_0
 
     :cond_2
-    iget-object v3, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->e:Ljava/lang/String;
+    iget-object v3, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->c:Ljava/lang/String;
 
-    .line 878
+    .line 14
     :goto_0
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -4063,23 +3977,21 @@
 
     if-eqz v2, :cond_3
 
-    .line 879
     const-string p1, "subAppId is host appid"
 
-    invoke-static {v0, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    .line 15
+    invoke-static {v1, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 880
-    return v1
+    return v0
 
-    .line 884
+    .line 20
     :cond_3
     new-instance v0, Lcom/huawei/hms/support/api/client/SubAppInfo;
 
     invoke-direct {v0, p1}, Lcom/huawei/hms/support/api/client/SubAppInfo;-><init>(Lcom/huawei/hms/support/api/client/SubAppInfo;)V
 
-    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->q:Lcom/huawei/hms/support/api/client/SubAppInfo;
+    iput-object v0, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl;->o:Lcom/huawei/hms/support/api/client/SubAppInfo;
 
-    .line 885
     const/4 p1, 0x1
 
     return p1

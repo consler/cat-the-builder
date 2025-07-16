@@ -42,9 +42,9 @@
         }
     .end annotation
 
-    .line 31
     const/4 v0, 0x1
 
+    .line 31
     invoke-static {v0}, Lcom/google/crypto/tink/prf/AesCmacPrfKeyManager;->register(Z)V
 
     .line 32
@@ -56,6 +56,5 @@
     .line 34
     invoke-static {}, Lcom/google/crypto/tink/prf/PrfSetWrapper;->register()V
 
-    .line 35
     return-void
 .end method

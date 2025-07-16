@@ -40,13 +40,12 @@
         }
     .end annotation
 
-    .line 27
+    .line 1
     invoke-direct {p0}, Lcom/huawei/hms/common/api/OptionalPendingResult;-><init>()V
 
-    .line 28
+    .line 2
     iput-object p1, p0, Lcom/huawei/hms/common/api/internal/OptionalPendingResultImpl;->a:Lcom/huawei/hms/support/api/client/PendingResult;
 
-    .line 29
     return-void
 .end method
 
@@ -55,7 +54,6 @@
 .method public final addStatusListener()V
     .locals 0
 
-    .line 100
     return-void
 .end method
 
@@ -67,7 +65,7 @@
         }
     .end annotation
 
-    .line 55
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/api/internal/OptionalPendingResultImpl;->a:Lcom/huawei/hms/support/api/client/PendingResult;
 
     invoke-virtual {v0}, Lcom/huawei/hms/support/api/client/PendingResult;->await()Lcom/huawei/hms/support/api/client/Result;
@@ -87,7 +85,7 @@
         }
     .end annotation
 
-    .line 66
+    .line 2
     iget-object v0, p0, Lcom/huawei/hms/common/api/internal/OptionalPendingResultImpl;->a:Lcom/huawei/hms/support/api/client/PendingResult;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/huawei/hms/support/api/client/PendingResult;->await(JLjava/util/concurrent/TimeUnit;)Lcom/huawei/hms/support/api/client/Result;
@@ -100,7 +98,6 @@
 .method public final cancel()V
     .locals 0
 
-    .line 73
     return-void
 .end method
 
@@ -112,7 +109,7 @@
         }
     .end annotation
 
-    .line 46
+    .line 1
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Result is not available. Check that isDone() returns true before calling get()."
@@ -125,7 +122,6 @@
 .method public final isCanceled()Z
     .locals 1
 
-    .line 79
     const/4 v0, 0x0
 
     return v0
@@ -134,7 +130,6 @@
 .method public final isDone()Z
     .locals 1
 
-    .line 37
     const/4 v0, 0x0
 
     return v0
@@ -151,12 +146,11 @@
         }
     .end annotation
 
-    .line 89
+    .line 2
     iget-object v0, p0, Lcom/huawei/hms/common/api/internal/OptionalPendingResultImpl;->a:Lcom/huawei/hms/support/api/client/PendingResult;
 
     invoke-virtual {v0, p1, p2}, Lcom/huawei/hms/support/api/client/PendingResult;->setResultCallback(Landroid/os/Looper;Lcom/huawei/hms/support/api/client/ResultCallback;)V
 
-    .line 90
     return-void
 .end method
 
@@ -170,12 +164,11 @@
         }
     .end annotation
 
-    .line 84
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/api/internal/OptionalPendingResultImpl;->a:Lcom/huawei/hms/support/api/client/PendingResult;
 
     invoke-virtual {v0, p1}, Lcom/huawei/hms/support/api/client/PendingResult;->setResultCallback(Lcom/huawei/hms/support/api/client/ResultCallback;)V
 
-    .line 85
     return-void
 .end method
 
@@ -191,9 +184,8 @@
         }
     .end annotation
 
-    .line 94
+    .line 3
     invoke-virtual {p0, p1}, Lcom/huawei/hms/common/api/internal/OptionalPendingResultImpl;->setResultCallback(Lcom/huawei/hms/support/api/client/ResultCallback;)V
 
-    .line 95
     return-void
 .end method

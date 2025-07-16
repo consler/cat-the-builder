@@ -26,11 +26,10 @@
 # direct methods
 .method constructor <init>(Lokhttp3/MediaType;J)V
     .locals 0
-    .param p1, "contentType"    # Lokhttp3/MediaType;
+    .param p1    # Lokhttp3/MediaType;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "contentLength"    # J
 
     .line 280
     invoke-direct {p0}, Lokhttp3/ResponseBody;-><init>()V
@@ -41,7 +40,6 @@
     .line 282
     iput-wide p2, p0, Lretrofit2/OkHttpCall$NoContentResponseBody;->contentLength:J
 
-    .line 283
     return-void
 .end method
 

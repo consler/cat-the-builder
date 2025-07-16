@@ -46,33 +46,28 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/time/Duration;
-    .locals 5
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "in"    # Lcom/esotericsoftware/kryo/io/Input;
-    .param p3, "type"    # Ljava/lang/Class;
+    .locals 2
 
     .line 77
     invoke-virtual {p2}, Lcom/esotericsoftware/kryo/io/Input;->readLong()J
 
     move-result-wide v0
 
+    const/4 p1, 0x1
+
     .line 78
-    .local v0, "seconds":J
-    const/4 v2, 0x1
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Input;->readInt(Z)I
 
-    invoke-virtual {p2, v2}, Lcom/esotericsoftware/kryo/io/Input;->readInt(Z)I
+    move-result p1
 
-    move-result v2
+    int-to-long p1, p1
 
     .line 79
-    .local v2, "nanos":I
-    int-to-long v3, v2
+    invoke-static {v0, v1, p1, p2}, Ljava/time/Duration;->ofSeconds(JJ)Ljava/time/Duration;
 
-    invoke-static {v0, v1, v3, v4}, Ljava/time/Duration;->ofSeconds(JJ)Ljava/time/Duration;
+    move-result-object p1
 
-    move-result-object v3
-
-    return-object v3
+    return-object p1
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
@@ -88,9 +83,6 @@
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/time/Duration;)V
     .locals 2
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "out"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p3, "duration"    # Ljava/time/Duration;
 
     .line 72
     invoke-virtual {p3}, Ljava/time/Duration;->getSeconds()J
@@ -102,12 +94,11 @@
     .line 73
     invoke-virtual {p3}, Ljava/time/Duration;->getNano()I
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x1
+    const/4 p3, 0x1
 
-    invoke-virtual {p2, v0, v1}, Lcom/esotericsoftware/kryo/io/Output;->writeInt(IZ)I
+    invoke-virtual {p2, p1, p3}, Lcom/esotericsoftware/kryo/io/Output;->writeInt(IZ)I
 
-    .line 74
     return-void
 .end method

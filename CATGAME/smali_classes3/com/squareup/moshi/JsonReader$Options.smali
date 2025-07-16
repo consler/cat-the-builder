@@ -23,8 +23,6 @@
 # direct methods
 .method private constructor <init>([Ljava/lang/String;Lokio/Options;)V
     .locals 0
-    .param p1, "strings"    # [Ljava/lang/String;
-    .param p2, "doubleQuoteSuffix"    # Lokio/Options;
 
     .line 524
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,13 +33,11 @@
     .line 526
     iput-object p2, p0, Lcom/squareup/moshi/JsonReader$Options;->doubleQuoteSuffix:Lokio/Options;
 
-    .line 527
     return-void
 .end method
 
 .method public static varargs of([Ljava/lang/String;)Lcom/squareup/moshi/JsonReader$Options;
-    .locals 5
-    .param p0, "strings"    # [Ljava/lang/String;
+    .locals 4
     .annotation runtime Ljavax/annotation/CheckReturnValue;
     .end annotation
 
@@ -52,16 +48,13 @@
     new-array v0, v0, [Lokio/ByteString;
 
     .line 532
-    .local v0, "result":[Lokio/ByteString;
     new-instance v1, Lokio/Buffer;
 
     invoke-direct {v1}, Lokio/Buffer;-><init>()V
 
-    .line 533
-    .local v1, "buffer":Lokio/Buffer;
     const/4 v2, 0x0
 
-    .local v2, "i":I
+    .line 533
     :goto_0
     array-length v3, p0
 
@@ -82,43 +75,37 @@
 
     aput-object v3, v0, v2
 
-    .line 533
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 538
-    .end local v2    # "i":I
     :cond_0
-    new-instance v2, Lcom/squareup/moshi/JsonReader$Options;
+    new-instance v1, Lcom/squareup/moshi/JsonReader$Options;
 
     invoke-virtual {p0}, [Ljava/lang/String;->clone()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p0
 
-    check-cast v3, [Ljava/lang/String;
+    check-cast p0, [Ljava/lang/String;
 
     invoke-static {v0}, Lokio/Options;->of([Lokio/ByteString;)Lokio/Options;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-direct {v2, v3, v4}, Lcom/squareup/moshi/JsonReader$Options;-><init>([Ljava/lang/String;Lokio/Options;)V
+    invoke-direct {v1, p0, v0}, Lcom/squareup/moshi/JsonReader$Options;-><init>([Ljava/lang/String;Lokio/Options;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v2
+    return-object v1
 
-    .line 539
-    .end local v0    # "result":[Lokio/ByteString;
-    .end local v1    # "buffer":Lokio/Buffer;
     :catch_0
-    move-exception v0
+    move-exception p0
 
     .line 540
-    .local v0, "e":Ljava/io/IOException;
-    new-instance v1, Ljava/lang/AssertionError;
+    new-instance v0, Ljava/lang/AssertionError;
 
-    invoke-direct {v1, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+    invoke-direct {v0, p0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
-    throw v1
+    throw v0
 .end method

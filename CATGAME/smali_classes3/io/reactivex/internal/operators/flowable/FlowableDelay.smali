@@ -34,10 +34,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/Flowable;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;Z)V
     .locals 0
-    .param p2, "delay"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p6, "delayError"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,8 +46,6 @@
     .end annotation
 
     .line 32
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDelay;, "Lio/reactivex/internal/operators/flowable/FlowableDelay<TT;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
     .line 33
@@ -66,14 +60,13 @@
     .line 36
     iput-boolean p6, p0, Lio/reactivex/internal/operators/flowable/FlowableDelay;->delayError:Z
 
-    .line 37
     return-void
 .end method
 
 
 # virtual methods
 .method protected subscribeActual(Lorg/reactivestreams/Subscriber;)V
-    .locals 11
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -83,39 +76,34 @@
     .end annotation
 
     .line 42
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDelay;, "Lio/reactivex/internal/operators/flowable/FlowableDelay<TT;>;"
-    .local p1, "t":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDelay;->delayError:Z
 
     if-eqz v0, :cond_0
 
-    .line 43
-    move-object v0, p1
+    move-object v2, p1
 
-    .local v0, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     goto :goto_0
 
     .line 45
-    .end local v0    # "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     :cond_0
     new-instance v0, Lio/reactivex/subscribers/SerializedSubscriber;
 
     invoke-direct {v0, p1}, Lio/reactivex/subscribers/SerializedSubscriber;-><init>(Lorg/reactivestreams/Subscriber;)V
 
+    move-object v2, v0
+
     .line 48
-    .restart local v0    # "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     :goto_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableDelay;->scheduler:Lio/reactivex/Scheduler;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableDelay;->scheduler:Lio/reactivex/Scheduler;
 
-    invoke-virtual {v1}, Lio/reactivex/Scheduler;->createWorker()Lio/reactivex/Scheduler$Worker;
+    invoke-virtual {p1}, Lio/reactivex/Scheduler;->createWorker()Lio/reactivex/Scheduler$Worker;
 
-    move-result-object v8
+    move-result-object v6
 
     .line 50
-    .local v8, "w":Lio/reactivex/Scheduler$Worker;
-    iget-object v9, p0, Lio/reactivex/internal/operators/flowable/FlowableDelay;->source:Lio/reactivex/Flowable;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableDelay;->source:Lio/reactivex/Flowable;
 
-    new-instance v10, Lio/reactivex/internal/operators/flowable/FlowableDelay$DelaySubscriber;
+    new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableDelay$DelaySubscriber;
 
     iget-wide v3, p0, Lio/reactivex/internal/operators/flowable/FlowableDelay;->delay:J
 
@@ -123,16 +111,11 @@
 
     iget-boolean v7, p0, Lio/reactivex/internal/operators/flowable/FlowableDelay;->delayError:Z
 
-    move-object v1, v10
-
-    move-object v2, v0
-
-    move-object v6, v8
+    move-object v1, v0
 
     invoke-direct/range {v1 .. v7}, Lio/reactivex/internal/operators/flowable/FlowableDelay$DelaySubscriber;-><init>(Lorg/reactivestreams/Subscriber;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler$Worker;Z)V
 
-    invoke-virtual {v9, v10}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
+    invoke-virtual {p1, v0}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 51
     return-void
 .end method

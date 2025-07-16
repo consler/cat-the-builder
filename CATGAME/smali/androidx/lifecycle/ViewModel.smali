@@ -32,17 +32,16 @@
 
     iput-object v0, p0, Landroidx/lifecycle/ViewModel;->mBagOfTags:Ljava/util/Map;
 
-    .line 112
     const/4 v0, 0x0
 
+    .line 112
     iput-boolean v0, p0, Landroidx/lifecycle/ViewModel;->mCleared:Z
 
     return-void
 .end method
 
 .method private static closeWithRuntimeException(Ljava/lang/Object;)V
-    .locals 2
-    .param p0, "obj"    # Ljava/lang/Object;
+    .locals 1
 
     .line 187
     instance-of v0, p0, Ljava/io/Closeable;
@@ -51,31 +50,24 @@
 
     .line 189
     :try_start_0
-    move-object v0, p0
+    check-cast p0, Ljava/io/Closeable;
 
-    check-cast v0, Ljava/io/Closeable;
-
-    invoke-interface {v0}, Ljava/io/Closeable;->close()V
+    invoke-interface {p0}, Ljava/io/Closeable;->close()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 192
     goto :goto_0
 
-    .line 190
     :catch_0
-    move-exception v0
+    move-exception p0
 
     .line 191
-    .local v0, "e":Ljava/io/IOException;
-    new-instance v1, Ljava/lang/RuntimeException;
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 
-    .line 194
-    .end local v0    # "e":Ljava/io/IOException;
     :cond_0
     :goto_0
     return-void
@@ -86,9 +78,9 @@
 .method final clear()V
     .locals 3
 
-    .line 126
     const/4 v0, 0x1
 
+    .line 126
     iput-boolean v0, p0, Landroidx/lifecycle/ViewModel;->mCleared:Z
 
     .line 131
@@ -123,11 +115,8 @@
     move-result-object v2
 
     .line 135
-    .local v2, "value":Ljava/lang/Object;
     invoke-static {v2}, Landroidx/lifecycle/ViewModel;->closeWithRuntimeException(Ljava/lang/Object;)V
 
-    .line 136
-    .end local v2    # "value":Ljava/lang/Object;
     goto :goto_0
 
     .line 137
@@ -150,13 +139,11 @@
     :goto_1
     invoke-virtual {p0}, Landroidx/lifecycle/ViewModel;->onCleared()V
 
-    .line 140
     return-void
 .end method
 
 .method getTag(Ljava/lang/String;)Ljava/lang/Object;
     .locals 2
-    .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -172,10 +159,9 @@
 
     if-nez v0, :cond_0
 
-    .line 179
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 
     .line 181
     :cond_0
@@ -187,33 +173,31 @@
 
     invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
     monitor-exit v0
 
-    return-object v1
+    return-object p1
+
+    :catchall_0
+    move-exception p1
 
     .line 183
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method protected onCleared()V
     .locals 0
 
-    .line 122
     return-void
 .end method
 
 .method setTagIfAbsent(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 3
-    .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -225,7 +209,6 @@
     .end annotation
 
     .line 157
-    .local p2, "newValue":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Landroidx/lifecycle/ViewModel;->mBagOfTags:Ljava/util/Map;
 
     monitor-enter v0
@@ -238,8 +221,6 @@
 
     move-result-object v1
 
-    .line 159
-    .local v1, "previous":Ljava/lang/Object;, "TT;"
     if-nez v1, :cond_0
 
     .line 160
@@ -253,40 +234,33 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 163
     if-nez v1, :cond_1
-
-    move-object v0, p2
 
     goto :goto_0
 
     :cond_1
-    move-object v0, v1
+    move-object p2, v1
 
     .line 164
-    .local v0, "result":Ljava/lang/Object;, "TT;"
     :goto_0
-    iget-boolean v2, p0, Landroidx/lifecycle/ViewModel;->mCleared:Z
+    iget-boolean p1, p0, Landroidx/lifecycle/ViewModel;->mCleared:Z
 
-    if-eqz v2, :cond_2
+    if-eqz p1, :cond_2
 
     .line 168
-    invoke-static {v0}, Landroidx/lifecycle/ViewModel;->closeWithRuntimeException(Ljava/lang/Object;)V
+    invoke-static {p2}, Landroidx/lifecycle/ViewModel;->closeWithRuntimeException(Ljava/lang/Object;)V
 
-    .line 170
     :cond_2
-    return-object v0
+    return-object p2
+
+    :catchall_0
+    move-exception p1
 
     .line 162
-    .end local v0    # "result":Ljava/lang/Object;, "TT;"
-    .end local v1    # "previous":Ljava/lang/Object;, "TT;"
-    :catchall_0
-    move-exception v1
-
     :try_start_1
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p1
 .end method

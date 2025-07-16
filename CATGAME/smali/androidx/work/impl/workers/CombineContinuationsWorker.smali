@@ -6,8 +6,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/WorkerParameters;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "workerParams"    # Landroidx/work/WorkerParameters;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -22,7 +20,6 @@
     .line 36
     invoke-direct {p0, p1, p2}, Landroidx/work/Worker;-><init>(Landroid/content/Context;Landroidx/work/WorkerParameters;)V
 
-    .line 37
     return-void
 .end method
 

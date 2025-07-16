@@ -36,7 +36,6 @@
     .locals 0
 
     .line 39
-    .local p0, "this":Landroidx/camera/core/impl/utils/futures/ImmediateFuture;, "Landroidx/camera/core/impl/utils/futures/ImmediateFuture<TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -57,8 +56,6 @@
     .line 51
     sget-object v0, Landroidx/camera/core/impl/utils/futures/ImmediateFuture$ImmediateSuccessfulFuture;->NULL_FUTURE:Landroidx/camera/core/impl/utils/futures/ImmediateFuture;
 
-    .line 52
-    .local v0, "typedNull":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<TV;>;"
     return-object v0
 .end method
 
@@ -66,11 +63,8 @@
 # virtual methods
 .method public addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
     .locals 3
-    .param p1, "listener"    # Ljava/lang/Runnable;
-    .param p2, "executor"    # Ljava/util/concurrent/Executor;
 
     .line 57
-    .local p0, "this":Landroidx/camera/core/impl/utils/futures/ImmediateFuture;, "Landroidx/camera/core/impl/utils/futures/ImmediateFuture<TV;>;"
     invoke-static {p1}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 58
@@ -82,54 +76,50 @@
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 67
     goto :goto_0
 
-    .line 62
     :catch_0
     move-exception v0
 
     .line 65
-    .local v0, "e":Ljava/lang/RuntimeException;
     new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v2, "Experienced RuntimeException while attempting to notify "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v2, " on Executor "
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " on Executor "
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v2, "ImmediateFuture"
+    move-result-object p1
 
-    invoke-static {v2, v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    .line 69
-    .end local v0    # "e":Ljava/lang/RuntimeException;
+    move-result-object p1
+
+    const-string p2, "ImmediateFuture"
+
+    invoke-static {p2, p1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
     :goto_0
     return-void
 .end method
 
 .method public cancel(Z)Z
-    .locals 1
-    .param p1, "mayInterruptIfRunning"    # Z
+    .locals 0
 
-    .line 73
-    .local p0, "this":Landroidx/camera/core/impl/utils/futures/ImmediateFuture;, "Landroidx/camera/core/impl/utils/futures/ImmediateFuture<TV;>;"
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public abstract get()Ljava/lang/Object;
@@ -147,9 +137,7 @@
 .end method
 
 .method public get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "timeout"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -165,22 +153,19 @@
     .end annotation
 
     .line 93
-    .local p0, "this":Landroidx/camera/core/impl/utils/futures/ImmediateFuture;, "Landroidx/camera/core/impl/utils/futures/ImmediateFuture<TV;>;"
     invoke-static {p3}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 94
     invoke-virtual {p0}, Landroidx/camera/core/impl/utils/futures/ImmediateFuture;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public isCancelled()Z
     .locals 1
 
-    .line 78
-    .local p0, "this":Landroidx/camera/core/impl/utils/futures/ImmediateFuture;, "Landroidx/camera/core/impl/utils/futures/ImmediateFuture<TV;>;"
     const/4 v0, 0x0
 
     return v0
@@ -189,8 +174,6 @@
 .method public isDone()Z
     .locals 1
 
-    .line 83
-    .local p0, "this":Landroidx/camera/core/impl/utils/futures/ImmediateFuture;, "Landroidx/camera/core/impl/utils/futures/ImmediateFuture<TV;>;"
     const/4 v0, 0x1
 
     return v0

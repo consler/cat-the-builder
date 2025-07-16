@@ -43,16 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/UUID;Landroidx/work/Data;Ljava/util/Collection;Landroidx/work/WorkerParameters$RuntimeExtras;ILjava/util/concurrent/Executor;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/WorkerFactory;Landroidx/work/ProgressUpdater;Landroidx/work/ForegroundUpdater;)V
-    .locals 1
-    .param p1, "id"    # Ljava/util/UUID;
-    .param p2, "inputData"    # Landroidx/work/Data;
-    .param p4, "runtimeExtras"    # Landroidx/work/WorkerParameters$RuntimeExtras;
-    .param p5, "runAttemptCount"    # I
-    .param p6, "backgroundExecutor"    # Ljava/util/concurrent/Executor;
-    .param p7, "workTaskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
-    .param p8, "workerFactory"    # Landroidx/work/WorkerFactory;
-    .param p9, "progressUpdater"    # Landroidx/work/ProgressUpdater;
-    .param p10, "foregroundUpdater"    # Landroidx/work/ForegroundUpdater;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -100,7 +91,6 @@
     .end annotation
 
     .line 68
-    .local p3, "tags":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/lang/String;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 69
@@ -110,11 +100,11 @@
     iput-object p2, p0, Landroidx/work/WorkerParameters;->mInputData:Landroidx/work/Data;
 
     .line 71
-    new-instance v0, Ljava/util/HashSet;
+    new-instance p1, Ljava/util/HashSet;
 
-    invoke-direct {v0, p3}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
+    invoke-direct {p1, p3}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
 
-    iput-object v0, p0, Landroidx/work/WorkerParameters;->mTags:Ljava/util/Set;
+    iput-object p1, p0, Landroidx/work/WorkerParameters;->mTags:Ljava/util/Set;
 
     .line 72
     iput-object p4, p0, Landroidx/work/WorkerParameters;->mRuntimeExtras:Landroidx/work/WorkerParameters$RuntimeExtras;
@@ -137,7 +127,6 @@
     .line 78
     iput-object p10, p0, Landroidx/work/WorkerParameters;->mForegroundUpdater:Landroidx/work/ForegroundUpdater;
 
-    .line 79
     return-void
 .end method
 
@@ -206,6 +195,15 @@
     iget v0, p0, Landroidx/work/WorkerParameters;->mRunAttemptCount:I
 
     return v0
+.end method
+
+.method public getRuntimeExtras()Landroidx/work/WorkerParameters$RuntimeExtras;
+    .locals 1
+
+    .line 202
+    iget-object v0, p0, Landroidx/work/WorkerParameters;->mRuntimeExtras:Landroidx/work/WorkerParameters$RuntimeExtras;
+
+    return-object v0
 .end method
 
 .method public getTags()Ljava/util/Set;

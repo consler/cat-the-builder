@@ -38,14 +38,11 @@
     .end annotation
 
     .line 21
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableFromUnsafeSource;, "Lio/reactivex/internal/operators/observable/ObservableFromUnsafeSource<TT;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Observable;-><init>()V
 
     .line 22
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableFromUnsafeSource;->source:Lio/reactivex/ObservableSource;
 
-    .line 23
     return-void
 .end method
 
@@ -62,12 +59,9 @@
     .end annotation
 
     .line 27
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableFromUnsafeSource;, "Lio/reactivex/internal/operators/observable/ObservableFromUnsafeSource<TT;>;"
-    .local p1, "observer":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableFromUnsafeSource;->source:Lio/reactivex/ObservableSource;
 
     invoke-interface {v0, p1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 28
     return-void
 .end method

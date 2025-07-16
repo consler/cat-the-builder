@@ -48,8 +48,6 @@
 
 .method synthetic constructor <init>(Lorg/apache/commons/collections/map/StaticBucketMap;Lorg/apache/commons/collections/map/StaticBucketMap$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/collections/map/StaticBucketMap;
-    .param p2, "x1"    # Lorg/apache/commons/collections/map/StaticBucketMap$1;
 
     .line 499
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/map/StaticBucketMap$EntryIterator;-><init>(Lorg/apache/commons/collections/map/StaticBucketMap;)V
@@ -115,8 +113,6 @@
 
     aget-object v2, v2, v3
 
-    .line 511
-    .local v2, "n":Lorg/apache/commons/collections/map/StaticBucketMap$Node;
     :goto_1
     if-eqz v2, :cond_1
 
@@ -126,35 +122,32 @@
     invoke-virtual {v3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 513
-    iget-object v3, v2, Lorg/apache/commons/collections/map/StaticBucketMap$Node;->next:Lorg/apache/commons/collections/map/StaticBucketMap$Node;
-
-    move-object v2, v3
+    iget-object v2, v2, Lorg/apache/commons/collections/map/StaticBucketMap$Node;->next:Lorg/apache/commons/collections/map/StaticBucketMap$Node;
 
     goto :goto_1
 
     .line 515
     :cond_1
-    iget v3, p0, Lorg/apache/commons/collections/map/StaticBucketMap$EntryIterator;->bucket:I
+    iget v2, p0, Lorg/apache/commons/collections/map/StaticBucketMap$EntryIterator;->bucket:I
 
-    add-int/2addr v3, v1
+    add-int/2addr v2, v1
 
-    iput v3, p0, Lorg/apache/commons/collections/map/StaticBucketMap$EntryIterator;->bucket:I
+    iput v2, p0, Lorg/apache/commons/collections/map/StaticBucketMap$EntryIterator;->bucket:I
 
     .line 516
-    iget-object v3, p0, Lorg/apache/commons/collections/map/StaticBucketMap$EntryIterator;->current:Ljava/util/ArrayList;
+    iget-object v2, p0, Lorg/apache/commons/collections/map/StaticBucketMap$EntryIterator;->current:Ljava/util/ArrayList;
 
-    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
-    move-result v3
+    move-result v2
 
-    if-lez v3, :cond_2
+    if-lez v2, :cond_2
 
     monitor-exit v0
 
     return v1
 
     .line 517
-    .end local v2    # "n":Lorg/apache/commons/collections/map/StaticBucketMap$Node;
     :cond_2
     monitor-exit v0
 
@@ -169,7 +162,6 @@
 
     throw v1
 
-    .line 519
     :cond_3
     const/4 v0, 0x0
 
@@ -214,7 +206,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/map/StaticBucketMap$EntryIterator;->last:Ljava/util/Map$Entry;
 
-    .line 525
     return-object v0
 
     .line 523
@@ -243,12 +234,11 @@
 
     invoke-virtual {v1, v0}, Lorg/apache/commons/collections/map/StaticBucketMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 535
     const/4 v0, 0x0
 
+    .line 535
     iput-object v0, p0, Lorg/apache/commons/collections/map/StaticBucketMap$EntryIterator;->last:Ljava/util/Map$Entry;
 
-    .line 536
     return-void
 
     .line 533

@@ -53,9 +53,6 @@
 
 .method private getTranslation(Lcom/badlogic/gdx/math/Matrix4;Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
     .locals 1
-    .param p1, "worldTransform"    # Lcom/badlogic/gdx/math/Matrix4;
-    .param p2, "center"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p3, "output"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 40
     invoke-virtual {p2}, Lcom/badlogic/gdx/math/Vector3;->isZero()Z
@@ -80,9 +77,9 @@
     .line 43
     invoke-virtual {p1, p3}, Lcom/badlogic/gdx/math/Matrix4;->getTranslation(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/math/Vector3;->add(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/math/Vector3;->add(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
     goto :goto_0
 
@@ -90,11 +87,10 @@
     :cond_1
     invoke-virtual {p3, p2}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p2, p1}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
-    .line 46
     :goto_0
     return-object p3
 .end method
@@ -102,9 +98,7 @@
 
 # virtual methods
 .method public compare(Lcom/badlogic/gdx/graphics/g3d/Renderable;Lcom/badlogic/gdx/graphics/g3d/Renderable;)I
-    .locals 9
-    .param p1, "o1"    # Lcom/badlogic/gdx/graphics/g3d/Renderable;
-    .param p2, "o2"    # Lcom/badlogic/gdx/graphics/g3d/Renderable;
+    .locals 6
 
     .line 51
     iget-object v0, p1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->material:Lcom/badlogic/gdx/graphics/g3d/Material;
@@ -143,7 +137,6 @@
     move v0, v1
 
     .line 52
-    .local v0, "b1":Z
     :goto_0
     iget-object v3, p2, Lcom/badlogic/gdx/graphics/g3d/Renderable;->material:Lcom/badlogic/gdx/graphics/g3d/Material;
 
@@ -176,8 +169,6 @@
     :cond_1
     move v3, v1
 
-    .line 53
-    .local v3, "b2":Z
     :goto_1
     const/4 v4, -0x1
 
@@ -195,96 +186,87 @@
 
     .line 57
     :cond_3
-    iget-object v5, p1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->worldTransform:Lcom/badlogic/gdx/math/Matrix4;
+    iget-object v3, p1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->worldTransform:Lcom/badlogic/gdx/math/Matrix4;
 
-    iget-object v6, p1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->meshPart:Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->meshPart:Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
 
-    iget-object v6, v6, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->center:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->center:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/utils/DefaultRenderableSorter;->tmpV1:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v5, p0, Lcom/badlogic/gdx/graphics/g3d/utils/DefaultRenderableSorter;->tmpV1:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-direct {p0, v5, v6, v7}, Lcom/badlogic/gdx/graphics/g3d/utils/DefaultRenderableSorter;->getTranslation(Lcom/badlogic/gdx/math/Matrix4;Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-direct {p0, v3, p1, v5}, Lcom/badlogic/gdx/graphics/g3d/utils/DefaultRenderableSorter;->getTranslation(Lcom/badlogic/gdx/math/Matrix4;Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
     .line 58
-    iget-object v5, p2, Lcom/badlogic/gdx/graphics/g3d/Renderable;->worldTransform:Lcom/badlogic/gdx/math/Matrix4;
+    iget-object p1, p2, Lcom/badlogic/gdx/graphics/g3d/Renderable;->worldTransform:Lcom/badlogic/gdx/math/Matrix4;
 
-    iget-object v6, p2, Lcom/badlogic/gdx/graphics/g3d/Renderable;->meshPart:Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
+    iget-object p2, p2, Lcom/badlogic/gdx/graphics/g3d/Renderable;->meshPart:Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
 
-    iget-object v6, v6, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->center:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p2, p2, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->center:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/utils/DefaultRenderableSorter;->tmpV2:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/DefaultRenderableSorter;->tmpV2:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-direct {p0, v5, v6, v7}, Lcom/badlogic/gdx/graphics/g3d/utils/DefaultRenderableSorter;->getTranslation(Lcom/badlogic/gdx/math/Matrix4;Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-direct {p0, p1, p2, v3}, Lcom/badlogic/gdx/graphics/g3d/utils/DefaultRenderableSorter;->getTranslation(Lcom/badlogic/gdx/math/Matrix4;Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
     .line 59
-    iget-object v5, p0, Lcom/badlogic/gdx/graphics/g3d/utils/DefaultRenderableSorter;->camera:Lcom/badlogic/gdx/graphics/Camera;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/DefaultRenderableSorter;->camera:Lcom/badlogic/gdx/graphics/Camera;
 
-    iget-object v5, v5, Lcom/badlogic/gdx/graphics/Camera;->position:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/Camera;->position:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v6, p0, Lcom/badlogic/gdx/graphics/g3d/utils/DefaultRenderableSorter;->tmpV1:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/DefaultRenderableSorter;->tmpV1:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v5, v6}, Lcom/badlogic/gdx/math/Vector3;->dst2(Lcom/badlogic/gdx/math/Vector3;)F
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/math/Vector3;->dst2(Lcom/badlogic/gdx/math/Vector3;)F
 
-    move-result v5
+    move-result p1
 
-    const/high16 v6, 0x447a0000    # 1000.0f
+    const/high16 p2, 0x447a0000    # 1000.0f
 
-    mul-float/2addr v5, v6
+    mul-float/2addr p1, p2
 
-    float-to-int v5, v5
+    float-to-int p1, p1
 
-    iget-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/utils/DefaultRenderableSorter;->camera:Lcom/badlogic/gdx/graphics/Camera;
+    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/DefaultRenderableSorter;->camera:Lcom/badlogic/gdx/graphics/Camera;
 
-    iget-object v7, v7, Lcom/badlogic/gdx/graphics/Camera;->position:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v3, v3, Lcom/badlogic/gdx/graphics/Camera;->position:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v8, p0, Lcom/badlogic/gdx/graphics/g3d/utils/DefaultRenderableSorter;->tmpV2:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v5, p0, Lcom/badlogic/gdx/graphics/g3d/utils/DefaultRenderableSorter;->tmpV2:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v7, v8}, Lcom/badlogic/gdx/math/Vector3;->dst2(Lcom/badlogic/gdx/math/Vector3;)F
+    invoke-virtual {v3, v5}, Lcom/badlogic/gdx/math/Vector3;->dst2(Lcom/badlogic/gdx/math/Vector3;)F
 
-    move-result v7
+    move-result v3
 
-    mul-float/2addr v7, v6
+    mul-float/2addr v3, p2
 
-    float-to-int v6, v7
+    float-to-int p2, v3
 
-    sub-int/2addr v5, v6
+    sub-int/2addr p1, p2
 
-    int-to-float v5, v5
+    int-to-float p1, p1
 
-    .line 60
-    .local v5, "dst":F
-    const/4 v6, 0x0
+    const/4 p2, 0x0
 
-    cmpg-float v7, v5, v6
+    cmpg-float v3, p1, p2
 
-    if-gez v7, :cond_4
+    if-gez v3, :cond_4
 
     move v1, v4
 
     goto :goto_3
 
     :cond_4
-    cmpl-float v4, v5, v6
+    cmpl-float p1, p1, p2
 
-    if-lez v4, :cond_5
+    if-lez p1, :cond_5
 
     move v1, v2
 
-    .line 61
-    .local v1, "result":I
     :cond_5
     :goto_3
     if-eqz v0, :cond_6
 
-    neg-int v2, v1
-
-    goto :goto_4
+    neg-int v1, v1
 
     :cond_6
-    move v2, v1
-
-    :goto_4
-    return v2
+    return v1
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
@@ -304,7 +286,6 @@
 
 .method public sort(Lcom/badlogic/gdx/graphics/Camera;Lcom/badlogic/gdx/utils/Array;)V
     .locals 0
-    .param p1, "camera"    # Lcom/badlogic/gdx/graphics/Camera;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -316,12 +297,10 @@
     .end annotation
 
     .line 35
-    .local p2, "renderables":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/g3d/Renderable;>;"
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/DefaultRenderableSorter;->camera:Lcom/badlogic/gdx/graphics/Camera;
 
     .line 36
     invoke-virtual {p2, p0}, Lcom/badlogic/gdx/utils/Array;->sort(Ljava/util/Comparator;)V
 
-    .line 37
     return-void
 .end method

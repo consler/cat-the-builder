@@ -48,7 +48,6 @@
 
     iput-object v0, p0, Lcom/bumptech/glide/load/model/ModelLoaderRegistry$ModelLoaderCache;->cachedModelLoaders:Ljava/util/Map;
 
-    .line 130
     return-void
 .end method
 
@@ -62,12 +61,11 @@
 
     invoke-interface {v0}, Ljava/util/Map;->clear()V
 
-    .line 134
     return-void
 .end method
 
 .method public get(Ljava/lang/Class;)Ljava/util/List;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<Model:",
@@ -82,32 +80,30 @@
     .end annotation
 
     .line 146
-    .local p1, "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<TModel;>;"
     iget-object v0, p0, Lcom/bumptech/glide/load/model/ModelLoaderRegistry$ModelLoaderCache;->cachedModelLoaders:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/bumptech/glide/load/model/ModelLoaderRegistry$ModelLoaderCache$Entry;
+    check-cast p1, Lcom/bumptech/glide/load/model/ModelLoaderRegistry$ModelLoaderCache$Entry;
 
-    .line 147
-    .local v0, "entry":Lcom/bumptech/glide/load/model/ModelLoaderRegistry$ModelLoaderCache$Entry;, "Lcom/bumptech/glide/load/model/ModelLoaderRegistry$ModelLoaderCache$Entry<TModel;>;"
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
+    .line 147
     :cond_0
-    iget-object v1, v0, Lcom/bumptech/glide/load/model/ModelLoaderRegistry$ModelLoaderCache$Entry;->loaders:Ljava/util/List;
+    iget-object p1, p1, Lcom/bumptech/glide/load/model/ModelLoaderRegistry$ModelLoaderCache$Entry;->loaders:Ljava/util/List;
 
     :goto_0
-    return-object v1
+    return-object p1
 .end method
 
 .method public put(Ljava/lang/Class;Ljava/util/List;)V
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<Model:",
@@ -122,8 +118,6 @@
     .end annotation
 
     .line 137
-    .local p1, "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<TModel;>;"
-    .local p2, "loaders":Ljava/util/List;, "Ljava/util/List<Lcom/bumptech/glide/load/model/ModelLoader<TModel;*>;>;"
     iget-object v0, p0, Lcom/bumptech/glide/load/model/ModelLoaderRegistry$ModelLoaderCache;->cachedModelLoaders:Ljava/util/Map;
 
     new-instance v1, Lcom/bumptech/glide/load/model/ModelLoaderRegistry$ModelLoaderCache$Entry;
@@ -132,36 +126,33 @@
 
     invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p2
 
-    check-cast v0, Lcom/bumptech/glide/load/model/ModelLoaderRegistry$ModelLoaderCache$Entry;
+    check-cast p2, Lcom/bumptech/glide/load/model/ModelLoaderRegistry$ModelLoaderCache$Entry;
 
-    .line 138
-    .local v0, "previous":Lcom/bumptech/glide/load/model/ModelLoaderRegistry$ModelLoaderCache$Entry;, "Lcom/bumptech/glide/load/model/ModelLoaderRegistry$ModelLoaderCache$Entry<*>;"
-    if-nez v0, :cond_0
+    if-nez p2, :cond_0
 
-    .line 141
     return-void
 
     .line 139
     :cond_0
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance p2, Ljava/lang/IllegalStateException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Already cached loaders for model: "
 
-    const-string v3, "Already cached loaders for model: "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p2
 .end method

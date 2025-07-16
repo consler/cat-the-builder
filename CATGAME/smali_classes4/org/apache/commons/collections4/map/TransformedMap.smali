@@ -61,10 +61,6 @@
     .end annotation
 
     .line 129
-    .local p0, "this":Lorg/apache/commons/collections4/map/TransformedMap;, "Lorg/apache/commons/collections4/map/TransformedMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    .local p2, "keyTransformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TK;+TK;>;"
-    .local p3, "valueTransformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TV;+TV;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator;-><init>(Ljava/util/Map;)V
 
     .line 130
@@ -73,13 +69,11 @@
     .line 131
     iput-object p3, p0, Lorg/apache/commons/collections4/map/TransformedMap;->valueTransformer:Lorg/apache/commons/collections4/Transformer;
 
-    .line 132
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 1
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -88,24 +82,22 @@
     .end annotation
 
     .line 157
-    .local p0, "this":Lorg/apache/commons/collections4/map/TransformedMap;, "Lorg/apache/commons/collections4/map/TransformedMap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
     .line 158
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Map;
+    check-cast p1, Ljava/util/Map;
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/map/TransformedMap;->map:Ljava/util/Map;
+    iput-object p1, p0, Lorg/apache/commons/collections4/map/TransformedMap;->map:Ljava/util/Map;
 
-    .line 159
     return-void
 .end method
 
 .method public static transformedMap(Ljava/util/Map;Lorg/apache/commons/collections4/Transformer;Lorg/apache/commons/collections4/Transformer;)Lorg/apache/commons/collections4/map/TransformedMap;
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -125,39 +117,32 @@
     .end annotation
 
     .line 106
-    .local p0, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    .local p1, "keyTransformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TK;+TK;>;"
-    .local p2, "valueTransformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TV;+TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/map/TransformedMap;
 
     invoke-direct {v0, p0, p1, p2}, Lorg/apache/commons/collections4/map/TransformedMap;-><init>(Ljava/util/Map;Lorg/apache/commons/collections4/Transformer;Lorg/apache/commons/collections4/Transformer;)V
 
     .line 107
-    .local v0, "decorated":Lorg/apache/commons/collections4/map/TransformedMap;, "Lorg/apache/commons/collections4/map/TransformedMap<TK;TV;>;"
     invoke-interface {p0}, Ljava/util/Map;->size()I
 
-    move-result v1
+    move-result p1
 
-    if-lez v1, :cond_0
+    if-lez p1, :cond_0
 
     .line 108
     invoke-virtual {v0, p0}, Lorg/apache/commons/collections4/map/TransformedMap;->transformMap(Ljava/util/Map;)Ljava/util/Map;
 
-    move-result-object v1
+    move-result-object p0
 
     .line 109
-    .local v1, "transformed":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     invoke-virtual {v0}, Lorg/apache/commons/collections4/map/TransformedMap;->clear()V
 
     .line 110
     invoke-virtual {v0}, Lorg/apache/commons/collections4/map/TransformedMap;->decorated()Ljava/util/Map;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-interface {v2, v1}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
+    invoke-interface {p1, p0}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
 
-    .line 112
-    .end local v1    # "transformed":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     :cond_0
     return-object v0
 .end method
@@ -183,9 +168,6 @@
     .end annotation
 
     .line 83
-    .local p0, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    .local p1, "keyTransformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TK;+TK;>;"
-    .local p2, "valueTransformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TV;+TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/map/TransformedMap;
 
     invoke-direct {v0, p0, p1, p2}, Lorg/apache/commons/collections4/map/TransformedMap;-><init>(Ljava/util/Map;Lorg/apache/commons/collections4/Transformer;Lorg/apache/commons/collections4/Transformer;)V
@@ -195,7 +177,6 @@
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -203,7 +184,6 @@
     .end annotation
 
     .line 143
-    .local p0, "this":Lorg/apache/commons/collections4/map/TransformedMap;, "Lorg/apache/commons/collections4/map/TransformedMap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
     .line 144
@@ -211,7 +191,6 @@
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    .line 145
     return-void
 .end method
 
@@ -226,22 +205,19 @@
     .end annotation
 
     .line 222
-    .local p0, "this":Lorg/apache/commons/collections4/map/TransformedMap;, "Lorg/apache/commons/collections4/map/TransformedMap<TK;TV;>;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/TransformedMap;->valueTransformer:Lorg/apache/commons/collections4/Transformer;
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Transformer;->transform(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic entrySet()Ljava/util/Set;
     .locals 1
 
     .line 52
-    .local p0, "this":Lorg/apache/commons/collections4/map/TransformedMap;, "Lorg/apache/commons/collections4/map/TransformedMap<TK;TV;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator;->entrySet()Ljava/util/Set;
 
     move-result-object v0
@@ -253,7 +229,6 @@
     .locals 1
 
     .line 233
-    .local p0, "this":Lorg/apache/commons/collections4/map/TransformedMap;, "Lorg/apache/commons/collections4/map/TransformedMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/TransformedMap;->valueTransformer:Lorg/apache/commons/collections4/Transformer;
 
     if-eqz v0, :cond_0
@@ -278,9 +253,6 @@
     .end annotation
 
     .line 239
-    .local p0, "this":Lorg/apache/commons/collections4/map/TransformedMap;, "Lorg/apache/commons/collections4/map/TransformedMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/map/TransformedMap;->transformKey(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
@@ -297,9 +269,9 @@
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public putAll(Ljava/util/Map;)V
@@ -313,8 +285,6 @@
     .end annotation
 
     .line 246
-    .local p0, "this":Lorg/apache/commons/collections4/map/TransformedMap;, "Lorg/apache/commons/collections4/map/TransformedMap<TK;TV;>;"
-    .local p1, "mapToCopy":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/map/TransformedMap;->transformMap(Ljava/util/Map;)Ljava/util/Map;
 
     move-result-object p1
@@ -326,7 +296,6 @@
 
     invoke-interface {v0, p1}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
 
-    .line 248
     return-void
 .end method
 
@@ -339,26 +308,23 @@
     .end annotation
 
     .line 171
-    .local p0, "this":Lorg/apache/commons/collections4/map/TransformedMap;, "Lorg/apache/commons/collections4/map/TransformedMap<TK;TV;>;"
-    .local p1, "object":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/TransformedMap;->keyTransformer:Lorg/apache/commons/collections4/Transformer;
 
     if-nez v0, :cond_0
 
-    .line 172
     return-object p1
 
     .line 174
     :cond_0
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Transformer;->transform(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected transformMap(Ljava/util/Map;)Ljava/util/Map;
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -370,15 +336,12 @@
     .end annotation
 
     .line 202
-    .local p0, "this":Lorg/apache/commons/collections4/map/TransformedMap;, "Lorg/apache/commons/collections4/map/TransformedMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     invoke-interface {p1}, Ljava/util/Map;->isEmpty()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 203
     return-object p1
 
     .line 205
@@ -392,53 +355,48 @@
     invoke-direct {v0, v1}, Lorg/apache/commons/collections4/map/LinkedMap;-><init>(I)V
 
     .line 207
-    .local v0, "result":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/util/Map$Entry;
+
+    .line 208
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v2
 
-    check-cast v2, Ljava/util/Map$Entry;
+    invoke-virtual {p0, v2}, Lorg/apache/commons/collections4/map/TransformedMap;->transformKey(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 208
-    .local v2, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+TV;>;"
-    invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v3
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    invoke-virtual {p0, v3}, Lorg/apache/commons/collections4/map/TransformedMap;->transformKey(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v1
 
-    move-result-object v3
+    invoke-virtual {p0, v1}, Lorg/apache/commons/collections4/map/TransformedMap;->transformValue(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    move-result-object v1
 
-    move-result-object v4
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {p0, v4}, Lorg/apache/commons/collections4/map/TransformedMap;->transformValue(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    invoke-interface {v0, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 209
-    .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+TV;>;"
     goto :goto_0
 
-    .line 210
     :cond_1
     return-object v0
 .end method
@@ -452,20 +410,17 @@
     .end annotation
 
     .line 186
-    .local p0, "this":Lorg/apache/commons/collections4/map/TransformedMap;, "Lorg/apache/commons/collections4/map/TransformedMap<TK;TV;>;"
-    .local p1, "object":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/TransformedMap;->valueTransformer:Lorg/apache/commons/collections4/Transformer;
 
     if-nez v0, :cond_0
 
-    .line 187
     return-object p1
 
     .line 189
     :cond_0
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Transformer;->transform(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

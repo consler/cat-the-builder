@@ -30,8 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/squareup/picasso/LruCache;I)V
     .locals 0
-    .param p1, "this$0"    # Lcom/squareup/picasso/LruCache;
-    .param p2, "x0"    # I
 
     .line 36
     iput-object p1, p0, Lcom/squareup/picasso/LruCache$1;->this$0:Lcom/squareup/picasso/LruCache;
@@ -59,12 +57,10 @@
 .end method
 
 .method protected sizeOf(Ljava/lang/String;Lcom/squareup/picasso/LruCache$BitmapAndSize;)I
-    .locals 1
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "value"    # Lcom/squareup/picasso/LruCache$BitmapAndSize;
+    .locals 0
 
     .line 38
-    iget v0, p2, Lcom/squareup/picasso/LruCache$BitmapAndSize;->byteCount:I
+    iget p1, p2, Lcom/squareup/picasso/LruCache$BitmapAndSize;->byteCount:I
 
-    return v0
+    return p1
 .end method

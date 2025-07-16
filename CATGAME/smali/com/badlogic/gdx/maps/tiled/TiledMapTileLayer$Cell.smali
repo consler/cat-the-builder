@@ -84,44 +84,36 @@
 
 .method public setFlipHorizontally(Z)Lcom/badlogic/gdx/maps/tiled/TiledMapTileLayer$Cell;
     .locals 0
-    .param p1, "flipHorizontally"    # Z
 
     .line 122
     iput-boolean p1, p0, Lcom/badlogic/gdx/maps/tiled/TiledMapTileLayer$Cell;->flipHorizontally:Z
 
-    .line 123
     return-object p0
 .end method
 
 .method public setFlipVertically(Z)Lcom/badlogic/gdx/maps/tiled/TiledMapTileLayer$Cell;
     .locals 0
-    .param p1, "flipVertically"    # Z
 
     .line 136
     iput-boolean p1, p0, Lcom/badlogic/gdx/maps/tiled/TiledMapTileLayer$Cell;->flipVertically:Z
 
-    .line 137
     return-object p0
 .end method
 
 .method public setRotation(I)Lcom/badlogic/gdx/maps/tiled/TiledMapTileLayer$Cell;
     .locals 0
-    .param p1, "rotation"    # I
 
     .line 150
     iput p1, p0, Lcom/badlogic/gdx/maps/tiled/TiledMapTileLayer$Cell;->rotation:I
 
-    .line 151
     return-object p0
 .end method
 
 .method public setTile(Lcom/badlogic/gdx/maps/tiled/TiledMapTile;)Lcom/badlogic/gdx/maps/tiled/TiledMapTileLayer$Cell;
     .locals 0
-    .param p1, "tile"    # Lcom/badlogic/gdx/maps/tiled/TiledMapTile;
 
     .line 108
     iput-object p1, p0, Lcom/badlogic/gdx/maps/tiled/TiledMapTileLayer$Cell;->tile:Lcom/badlogic/gdx/maps/tiled/TiledMapTile;
 
-    .line 109
     return-object p0
 .end method

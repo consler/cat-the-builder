@@ -91,7 +91,6 @@
 
     iput-object v0, p0, Landroidx/work/WorkQuery$Builder;->mStates:Ljava/util/List;
 
-    .line 108
     return-void
 .end method
 
@@ -117,16 +116,13 @@
     .end annotation
 
     .line 119
-    .local p0, "ids":Ljava/util/List;, "Ljava/util/List<Ljava/util/UUID;>;"
     new-instance v0, Landroidx/work/WorkQuery$Builder;
 
     invoke-direct {v0}, Landroidx/work/WorkQuery$Builder;-><init>()V
 
     .line 120
-    .local v0, "builder":Landroidx/work/WorkQuery$Builder;
     invoke-virtual {v0, p0}, Landroidx/work/WorkQuery$Builder;->addIds(Ljava/util/List;)Landroidx/work/WorkQuery$Builder;
 
-    .line 121
     return-object v0
 .end method
 
@@ -152,16 +148,13 @@
     .end annotation
 
     .line 161
-    .local p0, "states":Ljava/util/List;, "Ljava/util/List<Landroidx/work/WorkInfo$State;>;"
     new-instance v0, Landroidx/work/WorkQuery$Builder;
 
     invoke-direct {v0}, Landroidx/work/WorkQuery$Builder;-><init>()V
 
     .line 162
-    .local v0, "builder":Landroidx/work/WorkQuery$Builder;
     invoke-virtual {v0, p0}, Landroidx/work/WorkQuery$Builder;->addStates(Ljava/util/List;)Landroidx/work/WorkQuery$Builder;
 
-    .line 163
     return-object v0
 .end method
 
@@ -187,16 +180,13 @@
     .end annotation
 
     .line 147
-    .local p0, "tags":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     new-instance v0, Landroidx/work/WorkQuery$Builder;
 
     invoke-direct {v0}, Landroidx/work/WorkQuery$Builder;-><init>()V
 
     .line 148
-    .local v0, "builder":Landroidx/work/WorkQuery$Builder;
     invoke-virtual {v0, p0}, Landroidx/work/WorkQuery$Builder;->addTags(Ljava/util/List;)Landroidx/work/WorkQuery$Builder;
 
-    .line 149
     return-object v0
 .end method
 
@@ -222,16 +212,13 @@
     .end annotation
 
     .line 133
-    .local p0, "uniqueWorkNames":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     new-instance v0, Landroidx/work/WorkQuery$Builder;
 
     invoke-direct {v0}, Landroidx/work/WorkQuery$Builder;-><init>()V
 
     .line 134
-    .local v0, "builder":Landroidx/work/WorkQuery$Builder;
     invoke-virtual {v0, p0}, Landroidx/work/WorkQuery$Builder;->addUniqueWorkNames(Ljava/util/List;)Landroidx/work/WorkQuery$Builder;
 
-    .line 135
     return-object v0
 .end method
 
@@ -259,12 +246,10 @@
     .end annotation
 
     .line 174
-    .local p1, "ids":Ljava/util/List;, "Ljava/util/List<Ljava/util/UUID;>;"
     iget-object v0, p0, Landroidx/work/WorkQuery$Builder;->mIds:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 175
     return-object p0
 .end method
 
@@ -290,12 +275,10 @@
     .end annotation
 
     .line 210
-    .local p1, "states":Ljava/util/List;, "Ljava/util/List<Landroidx/work/WorkInfo$State;>;"
     iget-object v0, p0, Landroidx/work/WorkQuery$Builder;->mStates:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 211
     return-object p0
 .end method
 
@@ -321,12 +304,10 @@
     .end annotation
 
     .line 198
-    .local p1, "tags":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     iget-object v0, p0, Landroidx/work/WorkQuery$Builder;->mTags:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 199
     return-object p0
 .end method
 
@@ -352,12 +333,10 @@
     .end annotation
 
     .line 186
-    .local p1, "uniqueWorkNames":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     iget-object v0, p0, Landroidx/work/WorkQuery$Builder;->mUniqueWorkNames:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 187
     return-object p0
 .end method
 
@@ -402,20 +381,17 @@
 
     goto :goto_0
 
-    .line 226
-    :cond_0
-    const-string v0, "Must specify ids, uniqueNames, tags or states when building a WorkQuery"
-
     .line 228
-    .local v0, "message":Ljava/lang/String;
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    const-string v1, "Must specify ids, uniqueNames, tags or states when building a WorkQuery"
 
-    throw v1
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 
     .line 231
-    .end local v0    # "message":Ljava/lang/String;
     :cond_1
     :goto_0
     new-instance v0, Landroidx/work/WorkQuery;

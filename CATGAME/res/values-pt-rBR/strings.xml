@@ -28,18 +28,19 @@
     <string name="abc_shareactionprovider_share_with">Compartilhar com</string>
     <string name="abc_shareactionprovider_share_with_application">Compartilhar com %s</string>
     <string name="abc_toolbar_collapse_description">Recolher</string>
-    <string name="accept">Aceitar</string>
     <string name="accessibility_font_dyslexic">Disléxico</string>
     <string name="accessibility_font_regular">Regular</string>
     <string name="accessibility_font_serif">Serifa</string>
     <string name="accessibility_settings_applied">Mudanças Aplicadas</string>
     <string name="accountName">E-Mail</string>
+    <string name="actor_object_title">Atores e Objetos</string>
+    <string name="add_look_actors_and_object">Atores e objetos locais</string>
     <string name="add_look_choose_image">Selecionar Imagem</string>
     <string name="add_look_draw_new_image">Desenhar</string>
+    <string name="add_look_empty_object">Objeto vazio</string>
     <string name="add_look_from_camera">Tirar foto</string>
     <string name="add_look_from_local_project">Projetos locais</string>
     <string name="add_look_media_library">Biblioteca de mídia</string>
-    <string name="add_look_object_library">Biblioteca</string>
     <string name="add_sound_choose_file">Selecionar arquivo</string>
     <string name="add_sound_choose_sound">Sons</string>
     <string name="add_sound_from_recorder">Gravar som</string>
@@ -67,6 +68,7 @@
     <string name="api_replacement_dialog_neutral">Upload sem alteração</string>
     <string name="api_replacement_dialog_warning">O projeto contém blocos que acessam a web e parece conter também chaves de API. Por favor, veja %1s por que carregar estas chaves pode ser perigoso.</string>
     <string name="assistant">Assistente</string>
+    <string name="at_string">em</string>
     <string name="authentication_failed">Parece haver um problema com sua conexão ao serviço. Por favor entre em contato com a equipe Catrobat.</string>
     <string name="author">Autor:</string>
     <string name="background">Fundo</string>
@@ -146,6 +148,7 @@
     <string name="brick_copy_look">Copiar a aparência e dar o nome de</string>
     <string name="brick_copy_look_name">nome da aparência copiada</string>
     <string name="brick_default_embroidery_file">bordado.dst</string>
+    <string name="brick_default_plot_file">plot.svg</string>
     <string name="brick_delete_background">Excluir fundo</string>
     <string name="brick_delete_item_from_userlist">na posição</string>
     <string name="brick_delete_item_from_userlist_delete">Apagar item da lista</string>
@@ -272,6 +275,7 @@
     <string name="brick_rotate_left">Girar à esquerda</string>
     <string name="brick_rotate_right">Girar à direita</string>
     <string name="brick_running_stitch">Iniciar a realização de costuras com comprimento</string>
+    <string name="brick_save_plot">Salvar plot como SVG</string>
     <string name="brick_say_bubble">Diga</string>
     <string name="brick_say_bubble_default_value">Olá!</string>
     <string name="brick_scene_start">Iniciar cena</string>
@@ -323,10 +327,12 @@
     <string name="brick_speak_default_value">Olá!</string>
     <string name="brick_stamp">Carimbo</string>
     <string name="brick_start_listening_to_voice">Comece a ouvir a voz e armazenar as palavras faladas em</string>
+    <string name="brick_start_plot">Iniciar a plotagem</string>
     <string name="brick_stitch">Ponto de costura</string>
     <string name="brick_stop_all_scripts">todos os scripts</string>
     <string name="brick_stop_all_sounds">Parar todos os sons</string>
     <string name="brick_stop_other_scripts">outros scripts deste ator ou objeto</string>
+    <string name="brick_stop_plot">Parar a plotagem</string>
     <string name="brick_stop_script">Parar</string>
     <string name="brick_stop_sound">Parar som</string>
     <string name="brick_stop_stitch">Parar costura atual</string>
@@ -398,6 +404,8 @@ malvado,inteligente"</string>
     <string name="button_apply">Aplicar</string>
     <string name="button_brush">Pincel</string>
     <string name="button_checkmark">Marcações</string>
+    <string name="button_clip">Área de recorte</string>
+    <string name="button_clipboard">Clipboard</string>
     <string name="button_cursor">Cursor</string>
     <string name="button_eraser">Borracha</string>
     <string name="button_fill">Preencher</string>
@@ -406,13 +414,10 @@ malvado,inteligente"</string>
     <string name="button_info">Informações</string>
     <string name="button_line">Linha</string>
     <string name="button_pipette">Pipeta</string>
-    <string name="button_plus">Conectar Segmento de Linha</string>
     <string name="button_redo">Refazer</string>
-    <string name="button_set_center">Definir Centro</string>
     <string name="button_shape">Formas</string>
     <string name="button_smudge">borrar</string>
     <string name="button_spray_can">Lata de spray</string>
-    <string name="button_stamp">Carimbo</string>
     <string name="button_text">Texto</string>
     <string name="button_transform">Transformar</string>
     <string name="button_undo">Desfazer</string>
@@ -425,8 +430,6 @@ malvado,inteligente"</string>
     <string name="camera_error_text_detection">Houve um problema com a detecção de texto. Alguns componentes ainda podem estar baixando em segundo plano. Por favor, verifique se está conectado à internet e verifique novamente mais tarde.</string>
     <string name="cancel">Cancelar</string>
     <string name="cancel_button_text">Cancelar</string>
-    <string name="cap_circle">Círculo</string>
-    <string name="cap_square">Quadrado</string>
     <string name="cast_button_menu_item_title">Botão de transmissão</string>
     <string name="cast_connection_timout_msg">A conexão expirou. Tente novamente.</string>
     <string name="cast_device_selector_dialog_title">Transmitir para</string>
@@ -467,6 +470,7 @@ Não vê seu dispositivo? Tente desligar o Wi-Fi do seu dispositivo e liga-lo de
     <string name="category_motion">Movimento</string>
     <string name="category_pen">Caneta</string>
     <string name="category_phiro">Phiro</string>
+    <string name="category_plot">Plot</string>
     <string name="category_raspi">Raspberry Pi</string>
     <string name="category_recently_used">Usados recentemente</string>
     <string name="category_search_bricks">Procurar blocos</string>
@@ -475,14 +479,18 @@ Não vê seu dispositivo? Tente desligar o Wi-Fi do seu dispositivo e liga-lo de
     <string name="cello">violoncelo</string>
     <string name="change_tempo_by">Alterar tempo por</string>
     <string name="channel_description">%1$s canal de notificação</string>
+    <string name="checkbox">caixa de seleção</string>
     <string name="choir">coro</string>
     <string name="choose_camera_back">trâs</string>
     <string name="choose_camera_front">Frente</string>
     <string name="clarinet">clarineta</string>
     <string name="claves">claves</string>
+    <string name="clipboard_tool_copy">Copiar</string>
+    <string name="clipboard_tool_copy_hint">Pressione e segure para copiar o conteúdo</string>
+    <string name="clipboard_tool_cut">Cortar</string>
+    <string name="clipboard_tool_paste">Colar</string>
     <string name="close">Fechar</string>
     <string name="closed_hi_hat">chimbal fechado</string>
-    <string name="closing_catroid_security_question_title">Voltar ao projeto</string>
     <string name="closing_security_question">Salvar alterações?</string>
     <string name="closing_security_question_title">Sair</string>
     <string name="collision_with_anything">qualquer borda, ator ou objeto</string>
@@ -493,6 +501,7 @@ Não vê seu dispositivo? Tente desligar o Wi-Fi do seu dispositivo e liga-lo de
     <string name="color_picker_apply">Aplicar</string>
     <string name="color_picker_cancel">Cancelar</string>
     <string name="color_picker_current_color">atual</string>
+    <string name="color_picker_history_recently_used">usado recentemente</string>
     <string name="color_picker_new_color">nova</string>
     <string name="color_picker_no">não</string>
     <string name="color_picker_pipette">Pipeta</string>
@@ -537,10 +546,8 @@ Por favor, aguarde…"</string>
     <string name="crash_cymbal">prato de choque</string>
     <string name="cursor_draw_active">Mova lentamente para desenhar e, então, toque novamente para parar de pintar.</string>
     <string name="cursor_draw_inactive">Mova lentamente para a posição e toque para começar a pintar.</string>
-    <string name="cut">Cortar</string>
     <string name="data_label">Nome</string>
     <string name="data_value">Valor</string>
-    <string name="decline">Recusar</string>
     <string name="declined_terms_of_use_and_service_alert">Para usar nosso aplicativo, é necessário aceitar nossos Termos de Uso e Serviço. No entanto, se você não se sentir confortável para fazê-lo, você pode usar nossos serviços gratuitos na web</string>
     <string name="default_broadcast_message_name">Mensagem</string>
     <string name="default_cast_project_background_name">Fundo</string>
@@ -617,13 +624,13 @@ A visibilidade das dicas pode ser alterada nas configurações."</string>
     <string name="dialog_scale_message">A imagem é grande demais para ser carregada. Clique em OK para redimensionar a imagem automaticamente.</string>
     <string name="dialog_scale_title">A imagem é grande demais para ser carregada</string>
     <string name="dialog_settings">Configurações</string>
-    <string name="dialog_shape_text">Forma</string>
     <string name="dialog_smoothing">Alisamento</string>
     <string name="dialog_terms_of_use_info">Para utilizar o Pocket Code e outros executáveis oferecidos pelo projeto Catrobat, é preciso aceitar nossos Termos de Uso e segui-los estritamente quando usar o Pocket Code e os outros executáveis. Por favor, visite o link abaixo para encontrar as definições precisas dos Termos de Uso.</string>
     <string name="dialog_terms_of_use_link_text">Termos de Uso e Serviço</string>
     <string name="dialog_terms_of_use_title">Termos de Uso e Serviço</string>
     <string name="dialog_tools_title">Ferramentas</string>
     <string name="dialog_warning_new_image">Salvar alterações?</string>
+    <string name="dialog_zoom_window_enabled">Enabled</string>
     <string name="discard">Descartar</string>
     <string name="discard_button_text">Descartar</string>
     <string name="disclaimer_privacy_police_header_headline">Bem-vindo!</string>
@@ -704,6 +711,8 @@ A visibilidade das dicas pode ser alterada nas configurações."</string>
     <string name="error_no_network_title">Sem conexão com a internet</string>
     <string name="error_no_whatsapp">WhatsApp não instalado</string>
     <string name="error_outdated_version">Esta versão do app está desatualizada. Atualizar agora?</string>
+    <string name="error_plot_data_not_found">Plot está faltando.</string>
+    <string name="error_plot_file_write">Algo deu errado ao escrever o arquivo svg do plot</string>
     <string name="error_project_already_in_queue">Projeto %s já está na fila.</string>
     <string name="error_project_compatibility">O projeto não é compatível com esta versão do aplicativo.</string>
     <string name="error_project_download">Algo deu errado durante o download do projeto.</string>
@@ -789,7 +798,7 @@ A visibilidade das dicas pode ser alterada nas configurações."</string>
     <string name="formula_editor_bracket_open">(</string>
     <string name="formula_editor_changes_discarded">Alterações descartadas!</string>
     <string name="formula_editor_choose_object_variable">Propriedades deste ator ou objeto</string>
-    <string name="formula_editor_compute">Calcular</string>
+    <string name="formula_editor_confirm">Confirmar</string>
     <string name="formula_editor_data">Dado</string>
     <string name="formula_editor_data_dialog_is_list">Tornar uma lista</string>
     <string name="formula_editor_decimal_mark">.</string>
@@ -902,6 +911,8 @@ A visibilidade das dicas pode ser alterada nas configurações."</string>
     <string name="formula_editor_function_sin_parameter">(90)</string>
     <string name="formula_editor_function_sqrt">raiz quadrada</string>
     <string name="formula_editor_function_sqrt_parameter">(4)</string>
+    <string name="formula_editor_function_subtext">subtítulo</string>
+    <string name="formula_editor_function_subtext_parameter">"(3,5,'olá mundo')"</string>
     <string name="formula_editor_function_tan">tangente</string>
     <string name="formula_editor_function_tan_parameter">(45)</string>
     <string name="formula_editor_function_text_block_from_camera">bloco de texto da câmera</string>
@@ -917,7 +928,9 @@ A visibilidade das dicas pode ser alterada nas configurações."</string>
     <string name="formula_editor_functions_lists">Listas</string>
     <string name="formula_editor_functions_maths">Matemática</string>
     <string name="formula_editor_functions_strings">Texto</string>
+    <string name="formula_editor_image_button_description_calculate">calculate</string>
     <string name="formula_editor_image_button_description_color_picker">seletor de cores</string>
+    <string name="formula_editor_image_button_description_confirm">confirm</string>
     <string name="formula_editor_image_button_description_delete">apagar</string>
     <string name="formula_editor_image_button_description_functions_toggle">alternar funções</string>
     <string name="formula_editor_intro_summary_compute">Para mostrar o resultado atual da fórmula, você pode usar \"Calcular\".</string>
@@ -1129,6 +1142,8 @@ Para combinar fórmulas lógicas você pode usar operações lógicas como \"E\"
     <string name="formula_editor_sensor_second_face_size">tamanho do segundo rosto</string>
     <string name="formula_editor_sensor_second_face_x_position">posição x do segundo rosto</string>
     <string name="formula_editor_sensor_second_face_y_position">posição y do segundo rosto</string>
+    <string name="formula_editor_sensor_stage_height">altura do estágio</string>
+    <string name="formula_editor_sensor_stage_width">largura do estágio</string>
     <string name="formula_editor_sensor_text_blocks_number">número de blocos de texto</string>
     <string name="formula_editor_sensor_text_from_camera">texto da câmera</string>
     <string name="formula_editor_sensor_time_hour">hora</string>
@@ -1154,7 +1169,6 @@ variáveis ou listas"</string>
     <string name="fragment_script_text_description">Toque em \"+\" para adicionar Scripts</string>
     <string name="fragment_sound_text_description">Toque em \"+\" para adicionar sons</string>
     <string name="fragment_sprite_text_description">Toque em \"+\" para adicionar atores ou objetos</string>
-    <string name="from_library">Adicionar da biblioteca</string>
     <string name="from_local">Adicionar do local</string>
     <string name="gallery">Galeria</string>
     <string name="global_lists_headline">Lista para todos os atores e objetos</string>
@@ -1166,6 +1180,8 @@ variáveis ou listas"</string>
     <string name="hand_clap">palmas</string>
     <string name="help">Ajuda</string>
     <string name="help_content_brush">Toque nos símbolos na barra inferior para alterar a cor ou o tamanho do pincel.</string>
+    <string name="help_content_clip">Marque a área que não deve ser apagada.</string>
+    <string name="help_content_clipboard">Mova e redimensione o retângulo para cobrir toda a área ser carimbada. Pressione para selecionar a área. Mova e então toque novamente para carimbar.</string>
     <string name="help_content_color_chooser">Selecione ou ajuste de cor.</string>
     <string name="help_content_cursor">Posicione o cursor onde você deseja desenhar. Toque para ativar o cursor. Mova seu dedo para desenhar. Toque novamente para desativar.</string>
     <string name="help_content_eraser">Remova partes da imagem com uma borracha.</string>
@@ -1179,7 +1195,6 @@ variáveis ou listas"</string>
     <string name="help_content_shape">Escolha uma forma e toque para inseri-la</string>
     <string name="help_content_smudge">Mova seu dedo sobre a imagem em diferentes desenhos para borrá-los.</string>
     <string name="help_content_spray_can">Mova o seu dedo na imagem para criar um padrão de spray.</string>
-    <string name="help_content_stamp">Mova e redimensione o retângulo para cobrir toda a área ser carimbada. Pressione para selecionar a área. Mova e então toque novamente para carimbar.</string>
     <string name="help_content_text">Escreva o texto e formate-o. Depois, redimensione a caixa de texto. Toque para inserir o texto na imagem.</string>
     <string name="help_content_transform">Use para modificar a imagem.</string>
     <string name="help_content_undo">Toque para desfazer sua ação anterior.</string>
@@ -1221,6 +1236,7 @@ variáveis ou listas"</string>
     <string name="layer_delete">Excluir Camada</string>
     <string name="layer_merged">Camadas mescladas</string>
     <string name="layer_new">Nova camada</string>
+    <string name="layer_preview">Pré-visualização da camada</string>
     <string name="layer_too_many_layers">Há camadas demais</string>
     <string name="layers_title">Camadas</string>
     <string name="lego_ev3_sensor_config_info_text">O projeto atual usa Blocos ou sensores do Lego Mindstorms EV3 . Para a funcionalidade adequada, por favor, conecte os sensores ao robô da seguinte forma</string>
@@ -1235,7 +1251,6 @@ variáveis ou listas"</string>
     <string name="lego_sensor_port_config_dialog_title">Escolha uma porta para conexão com %1$s.</string>
     <string name="lets_go">Vamos lá</string>
     <string name="list_headline_sprites">Atores e objetos</string>
-    <string name="load_sticker_error">Não foi possível carregar a figurinha</string>
     <string name="loading">Carregando…</string>
     <string name="loading_check_oauth_token">Verificando dados de login…</string>
     <string name="loading_google_exchange_code">Trocando dados de login do Google…</string>
@@ -1254,6 +1269,7 @@ variáveis ou listas"</string>
     <string name="main_menu_login">Login</string>
     <string name="main_menu_logout">Encerrar Sessão</string>
     <string name="main_menu_new">Novo projeto</string>
+    <string name="main_menu_play">Jogar projeto</string>
     <string name="main_menu_play_store_not_installed">Loja de aplicativos não encontrada</string>
     <string name="main_menu_privacy_policy">Política de Privacidade</string>
     <string name="main_menu_programs">Projetos</string>
@@ -1266,6 +1282,7 @@ variáveis ou listas"</string>
     <string name="marketing_app_details">Detalhes sobre este aplicativo</string>
     <string name="marketing_created_with">Criado com</string>
     <string name="marketing_more_on_google_play">Mais aplicativos na Play store</string>
+    <string name="menu_add_to_current_layer">Adicionar na camada atual</string>
     <string name="menu_advanced">Configurações avançadas</string>
     <string name="menu_discard_image">Descartar imagem</string>
     <string name="menu_export">Exportar</string>
@@ -1275,8 +1292,10 @@ variáveis ou listas"</string>
     <string name="menu_new_image">Nova imagem</string>
     <string name="menu_quit">Sair</string>
     <string name="menu_rate_us">Avalie-nos!</string>
+    <string name="menu_replace_image">Substituir imagem</string>
     <string name="menu_save_copy">Salvar cópia</string>
     <string name="menu_save_image">Salvar imagem</string>
+    <string name="menu_zoom_settings">Zoom window settings</string>
     <string name="merge">Mesclar</string>
     <string name="merging_project_text">Esses dois projetos ainda não podem ser mesclados</string>
     <string name="mode">Modo:</string>
@@ -1322,7 +1341,11 @@ variáveis ou listas"</string>
     <string name="new_look_dialog_title">Adicionar aparência</string>
     <string name="new_merge_project_dialog_title">Projeto mesclado</string>
     <string name="new_option">novo…</string>
+    <string name="new_project_dialog_cast">Transmitir</string>
     <string name="new_project_dialog_example_project">Projetos de exemplo</string>
+    <string name="new_project_dialog_landscape">Modo paisagem</string>
+    <string name="new_project_dialog_portrait">Retrato</string>
+    <string name="new_project_title">Criar projeto</string>
     <string name="new_scene">Nova cena</string>
     <string name="new_scene_dialog">Nova cena</string>
     <string name="new_sound_dialog_title">Adicionar som</string>
@@ -1335,6 +1358,7 @@ variáveis ou listas"</string>
     <string name="nfc_not_activated">Por favor, ative o NFC e pressione Voltar para retornar ao aplicativo.</string>
     <string name="nfc_tag_name_label">Nome da tag NFC</string>
     <string name="no">Não</string>
+    <string name="no_connection_sticker">Adesivos não disponíveis, verifique sua conexão com a internet.</string>
     <string name="no_internet_connection">Sem conexão com a internet. Certifique-se de que o Wi-Fi ou os dados móveis estão ativados.</string>
     <string name="no_longclick_on_hidden_layer">Você só pode mesclar ou reordenar se todas as camadas estiverem visíveis</string>
     <string name="no_nfc_available">NFC não disponível</string>
@@ -1528,13 +1552,20 @@ Para maiores detalhes sobre a licença, veja o link abaixo.
     <string name="preference_description_multiplayer_variables_enabled">Permite que o aplicativo use variáveis compartilhadas via Bluetooth</string>
     <string name="preference_description_nfc_bricks">Permitir que o aplicativo use tags NFC em projetos</string>
     <string name="preference_description_phiro_bricks">"Permitir que o aplicativo controle robôs RobotixEdu's Phiro"</string>
+    <string name="preference_description_plot_bricks">Criar padrões para máquinas de plotagem</string>
     <string name="preference_description_quadcopter_bricks">Permite ao aplicativo controlar os quadricópteros Parrot AR.Drone 2.0</string>
     <string name="preference_description_raspi_bricks">Permitir que o aplicativo controle computadores Raspberry Pi</string>
     <string name="preference_description_test_bricks">Permite criar testes</string>
     <string name="preference_description_web_access">Adicione ou remova domínios confiáveis</string>
+    <string name="preference_dialog_appgallery">App Galeria</string>
+    <string name="preference_dialog_google_play">Google Play</string>
+    <string name="preference_dialog_use_full_features">Usar todas as funções</string>
     <string name="preference_disable_ev3_info_dialog_description">Configurações específicas do projeto EV3 não são mostradas ao abrir um projeto.</string>
     <string name="preference_disable_nxt_info_dialog">Desabilitar diálogo de informações</string>
     <string name="preference_disable_nxt_info_dialog_description">Configurações específicas do projeto NXT não são mostradas ao abrir um projeto.</string>
+    <string name="preference_embroidery_dialog_text">Para aproveitar todos os recursos da extensão embroidery, por favor use o aplicativo Embroidery Designer da Catrobat.</string>
+    <string name="preference_lego_dialog_text">Para aproveitar todos os recursos das extensões Lego Mindstorms, por favor use o aplicativo Mindstorms Code EV3 NXT da Catrobat.</string>
+    <string name="preference_phiro_dialog_text">Para aproveitar todos os recursos da extensão Phiro Robotics, por favor use o aplicativo Phiro Code da Catrobat.</string>
     <string name="preference_raspi_enable_bricks">Ativar blocos e sensores</string>
     <string name="preference_raspi_help">Ajuda / Primeiros Passos</string>
     <string name="preference_raspi_help_summary">Obter ajuda sobre como ajustar as configurações de conexão</string>
@@ -1577,6 +1608,7 @@ Para maiores detalhes sobre a licença, veja o link abaixo.
     <string name="preference_title_enable_mindstorms_nxt_bricks">Extensão Lego Mindstorms NXT</string>
     <string name="preference_title_enable_nfc_bricks">Extensão de comunicação de campo próximo</string>
     <string name="preference_title_enable_phiro_bricks">"Extensão RobotixEdu's Phiro"</string>
+    <string name="preference_title_enable_plot_bricks">Extensão plot</string>
     <string name="preference_title_enable_quadcopter_bricks">Extensão Parrot AR.Drone 2.0</string>
     <string name="preference_title_enable_raspi_bricks">Extensão Raspberry Pi</string>
     <string name="preference_title_enable_test_bricks">Extensão para Testes</string>
@@ -1688,6 +1720,7 @@ Você quer instalá-la?"</string>
     <string name="search_failed">Nada foi encontrado, por favor tente novamente mais tarde.</string>
     <string name="search_hint">Procurar</string>
     <string name="search_menu_title">Pesquisar</string>
+    <string name="seconds_string">segundos</string>
     <string name="security_warning_dialog_msg">O projeto que você baixou ouve a sua voz em segundo plano e também envia dados para a internet. Isso pode ser inofensivo e necessário para seu comportamento pretendido. No entanto, certifique-se de que o que você está dizendo enquanto o projeto estiver sendo executado é seguro. Em caso de dúvida, exclua o projeto baixado. Você também pode relatar o projeto em sua página na plataforma da comunidade Catrobat, no caso de você tem certeza de que é prejudicial.</string>
     <string name="select_all">Selecionar tudo</string>
     <string name="select_look_from_camera">Selecionar foto</string>
@@ -1707,7 +1740,6 @@ Você quer instalá-la?"</string>
     <string name="shape_tool_dialog_star_title">Estrela</string>
     <string name="share_image_menu">Compartilhar imagem</string>
     <string name="share_image_via_text">Enviar imagem através</string>
-    <string name="share_website_text">share.catrob.at</string>
     <string name="shared_at_x">Compartilhado: %1$s</string>
     <string name="show_details">Mostrar detalhes</string>
     <string name="show_password">Mostrar senha</string>
@@ -1755,10 +1787,6 @@ Esticar"</string>
     <string name="stage_dialog_restart">Reiniciar</string>
     <string name="stage_dialog_resume">Retomar</string>
     <string name="stage_dialog_screenshot">Pré-visualizacão</string>
-    <string name="stamp_tool_copy_hint">Pressione e segure para copiar o conteúdo</string>
-    <string name="stamptool_copy">Copiar</string>
-    <string name="stamptool_cut">Cortar</string>
-    <string name="stamptool_paste">Colar</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="status_conversion_failed">A conversão falhou!</string>
     <string name="status_conversion_finished">Conversão finalizada</string>
@@ -1781,11 +1809,8 @@ Esticar"</string>
     <string name="text_tool_dialog_font_monospace">Monoespaçada</string>
     <string name="text_tool_dialog_font_sans_serif">Sem serifa</string>
     <string name="text_tool_dialog_font_serif">Serifa</string>
-    <string name="text_tool_dialog_format_options">Opções de formatação:</string>
     <string name="text_tool_dialog_input_hint">Toque aqui para escrever</string>
-    <string name="text_tool_dialog_input_title">Seu texto:</string>
     <string name="text_tool_dialog_italic_shortcut">I</string>
-    <string name="text_tool_dialog_strike_through_shortcut">abc</string>
     <string name="text_tool_dialog_underline_shortcut">S</string>
     <string name="title_other_devices">Dispositivos disponíveis</string>
     <string name="title_paired_devices">Dispositivos pareados</string>
@@ -1848,4 +1873,5 @@ Parece ser um projeto privado. Você pode tentar convertê-lo mas pode não func
     <string name="x_label">"X: "</string>
     <string name="y_label">"Y: "</string>
     <string name="yes">Sim</string>
+    <string name="zoom_window_description">Usado para exibir uma ampliação na parte da superfície de desenho</string>
 </resources>

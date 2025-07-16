@@ -23,7 +23,6 @@
 # direct methods
 .method constructor <init>(Landroidx/transition/TransitionSet;Landroidx/transition/Transition;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/transition/TransitionSet;
 
     .line 503
     iput-object p1, p0, Landroidx/transition/TransitionSet$1;->this$0:Landroidx/transition/TransitionSet;
@@ -39,7 +38,6 @@
 # virtual methods
 .method public onTransitionEnd(Landroidx/transition/Transition;)V
     .locals 1
-    .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 506
     iget-object v0, p0, Landroidx/transition/TransitionSet$1;->val$nextTransition:Landroidx/transition/Transition;
@@ -49,6 +47,5 @@
     .line 507
     invoke-virtual {p1, p0}, Landroidx/transition/Transition;->removeListener(Landroidx/transition/Transition$TransitionListener;)Landroidx/transition/Transition;
 
-    .line 508
     return-void
 .end method

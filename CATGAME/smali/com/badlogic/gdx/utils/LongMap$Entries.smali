@@ -47,21 +47,18 @@
 
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/utils/LongMap;)V
-    .locals 1
-    .param p1, "map"    # Lcom/badlogic/gdx/utils/LongMap;
+    .locals 0
 
     .line 789
-    .local p0, "this":Lcom/badlogic/gdx/utils/LongMap$Entries;, "Lcom/badlogic/gdx/utils/LongMap$Entries<TV;>;"
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/LongMap$MapIterator;-><init>(Lcom/badlogic/gdx/utils/LongMap;)V
 
     .line 786
-    new-instance v0, Lcom/badlogic/gdx/utils/LongMap$Entry;
+    new-instance p1, Lcom/badlogic/gdx/utils/LongMap$Entry;
 
-    invoke-direct {v0}, Lcom/badlogic/gdx/utils/LongMap$Entry;-><init>()V
+    invoke-direct {p1}, Lcom/badlogic/gdx/utils/LongMap$Entry;-><init>()V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/utils/LongMap$Entries;->entry:Lcom/badlogic/gdx/utils/LongMap$Entry;
+    iput-object p1, p0, Lcom/badlogic/gdx/utils/LongMap$Entries;->entry:Lcom/badlogic/gdx/utils/LongMap$Entry;
 
-    .line 790
     return-void
 .end method
 
@@ -71,7 +68,6 @@
     .locals 2
 
     .line 810
-    .local p0, "this":Lcom/badlogic/gdx/utils/LongMap$Entries;, "Lcom/badlogic/gdx/utils/LongMap$Entries<TV;>;"
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/LongMap$Entries;->valid:Z
 
     if-eqz v0, :cond_0
@@ -103,8 +99,6 @@
         }
     .end annotation
 
-    .line 815
-    .local p0, "this":Lcom/badlogic/gdx/utils/LongMap$Entries;, "Lcom/badlogic/gdx/utils/LongMap$Entries<TV;>;"
     return-object p0
 .end method
 
@@ -119,7 +113,6 @@
     .end annotation
 
     .line 794
-    .local p0, "this":Lcom/badlogic/gdx/utils/LongMap$Entries;, "Lcom/badlogic/gdx/utils/LongMap$Entries<TV;>;"
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/LongMap$Entries;->hasNext:Z
 
     if-eqz v0, :cond_2
@@ -135,7 +128,6 @@
     iget-object v0, v0, Lcom/badlogic/gdx/utils/LongMap;->keyTable:[J
 
     .line 797
-    .local v0, "keyTable":[J
     iget v1, p0, Lcom/badlogic/gdx/utils/LongMap$Entries;->nextIndex:I
 
     const/4 v2, -0x1
@@ -143,20 +135,20 @@
     if-ne v1, v2, :cond_0
 
     .line 798
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/LongMap$Entries;->entry:Lcom/badlogic/gdx/utils/LongMap$Entry;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/LongMap$Entries;->entry:Lcom/badlogic/gdx/utils/LongMap$Entry;
 
-    const-wide/16 v2, 0x0
+    const-wide/16 v1, 0x0
 
-    iput-wide v2, v1, Lcom/badlogic/gdx/utils/LongMap$Entry;->key:J
+    iput-wide v1, v0, Lcom/badlogic/gdx/utils/LongMap$Entry;->key:J
 
     .line 799
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/LongMap$Entries;->entry:Lcom/badlogic/gdx/utils/LongMap$Entry;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/LongMap$Entries;->entry:Lcom/badlogic/gdx/utils/LongMap$Entry;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/utils/LongMap$Entries;->map:Lcom/badlogic/gdx/utils/LongMap;
+    iget-object v1, p0, Lcom/badlogic/gdx/utils/LongMap$Entries;->map:Lcom/badlogic/gdx/utils/LongMap;
 
-    iget-object v2, v2, Lcom/badlogic/gdx/utils/LongMap;->zeroValue:Ljava/lang/Object;
+    iget-object v1, v1, Lcom/badlogic/gdx/utils/LongMap;->zeroValue:Ljava/lang/Object;
 
-    iput-object v2, v1, Lcom/badlogic/gdx/utils/LongMap$Entry;->value:Ljava/lang/Object;
+    iput-object v1, v0, Lcom/badlogic/gdx/utils/LongMap$Entry;->value:Ljava/lang/Object;
 
     goto :goto_0
 
@@ -171,34 +163,33 @@
     iput-wide v2, v1, Lcom/badlogic/gdx/utils/LongMap$Entry;->key:J
 
     .line 802
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/LongMap$Entries;->entry:Lcom/badlogic/gdx/utils/LongMap$Entry;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/LongMap$Entries;->entry:Lcom/badlogic/gdx/utils/LongMap$Entry;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/utils/LongMap$Entries;->map:Lcom/badlogic/gdx/utils/LongMap;
+    iget-object v1, p0, Lcom/badlogic/gdx/utils/LongMap$Entries;->map:Lcom/badlogic/gdx/utils/LongMap;
 
-    iget-object v2, v2, Lcom/badlogic/gdx/utils/LongMap;->valueTable:[Ljava/lang/Object;
+    iget-object v1, v1, Lcom/badlogic/gdx/utils/LongMap;->valueTable:[Ljava/lang/Object;
 
-    iget v3, p0, Lcom/badlogic/gdx/utils/LongMap$Entries;->nextIndex:I
+    iget v2, p0, Lcom/badlogic/gdx/utils/LongMap$Entries;->nextIndex:I
 
-    aget-object v2, v2, v3
+    aget-object v1, v1, v2
 
-    iput-object v2, v1, Lcom/badlogic/gdx/utils/LongMap$Entry;->value:Ljava/lang/Object;
+    iput-object v1, v0, Lcom/badlogic/gdx/utils/LongMap$Entry;->value:Ljava/lang/Object;
 
     .line 804
     :goto_0
-    iget v1, p0, Lcom/badlogic/gdx/utils/LongMap$Entries;->nextIndex:I
+    iget v0, p0, Lcom/badlogic/gdx/utils/LongMap$Entries;->nextIndex:I
 
-    iput v1, p0, Lcom/badlogic/gdx/utils/LongMap$Entries;->currentIndex:I
+    iput v0, p0, Lcom/badlogic/gdx/utils/LongMap$Entries;->currentIndex:I
 
     .line 805
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/LongMap$Entries;->findNextIndex()V
 
     .line 806
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/LongMap$Entries;->entry:Lcom/badlogic/gdx/utils/LongMap$Entry;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/LongMap$Entries;->entry:Lcom/badlogic/gdx/utils/LongMap$Entry;
 
-    return-object v1
+    return-object v0
 
     .line 795
-    .end local v0    # "keyTable":[J
     :cond_1
     new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
@@ -221,7 +212,6 @@
     .locals 1
 
     .line 785
-    .local p0, "this":Lcom/badlogic/gdx/utils/LongMap$Entries;, "Lcom/badlogic/gdx/utils/LongMap$Entries<TV;>;"
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/LongMap$Entries;->next()Lcom/badlogic/gdx/utils/LongMap$Entry;
 
     move-result-object v0
@@ -233,10 +223,8 @@
     .locals 0
 
     .line 819
-    .local p0, "this":Lcom/badlogic/gdx/utils/LongMap$Entries;, "Lcom/badlogic/gdx/utils/LongMap$Entries<TV;>;"
     invoke-super {p0}, Lcom/badlogic/gdx/utils/LongMap$MapIterator;->remove()V
 
-    .line 820
     return-void
 .end method
 
@@ -244,7 +232,6 @@
     .locals 0
 
     .line 785
-    .local p0, "this":Lcom/badlogic/gdx/utils/LongMap$Entries;, "Lcom/badlogic/gdx/utils/LongMap$Entries<TV;>;"
     invoke-super {p0}, Lcom/badlogic/gdx/utils/LongMap$MapIterator;->reset()V
 
     return-void

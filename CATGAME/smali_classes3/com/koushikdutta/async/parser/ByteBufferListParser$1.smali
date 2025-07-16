@@ -31,7 +31,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/parser/ByteBufferListParser;Lcom/koushikdutta/async/DataEmitter;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/parser/ByteBufferListParser;
 
     .line 21
     iput-object p1, p0, Lcom/koushikdutta/async/parser/ByteBufferListParser$1;->this$0:Lcom/koushikdutta/async/parser/ByteBufferListParser;
@@ -53,6 +52,5 @@
 
     invoke-interface {v0}, Lcom/koushikdutta/async/DataEmitter;->close()V
 
-    .line 25
     return-void
 .end method

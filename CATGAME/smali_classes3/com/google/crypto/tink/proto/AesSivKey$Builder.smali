@@ -38,13 +38,11 @@
 
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
-    .line 182
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/proto/AesSivKey$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/proto/AesSivKey$1;
 
     .line 174
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/AesSivKey$Builder;-><init>()V
@@ -67,7 +65,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/AesSivKey;->access$400(Lcom/google/crypto/tink/proto/AesSivKey;)V
 
-    .line 250
     return-object p0
 .end method
 
@@ -84,7 +81,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/AesSivKey;->access$200(Lcom/google/crypto/tink/proto/AesSivKey;)V
 
-    .line 210
     return-object p0
 .end method
 
@@ -120,7 +116,6 @@
 
 .method public setKeyValue(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/AesSivKey$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -140,13 +135,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesSivKey;->access$300(Lcom/google/crypto/tink/proto/AesSivKey;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    .line 237
     return-object p0
 .end method
 
 .method public setVersion(I)Lcom/google/crypto/tink/proto/AesSivKey$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -166,6 +159,5 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesSivKey;->access$100(Lcom/google/crypto/tink/proto/AesSivKey;I)V
 
-    .line 201
     return-object p0
 .end method

@@ -39,7 +39,6 @@
 
 .method constructor <init>(Lcom/koushikdutta/async/http/body/MultipartFormDataBody;Lcom/koushikdutta/async/DataSink;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/body/MultipartFormDataBody;
 
     .line 169
     iput-object p1, p0, Lcom/koushikdutta/async/http/body/MultipartFormDataBody$6;->this$0:Lcom/koushikdutta/async/http/body/MultipartFormDataBody;
@@ -54,9 +53,7 @@
 
 # virtual methods
 .method public onContinue(Lcom/koushikdutta/async/future/Continuation;Lcom/koushikdutta/async/callback/CompletedCallback;)V
-    .locals 4
-    .param p1, "continuation"    # Lcom/koushikdutta/async/future/Continuation;
-    .param p2, "next"    # Lcom/koushikdutta/async/callback/CompletedCallback;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -64,36 +61,31 @@
     .end annotation
 
     .line 172
-    iget-object v0, p0, Lcom/koushikdutta/async/http/body/MultipartFormDataBody$6;->this$0:Lcom/koushikdutta/async/http/body/MultipartFormDataBody;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/body/MultipartFormDataBody$6;->this$0:Lcom/koushikdutta/async/http/body/MultipartFormDataBody;
 
-    invoke-virtual {v0}, Lcom/koushikdutta/async/http/body/MultipartFormDataBody;->getBoundaryEnd()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/koushikdutta/async/http/body/MultipartFormDataBody;->getBoundaryEnd()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/String;->getBytes()[B
+    invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object v0
+    move-result-object p1
 
     .line 173
-    .local v0, "bytes":[B
-    iget-object v1, p0, Lcom/koushikdutta/async/http/body/MultipartFormDataBody$6;->val$sink:Lcom/koushikdutta/async/DataSink;
+    iget-object v0, p0, Lcom/koushikdutta/async/http/body/MultipartFormDataBody$6;->val$sink:Lcom/koushikdutta/async/DataSink;
 
-    invoke-static {v1, v0, p2}, Lcom/koushikdutta/async/Util;->writeAll(Lcom/koushikdutta/async/DataSink;[BLcom/koushikdutta/async/callback/CompletedCallback;)V
+    invoke-static {v0, p1, p2}, Lcom/koushikdutta/async/Util;->writeAll(Lcom/koushikdutta/async/DataSink;[BLcom/koushikdutta/async/callback/CompletedCallback;)V
 
     .line 174
-    iget-object v1, p0, Lcom/koushikdutta/async/http/body/MultipartFormDataBody$6;->this$0:Lcom/koushikdutta/async/http/body/MultipartFormDataBody;
+    iget-object p2, p0, Lcom/koushikdutta/async/http/body/MultipartFormDataBody$6;->this$0:Lcom/koushikdutta/async/http/body/MultipartFormDataBody;
 
-    iget v2, v1, Lcom/koushikdutta/async/http/body/MultipartFormDataBody;->written:I
+    iget v0, p2, Lcom/koushikdutta/async/http/body/MultipartFormDataBody;->written:I
 
-    array-length v3, v0
+    array-length p1, p1
 
-    add-int/2addr v2, v3
+    add-int/2addr v0, p1
 
-    iput v2, v1, Lcom/koushikdutta/async/http/body/MultipartFormDataBody;->written:I
+    iput v0, p2, Lcom/koushikdutta/async/http/body/MultipartFormDataBody;->written:I
 
-    .line 176
-    nop
-
-    .line 177
     return-void
 .end method

@@ -22,11 +22,10 @@
 .method constructor <init>()V
     .locals 1
 
-    .line 451
     const-string v0, "Unexpectedly reached end of a file"
 
+    .line 451
     invoke-direct {p0, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    .line 452
     return-void
 .end method

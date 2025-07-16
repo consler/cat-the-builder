@@ -29,12 +29,8 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/utils/PooledLinkedList;II)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/utils/PooledLinkedList;
-    .param p2, "initialCapacity"    # I
-    .param p3, "max"    # I
 
     .line 37
-    .local p0, "this":Lcom/badlogic/gdx/utils/PooledLinkedList$1;, "Lcom/badlogic/gdx/utils/PooledLinkedList$1;"
     iput-object p1, p0, Lcom/badlogic/gdx/utils/PooledLinkedList$1;->this$0:Lcom/badlogic/gdx/utils/PooledLinkedList;
 
     invoke-direct {p0, p2, p3}, Lcom/badlogic/gdx/utils/Pool;-><init>(II)V
@@ -55,7 +51,6 @@
     .end annotation
 
     .line 40
-    .local p0, "this":Lcom/badlogic/gdx/utils/PooledLinkedList$1;, "Lcom/badlogic/gdx/utils/PooledLinkedList$1;"
     new-instance v0, Lcom/badlogic/gdx/utils/PooledLinkedList$Item;
 
     invoke-direct {v0}, Lcom/badlogic/gdx/utils/PooledLinkedList$Item;-><init>()V
@@ -67,7 +62,6 @@
     .locals 1
 
     .line 37
-    .local p0, "this":Lcom/badlogic/gdx/utils/PooledLinkedList$1;, "Lcom/badlogic/gdx/utils/PooledLinkedList$1;"
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/PooledLinkedList$1;->newObject()Lcom/badlogic/gdx/utils/PooledLinkedList$Item;
 
     move-result-object v0

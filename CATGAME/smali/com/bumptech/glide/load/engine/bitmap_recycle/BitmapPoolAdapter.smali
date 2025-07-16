@@ -21,42 +21,34 @@
 .method public clearMemory()V
     .locals 0
 
-    .line 42
     return-void
 .end method
 
 .method public get(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-    .locals 1
-    .param p1, "width"    # I
-    .param p2, "height"    # I
-    .param p3, "config"    # Landroid/graphics/Bitmap$Config;
+    .locals 0
 
     .line 30
     invoke-static {p1, p2, p3}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getDirty(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-    .locals 1
-    .param p1, "width"    # I
-    .param p2, "height"    # I
-    .param p3, "config"    # Landroid/graphics/Bitmap$Config;
+    .locals 0
 
     .line 36
     invoke-virtual {p0, p1, p2, p3}, Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPoolAdapter;->get(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getMaxSize()J
     .locals 2
 
-    .line 14
     const-wide/16 v0, 0x0
 
     return-wide v0
@@ -64,27 +56,21 @@
 
 .method public put(Landroid/graphics/Bitmap;)V
     .locals 0
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
     .line 24
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->recycle()V
 
-    .line 25
     return-void
 .end method
 
 .method public setSizeMultiplier(F)V
     .locals 0
-    .param p1, "sizeMultiplier"    # F
 
-    .line 20
     return-void
 .end method
 
 .method public trimMemory(I)V
     .locals 0
-    .param p1, "level"    # I
 
-    .line 47
     return-void
 .end method

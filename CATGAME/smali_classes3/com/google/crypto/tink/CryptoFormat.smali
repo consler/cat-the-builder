@@ -23,11 +23,11 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 46
     const/4 v0, 0x0
 
     new-array v0, v0, [B
 
+    .line 46
     sput-object v0, Lcom/google/crypto/tink/CryptoFormat;->RAW_PREFIX:[B
 
     return-void
@@ -44,7 +44,6 @@
 
 .method public static getOutputPrefix(Lcom/google/crypto/tink/proto/Keyset$Key;)[B
     .locals 4
-    .param p0, "key"    # Lcom/google/crypto/tink/proto/Keyset$Key;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -87,24 +86,24 @@
 
     if-eq v0, v3, :cond_1
 
-    const/4 v1, 0x4
+    const/4 p0, 0x4
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, p0, :cond_0
 
     .line 71
-    sget-object v0, Lcom/google/crypto/tink/CryptoFormat;->RAW_PREFIX:[B
+    sget-object p0, Lcom/google/crypto/tink/CryptoFormat;->RAW_PREFIX:[B
 
-    return-object v0
+    return-object p0
 
     .line 73
     :cond_0
-    new-instance v0, Ljava/security/GeneralSecurityException;
+    new-instance p0, Ljava/security/GeneralSecurityException;
 
-    const-string v1, "unknown output prefix type"
+    const-string v0, "unknown output prefix type"
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 66
     :cond_1
@@ -120,19 +119,18 @@
     .line 68
     invoke-virtual {p0}, Lcom/google/crypto/tink/proto/Keyset$Key;->getKeyId()I
 
-    move-result v1
+    move-result p0
 
-    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
+    invoke-virtual {v0, p0}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 69
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->array()[B
+    invoke-virtual {p0}, Ljava/nio/ByteBuffer;->array()[B
 
-    move-result-object v0
+    move-result-object p0
 
-    .line 66
-    return-object v0
+    return-object p0
 
     .line 61
     :cond_2
@@ -150,17 +148,16 @@
     .line 63
     invoke-virtual {p0}, Lcom/google/crypto/tink/proto/Keyset$Key;->getKeyId()I
 
-    move-result v1
+    move-result p0
 
-    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
+    invoke-virtual {v0, p0}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 64
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->array()[B
+    invoke-virtual {p0}, Ljava/nio/ByteBuffer;->array()[B
 
-    move-result-object v0
+    move-result-object p0
 
-    .line 61
-    return-object v0
+    return-object p0
 .end method

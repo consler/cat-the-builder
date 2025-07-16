@@ -27,15 +27,14 @@
 
     iput-object v0, p0, Lcom/koushikdutta/async/http/spdy/Ping;->latch:Ljava/util/concurrent/CountDownLatch;
 
-    .line 26
     const-wide/16 v0, -0x1
 
+    .line 26
     iput-wide v0, p0, Lcom/koushikdutta/async/http/spdy/Ping;->sent:J
 
     .line 27
     iput-wide v0, p0, Lcom/koushikdutta/async/http/spdy/Ping;->received:J
 
-    .line 30
     return-void
 .end method
 
@@ -59,11 +58,11 @@
 
     if-eqz v2, :cond_0
 
-    .line 45
     const-wide/16 v2, 0x1
 
     sub-long/2addr v0, v2
 
+    .line 45
     iput-wide v0, p0, Lcom/koushikdutta/async/http/spdy/Ping;->received:J
 
     .line 46
@@ -71,7 +70,6 @@
 
     invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
-    .line 47
     return-void
 
     .line 44
@@ -113,7 +111,6 @@
 
     invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
-    .line 41
     return-void
 
     .line 38
@@ -149,9 +146,7 @@
 .end method
 
 .method public roundTripTime(JLjava/util/concurrent/TimeUnit;)J
-    .locals 4
-    .param p1, "timeout"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InterruptedException;
@@ -163,24 +158,23 @@
 
     invoke-virtual {v0, p1, p2, p3}, Ljava/util/concurrent/CountDownLatch;->await(JLjava/util/concurrent/TimeUnit;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 66
-    iget-wide v0, p0, Lcom/koushikdutta/async/http/spdy/Ping;->received:J
+    iget-wide p1, p0, Lcom/koushikdutta/async/http/spdy/Ping;->received:J
 
-    iget-wide v2, p0, Lcom/koushikdutta/async/http/spdy/Ping;->sent:J
+    iget-wide v0, p0, Lcom/koushikdutta/async/http/spdy/Ping;->sent:J
 
-    sub-long/2addr v0, v2
+    sub-long/2addr p1, v0
 
-    return-wide v0
+    return-wide p1
 
-    .line 68
     :cond_0
-    const-wide/16 v0, -0x2
+    const-wide/16 p1, -0x2
 
-    return-wide v0
+    return-wide p1
 .end method
 
 .method public send()V
@@ -202,7 +196,6 @@
 
     iput-wide v0, p0, Lcom/koushikdutta/async/http/spdy/Ping;->sent:J
 
-    .line 35
     return-void
 
     .line 33

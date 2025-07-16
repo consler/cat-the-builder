@@ -35,16 +35,13 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 0
-    .param p1, "limit"    # I
 
     .line 973
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReplay$SizeBoundReplayBuffer;, "Lio/reactivex/internal/operators/flowable/FlowableReplay$SizeBoundReplayBuffer<TT;>;"
     invoke-direct {p0}, Lio/reactivex/internal/operators/flowable/FlowableReplay$BoundedReplayBuffer;-><init>()V
 
     .line 974
     iput p1, p0, Lio/reactivex/internal/operators/flowable/FlowableReplay$SizeBoundReplayBuffer;->limit:I
 
-    .line 975
     return-void
 .end method
 
@@ -54,7 +51,6 @@
     .locals 2
 
     .line 980
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReplay$SizeBoundReplayBuffer;, "Lio/reactivex/internal/operators/flowable/FlowableReplay$SizeBoundReplayBuffer<TT;>;"
     iget v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReplay$SizeBoundReplayBuffer;->size:I
 
     iget v1, p0, Lio/reactivex/internal/operators/flowable/FlowableReplay$SizeBoundReplayBuffer;->limit:I
@@ -64,7 +60,6 @@
     .line 981
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableReplay$SizeBoundReplayBuffer;->removeFirst()V
 
-    .line 983
     :cond_0
     return-void
 .end method

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010
@@ -45,7 +44,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 11
+    .locals 10
 
     .line 256
     iget-object v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$1;->this$0:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
@@ -58,9 +57,7 @@
     :try_start_0
     iget-object v1, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$1;->this$0:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
 
-    iget-object v2, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$1;->this$0:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
-
-    iget-object v2, v2, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->mIntents:Ljava/util/List;
+    iget-object v2, v1, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->mIntents:Ljava/util/List;
 
     const/4 v3, 0x0
 
@@ -94,7 +91,6 @@
     move-result-object v0
 
     .line 262
-    .local v0, "action":Ljava/lang/String;
     iget-object v1, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$1;->this$0:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
 
     iget-object v1, v1, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->mCurrentIntent:Landroid/content/Intent;
@@ -106,7 +102,6 @@
     move-result v1
 
     .line 264
-    .local v1, "startId":I
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v2
@@ -172,7 +167,6 @@
     move-result-object v2
 
     .line 271
-    .local v2, "wakeLock":Landroid/os/PowerManager$WakeLock;
     :try_start_1
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
@@ -217,11 +211,11 @@
     .line 285
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
-    move-result-object v4
+    move-result-object v1
 
-    sget-object v5, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->TAG:Ljava/lang/String;
+    sget-object v4, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->TAG:Ljava/lang/String;
 
-    const-string v7, "Releasing operation wake lock (%s) %s"
+    const-string v5, "Releasing operation wake lock (%s) %s"
 
     new-array v6, v6, [Ljava/lang/Object;
 
@@ -230,52 +224,96 @@
     aput-object v2, v6, v9
 
     .line 287
-    invoke-static {v7, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v0
 
     new-array v3, v3, [Ljava/lang/Throwable;
 
     .line 285
-    invoke-virtual {v4, v5, v6, v3}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {v1, v4, v0, v3}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
     .line 291
     invoke-virtual {v2}, Landroid/os/PowerManager$WakeLock;->release()V
 
     .line 293
-    iget-object v3, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$1;->this$0:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
+    iget-object v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$1;->this$0:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
 
-    new-instance v4, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$DequeueAndCheckForCompletion;
+    new-instance v1, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$DequeueAndCheckForCompletion;
 
-    invoke-direct {v4, v3}, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$DequeueAndCheckForCompletion;-><init>(Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;)V
+    iget-object v2, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$1;->this$0:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
+
+    invoke-direct {v1, v2}, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$DequeueAndCheckForCompletion;-><init>(Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;)V
 
     goto :goto_0
 
-    .line 279
     :catchall_0
-    move-exception v4
+    move-exception v1
 
     .line 280
-    .local v4, "throwable":Ljava/lang/Throwable;
     :try_start_2
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
-    move-result-object v5
+    move-result-object v4
 
-    sget-object v7, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->TAG:Ljava/lang/String;
+    sget-object v5, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->TAG:Ljava/lang/String;
 
-    const-string v8, "Unexpected error in onHandleIntent"
+    const-string v7, "Unexpected error in onHandleIntent"
 
-    new-array v10, v9, [Ljava/lang/Throwable;
+    new-array v8, v9, [Ljava/lang/Throwable;
 
-    aput-object v4, v10, v3
+    aput-object v1, v8, v3
 
-    invoke-virtual {v5, v7, v8, v10}, Landroidx/work/Logger;->error(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {v4, v5, v7, v8}, Landroidx/work/Logger;->error(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     .line 285
-    .end local v4    # "throwable":Ljava/lang/Throwable;
+    invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
+
+    move-result-object v1
+
+    sget-object v4, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->TAG:Ljava/lang/String;
+
+    const-string v5, "Releasing operation wake lock (%s) %s"
+
+    new-array v6, v6, [Ljava/lang/Object;
+
+    aput-object v0, v6, v3
+
+    aput-object v2, v6, v9
+
+    .line 287
+    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    new-array v3, v3, [Ljava/lang/Throwable;
+
+    .line 285
+    invoke-virtual {v1, v4, v0, v3}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+
+    .line 291
+    invoke-virtual {v2}, Landroid/os/PowerManager$WakeLock;->release()V
+
+    .line 293
+    iget-object v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$1;->this$0:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
+
+    new-instance v1, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$DequeueAndCheckForCompletion;
+
+    iget-object v2, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$1;->this$0:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
+
+    invoke-direct {v1, v2}, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$DequeueAndCheckForCompletion;-><init>(Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;)V
+
+    :goto_0
+    invoke-virtual {v0, v1}, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->postOnMainThread(Ljava/lang/Runnable;)V
+
+    goto :goto_1
+
+    :catchall_1
+    move-exception v1
+
+    .line 285
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v4
@@ -293,84 +331,38 @@
     .line 287
     invoke-static {v7, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v0
 
     new-array v3, v3, [Ljava/lang/Throwable;
 
     .line 285
-    invoke-virtual {v4, v5, v6, v3}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {v4, v5, v0, v3}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
     .line 291
     invoke-virtual {v2}, Landroid/os/PowerManager$WakeLock;->release()V
 
     .line 293
+    iget-object v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$1;->this$0:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
+
+    new-instance v2, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$DequeueAndCheckForCompletion;
+
     iget-object v3, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$1;->this$0:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
 
-    new-instance v4, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$DequeueAndCheckForCompletion;
+    invoke-direct {v2, v3}, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$DequeueAndCheckForCompletion;-><init>(Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;)V
 
-    invoke-direct {v4, v3}, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$DequeueAndCheckForCompletion;-><init>(Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;)V
-
-    :goto_0
-    invoke-virtual {v3, v4}, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->postOnMainThread(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v2}, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->postOnMainThread(Ljava/lang/Runnable;)V
 
     .line 295
-    goto :goto_1
+    throw v1
 
-    .line 285
-    :catchall_1
-    move-exception v4
-
-    invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
-
-    move-result-object v5
-
-    sget-object v7, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->TAG:Ljava/lang/String;
-
-    const-string v8, "Releasing operation wake lock (%s) %s"
-
-    new-array v6, v6, [Ljava/lang/Object;
-
-    aput-object v0, v6, v3
-
-    aput-object v2, v6, v9
-
-    .line 287
-    invoke-static {v8, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v6
-
-    new-array v3, v3, [Ljava/lang/Throwable;
-
-    .line 285
-    invoke-virtual {v5, v7, v6, v3}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
-
-    .line 291
-    invoke-virtual {v2}, Landroid/os/PowerManager$WakeLock;->release()V
-
-    .line 293
-    iget-object v3, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$1;->this$0:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
-
-    new-instance v5, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$DequeueAndCheckForCompletion;
-
-    invoke-direct {v5, v3}, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$DequeueAndCheckForCompletion;-><init>(Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;)V
-
-    invoke-virtual {v3, v5}, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->postOnMainThread(Ljava/lang/Runnable;)V
-
-    .line 295
-    throw v4
-
-    .line 297
-    .end local v0    # "action":Ljava/lang/String;
-    .end local v1    # "startId":I
-    .end local v2    # "wakeLock":Landroid/os/PowerManager$WakeLock;
     :cond_0
     :goto_1
     return-void
 
-    .line 258
     :catchall_2
     move-exception v1
 
+    .line 258
     :try_start_3
     monitor-exit v0
     :try_end_3

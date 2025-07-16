@@ -45,7 +45,6 @@
 # direct methods
 .method public constructor <init>(Lcom/pdrogfer/mididroid/util/MidiProcessor;Lcom/pdrogfer/mididroid/MidiTrack;)V
     .locals 0
-    .param p2, "track"    # Lcom/pdrogfer/mididroid/MidiTrack;
 
     .line 337
     iput-object p1, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor$MidiTrackEventQueue;->this$0:Lcom/pdrogfer/mididroid/util/MidiProcessor;
@@ -93,7 +92,6 @@
 
     iput-object p1, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor$MidiTrackEventQueue;->mNext:Lcom/pdrogfer/mididroid/event/MidiEvent;
 
-    .line 348
     :cond_0
     return-void
 .end method
@@ -102,7 +100,6 @@
 # virtual methods
 .method public getNextEventsUpToTick(D)Ljava/util/ArrayList;
     .locals 2
-    .param p1, "tick"    # D
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(D)",
@@ -163,19 +160,19 @@
 
     goto :goto_0
 
-    .line 368
     :cond_0
     const/4 v0, 0x0
 
+    .line 368
     iput-object v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor$MidiTrackEventQueue;->mNext:Lcom/pdrogfer/mididroid/event/MidiEvent;
 
     goto :goto_0
 
     .line 377
     :cond_1
-    iget-object v0, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor$MidiTrackEventQueue;->mEventsToDispatch:Ljava/util/ArrayList;
+    iget-object p1, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor$MidiTrackEventQueue;->mEventsToDispatch:Ljava/util/ArrayList;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public hasMoreEvents()Z

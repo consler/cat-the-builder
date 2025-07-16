@@ -42,12 +42,8 @@
     .end annotation
 
     .line 162
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainNoLast;, "Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainNoLast<TT;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
-    .local p2, "other":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<*>;"
     invoke-direct {p0, p1, p2}, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;-><init>(Lio/reactivex/Observer;Lio/reactivex/ObservableSource;)V
 
-    .line 163
     return-void
 .end method
 
@@ -57,12 +53,10 @@
     .locals 1
 
     .line 167
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainNoLast;, "Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainNoLast<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainNoLast;->actual:Lio/reactivex/Observer;
 
     invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 168
     return-void
 .end method
 
@@ -70,12 +64,10 @@
     .locals 1
 
     .line 172
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainNoLast;, "Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainNoLast<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainNoLast;->actual:Lio/reactivex/Observer;
 
     invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 173
     return-void
 .end method
 
@@ -83,9 +75,7 @@
     .locals 0
 
     .line 177
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainNoLast;, "Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainNoLast<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainNoLast;->emit()V
 
-    .line 178
     return-void
 .end method

@@ -51,10 +51,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/Flowable;IJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)V
     .locals 0
-    .param p2, "bufferSize"    # I
-    .param p3, "time"    # J
-    .param p5, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p6, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,8 +63,6 @@
     .end annotation
 
     .line 276
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$BufferedTimedReplay;, "Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$BufferedTimedReplay<TT;>;"
-    .local p1, "parent":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 277
@@ -86,7 +80,6 @@
     .line 281
     iput-object p6, p0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$BufferedTimedReplay;->scheduler:Lio/reactivex/Scheduler;
 
-    .line 282
     return-void
 .end method
 
@@ -103,7 +96,6 @@
     .end annotation
 
     .line 286
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$BufferedTimedReplay;, "Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$BufferedTimedReplay<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$BufferedTimedReplay;->parent:Lio/reactivex/Flowable;
 
     iget v1, p0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$BufferedTimedReplay;->bufferSize:I
@@ -130,7 +122,6 @@
     .end annotation
 
     .line 269
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$BufferedTimedReplay;, "Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$BufferedTimedReplay<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$BufferedTimedReplay;->call()Lio/reactivex/flowables/ConnectableFlowable;
 
     move-result-object v0

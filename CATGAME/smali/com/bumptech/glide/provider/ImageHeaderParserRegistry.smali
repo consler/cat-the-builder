@@ -36,7 +36,6 @@
 # virtual methods
 .method public declared-synchronized add(Lcom/bumptech/glide/load/ImageHeaderParser;)V
     .locals 1
-    .param p1, "parser"    # Lcom/bumptech/glide/load/ImageHeaderParser;
 
     monitor-enter p0
 
@@ -53,9 +52,6 @@
 
     return-void
 
-    .line 17
-    .end local p0    # "this":Lcom/bumptech/glide/provider/ImageHeaderParserRegistry;
-    .end local p1    # "parser":Lcom/bumptech/glide/load/ImageHeaderParser;
     :catchall_0
     move-exception p1
 
@@ -87,8 +83,6 @@
 
     return-object v0
 
-    .line 14
-    .end local p0    # "this":Lcom/bumptech/glide/provider/ImageHeaderParserRegistry;
     :catchall_0
     move-exception v0
 

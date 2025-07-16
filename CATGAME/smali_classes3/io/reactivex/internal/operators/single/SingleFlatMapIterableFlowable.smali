@@ -61,9 +61,6 @@
     .end annotation
 
     .line 44
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleFlatMapIterableFlowable;, "Lio/reactivex/internal/operators/single/SingleFlatMapIterableFlowable<TT;TR;>;"
-    .local p1, "source":Lio/reactivex/SingleSource;, "Lio/reactivex/SingleSource<TT;>;"
-    .local p2, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Ljava/lang/Iterable<+TR;>;>;"
     invoke-direct {p0}, Lio/reactivex/Flowable;-><init>()V
 
     .line 45
@@ -72,7 +69,6 @@
     .line 46
     iput-object p2, p0, Lio/reactivex/internal/operators/single/SingleFlatMapIterableFlowable;->mapper:Lio/reactivex/functions/Function;
 
-    .line 47
     return-void
 .end method
 
@@ -89,8 +85,6 @@
     .end annotation
 
     .line 51
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleFlatMapIterableFlowable;, "Lio/reactivex/internal/operators/single/SingleFlatMapIterableFlowable<TT;TR;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleFlatMapIterableFlowable;->source:Lio/reactivex/SingleSource;
 
     new-instance v1, Lio/reactivex/internal/operators/single/SingleFlatMapIterableFlowable$FlatMapIterableObserver;
@@ -101,6 +95,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/SingleSource;->subscribe(Lio/reactivex/SingleObserver;)V
 
-    .line 52
     return-void
 .end method

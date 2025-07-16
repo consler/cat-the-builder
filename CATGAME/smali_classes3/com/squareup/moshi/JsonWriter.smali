@@ -34,40 +34,38 @@
     .line 170
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 131
     const/4 v0, 0x0
 
+    .line 131
     iput v0, p0, Lcom/squareup/moshi/JsonWriter;->stackSize:I
 
-    .line 132
     const/16 v0, 0x20
 
     new-array v1, v0, [I
 
+    .line 132
     iput-object v1, p0, Lcom/squareup/moshi/JsonWriter;->scopes:[I
 
-    .line 133
     new-array v1, v0, [Ljava/lang/String;
 
+    .line 133
     iput-object v1, p0, Lcom/squareup/moshi/JsonWriter;->pathNames:[Ljava/lang/String;
 
-    .line 134
     new-array v0, v0, [I
 
+    .line 134
     iput-object v0, p0, Lcom/squareup/moshi/JsonWriter;->pathIndices:[I
 
-    .line 163
     const/4 v0, -0x1
 
+    .line 163
     iput v0, p0, Lcom/squareup/moshi/JsonWriter;->flattenStackSize:I
 
-    .line 172
     return-void
 .end method
 
 .method public static of(Lokio/BufferedSink;)Lcom/squareup/moshi/JsonWriter;
     .locals 1
-    .param p0, "sink"    # Lokio/BufferedSink;
     .annotation runtime Ljavax/annotation/CheckReturnValue;
     .end annotation
 
@@ -90,7 +88,7 @@
 .end method
 
 .method public final beginFlatten()I
-    .locals 3
+    .locals 2
     .annotation runtime Ljavax/annotation/CheckReturnValue;
     .end annotation
 
@@ -99,8 +97,6 @@
 
     move-result v0
 
-    .line 450
-    .local v0, "context":I
     const/4 v1, 0x5
 
     if-eq v0, v1, :cond_1
@@ -121,27 +117,25 @@
 
     .line 452
     :cond_0
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    const-string v2, "Nesting problem."
+    const-string v1, "Nesting problem."
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 
     .line 454
     :cond_1
     :goto_0
-    iget v1, p0, Lcom/squareup/moshi/JsonWriter;->flattenStackSize:I
+    iget v0, p0, Lcom/squareup/moshi/JsonWriter;->flattenStackSize:I
 
     .line 455
-    .local v1, "token":I
-    iget v2, p0, Lcom/squareup/moshi/JsonWriter;->stackSize:I
+    iget v1, p0, Lcom/squareup/moshi/JsonWriter;->stackSize:I
 
-    iput v2, p0, Lcom/squareup/moshi/JsonWriter;->flattenStackSize:I
+    iput v1, p0, Lcom/squareup/moshi/JsonWriter;->flattenStackSize:I
 
-    .line 456
-    return v1
+    return v0
 .end method
 
 .method public abstract beginObject()Lcom/squareup/moshi/JsonWriter;
@@ -168,7 +162,6 @@
 
     return v0
 
-    .line 186
     :cond_0
     const/16 v2, 0x100
 
@@ -223,17 +216,9 @@
 
     check-cast v0, Lcom/squareup/moshi/JsonValueWriter;
 
-    move-object v1, p0
+    iget-object v1, v0, Lcom/squareup/moshi/JsonValueWriter;->stack:[Ljava/lang/Object;
 
-    check-cast v1, Lcom/squareup/moshi/JsonValueWriter;
-
-    iget-object v1, v1, Lcom/squareup/moshi/JsonValueWriter;->stack:[Ljava/lang/Object;
-
-    move-object v2, p0
-
-    check-cast v2, Lcom/squareup/moshi/JsonValueWriter;
-
-    iget-object v2, v2, Lcom/squareup/moshi/JsonValueWriter;->stack:[Ljava/lang/Object;
+    iget-object v2, v0, Lcom/squareup/moshi/JsonValueWriter;->stack:[Ljava/lang/Object;
 
     array-length v2, v2
 
@@ -246,7 +231,6 @@
 
     iput-object v1, v0, Lcom/squareup/moshi/JsonValueWriter;->stack:[Ljava/lang/Object;
 
-    .line 198
     :cond_1
     const/4 v0, 0x1
 
@@ -258,11 +242,9 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Nesting too deep at "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/squareup/moshi/JsonWriter;->getPath()Ljava/lang/String;
 
@@ -270,9 +252,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, ": circular reference?"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -293,12 +279,10 @@
 
 .method public final endFlatten(I)V
     .locals 0
-    .param p1, "token"    # I
 
     .line 461
     iput p1, p0, Lcom/squareup/moshi/JsonWriter;->flattenStackSize:I
 
-    .line 462
     return-void
 .end method
 
@@ -417,7 +401,7 @@
 .end method
 
 .method final promoteValueToName()V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -429,8 +413,6 @@
 
     move-result v0
 
-    .line 376
-    .local v0, "context":I
     const/4 v1, 0x5
 
     if-eq v0, v1, :cond_1
@@ -443,28 +425,26 @@
 
     .line 377
     :cond_0
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    const-string v2, "Nesting problem."
+    const-string v1, "Nesting problem."
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 
-    .line 379
     :cond_1
     :goto_0
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    iput-boolean v1, p0, Lcom/squareup/moshi/JsonWriter;->promoteValueToName:Z
+    .line 379
+    iput-boolean v0, p0, Lcom/squareup/moshi/JsonWriter;->promoteValueToName:Z
 
-    .line 380
     return-void
 .end method
 
 .method final pushScope(I)V
     .locals 3
-    .param p1, "newTop"    # I
 
     .line 202
     iget-object v0, p0, Lcom/squareup/moshi/JsonWriter;->scopes:[I
@@ -477,13 +457,11 @@
 
     aput p1, v0, v1
 
-    .line 203
     return-void
 .end method
 
 .method final replaceTop(I)V
     .locals 2
-    .param p1, "topOfStack"    # I
 
     .line 207
     iget-object v0, p0, Lcom/squareup/moshi/JsonWriter;->scopes:[I
@@ -494,13 +472,11 @@
 
     aput p1, v0, v1
 
-    .line 208
     return-void
 .end method
 
 .method public setIndent(Ljava/lang/String;)V
     .locals 1
-    .param p1, "indent"    # Ljava/lang/String;
 
     .line 219
     invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
@@ -509,39 +485,32 @@
 
     if-nez v0, :cond_0
 
-    move-object v0, p1
-
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    iput-object v0, p0, Lcom/squareup/moshi/JsonWriter;->indent:Ljava/lang/String;
+    iput-object p1, p0, Lcom/squareup/moshi/JsonWriter;->indent:Ljava/lang/String;
 
-    .line 220
     return-void
 .end method
 
 .method public final setLenient(Z)V
     .locals 0
-    .param p1, "lenient"    # Z
 
     .line 243
     iput-boolean p1, p0, Lcom/squareup/moshi/JsonWriter;->lenient:Z
 
-    .line 244
     return-void
 .end method
 
 .method public final setSerializeNulls(Z)V
     .locals 0
-    .param p1, "serializeNulls"    # Z
 
     .line 258
     iput-boolean p1, p0, Lcom/squareup/moshi/JsonWriter;->serializeNulls:Z
 
-    .line 259
     return-void
 .end method
 

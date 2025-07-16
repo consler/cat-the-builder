@@ -24,8 +24,6 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/drawable/BitmapDrawable;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;)V
     .locals 0
-    .param p1, "drawable"    # Landroid/graphics/drawable/BitmapDrawable;
-    .param p2, "bitmapPool"    # Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
 
     .line 26
     invoke-direct {p0, p1}, Lcom/bumptech/glide/load/resource/drawable/DrawableResource;-><init>(Landroid/graphics/drawable/Drawable;)V
@@ -33,7 +31,6 @@
     .line 27
     iput-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/BitmapDrawableResource;->bitmapPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
 
-    .line 28
     return-void
 .end method
 
@@ -89,7 +86,6 @@
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->prepareToDraw()V
 
-    .line 49
     return-void
 .end method
 
@@ -109,6 +105,5 @@
 
     invoke-interface {v0, v1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;->put(Landroid/graphics/Bitmap;)V
 
-    .line 44
     return-void
 .end method

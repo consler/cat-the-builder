@@ -8,11 +8,6 @@
 
 # annotations
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u0000:\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0010\u0008\n\u0002\u0008\u000b\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0010\u0002\n\u0002\u0008\u0008\n\u0002\u0018\u0002\n\u0002\u0008\u0004\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0002\u0010\u0004J\u0008\u0010\u0019\u001a\u00020\u001aH\u0016J\u0008\u0010\u001b\u001a\u00020\u001aH\u0016J\u0008\u0010\u001c\u001a\u00020\u001aH\u0016J\u0008\u0010\u001d\u001a\u00020\u001aH\u0016J\u0008\u0010\u001e\u001a\u00020\u001aH\u0016J\u0006\u0010\u001f\u001a\u00020\u001aJ\u0008\u0010 \u001a\u00020\u001aH\u0016J\u0012\u0010!\u001a\u00020\u001a2\u0008\u0010\"\u001a\u0004\u0018\u00010#H\u0016J\u0012\u0010$\u001a\u00020\u001a2\u0008\u0010\"\u001a\u0004\u0018\u00010#H\u0016J\u0008\u0010%\u001a\u00020\u001aH\u0016J\u0006\u0010&\u001a\u00020\u001aR\u0011\u0010\u0005\u001a\u00020\u0006\u00a2\u0006\u0008\n\u0000\u001a\u0004\u0008\u0007\u0010\u0008R\u0014\u0010\t\u001a\u00020\n8VX\u0096\u0004\u00a2\u0006\u0006\u001a\u0004\u0008\u000b\u0010\u000cR\u0011\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0008\n\u0000\u001a\u0004\u0008\r\u0010\u000eR\u001a\u0010\u000f\u001a\u00020\u0006X\u0086\u000e\u00a2\u0006\u000e\n\u0000\u001a\u0004\u0008\u0010\u0010\u0008\"\u0004\u0008\u0011\u0010\u0012R\u0011\u0010\u0013\u001a\u00020\u0006\u00a2\u0006\u0008\n\u0000\u001a\u0004\u0008\u0014\u0010\u0008R\u000e\u0010\u0015\u001a\u00020\u0016X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0011\u0010\u0017\u001a\u00020\u0006\u00a2\u0006\u0008\n\u0000\u001a\u0004\u0008\u0018\u0010\u0008\u00a8\u0006\'"
     }
@@ -56,14 +51,15 @@
         "removeStandaloneMenuItems",
         "show",
         "showPlusButton",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -84,7 +80,6 @@
 # direct methods
 .method public constructor <init>(Landroid/view/ViewGroup;)V
     .locals 2
-    .param p1, "layout"    # Landroid/view/ViewGroup;
 
     const-string v0, "layout"
 
@@ -111,11 +106,9 @@
     iput-object v0, p0, Lorg/catrobat/paintroid/ui/viewholder/TopBarViewHolder;->toolbar:Landroidx/appcompat/widget/Toolbar;
 
     .line 31
-    iget-object v0, p0, Lorg/catrobat/paintroid/ui/viewholder/TopBarViewHolder;->layout:Landroid/view/ViewGroup;
+    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_btn_top_undo:I
 
-    sget v1, Lorg/catrobat/paintroid/R$id;->pocketpaint_btn_top_undo:I
-
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -128,11 +121,9 @@
     iput-object v0, p0, Lorg/catrobat/paintroid/ui/viewholder/TopBarViewHolder;->undoButton:Landroid/widget/ImageButton;
 
     .line 32
-    iget-object v0, p0, Lorg/catrobat/paintroid/ui/viewholder/TopBarViewHolder;->layout:Landroid/view/ViewGroup;
+    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_btn_top_redo:I
 
-    sget v1, Lorg/catrobat/paintroid/R$id;->pocketpaint_btn_top_redo:I
-
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -145,11 +136,9 @@
     iput-object v0, p0, Lorg/catrobat/paintroid/ui/viewholder/TopBarViewHolder;->redoButton:Landroid/widget/ImageButton;
 
     .line 33
-    iget-object v0, p0, Lorg/catrobat/paintroid/ui/viewholder/TopBarViewHolder;->layout:Landroid/view/ViewGroup;
+    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_btn_top_checkmark:I
 
-    sget v1, Lorg/catrobat/paintroid/R$id;->pocketpaint_btn_top_checkmark:I
-
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -162,21 +151,19 @@
     iput-object v0, p0, Lorg/catrobat/paintroid/ui/viewholder/TopBarViewHolder;->checkmarkButton:Landroid/widget/ImageButton;
 
     .line 34
-    iget-object v0, p0, Lorg/catrobat/paintroid/ui/viewholder/TopBarViewHolder;->layout:Landroid/view/ViewGroup;
+    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_btn_top_plus:I
 
-    sget v1, Lorg/catrobat/paintroid/R$id;->pocketpaint_btn_top_plus:I
+    invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    move-result-object p1
 
-    move-result-object v0
+    const-string v0, "layout.findViewById(R.id.pocketpaint_btn_top_plus)"
 
-    const-string v1, "layout.findViewById(R.id.pocketpaint_btn_top_plus)"
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    check-cast p1, Landroid/widget/ImageButton;
 
-    check-cast v0, Landroid/widget/ImageButton;
-
-    iput-object v0, p0, Lorg/catrobat/paintroid/ui/viewholder/TopBarViewHolder;->plusButton:Landroid/widget/ImageButton;
+    iput-object p1, p0, Lorg/catrobat/paintroid/ui/viewholder/TopBarViewHolder;->plusButton:Landroid/widget/ImageButton;
 
     return-void
 .end method
@@ -193,7 +180,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setEnabled(Z)V
 
-    .line 53
     return-void
 .end method
 
@@ -207,7 +193,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setEnabled(Z)V
 
-    .line 45
     return-void
 .end method
 
@@ -221,7 +206,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setEnabled(Z)V
 
-    .line 49
     return-void
 .end method
 
@@ -235,7 +219,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setEnabled(Z)V
 
-    .line 41
     return-void
 .end method
 
@@ -307,7 +290,6 @@
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    .line 57
     return-void
 .end method
 
@@ -321,7 +303,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setVisibility(I)V
 
-    .line 65
     return-void
 .end method
 
@@ -337,95 +318,65 @@
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/widget/Toolbar;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 89
     return-void
 .end method
 
 .method public removeCatroidMenuItems(Landroid/view/Menu;)V
-    .locals 3
-    .param p1, "menu"    # Landroid/view/Menu;
+    .locals 1
 
-    .line 81
-    if-eqz p1, :cond_0
+    if-nez p1, :cond_0
 
-    move-object v0, p1
-
-    .local v0, "$this$apply":Landroid/view/Menu;
-    const/4 v1, 0x0
+    goto :goto_0
 
     .line 82
-    .local v1, "$i$a$-apply-TopBarViewHolder$removeCatroidMenuItems$1":I
-    sget v2, Lorg/catrobat/paintroid/R$id;->pocketpaint_options_export:I
+    :cond_0
+    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_options_export:I
 
-    invoke-interface {v0, v2}, Landroid/view/Menu;->removeItem(I)V
+    invoke-interface {p1, v0}, Landroid/view/Menu;->removeItem(I)V
 
     .line 83
-    sget v2, Lorg/catrobat/paintroid/R$id;->pocketpaint_options_discard_image:I
+    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_options_discard_image:I
 
-    invoke-interface {v0, v2}, Landroid/view/Menu;->removeItem(I)V
+    invoke-interface {p1, v0}, Landroid/view/Menu;->removeItem(I)V
 
-    .line 84
-    nop
-
-    .line 81
-    .end local v0    # "$this$apply":Landroid/view/Menu;
-    .end local v1    # "$i$a$-apply-TopBarViewHolder$removeCatroidMenuItems$1":I
-    nop
-
-    .line 85
-    :cond_0
+    :goto_0
     return-void
 .end method
 
 .method public removeStandaloneMenuItems(Landroid/view/Menu;)V
-    .locals 3
-    .param p1, "menu"    # Landroid/view/Menu;
+    .locals 1
 
-    .line 72
-    if-eqz p1, :cond_0
+    if-nez p1, :cond_0
 
-    move-object v0, p1
-
-    .local v0, "$this$apply":Landroid/view/Menu;
-    const/4 v1, 0x0
+    goto :goto_0
 
     .line 73
-    .local v1, "$i$a$-apply-TopBarViewHolder$removeStandaloneMenuItems$1":I
-    sget v2, Lorg/catrobat/paintroid/R$id;->pocketpaint_options_save_image:I
+    :cond_0
+    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_options_save_image:I
 
-    invoke-interface {v0, v2}, Landroid/view/Menu;->removeItem(I)V
+    invoke-interface {p1, v0}, Landroid/view/Menu;->removeItem(I)V
 
     .line 74
-    sget v2, Lorg/catrobat/paintroid/R$id;->pocketpaint_options_save_duplicate:I
+    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_options_save_duplicate:I
 
-    invoke-interface {v0, v2}, Landroid/view/Menu;->removeItem(I)V
+    invoke-interface {p1, v0}, Landroid/view/Menu;->removeItem(I)V
 
     .line 75
-    sget v2, Lorg/catrobat/paintroid/R$id;->pocketpaint_options_new_image:I
+    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_options_new_image:I
 
-    invoke-interface {v0, v2}, Landroid/view/Menu;->removeItem(I)V
+    invoke-interface {p1, v0}, Landroid/view/Menu;->removeItem(I)V
 
     .line 76
-    sget v2, Lorg/catrobat/paintroid/R$id;->pocketpaint_options_rate_us:I
+    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_options_rate_us:I
 
-    invoke-interface {v0, v2}, Landroid/view/Menu;->removeItem(I)V
+    invoke-interface {p1, v0}, Landroid/view/Menu;->removeItem(I)V
 
-    .line 77
-    nop
-
-    .line 72
-    .end local v0    # "$this$apply":Landroid/view/Menu;
-    .end local v1    # "$i$a$-apply-TopBarViewHolder$removeStandaloneMenuItems$1":I
-    nop
-
-    .line 78
-    :cond_0
+    :goto_0
     return-void
 .end method
 
 .method public final setPlusButton(Landroid/widget/ImageButton;)V
     .locals 1
-    .param p1, "<set-?>"    # Landroid/widget/ImageButton;
 
     const-string v0, "<set-?>"
 
@@ -447,7 +398,6 @@
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    .line 61
     return-void
 .end method
 
@@ -461,6 +411,5 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setVisibility(I)V
 
-    .line 69
     return-void
 .end method

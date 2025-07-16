@@ -34,14 +34,11 @@
     .end annotation
 
     .line 60
-    .local p0, "this":Lorg/apache/commons/collections4/sequence/EditCommand;, "Lorg/apache/commons/collections4/sequence/EditCommand<TT;>;"
-    .local p1, "object":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 61
     iput-object p1, p0, Lorg/apache/commons/collections4/sequence/EditCommand;->object:Ljava/lang/Object;
 
-    .line 62
     return-void
 .end method
 
@@ -66,7 +63,6 @@
     .end annotation
 
     .line 70
-    .local p0, "this":Lorg/apache/commons/collections4/sequence/EditCommand;, "Lorg/apache/commons/collections4/sequence/EditCommand<TT;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/sequence/EditCommand;->object:Ljava/lang/Object;
 
     return-object v0

@@ -29,7 +29,6 @@
 # direct methods
 .method constructor <init>(Lcom/google/crypto/tink/subtle/PrfHmacJce;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/google/crypto/tink/subtle/PrfHmacJce;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010
@@ -80,7 +79,6 @@
     check-cast v0, Ljavax/crypto/Mac;
 
     .line 40
-    .local v0, "mac":Ljavax/crypto/Mac;
     iget-object v1, p0, Lcom/google/crypto/tink/subtle/PrfHmacJce$1;->this$0:Lcom/google/crypto/tink/subtle/PrfHmacJce;
 
     invoke-static {v1}, Lcom/google/crypto/tink/subtle/PrfHmacJce;->access$100(Lcom/google/crypto/tink/subtle/PrfHmacJce;)Ljava/security/Key;
@@ -91,16 +89,12 @@
     :try_end_0
     .catch Ljava/security/GeneralSecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 41
     return-object v0
 
-    .line 42
-    .end local v0    # "mac":Ljavax/crypto/Mac;
     :catch_0
     move-exception v0
 
     .line 43
-    .local v0, "ex":Ljava/security/GeneralSecurityException;
     new-instance v1, Ljava/lang/IllegalStateException;
 
     invoke-direct {v1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/Throwable;)V

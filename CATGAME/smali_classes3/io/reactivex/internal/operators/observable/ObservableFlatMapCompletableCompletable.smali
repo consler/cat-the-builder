@@ -52,7 +52,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/ObservableSource;Lio/reactivex/functions/Function;Z)V
     .locals 0
-    .param p3, "delayErrors"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -66,9 +65,6 @@
     .end annotation
 
     .line 41
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableFlatMapCompletableCompletable;, "Lio/reactivex/internal/operators/observable/ObservableFlatMapCompletableCompletable<TT;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
-    .local p2, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lio/reactivex/CompletableSource;>;"
     invoke-direct {p0}, Lio/reactivex/Completable;-><init>()V
 
     .line 42
@@ -80,7 +76,6 @@
     .line 44
     iput-boolean p3, p0, Lio/reactivex/internal/operators/observable/ObservableFlatMapCompletableCompletable;->delayErrors:Z
 
-    .line 45
     return-void
 .end method
 
@@ -97,7 +92,6 @@
     .end annotation
 
     .line 54
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableFlatMapCompletableCompletable;, "Lio/reactivex/internal/operators/observable/ObservableFlatMapCompletableCompletable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableFlatMapCompletable;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableFlatMapCompletableCompletable;->source:Lio/reactivex/ObservableSource;
@@ -117,10 +111,8 @@
 
 .method protected subscribeActual(Lio/reactivex/CompletableObserver;)V
     .locals 4
-    .param p1, "observer"    # Lio/reactivex/CompletableObserver;
 
     .line 49
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableFlatMapCompletableCompletable;, "Lio/reactivex/internal/operators/observable/ObservableFlatMapCompletableCompletable<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableFlatMapCompletableCompletable;->source:Lio/reactivex/ObservableSource;
 
     new-instance v1, Lio/reactivex/internal/operators/observable/ObservableFlatMapCompletableCompletable$FlatMapCompletableMainObserver;
@@ -133,6 +125,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 50
     return-void
 .end method

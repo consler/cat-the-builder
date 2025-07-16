@@ -35,7 +35,6 @@
 
     invoke-direct {p0}, Lcom/badlogic/gdx/utils/Pool;-><init>()V
 
-    .line 86
     return-void
 .end method
 
@@ -45,20 +44,18 @@
     .locals 3
 
     .line 98
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;->this$0:Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;
 
-    .local v0, "i":I
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;->this$0:Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;
+    iget-object v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;->pool:Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;
 
-    iget-object v1, v1, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;->pool:Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;
+    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;->getFree()I
 
-    invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;->getFree()I
+    move-result v0
 
-    move-result v1
+    const/4 v1, 0x0
 
-    .local v1, "free":I
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge v1, v0, :cond_0
 
     .line 99
     iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;->this$0:Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;
@@ -73,18 +70,14 @@
 
     invoke-virtual {v2}, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->dispose()V
 
-    .line 98
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 101
-    .end local v0    # "i":I
-    .end local v1    # "free":I
     :cond_0
     invoke-super {p0}, Lcom/badlogic/gdx/utils/Pool;->clear()V
 
-    .line 102
     return-void
 .end method
 
@@ -107,10 +100,8 @@
     move-result-object v0
 
     .line 91
-    .local v0, "controller":Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
     invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->init()V
 
-    .line 92
     return-object v0
 .end method
 

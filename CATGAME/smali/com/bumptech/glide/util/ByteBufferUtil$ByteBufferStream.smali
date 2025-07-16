@@ -27,20 +27,18 @@
 # direct methods
 .method constructor <init>(Ljava/nio/ByteBuffer;)V
     .locals 1
-    .param p1, "byteBuffer"    # Ljava/nio/ByteBuffer;
 
     .line 183
     invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
 
-    .line 181
     const/4 v0, -0x1
 
+    .line 181
     iput v0, p0, Lcom/bumptech/glide/util/ByteBufferUtil$ByteBufferStream;->markPos:I
 
     .line 184
     iput-object p1, p0, Lcom/bumptech/glide/util/ByteBufferUtil$ByteBufferStream;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    .line 185
     return-void
 .end method
 
@@ -60,20 +58,19 @@
 .end method
 
 .method public declared-synchronized mark(I)V
-    .locals 1
-    .param p1, "readLimit"    # I
+    .locals 0
 
     monitor-enter p0
 
     .line 202
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/util/ByteBufferUtil$ByteBufferStream;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/bumptech/glide/util/ByteBufferUtil$ByteBufferStream;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->position()I
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->position()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/bumptech/glide/util/ByteBufferUtil$ByteBufferStream;->markPos:I
+    iput p1, p0, Lcom/bumptech/glide/util/ByteBufferUtil$ByteBufferStream;->markPos:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -82,9 +79,6 @@
 
     return-void
 
-    .line 201
-    .end local p0    # "this":Lcom/bumptech/glide/util/ByteBufferUtil$ByteBufferStream;
-    .end local p1    # "readLimit":I
     :catchall_0
     move-exception p1
 
@@ -96,7 +90,6 @@
 .method public markSupported()Z
     .locals 1
 
-    .line 207
     const/4 v0, 0x1
 
     return v0
@@ -114,7 +107,6 @@
 
     if-nez v0, :cond_0
 
-    .line 195
     const/4 v0, -0x1
 
     return v0
@@ -133,10 +125,7 @@
 .end method
 
 .method public read([BII)I
-    .locals 2
-    .param p1, "buffer"    # [B
-    .param p2, "byteOffset"    # I
-    .param p3, "byteCount"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -152,10 +141,9 @@
 
     if-nez v0, :cond_0
 
-    .line 213
-    const/4 v0, -0x1
+    const/4 p1, -0x1
 
-    return v0
+    return p1
 
     .line 215
     :cond_0
@@ -165,16 +153,14 @@
 
     invoke-static {p3, v0}, Ljava/lang/Math;->min(II)I
 
-    move-result v0
+    move-result p3
 
     .line 216
-    .local v0, "toRead":I
-    iget-object v1, p0, Lcom/bumptech/glide/util/ByteBufferUtil$ByteBufferStream;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object v0, p0, Lcom/bumptech/glide/util/ByteBufferUtil$ByteBufferStream;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v1, p1, p2, v0}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
+    invoke-virtual {v0, p1, p2, p3}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
 
-    .line 217
-    return v0
+    return p3
 .end method
 
 .method public declared-synchronized reset()V
@@ -196,11 +182,9 @@
     if-eq v0, v1, :cond_0
 
     .line 226
-    iget-object v0, p0, Lcom/bumptech/glide/util/ByteBufferUtil$ByteBufferStream;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object v1, p0, Lcom/bumptech/glide/util/ByteBufferUtil$ByteBufferStream;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    iget v1, p0, Lcom/bumptech/glide/util/ByteBufferUtil$ByteBufferStream;->markPos:I
-
-    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v1, v0}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -210,7 +194,6 @@
     return-void
 
     .line 223
-    .end local p0    # "this":Lcom/bumptech/glide/util/ByteBufferUtil$ByteBufferStream;
     :cond_0
     :try_start_1
     new-instance v0, Ljava/io/IOException;
@@ -223,7 +206,6 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 221
     :catchall_0
     move-exception v0
 
@@ -233,8 +215,7 @@
 .end method
 
 .method public skip(J)J
-    .locals 5
-    .param p1, "byteCount"    # J
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -250,10 +231,9 @@
 
     if-nez v0, :cond_0
 
-    .line 232
-    const-wide/16 v0, -0x1
+    const-wide/16 p1, -0x1
 
-    return-wide v0
+    return-wide p1
 
     .line 235
     :cond_0
@@ -265,24 +245,22 @@
 
     invoke-static {p1, p2, v0, v1}, Ljava/lang/Math;->min(JJ)J
 
-    move-result-wide v0
+    move-result-wide p1
 
     .line 236
-    .local v0, "toSkip":J
-    iget-object v2, p0, Lcom/bumptech/glide/util/ByteBufferUtil$ByteBufferStream;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object v0, p0, Lcom/bumptech/glide/util/ByteBufferUtil$ByteBufferStream;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->position()I
+    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->position()I
 
-    move-result v3
+    move-result v1
 
-    int-to-long v3, v3
+    int-to-long v1, v1
 
-    add-long/2addr v3, v0
+    add-long/2addr v1, p1
 
-    long-to-int v3, v3
+    long-to-int v1, v1
 
-    invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
-    .line 237
-    return-wide v0
+    return-wide p1
 .end method

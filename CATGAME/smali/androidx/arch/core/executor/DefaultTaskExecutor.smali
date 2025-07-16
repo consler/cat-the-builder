@@ -42,141 +42,26 @@
 .end method
 
 .method private static createAsync(Landroid/os/Looper;)Landroid/os/Handler;
-    .locals 7
-    .param p0, "looper"    # Landroid/os/Looper;
-
-    .line 81
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1c
-
-    if-lt v0, v1, :cond_0
+    .locals 0
 
     .line 82
     invoke-static {p0}, Landroid/os/Handler;->createAsync(Landroid/os/Looper;)Landroid/os/Handler;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
-
-    .line 84
-    :cond_0
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x10
-
-    if-lt v0, v1, :cond_1
-
-    .line 86
-    :try_start_0
-    const-class v0, Landroid/os/Handler;
-
-    const/4 v1, 0x3
-
-    new-array v2, v1, [Ljava/lang/Class;
-
-    const-class v3, Landroid/os/Looper;
-
-    const/4 v4, 0x0
-
-    aput-object v3, v2, v4
-
-    const-class v3, Landroid/os/Handler$Callback;
-
-    const/4 v5, 0x1
-
-    aput-object v3, v2, v5
-
-    sget-object v3, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
-
-    const/4 v6, 0x2
-
-    aput-object v3, v2, v6
-
-    invoke-virtual {v0, v2}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
-
-    move-result-object v0
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    aput-object p0, v1, v4
-
-    const/4 v2, 0x0
-
-    aput-object v2, v1, v5
-
-    .line 88
-    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v2
-
-    aput-object v2, v1, v6
-
-    invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/os/Handler;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 86
-    return-object v0
-
-    .line 92
-    :catch_0
-    move-exception v0
-
-    .line 93
-    .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
-    new-instance v1, Landroid/os/Handler;
-
-    invoke-direct {v1, p0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
-
-    return-object v1
-
-    .line 91
-    .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_1
-    move-exception v0
-
-    goto :goto_0
-
-    .line 90
-    :catch_2
-    move-exception v0
-
-    goto :goto_0
-
-    .line 89
-    :catch_3
-    move-exception v0
-
-    .line 96
-    :cond_1
-    :goto_0
-    new-instance v0, Landroid/os/Handler;
-
-    invoke-direct {v0, p0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
-
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public executeOnDiskIO(Ljava/lang/Runnable;)V
     .locals 1
-    .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 59
     iget-object v0, p0, Landroidx/arch/core/executor/DefaultTaskExecutor;->mDiskIO:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0, p1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 
-    .line 60
     return-void
 .end method
 
@@ -211,7 +96,6 @@
 
 .method public postToMainThread(Ljava/lang/Runnable;)V
     .locals 2
-    .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 64
     iget-object v0, p0, Landroidx/arch/core/executor/DefaultTaskExecutor;->mMainHandler:Landroid/os/Handler;
@@ -247,13 +131,13 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 
     .line 72
     :cond_1
@@ -262,6 +146,5 @@
 
     invoke-virtual {v0, p1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 73
     return-void
 .end method

@@ -22,32 +22,28 @@
 
 # direct methods
 .method private constructor <init>(I)V
-    .locals 1
-    .param p1, "size"    # I
+    .locals 0
 
     .line 1176
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 1177
-    new-array v0, p1, [B
+    new-array p1, p1, [B
 
-    iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$CodedBuilder;->buffer:[B
+    iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$CodedBuilder;->buffer:[B
 
     .line 1178
-    invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->newInstance([B)Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;
+    invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->newInstance([B)Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$CodedBuilder;->output:Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;
+    iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$CodedBuilder;->output:Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;
 
-    .line 1179
     return-void
 .end method
 
 .method synthetic constructor <init>(ILcom/google/crypto/tink/shaded/protobuf/ByteString$1;)V
     .locals 0
-    .param p1, "x0"    # I
-    .param p2, "x1"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString$1;
 
     .line 1172
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString$CodedBuilder;-><init>(I)V

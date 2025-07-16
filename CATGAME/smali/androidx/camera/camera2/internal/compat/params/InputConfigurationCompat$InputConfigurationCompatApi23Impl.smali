@@ -24,9 +24,6 @@
 # direct methods
 .method constructor <init>(III)V
     .locals 1
-    .param p1, "width"    # I
-    .param p2, "height"    # I
-    .param p3, "format"    # I
 
     .line 256
     new-instance v0, Landroid/hardware/camera2/params/InputConfiguration;
@@ -35,63 +32,54 @@
 
     invoke-direct {p0, v0}, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatApi23Impl;-><init>(Ljava/lang/Object;)V
 
-    .line 257
     return-void
 .end method
 
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "inputConfiguration"    # Ljava/lang/Object;
+    .locals 0
 
     .line 251
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 252
-    move-object v0, p1
+    check-cast p1, Landroid/hardware/camera2/params/InputConfiguration;
 
-    check-cast v0, Landroid/hardware/camera2/params/InputConfiguration;
+    iput-object p1, p0, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatApi23Impl;->mObject:Landroid/hardware/camera2/params/InputConfiguration;
 
-    iput-object v0, p0, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatApi23Impl;->mObject:Landroid/hardware/camera2/params/InputConfiguration;
-
-    .line 253
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 1
 
     .line 282
     instance-of v0, p1, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatImpl;
 
     if-nez v0, :cond_0
 
-    .line 283
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 285
     :cond_0
     iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatApi23Impl;->mObject:Landroid/hardware/camera2/params/InputConfiguration;
 
-    move-object v1, p1
-
-    check-cast v1, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatImpl;
+    check-cast p1, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatImpl;
 
     .line 286
-    invoke-interface {v1}, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatImpl;->getInputConfiguration()Ljava/lang/Object;
+    invoke-interface {p1}, Landroidx/camera/camera2/internal/compat/params/InputConfigurationCompat$InputConfigurationCompatImpl;->getInputConfiguration()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 285
-    invoke-static {v0, v1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, p1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public getFormat()I

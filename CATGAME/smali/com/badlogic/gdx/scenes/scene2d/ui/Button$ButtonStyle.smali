@@ -51,13 +51,11 @@
     .line 298
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 299
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/Button$ButtonStyle;)V
     .locals 1
-    .param p1, "style"    # Lcom/badlogic/gdx/scenes/scene2d/ui/Button$ButtonStyle;
 
     .line 307
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -128,19 +126,15 @@
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Button$ButtonStyle;->checkedOffsetX:F
 
     .line 321
-    iget v0, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Button$ButtonStyle;->checkedOffsetY:F
+    iget p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Button$ButtonStyle;->checkedOffsetY:F
 
-    iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Button$ButtonStyle;->checkedOffsetY:F
+    iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Button$ButtonStyle;->checkedOffsetY:F
 
-    .line 322
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;)V
     .locals 0
-    .param p1, "up"    # Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
-    .param p2, "down"    # Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
-    .param p3, "checked"    # Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
     .line 301
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -154,6 +148,5 @@
     .line 304
     iput-object p3, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Button$ButtonStyle;->checked:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
-    .line 305
     return-void
 .end method

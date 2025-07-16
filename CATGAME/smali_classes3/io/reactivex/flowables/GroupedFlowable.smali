@@ -37,14 +37,11 @@
     .end annotation
 
     .line 41
-    .local p0, "this":Lio/reactivex/flowables/GroupedFlowable;, "Lio/reactivex/flowables/GroupedFlowable<TK;TT;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-direct {p0}, Lio/reactivex/Flowable;-><init>()V
 
     .line 42
     iput-object p1, p0, Lio/reactivex/flowables/GroupedFlowable;->key:Ljava/lang/Object;
 
-    .line 43
     return-void
 .end method
 
@@ -59,7 +56,6 @@
     .end annotation
 
     .line 52
-    .local p0, "this":Lio/reactivex/flowables/GroupedFlowable;, "Lio/reactivex/flowables/GroupedFlowable<TK;TT;>;"
     iget-object v0, p0, Lio/reactivex/flowables/GroupedFlowable;->key:Ljava/lang/Object;
 
     return-object v0

@@ -51,12 +51,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/Flowable;JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;Ljava/util/concurrent/Callable;IZ)V
     .locals 0
-    .param p2, "timespan"    # J
-    .param p4, "timeskip"    # J
-    .param p6, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p7, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p9, "maxSize"    # I
-    .param p10, "restartTimerOnMaxSize"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -70,9 +64,6 @@
     .end annotation
 
     .line 46
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableBufferTimed;, "Lio/reactivex/internal/operators/flowable/FlowableBufferTimed<TT;TU;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p8, "bufferSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TU;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
     .line 47
@@ -96,14 +87,13 @@
     .line 53
     iput-boolean p10, p0, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed;->restartTimerOnMaxSize:Z
 
-    .line 54
     return-void
 .end method
 
 
 # virtual methods
 .method protected subscribeActual(Lorg/reactivestreams/Subscriber;)V
-    .locals 12
+    .locals 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -113,8 +103,6 @@
     .end annotation
 
     .line 58
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableBufferTimed;, "Lio/reactivex/internal/operators/flowable/FlowableBufferTimed<TT;TU;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TU;>;"
     iget-wide v0, p0, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed;->timespan:J
 
     iget-wide v2, p0, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed;->timeskip:J
@@ -152,7 +140,6 @@
 
     invoke-virtual {v0, v8}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 62
     return-void
 
     .line 64
@@ -161,22 +148,21 @@
 
     invoke-virtual {v0}, Lio/reactivex/Scheduler;->createWorker()Lio/reactivex/Scheduler$Worker;
 
-    move-result-object v0
+    move-result-object v9
 
     .line 66
-    .local v0, "w":Lio/reactivex/Scheduler$Worker;
-    iget-wide v1, p0, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed;->timespan:J
+    iget-wide v0, p0, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed;->timespan:J
 
-    iget-wide v3, p0, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed;->timeskip:J
+    iget-wide v2, p0, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed;->timeskip:J
 
-    cmp-long v1, v1, v3
+    cmp-long v0, v0, v2
 
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
 
     .line 67
-    iget-object v10, p0, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed;->source:Lio/reactivex/Flowable;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed;->source:Lio/reactivex/Flowable;
 
-    new-instance v11, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed$BufferExactBoundedSubscriber;
+    new-instance v10, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed$BufferExactBoundedSubscriber;
 
     new-instance v2, Lio/reactivex/subscribers/SerializedSubscriber;
 
@@ -192,22 +178,19 @@
 
     iget-boolean v8, p0, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed;->restartTimerOnMaxSize:Z
 
-    move-object v1, v11
-
-    move-object v9, v0
+    move-object v1, v10
 
     invoke-direct/range {v1 .. v9}, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed$BufferExactBoundedSubscriber;-><init>(Lorg/reactivestreams/Subscriber;Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;IZLio/reactivex/Scheduler$Worker;)V
 
-    invoke-virtual {v10, v11}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
+    invoke-virtual {v0, v10}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 72
     return-void
 
     .line 76
     :cond_1
-    iget-object v10, p0, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed;->source:Lio/reactivex/Flowable;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed;->source:Lio/reactivex/Flowable;
 
-    new-instance v11, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed$BufferSkipBoundedSubscriber;
+    new-instance v10, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed$BufferSkipBoundedSubscriber;
 
     new-instance v2, Lio/reactivex/subscribers/SerializedSubscriber;
 
@@ -221,14 +204,11 @@
 
     iget-object v8, p0, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed;->unit:Ljava/util/concurrent/TimeUnit;
 
-    move-object v1, v11
-
-    move-object v9, v0
+    move-object v1, v10
 
     invoke-direct/range {v1 .. v9}, Lio/reactivex/internal/operators/flowable/FlowableBufferTimed$BufferSkipBoundedSubscriber;-><init>(Lorg/reactivestreams/Subscriber;Ljava/util/concurrent/Callable;JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler$Worker;)V
 
-    invoke-virtual {v10, v11}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
+    invoke-virtual {v0, v10}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 79
     return-void
 .end method

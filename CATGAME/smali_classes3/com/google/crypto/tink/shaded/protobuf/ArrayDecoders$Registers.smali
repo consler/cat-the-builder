@@ -38,29 +38,20 @@
 
     iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ArrayDecoders$Registers;->extensionRegistry:Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
 
-    .line 64
     return-void
 .end method
 
 .method constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)V
-    .locals 1
-    .param p1, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
+    .locals 0
 
     .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 67
-    if-eqz p1, :cond_0
+    .line 68
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     .line 70
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/ArrayDecoders$Registers;->extensionRegistry:Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
 
-    .line 71
     return-void
-
-    .line 68
-    :cond_0
-    const/4 v0, 0x0
-
-    throw v0
 .end method

@@ -61,7 +61,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Object;JLio/reactivex/internal/operators/flowable/FlowableDebounceTimed$DebounceTimedSubscriber;)V
     .locals 1
-    .param p2, "idx"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;J",
@@ -71,9 +70,6 @@
     .end annotation
 
     .line 175
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDebounceTimed$DebounceEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableDebounceTimed$DebounceEmitter<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
-    .local p4, "parent":Lio/reactivex/internal/operators/flowable/FlowableDebounceTimed$DebounceTimedSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDebounceTimed$DebounceTimedSubscriber<TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 172
@@ -92,7 +88,6 @@
     .line 178
     iput-object p4, p0, Lio/reactivex/internal/operators/flowable/FlowableDebounceTimed$DebounceEmitter;->parent:Lio/reactivex/internal/operators/flowable/FlowableDebounceTimed$DebounceTimedSubscriber;
 
-    .line 179
     return-void
 .end method
 
@@ -102,10 +97,8 @@
     .locals 0
 
     .line 194
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDebounceTimed$DebounceEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableDebounceTimed$DebounceEmitter<TT;>;"
     invoke-static {p0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 195
     return-void
 .end method
 
@@ -113,7 +106,6 @@
     .locals 4
 
     .line 187
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDebounceTimed$DebounceEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableDebounceTimed$DebounceEmitter<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDebounceTimed$DebounceEmitter;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     const/4 v1, 0x0
@@ -135,7 +127,6 @@
 
     invoke-virtual {v0, v1, v2, v3, p0}, Lio/reactivex/internal/operators/flowable/FlowableDebounceTimed$DebounceTimedSubscriber;->emit(JLjava/lang/Object;Lio/reactivex/internal/operators/flowable/FlowableDebounceTimed$DebounceEmitter;)V
 
-    .line 190
     :cond_0
     return-void
 .end method
@@ -144,7 +135,6 @@
     .locals 2
 
     .line 199
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDebounceTimed$DebounceEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableDebounceTimed$DebounceEmitter<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableDebounceTimed$DebounceEmitter;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -168,21 +158,16 @@
     .locals 0
 
     .line 183
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDebounceTimed$DebounceEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableDebounceTimed$DebounceEmitter<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableDebounceTimed$DebounceEmitter;->emit()V
 
-    .line 184
     return-void
 .end method
 
 .method public setResource(Lio/reactivex/disposables/Disposable;)V
     .locals 0
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 203
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDebounceTimed$DebounceEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableDebounceTimed$DebounceEmitter<TT;>;"
     invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 204
     return-void
 .end method

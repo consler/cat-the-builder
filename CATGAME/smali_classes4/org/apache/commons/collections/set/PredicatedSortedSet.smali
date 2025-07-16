@@ -13,20 +13,15 @@
 # direct methods
 .method protected constructor <init>(Ljava/util/SortedSet;Lorg/apache/commons/collections/Predicate;)V
     .locals 0
-    .param p1, "set"    # Ljava/util/SortedSet;
-    .param p2, "predicate"    # Lorg/apache/commons/collections/Predicate;
 
     .line 76
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections/set/PredicatedSet;-><init>(Ljava/util/Set;Lorg/apache/commons/collections/Predicate;)V
 
-    .line 77
     return-void
 .end method
 
 .method public static decorate(Ljava/util/SortedSet;Lorg/apache/commons/collections/Predicate;)Ljava/util/SortedSet;
     .locals 1
-    .param p0, "set"    # Ljava/util/SortedSet;
-    .param p1, "predicate"    # Lorg/apache/commons/collections/Predicate;
 
     .line 60
     new-instance v0, Lorg/apache/commons/collections/set/PredicatedSortedSet;
@@ -82,8 +77,7 @@
 .end method
 
 .method public headSet(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 3
-    .param p1, "toElement"    # Ljava/lang/Object;
+    .locals 2
 
     .line 95
     invoke-direct {p0}, Lorg/apache/commons/collections/set/PredicatedSortedSet;->getSortedSet()Ljava/util/SortedSet;
@@ -92,17 +86,16 @@
 
     invoke-interface {v0, p1}, Ljava/util/SortedSet;->headSet(Ljava/lang/Object;)Ljava/util/SortedSet;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 96
-    .local v0, "sub":Ljava/util/SortedSet;
-    new-instance v1, Lorg/apache/commons/collections/set/PredicatedSortedSet;
+    new-instance v0, Lorg/apache/commons/collections/set/PredicatedSortedSet;
 
-    iget-object v2, p0, Lorg/apache/commons/collections/set/PredicatedSortedSet;->predicate:Lorg/apache/commons/collections/Predicate;
+    iget-object v1, p0, Lorg/apache/commons/collections/set/PredicatedSortedSet;->predicate:Lorg/apache/commons/collections/Predicate;
 
-    invoke-direct {v1, v0, v2}, Lorg/apache/commons/collections/set/PredicatedSortedSet;-><init>(Ljava/util/SortedSet;Lorg/apache/commons/collections/Predicate;)V
+    invoke-direct {v0, p1, v1}, Lorg/apache/commons/collections/set/PredicatedSortedSet;-><init>(Ljava/util/SortedSet;Lorg/apache/commons/collections/Predicate;)V
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public last()Ljava/lang/Object;
@@ -121,9 +114,7 @@
 .end method
 
 .method public subSet(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 3
-    .param p1, "fromElement"    # Ljava/lang/Object;
-    .param p2, "toElement"    # Ljava/lang/Object;
+    .locals 1
 
     .line 90
     invoke-direct {p0}, Lorg/apache/commons/collections/set/PredicatedSortedSet;->getSortedSet()Ljava/util/SortedSet;
@@ -132,22 +123,20 @@
 
     invoke-interface {v0, p1, p2}, Ljava/util/SortedSet;->subSet(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 91
-    .local v0, "sub":Ljava/util/SortedSet;
-    new-instance v1, Lorg/apache/commons/collections/set/PredicatedSortedSet;
+    new-instance p2, Lorg/apache/commons/collections/set/PredicatedSortedSet;
 
-    iget-object v2, p0, Lorg/apache/commons/collections/set/PredicatedSortedSet;->predicate:Lorg/apache/commons/collections/Predicate;
+    iget-object v0, p0, Lorg/apache/commons/collections/set/PredicatedSortedSet;->predicate:Lorg/apache/commons/collections/Predicate;
 
-    invoke-direct {v1, v0, v2}, Lorg/apache/commons/collections/set/PredicatedSortedSet;-><init>(Ljava/util/SortedSet;Lorg/apache/commons/collections/Predicate;)V
+    invoke-direct {p2, p1, v0}, Lorg/apache/commons/collections/set/PredicatedSortedSet;-><init>(Ljava/util/SortedSet;Lorg/apache/commons/collections/Predicate;)V
 
-    return-object v1
+    return-object p2
 .end method
 
 .method public tailSet(Ljava/lang/Object;)Ljava/util/SortedSet;
-    .locals 3
-    .param p1, "fromElement"    # Ljava/lang/Object;
+    .locals 2
 
     .line 100
     invoke-direct {p0}, Lorg/apache/commons/collections/set/PredicatedSortedSet;->getSortedSet()Ljava/util/SortedSet;
@@ -156,15 +145,14 @@
 
     invoke-interface {v0, p1}, Ljava/util/SortedSet;->tailSet(Ljava/lang/Object;)Ljava/util/SortedSet;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 101
-    .local v0, "sub":Ljava/util/SortedSet;
-    new-instance v1, Lorg/apache/commons/collections/set/PredicatedSortedSet;
+    new-instance v0, Lorg/apache/commons/collections/set/PredicatedSortedSet;
 
-    iget-object v2, p0, Lorg/apache/commons/collections/set/PredicatedSortedSet;->predicate:Lorg/apache/commons/collections/Predicate;
+    iget-object v1, p0, Lorg/apache/commons/collections/set/PredicatedSortedSet;->predicate:Lorg/apache/commons/collections/Predicate;
 
-    invoke-direct {v1, v0, v2}, Lorg/apache/commons/collections/set/PredicatedSortedSet;-><init>(Ljava/util/SortedSet;Lorg/apache/commons/collections/Predicate;)V
+    invoke-direct {v0, p1, v1}, Lorg/apache/commons/collections/set/PredicatedSortedSet;-><init>(Ljava/util/SortedSet;Lorg/apache/commons/collections/Predicate;)V
 
-    return-object v1
+    return-object v0
 .end method

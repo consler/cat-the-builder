@@ -44,8 +44,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/Flowable;Lio/reactivex/functions/Function;IZ)V
     .locals 0
-    .param p3, "bufferSize"    # I
-    .param p4, "delayErrors"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -59,9 +57,6 @@
     .end annotation
 
     .line 38
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSwitchMap;, "Lio/reactivex/internal/operators/flowable/FlowableSwitchMap<TT;TR;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p2, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
     .line 39
@@ -73,7 +68,6 @@
     .line 41
     iput-boolean p4, p0, Lio/reactivex/internal/operators/flowable/FlowableSwitchMap;->delayErrors:Z
 
-    .line 42
     return-void
 .end method
 
@@ -90,8 +84,6 @@
     .end annotation
 
     .line 46
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSwitchMap;, "Lio/reactivex/internal/operators/flowable/FlowableSwitchMap<TT;TR;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSwitchMap;->source:Lio/reactivex/Flowable;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableSwitchMap;->mapper:Lio/reactivex/functions/Function;
@@ -102,7 +94,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 47
     return-void
 
     .line 49
@@ -121,6 +112,5 @@
 
     invoke-virtual {v0, v1}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 50
     return-void
 .end method

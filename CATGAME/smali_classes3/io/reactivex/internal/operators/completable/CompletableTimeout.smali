@@ -27,11 +27,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/CompletableSource;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;Lio/reactivex/CompletableSource;)V
     .locals 0
-    .param p1, "source"    # Lio/reactivex/CompletableSource;
-    .param p2, "timeout"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p6, "other"    # Lio/reactivex/CompletableSource;
 
     .line 32
     invoke-direct {p0}, Lio/reactivex/Completable;-><init>()V
@@ -51,7 +46,6 @@
     .line 37
     iput-object p6, p0, Lio/reactivex/internal/operators/completable/CompletableTimeout;->other:Lio/reactivex/CompletableSource;
 
-    .line 38
     return-void
 .end method
 
@@ -59,7 +53,6 @@
 # virtual methods
 .method public subscribeActual(Lio/reactivex/CompletableObserver;)V
     .locals 7
-    .param p1, "s"    # Lio/reactivex/CompletableObserver;
 
     .line 42
     new-instance v0, Lio/reactivex/disposables/CompositeDisposable;
@@ -67,7 +60,6 @@
     invoke-direct {v0}, Lio/reactivex/disposables/CompositeDisposable;-><init>()V
 
     .line 43
-    .local v0, "set":Lio/reactivex/disposables/CompositeDisposable;
     invoke-interface {p1, v0}, Lio/reactivex/CompletableObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 45
@@ -76,7 +68,6 @@
     invoke-direct {v1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
 
     .line 47
-    .local v1, "once":Ljava/util/concurrent/atomic/AtomicBoolean;
     iget-object v2, p0, Lio/reactivex/internal/operators/completable/CompletableTimeout;->scheduler:Lio/reactivex/Scheduler;
 
     new-instance v3, Lio/reactivex/internal/operators/completable/CompletableTimeout$DisposeTask;
@@ -92,18 +83,16 @@
     move-result-object v2
 
     .line 49
-    .local v2, "timer":Lio/reactivex/disposables/Disposable;
     invoke-virtual {v0, v2}, Lio/reactivex/disposables/CompositeDisposable;->add(Lio/reactivex/disposables/Disposable;)Z
 
     .line 51
-    iget-object v3, p0, Lio/reactivex/internal/operators/completable/CompletableTimeout;->source:Lio/reactivex/CompletableSource;
+    iget-object v2, p0, Lio/reactivex/internal/operators/completable/CompletableTimeout;->source:Lio/reactivex/CompletableSource;
 
-    new-instance v4, Lio/reactivex/internal/operators/completable/CompletableTimeout$TimeOutObserver;
+    new-instance v3, Lio/reactivex/internal/operators/completable/CompletableTimeout$TimeOutObserver;
 
-    invoke-direct {v4, v0, v1, p1}, Lio/reactivex/internal/operators/completable/CompletableTimeout$TimeOutObserver;-><init>(Lio/reactivex/disposables/CompositeDisposable;Ljava/util/concurrent/atomic/AtomicBoolean;Lio/reactivex/CompletableObserver;)V
+    invoke-direct {v3, v0, v1, p1}, Lio/reactivex/internal/operators/completable/CompletableTimeout$TimeOutObserver;-><init>(Lio/reactivex/disposables/CompositeDisposable;Ljava/util/concurrent/atomic/AtomicBoolean;Lio/reactivex/CompletableObserver;)V
 
-    invoke-interface {v3, v4}, Lio/reactivex/CompletableSource;->subscribe(Lio/reactivex/CompletableObserver;)V
+    invoke-interface {v2, v3}, Lio/reactivex/CompletableSource;->subscribe(Lio/reactivex/CompletableObserver;)V
 
-    .line 52
     return-void
 .end method

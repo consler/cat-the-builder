@@ -27,9 +27,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/io/File;Ljava/util/concurrent/Callable;Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;)V
     .locals 0
-    .param p1, "copyFromAssetPath"    # Ljava/lang/String;
-    .param p2, "copyFromFile"    # Ljava/io/File;
-    .param p4, "factory"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -59,7 +56,6 @@
     .end annotation
 
     .line 46
-    .local p3, "copyFromInputStream":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<Ljava/io/InputStream;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 47
@@ -74,7 +70,6 @@
     .line 50
     iput-object p4, p0, Landroidx/room/SQLiteCopyOpenHelperFactory;->mDelegate:Landroidx/sqlite/db/SupportSQLiteOpenHelper$Factory;
 
-    .line 51
     return-void
 .end method
 
@@ -82,7 +77,6 @@
 # virtual methods
 .method public create(Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration;)Landroidx/sqlite/db/SupportSQLiteOpenHelper;
     .locals 8
-    .param p1, "configuration"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper$Configuration;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -118,6 +112,5 @@
 
     invoke-direct/range {v0 .. v6}, Landroidx/room/SQLiteCopyOpenHelper;-><init>(Landroid/content/Context;Ljava/lang/String;Ljava/io/File;Ljava/util/concurrent/Callable;ILandroidx/sqlite/db/SupportSQLiteOpenHelper;)V
 
-    .line 56
     return-object v7
 .end method

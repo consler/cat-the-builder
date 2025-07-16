@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroidx/core/app/ShareCompat$Api16Impl;,
         Landroidx/core/app/ShareCompat$IntentReader;,
         Landroidx/core/app/ShareCompat$IntentBuilder;
     }
@@ -28,280 +29,287 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 115
+    .line 118
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 .method public static configureMenuItem(Landroid/view/Menu;ILandroidx/core/app/ShareCompat$IntentBuilder;)V
-    .locals 4
-    .param p0, "menu"    # Landroid/view/Menu;
-    .param p1, "menuItemId"    # I
-    .param p2, "shareIntent"    # Landroidx/core/app/ShareCompat$IntentBuilder;
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "menu",
+            "menuItemId",
+            "shareIntent"
+        }
+    .end annotation
 
-    .line 262
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    .line 271
     invoke-interface {p0, p1}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
-    move-result-object v0
+    move-result-object p0
 
-    .line 263
-    .local v0, "item":Landroid/view/MenuItem;
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    .line 267
-    invoke-static {v0, p2}, Landroidx/core/app/ShareCompat;->configureMenuItem(Landroid/view/MenuItem;Landroidx/core/app/ShareCompat$IntentBuilder;)V
+    .line 276
+    invoke-static {p0, p2}, Landroidx/core/app/ShareCompat;->configureMenuItem(Landroid/view/MenuItem;Landroidx/core/app/ShareCompat$IntentBuilder;)V
 
-    .line 268
     return-void
 
-    .line 264
+    .line 273
     :cond_0
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "Could not find menu item with id "
 
-    const-string v3, "Could not find menu item with id "
+    invoke-direct {p2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    const-string v3, " in the supplied menu"
+    const-string p2, " in the supplied menu"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v2
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    throw v1
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 .method public static configureMenuItem(Landroid/view/MenuItem;Landroidx/core/app/ShareCompat$IntentBuilder;)V
-    .locals 4
-    .param p0, "item"    # Landroid/view/MenuItem;
-    .param p1, "shareIntent"    # Landroidx/core/app/ShareCompat$IntentBuilder;
+    .locals 3
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "item",
+            "shareIntent"
+        }
+    .end annotation
 
-    .line 233
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    .line 239
     invoke-interface {p0}, Landroid/view/MenuItem;->getActionProvider()Landroid/view/ActionProvider;
 
     move-result-object v0
 
-    .line 235
-    .local v0, "itemProvider":Landroid/view/ActionProvider;
+    .line 241
     instance-of v1, v0, Landroid/widget/ShareActionProvider;
 
     if-nez v1, :cond_0
 
-    .line 236
-    new-instance v1, Landroid/widget/ShareActionProvider;
+    .line 242
+    new-instance v0, Landroid/widget/ShareActionProvider;
 
     invoke-virtual {p1}, Landroidx/core/app/ShareCompat$IntentBuilder;->getContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {v1, v2}, Landroid/widget/ShareActionProvider;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v1}, Landroid/widget/ShareActionProvider;-><init>(Landroid/content/Context;)V
 
-    .local v1, "provider":Landroid/widget/ShareActionProvider;
     goto :goto_0
 
-    .line 238
-    .end local v1    # "provider":Landroid/widget/ShareActionProvider;
+    .line 244
     :cond_0
-    move-object v1, v0
-
-    check-cast v1, Landroid/widget/ShareActionProvider;
-
-    .line 240
-    .restart local v1    # "provider":Landroid/widget/ShareActionProvider;
-    :goto_0
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, ".sharecompat_"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 241
-    invoke-virtual {p1}, Landroidx/core/app/ShareCompat$IntentBuilder;->getContext()Landroid/content/Context;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 240
-    invoke-virtual {v1, v2}, Landroid/widget/ShareActionProvider;->setShareHistoryFileName(Ljava/lang/String;)V
-
-    .line 242
-    invoke-virtual {p1}, Landroidx/core/app/ShareCompat$IntentBuilder;->getIntent()Landroid/content/Intent;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/widget/ShareActionProvider;->setShareIntent(Landroid/content/Intent;)V
-
-    .line 243
-    invoke-interface {p0, v1}, Landroid/view/MenuItem;->setActionProvider(Landroid/view/ActionProvider;)Landroid/view/MenuItem;
-
-    .line 245
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v3, 0x10
-
-    if-ge v2, v3, :cond_1
+    check-cast v0, Landroid/widget/ShareActionProvider;
 
     .line 246
-    invoke-interface {p0}, Landroid/view/MenuItem;->hasSubMenu()Z
+    :goto_0
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    move-result v2
+    const-string v2, ".sharecompat_"
 
-    if-nez v2, :cond_1
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 247
-    invoke-virtual {p1}, Landroidx/core/app/ShareCompat$IntentBuilder;->createChooserIntent()Landroid/content/Intent;
+    invoke-virtual {p1}, Landroidx/core/app/ShareCompat$IntentBuilder;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
-    invoke-interface {p0, v2}, Landroid/view/MenuItem;->setIntent(Landroid/content/Intent;)Landroid/view/MenuItem;
+    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    .line 250
-    :cond_1
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 246
+    invoke-virtual {v0, v1}, Landroid/widget/ShareActionProvider;->setShareHistoryFileName(Ljava/lang/String;)V
+
+    .line 248
+    invoke-virtual {p1}, Landroidx/core/app/ShareCompat$IntentBuilder;->getIntent()Landroid/content/Intent;
+
+    move-result-object p1
+
+    invoke-virtual {v0, p1}, Landroid/widget/ShareActionProvider;->setShareIntent(Landroid/content/Intent;)V
+
+    .line 249
+    invoke-interface {p0, v0}, Landroid/view/MenuItem;->setActionProvider(Landroid/view/ActionProvider;)Landroid/view/MenuItem;
+
     return-void
 .end method
 
 .method public static getCallingActivity(Landroid/app/Activity;)Landroid/content/ComponentName;
-    .locals 2
-    .param p0, "calledActivity"    # Landroid/app/Activity;
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "calledActivity"
+        }
+    .end annotation
 
-    .line 175
+    .line 178
     invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 176
-    .local v0, "intent":Landroid/content/Intent;
+    .line 179
     invoke-virtual {p0}, Landroid/app/Activity;->getCallingActivity()Landroid/content/ComponentName;
 
-    move-result-object v1
+    move-result-object p0
 
-    .line 177
-    .local v1, "result":Landroid/content/ComponentName;
-    if-nez v1, :cond_0
+    if-nez p0, :cond_0
 
-    .line 178
+    .line 181
     invoke-static {v0}, Landroidx/core/app/ShareCompat;->getCallingActivity(Landroid/content/Intent;)Landroid/content/ComponentName;
 
-    move-result-object v1
+    move-result-object p0
 
-    .line 180
     :cond_0
-    return-object v1
+    return-object p0
 .end method
 
 .method static getCallingActivity(Landroid/content/Intent;)Landroid/content/ComponentName;
-    .locals 2
-    .param p0, "intent"    # Landroid/content/Intent;
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "intent"
+        }
+    .end annotation
 
-    .line 198
     const-string v0, "androidx.core.app.EXTRA_CALLING_ACTIVITY"
 
+    .line 201
     invoke-virtual {p0, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
     move-result-object v0
 
     check-cast v0, Landroid/content/ComponentName;
 
-    .line 199
-    .local v0, "result":Landroid/content/ComponentName;
     if-nez v0, :cond_0
 
-    .line 200
-    const-string v1, "android.support.v4.app.EXTRA_CALLING_ACTIVITY"
+    const-string v0, "android.support.v4.app.EXTRA_CALLING_ACTIVITY"
 
-    invoke-virtual {p0, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+    .line 203
+    invoke-virtual {p0, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    move-result-object v1
+    move-result-object p0
 
-    move-object v0, v1
+    move-object v0, p0
 
     check-cast v0, Landroid/content/ComponentName;
 
-    .line 202
     :cond_0
     return-object v0
 .end method
 
 .method public static getCallingPackage(Landroid/app/Activity;)Ljava/lang/String;
-    .locals 2
-    .param p0, "calledActivity"    # Landroid/app/Activity;
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "calledActivity"
+        }
+    .end annotation
 
-    .line 131
+    .line 134
     invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 132
-    .local v0, "intent":Landroid/content/Intent;
+    .line 135
     invoke-virtual {p0}, Landroid/app/Activity;->getCallingPackage()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    .line 133
-    .local v1, "result":Ljava/lang/String;
-    if-nez v1, :cond_0
+    if-nez p0, :cond_0
 
     if-eqz v0, :cond_0
 
-    .line 134
+    .line 137
     invoke-static {v0}, Landroidx/core/app/ShareCompat;->getCallingPackage(Landroid/content/Intent;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    .line 136
     :cond_0
-    return-object v1
+    return-object p0
 .end method
 
 .method static getCallingPackage(Landroid/content/Intent;)Ljava/lang/String;
-    .locals 2
-    .param p0, "intent"    # Landroid/content/Intent;
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "intent"
+        }
+    .end annotation
 
-    .line 154
     const-string v0, "androidx.core.app.EXTRA_CALLING_PACKAGE"
 
+    .line 157
     invoke-virtual {p0, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 155
-    .local v0, "result":Ljava/lang/String;
     if-nez v0, :cond_0
 
-    .line 156
-    const-string v1, "android.support.v4.app.EXTRA_CALLING_PACKAGE"
+    const-string v0, "android.support.v4.app.EXTRA_CALLING_PACKAGE"
 
-    invoke-virtual {p0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    .line 159
+    invoke-virtual {p0, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 158
     :cond_0
     return-object v0
 .end method

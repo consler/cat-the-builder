@@ -60,38 +60,36 @@
 # direct methods
 .method public constructor <init>(Lcom/opencsv/ICSVWriter;)V
     .locals 3
-    .param p1, "icsvWriter"    # Lcom/opencsv/ICSVWriter;
 
     .line 72
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsvBuilder;, "Lcom/opencsv/bean/StatefulBeanToCsvBuilder<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 41
     const/16 v0, 0x2c
 
+    .line 41
     iput-char v0, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->separator:C
 
-    .line 42
     const/16 v0, 0x22
 
+    .line 42
     iput-char v0, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->quotechar:C
 
     .line 43
     iput-char v0, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->escapechar:C
 
-    .line 44
     const-string v0, "\n"
 
+    .line 44
     iput-object v0, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->lineEnd:Ljava/lang/String;
 
-    .line 45
     const/4 v0, 0x0
 
+    .line 45
     iput-object v0, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->mappingStrategy:Lcom/opencsv/bean/MappingStrategy;
 
-    .line 48
     const/4 v1, 0x1
 
+    .line 48
     iput-boolean v1, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->throwExceptions:Z
 
     .line 49
@@ -120,44 +118,41 @@
     .line 74
     iput-object p1, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->csvWriter:Lcom/opencsv/ICSVWriter;
 
-    .line 75
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/Writer;)V
     .locals 3
-    .param p1, "writer"    # Ljava/io/Writer;
 
     .line 59
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsvBuilder;, "Lcom/opencsv/bean/StatefulBeanToCsvBuilder<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 41
     const/16 v0, 0x2c
 
+    .line 41
     iput-char v0, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->separator:C
 
-    .line 42
     const/16 v0, 0x22
 
+    .line 42
     iput-char v0, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->quotechar:C
 
     .line 43
     iput-char v0, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->escapechar:C
 
-    .line 44
     const-string v0, "\n"
 
+    .line 44
     iput-object v0, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->lineEnd:Ljava/lang/String;
 
-    .line 45
     const/4 v0, 0x0
 
+    .line 45
     iput-object v0, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->mappingStrategy:Lcom/opencsv/bean/MappingStrategy;
 
-    .line 48
     const/4 v1, 0x1
 
+    .line 48
     iput-boolean v1, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->throwExceptions:Z
 
     .line 49
@@ -186,14 +181,13 @@
     .line 61
     iput-object v0, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->csvWriter:Lcom/opencsv/ICSVWriter;
 
-    .line 62
     return-void
 .end method
 
 
 # virtual methods
 .method public build()Lcom/opencsv/bean/StatefulBeanToCsv;
-    .locals 11
+    .locals 18
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -202,76 +196,78 @@
         }
     .end annotation
 
-    .line 220
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsvBuilder;, "Lcom/opencsv/bean/StatefulBeanToCsvBuilder<TT;>;"
-    iget-object v7, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->writer:Ljava/io/Writer;
+    move-object/from16 v0, p0
 
-    if-eqz v7, :cond_0
+    .line 220
+    iget-object v1, v0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->writer:Ljava/io/Writer;
+
+    if-eqz v1, :cond_0
 
     .line 221
-    new-instance v10, Lcom/opencsv/bean/StatefulBeanToCsv;
+    new-instance v1, Lcom/opencsv/bean/StatefulBeanToCsv;
 
-    iget-char v1, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->escapechar:C
+    iget-char v3, v0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->escapechar:C
 
-    iget-object v2, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->lineEnd:Ljava/lang/String;
+    iget-object v4, v0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->lineEnd:Ljava/lang/String;
 
-    iget-object v3, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->mappingStrategy:Lcom/opencsv/bean/MappingStrategy;
+    iget-object v5, v0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->mappingStrategy:Lcom/opencsv/bean/MappingStrategy;
 
-    iget-char v4, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->quotechar:C
+    iget-char v6, v0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->quotechar:C
 
-    iget-char v5, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->separator:C
+    iget-char v7, v0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->separator:C
 
-    iget-boolean v6, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->throwExceptions:Z
+    iget-boolean v8, v0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->throwExceptions:Z
 
-    iget-boolean v8, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->applyQuotesToAll:Z
+    iget-object v9, v0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->writer:Ljava/io/Writer;
 
-    iget-object v9, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->ignoredFields:Lorg/apache/commons/collections4/ListValuedMap;
+    iget-boolean v10, v0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->applyQuotesToAll:Z
 
-    move-object v0, v10
+    iget-object v11, v0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->ignoredFields:Lorg/apache/commons/collections4/ListValuedMap;
 
-    invoke-direct/range {v0 .. v9}, Lcom/opencsv/bean/StatefulBeanToCsv;-><init>(CLjava/lang/String;Lcom/opencsv/bean/MappingStrategy;CCZLjava/io/Writer;ZLorg/apache/commons/collections4/MultiValuedMap;)V
+    move-object v2, v1
 
-    .local v0, "sbtcsv":Lcom/opencsv/bean/StatefulBeanToCsv;, "Lcom/opencsv/bean/StatefulBeanToCsv<TT;>;"
+    invoke-direct/range {v2 .. v11}, Lcom/opencsv/bean/StatefulBeanToCsv;-><init>(CLjava/lang/String;Lcom/opencsv/bean/MappingStrategy;CCZLjava/io/Writer;ZLorg/apache/commons/collections4/MultiValuedMap;)V
+
     goto :goto_0
 
     .line 225
-    .end local v0    # "sbtcsv":Lcom/opencsv/bean/StatefulBeanToCsv;, "Lcom/opencsv/bean/StatefulBeanToCsv<TT;>;"
     :cond_0
-    new-instance v0, Lcom/opencsv/bean/StatefulBeanToCsv;
+    new-instance v1, Lcom/opencsv/bean/StatefulBeanToCsv;
 
-    iget-object v2, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->mappingStrategy:Lcom/opencsv/bean/MappingStrategy;
+    iget-object v13, v0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->mappingStrategy:Lcom/opencsv/bean/MappingStrategy;
 
-    iget-boolean v3, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->throwExceptions:Z
+    iget-boolean v14, v0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->throwExceptions:Z
 
-    iget-boolean v4, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->applyQuotesToAll:Z
+    iget-boolean v15, v0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->applyQuotesToAll:Z
 
-    iget-object v5, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->csvWriter:Lcom/opencsv/ICSVWriter;
+    iget-object v2, v0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->csvWriter:Lcom/opencsv/ICSVWriter;
 
-    iget-object v6, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->ignoredFields:Lorg/apache/commons/collections4/ListValuedMap;
+    iget-object v3, v0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->ignoredFields:Lorg/apache/commons/collections4/ListValuedMap;
 
-    move-object v1, v0
+    move-object v12, v1
 
-    invoke-direct/range {v1 .. v6}, Lcom/opencsv/bean/StatefulBeanToCsv;-><init>(Lcom/opencsv/bean/MappingStrategy;ZZLcom/opencsv/ICSVWriter;Lorg/apache/commons/collections4/MultiValuedMap;)V
+    move-object/from16 v16, v2
+
+    move-object/from16 v17, v3
+
+    invoke-direct/range {v12 .. v17}, Lcom/opencsv/bean/StatefulBeanToCsv;-><init>(Lcom/opencsv/bean/MappingStrategy;ZZLcom/opencsv/ICSVWriter;Lorg/apache/commons/collections4/MultiValuedMap;)V
 
     .line 229
-    .restart local v0    # "sbtcsv":Lcom/opencsv/bean/StatefulBeanToCsv;, "Lcom/opencsv/bean/StatefulBeanToCsv<TT;>;"
     :goto_0
-    iget-boolean v1, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->orderedResults:Z
+    iget-boolean v2, v0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->orderedResults:Z
 
-    invoke-virtual {v0, v1}, Lcom/opencsv/bean/StatefulBeanToCsv;->setOrderedResults(Z)V
+    invoke-virtual {v1, v2}, Lcom/opencsv/bean/StatefulBeanToCsv;->setOrderedResults(Z)V
 
     .line 230
-    iget-object v1, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->errorLocale:Ljava/util/Locale;
+    iget-object v2, v0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->errorLocale:Ljava/util/Locale;
 
-    invoke-virtual {v0, v1}, Lcom/opencsv/bean/StatefulBeanToCsv;->setErrorLocale(Ljava/util/Locale;)V
+    invoke-virtual {v1, v2}, Lcom/opencsv/bean/StatefulBeanToCsv;->setErrorLocale(Ljava/util/Locale;)V
 
-    .line 231
-    return-object v0
+    return-object v1
 .end method
 
 .method public withApplyQuotesToAll(Z)Lcom/opencsv/bean/StatefulBeanToCsvBuilder;
     .locals 0
-    .param p1, "applyQuotesToAll"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)",
@@ -281,16 +277,13 @@
     .end annotation
 
     .line 183
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsvBuilder;, "Lcom/opencsv/bean/StatefulBeanToCsvBuilder<TT;>;"
     iput-boolean p1, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->applyQuotesToAll:Z
 
-    .line 184
     return-object p0
 .end method
 
 .method public withErrorLocale(Ljava/util/Locale;)Lcom/opencsv/bean/StatefulBeanToCsvBuilder;
     .locals 1
-    .param p1, "errorLocale"    # Ljava/util/Locale;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -302,26 +295,23 @@
     .end annotation
 
     .line 169
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsvBuilder;, "Lcom/opencsv/bean/StatefulBeanToCsvBuilder<TT;>;"
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v0
 
     invoke-static {p1, v0}, Lorg/apache/commons/lang3/ObjectUtils;->defaultIfNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Locale;
+    check-cast p1, Ljava/util/Locale;
 
-    iput-object v0, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->errorLocale:Ljava/util/Locale;
+    iput-object p1, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->errorLocale:Ljava/util/Locale;
 
-    .line 170
     return-object p0
 .end method
 
 .method public withEscapechar(C)Lcom/opencsv/bean/StatefulBeanToCsvBuilder;
     .locals 0
-    .param p1, "escapechar"    # C
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(C)",
@@ -331,16 +321,13 @@
     .end annotation
 
     .line 120
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsvBuilder;, "Lcom/opencsv/bean/StatefulBeanToCsvBuilder<TT;>;"
     iput-char p1, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->escapechar:C
 
-    .line 121
     return-object p0
 .end method
 
 .method public withIgnoreField(Ljava/lang/Class;Ljava/lang/reflect/Field;)Lcom/opencsv/bean/StatefulBeanToCsvBuilder;
-    .locals 3
-    .param p2, "field"    # Ljava/lang/reflect/Field;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -359,13 +346,11 @@
         }
     .end annotation
 
-    .line 202
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsvBuilder;, "Lcom/opencsv/bean/StatefulBeanToCsvBuilder<TT;>;"
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     if-eqz p1, :cond_0
 
     if-eqz p2, :cond_0
 
+    .line 202
     invoke-virtual {p2}, Ljava/lang/reflect/Field;->getDeclaringClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -381,36 +366,34 @@
 
     invoke-interface {v0, p1, p2}, Lorg/apache/commons/collections4/ListValuedMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    .line 210
     return-object p0
 
     .line 206
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    iget-object v1, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->errorLocale:Ljava/util/Locale;
+    const-string p2, "opencsv"
 
-    const-string v2, "opencsv"
+    iget-object v0, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->errorLocale:Ljava/util/Locale;
 
-    invoke-static {v2, v1}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;
+    invoke-static {p2, v0}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;
 
-    move-result-object v1
+    move-result-object p2
+
+    const-string v0, "ignore.field.inconsistent"
 
     .line 208
-    const-string v2, "ignore.field.inconsistent"
+    invoke-virtual {p2, v0}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object p2
 
-    move-result-object v1
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    throw p1
 .end method
 
 .method public withLineEnd(Ljava/lang/String;)Lcom/opencsv/bean/StatefulBeanToCsvBuilder;
     .locals 0
-    .param p1, "lineEnd"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -422,10 +405,8 @@
     .end annotation
 
     .line 130
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsvBuilder;, "Lcom/opencsv/bean/StatefulBeanToCsvBuilder<TT;>;"
     iput-object p1, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->lineEnd:Ljava/lang/String;
 
-    .line 131
     return-object p0
 .end method
 
@@ -442,17 +423,13 @@
     .end annotation
 
     .line 90
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsvBuilder;, "Lcom/opencsv/bean/StatefulBeanToCsvBuilder<TT;>;"
-    .local p1, "mappingStrategy":Lcom/opencsv/bean/MappingStrategy;, "Lcom/opencsv/bean/MappingStrategy<TT;>;"
     iput-object p1, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->mappingStrategy:Lcom/opencsv/bean/MappingStrategy;
 
-    .line 91
     return-object p0
 .end method
 
 .method public withOrderedResults(Z)Lcom/opencsv/bean/StatefulBeanToCsvBuilder;
     .locals 0
-    .param p1, "orderedResults"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)",
@@ -462,16 +439,13 @@
     .end annotation
 
     .line 156
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsvBuilder;, "Lcom/opencsv/bean/StatefulBeanToCsvBuilder<TT;>;"
     iput-boolean p1, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->orderedResults:Z
 
-    .line 157
     return-object p0
 .end method
 
 .method public withQuotechar(C)Lcom/opencsv/bean/StatefulBeanToCsvBuilder;
     .locals 0
-    .param p1, "quotechar"    # C
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(C)",
@@ -481,16 +455,13 @@
     .end annotation
 
     .line 110
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsvBuilder;, "Lcom/opencsv/bean/StatefulBeanToCsvBuilder<TT;>;"
     iput-char p1, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->quotechar:C
 
-    .line 111
     return-object p0
 .end method
 
 .method public withSeparator(C)Lcom/opencsv/bean/StatefulBeanToCsvBuilder;
     .locals 0
-    .param p1, "separator"    # C
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(C)",
@@ -500,16 +471,13 @@
     .end annotation
 
     .line 100
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsvBuilder;, "Lcom/opencsv/bean/StatefulBeanToCsvBuilder<TT;>;"
     iput-char p1, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->separator:C
 
-    .line 101
     return-object p0
 .end method
 
 .method public withThrowExceptions(Z)Lcom/opencsv/bean/StatefulBeanToCsvBuilder;
     .locals 0
-    .param p1, "throwExceptions"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)",
@@ -519,9 +487,7 @@
     .end annotation
 
     .line 141
-    .local p0, "this":Lcom/opencsv/bean/StatefulBeanToCsvBuilder;, "Lcom/opencsv/bean/StatefulBeanToCsvBuilder<TT;>;"
     iput-boolean p1, p0, Lcom/opencsv/bean/StatefulBeanToCsvBuilder;->throwExceptions:Z
 
-    .line 142
     return-object p0
 .end method

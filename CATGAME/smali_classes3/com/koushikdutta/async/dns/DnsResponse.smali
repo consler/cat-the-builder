@@ -61,8 +61,7 @@
 .end method
 
 .method public static parse(Lcom/koushikdutta/async/ByteBufferList;)Lcom/koushikdutta/async/dns/DnsResponse;
-    .locals 15
-    .param p0, "bb"    # Lcom/koushikdutta/async/ByteBufferList;
+    .locals 11
 
     .line 50
     invoke-virtual {p0}, Lcom/koushikdutta/async/ByteBufferList;->getAll()Ljava/nio/ByteBuffer;
@@ -70,7 +69,6 @@
     move-result-object v0
 
     .line 51
-    .local v0, "b":Ljava/nio/ByteBuffer;
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->duplicate()Ljava/nio/ByteBuffer;
 
     move-result-object v1
@@ -94,30 +92,26 @@
     move-result v1
 
     .line 63
-    .local v1, "questions":I
     invoke-virtual {p0}, Lcom/koushikdutta/async/ByteBufferList;->getShort()S
 
     move-result v2
 
     .line 65
-    .local v2, "answers":I
     invoke-virtual {p0}, Lcom/koushikdutta/async/ByteBufferList;->getShort()S
 
     move-result v3
 
     .line 67
-    .local v3, "authorities":I
     invoke-virtual {p0}, Lcom/koushikdutta/async/ByteBufferList;->getShort()S
 
     move-result v4
 
-    .line 69
-    .local v4, "additionals":I
     const/4 v5, 0x0
 
-    .local v5, "i":I
+    move v6, v5
+
     :goto_0
-    if-ge v5, v1, :cond_0
+    if-ge v6, v1, :cond_0
 
     .line 70
     invoke-static {p0, v0}, Lcom/koushikdutta/async/dns/DnsResponse;->parseName(Lcom/koushikdutta/async/ByteBufferList;Ljava/nio/ByteBuffer;)Ljava/lang/String;
@@ -128,23 +122,18 @@
     .line 74
     invoke-virtual {p0}, Lcom/koushikdutta/async/ByteBufferList;->getShort()S
 
-    .line 69
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
     .line 77
-    .end local v5    # "i":I
     :cond_0
-    new-instance v5, Lcom/koushikdutta/async/dns/DnsResponse;
+    new-instance v1, Lcom/koushikdutta/async/dns/DnsResponse;
 
-    invoke-direct {v5}, Lcom/koushikdutta/async/dns/DnsResponse;-><init>()V
+    invoke-direct {v1}, Lcom/koushikdutta/async/dns/DnsResponse;-><init>()V
 
-    .line 78
-    .local v5, "response":Lcom/koushikdutta/async/dns/DnsResponse;
-    const/4 v6, 0x0
+    move v6, v5
 
-    .local v6, "i":I
     :goto_1
     const/16 v7, 0x10
 
@@ -153,87 +142,62 @@
     .line 79
     invoke-static {p0, v0}, Lcom/koushikdutta/async/dns/DnsResponse;->parseName(Lcom/koushikdutta/async/ByteBufferList;Ljava/nio/ByteBuffer;)Ljava/lang/String;
 
-    move-result-object v8
-
     .line 81
-    .local v8, "name":Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/koushikdutta/async/ByteBufferList;->getShort()S
+
+    move-result v8
+
+    .line 83
+    invoke-virtual {p0}, Lcom/koushikdutta/async/ByteBufferList;->getShort()S
+
+    .line 85
+    invoke-virtual {p0}, Lcom/koushikdutta/async/ByteBufferList;->getInt()I
+
+    .line 87
     invoke-virtual {p0}, Lcom/koushikdutta/async/ByteBufferList;->getShort()S
 
     move-result v9
 
-    .line 83
-    .local v9, "type":I
-    invoke-virtual {p0}, Lcom/koushikdutta/async/ByteBufferList;->getShort()S
+    const/4 v10, 0x1
 
-    move-result v10
-
-    .line 85
-    .local v10, "clazz":I
-    invoke-virtual {p0}, Lcom/koushikdutta/async/ByteBufferList;->getInt()I
-
-    move-result v11
-
-    .line 87
-    .local v11, "ttl":I
-    invoke-virtual {p0}, Lcom/koushikdutta/async/ByteBufferList;->getShort()S
-
-    move-result v12
-
-    .line 89
-    .local v12, "length":I
-    const/4 v13, 0x1
-
-    if-ne v9, v13, :cond_1
+    if-ne v8, v10, :cond_1
 
     .line 91
     :try_start_0
-    new-array v7, v12, [B
+    new-array v7, v9, [B
 
     .line 92
-    .local v7, "data":[B
     invoke-virtual {p0, v7}, Lcom/koushikdutta/async/ByteBufferList;->get([B)V
 
     .line 93
-    iget-object v13, v5, Lcom/koushikdutta/async/dns/DnsResponse;->addresses:Ljava/util/ArrayList;
+    iget-object v8, v1, Lcom/koushikdutta/async/dns/DnsResponse;->addresses:Ljava/util/ArrayList;
 
     invoke-static {v7}, Ljava/net/InetAddress;->getByAddress([B)Ljava/net/InetAddress;
 
-    move-result-object v14
+    move-result-object v7
 
-    invoke-virtual {v13, v14}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 94
-    nop
-
-    .end local v7    # "data":[B
-    goto :goto_2
-
-    .line 107
-    :catch_0
-    move-exception v7
+    invoke-virtual {v8, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_2
 
-    .line 95
     :cond_1
-    const/16 v13, 0xc
+    const/16 v10, 0xc
 
-    if-ne v9, v13, :cond_2
+    if-ne v8, v10, :cond_2
 
     .line 96
-    iget-object v7, v5, Lcom/koushikdutta/async/dns/DnsResponse;->names:Ljava/util/ArrayList;
+    iget-object v7, v1, Lcom/koushikdutta/async/dns/DnsResponse;->names:Ljava/util/ArrayList;
 
     invoke-static {p0, v0}, Lcom/koushikdutta/async/dns/DnsResponse;->parseName(Lcom/koushikdutta/async/ByteBufferList;Ljava/nio/ByteBuffer;)Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v8
 
-    invoke-virtual {v7, v13}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_2
 
-    .line 98
     :cond_2
-    if-ne v9, v7, :cond_3
+    if-ne v8, v7, :cond_3
 
     .line 99
     new-instance v7, Lcom/koushikdutta/async/ByteBufferList;
@@ -241,207 +205,131 @@
     invoke-direct {v7}, Lcom/koushikdutta/async/ByteBufferList;-><init>()V
 
     .line 100
-    .local v7, "txt":Lcom/koushikdutta/async/ByteBufferList;
-    invoke-virtual {p0, v7, v12}, Lcom/koushikdutta/async/ByteBufferList;->get(Lcom/koushikdutta/async/ByteBufferList;I)V
+    invoke-virtual {p0, v7, v9}, Lcom/koushikdutta/async/ByteBufferList;->get(Lcom/koushikdutta/async/ByteBufferList;I)V
 
     .line 101
-    invoke-virtual {v5, v7}, Lcom/koushikdutta/async/dns/DnsResponse;->parseTxt(Lcom/koushikdutta/async/ByteBufferList;)V
+    invoke-virtual {v1, v7}, Lcom/koushikdutta/async/dns/DnsResponse;->parseTxt(Lcom/koushikdutta/async/ByteBufferList;)V
 
-    .line 102
-    .end local v7    # "txt":Lcom/koushikdutta/async/ByteBufferList;
     goto :goto_2
 
     .line 104
     :cond_3
-    new-array v7, v12, [B
+    new-array v7, v9, [B
 
     invoke-virtual {p0, v7}, Lcom/koushikdutta/async/ByteBufferList;->get([B)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 78
-    .end local v8    # "name":Ljava/lang/String;
-    .end local v9    # "type":I
-    .end local v10    # "clazz":I
-    .end local v11    # "ttl":I
-    .end local v12    # "length":I
+    :catch_0
     :goto_2
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_1
 
-    .line 113
-    .end local v6    # "i":I
     :cond_4
-    const/4 v6, 0x0
+    move v2, v5
 
-    .restart local v6    # "i":I
     :goto_3
-    if-ge v6, v3, :cond_5
+    if-ge v2, v3, :cond_5
 
     .line 114
     invoke-static {p0, v0}, Lcom/koushikdutta/async/dns/DnsResponse;->parseName(Lcom/koushikdutta/async/ByteBufferList;Ljava/nio/ByteBuffer;)Ljava/lang/String;
 
-    move-result-object v8
-
     .line 116
-    .restart local v8    # "name":Ljava/lang/String;
     invoke-virtual {p0}, Lcom/koushikdutta/async/ByteBufferList;->getShort()S
-
-    move-result v9
 
     .line 118
-    .restart local v9    # "type":I
     invoke-virtual {p0}, Lcom/koushikdutta/async/ByteBufferList;->getShort()S
-
-    move-result v10
 
     .line 120
-    .restart local v10    # "clazz":I
     invoke-virtual {p0}, Lcom/koushikdutta/async/ByteBufferList;->getInt()I
 
-    move-result v11
-
     .line 122
-    .restart local v11    # "ttl":I
     invoke-virtual {p0}, Lcom/koushikdutta/async/ByteBufferList;->getShort()S
 
-    move-result v12
+    move-result v6
 
     .line 124
-    .restart local v12    # "length":I
     :try_start_1
-    new-array v13, v12, [B
+    new-array v6, v6, [B
 
-    invoke-virtual {p0, v13}, Lcom/koushikdutta/async/ByteBufferList;->get([B)V
+    invoke-virtual {p0, v6}, Lcom/koushikdutta/async/ByteBufferList;->get([B)V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 128
-    goto :goto_4
-
-    .line 126
     :catch_1
-    move-exception v13
-
-    .line 113
-    .end local v8    # "name":Ljava/lang/String;
-    .end local v9    # "type":I
-    .end local v10    # "clazz":I
-    .end local v11    # "ttl":I
-    .end local v12    # "length":I
-    :goto_4
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_3
 
-    .line 132
-    .end local v6    # "i":I
     :cond_5
-    const/4 v6, 0x0
-
-    .restart local v6    # "i":I
-    :goto_5
-    if-ge v6, v4, :cond_7
+    :goto_4
+    if-ge v5, v4, :cond_7
 
     .line 133
     invoke-static {p0, v0}, Lcom/koushikdutta/async/dns/DnsResponse;->parseName(Lcom/koushikdutta/async/ByteBufferList;Ljava/nio/ByteBuffer;)Ljava/lang/String;
 
-    move-result-object v8
-
     .line 135
-    .restart local v8    # "name":Ljava/lang/String;
     invoke-virtual {p0}, Lcom/koushikdutta/async/ByteBufferList;->getShort()S
 
-    move-result v9
+    move-result v2
 
     .line 137
-    .restart local v9    # "type":I
     invoke-virtual {p0}, Lcom/koushikdutta/async/ByteBufferList;->getShort()S
-
-    move-result v10
 
     .line 139
-    .restart local v10    # "clazz":I
     invoke-virtual {p0}, Lcom/koushikdutta/async/ByteBufferList;->getInt()I
 
-    move-result v11
-
     .line 141
-    .restart local v11    # "ttl":I
     invoke-virtual {p0}, Lcom/koushikdutta/async/ByteBufferList;->getShort()S
 
-    move-result v12
+    move-result v3
 
-    .line 143
-    .restart local v12    # "length":I
-    if-ne v9, v7, :cond_6
+    if-ne v2, v7, :cond_6
 
     .line 144
     :try_start_2
-    new-instance v13, Lcom/koushikdutta/async/ByteBufferList;
+    new-instance v2, Lcom/koushikdutta/async/ByteBufferList;
 
-    invoke-direct {v13}, Lcom/koushikdutta/async/ByteBufferList;-><init>()V
+    invoke-direct {v2}, Lcom/koushikdutta/async/ByteBufferList;-><init>()V
 
     .line 145
-    .local v13, "txt":Lcom/koushikdutta/async/ByteBufferList;
-    invoke-virtual {p0, v13, v12}, Lcom/koushikdutta/async/ByteBufferList;->get(Lcom/koushikdutta/async/ByteBufferList;I)V
+    invoke-virtual {p0, v2, v3}, Lcom/koushikdutta/async/ByteBufferList;->get(Lcom/koushikdutta/async/ByteBufferList;I)V
 
     .line 146
-    invoke-virtual {v5, v13}, Lcom/koushikdutta/async/dns/DnsResponse;->parseTxt(Lcom/koushikdutta/async/ByteBufferList;)V
-
-    .line 147
-    .end local v13    # "txt":Lcom/koushikdutta/async/ByteBufferList;
-    goto :goto_6
-
-    .line 149
-    :cond_6
-    new-array v13, v12, [B
-
-    invoke-virtual {p0, v13}, Lcom/koushikdutta/async/ByteBufferList;->get([B)V
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
-
-    .line 154
-    :goto_6
-    goto :goto_7
-
-    .line 152
-    :catch_2
-    move-exception v13
-
-    .line 132
-    .end local v8    # "name":Ljava/lang/String;
-    .end local v9    # "type":I
-    .end local v10    # "clazz":I
-    .end local v11    # "ttl":I
-    .end local v12    # "length":I
-    :goto_7
-    add-int/lit8 v6, v6, 0x1
+    invoke-virtual {v1, v2}, Lcom/koushikdutta/async/dns/DnsResponse;->parseTxt(Lcom/koushikdutta/async/ByteBufferList;)V
 
     goto :goto_5
 
-    .line 157
-    .end local v6    # "i":I
+    .line 149
+    :cond_6
+    new-array v2, v3, [B
+
+    invoke-virtual {p0, v2}, Lcom/koushikdutta/async/ByteBufferList;->get([B)V
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
+
+    :catch_2
+    :goto_5
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_4
+
     :cond_7
-    return-object v5
+    return-object v1
 .end method
 
 .method private static parseName(Lcom/koushikdutta/async/ByteBufferList;Ljava/nio/ByteBuffer;)Ljava/lang/String;
-    .locals 7
-    .param p0, "bb"    # Lcom/koushikdutta/async/ByteBufferList;
-    .param p1, "backReference"    # Ljava/nio/ByteBuffer;
+    .locals 5
 
     .line 22
     sget-object v0, Ljava/nio/ByteOrder;->BIG_ENDIAN:Ljava/nio/ByteOrder;
 
     invoke-virtual {p0, v0}, Lcom/koushikdutta/async/ByteBufferList;->order(Ljava/nio/ByteOrder;)Lcom/koushikdutta/async/ByteBufferList;
 
-    .line 23
     const-string v0, ""
 
     .line 26
-    .local v0, "ret":Ljava/lang/String;
     :goto_0
     invoke-virtual {p0}, Lcom/koushikdutta/async/ByteBufferList;->get()B
 
@@ -449,148 +337,150 @@
 
     and-int/lit16 v1, v1, 0xff
 
-    move v2, v1
-
-    .local v2, "len":I
     if-eqz v1, :cond_3
 
-    .line 28
-    and-int/lit16 v1, v2, 0xc0
+    and-int/lit16 v2, v1, 0xc0
 
     const-string v3, "."
 
     const/16 v4, 0xc0
 
-    if-ne v1, v4, :cond_1
+    if-ne v2, v4, :cond_1
 
-    .line 29
-    and-int/lit8 v1, v2, 0x3f
+    and-int/lit8 v1, v1, 0x3f
 
     shl-int/lit8 v1, v1, 0x8
 
+    .line 29
     invoke-virtual {p0}, Lcom/koushikdutta/async/ByteBufferList;->get()B
 
-    move-result v4
+    move-result p0
 
-    and-int/lit16 v4, v4, 0xff
+    and-int/lit16 p0, p0, 0xff
 
-    or-int/2addr v1, v4
+    or-int/2addr p0, v1
 
     .line 30
-    .local v1, "offset":I
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
-    move-result v4
+    move-result v1
 
-    if-lez v4, :cond_0
+    if-lez v1, :cond_0
 
     .line 31
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     .line 32
     :cond_0
-    new-instance v3, Lcom/koushikdutta/async/ByteBufferList;
+    new-instance v1, Lcom/koushikdutta/async/ByteBufferList;
 
-    invoke-direct {v3}, Lcom/koushikdutta/async/ByteBufferList;-><init>()V
+    invoke-direct {v1}, Lcom/koushikdutta/async/ByteBufferList;-><init>()V
 
     .line 33
-    .local v3, "sub":Lcom/koushikdutta/async/ByteBufferList;
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->duplicate()Ljava/nio/ByteBuffer;
 
-    move-result-object v4
+    move-result-object v2
 
     .line 34
-    .local v4, "duplicate":Ljava/nio/ByteBuffer;
-    new-array v5, v1, [B
+    new-array p0, p0, [B
 
-    invoke-virtual {v4, v5}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
+    invoke-virtual {v2, p0}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
 
     .line 35
-    invoke-virtual {v3, v4}, Lcom/koushikdutta/async/ByteBufferList;->add(Ljava/nio/ByteBuffer;)Lcom/koushikdutta/async/ByteBufferList;
+    invoke-virtual {v1, v2}, Lcom/koushikdutta/async/ByteBufferList;->add(Ljava/nio/ByteBuffer;)Lcom/koushikdutta/async/ByteBufferList;
 
     .line 36
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v3, p1}, Lcom/koushikdutta/async/dns/DnsResponse;->parseName(Lcom/koushikdutta/async/ByteBufferList;Ljava/nio/ByteBuffer;)Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v6
+    invoke-static {v1, p1}, Lcom/koushikdutta/async/dns/DnsResponse;->parseName(Lcom/koushikdutta/async/ByteBufferList;Ljava/nio/ByteBuffer;)Ljava/lang/String;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object p0
 
-    return-object v5
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 
     .line 39
-    .end local v1    # "offset":I
-    .end local v3    # "sub":Lcom/koushikdutta/async/ByteBufferList;
-    .end local v4    # "duplicate":Ljava/nio/ByteBuffer;
     :cond_1
-    new-array v1, v2, [B
+    new-array v1, v1, [B
 
     .line 40
-    .local v1, "bytes":[B
     invoke-virtual {p0, v1}, Lcom/koushikdutta/async/ByteBufferList;->get([B)V
 
     .line 41
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
-    move-result v4
+    move-result v2
 
-    if-lez v4, :cond_2
+    if-lez v2, :cond_2
 
     .line 42
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     .line 43
     :cond_2
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    new-instance v4, Ljava/lang/String;
-
-    invoke-direct {v4, v1}, Ljava/lang/String;-><init>([B)V
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 44
-    .end local v1    # "bytes":[B
+    new-instance v2, Ljava/lang/String;
+
+    invoke-direct {v2, v1}, Ljava/lang/String;-><init>([B)V
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
     goto/16 :goto_0
 
-    .line 46
     :cond_3
     return-object v0
 .end method
@@ -598,8 +488,7 @@
 
 # virtual methods
 .method parseTxt(Lcom/koushikdutta/async/ByteBufferList;)V
-    .locals 7
-    .param p1, "bb"    # Lcom/koushikdutta/async/ByteBufferList;
+    .locals 4
 
     .line 161
     :goto_0
@@ -617,68 +506,56 @@
     and-int/lit16 v0, v0, 0xff
 
     .line 163
-    .local v0, "length":I
-    new-array v1, v0, [B
+    new-array v0, v0, [B
 
     .line 164
-    .local v1, "bytes":[B
-    invoke-virtual {p1, v1}, Lcom/koushikdutta/async/ByteBufferList;->get([B)V
+    invoke-virtual {p1, v0}, Lcom/koushikdutta/async/ByteBufferList;->get([B)V
 
     .line 165
-    new-instance v2, Ljava/lang/String;
+    new-instance v1, Ljava/lang/String;
 
-    invoke-direct {v2, v1}, Ljava/lang/String;-><init>([B)V
+    invoke-direct {v1, v0}, Ljava/lang/String;-><init>([B)V
+
+    const-string v0, "="
 
     .line 166
-    .local v2, "string":Ljava/lang/String;
-    const-string v3, "="
+    invoke-virtual {v1, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v3
+    move-result-object v0
 
     .line 167
-    .local v3, "pair":[Ljava/lang/String;
-    iget-object v4, p0, Lcom/koushikdutta/async/dns/DnsResponse;->txt:Lcom/koushikdutta/async/http/Multimap;
+    iget-object v1, p0, Lcom/koushikdutta/async/dns/DnsResponse;->txt:Lcom/koushikdutta/async/http/Multimap;
 
-    const/4 v5, 0x0
+    const/4 v2, 0x0
 
-    aget-object v5, v3, v5
+    aget-object v2, v0, v2
 
-    const/4 v6, 0x1
+    const/4 v3, 0x1
 
-    aget-object v6, v3, v6
+    aget-object v0, v0, v3
 
-    invoke-virtual {v4, v5, v6}, Lcom/koushikdutta/async/http/Multimap;->add(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v1, v2, v0}, Lcom/koushikdutta/async/http/Multimap;->add(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 168
-    .end local v0    # "length":I
-    .end local v1    # "bytes":[B
-    .end local v2    # "string":Ljava/lang/String;
-    .end local v3    # "pair":[Ljava/lang/String;
     goto :goto_0
 
-    .line 169
     :cond_0
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 6
-
-    .line 173
-    const-string v0, "addresses:\n"
+    .locals 5
 
     .line 174
-    .local v0, "ret":Ljava/lang/String;
-    iget-object v1, p0, Lcom/koushikdutta/async/dns/DnsResponse;->addresses:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/koushikdutta/async/dns/DnsResponse;->addresses:Ljava/util/ArrayList;
 
-    invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v0
+
+    const-string v1, "addresses:\n"
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
@@ -686,48 +563,56 @@
 
     if-eqz v2, :cond_0
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Ljava/net/InetAddress;
 
     .line 175
-    .local v2, "address":Ljava/net/InetAddress;
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v2}, Ljava/net/InetAddress;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v2
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v1
 
-    .end local v2    # "address":Ljava/net/InetAddress;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
     goto :goto_0
 
     .line 176
     :cond_0
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "names:\n"
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "names:\n"
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -752,25 +637,28 @@
     check-cast v2, Ljava/lang/String;
 
     .line 178
-    .local v2, "name":Ljava/lang/String;
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .end local v2    # "name":Ljava/lang/String;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
     goto :goto_1
 
-    .line 179
     :cond_1
     return-object v0
 .end method

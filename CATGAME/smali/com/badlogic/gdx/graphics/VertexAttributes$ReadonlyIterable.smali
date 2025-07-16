@@ -52,14 +52,11 @@
     .end annotation
 
     .line 239
-    .local p0, "this":Lcom/badlogic/gdx/graphics/VertexAttributes$ReadonlyIterable;, "Lcom/badlogic/gdx/graphics/VertexAttributes$ReadonlyIterable<TT;>;"
-    .local p1, "array":[Ljava/lang/Object;, "[TT;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 240
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/VertexAttributes$ReadonlyIterable;->array:[Ljava/lang/Object;
 
-    .line 241
     return-void
 .end method
 
@@ -76,7 +73,6 @@
     .end annotation
 
     .line 245
-    .local p0, "this":Lcom/badlogic/gdx/graphics/VertexAttributes$ReadonlyIterable;, "Lcom/badlogic/gdx/graphics/VertexAttributes$ReadonlyIterable<TT;>;"
     sget-boolean v0, Lcom/badlogic/gdx/utils/Collections;->allocateIterators:Z
 
     if-eqz v0, :cond_0

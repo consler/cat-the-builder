@@ -21,53 +21,41 @@
     .line 204
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 205
     return-void
 .end method
 
 .method public static getGroupedRoutes(Ljava/lang/Object;)Ljava/util/List;
-    .locals 5
-    .param p0, "groupObj"    # Ljava/lang/Object;
+    .locals 4
 
     .line 194
-    move-object v0, p0
-
-    check-cast v0, Landroid/media/MediaRouter$RouteGroup;
+    check-cast p0, Landroid/media/MediaRouter$RouteGroup;
 
     .line 196
-    .local v0, "group":Landroid/media/MediaRouter$RouteGroup;
-    invoke-virtual {v0}, Landroid/media/MediaRouter$RouteGroup;->getRouteCount()I
+    invoke-virtual {p0}, Landroid/media/MediaRouter$RouteGroup;->getRouteCount()I
 
-    move-result v1
+    move-result v0
 
     .line 197
-    .local v1, "count":I
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v2, v1}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {v1, v0}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 198
-    .local v2, "out":Ljava/util/List;
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    .local v3, "i":I
     :goto_0
-    if-ge v3, v1, :cond_0
+    if-ge v2, v0, :cond_0
 
     .line 199
-    invoke-virtual {v0, v3}, Landroid/media/MediaRouter$RouteGroup;->getRouteAt(I)Landroid/media/MediaRouter$RouteInfo;
+    invoke-virtual {p0, v2}, Landroid/media/MediaRouter$RouteGroup;->getRouteAt(I)Landroid/media/MediaRouter$RouteInfo;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-interface {v2, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 198
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 201
-    .end local v3    # "i":I
     :cond_0
-    return-object v2
+    return-object v1
 .end method

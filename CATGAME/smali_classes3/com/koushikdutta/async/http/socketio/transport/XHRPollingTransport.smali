@@ -26,10 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/koushikdutta/async/http/AsyncHttpClient;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
-    .param p1, "client"    # Lcom/koushikdutta/async/http/AsyncHttpClient;
-    .param p2, "sessionUrl"    # Ljava/lang/String;
-    .param p3, "sessionId"    # Ljava/lang/String;
+    .locals 0
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,9 +37,9 @@
     .line 27
     invoke-static {p2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->sessionUrl:Landroid/net/Uri;
+    iput-object p1, p0, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->sessionUrl:Landroid/net/Uri;
 
     .line 28
     iput-object p3, p0, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->sessionId:Ljava/lang/String;
@@ -50,19 +47,16 @@
     .line 30
     invoke-direct {p0}, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->doLongPolling()V
 
+    const/4 p1, 0x1
+
     .line 31
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->connected:Z
 
-    iput-boolean v0, p0, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->connected:Z
-
-    .line 32
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;Ljava/lang/Exception;)V
     .locals 0
-    .param p0, "x0"    # Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;
-    .param p1, "x1"    # Ljava/lang/Exception;
 
     .line 15
     invoke-direct {p0, p1}, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->close(Ljava/lang/Exception;)V
@@ -72,8 +66,6 @@
 
 .method static synthetic access$100(Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;Ljava/lang/String;)V
     .locals 0
-    .param p0, "x0"    # Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;
-    .param p1, "x1"    # Ljava/lang/String;
 
     .line 15
     invoke-direct {p0, p1}, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->sendResult(Ljava/lang/String;)V
@@ -83,7 +75,6 @@
 
 .method static synthetic access$200(Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;)V
     .locals 0
-    .param p0, "x0"    # Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;
 
     .line 15
     invoke-direct {p0}, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->doLongPolling()V
@@ -93,7 +84,6 @@
 
 .method private close(Ljava/lang/Exception;)V
     .locals 1
-    .param p1, "ex"    # Ljava/lang/Exception;
 
     .line 51
     iget-object v0, p0, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->closedCallback:Lcom/koushikdutta/async/callback/CompletedCallback;
@@ -103,7 +93,6 @@
     .line 52
     invoke-interface {v0, p1}, Lcom/koushikdutta/async/callback/CompletedCallback;->onCompleted(Ljava/lang/Exception;)V
 
-    .line 53
     :cond_0
     return-void
 .end method
@@ -121,7 +110,6 @@
     move-result-object v0
 
     .line 127
-    .local v0, "currentTime":Ljava/lang/String;
     iget-object v1, p0, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->sessionUrl:Landroid/net/Uri;
 
     invoke-virtual {v1}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
@@ -132,19 +120,18 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 128
-    invoke-virtual {v1}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
+    invoke-virtual {v0}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Landroid/net/Uri;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    .line 127
-    return-object v1
+    return-object v0
 .end method
 
 .method private doLongPolling()V
@@ -167,24 +154,21 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/koushikdutta/async/http/AsyncHttpClient;->executeString(Lcom/koushikdutta/async/http/AsyncHttpRequest;Lcom/koushikdutta/async/http/AsyncHttpClient$StringCallback;)Lcom/koushikdutta/async/future/Future;
 
-    .line 105
     return-void
 .end method
 
 .method private postMessage(Ljava/lang/String;)V
-    .locals 3
-    .param p1, "message"    # Ljava/lang/String;
+    .locals 2
 
-    .line 84
     const-string v0, "5"
 
+    .line 84
     invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 85
     return-void
 
     .line 87
@@ -198,7 +182,6 @@
     invoke-direct {v0, v1}, Lcom/koushikdutta/async/http/AsyncHttpPost;-><init>(Ljava/lang/String;)V
 
     .line 88
-    .local v0, "request":Lcom/koushikdutta/async/http/AsyncHttpRequest;
     new-instance v1, Lcom/koushikdutta/async/http/body/StringBody;
 
     invoke-direct {v1, p1}, Lcom/koushikdutta/async/http/body/StringBody;-><init>(Ljava/lang/String;)V
@@ -206,32 +189,29 @@
     invoke-virtual {v0, v1}, Lcom/koushikdutta/async/http/AsyncHttpRequest;->setBody(Lcom/koushikdutta/async/http/body/AsyncHttpRequestBody;)V
 
     .line 89
-    iget-object v1, p0, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->client:Lcom/koushikdutta/async/http/AsyncHttpClient;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->client:Lcom/koushikdutta/async/http/AsyncHttpClient;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1, v0, v2}, Lcom/koushikdutta/async/http/AsyncHttpClient;->executeString(Lcom/koushikdutta/async/http/AsyncHttpRequest;Lcom/koushikdutta/async/http/AsyncHttpClient$StringCallback;)Lcom/koushikdutta/async/future/Future;
+    invoke-virtual {p1, v0, v1}, Lcom/koushikdutta/async/http/AsyncHttpClient;->executeString(Lcom/koushikdutta/async/http/AsyncHttpRequest;Lcom/koushikdutta/async/http/AsyncHttpClient$StringCallback;)Lcom/koushikdutta/async/future/Future;
 
-    .line 90
     return-void
 .end method
 
 .method private sendResult(Ljava/lang/String;)V
-    .locals 4
-    .param p1, "result"    # Ljava/lang/String;
+    .locals 3
 
     .line 108
     iget-object v0, p0, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->stringCallback:Lcom/koushikdutta/async/http/socketio/transport/SocketIOTransport$StringCallback;
 
     if-nez v0, :cond_0
 
-    .line 109
     return-void
 
-    .line 111
     :cond_0
     const-string v0, "\ufffd"
 
+    .line 111
     invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v1
@@ -243,41 +223,35 @@
 
     invoke-interface {v0, p1}, Lcom/koushikdutta/async/http/socketio/transport/SocketIOTransport$StringCallback;->onStringAvailable(Ljava/lang/String;)V
 
-    .line 113
     return-void
 
     .line 116
     :cond_1
     invoke-virtual {p1, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
+
+    const/4 v0, 0x1
 
     .line 117
-    .local v0, "results":[Ljava/lang/String;
-    const/4 v1, 0x1
-
-    .local v1, "i":I
     :goto_0
-    array-length v2, v0
+    array-length v1, p1
 
-    if-ge v1, v2, :cond_2
+    if-ge v0, v1, :cond_2
 
     .line 118
-    iget-object v2, p0, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->stringCallback:Lcom/koushikdutta/async/http/socketio/transport/SocketIOTransport$StringCallback;
+    iget-object v1, p0, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->stringCallback:Lcom/koushikdutta/async/http/socketio/transport/SocketIOTransport$StringCallback;
 
-    add-int/lit8 v3, v1, 0x1
+    add-int/lit8 v2, v0, 0x1
 
-    aget-object v3, v0, v3
+    aget-object v2, p1, v2
 
-    invoke-interface {v2, v3}, Lcom/koushikdutta/async/http/socketio/transport/SocketIOTransport$StringCallback;->onStringAvailable(Ljava/lang/String;)V
+    invoke-interface {v1, v2}, Lcom/koushikdutta/async/http/socketio/transport/SocketIOTransport$StringCallback;->onStringAvailable(Ljava/lang/String;)V
 
-    .line 117
-    add-int/lit8 v1, v1, 0x2
+    add-int/lit8 v0, v0, 0x2
 
     goto :goto_0
 
-    .line 120
-    .end local v1    # "i":I
     :cond_2
     return-void
 .end method
@@ -287,17 +261,16 @@
 .method public disconnect()V
     .locals 1
 
-    .line 46
     const/4 v0, 0x0
 
+    .line 46
     iput-boolean v0, p0, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->connected:Z
 
-    .line 47
     const/4 v0, 0x0
 
+    .line 47
     invoke-direct {p0, v0}, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->close(Ljava/lang/Exception;)V
 
-    .line 48
     return-void
 .end method
 
@@ -326,7 +299,6 @@
 .method public heartbeats()Z
     .locals 1
 
-    .line 138
     const/4 v0, 0x0
 
     return v0
@@ -342,12 +314,11 @@
 .end method
 
 .method public send(Ljava/lang/String;)V
-    .locals 3
-    .param p1, "message"    # Ljava/lang/String;
+    .locals 2
 
-    .line 62
     const-string v0, "5"
 
+    .line 62
     invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
@@ -357,7 +328,6 @@
     .line 63
     invoke-direct {p0, p1}, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->postMessage(Ljava/lang/String;)V
 
-    .line 64
     return-void
 
     .line 67
@@ -371,7 +341,6 @@
     invoke-direct {v0, v1}, Lcom/koushikdutta/async/http/AsyncHttpPost;-><init>(Ljava/lang/String;)V
 
     .line 68
-    .local v0, "request":Lcom/koushikdutta/async/http/AsyncHttpRequest;
     new-instance v1, Lcom/koushikdutta/async/http/body/StringBody;
 
     invoke-direct {v1, p1}, Lcom/koushikdutta/async/http/body/StringBody;-><init>(Ljava/lang/String;)V
@@ -379,36 +348,31 @@
     invoke-virtual {v0, v1}, Lcom/koushikdutta/async/http/AsyncHttpRequest;->setBody(Lcom/koushikdutta/async/http/body/AsyncHttpRequestBody;)V
 
     .line 70
-    iget-object v1, p0, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->client:Lcom/koushikdutta/async/http/AsyncHttpClient;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->client:Lcom/koushikdutta/async/http/AsyncHttpClient;
 
-    new-instance v2, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport$1;
+    new-instance v1, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport$1;
 
-    invoke-direct {v2, p0}, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport$1;-><init>(Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;)V
+    invoke-direct {v1, p0}, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport$1;-><init>(Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;)V
 
-    invoke-virtual {v1, v0, v2}, Lcom/koushikdutta/async/http/AsyncHttpClient;->executeString(Lcom/koushikdutta/async/http/AsyncHttpRequest;Lcom/koushikdutta/async/http/AsyncHttpClient$StringCallback;)Lcom/koushikdutta/async/future/Future;
+    invoke-virtual {p1, v0, v1}, Lcom/koushikdutta/async/http/AsyncHttpClient;->executeString(Lcom/koushikdutta/async/http/AsyncHttpRequest;Lcom/koushikdutta/async/http/AsyncHttpClient$StringCallback;)Lcom/koushikdutta/async/future/Future;
 
-    .line 81
     return-void
 .end method
 
 .method public setClosedCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
     .locals 0
-    .param p1, "handler"    # Lcom/koushikdutta/async/callback/CompletedCallback;
 
     .line 41
     iput-object p1, p0, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->closedCallback:Lcom/koushikdutta/async/callback/CompletedCallback;
 
-    .line 42
     return-void
 .end method
 
 .method public setStringCallback(Lcom/koushikdutta/async/http/socketio/transport/SocketIOTransport$StringCallback;)V
     .locals 0
-    .param p1, "callback"    # Lcom/koushikdutta/async/http/socketio/transport/SocketIOTransport$StringCallback;
 
     .line 133
     iput-object p1, p0, Lcom/koushikdutta/async/http/socketio/transport/XHRPollingTransport;->stringCallback:Lcom/koushikdutta/async/http/socketio/transport/SocketIOTransport$StringCallback;
 
-    .line 134
     return-void
 .end method

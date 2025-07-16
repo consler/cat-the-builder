@@ -39,9 +39,7 @@
 
 # virtual methods
 .method public compare(Landroidx/recyclerview/widget/DiffUtil$Snake;Landroidx/recyclerview/widget/DiffUtil$Snake;)I
-    .locals 3
-    .param p1, "o1"    # Landroidx/recyclerview/widget/DiffUtil$Snake;
-    .param p2, "o2"    # Landroidx/recyclerview/widget/DiffUtil$Snake;
+    .locals 2
 
     .line 87
     iget v0, p1, Landroidx/recyclerview/widget/DiffUtil$Snake;->x:I
@@ -50,23 +48,17 @@
 
     sub-int/2addr v0, v1
 
-    .line 88
-    .local v0, "cmpX":I
     if-nez v0, :cond_0
 
-    iget v1, p1, Landroidx/recyclerview/widget/DiffUtil$Snake;->y:I
+    .line 88
+    iget p1, p1, Landroidx/recyclerview/widget/DiffUtil$Snake;->y:I
 
-    iget v2, p2, Landroidx/recyclerview/widget/DiffUtil$Snake;->y:I
+    iget p2, p2, Landroidx/recyclerview/widget/DiffUtil$Snake;->y:I
 
-    sub-int/2addr v1, v2
-
-    goto :goto_0
+    sub-int v0, p1, p2
 
     :cond_0
-    move v1, v0
-
-    :goto_0
-    return v1
+    return v0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I

@@ -22,23 +22,38 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    const-string v0, "camerax.core.imageInput.inputFormat"
+
     .line 23
-    sget-object v0, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+    sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
     .line 24
-    const-string v1, "camerax.core.imageInput.inputFormat"
-
-    invoke-static {v1, v0}, Landroidx/camera/core/impl/Config$Option;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
+    invoke-static {v0, v1}, Landroidx/camera/core/impl/Config$Option;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
 
     move-result-object v0
 
     sput-object v0, Landroidx/camera/core/impl/ImageInputConfig;->OPTION_INPUT_FORMAT:Landroidx/camera/core/impl/Config$Option;
 
-    .line 23
     return-void
 .end method
 
 
 # virtual methods
-.method public abstract getInputFormat()I
+.method public getInputFormat()I
+    .locals 1
+
+    .line 41
+    sget-object v0, Landroidx/camera/core/impl/ImageInputConfig;->OPTION_INPUT_FORMAT:Landroidx/camera/core/impl/Config$Option;
+
+    invoke-interface {p0, v0}, Landroidx/camera/core/impl/ImageInputConfig;->retrieveOption(Landroidx/camera/core/impl/Config$Option;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    return v0
 .end method

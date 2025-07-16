@@ -11,9 +11,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 36
     const-string v0, "WorkerFactory"
 
+    .line 36
     invoke-static {v0}, Landroidx/work/Logger;->tagWithPrefix(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -61,10 +61,7 @@
 .end method
 
 .method public final createWorkerWithDefaultFallback(Landroid/content/Context;Ljava/lang/String;Landroidx/work/WorkerParameters;)Landroidx/work/ListenableWorker;
-    .locals 10
-    .param p1, "appContext"    # Landroid/content/Context;
-    .param p2, "workerClassName"    # Ljava/lang/String;
-    .param p3, "workerParameters"    # Landroidx/work/WorkerParameters;
+    .locals 9
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -83,8 +80,6 @@
 
     move-result-object v0
 
-    .line 84
-    .local v0, "worker":Landroidx/work/ListenableWorker;
     const/4 v1, 0x2
 
     const/4 v2, 0x1
@@ -93,70 +88,61 @@
 
     if-nez v0, :cond_0
 
-    .line 86
-    const/4 v4, 0x0
-
     .line 88
-    .local v4, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<+Landroidx/work/ListenableWorker;>;"
     :try_start_0
     invoke-static {p2}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v5
+    move-result-object v4
 
-    const-class v6, Landroidx/work/ListenableWorker;
+    const-class v5, Landroidx/work/ListenableWorker;
 
-    invoke-virtual {v5, v6}, Ljava/lang/Class;->asSubclass(Ljava/lang/Class;)Ljava/lang/Class;
+    invoke-virtual {v4, v5}, Ljava/lang/Class;->asSubclass(Ljava/lang/Class;)Ljava/lang/Class;
 
-    move-result-object v5
+    move-result-object v4
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-object v4, v5
-
-    .line 91
     goto :goto_0
 
-    .line 89
     :catchall_0
-    move-exception v5
+    move-exception v4
 
     .line 90
-    .local v5, "throwable":Ljava/lang/Throwable;
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
-    move-result-object v6
+    move-result-object v5
 
-    sget-object v7, Landroidx/work/WorkerFactory;->TAG:Ljava/lang/String;
+    sget-object v6, Landroidx/work/WorkerFactory;->TAG:Ljava/lang/String;
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v8, "Invalid class: "
 
-    const-string v9, "Invalid class: "
+    invoke-direct {v7, v8}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v7
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v7
 
-    new-array v9, v2, [Ljava/lang/Throwable;
+    new-array v8, v2, [Ljava/lang/Throwable;
 
-    aput-object v5, v9, v3
+    aput-object v4, v8, v3
 
-    invoke-virtual {v6, v7, v8, v9}, Landroidx/work/Logger;->error(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {v5, v6, v7, v8}, Landroidx/work/Logger;->error(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
-    .line 92
-    .end local v5    # "throwable":Ljava/lang/Throwable;
+    const/4 v4, 0x0
+
     :goto_0
     if-eqz v4, :cond_0
 
-    .line 94
     :try_start_1
     new-array v5, v1, [Ljava/lang/Class;
 
+    .line 94
     const-class v6, Landroid/content/Context;
 
     aput-object v6, v5, v3
@@ -168,74 +154,67 @@
     .line 95
     invoke-virtual {v4, v5}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
-    move-result-object v5
+    move-result-object v4
+
+    new-array v5, v1, [Ljava/lang/Object;
+
+    aput-object p1, v5, v3
+
+    aput-object p3, v5, v2
 
     .line 96
-    .local v5, "constructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<+Landroidx/work/ListenableWorker;>;"
-    new-array v6, v1, [Ljava/lang/Object;
+    invoke-virtual {v4, v5}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
-    aput-object p1, v6, v3
+    move-result-object p1
 
-    aput-object p3, v6, v2
-
-    invoke-virtual {v5, v6}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Landroidx/work/ListenableWorker;
+    check-cast p1, Landroidx/work/ListenableWorker;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    move-object v0, v6
+    move-object v0, p1
 
-    .line 101
-    .end local v5    # "constructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<+Landroidx/work/ListenableWorker;>;"
     goto :goto_1
 
-    .line 99
     :catchall_1
-    move-exception v5
+    move-exception p1
 
     .line 100
-    .local v5, "e":Ljava/lang/Throwable;
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
-    move-result-object v6
+    move-result-object p3
 
-    sget-object v7, Landroidx/work/WorkerFactory;->TAG:Ljava/lang/String;
+    sget-object v4, Landroidx/work/WorkerFactory;->TAG:Ljava/lang/String;
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v6, "Could not instantiate "
 
-    const-string v9, "Could not instantiate "
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v5
 
-    new-array v9, v2, [Ljava/lang/Throwable;
+    new-array v6, v2, [Ljava/lang/Throwable;
 
-    aput-object v5, v9, v3
+    aput-object p1, v6, v3
 
-    invoke-virtual {v6, v7, v8, v9}, Landroidx/work/Logger;->error(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {p3, v4, v5, v6}, Landroidx/work/Logger;->error(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
-    .line 105
-    .end local v4    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<+Landroidx/work/ListenableWorker;>;"
-    .end local v5    # "e":Ljava/lang/Throwable;
     :cond_0
     :goto_1
     if-eqz v0, :cond_2
 
+    .line 105
     invoke-virtual {v0}, Landroidx/work/ListenableWorker;->isUsed()Z
 
-    move-result v4
+    move-result p1
 
-    if-nez v4, :cond_1
+    if-nez p1, :cond_1
 
     goto :goto_2
 
@@ -243,37 +222,32 @@
     :cond_1
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-virtual {v4}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p1
+
+    new-array p3, v1, [Ljava/lang/Object;
+
+    aput-object p1, p3, v3
+
+    aput-object p2, p3, v2
+
+    const-string p1, "WorkerFactory (%s) returned an instance of a ListenableWorker (%s) which has already been invoked. createWorker() must always return a new instance of a ListenableWorker."
 
     .line 107
-    .local v4, "factoryName":Ljava/lang/String;
-    new-array v1, v1, [Ljava/lang/Object;
+    invoke-static {p1, p3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    aput-object v4, v1, v3
-
-    aput-object p2, v1, v2
-
-    const-string v2, "WorkerFactory (%s) returned an instance of a ListenableWorker (%s) which has already been invoked. createWorker() must always return a new instance of a ListenableWorker."
-
-    invoke-static {v2, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
+    move-result-object p1
 
     .line 113
-    .local v1, "message":Ljava/lang/String;
-    new-instance v2, Ljava/lang/IllegalStateException;
+    new-instance p2, Ljava/lang/IllegalStateException;
 
-    invoke-direct {v2, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p2
 
-    .line 116
-    .end local v1    # "message":Ljava/lang/String;
-    .end local v4    # "factoryName":Ljava/lang/String;
     :cond_2
     :goto_2
     return-object v0

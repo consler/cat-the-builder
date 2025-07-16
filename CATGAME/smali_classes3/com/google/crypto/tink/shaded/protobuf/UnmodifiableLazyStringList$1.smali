@@ -44,8 +44,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;I)V
-    .locals 1
-    .param p1, "this$0"    # Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;
+    .locals 0
 
     .line 113
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList$1;->this$0:Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;
@@ -55,19 +54,15 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 114
-    iget-object p2, p0, Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList$1;->this$0:Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;
+    invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;->access$000(Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;)Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
 
-    invoke-static {p2}, Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;->access$000(Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;)Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
+    move-result-object p1
 
-    move-result-object p2
+    invoke-interface {p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;->listIterator(I)Ljava/util/ListIterator;
 
-    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList$1;->val$index:I
+    move-result-object p1
 
-    invoke-interface {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;->listIterator(I)Ljava/util/ListIterator;
-
-    move-result-object p2
-
-    iput-object p2, p0, Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList$1;->iter:Ljava/util/ListIterator;
+    iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList$1;->iter:Ljava/util/ListIterator;
 
     return-void
 .end method
@@ -86,15 +81,14 @@
 .end method
 
 .method public add(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "o"    # Ljava/lang/String;
+    .locals 0
 
     .line 158
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public hasNext()Z
@@ -224,13 +218,12 @@
 .end method
 
 .method public set(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "o"    # Ljava/lang/String;
+    .locals 0
 
     .line 153
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method

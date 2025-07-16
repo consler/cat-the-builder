@@ -38,7 +38,6 @@
 # direct methods
 .method constructor <init>(Lretrofit2/DefaultCallAdapterFactory;Ljava/lang/reflect/Type;Ljava/util/concurrent/Executor;)V
     .locals 0
-    .param p1, "this$0"    # Lretrofit2/DefaultCallAdapterFactory;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -85,22 +84,23 @@
     .end annotation
 
     .line 60
-    .local p1, "call":Lretrofit2/Call;, "Lretrofit2/Call<Ljava/lang/Object;>;"
     iget-object v0, p0, Lretrofit2/DefaultCallAdapterFactory$1;->val$executor:Ljava/util/concurrent/Executor;
 
     if-nez v0, :cond_0
 
-    move-object v1, p1
-
     goto :goto_0
 
     :cond_0
-    new-instance v1, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;
+    new-instance v0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;
 
-    invoke-direct {v1, v0, p1}, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;-><init>(Ljava/util/concurrent/Executor;Lretrofit2/Call;)V
+    iget-object v1, p0, Lretrofit2/DefaultCallAdapterFactory$1;->val$executor:Ljava/util/concurrent/Executor;
+
+    invoke-direct {v0, v1, p1}, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;-><init>(Ljava/util/concurrent/Executor;Lretrofit2/Call;)V
+
+    move-object p1, v0
 
     :goto_0
-    return-object v1
+    return-object p1
 .end method
 
 .method public responseType()Ljava/lang/reflect/Type;

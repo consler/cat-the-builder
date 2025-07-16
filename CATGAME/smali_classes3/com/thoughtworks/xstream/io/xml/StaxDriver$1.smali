@@ -12,8 +12,6 @@
 # direct methods
 .method constructor <init>(Lcom/thoughtworks/xstream/io/xml/StaxDriver;Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Ljava/io/InputStream;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/thoughtworks/xstream/io/xml/StaxDriver;
-    .param p2, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
 
     .line 112
     iput-object p1, p0, Lcom/thoughtworks/xstream/io/xml/StaxDriver$1;->this$0:Lcom/thoughtworks/xstream/io/xml/StaxDriver;
@@ -41,14 +39,6 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 120
-    goto :goto_0
-
-    .line 118
     :catch_0
-    move-exception v0
-
-    .line 121
-    :goto_0
     return-void
 .end method

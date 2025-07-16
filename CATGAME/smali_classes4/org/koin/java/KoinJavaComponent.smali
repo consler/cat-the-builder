@@ -101,16 +101,13 @@
 
     invoke-static {p0, p1, v0, v1, v0}, Lorg/koin/java/KoinJavaComponent;->bind$default(Ljava/lang/Class;Ljava/lang/Class;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final bind(Ljava/lang/Class;Ljava/lang/Class;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 3
-    .param p0, "primary"    # Ljava/lang/Class;
-    .param p1, "secondary"    # Ljava/lang/Class;
-    .param p2, "parameters"    # Lkotlin/jvm/functions/Function0;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<P:",
@@ -140,12 +137,6 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 88
-    nop
-
-    .line 89
-    nop
-
-    .line 88
     invoke-static {}, Lorg/koin/java/KoinJavaComponent;->getKoin()Lorg/koin/core/Koin;
 
     move-result-object v0
@@ -153,17 +144,17 @@
     .line 89
     invoke-static {p0}, Lkotlin/jvm/JvmClassMappingKt;->getKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    move-result-object v1
+    move-result-object p0
 
     invoke-static {p1}, Lkotlin/jvm/JvmClassMappingKt;->getKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v0, v1, v2, p2}, Lorg/koin/core/Koin;->bind(Lkotlin/reflect/KClass;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+    invoke-virtual {v0, p0, p1, p2}, Lorg/koin/core/Koin;->bind(Lkotlin/reflect/KClass;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static synthetic bind$default(Ljava/lang/Class;Ljava/lang/Class;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Ljava/lang/Object;
@@ -173,10 +164,12 @@
 
     if-eqz p3, :cond_0
 
-    .line 86
     const/4 p2, 0x0
 
-    check-cast p2, Lkotlin/jvm/functions/Function0;
+    .line 86
+    move-object p3, p2
+
+    check-cast p3, Lkotlin/jvm/functions/Function0;
 
     :cond_0
     invoke-static {p0, p1, p2}, Lorg/koin/java/KoinJavaComponent;->bind(Ljava/lang/Class;Ljava/lang/Class;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
@@ -207,9 +200,9 @@
 
     invoke-static {p0, v0, v0, v1, v0}, Lorg/koin/java/KoinJavaComponent;->get$default(Ljava/lang/Class;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final get(Ljava/lang/Class;Lorg/koin/core/qualifier/Qualifier;)Ljava/lang/Object;
@@ -235,16 +228,13 @@
 
     invoke-static {p0, p1, v0, v1, v0}, Lorg/koin/java/KoinJavaComponent;->get$default(Ljava/lang/Class;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final get(Ljava/lang/Class;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 2
-    .param p0, "clazz"    # Ljava/lang/Class;
-    .param p1, "qualifier"    # Lorg/koin/core/qualifier/Qualifier;
-    .param p2, "parameters"    # Lkotlin/jvm/functions/Function0;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -269,29 +259,18 @@
     .line 62
     invoke-static {p0}, Lkotlin/jvm/JvmClassMappingKt;->getKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 63
-    .local v0, "kClass":Lkotlin/reflect/KClass;
     invoke-static {}, Lorg/koin/java/KoinJavaComponent;->getKoin()Lorg/koin/core/Koin;
 
-    move-result-object v1
+    move-result-object v0
 
-    .line 64
-    nop
+    invoke-virtual {v0, p0, p1, p2}, Lorg/koin/core/Koin;->get(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
 
-    .line 65
-    nop
+    move-result-object v0
 
-    .line 66
-    nop
-
-    .line 63
-    invoke-virtual {v1, v0, p1, p2}, Lorg/koin/core/Koin;->get(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     goto :goto_0
 
@@ -299,24 +278,14 @@
     :cond_0
     invoke-static {}, Lorg/koin/java/KoinJavaComponent;->getKoin()Lorg/koin/core/Koin;
 
-    move-result-object v1
+    move-result-object v0
 
-    .line 68
-    nop
+    invoke-virtual {v0, p0, p1, p2}, Lorg/koin/core/Koin;->get(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
 
-    .line 69
-    nop
-
-    .line 70
-    nop
-
-    .line 67
-    invoke-virtual {v1, v0, p1, p2}, Lorg/koin/core/Koin;->get(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-
-    move-result-object v1
+    move-result-object v0
 
     :goto_0
-    return-object v1
+    return-object v0
 .end method
 
 .method public static synthetic get$default(Ljava/lang/Class;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Ljava/lang/Object;
@@ -333,6 +302,8 @@
 
     check-cast p1, Lorg/koin/core/qualifier/Qualifier;
 
+    move-object p1, v0
+
     :cond_0
     and-int/lit8 p3, p3, 0x4
 
@@ -342,6 +313,8 @@
     move-object p2, v0
 
     check-cast p2, Lkotlin/jvm/functions/Function0;
+
+    move-object p2, v0
 
     :cond_1
     invoke-static {p0, p1, p2}, Lorg/koin/java/KoinJavaComponent;->get(Ljava/lang/Class;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
@@ -389,9 +362,9 @@
 
     invoke-static {p0, v0, v0, v1, v0}, Lorg/koin/java/KoinJavaComponent;->inject$default(Ljava/lang/Class;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lkotlin/Lazy;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final inject(Ljava/lang/Class;Lorg/koin/core/qualifier/Qualifier;)Lkotlin/Lazy;
@@ -419,16 +392,13 @@
 
     invoke-static {p0, p1, v0, v1, v0}, Lorg/koin/java/KoinJavaComponent;->inject$default(Ljava/lang/Class;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lkotlin/Lazy;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final inject(Ljava/lang/Class;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
     .locals 2
-    .param p0, "clazz"    # Ljava/lang/Class;
-    .param p1, "qualifier"    # Lorg/koin/core/qualifier/Qualifier;
-    .param p2, "parameters"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -463,9 +433,9 @@
 
     invoke-static {v0, v1}, Lkotlin/LazyKt;->lazy(Lkotlin/LazyThreadSafetyMode;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static synthetic inject$default(Ljava/lang/Class;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lkotlin/Lazy;
@@ -482,6 +452,8 @@
 
     check-cast p1, Lorg/koin/core/qualifier/Qualifier;
 
+    move-object p1, v0
+
     :cond_0
     and-int/lit8 p3, p3, 0x4
 
@@ -491,6 +463,8 @@
     move-object p2, v0
 
     check-cast p2, Lkotlin/jvm/functions/Function0;
+
+    move-object p2, v0
 
     :cond_1
     invoke-static {p0, p1, p2}, Lorg/koin/java/KoinJavaComponent;->inject(Ljava/lang/Class;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;

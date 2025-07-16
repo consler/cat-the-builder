@@ -17,12 +17,10 @@
 # direct methods
 .method protected constructor <init>(Lorg/apache/commons/collections/map/AbstractHashedMap;)V
     .locals 0
-    .param p1, "parent"    # Lorg/apache/commons/collections/map/AbstractHashedMap;
 
     .line 857
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/map/AbstractHashedMap$HashIterator;-><init>(Lorg/apache/commons/collections/map/AbstractHashedMap;)V
 
-    .line 858
     return-void
 .end method
 

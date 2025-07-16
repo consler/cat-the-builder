@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/DialogFragment;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/fragment/app/DialogFragment;
 
     .line 102
     iput-object p1, p0, Landroidx/fragment/app/DialogFragment$2;->this$0:Landroidx/fragment/app/DialogFragment;
@@ -37,24 +36,22 @@
 
 # virtual methods
 .method public onCancel(Landroid/content/DialogInterface;)V
-    .locals 2
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .locals 1
 
     .line 105
-    iget-object v0, p0, Landroidx/fragment/app/DialogFragment$2;->this$0:Landroidx/fragment/app/DialogFragment;
+    iget-object p1, p0, Landroidx/fragment/app/DialogFragment$2;->this$0:Landroidx/fragment/app/DialogFragment;
 
-    iget-object v0, v0, Landroidx/fragment/app/DialogFragment;->mDialog:Landroid/app/Dialog;
+    iget-object p1, p1, Landroidx/fragment/app/DialogFragment;->mDialog:Landroid/app/Dialog;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 106
-    iget-object v0, p0, Landroidx/fragment/app/DialogFragment$2;->this$0:Landroidx/fragment/app/DialogFragment;
+    iget-object p1, p0, Landroidx/fragment/app/DialogFragment$2;->this$0:Landroidx/fragment/app/DialogFragment;
 
-    iget-object v1, v0, Landroidx/fragment/app/DialogFragment;->mDialog:Landroid/app/Dialog;
+    iget-object v0, p1, Landroidx/fragment/app/DialogFragment;->mDialog:Landroid/app/Dialog;
 
-    invoke-virtual {v0, v1}, Landroidx/fragment/app/DialogFragment;->onCancel(Landroid/content/DialogInterface;)V
+    invoke-virtual {p1, v0}, Landroidx/fragment/app/DialogFragment;->onCancel(Landroid/content/DialogInterface;)V
 
-    .line 108
     :cond_0
     return-void
 .end method

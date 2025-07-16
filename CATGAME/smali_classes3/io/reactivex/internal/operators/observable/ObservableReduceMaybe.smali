@@ -55,9 +55,6 @@
     .end annotation
 
     .line 36
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableReduceMaybe;, "Lio/reactivex/internal/operators/observable/ObservableReduceMaybe<TT;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
-    .local p2, "reducer":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<TT;TT;TT;>;"
     invoke-direct {p0}, Lio/reactivex/Maybe;-><init>()V
 
     .line 37
@@ -66,7 +63,6 @@
     .line 38
     iput-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableReduceMaybe;->reducer:Lio/reactivex/functions/BiFunction;
 
-    .line 39
     return-void
 .end method
 
@@ -83,8 +79,6 @@
     .end annotation
 
     .line 43
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableReduceMaybe;, "Lio/reactivex/internal/operators/observable/ObservableReduceMaybe<TT;>;"
-    .local p1, "observer":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableReduceMaybe;->source:Lio/reactivex/ObservableSource;
 
     new-instance v1, Lio/reactivex/internal/operators/observable/ObservableReduceMaybe$ReduceObserver;
@@ -95,6 +89,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 44
     return-void
 .end method

@@ -37,8 +37,6 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 1
-    .param p1, "color"    # I
-    .param p2, "population"    # I
 
     .line 454
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -70,16 +68,11 @@
     .line 459
     iput p2, p0, Landroidx/palette/graphics/Palette$Swatch;->mPopulation:I
 
-    .line 460
     return-void
 .end method
 
 .method constructor <init>(IIII)V
-    .locals 1
-    .param p1, "red"    # I
-    .param p2, "green"    # I
-    .param p3, "blue"    # I
-    .param p4, "population"    # I
+    .locals 0
 
     .line 462
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -96,21 +89,18 @@
     .line 466
     invoke-static {p1, p2, p3}, Landroid/graphics/Color;->rgb(III)I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Landroidx/palette/graphics/Palette$Swatch;->mRgb:I
+    iput p1, p0, Landroidx/palette/graphics/Palette$Swatch;->mRgb:I
 
     .line 467
     iput p4, p0, Landroidx/palette/graphics/Palette$Swatch;->mPopulation:I
 
-    .line 468
     return-void
 .end method
 
 .method constructor <init>([FI)V
     .locals 1
-    .param p1, "hsl"    # [F
-    .param p2, "population"    # I
 
     .line 471
     invoke-static {p1}, Landroidx/core/graphics/ColorUtils;->HSLToColor([F)I
@@ -122,7 +112,6 @@
     .line 472
     iput-object p1, p0, Landroidx/palette/graphics/Palette$Swatch;->mHsl:[F
 
-    .line 473
     return-void
 .end method
 
@@ -146,7 +135,6 @@
     move-result v0
 
     .line 530
-    .local v0, "lightBodyAlpha":I
     iget v3, p0, Landroidx/palette/graphics/Palette$Swatch;->mRgb:I
 
     const/high16 v4, 0x40400000    # 3.0f
@@ -155,8 +143,6 @@
 
     move-result v3
 
-    .line 533
-    .local v3, "lightTitleAlpha":I
     const/4 v5, 0x1
 
     if-eq v0, v1, :cond_0
@@ -166,21 +152,20 @@
     .line 535
     invoke-static {v1, v0}, Landroidx/core/graphics/ColorUtils;->setAlphaComponent(II)I
 
-    move-result v2
+    move-result v0
 
-    iput v2, p0, Landroidx/palette/graphics/Palette$Swatch;->mBodyTextColor:I
+    iput v0, p0, Landroidx/palette/graphics/Palette$Swatch;->mBodyTextColor:I
 
     .line 536
     invoke-static {v1, v3}, Landroidx/core/graphics/ColorUtils;->setAlphaComponent(II)I
 
-    move-result v1
+    move-result v0
 
-    iput v1, p0, Landroidx/palette/graphics/Palette$Swatch;->mTitleTextColor:I
+    iput v0, p0, Landroidx/palette/graphics/Palette$Swatch;->mTitleTextColor:I
 
     .line 537
     iput-boolean v5, p0, Landroidx/palette/graphics/Palette$Swatch;->mGeneratedTextColors:Z
 
-    .line 538
     return-void
 
     .line 541
@@ -194,15 +179,12 @@
     move-result v2
 
     .line 543
-    .local v2, "darkBodyAlpha":I
     iget v6, p0, Landroidx/palette/graphics/Palette$Swatch;->mRgb:I
 
     invoke-static {v7, v6, v4}, Landroidx/core/graphics/ColorUtils;->calculateMinimumAlpha(IIF)I
 
     move-result v4
 
-    .line 546
-    .local v4, "darkTitleAlpha":I
     if-eq v2, v1, :cond_1
 
     if-eq v4, v1, :cond_1
@@ -210,74 +192,62 @@
     .line 548
     invoke-static {v7, v2}, Landroidx/core/graphics/ColorUtils;->setAlphaComponent(II)I
 
-    move-result v1
+    move-result v0
 
-    iput v1, p0, Landroidx/palette/graphics/Palette$Swatch;->mBodyTextColor:I
+    iput v0, p0, Landroidx/palette/graphics/Palette$Swatch;->mBodyTextColor:I
 
     .line 549
     invoke-static {v7, v4}, Landroidx/core/graphics/ColorUtils;->setAlphaComponent(II)I
 
-    move-result v1
+    move-result v0
 
-    iput v1, p0, Landroidx/palette/graphics/Palette$Swatch;->mTitleTextColor:I
+    iput v0, p0, Landroidx/palette/graphics/Palette$Swatch;->mTitleTextColor:I
 
     .line 550
     iput-boolean v5, p0, Landroidx/palette/graphics/Palette$Swatch;->mGeneratedTextColors:Z
 
-    .line 551
     return-void
 
-    .line 556
     :cond_1
     if-eq v0, v1, :cond_2
 
     .line 557
     invoke-static {v1, v0}, Landroidx/core/graphics/ColorUtils;->setAlphaComponent(II)I
 
-    move-result v6
+    move-result v0
 
     goto :goto_0
 
-    :cond_2
-    nop
-
     .line 558
+    :cond_2
     invoke-static {v7, v2}, Landroidx/core/graphics/ColorUtils;->setAlphaComponent(II)I
 
-    move-result v6
+    move-result v0
 
     :goto_0
-    iput v6, p0, Landroidx/palette/graphics/Palette$Swatch;->mBodyTextColor:I
+    iput v0, p0, Landroidx/palette/graphics/Palette$Swatch;->mBodyTextColor:I
 
-    .line 559
     if-eq v3, v1, :cond_3
 
     .line 560
     invoke-static {v1, v3}, Landroidx/core/graphics/ColorUtils;->setAlphaComponent(II)I
 
-    move-result v1
+    move-result v0
 
     goto :goto_1
 
-    :cond_3
-    nop
-
     .line 561
+    :cond_3
     invoke-static {v7, v4}, Landroidx/core/graphics/ColorUtils;->setAlphaComponent(II)I
 
-    move-result v1
+    move-result v0
 
     :goto_1
-    iput v1, p0, Landroidx/palette/graphics/Palette$Swatch;->mTitleTextColor:I
+    iput v0, p0, Landroidx/palette/graphics/Palette$Swatch;->mTitleTextColor:I
 
     .line 562
     iput-boolean v5, p0, Landroidx/palette/graphics/Palette$Swatch;->mGeneratedTextColors:Z
 
-    .line 564
-    .end local v0    # "lightBodyAlpha":I
-    .end local v2    # "darkBodyAlpha":I
-    .end local v3    # "lightTitleAlpha":I
-    .end local v4    # "darkTitleAlpha":I
     :cond_4
     return-void
 .end method
@@ -285,23 +255,20 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 4
 
-    .line 580
     const/4 v0, 0x1
 
     if-ne p0, p1, :cond_0
 
-    .line 581
     return v0
 
-    .line 583
     :cond_0
     const/4 v1, 0x0
 
     if-eqz p1, :cond_3
 
+    .line 583
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -316,23 +283,20 @@
 
     .line 587
     :cond_1
-    move-object v2, p1
-
-    check-cast v2, Landroidx/palette/graphics/Palette$Swatch;
+    check-cast p1, Landroidx/palette/graphics/Palette$Swatch;
 
     .line 588
-    .local v2, "swatch":Landroidx/palette/graphics/Palette$Swatch;
-    iget v3, p0, Landroidx/palette/graphics/Palette$Swatch;->mPopulation:I
+    iget v2, p0, Landroidx/palette/graphics/Palette$Swatch;->mPopulation:I
 
-    iget v4, v2, Landroidx/palette/graphics/Palette$Swatch;->mPopulation:I
+    iget v3, p1, Landroidx/palette/graphics/Palette$Swatch;->mPopulation:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v2, v3, :cond_2
 
-    iget v3, p0, Landroidx/palette/graphics/Palette$Swatch;->mRgb:I
+    iget v2, p0, Landroidx/palette/graphics/Palette$Swatch;->mRgb:I
 
-    iget v4, v2, Landroidx/palette/graphics/Palette$Swatch;->mRgb:I
+    iget p1, p1, Landroidx/palette/graphics/Palette$Swatch;->mRgb:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v2, p1, :cond_2
 
     goto :goto_0
 
@@ -342,8 +306,6 @@
     :goto_0
     return v0
 
-    .line 584
-    .end local v2    # "swatch":Landroidx/palette/graphics/Palette$Swatch;
     :cond_3
     :goto_1
     return v1
@@ -369,11 +331,11 @@
 
     if-nez v0, :cond_0
 
-    .line 492
     const/4 v0, 0x3
 
     new-array v0, v0, [F
 
+    .line 492
     iput-object v0, p0, Landroidx/palette/graphics/Palette$Swatch;->mHsl:[F
 
     .line 494
@@ -440,7 +402,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .locals 2
 
     .line 568
     new-instance v0, Ljava/lang/StringBuilder;
@@ -455,10 +417,12 @@
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 569
     const-string v1, " [RGB: #"
 
+    .line 569
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {p0}, Landroidx/palette/graphics/Palette$Swatch;->getRgb()I
 
@@ -470,73 +434,85 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v1, 0x5d
+    move-result-object v0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    const-string v1, "] [HSL: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     .line 570
-    const-string v2, " [HSL: "
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     invoke-virtual {p0}, Landroidx/palette/graphics/Palette$Swatch;->getHsl()[F
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v2}, Ljava/util/Arrays;->toString([F)Ljava/lang/String;
+    invoke-static {v1}, Ljava/util/Arrays;->toString([F)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    move-result-object v0
+
+    const-string v1, "] [Population: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     .line 571
-    const-string v2, " [Population: "
+    iget v1, p0, Landroidx/palette/graphics/Palette$Swatch;->mPopulation:I
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Landroidx/palette/graphics/Palette$Swatch;->mPopulation:I
+    move-result-object v0
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, "] [Title Text: #"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     .line 572
-    const-string v2, " [Title Text: #"
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     invoke-virtual {p0}, Landroidx/palette/graphics/Palette$Swatch;->getTitleTextColor()I
 
-    move-result v2
+    move-result v1
 
-    invoke-static {v2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, "] [Body Text: #"
 
     .line 573
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     .line 574
-    const-string v2, " [Body Text: #"
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     invoke-virtual {p0}, Landroidx/palette/graphics/Palette$Swatch;->getBodyTextColor()I
 
-    move-result v2
+    move-result v1
 
-    invoke-static {v2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const/16 v1, 0x5d
 
     .line 575
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

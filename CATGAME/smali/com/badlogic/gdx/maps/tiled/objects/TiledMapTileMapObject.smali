@@ -13,10 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/maps/tiled/TiledMapTile;ZZ)V
-    .locals 2
-    .param p1, "tile"    # Lcom/badlogic/gdx/maps/tiled/TiledMapTile;
-    .param p2, "flipHorizontally"    # Z
-    .param p3, "flipVertically"    # Z
+    .locals 1
 
     .line 37
     invoke-direct {p0}, Lcom/badlogic/gdx/maps/objects/TextureMapObject;-><init>()V
@@ -35,18 +32,16 @@
 
     invoke-interface {p1}, Lcom/badlogic/gdx/maps/tiled/TiledMapTile;->getTextureRegion()Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;-><init>(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
+    invoke-direct {v0, p1}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;-><init>(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
 
     .line 43
-    .local v0, "textureRegion":Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
     invoke-virtual {v0, p2, p3}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->flip(ZZ)V
 
     .line 44
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/maps/tiled/objects/TiledMapTileMapObject;->setTextureRegion(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
 
-    .line 45
     return-void
 .end method
 
@@ -81,33 +76,27 @@
 
 .method public setFlipHorizontally(Z)V
     .locals 0
-    .param p1, "flipHorizontally"    # Z
 
     .line 52
     iput-boolean p1, p0, Lcom/badlogic/gdx/maps/tiled/objects/TiledMapTileMapObject;->flipHorizontally:Z
 
-    .line 53
     return-void
 .end method
 
 .method public setFlipVertically(Z)V
     .locals 0
-    .param p1, "flipVertically"    # Z
 
     .line 60
     iput-boolean p1, p0, Lcom/badlogic/gdx/maps/tiled/objects/TiledMapTileMapObject;->flipVertically:Z
 
-    .line 61
     return-void
 .end method
 
 .method public setTile(Lcom/badlogic/gdx/maps/tiled/TiledMapTile;)V
     .locals 0
-    .param p1, "tile"    # Lcom/badlogic/gdx/maps/tiled/TiledMapTile;
 
     .line 68
     iput-object p1, p0, Lcom/badlogic/gdx/maps/tiled/objects/TiledMapTileMapObject;->tile:Lcom/badlogic/gdx/maps/tiled/TiledMapTile;
 
-    .line 69
     return-void
 .end method

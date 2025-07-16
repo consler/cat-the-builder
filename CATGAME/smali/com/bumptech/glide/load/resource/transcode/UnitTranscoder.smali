@@ -48,7 +48,6 @@
     .locals 0
 
     .line 13
-    .local p0, "this":Lcom/bumptech/glide/load/resource/transcode/UnitTranscoder;, "Lcom/bumptech/glide/load/resource/transcode/UnitTranscoder<TZ;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -76,7 +75,6 @@
 # virtual methods
 .method public transcode(Lcom/bumptech/glide/load/engine/Resource;Lcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/engine/Resource;
     .locals 0
-    .param p2, "options"    # Lcom/bumptech/glide/load/Options;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -89,8 +87,5 @@
         }
     .end annotation
 
-    .line 24
-    .local p0, "this":Lcom/bumptech/glide/load/resource/transcode/UnitTranscoder;, "Lcom/bumptech/glide/load/resource/transcode/UnitTranscoder<TZ;>;"
-    .local p1, "toTranscode":Lcom/bumptech/glide/load/engine/Resource;, "Lcom/bumptech/glide/load/engine/Resource<TZ;>;"
     return-object p1
 .end method

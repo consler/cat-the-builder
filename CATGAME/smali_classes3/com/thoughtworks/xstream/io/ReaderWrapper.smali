@@ -13,7 +13,6 @@
 # direct methods
 .method protected constructor <init>(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;)V
     .locals 0
-    .param p1, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -21,7 +20,6 @@
     .line 28
     iput-object p1, p0, Lcom/thoughtworks/xstream/io/ReaderWrapper;->wrapped:Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
 
-    .line 29
     return-void
 .end method
 
@@ -29,14 +27,12 @@
 # virtual methods
 .method public appendErrors(Lcom/thoughtworks/xstream/converters/ErrorWriter;)V
     .locals 1
-    .param p1, "errorWriter"    # Lcom/thoughtworks/xstream/converters/ErrorWriter;
 
     .line 72
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/ReaderWrapper;->wrapped:Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
 
     invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->appendErrors(Lcom/thoughtworks/xstream/converters/ErrorWriter;)V
 
-    .line 73
     return-void
 .end method
 
@@ -48,36 +44,33 @@
 
     invoke-interface {v0}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->close()V
 
-    .line 77
     return-void
 .end method
 
 .method public getAttribute(I)Ljava/lang/String;
     .locals 1
-    .param p1, "index"    # I
 
     .line 56
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/ReaderWrapper;->wrapped:Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
 
     invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->getAttribute(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getAttribute(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p1, "name"    # Ljava/lang/String;
 
     .line 52
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/ReaderWrapper;->wrapped:Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
 
     invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getAttributeCount()I
@@ -95,16 +88,15 @@
 
 .method public getAttributeName(I)Ljava/lang/String;
     .locals 1
-    .param p1, "index"    # I
 
     .line 64
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/ReaderWrapper;->wrapped:Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
 
     invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->getAttributeName(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getAttributeNames()Ljava/util/Iterator;
@@ -167,7 +159,6 @@
 
     invoke-interface {v0}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->moveDown()V
 
-    .line 37
     return-void
 .end method
 
@@ -179,7 +170,6 @@
 
     invoke-interface {v0}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->moveUp()V
 
-    .line 41
     return-void
 .end method
 

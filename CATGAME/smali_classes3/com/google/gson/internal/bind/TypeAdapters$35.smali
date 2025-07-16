@@ -1,125 +1,195 @@
-.class Lcom/google/gson/internal/bind/TypeAdapters$35;
+.class synthetic Lcom/google/gson/internal/bind/TypeAdapters$35;
 .super Ljava/lang/Object;
 .source "TypeAdapters.java"
 
-# interfaces
-.implements Lcom/google/gson/TypeAdapterFactory;
-
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/google/gson/internal/bind/TypeAdapters;->newTypeHierarchyFactory(Ljava/lang/Class;Lcom/google/gson/TypeAdapter;)Lcom/google/gson/TypeAdapterFactory;
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/google/gson/internal/bind/TypeAdapters;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1008
     name = null
 .end annotation
 
 
-# instance fields
-.field final synthetic val$clazz:Ljava/lang/Class;
-
-.field final synthetic val$typeAdapter:Lcom/google/gson/TypeAdapter;
+# static fields
+.field static final synthetic $SwitchMap$com$google$gson$stream$JsonToken:[I
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/Class;Lcom/google/gson/TypeAdapter;)V
-    .locals 0
+.method static constructor <clinit>()V
+    .locals 3
 
-    .line 881
-    iput-object p1, p0, Lcom/google/gson/internal/bind/TypeAdapters$35;->val$clazz:Ljava/lang/Class;
-
-    iput-object p2, p0, Lcom/google/gson/internal/bind/TypeAdapters$35;->val$typeAdapter:Lcom/google/gson/TypeAdapter;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public create(Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
-    .locals 2
-    .param p1, "gson"    # Lcom/google/gson/Gson;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T2:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Lcom/google/gson/Gson;",
-            "Lcom/google/gson/reflect/TypeToken<",
-            "TT2;>;)",
-            "Lcom/google/gson/TypeAdapter<",
-            "TT2;>;"
-        }
-    .end annotation
-
-    .line 884
-    .local p2, "typeToken":Lcom/google/gson/reflect/TypeToken;, "Lcom/google/gson/reflect/TypeToken<TT2;>;"
-    invoke-virtual {p2}, Lcom/google/gson/reflect/TypeToken;->getRawType()Ljava/lang/Class;
+    .line 94
+    invoke-static {}, Lcom/google/gson/stream/JsonToken;->values()[Lcom/google/gson/stream/JsonToken;
 
     move-result-object v0
 
-    .line 885
-    .local v0, "requestedType":Ljava/lang/Class;, "Ljava/lang/Class<-TT2;>;"
-    iget-object v1, p0, Lcom/google/gson/internal/bind/TypeAdapters$35;->val$clazz:Ljava/lang/Class;
+    array-length v0, v0
 
-    invoke-virtual {v1, v0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    new-array v0, v0, [I
+
+    sput-object v0, Lcom/google/gson/internal/bind/TypeAdapters$35;->$SwitchMap$com$google$gson$stream$JsonToken:[I
+
+    :try_start_0
+    sget-object v1, Lcom/google/gson/stream/JsonToken;->NUMBER:Lcom/google/gson/stream/JsonToken;
+
+    invoke-virtual {v1}, Lcom/google/gson/stream/JsonToken;->ordinal()I
 
     move-result v1
 
-    if-nez v1, :cond_0
+    const/4 v2, 0x1
 
-    .line 886
-    const/4 v1, 0x0
+    aput v2, v0, v1
+    :try_end_0
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v1
+    :catch_0
+    :try_start_1
+    sget-object v0, Lcom/google/gson/internal/bind/TypeAdapters$35;->$SwitchMap$com$google$gson$stream$JsonToken:[I
 
-    .line 888
-    :cond_0
-    new-instance v1, Lcom/google/gson/internal/bind/TypeAdapters$35$1;
+    sget-object v1, Lcom/google/gson/stream/JsonToken;->STRING:Lcom/google/gson/stream/JsonToken;
 
-    invoke-direct {v1, p0, v0}, Lcom/google/gson/internal/bind/TypeAdapters$35$1;-><init>(Lcom/google/gson/internal/bind/TypeAdapters$35;Ljava/lang/Class;)V
+    invoke-virtual {v1}, Lcom/google/gson/stream/JsonToken;->ordinal()I
 
-    return-object v1
-.end method
+    move-result v1
 
-.method public toString()Ljava/lang/String;
-    .locals 2
+    const/4 v2, 0x2
 
-    .line 904
-    new-instance v0, Ljava/lang/StringBuilder;
+    aput v2, v0, v1
+    :try_end_1
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    :catch_1
+    :try_start_2
+    sget-object v0, Lcom/google/gson/internal/bind/TypeAdapters$35;->$SwitchMap$com$google$gson$stream$JsonToken:[I
 
-    const-string v1, "Factory[typeHierarchy="
+    sget-object v1, Lcom/google/gson/stream/JsonToken;->BOOLEAN:Lcom/google/gson/stream/JsonToken;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Lcom/google/gson/stream/JsonToken;->ordinal()I
 
-    iget-object v1, p0, Lcom/google/gson/internal/bind/TypeAdapters$35;->val$clazz:Ljava/lang/Class;
+    move-result v1
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    const/4 v2, 0x3
 
-    move-result-object v1
+    aput v2, v0, v1
+    :try_end_2
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_2
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :catch_2
+    :try_start_3
+    sget-object v0, Lcom/google/gson/internal/bind/TypeAdapters$35;->$SwitchMap$com$google$gson$stream$JsonToken:[I
 
-    const-string v1, ",adapter="
+    sget-object v1, Lcom/google/gson/stream/JsonToken;->NULL:Lcom/google/gson/stream/JsonToken;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Lcom/google/gson/stream/JsonToken;->ordinal()I
 
-    iget-object v1, p0, Lcom/google/gson/internal/bind/TypeAdapters$35;->val$typeAdapter:Lcom/google/gson/TypeAdapter;
+    move-result v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    const/4 v2, 0x4
 
-    const-string v1, "]"
+    aput v2, v0, v1
+    :try_end_3
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_3
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :catch_3
+    :try_start_4
+    sget-object v0, Lcom/google/gson/internal/bind/TypeAdapters$35;->$SwitchMap$com$google$gson$stream$JsonToken:[I
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    sget-object v1, Lcom/google/gson/stream/JsonToken;->BEGIN_ARRAY:Lcom/google/gson/stream/JsonToken;
 
-    move-result-object v0
+    invoke-virtual {v1}, Lcom/google/gson/stream/JsonToken;->ordinal()I
 
-    return-object v0
+    move-result v1
+
+    const/4 v2, 0x5
+
+    aput v2, v0, v1
+    :try_end_4
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_4
+
+    :catch_4
+    :try_start_5
+    sget-object v0, Lcom/google/gson/internal/bind/TypeAdapters$35;->$SwitchMap$com$google$gson$stream$JsonToken:[I
+
+    sget-object v1, Lcom/google/gson/stream/JsonToken;->BEGIN_OBJECT:Lcom/google/gson/stream/JsonToken;
+
+    invoke-virtual {v1}, Lcom/google/gson/stream/JsonToken;->ordinal()I
+
+    move-result v1
+
+    const/4 v2, 0x6
+
+    aput v2, v0, v1
+    :try_end_5
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_5
+
+    :catch_5
+    :try_start_6
+    sget-object v0, Lcom/google/gson/internal/bind/TypeAdapters$35;->$SwitchMap$com$google$gson$stream$JsonToken:[I
+
+    sget-object v1, Lcom/google/gson/stream/JsonToken;->END_DOCUMENT:Lcom/google/gson/stream/JsonToken;
+
+    invoke-virtual {v1}, Lcom/google/gson/stream/JsonToken;->ordinal()I
+
+    move-result v1
+
+    const/4 v2, 0x7
+
+    aput v2, v0, v1
+    :try_end_6
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_6
+
+    :catch_6
+    :try_start_7
+    sget-object v0, Lcom/google/gson/internal/bind/TypeAdapters$35;->$SwitchMap$com$google$gson$stream$JsonToken:[I
+
+    sget-object v1, Lcom/google/gson/stream/JsonToken;->NAME:Lcom/google/gson/stream/JsonToken;
+
+    invoke-virtual {v1}, Lcom/google/gson/stream/JsonToken;->ordinal()I
+
+    move-result v1
+
+    const/16 v2, 0x8
+
+    aput v2, v0, v1
+    :try_end_7
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_7
+
+    :catch_7
+    :try_start_8
+    sget-object v0, Lcom/google/gson/internal/bind/TypeAdapters$35;->$SwitchMap$com$google$gson$stream$JsonToken:[I
+
+    sget-object v1, Lcom/google/gson/stream/JsonToken;->END_OBJECT:Lcom/google/gson/stream/JsonToken;
+
+    invoke-virtual {v1}, Lcom/google/gson/stream/JsonToken;->ordinal()I
+
+    move-result v1
+
+    const/16 v2, 0x9
+
+    aput v2, v0, v1
+    :try_end_8
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_8 .. :try_end_8} :catch_8
+
+    :catch_8
+    :try_start_9
+    sget-object v0, Lcom/google/gson/internal/bind/TypeAdapters$35;->$SwitchMap$com$google$gson$stream$JsonToken:[I
+
+    sget-object v1, Lcom/google/gson/stream/JsonToken;->END_ARRAY:Lcom/google/gson/stream/JsonToken;
+
+    invoke-virtual {v1}, Lcom/google/gson/stream/JsonToken;->ordinal()I
+
+    move-result v1
+
+    const/16 v2, 0xa
+
+    aput v2, v0, v1
+    :try_end_9
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_9} :catch_9
+
+    :catch_9
+    return-void
 .end method

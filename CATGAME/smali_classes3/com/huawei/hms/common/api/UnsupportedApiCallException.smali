@@ -9,20 +9,19 @@
 
 
 # instance fields
-.field private final a:Lcom/huawei/hms/common/Feature;
+.field private final feature:Lcom/huawei/hms/common/Feature;
 
 
 # direct methods
 .method public constructor <init>(Lcom/huawei/hms/common/Feature;)V
     .locals 0
 
-    .line 19
+    .line 1
     invoke-direct {p0}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    .line 20
-    iput-object p1, p0, Lcom/huawei/hms/common/api/UnsupportedApiCallException;->a:Lcom/huawei/hms/common/Feature;
+    .line 2
+    iput-object p1, p0, Lcom/huawei/hms/common/api/UnsupportedApiCallException;->feature:Lcom/huawei/hms/common/Feature;
 
-    .line 21
     return-void
 .end method
 
@@ -31,18 +30,22 @@
 .method public final getMessage()Ljava/lang/String;
     .locals 2
 
-    .line 24
+    .line 1
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v1, p0, Lcom/huawei/hms/common/api/UnsupportedApiCallException;->a:Lcom/huawei/hms/common/Feature;
+    iget-object v1, p0, Lcom/huawei/hms/common/api/UnsupportedApiCallException;->feature:Lcom/huawei/hms/common/Feature;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     const-string v1, " is unsupported"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

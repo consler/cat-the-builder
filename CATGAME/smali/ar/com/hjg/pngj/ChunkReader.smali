@@ -26,25 +26,21 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/String;JLar/com/hjg/pngj/ChunkReader$ChunkReaderMode;)V
     .locals 4
-    .param p1, "clen"    # I
-    .param p2, "id"    # Ljava/lang/String;
-    .param p3, "offsetInPng"    # J
-    .param p5, "mode"    # Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
 
     .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 27
     const/4 v0, 0x0
 
+    .line 27
     iput v0, p0, Lar/com/hjg/pngj/ChunkReader;->read:I
 
     .line 28
     iput v0, p0, Lar/com/hjg/pngj/ChunkReader;->crcn:I
 
-    .line 57
     if-eqz p5, :cond_2
 
+    .line 57
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
     move-result v1
@@ -83,9 +79,9 @@
     invoke-virtual {v1, p3, p4}, Lar/com/hjg/pngj/chunks/ChunkRaw;->setOffset(J)V
 
     .line 62
-    sget-object v1, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;->SKIP:Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
+    sget-object p1, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;->SKIP:Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
 
-    if-ne p5, v1, :cond_1
+    if-ne p5, p1, :cond_1
 
     goto :goto_1
 
@@ -95,30 +91,29 @@
     :goto_1
     iput-boolean v0, p0, Lar/com/hjg/pngj/ChunkReader;->crcCheck:Z
 
-    .line 63
     return-void
 
     .line 58
     :cond_2
-    new-instance v0, Lar/com/hjg/pngj/PngjExceptionInternal;
+    new-instance p1, Lar/com/hjg/pngj/PngjExceptionInternal;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string p3, "Bad chunk paramenters: "
 
-    const-string v2, "Bad chunk paramenters: "
+    invoke-direct {p2, p3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Lar/com/hjg/pngj/PngjExceptionInternal;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/PngjExceptionInternal;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -127,24 +122,19 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 4
 
-    .line 191
     const/4 v0, 0x1
 
     if-ne p0, p1, :cond_0
 
-    .line 192
     return v0
 
-    .line 193
     :cond_0
     const/4 v1, 0x0
 
     if-nez p1, :cond_1
 
-    .line 194
     return v1
 
     .line 195
@@ -159,64 +149,51 @@
 
     if-eq v2, v3, :cond_2
 
-    .line 196
     return v1
 
     .line 197
     :cond_2
-    move-object v2, p1
-
-    check-cast v2, Lar/com/hjg/pngj/ChunkReader;
+    check-cast p1, Lar/com/hjg/pngj/ChunkReader;
 
     .line 198
-    .local v2, "other":Lar/com/hjg/pngj/ChunkReader;
-    iget-object v3, p0, Lar/com/hjg/pngj/ChunkReader;->chunkRaw:Lar/com/hjg/pngj/chunks/ChunkRaw;
+    iget-object v2, p0, Lar/com/hjg/pngj/ChunkReader;->chunkRaw:Lar/com/hjg/pngj/chunks/ChunkRaw;
 
-    if-nez v3, :cond_3
+    if-nez v2, :cond_3
 
     .line 199
-    iget-object v3, v2, Lar/com/hjg/pngj/ChunkReader;->chunkRaw:Lar/com/hjg/pngj/chunks/ChunkRaw;
+    iget-object p1, p1, Lar/com/hjg/pngj/ChunkReader;->chunkRaw:Lar/com/hjg/pngj/chunks/ChunkRaw;
 
-    if-eqz v3, :cond_4
+    if-eqz p1, :cond_4
 
-    .line 200
     return v1
 
     .line 201
     :cond_3
-    iget-object v4, v2, Lar/com/hjg/pngj/ChunkReader;->chunkRaw:Lar/com/hjg/pngj/chunks/ChunkRaw;
+    iget-object p1, p1, Lar/com/hjg/pngj/ChunkReader;->chunkRaw:Lar/com/hjg/pngj/chunks/ChunkRaw;
 
-    invoke-virtual {v3, v4}, Lar/com/hjg/pngj/chunks/ChunkRaw;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, p1}, Lar/com/hjg/pngj/chunks/ChunkRaw;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result p1
 
-    if-nez v3, :cond_4
+    if-nez p1, :cond_4
 
-    .line 202
     return v1
 
-    .line 203
     :cond_4
     return v0
 .end method
 
 .method public final feedBytes([BII)I
-    .locals 6
-    .param p1, "buf"    # [B
-    .param p2, "off"    # I
-    .param p3, "len"    # I
+    .locals 5
 
-    .line 87
     const/4 v0, 0x0
 
     if-nez p3, :cond_0
 
-    .line 88
     return v0
 
-    .line 89
     :cond_0
-    if-ltz p3, :cond_d
+    if-ltz p3, :cond_e
 
     .line 91
     iget v1, p0, Lar/com/hjg/pngj/ChunkReader;->read:I
@@ -250,17 +227,14 @@
 
     sub-int/2addr v1, v3
 
-    .line 94
-    .local v1, "bytesForData":I
     if-le v1, p3, :cond_2
 
-    .line 95
     move v1, p3
 
-    .line 97
     :cond_2
     if-gtz v1, :cond_3
 
+    .line 97
     iget v3, p0, Lar/com/hjg/pngj/ChunkReader;->crcn:I
 
     if-nez v3, :cond_7
@@ -334,118 +308,111 @@
 
     iput v3, p0, Lar/com/hjg/pngj/ChunkReader;->read:I
 
-    .line 114
     add-int/2addr p2, v1
 
-    .line 115
     sub-int/2addr p3, v1
 
-    .line 117
-    :cond_7
-    const/4 v3, 0x0
-
     .line 118
-    .local v3, "crcRead":I
-    iget v4, p0, Lar/com/hjg/pngj/ChunkReader;->read:I
+    :cond_7
+    iget v3, p0, Lar/com/hjg/pngj/ChunkReader;->read:I
 
-    iget-object v5, p0, Lar/com/hjg/pngj/ChunkReader;->chunkRaw:Lar/com/hjg/pngj/chunks/ChunkRaw;
+    iget-object v4, p0, Lar/com/hjg/pngj/ChunkReader;->chunkRaw:Lar/com/hjg/pngj/chunks/ChunkRaw;
 
-    iget v5, v5, Lar/com/hjg/pngj/chunks/ChunkRaw;->len:I
+    iget v4, v4, Lar/com/hjg/pngj/chunks/ChunkRaw;->len:I
 
-    if-ne v4, v5, :cond_c
+    if-ne v3, v4, :cond_d
 
     .line 119
-    iget v4, p0, Lar/com/hjg/pngj/ChunkReader;->crcn:I
+    iget v3, p0, Lar/com/hjg/pngj/ChunkReader;->crcn:I
 
-    rsub-int/lit8 v3, v4, 0x4
+    rsub-int/lit8 v3, v3, 0x4
 
-    .line 120
     if-le v3, p3, :cond_8
 
-    .line 121
-    move v3, p3
+    goto :goto_1
 
-    .line 122
     :cond_8
-    if-lez v3, :cond_c
+    move p3, v3
+
+    :goto_1
+    if-lez p3, :cond_c
 
     .line 123
-    iget-object v4, p0, Lar/com/hjg/pngj/ChunkReader;->chunkRaw:Lar/com/hjg/pngj/chunks/ChunkRaw;
+    iget-object v3, p0, Lar/com/hjg/pngj/ChunkReader;->chunkRaw:Lar/com/hjg/pngj/chunks/ChunkRaw;
 
-    iget-object v4, v4, Lar/com/hjg/pngj/chunks/ChunkRaw;->crcval:[B
+    iget-object v3, v3, Lar/com/hjg/pngj/chunks/ChunkRaw;->crcval:[B
 
-    if-eq p1, v4, :cond_9
+    if-eq p1, v3, :cond_9
 
     .line 124
-    iget-object v4, p0, Lar/com/hjg/pngj/ChunkReader;->chunkRaw:Lar/com/hjg/pngj/chunks/ChunkRaw;
+    iget-object v3, p0, Lar/com/hjg/pngj/ChunkReader;->chunkRaw:Lar/com/hjg/pngj/chunks/ChunkRaw;
 
-    iget-object v4, v4, Lar/com/hjg/pngj/chunks/ChunkRaw;->crcval:[B
+    iget-object v3, v3, Lar/com/hjg/pngj/chunks/ChunkRaw;->crcval:[B
 
-    iget v5, p0, Lar/com/hjg/pngj/ChunkReader;->crcn:I
+    iget v4, p0, Lar/com/hjg/pngj/ChunkReader;->crcn:I
 
-    invoke-static {p1, p2, v4, v5, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p1, p2, v3, v4, p3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 125
     :cond_9
-    iget v4, p0, Lar/com/hjg/pngj/ChunkReader;->crcn:I
+    iget p1, p0, Lar/com/hjg/pngj/ChunkReader;->crcn:I
 
-    add-int/2addr v4, v3
+    add-int/2addr p1, p3
 
-    iput v4, p0, Lar/com/hjg/pngj/ChunkReader;->crcn:I
+    iput p1, p0, Lar/com/hjg/pngj/ChunkReader;->crcn:I
 
-    .line 126
-    if-ne v4, v2, :cond_c
+    if-ne p1, v2, :cond_c
 
     .line 127
-    iget-boolean v2, p0, Lar/com/hjg/pngj/ChunkReader;->crcCheck:Z
+    iget-boolean p1, p0, Lar/com/hjg/pngj/ChunkReader;->crcCheck:Z
 
-    if-eqz v2, :cond_b
+    if-eqz p1, :cond_b
 
     .line 128
-    iget-object v2, p0, Lar/com/hjg/pngj/ChunkReader;->mode:Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
+    iget-object p1, p0, Lar/com/hjg/pngj/ChunkReader;->mode:Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
 
-    sget-object v4, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;->BUFFER:Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
+    sget-object p2, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;->BUFFER:Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
 
-    if-ne v2, v4, :cond_a
+    if-ne p1, p2, :cond_a
 
     .line 129
+    iget-object p1, p0, Lar/com/hjg/pngj/ChunkReader;->chunkRaw:Lar/com/hjg/pngj/chunks/ChunkRaw;
+
+    iget-object p2, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
+
     iget-object v2, p0, Lar/com/hjg/pngj/ChunkReader;->chunkRaw:Lar/com/hjg/pngj/chunks/ChunkRaw;
 
-    iget-object v4, v2, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
+    iget v2, v2, Lar/com/hjg/pngj/chunks/ChunkRaw;->len:I
 
-    iget-object v5, p0, Lar/com/hjg/pngj/ChunkReader;->chunkRaw:Lar/com/hjg/pngj/chunks/ChunkRaw;
-
-    iget v5, v5, Lar/com/hjg/pngj/chunks/ChunkRaw;->len:I
-
-    invoke-virtual {v2, v4, v0, v5}, Lar/com/hjg/pngj/chunks/ChunkRaw;->updateCrc([BII)V
+    invoke-virtual {p1, p2, v0, v2}, Lar/com/hjg/pngj/chunks/ChunkRaw;->updateCrc([BII)V
 
     .line 131
     :cond_a
-    iget-object v0, p0, Lar/com/hjg/pngj/ChunkReader;->chunkRaw:Lar/com/hjg/pngj/chunks/ChunkRaw;
+    iget-object p1, p0, Lar/com/hjg/pngj/ChunkReader;->chunkRaw:Lar/com/hjg/pngj/chunks/ChunkRaw;
 
-    invoke-virtual {v0}, Lar/com/hjg/pngj/chunks/ChunkRaw;->checkCrc()V
+    invoke-virtual {p1}, Lar/com/hjg/pngj/chunks/ChunkRaw;->checkCrc()V
 
     .line 133
     :cond_b
     invoke-virtual {p0}, Lar/com/hjg/pngj/ChunkReader;->chunkDone()V
 
-    .line 137
     :cond_c
-    add-int v0, v1, v3
+    move v0, p3
 
-    return v0
+    :cond_d
+    add-int/2addr v1, v0
+
+    return v1
 
     .line 90
-    .end local v1    # "bytesForData":I
-    .end local v3    # "crcRead":I
-    :cond_d
-    new-instance v0, Lar/com/hjg/pngj/PngjException;
+    :cond_e
+    new-instance p1, Lar/com/hjg/pngj/PngjException;
 
-    const-string v1, "negative length??"
+    const-string p2, "negative length??"
 
-    invoke-direct {v0, v1}, Lar/com/hjg/pngj/PngjException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/PngjException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public getChunkRaw()Lar/com/hjg/pngj/chunks/ChunkRaw;
@@ -458,39 +425,28 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
-
-    .line 180
-    const/16 v0, 0x1f
-
-    .line 181
-    .local v0, "prime":I
-    const/4 v1, 0x1
+    .locals 2
 
     .line 182
-    .local v1, "result":I
-    mul-int/lit8 v2, v1, 0x1f
+    iget-object v0, p0, Lar/com/hjg/pngj/ChunkReader;->chunkRaw:Lar/com/hjg/pngj/chunks/ChunkRaw;
 
-    iget-object v3, p0, Lar/com/hjg/pngj/ChunkReader;->chunkRaw:Lar/com/hjg/pngj/chunks/ChunkRaw;
+    if-nez v0, :cond_0
 
-    if-nez v3, :cond_0
-
-    const/4 v3, 0x0
+    const/4 v0, 0x0
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v3}, Lar/com/hjg/pngj/chunks/ChunkRaw;->hashCode()I
+    invoke-virtual {v0}, Lar/com/hjg/pngj/chunks/ChunkRaw;->hashCode()I
 
-    move-result v3
+    move-result v0
 
     :goto_0
-    add-int/2addr v2, v3
+    const/16 v1, 0x1f
 
-    .line 183
-    .end local v1    # "result":I
-    .local v2, "result":I
-    return v2
+    add-int/2addr v1, v0
+
+    return v1
 .end method
 
 .method public final isDone()Z
@@ -518,8 +474,7 @@
 .end method
 
 .method public setCrcCheck(Z)V
-    .locals 2
-    .param p1, "crcCheck"    # Z
+    .locals 1
 
     .line 155
     iget v0, p0, Lar/com/hjg/pngj/ChunkReader;->read:I
@@ -536,20 +491,19 @@
 
     .line 156
     :cond_0
-    new-instance v0, Lar/com/hjg/pngj/PngjException;
+    new-instance p1, Lar/com/hjg/pngj/PngjException;
 
-    const-string/jumbo v1, "too late!"
+    const-string v0, "too late!"
 
-    invoke-direct {v0, v1}, Lar/com/hjg/pngj/PngjException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lar/com/hjg/pngj/PngjException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 157
     :cond_1
     :goto_0
     iput-boolean p1, p0, Lar/com/hjg/pngj/ChunkReader;->crcCheck:Z
 
-    .line 158
     return-void
 .end method
 

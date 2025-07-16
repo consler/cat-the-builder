@@ -36,16 +36,13 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 0
-    .param p1, "capacity"    # I
 
     .line 240
-    .local p0, "this":Lio/reactivex/internal/functions/Functions$ArrayListCapacityCallable;, "Lio/reactivex/internal/functions/Functions$ArrayListCapacityCallable<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 241
     iput p1, p0, Lio/reactivex/internal/functions/Functions$ArrayListCapacityCallable;->capacity:I
 
-    .line 242
     return-void
 .end method
 
@@ -60,7 +57,6 @@
     .end annotation
 
     .line 237
-    .local p0, "this":Lio/reactivex/internal/functions/Functions$ArrayListCapacityCallable;, "Lio/reactivex/internal/functions/Functions$ArrayListCapacityCallable<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/functions/Functions$ArrayListCapacityCallable;->call()Ljava/util/List;
 
     move-result-object v0
@@ -85,7 +81,6 @@
     .end annotation
 
     .line 246
-    .local p0, "this":Lio/reactivex/internal/functions/Functions$ArrayListCapacityCallable;, "Lio/reactivex/internal/functions/Functions$ArrayListCapacityCallable<TT;>;"
     new-instance v0, Ljava/util/ArrayList;
 
     iget v1, p0, Lio/reactivex/internal/functions/Functions$ArrayListCapacityCallable;->capacity:I

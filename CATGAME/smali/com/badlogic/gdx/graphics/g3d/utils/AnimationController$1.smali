@@ -29,7 +29,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;
 
     .line 106
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$1;->this$0:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController;

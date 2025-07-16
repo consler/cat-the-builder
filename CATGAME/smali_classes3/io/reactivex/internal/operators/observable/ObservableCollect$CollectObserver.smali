@@ -78,10 +78,6 @@
     .end annotation
 
     .line 58
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver;, "Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver<TT;TU;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TU;>;"
-    .local p2, "u":Ljava/lang/Object;, "TU;"
-    .local p3, "collector":Lio/reactivex/functions/BiConsumer;, "Lio/reactivex/functions/BiConsumer<-TU;-TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 59
@@ -93,7 +89,6 @@
     .line 61
     iput-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver;->u:Ljava/lang/Object;
 
-    .line 62
     return-void
 .end method
 
@@ -103,12 +98,10 @@
     .locals 1
 
     .line 75
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver;, "Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver<TT;TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 76
     return-void
 .end method
 
@@ -116,7 +109,6 @@
     .locals 1
 
     .line 80
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver;, "Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver<TT;TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->isDisposed()Z
@@ -130,18 +122,16 @@
     .locals 2
 
     .line 109
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver;, "Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver<TT;TU;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 110
     return-void
 
-    .line 112
     :cond_0
     const/4 v0, 0x1
 
+    .line 112
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver;->done:Z
 
     .line 113
@@ -156,16 +146,13 @@
 
     invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 115
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 99
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver;, "Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver<TT;TU;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver;->done:Z
 
     if-eqz v0, :cond_0
@@ -173,13 +160,12 @@
     .line 100
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 101
     return-void
 
-    .line 103
     :cond_0
     const/4 v0, 0x1
 
+    .line 103
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver;->done:Z
 
     .line 104
@@ -187,7 +173,6 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 105
     return-void
 .end method
 
@@ -200,13 +185,10 @@
     .end annotation
 
     .line 86
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver;, "Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver<TT;TU;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 87
     return-void
 
     .line 90
@@ -220,34 +202,27 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 94
     goto :goto_0
 
-    .line 91
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     .line 92
-    .local v0, "e":Ljava/lang/Throwable;
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver;->s:Lio/reactivex/disposables/Disposable;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver;->s:Lio/reactivex/disposables/Disposable;
 
-    invoke-interface {v1}, Lio/reactivex/disposables/Disposable;->dispose()V
+    invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
     .line 93
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 95
-    .end local v0    # "e":Ljava/lang/Throwable;
     :goto_0
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 66
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver;, "Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver<TT;TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -260,11 +235,10 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver;->s:Lio/reactivex/disposables/Disposable;
 
     .line 68
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableCollect$CollectObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v0, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 70
     :cond_0
     return-void
 .end method

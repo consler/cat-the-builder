@@ -15,15 +15,14 @@
 
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/Graphics;)V
-    .locals 3
-    .param p1, "graphics"    # Lcom/badlogic/gdx/Graphics;
+    .locals 1
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 37
     const/4 v0, 0x0
 
+    .line 37
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->enabled:Z
 
     .line 45
@@ -34,49 +33,46 @@
 
     move-result-object v0
 
-    .line 47
-    .local v0, "gl30":Lcom/badlogic/gdx/graphics/GL30;
     if-eqz v0, :cond_0
 
     .line 48
-    new-instance v1, Lcom/badlogic/gdx/graphics/profiling/GL30Interceptor;
+    new-instance v0, Lcom/badlogic/gdx/graphics/profiling/GL30Interceptor;
 
     invoke-interface {p1}, Lcom/badlogic/gdx/Graphics;->getGL30()Lcom/badlogic/gdx/graphics/GL30;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, p0, v2}, Lcom/badlogic/gdx/graphics/profiling/GL30Interceptor;-><init>(Lcom/badlogic/gdx/graphics/profiling/GLProfiler;Lcom/badlogic/gdx/graphics/GL30;)V
+    invoke-direct {v0, p0, p1}, Lcom/badlogic/gdx/graphics/profiling/GL30Interceptor;-><init>(Lcom/badlogic/gdx/graphics/profiling/GLProfiler;Lcom/badlogic/gdx/graphics/GL30;)V
 
-    iput-object v1, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->glInterceptor:Lcom/badlogic/gdx/graphics/profiling/GLInterceptor;
+    iput-object v0, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->glInterceptor:Lcom/badlogic/gdx/graphics/profiling/GLInterceptor;
 
     goto :goto_0
 
     .line 50
     :cond_0
-    new-instance v1, Lcom/badlogic/gdx/graphics/profiling/GL20Interceptor;
+    new-instance v0, Lcom/badlogic/gdx/graphics/profiling/GL20Interceptor;
 
     invoke-interface {p1}, Lcom/badlogic/gdx/Graphics;->getGL20()Lcom/badlogic/gdx/graphics/GL20;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, p0, v2}, Lcom/badlogic/gdx/graphics/profiling/GL20Interceptor;-><init>(Lcom/badlogic/gdx/graphics/profiling/GLProfiler;Lcom/badlogic/gdx/graphics/GL20;)V
+    invoke-direct {v0, p0, p1}, Lcom/badlogic/gdx/graphics/profiling/GL20Interceptor;-><init>(Lcom/badlogic/gdx/graphics/profiling/GLProfiler;Lcom/badlogic/gdx/graphics/GL20;)V
 
-    iput-object v1, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->glInterceptor:Lcom/badlogic/gdx/graphics/profiling/GLInterceptor;
+    iput-object v0, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->glInterceptor:Lcom/badlogic/gdx/graphics/profiling/GLInterceptor;
 
     .line 52
     :goto_0
-    sget-object v1, Lcom/badlogic/gdx/graphics/profiling/GLErrorListener;->LOGGING_LISTENER:Lcom/badlogic/gdx/graphics/profiling/GLErrorListener;
+    sget-object p1, Lcom/badlogic/gdx/graphics/profiling/GLErrorListener;->LOGGING_LISTENER:Lcom/badlogic/gdx/graphics/profiling/GLErrorListener;
 
-    iput-object v1, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->listener:Lcom/badlogic/gdx/graphics/profiling/GLErrorListener;
+    iput-object p1, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->listener:Lcom/badlogic/gdx/graphics/profiling/GLErrorListener;
 
-    .line 53
     return-void
 .end method
 
 
 # virtual methods
 .method public disable()V
-    .locals 3
+    .locals 2
 
     .line 71
     iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->enabled:Z
@@ -93,50 +89,48 @@
 
     move-result-object v0
 
-    .line 74
-    .local v0, "gl30":Lcom/badlogic/gdx/graphics/GL30;
     if-eqz v0, :cond_1
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->graphics:Lcom/badlogic/gdx/Graphics;
+    .line 74
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->graphics:Lcom/badlogic/gdx/Graphics;
 
-    invoke-interface {v1}, Lcom/badlogic/gdx/Graphics;->getGL30()Lcom/badlogic/gdx/graphics/GL30;
+    invoke-interface {v0}, Lcom/badlogic/gdx/Graphics;->getGL30()Lcom/badlogic/gdx/graphics/GL30;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Lcom/badlogic/gdx/graphics/profiling/GL30Interceptor;
+    check-cast v1, Lcom/badlogic/gdx/graphics/profiling/GL30Interceptor;
 
-    iget-object v2, v2, Lcom/badlogic/gdx/graphics/profiling/GL30Interceptor;->gl30:Lcom/badlogic/gdx/graphics/GL30;
+    iget-object v1, v1, Lcom/badlogic/gdx/graphics/profiling/GL30Interceptor;->gl30:Lcom/badlogic/gdx/graphics/GL30;
 
-    invoke-interface {v1, v2}, Lcom/badlogic/gdx/Graphics;->setGL30(Lcom/badlogic/gdx/graphics/GL30;)V
+    invoke-interface {v0, v1}, Lcom/badlogic/gdx/Graphics;->setGL30(Lcom/badlogic/gdx/graphics/GL30;)V
 
     goto :goto_0
 
     .line 75
     :cond_1
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->graphics:Lcom/badlogic/gdx/Graphics;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->graphics:Lcom/badlogic/gdx/Graphics;
 
-    invoke-interface {v1}, Lcom/badlogic/gdx/Graphics;->getGL20()Lcom/badlogic/gdx/graphics/GL20;
+    invoke-interface {v0}, Lcom/badlogic/gdx/Graphics;->getGL20()Lcom/badlogic/gdx/graphics/GL20;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Lcom/badlogic/gdx/graphics/profiling/GL20Interceptor;
+    check-cast v1, Lcom/badlogic/gdx/graphics/profiling/GL20Interceptor;
 
-    iget-object v2, v2, Lcom/badlogic/gdx/graphics/profiling/GL20Interceptor;->gl20:Lcom/badlogic/gdx/graphics/GL20;
+    iget-object v1, v1, Lcom/badlogic/gdx/graphics/profiling/GL20Interceptor;->gl20:Lcom/badlogic/gdx/graphics/GL20;
 
-    invoke-interface {v1, v2}, Lcom/badlogic/gdx/Graphics;->setGL20(Lcom/badlogic/gdx/graphics/GL20;)V
+    invoke-interface {v0, v1}, Lcom/badlogic/gdx/Graphics;->setGL20(Lcom/badlogic/gdx/graphics/GL20;)V
+
+    :goto_0
+    const/4 v0, 0x0
 
     .line 77
-    :goto_0
-    const/4 v1, 0x0
+    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->enabled:Z
 
-    iput-boolean v1, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->enabled:Z
-
-    .line 78
     return-void
 .end method
 
 .method public enable()V
-    .locals 3
+    .locals 2
 
     .line 57
     iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->enabled:Z
@@ -153,36 +147,33 @@
 
     move-result-object v0
 
-    .line 60
-    .local v0, "gl30":Lcom/badlogic/gdx/graphics/GL30;
     if-eqz v0, :cond_1
 
     .line 61
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->graphics:Lcom/badlogic/gdx/Graphics;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->graphics:Lcom/badlogic/gdx/Graphics;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->glInterceptor:Lcom/badlogic/gdx/graphics/profiling/GLInterceptor;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->glInterceptor:Lcom/badlogic/gdx/graphics/profiling/GLInterceptor;
 
-    check-cast v2, Lcom/badlogic/gdx/graphics/GL30;
+    check-cast v1, Lcom/badlogic/gdx/graphics/GL30;
 
-    invoke-interface {v1, v2}, Lcom/badlogic/gdx/Graphics;->setGL30(Lcom/badlogic/gdx/graphics/GL30;)V
+    invoke-interface {v0, v1}, Lcom/badlogic/gdx/Graphics;->setGL30(Lcom/badlogic/gdx/graphics/GL30;)V
 
     goto :goto_0
 
     .line 63
     :cond_1
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->graphics:Lcom/badlogic/gdx/Graphics;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->graphics:Lcom/badlogic/gdx/Graphics;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->glInterceptor:Lcom/badlogic/gdx/graphics/profiling/GLInterceptor;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->glInterceptor:Lcom/badlogic/gdx/graphics/profiling/GLInterceptor;
 
-    invoke-interface {v1, v2}, Lcom/badlogic/gdx/Graphics;->setGL20(Lcom/badlogic/gdx/graphics/GL20;)V
+    invoke-interface {v0, v1}, Lcom/badlogic/gdx/Graphics;->setGL20(Lcom/badlogic/gdx/graphics/GL20;)V
+
+    :goto_0
+    const/4 v0, 0x1
 
     .line 66
-    :goto_0
-    const/4 v1, 0x1
+    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->enabled:Z
 
-    iput-boolean v1, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->enabled:Z
-
-    .line 67
     return-void
 .end method
 
@@ -277,17 +268,14 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/profiling/GLInterceptor;->reset()V
 
-    .line 139
     return-void
 .end method
 
 .method public setListener(Lcom/badlogic/gdx/graphics/profiling/GLErrorListener;)V
     .locals 0
-    .param p1, "errorListener"    # Lcom/badlogic/gdx/graphics/profiling/GLErrorListener;
 
     .line 82
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/profiling/GLProfiler;->listener:Lcom/badlogic/gdx/graphics/profiling/GLErrorListener;
 
-    .line 83
     return-void
 .end method

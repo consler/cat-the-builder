@@ -37,12 +37,11 @@
 # direct methods
 .method private constructor <init>(Lokhttp3/Response;Ljava/lang/Object;Lokhttp3/ResponseBody;)V
     .locals 0
-    .param p1, "rawResponse"    # Lokhttp3/Response;
     .param p2    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p3, "errorBody"    # Lokhttp3/ResponseBody;
+    .param p3    # Lokhttp3/ResponseBody;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -57,8 +56,6 @@
     .end annotation
 
     .line 119
-    .local p0, "this":Lretrofit2/Response;, "Lretrofit2/Response<TT;>;"
-    .local p2, "body":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 120
@@ -70,14 +67,11 @@
     .line 122
     iput-object p3, p0, Lretrofit2/Response;->errorBody:Lokhttp3/ResponseBody;
 
-    .line 123
     return-void
 .end method
 
 .method public static error(ILokhttp3/ResponseBody;)Lretrofit2/Response;
     .locals 5
-    .param p0, "code"    # I
-    .param p1, "body"    # Lokhttp3/ResponseBody;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -90,12 +84,11 @@
         }
     .end annotation
 
-    .line 91
     const-string v0, "body == null"
 
+    .line 91
     invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 92
     const/16 v0, 0x190
 
     if-lt p0, v0, :cond_0
@@ -125,80 +118,78 @@
     .line 97
     invoke-virtual {v0, p0}, Lokhttp3/Response$Builder;->code(I)Lokhttp3/Response$Builder;
 
-    move-result-object v0
+    move-result-object p0
+
+    const-string v0, "Response.error()"
 
     .line 98
-    const-string v1, "Response.error()"
+    invoke-virtual {p0, v0}, Lokhttp3/Response$Builder;->message(Ljava/lang/String;)Lokhttp3/Response$Builder;
 
-    invoke-virtual {v0, v1}, Lokhttp3/Response$Builder;->message(Ljava/lang/String;)Lokhttp3/Response$Builder;
+    move-result-object p0
 
-    move-result-object v0
-
-    sget-object v1, Lokhttp3/Protocol;->HTTP_1_1:Lokhttp3/Protocol;
+    sget-object v0, Lokhttp3/Protocol;->HTTP_1_1:Lokhttp3/Protocol;
 
     .line 99
-    invoke-virtual {v0, v1}, Lokhttp3/Response$Builder;->protocol(Lokhttp3/Protocol;)Lokhttp3/Response$Builder;
+    invoke-virtual {p0, v0}, Lokhttp3/Response$Builder;->protocol(Lokhttp3/Protocol;)Lokhttp3/Response$Builder;
 
-    move-result-object v0
+    move-result-object p0
 
-    new-instance v1, Lokhttp3/Request$Builder;
+    new-instance v0, Lokhttp3/Request$Builder;
 
-    invoke-direct {v1}, Lokhttp3/Request$Builder;-><init>()V
+    invoke-direct {v0}, Lokhttp3/Request$Builder;-><init>()V
+
+    const-string v1, "http://localhost/"
 
     .line 100
-    const-string v2, "http://localhost/"
-
-    invoke-virtual {v1, v2}, Lokhttp3/Request$Builder;->url(Ljava/lang/String;)Lokhttp3/Request$Builder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lokhttp3/Response$Builder;->request(Lokhttp3/Request;)Lokhttp3/Response$Builder;
+    invoke-virtual {v0, v1}, Lokhttp3/Request$Builder;->url(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object v0
+
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lokhttp3/Response$Builder;->request(Lokhttp3/Request;)Lokhttp3/Response$Builder;
+
+    move-result-object p0
 
     .line 101
-    invoke-virtual {v0}, Lokhttp3/Response$Builder;->build()Lokhttp3/Response;
+    invoke-virtual {p0}, Lokhttp3/Response$Builder;->build()Lokhttp3/Response;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 93
-    invoke-static {p1, v0}, Lretrofit2/Response;->error(Lokhttp3/ResponseBody;Lokhttp3/Response;)Lretrofit2/Response;
+    invoke-static {p1, p0}, Lretrofit2/Response;->error(Lokhttp3/ResponseBody;Lokhttp3/Response;)Lretrofit2/Response;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 92
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "code < 400: "
 
-    const-string v2, "code < 400: "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public static error(Lokhttp3/ResponseBody;Lokhttp3/Response;)Lretrofit2/Response;
     .locals 2
-    .param p0, "body"    # Lokhttp3/ResponseBody;
-    .param p1, "rawResponse"    # Lokhttp3/Response;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -212,14 +203,14 @@
         }
     .end annotation
 
-    .line 106
     const-string v0, "body == null"
 
+    .line 106
     invoke-static {p0, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 107
     const-string v0, "rawResponse == null"
 
+    .line 107
     invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 108
@@ -240,18 +231,17 @@
 
     .line 109
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "rawResponse should not be successful response"
+    const-string p1, "rawResponse should not be successful response"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static success(ILjava/lang/Object;)Lretrofit2/Response;
-    .locals 3
-    .param p0, "code"    # I
+    .locals 2
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
@@ -266,8 +256,6 @@
         }
     .end annotation
 
-    .line 44
-    .local p1, "body":Ljava/lang/Object;, "TT;"
     const/16 v0, 0xc8
 
     if-lt p0, v0, :cond_0
@@ -284,74 +272,74 @@
     .line 50
     invoke-virtual {v0, p0}, Lokhttp3/Response$Builder;->code(I)Lokhttp3/Response$Builder;
 
-    move-result-object v0
+    move-result-object p0
+
+    const-string v0, "Response.success()"
 
     .line 51
-    const-string v1, "Response.success()"
+    invoke-virtual {p0, v0}, Lokhttp3/Response$Builder;->message(Ljava/lang/String;)Lokhttp3/Response$Builder;
 
-    invoke-virtual {v0, v1}, Lokhttp3/Response$Builder;->message(Ljava/lang/String;)Lokhttp3/Response$Builder;
+    move-result-object p0
 
-    move-result-object v0
-
-    sget-object v1, Lokhttp3/Protocol;->HTTP_1_1:Lokhttp3/Protocol;
+    sget-object v0, Lokhttp3/Protocol;->HTTP_1_1:Lokhttp3/Protocol;
 
     .line 52
-    invoke-virtual {v0, v1}, Lokhttp3/Response$Builder;->protocol(Lokhttp3/Protocol;)Lokhttp3/Response$Builder;
+    invoke-virtual {p0, v0}, Lokhttp3/Response$Builder;->protocol(Lokhttp3/Protocol;)Lokhttp3/Response$Builder;
 
-    move-result-object v0
+    move-result-object p0
 
-    new-instance v1, Lokhttp3/Request$Builder;
+    new-instance v0, Lokhttp3/Request$Builder;
 
-    invoke-direct {v1}, Lokhttp3/Request$Builder;-><init>()V
+    invoke-direct {v0}, Lokhttp3/Request$Builder;-><init>()V
+
+    const-string v1, "http://localhost/"
 
     .line 53
-    const-string v2, "http://localhost/"
-
-    invoke-virtual {v1, v2}, Lokhttp3/Request$Builder;->url(Ljava/lang/String;)Lokhttp3/Request$Builder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lokhttp3/Response$Builder;->request(Lokhttp3/Request;)Lokhttp3/Response$Builder;
+    invoke-virtual {v0, v1}, Lokhttp3/Request$Builder;->url(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object v0
+
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lokhttp3/Response$Builder;->request(Lokhttp3/Request;)Lokhttp3/Response$Builder;
+
+    move-result-object p0
 
     .line 54
-    invoke-virtual {v0}, Lokhttp3/Response$Builder;->build()Lokhttp3/Response;
+    invoke-virtual {p0}, Lokhttp3/Response$Builder;->build()Lokhttp3/Response;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 47
-    invoke-static {p1, v0}, Lretrofit2/Response;->success(Ljava/lang/Object;Lokhttp3/Response;)Lretrofit2/Response;
+    invoke-static {p1, p0}, Lretrofit2/Response;->success(Ljava/lang/Object;Lokhttp3/Response;)Lretrofit2/Response;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 45
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "code < 200 or >= 300: "
 
-    const-string v2, "code < 200 or >= 300: "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public static success(Ljava/lang/Object;)Lretrofit2/Response;
@@ -371,21 +359,20 @@
     .end annotation
 
     .line 29
-    .local p0, "body":Ljava/lang/Object;, "TT;"
     new-instance v0, Lokhttp3/Response$Builder;
 
     invoke-direct {v0}, Lokhttp3/Response$Builder;-><init>()V
 
-    .line 32
     const/16 v1, 0xc8
 
+    .line 32
     invoke-virtual {v0, v1}, Lokhttp3/Response$Builder;->code(I)Lokhttp3/Response$Builder;
 
     move-result-object v0
 
-    .line 33
     const-string v1, "OK"
 
+    .line 33
     invoke-virtual {v0, v1}, Lokhttp3/Response$Builder;->message(Ljava/lang/String;)Lokhttp3/Response$Builder;
 
     move-result-object v0
@@ -401,9 +388,9 @@
 
     invoke-direct {v1}, Lokhttp3/Request$Builder;-><init>()V
 
-    .line 35
     const-string v2, "http://localhost/"
 
+    .line 35
     invoke-virtual {v1, v2}, Lokhttp3/Request$Builder;->url(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object v1
@@ -424,18 +411,17 @@
     .line 29
     invoke-static {p0, v0}, Lretrofit2/Response;->success(Ljava/lang/Object;Lokhttp3/Response;)Lretrofit2/Response;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static success(Ljava/lang/Object;Lokhttp3/Headers;)Lretrofit2/Response;
-    .locals 3
+    .locals 2
     .param p0    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p1, "headers"    # Lokhttp3/Headers;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -448,10 +434,9 @@
         }
     .end annotation
 
-    .line 62
-    .local p0, "body":Ljava/lang/Object;, "TT;"
     const-string v0, "headers == null"
 
+    .line 62
     invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 63
@@ -459,16 +444,16 @@
 
     invoke-direct {v0}, Lokhttp3/Response$Builder;-><init>()V
 
-    .line 66
     const/16 v1, 0xc8
 
+    .line 66
     invoke-virtual {v0, v1}, Lokhttp3/Response$Builder;->code(I)Lokhttp3/Response$Builder;
 
     move-result-object v0
 
-    .line 67
     const-string v1, "OK"
 
+    .line 67
     invoke-virtual {v0, v1}, Lokhttp3/Response$Builder;->message(Ljava/lang/String;)Lokhttp3/Response$Builder;
 
     move-result-object v0
@@ -483,38 +468,38 @@
     .line 69
     invoke-virtual {v0, p1}, Lokhttp3/Response$Builder;->headers(Lokhttp3/Headers;)Lokhttp3/Response$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    new-instance v1, Lokhttp3/Request$Builder;
+    new-instance v0, Lokhttp3/Request$Builder;
 
-    invoke-direct {v1}, Lokhttp3/Request$Builder;-><init>()V
+    invoke-direct {v0}, Lokhttp3/Request$Builder;-><init>()V
+
+    const-string v1, "http://localhost/"
 
     .line 70
-    const-string v2, "http://localhost/"
-
-    invoke-virtual {v1, v2}, Lokhttp3/Request$Builder;->url(Ljava/lang/String;)Lokhttp3/Request$Builder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lokhttp3/Response$Builder;->request(Lokhttp3/Request;)Lokhttp3/Response$Builder;
+    invoke-virtual {v0, v1}, Lokhttp3/Request$Builder;->url(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     move-result-object v0
+
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Lokhttp3/Response$Builder;->request(Lokhttp3/Request;)Lokhttp3/Response$Builder;
+
+    move-result-object p1
 
     .line 71
-    invoke-virtual {v0}, Lokhttp3/Response$Builder;->build()Lokhttp3/Response;
+    invoke-virtual {p1}, Lokhttp3/Response$Builder;->build()Lokhttp3/Response;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 63
-    invoke-static {p0, v0}, Lretrofit2/Response;->success(Ljava/lang/Object;Lokhttp3/Response;)Lretrofit2/Response;
+    invoke-static {p0, p1}, Lretrofit2/Response;->success(Ljava/lang/Object;Lokhttp3/Response;)Lretrofit2/Response;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static success(Ljava/lang/Object;Lokhttp3/Response;)Lretrofit2/Response;
@@ -523,7 +508,6 @@
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p1, "rawResponse"    # Lokhttp3/Response;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -536,10 +520,9 @@
         }
     .end annotation
 
-    .line 79
-    .local p0, "body":Ljava/lang/Object;, "TT;"
     const-string v0, "rawResponse == null"
 
+    .line 79
     invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 80
@@ -560,13 +543,13 @@
 
     .line 81
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "rawResponse must be successful response"
+    const-string p1, "rawResponse must be successful response"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
@@ -583,7 +566,6 @@
     .end annotation
 
     .line 152
-    .local p0, "this":Lretrofit2/Response;, "Lretrofit2/Response<TT;>;"
     iget-object v0, p0, Lretrofit2/Response;->body:Ljava/lang/Object;
 
     return-object v0
@@ -593,7 +575,6 @@
     .locals 1
 
     .line 132
-    .local p0, "this":Lretrofit2/Response;, "Lretrofit2/Response<TT;>;"
     iget-object v0, p0, Lretrofit2/Response;->rawResponse:Lokhttp3/Response;
 
     invoke-virtual {v0}, Lokhttp3/Response;->code()I
@@ -609,7 +590,6 @@
     .end annotation
 
     .line 157
-    .local p0, "this":Lretrofit2/Response;, "Lretrofit2/Response<TT;>;"
     iget-object v0, p0, Lretrofit2/Response;->errorBody:Lokhttp3/ResponseBody;
 
     return-object v0
@@ -619,7 +599,6 @@
     .locals 1
 
     .line 142
-    .local p0, "this":Lretrofit2/Response;, "Lretrofit2/Response<TT;>;"
     iget-object v0, p0, Lretrofit2/Response;->rawResponse:Lokhttp3/Response;
 
     invoke-virtual {v0}, Lokhttp3/Response;->headers()Lokhttp3/Headers;
@@ -633,7 +612,6 @@
     .locals 1
 
     .line 147
-    .local p0, "this":Lretrofit2/Response;, "Lretrofit2/Response<TT;>;"
     iget-object v0, p0, Lretrofit2/Response;->rawResponse:Lokhttp3/Response;
 
     invoke-virtual {v0}, Lokhttp3/Response;->isSuccessful()Z
@@ -647,7 +625,6 @@
     .locals 1
 
     .line 137
-    .local p0, "this":Lretrofit2/Response;, "Lretrofit2/Response<TT;>;"
     iget-object v0, p0, Lretrofit2/Response;->rawResponse:Lokhttp3/Response;
 
     invoke-virtual {v0}, Lokhttp3/Response;->message()Ljava/lang/String;
@@ -661,7 +638,6 @@
     .locals 1
 
     .line 127
-    .local p0, "this":Lretrofit2/Response;, "Lretrofit2/Response<TT;>;"
     iget-object v0, p0, Lretrofit2/Response;->rawResponse:Lokhttp3/Response;
 
     return-object v0
@@ -671,7 +647,6 @@
     .locals 1
 
     .line 162
-    .local p0, "this":Lretrofit2/Response;, "Lretrofit2/Response<TT;>;"
     iget-object v0, p0, Lretrofit2/Response;->rawResponse:Lokhttp3/Response;
 
     invoke-virtual {v0}, Lokhttp3/Response;->toString()Ljava/lang/String;

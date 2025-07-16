@@ -36,7 +36,6 @@
     .end annotation
 
     .line 44
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<Lcom/google/crypto/tink/HybridEncrypt;>;"
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;-><init>(Ljava/lang/Class;)V
 
     return-void
@@ -45,8 +44,7 @@
 
 # virtual methods
 .method public getPrimitive(Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;)Lcom/google/crypto/tink/HybridEncrypt;
-    .locals 11
-    .param p1, "recipientKeyProto"    # Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;
+    .locals 10
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -68,14 +66,9 @@
     move-result-object v0
 
     .line 49
-    .local v0, "eciesParams":Lcom/google/crypto/tink/proto/EciesAeadHkdfParams;
     invoke-virtual {v0}, Lcom/google/crypto/tink/proto/EciesAeadHkdfParams;->getKemParams()Lcom/google/crypto/tink/proto/EciesHkdfKemParams;
 
     move-result-object v1
-
-    .line 50
-    .local v1, "kemParams":Lcom/google/crypto/tink/proto/EciesHkdfKemParams;
-    nop
 
     .line 52
     invoke-virtual {v1}, Lcom/google/crypto/tink/proto/EciesHkdfKemParams;->getCurveType()Lcom/google/crypto/tink/proto/EllipticCurveType;
@@ -98,71 +91,66 @@
     .line 54
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;->getY()Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-virtual {v4}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->toByteArray()[B
+    invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->toByteArray()[B
 
-    move-result-object v4
+    move-result-object p1
 
     .line 51
-    invoke-static {v2, v3, v4}, Lcom/google/crypto/tink/subtle/EllipticCurves;->getEcPublicKey(Lcom/google/crypto/tink/subtle/EllipticCurves$CurveType;[B[B)Ljava/security/interfaces/ECPublicKey;
+    invoke-static {v2, v3, p1}, Lcom/google/crypto/tink/subtle/EllipticCurves;->getEcPublicKey(Lcom/google/crypto/tink/subtle/EllipticCurves$CurveType;[B[B)Ljava/security/interfaces/ECPublicKey;
 
-    move-result-object v2
+    move-result-object v5
 
     .line 55
-    .local v2, "recipientPublicKey":Ljava/security/interfaces/ECPublicKey;
-    new-instance v10, Lcom/google/crypto/tink/hybrid/RegistryEciesAeadHkdfDemHelper;
+    new-instance v9, Lcom/google/crypto/tink/hybrid/RegistryEciesAeadHkdfDemHelper;
 
     .line 56
     invoke-virtual {v0}, Lcom/google/crypto/tink/proto/EciesAeadHkdfParams;->getDemParams()Lcom/google/crypto/tink/proto/EciesAeadDemParams;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v3}, Lcom/google/crypto/tink/proto/EciesAeadDemParams;->getAeadDem()Lcom/google/crypto/tink/proto/KeyTemplate;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/EciesAeadDemParams;->getAeadDem()Lcom/google/crypto/tink/proto/KeyTemplate;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-direct {v10, v3}, Lcom/google/crypto/tink/hybrid/RegistryEciesAeadHkdfDemHelper;-><init>(Lcom/google/crypto/tink/proto/KeyTemplate;)V
+    invoke-direct {v9, p1}, Lcom/google/crypto/tink/hybrid/RegistryEciesAeadHkdfDemHelper;-><init>(Lcom/google/crypto/tink/proto/KeyTemplate;)V
 
     .line 57
-    .local v10, "demHelper":Lcom/google/crypto/tink/subtle/EciesAeadHkdfDemHelper;
-    new-instance v3, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridEncrypt;
+    new-instance p1, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridEncrypt;
 
     .line 59
     invoke-virtual {v1}, Lcom/google/crypto/tink/proto/EciesHkdfKemParams;->getHkdfSalt()Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v4}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->toByteArray()[B
+    invoke-virtual {v2}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->toByteArray()[B
 
-    move-result-object v7
+    move-result-object v6
 
     .line 60
     invoke-virtual {v1}, Lcom/google/crypto/tink/proto/EciesHkdfKemParams;->getHkdfHashType()Lcom/google/crypto/tink/proto/HashType;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-static {v4}, Lcom/google/crypto/tink/hybrid/HybridUtil;->toHmacAlgo(Lcom/google/crypto/tink/proto/HashType;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/google/crypto/tink/hybrid/HybridUtil;->toHmacAlgo(Lcom/google/crypto/tink/proto/HashType;)Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v7
 
     .line 61
     invoke-virtual {v0}, Lcom/google/crypto/tink/proto/EciesAeadHkdfParams;->getEcPointFormat()Lcom/google/crypto/tink/proto/EcPointFormat;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-static {v4}, Lcom/google/crypto/tink/hybrid/HybridUtil;->toPointFormatType(Lcom/google/crypto/tink/proto/EcPointFormat;)Lcom/google/crypto/tink/subtle/EllipticCurves$PointFormatType;
+    invoke-static {v0}, Lcom/google/crypto/tink/hybrid/HybridUtil;->toPointFormatType(Lcom/google/crypto/tink/proto/EcPointFormat;)Lcom/google/crypto/tink/subtle/EllipticCurves$PointFormatType;
 
-    move-result-object v9
+    move-result-object v8
 
-    move-object v5, v3
+    move-object v4, p1
 
-    move-object v6, v2
+    invoke-direct/range {v4 .. v9}, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridEncrypt;-><init>(Ljava/security/interfaces/ECPublicKey;[BLjava/lang/String;Lcom/google/crypto/tink/subtle/EllipticCurves$PointFormatType;Lcom/google/crypto/tink/subtle/EciesAeadHkdfDemHelper;)V
 
-    invoke-direct/range {v5 .. v10}, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridEncrypt;-><init>(Ljava/security/interfaces/ECPublicKey;[BLjava/lang/String;Lcom/google/crypto/tink/subtle/EllipticCurves$PointFormatType;Lcom/google/crypto/tink/subtle/EciesAeadHkdfDemHelper;)V
-
-    .line 57
-    return-object v3
+    return-object p1
 .end method
 
 .method public bridge synthetic getPrimitive(Ljava/lang/Object;)Ljava/lang/Object;

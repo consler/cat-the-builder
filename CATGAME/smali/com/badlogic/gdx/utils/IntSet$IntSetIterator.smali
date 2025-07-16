@@ -35,14 +35,13 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/utils/IntSet;)V
     .locals 1
-    .param p1, "set"    # Lcom/badlogic/gdx/utils/IntSet;
 
     .line 521
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 519
     const/4 v0, 0x1
 
+    .line 519
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->valid:Z
 
     .line 522
@@ -51,7 +50,6 @@
     .line 523
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->reset()V
 
-    .line 524
     return-void
 .end method
 
@@ -60,9 +58,9 @@
 .method findNextIndex()V
     .locals 4
 
-    .line 536
     const/4 v0, 0x0
 
+    .line 536
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->hasNext:Z
 
     .line 537
@@ -71,7 +69,6 @@
     iget-object v0, v0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
 
     .line 538
-    .local v0, "keyTable":[I
     iget-object v1, p0, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->set:Lcom/badlogic/gdx/utils/IntSet;
 
     iget v1, v1, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
@@ -82,7 +79,6 @@
 
     add-int/2addr v1, v2
 
-    .local v1, "n":I
     :cond_0
     iget v2, p0, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->nextIndex:I
 
@@ -102,8 +98,6 @@
     .line 540
     iput-boolean v3, p0, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->hasNext:Z
 
-    .line 544
-    .end local v1    # "n":I
     :cond_1
     return-void
 .end method
@@ -142,7 +136,6 @@
     aget v0, v0, v1
 
     .line 566
-    .local v0, "key":I
     :goto_0
     iget v1, p0, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->nextIndex:I
 
@@ -151,11 +144,9 @@
     .line 567
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->findNextIndex()V
 
-    .line 568
     return v0
 
     .line 564
-    .end local v0    # "key":I
     :cond_1
     new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
@@ -180,11 +171,11 @@
     .line 547
     iget v0, p0, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->currentIndex:I
 
-    const/4 v1, 0x0
+    const/4 v1, -0x1
 
-    const/4 v2, -0x1
+    const/4 v2, 0x0
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->set:Lcom/badlogic/gdx/utils/IntSet;
 
@@ -195,7 +186,7 @@
     .line 548
     iget-object v0, p0, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->set:Lcom/badlogic/gdx/utils/IntSet;
 
-    iput-boolean v1, v0, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
+    iput-boolean v2, v0, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
 
     goto :goto_0
 
@@ -206,11 +197,11 @@
     if-ltz v0, :cond_2
 
     .line 551
-    iget-object v2, p0, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->set:Lcom/badlogic/gdx/utils/IntSet;
+    iget-object v1, p0, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->set:Lcom/badlogic/gdx/utils/IntSet;
 
-    iget v2, v2, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
+    iget v1, v1, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
 
-    if-lt v0, v2, :cond_1
+    if-lt v0, v1, :cond_1
 
     .line 552
     iget-object v0, p0, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->set:Lcom/badlogic/gdx/utils/IntSet;
@@ -237,14 +228,14 @@
 
     iget-object v0, v0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
 
-    iget v2, p0, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->currentIndex:I
+    iget v1, p0, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->currentIndex:I
 
-    aput v1, v0, v2
+    aput v2, v0, v1
 
-    .line 558
     :goto_0
     const/4 v0, -0x2
 
+    .line 558
     iput v0, p0, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->currentIndex:I
 
     .line 559
@@ -256,7 +247,6 @@
 
     iput v1, v0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    .line 560
     return-void
 
     .line 550
@@ -273,14 +263,14 @@
 .method public reset()V
     .locals 1
 
-    .line 527
     const/4 v0, -0x2
 
+    .line 527
     iput v0, p0, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->currentIndex:I
 
-    .line 528
     const/4 v0, -0x1
 
+    .line 528
     iput v0, p0, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->nextIndex:I
 
     .line 529
@@ -290,9 +280,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 530
     const/4 v0, 0x1
 
+    .line 530
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->hasNext:Z
 
     goto :goto_0
@@ -301,7 +291,6 @@
     :cond_0
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->findNextIndex()V
 
-    .line 533
     :goto_0
     return-void
 .end method
@@ -321,7 +310,6 @@
     invoke-direct {v0, v2, v1}, Lcom/badlogic/gdx/utils/IntArray;-><init>(ZI)V
 
     .line 574
-    .local v0, "array":Lcom/badlogic/gdx/utils/IntArray;
     :goto_0
     iget-boolean v1, p0, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->hasNext:Z
 
@@ -336,7 +324,6 @@
 
     goto :goto_0
 
-    .line 576
     :cond_0
     return-object v0
 .end method

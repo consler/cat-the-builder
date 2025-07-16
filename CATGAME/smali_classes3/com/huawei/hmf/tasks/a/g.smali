@@ -57,25 +57,25 @@
 .end method
 
 .method private static a(Landroid/app/Activity;)Lcom/huawei/hmf/tasks/a/g;
-    .locals 3
+    .locals 4
 
     sget-object v0, Lcom/huawei/hmf/tasks/a/g;->b:Ljava/util/WeakHashMap;
 
     invoke-virtual {v0, p0}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/ref/WeakReference;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
     move-result-object v1
+
+    check-cast v1, Ljava/lang/ref/WeakReference;
 
     if-eqz v1, :cond_0
 
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object p0
 
@@ -86,27 +86,27 @@
     :cond_0
     invoke-virtual {p0}, Landroid/app/Activity;->getFragmentManager()Landroid/app/FragmentManager;
 
-    move-result-object v0
+    move-result-object v1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     :try_start_0
-    const-string v2, "com.huawei.hmf.tasks.lifecycle_fragment_tag"
+    const-string v3, "com.huawei.hmf.tasks.lifecycle_fragment_tag"
 
-    invoke-virtual {v0, v2}, Landroid/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/app/Fragment;
+    invoke-virtual {v1, v3}, Landroid/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/app/Fragment;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Lcom/huawei/hmf/tasks/a/g;
+    check-cast v3, Lcom/huawei/hmf/tasks/a/g;
     :try_end_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_2
 
-    if-nez v2, :cond_1
+    if-nez v3, :cond_1
 
     :try_start_1
-    invoke-static {v0}, Lcom/huawei/hmf/tasks/a/g;->a(Landroid/app/FragmentManager;)Lcom/huawei/hmf/tasks/a/g;
+    invoke-static {v1}, Lcom/huawei/hmf/tasks/a/g;->a(Landroid/app/FragmentManager;)Lcom/huawei/hmf/tasks/a/g;
 
-    move-result-object v0
+    move-result-object v1
     :try_end_1
     .catch Ljava/lang/ClassCastException; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -115,22 +115,20 @@
     :catch_0
     move-exception p0
 
-    move-object v0, v2
+    move-object v1, v3
 
     goto :goto_1
 
     :cond_1
-    move-object v0, v2
+    move-object v1, v3
 
     :goto_0
     :try_start_2
-    sget-object v1, Lcom/huawei/hmf/tasks/a/g;->b:Ljava/util/WeakHashMap;
-
     new-instance v2, Ljava/lang/ref/WeakReference;
 
-    invoke-direct {v2, v0}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+    invoke-direct {v2, v1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
-    invoke-virtual {v1, p0, v2}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p0, v2}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_2
     .catch Ljava/lang/ClassCastException; {:try_start_2 .. :try_end_2} :catch_1
 
@@ -144,31 +142,33 @@
     :catch_2
     move-exception p0
 
-    move-object v0, v1
+    move-object v1, v2
 
     :goto_1
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v2, "found LifecycleCallbackFragment but the type do not match. "
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Ljava/lang/ClassCastException;->getMessage()Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object p0
 
-    const-string v1, "LifecycleCallbackFrg"
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object p0
+
+    const-string v0, "LifecycleCallbackFrg"
+
+    invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_2
-    move-object p0, v0
+    move-object p0, v1
 
     :goto_3
     return-object p0
@@ -226,7 +226,9 @@
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 

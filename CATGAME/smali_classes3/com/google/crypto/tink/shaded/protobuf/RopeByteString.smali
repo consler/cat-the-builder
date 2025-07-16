@@ -35,11 +35,11 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 83
     const/16 v0, 0x2f
 
     new-array v0, v0, [I
 
+    .line 83
     fill-array-data v0, :array_0
 
     sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->minLengthByDepth:[I
@@ -100,8 +100,6 @@
 
 .method private constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
     .locals 2
-    .param p1, "left"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-    .param p2, "right"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     .line 146
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;-><init>()V
@@ -131,29 +129,25 @@
     .line 151
     invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->getTreeDepth()I
 
-    move-result v0
+    move-result p1
 
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->getTreeDepth()I
 
-    move-result v1
+    move-result p2
 
-    invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
+    invoke-static {p1, p2}, Ljava/lang/Math;->max(II)I
 
-    move-result v0
+    move-result p1
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->treeDepth:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->treeDepth:I
 
-    .line 152
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-    .param p2, "x1"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-    .param p3, "x2"    # Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$1;
 
     .line 68
     invoke-direct {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;-><init>(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
@@ -162,29 +156,25 @@
 .end method
 
 .method static synthetic access$400(Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-    .locals 1
-    .param p0, "x0"    # Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;
+    .locals 0
 
     .line 68
-    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->left:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    iget-object p0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->left:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$500(Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-    .locals 1
-    .param p0, "x0"    # Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;
+    .locals 0
 
     .line 68
-    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    iget-object p0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static concatenate(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .locals 5
-    .param p0, "left"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-    .param p1, "right"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     .line 168
     invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->size()I
@@ -193,7 +183,6 @@
 
     if-nez v0, :cond_0
 
-    .line 169
     return-object p0
 
     .line 172
@@ -204,7 +193,6 @@
 
     if-nez v0, :cond_1
 
-    .line 173
     return-object p1
 
     .line 176
@@ -219,8 +207,6 @@
 
     add-int/2addr v0, v1
 
-    .line 177
-    .local v0, "newLength":I
     const/16 v1, 0x80
 
     if-ge v0, v1, :cond_2
@@ -228,9 +214,9 @@
     .line 180
     invoke-static {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->concatenateBytes(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 
     .line 183
     :cond_2
@@ -244,7 +230,6 @@
     check-cast v2, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;
 
     .line 185
-    .local v2, "leftRope":Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;
     iget-object v3, v2, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     invoke-virtual {v3}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->size()I
@@ -260,24 +245,22 @@
     if-ge v3, v1, :cond_3
 
     .line 196
-    iget-object v1, v2, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    iget-object p0, v2, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    invoke-static {v1, p1}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->concatenateBytes(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    invoke-static {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->concatenateBytes(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v1
+    move-result-object p0
 
     .line 197
-    .local v1, "newRight":Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-    new-instance v3, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;
+    new-instance p1, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;
 
-    iget-object v4, v2, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->left:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    iget-object v0, v2, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->left:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    invoke-direct {v3, v4, v1}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;-><init>(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
+    invoke-direct {p1, v0, p0}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;-><init>(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    return-object v3
+    return-object p1
 
     .line 200
-    .end local v1    # "newRight":Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     :cond_3
     iget-object v1, v2, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->left:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
@@ -305,25 +288,22 @@
     if-le v1, v3, :cond_4
 
     .line 207
-    new-instance v1, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;
+    new-instance p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;
 
-    iget-object v3, v2, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    iget-object v0, v2, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    invoke-direct {v1, v3, p1}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;-><init>(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
+    invoke-direct {p0, v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;-><init>(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
     .line 208
-    .restart local v1    # "newRight":Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-    new-instance v3, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;
+    new-instance p1, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;
 
-    iget-object v4, v2, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->left:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    iget-object v0, v2, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->left:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    invoke-direct {v3, v4, v1}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;-><init>(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
+    invoke-direct {p1, v0, p0}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;-><init>(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    return-object v3
+    return-object p1
 
     .line 213
-    .end local v1    # "newRight":Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-    .end local v2    # "leftRope":Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;
     :cond_4
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->getTreeDepth()I
 
@@ -340,39 +320,36 @@
     add-int/lit8 v1, v1, 0x1
 
     .line 214
-    .local v1, "newDepth":I
     invoke-static {v1}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->minLength(I)I
 
-    move-result v2
+    move-result v1
 
-    if-lt v0, v2, :cond_5
+    if-lt v0, v1, :cond_5
 
     .line 216
-    new-instance v2, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;
+    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;
 
-    invoke-direct {v2, p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;-><init>(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
+    invoke-direct {v0, p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;-><init>(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    return-object v2
+    return-object v0
 
     .line 219
     :cond_5
-    new-instance v2, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$Balancer;
+    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$Balancer;
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
-    invoke-direct {v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$Balancer;-><init>(Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$1;)V
+    invoke-direct {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$Balancer;-><init>(Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$1;)V
 
-    invoke-static {v2, p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$Balancer;->access$100(Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$Balancer;Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    invoke-static {v0, p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$Balancer;->access$100(Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$Balancer;Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 .end method
 
 .method private static concatenateBytes(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .locals 4
-    .param p0, "left"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-    .param p1, "right"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     .line 231
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->size()I
@@ -380,21 +357,18 @@
     move-result v0
 
     .line 232
-    .local v0, "leftSize":I
     invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->size()I
 
     move-result v1
 
-    .line 233
-    .local v1, "rightSize":I
     add-int v2, v0, v1
 
+    .line 233
     new-array v2, v2, [B
 
-    .line 234
-    .local v2, "bytes":[B
     const/4 v3, 0x0
 
+    .line 234
     invoke-virtual {p0, v2, v3, v3, v0}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->copyTo([BIII)V
 
     .line 235
@@ -403,87 +377,72 @@
     .line 236
     invoke-static {v2}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->wrap([B)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v3
+    move-result-object p0
 
-    return-object v3
+    return-object p0
 .end method
 
 .method private equalsFragments(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Z
-    .locals 12
-    .param p1, "other"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-
-    .line 541
-    const/4 v0, 0x0
+    .locals 11
 
     .line 542
-    .local v0, "thisOffset":I
-    new-instance v1, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$PieceIterator;
+    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$PieceIterator;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-direct {v1, p0, v2}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$PieceIterator;-><init>(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$PieceIterator;-><init>(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$1;)V
 
     .line 543
-    .local v1, "thisIter":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;>;"
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;
-
-    .line 545
-    .local v3, "thisString":Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;
-    const/4 v4, 0x0
+    check-cast v2, Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;
 
     .line 546
-    .local v4, "thatOffset":I
-    new-instance v5, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$PieceIterator;
+    new-instance v3, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$PieceIterator;
 
-    invoke-direct {v5, p1, v2}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$PieceIterator;-><init>(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$1;)V
-
-    move-object v2, v5
+    invoke-direct {v3, p1, v1}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$PieceIterator;-><init>(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$1;)V
 
     .line 547
-    .local v2, "thatIter":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;>;"
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object p1
 
-    check-cast v5, Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;
 
-    .line 549
-    .local v5, "thatString":Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;
-    const/4 v6, 0x0
+    const/4 v1, 0x0
+
+    move v4, v1
+
+    move v5, v4
+
+    move v6, v5
 
     .line 551
-    .local v6, "pos":I
     :goto_0
-    invoke-virtual {v3}, Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;->size()I
+    invoke-virtual {v2}, Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;->size()I
 
     move-result v7
 
-    sub-int/2addr v7, v0
+    sub-int/2addr v7, v4
 
     .line 552
-    .local v7, "thisRemaining":I
-    invoke-virtual {v5}, Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;->size()I
+    invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;->size()I
 
     move-result v8
 
-    sub-int/2addr v8, v4
+    sub-int/2addr v8, v5
 
     .line 553
-    .local v8, "thatRemaining":I
     invoke-static {v7, v8}, Ljava/lang/Math;->min(II)I
 
     move-result v9
 
-    .line 557
-    .local v9, "bytesToCompare":I
-    if-nez v0, :cond_0
+    if-nez v4, :cond_0
 
     .line 558
-    invoke-virtual {v3, v5, v4, v9}, Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;->equalsRange(Lcom/google/crypto/tink/shaded/protobuf/ByteString;II)Z
+    invoke-virtual {v2, p1, v5, v9}, Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;->equalsRange(Lcom/google/crypto/tink/shaded/protobuf/ByteString;II)Z
 
     move-result v10
 
@@ -491,103 +450,76 @@
 
     .line 559
     :cond_0
-    invoke-virtual {v5, v3, v0, v9}, Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;->equalsRange(Lcom/google/crypto/tink/shaded/protobuf/ByteString;II)Z
+    invoke-virtual {p1, v2, v4, v9}, Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;->equalsRange(Lcom/google/crypto/tink/shaded/protobuf/ByteString;II)Z
 
     move-result v10
 
     :goto_1
-    nop
-
-    .line 560
-    .local v10, "stillEqual":Z
     if-nez v10, :cond_1
 
-    .line 561
-    const/4 v11, 0x0
+    return v1
 
-    return v11
-
-    .line 564
     :cond_1
     add-int/2addr v6, v9
 
     .line 565
-    iget v11, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->totalLength:I
+    iget v10, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->totalLength:I
 
-    if-lt v6, v11, :cond_3
+    if-lt v6, v10, :cond_3
 
-    .line 566
-    if-ne v6, v11, :cond_2
+    if-ne v6, v10, :cond_2
 
-    .line 567
-    const/4 v11, 0x1
+    const/4 p1, 0x1
 
-    return v11
+    return p1
 
     .line 569
     :cond_2
-    new-instance v11, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    invoke-direct {v11}, Ljava/lang/IllegalStateException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/IllegalStateException;-><init>()V
 
-    throw v11
+    throw p1
 
-    .line 572
     :cond_3
     if-ne v9, v7, :cond_4
 
-    .line 573
-    const/4 v0, 0x0
-
     .line 574
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v11
+    move-result-object v2
 
-    move-object v3, v11
+    check-cast v2, Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;
 
-    check-cast v3, Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;
+    move v4, v1
 
     goto :goto_2
 
-    .line 576
     :cond_4
-    add-int/2addr v0, v9
+    add-int/2addr v4, v9
 
-    .line 578
     :goto_2
     if-ne v9, v8, :cond_5
 
-    .line 579
-    const/4 v4, 0x0
-
     .line 580
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v11
+    move-result-object p1
 
-    move-object v5, v11
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;
 
-    check-cast v5, Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;
+    move v5, v1
 
-    goto :goto_3
+    goto :goto_0
 
-    .line 582
     :cond_5
-    add-int/2addr v4, v9
+    add-int/2addr v5, v9
 
-    .line 584
-    .end local v7    # "thisRemaining":I
-    .end local v8    # "thatRemaining":I
-    .end local v9    # "bytesToCompare":I
-    .end local v10    # "stillEqual":Z
-    :goto_3
     goto :goto_0
 .end method
 
 .method static minLength(I)I
     .locals 2
-    .param p0, "depth"    # I
 
     .line 263
     sget-object v0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->minLengthByDepth:[I
@@ -596,22 +528,19 @@
 
     if-lt p0, v1, :cond_0
 
-    .line 264
-    const v0, 0x7fffffff
+    const p0, 0x7fffffff
 
-    return v0
+    return p0
 
     .line 266
     :cond_0
-    aget v0, v0, p0
+    aget p0, v0, p0
 
-    return v0
+    return p0
 .end method
 
 .method static newInstanceForTest(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;
     .locals 1
-    .param p0, "left"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-    .param p1, "right"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     .line 250
     new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;
@@ -622,8 +551,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -631,19 +559,19 @@
     .end annotation
 
     .line 808
-    new-instance v0, Ljava/io/InvalidObjectException;
+    new-instance p1, Ljava/io/InvalidObjectException;
 
-    const-string v1, "RopeByteStream instances are not to be serialized directly"
+    const-string v0, "RopeByteStream instances are not to be serialized directly"
 
-    invoke-direct {v0, v1}, Ljava/io/InvalidObjectException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/io/InvalidObjectException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
 # virtual methods
 .method public asReadOnlyByteBuffer()Ljava/nio/ByteBuffer;
-    .locals 2
+    .locals 1
 
     .line 422
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->toByteArray()[B
@@ -655,16 +583,15 @@
     move-result-object v0
 
     .line 423
-    .local v0, "byteBuffer":Ljava/nio/ByteBuffer;
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->asReadOnlyBuffer()Ljava/nio/ByteBuffer;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public asReadOnlyByteBufferList()Ljava/util/List;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -680,7 +607,6 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 431
-    .local v0, "result":Ljava/util/List;, "Ljava/util/List<Ljava/nio/ByteBuffer;>;"
     new-instance v1, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$PieceIterator;
 
     const/4 v2, 0x0
@@ -688,7 +614,6 @@
     invoke-direct {v1, p0, v2}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$PieceIterator;-><init>(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$1;)V
 
     .line 432
-    .local v1, "pieces":Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$PieceIterator;
     :goto_0
     invoke-virtual {v1}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString$PieceIterator;->hasNext()Z
 
@@ -702,25 +627,20 @@
     move-result-object v2
 
     .line 434
-    .local v2, "byteString":Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;
     invoke-virtual {v2}, Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;->asReadOnlyByteBuffer()Ljava/nio/ByteBuffer;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 435
-    .end local v2    # "byteString":Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;
     goto :goto_0
 
-    .line 436
     :cond_0
     return-object v0
 .end method
 
 .method public byteAt(I)B
     .locals 1
-    .param p1, "index"    # I
 
     .line 280
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->totalLength:I
@@ -730,14 +650,13 @@
     .line 281
     invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->internalByteAt(I)B
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public copyTo(Ljava/nio/ByteBuffer;)V
     .locals 1
-    .param p1, "target"    # Ljava/nio/ByteBuffer;
 
     .line 416
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->left:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
@@ -749,20 +668,15 @@
 
     invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->copyTo(Ljava/nio/ByteBuffer;)V
 
-    .line 418
     return-void
 .end method
 
 .method protected copyToInternal([BIII)V
-    .locals 5
-    .param p1, "target"    # [B
-    .param p2, "sourceOffset"    # I
-    .param p3, "targetOffset"    # I
-    .param p4, "numberToCopy"    # I
+    .locals 2
 
-    .line 403
     add-int v0, p2, p4
 
+    .line 403
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->leftLength:I
 
     if-gt v0, v1, :cond_0
@@ -774,56 +688,48 @@
 
     goto :goto_0
 
-    .line 405
     :cond_0
     if-lt p2, v1, :cond_1
 
     .line 406
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    sub-int v1, p2, v1
+    sub-int/2addr p2, v1
 
-    invoke-virtual {v0, p1, v1, p3, p4}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->copyToInternal([BIII)V
+    invoke-virtual {v0, p1, p2, p3, p4}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->copyToInternal([BIII)V
 
     goto :goto_0
 
-    .line 408
     :cond_1
     sub-int/2addr v1, p2
 
     .line 409
-    .local v1, "leftLength":I
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->left:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     invoke-virtual {v0, p1, p2, p3, v1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->copyToInternal([BIII)V
 
     .line 410
-    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    iget-object p2, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    const/4 v2, 0x0
+    add-int/2addr p3, v1
 
-    add-int v3, p3, v1
+    sub-int/2addr p4, v1
 
-    sub-int v4, p4, v1
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, p1, v2, v3, v4}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->copyToInternal([BIII)V
+    invoke-virtual {p2, p1, v0, p3, p4}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->copyToInternal([BIII)V
 
-    .line 412
-    .end local v1    # "leftLength":I
     :goto_0
     return-void
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "other"    # Ljava/lang/Object;
+    .locals 4
 
-    .line 504
     const/4 v0, 0x1
 
     if-ne p1, p0, :cond_0
 
-    .line 505
     return v0
 
     .line 507
@@ -834,35 +740,29 @@
 
     if-nez v1, :cond_1
 
-    .line 508
     return v2
 
     .line 511
     :cond_1
-    move-object v1, p1
-
-    check-cast v1, Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     .line 512
-    .local v1, "otherByteString":Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->totalLength:I
+    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->totalLength:I
 
-    invoke-virtual {v1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->size()I
+    invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->size()I
 
-    move-result v4
+    move-result v3
 
-    if-eq v3, v4, :cond_2
+    if-eq v1, v3, :cond_2
 
-    .line 513
     return v2
 
     .line 515
     :cond_2
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->totalLength:I
+    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->totalLength:I
 
-    if-nez v3, :cond_3
+    if-nez v1, :cond_3
 
-    .line 516
     return v0
 
     .line 524
@@ -872,29 +772,25 @@
     move-result v0
 
     .line 525
-    .local v0, "thisHash":I
-    invoke-virtual {v1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->peekCachedHashCode()I
+    invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->peekCachedHashCode()I
 
-    move-result v3
+    move-result v1
 
-    .line 526
-    .local v3, "thatHash":I
     if-eqz v0, :cond_4
 
-    if-eqz v3, :cond_4
+    if-eqz v1, :cond_4
 
-    if-eq v0, v3, :cond_4
+    if-eq v0, v1, :cond_4
 
-    .line 527
     return v2
 
     .line 530
     :cond_4
-    invoke-direct {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->equalsFragments(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Z
+    invoke-direct {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->equalsFragments(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Z
 
-    move-result v2
+    move-result p1
 
-    return v2
+    return p1
 .end method
 
 .method protected getTreeDepth()I
@@ -908,7 +804,6 @@
 
 .method internalByteAt(I)B
     .locals 2
-    .param p1, "index"    # I
 
     .line 287
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->leftLength:I
@@ -920,21 +815,21 @@
 
     invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->internalByteAt(I)B
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
     .line 291
     :cond_0
     iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    sub-int v0, p1, v0
+    sub-int/2addr p1, v0
 
-    invoke-virtual {v1, v0}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->internalByteAt(I)B
+    invoke-virtual {v1, p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->internalByteAt(I)B
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method protected isBalanced()Z
@@ -977,7 +872,6 @@
     move-result v0
 
     .line 481
-    .local v0, "leftPartial":I
     iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     invoke-virtual {v1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->size()I
@@ -986,11 +880,9 @@
 
     invoke-virtual {v1, v0, v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->partialIsValidUtf8(III)I
 
-    move-result v1
+    move-result v0
 
-    .line 482
-    .local v1, "state":I
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     const/4 v2, 0x1
 
@@ -1047,135 +939,117 @@
 .end method
 
 .method protected partialHash(III)I
-    .locals 6
-    .param p1, "h"    # I
-    .param p2, "offset"    # I
-    .param p3, "length"    # I
+    .locals 2
 
-    .line 589
     add-int v0, p2, p3
 
     .line 590
-    .local v0, "toIndex":I
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->leftLength:I
 
     if-gt v0, v1, :cond_0
 
     .line 591
-    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->left:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->left:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    invoke-virtual {v1, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->partialHash(III)I
+    invoke-virtual {v0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->partialHash(III)I
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 
-    .line 592
     :cond_0
     if-lt p2, v1, :cond_1
 
     .line 593
-    iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    sub-int v1, p2, v1
+    sub-int/2addr p2, v1
 
-    invoke-virtual {v2, p1, v1, p3}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->partialHash(III)I
+    invoke-virtual {v0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->partialHash(III)I
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 
-    .line 595
     :cond_1
     sub-int/2addr v1, p2
 
     .line 596
-    .local v1, "leftLength":I
-    iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->left:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->left:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    invoke-virtual {v2, p1, p2, v1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->partialHash(III)I
+    invoke-virtual {v0, p1, p2, v1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->partialHash(III)I
 
-    move-result v2
+    move-result p1
 
     .line 597
-    .local v2, "leftPartial":I
-    iget-object v3, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    iget-object p2, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    const/4 v4, 0x0
+    const/4 v0, 0x0
 
-    sub-int v5, p3, v1
+    sub-int/2addr p3, v1
 
-    invoke-virtual {v3, v2, v4, v5}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->partialHash(III)I
+    invoke-virtual {p2, p1, v0, p3}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->partialHash(III)I
 
-    move-result v3
+    move-result p1
 
-    return v3
+    return p1
 .end method
 
 .method protected partialIsValidUtf8(III)I
-    .locals 6
-    .param p1, "state"    # I
-    .param p2, "offset"    # I
-    .param p3, "length"    # I
+    .locals 2
 
-    .line 487
     add-int v0, p2, p3
 
     .line 488
-    .local v0, "toIndex":I
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->leftLength:I
 
     if-gt v0, v1, :cond_0
 
     .line 489
-    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->left:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->left:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    invoke-virtual {v1, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->partialIsValidUtf8(III)I
+    invoke-virtual {v0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->partialIsValidUtf8(III)I
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 
-    .line 490
     :cond_0
     if-lt p2, v1, :cond_1
 
     .line 491
-    iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    sub-int v1, p2, v1
+    sub-int/2addr p2, v1
 
-    invoke-virtual {v2, p1, v1, p3}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->partialIsValidUtf8(III)I
+    invoke-virtual {v0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->partialIsValidUtf8(III)I
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 
-    .line 493
     :cond_1
     sub-int/2addr v1, p2
 
     .line 494
-    .local v1, "leftLength":I
-    iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->left:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->left:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    invoke-virtual {v2, p1, p2, v1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->partialIsValidUtf8(III)I
+    invoke-virtual {v0, p1, p2, v1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->partialIsValidUtf8(III)I
 
-    move-result v2
+    move-result p1
 
     .line 495
-    .local v2, "leftPartial":I
-    iget-object v3, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    iget-object p2, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    const/4 v4, 0x0
+    const/4 v0, 0x0
 
-    sub-int v5, p3, v1
+    sub-int/2addr p3, v1
 
-    invoke-virtual {v3, v2, v4, v5}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->partialIsValidUtf8(III)I
+    invoke-virtual {p2, p1, v0, p3}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->partialIsValidUtf8(III)I
 
-    move-result v3
+    move-result p1
 
-    return v3
+    return p1
 .end method
 
 .method public size()I
@@ -1188,9 +1062,7 @@
 .end method
 
 .method public substring(II)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-    .locals 5
-    .param p1, "beginIndex"    # I
-    .param p2, "endIndex"    # I
+    .locals 2
 
     .line 365
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->totalLength:I
@@ -1199,14 +1071,12 @@
 
     move-result v0
 
-    .line 367
-    .local v0, "length":I
     if-nez v0, :cond_0
 
     .line 369
-    sget-object v1, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->EMPTY:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    sget-object p1, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->EMPTY:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    return-object v1
+    return-object p1
 
     .line 372
     :cond_0
@@ -1214,75 +1084,70 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 374
     return-object p0
 
     .line 378
     :cond_1
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->leftLength:I
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->leftLength:I
 
-    if-gt p2, v1, :cond_2
+    if-gt p2, v0, :cond_2
 
     .line 380
-    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->left:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->left:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+
+    invoke-virtual {v0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->substring(II)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+
+    move-result-object p1
+
+    return-object p1
+
+    :cond_2
+    if-lt p1, v0, :cond_3
+
+    .line 385
+    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+
+    sub-int/2addr p1, v0
+
+    sub-int/2addr p2, v0
 
     invoke-virtual {v1, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->substring(II)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
-
-    .line 383
-    :cond_2
-    if-lt p1, v1, :cond_3
-
-    .line 385
-    iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-
-    sub-int v3, p1, v1
-
-    sub-int v1, p2, v1
-
-    invoke-virtual {v2, v3, v1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->substring(II)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-
-    move-result-object v1
-
-    return-object v1
+    return-object p1
 
     .line 389
     :cond_3
-    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->left:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->left:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    invoke-virtual {v1, p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->substring(I)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->substring(I)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 390
-    .local v1, "leftSub":Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-    iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    const/4 v3, 0x0
+    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->leftLength:I
 
-    iget v4, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->leftLength:I
+    sub-int/2addr p2, v1
 
-    sub-int v4, p2, v4
+    const/4 v1, 0x0
 
-    invoke-virtual {v2, v3, v4}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->substring(II)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    invoke-virtual {v0, v1, p2}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->substring(II)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v2
+    move-result-object p2
 
     .line 394
-    .local v2, "rightSub":Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-    new-instance v3, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;
+    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;
 
-    invoke-direct {v3, v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;-><init>(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
+    invoke-direct {v0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;-><init>(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    return-object v3
+    return-object v0
 .end method
 
 .method protected toStringInternal(Ljava/nio/charset/Charset;)Ljava/lang/String;
     .locals 2
-    .param p1, "charset"    # Ljava/nio/charset/Charset;
 
     .line 472
     new-instance v0, Ljava/lang/String;
@@ -1313,7 +1178,6 @@
 
 .method writeTo(Lcom/google/crypto/tink/shaded/protobuf/ByteOutput;)V
     .locals 1
-    .param p1, "output"    # Lcom/google/crypto/tink/shaded/protobuf/ByteOutput;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1330,13 +1194,11 @@
 
     invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->writeTo(Lcom/google/crypto/tink/shaded/protobuf/ByteOutput;)V
 
-    .line 462
     return-void
 .end method
 
 .method public writeTo(Ljava/io/OutputStream;)V
     .locals 1
-    .param p1, "outputStream"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1353,24 +1215,20 @@
 
     invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->writeTo(Ljava/io/OutputStream;)V
 
-    .line 443
     return-void
 .end method
 
 .method writeToInternal(Ljava/io/OutputStream;II)V
-    .locals 4
-    .param p1, "out"    # Ljava/io/OutputStream;
-    .param p2, "sourceOffset"    # I
-    .param p3, "numberToWrite"    # I
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 447
     add-int v0, p2, p3
 
+    .line 447
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->leftLength:I
 
     if-gt v0, v1, :cond_0
@@ -1382,47 +1240,41 @@
 
     goto :goto_0
 
-    .line 449
     :cond_0
     if-lt p2, v1, :cond_1
 
     .line 450
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    sub-int v1, p2, v1
+    sub-int/2addr p2, v1
 
-    invoke-virtual {v0, p1, v1, p3}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->writeToInternal(Ljava/io/OutputStream;II)V
+    invoke-virtual {v0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->writeToInternal(Ljava/io/OutputStream;II)V
 
     goto :goto_0
 
-    .line 452
     :cond_1
     sub-int/2addr v1, p2
 
     .line 453
-    .local v1, "numberToWriteInLeft":I
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->left:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     invoke-virtual {v0, p1, p2, v1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->writeToInternal(Ljava/io/OutputStream;II)V
 
     .line 454
-    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    iget-object p2, p0, Lcom/google/crypto/tink/shaded/protobuf/RopeByteString;->right:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    sub-int v3, p3, v1
+    sub-int/2addr p3, v1
 
-    invoke-virtual {v0, p1, v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->writeToInternal(Ljava/io/OutputStream;II)V
+    invoke-virtual {p2, p1, v0, p3}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->writeToInternal(Ljava/io/OutputStream;II)V
 
-    .line 456
-    .end local v1    # "numberToWriteInLeft":I
     :goto_0
     return-void
 .end method
 
 .method writeToReverse(Lcom/google/crypto/tink/shaded/protobuf/ByteOutput;)V
     .locals 1
-    .param p1, "output"    # Lcom/google/crypto/tink/shaded/protobuf/ByteOutput;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1439,6 +1291,5 @@
 
     invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->writeToReverse(Lcom/google/crypto/tink/shaded/protobuf/ByteOutput;)V
 
-    .line 468
     return-void
 .end method

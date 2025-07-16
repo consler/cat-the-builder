@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .locals 7
 
     .line 639
     new-instance v0, Landroidx/room/RoomDatabase$JournalMode;
@@ -48,43 +48,39 @@
     sput-object v0, Landroidx/room/RoomDatabase$JournalMode;->AUTOMATIC:Landroidx/room/RoomDatabase$JournalMode;
 
     .line 644
-    new-instance v0, Landroidx/room/RoomDatabase$JournalMode;
+    new-instance v1, Landroidx/room/RoomDatabase$JournalMode;
 
-    const-string v1, "TRUNCATE"
+    const-string v3, "TRUNCATE"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Landroidx/room/RoomDatabase$JournalMode;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Landroidx/room/RoomDatabase$JournalMode;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/room/RoomDatabase$JournalMode;->TRUNCATE:Landroidx/room/RoomDatabase$JournalMode;
+    sput-object v1, Landroidx/room/RoomDatabase$JournalMode;->TRUNCATE:Landroidx/room/RoomDatabase$JournalMode;
 
     .line 649
-    new-instance v0, Landroidx/room/RoomDatabase$JournalMode;
+    new-instance v3, Landroidx/room/RoomDatabase$JournalMode;
 
-    const-string v1, "WRITE_AHEAD_LOGGING"
+    const-string v5, "WRITE_AHEAD_LOGGING"
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v1, v4}, Landroidx/room/RoomDatabase$JournalMode;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Landroidx/room/RoomDatabase$JournalMode;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/room/RoomDatabase$JournalMode;->WRITE_AHEAD_LOGGING:Landroidx/room/RoomDatabase$JournalMode;
+    sput-object v3, Landroidx/room/RoomDatabase$JournalMode;->WRITE_AHEAD_LOGGING:Landroidx/room/RoomDatabase$JournalMode;
+
+    const/4 v5, 0x3
+
+    new-array v5, v5, [Landroidx/room/RoomDatabase$JournalMode;
+
+    aput-object v0, v5, v2
+
+    aput-object v1, v5, v4
+
+    aput-object v3, v5, v6
 
     .line 630
-    const/4 v1, 0x3
-
-    new-array v1, v1, [Landroidx/room/RoomDatabase$JournalMode;
-
-    sget-object v5, Landroidx/room/RoomDatabase$JournalMode;->AUTOMATIC:Landroidx/room/RoomDatabase$JournalMode;
-
-    aput-object v5, v1, v2
-
-    sget-object v2, Landroidx/room/RoomDatabase$JournalMode;->TRUNCATE:Landroidx/room/RoomDatabase$JournalMode;
-
-    aput-object v2, v1, v3
-
-    aput-object v0, v1, v4
-
-    sput-object v1, Landroidx/room/RoomDatabase$JournalMode;->$VALUES:[Landroidx/room/RoomDatabase$JournalMode;
+    sput-object v5, Landroidx/room/RoomDatabase$JournalMode;->$VALUES:[Landroidx/room/RoomDatabase$JournalMode;
 
     return-void
 .end method
@@ -115,8 +111,7 @@
 .end method
 
 .method private static isLowRamDevice(Landroid/app/ActivityManager;)Z
-    .locals 2
-    .param p0, "activityManager"    # Landroid/app/ActivityManager;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -126,30 +121,16 @@
         }
     .end annotation
 
-    .line 672
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x13
-
-    if-lt v0, v1, :cond_0
-
     .line 673
     invoke-virtual {p0}, Landroid/app/ActivityManager;->isLowRamDevice()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
-
-    .line 675
-    :cond_0
-    const/4 v0, 0x0
-
-    return v0
+    return p0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/room/RoomDatabase$JournalMode;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8000
@@ -164,11 +145,11 @@
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroidx/room/RoomDatabase$JournalMode;
+    check-cast p0, Landroidx/room/RoomDatabase$JournalMode;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Landroidx/room/RoomDatabase$JournalMode;
@@ -189,8 +170,7 @@
 
 # virtual methods
 .method resolve(Landroid/content/Context;)Landroidx/room/RoomDatabase$JournalMode;
-    .locals 2
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -205,48 +185,35 @@
 
     if-eq p0, v0, :cond_0
 
-    .line 659
     return-object p0
 
-    .line 661
     :cond_0
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x10
-
-    if-lt v0, v1, :cond_1
-
-    .line 662
-    nop
-
-    .line 663
     const-string v0, "activity"
 
+    .line 663
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/app/ActivityManager;
+    check-cast p1, Landroid/app/ActivityManager;
+
+    if-eqz p1, :cond_1
 
     .line 664
-    .local v0, "manager":Landroid/app/ActivityManager;
-    if-eqz v0, :cond_1
+    invoke-static {p1}, Landroidx/room/RoomDatabase$JournalMode;->isLowRamDevice(Landroid/app/ActivityManager;)Z
 
-    invoke-static {v0}, Landroidx/room/RoomDatabase$JournalMode;->isLowRamDevice(Landroid/app/ActivityManager;)Z
+    move-result p1
 
-    move-result v1
-
-    if-nez v1, :cond_1
+    if-nez p1, :cond_1
 
     .line 665
-    sget-object v1, Landroidx/room/RoomDatabase$JournalMode;->WRITE_AHEAD_LOGGING:Landroidx/room/RoomDatabase$JournalMode;
+    sget-object p1, Landroidx/room/RoomDatabase$JournalMode;->WRITE_AHEAD_LOGGING:Landroidx/room/RoomDatabase$JournalMode;
 
-    return-object v1
+    return-object p1
 
     .line 668
-    .end local v0    # "manager":Landroid/app/ActivityManager;
     :cond_1
-    sget-object v0, Landroidx/room/RoomDatabase$JournalMode;->TRUNCATE:Landroidx/room/RoomDatabase$JournalMode;
+    sget-object p1, Landroidx/room/RoomDatabase$JournalMode;->TRUNCATE:Landroidx/room/RoomDatabase$JournalMode;
 
-    return-object v0
+    return-object p1
 .end method

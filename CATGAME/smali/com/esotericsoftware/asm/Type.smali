@@ -180,7 +180,7 @@
 .end method
 
 .method private static a([CI)Lcom/esotericsoftware/asm/Type;
-    .locals 7
+    .locals 6
 
     aget-char v0, p0, p1
 
@@ -224,13 +224,13 @@
 
     new-instance v0, Lcom/esotericsoftware/asm/Type;
 
-    const/16 v1, 0xb
+    array-length v1, p0
 
-    array-length v2, p0
+    sub-int/2addr v1, p1
 
-    sub-int/2addr v2, p1
+    const/16 v2, 0xb
 
-    invoke-direct {v0, v1, p0, p1, v2}, Lcom/esotericsoftware/asm/Type;-><init>(I[CII)V
+    invoke-direct {v0, v2, p0, p1, v1}, Lcom/esotericsoftware/asm/Type;-><init>(I[CII)V
 
     return-object v0
 
@@ -255,18 +255,16 @@
     :goto_0
     add-int v5, p1, v0
 
-    aget-char v6, p0, v5
+    aget-char v5, p0, v5
 
-    if-ne v6, v4, :cond_1
+    if-ne v5, v4, :cond_1
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_1
-    aget-char v4, p0, v5
-
-    if-ne v4, v2, :cond_2
+    if-ne v5, v2, :cond_2
 
     :goto_1
     add-int/lit8 v0, v0, 0x1
@@ -332,11 +330,11 @@
     :cond_9
     new-instance v1, Lcom/esotericsoftware/asm/Type;
 
-    const/16 v2, 0xa
-
     add-int/2addr p1, v3
 
     sub-int/2addr v0, v3
+
+    const/16 v2, 0xa
 
     invoke-direct {v1, v2, p0, p1, v0}, Lcom/esotericsoftware/asm/Type;-><init>(I[CII)V
 
@@ -569,13 +567,13 @@
 
     move-result-object p0
 
-    const/4 v0, 0x0
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
+    const/4 v1, 0x0
 
-    move v3, v0
+    move v2, v0
 
-    move v2, v1
+    move v3, v1
 
     :goto_0
     add-int/lit8 v4, v2, 0x1
@@ -588,42 +586,38 @@
 
     new-array v2, v3, [Lcom/esotericsoftware/asm/Type;
 
-    move v3, v0
+    move v3, v1
 
     :goto_1
-    aget-char v4, p0, v1
+    aget-char v4, p0, v0
 
     if-eq v4, v5, :cond_1
 
-    invoke-static {p0, v1}, Lcom/esotericsoftware/asm/Type;->a([CI)Lcom/esotericsoftware/asm/Type;
+    invoke-static {p0, v0}, Lcom/esotericsoftware/asm/Type;->a([CI)Lcom/esotericsoftware/asm/Type;
 
     move-result-object v4
 
     aput-object v4, v2, v3
 
-    aget-object v4, v2, v3
+    iget v6, v4, Lcom/esotericsoftware/asm/Type;->d:I
 
-    iget v4, v4, Lcom/esotericsoftware/asm/Type;->d:I
-
-    aget-object v6, v2, v3
-
-    iget v6, v6, Lcom/esotericsoftware/asm/Type;->a:I
+    iget v4, v4, Lcom/esotericsoftware/asm/Type;->a:I
 
     const/16 v7, 0xa
 
-    if-ne v6, v7, :cond_0
+    if-ne v4, v7, :cond_0
 
-    const/4 v6, 0x2
+    const/4 v4, 0x2
 
     goto :goto_2
 
     :cond_0
-    move v6, v0
+    move v4, v1
 
     :goto_2
-    add-int/2addr v4, v6
+    add-int/2addr v6, v4
 
-    add-int/2addr v1, v4
+    add-int/2addr v0, v6
 
     add-int/lit8 v3, v3, 0x1
 
@@ -865,7 +859,9 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -1446,11 +1442,9 @@
     return-object v0
 
     :pswitch_a
-    const-string/jumbo v0, "void"
+    const-string v0, "void"
 
     return-object v0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -1549,22 +1543,22 @@
 .method public getOpcode(I)I
     .locals 2
 
-    const/4 v0, 0x4
+    const/16 v0, 0x2e
 
-    const/16 v1, 0x2e
+    const/4 v1, 0x4
 
-    if-eq p1, v1, :cond_2
+    if-eq p1, v0, :cond_2
 
-    const/16 v1, 0x4f
+    const/16 v0, 0x4f
 
-    if-ne p1, v1, :cond_0
+    if-ne p1, v0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    iget-object v1, p0, Lcom/esotericsoftware/asm/Type;->b:[C
+    iget-object v0, p0, Lcom/esotericsoftware/asm/Type;->b:[C
 
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
 
     iget v0, p0, Lcom/esotericsoftware/asm/Type;->c:I
 
@@ -1572,18 +1566,18 @@
 
     and-int/2addr v0, v1
 
-    shr-int/lit8 v0, v0, 0x10
+    shr-int/lit8 v1, v0, 0x10
 
     :cond_1
-    add-int/2addr p1, v0
+    add-int/2addr p1, v1
 
     return p1
 
     :cond_2
     :goto_0
-    iget-object v1, p0, Lcom/esotericsoftware/asm/Type;->b:[C
+    iget-object v0, p0, Lcom/esotericsoftware/asm/Type;->b:[C
 
-    if-nez v1, :cond_3
+    if-nez v0, :cond_3
 
     iget v0, p0, Lcom/esotericsoftware/asm/Type;->c:I
 
@@ -1591,10 +1585,10 @@
 
     and-int/2addr v0, v1
 
-    shr-int/lit8 v0, v0, 0x8
+    shr-int/lit8 v1, v0, 0x8
 
     :cond_3
-    add-int/2addr p1, v0
+    add-int/2addr p1, v1
 
     return p1
 .end method

@@ -41,9 +41,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/SingleSource;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)V
     .locals 0
-    .param p2, "time"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,8 +53,6 @@
     .end annotation
 
     .line 30
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDelay;, "Lio/reactivex/internal/operators/single/SingleDelay<TT;>;"
-    .local p1, "source":Lio/reactivex/SingleSource;, "Lio/reactivex/SingleSource<+TT;>;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 31
@@ -72,7 +67,6 @@
     .line 34
     iput-object p5, p0, Lio/reactivex/internal/operators/single/SingleDelay;->scheduler:Lio/reactivex/Scheduler;
 
-    .line 35
     return-void
 .end method
 
@@ -89,14 +83,11 @@
     .end annotation
 
     .line 40
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDelay;, "Lio/reactivex/internal/operators/single/SingleDelay<TT;>;"
-    .local p1, "s":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
     new-instance v0, Lio/reactivex/internal/disposables/SequentialDisposable;
 
     invoke-direct {v0}, Lio/reactivex/internal/disposables/SequentialDisposable;-><init>()V
 
     .line 41
-    .local v0, "sd":Lio/reactivex/internal/disposables/SequentialDisposable;
     invoke-interface {p1, v0}, Lio/reactivex/SingleObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 42
@@ -108,6 +99,5 @@
 
     invoke-interface {v1, v2}, Lio/reactivex/SingleSource;->subscribe(Lio/reactivex/SingleObserver;)V
 
-    .line 43
     return-void
 .end method

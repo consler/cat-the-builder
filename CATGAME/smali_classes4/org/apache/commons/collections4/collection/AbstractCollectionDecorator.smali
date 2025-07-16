@@ -41,15 +41,13 @@
     .locals 0
 
     .line 72
-    .local p0, "this":Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;, "Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 73
     return-void
 .end method
 
 .method protected constructor <init>(Ljava/util/Collection;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -59,28 +57,24 @@
     .end annotation
 
     .line 81
-    .local p0, "this":Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;, "Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 82
     if-eqz p1, :cond_0
 
     .line 85
     iput-object p1, p0, Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;->collection:Ljava/util/Collection;
 
-    .line 86
     return-void
 
     .line 83
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "Collection must not be null."
+    const-string v0, "Collection must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -94,17 +88,15 @@
     .end annotation
 
     .line 113
-    .local p0, "this":Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;, "Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator<TE;>;"
-    .local p1, "object":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;->decorated()Ljava/util/Collection;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
@@ -118,49 +110,43 @@
     .end annotation
 
     .line 118
-    .local p0, "this":Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;, "Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<+TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;->decorated()Ljava/util/Collection;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->addAll(Ljava/util/Collection;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public clear()V
     .locals 1
 
     .line 123
-    .local p0, "this":Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;, "Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;->decorated()Ljava/util/Collection;
 
     move-result-object v0
 
     invoke-interface {v0}, Ljava/util/Collection;->clear()V
 
-    .line 124
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
 
     .line 128
-    .local p0, "this":Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;, "Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;->decorated()Ljava/util/Collection;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public containsAll(Ljava/util/Collection;)Z
@@ -174,17 +160,15 @@
     .end annotation
 
     .line 163
-    .local p0, "this":Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;, "Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;->decorated()Ljava/util/Collection;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->containsAll(Ljava/util/Collection;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method protected decorated()Ljava/util/Collection;
@@ -198,7 +182,6 @@
     .end annotation
 
     .line 95
-    .local p0, "this":Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;, "Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;->collection:Ljava/util/Collection;
 
     return-object v0
@@ -208,7 +191,6 @@
     .locals 1
 
     .line 133
-    .local p0, "this":Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;, "Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;->decorated()Ljava/util/Collection;
 
     move-result-object v0
@@ -231,7 +213,6 @@
     .end annotation
 
     .line 138
-    .local p0, "this":Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;, "Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;->decorated()Ljava/util/Collection;
 
     move-result-object v0
@@ -245,19 +226,17 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
 
     .line 143
-    .local p0, "this":Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;, "Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;->decorated()Ljava/util/Collection;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->remove(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
@@ -271,17 +250,15 @@
     .end annotation
 
     .line 176
-    .local p0, "this":Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;, "Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;->decorated()Ljava/util/Collection;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->removeAll(Ljava/util/Collection;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public removeIf(Ljava/util/function/Predicate;)Z
@@ -295,17 +272,15 @@
     .end annotation
 
     .line 171
-    .local p0, "this":Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;, "Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator<TE;>;"
-    .local p1, "filter":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<-TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;->decorated()Ljava/util/Collection;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->removeIf(Ljava/util/function/Predicate;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
@@ -319,17 +294,15 @@
     .end annotation
 
     .line 181
-    .local p0, "this":Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;, "Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;->decorated()Ljava/util/Collection;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->retainAll(Ljava/util/Collection;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method protected setCollection(Ljava/util/Collection;)V
@@ -343,11 +316,8 @@
     .end annotation
 
     .line 106
-    .local p0, "this":Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;, "Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<TE;>;"
     iput-object p1, p0, Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;->collection:Ljava/util/Collection;
 
-    .line 107
     return-void
 .end method
 
@@ -355,7 +325,6 @@
     .locals 1
 
     .line 148
-    .local p0, "this":Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;, "Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;->decorated()Ljava/util/Collection;
 
     move-result-object v0
@@ -371,7 +340,6 @@
     .locals 1
 
     .line 153
-    .local p0, "this":Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;, "Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;->decorated()Ljava/util/Collection;
 
     move-result-object v0
@@ -394,24 +362,21 @@
     .end annotation
 
     .line 158
-    .local p0, "this":Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;, "Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator<TE;>;"
-    .local p1, "object":[Ljava/lang/Object;, "[TT;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;->decorated()Ljava/util/Collection;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 1
 
     .line 186
-    .local p0, "this":Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;, "Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/collection/AbstractCollectionDecorator;->decorated()Ljava/util/Collection;
 
     move-result-object v0

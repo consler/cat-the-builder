@@ -26,8 +26,6 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;)V
     .locals 0
-    .param p1, "assetManager"    # Lcom/badlogic/gdx/assets/AssetManager;
-    .param p2, "atlasName"    # Ljava/lang/String;
 
     .line 76
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +36,6 @@
     .line 78
     iput-object p2, p0, Lcom/badlogic/gdx/maps/tiled/AtlasTmxMapLoader$AtlasResolver$AssetManagerAtlasResolver;->atlasName:Ljava/lang/String;
 
-    .line 79
     return-void
 .end method
 
@@ -65,7 +62,6 @@
 
 .method public getImage(Ljava/lang/String;)Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
     .locals 1
-    .param p1, "name"    # Ljava/lang/String;
 
     .line 88
     invoke-virtual {p0}, Lcom/badlogic/gdx/maps/tiled/AtlasTmxMapLoader$AtlasResolver$AssetManagerAtlasResolver;->getAtlas()Lcom/badlogic/gdx/graphics/g2d/TextureAtlas;
@@ -74,7 +70,7 @@
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/graphics/g2d/TextureAtlas;->findRegion(Ljava/lang/String;)Lcom/badlogic/gdx/graphics/g2d/TextureAtlas$AtlasRegion;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

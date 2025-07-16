@@ -63,11 +63,9 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g2d/Sprite;)V
     .locals 0
-    .param p1, "sprite"    # Lcom/badlogic/gdx/graphics/g2d/Sprite;
 
     .line 1221
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/graphics/g2d/Sprite;-><init>(Lcom/badlogic/gdx/graphics/g2d/Sprite;)V
 
-    .line 1222
     return-void
 .end method

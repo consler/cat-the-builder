@@ -42,13 +42,13 @@
 
     sput-object v0, Lio/reactivex/internal/util/HashMapSupplier;->INSTANCE:Lio/reactivex/internal/util/HashMapSupplier;
 
-    .line 20
     const/4 v1, 0x1
 
     new-array v1, v1, [Lio/reactivex/internal/util/HashMapSupplier;
 
     aput-object v0, v1, v2
 
+    .line 20
     sput-object v1, Lio/reactivex/internal/util/HashMapSupplier;->$VALUES:[Lio/reactivex/internal/util/HashMapSupplier;
 
     return-void
@@ -91,18 +91,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lio/reactivex/internal/util/HashMapSupplier;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 20
     const-class v0, Lio/reactivex/internal/util/HashMapSupplier;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lio/reactivex/internal/util/HashMapSupplier;
+    check-cast p0, Lio/reactivex/internal/util/HashMapSupplier;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lio/reactivex/internal/util/HashMapSupplier;

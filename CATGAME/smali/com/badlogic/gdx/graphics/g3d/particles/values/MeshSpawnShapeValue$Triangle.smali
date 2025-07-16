@@ -37,15 +37,6 @@
 # direct methods
 .method public constructor <init>(FFFFFFFFF)V
     .locals 0
-    .param p1, "x1"    # F
-    .param p2, "y1"    # F
-    .param p3, "z1"    # F
-    .param p4, "x2"    # F
-    .param p5, "y2"    # F
-    .param p6, "z2"    # F
-    .param p7, "x3"    # F
-    .param p8, "y3"    # F
-    .param p9, "z3"    # F
 
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -77,96 +68,80 @@
     .line 45
     iput p9, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/MeshSpawnShapeValue$Triangle;->z3:F
 
-    .line 46
     return-void
 .end method
 
 .method public static pick(FFFFFFFFFLcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
-    .locals 6
-    .param p0, "x1"    # F
-    .param p1, "y1"    # F
-    .param p2, "z1"    # F
-    .param p3, "x2"    # F
-    .param p4, "y2"    # F
-    .param p5, "z2"    # F
-    .param p6, "x3"    # F
-    .param p7, "y3"    # F
-    .param p8, "z3"    # F
-    .param p9, "vector"    # Lcom/badlogic/gdx/math/Vector3;
+    .locals 2
 
     .line 50
     invoke-static {}, Lcom/badlogic/gdx/math/MathUtils;->random()F
 
     move-result v0
 
-    .local v0, "a":F
     invoke-static {}, Lcom/badlogic/gdx/math/MathUtils;->random()F
 
     move-result v1
 
+    sub-float/2addr p3, p0
+
+    mul-float/2addr p3, v0
+
+    add-float/2addr p3, p0
+
+    sub-float/2addr p6, p0
+
+    mul-float/2addr p6, v1
+
+    add-float/2addr p3, p6
+
+    sub-float/2addr p4, p1
+
+    mul-float/2addr p4, v0
+
+    add-float/2addr p4, p1
+
+    sub-float/2addr p7, p1
+
+    mul-float/2addr p7, v1
+
+    add-float/2addr p4, p7
+
+    sub-float/2addr p5, p2
+
+    mul-float/2addr v0, p5
+
+    add-float/2addr v0, p2
+
+    sub-float/2addr p8, p2
+
+    mul-float/2addr v1, p8
+
+    add-float/2addr v0, v1
+
     .line 51
-    .local v1, "b":F
-    sub-float v2, p3, p0
+    invoke-virtual {p9, p3, p4, v0}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    mul-float/2addr v2, v0
+    move-result-object p0
 
-    add-float/2addr v2, p0
-
-    sub-float v3, p6, p0
-
-    mul-float/2addr v3, v1
-
-    add-float/2addr v2, v3
-
-    sub-float v3, p4, p1
-
-    mul-float/2addr v3, v0
-
-    add-float/2addr v3, p1
-
-    sub-float v4, p7, p1
-
-    mul-float/2addr v4, v1
-
-    add-float/2addr v3, v4
-
-    sub-float v4, p5, p2
-
-    mul-float/2addr v4, v0
-
-    add-float/2addr v4, p2
-
-    sub-float v5, p8, p2
-
-    mul-float/2addr v5, v1
-
-    add-float/2addr v4, v5
-
-    invoke-virtual {p9, v2, v3, v4}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
-
-    move-result-object v2
-
-    return-object v2
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public pick(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
-    .locals 7
-    .param p1, "vector"    # Lcom/badlogic/gdx/math/Vector3;
+    .locals 6
 
     .line 56
     invoke-static {}, Lcom/badlogic/gdx/math/MathUtils;->random()F
 
     move-result v0
 
-    .local v0, "a":F
     invoke-static {}, Lcom/badlogic/gdx/math/MathUtils;->random()F
 
     move-result v1
 
     .line 57
-    .local v1, "b":F
     iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/MeshSpawnShapeValue$Triangle;->x1:F
 
     iget v3, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/MeshSpawnShapeValue$Triangle;->x2:F
@@ -209,21 +184,21 @@
 
     sub-float/2addr v5, v2
 
-    mul-float/2addr v5, v0
+    mul-float/2addr v0, v5
 
-    add-float/2addr v5, v2
+    add-float/2addr v0, v2
 
-    iget v6, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/MeshSpawnShapeValue$Triangle;->z3:F
+    iget v5, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/MeshSpawnShapeValue$Triangle;->z3:F
 
-    sub-float/2addr v6, v2
+    sub-float/2addr v5, v2
 
-    mul-float/2addr v6, v1
+    mul-float/2addr v1, v5
 
-    add-float/2addr v5, v6
+    add-float/2addr v0, v1
 
-    invoke-virtual {p1, v3, v4, v5}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p1, v3, v4, v0}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 .end method

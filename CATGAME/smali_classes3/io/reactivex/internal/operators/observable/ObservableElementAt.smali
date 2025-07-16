@@ -38,8 +38,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/ObservableSource;JLjava/lang/Object;Z)V
     .locals 0
-    .param p2, "index"    # J
-    .param p5, "errorOnFewer"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -49,9 +47,6 @@
     .end annotation
 
     .line 29
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableElementAt;, "Lio/reactivex/internal/operators/observable/ObservableElementAt<TT;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
-    .local p4, "defaultValue":Ljava/lang/Object;, "TT;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/observable/AbstractObservableWithUpstream;-><init>(Lio/reactivex/ObservableSource;)V
 
     .line 30
@@ -63,7 +58,6 @@
     .line 32
     iput-boolean p5, p0, Lio/reactivex/internal/operators/observable/ObservableElementAt;->errorOnFewer:Z
 
-    .line 33
     return-void
 .end method
 
@@ -80,8 +74,6 @@
     .end annotation
 
     .line 36
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableElementAt;, "Lio/reactivex/internal/operators/observable/ObservableElementAt<TT;>;"
-    .local p1, "t":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableElementAt;->source:Lio/reactivex/ObservableSource;
 
     new-instance v7, Lio/reactivex/internal/operators/observable/ObservableElementAt$ElementAtObserver;
@@ -100,6 +92,5 @@
 
     invoke-interface {v0, v7}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 37
     return-void
 .end method

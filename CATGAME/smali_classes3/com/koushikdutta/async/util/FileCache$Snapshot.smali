@@ -23,8 +23,6 @@
 # direct methods
 .method constructor <init>([Ljava/io/FileInputStream;[J)V
     .locals 0
-    .param p1, "fins"    # [Ljava/io/FileInputStream;
-    .param p2, "lens"    # [J
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,7 +33,6 @@
     .line 34
     iput-object p2, p0, Lcom/koushikdutta/async/util/FileCache$Snapshot;->lens:[J
 
-    .line 35
     return-void
 .end method
 
@@ -49,18 +46,16 @@
 
     invoke-static {v0}, Lcom/koushikdutta/async/util/StreamUtility;->closeQuietly([Ljava/io/Closeable;)V
 
-    .line 43
     return-void
 .end method
 
 .method public getLength(I)J
-    .locals 3
-    .param p1, "index"    # I
+    .locals 2
 
     .line 38
     iget-object v0, p0, Lcom/koushikdutta/async/util/FileCache$Snapshot;->lens:[J
 
-    aget-wide v1, v0, p1
+    aget-wide v0, v0, p1
 
-    return-wide v1
+    return-wide v0
 .end method

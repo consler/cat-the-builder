@@ -88,7 +88,6 @@
 .method public getTag()Ljava/lang/Object;
     .locals 1
 
-    .line 110
     const/4 v0, 0x0
 
     return-object v0
@@ -97,7 +96,6 @@
 .method public getTimestamp()J
     .locals 2
 
-    .line 104
     const-wide/16 v0, -0x1
 
     return-wide v0

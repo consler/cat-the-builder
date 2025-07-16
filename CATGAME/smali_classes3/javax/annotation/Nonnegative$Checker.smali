@@ -52,146 +52,106 @@
 .end method
 
 .method public forConstantValue(Ljavax/annotation/Nonnegative;Ljava/lang/Object;)Ljavax/annotation/meta/When;
-    .locals 8
-    .param p1, "annotation"    # Ljavax/annotation/Nonnegative;
-    .param p2, "v"    # Ljava/lang/Object;
+    .locals 4
 
     .line 25
-    instance-of v0, p2, Ljava/lang/Number;
+    instance-of p1, p2, Ljava/lang/Number;
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 26
-    sget-object v0, Ljavax/annotation/meta/When;->NEVER:Ljavax/annotation/meta/When;
+    sget-object p1, Ljavax/annotation/meta/When;->NEVER:Ljavax/annotation/meta/When;
 
-    return-object v0
+    return-object p1
 
     .line 28
     :cond_0
-    move-object v0, p2
-
-    check-cast v0, Ljava/lang/Number;
+    check-cast p2, Ljava/lang/Number;
 
     .line 29
-    .local v0, "value":Ljava/lang/Number;
-    instance-of v1, v0, Ljava/lang/Long;
+    instance-of p1, p2, Ljava/lang/Long;
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz p1, :cond_2
 
     .line 30
-    invoke-virtual {v0}, Ljava/lang/Number;->longValue()J
+    invoke-virtual {p2}, Ljava/lang/Number;->longValue()J
 
-    move-result-wide v4
+    move-result-wide p1
 
-    const-wide/16 v6, 0x0
+    const-wide/16 v2, 0x0
 
-    cmp-long v1, v4, v6
+    cmp-long p1, p1, v2
 
-    if-gez v1, :cond_1
+    if-gez p1, :cond_1
 
     goto :goto_0
 
     :cond_1
-    move v2, v3
+    move v0, v1
 
-    :goto_0
-    move v1, v2
-
-    .local v1, "isNegative":Z
-    goto :goto_4
+    goto :goto_0
 
     .line 31
-    .end local v1    # "isNegative":Z
     :cond_2
-    instance-of v1, v0, Ljava/lang/Double;
+    instance-of p1, p2, Ljava/lang/Double;
 
-    if-eqz v1, :cond_4
+    if-eqz p1, :cond_3
 
     .line 32
-    invoke-virtual {v0}, Ljava/lang/Number;->doubleValue()D
+    invoke-virtual {p2}, Ljava/lang/Number;->doubleValue()D
 
-    move-result-wide v4
+    move-result-wide p1
 
-    const-wide/16 v6, 0x0
+    const-wide/16 v2, 0x0
 
-    cmpg-double v1, v4, v6
+    cmpg-double p1, p1, v2
 
-    if-gez v1, :cond_3
+    if-gez p1, :cond_1
 
-    goto :goto_1
-
-    :cond_3
-    move v2, v3
-
-    :goto_1
-    move v1, v2
-
-    .restart local v1    # "isNegative":Z
-    goto :goto_4
+    goto :goto_0
 
     .line 33
-    .end local v1    # "isNegative":Z
-    :cond_4
-    instance-of v1, v0, Ljava/lang/Float;
+    :cond_3
+    instance-of p1, p2, Ljava/lang/Float;
 
-    if-eqz v1, :cond_6
+    if-eqz p1, :cond_4
 
     .line 34
-    invoke-virtual {v0}, Ljava/lang/Number;->floatValue()F
+    invoke-virtual {p2}, Ljava/lang/Number;->floatValue()F
 
-    move-result v1
+    move-result p1
 
-    const/4 v4, 0x0
+    const/4 p2, 0x0
 
-    cmpg-float v1, v1, v4
+    cmpg-float p1, p1, p2
 
-    if-gez v1, :cond_5
+    if-gez p1, :cond_1
 
-    goto :goto_2
-
-    :cond_5
-    move v2, v3
-
-    :goto_2
-    move v1, v2
-
-    .restart local v1    # "isNegative":Z
-    goto :goto_4
+    goto :goto_0
 
     .line 36
-    .end local v1    # "isNegative":Z
-    :cond_6
-    invoke-virtual {v0}, Ljava/lang/Number;->intValue()I
+    :cond_4
+    invoke-virtual {p2}, Ljava/lang/Number;->intValue()I
 
-    move-result v1
+    move-result p1
 
-    if-gez v1, :cond_7
+    if-gez p1, :cond_1
 
-    goto :goto_3
-
-    :cond_7
-    move v2, v3
-
-    :goto_3
-    move v1, v2
-
-    .line 38
-    .restart local v1    # "isNegative":Z
-    :goto_4
-    if-eqz v1, :cond_8
+    :goto_0
+    if-eqz v0, :cond_5
 
     .line 39
-    sget-object v2, Ljavax/annotation/meta/When;->NEVER:Ljavax/annotation/meta/When;
+    sget-object p1, Ljavax/annotation/meta/When;->NEVER:Ljavax/annotation/meta/When;
 
-    return-object v2
+    return-object p1
 
     .line 41
-    :cond_8
-    sget-object v2, Ljavax/annotation/meta/When;->ALWAYS:Ljavax/annotation/meta/When;
+    :cond_5
+    sget-object p1, Ljavax/annotation/meta/When;->ALWAYS:Ljavax/annotation/meta/When;
 
-    return-object v2
+    return-object p1
 .end method

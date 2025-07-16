@@ -15,11 +15,6 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u00000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0008\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0003\u0018\u0000 \u000e2\u00020\u00012\u00020\u0002:\u0002\u000e\u000fB\u0005\u00a2\u0006\u0002\u0010\u0003J\u0018\u0010\u0004\u001a\u00020\u00052\u0006\u0010\u0006\u001a\u00020\u00072\u0006\u0010\u0008\u001a\u00020\tH\u0016J\u0012\u0010\n\u001a\u00020\u000b2\u0008\u0010\u000c\u001a\u0004\u0018\u00010\rH\u0016\u00a8\u0006\u0010"
     }
@@ -40,14 +35,15 @@
         "Landroid/os/Bundle;",
         "Companion",
         "DialogType",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -82,116 +78,93 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 1
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
-    .param p2, "which"    # I
+    .locals 0
 
-    const-string v0, "dialog"
+    const-string p2, "dialog"
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 48
     invoke-interface {p1}, Landroid/content/DialogInterface;->cancel()V
 
-    .line 49
     return-void
 .end method
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 5
-    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
+    .locals 3
 
     .line 37
-    new-instance v0, Landroidx/appcompat/app/AlertDialog$Builder;
+    new-instance p1, Landroidx/appcompat/app/AlertDialog$Builder;
 
     invoke-virtual {p0}, Lorg/catrobat/paintroid/dialog/InfoDialog;->requireContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v0
 
-    sget v2, Lorg/catrobat/paintroid/R$style;->PocketPaintAlertDialog:I
+    sget v1, Lorg/catrobat/paintroid/R$style;->PocketPaintAlertDialog:I
 
-    invoke-direct {v0, v1, v2}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
+    invoke-direct {p1, v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
     .line 38
-    .local v0, "builder":Landroidx/appcompat/app/AlertDialog$Builder;
     invoke-virtual {p0}, Lorg/catrobat/paintroid/dialog/InfoDialog;->getArguments()Landroid/os/Bundle;
 
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const-string v1, "titleResource"
+
+    .line 39
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {p1, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
+
     move-result-object v1
 
-    if-eqz v1, :cond_0
-
-    .local v1, "it":Landroid/os/Bundle;
-    const/4 v2, 0x0
-
-    .line 39
-    .local v2, "$i$a$-let-InfoDialog$onCreateDialog$1":I
-    nop
-
-    .line 41
-    nop
-
-    .line 39
-    nop
+    const-string v2, "drawableResource"
 
     .line 40
-    nop
+    invoke-virtual {v0, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
-    .line 39
-    const-string v3, "titleResource"
+    move-result v2
 
-    invoke-virtual {v1, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v1, v2}, Landroidx/appcompat/app/AlertDialog$Builder;->setIcon(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
-    move-result v3
+    move-result-object v1
 
-    invoke-virtual {v0, v3}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
-
-    move-result-object v3
-
-    .line 40
-    const-string v4, "drawableResource"
-
-    invoke-virtual {v1, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
-
-    move-result v4
-
-    invoke-virtual {v3, v4}, Landroidx/appcompat/app/AlertDialog$Builder;->setIcon(I)Landroidx/appcompat/app/AlertDialog$Builder;
-
-    move-result-object v3
+    const-string v2, "messageResource"
 
     .line 41
-    const-string v4, "messageResource"
+    invoke-virtual {v0, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
-    invoke-virtual {v1, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+    move-result v0
 
-    move-result v4
+    invoke-virtual {v1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
-    invoke-virtual {v3, v4}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
-
-    .line 38
-    .end local v1    # "it":Landroid/os/Bundle;
-    .end local v2    # "$i$a$-let-InfoDialog$onCreateDialog$1":I
-    nop
+    :goto_0
+    const v0, 0x104000a
 
     .line 43
-    :cond_0
-    const v1, 0x104000a
+    move-object v1, p0
 
-    move-object v2, p0
+    check-cast v1, Landroid/content/DialogInterface$OnClickListener;
 
-    check-cast v2, Landroid/content/DialogInterface$OnClickListener;
-
-    invoke-virtual {v0, v1, v2}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+    invoke-virtual {p1, v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
     .line 44
-    invoke-virtual {v0}, Landroidx/appcompat/app/AlertDialog$Builder;->create()Landroidx/appcompat/app/AlertDialog;
+    invoke-virtual {p1}, Landroidx/appcompat/app/AlertDialog$Builder;->create()Landroidx/appcompat/app/AlertDialog;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "builder.create()"
+    const-string v0, "builder.create()"
 
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v1, Landroid/app/Dialog;
+    check-cast p1, Landroid/app/Dialog;
 
-    return-object v1
+    return-object p1
 .end method

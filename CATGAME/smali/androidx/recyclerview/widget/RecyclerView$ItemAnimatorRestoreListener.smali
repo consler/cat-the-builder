@@ -30,19 +30,17 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 12687
     return-void
 .end method
 
 
 # virtual methods
 .method public onAnimationFinished(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
-    .locals 3
-    .param p1, "item"    # Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
+    .locals 2
 
-    .line 12691
     const/4 v0, 0x1
 
+    .line 12691
     invoke-virtual {p1, v0}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->setIsRecyclable(Z)V
 
     .line 12692
@@ -90,13 +88,12 @@
     .line 12700
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$ItemAnimatorRestoreListener;->this$0:Landroidx/recyclerview/widget/RecyclerView;
 
-    iget-object v1, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
+    iget-object p1, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v0, v1, v2}, Landroidx/recyclerview/widget/RecyclerView;->removeDetachedView(Landroid/view/View;Z)V
+    invoke-virtual {v0, p1, v1}, Landroidx/recyclerview/widget/RecyclerView;->removeDetachedView(Landroid/view/View;Z)V
 
-    .line 12703
     :cond_1
     return-void
 .end method

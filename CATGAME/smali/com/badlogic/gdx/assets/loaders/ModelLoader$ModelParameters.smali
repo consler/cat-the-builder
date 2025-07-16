@@ -56,6 +56,5 @@
 
     iput-object v1, v0, Lcom/badlogic/gdx/assets/loaders/TextureLoader$TextureParameter;->wrapU:Lcom/badlogic/gdx/graphics/Texture$TextureWrap;
 
-    .line 135
     return-void
 .end method

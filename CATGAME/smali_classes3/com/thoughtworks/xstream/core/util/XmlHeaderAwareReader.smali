@@ -29,8 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .locals 5
-    .param p1, "in"    # Ljava/io/InputStream;
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/UnsupportedEncodingException;,
@@ -41,18 +40,16 @@
     .line 57
     invoke-direct {p0}, Ljava/io/Reader;-><init>()V
 
-    .line 58
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/io/PushbackInputStream;
 
+    .line 58
     instance-of v1, p1, Ljava/io/PushbackInputStream;
 
     if-eqz v1, :cond_0
 
-    move-object v1, p1
-
-    check-cast v1, Ljava/io/PushbackInputStream;
+    check-cast p1, Ljava/io/PushbackInputStream;
 
     goto :goto_0
 
@@ -63,57 +60,55 @@
 
     invoke-direct {v1, p1, v2}, Ljava/io/PushbackInputStream;-><init>(Ljava/io/InputStream;I)V
 
-    :goto_0
-    const/4 v2, 0x0
+    move-object p1, v1
 
-    aput-object v1, v0, v2
+    :goto_0
+    const/4 v1, 0x0
+
+    aput-object p1, v0, v1
 
     .line 61
-    .local v0, "pin":[Ljava/io/PushbackInputStream;
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/core/util/XmlHeaderAwareReader;->getHeader([Ljava/io/PushbackInputStream;)Ljava/util/Map;
 
-    move-result-object v1
+    move-result-object p1
+
+    const-string v2, "version"
 
     .line 62
-    .local v1, "header":Ljava/util/Map;
-    const-string v3, "version"
+    invoke-interface {p1, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v1, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v3
+    check-cast v2, Ljava/lang/String;
 
-    check-cast v3, Ljava/lang/String;
+    invoke-static {v2}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
 
-    invoke-static {v3}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
+    move-result-wide v2
 
-    move-result-wide v3
-
-    iput-wide v3, p0, Lcom/thoughtworks/xstream/core/util/XmlHeaderAwareReader;->version:D
+    iput-wide v2, p0, Lcom/thoughtworks/xstream/core/util/XmlHeaderAwareReader;->version:D
 
     .line 63
-    new-instance v3, Ljava/io/InputStreamReader;
+    new-instance v2, Ljava/io/InputStreamReader;
 
-    aget-object v2, v0, v2
+    aget-object v0, v0, v1
 
-    const-string v4, "encoding"
+    const-string v1, "encoding"
 
-    invoke-interface {v1, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object p1
 
-    check-cast v4, Ljava/lang/String;
+    check-cast p1, Ljava/lang/String;
 
-    invoke-direct {v3, v2, v4}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;Ljava/lang/String;)V
+    invoke-direct {v2, v0, p1}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;Ljava/lang/String;)V
 
-    iput-object v3, p0, Lcom/thoughtworks/xstream/core/util/XmlHeaderAwareReader;->reader:Ljava/io/InputStreamReader;
+    iput-object v2, p0, Lcom/thoughtworks/xstream/core/util/XmlHeaderAwareReader;->reader:Ljava/io/InputStreamReader;
 
-    .line 64
     return-void
 .end method
 
 .method private getHeader([Ljava/io/PushbackInputStream;)Ljava/util/Map;
     .locals 16
-    .param p1, "in"    # [Ljava/io/PushbackInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -125,481 +120,377 @@
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    move-object v1, v0
-
-    .line 68
-    .local v1, "header":Ljava/util/Map;
-    const-string v0, "encoding"
+    const-string v1, "encoding"
 
     const-string v2, "utf-8"
 
-    invoke-interface {v1, v0, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    .line 68
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 69
-    const-string v0, "version"
+    const-string v1, "version"
 
     const-string v2, "1.0"
 
-    invoke-interface {v1, v0, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 71
-    const/4 v0, 0x0
+    .line 69
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 72
-    .local v0, "state":I
-    new-instance v2, Ljava/io/ByteArrayOutputStream;
+    new-instance v1, Ljava/io/ByteArrayOutputStream;
 
-    const/16 v3, 0x40
+    const/16 v2, 0x40
 
-    invoke-direct {v2, v3}, Ljava/io/ByteArrayOutputStream;-><init>(I)V
-
-    .line 73
-    .local v2, "out":Ljava/io/ByteArrayOutputStream;
-    const/4 v3, 0x0
-
-    .line 74
-    .local v3, "i":I
-    const/4 v4, 0x0
-
-    .line 75
-    .local v4, "ch":C
-    const/4 v5, 0x0
+    invoke-direct {v1, v2}, Ljava/io/ByteArrayOutputStream;-><init>(I)V
 
     .line 76
-    .local v5, "valueEnd":C
-    new-instance v6, Ljava/lang/StringBuffer;
+    new-instance v2, Ljava/lang/StringBuffer;
 
-    invoke-direct {v6}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 77
-    .local v6, "name":Ljava/lang/StringBuffer;
-    new-instance v7, Ljava/lang/StringBuffer;
+    new-instance v3, Ljava/lang/StringBuffer;
 
-    invoke-direct {v7}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuffer;-><init>()V
 
-    .line 78
-    .local v7, "value":Ljava/lang/StringBuffer;
-    const/4 v8, 0x0
+    const/4 v4, 0x0
 
-    move v15, v3
+    move v5, v4
 
-    move v3, v0
+    move v6, v5
 
-    move v0, v15
+    move v7, v6
 
-    .line 79
-    .local v0, "i":I
-    .local v3, "state":I
-    .local v8, "escape":Z
+    move v8, v7
+
+    :cond_0
     :goto_0
     const/4 v9, -0x1
 
-    const/4 v10, 0x0
+    if-eq v5, v9, :cond_14
 
-    if-eq v0, v9, :cond_17
+    .line 79
+    aget-object v5, p1, v4
 
-    aget-object v11, p1, v10
+    invoke-virtual {v5}, Ljava/io/PushbackInputStream;->read()I
 
-    invoke-virtual {v11}, Ljava/io/PushbackInputStream;->read()I
+    move-result v5
 
-    move-result v11
-
-    move v0, v11
-
-    if-eq v11, v9, :cond_17
+    if-eq v5, v9, :cond_14
 
     .line 80
-    invoke-virtual {v2, v0}, Ljava/io/ByteArrayOutputStream;->write(I)V
+    invoke-virtual {v1, v5}, Ljava/io/ByteArrayOutputStream;->write(I)V
 
-    .line 81
-    int-to-char v4, v0
-
-    .line 82
-    const/4 v9, 0x3
+    int-to-char v10, v5
 
     const/4 v11, 0x2
 
-    const/4 v12, 0x1
+    const/4 v12, 0x3
 
-    if-eqz v3, :cond_e
+    const/4 v13, 0x1
 
-    if-eq v3, v12, :cond_14
+    if-eqz v6, :cond_c
 
-    if-eq v3, v11, :cond_b
+    if-eq v6, v13, :cond_12
 
-    if-eq v3, v9, :cond_7
+    if-eq v6, v11, :cond_a
 
-    const/4 v9, 0x4
+    const/4 v11, 0x4
 
-    if-eq v3, v9, :cond_0
+    if-eq v6, v12, :cond_7
 
-    goto/16 :goto_2
+    if-eq v6, v11, :cond_1
 
-    .line 140
-    :cond_0
-    if-nez v5, :cond_3
+    goto :goto_0
 
-    .line 141
-    const/16 v9, 0x22
-
-    if-eq v4, v9, :cond_2
-
-    const/16 v9, 0x27
-
-    if-ne v4, v9, :cond_1
-
-    goto :goto_1
-
-    .line 144
     :cond_1
-    const/4 v0, -0x1
+    if-nez v7, :cond_3
 
-    goto/16 :goto_2
+    const/16 v11, 0x22
 
-    .line 142
+    if-eq v10, v11, :cond_2
+
+    const/16 v11, 0x27
+
+    if-ne v10, v11, :cond_13
+
     :cond_2
-    :goto_1
-    move v5, v4
+    move v7, v10
 
-    goto/16 :goto_2
+    goto :goto_0
 
-    .line 147
     :cond_3
-    const/16 v9, 0x5c
+    const/16 v11, 0x5c
 
-    if-ne v4, v9, :cond_4
+    if-ne v10, v11, :cond_4
 
     if-nez v8, :cond_4
 
-    .line 148
-    const/4 v8, 0x1
+    move v8, v13
 
-    .line 149
-    goto/16 :goto_2
+    goto :goto_0
 
-    .line 151
     :cond_4
-    if-ne v4, v5, :cond_5
+    if-ne v10, v7, :cond_5
 
     if-nez v8, :cond_5
 
-    .line 152
-    const/4 v5, 0x0
-
-    .line 153
-    const/4 v3, 0x3
-
     .line 154
-    invoke-virtual {v6}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v6
 
-    invoke-virtual {v7}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v7
 
-    invoke-interface {v1, v9, v11}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v6, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 155
-    invoke-virtual {v6, v10}, Ljava/lang/StringBuffer;->setLength(I)V
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuffer;->setLength(I)V
 
     .line 156
-    invoke-virtual {v7, v10}, Ljava/lang/StringBuffer;->setLength(I)V
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->setLength(I)V
 
-    goto/16 :goto_2
+    move v7, v4
 
-    .line 158
+    goto :goto_1
+
     :cond_5
-    const/4 v8, 0x0
+    const/16 v8, 0xa
 
-    .line 159
-    const/16 v9, 0xa
-
-    if-eq v4, v9, :cond_6
+    if-eq v10, v8, :cond_6
 
     .line 160
-    invoke-virtual {v7, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v3, v10}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    goto/16 :goto_2
+    move v8, v4
 
-    .line 162
+    goto :goto_0
+
     :cond_6
-    const/4 v0, -0x1
+    move v8, v4
 
-    goto/16 :goto_2
+    goto/16 :goto_3
 
     .line 124
     :cond_7
-    invoke-static {v4}, Ljava/lang/Character;->isWhitespace(C)Z
+    invoke-static {v10}, Ljava/lang/Character;->isWhitespace(C)Z
 
-    move-result v9
+    move-result v12
 
-    if-nez v9, :cond_a
+    if-nez v12, :cond_9
 
-    .line 125
-    const/16 v9, 0x3d
+    const/16 v12, 0x3d
 
-    if-ne v4, v9, :cond_8
-
-    .line 126
-    const/4 v3, 0x4
+    if-ne v10, v12, :cond_8
 
     goto/16 :goto_2
 
     .line 128
     :cond_8
-    invoke-static {v4}, Ljava/lang/Character;->toLowerCase(C)C
+    invoke-static {v10}, Ljava/lang/Character;->toLowerCase(C)C
 
-    move-result v4
+    move-result v10
 
     .line 129
-    invoke-static {v4}, Ljava/lang/Character;->isLetter(C)Z
+    invoke-static {v10}, Ljava/lang/Character;->isLetter(C)Z
 
-    move-result v9
+    move-result v11
 
-    if-eqz v9, :cond_9
+    if-eqz v11, :cond_13
 
     .line 130
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v10}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    goto/16 :goto_2
-
-    .line 132
-    :cond_9
-    const/4 v0, -0x1
-
-    goto/16 :goto_2
+    goto :goto_0
 
     .line 135
-    :cond_a
-    invoke-virtual {v6}, Ljava/lang/StringBuffer;->length()I
+    :cond_9
+    invoke-virtual {v2}, Ljava/lang/StringBuffer;->length()I
 
-    move-result v9
+    move-result v10
 
-    if-lez v9, :cond_16
+    if-lez v10, :cond_0
 
-    .line 136
-    const/4 v0, -0x1
-
-    goto/16 :goto_2
+    goto/16 :goto_3
 
     .line 109
-    :cond_b
-    invoke-static {v4}, Ljava/lang/Character;->isWhitespace(C)Z
+    :cond_a
+    invoke-static {v10}, Ljava/lang/Character;->isWhitespace(C)Z
 
-    move-result v9
+    move-result v11
 
-    const-string v11, "?xml"
+    const-string v13, "?xml"
 
-    if-nez v9, :cond_c
+    if-nez v11, :cond_b
 
     .line 110
-    invoke-static {v4}, Ljava/lang/Character;->toLowerCase(C)C
+    invoke-static {v10}, Ljava/lang/Character;->toLowerCase(C)C
 
-    move-result v9
+    move-result v10
 
-    invoke-virtual {v6, v9}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, v10}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     .line 111
-    invoke-virtual {v6, v10}, Ljava/lang/StringBuffer;->substring(I)Ljava/lang/String;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuffer;->substring(I)Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v11, v9}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v13, v10}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v9
+    move-result v10
 
-    if-nez v9, :cond_16
+    if-nez v10, :cond_0
 
-    .line 112
-    const/4 v0, -0x1
-
-    goto :goto_2
+    goto :goto_3
 
     .line 115
-    :cond_c
-    invoke-virtual {v6}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    :cond_b
+    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-virtual {v9, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v10, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v10
 
-    if-eqz v9, :cond_d
-
-    .line 116
-    const/4 v3, 0x3
+    if-eqz v10, :cond_13
 
     .line 117
-    invoke-virtual {v6, v10}, Ljava/lang/StringBuffer;->setLength(I)V
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuffer;->setLength(I)V
 
-    goto :goto_2
+    :goto_1
+    move v6, v12
 
-    .line 119
-    :cond_d
-    const/4 v0, -0x1
+    goto/16 :goto_0
 
-    .line 122
-    goto :goto_2
+    :cond_c
+    const/16 v14, 0xef
+
+    const/16 v15, 0xbf
+
+    if-ne v10, v14, :cond_d
 
     .line 84
-    :cond_e
-    const/16 v10, 0xef
+    invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->size()I
 
-    const/16 v13, 0xbf
+    move-result v14
 
-    if-ne v4, v10, :cond_f
+    if-eq v14, v13, :cond_f
 
-    invoke-virtual {v2}, Ljava/io/ByteArrayOutputStream;->size()I
+    :cond_d
+    const/16 v14, 0xbb
 
-    move-result v10
-
-    if-eq v10, v12, :cond_11
-
-    :cond_f
-    const/16 v10, 0xbb
-
-    if-ne v4, v10, :cond_10
+    if-ne v10, v14, :cond_e
 
     .line 85
-    invoke-virtual {v2}, Ljava/io/ByteArrayOutputStream;->size()I
+    invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->size()I
 
-    move-result v10
+    move-result v14
 
-    if-eq v10, v11, :cond_11
+    if-eq v14, v11, :cond_f
 
-    :cond_10
-    if-ne v4, v13, :cond_12
+    :cond_e
+    if-ne v10, v15, :cond_10
 
     .line 86
-    invoke-virtual {v2}, Ljava/io/ByteArrayOutputStream;->size()I
+    invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->size()I
 
-    move-result v10
+    move-result v14
 
-    if-ne v10, v9, :cond_12
+    if-ne v14, v12, :cond_10
 
-    .line 87
-    :cond_11
-    if-ne v4, v13, :cond_16
+    :cond_f
+    if-ne v10, v15, :cond_0
 
     .line 88
-    invoke-virtual {v2}, Ljava/io/ByteArrayOutputStream;->reset()V
+    invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->reset()V
 
-    .line 89
-    const/4 v3, 0x1
+    move v6, v13
 
-    goto :goto_2
+    goto/16 :goto_0
 
     .line 92
-    :cond_12
-    invoke-virtual {v2}, Ljava/io/ByteArrayOutputStream;->size()I
+    :cond_10
+    invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->size()I
 
-    move-result v9
+    move-result v12
 
-    if-le v9, v12, :cond_13
+    if-le v12, v13, :cond_11
 
-    .line 93
-    const/4 v0, -0x1
+    goto :goto_3
 
-    .line 94
-    goto :goto_2
-
-    .line 96
-    :cond_13
-    const/4 v3, 0x1
+    :cond_11
+    move v6, v13
 
     .line 100
-    :cond_14
-    invoke-static {v4}, Ljava/lang/Character;->isWhitespace(C)Z
+    :cond_12
+    invoke-static {v10}, Ljava/lang/Character;->isWhitespace(C)Z
 
-    move-result v9
+    move-result v12
 
-    if-nez v9, :cond_16
+    if-nez v12, :cond_0
 
-    .line 101
-    const/16 v9, 0x3c
+    const/16 v12, 0x3c
 
-    if-ne v4, v9, :cond_15
+    if-ne v10, v12, :cond_13
 
-    .line 102
-    const/4 v3, 0x2
-
-    goto :goto_2
-
-    .line 104
-    :cond_15
-    const/4 v0, -0x1
-
-    .line 166
-    :cond_16
     :goto_2
+    move v6, v11
+
+    goto/16 :goto_0
+
+    :cond_13
+    :goto_3
+    move v5, v9
+
     goto/16 :goto_0
 
     .line 170
-    :cond_17
-    invoke-virtual {v2}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
+    :cond_14
+    invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
-    move-result-object v9
+    move-result-object v1
 
     .line 171
-    .local v9, "pushbackData":[B
-    array-length v0, v9
+    array-length v2, v1
 
-    :goto_3
-    add-int/lit8 v11, v0, -0x1
+    :goto_4
+    add-int/lit8 v3, v2, -0x1
 
-    .end local v0    # "i":I
-    .local v11, "i":I
-    if-lez v0, :cond_18
+    if-lez v2, :cond_15
 
     .line 172
-    aget-byte v12, v9, v11
+    aget-byte v2, v1, v3
 
     .line 174
-    .local v12, "b":B
     :try_start_0
-    aget-object v0, p1, v10
+    aget-object v5, p1, v4
 
-    invoke-virtual {v0, v12}, Ljava/io/PushbackInputStream;->unread(I)V
+    invoke-virtual {v5, v2}, Ljava/io/PushbackInputStream;->unread(I)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 177
-    move v0, v11
+    goto :goto_5
+
+    .line 176
+    :catch_0
+    new-instance v2, Ljava/io/PushbackInputStream;
+
+    aget-object v5, p1, v4
+
+    add-int/lit8 v3, v3, 0x1
+
+    invoke-direct {v2, v5, v3}, Ljava/io/PushbackInputStream;-><init>(Ljava/io/InputStream;I)V
+
+    aput-object v2, p1, v4
+
+    :goto_5
+    move v2, v3
 
     goto :goto_4
 
-    .line 175
-    :catch_0
-    move-exception v0
-
-    .line 176
-    .local v0, "ex":Ljava/io/IOException;
-    new-instance v13, Ljava/io/PushbackInputStream;
-
-    aget-object v14, p1, v10
-
-    add-int/lit8 v11, v11, 0x1
-
-    invoke-direct {v13, v14, v11}, Ljava/io/PushbackInputStream;-><init>(Ljava/io/InputStream;I)V
-
-    aput-object v13, p1, v10
-
-    move v0, v11
-
-    .line 178
-    .end local v11    # "i":I
-    .end local v12    # "b":B
-    .local v0, "i":I
-    :goto_4
-    goto :goto_3
-
-    .line 179
-    .end local v0    # "i":I
-    .restart local v11    # "i":I
-    :cond_18
-    return-object v1
+    :cond_15
+    return-object v0
 .end method
 
 
@@ -617,22 +508,20 @@
 
     invoke-virtual {v0}, Ljava/io/InputStreamReader;->close()V
 
-    .line 264
     return-void
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 270
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/XmlHeaderAwareReader;->reader:Ljava/io/InputStreamReader;
 
     invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public getEncoding()Ljava/lang/String;
@@ -672,7 +561,6 @@
 
 .method public mark(I)V
     .locals 1
-    .param p1, "readAheadLimit"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -684,7 +572,6 @@
 
     invoke-virtual {v0, p1}, Ljava/io/InputStreamReader;->mark(I)V
 
-    .line 203
     return-void
 .end method
 
@@ -721,7 +608,6 @@
 
 .method public read([C)I
     .locals 1
-    .param p1, "cbuf"    # [C
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -733,16 +619,13 @@
 
     invoke-virtual {v0, p1}, Ljava/io/InputStreamReader;->read([C)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public read([CII)I
     .locals 1
-    .param p1, "cbuf"    # [C
-    .param p2, "offset"    # I
-    .param p3, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -754,9 +637,9 @@
 
     invoke-virtual {v0, p1, p2, p3}, Ljava/io/InputStreamReader;->read([CII)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public ready()Z
@@ -790,13 +673,11 @@
 
     invoke-virtual {v0}, Ljava/io/InputStreamReader;->reset()V
 
-    .line 250
     return-void
 .end method
 
 .method public skip(J)J
-    .locals 2
-    .param p1, "n"    # J
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -808,9 +689,9 @@
 
     invoke-virtual {v0, p1, p2}, Ljava/io/InputStreamReader;->skip(J)J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    return-wide v0
+    return-wide p1
 .end method
 
 .method public toString()Ljava/lang/String;

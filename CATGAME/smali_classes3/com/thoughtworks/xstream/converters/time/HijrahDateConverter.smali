@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 4
+    .locals 3
 
     .line 35
     invoke-direct {p0}, Lcom/thoughtworks/xstream/converters/time/AbstractChronoLocalDateConverter;-><init>()V
@@ -45,41 +45,36 @@
     move-result-object v0
 
     .line 38
-    .local v0, "chronologies":Ljava/util/Set;, "Ljava/util/Set<Ljava/time/chrono/Chronology;>;"
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :cond_0
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/time/chrono/Chronology;
+    check-cast v1, Ljava/time/chrono/Chronology;
 
     .line 39
-    .local v2, "chronology":Ljava/time/chrono/Chronology;
-    instance-of v3, v2, Ljava/time/chrono/HijrahChronology;
+    instance-of v2, v1, Ljava/time/chrono/HijrahChronology;
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
     .line 40
-    iget-object v3, p0, Lcom/thoughtworks/xstream/converters/time/HijrahDateConverter;->hijrahChronologies:Ljava/util/Set;
+    iget-object v2, p0, Lcom/thoughtworks/xstream/converters/time/HijrahDateConverter;->hijrahChronologies:Ljava/util/Set;
 
-    invoke-interface {v3, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {v2, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 42
-    .end local v2    # "chronology":Ljava/time/chrono/Chronology;
-    :cond_0
     goto :goto_0
 
-    .line 43
     :cond_1
     return-void
 .end method
@@ -88,22 +83,21 @@
 # virtual methods
 .method public canConvert(Ljava/lang/Class;)Z
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
 
     .line 47
     const-class v0, Ljava/time/chrono/HijrahDate;
 
     if-ne v0, p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method protected bridge synthetic chronoLocalDateOf(Ljava/time/chrono/Era;III)Ljava/time/chrono/ChronoLocalDate;
@@ -120,26 +114,22 @@
 .end method
 
 .method protected chronoLocalDateOf(Ljava/time/chrono/HijrahEra;III)Ljava/time/chrono/ChronoLocalDate;
-    .locals 1
-    .param p1, "era"    # Ljava/time/chrono/HijrahEra;
-    .param p2, "prolepticYear"    # I
-    .param p3, "month"    # I
-    .param p4, "dayOfMonth"    # I
+    .locals 0
 
-    .line 58
     if-eqz p1, :cond_0
 
+    .line 58
     invoke-static {p2, p3, p4}, Ljava/time/chrono/HijrahDate;->of(III)Ljava/time/chrono/HijrahDate;
 
-    move-result-object v0
+    move-result-object p1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return-object v0
+    return-object p1
 .end method
 
 .method protected bridge synthetic eraOf(Ljava/lang/String;)Ljava/time/chrono/Era;
@@ -154,29 +144,27 @@
 .end method
 
 .method protected eraOf(Ljava/lang/String;)Ljava/time/chrono/HijrahEra;
-    .locals 1
-    .param p1, "id"    # Ljava/lang/String;
+    .locals 0
 
     .line 63
     invoke-static {p1}, Ljava/time/chrono/HijrahEra;->valueOf(Ljava/lang/String;)Ljava/time/chrono/HijrahEra;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public fromString(Ljava/lang/String;)Ljava/lang/Object;
     .locals 2
-    .param p1, "str"    # Ljava/lang/String;
+
+    const-string v0, "Hijrah"
 
     .line 52
-    iget-object v0, p0, Lcom/thoughtworks/xstream/converters/time/HijrahDateConverter;->hijrahChronologies:Ljava/util/Set;
+    iget-object v1, p0, Lcom/thoughtworks/xstream/converters/time/HijrahDateConverter;->hijrahChronologies:Ljava/util/Set;
 
-    const-string v1, "Hijrah"
+    invoke-virtual {p0, p1, v0, v1}, Lcom/thoughtworks/xstream/converters/time/HijrahDateConverter;->parseChronoLocalDate(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;)Ljava/time/chrono/ChronoLocalDate;
 
-    invoke-virtual {p0, p1, v1, v0}, Lcom/thoughtworks/xstream/converters/time/HijrahDateConverter;->parseChronoLocalDate(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;)Ljava/time/chrono/ChronoLocalDate;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method

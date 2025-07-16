@@ -26,11 +26,11 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 32
     const/4 v0, 0x0
 
     new-array v0, v0, [B
 
+    .line 32
     sput-object v0, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridEncrypt;->EMPTY_AAD:[B
 
     return-void
@@ -38,11 +38,6 @@
 
 .method public constructor <init>(Ljava/security/interfaces/ECPublicKey;[BLjava/lang/String;Lcom/google/crypto/tink/subtle/EllipticCurves$PointFormatType;Lcom/google/crypto/tink/subtle/EciesAeadHkdfDemHelper;)V
     .locals 1
-    .param p1, "recipientPublicKey"    # Ljava/security/interfaces/ECPublicKey;
-    .param p2, "hkdfSalt"    # [B
-    .param p3, "hkdfHmacAlgo"    # Ljava/lang/String;
-    .param p4, "ecPointFormat"    # Lcom/google/crypto/tink/subtle/EllipticCurves$PointFormatType;
-    .param p5, "demHelper"    # Lcom/google/crypto/tink/subtle/EciesAeadHkdfDemHelper;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -91,7 +86,6 @@
     .line 51
     iput-object p5, p0, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridEncrypt;->demHelper:Lcom/google/crypto/tink/subtle/EciesAeadHkdfDemHelper;
 
-    .line 52
     return-void
 .end method
 
@@ -99,8 +93,6 @@
 # virtual methods
 .method public encrypt([B[B)[B
     .locals 6
-    .param p1, "plaintext"    # [B
-    .param p2, "contextInfo"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -134,66 +126,61 @@
 
     iget-object v5, p0, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridEncrypt;->ecPointFormat:Lcom/google/crypto/tink/subtle/EllipticCurves$PointFormatType;
 
-    .line 64
     move-object v3, p2
 
+    .line 64
     invoke-virtual/range {v0 .. v5}, Lcom/google/crypto/tink/subtle/EciesHkdfSenderKem;->generateKey(Ljava/lang/String;[B[BILcom/google/crypto/tink/subtle/EllipticCurves$PointFormatType;)Lcom/google/crypto/tink/subtle/EciesHkdfSenderKem$KemKey;
 
-    move-result-object v0
+    move-result-object p2
 
     .line 70
-    .local v0, "kemKey":Lcom/google/crypto/tink/subtle/EciesHkdfSenderKem$KemKey;
-    iget-object v1, p0, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridEncrypt;->demHelper:Lcom/google/crypto/tink/subtle/EciesAeadHkdfDemHelper;
+    iget-object v0, p0, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridEncrypt;->demHelper:Lcom/google/crypto/tink/subtle/EciesAeadHkdfDemHelper;
 
-    invoke-virtual {v0}, Lcom/google/crypto/tink/subtle/EciesHkdfSenderKem$KemKey;->getSymmetricKey()[B
-
-    move-result-object v2
-
-    invoke-interface {v1, v2}, Lcom/google/crypto/tink/subtle/EciesAeadHkdfDemHelper;->getAead([B)Lcom/google/crypto/tink/Aead;
+    invoke-virtual {p2}, Lcom/google/crypto/tink/subtle/EciesHkdfSenderKem$KemKey;->getSymmetricKey()[B
 
     move-result-object v1
 
+    invoke-interface {v0, v1}, Lcom/google/crypto/tink/subtle/EciesAeadHkdfDemHelper;->getAead([B)Lcom/google/crypto/tink/Aead;
+
+    move-result-object v0
+
     .line 71
-    .local v1, "aead":Lcom/google/crypto/tink/Aead;
-    sget-object v2, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridEncrypt;->EMPTY_AAD:[B
+    sget-object v1, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridEncrypt;->EMPTY_AAD:[B
 
-    invoke-interface {v1, p1, v2}, Lcom/google/crypto/tink/Aead;->encrypt([B[B)[B
+    invoke-interface {v0, p1, v1}, Lcom/google/crypto/tink/Aead;->encrypt([B[B)[B
 
-    move-result-object v2
+    move-result-object p1
 
     .line 72
-    .local v2, "ciphertext":[B
-    invoke-virtual {v0}, Lcom/google/crypto/tink/subtle/EciesHkdfSenderKem$KemKey;->getKemBytes()[B
+    invoke-virtual {p2}, Lcom/google/crypto/tink/subtle/EciesHkdfSenderKem$KemKey;->getKemBytes()[B
 
-    move-result-object v3
+    move-result-object p2
 
     .line 73
-    .local v3, "header":[B
-    array-length v4, v3
+    array-length v0, p2
 
-    array-length v5, v2
+    array-length v1, p1
 
-    add-int/2addr v4, v5
+    add-int/2addr v0, v1
 
-    invoke-static {v4}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
+    invoke-static {v0}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v4
+    move-result-object v0
 
     .line 74
-    invoke-virtual {v4, v3}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
+    invoke-virtual {v0, p2}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
-    move-result-object v4
+    move-result-object p2
 
     .line 75
-    invoke-virtual {v4, v2}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
+    invoke-virtual {p2, p1}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
-    move-result-object v4
+    move-result-object p1
 
     .line 76
-    invoke-virtual {v4}, Ljava/nio/ByteBuffer;->array()[B
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->array()[B
 
-    move-result-object v4
+    move-result-object p1
 
-    .line 73
-    return-object v4
+    return-object p1
 .end method

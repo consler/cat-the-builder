@@ -30,15 +30,14 @@
 
 # virtual methods
 .method public addThrowable(Ljava/lang/Throwable;)Z
-    .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
+    .locals 0
 
     .line 35
     invoke-static {p0, p1}, Lio/reactivex/internal/util/ExceptionHelper;->addThrowable(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Throwable;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public isTerminated()Z

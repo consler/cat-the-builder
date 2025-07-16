@@ -23,8 +23,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/ImageView;Landroid/widget/TextView;)V
     .locals 0
-    .param p1, "icon"    # Landroid/widget/ImageView;
-    .param p2, "text"    # Landroid/widget/TextView;
 
     .line 138
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,6 +33,5 @@
     .line 140
     iput-object p2, p0, Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter$ViewHolderItem;->mText:Landroid/widget/TextView;
 
-    .line 141
     return-void
 .end method

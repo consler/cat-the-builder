@@ -14,26 +14,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nMainActivityPresenter.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MainActivityPresenter.kt\norg/catrobat/paintroid/presenter/MainActivityPresenter$Companion\n+ 2 ArraysJVM.kt\nkotlin/collections/ArraysKt__ArraysJVMKt\n*L\n1#1,1047:1\n37#2,2:1048\n37#2,2:1050\n*E\n*S KotlinDebug\n*F\n+ 1 MainActivityPresenter.kt\norg/catrobat/paintroid/presenter/MainActivityPresenter$Companion\n*L\n971#1,2:1048\n985#1,2:1050\n*E\n"
+    value = "SMAP\nMainActivityPresenter.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MainActivityPresenter.kt\norg/catrobat/paintroid/presenter/MainActivityPresenter$Companion\n+ 2 ArraysJVM.kt\nkotlin/collections/ArraysKt__ArraysJVMKt\n*L\n1#1,1270:1\n37#2,2:1271\n37#2,2:1273\n*S KotlinDebug\n*F\n+ 1 MainActivityPresenter.kt\norg/catrobat/paintroid/presenter/MainActivityPresenter$Companion\n*L\n1176#1:1271,2\n1190#1:1273,2\n*E\n"
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
-        "\u00000\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0008\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u0011\n\u0002\u0008\u0003\n\u0002\u0010\u000b\n\u0002\u0008\u0004\u0008\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\u0008\u0002\u00a2\u0006\u0002\u0010\u0002J9\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u00062\u0008\u0010\u0007\u001a\u0004\u0018\u00010\u00082\u0008\u0010\t\u001a\u0004\u0018\u00010\u00042\u000e\u0010\n\u001a\n\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u000bH\u0002\u00a2\u0006\u0002\u0010\u000cJ\u0018\u0010\r\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\u0008H\u0007J\u0010\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0007\u001a\u00020\u0008H\u0002J\u0010\u0010\u0010\u001a\u00020\u000f2\u0006\u0010\u0007\u001a\u00020\u0008H\u0002J\u0010\u0010\u0011\u001a\u00020\u000f2\u0006\u0010\u0007\u001a\u00020\u0008H\u0002J\u0010\u0010\u0012\u001a\u00020\u000f2\u0006\u0010\u0007\u001a\u00020\u0008H\u0002\u00a8\u0006\u0013"
+        "\u0000.\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0008\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u0011\n\u0002\u0008\u0007\u0008\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\u0008\u0002\u00a2\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0002J9\u0010\u0007\u001a\u00020\u00082\u0006\u0010\u0005\u001a\u00020\u00062\u0008\u0010\t\u001a\u0004\u0018\u00010\n2\u0008\u0010\u000b\u001a\u0004\u0018\u00010\u00082\u000e\u0010\u000c\u001a\n\u0012\u0004\u0012\u00020\u0008\u0018\u00010\rH\u0002\u00a2\u0006\u0002\u0010\u000eJ\u0018\u0010\u000f\u001a\u00020\u00082\u0006\u0010\u0005\u001a\u00020\u00062\u0006\u0010\t\u001a\u00020\nH\u0007J\u0010\u0010\u0010\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\nH\u0002J\u0010\u0010\u0011\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\nH\u0002J\u0010\u0010\u0012\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\nH\u0002J\u0010\u0010\u0013\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\nH\u0002\u00a8\u0006\u0014"
     }
     d2 = {
         "Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;",
         "",
         "()V",
-        "getDataColumn",
+        "checkForInternet",
         "",
         "context",
         "Landroid/content/Context;",
+        "getDataColumn",
+        "",
         "uri",
         "Landroid/net/Uri;",
         "selection",
@@ -42,18 +39,18 @@
         "(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;",
         "getPathFromUri",
         "isDownloadsDocument",
-        "",
         "isExternalStorageDocument",
         "isGooglePhotosUri",
         "isMediaDocument",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -61,7 +58,7 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 965
+    .line 1170
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -69,263 +66,304 @@
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
     .locals 0
-    .param p1, "$constructor_marker"    # Lkotlin/jvm/internal/DefaultConstructorMarker;
 
-    .line 965
     invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;-><init>()V
 
     return-void
 .end method
 
-.method private final getDataColumn(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;
-    .locals 10
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "uri"    # Landroid/net/Uri;
-    .param p3, "selection"    # Ljava/lang/String;
-    .param p4, "selectionArgs"    # [Ljava/lang/String;
+.method public static final synthetic access$checkForInternet(Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;Landroid/content/Context;)Z
+    .locals 0
 
-    .line 1013
-    const-string v0, ""
+    .line 1170
+    invoke-direct {p0, p1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;->checkForInternet(Landroid/content/Context;)Z
 
-    if-eqz p2, :cond_4
+    move-result p0
 
-    .line 1014
+    return p0
+.end method
+
+.method private final checkForInternet(Landroid/content/Context;)Z
+    .locals 3
+
+    const-string v0, "connectivity"
+
+    .line 1240
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_4
+
+    check-cast p1, Landroid/net/ConnectivityManager;
+
+    .line 1242
+    invoke-virtual {p1}, Landroid/net/ConnectivityManager;->getActiveNetwork()Landroid/net/Network;
+
+    move-result-object v0
+
     const/4 v1, 0x0
 
-    check-cast v1, Landroid/database/Cursor;
+    if-nez v0, :cond_0
 
-    .line 1015
-    .local v1, "cursor":Landroid/database/Cursor;
-    const-string v2, "_data"
+    return v1
 
-    .line 1016
-    .local v2, "column":Ljava/lang/String;
-    const/4 v3, 0x1
+    .line 1243
+    :cond_0
+    invoke-virtual {p1, v0}, Landroid/net/ConnectivityManager;->getNetworkCapabilities(Landroid/net/Network;)Landroid/net/NetworkCapabilities;
 
-    new-array v6, v3, [Ljava/lang/String;
+    move-result-object p1
 
-    const/4 v3, 0x0
+    if-nez p1, :cond_1
 
-    aput-object v2, v6, v3
+    return v1
 
-    .line 1017
-    .local v6, "projection":[Ljava/lang/String;
-    nop
+    :cond_1
+    const/4 v0, 0x1
 
-    .line 1018
-    nop
+    .line 1245
+    invoke-virtual {p1, v0}, Landroid/net/NetworkCapabilities;->hasTransport(I)Z
 
-    .line 1019
-    :try_start_0
-    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    :goto_0
+    move v1, v0
+
+    goto :goto_1
+
+    .line 1246
+    :cond_2
+    invoke-virtual {p1, v1}, Landroid/net/NetworkCapabilities;->hasTransport(I)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_3
+
+    goto :goto_0
+
+    :cond_3
+    :goto_1
+    return v1
+
+    .line 1240
+    :cond_4
+    new-instance p1, Ljava/lang/NullPointerException;
+
+    const-string v0, "null cannot be cast to non-null type android.net.ConnectivityManager"
+
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+.end method
+
+.method private final getDataColumn(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;
+    .locals 9
+
+    const-string v0, ""
+
+    if-nez p2, :cond_0
+
+    return-object v0
+
+    :cond_0
+    const-string v1, "_data"
+
+    .line 1221
+    filled-new-array {v1}, [Ljava/lang/String;
 
     move-result-object v4
 
-    const/4 v9, 0x0
+    const/4 v8, 0x0
 
-    move-object v5, p2
+    .line 1224
+    :try_start_0
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-object v7, p3
+    move-result-object v2
 
-    move-object v8, p4
+    const/4 v7, 0x0
 
-    invoke-virtual/range {v4 .. v9}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+    move-object v3, p2
 
-    move-result-object v3
+    move-object v5, p3
 
-    move-object v1, v3
+    move-object v6, p4
 
-    .line 1020
-    if-eqz v1, :cond_0
+    invoke-virtual/range {v2 .. v7}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
-    invoke-interface {v1}, Landroid/database/Cursor;->moveToFirst()Z
+    move-result-object v8
 
-    move-result v3
+    if-eqz v8, :cond_1
 
-    if-eqz v3, :cond_0
+    .line 1225
+    invoke-interface {v8}, Landroid/database/Cursor;->moveToFirst()Z
 
-    .line 1021
-    invoke-interface {v1, v2}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
+    move-result p3
 
-    move-result v0
+    if-eqz p3, :cond_1
 
-    .line 1022
-    .local v0, "index":I
-    invoke-interface {v1, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    .line 1226
+    invoke-interface {v8, v1}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
 
-    move-result-object v3
+    move-result p3
 
-    const-string v4, "cursor.getString(index)"
+    .line 1227
+    invoke-interface {v8, p3}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    invoke-static {v3, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    move-result-object p3
+
+    const-string p4, "cursor.getString(index)"
+
+    invoke-static {p3, p4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1029
-    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+    .line 1234
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    .line 1022
-    return-object v3
+    return-object p3
 
-    .line 1029
-    .end local v0    # "index":I
-    :cond_0
-    if-eqz v1, :cond_1
-
-    invoke-interface {v1}, Landroid/database/Cursor;->close()V
-
-    .line 1030
     :cond_1
-    nop
-
-    .line 1031
-    return-object v0
-
-    .line 1030
-    :catchall_0
-    move-exception v0
+    if-nez v8, :cond_2
 
     goto :goto_0
 
-    .line 1024
-    :catch_0
-    move-exception v0
+    :cond_2
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    .line 1025
-    .local v0, "e":Ljava/lang/IllegalArgumentException;
+    :goto_0
+    return-object v0
+
+    :catchall_0
+    move-exception p1
+
+    goto :goto_2
+
+    .line 1230
+    :catch_0
     :try_start_1
-    new-instance v3, Ljava/io/File;
+    new-instance p3, Ljava/io/File;
 
     invoke-virtual {p1}, Landroid/content/Context;->getCacheDir()Ljava/io/File;
 
-    move-result-object v4
+    move-result-object p4
 
-    const-string v5, "catroidTemp"
+    const-string v0, "catroidTemp"
 
-    invoke-direct {v3, v4, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {p3, p4, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 1026
-    .local v3, "file":Ljava/io/File;
-    invoke-static {p2, v3, p1}, Lorg/catrobat/paintroid/FileIO;->saveFileFromUri(Landroid/net/Uri;Ljava/io/File;Landroid/content/Context;)V
+    .line 1231
+    invoke-static {p2, p3, p1}, Lorg/catrobat/paintroid/FileIO;->saveFileFromUri(Landroid/net/Uri;Ljava/io/File;Landroid/content/Context;)V
 
-    .line 1027
-    invoke-virtual {v3}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    .line 1232
+    invoke-virtual {p3}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p1
 
-    const-string v5, "file.absolutePath"
+    const-string p2, "file.absolutePath"
 
-    invoke-static {v4, v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 1029
-    if-eqz v1, :cond_2
+    if-nez v8, :cond_3
 
-    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+    goto :goto_1
 
-    .line 1027
-    :cond_2
-    return-object v4
-
-    .line 1029
-    .end local v0    # "e":Ljava/lang/IllegalArgumentException;
-    .end local v3    # "file":Ljava/io/File;
-    :goto_0
-    if-eqz v1, :cond_3
-
-    invoke-interface {v1}, Landroid/database/Cursor;->close()V
-
+    .line 1234
     :cond_3
-    throw v0
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    .line 1013
-    .end local v1    # "cursor":Landroid/database/Cursor;
-    .end local v2    # "column":Ljava/lang/String;
-    .end local v6    # "projection":[Ljava/lang/String;
+    :goto_1
+    return-object p1
+
+    :goto_2
+    if-nez v8, :cond_4
+
+    goto :goto_3
+
     :cond_4
-    return-object v0
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
+
+    :goto_3
+    throw p1
 .end method
 
 .method private final isDownloadsDocument(Landroid/net/Uri;)Z
-    .locals 2
-    .param p1, "uri"    # Landroid/net/Uri;
+    .locals 1
 
-    .line 1038
+    const-string v0, "com.android.providers.downloads.documents"
+
+    .line 1261
     invoke-virtual {p1}, Landroid/net/Uri;->getAuthority()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "com.android.providers.downloads.documents"
+    invoke-static {v0, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    move-result p1
 
-    move-result v0
-
-    return v0
+    return p1
 .end method
 
 .method private final isExternalStorageDocument(Landroid/net/Uri;)Z
-    .locals 2
-    .param p1, "uri"    # Landroid/net/Uri;
+    .locals 1
 
-    .line 1035
+    const-string v0, "com.android.externalstorage.documents"
+
+    .line 1258
     invoke-virtual {p1}, Landroid/net/Uri;->getAuthority()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "com.android.externalstorage.documents"
+    invoke-static {v0, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    move-result p1
 
-    move-result v0
-
-    return v0
+    return p1
 .end method
 
 .method private final isGooglePhotosUri(Landroid/net/Uri;)Z
-    .locals 2
-    .param p1, "uri"    # Landroid/net/Uri;
+    .locals 1
 
-    .line 1044
+    const-string v0, "com.google.android.apps.photos.content"
+
+    .line 1267
     invoke-virtual {p1}, Landroid/net/Uri;->getAuthority()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "com.google.android.apps.photos.content"
+    invoke-static {v0, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    move-result p1
 
-    move-result v0
-
-    return v0
+    return p1
 .end method
 
 .method private final isMediaDocument(Landroid/net/Uri;)Z
-    .locals 2
-    .param p1, "uri"    # Landroid/net/Uri;
+    .locals 1
 
-    .line 1041
+    const-string v0, "com.android.providers.media.documents"
+
+    .line 1264
     invoke-virtual {p1}, Landroid/net/Uri;->getAuthority()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "com.android.providers.media.documents"
+    invoke-static {v0, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    move-result p1
 
-    move-result v0
-
-    return v0
+    return p1
 .end method
 
 
 # virtual methods
 .method public final getPathFromUri(Landroid/content/Context;Landroid/net/Uri;)Ljava/lang/String;
     .locals 13
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "uri"    # Landroid/net/Uri;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -337,7 +375,7 @@
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 968
+    .line 1173
     invoke-static {p1, p2}, Landroid/provider/DocumentsContract;->isDocumentUri(Landroid/content/Context;Landroid/net/Uri;)Z
 
     move-result v0
@@ -346,14 +384,10 @@
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_a
 
-    .line 969
-    move-object v0, p0
-
-    check-cast v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;
-
-    invoke-direct {v0, p2}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;->isExternalStorageDocument(Landroid/net/Uri;)Z
+    .line 1174
+    invoke-direct {p0, p2}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;->isExternalStorageDocument(Landroid/net/Uri;)Z
 
     move-result v0
 
@@ -367,16 +401,15 @@
 
     if-eqz v0, :cond_1
 
-    .line 970
+    .line 1175
     invoke-static {p2}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 971
-    .local v0, "docId":Ljava/lang/String;
-    invoke-static {v0, v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    .line 1176
+    invoke-static {p1, v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    move-object v7, v0
+    move-object v7, p1
 
     check-cast v7, Ljava/lang/CharSequence;
 
@@ -394,176 +427,140 @@
 
     invoke-static/range {v7 .. v12}, Lkotlin/text/StringsKt;->split$default(Ljava/lang/CharSequence;[Ljava/lang/String;ZIILjava/lang/Object;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Ljava/util/Collection;
+    check-cast p1, Ljava/util/Collection;
 
-    .local v1, "$this$toTypedArray$iv":Ljava/util/Collection;
-    const/4 v4, 0x0
+    new-array p2, v6, [Ljava/lang/String;
 
-    .line 1048
-    .local v4, "$i$f$toTypedArray":I
-    move-object v5, v1
+    .line 1272
+    invoke-interface {p1, p2}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    .line 1049
-    .local v5, "thisCollection$iv":Ljava/util/Collection;
-    new-array v7, v6, [Ljava/lang/String;
+    move-result-object p1
 
-    invoke-interface {v5, v7}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    if-eqz p1, :cond_0
 
-    move-result-object v7
+    .line 1176
+    check-cast p1, [Ljava/lang/String;
 
-    if-eqz v7, :cond_0
+    .line 1177
+    aget-object p2, p1, v6
 
-    .line 971
-    .end local v1    # "$this$toTypedArray$iv":Ljava/util/Collection;
-    .end local v4    # "$i$f$toTypedArray":I
-    .end local v5    # "thisCollection$iv":Ljava/util/Collection;
-    move-object v1, v7
+    const-string v0, "primary"
 
-    check-cast v1, [Ljava/lang/String;
+    .line 1178
+    invoke-static {v0, p2, v2}, Lkotlin/text/StringsKt;->equals(Ljava/lang/String;Ljava/lang/String;Z)Z
 
-    .line 972
-    .local v1, "split":[Ljava/lang/String;
-    aget-object v3, v1, v6
+    move-result p2
 
-    .line 973
-    .local v3, "type":Ljava/lang/String;
-    const-string v4, "primary"
+    if-eqz p2, :cond_d
 
-    invoke-static {v4, v3, v2}, Lkotlin/text/StringsKt;->equals(Ljava/lang/String;Ljava/lang/String;Z)Z
+    .line 1179
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    move-result v4
-
-    if-eqz v4, :cond_c
-
-    .line 974
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
 
-    move-result-object v5
+    move-result-object v0
 
-    invoke-virtual {v5}, Ljava/io/File;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/io/File;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v0
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v5, "/"
+    move-result-object p2
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/16 v0, 0x2f
 
-    aget-object v2, v1, v2
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    aget-object p1, p1, v2
 
-    move-result-object v2
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    return-object v2
+    move-result-object p1
 
-    .line 1049
-    .end local v3    # "type":Ljava/lang/String;
-    .local v1, "$this$toTypedArray$iv":Ljava/util/Collection;
-    .restart local v4    # "$i$f$toTypedArray":I
-    .restart local v5    # "thisCollection$iv":Ljava/util/Collection;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    return-object p1
+
+    .line 1272
     :cond_0
-    new-instance v2, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    invoke-direct {v2, v3}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v3}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p1
 
-    .line 976
-    .end local v0    # "docId":Ljava/lang/String;
-    .end local v1    # "$this$toTypedArray$iv":Ljava/util/Collection;
-    .end local v4    # "$i$f$toTypedArray":I
-    .end local v5    # "thisCollection$iv":Ljava/util/Collection;
+    .line 1181
     :cond_1
-    move-object v0, p0
-
-    check-cast v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;
-
-    invoke-direct {v0, p2}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;->isDownloadsDocument(Landroid/net/Uri;)Z
+    invoke-direct {p0, p2}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;->isDownloadsDocument(Landroid/net/Uri;)Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
-    .line 977
+    .line 1182
     invoke-static {p2}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
+
+    move-result-object p2
+
+    const-string v0, "content://downloads/public_downloads"
+
+    .line 1184
+    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
-    .line 978
-    .local v0, "id":Ljava/lang/String;
-    nop
+    const-string v2, "id"
 
-    .line 979
-    const-string v2, "content://downloads/public_downloads"
+    .line 1185
+    invoke-static {p2, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {p2}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
-    move-result-object v2
+    move-result-wide v2
 
-    .line 980
-    const-string v3, "id"
+    .line 1183
+    invoke-static {v0, v2, v3}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;
 
-    invoke-static {v0, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    move-result-object p2
 
-    invoke-static {v0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    const-string v0, "withAppendedId(\n        \u2026g()\n                    )"
 
-    move-result-wide v3
+    .line 1185
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 978
-    invoke-static {v2, v3, v4}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;
+    .line 1187
+    invoke-direct {p0, p1, p2, v1, v1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;->getDataColumn(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    const-string v3, "ContentUris.withAppended\u2026g()\n                    )"
+    return-object p1
 
-    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 982
-    .local v2, "contentUri":Landroid/net/Uri;
-    move-object v3, p0
-
-    check-cast v3, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;
-
-    invoke-direct {v3, p1, v2, v1, v1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;->getDataColumn(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    return-object v1
-
-    .line 983
-    .end local v0    # "id":Ljava/lang/String;
-    .end local v2    # "contentUri":Landroid/net/Uri;
+    .line 1188
     :cond_2
-    move-object v0, p0
-
-    check-cast v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;
-
-    invoke-direct {v0, p2}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;->isMediaDocument(Landroid/net/Uri;)Z
+    invoke-direct {p0, p2}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;->isMediaDocument(Landroid/net/Uri;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_d
 
-    .line 984
+    .line 1189
     invoke-static {p2}, Landroid/provider/DocumentsContract;->getDocumentId(Landroid/net/Uri;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p2
 
-    .line 985
-    .local v0, "docId":Ljava/lang/String;
-    invoke-static {v0, v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    .line 1190
+    invoke-static {p2, v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    move-object v7, v0
+    move-object v7, p2
 
     check-cast v7, Ljava/lang/CharSequence;
 
@@ -581,238 +578,187 @@
 
     invoke-static/range {v7 .. v12}, Lkotlin/text/StringsKt;->split$default(Ljava/lang/CharSequence;[Ljava/lang/String;ZIILjava/lang/Object;)Ljava/util/List;
 
-    move-result-object v4
+    move-result-object p2
 
-    check-cast v4, Ljava/util/Collection;
+    check-cast p2, Ljava/util/Collection;
 
-    .local v4, "$this$toTypedArray$iv":Ljava/util/Collection;
-    const/4 v5, 0x0
+    new-array v0, v6, [Ljava/lang/String;
 
-    .line 1050
-    .local v5, "$i$f$toTypedArray":I
-    move-object v7, v4
+    .line 1274
+    invoke-interface {p2, v0}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    .line 1051
-    .local v7, "thisCollection$iv":Ljava/util/Collection;
-    new-array v8, v6, [Ljava/lang/String;
+    move-result-object p2
 
-    invoke-interface {v7, v8}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    if-eqz p2, :cond_9
 
-    move-result-object v8
+    .line 1190
+    check-cast p2, [Ljava/lang/String;
 
-    if-eqz v8, :cond_7
+    .line 1191
+    aget-object v0, p2, v6
 
-    .line 985
-    .end local v4    # "$this$toTypedArray$iv":Ljava/util/Collection;
-    .end local v5    # "$i$f$toTypedArray":I
-    .end local v7    # "thisCollection$iv":Ljava/util/Collection;
-    move-object v3, v8
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
-    check-cast v3, [Ljava/lang/String;
+    move-result v3
 
-    .line 986
-    .local v3, "split":[Ljava/lang/String;
-    aget-object v4, v3, v6
+    const v4, 0x58d9bd6
 
-    invoke-virtual {v4}, Ljava/lang/String;->hashCode()I
+    if-eq v3, v4, :cond_7
 
-    move-result v5
+    const v4, 0x5faa95b
 
-    const v7, 0x58d9bd6
+    if-eq v3, v4, :cond_5
 
-    if-eq v5, v7, :cond_5
+    const v4, 0x6b0147b
 
-    const v7, 0x5faa95b
-
-    if-eq v5, v7, :cond_4
-
-    const v7, 0x6b0147b
-
-    if-eq v5, v7, :cond_3
+    if-eq v3, v4, :cond_3
 
     goto :goto_0
 
-    .line 988
     :cond_3
-    const-string v5, "video"
+    const-string v3, "video"
 
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_6
+    if-nez v0, :cond_4
 
+    goto :goto_0
+
+    .line 1193
+    :cond_4
     sget-object v1, Landroid/provider/MediaStore$Video$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-    goto :goto_1
+    goto :goto_0
 
-    .line 987
-    :cond_4
-    const-string v5, "image"
+    :cond_5
+    const-string v3, "image"
 
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .line 1191
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_6
+    if-nez v0, :cond_6
 
+    goto :goto_0
+
+    .line 1192
+    :cond_6
     sget-object v1, Landroid/provider/MediaStore$Images$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-    goto :goto_1
+    goto :goto_0
 
-    .line 989
-    :cond_5
-    const-string v5, "audio"
+    :cond_7
+    const-string v3, "audio"
 
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .line 1191
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_6
+    if-nez v0, :cond_8
 
+    goto :goto_0
+
+    .line 1194
+    :cond_8
     sget-object v1, Landroid/provider/MediaStore$Audio$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-    goto :goto_1
-
-    .line 990
-    :cond_6
     :goto_0
-    nop
+    new-array v0, v2, [Ljava/lang/String;
 
-    .line 986
-    :goto_1
-    nop
+    .line 1198
+    aget-object p2, p2, v2
 
-    .line 992
-    .local v1, "contentUri":Landroid/net/Uri;
-    const-string v4, "_id=?"
+    aput-object p2, v0, v6
 
-    .line 993
-    .local v4, "selection":Ljava/lang/String;
-    new-array v5, v2, [Ljava/lang/String;
+    const-string p2, "_id=?"
 
-    aget-object v2, v3, v2
+    .line 1199
+    invoke-direct {p0, p1, v1, p2, v0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;->getDataColumn(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;
 
-    aput-object v2, v5, v6
+    move-result-object p1
 
-    move-object v2, v5
+    return-object p1
 
-    .line 994
-    .local v2, "selectionArgs":[Ljava/lang/String;
-    move-object v5, p0
-
-    check-cast v5, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;
-
-    invoke-direct {v5, p1, v1, v4, v2}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;->getDataColumn(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    return-object v5
-
-    .line 1051
-    .end local v1    # "contentUri":Landroid/net/Uri;
-    .end local v2    # "selectionArgs":[Ljava/lang/String;
-    .end local v3    # "split":[Ljava/lang/String;
-    .local v4, "$this$toTypedArray$iv":Ljava/util/Collection;
-    .restart local v5    # "$i$f$toTypedArray":I
-    .restart local v7    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_7
-    new-instance v1, Ljava/lang/NullPointerException;
-
-    invoke-direct {v1, v3}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
-    .line 995
-    .end local v0    # "docId":Ljava/lang/String;
-    .end local v4    # "$this$toTypedArray$iv":Ljava/util/Collection;
-    .end local v5    # "$i$f$toTypedArray":I
-    .end local v7    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_8
-    goto :goto_3
-
-    .line 996
+    .line 1274
     :cond_9
-    invoke-virtual {p2}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    move-result-object v0
+    invoke-direct {p1, v3}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    const-string v3, "content"
+    throw p1
 
-    invoke-static {v3, v0, v2}, Lkotlin/text/StringsKt;->equals(Ljava/lang/String;Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_b
-
-    .line 997
-    move-object v0, p0
-
-    check-cast v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;
-
-    invoke-direct {v0, p2}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;->isGooglePhotosUri(Landroid/net/Uri;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_a
-
-    .line 998
-    invoke-virtual {p2}, Landroid/net/Uri;->getLastPathSegment()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_2
-
-    .line 999
     :cond_a
-    move-object v0, p0
+    const-string v0, "content"
 
-    check-cast v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;
-
-    invoke-direct {v0, p1, p2, v1, v1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;->getDataColumn(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 997
-    :goto_2
-    return-object v0
-
-    .line 1000
-    :cond_b
+    .line 1201
     invoke-virtual {p2}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    const-string v1, "file"
-
-    invoke-static {v1, v0, v2}, Lkotlin/text/StringsKt;->equals(Ljava/lang/String;Ljava/lang/String;Z)Z
+    invoke-static {v0, v3, v2}, Lkotlin/text/StringsKt;->equals(Ljava/lang/String;Ljava/lang/String;Z)Z
 
     move-result v0
 
     if-eqz v0, :cond_c
 
-    .line 1001
+    .line 1202
+    invoke-direct {p0, p2}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;->isGooglePhotosUri(Landroid/net/Uri;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_b
+
+    .line 1203
+    invoke-virtual {p2}, Landroid/net/Uri;->getLastPathSegment()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p1
+
+    goto :goto_1
+
+    .line 1204
+    :cond_b
+    invoke-direct {p0, p1, p2, v1, v1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;->getDataColumn(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    :goto_1
+    return-object p1
+
+    :cond_c
+    const-string p1, "file"
+
+    .line 1205
+    invoke-virtual {p2}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p1, v0, v2}, Lkotlin/text/StringsKt;->equals(Ljava/lang/String;Ljava/lang/String;Z)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_d
+
+    .line 1206
     invoke-virtual {p2}, Landroid/net/Uri;->getPath()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
-    .line 1002
-    :cond_c
-    :goto_3
-    nop
+    :cond_d
+    const-string p1, ""
 
-    .line 1003
-    const-string v0, ""
-
-    return-object v0
+    return-object p1
 .end method

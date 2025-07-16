@@ -21,7 +21,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/camera/core/impl/CameraCaptureFailure;)V
     .locals 0
-    .param p1, "failure"    # Landroidx/camera/core/impl/CameraCaptureFailure;
 
     .line 187
     invoke-direct {p0}, Ljava/lang/Exception;-><init>()V
@@ -29,14 +28,11 @@
     .line 188
     iput-object p1, p0, Landroidx/camera/core/impl/CameraControlInternal$CameraControlException;->mCameraCaptureFailure:Landroidx/camera/core/impl/CameraCaptureFailure;
 
-    .line 189
     return-void
 .end method
 
 .method public constructor <init>(Landroidx/camera/core/impl/CameraCaptureFailure;Ljava/lang/Throwable;)V
     .locals 0
-    .param p1, "failure"    # Landroidx/camera/core/impl/CameraCaptureFailure;
-    .param p2, "cause"    # Ljava/lang/Throwable;
 
     .line 193
     invoke-direct {p0, p2}, Ljava/lang/Exception;-><init>(Ljava/lang/Throwable;)V
@@ -44,7 +40,6 @@
     .line 194
     iput-object p1, p0, Landroidx/camera/core/impl/CameraControlInternal$CameraControlException;->mCameraCaptureFailure:Landroidx/camera/core/impl/CameraCaptureFailure;
 
-    .line 195
     return-void
 .end method
 

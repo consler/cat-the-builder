@@ -65,7 +65,7 @@
 
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplaySubscriber;Lorg/reactivestreams/Subscriber;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,9 +77,6 @@
     .end annotation
 
     .line 519
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription<TT;>;"
-    .local p1, "parent":Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplaySubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplaySubscriber<TT;>;"
-    .local p2, "child":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
 
     .line 520
@@ -89,13 +86,12 @@
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription;->child:Lorg/reactivestreams/Subscriber;
 
     .line 522
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicLong;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicLong;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription;->totalRequested:Ljava/util/concurrent/atomic/AtomicLong;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription;->totalRequested:Ljava/util/concurrent/atomic/AtomicLong;
 
-    .line 523
     return-void
 .end method
 
@@ -105,20 +101,17 @@
     .locals 0
 
     .line 579
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription;->dispose()V
 
-    .line 580
     return-void
 .end method
 
 .method public dispose()V
     .locals 4
 
-    .line 584
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription<TT;>;"
     const-wide/high16 v0, -0x8000000000000000L
 
+    .line 584
     invoke-virtual {p0, v0, v1}, Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription;->getAndSet(J)J
 
     move-result-wide v2
@@ -137,7 +130,6 @@
 
     invoke-virtual {v0}, Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplaySubscriber;->manageRequests()V
 
-    .line 593
     :cond_0
     return-void
 .end method
@@ -153,7 +145,6 @@
     .end annotation
 
     .line 600
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription;->index:Ljava/lang/Object;
 
     return-object v0
@@ -163,7 +154,6 @@
     .locals 4
 
     .line 574
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription;->get()J
 
     move-result-wide v0
@@ -186,24 +176,20 @@
 .end method
 
 .method public produced(J)J
-    .locals 2
-    .param p1, "n"    # J
+    .locals 0
 
     .line 569
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription<TT;>;"
     invoke-static {p0, p1, p2}, Lio/reactivex/internal/util/BackpressureHelper;->producedCancel(Ljava/util/concurrent/atomic/AtomicLong;J)J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    return-wide v0
+    return-wide p1
 .end method
 
 .method public request(J)V
     .locals 5
-    .param p1, "n"    # J
 
     .line 528
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription;, "Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription<TT;>;"
     invoke-static {p1, p2}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(J)Z
 
     move-result v0
@@ -211,78 +197,62 @@
     if-eqz v0, :cond_3
 
     .line 534
-    :goto_0
+    :cond_0
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription;->get()J
 
     move-result-wide v0
 
-    .line 536
-    .local v0, "r":J
     const-wide/high16 v2, -0x8000000000000000L
 
     cmp-long v2, v0, v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1
 
-    .line 537
     return-void
 
-    .line 540
-    :cond_0
+    :cond_1
     const-wide/16 v2, 0x0
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_1
+    if-ltz v4, :cond_2
 
     cmp-long v2, p1, v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2
 
-    .line 541
     return-void
 
     .line 544
-    :cond_1
+    :cond_2
     invoke-static {v0, v1, p1, p2}, Lio/reactivex/internal/util/BackpressureHelper;->addCap(JJ)J
 
     move-result-wide v2
 
     .line 547
-    .local v2, "u":J
     invoke-virtual {p0, v0, v1, v2, v3}, Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription;->compareAndSet(JJ)Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_2
+    if-eqz v0, :cond_0
 
     .line 549
-    iget-object v4, p0, Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription;->totalRequested:Ljava/util/concurrent/atomic/AtomicLong;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription;->totalRequested:Ljava/util/concurrent/atomic/AtomicLong;
 
-    invoke-static {v4, p1, p2}, Lio/reactivex/internal/util/BackpressureHelper;->add(Ljava/util/concurrent/atomic/AtomicLong;J)J
+    invoke-static {v0, p1, p2}, Lio/reactivex/internal/util/BackpressureHelper;->add(Ljava/util/concurrent/atomic/AtomicLong;J)J
 
     .line 552
-    iget-object v4, p0, Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription;->parent:Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplaySubscriber;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription;->parent:Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplaySubscriber;
 
-    invoke-virtual {v4}, Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplaySubscriber;->manageRequests()V
+    invoke-virtual {p1}, Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplaySubscriber;->manageRequests()V
 
     .line 554
-    iget-object v4, p0, Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription;->parent:Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplaySubscriber;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription;->parent:Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplaySubscriber;
 
-    iget-object v4, v4, Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplaySubscriber;->buffer:Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplayBuffer;
+    iget-object p1, p1, Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplaySubscriber;->buffer:Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplayBuffer;
 
-    invoke-interface {v4, p0}, Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplayBuffer;->replay(Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription;)V
+    invoke-interface {p1, p0}, Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplayBuffer;->replay(Lio/reactivex/internal/operators/flowable/FlowableReplay$InnerSubscription;)V
 
-    .line 555
-    return-void
-
-    .line 559
-    .end local v0    # "r":J
-    .end local v2    # "u":J
-    :cond_2
-    goto :goto_0
-
-    .line 561
     :cond_3
     return-void
 .end method

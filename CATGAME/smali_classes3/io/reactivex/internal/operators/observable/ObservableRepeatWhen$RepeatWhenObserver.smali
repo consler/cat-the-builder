@@ -97,7 +97,7 @@
 
 # direct methods
 .method constructor <init>(Lio/reactivex/Observer;Lio/reactivex/subjects/Subject;Lio/reactivex/ObservableSource;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -112,10 +112,6 @@
     .end annotation
 
     .line 83
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;, "Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
-    .local p2, "signaller":Lio/reactivex/subjects/Subject;, "Lio/reactivex/subjects/Subject<Ljava/lang/Object;>;"
-    .local p3, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
 
     .line 84
@@ -128,34 +124,33 @@
     iput-object p3, p0, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;->source:Lio/reactivex/ObservableSource;
 
     .line 87
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
     .line 88
-    new-instance v0, Lio/reactivex/internal/util/AtomicThrowable;
+    new-instance p1, Lio/reactivex/internal/util/AtomicThrowable;
 
-    invoke-direct {v0}, Lio/reactivex/internal/util/AtomicThrowable;-><init>()V
+    invoke-direct {p1}, Lio/reactivex/internal/util/AtomicThrowable;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;->error:Lio/reactivex/internal/util/AtomicThrowable;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;->error:Lio/reactivex/internal/util/AtomicThrowable;
 
     .line 89
-    new-instance v0, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver$InnerRepeatObserver;
+    new-instance p1, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver$InnerRepeatObserver;
 
-    invoke-direct {v0, p0}, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver$InnerRepeatObserver;-><init>(Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;)V
+    invoke-direct {p1, p0}, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver$InnerRepeatObserver;-><init>(Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;)V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;->inner:Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver$InnerRepeatObserver;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;->inner:Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver$InnerRepeatObserver;
 
     .line 90
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicReference;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;->d:Ljava/util/concurrent/atomic/AtomicReference;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;->d:Ljava/util/concurrent/atomic/AtomicReference;
 
-    .line 91
     return-void
 .end method
 
@@ -165,7 +160,6 @@
     .locals 1
 
     .line 122
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;, "Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;->d:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
@@ -175,7 +169,6 @@
 
     invoke-static {v0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 124
     return-void
 .end method
 
@@ -183,7 +176,6 @@
     .locals 2
 
     .line 136
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;, "Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;->d:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
@@ -195,16 +187,13 @@
 
     invoke-static {v0, p0, v1}, Lio/reactivex/internal/util/HalfSerializer;->onComplete(Lio/reactivex/Observer;Ljava/util/concurrent/atomic/AtomicInteger;Lio/reactivex/internal/util/AtomicThrowable;)V
 
-    .line 138
     return-void
 .end method
 
 .method innerError(Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "ex"    # Ljava/lang/Throwable;
 
     .line 131
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;, "Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;->d:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
@@ -216,7 +205,6 @@
 
     invoke-static {v0, p1, p0, v1}, Lio/reactivex/internal/util/HalfSerializer;->onError(Lio/reactivex/Observer;Ljava/lang/Throwable;Ljava/util/concurrent/atomic/AtomicInteger;Lio/reactivex/internal/util/AtomicThrowable;)V
 
-    .line 133
     return-void
 .end method
 
@@ -224,10 +212,8 @@
     .locals 0
 
     .line 127
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;, "Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;->subscribeNext()V
 
-    .line 128
     return-void
 .end method
 
@@ -235,7 +221,6 @@
     .locals 1
 
     .line 117
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;, "Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;->d:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -254,10 +239,9 @@
 .method public onComplete()V
     .locals 2
 
-    .line 111
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;, "Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver<TT;>;"
     const/4 v0, 0x0
 
+    .line 111
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;->active:Z
 
     .line 112
@@ -269,16 +253,13 @@
 
     invoke-virtual {v1, v0}, Lio/reactivex/subjects/Subject;->onNext(Ljava/lang/Object;)V
 
-    .line 113
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 105
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;, "Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;->inner:Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver$InnerRepeatObserver;
 
     invoke-static {v0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
@@ -290,7 +271,6 @@
 
     invoke-static {v0, p1, p0, v1}, Lio/reactivex/internal/util/HalfSerializer;->onError(Lio/reactivex/Observer;Ljava/lang/Throwable;Ljava/util/concurrent/atomic/AtomicInteger;Lio/reactivex/internal/util/AtomicThrowable;)V
 
-    .line 107
     return-void
 .end method
 
@@ -303,29 +283,23 @@
     .end annotation
 
     .line 100
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;, "Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;->actual:Lio/reactivex/Observer;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;->error:Lio/reactivex/internal/util/AtomicThrowable;
 
     invoke-static {v0, p1, p0, v1}, Lio/reactivex/internal/util/HalfSerializer;->onNext(Lio/reactivex/Observer;Ljava/lang/Object;Ljava/util/concurrent/atomic/AtomicInteger;Lio/reactivex/internal/util/AtomicThrowable;)V
 
-    .line 101
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 95
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;, "Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;->d:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 96
     return-void
 .end method
 
@@ -333,7 +307,6 @@
     .locals 1
 
     .line 141
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;, "Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
@@ -350,7 +323,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 145
     return-void
 
     .line 148
@@ -359,9 +331,9 @@
 
     if-nez v0, :cond_2
 
-    .line 149
     const/4 v0, 0x1
 
+    .line 149
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableRepeatWhen$RepeatWhenObserver;->active:Z
 
     .line 150
@@ -379,7 +351,6 @@
 
     if-nez v0, :cond_0
 
-    .line 154
     :cond_3
     return-void
 .end method

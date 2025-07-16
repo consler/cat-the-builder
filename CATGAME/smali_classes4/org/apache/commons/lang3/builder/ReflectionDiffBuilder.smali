@@ -28,7 +28,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/Object;Lorg/apache/commons/lang3/builder/ToStringStyle;)V
     .locals 1
-    .param p3, "style"    # Lorg/apache/commons/lang3/builder/ToStringStyle;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -40,8 +39,6 @@
     .end annotation
 
     .line 96
-    .local p1, "lhs":Ljava/lang/Object;, "TT;"
-    .local p2, "rhs":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 97
@@ -57,13 +54,11 @@
 
     iput-object v0, p0, Lorg/apache/commons/lang3/builder/ReflectionDiffBuilder;->diffBuilder:Lorg/apache/commons/lang3/builder/DiffBuilder;
 
-    .line 100
     return-void
 .end method
 
 .method private accept(Ljava/lang/reflect/Field;)Z
     .locals 3
-    .param p1, "field"    # Ljava/lang/reflect/Field;
 
     .line 128
     invoke-virtual {p1}, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
@@ -76,14 +71,13 @@
 
     move-result v0
 
-    const/4 v1, 0x0
+    const/4 v1, -0x1
 
-    const/4 v2, -0x1
+    const/4 v2, 0x0
 
-    if-eq v0, v2, :cond_0
+    if-eq v0, v1, :cond_0
 
-    .line 129
-    return v1
+    return v2
 
     .line 131
     :cond_0
@@ -97,26 +91,25 @@
 
     if-eqz v0, :cond_1
 
-    .line 132
-    return v1
+    return v2
 
     .line 134
     :cond_1
     invoke-virtual {p1}, Ljava/lang/reflect/Field;->getModifiers()I
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0}, Ljava/lang/reflect/Modifier;->isStatic(I)Z
+    invoke-static {p1}, Ljava/lang/reflect/Modifier;->isStatic(I)Z
 
-    move-result v0
+    move-result p1
 
-    xor-int/lit8 v0, v0, 0x1
+    xor-int/lit8 p1, p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method private appendFields(Ljava/lang/Class;)V
-    .locals 9
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -126,99 +119,90 @@
     .end annotation
 
     .line 113
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-static {p1}, Lorg/apache/commons/lang3/reflect/FieldUtils;->getAllFields(Ljava/lang/Class;)[Ljava/lang/reflect/Field;
 
-    move-result-object v0
+    move-result-object p1
 
-    array-length v1, v0
+    array-length v0, p1
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v2, v1, :cond_1
+    if-ge v1, v0, :cond_1
 
-    aget-object v3, v0, v2
+    aget-object v2, p1, v1
 
     .line 114
-    .local v3, "field":Ljava/lang/reflect/Field;
-    invoke-direct {p0, v3}, Lorg/apache/commons/lang3/builder/ReflectionDiffBuilder;->accept(Ljava/lang/reflect/Field;)Z
+    invoke-direct {p0, v2}, Lorg/apache/commons/lang3/builder/ReflectionDiffBuilder;->accept(Ljava/lang/reflect/Field;)Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
     .line 116
     :try_start_0
-    iget-object v4, p0, Lorg/apache/commons/lang3/builder/ReflectionDiffBuilder;->diffBuilder:Lorg/apache/commons/lang3/builder/DiffBuilder;
+    iget-object v3, p0, Lorg/apache/commons/lang3/builder/ReflectionDiffBuilder;->diffBuilder:Lorg/apache/commons/lang3/builder/DiffBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
-
-    move-result-object v5
-
-    iget-object v6, p0, Lorg/apache/commons/lang3/builder/ReflectionDiffBuilder;->left:Ljava/lang/Object;
-
-    const/4 v7, 0x1
-
-    invoke-static {v3, v6, v7}, Lorg/apache/commons/lang3/reflect/FieldUtils;->readField(Ljava/lang/reflect/Field;Ljava/lang/Object;Z)Ljava/lang/Object;
-
-    move-result-object v6
-
-    iget-object v8, p0, Lorg/apache/commons/lang3/builder/ReflectionDiffBuilder;->right:Ljava/lang/Object;
-
-    .line 117
-    invoke-static {v3, v8, v7}, Lorg/apache/commons/lang3/reflect/FieldUtils;->readField(Ljava/lang/reflect/Field;Ljava/lang/Object;Z)Ljava/lang/Object;
-
-    move-result-object v7
-
-    .line 116
-    invoke-virtual {v4, v5, v6, v7}, Lorg/apache/commons/lang3/builder/DiffBuilder;->append(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Lorg/apache/commons/lang3/builder/DiffBuilder;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 122
-    goto :goto_1
-
-    .line 118
-    :catch_0
-    move-exception v0
-
-    .line 121
-    .local v0, "ex":Ljava/lang/IllegalAccessException;
-    new-instance v1, Ljava/lang/InternalError;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Unexpected IllegalAccessException: "
-
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/IllegalAccessException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v5, p0, Lorg/apache/commons/lang3/builder/ReflectionDiffBuilder;->left:Ljava/lang/Object;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const/4 v6, 0x1
+
+    invoke-static {v2, v5, v6}, Lorg/apache/commons/lang3/reflect/FieldUtils;->readField(Ljava/lang/reflect/Field;Ljava/lang/Object;Z)Ljava/lang/Object;
+
+    move-result-object v5
+
+    iget-object v7, p0, Lorg/apache/commons/lang3/builder/ReflectionDiffBuilder;->right:Ljava/lang/Object;
+
+    .line 117
+    invoke-static {v2, v7, v6}, Lorg/apache/commons/lang3/reflect/FieldUtils;->readField(Ljava/lang/reflect/Field;Ljava/lang/Object;Z)Ljava/lang/Object;
 
     move-result-object v2
 
-    invoke-direct {v1, v2}, Ljava/lang/InternalError;-><init>(Ljava/lang/String;)V
+    .line 116
+    invoke-virtual {v3, v4, v5, v2}, Lorg/apache/commons/lang3/builder/DiffBuilder;->append(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Lorg/apache/commons/lang3/builder/DiffBuilder;
+    :try_end_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
-    throw v1
+    goto :goto_1
 
-    .line 113
-    .end local v0    # "ex":Ljava/lang/IllegalAccessException;
-    .end local v3    # "field":Ljava/lang/reflect/Field;
+    :catch_0
+    move-exception p1
+
+    .line 121
+    new-instance v0, Ljava/lang/InternalError;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    const-string v2, "Unexpected IllegalAccessException: "
+
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {p1}, Ljava/lang/IllegalAccessException;->getMessage()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/InternalError;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
     :cond_0
     :goto_1
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 125
     :cond_1
     return-void
 .end method

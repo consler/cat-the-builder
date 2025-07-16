@@ -13,7 +13,7 @@
 
 
 # static fields
-.field private static final DEBUG:Z
+.field private static final DEBUG:Z = false
 
 
 # direct methods
@@ -28,7 +28,6 @@
 
 .method synthetic constructor <init>(Lcom/bumptech/glide/util/pool/StateVerifier$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/bumptech/glide/util/pool/StateVerifier$1;
 
     .line 7
     invoke-direct {p0}, Lcom/bumptech/glide/util/pool/StateVerifier;-><init>()V

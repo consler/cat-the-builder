@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .locals 9
 
     .line 153
     new-instance v0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
@@ -53,63 +53,56 @@
 
     sput-object v0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;->FRAME_RATE_24:Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
+    new-instance v1, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
 
-    const-string v1, "FRAME_RATE_25"
+    const-string v3, "FRAME_RATE_25"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3, v3}, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v1, v3, v4, v4}, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;-><init>(Ljava/lang/String;II)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;->FRAME_RATE_25:Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
+    sput-object v1, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;->FRAME_RATE_25:Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
+    new-instance v3, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
 
-    const-string v1, "FRAME_RATE_30_DROP"
+    const-string v5, "FRAME_RATE_30_DROP"
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v1, v4, v4}, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v3, v5, v6, v6}, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;-><init>(Ljava/lang/String;II)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;->FRAME_RATE_30_DROP:Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
+    sput-object v3, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;->FRAME_RATE_30_DROP:Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
+    new-instance v5, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
 
-    const-string v1, "FRAME_RATE_30"
+    const-string v7, "FRAME_RATE_30"
 
-    const/4 v5, 0x3
+    const/4 v8, 0x3
 
-    invoke-direct {v0, v1, v5, v5}, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v5, v7, v8, v8}, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;-><init>(Ljava/lang/String;II)V
 
-    sput-object v0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;->FRAME_RATE_30:Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
+    sput-object v5, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;->FRAME_RATE_30:Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
+
+    const/4 v7, 0x4
+
+    new-array v7, v7, [Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
+
+    aput-object v0, v7, v2
+
+    aput-object v1, v7, v4
+
+    aput-object v3, v7, v6
+
+    aput-object v5, v7, v8
 
     .line 151
-    const/4 v1, 0x4
-
-    new-array v1, v1, [Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
-
-    sget-object v6, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;->FRAME_RATE_24:Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
-
-    aput-object v6, v1, v2
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;->FRAME_RATE_25:Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;->FRAME_RATE_30_DROP:Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
-
-    aput-object v2, v1, v4
-
-    aput-object v0, v1, v5
-
-    sput-object v1, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;->$VALUES:[Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
+    sput-object v7, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;->$VALUES:[Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
 
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .param p3, "v"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -122,15 +115,12 @@
     .line 159
     iput p3, p0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;->value:I
 
-    .line 160
     return-void
 .end method
 
 .method public static fromInt(I)Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
     .locals 1
-    .param p0, "val"    # I
 
-    .line 164
     if-eqz p0, :cond_3
 
     const/4 v0, 0x1
@@ -145,50 +135,48 @@
 
     if-eq p0, v0, :cond_0
 
-    .line 175
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
     .line 173
     :cond_0
-    sget-object v0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;->FRAME_RATE_30:Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
+    sget-object p0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;->FRAME_RATE_30:Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
 
-    return-object v0
+    return-object p0
 
     .line 171
     :cond_1
-    sget-object v0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;->FRAME_RATE_30_DROP:Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
+    sget-object p0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;->FRAME_RATE_30_DROP:Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
 
-    return-object v0
+    return-object p0
 
     .line 169
     :cond_2
-    sget-object v0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;->FRAME_RATE_25:Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
+    sget-object p0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;->FRAME_RATE_25:Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
 
-    return-object v0
+    return-object p0
 
     .line 167
     :cond_3
-    sget-object v0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;->FRAME_RATE_24:Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
+    sget-object p0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;->FRAME_RATE_24:Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 151
     const-class v0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
+    check-cast p0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;

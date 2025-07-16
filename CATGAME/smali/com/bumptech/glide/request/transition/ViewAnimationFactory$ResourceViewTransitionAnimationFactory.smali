@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 0
-    .param p1, "animationId"    # I
 
     .line 71
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +31,6 @@
     .line 72
     iput p1, p0, Lcom/bumptech/glide/request/transition/ViewAnimationFactory$ResourceViewTransitionAnimationFactory;->animationId:I
 
-    .line 73
     return-void
 .end method
 
@@ -40,14 +38,13 @@
 # virtual methods
 .method public build(Landroid/content/Context;)Landroid/view/animation/Animation;
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
 
     .line 77
     iget v0, p0, Lcom/bumptech/glide/request/transition/ViewAnimationFactory$ResourceViewTransitionAnimationFactory;->animationId:I
 
     invoke-static {p1, v0}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

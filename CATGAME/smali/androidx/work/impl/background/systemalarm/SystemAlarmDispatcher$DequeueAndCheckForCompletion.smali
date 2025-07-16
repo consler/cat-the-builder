@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;)V
     .locals 0
-    .param p1, "dispatcher"    # Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -40,7 +39,6 @@
     .line 330
     iput-object p1, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$DequeueAndCheckForCompletion;->mDispatcher:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
 
-    .line 331
     return-void
 .end method
 
@@ -54,6 +52,5 @@
 
     invoke-virtual {v0}, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->dequeueAndCheckForCompletion()V
 
-    .line 336
     return-void
 .end method

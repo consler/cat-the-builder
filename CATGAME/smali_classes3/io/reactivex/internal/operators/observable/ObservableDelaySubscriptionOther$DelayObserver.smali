@@ -51,7 +51,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther;Lio/reactivex/internal/disposables/SequentialDisposable;Lio/reactivex/Observer;)V
     .locals 0
-    .param p2, "serial"    # Lio/reactivex/internal/disposables/SequentialDisposable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,8 +61,6 @@
     .end annotation
 
     .line 51
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther$DelayObserver;, "Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther<TT;TU;>.DelayObserver;"
-    .local p3, "child":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther$DelayObserver;->this$0:Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -74,7 +71,6 @@
     .line 53
     iput-object p3, p0, Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther$DelayObserver;->child:Lio/reactivex/Observer;
 
-    .line 54
     return-void
 .end method
 
@@ -84,18 +80,16 @@
     .locals 2
 
     .line 78
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther$DelayObserver;, "Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther<TT;TU;>.DelayObserver;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther$DelayObserver;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 79
     return-void
 
-    .line 81
     :cond_0
     const/4 v0, 0x1
 
+    .line 81
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther$DelayObserver;->done:Z
 
     .line 83
@@ -109,16 +103,13 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 84
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 68
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther$DelayObserver;, "Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther<TT;TU;>.DelayObserver;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther$DelayObserver;->done:Z
 
     if-eqz v0, :cond_0
@@ -126,13 +117,12 @@
     .line 69
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 70
     return-void
 
-    .line 72
     :cond_0
     const/4 v0, 0x1
 
+    .line 72
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther$DelayObserver;->done:Z
 
     .line 73
@@ -140,7 +130,6 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 74
     return-void
 .end method
 
@@ -153,24 +142,18 @@
     .end annotation
 
     .line 63
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther$DelayObserver;, "Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther<TT;TU;>.DelayObserver;"
-    .local p1, "t":Ljava/lang/Object;, "TU;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther$DelayObserver;->onComplete()V
 
-    .line 64
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 58
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther$DelayObserver;, "Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther<TT;TU;>.DelayObserver;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDelaySubscriptionOther$DelayObserver;->serial:Lio/reactivex/internal/disposables/SequentialDisposable;
 
     invoke-virtual {v0, p1}, Lio/reactivex/internal/disposables/SequentialDisposable;->update(Lio/reactivex/disposables/Disposable;)Z
 
-    .line 59
     return-void
 .end method

@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -45,8 +45,6 @@
     .end annotation
 
     .line 159
-    .local p0, "this":Lorg/objenesis/instantiator/basic/ObjectInputStreamInstantiator;, "Lorg/objenesis/instantiator/basic/ObjectInputStreamInstantiator<TT;>;"
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 160
@@ -72,44 +70,37 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 166
-    nop
-
-    .line 171
     return-void
 
-    .line 164
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 165
-    .local v0, "e":Ljava/io/IOException;
-    new-instance v1, Ljava/lang/Error;
+    new-instance v0, Ljava/lang/Error;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "IOException: "
 
-    const-string v3, "IOException: "
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v3
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Ljava/lang/Error;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Ljava/lang/Error;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 
     .line 169
-    .end local v0    # "e":Ljava/io/IOException;
     :cond_0
     new-instance v0, Lorg/objenesis/ObjenesisException;
 
@@ -121,15 +112,19 @@
 
     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v3, " not serializable"
+    move-result-object p1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, " not serializable"
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Ljava/io/NotSerializableException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v1, p1}, Ljava/io/NotSerializableException;-><init>(Ljava/lang/String;)V
 
     invoke-direct {v0, v1}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V
 
@@ -147,7 +142,6 @@
     .end annotation
 
     .line 176
-    .local p0, "this":Lorg/objenesis/instantiator/basic/ObjectInputStreamInstantiator;, "Lorg/objenesis/instantiator/basic/ObjectInputStreamInstantiator<TT;>;"
     :try_start_0
     iget-object v0, p0, Lorg/objenesis/instantiator/basic/ObjectInputStreamInstantiator;->inputStream:Ljava/io/ObjectInputStream;
 
@@ -160,46 +154,41 @@
 
     return-object v0
 
-    .line 181
     :catch_0
     move-exception v0
 
     .line 182
-    .local v0, "e":Ljava/lang/Exception;
     new-instance v1, Lorg/objenesis/ObjenesisException;
 
     invoke-direct {v1, v0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 
-    .line 178
-    .end local v0    # "e":Ljava/lang/Exception;
     :catch_1
     move-exception v0
 
     .line 179
-    .local v0, "e":Ljava/lang/ClassNotFoundException;
     new-instance v1, Ljava/lang/Error;
 
     new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v3, "ClassNotFoundException: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0}, Ljava/lang/ClassNotFoundException;->getMessage()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v2
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v1, v2}, Ljava/lang/Error;-><init>(Ljava/lang/String;)V
+    move-result-object v0
+
+    invoke-direct {v1, v0}, Ljava/lang/Error;-><init>(Ljava/lang/String;)V
 
     throw v1
 .end method

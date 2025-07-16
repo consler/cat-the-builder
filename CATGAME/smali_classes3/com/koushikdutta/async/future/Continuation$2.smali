@@ -39,7 +39,6 @@
 
 .method constructor <init>(Lcom/koushikdutta/async/future/Continuation;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/future/Continuation;
 
     .line 50
     iput-object p1, p0, Lcom/koushikdutta/async/future/Continuation$2;->this$0:Lcom/koushikdutta/async/future/Continuation;
@@ -53,24 +52,19 @@
 # virtual methods
 .method public onCompleted(Ljava/lang/Exception;)V
     .locals 2
-    .param p1, "ex"    # Ljava/lang/Exception;
 
     .line 56
     iget-boolean v0, p0, Lcom/koushikdutta/async/future/Continuation$2;->mThisCompleted:Z
 
     if-eqz v0, :cond_0
 
-    .line 57
     return-void
 
-    .line 58
     :cond_0
     const/4 v0, 0x1
 
+    .line 58
     iput-boolean v0, p0, Lcom/koushikdutta/async/future/Continuation$2;->mThisCompleted:Z
-
-    .line 59
-    nop
 
     .line 60
     iget-object v0, p0, Lcom/koushikdutta/async/future/Continuation$2;->this$0:Lcom/koushikdutta/async/future/Continuation;
@@ -79,15 +73,13 @@
 
     invoke-static {v0, v1}, Lcom/koushikdutta/async/future/Continuation;->access$002(Lcom/koushikdutta/async/future/Continuation;Z)Z
 
-    .line 61
     if-nez p1, :cond_1
 
     .line 62
-    iget-object v0, p0, Lcom/koushikdutta/async/future/Continuation$2;->this$0:Lcom/koushikdutta/async/future/Continuation;
+    iget-object p1, p0, Lcom/koushikdutta/async/future/Continuation$2;->this$0:Lcom/koushikdutta/async/future/Continuation;
 
-    invoke-static {v0}, Lcom/koushikdutta/async/future/Continuation;->access$100(Lcom/koushikdutta/async/future/Continuation;)V
+    invoke-static {p1}, Lcom/koushikdutta/async/future/Continuation;->access$100(Lcom/koushikdutta/async/future/Continuation;)V
 
-    .line 63
     return-void
 
     .line 65
@@ -96,6 +88,5 @@
 
     invoke-virtual {v0, p1}, Lcom/koushikdutta/async/future/Continuation;->reportCompleted(Ljava/lang/Exception;)V
 
-    .line 66
     return-void
 .end method

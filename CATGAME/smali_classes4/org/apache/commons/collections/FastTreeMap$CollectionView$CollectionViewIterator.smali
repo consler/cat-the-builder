@@ -36,9 +36,9 @@
 
     iput-object p1, p0, Lorg/apache/commons/collections/FastTreeMap$CollectionView$CollectionViewIterator;->this$1:Lorg/apache/commons/collections/FastTreeMap$CollectionView;
 
-    .line 735
     const/4 v0, 0x0
 
+    .line 735
     iput-object v0, p0, Lorg/apache/commons/collections/FastTreeMap$CollectionView$CollectionViewIterator;->lastReturned:Ljava/util/Map$Entry;
 
     .line 739
@@ -61,7 +61,6 @@
 
     iput-object p1, p0, Lorg/apache/commons/collections/FastTreeMap$CollectionView$CollectionViewIterator;->iterator:Ljava/util/Iterator;
 
-    .line 741
     return-void
 .end method
 
@@ -232,10 +231,10 @@
 
     throw v1
 
-    .line 770
     :catchall_0
     move-exception v1
 
+    .line 770
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -251,7 +250,6 @@
     .line 773
     iput-object v1, p0, Lorg/apache/commons/collections/FastTreeMap$CollectionView$CollectionViewIterator;->lastReturned:Ljava/util/Map$Entry;
 
-    .line 775
     :goto_0
     return-void
 

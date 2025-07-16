@@ -43,14 +43,11 @@
     .end annotation
 
     .line 23
-    .local p0, "this":Lio/reactivex/internal/operators/completable/CompletableFromObservable;, "Lio/reactivex/internal/operators/completable/CompletableFromObservable<TT;>;"
-    .local p1, "observable":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Completable;-><init>()V
 
     .line 24
     iput-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableFromObservable;->observable:Lio/reactivex/ObservableSource;
 
-    .line 25
     return-void
 .end method
 
@@ -58,10 +55,8 @@
 # virtual methods
 .method protected subscribeActual(Lio/reactivex/CompletableObserver;)V
     .locals 2
-    .param p1, "s"    # Lio/reactivex/CompletableObserver;
 
     .line 29
-    .local p0, "this":Lio/reactivex/internal/operators/completable/CompletableFromObservable;, "Lio/reactivex/internal/operators/completable/CompletableFromObservable<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableFromObservable;->observable:Lio/reactivex/ObservableSource;
 
     new-instance v1, Lio/reactivex/internal/operators/completable/CompletableFromObservable$CompletableFromObservableObserver;
@@ -70,6 +65,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 30
     return-void
 .end method

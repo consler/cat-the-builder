@@ -35,17 +35,13 @@
     .end annotation
 
     .line 76
-    .local p0, "this":Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag;, "Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag<TE;>;"
-    .local p1, "bag":Lorg/apache/commons/collections4/SortedBag;, "Lorg/apache/commons/collections4/SortedBag<TE;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/bag/AbstractSortedBagDecorator;-><init>(Lorg/apache/commons/collections4/SortedBag;)V
 
-    .line 77
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 1
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -54,19 +50,17 @@
     .end annotation
 
     .line 101
-    .local p0, "this":Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag;, "Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag<TE;>;"
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
     .line 102
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Collection;
+    check-cast p1, Ljava/util/Collection;
 
-    invoke-virtual {p0, v0}, Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag;->setCollection(Ljava/util/Collection;)V
+    invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag;->setCollection(Ljava/util/Collection;)V
 
-    .line 103
     return-void
 .end method
 
@@ -85,12 +79,10 @@
     .end annotation
 
     .line 62
-    .local p0, "bag":Lorg/apache/commons/collections4/SortedBag;, "Lorg/apache/commons/collections4/SortedBag<TE;>;"
     instance-of v0, p0, Lorg/apache/commons/collections4/Unmodifiable;
 
     if-eqz v0, :cond_0
 
-    .line 63
     return-object p0
 
     .line 65
@@ -104,7 +96,6 @@
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -112,7 +103,6 @@
     .end annotation
 
     .line 87
-    .local p0, "this":Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag;, "Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag<TE;>;"
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
     .line 88
@@ -122,14 +112,13 @@
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    .line 89
     return-void
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)Z"
@@ -137,18 +126,15 @@
     .end annotation
 
     .line 113
-    .local p0, "this":Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag;, "Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag<TE;>;"
-    .local p1, "object":Ljava/lang/Object;, "TE;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public add(Ljava/lang/Object;I)Z
-    .locals 1
-    .param p2, "count"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;I)Z"
@@ -156,17 +142,15 @@
     .end annotation
 
     .line 152
-    .local p0, "this":Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag;, "Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag<TE;>;"
-    .local p1, "object":Ljava/lang/Object;, "TE;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -176,20 +160,17 @@
     .end annotation
 
     .line 118
-    .local p0, "this":Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag;, "Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<+TE;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public clear()V
     .locals 1
 
     .line 123
-    .local p0, "this":Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag;, "Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag<TE;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -208,7 +189,6 @@
     .end annotation
 
     .line 108
-    .local p0, "this":Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag;, "Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag;->decorated()Lorg/apache/commons/collections4/SortedBag;
 
     move-result-object v0
@@ -225,34 +205,29 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
+    .locals 0
 
     .line 128
-    .local p0, "this":Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag;, "Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag<TE;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public remove(Ljava/lang/Object;I)Z
-    .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
-    .param p2, "count"    # I
+    .locals 0
 
     .line 157
-    .local p0, "this":Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag;, "Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag<TE;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -262,17 +237,15 @@
     .end annotation
 
     .line 141
-    .local p0, "this":Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag;, "Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public removeIf(Ljava/util/function/Predicate;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -282,17 +255,15 @@
     .end annotation
 
     .line 136
-    .local p0, "this":Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag;, "Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag<TE;>;"
-    .local p1, "filter":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<-TE;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -302,17 +273,15 @@
     .end annotation
 
     .line 146
-    .local p0, "this":Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag;, "Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public uniqueSet()Ljava/util/Set;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -322,7 +291,6 @@
     .end annotation
 
     .line 162
-    .local p0, "this":Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag;, "Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bag/UnmodifiableSortedBag;->decorated()Lorg/apache/commons/collections4/SortedBag;
 
     move-result-object v0
@@ -332,10 +300,9 @@
     move-result-object v0
 
     .line 163
-    .local v0, "set":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
     invoke-static {v0}, Lorg/apache/commons/collections4/set/UnmodifiableSet;->unmodifiableSet(Ljava/util/Set;)Ljava/util/Set;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method

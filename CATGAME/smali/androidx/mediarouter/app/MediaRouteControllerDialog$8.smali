@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/app/MediaRouteControllerDialog;Ljava/util/Map;Ljava/util/Map;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
     .line 780
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$8;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
@@ -67,6 +66,5 @@
 
     invoke-virtual {v0, v1, v2}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->animateGroupListItemsInternal(Ljava/util/Map;Ljava/util/Map;)V
 
-    .line 785
     return-void
 .end method

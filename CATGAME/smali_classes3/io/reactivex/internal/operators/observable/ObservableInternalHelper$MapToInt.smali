@@ -50,13 +50,13 @@
 
     sput-object v0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$MapToInt;->INSTANCE:Lio/reactivex/internal/operators/observable/ObservableInternalHelper$MapToInt;
 
-    .line 196
     const/4 v1, 0x1
 
     new-array v1, v1, [Lio/reactivex/internal/operators/observable/ObservableInternalHelper$MapToInt;
 
     aput-object v0, v1, v2
 
+    .line 196
     sput-object v1, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$MapToInt;->$VALUES:[Lio/reactivex/internal/operators/observable/ObservableInternalHelper$MapToInt;
 
     return-void
@@ -78,18 +78,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lio/reactivex/internal/operators/observable/ObservableInternalHelper$MapToInt;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 196
     const-class v0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$MapToInt;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$MapToInt;
+    check-cast p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$MapToInt;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lio/reactivex/internal/operators/observable/ObservableInternalHelper$MapToInt;
@@ -110,20 +109,19 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "t"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
+    const/4 p1, 0x0
+
     .line 200
-    const/4 v0, 0x0
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method

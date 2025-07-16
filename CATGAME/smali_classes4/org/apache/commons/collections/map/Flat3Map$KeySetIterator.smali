@@ -17,12 +17,10 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections/map/Flat3Map;)V
     .locals 0
-    .param p1, "parent"    # Lorg/apache/commons/collections/map/Flat3Map;
 
     .line 911
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/map/Flat3Map$EntrySetIterator;-><init>(Lorg/apache/commons/collections/map/Flat3Map;)V
 
-    .line 912
     return-void
 .end method
 

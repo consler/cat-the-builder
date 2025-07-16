@@ -25,71 +25,65 @@
 
 # direct methods
 .method public constructor <init>(Lorg/w3c/dom/Node;)V
-    .locals 2
-    .param p1, "node"    # Lorg/w3c/dom/Node;
+    .locals 1
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 38
     const/4 v0, 0x0
 
+    .line 38
     iput v0, p0, Lorg/apache/commons/collections4/iterators/NodeListIterator;->index:I
 
-    .line 48
     if-eqz p1, :cond_0
 
     .line 51
     invoke-interface {p1}, Lorg/w3c/dom/Node;->getChildNodes()Lorg/w3c/dom/NodeList;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/iterators/NodeListIterator;->nodeList:Lorg/w3c/dom/NodeList;
+    iput-object p1, p0, Lorg/apache/commons/collections4/iterators/NodeListIterator;->nodeList:Lorg/w3c/dom/NodeList;
 
-    .line 52
     return-void
 
     .line 49
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "Node must not be null."
+    const-string v0, "Node must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public constructor <init>(Lorg/w3c/dom/NodeList;)V
-    .locals 2
-    .param p1, "nodeList"    # Lorg/w3c/dom/NodeList;
+    .locals 1
 
     .line 61
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 38
     const/4 v0, 0x0
 
+    .line 38
     iput v0, p0, Lorg/apache/commons/collections4/iterators/NodeListIterator;->index:I
 
-    .line 62
     if-eqz p1, :cond_0
 
     .line 65
     iput-object p1, p0, Lorg/apache/commons/collections4/iterators/NodeListIterator;->nodeList:Lorg/w3c/dom/NodeList;
 
-    .line 66
     return-void
 
     .line 63
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "NodeList must not be null."
+    const-string v0, "NodeList must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 

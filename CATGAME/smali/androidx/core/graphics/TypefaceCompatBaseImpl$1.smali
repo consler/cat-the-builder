@@ -33,9 +33,16 @@
 # direct methods
 .method constructor <init>(Landroidx/core/graphics/TypefaceCompatBaseImpl;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/core/graphics/TypefaceCompatBaseImpl;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x8010
+        }
+        names = {
+            "this$0"
+        }
+    .end annotation
 
-    .line 99
+    .line 100
     iput-object p1, p0, Landroidx/core/graphics/TypefaceCompatBaseImpl$1;->this$0:Landroidx/core/graphics/TypefaceCompatBaseImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,21 +53,36 @@
 
 # virtual methods
 .method public getWeight(Landroidx/core/provider/FontsContractCompat$FontInfo;)I
-    .locals 1
-    .param p1, "info"    # Landroidx/core/provider/FontsContractCompat$FontInfo;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "info"
+        }
+    .end annotation
 
-    .line 102
+    .line 103
     invoke-virtual {p1}, Landroidx/core/provider/FontsContractCompat$FontInfo;->getWeight()I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic getWeight(Ljava/lang/Object;)I
     .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1000
+        }
+        names = {
+            "info"
+        }
+    .end annotation
 
-    .line 99
+    .line 100
     check-cast p1, Landroidx/core/provider/FontsContractCompat$FontInfo;
 
     invoke-virtual {p0, p1}, Landroidx/core/graphics/TypefaceCompatBaseImpl$1;->getWeight(Landroidx/core/provider/FontsContractCompat$FontInfo;)I
@@ -71,21 +93,36 @@
 .end method
 
 .method public isItalic(Landroidx/core/provider/FontsContractCompat$FontInfo;)Z
-    .locals 1
-    .param p1, "info"    # Landroidx/core/provider/FontsContractCompat$FontInfo;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "info"
+        }
+    .end annotation
 
-    .line 107
+    .line 108
     invoke-virtual {p1}, Landroidx/core/provider/FontsContractCompat$FontInfo;->isItalic()Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic isItalic(Ljava/lang/Object;)Z
     .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1000
+        }
+        names = {
+            "info"
+        }
+    .end annotation
 
-    .line 99
+    .line 100
     check-cast p1, Landroidx/core/provider/FontsContractCompat$FontInfo;
 
     invoke-virtual {p0, p1}, Landroidx/core/graphics/TypefaceCompatBaseImpl$1;->isItalic(Landroidx/core/provider/FontsContractCompat$FontInfo;)Z

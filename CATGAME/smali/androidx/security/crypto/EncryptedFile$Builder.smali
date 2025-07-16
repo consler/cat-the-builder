@@ -31,22 +31,18 @@
 # direct methods
 .method public constructor <init>(Ljava/io/File;Landroid/content/Context;Ljava/lang/String;Landroidx/security/crypto/EncryptedFile$FileEncryptionScheme;)V
     .locals 1
-    .param p1, "file"    # Ljava/io/File;
-    .param p2, "context"    # Landroid/content/Context;
-    .param p3, "masterKeyAlias"    # Ljava/lang/String;
-    .param p4, "fileEncryptionScheme"    # Landroidx/security/crypto/EncryptedFile$FileEncryptionScheme;
 
     .line 124
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 138
     const-string v0, "__androidx_security_crypto_encrypted_file_pref__"
 
+    .line 138
     iput-object v0, p0, Landroidx/security/crypto/EncryptedFile$Builder;->mKeysetPrefName:Ljava/lang/String;
 
-    .line 139
     const-string v0, "__androidx_security_crypto_encrypted_file_keyset__"
 
+    .line 139
     iput-object v0, p0, Landroidx/security/crypto/EncryptedFile$Builder;->mKeysetAlias:Ljava/lang/String;
 
     .line 125
@@ -61,14 +57,13 @@
     .line 128
     iput-object p3, p0, Landroidx/security/crypto/EncryptedFile$Builder;->mMasterKeyAlias:Ljava/lang/String;
 
-    .line 129
     return-void
 .end method
 
 
 # virtual methods
 .method public build()Landroidx/security/crypto/EncryptedFile;
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/GeneralSecurityException;,
@@ -108,15 +103,15 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "android-keystore://"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v2, p0, Landroidx/security/crypto/EncryptedFile$Builder;->mMasterKeyAlias:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -137,49 +132,43 @@
     move-result-object v0
 
     .line 174
-    .local v0, "streadmingAeadKeysetHandle":Lcom/google/crypto/tink/KeysetHandle;
     const-class v1, Lcom/google/crypto/tink/StreamingAead;
 
     .line 175
     invoke-virtual {v0, v1}, Lcom/google/crypto/tink/KeysetHandle;->getPrimitive(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/google/crypto/tink/StreamingAead;
+    check-cast v0, Lcom/google/crypto/tink/StreamingAead;
 
     .line 177
-    .local v1, "streamingAead":Lcom/google/crypto/tink/StreamingAead;
-    new-instance v2, Landroidx/security/crypto/EncryptedFile;
+    new-instance v1, Landroidx/security/crypto/EncryptedFile;
 
-    iget-object v3, p0, Landroidx/security/crypto/EncryptedFile$Builder;->mFile:Ljava/io/File;
+    iget-object v2, p0, Landroidx/security/crypto/EncryptedFile$Builder;->mFile:Ljava/io/File;
 
-    iget-object v4, p0, Landroidx/security/crypto/EncryptedFile$Builder;->mKeysetAlias:Ljava/lang/String;
+    iget-object v3, p0, Landroidx/security/crypto/EncryptedFile$Builder;->mKeysetAlias:Ljava/lang/String;
 
-    iget-object v5, p0, Landroidx/security/crypto/EncryptedFile$Builder;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Landroidx/security/crypto/EncryptedFile$Builder;->mContext:Landroid/content/Context;
 
-    invoke-direct {v2, v3, v4, v1, v5}, Landroidx/security/crypto/EncryptedFile;-><init>(Ljava/io/File;Ljava/lang/String;Lcom/google/crypto/tink/StreamingAead;Landroid/content/Context;)V
+    invoke-direct {v1, v2, v3, v0, v4}, Landroidx/security/crypto/EncryptedFile;-><init>(Ljava/io/File;Ljava/lang/String;Lcom/google/crypto/tink/StreamingAead;Landroid/content/Context;)V
 
-    return-object v2
+    return-object v1
 .end method
 
 .method public setKeysetAlias(Ljava/lang/String;)Landroidx/security/crypto/EncryptedFile$Builder;
     .locals 0
-    .param p1, "keysetAlias"    # Ljava/lang/String;
 
     .line 157
     iput-object p1, p0, Landroidx/security/crypto/EncryptedFile$Builder;->mKeysetAlias:Ljava/lang/String;
 
-    .line 158
     return-object p0
 .end method
 
 .method public setKeysetPrefName(Ljava/lang/String;)Landroidx/security/crypto/EncryptedFile$Builder;
     .locals 0
-    .param p1, "keysetPrefName"    # Ljava/lang/String;
 
     .line 147
     iput-object p1, p0, Landroidx/security/crypto/EncryptedFile$Builder;->mKeysetPrefName:Ljava/lang/String;
 
-    .line 148
     return-object p0
 .end method

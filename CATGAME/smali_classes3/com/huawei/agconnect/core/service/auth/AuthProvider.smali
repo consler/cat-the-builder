@@ -1,6 +1,5 @@
 .class public interface abstract Lcom/huawei/agconnect/core/service/auth/AuthProvider;
 .super Ljava/lang/Object;
-.source "AuthProvider.java"
 
 
 # virtual methods
@@ -11,6 +10,17 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
+            "Lcom/huawei/hmf/tasks/Task<",
+            "Lcom/huawei/agconnect/core/service/auth/Token;",
+            ">;"
+        }
+    .end annotation
+.end method
+
+.method public abstract getTokens(Z)Lcom/huawei/hmf/tasks/Task;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(Z)",
             "Lcom/huawei/hmf/tasks/Task<",
             "Lcom/huawei/agconnect/core/service/auth/Token;",
             ">;"

@@ -114,21 +114,19 @@
 
     iput-object v0, p0, Landroidx/transition/Slide;->mSlideCalculator:Landroidx/transition/Slide$CalculateSlide;
 
-    .line 59
     const/16 v0, 0x50
 
+    .line 59
     iput v0, p0, Landroidx/transition/Slide;->mSlideEdge:I
 
     .line 156
     invoke-virtual {p0, v0}, Landroidx/transition/Slide;->setSlideEdge(I)V
 
-    .line 157
     return-void
 .end method
 
 .method public constructor <init>(I)V
     .locals 1
-    .param p1, "slideEdge"    # I
 
     .line 162
     invoke-direct {p0}, Landroidx/transition/Visibility;-><init>()V
@@ -138,22 +136,19 @@
 
     iput-object v0, p0, Landroidx/transition/Slide;->mSlideCalculator:Landroidx/transition/Slide$CalculateSlide;
 
-    .line 59
     const/16 v0, 0x50
 
+    .line 59
     iput v0, p0, Landroidx/transition/Slide;->mSlideEdge:I
 
     .line 163
     invoke-virtual {p0, p1}, Landroidx/transition/Slide;->setSlideEdge(I)V
 
-    .line 164
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 5
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .locals 3
 
     .line 169
     invoke-direct {p0, p1, p2}, Landroidx/transition/Visibility;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -163,9 +158,9 @@
 
     iput-object v0, p0, Landroidx/transition/Slide;->mSlideCalculator:Landroidx/transition/Slide$CalculateSlide;
 
-    .line 59
     const/16 v0, 0x50
 
+    .line 59
     iput v0, p0, Landroidx/transition/Slide;->mSlideEdge:I
 
     .line 170
@@ -173,58 +168,48 @@
 
     invoke-virtual {p1, p2, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 171
-    .local v1, "a":Landroid/content/res/TypedArray;
-    move-object v2, p2
+    check-cast p2, Lorg/xmlpull/v1/XmlPullParser;
 
-    check-cast v2, Lorg/xmlpull/v1/XmlPullParser;
+    const-string v1, "slideEdge"
 
-    const-string v3, "slideEdge"
+    const/4 v2, 0x0
 
-    const/4 v4, 0x0
+    invoke-static {p1, p2, v1, v2, v0}, Landroidx/core/content/res/TypedArrayUtils;->getNamedInt(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
 
-    invoke-static {v1, v2, v3, v4, v0}, Landroidx/core/content/res/TypedArrayUtils;->getNamedInt(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
-
-    move-result v0
+    move-result p2
 
     .line 173
-    .local v0, "edge":I
-    invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
+    invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 175
-    invoke-virtual {p0, v0}, Landroidx/transition/Slide;->setSlideEdge(I)V
+    invoke-virtual {p0, p2}, Landroidx/transition/Slide;->setSlideEdge(I)V
 
-    .line 176
     return-void
 .end method
 
 .method private captureValues(Landroidx/transition/TransitionValues;)V
-    .locals 4
-    .param p1, "transitionValues"    # Landroidx/transition/TransitionValues;
+    .locals 2
 
     .line 179
     iget-object v0, p1, Landroidx/transition/TransitionValues;->view:Landroid/view/View;
 
-    .line 180
-    .local v0, "view":Landroid/view/View;
     const/4 v1, 0x2
 
     new-array v1, v1, [I
 
     .line 181
-    .local v1, "position":[I
     invoke-virtual {v0, v1}, Landroid/view/View;->getLocationOnScreen([I)V
 
     .line 182
-    iget-object v2, p1, Landroidx/transition/TransitionValues;->values:Ljava/util/Map;
+    iget-object p1, p1, Landroidx/transition/TransitionValues;->values:Ljava/util/Map;
 
-    const-string v3, "android:slide:screenPosition"
+    const-string v0, "android:slide:screenPosition"
 
-    invoke-interface {v2, v3, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 183
     return-void
 .end method
 
@@ -232,7 +217,6 @@
 # virtual methods
 .method public captureEndValues(Landroidx/transition/TransitionValues;)V
     .locals 0
-    .param p1, "transitionValues"    # Landroidx/transition/TransitionValues;
 
     .line 193
     invoke-super {p0, p1}, Landroidx/transition/Visibility;->captureEndValues(Landroidx/transition/TransitionValues;)V
@@ -240,13 +224,11 @@
     .line 194
     invoke-direct {p0, p1}, Landroidx/transition/Slide;->captureValues(Landroidx/transition/TransitionValues;)V
 
-    .line 195
     return-void
 .end method
 
 .method public captureStartValues(Landroidx/transition/TransitionValues;)V
     .locals 0
-    .param p1, "transitionValues"    # Landroidx/transition/TransitionValues;
 
     .line 187
     invoke-super {p0, p1}, Landroidx/transition/Visibility;->captureStartValues(Landroidx/transition/TransitionValues;)V
@@ -254,7 +236,6 @@
     .line 188
     invoke-direct {p0, p1}, Landroidx/transition/Slide;->captureValues(Landroidx/transition/TransitionValues;)V
 
-    .line 189
     return-void
 .end method
 
@@ -268,214 +249,152 @@
 .end method
 
 .method public onAppear(Landroid/view/ViewGroup;Landroid/view/View;Landroidx/transition/TransitionValues;Landroidx/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 19
-    .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
-    .param p2, "view"    # Landroid/view/View;
-    .param p3, "startValues"    # Landroidx/transition/TransitionValues;
-    .param p4, "endValues"    # Landroidx/transition/TransitionValues;
+    .locals 10
 
-    .line 250
-    move-object/from16 v10, p0
+    if-nez p4, :cond_0
 
-    move-object/from16 v11, p1
+    const/4 p1, 0x0
 
-    move-object/from16 v12, p2
-
-    move-object/from16 v13, p4
-
-    if-nez v13, :cond_0
-
-    .line 251
-    const/4 v0, 0x0
-
-    return-object v0
+    return-object p1
 
     .line 253
     :cond_0
-    iget-object v0, v13, Landroidx/transition/TransitionValues;->values:Ljava/util/Map;
+    iget-object p3, p4, Landroidx/transition/TransitionValues;->values:Ljava/util/Map;
 
-    const-string v1, "android:slide:screenPosition"
+    const-string v0, "android:slide:screenPosition"
 
-    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p3, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p3
 
-    check-cast v0, [I
+    check-cast p3, [I
 
-    move-object v14, v0
-
-    check-cast v14, [I
+    check-cast p3, [I
 
     .line 254
-    .local v14, "position":[I
-    invoke-virtual/range {p2 .. p2}, Landroid/view/View;->getTranslationX()F
+    invoke-virtual {p2}, Landroid/view/View;->getTranslationX()F
 
-    move-result v15
+    move-result v6
 
     .line 255
-    .local v15, "endX":F
-    invoke-virtual/range {p2 .. p2}, Landroid/view/View;->getTranslationY()F
+    invoke-virtual {p2}, Landroid/view/View;->getTranslationY()F
 
-    move-result v16
+    move-result v7
 
     .line 256
-    .local v16, "endY":F
-    iget-object v0, v10, Landroidx/transition/Slide;->mSlideCalculator:Landroidx/transition/Slide$CalculateSlide;
+    iget-object v0, p0, Landroidx/transition/Slide;->mSlideCalculator:Landroidx/transition/Slide$CalculateSlide;
 
-    invoke-interface {v0, v11, v12}, Landroidx/transition/Slide$CalculateSlide;->getGoneX(Landroid/view/ViewGroup;Landroid/view/View;)F
+    invoke-interface {v0, p1, p2}, Landroidx/transition/Slide$CalculateSlide;->getGoneX(Landroid/view/ViewGroup;Landroid/view/View;)F
 
-    move-result v17
+    move-result v4
 
     .line 257
-    .local v17, "startX":F
-    iget-object v0, v10, Landroidx/transition/Slide;->mSlideCalculator:Landroidx/transition/Slide$CalculateSlide;
+    iget-object v0, p0, Landroidx/transition/Slide;->mSlideCalculator:Landroidx/transition/Slide$CalculateSlide;
 
-    invoke-interface {v0, v11, v12}, Landroidx/transition/Slide$CalculateSlide;->getGoneY(Landroid/view/ViewGroup;Landroid/view/View;)F
+    invoke-interface {v0, p1, p2}, Landroidx/transition/Slide$CalculateSlide;->getGoneY(Landroid/view/ViewGroup;Landroid/view/View;)F
 
-    move-result v18
+    move-result v5
+
+    const/4 p1, 0x0
 
     .line 258
-    .local v18, "startY":F
-    const/4 v0, 0x0
+    aget v2, p3, p1
 
-    aget v2, v14, v0
+    const/4 p1, 0x1
 
-    const/4 v0, 0x1
-
-    aget v3, v14, v0
+    aget v3, p3, p1
 
     sget-object v8, Landroidx/transition/Slide;->sDecelerate:Landroid/animation/TimeInterpolator;
 
+    move-object v0, p2
+
+    move-object v1, p4
+
+    move-object v9, p0
+
     .line 259
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, p4
-
-    move/from16 v4, v17
-
-    move/from16 v5, v18
-
-    move v6, v15
-
-    move/from16 v7, v16
-
-    move-object/from16 v9, p0
-
     invoke-static/range {v0 .. v9}, Landroidx/transition/TranslationAnimationCreator;->createAnimation(Landroid/view/View;Landroidx/transition/TransitionValues;IIFFFFLandroid/animation/TimeInterpolator;Landroidx/transition/Transition;)Landroid/animation/Animator;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 258
-    return-object v0
+    return-object p1
 .end method
 
 .method public onDisappear(Landroid/view/ViewGroup;Landroid/view/View;Landroidx/transition/TransitionValues;Landroidx/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 19
-    .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
-    .param p2, "view"    # Landroid/view/View;
-    .param p3, "startValues"    # Landroidx/transition/TransitionValues;
-    .param p4, "endValues"    # Landroidx/transition/TransitionValues;
+    .locals 10
 
-    .line 266
-    move-object/from16 v10, p0
+    if-nez p3, :cond_0
 
-    move-object/from16 v11, p1
+    const/4 p1, 0x0
 
-    move-object/from16 v12, p2
-
-    move-object/from16 v13, p3
-
-    if-nez v13, :cond_0
-
-    .line 267
-    const/4 v0, 0x0
-
-    return-object v0
+    return-object p1
 
     .line 269
     :cond_0
-    iget-object v0, v13, Landroidx/transition/TransitionValues;->values:Ljava/util/Map;
+    iget-object p4, p3, Landroidx/transition/TransitionValues;->values:Ljava/util/Map;
 
-    const-string v1, "android:slide:screenPosition"
+    const-string v0, "android:slide:screenPosition"
 
-    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p4
 
-    check-cast v0, [I
+    check-cast p4, [I
 
-    move-object v14, v0
-
-    check-cast v14, [I
+    check-cast p4, [I
 
     .line 270
-    .local v14, "position":[I
-    invoke-virtual/range {p2 .. p2}, Landroid/view/View;->getTranslationX()F
+    invoke-virtual {p2}, Landroid/view/View;->getTranslationX()F
 
-    move-result v15
+    move-result v4
 
     .line 271
-    .local v15, "startX":F
-    invoke-virtual/range {p2 .. p2}, Landroid/view/View;->getTranslationY()F
+    invoke-virtual {p2}, Landroid/view/View;->getTranslationY()F
 
-    move-result v16
+    move-result v5
 
     .line 272
-    .local v16, "startY":F
-    iget-object v0, v10, Landroidx/transition/Slide;->mSlideCalculator:Landroidx/transition/Slide$CalculateSlide;
+    iget-object v0, p0, Landroidx/transition/Slide;->mSlideCalculator:Landroidx/transition/Slide$CalculateSlide;
 
-    invoke-interface {v0, v11, v12}, Landroidx/transition/Slide$CalculateSlide;->getGoneX(Landroid/view/ViewGroup;Landroid/view/View;)F
+    invoke-interface {v0, p1, p2}, Landroidx/transition/Slide$CalculateSlide;->getGoneX(Landroid/view/ViewGroup;Landroid/view/View;)F
 
-    move-result v17
+    move-result v6
 
     .line 273
-    .local v17, "endX":F
-    iget-object v0, v10, Landroidx/transition/Slide;->mSlideCalculator:Landroidx/transition/Slide$CalculateSlide;
+    iget-object v0, p0, Landroidx/transition/Slide;->mSlideCalculator:Landroidx/transition/Slide$CalculateSlide;
 
-    invoke-interface {v0, v11, v12}, Landroidx/transition/Slide$CalculateSlide;->getGoneY(Landroid/view/ViewGroup;Landroid/view/View;)F
+    invoke-interface {v0, p1, p2}, Landroidx/transition/Slide$CalculateSlide;->getGoneY(Landroid/view/ViewGroup;Landroid/view/View;)F
 
-    move-result v18
+    move-result v7
+
+    const/4 p1, 0x0
 
     .line 274
-    .local v18, "endY":F
-    const/4 v0, 0x0
+    aget v2, p4, p1
 
-    aget v2, v14, v0
+    const/4 p1, 0x1
 
-    const/4 v0, 0x1
-
-    aget v3, v14, v0
+    aget v3, p4, p1
 
     sget-object v8, Landroidx/transition/Slide;->sAccelerate:Landroid/animation/TimeInterpolator;
 
+    move-object v0, p2
+
+    move-object v1, p3
+
+    move-object v9, p0
+
     .line 275
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, p3
-
-    move v4, v15
-
-    move/from16 v5, v16
-
-    move/from16 v6, v17
-
-    move/from16 v7, v18
-
-    move-object/from16 v9, p0
-
     invoke-static/range {v0 .. v9}, Landroidx/transition/TranslationAnimationCreator;->createAnimation(Landroid/view/View;Landroidx/transition/TransitionValues;IIFFFFLandroid/animation/TimeInterpolator;Landroidx/transition/Transition;)Landroid/animation/Animator;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 274
-    return-object v0
+    return-object p1
 .end method
 
 .method public setSlideEdge(I)V
-    .locals 2
-    .param p1, "slideEdge"    # I
+    .locals 1
 
-    .line 206
     const/4 v0, 0x3
 
     if-eq p1, v0, :cond_5
@@ -505,18 +424,17 @@
 
     iput-object v0, p0, Landroidx/transition/Slide;->mSlideCalculator:Landroidx/transition/Slide$CalculateSlide;
 
-    .line 224
     goto :goto_0
 
     .line 226
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Invalid slide direction"
+    const-string v0, "Invalid slide direction"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 220
     :cond_1
@@ -524,7 +442,6 @@
 
     iput-object v0, p0, Landroidx/transition/Slide;->mSlideCalculator:Landroidx/transition/Slide$CalculateSlide;
 
-    .line 221
     goto :goto_0
 
     .line 217
@@ -533,7 +450,6 @@
 
     iput-object v0, p0, Landroidx/transition/Slide;->mSlideCalculator:Landroidx/transition/Slide$CalculateSlide;
 
-    .line 218
     goto :goto_0
 
     .line 211
@@ -542,7 +458,6 @@
 
     iput-object v0, p0, Landroidx/transition/Slide;->mSlideCalculator:Landroidx/transition/Slide$CalculateSlide;
 
-    .line 212
     goto :goto_0
 
     .line 214
@@ -551,7 +466,6 @@
 
     iput-object v0, p0, Landroidx/transition/Slide;->mSlideCalculator:Landroidx/transition/Slide$CalculateSlide;
 
-    .line 215
     goto :goto_0
 
     .line 208
@@ -559,9 +473,6 @@
     sget-object v0, Landroidx/transition/Slide;->sCalculateLeft:Landroidx/transition/Slide$CalculateSlide;
 
     iput-object v0, p0, Landroidx/transition/Slide;->mSlideCalculator:Landroidx/transition/Slide$CalculateSlide;
-
-    .line 209
-    nop
 
     .line 228
     :goto_0
@@ -573,12 +484,10 @@
     invoke-direct {v0}, Landroidx/transition/SidePropagation;-><init>()V
 
     .line 230
-    .local v0, "propagation":Landroidx/transition/SidePropagation;
     invoke-virtual {v0, p1}, Landroidx/transition/SidePropagation;->setSide(I)V
 
     .line 231
     invoke-virtual {p0, v0}, Landroidx/transition/Slide;->setPropagation(Landroidx/transition/TransitionPropagation;)V
 
-    .line 232
     return-void
 .end method

@@ -48,89 +48,83 @@
 
 # direct methods
 .method constructor <init>(JLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/ThreadFactory;)V
-    .locals 11
-    .param p1, "keepAliveTime"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "threadFactory"    # Ljava/util/concurrent/ThreadFactory;
+    .locals 7
 
     .line 71
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 72
     if-eqz p3, :cond_0
 
+    .line 72
     invoke-virtual {p3, p1, p2}, Ljava/util/concurrent/TimeUnit;->toNanos(J)J
 
-    move-result-wide v0
+    move-result-wide p1
 
     goto :goto_0
 
     :cond_0
-    const-wide/16 v0, 0x0
+    const-wide/16 p1, 0x0
 
     :goto_0
-    iput-wide v0, p0, Lio/reactivex/internal/schedulers/IoScheduler$CachedWorkerPool;->keepAliveTime:J
+    move-wide v4, p1
+
+    iput-wide v4, p0, Lio/reactivex/internal/schedulers/IoScheduler$CachedWorkerPool;->keepAliveTime:J
 
     .line 73
-    new-instance v0, Ljava/util/concurrent/ConcurrentLinkedQueue;
+    new-instance p1, Ljava/util/concurrent/ConcurrentLinkedQueue;
 
-    invoke-direct {v0}, Ljava/util/concurrent/ConcurrentLinkedQueue;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/ConcurrentLinkedQueue;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/schedulers/IoScheduler$CachedWorkerPool;->expiringWorkerQueue:Ljava/util/concurrent/ConcurrentLinkedQueue;
+    iput-object p1, p0, Lio/reactivex/internal/schedulers/IoScheduler$CachedWorkerPool;->expiringWorkerQueue:Ljava/util/concurrent/ConcurrentLinkedQueue;
 
     .line 74
-    new-instance v0, Lio/reactivex/disposables/CompositeDisposable;
+    new-instance p1, Lio/reactivex/disposables/CompositeDisposable;
 
-    invoke-direct {v0}, Lio/reactivex/disposables/CompositeDisposable;-><init>()V
+    invoke-direct {p1}, Lio/reactivex/disposables/CompositeDisposable;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/schedulers/IoScheduler$CachedWorkerPool;->allWorkers:Lio/reactivex/disposables/CompositeDisposable;
+    iput-object p1, p0, Lio/reactivex/internal/schedulers/IoScheduler$CachedWorkerPool;->allWorkers:Lio/reactivex/disposables/CompositeDisposable;
 
     .line 75
     iput-object p4, p0, Lio/reactivex/internal/schedulers/IoScheduler$CachedWorkerPool;->threadFactory:Ljava/util/concurrent/ThreadFactory;
 
-    .line 77
-    const/4 v0, 0x0
-
-    .line 78
-    .local v0, "evictor":Ljava/util/concurrent/ScheduledExecutorService;
-    const/4 v1, 0x0
-
-    .line 79
-    .local v1, "task":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<*>;"
     if-eqz p3, :cond_1
 
+    const/4 p1, 0x1
+
     .line 80
-    const/4 v2, 0x1
+    sget-object p2, Lio/reactivex/internal/schedulers/IoScheduler;->EVICTOR_THREAD_FACTORY:Lio/reactivex/internal/schedulers/RxThreadFactory;
 
-    sget-object v3, Lio/reactivex/internal/schedulers/IoScheduler;->EVICTOR_THREAD_FACTORY:Lio/reactivex/internal/schedulers/RxThreadFactory;
+    invoke-static {p1, p2}, Ljava/util/concurrent/Executors;->newScheduledThreadPool(ILjava/util/concurrent/ThreadFactory;)Ljava/util/concurrent/ScheduledExecutorService;
 
-    invoke-static {v2, v3}, Ljava/util/concurrent/Executors;->newScheduledThreadPool(ILjava/util/concurrent/ThreadFactory;)Ljava/util/concurrent/ScheduledExecutorService;
-
-    move-result-object v0
+    move-result-object p1
 
     .line 81
-    iget-wide v8, p0, Lio/reactivex/internal/schedulers/IoScheduler$CachedWorkerPool;->keepAliveTime:J
+    sget-object v6, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
 
-    sget-object v10, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
+    move-object v0, p1
 
-    move-object v4, v0
+    move-object v1, p0
 
-    move-object v5, p0
+    move-wide v2, v4
 
-    move-wide v6, v8
+    invoke-interface/range {v0 .. v6}, Ljava/util/concurrent/ScheduledExecutorService;->scheduleWithFixedDelay(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
 
-    invoke-interface/range {v4 .. v10}, Ljava/util/concurrent/ScheduledExecutorService;->scheduleWithFixedDelay(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
+    move-result-object p2
 
-    move-result-object v1
+    goto :goto_1
+
+    :cond_1
+    const/4 p1, 0x0
+
+    move-object p2, p1
 
     .line 83
-    :cond_1
-    iput-object v0, p0, Lio/reactivex/internal/schedulers/IoScheduler$CachedWorkerPool;->evictorService:Ljava/util/concurrent/ScheduledExecutorService;
+    :goto_1
+    iput-object p1, p0, Lio/reactivex/internal/schedulers/IoScheduler$CachedWorkerPool;->evictorService:Ljava/util/concurrent/ScheduledExecutorService;
 
     .line 84
-    iput-object v1, p0, Lio/reactivex/internal/schedulers/IoScheduler$CachedWorkerPool;->evictorTask:Ljava/util/concurrent/Future;
+    iput-object p2, p0, Lio/reactivex/internal/schedulers/IoScheduler$CachedWorkerPool;->evictorTask:Ljava/util/concurrent/Future;
 
-    .line 85
     return-void
 .end method
 
@@ -154,14 +148,13 @@
     move-result-wide v0
 
     .line 120
-    .local v0, "currentTimestamp":J
     iget-object v2, p0, Lio/reactivex/internal/schedulers/IoScheduler$CachedWorkerPool;->expiringWorkerQueue:Ljava/util/concurrent/ConcurrentLinkedQueue;
 
     invoke-virtual {v2}, Ljava/util/concurrent/ConcurrentLinkedQueue;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    .local v2, "i$":Ljava/util/Iterator;
+    :cond_0
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -176,7 +169,6 @@
     check-cast v3, Lio/reactivex/internal/schedulers/IoScheduler$ThreadWorker;
 
     .line 121
-    .local v3, "threadWorker":Lio/reactivex/internal/schedulers/IoScheduler$ThreadWorker;
     invoke-virtual {v3}, Lio/reactivex/internal/schedulers/IoScheduler$ThreadWorker;->getExpirationTime()J
 
     move-result-wide v4
@@ -199,14 +191,8 @@
 
     invoke-virtual {v4, v3}, Lio/reactivex/disposables/CompositeDisposable;->remove(Lio/reactivex/disposables/Disposable;)Z
 
-    .line 130
-    .end local v3    # "threadWorker":Lio/reactivex/internal/schedulers/IoScheduler$ThreadWorker;
-    :cond_0
     goto :goto_0
 
-    .line 132
-    .end local v0    # "currentTimestamp":J
-    .end local v2    # "i$":Ljava/util/Iterator;
     :cond_1
     return-void
 .end method
@@ -230,14 +216,13 @@
 
     .line 96
     :cond_0
-    :goto_0
     iget-object v0, p0, Lio/reactivex/internal/schedulers/IoScheduler$CachedWorkerPool;->expiringWorkerQueue:Ljava/util/concurrent/ConcurrentLinkedQueue;
 
     invoke-virtual {v0}, Ljava/util/concurrent/ConcurrentLinkedQueue;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
 
     .line 97
     iget-object v0, p0, Lio/reactivex/internal/schedulers/IoScheduler$CachedWorkerPool;->expiringWorkerQueue:Ljava/util/concurrent/ConcurrentLinkedQueue;
@@ -248,20 +233,12 @@
 
     check-cast v0, Lio/reactivex/internal/schedulers/IoScheduler$ThreadWorker;
 
-    .line 98
-    .local v0, "threadWorker":Lio/reactivex/internal/schedulers/IoScheduler$ThreadWorker;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
-    .line 99
     return-object v0
 
-    .line 101
-    .end local v0    # "threadWorker":Lio/reactivex/internal/schedulers/IoScheduler$ThreadWorker;
-    :cond_1
-    goto :goto_0
-
     .line 104
-    :cond_2
+    :cond_1
     new-instance v0, Lio/reactivex/internal/schedulers/IoScheduler$ThreadWorker;
 
     iget-object v1, p0, Lio/reactivex/internal/schedulers/IoScheduler$CachedWorkerPool;->threadFactory:Ljava/util/concurrent/ThreadFactory;
@@ -269,12 +246,10 @@
     invoke-direct {v0, v1}, Lio/reactivex/internal/schedulers/IoScheduler$ThreadWorker;-><init>(Ljava/util/concurrent/ThreadFactory;)V
 
     .line 105
-    .local v0, "w":Lio/reactivex/internal/schedulers/IoScheduler$ThreadWorker;
     iget-object v1, p0, Lio/reactivex/internal/schedulers/IoScheduler$CachedWorkerPool;->allWorkers:Lio/reactivex/disposables/CompositeDisposable;
 
     invoke-virtual {v1, v0}, Lio/reactivex/disposables/CompositeDisposable;->add(Lio/reactivex/disposables/Disposable;)Z
 
-    .line 106
     return-object v0
 .end method
 
@@ -291,7 +266,6 @@
 
 .method release(Lio/reactivex/internal/schedulers/IoScheduler$ThreadWorker;)V
     .locals 4
-    .param p1, "threadWorker"    # Lio/reactivex/internal/schedulers/IoScheduler$ThreadWorker;
 
     .line 111
     invoke-virtual {p0}, Lio/reactivex/internal/schedulers/IoScheduler$CachedWorkerPool;->now()J
@@ -309,7 +283,6 @@
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/ConcurrentLinkedQueue;->offer(Ljava/lang/Object;)Z
 
-    .line 114
     return-void
 .end method
 
@@ -319,7 +292,6 @@
     .line 89
     invoke-virtual {p0}, Lio/reactivex/internal/schedulers/IoScheduler$CachedWorkerPool;->evictExpiredWorkers()V
 
-    .line 90
     return-void
 .end method
 
@@ -336,9 +308,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 141
     const/4 v1, 0x1
 
+    .line 141
     invoke-interface {v0, v1}, Ljava/util/concurrent/Future;->cancel(Z)Z
 
     .line 143
@@ -350,7 +322,6 @@
     .line 144
     invoke-interface {v0}, Ljava/util/concurrent/ScheduledExecutorService;->shutdownNow()Ljava/util/List;
 
-    .line 146
     :cond_1
     return-void
 .end method

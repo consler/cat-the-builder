@@ -30,7 +30,6 @@
     .locals 0
 
     .line 1524
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$Values$ValueIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.Values.ValueIterator;"
     iput-object p1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$Values$ValueIterator;->this$1:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$Values;
 
     iget-object p1, p1, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$Values;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
@@ -42,11 +41,8 @@
 
 .method synthetic constructor <init>(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$Values;Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$Values;
-    .param p2, "x1"    # Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$1;
 
     .line 1524
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$Values$ValueIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.Values.ValueIterator;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$Values$ValueIterator;-><init>(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$Values;)V
 
     return-void
@@ -63,7 +59,6 @@
     .end annotation
 
     .line 1527
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$Values$ValueIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.Values.ValueIterator;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$Values$ValueIterator;->nextEntry()Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
     move-result-object v0

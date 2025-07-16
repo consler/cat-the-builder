@@ -39,7 +39,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/subjects/UnicastSubject;Z)V
     .locals 0
-    .param p2, "open"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -49,8 +48,6 @@
     .end annotation
 
     .line 729
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowSkipObserver$SubjectWork;, "Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowSkipObserver$SubjectWork<TT;>;"
-    .local p1, "w":Lio/reactivex/subjects/UnicastSubject;, "Lio/reactivex/subjects/UnicastSubject<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 730
@@ -59,6 +56,5 @@
     .line 731
     iput-boolean p2, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowSkipObserver$SubjectWork;->open:Z
 
-    .line 732
     return-void
 .end method

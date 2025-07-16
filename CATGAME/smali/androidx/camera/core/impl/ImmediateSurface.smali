@@ -10,7 +10,6 @@
 # direct methods
 .method public constructor <init>(Landroid/view/Surface;)V
     .locals 0
-    .param p1, "surface"    # Landroid/view/Surface;
 
     .line 33
     invoke-direct {p0}, Landroidx/camera/core/impl/DeferrableSurface;-><init>()V
@@ -18,7 +17,6 @@
     .line 34
     iput-object p1, p0, Landroidx/camera/core/impl/ImmediateSurface;->mSurface:Landroid/view/Surface;
 
-    .line 35
     return-void
 .end method
 

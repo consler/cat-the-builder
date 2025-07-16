@@ -32,11 +32,17 @@
 # virtual methods
 .method public setBundle(Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "bundle"    # Landroid/os/Bundle;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "bundle"
+        }
+    .end annotation
 
     .line 54
     iput-object p1, p0, Landroidx/core/view/accessibility/AccessibilityViewCommand$CommandArguments;->mBundle:Landroid/os/Bundle;
 
-    .line 55
     return-void
 .end method

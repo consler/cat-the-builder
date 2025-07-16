@@ -39,9 +39,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 28
     const-string v0, "EFBBBF"
 
+    .line 28
     invoke-static {v0}, Lokio/ByteString;->decodeHex(Ljava/lang/String;)Lokio/ByteString;
 
     move-result-object v0
@@ -62,14 +62,11 @@
     .end annotation
 
     .line 32
-    .local p0, "this":Lretrofit2/converter/moshi/MoshiResponseBodyConverter;, "Lretrofit2/converter/moshi/MoshiResponseBodyConverter<TT;>;"
-    .local p1, "adapter":Lcom/squareup/moshi/JsonAdapter;, "Lcom/squareup/moshi/JsonAdapter<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 33
     iput-object p1, p0, Lretrofit2/converter/moshi/MoshiResponseBodyConverter;->adapter:Lcom/squareup/moshi/JsonAdapter;
 
-    .line 34
     return-void
 .end method
 
@@ -84,7 +81,6 @@
     .end annotation
 
     .line 27
-    .local p0, "this":Lretrofit2/converter/moshi/MoshiResponseBodyConverter;, "Lretrofit2/converter/moshi/MoshiResponseBodyConverter<TT;>;"
     check-cast p1, Lokhttp3/ResponseBody;
 
     invoke-virtual {p0, p1}, Lretrofit2/converter/moshi/MoshiResponseBodyConverter;->convert(Lokhttp3/ResponseBody;)Ljava/lang/Object;
@@ -95,8 +91,7 @@
 .end method
 
 .method public convert(Lokhttp3/ResponseBody;)Ljava/lang/Object;
-    .locals 5
-    .param p1, "value"    # Lokhttp3/ResponseBody;
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -112,27 +107,23 @@
     .end annotation
 
     .line 37
-    .local p0, "this":Lretrofit2/converter/moshi/MoshiResponseBodyConverter;, "Lretrofit2/converter/moshi/MoshiResponseBodyConverter<TT;>;"
     invoke-virtual {p1}, Lokhttp3/ResponseBody;->source()Lokio/BufferedSource;
 
     move-result-object v0
 
     .line 41
-    .local v0, "source":Lokio/BufferedSource;
-    const-wide/16 v1, 0x0
-
     :try_start_0
-    sget-object v3, Lretrofit2/converter/moshi/MoshiResponseBodyConverter;->UTF8_BOM:Lokio/ByteString;
-
-    invoke-interface {v0, v1, v2, v3}, Lokio/BufferedSource;->rangeEquals(JLokio/ByteString;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 42
     sget-object v1, Lretrofit2/converter/moshi/MoshiResponseBodyConverter;->UTF8_BOM:Lokio/ByteString;
 
+    const-wide/16 v2, 0x0
+
+    invoke-interface {v0, v2, v3, v1}, Lokio/BufferedSource;->rangeEquals(JLokio/ByteString;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 42
     invoke-virtual {v1}, Lokio/ByteString;->size()I
 
     move-result v1
@@ -145,61 +136,49 @@
     :cond_0
     invoke-static {v0}, Lcom/squareup/moshi/JsonReader;->of(Lokio/BufferedSource;)Lcom/squareup/moshi/JsonReader;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 45
-    .local v1, "reader":Lcom/squareup/moshi/JsonReader;
-    iget-object v2, p0, Lretrofit2/converter/moshi/MoshiResponseBodyConverter;->adapter:Lcom/squareup/moshi/JsonAdapter;
+    iget-object v1, p0, Lretrofit2/converter/moshi/MoshiResponseBodyConverter;->adapter:Lcom/squareup/moshi/JsonAdapter;
 
-    invoke-virtual {v2, v1}, Lcom/squareup/moshi/JsonAdapter;->fromJson(Lcom/squareup/moshi/JsonReader;)Ljava/lang/Object;
+    invoke-virtual {v1, v0}, Lcom/squareup/moshi/JsonAdapter;->fromJson(Lcom/squareup/moshi/JsonReader;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
     .line 46
-    .local v2, "result":Ljava/lang/Object;, "TT;"
-    invoke-virtual {v1}, Lcom/squareup/moshi/JsonReader;->peek()Lcom/squareup/moshi/JsonReader$Token;
+    invoke-virtual {v0}, Lcom/squareup/moshi/JsonReader;->peek()Lcom/squareup/moshi/JsonReader$Token;
 
-    move-result-object v3
+    move-result-object v0
 
-    sget-object v4, Lcom/squareup/moshi/JsonReader$Token;->END_DOCUMENT:Lcom/squareup/moshi/JsonReader$Token;
+    sget-object v2, Lcom/squareup/moshi/JsonReader$Token;->END_DOCUMENT:Lcom/squareup/moshi/JsonReader$Token;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-ne v3, v4, :cond_1
-
-    .line 49
-    nop
+    if-ne v0, v2, :cond_1
 
     .line 51
     invoke-virtual {p1}, Lokhttp3/ResponseBody;->close()V
 
-    .line 49
-    return-object v2
+    return-object v1
 
     .line 47
     :cond_1
     :try_start_1
-    new-instance v3, Lcom/squareup/moshi/JsonDataException;
+    new-instance v0, Lcom/squareup/moshi/JsonDataException;
 
-    const-string v4, "JSON document was not fully consumed."
+    const-string v1, "JSON document was not fully consumed."
 
-    invoke-direct {v3, v4}, Lcom/squareup/moshi/JsonDataException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/squareup/moshi/JsonDataException;-><init>(Ljava/lang/String;)V
 
-    .end local v0    # "source":Lokio/BufferedSource;
-    .end local p1    # "value":Lokhttp3/ResponseBody;
-    throw v3
+    throw v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 51
-    .end local v1    # "reader":Lcom/squareup/moshi/JsonReader;
-    .end local v2    # "result":Ljava/lang/Object;, "TT;"
-    .restart local v0    # "source":Lokio/BufferedSource;
-    .restart local p1    # "value":Lokhttp3/ResponseBody;
     :catchall_0
-    move-exception v1
+    move-exception v0
 
+    .line 51
     invoke-virtual {p1}, Lokhttp3/ResponseBody;->close()V
 
-    throw v1
+    throw v0
 .end method

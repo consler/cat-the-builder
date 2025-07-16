@@ -75,7 +75,6 @@
     invoke-direct {v0}, Lcom/google/crypto/tink/proto/Keyset$Key;-><init>()V
 
     .line 717
-    .local v0, "defaultInstance":Lcom/google/crypto/tink/proto/Keyset$Key;
     sput-object v0, Lcom/google/crypto/tink/proto/Keyset$Key;->DEFAULT_INSTANCE:Lcom/google/crypto/tink/proto/Keyset$Key;
 
     .line 718
@@ -83,8 +82,6 @@
 
     invoke-static {v1, v0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->registerDefaultInstance(Ljava/lang/Class;Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
-    .line 720
-    .end local v0    # "defaultInstance":Lcom/google/crypto/tink/proto/Keyset$Key;
     return-void
 .end method
 
@@ -94,7 +91,6 @@
     .line 100
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;-><init>()V
 
-    .line 101
     return-void
 .end method
 
@@ -109,8 +105,6 @@
 
 .method static synthetic access$100(Lcom/google/crypto/tink/proto/Keyset$Key;Lcom/google/crypto/tink/proto/KeyData;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/Keyset$Key;
-    .param p1, "x1"    # Lcom/google/crypto/tink/proto/KeyData;
 
     .line 95
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/proto/Keyset$Key;->setKeyData(Lcom/google/crypto/tink/proto/KeyData;)V
@@ -120,8 +114,6 @@
 
 .method static synthetic access$1000(Lcom/google/crypto/tink/proto/Keyset$Key;Lcom/google/crypto/tink/proto/OutputPrefixType;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/Keyset$Key;
-    .param p1, "x1"    # Lcom/google/crypto/tink/proto/OutputPrefixType;
 
     .line 95
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/proto/Keyset$Key;->setOutputPrefixType(Lcom/google/crypto/tink/proto/OutputPrefixType;)V
@@ -131,7 +123,6 @@
 
 .method static synthetic access$1100(Lcom/google/crypto/tink/proto/Keyset$Key;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/Keyset$Key;
 
     .line 95
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/Keyset$Key;->clearOutputPrefixType()V
@@ -141,8 +132,6 @@
 
 .method static synthetic access$200(Lcom/google/crypto/tink/proto/Keyset$Key;Lcom/google/crypto/tink/proto/KeyData;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/Keyset$Key;
-    .param p1, "x1"    # Lcom/google/crypto/tink/proto/KeyData;
 
     .line 95
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/proto/Keyset$Key;->mergeKeyData(Lcom/google/crypto/tink/proto/KeyData;)V
@@ -152,7 +141,6 @@
 
 .method static synthetic access$300(Lcom/google/crypto/tink/proto/Keyset$Key;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/Keyset$Key;
 
     .line 95
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/Keyset$Key;->clearKeyData()V
@@ -162,8 +150,6 @@
 
 .method static synthetic access$400(Lcom/google/crypto/tink/proto/Keyset$Key;I)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/Keyset$Key;
-    .param p1, "x1"    # I
 
     .line 95
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/proto/Keyset$Key;->setStatusValue(I)V
@@ -173,8 +159,6 @@
 
 .method static synthetic access$500(Lcom/google/crypto/tink/proto/Keyset$Key;Lcom/google/crypto/tink/proto/KeyStatusType;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/Keyset$Key;
-    .param p1, "x1"    # Lcom/google/crypto/tink/proto/KeyStatusType;
 
     .line 95
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/proto/Keyset$Key;->setStatus(Lcom/google/crypto/tink/proto/KeyStatusType;)V
@@ -184,7 +168,6 @@
 
 .method static synthetic access$600(Lcom/google/crypto/tink/proto/Keyset$Key;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/Keyset$Key;
 
     .line 95
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/Keyset$Key;->clearStatus()V
@@ -194,8 +177,6 @@
 
 .method static synthetic access$700(Lcom/google/crypto/tink/proto/Keyset$Key;I)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/Keyset$Key;
-    .param p1, "x1"    # I
 
     .line 95
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/proto/Keyset$Key;->setKeyId(I)V
@@ -205,7 +186,6 @@
 
 .method static synthetic access$800(Lcom/google/crypto/tink/proto/Keyset$Key;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/Keyset$Key;
 
     .line 95
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/Keyset$Key;->clearKeyId()V
@@ -215,8 +195,6 @@
 
 .method static synthetic access$900(Lcom/google/crypto/tink/proto/Keyset$Key;I)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/Keyset$Key;
-    .param p1, "x1"    # I
 
     .line 95
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/proto/Keyset$Key;->setOutputPrefixTypeValue(I)V
@@ -227,48 +205,44 @@
 .method private clearKeyData()V
     .locals 1
 
-    .line 169
     const/4 v0, 0x0
 
+    .line 169
     iput-object v0, p0, Lcom/google/crypto/tink/proto/Keyset$Key;->keyData_:Lcom/google/crypto/tink/proto/KeyData;
 
-    .line 171
     return-void
 .end method
 
 .method private clearKeyId()V
     .locals 1
 
-    .line 253
     const/4 v0, 0x0
 
+    .line 253
     iput v0, p0, Lcom/google/crypto/tink/proto/Keyset$Key;->keyId_:I
 
-    .line 254
     return-void
 .end method
 
 .method private clearOutputPrefixType()V
     .locals 1
 
-    .line 320
     const/4 v0, 0x0
 
+    .line 320
     iput v0, p0, Lcom/google/crypto/tink/proto/Keyset$Key;->outputPrefixType_:I
 
-    .line 321
     return-void
 .end method
 
 .method private clearStatus()V
     .locals 1
 
-    .line 212
     const/4 v0, 0x0
 
+    .line 212
     iput v0, p0, Lcom/google/crypto/tink/proto/Keyset$Key;->status_:I
 
-    .line 213
     return-void
 .end method
 
@@ -283,7 +257,6 @@
 
 .method private mergeKeyData(Lcom/google/crypto/tink/proto/KeyData;)V
     .locals 2
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/KeyData;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -318,17 +291,17 @@
 
     invoke-virtual {v0, p1}, Lcom/google/crypto/tink/proto/KeyData$Builder;->mergeFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/google/crypto/tink/proto/KeyData$Builder;
+    check-cast p1, Lcom/google/crypto/tink/proto/KeyData$Builder;
 
-    invoke-virtual {v0}, Lcom/google/crypto/tink/proto/KeyData$Builder;->buildPartial()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/KeyData$Builder;->buildPartial()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/google/crypto/tink/proto/KeyData;
+    check-cast p1, Lcom/google/crypto/tink/proto/KeyData;
 
-    iput-object v0, p0, Lcom/google/crypto/tink/proto/Keyset$Key;->keyData_:Lcom/google/crypto/tink/proto/KeyData;
+    iput-object p1, p0, Lcom/google/crypto/tink/proto/Keyset$Key;->keyData_:Lcom/google/crypto/tink/proto/KeyData;
 
     goto :goto_0
 
@@ -336,7 +309,6 @@
     :cond_0
     iput-object p1, p0, Lcom/google/crypto/tink/proto/Keyset$Key;->keyData_:Lcom/google/crypto/tink/proto/KeyData;
 
-    .line 160
     :goto_0
     return-void
 .end method
@@ -358,7 +330,6 @@
 
 .method public static newBuilder(Lcom/google/crypto/tink/proto/Keyset$Key;)Lcom/google/crypto/tink/proto/Keyset$Key$Builder;
     .locals 1
-    .param p0, "prototype"    # Lcom/google/crypto/tink/proto/Keyset$Key;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -373,16 +344,15 @@
 
     invoke-virtual {v0, p0}, Lcom/google/crypto/tink/proto/Keyset$Key;->createBuilder(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/Keyset$Key$Builder;
+    check-cast p0, Lcom/google/crypto/tink/proto/Keyset$Key$Builder;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseDelimitedFrom(Ljava/io/InputStream;)Lcom/google/crypto/tink/proto/Keyset$Key;
     .locals 1
-    .param p0, "input"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -403,17 +373,15 @@
 
     invoke-static {v0, p0}, Lcom/google/crypto/tink/proto/Keyset$Key;->parseDelimitedFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Ljava/io/InputStream;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/Keyset$Key;
+    check-cast p0, Lcom/google/crypto/tink/proto/Keyset$Key;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseDelimitedFrom(Ljava/io/InputStream;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/Keyset$Key;
     .locals 1
-    .param p0, "input"    # Ljava/io/InputStream;
-    .param p1, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -436,16 +404,15 @@
 
     invoke-static {v0, p0, p1}, Lcom/google/crypto/tink/proto/Keyset$Key;->parseDelimitedFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Ljava/io/InputStream;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/Keyset$Key;
+    check-cast p0, Lcom/google/crypto/tink/proto/Keyset$Key;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/Keyset$Key;
     .locals 1
-    .param p0, "data"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -466,17 +433,15 @@
 
     invoke-static {v0, p0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/Keyset$Key;
+    check-cast p0, Lcom/google/crypto/tink/proto/Keyset$Key;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/Keyset$Key;
     .locals 1
-    .param p0, "data"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-    .param p1, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -499,16 +464,15 @@
 
     invoke-static {v0, p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/Keyset$Key;
+    check-cast p0, Lcom/google/crypto/tink/proto/Keyset$Key;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom(Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;)Lcom/google/crypto/tink/proto/Keyset$Key;
     .locals 1
-    .param p0, "input"    # Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -529,17 +493,15 @@
 
     invoke-static {v0, p0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/Keyset$Key;
+    check-cast p0, Lcom/google/crypto/tink/proto/Keyset$Key;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom(Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/Keyset$Key;
     .locals 1
-    .param p0, "input"    # Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;
-    .param p1, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -562,16 +524,15 @@
 
     invoke-static {v0, p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/Keyset$Key;
+    check-cast p0, Lcom/google/crypto/tink/proto/Keyset$Key;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom(Ljava/io/InputStream;)Lcom/google/crypto/tink/proto/Keyset$Key;
     .locals 1
-    .param p0, "input"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -592,17 +553,15 @@
 
     invoke-static {v0, p0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Ljava/io/InputStream;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/Keyset$Key;
+    check-cast p0, Lcom/google/crypto/tink/proto/Keyset$Key;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom(Ljava/io/InputStream;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/Keyset$Key;
     .locals 1
-    .param p0, "input"    # Ljava/io/InputStream;
-    .param p1, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -625,16 +584,15 @@
 
     invoke-static {v0, p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Ljava/io/InputStream;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/Keyset$Key;
+    check-cast p0, Lcom/google/crypto/tink/proto/Keyset$Key;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom(Ljava/nio/ByteBuffer;)Lcom/google/crypto/tink/proto/Keyset$Key;
     .locals 1
-    .param p0, "data"    # Ljava/nio/ByteBuffer;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -655,17 +613,15 @@
 
     invoke-static {v0, p0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Ljava/nio/ByteBuffer;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/Keyset$Key;
+    check-cast p0, Lcom/google/crypto/tink/proto/Keyset$Key;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom(Ljava/nio/ByteBuffer;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/Keyset$Key;
     .locals 1
-    .param p0, "data"    # Ljava/nio/ByteBuffer;
-    .param p1, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -688,16 +644,15 @@
 
     invoke-static {v0, p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Ljava/nio/ByteBuffer;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/Keyset$Key;
+    check-cast p0, Lcom/google/crypto/tink/proto/Keyset$Key;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom([B)Lcom/google/crypto/tink/proto/Keyset$Key;
     .locals 1
-    .param p0, "data"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -718,17 +673,15 @@
 
     invoke-static {v0, p0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;[B)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/Keyset$Key;
+    check-cast p0, Lcom/google/crypto/tink/proto/Keyset$Key;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom([BLcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/Keyset$Key;
     .locals 1
-    .param p0, "data"    # [B
-    .param p1, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -751,11 +704,11 @@
 
     invoke-static {v0, p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;[BLcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/Keyset$Key;
+    check-cast p0, Lcom/google/crypto/tink/proto/Keyset$Key;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parser()Lcom/google/crypto/tink/shaded/protobuf/Parser;
@@ -781,7 +734,6 @@
 
 .method private setKeyData(Lcom/google/crypto/tink/proto/KeyData;)V
     .locals 0
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/KeyData;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -797,13 +749,11 @@
     .line 138
     iput-object p1, p0, Lcom/google/crypto/tink/proto/Keyset$Key;->keyData_:Lcom/google/crypto/tink/proto/KeyData;
 
-    .line 140
     return-void
 .end method
 
 .method private setKeyId(I)V
     .locals 0
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -816,13 +766,11 @@
     .line 241
     iput p1, p0, Lcom/google/crypto/tink/proto/Keyset$Key;->keyId_:I
 
-    .line 242
     return-void
 .end method
 
 .method private setOutputPrefixType(Lcom/google/crypto/tink/proto/OutputPrefixType;)V
-    .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/OutputPrefixType;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -835,17 +783,15 @@
     .line 307
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/OutputPrefixType;->getNumber()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/google/crypto/tink/proto/Keyset$Key;->outputPrefixType_:I
+    iput p1, p0, Lcom/google/crypto/tink/proto/Keyset$Key;->outputPrefixType_:I
 
-    .line 309
     return-void
 .end method
 
 .method private setOutputPrefixTypeValue(I)V
     .locals 0
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -858,13 +804,11 @@
     .line 295
     iput p1, p0, Lcom/google/crypto/tink/proto/Keyset$Key;->outputPrefixType_:I
 
-    .line 296
     return-void
 .end method
 
 .method private setStatus(Lcom/google/crypto/tink/proto/KeyStatusType;)V
-    .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/KeyStatusType;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -877,17 +821,15 @@
     .line 204
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/KeyStatusType;->getNumber()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/google/crypto/tink/proto/Keyset$Key;->status_:I
+    iput p1, p0, Lcom/google/crypto/tink/proto/Keyset$Key;->status_:I
 
-    .line 206
     return-void
 .end method
 
 .method private setStatusValue(I)V
     .locals 0
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -900,17 +842,13 @@
     .line 197
     iput p1, p0, Lcom/google/crypto/tink/proto/Keyset$Key;->status_:I
 
-    .line 198
     return-void
 .end method
 
 
 # virtual methods
 .method protected final dynamicMethod(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$MethodToInvoke;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
-    .param p1, "method"    # Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$MethodToInvoke;
-    .param p2, "arg0"    # Ljava/lang/Object;
-    .param p3, "arg1"    # Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -925,159 +863,143 @@
     .end annotation
 
     .line 662
-    sget-object v0, Lcom/google/crypto/tink/proto/Keyset$1;->$SwitchMap$com$google$protobuf$GeneratedMessageLite$MethodToInvoke:[I
+    sget-object p2, Lcom/google/crypto/tink/proto/Keyset$1;->$SwitchMap$com$google$protobuf$GeneratedMessageLite$MethodToInvoke:[I
 
     invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$MethodToInvoke;->ordinal()I
 
-    move-result v1
+    move-result p1
 
-    aget v0, v0, v1
+    aget p1, p2, p1
 
-    const/4 v1, 0x1
+    const/4 p2, 0x1
 
-    const/4 v2, 0x0
+    const/4 p3, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch p1, :pswitch_data_0
 
     .line 707
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 
-    .line 704
     :pswitch_0
-    return-object v2
+    return-object p3
 
     .line 701
     :pswitch_1
-    invoke-static {v1}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
+    invoke-static {p2}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 686
     :pswitch_2
-    sget-object v0, Lcom/google/crypto/tink/proto/Keyset$Key;->PARSER:Lcom/google/crypto/tink/shaded/protobuf/Parser;
+    sget-object p1, Lcom/google/crypto/tink/proto/Keyset$Key;->PARSER:Lcom/google/crypto/tink/shaded/protobuf/Parser;
 
-    .line 687
-    .local v0, "parser":Lcom/google/crypto/tink/shaded/protobuf/Parser;, "Lcom/google/crypto/tink/shaded/protobuf/Parser<Lcom/google/crypto/tink/proto/Keyset$Key;>;"
-    if-nez v0, :cond_1
+    if-nez p1, :cond_1
 
     .line 688
-    const-class v1, Lcom/google/crypto/tink/proto/Keyset$Key;
+    const-class p2, Lcom/google/crypto/tink/proto/Keyset$Key;
 
-    monitor-enter v1
+    monitor-enter p2
 
     .line 689
     :try_start_0
-    sget-object v2, Lcom/google/crypto/tink/proto/Keyset$Key;->PARSER:Lcom/google/crypto/tink/shaded/protobuf/Parser;
+    sget-object p1, Lcom/google/crypto/tink/proto/Keyset$Key;->PARSER:Lcom/google/crypto/tink/shaded/protobuf/Parser;
 
-    move-object v0, v2
-
-    .line 690
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 691
-    new-instance v2, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$DefaultInstanceBasedParser;
+    new-instance p1, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$DefaultInstanceBasedParser;
 
-    sget-object v3, Lcom/google/crypto/tink/proto/Keyset$Key;->DEFAULT_INSTANCE:Lcom/google/crypto/tink/proto/Keyset$Key;
+    sget-object p3, Lcom/google/crypto/tink/proto/Keyset$Key;->DEFAULT_INSTANCE:Lcom/google/crypto/tink/proto/Keyset$Key;
 
-    invoke-direct {v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$DefaultInstanceBasedParser;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
-
-    move-object v0, v2
+    invoke-direct {p1, p3}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$DefaultInstanceBasedParser;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
     .line 694
-    sput-object v0, Lcom/google/crypto/tink/proto/Keyset$Key;->PARSER:Lcom/google/crypto/tink/shaded/protobuf/Parser;
+    sput-object p1, Lcom/google/crypto/tink/proto/Keyset$Key;->PARSER:Lcom/google/crypto/tink/shaded/protobuf/Parser;
 
     .line 696
     :cond_0
-    monitor-exit v1
+    monitor-exit p2
 
     goto :goto_0
 
     :catchall_0
-    move-exception v2
+    move-exception p1
 
-    monitor-exit v1
+    monitor-exit p2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v2
+    throw p1
 
-    .line 698
     :cond_1
     :goto_0
-    return-object v0
+    return-object p1
 
     .line 683
-    .end local v0    # "parser":Lcom/google/crypto/tink/shaded/protobuf/Parser;, "Lcom/google/crypto/tink/shaded/protobuf/Parser<Lcom/google/crypto/tink/proto/Keyset$Key;>;"
     :pswitch_3
-    sget-object v0, Lcom/google/crypto/tink/proto/Keyset$Key;->DEFAULT_INSTANCE:Lcom/google/crypto/tink/proto/Keyset$Key;
+    sget-object p1, Lcom/google/crypto/tink/proto/Keyset$Key;->DEFAULT_INSTANCE:Lcom/google/crypto/tink/proto/Keyset$Key;
 
-    return-object v0
+    return-object p1
 
-    .line 670
     :pswitch_4
-    const/4 v0, 0x4
+    const/4 p1, 0x4
 
-    new-array v0, v0, [Ljava/lang/Object;
+    new-array p1, p1, [Ljava/lang/Object;
 
-    const/4 v2, 0x0
+    const/4 p3, 0x0
 
-    const-string v3, "keyData_"
+    const-string v0, "keyData_"
 
-    aput-object v3, v0, v2
+    aput-object v0, p1, p3
 
-    const-string v2, "status_"
+    const-string p3, "status_"
 
-    aput-object v2, v0, v1
+    aput-object p3, p1, p2
 
-    const/4 v1, 0x2
+    const/4 p2, 0x2
 
-    const-string v2, "keyId_"
+    const-string p3, "keyId_"
 
-    aput-object v2, v0, v1
+    aput-object p3, p1, p2
 
-    const/4 v1, 0x3
+    const/4 p2, 0x3
 
-    const-string v2, "outputPrefixType_"
+    const-string p3, "outputPrefixType_"
 
-    aput-object v2, v0, v1
+    aput-object p3, p1, p2
 
-    .line 676
-    .local v0, "objects":[Ljava/lang/Object;
-    const-string v1, "\u0000\u0004\u0000\u0000\u0001\u0004\u0004\u0000\u0000\u0000\u0001\t\u0002\u000c\u0003\u000b\u0004\u000c"
+    const-string p2, "\u0000\u0004\u0000\u0000\u0001\u0004\u0004\u0000\u0000\u0000\u0001\t\u0002\u000c\u0003\u000b\u0004\u000c"
 
     .line 679
-    .local v1, "info":Ljava/lang/String;
-    sget-object v2, Lcom/google/crypto/tink/proto/Keyset$Key;->DEFAULT_INSTANCE:Lcom/google/crypto/tink/proto/Keyset$Key;
+    sget-object p3, Lcom/google/crypto/tink/proto/Keyset$Key;->DEFAULT_INSTANCE:Lcom/google/crypto/tink/proto/Keyset$Key;
 
-    invoke-static {v2, v1, v0}, Lcom/google/crypto/tink/proto/Keyset$Key;->newMessageInfo(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p3, p2, p1}, Lcom/google/crypto/tink/proto/Keyset$Key;->newMessageInfo(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 
     .line 667
-    .end local v0    # "objects":[Ljava/lang/Object;
-    .end local v1    # "info":Ljava/lang/String;
     :pswitch_5
-    new-instance v0, Lcom/google/crypto/tink/proto/Keyset$Key$Builder;
+    new-instance p1, Lcom/google/crypto/tink/proto/Keyset$Key$Builder;
 
-    invoke-direct {v0, v2}, Lcom/google/crypto/tink/proto/Keyset$Key$Builder;-><init>(Lcom/google/crypto/tink/proto/Keyset$1;)V
+    invoke-direct {p1, p3}, Lcom/google/crypto/tink/proto/Keyset$Key$Builder;-><init>(Lcom/google/crypto/tink/proto/Keyset$1;)V
 
-    return-object v0
+    return-object p1
 
     .line 664
     :pswitch_6
-    new-instance v0, Lcom/google/crypto/tink/proto/Keyset$Key;
+    new-instance p1, Lcom/google/crypto/tink/proto/Keyset$Key;
 
-    invoke-direct {v0}, Lcom/google/crypto/tink/proto/Keyset$Key;-><init>()V
+    invoke-direct {p1}, Lcom/google/crypto/tink/proto/Keyset$Key;-><init>()V
 
-    return-object v0
+    return-object p1
 
     nop
 
@@ -1119,7 +1041,7 @@
 .end method
 
 .method public getOutputPrefixType()Lcom/google/crypto/tink/proto/OutputPrefixType;
-    .locals 2
+    .locals 1
 
     .line 282
     iget v0, p0, Lcom/google/crypto/tink/proto/Keyset$Key;->outputPrefixType_:I
@@ -1128,19 +1050,13 @@
 
     move-result-object v0
 
-    .line 283
-    .local v0, "result":Lcom/google/crypto/tink/proto/OutputPrefixType;
     if-nez v0, :cond_0
 
-    sget-object v1, Lcom/google/crypto/tink/proto/OutputPrefixType;->UNRECOGNIZED:Lcom/google/crypto/tink/proto/OutputPrefixType;
-
-    goto :goto_0
+    .line 283
+    sget-object v0, Lcom/google/crypto/tink/proto/OutputPrefixType;->UNRECOGNIZED:Lcom/google/crypto/tink/proto/OutputPrefixType;
 
     :cond_0
-    move-object v1, v0
-
-    :goto_0
-    return-object v1
+    return-object v0
 .end method
 
 .method public getOutputPrefixTypeValue()I
@@ -1153,7 +1069,7 @@
 .end method
 
 .method public getStatus()Lcom/google/crypto/tink/proto/KeyStatusType;
-    .locals 2
+    .locals 1
 
     .line 189
     iget v0, p0, Lcom/google/crypto/tink/proto/Keyset$Key;->status_:I
@@ -1162,19 +1078,13 @@
 
     move-result-object v0
 
-    .line 190
-    .local v0, "result":Lcom/google/crypto/tink/proto/KeyStatusType;
     if-nez v0, :cond_0
 
-    sget-object v1, Lcom/google/crypto/tink/proto/KeyStatusType;->UNRECOGNIZED:Lcom/google/crypto/tink/proto/KeyStatusType;
-
-    goto :goto_0
+    .line 190
+    sget-object v0, Lcom/google/crypto/tink/proto/KeyStatusType;->UNRECOGNIZED:Lcom/google/crypto/tink/proto/KeyStatusType;
 
     :cond_0
-    move-object v1, v0
-
-    :goto_0
-    return-object v1
+    return-object v0
 .end method
 
 .method public getStatusValue()I

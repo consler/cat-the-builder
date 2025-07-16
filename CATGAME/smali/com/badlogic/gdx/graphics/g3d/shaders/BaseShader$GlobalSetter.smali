@@ -30,12 +30,9 @@
 
 # virtual methods
 .method public isGlobal(Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;I)Z
-    .locals 1
-    .param p1, "shader"    # Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;
-    .param p2, "inputID"    # I
+    .locals 0
 
-    .line 58
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method

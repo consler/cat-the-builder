@@ -41,7 +41,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/Flowable;I)V
     .locals 0
-    .param p2, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -51,8 +50,6 @@
     .end annotation
 
     .line 34
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable<TT;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 35
@@ -61,7 +58,6 @@
     .line 36
     iput p2, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable;->bufferSize:I
 
-    .line 37
     return-void
 .end method
 
@@ -78,7 +74,6 @@
     .end annotation
 
     .line 41
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;
 
     iget v1, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable;->bufferSize:I
@@ -86,11 +81,9 @@
     invoke-direct {v0, v1}, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;-><init>(I)V
 
     .line 42
-    .local v0, "it":Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable$BlockingFlowableIterator<TT;>;"
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableIterable;->source:Lio/reactivex/Flowable;
 
     invoke-virtual {v1, v0}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 43
     return-object v0
 .end method

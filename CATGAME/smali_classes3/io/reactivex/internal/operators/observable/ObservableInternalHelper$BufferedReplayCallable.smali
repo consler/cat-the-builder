@@ -45,7 +45,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/Observable;I)V
     .locals 0
-    .param p2, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -55,8 +54,6 @@
     .end annotation
 
     .line 344
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$BufferedReplayCallable;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$BufferedReplayCallable<TT;>;"
-    .local p1, "parent":Lio/reactivex/Observable;, "Lio/reactivex/Observable<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 345
@@ -65,7 +62,6 @@
     .line 346
     iput p2, p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$BufferedReplayCallable;->bufferSize:I
 
-    .line 347
     return-void
 .end method
 
@@ -82,7 +78,6 @@
     .end annotation
 
     .line 351
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$BufferedReplayCallable;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$BufferedReplayCallable<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$BufferedReplayCallable;->parent:Lio/reactivex/Observable;
 
     iget v1, p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$BufferedReplayCallable;->bufferSize:I
@@ -103,7 +98,6 @@
     .end annotation
 
     .line 340
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$BufferedReplayCallable;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$BufferedReplayCallable<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$BufferedReplayCallable;->call()Lio/reactivex/observables/ConnectableObservable;
 
     move-result-object v0

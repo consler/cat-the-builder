@@ -22,9 +22,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/TimeZone;Z)V
-    .locals 1
-    .param p1, "tz"    # Ljava/util/TimeZone;
-    .param p2, "useDst"    # Z
+    .locals 0
 
     .line 829
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,21 +30,20 @@
     .line 830
     iput-object p1, p0, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;->zone:Ljava/util/TimeZone;
 
-    .line 831
     if-eqz p2, :cond_0
 
+    .line 831
     invoke-virtual {p1}, Ljava/util/TimeZone;->getDSTSavings()I
 
-    move-result v0
+    move-result p1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    iput v0, p0, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;->dstOffset:I
+    iput p1, p0, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy$TzInfo;->dstOffset:I
 
-    .line 832
     return-void
 .end method

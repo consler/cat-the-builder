@@ -43,8 +43,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/single/SingleTimeout;Ljava/util/concurrent/atomic/AtomicBoolean;Lio/reactivex/disposables/CompositeDisposable;Lio/reactivex/SingleObserver;)V
     .locals 0
-    .param p2, "once"    # Ljava/util/concurrent/atomic/AtomicBoolean;
-    .param p3, "set"    # Lio/reactivex/disposables/CompositeDisposable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,8 +54,6 @@
     .end annotation
 
     .line 64
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleTimeout$TimeoutDispose;, "Lio/reactivex/internal/operators/single/SingleTimeout<TT;>.TimeoutDispose;"
-    .local p4, "s":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
     iput-object p1, p0, Lio/reactivex/internal/operators/single/SingleTimeout$TimeoutDispose;->this$0:Lio/reactivex/internal/operators/single/SingleTimeout;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -71,7 +67,6 @@
     .line 67
     iput-object p4, p0, Lio/reactivex/internal/operators/single/SingleTimeout$TimeoutDispose;->s:Lio/reactivex/SingleObserver;
 
-    .line 68
     return-void
 .end method
 
@@ -81,7 +76,6 @@
     .locals 3
 
     .line 72
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleTimeout$TimeoutDispose;, "Lio/reactivex/internal/operators/single/SingleTimeout<TT;>.TimeoutDispose;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleTimeout$TimeoutDispose;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     const/4 v1, 0x0
@@ -134,7 +128,6 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/SingleObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 81
     :cond_1
     :goto_0
     return-void

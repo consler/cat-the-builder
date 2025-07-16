@@ -1,20 +1,26 @@
 .class public final synthetic Lorg/catrobat/paintroid/tools/implementation/DefaultToolFactory$WhenMappings;
 .super Ljava/lang/Object;
+.source "DefaultToolFactory.kt"
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lorg/catrobat/paintroid/tools/implementation/DefaultToolFactory;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1001
+    name = "WhenMappings"
+.end annotation
+
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     k = 0x3
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -23,7 +29,7 @@
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
+.method static constructor <clinit>()V
     .locals 3
 
     invoke-static {}, Lorg/catrobat/paintroid/tools/ToolType;->values()[Lorg/catrobat/paintroid/tools/ToolType;
@@ -33,8 +39,6 @@
     array-length v0, v0
 
     new-array v0, v0, [I
-
-    sput-object v0, Lorg/catrobat/paintroid/tools/implementation/DefaultToolFactory$WhenMappings;->$EnumSwitchMapping$0:[I
 
     sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->CURSOR:Lorg/catrobat/paintroid/tools/ToolType;
 
@@ -46,9 +50,7 @@
 
     aput v2, v0, v1
 
-    sget-object v0, Lorg/catrobat/paintroid/tools/implementation/DefaultToolFactory$WhenMappings;->$EnumSwitchMapping$0:[I
-
-    sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->STAMP:Lorg/catrobat/paintroid/tools/ToolType;
+    sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->CLIPBOARD:Lorg/catrobat/paintroid/tools/ToolType;
 
     invoke-virtual {v1}, Lorg/catrobat/paintroid/tools/ToolType;->ordinal()I
 
@@ -57,8 +59,6 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-
-    sget-object v0, Lorg/catrobat/paintroid/tools/implementation/DefaultToolFactory$WhenMappings;->$EnumSwitchMapping$0:[I
 
     sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->IMPORTPNG:Lorg/catrobat/paintroid/tools/ToolType;
 
@@ -70,8 +70,6 @@
 
     aput v2, v0, v1
 
-    sget-object v0, Lorg/catrobat/paintroid/tools/implementation/DefaultToolFactory$WhenMappings;->$EnumSwitchMapping$0:[I
-
     sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->PIPETTE:Lorg/catrobat/paintroid/tools/ToolType;
 
     invoke-virtual {v1}, Lorg/catrobat/paintroid/tools/ToolType;->ordinal()I
@@ -81,8 +79,6 @@
     const/4 v2, 0x4
 
     aput v2, v0, v1
-
-    sget-object v0, Lorg/catrobat/paintroid/tools/implementation/DefaultToolFactory$WhenMappings;->$EnumSwitchMapping$0:[I
 
     sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->FILL:Lorg/catrobat/paintroid/tools/ToolType;
 
@@ -94,8 +90,6 @@
 
     aput v2, v0, v1
 
-    sget-object v0, Lorg/catrobat/paintroid/tools/implementation/DefaultToolFactory$WhenMappings;->$EnumSwitchMapping$0:[I
-
     sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->TRANSFORM:Lorg/catrobat/paintroid/tools/ToolType;
 
     invoke-virtual {v1}, Lorg/catrobat/paintroid/tools/ToolType;->ordinal()I
@@ -105,8 +99,6 @@
     const/4 v2, 0x6
 
     aput v2, v0, v1
-
-    sget-object v0, Lorg/catrobat/paintroid/tools/implementation/DefaultToolFactory$WhenMappings;->$EnumSwitchMapping$0:[I
 
     sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->SHAPE:Lorg/catrobat/paintroid/tools/ToolType;
 
@@ -118,8 +110,6 @@
 
     aput v2, v0, v1
 
-    sget-object v0, Lorg/catrobat/paintroid/tools/implementation/DefaultToolFactory$WhenMappings;->$EnumSwitchMapping$0:[I
-
     sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->ERASER:Lorg/catrobat/paintroid/tools/ToolType;
 
     invoke-virtual {v1}, Lorg/catrobat/paintroid/tools/ToolType;->ordinal()I
@@ -129,8 +119,6 @@
     const/16 v2, 0x8
 
     aput v2, v0, v1
-
-    sget-object v0, Lorg/catrobat/paintroid/tools/implementation/DefaultToolFactory$WhenMappings;->$EnumSwitchMapping$0:[I
 
     sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->LINE:Lorg/catrobat/paintroid/tools/ToolType;
 
@@ -142,8 +130,6 @@
 
     aput v2, v0, v1
 
-    sget-object v0, Lorg/catrobat/paintroid/tools/implementation/DefaultToolFactory$WhenMappings;->$EnumSwitchMapping$0:[I
-
     sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->TEXT:Lorg/catrobat/paintroid/tools/ToolType;
 
     invoke-virtual {v1}, Lorg/catrobat/paintroid/tools/ToolType;->ordinal()I
@@ -153,8 +139,6 @@
     const/16 v2, 0xa
 
     aput v2, v0, v1
-
-    sget-object v0, Lorg/catrobat/paintroid/tools/implementation/DefaultToolFactory$WhenMappings;->$EnumSwitchMapping$0:[I
 
     sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->HAND:Lorg/catrobat/paintroid/tools/ToolType;
 
@@ -166,8 +150,6 @@
 
     aput v2, v0, v1
 
-    sget-object v0, Lorg/catrobat/paintroid/tools/implementation/DefaultToolFactory$WhenMappings;->$EnumSwitchMapping$0:[I
-
     sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->SPRAY:Lorg/catrobat/paintroid/tools/ToolType;
 
     invoke-virtual {v1}, Lorg/catrobat/paintroid/tools/ToolType;->ordinal()I
@@ -177,8 +159,6 @@
     const/16 v2, 0xc
 
     aput v2, v0, v1
-
-    sget-object v0, Lorg/catrobat/paintroid/tools/implementation/DefaultToolFactory$WhenMappings;->$EnumSwitchMapping$0:[I
 
     sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->WATERCOLOR:Lorg/catrobat/paintroid/tools/ToolType;
 
@@ -190,8 +170,6 @@
 
     aput v2, v0, v1
 
-    sget-object v0, Lorg/catrobat/paintroid/tools/implementation/DefaultToolFactory$WhenMappings;->$EnumSwitchMapping$0:[I
-
     sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->SMUDGE:Lorg/catrobat/paintroid/tools/ToolType;
 
     invoke-virtual {v1}, Lorg/catrobat/paintroid/tools/ToolType;->ordinal()I
@@ -201,6 +179,18 @@
     const/16 v2, 0xe
 
     aput v2, v0, v1
+
+    sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->CLIP:Lorg/catrobat/paintroid/tools/ToolType;
+
+    invoke-virtual {v1}, Lorg/catrobat/paintroid/tools/ToolType;->ordinal()I
+
+    move-result v1
+
+    const/16 v2, 0xf
+
+    aput v2, v0, v1
+
+    sput-object v0, Lorg/catrobat/paintroid/tools/implementation/DefaultToolFactory$WhenMappings;->$EnumSwitchMapping$0:[I
 
     return-void
 .end method

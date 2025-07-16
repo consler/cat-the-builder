@@ -51,114 +51,123 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 3715
+    .line 4892
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3705
     const/4 v0, 0x1
 
+    .line 4882
     iput v0, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mFlags:I
 
-    .line 3716
     return-void
 .end method
 
 .method public constructor <init>(Landroidx/core/app/NotificationCompat$Action;)V
-    .locals 3
-    .param p1, "action"    # Landroidx/core/app/NotificationCompat$Action;
+    .locals 2
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "action"
+        }
+    .end annotation
 
-    .line 3723
+    .line 4900
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3705
     const/4 v0, 0x1
 
+    .line 4882
     iput v0, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mFlags:I
 
-    .line 3724
+    .line 4901
     invoke-virtual {p1}, Landroidx/core/app/NotificationCompat$Action;->getExtras()Landroid/os/Bundle;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "android.wearable.EXTENSIONS"
+    const-string v1, "android.wearable.EXTENSIONS"
 
-    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
 
-    move-result-object v1
+    move-result-object p1
 
-    .line 3725
-    .local v1, "wearableBundle":Landroid/os/Bundle;
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
-    .line 3726
-    const-string v2, "flags"
+    const-string v1, "flags"
 
-    invoke-virtual {v1, v2, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    .line 4903
+    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
     move-result v0
 
     iput v0, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mFlags:I
 
-    .line 3727
     const-string v0, "inProgressLabel"
 
-    invoke-virtual {v1, v0}, Landroid/os/Bundle;->getCharSequence(Ljava/lang/String;)Ljava/lang/CharSequence;
+    .line 4904
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getCharSequence(Ljava/lang/String;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
     iput-object v0, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mInProgressLabel:Ljava/lang/CharSequence;
 
-    .line 3728
     const-string v0, "confirmLabel"
 
-    invoke-virtual {v1, v0}, Landroid/os/Bundle;->getCharSequence(Ljava/lang/String;)Ljava/lang/CharSequence;
+    .line 4905
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getCharSequence(Ljava/lang/String;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
     iput-object v0, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mConfirmLabel:Ljava/lang/CharSequence;
 
-    .line 3729
     const-string v0, "cancelLabel"
 
-    invoke-virtual {v1, v0}, Landroid/os/Bundle;->getCharSequence(Ljava/lang/String;)Ljava/lang/CharSequence;
+    .line 4906
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getCharSequence(Ljava/lang/String;)Ljava/lang/CharSequence;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mCancelLabel:Ljava/lang/CharSequence;
+    iput-object p1, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mCancelLabel:Ljava/lang/CharSequence;
 
-    .line 3731
     :cond_0
     return-void
 .end method
 
 .method private setFlag(IZ)V
-    .locals 2
-    .param p1, "mask"    # I
-    .param p2, "value"    # Z
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "mask",
+            "value"
+        }
+    .end annotation
 
-    .line 3791
     if-eqz p2, :cond_0
 
-    .line 3792
-    iget v0, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mFlags:I
+    .line 4969
+    iget p2, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mFlags:I
 
-    or-int/2addr v0, p1
+    or-int/2addr p1, p2
 
-    iput v0, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mFlags:I
+    iput p1, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mFlags:I
 
     goto :goto_0
 
-    .line 3794
+    .line 4971
     :cond_0
-    iget v0, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mFlags:I
+    iget p2, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mFlags:I
 
-    not-int v1, p1
+    not-int p1, p1
 
-    and-int/2addr v0, v1
+    and-int/2addr p1, p2
 
-    iput v0, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mFlags:I
+    iput p1, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mFlags:I
 
-    .line 3796
     :goto_0
     return-void
 .end method
@@ -168,33 +177,31 @@
 .method public clone()Landroidx/core/app/NotificationCompat$Action$WearableExtender;
     .locals 2
 
-    .line 3761
+    .line 4938
     new-instance v0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;
 
     invoke-direct {v0}, Landroidx/core/app/NotificationCompat$Action$WearableExtender;-><init>()V
 
-    .line 3762
-    .local v0, "that":Landroidx/core/app/NotificationCompat$Action$WearableExtender;
+    .line 4939
     iget v1, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mFlags:I
 
     iput v1, v0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mFlags:I
 
-    .line 3763
+    .line 4940
     iget-object v1, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mInProgressLabel:Ljava/lang/CharSequence;
 
     iput-object v1, v0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mInProgressLabel:Ljava/lang/CharSequence;
 
-    .line 3764
+    .line 4941
     iget-object v1, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mConfirmLabel:Ljava/lang/CharSequence;
 
     iput-object v1, v0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mConfirmLabel:Ljava/lang/CharSequence;
 
-    .line 3765
+    .line 4942
     iget-object v1, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mCancelLabel:Ljava/lang/CharSequence;
 
     iput-object v1, v0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mCancelLabel:Ljava/lang/CharSequence;
 
-    .line 3766
     return-object v0
 .end method
 
@@ -206,7 +213,7 @@
         }
     .end annotation
 
-    .line 3687
+    .line 4864
     invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->clone()Landroidx/core/app/NotificationCompat$Action$WearableExtender;
 
     move-result-object v0
@@ -216,60 +223,66 @@
 
 .method public extend(Landroidx/core/app/NotificationCompat$Action$Builder;)Landroidx/core/app/NotificationCompat$Action$Builder;
     .locals 3
-    .param p1, "builder"    # Landroidx/core/app/NotificationCompat$Action$Builder;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "builder"
+        }
+    .end annotation
 
-    .line 3740
+    .line 4917
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 3742
-    .local v0, "wearableBundle":Landroid/os/Bundle;
+    .line 4919
     iget v1, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mFlags:I
 
     const/4 v2, 0x1
 
     if-eq v1, v2, :cond_0
 
-    .line 3743
     const-string v2, "flags"
 
+    .line 4920
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 3745
+    .line 4922
     :cond_0
     iget-object v1, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mInProgressLabel:Ljava/lang/CharSequence;
 
     if-eqz v1, :cond_1
 
-    .line 3746
     const-string v2, "inProgressLabel"
 
+    .line 4923
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
 
-    .line 3748
+    .line 4925
     :cond_1
     iget-object v1, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mConfirmLabel:Ljava/lang/CharSequence;
 
     if-eqz v1, :cond_2
 
-    .line 3749
     const-string v2, "confirmLabel"
 
+    .line 4926
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
 
-    .line 3751
+    .line 4928
     :cond_2
     iget-object v1, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mCancelLabel:Ljava/lang/CharSequence;
 
     if-eqz v1, :cond_3
 
-    .line 3752
     const-string v2, "cancelLabel"
 
+    .line 4929
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
 
-    .line 3755
+    .line 4932
     :cond_3
     invoke-virtual {p1}, Landroidx/core/app/NotificationCompat$Action$Builder;->getExtras()Landroid/os/Bundle;
 
@@ -279,7 +292,6 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 3756
     return-object p1
 .end method
 
@@ -288,7 +300,7 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 3879
+    .line 5057
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mCancelLabel:Ljava/lang/CharSequence;
 
     return-object v0
@@ -299,7 +311,7 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 3851
+    .line 5029
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mConfirmLabel:Ljava/lang/CharSequence;
 
     return-object v0
@@ -308,7 +320,7 @@
 .method public getHintDisplayActionInline()Z
     .locals 1
 
-    .line 3930
+    .line 5108
     iget v0, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mFlags:I
 
     and-int/lit8 v0, v0, 0x4
@@ -329,7 +341,7 @@
 .method public getHintLaunchesActivity()Z
     .locals 1
 
-    .line 3903
+    .line 5081
     iget v0, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mFlags:I
 
     and-int/lit8 v0, v0, 0x2
@@ -352,7 +364,7 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 3823
+    .line 5000
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mInProgressLabel:Ljava/lang/CharSequence;
 
     return-object v0
@@ -361,7 +373,7 @@
 .method public isAvailableOffline()Z
     .locals 2
 
-    .line 3787
+    .line 4964
     iget v0, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mFlags:I
 
     const/4 v1, 0x1
@@ -381,78 +393,117 @@
 
 .method public setAvailableOffline(Z)Landroidx/core/app/NotificationCompat$Action$WearableExtender;
     .locals 1
-    .param p1, "availableOffline"    # Z
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "availableOffline"
+        }
+    .end annotation
 
-    .line 3776
     const/4 v0, 0x1
 
+    .line 4953
     invoke-direct {p0, v0, p1}, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->setFlag(IZ)V
 
-    .line 3777
     return-object p0
 .end method
 
 .method public setCancelLabel(Ljava/lang/CharSequence;)Landroidx/core/app/NotificationCompat$Action$WearableExtender;
     .locals 0
-    .param p1, "label"    # Ljava/lang/CharSequence;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "label"
+        }
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 3865
+    .line 5043
     iput-object p1, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mCancelLabel:Ljava/lang/CharSequence;
 
-    .line 3866
     return-object p0
 .end method
 
 .method public setConfirmLabel(Ljava/lang/CharSequence;)Landroidx/core/app/NotificationCompat$Action$WearableExtender;
     .locals 0
-    .param p1, "label"    # Ljava/lang/CharSequence;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "label"
+        }
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 3837
+    .line 5014
     iput-object p1, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mConfirmLabel:Ljava/lang/CharSequence;
 
-    .line 3838
     return-object p0
 .end method
 
 .method public setHintDisplayActionInline(Z)Landroidx/core/app/NotificationCompat$Action$WearableExtender;
     .locals 1
-    .param p1, "hintDisplayInline"    # Z
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "hintDisplayInline"
+        }
+    .end annotation
 
-    .line 3917
     const/4 v0, 0x4
 
+    .line 5095
     invoke-direct {p0, v0, p1}, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->setFlag(IZ)V
 
-    .line 3918
     return-object p0
 .end method
 
 .method public setHintLaunchesActivity(Z)Landroidx/core/app/NotificationCompat$Action$WearableExtender;
     .locals 1
-    .param p1, "hintLaunchesActivity"    # Z
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "hintLaunchesActivity"
+        }
+    .end annotation
 
-    .line 3891
     const/4 v0, 0x2
 
+    .line 5069
     invoke-direct {p0, v0, p1}, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->setFlag(IZ)V
 
-    .line 3892
     return-object p0
 .end method
 
 .method public setInProgressLabel(Ljava/lang/CharSequence;)Landroidx/core/app/NotificationCompat$Action$WearableExtender;
     .locals 0
-    .param p1, "label"    # Ljava/lang/CharSequence;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "label"
+        }
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 3809
+    .line 4986
     iput-object p1, p0, Landroidx/core/app/NotificationCompat$Action$WearableExtender;->mInProgressLabel:Ljava/lang/CharSequence;
 
-    .line 3810
     return-object p0
 .end method

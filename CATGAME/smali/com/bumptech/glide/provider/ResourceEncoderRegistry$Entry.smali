@@ -57,9 +57,6 @@
     .end annotation
 
     .line 46
-    .local p0, "this":Lcom/bumptech/glide/provider/ResourceEncoderRegistry$Entry;, "Lcom/bumptech/glide/provider/ResourceEncoderRegistry$Entry<TT;>;"
-    .local p1, "resourceClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
-    .local p2, "encoder":Lcom/bumptech/glide/load/ResourceEncoder;, "Lcom/bumptech/glide/load/ResourceEncoder<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 47
@@ -68,7 +65,6 @@
     .line 48
     iput-object p2, p0, Lcom/bumptech/glide/provider/ResourceEncoderRegistry$Entry;->encoder:Lcom/bumptech/glide/load/ResourceEncoder;
 
-    .line 49
     return-void
 .end method
 
@@ -85,13 +81,11 @@
     .end annotation
 
     .line 53
-    .local p0, "this":Lcom/bumptech/glide/provider/ResourceEncoderRegistry$Entry;, "Lcom/bumptech/glide/provider/ResourceEncoderRegistry$Entry<TT;>;"
-    .local p1, "resourceClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     iget-object v0, p0, Lcom/bumptech/glide/provider/ResourceEncoderRegistry$Entry;->resourceClass:Ljava/lang/Class;
 
     invoke-virtual {v0, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

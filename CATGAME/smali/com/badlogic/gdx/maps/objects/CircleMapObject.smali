@@ -11,22 +11,18 @@
 .method public constructor <init>()V
     .locals 2
 
-    .line 34
     const/4 v0, 0x0
 
     const/high16 v1, 0x3f800000    # 1.0f
 
+    .line 34
     invoke-direct {p0, v0, v0, v1}, Lcom/badlogic/gdx/maps/objects/CircleMapObject;-><init>(FFF)V
 
-    .line 35
     return-void
 .end method
 
 .method public constructor <init>(FFF)V
     .locals 1
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "radius"    # F
 
     .line 43
     invoke-direct {p0}, Lcom/badlogic/gdx/maps/MapObject;-><init>()V
@@ -38,7 +34,6 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/maps/objects/CircleMapObject;->circle:Lcom/badlogic/gdx/math/Circle;
 
-    .line 45
     return-void
 .end method
 

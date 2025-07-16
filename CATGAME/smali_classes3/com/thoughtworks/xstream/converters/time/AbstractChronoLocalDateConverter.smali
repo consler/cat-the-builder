@@ -22,9 +22,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 37
     const-string v0, "^ (\\w+) (\\d+)-(\\d+)-(\\d+)$"
 
+    .line 37
     invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v0
@@ -38,7 +38,6 @@
     .locals 0
 
     .line 31
-    .local p0, "this":Lcom/thoughtworks/xstream/converters/time/AbstractChronoLocalDateConverter;, "Lcom/thoughtworks/xstream/converters/time/AbstractChronoLocalDateConverter<TE;>;"
     invoke-direct {p0}, Lcom/thoughtworks/xstream/converters/basic/AbstractSingleValueConverter;-><init>()V
 
     return-void
@@ -66,9 +65,7 @@
 .end method
 
 .method protected parseChronoLocalDate(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;)Ljava/time/chrono/ChronoLocalDate;
-    .locals 10
-    .param p1, "str"    # Ljava/lang/String;
-    .param p2, "dateTypeName"    # Ljava/lang/String;
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -81,129 +78,135 @@
         }
     .end annotation
 
-    .line 41
-    .local p0, "this":Lcom/thoughtworks/xstream/converters/time/AbstractChronoLocalDateConverter;, "Lcom/thoughtworks/xstream/converters/time/AbstractChronoLocalDateConverter<TE;>;"
-    .local p3, "chronologies":Ljava/util/Set;, "Ljava/util/Set<Ljava/time/chrono/Chronology;>;"
-    if-nez p1, :cond_0
-
-    .line 42
     const/4 v0, 0x0
+
+    if-nez p1, :cond_0
 
     return-object v0
 
-    .line 45
-    :cond_0
-    const/4 v0, 0x0
-
     .line 46
-    .local v0, "exception":Lcom/thoughtworks/xstream/converters/ConversionException;
+    :cond_0
     invoke-interface {p3}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object p3
+
+    :cond_1
+    invoke-interface {p3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    const-string v2, " date"
+
+    const-string v3, "Cannot parse value as "
+
+    if-eqz v1, :cond_2
+
+    invoke-interface {p3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    const-string v3, " date"
-
-    const-string v4, "Cannot parse value as "
-
-    if-eqz v2, :cond_2
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/time/chrono/Chronology;
+    check-cast v1, Ljava/time/chrono/Chronology;
 
     .line 47
-    .local v2, "chronology":Ljava/time/chrono/Chronology;
-    invoke-interface {v2}, Ljava/time/chrono/Chronology;->getId()Ljava/lang/String;
+    invoke-interface {v1}, Ljava/time/chrono/Chronology;->getId()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
     .line 48
-    .local v5, "id":Ljava/lang/String;
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v7, 0x20
+    move-result-object v4
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    const/16 v5, 0x20
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-virtual {p1, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result v6
+    move-result-object v4
 
-    if-eqz v6, :cond_1
+    invoke-virtual {p1, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
 
     .line 49
-    sget-object v6, Lcom/thoughtworks/xstream/converters/time/AbstractChronoLocalDateConverter;->CHRONO_DATE_PATTERN:Ljava/util/regex/Pattern;
+    sget-object v4, Lcom/thoughtworks/xstream/converters/time/AbstractChronoLocalDateConverter;->CHRONO_DATE_PATTERN:Ljava/util/regex/Pattern;
 
-    invoke-virtual {v5}, Ljava/lang/String;->length()I
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
 
-    move-result v7
+    move-result v1
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v8
+    move-result v5
 
-    invoke-virtual {p1, v7, v8}, Ljava/lang/String;->subSequence(II)Ljava/lang/CharSequence;
+    invoke-virtual {p1, v1, v5}, Ljava/lang/String;->subSequence(II)Ljava/lang/CharSequence;
 
-    move-result-object v7
+    move-result-object v1
 
-    invoke-virtual {v6, v7}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+    invoke-virtual {v4, v1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
-    move-result-object v6
+    move-result-object v1
 
     .line 50
-    .local v6, "matcher":Ljava/util/regex/Matcher;
-    invoke-virtual {v6}, Ljava/util/regex/Matcher;->matches()Z
+    invoke-virtual {v1}, Ljava/util/regex/Matcher;->matches()Z
 
-    move-result v7
+    move-result v4
 
-    if-eqz v7, :cond_1
+    if-eqz v4, :cond_1
 
-    .line 51
-    const/4 v7, 0x0
+    const/4 v4, 0x1
 
     .line 53
-    .local v7, "era":Ljava/time/chrono/Era;, "TE;"
-    const/4 v8, 0x1
-
     :try_start_0
-    invoke-virtual {v6, v8}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
+    invoke-virtual {v1, v4}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v4
 
-    invoke-virtual {p0, v8}, Lcom/thoughtworks/xstream/converters/time/AbstractChronoLocalDateConverter;->eraOf(Ljava/lang/String;)Ljava/time/chrono/Era;
+    invoke-virtual {p0, v4}, Lcom/thoughtworks/xstream/converters/time/AbstractChronoLocalDateConverter;->eraOf(Ljava/lang/String;)Ljava/time/chrono/Era;
 
-    move-result-object v8
+    move-result-object v4
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_1
 
-    move-object v7, v8
+    if-eqz v4, :cond_1
 
-    .line 57
-    nop
-
-    .line 58
-    if-eqz v7, :cond_1
+    const/4 p3, 0x2
 
     .line 60
-    const/4 v1, 0x2
-
     :try_start_1
-    invoke-virtual {v6, v1}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
+    invoke-virtual {v1, p3}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
+
+    move-result-object p3
+
+    invoke-static {p3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result p3
+
+    const/4 v0, 0x3
+
+    .line 61
+    invoke-virtual {v1, v0}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 60
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    const/4 v5, 0x4
+
+    .line 61
+    invoke-virtual {v1, v5}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -211,137 +214,95 @@
 
     move-result v1
 
-    const/4 v8, 0x3
-
-    .line 61
-    invoke-virtual {v6, v8}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
-
-    move-result-object v8
-
     .line 60
-    invoke-static {v8}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-virtual {p0, v4, p3, v0, v1}, Lcom/thoughtworks/xstream/converters/time/AbstractChronoLocalDateConverter;->chronoLocalDateOf(Ljava/time/chrono/Era;III)Ljava/time/chrono/ChronoLocalDate;
 
-    move-result v8
-
-    const/4 v9, 0x4
-
-    .line 61
-    invoke-virtual {v6, v9}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v9}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v9
-
-    .line 60
-    invoke-virtual {p0, v7, v1, v8, v9}, Lcom/thoughtworks/xstream/converters/time/AbstractChronoLocalDateConverter;->chronoLocalDateOf(Ljava/time/chrono/Era;III)Ljava/time/chrono/ChronoLocalDate;
-
-    move-result-object v1
+    move-result-object p1
     :try_end_1
     .catch Ljava/time/DateTimeException; {:try_start_1 .. :try_end_1} :catch_0
 
-    return-object v1
+    return-object p1
 
-    .line 62
     :catch_0
-    move-exception v1
+    move-exception p3
 
     .line 63
-    .local v1, "e":Ljava/time/DateTimeException;
-    new-instance v8, Lcom/thoughtworks/xstream/converters/ConversionException;
+    new-instance v0, Lcom/thoughtworks/xstream/converters/ConversionException;
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v9, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v9, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v9
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v8, v9, v1}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    move-result-object v1
 
-    move-object v0, v8
+    invoke-direct {v0, v1, p3}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 64
-    goto :goto_1
+    goto :goto_0
 
-    .line 54
-    .end local v1    # "e":Ljava/time/DateTimeException;
     :catch_1
-    move-exception v1
+    move-exception p3
 
     .line 55
-    .local v1, "e":Ljava/lang/IllegalArgumentException;
-    new-instance v8, Lcom/thoughtworks/xstream/converters/ConversionException;
+    new-instance v0, Lcom/thoughtworks/xstream/converters/ConversionException;
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v9, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v9, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v9
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v8, v9, v1}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    move-result-object v1
 
-    move-object v0, v8
+    invoke-direct {v0, v1, p3}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 56
-    goto :goto_1
-
-    .line 69
-    .end local v1    # "e":Ljava/lang/IllegalArgumentException;
-    .end local v2    # "chronology":Ljava/time/chrono/Chronology;
-    .end local v5    # "id":Ljava/lang/String;
-    .end local v6    # "matcher":Ljava/util/regex/Matcher;
-    .end local v7    # "era":Ljava/time/chrono/Era;, "TE;"
-    :cond_1
-    goto/16 :goto_0
-
-    .line 70
     :cond_2
-    :goto_1
+    :goto_0
     if-nez v0, :cond_3
 
     .line 71
-    new-instance v1, Lcom/thoughtworks/xstream/converters/ConversionException;
+    new-instance v0, Lcom/thoughtworks/xstream/converters/ConversionException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p3, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p2
 
-    move-result-object v2
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v1, v2}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;)V
+    move-result-object p2
 
-    move-object v0, v1
+    invoke-direct {v0, p2}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;)V
+
+    :cond_3
+    const-string p2, "value"
 
     .line 73
-    :cond_3
-    const-string v1, "value"
-
-    invoke-virtual {v0, v1, p1}, Lcom/thoughtworks/xstream/converters/ConversionException;->add(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, p2, p1}, Lcom/thoughtworks/xstream/converters/ConversionException;->add(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 74
     throw v0

@@ -39,8 +39,7 @@
 .end method
 
 .method public parse(Lcom/koushikdutta/async/DataEmitter;)Lcom/koushikdutta/async/future/Future;
-    .locals 2
-    .param p1, "emitter"    # Lcom/koushikdutta/async/DataEmitter;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -59,21 +58,20 @@
 
     invoke-virtual {v0, p1}, Lcom/koushikdutta/async/parser/StringParser;->parse(Lcom/koushikdutta/async/DataEmitter;)Lcom/koushikdutta/async/future/Future;
 
-    move-result-object v0
+    move-result-object p1
 
-    new-instance v1, Lcom/koushikdutta/async/parser/JSONArrayParser$1;
+    new-instance v0, Lcom/koushikdutta/async/parser/JSONArrayParser$1;
 
-    invoke-direct {v1, p0}, Lcom/koushikdutta/async/parser/JSONArrayParser$1;-><init>(Lcom/koushikdutta/async/parser/JSONArrayParser;)V
+    invoke-direct {v0, p0}, Lcom/koushikdutta/async/parser/JSONArrayParser$1;-><init>(Lcom/koushikdutta/async/parser/JSONArrayParser;)V
 
     .line 21
-    invoke-interface {v0, v1}, Lcom/koushikdutta/async/future/Future;->then(Lcom/koushikdutta/async/future/FutureCallback;)Lcom/koushikdutta/async/future/FutureCallback;
+    invoke-interface {p1, v0}, Lcom/koushikdutta/async/future/Future;->then(Lcom/koushikdutta/async/future/FutureCallback;)Lcom/koushikdutta/async/future/FutureCallback;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/koushikdutta/async/future/Future;
+    check-cast p1, Lcom/koushikdutta/async/future/Future;
 
-    .line 20
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic write(Lcom/koushikdutta/async/DataSink;Ljava/lang/Object;Lcom/koushikdutta/async/callback/CompletedCallback;)V
@@ -88,10 +86,7 @@
 .end method
 
 .method public write(Lcom/koushikdutta/async/DataSink;Lorg/json/JSONArray;Lcom/koushikdutta/async/callback/CompletedCallback;)V
-    .locals 2
-    .param p1, "sink"    # Lcom/koushikdutta/async/DataSink;
-    .param p2, "value"    # Lorg/json/JSONArray;
-    .param p3, "completed"    # Lcom/koushikdutta/async/callback/CompletedCallback;
+    .locals 1
 
     .line 31
     new-instance v0, Lcom/koushikdutta/async/parser/StringParser;
@@ -100,10 +95,9 @@
 
     invoke-virtual {p2}, Lorg/json/JSONArray;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v0, p1, v1, p3}, Lcom/koushikdutta/async/parser/StringParser;->write(Lcom/koushikdutta/async/DataSink;Ljava/lang/String;Lcom/koushikdutta/async/callback/CompletedCallback;)V
+    invoke-virtual {v0, p1, p2, p3}, Lcom/koushikdutta/async/parser/StringParser;->write(Lcom/koushikdutta/async/DataSink;Ljava/lang/String;Lcom/koushikdutta/async/callback/CompletedCallback;)V
 
-    .line 32
     return-void
 .end method

@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroidx/activity/OnBackPressedDispatcher;Landroidx/activity/OnBackPressedCallback;)V
     .locals 0
-    .param p2, "onBackPressedCallback"    # Landroidx/activity/OnBackPressedCallback;
 
     .line 203
     iput-object p1, p0, Landroidx/activity/OnBackPressedDispatcher$OnBackPressedCancellable;->this$0:Landroidx/activity/OnBackPressedDispatcher;
@@ -36,7 +35,6 @@
     .line 204
     iput-object p2, p0, Landroidx/activity/OnBackPressedDispatcher$OnBackPressedCancellable;->mOnBackPressedCallback:Landroidx/activity/OnBackPressedCallback;
 
-    .line 205
     return-void
 .end method
 
@@ -59,6 +57,5 @@
 
     invoke-virtual {v0, p0}, Landroidx/activity/OnBackPressedCallback;->removeCancellable(Landroidx/activity/Cancellable;)V
 
-    .line 211
     return-void
 .end method

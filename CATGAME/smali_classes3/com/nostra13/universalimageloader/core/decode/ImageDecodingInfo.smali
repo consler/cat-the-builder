@@ -27,14 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/nostra13/universalimageloader/core/assist/ImageSize;Lcom/nostra13/universalimageloader/core/assist/ViewScaleType;Lcom/nostra13/universalimageloader/core/download/ImageDownloader;Lcom/nostra13/universalimageloader/core/DisplayImageOptions;)V
-    .locals 2
-    .param p1, "imageKey"    # Ljava/lang/String;
-    .param p2, "imageUri"    # Ljava/lang/String;
-    .param p3, "originalImageUri"    # Ljava/lang/String;
-    .param p4, "targetSize"    # Lcom/nostra13/universalimageloader/core/assist/ImageSize;
-    .param p5, "viewScaleType"    # Lcom/nostra13/universalimageloader/core/assist/ViewScaleType;
-    .param p6, "downloader"    # Lcom/nostra13/universalimageloader/core/download/ImageDownloader;
-    .param p7, "displayOptions"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
+    .locals 0
 
     .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,9 +47,9 @@
     .line 57
     invoke-virtual {p7}, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->getImageScaleType()Lcom/nostra13/universalimageloader/core/assist/ImageScaleType;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->imageScaleType:Lcom/nostra13/universalimageloader/core/assist/ImageScaleType;
+    iput-object p1, p0, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->imageScaleType:Lcom/nostra13/universalimageloader/core/assist/ImageScaleType;
 
     .line 58
     iput-object p5, p0, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->viewScaleType:Lcom/nostra13/universalimageloader/core/assist/ViewScaleType;
@@ -67,41 +60,36 @@
     .line 61
     invoke-virtual {p7}, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->getExtraForDownloader()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->extraForDownloader:Ljava/lang/Object;
+    iput-object p1, p0, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->extraForDownloader:Ljava/lang/Object;
 
     .line 63
     invoke-virtual {p7}, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->isConsiderExifParams()Z
 
-    move-result v0
+    move-result p1
 
-    iput-boolean v0, p0, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->considerExifParams:Z
+    iput-boolean p1, p0, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->considerExifParams:Z
 
     .line 64
-    new-instance v0, Landroid/graphics/BitmapFactory$Options;
+    new-instance p1, Landroid/graphics/BitmapFactory$Options;
 
-    invoke-direct {v0}, Landroid/graphics/BitmapFactory$Options;-><init>()V
+    invoke-direct {p1}, Landroid/graphics/BitmapFactory$Options;-><init>()V
 
-    iput-object v0, p0, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->decodingOptions:Landroid/graphics/BitmapFactory$Options;
+    iput-object p1, p0, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->decodingOptions:Landroid/graphics/BitmapFactory$Options;
 
     .line 65
     invoke-virtual {p7}, Lcom/nostra13/universalimageloader/core/DisplayImageOptions;->getDecodingOptions()Landroid/graphics/BitmapFactory$Options;
 
-    move-result-object v0
+    move-result-object p2
 
-    iget-object v1, p0, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->decodingOptions:Landroid/graphics/BitmapFactory$Options;
+    invoke-direct {p0, p2, p1}, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->copyOptions(Landroid/graphics/BitmapFactory$Options;Landroid/graphics/BitmapFactory$Options;)V
 
-    invoke-direct {p0, v0, v1}, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->copyOptions(Landroid/graphics/BitmapFactory$Options;Landroid/graphics/BitmapFactory$Options;)V
-
-    .line 66
     return-void
 .end method
 
 .method private copyOptions(Landroid/graphics/BitmapFactory$Options;Landroid/graphics/BitmapFactory$Options;)V
-    .locals 2
-    .param p1, "srcOptions"    # Landroid/graphics/BitmapFactory$Options;
-    .param p2, "destOptions"    # Landroid/graphics/BitmapFactory$Options;
+    .locals 1
 
     .line 69
     iget v0, p1, Landroid/graphics/BitmapFactory$Options;->inDensity:I
@@ -159,47 +147,27 @@
     iput-object v0, p2, Landroid/graphics/BitmapFactory$Options;->inTempStorage:[B
 
     .line 80
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0xa
-
-    if-lt v0, v1, :cond_0
-
     invoke-direct {p0, p1, p2}, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->copyOptions10(Landroid/graphics/BitmapFactory$Options;Landroid/graphics/BitmapFactory$Options;)V
 
     .line 81
-    :cond_0
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0xb
-
-    if-lt v0, v1, :cond_1
-
     invoke-direct {p0, p1, p2}, Lcom/nostra13/universalimageloader/core/decode/ImageDecodingInfo;->copyOptions11(Landroid/graphics/BitmapFactory$Options;Landroid/graphics/BitmapFactory$Options;)V
 
-    .line 82
-    :cond_1
     return-void
 .end method
 
 .method private copyOptions10(Landroid/graphics/BitmapFactory$Options;Landroid/graphics/BitmapFactory$Options;)V
-    .locals 1
-    .param p1, "srcOptions"    # Landroid/graphics/BitmapFactory$Options;
-    .param p2, "destOptions"    # Landroid/graphics/BitmapFactory$Options;
+    .locals 0
 
     .line 86
-    iget-boolean v0, p1, Landroid/graphics/BitmapFactory$Options;->inPreferQualityOverSpeed:Z
+    iget-boolean p1, p1, Landroid/graphics/BitmapFactory$Options;->inPreferQualityOverSpeed:Z
 
-    iput-boolean v0, p2, Landroid/graphics/BitmapFactory$Options;->inPreferQualityOverSpeed:Z
+    iput-boolean p1, p2, Landroid/graphics/BitmapFactory$Options;->inPreferQualityOverSpeed:Z
 
-    .line 87
     return-void
 .end method
 
 .method private copyOptions11(Landroid/graphics/BitmapFactory$Options;Landroid/graphics/BitmapFactory$Options;)V
     .locals 1
-    .param p1, "srcOptions"    # Landroid/graphics/BitmapFactory$Options;
-    .param p2, "destOptions"    # Landroid/graphics/BitmapFactory$Options;
 
     .line 91
     iget-object v0, p1, Landroid/graphics/BitmapFactory$Options;->inBitmap:Landroid/graphics/Bitmap;
@@ -207,11 +175,10 @@
     iput-object v0, p2, Landroid/graphics/BitmapFactory$Options;->inBitmap:Landroid/graphics/Bitmap;
 
     .line 92
-    iget-boolean v0, p1, Landroid/graphics/BitmapFactory$Options;->inMutable:Z
+    iget-boolean p1, p1, Landroid/graphics/BitmapFactory$Options;->inMutable:Z
 
-    iput-boolean v0, p2, Landroid/graphics/BitmapFactory$Options;->inMutable:Z
+    iput-boolean p1, p2, Landroid/graphics/BitmapFactory$Options;->inMutable:Z
 
-    .line 93
     return-void
 .end method
 

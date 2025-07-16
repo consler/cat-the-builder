@@ -53,7 +53,6 @@
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;)V
     .locals 2
-    .param p1, "callback"    # Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -85,42 +84,38 @@
 
     invoke-virtual {v0, p1}, Lcom/thoughtworks/xstream/core/util/FastStack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 63
     return-void
 .end method
 
 .method static synthetic class$(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 2
-    .param p0, "x0"    # Ljava/lang/String;
+    .locals 1
 
     .line 28
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/lang/NoClassDefFoundError;
+    new-instance v0, Ljava/lang/NoClassDefFoundError;
 
-    invoke-direct {v1}, Ljava/lang/NoClassDefFoundError;-><init>()V
+    invoke-direct {v0}, Ljava/lang/NoClassDefFoundError;-><init>()V
 
-    invoke-virtual {v1, v0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, p0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 .end method
 
 .method public static declared-synchronized getInstance(Lcom/thoughtworks/xstream/converters/DataHolder;Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;)Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream;
-    .locals 4
-    .param p0, "whereFrom"    # Lcom/thoughtworks/xstream/converters/DataHolder;
-    .param p1, "callback"    # Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;
+    .locals 3
 
     const-class v0, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream;
 
@@ -132,31 +127,25 @@
 
     invoke-interface {p0, v1}, Lcom/thoughtworks/xstream/converters/DataHolder;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream;
+    check-cast v2, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream;
 
-    .line 33
-    .local v1, "result":Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream;
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
     .line 34
     new-instance v2, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream;
 
     invoke-direct {v2, p1}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream;-><init>(Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;)V
 
-    move-object v1, v2
-
     .line 35
-    sget-object v2, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream;->DATA_HOLDER_KEY:Ljava/lang/String;
-
-    invoke-interface {p0, v2, v1}, Lcom/thoughtworks/xstream/converters/DataHolder;->put(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-interface {p0, v1, v2}, Lcom/thoughtworks/xstream/converters/DataHolder;->put(Ljava/lang/Object;Ljava/lang/Object;)V
 
     goto :goto_0
 
     .line 37
     :cond_0
-    invoke-virtual {v1, p1}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream;->pushCallback(Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;)V
+    invoke-virtual {v2, p1}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream;->pushCallback(Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
@@ -166,55 +155,40 @@
     :goto_0
     monitor-exit v0
 
-    return-object v1
+    return-object v2
 
-    .line 31
-    .end local v1    # "result":Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream;
-    .end local p0    # "whereFrom":Lcom/thoughtworks/xstream/converters/DataHolder;
-    .end local p1    # "callback":Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;
     :catchall_0
     move-exception p0
 
     goto :goto_1
 
-    .line 42
-    .restart local p0    # "whereFrom":Lcom/thoughtworks/xstream/converters/DataHolder;
-    .restart local p1    # "callback":Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;
     :catch_0
-    move-exception v1
+    move-exception p0
 
     .line 43
-    .local v1, "e":Ljava/io/IOException;
     :try_start_1
-    new-instance v2, Lcom/thoughtworks/xstream/io/StreamException;
+    new-instance p1, Lcom/thoughtworks/xstream/io/StreamException;
 
-    const-string v3, "Cannot create CustomObjectStream"
+    const-string v1, "Cannot create CustomObjectStream"
 
-    invoke-direct {v2, v3, v1}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p1, v1, p0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v2
+    throw p1
 
-    .line 40
-    .end local v1    # "e":Ljava/io/IOException;
     :catch_1
-    move-exception v1
+    move-exception p0
 
     .line 41
-    .local v1, "e":Ljava/lang/SecurityException;
-    new-instance v2, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
+    new-instance p1, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
 
-    const-string v3, "Cannot create CustomObjectStream"
+    const-string v1, "Cannot create CustomObjectStream"
 
-    invoke-direct {v2, v3, v1}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p1, v1, p0}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v2
+    throw p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 31
-    .end local v1    # "e":Ljava/lang/SecurityException;
-    .end local p0    # "whereFrom":Lcom/thoughtworks/xstream/converters/DataHolder;
-    .end local p1    # "callback":Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;
     :goto_1
     monitor-exit v0
 
@@ -238,7 +212,6 @@
 
     invoke-interface {v0}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;->close()V
 
-    .line 150
     return-void
 .end method
 
@@ -257,7 +230,6 @@
 
     invoke-interface {v0}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;->defaultWriteObject()V
 
-    .line 84
     return-void
 .end method
 
@@ -276,7 +248,6 @@
 
     invoke-interface {v0}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;->flush()V
 
-    .line 146
     return-void
 .end method
 
@@ -312,14 +283,12 @@
 
 .method public pushCallback(Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;)V
     .locals 1
-    .param p1, "callback"    # Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;
 
     .line 69
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream;->callbacks:Lcom/thoughtworks/xstream/core/util/FastStack;
 
     invoke-virtual {v0, p1}, Lcom/thoughtworks/xstream/core/util/FastStack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 70
     return-void
 .end method
 
@@ -334,12 +303,10 @@
     invoke-direct {v0, p0, v1}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$CustomPutField;-><init>(Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream;Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$1;)V
 
     .line 154
-    .local v0, "result":Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$CustomPutField;
     iget-object v1, p0, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream;->customFields:Lcom/thoughtworks/xstream/core/util/FastStack;
 
     invoke-virtual {v1, v0}, Lcom/thoughtworks/xstream/core/util/FastStack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 155
     return-object v0
 .end method
 
@@ -355,20 +322,18 @@
 .end method
 
 .method public useProtocolVersion(I)V
-    .locals 1
-    .param p1, "version"    # I
+    .locals 0
 
     .line 220
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public write(I)V
-    .locals 3
-    .param p1, "val"    # I
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -382,19 +347,17 @@
 
     new-instance v1, Ljava/lang/Byte;
 
-    int-to-byte v2, p1
+    int-to-byte p1, p1
 
-    invoke-direct {v1, v2}, Ljava/lang/Byte;-><init>(B)V
+    invoke-direct {v1, p1}, Ljava/lang/Byte;-><init>(B)V
 
     invoke-interface {v0, v1}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;->writeToStream(Ljava/lang/Object;)V
 
-    .line 136
     return-void
 .end method
 
 .method public write([B)V
     .locals 1
-    .param p1, "buf"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -408,15 +371,11 @@
 
     invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;->writeToStream(Ljava/lang/Object;)V
 
-    .line 124
     return-void
 .end method
 
 .method public write([BII)V
     .locals 2
-    .param p1, "buf"    # [B
-    .param p2, "off"    # I
-    .param p3, "len"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -426,26 +385,23 @@
     .line 139
     new-array v0, p3, [B
 
-    .line 140
-    .local v0, "b":[B
     const/4 v1, 0x0
 
+    .line 140
     invoke-static {p1, p2, v0, v1, p3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 141
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream;->peekCallback()Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v1, v0}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;->writeToStream(Ljava/lang/Object;)V
+    invoke-interface {p1, v0}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;->writeToStream(Ljava/lang/Object;)V
 
-    .line 142
     return-void
 .end method
 
 .method public writeBoolean(Z)V
-    .locals 2
-    .param p1, "val"    # Z
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -459,23 +415,21 @@
 
     if-eqz p1, :cond_0
 
-    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    sget-object p1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     goto :goto_0
 
     :cond_0
-    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    sget-object p1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     :goto_0
-    invoke-interface {v0, v1}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;->writeToStream(Ljava/lang/Object;)V
+    invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;->writeToStream(Ljava/lang/Object;)V
 
-    .line 92
     return-void
 .end method
 
 .method public writeByte(I)V
-    .locals 3
-    .param p1, "val"    # I
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -489,31 +443,28 @@
 
     new-instance v1, Ljava/lang/Byte;
 
-    int-to-byte v2, p1
+    int-to-byte p1, p1
 
-    invoke-direct {v1, v2}, Ljava/lang/Byte;-><init>(B)V
+    invoke-direct {v1, p1}, Ljava/lang/Byte;-><init>(B)V
 
     invoke-interface {v0, v1}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;->writeToStream(Ljava/lang/Object;)V
 
-    .line 96
     return-void
 .end method
 
 .method public writeBytes(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "str"    # Ljava/lang/String;
+    .locals 0
 
     .line 224
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public writeChar(I)V
-    .locals 3
-    .param p1, "val"    # I
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -527,19 +478,17 @@
 
     new-instance v1, Ljava/lang/Character;
 
-    int-to-char v2, p1
+    int-to-char p1, p1
 
-    invoke-direct {v1, v2}, Ljava/lang/Character;-><init>(C)V
+    invoke-direct {v1, p1}, Ljava/lang/Character;-><init>(C)V
 
     invoke-interface {v0, v1}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;->writeToStream(Ljava/lang/Object;)V
 
-    .line 104
     return-void
 .end method
 
 .method public writeChars(Ljava/lang/String;)V
-    .locals 2
-    .param p1, "str"    # Ljava/lang/String;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -553,17 +502,15 @@
 
     invoke-virtual {p1}, Ljava/lang/String;->toCharArray()[C
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;->writeToStream(Ljava/lang/Object;)V
+    invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;->writeToStream(Ljava/lang/Object;)V
 
-    .line 128
     return-void
 .end method
 
 .method public writeDouble(D)V
     .locals 2
-    .param p1, "val"    # D
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -581,12 +528,11 @@
 
     invoke-interface {v0, v1}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;->writeToStream(Ljava/lang/Object;)V
 
-    .line 108
     return-void
 .end method
 
 .method public writeFields()V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -603,24 +549,21 @@
     check-cast v0, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$CustomPutField;
 
     .line 160
-    .local v0, "customPutField":Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$CustomPutField;
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream;->peekCallback()Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;
 
     move-result-object v1
 
     invoke-virtual {v0}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$CustomPutField;->asMap()Ljava/util/Map;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {v1, v2}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;->writeFieldsToStream(Ljava/util/Map;)V
+    invoke-interface {v1, v0}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;->writeFieldsToStream(Ljava/util/Map;)V
 
-    .line 161
     return-void
 .end method
 
 .method public writeFloat(F)V
     .locals 2
-    .param p1, "val"    # F
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -638,13 +581,11 @@
 
     invoke-interface {v0, v1}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;->writeToStream(Ljava/lang/Object;)V
 
-    .line 112
     return-void
 .end method
 
 .method public writeInt(I)V
     .locals 2
-    .param p1, "val"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -662,13 +603,11 @@
 
     invoke-interface {v0, v1}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;->writeToStream(Ljava/lang/Object;)V
 
-    .line 100
     return-void
 .end method
 
 .method public writeLong(J)V
     .locals 2
-    .param p1, "val"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -686,13 +625,11 @@
 
     invoke-interface {v0, v1}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;->writeToStream(Ljava/lang/Object;)V
 
-    .line 116
     return-void
 .end method
 
 .method protected writeObjectOverride(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -706,13 +643,11 @@
 
     invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;->writeToStream(Ljava/lang/Object;)V
 
-    .line 88
     return-void
 .end method
 
 .method public writeShort(I)V
-    .locals 3
-    .param p1, "val"    # I
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -726,19 +661,17 @@
 
     new-instance v1, Ljava/lang/Short;
 
-    int-to-short v2, p1
+    int-to-short p1, p1
 
-    invoke-direct {v1, v2}, Ljava/lang/Short;-><init>(S)V
+    invoke-direct {v1, p1}, Ljava/lang/Short;-><init>(S)V
 
     invoke-interface {v0, v1}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;->writeToStream(Ljava/lang/Object;)V
 
-    .line 120
     return-void
 .end method
 
 .method public writeUTF(Ljava/lang/String;)V
     .locals 1
-    .param p1, "str"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -752,18 +685,16 @@
 
     invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/core/util/CustomObjectOutputStream$StreamCallback;->writeToStream(Ljava/lang/Object;)V
 
-    .line 132
     return-void
 .end method
 
 .method public writeUnshared(Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 0
 
     .line 228
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method

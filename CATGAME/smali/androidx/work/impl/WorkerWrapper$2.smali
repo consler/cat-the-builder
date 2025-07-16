@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Landroidx/work/impl/WorkerWrapper;Landroidx/work/impl/utils/futures/SettableFuture;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/work/impl/WorkerWrapper;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
@@ -42,7 +41,7 @@
         }
     .end annotation
 
-    .line 294
+    .line 305
     iput-object p1, p0, Landroidx/work/impl/WorkerWrapper$2;->this$0:Landroidx/work/impl/WorkerWrapper;
 
     iput-object p2, p0, Landroidx/work/impl/WorkerWrapper$2;->val$future:Landroidx/work/impl/utils/futures/SettableFuture;
@@ -59,11 +58,11 @@
 .method public run()V
     .locals 8
 
-    .line 300
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
+    .line 311
     :try_start_0
     iget-object v2, p0, Landroidx/work/impl/WorkerWrapper$2;->val$future:Landroidx/work/impl/utils/futures/SettableFuture;
 
@@ -73,40 +72,38 @@
 
     check-cast v2, Landroidx/work/ListenableWorker$Result;
 
-    .line 301
-    .local v2, "result":Landroidx/work/ListenableWorker$Result;
     if-nez v2, :cond_0
 
-    .line 302
+    .line 313
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
-    move-result-object v3
+    move-result-object v2
 
-    sget-object v4, Landroidx/work/impl/WorkerWrapper;->TAG:Ljava/lang/String;
+    sget-object v3, Landroidx/work/impl/WorkerWrapper;->TAG:Ljava/lang/String;
 
-    const-string v5, "%s returned a null result. Treating it as a failure."
+    const-string v4, "%s returned a null result. Treating it as a failure."
 
-    new-array v6, v0, [Ljava/lang/Object;
+    new-array v5, v0, [Ljava/lang/Object;
 
-    iget-object v7, p0, Landroidx/work/impl/WorkerWrapper$2;->this$0:Landroidx/work/impl/WorkerWrapper;
+    iget-object v6, p0, Landroidx/work/impl/WorkerWrapper$2;->this$0:Landroidx/work/impl/WorkerWrapper;
 
-    iget-object v7, v7, Landroidx/work/impl/WorkerWrapper;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
+    iget-object v6, v6, Landroidx/work/impl/WorkerWrapper;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
-    iget-object v7, v7, Landroidx/work/impl/model/WorkSpec;->workerClassName:Ljava/lang/String;
+    iget-object v6, v6, Landroidx/work/impl/model/WorkSpec;->workerClassName:Ljava/lang/String;
 
-    aput-object v7, v6, v1
+    aput-object v6, v5, v1
 
-    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    new-array v6, v1, [Ljava/lang/Throwable;
+    new-array v5, v1, [Ljava/lang/Throwable;
 
-    invoke-virtual {v3, v4, v5, v6}, Landroidx/work/Logger;->error(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {v2, v3, v4, v5}, Landroidx/work/Logger;->error(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
     goto :goto_1
 
-    .line 306
+    .line 317
     :cond_0
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
@@ -138,7 +135,7 @@
 
     invoke-virtual {v3, v4, v5, v6}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
-    .line 308
+    .line 319
     iget-object v3, p0, Landroidx/work/impl/WorkerWrapper$2;->this$0:Landroidx/work/impl/WorkerWrapper;
 
     iput-object v2, v3, Landroidx/work/impl/WorkerWrapper;->mResult:Landroidx/work/ListenableWorker$Result;
@@ -150,14 +147,11 @@
 
     goto :goto_1
 
-    .line 320
-    .end local v2    # "result":Landroidx/work/ListenableWorker$Result;
     :catchall_0
     move-exception v0
 
     goto :goto_2
 
-    .line 315
     :catch_0
     move-exception v2
 
@@ -166,8 +160,7 @@
     :catch_1
     move-exception v2
 
-    .line 316
-    .local v2, "exception":Ljava/lang/Exception;
+    .line 327
     :goto_0
     :try_start_1
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
@@ -184,7 +177,7 @@
 
     aput-object v7, v6, v1
 
-    .line 317
+    .line 328
     invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v5
@@ -193,18 +186,15 @@
 
     aput-object v2, v0, v1
 
-    .line 316
+    .line 327
     invoke-virtual {v3, v4, v5, v0}, Landroidx/work/Logger;->error(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
-    .end local v2    # "exception":Ljava/lang/Exception;
     goto :goto_1
 
-    .line 310
     :catch_2
     move-exception v2
 
-    .line 313
-    .local v2, "exception":Ljava/util/concurrent/CancellationException;
+    .line 324
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v3
@@ -231,25 +221,19 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 320
-    .end local v2    # "exception":Ljava/util/concurrent/CancellationException;
+    .line 331
     :goto_1
     iget-object v0, p0, Landroidx/work/impl/WorkerWrapper$2;->this$0:Landroidx/work/impl/WorkerWrapper;
 
     invoke-virtual {v0}, Landroidx/work/impl/WorkerWrapper;->onWorkFinished()V
 
-    .line 321
-    nop
-
-    .line 322
     return-void
 
-    .line 320
     :goto_2
     iget-object v1, p0, Landroidx/work/impl/WorkerWrapper$2;->this$0:Landroidx/work/impl/WorkerWrapper;
 
     invoke-virtual {v1}, Landroidx/work/impl/WorkerWrapper;->onWorkFinished()V
 
-    .line 321
+    .line 332
     throw v0
 .end method

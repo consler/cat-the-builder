@@ -21,7 +21,6 @@
 # direct methods
 .method public constructor <init>(Lorg/apache/commons/collections/buffer/BoundedBuffer;Ljava/util/Iterator;)V
     .locals 0
-    .param p2, "it"    # Ljava/util/Iterator;
 
     .line 184
     invoke-direct {p0, p2}, Lorg/apache/commons/collections/iterators/AbstractIteratorDecorator;-><init>(Ljava/util/Iterator;)V
@@ -29,7 +28,6 @@
     .line 183
     iput-object p1, p0, Lorg/apache/commons/collections/buffer/BoundedBuffer$NotifyingIterator;->this$0:Lorg/apache/commons/collections/buffer/BoundedBuffer;
 
-    .line 185
     return-void
 .end method
 
@@ -65,10 +63,8 @@
     .line 191
     monitor-exit v0
 
-    .line 192
     return-void
 
-    .line 191
     :catchall_0
     move-exception v1
 

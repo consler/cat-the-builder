@@ -26,11 +26,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/CompletableSource;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;Z)V
     .locals 0
-    .param p1, "source"    # Lio/reactivex/CompletableSource;
-    .param p2, "delay"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p6, "delayError"    # Z
 
     .line 33
     invoke-direct {p0}, Lio/reactivex/Completable;-><init>()V
@@ -50,7 +45,6 @@
     .line 38
     iput-boolean p6, p0, Lio/reactivex/internal/operators/completable/CompletableDelay;->delayError:Z
 
-    .line 39
     return-void
 .end method
 
@@ -58,7 +52,6 @@
 # virtual methods
 .method protected subscribeActual(Lio/reactivex/CompletableObserver;)V
     .locals 3
-    .param p1, "s"    # Lio/reactivex/CompletableObserver;
 
     .line 43
     new-instance v0, Lio/reactivex/disposables/CompositeDisposable;
@@ -66,7 +59,6 @@
     invoke-direct {v0}, Lio/reactivex/disposables/CompositeDisposable;-><init>()V
 
     .line 45
-    .local v0, "set":Lio/reactivex/disposables/CompositeDisposable;
     iget-object v1, p0, Lio/reactivex/internal/operators/completable/CompletableDelay;->source:Lio/reactivex/CompletableSource;
 
     new-instance v2, Lio/reactivex/internal/operators/completable/CompletableDelay$Delay;
@@ -75,6 +67,5 @@
 
     invoke-interface {v1, v2}, Lio/reactivex/CompletableSource;->subscribe(Lio/reactivex/CompletableObserver;)V
 
-    .line 46
     return-void
 .end method

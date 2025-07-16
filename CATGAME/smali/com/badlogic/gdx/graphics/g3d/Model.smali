@@ -137,13 +137,11 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->nodePartBones:Lcom/badlogic/gdx/utils/ObjectMap;
 
-    .line 89
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;)V
     .locals 1
-    .param p1, "modelData"    # Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;
 
     .line 95
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider$FileTextureProvider;
@@ -152,14 +150,11 @@
 
     invoke-direct {p0, p1, v0}, Lcom/badlogic/gdx/graphics/g3d/Model;-><init>(Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;)V
 
-    .line 96
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;)V
     .locals 1
-    .param p1, "modelData"    # Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;
-    .param p2, "textureProvider"    # Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;
 
     .line 101
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -216,15 +211,13 @@
     .line 102
     invoke-virtual {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/Model;->load(Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;)V
 
-    .line 103
     return-void
 .end method
 
 
 # virtual methods
 .method public calculateBoundingBox(Lcom/badlogic/gdx/math/collision/BoundingBox;)Lcom/badlogic/gdx/math/collision/BoundingBox;
-    .locals 1
-    .param p1, "out"    # Lcom/badlogic/gdx/math/collision/BoundingBox;
+    .locals 0
 
     .line 380
     invoke-virtual {p1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->inf()Lcom/badlogic/gdx/math/collision/BoundingBox;
@@ -232,90 +225,77 @@
     .line 381
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/Model;->extendBoundingBox(Lcom/badlogic/gdx/math/collision/BoundingBox;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public calculateTransforms()V
-    .locals 4
+    .locals 5
 
     .line 367
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->nodes:Lcom/badlogic/gdx/utils/Array;
 
     iget v0, v0, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    .line 368
-    .local v0, "n":I
     const/4 v1, 0x0
 
-    .local v1, "i":I
-    :goto_0
-    const/4 v2, 0x1
+    move v2, v1
 
-    if-ge v1, v0, :cond_0
+    :goto_0
+    const/4 v3, 0x1
+
+    if-ge v2, v0, :cond_0
 
     .line 369
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->nodes:Lcom/badlogic/gdx/utils/Array;
+    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->nodes:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v3, v1}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
+    invoke-virtual {v4, v2}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Lcom/badlogic/gdx/graphics/g3d/model/Node;
+    check-cast v4, Lcom/badlogic/gdx/graphics/g3d/model/Node;
 
-    invoke-virtual {v3, v2}, Lcom/badlogic/gdx/graphics/g3d/model/Node;->calculateTransforms(Z)V
+    invoke-virtual {v4, v3}, Lcom/badlogic/gdx/graphics/g3d/model/Node;->calculateTransforms(Z)V
 
-    .line 368
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 371
-    .end local v1    # "i":I
     :cond_0
-    const/4 v1, 0x0
-
-    .restart local v1    # "i":I
     :goto_1
     if-ge v1, v0, :cond_1
 
     .line 372
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->nodes:Lcom/badlogic/gdx/utils/Array;
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->nodes:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v3, v1}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, v1}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Lcom/badlogic/gdx/graphics/g3d/model/Node;
+    check-cast v2, Lcom/badlogic/gdx/graphics/g3d/model/Node;
 
-    invoke-virtual {v3, v2}, Lcom/badlogic/gdx/graphics/g3d/model/Node;->calculateBoneTransforms(Z)V
+    invoke-virtual {v2, v3}, Lcom/badlogic/gdx/graphics/g3d/model/Node;->calculateBoneTransforms(Z)V
 
-    .line 371
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 374
-    .end local v1    # "i":I
     :cond_1
     return-void
 .end method
 
 .method protected convertMaterial(Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMaterial;Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;)Lcom/badlogic/gdx/graphics/g3d/Material;
-    .locals 27
-    .param p1, "mtl"    # Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMaterial;
-    .param p2, "textureProvider"    # Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;
+    .locals 17
 
-    .line 276
     move-object/from16 v0, p1
 
+    .line 276
     new-instance v1, Lcom/badlogic/gdx/graphics/g3d/Material;
 
     invoke-direct {v1}, Lcom/badlogic/gdx/graphics/g3d/Material;-><init>()V
 
     .line 277
-    .local v1, "result":Lcom/badlogic/gdx/graphics/g3d/Material;
     iget-object v2, v0, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMaterial;->id:Ljava/lang/String;
 
     iput-object v2, v1, Lcom/badlogic/gdx/graphics/g3d/Material;->id:Ljava/lang/String;
@@ -431,13 +411,13 @@
 
     new-instance v2, Lcom/badlogic/gdx/graphics/g3d/attributes/BlendingAttribute;
 
-    const/16 v5, 0x302
+    const/16 v5, 0x303
 
-    const/16 v6, 0x303
+    iget v6, v0, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMaterial;->opacity:F
 
-    iget v7, v0, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMaterial;->opacity:F
+    const/16 v7, 0x302
 
-    invoke-direct {v2, v5, v6, v7}, Lcom/badlogic/gdx/graphics/g3d/attributes/BlendingAttribute;-><init>(IIF)V
+    invoke-direct {v2, v7, v5, v6}, Lcom/badlogic/gdx/graphics/g3d/attributes/BlendingAttribute;-><init>(IIF)V
 
     invoke-virtual {v1, v2}, Lcom/badlogic/gdx/graphics/g3d/Material;->set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
 
@@ -448,650 +428,520 @@
     invoke-direct {v2}, Lcom/badlogic/gdx/utils/ObjectMap;-><init>()V
 
     .line 289
-    .local v2, "textures":Lcom/badlogic/gdx/utils/ObjectMap;, "Lcom/badlogic/gdx/utils/ObjectMap<Ljava/lang/String;Lcom/badlogic/gdx/graphics/Texture;>;"
     iget-object v5, v0, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMaterial;->textures:Lcom/badlogic/gdx/utils/Array;
 
-    if-eqz v5, :cond_14
+    if-eqz v5, :cond_13
 
     .line 290
-    iget-object v5, v0, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMaterial;->textures:Lcom/badlogic/gdx/utils/Array;
+    iget-object v0, v0, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMaterial;->textures:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v5}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_13
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v5
 
-    :goto_0
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;
+
+    .line 292
+    iget-object v6, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->fileName:Ljava/lang/String;
+
+    invoke-virtual {v2, v6}, Lcom/badlogic/gdx/utils/ObjectMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_13
+    if-eqz v6, :cond_7
 
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    .line 293
+    iget-object v6, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->fileName:Ljava/lang/String;
+
+    invoke-virtual {v2, v6}, Lcom/badlogic/gdx/utils/ObjectMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v6
 
-    check-cast v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;
+    check-cast v6, Lcom/badlogic/gdx/graphics/Texture;
 
-    .line 292
-    .local v6, "tex":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;
-    iget-object v7, v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->fileName:Ljava/lang/String;
+    move-object/from16 v8, p0
 
-    invoke-virtual {v2, v7}, Lcom/badlogic/gdx/utils/ObjectMap;->containsKey(Ljava/lang/Object;)Z
+    move-object/from16 v7, p2
 
-    move-result v7
-
-    if-eqz v7, :cond_7
-
-    .line 293
-    iget-object v7, v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->fileName:Ljava/lang/String;
-
-    invoke-virtual {v2, v7}, Lcom/badlogic/gdx/utils/ObjectMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Lcom/badlogic/gdx/graphics/Texture;
-
-    move-object/from16 v9, p0
-
-    move-object/from16 v8, p2
-
-    .local v7, "texture":Lcom/badlogic/gdx/graphics/Texture;
     goto :goto_1
 
     .line 295
-    .end local v7    # "texture":Lcom/badlogic/gdx/graphics/Texture;
     :cond_7
-    iget-object v7, v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->fileName:Ljava/lang/String;
+    iget-object v6, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->fileName:Ljava/lang/String;
 
-    move-object/from16 v8, p2
+    move-object/from16 v7, p2
 
-    invoke-interface {v8, v7}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;->load(Ljava/lang/String;)Lcom/badlogic/gdx/graphics/Texture;
+    invoke-interface {v7, v6}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;->load(Ljava/lang/String;)Lcom/badlogic/gdx/graphics/Texture;
 
-    move-result-object v7
+    move-result-object v6
 
     .line 296
-    .restart local v7    # "texture":Lcom/badlogic/gdx/graphics/Texture;
-    iget-object v9, v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->fileName:Ljava/lang/String;
+    iget-object v8, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->fileName:Ljava/lang/String;
 
-    invoke-virtual {v2, v9, v7}, Lcom/badlogic/gdx/utils/ObjectMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v8, v6}, Lcom/badlogic/gdx/utils/ObjectMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-object/from16 v8, p0
 
     .line 297
-    move-object/from16 v9, p0
+    iget-object v9, v8, Lcom/badlogic/gdx/graphics/g3d/Model;->disposables:Lcom/badlogic/gdx/utils/Array;
 
-    iget-object v10, v9, Lcom/badlogic/gdx/graphics/g3d/Model;->disposables:Lcom/badlogic/gdx/utils/Array;
-
-    invoke-virtual {v10, v7}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v9, v6}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
     .line 300
     :goto_1
-    new-instance v10, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
+    new-instance v12, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
 
-    invoke-direct {v10, v7}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;-><init>(Lcom/badlogic/gdx/graphics/GLTexture;)V
+    invoke-direct {v12, v6}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;-><init>(Lcom/badlogic/gdx/graphics/GLTexture;)V
 
     .line 301
-    .local v10, "descriptor":Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
-    invoke-virtual {v7}, Lcom/badlogic/gdx/graphics/Texture;->getMinFilter()Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
+    invoke-virtual {v6}, Lcom/badlogic/gdx/graphics/Texture;->getMinFilter()Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
-    move-result-object v11
+    move-result-object v9
 
-    iput-object v11, v10, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;->minFilter:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
+    iput-object v9, v12, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;->minFilter:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
     .line 302
-    invoke-virtual {v7}, Lcom/badlogic/gdx/graphics/Texture;->getMagFilter()Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
+    invoke-virtual {v6}, Lcom/badlogic/gdx/graphics/Texture;->getMagFilter()Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
-    move-result-object v11
+    move-result-object v9
 
-    iput-object v11, v10, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;->magFilter:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
+    iput-object v9, v12, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;->magFilter:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
     .line 303
-    invoke-virtual {v7}, Lcom/badlogic/gdx/graphics/Texture;->getUWrap()Lcom/badlogic/gdx/graphics/Texture$TextureWrap;
+    invoke-virtual {v6}, Lcom/badlogic/gdx/graphics/Texture;->getUWrap()Lcom/badlogic/gdx/graphics/Texture$TextureWrap;
 
-    move-result-object v11
+    move-result-object v9
 
-    iput-object v11, v10, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;->uWrap:Lcom/badlogic/gdx/graphics/Texture$TextureWrap;
+    iput-object v9, v12, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;->uWrap:Lcom/badlogic/gdx/graphics/Texture$TextureWrap;
 
     .line 304
-    invoke-virtual {v7}, Lcom/badlogic/gdx/graphics/Texture;->getVWrap()Lcom/badlogic/gdx/graphics/Texture$TextureWrap;
+    invoke-virtual {v6}, Lcom/badlogic/gdx/graphics/Texture;->getVWrap()Lcom/badlogic/gdx/graphics/Texture$TextureWrap;
 
-    move-result-object v11
+    move-result-object v6
 
-    iput-object v11, v10, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;->vWrap:Lcom/badlogic/gdx/graphics/Texture$TextureWrap;
+    iput-object v6, v12, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;->vWrap:Lcom/badlogic/gdx/graphics/Texture$TextureWrap;
 
     .line 306
-    iget-object v11, v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->uvTranslation:Lcom/badlogic/gdx/math/Vector2;
+    iget-object v6, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->uvTranslation:Lcom/badlogic/gdx/math/Vector2;
 
-    if-nez v11, :cond_8
+    if-nez v6, :cond_8
 
-    move v15, v3
+    move v13, v3
 
     goto :goto_2
 
     :cond_8
-    iget-object v11, v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->uvTranslation:Lcom/badlogic/gdx/math/Vector2;
+    iget-object v6, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->uvTranslation:Lcom/badlogic/gdx/math/Vector2;
 
-    iget v11, v11, Lcom/badlogic/gdx/math/Vector2;->x:F
+    iget v6, v6, Lcom/badlogic/gdx/math/Vector2;->x:F
 
-    move v15, v11
+    move v13, v6
 
     .line 307
-    .local v15, "offsetU":F
     :goto_2
-    iget-object v11, v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->uvTranslation:Lcom/badlogic/gdx/math/Vector2;
+    iget-object v6, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->uvTranslation:Lcom/badlogic/gdx/math/Vector2;
 
-    if-nez v11, :cond_9
+    if-nez v6, :cond_9
 
-    move/from16 v16, v3
+    move v14, v3
 
     goto :goto_3
 
     :cond_9
-    iget-object v11, v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->uvTranslation:Lcom/badlogic/gdx/math/Vector2;
+    iget-object v6, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->uvTranslation:Lcom/badlogic/gdx/math/Vector2;
 
-    iget v11, v11, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iget v6, v6, Lcom/badlogic/gdx/math/Vector2;->y:F
 
-    move/from16 v16, v11
+    move v14, v6
 
     .line 308
-    .local v16, "offsetV":F
     :goto_3
-    iget-object v11, v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->uvScaling:Lcom/badlogic/gdx/math/Vector2;
+    iget-object v6, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->uvScaling:Lcom/badlogic/gdx/math/Vector2;
 
-    if-nez v11, :cond_a
+    if-nez v6, :cond_a
 
-    move/from16 v17, v4
+    move v15, v4
 
     goto :goto_4
 
     :cond_a
-    iget-object v11, v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->uvScaling:Lcom/badlogic/gdx/math/Vector2;
+    iget-object v6, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->uvScaling:Lcom/badlogic/gdx/math/Vector2;
 
-    iget v11, v11, Lcom/badlogic/gdx/math/Vector2;->x:F
+    iget v6, v6, Lcom/badlogic/gdx/math/Vector2;->x:F
 
-    move/from16 v17, v11
+    move v15, v6
 
     .line 309
-    .local v17, "scaleU":F
     :goto_4
-    iget-object v11, v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->uvScaling:Lcom/badlogic/gdx/math/Vector2;
+    iget-object v6, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->uvScaling:Lcom/badlogic/gdx/math/Vector2;
 
-    if-nez v11, :cond_b
+    if-nez v6, :cond_b
 
-    move/from16 v18, v4
+    move/from16 v16, v4
 
     goto :goto_5
 
     :cond_b
-    iget-object v11, v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->uvScaling:Lcom/badlogic/gdx/math/Vector2;
+    iget-object v6, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->uvScaling:Lcom/badlogic/gdx/math/Vector2;
 
-    iget v11, v11, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iget v6, v6, Lcom/badlogic/gdx/math/Vector2;->y:F
 
-    move/from16 v18, v11
+    move/from16 v16, v6
 
     .line 311
-    .local v18, "scaleV":F
     :goto_5
-    iget v11, v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->usage:I
+    iget v5, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->usage:I
 
-    const/4 v12, 0x2
+    const/4 v6, 0x2
 
-    if-eq v11, v12, :cond_12
+    if-eq v5, v6, :cond_12
 
-    const/4 v12, 0x3
+    const/4 v6, 0x3
 
-    if-eq v11, v12, :cond_11
+    if-eq v5, v6, :cond_11
 
-    const/4 v12, 0x4
+    const/4 v6, 0x4
 
-    if-eq v11, v12, :cond_10
+    if-eq v5, v6, :cond_10
 
-    const/4 v12, 0x5
+    const/4 v6, 0x5
 
-    if-eq v11, v12, :cond_f
+    if-eq v5, v6, :cond_f
 
-    const/4 v12, 0x7
+    const/4 v6, 0x7
 
-    if-eq v11, v12, :cond_e
+    if-eq v5, v6, :cond_e
 
-    const/16 v12, 0x8
+    const/16 v6, 0x8
 
-    if-eq v11, v12, :cond_d
+    if-eq v5, v6, :cond_d
 
-    const/16 v12, 0xa
+    const/16 v6, 0xa
 
-    if-eq v11, v12, :cond_c
-
-    goto/16 :goto_6
-
-    .line 331
-    :cond_c
-    new-instance v14, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
-
-    sget-wide v12, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Reflection:J
-
-    move-object v11, v14
-
-    move-object v3, v14
-
-    move-object v14, v10
-
-    invoke-direct/range {v11 .. v18}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;-><init>(JLcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;FFFF)V
-
-    invoke-virtual {v1, v3}, Lcom/badlogic/gdx/graphics/g3d/Material;->set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
-
-    goto/16 :goto_6
-
-    .line 319
-    :cond_d
-    new-instance v3, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
-
-    sget-wide v20, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Bump:J
-
-    move-object/from16 v19, v3
-
-    move-object/from16 v22, v10
-
-    move/from16 v23, v15
-
-    move/from16 v24, v16
-
-    move/from16 v25, v17
-
-    move/from16 v26, v18
-
-    invoke-direct/range {v19 .. v26}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;-><init>(JLcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;FFFF)V
-
-    invoke-virtual {v1, v3}, Lcom/badlogic/gdx/graphics/g3d/Material;->set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
-
-    .line 320
-    goto/16 :goto_6
-
-    .line 322
-    :cond_e
-    new-instance v3, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
-
-    sget-wide v20, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Normal:J
-
-    move-object/from16 v19, v3
-
-    move-object/from16 v22, v10
-
-    move/from16 v23, v15
-
-    move/from16 v24, v16
-
-    move/from16 v25, v17
-
-    move/from16 v26, v18
-
-    invoke-direct/range {v19 .. v26}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;-><init>(JLcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;FFFF)V
-
-    invoke-virtual {v1, v3}, Lcom/badlogic/gdx/graphics/g3d/Material;->set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
-
-    .line 323
-    goto :goto_6
-
-    .line 316
-    :cond_f
-    new-instance v3, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
-
-    sget-wide v20, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Specular:J
-
-    move-object/from16 v19, v3
-
-    move-object/from16 v22, v10
-
-    move/from16 v23, v15
-
-    move/from16 v24, v16
-
-    move/from16 v25, v17
-
-    move/from16 v26, v18
-
-    invoke-direct/range {v19 .. v26}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;-><init>(JLcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;FFFF)V
-
-    invoke-virtual {v1, v3}, Lcom/badlogic/gdx/graphics/g3d/Material;->set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
-
-    .line 317
-    goto :goto_6
-
-    .line 325
-    :cond_10
-    new-instance v3, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
-
-    sget-wide v20, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Ambient:J
-
-    move-object/from16 v19, v3
-
-    move-object/from16 v22, v10
-
-    move/from16 v23, v15
-
-    move/from16 v24, v16
-
-    move/from16 v25, v17
-
-    move/from16 v26, v18
-
-    invoke-direct/range {v19 .. v26}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;-><init>(JLcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;FFFF)V
-
-    invoke-virtual {v1, v3}, Lcom/badlogic/gdx/graphics/g3d/Material;->set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
-
-    .line 326
-    goto :goto_6
-
-    .line 328
-    :cond_11
-    new-instance v3, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
-
-    sget-wide v20, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Emissive:J
-
-    move-object/from16 v19, v3
-
-    move-object/from16 v22, v10
-
-    move/from16 v23, v15
-
-    move/from16 v24, v16
-
-    move/from16 v25, v17
-
-    move/from16 v26, v18
-
-    invoke-direct/range {v19 .. v26}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;-><init>(JLcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;FFFF)V
-
-    invoke-virtual {v1, v3}, Lcom/badlogic/gdx/graphics/g3d/Material;->set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
-
-    .line 329
-    goto :goto_6
-
-    .line 313
-    :cond_12
-    new-instance v3, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
-
-    sget-wide v20, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Diffuse:J
-
-    move-object/from16 v19, v3
-
-    move-object/from16 v22, v10
-
-    move/from16 v23, v15
-
-    move/from16 v24, v16
-
-    move/from16 v25, v17
-
-    move/from16 v26, v18
-
-    invoke-direct/range {v19 .. v26}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;-><init>(JLcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;FFFF)V
-
-    invoke-virtual {v1, v3}, Lcom/badlogic/gdx/graphics/g3d/Material;->set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
-
-    .line 314
-    nop
-
-    .line 334
-    .end local v6    # "tex":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;
-    .end local v7    # "texture":Lcom/badlogic/gdx/graphics/Texture;
-    .end local v10    # "descriptor":Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
-    .end local v15    # "offsetU":F
-    .end local v16    # "offsetV":F
-    .end local v17    # "scaleU":F
-    .end local v18    # "scaleV":F
-    :goto_6
-    const/4 v3, 0x0
+    if-eq v5, v6, :cond_c
 
     goto/16 :goto_0
 
-    .line 290
+    .line 331
+    :cond_c
+    new-instance v5, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
+
+    sget-wide v10, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Reflection:J
+
+    move-object v9, v5
+
+    invoke-direct/range {v9 .. v16}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;-><init>(JLcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;FFFF)V
+
+    invoke-virtual {v1, v5}, Lcom/badlogic/gdx/graphics/g3d/Material;->set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
+
+    goto/16 :goto_0
+
+    .line 319
+    :cond_d
+    new-instance v5, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
+
+    sget-wide v10, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Bump:J
+
+    move-object v9, v5
+
+    invoke-direct/range {v9 .. v16}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;-><init>(JLcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;FFFF)V
+
+    invoke-virtual {v1, v5}, Lcom/badlogic/gdx/graphics/g3d/Material;->set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
+
+    goto/16 :goto_0
+
+    .line 322
+    :cond_e
+    new-instance v5, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
+
+    sget-wide v10, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Normal:J
+
+    move-object v9, v5
+
+    invoke-direct/range {v9 .. v16}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;-><init>(JLcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;FFFF)V
+
+    invoke-virtual {v1, v5}, Lcom/badlogic/gdx/graphics/g3d/Material;->set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
+
+    goto/16 :goto_0
+
+    .line 316
+    :cond_f
+    new-instance v5, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
+
+    sget-wide v10, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Specular:J
+
+    move-object v9, v5
+
+    invoke-direct/range {v9 .. v16}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;-><init>(JLcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;FFFF)V
+
+    invoke-virtual {v1, v5}, Lcom/badlogic/gdx/graphics/g3d/Material;->set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
+
+    goto/16 :goto_0
+
+    .line 325
+    :cond_10
+    new-instance v5, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
+
+    sget-wide v10, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Ambient:J
+
+    move-object v9, v5
+
+    invoke-direct/range {v9 .. v16}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;-><init>(JLcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;FFFF)V
+
+    invoke-virtual {v1, v5}, Lcom/badlogic/gdx/graphics/g3d/Material;->set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
+
+    goto/16 :goto_0
+
+    .line 328
+    :cond_11
+    new-instance v5, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
+
+    sget-wide v10, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Emissive:J
+
+    move-object v9, v5
+
+    invoke-direct/range {v9 .. v16}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;-><init>(JLcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;FFFF)V
+
+    invoke-virtual {v1, v5}, Lcom/badlogic/gdx/graphics/g3d/Material;->set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
+
+    goto/16 :goto_0
+
+    .line 313
+    :cond_12
+    new-instance v5, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
+
+    sget-wide v10, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Diffuse:J
+
+    move-object v9, v5
+
+    invoke-direct/range {v9 .. v16}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;-><init>(JLcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;FFFF)V
+
+    invoke-virtual {v1, v5}, Lcom/badlogic/gdx/graphics/g3d/Material;->set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
+
+    goto/16 :goto_0
+
     :cond_13
-    move-object/from16 v9, p0
+    move-object/from16 v8, p0
 
-    move-object/from16 v8, p2
-
-    goto :goto_7
-
-    .line 289
-    :cond_14
-    move-object/from16 v9, p0
-
-    move-object/from16 v8, p2
-
-    .line 337
-    :goto_7
     return-object v1
 .end method
 
 .method protected convertMesh(Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMesh;)V
-    .locals 14
-    .param p1, "modelMesh"    # Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMesh;
-
-    .line 236
-    const/4 v0, 0x0
+    .locals 10
 
     .line 237
-    .local v0, "numIndices":I
-    iget-object v1, p1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMesh;->parts:[Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMeshPart;
+    iget-object v0, p1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMesh;->parts:[Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMeshPart;
 
-    array-length v2, v1
+    array-length v1, v0
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
+
+    move v3, v2
 
     move v4, v3
 
     :goto_0
-    if-ge v4, v2, :cond_0
+    if-ge v3, v1, :cond_0
 
-    aget-object v5, v1, v4
+    aget-object v5, v0, v3
 
     .line 238
-    .local v5, "part":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMeshPart;
-    iget-object v6, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMeshPart;->indices:[S
+    iget-object v5, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMeshPart;->indices:[S
 
-    array-length v6, v6
+    array-length v5, v5
 
-    add-int/2addr v0, v6
+    add-int/2addr v4, v5
 
-    .line 237
-    .end local v5    # "part":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMeshPart;
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 240
     :cond_0
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    if-lez v0, :cond_1
+    if-lez v4, :cond_1
 
-    move v2, v1
+    move v1, v0
 
     goto :goto_1
 
     :cond_1
-    move v2, v3
+    move v1, v2
 
     .line 241
-    .local v2, "hasIndices":Z
     :goto_1
-    new-instance v4, Lcom/badlogic/gdx/graphics/VertexAttributes;
+    new-instance v3, Lcom/badlogic/gdx/graphics/VertexAttributes;
 
     iget-object v5, p1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMesh;->attributes:[Lcom/badlogic/gdx/graphics/VertexAttribute;
 
-    invoke-direct {v4, v5}, Lcom/badlogic/gdx/graphics/VertexAttributes;-><init>([Lcom/badlogic/gdx/graphics/VertexAttribute;)V
+    invoke-direct {v3, v5}, Lcom/badlogic/gdx/graphics/VertexAttributes;-><init>([Lcom/badlogic/gdx/graphics/VertexAttribute;)V
 
     .line 242
-    .local v4, "attributes":Lcom/badlogic/gdx/graphics/VertexAttributes;
     iget-object v5, p1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMesh;->vertices:[F
 
     array-length v5, v5
 
-    iget v6, v4, Lcom/badlogic/gdx/graphics/VertexAttributes;->vertexSize:I
+    iget v6, v3, Lcom/badlogic/gdx/graphics/VertexAttributes;->vertexSize:I
 
     div-int/lit8 v6, v6, 0x4
 
     div-int/2addr v5, v6
 
     .line 244
-    .local v5, "numVertices":I
     new-instance v6, Lcom/badlogic/gdx/graphics/Mesh;
 
-    invoke-direct {v6, v1, v5, v0, v4}, Lcom/badlogic/gdx/graphics/Mesh;-><init>(ZIILcom/badlogic/gdx/graphics/VertexAttributes;)V
-
-    move-object v1, v6
+    invoke-direct {v6, v0, v5, v4, v3}, Lcom/badlogic/gdx/graphics/Mesh;-><init>(ZIILcom/badlogic/gdx/graphics/VertexAttributes;)V
 
     .line 245
-    .local v1, "mesh":Lcom/badlogic/gdx/graphics/Mesh;
-    iget-object v6, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->meshes:Lcom/badlogic/gdx/utils/Array;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->meshes:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v6, v1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v0, v6}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
     .line 246
-    iget-object v6, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->disposables:Lcom/badlogic/gdx/utils/Array;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->disposables:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v6, v1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v0, v6}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
     .line 248
-    iget-object v6, p1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMesh;->vertices:[F
+    iget-object v0, p1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMesh;->vertices:[F
 
-    invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/Mesh;->getVerticesBuffer()Ljava/nio/FloatBuffer;
+    invoke-virtual {v6}, Lcom/badlogic/gdx/graphics/Mesh;->getVerticesBuffer()Ljava/nio/FloatBuffer;
 
-    move-result-object v7
+    move-result-object v3
 
-    iget-object v8, p1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMesh;->vertices:[F
+    iget-object v4, p1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMesh;->vertices:[F
 
-    array-length v8, v8
+    array-length v4, v4
 
-    invoke-static {v6, v7, v8, v3}, Lcom/badlogic/gdx/utils/BufferUtils;->copy([FLjava/nio/Buffer;II)V
-
-    .line 249
-    const/4 v6, 0x0
+    invoke-static {v0, v3, v4, v2}, Lcom/badlogic/gdx/utils/BufferUtils;->copy([FLjava/nio/Buffer;II)V
 
     .line 250
-    .local v6, "offset":I
-    invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/Mesh;->getIndicesBuffer()Ljava/nio/ShortBuffer;
+    invoke-virtual {v6}, Lcom/badlogic/gdx/graphics/Mesh;->getIndicesBuffer()Ljava/nio/ShortBuffer;
 
-    move-result-object v7
+    move-result-object v0
 
-    invoke-virtual {v7}, Ljava/nio/ShortBuffer;->clear()Ljava/nio/Buffer;
+    invoke-virtual {v0}, Ljava/nio/ShortBuffer;->clear()Ljava/nio/Buffer;
 
     .line 251
-    iget-object v7, p1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMesh;->parts:[Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMeshPart;
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMesh;->parts:[Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMeshPart;
 
-    array-length v8, v7
+    array-length v0, p1
 
-    move v9, v3
+    move v3, v2
+
+    move v4, v3
 
     :goto_2
-    if-ge v9, v8, :cond_4
+    if-ge v3, v0, :cond_4
 
-    aget-object v10, v7, v9
+    aget-object v7, p1, v3
 
     .line 252
-    .local v10, "part":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMeshPart;
-    new-instance v11, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
+    new-instance v8, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
 
-    invoke-direct {v11}, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;-><init>()V
+    invoke-direct {v8}, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;-><init>()V
 
     .line 253
-    .local v11, "meshPart":Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
-    iget-object v12, v10, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMeshPart;->id:Ljava/lang/String;
+    iget-object v9, v7, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMeshPart;->id:Ljava/lang/String;
 
-    iput-object v12, v11, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->id:Ljava/lang/String;
+    iput-object v9, v8, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->id:Ljava/lang/String;
 
     .line 254
-    iget v12, v10, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMeshPart;->primitiveType:I
+    iget v9, v7, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMeshPart;->primitiveType:I
 
-    iput v12, v11, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->primitiveType:I
+    iput v9, v8, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->primitiveType:I
 
     .line 255
-    iput v6, v11, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->offset:I
+    iput v4, v8, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->offset:I
+
+    if-eqz v1, :cond_2
 
     .line 256
-    if-eqz v2, :cond_2
+    iget-object v9, v7, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMeshPart;->indices:[S
 
-    iget-object v12, v10, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMeshPart;->indices:[S
-
-    array-length v12, v12
+    array-length v9, v9
 
     goto :goto_3
 
     :cond_2
-    move v12, v5
+    move v9, v5
 
     :goto_3
-    iput v12, v11, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->size:I
+    iput v9, v8, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->size:I
 
     .line 257
-    iput-object v1, v11, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->mesh:Lcom/badlogic/gdx/graphics/Mesh;
+    iput-object v6, v8, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->mesh:Lcom/badlogic/gdx/graphics/Mesh;
 
-    .line 258
-    if-eqz v2, :cond_3
+    if-eqz v1, :cond_3
 
     .line 259
-    invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/Mesh;->getIndicesBuffer()Ljava/nio/ShortBuffer;
+    invoke-virtual {v6}, Lcom/badlogic/gdx/graphics/Mesh;->getIndicesBuffer()Ljava/nio/ShortBuffer;
 
-    move-result-object v12
+    move-result-object v9
 
-    iget-object v13, v10, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMeshPart;->indices:[S
+    iget-object v7, v7, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMeshPart;->indices:[S
 
-    invoke-virtual {v12, v13}, Ljava/nio/ShortBuffer;->put([S)Ljava/nio/ShortBuffer;
+    invoke-virtual {v9, v7}, Ljava/nio/ShortBuffer;->put([S)Ljava/nio/ShortBuffer;
 
     .line 261
     :cond_3
-    iget v12, v11, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->size:I
+    iget v7, v8, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->size:I
 
-    add-int/2addr v6, v12
+    add-int/2addr v4, v7
 
     .line 262
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->meshParts:Lcom/badlogic/gdx/utils/Array;
+    iget-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->meshParts:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v12, v11}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v7, v8}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 251
-    .end local v10    # "part":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMeshPart;
-    .end local v11    # "meshPart":Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
-    add-int/lit8 v9, v9, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
     .line 264
     :cond_4
-    invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/Mesh;->getIndicesBuffer()Ljava/nio/ShortBuffer;
+    invoke-virtual {v6}, Lcom/badlogic/gdx/graphics/Mesh;->getIndicesBuffer()Ljava/nio/ShortBuffer;
 
-    move-result-object v7
+    move-result-object p1
 
-    invoke-virtual {v7, v3}, Ljava/nio/ShortBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, v2}, Ljava/nio/ShortBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 265
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->meshParts:Lcom/badlogic/gdx/utils/Array;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->meshParts:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v3}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object p1
 
     :goto_4
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v7
+    move-result v0
 
-    if-eqz v7, :cond_5
+    if-eqz v0, :cond_5
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v0
 
-    check-cast v7, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
+    check-cast v0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
 
     .line 266
-    .local v7, "part":Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
-    invoke-virtual {v7}, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->update()V
+    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->update()V
 
-    .end local v7    # "part":Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
     goto :goto_4
 
-    .line 267
     :cond_5
     return-void
 .end method
@@ -1120,32 +970,24 @@
     check-cast v1, Lcom/badlogic/gdx/utils/Disposable;
 
     .line 355
-    .local v1, "disposable":Lcom/badlogic/gdx/utils/Disposable;
     invoke-interface {v1}, Lcom/badlogic/gdx/utils/Disposable;->dispose()V
 
-    .line 356
-    .end local v1    # "disposable":Lcom/badlogic/gdx/utils/Disposable;
     goto :goto_0
 
-    .line 357
     :cond_0
     return-void
 .end method
 
 .method public extendBoundingBox(Lcom/badlogic/gdx/math/collision/BoundingBox;)Lcom/badlogic/gdx/math/collision/BoundingBox;
     .locals 3
-    .param p1, "out"    # Lcom/badlogic/gdx/math/collision/BoundingBox;
 
     .line 389
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->nodes:Lcom/badlogic/gdx/utils/Array;
 
     iget v0, v0, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    .line 390
-    .local v0, "n":I
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -1160,65 +1002,52 @@
 
     invoke-virtual {v2, p1}, Lcom/badlogic/gdx/graphics/g3d/model/Node;->extendBoundingBox(Lcom/badlogic/gdx/math/collision/BoundingBox;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
-    .line 390
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 392
-    .end local v1    # "i":I
     :cond_0
     return-object p1
 .end method
 
 .method public getAnimation(Ljava/lang/String;)Lcom/badlogic/gdx/graphics/g3d/model/Animation;
     .locals 1
-    .param p1, "id"    # Ljava/lang/String;
 
-    .line 398
     const/4 v0, 0x1
 
+    .line 398
     invoke-virtual {p0, p1, v0}, Lcom/badlogic/gdx/graphics/g3d/Model;->getAnimation(Ljava/lang/String;Z)Lcom/badlogic/gdx/graphics/g3d/model/Animation;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getAnimation(Ljava/lang/String;Z)Lcom/badlogic/gdx/graphics/g3d/model/Animation;
-    .locals 4
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "ignoreCase"    # Z
+    .locals 3
 
     .line 405
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->animations:Lcom/badlogic/gdx/utils/Array;
 
     iget v0, v0, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    .line 407
-    .local v0, "n":I
-    if-eqz p2, :cond_2
-
-    .line 408
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    if-eqz p2, :cond_1
+
     :goto_0
-    if-ge v1, v0, :cond_1
+    if-ge v1, v0, :cond_3
 
     .line 409
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->animations:Lcom/badlogic/gdx/utils/Array;
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->animations:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v2, v1}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
+    invoke-virtual {p2, v1}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p2
 
-    check-cast v2, Lcom/badlogic/gdx/graphics/g3d/model/Animation;
+    check-cast p2, Lcom/badlogic/gdx/graphics/g3d/model/Animation;
 
-    move-object v3, v2
-
-    .local v3, "animation":Lcom/badlogic/gdx/graphics/g3d/model/Animation;
-    iget-object v2, v2, Lcom/badlogic/gdx/graphics/g3d/model/Animation;->id:Ljava/lang/String;
+    iget-object v2, p2, Lcom/badlogic/gdx/graphics/g3d/model/Animation;->id:Ljava/lang/String;
 
     invoke-virtual {v2, p1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -1226,63 +1055,45 @@
 
     if-eqz v2, :cond_0
 
-    return-object v3
+    return-object p2
 
-    .line 408
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .end local v1    # "i":I
-    .end local v3    # "animation":Lcom/badlogic/gdx/graphics/g3d/model/Animation;
     :cond_1
-    goto :goto_2
-
-    .line 411
-    :cond_2
-    const/4 v1, 0x0
-
-    .restart local v1    # "i":I
     :goto_1
-    if-ge v1, v0, :cond_4
+    if-ge v1, v0, :cond_3
 
     .line 412
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->animations:Lcom/badlogic/gdx/utils/Array;
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->animations:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v2, v1}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
+    invoke-virtual {p2, v1}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p2
 
-    check-cast v2, Lcom/badlogic/gdx/graphics/g3d/model/Animation;
+    check-cast p2, Lcom/badlogic/gdx/graphics/g3d/model/Animation;
 
-    move-object v3, v2
-
-    .restart local v3    # "animation":Lcom/badlogic/gdx/graphics/g3d/model/Animation;
-    iget-object v2, v2, Lcom/badlogic/gdx/graphics/g3d/model/Animation;->id:Ljava/lang/String;
+    iget-object v2, p2, Lcom/badlogic/gdx/graphics/g3d/model/Animation;->id:Ljava/lang/String;
 
     invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2
 
-    return-object v3
+    return-object p2
 
-    .line 411
-    :cond_3
+    :cond_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 414
-    .end local v1    # "i":I
-    .end local v3    # "animation":Lcom/badlogic/gdx/graphics/g3d/model/Animation;
-    :cond_4
-    :goto_2
-    const/4 v1, 0x0
+    :cond_3
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public getManagedDisposables()Ljava/lang/Iterable;
@@ -1304,52 +1115,42 @@
 
 .method public getMaterial(Ljava/lang/String;)Lcom/badlogic/gdx/graphics/g3d/Material;
     .locals 1
-    .param p1, "id"    # Ljava/lang/String;
 
-    .line 420
     const/4 v0, 0x1
 
+    .line 420
     invoke-virtual {p0, p1, v0}, Lcom/badlogic/gdx/graphics/g3d/Model;->getMaterial(Ljava/lang/String;Z)Lcom/badlogic/gdx/graphics/g3d/Material;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getMaterial(Ljava/lang/String;Z)Lcom/badlogic/gdx/graphics/g3d/Material;
-    .locals 4
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "ignoreCase"    # Z
+    .locals 3
 
     .line 427
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->materials:Lcom/badlogic/gdx/utils/Array;
 
     iget v0, v0, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    .line 429
-    .local v0, "n":I
-    if-eqz p2, :cond_2
-
-    .line 430
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    if-eqz p2, :cond_1
+
     :goto_0
-    if-ge v1, v0, :cond_1
+    if-ge v1, v0, :cond_3
 
     .line 431
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->materials:Lcom/badlogic/gdx/utils/Array;
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->materials:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v2, v1}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
+    invoke-virtual {p2, v1}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p2
 
-    check-cast v2, Lcom/badlogic/gdx/graphics/g3d/Material;
+    check-cast p2, Lcom/badlogic/gdx/graphics/g3d/Material;
 
-    move-object v3, v2
-
-    .local v3, "material":Lcom/badlogic/gdx/graphics/g3d/Material;
-    iget-object v2, v2, Lcom/badlogic/gdx/graphics/g3d/Material;->id:Ljava/lang/String;
+    iget-object v2, p2, Lcom/badlogic/gdx/graphics/g3d/Material;->id:Ljava/lang/String;
 
     invoke-virtual {v2, p1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -1357,114 +1158,88 @@
 
     if-eqz v2, :cond_0
 
-    return-object v3
+    return-object p2
 
-    .line 430
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .end local v1    # "i":I
-    .end local v3    # "material":Lcom/badlogic/gdx/graphics/g3d/Material;
     :cond_1
-    goto :goto_2
-
-    .line 433
-    :cond_2
-    const/4 v1, 0x0
-
-    .restart local v1    # "i":I
     :goto_1
-    if-ge v1, v0, :cond_4
+    if-ge v1, v0, :cond_3
 
     .line 434
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->materials:Lcom/badlogic/gdx/utils/Array;
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->materials:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v2, v1}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
+    invoke-virtual {p2, v1}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p2
 
-    check-cast v2, Lcom/badlogic/gdx/graphics/g3d/Material;
+    check-cast p2, Lcom/badlogic/gdx/graphics/g3d/Material;
 
-    move-object v3, v2
-
-    .restart local v3    # "material":Lcom/badlogic/gdx/graphics/g3d/Material;
-    iget-object v2, v2, Lcom/badlogic/gdx/graphics/g3d/Material;->id:Ljava/lang/String;
+    iget-object v2, p2, Lcom/badlogic/gdx/graphics/g3d/Material;->id:Ljava/lang/String;
 
     invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2
 
-    return-object v3
+    return-object p2
 
-    .line 433
-    :cond_3
+    :cond_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 436
-    .end local v1    # "i":I
-    .end local v3    # "material":Lcom/badlogic/gdx/graphics/g3d/Material;
-    :cond_4
-    :goto_2
-    const/4 v1, 0x0
+    :cond_3
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public getNode(Ljava/lang/String;)Lcom/badlogic/gdx/graphics/g3d/model/Node;
     .locals 1
-    .param p1, "id"    # Ljava/lang/String;
 
-    .line 442
     const/4 v0, 0x1
 
+    .line 442
     invoke-virtual {p0, p1, v0}, Lcom/badlogic/gdx/graphics/g3d/Model;->getNode(Ljava/lang/String;Z)Lcom/badlogic/gdx/graphics/g3d/model/Node;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getNode(Ljava/lang/String;Z)Lcom/badlogic/gdx/graphics/g3d/model/Node;
     .locals 1
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "recursive"    # Z
 
-    .line 449
     const/4 v0, 0x0
 
+    .line 449
     invoke-virtual {p0, p1, p2, v0}, Lcom/badlogic/gdx/graphics/g3d/Model;->getNode(Ljava/lang/String;ZZ)Lcom/badlogic/gdx/graphics/g3d/model/Node;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getNode(Ljava/lang/String;ZZ)Lcom/badlogic/gdx/graphics/g3d/model/Node;
     .locals 1
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "recursive"    # Z
-    .param p3, "ignoreCase"    # Z
 
     .line 457
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->nodes:Lcom/badlogic/gdx/utils/Array;
 
     invoke-static {v0, p1, p2, p3}, Lcom/badlogic/gdx/graphics/g3d/model/Node;->getNode(Lcom/badlogic/gdx/utils/Array;Ljava/lang/String;ZZ)Lcom/badlogic/gdx/graphics/g3d/model/Node;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected load(Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;)V
     .locals 1
-    .param p1, "modelData"    # Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;
-    .param p2, "textureProvider"    # Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;
 
     .line 106
     iget-object v0, p1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;->meshes:Lcom/badlogic/gdx/utils/Array;
@@ -1477,24 +1252,23 @@
     invoke-virtual {p0, v0, p2}, Lcom/badlogic/gdx/graphics/g3d/Model;->loadMaterials(Ljava/lang/Iterable;Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;)V
 
     .line 108
-    iget-object v0, p1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;->nodes:Lcom/badlogic/gdx/utils/Array;
+    iget-object p2, p1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;->nodes:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/g3d/Model;->loadNodes(Ljava/lang/Iterable;)V
+    invoke-virtual {p0, p2}, Lcom/badlogic/gdx/graphics/g3d/Model;->loadNodes(Ljava/lang/Iterable;)V
 
     .line 109
-    iget-object v0, p1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;->animations:Lcom/badlogic/gdx/utils/Array;
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;->animations:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/g3d/Model;->loadAnimations(Ljava/lang/Iterable;)V
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/Model;->loadAnimations(Ljava/lang/Iterable;)V
 
     .line 110
     invoke-virtual {p0}, Lcom/badlogic/gdx/graphics/g3d/Model;->calculateTransforms()V
 
-    .line 111
     return-void
 .end method
 
 .method protected loadAnimations(Ljava/lang/Iterable;)V
-    .locals 14
+    .locals 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1505,422 +1279,397 @@
     .end annotation
 
     .line 114
-    .local p1, "modelAnimations":Ljava/lang/Iterable;, "Ljava/lang/Iterable<Lcom/badlogic/gdx/graphics/g3d/model/data/ModelAnimation;>;"
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :cond_0
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_10
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    :goto_0
+    check-cast v0, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelAnimation;
+
+    .line 115
+    new-instance v1, Lcom/badlogic/gdx/graphics/g3d/model/Animation;
+
+    invoke-direct {v1}, Lcom/badlogic/gdx/graphics/g3d/model/Animation;-><init>()V
+
+    .line 116
+    iget-object v2, v0, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelAnimation;->id:Ljava/lang/String;
+
+    iput-object v2, v1, Lcom/badlogic/gdx/graphics/g3d/model/Animation;->id:Ljava/lang/String;
+
+    .line 117
+    iget-object v0, v0, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelAnimation;->nodeAnimations:Lcom/badlogic/gdx/utils/Array;
+
+    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :cond_1
+    :goto_1
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_10
+    if-eqz v2, :cond_f
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelAnimation;
+    check-cast v2, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeAnimation;
 
-    .line 115
-    .local v1, "anim":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelAnimation;
-    new-instance v2, Lcom/badlogic/gdx/graphics/g3d/model/Animation;
+    .line 118
+    iget-object v3, v2, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeAnimation;->nodeId:Ljava/lang/String;
 
-    invoke-direct {v2}, Lcom/badlogic/gdx/graphics/g3d/model/Animation;-><init>()V
-
-    .line 116
-    .local v2, "animation":Lcom/badlogic/gdx/graphics/g3d/model/Animation;
-    iget-object v3, v1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelAnimation;->id:Ljava/lang/String;
-
-    iput-object v3, v2, Lcom/badlogic/gdx/graphics/g3d/model/Animation;->id:Ljava/lang/String;
-
-    .line 117
-    iget-object v3, v1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelAnimation;->nodeAnimations:Lcom/badlogic/gdx/utils/Array;
-
-    invoke-virtual {v3}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p0, v3}, Lcom/badlogic/gdx/graphics/g3d/Model;->getNode(Ljava/lang/String;)Lcom/badlogic/gdx/graphics/g3d/model/Node;
 
     move-result-object v3
 
-    :goto_1
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_e
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeAnimation;
-
-    .line 118
-    .local v4, "nanim":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeAnimation;
-    iget-object v5, v4, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeAnimation;->nodeId:Ljava/lang/String;
-
-    invoke-virtual {p0, v5}, Lcom/badlogic/gdx/graphics/g3d/Model;->getNode(Ljava/lang/String;)Lcom/badlogic/gdx/graphics/g3d/model/Node;
-
-    move-result-object v5
-
-    .line 119
-    .local v5, "node":Lcom/badlogic/gdx/graphics/g3d/model/Node;
-    if-nez v5, :cond_0
+    if-nez v3, :cond_2
 
     goto :goto_1
 
     .line 120
-    :cond_0
-    new-instance v6, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;
+    :cond_2
+    new-instance v4, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;
 
-    invoke-direct {v6}, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;-><init>()V
+    invoke-direct {v4}, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;-><init>()V
 
     .line 121
-    .local v6, "nodeAnim":Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;
-    iput-object v5, v6, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->node:Lcom/badlogic/gdx/graphics/g3d/model/Node;
+    iput-object v3, v4, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->node:Lcom/badlogic/gdx/graphics/g3d/model/Node;
 
     .line 123
-    iget-object v7, v4, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeAnimation;->translation:Lcom/badlogic/gdx/utils/Array;
+    iget-object v5, v2, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeAnimation;->translation:Lcom/badlogic/gdx/utils/Array;
 
-    if-eqz v7, :cond_3
+    if-eqz v5, :cond_5
 
     .line 124
-    new-instance v7, Lcom/badlogic/gdx/utils/Array;
+    new-instance v5, Lcom/badlogic/gdx/utils/Array;
 
-    invoke-direct {v7}, Lcom/badlogic/gdx/utils/Array;-><init>()V
+    invoke-direct {v5}, Lcom/badlogic/gdx/utils/Array;-><init>()V
 
-    iput-object v7, v6, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->translation:Lcom/badlogic/gdx/utils/Array;
+    iput-object v5, v4, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->translation:Lcom/badlogic/gdx/utils/Array;
 
     .line 125
-    iget-object v7, v6, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->translation:Lcom/badlogic/gdx/utils/Array;
+    iget-object v5, v4, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->translation:Lcom/badlogic/gdx/utils/Array;
 
-    iget-object v8, v4, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeAnimation;->translation:Lcom/badlogic/gdx/utils/Array;
+    iget-object v6, v2, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeAnimation;->translation:Lcom/badlogic/gdx/utils/Array;
 
-    iget v8, v8, Lcom/badlogic/gdx/utils/Array;->size:I
+    iget v6, v6, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    invoke-virtual {v7, v8}, Lcom/badlogic/gdx/utils/Array;->ensureCapacity(I)[Ljava/lang/Object;
+    invoke-virtual {v5, v6}, Lcom/badlogic/gdx/utils/Array;->ensureCapacity(I)[Ljava/lang/Object;
 
     .line 126
-    iget-object v7, v4, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeAnimation;->translation:Lcom/badlogic/gdx/utils/Array;
+    iget-object v5, v2, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeAnimation;->translation:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v7}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v5}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
 
-    move-result-object v7
+    move-result-object v5
 
     :goto_2
-    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v8
+    move-result v6
 
-    if-eqz v8, :cond_3
+    if-eqz v6, :cond_5
 
-    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v6
 
-    check-cast v8, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;
+    check-cast v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;
 
     .line 127
-    .local v8, "kf":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;, "Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe<Lcom/badlogic/gdx/math/Vector3;>;"
-    iget v9, v8, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->keytime:F
+    iget v7, v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->keytime:F
 
-    iget v10, v2, Lcom/badlogic/gdx/graphics/g3d/model/Animation;->duration:F
+    iget v8, v1, Lcom/badlogic/gdx/graphics/g3d/model/Animation;->duration:F
 
-    cmpl-float v9, v9, v10
+    cmpl-float v7, v7, v8
 
-    if-lez v9, :cond_1
+    if-lez v7, :cond_3
 
-    iget v9, v8, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->keytime:F
+    iget v7, v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->keytime:F
 
-    iput v9, v2, Lcom/badlogic/gdx/graphics/g3d/model/Animation;->duration:F
+    iput v7, v1, Lcom/badlogic/gdx/graphics/g3d/model/Animation;->duration:F
 
     .line 128
-    :cond_1
-    iget-object v9, v6, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->translation:Lcom/badlogic/gdx/utils/Array;
+    :cond_3
+    iget-object v7, v4, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->translation:Lcom/badlogic/gdx/utils/Array;
 
-    new-instance v10, Lcom/badlogic/gdx/graphics/g3d/model/NodeKeyframe;
+    new-instance v8, Lcom/badlogic/gdx/graphics/g3d/model/NodeKeyframe;
 
-    iget v11, v8, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->keytime:F
+    iget v9, v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->keytime:F
 
-    new-instance v12, Lcom/badlogic/gdx/math/Vector3;
+    new-instance v10, Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v13, v8, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->value:Ljava/lang/Object;
+    iget-object v11, v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->value:Ljava/lang/Object;
 
-    if-nez v13, :cond_2
+    if-nez v11, :cond_4
 
-    iget-object v13, v5, Lcom/badlogic/gdx/graphics/g3d/model/Node;->translation:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v6, v3, Lcom/badlogic/gdx/graphics/g3d/model/Node;->translation:Lcom/badlogic/gdx/math/Vector3;
 
     goto :goto_3
 
-    :cond_2
-    iget-object v13, v8, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->value:Ljava/lang/Object;
+    :cond_4
+    iget-object v6, v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->value:Ljava/lang/Object;
 
-    check-cast v13, Lcom/badlogic/gdx/math/Vector3;
+    check-cast v6, Lcom/badlogic/gdx/math/Vector3;
 
     :goto_3
-    invoke-direct {v12, v13}, Lcom/badlogic/gdx/math/Vector3;-><init>(Lcom/badlogic/gdx/math/Vector3;)V
+    invoke-direct {v10, v6}, Lcom/badlogic/gdx/math/Vector3;-><init>(Lcom/badlogic/gdx/math/Vector3;)V
 
-    invoke-direct {v10, v11, v12}, Lcom/badlogic/gdx/graphics/g3d/model/NodeKeyframe;-><init>(FLjava/lang/Object;)V
+    invoke-direct {v8, v9, v10}, Lcom/badlogic/gdx/graphics/g3d/model/NodeKeyframe;-><init>(FLjava/lang/Object;)V
 
-    invoke-virtual {v9, v10}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v7, v8}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 130
-    .end local v8    # "kf":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;, "Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe<Lcom/badlogic/gdx/math/Vector3;>;"
     goto :goto_2
 
     .line 133
-    :cond_3
-    iget-object v7, v4, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeAnimation;->rotation:Lcom/badlogic/gdx/utils/Array;
+    :cond_5
+    iget-object v5, v2, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeAnimation;->rotation:Lcom/badlogic/gdx/utils/Array;
 
-    if-eqz v7, :cond_6
+    if-eqz v5, :cond_8
 
     .line 134
-    new-instance v7, Lcom/badlogic/gdx/utils/Array;
+    new-instance v5, Lcom/badlogic/gdx/utils/Array;
 
-    invoke-direct {v7}, Lcom/badlogic/gdx/utils/Array;-><init>()V
+    invoke-direct {v5}, Lcom/badlogic/gdx/utils/Array;-><init>()V
 
-    iput-object v7, v6, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->rotation:Lcom/badlogic/gdx/utils/Array;
+    iput-object v5, v4, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->rotation:Lcom/badlogic/gdx/utils/Array;
 
     .line 135
-    iget-object v7, v6, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->rotation:Lcom/badlogic/gdx/utils/Array;
+    iget-object v5, v4, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->rotation:Lcom/badlogic/gdx/utils/Array;
 
-    iget-object v8, v4, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeAnimation;->rotation:Lcom/badlogic/gdx/utils/Array;
+    iget-object v6, v2, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeAnimation;->rotation:Lcom/badlogic/gdx/utils/Array;
 
-    iget v8, v8, Lcom/badlogic/gdx/utils/Array;->size:I
+    iget v6, v6, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    invoke-virtual {v7, v8}, Lcom/badlogic/gdx/utils/Array;->ensureCapacity(I)[Ljava/lang/Object;
+    invoke-virtual {v5, v6}, Lcom/badlogic/gdx/utils/Array;->ensureCapacity(I)[Ljava/lang/Object;
 
     .line 136
-    iget-object v7, v4, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeAnimation;->rotation:Lcom/badlogic/gdx/utils/Array;
+    iget-object v5, v2, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeAnimation;->rotation:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v7}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v5}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
 
-    move-result-object v7
+    move-result-object v5
 
     :goto_4
-    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v8
+    move-result v6
 
-    if-eqz v8, :cond_6
+    if-eqz v6, :cond_8
 
-    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v6
 
-    check-cast v8, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;
+    check-cast v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;
 
     .line 137
-    .local v8, "kf":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;, "Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe<Lcom/badlogic/gdx/math/Quaternion;>;"
-    iget v9, v8, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->keytime:F
+    iget v7, v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->keytime:F
 
-    iget v10, v2, Lcom/badlogic/gdx/graphics/g3d/model/Animation;->duration:F
+    iget v8, v1, Lcom/badlogic/gdx/graphics/g3d/model/Animation;->duration:F
 
-    cmpl-float v9, v9, v10
+    cmpl-float v7, v7, v8
 
-    if-lez v9, :cond_4
+    if-lez v7, :cond_6
 
-    iget v9, v8, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->keytime:F
+    iget v7, v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->keytime:F
 
-    iput v9, v2, Lcom/badlogic/gdx/graphics/g3d/model/Animation;->duration:F
+    iput v7, v1, Lcom/badlogic/gdx/graphics/g3d/model/Animation;->duration:F
 
     .line 138
-    :cond_4
-    iget-object v9, v6, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->rotation:Lcom/badlogic/gdx/utils/Array;
+    :cond_6
+    iget-object v7, v4, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->rotation:Lcom/badlogic/gdx/utils/Array;
 
-    new-instance v10, Lcom/badlogic/gdx/graphics/g3d/model/NodeKeyframe;
+    new-instance v8, Lcom/badlogic/gdx/graphics/g3d/model/NodeKeyframe;
 
-    iget v11, v8, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->keytime:F
+    iget v9, v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->keytime:F
 
-    new-instance v12, Lcom/badlogic/gdx/math/Quaternion;
+    new-instance v10, Lcom/badlogic/gdx/math/Quaternion;
 
-    iget-object v13, v8, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->value:Ljava/lang/Object;
+    iget-object v11, v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->value:Ljava/lang/Object;
 
-    if-nez v13, :cond_5
+    if-nez v11, :cond_7
 
-    iget-object v13, v5, Lcom/badlogic/gdx/graphics/g3d/model/Node;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+    iget-object v6, v3, Lcom/badlogic/gdx/graphics/g3d/model/Node;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
     goto :goto_5
 
-    :cond_5
-    iget-object v13, v8, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->value:Ljava/lang/Object;
+    :cond_7
+    iget-object v6, v6, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->value:Ljava/lang/Object;
 
-    check-cast v13, Lcom/badlogic/gdx/math/Quaternion;
+    check-cast v6, Lcom/badlogic/gdx/math/Quaternion;
 
     :goto_5
-    invoke-direct {v12, v13}, Lcom/badlogic/gdx/math/Quaternion;-><init>(Lcom/badlogic/gdx/math/Quaternion;)V
+    invoke-direct {v10, v6}, Lcom/badlogic/gdx/math/Quaternion;-><init>(Lcom/badlogic/gdx/math/Quaternion;)V
 
-    invoke-direct {v10, v11, v12}, Lcom/badlogic/gdx/graphics/g3d/model/NodeKeyframe;-><init>(FLjava/lang/Object;)V
+    invoke-direct {v8, v9, v10}, Lcom/badlogic/gdx/graphics/g3d/model/NodeKeyframe;-><init>(FLjava/lang/Object;)V
 
-    invoke-virtual {v9, v10}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v7, v8}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 140
-    .end local v8    # "kf":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;, "Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe<Lcom/badlogic/gdx/math/Quaternion;>;"
     goto :goto_4
 
     .line 143
-    :cond_6
-    iget-object v7, v4, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeAnimation;->scaling:Lcom/badlogic/gdx/utils/Array;
+    :cond_8
+    iget-object v5, v2, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeAnimation;->scaling:Lcom/badlogic/gdx/utils/Array;
 
-    if-eqz v7, :cond_9
+    if-eqz v5, :cond_b
 
     .line 144
-    new-instance v7, Lcom/badlogic/gdx/utils/Array;
+    new-instance v5, Lcom/badlogic/gdx/utils/Array;
 
-    invoke-direct {v7}, Lcom/badlogic/gdx/utils/Array;-><init>()V
+    invoke-direct {v5}, Lcom/badlogic/gdx/utils/Array;-><init>()V
 
-    iput-object v7, v6, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->scaling:Lcom/badlogic/gdx/utils/Array;
+    iput-object v5, v4, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->scaling:Lcom/badlogic/gdx/utils/Array;
 
     .line 145
-    iget-object v7, v6, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->scaling:Lcom/badlogic/gdx/utils/Array;
+    iget-object v5, v4, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->scaling:Lcom/badlogic/gdx/utils/Array;
 
-    iget-object v8, v4, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeAnimation;->scaling:Lcom/badlogic/gdx/utils/Array;
+    iget-object v6, v2, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeAnimation;->scaling:Lcom/badlogic/gdx/utils/Array;
 
-    iget v8, v8, Lcom/badlogic/gdx/utils/Array;->size:I
+    iget v6, v6, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    invoke-virtual {v7, v8}, Lcom/badlogic/gdx/utils/Array;->ensureCapacity(I)[Ljava/lang/Object;
+    invoke-virtual {v5, v6}, Lcom/badlogic/gdx/utils/Array;->ensureCapacity(I)[Ljava/lang/Object;
 
     .line 146
-    iget-object v7, v4, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeAnimation;->scaling:Lcom/badlogic/gdx/utils/Array;
+    iget-object v2, v2, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeAnimation;->scaling:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v7}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v2}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
 
-    move-result-object v7
+    move-result-object v2
 
     :goto_6
-    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v8
+    move-result v5
 
-    if-eqz v8, :cond_9
+    if-eqz v5, :cond_b
 
-    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v5
 
-    check-cast v8, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;
+    check-cast v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;
 
     .line 147
-    .local v8, "kf":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;, "Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe<Lcom/badlogic/gdx/math/Vector3;>;"
-    iget v9, v8, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->keytime:F
+    iget v6, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->keytime:F
 
-    iget v10, v2, Lcom/badlogic/gdx/graphics/g3d/model/Animation;->duration:F
+    iget v7, v1, Lcom/badlogic/gdx/graphics/g3d/model/Animation;->duration:F
 
-    cmpl-float v9, v9, v10
+    cmpl-float v6, v6, v7
 
-    if-lez v9, :cond_7
+    if-lez v6, :cond_9
 
-    iget v9, v8, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->keytime:F
+    iget v6, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->keytime:F
 
-    iput v9, v2, Lcom/badlogic/gdx/graphics/g3d/model/Animation;->duration:F
+    iput v6, v1, Lcom/badlogic/gdx/graphics/g3d/model/Animation;->duration:F
 
     .line 148
-    :cond_7
-    iget-object v9, v6, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->scaling:Lcom/badlogic/gdx/utils/Array;
+    :cond_9
+    iget-object v6, v4, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->scaling:Lcom/badlogic/gdx/utils/Array;
 
-    new-instance v10, Lcom/badlogic/gdx/graphics/g3d/model/NodeKeyframe;
+    new-instance v7, Lcom/badlogic/gdx/graphics/g3d/model/NodeKeyframe;
 
-    iget v11, v8, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->keytime:F
+    iget v8, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->keytime:F
 
-    new-instance v12, Lcom/badlogic/gdx/math/Vector3;
+    new-instance v9, Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v13, v8, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->value:Ljava/lang/Object;
+    iget-object v10, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->value:Ljava/lang/Object;
 
-    if-nez v13, :cond_8
+    if-nez v10, :cond_a
 
-    iget-object v13, v5, Lcom/badlogic/gdx/graphics/g3d/model/Node;->scale:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v5, v3, Lcom/badlogic/gdx/graphics/g3d/model/Node;->scale:Lcom/badlogic/gdx/math/Vector3;
 
     goto :goto_7
 
-    :cond_8
-    iget-object v13, v8, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->value:Ljava/lang/Object;
+    :cond_a
+    iget-object v5, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->value:Ljava/lang/Object;
 
-    check-cast v13, Lcom/badlogic/gdx/math/Vector3;
+    check-cast v5, Lcom/badlogic/gdx/math/Vector3;
 
     :goto_7
-    invoke-direct {v12, v13}, Lcom/badlogic/gdx/math/Vector3;-><init>(Lcom/badlogic/gdx/math/Vector3;)V
+    invoke-direct {v9, v5}, Lcom/badlogic/gdx/math/Vector3;-><init>(Lcom/badlogic/gdx/math/Vector3;)V
 
-    invoke-direct {v10, v11, v12}, Lcom/badlogic/gdx/graphics/g3d/model/NodeKeyframe;-><init>(FLjava/lang/Object;)V
+    invoke-direct {v7, v8, v9}, Lcom/badlogic/gdx/graphics/g3d/model/NodeKeyframe;-><init>(FLjava/lang/Object;)V
 
-    invoke-virtual {v9, v10}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v6, v7}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 150
-    .end local v8    # "kf":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;, "Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe<Lcom/badlogic/gdx/math/Vector3;>;"
     goto :goto_6
 
     .line 153
-    :cond_9
-    iget-object v7, v6, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->translation:Lcom/badlogic/gdx/utils/Array;
-
-    if-eqz v7, :cond_a
-
-    iget-object v7, v6, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->translation:Lcom/badlogic/gdx/utils/Array;
-
-    iget v7, v7, Lcom/badlogic/gdx/utils/Array;->size:I
-
-    if-gtz v7, :cond_c
-
-    :cond_a
-    iget-object v7, v6, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->rotation:Lcom/badlogic/gdx/utils/Array;
-
-    if-eqz v7, :cond_b
-
-    iget-object v7, v6, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->rotation:Lcom/badlogic/gdx/utils/Array;
-
-    iget v7, v7, Lcom/badlogic/gdx/utils/Array;->size:I
-
-    if-gtz v7, :cond_c
-
     :cond_b
-    iget-object v7, v6, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->scaling:Lcom/badlogic/gdx/utils/Array;
+    iget-object v2, v4, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->translation:Lcom/badlogic/gdx/utils/Array;
 
-    if-eqz v7, :cond_d
+    if-eqz v2, :cond_c
 
-    iget-object v7, v6, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->scaling:Lcom/badlogic/gdx/utils/Array;
+    iget-object v2, v4, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->translation:Lcom/badlogic/gdx/utils/Array;
 
-    iget v7, v7, Lcom/badlogic/gdx/utils/Array;->size:I
+    iget v2, v2, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    if-lez v7, :cond_d
+    if-gtz v2, :cond_e
+
+    :cond_c
+    iget-object v2, v4, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->rotation:Lcom/badlogic/gdx/utils/Array;
+
+    if-eqz v2, :cond_d
+
+    iget-object v2, v4, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->rotation:Lcom/badlogic/gdx/utils/Array;
+
+    iget v2, v2, Lcom/badlogic/gdx/utils/Array;->size:I
+
+    if-gtz v2, :cond_e
+
+    :cond_d
+    iget-object v2, v4, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->scaling:Lcom/badlogic/gdx/utils/Array;
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, v4, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->scaling:Lcom/badlogic/gdx/utils/Array;
+
+    iget v2, v2, Lcom/badlogic/gdx/utils/Array;->size:I
+
+    if-lez v2, :cond_1
 
     .line 155
-    :cond_c
-    iget-object v7, v2, Lcom/badlogic/gdx/graphics/g3d/model/Animation;->nodeAnimations:Lcom/badlogic/gdx/utils/Array;
+    :cond_e
+    iget-object v2, v1, Lcom/badlogic/gdx/graphics/g3d/model/Animation;->nodeAnimations:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v7, v6}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v2, v4}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 156
-    .end local v4    # "nanim":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeAnimation;
-    .end local v5    # "node":Lcom/badlogic/gdx/graphics/g3d/model/Node;
-    .end local v6    # "nodeAnim":Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;
-    :cond_d
     goto/16 :goto_1
 
     .line 157
-    :cond_e
-    iget-object v3, v2, Lcom/badlogic/gdx/graphics/g3d/model/Animation;->nodeAnimations:Lcom/badlogic/gdx/utils/Array;
-
-    iget v3, v3, Lcom/badlogic/gdx/utils/Array;->size:I
-
-    if-lez v3, :cond_f
-
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->animations:Lcom/badlogic/gdx/utils/Array;
-
-    invoke-virtual {v3, v2}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
-
-    .line 158
-    .end local v1    # "anim":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelAnimation;
-    .end local v2    # "animation":Lcom/badlogic/gdx/graphics/g3d/model/Animation;
     :cond_f
+    iget-object v0, v1, Lcom/badlogic/gdx/graphics/g3d/model/Animation;->nodeAnimations:Lcom/badlogic/gdx/utils/Array;
+
+    iget v0, v0, Lcom/badlogic/gdx/utils/Array;->size:I
+
+    if-lez v0, :cond_0
+
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->animations:Lcom/badlogic/gdx/utils/Array;
+
+    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+
     goto/16 :goto_0
 
-    .line 159
     :cond_10
     return-void
 .end method
 
 .method protected loadMaterials(Ljava/lang/Iterable;Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;)V
-    .locals 4
-    .param p2, "textureProvider"    # Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1933,45 +1682,40 @@
     .end annotation
 
     .line 270
-    .local p1, "modelMaterials":Ljava/lang/Iterable;, "Ljava/lang/Iterable<Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMaterial;>;"
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMaterial;
+    check-cast v0, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMaterial;
 
     .line 271
-    .local v1, "mtl":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMaterial;
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->materials:Lcom/badlogic/gdx/utils/Array;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->materials:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {p0, v1, p2}, Lcom/badlogic/gdx/graphics/g3d/Model;->convertMaterial(Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMaterial;Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;)Lcom/badlogic/gdx/graphics/g3d/Material;
+    invoke-virtual {p0, v0, p2}, Lcom/badlogic/gdx/graphics/g3d/Model;->convertMaterial(Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMaterial;Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;)Lcom/badlogic/gdx/graphics/g3d/Material;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v1, v0}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 272
-    .end local v1    # "mtl":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMaterial;
     goto :goto_0
 
-    .line 273
     :cond_0
     return-void
 .end method
 
 .method protected loadMeshes(Ljava/lang/Iterable;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1982,40 +1726,34 @@
     .end annotation
 
     .line 230
-    .local p1, "meshes":Ljava/lang/Iterable;, "Ljava/lang/Iterable<Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMesh;>;"
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMesh;
+    check-cast v0, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMesh;
 
     .line 231
-    .local v1, "mesh":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMesh;
-    invoke-virtual {p0, v1}, Lcom/badlogic/gdx/graphics/g3d/Model;->convertMesh(Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMesh;)V
+    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/g3d/Model;->convertMesh(Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMesh;)V
 
-    .line 232
-    .end local v1    # "mesh":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMesh;
     goto :goto_0
 
-    .line 233
     :cond_0
     return-void
 .end method
 
 .method protected loadNode(Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNode;)Lcom/badlogic/gdx/graphics/g3d/model/Node;
     .locals 12
-    .param p1, "modelNode"    # Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNode;
 
     .line 178
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/model/Node;
@@ -2023,7 +1761,6 @@
     invoke-direct {v0}, Lcom/badlogic/gdx/graphics/g3d/model/Node;-><init>()V
 
     .line 179
-    .local v0, "node":Lcom/badlogic/gdx/graphics/g3d/model/Node;
     iget-object v1, p1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNode;->id:Ljava/lang/String;
 
     iput-object v1, v0, Lcom/badlogic/gdx/graphics/g3d/model/Node;->id:Ljava/lang/String;
@@ -2083,92 +1820,76 @@
 
     aget-object v5, v1, v4
 
-    .line 187
-    .local v5, "modelNodePart":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodePart;
-    const/4 v6, 0x0
+    .line 190
+    iget-object v6, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodePart;->meshPartId:Ljava/lang/String;
 
-    .line 188
-    .local v6, "meshPart":Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
     const/4 v7, 0x0
 
-    .line 190
-    .local v7, "meshMaterial":Lcom/badlogic/gdx/graphics/g3d/Material;
-    iget-object v8, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodePart;->meshPartId:Ljava/lang/String;
+    if-eqz v6, :cond_4
+
+    .line 191
+    iget-object v6, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->meshParts:Lcom/badlogic/gdx/utils/Array;
+
+    invoke-virtual {v6}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
+
+    move-result-object v6
+
+    :cond_3
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v8
 
     if-eqz v8, :cond_4
 
-    .line 191
-    iget-object v8, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->meshParts:Lcom/badlogic/gdx/utils/Array;
-
-    invoke-virtual {v8}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v8
 
-    :goto_1
-    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v8, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
+
+    .line 192
+    iget-object v9, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodePart;->meshPartId:Ljava/lang/String;
+
+    iget-object v10, v8, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->id:Ljava/lang/String;
+
+    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_4
+    if-eqz v9, :cond_3
 
-    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v9
-
-    check-cast v9, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
-
-    .line 192
-    .local v9, "part":Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
-    iget-object v10, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodePart;->meshPartId:Ljava/lang/String;
-
-    iget-object v11, v9, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->id:Ljava/lang/String;
-
-    invoke-virtual {v10, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v10
-
-    if-eqz v10, :cond_3
-
-    .line 193
-    move-object v6, v9
-
-    .line 194
-    goto :goto_2
-
-    .line 196
-    .end local v9    # "part":Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
-    :cond_3
     goto :goto_1
 
-    .line 199
     :cond_4
-    :goto_2
-    iget-object v8, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodePart;->materialId:Ljava/lang/String;
+    move-object v8, v7
 
-    if-eqz v8, :cond_6
+    .line 199
+    :goto_1
+    iget-object v6, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodePart;->materialId:Ljava/lang/String;
+
+    if-eqz v6, :cond_6
 
     .line 200
-    iget-object v8, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->materials:Lcom/badlogic/gdx/utils/Array;
+    iget-object v6, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->materials:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v8}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v6}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
 
-    move-result-object v8
+    move-result-object v6
 
-    :goto_3
-    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
+    :cond_5
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v9
 
     if-eqz v9, :cond_6
 
-    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v9
 
     check-cast v9, Lcom/badlogic/gdx/graphics/g3d/Material;
 
     .line 201
-    .local v9, "material":Lcom/badlogic/gdx/graphics/g3d/Material;
     iget-object v10, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodePart;->materialId:Ljava/lang/String;
 
     iget-object v11, v9, Lcom/badlogic/gdx/graphics/g3d/Material;->id:Ljava/lang/String;
@@ -2179,134 +1900,106 @@
 
     if-eqz v10, :cond_5
 
-    .line 202
     move-object v7, v9
 
-    .line 203
-    goto :goto_4
-
-    .line 205
-    .end local v9    # "material":Lcom/badlogic/gdx/graphics/g3d/Material;
-    :cond_5
-    goto :goto_3
-
-    .line 208
     :cond_6
-    :goto_4
-    if-eqz v6, :cond_8
+    if-eqz v8, :cond_8
 
     if-eqz v7, :cond_8
 
-    .line 210
-    if-eqz v6, :cond_7
+    if-eqz v8, :cond_7
 
     if-eqz v7, :cond_7
 
     .line 211
-    new-instance v8, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;
+    new-instance v6, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;
 
-    invoke-direct {v8}, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;-><init>()V
+    invoke-direct {v6}, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;-><init>()V
 
     .line 212
-    .local v8, "nodePart":Lcom/badlogic/gdx/graphics/g3d/model/NodePart;
-    iput-object v6, v8, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->meshPart:Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
+    iput-object v8, v6, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->meshPart:Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
 
     .line 213
-    iput-object v7, v8, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->material:Lcom/badlogic/gdx/graphics/g3d/Material;
+    iput-object v7, v6, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->material:Lcom/badlogic/gdx/graphics/g3d/Material;
 
     .line 214
-    iget-object v9, v0, Lcom/badlogic/gdx/graphics/g3d/model/Node;->parts:Lcom/badlogic/gdx/utils/Array;
+    iget-object v7, v0, Lcom/badlogic/gdx/graphics/g3d/model/Node;->parts:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v9, v8}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v7, v6}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
     .line 215
-    iget-object v9, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodePart;->bones:Lcom/badlogic/gdx/utils/ArrayMap;
+    iget-object v7, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodePart;->bones:Lcom/badlogic/gdx/utils/ArrayMap;
 
-    if-eqz v9, :cond_7
+    if-eqz v7, :cond_7
 
-    iget-object v9, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->nodePartBones:Lcom/badlogic/gdx/utils/ObjectMap;
+    iget-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->nodePartBones:Lcom/badlogic/gdx/utils/ObjectMap;
 
-    iget-object v10, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodePart;->bones:Lcom/badlogic/gdx/utils/ArrayMap;
+    iget-object v5, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodePart;->bones:Lcom/badlogic/gdx/utils/ArrayMap;
 
-    invoke-virtual {v9, v8, v10}, Lcom/badlogic/gdx/utils/ObjectMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v7, v6, v5}, Lcom/badlogic/gdx/utils/ObjectMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 186
-    .end local v5    # "modelNodePart":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodePart;
-    .end local v6    # "meshPart":Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
-    .end local v7    # "meshMaterial":Lcom/badlogic/gdx/graphics/g3d/Material;
-    .end local v8    # "nodePart":Lcom/badlogic/gdx/graphics/g3d/model/NodePart;
     :cond_7
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
     .line 208
-    .restart local v5    # "modelNodePart":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodePart;
-    .restart local v6    # "meshPart":Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
-    .restart local v7    # "meshMaterial":Lcom/badlogic/gdx/graphics/g3d/Material;
     :cond_8
-    new-instance v1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "Invalid node: "
 
-    const-string v3, "Invalid node: "
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v0, v0, Lcom/badlogic/gdx/graphics/g3d/model/Node;->id:Ljava/lang/String;
 
-    iget-object v3, v0, Lcom/badlogic/gdx/graphics/g3d/model/Node;->id:Ljava/lang/String;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-direct {v1, v2}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 
     .line 220
-    .end local v5    # "modelNodePart":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodePart;
-    .end local v6    # "meshPart":Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
-    .end local v7    # "meshMaterial":Lcom/badlogic/gdx/graphics/g3d/Material;
     :cond_9
     iget-object v1, p1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNode;->children:[Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNode;
 
     if-eqz v1, :cond_a
 
     .line 221
-    iget-object v1, p1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNode;->children:[Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNode;
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNode;->children:[Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNode;
 
-    array-length v3, v1
+    array-length v1, p1
 
-    :goto_5
-    if-ge v2, v3, :cond_a
+    :goto_2
+    if-ge v2, v1, :cond_a
 
-    aget-object v4, v1, v2
+    aget-object v3, p1, v2
 
     .line 222
-    .local v4, "child":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNode;
-    invoke-virtual {p0, v4}, Lcom/badlogic/gdx/graphics/g3d/Model;->loadNode(Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNode;)Lcom/badlogic/gdx/graphics/g3d/model/Node;
+    invoke-virtual {p0, v3}, Lcom/badlogic/gdx/graphics/g3d/Model;->loadNode(Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNode;)Lcom/badlogic/gdx/graphics/g3d/model/Node;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {v0, v5}, Lcom/badlogic/gdx/graphics/g3d/model/Node;->addChild(Lcom/badlogic/gdx/graphics/g3d/model/Node;)I
+    invoke-virtual {v0, v3}, Lcom/badlogic/gdx/graphics/g3d/model/Node;->addChild(Lcom/badlogic/gdx/graphics/g3d/model/Node;)I
 
-    .line 221
-    .end local v4    # "child":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNode;
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_5
+    goto :goto_2
 
-    .line 226
     :cond_a
     return-object v0
 .end method
 
 .method protected loadNodes(Ljava/lang/Iterable;)V
-    .locals 8
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2317,7 +2010,6 @@
     .end annotation
 
     .line 164
-    .local p1, "modelNodes":Ljava/lang/Iterable;, "Ljava/lang/Iterable<Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNode;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->nodePartBones:Lcom/badlogic/gdx/utils/ObjectMap;
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/ObjectMap;->clear()V
@@ -2325,167 +2017,154 @@
     .line 165
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNode;
+    check-cast v0, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNode;
 
     .line 166
-    .local v1, "node":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNode;
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->nodes:Lcom/badlogic/gdx/utils/Array;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->nodes:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {p0, v1}, Lcom/badlogic/gdx/graphics/g3d/Model;->loadNode(Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNode;)Lcom/badlogic/gdx/graphics/g3d/model/Node;
+    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/g3d/Model;->loadNode(Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNode;)Lcom/badlogic/gdx/graphics/g3d/model/Node;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v1, v0}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 167
-    .end local v1    # "node":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNode;
     goto :goto_0
 
     .line 168
     :cond_0
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->nodePartBones:Lcom/badlogic/gdx/utils/ObjectMap;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->nodePartBones:Lcom/badlogic/gdx/utils/ObjectMap;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/ObjectMap;->entries()Lcom/badlogic/gdx/utils/ObjectMap$Entries;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/ObjectMap;->entries()Lcom/badlogic/gdx/utils/ObjectMap$Entries;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/ObjectMap$Entries;->iterator()Lcom/badlogic/gdx/utils/ObjectMap$Entries;
+
+    move-result-object p1
+
+    :cond_1
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/ObjectMap$Entries;->iterator()Lcom/badlogic/gdx/utils/ObjectMap$Entries;
+    check-cast v0, Lcom/badlogic/gdx/utils/ObjectMap$Entry;
 
-    move-result-object v0
+    .line 169
+    iget-object v1, v0, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->key:Ljava/lang/Object;
 
-    :goto_1
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v1, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;
 
-    move-result v1
+    iget-object v1, v1, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->invBoneBindTransforms:Lcom/badlogic/gdx/utils/ArrayMap;
 
-    if-eqz v1, :cond_3
+    if-nez v1, :cond_2
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    .line 170
+    iget-object v1, v0, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->key:Ljava/lang/Object;
+
+    check-cast v1, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;
+
+    new-instance v2, Lcom/badlogic/gdx/utils/ArrayMap;
+
+    const-class v3, Lcom/badlogic/gdx/graphics/g3d/model/Node;
+
+    const-class v4, Lcom/badlogic/gdx/math/Matrix4;
+
+    invoke-direct {v2, v3, v4}, Lcom/badlogic/gdx/utils/ArrayMap;-><init>(Ljava/lang/Class;Ljava/lang/Class;)V
+
+    iput-object v2, v1, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->invBoneBindTransforms:Lcom/badlogic/gdx/utils/ArrayMap;
+
+    .line 171
+    :cond_2
+    iget-object v1, v0, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->key:Ljava/lang/Object;
+
+    check-cast v1, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;
+
+    iget-object v1, v1, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->invBoneBindTransforms:Lcom/badlogic/gdx/utils/ArrayMap;
+
+    invoke-virtual {v1}, Lcom/badlogic/gdx/utils/ArrayMap;->clear()V
+
+    .line 172
+    iget-object v1, v0, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->value:Ljava/lang/Object;
+
+    check-cast v1, Lcom/badlogic/gdx/utils/ArrayMap;
+
+    invoke-virtual {v1}, Lcom/badlogic/gdx/utils/ArrayMap;->entries()Lcom/badlogic/gdx/utils/ArrayMap$Entries;
 
     move-result-object v1
 
-    check-cast v1, Lcom/badlogic/gdx/utils/ObjectMap$Entry;
+    invoke-virtual {v1}, Lcom/badlogic/gdx/utils/ArrayMap$Entries;->iterator()Ljava/util/Iterator;
 
-    .line 169
-    .local v1, "e":Lcom/badlogic/gdx/utils/ObjectMap$Entry;, "Lcom/badlogic/gdx/utils/ObjectMap$Entry<Lcom/badlogic/gdx/graphics/g3d/model/NodePart;Lcom/badlogic/gdx/utils/ArrayMap<Ljava/lang/String;Lcom/badlogic/gdx/math/Matrix4;>;>;"
-    iget-object v2, v1, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->key:Ljava/lang/Object;
+    move-result-object v1
 
-    check-cast v2, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;
+    :goto_1
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    iget-object v2, v2, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->invBoneBindTransforms:Lcom/badlogic/gdx/utils/ArrayMap;
+    move-result v2
 
-    if-nez v2, :cond_1
+    if-eqz v2, :cond_1
 
-    .line 170
-    iget-object v2, v1, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->key:Ljava/lang/Object;
-
-    check-cast v2, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;
-
-    new-instance v3, Lcom/badlogic/gdx/utils/ArrayMap;
-
-    const-class v4, Lcom/badlogic/gdx/graphics/g3d/model/Node;
-
-    const-class v5, Lcom/badlogic/gdx/math/Matrix4;
-
-    invoke-direct {v3, v4, v5}, Lcom/badlogic/gdx/utils/ArrayMap;-><init>(Ljava/lang/Class;Ljava/lang/Class;)V
-
-    iput-object v3, v2, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->invBoneBindTransforms:Lcom/badlogic/gdx/utils/ArrayMap;
-
-    .line 171
-    :cond_1
-    iget-object v2, v1, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->key:Ljava/lang/Object;
-
-    check-cast v2, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;
-
-    iget-object v2, v2, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->invBoneBindTransforms:Lcom/badlogic/gdx/utils/ArrayMap;
-
-    invoke-virtual {v2}, Lcom/badlogic/gdx/utils/ArrayMap;->clear()V
-
-    .line 172
-    iget-object v2, v1, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->value:Ljava/lang/Object;
-
-    check-cast v2, Lcom/badlogic/gdx/utils/ArrayMap;
-
-    invoke-virtual {v2}, Lcom/badlogic/gdx/utils/ArrayMap;->entries()Lcom/badlogic/gdx/utils/ArrayMap$Entries;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/badlogic/gdx/utils/ArrayMap$Entries;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_2
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/badlogic/gdx/utils/ObjectMap$Entry;
+    check-cast v2, Lcom/badlogic/gdx/utils/ObjectMap$Entry;
 
     .line 173
-    .local v3, "b":Lcom/badlogic/gdx/utils/ObjectMap$Entry;, "Lcom/badlogic/gdx/utils/ObjectMap$Entry<Ljava/lang/String;Lcom/badlogic/gdx/math/Matrix4;>;"
-    iget-object v4, v1, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->key:Ljava/lang/Object;
+    iget-object v3, v0, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->key:Ljava/lang/Object;
 
-    check-cast v4, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;
+    check-cast v3, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;
 
-    iget-object v4, v4, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->invBoneBindTransforms:Lcom/badlogic/gdx/utils/ArrayMap;
+    iget-object v3, v3, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->invBoneBindTransforms:Lcom/badlogic/gdx/utils/ArrayMap;
 
-    iget-object v5, v3, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->key:Ljava/lang/Object;
+    iget-object v4, v2, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->key:Ljava/lang/Object;
 
-    check-cast v5, Ljava/lang/String;
+    check-cast v4, Ljava/lang/String;
 
-    invoke-virtual {p0, v5}, Lcom/badlogic/gdx/graphics/g3d/Model;->getNode(Ljava/lang/String;)Lcom/badlogic/gdx/graphics/g3d/model/Node;
+    invoke-virtual {p0, v4}, Lcom/badlogic/gdx/graphics/g3d/Model;->getNode(Ljava/lang/String;)Lcom/badlogic/gdx/graphics/g3d/model/Node;
 
-    move-result-object v5
+    move-result-object v4
 
-    new-instance v6, Lcom/badlogic/gdx/math/Matrix4;
+    new-instance v5, Lcom/badlogic/gdx/math/Matrix4;
 
-    iget-object v7, v3, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->value:Ljava/lang/Object;
+    iget-object v2, v2, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->value:Ljava/lang/Object;
 
-    check-cast v7, Lcom/badlogic/gdx/math/Matrix4;
+    check-cast v2, Lcom/badlogic/gdx/math/Matrix4;
 
-    invoke-direct {v6, v7}, Lcom/badlogic/gdx/math/Matrix4;-><init>(Lcom/badlogic/gdx/math/Matrix4;)V
+    invoke-direct {v5, v2}, Lcom/badlogic/gdx/math/Matrix4;-><init>(Lcom/badlogic/gdx/math/Matrix4;)V
 
-    invoke-virtual {v6}, Lcom/badlogic/gdx/math/Matrix4;->inv()Lcom/badlogic/gdx/math/Matrix4;
+    invoke-virtual {v5}, Lcom/badlogic/gdx/math/Matrix4;->inv()Lcom/badlogic/gdx/math/Matrix4;
 
-    move-result-object v6
+    move-result-object v2
 
-    invoke-virtual {v4, v5, v6}, Lcom/badlogic/gdx/utils/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)I
+    invoke-virtual {v3, v4, v2}, Lcom/badlogic/gdx/utils/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)I
 
-    goto :goto_2
-
-    .line 174
-    .end local v1    # "e":Lcom/badlogic/gdx/utils/ObjectMap$Entry;, "Lcom/badlogic/gdx/utils/ObjectMap$Entry<Lcom/badlogic/gdx/graphics/g3d/model/NodePart;Lcom/badlogic/gdx/utils/ArrayMap<Ljava/lang/String;Lcom/badlogic/gdx/math/Matrix4;>;>;"
-    .end local v3    # "b":Lcom/badlogic/gdx/utils/ObjectMap$Entry;, "Lcom/badlogic/gdx/utils/ObjectMap$Entry<Ljava/lang/String;Lcom/badlogic/gdx/math/Matrix4;>;"
-    :cond_2
     goto :goto_1
 
-    .line 175
     :cond_3
     return-void
 .end method
 
 .method public manageDisposable(Lcom/badlogic/gdx/utils/Disposable;)V
     .locals 2
-    .param p1, "disposable"    # Lcom/badlogic/gdx/utils/Disposable;
 
     .line 344
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/Model;->disposables:Lcom/badlogic/gdx/utils/Array;
@@ -2502,7 +2181,6 @@
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 345
     :cond_0
     return-void
 .end method

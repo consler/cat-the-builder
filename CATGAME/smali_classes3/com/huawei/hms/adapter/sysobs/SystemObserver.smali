@@ -4,6 +4,9 @@
 
 
 # virtual methods
+.method public abstract onNoticeResult(I)Z
+.end method
+
 .method public abstract onSolutionResult(Landroid/content/Intent;Ljava/lang/String;)Z
 .end method
 

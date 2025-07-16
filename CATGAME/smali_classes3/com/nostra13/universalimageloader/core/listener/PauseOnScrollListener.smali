@@ -19,25 +19,17 @@
 # direct methods
 .method public constructor <init>(Lcom/nostra13/universalimageloader/core/ImageLoader;ZZ)V
     .locals 1
-    .param p1, "imageLoader"    # Lcom/nostra13/universalimageloader/core/ImageLoader;
-    .param p2, "pauseOnScroll"    # Z
-    .param p3, "pauseOnFling"    # Z
 
-    .line 50
     const/4 v0, 0x0
 
+    .line 50
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/nostra13/universalimageloader/core/listener/PauseOnScrollListener;-><init>(Lcom/nostra13/universalimageloader/core/ImageLoader;ZZLandroid/widget/AbsListView$OnScrollListener;)V
 
-    .line 51
     return-void
 .end method
 
 .method public constructor <init>(Lcom/nostra13/universalimageloader/core/ImageLoader;ZZLandroid/widget/AbsListView$OnScrollListener;)V
     .locals 0
-    .param p1, "imageLoader"    # Lcom/nostra13/universalimageloader/core/ImageLoader;
-    .param p2, "pauseOnScroll"    # Z
-    .param p3, "pauseOnFling"    # Z
-    .param p4, "customListener"    # Landroid/widget/AbsListView$OnScrollListener;
 
     .line 63
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +46,6 @@
     .line 67
     iput-object p4, p0, Lcom/nostra13/universalimageloader/core/listener/PauseOnScrollListener;->externalListener:Landroid/widget/AbsListView$OnScrollListener;
 
-    .line 68
     return-void
 .end method
 
@@ -62,10 +53,6 @@
 # virtual methods
 .method public onScroll(Landroid/widget/AbsListView;III)V
     .locals 1
-    .param p1, "view"    # Landroid/widget/AbsListView;
-    .param p2, "firstVisibleItem"    # I
-    .param p3, "visibleItemCount"    # I
-    .param p4, "totalItemCount"    # I
 
     .line 94
     iget-object v0, p0, Lcom/nostra13/universalimageloader/core/listener/PauseOnScrollListener;->externalListener:Landroid/widget/AbsListView$OnScrollListener;
@@ -75,17 +62,13 @@
     .line 95
     invoke-interface {v0, p1, p2, p3, p4}, Landroid/widget/AbsListView$OnScrollListener;->onScroll(Landroid/widget/AbsListView;III)V
 
-    .line 97
     :cond_0
     return-void
 .end method
 
 .method public onScrollStateChanged(Landroid/widget/AbsListView;I)V
     .locals 1
-    .param p1, "view"    # Landroid/widget/AbsListView;
-    .param p2, "scrollState"    # I
 
-    .line 72
     if-eqz p2, :cond_2
 
     const/4 v0, 0x1
@@ -130,9 +113,6 @@
 
     invoke-virtual {v0}, Lcom/nostra13/universalimageloader/core/ImageLoader;->resume()V
 
-    .line 75
-    nop
-
     .line 87
     :cond_3
     :goto_0
@@ -143,7 +123,6 @@
     .line 88
     invoke-interface {v0, p1, p2}, Landroid/widget/AbsListView$OnScrollListener;->onScrollStateChanged(Landroid/widget/AbsListView;I)V
 
-    .line 90
     :cond_4
     return-void
 .end method

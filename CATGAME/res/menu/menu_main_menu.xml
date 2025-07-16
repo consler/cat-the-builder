@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:icon="@drawable/ic_cast_white" android:id="@id/cast_button" android:visible="false" android:title="@string/cast_button_menu_item_title" app:showAsAction="ifRoom" />
-    <item android:id="@id/menu_rate_app" android:title="@string/main_menu_rate_app" app:showAsAction="never" />
-    <item android:id="@id/menu_terms_of_use" android:title="@string/main_menu_terms_of_use" app:showAsAction="never" />
-    <item android:id="@id/menu_privacy_policy" android:title="@string/main_menu_privacy_policy" app:showAsAction="never" />
-    <item android:id="@id/menu_about" android:title="@string/main_menu_about" app:showAsAction="never" />
-    <item android:id="@id/menu_scratch_converter" android:title="@string/main_menu_scratch_converter" app:showAsAction="never" />
-    <item android:id="@id/settings" android:title="@string/settings" app:showAsAction="never" />
-    <item android:id="@id/menu_login" android:title="@string/main_menu_login" app:showAsAction="never" />
-    <item android:id="@id/menu_logout" android:title="@string/main_menu_logout" app:showAsAction="never" />
-    <item android:icon="@drawable/ic_main_menu_help" android:id="@id/menu_help" android:title="@string/main_menu_help" app:showAsAction="always" />
+    <group android:layout_gravity="end">
+        <item android:icon="@drawable/ic_cast_white" android:id="@id/cast_button" android:visible="false" android:title="@string/cast_button_menu_item_title" app:showAsAction="ifRoom" />
+        <item android:icon="@drawable/ic_star_rate" android:id="@id/menu_rate_app" android:title="@string/main_menu_rate_app" app:showAsAction="never" />
+        <item android:icon="@drawable/ic_placeholder" android:id="@id/menu_terms_of_use" android:title="@string/main_menu_terms_of_use" app:showAsAction="never" />
+        <item android:icon="@drawable/ic_policy" android:id="@id/menu_privacy_policy" android:title="@string/main_menu_privacy_policy" app:showAsAction="never" />
+        <item android:icon="@drawable/ic_info" android:id="@id/menu_about" android:title="@string/main_menu_about" app:showAsAction="never" />
+        <item android:icon="@drawable/ic_placeholder" android:id="@id/menu_scratch_converter" android:title="@string/main_menu_scratch_converter" app:showAsAction="never" />
+        <item android:icon="@drawable/ic_settings" android:id="@id/settings" android:title="@string/settings" app:showAsAction="never" />
+        <item android:icon="@drawable/ic_login" android:id="@id/menu_login" android:title="@string/main_menu_login" app:showAsAction="never" />
+        <item android:icon="@drawable/ic_logout" android:id="@id/menu_logout" android:title="@string/main_menu_logout" app:showAsAction="never" />
+        <item android:icon="@drawable/ic_main_menu_help" android:id="@id/menu_help" android:title="@string/main_menu_help" app:showAsAction="always" />
+    </group>
 </menu>

@@ -33,7 +33,6 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/maps/Map;->properties:Lcom/badlogic/gdx/maps/MapProperties;
 
-    .line 50
     return-void
 .end method
 
@@ -42,7 +41,6 @@
 .method public dispose()V
     .locals 0
 
-    .line 65
     return-void
 .end method
 

@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -31,23 +31,20 @@
     .end annotation
 
     .line 33
-    .local p0, "this":Lorg/objenesis/instantiator/basic/AccessibleInstantiator;, "Lorg/objenesis/instantiator/basic/AccessibleInstantiator<TT;>;"
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-direct {p0, p1}, Lorg/objenesis/instantiator/basic/ConstructorInstantiator;-><init>(Ljava/lang/Class;)V
 
     .line 34
-    iget-object v0, p0, Lorg/objenesis/instantiator/basic/AccessibleInstantiator;->constructor:Ljava/lang/reflect/Constructor;
+    iget-object p1, p0, Lorg/objenesis/instantiator/basic/AccessibleInstantiator;->constructor:Ljava/lang/reflect/Constructor;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 35
-    iget-object v0, p0, Lorg/objenesis/instantiator/basic/AccessibleInstantiator;->constructor:Ljava/lang/reflect/Constructor;
+    iget-object p1, p0, Lorg/objenesis/instantiator/basic/AccessibleInstantiator;->constructor:Ljava/lang/reflect/Constructor;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
+    invoke-virtual {p1, v0}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
 
-    .line 37
     :cond_0
     return-void
 .end method

@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/socketio/EventEmitter;Lcom/koushikdutta/async/http/socketio/EventCallback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/socketio/EventEmitter;
 
     .line 36
     iput-object p1, p0, Lcom/koushikdutta/async/http/socketio/EventEmitter$1;->this$0:Lcom/koushikdutta/async/http/socketio/EventEmitter;
@@ -42,14 +41,11 @@
 # virtual methods
 .method public onEvent(Lorg/json/JSONArray;Lcom/koushikdutta/async/http/socketio/Acknowledge;)V
     .locals 1
-    .param p1, "arguments"    # Lorg/json/JSONArray;
-    .param p2, "acknowledge"    # Lcom/koushikdutta/async/http/socketio/Acknowledge;
 
     .line 39
     iget-object v0, p0, Lcom/koushikdutta/async/http/socketio/EventEmitter$1;->val$callback:Lcom/koushikdutta/async/http/socketio/EventCallback;
 
     invoke-interface {v0, p1, p2}, Lcom/koushikdutta/async/http/socketio/EventCallback;->onEvent(Lorg/json/JSONArray;Lcom/koushikdutta/async/http/socketio/Acknowledge;)V
 
-    .line 40
     return-void
 .end method

@@ -38,19 +38,16 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/math/Plane;->normal:Lcom/badlogic/gdx/math/Vector3;
 
-    .line 36
     const/4 v0, 0x0
 
+    .line 36
     iput v0, p0, Lcom/badlogic/gdx/math/Plane;->d:F
 
-    .line 43
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/math/Vector3;F)V
     .locals 2
-    .param p1, "normal"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "d"    # F
 
     .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -62,29 +59,26 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/math/Plane;->normal:Lcom/badlogic/gdx/math/Vector3;
 
-    .line 36
     const/4 v1, 0x0
 
+    .line 36
     iput v1, p0, Lcom/badlogic/gdx/math/Plane;->d:F
 
     .line 50
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
 
     .line 51
     iput p2, p0, Lcom/badlogic/gdx/math/Plane;->d:F
 
-    .line 52
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)V
     .locals 2
-    .param p1, "normal"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "point"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 58
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -96,38 +90,32 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/math/Plane;->normal:Lcom/badlogic/gdx/math/Vector3;
 
-    .line 36
     const/4 v1, 0x0
 
+    .line 36
     iput v1, p0, Lcom/badlogic/gdx/math/Plane;->d:F
 
     .line 59
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
 
     .line 60
-    iget-object v0, p0, Lcom/badlogic/gdx/math/Plane;->normal:Lcom/badlogic/gdx/math/Vector3;
-
     invoke-virtual {v0, p2}, Lcom/badlogic/gdx/math/Vector3;->dot(Lcom/badlogic/gdx/math/Vector3;)F
 
-    move-result v0
+    move-result p1
 
-    neg-float v0, v0
+    neg-float p1, p1
 
-    iput v0, p0, Lcom/badlogic/gdx/math/Plane;->d:F
+    iput p1, p0, Lcom/badlogic/gdx/math/Plane;->d:F
 
-    .line 61
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)V
     .locals 1
-    .param p1, "point1"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "point2"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p3, "point3"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 69
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -139,36 +127,34 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/math/Plane;->normal:Lcom/badlogic/gdx/math/Vector3;
 
-    .line 36
     const/4 v0, 0x0
 
+    .line 36
     iput v0, p0, Lcom/badlogic/gdx/math/Plane;->d:F
 
     .line 70
     invoke-virtual {p0, p1, p2, p3}, Lcom/badlogic/gdx/math/Plane;->set(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)V
 
-    .line 71
     return-void
 .end method
 
 
 # virtual methods
 .method public distance(Lcom/badlogic/gdx/math/Vector3;)F
-    .locals 2
-    .param p1, "point"    # Lcom/badlogic/gdx/math/Vector3;
+    .locals 1
 
     .line 100
     iget-object v0, p0, Lcom/badlogic/gdx/math/Plane;->normal:Lcom/badlogic/gdx/math/Vector3;
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/math/Vector3;->dot(Lcom/badlogic/gdx/math/Vector3;)F
 
-    move-result v0
+    move-result p1
 
-    iget v1, p0, Lcom/badlogic/gdx/math/Plane;->d:F
+    iget v0, p0, Lcom/badlogic/gdx/math/Plane;->d:F
 
-    add-float/2addr v0, v1
+    add-float/2addr p1, v0
 
-    return v0
+    return p1
 .end method
 
 .method public getD()F
@@ -190,41 +176,34 @@
 .end method
 
 .method public isFrontFacing(Lcom/badlogic/gdx/math/Vector3;)Z
-    .locals 2
-    .param p1, "direction"    # Lcom/badlogic/gdx/math/Vector3;
+    .locals 1
 
     .line 143
     iget-object v0, p0, Lcom/badlogic/gdx/math/Plane;->normal:Lcom/badlogic/gdx/math/Vector3;
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/math/Vector3;->dot(Lcom/badlogic/gdx/math/Vector3;)F
 
-    move-result v0
+    move-result p1
 
-    .line 144
-    .local v0, "dot":F
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    cmpg-float v1, v0, v1
+    cmpg-float p1, p1, v0
 
-    if-gtz v1, :cond_0
+    if-gtz p1, :cond_0
 
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v1
+    return p1
 .end method
 
 .method public set(FFFF)V
     .locals 1
-    .param p1, "nx"    # F
-    .param p2, "ny"    # F
-    .param p3, "nz"    # F
-    .param p4, "d"    # F
 
     .line 91
     iget-object v0, p0, Lcom/badlogic/gdx/math/Plane;->normal:Lcom/badlogic/gdx/math/Vector3;
@@ -234,46 +213,37 @@
     .line 92
     iput p4, p0, Lcom/badlogic/gdx/math/Plane;->d:F
 
-    .line 93
     return-void
 .end method
 
 .method public set(FFFFFF)V
-    .locals 2
-    .param p1, "pointX"    # F
-    .param p2, "pointY"    # F
-    .param p3, "pointZ"    # F
-    .param p4, "norX"    # F
-    .param p5, "norY"    # F
-    .param p6, "norZ"    # F
+    .locals 1
 
     .line 167
     iget-object v0, p0, Lcom/badlogic/gdx/math/Plane;->normal:Lcom/badlogic/gdx/math/Vector3;
 
     invoke-virtual {v0, p4, p5, p6}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
+    mul-float/2addr p1, p4
+
+    mul-float/2addr p2, p5
+
+    add-float/2addr p1, p2
+
+    mul-float/2addr p3, p6
+
+    add-float/2addr p1, p3
+
+    neg-float p1, p1
+
     .line 168
-    mul-float v0, p1, p4
+    iput p1, p0, Lcom/badlogic/gdx/math/Plane;->d:F
 
-    mul-float v1, p2, p5
-
-    add-float/2addr v0, v1
-
-    mul-float v1, p3, p6
-
-    add-float/2addr v0, v1
-
-    neg-float v0, v0
-
-    iput v0, p0, Lcom/badlogic/gdx/math/Plane;->d:F
-
-    .line 169
     return-void
 .end method
 
 .method public set(Lcom/badlogic/gdx/math/Plane;)V
     .locals 2
-    .param p1, "plane"    # Lcom/badlogic/gdx/math/Plane;
 
     .line 175
     iget-object v0, p0, Lcom/badlogic/gdx/math/Plane;->normal:Lcom/badlogic/gdx/math/Vector3;
@@ -283,18 +253,15 @@
     invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
     .line 176
-    iget v0, p1, Lcom/badlogic/gdx/math/Plane;->d:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Plane;->d:F
 
-    iput v0, p0, Lcom/badlogic/gdx/math/Plane;->d:F
+    iput p1, p0, Lcom/badlogic/gdx/math/Plane;->d:F
 
-    .line 177
     return-void
 .end method
 
 .method public set(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)V
     .locals 1
-    .param p1, "point"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "normal"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 162
     iget-object v0, p0, Lcom/badlogic/gdx/math/Plane;->normal:Lcom/badlogic/gdx/math/Vector3;
@@ -304,21 +271,17 @@
     .line 163
     invoke-virtual {p1, p2}, Lcom/badlogic/gdx/math/Vector3;->dot(Lcom/badlogic/gdx/math/Vector3;)F
 
-    move-result v0
+    move-result p1
 
-    neg-float v0, v0
+    neg-float p1, p1
 
-    iput v0, p0, Lcom/badlogic/gdx/math/Plane;->d:F
+    iput p1, p0, Lcom/badlogic/gdx/math/Plane;->d:F
 
-    .line 164
     return-void
 .end method
 
 .method public set(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)V
-    .locals 5
-    .param p1, "point1"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "point2"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p3, "point3"    # Lcom/badlogic/gdx/math/Vector3;
+    .locals 4
 
     .line 80
     iget-object v0, p0, Lcom/badlogic/gdx/math/Plane;->normal:Lcom/badlogic/gdx/math/Vector3;
@@ -343,125 +306,114 @@
 
     sub-float/2addr v2, v3
 
-    iget v3, p2, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p2, p2, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    iget v4, p3, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p3, p3, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    sub-float/2addr v3, v4
+    sub-float/2addr p2, p3
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/badlogic/gdx/math/Vector3;->crs(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v0, v1, v2, p2}, Lcom/badlogic/gdx/math/Vector3;->crs(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p2}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
 
     .line 81
-    iget-object v0, p0, Lcom/badlogic/gdx/math/Plane;->normal:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p2, p0, Lcom/badlogic/gdx/math/Plane;->normal:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/math/Vector3;->dot(Lcom/badlogic/gdx/math/Vector3;)F
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/math/Vector3;->dot(Lcom/badlogic/gdx/math/Vector3;)F
 
-    move-result v0
+    move-result p1
 
-    neg-float v0, v0
+    neg-float p1, p1
 
-    iput v0, p0, Lcom/badlogic/gdx/math/Plane;->d:F
+    iput p1, p0, Lcom/badlogic/gdx/math/Plane;->d:F
 
-    .line 82
     return-void
 .end method
 
 .method public testPoint(FFF)Lcom/badlogic/gdx/math/Plane$PlaneSide;
-    .locals 3
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "z"    # F
+    .locals 1
 
     .line 127
     iget-object v0, p0, Lcom/badlogic/gdx/math/Plane;->normal:Lcom/badlogic/gdx/math/Vector3;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/badlogic/gdx/math/Vector3;->dot(FFF)F
 
-    move-result v0
+    move-result p1
 
-    iget v1, p0, Lcom/badlogic/gdx/math/Plane;->d:F
+    iget p2, p0, Lcom/badlogic/gdx/math/Plane;->d:F
 
-    add-float/2addr v0, v1
+    add-float/2addr p1, p2
 
-    .line 129
-    .local v0, "dist":F
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    cmpl-float v2, v0, v1
+    cmpl-float p3, p1, p2
 
-    if-nez v2, :cond_0
+    if-nez p3, :cond_0
 
     .line 130
-    sget-object v1, Lcom/badlogic/gdx/math/Plane$PlaneSide;->OnPlane:Lcom/badlogic/gdx/math/Plane$PlaneSide;
+    sget-object p1, Lcom/badlogic/gdx/math/Plane$PlaneSide;->OnPlane:Lcom/badlogic/gdx/math/Plane$PlaneSide;
 
-    return-object v1
+    return-object p1
 
-    .line 131
     :cond_0
-    cmpg-float v1, v0, v1
+    cmpg-float p1, p1, p2
 
-    if-gez v1, :cond_1
+    if-gez p1, :cond_1
 
     .line 132
-    sget-object v1, Lcom/badlogic/gdx/math/Plane$PlaneSide;->Back:Lcom/badlogic/gdx/math/Plane$PlaneSide;
+    sget-object p1, Lcom/badlogic/gdx/math/Plane$PlaneSide;->Back:Lcom/badlogic/gdx/math/Plane$PlaneSide;
 
-    return-object v1
+    return-object p1
 
     .line 134
     :cond_1
-    sget-object v1, Lcom/badlogic/gdx/math/Plane$PlaneSide;->Front:Lcom/badlogic/gdx/math/Plane$PlaneSide;
+    sget-object p1, Lcom/badlogic/gdx/math/Plane$PlaneSide;->Front:Lcom/badlogic/gdx/math/Plane$PlaneSide;
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public testPoint(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Plane$PlaneSide;
-    .locals 3
-    .param p1, "point"    # Lcom/badlogic/gdx/math/Vector3;
+    .locals 2
 
     .line 109
     iget-object v0, p0, Lcom/badlogic/gdx/math/Plane;->normal:Lcom/badlogic/gdx/math/Vector3;
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/math/Vector3;->dot(Lcom/badlogic/gdx/math/Vector3;)F
 
-    move-result v0
+    move-result p1
 
-    iget v1, p0, Lcom/badlogic/gdx/math/Plane;->d:F
+    iget v0, p0, Lcom/badlogic/gdx/math/Plane;->d:F
 
-    add-float/2addr v0, v1
+    add-float/2addr p1, v0
 
-    .line 111
-    .local v0, "dist":F
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    cmpl-float v2, v0, v1
+    cmpl-float v1, p1, v0
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
     .line 112
-    sget-object v1, Lcom/badlogic/gdx/math/Plane$PlaneSide;->OnPlane:Lcom/badlogic/gdx/math/Plane$PlaneSide;
+    sget-object p1, Lcom/badlogic/gdx/math/Plane$PlaneSide;->OnPlane:Lcom/badlogic/gdx/math/Plane$PlaneSide;
 
-    return-object v1
+    return-object p1
 
-    .line 113
     :cond_0
-    cmpg-float v1, v0, v1
+    cmpg-float p1, p1, v0
 
-    if-gez v1, :cond_1
+    if-gez p1, :cond_1
 
     .line 114
-    sget-object v1, Lcom/badlogic/gdx/math/Plane$PlaneSide;->Back:Lcom/badlogic/gdx/math/Plane$PlaneSide;
+    sget-object p1, Lcom/badlogic/gdx/math/Plane$PlaneSide;->Back:Lcom/badlogic/gdx/math/Plane$PlaneSide;
 
-    return-object v1
+    return-object p1
 
     .line 116
     :cond_1
-    sget-object v1, Lcom/badlogic/gdx/math/Plane$PlaneSide;->Front:Lcom/badlogic/gdx/math/Plane$PlaneSide;
+    sget-object p1, Lcom/badlogic/gdx/math/Plane$PlaneSide;->Front:Lcom/badlogic/gdx/math/Plane$PlaneSide;
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -480,13 +432,19 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget v1, p0, Lcom/badlogic/gdx/math/Plane;->d:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

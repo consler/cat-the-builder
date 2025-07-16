@@ -21,8 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/PopupMenu;Landroid/view/View;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/appcompat/widget/PopupMenu;
-    .param p2, "src"    # Landroid/view/View;
 
     .line 175
     iput-object p1, p0, Landroidx/appcompat/widget/PopupMenu$3;->this$0:Landroidx/appcompat/widget/PopupMenu;
@@ -57,7 +55,6 @@
 
     invoke-virtual {v0}, Landroidx/appcompat/widget/PopupMenu;->show()V
 
-    .line 179
     const/4 v0, 0x1
 
     return v0
@@ -71,7 +68,6 @@
 
     invoke-virtual {v0}, Landroidx/appcompat/widget/PopupMenu;->dismiss()V
 
-    .line 185
     const/4 v0, 0x1
 
     return v0

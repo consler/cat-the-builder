@@ -44,21 +44,18 @@
     .end annotation
 
     .line 35
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeCreate;, "Lio/reactivex/internal/operators/maybe/MaybeCreate<TT;>;"
-    .local p1, "source":Lio/reactivex/MaybeOnSubscribe;, "Lio/reactivex/MaybeOnSubscribe<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Maybe;-><init>()V
 
     .line 36
     iput-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeCreate;->source:Lio/reactivex/MaybeOnSubscribe;
 
-    .line 37
     return-void
 .end method
 
 
 # virtual methods
 .method protected subscribeActual(Lio/reactivex/MaybeObserver;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -68,40 +65,32 @@
     .end annotation
 
     .line 41
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeCreate;, "Lio/reactivex/internal/operators/maybe/MaybeCreate<TT;>;"
-    .local p1, "s":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/maybe/MaybeCreate$Emitter;
 
     invoke-direct {v0, p1}, Lio/reactivex/internal/operators/maybe/MaybeCreate$Emitter;-><init>(Lio/reactivex/MaybeObserver;)V
 
     .line 42
-    .local v0, "parent":Lio/reactivex/internal/operators/maybe/MaybeCreate$Emitter;, "Lio/reactivex/internal/operators/maybe/MaybeCreate$Emitter<TT;>;"
     invoke-interface {p1, v0}, Lio/reactivex/MaybeObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 45
     :try_start_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/maybe/MaybeCreate;->source:Lio/reactivex/MaybeOnSubscribe;
+    iget-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeCreate;->source:Lio/reactivex/MaybeOnSubscribe;
 
-    invoke-interface {v1, v0}, Lio/reactivex/MaybeOnSubscribe;->subscribe(Lio/reactivex/MaybeEmitter;)V
+    invoke-interface {p1, v0}, Lio/reactivex/MaybeOnSubscribe;->subscribe(Lio/reactivex/MaybeEmitter;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 49
     goto :goto_0
 
-    .line 46
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     .line 47
-    .local v1, "ex":Ljava/lang/Throwable;
-    invoke-static {v1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 48
-    invoke-virtual {v0, v1}, Lio/reactivex/internal/operators/maybe/MaybeCreate$Emitter;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {v0, p1}, Lio/reactivex/internal/operators/maybe/MaybeCreate$Emitter;->onError(Ljava/lang/Throwable;)V
 
-    .line 50
-    .end local v1    # "ex":Ljava/lang/Throwable;
     :goto_0
     return-void
 .end method

@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/utils/OrderedMap;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -47,16 +47,13 @@
     .end annotation
 
     .line 197
-    .local p0, "this":Lcom/badlogic/gdx/utils/OrderedMap$OrderedMapKeys;, "Lcom/badlogic/gdx/utils/OrderedMap$OrderedMapKeys<TK;>;"
-    .local p1, "map":Lcom/badlogic/gdx/utils/OrderedMap;, "Lcom/badlogic/gdx/utils/OrderedMap<TK;*>;"
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/ObjectMap$Keys;-><init>(Lcom/badlogic/gdx/utils/ObjectMap;)V
 
     .line 198
-    iget-object v0, p1, Lcom/badlogic/gdx/utils/OrderedMap;->keys:Lcom/badlogic/gdx/utils/Array;
+    iget-object p1, p1, Lcom/badlogic/gdx/utils/OrderedMap;->keys:Lcom/badlogic/gdx/utils/Array;
 
-    iput-object v0, p0, Lcom/badlogic/gdx/utils/OrderedMap$OrderedMapKeys;->keys:Lcom/badlogic/gdx/utils/Array;
+    iput-object p1, p0, Lcom/badlogic/gdx/utils/OrderedMap$OrderedMapKeys;->keys:Lcom/badlogic/gdx/utils/Array;
 
-    .line 199
     return-void
 .end method
 
@@ -71,7 +68,6 @@
     .end annotation
 
     .line 207
-    .local p0, "this":Lcom/badlogic/gdx/utils/OrderedMap$OrderedMapKeys;, "Lcom/badlogic/gdx/utils/OrderedMap$OrderedMapKeys<TK;>;"
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/OrderedMap$OrderedMapKeys;->hasNext:Z
 
     if-eqz v0, :cond_2
@@ -91,7 +87,6 @@
     move-result-object v0
 
     .line 210
-    .local v0, "key":Ljava/lang/Object;, "TK;"
     iget v1, p0, Lcom/badlogic/gdx/utils/OrderedMap$OrderedMapKeys;->nextIndex:I
 
     iput v1, p0, Lcom/badlogic/gdx/utils/OrderedMap$OrderedMapKeys;->currentIndex:I
@@ -122,11 +117,9 @@
     :goto_0
     iput-boolean v2, p0, Lcom/badlogic/gdx/utils/OrderedMap$OrderedMapKeys;->hasNext:Z
 
-    .line 213
     return-object v0
 
     .line 208
-    .end local v0    # "key":Ljava/lang/Object;, "TK;"
     :cond_1
     new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
@@ -149,7 +142,6 @@
     .locals 2
 
     .line 217
-    .local p0, "this":Lcom/badlogic/gdx/utils/OrderedMap$OrderedMapKeys;, "Lcom/badlogic/gdx/utils/OrderedMap$OrderedMapKeys<TK;>;"
     iget v0, p0, Lcom/badlogic/gdx/utils/OrderedMap$OrderedMapKeys;->currentIndex:I
 
     if-ltz v0, :cond_0
@@ -170,12 +162,11 @@
 
     iput v0, p0, Lcom/badlogic/gdx/utils/OrderedMap$OrderedMapKeys;->nextIndex:I
 
-    .line 220
     const/4 v0, -0x1
 
+    .line 220
     iput v0, p0, Lcom/badlogic/gdx/utils/OrderedMap$OrderedMapKeys;->currentIndex:I
 
-    .line 221
     return-void
 
     .line 217
@@ -192,10 +183,9 @@
 .method public reset()V
     .locals 2
 
-    .line 202
-    .local p0, "this":Lcom/badlogic/gdx/utils/OrderedMap$OrderedMapKeys;, "Lcom/badlogic/gdx/utils/OrderedMap$OrderedMapKeys<TK;>;"
     const/4 v0, 0x0
 
+    .line 202
     iput v0, p0, Lcom/badlogic/gdx/utils/OrderedMap$OrderedMapKeys;->nextIndex:I
 
     .line 203
@@ -210,6 +200,5 @@
     :cond_0
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/OrderedMap$OrderedMapKeys;->hasNext:Z
 
-    .line 204
     return-void
 .end method

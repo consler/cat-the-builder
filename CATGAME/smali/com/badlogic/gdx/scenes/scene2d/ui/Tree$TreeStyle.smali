@@ -37,13 +37,11 @@
     .line 808
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 809
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/Tree$TreeStyle;)V
     .locals 1
-    .param p1, "style"    # Lcom/badlogic/gdx/scenes/scene2d/ui/Tree$TreeStyle;
 
     .line 817
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -79,19 +77,15 @@
     iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Tree$TreeStyle;->selection:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
     .line 824
-    iget-object v0, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Tree$TreeStyle;->background:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
+    iget-object p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Tree$TreeStyle;->background:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
-    iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Tree$TreeStyle;->background:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
+    iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Tree$TreeStyle;->background:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
-    .line 825
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;)V
     .locals 0
-    .param p1, "plus"    # Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
-    .param p2, "minus"    # Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
-    .param p3, "selection"    # Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
     .line 811
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -105,6 +99,5 @@
     .line 814
     iput-object p3, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Tree$TreeStyle;->selection:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
-    .line 815
     return-void
 .end method

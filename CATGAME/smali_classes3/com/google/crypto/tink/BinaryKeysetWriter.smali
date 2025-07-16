@@ -15,8 +15,6 @@
 # direct methods
 .method private constructor <init>(Ljava/io/OutputStream;Z)V
     .locals 0
-    .param p1, "stream"    # Ljava/io/OutputStream;
-    .param p2, "closeStreamAfterReading"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -37,13 +35,11 @@
     .line 38
     iput-boolean p2, p0, Lcom/google/crypto/tink/BinaryKeysetWriter;->closeStreamAfterReading:Z
 
-    .line 39
     return-void
 .end method
 
 .method public static withFile(Ljava/io/File;)Lcom/google/crypto/tink/KeysetWriter;
-    .locals 3
-    .param p0, "file"    # Ljava/io/File;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -66,16 +62,15 @@
 
     invoke-direct {v1, p0}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
-    invoke-direct {v0, v1, v2}, Lcom/google/crypto/tink/BinaryKeysetWriter;-><init>(Ljava/io/OutputStream;Z)V
+    invoke-direct {v0, v1, p0}, Lcom/google/crypto/tink/BinaryKeysetWriter;-><init>(Ljava/io/OutputStream;Z)V
 
     return-object v0
 .end method
 
 .method public static withOutputStream(Ljava/io/OutputStream;)Lcom/google/crypto/tink/KeysetWriter;
     .locals 2
-    .param p0, "stream"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -98,8 +93,7 @@
 
 # virtual methods
 .method public write(Lcom/google/crypto/tink/proto/EncryptedKeyset;)V
-    .locals 2
-    .param p1, "keyset"    # Lcom/google/crypto/tink/proto/EncryptedKeyset;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -124,40 +118,38 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 67
+    iget-boolean p1, p0, Lcom/google/crypto/tink/BinaryKeysetWriter;->closeStreamAfterReading:Z
+
+    if-eqz p1, :cond_0
+
+    .line 68
+    iget-object p1, p0, Lcom/google/crypto/tink/BinaryKeysetWriter;->outputStream:Ljava/io/OutputStream;
+
+    invoke-virtual {p1}, Ljava/io/OutputStream;->close()V
+
+    :cond_0
+    return-void
+
+    :catchall_0
+    move-exception p1
+
+    .line 67
     iget-boolean v0, p0, Lcom/google/crypto/tink/BinaryKeysetWriter;->closeStreamAfterReading:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     .line 68
     iget-object v0, p0, Lcom/google/crypto/tink/BinaryKeysetWriter;->outputStream:Ljava/io/OutputStream;
 
     invoke-virtual {v0}, Ljava/io/OutputStream;->close()V
 
-    .line 71
-    :cond_0
-    return-void
-
-    .line 67
-    :catchall_0
-    move-exception v0
-
-    iget-boolean v1, p0, Lcom/google/crypto/tink/BinaryKeysetWriter;->closeStreamAfterReading:Z
-
-    if-eqz v1, :cond_1
-
-    .line 68
-    iget-object v1, p0, Lcom/google/crypto/tink/BinaryKeysetWriter;->outputStream:Ljava/io/OutputStream;
-
-    invoke-virtual {v1}, Ljava/io/OutputStream;->close()V
-
     .line 70
     :cond_1
-    throw v0
+    throw p1
 .end method
 
 .method public write(Lcom/google/crypto/tink/proto/Keyset;)V
-    .locals 2
-    .param p1, "keyset"    # Lcom/google/crypto/tink/proto/Keyset;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -182,33 +174,32 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 56
+    iget-boolean p1, p0, Lcom/google/crypto/tink/BinaryKeysetWriter;->closeStreamAfterReading:Z
+
+    if-eqz p1, :cond_0
+
+    .line 57
+    iget-object p1, p0, Lcom/google/crypto/tink/BinaryKeysetWriter;->outputStream:Ljava/io/OutputStream;
+
+    invoke-virtual {p1}, Ljava/io/OutputStream;->close()V
+
+    :cond_0
+    return-void
+
+    :catchall_0
+    move-exception p1
+
+    .line 56
     iget-boolean v0, p0, Lcom/google/crypto/tink/BinaryKeysetWriter;->closeStreamAfterReading:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     .line 57
     iget-object v0, p0, Lcom/google/crypto/tink/BinaryKeysetWriter;->outputStream:Ljava/io/OutputStream;
 
     invoke-virtual {v0}, Ljava/io/OutputStream;->close()V
 
-    .line 60
-    :cond_0
-    return-void
-
-    .line 56
-    :catchall_0
-    move-exception v0
-
-    iget-boolean v1, p0, Lcom/google/crypto/tink/BinaryKeysetWriter;->closeStreamAfterReading:Z
-
-    if-eqz v1, :cond_1
-
-    .line 57
-    iget-object v1, p0, Lcom/google/crypto/tink/BinaryKeysetWriter;->outputStream:Ljava/io/OutputStream;
-
-    invoke-virtual {v1}, Ljava/io/OutputStream;->close()V
-
     .line 59
     :cond_1
-    throw v0
+    throw p1
 .end method

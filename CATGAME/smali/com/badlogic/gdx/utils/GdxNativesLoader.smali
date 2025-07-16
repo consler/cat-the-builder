@@ -4,19 +4,14 @@
 
 
 # static fields
-.field public static disableNativesLoading:Z
+.field public static disableNativesLoading:Z = false
 
 .field private static nativesLoaded:Z
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
-
-    .line 22
-    const/4 v0, 0x0
-
-    sput-boolean v0, Lcom/badlogic/gdx/utils/GdxNativesLoader;->disableNativesLoading:Z
+    .locals 0
 
     return-void
 .end method
@@ -49,10 +44,10 @@
 
     return-void
 
-    .line 29
     :cond_0
     const/4 v1, 0x1
 
+    .line 29
     :try_start_1
     sput-boolean v1, Lcom/badlogic/gdx/utils/GdxNativesLoader;->nativesLoaded:Z
 
@@ -85,7 +80,6 @@
 
     return-void
 
-    .line 27
     :catchall_0
     move-exception v1
 

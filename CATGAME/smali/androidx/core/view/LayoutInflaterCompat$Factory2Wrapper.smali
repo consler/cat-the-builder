@@ -24,7 +24,14 @@
 # direct methods
 .method constructor <init>(Landroidx/core/view/LayoutInflaterFactory;)V
     .locals 0
-    .param p1, "delegateFactory"    # Landroidx/core/view/LayoutInflaterFactory;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "delegateFactory"
+        }
+    .end annotation
 
     .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +39,6 @@
     .line 44
     iput-object p1, p0, Landroidx/core/view/LayoutInflaterCompat$Factory2Wrapper;->mDelegateFactory:Landroidx/core/view/LayoutInflaterFactory;
 
-    .line 45
     return-void
 .end method
 
@@ -40,26 +46,45 @@
 # virtual methods
 .method public onCreateView(Landroid/view/View;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
     .locals 1
-    .param p1, "parent"    # Landroid/view/View;
-    .param p2, "name"    # Ljava/lang/String;
-    .param p3, "context"    # Landroid/content/Context;
-    .param p4, "attributeSet"    # Landroid/util/AttributeSet;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "parent",
+            "name",
+            "context",
+            "attributeSet"
+        }
+    .end annotation
 
     .line 55
     iget-object v0, p0, Landroidx/core/view/LayoutInflaterCompat$Factory2Wrapper;->mDelegateFactory:Landroidx/core/view/LayoutInflaterFactory;
 
     invoke-interface {v0, p1, p2, p3, p4}, Landroidx/core/view/LayoutInflaterFactory;->onCreateView(Landroid/view/View;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public onCreateView(Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
     .locals 2
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "context"    # Landroid/content/Context;
-    .param p3, "attrs"    # Landroid/util/AttributeSet;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "name",
+            "context",
+            "attrs"
+        }
+    .end annotation
 
     .line 49
     iget-object v0, p0, Landroidx/core/view/LayoutInflaterCompat$Factory2Wrapper;->mDelegateFactory:Landroidx/core/view/LayoutInflaterFactory;
@@ -68,9 +93,9 @@
 
     invoke-interface {v0, v1, p1, p2, p3}, Landroidx/core/view/LayoutInflaterFactory;->onCreateView(Landroid/view/View;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -91,17 +116,25 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "{"
+    move-result-object v0
+
+    const-string v1, "{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Landroidx/core/view/LayoutInflaterCompat$Factory2Wrapper;->mDelegateFactory:Landroidx/core/view/LayoutInflaterFactory;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "}"
+    move-result-object v0
+
+    const-string v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

@@ -25,7 +25,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nFragmentExt.kt\nKotlin\n*S Kotlin\n*F\n+ 1 FragmentExt.kt\norg/koin/androidx/viewmodel/ext/android/FragmentExtKt$sharedViewModel$1\n+ 2 FragmentExt.kt\norg/koin/androidx/viewmodel/ext/android/FragmentExtKt\n*L\n1#1,63:1\n49#2:64\n*E\n*S KotlinDebug\n*F\n+ 1 FragmentExt.kt\norg/koin/androidx/viewmodel/ext/android/FragmentExtKt$sharedViewModel$1\n*L\n36#1:64\n*E\n"
+    value = "SMAP\nFragmentExt.kt\nKotlin\n*S Kotlin\n*F\n+ 1 FragmentExt.kt\norg/koin/androidx/viewmodel/ext/android/FragmentExtKt$sharedViewModel$1\n+ 2 FragmentExt.kt\norg/koin/androidx/viewmodel/ext/android/FragmentExtKt\n*L\n1#1,100:1\n51#2:101\n*E\n*S KotlinDebug\n*F\n+ 1 FragmentExt.kt\norg/koin/androidx/viewmodel/ext/android/FragmentExtKt$sharedViewModel$1\n*L\n38#1:101\n*E\n"
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
@@ -81,48 +81,37 @@
 
 # virtual methods
 .method public final invoke()Landroidx/lifecycle/ViewModel;
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
         }
     .end annotation
 
-    .line 36
+    .line 38
     iget-object v0, p0, Lorg/koin/androidx/viewmodel/ext/android/FragmentExtKt$sharedViewModel$1;->$this_sharedViewModel:Landroidx/fragment/app/Fragment;
 
-    .local v0, "$this$getSharedViewModel$iv":Landroidx/fragment/app/Fragment;
     iget-object v1, p0, Lorg/koin/androidx/viewmodel/ext/android/FragmentExtKt$sharedViewModel$1;->$qualifier:Lorg/koin/core/qualifier/Qualifier;
 
-    .local v1, "qualifier$iv":Lorg/koin/core/qualifier/Qualifier;
     iget-object v2, p0, Lorg/koin/androidx/viewmodel/ext/android/FragmentExtKt$sharedViewModel$1;->$parameters:Lkotlin/jvm/functions/Function0;
 
-    .local v2, "parameters$iv":Lkotlin/jvm/functions/Function0;
-    const/4 v3, 0x0
+    const/4 v3, 0x4
 
-    .line 64
-    .local v3, "$i$f$getSharedViewModel":I
-    const/4 v4, 0x4
+    const-string v4, "T"
 
-    const-string v5, "T"
+    .line 101
+    invoke-static {v3, v4}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
-    invoke-static {v4, v5}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
+    const-class v3, Landroidx/lifecycle/ViewModel;
 
-    const-class v4, Landroidx/lifecycle/ViewModel;
+    invoke-static {v3}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    invoke-static {v4}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+    move-result-object v3
 
-    move-result-object v4
-
-    invoke-static {v0, v4, v1, v2}, Lorg/koin/androidx/viewmodel/ext/android/FragmentExtKt;->getSharedViewModel(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Landroidx/lifecycle/ViewModel;
+    invoke-static {v0, v3, v1, v2}, Lorg/koin/androidx/viewmodel/ext/android/FragmentExtKt;->getSharedViewModel(Landroidx/fragment/app/Fragment;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Landroidx/lifecycle/ViewModel;
 
     move-result-object v0
 
-    .line 36
-    .end local v0    # "$this$getSharedViewModel$iv":Landroidx/fragment/app/Fragment;
-    .end local v1    # "qualifier$iv":Lorg/koin/core/qualifier/Qualifier;
-    .end local v2    # "parameters$iv":Lkotlin/jvm/functions/Function0;
-    .end local v3    # "$i$f$getSharedViewModel":I
     return-object v0
 .end method
 

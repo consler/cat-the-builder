@@ -62,9 +62,9 @@
 
     iput-object v0, p0, Landroidx/work/Constraints;->mRequiredNetworkType:Landroidx/work/NetworkType;
 
-    .line 64
     const-wide/16 v0, -0x1
 
+    .line 64
     iput-wide v0, p0, Landroidx/work/Constraints;->mTriggerContentUpdateDelay:J
 
     .line 67
@@ -77,13 +77,11 @@
 
     iput-object v0, p0, Landroidx/work/Constraints;->mContentUriTriggers:Landroidx/work/ContentUriTriggers;
 
-    .line 80
     return-void
 .end method
 
 .method constructor <init>(Landroidx/work/Constraints$Builder;)V
     .locals 2
-    .param p1, "builder"    # Landroidx/work/Constraints$Builder;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -101,9 +99,9 @@
 
     iput-object v0, p0, Landroidx/work/Constraints;->mRequiredNetworkType:Landroidx/work/NetworkType;
 
-    .line 64
     const-wide/16 v0, -0x1
 
+    .line 64
     iput-wide v0, p0, Landroidx/work/Constraints;->mTriggerContentUpdateDelay:J
 
     .line 67
@@ -122,12 +120,6 @@
     iput-boolean v0, p0, Landroidx/work/Constraints;->mRequiresCharging:Z
 
     .line 84
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_0
-
     iget-boolean v0, p1, Landroidx/work/Constraints$Builder;->mRequiresDeviceIdle:Z
 
     if-eqz v0, :cond_0
@@ -157,13 +149,6 @@
 
     iput-boolean v0, p0, Landroidx/work/Constraints;->mRequiresStorageNotLow:Z
 
-    .line 88
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x18
-
-    if-lt v0, v1, :cond_1
-
     .line 89
     iget-object v0, p1, Landroidx/work/Constraints$Builder;->mContentUriTriggers:Landroidx/work/ContentUriTriggers;
 
@@ -179,14 +164,11 @@
 
     iput-wide v0, p0, Landroidx/work/Constraints;->mTriggerMaxContentDelay:J
 
-    .line 93
-    :cond_1
     return-void
 .end method
 
 .method public constructor <init>(Landroidx/work/Constraints;)V
     .locals 2
-    .param p1, "other"    # Landroidx/work/Constraints;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -204,9 +186,9 @@
 
     iput-object v0, p0, Landroidx/work/Constraints;->mRequiredNetworkType:Landroidx/work/NetworkType;
 
-    .line 64
     const-wide/16 v0, -0x1
 
+    .line 64
     iput-wide v0, p0, Landroidx/work/Constraints;->mTriggerContentUpdateDelay:J
 
     .line 67
@@ -245,19 +227,17 @@
     iput-boolean v0, p0, Landroidx/work/Constraints;->mRequiresStorageNotLow:Z
 
     .line 101
-    iget-object v0, p1, Landroidx/work/Constraints;->mContentUriTriggers:Landroidx/work/ContentUriTriggers;
+    iget-object p1, p1, Landroidx/work/Constraints;->mContentUriTriggers:Landroidx/work/ContentUriTriggers;
 
-    iput-object v0, p0, Landroidx/work/Constraints;->mContentUriTriggers:Landroidx/work/ContentUriTriggers;
+    iput-object p1, p0, Landroidx/work/Constraints;->mContentUriTriggers:Landroidx/work/ContentUriTriggers;
 
-    .line 102
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 6
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -267,19 +247,18 @@
         }
     .end annotation
 
-    .line 250
     if-ne p0, p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
-    .line 251
     :cond_0
     const/4 v0, 0x0
 
     if-eqz p1, :cond_9
 
+    .line 251
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
@@ -294,81 +273,78 @@
 
     .line 253
     :cond_1
-    move-object v1, p1
-
-    check-cast v1, Landroidx/work/Constraints;
+    check-cast p1, Landroidx/work/Constraints;
 
     .line 255
-    .local v1, "that":Landroidx/work/Constraints;
-    iget-boolean v2, p0, Landroidx/work/Constraints;->mRequiresCharging:Z
+    iget-boolean v1, p0, Landroidx/work/Constraints;->mRequiresCharging:Z
 
-    iget-boolean v3, v1, Landroidx/work/Constraints;->mRequiresCharging:Z
+    iget-boolean v2, p1, Landroidx/work/Constraints;->mRequiresCharging:Z
 
-    if-eq v2, v3, :cond_2
+    if-eq v1, v2, :cond_2
 
     return v0
 
     .line 256
     :cond_2
-    iget-boolean v2, p0, Landroidx/work/Constraints;->mRequiresDeviceIdle:Z
+    iget-boolean v1, p0, Landroidx/work/Constraints;->mRequiresDeviceIdle:Z
 
-    iget-boolean v3, v1, Landroidx/work/Constraints;->mRequiresDeviceIdle:Z
+    iget-boolean v2, p1, Landroidx/work/Constraints;->mRequiresDeviceIdle:Z
 
-    if-eq v2, v3, :cond_3
+    if-eq v1, v2, :cond_3
 
     return v0
 
     .line 257
     :cond_3
-    iget-boolean v2, p0, Landroidx/work/Constraints;->mRequiresBatteryNotLow:Z
+    iget-boolean v1, p0, Landroidx/work/Constraints;->mRequiresBatteryNotLow:Z
 
-    iget-boolean v3, v1, Landroidx/work/Constraints;->mRequiresBatteryNotLow:Z
+    iget-boolean v2, p1, Landroidx/work/Constraints;->mRequiresBatteryNotLow:Z
 
-    if-eq v2, v3, :cond_4
+    if-eq v1, v2, :cond_4
 
     return v0
 
     .line 258
     :cond_4
-    iget-boolean v2, p0, Landroidx/work/Constraints;->mRequiresStorageNotLow:Z
+    iget-boolean v1, p0, Landroidx/work/Constraints;->mRequiresStorageNotLow:Z
 
-    iget-boolean v3, v1, Landroidx/work/Constraints;->mRequiresStorageNotLow:Z
+    iget-boolean v2, p1, Landroidx/work/Constraints;->mRequiresStorageNotLow:Z
 
-    if-eq v2, v3, :cond_5
+    if-eq v1, v2, :cond_5
 
     return v0
 
     .line 259
     :cond_5
-    iget-wide v2, p0, Landroidx/work/Constraints;->mTriggerContentUpdateDelay:J
+    iget-wide v1, p0, Landroidx/work/Constraints;->mTriggerContentUpdateDelay:J
 
-    iget-wide v4, v1, Landroidx/work/Constraints;->mTriggerContentUpdateDelay:J
+    iget-wide v3, p1, Landroidx/work/Constraints;->mTriggerContentUpdateDelay:J
 
-    cmp-long v2, v2, v4
+    cmp-long v1, v1, v3
 
-    if-eqz v2, :cond_6
+    if-eqz v1, :cond_6
 
     return v0
 
     .line 260
     :cond_6
-    iget-wide v2, p0, Landroidx/work/Constraints;->mTriggerMaxContentDelay:J
+    iget-wide v1, p0, Landroidx/work/Constraints;->mTriggerMaxContentDelay:J
 
-    iget-wide v4, v1, Landroidx/work/Constraints;->mTriggerMaxContentDelay:J
+    iget-wide v3, p1, Landroidx/work/Constraints;->mTriggerMaxContentDelay:J
 
-    cmp-long v2, v2, v4
+    cmp-long v1, v1, v3
 
-    if-eqz v2, :cond_7
+    if-eqz v1, :cond_7
 
     return v0
 
     .line 261
     :cond_7
-    iget-object v2, p0, Landroidx/work/Constraints;->mRequiredNetworkType:Landroidx/work/NetworkType;
+    iget-object v1, p0, Landroidx/work/Constraints;->mRequiredNetworkType:Landroidx/work/NetworkType;
 
-    iget-object v3, v1, Landroidx/work/Constraints;->mRequiredNetworkType:Landroidx/work/NetworkType;
+    iget-object v2, p1, Landroidx/work/Constraints;->mRequiredNetworkType:Landroidx/work/NetworkType;
 
-    if-eq v2, v3, :cond_8
+    if-eq v1, v2, :cond_8
 
     return v0
 
@@ -376,16 +352,14 @@
     :cond_8
     iget-object v0, p0, Landroidx/work/Constraints;->mContentUriTriggers:Landroidx/work/ContentUriTriggers;
 
-    iget-object v2, v1, Landroidx/work/Constraints;->mContentUriTriggers:Landroidx/work/ContentUriTriggers;
+    iget-object p1, p1, Landroidx/work/Constraints;->mContentUriTriggers:Landroidx/work/ContentUriTriggers;
 
-    invoke-virtual {v0, v2}, Landroidx/work/ContentUriTriggers;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Landroidx/work/ContentUriTriggers;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
-    .line 251
-    .end local v1    # "that":Landroidx/work/Constraints;
     :cond_9
     :goto_0
     return v0
@@ -451,7 +425,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 7
+    .locals 6
 
     .line 267
     iget-object v0, p0, Landroidx/work/Constraints;->mRequiredNetworkType:Landroidx/work/NetworkType;
@@ -460,90 +434,74 @@
 
     move-result v0
 
+    mul-int/lit8 v0, v0, 0x1f
+
     .line 268
-    .local v0, "result":I
-    mul-int/lit8 v1, v0, 0x1f
+    iget-boolean v1, p0, Landroidx/work/Constraints;->mRequiresCharging:Z
 
-    iget-boolean v2, p0, Landroidx/work/Constraints;->mRequiresCharging:Z
+    add-int/2addr v0, v1
 
-    add-int/2addr v1, v2
+    mul-int/lit8 v0, v0, 0x1f
 
     .line 269
-    .end local v0    # "result":I
-    .local v1, "result":I
-    mul-int/lit8 v0, v1, 0x1f
+    iget-boolean v1, p0, Landroidx/work/Constraints;->mRequiresDeviceIdle:Z
 
-    iget-boolean v2, p0, Landroidx/work/Constraints;->mRequiresDeviceIdle:Z
+    add-int/2addr v0, v1
 
-    add-int/2addr v0, v2
+    mul-int/lit8 v0, v0, 0x1f
 
     .line 270
-    .end local v1    # "result":I
-    .restart local v0    # "result":I
-    mul-int/lit8 v1, v0, 0x1f
+    iget-boolean v1, p0, Landroidx/work/Constraints;->mRequiresBatteryNotLow:Z
 
-    iget-boolean v2, p0, Landroidx/work/Constraints;->mRequiresBatteryNotLow:Z
+    add-int/2addr v0, v1
 
-    add-int/2addr v1, v2
+    mul-int/lit8 v0, v0, 0x1f
 
     .line 271
-    .end local v0    # "result":I
-    .restart local v1    # "result":I
-    mul-int/lit8 v0, v1, 0x1f
+    iget-boolean v1, p0, Landroidx/work/Constraints;->mRequiresStorageNotLow:Z
 
-    iget-boolean v2, p0, Landroidx/work/Constraints;->mRequiresStorageNotLow:Z
+    add-int/2addr v0, v1
 
-    add-int/2addr v0, v2
+    mul-int/lit8 v0, v0, 0x1f
 
     .line 272
-    .end local v1    # "result":I
-    .restart local v0    # "result":I
-    mul-int/lit8 v1, v0, 0x1f
+    iget-wide v1, p0, Landroidx/work/Constraints;->mTriggerContentUpdateDelay:J
 
-    iget-wide v2, p0, Landroidx/work/Constraints;->mTriggerContentUpdateDelay:J
+    const/16 v3, 0x20
 
-    const/16 v4, 0x20
+    ushr-long v4, v1, v3
 
-    ushr-long v5, v2, v4
+    xor-long/2addr v1, v4
 
-    xor-long/2addr v2, v5
+    long-to-int v1, v1
 
-    long-to-int v2, v2
+    add-int/2addr v0, v1
 
-    add-int/2addr v1, v2
+    mul-int/lit8 v0, v0, 0x1f
 
     .line 274
-    .end local v0    # "result":I
-    .restart local v1    # "result":I
-    mul-int/lit8 v0, v1, 0x1f
+    iget-wide v1, p0, Landroidx/work/Constraints;->mTriggerMaxContentDelay:J
 
-    iget-wide v2, p0, Landroidx/work/Constraints;->mTriggerMaxContentDelay:J
+    ushr-long v3, v1, v3
 
-    ushr-long v4, v2, v4
+    xor-long/2addr v1, v3
 
-    xor-long/2addr v2, v4
+    long-to-int v1, v1
 
-    long-to-int v2, v2
+    add-int/2addr v0, v1
 
-    add-int/2addr v0, v2
+    mul-int/lit8 v0, v0, 0x1f
 
     .line 275
-    .end local v1    # "result":I
-    .restart local v0    # "result":I
-    mul-int/lit8 v1, v0, 0x1f
+    iget-object v1, p0, Landroidx/work/Constraints;->mContentUriTriggers:Landroidx/work/ContentUriTriggers;
 
-    iget-object v2, p0, Landroidx/work/Constraints;->mContentUriTriggers:Landroidx/work/ContentUriTriggers;
+    invoke-virtual {v1}, Landroidx/work/ContentUriTriggers;->hashCode()I
 
-    invoke-virtual {v2}, Landroidx/work/ContentUriTriggers;->hashCode()I
+    move-result v1
 
-    move-result v2
+    add-int/2addr v0, v1
 
-    add-int/2addr v1, v2
-
-    .line 276
-    .end local v0    # "result":I
-    .restart local v1    # "result":I
-    return v1
+    return v0
 .end method
 
 .method public requiresBatteryNotLow()Z
@@ -584,7 +542,6 @@
 
 .method public setContentUriTriggers(Landroidx/work/ContentUriTriggers;)V
     .locals 0
-    .param p1, "mContentUriTriggers"    # Landroidx/work/ContentUriTriggers;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -597,13 +554,11 @@
     .line 226
     iput-object p1, p0, Landroidx/work/Constraints;->mContentUriTriggers:Landroidx/work/ContentUriTriggers;
 
-    .line 227
     return-void
 .end method
 
 .method public setRequiredNetworkType(Landroidx/work/NetworkType;)V
     .locals 0
-    .param p1, "requiredNetworkType"    # Landroidx/work/NetworkType;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -616,13 +571,11 @@
     .line 114
     iput-object p1, p0, Landroidx/work/Constraints;->mRequiredNetworkType:Landroidx/work/NetworkType;
 
-    .line 115
     return-void
 .end method
 
 .method public setRequiresBatteryNotLow(Z)V
     .locals 0
-    .param p1, "requiresBatteryNotLow"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -635,13 +588,11 @@
     .line 164
     iput-boolean p1, p0, Landroidx/work/Constraints;->mRequiresBatteryNotLow:Z
 
-    .line 165
     return-void
 .end method
 
 .method public setRequiresCharging(Z)V
     .locals 0
-    .param p1, "requiresCharging"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -654,13 +605,11 @@
     .line 130
     iput-boolean p1, p0, Landroidx/work/Constraints;->mRequiresCharging:Z
 
-    .line 131
     return-void
 .end method
 
 .method public setRequiresDeviceIdle(Z)V
     .locals 0
-    .param p1, "requiresDeviceIdle"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -673,13 +622,11 @@
     .line 148
     iput-boolean p1, p0, Landroidx/work/Constraints;->mRequiresDeviceIdle:Z
 
-    .line 149
     return-void
 .end method
 
 .method public setRequiresStorageNotLow(Z)V
     .locals 0
-    .param p1, "requiresStorageNotLow"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -692,13 +639,11 @@
     .line 180
     iput-boolean p1, p0, Landroidx/work/Constraints;->mRequiresStorageNotLow:Z
 
-    .line 181
     return-void
 .end method
 
 .method public setTriggerContentUpdateDelay(J)V
     .locals 0
-    .param p1, "triggerContentUpdateDelay"    # J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -711,13 +656,11 @@
     .line 198
     iput-wide p1, p0, Landroidx/work/Constraints;->mTriggerContentUpdateDelay:J
 
-    .line 199
     return-void
 .end method
 
 .method public setTriggerMaxContentDelay(J)V
     .locals 0
-    .param p1, "triggerMaxContentDelay"    # J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -730,6 +673,5 @@
     .line 216
     iput-wide p1, p0, Landroidx/work/Constraints;->mTriggerMaxContentDelay:J
 
-    .line 217
     return-void
 .end method

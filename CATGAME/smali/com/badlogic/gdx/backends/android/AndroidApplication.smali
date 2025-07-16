@@ -85,7 +85,6 @@
     .line 60
     invoke-static {}, Lcom/badlogic/gdx/utils/GdxNativesLoader;->load()V
 
-    .line 61
     return-void
 .end method
 
@@ -95,9 +94,9 @@
     .line 58
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 71
     const/4 v0, 0x1
 
+    .line 71
     iput-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->firstResume:Z
 
     .line 72
@@ -130,22 +129,22 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->androidEventListeners:Lcom/badlogic/gdx/utils/Array;
 
-    .line 76
     const/4 v0, 0x2
 
+    .line 76
     iput v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->logLevel:I
 
-    .line 78
     const/4 v0, 0x0
 
+    .line 78
     iput-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->useImmersiveMode:Z
 
     .line 79
     iput-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->hideStatusBar:Z
 
-    .line 80
     const/4 v1, -0x1
 
+    .line 80
     iput v1, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->wasFocusChanged:I
 
     .line 81
@@ -155,10 +154,7 @@
 .end method
 
 .method private init(Lcom/badlogic/gdx/ApplicationListener;Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;Z)V
-    .locals 8
-    .param p1, "listener"    # Lcom/badlogic/gdx/ApplicationListener;
-    .param p2, "config"    # Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;
-    .param p3, "isForView"    # Z
+    .locals 5
 
     .line 131
     invoke-virtual {p0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->getVersion()I
@@ -246,35 +242,35 @@
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->listener:Lcom/badlogic/gdx/ApplicationListener;
 
     .line 143
-    new-instance v0, Landroid/os/Handler;
+    new-instance p1, Landroid/os/Handler;
 
-    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+    invoke-direct {p1}, Landroid/os/Handler;-><init>()V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->handler:Landroid/os/Handler;
+    iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->handler:Landroid/os/Handler;
 
     .line 144
-    iget-boolean v0, p2, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;->useImmersiveMode:Z
+    iget-boolean p1, p2, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;->useImmersiveMode:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->useImmersiveMode:Z
+    iput-boolean p1, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->useImmersiveMode:Z
 
     .line 145
-    iget-boolean v0, p2, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;->hideStatusBar:Z
+    iget-boolean p1, p2, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;->hideStatusBar:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->hideStatusBar:Z
+    iput-boolean p1, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->hideStatusBar:Z
 
     .line 146
-    new-instance v0, Lcom/badlogic/gdx/backends/android/AndroidClipboard;
+    new-instance p1, Lcom/badlogic/gdx/backends/android/AndroidClipboard;
 
-    invoke-direct {v0, p0}, Lcom/badlogic/gdx/backends/android/AndroidClipboard;-><init>(Landroid/content/Context;)V
+    invoke-direct {p1, p0}, Lcom/badlogic/gdx/backends/android/AndroidClipboard;-><init>(Landroid/content/Context;)V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->clipboard:Lcom/badlogic/gdx/backends/android/AndroidClipboard;
+    iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->clipboard:Lcom/badlogic/gdx/backends/android/AndroidClipboard;
 
     .line 149
-    new-instance v0, Lcom/badlogic/gdx/backends/android/AndroidApplication$1;
+    new-instance p1, Lcom/badlogic/gdx/backends/android/AndroidApplication$1;
 
-    invoke-direct {v0, p0}, Lcom/badlogic/gdx/backends/android/AndroidApplication$1;-><init>(Lcom/badlogic/gdx/backends/android/AndroidApplication;)V
+    invoke-direct {p1, p0}, Lcom/badlogic/gdx/backends/android/AndroidApplication$1;-><init>(Lcom/badlogic/gdx/backends/android/AndroidApplication;)V
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->addLifecycleListener(Lcom/badlogic/gdx/LifecycleListener;)V
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->addLifecycleListener(Lcom/badlogic/gdx/LifecycleListener;)V
 
     .line 167
     sput-object p0, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
@@ -282,227 +278,208 @@
     .line 168
     invoke-virtual {p0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->getInput()Lcom/badlogic/gdx/backends/android/AndroidInput;
 
-    move-result-object v0
+    move-result-object p1
 
-    sput-object v0, Lcom/badlogic/gdx/Gdx;->input:Lcom/badlogic/gdx/Input;
+    sput-object p1, Lcom/badlogic/gdx/Gdx;->input:Lcom/badlogic/gdx/Input;
 
     .line 169
     invoke-virtual {p0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->getAudio()Lcom/badlogic/gdx/Audio;
 
-    move-result-object v0
+    move-result-object p1
 
-    sput-object v0, Lcom/badlogic/gdx/Gdx;->audio:Lcom/badlogic/gdx/Audio;
+    sput-object p1, Lcom/badlogic/gdx/Gdx;->audio:Lcom/badlogic/gdx/Audio;
 
     .line 170
     invoke-virtual {p0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->getFiles()Lcom/badlogic/gdx/Files;
 
-    move-result-object v0
+    move-result-object p1
 
-    sput-object v0, Lcom/badlogic/gdx/Gdx;->files:Lcom/badlogic/gdx/Files;
+    sput-object p1, Lcom/badlogic/gdx/Gdx;->files:Lcom/badlogic/gdx/Files;
 
     .line 171
     invoke-virtual {p0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->getGraphics()Lcom/badlogic/gdx/Graphics;
 
-    move-result-object v0
+    move-result-object p1
 
-    sput-object v0, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
+    sput-object p1, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
 
     .line 172
     invoke-virtual {p0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->getNet()Lcom/badlogic/gdx/Net;
 
-    move-result-object v0
+    move-result-object p1
 
-    sput-object v0, Lcom/badlogic/gdx/Gdx;->net:Lcom/badlogic/gdx/Net;
+    sput-object p1, Lcom/badlogic/gdx/Gdx;->net:Lcom/badlogic/gdx/Net;
 
-    .line 174
-    const-string v0, "AndroidApplication"
+    const-string p1, "AndroidApplication"
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
     if-nez p3, :cond_1
 
     .line 176
     :try_start_0
-    invoke-virtual {p0, v1}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->requestWindowFeature(I)Z
+    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->requestWindowFeature(I)Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 179
     goto :goto_1
 
-    .line 177
     :catch_0
-    move-exception v2
+    move-exception p3
+
+    const-string v1, "Content already displayed, cannot request FEATURE_NO_TITLE"
 
     .line 178
-    .local v2, "ex":Ljava/lang/Exception;
-    const-string v3, "Content already displayed, cannot request FEATURE_NO_TITLE"
-
-    invoke-virtual {p0, v0, v3, v2}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->log(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1, v1, p3}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->log(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 180
-    .end local v2    # "ex":Ljava/lang/Exception;
     :goto_1
     invoke-virtual {p0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->getWindow()Landroid/view/Window;
 
-    move-result-object v2
+    move-result-object p3
 
-    const/16 v3, 0x400
+    const/16 v1, 0x400
 
-    invoke-virtual {v2, v3, v3}, Landroid/view/Window;->setFlags(II)V
+    invoke-virtual {p3, v1, v1}, Landroid/view/Window;->setFlags(II)V
 
     .line 181
     invoke-virtual {p0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->getWindow()Landroid/view/Window;
 
-    move-result-object v2
+    move-result-object p3
 
-    const/16 v3, 0x800
+    const/16 v1, 0x800
 
-    invoke-virtual {v2, v3}, Landroid/view/Window;->clearFlags(I)V
+    invoke-virtual {p3, v1}, Landroid/view/Window;->clearFlags(I)V
 
     .line 182
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->graphics:Lcom/badlogic/gdx/backends/android/AndroidGraphics;
+    iget-object p3, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->graphics:Lcom/badlogic/gdx/backends/android/AndroidGraphics;
 
-    invoke-virtual {v2}, Lcom/badlogic/gdx/backends/android/AndroidGraphics;->getView()Landroid/view/View;
+    invoke-virtual {p3}, Lcom/badlogic/gdx/backends/android/AndroidGraphics;->getView()Landroid/view/View;
 
-    move-result-object v2
+    move-result-object p3
 
     invoke-virtual {p0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->createLayoutParams()Landroid/widget/FrameLayout$LayoutParams;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {p0, v2, v3}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->setContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {p0, p3, v1}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->setContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 185
     :cond_1
-    iget-boolean v2, p2, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;->useWakelock:Z
+    iget-boolean p2, p2, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;->useWakelock:Z
 
-    invoke-virtual {p0, v2}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->createWakeLock(Z)V
+    invoke-virtual {p0, p2}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->createWakeLock(Z)V
 
     .line 186
-    iget-boolean v2, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->hideStatusBar:Z
+    iget-boolean p2, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->hideStatusBar:Z
 
-    invoke-virtual {p0, v2}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->hideStatusBar(Z)V
+    invoke-virtual {p0, p2}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->hideStatusBar(Z)V
 
     .line 187
-    iget-boolean v2, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->useImmersiveMode:Z
+    iget-boolean p2, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->useImmersiveMode:Z
 
-    invoke-virtual {p0, v2}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->useImmersiveMode(Z)V
+    invoke-virtual {p0, p2}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->useImmersiveMode(Z)V
 
     .line 188
-    iget-boolean v2, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->useImmersiveMode:Z
+    iget-boolean p2, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->useImmersiveMode:Z
 
-    if-eqz v2, :cond_2
+    if-eqz p2, :cond_2
 
     invoke-virtual {p0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->getVersion()I
 
-    move-result v2
+    move-result p2
 
-    const/16 v3, 0x13
+    const/16 p3, 0x13
 
-    if-lt v2, v3, :cond_2
+    if-lt p2, p3, :cond_2
+
+    :try_start_1
+    const-string p2, "com.badlogic.gdx.backends.android.AndroidVisibilityListener"
 
     .line 190
-    :try_start_1
-    const-string v2, "com.badlogic.gdx.backends.android.AndroidVisibilityListener"
+    invoke-static {p2}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    invoke-static {v2}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
-
-    move-result-object v2
+    move-result-object p2
 
     .line 191
-    .local v2, "vlistener":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    invoke-virtual {v2}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
+    invoke-virtual {p2}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p3
+
+    const-string v1, "createListener"
+
+    new-array v2, v0, [Ljava/lang/Class;
 
     .line 192
-    .local v3, "o":Ljava/lang/Object;
-    const-string v4, "createListener"
+    const-class v3, Lcom/badlogic/gdx/backends/android/AndroidApplicationBase;
 
-    new-array v5, v1, [Ljava/lang/Class;
+    const/4 v4, 0x0
 
-    const-class v6, Lcom/badlogic/gdx/backends/android/AndroidApplicationBase;
+    aput-object v3, v2, v4
 
-    const/4 v7, 0x0
+    invoke-virtual {p2, v1, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    aput-object v6, v5, v7
+    move-result-object p2
 
-    invoke-virtual {v2, v4, v5}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    new-array v1, v0, [Ljava/lang/Object;
 
-    move-result-object v4
+    aput-object p0, v1, v4
 
     .line 193
-    .local v4, "method":Ljava/lang/reflect/Method;
-    new-array v5, v1, [Ljava/lang/Object;
-
-    aput-object p0, v5, v7
-
-    invoke-virtual {v4, v3, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p2, p3, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 196
-    nop
-
-    .end local v2    # "vlistener":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .end local v3    # "o":Ljava/lang/Object;
-    .end local v4    # "method":Ljava/lang/reflect/Method;
     goto :goto_2
 
-    .line 194
     :catch_1
-    move-exception v2
+    move-exception p2
+
+    const-string p3, "Failed to create AndroidVisibilityListener"
 
     .line 195
-    .local v2, "e":Ljava/lang/Exception;
-    const-string v3, "Failed to create AndroidVisibilityListener"
-
-    invoke-virtual {p0, v0, v3, v2}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->log(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1, p3, p2}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->log(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 200
-    .end local v2    # "e":Ljava/lang/Exception;
     :cond_2
     :goto_2
     invoke-virtual {p0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    invoke-virtual {p1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget v0, v0, Landroid/content/res/Configuration;->keyboard:I
+    iget p1, p1, Landroid/content/res/Configuration;->keyboard:I
 
-    if-eq v0, v1, :cond_3
+    if-eq p1, v0, :cond_3
 
     .line 201
     invoke-virtual {p0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->getInput()Lcom/badlogic/gdx/backends/android/AndroidInput;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-boolean v1, v0, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyboardAvailable:Z
+    iput-boolean v0, p1, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyboardAvailable:Z
 
-    .line 202
     :cond_3
     return-void
 
     .line 132
     :cond_4
-    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v1, "LibGDX requires Android API Level 9 or later."
+    const-string p2, "LibGDX requires Android API Level 9 or later."
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
 # virtual methods
 .method public addAndroidEventListener(Lcom/badlogic/gdx/backends/android/AndroidEventListener;)V
     .locals 2
-    .param p1, "listener"    # Lcom/badlogic/gdx/backends/android/AndroidEventListener;
 
     .line 489
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->androidEventListeners:Lcom/badlogic/gdx/utils/Array;
@@ -518,23 +495,20 @@
     .line 491
     monitor-exit v0
 
-    .line 492
     return-void
 
-    .line 491
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public addLifecycleListener(Lcom/badlogic/gdx/LifecycleListener;)V
     .locals 2
-    .param p1, "listener"    # Lcom/badlogic/gdx/LifecycleListener;
 
     .line 463
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->lifecycleListeners:Lcom/badlogic/gdx/utils/SnapshotArray;
@@ -550,18 +524,16 @@
     .line 465
     monitor-exit v0
 
-    .line 466
     return-void
 
-    .line 465
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method protected createLayoutParams()Landroid/widget/FrameLayout$LayoutParams;
@@ -574,41 +546,34 @@
 
     invoke-direct {v0, v1, v1}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
-    .line 207
-    .local v0, "layoutParams":Landroid/widget/FrameLayout$LayoutParams;
     const/16 v1, 0x11
 
+    .line 207
     iput v1, v0, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
 
-    .line 208
     return-object v0
 .end method
 
 .method protected createWakeLock(Z)V
-    .locals 2
-    .param p1, "use"    # Z
+    .locals 1
 
-    .line 212
     if-eqz p1, :cond_0
 
     .line 213
     invoke-virtual {p0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->getWindow()Landroid/view/Window;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/16 v1, 0x80
+    const/16 v0, 0x80
 
-    invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
+    invoke-virtual {p1, v0}, Landroid/view/Window;->addFlags(I)V
 
-    .line 215
     :cond_0
     return-void
 .end method
 
 .method public debug(Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
-    .param p1, "tag"    # Ljava/lang/String;
-    .param p2, "message"    # Ljava/lang/String;
 
     .line 413
     iget v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->logLevel:I
@@ -623,16 +588,12 @@
 
     invoke-interface {v0, p1, p2}, Lcom/badlogic/gdx/ApplicationLogger;->debug(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 414
     :cond_0
     return-void
 .end method
 
 .method public debug(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "tag"    # Ljava/lang/String;
-    .param p2, "message"    # Ljava/lang/String;
-    .param p3, "exception"    # Ljava/lang/Throwable;
 
     .line 418
     iget v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->logLevel:I
@@ -647,15 +608,12 @@
 
     invoke-interface {v0, p1, p2, p3}, Lcom/badlogic/gdx/ApplicationLogger;->debug(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 419
     :cond_0
     return-void
 .end method
 
 .method public error(Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
-    .param p1, "tag"    # Ljava/lang/String;
-    .param p2, "message"    # Ljava/lang/String;
 
     .line 433
     iget v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->logLevel:I
@@ -670,16 +628,12 @@
 
     invoke-interface {v0, p1, p2}, Lcom/badlogic/gdx/ApplicationLogger;->error(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 434
     :cond_0
     return-void
 .end method
 
 .method public error(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "tag"    # Ljava/lang/String;
-    .param p2, "message"    # Ljava/lang/String;
-    .param p3, "exception"    # Ljava/lang/Throwable;
 
     .line 438
     iget v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->logLevel:I
@@ -694,7 +648,6 @@
 
     invoke-interface {v0, p1, p2, p3}, Lcom/badlogic/gdx/ApplicationLogger;->error(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 439
     :cond_0
     return-void
 .end method
@@ -711,7 +664,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 409
     return-void
 .end method
 
@@ -765,7 +717,6 @@
 .method public getContext()Landroid/content/Context;
     .locals 0
 
-    .line 503
     return-object p0
 .end method
 
@@ -906,7 +857,6 @@
 
 .method public getPreferences(Ljava/lang/String;)Lcom/badlogic/gdx/Preferences;
     .locals 2
-    .param p1, "name"    # Ljava/lang/String;
 
     .line 376
     new-instance v0, Lcom/badlogic/gdx/backends/android/AndroidPreferences;
@@ -915,9 +865,9 @@
 
     invoke-virtual {p0, p1, v1}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/backends/android/AndroidPreferences;-><init>(Landroid/content/SharedPreferences;)V
+    invoke-direct {v0, p1}, Lcom/badlogic/gdx/backends/android/AndroidPreferences;-><init>(Landroid/content/SharedPreferences;)V
 
     return-object v0
 .end method
@@ -958,120 +908,103 @@
 .end method
 
 .method protected hideStatusBar(Z)V
-    .locals 7
-    .param p1, "hide"    # Z
+    .locals 6
 
-    .line 218
     if-eqz p1, :cond_2
 
+    .line 218
     invoke-virtual {p0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->getVersion()I
 
-    move-result v0
+    move-result p1
 
-    const/16 v1, 0xb
+    const/16 v0, 0xb
 
-    if-ge v0, v1, :cond_0
+    if-ge p1, v0, :cond_0
 
-    goto :goto_1
+    goto :goto_0
 
     .line 220
     :cond_0
     invoke-virtual {p0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->getWindow()Landroid/view/Window;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+    invoke-virtual {p1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 223
-    .local v0, "rootView":Landroid/view/View;
     :try_start_0
-    const-class v1, Landroid/view/View;
+    const-class v0, Landroid/view/View;
 
-    const-string v2, "setSystemUiVisibility"
+    const-string v1, "setSystemUiVisibility"
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    new-array v4, v3, [Ljava/lang/Class;
+    new-array v3, v2, [Ljava/lang/Class;
 
-    sget-object v5, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+    sget-object v4, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
-    aput-object v5, v4, v6
+    aput-object v4, v3, v5
 
-    invoke-virtual {v1, v2, v4}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v0, v1, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 224
-    .local v1, "m":Ljava/lang/reflect/Method;
     invoke-virtual {p0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->getVersion()I
 
-    move-result v2
+    move-result v1
 
-    const/16 v4, 0xd
+    const/16 v3, 0xd
 
-    if-gt v2, v4, :cond_1
+    if-gt v1, v3, :cond_1
 
-    new-array v2, v3, [Ljava/lang/Object;
+    new-array v1, v2, [Ljava/lang/Object;
 
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    aput-object v4, v2, v6
-
-    invoke-virtual {v1, v0, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 225
-    :cond_1
-    new-array v2, v3, [Ljava/lang/Object;
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v3
 
-    aput-object v3, v2, v6
+    aput-object v3, v1, v5
 
-    invoke-virtual {v1, v0, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_1
+    new-array v1, v2, [Ljava/lang/Object;
+
+    .line 225
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    aput-object v2, v1, v5
+
+    invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 228
-    nop
-
-    .end local v1    # "m":Ljava/lang/reflect/Method;
     goto :goto_0
 
-    .line 226
     :catch_0
-    move-exception v1
+    move-exception p1
+
+    const-string v0, "AndroidApplication"
+
+    const-string v1, "Can\'t hide status bar"
 
     .line 227
-    .local v1, "e":Ljava/lang/Exception;
-    const-string v2, "AndroidApplication"
+    invoke-virtual {p0, v0, v1, p1}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->log(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    const-string v3, "Can\'t hide status bar"
-
-    invoke-virtual {p0, v2, v3, v1}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->log(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    .line 229
-    .end local v1    # "e":Ljava/lang/Exception;
-    :goto_0
-    return-void
-
-    .line 218
-    .end local v0    # "rootView":Landroid/view/View;
     :cond_2
-    :goto_1
+    :goto_0
     return-void
 .end method
 
 .method public initialize(Lcom/badlogic/gdx/ApplicationListener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/badlogic/gdx/ApplicationListener;
 
     .line 88
     new-instance v0, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;
@@ -1079,30 +1012,24 @@
     invoke-direct {v0}, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;-><init>()V
 
     .line 89
-    .local v0, "config":Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;
     invoke-virtual {p0, p1, v0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->initialize(Lcom/badlogic/gdx/ApplicationListener;Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;)V
 
-    .line 90
     return-void
 .end method
 
 .method public initialize(Lcom/badlogic/gdx/ApplicationListener;Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;)V
     .locals 1
-    .param p1, "listener"    # Lcom/badlogic/gdx/ApplicationListener;
-    .param p2, "config"    # Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;
 
-    .line 100
     const/4 v0, 0x0
 
+    .line 100
     invoke-direct {p0, p1, p2, v0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->init(Lcom/badlogic/gdx/ApplicationListener;Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;Z)V
 
-    .line 101
     return-void
 .end method
 
 .method public initializeForView(Lcom/badlogic/gdx/ApplicationListener;)Landroid/view/View;
-    .locals 2
-    .param p1, "listener"    # Lcom/badlogic/gdx/ApplicationListener;
+    .locals 1
 
     .line 111
     new-instance v0, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;
@@ -1110,38 +1037,33 @@
     invoke-direct {v0}, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;-><init>()V
 
     .line 112
-    .local v0, "config":Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;
     invoke-virtual {p0, p1, v0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->initializeForView(Lcom/badlogic/gdx/ApplicationListener;Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public initializeForView(Lcom/badlogic/gdx/ApplicationListener;Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;)Landroid/view/View;
     .locals 1
-    .param p1, "listener"    # Lcom/badlogic/gdx/ApplicationListener;
-    .param p2, "config"    # Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;
 
-    .line 126
     const/4 v0, 0x1
 
+    .line 126
     invoke-direct {p0, p1, p2, v0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->init(Lcom/badlogic/gdx/ApplicationListener;Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;Z)V
 
     .line 127
-    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->graphics:Lcom/badlogic/gdx/backends/android/AndroidGraphics;
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->graphics:Lcom/badlogic/gdx/backends/android/AndroidGraphics;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/backends/android/AndroidGraphics;->getView()Landroid/view/View;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/backends/android/AndroidGraphics;->getView()Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public log(Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
-    .param p1, "tag"    # Ljava/lang/String;
-    .param p2, "message"    # Ljava/lang/String;
 
     .line 423
     iget v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->logLevel:I
@@ -1156,16 +1078,12 @@
 
     invoke-interface {v0, p1, p2}, Lcom/badlogic/gdx/ApplicationLogger;->log(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 424
     :cond_0
     return-void
 .end method
 
 .method public log(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "tag"    # Ljava/lang/String;
-    .param p2, "message"    # Ljava/lang/String;
-    .param p3, "exception"    # Ljava/lang/Throwable;
 
     .line 428
     iget v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->logLevel:I
@@ -1180,16 +1098,12 @@
 
     invoke-interface {v0, p1, p2, p3}, Lcom/badlogic/gdx/ApplicationLogger;->log(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 429
     :cond_0
     return-void
 .end method
 
 .method protected onActivityResult(IILandroid/content/Intent;)V
     .locals 3
-    .param p1, "requestCode"    # I
-    .param p2, "resultCode"    # I
-    .param p3, "data"    # Landroid/content/Intent;
 
     .line 477
     invoke-super {p0, p1, p2, p3}, Landroid/app/Activity;->onActivityResult(IILandroid/content/Intent;)V
@@ -1199,10 +1113,9 @@
 
     monitor-enter v0
 
-    .line 481
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    .line 481
     :goto_0
     :try_start_0
     iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->androidEventListeners:Lcom/badlogic/gdx/utils/Array;
@@ -1222,57 +1135,50 @@
 
     invoke-interface {v2, p1, p2, p3}, Lcom/badlogic/gdx/backends/android/AndroidEventListener;->onActivityResult(IILandroid/content/Intent;)V
 
-    .line 481
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 484
-    .end local v1    # "i":I
     :cond_0
     monitor-exit v0
 
-    .line 485
     return-void
 
-    .line 484
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 3
-    .param p1, "config"    # Landroid/content/res/Configuration;
+    .locals 1
 
     .line 395
     invoke-super {p0, p1}, Landroid/app/Activity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 396
-    const/4 v0, 0x0
-
     .line 397
-    .local v0, "keyboardAvailable":Z
-    iget v1, p1, Landroid/content/res/Configuration;->hardKeyboardHidden:I
-
-    const/4 v2, 0x1
-
-    if-ne v1, v2, :cond_0
+    iget p1, p1, Landroid/content/res/Configuration;->hardKeyboardHidden:I
 
     const/4 v0, 0x1
 
-    .line 398
+    if-ne p1, v0, :cond_0
+
+    goto :goto_0
+
     :cond_0
-    iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->input:Lcom/badlogic/gdx/backends/android/AndroidInput;
+    const/4 v0, 0x0
 
-    iput-boolean v0, v1, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyboardAvailable:Z
+    .line 398
+    :goto_0
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->input:Lcom/badlogic/gdx/backends/android/AndroidInput;
 
-    .line 399
+    iput-boolean v0, p1, Lcom/badlogic/gdx/backends/android/AndroidInput;->keyboardAvailable:Z
+
     return-void
 .end method
 
@@ -1282,7 +1188,6 @@
     .line 321
     invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
 
-    .line 322
     return-void
 .end method
 
@@ -1297,13 +1202,11 @@
     move-result v0
 
     .line 267
-    .local v0, "isContinuous":Z
     sget-boolean v1, Lcom/badlogic/gdx/backends/android/AndroidGraphics;->enforceContinuousRendering:Z
 
-    .line 270
-    .local v1, "isContinuousEnforced":Z
     const/4 v2, 0x1
 
+    .line 270
     sput-boolean v2, Lcom/badlogic/gdx/backends/android/AndroidGraphics;->enforceContinuousRendering:Z
 
     .line 271
@@ -1343,19 +1246,18 @@
     sput-boolean v1, Lcom/badlogic/gdx/backends/android/AndroidGraphics;->enforceContinuousRendering:Z
 
     .line 284
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->graphics:Lcom/badlogic/gdx/backends/android/AndroidGraphics;
+    iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->graphics:Lcom/badlogic/gdx/backends/android/AndroidGraphics;
 
-    invoke-virtual {v2, v0}, Lcom/badlogic/gdx/backends/android/AndroidGraphics;->setContinuousRendering(Z)V
+    invoke-virtual {v1, v0}, Lcom/badlogic/gdx/backends/android/AndroidGraphics;->setContinuousRendering(Z)V
 
     .line 286
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->graphics:Lcom/badlogic/gdx/backends/android/AndroidGraphics;
+    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->graphics:Lcom/badlogic/gdx/backends/android/AndroidGraphics;
 
-    invoke-virtual {v2}, Lcom/badlogic/gdx/backends/android/AndroidGraphics;->onPauseGLSurfaceView()V
+    invoke-virtual {v0}, Lcom/badlogic/gdx/backends/android/AndroidGraphics;->onPauseGLSurfaceView()V
 
     .line 288
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
-    .line 289
     return-void
 .end method
 
@@ -1432,10 +1334,10 @@
     :cond_1
     iput-boolean v1, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->firstResume:Z
 
-    .line 311
     :goto_0
     const/4 v0, 0x1
 
+    .line 311
     iput-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->isWaitingForAudio:Z
 
     .line 312
@@ -1460,13 +1362,11 @@
     :cond_3
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
-    .line 317
     return-void
 .end method
 
 .method public onWindowFocusChanged(Z)V
-    .locals 2
-    .param p1, "hasFocus"    # Z
+    .locals 1
 
     .line 233
     invoke-super {p0, p1}, Landroid/app/Activity;->onWindowFocusChanged(Z)V
@@ -1481,25 +1381,24 @@
 
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->hideStatusBar(Z)V
 
-    .line 236
     const/4 v0, 0x0
 
     if-eqz p1, :cond_0
 
-    .line 237
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    iput v1, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->wasFocusChanged:I
+    .line 237
+    iput p1, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->wasFocusChanged:I
 
     .line 238
-    iget-boolean v1, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->isWaitingForAudio:Z
+    iget-boolean p1, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->isWaitingForAudio:Z
 
-    if-eqz v1, :cond_1
+    if-eqz p1, :cond_1
 
     .line 239
-    iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->audio:Lcom/badlogic/gdx/backends/android/AndroidAudio;
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->audio:Lcom/badlogic/gdx/backends/android/AndroidAudio;
 
-    invoke-virtual {v1}, Lcom/badlogic/gdx/backends/android/AndroidAudio;->resume()V
+    invoke-virtual {p1}, Lcom/badlogic/gdx/backends/android/AndroidAudio;->resume()V
 
     .line 240
     iput-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->isWaitingForAudio:Z
@@ -1510,7 +1409,6 @@
     :cond_0
     iput v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->wasFocusChanged:I
 
-    .line 245
     :cond_1
     :goto_0
     return-void
@@ -1518,7 +1416,6 @@
 
 .method public postRunnable(Ljava/lang/Runnable;)V
     .locals 2
-    .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 387
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->runnables:Lcom/badlogic/gdx/utils/Array;
@@ -1532,30 +1429,27 @@
     invoke-virtual {v1, p1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
     .line 389
-    sget-object v1, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
+    sget-object p1, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
 
-    invoke-interface {v1}, Lcom/badlogic/gdx/Graphics;->requestRendering()V
+    invoke-interface {p1}, Lcom/badlogic/gdx/Graphics;->requestRendering()V
 
     .line 390
     monitor-exit v0
 
-    .line 391
     return-void
 
-    .line 390
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public removeAndroidEventListener(Lcom/badlogic/gdx/backends/android/AndroidEventListener;)V
     .locals 3
-    .param p1, "listener"    # Lcom/badlogic/gdx/backends/android/AndroidEventListener;
 
     .line 496
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->androidEventListeners:Lcom/badlogic/gdx/utils/Array;
@@ -1573,23 +1467,20 @@
     .line 498
     monitor-exit v0
 
-    .line 499
     return-void
 
-    .line 498
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public removeLifecycleListener(Lcom/badlogic/gdx/LifecycleListener;)V
     .locals 3
-    .param p1, "listener"    # Lcom/badlogic/gdx/LifecycleListener;
 
     .line 470
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->lifecycleListeners:Lcom/badlogic/gdx/utils/SnapshotArray;
@@ -1607,135 +1498,110 @@
     .line 472
     monitor-exit v0
 
-    .line 473
     return-void
 
-    .line 472
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public setApplicationLogger(Lcom/badlogic/gdx/ApplicationLogger;)V
     .locals 0
-    .param p1, "applicationLogger"    # Lcom/badlogic/gdx/ApplicationLogger;
 
     .line 453
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->applicationLogger:Lcom/badlogic/gdx/ApplicationLogger;
 
-    .line 454
     return-void
 .end method
 
 .method public setLogLevel(I)V
     .locals 0
-    .param p1, "logLevel"    # I
 
     .line 443
     iput p1, p0, Lcom/badlogic/gdx/backends/android/AndroidApplication;->logLevel:I
 
-    .line 444
     return-void
 .end method
 
 .method public useImmersiveMode(Z)V
-    .locals 7
-    .param p1, "use"    # Z
+    .locals 6
 
-    .line 250
     if-eqz p1, :cond_1
 
+    .line 250
     invoke-virtual {p0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->getVersion()I
 
-    move-result v0
+    move-result p1
 
-    const/16 v1, 0x13
+    const/16 v0, 0x13
 
-    if-ge v0, v1, :cond_0
+    if-ge p1, v0, :cond_0
 
-    goto :goto_1
+    goto :goto_0
 
     .line 252
     :cond_0
     invoke-virtual {p0}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->getWindow()Landroid/view/Window;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+    invoke-virtual {p1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 254
-    .local v0, "view":Landroid/view/View;
     :try_start_0
-    const-class v1, Landroid/view/View;
+    const-class v0, Landroid/view/View;
 
-    const-string v2, "setSystemUiVisibility"
+    const-string v1, "setSystemUiVisibility"
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    new-array v4, v3, [Ljava/lang/Class;
+    new-array v3, v2, [Ljava/lang/Class;
 
-    sget-object v5, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+    sget-object v4, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
-    aput-object v5, v4, v6
+    aput-object v4, v3, v5
 
-    invoke-virtual {v1, v2, v4}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v0, v1, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    move-result-object v1
+    move-result-object v0
 
-    .line 255
-    .local v1, "m":Ljava/lang/reflect/Method;
+    new-array v1, v2, [Ljava/lang/Object;
+
     const/16 v2, 0x1706
 
     .line 258
-    .local v2, "code":I
-    new-array v3, v3, [Ljava/lang/Object;
-
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v2
 
-    aput-object v4, v3, v6
+    aput-object v2, v1, v5
 
-    invoke-virtual {v1, v0, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 261
-    nop
-
-    .end local v1    # "m":Ljava/lang/reflect/Method;
-    .end local v2    # "code":I
     goto :goto_0
 
-    .line 259
     :catch_0
-    move-exception v1
+    move-exception p1
+
+    const-string v0, "AndroidApplication"
+
+    const-string v1, "Can\'t set immersive mode"
 
     .line 260
-    .local v1, "e":Ljava/lang/Exception;
-    const-string v2, "AndroidApplication"
+    invoke-virtual {p0, v0, v1, p1}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->log(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    const-string v3, "Can\'t set immersive mode"
-
-    invoke-virtual {p0, v2, v3, v1}, Lcom/badlogic/gdx/backends/android/AndroidApplication;->log(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    .line 262
-    .end local v1    # "e":Ljava/lang/Exception;
-    :goto_0
-    return-void
-
-    .line 250
-    .end local v0    # "view":Landroid/view/View;
     :cond_1
-    :goto_1
+    :goto_0
     return-void
 .end method

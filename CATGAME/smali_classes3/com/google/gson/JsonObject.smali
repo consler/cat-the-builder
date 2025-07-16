@@ -36,38 +36,28 @@
 
 # virtual methods
 .method public add(Ljava/lang/String;Lcom/google/gson/JsonElement;)V
-    .locals 2
-    .param p1, "property"    # Ljava/lang/String;
-    .param p2, "value"    # Lcom/google/gson/JsonElement;
+    .locals 1
 
     .line 58
     iget-object v0, p0, Lcom/google/gson/JsonObject;->members:Lcom/google/gson/internal/LinkedTreeMap;
 
     if-nez p2, :cond_0
 
-    sget-object v1, Lcom/google/gson/JsonNull;->INSTANCE:Lcom/google/gson/JsonNull;
-
-    goto :goto_0
+    sget-object p2, Lcom/google/gson/JsonNull;->INSTANCE:Lcom/google/gson/JsonNull;
 
     :cond_0
-    move-object v1, p2
+    invoke-virtual {v0, p1, p2}, Lcom/google/gson/internal/LinkedTreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :goto_0
-    invoke-virtual {v0, p1, v1}, Lcom/google/gson/internal/LinkedTreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 59
     return-void
 .end method
 
 .method public addProperty(Ljava/lang/String;Ljava/lang/Boolean;)V
     .locals 1
-    .param p1, "property"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/Boolean;
 
-    .line 102
     if-nez p2, :cond_0
 
-    sget-object v0, Lcom/google/gson/JsonNull;->INSTANCE:Lcom/google/gson/JsonNull;
+    .line 102
+    sget-object p2, Lcom/google/gson/JsonNull;->INSTANCE:Lcom/google/gson/JsonNull;
 
     goto :goto_0
 
@@ -76,22 +66,21 @@
 
     invoke-direct {v0, p2}, Lcom/google/gson/JsonPrimitive;-><init>(Ljava/lang/Boolean;)V
 
-    :goto_0
-    invoke-virtual {p0, p1, v0}, Lcom/google/gson/JsonObject;->add(Ljava/lang/String;Lcom/google/gson/JsonElement;)V
+    move-object p2, v0
 
-    .line 103
+    :goto_0
+    invoke-virtual {p0, p1, p2}, Lcom/google/gson/JsonObject;->add(Ljava/lang/String;Lcom/google/gson/JsonElement;)V
+
     return-void
 .end method
 
 .method public addProperty(Ljava/lang/String;Ljava/lang/Character;)V
     .locals 1
-    .param p1, "property"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/Character;
 
-    .line 113
     if-nez p2, :cond_0
 
-    sget-object v0, Lcom/google/gson/JsonNull;->INSTANCE:Lcom/google/gson/JsonNull;
+    .line 113
+    sget-object p2, Lcom/google/gson/JsonNull;->INSTANCE:Lcom/google/gson/JsonNull;
 
     goto :goto_0
 
@@ -100,22 +89,21 @@
 
     invoke-direct {v0, p2}, Lcom/google/gson/JsonPrimitive;-><init>(Ljava/lang/Character;)V
 
-    :goto_0
-    invoke-virtual {p0, p1, v0}, Lcom/google/gson/JsonObject;->add(Ljava/lang/String;Lcom/google/gson/JsonElement;)V
+    move-object p2, v0
 
-    .line 114
+    :goto_0
+    invoke-virtual {p0, p1, p2}, Lcom/google/gson/JsonObject;->add(Ljava/lang/String;Lcom/google/gson/JsonElement;)V
+
     return-void
 .end method
 
 .method public addProperty(Ljava/lang/String;Ljava/lang/Number;)V
     .locals 1
-    .param p1, "property"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/Number;
 
-    .line 91
     if-nez p2, :cond_0
 
-    sget-object v0, Lcom/google/gson/JsonNull;->INSTANCE:Lcom/google/gson/JsonNull;
+    .line 91
+    sget-object p2, Lcom/google/gson/JsonNull;->INSTANCE:Lcom/google/gson/JsonNull;
 
     goto :goto_0
 
@@ -124,22 +112,21 @@
 
     invoke-direct {v0, p2}, Lcom/google/gson/JsonPrimitive;-><init>(Ljava/lang/Number;)V
 
-    :goto_0
-    invoke-virtual {p0, p1, v0}, Lcom/google/gson/JsonObject;->add(Ljava/lang/String;Lcom/google/gson/JsonElement;)V
+    move-object p2, v0
 
-    .line 92
+    :goto_0
+    invoke-virtual {p0, p1, p2}, Lcom/google/gson/JsonObject;->add(Ljava/lang/String;Lcom/google/gson/JsonElement;)V
+
     return-void
 .end method
 
 .method public addProperty(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .param p1, "property"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/String;
 
-    .line 80
     if-nez p2, :cond_0
 
-    sget-object v0, Lcom/google/gson/JsonNull;->INSTANCE:Lcom/google/gson/JsonNull;
+    .line 80
+    sget-object p2, Lcom/google/gson/JsonNull;->INSTANCE:Lcom/google/gson/JsonNull;
 
     goto :goto_0
 
@@ -148,10 +135,11 @@
 
     invoke-direct {v0, p2}, Lcom/google/gson/JsonPrimitive;-><init>(Ljava/lang/String;)V
 
-    :goto_0
-    invoke-virtual {p0, p1, v0}, Lcom/google/gson/JsonObject;->add(Ljava/lang/String;Lcom/google/gson/JsonElement;)V
+    move-object p2, v0
 
-    .line 81
+    :goto_0
+    invoke-virtual {p0, p1, p2}, Lcom/google/gson/JsonObject;->add(Ljava/lang/String;Lcom/google/gson/JsonElement;)V
+
     return-void
 .end method
 
@@ -167,7 +155,7 @@
 .end method
 
 .method public deepCopy()Lcom/google/gson/JsonObject;
-    .locals 5
+    .locals 4
 
     .line 42
     new-instance v0, Lcom/google/gson/JsonObject;
@@ -175,7 +163,6 @@
     invoke-direct {v0}, Lcom/google/gson/JsonObject;-><init>()V
 
     .line 43
-    .local v0, "result":Lcom/google/gson/JsonObject;
     iget-object v1, p0, Lcom/google/gson/JsonObject;->members:Lcom/google/gson/internal/LinkedTreeMap;
 
     invoke-virtual {v1}, Lcom/google/gson/internal/LinkedTreeMap;->entrySet()Ljava/util/Set;
@@ -200,7 +187,6 @@
     check-cast v2, Ljava/util/Map$Entry;
 
     .line 44
-    .local v2, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Lcom/google/gson/JsonElement;>;"
     invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v3
@@ -209,21 +195,18 @@
 
     invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v2
 
-    check-cast v4, Lcom/google/gson/JsonElement;
+    check-cast v2, Lcom/google/gson/JsonElement;
 
-    invoke-virtual {v4}, Lcom/google/gson/JsonElement;->deepCopy()Lcom/google/gson/JsonElement;
+    invoke-virtual {v2}, Lcom/google/gson/JsonElement;->deepCopy()Lcom/google/gson/JsonElement;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v0, v3, v4}, Lcom/google/gson/JsonObject;->add(Ljava/lang/String;Lcom/google/gson/JsonElement;)V
+    invoke-virtual {v0, v3, v2}, Lcom/google/gson/JsonObject;->add(Ljava/lang/String;Lcom/google/gson/JsonElement;)V
 
-    .line 45
-    .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Lcom/google/gson/JsonElement;>;"
     goto :goto_0
 
-    .line 46
     :cond_0
     return-object v0
 .end method
@@ -252,123 +235,114 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 1
 
-    .line 197
     if-eq p1, p0, :cond_1
 
+    .line 197
     instance-of v0, p1, Lcom/google/gson/JsonObject;
 
     if-eqz v0, :cond_0
 
-    move-object v0, p1
+    check-cast p1, Lcom/google/gson/JsonObject;
 
-    check-cast v0, Lcom/google/gson/JsonObject;
+    iget-object p1, p1, Lcom/google/gson/JsonObject;->members:Lcom/google/gson/internal/LinkedTreeMap;
 
-    iget-object v0, v0, Lcom/google/gson/JsonObject;->members:Lcom/google/gson/internal/LinkedTreeMap;
-
-    iget-object v1, p0, Lcom/google/gson/JsonObject;->members:Lcom/google/gson/internal/LinkedTreeMap;
+    iget-object v0, p0, Lcom/google/gson/JsonObject;->members:Lcom/google/gson/internal/LinkedTreeMap;
 
     .line 198
-    invoke-virtual {v0, v1}, Lcom/google/gson/internal/LinkedTreeMap;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Lcom/google/gson/internal/LinkedTreeMap;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    .line 197
     :goto_1
-    return v0
+    return p1
 .end method
 
 .method public get(Ljava/lang/String;)Lcom/google/gson/JsonElement;
     .locals 1
-    .param p1, "memberName"    # Ljava/lang/String;
 
     .line 162
     iget-object v0, p0, Lcom/google/gson/JsonObject;->members:Lcom/google/gson/internal/LinkedTreeMap;
 
     invoke-virtual {v0, p1}, Lcom/google/gson/internal/LinkedTreeMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/google/gson/JsonElement;
+    check-cast p1, Lcom/google/gson/JsonElement;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getAsJsonArray(Ljava/lang/String;)Lcom/google/gson/JsonArray;
     .locals 1
-    .param p1, "memberName"    # Ljava/lang/String;
 
     .line 182
     iget-object v0, p0, Lcom/google/gson/JsonObject;->members:Lcom/google/gson/internal/LinkedTreeMap;
 
     invoke-virtual {v0, p1}, Lcom/google/gson/internal/LinkedTreeMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/google/gson/JsonArray;
+    check-cast p1, Lcom/google/gson/JsonArray;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getAsJsonObject(Ljava/lang/String;)Lcom/google/gson/JsonObject;
     .locals 1
-    .param p1, "memberName"    # Ljava/lang/String;
 
     .line 192
     iget-object v0, p0, Lcom/google/gson/JsonObject;->members:Lcom/google/gson/internal/LinkedTreeMap;
 
     invoke-virtual {v0, p1}, Lcom/google/gson/internal/LinkedTreeMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/google/gson/JsonObject;
+    check-cast p1, Lcom/google/gson/JsonObject;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getAsJsonPrimitive(Ljava/lang/String;)Lcom/google/gson/JsonPrimitive;
     .locals 1
-    .param p1, "memberName"    # Ljava/lang/String;
 
     .line 172
     iget-object v0, p0, Lcom/google/gson/JsonObject;->members:Lcom/google/gson/internal/LinkedTreeMap;
 
     invoke-virtual {v0, p1}, Lcom/google/gson/internal/LinkedTreeMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/google/gson/JsonPrimitive;
+    check-cast p1, Lcom/google/gson/JsonPrimitive;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public has(Ljava/lang/String;)Z
     .locals 1
-    .param p1, "memberName"    # Ljava/lang/String;
 
     .line 152
     iget-object v0, p0, Lcom/google/gson/JsonObject;->members:Lcom/google/gson/internal/LinkedTreeMap;
 
     invoke-virtual {v0, p1}, Lcom/google/gson/internal/LinkedTreeMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public hashCode()I
@@ -407,18 +381,17 @@
 
 .method public remove(Ljava/lang/String;)Lcom/google/gson/JsonElement;
     .locals 1
-    .param p1, "property"    # Ljava/lang/String;
 
     .line 69
     iget-object v0, p0, Lcom/google/gson/JsonObject;->members:Lcom/google/gson/internal/LinkedTreeMap;
 
     invoke-virtual {v0, p1}, Lcom/google/gson/internal/LinkedTreeMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/google/gson/JsonElement;
+    check-cast p1, Lcom/google/gson/JsonElement;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public size()I

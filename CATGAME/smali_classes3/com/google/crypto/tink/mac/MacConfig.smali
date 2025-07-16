@@ -56,18 +56,12 @@
     :try_end_0
     .catch Ljava/security/GeneralSecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 61
-    nop
-
-    .line 62
     return-void
 
-    .line 59
     :catch_0
     move-exception v0
 
     .line 60
-    .local v0, "e":Ljava/security/GeneralSecurityException;
     new-instance v1, Ljava/lang/ExceptionInInitializerError;
 
     invoke-direct {v1, v0}, Ljava/lang/ExceptionInInitializerError;-><init>(Ljava/lang/Throwable;)V
@@ -98,7 +92,6 @@
     .line 73
     invoke-static {}, Lcom/google/crypto/tink/mac/MacConfig;->register()V
 
-    .line 74
     return-void
 .end method
 
@@ -110,9 +103,9 @@
         }
     .end annotation
 
-    .line 84
     const/4 v0, 0x1
 
+    .line 84
     invoke-static {v0}, Lcom/google/crypto/tink/mac/HmacKeyManager;->register(Z)V
 
     .line 85
@@ -121,7 +114,6 @@
     .line 86
     invoke-static {}, Lcom/google/crypto/tink/mac/MacWrapper;->register()V
 
-    .line 87
     return-void
 .end method
 
@@ -139,6 +131,5 @@
     .line 100
     invoke-static {}, Lcom/google/crypto/tink/mac/MacConfig;->register()V
 
-    .line 101
     return-void
 .end method

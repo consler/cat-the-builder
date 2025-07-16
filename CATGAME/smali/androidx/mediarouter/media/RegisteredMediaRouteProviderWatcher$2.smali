@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;
 
     .line 146
     iput-object p1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher$2;->this$0:Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;
@@ -44,6 +43,5 @@
 
     invoke-virtual {v0}, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->scanPackages()V
 
-    .line 150
     return-void
 .end method

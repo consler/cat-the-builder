@@ -130,18 +130,12 @@
     :try_end_0
     .catch Ljava/security/GeneralSecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 69
-    nop
-
-    .line 70
     return-void
 
-    .line 67
     :catch_0
     move-exception v0
 
     .line 68
-    .local v0, "e":Ljava/security/GeneralSecurityException;
     new-instance v1, Ljava/lang/ExceptionInInitializerError;
 
     invoke-direct {v1, v0}, Ljava/lang/ExceptionInInitializerError;-><init>(Ljava/lang/Throwable;)V
@@ -172,7 +166,6 @@
     .line 81
     invoke-static {}, Lcom/google/crypto/tink/signature/SignatureConfig;->register()V
 
-    .line 82
     return-void
 .end method
 
@@ -184,9 +177,9 @@
         }
     .end annotation
 
-    .line 92
     const/4 v0, 0x1
 
+    .line 92
     invoke-static {v0}, Lcom/google/crypto/tink/signature/EcdsaSignKeyManager;->registerPair(Z)V
 
     .line 93
@@ -204,6 +197,5 @@
     .line 98
     invoke-static {}, Lcom/google/crypto/tink/signature/PublicKeyVerifyWrapper;->register()V
 
-    .line 99
     return-void
 .end method

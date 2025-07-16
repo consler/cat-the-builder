@@ -57,7 +57,6 @@
 
     iput-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->mOptionsList:Ljava/util/List;
 
-    .line 2058
     return-void
 .end method
 
@@ -65,12 +64,10 @@
 # virtual methods
 .method public getCallback(Landroid/os/Bundle;)Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;
     .locals 2
-    .param p1, "options"    # Landroid/os/Bundle;
 
-    .line 2073
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 2073
     :goto_0
     iget-object v1, p0, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->mOptionsList:Ljava/util/List;
 
@@ -96,28 +93,25 @@
     if-eqz v1, :cond_0
 
     .line 2075
-    iget-object v1, p0, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->mCallbacks:Ljava/util/List;
+    iget-object p1, p0, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->mCallbacks:Ljava/util/List;
 
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;
+    check-cast p1, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;
 
-    return-object v1
+    return-object p1
 
-    .line 2073
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 2078
-    .end local v0    # "i":I
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getCallbacks()Ljava/util/List;
@@ -169,13 +163,10 @@
 
 .method public putCallback(Landroid/os/Bundle;Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;)V
     .locals 2
-    .param p1, "options"    # Landroid/os/Bundle;
-    .param p2, "callback"    # Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;
 
-    .line 2082
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 2082
     :goto_0
     iget-object v1, p0, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->mOptionsList:Ljava/util/List;
 
@@ -201,31 +192,27 @@
     if-eqz v1, :cond_0
 
     .line 2084
-    iget-object v1, p0, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->mCallbacks:Ljava/util/List;
+    iget-object p1, p0, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->mCallbacks:Ljava/util/List;
 
-    invoke-interface {v1, v0, p2}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, v0, p2}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    .line 2085
     return-void
 
-    .line 2082
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 2088
-    .end local v0    # "i":I
     :cond_1
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->mCallbacks:Ljava/util/List;
 
     invoke-interface {v0, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 2089
-    iget-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->mOptionsList:Ljava/util/List;
+    iget-object p2, p0, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->mOptionsList:Ljava/util/List;
 
-    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p2, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 2090
     return-void
 .end method

@@ -41,7 +41,6 @@
     .locals 1
 
     .line 8
-    .local p0, "this":Lcom/koushikdutta/async/future/MultiFuture;, "Lcom/koushikdutta/async/future/MultiFuture<TT;>;"
     invoke-direct {p0}, Lcom/koushikdutta/async/future/SimpleFuture;-><init>()V
 
     .line 11
@@ -60,7 +59,6 @@
     .locals 0
 
     .line 8
-    .local p0, "this":Lcom/koushikdutta/async/future/MultiFuture;, "Lcom/koushikdutta/async/future/MultiFuture<TT;>;"
     invoke-virtual {p0, p1}, Lcom/koushikdutta/async/future/MultiFuture;->setCallback(Lcom/koushikdutta/async/future/FutureCallback;)Lcom/koushikdutta/async/future/MultiFuture;
 
     move-result-object p1
@@ -81,8 +79,6 @@
     .end annotation
 
     .line 30
-    .local p0, "this":Lcom/koushikdutta/async/future/MultiFuture;, "Lcom/koushikdutta/async/future/MultiFuture<TT;>;"
-    .local p1, "callback":Lcom/koushikdutta/async/future/FutureCallback;, "Lcom/koushikdutta/async/future/FutureCallback<TT;>;"
     monitor-enter p0
 
     .line 31
@@ -110,30 +106,28 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 47
-    iget-object v0, p0, Lcom/koushikdutta/async/future/MultiFuture;->callback:Lcom/koushikdutta/async/future/FutureCallback;
+    iget-object p1, p0, Lcom/koushikdutta/async/future/MultiFuture;->callback:Lcom/koushikdutta/async/future/FutureCallback;
 
-    invoke-super {p0, v0}, Lcom/koushikdutta/async/future/SimpleFuture;->setCallback(Lcom/koushikdutta/async/future/FutureCallback;)Lcom/koushikdutta/async/future/SimpleFuture;
+    invoke-super {p0, p1}, Lcom/koushikdutta/async/future/SimpleFuture;->setCallback(Lcom/koushikdutta/async/future/FutureCallback;)Lcom/koushikdutta/async/future/SimpleFuture;
 
-    .line 48
     return-object p0
 
-    .line 34
     :catchall_0
-    move-exception v0
+    move-exception p1
 
+    .line 34
     :try_start_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 .method public bridge synthetic setCallback(Lcom/koushikdutta/async/future/FutureCallback;)Lcom/koushikdutta/async/future/SimpleFuture;
     .locals 0
 
     .line 8
-    .local p0, "this":Lcom/koushikdutta/async/future/MultiFuture;, "Lcom/koushikdutta/async/future/MultiFuture<TT;>;"
     invoke-virtual {p0, p1}, Lcom/koushikdutta/async/future/MultiFuture;->setCallback(Lcom/koushikdutta/async/future/FutureCallback;)Lcom/koushikdutta/async/future/MultiFuture;
 
     move-result-object p1

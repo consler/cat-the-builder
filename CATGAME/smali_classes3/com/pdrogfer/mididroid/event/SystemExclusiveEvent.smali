@@ -13,56 +13,46 @@
 
 # direct methods
 .method public constructor <init>(IJJ[B)V
-    .locals 3
-    .param p1, "type"    # I
-    .param p2, "tick"    # J
-    .param p4, "delta"    # J
-    .param p6, "data"    # [B
+    .locals 0
 
     .line 41
     invoke-direct {p0, p2, p3, p4, p5}, Lcom/pdrogfer/mididroid/event/MidiEvent;-><init>(JJ)V
 
+    and-int/lit16 p1, p1, 0xff
+
     .line 43
-    and-int/lit16 v0, p1, 0xff
+    iput p1, p0, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;->mType:I
 
-    iput v0, p0, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;->mType:I
+    const/16 p2, 0xf0
 
-    .line 44
-    const/16 v1, 0xf0
+    if-eq p1, p2, :cond_0
 
-    if-eq v0, v1, :cond_0
+    const/16 p3, 0xf7
 
-    const/16 v2, 0xf7
-
-    if-eq v0, v2, :cond_0
+    if-eq p1, p3, :cond_0
 
     .line 46
-    iput v1, p0, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;->mType:I
+    iput p2, p0, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;->mType:I
 
     .line 49
     :cond_0
-    new-instance v0, Lcom/pdrogfer/mididroid/util/VariableLengthInt;
+    new-instance p1, Lcom/pdrogfer/mididroid/util/VariableLengthInt;
 
-    array-length v1, p6
+    array-length p2, p6
 
-    invoke-direct {v0, v1}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;-><init>(I)V
+    invoke-direct {p1, p2}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;-><init>(I)V
 
-    iput-object v0, p0, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;->mLength:Lcom/pdrogfer/mididroid/util/VariableLengthInt;
+    iput-object p1, p0, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;->mLength:Lcom/pdrogfer/mididroid/util/VariableLengthInt;
 
     .line 50
     iput-object p6, p0, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;->mData:[B
 
-    .line 51
     return-void
 .end method
 
 .method public constructor <init>(IJ[B)V
     .locals 7
-    .param p1, "type"    # I
-    .param p2, "tick"    # J
-    .param p4, "data"    # [B
 
-    .line 36
     const-wide/16 v4, 0x0
 
     move-object v0, p0
@@ -73,9 +63,9 @@
 
     move-object v6, p4
 
+    .line 36
     invoke-direct/range {v0 .. v6}, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;-><init>(IJJ[B)V
 
-    .line 37
     return-void
 .end method
 
@@ -83,7 +73,6 @@
 # virtual methods
 .method public compareTo(Lcom/pdrogfer/mididroid/event/MidiEvent;)I
     .locals 6
-    .param p1, "other"    # Lcom/pdrogfer/mididroid/event/MidiEvent;
 
     .line 83
     iget-wide v0, p0, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;->mTick:J
@@ -96,7 +85,6 @@
 
     if-gez v0, :cond_0
 
-    .line 85
     return v1
 
     .line 87
@@ -111,7 +99,6 @@
 
     if-lez v0, :cond_1
 
-    .line 89
     return v2
 
     .line 92
@@ -130,7 +117,6 @@
 
     if-le v0, v3, :cond_2
 
-    .line 94
     return v1
 
     .line 96
@@ -149,7 +135,6 @@
 
     if-ge v0, v1, :cond_3
 
-    .line 98
     return v2
 
     .line 101
@@ -166,28 +151,21 @@
     invoke-direct {v0, v1}, Ljava/lang/String;-><init>([B)V
 
     .line 104
-    .local v0, "curr":Ljava/lang/String;
     new-instance v1, Ljava/lang/String;
 
-    move-object v2, p1
+    check-cast p1, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;
 
-    check-cast v2, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;
+    iget-object p1, p1, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;->mData:[B
 
-    iget-object v2, v2, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;->mData:[B
-
-    invoke-direct {v1, v2}, Ljava/lang/String;-><init>([B)V
+    invoke-direct {v1, p1}, Ljava/lang/String;-><init>([B)V
 
     .line 105
-    .local v1, "comp":Ljava/lang/String;
     invoke-virtual {v0, v1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
-    move-result v2
+    move-result p1
 
-    return v2
+    return p1
 
-    .line 108
-    .end local v0    # "curr":Ljava/lang/String;
-    .end local v1    # "comp":Ljava/lang/String;
     :cond_4
     return v2
 .end method
@@ -236,18 +214,15 @@
 .end method
 
 .method public requiresStatusByte(Lcom/pdrogfer/mididroid/event/MidiEvent;)Z
-    .locals 1
-    .param p1, "prevEvent"    # Lcom/pdrogfer/mididroid/event/MidiEvent;
+    .locals 0
 
-    .line 67
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public setData([B)V
     .locals 2
-    .param p1, "data"    # [B
 
     .line 60
     iget-object v0, p0, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;->mLength:Lcom/pdrogfer/mididroid/util/VariableLengthInt;
@@ -259,14 +234,11 @@
     .line 61
     iput-object p1, p0, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;->mData:[B
 
-    .line 62
     return-void
 .end method
 
 .method public writeToFile(Ljava/io/OutputStream;Z)V
-    .locals 1
-    .param p1, "out"    # Ljava/io/OutputStream;
-    .param p2, "writeType"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -277,24 +249,23 @@
     invoke-super {p0, p1, p2}, Lcom/pdrogfer/mididroid/event/MidiEvent;->writeToFile(Ljava/io/OutputStream;Z)V
 
     .line 75
-    iget v0, p0, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;->mType:I
+    iget p2, p0, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;->mType:I
 
-    invoke-virtual {p1, v0}, Ljava/io/OutputStream;->write(I)V
+    invoke-virtual {p1, p2}, Ljava/io/OutputStream;->write(I)V
 
     .line 76
-    iget-object v0, p0, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;->mLength:Lcom/pdrogfer/mididroid/util/VariableLengthInt;
+    iget-object p2, p0, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;->mLength:Lcom/pdrogfer/mididroid/util/VariableLengthInt;
 
-    invoke-virtual {v0}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;->getBytes()[B
+    invoke-virtual {p2}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;->getBytes()[B
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {p1, v0}, Ljava/io/OutputStream;->write([B)V
+    invoke-virtual {p1, p2}, Ljava/io/OutputStream;->write([B)V
 
     .line 77
-    iget-object v0, p0, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;->mData:[B
+    iget-object p2, p0, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;->mData:[B
 
-    invoke-virtual {p1, v0}, Ljava/io/OutputStream;->write([B)V
+    invoke-virtual {p1, p2}, Ljava/io/OutputStream;->write([B)V
 
-    .line 78
     return-void
 .end method

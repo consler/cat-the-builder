@@ -36,7 +36,6 @@
     .end annotation
 
     .line 51
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<Lcom/google/crypto/tink/Aead;>;"
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;-><init>(Ljava/lang/Class;)V
 
     return-void
@@ -46,7 +45,6 @@
 # virtual methods
 .method public getPrimitive(Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;)Lcom/google/crypto/tink/Aead;
     .locals 5
-    .param p1, "key"    # Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -102,19 +100,18 @@
     .line 57
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;->getHmacKey()Lcom/google/crypto/tink/proto/HmacKey;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v3}, Lcom/google/crypto/tink/proto/HmacKey;->getParams()Lcom/google/crypto/tink/proto/HmacParams;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/HmacKey;->getParams()Lcom/google/crypto/tink/proto/HmacParams;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v3}, Lcom/google/crypto/tink/proto/HmacParams;->getTagSize()I
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/HmacParams;->getTagSize()I
 
-    move-result v3
+    move-result p1
 
-    invoke-direct {v0, v1, v2, v3}, Lcom/google/crypto/tink/subtle/EncryptThenAuthenticate;-><init>(Lcom/google/crypto/tink/subtle/IndCpaCipher;Lcom/google/crypto/tink/Mac;I)V
+    invoke-direct {v0, v1, v2, p1}, Lcom/google/crypto/tink/subtle/EncryptThenAuthenticate;-><init>(Lcom/google/crypto/tink/subtle/IndCpaCipher;Lcom/google/crypto/tink/Mac;I)V
 
-    .line 54
     return-object v0
 .end method
 

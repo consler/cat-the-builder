@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public final invoke()Ljava/lang/Object;
-    .locals 10
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -91,69 +91,40 @@
     .line 27
     iget-object v0, p0, Lorg/koin/android/ext/android/ComponentCallbackExtKt$inject$1;->$this_inject:Landroid/content/ComponentCallbacks;
 
-    .local v0, "$this$get$iv":Landroid/content/ComponentCallbacks;
     iget-object v1, p0, Lorg/koin/android/ext/android/ComponentCallbackExtKt$inject$1;->$qualifier:Lorg/koin/core/qualifier/Qualifier;
 
-    .local v1, "qualifier$iv":Lorg/koin/core/qualifier/Qualifier;
     iget-object v2, p0, Lorg/koin/android/ext/android/ComponentCallbackExtKt$inject$1;->$parameters:Lkotlin/jvm/functions/Function0;
 
-    .local v2, "parameters$iv":Lkotlin/jvm/functions/Function0;
-    const/4 v3, 0x0
-
     .line 49
-    .local v3, "$i$f$get":I
     invoke-static {v0}, Lorg/koin/android/ext/android/ComponentCallbackExtKt;->getKoin(Landroid/content/ComponentCallbacks;)Lorg/koin/core/Koin;
 
-    move-result-object v4
-
-    .local v4, "this_$iv$iv":Lorg/koin/core/Koin;
-    const/4 v5, 0x0
+    move-result-object v0
 
     .line 50
-    .local v5, "$i$f$get":I
-    invoke-virtual {v4}, Lorg/koin/core/Koin;->get_scopeRegistry()Lorg/koin/core/registry/ScopeRegistry;
+    invoke-virtual {v0}, Lorg/koin/core/Koin;->get_scopeRegistry()Lorg/koin/core/registry/ScopeRegistry;
 
-    move-result-object v6
+    move-result-object v0
 
-    invoke-virtual {v6}, Lorg/koin/core/registry/ScopeRegistry;->getRootScope()Lorg/koin/core/scope/Scope;
+    invoke-virtual {v0}, Lorg/koin/core/registry/ScopeRegistry;->getRootScope()Lorg/koin/core/scope/Scope;
 
-    move-result-object v6
+    move-result-object v0
 
-    .local v6, "this_$iv$iv$iv":Lorg/koin/core/scope/Scope;
-    const/4 v7, 0x0
+    const/4 v3, 0x4
+
+    const-string v4, "T"
 
     .line 51
-    .local v7, "$i$f$get":I
-    const/4 v8, 0x4
+    invoke-static {v3, v4}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
-    const-string v9, "T"
+    const-class v3, Ljava/lang/Object;
 
-    invoke-static {v8, v9}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
+    invoke-static {v3}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    const-class v8, Ljava/lang/Object;
+    move-result-object v3
 
-    invoke-static {v8}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+    invoke-virtual {v0, v3, v1, v2}, Lorg/koin/core/scope/Scope;->get(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v0
 
-    invoke-virtual {v6, v8, v1, v2}, Lorg/koin/core/scope/Scope;->get(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-
-    move-result-object v6
-
-    .line 50
-    .end local v6    # "this_$iv$iv$iv":Lorg/koin/core/scope/Scope;
-    .end local v7    # "$i$f$get":I
-    nop
-
-    .line 49
-    .end local v4    # "this_$iv$iv":Lorg/koin/core/Koin;
-    .end local v5    # "$i$f$get":I
-    nop
-
-    .line 27
-    .end local v0    # "$this$get$iv":Landroid/content/ComponentCallbacks;
-    .end local v1    # "qualifier$iv":Lorg/koin/core/qualifier/Qualifier;
-    .end local v2    # "parameters$iv":Lkotlin/jvm/functions/Function0;
-    .end local v3    # "$i$f$get":I
-    return-object v6
+    return-object v0
 .end method

@@ -25,8 +25,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/AsyncServer;Ljava/lang/String;Lcom/koushikdutta/async/SelectorWrapper;Ljava/util/PriorityQueue;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/AsyncServer;
-    .param p2, "x0"    # Ljava/lang/String;
 
     .line 598
     iput-object p1, p0, Lcom/koushikdutta/async/AsyncServer$14;->this$0:Lcom/koushikdutta/async/AsyncServer;
@@ -54,6 +52,5 @@
 
     invoke-static {v0, v1, v2}, Lcom/koushikdutta/async/AsyncServer;->access$800(Lcom/koushikdutta/async/AsyncServer;Lcom/koushikdutta/async/SelectorWrapper;Ljava/util/PriorityQueue;)V
 
-    .line 601
     return-void
 .end method

@@ -62,7 +62,6 @@
 # direct methods
 .method public constructor <init>(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/BiPredicate;I)V
     .locals 0
-    .param p4, "prefetch"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -76,10 +75,6 @@
     .end annotation
 
     .line 37
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSequenceEqualSingle;, "Lio/reactivex/internal/operators/flowable/FlowableSequenceEqualSingle<TT;>;"
-    .local p1, "first":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p2, "second":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p3, "comparer":Lio/reactivex/functions/BiPredicate;, "Lio/reactivex/functions/BiPredicate<-TT;-TT;>;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 38
@@ -94,7 +89,6 @@
     .line 41
     iput p4, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqualSingle;->prefetch:I
 
-    .line 42
     return-void
 .end method
 
@@ -112,7 +106,6 @@
     .end annotation
 
     .line 53
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSequenceEqualSingle;, "Lio/reactivex/internal/operators/flowable/FlowableSequenceEqualSingle<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqual;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqualSingle;->first:Lorg/reactivestreams/Publisher;
@@ -145,8 +138,6 @@
     .end annotation
 
     .line 46
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSequenceEqualSingle;, "Lio/reactivex/internal/operators/flowable/FlowableSequenceEqualSingle<TT;>;"
-    .local p1, "s":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-Ljava/lang/Boolean;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqualSingle$EqualCoordinator;
 
     iget v1, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqualSingle;->prefetch:I
@@ -156,16 +147,14 @@
     invoke-direct {v0, p1, v1, v2}, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqualSingle$EqualCoordinator;-><init>(Lio/reactivex/SingleObserver;ILio/reactivex/functions/BiPredicate;)V
 
     .line 47
-    .local v0, "parent":Lio/reactivex/internal/operators/flowable/FlowableSequenceEqualSingle$EqualCoordinator;, "Lio/reactivex/internal/operators/flowable/FlowableSequenceEqualSingle$EqualCoordinator<TT;>;"
     invoke-interface {p1, v0}, Lio/reactivex/SingleObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 48
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqualSingle;->first:Lorg/reactivestreams/Publisher;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqualSingle;->first:Lorg/reactivestreams/Publisher;
 
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqualSingle;->second:Lorg/reactivestreams/Publisher;
+    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqualSingle;->second:Lorg/reactivestreams/Publisher;
 
-    invoke-virtual {v0, v1, v2}, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqualSingle$EqualCoordinator;->subscribe(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;)V
+    invoke-virtual {v0, p1, v1}, Lio/reactivex/internal/operators/flowable/FlowableSequenceEqualSingle$EqualCoordinator;->subscribe(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;)V
 
-    .line 49
     return-void
 .end method

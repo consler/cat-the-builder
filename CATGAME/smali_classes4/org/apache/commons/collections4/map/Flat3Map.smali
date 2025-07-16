@@ -115,10 +115,8 @@
     .locals 0
 
     .line 113
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 114
     return-void
 .end method
 
@@ -133,71 +131,61 @@
     .end annotation
 
     .line 123
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 124
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/map/Flat3Map;->putAll(Ljava/util/Map;)V
 
-    .line 125
     return-void
 .end method
 
 .method static synthetic access$000(Lorg/apache/commons/collections4/map/Flat3Map;)I
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections4/map/Flat3Map;
+    .locals 0
 
     .line 81
-    iget v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
+    iget p0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$100(Lorg/apache/commons/collections4/map/Flat3Map;)Ljava/lang/Object;
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections4/map/Flat3Map;
+    .locals 0
 
     .line 81
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key3:Ljava/lang/Object;
+    iget-object p0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key3:Ljava/lang/Object;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$200(Lorg/apache/commons/collections4/map/Flat3Map;)Ljava/lang/Object;
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections4/map/Flat3Map;
+    .locals 0
 
     .line 81
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
+    iget-object p0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$300(Lorg/apache/commons/collections4/map/Flat3Map;)Ljava/lang/Object;
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections4/map/Flat3Map;
+    .locals 0
 
     .line 81
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
+    iget-object p0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$400(Lorg/apache/commons/collections4/map/Flat3Map;)Ljava/lang/Object;
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections4/map/Flat3Map;
+    .locals 0
 
     .line 81
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
+    iget-object p0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$402(Lorg/apache/commons/collections4/map/Flat3Map;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .param p0, "x0"    # Lorg/apache/commons/collections4/map/Flat3Map;
-    .param p1, "x1"    # Ljava/lang/Object;
 
     .line 81
     iput-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
@@ -206,19 +194,16 @@
 .end method
 
 .method static synthetic access$500(Lorg/apache/commons/collections4/map/Flat3Map;)Ljava/lang/Object;
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections4/map/Flat3Map;
+    .locals 0
 
     .line 81
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
+    iget-object p0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$502(Lorg/apache/commons/collections4/map/Flat3Map;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .param p0, "x0"    # Lorg/apache/commons/collections4/map/Flat3Map;
-    .param p1, "x1"    # Ljava/lang/Object;
 
     .line 81
     iput-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
@@ -227,19 +212,16 @@
 .end method
 
 .method static synthetic access$600(Lorg/apache/commons/collections4/map/Flat3Map;)Ljava/lang/Object;
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections4/map/Flat3Map;
+    .locals 0
 
     .line 81
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
+    iget-object p0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$602(Lorg/apache/commons/collections4/map/Flat3Map;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .param p0, "x0"    # Lorg/apache/commons/collections4/map/Flat3Map;
-    .param p1, "x1"    # Ljava/lang/Object;
 
     .line 81
     iput-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
@@ -248,20 +230,18 @@
 .end method
 
 .method static synthetic access$700(Lorg/apache/commons/collections4/map/Flat3Map;)Lorg/apache/commons/collections4/map/AbstractHashedMap;
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections4/map/Flat3Map;
+    .locals 0
 
     .line 81
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->delegateMap:Lorg/apache/commons/collections4/map/AbstractHashedMap;
+    iget-object p0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->delegateMap:Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private convertToMap()V
     .locals 3
 
     .line 412
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/Flat3Map;->createDelegateMap()Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
     move-result-object v0
@@ -300,15 +280,15 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Invalid map index: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -339,13 +319,10 @@
 
     invoke-virtual {v0, v1, v2}, Lorg/apache/commons/collections4/map/AbstractHashedMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 421
     :cond_3
-    nop
-
-    .line 426
     const/4 v0, 0x0
 
+    .line 426
     iput v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
     .line 427
@@ -355,9 +332,9 @@
 
     iput v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash1:I
 
-    .line 428
     const/4 v0, 0x0
 
+    .line 428
     iput-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key3:Ljava/lang/Object;
 
     iput-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
@@ -371,13 +348,11 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
 
-    .line 430
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 4
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -386,7 +361,6 @@
     .end annotation
 
     .line 1141
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
     .line 1142
@@ -394,8 +368,6 @@
 
     move-result v0
 
-    .line 1143
-    .local v0, "count":I
     const/4 v1, 0x3
 
     if-le v0, v1, :cond_0
@@ -407,39 +379,31 @@
 
     iput-object v1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->delegateMap:Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
-    .line 1146
     :cond_0
-    move v1, v0
-
-    .local v1, "i":I
     :goto_0
-    if-lez v1, :cond_1
+    if-lez v0, :cond_1
 
     .line 1147
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {p0, v2, v3}, Lorg/apache/commons/collections4/map/Flat3Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v1, v2}, Lorg/apache/commons/collections4/map/Flat3Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1146
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 1149
-    .end local v1    # "i":I
     :cond_1
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 2
-    .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -447,7 +411,6 @@
     .end annotation
 
     .line 1124
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
     .line 1125
@@ -462,7 +425,6 @@
 
     move-result-object v0
 
-    .local v0, "it":Lorg/apache/commons/collections4/MapIterator;, "Lorg/apache/commons/collections4/MapIterator<**>;"
     :goto_0
     invoke-interface {v0}, Lorg/apache/commons/collections4/MapIterator;->hasNext()Z
 
@@ -486,8 +448,6 @@
 
     goto :goto_0
 
-    .line 1130
-    .end local v0    # "it":Lorg/apache/commons/collections4/MapIterator;, "Lorg/apache/commons/collections4/MapIterator<**>;"
     :cond_0
     return-void
 .end method
@@ -498,7 +458,6 @@
     .locals 2
 
     .line 603
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->delegateMap:Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
     const/4 v1, 0x0
@@ -513,10 +472,10 @@
 
     goto :goto_0
 
-    .line 607
     :cond_0
     const/4 v0, 0x0
 
+    .line 607
     iput v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
     .line 608
@@ -540,7 +499,6 @@
 
     iput-object v1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
 
-    .line 612
     :goto_0
     return-void
 .end method
@@ -554,7 +512,6 @@
     .end annotation
 
     .line 81
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/Flat3Map;->clone()Lorg/apache/commons/collections4/map/Flat3Map;
 
     move-result-object v0
@@ -573,7 +530,6 @@
     .end annotation
 
     .line 1162
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     :try_start_0
     invoke-super {p0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
@@ -582,14 +538,11 @@
     check-cast v0, Lorg/apache/commons/collections4/map/Flat3Map;
 
     .line 1163
-    .local v0, "cloned":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     iget-object v1, v0, Lorg/apache/commons/collections4/map/Flat3Map;->delegateMap:Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
     if-eqz v1, :cond_0
 
     .line 1164
-    iget-object v1, v0, Lorg/apache/commons/collections4/map/Flat3Map;->delegateMap:Lorg/apache/commons/collections4/map/AbstractHashedMap;
-
     invoke-virtual {v1}, Lorg/apache/commons/collections4/map/AbstractHashedMap;->clone()Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
     move-result-object v1
@@ -598,30 +551,22 @@
     :try_end_0
     .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1166
     :cond_0
     return-object v0
 
-    .line 1167
-    .end local v0    # "cloned":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
-    :catch_0
-    move-exception v0
-
     .line 1168
-    .local v0, "ex":Ljava/lang/CloneNotSupportedException;
-    new-instance v1, Ljava/lang/InternalError;
+    :catch_0
+    new-instance v0, Ljava/lang/InternalError;
 
-    invoke-direct {v1}, Ljava/lang/InternalError;-><init>()V
+    invoke-direct {v0}, Ljava/lang/InternalError;-><init>()V
 
-    throw v1
+    throw v0
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
     .locals 5
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 210
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->delegateMap:Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
     if-eqz v0, :cond_0
@@ -629,11 +574,10 @@
     .line 211
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/map/AbstractHashedMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
-    .line 213
     :cond_0
     const/4 v0, 0x3
 
@@ -641,55 +585,48 @@
 
     const/4 v2, 0x1
 
-    if-nez p1, :cond_5
+    if-nez p1, :cond_4
 
     .line 214
-    iget v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
+    iget p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    if-eq v3, v2, :cond_3
+    if-eq p1, v2, :cond_3
 
-    if-eq v3, v1, :cond_2
+    if-eq p1, v1, :cond_2
 
-    if-eq v3, v0, :cond_1
+    if-eq p1, v0, :cond_1
 
     goto :goto_0
 
     .line 216
     :cond_1
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key3:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key3:Ljava/lang/Object;
 
-    if-nez v0, :cond_2
+    if-nez p1, :cond_2
 
-    .line 217
     return v2
 
     .line 220
     :cond_2
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
 
-    if-nez v0, :cond_3
+    if-nez p1, :cond_3
 
-    .line 221
     return v2
 
     .line 224
     :cond_3
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
 
-    if-nez v0, :cond_4
+    if-nez p1, :cond_8
 
-    .line 225
     return v2
 
-    :cond_4
-    :goto_0
-    goto :goto_1
-
     .line 229
-    :cond_5
+    :cond_4
     iget v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    if-lez v3, :cond_9
+    if-lez v3, :cond_8
 
     .line 230
     invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
@@ -697,22 +634,21 @@
     move-result v3
 
     .line 231
-    .local v3, "hashCode":I
     iget v4, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    if-eq v4, v2, :cond_8
+    if-eq v4, v2, :cond_7
 
-    if-eq v4, v1, :cond_7
+    if-eq v4, v1, :cond_6
 
-    if-eq v4, v0, :cond_6
+    if-eq v4, v0, :cond_5
 
-    goto :goto_1
+    goto :goto_0
 
     .line 233
-    :cond_6
+    :cond_5
     iget v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash3:I
 
-    if-ne v0, v3, :cond_7
+    if-ne v0, v3, :cond_6
 
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key3:Ljava/lang/Object;
 
@@ -720,16 +656,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_6
 
-    .line 234
     return v2
 
     .line 237
-    :cond_7
+    :cond_6
     iget v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash2:I
 
-    if-ne v0, v3, :cond_8
+    if-ne v0, v3, :cond_7
 
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
 
@@ -737,43 +672,37 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_7
 
-    .line 238
     return v2
 
     .line 241
-    :cond_8
+    :cond_7
     iget v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash1:I
 
-    if-ne v0, v3, :cond_9
+    if-ne v0, v3, :cond_8
 
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_9
+    if-eqz p1, :cond_8
 
-    .line 242
     return v2
 
-    .line 247
-    .end local v3    # "hashCode":I
-    :cond_9
-    :goto_1
-    const/4 v0, 0x0
+    :cond_8
+    :goto_0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "value"    # Ljava/lang/Object;
 
     .line 258
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->delegateMap:Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
     if-eqz v0, :cond_0
@@ -781,11 +710,10 @@
     .line 259
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/map/AbstractHashedMap;->containsValue(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
-    .line 261
     :cond_0
     const/4 v0, 0x3
 
@@ -793,65 +721,70 @@
 
     const/4 v2, 0x1
 
-    if-nez p1, :cond_5
+    if-nez p1, :cond_4
 
     .line 262
-    iget v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
+    iget p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    if-eq v3, v2, :cond_3
+    if-eq p1, v2, :cond_3
 
-    if-eq v3, v1, :cond_2
+    if-eq p1, v1, :cond_2
 
-    if-eq v3, v0, :cond_1
+    if-eq p1, v0, :cond_1
 
     goto :goto_0
 
     .line 264
     :cond_1
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
 
-    if-nez v0, :cond_2
+    if-nez p1, :cond_2
 
-    .line 265
     return v2
 
     .line 268
     :cond_2
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
 
-    if-nez v0, :cond_3
+    if-nez p1, :cond_3
 
-    .line 269
     return v2
 
     .line 272
     :cond_3
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
 
-    if-nez v0, :cond_4
+    if-nez p1, :cond_8
 
-    .line 273
     return v2
 
-    :cond_4
-    :goto_0
-    goto :goto_1
-
     .line 277
-    :cond_5
+    :cond_4
     iget v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    if-eq v3, v2, :cond_8
+    if-eq v3, v2, :cond_7
 
-    if-eq v3, v1, :cond_7
+    if-eq v3, v1, :cond_6
 
-    if-eq v3, v0, :cond_6
+    if-eq v3, v0, :cond_5
 
-    goto :goto_1
+    goto :goto_0
 
     .line 279
-    :cond_6
+    :cond_5
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
+
+    invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    return v2
+
+    .line 283
+    :cond_6
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -859,41 +792,25 @@
 
     if-eqz v0, :cond_7
 
-    .line 280
-    return v2
-
-    .line 283
-    :cond_7
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
-
-    invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_8
-
-    .line 284
     return v2
 
     .line 287
-    :cond_8
+    :cond_7
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_9
+    if-eqz p1, :cond_8
 
-    .line 288
     return v2
 
-    .line 292
-    :cond_9
-    :goto_1
-    const/4 v0, 0x0
+    :cond_8
+    :goto_0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method protected createDelegateMap()Lorg/apache/commons/collections4/map/AbstractHashedMap;
@@ -907,7 +824,6 @@
     .end annotation
 
     .line 443
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/map/HashedMap;
 
     invoke-direct {v0}, Lorg/apache/commons/collections4/map/HashedMap;-><init>()V
@@ -927,7 +843,6 @@
     .end annotation
 
     .line 756
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->delegateMap:Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
     if-eqz v0, :cond_0
@@ -949,16 +864,12 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 6
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 4
 
-    .line 1180
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     const/4 v0, 0x1
 
     if-ne p1, p0, :cond_0
 
-    .line 1181
     return v0
 
     .line 1183
@@ -970,9 +881,9 @@
     .line 1184
     invoke-virtual {v1, p1}, Lorg/apache/commons/collections4/map/AbstractHashedMap;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
     .line 1186
     :cond_1
@@ -982,178 +893,158 @@
 
     if-nez v1, :cond_2
 
-    .line 1187
     return v2
 
     .line 1189
     :cond_2
-    move-object v1, p1
-
-    check-cast v1, Ljava/util/Map;
+    check-cast p1, Ljava/util/Map;
 
     .line 1190
-    .local v1, "other":Ljava/util/Map;, "Ljava/util/Map<**>;"
-    iget v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
+    iget v1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    invoke-interface {v1}, Ljava/util/Map;->size()I
+    invoke-interface {p1}, Ljava/util/Map;->size()I
 
-    move-result v4
+    move-result v3
 
-    if-eq v3, v4, :cond_3
+    if-eq v1, v3, :cond_3
 
-    .line 1191
     return v2
 
     .line 1193
     :cond_3
-    iget v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
+    iget v1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    if-lez v3, :cond_d
+    if-lez v1, :cond_d
 
-    .line 1194
-    const/4 v4, 0x0
+    if-eq v1, v0, :cond_a
 
-    .line 1195
-    .local v4, "otherValue":Ljava/lang/Object;
-    if-eq v3, v0, :cond_a
+    const/4 v3, 0x2
 
-    const/4 v5, 0x2
+    if-eq v1, v3, :cond_7
 
-    if-eq v3, v5, :cond_7
+    const/4 v3, 0x3
 
-    const/4 v5, 0x3
-
-    if-eq v3, v5, :cond_4
+    if-eq v1, v3, :cond_4
 
     goto :goto_3
 
     .line 1197
     :cond_4
-    iget-object v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key3:Ljava/lang/Object;
+    iget-object v1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key3:Ljava/lang/Object;
 
-    invoke-interface {v1, v3}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    invoke-interface {p1, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_5
+    if-nez v1, :cond_5
 
-    .line 1198
     return v2
 
     .line 1200
     :cond_5
-    iget-object v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key3:Ljava/lang/Object;
+    iget-object v1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key3:Ljava/lang/Object;
 
-    invoke-interface {v1, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v1
 
     .line 1201
     iget-object v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
 
     if-nez v3, :cond_6
 
-    if-eqz v4, :cond_7
+    if-eqz v1, :cond_7
 
     goto :goto_0
 
     :cond_6
-    invoke-virtual {v3, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_7
+    if-nez v1, :cond_7
 
-    .line 1202
     :goto_0
     return v2
 
     .line 1205
     :cond_7
-    iget-object v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
+    iget-object v1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
 
-    invoke-interface {v1, v3}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    invoke-interface {p1, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_8
+    if-nez v1, :cond_8
 
-    .line 1206
     return v2
 
     .line 1208
     :cond_8
-    iget-object v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
+    iget-object v1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
 
-    invoke-interface {v1, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v1
 
     .line 1209
     iget-object v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
 
     if-nez v3, :cond_9
 
-    if-eqz v4, :cond_a
+    if-eqz v1, :cond_a
 
     goto :goto_1
 
     :cond_9
-    invoke-virtual {v3, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_a
+    if-nez v1, :cond_a
 
-    .line 1210
     :goto_1
     return v2
 
     .line 1213
     :cond_a
-    iget-object v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
+    iget-object v1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
 
-    invoke-interface {v1, v3}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    invoke-interface {p1, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_b
+    if-nez v1, :cond_b
 
-    .line 1214
     return v2
 
     .line 1216
     :cond_b
-    iget-object v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
+    iget-object v1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
 
-    invoke-interface {v1, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p1
 
     .line 1217
-    .end local v4    # "otherValue":Ljava/lang/Object;
-    .local v3, "otherValue":Ljava/lang/Object;
-    iget-object v4, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
+    iget-object v1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
 
-    if-nez v4, :cond_c
+    if-nez v1, :cond_c
 
-    if-eqz v3, :cond_d
+    if-eqz p1, :cond_d
 
     goto :goto_2
 
     :cond_c
-    invoke-virtual {v4, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result p1
 
-    if-nez v4, :cond_d
+    if-nez p1, :cond_d
 
-    .line 1218
     :goto_2
     return v2
 
-    .line 1222
-    .end local v3    # "otherValue":Ljava/lang/Object;
     :cond_d
     :goto_3
     return v0
@@ -1161,7 +1052,6 @@
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 5
-    .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1171,7 +1061,6 @@
     .end annotation
 
     .line 136
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->delegateMap:Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
     if-eqz v0, :cond_0
@@ -1179,11 +1068,10 @@
     .line 137
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/map/AbstractHashedMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
-    .line 139
     :cond_0
     const/4 v0, 0x3
 
@@ -1191,61 +1079,57 @@
 
     const/4 v2, 0x1
 
-    if-nez p1, :cond_5
+    if-nez p1, :cond_4
 
     .line 140
-    iget v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
+    iget p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    if-eq v3, v2, :cond_3
+    if-eq p1, v2, :cond_3
 
-    if-eq v3, v1, :cond_2
+    if-eq p1, v1, :cond_2
 
-    if-eq v3, v0, :cond_1
+    if-eq p1, v0, :cond_1
 
     goto :goto_0
 
     .line 143
     :cond_1
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key3:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key3:Ljava/lang/Object;
 
-    if-nez v0, :cond_2
+    if-nez p1, :cond_2
 
     .line 144
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
 
-    return-object v0
+    return-object p1
 
     .line 147
     :cond_2
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
 
-    if-nez v0, :cond_3
+    if-nez p1, :cond_3
 
     .line 148
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
 
-    return-object v0
+    return-object p1
 
     .line 151
     :cond_3
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
 
-    if-nez v0, :cond_4
+    if-nez p1, :cond_8
 
     .line 152
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
 
-    return-object v0
-
-    :cond_4
-    :goto_0
-    goto :goto_1
+    return-object p1
 
     .line 156
-    :cond_5
+    :cond_4
     iget v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    if-lez v3, :cond_9
+    if-lez v3, :cond_8
 
     .line 157
     invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
@@ -1253,22 +1137,21 @@
     move-result v3
 
     .line 158
-    .local v3, "hashCode":I
     iget v4, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    if-eq v4, v2, :cond_8
+    if-eq v4, v2, :cond_7
 
-    if-eq v4, v1, :cond_7
+    if-eq v4, v1, :cond_6
 
-    if-eq v4, v0, :cond_6
+    if-eq v4, v0, :cond_5
 
-    goto :goto_1
+    goto :goto_0
 
     .line 161
-    :cond_6
+    :cond_5
     iget v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash3:I
 
-    if-ne v0, v3, :cond_7
+    if-ne v0, v3, :cond_6
 
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key3:Ljava/lang/Object;
 
@@ -1276,18 +1159,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_6
 
     .line 162
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
 
-    return-object v0
+    return-object p1
 
     .line 165
-    :cond_7
+    :cond_6
     iget v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash2:I
 
-    if-ne v0, v3, :cond_8
+    if-ne v0, v3, :cond_7
 
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
 
@@ -1295,46 +1178,43 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_7
 
     .line 166
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
 
-    return-object v0
+    return-object p1
 
     .line 169
-    :cond_8
+    :cond_7
     iget v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash1:I
 
-    if-ne v0, v3, :cond_9
+    if-ne v0, v3, :cond_8
 
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_9
+    if-eqz p1, :cond_8
 
     .line 170
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
 
-    return-object v0
+    return-object p1
 
-    .line 175
-    .end local v3    # "hashCode":I
-    :cond_9
-    :goto_1
-    const/4 v0, 0x0
+    :cond_8
+    :goto_0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public hashCode()I
     .locals 4
 
     .line 1232
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->delegateMap:Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
     if-eqz v0, :cond_0
@@ -1346,38 +1226,34 @@
 
     return v0
 
-    .line 1235
-    :cond_0
-    const/4 v0, 0x0
-
     .line 1236
-    .local v0, "total":I
-    iget v1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
+    :cond_0
+    iget v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    if-eqz v1, :cond_7
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_7
 
     const/4 v2, 0x1
 
-    const/4 v3, 0x0
-
-    if-eq v1, v2, :cond_5
+    if-eq v0, v2, :cond_5
 
     const/4 v2, 0x2
 
-    if-eq v1, v2, :cond_3
+    if-eq v0, v2, :cond_3
 
     const/4 v2, 0x3
 
-    if-ne v1, v2, :cond_2
+    if-ne v0, v2, :cond_2
 
     .line 1238
-    iget v1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash3:I
+    iget v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash3:I
 
     iget-object v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
 
     if-nez v2, :cond_1
 
-    move v2, v3
+    move v2, v1
 
     goto :goto_0
 
@@ -1387,7 +1263,7 @@
     move-result v2
 
     :goto_0
-    xor-int/2addr v1, v2
+    xor-int/2addr v0, v2
 
     add-int/2addr v0, v1
 
@@ -1395,84 +1271,86 @@
 
     .line 1246
     :cond_2
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "Invalid map index: "
 
-    const-string v3, "Invalid map index: "
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    iget v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
+
+    :cond_3
+    move v0, v1
 
     .line 1240
-    :cond_3
     :goto_1
-    iget v1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash2:I
+    iget v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash2:I
 
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
+    iget-object v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
 
-    if-nez v2, :cond_4
+    if-nez v3, :cond_4
 
-    move v2, v3
+    move v3, v1
 
     goto :goto_2
 
     :cond_4
-    invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
-
-    move-result v2
-
-    :goto_2
-    xor-int/2addr v1, v2
-
-    add-int/2addr v0, v1
-
-    .line 1242
-    :cond_5
-    iget v1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash1:I
-
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
-
-    if-nez v2, :cond_6
-
-    goto :goto_3
-
-    :cond_6
-    invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
+    invoke-virtual {v3}, Ljava/lang/Object;->hashCode()I
 
     move-result v3
 
+    :goto_2
+    xor-int/2addr v2, v3
+
+    add-int/2addr v0, v2
+
+    goto :goto_3
+
+    :cond_5
+    move v0, v1
+
+    .line 1242
     :goto_3
-    xor-int/2addr v1, v3
+    iget v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash1:I
 
-    add-int/2addr v0, v1
+    iget-object v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
 
-    .line 1244
+    if-nez v3, :cond_6
+
+    goto :goto_4
+
+    :cond_6
+    invoke-virtual {v3}, Ljava/lang/Object;->hashCode()I
+
+    move-result v1
+
+    :goto_4
+    xor-int/2addr v1, v2
+
+    add-int/2addr v1, v0
+
     :cond_7
-    nop
-
-    .line 1248
-    return v0
+    return v1
 .end method
 
 .method public isEmpty()Z
     .locals 1
 
     .line 198
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/Flat3Map;->size()I
 
     move-result v0
@@ -1501,7 +1379,6 @@
     .end annotation
 
     .line 980
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->delegateMap:Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
     if-eqz v0, :cond_0
@@ -1533,7 +1410,6 @@
     .end annotation
 
     .line 628
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->delegateMap:Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
     if-eqz v0, :cond_0
@@ -1576,9 +1452,6 @@
     .end annotation
 
     .line 305
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->delegateMap:Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
     if-eqz v0, :cond_0
@@ -1586,11 +1459,10 @@
     .line 306
     invoke-virtual {v0, p1, p2}, Lorg/apache/commons/collections4/map/AbstractHashedMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
-    .line 309
     :cond_0
     const/4 v0, 0x3
 
@@ -1598,7 +1470,7 @@
 
     const/4 v2, 0x1
 
-    if-nez p1, :cond_5
+    if-nez p1, :cond_4
 
     .line 310
     iget v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
@@ -1618,59 +1490,46 @@
     if-nez v0, :cond_2
 
     .line 313
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
 
     .line 314
-    .local v0, "old":Ljava/lang/Object;, "TV;"
     iput-object p2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
 
-    .line 315
-    return-object v0
+    return-object p1
 
     .line 318
-    .end local v0    # "old":Ljava/lang/Object;, "TV;"
     :cond_2
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
 
     if-nez v0, :cond_3
 
     .line 319
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
 
     .line 320
-    .restart local v0    # "old":Ljava/lang/Object;, "TV;"
     iput-object p2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
 
-    .line 321
-    return-object v0
+    return-object p1
 
     .line 324
-    .end local v0    # "old":Ljava/lang/Object;, "TV;"
     :cond_3
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_8
 
     .line 325
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
 
     .line 326
-    .restart local v0    # "old":Ljava/lang/Object;, "TV;"
     iput-object p2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
 
-    .line 327
-    return-object v0
-
-    .end local v0    # "old":Ljava/lang/Object;, "TV;"
-    :cond_4
-    :goto_0
-    goto :goto_1
+    return-object p1
 
     .line 331
-    :cond_5
+    :cond_4
     iget v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    if-lez v3, :cond_9
+    if-lez v3, :cond_8
 
     .line 332
     invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
@@ -1678,22 +1537,21 @@
     move-result v3
 
     .line 333
-    .local v3, "hashCode":I
     iget v4, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    if-eq v4, v2, :cond_8
+    if-eq v4, v2, :cond_7
 
-    if-eq v4, v1, :cond_7
+    if-eq v4, v1, :cond_6
 
-    if-eq v4, v0, :cond_6
+    if-eq v4, v0, :cond_5
 
-    goto :goto_1
+    goto :goto_0
 
     .line 335
-    :cond_6
+    :cond_5
     iget v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash3:I
 
-    if-ne v0, v3, :cond_7
+    if-ne v0, v3, :cond_6
 
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key3:Ljava/lang/Object;
 
@@ -1701,24 +1559,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_6
 
     .line 336
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
 
     .line 337
-    .restart local v0    # "old":Ljava/lang/Object;, "TV;"
     iput-object p2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
 
-    .line 338
-    return-object v0
+    return-object p1
 
     .line 341
-    .end local v0    # "old":Ljava/lang/Object;, "TV;"
-    :cond_7
+    :cond_6
     iget v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash2:I
 
-    if-ne v0, v3, :cond_8
+    if-ne v0, v3, :cond_7
 
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
 
@@ -1726,24 +1581,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_7
 
     .line 342
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
 
     .line 343
-    .restart local v0    # "old":Ljava/lang/Object;, "TV;"
     iput-object p2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
 
-    .line 344
-    return-object v0
+    return-object p1
 
     .line 347
-    .end local v0    # "old":Ljava/lang/Object;, "TV;"
-    :cond_8
+    :cond_7
     iget v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash1:I
 
-    if-ne v0, v3, :cond_9
+    if-ne v0, v3, :cond_8
 
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
 
@@ -1751,34 +1603,30 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_8
 
     .line 348
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
 
     .line 349
-    .restart local v0    # "old":Ljava/lang/Object;, "TV;"
     iput-object p2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
 
-    .line 350
-    return-object v0
+    return-object p1
 
     .line 357
-    .end local v0    # "old":Ljava/lang/Object;, "TV;"
-    .end local v3    # "hashCode":I
-    :cond_9
-    :goto_1
+    :cond_8
+    :goto_0
     iget v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
     const/4 v3, 0x0
 
     const/4 v4, 0x0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_d
 
-    if-eq v0, v2, :cond_c
+    if-eq v0, v2, :cond_b
 
-    if-eq v0, v1, :cond_a
+    if-eq v0, v1, :cond_9
 
     .line 359
     invoke-direct {p0}, Lorg/apache/commons/collections4/map/Flat3Map;->convertToMap()V
@@ -1788,21 +1636,20 @@
 
     invoke-virtual {v0, p1, p2}, Lorg/apache/commons/collections4/map/AbstractHashedMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 361
     return-object v3
+
+    :cond_9
+    if-nez p1, :cond_a
+
+    goto :goto_1
 
     .line 363
     :cond_a
-    if-nez p1, :cond_b
-
-    goto :goto_2
-
-    :cond_b
     invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
 
     move-result v4
 
-    :goto_2
+    :goto_1
     iput v4, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash3:I
 
     .line 364
@@ -1811,21 +1658,20 @@
     .line 365
     iput-object p2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
 
-    .line 366
-    goto :goto_5
+    goto :goto_4
+
+    :cond_b
+    if-nez p1, :cond_c
+
+    goto :goto_2
 
     .line 368
     :cond_c
-    if-nez p1, :cond_d
-
-    goto :goto_3
-
-    :cond_d
     invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
 
     move-result v4
 
-    :goto_3
+    :goto_2
     iput v4, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash2:I
 
     .line 369
@@ -1834,21 +1680,20 @@
     .line 370
     iput-object p2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
 
-    .line 371
-    goto :goto_5
+    goto :goto_4
+
+    :cond_d
+    if-nez p1, :cond_e
+
+    goto :goto_3
 
     .line 373
     :cond_e
-    if-nez p1, :cond_f
-
-    goto :goto_4
-
-    :cond_f
     invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
 
     move-result v4
 
-    :goto_4
+    :goto_3
     iput v4, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash1:I
 
     .line 374
@@ -1858,19 +1703,18 @@
     iput-object p2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
 
     .line 378
-    :goto_5
-    iget v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
+    :goto_4
+    iget p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    add-int/2addr v0, v2
+    add-int/2addr p1, v2
 
-    iput v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
+    iput p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    .line 379
     return-object v3
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 5
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1880,17 +1724,12 @@
     .end annotation
 
     .line 390
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     invoke-interface {p1}, Ljava/util/Map;->size()I
 
     move-result v0
 
-    .line 391
-    .local v0, "size":I
     if-nez v0, :cond_0
 
-    .line 392
     return-void
 
     .line 394
@@ -1902,73 +1741,63 @@
     .line 395
     invoke-virtual {v1, p1}, Lorg/apache/commons/collections4/map/AbstractHashedMap;->putAll(Ljava/util/Map;)V
 
-    .line 396
     return-void
 
-    .line 398
     :cond_1
     const/4 v1, 0x4
 
-    if-ge v0, v1, :cond_3
+    if-ge v0, v1, :cond_2
 
     .line 399
     invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_2
+    if-eqz v0, :cond_3
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Ljava/util/Map$Entry;
+    check-cast v0, Ljava/util/Map$Entry;
 
     .line 400
-    .local v2, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+TV;>;"
-    invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {p0, v3, v4}, Lorg/apache/commons/collections4/map/Flat3Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v1, v0}, Lorg/apache/commons/collections4/map/Flat3Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 401
-    .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+TV;>;"
     goto :goto_0
 
-    :cond_2
-    goto :goto_1
-
     .line 403
-    :cond_3
+    :cond_2
     invoke-direct {p0}, Lorg/apache/commons/collections4/map/Flat3Map;->convertToMap()V
 
     .line 404
-    iget-object v1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->delegateMap:Lorg/apache/commons/collections4/map/AbstractHashedMap;
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->delegateMap:Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
-    invoke-virtual {v1, p1}, Lorg/apache/commons/collections4/map/AbstractHashedMap;->putAll(Ljava/util/Map;)V
+    invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/map/AbstractHashedMap;->putAll(Ljava/util/Map;)V
 
-    .line 406
-    :goto_1
+    :cond_3
     return-void
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 7
-    .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1978,7 +1807,6 @@
     .end annotation
 
     .line 454
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->delegateMap:Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
     if-eqz v0, :cond_0
@@ -1986,9 +1814,9 @@
     .line 455
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/map/AbstractHashedMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 457
     :cond_0
@@ -1998,10 +1826,8 @@
 
     if-nez v0, :cond_1
 
-    .line 458
     return-object v1
 
-    .line 460
     :cond_1
     const/4 v2, 0x3
 
@@ -2011,9 +1837,8 @@
 
     const/4 v5, 0x0
 
-    if-nez p1, :cond_b
+    if-nez p1, :cond_a
 
-    .line 461
     if-eq v0, v3, :cond_9
 
     if-eq v0, v4, :cond_6
@@ -2024,15 +1849,14 @@
 
     .line 463
     :cond_2
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key3:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key3:Ljava/lang/Object;
 
-    if-nez v0, :cond_3
+    if-nez p1, :cond_3
 
     .line 464
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
 
     .line 465
-    .local v0, "old":Ljava/lang/Object;, "TV;"
     iput v5, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash3:I
 
     .line 466
@@ -2044,32 +1868,29 @@
     .line 468
     iput v4, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    .line 469
-    return-object v0
+    return-object p1
 
     .line 471
-    .end local v0    # "old":Ljava/lang/Object;, "TV;"
     :cond_3
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
 
-    if-nez v2, :cond_4
+    if-nez v0, :cond_4
 
     .line 472
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
 
     .line 473
-    .local v2, "old":Ljava/lang/Object;, "TV;"
-    iget v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash3:I
+    iget v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash3:I
 
-    iput v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash2:I
+    iput v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash2:I
 
     .line 474
-    iput-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
+    iput-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
 
     .line 475
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
+    iput-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
 
     .line 476
     iput v5, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash3:I
@@ -2083,32 +1904,29 @@
     .line 479
     iput v4, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    .line 480
-    return-object v2
+    return-object v0
 
     .line 482
-    .end local v2    # "old":Ljava/lang/Object;, "TV;"
     :cond_4
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
 
-    if-nez v2, :cond_5
+    if-nez v0, :cond_5
 
     .line 483
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
 
     .line 484
-    .restart local v2    # "old":Ljava/lang/Object;, "TV;"
-    iget v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash3:I
+    iget v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash3:I
 
-    iput v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash1:I
+    iput v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash1:I
 
     .line 485
-    iput-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
+    iput-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
 
     .line 486
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
+    iput-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
 
     .line 487
     iput v5, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash3:I
@@ -2122,25 +1940,21 @@
     .line 490
     iput v4, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    .line 491
-    return-object v2
+    return-object v0
 
-    .line 493
-    .end local v2    # "old":Ljava/lang/Object;, "TV;"
     :cond_5
     return-object v1
 
     .line 495
     :cond_6
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
 
-    if-nez v0, :cond_7
+    if-nez p1, :cond_7
 
     .line 496
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
 
     .line 497
-    .restart local v0    # "old":Ljava/lang/Object;, "TV;"
     iput v5, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash2:I
 
     .line 498
@@ -2152,32 +1966,29 @@
     .line 500
     iput v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    .line 501
-    return-object v0
+    return-object p1
 
     .line 503
-    .end local v0    # "old":Ljava/lang/Object;, "TV;"
     :cond_7
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
 
-    if-nez v2, :cond_8
+    if-nez v0, :cond_8
 
     .line 504
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
 
     .line 505
-    .restart local v2    # "old":Ljava/lang/Object;, "TV;"
-    iget v4, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash2:I
+    iget v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash2:I
 
-    iput v4, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash1:I
+    iput v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash1:I
 
     .line 506
-    iput-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
+    iput-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
 
     .line 507
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
+    iput-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
 
     .line 508
     iput v5, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash2:I
@@ -2191,25 +2002,21 @@
     .line 511
     iput v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    .line 512
-    return-object v2
+    return-object v0
 
-    .line 514
-    .end local v2    # "old":Ljava/lang/Object;, "TV;"
     :cond_8
     return-object v1
 
     .line 516
     :cond_9
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
 
-    if-nez v0, :cond_a
+    if-nez p1, :cond_13
 
     .line 517
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
 
     .line 518
-    .restart local v0    # "old":Ljava/lang/Object;, "TV;"
     iput v5, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash1:I
 
     .line 519
@@ -2221,17 +2028,10 @@
     .line 521
     iput v5, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    .line 522
-    return-object v0
+    return-object p1
 
-    .end local v0    # "old":Ljava/lang/Object;, "TV;"
     :cond_a
-    :goto_0
-    goto/16 :goto_1
-
-    .line 526
-    :cond_b
-    if-lez v0, :cond_14
+    if-lez v0, :cond_13
 
     .line 527
     invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
@@ -2239,22 +2039,21 @@
     move-result v0
 
     .line 528
-    .local v0, "hashCode":I
     iget v6, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    if-eq v6, v3, :cond_13
+    if-eq v6, v3, :cond_12
 
-    if-eq v6, v4, :cond_10
+    if-eq v6, v4, :cond_f
 
-    if-eq v6, v2, :cond_c
+    if-eq v6, v2, :cond_b
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
     .line 530
-    :cond_c
+    :cond_b
     iget v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash3:I
 
-    if-ne v2, v0, :cond_d
+    if-ne v2, v0, :cond_c
 
     iget-object v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key3:Ljava/lang/Object;
 
@@ -2262,13 +2061,12 @@
 
     move-result v2
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_c
 
     .line 531
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
 
     .line 532
-    .restart local v2    # "old":Ljava/lang/Object;, "TV;"
     iput v5, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash3:I
 
     .line 533
@@ -2280,15 +2078,13 @@
     .line 535
     iput v4, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    .line 536
-    return-object v2
+    return-object p1
 
     .line 538
-    .end local v2    # "old":Ljava/lang/Object;, "TV;"
-    :cond_d
+    :cond_c
     iget v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash2:I
 
-    if-ne v2, v0, :cond_e
+    if-ne v2, v0, :cond_d
 
     iget-object v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
 
@@ -2296,26 +2092,25 @@
 
     move-result v2
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_d
 
     .line 539
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
 
     .line 540
-    .restart local v2    # "old":Ljava/lang/Object;, "TV;"
-    iget v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash3:I
+    iget v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash3:I
 
-    iput v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash2:I
+    iput v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash2:I
 
     .line 541
-    iget-object v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key3:Ljava/lang/Object;
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key3:Ljava/lang/Object;
 
-    iput-object v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
+    iput-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
 
     .line 542
-    iget-object v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
 
-    iput-object v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
+    iput-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
 
     .line 543
     iput v5, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash3:I
@@ -2329,42 +2124,39 @@
     .line 546
     iput v4, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    .line 547
-    return-object v2
+    return-object p1
 
     .line 549
-    .end local v2    # "old":Ljava/lang/Object;, "TV;"
-    :cond_e
+    :cond_d
     iget v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash1:I
 
-    if-ne v2, v0, :cond_f
+    if-ne v2, v0, :cond_e
 
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
 
-    invoke-virtual {p1, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_f
+    if-eqz p1, :cond_e
 
     .line 550
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
 
     .line 551
-    .restart local v2    # "old":Ljava/lang/Object;, "TV;"
-    iget v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash3:I
+    iget v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash3:I
 
-    iput v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash1:I
+    iput v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash1:I
 
     .line 552
-    iget-object v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key3:Ljava/lang/Object;
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key3:Ljava/lang/Object;
 
-    iput-object v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
+    iput-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
 
     .line 553
-    iget-object v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value3:Ljava/lang/Object;
 
-    iput-object v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
+    iput-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
 
     .line 554
     iput v5, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash3:I
@@ -2378,19 +2170,16 @@
     .line 557
     iput v4, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    .line 558
-    return-object v2
+    return-object p1
 
-    .line 560
-    .end local v2    # "old":Ljava/lang/Object;, "TV;"
-    :cond_f
+    :cond_e
     return-object v1
 
     .line 562
-    :cond_10
+    :cond_f
     iget v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash2:I
 
-    if-ne v2, v0, :cond_11
+    if-ne v2, v0, :cond_10
 
     iget-object v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
 
@@ -2398,13 +2187,12 @@
 
     move-result v2
 
-    if-eqz v2, :cond_11
+    if-eqz v2, :cond_10
 
     .line 563
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
 
     .line 564
-    .restart local v2    # "old":Ljava/lang/Object;, "TV;"
     iput v5, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash2:I
 
     .line 565
@@ -2416,42 +2204,39 @@
     .line 567
     iput v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    .line 568
-    return-object v2
+    return-object p1
 
     .line 570
-    .end local v2    # "old":Ljava/lang/Object;, "TV;"
-    :cond_11
+    :cond_10
     iget v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash1:I
 
-    if-ne v2, v0, :cond_12
+    if-ne v2, v0, :cond_11
 
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
 
-    invoke-virtual {p1, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_12
+    if-eqz p1, :cond_11
 
     .line 571
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
 
     .line 572
-    .restart local v2    # "old":Ljava/lang/Object;, "TV;"
-    iget v4, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash2:I
+    iget v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash2:I
 
-    iput v4, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash1:I
+    iput v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash1:I
 
     .line 573
-    iget-object v4, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key2:Ljava/lang/Object;
 
-    iput-object v4, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
+    iput-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
 
     .line 574
-    iget-object v4, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value2:Ljava/lang/Object;
 
-    iput-object v4, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
+    iput-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
 
     .line 575
     iput v5, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash2:I
@@ -2465,33 +2250,29 @@
     .line 578
     iput v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    .line 579
-    return-object v2
+    return-object p1
 
-    .line 581
-    .end local v2    # "old":Ljava/lang/Object;, "TV;"
-    :cond_12
+    :cond_11
     return-object v1
 
     .line 583
-    :cond_13
+    :cond_12
     iget v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash1:I
 
-    if-ne v2, v0, :cond_14
+    if-ne v2, v0, :cond_13
 
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->key1:Ljava/lang/Object;
 
-    invoke-virtual {p1, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_14
+    if-eqz p1, :cond_13
 
     .line 584
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map;->value1:Ljava/lang/Object;
 
     .line 585
-    .restart local v2    # "old":Ljava/lang/Object;, "TV;"
     iput v5, p0, Lorg/apache/commons/collections4/map/Flat3Map;->hash1:I
 
     .line 586
@@ -2503,14 +2284,10 @@
     .line 588
     iput v5, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    .line 589
-    return-object v2
+    return-object p1
 
-    .line 594
-    .end local v0    # "hashCode":I
-    .end local v2    # "old":Ljava/lang/Object;, "TV;"
-    :cond_14
-    :goto_1
+    :cond_13
+    :goto_0
     return-object v1
 .end method
 
@@ -2518,7 +2295,6 @@
     .locals 1
 
     .line 185
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->delegateMap:Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
     if-eqz v0, :cond_0
@@ -2541,7 +2317,6 @@
     .locals 6
 
     .line 1258
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->delegateMap:Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
     if-eqz v0, :cond_0
@@ -2559,7 +2334,6 @@
 
     if-nez v0, :cond_1
 
-    .line 1262
     const-string v0, "{}"
 
     return-object v0
@@ -2572,10 +2346,9 @@
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
-    .line 1265
-    .local v0, "buf":Ljava/lang/StringBuilder;
     const/16 v1, 0x7b
 
+    .line 1265
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 1266
@@ -2629,27 +2402,27 @@
 
     .line 1284
     :cond_4
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "Invalid map index: "
 
-    const-string v3, "Invalid map index: "
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v2, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
 
-    iget v3, p0, Lorg/apache/commons/collections4/map/Flat3Map;->size:I
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 
     .line 1273
     :cond_5
@@ -2706,20 +2479,17 @@
     :goto_1
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 1281
-    nop
-
-    .line 1286
     const/16 v1, 0x7d
 
+    .line 1286
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 1287
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public values()Ljava/util/Collection;
@@ -2733,7 +2503,6 @@
     .end annotation
 
     .line 1056
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map;->delegateMap:Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
     if-eqz v0, :cond_0

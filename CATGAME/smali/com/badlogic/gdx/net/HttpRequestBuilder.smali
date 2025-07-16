@@ -4,9 +4,9 @@
 
 
 # static fields
-.field public static baseUrl:Ljava/lang/String;
+.field public static baseUrl:Ljava/lang/String; = ""
 
-.field public static defaultTimeout:I
+.field public static defaultTimeout:I = 0x3e8
 
 .field public static json:Lcom/badlogic/gdx/utils/Json;
 
@@ -18,16 +18,6 @@
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
-
-    .line 37
-    const-string v0, ""
-
-    sput-object v0, Lcom/badlogic/gdx/net/HttpRequestBuilder;->baseUrl:Ljava/lang/String;
-
-    .line 40
-    const/16 v0, 0x3e8
-
-    sput v0, Lcom/badlogic/gdx/net/HttpRequestBuilder;->defaultTimeout:I
 
     .line 43
     new-instance v0, Lcom/badlogic/gdx/utils/Json;
@@ -56,7 +46,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 156
     return-void
 
     .line 154
@@ -73,9 +62,7 @@
 
 # virtual methods
 .method public basicAuthentication(Ljava/lang/String;Ljava/lang/String;)Lcom/badlogic/gdx/net/HttpRequestBuilder;
-    .locals 4
-    .param p1, "username"    # Ljava/lang/String;
-    .param p2, "password"    # Ljava/lang/String;
+    .locals 3
 
     .line 138
     invoke-direct {p0}, Lcom/badlogic/gdx/net/HttpRequestBuilder;->validate()V
@@ -85,11 +72,9 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Basic "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -97,31 +82,38 @@
 
     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ":"
+    move-result-object p1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, ":"
 
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v2
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v2}, Lcom/badlogic/gdx/utils/Base64Coder;->encodeString(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v2
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {p1}, Lcom/badlogic/gdx/utils/Base64Coder;->encodeString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "Authorization"
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2, v1}, Lcom/badlogic/gdx/Net$HttpRequest;->setHeader(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object p1
 
-    .line 140
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string p2, "Authorization"
+
+    invoke-virtual {v0, p2, p1}, Lcom/badlogic/gdx/Net$HttpRequest;->setHeader(Ljava/lang/String;Ljava/lang/String;)V
+
     return-object p0
 .end method
 
@@ -134,20 +126,16 @@
     .line 147
     iget-object v0, p0, Lcom/badlogic/gdx/net/HttpRequestBuilder;->httpRequest:Lcom/badlogic/gdx/Net$HttpRequest;
 
-    .line 148
-    .local v0, "request":Lcom/badlogic/gdx/Net$HttpRequest;
     const/4 v1, 0x0
 
+    .line 148
     iput-object v1, p0, Lcom/badlogic/gdx/net/HttpRequestBuilder;->httpRequest:Lcom/badlogic/gdx/Net$HttpRequest;
 
-    .line 149
     return-object v0
 .end method
 
 .method public content(Ljava/io/InputStream;J)Lcom/badlogic/gdx/net/HttpRequestBuilder;
     .locals 1
-    .param p1, "contentStream"    # Ljava/io/InputStream;
-    .param p2, "contentLength"    # J
 
     .line 113
     invoke-direct {p0}, Lcom/badlogic/gdx/net/HttpRequestBuilder;->validate()V
@@ -157,13 +145,11 @@
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/badlogic/gdx/Net$HttpRequest;->setContent(Ljava/io/InputStream;J)V
 
-    .line 115
     return-object p0
 .end method
 
 .method public content(Ljava/lang/String;)Lcom/badlogic/gdx/net/HttpRequestBuilder;
     .locals 1
-    .param p1, "content"    # Ljava/lang/String;
 
     .line 106
     invoke-direct {p0}, Lcom/badlogic/gdx/net/HttpRequestBuilder;->validate()V
@@ -173,13 +159,11 @@
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/Net$HttpRequest;->setContent(Ljava/lang/String;)V
 
-    .line 108
     return-object p0
 .end method
 
 .method public followRedirects(Z)Lcom/badlogic/gdx/net/HttpRequestBuilder;
     .locals 1
-    .param p1, "followRedirects"    # Z
 
     .line 85
     invoke-direct {p0}, Lcom/badlogic/gdx/net/HttpRequestBuilder;->validate()V
@@ -189,7 +173,6 @@
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/Net$HttpRequest;->setFollowRedirects(Z)V
 
-    .line 87
     return-object p0
 .end method
 
@@ -207,7 +190,6 @@
     .end annotation
 
     .line 120
-    .local p1, "content":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-direct {p0}, Lcom/badlogic/gdx/net/HttpRequestBuilder;->validate()V
 
     .line 121
@@ -222,22 +204,18 @@
     .line 122
     invoke-static {p1}, Lcom/badlogic/gdx/net/HttpParametersUtils;->convertHttpParameters(Ljava/util/Map;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 123
-    .local v0, "formEncodedContent":Ljava/lang/String;
-    iget-object v1, p0, Lcom/badlogic/gdx/net/HttpRequestBuilder;->httpRequest:Lcom/badlogic/gdx/Net$HttpRequest;
+    iget-object v0, p0, Lcom/badlogic/gdx/net/HttpRequestBuilder;->httpRequest:Lcom/badlogic/gdx/Net$HttpRequest;
 
-    invoke-virtual {v1, v0}, Lcom/badlogic/gdx/Net$HttpRequest;->setContent(Ljava/lang/String;)V
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/Net$HttpRequest;->setContent(Ljava/lang/String;)V
 
-    .line 124
     return-object p0
 .end method
 
 .method public header(Ljava/lang/String;Ljava/lang/String;)Lcom/badlogic/gdx/net/HttpRequestBuilder;
     .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/String;
 
     .line 99
     invoke-direct {p0}, Lcom/badlogic/gdx/net/HttpRequestBuilder;->validate()V
@@ -247,13 +225,11 @@
 
     invoke-virtual {v0, p1, p2}, Lcom/badlogic/gdx/Net$HttpRequest;->setHeader(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 101
     return-object p0
 .end method
 
 .method public includeCredentials(Z)Lcom/badlogic/gdx/net/HttpRequestBuilder;
     .locals 1
-    .param p1, "includeCredentials"    # Z
 
     .line 92
     invoke-direct {p0}, Lcom/badlogic/gdx/net/HttpRequestBuilder;->validate()V
@@ -263,13 +239,11 @@
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/Net$HttpRequest;->setIncludeCredentials(Z)V
 
-    .line 94
     return-object p0
 .end method
 
 .method public jsonContent(Ljava/lang/Object;)Lcom/badlogic/gdx/net/HttpRequestBuilder;
     .locals 3
-    .param p1, "content"    # Ljava/lang/Object;
 
     .line 129
     invoke-direct {p0}, Lcom/badlogic/gdx/net/HttpRequestBuilder;->validate()V
@@ -288,21 +262,18 @@
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/Json;->toJson(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 132
-    .local v0, "jsonContent":Ljava/lang/String;
-    iget-object v1, p0, Lcom/badlogic/gdx/net/HttpRequestBuilder;->httpRequest:Lcom/badlogic/gdx/Net$HttpRequest;
+    iget-object v0, p0, Lcom/badlogic/gdx/net/HttpRequestBuilder;->httpRequest:Lcom/badlogic/gdx/Net$HttpRequest;
 
-    invoke-virtual {v1, v0}, Lcom/badlogic/gdx/Net$HttpRequest;->setContent(Ljava/lang/String;)V
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/Net$HttpRequest;->setContent(Ljava/lang/String;)V
 
-    .line 133
     return-object p0
 .end method
 
 .method public method(Ljava/lang/String;)Lcom/badlogic/gdx/net/HttpRequestBuilder;
     .locals 1
-    .param p1, "httpMethod"    # Ljava/lang/String;
 
     .line 60
     invoke-direct {p0}, Lcom/badlogic/gdx/net/HttpRequestBuilder;->validate()V
@@ -312,7 +283,6 @@
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/Net$HttpRequest;->setMethod(Ljava/lang/String;)V
 
-    .line 62
     return-object p0
 .end method
 
@@ -340,7 +310,6 @@
 
     invoke-virtual {v0, v1}, Lcom/badlogic/gdx/Net$HttpRequest;->setTimeOut(I)V
 
-    .line 55
     return-object p0
 
     .line 50
@@ -356,7 +325,6 @@
 
 .method public timeout(I)Lcom/badlogic/gdx/net/HttpRequestBuilder;
     .locals 1
-    .param p1, "timeOut"    # I
 
     .line 78
     invoke-direct {p0}, Lcom/badlogic/gdx/net/HttpRequestBuilder;->validate()V
@@ -366,13 +334,11 @@
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/Net$HttpRequest;->setTimeOut(I)V
 
-    .line 80
     return-object p0
 .end method
 
 .method public url(Ljava/lang/String;)Lcom/badlogic/gdx/net/HttpRequestBuilder;
     .locals 3
-    .param p1, "url"    # Ljava/lang/String;
 
     .line 69
     invoke-direct {p0}, Lcom/badlogic/gdx/net/HttpRequestBuilder;->validate()V
@@ -388,14 +354,17 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/Net$HttpRequest;->setUrl(Ljava/lang/String;)V
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 71
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/Net$HttpRequest;->setUrl(Ljava/lang/String;)V
+
     return-object p0
 .end method

@@ -29,7 +29,6 @@
 
 .method synthetic constructor <init>(Lcom/thoughtworks/xstream/core/util/PresortedMap$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/thoughtworks/xstream/core/util/PresortedMap$1;
 
     .line 22
     invoke-direct {p0}, Lcom/thoughtworks/xstream/core/util/PresortedMap$ArraySet;-><init>()V

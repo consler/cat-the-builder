@@ -77,7 +77,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 16
+    .locals 31
 
     .line 37
     new-instance v0, Landroidx/core/graphics/BlendModeCompat;
@@ -91,471 +91,482 @@
     sput-object v0, Landroidx/core/graphics/BlendModeCompat;->CLEAR:Landroidx/core/graphics/BlendModeCompat;
 
     .line 47
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v1, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "SRC"
+    const-string v3, "SRC"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->SRC:Landroidx/core/graphics/BlendModeCompat;
+    sput-object v1, Landroidx/core/graphics/BlendModeCompat;->SRC:Landroidx/core/graphics/BlendModeCompat;
 
     .line 57
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v3, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "DST"
+    const-string v5, "DST"
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v1, v4}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->DST:Landroidx/core/graphics/BlendModeCompat;
+    sput-object v3, Landroidx/core/graphics/BlendModeCompat;->DST:Landroidx/core/graphics/BlendModeCompat;
 
     .line 67
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v5, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "SRC_OVER"
+    const-string v7, "SRC_OVER"
 
-    const/4 v5, 0x3
+    const/4 v8, 0x3
 
-    invoke-direct {v0, v1, v5}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v5, v7, v8}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->SRC_OVER:Landroidx/core/graphics/BlendModeCompat;
+    sput-object v5, Landroidx/core/graphics/BlendModeCompat;->SRC_OVER:Landroidx/core/graphics/BlendModeCompat;
 
     .line 77
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v7, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "DST_OVER"
+    const-string v9, "DST_OVER"
 
-    const/4 v6, 0x4
+    const/4 v10, 0x4
 
-    invoke-direct {v0, v1, v6}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v7, v9, v10}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->DST_OVER:Landroidx/core/graphics/BlendModeCompat;
+    sput-object v7, Landroidx/core/graphics/BlendModeCompat;->DST_OVER:Landroidx/core/graphics/BlendModeCompat;
 
     .line 88
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v9, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "SRC_IN"
+    const-string v11, "SRC_IN"
 
-    const/4 v7, 0x5
+    const/4 v12, 0x5
 
-    invoke-direct {v0, v1, v7}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v9, v11, v12}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->SRC_IN:Landroidx/core/graphics/BlendModeCompat;
+    sput-object v9, Landroidx/core/graphics/BlendModeCompat;->SRC_IN:Landroidx/core/graphics/BlendModeCompat;
 
     .line 98
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v11, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "DST_IN"
+    const-string v13, "DST_IN"
 
-    const/4 v8, 0x6
+    const/4 v14, 0x6
 
-    invoke-direct {v0, v1, v8}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v11, v13, v14}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->DST_IN:Landroidx/core/graphics/BlendModeCompat;
+    sput-object v11, Landroidx/core/graphics/BlendModeCompat;->DST_IN:Landroidx/core/graphics/BlendModeCompat;
 
     .line 110
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v13, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "SRC_OUT"
+    const-string v15, "SRC_OUT"
 
-    const/4 v9, 0x7
+    const/4 v14, 0x7
 
-    invoke-direct {v0, v1, v9}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v13, v15, v14}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->SRC_OUT:Landroidx/core/graphics/BlendModeCompat;
+    sput-object v13, Landroidx/core/graphics/BlendModeCompat;->SRC_OUT:Landroidx/core/graphics/BlendModeCompat;
 
     .line 122
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v15, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "DST_OUT"
+    const-string v14, "DST_OUT"
 
-    const/16 v10, 0x8
+    const/16 v12, 0x8
 
-    invoke-direct {v0, v1, v10}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v15, v14, v12}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->DST_OUT:Landroidx/core/graphics/BlendModeCompat;
+    sput-object v15, Landroidx/core/graphics/BlendModeCompat;->DST_OUT:Landroidx/core/graphics/BlendModeCompat;
 
     .line 133
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v14, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "SRC_ATOP"
+    const-string v12, "SRC_ATOP"
 
-    const/16 v11, 0x9
+    const/16 v10, 0x9
 
-    invoke-direct {v0, v1, v11}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v14, v12, v10}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->SRC_ATOP:Landroidx/core/graphics/BlendModeCompat;
+    sput-object v14, Landroidx/core/graphics/BlendModeCompat;->SRC_ATOP:Landroidx/core/graphics/BlendModeCompat;
 
     .line 144
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v12, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "DST_ATOP"
+    const-string v10, "DST_ATOP"
 
-    const/16 v12, 0xa
+    const/16 v8, 0xa
 
-    invoke-direct {v0, v1, v12}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v12, v10, v8}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->DST_ATOP:Landroidx/core/graphics/BlendModeCompat;
+    sput-object v12, Landroidx/core/graphics/BlendModeCompat;->DST_ATOP:Landroidx/core/graphics/BlendModeCompat;
 
     .line 157
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v10, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "XOR"
+    const-string v8, "XOR"
 
-    const/16 v13, 0xb
+    const/16 v6, 0xb
 
-    invoke-direct {v0, v1, v13}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v10, v8, v6}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->XOR:Landroidx/core/graphics/BlendModeCompat;
+    sput-object v10, Landroidx/core/graphics/BlendModeCompat;->XOR:Landroidx/core/graphics/BlendModeCompat;
 
     .line 168
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v8, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "PLUS"
+    const-string v6, "PLUS"
 
-    const/16 v14, 0xc
+    const/16 v4, 0xc
 
-    invoke-direct {v0, v1, v14}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v8, v6, v4}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->PLUS:Landroidx/core/graphics/BlendModeCompat;
+    sput-object v8, Landroidx/core/graphics/BlendModeCompat;->PLUS:Landroidx/core/graphics/BlendModeCompat;
 
     .line 179
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v6, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "MODULATE"
+    const-string v4, "MODULATE"
 
-    const/16 v15, 0xd
+    const/16 v2, 0xd
 
-    invoke-direct {v0, v1, v15}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v6, v4, v2}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->MODULATE:Landroidx/core/graphics/BlendModeCompat;
+    sput-object v6, Landroidx/core/graphics/BlendModeCompat;->MODULATE:Landroidx/core/graphics/BlendModeCompat;
 
     .line 189
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v4, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "SCREEN"
+    const-string v2, "SCREEN"
 
-    const/16 v15, 0xe
+    move-object/from16 v16, v6
 
-    invoke-direct {v0, v1, v15}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    const/16 v6, 0xe
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->SCREEN:Landroidx/core/graphics/BlendModeCompat;
+    invoke-direct {v4, v2, v6}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+
+    sput-object v4, Landroidx/core/graphics/BlendModeCompat;->SCREEN:Landroidx/core/graphics/BlendModeCompat;
 
     .line 204
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v2, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "OVERLAY"
+    const-string v6, "OVERLAY"
 
-    const/16 v15, 0xf
+    move-object/from16 v17, v4
 
-    invoke-direct {v0, v1, v15}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    const/16 v4, 0xf
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->OVERLAY:Landroidx/core/graphics/BlendModeCompat;
+    invoke-direct {v2, v6, v4}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+
+    sput-object v2, Landroidx/core/graphics/BlendModeCompat;->OVERLAY:Landroidx/core/graphics/BlendModeCompat;
 
     .line 217
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v6, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "DARKEN"
+    const-string v4, "DARKEN"
 
-    const/16 v15, 0x10
+    move-object/from16 v18, v2
 
-    invoke-direct {v0, v1, v15}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    const/16 v2, 0x10
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->DARKEN:Landroidx/core/graphics/BlendModeCompat;
+    invoke-direct {v6, v4, v2}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+
+    sput-object v6, Landroidx/core/graphics/BlendModeCompat;->DARKEN:Landroidx/core/graphics/BlendModeCompat;
 
     .line 230
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v4, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "LIGHTEN"
+    const-string v2, "LIGHTEN"
 
-    const/16 v15, 0x11
+    move-object/from16 v19, v6
 
-    invoke-direct {v0, v1, v15}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    const/16 v6, 0x11
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->LIGHTEN:Landroidx/core/graphics/BlendModeCompat;
+    invoke-direct {v4, v2, v6}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+
+    sput-object v4, Landroidx/core/graphics/BlendModeCompat;->LIGHTEN:Landroidx/core/graphics/BlendModeCompat;
 
     .line 250
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v2, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "COLOR_DODGE"
+    const-string v6, "COLOR_DODGE"
 
-    const/16 v15, 0x12
+    move-object/from16 v20, v4
 
-    invoke-direct {v0, v1, v15}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    const/16 v4, 0x12
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->COLOR_DODGE:Landroidx/core/graphics/BlendModeCompat;
+    invoke-direct {v2, v6, v4}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+
+    sput-object v2, Landroidx/core/graphics/BlendModeCompat;->COLOR_DODGE:Landroidx/core/graphics/BlendModeCompat;
 
     .line 274
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v6, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "COLOR_BURN"
+    const-string v4, "COLOR_BURN"
 
-    const/16 v15, 0x13
+    move-object/from16 v21, v2
 
-    invoke-direct {v0, v1, v15}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    const/16 v2, 0x13
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->COLOR_BURN:Landroidx/core/graphics/BlendModeCompat;
+    invoke-direct {v6, v4, v2}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+
+    sput-object v6, Landroidx/core/graphics/BlendModeCompat;->COLOR_BURN:Landroidx/core/graphics/BlendModeCompat;
 
     .line 296
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v4, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "HARD_LIGHT"
+    const-string v2, "HARD_LIGHT"
 
-    const/16 v15, 0x14
+    move-object/from16 v22, v6
 
-    invoke-direct {v0, v1, v15}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    const/16 v6, 0x14
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->HARD_LIGHT:Landroidx/core/graphics/BlendModeCompat;
+    invoke-direct {v4, v2, v6}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+
+    sput-object v4, Landroidx/core/graphics/BlendModeCompat;->HARD_LIGHT:Landroidx/core/graphics/BlendModeCompat;
 
     .line 342
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v2, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "SOFT_LIGHT"
+    const-string v6, "SOFT_LIGHT"
 
-    const/16 v15, 0x15
+    move-object/from16 v23, v4
 
-    invoke-direct {v0, v1, v15}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    const/16 v4, 0x15
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->SOFT_LIGHT:Landroidx/core/graphics/BlendModeCompat;
+    invoke-direct {v2, v6, v4}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+
+    sput-object v2, Landroidx/core/graphics/BlendModeCompat;->SOFT_LIGHT:Landroidx/core/graphics/BlendModeCompat;
 
     .line 361
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v6, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "DIFFERENCE"
+    const-string v4, "DIFFERENCE"
 
-    const/16 v15, 0x16
+    move-object/from16 v24, v2
 
-    invoke-direct {v0, v1, v15}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    const/16 v2, 0x16
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->DIFFERENCE:Landroidx/core/graphics/BlendModeCompat;
+    invoke-direct {v6, v4, v2}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+
+    sput-object v6, Landroidx/core/graphics/BlendModeCompat;->DIFFERENCE:Landroidx/core/graphics/BlendModeCompat;
 
     .line 379
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v2, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "EXCLUSION"
+    const-string v4, "EXCLUSION"
 
-    const/16 v15, 0x17
+    move-object/from16 v25, v6
 
-    invoke-direct {v0, v1, v15}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    const/16 v6, 0x17
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->EXCLUSION:Landroidx/core/graphics/BlendModeCompat;
+    invoke-direct {v2, v4, v6}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+
+    sput-object v2, Landroidx/core/graphics/BlendModeCompat;->EXCLUSION:Landroidx/core/graphics/BlendModeCompat;
 
     .line 391
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v4, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "MULTIPLY"
+    const-string v6, "MULTIPLY"
 
-    const/16 v15, 0x18
+    move-object/from16 v26, v2
 
-    invoke-direct {v0, v1, v15}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    const/16 v2, 0x18
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->MULTIPLY:Landroidx/core/graphics/BlendModeCompat;
+    invoke-direct {v4, v6, v2}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+
+    sput-object v4, Landroidx/core/graphics/BlendModeCompat;->MULTIPLY:Landroidx/core/graphics/BlendModeCompat;
 
     .line 398
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v2, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "HUE"
+    const-string v6, "HUE"
 
-    const/16 v15, 0x19
+    move-object/from16 v27, v4
 
-    invoke-direct {v0, v1, v15}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    const/16 v4, 0x19
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->HUE:Landroidx/core/graphics/BlendModeCompat;
+    invoke-direct {v2, v6, v4}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+
+    sput-object v2, Landroidx/core/graphics/BlendModeCompat;->HUE:Landroidx/core/graphics/BlendModeCompat;
 
     .line 405
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v4, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "SATURATION"
+    const-string v6, "SATURATION"
 
-    const/16 v15, 0x1a
+    move-object/from16 v28, v2
 
-    invoke-direct {v0, v1, v15}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    const/16 v2, 0x1a
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->SATURATION:Landroidx/core/graphics/BlendModeCompat;
+    invoke-direct {v4, v6, v2}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+
+    sput-object v4, Landroidx/core/graphics/BlendModeCompat;->SATURATION:Landroidx/core/graphics/BlendModeCompat;
 
     .line 412
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v2, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "COLOR"
+    const-string v6, "COLOR"
 
-    const/16 v15, 0x1b
+    move-object/from16 v29, v4
 
-    invoke-direct {v0, v1, v15}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+    const/16 v4, 0x1b
 
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->COLOR:Landroidx/core/graphics/BlendModeCompat;
+    invoke-direct {v2, v6, v4}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
+
+    sput-object v2, Landroidx/core/graphics/BlendModeCompat;->COLOR:Landroidx/core/graphics/BlendModeCompat;
 
     .line 419
-    new-instance v0, Landroidx/core/graphics/BlendModeCompat;
+    new-instance v4, Landroidx/core/graphics/BlendModeCompat;
 
-    const-string v1, "LUMINOSITY"
+    const-string v6, "LUMINOSITY"
 
-    const/16 v15, 0x1c
-
-    invoke-direct {v0, v1, v15}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
-
-    sput-object v0, Landroidx/core/graphics/BlendModeCompat;->LUMINOSITY:Landroidx/core/graphics/BlendModeCompat;
-
-    .line 27
-    const/16 v1, 0x1d
-
-    new-array v1, v1, [Landroidx/core/graphics/BlendModeCompat;
-
-    sget-object v15, Landroidx/core/graphics/BlendModeCompat;->CLEAR:Landroidx/core/graphics/BlendModeCompat;
-
-    aput-object v15, v1, v2
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->SRC:Landroidx/core/graphics/BlendModeCompat;
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->DST:Landroidx/core/graphics/BlendModeCompat;
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->SRC_OVER:Landroidx/core/graphics/BlendModeCompat;
-
-    aput-object v2, v1, v5
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->DST_OVER:Landroidx/core/graphics/BlendModeCompat;
-
-    aput-object v2, v1, v6
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->SRC_IN:Landroidx/core/graphics/BlendModeCompat;
-
-    aput-object v2, v1, v7
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->DST_IN:Landroidx/core/graphics/BlendModeCompat;
-
-    aput-object v2, v1, v8
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->SRC_OUT:Landroidx/core/graphics/BlendModeCompat;
-
-    aput-object v2, v1, v9
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->DST_OUT:Landroidx/core/graphics/BlendModeCompat;
-
-    aput-object v2, v1, v10
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->SRC_ATOP:Landroidx/core/graphics/BlendModeCompat;
-
-    aput-object v2, v1, v11
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->DST_ATOP:Landroidx/core/graphics/BlendModeCompat;
-
-    aput-object v2, v1, v12
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->XOR:Landroidx/core/graphics/BlendModeCompat;
-
-    aput-object v2, v1, v13
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->PLUS:Landroidx/core/graphics/BlendModeCompat;
-
-    aput-object v2, v1, v14
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->MODULATE:Landroidx/core/graphics/BlendModeCompat;
-
-    const/16 v3, 0xd
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->SCREEN:Landroidx/core/graphics/BlendModeCompat;
-
-    const/16 v3, 0xe
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->OVERLAY:Landroidx/core/graphics/BlendModeCompat;
-
-    const/16 v3, 0xf
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->DARKEN:Landroidx/core/graphics/BlendModeCompat;
-
-    const/16 v3, 0x10
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->LIGHTEN:Landroidx/core/graphics/BlendModeCompat;
-
-    const/16 v3, 0x11
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->COLOR_DODGE:Landroidx/core/graphics/BlendModeCompat;
-
-    const/16 v3, 0x12
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->COLOR_BURN:Landroidx/core/graphics/BlendModeCompat;
-
-    const/16 v3, 0x13
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->HARD_LIGHT:Landroidx/core/graphics/BlendModeCompat;
-
-    const/16 v3, 0x14
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->SOFT_LIGHT:Landroidx/core/graphics/BlendModeCompat;
-
-    const/16 v3, 0x15
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->DIFFERENCE:Landroidx/core/graphics/BlendModeCompat;
-
-    const/16 v3, 0x16
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->EXCLUSION:Landroidx/core/graphics/BlendModeCompat;
-
-    const/16 v3, 0x17
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->MULTIPLY:Landroidx/core/graphics/BlendModeCompat;
-
-    const/16 v3, 0x18
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->HUE:Landroidx/core/graphics/BlendModeCompat;
-
-    const/16 v3, 0x19
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->SATURATION:Landroidx/core/graphics/BlendModeCompat;
-
-    const/16 v3, 0x1a
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Landroidx/core/graphics/BlendModeCompat;->COLOR:Landroidx/core/graphics/BlendModeCompat;
-
-    const/16 v3, 0x1b
-
-    aput-object v2, v1, v3
+    move-object/from16 v30, v2
 
     const/16 v2, 0x1c
 
-    aput-object v0, v1, v2
+    invoke-direct {v4, v6, v2}, Landroidx/core/graphics/BlendModeCompat;-><init>(Ljava/lang/String;I)V
 
-    sput-object v1, Landroidx/core/graphics/BlendModeCompat;->$VALUES:[Landroidx/core/graphics/BlendModeCompat;
+    sput-object v4, Landroidx/core/graphics/BlendModeCompat;->LUMINOSITY:Landroidx/core/graphics/BlendModeCompat;
+
+    const/16 v2, 0x1d
+
+    new-array v2, v2, [Landroidx/core/graphics/BlendModeCompat;
+
+    const/4 v6, 0x0
+
+    aput-object v0, v2, v6
+
+    const/4 v0, 0x1
+
+    aput-object v1, v2, v0
+
+    const/4 v0, 0x2
+
+    aput-object v3, v2, v0
+
+    const/4 v0, 0x3
+
+    aput-object v5, v2, v0
+
+    const/4 v0, 0x4
+
+    aput-object v7, v2, v0
+
+    const/4 v0, 0x5
+
+    aput-object v9, v2, v0
+
+    const/4 v0, 0x6
+
+    aput-object v11, v2, v0
+
+    const/4 v0, 0x7
+
+    aput-object v13, v2, v0
+
+    const/16 v0, 0x8
+
+    aput-object v15, v2, v0
+
+    const/16 v0, 0x9
+
+    aput-object v14, v2, v0
+
+    const/16 v0, 0xa
+
+    aput-object v12, v2, v0
+
+    const/16 v0, 0xb
+
+    aput-object v10, v2, v0
+
+    const/16 v0, 0xc
+
+    aput-object v8, v2, v0
+
+    const/16 v0, 0xd
+
+    aput-object v16, v2, v0
+
+    const/16 v0, 0xe
+
+    aput-object v17, v2, v0
+
+    const/16 v0, 0xf
+
+    aput-object v18, v2, v0
+
+    const/16 v0, 0x10
+
+    aput-object v19, v2, v0
+
+    const/16 v0, 0x11
+
+    aput-object v20, v2, v0
+
+    const/16 v0, 0x12
+
+    aput-object v21, v2, v0
+
+    const/16 v0, 0x13
+
+    aput-object v22, v2, v0
+
+    const/16 v0, 0x14
+
+    aput-object v23, v2, v0
+
+    const/16 v0, 0x15
+
+    aput-object v24, v2, v0
+
+    const/16 v0, 0x16
+
+    aput-object v25, v2, v0
+
+    const/16 v0, 0x17
+
+    aput-object v26, v2, v0
+
+    const/16 v0, 0x18
+
+    aput-object v27, v2, v0
+
+    const/16 v0, 0x19
+
+    aput-object v28, v2, v0
+
+    const/16 v0, 0x1a
+
+    aput-object v29, v2, v0
+
+    const/16 v0, 0x1b
+
+    aput-object v30, v2, v0
+
+    const/16 v0, 0x1c
+
+    aput-object v4, v2, v0
+
+    .line 27
+    sput-object v2, Landroidx/core/graphics/BlendModeCompat;->$VALUES:[Landroidx/core/graphics/BlendModeCompat;
 
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1000,
+            0x1000
+        }
+        names = {
+            "$enum$name",
+            "$enum$ordinal"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -570,18 +581,25 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/core/graphics/BlendModeCompat;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x8000
+        }
+        names = {
+            "name"
+        }
+    .end annotation
 
     .line 27
     const-class v0, Landroidx/core/graphics/BlendModeCompat;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroidx/core/graphics/BlendModeCompat;
+    check-cast p0, Landroidx/core/graphics/BlendModeCompat;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Landroidx/core/graphics/BlendModeCompat;

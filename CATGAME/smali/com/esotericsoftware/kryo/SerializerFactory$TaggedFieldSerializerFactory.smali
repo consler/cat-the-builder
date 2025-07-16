@@ -40,13 +40,11 @@
 
     iput-object v0, p0, Lcom/esotericsoftware/kryo/SerializerFactory$TaggedFieldSerializerFactory;->config:Lcom/esotericsoftware/kryo/serializers/TaggedFieldSerializer$TaggedFieldSerializerConfig;
 
-    .line 135
     return-void
 .end method
 
 .method public constructor <init>(Lcom/esotericsoftware/kryo/serializers/TaggedFieldSerializer$TaggedFieldSerializerConfig;)V
     .locals 0
-    .param p1, "config"    # Lcom/esotericsoftware/kryo/serializers/TaggedFieldSerializer$TaggedFieldSerializerConfig;
 
     .line 137
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/SerializerFactory$BaseSerializerFactory;-><init>()V
@@ -54,7 +52,6 @@
     .line 138
     iput-object p1, p0, Lcom/esotericsoftware/kryo/SerializerFactory$TaggedFieldSerializerFactory;->config:Lcom/esotericsoftware/kryo/serializers/TaggedFieldSerializer$TaggedFieldSerializerConfig;
 
-    .line 139
     return-void
 .end method
 
@@ -82,8 +79,6 @@
 
 .method public newSerializer(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Class;)Lcom/esotericsoftware/kryo/serializers/TaggedFieldSerializer;
     .locals 2
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "type"    # Ljava/lang/Class;
 
     .line 146
     new-instance v0, Lcom/esotericsoftware/kryo/serializers/TaggedFieldSerializer;

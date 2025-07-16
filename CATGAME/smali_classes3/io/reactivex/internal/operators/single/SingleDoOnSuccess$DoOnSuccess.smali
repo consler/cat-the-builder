@@ -50,8 +50,6 @@
     .end annotation
 
     .line 41
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDoOnSuccess$DoOnSuccess;, "Lio/reactivex/internal/operators/single/SingleDoOnSuccess<TT;>.DoOnSuccess;"
-    .local p2, "s":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
     iput-object p1, p0, Lio/reactivex/internal/operators/single/SingleDoOnSuccess$DoOnSuccess;->this$0:Lio/reactivex/internal/operators/single/SingleDoOnSuccess;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,7 +57,6 @@
     .line 42
     iput-object p2, p0, Lio/reactivex/internal/operators/single/SingleDoOnSuccess$DoOnSuccess;->s:Lio/reactivex/SingleObserver;
 
-    .line 43
     return-void
 .end method
 
@@ -67,34 +64,28 @@
 # virtual methods
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 64
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDoOnSuccess$DoOnSuccess;, "Lio/reactivex/internal/operators/single/SingleDoOnSuccess<TT;>.DoOnSuccess;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleDoOnSuccess$DoOnSuccess;->s:Lio/reactivex/SingleObserver;
 
     invoke-interface {v0, p1}, Lio/reactivex/SingleObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 65
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 47
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDoOnSuccess$DoOnSuccess;, "Lio/reactivex/internal/operators/single/SingleDoOnSuccess<TT;>.DoOnSuccess;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleDoOnSuccess$DoOnSuccess;->s:Lio/reactivex/SingleObserver;
 
     invoke-interface {v0, p1}, Lio/reactivex/SingleObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 48
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -102,8 +93,6 @@
     .end annotation
 
     .line 53
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDoOnSuccess$DoOnSuccess;, "Lio/reactivex/internal/operators/single/SingleDoOnSuccess<TT;>.DoOnSuccess;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     :try_start_0
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleDoOnSuccess$DoOnSuccess;->this$0:Lio/reactivex/internal/operators/single/SingleDoOnSuccess;
 
@@ -113,30 +102,23 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 58
-    nop
-
     .line 59
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleDoOnSuccess$DoOnSuccess;->s:Lio/reactivex/SingleObserver;
 
     invoke-interface {v0, p1}, Lio/reactivex/SingleObserver;->onSuccess(Ljava/lang/Object;)V
 
-    .line 60
     return-void
 
-    .line 54
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     .line 55
-    .local v0, "ex":Ljava/lang/Throwable;
-    invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 56
-    iget-object v1, p0, Lio/reactivex/internal/operators/single/SingleDoOnSuccess$DoOnSuccess;->s:Lio/reactivex/SingleObserver;
+    iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleDoOnSuccess$DoOnSuccess;->s:Lio/reactivex/SingleObserver;
 
-    invoke-interface {v1, v0}, Lio/reactivex/SingleObserver;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v0, p1}, Lio/reactivex/SingleObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 57
     return-void
 .end method

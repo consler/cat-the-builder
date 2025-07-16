@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Landroidx/work/impl/utils/SerialExecutor;Ljava/lang/Runnable;)V
     .locals 0
-    .param p1, "serialExecutor"    # Landroidx/work/impl/utils/SerialExecutor;
-    .param p2, "runnable"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -48,7 +46,6 @@
     .line 85
     iput-object p2, p0, Landroidx/work/impl/utils/SerialExecutor$Task;->mRunnable:Ljava/lang/Runnable;
 
-    .line 86
     return-void
 .end method
 
@@ -70,13 +67,8 @@
 
     invoke-virtual {v0}, Landroidx/work/impl/utils/SerialExecutor;->scheduleNext()V
 
-    .line 94
-    nop
-
-    .line 95
     return-void
 
-    .line 93
     :catchall_0
     move-exception v0
 

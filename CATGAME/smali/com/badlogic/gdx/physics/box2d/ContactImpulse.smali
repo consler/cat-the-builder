@@ -18,27 +18,25 @@
 # direct methods
 .method protected constructor <init>(Lcom/badlogic/gdx/physics/box2d/World;J)V
     .locals 2
-    .param p1, "world"    # Lcom/badlogic/gdx/physics/box2d/World;
-    .param p2, "addr"    # J
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 30
     const/4 v0, 0x2
 
     new-array v1, v0, [F
 
+    .line 30
     iput-object v1, p0, Lcom/badlogic/gdx/physics/box2d/ContactImpulse;->tmp:[F
 
-    .line 31
     new-array v1, v0, [F
 
+    .line 31
     iput-object v1, p0, Lcom/badlogic/gdx/physics/box2d/ContactImpulse;->normalImpulses:[F
 
-    .line 32
     new-array v0, v0, [F
 
+    .line 32
     iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/ContactImpulse;->tangentImpulses:[F
 
     .line 35
@@ -47,7 +45,6 @@
     .line 36
     iput-wide p2, p0, Lcom/badlogic/gdx/physics/box2d/ContactImpulse;->addr:J
 
-    .line 37
     return-void
 .end method
 

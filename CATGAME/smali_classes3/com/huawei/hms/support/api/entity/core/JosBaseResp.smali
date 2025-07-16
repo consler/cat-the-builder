@@ -17,7 +17,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 17
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -28,7 +28,7 @@
 .method public getStatusCode()I
     .locals 1
 
-    .line 26
+    .line 1
     iget v0, p0, Lcom/huawei/hms/support/api/entity/core/JosBaseResp;->statusCode:I
 
     return v0
@@ -37,9 +37,8 @@
 .method public setStatusCode(I)V
     .locals 0
 
-    .line 30
+    .line 1
     iput p1, p0, Lcom/huawei/hms/support/api/entity/core/JosBaseResp;->statusCode:I
 
-    .line 31
     return-void
 .end method

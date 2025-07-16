@@ -72,8 +72,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Landroidx/camera/core/impl/CaptureConfig;)V
-    .locals 1
-    .param p6, "repeatingCaptureConfig"    # Landroidx/camera/core/impl/CaptureConfig;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -98,11 +97,6 @@
     .end annotation
 
     .line 73
-    .local p1, "surfaces":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/core/impl/DeferrableSurface;>;"
-    .local p2, "deviceStateCallbacks":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/camera2/CameraDevice$StateCallback;>;"
-    .local p3, "sessionStateCallbacks":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/camera2/CameraCaptureSession$StateCallback;>;"
-    .local p4, "singleCameraCaptureCallbacks":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/core/impl/CameraCaptureCallback;>;"
-    .local p5, "errorListeners":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/core/impl/SessionConfig$ErrorListener;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 74
@@ -111,38 +105,34 @@
     .line 75
     invoke-static {p2}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/camera/core/impl/SessionConfig;->mDeviceStateCallbacks:Ljava/util/List;
+    iput-object p1, p0, Landroidx/camera/core/impl/SessionConfig;->mDeviceStateCallbacks:Ljava/util/List;
 
     .line 76
     invoke-static {p3}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/camera/core/impl/SessionConfig;->mSessionStateCallbacks:Ljava/util/List;
-
-    .line 77
-    nop
+    iput-object p1, p0, Landroidx/camera/core/impl/SessionConfig;->mSessionStateCallbacks:Ljava/util/List;
 
     .line 78
     invoke-static {p4}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/camera/core/impl/SessionConfig;->mSingleCameraCaptureCallbacks:Ljava/util/List;
+    iput-object p1, p0, Landroidx/camera/core/impl/SessionConfig;->mSingleCameraCaptureCallbacks:Ljava/util/List;
 
     .line 79
     invoke-static {p5}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/camera/core/impl/SessionConfig;->mErrorListeners:Ljava/util/List;
+    iput-object p1, p0, Landroidx/camera/core/impl/SessionConfig;->mErrorListeners:Ljava/util/List;
 
     .line 80
     iput-object p6, p0, Landroidx/camera/core/impl/SessionConfig;->mRepeatingCaptureConfig:Landroidx/camera/core/impl/CaptureConfig;
 
-    .line 81
     return-void
 .end method
 
@@ -187,7 +177,6 @@
 
     invoke-direct/range {v0 .. v6}, Landroidx/camera/core/impl/SessionConfig;-><init>(Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Landroidx/camera/core/impl/CaptureConfig;)V
 
-    .line 86
     return-object v7
 .end method
 

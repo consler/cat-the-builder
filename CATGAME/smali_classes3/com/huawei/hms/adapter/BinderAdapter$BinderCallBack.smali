@@ -18,11 +18,17 @@
 .method public abstract onBinderFailed(I)V
 .end method
 
-.method public abstract onBinderFailed(ILandroid/app/PendingIntent;)V
+.method public abstract onBinderFailed(ILandroid/content/Intent;)V
+.end method
+
+.method public abstract onNullBinding(Landroid/content/ComponentName;)V
 .end method
 
 .method public abstract onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
 .end method
 
 .method public abstract onServiceDisconnected(Landroid/content/ComponentName;)V
+.end method
+
+.method public abstract onTimedDisconnected()V
 .end method

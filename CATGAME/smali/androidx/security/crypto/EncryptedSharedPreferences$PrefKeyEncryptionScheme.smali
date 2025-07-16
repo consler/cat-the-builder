@@ -51,13 +51,13 @@
 
     sput-object v0, Landroidx/security/crypto/EncryptedSharedPreferences$PrefKeyEncryptionScheme;->AES256_SIV:Landroidx/security/crypto/EncryptedSharedPreferences$PrefKeyEncryptionScheme;
 
-    .line 140
     const/4 v1, 0x1
 
     new-array v1, v1, [Landroidx/security/crypto/EncryptedSharedPreferences$PrefKeyEncryptionScheme;
 
     aput-object v0, v1, v3
 
+    .line 140
     sput-object v1, Landroidx/security/crypto/EncryptedSharedPreferences$PrefKeyEncryptionScheme;->$VALUES:[Landroidx/security/crypto/EncryptedSharedPreferences$PrefKeyEncryptionScheme;
 
     return-void
@@ -65,7 +65,6 @@
 
 .method private constructor <init>(Ljava/lang/String;ILcom/google/crypto/tink/KeyTemplate;)V
     .locals 0
-    .param p3, "keyTemplate"    # Lcom/google/crypto/tink/KeyTemplate;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -80,24 +79,22 @@
     .line 153
     iput-object p3, p0, Landroidx/security/crypto/EncryptedSharedPreferences$PrefKeyEncryptionScheme;->mDeterministicAeadKeyTemplate:Lcom/google/crypto/tink/KeyTemplate;
 
-    .line 154
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/security/crypto/EncryptedSharedPreferences$PrefKeyEncryptionScheme;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 140
     const-class v0, Landroidx/security/crypto/EncryptedSharedPreferences$PrefKeyEncryptionScheme;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroidx/security/crypto/EncryptedSharedPreferences$PrefKeyEncryptionScheme;
+    check-cast p0, Landroidx/security/crypto/EncryptedSharedPreferences$PrefKeyEncryptionScheme;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Landroidx/security/crypto/EncryptedSharedPreferences$PrefKeyEncryptionScheme;

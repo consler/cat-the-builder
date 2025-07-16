@@ -32,7 +32,6 @@
 .method public asBinder()Landroid/os/IBinder;
     .locals 1
 
-    .line 54
     const/4 v0, 0x0
 
     return-object v0
@@ -40,8 +39,6 @@
 
 .method public broadcastInvalidation(I[Ljava/lang/String;)V
     .locals 0
-    .param p1, "clientId"    # I
-    .param p2, "tables"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -59,14 +56,11 @@
         }
     .end annotation
 
-    .line 51
     return-void
 .end method
 
 .method public registerCallback(Landroidx/room/IMultiInstanceInvalidationCallback;Ljava/lang/String;)I
-    .locals 1
-    .param p1, "callback"    # Landroidx/room/IMultiInstanceInvalidationCallback;
-    .param p2, "name"    # Ljava/lang/String;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -84,16 +78,13 @@
         }
     .end annotation
 
-    .line 25
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public unregisterCallback(Landroidx/room/IMultiInstanceInvalidationCallback;I)V
     .locals 0
-    .param p1, "callback"    # Landroidx/room/IMultiInstanceInvalidationCallback;
-    .param p2, "clientId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -111,6 +102,5 @@
         }
     .end annotation
 
-    .line 38
     return-void
 .end method

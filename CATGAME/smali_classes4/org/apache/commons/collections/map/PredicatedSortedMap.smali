@@ -13,22 +13,15 @@
 # direct methods
 .method protected constructor <init>(Ljava/util/SortedMap;Lorg/apache/commons/collections/Predicate;Lorg/apache/commons/collections/Predicate;)V
     .locals 0
-    .param p1, "map"    # Ljava/util/SortedMap;
-    .param p2, "keyPredicate"    # Lorg/apache/commons/collections/Predicate;
-    .param p3, "valuePredicate"    # Lorg/apache/commons/collections/Predicate;
 
     .line 81
     invoke-direct {p0, p1, p2, p3}, Lorg/apache/commons/collections/map/PredicatedMap;-><init>(Ljava/util/Map;Lorg/apache/commons/collections/Predicate;Lorg/apache/commons/collections/Predicate;)V
 
-    .line 82
     return-void
 .end method
 
 .method public static decorate(Ljava/util/SortedMap;Lorg/apache/commons/collections/Predicate;Lorg/apache/commons/collections/Predicate;)Ljava/util/SortedMap;
     .locals 1
-    .param p0, "map"    # Ljava/util/SortedMap;
-    .param p1, "keyPredicate"    # Lorg/apache/commons/collections/Predicate;
-    .param p2, "valuePredicate"    # Lorg/apache/commons/collections/Predicate;
 
     .line 68
     new-instance v0, Lorg/apache/commons/collections/map/PredicatedSortedMap;
@@ -82,8 +75,7 @@
 .end method
 
 .method public headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 4
-    .param p1, "toKey"    # Ljava/lang/Object;
+    .locals 3
 
     .line 113
     invoke-virtual {p0}, Lorg/apache/commons/collections/map/PredicatedSortedMap;->getSortedMap()Ljava/util/SortedMap;
@@ -92,19 +84,18 @@
 
     invoke-interface {v0, p1}, Ljava/util/SortedMap;->headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 114
-    .local v0, "map":Ljava/util/SortedMap;
-    new-instance v1, Lorg/apache/commons/collections/map/PredicatedSortedMap;
+    new-instance v0, Lorg/apache/commons/collections/map/PredicatedSortedMap;
 
-    iget-object v2, p0, Lorg/apache/commons/collections/map/PredicatedSortedMap;->keyPredicate:Lorg/apache/commons/collections/Predicate;
+    iget-object v1, p0, Lorg/apache/commons/collections/map/PredicatedSortedMap;->keyPredicate:Lorg/apache/commons/collections/Predicate;
 
-    iget-object v3, p0, Lorg/apache/commons/collections/map/PredicatedSortedMap;->valuePredicate:Lorg/apache/commons/collections/Predicate;
+    iget-object v2, p0, Lorg/apache/commons/collections/map/PredicatedSortedMap;->valuePredicate:Lorg/apache/commons/collections/Predicate;
 
-    invoke-direct {v1, v0, v2, v3}, Lorg/apache/commons/collections/map/PredicatedSortedMap;-><init>(Ljava/util/SortedMap;Lorg/apache/commons/collections/Predicate;Lorg/apache/commons/collections/Predicate;)V
+    invoke-direct {v0, p1, v1, v2}, Lorg/apache/commons/collections/map/PredicatedSortedMap;-><init>(Ljava/util/SortedMap;Lorg/apache/commons/collections/Predicate;Lorg/apache/commons/collections/Predicate;)V
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public lastKey()Ljava/lang/Object;
@@ -123,9 +114,7 @@
 .end method
 
 .method public subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 4
-    .param p1, "fromKey"    # Ljava/lang/Object;
-    .param p2, "toKey"    # Ljava/lang/Object;
+    .locals 2
 
     .line 108
     invoke-virtual {p0}, Lorg/apache/commons/collections/map/PredicatedSortedMap;->getSortedMap()Ljava/util/SortedMap;
@@ -134,24 +123,22 @@
 
     invoke-interface {v0, p1, p2}, Ljava/util/SortedMap;->subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 109
-    .local v0, "map":Ljava/util/SortedMap;
-    new-instance v1, Lorg/apache/commons/collections/map/PredicatedSortedMap;
+    new-instance p2, Lorg/apache/commons/collections/map/PredicatedSortedMap;
 
-    iget-object v2, p0, Lorg/apache/commons/collections/map/PredicatedSortedMap;->keyPredicate:Lorg/apache/commons/collections/Predicate;
+    iget-object v0, p0, Lorg/apache/commons/collections/map/PredicatedSortedMap;->keyPredicate:Lorg/apache/commons/collections/Predicate;
 
-    iget-object v3, p0, Lorg/apache/commons/collections/map/PredicatedSortedMap;->valuePredicate:Lorg/apache/commons/collections/Predicate;
+    iget-object v1, p0, Lorg/apache/commons/collections/map/PredicatedSortedMap;->valuePredicate:Lorg/apache/commons/collections/Predicate;
 
-    invoke-direct {v1, v0, v2, v3}, Lorg/apache/commons/collections/map/PredicatedSortedMap;-><init>(Ljava/util/SortedMap;Lorg/apache/commons/collections/Predicate;Lorg/apache/commons/collections/Predicate;)V
+    invoke-direct {p2, p1, v0, v1}, Lorg/apache/commons/collections/map/PredicatedSortedMap;-><init>(Ljava/util/SortedMap;Lorg/apache/commons/collections/Predicate;Lorg/apache/commons/collections/Predicate;)V
 
-    return-object v1
+    return-object p2
 .end method
 
 .method public tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 4
-    .param p1, "fromKey"    # Ljava/lang/Object;
+    .locals 3
 
     .line 118
     invoke-virtual {p0}, Lorg/apache/commons/collections/map/PredicatedSortedMap;->getSortedMap()Ljava/util/SortedMap;
@@ -160,17 +147,16 @@
 
     invoke-interface {v0, p1}, Ljava/util/SortedMap;->tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 119
-    .local v0, "map":Ljava/util/SortedMap;
-    new-instance v1, Lorg/apache/commons/collections/map/PredicatedSortedMap;
+    new-instance v0, Lorg/apache/commons/collections/map/PredicatedSortedMap;
 
-    iget-object v2, p0, Lorg/apache/commons/collections/map/PredicatedSortedMap;->keyPredicate:Lorg/apache/commons/collections/Predicate;
+    iget-object v1, p0, Lorg/apache/commons/collections/map/PredicatedSortedMap;->keyPredicate:Lorg/apache/commons/collections/Predicate;
 
-    iget-object v3, p0, Lorg/apache/commons/collections/map/PredicatedSortedMap;->valuePredicate:Lorg/apache/commons/collections/Predicate;
+    iget-object v2, p0, Lorg/apache/commons/collections/map/PredicatedSortedMap;->valuePredicate:Lorg/apache/commons/collections/Predicate;
 
-    invoke-direct {v1, v0, v2, v3}, Lorg/apache/commons/collections/map/PredicatedSortedMap;-><init>(Ljava/util/SortedMap;Lorg/apache/commons/collections/Predicate;Lorg/apache/commons/collections/Predicate;)V
+    invoke-direct {v0, p1, v1, v2}, Lorg/apache/commons/collections/map/PredicatedSortedMap;-><init>(Ljava/util/SortedMap;Lorg/apache/commons/collections/Predicate;Lorg/apache/commons/collections/Predicate;)V
 
-    return-object v1
+    return-object v0
 .end method

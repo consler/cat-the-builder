@@ -45,44 +45,40 @@
 
 # virtual methods
 .method public compare(Lcom/badlogic/gdx/graphics/g3d/decals/Decal;Lcom/badlogic/gdx/graphics/g3d/decals/Decal;)I
-    .locals 3
-    .param p1, "o1"    # Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
-    .param p2, "o2"    # Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
+    .locals 1
 
     .line 102
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy$2;->val$camera:Lcom/badlogic/gdx/graphics/Camera;
 
     iget-object v0, v0, Lcom/badlogic/gdx/graphics/Camera;->position:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v1, p1, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector3;->dst(Lcom/badlogic/gdx/math/Vector3;)F
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/math/Vector3;->dst(Lcom/badlogic/gdx/math/Vector3;)F
 
-    move-result v0
+    move-result p1
 
     .line 103
-    .local v0, "dist1":F
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy$2;->val$camera:Lcom/badlogic/gdx/graphics/Camera;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy$2;->val$camera:Lcom/badlogic/gdx/graphics/Camera;
 
-    iget-object v1, v1, Lcom/badlogic/gdx/graphics/Camera;->position:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v0, v0, Lcom/badlogic/gdx/graphics/Camera;->position:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v2, p2, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p2, p2, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/math/Vector3;->dst(Lcom/badlogic/gdx/math/Vector3;)F
+    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/math/Vector3;->dst(Lcom/badlogic/gdx/math/Vector3;)F
 
-    move-result v1
+    move-result p2
+
+    sub-float/2addr p2, p1
 
     .line 104
-    .local v1, "dist2":F
-    sub-float v2, v1, v0
+    invoke-static {p2}, Ljava/lang/Math;->signum(F)F
 
-    invoke-static {v2}, Ljava/lang/Math;->signum(F)F
+    move-result p1
 
-    move-result v2
+    float-to-int p1, p1
 
-    float-to-int v2, v2
-
-    return v2
+    return p1
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I

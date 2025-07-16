@@ -27,7 +27,6 @@
 
     invoke-direct {p0}, Landroidx/appcompat/view/menu/ActionMenuItemView$PopupCallback;-><init>()V
 
-    .line 801
     return-void
 .end method
 

@@ -27,14 +27,11 @@
 
     invoke-direct {p0, v0, v1}, Lcom/thoughtworks/xstream/core/util/Base64JavaUtilCodec;-><init>(Ljava/util/Base64$Encoder;Ljava/util/Base64$Decoder;)V
 
-    .line 38
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Base64$Encoder;Ljava/util/Base64$Decoder;)V
     .locals 0
-    .param p1, "encoder"    # Ljava/util/Base64$Encoder;
-    .param p2, "decoder"    # Ljava/util/Base64$Decoder;
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +42,6 @@
     .line 49
     iput-object p2, p0, Lcom/thoughtworks/xstream/core/util/Base64JavaUtilCodec;->decoder:Ljava/util/Base64$Decoder;
 
-    .line 50
     return-void
 .end method
 
@@ -53,28 +49,26 @@
 # virtual methods
 .method public decode(Ljava/lang/String;)[B
     .locals 1
-    .param p1, "base64"    # Ljava/lang/String;
 
     .line 54
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/Base64JavaUtilCodec;->decoder:Ljava/util/Base64$Decoder;
 
     invoke-virtual {v0, p1}, Ljava/util/Base64$Decoder;->decode(Ljava/lang/String;)[B
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public encode([B)Ljava/lang/String;
     .locals 1
-    .param p1, "data"    # [B
 
     .line 59
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/Base64JavaUtilCodec;->encoder:Ljava/util/Base64$Encoder;
 
     invoke-virtual {v0, p1}, Ljava/util/Base64$Encoder;->encodeToString([B)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

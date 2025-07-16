@@ -83,9 +83,6 @@
     .end annotation
 
     .line 61
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
-    .local p2, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<*>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 55
@@ -108,7 +105,6 @@
     .line 63
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;->sampler:Lorg/reactivestreams/Publisher;
 
-    .line 64
     return-void
 .end method
 
@@ -118,7 +114,6 @@
     .locals 1
 
     .line 109
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;->other:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->cancel(Ljava/util/concurrent/atomic/AtomicReference;)Z
@@ -128,7 +123,6 @@
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
 
-    .line 111
     return-void
 .end method
 
@@ -136,7 +130,6 @@
     .locals 1
 
     .line 119
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
@@ -144,7 +137,6 @@
     .line 120
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;->completeOther()V
 
-    .line 121
     return-void
 .end method
 
@@ -155,18 +147,15 @@
 .end method
 
 .method emit()V
-    .locals 6
+    .locals 5
 
-    .line 124
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber<TT;>;"
     const/4 v0, 0x0
 
+    .line 124
     invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;->getAndSet(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 125
-    .local v0, "value":Ljava/lang/Object;, "TT;"
     if-eqz v0, :cond_1
 
     .line 126
@@ -176,25 +165,23 @@
 
     move-result-wide v1
 
-    .line 127
-    .local v1, "r":J
     const-wide/16 v3, 0x0
 
-    cmp-long v3, v1, v3
+    cmp-long v1, v1, v3
 
-    if-eqz v3, :cond_0
+    if-eqz v1, :cond_0
 
     .line 128
-    iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v3, v0}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
+    invoke-interface {v1, v0}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
     .line 129
-    iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
-    const-wide/16 v4, 0x1
+    const-wide/16 v1, 0x1
 
-    invoke-static {v3, v4, v5}, Lio/reactivex/internal/util/BackpressureHelper;->produced(Ljava/util/concurrent/atomic/AtomicLong;J)J
+    invoke-static {v0, v1, v2}, Lio/reactivex/internal/util/BackpressureHelper;->produced(Ljava/util/concurrent/atomic/AtomicLong;J)J
 
     goto :goto_0
 
@@ -203,18 +190,16 @@
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;->cancel()V
 
     .line 132
-    iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    new-instance v4, Lio/reactivex/exceptions/MissingBackpressureException;
+    new-instance v1, Lio/reactivex/exceptions/MissingBackpressureException;
 
-    const-string v5, "Couldn\'t emit value due to lack of requests!"
+    const-string v2, "Couldn\'t emit value due to lack of requests!"
 
-    invoke-direct {v4, v5}, Lio/reactivex/exceptions/MissingBackpressureException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Lio/reactivex/exceptions/MissingBackpressureException;-><init>(Ljava/lang/String;)V
 
-    invoke-interface {v3, v4}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v0, v1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 135
-    .end local v1    # "r":J
     :cond_1
     :goto_0
     return-void
@@ -222,10 +207,8 @@
 
 .method public error(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 114
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
@@ -235,7 +218,6 @@
 
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 116
     return-void
 .end method
 
@@ -243,7 +225,6 @@
     .locals 1
 
     .line 92
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;->other:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->cancel(Ljava/util/concurrent/atomic/AtomicReference;)Z
@@ -251,16 +232,13 @@
     .line 93
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;->completeMain()V
 
-    .line 94
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 86
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;->other:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->cancel(Ljava/util/concurrent/atomic/AtomicReference;)Z
@@ -270,7 +248,6 @@
 
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 88
     return-void
 .end method
 
@@ -283,20 +260,15 @@
     .end annotation
 
     .line 81
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;->lazySet(Ljava/lang/Object;)V
 
-    .line 82
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 68
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -331,22 +303,19 @@
 
     invoke-interface {v0, v1}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
 
-    .line 73
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 73
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 77
     :cond_0
     return-void
 .end method
 
 .method public request(J)V
     .locals 1
-    .param p1, "n"    # J
 
     .line 102
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber<TT;>;"
     invoke-static {p1, p2}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(J)Z
 
     move-result v0
@@ -358,7 +327,6 @@
 
     invoke-static {v0, p1, p2}, Lio/reactivex/internal/util/BackpressureHelper;->add(Ljava/util/concurrent/atomic/AtomicLong;J)J
 
-    .line 105
     :cond_0
     return-void
 .end method
@@ -368,15 +336,13 @@
 
 .method setOther(Lorg/reactivestreams/Subscription;)Z
     .locals 1
-    .param p1, "o"    # Lorg/reactivestreams/Subscription;
 
     .line 97
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;->other:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lorg/reactivestreams/Subscription;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

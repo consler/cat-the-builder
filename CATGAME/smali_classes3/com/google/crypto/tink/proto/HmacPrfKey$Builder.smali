@@ -38,13 +38,11 @@
 
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
-    .line 216
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/proto/HmacPrfKey$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/proto/HmacPrfKey$1;
 
     .line 208
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/HmacPrfKey$Builder;-><init>()V
@@ -67,7 +65,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/HmacPrfKey;->access$700(Lcom/google/crypto/tink/proto/HmacPrfKey;)V
 
-    .line 319
     return-object p0
 .end method
 
@@ -84,7 +81,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/HmacPrfKey;->access$500(Lcom/google/crypto/tink/proto/HmacPrfKey;)V
 
-    .line 291
     return-object p0
 .end method
 
@@ -101,7 +97,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/HmacPrfKey;->access$200(Lcom/google/crypto/tink/proto/HmacPrfKey;)V
 
-    .line 244
     return-object p0
 .end method
 
@@ -167,7 +162,6 @@
 
 .method public mergeParams(Lcom/google/crypto/tink/proto/HmacPrfParams;)Lcom/google/crypto/tink/proto/HmacPrfKey$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/HmacPrfParams;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -187,13 +181,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/HmacPrfKey;->access$400(Lcom/google/crypto/tink/proto/HmacPrfKey;Lcom/google/crypto/tink/proto/HmacPrfParams;)V
 
-    .line 284
     return-object p0
 .end method
 
 .method public setKeyValue(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/HmacPrfKey$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -213,13 +205,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/HmacPrfKey;->access$600(Lcom/google/crypto/tink/proto/HmacPrfKey;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    .line 310
     return-object p0
 .end method
 
 .method public setParams(Lcom/google/crypto/tink/proto/HmacPrfParams$Builder;)Lcom/google/crypto/tink/proto/HmacPrfKey$Builder;
-    .locals 2
-    .param p1, "builderForValue"    # Lcom/google/crypto/tink/proto/HmacPrfParams$Builder;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -239,19 +229,17 @@
 
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/HmacPrfParams$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Lcom/google/crypto/tink/proto/HmacPrfParams;
+    check-cast p1, Lcom/google/crypto/tink/proto/HmacPrfParams;
 
-    invoke-static {v0, v1}, Lcom/google/crypto/tink/proto/HmacPrfKey;->access$300(Lcom/google/crypto/tink/proto/HmacPrfKey;Lcom/google/crypto/tink/proto/HmacPrfParams;)V
+    invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/HmacPrfKey;->access$300(Lcom/google/crypto/tink/proto/HmacPrfKey;Lcom/google/crypto/tink/proto/HmacPrfParams;)V
 
-    .line 276
     return-object p0
 .end method
 
 .method public setParams(Lcom/google/crypto/tink/proto/HmacPrfParams;)Lcom/google/crypto/tink/proto/HmacPrfKey$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/HmacPrfParams;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -271,13 +259,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/HmacPrfKey;->access$300(Lcom/google/crypto/tink/proto/HmacPrfKey;Lcom/google/crypto/tink/proto/HmacPrfParams;)V
 
-    .line 267
     return-object p0
 .end method
 
 .method public setVersion(I)Lcom/google/crypto/tink/proto/HmacPrfKey$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -297,6 +283,5 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/HmacPrfKey;->access$100(Lcom/google/crypto/tink/proto/HmacPrfKey;I)V
 
-    .line 235
     return-object p0
 .end method

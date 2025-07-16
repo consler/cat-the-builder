@@ -17,12 +17,10 @@
 # direct methods
 .method public constructor <init>(Ljava/io/Reader;)V
     .locals 0
-    .param p1, "reader"    # Ljava/io/Reader;
 
     .line 369
     invoke-direct {p0, p1}, Ljava/io/LineNumberReader;-><init>(Ljava/io/Reader;)V
 
-    .line 370
     return-void
 .end method
 
@@ -42,13 +40,10 @@
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 380
-    .local v0, "buffer":Ljava/lang/StringBuffer;
     invoke-virtual {p0}, Lorg/apache/commons/collections/ExtendedProperties$PropertiesReader;->readLine()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 381
-    .local v1, "line":Ljava/lang/String;
     :goto_0
     if-eqz v1, :cond_2
 
@@ -104,9 +99,9 @@
     .line 389
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    return-object v2
+    return-object v0
 
     .line 392
     :cond_1
@@ -117,9 +112,8 @@
 
     goto :goto_0
 
-    .line 394
     :cond_2
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    return-object v2
+    return-object v0
 .end method

@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Ljava/io/File;)V
     .locals 0
-    .param p1, "file"    # Ljava/io/File;
 
     .line 52
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +40,6 @@
     .line 53
     iput-object p1, p0, Lcom/bumptech/glide/load/model/ByteBufferFileLoader$ByteBufferFetcher;->file:Ljava/io/File;
 
-    .line 54
     return-void
 .end method
 
@@ -50,14 +48,12 @@
 .method public cancel()V
     .locals 0
 
-    .line 81
     return-void
 .end method
 
 .method public cleanup()V
     .locals 0
 
-    .line 76
     return-void
 .end method
 
@@ -88,8 +84,7 @@
 .end method
 
 .method public loadData(Lcom/bumptech/glide/Priority;Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;)V
-    .locals 3
-    .param p1, "priority"    # Lcom/bumptech/glide/Priority;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -102,52 +97,42 @@
     .end annotation
 
     .line 61
-    .local p2, "callback":Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;, "Lcom/bumptech/glide/load/data/DataFetcher$DataCallback<-Ljava/nio/ByteBuffer;>;"
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/ByteBufferFileLoader$ByteBufferFetcher;->file:Ljava/io/File;
+    iget-object p1, p0, Lcom/bumptech/glide/load/model/ByteBufferFileLoader$ByteBufferFetcher;->file:Ljava/io/File;
 
-    invoke-static {v0}, Lcom/bumptech/glide/util/ByteBufferUtil;->fromFile(Ljava/io/File;)Ljava/nio/ByteBuffer;
+    invoke-static {p1}, Lcom/bumptech/glide/util/ByteBufferUtil;->fromFile(Ljava/io/File;)Ljava/nio/ByteBuffer;
 
-    move-result-object v0
+    move-result-object p1
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 68
-    .local v0, "result":Ljava/nio/ByteBuffer;
-    nop
-
     .line 70
-    invoke-interface {p2, v0}, Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;->onDataReady(Ljava/lang/Object;)V
+    invoke-interface {p2, p1}, Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;->onDataReady(Ljava/lang/Object;)V
 
-    .line 71
     return-void
 
-    .line 62
-    .end local v0    # "result":Ljava/nio/ByteBuffer;
     :catch_0
-    move-exception v0
+    move-exception p1
+
+    const/4 v0, 0x3
+
+    const-string v1, "ByteBufferFileLoader"
 
     .line 63
-    .local v0, "e":Ljava/io/IOException;
-    const/4 v1, 0x3
+    invoke-static {v1, v0}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
-    const-string v2, "ByteBufferFileLoader"
+    move-result v0
 
-    invoke-static {v2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+    if-eqz v0, :cond_0
 
-    move-result v1
-
-    if-eqz v1, :cond_0
+    const-string v0, "Failed to obtain ByteBuffer for file"
 
     .line 64
-    const-string v1, "Failed to obtain ByteBuffer for file"
-
-    invoke-static {v2, v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 66
     :cond_0
-    invoke-interface {p2, v0}, Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;->onLoadFailed(Ljava/lang/Exception;)V
+    invoke-interface {p2, p1}, Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;->onLoadFailed(Ljava/lang/Exception;)V
 
-    .line 67
     return-void
 .end method

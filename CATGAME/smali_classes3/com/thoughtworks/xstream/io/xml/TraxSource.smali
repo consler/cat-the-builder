@@ -26,9 +26,9 @@
 
     invoke-direct {p0, v0}, Ljavax/xml/transform/sax/SAXSource;-><init>(Lorg/xml/sax/InputSource;)V
 
-    .line 72
     const/4 v0, 0x0
 
+    .line 72
     iput-object v0, p0, Lcom/thoughtworks/xstream/io/xml/TraxSource;->xmlReader:Lorg/xml/sax/XMLReader;
 
     .line 77
@@ -37,13 +37,11 @@
     .line 82
     iput-object v0, p0, Lcom/thoughtworks/xstream/io/xml/TraxSource;->source:Ljava/util/List;
 
-    .line 93
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "source"    # Ljava/lang/Object;
 
     .line 103
     new-instance v0, Lorg/xml/sax/InputSource;
@@ -52,9 +50,9 @@
 
     invoke-direct {p0, v0}, Ljavax/xml/transform/sax/SAXSource;-><init>(Lorg/xml/sax/InputSource;)V
 
-    .line 72
     const/4 v0, 0x0
 
+    .line 72
     iput-object v0, p0, Lcom/thoughtworks/xstream/io/xml/TraxSource;->xmlReader:Lorg/xml/sax/XMLReader;
 
     .line 77
@@ -66,14 +64,11 @@
     .line 105
     invoke-virtual {p0, p1}, Lcom/thoughtworks/xstream/io/xml/TraxSource;->setSource(Ljava/lang/Object;)V
 
-    .line 106
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;Lcom/thoughtworks/xstream/XStream;)V
     .locals 1
-    .param p1, "source"    # Ljava/lang/Object;
-    .param p2, "xstream"    # Lcom/thoughtworks/xstream/XStream;
 
     .line 120
     new-instance v0, Lorg/xml/sax/InputSource;
@@ -82,9 +77,9 @@
 
     invoke-direct {p0, v0}, Ljavax/xml/transform/sax/SAXSource;-><init>(Lorg/xml/sax/InputSource;)V
 
-    .line 72
     const/4 v0, 0x0
 
+    .line 72
     iput-object v0, p0, Lcom/thoughtworks/xstream/io/xml/TraxSource;->xmlReader:Lorg/xml/sax/XMLReader;
 
     .line 77
@@ -99,13 +94,11 @@
     .line 123
     invoke-virtual {p0, p2}, Lcom/thoughtworks/xstream/io/xml/TraxSource;->setXStream(Lcom/thoughtworks/xstream/XStream;)V
 
-    .line 124
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/List;)V
     .locals 1
-    .param p1, "source"    # Ljava/util/List;
 
     .line 135
     new-instance v0, Lorg/xml/sax/InputSource;
@@ -114,9 +107,9 @@
 
     invoke-direct {p0, v0}, Ljavax/xml/transform/sax/SAXSource;-><init>(Lorg/xml/sax/InputSource;)V
 
-    .line 72
     const/4 v0, 0x0
 
+    .line 72
     iput-object v0, p0, Lcom/thoughtworks/xstream/io/xml/TraxSource;->xmlReader:Lorg/xml/sax/XMLReader;
 
     .line 77
@@ -128,14 +121,11 @@
     .line 137
     invoke-virtual {p0, p1}, Lcom/thoughtworks/xstream/io/xml/TraxSource;->setSourceAsList(Ljava/util/List;)V
 
-    .line 138
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/List;Lcom/thoughtworks/xstream/XStream;)V
     .locals 1
-    .param p1, "source"    # Ljava/util/List;
-    .param p2, "xstream"    # Lcom/thoughtworks/xstream/XStream;
 
     .line 152
     new-instance v0, Lorg/xml/sax/InputSource;
@@ -144,9 +134,9 @@
 
     invoke-direct {p0, v0}, Ljavax/xml/transform/sax/SAXSource;-><init>(Lorg/xml/sax/InputSource;)V
 
-    .line 72
     const/4 v0, 0x0
 
+    .line 72
     iput-object v0, p0, Lcom/thoughtworks/xstream/io/xml/TraxSource;->xmlReader:Lorg/xml/sax/XMLReader;
 
     .line 77
@@ -161,7 +151,6 @@
     .line 155
     invoke-virtual {p0, p2}, Lcom/thoughtworks/xstream/io/xml/TraxSource;->setXStream(Lcom/thoughtworks/xstream/XStream;)V
 
-    .line 156
     return-void
 .end method
 
@@ -171,7 +160,7 @@
     .line 293
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/xml/TraxSource;->xmlReader:Lorg/xml/sax/XMLReader;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     .line 295
     :try_start_0
@@ -179,12 +168,10 @@
 
     if-eqz v1, :cond_0
 
+    const-string v2, "http://com.thoughtworks.xstream/sax/property/configured-xstream"
+
     .line 296
-    const-string v1, "http://com.thoughtworks.xstream/sax/property/configured-xstream"
-
-    iget-object v2, p0, Lcom/thoughtworks/xstream/io/xml/TraxSource;->xstream:Lcom/thoughtworks/xstream/XStream;
-
-    invoke-interface {v0, v1, v2}, Lorg/xml/sax/XMLReader;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-interface {v0, v2, v1}, Lorg/xml/sax/XMLReader;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
     .line 299
     :cond_0
@@ -193,56 +180,46 @@
     if-eqz v0, :cond_1
 
     .line 300
-    iget-object v0, p0, Lcom/thoughtworks/xstream/io/xml/TraxSource;->xmlReader:Lorg/xml/sax/XMLReader;
+    iget-object v1, p0, Lcom/thoughtworks/xstream/io/xml/TraxSource;->xmlReader:Lorg/xml/sax/XMLReader;
 
-    const-string v1, "http://com.thoughtworks.xstream/sax/property/source-object-list"
+    const-string v2, "http://com.thoughtworks.xstream/sax/property/source-object-list"
 
-    iget-object v2, p0, Lcom/thoughtworks/xstream/io/xml/TraxSource;->source:Ljava/util/List;
-
-    invoke-interface {v0, v1, v2}, Lorg/xml/sax/XMLReader;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-interface {v1, v2, v0}, Lorg/xml/sax/XMLReader;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
     :try_end_0
     .catch Lorg/xml/sax/SAXException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 305
-    :cond_1
     goto :goto_0
 
-    .line 303
     :catch_0
     move-exception v0
 
     .line 304
-    .local v0, "e":Lorg/xml/sax/SAXException;
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-virtual {v0}, Lorg/xml/sax/SAXException;->getMessage()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v1
 
-    .line 307
-    .end local v0    # "e":Lorg/xml/sax/SAXException;
-    :cond_2
+    :cond_1
     :goto_0
     return-void
 .end method
 
 .method private createXMLReader(Lorg/xml/sax/XMLReader;)V
     .locals 2
-    .param p1, "filterChain"    # Lorg/xml/sax/XMLReader;
 
-    .line 270
     if-nez p1, :cond_0
 
     .line 271
-    new-instance v0, Lcom/thoughtworks/xstream/io/xml/SaxWriter;
+    new-instance p1, Lcom/thoughtworks/xstream/io/xml/SaxWriter;
 
-    invoke-direct {v0}, Lcom/thoughtworks/xstream/io/xml/SaxWriter;-><init>()V
+    invoke-direct {p1}, Lcom/thoughtworks/xstream/io/xml/SaxWriter;-><init>()V
 
-    iput-object v0, p0, Lcom/thoughtworks/xstream/io/xml/TraxSource;->xmlReader:Lorg/xml/sax/XMLReader;
+    iput-object p1, p0, Lcom/thoughtworks/xstream/io/xml/TraxSource;->xmlReader:Lorg/xml/sax/XMLReader;
 
     goto :goto_1
 
@@ -258,7 +235,6 @@
     check-cast v0, Lorg/xml/sax/XMLFilter;
 
     .line 276
-    .local v0, "filter":Lorg/xml/sax/XMLFilter;
     :goto_0
     invoke-interface {v0}, Lorg/xml/sax/XMLFilter;->getParent()Lorg/xml/sax/XMLReader;
 
@@ -271,13 +247,13 @@
     .line 277
     invoke-interface {v0}, Lorg/xml/sax/XMLFilter;->getParent()Lorg/xml/sax/XMLReader;
 
-    move-result-object v1
-
-    check-cast v1, Lorg/xml/sax/XMLFilter;
-
-    move-object v0, v1
+    move-result-object v0
 
     check-cast v0, Lorg/xml/sax/XMLFilter;
+
+    move-object v1, v0
+
+    check-cast v1, Lorg/xml/sax/XMLFilter;
 
     goto :goto_0
 
@@ -302,24 +278,19 @@
     :cond_2
     iput-object p1, p0, Lcom/thoughtworks/xstream/io/xml/TraxSource;->xmlReader:Lorg/xml/sax/XMLReader;
 
-    .line 285
-    .end local v0    # "filter":Lorg/xml/sax/XMLFilter;
-    nop
-
     .line 289
     :goto_1
     invoke-direct {p0}, Lcom/thoughtworks/xstream/io/xml/TraxSource;->configureXMLReader()V
 
-    .line 290
     return-void
 
     .line 286
     :cond_3
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -332,9 +303,9 @@
 
     if-nez v0, :cond_0
 
-    .line 206
     const/4 v0, 0x0
 
+    .line 206
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/io/xml/TraxSource;->createXMLReader(Lorg/xml/sax/XMLReader;)V
 
     .line 208
@@ -345,22 +316,19 @@
 .end method
 
 .method public setInputSource(Lorg/xml/sax/InputSource;)V
-    .locals 1
-    .param p1, "inputSource"    # Lorg/xml/sax/InputSource;
+    .locals 0
 
     .line 174
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setSource(Ljava/lang/Object;)V
     .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .line 237
     if-eqz p1, :cond_0
 
     .line 240
@@ -371,34 +339,30 @@
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 241
-    .local v0, "list":Ljava/util/List;
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 243
     invoke-virtual {p0, v0}, Lcom/thoughtworks/xstream/io/xml/TraxSource;->setSourceAsList(Ljava/util/List;)V
 
-    .line 244
     return-void
 
     .line 238
-    .end local v0    # "list":Ljava/util/List;
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "obj"
+    const-string v0, "obj"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setSourceAsList(Ljava/util/List;)V
-    .locals 2
-    .param p1, "list"    # Ljava/util/List;
+    .locals 1
 
-    .line 261
     if-eqz p1, :cond_0
 
+    .line 261
     invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
@@ -411,36 +375,31 @@
     .line 266
     invoke-direct {p0}, Lcom/thoughtworks/xstream/io/xml/TraxSource;->configureXMLReader()V
 
-    .line 267
     return-void
 
     .line 262
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "list"
+    const-string v0, "list"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setXMLReader(Lorg/xml/sax/XMLReader;)V
     .locals 0
-    .param p1, "reader"    # Lorg/xml/sax/XMLReader;
 
     .line 192
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/io/xml/TraxSource;->createXMLReader(Lorg/xml/sax/XMLReader;)V
 
-    .line 193
     return-void
 .end method
 
 .method public setXStream(Lcom/thoughtworks/xstream/XStream;)V
-    .locals 2
-    .param p1, "xstream"    # Lcom/thoughtworks/xstream/XStream;
+    .locals 1
 
-    .line 222
     if-eqz p1, :cond_0
 
     .line 225
@@ -449,16 +408,15 @@
     .line 227
     invoke-direct {p0}, Lcom/thoughtworks/xstream/io/xml/TraxSource;->configureXMLReader()V
 
-    .line 228
     return-void
 
     .line 223
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "xstream"
+    const-string v0, "xstream"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

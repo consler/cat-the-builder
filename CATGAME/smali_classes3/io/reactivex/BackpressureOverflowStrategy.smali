@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .locals 7
 
     .line 23
     new-instance v0, Lio/reactivex/BackpressureOverflowStrategy;
@@ -39,43 +39,39 @@
     sput-object v0, Lio/reactivex/BackpressureOverflowStrategy;->ERROR:Lio/reactivex/BackpressureOverflowStrategy;
 
     .line 25
-    new-instance v0, Lio/reactivex/BackpressureOverflowStrategy;
+    new-instance v1, Lio/reactivex/BackpressureOverflowStrategy;
 
-    const-string v1, "DROP_OLDEST"
+    const-string v3, "DROP_OLDEST"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Lio/reactivex/BackpressureOverflowStrategy;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Lio/reactivex/BackpressureOverflowStrategy;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lio/reactivex/BackpressureOverflowStrategy;->DROP_OLDEST:Lio/reactivex/BackpressureOverflowStrategy;
+    sput-object v1, Lio/reactivex/BackpressureOverflowStrategy;->DROP_OLDEST:Lio/reactivex/BackpressureOverflowStrategy;
 
     .line 27
-    new-instance v0, Lio/reactivex/BackpressureOverflowStrategy;
+    new-instance v3, Lio/reactivex/BackpressureOverflowStrategy;
 
-    const-string v1, "DROP_LATEST"
+    const-string v5, "DROP_LATEST"
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v1, v4}, Lio/reactivex/BackpressureOverflowStrategy;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Lio/reactivex/BackpressureOverflowStrategy;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lio/reactivex/BackpressureOverflowStrategy;->DROP_LATEST:Lio/reactivex/BackpressureOverflowStrategy;
+    sput-object v3, Lio/reactivex/BackpressureOverflowStrategy;->DROP_LATEST:Lio/reactivex/BackpressureOverflowStrategy;
+
+    const/4 v5, 0x3
+
+    new-array v5, v5, [Lio/reactivex/BackpressureOverflowStrategy;
+
+    aput-object v0, v5, v2
+
+    aput-object v1, v5, v4
+
+    aput-object v3, v5, v6
 
     .line 21
-    const/4 v1, 0x3
-
-    new-array v1, v1, [Lio/reactivex/BackpressureOverflowStrategy;
-
-    sget-object v5, Lio/reactivex/BackpressureOverflowStrategy;->ERROR:Lio/reactivex/BackpressureOverflowStrategy;
-
-    aput-object v5, v1, v2
-
-    sget-object v2, Lio/reactivex/BackpressureOverflowStrategy;->DROP_OLDEST:Lio/reactivex/BackpressureOverflowStrategy;
-
-    aput-object v2, v1, v3
-
-    aput-object v0, v1, v4
-
-    sput-object v1, Lio/reactivex/BackpressureOverflowStrategy;->$VALUES:[Lio/reactivex/BackpressureOverflowStrategy;
+    sput-object v5, Lio/reactivex/BackpressureOverflowStrategy;->$VALUES:[Lio/reactivex/BackpressureOverflowStrategy;
 
     return-void
 .end method
@@ -96,18 +92,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lio/reactivex/BackpressureOverflowStrategy;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 21
     const-class v0, Lio/reactivex/BackpressureOverflowStrategy;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lio/reactivex/BackpressureOverflowStrategy;
+    check-cast p0, Lio/reactivex/BackpressureOverflowStrategy;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lio/reactivex/BackpressureOverflowStrategy;

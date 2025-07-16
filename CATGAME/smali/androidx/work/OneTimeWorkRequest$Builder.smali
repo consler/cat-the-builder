@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -46,21 +46,19 @@
     .end annotation
 
     .line 79
-    .local p1, "workerClass":Ljava/lang/Class;, "Ljava/lang/Class<+Landroidx/work/ListenableWorker;>;"
     invoke-direct {p0, p1}, Landroidx/work/WorkRequest$Builder;-><init>(Ljava/lang/Class;)V
 
     .line 80
-    iget-object v0, p0, Landroidx/work/OneTimeWorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
+    iget-object p1, p0, Landroidx/work/OneTimeWorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
-    const-class v1, Landroidx/work/OverwritingInputMerger;
+    const-class v0, Landroidx/work/OverwritingInputMerger;
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, v0, Landroidx/work/impl/model/WorkSpec;->inputMergerClassName:Ljava/lang/String;
+    iput-object v0, p1, Landroidx/work/impl/model/WorkSpec;->inputMergerClassName:Ljava/lang/String;
 
-    .line 81
     return-void
 .end method
 
@@ -72,13 +70,7 @@
     .line 104
     iget-boolean v0, p0, Landroidx/work/OneTimeWorkRequest$Builder;->mBackoffCriteriaSet:Z
 
-    const/16 v1, 0x17
-
     if-eqz v0, :cond_1
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt v0, v1, :cond_1
 
     iget-object v0, p0, Landroidx/work/OneTimeWorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
@@ -106,42 +98,6 @@
     .line 110
     :cond_1
     :goto_0
-    iget-object v0, p0, Landroidx/work/OneTimeWorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
-
-    iget-boolean v0, v0, Landroidx/work/impl/model/WorkSpec;->runInForeground:Z
-
-    if-eqz v0, :cond_3
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt v0, v1, :cond_3
-
-    iget-object v0, p0, Landroidx/work/OneTimeWorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
-
-    iget-object v0, v0, Landroidx/work/impl/model/WorkSpec;->constraints:Landroidx/work/Constraints;
-
-    .line 112
-    invoke-virtual {v0}, Landroidx/work/Constraints;->requiresDeviceIdle()Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    goto :goto_1
-
-    .line 113
-    :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    const-string v1, "Cannot run in foreground with an idle mode constraint"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    .line 116
-    :cond_3
-    :goto_1
     new-instance v0, Landroidx/work/OneTimeWorkRequest;
 
     invoke-direct {v0, p0}, Landroidx/work/OneTimeWorkRequest;-><init>(Landroidx/work/OneTimeWorkRequest$Builder;)V
@@ -163,7 +119,6 @@
 .method getThis()Landroidx/work/OneTimeWorkRequest$Builder;
     .locals 0
 
-    .line 121
     return-object p0
 .end method
 
@@ -179,7 +134,7 @@
 .end method
 
 .method public setInputMerger(Ljava/lang/Class;)Landroidx/work/OneTimeWorkRequest$Builder;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -201,15 +156,13 @@
     .end annotation
 
     .line 98
-    .local p1, "inputMerger":Ljava/lang/Class;, "Ljava/lang/Class<+Landroidx/work/InputMerger;>;"
     iget-object v0, p0, Landroidx/work/OneTimeWorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
     invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    iput-object v1, v0, Landroidx/work/impl/model/WorkSpec;->inputMergerClassName:Ljava/lang/String;
+    iput-object p1, v0, Landroidx/work/impl/model/WorkSpec;->inputMergerClassName:Ljava/lang/String;
 
-    .line 99
     return-object p0
 .end method

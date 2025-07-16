@@ -1,5 +1,6 @@
 .class public interface abstract Lcom/huawei/hms/framework/network/grs/IQueryUrlsCallBack;
 .super Ljava/lang/Object;
+.source ""
 
 
 # virtual methods

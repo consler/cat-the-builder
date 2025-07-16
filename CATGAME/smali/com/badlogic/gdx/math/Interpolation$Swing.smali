@@ -21,19 +21,17 @@
 # direct methods
 .method public constructor <init>(F)V
     .locals 1
-    .param p1, "scale"    # F
 
     .line 397
     invoke-direct {p0}, Lcom/badlogic/gdx/math/Interpolation;-><init>()V
 
-    .line 398
     const/high16 v0, 0x40000000    # 2.0f
 
-    mul-float/2addr v0, p1
+    mul-float/2addr p1, v0
 
-    iput v0, p0, Lcom/badlogic/gdx/math/Interpolation$Swing;->scale:F
+    .line 398
+    iput p1, p0, Lcom/badlogic/gdx/math/Interpolation$Swing;->scale:F
 
-    .line 399
     return-void
 .end method
 
@@ -41,9 +39,7 @@
 # virtual methods
 .method public apply(F)F
     .locals 5
-    .param p1, "a"    # F
 
-    .line 402
     const/high16 v0, 0x3f000000    # 0.5f
 
     cmpg-float v0, p1, v0
@@ -54,12 +50,11 @@
 
     if-gtz v0, :cond_0
 
-    .line 403
     mul-float/2addr p1, v1
 
-    .line 404
     mul-float v0, p1, p1
 
+    .line 404
     iget v3, p0, Lcom/badlogic/gdx/math/Interpolation$Swing;->scale:F
 
     add-float/2addr v2, v3
@@ -74,16 +69,14 @@
 
     return v0
 
-    .line 406
     :cond_0
     sub-float/2addr p1, v2
 
-    .line 407
     mul-float/2addr p1, v1
 
-    .line 408
     mul-float v0, p1, p1
 
+    .line 408
     iget v3, p0, Lcom/badlogic/gdx/math/Interpolation$Swing;->scale:F
 
     add-float v4, v3, v2

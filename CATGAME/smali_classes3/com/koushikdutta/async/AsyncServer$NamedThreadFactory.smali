@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 2
-    .param p1, "namePrefix"    # Ljava/lang/String;
 
     .line 901
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,13 +46,12 @@
 
     move-result-object v0
 
-    .line 903
-    .local v0, "s":Ljava/lang/SecurityManager;
     if-eqz v0, :cond_0
 
+    .line 903
     invoke-virtual {v0}, Ljava/lang/SecurityManager;->getThreadGroup()Ljava/lang/ThreadGroup;
 
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_0
 
@@ -61,19 +59,18 @@
     :cond_0
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/Thread;->getThreadGroup()Ljava/lang/ThreadGroup;
+    invoke-virtual {v0}, Ljava/lang/Thread;->getThreadGroup()Ljava/lang/ThreadGroup;
 
-    move-result-object v1
+    move-result-object v0
 
     :goto_0
-    iput-object v1, p0, Lcom/koushikdutta/async/AsyncServer$NamedThreadFactory;->group:Ljava/lang/ThreadGroup;
+    iput-object v0, p0, Lcom/koushikdutta/async/AsyncServer$NamedThreadFactory;->group:Ljava/lang/ThreadGroup;
 
     .line 905
     iput-object p1, p0, Lcom/koushikdutta/async/AsyncServer$NamedThreadFactory;->namePrefix:Ljava/lang/String;
 
-    .line 906
     return-void
 .end method
 
@@ -81,7 +78,6 @@
 # virtual methods
 .method public newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
     .locals 7
-    .param p1, "r"    # Ljava/lang/Runnable;
 
     .line 909
     new-instance v6, Ljava/lang/Thread;
@@ -96,6 +92,8 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v2, p0, Lcom/koushikdutta/async/AsyncServer$NamedThreadFactory;->threadNumber:Ljava/util/concurrent/atomic/AtomicInteger;
 
     .line 910
@@ -104,6 +102,8 @@
     move-result v2
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -118,31 +118,29 @@
     invoke-direct/range {v0 .. v5}, Ljava/lang/Thread;-><init>(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;J)V
 
     .line 911
-    .local v0, "t":Ljava/lang/Thread;
-    invoke-virtual {v0}, Ljava/lang/Thread;->isDaemon()Z
+    invoke-virtual {v6}, Ljava/lang/Thread;->isDaemon()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    invoke-virtual {v0, v1}, Ljava/lang/Thread;->setDaemon(Z)V
+    invoke-virtual {v6, p1}, Ljava/lang/Thread;->setDaemon(Z)V
 
     .line 912
     :cond_0
-    invoke-virtual {v0}, Ljava/lang/Thread;->getPriority()I
+    invoke-virtual {v6}, Ljava/lang/Thread;->getPriority()I
 
-    move-result v1
+    move-result p1
 
-    const/4 v2, 0x5
+    const/4 v0, 0x5
 
-    if-eq v1, v2, :cond_1
+    if-eq p1, v0, :cond_1
 
     .line 913
-    invoke-virtual {v0, v2}, Ljava/lang/Thread;->setPriority(I)V
+    invoke-virtual {v6, v0}, Ljava/lang/Thread;->setPriority(I)V
 
-    .line 915
     :cond_1
-    return-object v0
+    return-object v6
 .end method

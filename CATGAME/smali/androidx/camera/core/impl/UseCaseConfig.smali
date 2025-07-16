@@ -95,116 +95,271 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    const-string v0, "camerax.core.useCase.defaultSessionConfig"
+
     .line 40
-    const-class v0, Landroidx/camera/core/impl/SessionConfig;
+    const-class v1, Landroidx/camera/core/impl/SessionConfig;
 
     .line 41
-    const-string v1, "camerax.core.useCase.defaultSessionConfig"
-
-    invoke-static {v1, v0}, Landroidx/camera/core/impl/Config$Option;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
+    invoke-static {v0, v1}, Landroidx/camera/core/impl/Config$Option;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
 
     move-result-object v0
 
     sput-object v0, Landroidx/camera/core/impl/UseCaseConfig;->OPTION_DEFAULT_SESSION_CONFIG:Landroidx/camera/core/impl/Config$Option;
 
+    const-string v0, "camerax.core.useCase.defaultCaptureConfig"
+
     .line 45
-    const-class v0, Landroidx/camera/core/impl/CaptureConfig;
+    const-class v1, Landroidx/camera/core/impl/CaptureConfig;
 
     .line 46
-    const-string v1, "camerax.core.useCase.defaultCaptureConfig"
-
-    invoke-static {v1, v0}, Landroidx/camera/core/impl/Config$Option;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
+    invoke-static {v0, v1}, Landroidx/camera/core/impl/Config$Option;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
 
     move-result-object v0
 
     sput-object v0, Landroidx/camera/core/impl/UseCaseConfig;->OPTION_DEFAULT_CAPTURE_CONFIG:Landroidx/camera/core/impl/Config$Option;
 
+    const-string v0, "camerax.core.useCase.sessionConfigUnpacker"
+
     .line 53
-    const-class v0, Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;
+    const-class v1, Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;
 
     .line 54
-    const-string v1, "camerax.core.useCase.sessionConfigUnpacker"
-
-    invoke-static {v1, v0}, Landroidx/camera/core/impl/Config$Option;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
+    invoke-static {v0, v1}, Landroidx/camera/core/impl/Config$Option;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
 
     move-result-object v0
 
     sput-object v0, Landroidx/camera/core/impl/UseCaseConfig;->OPTION_SESSION_CONFIG_UNPACKER:Landroidx/camera/core/impl/Config$Option;
 
+    const-string v0, "camerax.core.useCase.captureConfigUnpacker"
+
     .line 62
-    const-class v0, Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;
+    const-class v1, Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;
 
     .line 63
-    const-string v1, "camerax.core.useCase.captureConfigUnpacker"
-
-    invoke-static {v1, v0}, Landroidx/camera/core/impl/Config$Option;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
+    invoke-static {v0, v1}, Landroidx/camera/core/impl/Config$Option;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
 
     move-result-object v0
 
     sput-object v0, Landroidx/camera/core/impl/UseCaseConfig;->OPTION_CAPTURE_CONFIG_UNPACKER:Landroidx/camera/core/impl/Config$Option;
 
+    const-string v0, "camerax.core.useCase.surfaceOccupancyPriority"
+
     .line 68
-    sget-object v0, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+    sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
     .line 69
-    const-string v1, "camerax.core.useCase.surfaceOccupancyPriority"
-
-    invoke-static {v1, v0}, Landroidx/camera/core/impl/Config$Option;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
+    invoke-static {v0, v1}, Landroidx/camera/core/impl/Config$Option;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
 
     move-result-object v0
 
     sput-object v0, Landroidx/camera/core/impl/UseCaseConfig;->OPTION_SURFACE_OCCUPANCY_PRIORITY:Landroidx/camera/core/impl/Config$Option;
 
+    const-string v0, "camerax.core.useCase.cameraSelector"
+
     .line 73
-    const-class v0, Landroidx/camera/core/CameraSelector;
+    const-class v1, Landroidx/camera/core/CameraSelector;
 
     .line 74
-    const-string v1, "camerax.core.useCase.cameraSelector"
-
-    invoke-static {v1, v0}, Landroidx/camera/core/impl/Config$Option;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
+    invoke-static {v0, v1}, Landroidx/camera/core/impl/Config$Option;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
 
     move-result-object v0
 
     sput-object v0, Landroidx/camera/core/impl/UseCaseConfig;->OPTION_CAMERA_SELECTOR:Landroidx/camera/core/impl/Config$Option;
 
-    .line 73
     return-void
 .end method
 
 
 # virtual methods
-.method public abstract getCameraSelector()Landroidx/camera/core/CameraSelector;
+.method public getCameraSelector()Landroidx/camera/core/CameraSelector;
+    .locals 1
+
+    .line 247
+    sget-object v0, Landroidx/camera/core/impl/UseCaseConfig;->OPTION_CAMERA_SELECTOR:Landroidx/camera/core/impl/Config$Option;
+
+    invoke-interface {p0, v0}, Landroidx/camera/core/impl/UseCaseConfig;->retrieveOption(Landroidx/camera/core/impl/Config$Option;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroidx/camera/core/CameraSelector;
+
+    return-object v0
 .end method
 
-.method public abstract getCameraSelector(Landroidx/camera/core/CameraSelector;)Landroidx/camera/core/CameraSelector;
+.method public getCameraSelector(Landroidx/camera/core/CameraSelector;)Landroidx/camera/core/CameraSelector;
+    .locals 1
+
+    .line 236
+    sget-object v0, Landroidx/camera/core/impl/UseCaseConfig;->OPTION_CAMERA_SELECTOR:Landroidx/camera/core/impl/Config$Option;
+
+    invoke-interface {p0, v0, p1}, Landroidx/camera/core/impl/UseCaseConfig;->retrieveOption(Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroidx/camera/core/CameraSelector;
+
+    return-object p1
 .end method
 
-.method public abstract getCaptureOptionUnpacker()Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;
+.method public getCaptureOptionUnpacker()Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;
+    .locals 1
+
+    .line 201
+    sget-object v0, Landroidx/camera/core/impl/UseCaseConfig;->OPTION_CAPTURE_CONFIG_UNPACKER:Landroidx/camera/core/impl/Config$Option;
+
+    invoke-interface {p0, v0}, Landroidx/camera/core/impl/UseCaseConfig;->retrieveOption(Landroidx/camera/core/impl/Config$Option;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;
+
+    return-object v0
 .end method
 
-.method public abstract getCaptureOptionUnpacker(Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;)Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;
+.method public getCaptureOptionUnpacker(Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;)Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;
+    .locals 1
+
+    .line 185
+    sget-object v0, Landroidx/camera/core/impl/UseCaseConfig;->OPTION_CAPTURE_CONFIG_UNPACKER:Landroidx/camera/core/impl/Config$Option;
+
+    invoke-interface {p0, v0, p1}, Landroidx/camera/core/impl/UseCaseConfig;->retrieveOption(Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroidx/camera/core/impl/CaptureConfig$OptionUnpacker;
+
+    return-object p1
 .end method
 
-.method public abstract getDefaultCaptureConfig()Landroidx/camera/core/impl/CaptureConfig;
+.method public getDefaultCaptureConfig()Landroidx/camera/core/impl/CaptureConfig;
+    .locals 1
+
+    .line 133
+    sget-object v0, Landroidx/camera/core/impl/UseCaseConfig;->OPTION_DEFAULT_CAPTURE_CONFIG:Landroidx/camera/core/impl/Config$Option;
+
+    invoke-interface {p0, v0}, Landroidx/camera/core/impl/UseCaseConfig;->retrieveOption(Landroidx/camera/core/impl/Config$Option;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroidx/camera/core/impl/CaptureConfig;
+
+    return-object v0
 .end method
 
-.method public abstract getDefaultCaptureConfig(Landroidx/camera/core/impl/CaptureConfig;)Landroidx/camera/core/impl/CaptureConfig;
+.method public getDefaultCaptureConfig(Landroidx/camera/core/impl/CaptureConfig;)Landroidx/camera/core/impl/CaptureConfig;
+    .locals 1
+
+    .line 119
+    sget-object v0, Landroidx/camera/core/impl/UseCaseConfig;->OPTION_DEFAULT_CAPTURE_CONFIG:Landroidx/camera/core/impl/Config$Option;
+
+    invoke-interface {p0, v0, p1}, Landroidx/camera/core/impl/UseCaseConfig;->retrieveOption(Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroidx/camera/core/impl/CaptureConfig;
+
+    return-object p1
 .end method
 
-.method public abstract getDefaultSessionConfig()Landroidx/camera/core/impl/SessionConfig;
+.method public getDefaultSessionConfig()Landroidx/camera/core/impl/SessionConfig;
+    .locals 1
+
+    .line 104
+    sget-object v0, Landroidx/camera/core/impl/UseCaseConfig;->OPTION_DEFAULT_SESSION_CONFIG:Landroidx/camera/core/impl/Config$Option;
+
+    invoke-interface {p0, v0}, Landroidx/camera/core/impl/UseCaseConfig;->retrieveOption(Landroidx/camera/core/impl/Config$Option;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroidx/camera/core/impl/SessionConfig;
+
+    return-object v0
 .end method
 
-.method public abstract getDefaultSessionConfig(Landroidx/camera/core/impl/SessionConfig;)Landroidx/camera/core/impl/SessionConfig;
+.method public getDefaultSessionConfig(Landroidx/camera/core/impl/SessionConfig;)Landroidx/camera/core/impl/SessionConfig;
+    .locals 1
+
+    .line 90
+    sget-object v0, Landroidx/camera/core/impl/UseCaseConfig;->OPTION_DEFAULT_SESSION_CONFIG:Landroidx/camera/core/impl/Config$Option;
+
+    invoke-interface {p0, v0, p1}, Landroidx/camera/core/impl/UseCaseConfig;->retrieveOption(Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroidx/camera/core/impl/SessionConfig;
+
+    return-object p1
 .end method
 
-.method public abstract getSessionOptionUnpacker()Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;
+.method public getSessionOptionUnpacker()Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;
+    .locals 1
+
+    .line 167
+    sget-object v0, Landroidx/camera/core/impl/UseCaseConfig;->OPTION_SESSION_CONFIG_UNPACKER:Landroidx/camera/core/impl/Config$Option;
+
+    invoke-interface {p0, v0}, Landroidx/camera/core/impl/UseCaseConfig;->retrieveOption(Landroidx/camera/core/impl/Config$Option;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;
+
+    return-object v0
 .end method
 
-.method public abstract getSessionOptionUnpacker(Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;)Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;
+.method public getSessionOptionUnpacker(Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;)Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;
+    .locals 1
+
+    .line 151
+    sget-object v0, Landroidx/camera/core/impl/UseCaseConfig;->OPTION_SESSION_CONFIG_UNPACKER:Landroidx/camera/core/impl/Config$Option;
+
+    invoke-interface {p0, v0, p1}, Landroidx/camera/core/impl/UseCaseConfig;->retrieveOption(Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroidx/camera/core/impl/SessionConfig$OptionUnpacker;
+
+    return-object p1
 .end method
 
-.method public abstract getSurfaceOccupancyPriority()I
+.method public getSurfaceOccupancyPriority()I
+    .locals 1
+
+    .line 224
+    sget-object v0, Landroidx/camera/core/impl/UseCaseConfig;->OPTION_SURFACE_OCCUPANCY_PRIORITY:Landroidx/camera/core/impl/Config$Option;
+
+    invoke-interface {p0, v0}, Landroidx/camera/core/impl/UseCaseConfig;->retrieveOption(Landroidx/camera/core/impl/Config$Option;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    return v0
 .end method
 
-.method public abstract getSurfaceOccupancyPriority(I)I
+.method public getSurfaceOccupancyPriority(I)I
+    .locals 1
+
+    .line 213
+    sget-object v0, Landroidx/camera/core/impl/UseCaseConfig;->OPTION_SURFACE_OCCUPANCY_PRIORITY:Landroidx/camera/core/impl/Config$Option;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
+
+    invoke-interface {p0, v0, p1}, Landroidx/camera/core/impl/UseCaseConfig;->retrieveOption(Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/Integer;
+
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+
+    move-result p1
+
+    return p1
 .end method

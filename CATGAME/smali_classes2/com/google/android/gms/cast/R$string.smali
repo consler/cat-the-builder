@@ -14,13 +14,13 @@
 
 
 # static fields
-.field public static final cast_notification_connected_message:I = 0x7f1201c8
+.field public static final cast_notification_connected_message:I = 0x7f1201de
 
-.field public static final cast_notification_connecting_message:I = 0x7f1201c9
+.field public static final cast_notification_connecting_message:I = 0x7f1201df
 
-.field public static final cast_notification_default_channel_name:I = 0x7f1201ca
+.field public static final cast_notification_default_channel_name:I = 0x7f1201e0
 
-.field public static final cast_notification_disconnect:I = 0x7f1201cb
+.field public static final cast_notification_disconnect:I = 0x7f1201e1
 
 
 # direct methods

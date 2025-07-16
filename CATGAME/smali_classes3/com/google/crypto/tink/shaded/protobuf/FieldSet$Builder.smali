@@ -46,33 +46,29 @@
 .method private constructor <init>()V
     .locals 1
 
-    .line 928
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;, "Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder<TT;>;"
     const/16 v0, 0x10
 
+    .line 928
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->newFieldMap(I)Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
 
     move-result-object v0
 
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;-><init>(Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;)V
 
-    .line 929
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/FieldSet$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/shaded/protobuf/FieldSet$1;
 
     .line 920
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;, "Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder<TT;>;"
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;-><init>()V
 
     return-void
 .end method
 
 .method private constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -84,19 +80,16 @@
     .end annotation
 
     .line 931
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;, "Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder<TT;>;"
-    .local p1, "fields":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TT;Ljava/lang/Object;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 932
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
 
+    const/4 p1, 0x1
+
     .line 933
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->isMutable:Z
 
-    iput-boolean v0, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->isMutable:Z
-
-    .line 934
     return-void
 .end method
 
@@ -104,7 +97,6 @@
     .locals 2
 
     .line 1060
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;, "Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder<TT;>;"
     iget-boolean v0, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->isMutable:Z
 
     if-nez v0, :cond_0
@@ -123,7 +115,6 @@
     .line 1062
     iput-boolean v1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->isMutable:Z
 
-    .line 1064
     :cond_0
     return-void
 .end method
@@ -143,7 +134,6 @@
     .end annotation
 
     .line 1010
-    .local p0, "fieldSet":Lcom/google/crypto/tink/shaded/protobuf/FieldSet;, "Lcom/google/crypto/tink/shaded/protobuf/FieldSet<TT;>;"
     new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;
 
     invoke-static {p0}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet;->access$400(Lcom/google/crypto/tink/shaded/protobuf/FieldSet;)Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
@@ -159,19 +149,17 @@
     invoke-direct {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;-><init>(Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;)V
 
     .line 1011
-    .local v0, "builder":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;, "Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder<TT;>;"
     invoke-static {p0}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet;->access$300(Lcom/google/crypto/tink/shaded/protobuf/FieldSet;)Z
 
-    move-result v1
+    move-result p0
 
-    iput-boolean v1, v0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->hasLazyField:Z
+    iput-boolean p0, v0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->hasLazyField:Z
 
-    .line 1012
     return-object v0
 .end method
 
 .method private mergeFromField(Ljava/util/Map$Entry;)V
-    .locals 7
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -183,8 +171,6 @@
     .end annotation
 
     .line 1260
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;, "Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder<TT;>;"
-    .local p1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TT;Ljava/lang/Object;>;"
     invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v0
@@ -192,223 +178,186 @@
     check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;
 
     .line 1261
-    .local v0, "descriptor":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;, "TT;"
     invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 1262
-    .local v1, "otherValue":Ljava/lang/Object;
-    instance-of v2, v1, Lcom/google/crypto/tink/shaded/protobuf/LazyField;
+    instance-of v1, p1, Lcom/google/crypto/tink/shaded/protobuf/LazyField;
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
     .line 1263
-    move-object v2, v1
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/LazyField;
 
-    check-cast v2, Lcom/google/crypto/tink/shaded/protobuf/LazyField;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/LazyField;->getValue()Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
 
-    invoke-virtual {v2}, Lcom/google/crypto/tink/shaded/protobuf/LazyField;->getValue()Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
-
-    move-result-object v1
+    move-result-object p1
 
     .line 1266
     :cond_0
     invoke-interface {v0}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;->isRepeated()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_3
+    if-eqz v1, :cond_3
 
     .line 1267
     invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->getField(Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    .line 1268
-    .local v2, "value":Ljava/lang/Object;
-    if-nez v2, :cond_1
+    if-nez v1, :cond_1
 
     .line 1269
-    new-instance v3, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
-
-    move-object v2, v3
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     .line 1271
     :cond_1
+    check-cast p1, Ljava/util/List;
+
+    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    .line 1272
     move-object v3, v1
 
     check-cast v3, Ljava/util/List;
 
-    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-static {v2}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet;->access$700(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v3, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v4
-
-    .line 1272
-    .local v4, "element":Ljava/lang/Object;
-    move-object v5, v2
-
-    check-cast v5, Ljava/util/List;
-
-    invoke-static {v4}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet;->access$700(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v6
-
-    invoke-interface {v5, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 1273
-    .end local v4    # "element":Ljava/lang/Object;
     goto :goto_0
 
     .line 1274
     :cond_2
-    iget-object v3, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
+    iget-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
 
-    invoke-virtual {v3, v0, v2}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->put(Ljava/lang/Comparable;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->put(Ljava/lang/Comparable;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_1
 
     .line 1275
-    .end local v2    # "value":Ljava/lang/Object;
-    goto :goto_2
-
     :cond_3
     invoke-interface {v0}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;->getLiteJavaType()Lcom/google/crypto/tink/shaded/protobuf/WireFormat$JavaType;
 
-    move-result-object v2
+    move-result-object v1
 
-    sget-object v3, Lcom/google/crypto/tink/shaded/protobuf/WireFormat$JavaType;->MESSAGE:Lcom/google/crypto/tink/shaded/protobuf/WireFormat$JavaType;
+    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/WireFormat$JavaType;->MESSAGE:Lcom/google/crypto/tink/shaded/protobuf/WireFormat$JavaType;
 
-    if-ne v2, v3, :cond_6
+    if-ne v1, v2, :cond_6
 
     .line 1276
     invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->getField(Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    .line 1277
-    .restart local v2    # "value":Ljava/lang/Object;
-    if-nez v2, :cond_4
+    if-nez v1, :cond_4
 
     .line 1278
-    iget-object v3, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
+    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
 
-    invoke-static {v1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet;->access$700(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet;->access$700(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-virtual {v3, v0, v4}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->put(Ljava/lang/Comparable;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->put(Ljava/lang/Comparable;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_1
 
     .line 1281
     :cond_4
-    instance-of v3, v2, Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;
+    instance-of v2, v1, Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;
 
-    if-eqz v3, :cond_5
+    if-eqz v2, :cond_5
 
     .line 1282
-    move-object v3, v2
+    check-cast v1, Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;
 
-    check-cast v3, Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
 
-    move-object v4, v1
-
-    check-cast v4, Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
-
-    invoke-interface {v0, v3, v4}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;->internalMergeFrom(Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;
+    invoke-interface {v0, v1, p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;->internalMergeFrom(Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;
 
     goto :goto_1
 
     .line 1284
     :cond_5
-    move-object v3, v2
-
-    check-cast v3, Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
+    check-cast v1, Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
 
     .line 1286
-    invoke-interface {v3}, Lcom/google/crypto/tink/shaded/protobuf/MessageLite;->toBuilder()Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;
+    invoke-interface {v1}, Lcom/google/crypto/tink/shaded/protobuf/MessageLite;->toBuilder()Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;
 
-    move-result-object v3
+    move-result-object v1
 
-    move-object v4, v1
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
 
-    check-cast v4, Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
+    invoke-interface {v0, v1, p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;->internalMergeFrom(Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;
 
-    invoke-interface {v0, v3, v4}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;->internalMergeFrom(Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;
-
-    move-result-object v3
+    move-result-object p1
 
     .line 1287
-    invoke-interface {v3}, Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
+    invoke-interface {p1}, Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
 
-    move-result-object v2
+    move-result-object p1
 
     .line 1288
-    iget-object v3, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
+    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
 
-    invoke-virtual {v3, v0, v2}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->put(Ljava/lang/Comparable;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->put(Ljava/lang/Comparable;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1291
-    .end local v2    # "value":Ljava/lang/Object;
-    :goto_1
-    goto :goto_2
+    goto :goto_1
 
     .line 1292
     :cond_6
-    iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
+    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
 
-    invoke-static {v1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet;->access$700(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet;->access$700(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v2, v0, v3}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->put(Ljava/lang/Comparable;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->put(Ljava/lang/Comparable;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1294
-    :goto_2
+    :goto_1
     return-void
 .end method
 
 .method private static replaceBuilder(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p0, "value"    # Ljava/lang/Object;
 
     .line 1005
     instance-of v0, p0, Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;
 
     if-eqz v0, :cond_0
 
-    move-object v0, p0
+    check-cast p0, Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;
+    invoke-interface {p0}, Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
 
-    invoke-interface {v0}, Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
-
-    move-result-object v0
-
-    goto :goto_0
+    move-result-object p0
 
     :cond_0
-    move-object v0, p0
-
-    :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method private static replaceBuilders(Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 5
-    .param p1, "value"    # Ljava/lang/Object;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -420,11 +369,8 @@
         }
     .end annotation
 
-    .line 970
-    .local p0, "descriptor":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;, "TT;"
     if-nez p1, :cond_0
 
-    .line 971
     return-object p1
 
     .line 973
@@ -440,111 +386,98 @@
     .line 974
     invoke-interface {p0}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;->isRepeated()Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_5
+    if-eqz p0, :cond_5
 
     .line 975
-    instance-of v0, p1, Ljava/util/List;
+    instance-of p0, p1, Ljava/util/List;
 
-    if-eqz v0, :cond_4
+    if-eqz p0, :cond_4
 
     .line 981
-    move-object v0, p1
+    move-object p0, p1
 
-    check-cast v0, Ljava/util/List;
+    check-cast p0, Ljava/util/List;
+
+    const/4 v0, 0x0
 
     .line 982
-    .local v0, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Object;>;"
-    const/4 v1, 0x0
-
-    .local v1, "i":I
     :goto_0
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-interface {p0}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result v1
 
-    if-ge v1, v2, :cond_3
+    if-ge v0, v1, :cond_3
 
     .line 983
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    .line 984
+    invoke-static {v1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->replaceBuilder(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
-    .line 984
-    .local v2, "oldElement":Ljava/lang/Object;
-    invoke-static {v2}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->replaceBuilder(Ljava/lang/Object;)Ljava/lang/Object;
+    if-eq v2, v1, :cond_2
 
-    move-result-object v3
-
-    .line 985
-    .local v3, "newElement":Ljava/lang/Object;
-    if-eq v3, v2, :cond_2
-
-    .line 990
-    if-ne v0, p1, :cond_1
+    if-ne p0, p1, :cond_1
 
     .line 991
-    new-instance v4, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v4, v0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-direct {v1, p0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    move-object v0, v4
+    move-object p0, v1
 
     .line 993
     :cond_1
-    invoke-interface {v0, v1, v3}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p0, v0, v2}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    .line 982
-    .end local v2    # "oldElement":Ljava/lang/Object;
-    .end local v3    # "newElement":Ljava/lang/Object;
     :cond_2
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 996
-    .end local v1    # "i":I
     :cond_3
-    return-object v0
+    return-object p0
 
     .line 976
-    .end local v0    # "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Object;>;"
     :cond_4
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Repeated field should contains a List but actually contains type: "
 
-    const-string v2, "Repeated field should contains a List but actually contains type: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 978
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    throw v0
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 
     .line 998
     :cond_5
     invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->replaceBuilder(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
-    .line 1001
     :cond_6
     return-object p1
 .end method
@@ -563,11 +496,9 @@
         }
     .end annotation
 
-    .line 955
-    .local p0, "fieldMap":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TT;Ljava/lang/Object;>;"
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 955
     :goto_0
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->getNumArrayEntries()I
 
@@ -582,44 +513,38 @@
 
     invoke-static {v1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->replaceBuilders(Ljava/util/Map$Entry;)V
 
-    .line 955
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 958
-    .end local v0    # "i":I
     :cond_0
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->getOverflowEntries()Ljava/lang/Iterable;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p0
 
     :goto_1
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ljava/util/Map$Entry;
+    check-cast v0, Ljava/util/Map$Entry;
 
     .line 959
-    .local v1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TT;Ljava/lang/Object;>;"
-    invoke-static {v1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->replaceBuilders(Ljava/util/Map$Entry;)V
+    invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->replaceBuilders(Ljava/util/Map$Entry;)V
 
-    .line 960
-    .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TT;Ljava/lang/Object;>;"
     goto :goto_1
 
-    .line 961
     :cond_1
     return-void
 .end method
@@ -639,7 +564,6 @@
     .end annotation
 
     .line 965
-    .local p0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TT;Ljava/lang/Object;>;"
     invoke-interface {p0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v0
@@ -656,14 +580,11 @@
 
     invoke-interface {p0, v0}, Ljava/util/Map$Entry;->setValue(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 966
     return-void
 .end method
 
 .method private static verifyType(Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;Ljava/lang/Object;)V
-    .locals 2
-    .param p0, "type"    # Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;
-    .param p1, "value"    # Ljava/lang/Object;
+    .locals 1
 
     .line 1215
     invoke-static {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet;->access$500(Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;Ljava/lang/Object;)Z
@@ -675,30 +596,28 @@
     .line 1217
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;->getJavaType()Lcom/google/crypto/tink/shaded/protobuf/WireFormat$JavaType;
 
-    move-result-object v0
+    move-result-object p0
 
-    sget-object v1, Lcom/google/crypto/tink/shaded/protobuf/WireFormat$JavaType;->MESSAGE:Lcom/google/crypto/tink/shaded/protobuf/WireFormat$JavaType;
+    sget-object v0, Lcom/google/crypto/tink/shaded/protobuf/WireFormat$JavaType;->MESSAGE:Lcom/google/crypto/tink/shaded/protobuf/WireFormat$JavaType;
 
-    if-ne v0, v1, :cond_0
+    if-ne p0, v0, :cond_0
 
-    instance-of v0, p1, Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;
+    instance-of p0, p1, Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    .line 1219
     return-void
 
     .line 1221
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Wrong object type used with protocol message reflection."
+    const-string p1, "Wrong object type used with protocol message reflection."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
-    .line 1224
     :cond_1
     return-void
 .end method
@@ -706,8 +625,7 @@
 
 # virtual methods
 .method public addRepeatedField(Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;Ljava/lang/Object;)V
-    .locals 3
-    .param p2, "value"    # Ljava/lang/Object;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;",
@@ -717,8 +635,6 @@
     .end annotation
 
     .line 1185
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;, "Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder<TT;>;"
-    .local p1, "descriptor":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;, "TT;"
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->ensureIsMutable()V
 
     .line 1186
@@ -763,49 +679,39 @@
 
     move-result-object v0
 
-    .line 1197
-    .local v0, "existingValue":Ljava/lang/Object;
     if-nez v0, :cond_2
 
     .line 1198
-    new-instance v1, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/ArrayList;
 
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 1199
-    .local v1, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Object;>;"
-    iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
+    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
 
-    invoke-virtual {v2, p1, v1}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->put(Ljava/lang/Comparable;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->put(Ljava/lang/Comparable;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_2
 
     .line 1201
-    .end local v1    # "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Object;>;"
     :cond_2
-    move-object v1, v0
-
-    check-cast v1, Ljava/util/List;
+    check-cast v0, Ljava/util/List;
 
     .line 1204
-    .restart local v1    # "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Object;>;"
     :goto_2
-    invoke-interface {v1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 1205
     return-void
 
     .line 1187
-    .end local v0    # "existingValue":Ljava/lang/Object;
-    .end local v1    # "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Object;>;"
     :cond_3
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "addRepeatedField() can only be called on repeated fields."
+    const-string p2, "addRepeatedField() can only be called on repeated fields."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public build()Lcom/google/crypto/tink/shaded/protobuf/FieldSet;
@@ -819,7 +725,6 @@
     .end annotation
 
     .line 938
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;, "Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder<TT;>;"
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
 
     invoke-virtual {v0}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->isEmpty()Z
@@ -835,25 +740,22 @@
 
     return-object v0
 
-    .line 941
     :cond_0
     const/4 v0, 0x0
 
+    .line 941
     iput-boolean v0, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->isMutable:Z
 
     .line 942
     iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
 
     .line 943
-    .local v1, "fieldsForBuild":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TT;Ljava/lang/Object;>;"
     iget-boolean v2, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->hasNestedBuilders:Z
 
     if-eqz v2, :cond_1
 
     .line 945
-    iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
-
-    invoke-static {v2, v0}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet;->access$100(Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;Z)Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
+    invoke-static {v1, v0}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet;->access$100(Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;Z)Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
 
     move-result-object v1
 
@@ -869,12 +771,10 @@
     invoke-direct {v0, v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet;-><init>(Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;Lcom/google/crypto/tink/shaded/protobuf/FieldSet$1;)V
 
     .line 949
-    .local v0, "fieldSet":Lcom/google/crypto/tink/shaded/protobuf/FieldSet;, "Lcom/google/crypto/tink/shaded/protobuf/FieldSet<TT;>;"
-    iget-boolean v2, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->hasLazyField:Z
+    iget-boolean v1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->hasLazyField:Z
 
-    invoke-static {v0, v2}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet;->access$302(Lcom/google/crypto/tink/shaded/protobuf/FieldSet;Z)Z
+    invoke-static {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet;->access$302(Lcom/google/crypto/tink/shaded/protobuf/FieldSet;Z)Z
 
-    .line 950
     return-object v0
 .end method
 
@@ -887,8 +787,6 @@
     .end annotation
 
     .line 1102
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;, "Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder<TT;>;"
-    .local p1, "descriptor":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;, "TT;"
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->ensureIsMutable()V
 
     .line 1103
@@ -897,20 +795,19 @@
     invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1104
-    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
+    iget-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
 
-    invoke-virtual {v0}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->isEmpty()Z
+    invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->isEmpty()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
+
+    const/4 p1, 0x0
 
     .line 1105
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->hasLazyField:Z
 
-    iput-boolean v0, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->hasLazyField:Z
-
-    .line 1107
     :cond_0
     return-void
 .end method
@@ -928,7 +825,6 @@
     .end annotation
 
     .line 1019
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;, "Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder<TT;>;"
     iget-boolean v0, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->hasLazyField:Z
 
     if-eqz v0, :cond_1
@@ -943,7 +839,6 @@
     move-result-object v0
 
     .line 1021
-    .local v0, "result":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TT;Ljava/lang/Object;>;"
     iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
 
     invoke-virtual {v1}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->isImmutable()Z
@@ -961,12 +856,10 @@
     :cond_0
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->replaceBuilders(Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;)V
 
-    .line 1026
     :goto_0
     return-object v0
 
     .line 1028
-    .end local v0    # "result":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TT;Ljava/lang/Object;>;"
     :cond_1
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
 
@@ -992,7 +885,7 @@
 .end method
 
 .method public getField(Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;)Ljava/lang/Object;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)",
@@ -1001,23 +894,20 @@
     .end annotation
 
     .line 1046
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;, "Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder<TT;>;"
-    .local p1, "descriptor":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;, "TT;"
     invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->getFieldAllowBuilders(Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;)Ljava/lang/Object;
 
     move-result-object v0
 
     .line 1047
-    .local v0, "value":Ljava/lang/Object;
     invoke-static {p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->replaceBuilders(Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method getFieldAllowBuilders(Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;)Ljava/lang/Object;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)",
@@ -1026,39 +916,30 @@
     .end annotation
 
     .line 1052
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;, "Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder<TT;>;"
-    .local p1, "descriptor":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;, "TT;"
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
 
     invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 1053
-    .local v0, "o":Ljava/lang/Object;
-    instance-of v1, v0, Lcom/google/crypto/tink/shaded/protobuf/LazyField;
+    instance-of v0, p1, Lcom/google/crypto/tink/shaded/protobuf/LazyField;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 1054
-    move-object v1, v0
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/LazyField;
 
-    check-cast v1, Lcom/google/crypto/tink/shaded/protobuf/LazyField;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/LazyField;->getValue()Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
 
-    invoke-virtual {v1}, Lcom/google/crypto/tink/shaded/protobuf/LazyField;->getValue()Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
+    move-result-object p1
 
-    move-result-object v1
-
-    return-object v1
-
-    .line 1056
     :cond_0
-    return-object v0
+    return-object p1
 .end method
 
 .method public getRepeatedField(Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;I)Ljava/lang/Object;
-    .locals 2
-    .param p2, "index"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;I)",
@@ -1067,8 +948,6 @@
     .end annotation
 
     .line 1130
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;, "Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder<TT;>;"
-    .local p1, "descriptor":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;, "TT;"
     iget-boolean v0, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->hasNestedBuilders:Z
 
     if-eqz v0, :cond_0
@@ -1080,20 +959,18 @@
     :cond_0
     invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->getRepeatedFieldAllowBuilders(Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 1134
-    .local v0, "value":Ljava/lang/Object;
-    invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->replaceBuilder(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->replaceBuilder(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method getRepeatedFieldAllowBuilders(Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;I)Ljava/lang/Object;
-    .locals 2
-    .param p2, "index"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;I)",
@@ -1102,8 +979,6 @@
     .end annotation
 
     .line 1142
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;, "Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder<TT;>;"
-    .local p1, "descriptor":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;, "TT;"
     invoke-interface {p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;->isRepeated()Z
 
     move-result v0
@@ -1113,45 +988,40 @@
     .line 1147
     invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->getFieldAllowBuilders(Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 1149
-    .local v0, "value":Ljava/lang/Object;
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 1152
-    move-object v1, v0
+    check-cast p1, Ljava/util/List;
 
-    check-cast v1, Ljava/util/List;
+    invoke-interface {p1, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    invoke-interface {v1, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v1
-
-    return-object v1
+    return-object p1
 
     .line 1150
     :cond_0
-    new-instance v1, Ljava/lang/IndexOutOfBoundsException;
+    new-instance p1, Ljava/lang/IndexOutOfBoundsException;
 
-    invoke-direct {v1}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
 
-    throw v1
+    throw p1
 
     .line 1143
-    .end local v0    # "value":Ljava/lang/Object;
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "getRepeatedField() can only be called on repeated fields."
+    const-string p2, "getRepeatedField() can only be called on repeated fields."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public getRepeatedFieldCount(Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;)I
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)I"
@@ -1159,8 +1029,6 @@
     .end annotation
 
     .line 1113
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;, "Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder<TT;>;"
-    .local p1, "descriptor":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;, "TT;"
     invoke-interface {p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;->isRepeated()Z
 
     move-result v0
@@ -1170,43 +1038,37 @@
     .line 1118
     invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->getField(Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 1119
-    .local v0, "value":Ljava/lang/Object;
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    .line 1120
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return v1
+    return p1
 
     .line 1122
     :cond_0
-    move-object v1, v0
+    check-cast p1, Ljava/util/List;
 
-    check-cast v1, Ljava/util/List;
+    invoke-interface {p1}, Ljava/util/List;->size()I
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    move-result p1
 
-    move-result v1
-
-    return v1
+    return p1
 
     .line 1114
-    .end local v0    # "value":Ljava/lang/Object;
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "getRepeatedField() can only be called on repeated fields."
+    const-string v0, "getRepeatedField() can only be called on repeated fields."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public hasField(Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;)Z
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -1214,8 +1076,6 @@
     .end annotation
 
     .line 1033
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;, "Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder<TT;>;"
-    .local p1, "descriptor":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;, "TT;"
     invoke-interface {p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;->isRepeated()Z
 
     move-result v0
@@ -1227,115 +1087,102 @@
 
     invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 
     .line 1034
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "hasField() can only be called on non-repeated fields."
+    const-string v0, "hasField() can only be called on non-repeated fields."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public isInitialized()Z
-    .locals 4
+    .locals 3
 
-    .line 1232
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;, "Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder<TT;>;"
     const/4 v0, 0x0
 
-    .local v0, "i":I
-    :goto_0
-    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
-
-    invoke-virtual {v1}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->getNumArrayEntries()I
-
-    move-result v1
-
-    const/4 v2, 0x0
-
-    if-ge v0, v1, :cond_1
-
-    .line 1233
-    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
-
-    invoke-virtual {v1, v0}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->getArrayEntryAt(I)Ljava/util/Map$Entry;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet;->access$600(Ljava/util/Map$Entry;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    .line 1234
-    return v2
+    move v1, v0
 
     .line 1232
+    :goto_0
+    iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
+
+    invoke-virtual {v2}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->getNumArrayEntries()I
+
+    move-result v2
+
+    if-ge v1, v2, :cond_1
+
+    .line 1233
+    iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
+
+    invoke-virtual {v2, v1}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->getArrayEntryAt(I)Ljava/util/Map$Entry;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet;->access$600(Ljava/util/Map$Entry;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    return v0
+
     :cond_0
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 1237
-    .end local v0    # "i":I
     :cond_1
-    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
+    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->fields:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
 
-    invoke-virtual {v0}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->getOverflowEntries()Ljava/lang/Iterable;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :goto_1
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v1}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->getOverflowEntries()Ljava/lang/Iterable;
 
     move-result-object v1
 
-    check-cast v1, Ljava/util/Map$Entry;
+    invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :cond_2
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/util/Map$Entry;
 
     .line 1238
-    .local v1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TT;Ljava/lang/Object;>;"
-    invoke-static {v1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet;->access$600(Ljava/util/Map$Entry;)Z
+    invoke-static {v2}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet;->access$600(Ljava/util/Map$Entry;)Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_2
+    if-nez v2, :cond_2
 
-    .line 1239
-    return v2
+    return v0
 
-    .line 1241
-    .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TT;Ljava/lang/Object;>;"
-    :cond_2
-    goto :goto_1
-
-    .line 1242
     :cond_3
     const/4 v0, 0x1
 
@@ -1353,14 +1200,11 @@
     .end annotation
 
     .line 1249
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;, "Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder<TT;>;"
-    .local p1, "other":Lcom/google/crypto/tink/shaded/protobuf/FieldSet;, "Lcom/google/crypto/tink/shaded/protobuf/FieldSet<TT;>;"
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->ensureIsMutable()V
 
-    .line 1250
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 1250
     :goto_0
     invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet;->access$400(Lcom/google/crypto/tink/shaded/protobuf/FieldSet;)Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
 
@@ -1383,55 +1227,48 @@
 
     invoke-direct {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->mergeFromField(Ljava/util/Map$Entry;)V
 
-    .line 1250
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 1253
-    .end local v0    # "i":I
     :cond_0
     invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet;->access$400(Lcom/google/crypto/tink/shaded/protobuf/FieldSet;)Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->getOverflowEntries()Ljava/lang/Iterable;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->getOverflowEntries()Ljava/lang/Iterable;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_1
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ljava/util/Map$Entry;
+    check-cast v0, Ljava/util/Map$Entry;
 
     .line 1254
-    .local v1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TT;Ljava/lang/Object;>;"
-    invoke-direct {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->mergeFromField(Ljava/util/Map$Entry;)V
+    invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->mergeFromField(Ljava/util/Map$Entry;)V
 
-    .line 1255
-    .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TT;Ljava/lang/Object;>;"
     goto :goto_1
 
-    .line 1256
     :cond_1
     return-void
 .end method
 
 .method public setField(Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;Ljava/lang/Object;)V
-    .locals 6
-    .param p2, "value"    # Ljava/lang/Object;
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;",
@@ -1441,8 +1278,6 @@
     .end annotation
 
     .line 1072
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;, "Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder<TT;>;"
-    .local p1, "descriptor":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;, "TT;"
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->ensureIsMutable()V
 
     .line 1073
@@ -1467,81 +1302,72 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 1082
-    .local v0, "newList":Ljava/util/List;
-    move-object v3, p2
+    check-cast p2, Ljava/util/List;
 
-    check-cast v3, Ljava/util/List;
-
-    invoke-interface {v0, v3}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+    invoke-interface {v0, p2}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
     .line 1083
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object p2
 
     :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_2
+    if-eqz v3, :cond_2
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    .line 1084
+    invoke-interface {p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;->getLiteType()Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;
 
     move-result-object v4
 
-    .line 1084
-    .local v4, "element":Ljava/lang/Object;
-    invoke-interface {p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;->getLiteType()Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;
-
-    move-result-object v5
-
-    invoke-static {v5, v4}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->verifyType(Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;Ljava/lang/Object;)V
+    invoke-static {v4, v3}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->verifyType(Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;Ljava/lang/Object;)V
 
     .line 1085
-    iget-boolean v5, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->hasNestedBuilders:Z
+    iget-boolean v4, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->hasNestedBuilders:Z
 
-    if-nez v5, :cond_1
+    if-nez v4, :cond_1
 
-    instance-of v5, v4, Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;
+    instance-of v3, v3, Lcom/google/crypto/tink/shaded/protobuf/MessageLite$Builder;
 
-    if-eqz v5, :cond_0
+    if-eqz v3, :cond_0
 
     goto :goto_1
 
     :cond_0
-    move v5, v1
+    move v3, v1
 
     goto :goto_2
 
     :cond_1
     :goto_1
-    move v5, v2
+    move v3, v2
 
     :goto_2
-    iput-boolean v5, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->hasNestedBuilders:Z
+    iput-boolean v3, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->hasNestedBuilders:Z
 
-    .line 1086
-    .end local v4    # "element":Ljava/lang/Object;
     goto :goto_0
 
-    .line 1087
     :cond_2
     move-object p2, v0
 
-    .line 1088
-    .end local v0    # "newList":Ljava/util/List;
     goto :goto_3
 
     .line 1075
     :cond_3
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Wrong object type used with protocol message reflection."
+    const-string p2, "Wrong object type used with protocol message reflection."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 1089
     :cond_4
@@ -1581,14 +1407,11 @@
 
     invoke-virtual {v0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->put(Ljava/lang/Comparable;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1098
     return-void
 .end method
 
 .method public setRepeatedField(Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;ILjava/lang/Object;)V
-    .locals 2
-    .param p2, "index"    # I
-    .param p3, "value"    # Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;I",
@@ -1598,8 +1421,6 @@
     .end annotation
 
     .line 1162
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;, "Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder<TT;>;"
-    .local p1, "descriptor":Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;, "TT;"
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->ensureIsMutable()V
 
     .line 1163
@@ -1637,43 +1458,37 @@
 
     move-result-object v0
 
-    .line 1171
-    .local v0, "list":Ljava/lang/Object;
     if-eqz v0, :cond_2
 
     .line 1175
     invoke-interface {p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$FieldDescriptorLite;->getLiteType()Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-static {v1, p3}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->verifyType(Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;Ljava/lang/Object;)V
+    invoke-static {p1, p3}, Lcom/google/crypto/tink/shaded/protobuf/FieldSet$Builder;->verifyType(Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;Ljava/lang/Object;)V
 
     .line 1176
-    move-object v1, v0
+    check-cast v0, Ljava/util/List;
 
-    check-cast v1, Ljava/util/List;
+    invoke-interface {v0, p2, p3}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v1, p2, p3}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
-
-    .line 1177
     return-void
 
     .line 1172
     :cond_2
-    new-instance v1, Ljava/lang/IndexOutOfBoundsException;
+    new-instance p1, Ljava/lang/IndexOutOfBoundsException;
 
-    invoke-direct {v1}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
 
-    throw v1
+    throw p1
 
     .line 1164
-    .end local v0    # "list":Ljava/lang/Object;
     :cond_3
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "getRepeatedField() can only be called on repeated fields."
+    const-string p2, "getRepeatedField() can only be called on repeated fields."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/database/Cursor;Landroidx/room/AutoCloser;)V
     .locals 0
-    .param p1, "delegate"    # Landroid/database/Cursor;
-    .param p2, "autoCloser"    # Landroidx/room/AutoCloser;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -48,7 +46,6 @@
     .line 507
     iput-object p2, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->mAutoCloser:Landroidx/room/AutoCloser;
 
-    .line 508
     return-void
 .end method
 
@@ -67,14 +64,11 @@
 
     invoke-virtual {v0}, Landroidx/room/AutoCloser;->decrementCountAndScheduleClose()V
 
-    .line 515
     return-void
 .end method
 
 .method public copyStringToBuffer(ILandroid/database/CharArrayBuffer;)V
     .locals 1
-    .param p1, "columnIndex"    # I
-    .param p2, "buffer"    # Landroid/database/CharArrayBuffer;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -91,7 +85,6 @@
 
     invoke-interface {v0, p1, p2}, Landroid/database/Cursor;->copyStringToBuffer(ILandroid/database/CharArrayBuffer;)V
 
-    .line 621
     return-void
 .end method
 
@@ -105,13 +98,11 @@
 
     invoke-interface {v0}, Landroid/database/Cursor;->deactivate()V
 
-    .line 665
     return-void
 .end method
 
 .method public getBlob(I)[B
     .locals 1
-    .param p1, "columnIndex"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -126,9 +117,9 @@
 
     invoke-interface {v0, p1}, Landroid/database/Cursor;->getBlob(I)[B
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getColumnCount()I
@@ -146,7 +137,6 @@
 
 .method public getColumnIndex(Ljava/lang/String;)I
     .locals 1
-    .param p1, "columnName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -161,14 +151,13 @@
 
     invoke-interface {v0, p1}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public getColumnIndexOrThrow(Ljava/lang/String;)I
     .locals 1
-    .param p1, "columnName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -189,14 +178,13 @@
 
     invoke-interface {v0, p1}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public getColumnName(I)Ljava/lang/String;
     .locals 1
-    .param p1, "columnIndex"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -211,9 +199,9 @@
 
     invoke-interface {v0, p1}, Landroid/database/Cursor;->getColumnName(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getColumnNames()[Ljava/lang/String;
@@ -244,7 +232,6 @@
 
 .method public getDouble(I)D
     .locals 2
-    .param p1, "columnIndex"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -279,7 +266,6 @@
 
 .method public getFloat(I)F
     .locals 1
-    .param p1, "columnIndex"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -294,14 +280,13 @@
 
     invoke-interface {v0, p1}, Landroid/database/Cursor;->getFloat(I)F
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public getInt(I)I
     .locals 1
-    .param p1, "columnIndex"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -316,14 +301,13 @@
 
     invoke-interface {v0, p1}, Landroid/database/Cursor;->getInt(I)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public getLong(I)J
     .locals 2
-    .param p1, "columnIndex"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -392,7 +376,6 @@
 
 .method public getShort(I)S
     .locals 1
-    .param p1, "columnIndex"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -407,14 +390,13 @@
 
     invoke-interface {v0, p1}, Landroid/database/Cursor;->getShort(I)S
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public getString(I)Ljava/lang/String;
     .locals 1
-    .param p1, "columnIndex"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -429,14 +411,13 @@
 
     invoke-interface {v0, p1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getType(I)I
     .locals 1
-    .param p1, "columnIndex"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -451,9 +432,9 @@
 
     invoke-interface {v0, p1}, Landroid/database/Cursor;->getType(I)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public getWantsAllOnMoveCalls()Z
@@ -536,7 +517,6 @@
 
 .method public isNull(I)Z
     .locals 1
-    .param p1, "columnIndex"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -551,14 +531,13 @@
 
     invoke-interface {v0, p1}, Landroid/database/Cursor;->isNull(I)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public move(I)Z
     .locals 1
-    .param p1, "offset"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -573,9 +552,9 @@
 
     invoke-interface {v0, p1}, Landroid/database/Cursor;->move(I)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public moveToFirst()Z
@@ -619,7 +598,6 @@
 
 .method public moveToPosition(I)Z
     .locals 1
-    .param p1, "position"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -634,9 +612,9 @@
 
     invoke-interface {v0, p1}, Landroid/database/Cursor;->moveToPosition(I)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public moveToPrevious()Z
@@ -654,7 +632,6 @@
 
 .method public registerContentObserver(Landroid/database/ContentObserver;)V
     .locals 1
-    .param p1, "observer"    # Landroid/database/ContentObserver;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -669,13 +646,11 @@
 
     invoke-interface {v0, p1}, Landroid/database/Cursor;->registerContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 679
     return-void
 .end method
 
 .method public registerDataSetObserver(Landroid/database/DataSetObserver;)V
     .locals 1
-    .param p1, "observer"    # Landroid/database/DataSetObserver;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -690,7 +665,6 @@
 
     invoke-interface {v0, p1}, Landroid/database/Cursor;->registerDataSetObserver(Landroid/database/DataSetObserver;)V
 
-    .line 689
     return-void
 .end method
 
@@ -711,7 +685,6 @@
 
 .method public respond(Landroid/os/Bundle;)Landroid/os/Bundle;
     .locals 1
-    .param p1, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -726,14 +699,13 @@
 
     invoke-interface {v0, p1}, Landroid/database/Cursor;->respond(Landroid/os/Bundle;)Landroid/os/Bundle;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public setExtras(Landroid/os/Bundle;)V
     .locals 1
-    .param p1, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -748,14 +720,11 @@
 
     invoke-interface {v0, p1}, Landroid/database/Cursor;->setExtras(Landroid/os/Bundle;)V
 
-    .line 734
     return-void
 .end method
 
 .method public setNotificationUri(Landroid/content/ContentResolver;Landroid/net/Uri;)V
     .locals 1
-    .param p1, "cr"    # Landroid/content/ContentResolver;
-    .param p2, "uri"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -772,13 +741,11 @@
 
     invoke-interface {v0, p1, p2}, Landroid/database/Cursor;->setNotificationUri(Landroid/content/ContentResolver;Landroid/net/Uri;)V
 
-    .line 699
     return-void
 .end method
 
 .method public setNotificationUris(Landroid/content/ContentResolver;Ljava/util/List;)V
     .locals 1
-    .param p1, "cr"    # Landroid/content/ContentResolver;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -801,18 +768,15 @@
     .end annotation
 
     .line 706
-    .local p2, "uris":Ljava/util/List;, "Ljava/util/List<Landroid/net/Uri;>;"
     iget-object v0, p0, Landroidx/room/AutoClosingRoomOpenHelper$KeepAliveCursor;->mDelegate:Landroid/database/Cursor;
 
     invoke-interface {v0, p1, p2}, Landroid/database/Cursor;->setNotificationUris(Landroid/content/ContentResolver;Ljava/util/List;)V
 
-    .line 707
     return-void
 .end method
 
 .method public unregisterContentObserver(Landroid/database/ContentObserver;)V
     .locals 1
-    .param p1, "observer"    # Landroid/database/ContentObserver;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -827,13 +791,11 @@
 
     invoke-interface {v0, p1}, Landroid/database/Cursor;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 684
     return-void
 .end method
 
 .method public unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
     .locals 1
-    .param p1, "observer"    # Landroid/database/DataSetObserver;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -848,6 +810,5 @@
 
     invoke-interface {v0, p1}, Landroid/database/Cursor;->unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
 
-    .line 694
     return-void
 .end method

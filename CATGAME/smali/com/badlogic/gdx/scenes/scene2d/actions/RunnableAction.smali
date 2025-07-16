@@ -22,25 +22,23 @@
 
 # virtual methods
 .method public act(F)Z
-    .locals 2
-    .param p1, "delta"    # F
+    .locals 1
 
     .line 30
-    iget-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RunnableAction;->ran:Z
+    iget-boolean p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RunnableAction;->ran:Z
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 31
-    iput-boolean v1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RunnableAction;->ran:Z
+    iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RunnableAction;->ran:Z
 
     .line 32
     invoke-virtual {p0}, Lcom/badlogic/gdx/scenes/scene2d/actions/RunnableAction;->run()V
 
-    .line 34
     :cond_0
-    return v1
+    return v0
 .end method
 
 .method public getRunnable()Ljava/lang/Runnable;
@@ -58,24 +56,22 @@
     .line 53
     invoke-super {p0}, Lcom/badlogic/gdx/scenes/scene2d/Action;->reset()V
 
-    .line 54
     const/4 v0, 0x0
 
+    .line 54
     iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RunnableAction;->runnable:Ljava/lang/Runnable;
 
-    .line 55
     return-void
 .end method
 
 .method public restart()V
     .locals 1
 
-    .line 49
     const/4 v0, 0x0
 
+    .line 49
     iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RunnableAction;->ran:Z
 
-    .line 50
     return-void
 .end method
 
@@ -87,10 +83,9 @@
 
     move-result-object v0
 
-    .line 40
-    .local v0, "pool":Lcom/badlogic/gdx/utils/Pool;
     const/4 v1, 0x0
 
+    .line 40
     invoke-virtual {p0, v1}, Lcom/badlogic/gdx/scenes/scene2d/actions/RunnableAction;->setPool(Lcom/badlogic/gdx/utils/Pool;)V
 
     .line 42
@@ -104,13 +99,8 @@
     .line 44
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/scenes/scene2d/actions/RunnableAction;->setPool(Lcom/badlogic/gdx/utils/Pool;)V
 
-    .line 45
-    nop
-
-    .line 46
     return-void
 
-    .line 44
     :catchall_0
     move-exception v1
 
@@ -121,11 +111,9 @@
 
 .method public setRunnable(Ljava/lang/Runnable;)V
     .locals 0
-    .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 62
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RunnableAction;->runnable:Ljava/lang/Runnable;
 
-    .line 63
     return-void
 .end method

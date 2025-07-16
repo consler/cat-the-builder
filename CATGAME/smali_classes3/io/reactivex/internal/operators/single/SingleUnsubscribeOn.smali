@@ -37,7 +37,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/SingleSource;Lio/reactivex/Scheduler;)V
     .locals 0
-    .param p2, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -49,8 +48,6 @@
     .end annotation
 
     .line 33
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleUnsubscribeOn;, "Lio/reactivex/internal/operators/single/SingleUnsubscribeOn<TT;>;"
-    .local p1, "source":Lio/reactivex/SingleSource;, "Lio/reactivex/SingleSource<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 34
@@ -59,7 +56,6 @@
     .line 35
     iput-object p2, p0, Lio/reactivex/internal/operators/single/SingleUnsubscribeOn;->scheduler:Lio/reactivex/Scheduler;
 
-    .line 36
     return-void
 .end method
 
@@ -76,8 +72,6 @@
     .end annotation
 
     .line 40
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleUnsubscribeOn;, "Lio/reactivex/internal/operators/single/SingleUnsubscribeOn<TT;>;"
-    .local p1, "observer":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleUnsubscribeOn;->source:Lio/reactivex/SingleSource;
 
     new-instance v1, Lio/reactivex/internal/operators/single/SingleUnsubscribeOn$UnsubscribeOnSingleObserver;
@@ -88,6 +82,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/SingleSource;->subscribe(Lio/reactivex/SingleObserver;)V
 
-    .line 41
     return-void
 .end method

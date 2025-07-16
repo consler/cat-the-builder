@@ -10,7 +10,6 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections/map/ListOrderedMap$KeySetView;Ljava/util/Iterator;)V
     .locals 0
-    .param p2, "x0"    # Ljava/util/Iterator;
 
     .line 516
     invoke-direct {p0, p2}, Lorg/apache/commons/collections/iterators/AbstractIteratorDecorator;-><init>(Ljava/util/Iterator;)V

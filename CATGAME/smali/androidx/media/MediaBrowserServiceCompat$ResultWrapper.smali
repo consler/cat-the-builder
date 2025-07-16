@@ -30,16 +30,13 @@
 # direct methods
 .method constructor <init>(Landroid/service/media/MediaBrowserService$Result;)V
     .locals 0
-    .param p1, "result"    # Landroid/service/media/MediaBrowserService$Result;
 
     .line 1260
-    .local p0, "this":Landroidx/media/MediaBrowserServiceCompat$ResultWrapper;, "Landroidx/media/MediaBrowserServiceCompat$ResultWrapper<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 1261
     iput-object p1, p0, Landroidx/media/MediaBrowserServiceCompat$ResultWrapper;->mResultFwk:Landroid/service/media/MediaBrowserService$Result;
 
-    .line 1262
     return-void
 .end method
 
@@ -49,17 +46,15 @@
     .locals 1
 
     .line 1279
-    .local p0, "this":Landroidx/media/MediaBrowserServiceCompat$ResultWrapper;, "Landroidx/media/MediaBrowserServiceCompat$ResultWrapper<TT;>;"
     iget-object v0, p0, Landroidx/media/MediaBrowserServiceCompat$ResultWrapper;->mResultFwk:Landroid/service/media/MediaBrowserService$Result;
 
     invoke-virtual {v0}, Landroid/service/media/MediaBrowserService$Result;->detach()V
 
-    .line 1280
     return-void
 .end method
 
 .method parcelListToItemList(Ljava/util/List;)Ljava/util/List;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -72,15 +67,11 @@
         }
     .end annotation
 
-    .line 1283
-    .local p0, "this":Landroidx/media/MediaBrowserServiceCompat$ResultWrapper;, "Landroidx/media/MediaBrowserServiceCompat$ResultWrapper<TT;>;"
-    .local p1, "parcelList":Ljava/util/List;, "Ljava/util/List<Landroid/os/Parcel;>;"
     if-nez p1, :cond_0
 
-    .line 1284
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 
     .line 1286
     :cond_0
@@ -89,53 +80,48 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 1287
-    .local v0, "items":Ljava/util/List;, "Ljava/util/List<Landroid/media/browse/MediaBrowser$MediaItem;>;"
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v1, Landroid/os/Parcel;
 
-    move-result v2
+    const/4 v2, 0x0
 
-    if-eqz v2, :cond_1
+    .line 1288
+    invoke-virtual {v1, v2}, Landroid/os/Parcel;->setDataPosition(I)V
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    .line 1289
+    sget-object v2, Landroid/media/browse/MediaBrowser$MediaItem;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v2, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v2
 
-    check-cast v2, Landroid/os/Parcel;
-
-    .line 1288
-    .local v2, "parcel":Landroid/os/Parcel;
-    const/4 v3, 0x0
-
-    invoke-virtual {v2, v3}, Landroid/os/Parcel;->setDataPosition(I)V
-
-    .line 1289
-    sget-object v3, Landroid/media/browse/MediaBrowser$MediaItem;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-interface {v3, v2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 1290
-    invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1291
-    .end local v2    # "parcel":Landroid/os/Parcel;
     goto :goto_0
 
-    .line 1292
     :cond_1
     return-object v0
 .end method
 
 .method public sendResult(Ljava/lang/Object;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -143,8 +129,6 @@
     .end annotation
 
     .line 1265
-    .local p0, "this":Landroidx/media/MediaBrowserServiceCompat$ResultWrapper;, "Landroidx/media/MediaBrowserServiceCompat$ResultWrapper<TT;>;"
-    .local p1, "result":Ljava/lang/Object;, "TT;"
     instance-of v0, p1, Ljava/util/List;
 
     if-eqz v0, :cond_0
@@ -152,15 +136,13 @@
     .line 1266
     iget-object v0, p0, Landroidx/media/MediaBrowserServiceCompat$ResultWrapper;->mResultFwk:Landroid/service/media/MediaBrowserService$Result;
 
-    move-object v1, p1
+    check-cast p1, Ljava/util/List;
 
-    check-cast v1, Ljava/util/List;
+    invoke-virtual {p0, p1}, Landroidx/media/MediaBrowserServiceCompat$ResultWrapper;->parcelListToItemList(Ljava/util/List;)Ljava/util/List;
 
-    invoke-virtual {p0, v1}, Landroidx/media/MediaBrowserServiceCompat$ResultWrapper;->parcelListToItemList(Ljava/util/List;)Ljava/util/List;
+    move-result-object p1
 
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/service/media/MediaBrowserService$Result;->sendResult(Ljava/lang/Object;)V
+    invoke-virtual {v0, p1}, Landroid/service/media/MediaBrowserService$Result;->sendResult(Ljava/lang/Object;)V
 
     goto :goto_0
 
@@ -171,43 +153,37 @@
     if-eqz v0, :cond_1
 
     .line 1268
-    move-object v0, p1
+    check-cast p1, Landroid/os/Parcel;
 
-    check-cast v0, Landroid/os/Parcel;
+    const/4 v0, 0x0
 
     .line 1269
-    .local v0, "parcel":Landroid/os/Parcel;
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->setDataPosition(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->setDataPosition(I)V
 
     .line 1270
-    iget-object v1, p0, Landroidx/media/MediaBrowserServiceCompat$ResultWrapper;->mResultFwk:Landroid/service/media/MediaBrowserService$Result;
+    iget-object v0, p0, Landroidx/media/MediaBrowserServiceCompat$ResultWrapper;->mResultFwk:Landroid/service/media/MediaBrowserService$Result;
 
-    sget-object v2, Landroid/media/browse/MediaBrowser$MediaItem;->CREATOR:Landroid/os/Parcelable$Creator;
+    sget-object v1, Landroid/media/browse/MediaBrowser$MediaItem;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    invoke-interface {v2, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-interface {v1, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v1, v2}, Landroid/service/media/MediaBrowserService$Result;->sendResult(Ljava/lang/Object;)V
+    invoke-virtual {v0, v1}, Landroid/service/media/MediaBrowserService$Result;->sendResult(Ljava/lang/Object;)V
 
     .line 1271
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+    invoke-virtual {p1}, Landroid/os/Parcel;->recycle()V
 
-    .line 1272
-    .end local v0    # "parcel":Landroid/os/Parcel;
     goto :goto_0
 
     .line 1274
     :cond_1
-    iget-object v0, p0, Landroidx/media/MediaBrowserServiceCompat$ResultWrapper;->mResultFwk:Landroid/service/media/MediaBrowserService$Result;
+    iget-object p1, p0, Landroidx/media/MediaBrowserServiceCompat$ResultWrapper;->mResultFwk:Landroid/service/media/MediaBrowserService$Result;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/service/media/MediaBrowserService$Result;->sendResult(Ljava/lang/Object;)V
+    invoke-virtual {p1, v0}, Landroid/service/media/MediaBrowserService$Result;->sendResult(Ljava/lang/Object;)V
 
-    .line 1276
     :goto_0
     return-void
 .end method

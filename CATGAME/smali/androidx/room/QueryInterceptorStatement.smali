@@ -29,10 +29,6 @@
 # direct methods
 .method constructor <init>(Landroidx/sqlite/db/SupportSQLiteStatement;Landroidx/room/RoomDatabase$QueryCallback;Ljava/lang/String;Ljava/util/concurrent/Executor;)V
     .locals 1
-    .param p1, "compileStatement"    # Landroidx/sqlite/db/SupportSQLiteStatement;
-    .param p2, "queryCallback"    # Landroidx/room/RoomDatabase$QueryCallback;
-    .param p3, "sqlStatement"    # Ljava/lang/String;
-    .param p4, "queryCallbackExecutor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -70,14 +66,11 @@
     .line 44
     iput-object p4, p0, Landroidx/room/QueryInterceptorStatement;->mQueryCallbackExecutor:Ljava/util/concurrent/Executor;
 
-    .line 45
     return-void
 .end method
 
 .method private saveArgsToCache(ILjava/lang/Object;)V
-    .locals 4
-    .param p1, "bindIndex"    # I
-    .param p2, "value"    # Ljava/lang/Object;
+    .locals 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -89,50 +82,44 @@
         }
     .end annotation
 
-    .line 119
-    add-int/lit8 v0, p1, -0x1
+    add-int/lit8 p1, p1, -0x1
 
     .line 120
-    .local v0, "index":I
-    iget-object v1, p0, Landroidx/room/QueryInterceptorStatement;->mBindArgsCache:Ljava/util/List;
+    iget-object v0, p0, Landroidx/room/QueryInterceptorStatement;->mBindArgsCache:Ljava/util/List;
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result v1
+    move-result v0
 
-    if-lt v0, v1, :cond_0
+    if-lt p1, v0, :cond_0
 
     .line 122
-    iget-object v1, p0, Landroidx/room/QueryInterceptorStatement;->mBindArgsCache:Ljava/util/List;
+    iget-object v0, p0, Landroidx/room/QueryInterceptorStatement;->mBindArgsCache:Ljava/util/List;
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result v1
+    move-result v0
 
-    .local v1, "i":I
     :goto_0
-    if-gt v1, v0, :cond_0
+    if-gt v0, p1, :cond_0
 
     .line 123
-    iget-object v2, p0, Landroidx/room/QueryInterceptorStatement;->mBindArgsCache:Ljava/util/List;
+    iget-object v1, p0, Landroidx/room/QueryInterceptorStatement;->mBindArgsCache:Ljava/util/List;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 122
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 126
-    .end local v1    # "i":I
     :cond_0
-    iget-object v1, p0, Landroidx/room/QueryInterceptorStatement;->mBindArgsCache:Ljava/util/List;
+    iget-object v0, p0, Landroidx/room/QueryInterceptorStatement;->mBindArgsCache:Ljava/util/List;
 
-    invoke-interface {v1, v0, p2}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1, p2}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    .line 127
     return-void
 .end method
 
@@ -140,8 +127,6 @@
 # virtual methods
 .method public bindBlob(I[B)V
     .locals 1
-    .param p1, "index"    # I
-    .param p2, "value"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -161,14 +146,11 @@
 
     invoke-interface {v0, p1, p2}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindBlob(I[B)V
 
-    .line 105
     return-void
 .end method
 
 .method public bindDouble(ID)V
     .locals 1
-    .param p1, "index"    # I
-    .param p2, "value"    # D
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -192,14 +174,11 @@
 
     invoke-interface {v0, p1, p2, p3}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindDouble(ID)V
 
-    .line 93
     return-void
 .end method
 
 .method public bindLong(IJ)V
     .locals 1
-    .param p1, "index"    # I
-    .param p2, "value"    # J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -223,13 +202,11 @@
 
     invoke-interface {v0, p1, p2, p3}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindLong(IJ)V
 
-    .line 87
     return-void
 .end method
 
 .method public bindNull(I)V
     .locals 1
-    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -253,14 +230,11 @@
 
     invoke-interface {v0, p1}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindNull(I)V
 
-    .line 81
     return-void
 .end method
 
 .method public bindString(ILjava/lang/String;)V
     .locals 1
-    .param p1, "index"    # I
-    .param p2, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -280,7 +254,6 @@
 
     invoke-interface {v0, p1, p2}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindString(ILjava/lang/String;)V
 
-    .line 99
     return-void
 .end method
 
@@ -297,7 +270,6 @@
 
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteStatement;->clearBindings()V
 
-    .line 111
     return-void
 .end method
 
@@ -314,7 +286,6 @@
 
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteStatement;->close()V
 
-    .line 116
     return-void
 .end method
 
@@ -324,9 +295,9 @@
     .line 49
     iget-object v0, p0, Landroidx/room/QueryInterceptorStatement;->mQueryCallbackExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v1, Landroidx/room/-$$Lambda$QueryInterceptorStatement$iH1TCk5kArDy-rEFf8qt96rcVRA;
+    new-instance v1, Landroidx/room/QueryInterceptorStatement$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0}, Landroidx/room/-$$Lambda$QueryInterceptorStatement$iH1TCk5kArDy-rEFf8qt96rcVRA;-><init>(Landroidx/room/QueryInterceptorStatement;)V
+    invoke-direct {v1, p0}, Landroidx/room/QueryInterceptorStatement$$ExternalSyntheticLambda1;-><init>(Landroidx/room/QueryInterceptorStatement;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -335,7 +306,6 @@
 
     invoke-interface {v0}, Landroidx/sqlite/db/SupportSQLiteStatement;->execute()V
 
-    .line 51
     return-void
 .end method
 
@@ -345,9 +315,9 @@
     .line 61
     iget-object v0, p0, Landroidx/room/QueryInterceptorStatement;->mQueryCallbackExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v1, Landroidx/room/-$$Lambda$QueryInterceptorStatement$0COGdgKNCvtq3Y5PbSypvrI7yac;
+    new-instance v1, Landroidx/room/QueryInterceptorStatement$$ExternalSyntheticLambda2;
 
-    invoke-direct {v1, p0}, Landroidx/room/-$$Lambda$QueryInterceptorStatement$0COGdgKNCvtq3Y5PbSypvrI7yac;-><init>(Landroidx/room/QueryInterceptorStatement;)V
+    invoke-direct {v1, p0}, Landroidx/room/QueryInterceptorStatement$$ExternalSyntheticLambda2;-><init>(Landroidx/room/QueryInterceptorStatement;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -367,9 +337,9 @@
     .line 55
     iget-object v0, p0, Landroidx/room/QueryInterceptorStatement;->mQueryCallbackExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v1, Landroidx/room/-$$Lambda$QueryInterceptorStatement$490f-ocdjGA_4wBLT8US7pX6QkE;
+    new-instance v1, Landroidx/room/QueryInterceptorStatement$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Landroidx/room/-$$Lambda$QueryInterceptorStatement$490f-ocdjGA_4wBLT8US7pX6QkE;-><init>(Landroidx/room/QueryInterceptorStatement;)V
+    invoke-direct {v1, p0}, Landroidx/room/QueryInterceptorStatement$$ExternalSyntheticLambda0;-><init>(Landroidx/room/QueryInterceptorStatement;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -383,7 +353,7 @@
     return v0
 .end method
 
-.method public synthetic lambda$execute$0$QueryInterceptorStatement()V
+.method synthetic lambda$execute$0$androidx-room-QueryInterceptorStatement()V
     .locals 3
 
     .line 49
@@ -398,7 +368,7 @@
     return-void
 .end method
 
-.method public synthetic lambda$executeInsert$2$QueryInterceptorStatement()V
+.method synthetic lambda$executeInsert$2$androidx-room-QueryInterceptorStatement()V
     .locals 3
 
     .line 61
@@ -413,7 +383,7 @@
     return-void
 .end method
 
-.method public synthetic lambda$executeUpdateDelete$1$QueryInterceptorStatement()V
+.method synthetic lambda$executeUpdateDelete$1$androidx-room-QueryInterceptorStatement()V
     .locals 3
 
     .line 55
@@ -428,7 +398,7 @@
     return-void
 .end method
 
-.method public synthetic lambda$simpleQueryForLong$3$QueryInterceptorStatement()V
+.method synthetic lambda$simpleQueryForLong$3$androidx-room-QueryInterceptorStatement()V
     .locals 3
 
     .line 67
@@ -443,7 +413,7 @@
     return-void
 .end method
 
-.method public synthetic lambda$simpleQueryForString$4$QueryInterceptorStatement()V
+.method synthetic lambda$simpleQueryForString$4$androidx-room-QueryInterceptorStatement()V
     .locals 3
 
     .line 73
@@ -464,9 +434,9 @@
     .line 67
     iget-object v0, p0, Landroidx/room/QueryInterceptorStatement;->mQueryCallbackExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v1, Landroidx/room/-$$Lambda$QueryInterceptorStatement$M39iYbUHv9oCipdcZ_StStrr2Mg;
+    new-instance v1, Landroidx/room/QueryInterceptorStatement$$ExternalSyntheticLambda4;
 
-    invoke-direct {v1, p0}, Landroidx/room/-$$Lambda$QueryInterceptorStatement$M39iYbUHv9oCipdcZ_StStrr2Mg;-><init>(Landroidx/room/QueryInterceptorStatement;)V
+    invoke-direct {v1, p0}, Landroidx/room/QueryInterceptorStatement$$ExternalSyntheticLambda4;-><init>(Landroidx/room/QueryInterceptorStatement;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -486,9 +456,9 @@
     .line 73
     iget-object v0, p0, Landroidx/room/QueryInterceptorStatement;->mQueryCallbackExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v1, Landroidx/room/-$$Lambda$QueryInterceptorStatement$QMzychQGI-X-CzkpAz3FCq9KgV8;
+    new-instance v1, Landroidx/room/QueryInterceptorStatement$$ExternalSyntheticLambda3;
 
-    invoke-direct {v1, p0}, Landroidx/room/-$$Lambda$QueryInterceptorStatement$QMzychQGI-X-CzkpAz3FCq9KgV8;-><init>(Landroidx/room/QueryInterceptorStatement;)V
+    invoke-direct {v1, p0}, Landroidx/room/QueryInterceptorStatement$$ExternalSyntheticLambda3;-><init>(Landroidx/room/QueryInterceptorStatement;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 

@@ -20,9 +20,6 @@
 # virtual methods
 .method public sort(Ljava/lang/Class;Ljava/util/Map;)Ljava/util/Map;
     .locals 0
-    .param p1, "type"    # Ljava/lang/Class;
-    .param p2, "nameMap"    # Ljava/util/Map;
 
-    .line 26
     return-object p2
 .end method

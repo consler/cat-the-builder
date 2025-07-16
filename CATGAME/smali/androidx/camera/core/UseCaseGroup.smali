@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ViewPort;Ljava/util/List;)V
     .locals 0
-    .param p1, "viewPort"    # Landroidx/camera/core/ViewPort;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -40,7 +39,6 @@
     .end annotation
 
     .line 41
-    .local p2, "useCases":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/core/UseCase;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 42
@@ -49,7 +47,6 @@
     .line 43
     iput-object p2, p0, Landroidx/camera/core/UseCaseGroup;->mUseCases:Ljava/util/List;
 
-    .line 44
     return-void
 .end method
 

@@ -47,14 +47,11 @@
     .end annotation
 
     .line 485
-    .local p0, "this":Lorg/apache/commons/collections4/IterableUtils$UnmodifiableIterable;, "Lorg/apache/commons/collections4/IterableUtils$UnmodifiableIterable<TE;>;"
-    .local p1, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/FluentIterable;-><init>()V
 
     .line 486
     iput-object p1, p0, Lorg/apache/commons/collections4/IterableUtils$UnmodifiableIterable;->unmodifiable:Ljava/lang/Iterable;
 
-    .line 487
     return-void
 .end method
 
@@ -71,7 +68,6 @@
     .end annotation
 
     .line 491
-    .local p0, "this":Lorg/apache/commons/collections4/IterableUtils$UnmodifiableIterable;, "Lorg/apache/commons/collections4/IterableUtils$UnmodifiableIterable<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/IterableUtils$UnmodifiableIterable;->unmodifiable:Ljava/lang/Iterable;
 
     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;

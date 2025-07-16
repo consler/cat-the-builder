@@ -11,20 +11,18 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 39
     const/4 v0, 0x0
 
     new-array v0, v0, [F
 
+    .line 39
     invoke-direct {p0, v0}, Lcom/badlogic/gdx/maps/objects/PolylineMapObject;-><init>([F)V
 
-    .line 40
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/math/Polyline;)V
     .locals 0
-    .param p1, "polyline"    # Lcom/badlogic/gdx/math/Polyline;
 
     .line 48
     invoke-direct {p0}, Lcom/badlogic/gdx/maps/MapObject;-><init>()V
@@ -32,13 +30,11 @@
     .line 49
     iput-object p1, p0, Lcom/badlogic/gdx/maps/objects/PolylineMapObject;->polyline:Lcom/badlogic/gdx/math/Polyline;
 
-    .line 50
     return-void
 .end method
 
 .method public constructor <init>([F)V
     .locals 1
-    .param p1, "vertices"    # [F
 
     .line 43
     invoke-direct {p0}, Lcom/badlogic/gdx/maps/MapObject;-><init>()V
@@ -50,7 +46,6 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/maps/objects/PolylineMapObject;->polyline:Lcom/badlogic/gdx/math/Polyline;
 
-    .line 45
     return-void
 .end method
 
@@ -67,11 +62,9 @@
 
 .method public setPolyline(Lcom/badlogic/gdx/math/Polyline;)V
     .locals 0
-    .param p1, "polyline"    # Lcom/badlogic/gdx/math/Polyline;
 
     .line 34
     iput-object p1, p0, Lcom/badlogic/gdx/maps/objects/PolylineMapObject;->polyline:Lcom/badlogic/gdx/math/Polyline;
 
-    .line 35
     return-void
 .end method

@@ -36,17 +36,16 @@
 
 # virtual methods
 .method public match(Lar/com/hjg/pngj/chunks/PngChunk;)Z
-    .locals 2
-    .param p1, "c"    # Lar/com/hjg/pngj/chunks/PngChunk;
+    .locals 1
 
     .line 54
-    iget-object v0, p1, Lar/com/hjg/pngj/chunks/PngChunk;->id:Ljava/lang/String;
+    iget-object p1, p1, Lar/com/hjg/pngj/chunks/PngChunk;->id:Ljava/lang/String;
 
-    iget-object v1, p0, Lar/com/hjg/pngj/chunks/ChunksList$1;->val$id:Ljava/lang/String;
+    iget-object v0, p0, Lar/com/hjg/pngj/chunks/ChunksList$1;->val$id:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

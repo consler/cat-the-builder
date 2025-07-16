@@ -36,10 +36,8 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$EntryValues$1;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "this$2"    # Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$EntryValues$1;
 
     .line 629
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$EntryValues$1$1;, "Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$EntryValues$1$1;"
     iput-object p1, p0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$EntryValues$1$1;->this$2:Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$EntryValues$1;
 
     iput-object p2, p0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$EntryValues$1$1;->val$key:Ljava/lang/Object;
@@ -55,7 +53,6 @@
     .locals 0
 
     .line 629
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$EntryValues$1$1;, "Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$EntryValues$1$1;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$EntryValues$1$1;->transform(Ljava/lang/Object;)Ljava/util/Map$Entry;
 
     move-result-object p1
@@ -74,8 +71,6 @@
     .end annotation
 
     .line 633
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$EntryValues$1$1;, "Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$EntryValues$1$1;"
-    .local p1, "input":Ljava/lang/Object;, "TV;"
     new-instance v0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$MultiValuedMapEntry;
 
     iget-object v1, p0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$EntryValues$1$1;->this$2:Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$EntryValues$1;

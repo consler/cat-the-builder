@@ -4,11 +4,13 @@
 
 
 # static fields
-.field static final a:Lcom/huawei/hms/api/a;
+.field static final b:Lcom/huawei/hms/api/a;
+
+.field private static final c:Ljava/lang/Object;
 
 
 # instance fields
-.field b:Ljava/util/List;
+.field a:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -23,12 +25,19 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 19
+    .line 1
     new-instance v0, Lcom/huawei/hms/api/a;
 
     invoke-direct {v0}, Lcom/huawei/hms/api/a;-><init>()V
 
-    sput-object v0, Lcom/huawei/hms/api/a;->a:Lcom/huawei/hms/api/a;
+    sput-object v0, Lcom/huawei/hms/api/a;->b:Lcom/huawei/hms/api/a;
+
+    .line 4
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    sput-object v0, Lcom/huawei/hms/api/a;->c:Ljava/lang/Object;
 
     return-void
 .end method
@@ -36,17 +45,17 @@
 .method constructor <init>()V
     .locals 2
 
-    .line 18
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 21
+    .line 4
     new-instance v0, Ljava/util/ArrayList;
 
     const/4 v1, 0x1
 
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
-    iput-object v0, p0, Lcom/huawei/hms/api/a;->b:Ljava/util/List;
+    iput-object v0, p0, Lcom/huawei/hms/api/a;->a:Ljava/util/List;
 
     return-void
 .end method
@@ -54,64 +63,99 @@
 
 # virtual methods
 .method a(Landroid/app/Activity;)V
-    .locals 3
+    .locals 4
 
-    .line 29
-    iget-object v0, p0, Lcom/huawei/hms/api/a;->b:Ljava/util/List;
+    .line 1
+    sget-object v0, Lcom/huawei/hms/api/a;->c:Ljava/lang/Object;
 
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    monitor-enter v0
 
-    move-result-object v0
+    .line 2
+    :try_start_0
+    iget-object v1, p0, Lcom/huawei/hms/api/a;->a:Ljava/util/List;
 
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    check-cast v1, Landroid/app/Activity;
-
-    .line 30
-    if-eqz v1, :cond_0
-
-    if-eq v1, p1, :cond_0
-
-    invoke-virtual {v1}, Landroid/app/Activity;->isFinishing()Z
+    .line 4
+    :cond_0
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-eqz v2, :cond_1
 
-    .line 31
-    invoke-virtual {v1}, Landroid/app/Activity;->finish()V
+    .line 5
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    .line 33
-    :cond_0
+    move-result-object v2
+
+    check-cast v2, Landroid/app/Activity;
+
+    if-eqz v2, :cond_0
+
+    if-eq v2, p1, :cond_0
+
+    .line 6
+    invoke-virtual {v2}, Landroid/app/Activity;->isFinishing()Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    .line 7
+    invoke-virtual {v2}, Landroid/app/Activity;->finish()V
+
     goto :goto_0
 
-    .line 35
+    .line 10
     :cond_1
-    iget-object v0, p0, Lcom/huawei/hms/api/a;->b:Ljava/util/List;
+    iget-object v1, p0, Lcom/huawei/hms/api/a;->a:Ljava/util/List;
 
-    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 36
+    .line 11
+    monitor-exit v0
+
     return-void
+
+    :catchall_0
+    move-exception p1
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p1
 .end method
 
 .method b(Landroid/app/Activity;)V
-    .locals 1
+    .locals 2
 
-    .line 44
-    iget-object v0, p0, Lcom/huawei/hms/api/a;->b:Ljava/util/List;
+    .line 1
+    sget-object v0, Lcom/huawei/hms/api/a;->c:Ljava/lang/Object;
 
-    invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+    monitor-enter v0
 
-    .line 45
+    .line 2
+    :try_start_0
+    iget-object v1, p0, Lcom/huawei/hms/api/a;->a:Ljava/util/List;
+
+    invoke-interface {v1, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+
+    .line 3
+    monitor-exit v0
+
     return-void
+
+    :catchall_0
+    move-exception p1
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p1
 .end method

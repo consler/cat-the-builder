@@ -65,7 +65,6 @@
 # direct methods
 .method public constructor <init>(Lkotlin/reflect/KClass;)V
     .locals 1
-    .param p1, "type"    # Lkotlin/reflect/KClass;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -86,9 +85,9 @@
     .line 7
     invoke-static {p1}, Lorg/koin/ext/KClassExtKt;->getFullName(Lkotlin/reflect/KClass;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lorg/koin/core/qualifier/TypeQualifier;->value:Ljava/lang/String;
+    iput-object p1, p0, Lorg/koin/core/qualifier/TypeQualifier;->value:Ljava/lang/String;
 
     return-void
 .end method
@@ -235,11 +234,9 @@
     .line 9
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "q:\'"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lorg/koin/core/qualifier/TypeQualifier;->getValue()Ljava/lang/String;
 
@@ -247,9 +244,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const/16 v1, 0x27
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

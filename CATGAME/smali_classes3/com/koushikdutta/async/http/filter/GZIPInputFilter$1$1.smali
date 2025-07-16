@@ -32,7 +32,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;
 
     .line 69
     iput-object p1, p0, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$1;->this$1:Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;
@@ -57,7 +56,6 @@
 
 .method public parsed([B)V
     .locals 3
-    .param p1, "header"    # [B
 
     .line 71
     iget-object v0, p0, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$1;->this$1:Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;
@@ -85,24 +83,22 @@
 
     invoke-static {p1, v1, v0}, Lcom/koushikdutta/async/http/filter/GZIPInputFilter;->peekShort([BILjava/nio/ByteOrder;)S
 
-    move-result v0
+    move-result p1
 
-    const v1, 0xffff
+    const v0, 0xffff
 
-    and-int/2addr v0, v1
+    and-int/2addr p1, v0
 
     .line 75
-    .local v0, "length":I
-    iget-object v1, p0, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$1;->this$1:Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;
+    iget-object v0, p0, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$1;->this$1:Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;
 
-    iget-object v1, v1, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;->val$parser:Lcom/koushikdutta/async/PushParser;
+    iget-object v0, v0, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;->val$parser:Lcom/koushikdutta/async/PushParser;
 
-    new-instance v2, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$1$1;
+    new-instance v1, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$1$1;
 
-    invoke-direct {v2, p0}, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$1$1;-><init>(Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$1;)V
+    invoke-direct {v1, p0}, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$1$1;-><init>(Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$1;)V
 
-    invoke-virtual {v1, v0, v2}, Lcom/koushikdutta/async/PushParser;->readByteArray(ILcom/koushikdutta/async/PushParser$ParseCallback;)Lcom/koushikdutta/async/PushParser;
+    invoke-virtual {v0, p1, v1}, Lcom/koushikdutta/async/PushParser;->readByteArray(ILcom/koushikdutta/async/PushParser$ParseCallback;)Lcom/koushikdutta/async/PushParser;
 
-    .line 83
     return-void
 .end method

@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/google/crypto/tink/aead/AesEaxKeyManager;Ljava/lang/Class;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/google/crypto/tink/aead/AesEaxKeyManager;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
@@ -43,7 +42,6 @@
     .end annotation
 
     .line 83
-    .local p2, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<Lcom/google/crypto/tink/proto/AesEaxKeyFormat;>;"
     iput-object p1, p0, Lcom/google/crypto/tink/aead/AesEaxKeyManager$2;->this$0:Lcom/google/crypto/tink/aead/AesEaxKeyManager;
 
     invoke-direct {p0, p2}, Lcom/google/crypto/tink/KeyTypeManager$KeyFactory;-><init>(Ljava/lang/Class;)V
@@ -55,7 +53,6 @@
 # virtual methods
 .method public createKey(Lcom/google/crypto/tink/proto/AesEaxKeyFormat;)Lcom/google/crypto/tink/proto/AesEaxKey;
     .locals 2
-    .param p1, "format"    # Lcom/google/crypto/tink/proto/AesEaxKeyFormat;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -96,32 +93,31 @@
     .line 103
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/AesEaxKeyFormat;->getParams()Lcom/google/crypto/tink/proto/AesEaxParams;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/proto/AesEaxKey$Builder;->setParams(Lcom/google/crypto/tink/proto/AesEaxParams;)Lcom/google/crypto/tink/proto/AesEaxKey$Builder;
+    invoke-virtual {v0, p1}, Lcom/google/crypto/tink/proto/AesEaxKey$Builder;->setParams(Lcom/google/crypto/tink/proto/AesEaxParams;)Lcom/google/crypto/tink/proto/AesEaxKey$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Lcom/google/crypto/tink/aead/AesEaxKeyManager$2;->this$0:Lcom/google/crypto/tink/aead/AesEaxKeyManager;
+    iget-object v0, p0, Lcom/google/crypto/tink/aead/AesEaxKeyManager$2;->this$0:Lcom/google/crypto/tink/aead/AesEaxKeyManager;
 
     .line 104
-    invoke-virtual {v1}, Lcom/google/crypto/tink/aead/AesEaxKeyManager;->getVersion()I
+    invoke-virtual {v0}, Lcom/google/crypto/tink/aead/AesEaxKeyManager;->getVersion()I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/proto/AesEaxKey$Builder;->setVersion(I)Lcom/google/crypto/tink/proto/AesEaxKey$Builder;
+    invoke-virtual {p1, v0}, Lcom/google/crypto/tink/proto/AesEaxKey$Builder;->setVersion(I)Lcom/google/crypto/tink/proto/AesEaxKey$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 105
-    invoke-virtual {v0}, Lcom/google/crypto/tink/proto/AesEaxKey$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/AesEaxKey$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/google/crypto/tink/proto/AesEaxKey;
+    check-cast p1, Lcom/google/crypto/tink/proto/AesEaxKey;
 
-    .line 101
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic createKey(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)Ljava/lang/Object;
@@ -153,7 +149,6 @@
 
 .method public parseKeyFormat(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/AesEaxKeyFormat;
     .locals 1
-    .param p1, "byteString"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -176,9 +171,9 @@
 
     invoke-static {p1, v0}, Lcom/google/crypto/tink/proto/AesEaxKeyFormat;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/AesEaxKeyFormat;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic parseKeyFormat(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
@@ -208,7 +203,6 @@
 
 .method public validateKeyFormat(Lcom/google/crypto/tink/proto/AesEaxKeyFormat;)V
     .locals 2
-    .param p1, "format"    # Lcom/google/crypto/tink/proto/AesEaxKeyFormat;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -246,29 +240,28 @@
 
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/AesEaxKeyFormat;->getParams()Lcom/google/crypto/tink/proto/AesEaxParams;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/google/crypto/tink/proto/AesEaxParams;->getIvSize()I
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/AesEaxParams;->getIvSize()I
 
-    move-result v0
+    move-result p1
 
-    const/16 v1, 0x10
+    const/16 v0, 0x10
 
-    if-ne v0, v1, :cond_0
+    if-ne p1, v0, :cond_0
 
     goto :goto_0
 
     .line 88
     :cond_0
-    new-instance v0, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    const-string v1, "invalid IV size; acceptable values have 12 or 16 bytes"
+    const-string v0, "invalid IV size; acceptable values have 12 or 16 bytes"
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 91
     :cond_1
     :goto_0
     return-void

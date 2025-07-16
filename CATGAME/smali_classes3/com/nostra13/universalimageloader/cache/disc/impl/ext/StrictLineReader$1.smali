@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/nostra13/universalimageloader/cache/disc/impl/ext/StrictLineReader;I)V
     .locals 0
-    .param p2, "x0"    # I
 
     .line 147
     iput-object p1, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/ext/StrictLineReader$1;->this$0:Lcom/nostra13/universalimageloader/cache/disc/impl/ext/StrictLineReader;
@@ -63,40 +62,37 @@
     iget v0, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/ext/StrictLineReader$1;->count:I
 
     .line 152
-    .local v0, "length":I
     :goto_0
     :try_start_0
     new-instance v1, Ljava/lang/String;
 
     iget-object v2, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/ext/StrictLineReader$1;->buf:[B
 
-    const/4 v3, 0x0
+    iget-object v3, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/ext/StrictLineReader$1;->this$0:Lcom/nostra13/universalimageloader/cache/disc/impl/ext/StrictLineReader;
 
-    iget-object v4, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/ext/StrictLineReader$1;->this$0:Lcom/nostra13/universalimageloader/cache/disc/impl/ext/StrictLineReader;
+    invoke-static {v3}, Lcom/nostra13/universalimageloader/cache/disc/impl/ext/StrictLineReader;->access$000(Lcom/nostra13/universalimageloader/cache/disc/impl/ext/StrictLineReader;)Ljava/nio/charset/Charset;
 
-    invoke-static {v4}, Lcom/nostra13/universalimageloader/cache/disc/impl/ext/StrictLineReader;->access$000(Lcom/nostra13/universalimageloader/cache/disc/impl/ext/StrictLineReader;)Ljava/nio/charset/Charset;
+    move-result-object v3
 
-    move-result-object v4
+    invoke-virtual {v3}, Ljava/nio/charset/Charset;->name()Ljava/lang/String;
 
-    invoke-virtual {v4}, Ljava/nio/charset/Charset;->name()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v4
+    const/4 v4, 0x0
 
-    invoke-direct {v1, v2, v3, v0, v4}, Ljava/lang/String;-><init>([BIILjava/lang/String;)V
+    invoke-direct {v1, v2, v4, v0, v3}, Ljava/lang/String;-><init>([BIILjava/lang/String;)V
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-object v1
 
-    .line 153
     :catch_0
-    move-exception v1
+    move-exception v0
 
     .line 154
-    .local v1, "e":Ljava/io/UnsupportedEncodingException;
-    new-instance v2, Ljava/lang/AssertionError;
+    new-instance v1, Ljava/lang/AssertionError;
 
-    invoke-direct {v2, v1}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+    invoke-direct {v1, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
-    throw v2
+    throw v1
 .end method

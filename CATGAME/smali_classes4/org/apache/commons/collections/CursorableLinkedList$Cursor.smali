@@ -25,8 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections/CursorableLinkedList;I)V
-    .locals 1
-    .param p2, "index"    # I
+    .locals 0
 
     .line 1111
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;-><init>(Lorg/apache/commons/collections/CursorableLinkedList;I)V
@@ -34,20 +33,14 @@
     .line 1110
     iput-object p1, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->this$0:Lorg/apache/commons/collections/CursorableLinkedList;
 
-    .line 1108
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_valid:Z
+    const/4 p2, 0x1
 
     .line 1112
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_valid:Z
+    iput-boolean p2, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_valid:Z
 
     .line 1113
     invoke-virtual {p1, p0}, Lorg/apache/commons/collections/CursorableLinkedList;->registerCursor(Lorg/apache/commons/collections/CursorableLinkedList$Cursor;)V
 
-    .line 1114
     return-void
 .end method
 
@@ -55,7 +48,6 @@
 # virtual methods
 .method public add(Ljava/lang/Object;)V
     .locals 3
-    .param p1, "o"    # Ljava/lang/Object;
 
     .line 1125
     invoke-virtual {p0}, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->checkForComod()V
@@ -77,43 +69,41 @@
 
     invoke-virtual {v0, v1, v2, p1}, Lorg/apache/commons/collections/CursorableLinkedList;->insertListable(Lorg/apache/commons/collections/CursorableLinkedList$Listable;Lorg/apache/commons/collections/CursorableLinkedList$Listable;Ljava/lang/Object;)Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 1127
-    .local v0, "elt":Lorg/apache/commons/collections/CursorableLinkedList$Listable;
-    iget-object v1, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_cur:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+    iget-object v0, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_cur:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    invoke-virtual {v1, v0}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->setPrev(Lorg/apache/commons/collections/CursorableLinkedList$Listable;)V
+    invoke-virtual {v0, p1}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->setPrev(Lorg/apache/commons/collections/CursorableLinkedList$Listable;)V
 
     .line 1128
-    iget-object v1, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_cur:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+    iget-object v0, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_cur:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    invoke-virtual {v0}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->next()Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+    invoke-virtual {p1}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->next()Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->setNext(Lorg/apache/commons/collections/CursorableLinkedList$Listable;)V
+    invoke-virtual {v0, p1}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->setNext(Lorg/apache/commons/collections/CursorableLinkedList$Listable;)V
+
+    const/4 p1, 0x0
 
     .line 1129
-    const/4 v1, 0x0
-
-    iput-object v1, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_lastReturned:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+    iput-object p1, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_lastReturned:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
     .line 1130
-    iget v1, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_nextIndex:I
+    iget p1, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_nextIndex:I
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v1, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_nextIndex:I
+    iput p1, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_nextIndex:I
 
     .line 1131
-    iget v1, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_expectedModCount:I
+    iget p1, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_expectedModCount:I
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v1, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_expectedModCount:I
+    iput p1, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_expectedModCount:I
 
-    .line 1132
     return-void
 .end method
 
@@ -125,7 +115,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 1174
     return-void
 
     .line 1172
@@ -145,9 +134,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 1190
     const/4 v0, 0x0
 
+    .line 1190
     iput-boolean v0, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_valid:Z
 
     .line 1191
@@ -155,7 +144,6 @@
 
     invoke-virtual {v0, p0}, Lorg/apache/commons/collections/CursorableLinkedList;->unregisterCursor(Lorg/apache/commons/collections/CursorableLinkedList$Cursor;)V
 
-    .line 1193
     :cond_0
     return-void
 .end method
@@ -163,37 +151,33 @@
 .method protected invalidate()V
     .locals 1
 
-    .line 1177
     const/4 v0, 0x0
 
+    .line 1177
     iput-boolean v0, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_valid:Z
 
-    .line 1178
     return-void
 .end method
 
 .method protected listableChanged(Lorg/apache/commons/collections/CursorableLinkedList$Listable;)V
     .locals 1
-    .param p1, "elt"    # Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
     .line 1165
     iget-object v0, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_lastReturned:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
     if-ne v0, p1, :cond_0
 
+    const/4 p1, 0x0
+
     .line 1166
-    const/4 v0, 0x0
+    iput-object p1, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_lastReturned:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    iput-object v0, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_lastReturned:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
-
-    .line 1168
     :cond_0
     return-void
 .end method
 
 .method protected listableInserted(Lorg/apache/commons/collections/CursorableLinkedList$Listable;)V
     .locals 2
-    .param p1, "elt"    # Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
     .line 1151
     iget-object v0, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_cur:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
@@ -264,19 +248,17 @@
 
     if-ne v0, p1, :cond_3
 
+    const/4 p1, 0x0
+
     .line 1160
-    const/4 v0, 0x0
+    iput-object p1, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_lastReturned:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    iput-object v0, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_lastReturned:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
-
-    .line 1162
     :cond_3
     return-void
 .end method
 
 .method protected listableRemoved(Lorg/apache/commons/collections/CursorableLinkedList$Listable;)V
     .locals 3
-    .param p1, "elt"    # Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
     .line 1135
     iget-object v0, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->this$0:Lorg/apache/commons/collections/CursorableLinkedList;
@@ -366,7 +348,6 @@
     .line 1146
     iput-object v1, p0, Lorg/apache/commons/collections/CursorableLinkedList$Cursor;->_lastReturned:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    .line 1148
     :cond_4
     return-void
 .end method

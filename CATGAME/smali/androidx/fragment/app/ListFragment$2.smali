@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/ListFragment;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/fragment/app/ListFragment;
 
     .line 60
     iput-object p1, p0, Landroidx/fragment/app/ListFragment$2;->this$0:Landroidx/fragment/app/ListFragment;
@@ -38,9 +37,6 @@
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 6
-    .param p2, "v"    # Landroid/view/View;
-    .param p3, "position"    # I
-    .param p4, "id"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -52,7 +48,6 @@
     .end annotation
 
     .line 63
-    .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     iget-object v0, p0, Landroidx/fragment/app/ListFragment$2;->this$0:Landroidx/fragment/app/ListFragment;
 
     move-object v1, p1
@@ -67,6 +62,5 @@
 
     invoke-virtual/range {v0 .. v5}, Landroidx/fragment/app/ListFragment;->onListItemClick(Landroid/widget/ListView;Landroid/view/View;IJ)V
 
-    .line 64
     return-void
 .end method

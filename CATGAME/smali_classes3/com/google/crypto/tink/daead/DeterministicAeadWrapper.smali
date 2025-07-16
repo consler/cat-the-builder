@@ -81,7 +81,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/Registry;->registerPrimitiveWrapper(Lcom/google/crypto/tink/PrimitiveWrapper;)V
 
-    .line 114
     return-void
 .end method
 
@@ -143,7 +142,6 @@
     .end annotation
 
     .line 99
-    .local p1, "primitives":Lcom/google/crypto/tink/PrimitiveSet;, "Lcom/google/crypto/tink/PrimitiveSet<Lcom/google/crypto/tink/DeterministicAead;>;"
     new-instance v0, Lcom/google/crypto/tink/daead/DeterministicAeadWrapper$WrappedDeterministicAead;
 
     invoke-direct {v0, p1}, Lcom/google/crypto/tink/daead/DeterministicAeadWrapper$WrappedDeterministicAead;-><init>(Lcom/google/crypto/tink/PrimitiveSet;)V

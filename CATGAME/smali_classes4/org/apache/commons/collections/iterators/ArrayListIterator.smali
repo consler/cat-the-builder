@@ -18,86 +18,75 @@
     .line 68
     invoke-direct {p0}, Lorg/apache/commons/collections/iterators/ArrayIterator;-><init>()V
 
-    .line 57
     const/4 v0, -0x1
 
+    .line 57
     iput v0, p0, Lorg/apache/commons/collections/iterators/ArrayListIterator;->lastItemIndex:I
 
-    .line 69
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "array"    # Ljava/lang/Object;
+    .locals 0
 
     .line 80
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/iterators/ArrayIterator;-><init>(Ljava/lang/Object;)V
 
+    const/4 p1, -0x1
+
     .line 57
-    const/4 v0, -0x1
+    iput p1, p0, Lorg/apache/commons/collections/iterators/ArrayListIterator;->lastItemIndex:I
 
-    iput v0, p0, Lorg/apache/commons/collections/iterators/ArrayListIterator;->lastItemIndex:I
-
-    .line 81
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;I)V
-    .locals 1
-    .param p1, "array"    # Ljava/lang/Object;
-    .param p2, "startIndex"    # I
+    .locals 0
 
     .line 94
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections/iterators/ArrayIterator;-><init>(Ljava/lang/Object;I)V
 
-    .line 57
-    const/4 v0, -0x1
+    const/4 p1, -0x1
 
-    iput v0, p0, Lorg/apache/commons/collections/iterators/ArrayListIterator;->lastItemIndex:I
+    .line 57
+    iput p1, p0, Lorg/apache/commons/collections/iterators/ArrayListIterator;->lastItemIndex:I
 
     .line 95
     iput p2, p0, Lorg/apache/commons/collections/iterators/ArrayListIterator;->startIndex:I
 
-    .line 96
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;II)V
-    .locals 1
-    .param p1, "array"    # Ljava/lang/Object;
-    .param p2, "startIndex"    # I
-    .param p3, "endIndex"    # I
+    .locals 0
 
     .line 111
     invoke-direct {p0, p1, p2, p3}, Lorg/apache/commons/collections/iterators/ArrayIterator;-><init>(Ljava/lang/Object;II)V
 
-    .line 57
-    const/4 v0, -0x1
+    const/4 p1, -0x1
 
-    iput v0, p0, Lorg/apache/commons/collections/iterators/ArrayListIterator;->lastItemIndex:I
+    .line 57
+    iput p1, p0, Lorg/apache/commons/collections/iterators/ArrayListIterator;->lastItemIndex:I
 
     .line 112
     iput p2, p0, Lorg/apache/commons/collections/iterators/ArrayListIterator;->startIndex:I
 
-    .line 113
     return-void
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 1
 
     .line 180
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "add() method is not supported"
+    const-string v0, "add() method is not supported"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public hasPrevious()Z
@@ -233,18 +222,16 @@
     .line 210
     invoke-super {p0}, Lorg/apache/commons/collections/iterators/ArrayIterator;->reset()V
 
-    .line 211
     const/4 v0, -0x1
 
+    .line 211
     iput v0, p0, Lorg/apache/commons/collections/iterators/ArrayListIterator;->lastItemIndex:I
 
-    .line 212
     return-void
 .end method
 
 .method public set(Ljava/lang/Object;)V
     .locals 2
-    .param p1, "o"    # Ljava/lang/Object;
 
     .line 199
     iget v0, p0, Lorg/apache/commons/collections/iterators/ArrayListIterator;->lastItemIndex:I
@@ -260,16 +247,15 @@
 
     invoke-static {v0, v1, p1}, Ljava/lang/reflect/Array;->set(Ljava/lang/Object;ILjava/lang/Object;)V
 
-    .line 204
     return-void
 
     .line 200
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "must call next() or previous() before a call to set()"
+    const-string v0, "must call next() or previous() before a call to set()"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

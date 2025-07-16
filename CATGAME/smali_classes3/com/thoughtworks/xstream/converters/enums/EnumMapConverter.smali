@@ -29,12 +29,10 @@
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/mapper/Mapper;)V
     .locals 0
-    .param p1, "mapper"    # Lcom/thoughtworks/xstream/mapper/Mapper;
 
     .line 43
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/converters/collections/MapConverter;-><init>(Lcom/thoughtworks/xstream/mapper/Mapper;)V
 
-    .line 44
     return-void
 .end method
 
@@ -42,7 +40,6 @@
 # virtual methods
 .method public canConvert(Ljava/lang/Class;)Z
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
 
     .line 47
     sget-object v0, Lcom/thoughtworks/xstream/converters/enums/EnumMapConverter;->typeField:Ljava/lang/reflect/Field;
@@ -53,22 +50,19 @@
 
     if-ne p1, v0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public marshal(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
     .locals 3
-    .param p1, "source"    # Ljava/lang/Object;
-    .param p2, "writer"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
-    .param p3, "context"    # Lcom/thoughtworks/xstream/converters/MarshallingContext;
 
     .line 51
     sget-object v0, Lcom/thoughtworks/xstream/converters/enums/EnumMapConverter;->typeField:Ljava/lang/reflect/Field;
@@ -80,7 +74,6 @@
     check-cast v0, Ljava/lang/Class;
 
     .line 52
-    .local v0, "type":Ljava/lang/Class;
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/converters/enums/EnumMapConverter;->mapper()Lcom/thoughtworks/xstream/mapper/Mapper;
 
     move-result-object v1
@@ -91,8 +84,6 @@
 
     move-result-object v1
 
-    .line 53
-    .local v1, "attributeName":Ljava/lang/String;
     if-eqz v1, :cond_0
 
     .line 54
@@ -102,22 +93,19 @@
 
     invoke-interface {v2, v0}, Lcom/thoughtworks/xstream/mapper/Mapper;->serializedClass(Ljava/lang/Class;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {p2, v1, v2}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->addAttribute(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-interface {p2, v1, v0}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->addAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 56
     :cond_0
     invoke-super {p0, p1, p2, p3}, Lcom/thoughtworks/xstream/converters/collections/MapConverter;->marshal(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
 
-    .line 57
     return-void
 .end method
 
 .method public unmarshal(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;)Ljava/lang/Object;
-    .locals 3
-    .param p1, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .param p2, "context"    # Lcom/thoughtworks/xstream/converters/UnmarshallingContext;
+    .locals 2
 
     .line 61
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/converters/enums/EnumMapConverter;->mapper()Lcom/thoughtworks/xstream/mapper/Mapper;
@@ -130,8 +118,6 @@
 
     move-result-object v0
 
-    .line 62
-    .local v0, "attributeName":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 65
@@ -141,34 +127,29 @@
 
     invoke-interface {p1, v0}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {v1, v2}, Lcom/thoughtworks/xstream/mapper/Mapper;->realClass(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-interface {v1, v0}, Lcom/thoughtworks/xstream/mapper/Mapper;->realClass(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 66
-    .local v1, "type":Ljava/lang/Class;
-    new-instance v2, Ljava/util/EnumMap;
+    new-instance v1, Ljava/util/EnumMap;
 
-    invoke-direct {v2, v1}, Ljava/util/EnumMap;-><init>(Ljava/lang/Class;)V
+    invoke-direct {v1, v0}, Ljava/util/EnumMap;-><init>(Ljava/lang/Class;)V
 
     .line 67
-    .local v2, "map":Ljava/util/EnumMap;
-    invoke-virtual {p0, p1, p2, v2}, Lcom/thoughtworks/xstream/converters/enums/EnumMapConverter;->populateMap(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;Ljava/util/Map;)V
+    invoke-virtual {p0, p1, p2, v1}, Lcom/thoughtworks/xstream/converters/enums/EnumMapConverter;->populateMap(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;Ljava/util/Map;)V
 
-    .line 68
-    return-object v2
+    return-object v1
 
     .line 63
-    .end local v1    # "type":Ljava/lang/Class;
-    .end local v2    # "map":Ljava/util/EnumMap;
     :cond_0
-    new-instance v1, Lcom/thoughtworks/xstream/converters/ConversionException;
+    new-instance p1, Lcom/thoughtworks/xstream/converters/ConversionException;
 
-    const-string v2, "No EnumType specified for EnumMap"
+    const-string p2, "No EnumType specified for EnumMap"
 
-    invoke-direct {v1, v2}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 .end method

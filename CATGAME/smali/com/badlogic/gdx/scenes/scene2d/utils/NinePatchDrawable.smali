@@ -17,13 +17,11 @@
     .line 36
     invoke-direct {p0}, Lcom/badlogic/gdx/scenes/scene2d/utils/BaseDrawable;-><init>()V
 
-    .line 37
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g2d/NinePatch;)V
     .locals 0
-    .param p1, "patch"    # Lcom/badlogic/gdx/graphics/g2d/NinePatch;
 
     .line 39
     invoke-direct {p0}, Lcom/badlogic/gdx/scenes/scene2d/utils/BaseDrawable;-><init>()V
@@ -31,23 +29,20 @@
     .line 40
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/scenes/scene2d/utils/NinePatchDrawable;->setPatch(Lcom/badlogic/gdx/graphics/g2d/NinePatch;)V
 
-    .line 41
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/utils/NinePatchDrawable;)V
-    .locals 1
-    .param p1, "drawable"    # Lcom/badlogic/gdx/scenes/scene2d/utils/NinePatchDrawable;
+    .locals 0
 
     .line 44
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/scenes/scene2d/utils/BaseDrawable;-><init>(Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;)V
 
     .line 45
-    iget-object v0, p1, Lcom/badlogic/gdx/scenes/scene2d/utils/NinePatchDrawable;->patch:Lcom/badlogic/gdx/graphics/g2d/NinePatch;
+    iget-object p1, p1, Lcom/badlogic/gdx/scenes/scene2d/utils/NinePatchDrawable;->patch:Lcom/badlogic/gdx/graphics/g2d/NinePatch;
 
-    iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/NinePatchDrawable;->patch:Lcom/badlogic/gdx/graphics/g2d/NinePatch;
+    iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/NinePatchDrawable;->patch:Lcom/badlogic/gdx/graphics/g2d/NinePatch;
 
-    .line 46
     return-void
 .end method
 
@@ -55,11 +50,6 @@
 # virtual methods
 .method public draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
     .locals 6
-    .param p1, "batch"    # Lcom/badlogic/gdx/graphics/g2d/Batch;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
-    .param p4, "width"    # F
-    .param p5, "height"    # F
 
     .line 49
     iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/NinePatchDrawable;->patch:Lcom/badlogic/gdx/graphics/g2d/NinePatch;
@@ -76,26 +66,15 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/badlogic/gdx/graphics/g2d/NinePatch;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
 
-    .line 50
     return-void
 .end method
 
 .method public draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFFFFFFF)V
     .locals 12
-    .param p1, "batch"    # Lcom/badlogic/gdx/graphics/g2d/Batch;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
-    .param p4, "originX"    # F
-    .param p5, "originY"    # F
-    .param p6, "width"    # F
-    .param p7, "height"    # F
-    .param p8, "scaleX"    # F
-    .param p9, "scaleY"    # F
-    .param p10, "rotation"    # F
 
-    .line 54
     move-object v0, p0
 
+    .line 54
     iget-object v1, v0, Lcom/badlogic/gdx/scenes/scene2d/utils/NinePatchDrawable;->patch:Lcom/badlogic/gdx/graphics/g2d/NinePatch;
 
     move-object v2, p1
@@ -120,7 +99,6 @@
 
     invoke-virtual/range {v1 .. v11}, Lcom/badlogic/gdx/graphics/g2d/NinePatch;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFFFFFFF)V
 
-    .line 55
     return-void
 .end method
 
@@ -135,7 +113,6 @@
 
 .method public setPatch(Lcom/badlogic/gdx/graphics/g2d/NinePatch;)V
     .locals 1
-    .param p1, "patch"    # Lcom/badlogic/gdx/graphics/g2d/NinePatch;
 
     .line 60
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/NinePatchDrawable;->patch:Lcom/badlogic/gdx/graphics/g2d/NinePatch;
@@ -178,17 +155,15 @@
     .line 66
     invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/g2d/NinePatch;->getPadLeft()F
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/scenes/scene2d/utils/NinePatchDrawable;->setLeftWidth(F)V
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/scenes/scene2d/utils/NinePatchDrawable;->setLeftWidth(F)V
 
-    .line 67
     return-void
 .end method
 
 .method public tint(Lcom/badlogic/gdx/graphics/Color;)Lcom/badlogic/gdx/scenes/scene2d/utils/NinePatchDrawable;
     .locals 3
-    .param p1, "tint"    # Lcom/badlogic/gdx/graphics/Color;
 
     .line 75
     new-instance v0, Lcom/badlogic/gdx/scenes/scene2d/utils/NinePatchDrawable;
@@ -196,7 +171,6 @@
     invoke-direct {v0, p0}, Lcom/badlogic/gdx/scenes/scene2d/utils/NinePatchDrawable;-><init>(Lcom/badlogic/gdx/scenes/scene2d/utils/NinePatchDrawable;)V
 
     .line 76
-    .local v0, "drawable":Lcom/badlogic/gdx/scenes/scene2d/utils/NinePatchDrawable;
     new-instance v1, Lcom/badlogic/gdx/graphics/g2d/NinePatch;
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/utils/NinePatchDrawable;->getPatch()Lcom/badlogic/gdx/graphics/g2d/NinePatch;
@@ -207,6 +181,5 @@
 
     iput-object v1, v0, Lcom/badlogic/gdx/scenes/scene2d/utils/NinePatchDrawable;->patch:Lcom/badlogic/gdx/graphics/g2d/NinePatch;
 
-    .line 77
     return-object v0
 .end method

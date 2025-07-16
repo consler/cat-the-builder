@@ -28,9 +28,9 @@
 
     iput p1, p0, Lorg/apache/commons/collections/UnboundedFifoBuffer$1;->index:I
 
-    .line 232
     const/4 p1, -0x1
 
+    .line 232
     iput p1, p0, Lorg/apache/commons/collections/UnboundedFifoBuffer$1;->lastReturnedIndex:I
 
     return-void
@@ -130,7 +130,6 @@
     .line 254
     iput v1, p0, Lorg/apache/commons/collections/UnboundedFifoBuffer$1;->lastReturnedIndex:I
 
-    .line 255
     return-void
 
     .line 259
@@ -144,7 +143,6 @@
     move-result v0
 
     .line 260
-    .local v0, "i":I
     :goto_0
     iget-object v2, p0, Lorg/apache/commons/collections/UnboundedFifoBuffer$1;->this$0:Lorg/apache/commons/collections/UnboundedFifoBuffer;
 
@@ -185,45 +183,43 @@
     iput v1, p0, Lorg/apache/commons/collections/UnboundedFifoBuffer$1;->lastReturnedIndex:I
 
     .line 266
-    iget-object v1, p0, Lorg/apache/commons/collections/UnboundedFifoBuffer$1;->this$0:Lorg/apache/commons/collections/UnboundedFifoBuffer;
+    iget-object v0, p0, Lorg/apache/commons/collections/UnboundedFifoBuffer$1;->this$0:Lorg/apache/commons/collections/UnboundedFifoBuffer;
 
-    iget v2, v1, Lorg/apache/commons/collections/UnboundedFifoBuffer;->m_tail:I
+    iget v1, v0, Lorg/apache/commons/collections/UnboundedFifoBuffer;->m_tail:I
 
-    invoke-static {v1, v2}, Lorg/apache/commons/collections/UnboundedFifoBuffer;->access$100(Lorg/apache/commons/collections/UnboundedFifoBuffer;I)I
-
-    move-result v2
-
-    iput v2, v1, Lorg/apache/commons/collections/UnboundedFifoBuffer;->m_tail:I
-
-    .line 267
-    iget-object v1, p0, Lorg/apache/commons/collections/UnboundedFifoBuffer$1;->this$0:Lorg/apache/commons/collections/UnboundedFifoBuffer;
-
-    iget-object v1, v1, Lorg/apache/commons/collections/UnboundedFifoBuffer;->m_buffer:[Ljava/lang/Object;
-
-    iget-object v2, p0, Lorg/apache/commons/collections/UnboundedFifoBuffer$1;->this$0:Lorg/apache/commons/collections/UnboundedFifoBuffer;
-
-    iget v2, v2, Lorg/apache/commons/collections/UnboundedFifoBuffer;->m_tail:I
-
-    const/4 v3, 0x0
-
-    aput-object v3, v1, v2
-
-    .line 268
-    iget-object v1, p0, Lorg/apache/commons/collections/UnboundedFifoBuffer$1;->this$0:Lorg/apache/commons/collections/UnboundedFifoBuffer;
-
-    iget v2, p0, Lorg/apache/commons/collections/UnboundedFifoBuffer$1;->index:I
-
-    invoke-static {v1, v2}, Lorg/apache/commons/collections/UnboundedFifoBuffer;->access$100(Lorg/apache/commons/collections/UnboundedFifoBuffer;I)I
+    invoke-static {v0, v1}, Lorg/apache/commons/collections/UnboundedFifoBuffer;->access$100(Lorg/apache/commons/collections/UnboundedFifoBuffer;I)I
 
     move-result v1
 
-    iput v1, p0, Lorg/apache/commons/collections/UnboundedFifoBuffer$1;->index:I
+    iput v1, v0, Lorg/apache/commons/collections/UnboundedFifoBuffer;->m_tail:I
 
-    .line 269
+    .line 267
+    iget-object v0, p0, Lorg/apache/commons/collections/UnboundedFifoBuffer$1;->this$0:Lorg/apache/commons/collections/UnboundedFifoBuffer;
+
+    iget-object v0, v0, Lorg/apache/commons/collections/UnboundedFifoBuffer;->m_buffer:[Ljava/lang/Object;
+
+    iget-object v1, p0, Lorg/apache/commons/collections/UnboundedFifoBuffer$1;->this$0:Lorg/apache/commons/collections/UnboundedFifoBuffer;
+
+    iget v1, v1, Lorg/apache/commons/collections/UnboundedFifoBuffer;->m_tail:I
+
+    const/4 v2, 0x0
+
+    aput-object v2, v0, v1
+
+    .line 268
+    iget-object v0, p0, Lorg/apache/commons/collections/UnboundedFifoBuffer$1;->this$0:Lorg/apache/commons/collections/UnboundedFifoBuffer;
+
+    iget v1, p0, Lorg/apache/commons/collections/UnboundedFifoBuffer$1;->index:I
+
+    invoke-static {v0, v1}, Lorg/apache/commons/collections/UnboundedFifoBuffer;->access$100(Lorg/apache/commons/collections/UnboundedFifoBuffer;I)I
+
+    move-result v0
+
+    iput v0, p0, Lorg/apache/commons/collections/UnboundedFifoBuffer$1;->index:I
+
     return-void
 
     .line 249
-    .end local v0    # "i":I
     :cond_2
     new-instance v0, Ljava/lang/IllegalStateException;
 

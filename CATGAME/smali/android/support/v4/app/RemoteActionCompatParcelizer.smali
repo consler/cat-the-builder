@@ -14,25 +14,39 @@
 .end method
 
 .method public static read(Landroidx/versionedparcelable/VersionedParcel;)Landroidx/core/app/RemoteActionCompat;
-    .locals 1
-    .param p0, "parcel"    # Landroidx/versionedparcelable/VersionedParcel;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "parcel"
+        }
+    .end annotation
 
     .line 13
     invoke-static {p0}, Landroidx/core/app/RemoteActionCompatParcelizer;->read(Landroidx/versionedparcelable/VersionedParcel;)Landroidx/core/app/RemoteActionCompat;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static write(Landroidx/core/app/RemoteActionCompat;Landroidx/versionedparcelable/VersionedParcel;)V
     .locals 0
-    .param p0, "obj"    # Landroidx/core/app/RemoteActionCompat;
-    .param p1, "parcel"    # Landroidx/versionedparcelable/VersionedParcel;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "obj",
+            "parcel"
+        }
+    .end annotation
 
     .line 17
     invoke-static {p0, p1}, Landroidx/core/app/RemoteActionCompatParcelizer;->write(Landroidx/core/app/RemoteActionCompat;Landroidx/versionedparcelable/VersionedParcel;)V
 
-    .line 18
     return-void
 .end method

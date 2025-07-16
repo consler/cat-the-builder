@@ -76,9 +76,6 @@
     .end annotation
 
     .line 71
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber<TT;>;"
-    .local p1, "actual":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
-    .local p2, "reducer":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<TT;TT;TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 72
@@ -87,7 +84,6 @@
     .line 73
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;->reducer:Lio/reactivex/functions/BiFunction;
 
-    .line 74
     return-void
 .end method
 
@@ -97,17 +93,15 @@
     .locals 1
 
     .line 78
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
 
-    .line 79
     const/4 v0, 0x1
 
+    .line 79
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;->done:Z
 
-    .line 80
     return-void
 .end method
 
@@ -115,7 +109,6 @@
     .locals 1
 
     .line 84
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;->done:Z
 
     return v0
@@ -125,25 +118,21 @@
     .locals 2
 
     .line 129
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 130
     return-void
 
-    .line 132
     :cond_0
     const/4 v0, 0x1
 
+    .line 132
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;->done:Z
 
     .line 133
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;->value:Ljava/lang/Object;
 
-    .line 134
-    .local v0, "v":Ljava/lang/Object;, "TT;"
     if-eqz v0, :cond_1
 
     .line 136
@@ -155,21 +144,18 @@
 
     .line 138
     :cond_1
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;->actual:Lio/reactivex/MaybeObserver;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;->actual:Lio/reactivex/MaybeObserver;
 
-    invoke-interface {v1}, Lio/reactivex/MaybeObserver;->onComplete()V
+    invoke-interface {v0}, Lio/reactivex/MaybeObserver;->onComplete()V
 
-    .line 140
     :goto_0
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 119
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;->done:Z
 
     if-eqz v0, :cond_0
@@ -177,13 +163,12 @@
     .line 120
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 121
     return-void
 
-    .line 123
     :cond_0
     const/4 v0, 0x1
 
+    .line 123
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;->done:Z
 
     .line 124
@@ -191,12 +176,11 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/MaybeObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 125
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -204,21 +188,16 @@
     .end annotation
 
     .line 100
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 101
     return-void
 
     .line 103
     :cond_0
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;->value:Ljava/lang/Object;
 
-    .line 104
-    .local v0, "v":Ljava/lang/Object;, "TT;"
     if-nez v0, :cond_1
 
     .line 105
@@ -233,49 +212,42 @@
 
     invoke-interface {v1, v0, p1}, Lio/reactivex/functions/BiFunction;->apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "The reducer returned a null value"
+    const-string v0, "The reducer returned a null value"
 
-    invoke-static {v1, v2}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    iput-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;->value:Ljava/lang/Object;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;->value:Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 113
     goto :goto_0
 
-    .line 109
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     .line 110
-    .local v1, "ex":Ljava/lang/Throwable;
-    invoke-static {v1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 111
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;->s:Lorg/reactivestreams/Subscription;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    invoke-interface {v2}, Lorg/reactivestreams/Subscription;->cancel()V
+    invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
 
     .line 112
-    invoke-virtual {p0, v1}, Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 115
-    .end local v1    # "ex":Ljava/lang/Throwable;
     :goto_0
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 89
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReduceMaybe$ReduceSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -292,12 +264,11 @@
 
     invoke-interface {v0, p0}, Lio/reactivex/MaybeObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 94
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 94
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 96
     :cond_0
     return-void
 .end method

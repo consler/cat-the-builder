@@ -39,8 +39,7 @@
 
 # virtual methods
 .method public bridge synthetic accept(Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -48,18 +47,15 @@
     .end annotation
 
     .line 701
-    move-object v0, p1
+    check-cast p1, Ljava/lang/Throwable;
 
-    check-cast v0, Ljava/lang/Throwable;
-
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/functions/Functions$OnErrorMissingConsumer;->accept(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/functions/Functions$OnErrorMissingConsumer;->accept(Ljava/lang/Throwable;)V
 
     return-void
 .end method
 
 .method public accept(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "error"    # Ljava/lang/Throwable;
 
     .line 704
     new-instance v0, Lio/reactivex/exceptions/OnErrorNotImplementedException;
@@ -68,6 +64,5 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 705
     return-void
 .end method

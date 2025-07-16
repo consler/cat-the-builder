@@ -11,28 +11,25 @@
 
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/physics/box2d/World;J)V
-    .locals 1
-    .param p1, "world"    # Lcom/badlogic/gdx/physics/box2d/World;
-    .param p2, "addr"    # J
+    .locals 0
 
     .line 33
     invoke-direct {p0, p1, p2, p3}, Lcom/badlogic/gdx/physics/box2d/Joint;-><init>(Lcom/badlogic/gdx/physics/box2d/World;J)V
 
+    const/4 p1, 0x2
+
+    new-array p1, p1, [F
+
     .line 47
-    const/4 v0, 0x2
-
-    new-array v0, v0, [F
-
-    iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/MouseJoint;->tmp:[F
+    iput-object p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/MouseJoint;->tmp:[F
 
     .line 48
-    new-instance v0, Lcom/badlogic/gdx/math/Vector2;
+    new-instance p1, Lcom/badlogic/gdx/math/Vector2;
 
-    invoke-direct {v0}, Lcom/badlogic/gdx/math/Vector2;-><init>()V
+    invoke-direct {p1}, Lcom/badlogic/gdx/math/Vector2;-><init>()V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/MouseJoint;->target:Lcom/badlogic/gdx/math/Vector2;
+    iput-object p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/MouseJoint;->target:Lcom/badlogic/gdx/math/Vector2;
 
-    .line 34
     return-void
 .end method
 
@@ -141,56 +138,48 @@
 
 .method public setDampingRatio(F)V
     .locals 2
-    .param p1, "ratio"    # F
 
     .line 105
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/MouseJoint;->addr:J
 
     invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/joints/MouseJoint;->jniSetDampingRatio(JF)V
 
-    .line 106
     return-void
 .end method
 
 .method public setFrequency(F)V
     .locals 2
-    .param p1, "hz"    # F
 
     .line 85
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/MouseJoint;->addr:J
 
     invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/joints/MouseJoint;->jniSetFrequency(JF)V
 
-    .line 86
     return-void
 .end method
 
 .method public setMaxForce(F)V
     .locals 2
-    .param p1, "force"    # F
 
     .line 65
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/MouseJoint;->addr:J
 
     invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/joints/MouseJoint;->jniSetMaxForce(JF)V
 
-    .line 66
     return-void
 .end method
 
 .method public setTarget(Lcom/badlogic/gdx/math/Vector2;)V
-    .locals 4
-    .param p1, "target"    # Lcom/badlogic/gdx/math/Vector2;
+    .locals 3
 
     .line 38
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/MouseJoint;->addr:J
 
     iget v2, p1, Lcom/badlogic/gdx/math/Vector2;->x:F
 
-    iget v3, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
 
-    invoke-direct {p0, v0, v1, v2, v3}, Lcom/badlogic/gdx/physics/box2d/joints/MouseJoint;->jniSetTarget(JFF)V
+    invoke-direct {p0, v0, v1, v2, p1}, Lcom/badlogic/gdx/physics/box2d/joints/MouseJoint;->jniSetTarget(JFF)V
 
-    .line 39
     return-void
 .end method

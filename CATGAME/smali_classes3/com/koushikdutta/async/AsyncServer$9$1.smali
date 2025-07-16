@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/AsyncServer$9;[Ljava/net/InetAddress;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/koushikdutta/async/AsyncServer$9;
 
     .line 453
     iput-object p1, p0, Lcom/koushikdutta/async/AsyncServer$9$1;->this$1:Lcom/koushikdutta/async/AsyncServer$9;
@@ -48,12 +47,11 @@
 
     iget-object v0, v0, Lcom/koushikdutta/async/AsyncServer$9;->val$ret:Lcom/koushikdutta/async/future/SimpleFuture;
 
-    iget-object v1, p0, Lcom/koushikdutta/async/AsyncServer$9$1;->val$result:[Ljava/net/InetAddress;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    iget-object v2, p0, Lcom/koushikdutta/async/AsyncServer$9$1;->val$result:[Ljava/net/InetAddress;
 
-    invoke-virtual {v0, v2, v1}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Exception;Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1, v2}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Exception;Ljava/lang/Object;)Z
 
-    .line 457
     return-void
 .end method

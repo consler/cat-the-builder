@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections/bidimap/TreeBidiMap;)V
     .locals 0
-    .param p1, "main"    # Lorg/apache/commons/collections/bidimap/TreeBidiMap;
 
     .line 1951
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +37,6 @@
     .line 1952
     iput-object p1, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$Inverse;->main:Lorg/apache/commons/collections/bidimap/TreeBidiMap;
 
-    .line 1953
     return-void
 .end method
 
@@ -52,36 +50,33 @@
 
     invoke-virtual {v0}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->clear()V
 
-    .line 2027
     return-void
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 1972
     iget-object v0, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$Inverse;->main:Lorg/apache/commons/collections/bidimap/TreeBidiMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->containsValue(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "value"    # Ljava/lang/Object;
 
     .line 1976
     iget-object v0, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$Inverse;->main:Lorg/apache/commons/collections/bidimap/TreeBidiMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public entrySet()Ljava/util/Set;
@@ -103,16 +98,12 @@
 
     invoke-direct {v0, v1, v2, v3}, Lorg/apache/commons/collections/bidimap/TreeBidiMap$EntryView;-><init>(Lorg/apache/commons/collections/bidimap/TreeBidiMap;II)V
 
-    return-object v0
-
-    .line 2047
     :cond_0
     return-object v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 2073
     iget-object v0, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$Inverse;->main:Lorg/apache/commons/collections/bidimap/TreeBidiMap;
@@ -121,9 +112,9 @@
 
     invoke-static {v0, p1, v1}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->access$2700(Lorg/apache/commons/collections/bidimap/TreeBidiMap;Ljava/lang/Object;I)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public firstKey()Ljava/lang/Object;
@@ -172,30 +163,28 @@
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 1964
     iget-object v0, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$Inverse;->main:Lorg/apache/commons/collections/bidimap/TreeBidiMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getKey(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "value"    # Ljava/lang/Object;
 
     .line 1968
     iget-object v0, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$Inverse;->main:Lorg/apache/commons/collections/bidimap/TreeBidiMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public hashCode()I
@@ -343,8 +332,7 @@
 .end method
 
 .method public nextKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 2
 
     .line 1994
     invoke-static {p1}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->access$2500(Ljava/lang/Object;)V
@@ -352,35 +340,32 @@
     .line 1995
     iget-object v0, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$Inverse;->main:Lorg/apache/commons/collections/bidimap/TreeBidiMap;
 
-    move-object v1, p1
+    check-cast p1, Ljava/lang/Comparable;
 
-    check-cast v1, Ljava/lang/Comparable;
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    invoke-static {v0, p1, v1}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->access$1400(Lorg/apache/commons/collections/bidimap/TreeBidiMap;Ljava/lang/Comparable;I)Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;
 
-    invoke-static {v0, v1, v2}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->access$1400(Lorg/apache/commons/collections/bidimap/TreeBidiMap;Ljava/lang/Comparable;I)Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-static {v0, p1, v1}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->access$1900(Lorg/apache/commons/collections/bidimap/TreeBidiMap;Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;I)Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;
 
-    invoke-static {v0, v1, v2}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->access$1900(Lorg/apache/commons/collections/bidimap/TreeBidiMap;Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;I)Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;
+    move-result-object p1
 
-    move-result-object v0
+    if-nez p1, :cond_0
 
-    .line 1996
-    .local v0, "node":Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;
-    if-nez v0, :cond_0
-
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
+    .line 1996
     :cond_0
-    invoke-virtual {v0}, Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;->getValue()Ljava/lang/Object;
+    invoke-virtual {p1}, Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;->getValue()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
     :goto_0
-    return-object v1
+    return-object p1
 .end method
 
 .method public orderedMapIterator()Lorg/apache/commons/collections/OrderedMapIterator;
@@ -412,8 +397,7 @@
 .end method
 
 .method public previousKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 2
 
     .line 2000
     invoke-static {p1}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->access$2500(Ljava/lang/Object;)V
@@ -421,138 +405,121 @@
     .line 2001
     iget-object v0, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$Inverse;->main:Lorg/apache/commons/collections/bidimap/TreeBidiMap;
 
-    move-object v1, p1
+    check-cast p1, Ljava/lang/Comparable;
 
-    check-cast v1, Ljava/lang/Comparable;
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    invoke-static {v0, p1, v1}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->access$1400(Lorg/apache/commons/collections/bidimap/TreeBidiMap;Ljava/lang/Comparable;I)Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;
 
-    invoke-static {v0, v1, v2}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->access$1400(Lorg/apache/commons/collections/bidimap/TreeBidiMap;Ljava/lang/Comparable;I)Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-static {v0, p1, v1}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->access$2000(Lorg/apache/commons/collections/bidimap/TreeBidiMap;Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;I)Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;
 
-    invoke-static {v0, v1, v2}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->access$2000(Lorg/apache/commons/collections/bidimap/TreeBidiMap;Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;I)Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;
+    move-result-object p1
 
-    move-result-object v0
+    if-nez p1, :cond_0
 
-    .line 2002
-    .local v0, "node":Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;
-    if-nez v0, :cond_0
-
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
+    .line 2002
     :cond_0
-    invoke-virtual {v0}, Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;->getValue()Ljava/lang/Object;
+    invoke-virtual {p1}, Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;->getValue()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
     :goto_0
-    return-object v1
+    return-object p1
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
-    .param p1, "key"    # Ljava/lang/Object;
-    .param p2, "value"    # Ljava/lang/Object;
+    .locals 2
 
     .line 2006
     iget-object v0, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$Inverse;->main:Lorg/apache/commons/collections/bidimap/TreeBidiMap;
 
-    move-object v1, p2
+    check-cast p2, Ljava/lang/Comparable;
 
-    check-cast v1, Ljava/lang/Comparable;
+    check-cast p1, Ljava/lang/Comparable;
 
-    move-object v2, p1
+    const/4 v1, 0x1
 
-    check-cast v2, Ljava/lang/Comparable;
+    invoke-static {v0, p2, p1, v1}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->access$2600(Lorg/apache/commons/collections/bidimap/TreeBidiMap;Ljava/lang/Comparable;Ljava/lang/Comparable;I)Ljava/lang/Object;
 
-    const/4 v3, 0x1
+    move-result-object p1
 
-    invoke-static {v0, v1, v2, v3}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->access$2600(Lorg/apache/commons/collections/bidimap/TreeBidiMap;Ljava/lang/Comparable;Ljava/lang/Comparable;I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 4
-    .param p1, "map"    # Ljava/util/Map;
+    .locals 2
 
     .line 2010
     invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 2011
-    .local v0, "it":Ljava/util/Iterator;
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 2012
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map$Entry;
+
+    .line 2013
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Ljava/util/Map$Entry;
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    .line 2013
-    .local v1, "entry":Ljava/util/Map$Entry;
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object v2
+    invoke-virtual {p0, v1, v0}, Lorg/apache/commons/collections/bidimap/TreeBidiMap$Inverse;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v3
-
-    invoke-virtual {p0, v2, v3}, Lorg/apache/commons/collections/bidimap/TreeBidiMap$Inverse;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 2014
-    .end local v1    # "entry":Ljava/util/Map$Entry;
     goto :goto_0
 
-    .line 2015
     :cond_0
     return-void
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 2018
     iget-object v0, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$Inverse;->main:Lorg/apache/commons/collections/bidimap/TreeBidiMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->removeValue(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public removeValue(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "value"    # Ljava/lang/Object;
 
     .line 2022
     iget-object v0, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$Inverse;->main:Lorg/apache/commons/collections/bidimap/TreeBidiMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public size()I

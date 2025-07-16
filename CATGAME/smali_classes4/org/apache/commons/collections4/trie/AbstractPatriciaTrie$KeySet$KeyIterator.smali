@@ -30,7 +30,6 @@
     .locals 0
 
     .line 1476
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$KeySet$KeyIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.KeySet.KeyIterator;"
     iput-object p1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$KeySet$KeyIterator;->this$1:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$KeySet;
 
     iget-object p1, p1, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$KeySet;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
@@ -42,11 +41,8 @@
 
 .method synthetic constructor <init>(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$KeySet;Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$KeySet;
-    .param p2, "x1"    # Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$1;
 
     .line 1476
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$KeySet$KeyIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.KeySet.KeyIterator;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$KeySet$KeyIterator;-><init>(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$KeySet;)V
 
     return-void
@@ -63,7 +59,6 @@
     .end annotation
 
     .line 1479
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$KeySet$KeyIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.KeySet.KeyIterator;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$KeySet$KeyIterator;->nextEntry()Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
     move-result-object v0

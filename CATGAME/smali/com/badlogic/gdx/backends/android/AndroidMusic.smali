@@ -24,25 +24,23 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/backends/android/AndroidAudio;Landroid/media/MediaPlayer;)V
     .locals 1
-    .param p1, "audio"    # Lcom/badlogic/gdx/backends/android/AndroidAudio;
-    .param p2, "player"    # Landroid/media/MediaPlayer;
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 29
     const/4 v0, 0x1
 
+    .line 29
     iput-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->isPrepared:Z
 
-    .line 30
     const/4 v0, 0x0
 
+    .line 30
     iput-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->wasPlaying:Z
 
-    .line 31
     const/high16 v0, 0x3f800000    # 1.0f
 
+    .line 31
     iput v0, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->volume:F
 
     .line 35
@@ -51,22 +49,21 @@
     .line 36
     iput-object p2, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->player:Landroid/media/MediaPlayer;
 
-    .line 37
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->onCompletionListener:Lcom/badlogic/gdx/audio/Music$OnCompletionListener;
+    .line 37
+    iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->onCompletionListener:Lcom/badlogic/gdx/audio/Music$OnCompletionListener;
 
     .line 38
     invoke-virtual {p2, p0}, Landroid/media/MediaPlayer;->setOnCompletionListener(Landroid/media/MediaPlayer$OnCompletionListener;)V
 
-    .line 39
     return-void
 .end method
 
 
 # virtual methods
 .method public dispose()V
-    .locals 5
+    .locals 4
 
     .line 43
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->player:Landroid/media/MediaPlayer;
@@ -75,10 +72,10 @@
 
     return-void
 
-    .line 45
     :cond_0
     const/4 v1, 0x0
 
+    .line 45
     :try_start_0
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->release()V
     :try_end_0
@@ -108,11 +105,8 @@
     .line 53
     monitor-exit v0
 
-    .line 54
-    :goto_0
-    goto :goto_1
+    goto :goto_0
 
-    .line 53
     :catchall_0
     move-exception v1
 
@@ -122,25 +116,20 @@
 
     throw v1
 
-    .line 46
-    :catchall_1
-    move-exception v0
-
     .line 47
-    .local v0, "t":Ljava/lang/Throwable;
+    :catchall_1
     :try_start_2
-    sget-object v2, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
+    sget-object v0, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
 
-    const-string v3, "AndroidMusic"
+    const-string v2, "AndroidMusic"
 
-    const-string v4, "error while disposing AndroidMusic instance, non-fatal"
+    const-string v3, "error while disposing AndroidMusic instance, non-fatal"
 
-    invoke-interface {v2, v3, v4}, Lcom/badlogic/gdx/Application;->log(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-interface {v0, v2, v3}, Lcom/badlogic/gdx/Application;->log(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_3
 
     .line 49
-    .end local v0    # "t":Ljava/lang/Throwable;
     iput-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->player:Landroid/media/MediaPlayer;
 
     .line 50
@@ -164,13 +153,9 @@
     .line 53
     monitor-exit v0
 
-    goto :goto_0
-
-    .line 55
-    :goto_1
+    :goto_0
     return-void
 
-    .line 53
     :catchall_2
     move-exception v1
 
@@ -180,10 +165,10 @@
 
     throw v1
 
-    .line 49
     :catchall_3
     move-exception v0
 
+    .line 49
     iput-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->player:Landroid/media/MediaPlayer;
 
     .line 50
@@ -308,15 +293,12 @@
 
     return v0
 
-    .line 62
     :catch_0
     move-exception v0
 
     .line 64
-    .local v0, "e":Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 65
     return v1
 .end method
 
@@ -343,37 +325,32 @@
 
     return v0
 
-    .line 74
     :catch_0
     move-exception v0
 
     .line 76
-    .local v0, "e":Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 77
     return v1
 .end method
 
 .method public onCompletion(Landroid/media/MediaPlayer;)V
-    .locals 2
-    .param p1, "mp"    # Landroid/media/MediaPlayer;
+    .locals 1
 
     .line 196
-    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->onCompletionListener:Lcom/badlogic/gdx/audio/Music$OnCompletionListener;
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->onCompletionListener:Lcom/badlogic/gdx/audio/Music$OnCompletionListener;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 197
-    sget-object v0, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
+    sget-object p1, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
 
-    new-instance v1, Lcom/badlogic/gdx/backends/android/AndroidMusic$1;
+    new-instance v0, Lcom/badlogic/gdx/backends/android/AndroidMusic$1;
 
-    invoke-direct {v1, p0}, Lcom/badlogic/gdx/backends/android/AndroidMusic$1;-><init>(Lcom/badlogic/gdx/backends/android/AndroidMusic;)V
+    invoke-direct {v0, p0}, Lcom/badlogic/gdx/backends/android/AndroidMusic$1;-><init>(Lcom/badlogic/gdx/backends/android/AndroidMusic;)V
 
-    invoke-interface {v0, v1}, Lcom/badlogic/gdx/Application;->postRunnable(Ljava/lang/Runnable;)V
+    invoke-interface {p1, v0}, Lcom/badlogic/gdx/Application;->postRunnable(Ljava/lang/Runnable;)V
 
-    .line 204
     :cond_0
     return-void
 .end method
@@ -404,26 +381,21 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 91
-    :cond_1
     goto :goto_0
 
-    .line 88
     :catch_0
     move-exception v0
 
     .line 90
-    .local v0, "e":Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 92
-    .end local v0    # "e":Ljava/lang/Exception;
+    :cond_1
     :goto_0
     const/4 v0, 0x0
 
+    .line 92
     iput-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->wasPlaying:Z
 
-    .line 93
     return-void
 .end method
 
@@ -450,11 +422,8 @@
 
     return-void
 
-    .line 104
-    :cond_1
-    nop
-
     .line 107
+    :cond_1
     :try_start_1
     iget-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->isPrepared:Z
 
@@ -465,9 +434,9 @@
 
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->prepare()V
 
-    .line 109
     const/4 v0, 0x1
 
+    .line 109
     iput-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->isPrepared:Z
 
     .line 111
@@ -481,49 +450,34 @@
 
     goto :goto_0
 
-    .line 114
     :catch_0
     move-exception v0
 
     .line 115
-    .local v0, "e":Ljava/io/IOException;
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_1
+    goto :goto_0
 
-    .line 112
-    .end local v0    # "e":Ljava/io/IOException;
     :catch_1
     move-exception v0
 
     .line 113
-    .local v0, "e":Ljava/lang/IllegalStateException;
     invoke-virtual {v0}, Ljava/lang/IllegalStateException;->printStackTrace()V
 
-    .line 116
-    .end local v0    # "e":Ljava/lang/IllegalStateException;
     :goto_0
-    nop
-
-    .line 117
-    :goto_1
     return-void
 
-    .line 100
     :catch_2
     move-exception v0
 
     .line 102
-    .local v0, "e":Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 103
     return-void
 .end method
 
 .method public setLooping(Z)V
     .locals 1
-    .param p1, "isLooping"    # Z
 
     .line 121
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->player:Landroid/media/MediaPlayer;
@@ -536,25 +490,20 @@
     :cond_0
     invoke-virtual {v0, p1}, Landroid/media/MediaPlayer;->setLooping(Z)V
 
-    .line 123
     return-void
 .end method
 
 .method public setOnCompletionListener(Lcom/badlogic/gdx/audio/Music$OnCompletionListener;)V
     .locals 0
-    .param p1, "listener"    # Lcom/badlogic/gdx/audio/Music$OnCompletionListener;
 
     .line 191
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->onCompletionListener:Lcom/badlogic/gdx/audio/Music$OnCompletionListener;
 
-    .line 192
     return-void
 .end method
 
 .method public setPan(FF)V
-    .locals 5
-    .param p1, "pan"    # F
-    .param p2, "volume"    # F
+    .locals 3
 
     .line 139
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->player:Landroid/media/MediaPlayer;
@@ -563,67 +512,67 @@
 
     return-void
 
-    .line 140
     :cond_0
-    move v0, p2
+    const/4 v0, 0x0
 
-    .line 141
-    .local v0, "leftVolume":F
-    move v1, p2
+    cmpg-float v1, p1, v0
 
-    .line 143
-    .local v1, "rightVolume":F
-    const/4 v2, 0x0
+    const/high16 v2, 0x3f800000    # 1.0f
 
-    cmpg-float v3, p1, v2
-
-    const/high16 v4, 0x3f800000    # 1.0f
-
-    if-gez v3, :cond_1
+    if-gez v1, :cond_1
 
     .line 144
     invoke-static {p1}, Ljava/lang/Math;->abs(F)F
 
-    move-result v2
+    move-result p1
 
-    sub-float/2addr v4, v2
+    sub-float/2addr v2, p1
 
-    mul-float/2addr v1, v4
+    mul-float/2addr v2, p2
+
+    move p1, v2
+
+    move v2, p2
 
     goto :goto_0
 
-    .line 145
     :cond_1
-    cmpl-float v2, p1, v2
+    cmpl-float v0, p1, v0
 
-    if-lez v2, :cond_2
+    if-lez v0, :cond_2
 
     .line 146
     invoke-static {p1}, Ljava/lang/Math;->abs(F)F
 
-    move-result v2
+    move-result p1
 
-    sub-float/2addr v4, v2
+    sub-float/2addr v2, p1
 
-    mul-float/2addr v0, v4
+    mul-float/2addr v2, p2
+
+    move p1, p2
+
+    goto :goto_0
+
+    :cond_2
+    move p1, p2
+
+    move v2, p1
 
     .line 149
-    :cond_2
     :goto_0
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->player:Landroid/media/MediaPlayer;
+    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->player:Landroid/media/MediaPlayer;
 
-    invoke-virtual {v2, v0, v1}, Landroid/media/MediaPlayer;->setVolume(FF)V
+    invoke-virtual {v0, v2, p1}, Landroid/media/MediaPlayer;->setVolume(FF)V
 
     .line 150
     iput p2, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->volume:F
 
-    .line 151
     return-void
 .end method
 
 .method public setPosition(F)V
     .locals 2
-    .param p1, "position"    # F
 
     .line 164
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->player:Landroid/media/MediaPlayer;
@@ -642,9 +591,9 @@
     .line 167
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->prepare()V
 
-    .line 168
     const/4 v0, 0x1
 
+    .line 168
     iput-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->isPrepared:Z
 
     .line 170
@@ -653,49 +602,37 @@
 
     const/high16 v1, 0x447a0000    # 1000.0f
 
-    mul-float/2addr v1, p1
+    mul-float/2addr p1, v1
 
-    float-to-int v1, v1
+    float-to-int p1, p1
 
-    invoke-virtual {v0, v1}, Landroid/media/MediaPlayer;->seekTo(I)V
+    invoke-virtual {v0, p1}, Landroid/media/MediaPlayer;->seekTo(I)V
     :try_end_0
     .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    .line 173
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 174
-    .local v0, "e":Ljava/io/IOException;
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {p1}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_1
+    goto :goto_0
 
-    .line 171
-    .end local v0    # "e":Ljava/io/IOException;
     :catch_1
-    move-exception v0
+    move-exception p1
 
     .line 172
-    .local v0, "e":Ljava/lang/IllegalStateException;
-    invoke-virtual {v0}, Ljava/lang/IllegalStateException;->printStackTrace()V
+    invoke-virtual {p1}, Ljava/lang/IllegalStateException;->printStackTrace()V
 
-    .line 175
-    .end local v0    # "e":Ljava/lang/IllegalStateException;
     :goto_0
-    nop
-
-    .line 176
-    :goto_1
     return-void
 .end method
 
 .method public setVolume(F)V
     .locals 1
-    .param p1, "volume"    # F
 
     .line 127
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->player:Landroid/media/MediaPlayer;
@@ -711,7 +648,6 @@
     .line 129
     iput p1, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->volume:F
 
-    .line 130
     return-void
 .end method
 
@@ -745,6 +681,5 @@
     .line 160
     iput-boolean v2, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic;->isPrepared:Z
 
-    .line 161
     return-void
 .end method

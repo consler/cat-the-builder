@@ -15,7 +15,6 @@
 # direct methods
 .method constructor <init>(Lcom/thoughtworks/xstream/core/util/WeakCache$4;Ljava/util/Map$Entry;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/thoughtworks/xstream/core/util/WeakCache$4;
 
     .line 127
     iput-object p1, p0, Lcom/thoughtworks/xstream/core/util/WeakCache$4$1;->this$1:Lcom/thoughtworks/xstream/core/util/WeakCache$4;
@@ -63,7 +62,6 @@
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
-    .param p1, "value"    # Ljava/lang/Object;
 
     .line 138
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/WeakCache$4$1;->val$entry:Ljava/util/Map$Entry;
@@ -76,27 +74,26 @@
 
     invoke-virtual {v1, p1}, Lcom/thoughtworks/xstream/core/util/WeakCache;->createReference(Ljava/lang/Object;)Ljava/lang/ref/Reference;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Ljava/util/Map$Entry;->setValue(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Ljava/util/Map$Entry;->setValue(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/lang/ref/Reference;
+    check-cast p1, Ljava/lang/ref/Reference;
+
+    if-eqz p1, :cond_0
 
     .line 139
-    .local v0, "reference":Ljava/lang/ref/Reference;
-    if-eqz v0, :cond_0
+    invoke-virtual {p1}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
 
-    invoke-virtual {v0}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
-
-    move-result-object v1
+    move-result-object p1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return-object v1
+    return-object p1
 .end method

@@ -52,10 +52,8 @@
 # direct methods
 .method public constructor <init>(Lorg/apache/commons/collections4/map/MultiValueMap;Ljava/lang/Object;)V
     .locals 0
-    .param p2, "key"    # Ljava/lang/Object;
 
     .line 525
-    .local p0, "this":Lorg/apache/commons/collections4/map/MultiValueMap$ValuesIterator;, "Lorg/apache/commons/collections4/map/MultiValueMap<TK;TV;>.ValuesIterator;"
     iput-object p1, p0, Lorg/apache/commons/collections4/map/MultiValueMap$ValuesIterator;->this$0:Lorg/apache/commons/collections4/map/MultiValueMap;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -77,7 +75,6 @@
 
     iput-object p1, p0, Lorg/apache/commons/collections4/map/MultiValueMap$ValuesIterator;->iterator:Ljava/util/Iterator;
 
-    .line 529
     return-void
 .end method
 
@@ -87,7 +84,6 @@
     .locals 1
 
     .line 541
-    .local p0, "this":Lorg/apache/commons/collections4/map/MultiValueMap$ValuesIterator;, "Lorg/apache/commons/collections4/map/MultiValueMap<TK;TV;>.ValuesIterator;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/MultiValueMap$ValuesIterator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -106,7 +102,6 @@
     .end annotation
 
     .line 546
-    .local p0, "this":Lorg/apache/commons/collections4/map/MultiValueMap$ValuesIterator;, "Lorg/apache/commons/collections4/map/MultiValueMap<TK;TV;>.ValuesIterator;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/MultiValueMap$ValuesIterator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -120,7 +115,6 @@
     .locals 2
 
     .line 533
-    .local p0, "this":Lorg/apache/commons/collections4/map/MultiValueMap$ValuesIterator;, "Lorg/apache/commons/collections4/map/MultiValueMap<TK;TV;>.ValuesIterator;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/MultiValueMap$ValuesIterator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
@@ -141,7 +135,6 @@
 
     invoke-virtual {v0, v1}, Lorg/apache/commons/collections4/map/MultiValueMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 537
     :cond_0
     return-void
 .end method

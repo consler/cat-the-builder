@@ -59,9 +59,6 @@
     .end annotation
 
     .line 408
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TK;TV;>.Entry;"
-    .local p2, "key":Ljava/lang/Comparable;, "TK;"
-    .local p3, "value":Ljava/lang/Object;, "TV;"
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;->this$0:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -72,12 +69,11 @@
     .line 410
     iput-object p3, p0, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;->value:Ljava/lang/Object;
 
-    .line 411
     return-void
 .end method
 
 .method constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;Ljava/util/Map$Entry;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -87,8 +83,6 @@
     .end annotation
 
     .line 405
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TK;TV;>.Entry;"
-    .local p2, "copy":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     invoke-interface {p2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v0
@@ -97,47 +91,43 @@
 
     invoke-interface {p2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {p0, p1, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;-><init>(Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;Ljava/lang/Comparable;Ljava/lang/Object;)V
+    invoke-direct {p0, p1, v0, p2}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;-><init>(Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;Ljava/lang/Comparable;Ljava/lang/Object;)V
 
-    .line 406
     return-void
 .end method
 
 .method private equals(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "o1"    # Ljava/lang/Object;
-    .param p2, "o2"    # Ljava/lang/Object;
+    .locals 0
 
-    .line 461
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TK;TV;>.Entry;"
     if-nez p1, :cond_1
 
     if-nez p2, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
+    .line 461
     :cond_1
     invoke-virtual {p1, p2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 
 # virtual methods
 .method public compareTo(Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;)I
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -147,28 +137,25 @@
     .end annotation
 
     .line 425
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TK;TV;>.Entry;"
-    .local p1, "other":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TK;TV;>.Entry;"
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;->getKey()Ljava/lang/Comparable;
 
     move-result-object v0
 
     invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;->getKey()Ljava/lang/Comparable;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
+    invoke-interface {v0, p1}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
     .locals 0
 
     .line 399
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TK;TV;>.Entry;"
     check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;
 
     invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;->compareTo(Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;)I
@@ -179,16 +166,12 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 4
 
-    .line 438
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TK;TV;>.Entry;"
     const/4 v0, 0x1
 
     if-ne p1, p0, :cond_0
 
-    .line 439
     return v0
 
     .line 441
@@ -199,40 +182,36 @@
 
     if-nez v1, :cond_1
 
-    .line 442
     return v2
 
     .line 445
     :cond_1
-    move-object v1, p1
-
-    check-cast v1, Ljava/util/Map$Entry;
+    check-cast p1, Ljava/util/Map$Entry;
 
     .line 446
-    .local v1, "other":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
-    iget-object v3, p0, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;->key:Ljava/lang/Comparable;
+    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;->key:Ljava/lang/Comparable;
 
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-direct {p0, v3, v4}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-direct {p0, v1, v3}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_2
+    if-eqz v1, :cond_2
 
-    iget-object v3, p0, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;->value:Ljava/lang/Object;
+    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;->value:Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-direct {p0, v3, v4}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-direct {p0, v1, p1}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result p1
 
-    if-eqz v3, :cond_2
+    if-eqz p1, :cond_2
 
     goto :goto_0
 
@@ -252,7 +231,6 @@
     .end annotation
 
     .line 415
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TK;TV;>.Entry;"
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;->key:Ljava/lang/Comparable;
 
     return-object v0
@@ -262,7 +240,6 @@
     .locals 1
 
     .line 399
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TK;TV;>.Entry;"
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;->getKey()Ljava/lang/Comparable;
 
     move-result-object v0
@@ -279,7 +256,6 @@
     .end annotation
 
     .line 420
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TK;TV;>.Entry;"
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;->value:Ljava/lang/Object;
 
     return-object v0
@@ -289,7 +265,6 @@
     .locals 3
 
     .line 451
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TK;TV;>.Entry;"
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;->key:Ljava/lang/Comparable;
 
     const/4 v1, 0x0
@@ -332,8 +307,6 @@
     .end annotation
 
     .line 430
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TK;TV;>.Entry;"
-    .local p1, "newValue":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;->this$0:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
 
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;->access$300(Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;)V
@@ -342,10 +315,8 @@
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;->value:Ljava/lang/Object;
 
     .line 432
-    .local v0, "oldValue":Ljava/lang/Object;, "TV;"
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;->value:Ljava/lang/Object;
 
-    .line 433
     return-object v0
 .end method
 
@@ -353,7 +324,6 @@
     .locals 2
 
     .line 456
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TK;TV;>.Entry;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -362,13 +332,19 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$Entry;->value:Ljava/lang/Object;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

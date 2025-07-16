@@ -44,11 +44,8 @@
     .end annotation
 
     .line 571
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/IntMap$Values;, "Lcom/esotericsoftware/kryo/util/IntMap$Values<TV;>;"
-    .local p1, "map":Lcom/esotericsoftware/kryo/util/IntMap;, "Lcom/esotericsoftware/kryo/util/IntMap<TV;>;"
     invoke-direct {p0, p1}, Lcom/esotericsoftware/kryo/util/IntMap$MapIterator;-><init>(Lcom/esotericsoftware/kryo/util/IntMap;)V
 
-    .line 572
     return-void
 .end method
 
@@ -58,7 +55,6 @@
     .locals 1
 
     .line 575
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/IntMap$Values;, "Lcom/esotericsoftware/kryo/util/IntMap$Values<TV;>;"
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/util/IntMap$Values;->hasNext:Z
 
     return v0
@@ -74,8 +70,6 @@
         }
     .end annotation
 
-    .line 592
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/IntMap$Values;, "Lcom/esotericsoftware/kryo/util/IntMap$Values<TV;>;"
     return-object p0
 .end method
 
@@ -88,7 +82,6 @@
     .end annotation
 
     .line 580
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/IntMap$Values;, "Lcom/esotericsoftware/kryo/util/IntMap$Values<TV;>;"
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/util/IntMap$Values;->hasNext:Z
 
     if-eqz v0, :cond_1
@@ -105,11 +98,9 @@
 
     iget-object v0, v0, Lcom/esotericsoftware/kryo/util/IntMap;->zeroValue:Ljava/lang/Object;
 
-    .local v0, "value":Ljava/lang/Object;, "TV;"
     goto :goto_0
 
     .line 585
-    .end local v0    # "value":Ljava/lang/Object;, "TV;"
     :cond_0
     iget-object v0, p0, Lcom/esotericsoftware/kryo/util/IntMap$Values;->map:Lcom/esotericsoftware/kryo/util/IntMap;
 
@@ -120,7 +111,6 @@
     aget-object v0, v0, v1
 
     .line 586
-    .restart local v0    # "value":Ljava/lang/Object;, "TV;"
     :goto_0
     iget v1, p0, Lcom/esotericsoftware/kryo/util/IntMap$Values;->nextIndex:I
 
@@ -129,11 +119,9 @@
     .line 587
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/util/IntMap$Values;->findNextIndex()V
 
-    .line 588
     return-object v0
 
     .line 580
-    .end local v0    # "value":Ljava/lang/Object;, "TV;"
     :cond_1
     new-instance v0, Ljava/util/NoSuchElementException;
 
@@ -146,7 +134,6 @@
     .locals 0
 
     .line 569
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/IntMap$Values;, "Lcom/esotericsoftware/kryo/util/IntMap$Values<TV;>;"
     invoke-super {p0}, Lcom/esotericsoftware/kryo/util/IntMap$MapIterator;->remove()V
 
     return-void
@@ -156,7 +143,6 @@
     .locals 0
 
     .line 569
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/IntMap$Values;, "Lcom/esotericsoftware/kryo/util/IntMap$Values<TV;>;"
     invoke-super {p0}, Lcom/esotericsoftware/kryo/util/IntMap$MapIterator;->reset()V
 
     return-void
@@ -173,7 +159,6 @@
     .end annotation
 
     .line 597
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/IntMap$Values;, "Lcom/esotericsoftware/kryo/util/IntMap$Values<TV;>;"
     new-instance v0, Ljava/util/ArrayList;
 
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/IntMap$Values;->map:Lcom/esotericsoftware/kryo/util/IntMap;
@@ -183,7 +168,6 @@
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 598
-    .local v0, "array":Ljava/util/ArrayList;
     :goto_0
     iget-boolean v1, p0, Lcom/esotericsoftware/kryo/util/IntMap$Values;->hasNext:Z
 
@@ -198,7 +182,6 @@
 
     goto :goto_0
 
-    .line 600
     :cond_0
     return-object v0
 .end method

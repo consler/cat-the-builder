@@ -32,36 +32,28 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Appendable;)V
     .locals 1
-    .param p1, "appendable"    # Ljava/lang/Appendable;
 
     .line 235
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 233
     const/4 v0, 0x1
 
+    .line 233
     iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/GlideException$IndentedAppendable;->printedNewLine:Z
 
     .line 236
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/GlideException$IndentedAppendable;->appendable:Ljava/lang/Appendable;
 
-    .line 237
     return-void
 .end method
 
 .method private safeSequence(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 1
-    .param p1, "sequence"    # Ljava/lang/CharSequence;
+    .locals 0
 
-    .line 271
     if-nez p1, :cond_0
 
-    .line 272
-    const-string v0, ""
+    const-string p1, ""
 
-    return-object v0
-
-    .line 274
     :cond_0
     return-object p1
 .end method
@@ -70,7 +62,6 @@
 # virtual methods
 .method public append(C)Ljava/lang/Appendable;
     .locals 3
-    .param p1, "c"    # C
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -94,7 +85,6 @@
 
     invoke-interface {v0, v2}, Ljava/lang/Appendable;->append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
 
-    .line 245
     :cond_0
     const/16 v0, 0xa
 
@@ -102,6 +92,7 @@
 
     const/4 v1, 0x1
 
+    .line 245
     :cond_1
     iput-boolean v1, p0, Lcom/bumptech/glide/load/engine/GlideException$IndentedAppendable;->printedNewLine:Z
 
@@ -110,13 +101,11 @@
 
     invoke-interface {v0, p1}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
 
-    .line 247
     return-object p0
 .end method
 
 .method public append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
     .locals 2
-    .param p1, "charSequence"    # Ljava/lang/CharSequence;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -128,25 +117,22 @@
 
     move-result-object p1
 
+    const/4 v0, 0x0
+
     .line 253
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x0
+    invoke-virtual {p0, p1, v0, v1}, Lcom/bumptech/glide/load/engine/GlideException$IndentedAppendable;->append(Ljava/lang/CharSequence;II)Ljava/lang/Appendable;
 
-    invoke-virtual {p0, p1, v1, v0}, Lcom/bumptech/glide/load/engine/GlideException$IndentedAppendable;->append(Ljava/lang/CharSequence;II)Ljava/lang/Appendable;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public append(Ljava/lang/CharSequence;II)Ljava/lang/Appendable;
     .locals 3
-    .param p1, "charSequence"    # Ljava/lang/CharSequence;
-    .param p2, "start"    # I
-    .param p3, "end"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -203,6 +189,5 @@
 
     invoke-interface {v0, p1, p2, p3}, Ljava/lang/Appendable;->append(Ljava/lang/CharSequence;II)Ljava/lang/Appendable;
 
-    .line 266
     return-object p0
 .end method

@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/ActionBarContextView;Landroidx/appcompat/view/ActionMode;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/appcompat/widget/ActionBarContextView;
 
     .line 171
     iput-object p1, p0, Landroidx/appcompat/widget/ActionBarContextView$1;->this$0:Landroidx/appcompat/widget/ActionBarContextView;
@@ -41,14 +40,12 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
-    .param p1, "v"    # Landroid/view/View;
+    .locals 0
 
     .line 174
-    iget-object v0, p0, Landroidx/appcompat/widget/ActionBarContextView$1;->val$mode:Landroidx/appcompat/view/ActionMode;
+    iget-object p1, p0, Landroidx/appcompat/widget/ActionBarContextView$1;->val$mode:Landroidx/appcompat/view/ActionMode;
 
-    invoke-virtual {v0}, Landroidx/appcompat/view/ActionMode;->finish()V
+    invoke-virtual {p1}, Landroidx/appcompat/view/ActionMode;->finish()V
 
-    .line 175
     return-void
 .end method

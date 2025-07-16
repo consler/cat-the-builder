@@ -96,7 +96,7 @@
         }
     .end annotation
 
-    .line 87
+    .line 88
     iget-object v0, p0, Lorg/koin/androidx/viewmodel/scope/ScopeStateVMExtKt$stateViewModel$2;->$this_stateViewModel:Lorg/koin/core/scope/Scope;
 
     iget-object v1, p0, Lorg/koin/androidx/viewmodel/scope/ScopeStateVMExtKt$stateViewModel$2;->$owner:Landroidx/savedstate/SavedStateRegistryOwner;

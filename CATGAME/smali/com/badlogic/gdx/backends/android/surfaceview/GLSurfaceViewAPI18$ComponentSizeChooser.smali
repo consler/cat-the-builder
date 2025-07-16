@@ -35,17 +35,10 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18;IIIIII)V
     .locals 4
-    .param p2, "redSize"    # I
-    .param p3, "greenSize"    # I
-    .param p4, "blueSize"    # I
-    .param p5, "alphaSize"    # I
-    .param p6, "depthSize"    # I
-    .param p7, "stencilSize"    # I
 
     .line 920
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->this$0:Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18;
 
-    .line 921
     const/16 v0, 0xd
 
     new-array v0, v0, [I
@@ -116,11 +109,12 @@
 
     aput v3, v0, v2
 
+    .line 921
     invoke-direct {p0, p1, v0}, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$BaseConfigChooser;-><init>(Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18;[I)V
 
-    .line 929
     new-array p1, v1, [I
 
+    .line 929
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->mValue:[I
 
     .line 930
@@ -141,37 +135,30 @@
     .line 935
     iput p7, p0, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->mStencilSize:I
 
-    .line 936
     return-void
 .end method
 
 .method private findConfigAttrib(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;II)I
-    .locals 2
-    .param p1, "egl"    # Ljavax/microedition/khronos/egl/EGL10;
-    .param p2, "display"    # Ljavax/microedition/khronos/egl/EGLDisplay;
-    .param p3, "config"    # Ljavax/microedition/khronos/egl/EGLConfig;
-    .param p4, "attribute"    # I
-    .param p5, "defaultValue"    # I
+    .locals 1
 
     .line 967
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->mValue:[I
 
     invoke-interface {p1, p2, p3, p4, v0}, Ljavax/microedition/khronos/egl/EGL10;->eglGetConfigAttrib(Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;I[I)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 968
-    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->mValue:[I
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->mValue:[I
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    aget v0, v0, v1
+    aget p1, p1, p2
 
-    return v0
+    return p1
 
-    .line 970
     :cond_0
     return p5
 .end method
@@ -179,141 +166,115 @@
 
 # virtual methods
 .method public chooseConfig(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;[Ljavax/microedition/khronos/egl/EGLConfig;)Ljavax/microedition/khronos/egl/EGLConfig;
-    .locals 16
-    .param p1, "egl"    # Ljavax/microedition/khronos/egl/EGL10;
-    .param p2, "display"    # Ljavax/microedition/khronos/egl/EGLDisplay;
-    .param p3, "configs"    # [Ljavax/microedition/khronos/egl/EGLConfig;
+    .locals 12
 
     .line 941
-    move-object/from16 v6, p0
+    array-length v0, p3
 
-    move-object/from16 v7, p3
-
-    array-length v8, v7
-
-    const/4 v0, 0x0
-
-    move v9, v0
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v9, v8, :cond_1
+    if-ge v1, v0, :cond_1
 
-    aget-object v10, v7, v9
+    aget-object v8, p3, v1
+
+    const/16 v6, 0x3025
+
+    const/4 v7, 0x0
+
+    move-object v2, p0
+
+    move-object v3, p1
+
+    move-object v4, p2
+
+    move-object v5, v8
 
     .line 942
-    .local v10, "config":Ljavax/microedition/khronos/egl/EGLConfig;
-    const/16 v4, 0x3025
+    invoke-direct/range {v2 .. v7}, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->findConfigAttrib(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;II)I
 
-    const/4 v5, 0x0
+    move-result v9
 
-    move-object/from16 v0, p0
+    const/16 v6, 0x3026
 
-    move-object/from16 v1, p1
+    .line 944
+    invoke-direct/range {v2 .. v7}, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->findConfigAttrib(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;II)I
 
-    move-object/from16 v2, p2
+    move-result v2
 
-    move-object v3, v10
+    .line 946
+    iget v3, p0, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->mDepthSize:I
 
-    invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->findConfigAttrib(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;II)I
+    if-lt v9, v3, :cond_0
+
+    iget v3, p0, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->mStencilSize:I
+
+    if-lt v2, v3, :cond_0
+
+    const/16 v6, 0x3024
+
+    const/4 v7, 0x0
+
+    move-object v2, p0
+
+    move-object v3, p1
+
+    move-object v4, p2
+
+    move-object v5, v8
+
+    .line 947
+    invoke-direct/range {v2 .. v7}, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->findConfigAttrib(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;II)I
+
+    move-result v9
+
+    const/16 v6, 0x3023
+
+    .line 949
+    invoke-direct/range {v2 .. v7}, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->findConfigAttrib(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;II)I
+
+    move-result v10
+
+    const/16 v6, 0x3022
+
+    .line 951
+    invoke-direct/range {v2 .. v7}, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->findConfigAttrib(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;II)I
 
     move-result v11
 
-    .line 944
-    .local v11, "d":I
-    const/16 v4, 0x3026
-
-    invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->findConfigAttrib(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;II)I
-
-    move-result v12
-
-    .line 946
-    .local v12, "s":I
-    iget v0, v6, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->mDepthSize:I
-
-    if-lt v11, v0, :cond_0
-
-    iget v0, v6, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->mStencilSize:I
-
-    if-lt v12, v0, :cond_0
-
-    .line 947
-    const/16 v4, 0x3024
-
-    const/4 v5, 0x0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p1
-
-    move-object/from16 v2, p2
-
-    move-object v3, v10
-
-    invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->findConfigAttrib(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;II)I
-
-    move-result v13
-
-    .line 949
-    .local v13, "r":I
-    const/16 v4, 0x3023
-
-    invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->findConfigAttrib(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;II)I
-
-    move-result v14
-
-    .line 951
-    .local v14, "g":I
-    const/16 v4, 0x3022
-
-    invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->findConfigAttrib(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;II)I
-
-    move-result v15
+    const/16 v6, 0x3021
 
     .line 953
-    .local v15, "b":I
-    const/16 v4, 0x3021
+    invoke-direct/range {v2 .. v7}, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->findConfigAttrib(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;II)I
 
-    invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->findConfigAttrib(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;II)I
-
-    move-result v0
+    move-result v2
 
     .line 955
-    .local v0, "a":I
-    iget v1, v6, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->mRedSize:I
+    iget v3, p0, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->mRedSize:I
 
-    if-ne v13, v1, :cond_0
+    if-ne v9, v3, :cond_0
 
-    iget v1, v6, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->mGreenSize:I
+    iget v3, p0, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->mGreenSize:I
 
-    if-ne v14, v1, :cond_0
+    if-ne v10, v3, :cond_0
 
-    iget v1, v6, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->mBlueSize:I
+    iget v3, p0, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->mBlueSize:I
 
-    if-ne v15, v1, :cond_0
+    if-ne v11, v3, :cond_0
 
-    iget v1, v6, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->mAlphaSize:I
+    iget v3, p0, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$ComponentSizeChooser;->mAlphaSize:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v2, v3, :cond_0
 
-    .line 957
-    return-object v10
+    return-object v8
 
-    .line 941
-    .end local v0    # "a":I
-    .end local v10    # "config":Ljavax/microedition/khronos/egl/EGLConfig;
-    .end local v11    # "d":I
-    .end local v12    # "s":I
-    .end local v13    # "r":I
-    .end local v14    # "g":I
-    .end local v15    # "b":I
     :cond_0
-    add-int/lit8 v9, v9, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 961
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method

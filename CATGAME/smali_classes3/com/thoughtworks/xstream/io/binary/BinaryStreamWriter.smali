@@ -25,7 +25,6 @@
 # direct methods
 .method public constructor <init>(Ljava/io/OutputStream;)V
     .locals 2
-    .param p1, "outputStream"    # Ljava/io/OutputStream;
 
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,14 +52,11 @@
 
     iput-object v0, p0, Lcom/thoughtworks/xstream/io/binary/BinaryStreamWriter;->out:Ljava/io/DataOutputStream;
 
-    .line 35
     return-void
 .end method
 
 .method static synthetic access$100(Lcom/thoughtworks/xstream/io/binary/BinaryStreamWriter;Lcom/thoughtworks/xstream/io/binary/Token;)V
     .locals 0
-    .param p0, "x0"    # Lcom/thoughtworks/xstream/io/binary/BinaryStreamWriter;
-    .param p1, "x1"    # Lcom/thoughtworks/xstream/io/binary/Token;
 
     .line 27
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/io/binary/BinaryStreamWriter;->write(Lcom/thoughtworks/xstream/io/binary/Token;)V
@@ -70,7 +66,6 @@
 
 .method private write(Lcom/thoughtworks/xstream/io/binary/Token;)V
     .locals 2
-    .param p1, "token"    # Lcom/thoughtworks/xstream/io/binary/Token;
 
     .line 79
     :try_start_0
@@ -82,31 +77,23 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 82
-    nop
-
-    .line 83
     return-void
 
-    .line 80
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 81
-    .local v0, "e":Ljava/io/IOException;
-    new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
+    new-instance v0, Lcom/thoughtworks/xstream/io/StreamException;
 
-    invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 
 # virtual methods
 .method public addAttribute(Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/String;
 
     .line 46
     new-instance v0, Lcom/thoughtworks/xstream/io/binary/Token$Attribute;
@@ -121,7 +108,6 @@
 
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/io/binary/BinaryStreamWriter;->write(Lcom/thoughtworks/xstream/io/binary/Token;)V
 
-    .line 47
     return-void
 .end method
 
@@ -136,18 +122,12 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 70
-    nop
-
-    .line 71
     return-void
 
-    .line 68
     :catch_0
     move-exception v0
 
     .line 69
-    .local v0, "e":Ljava/io/IOException;
     new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
 
     invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
@@ -165,7 +145,6 @@
 
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/io/binary/BinaryStreamWriter;->write(Lcom/thoughtworks/xstream/io/binary/Token;)V
 
-    .line 55
     return-void
 .end method
 
@@ -180,18 +159,12 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 62
-    nop
-
-    .line 63
     return-void
 
-    .line 60
     :catch_0
     move-exception v0
 
     .line 61
-    .local v0, "e":Ljava/io/IOException;
     new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
 
     invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
@@ -201,7 +174,6 @@
 
 .method public setValue(Ljava/lang/String;)V
     .locals 1
-    .param p1, "text"    # Ljava/lang/String;
 
     .line 50
     new-instance v0, Lcom/thoughtworks/xstream/io/binary/Token$Value;
@@ -210,13 +182,11 @@
 
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/io/binary/BinaryStreamWriter;->write(Lcom/thoughtworks/xstream/io/binary/Token;)V
 
-    .line 51
     return-void
 .end method
 
 .method public startNode(Ljava/lang/String;)V
     .locals 3
-    .param p1, "name"    # Ljava/lang/String;
 
     .line 38
     new-instance v0, Lcom/thoughtworks/xstream/io/binary/Token$StartNode;
@@ -231,25 +201,20 @@
 
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/io/binary/BinaryStreamWriter;->write(Lcom/thoughtworks/xstream/io/binary/Token;)V
 
-    .line 39
     return-void
 .end method
 
 .method public startNode(Ljava/lang/String;Ljava/lang/Class;)V
     .locals 0
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "clazz"    # Ljava/lang/Class;
 
     .line 42
     invoke-virtual {p0, p1}, Lcom/thoughtworks/xstream/io/binary/BinaryStreamWriter;->startNode(Ljava/lang/String;)V
 
-    .line 43
     return-void
 .end method
 
 .method public underlyingWriter()Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
     .locals 0
 
-    .line 74
     return-object p0
 .end method

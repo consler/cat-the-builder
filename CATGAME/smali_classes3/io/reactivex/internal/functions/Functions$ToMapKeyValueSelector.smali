@@ -67,9 +67,6 @@
     .end annotation
 
     .line 429
-    .local p0, "this":Lio/reactivex/internal/functions/Functions$ToMapKeyValueSelector;, "Lio/reactivex/internal/functions/Functions$ToMapKeyValueSelector<TK;TV;TT;>;"
-    .local p1, "valueSelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TV;>;"
-    .local p2, "keySelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TK;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 430
@@ -78,16 +75,13 @@
     .line 431
     iput-object p2, p0, Lio/reactivex/internal/functions/Functions$ToMapKeyValueSelector;->keySelector:Lio/reactivex/functions/Function;
 
-    .line 432
     return-void
 .end method
 
 
 # virtual methods
 .method public bridge synthetic accept(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
-    .param p2, "x1"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -95,12 +89,9 @@
     .end annotation
 
     .line 424
-    .local p0, "this":Lio/reactivex/internal/functions/Functions$ToMapKeyValueSelector;, "Lio/reactivex/internal/functions/Functions$ToMapKeyValueSelector<TK;TV;TT;>;"
-    move-object v0, p1
+    check-cast p1, Ljava/util/Map;
 
-    check-cast v0, Ljava/util/Map;
-
-    invoke-virtual {p0, v0, p2}, Lio/reactivex/internal/functions/Functions$ToMapKeyValueSelector;->accept(Ljava/util/Map;Ljava/lang/Object;)V
+    invoke-virtual {p0, p1, p2}, Lio/reactivex/internal/functions/Functions$ToMapKeyValueSelector;->accept(Ljava/util/Map;Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -122,9 +113,6 @@
     .end annotation
 
     .line 436
-    .local p0, "this":Lio/reactivex/internal/functions/Functions$ToMapKeyValueSelector;, "Lio/reactivex/internal/functions/Functions$ToMapKeyValueSelector<TK;TV;TT;>;"
-    .local p1, "m":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    .local p2, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/functions/Functions$ToMapKeyValueSelector;->keySelector:Lio/reactivex/functions/Function;
 
     invoke-interface {v0, p2}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
@@ -132,17 +120,14 @@
     move-result-object v0
 
     .line 437
-    .local v0, "key":Ljava/lang/Object;, "TK;"
     iget-object v1, p0, Lio/reactivex/internal/functions/Functions$ToMapKeyValueSelector;->valueSelector:Lio/reactivex/functions/Function;
 
     invoke-interface {v1, p2}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p2
 
     .line 438
-    .local v1, "value":Ljava/lang/Object;, "TV;"
-    invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, v0, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 439
     return-void
 .end method

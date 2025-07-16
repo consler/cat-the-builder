@@ -72,9 +72,9 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 61
     const/4 p1, 0x0
 
+    .line 61
     iput-object p1, p0, Landroidx/work/impl/utils/LiveDataUtils$1;->mCurrentOutput:Ljava/lang/Object;
 
     return-void
@@ -100,7 +100,6 @@
     .end annotation
 
     .line 65
-    .local p1, "input":Ljava/lang/Object;, "TIn;"
     iget-object v0, p0, Landroidx/work/impl/utils/LiveDataUtils$1;->val$workTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
     new-instance v1, Landroidx/work/impl/utils/LiveDataUtils$1$1;
@@ -109,6 +108,5 @@
 
     invoke-interface {v0, v1}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->executeOnBackgroundThread(Ljava/lang/Runnable;)V
 
-    .line 81
     return-void
 .end method

@@ -118,11 +118,6 @@
     .end annotation
 
     .line 149
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableReplay;, "Lio/reactivex/internal/operators/observable/ObservableReplay<TT;>;"
-    .local p1, "onSubscribe":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
-    .local p2, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
-    .local p3, "current":Ljava/util/concurrent/atomic/AtomicReference;, "Ljava/util/concurrent/atomic/AtomicReference<Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayObserver<TT;>;>;"
-    .local p4, "bufferFactory":Lio/reactivex/internal/operators/observable/ObservableReplay$BufferSupplier;, "Lio/reactivex/internal/operators/observable/ObservableReplay$BufferSupplier<TT;>;"
     invoke-direct {p0}, Lio/reactivex/observables/ConnectableObservable;-><init>()V
 
     .line 150
@@ -137,13 +132,11 @@
     .line 153
     iput-object p4, p0, Lio/reactivex/internal/operators/observable/ObservableReplay;->bufferFactory:Lio/reactivex/internal/operators/observable/ObservableReplay$BufferSupplier;
 
-    .line 154
     return-void
 .end method
 
 .method public static create(Lio/reactivex/ObservableSource;I)Lio/reactivex/observables/ConnectableObservable;
     .locals 1
-    .param p1, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -156,8 +149,6 @@
         }
     .end annotation
 
-    .line 98
-    .local p0, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
     const v0, 0x7fffffff
 
     if-ne p1, v0, :cond_0
@@ -165,9 +156,9 @@
     .line 99
     invoke-static {p0}, Lio/reactivex/internal/operators/observable/ObservableReplay;->createFrom(Lio/reactivex/ObservableSource;)Lio/reactivex/observables/ConnectableObservable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 101
     :cond_0
@@ -177,16 +168,13 @@
 
     invoke-static {p0, v0}, Lio/reactivex/internal/operators/observable/ObservableReplay;->create(Lio/reactivex/ObservableSource;Lio/reactivex/internal/operators/observable/ObservableReplay$BufferSupplier;)Lio/reactivex/observables/ConnectableObservable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static create(Lio/reactivex/ObservableSource;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Lio/reactivex/observables/ConnectableObservable;
     .locals 6
-    .param p1, "maxAge"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -202,8 +190,6 @@
         }
     .end annotation
 
-    .line 115
-    .local p0, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
     const v5, 0x7fffffff
 
     move-object v0, p0
@@ -214,19 +200,16 @@
 
     move-object v4, p4
 
+    .line 115
     invoke-static/range {v0 .. v5}, Lio/reactivex/internal/operators/observable/ObservableReplay;->create(Lio/reactivex/ObservableSource;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;I)Lio/reactivex/observables/ConnectableObservable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static create(Lio/reactivex/ObservableSource;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;I)Lio/reactivex/observables/ConnectableObservable;
     .locals 7
-    .param p1, "maxAge"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p5, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -243,7 +226,6 @@
     .end annotation
 
     .line 130
-    .local p0, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
     new-instance v6, Lio/reactivex/internal/operators/observable/ObservableReplay$ScheduledReplaySupplier;
 
     move-object v0, v6
@@ -260,9 +242,9 @@
 
     invoke-static {p0, v6}, Lio/reactivex/internal/operators/observable/ObservableReplay;->create(Lio/reactivex/ObservableSource;Lio/reactivex/internal/operators/observable/ObservableReplay$BufferSupplier;)Lio/reactivex/observables/ConnectableObservable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static create(Lio/reactivex/ObservableSource;Lio/reactivex/internal/operators/observable/ObservableReplay$BufferSupplier;)Lio/reactivex/observables/ConnectableObservable;
@@ -282,29 +264,25 @@
     .end annotation
 
     .line 142
-    .local p0, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
-    .local p1, "bufferFactory":Lio/reactivex/internal/operators/observable/ObservableReplay$BufferSupplier;, "Lio/reactivex/internal/operators/observable/ObservableReplay$BufferSupplier<TT;>;"
     new-instance v0, Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 143
-    .local v0, "curr":Ljava/util/concurrent/atomic/AtomicReference;, "Ljava/util/concurrent/atomic/AtomicReference<Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayObserver<TT;>;>;"
     new-instance v1, Lio/reactivex/internal/operators/observable/ObservableReplay$ReplaySource;
 
     invoke-direct {v1, v0, p1}, Lio/reactivex/internal/operators/observable/ObservableReplay$ReplaySource;-><init>(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/internal/operators/observable/ObservableReplay$BufferSupplier;)V
 
     .line 144
-    .local v1, "onSubscribe":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
     new-instance v2, Lio/reactivex/internal/operators/observable/ObservableReplay;
 
     invoke-direct {v2, v1, p0, v0, p1}, Lio/reactivex/internal/operators/observable/ObservableReplay;-><init>(Lio/reactivex/ObservableSource;Lio/reactivex/ObservableSource;Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/internal/operators/observable/ObservableReplay$BufferSupplier;)V
 
     invoke-static {v2}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/observables/ConnectableObservable;)Lio/reactivex/observables/ConnectableObservable;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 .end method
 
 .method public static createFrom(Lio/reactivex/ObservableSource;)Lio/reactivex/observables/ConnectableObservable;
@@ -322,14 +300,13 @@
     .end annotation
 
     .line 86
-    .local p0, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<+TT;>;"
     sget-object v0, Lio/reactivex/internal/operators/observable/ObservableReplay;->DEFAULT_UNBOUNDED_FACTORY:Lio/reactivex/internal/operators/observable/ObservableReplay$BufferSupplier;
 
     invoke-static {p0, v0}, Lio/reactivex/internal/operators/observable/ObservableReplay;->create(Lio/reactivex/ObservableSource;Lio/reactivex/internal/operators/observable/ObservableReplay$BufferSupplier;)Lio/reactivex/observables/ConnectableObservable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static multicastSelector(Ljava/util/concurrent/Callable;Lio/reactivex/functions/Function;)Lio/reactivex/Observable;
@@ -357,22 +334,19 @@
     .end annotation
 
     .line 62
-    .local p0, "connectableFactory":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<+Lio/reactivex/observables/ConnectableObservable<TU;>;>;"
-    .local p1, "selector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Lio/reactivex/Observable<TU;>;+Lio/reactivex/ObservableSource<TR;>;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableReplay$MulticastReplay;
 
     invoke-direct {v0, p0, p1}, Lio/reactivex/internal/operators/observable/ObservableReplay$MulticastReplay;-><init>(Ljava/util/concurrent/Callable;Lio/reactivex/functions/Function;)V
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Observable;)Lio/reactivex/Observable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static observeOn(Lio/reactivex/observables/ConnectableObservable;Lio/reactivex/Scheduler;)Lio/reactivex/observables/ConnectableObservable;
-    .locals 2
-    .param p1, "scheduler"    # Lio/reactivex/Scheduler;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -388,28 +362,26 @@
     .end annotation
 
     .line 74
-    .local p0, "co":Lio/reactivex/observables/ConnectableObservable;, "Lio/reactivex/observables/ConnectableObservable<TT;>;"
     invoke-virtual {p0, p1}, Lio/reactivex/observables/ConnectableObservable;->observeOn(Lio/reactivex/Scheduler;)Lio/reactivex/Observable;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 75
-    .local v0, "observable":Lio/reactivex/Observable;, "Lio/reactivex/Observable<TT;>;"
-    new-instance v1, Lio/reactivex/internal/operators/observable/ObservableReplay$Replay;
+    new-instance v0, Lio/reactivex/internal/operators/observable/ObservableReplay$Replay;
 
-    invoke-direct {v1, p0, v0}, Lio/reactivex/internal/operators/observable/ObservableReplay$Replay;-><init>(Lio/reactivex/observables/ConnectableObservable;Lio/reactivex/Observable;)V
+    invoke-direct {v0, p0, p1}, Lio/reactivex/internal/operators/observable/ObservableReplay$Replay;-><init>(Lio/reactivex/observables/ConnectableObservable;Lio/reactivex/Observable;)V
 
-    invoke-static {v1}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/observables/ConnectableObservable;)Lio/reactivex/observables/ConnectableObservable;
+    invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/observables/ConnectableObservable;)Lio/reactivex/observables/ConnectableObservable;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public connect(Lio/reactivex/functions/Consumer;)V
-    .locals 6
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -421,8 +393,6 @@
     .end annotation
 
     .line 184
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableReplay;, "Lio/reactivex/internal/operators/observable/ObservableReplay<TT;>;"
-    .local p1, "connection":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Lio/reactivex/disposables/Disposable;>;"
     :goto_0
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableReplay;->current:Ljava/util/concurrent/atomic/AtomicReference;
 
@@ -432,10 +402,9 @@
 
     check-cast v0, Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayObserver;
 
-    .line 186
-    .local v0, "ps":Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayObserver;, "Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayObserver<TT;>;"
     if-eqz v0, :cond_0
 
+    .line 186
     invoke-virtual {v0}, Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayObserver;->isDisposed()Z
 
     move-result v1
@@ -451,31 +420,25 @@
     move-result-object v1
 
     .line 190
-    .local v1, "buf":Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayBuffer;, "Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayBuffer<TT;>;"
     new-instance v2, Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayObserver;
 
     invoke-direct {v2, v1}, Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayObserver;-><init>(Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayBuffer;)V
 
     .line 192
-    .local v2, "u":Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayObserver;, "Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayObserver<TT;>;"
-    iget-object v3, p0, Lio/reactivex/internal/operators/observable/ObservableReplay;->current:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableReplay;->current:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v3, v0, v2}, Ljava/util/concurrent/atomic/AtomicReference;->compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v1, v0, v2}, Lcom/google/android/gms/common/api/internal/zap$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v0
 
-    if-nez v3, :cond_1
+    if-nez v0, :cond_1
 
-    .line 195
     goto :goto_0
 
-    .line 197
     :cond_1
     move-object v0, v2
 
     .line 201
-    .end local v1    # "buf":Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayBuffer;, "Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayBuffer<TT;>;"
-    .end local v2    # "u":Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayObserver;, "Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayObserver<TT;>;"
     :cond_2
     iget-object v1, v0, Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayObserver;->shouldConnect:Ljava/util/concurrent/atomic/AtomicBoolean;
 
@@ -504,77 +467,62 @@
     :cond_3
     move v1, v3
 
-    .line 202
-    .local v1, "doConnect":Z
-    :goto_1
-    nop
-
     .line 219
+    :goto_1
     :try_start_0
     invoke-interface {p1, v0}, Lio/reactivex/functions/Consumer;->accept(Ljava/lang/Object;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 226
-    nop
-
-    .line 227
     if-eqz v1, :cond_4
 
     .line 228
-    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableReplay;->source:Lio/reactivex/ObservableSource;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableReplay;->source:Lio/reactivex/ObservableSource;
 
-    invoke-interface {v2, v0}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
+    invoke-interface {p1, v0}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 230
     :cond_4
     return-void
 
-    .line 220
     :catchall_0
-    move-exception v4
+    move-exception p1
 
-    .line 221
-    .local v4, "ex":Ljava/lang/Throwable;
     if-eqz v1, :cond_5
 
     .line 222
-    iget-object v5, v0, Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayObserver;->shouldConnect:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iget-object v0, v0, Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayObserver;->shouldConnect:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    invoke-virtual {v5, v2, v3}, Ljava/util/concurrent/atomic/AtomicBoolean;->compareAndSet(ZZ)Z
+    invoke-virtual {v0, v2, v3}, Ljava/util/concurrent/atomic/AtomicBoolean;->compareAndSet(ZZ)Z
 
     .line 224
     :cond_5
-    invoke-static {v4}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 225
-    invoke-static {v4}, Lio/reactivex/internal/util/ExceptionHelper;->wrapOrThrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
+    invoke-static {p1}, Lio/reactivex/internal/util/ExceptionHelper;->wrapOrThrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
 
-    move-result-object v2
+    move-result-object p1
 
-    throw v2
+    throw p1
 .end method
 
 .method public dispose()V
     .locals 2
 
     .line 163
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableReplay;, "Lio/reactivex/internal/operators/observable/ObservableReplay<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableReplay;->current:Ljava/util/concurrent/atomic/AtomicReference;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
 
-    .line 164
     return-void
 .end method
 
 .method public isDisposed()Z
-    .locals 2
+    .locals 1
 
     .line 168
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableReplay;, "Lio/reactivex/internal/operators/observable/ObservableReplay<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableReplay;->current:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -583,29 +531,28 @@
 
     check-cast v0, Lio/reactivex/disposables/Disposable;
 
-    .line 169
-    .local v0, "d":Lio/reactivex/disposables/Disposable;
     if-eqz v0, :cond_1
 
+    .line 169
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->isDisposed()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
     :goto_1
-    return v1
+    return v0
 .end method
 
 .method public source()Lio/reactivex/ObservableSource;
@@ -619,7 +566,6 @@
     .end annotation
 
     .line 158
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableReplay;, "Lio/reactivex/internal/operators/observable/ObservableReplay<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableReplay;->source:Lio/reactivex/ObservableSource;
 
     return-object v0
@@ -636,12 +582,9 @@
     .end annotation
 
     .line 174
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableReplay;, "Lio/reactivex/internal/operators/observable/ObservableReplay<TT;>;"
-    .local p1, "observer":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableReplay;->onSubscribe:Lio/reactivex/ObservableSource;
 
     invoke-interface {v0, p1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 175
     return-void
 .end method

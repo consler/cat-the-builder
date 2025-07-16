@@ -36,9 +36,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 55
     const-string v0, "NetworkStateTracker"
 
+    .line 55
     invoke-static {v0}, Landroidx/work/Logger;->tagWithPrefix(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -49,9 +49,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
-    .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "taskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -67,73 +65,59 @@
     invoke-direct {p0, p1, p2}, Landroidx/work/impl/constraints/trackers/ConstraintTracker;-><init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
 
     .line 70
-    iget-object v0, p0, Landroidx/work/impl/constraints/trackers/NetworkStateTracker;->mAppContext:Landroid/content/Context;
+    iget-object p1, p0, Landroidx/work/impl/constraints/trackers/NetworkStateTracker;->mAppContext:Landroid/content/Context;
+
+    const-string p2, "connectivity"
 
     .line 71
-    const-string v1, "connectivity"
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
+    check-cast p1, Landroid/net/ConnectivityManager;
 
-    check-cast v0, Landroid/net/ConnectivityManager;
-
-    iput-object v0, p0, Landroidx/work/impl/constraints/trackers/NetworkStateTracker;->mConnectivityManager:Landroid/net/ConnectivityManager;
+    iput-object p1, p0, Landroidx/work/impl/constraints/trackers/NetworkStateTracker;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     .line 72
     invoke-static {}, Landroidx/work/impl/constraints/trackers/NetworkStateTracker;->isNetworkCallbackSupported()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 73
-    new-instance v0, Landroidx/work/impl/constraints/trackers/NetworkStateTracker$NetworkStateCallback;
+    new-instance p1, Landroidx/work/impl/constraints/trackers/NetworkStateTracker$NetworkStateCallback;
 
-    invoke-direct {v0, p0}, Landroidx/work/impl/constraints/trackers/NetworkStateTracker$NetworkStateCallback;-><init>(Landroidx/work/impl/constraints/trackers/NetworkStateTracker;)V
+    invoke-direct {p1, p0}, Landroidx/work/impl/constraints/trackers/NetworkStateTracker$NetworkStateCallback;-><init>(Landroidx/work/impl/constraints/trackers/NetworkStateTracker;)V
 
-    iput-object v0, p0, Landroidx/work/impl/constraints/trackers/NetworkStateTracker;->mNetworkCallback:Landroidx/work/impl/constraints/trackers/NetworkStateTracker$NetworkStateCallback;
+    iput-object p1, p0, Landroidx/work/impl/constraints/trackers/NetworkStateTracker;->mNetworkCallback:Landroidx/work/impl/constraints/trackers/NetworkStateTracker$NetworkStateCallback;
 
     goto :goto_0
 
     .line 75
     :cond_0
-    new-instance v0, Landroidx/work/impl/constraints/trackers/NetworkStateTracker$NetworkStateBroadcastReceiver;
+    new-instance p1, Landroidx/work/impl/constraints/trackers/NetworkStateTracker$NetworkStateBroadcastReceiver;
 
-    invoke-direct {v0, p0}, Landroidx/work/impl/constraints/trackers/NetworkStateTracker$NetworkStateBroadcastReceiver;-><init>(Landroidx/work/impl/constraints/trackers/NetworkStateTracker;)V
+    invoke-direct {p1, p0}, Landroidx/work/impl/constraints/trackers/NetworkStateTracker$NetworkStateBroadcastReceiver;-><init>(Landroidx/work/impl/constraints/trackers/NetworkStateTracker;)V
 
-    iput-object v0, p0, Landroidx/work/impl/constraints/trackers/NetworkStateTracker;->mBroadcastReceiver:Landroidx/work/impl/constraints/trackers/NetworkStateTracker$NetworkStateBroadcastReceiver;
+    iput-object p1, p0, Landroidx/work/impl/constraints/trackers/NetworkStateTracker;->mBroadcastReceiver:Landroidx/work/impl/constraints/trackers/NetworkStateTracker$NetworkStateBroadcastReceiver;
 
-    .line 77
     :goto_0
     return-void
 .end method
 
 .method private static isNetworkCallbackSupported()Z
-    .locals 2
-
-    .line 131
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x18
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     const/4 v0, 0x1
 
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
     return v0
 .end method
 
 
 # virtual methods
 .method getActiveNetworkState()Landroidx/work/impl/constraints/NetworkState;
-    .locals 7
+    .locals 6
 
     .line 137
     iget-object v0, p0, Landroidx/work/impl/constraints/trackers/NetworkStateTracker;->mConnectivityManager:Landroid/net/ConnectivityManager;
@@ -142,14 +126,13 @@
 
     move-result-object v0
 
-    .line 138
-    .local v0, "info":Landroid/net/NetworkInfo;
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
     if-eqz v0, :cond_0
 
+    .line 138
     invoke-virtual {v0}, Landroid/net/NetworkInfo;->isConnected()Z
 
     move-result v3
@@ -164,29 +147,26 @@
     move v3, v2
 
     .line 139
-    .local v3, "isConnected":Z
     :goto_0
     invoke-virtual {p0}, Landroidx/work/impl/constraints/trackers/NetworkStateTracker;->isActiveNetworkValidated()Z
 
     move-result v4
 
     .line 140
-    .local v4, "isValidated":Z
     iget-object v5, p0, Landroidx/work/impl/constraints/trackers/NetworkStateTracker;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     invoke-static {v5}, Landroidx/core/net/ConnectivityManagerCompat;->isActiveNetworkMetered(Landroid/net/ConnectivityManager;)Z
 
     move-result v5
 
-    .line 141
-    .local v5, "isMetered":Z
     if-eqz v0, :cond_1
 
+    .line 141
     invoke-virtual {v0}, Landroid/net/NetworkInfo;->isRoaming()Z
 
-    move-result v6
+    move-result v0
 
-    if-nez v6, :cond_1
+    if-nez v0, :cond_1
 
     goto :goto_1
 
@@ -194,13 +174,12 @@
     move v1, v2
 
     .line 142
-    .local v1, "isNotRoaming":Z
     :goto_1
-    new-instance v2, Landroidx/work/impl/constraints/NetworkState;
+    new-instance v0, Landroidx/work/impl/constraints/NetworkState;
 
-    invoke-direct {v2, v3, v4, v5, v1}, Landroidx/work/impl/constraints/NetworkState;-><init>(ZZZZ)V
+    invoke-direct {v0, v3, v4, v5, v1}, Landroidx/work/impl/constraints/NetworkState;-><init>(ZZZZ)V
 
-    return-object v2
+    return-object v0
 .end method
 
 .method public getInitialState()Landroidx/work/impl/constraints/NetworkState;
@@ -226,24 +205,13 @@
 .end method
 
 .method isActiveNetworkValidated()Z
-    .locals 6
+    .locals 5
 
-    .line 147
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    const/4 v0, 0x1
 
     const/4 v1, 0x0
 
-    const/16 v2, 0x17
-
-    if-ge v0, v2, :cond_0
-
-    .line 148
-    return v1
-
     .line 151
-    :cond_0
-    const/4 v0, 0x1
-
     :try_start_0
     iget-object v2, p0, Landroidx/work/impl/constraints/trackers/NetworkStateTracker;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
@@ -252,47 +220,37 @@
     move-result-object v2
 
     .line 152
-    .local v2, "network":Landroid/net/Network;
     iget-object v3, p0, Landroidx/work/impl/constraints/trackers/NetworkStateTracker;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     invoke-virtual {v3, v2}, Landroid/net/ConnectivityManager;->getNetworkCapabilities(Landroid/net/Network;)Landroid/net/NetworkCapabilities;
 
-    move-result-object v3
+    move-result-object v2
 
-    .line 153
-    .local v3, "capabilities":Landroid/net/NetworkCapabilities;
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_0
 
-    const/16 v4, 0x10
+    const/16 v3, 0x10
 
     .line 154
-    invoke-virtual {v3, v4}, Landroid/net/NetworkCapabilities;->hasCapability(I)Z
+    invoke-virtual {v2, v3}, Landroid/net/NetworkCapabilities;->hasCapability(I)Z
 
-    move-result v4
+    move-result v2
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    if-eqz v4, :cond_1
-
-    move v1, v0
+    if-eqz v2, :cond_0
 
     goto :goto_0
 
-    :cond_1
-    nop
+    :cond_0
+    move v0, v1
 
-    .line 153
     :goto_0
-    return v1
+    return v0
 
-    .line 155
-    .end local v2    # "network":Landroid/net/Network;
-    .end local v3    # "capabilities":Landroid/net/NetworkCapabilities;
     :catch_0
     move-exception v2
 
     .line 157
-    .local v2, "exception":Ljava/lang/SecurityException;
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v3
@@ -303,11 +261,10 @@
 
     aput-object v2, v0, v1
 
-    const-string v5, "Unable to validate active network"
+    const-string v2, "Unable to validate active network"
 
-    invoke-virtual {v3, v4, v5, v0}, Landroidx/work/Logger;->error(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {v3, v4, v2, v0}, Landroidx/work/Logger;->error(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
-    .line 158
     return v1
 .end method
 
@@ -349,7 +306,6 @@
 
     goto :goto_1
 
-    .line 90
     :catch_0
     move-exception v0
 
@@ -359,7 +315,6 @@
     move-exception v0
 
     .line 95
-    .local v0, "e":Ljava/lang/RuntimeException;
     :goto_0
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
@@ -373,14 +328,11 @@
 
     aput-object v0, v4, v1
 
-    const-string v1, "Received exception while registering network callback"
+    const-string v0, "Received exception while registering network callback"
 
-    invoke-virtual {v2, v3, v1, v4}, Landroidx/work/Logger;->error(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {v2, v3, v0, v4}, Landroidx/work/Logger;->error(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
-    .line 99
-    .end local v0    # "e":Ljava/lang/RuntimeException;
-    :goto_1
-    goto :goto_2
+    goto :goto_1
 
     .line 101
     :cond_0
@@ -390,9 +342,9 @@
 
     sget-object v2, Landroidx/work/impl/constraints/trackers/NetworkStateTracker;->TAG:Ljava/lang/String;
 
-    new-array v1, v1, [Ljava/lang/Throwable;
-
     const-string v3, "Registering broadcast receiver"
+
+    new-array v1, v1, [Ljava/lang/Throwable;
 
     invoke-virtual {v0, v2, v3, v1}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
@@ -409,8 +361,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 105
-    :goto_2
+    :goto_1
     return-void
 .end method
 
@@ -452,7 +403,6 @@
 
     goto :goto_1
 
-    .line 113
     :catch_0
     move-exception v0
 
@@ -462,7 +412,6 @@
     move-exception v0
 
     .line 118
-    .local v0, "e":Ljava/lang/RuntimeException;
     :goto_0
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
@@ -476,14 +425,11 @@
 
     aput-object v0, v4, v1
 
-    const-string v1, "Received exception while unregistering network callback"
+    const-string v0, "Received exception while unregistering network callback"
 
-    invoke-virtual {v2, v3, v1, v4}, Landroidx/work/Logger;->error(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {v2, v3, v0, v4}, Landroidx/work/Logger;->error(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
-    .line 122
-    .end local v0    # "e":Ljava/lang/RuntimeException;
-    :goto_1
-    goto :goto_2
+    goto :goto_1
 
     .line 124
     :cond_0
@@ -493,9 +439,9 @@
 
     sget-object v2, Landroidx/work/impl/constraints/trackers/NetworkStateTracker;->TAG:Ljava/lang/String;
 
-    new-array v1, v1, [Ljava/lang/Throwable;
-
     const-string v3, "Unregistering broadcast receiver"
+
+    new-array v1, v1, [Ljava/lang/Throwable;
 
     invoke-virtual {v0, v2, v3, v1}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
@@ -506,7 +452,6 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 127
-    :goto_2
+    :goto_1
     return-void
 .end method

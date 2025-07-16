@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .locals 6
 
     .line 23
     new-instance v0, Lcom/squareup/picasso/MemoryPolicy;
@@ -43,33 +43,30 @@
     sput-object v0, Lcom/squareup/picasso/MemoryPolicy;->NO_CACHE:Lcom/squareup/picasso/MemoryPolicy;
 
     .line 28
-    new-instance v0, Lcom/squareup/picasso/MemoryPolicy;
+    new-instance v1, Lcom/squareup/picasso/MemoryPolicy;
 
-    const-string v1, "NO_STORE"
+    const-string v4, "NO_STORE"
 
-    const/4 v4, 0x2
+    const/4 v5, 0x2
 
-    invoke-direct {v0, v1, v3, v4}, Lcom/squareup/picasso/MemoryPolicy;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v1, v4, v3, v5}, Lcom/squareup/picasso/MemoryPolicy;-><init>(Ljava/lang/String;II)V
 
-    sput-object v0, Lcom/squareup/picasso/MemoryPolicy;->NO_STORE:Lcom/squareup/picasso/MemoryPolicy;
+    sput-object v1, Lcom/squareup/picasso/MemoryPolicy;->NO_STORE:Lcom/squareup/picasso/MemoryPolicy;
+
+    new-array v4, v5, [Lcom/squareup/picasso/MemoryPolicy;
+
+    aput-object v0, v4, v2
+
+    aput-object v1, v4, v3
 
     .line 19
-    new-array v1, v4, [Lcom/squareup/picasso/MemoryPolicy;
-
-    sget-object v4, Lcom/squareup/picasso/MemoryPolicy;->NO_CACHE:Lcom/squareup/picasso/MemoryPolicy;
-
-    aput-object v4, v1, v2
-
-    aput-object v0, v1, v3
-
-    sput-object v1, Lcom/squareup/picasso/MemoryPolicy;->$VALUES:[Lcom/squareup/picasso/MemoryPolicy;
+    sput-object v4, Lcom/squareup/picasso/MemoryPolicy;->$VALUES:[Lcom/squareup/picasso/MemoryPolicy;
 
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .param p3, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -82,72 +79,68 @@
     .line 41
     iput p3, p0, Lcom/squareup/picasso/MemoryPolicy;->index:I
 
-    .line 42
     return-void
 .end method
 
 .method static shouldReadFromMemoryCache(I)Z
     .locals 1
-    .param p0, "memoryPolicy"    # I
 
     .line 31
     sget-object v0, Lcom/squareup/picasso/MemoryPolicy;->NO_CACHE:Lcom/squareup/picasso/MemoryPolicy;
 
     iget v0, v0, Lcom/squareup/picasso/MemoryPolicy;->index:I
 
-    and-int/2addr v0, p0
+    and-int/2addr p0, v0
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method static shouldWriteToMemoryCache(I)Z
     .locals 1
-    .param p0, "memoryPolicy"    # I
 
     .line 35
     sget-object v0, Lcom/squareup/picasso/MemoryPolicy;->NO_STORE:Lcom/squareup/picasso/MemoryPolicy;
 
     iget v0, v0, Lcom/squareup/picasso/MemoryPolicy;->index:I
 
-    and-int/2addr v0, p0
+    and-int/2addr p0, v0
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/squareup/picasso/MemoryPolicy;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 19
     const-class v0, Lcom/squareup/picasso/MemoryPolicy;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/squareup/picasso/MemoryPolicy;
+    check-cast p0, Lcom/squareup/picasso/MemoryPolicy;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/squareup/picasso/MemoryPolicy;

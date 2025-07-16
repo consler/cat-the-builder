@@ -24,7 +24,6 @@
 # direct methods
 .method public constructor <init>(Ljava/util/Iterator;)V
     .locals 0
-    .param p1, "iterator"    # Ljava/util/Iterator;
 
     .line 77
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +31,6 @@
     .line 78
     iput-object p1, p0, Lcom/thoughtworks/xstream/core/util/PrioritizedList$PrioritizedItemIterator;->iterator:Ljava/util/Iterator;
 
-    .line 79
     return-void
 .end method
 

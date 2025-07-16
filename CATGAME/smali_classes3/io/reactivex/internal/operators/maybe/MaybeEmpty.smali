@@ -51,7 +51,6 @@
 .method public call()Ljava/lang/Object;
     .locals 1
 
-    .line 34
     const/4 v0, 0x0
 
     return-object v0
@@ -70,9 +69,7 @@
     .end annotation
 
     .line 29
-    .local p1, "observer":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-Ljava/lang/Object;>;"
     invoke-static {p1}, Lio/reactivex/internal/disposables/EmptyDisposable;->complete(Lio/reactivex/MaybeObserver;)V
 
-    .line 30
     return-void
 .end method

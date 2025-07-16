@@ -35,13 +35,11 @@
     .line 613
     iput-object p0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    .line 614
     return-void
 .end method
 
 .method protected constructor <init>(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "value"    # Ljava/lang/Object;
 
     .line 622
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,15 +47,11 @@
     .line 623
     iput-object p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->value:Ljava/lang/Object;
 
-    .line 624
     return-void
 .end method
 
 .method protected constructor <init>(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;Lorg/apache/commons/collections/list/AbstractLinkedList$Node;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "previous"    # Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
-    .param p2, "next"    # Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
-    .param p3, "value"    # Ljava/lang/Object;
 
     .line 634
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -71,7 +65,6 @@
     .line 637
     iput-object p3, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->value:Ljava/lang/Object;
 
-    .line 638
     return-void
 .end method
 
@@ -106,33 +99,27 @@
 
 .method protected setNextNode(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;)V
     .locals 0
-    .param p1, "next"    # Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     .line 697
     iput-object p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    .line 698
     return-void
 .end method
 
 .method protected setPreviousNode(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;)V
     .locals 0
-    .param p1, "previous"    # Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     .line 677
     iput-object p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->previous:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    .line 678
     return-void
 .end method
 
 .method protected setValue(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "value"    # Ljava/lang/Object;
 
     .line 657
     iput-object p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->value:Ljava/lang/Object;
 
-    .line 658
     return-void
 .end method

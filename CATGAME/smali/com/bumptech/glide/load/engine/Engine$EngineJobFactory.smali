@@ -41,12 +41,6 @@
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/engine/executor/GlideExecutor;Lcom/bumptech/glide/load/engine/executor/GlideExecutor;Lcom/bumptech/glide/load/engine/executor/GlideExecutor;Lcom/bumptech/glide/load/engine/executor/GlideExecutor;Lcom/bumptech/glide/load/engine/EngineJobListener;Lcom/bumptech/glide/load/engine/EngineResource$ResourceListener;)V
     .locals 2
-    .param p1, "diskCacheExecutor"    # Lcom/bumptech/glide/load/engine/executor/GlideExecutor;
-    .param p2, "sourceExecutor"    # Lcom/bumptech/glide/load/engine/executor/GlideExecutor;
-    .param p3, "sourceUnlimitedExecutor"    # Lcom/bumptech/glide/load/engine/executor/GlideExecutor;
-    .param p4, "animationExecutor"    # Lcom/bumptech/glide/load/engine/executor/GlideExecutor;
-    .param p5, "engineJobListener"    # Lcom/bumptech/glide/load/engine/EngineJobListener;
-    .param p6, "resourceListener"    # Lcom/bumptech/glide/load/engine/EngineResource$ResourceListener;
 
     .line 565
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,9 +50,9 @@
 
     invoke-direct {v0, p0}, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory$1;-><init>(Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;)V
 
-    .line 543
     const/16 v1, 0x96
 
+    .line 543
     invoke-static {v1, v0}, Lcom/bumptech/glide/util/pool/FactoryPools;->threadSafe(ILcom/bumptech/glide/util/pool/FactoryPools$Factory;)Landroidx/core/util/Pools$Pool;
 
     move-result-object v0
@@ -83,7 +77,6 @@
     .line 571
     iput-object p6, p0, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->resourceListener:Lcom/bumptech/glide/load/engine/EngineResource$ResourceListener;
 
-    .line 572
     return-void
 .end method
 
@@ -91,11 +84,6 @@
 # virtual methods
 .method build(Lcom/bumptech/glide/load/Key;ZZZZ)Lcom/bumptech/glide/load/engine/EngineJob;
     .locals 7
-    .param p1, "key"    # Lcom/bumptech/glide/load/Key;
-    .param p2, "isMemoryCacheable"    # Z
-    .param p3, "useUnlimitedSourceGeneratorPool"    # Z
-    .param p4, "useAnimationPool"    # Z
-    .param p5, "onlyRetrieveFromCache"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -121,11 +109,9 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/bumptech/glide/load/engine/EngineJob;
-
-    .line 590
-    .local v0, "result":Lcom/bumptech/glide/load/engine/EngineJob;, "Lcom/bumptech/glide/load/engine/EngineJob<TR;>;"
     move-object v1, v0
+
+    check-cast v1, Lcom/bumptech/glide/load/engine/EngineJob;
 
     move-object v2, p1
 
@@ -137,11 +123,12 @@
 
     move v6, p5
 
+    .line 590
     invoke-virtual/range {v1 .. v6}, Lcom/bumptech/glide/load/engine/EngineJob;->init(Lcom/bumptech/glide/load/Key;ZZZZ)Lcom/bumptech/glide/load/engine/EngineJob;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method shutdown()V
@@ -167,6 +154,5 @@
 
     invoke-static {v0}, Lcom/bumptech/glide/util/Executors;->shutdownAndAwaitTermination(Ljava/util/concurrent/ExecutorService;)V
 
-    .line 580
     return-void
 .end method

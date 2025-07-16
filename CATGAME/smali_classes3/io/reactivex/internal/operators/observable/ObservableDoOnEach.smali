@@ -50,8 +50,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/ObservableSource;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;Lio/reactivex/functions/Action;)V
     .locals 0
-    .param p4, "onComplete"    # Lio/reactivex/functions/Action;
-    .param p5, "onAfterTerminate"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -70,10 +68,6 @@
     .end annotation
 
     .line 33
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDoOnEach;, "Lio/reactivex/internal/operators/observable/ObservableDoOnEach<TT;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
-    .local p2, "onNext":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
-    .local p3, "onError":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Ljava/lang/Throwable;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/observable/AbstractObservableWithUpstream;-><init>(Lio/reactivex/ObservableSource;)V
 
     .line 34
@@ -88,7 +82,6 @@
     .line 37
     iput-object p5, p0, Lio/reactivex/internal/operators/observable/ObservableDoOnEach;->onAfterTerminate:Lio/reactivex/functions/Action;
 
-    .line 38
     return-void
 .end method
 
@@ -105,8 +98,6 @@
     .end annotation
 
     .line 42
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDoOnEach;, "Lio/reactivex/internal/operators/observable/ObservableDoOnEach<TT;>;"
-    .local p1, "t":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDoOnEach;->source:Lio/reactivex/ObservableSource;
 
     new-instance v7, Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;
@@ -127,6 +118,5 @@
 
     invoke-interface {v0, v7}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 43
     return-void
 .end method

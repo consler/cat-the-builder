@@ -89,7 +89,7 @@
 .end method
 
 .method public static mutableCopy(Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;)Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -103,32 +103,26 @@
     .end annotation
 
     .line 50
-    .local p0, "list":Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;, "Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList<TE;>;"
     invoke-interface {p0}, Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;->size()I
 
     move-result v0
 
-    .line 51
-    .local v0, "size":I
-    nop
-
-    .line 52
     if-nez v0, :cond_0
 
-    const/16 v1, 0xa
+    const/16 v0, 0xa
 
     goto :goto_0
 
     :cond_0
-    mul-int/lit8 v1, v0, 0x2
+    mul-int/lit8 v0, v0, 0x2
 
     .line 51
     :goto_0
-    invoke-interface {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;->mutableCopyWithCapacity(I)Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;
+    invoke-interface {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;->mutableCopyWithCapacity(I)Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static newBooleanList()Lcom/google/crypto/tink/shaded/protobuf/Internal$BooleanList;

@@ -29,14 +29,13 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .param p1, "input"    # Ljava/lang/String;
 
     .line 414
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 404
     const/4 v0, 0x0
 
+    .line 404
     iput v0, p0, Lcom/opencsv/CSVParser$StringFragmentCopier;->i:I
 
     .line 411
@@ -48,18 +47,16 @@
     .line 415
     iput-object p1, p0, Lcom/opencsv/CSVParser$StringFragmentCopier;->input:Ljava/lang/String;
 
-    .line 416
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/opencsv/CSVParser$StringFragmentCopier;)I
-    .locals 1
-    .param p0, "x0"    # Lcom/opencsv/CSVParser$StringFragmentCopier;
+    .locals 0
 
     .line 401
-    iget v0, p0, Lcom/opencsv/CSVParser$StringFragmentCopier;->i:I
+    iget p0, p0, Lcom/opencsv/CSVParser$StringFragmentCopier;->i:I
 
-    return v0
+    return p0
 .end method
 
 .method private materializeBuilder()Ljava/lang/StringBuilder;
@@ -118,7 +115,6 @@
 # virtual methods
 .method public append(C)V
     .locals 1
-    .param p1, "pending"    # C
 
     .line 444
     invoke-direct {p0}, Lcom/opencsv/CSVParser$StringFragmentCopier;->materializeBuilder()Ljava/lang/StringBuilder;
@@ -127,13 +123,11 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 445
     return-void
 .end method
 
 .method public append(Ljava/lang/String;)V
     .locals 1
-    .param p1, "pending"    # Ljava/lang/String;
 
     .line 440
     invoke-direct {p0}, Lcom/opencsv/CSVParser$StringFragmentCopier;->materializeBuilder()Ljava/lang/StringBuilder;
@@ -142,7 +136,6 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 441
     return-void
 .end method
 
@@ -176,9 +169,9 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 452
     add-int/lit8 v0, v0, 0x1
 
+    .line 452
     iput v0, p0, Lcom/opencsv/CSVParser$StringFragmentCopier;->pendingSubstrTo:I
 
     goto :goto_0
@@ -201,7 +194,6 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 456
     :goto_0
     return-void
 .end method
@@ -214,9 +206,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 464
     const/4 v1, 0x0
 
+    .line 464
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->setLength(I)V
 
     .line 467
@@ -227,7 +219,6 @@
 
     iput v0, p0, Lcom/opencsv/CSVParser$StringFragmentCopier;->pendingSubstrFrom:I
 
-    .line 468
     return-void
 .end method
 
@@ -360,9 +351,7 @@
     move-result-object v0
 
     .line 480
-    .local v0, "result":Ljava/lang/String;
     invoke-virtual {p0}, Lcom/opencsv/CSVParser$StringFragmentCopier;->clearOutput()V
 
-    .line 481
     return-object v0
 .end method

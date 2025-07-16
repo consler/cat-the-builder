@@ -89,10 +89,6 @@
 
 .method constructor <init>(Lio/reactivex/Observer;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;I)V
     .locals 1
-    .param p2, "timespan"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p6, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -107,8 +103,6 @@
     .end annotation
 
     .line 96
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;, "Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-Lio/reactivex/Observable<TT;>;>;"
     new-instance v0, Lio/reactivex/internal/queue/MpscLinkedQueue;
 
     invoke-direct {v0}, Lio/reactivex/internal/queue/MpscLinkedQueue;-><init>()V
@@ -116,11 +110,11 @@
     invoke-direct {p0, p1, v0}, Lio/reactivex/internal/observers/QueueDrainObserver;-><init>(Lio/reactivex/Observer;Lio/reactivex/internal/fuseable/SimplePlainQueue;)V
 
     .line 88
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicReference;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->timer:Ljava/util/concurrent/atomic/AtomicReference;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->timer:Ljava/util/concurrent/atomic/AtomicReference;
 
     .line 97
     iput-wide p2, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->timespan:J
@@ -134,7 +128,6 @@
     .line 100
     iput p6, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->bufferSize:I
 
-    .line 101
     return-void
 .end method
 
@@ -143,13 +136,11 @@
 .method public dispose()V
     .locals 1
 
-    .line 166
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;, "Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver<TT;>;"
     const/4 v0, 0x1
 
+    .line 166
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->cancelled:Z
 
-    .line 167
     return-void
 .end method
 
@@ -157,67 +148,56 @@
     .locals 1
 
     .line 175
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;, "Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->timer:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 176
     return-void
 .end method
 
 .method drainLoop()V
-    .locals 8
+    .locals 7
 
     .line 192
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;, "Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->queue:Lio/reactivex/internal/fuseable/SimplePlainQueue;
 
     check-cast v0, Lio/reactivex/internal/queue/MpscLinkedQueue;
 
     .line 193
-    .local v0, "q":Lio/reactivex/internal/queue/MpscLinkedQueue;, "Lio/reactivex/internal/queue/MpscLinkedQueue<Ljava/lang/Object;>;"
     iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->actual:Lio/reactivex/Observer;
 
     .line 194
-    .local v1, "a":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-Lio/reactivex/Observable<TT;>;>;"
     iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->window:Lio/reactivex/subjects/UnicastSubject;
 
-    .line 196
-    .local v2, "w":Lio/reactivex/subjects/UnicastSubject;, "Lio/reactivex/subjects/UnicastSubject<TT;>;"
     const/4 v3, 0x1
 
     .line 200
-    .local v3, "missed":I
     :cond_0
     :goto_0
     iget-boolean v4, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->terminated:Z
 
     .line 202
-    .local v4, "term":Z
     iget-boolean v5, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->done:Z
 
     .line 204
-    .local v5, "d":Z
     invoke-virtual {v0}, Lio/reactivex/internal/queue/MpscLinkedQueue;->poll()Ljava/lang/Object;
 
     move-result-object v6
 
-    .line 206
-    .local v6, "o":Ljava/lang/Object;
     if-eqz v5, :cond_3
 
     if-eqz v6, :cond_1
 
-    sget-object v7, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->NEXT:Ljava/lang/Object;
+    .line 206
+    sget-object v5, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->NEXT:Ljava/lang/Object;
 
-    if-ne v6, v7, :cond_3
+    if-ne v6, v5, :cond_3
+
+    :cond_1
+    const/4 v1, 0x0
 
     .line 207
-    :cond_1
-    const/4 v7, 0x0
-
-    iput-object v7, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->window:Lio/reactivex/subjects/UnicastSubject;
+    iput-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->window:Lio/reactivex/subjects/UnicastSubject;
 
     .line 208
     invoke-virtual {v0}, Lio/reactivex/internal/queue/MpscLinkedQueue;->clear()V
@@ -226,14 +206,12 @@
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->disposeTimer()V
 
     .line 210
-    iget-object v7, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->error:Ljava/lang/Throwable;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->error:Ljava/lang/Throwable;
 
-    .line 211
-    .local v7, "err":Ljava/lang/Throwable;
-    if-eqz v7, :cond_2
+    if-eqz v0, :cond_2
 
     .line 212
-    invoke-virtual {v2, v7}, Lio/reactivex/subjects/UnicastSubject;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {v2, v0}, Lio/reactivex/subjects/UnicastSubject;->onError(Ljava/lang/Throwable;)V
 
     goto :goto_1
 
@@ -241,56 +219,38 @@
     :cond_2
     invoke-virtual {v2}, Lio/reactivex/subjects/UnicastSubject;->onComplete()V
 
-    .line 216
     :goto_1
     return-void
 
-    .line 219
-    .end local v7    # "err":Ljava/lang/Throwable;
     :cond_3
     if-nez v6, :cond_4
 
-    .line 220
-    nop
+    neg-int v3, v3
 
     .line 239
-    .end local v4    # "term":Z
-    .end local v5    # "d":Z
-    .end local v6    # "o":Ljava/lang/Object;
-    neg-int v4, v3
-
-    invoke-virtual {p0, v4}, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->leave(I)I
+    invoke-virtual {p0, v3}, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->leave(I)I
 
     move-result v3
 
-    .line 240
     if-nez v3, :cond_0
 
-    .line 241
-    nop
-
-    .line 244
     return-void
 
     .line 223
-    .restart local v4    # "term":Z
-    .restart local v5    # "d":Z
-    .restart local v6    # "o":Ljava/lang/Object;
     :cond_4
-    sget-object v7, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->NEXT:Ljava/lang/Object;
+    sget-object v5, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->NEXT:Ljava/lang/Object;
 
-    if-ne v6, v7, :cond_6
+    if-ne v6, v5, :cond_6
 
     .line 224
     invoke-virtual {v2}, Lio/reactivex/subjects/UnicastSubject;->onComplete()V
 
-    .line 225
     if-nez v4, :cond_5
 
     .line 226
-    iget v7, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->bufferSize:I
+    iget v2, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->bufferSize:I
 
-    invoke-static {v7}, Lio/reactivex/subjects/UnicastSubject;->create(I)Lio/reactivex/subjects/UnicastSubject;
+    invoke-static {v2}, Lio/reactivex/subjects/UnicastSubject;->create(I)Lio/reactivex/subjects/UnicastSubject;
 
     move-result-object v2
 
@@ -304,25 +264,20 @@
 
     .line 231
     :cond_5
-    iget-object v7, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->s:Lio/reactivex/disposables/Disposable;
+    iget-object v4, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->s:Lio/reactivex/disposables/Disposable;
 
-    invoke-interface {v7}, Lio/reactivex/disposables/Disposable;->dispose()V
+    invoke-interface {v4}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 233
     goto :goto_0
 
     .line 236
     :cond_6
     invoke-static {v6}, Lio/reactivex/internal/util/NotificationLite;->getValue(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v4
 
-    invoke-virtual {v2, v7}, Lio/reactivex/subjects/UnicastSubject;->onNext(Ljava/lang/Object;)V
+    invoke-virtual {v2, v4}, Lio/reactivex/subjects/UnicastSubject;->onNext(Ljava/lang/Object;)V
 
-    .line 237
-    .end local v4    # "term":Z
-    .end local v5    # "d":Z
-    .end local v6    # "o":Ljava/lang/Object;
     goto :goto_0
 .end method
 
@@ -330,7 +285,6 @@
     .locals 1
 
     .line 171
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;, "Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->cancelled:Z
 
     return v0
@@ -339,10 +293,9 @@
 .method public onComplete()V
     .locals 1
 
-    .line 155
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;, "Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver<TT;>;"
     const/4 v0, 0x1
 
+    .line 155
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->done:Z
 
     .line 156
@@ -364,21 +317,18 @@
 
     invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 162
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 143
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;, "Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver<TT;>;"
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->error:Ljava/lang/Throwable;
 
-    .line 144
     const/4 v0, 0x1
 
+    .line 144
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->done:Z
 
     .line 145
@@ -400,12 +350,11 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 151
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -413,13 +362,10 @@
     .end annotation
 
     .line 124
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;, "Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->terminated:Z
 
     if-eqz v0, :cond_0
 
-    .line 125
     return-void
 
     .line 127
@@ -435,16 +381,15 @@
 
     invoke-virtual {v0, p1}, Lio/reactivex/subjects/UnicastSubject;->onNext(Ljava/lang/Object;)V
 
+    const/4 p1, -0x1
+
     .line 129
-    const/4 v0, -0x1
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->leave(I)I
 
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->leave(I)I
+    move-result p1
 
-    move-result v0
+    if-nez p1, :cond_2
 
-    if-nez v0, :cond_2
-
-    .line 130
     return-void
 
     .line 133
@@ -453,34 +398,30 @@
 
     invoke-static {p1}, Lio/reactivex/internal/util/NotificationLite;->next(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->offer(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->offer(Ljava/lang/Object;)Z
 
     .line 134
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->enter()Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_2
+    if-nez p1, :cond_2
 
-    .line 135
     return-void
 
     .line 138
     :cond_2
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->drainLoop()V
 
-    .line 139
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
-    .locals 9
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
+    .locals 7
 
     .line 105
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;, "Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -493,55 +434,50 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->s:Lio/reactivex/disposables/Disposable;
 
     .line 108
-    iget v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->bufferSize:I
+    iget p1, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->bufferSize:I
 
-    invoke-static {v0}, Lio/reactivex/subjects/UnicastSubject;->create(I)Lio/reactivex/subjects/UnicastSubject;
+    invoke-static {p1}, Lio/reactivex/subjects/UnicastSubject;->create(I)Lio/reactivex/subjects/UnicastSubject;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->window:Lio/reactivex/subjects/UnicastSubject;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->window:Lio/reactivex/subjects/UnicastSubject;
 
     .line 110
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->actual:Lio/reactivex/Observer;
 
     .line 111
-    .local v0, "a":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-Lio/reactivex/Observable<TT;>;>;"
-    invoke-interface {v0, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 113
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->window:Lio/reactivex/subjects/UnicastSubject;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->window:Lio/reactivex/subjects/UnicastSubject;
 
-    invoke-interface {v0, v1}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
+    invoke-interface {p1, v0}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
     .line 115
-    iget-boolean v1, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->cancelled:Z
+    iget-boolean p1, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->cancelled:Z
 
-    if-nez v1, :cond_0
+    if-nez p1, :cond_0
 
     .line 116
-    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->scheduler:Lio/reactivex/Scheduler;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->scheduler:Lio/reactivex/Scheduler;
 
-    iget-wide v6, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->timespan:J
+    iget-wide v4, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->timespan:J
 
-    iget-object v8, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->unit:Ljava/util/concurrent/TimeUnit;
+    iget-object v6, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->unit:Ljava/util/concurrent/TimeUnit;
 
-    move-object v3, p0
+    move-object v1, p0
 
-    move-wide v4, v6
+    move-wide v2, v4
 
-    invoke-virtual/range {v2 .. v8}, Lio/reactivex/Scheduler;->schedulePeriodicallyDirect(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
+    invoke-virtual/range {v0 .. v6}, Lio/reactivex/Scheduler;->schedulePeriodicallyDirect(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 117
-    .local v1, "d":Lio/reactivex/disposables/Disposable;
-    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->timer:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->timer:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-static {v2, v1}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
+    invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 120
-    .end local v0    # "a":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-Lio/reactivex/Observable<TT;>;>;"
-    .end local v1    # "d":Lio/reactivex/disposables/Disposable;
     :cond_0
     return-void
 .end method
@@ -550,14 +486,13 @@
     .locals 2
 
     .line 180
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;, "Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->cancelled:Z
 
     if-eqz v0, :cond_0
 
-    .line 181
     const/4 v0, 0x1
 
+    .line 181
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->terminated:Z
 
     .line 182
@@ -581,7 +516,6 @@
     .line 186
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactUnboundedObserver;->drainLoop()V
 
-    .line 188
     :cond_1
     return-void
 .end method

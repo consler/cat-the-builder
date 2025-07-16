@@ -20,20 +20,18 @@
 # direct methods
 .method public constructor <init>(Ljava/io/Writer;)V
     .locals 1
-    .param p1, "writer"    # Ljava/io/Writer;
 
     .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 43
     const-string v0, "\n"
 
+    .line 43
     iput-object v0, p0, Lcom/opencsv/CSVWriterBuilder;->lineEnd:Ljava/lang/String;
 
     .line 52
     iput-object p1, p0, Lcom/opencsv/CSVWriterBuilder;->writer:Ljava/io/Writer;
 
-    .line 53
     return-void
 .end method
 
@@ -62,9 +60,9 @@
 
     if-nez v0, :cond_0
 
-    .line 146
     const/16 v0, 0x2c
 
+    .line 146
     invoke-static {v0}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
     move-result-object v0
@@ -159,8 +157,7 @@
 .end method
 
 .method public withEscapeChar(C)Lcom/opencsv/CSVWriterBuilder;
-    .locals 2
-    .param p1, "escapeChar"    # C
+    .locals 1
 
     .line 110
     iget-object v0, p0, Lcom/opencsv/CSVWriterBuilder;->parser:Lcom/opencsv/ICSVParser;
@@ -170,38 +167,34 @@
     .line 113
     invoke-static {p1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/opencsv/CSVWriterBuilder;->escapechar:Ljava/lang/Character;
+    iput-object p1, p0, Lcom/opencsv/CSVWriterBuilder;->escapechar:Ljava/lang/Character;
 
-    .line 114
     return-object p0
 
     .line 111
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "You cannot set the escape character in the builder if you have a ICSVParser set.  Set the escape character in the parser instead."
+    const-string v0, "You cannot set the escape character in the builder if you have a ICSVParser set.  Set the escape character in the parser instead."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public withLineEnd(Ljava/lang/String;)Lcom/opencsv/CSVWriterBuilder;
     .locals 0
-    .param p1, "lineEnd"    # Ljava/lang/String;
 
     .line 124
     iput-object p1, p0, Lcom/opencsv/CSVWriterBuilder;->lineEnd:Ljava/lang/String;
 
-    .line 125
     return-object p0
 .end method
 
 .method public withParser(Lcom/opencsv/ICSVParser;)Lcom/opencsv/CSVWriterBuilder;
-    .locals 2
-    .param p1, "parser"    # Lcom/opencsv/ICSVParser;
+    .locals 1
 
     .line 65
     iget-object v0, p0, Lcom/opencsv/CSVWriterBuilder;->separator:Ljava/lang/Character;
@@ -219,23 +212,21 @@
     .line 68
     iput-object p1, p0, Lcom/opencsv/CSVWriterBuilder;->parser:Lcom/opencsv/ICSVParser;
 
-    .line 69
     return-object p0
 
     .line 66
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "You cannot set the parser in the builder if you have set the separator, quote, or escape character"
+    const-string v0, "You cannot set the parser in the builder if you have set the separator, quote, or escape character"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public withQuoteChar(C)Lcom/opencsv/CSVWriterBuilder;
-    .locals 2
-    .param p1, "quoteChar"    # C
+    .locals 1
 
     .line 95
     iget-object v0, p0, Lcom/opencsv/CSVWriterBuilder;->parser:Lcom/opencsv/ICSVParser;
@@ -245,27 +236,25 @@
     .line 98
     invoke-static {p1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/opencsv/CSVWriterBuilder;->quotechar:Ljava/lang/Character;
+    iput-object p1, p0, Lcom/opencsv/CSVWriterBuilder;->quotechar:Ljava/lang/Character;
 
-    .line 99
     return-object p0
 
     .line 96
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "You cannot set the quote character in the builder if you have a ICSVParser set.  Set the quote character in the parser instead."
+    const-string v0, "You cannot set the quote character in the builder if you have a ICSVParser set.  Set the quote character in the parser instead."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public withSeparator(C)Lcom/opencsv/CSVWriterBuilder;
-    .locals 2
-    .param p1, "separator"    # C
+    .locals 1
 
     .line 80
     iget-object v0, p0, Lcom/opencsv/CSVWriterBuilder;->parser:Lcom/opencsv/ICSVParser;
@@ -275,20 +264,19 @@
     .line 83
     invoke-static {p1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/opencsv/CSVWriterBuilder;->separator:Ljava/lang/Character;
+    iput-object p1, p0, Lcom/opencsv/CSVWriterBuilder;->separator:Ljava/lang/Character;
 
-    .line 84
     return-object p0
 
     .line 81
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "You cannot set the separator in the builder if you have a ICSVParser set.  Set the separator in the parser instead."
+    const-string v0, "You cannot set the separator in the builder if you have a ICSVParser set.  Set the separator in the parser instead."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

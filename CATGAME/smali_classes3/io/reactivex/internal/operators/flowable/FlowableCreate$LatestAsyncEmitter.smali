@@ -47,7 +47,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/reactivestreams/Subscriber;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -57,292 +57,232 @@
     .end annotation
 
     .line 572
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter;-><init>(Lorg/reactivestreams/Subscriber;)V
 
     .line 573
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicReference;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->queue:Ljava/util/concurrent/atomic/AtomicReference;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->queue:Ljava/util/concurrent/atomic/AtomicReference;
 
     .line 574
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    .line 575
     return-void
 .end method
 
 
 # virtual methods
 .method drain()V
-    .locals 13
+    .locals 17
+
+    move-object/from16 v0, p0
 
     .line 624
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter<TT;>;"
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object v1, v0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
+    invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    .line 625
     return-void
 
-    .line 628
-    :cond_0
-    const/4 v0, 0x1
-
     .line 629
-    .local v0, "missed":I
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->actual:Lorg/reactivestreams/Subscriber;
+    :cond_0
+    iget-object v1, v0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->actual:Lorg/reactivestreams/Subscriber;
 
     .line 630
-    .local v1, "a":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->queue:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object v2, v0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->queue:Ljava/util/concurrent/atomic/AtomicReference;
+
+    const/4 v3, 0x1
+
+    move v4, v3
 
     .line 633
-    .local v2, "q":Ljava/util/concurrent/atomic/AtomicReference;, "Ljava/util/concurrent/atomic/AtomicReference<TT;>;"
+    :cond_1
+    invoke-virtual/range {p0 .. p0}, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->get()J
+
+    move-result-wide v5
+
+    const-wide/16 v7, 0x0
+
+    move-wide v9, v7
+
     :goto_0
-    invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->get()J
+    cmp-long v11, v9, v5
 
-    move-result-wide v3
+    const/4 v12, 0x0
 
-    .line 634
-    .local v3, "r":J
-    const-wide/16 v5, 0x0
+    const/4 v13, 0x0
 
-    .line 636
-    .local v5, "e":J
-    :goto_1
-    cmp-long v7, v5, v3
-
-    const/4 v8, 0x1
-
-    const/4 v9, 0x0
-
-    const/4 v10, 0x0
-
-    if-eqz v7, :cond_6
+    if-eqz v11, :cond_7
 
     .line 637
-    invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->isCancelled()Z
+    invoke-virtual/range {p0 .. p0}, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->isCancelled()Z
 
-    move-result v7
+    move-result v14
 
-    if-eqz v7, :cond_1
+    if-eqz v14, :cond_2
 
     .line 638
-    invoke-virtual {v2, v10}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
+    invoke-virtual {v2, v13}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
 
-    .line 639
     return-void
 
     .line 642
-    :cond_1
-    iget-boolean v7, p0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->done:Z
+    :cond_2
+    iget-boolean v14, v0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->done:Z
 
     .line 644
-    .local v7, "d":Z
-    invoke-virtual {v2, v10}, Ljava/util/concurrent/atomic/AtomicReference;->getAndSet(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v13}, Ljava/util/concurrent/atomic/AtomicReference;->getAndSet(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v11
+    move-result-object v15
 
-    .line 646
-    .local v11, "o":Ljava/lang/Object;, "TT;"
-    if-nez v11, :cond_2
+    if-nez v15, :cond_3
 
-    move v12, v8
+    move/from16 v16, v3
+
+    goto :goto_1
+
+    :cond_3
+    move/from16 v16, v12
+
+    :goto_1
+    if-eqz v14, :cond_5
+
+    if-eqz v16, :cond_5
+
+    .line 649
+    iget-object v1, v0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->error:Ljava/lang/Throwable;
+
+    if-eqz v1, :cond_4
+
+    .line 651
+    invoke-super {v0, v1}, Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter;->onError(Ljava/lang/Throwable;)V
 
     goto :goto_2
 
-    :cond_2
-    move v12, v9
+    .line 653
+    :cond_4
+    invoke-super/range {p0 .. p0}, Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter;->onComplete()V
 
-    .line 648
-    .local v12, "empty":Z
     :goto_2
-    if-eqz v7, :cond_4
+    return-void
 
-    if-eqz v12, :cond_4
-
-    .line 649
-    iget-object v8, p0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->error:Ljava/lang/Throwable;
-
-    .line 650
-    .local v8, "ex":Ljava/lang/Throwable;
-    if-eqz v8, :cond_3
-
-    .line 651
-    invoke-super {p0, v8}, Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter;->onError(Ljava/lang/Throwable;)V
+    :cond_5
+    if-eqz v16, :cond_6
 
     goto :goto_3
 
-    .line 653
-    :cond_3
-    invoke-super {p0}, Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter;->onComplete()V
-
-    .line 655
-    :goto_3
-    return-void
-
-    .line 658
-    .end local v8    # "ex":Ljava/lang/Throwable;
-    :cond_4
-    if-eqz v12, :cond_5
-
-    .line 659
-    goto :goto_4
-
     .line 662
-    :cond_5
-    invoke-interface {v1, v11}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
-
-    .line 664
-    const-wide/16 v8, 0x1
-
-    add-long/2addr v5, v8
-
-    .line 665
-    .end local v7    # "d":Z
-    .end local v11    # "o":Ljava/lang/Object;, "TT;"
-    .end local v12    # "empty":Z
-    goto :goto_1
-
-    .line 667
     :cond_6
-    :goto_4
-    cmp-long v7, v5, v3
+    invoke-interface {v1, v15}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
-    if-nez v7, :cond_a
+    const-wide/16 v11, 0x1
+
+    add-long/2addr v9, v11
+
+    goto :goto_0
+
+    :cond_7
+    :goto_3
+    if-nez v11, :cond_b
 
     .line 668
-    invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->isCancelled()Z
+    invoke-virtual/range {p0 .. p0}, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->isCancelled()Z
 
-    move-result v7
+    move-result v5
 
-    if-eqz v7, :cond_7
+    if-eqz v5, :cond_8
 
     .line 669
-    invoke-virtual {v2, v10}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
+    invoke-virtual {v2, v13}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
 
-    .line 670
     return-void
 
     .line 673
-    :cond_7
-    iget-boolean v7, p0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->done:Z
+    :cond_8
+    iget-boolean v5, v0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->done:Z
 
     .line 675
-    .restart local v7    # "d":Z
     invoke-virtual {v2}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
-    move-result-object v10
+    move-result-object v6
 
-    if-nez v10, :cond_8
+    if-nez v6, :cond_9
 
-    goto :goto_5
+    move v12, v3
 
-    :cond_8
-    move v8, v9
+    :cond_9
+    if-eqz v5, :cond_b
 
-    .line 677
-    .local v8, "empty":Z
-    :goto_5
-    if-eqz v7, :cond_a
-
-    if-eqz v8, :cond_a
+    if-eqz v12, :cond_b
 
     .line 678
-    iget-object v9, p0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->error:Ljava/lang/Throwable;
+    iget-object v1, v0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->error:Ljava/lang/Throwable;
 
-    .line 679
-    .local v9, "ex":Ljava/lang/Throwable;
-    if-eqz v9, :cond_9
+    if-eqz v1, :cond_a
 
     .line 680
-    invoke-super {p0, v9}, Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter;->onError(Ljava/lang/Throwable;)V
+    invoke-super {v0, v1}, Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter;->onError(Ljava/lang/Throwable;)V
 
-    goto :goto_6
+    goto :goto_4
 
     .line 682
-    :cond_9
-    invoke-super {p0}, Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter;->onComplete()V
+    :cond_a
+    invoke-super/range {p0 .. p0}, Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter;->onComplete()V
 
-    .line 684
-    :goto_6
+    :goto_4
     return-void
 
-    .line 688
-    .end local v7    # "d":Z
-    .end local v8    # "empty":Z
-    .end local v9    # "ex":Ljava/lang/Throwable;
-    :cond_a
-    const-wide/16 v7, 0x0
+    :cond_b
+    cmp-long v5, v9, v7
 
-    cmp-long v7, v5, v7
-
-    if-eqz v7, :cond_b
+    if-eqz v5, :cond_c
 
     .line 689
-    invoke-static {p0, v5, v6}, Lio/reactivex/internal/util/BackpressureHelper;->produced(Ljava/util/concurrent/atomic/AtomicLong;J)J
+    invoke-static {v0, v9, v10}, Lio/reactivex/internal/util/BackpressureHelper;->produced(Ljava/util/concurrent/atomic/AtomicLong;J)J
 
     .line 692
-    :cond_b
-    iget-object v7, p0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
-
-    neg-int v8, v0
-
-    invoke-virtual {v7, v8}, Ljava/util/concurrent/atomic/AtomicInteger;->addAndGet(I)I
-
-    move-result v0
-
-    .line 693
-    if-nez v0, :cond_c
-
-    .line 694
-    nop
-
-    .line 697
-    .end local v3    # "r":J
-    .end local v5    # "e":J
-    return-void
-
-    .line 696
     :cond_c
-    goto :goto_0
+    iget-object v5, v0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    neg-int v4, v4
+
+    invoke-virtual {v5, v4}, Ljava/util/concurrent/atomic/AtomicInteger;->addAndGet(I)I
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    return-void
 .end method
 
 .method public onComplete()V
     .locals 1
 
-    .line 607
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter<TT;>;"
     const/4 v0, 0x1
 
+    .line 607
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->done:Z
 
     .line 608
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->drain()V
 
-    .line 609
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 593
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->done:Z
 
     if-nez v0, :cond_2
@@ -355,7 +295,6 @@
 
     goto :goto_0
 
-    .line 597
     :cond_0
     if-nez p1, :cond_1
 
@@ -372,15 +311,14 @@
     :cond_1
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->error:Ljava/lang/Throwable;
 
-    .line 601
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->done:Z
+    .line 601
+    iput-boolean p1, p0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->done:Z
 
     .line 602
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->drain()V
 
-    .line 603
     return-void
 
     .line 594
@@ -388,12 +326,11 @@
     :goto_0
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 595
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -401,8 +338,6 @@
     .end annotation
 
     .line 579
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->done:Z
 
     if-nez v0, :cond_2
@@ -415,20 +350,18 @@
 
     goto :goto_0
 
-    .line 583
     :cond_0
     if-nez p1, :cond_1
 
     .line 584
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "onNext called with null. Null values are generally not allowed in 2.x operators and sources."
+    const-string v0, "onNext called with null. Null values are generally not allowed in 2.x operators and sources."
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->onError(Ljava/lang/Throwable;)V
 
-    .line 585
     return-void
 
     .line 587
@@ -440,10 +373,6 @@
     .line 588
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->drain()V
 
-    .line 589
-    return-void
-
-    .line 580
     :cond_2
     :goto_0
     return-void
@@ -453,10 +382,8 @@
     .locals 0
 
     .line 613
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->drain()V
 
-    .line 614
     return-void
 .end method
 
@@ -464,7 +391,6 @@
     .locals 2
 
     .line 618
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
@@ -480,7 +406,6 @@
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
 
-    .line 621
     :cond_0
     return-void
 .end method

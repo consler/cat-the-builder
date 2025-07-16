@@ -44,10 +44,8 @@
 # direct methods
 .method constructor <init>(Lcom/esotericsoftware/kryo/serializers/BeanSerializer;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/esotericsoftware/kryo/serializers/BeanSerializer;
 
     .line 186
-    .local p0, "this":Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;, "Lcom/esotericsoftware/kryo/serializers/BeanSerializer<TT;>.CachedProperty<TX;>;"
     iput-object p1, p0, Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;->this$0:Lcom/esotericsoftware/kryo/serializers/BeanSerializer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,7 +57,6 @@
 # virtual methods
 .method get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 3
-    .param p1, "object"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalAccessException;,
@@ -68,7 +65,6 @@
     .end annotation
 
     .line 198
-    .local p0, "this":Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;, "Lcom/esotericsoftware/kryo/serializers/BeanSerializer<TT;>.CachedProperty<TX;>;"
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;->this$0:Lcom/esotericsoftware/kryo/serializers/BeanSerializer;
 
     iget-object v0, v0, Lcom/esotericsoftware/kryo/serializers/BeanSerializer;->access:Ljava/lang/Object;
@@ -89,9 +85,9 @@
 
     invoke-virtual {v0, p1, v1, v2}, Lcom/esotericsoftware/reflectasm/MethodAccess;->invoke(Ljava/lang/Object;I[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 199
     :cond_0
@@ -101,15 +97,13 @@
 
     invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method set(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 4
-    .param p1, "object"    # Ljava/lang/Object;
-    .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalAccessException;,
@@ -118,7 +112,6 @@
     .end annotation
 
     .line 203
-    .local p0, "this":Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;, "Lcom/esotericsoftware/kryo/serializers/BeanSerializer<TT;>.CachedProperty<TX;>;"
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;->this$0:Lcom/esotericsoftware/kryo/serializers/BeanSerializer;
 
     iget-object v0, v0, Lcom/esotericsoftware/kryo/serializers/BeanSerializer;->access:Ljava/lang/Object;
@@ -144,7 +137,6 @@
 
     invoke-virtual {v0, p1, v3, v2}, Lcom/esotericsoftware/reflectasm/MethodAccess;->invoke(Ljava/lang/Object;I[Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 205
     return-void
 
     .line 207
@@ -157,7 +149,6 @@
 
     invoke-virtual {v0, p1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 208
     return-void
 .end method
 
@@ -165,7 +156,6 @@
     .locals 1
 
     .line 194
-    .local p0, "this":Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;, "Lcom/esotericsoftware/kryo/serializers/BeanSerializer<TT;>.CachedProperty<TX;>;"
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/BeanSerializer$CachedProperty;->name:Ljava/lang/String;
 
     return-object v0

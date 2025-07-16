@@ -52,7 +52,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/MaybeObserver;J)V
     .locals 0
-    .param p2, "index"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,8 +61,6 @@
     .end annotation
 
     .line 49
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;, "Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 50
@@ -72,7 +69,6 @@
     .line 51
     iput-wide p2, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;->index:J
 
-    .line 52
     return-void
 .end method
 
@@ -82,12 +78,10 @@
     .locals 1
 
     .line 65
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;, "Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 66
     return-void
 .end method
 
@@ -95,7 +89,6 @@
     .locals 1
 
     .line 70
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;, "Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->isDisposed()Z
@@ -109,14 +102,13 @@
     .locals 1
 
     .line 101
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;, "Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;->done:Z
 
     if-nez v0, :cond_0
 
-    .line 102
     const/4 v0, 0x1
 
+    .line 102
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;->done:Z
 
     .line 103
@@ -124,17 +116,14 @@
 
     invoke-interface {v0}, Lio/reactivex/MaybeObserver;->onComplete()V
 
-    .line 105
     :cond_0
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 91
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;, "Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;->done:Z
 
     if-eqz v0, :cond_0
@@ -142,13 +131,12 @@
     .line 92
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 93
     return-void
 
-    .line 95
     :cond_0
     const/4 v0, 0x1
 
+    .line 95
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;->done:Z
 
     .line 96
@@ -156,7 +144,6 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/MaybeObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 97
     return-void
 .end method
 
@@ -169,13 +156,10 @@
     .end annotation
 
     .line 76
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;, "Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 77
     return-void
 
     .line 79
@@ -183,49 +167,44 @@
     iget-wide v0, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;->count:J
 
     .line 80
-    .local v0, "c":J
     iget-wide v2, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;->index:J
 
     cmp-long v2, v0, v2
 
     if-nez v2, :cond_1
 
-    .line 81
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    iput-boolean v2, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;->done:Z
+    .line 81
+    iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;->done:Z
 
     .line 82
-    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;->s:Lio/reactivex/disposables/Disposable;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;->s:Lio/reactivex/disposables/Disposable;
 
-    invoke-interface {v2}, Lio/reactivex/disposables/Disposable;->dispose()V
+    invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
     .line 83
-    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;->actual:Lio/reactivex/MaybeObserver;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;->actual:Lio/reactivex/MaybeObserver;
 
-    invoke-interface {v2, p1}, Lio/reactivex/MaybeObserver;->onSuccess(Ljava/lang/Object;)V
+    invoke-interface {v0, p1}, Lio/reactivex/MaybeObserver;->onSuccess(Ljava/lang/Object;)V
 
-    .line 84
     return-void
 
-    .line 86
     :cond_1
     const-wide/16 v2, 0x1
 
-    add-long/2addr v2, v0
+    add-long/2addr v0, v2
 
-    iput-wide v2, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;->count:J
+    .line 86
+    iput-wide v0, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;->count:J
 
-    .line 87
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 56
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;, "Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -238,11 +217,10 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;->s:Lio/reactivex/disposables/Disposable;
 
     .line 58
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;->actual:Lio/reactivex/MaybeObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;->actual:Lio/reactivex/MaybeObserver;
 
-    invoke-interface {v0, p0}, Lio/reactivex/MaybeObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/MaybeObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 60
     :cond_0
     return-void
 .end method

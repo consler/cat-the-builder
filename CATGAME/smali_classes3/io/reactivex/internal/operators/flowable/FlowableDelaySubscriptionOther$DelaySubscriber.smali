@@ -52,7 +52,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/flowable/FlowableDelaySubscriptionOther;Lio/reactivex/internal/subscriptions/SubscriptionArbiter;Lorg/reactivestreams/Subscriber;)V
     .locals 0
-    .param p2, "serial"    # Lio/reactivex/internal/subscriptions/SubscriptionArbiter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -63,8 +62,6 @@
     .end annotation
 
     .line 51
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDelaySubscriptionOther$DelaySubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDelaySubscriptionOther<TT;TU;>.DelaySubscriber;"
-    .local p3, "child":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableDelaySubscriptionOther$DelaySubscriber;->this$0:Lio/reactivex/internal/operators/flowable/FlowableDelaySubscriptionOther;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -75,7 +72,6 @@
     .line 53
     iput-object p3, p0, Lio/reactivex/internal/operators/flowable/FlowableDelaySubscriptionOther$DelaySubscriber;->child:Lorg/reactivestreams/Subscriber;
 
-    .line 54
     return-void
 .end method
 
@@ -85,18 +81,16 @@
     .locals 2
 
     .line 79
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDelaySubscriptionOther$DelaySubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDelaySubscriptionOther<TT;TU;>.DelaySubscriber;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDelaySubscriptionOther$DelaySubscriber;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 80
     return-void
 
-    .line 82
     :cond_0
     const/4 v0, 0x1
 
+    .line 82
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDelaySubscriptionOther$DelaySubscriber;->done:Z
 
     .line 84
@@ -110,16 +104,13 @@
 
     invoke-interface {v0, v1}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
 
-    .line 85
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 69
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDelaySubscriptionOther$DelaySubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDelaySubscriptionOther<TT;TU;>.DelaySubscriber;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDelaySubscriptionOther$DelaySubscriber;->done:Z
 
     if-eqz v0, :cond_0
@@ -127,13 +118,12 @@
     .line 70
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 71
     return-void
 
-    .line 73
     :cond_0
     const/4 v0, 0x1
 
+    .line 73
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDelaySubscriptionOther$DelaySubscriber;->done:Z
 
     .line 74
@@ -141,7 +131,6 @@
 
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 75
     return-void
 .end method
 
@@ -154,20 +143,15 @@
     .end annotation
 
     .line 64
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDelaySubscriptionOther$DelaySubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDelaySubscriptionOther<TT;TU;>.DelaySubscriber;"
-    .local p1, "t":Ljava/lang/Object;, "TU;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableDelaySubscriptionOther$DelaySubscriber;->onComplete()V
 
-    .line 65
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 58
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDelaySubscriptionOther$DelaySubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDelaySubscriptionOther<TT;TU;>.DelaySubscriber;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDelaySubscriptionOther$DelaySubscriber;->serial:Lio/reactivex/internal/subscriptions/SubscriptionArbiter;
 
     new-instance v1, Lio/reactivex/internal/operators/flowable/FlowableDelaySubscriptionOther$DelaySubscriber$DelaySubscription;
@@ -176,11 +160,10 @@
 
     invoke-virtual {v0, v1}, Lio/reactivex/internal/subscriptions/SubscriptionArbiter;->setSubscription(Lorg/reactivestreams/Subscription;)V
 
-    .line 59
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 59
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 60
     return-void
 .end method

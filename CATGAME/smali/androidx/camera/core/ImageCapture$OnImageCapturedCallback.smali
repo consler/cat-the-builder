@@ -28,19 +28,15 @@
 # virtual methods
 .method public onCaptureSuccess(Landroidx/camera/core/ImageProxy;)V
     .locals 0
-    .param p1, "image"    # Landroidx/camera/core/ImageProxy;
 
     .line 1437
     invoke-interface {p1}, Landroidx/camera/core/ImageProxy;->close()V
 
-    .line 1438
     return-void
 .end method
 
 .method public onError(Landroidx/camera/core/ImageCaptureException;)V
     .locals 0
-    .param p1, "exception"    # Landroidx/camera/core/ImageCaptureException;
 
-    .line 1447
     return-void
 .end method

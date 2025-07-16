@@ -44,11 +44,8 @@
     .end annotation
 
     .line 892
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractHashedMap$EntrySetIterator;, "Lorg/apache/commons/collections4/map/AbstractHashedMap$EntrySetIterator<TK;TV;>;"
-    .local p1, "parent":Lorg/apache/commons/collections4/map/AbstractHashedMap;, "Lorg/apache/commons/collections4/map/AbstractHashedMap<TK;TV;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/map/AbstractHashedMap$HashIterator;-><init>(Lorg/apache/commons/collections4/map/AbstractHashedMap;)V
 
-    .line 893
     return-void
 .end method
 
@@ -58,7 +55,6 @@
     .locals 1
 
     .line 889
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractHashedMap$EntrySetIterator;, "Lorg/apache/commons/collections4/map/AbstractHashedMap$EntrySetIterator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractHashedMap$EntrySetIterator;->next()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -77,7 +73,6 @@
     .end annotation
 
     .line 897
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractHashedMap$EntrySetIterator;, "Lorg/apache/commons/collections4/map/AbstractHashedMap$EntrySetIterator<TK;TV;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/map/AbstractHashedMap$HashIterator;->nextEntry()Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;
 
     move-result-object v0

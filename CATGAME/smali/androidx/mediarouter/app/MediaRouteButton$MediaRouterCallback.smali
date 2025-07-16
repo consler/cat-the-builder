@@ -27,120 +27,95 @@
 
     invoke-direct {p0}, Landroidx/mediarouter/media/MediaRouter$Callback;-><init>()V
 
-    .line 674
     return-void
 .end method
 
 
 # virtual methods
 .method public onProviderAdded(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouter$ProviderInfo;)V
-    .locals 1
-    .param p1, "router"    # Landroidx/mediarouter/media/MediaRouter;
-    .param p2, "provider"    # Landroidx/mediarouter/media/MediaRouter$ProviderInfo;
+    .locals 0
 
     .line 703
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
 
-    invoke-virtual {v0}, Landroidx/mediarouter/app/MediaRouteButton;->refreshRoute()V
+    invoke-virtual {p1}, Landroidx/mediarouter/app/MediaRouteButton;->refreshRoute()V
 
-    .line 704
     return-void
 .end method
 
 .method public onProviderChanged(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouter$ProviderInfo;)V
-    .locals 1
-    .param p1, "router"    # Landroidx/mediarouter/media/MediaRouter;
-    .param p2, "provider"    # Landroidx/mediarouter/media/MediaRouter$ProviderInfo;
+    .locals 0
 
     .line 713
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
 
-    invoke-virtual {v0}, Landroidx/mediarouter/app/MediaRouteButton;->refreshRoute()V
+    invoke-virtual {p1}, Landroidx/mediarouter/app/MediaRouteButton;->refreshRoute()V
 
-    .line 714
     return-void
 .end method
 
 .method public onProviderRemoved(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouter$ProviderInfo;)V
-    .locals 1
-    .param p1, "router"    # Landroidx/mediarouter/media/MediaRouter;
-    .param p2, "provider"    # Landroidx/mediarouter/media/MediaRouter$ProviderInfo;
+    .locals 0
 
     .line 708
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
 
-    invoke-virtual {v0}, Landroidx/mediarouter/app/MediaRouteButton;->refreshRoute()V
+    invoke-virtual {p1}, Landroidx/mediarouter/app/MediaRouteButton;->refreshRoute()V
 
-    .line 709
     return-void
 .end method
 
 .method public onRouteAdded(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
-    .locals 1
-    .param p1, "router"    # Landroidx/mediarouter/media/MediaRouter;
-    .param p2, "info"    # Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+    .locals 0
 
     .line 678
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
 
-    invoke-virtual {v0}, Landroidx/mediarouter/app/MediaRouteButton;->refreshRoute()V
+    invoke-virtual {p1}, Landroidx/mediarouter/app/MediaRouteButton;->refreshRoute()V
 
-    .line 679
     return-void
 .end method
 
 .method public onRouteChanged(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
-    .locals 1
-    .param p1, "router"    # Landroidx/mediarouter/media/MediaRouter;
-    .param p2, "info"    # Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+    .locals 0
 
     .line 688
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
 
-    invoke-virtual {v0}, Landroidx/mediarouter/app/MediaRouteButton;->refreshRoute()V
+    invoke-virtual {p1}, Landroidx/mediarouter/app/MediaRouteButton;->refreshRoute()V
 
-    .line 689
     return-void
 .end method
 
 .method public onRouteRemoved(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
-    .locals 1
-    .param p1, "router"    # Landroidx/mediarouter/media/MediaRouter;
-    .param p2, "info"    # Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+    .locals 0
 
     .line 683
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
 
-    invoke-virtual {v0}, Landroidx/mediarouter/app/MediaRouteButton;->refreshRoute()V
+    invoke-virtual {p1}, Landroidx/mediarouter/app/MediaRouteButton;->refreshRoute()V
 
-    .line 684
     return-void
 .end method
 
 .method public onRouteSelected(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
-    .locals 1
-    .param p1, "router"    # Landroidx/mediarouter/media/MediaRouter;
-    .param p2, "info"    # Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+    .locals 0
 
     .line 693
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
 
-    invoke-virtual {v0}, Landroidx/mediarouter/app/MediaRouteButton;->refreshRoute()V
+    invoke-virtual {p1}, Landroidx/mediarouter/app/MediaRouteButton;->refreshRoute()V
 
-    .line 694
     return-void
 .end method
 
 .method public onRouteUnselected(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
-    .locals 1
-    .param p1, "router"    # Landroidx/mediarouter/media/MediaRouter;
-    .param p2, "info"    # Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+    .locals 0
 
     .line 698
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
 
-    invoke-virtual {v0}, Landroidx/mediarouter/app/MediaRouteButton;->refreshRoute()V
+    invoke-virtual {p1}, Landroidx/mediarouter/app/MediaRouteButton;->refreshRoute()V
 
-    .line 699
     return-void
 .end method

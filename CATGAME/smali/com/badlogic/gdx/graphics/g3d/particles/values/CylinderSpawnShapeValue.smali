@@ -10,13 +10,11 @@
     .line 31
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/g3d/particles/values/PrimitiveSpawnShapeValue;-><init>()V
 
-    .line 32
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/particles/values/CylinderSpawnShapeValue;)V
     .locals 0
-    .param p1, "cylinderSpawnShapeValue"    # Lcom/badlogic/gdx/graphics/g3d/particles/values/CylinderSpawnShapeValue;
 
     .line 27
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/values/PrimitiveSpawnShapeValue;-><init>(Lcom/badlogic/gdx/graphics/g3d/particles/values/PrimitiveSpawnShapeValue;)V
@@ -24,7 +22,6 @@
     .line 28
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/values/CylinderSpawnShapeValue;->load(Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;)V
 
-    .line 29
     return-void
 .end method
 
@@ -42,9 +39,7 @@
 .end method
 
 .method public spawnAux(Lcom/badlogic/gdx/math/Vector3;F)V
-    .locals 13
-    .param p1, "vector"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "percent"    # F
+    .locals 7
 
     .line 37
     iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/CylinderSpawnShapeValue;->spawnWidth:F
@@ -62,7 +57,6 @@
     add-float/2addr v0, v1
 
     .line 38
-    .local v0, "width":F
     iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/CylinderSpawnShapeValue;->spawnHeight:F
 
     iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/CylinderSpawnShapeValue;->spawnHeightDiff:F
@@ -78,7 +72,6 @@
     add-float/2addr v1, v2
 
     .line 39
-    .local v1, "height":F
     iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/CylinderSpawnShapeValue;->spawnDepth:F
 
     iget v3, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/CylinderSpawnShapeValue;->spawnDepthDiff:F
@@ -87,166 +80,136 @@
 
     invoke-virtual {v4, p2}, Lcom/badlogic/gdx/graphics/g3d/particles/values/ScaledNumericValue;->getScale(F)F
 
-    move-result v4
+    move-result p2
 
-    mul-float/2addr v3, v4
+    mul-float/2addr v3, p2
 
     add-float/2addr v2, v3
 
-    .line 42
-    .local v2, "depth":F
-    const/high16 v3, 0x40000000    # 2.0f
+    const/high16 p2, 0x40000000    # 2.0f
 
-    div-float v4, v1, v3
+    div-float v3, v1, p2
 
     .line 43
-    .local v4, "hf":F
     invoke-static {v1}, Lcom/badlogic/gdx/math/MathUtils;->random(F)F
 
-    move-result v5
+    move-result v1
 
-    sub-float/2addr v5, v4
+    sub-float/2addr v1, v3
 
     .line 46
-    .local v5, "ty":F
-    iget-boolean v6, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/CylinderSpawnShapeValue;->edges:Z
+    iget-boolean v3, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/CylinderSpawnShapeValue;->edges:Z
 
-    if-eqz v6, :cond_0
+    if-eqz v3, :cond_0
 
-    .line 47
-    div-float v6, v0, v3
+    div-float/2addr v0, p2
 
-    .line 48
-    .local v6, "radiusX":F
-    div-float v3, v2, v3
-
-    .local v3, "radiusZ":F
     goto :goto_0
 
     .line 50
-    .end local v3    # "radiusZ":F
-    .end local v6    # "radiusX":F
     :cond_0
     invoke-static {v0}, Lcom/badlogic/gdx/math/MathUtils;->random(F)F
 
-    move-result v6
+    move-result v0
 
-    div-float/2addr v6, v3
+    div-float/2addr v0, p2
 
     .line 51
-    .restart local v6    # "radiusX":F
     invoke-static {v2}, Lcom/badlogic/gdx/math/MathUtils;->random(F)F
 
-    move-result v7
+    move-result v2
 
-    div-float v3, v7, v3
-
-    .line 54
-    .restart local v3    # "radiusZ":F
     :goto_0
-    const/4 v7, 0x0
+    div-float/2addr v2, p2
 
-    .line 57
-    .local v7, "spawnTheta":F
-    const/4 v8, 0x0
+    const/4 p2, 0x0
 
-    cmpl-float v9, v6, v8
+    cmpl-float v3, v0, p2
 
-    const/4 v10, 0x0
+    const/4 v4, 0x0
 
-    const/4 v11, 0x1
+    const/4 v5, 0x1
 
-    if-nez v9, :cond_1
+    if-nez v3, :cond_1
 
-    move v9, v11
+    move v3, v5
 
     goto :goto_1
 
     :cond_1
-    move v9, v10
+    move v3, v4
 
-    .local v9, "isRadiusXZero":Z
     :goto_1
-    cmpl-float v12, v3, v8
+    cmpl-float v6, v2, p2
 
-    if-nez v12, :cond_2
+    if-nez v6, :cond_2
 
-    move v10, v11
+    move v4, v5
 
-    .line 58
-    .local v10, "isRadiusZZero":Z
     :cond_2
-    if-nez v9, :cond_3
+    if-nez v3, :cond_3
 
-    if-nez v10, :cond_3
+    if-nez v4, :cond_3
+
+    const/high16 p2, 0x43b40000    # 360.0f
 
     .line 59
-    const/high16 v8, 0x43b40000    # 360.0f
+    invoke-static {p2}, Lcom/badlogic/gdx/math/MathUtils;->random(F)F
 
-    invoke-static {v8}, Lcom/badlogic/gdx/math/MathUtils;->random(F)F
+    move-result p2
 
-    move-result v7
+    goto :goto_2
 
-    goto :goto_4
-
-    .line 61
     :cond_3
-    if-eqz v9, :cond_5
+    if-eqz v3, :cond_5
 
     .line 62
-    invoke-static {v11}, Lcom/badlogic/gdx/math/MathUtils;->random(I)I
+    invoke-static {v5}, Lcom/badlogic/gdx/math/MathUtils;->random(I)I
 
-    move-result v8
+    move-result p2
 
-    if-nez v8, :cond_4
+    if-nez p2, :cond_4
 
-    const/high16 v8, -0x3d4c0000    # -90.0f
+    const/high16 p2, -0x3d4c0000    # -90.0f
 
     goto :goto_2
 
     :cond_4
-    const/high16 v8, 0x42b40000    # 90.0f
+    const/high16 p2, 0x42b40000    # 90.0f
 
-    :goto_2
-    move v7, v8
+    goto :goto_2
 
-    goto :goto_4
+    :cond_5
+    if-eqz v4, :cond_7
 
     .line 63
-    :cond_5
-    if-eqz v10, :cond_7
+    invoke-static {v5}, Lcom/badlogic/gdx/math/MathUtils;->random(I)I
 
-    invoke-static {v11}, Lcom/badlogic/gdx/math/MathUtils;->random(I)I
+    move-result v3
 
-    move-result v11
+    if-nez v3, :cond_6
 
-    if-nez v11, :cond_6
-
-    goto :goto_3
+    goto :goto_2
 
     :cond_6
-    const/high16 v8, 0x43340000    # 180.0f
-
-    :goto_3
-    move v7, v8
+    const/high16 p2, 0x43340000    # 180.0f
 
     .line 66
     :cond_7
-    :goto_4
-    invoke-static {v7}, Lcom/badlogic/gdx/math/MathUtils;->cosDeg(F)F
+    :goto_2
+    invoke-static {p2}, Lcom/badlogic/gdx/math/MathUtils;->cosDeg(F)F
 
-    move-result v8
+    move-result v3
 
-    mul-float/2addr v8, v6
+    mul-float/2addr v0, v3
 
-    invoke-static {v7}, Lcom/badlogic/gdx/math/MathUtils;->sinDeg(F)F
+    invoke-static {p2}, Lcom/badlogic/gdx/math/MathUtils;->sinDeg(F)F
 
-    move-result v11
+    move-result p2
 
-    mul-float/2addr v11, v3
+    mul-float/2addr v2, p2
 
-    invoke-virtual {p1, v8, v5, v11}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p1, v0, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    .line 67
     return-void
 .end method

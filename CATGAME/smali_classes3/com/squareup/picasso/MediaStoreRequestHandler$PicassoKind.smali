@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 13
+    .locals 19
 
     .line 127
     new-instance v6, Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;
@@ -83,55 +83,48 @@
     sput-object v0, Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;->MINI:Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;
 
     .line 129
-    new-instance v0, Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;
+    new-instance v1, Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;
 
-    const-string v2, "FULL"
+    const-string v14, "FULL"
 
-    const/4 v3, 0x2
+    const/4 v15, 0x2
 
-    const/4 v4, 0x2
+    const/16 v16, 0x2
 
-    const/4 v5, -0x1
+    const/16 v17, -0x1
 
-    const/4 v6, -0x1
+    const/16 v18, -0x1
 
-    move-object v1, v0
+    move-object v13, v1
 
-    invoke-direct/range {v1 .. v6}, Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;-><init>(Ljava/lang/String;IIII)V
+    invoke-direct/range {v13 .. v18}, Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;-><init>(Ljava/lang/String;IIII)V
 
-    sput-object v0, Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;->FULL:Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;
+    sput-object v1, Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;->FULL:Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;
 
-    .line 126
-    const/4 v1, 0x3
+    const/4 v2, 0x3
 
-    new-array v1, v1, [Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;
-
-    sget-object v2, Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;->MICRO:Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;
+    new-array v2, v2, [Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;
 
     const/4 v3, 0x0
 
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;->MINI:Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;
+    aput-object v6, v2, v3
 
     const/4 v3, 0x1
 
-    aput-object v2, v1, v3
+    aput-object v0, v2, v3
 
-    const/4 v2, 0x2
+    const/4 v0, 0x2
 
-    aput-object v0, v1, v2
+    aput-object v1, v2, v0
 
-    sput-object v1, Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;->$VALUES:[Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;
+    .line 126
+    sput-object v2, Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;->$VALUES:[Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;
 
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IIII)V
     .locals 0
-    .param p3, "androidKind"    # I
-    .param p4, "width"    # I
-    .param p5, "height"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(III)V"
@@ -150,24 +143,22 @@
     .line 138
     iput p5, p0, Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;->height:I
 
-    .line 139
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 126
     const-class v0, Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;
+    check-cast p0, Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/squareup/picasso/MediaStoreRequestHandler$PicassoKind;

@@ -56,42 +56,33 @@
     .end annotation
 
     .line 294
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservablePublish$InnerDisposable;, "Lio/reactivex/internal/operators/observable/ObservablePublish$InnerDisposable<TT;>;"
-    .local p1, "child":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 295
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservablePublish$InnerDisposable;->child:Lio/reactivex/Observer;
 
-    .line 296
     return-void
 .end method
 
 
 # virtual methods
 .method public dispose()V
-    .locals 2
+    .locals 1
 
     .line 306
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservablePublish$InnerDisposable;, "Lio/reactivex/internal/operators/observable/ObservablePublish$InnerDisposable<TT;>;"
     invoke-virtual {p0, p0}, Lio/reactivex/internal/operators/observable/ObservablePublish$InnerDisposable;->getAndSet(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 307
-    .local v0, "o":Ljava/lang/Object;
     if-eqz v0, :cond_0
 
     if-eq v0, p0, :cond_0
 
     .line 308
-    move-object v1, v0
+    check-cast v0, Lio/reactivex/internal/operators/observable/ObservablePublish$PublishObserver;
 
-    check-cast v1, Lio/reactivex/internal/operators/observable/ObservablePublish$PublishObserver;
+    invoke-virtual {v0, p0}, Lio/reactivex/internal/operators/observable/ObservablePublish$PublishObserver;->remove(Lio/reactivex/internal/operators/observable/ObservablePublish$InnerDisposable;)V
 
-    invoke-virtual {v1, p0}, Lio/reactivex/internal/operators/observable/ObservablePublish$PublishObserver;->remove(Lio/reactivex/internal/operators/observable/ObservablePublish$InnerDisposable;)V
-
-    .line 310
     :cond_0
     return-void
 .end method
@@ -100,7 +91,6 @@
     .locals 1
 
     .line 300
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservablePublish$InnerDisposable;, "Lio/reactivex/internal/operators/observable/ObservablePublish$InnerDisposable<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservablePublish$InnerDisposable;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -128,11 +118,9 @@
         }
     .end annotation
 
-    .line 313
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservablePublish$InnerDisposable;, "Lio/reactivex/internal/operators/observable/ObservablePublish$InnerDisposable<TT;>;"
-    .local p1, "p":Lio/reactivex/internal/operators/observable/ObservablePublish$PublishObserver;, "Lio/reactivex/internal/operators/observable/ObservablePublish$PublishObserver<TT;>;"
     const/4 v0, 0x0
 
+    .line 313
     invoke-virtual {p0, v0, p1}, Lio/reactivex/internal/operators/observable/ObservablePublish$InnerDisposable;->compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
@@ -142,7 +130,6 @@
     .line 314
     invoke-virtual {p1, p0}, Lio/reactivex/internal/operators/observable/ObservablePublish$PublishObserver;->remove(Lio/reactivex/internal/operators/observable/ObservablePublish$InnerDisposable;)V
 
-    .line 316
     :cond_0
     return-void
 .end method

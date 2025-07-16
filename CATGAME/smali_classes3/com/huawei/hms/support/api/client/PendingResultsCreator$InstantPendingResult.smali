@@ -32,13 +32,12 @@
         }
     .end annotation
 
-    .line 38
+    .line 1
     invoke-direct {p0}, Lcom/huawei/hms/support/api/client/EmptyPendingResult;-><init>()V
 
-    .line 39
-    invoke-virtual {p0, p1}, Lcom/huawei/hms/support/api/client/PendingResultsCreator$InstantPendingResult;->setResult(Lcom/huawei/hms/support/api/client/Result;)V
+    .line 2
+    invoke-virtual {p0, p1}, Lcom/huawei/hms/support/api/client/EmptyPendingResult;->setResult(Lcom/huawei/hms/support/api/client/Result;)V
 
-    .line 40
     return-void
 .end method
 
@@ -47,7 +46,7 @@
 .method public cancel()V
     .locals 2
 
-    .line 49
+    .line 1
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "cancel() is not available."
@@ -60,13 +59,12 @@
 .method public setResultCallback(Lcom/huawei/hms/support/api/client/ResultCallback;)V
     .locals 1
 
-    .line 44
-    invoke-virtual {p0}, Lcom/huawei/hms/support/api/client/PendingResultsCreator$InstantPendingResult;->getResult()Lcom/huawei/hms/support/api/client/Result;
+    .line 1
+    invoke-virtual {p0}, Lcom/huawei/hms/support/api/client/EmptyPendingResult;->getResult()Lcom/huawei/hms/support/api/client/Result;
 
     move-result-object v0
 
     invoke-interface {p1, v0}, Lcom/huawei/hms/support/api/client/ResultCallback;->onResult(Ljava/lang/Object;)V
 
-    .line 45
     return-void
 .end method

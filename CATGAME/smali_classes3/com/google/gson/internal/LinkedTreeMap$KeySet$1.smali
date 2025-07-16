@@ -29,16 +29,14 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/gson/internal/LinkedTreeMap$KeySet;)V
-    .locals 1
-    .param p1, "this$1"    # Lcom/google/gson/internal/LinkedTreeMap$KeySet;
+    .locals 0
 
-    .line 601
-    .local p0, "this":Lcom/google/gson/internal/LinkedTreeMap$KeySet$1;, "Lcom/google/gson/internal/LinkedTreeMap$KeySet$1;"
+    .line 604
     iput-object p1, p0, Lcom/google/gson/internal/LinkedTreeMap$KeySet$1;->this$1:Lcom/google/gson/internal/LinkedTreeMap$KeySet;
 
-    iget-object v0, p1, Lcom/google/gson/internal/LinkedTreeMap$KeySet;->this$0:Lcom/google/gson/internal/LinkedTreeMap;
+    iget-object p1, p1, Lcom/google/gson/internal/LinkedTreeMap$KeySet;->this$0:Lcom/google/gson/internal/LinkedTreeMap;
 
-    invoke-direct {p0, v0}, Lcom/google/gson/internal/LinkedTreeMap$LinkedTreeMapIterator;-><init>(Lcom/google/gson/internal/LinkedTreeMap;)V
+    invoke-direct {p0, p1}, Lcom/google/gson/internal/LinkedTreeMap$LinkedTreeMapIterator;-><init>(Lcom/google/gson/internal/LinkedTreeMap;)V
 
     return-void
 .end method
@@ -53,8 +51,7 @@
         }
     .end annotation
 
-    .line 603
-    .local p0, "this":Lcom/google/gson/internal/LinkedTreeMap$KeySet$1;, "Lcom/google/gson/internal/LinkedTreeMap$KeySet$1;"
+    .line 606
     invoke-virtual {p0}, Lcom/google/gson/internal/LinkedTreeMap$KeySet$1;->nextNode()Lcom/google/gson/internal/LinkedTreeMap$Node;
 
     move-result-object v0

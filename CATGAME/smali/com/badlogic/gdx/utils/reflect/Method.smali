@@ -10,7 +10,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/reflect/Method;)V
     .locals 0
-    .param p1, "method"    # Ljava/lang/reflect/Method;
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -18,7 +17,6 @@
     .line 29
     iput-object p1, p0, Lcom/badlogic/gdx/utils/reflect/Method;->method:Ljava/lang/reflect/Method;
 
-    .line 30
     return-void
 .end method
 
@@ -38,20 +36,16 @@
     .end annotation
 
     .line 139
-    .local p1, "annotationType":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/utils/reflect/Method;->method:Ljava/lang/reflect/Method;
 
     invoke-virtual {v0}, Ljava/lang/reflect/Method;->getDeclaredAnnotations()[Ljava/lang/annotation/Annotation;
 
     move-result-object v0
 
-    .line 140
-    .local v0, "annotations":[Ljava/lang/annotation/Annotation;
     const/4 v1, 0x0
 
     if-nez v0, :cond_0
 
-    .line 141
     return-object v1
 
     .line 143
@@ -66,7 +60,6 @@
     aget-object v4, v0, v3
 
     .line 144
-    .local v4, "annotation":Ljava/lang/annotation/Annotation;
     invoke-interface {v4}, Ljava/lang/annotation/Annotation;->annotationType()Ljava/lang/Class;
 
     move-result-object v5
@@ -78,20 +71,17 @@
     if-eqz v5, :cond_1
 
     .line 145
-    new-instance v1, Lcom/badlogic/gdx/utils/reflect/Annotation;
+    new-instance p1, Lcom/badlogic/gdx/utils/reflect/Annotation;
 
-    invoke-direct {v1, v4}, Lcom/badlogic/gdx/utils/reflect/Annotation;-><init>(Ljava/lang/annotation/Annotation;)V
+    invoke-direct {p1, v4}, Lcom/badlogic/gdx/utils/reflect/Annotation;-><init>(Ljava/lang/annotation/Annotation;)V
 
-    return-object v1
+    return-object p1
 
-    .line 143
-    .end local v4    # "annotation":Ljava/lang/annotation/Annotation;
     :cond_1
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 148
     :cond_2
     return-object v1
 .end method
@@ -107,16 +97,13 @@
     move-result-object v0
 
     .line 128
-    .local v0, "annotations":[Ljava/lang/annotation/Annotation;
     array-length v1, v0
 
     new-array v1, v1, [Lcom/badlogic/gdx/utils/reflect/Annotation;
 
-    .line 129
-    .local v1, "result":[Lcom/badlogic/gdx/utils/reflect/Annotation;
     const/4 v2, 0x0
 
-    .local v2, "i":I
+    .line 129
     :goto_0
     array-length v3, v0
 
@@ -131,13 +118,10 @@
 
     aput-object v3, v1, v2
 
-    .line 129
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 132
-    .end local v2    # "i":I
     :cond_0
     return-object v1
 .end method
@@ -195,9 +179,7 @@
 .end method
 
 .method public varargs invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
-    .param p1, "obj"    # Ljava/lang/Object;
-    .param p2, "args"    # [Ljava/lang/Object;
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/badlogic/gdx/utils/reflect/ReflectionException;
@@ -210,105 +192,97 @@
 
     invoke-virtual {v0, p1, p2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_2
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p1
 
-    .line 113
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 114
-    .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
-    new-instance v1, Lcom/badlogic/gdx/utils/reflect/ReflectionException;
+    new-instance p2, Lcom/badlogic/gdx/utils/reflect/ReflectionException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Exception occurred in method: "
 
-    const-string v3, "Exception occurred in method: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/reflect/Method;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v2
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v1, v2, v0}, Lcom/badlogic/gdx/utils/reflect/ReflectionException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    move-result-object v0
 
-    throw v1
+    invoke-direct {p2, v0, p1}, Lcom/badlogic/gdx/utils/reflect/ReflectionException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 111
-    .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
+    throw p2
+
     :catch_1
-    move-exception v0
+    move-exception p1
 
     .line 112
-    .local v0, "e":Ljava/lang/IllegalAccessException;
-    new-instance v1, Lcom/badlogic/gdx/utils/reflect/ReflectionException;
+    new-instance p2, Lcom/badlogic/gdx/utils/reflect/ReflectionException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Illegal access to method: "
 
-    const-string v3, "Illegal access to method: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/reflect/Method;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v2
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v1, v2, v0}, Lcom/badlogic/gdx/utils/reflect/ReflectionException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    move-result-object v0
 
-    throw v1
+    invoke-direct {p2, v0, p1}, Lcom/badlogic/gdx/utils/reflect/ReflectionException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 109
-    .end local v0    # "e":Ljava/lang/IllegalAccessException;
+    throw p2
+
     :catch_2
-    move-exception v0
+    move-exception p1
 
     .line 110
-    .local v0, "e":Ljava/lang/IllegalArgumentException;
-    new-instance v1, Lcom/badlogic/gdx/utils/reflect/ReflectionException;
+    new-instance p2, Lcom/badlogic/gdx/utils/reflect/ReflectionException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Illegal argument(s) supplied to method: "
 
-    const-string v3, "Illegal argument(s) supplied to method: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/reflect/Method;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v2
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v1, v2, v0}, Lcom/badlogic/gdx/utils/reflect/ReflectionException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    move-result-object v0
 
-    throw v1
+    invoke-direct {p2, v0, p1}, Lcom/badlogic/gdx/utils/reflect/ReflectionException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw p2
 .end method
 
 .method public isAbstract()Z
@@ -354,14 +328,13 @@
     .end annotation
 
     .line 120
-    .local p1, "annotationType":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/utils/reflect/Method;->method:Ljava/lang/reflect/Method;
 
     invoke-virtual {v0, p1}, Ljava/lang/reflect/Method;->isAnnotationPresent(Ljava/lang/Class;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public isDefaultAccess()Z
@@ -514,13 +487,11 @@
 
 .method public setAccessible(Z)V
     .locals 1
-    .param p1, "accessible"    # Z
 
     .line 57
     iget-object v0, p0, Lcom/badlogic/gdx/utils/reflect/Method;->method:Ljava/lang/reflect/Method;
 
     invoke-virtual {v0, p1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
 
-    .line 58
     return-void
 .end method

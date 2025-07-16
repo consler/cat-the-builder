@@ -52,9 +52,6 @@
     .end annotation
 
     .line 28
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSingleSingle;, "Lio/reactivex/internal/operators/observable/ObservableSingleSingle<TT;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<+TT;>;"
-    .local p2, "defaultValue":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 29
@@ -63,7 +60,6 @@
     .line 30
     iput-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableSingleSingle;->defaultValue:Ljava/lang/Object;
 
-    .line 31
     return-void
 .end method
 
@@ -80,8 +76,6 @@
     .end annotation
 
     .line 35
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSingleSingle;, "Lio/reactivex/internal/operators/observable/ObservableSingleSingle<TT;>;"
-    .local p1, "t":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSingleSingle;->source:Lio/reactivex/ObservableSource;
 
     new-instance v1, Lio/reactivex/internal/operators/observable/ObservableSingleSingle$SingleElementObserver;
@@ -92,6 +86,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 36
     return-void
 .end method

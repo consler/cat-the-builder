@@ -54,9 +54,7 @@
 .end method
 
 .method public compare(Ljava/net/InetAddress;Ljava/net/InetAddress;)I
-    .locals 2
-    .param p1, "lhs"    # Ljava/net/InetAddress;
-    .param p2, "rhs"    # Ljava/net/InetAddress;
+    .locals 3
 
     .line 432
     instance-of v0, p1, Ljava/net/Inet4Address;
@@ -65,44 +63,38 @@
 
     if-eqz v0, :cond_0
 
-    instance-of v0, p2, Ljava/net/Inet4Address;
+    instance-of v2, p2, Ljava/net/Inet4Address;
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
-    .line 433
     return v1
 
     .line 434
     :cond_0
-    instance-of v0, p1, Ljava/net/Inet6Address;
+    instance-of p1, p1, Ljava/net/Inet6Address;
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
-    instance-of v0, p2, Ljava/net/Inet6Address;
+    instance-of p1, p2, Ljava/net/Inet6Address;
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
-    .line 435
     return v1
 
-    .line 436
     :cond_1
-    instance-of v0, p1, Ljava/net/Inet4Address;
-
     if-eqz v0, :cond_2
 
-    instance-of v0, p2, Ljava/net/Inet6Address;
+    .line 436
+    instance-of p1, p2, Ljava/net/Inet6Address;
 
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
-    .line 437
-    const/4 v0, -0x1
+    const/4 p1, -0x1
 
-    return v0
+    return p1
 
-    .line 438
     :cond_2
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method

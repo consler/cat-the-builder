@@ -27,22 +27,18 @@
 
 # virtual methods
 .method public getSpanIndex(II)I
-    .locals 1
-    .param p1, "position"    # I
-    .param p2, "spanCount"    # I
+    .locals 0
 
     .line 1357
-    rem-int v0, p1, p2
+    rem-int/2addr p1, p2
 
-    return v0
+    return p1
 .end method
 
 .method public getSpanSize(I)I
-    .locals 1
-    .param p1, "position"    # I
+    .locals 0
 
-    .line 1352
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method

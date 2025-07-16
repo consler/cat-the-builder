@@ -20,13 +20,12 @@
 .end method
 
 .method static synthetic access$1900(Lorg/apache/commons/collections/DoubleOrderedMap$4;)Lorg/apache/commons/collections/DoubleOrderedMap;
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections/DoubleOrderedMap$4;
+    .locals 0
 
     .line 1463
-    iget-object v0, p0, Lorg/apache/commons/collections/DoubleOrderedMap$4;->this$0:Lorg/apache/commons/collections/DoubleOrderedMap;
+    iget-object p0, p0, Lorg/apache/commons/collections/DoubleOrderedMap$4;->this$0:Lorg/apache/commons/collections/DoubleOrderedMap;
 
-    return-object v0
+    return-object p0
 .end method
 
 
@@ -39,22 +38,20 @@
 
     invoke-virtual {v0}, Lorg/apache/commons/collections/DoubleOrderedMap;->clear()V
 
-    .line 1494
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
     .line 1480
     iget-object v0, p0, Lorg/apache/commons/collections/DoubleOrderedMap$4;->this$0:Lorg/apache/commons/collections/DoubleOrderedMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections/DoubleOrderedMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
@@ -72,7 +69,6 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "o"    # Ljava/lang/Object;
 
     .line 1485
     iget-object v0, p0, Lorg/apache/commons/collections/DoubleOrderedMap$4;->this$0:Lorg/apache/commons/collections/DoubleOrderedMap;
@@ -82,29 +78,28 @@
     move-result v0
 
     .line 1487
-    .local v0, "oldNodeCount":I
     iget-object v1, p0, Lorg/apache/commons/collections/DoubleOrderedMap$4;->this$0:Lorg/apache/commons/collections/DoubleOrderedMap;
 
     invoke-virtual {v1, p1}, Lorg/apache/commons/collections/DoubleOrderedMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1489
-    iget-object v1, p0, Lorg/apache/commons/collections/DoubleOrderedMap$4;->this$0:Lorg/apache/commons/collections/DoubleOrderedMap;
+    iget-object p1, p0, Lorg/apache/commons/collections/DoubleOrderedMap$4;->this$0:Lorg/apache/commons/collections/DoubleOrderedMap;
 
-    invoke-static {v1}, Lorg/apache/commons/collections/DoubleOrderedMap;->access$500(Lorg/apache/commons/collections/DoubleOrderedMap;)I
+    invoke-static {p1}, Lorg/apache/commons/collections/DoubleOrderedMap;->access$500(Lorg/apache/commons/collections/DoubleOrderedMap;)I
 
-    move-result v1
+    move-result p1
 
-    if-eq v1, v0, :cond_0
+    if-eq p1, v0, :cond_0
 
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v1
+    return p1
 .end method
 
 .method public size()I

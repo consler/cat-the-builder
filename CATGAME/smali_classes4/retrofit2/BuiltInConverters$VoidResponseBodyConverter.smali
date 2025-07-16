@@ -75,14 +75,12 @@
 .end method
 
 .method public convert(Lokhttp3/ResponseBody;)Ljava/lang/Void;
-    .locals 1
-    .param p1, "value"    # Lokhttp3/ResponseBody;
+    .locals 0
 
     .line 71
     invoke-virtual {p1}, Lokhttp3/ResponseBody;->close()V
 
-    .line 72
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method

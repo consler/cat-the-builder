@@ -54,14 +54,11 @@
     .end annotation
 
     .line 313
-    .local p0, "this":Lio/reactivex/internal/functions/Functions$NotificationOnComplete;, "Lio/reactivex/internal/functions/Functions$NotificationOnComplete<TT;>;"
-    .local p1, "onNotification":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Lio/reactivex/Notification<TT;>;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 314
     iput-object p1, p0, Lio/reactivex/internal/functions/Functions$NotificationOnComplete;->onNotification:Lio/reactivex/functions/Consumer;
 
-    .line 315
     return-void
 .end method
 
@@ -76,7 +73,6 @@
     .end annotation
 
     .line 319
-    .local p0, "this":Lio/reactivex/internal/functions/Functions$NotificationOnComplete;, "Lio/reactivex/internal/functions/Functions$NotificationOnComplete<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/functions/Functions$NotificationOnComplete;->onNotification:Lio/reactivex/functions/Consumer;
 
     invoke-static {}, Lio/reactivex/Notification;->createOnComplete()Lio/reactivex/Notification;
@@ -85,6 +81,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/functions/Consumer;->accept(Ljava/lang/Object;)V
 
-    .line 320
     return-void
 .end method

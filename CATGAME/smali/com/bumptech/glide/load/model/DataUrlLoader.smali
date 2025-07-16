@@ -58,24 +58,18 @@
     .end annotation
 
     .line 36
-    .local p0, "this":Lcom/bumptech/glide/load/model/DataUrlLoader;, "Lcom/bumptech/glide/load/model/DataUrlLoader<TModel;TData;>;"
-    .local p1, "dataDecoder":Lcom/bumptech/glide/load/model/DataUrlLoader$DataDecoder;, "Lcom/bumptech/glide/load/model/DataUrlLoader$DataDecoder<TData;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 37
     iput-object p1, p0, Lcom/bumptech/glide/load/model/DataUrlLoader;->dataDecoder:Lcom/bumptech/glide/load/model/DataUrlLoader$DataDecoder;
 
-    .line 38
     return-void
 .end method
 
 
 # virtual methods
 .method public buildLoadData(Ljava/lang/Object;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
-    .locals 5
-    .param p2, "width"    # I
-    .param p3, "height"    # I
-    .param p4, "options"    # Lcom/bumptech/glide/load/Options;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TModel;II",
@@ -87,33 +81,30 @@
     .end annotation
 
     .line 43
-    .local p0, "this":Lcom/bumptech/glide/load/model/DataUrlLoader;, "Lcom/bumptech/glide/load/model/DataUrlLoader<TModel;TData;>;"
-    .local p1, "model":Ljava/lang/Object;, "TModel;"
-    new-instance v0, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
+    new-instance p2, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
 
-    new-instance v1, Lcom/bumptech/glide/signature/ObjectKey;
+    new-instance p3, Lcom/bumptech/glide/signature/ObjectKey;
 
-    invoke-direct {v1, p1}, Lcom/bumptech/glide/signature/ObjectKey;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p3, p1}, Lcom/bumptech/glide/signature/ObjectKey;-><init>(Ljava/lang/Object;)V
 
-    new-instance v2, Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher;
+    new-instance p4, Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher;
 
     .line 44
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    iget-object v4, p0, Lcom/bumptech/glide/load/model/DataUrlLoader;->dataDecoder:Lcom/bumptech/glide/load/model/DataUrlLoader$DataDecoder;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/DataUrlLoader;->dataDecoder:Lcom/bumptech/glide/load/model/DataUrlLoader$DataDecoder;
 
-    invoke-direct {v2, v3, v4}, Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher;-><init>(Ljava/lang/String;Lcom/bumptech/glide/load/model/DataUrlLoader$DataDecoder;)V
+    invoke-direct {p4, p1, v0}, Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher;-><init>(Ljava/lang/String;Lcom/bumptech/glide/load/model/DataUrlLoader$DataDecoder;)V
 
-    invoke-direct {v0, v1, v2}, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;-><init>(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/data/DataFetcher;)V
+    invoke-direct {p2, p3, p4}, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;-><init>(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/data/DataFetcher;)V
 
-    .line 43
-    return-object v0
+    return-object p2
 .end method
 
 .method public handles(Ljava/lang/Object;)Z
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TModel;)Z"
@@ -121,17 +112,15 @@
     .end annotation
 
     .line 51
-    .local p0, "this":Lcom/bumptech/glide/load/model/DataUrlLoader;, "Lcom/bumptech/glide/load/model/DataUrlLoader<TModel;TData;>;"
-    .local p1, "model":Ljava/lang/Object;, "TModel;"
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "data:image"
+    const-string v0, "data:image"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

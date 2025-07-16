@@ -11,9 +11,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 19
     const-string v0, ".*\\$\\$Lambda\\$[0-9]+/.*"
 
+    .line 19
     invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v0
@@ -33,7 +33,7 @@
 .end method
 
 .method public static final isLambdaType(Ljava/lang/Class;)Z
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -42,10 +42,9 @@
         }
     .end annotation
 
-    .line 22
-    .local p0, "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     if-eqz p0, :cond_0
 
+    .line 22
     invoke-virtual {p0}, Ljava/lang/Class;->isSynthetic()Z
 
     move-result v0
@@ -56,25 +55,25 @@
 
     invoke-virtual {p0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+    invoke-virtual {v0, p0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Ljava/util/regex/Matcher;->matches()Z
+    invoke-virtual {p0}, Ljava/util/regex/Matcher;->matches()Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method

@@ -55,14 +55,11 @@
     .end annotation
 
     .line 48
-    .local p0, "this":Lretrofit2/OptionalConverterFactory$OptionalConverter;, "Lretrofit2/OptionalConverterFactory$OptionalConverter<TT;>;"
-    .local p1, "delegate":Lretrofit2/Converter;, "Lretrofit2/Converter<Lokhttp3/ResponseBody;TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 49
     iput-object p1, p0, Lretrofit2/OptionalConverterFactory$OptionalConverter;->delegate:Lretrofit2/Converter;
 
-    .line 50
     return-void
 .end method
 
@@ -77,7 +74,6 @@
     .end annotation
 
     .line 44
-    .local p0, "this":Lretrofit2/OptionalConverterFactory$OptionalConverter;, "Lretrofit2/OptionalConverterFactory$OptionalConverter<TT;>;"
     check-cast p1, Lokhttp3/ResponseBody;
 
     invoke-virtual {p0, p1}, Lretrofit2/OptionalConverterFactory$OptionalConverter;->convert(Lokhttp3/ResponseBody;)Ljava/util/Optional;
@@ -89,7 +85,6 @@
 
 .method public convert(Lokhttp3/ResponseBody;)Ljava/util/Optional;
     .locals 1
-    .param p1, "value"    # Lokhttp3/ResponseBody;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -107,16 +102,15 @@
     .end annotation
 
     .line 54
-    .local p0, "this":Lretrofit2/OptionalConverterFactory$OptionalConverter;, "Lretrofit2/OptionalConverterFactory$OptionalConverter<TT;>;"
     iget-object v0, p0, Lretrofit2/OptionalConverterFactory$OptionalConverter;->delegate:Lretrofit2/Converter;
 
     invoke-interface {v0, p1}, Lretrofit2/Converter;->convert(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Ljava/util/Optional;->ofNullable(Ljava/lang/Object;)Ljava/util/Optional;
+    invoke-static {p1}, Ljava/util/Optional;->ofNullable(Ljava/lang/Object;)Ljava/util/Optional;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

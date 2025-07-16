@@ -36,9 +36,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 52
     const-string v0, "ConstraintTrkngWrkr"
 
+    .line 52
     invoke-static {v0}, Landroidx/work/Logger;->tagWithPrefix(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -49,9 +49,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/WorkerParameters;)V
-    .locals 1
-    .param p1, "appContext"    # Landroid/content/Context;
-    .param p2, "workerParams"    # Landroidx/work/WorkerParameters;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -70,25 +68,24 @@
     iput-object p2, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->mWorkerParameters:Landroidx/work/WorkerParameters;
 
     .line 74
-    new-instance v0, Ljava/lang/Object;
+    new-instance p1, Ljava/lang/Object;
 
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p1}, Ljava/lang/Object;-><init>()V
 
-    iput-object v0, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->mLock:Ljava/lang/Object;
+    iput-object p1, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->mLock:Ljava/lang/Object;
+
+    const/4 p1, 0x0
 
     .line 75
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->mAreConstraintsUnmet:Z
+    iput-boolean p1, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->mAreConstraintsUnmet:Z
 
     .line 76
     invoke-static {}, Landroidx/work/impl/utils/futures/SettableFuture;->create()Landroidx/work/impl/utils/futures/SettableFuture;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->mFuture:Landroidx/work/impl/utils/futures/SettableFuture;
+    iput-object p1, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->mFuture:Landroidx/work/impl/utils/futures/SettableFuture;
 
-    .line 77
     return-void
 .end method
 
@@ -186,8 +183,6 @@
         }
     .end annotation
 
-    .line 228
-    .local p1, "workSpecIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     return-void
 .end method
 
@@ -212,7 +207,6 @@
     .end annotation
 
     .line 233
-    .local p1, "workSpecIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v0
@@ -231,36 +225,34 @@
 
     invoke-static {v2, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    new-array v4, v5, [Ljava/lang/Throwable;
+    new-array v2, v5, [Ljava/lang/Throwable;
 
-    invoke-virtual {v0, v1, v2, v4}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {v0, v1, p1, v2}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
     .line 234
-    iget-object v0, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->mLock:Ljava/lang/Object;
+    iget-object p1, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->mLock:Ljava/lang/Object;
 
-    monitor-enter v0
+    monitor-enter p1
 
     .line 235
     :try_start_0
     iput-boolean v3, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->mAreConstraintsUnmet:Z
 
     .line 236
-    monitor-exit v0
+    monitor-exit p1
 
-    .line 237
     return-void
 
-    .line 236
     :catchall_0
-    move-exception v1
+    move-exception v0
 
-    monitor-exit v0
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw v0
 .end method
 
 .method public onStopped()V
@@ -285,7 +277,6 @@
 
     invoke-virtual {v0}, Landroidx/work/ListenableWorker;->stop()V
 
-    .line 183
     :cond_0
     return-void
 .end method
@@ -302,7 +293,6 @@
 
     invoke-virtual {v0, v1}, Landroidx/work/impl/utils/futures/SettableFuture;->set(Ljava/lang/Object;)Z
 
-    .line 169
     return-void
 .end method
 
@@ -318,12 +308,11 @@
 
     invoke-virtual {v0, v1}, Landroidx/work/impl/utils/futures/SettableFuture;->set(Ljava/lang/Object;)Z
 
-    .line 174
     return-void
 .end method
 
 .method setupAndRunConstraintTrackingWork()V
-    .locals 11
+    .locals 8
 
     .line 93
     invoke-virtual {p0}, Landroidx/work/impl/workers/ConstraintTrackingWorker;->getInputData()Landroidx/work/Data;
@@ -337,7 +326,6 @@
     move-result-object v0
 
     .line 94
-    .local v0, "className":Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
@@ -349,20 +337,19 @@
     .line 95
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
-    move-result-object v1
+    move-result-object v0
 
-    sget-object v3, Landroidx/work/impl/workers/ConstraintTrackingWorker;->TAG:Ljava/lang/String;
+    sget-object v1, Landroidx/work/impl/workers/ConstraintTrackingWorker;->TAG:Ljava/lang/String;
 
-    const-string v4, "No worker to delegate to."
+    const-string v3, "No worker to delegate to."
 
     new-array v2, v2, [Ljava/lang/Throwable;
 
-    invoke-virtual {v1, v3, v4, v2}, Landroidx/work/Logger;->error(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {v0, v1, v3, v2}, Landroidx/work/Logger;->error(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
     .line 96
     invoke-virtual {p0}, Landroidx/work/impl/workers/ConstraintTrackingWorker;->setFutureFailed()V
 
-    .line 97
     return-void
 
     .line 100
@@ -385,26 +372,24 @@
 
     iput-object v1, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->mDelegate:Landroidx/work/ListenableWorker;
 
-    .line 105
     if-nez v1, :cond_1
 
     .line 106
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
-    move-result-object v1
+    move-result-object v0
 
-    sget-object v3, Landroidx/work/impl/workers/ConstraintTrackingWorker;->TAG:Ljava/lang/String;
+    sget-object v1, Landroidx/work/impl/workers/ConstraintTrackingWorker;->TAG:Ljava/lang/String;
 
-    const-string v4, "No worker to delegate to."
+    const-string v3, "No worker to delegate to."
 
     new-array v2, v2, [Ljava/lang/Throwable;
 
-    invoke-virtual {v1, v3, v4, v2}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {v0, v1, v3, v2}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
     .line 107
     invoke-virtual {p0}, Landroidx/work/impl/workers/ConstraintTrackingWorker;->setFutureFailed()V
 
-    .line 108
     return-void
 
     .line 111
@@ -414,227 +399,212 @@
     move-result-object v1
 
     .line 114
-    .local v1, "workDatabase":Landroidx/work/impl/WorkDatabase;
     invoke-virtual {v1}, Landroidx/work/impl/WorkDatabase;->workSpecDao()Landroidx/work/impl/model/WorkSpecDao;
 
-    move-result-object v3
+    move-result-object v1
 
     invoke-virtual {p0}, Landroidx/work/impl/workers/ConstraintTrackingWorker;->getId()Ljava/util/UUID;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v4}, Ljava/util/UUID;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-interface {v3, v4}, Landroidx/work/impl/model/WorkSpecDao;->getWorkSpec(Ljava/lang/String;)Landroidx/work/impl/model/WorkSpec;
+    invoke-virtual {v3}, Ljava/util/UUID;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 115
-    .local v3, "workSpec":Landroidx/work/impl/model/WorkSpec;
-    if-nez v3, :cond_2
+    invoke-interface {v1, v3}, Landroidx/work/impl/model/WorkSpecDao;->getWorkSpec(Ljava/lang/String;)Landroidx/work/impl/model/WorkSpec;
+
+    move-result-object v1
+
+    if-nez v1, :cond_2
 
     .line 116
     invoke-virtual {p0}, Landroidx/work/impl/workers/ConstraintTrackingWorker;->setFutureFailed()V
 
-    .line 117
     return-void
 
     .line 119
     :cond_2
-    new-instance v4, Landroidx/work/impl/constraints/WorkConstraintsTracker;
+    new-instance v3, Landroidx/work/impl/constraints/WorkConstraintsTracker;
 
     .line 120
     invoke-virtual {p0}, Landroidx/work/impl/workers/ConstraintTrackingWorker;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v5
+    move-result-object v4
 
     invoke-virtual {p0}, Landroidx/work/impl/workers/ConstraintTrackingWorker;->getTaskExecutor()Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
-    move-result-object v6
-
-    invoke-direct {v4, v5, v6, p0}, Landroidx/work/impl/constraints/WorkConstraintsTracker;-><init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/impl/constraints/WorkConstraintsCallback;)V
-
-    .line 123
-    .local v4, "workConstraintsTracker":Landroidx/work/impl/constraints/WorkConstraintsTracker;
-    invoke-static {v3}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
-
     move-result-object v5
 
-    invoke-virtual {v4, v5}, Landroidx/work/impl/constraints/WorkConstraintsTracker;->replace(Ljava/lang/Iterable;)V
+    invoke-direct {v3, v4, v5, p0}, Landroidx/work/impl/constraints/WorkConstraintsTracker;-><init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/impl/constraints/WorkConstraintsCallback;)V
+
+    .line 123
+    invoke-static {v1}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-virtual {v3, v1}, Landroidx/work/impl/constraints/WorkConstraintsTracker;->replace(Ljava/lang/Iterable;)V
 
     .line 125
     invoke-virtual {p0}, Landroidx/work/impl/workers/ConstraintTrackingWorker;->getId()Ljava/util/UUID;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5}, Ljava/util/UUID;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/util/UUID;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v4, v5}, Landroidx/work/impl/constraints/WorkConstraintsTracker;->areAllConstraintsMet(Ljava/lang/String;)Z
+    invoke-virtual {v3, v1}, Landroidx/work/impl/constraints/WorkConstraintsTracker;->areAllConstraintsMet(Ljava/lang/String;)Z
 
-    move-result v5
+    move-result v1
 
-    const/4 v6, 0x1
+    const/4 v3, 0x1
 
-    if-eqz v5, :cond_4
+    if-eqz v1, :cond_4
 
     .line 126
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
+    move-result-object v1
+
+    sget-object v4, Landroidx/work/impl/workers/ConstraintTrackingWorker;->TAG:Ljava/lang/String;
+
+    const-string v5, "Constraints met for delegate %s"
+
+    new-array v6, v3, [Ljava/lang/Object;
+
+    aput-object v0, v6, v2
+
+    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
     move-result-object v5
 
-    sget-object v7, Landroidx/work/impl/workers/ConstraintTrackingWorker;->TAG:Ljava/lang/String;
+    new-array v6, v2, [Ljava/lang/Throwable;
 
-    const-string v8, "Constraints met for delegate %s"
-
-    new-array v9, v6, [Ljava/lang/Object;
-
-    aput-object v0, v9, v2
-
-    invoke-static {v8, v9}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v8
-
-    new-array v9, v2, [Ljava/lang/Throwable;
-
-    invoke-virtual {v5, v7, v8, v9}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {v1, v4, v5, v6}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
     .line 132
     :try_start_0
-    iget-object v5, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->mDelegate:Landroidx/work/ListenableWorker;
+    iget-object v1, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->mDelegate:Landroidx/work/ListenableWorker;
 
-    invoke-virtual {v5}, Landroidx/work/ListenableWorker;->startWork()Lcom/google/common/util/concurrent/ListenableFuture;
+    invoke-virtual {v1}, Landroidx/work/ListenableWorker;->startWork()Lcom/google/common/util/concurrent/ListenableFuture;
 
-    move-result-object v5
+    move-result-object v1
 
     .line 133
-    .local v5, "innerFuture":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Landroidx/work/ListenableWorker$Result;>;"
-    new-instance v7, Landroidx/work/impl/workers/ConstraintTrackingWorker$2;
+    new-instance v4, Landroidx/work/impl/workers/ConstraintTrackingWorker$2;
 
-    invoke-direct {v7, p0, v5}, Landroidx/work/impl/workers/ConstraintTrackingWorker$2;-><init>(Landroidx/work/impl/workers/ConstraintTrackingWorker;Lcom/google/common/util/concurrent/ListenableFuture;)V
+    invoke-direct {v4, p0, v1}, Landroidx/work/impl/workers/ConstraintTrackingWorker$2;-><init>(Landroidx/work/impl/workers/ConstraintTrackingWorker;Lcom/google/common/util/concurrent/ListenableFuture;)V
 
     .line 144
     invoke-virtual {p0}, Landroidx/work/impl/workers/ConstraintTrackingWorker;->getBackgroundExecutor()Ljava/util/concurrent/Executor;
 
-    move-result-object v8
+    move-result-object v5
 
     .line 133
-    invoke-interface {v5, v7, v8}, Lcom/google/common/util/concurrent/ListenableFuture;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
+    invoke-interface {v1, v4, v5}, Lcom/google/common/util/concurrent/ListenableFuture;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 157
-    .end local v5    # "innerFuture":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Landroidx/work/ListenableWorker$Result;>;"
-    :goto_0
-    goto :goto_2
+    goto :goto_1
 
-    .line 145
     :catchall_0
-    move-exception v5
+    move-exception v1
 
     .line 146
-    .local v5, "exception":Ljava/lang/Throwable;
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
-    move-result-object v7
+    move-result-object v4
 
-    sget-object v8, Landroidx/work/impl/workers/ConstraintTrackingWorker;->TAG:Ljava/lang/String;
+    sget-object v5, Landroidx/work/impl/workers/ConstraintTrackingWorker;->TAG:Ljava/lang/String;
 
-    const-string v9, "Delegated worker %s threw exception in startWork."
+    const-string v6, "Delegated worker %s threw exception in startWork."
 
-    new-array v10, v6, [Ljava/lang/Object;
+    new-array v7, v3, [Ljava/lang/Object;
 
-    aput-object v0, v10, v2
+    aput-object v0, v7, v2
 
-    invoke-static {v9, v10}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v6, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v0
 
-    new-array v6, v6, [Ljava/lang/Throwable;
+    new-array v3, v3, [Ljava/lang/Throwable;
 
-    aput-object v5, v6, v2
+    aput-object v1, v3, v2
 
-    invoke-virtual {v7, v8, v9, v6}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {v4, v5, v0, v3}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
     .line 149
-    iget-object v7, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->mLock:Ljava/lang/Object;
+    iget-object v1, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->mLock:Ljava/lang/Object;
 
-    monitor-enter v7
+    monitor-enter v1
 
     .line 150
     :try_start_1
-    iget-boolean v6, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->mAreConstraintsUnmet:Z
+    iget-boolean v0, p0, Landroidx/work/impl/workers/ConstraintTrackingWorker;->mAreConstraintsUnmet:Z
 
-    if-eqz v6, :cond_3
+    if-eqz v0, :cond_3
 
     .line 151
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
-    move-result-object v6
+    move-result-object v0
 
-    sget-object v8, Landroidx/work/impl/workers/ConstraintTrackingWorker;->TAG:Ljava/lang/String;
-
-    const-string v9, "Constraints were unmet, Retrying."
+    const-string v3, "Constraints were unmet, Retrying."
 
     new-array v2, v2, [Ljava/lang/Throwable;
 
-    invoke-virtual {v6, v8, v9, v2}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {v0, v5, v3, v2}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
     .line 152
     invoke-virtual {p0}, Landroidx/work/impl/workers/ConstraintTrackingWorker;->setFutureRetry()V
 
-    goto :goto_1
+    goto :goto_0
 
     .line 154
     :cond_3
     invoke-virtual {p0}, Landroidx/work/impl/workers/ConstraintTrackingWorker;->setFutureFailed()V
 
     .line 156
-    :goto_1
-    monitor-exit v7
+    :goto_0
+    monitor-exit v1
 
-    goto :goto_0
+    goto :goto_1
 
     :catchall_1
-    move-exception v2
+    move-exception v0
 
-    monitor-exit v7
+    monitor-exit v1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    throw v2
+    throw v0
 
     .line 159
-    .end local v5    # "exception":Ljava/lang/Throwable;
     :cond_4
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
-    move-result-object v5
+    move-result-object v1
 
-    sget-object v7, Landroidx/work/impl/workers/ConstraintTrackingWorker;->TAG:Ljava/lang/String;
+    sget-object v4, Landroidx/work/impl/workers/ConstraintTrackingWorker;->TAG:Ljava/lang/String;
 
-    const-string v8, "Constraints not met for delegate %s. Requesting retry."
+    const-string v5, "Constraints not met for delegate %s. Requesting retry."
 
-    new-array v6, v6, [Ljava/lang/Object;
+    new-array v3, v3, [Ljava/lang/Object;
 
-    aput-object v0, v6, v2
+    aput-object v0, v3, v2
 
-    invoke-static {v8, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v5, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v0
 
     new-array v2, v2, [Ljava/lang/Throwable;
 
-    invoke-virtual {v5, v7, v6, v2}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {v1, v4, v0, v2}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
     .line 161
     invoke-virtual {p0}, Landroidx/work/impl/workers/ConstraintTrackingWorker;->setFutureRetry()V
 
-    .line 164
-    :goto_2
+    :goto_1
     return-void
 .end method
 

@@ -38,13 +38,11 @@
 
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
-    .line 180
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params$1;
 
     .line 172
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params$Builder;-><init>()V
@@ -67,7 +65,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params;->access$300(Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params;)V
 
-    .line 256
     return-object p0
 .end method
 
@@ -103,7 +100,6 @@
 
 .method public setHashType(Lcom/google/crypto/tink/proto/HashType;)Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/HashType;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -123,13 +119,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params;->access$200(Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params;Lcom/google/crypto/tink/proto/HashType;)V
 
-    .line 241
     return-object p0
 .end method
 
 .method public setHashTypeValue(I)Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -149,6 +143,5 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params;->access$100(Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params;I)V
 
-    .line 211
     return-object p0
 .end method

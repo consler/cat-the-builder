@@ -29,7 +29,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Runnable;)V
     .locals 0
-    .param p1, "actual"    # Ljava/lang/Runnable;
 
     .line 250
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
@@ -37,7 +36,6 @@
     .line 251
     iput-object p1, p0, Lio/reactivex/internal/schedulers/ExecutorScheduler$ExecutorWorker$BooleanRunnable;->actual:Ljava/lang/Runnable;
 
-    .line 252
     return-void
 .end method
 
@@ -46,12 +44,11 @@
 .method public dispose()V
     .locals 1
 
-    .line 268
     const/4 v0, 0x1
 
+    .line 268
     invoke-virtual {p0, v0}, Lio/reactivex/internal/schedulers/ExecutorScheduler$ExecutorWorker$BooleanRunnable;->lazySet(Z)V
 
-    .line 269
     return-void
 .end method
 
@@ -76,13 +73,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 257
     return-void
 
-    .line 260
     :cond_0
     const/4 v0, 0x1
 
+    .line 260
     :try_start_0
     iget-object v1, p0, Lio/reactivex/internal/schedulers/ExecutorScheduler$ExecutorWorker$BooleanRunnable;->actual:Ljava/lang/Runnable;
 
@@ -93,13 +89,8 @@
     .line 262
     invoke-virtual {p0, v0}, Lio/reactivex/internal/schedulers/ExecutorScheduler$ExecutorWorker$BooleanRunnable;->lazySet(Z)V
 
-    .line 263
-    nop
-
-    .line 264
     return-void
 
-    .line 262
     :catchall_0
     move-exception v1
 

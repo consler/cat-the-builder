@@ -20,9 +20,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 37
     const-string v0, "SystemAlarmService"
 
+    .line 37
     invoke-static {v0}, Landroidx/work/Logger;->tagWithPrefix(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -54,7 +54,6 @@
     .line 94
     invoke-virtual {v0, p0}, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->setCompletedListener(Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$CommandsCompletedListener;)V
 
-    .line 95
     return-void
 .end method
 
@@ -63,9 +62,9 @@
 .method public onAllCommandsCompleted()V
     .locals 4
 
-    .line 82
     const/4 v0, 0x1
 
+    .line 82
     iput-boolean v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmService;->mIsShutdown:Z
 
     .line 83
@@ -89,7 +88,6 @@
     .line 88
     invoke-virtual {p0}, Landroidx/work/impl/background/systemalarm/SystemAlarmService;->stopSelf()V
 
-    .line 89
     return-void
 .end method
 
@@ -102,12 +100,11 @@
     .line 45
     invoke-direct {p0}, Landroidx/work/impl/background/systemalarm/SystemAlarmService;->initializeDispatcher()V
 
-    .line 46
     const/4 v0, 0x0
 
+    .line 46
     iput-boolean v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmService;->mIsShutdown:Z
 
-    .line 47
     return-void
 .end method
 
@@ -117,9 +114,9 @@
     .line 51
     invoke-super {p0}, Landroidx/lifecycle/LifecycleService;->onDestroy()V
 
-    .line 52
     const/4 v0, 0x1
 
+    .line 52
     iput-boolean v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmService;->mIsShutdown:Z
 
     .line 53
@@ -127,15 +124,11 @@
 
     invoke-virtual {v0}, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->onDestroy()V
 
-    .line 54
     return-void
 .end method
 
 .method public onStartCommand(Landroid/content/Intent;II)I
-    .locals 5
-    .param p1, "intent"    # Landroid/content/Intent;
-    .param p2, "flags"    # I
-    .param p3, "startId"    # I
+    .locals 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -153,29 +146,29 @@
     invoke-super {p0, p1, p2, p3}, Landroidx/lifecycle/LifecycleService;->onStartCommand(Landroid/content/Intent;II)I
 
     .line 59
-    iget-boolean v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmService;->mIsShutdown:Z
+    iget-boolean p2, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmService;->mIsShutdown:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p2, :cond_0
 
     .line 60
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
-    move-result-object v0
+    move-result-object p2
 
-    sget-object v1, Landroidx/work/impl/background/systemalarm/SystemAlarmService;->TAG:Ljava/lang/String;
+    sget-object v0, Landroidx/work/impl/background/systemalarm/SystemAlarmService;->TAG:Ljava/lang/String;
+
+    const-string v1, "Re-initializing SystemAlarmDispatcher after a request to shut-down."
 
     const/4 v2, 0x0
 
     new-array v3, v2, [Ljava/lang/Throwable;
 
-    const-string v4, "Re-initializing SystemAlarmDispatcher after a request to shut-down."
-
-    invoke-virtual {v0, v1, v4, v3}, Landroidx/work/Logger;->info(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {p2, v0, v1, v3}, Landroidx/work/Logger;->info(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
     .line 64
-    iget-object v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmService;->mDispatcher:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
+    iget-object p2, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmService;->mDispatcher:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
 
-    invoke-virtual {v0}, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->onDestroy()V
+    invoke-virtual {p2}, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->onDestroy()V
 
     .line 66
     invoke-direct {p0}, Landroidx/work/impl/background/systemalarm/SystemAlarmService;->initializeDispatcher()V
@@ -183,18 +176,16 @@
     .line 68
     iput-boolean v2, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmService;->mIsShutdown:Z
 
-    .line 71
     :cond_0
     if-eqz p1, :cond_1
 
     .line 72
-    iget-object v0, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmService;->mDispatcher:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
+    iget-object p2, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmService;->mDispatcher:Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
 
-    invoke-virtual {v0, p1, p3}, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->add(Landroid/content/Intent;I)Z
+    invoke-virtual {p2, p1, p3}, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->add(Landroid/content/Intent;I)Z
 
-    .line 76
     :cond_1
-    const/4 v0, 0x3
+    const/4 p1, 0x3
 
-    return v0
+    return p1
 .end method

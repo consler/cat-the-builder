@@ -47,7 +47,6 @@
 # direct methods
 .method public static final _q(Ljava/lang/String;)Lorg/koin/core/qualifier/StringQualifier;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     const-string v0, "name"
 
@@ -62,7 +61,7 @@
 .end method
 
 .method public static final synthetic _q()Lorg/koin/core/qualifier/TypeQualifier;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -72,32 +71,28 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
-
     .line 38
-    .local v0, "$i$f$_q":I
-    new-instance v1, Lorg/koin/core/qualifier/TypeQualifier;
+    new-instance v0, Lorg/koin/core/qualifier/TypeQualifier;
 
-    const/4 v2, 0x4
+    const/4 v1, 0x4
 
-    const-string v3, "T"
+    const-string v2, "T"
 
-    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
+    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
-    const-class v2, Ljava/lang/Object;
+    const-class v1, Ljava/lang/Object;
 
-    invoke-static {v2}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+    invoke-static {v1}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {v1, v2}, Lorg/koin/core/qualifier/TypeQualifier;-><init>(Lkotlin/reflect/KClass;)V
+    invoke-direct {v0, v1}, Lorg/koin/core/qualifier/TypeQualifier;-><init>(Lkotlin/reflect/KClass;)V
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public static final getQualifier(Ljava/lang/Enum;)Lorg/koin/core/qualifier/Qualifier;
-    .locals 2
-    .param p0, "$this$qualifier"    # Ljava/lang/Enum;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -116,39 +111,38 @@
     .line 42
     invoke-virtual {p0}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-virtual {v0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "(this as java.lang.String).toLowerCase()"
+    const-string v0, "(this as java.lang.String).toLowerCase()"
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    new-instance v1, Lorg/koin/core/qualifier/StringQualifier;
+    new-instance v0, Lorg/koin/core/qualifier/StringQualifier;
 
-    invoke-direct {v1, v0}, Lorg/koin/core/qualifier/StringQualifier;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Lorg/koin/core/qualifier/StringQualifier;-><init>(Ljava/lang/String;)V
 
-    check-cast v1, Lorg/koin/core/qualifier/Qualifier;
+    check-cast v0, Lorg/koin/core/qualifier/Qualifier;
 
-    return-object v1
+    return-object v0
 
     :cond_0
-    new-instance v0, Lkotlin/TypeCastException;
+    new-instance p0, Lkotlin/TypeCastException;
 
-    const-string v1, "null cannot be cast to non-null type java.lang.String"
+    const-string v0, "null cannot be cast to non-null type java.lang.String"
 
-    invoke-direct {v0, v1}, Lkotlin/TypeCastException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Lkotlin/TypeCastException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static final named(Ljava/lang/Enum;)Lorg/koin/core/qualifier/Qualifier;
     .locals 1
-    .param p0, "enum"    # Ljava/lang/Enum;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -167,14 +161,13 @@
     .line 17
     invoke-static {p0}, Lorg/koin/core/qualifier/QualifierKt;->getQualifier(Ljava/lang/Enum;)Lorg/koin/core/qualifier/Qualifier;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final named(Ljava/lang/String;)Lorg/koin/core/qualifier/StringQualifier;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     const-string v0, "name"
 
@@ -189,7 +182,7 @@
 .end method
 
 .method public static final synthetic named()Lorg/koin/core/qualifier/TypeQualifier;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -199,32 +192,28 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
-
     .line 28
-    .local v0, "$i$f$named":I
-    new-instance v1, Lorg/koin/core/qualifier/TypeQualifier;
+    new-instance v0, Lorg/koin/core/qualifier/TypeQualifier;
 
-    const/4 v2, 0x4
+    const/4 v1, 0x4
 
-    const-string v3, "T"
+    const-string v2, "T"
 
-    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
+    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
-    const-class v2, Ljava/lang/Object;
+    const-class v1, Ljava/lang/Object;
 
-    invoke-static {v2}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+    invoke-static {v1}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {v1, v2}, Lorg/koin/core/qualifier/TypeQualifier;-><init>(Lkotlin/reflect/KClass;)V
+    invoke-direct {v0, v1}, Lorg/koin/core/qualifier/TypeQualifier;-><init>(Lkotlin/reflect/KClass;)V
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public static final qualifier(Ljava/lang/Enum;)Lorg/koin/core/qualifier/Qualifier;
     .locals 1
-    .param p0, "enum"    # Ljava/lang/Enum;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -243,14 +232,13 @@
     .line 21
     invoke-static {p0}, Lorg/koin/core/qualifier/QualifierKt;->getQualifier(Ljava/lang/Enum;)Lorg/koin/core/qualifier/Qualifier;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final qualifier(Ljava/lang/String;)Lorg/koin/core/qualifier/StringQualifier;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     const-string v0, "name"
 
@@ -265,7 +253,7 @@
 .end method
 
 .method public static final synthetic qualifier()Lorg/koin/core/qualifier/TypeQualifier;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -275,25 +263,22 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
-
     .line 33
-    .local v0, "$i$f$qualifier":I
-    new-instance v1, Lorg/koin/core/qualifier/TypeQualifier;
+    new-instance v0, Lorg/koin/core/qualifier/TypeQualifier;
 
-    const/4 v2, 0x4
+    const/4 v1, 0x4
 
-    const-string v3, "T"
+    const-string v2, "T"
 
-    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
+    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
-    const-class v2, Ljava/lang/Object;
+    const-class v1, Ljava/lang/Object;
 
-    invoke-static {v2}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+    invoke-static {v1}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {v1, v2}, Lorg/koin/core/qualifier/TypeQualifier;-><init>(Lkotlin/reflect/KClass;)V
+    invoke-direct {v0, v1}, Lorg/koin/core/qualifier/TypeQualifier;-><init>(Lkotlin/reflect/KClass;)V
 
-    return-object v1
+    return-object v0
 .end method

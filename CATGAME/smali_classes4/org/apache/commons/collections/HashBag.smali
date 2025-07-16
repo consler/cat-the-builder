@@ -17,13 +17,11 @@
 
     invoke-direct {p0, v0}, Lorg/apache/commons/collections/DefaultMapBag;-><init>(Ljava/util/Map;)V
 
-    .line 38
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Collection;)V
     .locals 0
-    .param p1, "coll"    # Ljava/util/Collection;
 
     .line 47
     invoke-direct {p0}, Lorg/apache/commons/collections/HashBag;-><init>()V
@@ -31,6 +29,5 @@
     .line 48
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections/HashBag;->addAll(Ljava/util/Collection;)Z
 
-    .line 49
     return-void
 .end method

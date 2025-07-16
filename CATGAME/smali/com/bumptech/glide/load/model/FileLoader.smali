@@ -57,25 +57,18 @@
     .end annotation
 
     .line 30
-    .local p0, "this":Lcom/bumptech/glide/load/model/FileLoader;, "Lcom/bumptech/glide/load/model/FileLoader<TData;>;"
-    .local p1, "fileOpener":Lcom/bumptech/glide/load/model/FileLoader$FileOpener;, "Lcom/bumptech/glide/load/model/FileLoader$FileOpener<TData;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 31
     iput-object p1, p0, Lcom/bumptech/glide/load/model/FileLoader;->fileOpener:Lcom/bumptech/glide/load/model/FileLoader$FileOpener;
 
-    .line 32
     return-void
 .end method
 
 
 # virtual methods
 .method public buildLoadData(Ljava/io/File;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
-    .locals 4
-    .param p1, "model"    # Ljava/io/File;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
-    .param p4, "options"    # Lcom/bumptech/glide/load/Options;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -89,29 +82,27 @@
     .end annotation
 
     .line 37
-    .local p0, "this":Lcom/bumptech/glide/load/model/FileLoader;, "Lcom/bumptech/glide/load/model/FileLoader<TData;>;"
-    new-instance v0, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
+    new-instance p2, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
 
-    new-instance v1, Lcom/bumptech/glide/signature/ObjectKey;
+    new-instance p3, Lcom/bumptech/glide/signature/ObjectKey;
 
-    invoke-direct {v1, p1}, Lcom/bumptech/glide/signature/ObjectKey;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p3, p1}, Lcom/bumptech/glide/signature/ObjectKey;-><init>(Ljava/lang/Object;)V
 
-    new-instance v2, Lcom/bumptech/glide/load/model/FileLoader$FileFetcher;
+    new-instance p4, Lcom/bumptech/glide/load/model/FileLoader$FileFetcher;
 
-    iget-object v3, p0, Lcom/bumptech/glide/load/model/FileLoader;->fileOpener:Lcom/bumptech/glide/load/model/FileLoader$FileOpener;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/FileLoader;->fileOpener:Lcom/bumptech/glide/load/model/FileLoader$FileOpener;
 
-    invoke-direct {v2, p1, v3}, Lcom/bumptech/glide/load/model/FileLoader$FileFetcher;-><init>(Ljava/io/File;Lcom/bumptech/glide/load/model/FileLoader$FileOpener;)V
+    invoke-direct {p4, p1, v0}, Lcom/bumptech/glide/load/model/FileLoader$FileFetcher;-><init>(Ljava/io/File;Lcom/bumptech/glide/load/model/FileLoader$FileOpener;)V
 
-    invoke-direct {v0, v1, v2}, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;-><init>(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/data/DataFetcher;)V
+    invoke-direct {p2, p3, p4}, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;-><init>(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/data/DataFetcher;)V
 
-    return-object v0
+    return-object p2
 .end method
 
 .method public bridge synthetic buildLoadData(Ljava/lang/Object;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
     .locals 0
 
     .line 23
-    .local p0, "this":Lcom/bumptech/glide/load/model/FileLoader;, "Lcom/bumptech/glide/load/model/FileLoader<TData;>;"
     check-cast p1, Ljava/io/File;
 
     invoke-virtual {p0, p1, p2, p3, p4}, Lcom/bumptech/glide/load/model/FileLoader;->buildLoadData(Ljava/io/File;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
@@ -122,21 +113,17 @@
 .end method
 
 .method public handles(Ljava/io/File;)Z
-    .locals 1
-    .param p1, "model"    # Ljava/io/File;
+    .locals 0
 
-    .line 42
-    .local p0, "this":Lcom/bumptech/glide/load/model/FileLoader;, "Lcom/bumptech/glide/load/model/FileLoader<TData;>;"
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic handles(Ljava/lang/Object;)Z
     .locals 0
 
     .line 23
-    .local p0, "this":Lcom/bumptech/glide/load/model/FileLoader;, "Lcom/bumptech/glide/load/model/FileLoader<TData;>;"
     check-cast p1, Ljava/io/File;
 
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/load/model/FileLoader;->handles(Ljava/io/File;)Z

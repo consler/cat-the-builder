@@ -54,46 +54,46 @@
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 38
     const/high16 v0, 0x40000000    # 2.0f
 
+    .line 38
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->initialTime:F
 
-    .line 40
     const/4 v0, 0x0
 
+    .line 40
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->subsequentTime:F
 
-    .line 42
     const/high16 v0, 0x3fc00000    # 1.5f
 
+    .line 42
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->resetTime:F
 
-    .line 44
     const/4 v0, 0x1
 
+    .line 44
     iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->enabled:Z
 
     .line 46
     iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->animations:Z
 
-    .line 48
     const/high16 v0, 0x4f000000
 
+    .line 48
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->maxWidth:F
 
-    .line 50
     const/high16 v0, 0x41700000    # 15.0f
 
+    .line 50
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->offsetX:F
 
     const/high16 v0, 0x41980000    # 19.0f
 
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->offsetY:F
 
-    .line 53
     const/high16 v0, 0x40e00000    # 7.0f
 
+    .line 53
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->edgeDistance:F
 
     .line 55
@@ -161,7 +161,6 @@
 # virtual methods
 .method public enter(Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;)V
     .locals 2
-    .param p1, "tooltip"    # Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;
 
     .line 96
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->showTooltip:Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;
@@ -190,30 +189,29 @@
 
     if-eqz v0, :cond_2
 
-    iget-boolean v0, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;->instant:Z
+    iget-boolean p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;->instant:Z
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     goto :goto_0
 
     .line 102
     :cond_1
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->showTask:Lcom/badlogic/gdx/utils/Timer$Task;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->showTask:Lcom/badlogic/gdx/utils/Timer$Task;
 
-    iget v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->time:F
+    iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->time:F
 
-    invoke-static {v0, v1}, Lcom/badlogic/gdx/utils/Timer;->schedule(Lcom/badlogic/gdx/utils/Timer$Task;F)Lcom/badlogic/gdx/utils/Timer$Task;
+    invoke-static {p1, v0}, Lcom/badlogic/gdx/utils/Timer;->schedule(Lcom/badlogic/gdx/utils/Timer$Task;F)Lcom/badlogic/gdx/utils/Timer$Task;
 
     goto :goto_1
 
     .line 100
     :cond_2
     :goto_0
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->showTask:Lcom/badlogic/gdx/utils/Timer$Task;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->showTask:Lcom/badlogic/gdx/utils/Timer$Task;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Timer$Task;->run()V
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/Timer$Task;->run()V
 
-    .line 104
     :cond_3
     :goto_1
     return-void
@@ -221,11 +219,10 @@
 
 .method public hide(Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;)V
     .locals 2
-    .param p1, "tooltip"    # Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;
 
-    .line 107
     const/4 v0, 0x0
 
+    .line 107
     iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->showTooltip:Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;
 
     .line 108
@@ -253,61 +250,58 @@
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->hideAction(Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;)V
 
     .line 112
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->resetTask:Lcom/badlogic/gdx/utils/Timer$Task;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->resetTask:Lcom/badlogic/gdx/utils/Timer$Task;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Timer$Task;->cancel()V
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/Timer$Task;->cancel()V
 
     .line 113
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->resetTask:Lcom/badlogic/gdx/utils/Timer$Task;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->resetTask:Lcom/badlogic/gdx/utils/Timer$Task;
 
-    iget v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->resetTime:F
+    iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->resetTime:F
 
-    invoke-static {v0, v1}, Lcom/badlogic/gdx/utils/Timer;->schedule(Lcom/badlogic/gdx/utils/Timer$Task;F)Lcom/badlogic/gdx/utils/Timer$Task;
+    invoke-static {p1, v0}, Lcom/badlogic/gdx/utils/Timer;->schedule(Lcom/badlogic/gdx/utils/Timer$Task;F)Lcom/badlogic/gdx/utils/Timer$Task;
 
-    .line 115
     :cond_0
     return-void
 .end method
 
 .method protected hideAction(Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;)V
-    .locals 5
-    .param p1, "tooltip"    # Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;
+    .locals 4
 
     .line 129
-    iget-object v0, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;->container:Lcom/badlogic/gdx/scenes/scene2d/ui/Container;
+    iget-object p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;->container:Lcom/badlogic/gdx/scenes/scene2d/ui/Container;
 
-    sget-object v1, Lcom/badlogic/gdx/math/Interpolation;->fade:Lcom/badlogic/gdx/math/Interpolation;
+    sget-object v0, Lcom/badlogic/gdx/math/Interpolation;->fade:Lcom/badlogic/gdx/math/Interpolation;
+
+    const v1, 0x3e4ccccd    # 0.2f
 
     .line 130
-    const v2, 0x3e4ccccd    # 0.2f
+    invoke-static {v1, v1, v0}, Lcom/badlogic/gdx/scenes/scene2d/actions/Actions;->alpha(FFLcom/badlogic/gdx/math/Interpolation;)Lcom/badlogic/gdx/scenes/scene2d/actions/AlphaAction;
 
-    invoke-static {v2, v2, v1}, Lcom/badlogic/gdx/scenes/scene2d/actions/Actions;->alpha(FFLcom/badlogic/gdx/math/Interpolation;)Lcom/badlogic/gdx/scenes/scene2d/actions/AlphaAction;
+    move-result-object v0
 
-    move-result-object v1
+    const v2, 0x3d4ccccd    # 0.05f
 
     sget-object v3, Lcom/badlogic/gdx/math/Interpolation;->fade:Lcom/badlogic/gdx/math/Interpolation;
 
-    const v4, 0x3d4ccccd    # 0.05f
-
-    invoke-static {v4, v4, v2, v3}, Lcom/badlogic/gdx/scenes/scene2d/actions/Actions;->scaleTo(FFFLcom/badlogic/gdx/math/Interpolation;)Lcom/badlogic/gdx/scenes/scene2d/actions/ScaleToAction;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Lcom/badlogic/gdx/scenes/scene2d/actions/Actions;->parallel(Lcom/badlogic/gdx/scenes/scene2d/Action;Lcom/badlogic/gdx/scenes/scene2d/Action;)Lcom/badlogic/gdx/scenes/scene2d/actions/ParallelAction;
+    invoke-static {v2, v2, v1, v3}, Lcom/badlogic/gdx/scenes/scene2d/actions/Actions;->scaleTo(FFFLcom/badlogic/gdx/math/Interpolation;)Lcom/badlogic/gdx/scenes/scene2d/actions/ScaleToAction;
 
     move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/actions/Actions;->parallel(Lcom/badlogic/gdx/scenes/scene2d/Action;Lcom/badlogic/gdx/scenes/scene2d/Action;)Lcom/badlogic/gdx/scenes/scene2d/actions/ParallelAction;
+
+    move-result-object v0
 
     invoke-static {}, Lcom/badlogic/gdx/scenes/scene2d/actions/Actions;->removeActor()Lcom/badlogic/gdx/scenes/scene2d/actions/RemoveActorAction;
 
-    move-result-object v2
-
-    invoke-static {v1, v2}, Lcom/badlogic/gdx/scenes/scene2d/actions/Actions;->sequence(Lcom/badlogic/gdx/scenes/scene2d/Action;Lcom/badlogic/gdx/scenes/scene2d/Action;)Lcom/badlogic/gdx/scenes/scene2d/actions/SequenceAction;
-
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Container;->addAction(Lcom/badlogic/gdx/scenes/scene2d/Action;)V
+    invoke-static {v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/actions/Actions;->sequence(Lcom/badlogic/gdx/scenes/scene2d/Action;Lcom/badlogic/gdx/scenes/scene2d/Action;)Lcom/badlogic/gdx/scenes/scene2d/actions/SequenceAction;
 
-    .line 131
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Container;->addAction(Lcom/badlogic/gdx/scenes/scene2d/Action;)V
+
     return-void
 .end method
 
@@ -329,9 +323,9 @@
 
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->time:F
 
-    .line 137
     const/4 v0, 0x0
 
+    .line 137
     iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->showTooltip:Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;
 
     .line 139
@@ -355,10 +349,8 @@
     check-cast v1, Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;
 
     .line 140
-    .local v1, "tooltip":Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;
     invoke-virtual {v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;->hide()V
 
-    .end local v1    # "tooltip":Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;
     goto :goto_0
 
     .line 141
@@ -367,16 +359,15 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->clear()V
 
-    .line 142
     return-void
 .end method
 
 .method public instant()V
     .locals 1
 
-    .line 146
     const/4 v0, 0x0
 
+    .line 146
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->time:F
 
     .line 147
@@ -389,13 +380,11 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Timer$Task;->cancel()V
 
-    .line 149
     return-void
 .end method
 
 .method protected showAction(Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;)V
-    .locals 5
-    .param p1, "tooltip"    # Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;
+    .locals 4
 
     .line 119
     iget-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->animations:Z
@@ -423,7 +412,6 @@
     const v0, 0x3dcccccd    # 0.1f
 
     .line 120
-    .local v0, "actionTime":F
     :goto_0
     iget-object v1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;->container:Lcom/badlogic/gdx/scenes/scene2d/ui/Container;
 
@@ -450,35 +438,33 @@
     invoke-virtual {v1, v2}, Lcom/badlogic/gdx/scenes/scene2d/ui/Container;->setScale(F)V
 
     .line 123
-    iget-object v1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;->container:Lcom/badlogic/gdx/scenes/scene2d/ui/Container;
+    iget-object p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;->container:Lcom/badlogic/gdx/scenes/scene2d/ui/Container;
+
+    sget-object v1, Lcom/badlogic/gdx/math/Interpolation;->fade:Lcom/badlogic/gdx/math/Interpolation;
+
+    invoke-static {v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/actions/Actions;->fadeIn(FLcom/badlogic/gdx/math/Interpolation;)Lcom/badlogic/gdx/scenes/scene2d/actions/AlphaAction;
+
+    move-result-object v1
 
     sget-object v2, Lcom/badlogic/gdx/math/Interpolation;->fade:Lcom/badlogic/gdx/math/Interpolation;
 
-    invoke-static {v0, v2}, Lcom/badlogic/gdx/scenes/scene2d/actions/Actions;->fadeIn(FLcom/badlogic/gdx/math/Interpolation;)Lcom/badlogic/gdx/scenes/scene2d/actions/AlphaAction;
+    const/high16 v3, 0x3f800000    # 1.0f
 
-    move-result-object v2
+    invoke-static {v3, v3, v0, v2}, Lcom/badlogic/gdx/scenes/scene2d/actions/Actions;->scaleTo(FFFLcom/badlogic/gdx/math/Interpolation;)Lcom/badlogic/gdx/scenes/scene2d/actions/ScaleToAction;
 
-    sget-object v3, Lcom/badlogic/gdx/math/Interpolation;->fade:Lcom/badlogic/gdx/math/Interpolation;
+    move-result-object v0
 
-    const/high16 v4, 0x3f800000    # 1.0f
+    invoke-static {v1, v0}, Lcom/badlogic/gdx/scenes/scene2d/actions/Actions;->parallel(Lcom/badlogic/gdx/scenes/scene2d/Action;Lcom/badlogic/gdx/scenes/scene2d/Action;)Lcom/badlogic/gdx/scenes/scene2d/actions/ParallelAction;
 
-    invoke-static {v4, v4, v0, v3}, Lcom/badlogic/gdx/scenes/scene2d/actions/Actions;->scaleTo(FFFLcom/badlogic/gdx/math/Interpolation;)Lcom/badlogic/gdx/scenes/scene2d/actions/ScaleToAction;
+    move-result-object v0
 
-    move-result-object v3
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Container;->addAction(Lcom/badlogic/gdx/scenes/scene2d/Action;)V
 
-    invoke-static {v2, v3}, Lcom/badlogic/gdx/scenes/scene2d/actions/Actions;->parallel(Lcom/badlogic/gdx/scenes/scene2d/Action;Lcom/badlogic/gdx/scenes/scene2d/Action;)Lcom/badlogic/gdx/scenes/scene2d/actions/ParallelAction;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/scenes/scene2d/ui/Container;->addAction(Lcom/badlogic/gdx/scenes/scene2d/Action;)V
-
-    .line 124
     return-void
 .end method
 
 .method public touchDown(Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;)V
-    .locals 2
-    .param p1, "tooltip"    # Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;
+    .locals 1
 
     .line 86
     iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->showTask:Lcom/badlogic/gdx/utils/Timer$Task;
@@ -518,13 +504,12 @@
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->showTooltip:Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;
 
     .line 91
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->showTask:Lcom/badlogic/gdx/utils/Timer$Task;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->showTask:Lcom/badlogic/gdx/utils/Timer$Task;
 
-    iget v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->time:F
+    iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->time:F
 
-    invoke-static {v0, v1}, Lcom/badlogic/gdx/utils/Timer;->schedule(Lcom/badlogic/gdx/utils/Timer$Task;F)Lcom/badlogic/gdx/utils/Timer$Task;
+    invoke-static {p1, v0}, Lcom/badlogic/gdx/utils/Timer;->schedule(Lcom/badlogic/gdx/utils/Timer$Task;F)Lcom/badlogic/gdx/utils/Timer$Task;
 
-    .line 93
     :cond_2
     return-void
 .end method

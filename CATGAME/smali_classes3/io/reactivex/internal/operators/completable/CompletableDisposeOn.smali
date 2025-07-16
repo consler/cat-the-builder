@@ -20,8 +20,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/CompletableSource;Lio/reactivex/Scheduler;)V
     .locals 0
-    .param p1, "source"    # Lio/reactivex/CompletableSource;
-    .param p2, "scheduler"    # Lio/reactivex/Scheduler;
 
     .line 27
     invoke-direct {p0}, Lio/reactivex/Completable;-><init>()V
@@ -32,7 +30,6 @@
     .line 29
     iput-object p2, p0, Lio/reactivex/internal/operators/completable/CompletableDisposeOn;->scheduler:Lio/reactivex/Scheduler;
 
-    .line 30
     return-void
 .end method
 
@@ -40,7 +37,6 @@
 # virtual methods
 .method protected subscribeActual(Lio/reactivex/CompletableObserver;)V
     .locals 3
-    .param p1, "s"    # Lio/reactivex/CompletableObserver;
 
     .line 34
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableDisposeOn;->source:Lio/reactivex/CompletableSource;
@@ -53,6 +49,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/CompletableSource;->subscribe(Lio/reactivex/CompletableObserver;)V
 
-    .line 35
     return-void
 .end method

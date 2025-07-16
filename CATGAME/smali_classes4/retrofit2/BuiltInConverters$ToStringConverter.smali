@@ -73,13 +73,12 @@
 .end method
 
 .method public convert(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
-    .param p1, "value"    # Ljava/lang/Object;
+    .locals 0
 
     .line 125
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

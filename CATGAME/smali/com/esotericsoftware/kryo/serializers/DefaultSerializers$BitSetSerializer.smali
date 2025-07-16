@@ -48,20 +48,18 @@
 .end method
 
 .method public copy(Lcom/esotericsoftware/kryo/Kryo;Ljava/util/BitSet;)Ljava/util/BitSet;
-    .locals 1
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "original"    # Ljava/util/BitSet;
+    .locals 0
 
     .line 891
     invoke-virtual {p2}, Ljava/util/BitSet;->toLongArray()[J
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Ljava/util/BitSet;->valueOf([J)Ljava/util/BitSet;
+    invoke-static {p1}, Ljava/util/BitSet;->valueOf([J)Ljava/util/BitSet;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
@@ -76,33 +74,26 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/util/BitSet;
-    .locals 3
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
-    .param p3, "type"    # Ljava/lang/Class;
+    .locals 0
+
+    const/4 p1, 0x1
 
     .line 884
-    const/4 v0, 0x1
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Input;->readVarInt(Z)I
 
-    invoke-virtual {p2, v0}, Lcom/esotericsoftware/kryo/io/Input;->readVarInt(Z)I
-
-    move-result v0
+    move-result p1
 
     .line 885
-    .local v0, "length":I
-    invoke-virtual {p2, v0}, Lcom/esotericsoftware/kryo/io/Input;->readLongs(I)[J
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Input;->readLongs(I)[J
 
-    move-result-object v1
+    move-result-object p1
 
     .line 886
-    .local v1, "values":[J
-    invoke-static {v1}, Ljava/util/BitSet;->valueOf([J)Ljava/util/BitSet;
+    invoke-static {p1}, Ljava/util/BitSet;->valueOf([J)Ljava/util/BitSet;
 
-    move-result-object v2
+    move-result-object p1
 
-    .line 887
-    .local v2, "set":Ljava/util/BitSet;
-    return-object v2
+    return-object p1
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
@@ -117,31 +108,26 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/util/BitSet;)V
-    .locals 3
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p3, "set"    # Ljava/util/BitSet;
+    .locals 1
 
     .line 878
     invoke-virtual {p3}, Ljava/util/BitSet;->toLongArray()[J
 
-    move-result-object v0
+    move-result-object p1
 
     .line 879
-    .local v0, "values":[J
-    array-length v1, v0
+    array-length p3, p1
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    invoke-virtual {p2, v1, v2}, Lcom/esotericsoftware/kryo/io/Output;->writeVarInt(IZ)I
+    invoke-virtual {p2, p3, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeVarInt(IZ)I
+
+    const/4 p3, 0x0
 
     .line 880
-    array-length v1, v0
+    array-length v0, p1
 
-    const/4 v2, 0x0
+    invoke-virtual {p2, p1, p3, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeLongs([JII)V
 
-    invoke-virtual {p2, v0, v2, v1}, Lcom/esotericsoftware/kryo/io/Output;->writeLongs([JII)V
-
-    .line 881
     return-void
 .end method

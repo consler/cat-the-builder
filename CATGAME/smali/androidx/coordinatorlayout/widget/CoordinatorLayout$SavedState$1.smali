@@ -40,7 +40,6 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroidx/coordinatorlayout/widget/CoordinatorLayout$SavedState;
     .locals 2
-    .param p1, "in"    # Landroid/os/Parcel;
 
     .line 3382
     new-instance v0, Landroidx/coordinatorlayout/widget/CoordinatorLayout$SavedState;
@@ -54,8 +53,6 @@
 
 .method public createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroidx/coordinatorlayout/widget/CoordinatorLayout$SavedState;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
-    .param p2, "loader"    # Ljava/lang/ClassLoader;
 
     .line 3377
     new-instance v0, Landroidx/coordinatorlayout/widget/CoordinatorLayout$SavedState;
@@ -88,13 +85,12 @@
 .end method
 
 .method public newArray(I)[Landroidx/coordinatorlayout/widget/CoordinatorLayout$SavedState;
-    .locals 1
-    .param p1, "size"    # I
+    .locals 0
 
     .line 3387
-    new-array v0, p1, [Landroidx/coordinatorlayout/widget/CoordinatorLayout$SavedState;
+    new-array p1, p1, [Landroidx/coordinatorlayout/widget/CoordinatorLayout$SavedState;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;

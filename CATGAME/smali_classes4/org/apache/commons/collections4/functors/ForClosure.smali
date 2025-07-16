@@ -35,7 +35,6 @@
 # direct methods
 .method public constructor <init>(ILorg/apache/commons/collections4/Closure;)V
     .locals 0
-    .param p1, "count"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -45,8 +44,6 @@
     .end annotation
 
     .line 69
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ForClosure;, "Lorg/apache/commons/collections4/functors/ForClosure<TE;>;"
-    .local p2, "closure":Lorg/apache/commons/collections4/Closure;, "Lorg/apache/commons/collections4/Closure<-TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 70
@@ -55,13 +52,11 @@
     .line 71
     iput-object p2, p0, Lorg/apache/commons/collections4/functors/ForClosure;->iClosure:Lorg/apache/commons/collections4/Closure;
 
-    .line 72
     return-void
 .end method
 
 .method public static forClosure(ILorg/apache/commons/collections4/Closure;)Lorg/apache/commons/collections4/Closure;
     .locals 1
-    .param p0, "count"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -74,21 +69,17 @@
         }
     .end annotation
 
-    .line 52
-    .local p1, "closure":Lorg/apache/commons/collections4/Closure;, "Lorg/apache/commons/collections4/Closure<-TE;>;"
     if-lez p0, :cond_2
 
     if-nez p1, :cond_0
 
     goto :goto_0
 
-    .line 55
     :cond_0
     const/4 v0, 0x1
 
     if-ne p0, v0, :cond_1
 
-    .line 56
     return-object p1
 
     .line 58
@@ -104,9 +95,9 @@
     :goto_0
     invoke-static {}, Lorg/apache/commons/collections4/functors/NOPClosure;->nopClosure()Lorg/apache/commons/collections4/Closure;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 
@@ -119,12 +110,9 @@
         }
     .end annotation
 
-    .line 81
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ForClosure;, "Lorg/apache/commons/collections4/functors/ForClosure<TE;>;"
-    .local p1, "input":Ljava/lang/Object;, "TE;"
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 81
     :goto_0
     iget v1, p0, Lorg/apache/commons/collections4/functors/ForClosure;->iCount:I
 
@@ -135,13 +123,10 @@
 
     invoke-interface {v1, p1}, Lorg/apache/commons/collections4/Closure;->execute(Ljava/lang/Object;)V
 
-    .line 81
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 84
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
@@ -157,7 +142,6 @@
     .end annotation
 
     .line 93
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ForClosure;, "Lorg/apache/commons/collections4/functors/ForClosure<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/ForClosure;->iClosure:Lorg/apache/commons/collections4/Closure;
 
     return-object v0
@@ -167,7 +151,6 @@
     .locals 1
 
     .line 103
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ForClosure;, "Lorg/apache/commons/collections4/functors/ForClosure<TE;>;"
     iget v0, p0, Lorg/apache/commons/collections4/functors/ForClosure;->iCount:I
 
     return v0

@@ -27,29 +27,25 @@
 
 # virtual methods
 .method computeAndSetTextDirection(Landroid/text/StaticLayout$Builder;Landroid/widget/TextView;)V
-    .locals 1
-    .param p1, "layoutBuilder"    # Landroid/text/StaticLayout$Builder;
-    .param p2, "textView"    # Landroid/widget/TextView;
+    .locals 0
 
     .line 146
     invoke-virtual {p2}, Landroid/widget/TextView;->getTextDirectionHeuristic()Landroid/text/TextDirectionHeuristic;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {p1, v0}, Landroid/text/StaticLayout$Builder;->setTextDirection(Landroid/text/TextDirectionHeuristic;)Landroid/text/StaticLayout$Builder;
+    invoke-virtual {p1, p2}, Landroid/text/StaticLayout$Builder;->setTextDirection(Landroid/text/TextDirectionHeuristic;)Landroid/text/StaticLayout$Builder;
 
-    .line 147
     return-void
 .end method
 
 .method isHorizontallyScrollable(Landroid/widget/TextView;)Z
-    .locals 1
-    .param p1, "textView"    # Landroid/widget/TextView;
+    .locals 0
 
     .line 140
     invoke-virtual {p1}, Landroid/widget/TextView;->isHorizontallyScrollable()Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

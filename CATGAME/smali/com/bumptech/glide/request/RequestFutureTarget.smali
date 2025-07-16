@@ -76,30 +76,21 @@
 
 .method public constructor <init>(II)V
     .locals 2
-    .param p1, "width"    # I
-    .param p2, "height"    # I
+
+    const/4 v0, 0x1
 
     .line 84
-    .local p0, "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
-    sget-object v0, Lcom/bumptech/glide/request/RequestFutureTarget;->DEFAULT_WAITER:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
+    sget-object v1, Lcom/bumptech/glide/request/RequestFutureTarget;->DEFAULT_WAITER:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
 
-    const/4 v1, 0x1
+    invoke-direct {p0, p1, p2, v0, v1}, Lcom/bumptech/glide/request/RequestFutureTarget;-><init>(IIZLcom/bumptech/glide/request/RequestFutureTarget$Waiter;)V
 
-    invoke-direct {p0, p1, p2, v1, v0}, Lcom/bumptech/glide/request/RequestFutureTarget;-><init>(IIZLcom/bumptech/glide/request/RequestFutureTarget$Waiter;)V
-
-    .line 85
     return-void
 .end method
 
 .method constructor <init>(IIZLcom/bumptech/glide/request/RequestFutureTarget$Waiter;)V
     .locals 0
-    .param p1, "width"    # I
-    .param p2, "height"    # I
-    .param p3, "assertBackgroundThread"    # Z
-    .param p4, "waiter"    # Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
 
     .line 87
-    .local p0, "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 88
@@ -114,13 +105,11 @@
     .line 91
     iput-object p4, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->waiter:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
 
-    .line 92
     return-void
 .end method
 
 .method private declared-synchronized doGet(Ljava/lang/Long;)Ljava/lang/Object;
-    .locals 7
-    .param p1, "timeoutMillis"    # Ljava/lang/Long;
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -137,7 +126,6 @@
         }
     .end annotation
 
-    .local p0, "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
     monitor-enter p0
 
     .line 191
@@ -156,7 +144,6 @@
     invoke-static {}, Lcom/bumptech/glide/util/Util;->assertBackgroundThread()V
 
     .line 195
-    .end local p0    # "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
     :cond_0
     iget-boolean v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->isCancelled:Z
 
@@ -173,15 +160,14 @@
     if-eqz v0, :cond_1
 
     .line 200
-    iget-object v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->resource:Ljava/lang/Object;
+    iget-object p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->resource:Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-object v0
+    return-object p1
 
-    .line 203
     :cond_1
     const-wide/16 v0, 0x0
 
@@ -189,9 +175,9 @@
 
     .line 204
     :try_start_1
-    iget-object v2, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->waiter:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
+    iget-object p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->waiter:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
 
-    invoke-virtual {v2, p0, v0, v1}, Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;->waitForTimeout(Ljava/lang/Object;J)V
+    invoke-virtual {p1, p0, v0, v1}, Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;->waitForTimeout(Ljava/lang/Object;J)V
 
     goto :goto_1
 
@@ -211,7 +197,6 @@
     move-result-wide v0
 
     .line 207
-    .local v0, "now":J
     invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v2
@@ -219,126 +204,119 @@
     add-long/2addr v2, v0
 
     .line 208
-    .local v2, "deadline":J
     :goto_0
     invoke-virtual {p0}, Lcom/bumptech/glide/request/RequestFutureTarget;->isDone()Z
 
-    move-result v4
+    move-result p1
 
-    if-nez v4, :cond_3
+    if-nez p1, :cond_3
 
-    cmp-long v4, v0, v2
+    cmp-long p1, v0, v2
 
-    if-gez v4, :cond_3
+    if-gez p1, :cond_3
 
     .line 209
-    iget-object v4, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->waiter:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
+    iget-object p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->waiter:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
 
-    sub-long v5, v2, v0
+    sub-long v0, v2, v0
 
-    invoke-virtual {v4, p0, v5, v6}, Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;->waitForTimeout(Ljava/lang/Object;J)V
+    invoke-virtual {p1, p0, v0, v1}, Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;->waitForTimeout(Ljava/lang/Object;J)V
 
     .line 210
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v4
-
-    move-wide v0, v4
+    move-result-wide v0
 
     goto :goto_0
 
     .line 214
-    .end local v0    # "now":J
-    .end local v2    # "deadline":J
     :cond_3
     :goto_1
     invoke-static {}, Ljava/lang/Thread;->interrupted()Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_7
+    if-nez p1, :cond_7
 
     .line 216
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->loadFailed:Z
+    iget-boolean p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->loadFailed:Z
 
-    if-nez v0, :cond_6
+    if-nez p1, :cond_6
 
     .line 218
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->isCancelled:Z
+    iget-boolean p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->isCancelled:Z
 
-    if-nez v0, :cond_5
+    if-nez p1, :cond_5
 
     .line 220
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->resultReceived:Z
+    iget-boolean p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->resultReceived:Z
 
-    if-eqz v0, :cond_4
+    if-eqz p1, :cond_4
 
     .line 224
-    iget-object v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->resource:Ljava/lang/Object;
+    iget-object p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->resource:Ljava/lang/Object;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     monitor-exit p0
 
-    return-object v0
+    return-object p1
 
     .line 221
     :cond_4
     :try_start_2
-    new-instance v0, Ljava/util/concurrent/TimeoutException;
+    new-instance p1, Ljava/util/concurrent/TimeoutException;
 
-    invoke-direct {v0}, Ljava/util/concurrent/TimeoutException;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/TimeoutException;-><init>()V
 
-    throw v0
+    throw p1
 
     .line 219
     :cond_5
-    new-instance v0, Ljava/util/concurrent/CancellationException;
+    new-instance p1, Ljava/util/concurrent/CancellationException;
 
-    invoke-direct {v0}, Ljava/util/concurrent/CancellationException;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/CancellationException;-><init>()V
 
-    throw v0
+    throw p1
 
     .line 217
     :cond_6
-    new-instance v0, Ljava/util/concurrent/ExecutionException;
+    new-instance p1, Ljava/util/concurrent/ExecutionException;
 
-    iget-object v1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->exception:Lcom/bumptech/glide/load/engine/GlideException;
+    iget-object v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->exception:Lcom/bumptech/glide/load/engine/GlideException;
 
-    invoke-direct {v0, v1}, Ljava/util/concurrent/ExecutionException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p1, v0}, Ljava/util/concurrent/ExecutionException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v0
+    throw p1
 
     .line 215
     :cond_7
-    new-instance v0, Ljava/lang/InterruptedException;
+    new-instance p1, Ljava/lang/InterruptedException;
 
-    invoke-direct {v0}, Ljava/lang/InterruptedException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/InterruptedException;-><init>()V
 
-    throw v0
+    throw p1
 
     .line 198
     :cond_8
-    new-instance v0, Ljava/util/concurrent/ExecutionException;
+    new-instance p1, Ljava/util/concurrent/ExecutionException;
 
-    iget-object v1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->exception:Lcom/bumptech/glide/load/engine/GlideException;
+    iget-object v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->exception:Lcom/bumptech/glide/load/engine/GlideException;
 
-    invoke-direct {v0, v1}, Ljava/util/concurrent/ExecutionException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p1, v0}, Ljava/util/concurrent/ExecutionException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v0
+    throw p1
 
     .line 196
     :cond_9
-    new-instance v0, Ljava/util/concurrent/CancellationException;
+    new-instance p1, Ljava/util/concurrent/CancellationException;
 
-    invoke-direct {v0}, Ljava/util/concurrent/CancellationException;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/CancellationException;-><init>()V
 
-    throw v0
+    throw p1
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 190
-    .end local p1    # "timeoutMillis":Ljava/lang/Long;
     :catchall_0
     move-exception p1
 
@@ -350,55 +328,48 @@
 
 # virtual methods
 .method public cancel(Z)Z
-    .locals 3
-    .param p1, "mayInterruptIfRunning"    # Z
-
-    .line 96
-    .local p0, "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
-    const/4 v0, 0x0
+    .locals 2
 
     .line 97
-    .local v0, "toClear":Lcom/bumptech/glide/request/Request;
     monitor-enter p0
 
     .line 98
     :try_start_0
     invoke-virtual {p0}, Lcom/bumptech/glide/request/RequestFutureTarget;->isDone()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 99
-    const/4 v1, 0x0
-
     monitor-exit p0
 
-    return v1
+    const/4 p1, 0x0
+
+    return p1
+
+    :cond_0
+    const/4 v0, 0x1
 
     .line 102
-    :cond_0
-    const/4 v1, 0x1
-
-    iput-boolean v1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->isCancelled:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->isCancelled:Z
 
     .line 103
-    iget-object v2, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->waiter:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
+    iget-object v1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->waiter:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
 
-    invoke-virtual {v2, p0}, Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;->notifyAll(Ljava/lang/Object;)V
+    invoke-virtual {v1, p0}, Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;->notifyAll(Ljava/lang/Object;)V
 
-    .line 104
+    const/4 v1, 0x0
+
     if-eqz p1, :cond_1
 
     .line 105
-    iget-object v2, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->request:Lcom/bumptech/glide/request/Request;
-
-    move-object v0, v2
+    iget-object p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->request:Lcom/bumptech/glide/request/Request;
 
     .line 106
-    const/4 v2, 0x0
+    iput-object v1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->request:Lcom/bumptech/glide/request/Request;
 
-    iput-object v2, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->request:Lcom/bumptech/glide/request/Request;
+    move-object v1, p1
 
     .line 108
     :cond_1
@@ -406,26 +377,24 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 111
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
     .line 112
-    invoke-interface {v0}, Lcom/bumptech/glide/request/Request;->clear()V
+    invoke-interface {v1}, Lcom/bumptech/glide/request/Request;->clear()V
 
-    .line 114
     :cond_2
-    return v1
+    return v0
+
+    :catchall_0
+    move-exception p1
 
     .line 108
-    :catchall_0
-    move-exception v1
-
     :try_start_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public get()Ljava/lang/Object;
@@ -443,10 +412,9 @@
         }
     .end annotation
 
-    .line 130
-    .local p0, "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
     const/4 v0, 0x0
 
+    .line 130
     :try_start_0
     invoke-direct {p0, v0}, Lcom/bumptech/glide/request/RequestFutureTarget;->doGet(Ljava/lang/Long;)Ljava/lang/Object;
 
@@ -456,12 +424,10 @@
 
     return-object v0
 
-    .line 131
     :catch_0
     move-exception v0
 
     .line 132
-    .local v0, "e":Ljava/util/concurrent/TimeoutException;
     new-instance v1, Ljava/lang/AssertionError;
 
     invoke-direct {v1, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
@@ -470,9 +436,7 @@
 .end method
 
 .method public get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 2
-    .param p1, "time"    # J
-    .param p3, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -490,26 +454,24 @@
     .end annotation
 
     .line 139
-    .local p0, "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
     invoke-virtual {p3, p1, p2}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0}, Lcom/bumptech/glide/request/RequestFutureTarget;->doGet(Ljava/lang/Long;)Ljava/lang/Object;
+    invoke-direct {p0, p1}, Lcom/bumptech/glide/request/RequestFutureTarget;->doGet(Ljava/lang/Long;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public declared-synchronized getRequest()Lcom/bumptech/glide/request/Request;
     .locals 1
 
-    .local p0, "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
     monitor-enter p0
 
     .line 161
@@ -522,8 +484,6 @@
 
     return-object v0
 
-    .line 161
-    .end local p0    # "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
     :catchall_0
     move-exception v0
 
@@ -534,24 +494,20 @@
 
 .method public getSize(Lcom/bumptech/glide/request/target/SizeReadyCallback;)V
     .locals 2
-    .param p1, "cb"    # Lcom/bumptech/glide/request/target/SizeReadyCallback;
 
     .line 145
-    .local p0, "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
     iget v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->width:I
 
     iget v1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->height:I
 
     invoke-interface {p1, v0, v1}, Lcom/bumptech/glide/request/target/SizeReadyCallback;->onSizeReady(II)V
 
-    .line 146
     return-void
 .end method
 
 .method public declared-synchronized isCancelled()Z
     .locals 1
 
-    .local p0, "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
     monitor-enter p0
 
     .line 119
@@ -564,8 +520,6 @@
 
     return v0
 
-    .line 119
-    .end local p0    # "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
     :catchall_0
     move-exception v0
 
@@ -577,7 +531,6 @@
 .method public declared-synchronized isDone()Z
     .locals 1
 
-    .local p0, "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
     monitor-enter p0
 
     .line 124
@@ -603,7 +556,6 @@
 
     goto :goto_1
 
-    .end local p0    # "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
     :cond_1
     :goto_0
     const/4 v0, 0x1
@@ -613,7 +565,6 @@
 
     return v0
 
-    .line 124
     :catchall_0
     move-exception v0
 
@@ -625,25 +576,18 @@
 .method public onDestroy()V
     .locals 0
 
-    .line 240
-    .local p0, "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
     return-void
 .end method
 
 .method public onLoadCleared(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .param p1, "placeholder"    # Landroid/graphics/drawable/Drawable;
 
-    .line 168
-    .local p0, "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
     return-void
 .end method
 
 .method public declared-synchronized onLoadFailed(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .param p1, "errorDrawable"    # Landroid/graphics/drawable/Drawable;
 
-    .local p0, "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
     monitor-enter p0
 
     .line 180
@@ -653,10 +597,7 @@
 .end method
 
 .method public declared-synchronized onLoadFailed(Lcom/bumptech/glide/load/engine/GlideException;Ljava/lang/Object;Lcom/bumptech/glide/request/target/Target;Z)Z
-    .locals 1
-    .param p1, "e"    # Lcom/bumptech/glide/load/engine/GlideException;
-    .param p2, "model"    # Ljava/lang/Object;
-    .param p4, "isFirstResource"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -667,39 +608,31 @@
         }
     .end annotation
 
-    .local p0, "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
-    .local p3, "target":Lcom/bumptech/glide/request/target/Target;, "Lcom/bumptech/glide/request/target/Target<TR;>;"
     monitor-enter p0
 
-    .line 245
-    const/4 v0, 0x1
+    const/4 p2, 0x1
 
+    .line 245
     :try_start_0
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->loadFailed:Z
+    iput-boolean p2, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->loadFailed:Z
 
     .line 246
     iput-object p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->exception:Lcom/bumptech/glide/load/engine/GlideException;
 
     .line 247
-    iget-object v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->waiter:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
+    iget-object p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->waiter:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
 
-    invoke-virtual {v0, p0}, Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;->notifyAll(Ljava/lang/Object;)V
+    invoke-virtual {p1, p0}, Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;->notifyAll(Ljava/lang/Object;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 248
-    const/4 v0, 0x0
-
     monitor-exit p0
 
-    return v0
+    const/4 p1, 0x0
 
-    .line 244
-    .end local p0    # "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
-    .end local p1    # "e":Lcom/bumptech/glide/load/engine/GlideException;
-    .end local p2    # "model":Ljava/lang/Object;
-    .end local p3    # "target":Lcom/bumptech/glide/request/target/Target;, "Lcom/bumptech/glide/request/target/Target<TR;>;"
-    .end local p4    # "isFirstResource":Z
+    return p1
+
     :catchall_0
     move-exception p1
 
@@ -710,10 +643,7 @@
 
 .method public onLoadStarted(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .param p1, "placeholder"    # Landroid/graphics/drawable/Drawable;
 
-    .line 174
-    .local p0, "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
     return-void
 .end method
 
@@ -727,9 +657,6 @@
         }
     .end annotation
 
-    .local p0, "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
-    .local p1, "resource":Ljava/lang/Object;, "TR;"
-    .local p2, "transition":Lcom/bumptech/glide/request/transition/Transition;, "Lcom/bumptech/glide/request/transition/Transition<-TR;>;"
     monitor-enter p0
 
     .line 187
@@ -739,10 +666,7 @@
 .end method
 
 .method public declared-synchronized onResourceReady(Ljava/lang/Object;Ljava/lang/Object;Lcom/bumptech/glide/request/target/Target;Lcom/bumptech/glide/load/DataSource;Z)Z
-    .locals 1
-    .param p2, "model"    # Ljava/lang/Object;
-    .param p4, "dataSource"    # Lcom/bumptech/glide/load/DataSource;
-    .param p5, "isFirstResource"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;",
@@ -754,41 +678,31 @@
         }
     .end annotation
 
-    .local p0, "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
-    .local p1, "resource":Ljava/lang/Object;, "TR;"
-    .local p3, "target":Lcom/bumptech/glide/request/target/Target;, "Lcom/bumptech/glide/request/target/Target<TR;>;"
     monitor-enter p0
 
-    .line 255
-    const/4 v0, 0x1
+    const/4 p2, 0x1
 
+    .line 255
     :try_start_0
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->resultReceived:Z
+    iput-boolean p2, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->resultReceived:Z
 
     .line 256
     iput-object p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->resource:Ljava/lang/Object;
 
     .line 257
-    iget-object v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->waiter:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
+    iget-object p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->waiter:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
 
-    invoke-virtual {v0, p0}, Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;->notifyAll(Ljava/lang/Object;)V
+    invoke-virtual {p1, p0}, Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;->notifyAll(Ljava/lang/Object;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 258
-    const/4 v0, 0x0
-
     monitor-exit p0
 
-    return v0
+    const/4 p1, 0x0
 
-    .line 254
-    .end local p0    # "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
-    .end local p1    # "resource":Ljava/lang/Object;, "TR;"
-    .end local p2    # "model":Ljava/lang/Object;
-    .end local p3    # "target":Lcom/bumptech/glide/request/target/Target;, "Lcom/bumptech/glide/request/target/Target<TR;>;"
-    .end local p4    # "dataSource":Lcom/bumptech/glide/load/DataSource;
-    .end local p5    # "isFirstResource":Z
+    return p1
+
     :catchall_0
     move-exception p1
 
@@ -800,33 +714,24 @@
 .method public onStart()V
     .locals 0
 
-    .line 230
-    .local p0, "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
     return-void
 .end method
 
 .method public onStop()V
     .locals 0
 
-    .line 235
-    .local p0, "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
     return-void
 .end method
 
 .method public removeCallback(Lcom/bumptech/glide/request/target/SizeReadyCallback;)V
     .locals 0
-    .param p1, "cb"    # Lcom/bumptech/glide/request/target/SizeReadyCallback;
 
-    .line 151
-    .local p0, "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
     return-void
 .end method
 
 .method public declared-synchronized setRequest(Lcom/bumptech/glide/request/Request;)V
     .locals 0
-    .param p1, "request"    # Lcom/bumptech/glide/request/Request;
 
-    .local p0, "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
     monitor-enter p0
 
     .line 155
@@ -840,9 +745,6 @@
 
     return-void
 
-    .line 154
-    .end local p0    # "this":Lcom/bumptech/glide/request/RequestFutureTarget;, "Lcom/bumptech/glide/request/RequestFutureTarget<TR;>;"
-    .end local p1    # "request":Lcom/bumptech/glide/request/Request;
     :catchall_0
     move-exception p1
 

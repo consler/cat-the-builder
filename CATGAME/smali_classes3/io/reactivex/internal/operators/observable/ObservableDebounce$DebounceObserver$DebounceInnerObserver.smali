@@ -54,7 +54,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver;JLjava/lang/Object;)V
     .locals 1
-    .param p2, "index"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -64,9 +63,6 @@
     .end annotation
 
     .line 147
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver$DebounceInnerObserver;, "Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver$DebounceInnerObserver<TT;TU;>;"
-    .local p1, "parent":Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver;, "Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver<TT;TU;>;"
-    .local p4, "value":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Lio/reactivex/observers/DisposableObserver;-><init>()V
 
     .line 145
@@ -85,7 +81,6 @@
     .line 150
     iput-object p4, p0, Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver$DebounceInnerObserver;->value:Ljava/lang/Object;
 
-    .line 151
     return-void
 .end method
 
@@ -95,7 +90,6 @@
     .locals 4
 
     .line 164
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver$DebounceInnerObserver;, "Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver$DebounceInnerObserver<TT;TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver$DebounceInnerObserver;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     const/4 v1, 0x0
@@ -117,7 +111,6 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver;->emit(JLjava/lang/Object;)V
 
-    .line 167
     :cond_0
     return-void
 .end method
@@ -126,33 +119,28 @@
     .locals 1
 
     .line 181
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver$DebounceInnerObserver;, "Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver$DebounceInnerObserver<TT;TU;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver$DebounceInnerObserver;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 182
     return-void
 
-    .line 184
     :cond_0
     const/4 v0, 0x1
 
+    .line 184
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver$DebounceInnerObserver;->done:Z
 
     .line 185
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver$DebounceInnerObserver;->emit()V
 
-    .line 186
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 171
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver$DebounceInnerObserver;, "Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver$DebounceInnerObserver<TT;TU;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver$DebounceInnerObserver;->done:Z
 
     if-eqz v0, :cond_0
@@ -160,13 +148,12 @@
     .line 172
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 173
     return-void
 
-    .line 175
     :cond_0
     const/4 v0, 0x1
 
+    .line 175
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver$DebounceInnerObserver;->done:Z
 
     .line 176
@@ -174,12 +161,11 @@
 
     invoke-virtual {v0, p1}, Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 177
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TU;)V"
@@ -187,20 +173,17 @@
     .end annotation
 
     .line 155
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver$DebounceInnerObserver;, "Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver$DebounceInnerObserver<TT;TU;>;"
-    .local p1, "t":Ljava/lang/Object;, "TU;"
-    iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver$DebounceInnerObserver;->done:Z
+    iget-boolean p1, p0, Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver$DebounceInnerObserver;->done:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    .line 156
     return-void
 
-    .line 158
     :cond_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver$DebounceInnerObserver;->done:Z
+    .line 158
+    iput-boolean p1, p0, Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver$DebounceInnerObserver;->done:Z
 
     .line 159
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver$DebounceInnerObserver;->dispose()V
@@ -208,6 +191,5 @@
     .line 160
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableDebounce$DebounceObserver$DebounceInnerObserver;->emit()V
 
-    .line 161
     return-void
 .end method

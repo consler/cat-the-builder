@@ -49,14 +49,11 @@
     .end annotation
 
     .line 41
-    .local p0, "this":Lorg/apache/commons/collections4/functors/AbstractQuantifierPredicate;, "Lorg/apache/commons/collections4/functors/AbstractQuantifierPredicate<TT;>;"
-    .local p1, "predicates":[Lorg/apache/commons/collections4/Predicate;, "[Lorg/apache/commons/collections4/Predicate<-TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 42
     iput-object p1, p0, Lorg/apache/commons/collections4/functors/AbstractQuantifierPredicate;->iPredicates:[Lorg/apache/commons/collections4/Predicate;
 
-    .line 43
     return-void
 .end method
 
@@ -73,7 +70,6 @@
     .end annotation
 
     .line 53
-    .local p0, "this":Lorg/apache/commons/collections4/functors/AbstractQuantifierPredicate;, "Lorg/apache/commons/collections4/functors/AbstractQuantifierPredicate<TT;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/AbstractQuantifierPredicate;->iPredicates:[Lorg/apache/commons/collections4/Predicate;
 
     invoke-static {v0}, Lorg/apache/commons/collections4/functors/FunctorUtils;->copy([Lorg/apache/commons/collections4/Predicate;)[Lorg/apache/commons/collections4/Predicate;

@@ -28,7 +28,6 @@
 
     sput-object v0, Lcom/koushikdutta/async/http/HttpDate;->STANDARD_DATE_FORMAT:Ljava/lang/ThreadLocal;
 
-    .line 47
     const-string v1, "EEEE, dd-MMM-yy HH:mm:ss zzz"
 
     const-string v2, "EEE MMM d HH:mm:ss yyyy"
@@ -57,6 +56,7 @@
 
     const-string v14, "EEE MMM d yyyy HH:mm:ss z"
 
+    .line 47
     filled-new-array/range {v1 .. v14}, [Ljava/lang/String;
 
     move-result-object v0
@@ -77,7 +77,6 @@
 
 .method public static format(Ljava/util/Date;)Ljava/lang/String;
     .locals 1
-    .param p0, "value"    # Ljava/util/Date;
 
     .line 91
     sget-object v0, Lcom/koushikdutta/async/http/HttpDate;->STANDARD_DATE_FORMAT:Ljava/lang/ThreadLocal;
@@ -90,21 +89,18 @@
 
     invoke-virtual {v0, p0}, Ljava/text/DateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parse(Ljava/lang/String;)Ljava/util/Date;
     .locals 7
-    .param p0, "value"    # Ljava/lang/String;
 
-    .line 72
     const/4 v0, 0x0
 
     if-nez p0, :cond_0
 
-    .line 73
     return-object v0
 
     .line 75
@@ -120,17 +116,14 @@
 
     invoke-virtual {v1, p0}, Ljava/text/DateFormat;->parse(Ljava/lang/String;)Ljava/util/Date;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
-
-    .line 76
-    :catch_0
-    move-exception v1
+    return-object p0
 
     .line 78
+    :catch_0
     sget-object v1, Lcom/koushikdutta/async/http/HttpDate;->BROWSER_COMPATIBLE_DATE_FORMATS:[Ljava/lang/String;
 
     array-length v2, v1
@@ -143,7 +136,6 @@
     aget-object v4, v1, v3
 
     .line 80
-    .local v4, "formatString":Ljava/lang/String;
     :try_start_1
     new-instance v5, Ljava/text/SimpleDateFormat;
 
@@ -153,23 +145,17 @@
 
     invoke-virtual {v5, p0}, Ljava/text/SimpleDateFormat;->parse(Ljava/lang/String;)Ljava/util/Date;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_1
     .catch Ljava/text/ParseException; {:try_start_1 .. :try_end_1} :catch_1
 
-    return-object v0
+    return-object p0
 
-    .line 81
     :catch_1
-    move-exception v5
-
-    .line 78
-    .end local v4    # "formatString":Ljava/lang/String;
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 84
     :cond_1
     return-object v0
 .end method

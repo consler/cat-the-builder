@@ -17,12 +17,10 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .param p1, "initialSize"    # I
 
     .line 133
     invoke-direct {p0, p1}, Ljava/io/ByteArrayOutputStream;-><init>(I)V
 
-    .line 134
     return-void
 .end method
 
@@ -61,7 +59,6 @@
     return-object v0
 
     .line 139
-    .end local p0    # "this":Lcom/badlogic/gdx/utils/StreamUtils$OptimizedByteArrayOutputStream;
     :cond_0
     :try_start_1
     invoke-super {p0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
@@ -74,7 +71,6 @@
 
     return-object v0
 
-    .line 137
     :catchall_0
     move-exception v0
 

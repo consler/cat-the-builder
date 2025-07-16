@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroidx/work/impl/workers/ConstraintTrackingWorker;Lcom/google/common/util/concurrent/ListenableFuture;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/work/impl/workers/ConstraintTrackingWorker;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
@@ -89,10 +88,8 @@
     :goto_0
     monitor-exit v0
 
-    .line 143
     return-void
 
-    .line 142
     :catchall_0
     move-exception v1
 

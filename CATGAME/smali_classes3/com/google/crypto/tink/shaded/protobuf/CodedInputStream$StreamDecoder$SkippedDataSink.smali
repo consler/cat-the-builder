@@ -35,8 +35,6 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 2185
-    iget-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$StreamDecoder$SkippedDataSink;->this$0:Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$StreamDecoder;
-
     invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$StreamDecoder;->access$500(Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$StreamDecoder;)I
 
     move-result p1
@@ -152,11 +150,10 @@
 
     invoke-virtual {v0, v1, v2, v3}, Ljava/io/ByteArrayOutputStream;->write([BII)V
 
-    .line 2194
     const/4 v0, 0x0
 
+    .line 2194
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream$StreamDecoder$SkippedDataSink;->lastPos:I
 
-    .line 2195
     return-void
 .end method

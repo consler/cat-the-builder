@@ -73,44 +73,37 @@
     .line 56
     invoke-super {p0}, Lcom/badlogic/gdx/scenes/scene2d/Event;->reset()V
 
-    .line 57
     const/4 v0, 0x0
 
+    .line 57
     iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent;->relatedActor:Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    .line 58
     return-void
 .end method
 
 .method public setFocused(Z)V
     .locals 0
-    .param p1, "focused"    # Z
 
     .line 65
     iput-boolean p1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent;->focused:Z
 
-    .line 66
     return-void
 .end method
 
 .method public setRelatedActor(Lcom/badlogic/gdx/scenes/scene2d/Actor;)V
     .locals 0
-    .param p1, "relatedActor"    # Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
     .line 84
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent;->relatedActor:Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    .line 85
     return-void
 .end method
 
 .method public setType(Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent$Type;)V
     .locals 0
-    .param p1, "focusType"    # Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent$Type;
 
     .line 73
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent;->type:Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent$Type;
 
-    .line 74
     return-void
 .end method

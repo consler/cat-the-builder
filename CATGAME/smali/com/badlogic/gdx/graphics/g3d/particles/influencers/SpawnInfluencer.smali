@@ -23,33 +23,29 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->spawnShapeValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;
 
-    .line 37
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;)V
-    .locals 1
-    .param p1, "source"    # Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;
+    .locals 0
 
     .line 43
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/Influencer;-><init>()V
 
     .line 44
-    iget-object v0, p1, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->spawnShapeValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->spawnShapeValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->copy()Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->copy()Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->spawnShapeValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;
+    iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->spawnShapeValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;
 
-    .line 45
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;)V
     .locals 0
-    .param p1, "spawnShapeValue"    # Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;
 
     .line 39
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/Influencer;-><init>()V
@@ -57,110 +53,102 @@
     .line 40
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->spawnShapeValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;
 
-    .line 41
     return-void
 .end method
 
 
 # virtual methods
 .method public activateParticles(II)V
-    .locals 5
-    .param p1, "startIndex"    # I
-    .param p2, "count"    # I
+    .locals 3
 
     .line 64
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->positionChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
     iget v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
 
-    mul-int/2addr v0, p1
+    mul-int/2addr p1, v0
 
-    .local v0, "i":I
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->positionChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->positionChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    iget v1, v1, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
+    iget v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
 
-    mul-int/2addr v1, p2
+    mul-int/2addr p2, v0
 
-    add-int/2addr v1, v0
+    add-int/2addr p2, p1
 
-    .local v1, "c":I
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge p1, p2, :cond_0
 
     .line 65
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->spawnShapeValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->spawnShapeValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;
 
-    sget-object v3, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->TMP_V1:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v1, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->TMP_V1:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
 
-    iget-object v4, v4, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->emitter:Lcom/badlogic/gdx/graphics/g3d/particles/emitters/Emitter;
+    iget-object v2, v2, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->emitter:Lcom/badlogic/gdx/graphics/g3d/particles/emitters/Emitter;
 
-    iget v4, v4, Lcom/badlogic/gdx/graphics/g3d/particles/emitters/Emitter;->percent:F
+    iget v2, v2, Lcom/badlogic/gdx/graphics/g3d/particles/emitters/Emitter;->percent:F
 
-    invoke-virtual {v2, v3, v4}, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->spawn(Lcom/badlogic/gdx/math/Vector3;F)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v0, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->spawn(Lcom/badlogic/gdx/math/Vector3;F)Lcom/badlogic/gdx/math/Vector3;
 
     .line 66
-    sget-object v2, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->TMP_V1:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->TMP_V1:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
 
-    iget-object v3, v3, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->transform:Lcom/badlogic/gdx/math/Matrix4;
+    iget-object v1, v1, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->transform:Lcom/badlogic/gdx/math/Matrix4;
 
-    invoke-virtual {v2, v3}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
     .line 67
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->positionChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->positionChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    iget-object v2, v2, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
+    iget-object v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v3, v0, 0x0
+    add-int/lit8 v1, p1, 0x0
 
-    sget-object v4, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->TMP_V1:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v2, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->TMP_V1:Lcom/badlogic/gdx/math/Vector3;
 
-    iget v4, v4, Lcom/badlogic/gdx/math/Vector3;->x:F
+    iget v2, v2, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    aput v4, v2, v3
+    aput v2, v0, v1
 
     .line 68
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->positionChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->positionChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    iget-object v2, v2, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
+    iget-object v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v3, v0, 0x1
+    add-int/lit8 v1, p1, 0x1
 
-    sget-object v4, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->TMP_V1:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v2, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->TMP_V1:Lcom/badlogic/gdx/math/Vector3;
 
-    iget v4, v4, Lcom/badlogic/gdx/math/Vector3;->y:F
+    iget v2, v2, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    aput v4, v2, v3
+    aput v2, v0, v1
 
     .line 69
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->positionChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->positionChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    iget-object v2, v2, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
+    iget-object v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v3, v0, 0x2
+    add-int/lit8 v1, p1, 0x2
 
-    sget-object v4, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->TMP_V1:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v2, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->TMP_V1:Lcom/badlogic/gdx/math/Vector3;
 
-    iget v4, v4, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget v2, v2, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    aput v4, v2, v3
+    aput v2, v0, v1
 
     .line 64
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->positionChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->positionChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    iget v2, v2, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
+    iget v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
 
-    add-int/2addr v0, v2
+    add-int/2addr p1, v0
 
     goto :goto_0
 
-    .line 71
-    .end local v0    # "i":I
-    .end local v1    # "c":I
     :cond_0
     return-void
 .end method
@@ -183,7 +171,6 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->positionChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    .line 55
     return-void
 .end method
 
@@ -217,57 +204,47 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->init()V
 
-    .line 50
     return-void
 .end method
 
 .method public load(Lcom/badlogic/gdx/assets/AssetManager;Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;)V
     .locals 1
-    .param p1, "manager"    # Lcom/badlogic/gdx/assets/AssetManager;
-    .param p2, "data"    # Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;
 
     .line 95
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->spawnShapeValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;
 
     invoke-virtual {v0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->load(Lcom/badlogic/gdx/assets/AssetManager;Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;)V
 
-    .line 96
     return-void
 .end method
 
 .method public read(Lcom/badlogic/gdx/utils/Json;Lcom/badlogic/gdx/utils/JsonValue;)V
     .locals 2
-    .param p1, "json"    # Lcom/badlogic/gdx/utils/Json;
-    .param p2, "jsonData"    # Lcom/badlogic/gdx/utils/JsonValue;
+
+    const-string v0, "spawnShape"
 
     .line 85
-    const-class v0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;
+    const-class v1, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;
 
-    const-string v1, "spawnShape"
+    invoke-virtual {p1, v0, v1, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
 
-    invoke-virtual {p1, v1, v0, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
+    check-cast p1, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;
 
-    check-cast v0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;
+    iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->spawnShapeValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;
 
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->spawnShapeValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;
-
-    .line 86
     return-void
 .end method
 
 .method public save(Lcom/badlogic/gdx/assets/AssetManager;Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;)V
     .locals 1
-    .param p1, "manager"    # Lcom/badlogic/gdx/assets/AssetManager;
-    .param p2, "data"    # Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;
 
     .line 90
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->spawnShapeValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;
 
     invoke-virtual {v0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->save(Lcom/badlogic/gdx/assets/AssetManager;Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;)V
 
-    .line 91
     return-void
 .end method
 
@@ -279,13 +256,11 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->start()V
 
-    .line 60
     return-void
 .end method
 
 .method public write(Lcom/badlogic/gdx/utils/Json;)V
     .locals 3
-    .param p1, "json"    # Lcom/badlogic/gdx/utils/Json;
 
     .line 80
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/SpawnInfluencer;->spawnShapeValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;
@@ -296,6 +271,5 @@
 
     invoke-virtual {p1, v2, v0, v1}, Lcom/badlogic/gdx/utils/Json;->writeValue(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Class;)V
 
-    .line 81
     return-void
 .end method

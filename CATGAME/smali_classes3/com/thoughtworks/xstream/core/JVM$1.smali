@@ -19,14 +19,12 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
-    .param p1, "o1"    # Ljava/lang/Object;
-    .param p2, "o2"    # Ljava/lang/Object;
+    .locals 0
 
     .line 128
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    invoke-direct {v0}, Ljava/lang/RuntimeException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/RuntimeException;-><init>()V
 
-    throw v0
+    throw p1
 .end method

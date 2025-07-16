@@ -15,7 +15,14 @@
 
 .method public static read(Landroidx/versionedparcelable/VersionedParcel;)Landroidx/core/app/RemoteActionCompat;
     .locals 3
-    .param p0, "parcel"    # Landroidx/versionedparcelable/VersionedParcel;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "parcel"
+        }
+    .end annotation
 
     .line 14
     new-instance v0, Landroidx/core/app/RemoteActionCompat;
@@ -23,7 +30,6 @@
     invoke-direct {v0}, Landroidx/core/app/RemoteActionCompat;-><init>()V
 
     .line 15
-    .local v0, "obj":Landroidx/core/app/RemoteActionCompat;
     iget-object v1, v0, Landroidx/core/app/RemoteActionCompat;->mIcon:Landroidx/core/graphics/drawable/IconCompat;
 
     const/4 v2, 0x1
@@ -89,22 +95,29 @@
 
     invoke-virtual {p0, v1, v2}, Landroidx/versionedparcelable/VersionedParcel;->readBoolean(ZI)Z
 
-    move-result v1
+    move-result p0
 
-    iput-boolean v1, v0, Landroidx/core/app/RemoteActionCompat;->mShouldShowIcon:Z
+    iput-boolean p0, v0, Landroidx/core/app/RemoteActionCompat;->mShouldShowIcon:Z
 
-    .line 21
     return-object v0
 .end method
 
 .method public static write(Landroidx/core/app/RemoteActionCompat;Landroidx/versionedparcelable/VersionedParcel;)V
     .locals 2
-    .param p0, "obj"    # Landroidx/core/app/RemoteActionCompat;
-    .param p1, "parcel"    # Landroidx/versionedparcelable/VersionedParcel;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "obj",
+            "parcel"
+        }
+    .end annotation
 
-    .line 26
     const/4 v0, 0x0
 
+    .line 26
     invoke-virtual {p1, v0, v0}, Landroidx/versionedparcelable/VersionedParcel;->setSerializationFlags(ZZ)V
 
     .line 27
@@ -143,12 +156,11 @@
     invoke-virtual {p1, v0, v1}, Landroidx/versionedparcelable/VersionedParcel;->writeBoolean(ZI)V
 
     .line 32
-    iget-boolean v0, p0, Landroidx/core/app/RemoteActionCompat;->mShouldShowIcon:Z
+    iget-boolean p0, p0, Landroidx/core/app/RemoteActionCompat;->mShouldShowIcon:Z
 
-    const/4 v1, 0x6
+    const/4 v0, 0x6
 
-    invoke-virtual {p1, v0, v1}, Landroidx/versionedparcelable/VersionedParcel;->writeBoolean(ZI)V
+    invoke-virtual {p1, p0, v0}, Landroidx/versionedparcelable/VersionedParcel;->writeBoolean(ZI)V
 
-    .line 33
     return-void
 .end method

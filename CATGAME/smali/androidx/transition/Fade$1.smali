@@ -23,7 +23,6 @@
 # direct methods
 .method constructor <init>(Landroidx/transition/Fade;Landroid/view/View;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/transition/Fade;
 
     .line 135
     iput-object p1, p0, Landroidx/transition/Fade$1;->this$0:Landroidx/transition/Fade;
@@ -39,7 +38,6 @@
 # virtual methods
 .method public onTransitionEnd(Landroidx/transition/Transition;)V
     .locals 2
-    .param p1, "transition"    # Landroidx/transition/Transition;
 
     .line 138
     iget-object v0, p0, Landroidx/transition/Fade$1;->val$view:Landroid/view/View;
@@ -56,6 +54,5 @@
     .line 140
     invoke-virtual {p1, p0}, Landroidx/transition/Transition;->removeListener(Landroidx/transition/Transition$TransitionListener;)Landroidx/transition/Transition;
 
-    .line 141
     return-void
 .end method

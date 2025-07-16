@@ -21,8 +21,6 @@
 # direct methods
 .method constructor <init>(Ljava/io/InputStream;I)V
     .locals 0
-    .param p1, "in"    # Ljava/io/InputStream;
-    .param p2, "limit"    # I
 
     .line 283
     invoke-direct {p0, p1}, Ljava/io/FilterInputStream;-><init>(Ljava/io/InputStream;)V
@@ -30,7 +28,6 @@
     .line 284
     iput p2, p0, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite$Builder$LimitedInputStream;->limit:I
 
-    .line 285
     return-void
 .end method
 
@@ -71,7 +68,6 @@
 
     if-gtz v0, :cond_0
 
-    .line 295
     const/4 v0, -0x1
 
     return v0
@@ -82,8 +78,6 @@
 
     move-result v0
 
-    .line 298
-    .local v0, "result":I
     if-ltz v0, :cond_1
 
     .line 299
@@ -93,16 +87,12 @@
 
     iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite$Builder$LimitedInputStream;->limit:I
 
-    .line 301
     :cond_1
     return v0
 .end method
 
 .method public read([BII)I
-    .locals 2
-    .param p1, "b"    # [B
-    .param p2, "off"    # I
-    .param p3, "len"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -114,10 +104,9 @@
 
     if-gtz v0, :cond_0
 
-    .line 307
-    const/4 v0, -0x1
+    const/4 p1, -0x1
 
-    return v0
+    return p1
 
     .line 309
     :cond_0
@@ -128,27 +117,23 @@
     .line 310
     invoke-super {p0, p1, p2, p3}, Ljava/io/FilterInputStream;->read([BII)I
 
-    move-result v0
+    move-result p1
 
-    .line 311
-    .local v0, "result":I
-    if-ltz v0, :cond_1
+    if-ltz p1, :cond_1
 
     .line 312
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite$Builder$LimitedInputStream;->limit:I
+    iget p2, p0, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite$Builder$LimitedInputStream;->limit:I
 
-    sub-int/2addr v1, v0
+    sub-int/2addr p2, p1
 
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite$Builder$LimitedInputStream;->limit:I
+    iput p2, p0, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite$Builder$LimitedInputStream;->limit:I
 
-    .line 314
     :cond_1
-    return v0
+    return p1
 .end method
 
 .method public skip(J)J
-    .locals 4
-    .param p1, "n"    # J
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -162,32 +147,29 @@
 
     invoke-static {p1, p2, v0, v1}, Ljava/lang/Math;->min(JJ)J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    invoke-super {p0, v0, v1}, Ljava/io/FilterInputStream;->skip(J)J
+    invoke-super {p0, p1, p2}, Ljava/io/FilterInputStream;->skip(J)J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    .line 320
-    .local v0, "result":J
-    const-wide/16 v2, 0x0
+    const-wide/16 v0, 0x0
 
-    cmp-long v2, v0, v2
+    cmp-long v0, p1, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v0, :cond_0
 
     .line 321
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite$Builder$LimitedInputStream;->limit:I
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite$Builder$LimitedInputStream;->limit:I
 
-    int-to-long v2, v2
+    int-to-long v0, v0
 
-    sub-long/2addr v2, v0
+    sub-long/2addr v0, p1
 
-    long-to-int v2, v2
+    long-to-int v0, v0
 
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite$Builder$LimitedInputStream;->limit:I
+    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite$Builder$LimitedInputStream;->limit:I
 
-    .line 323
     :cond_0
-    return-wide v0
+    return-wide p1
 .end method

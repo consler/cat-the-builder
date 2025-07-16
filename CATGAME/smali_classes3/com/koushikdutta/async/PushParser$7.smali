@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/PushParser;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/PushParser;
 
     .line 226
     iput-object p1, p0, Lcom/koushikdutta/async/PushParser$7;->this$0:Lcom/koushikdutta/async/PushParser;
@@ -47,7 +46,6 @@
 # virtual methods
 .method public parsed(Lcom/koushikdutta/async/ByteBufferList;)V
     .locals 1
-    .param p1, "data"    # Lcom/koushikdutta/async/ByteBufferList;
 
     .line 229
     iget-object v0, p0, Lcom/koushikdutta/async/PushParser$7;->this$0:Lcom/koushikdutta/async/PushParser;
@@ -58,7 +56,6 @@
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 230
     return-void
 .end method
 

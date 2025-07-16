@@ -57,14 +57,11 @@
     .end annotation
 
     .line 38
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$SimpleGenerator;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$SimpleGenerator<TT;TS;>;"
-    .local p1, "consumer":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<Lio/reactivex/Emitter<TT;>;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 39
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$SimpleGenerator;->consumer:Lio/reactivex/functions/Consumer;
 
-    .line 40
     return-void
 .end method
 
@@ -87,21 +84,15 @@
     .end annotation
 
     .line 44
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$SimpleGenerator;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$SimpleGenerator<TT;TS;>;"
-    .local p1, "t1":Ljava/lang/Object;, "TS;"
-    .local p2, "t2":Lio/reactivex/Emitter;, "Lio/reactivex/Emitter<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$SimpleGenerator;->consumer:Lio/reactivex/functions/Consumer;
 
     invoke-interface {v0, p2}, Lio/reactivex/functions/Consumer;->accept(Ljava/lang/Object;)V
 
-    .line 45
     return-object p1
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
-    .param p2, "x1"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -109,14 +100,11 @@
     .end annotation
 
     .line 35
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$SimpleGenerator;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$SimpleGenerator<TT;TS;>;"
-    move-object v0, p2
+    check-cast p2, Lio/reactivex/Emitter;
 
-    check-cast v0, Lio/reactivex/Emitter;
+    invoke-virtual {p0, p1, p2}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$SimpleGenerator;->apply(Ljava/lang/Object;Lio/reactivex/Emitter;)Ljava/lang/Object;
 
-    invoke-virtual {p0, p1, v0}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$SimpleGenerator;->apply(Ljava/lang/Object;Lio/reactivex/Emitter;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method

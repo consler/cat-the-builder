@@ -32,49 +32,33 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "array"    # Ljava/lang/Object;
 
-    .line 60
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ArrayIterator;, "Lorg/apache/commons/collections4/iterators/ArrayIterator<TE;>;"
     const/4 v0, 0x0
 
+    .line 60
     invoke-direct {p0, p1, v0}, Lorg/apache/commons/collections4/iterators/ArrayIterator;-><init>(Ljava/lang/Object;I)V
 
-    .line 61
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;I)V
     .locals 1
-    .param p1, "array"    # Ljava/lang/Object;
-    .param p2, "startIndex"    # I
 
     .line 74
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ArrayIterator;, "Lorg/apache/commons/collections4/iterators/ArrayIterator<TE;>;"
     invoke-static {p1}, Ljava/lang/reflect/Array;->getLength(Ljava/lang/Object;)I
 
     move-result v0
 
     invoke-direct {p0, p1, p2, v0}, Lorg/apache/commons/collections4/iterators/ArrayIterator;-><init>(Ljava/lang/Object;II)V
 
-    .line 75
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;II)V
-    .locals 3
-    .param p1, "array"    # Ljava/lang/Object;
-    .param p2, "startIndex"    # I
-    .param p3, "endIndex"    # I
+    .locals 1
 
     .line 89
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ArrayIterator;, "Lorg/apache/commons/collections4/iterators/ArrayIterator<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 47
-    const/4 v0, 0x0
-
-    iput v0, p0, Lorg/apache/commons/collections4/iterators/ArrayIterator;->index:I
 
     .line 91
     iput-object p1, p0, Lorg/apache/commons/collections4/iterators/ArrayIterator;->array:Ljava/lang/Object;
@@ -91,110 +75,103 @@
     .line 96
     invoke-static {p1}, Ljava/lang/reflect/Array;->getLength(Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p1
+
+    const-string v0, "start"
 
     .line 97
-    .local v0, "len":I
-    const-string v1, "start"
+    invoke-virtual {p0, p2, p1, v0}, Lorg/apache/commons/collections4/iterators/ArrayIterator;->checkBound(IILjava/lang/String;)V
 
-    invoke-virtual {p0, p2, v0, v1}, Lorg/apache/commons/collections4/iterators/ArrayIterator;->checkBound(IILjava/lang/String;)V
+    const-string v0, "end"
 
     .line 98
-    const-string v1, "end"
+    invoke-virtual {p0, p3, p1, v0}, Lorg/apache/commons/collections4/iterators/ArrayIterator;->checkBound(IILjava/lang/String;)V
 
-    invoke-virtual {p0, p3, v0, v1}, Lorg/apache/commons/collections4/iterators/ArrayIterator;->checkBound(IILjava/lang/String;)V
-
-    .line 99
     if-lt p3, p2, :cond_0
 
-    .line 102
     return-void
 
     .line 100
     :cond_0
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v2, "End index must not be less than start index."
+    const-string p2, "End index must not be less than start index."
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 .end method
 
 
 # virtual methods
 .method protected checkBound(IILjava/lang/String;)V
-    .locals 3
-    .param p1, "bound"    # I
-    .param p2, "len"    # I
-    .param p3, "type"    # Ljava/lang/String;
+    .locals 1
 
-    .line 113
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ArrayIterator;, "Lorg/apache/commons/collections4/iterators/ArrayIterator<TE;>;"
     const-string v0, "Attempt to make an ArrayIterator that "
 
     if-gt p1, p2, :cond_1
 
-    .line 119
     if-ltz p1, :cond_0
 
-    .line 125
     return-void
 
     .line 120
     :cond_0
-    new-instance v1, Ljava/lang/ArrayIndexOutOfBoundsException;
+    new-instance p1, Ljava/lang/ArrayIndexOutOfBoundsException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    const-string v0, "s before the start of the array. "
+    const-string p3, "s before the start of the array. "
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p2
 
-    move-result-object v0
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v1, v0}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    move-result-object p2
 
-    throw v1
+    invoke-direct {p1, p2}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+
+    throw p1
 
     .line 114
     :cond_1
-    new-instance v1, Ljava/lang/ArrayIndexOutOfBoundsException;
+    new-instance p1, Ljava/lang/ArrayIndexOutOfBoundsException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    const-string v0, "s beyond the end of the array. "
+    const-string p3, "s beyond the end of the array. "
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p2
 
-    move-result-object v0
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v1, v0}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    move-result-object p2
 
-    throw v1
+    invoke-direct {p1, p2}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+
+    throw p1
 .end method
 
 .method public getArray()Ljava/lang/Object;
     .locals 1
 
     .line 173
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ArrayIterator;, "Lorg/apache/commons/collections4/iterators/ArrayIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/ArrayIterator;->array:Ljava/lang/Object;
 
     return-object v0
@@ -204,7 +181,6 @@
     .locals 1
 
     .line 193
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ArrayIterator;, "Lorg/apache/commons/collections4/iterators/ArrayIterator<TE;>;"
     iget v0, p0, Lorg/apache/commons/collections4/iterators/ArrayIterator;->endIndex:I
 
     return v0
@@ -214,7 +190,6 @@
     .locals 1
 
     .line 183
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ArrayIterator;, "Lorg/apache/commons/collections4/iterators/ArrayIterator<TE;>;"
     iget v0, p0, Lorg/apache/commons/collections4/iterators/ArrayIterator;->startIndex:I
 
     return v0
@@ -224,7 +199,6 @@
     .locals 2
 
     .line 136
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ArrayIterator;, "Lorg/apache/commons/collections4/iterators/ArrayIterator<TE;>;"
     iget v0, p0, Lorg/apache/commons/collections4/iterators/ArrayIterator;->index:I
 
     iget v1, p0, Lorg/apache/commons/collections4/iterators/ArrayIterator;->endIndex:I
@@ -251,7 +225,6 @@
     .end annotation
 
     .line 149
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ArrayIterator;, "Lorg/apache/commons/collections4/iterators/ArrayIterator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/iterators/ArrayIterator;->hasNext()Z
 
     move-result v0
@@ -286,7 +259,6 @@
     .locals 2
 
     .line 162
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ArrayIterator;, "Lorg/apache/commons/collections4/iterators/ArrayIterator<TE;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "remove() method is not supported"
@@ -300,11 +272,9 @@
     .locals 1
 
     .line 201
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ArrayIterator;, "Lorg/apache/commons/collections4/iterators/ArrayIterator<TE;>;"
     iget v0, p0, Lorg/apache/commons/collections4/iterators/ArrayIterator;->startIndex:I
 
     iput v0, p0, Lorg/apache/commons/collections4/iterators/ArrayIterator;->index:I
 
-    .line 202
     return-void
 .end method

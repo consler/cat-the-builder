@@ -19,26 +19,23 @@
 .end method
 
 .method public static checkArgument(Z)V
-    .locals 1
-    .param p0, "condition"    # Z
+    .locals 0
 
-    .line 45
     if-eqz p0, :cond_0
 
-    .line 48
     return-void
 
     .line 46
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -47,16 +44,8 @@
         }
     .end annotation
 
-    .line 38
-    .local p0, "obj":Ljava/lang/Object;, "TT;"
-    if-eqz p0, :cond_0
-
-    .line 41
-    return-object p0
-
     .line 39
-    :cond_0
-    const/4 v0, 0x0
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    throw v0
+    return-object p0
 .end method

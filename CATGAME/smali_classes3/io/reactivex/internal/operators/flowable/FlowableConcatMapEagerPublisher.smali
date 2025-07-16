@@ -48,9 +48,6 @@
 # direct methods
 .method public constructor <init>(Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;IILio/reactivex/internal/util/ErrorMode;)V
     .locals 0
-    .param p3, "maxConcurrency"    # I
-    .param p4, "prefetch"    # I
-    .param p5, "errorMode"    # Lio/reactivex/internal/util/ErrorMode;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -66,9 +63,6 @@
     .end annotation
 
     .line 45
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableConcatMapEagerPublisher;, "Lio/reactivex/internal/operators/flowable/FlowableConcatMapEagerPublisher<TT;TR;>;"
-    .local p1, "source":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TT;>;"
-    .local p2, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     invoke-direct {p0}, Lio/reactivex/Flowable;-><init>()V
 
     .line 46
@@ -86,7 +80,6 @@
     .line 50
     iput-object p5, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMapEagerPublisher;->errorMode:Lio/reactivex/internal/util/ErrorMode;
 
-    .line 51
     return-void
 .end method
 
@@ -103,8 +96,6 @@
     .end annotation
 
     .line 55
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableConcatMapEagerPublisher;, "Lio/reactivex/internal/operators/flowable/FlowableConcatMapEagerPublisher<TT;TR;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMapEagerPublisher;->source:Lorg/reactivestreams/Publisher;
 
     new-instance v7, Lio/reactivex/internal/operators/flowable/FlowableConcatMapEager$ConcatMapEagerDelayErrorSubscriber;
@@ -125,6 +116,5 @@
 
     invoke-interface {v0, v7}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
 
-    .line 57
     return-void
 .end method

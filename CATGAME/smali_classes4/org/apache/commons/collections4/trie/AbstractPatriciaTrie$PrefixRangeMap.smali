@@ -60,8 +60,6 @@
 # direct methods
 .method private constructor <init>(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;Ljava/lang/Object;II)V
     .locals 1
-    .param p3, "offsetInBits"    # I
-    .param p4, "lengthInBits"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;II)V"
@@ -69,8 +67,6 @@
     .end annotation
 
     .line 2110
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeMap;"
-    .local p2, "prefix":Ljava/lang/Object;, "TK;"
     iput-object p1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
     const/4 v0, 0x0
@@ -83,14 +79,14 @@
     .line 2101
     iput-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->toKey:Ljava/lang/Object;
 
-    .line 2103
     const/4 p1, 0x0
 
+    .line 2103
     iput p1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->expectedModCount:I
 
-    .line 2105
     const/4 p1, -0x1
 
+    .line 2105
     iput p1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->size:I
 
     .line 2111
@@ -102,72 +98,60 @@
     .line 2113
     iput p4, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->lengthInBits:I
 
-    .line 2114
     return-void
 .end method
 
 .method synthetic constructor <init>(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;Ljava/lang/Object;IILorg/apache/commons/collections4/trie/AbstractPatriciaTrie$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
-    .param p2, "x1"    # Ljava/lang/Object;
-    .param p3, "x2"    # I
-    .param p4, "x3"    # I
-    .param p5, "x4"    # Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$1;
 
     .line 2091
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeMap;"
     invoke-direct {p0, p1, p2, p3, p4}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;-><init>(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;Ljava/lang/Object;II)V
 
     return-void
 .end method
 
 .method static synthetic access$1100(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;)I
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;
+    .locals 0
 
     .line 2091
     invoke-direct {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->fixup()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$1200(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;)Ljava/lang/Object;
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;
+    .locals 0
 
     .line 2091
-    iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->prefix:Ljava/lang/Object;
+    iget-object p0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->prefix:Ljava/lang/Object;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$1300(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;)I
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;
+    .locals 0
 
     .line 2091
-    iget v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->offsetInBits:I
+    iget p0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->offsetInBits:I
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$1400(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;)I
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;
+    .locals 0
 
     .line 2091
-    iget v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->lengthInBits:I
+    iget p0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->lengthInBits:I
 
-    return v0
+    return p0
 .end method
 
 .method private fixup()I
     .locals 6
 
     .line 2124
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeMap;"
     iget v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->size:I
 
     const/4 v1, -0x1
@@ -192,56 +176,53 @@
 
     move-result-object v0
 
-    .line 2126
-    .local v0, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;"
     const/4 v1, 0x0
 
+    .line 2126
     iput v1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->size:I
 
-    .line 2128
-    const/4 v1, 0x0
-
     .line 2129
-    .local v1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v1
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    if-eqz v2, :cond_1
+    const/4 v3, 0x0
+
+    if-eqz v1, :cond_1
 
     .line 2130
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
-
-    move-object v1, v2
+    move-result-object v1
 
     check-cast v1, Ljava/util/Map$Entry;
 
     .line 2131
-    iput v3, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->size:I
-
-    .line 2134
-    :cond_1
-    const/4 v2, 0x0
-
-    if-nez v1, :cond_2
-
-    move-object v4, v2
+    iput v2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->size:I
 
     goto :goto_0
 
+    :cond_1
+    move-object v1, v3
+
+    :goto_0
+    if-nez v1, :cond_2
+
+    move-object v4, v3
+
+    goto :goto_1
+
+    .line 2134
     :cond_2
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v4
 
-    :goto_0
+    :goto_1
     iput-object v4, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->fromKey:Ljava/lang/Object;
 
-    .line 2135
     if-eqz v4, :cond_4
 
     .line 2136
@@ -255,31 +236,29 @@
 
     move-result-object v4
 
-    .line 2137
-    .local v4, "prior":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry<TK;TV;>;"
     if-nez v4, :cond_3
 
-    move-object v5, v2
+    move-object v4, v3
 
-    goto :goto_1
+    goto :goto_2
 
+    .line 2137
     :cond_3
     invoke-virtual {v4}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;->getKey()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v4
 
-    :goto_1
-    iput-object v5, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->fromKey:Ljava/lang/Object;
+    :goto_2
+    iput-object v4, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->fromKey:Ljava/lang/Object;
 
     .line 2140
-    .end local v4    # "prior":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry<TK;TV;>;"
     :cond_4
     iget-object v4, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->fromKey:Ljava/lang/Object;
 
     iput-object v4, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->toKey:Ljava/lang/Object;
 
     .line 2142
-    :goto_2
+    :goto_3
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
@@ -287,77 +266,70 @@
     if-eqz v4, :cond_5
 
     .line 2143
-    iget v4, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->size:I
+    iget v1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->size:I
 
-    add-int/2addr v4, v3
+    add-int/2addr v1, v2
 
-    iput v4, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->size:I
+    iput v1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->size:I
 
     .line 2144
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v4
-
-    move-object v1, v4
+    move-result-object v1
 
     check-cast v1, Ljava/util/Map$Entry;
 
-    goto :goto_2
+    goto :goto_3
 
-    .line 2147
     :cond_5
     if-nez v1, :cond_6
 
-    move-object v3, v2
-
-    goto :goto_3
-
-    :cond_6
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v3
-
-    :goto_3
-    iput-object v3, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->toKey:Ljava/lang/Object;
-
-    .line 2149
-    if-eqz v3, :cond_8
-
-    .line 2150
-    iget-object v3, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
-
-    move-object v4, v1
-
-    check-cast v4, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
-
-    invoke-virtual {v3, v4}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->nextEntry(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;)Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
-
-    move-result-object v1
-
-    .line 2151
-    if-nez v1, :cond_7
+    move-object v0, v3
 
     goto :goto_4
 
-    :cond_7
+    .line 2147
+    :cond_6
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
     :goto_4
-    iput-object v2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->toKey:Ljava/lang/Object;
+    iput-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->toKey:Ljava/lang/Object;
+
+    if-eqz v0, :cond_8
+
+    .line 2150
+    iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
+
+    check-cast v1, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
+
+    invoke-virtual {v0, v1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->nextEntry(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;)Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
+
+    move-result-object v0
+
+    if-nez v0, :cond_7
+
+    goto :goto_5
+
+    .line 2151
+    :cond_7
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v3
+
+    :goto_5
+    iput-object v3, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->toKey:Ljava/lang/Object;
 
     .line 2154
     :cond_8
-    iget-object v2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
+    iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
-    iget v2, v2, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->modCount:I
+    iget v0, v0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->modCount:I
 
-    iput v2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->expectedModCount:I
+    iput v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->expectedModCount:I
 
     .line 2157
-    .end local v0    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;"
-    .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     :cond_9
     iget v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->size:I
 
@@ -370,7 +342,6 @@
     .locals 3
 
     .line 2263
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeMap;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->entrySet()Ljava/util/Set;
@@ -382,13 +353,11 @@
     move-result-object v0
 
     .line 2264
-    .local v0, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->keySet()Ljava/util/Set;
 
     move-result-object v1
 
     .line 2265
-    .local v1, "currentKeys":Ljava/util/Set;, "Ljava/util/Set<TK;>;"
     :cond_0
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -419,7 +388,6 @@
 
     goto :goto_0
 
-    .line 2270
     :cond_1
     return-void
 .end method
@@ -436,7 +404,6 @@
     .end annotation
 
     .line 2232
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeMap;"
     new-instance v0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet;
 
     iget-object v1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
@@ -448,8 +415,6 @@
 
 .method protected createRangeMap(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/SortedMap;
     .locals 7
-    .param p2, "fromInclusive"    # Z
-    .param p4, "toInclusive"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;ZTK;Z)",
@@ -459,9 +424,6 @@
     .end annotation
 
     .line 2258
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeMap;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
-    .local p3, "toKey":Ljava/lang/Object;, "TK;"
     new-instance v6, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeEntryMap;
 
     iget-object v1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
@@ -482,7 +444,7 @@
 .end method
 
 .method public firstKey()Ljava/lang/Object;
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"
@@ -490,22 +452,17 @@
     .end annotation
 
     .line 2162
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeMap;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->fixup()I
 
-    .line 2164
-    const/4 v0, 0x0
-
     .line 2165
-    .local v0, "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    iget-object v1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->fromKey:Ljava/lang/Object;
+    iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->fromKey:Ljava/lang/Object;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     .line 2166
-    iget-object v1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
+    iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
-    invoke-virtual {v1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->firstEntry()Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
+    invoke-virtual {v0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->firstEntry()Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
     move-result-object v0
 
@@ -513,16 +470,16 @@
 
     .line 2168
     :cond_0
-    iget-object v2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
+    iget-object v1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
-    invoke-virtual {v2, v1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->higherEntry(Ljava/lang/Object;)Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
+    invoke-virtual {v1, v0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->higherEntry(Ljava/lang/Object;)Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
     move-result-object v0
 
-    .line 2171
     :goto_0
     if-eqz v0, :cond_1
 
+    .line 2171
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v1
@@ -532,39 +489,37 @@
     :cond_1
     const/4 v1, 0x0
 
-    .line 2172
-    .local v1, "first":Ljava/lang/Object;, "TK;"
     :goto_1
     if-eqz v0, :cond_2
 
-    iget-object v2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
+    .line 2172
+    iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
-    invoke-virtual {v2}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->getKeyAnalyzer()Lorg/apache/commons/collections4/trie/KeyAnalyzer;
+    invoke-virtual {v0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->getKeyAnalyzer()Lorg/apache/commons/collections4/trie/KeyAnalyzer;
 
-    move-result-object v2
+    move-result-object v0
 
-    iget-object v3, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->prefix:Ljava/lang/Object;
+    iget-object v2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->prefix:Ljava/lang/Object;
 
-    iget v4, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->offsetInBits:I
+    iget v3, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->offsetInBits:I
 
-    iget v5, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->lengthInBits:I
+    iget v4, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->lengthInBits:I
 
-    invoke-virtual {v2, v3, v4, v5, v1}, Lorg/apache/commons/collections4/trie/KeyAnalyzer;->isPrefix(Ljava/lang/Object;IILjava/lang/Object;)Z
+    invoke-virtual {v0, v2, v3, v4, v1}, Lorg/apache/commons/collections4/trie/KeyAnalyzer;->isPrefix(Ljava/lang/Object;IILjava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_2
+    if-eqz v0, :cond_2
 
-    .line 2176
     return-object v1
 
     .line 2173
     :cond_2
-    new-instance v2, Ljava/util/NoSuchElementException;
+    new-instance v0, Ljava/util/NoSuchElementException;
 
-    invoke-direct {v2}, Ljava/util/NoSuchElementException;-><init>()V
+    invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
 
-    throw v2
+    throw v0
 .end method
 
 .method public getFromKey()Ljava/lang/Object;
@@ -576,7 +531,6 @@
     .end annotation
 
     .line 2237
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeMap;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->fromKey:Ljava/lang/Object;
 
     return-object v0
@@ -591,15 +545,13 @@
     .end annotation
 
     .line 2242
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeMap;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->toKey:Ljava/lang/Object;
 
     return-object v0
 .end method
 
 .method protected inFromRange(Ljava/lang/Object;Z)Z
-    .locals 4
-    .param p2, "forceInclusive"    # Z
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;Z)Z"
@@ -607,25 +559,23 @@
     .end annotation
 
     .line 2219
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeMap;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
+    iget-object p2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
-    invoke-virtual {v0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->getKeyAnalyzer()Lorg/apache/commons/collections4/trie/KeyAnalyzer;
+    invoke-virtual {p2}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->getKeyAnalyzer()Lorg/apache/commons/collections4/trie/KeyAnalyzer;
 
-    move-result-object v0
+    move-result-object p2
 
-    iget-object v1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->prefix:Ljava/lang/Object;
+    iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->prefix:Ljava/lang/Object;
 
-    iget v2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->offsetInBits:I
+    iget v1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->offsetInBits:I
 
-    iget v3, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->lengthInBits:I
+    iget v2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->lengthInBits:I
 
-    invoke-virtual {v0, v1, v2, v3, p1}, Lorg/apache/commons/collections4/trie/KeyAnalyzer;->isPrefix(Ljava/lang/Object;IILjava/lang/Object;)Z
+    invoke-virtual {p2, v0, v1, v2, p1}, Lorg/apache/commons/collections4/trie/KeyAnalyzer;->isPrefix(Ljava/lang/Object;IILjava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method protected inRange(Ljava/lang/Object;)Z
@@ -637,8 +587,6 @@
     .end annotation
 
     .line 2203
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeMap;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->getKeyAnalyzer()Lorg/apache/commons/collections4/trie/KeyAnalyzer;
@@ -653,13 +601,13 @@
 
     invoke-virtual {v0, v1, v2, v3, p1}, Lorg/apache/commons/collections4/trie/KeyAnalyzer;->isPrefix(Ljava/lang/Object;IILjava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method protected inRange2(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)Z"
@@ -667,18 +615,15 @@
     .end annotation
 
     .line 2211
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeMap;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->inRange(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method protected inToRange(Ljava/lang/Object;Z)Z
-    .locals 4
-    .param p2, "forceInclusive"    # Z
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;Z)Z"
@@ -686,32 +631,28 @@
     .end annotation
 
     .line 2227
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeMap;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
+    iget-object p2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
-    invoke-virtual {v0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->getKeyAnalyzer()Lorg/apache/commons/collections4/trie/KeyAnalyzer;
+    invoke-virtual {p2}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->getKeyAnalyzer()Lorg/apache/commons/collections4/trie/KeyAnalyzer;
 
-    move-result-object v0
+    move-result-object p2
 
-    iget-object v1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->prefix:Ljava/lang/Object;
+    iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->prefix:Ljava/lang/Object;
 
-    iget v2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->offsetInBits:I
+    iget v1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->offsetInBits:I
 
-    iget v3, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->lengthInBits:I
+    iget v2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->lengthInBits:I
 
-    invoke-virtual {v0, v1, v2, v3, p1}, Lorg/apache/commons/collections4/trie/KeyAnalyzer;->isPrefix(Ljava/lang/Object;IILjava/lang/Object;)Z
+    invoke-virtual {p2, v0, v1, v2, p1}, Lorg/apache/commons/collections4/trie/KeyAnalyzer;->isPrefix(Ljava/lang/Object;IILjava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public isFromInclusive()Z
     .locals 1
 
-    .line 2247
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeMap;"
     const/4 v0, 0x0
 
     return v0
@@ -720,15 +661,13 @@
 .method public isToInclusive()Z
     .locals 1
 
-    .line 2252
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeMap;"
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public lastKey()Ljava/lang/Object;
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"
@@ -736,22 +675,17 @@
     .end annotation
 
     .line 2181
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeMap;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->fixup()I
 
-    .line 2183
-    const/4 v0, 0x0
-
     .line 2184
-    .local v0, "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    iget-object v1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->toKey:Ljava/lang/Object;
+    iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->toKey:Ljava/lang/Object;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     .line 2185
-    iget-object v1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
+    iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
-    invoke-virtual {v1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->lastEntry()Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
+    invoke-virtual {v0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->lastEntry()Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
     move-result-object v0
 
@@ -759,16 +693,16 @@
 
     .line 2187
     :cond_0
-    iget-object v2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
+    iget-object v1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
-    invoke-virtual {v2, v1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->lowerEntry(Ljava/lang/Object;)Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
+    invoke-virtual {v1, v0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->lowerEntry(Ljava/lang/Object;)Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
     move-result-object v0
 
-    .line 2190
     :goto_0
     if-eqz v0, :cond_1
 
+    .line 2190
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v1
@@ -778,37 +712,35 @@
     :cond_1
     const/4 v1, 0x0
 
-    .line 2191
-    .local v1, "last":Ljava/lang/Object;, "TK;"
     :goto_1
     if-eqz v0, :cond_2
 
-    iget-object v2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
+    .line 2191
+    iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
-    invoke-virtual {v2}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->getKeyAnalyzer()Lorg/apache/commons/collections4/trie/KeyAnalyzer;
+    invoke-virtual {v0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->getKeyAnalyzer()Lorg/apache/commons/collections4/trie/KeyAnalyzer;
 
-    move-result-object v2
+    move-result-object v0
 
-    iget-object v3, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->prefix:Ljava/lang/Object;
+    iget-object v2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->prefix:Ljava/lang/Object;
 
-    iget v4, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->offsetInBits:I
+    iget v3, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->offsetInBits:I
 
-    iget v5, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->lengthInBits:I
+    iget v4, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeMap;->lengthInBits:I
 
-    invoke-virtual {v2, v3, v4, v5, v1}, Lorg/apache/commons/collections4/trie/KeyAnalyzer;->isPrefix(Ljava/lang/Object;IILjava/lang/Object;)Z
+    invoke-virtual {v0, v2, v3, v4, v1}, Lorg/apache/commons/collections4/trie/KeyAnalyzer;->isPrefix(Ljava/lang/Object;IILjava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_2
+    if-eqz v0, :cond_2
 
-    .line 2195
     return-object v1
 
     .line 2192
     :cond_2
-    new-instance v2, Ljava/util/NoSuchElementException;
+    new-instance v0, Ljava/util/NoSuchElementException;
 
-    invoke-direct {v2}, Ljava/util/NoSuchElementException;-><init>()V
+    invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
 
-    throw v2
+    throw v0
 .end method

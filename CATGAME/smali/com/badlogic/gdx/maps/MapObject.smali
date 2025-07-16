@@ -22,19 +22,19 @@
     .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 23
     const-string v0, ""
 
+    .line 23
     iput-object v0, p0, Lcom/badlogic/gdx/maps/MapObject;->name:Ljava/lang/String;
 
-    .line 24
     const/high16 v0, 0x3f800000    # 1.0f
 
+    .line 24
     iput v0, p0, Lcom/badlogic/gdx/maps/MapObject;->opacity:F
 
-    .line 25
     const/4 v0, 0x1
 
+    .line 25
     iput-boolean v0, p0, Lcom/badlogic/gdx/maps/MapObject;->visible:Z
 
     .line 26
@@ -105,44 +105,36 @@
 
 .method public setColor(Lcom/badlogic/gdx/graphics/Color;)V
     .locals 0
-    .param p1, "color"    # Lcom/badlogic/gdx/graphics/Color;
 
     .line 46
     iput-object p1, p0, Lcom/badlogic/gdx/maps/MapObject;->color:Lcom/badlogic/gdx/graphics/Color;
 
-    .line 47
     return-void
 .end method
 
 .method public setName(Ljava/lang/String;)V
     .locals 0
-    .param p1, "name"    # Ljava/lang/String;
 
     .line 36
     iput-object p1, p0, Lcom/badlogic/gdx/maps/MapObject;->name:Ljava/lang/String;
 
-    .line 37
     return-void
 .end method
 
 .method public setOpacity(F)V
     .locals 0
-    .param p1, "opacity"    # F
 
     .line 56
     iput p1, p0, Lcom/badlogic/gdx/maps/MapObject;->opacity:F
 
-    .line 57
     return-void
 .end method
 
 .method public setVisible(Z)V
     .locals 0
-    .param p1, "visible"    # Z
 
     .line 66
     iput-boolean p1, p0, Lcom/badlogic/gdx/maps/MapObject;->visible:Z
 
-    .line 67
     return-void
 .end method

@@ -26,13 +26,11 @@
     .line 190
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 191
     return-void
 .end method
 
 .method public static createCallback(Landroidx/mediarouter/media/MediaRouterJellybeanMr1$Callback;)Ljava/lang/Object;
     .locals 1
-    .param p0, "callback"    # Landroidx/mediarouter/media/MediaRouterJellybeanMr1$Callback;
 
     .line 37
     new-instance v0, Landroidx/mediarouter/media/MediaRouterJellybeanMr1$CallbackProxy;

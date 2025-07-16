@@ -4,43 +4,36 @@
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
-    .line 39
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 40
     return-void
 .end method
 
 .method public static closeQuietly(Ljava/io/Closeable;)V
     .locals 1
 
-    .line 84
     if-eqz p0, :cond_0
 
-    .line 86
+    .line 5
     :try_start_0
     invoke-interface {p0}, Ljava/io/Closeable;->close()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 89
     goto :goto_0
 
-    .line 87
     :catch_0
-    move-exception p0
-
-    .line 88
     const-string p0, "IOUtils"
 
     const-string v0, "An exception occurred while closing the \'Closeable\' object."
 
+    .line 7
     invoke-static {p0, v0}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 91
     :cond_0
     :goto_0
     return-void
@@ -49,40 +42,36 @@
 .method public static closeQuietly(Ljava/io/InputStream;)V
     .locals 0
 
-    .line 66
+    .line 3
     invoke-static {p0}, Lcom/huawei/hms/utils/IOUtils;->closeQuietly(Ljava/io/Closeable;)V
 
-    .line 67
     return-void
 .end method
 
 .method public static closeQuietly(Ljava/io/OutputStream;)V
     .locals 0
 
-    .line 75
+    .line 4
     invoke-static {p0}, Lcom/huawei/hms/utils/IOUtils;->closeQuietly(Ljava/io/Closeable;)V
 
-    .line 76
     return-void
 .end method
 
 .method public static closeQuietly(Ljava/io/Reader;)V
     .locals 0
 
-    .line 48
+    .line 1
     invoke-static {p0}, Lcom/huawei/hms/utils/IOUtils;->closeQuietly(Ljava/io/Closeable;)V
 
-    .line 49
     return-void
 .end method
 
 .method public static closeQuietly(Ljava/io/Writer;)V
     .locals 0
 
-    .line 57
+    .line 2
     invoke-static {p0}, Lcom/huawei/hms/utils/IOUtils;->closeQuietly(Ljava/io/Closeable;)V
 
-    .line 58
     return-void
 .end method
 
@@ -94,11 +83,11 @@
         }
     .end annotation
 
-    .line 105
     const/16 v0, 0x1000
 
     new-array v0, v0, [B
 
+    .line 1
     invoke-static {p0, p1, v0}, Lcom/huawei/hms/utils/IOUtils;->copy(Ljava/io/InputStream;Ljava/io/OutputStream;[B)J
 
     move-result-wide p0
@@ -114,35 +103,29 @@
         }
     .end annotation
 
-    .line 120
-    nop
-
-    .line 121
     const-wide/16 v0, 0x0
 
-    .line 122
+    .line 2
     :goto_0
-    const/4 v2, -0x1
-
     invoke-virtual {p0, p2}, Ljava/io/InputStream;->read([B)I
 
-    move-result v3
+    move-result v2
 
-    if-eq v2, v3, :cond_0
+    const/4 v3, -0x1
 
-    .line 123
-    const/4 v2, 0x0
+    if-eq v3, v2, :cond_0
 
-    invoke-virtual {p1, p2, v2, v3}, Ljava/io/OutputStream;->write([BII)V
+    const/4 v3, 0x0
 
-    .line 124
-    int-to-long v2, v3
+    .line 3
+    invoke-virtual {p1, p2, v3, v2}, Ljava/io/OutputStream;->write([BII)V
+
+    int-to-long v2, v2
 
     add-long/2addr v0, v2
 
     goto :goto_0
 
-    .line 126
     :cond_0
     return-wide v0
 .end method
@@ -155,15 +138,15 @@
         }
     .end annotation
 
-    .line 139
+    .line 1
     new-instance v0, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v0}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
-    .line 140
+    .line 2
     invoke-static {p0, v0}, Lcom/huawei/hms/utils/IOUtils;->copy(Ljava/io/InputStream;Ljava/io/OutputStream;)J
 
-    .line 141
+    .line 3
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
     move-result-object p0
@@ -179,7 +162,7 @@
         }
     .end annotation
 
-    .line 152
+    .line 1
     new-instance v0, Ljava/io/ByteArrayInputStream;
 
     invoke-direct {v0, p0}, Ljava/io/ByteArrayInputStream;-><init>([B)V

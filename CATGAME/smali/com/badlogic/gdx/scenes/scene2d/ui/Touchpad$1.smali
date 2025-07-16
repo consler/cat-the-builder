@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;
 
     .line 70
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;
@@ -34,81 +33,64 @@
 
 # virtual methods
 .method public touchDown(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;FFII)Z
-    .locals 3
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
-    .param p4, "pointer"    # I
-    .param p5, "button"    # I
+    .locals 0
 
     .line 73
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;
 
-    iget-boolean v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;->touched:Z
+    iget-boolean p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;->touched:Z
 
-    const/4 v1, 0x0
+    const/4 p4, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    return v1
+    return p4
 
     .line 74
     :cond_0
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;
 
-    const/4 v2, 0x1
+    const/4 p5, 0x1
 
-    iput-boolean v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;->touched:Z
+    iput-boolean p5, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;->touched:Z
 
     .line 75
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;
 
-    invoke-virtual {v0, p2, p3, v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;->calculatePositionAndValue(FFZ)V
+    invoke-virtual {p1, p2, p3, p4}, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;->calculatePositionAndValue(FFZ)V
 
-    .line 76
-    return v2
+    return p5
 .end method
 
 .method public touchDragged(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;FFI)V
-    .locals 2
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
-    .param p4, "pointer"    # I
+    .locals 0
 
     .line 81
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;
 
-    const/4 v1, 0x0
+    const/4 p4, 0x0
 
-    invoke-virtual {v0, p2, p3, v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;->calculatePositionAndValue(FFZ)V
+    invoke-virtual {p1, p2, p3, p4}, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;->calculatePositionAndValue(FFZ)V
 
-    .line 82
     return-void
 .end method
 
 .method public touchUp(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;FFII)V
-    .locals 2
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
-    .param p4, "pointer"    # I
-    .param p5, "button"    # I
+    .locals 0
 
     .line 86
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;
 
-    const/4 v1, 0x0
+    const/4 p4, 0x0
 
-    iput-boolean v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;->touched:Z
+    iput-boolean p4, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;->touched:Z
 
     .line 87
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;
 
-    iget-boolean v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;->resetOnTouchUp:Z
+    iget-boolean p4, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;->resetOnTouchUp:Z
 
-    invoke-virtual {v0, p2, p3, v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;->calculatePositionAndValue(FFZ)V
+    invoke-virtual {p1, p2, p3, p4}, Lcom/badlogic/gdx/scenes/scene2d/ui/Touchpad;->calculatePositionAndValue(FFZ)V
 
-    .line 88
     return-void
 .end method

@@ -18,22 +18,17 @@
 .method public onCaptureCancelled()V
     .locals 0
 
-    .line 53
     return-void
 .end method
 
 .method public onCaptureCompleted(Landroidx/camera/core/impl/CameraCaptureResult;)V
     .locals 0
-    .param p1, "cameraCaptureResult"    # Landroidx/camera/core/impl/CameraCaptureResult;
 
-    .line 35
     return-void
 .end method
 
 .method public onCaptureFailed(Landroidx/camera/core/impl/CameraCaptureFailure;)V
     .locals 0
-    .param p1, "failure"    # Landroidx/camera/core/impl/CameraCaptureFailure;
 
-    .line 44
     return-void
 .end method

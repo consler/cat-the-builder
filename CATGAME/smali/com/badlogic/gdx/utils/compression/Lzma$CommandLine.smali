@@ -59,42 +59,42 @@
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 34
     const/4 v0, -0x1
 
+    .line 34
     iput v0, p0, Lcom/badlogic/gdx/utils/compression/Lzma$CommandLine;->Command:I
 
-    .line 35
     const/16 v0, 0xa
 
+    .line 35
     iput v0, p0, Lcom/badlogic/gdx/utils/compression/Lzma$CommandLine;->NumBenchmarkPasses:I
 
-    .line 37
     const/high16 v0, 0x800000
 
+    .line 37
     iput v0, p0, Lcom/badlogic/gdx/utils/compression/Lzma$CommandLine;->DictionarySize:I
 
-    .line 38
     const/4 v0, 0x0
 
+    .line 38
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/compression/Lzma$CommandLine;->DictionarySizeIsDefined:Z
 
-    .line 40
     const/4 v1, 0x3
 
+    .line 40
     iput v1, p0, Lcom/badlogic/gdx/utils/compression/Lzma$CommandLine;->Lc:I
 
     .line 41
     iput v0, p0, Lcom/badlogic/gdx/utils/compression/Lzma$CommandLine;->Lp:I
 
-    .line 42
     const/4 v1, 0x2
 
+    .line 42
     iput v1, p0, Lcom/badlogic/gdx/utils/compression/Lzma$CommandLine;->Pb:I
 
-    .line 44
     const/16 v2, 0x80
 
+    .line 44
     iput v2, p0, Lcom/badlogic/gdx/utils/compression/Lzma$CommandLine;->Fb:I
 
     .line 45
@@ -106,9 +106,9 @@
     .line 49
     iput v1, p0, Lcom/badlogic/gdx/utils/compression/Lzma$CommandLine;->Algorithm:I
 
-    .line 50
     const/4 v0, 0x1
 
+    .line 50
     iput v0, p0, Lcom/badlogic/gdx/utils/compression/Lzma$CommandLine;->MatchFinder:I
 
     return-void

@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/AsyncServer;Ljava/lang/Runnable;Ljava/util/concurrent/Semaphore;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/AsyncServer;
 
     .line 208
     iput-object p1, p0, Lcom/koushikdutta/async/AsyncServer$3;->this$0:Lcom/koushikdutta/async/AsyncServer;
@@ -57,6 +56,5 @@
 
     invoke-virtual {v0}, Ljava/util/concurrent/Semaphore;->release()V
 
-    .line 213
     return-void
 .end method

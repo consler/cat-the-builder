@@ -62,10 +62,6 @@
     .end annotation
 
     .line 40
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableReduceWithSingle;, "Lio/reactivex/internal/operators/observable/ObservableReduceWithSingle<TT;TR;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
-    .local p2, "seedSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TR;>;"
-    .local p3, "reducer":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<TR;-TT;TR;>;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 41
@@ -77,7 +73,6 @@
     .line 43
     iput-object p3, p0, Lio/reactivex/internal/operators/observable/ObservableReduceWithSingle;->reducer:Lio/reactivex/functions/BiFunction;
 
-    .line 44
     return-void
 .end method
 
@@ -94,28 +89,20 @@
     .end annotation
 
     .line 51
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableReduceWithSingle;, "Lio/reactivex/internal/operators/observable/ObservableReduceWithSingle<TT;TR;>;"
-    .local p1, "observer":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TR;>;"
-    const/4 v0, 0x0
-
     :try_start_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableReduceWithSingle;->seedSupplier:Ljava/util/concurrent/Callable;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableReduceWithSingle;->seedSupplier:Ljava/util/concurrent/Callable;
 
-    invoke-interface {v1}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string v2, "The seedSupplier returned a null value"
+    const-string v1, "The seedSupplier returned a null value"
 
-    invoke-static {v1, v2}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v0, v1}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 56
-    .local v0, "seed":Ljava/lang/Object;, "TR;"
-    nop
 
     .line 57
     iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableReduceWithSingle;->source:Lio/reactivex/ObservableSource;
@@ -128,22 +115,16 @@
 
     invoke-interface {v1, v2}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 58
     return-void
 
-    .line 52
-    .end local v0    # "seed":Ljava/lang/Object;, "TR;"
     :catchall_0
-    move-exception v1
+    move-exception v0
 
     .line 53
-    .restart local v0    # "seed":Ljava/lang/Object;, "TR;"
-    .local v1, "ex":Ljava/lang/Throwable;
-    invoke-static {v1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 54
-    invoke-static {v1, p1}, Lio/reactivex/internal/disposables/EmptyDisposable;->error(Ljava/lang/Throwable;Lio/reactivex/SingleObserver;)V
+    invoke-static {v0, p1}, Lio/reactivex/internal/disposables/EmptyDisposable;->error(Ljava/lang/Throwable;Lio/reactivex/SingleObserver;)V
 
-    .line 55
     return-void
 .end method

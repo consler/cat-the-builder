@@ -52,14 +52,14 @@
     .line 15
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 22
     const/4 v0, 0x0
 
+    .line 22
     iput-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeader;->gct:[I
 
-    .line 24
     const/4 v0, 0x0
 
+    .line 24
     iput v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeader;->status:I
 
     .line 26
@@ -72,9 +72,9 @@
 
     iput-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeader;->frames:Ljava/util/List;
 
-    .line 51
     const/4 v0, -0x1
 
+    .line 51
     iput v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeader;->loopCount:I
 
     return-void

@@ -57,30 +57,25 @@
 .end method
 
 .method constructor <init>(Lcom/squareup/moshi/Moshi;Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)V
-    .locals 1
-    .param p1, "moshi"    # Lcom/squareup/moshi/Moshi;
-    .param p2, "keyType"    # Ljava/lang/reflect/Type;
-    .param p3, "valueType"    # Ljava/lang/reflect/Type;
+    .locals 0
 
     .line 45
-    .local p0, "this":Lcom/squareup/moshi/MapJsonAdapter;, "Lcom/squareup/moshi/MapJsonAdapter<TK;TV;>;"
     invoke-direct {p0}, Lcom/squareup/moshi/JsonAdapter;-><init>()V
 
     .line 46
     invoke-virtual {p1, p2}, Lcom/squareup/moshi/Moshi;->adapter(Ljava/lang/reflect/Type;)Lcom/squareup/moshi/JsonAdapter;
 
-    move-result-object v0
+    move-result-object p2
 
-    iput-object v0, p0, Lcom/squareup/moshi/MapJsonAdapter;->keyAdapter:Lcom/squareup/moshi/JsonAdapter;
+    iput-object p2, p0, Lcom/squareup/moshi/MapJsonAdapter;->keyAdapter:Lcom/squareup/moshi/JsonAdapter;
 
     .line 47
     invoke-virtual {p1, p3}, Lcom/squareup/moshi/Moshi;->adapter(Ljava/lang/reflect/Type;)Lcom/squareup/moshi/JsonAdapter;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/squareup/moshi/MapJsonAdapter;->valueAdapter:Lcom/squareup/moshi/JsonAdapter;
+    iput-object p1, p0, Lcom/squareup/moshi/MapJsonAdapter;->valueAdapter:Lcom/squareup/moshi/JsonAdapter;
 
-    .line 48
     return-void
 .end method
 
@@ -95,7 +90,6 @@
     .end annotation
 
     .line 30
-    .local p0, "this":Lcom/squareup/moshi/MapJsonAdapter;, "Lcom/squareup/moshi/MapJsonAdapter<TK;TV;>;"
     invoke-virtual {p0, p1}, Lcom/squareup/moshi/MapJsonAdapter;->fromJson(Lcom/squareup/moshi/JsonReader;)Ljava/util/Map;
 
     move-result-object p1
@@ -104,8 +98,7 @@
 .end method
 
 .method public fromJson(Lcom/squareup/moshi/JsonReader;)Ljava/util/Map;
-    .locals 7
-    .param p1, "reader"    # Lcom/squareup/moshi/JsonReader;
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -123,13 +116,11 @@
     .end annotation
 
     .line 64
-    .local p0, "this":Lcom/squareup/moshi/MapJsonAdapter;, "Lcom/squareup/moshi/MapJsonAdapter<TK;TV;>;"
     new-instance v0, Lcom/squareup/moshi/LinkedHashTreeMap;
 
     invoke-direct {v0}, Lcom/squareup/moshi/LinkedHashTreeMap;-><init>()V
 
     .line 65
-    .local v0, "result":Lcom/squareup/moshi/LinkedHashTreeMap;, "Lcom/squareup/moshi/LinkedHashTreeMap<TK;TV;>;"
     invoke-virtual {p1}, Lcom/squareup/moshi/JsonReader;->beginObject()V
 
     .line 66
@@ -151,7 +142,6 @@
     move-result-object v1
 
     .line 69
-    .local v1, "name":Ljava/lang/Object;, "TK;"
     iget-object v2, p0, Lcom/squareup/moshi/MapJsonAdapter;->valueAdapter:Lcom/squareup/moshi/JsonAdapter;
 
     invoke-virtual {v2, p1}, Lcom/squareup/moshi/JsonAdapter;->fromJson(Lcom/squareup/moshi/JsonReader;)Ljava/lang/Object;
@@ -159,77 +149,75 @@
     move-result-object v2
 
     .line 70
-    .local v2, "value":Ljava/lang/Object;, "TV;"
     invoke-virtual {v0, v1, v2}, Lcom/squareup/moshi/LinkedHashTreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
-    .line 71
-    .local v3, "replaced":Ljava/lang/Object;, "TV;"
     if-nez v3, :cond_0
 
-    .line 75
-    .end local v1    # "name":Ljava/lang/Object;, "TK;"
-    .end local v2    # "value":Ljava/lang/Object;, "TV;"
-    .end local v3    # "replaced":Ljava/lang/Object;, "TV;"
     goto :goto_0
 
     .line 72
-    .restart local v1    # "name":Ljava/lang/Object;, "TK;"
-    .restart local v2    # "value":Ljava/lang/Object;, "TV;"
-    .restart local v3    # "replaced":Ljava/lang/Object;, "TV;"
     :cond_0
-    new-instance v4, Lcom/squareup/moshi/JsonDataException;
+    new-instance v0, Lcom/squareup/moshi/JsonDataException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v5, "Map key \'"
 
-    const-string v6, "Map key \'"
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    const-string v6, "\' has multiple values at path "
+    const-string v4, "\' has multiple values at path "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     .line 73
     invoke-virtual {p1}, Lcom/squareup/moshi/JsonReader;->getPath()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object p1
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v6, ": "
+    move-result-object p1
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, ": "
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v6, " and "
+    move-result-object p1
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v1, " and "
 
-    move-result-object v5
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v4, v5}, Lcom/squareup/moshi/JsonDataException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    throw v4
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Lcom/squareup/moshi/JsonDataException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 
     .line 76
-    .end local v1    # "name":Ljava/lang/Object;, "TK;"
-    .end local v2    # "value":Ljava/lang/Object;, "TV;"
-    .end local v3    # "replaced":Ljava/lang/Object;, "TV;"
     :cond_1
     invoke-virtual {p1}, Lcom/squareup/moshi/JsonReader;->endObject()V
 
-    .line 77
     return-object v0
 .end method
 
@@ -242,7 +230,6 @@
     .end annotation
 
     .line 30
-    .local p0, "this":Lcom/squareup/moshi/MapJsonAdapter;, "Lcom/squareup/moshi/MapJsonAdapter<TK;TV;>;"
     check-cast p2, Ljava/util/Map;
 
     invoke-virtual {p0, p1, p2}, Lcom/squareup/moshi/MapJsonAdapter;->toJson(Lcom/squareup/moshi/JsonWriter;Ljava/util/Map;)V
@@ -251,8 +238,7 @@
 .end method
 
 .method public toJson(Lcom/squareup/moshi/JsonWriter;Ljava/util/Map;)V
-    .locals 4
-    .param p1, "writer"    # Lcom/squareup/moshi/JsonWriter;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -269,98 +255,90 @@
     .end annotation
 
     .line 51
-    .local p0, "this":Lcom/squareup/moshi/MapJsonAdapter;, "Lcom/squareup/moshi/MapJsonAdapter<TK;TV;>;"
-    .local p2, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     invoke-virtual {p1}, Lcom/squareup/moshi/JsonWriter;->beginObject()Lcom/squareup/moshi/JsonWriter;
 
     .line 52
     invoke-interface {p2}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p2
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map$Entry;
+
+    .line 53
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Ljava/util/Map$Entry;
-
-    .line 53
-    .local v1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
     .line 56
     invoke-virtual {p1}, Lcom/squareup/moshi/JsonWriter;->promoteValueToName()V
 
     .line 57
-    iget-object v2, p0, Lcom/squareup/moshi/MapJsonAdapter;->keyAdapter:Lcom/squareup/moshi/JsonAdapter;
+    iget-object v1, p0, Lcom/squareup/moshi/MapJsonAdapter;->keyAdapter:Lcom/squareup/moshi/JsonAdapter;
 
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v3
-
-    invoke-virtual {v2, p1, v3}, Lcom/squareup/moshi/JsonAdapter;->toJson(Lcom/squareup/moshi/JsonWriter;Ljava/lang/Object;)V
-
-    .line 58
-    iget-object v2, p0, Lcom/squareup/moshi/MapJsonAdapter;->valueAdapter:Lcom/squareup/moshi/JsonAdapter;
-
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v3
-
-    invoke-virtual {v2, p1, v3}, Lcom/squareup/moshi/JsonAdapter;->toJson(Lcom/squareup/moshi/JsonWriter;Ljava/lang/Object;)V
-
-    .line 59
-    .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    goto :goto_0
-
-    .line 54
-    .restart local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    :cond_0
-    new-instance v0, Lcom/squareup/moshi/JsonDataException;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Map key is null at "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Lcom/squareup/moshi/JsonWriter;->getPath()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v2
 
-    invoke-direct {v0, v2}, Lcom/squareup/moshi/JsonDataException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v1, p1, v2}, Lcom/squareup/moshi/JsonAdapter;->toJson(Lcom/squareup/moshi/JsonWriter;Ljava/lang/Object;)V
 
-    throw v0
+    .line 58
+    iget-object v1, p0, Lcom/squareup/moshi/MapJsonAdapter;->valueAdapter:Lcom/squareup/moshi/JsonAdapter;
+
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v0
+
+    invoke-virtual {v1, p1, v0}, Lcom/squareup/moshi/JsonAdapter;->toJson(Lcom/squareup/moshi/JsonWriter;Ljava/lang/Object;)V
+
+    goto :goto_0
+
+    .line 54
+    :cond_0
+    new-instance p2, Lcom/squareup/moshi/JsonDataException;
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "Map key is null at "
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {p1}, Lcom/squareup/moshi/JsonWriter;->getPath()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p2, p1}, Lcom/squareup/moshi/JsonDataException;-><init>(Ljava/lang/String;)V
+
+    throw p2
 
     .line 60
-    .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     :cond_1
     invoke-virtual {p1}, Lcom/squareup/moshi/JsonWriter;->endObject()Lcom/squareup/moshi/JsonWriter;
 
-    .line 61
     return-void
 .end method
 
@@ -368,30 +346,35 @@
     .locals 2
 
     .line 81
-    .local p0, "this":Lcom/squareup/moshi/MapJsonAdapter;, "Lcom/squareup/moshi/MapJsonAdapter<TK;TV;>;"
     new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v1, "JsonAdapter("
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v1, p0, Lcom/squareup/moshi/MapJsonAdapter;->keyAdapter:Lcom/squareup/moshi/JsonAdapter;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Lcom/squareup/moshi/MapJsonAdapter;->valueAdapter:Lcom/squareup/moshi/JsonAdapter;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ")"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

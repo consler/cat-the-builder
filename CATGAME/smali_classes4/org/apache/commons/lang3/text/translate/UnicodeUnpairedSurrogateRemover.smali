@@ -21,32 +21,27 @@
 
 # virtual methods
 .method public translate(ILjava/io/Writer;)Z
-    .locals 1
-    .param p1, "codepoint"    # I
-    .param p2, "out"    # Ljava/io/Writer;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 37
-    const v0, 0xd800
+    const p2, 0xd800
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, p2, :cond_0
 
-    const v0, 0xdfff
+    const p2, 0xdfff
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, p2, :cond_0
 
-    .line 39
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
-    .line 42
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

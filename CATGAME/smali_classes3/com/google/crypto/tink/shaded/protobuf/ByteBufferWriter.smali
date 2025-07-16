@@ -43,9 +43,9 @@
 
     sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/ByteBufferWriter;->BUFFER:Ljava/lang/ThreadLocal;
 
-    .line 75
     const-string v0, "java.io.FileOutputStream"
 
+    .line 75
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/ByteBufferWriter;->safeGetClass(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v0
@@ -81,12 +81,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
-    .line 85
     return-void
 .end method
 
 .method private static getBuffer()[B
-    .locals 2
+    .locals 1
 
     .line 137
     sget-object v0, Lcom/google/crypto/tink/shaded/protobuf/ByteBufferWriter;->BUFFER:Ljava/lang/ThreadLocal;
@@ -97,27 +96,26 @@
 
     check-cast v0, Ljava/lang/ref/SoftReference;
 
-    .line 138
-    .local v0, "sr":Ljava/lang/ref/SoftReference;, "Ljava/lang/ref/SoftReference<[B>;"
     if-nez v0, :cond_0
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     goto :goto_0
 
+    .line 138
     :cond_0
     invoke-virtual {v0}, Ljava/lang/ref/SoftReference;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, [B
+    check-cast v0, [B
 
     :goto_0
-    return-object v1
+    return-object v0
 .end method
 
 .method private static getChannelFieldOffset(Ljava/lang/Class;)J
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -126,10 +124,9 @@
         }
     .end annotation
 
-    .line 172
-    .local p0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     if-eqz p0, :cond_0
 
+    .line 172
     :try_start_0
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->hasUnsafeArrayOperations()Z
 
@@ -137,36 +134,24 @@
 
     if-eqz v0, :cond_0
 
-    .line 173
     const-string v0, "channel"
 
+    .line 173
     invoke-virtual {p0, v0}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 174
-    .local v0, "field":Ljava/lang/reflect/Field;
-    invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->objectFieldOffset(Ljava/lang/reflect/Field;)J
+    invoke-static {p0}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->objectFieldOffset(Ljava/lang/reflect/Field;)J
 
-    move-result-wide v1
+    move-result-wide v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    return-wide v1
+    return-wide v0
 
-    .line 176
-    .end local v0    # "field":Ljava/lang/reflect/Field;
     :catchall_0
-    move-exception v0
-
-    goto :goto_0
-
-    .line 178
     :cond_0
-    nop
-
-    .line 179
-    :goto_0
     const-wide/16 v0, -0x1
 
     return-wide v0
@@ -174,11 +159,10 @@
 
 .method private static getOrCreateBuffer(I)[B
     .locals 2
-    .param p0, "requestedSize"    # I
 
-    .line 115
     const/16 v0, 0x400
 
+    .line 115
     invoke-static {p0, v0}, Ljava/lang/Math;->max(II)I
 
     move-result p0
@@ -188,10 +172,9 @@
 
     move-result-object v0
 
-    .line 119
-    .local v0, "buffer":[B
     if-eqz v0, :cond_0
 
+    .line 119
     array-length v1, v0
 
     invoke-static {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/ByteBufferWriter;->needToReallocate(II)Z
@@ -204,7 +187,6 @@
     :cond_0
     new-array v0, p0, [B
 
-    .line 123
     const/16 v1, 0x4000
 
     if-gt p0, v1, :cond_1
@@ -212,45 +194,40 @@
     .line 124
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/ByteBufferWriter;->setBuffer([B)V
 
-    .line 127
     :cond_1
     return-object v0
 .end method
 
 .method private static needToReallocate(II)Z
-    .locals 3
-    .param p0, "requestedSize"    # I
-    .param p1, "bufferLength"    # I
+    .locals 1
 
-    .line 132
     if-ge p1, p0, :cond_0
 
-    int-to-float v0, p1
+    int-to-float p1, p1
 
-    int-to-float v1, p0
+    int-to-float p0, p0
 
-    const/high16 v2, 0x3f000000    # 0.5f
+    const/high16 v0, 0x3f000000    # 0.5f
 
-    mul-float/2addr v1, v2
+    mul-float/2addr p0, v0
 
-    cmpg-float v0, v0, v1
+    cmpg-float p0, p1, p0
 
-    if-gez v0, :cond_0
+    if-gez p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method private static safeGetClass(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 2
-    .param p0, "className"    # Ljava/lang/String;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -265,26 +242,20 @@
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
-    .line 165
     :catch_0
-    move-exception v0
+    const/4 p0, 0x0
 
-    .line 166
-    .local v0, "e":Ljava/lang/ClassNotFoundException;
-    const/4 v1, 0x0
-
-    return-object v1
+    return-object p0
 .end method
 
 .method private static setBuffer([B)V
     .locals 2
-    .param p0, "value"    # [B
 
     .line 142
     sget-object v0, Lcom/google/crypto/tink/shaded/protobuf/ByteBufferWriter;->BUFFER:Ljava/lang/ThreadLocal;
@@ -295,14 +266,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
-    .line 143
     return-void
 .end method
 
 .method static write(Ljava/nio/ByteBuffer;Ljava/io/OutputStream;)V
     .locals 4
-    .param p0, "buffer"    # Ljava/nio/ByteBuffer;
-    .param p1, "output"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -315,7 +283,6 @@
     move-result v0
 
     .line 94
-    .local v0, "initialPos":I
     :try_start_0
     invoke-virtual {p0}, Ljava/nio/ByteBuffer;->hasArray()Z
 
@@ -364,7 +331,6 @@
     move-result-object v1
 
     .line 102
-    .local v1, "array":[B
     :goto_0
     invoke-virtual {p0}, Ljava/nio/ByteBuffer;->hasRemaining()Z
 
@@ -383,10 +349,9 @@
 
     move-result v2
 
-    .line 104
-    .local v2, "length":I
     const/4 v3, 0x0
 
+    .line 104
     invoke-virtual {p0, v1, v3, v2}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
 
     .line 105
@@ -394,36 +359,26 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 106
-    .end local v2    # "length":I
     goto :goto_0
 
     .line 110
-    .end local v1    # "array":[B
     :cond_1
     :goto_1
     invoke-virtual {p0, v0}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
-    .line 111
-    nop
-
-    .line 112
     return-void
 
-    .line 110
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     invoke-virtual {p0, v0}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 111
-    throw v1
+    throw p1
 .end method
 
 .method private static writeToChannel(Ljava/nio/ByteBuffer;Ljava/io/OutputStream;)Z
     .locals 4
-    .param p0, "buffer"    # Ljava/nio/ByteBuffer;
-    .param p1, "output"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -435,59 +390,45 @@
 
     const-wide/16 v2, 0x0
 
-    cmp-long v0, v0, v2
+    cmp-long v2, v0, v2
 
-    if-ltz v0, :cond_0
+    if-ltz v2, :cond_0
 
-    sget-object v0, Lcom/google/crypto/tink/shaded/protobuf/ByteBufferWriter;->FILE_OUTPUT_STREAM_CLASS:Ljava/lang/Class;
+    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/ByteBufferWriter;->FILE_OUTPUT_STREAM_CLASS:Ljava/lang/Class;
 
-    invoke-virtual {v0, p1}, Ljava/lang/Class;->isInstance(Ljava/lang/Object;)Z
+    invoke-virtual {v2, p1}, Ljava/lang/Class;->isInstance(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_0
-
-    .line 148
-    const/4 v0, 0x0
+    if-eqz v2, :cond_0
 
     .line 150
-    .local v0, "channel":Ljava/nio/channels/WritableByteChannel;
     :try_start_0
-    sget-wide v1, Lcom/google/crypto/tink/shaded/protobuf/ByteBufferWriter;->CHANNEL_FIELD_OFFSET:J
+    invoke-static {p1, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getObject(Ljava/lang/Object;J)Ljava/lang/Object;
 
-    invoke-static {p1, v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getObject(Ljava/lang/Object;J)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v1
-
-    check-cast v1, Ljava/nio/channels/WritableByteChannel;
+    check-cast p1, Ljava/nio/channels/WritableByteChannel;
     :try_end_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-object v0, v1
-
-    .line 153
     goto :goto_0
 
-    .line 151
     :catch_0
-    move-exception v1
+    const/4 p1, 0x0
 
-    .line 154
     :goto_0
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 155
-    invoke-interface {v0, p0}, Ljava/nio/channels/WritableByteChannel;->write(Ljava/nio/ByteBuffer;)I
+    invoke-interface {p1, p0}, Ljava/nio/channels/WritableByteChannel;->write(Ljava/nio/ByteBuffer;)I
 
-    .line 156
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    return v1
+    return p0
 
-    .line 159
-    .end local v0    # "channel":Ljava/nio/channels/WritableByteChannel;
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method

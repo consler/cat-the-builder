@@ -31,8 +31,6 @@
 # direct methods
 .method constructor <init>(Landroidx/media/MediaBrowserServiceCompat;Ljava/lang/Object;Landroid/support/v4/os/ResultReceiver;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/media/MediaBrowserServiceCompat;
-    .param p2, "debug"    # Ljava/lang/Object;
 
     .line 1832
     iput-object p1, p0, Landroidx/media/MediaBrowserServiceCompat$4;->this$0:Landroidx/media/MediaBrowserServiceCompat;
@@ -48,7 +46,6 @@
 # virtual methods
 .method onErrorSent(Landroid/os/Bundle;)V
     .locals 2
-    .param p1, "data"    # Landroid/os/Bundle;
 
     .line 1845
     iget-object v0, p0, Landroidx/media/MediaBrowserServiceCompat$4;->val$receiver:Landroid/support/v4/os/ResultReceiver;
@@ -57,13 +54,11 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/support/v4/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
 
-    .line 1846
     return-void
 .end method
 
 .method onProgressUpdateSent(Landroid/os/Bundle;)V
     .locals 2
-    .param p1, "data"    # Landroid/os/Bundle;
 
     .line 1840
     iget-object v0, p0, Landroidx/media/MediaBrowserServiceCompat$4;->val$receiver:Landroid/support/v4/os/ResultReceiver;
@@ -72,13 +67,11 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/support/v4/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
 
-    .line 1841
     return-void
 .end method
 
 .method onResultSent(Landroid/os/Bundle;)V
     .locals 2
-    .param p1, "result"    # Landroid/os/Bundle;
 
     .line 1835
     iget-object v0, p0, Landroidx/media/MediaBrowserServiceCompat$4;->val$receiver:Landroid/support/v4/os/ResultReceiver;
@@ -87,7 +80,6 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/support/v4/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
 
-    .line 1836
     return-void
 .end method
 

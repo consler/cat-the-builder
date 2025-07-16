@@ -21,8 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/room/MultiInstanceInvalidationClient;[Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/room/MultiInstanceInvalidationClient;
-    .param p2, "tables"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
@@ -47,7 +45,6 @@
 .method isRemote()Z
     .locals 1
 
-    .line 174
     const/4 v0, 0x1
 
     return v0
@@ -74,7 +71,6 @@
     .end annotation
 
     .line 159
-    .local p1, "tables":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     iget-object v0, p0, Landroidx/room/MultiInstanceInvalidationClient$5;->this$0:Landroidx/room/MultiInstanceInvalidationClient;
 
     iget-object v0, v0, Landroidx/room/MultiInstanceInvalidationClient;->mStopped:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -85,7 +81,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 160
     return-void
 
     .line 163
@@ -95,8 +90,6 @@
 
     iget-object v0, v0, Landroidx/room/MultiInstanceInvalidationClient;->mService:Landroidx/room/IMultiInstanceInvalidationService;
 
-    .line 164
-    .local v0, "service":Landroidx/room/IMultiInstanceInvalidationService;
     if-eqz v0, :cond_1
 
     .line 165
@@ -110,33 +103,27 @@
 
     invoke-interface {p1, v2}, Ljava/util/Set;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    check-cast v2, [Ljava/lang/String;
+    check-cast p1, [Ljava/lang/String;
 
-    invoke-interface {v0, v1, v2}, Landroidx/room/IMultiInstanceInvalidationService;->broadcastInvalidation(I[Ljava/lang/String;)V
+    invoke-interface {v0, v1, p1}, Landroidx/room/IMultiInstanceInvalidationService;->broadcastInvalidation(I[Ljava/lang/String;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 169
-    .end local v0    # "service":Landroidx/room/IMultiInstanceInvalidationService;
-    :cond_1
     goto :goto_0
 
-    .line 167
     :catch_0
-    move-exception v0
+    move-exception p1
+
+    const-string v0, "ROOM"
+
+    const-string v1, "Cannot broadcast invalidation"
 
     .line 168
-    .local v0, "e":Landroid/os/RemoteException;
-    const-string v1, "ROOM"
+    invoke-static {v0, v1, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    const-string v2, "Cannot broadcast invalidation"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 170
-    .end local v0    # "e":Landroid/os/RemoteException;
+    :cond_1
     :goto_0
     return-void
 .end method

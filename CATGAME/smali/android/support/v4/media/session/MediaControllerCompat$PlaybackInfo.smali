@@ -34,12 +34,7 @@
 
 # direct methods
 .method constructor <init>(IIIII)V
-    .locals 7
-    .param p1, "type"    # I
-    .param p2, "stream"    # I
-    .param p3, "control"    # I
-    .param p4, "max"    # I
-    .param p5, "current"    # I
+    .locals 6
 
     .line 1409
     new-instance v0, Landroidx/media/AudioAttributesCompat$Builder;
@@ -48,35 +43,29 @@
 
     invoke-virtual {v0, p2}, Landroidx/media/AudioAttributesCompat$Builder;->setLegacyStreamType(I)Landroidx/media/AudioAttributesCompat$Builder;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {v0}, Landroidx/media/AudioAttributesCompat$Builder;->build()Landroidx/media/AudioAttributesCompat;
+    invoke-virtual {p2}, Landroidx/media/AudioAttributesCompat$Builder;->build()Landroidx/media/AudioAttributesCompat;
 
-    move-result-object v3
+    move-result-object v2
 
-    move-object v1, p0
+    move-object v0, p0
 
-    move v2, p1
+    move v1, p1
 
-    move v4, p3
+    move v3, p3
 
-    move v5, p4
+    move v4, p4
 
-    move v6, p5
+    move v5, p5
 
-    invoke-direct/range {v1 .. v6}, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;-><init>(ILandroidx/media/AudioAttributesCompat;III)V
+    invoke-direct/range {v0 .. v5}, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;-><init>(ILandroidx/media/AudioAttributesCompat;III)V
 
-    .line 1411
     return-void
 .end method
 
 .method constructor <init>(ILandroidx/media/AudioAttributesCompat;III)V
     .locals 0
-    .param p1, "type"    # I
-    .param p2, "attrsCompat"    # Landroidx/media/AudioAttributesCompat;
-    .param p3, "control"    # I
-    .param p4, "max"    # I
-    .param p5, "current"    # I
 
     .line 1414
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -96,7 +85,6 @@
     .line 1419
     iput p5, p0, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;->mCurrentVolume:I
 
-    .line 1420
     return-void
 .end method
 

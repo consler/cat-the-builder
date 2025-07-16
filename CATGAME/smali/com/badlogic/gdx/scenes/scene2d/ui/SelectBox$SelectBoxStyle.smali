@@ -50,17 +50,11 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/SelectBox$SelectBoxStyle;->fontColor:Lcom/badlogic/gdx/graphics/Color;
 
-    .line 525
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g2d/BitmapFont;Lcom/badlogic/gdx/graphics/Color;Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$ScrollPaneStyle;Lcom/badlogic/gdx/scenes/scene2d/ui/List$ListStyle;)V
     .locals 2
-    .param p1, "font"    # Lcom/badlogic/gdx/graphics/g2d/BitmapFont;
-    .param p2, "fontColor"    # Lcom/badlogic/gdx/graphics/Color;
-    .param p3, "background"    # Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
-    .param p4, "scrollStyle"    # Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$ScrollPaneStyle;
-    .param p5, "listStyle"    # Lcom/badlogic/gdx/scenes/scene2d/ui/List$ListStyle;
 
     .line 528
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -89,13 +83,11 @@
     .line 533
     iput-object p5, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/SelectBox$SelectBoxStyle;->listStyle:Lcom/badlogic/gdx/scenes/scene2d/ui/List$ListStyle;
 
-    .line 534
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/SelectBox$SelectBoxStyle;)V
     .locals 2
-    .param p1, "style"    # Lcom/badlogic/gdx/scenes/scene2d/ui/SelectBox$SelectBoxStyle;
 
     .line 536
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -165,12 +157,11 @@
     .line 545
     new-instance v0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$ListStyle;
 
-    iget-object v1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/SelectBox$SelectBoxStyle;->listStyle:Lcom/badlogic/gdx/scenes/scene2d/ui/List$ListStyle;
+    iget-object p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/SelectBox$SelectBoxStyle;->listStyle:Lcom/badlogic/gdx/scenes/scene2d/ui/List$ListStyle;
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/List$ListStyle;-><init>(Lcom/badlogic/gdx/scenes/scene2d/ui/List$ListStyle;)V
+    invoke-direct {v0, p1}, Lcom/badlogic/gdx/scenes/scene2d/ui/List$ListStyle;-><init>(Lcom/badlogic/gdx/scenes/scene2d/ui/List$ListStyle;)V
 
     iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/SelectBox$SelectBoxStyle;->listStyle:Lcom/badlogic/gdx/scenes/scene2d/ui/List$ListStyle;
 
-    .line 546
     return-void
 .end method

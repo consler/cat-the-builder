@@ -36,11 +36,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/Flowable;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;IZ)V
     .locals 0
-    .param p2, "time"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p6, "bufferSize"    # I
-    .param p7, "delayError"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -53,8 +48,6 @@
     .end annotation
 
     .line 34
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSkipLastTimed;, "Lio/reactivex/internal/operators/flowable/FlowableSkipLastTimed<TT;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
     .line 35
@@ -72,7 +65,6 @@
     .line 39
     iput-boolean p7, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipLastTimed;->delayError:Z
 
-    .line 40
     return-void
 .end method
 
@@ -89,8 +81,6 @@
     .end annotation
 
     .line 44
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSkipLastTimed;, "Lio/reactivex/internal/operators/flowable/FlowableSkipLastTimed<TT;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSkipLastTimed;->source:Lio/reactivex/Flowable;
 
     new-instance v9, Lio/reactivex/internal/operators/flowable/FlowableSkipLastTimed$SkipLastTimedSubscriber;
@@ -113,6 +103,5 @@
 
     invoke-virtual {v0, v9}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 45
     return-void
 .end method

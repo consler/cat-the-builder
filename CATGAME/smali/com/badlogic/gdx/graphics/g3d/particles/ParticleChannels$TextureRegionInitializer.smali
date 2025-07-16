@@ -76,24 +76,21 @@
 
 .method public init(Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;)V
     .locals 5
-    .param p1, "channel"    # Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
     .line 47
-    const/4 v0, 0x0
+    iget-object v0, p1, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    .local v0, "i":I
-    iget-object v1, p1, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
+    array-length v0, v0
 
-    array-length v1, v1
+    const/4 v1, 0x0
 
-    .local v1, "c":I
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge v1, v0, :cond_0
 
     .line 48
     iget-object v2, p1, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v3, v0, 0x0
+    add-int/lit8 v3, v1, 0x0
 
     const/4 v4, 0x0
 
@@ -102,14 +99,14 @@
     .line 49
     iget-object v2, p1, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v3, v0, 0x1
+    add-int/lit8 v3, v1, 0x1
 
     aput v4, v2, v3
 
     .line 50
     iget-object v2, p1, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v3, v0, 0x2
+    add-int/lit8 v3, v1, 0x2
 
     const/high16 v4, 0x3f800000    # 1.0f
 
@@ -118,14 +115,14 @@
     .line 51
     iget-object v2, p1, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v3, v0, 0x3
+    add-int/lit8 v3, v1, 0x3
 
     aput v4, v2, v3
 
     .line 52
     iget-object v2, p1, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v3, v0, 0x4
+    add-int/lit8 v3, v1, 0x4
 
     const/high16 v4, 0x3f000000    # 0.5f
 
@@ -134,20 +131,17 @@
     .line 53
     iget-object v2, p1, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v3, v0, 0x5
+    add-int/lit8 v3, v1, 0x5
 
     aput v4, v2, v3
 
     .line 47
     iget v2, p1, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
 
-    add-int/2addr v0, v2
+    add-int/2addr v1, v2
 
     goto :goto_0
 
-    .line 55
-    .end local v0    # "i":I
-    .end local v1    # "c":I
     :cond_0
     return-void
 .end method

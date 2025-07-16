@@ -13,12 +13,12 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    const-string v0, "com.bumptech.glide.load.resource.bitmap.CenterCrop"
+
     .line 17
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/CenterCrop;->CHARSET:Ljava/nio/charset/Charset;
+    sget-object v1, Lcom/bumptech/glide/load/resource/bitmap/CenterCrop;->CHARSET:Ljava/nio/charset/Charset;
 
-    const-string v1, "com.bumptech.glide.load.resource.bitmap.CenterCrop"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
+    invoke-virtual {v0, v1}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 
     move-result-object v0
 
@@ -39,52 +39,40 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 0
 
     .line 27
-    instance-of v0, p1, Lcom/bumptech/glide/load/resource/bitmap/CenterCrop;
+    instance-of p1, p1, Lcom/bumptech/glide/load/resource/bitmap/CenterCrop;
 
-    return v0
+    return p1
 .end method
 
 .method public hashCode()I
     .locals 1
 
-    .line 32
-    const-string v0, "com.bumptech.glide.load.resource.bitmap.CenterCrop"
-
-    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
-
-    move-result v0
+    const v0, -0x23bf86f2
 
     return v0
 .end method
 
 .method protected transform(Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Landroid/graphics/Bitmap;II)Landroid/graphics/Bitmap;
-    .locals 1
-    .param p1, "pool"    # Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
-    .param p2, "toTransform"    # Landroid/graphics/Bitmap;
-    .param p3, "outWidth"    # I
-    .param p4, "outHeight"    # I
+    .locals 0
 
     .line 22
     invoke-static {p1, p2, p3, p4}, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->centerCrop(Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Landroid/graphics/Bitmap;II)Landroid/graphics/Bitmap;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public updateDiskCacheKey(Ljava/security/MessageDigest;)V
     .locals 1
-    .param p1, "messageDigest"    # Ljava/security/MessageDigest;
 
     .line 37
     sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/CenterCrop;->ID_BYTES:[B
 
     invoke-virtual {p1, v0}, Ljava/security/MessageDigest;->update([B)V
 
-    .line 38
     return-void
 .end method

@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private final a:Ljava/util/List;
+.field public final a:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -25,38 +25,37 @@
     .end annotation
 .end field
 
-.field private final b:Ljava/lang/Object;
+.field public final b:Ljava/lang/Object;
 
 
 # direct methods
-.method private constructor <init>(Ljava/lang/Object;)V
+.method public constructor <init>(Ljava/lang/Object;)V
     .locals 0
 
-    .line 23
+    .line 2
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 24
+    .line 3
     invoke-static {p1}, Lcom/huawei/hms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
     iput-object p1, p0, Lcom/huawei/hms/common/internal/Objects$ToStringHelper;->b:Ljava/lang/Object;
 
-    .line 25
+    .line 4
     new-instance p1, Ljava/util/ArrayList;
 
     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
     iput-object p1, p0, Lcom/huawei/hms/common/internal/Objects$ToStringHelper;->a:Ljava/util/List;
 
-    .line 26
     return-void
 .end method
 
-.method synthetic constructor <init>(Ljava/lang/Object;Lcom/huawei/hms/common/internal/Objects$1;)V
+.method public synthetic constructor <init>(Ljava/lang/Object;Lcom/huawei/hms/common/internal/Objects$a;)V
     .locals 0
 
-    .line 19
+    .line 1
     invoke-direct {p0, p1}, Lcom/huawei/hms/common/internal/Objects$ToStringHelper;-><init>(Ljava/lang/Object;)V
 
     return-void
@@ -67,19 +66,19 @@
 .method public final add(Ljava/lang/String;Ljava/lang/Object;)Lcom/huawei/hms/common/internal/Objects$ToStringHelper;
     .locals 3
 
-    .line 29
+    .line 1
     invoke-static {p1}, Lcom/huawei/hms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
     check-cast p1, Ljava/lang/String;
 
-    .line 30
+    .line 2
     invoke-static {p2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p2
 
-    .line 31
+    .line 3
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -96,32 +95,37 @@
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
-    .line 32
+    .line 4
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string p1, "="
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
-    .line 33
+    const-string v0, "="
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    .line 5
     iget-object p2, p0, Lcom/huawei/hms/common/internal/Objects$ToStringHelper;->a:Ljava/util/List;
 
     invoke-interface {p2, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 34
     return-object p0
 .end method
 
 .method public final toString()Ljava/lang/String;
     .locals 4
 
-    .line 38
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/internal/Objects$ToStringHelper;->b:Ljava/lang/Object;
 
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -132,7 +136,7 @@
 
     move-result-object v0
 
-    .line 39
+    .line 2
     new-instance v1, Ljava/lang/StringBuilder;
 
     const/16 v2, 0x64
@@ -141,25 +145,27 @@
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v0, 0x7b
+    move-result-object v0
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    const/16 v1, 0x7b
 
-    .line 40
-    iget-object v0, p0, Lcom/huawei/hms/common/internal/Objects$ToStringHelper;->a:Ljava/util/List;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    move-result-object v0
 
-    move-result v0
+    .line 3
+    iget-object v1, p0, Lcom/huawei/hms/common/internal/Objects$ToStringHelper;->a:Ljava/util/List;
 
-    .line 41
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v1
+
     const/4 v2, 0x0
 
-    .line 42
     :goto_0
-    if-ge v2, v0, :cond_1
+    if-ge v2, v1, :cond_1
 
-    .line 43
+    .line 6
     iget-object v3, p0, Lcom/huawei/hms/common/internal/Objects$ToStringHelper;->a:Ljava/util/List;
 
     invoke-interface {v3, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -168,33 +174,32 @@
 
     check-cast v3, Ljava/lang/String;
 
-    .line 44
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 7
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 45
-    add-int/lit8 v3, v0, -0x1
+    add-int/lit8 v3, v1, -0x1
 
     if-ge v2, v3, :cond_0
 
-    .line 46
     const-string v3, ", "
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 9
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 48
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
-    .line 49
     goto :goto_0
 
-    .line 50
     :cond_1
-    const/16 v0, 0x7d
+    const/16 v1, 0x7d
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    .line 13
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 

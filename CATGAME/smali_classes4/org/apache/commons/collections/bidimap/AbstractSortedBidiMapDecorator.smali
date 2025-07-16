@@ -9,12 +9,10 @@
 # direct methods
 .method public constructor <init>(Lorg/apache/commons/collections/SortedBidiMap;)V
     .locals 0
-    .param p1, "map"    # Lorg/apache/commons/collections/SortedBidiMap;
 
     .line 51
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/bidimap/AbstractOrderedBidiMapDecorator;-><init>(Lorg/apache/commons/collections/OrderedBidiMap;)V
 
-    .line 52
     return-void
 .end method
 
@@ -48,7 +46,6 @@
 
 .method public headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
     .locals 1
-    .param p1, "toKey"    # Ljava/lang/Object;
 
     .line 77
     invoke-virtual {p0}, Lorg/apache/commons/collections/bidimap/AbstractSortedBidiMapDecorator;->getSortedBidiMap()Lorg/apache/commons/collections/SortedBidiMap;
@@ -57,9 +54,9 @@
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections/SortedBidiMap;->headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public inverseSortedBidiMap()Lorg/apache/commons/collections/SortedBidiMap;
@@ -79,8 +76,6 @@
 
 .method public subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
     .locals 1
-    .param p1, "fromKey"    # Ljava/lang/Object;
-    .param p2, "toKey"    # Ljava/lang/Object;
 
     .line 73
     invoke-virtual {p0}, Lorg/apache/commons/collections/bidimap/AbstractSortedBidiMapDecorator;->getSortedBidiMap()Lorg/apache/commons/collections/SortedBidiMap;
@@ -89,14 +84,13 @@
 
     invoke-interface {v0, p1, p2}, Lorg/apache/commons/collections/SortedBidiMap;->subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
     .locals 1
-    .param p1, "fromKey"    # Ljava/lang/Object;
 
     .line 81
     invoke-virtual {p0}, Lorg/apache/commons/collections/bidimap/AbstractSortedBidiMapDecorator;->getSortedBidiMap()Lorg/apache/commons/collections/SortedBidiMap;
@@ -105,7 +99,7 @@
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections/SortedBidiMap;->tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

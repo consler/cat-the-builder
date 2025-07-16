@@ -15,7 +15,6 @@
 
 .method public static read(Landroidx/versionedparcelable/VersionedParcel;)Landroidx/media/AudioAttributesImplApi21;
     .locals 3
-    .param p0, "parcel"    # Landroidx/versionedparcelable/VersionedParcel;
 
     .line 14
     new-instance v0, Landroidx/media/AudioAttributesImplApi21;
@@ -23,7 +22,6 @@
     invoke-direct {v0}, Landroidx/media/AudioAttributesImplApi21;-><init>()V
 
     .line 15
-    .local v0, "obj":Landroidx/media/AudioAttributesImplApi21;
     iget-object v1, v0, Landroidx/media/AudioAttributesImplApi21;->mAudioAttributes:Landroid/media/AudioAttributes;
 
     const/4 v2, 0x1
@@ -43,22 +41,19 @@
 
     invoke-virtual {p0, v1, v2}, Landroidx/versionedparcelable/VersionedParcel;->readInt(II)I
 
-    move-result v1
+    move-result p0
 
-    iput v1, v0, Landroidx/media/AudioAttributesImplApi21;->mLegacyStreamType:I
+    iput p0, v0, Landroidx/media/AudioAttributesImplApi21;->mLegacyStreamType:I
 
-    .line 17
     return-object v0
 .end method
 
 .method public static write(Landroidx/media/AudioAttributesImplApi21;Landroidx/versionedparcelable/VersionedParcel;)V
     .locals 2
-    .param p0, "obj"    # Landroidx/media/AudioAttributesImplApi21;
-    .param p1, "parcel"    # Landroidx/versionedparcelable/VersionedParcel;
 
-    .line 22
     const/4 v0, 0x0
 
+    .line 22
     invoke-virtual {p1, v0, v0}, Landroidx/versionedparcelable/VersionedParcel;->setSerializationFlags(ZZ)V
 
     .line 23
@@ -69,12 +64,11 @@
     invoke-virtual {p1, v0, v1}, Landroidx/versionedparcelable/VersionedParcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
     .line 24
-    iget v0, p0, Landroidx/media/AudioAttributesImplApi21;->mLegacyStreamType:I
+    iget p0, p0, Landroidx/media/AudioAttributesImplApi21;->mLegacyStreamType:I
 
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
-    invoke-virtual {p1, v0, v1}, Landroidx/versionedparcelable/VersionedParcel;->writeInt(II)V
+    invoke-virtual {p1, p0, v0}, Landroidx/versionedparcelable/VersionedParcel;->writeInt(II)V
 
-    .line 25
     return-void
 .end method

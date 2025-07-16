@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;)V
     .locals 0
-    .param p1, "this$1"    # Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;
 
     .line 734
     iput-object p1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection$1;->this$1:Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;
@@ -44,6 +43,5 @@
 
     invoke-virtual {v0}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->failPendingCallbacks()V
 
-    .line 738
     return-void
 .end method

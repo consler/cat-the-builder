@@ -36,44 +36,40 @@
 
     iput-object p1, p0, Lorg/apache/commons/collections/FastTreeMap$CollectionView;->this$0:Lorg/apache/commons/collections/FastTreeMap;
 
-    .line 574
     return-void
 .end method
 
 .method static synthetic access$300(Lorg/apache/commons/collections/FastTreeMap$CollectionView;)Lorg/apache/commons/collections/FastTreeMap;
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections/FastTreeMap$CollectionView;
+    .locals 0
 
     .line 571
-    iget-object v0, p0, Lorg/apache/commons/collections/FastTreeMap$CollectionView;->this$0:Lorg/apache/commons/collections/FastTreeMap;
+    iget-object p0, p0, Lorg/apache/commons/collections/FastTreeMap$CollectionView;->this$0:Lorg/apache/commons/collections/FastTreeMap;
 
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 0
 
     .line 721
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .locals 1
-    .param p1, "c"    # Ljava/util/Collection;
+    .locals 0
 
     .line 725
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public clear()V
@@ -138,11 +134,9 @@
     .line 588
     monitor-exit v0
 
-    .line 590
     :goto_0
     return-void
 
-    .line 588
     :catchall_1
     move-exception v1
 
@@ -155,7 +149,6 @@
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "o"    # Ljava/lang/Object;
 
     .line 659
     iget-object v0, p0, Lorg/apache/commons/collections/FastTreeMap$CollectionView;->this$0:Lorg/apache/commons/collections/FastTreeMap;
@@ -175,9 +168,9 @@
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
     .line 662
     :cond_0
@@ -199,26 +192,25 @@
 
     invoke-interface {v1, p1}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
     monitor-exit v0
 
-    return v1
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 664
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public containsAll(Ljava/util/Collection;)Z
     .locals 2
-    .param p1, "o"    # Ljava/util/Collection;
 
     .line 669
     iget-object v0, p0, Lorg/apache/commons/collections/FastTreeMap$CollectionView;->this$0:Lorg/apache/commons/collections/FastTreeMap;
@@ -238,9 +230,9 @@
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->containsAll(Ljava/util/Collection;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
     .line 672
     :cond_0
@@ -262,33 +254,31 @@
 
     invoke-interface {v1, p1}, Ljava/util/Collection;->containsAll(Ljava/util/Collection;)Z
 
-    move-result v1
+    move-result p1
 
     monitor-exit v0
 
-    return v1
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 674
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .line 700
     if-ne p1, p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
     .line 701
     :cond_0
@@ -309,9 +299,9 @@
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
     .line 704
     :cond_1
@@ -333,21 +323,21 @@
 
     invoke-interface {v1, p1}, Ljava/util/Collection;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
     monitor-exit v0
 
-    return v1
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 706
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method protected abstract get(Ljava/util/Map;)Ljava/util/Collection;
@@ -404,10 +394,10 @@
 
     return v1
 
-    .line 716
     :catchall_0
     move-exception v1
 
+    .line 716
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -466,10 +456,10 @@
 
     return v1
 
-    .line 654
     :catchall_0
     move-exception v1
 
+    .line 654
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -492,8 +482,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 4
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 3
 
     .line 593
     iget-object v0, p0, Lorg/apache/commons/collections/FastTreeMap$CollectionView;->this$0:Lorg/apache/commons/collections/FastTreeMap;
@@ -520,37 +509,33 @@
     check-cast v1, Ljava/util/TreeMap;
 
     .line 596
-    .local v1, "temp":Ljava/util/TreeMap;
     invoke-virtual {p0, v1}, Lorg/apache/commons/collections/FastTreeMap$CollectionView;->get(Ljava/util/Map;)Ljava/util/Collection;
 
     move-result-object v2
 
     invoke-interface {v2, p1}, Ljava/util/Collection;->remove(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p1
 
     .line 597
-    .local v2, "r":Z
-    iget-object v3, p0, Lorg/apache/commons/collections/FastTreeMap$CollectionView;->this$0:Lorg/apache/commons/collections/FastTreeMap;
+    iget-object v2, p0, Lorg/apache/commons/collections/FastTreeMap$CollectionView;->this$0:Lorg/apache/commons/collections/FastTreeMap;
 
-    iput-object v1, v3, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
+    iput-object v1, v2, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
 
     .line 598
     monitor-exit v0
 
-    return v2
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 599
-    .end local v1    # "temp":Ljava/util/TreeMap;
-    .end local v2    # "r":Z
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 
     .line 601
     :cond_0
@@ -572,26 +557,25 @@
 
     invoke-interface {v1, p1}, Ljava/util/Collection;->remove(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
     monitor-exit v0
 
-    return v1
+    return p1
+
+    :catchall_1
+    move-exception p1
 
     .line 603
-    :catchall_1
-    move-exception v1
-
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    throw v1
+    throw p1
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 4
-    .param p1, "o"    # Ljava/util/Collection;
+    .locals 3
 
     .line 608
     iget-object v0, p0, Lorg/apache/commons/collections/FastTreeMap$CollectionView;->this$0:Lorg/apache/commons/collections/FastTreeMap;
@@ -618,37 +602,33 @@
     check-cast v1, Ljava/util/TreeMap;
 
     .line 611
-    .local v1, "temp":Ljava/util/TreeMap;
     invoke-virtual {p0, v1}, Lorg/apache/commons/collections/FastTreeMap$CollectionView;->get(Ljava/util/Map;)Ljava/util/Collection;
 
     move-result-object v2
 
     invoke-interface {v2, p1}, Ljava/util/Collection;->removeAll(Ljava/util/Collection;)Z
 
-    move-result v2
+    move-result p1
 
     .line 612
-    .local v2, "r":Z
-    iget-object v3, p0, Lorg/apache/commons/collections/FastTreeMap$CollectionView;->this$0:Lorg/apache/commons/collections/FastTreeMap;
+    iget-object v2, p0, Lorg/apache/commons/collections/FastTreeMap$CollectionView;->this$0:Lorg/apache/commons/collections/FastTreeMap;
 
-    iput-object v1, v3, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
+    iput-object v1, v2, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
 
     .line 613
     monitor-exit v0
 
-    return v2
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 614
-    .end local v1    # "temp":Ljava/util/TreeMap;
-    .end local v2    # "r":Z
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 
     .line 616
     :cond_0
@@ -670,26 +650,25 @@
 
     invoke-interface {v1, p1}, Ljava/util/Collection;->removeAll(Ljava/util/Collection;)Z
 
-    move-result v1
+    move-result p1
 
     monitor-exit v0
 
-    return v1
+    return p1
+
+    :catchall_1
+    move-exception p1
 
     .line 618
-    :catchall_1
-    move-exception v1
-
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    throw v1
+    throw p1
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 4
-    .param p1, "o"    # Ljava/util/Collection;
+    .locals 3
 
     .line 623
     iget-object v0, p0, Lorg/apache/commons/collections/FastTreeMap$CollectionView;->this$0:Lorg/apache/commons/collections/FastTreeMap;
@@ -716,37 +695,33 @@
     check-cast v1, Ljava/util/TreeMap;
 
     .line 626
-    .local v1, "temp":Ljava/util/TreeMap;
     invoke-virtual {p0, v1}, Lorg/apache/commons/collections/FastTreeMap$CollectionView;->get(Ljava/util/Map;)Ljava/util/Collection;
 
     move-result-object v2
 
     invoke-interface {v2, p1}, Ljava/util/Collection;->retainAll(Ljava/util/Collection;)Z
 
-    move-result v2
+    move-result p1
 
     .line 627
-    .local v2, "r":Z
-    iget-object v3, p0, Lorg/apache/commons/collections/FastTreeMap$CollectionView;->this$0:Lorg/apache/commons/collections/FastTreeMap;
+    iget-object v2, p0, Lorg/apache/commons/collections/FastTreeMap$CollectionView;->this$0:Lorg/apache/commons/collections/FastTreeMap;
 
-    iput-object v1, v3, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
+    iput-object v1, v2, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
 
     .line 628
     monitor-exit v0
 
-    return v2
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 629
-    .end local v1    # "temp":Ljava/util/TreeMap;
-    .end local v2    # "r":Z
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 
     .line 631
     :cond_0
@@ -768,21 +743,21 @@
 
     invoke-interface {v1, p1}, Ljava/util/Collection;->retainAll(Ljava/util/Collection;)Z
 
-    move-result v1
+    move-result p1
 
     monitor-exit v0
 
-    return v1
+    return p1
+
+    :catchall_1
+    move-exception p1
 
     .line 633
-    :catchall_1
-    move-exception v1
-
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    throw v1
+    throw p1
 .end method
 
 .method public size()I
@@ -836,10 +811,10 @@
 
     return v1
 
-    .line 643
     :catchall_0
     move-exception v1
 
+    .line 643
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -898,10 +873,10 @@
 
     return-object v1
 
-    .line 694
     :catchall_0
     move-exception v1
 
+    .line 694
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -911,7 +886,6 @@
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
     .locals 2
-    .param p1, "o"    # [Ljava/lang/Object;
 
     .line 679
     iget-object v0, p0, Lorg/apache/commons/collections/FastTreeMap$CollectionView;->this$0:Lorg/apache/commons/collections/FastTreeMap;
@@ -931,9 +905,9 @@
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 682
     :cond_0
@@ -955,19 +929,19 @@
 
     invoke-interface {v1, p1}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
     monitor-exit v0
 
-    return-object v1
+    return-object p1
+
+    :catchall_0
+    move-exception p1
 
     .line 684
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method

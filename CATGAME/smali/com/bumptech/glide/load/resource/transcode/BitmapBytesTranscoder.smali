@@ -34,14 +34,11 @@
 
     invoke-direct {p0, v0, v1}, Lcom/bumptech/glide/load/resource/transcode/BitmapBytesTranscoder;-><init>(Landroid/graphics/Bitmap$CompressFormat;I)V
 
-    .line 22
     return-void
 .end method
 
 .method public constructor <init>(Landroid/graphics/Bitmap$CompressFormat;I)V
     .locals 0
-    .param p1, "compressFormat"    # Landroid/graphics/Bitmap$CompressFormat;
-    .param p2, "quality"    # I
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,15 +49,13 @@
     .line 28
     iput p2, p0, Lcom/bumptech/glide/load/resource/transcode/BitmapBytesTranscoder;->quality:I
 
-    .line 29
     return-void
 .end method
 
 
 # virtual methods
 .method public transcode(Lcom/bumptech/glide/load/engine/Resource;Lcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 4
-    .param p2, "options"    # Lcom/bumptech/glide/load/Options;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -75,36 +70,34 @@
     .end annotation
 
     .line 35
-    .local p1, "toTranscode":Lcom/bumptech/glide/load/engine/Resource;, "Lcom/bumptech/glide/load/engine/Resource<Landroid/graphics/Bitmap;>;"
-    new-instance v0, Ljava/io/ByteArrayOutputStream;
+    new-instance p2, Ljava/io/ByteArrayOutputStream;
 
-    invoke-direct {v0}, Ljava/io/ByteArrayOutputStream;-><init>()V
+    invoke-direct {p2}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
     .line 36
-    .local v0, "os":Ljava/io/ByteArrayOutputStream;
     invoke-interface {p1}, Lcom/bumptech/glide/load/engine/Resource;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/graphics/Bitmap;
+    check-cast v0, Landroid/graphics/Bitmap;
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/resource/transcode/BitmapBytesTranscoder;->compressFormat:Landroid/graphics/Bitmap$CompressFormat;
+    iget-object v1, p0, Lcom/bumptech/glide/load/resource/transcode/BitmapBytesTranscoder;->compressFormat:Landroid/graphics/Bitmap$CompressFormat;
 
-    iget v3, p0, Lcom/bumptech/glide/load/resource/transcode/BitmapBytesTranscoder;->quality:I
+    iget v2, p0, Lcom/bumptech/glide/load/resource/transcode/BitmapBytesTranscoder;->quality:I
 
-    invoke-virtual {v1, v2, v3, v0}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
+    invoke-virtual {v0, v1, v2, p2}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
 
     .line 37
     invoke-interface {p1}, Lcom/bumptech/glide/load/engine/Resource;->recycle()V
 
     .line 38
-    new-instance v1, Lcom/bumptech/glide/load/resource/bytes/BytesResource;
+    new-instance p1, Lcom/bumptech/glide/load/resource/bytes/BytesResource;
 
-    invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
+    invoke-virtual {p2}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-direct {v1, v2}, Lcom/bumptech/glide/load/resource/bytes/BytesResource;-><init>([B)V
+    invoke-direct {p1, p2}, Lcom/bumptech/glide/load/resource/bytes/BytesResource;-><init>([B)V
 
-    return-object v1
+    return-object p1
 .end method

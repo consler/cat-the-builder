@@ -34,8 +34,6 @@
 # direct methods
 .method public constructor <init>(ZI)V
     .locals 0
-    .param p1, "isSticky"    # Z
-    .param p2, "layoutInDisplayCutoutMode"    # I
 
     .line 97
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,13 +44,11 @@
     .line 99
     iput p2, p0, Landroidx/browser/trusted/TrustedWebActivityDisplayMode$ImmersiveMode;->mLayoutInDisplayCutoutMode:I
 
-    .line 100
     return-void
 .end method
 
 .method static fromBundle(Landroid/os/Bundle;)Landroidx/browser/trusted/TrustedWebActivityDisplayMode;
     .locals 3
-    .param p0, "bundle"    # Landroid/os/Bundle;
 
     .line 105
     new-instance v0, Landroidx/browser/trusted/TrustedWebActivityDisplayMode$ImmersiveMode;
@@ -63,16 +59,15 @@
 
     move-result v1
 
-    .line 106
     const-string v2, "androidx.browser.trusted.displaymode.KEY_CUTOUT_MODE"
 
+    .line 106
     invoke-virtual {p0, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
-    move-result v2
+    move-result p0
 
-    invoke-direct {v0, v1, v2}, Landroidx/browser/trusted/TrustedWebActivityDisplayMode$ImmersiveMode;-><init>(ZI)V
+    invoke-direct {v0, v1, p0}, Landroidx/browser/trusted/TrustedWebActivityDisplayMode$ImmersiveMode;-><init>(ZI)V
 
-    .line 105
     return-object v0
 .end method
 
@@ -104,28 +99,26 @@
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 113
-    .local v0, "bundle":Landroid/os/Bundle;
     const-string v1, "androidx.browser.trusted.displaymode.KEY_ID"
 
     const/4 v2, 0x1
 
+    .line 113
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
+    const-string v1, "androidx.browser.trusted.displaymode.KEY_STICKY"
+
     .line 114
-    iget-boolean v1, p0, Landroidx/browser/trusted/TrustedWebActivityDisplayMode$ImmersiveMode;->mIsSticky:Z
+    iget-boolean v2, p0, Landroidx/browser/trusted/TrustedWebActivityDisplayMode$ImmersiveMode;->mIsSticky:Z
 
-    const-string v2, "androidx.browser.trusted.displaymode.KEY_STICKY"
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    const-string v1, "androidx.browser.trusted.displaymode.KEY_CUTOUT_MODE"
 
     .line 115
-    iget v1, p0, Landroidx/browser/trusted/TrustedWebActivityDisplayMode$ImmersiveMode;->mLayoutInDisplayCutoutMode:I
+    iget v2, p0, Landroidx/browser/trusted/TrustedWebActivityDisplayMode$ImmersiveMode;->mLayoutInDisplayCutoutMode:I
 
-    const-string v2, "androidx.browser.trusted.displaymode.KEY_CUTOUT_MODE"
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    .line 116
     return-object v0
 .end method

@@ -25,25 +25,23 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 116
     const/4 v0, 0x0
 
+    .line 116
     invoke-direct {p0, v0}, Lcom/badlogic/gdx/maps/objects/TextureMapObject;-><init>(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
 
-    .line 117
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
     .locals 2
-    .param p1, "textureRegion"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
     .line 123
     invoke-direct {p0}, Lcom/badlogic/gdx/maps/MapObject;-><init>()V
 
-    .line 25
     const/4 v0, 0x0
 
+    .line 25
     iput v0, p0, Lcom/badlogic/gdx/maps/objects/TextureMapObject;->x:F
 
     .line 26
@@ -55,9 +53,9 @@
     .line 28
     iput v0, p0, Lcom/badlogic/gdx/maps/objects/TextureMapObject;->originY:F
 
-    .line 29
     const/high16 v1, 0x3f800000    # 1.0f
 
+    .line 29
     iput v1, p0, Lcom/badlogic/gdx/maps/objects/TextureMapObject;->scaleX:F
 
     .line 30
@@ -66,15 +64,9 @@
     .line 31
     iput v0, p0, Lcom/badlogic/gdx/maps/objects/TextureMapObject;->rotation:F
 
-    .line 32
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/badlogic/gdx/maps/objects/TextureMapObject;->textureRegion:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
-
     .line 124
     iput-object p1, p0, Lcom/badlogic/gdx/maps/objects/TextureMapObject;->textureRegion:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
-    .line 125
     return-void
 .end method
 
@@ -154,88 +146,72 @@
 
 .method public setOriginX(F)V
     .locals 0
-    .param p1, "x"    # F
 
     .line 61
     iput p1, p0, Lcom/badlogic/gdx/maps/objects/TextureMapObject;->originX:F
 
-    .line 62
     return-void
 .end method
 
 .method public setOriginY(F)V
     .locals 0
-    .param p1, "y"    # F
 
     .line 71
     iput p1, p0, Lcom/badlogic/gdx/maps/objects/TextureMapObject;->originY:F
 
-    .line 72
     return-void
 .end method
 
 .method public setRotation(F)V
     .locals 0
-    .param p1, "rotation"    # F
 
     .line 101
     iput p1, p0, Lcom/badlogic/gdx/maps/objects/TextureMapObject;->rotation:F
 
-    .line 102
     return-void
 .end method
 
 .method public setScaleX(F)V
     .locals 0
-    .param p1, "x"    # F
 
     .line 81
     iput p1, p0, Lcom/badlogic/gdx/maps/objects/TextureMapObject;->scaleX:F
 
-    .line 82
     return-void
 .end method
 
 .method public setScaleY(F)V
     .locals 0
-    .param p1, "y"    # F
 
     .line 91
     iput p1, p0, Lcom/badlogic/gdx/maps/objects/TextureMapObject;->scaleY:F
 
-    .line 92
     return-void
 .end method
 
 .method public setTextureRegion(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
     .locals 0
-    .param p1, "region"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
     .line 111
     iput-object p1, p0, Lcom/badlogic/gdx/maps/objects/TextureMapObject;->textureRegion:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
-    .line 112
     return-void
 .end method
 
 .method public setX(F)V
     .locals 0
-    .param p1, "x"    # F
 
     .line 41
     iput p1, p0, Lcom/badlogic/gdx/maps/objects/TextureMapObject;->x:F
 
-    .line 42
     return-void
 .end method
 
 .method public setY(F)V
     .locals 0
-    .param p1, "y"    # F
 
     .line 51
     iput p1, p0, Lcom/badlogic/gdx/maps/objects/TextureMapObject;->y:F
 
-    .line 52
     return-void
 .end method

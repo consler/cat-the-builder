@@ -33,11 +33,8 @@
     .end annotation
 
     .line 26
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableIgnoreElements;, "Lio/reactivex/internal/operators/flowable/FlowableIgnoreElements<TT;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
-    .line 27
     return-void
 .end method
 
@@ -54,8 +51,6 @@
     .end annotation
 
     .line 31
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableIgnoreElements;, "Lio/reactivex/internal/operators/flowable/FlowableIgnoreElements<TT;>;"
-    .local p1, "t":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableIgnoreElements;->source:Lio/reactivex/Flowable;
 
     new-instance v1, Lio/reactivex/internal/operators/flowable/FlowableIgnoreElements$IgnoreElementsSubscriber;
@@ -64,6 +59,5 @@
 
     invoke-virtual {v0, v1}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 32
     return-void
 .end method

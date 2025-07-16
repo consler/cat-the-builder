@@ -34,7 +34,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/utils/async/AsyncExecutor;Lcom/badlogic/gdx/utils/async/AsyncTask;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/utils/async/AsyncExecutor;
 
     .line 61
     iput-object p1, p0, Lcom/badlogic/gdx/utils/async/AsyncExecutor$2;->this$0:Lcom/badlogic/gdx/utils/async/AsyncExecutor;

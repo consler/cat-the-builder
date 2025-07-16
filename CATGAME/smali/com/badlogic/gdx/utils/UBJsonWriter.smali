@@ -35,7 +35,6 @@
 # direct methods
 .method public constructor <init>(Ljava/io/OutputStream;)V
     .locals 1
-    .param p1, "out"    # Ljava/io/OutputStream;
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -60,13 +59,10 @@
 
     .line 36
     :cond_0
-    move-object v0, p1
+    check-cast p1, Ljava/io/DataOutputStream;
 
-    check-cast v0, Ljava/io/DataOutputStream;
+    iput-object p1, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
 
-    iput-object v0, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
-
-    .line 37
     return-void
 .end method
 
@@ -88,9 +84,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 534
     const/4 v0, 0x0
 
+    .line 534
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->named:Z
 
     goto :goto_0
@@ -105,7 +101,6 @@
 
     throw v0
 
-    .line 537
     :cond_1
     :goto_0
     return-void
@@ -136,9 +131,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 65
     const/4 v0, 0x0
 
+    .line 65
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->named:Z
 
     goto :goto_0
@@ -168,13 +163,11 @@
 
     invoke-virtual {v0, v1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 69
     return-object p0
 .end method
 
 .method public array(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -184,11 +177,10 @@
     .line 75
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->array()Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->array()Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    .line 76
     return-object p0
 .end method
 
@@ -219,7 +211,6 @@
 
     invoke-virtual {v0}, Ljava/io/DataOutputStream;->close()V
 
-    .line 565
     return-void
 .end method
 
@@ -236,13 +227,11 @@
 
     invoke-virtual {v0}, Ljava/io/DataOutputStream;->flush()V
 
-    .line 558
     return-void
 .end method
 
 .method public name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 3
-    .param p1, "name"    # Ljava/lang/String;
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -258,100 +247,97 @@
 
     if-nez v0, :cond_2
 
-    .line 83
     const-string v0, "UTF-8"
 
+    .line 83
     invoke-virtual {p1, v0}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
-    move-result-object v0
+    move-result-object p1
 
     .line 84
-    .local v0, "bytes":[B
-    array-length v1, v0
+    array-length v0, p1
 
-    const/16 v2, 0x7f
+    const/16 v1, 0x7f
 
-    if-gt v1, v2, :cond_0
+    if-gt v0, v1, :cond_0
 
     .line 85
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
 
-    const/16 v2, 0x69
+    const/16 v1, 0x69
 
-    invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeByte(I)V
+    invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->writeByte(I)V
 
     .line 86
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
 
-    array-length v2, v0
+    array-length v1, p1
 
-    invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeByte(I)V
+    invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->writeByte(I)V
 
     goto :goto_0
 
     .line 87
     :cond_0
-    array-length v1, v0
+    array-length v0, p1
 
-    const/16 v2, 0x7fff
+    const/16 v1, 0x7fff
 
-    if-gt v1, v2, :cond_1
+    if-gt v0, v1, :cond_1
 
     .line 88
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
 
-    const/16 v2, 0x49
+    const/16 v1, 0x49
 
-    invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeByte(I)V
+    invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->writeByte(I)V
 
     .line 89
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
 
-    array-length v2, v0
+    array-length v1, p1
 
-    invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeShort(I)V
+    invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->writeShort(I)V
 
     goto :goto_0
 
     .line 91
     :cond_1
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
 
-    const/16 v2, 0x6c
+    const/16 v1, 0x6c
 
-    invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeByte(I)V
+    invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->writeByte(I)V
 
     .line 92
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
 
-    array-length v2, v0
+    array-length v1, p1
 
-    invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+    invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 94
     :goto_0
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
 
-    invoke-virtual {v1, v0}, Ljava/io/DataOutputStream;->write([B)V
+    invoke-virtual {v0, p1}, Ljava/io/DataOutputStream;->write([B)V
+
+    const/4 p1, 0x1
 
     .line 95
-    const/4 v1, 0x1
+    iput-boolean p1, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->named:Z
 
-    iput-boolean v1, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->named:Z
-
-    .line 96
     return-object p0
 
     .line 82
-    .end local v0    # "bytes":[B
     :cond_2
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Current item must be an object."
+    const-string v0, "Current item must be an object."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public object()Lcom/badlogic/gdx/utils/UBJsonWriter;
@@ -407,13 +393,11 @@
 
     invoke-virtual {v0, v2}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 49
     return-object p0
 .end method
 
 .method public object(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -423,11 +407,10 @@
     .line 55
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->object()Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->object()Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    .line 56
     return-object p0
 .end method
 
@@ -439,9 +422,9 @@
         }
     .end annotation
 
-    .line 542
     const/4 v0, 0x0
 
+    .line 542
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->pop(Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
     move-result-object v0
@@ -450,8 +433,7 @@
 .end method
 
 .method protected pop(Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 2
-    .param p1, "silent"    # Z
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -463,69 +445,66 @@
 
     if-nez v0, :cond_2
 
-    .line 547
     if-eqz p1, :cond_0
 
     .line 548
-    iget-object v0, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->stack:Lcom/badlogic/gdx/utils/Array;
+    iget-object p1, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->stack:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->pop()Ljava/lang/Object;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/Array;->pop()Ljava/lang/Object;
 
     goto :goto_0
 
     .line 550
     :cond_0
-    iget-object v0, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->stack:Lcom/badlogic/gdx/utils/Array;
+    iget-object p1, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->stack:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->pop()Ljava/lang/Object;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/Array;->pop()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/badlogic/gdx/utils/UBJsonWriter$JsonObject;
+    check-cast p1, Lcom/badlogic/gdx/utils/UBJsonWriter$JsonObject;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/UBJsonWriter$JsonObject;->close()V
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/UBJsonWriter$JsonObject;->close()V
 
     .line 551
     :goto_0
-    iget-object v0, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->stack:Lcom/badlogic/gdx/utils/Array;
+    iget-object p1, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->stack:Lcom/badlogic/gdx/utils/Array;
 
-    iget v0, v0, Lcom/badlogic/gdx/utils/Array;->size:I
+    iget p1, p1, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    if-nez v0, :cond_1
+    if-nez p1, :cond_1
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_1
 
     :cond_1
-    iget-object v0, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->stack:Lcom/badlogic/gdx/utils/Array;
+    iget-object p1, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->stack:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->peek()Ljava/lang/Object;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/Array;->peek()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/badlogic/gdx/utils/UBJsonWriter$JsonObject;
+    check-cast p1, Lcom/badlogic/gdx/utils/UBJsonWriter$JsonObject;
 
     :goto_1
-    iput-object v0, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->current:Lcom/badlogic/gdx/utils/UBJsonWriter$JsonObject;
+    iput-object p1, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->current:Lcom/badlogic/gdx/utils/UBJsonWriter$JsonObject;
 
-    .line 552
     return-object p0
 
     .line 546
     :cond_2
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Expected an object, array, or value since a name was set."
+    const-string v0, "Expected an object, array, or value since a name was set."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public set(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -535,19 +514,17 @@
     .line 527
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value()Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value()Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public set(Ljava/lang/String;B)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # B
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -557,19 +534,17 @@
     .line 419
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(B)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(B)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public set(Ljava/lang/String;C)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # C
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -579,19 +554,17 @@
     .line 461
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(C)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(C)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public set(Ljava/lang/String;D)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # D
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -601,19 +574,17 @@
     .line 449
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2, p3}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(D)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p1, p2, p3}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(D)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public set(Ljava/lang/String;F)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # F
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -623,19 +594,17 @@
     .line 443
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(F)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(F)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public set(Ljava/lang/String;I)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -645,19 +614,17 @@
     .line 431
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(I)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(I)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public set(Ljava/lang/String;J)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # J
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -667,19 +634,17 @@
     .line 437
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2, p3}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(J)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p1, p2, p3}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(J)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public set(Ljava/lang/String;Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/String;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -689,19 +654,17 @@
     .line 467
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public set(Ljava/lang/String;S)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # S
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -711,19 +674,17 @@
     .line 425
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(S)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(S)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public set(Ljava/lang/String;Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -733,19 +694,17 @@
     .line 455
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public set(Ljava/lang/String;[B)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # [B
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -755,19 +714,17 @@
     .line 473
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value([B)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value([B)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public set(Ljava/lang/String;[C)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # [C
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -777,19 +734,17 @@
     .line 515
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value([C)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value([C)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public set(Ljava/lang/String;[D)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # [D
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -799,19 +754,17 @@
     .line 503
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value([D)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value([D)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public set(Ljava/lang/String;[F)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # [F
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -821,19 +774,17 @@
     .line 497
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value([F)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value([F)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public set(Ljava/lang/String;[I)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # [I
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -843,19 +794,17 @@
     .line 485
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value([I)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value([I)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public set(Ljava/lang/String;[J)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # [J
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -865,19 +814,17 @@
     .line 491
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value([J)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value([J)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public set(Ljava/lang/String;[Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # [Ljava/lang/String;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -887,19 +834,17 @@
     .line 521
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value([Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value([Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public set(Ljava/lang/String;[S)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # [S
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -909,19 +854,17 @@
     .line 479
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value([S)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value([S)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public set(Ljava/lang/String;[Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # [Z
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -931,13 +874,13 @@
     .line 509
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value([Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value([Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public value()Lcom/badlogic/gdx/utils/UBJsonWriter;
@@ -958,13 +901,11 @@
 
     invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->writeByte(I)V
 
-    .line 413
     return-object p0
 .end method
 
 .method public value(B)Lcom/badlogic/gdx/utils/UBJsonWriter;
     .locals 2
-    .param p1, "value"    # B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -986,13 +927,11 @@
 
     invoke-virtual {v0, p1}, Ljava/io/DataOutputStream;->writeByte(I)V
 
-    .line 105
     return-object p0
 .end method
 
 .method public value(C)Lcom/badlogic/gdx/utils/UBJsonWriter;
     .locals 2
-    .param p1, "value"    # C
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1014,13 +953,11 @@
 
     invoke-virtual {v0, p1}, Ljava/io/DataOutputStream;->writeChar(I)V
 
-    .line 170
     return-object p0
 .end method
 
 .method public value(D)Lcom/badlogic/gdx/utils/UBJsonWriter;
     .locals 2
-    .param p1, "value"    # D
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1042,13 +979,11 @@
 
     invoke-virtual {v0, p1, p2}, Ljava/io/DataOutputStream;->writeDouble(D)V
 
-    .line 151
     return-object p0
 .end method
 
 .method public value(F)Lcom/badlogic/gdx/utils/UBJsonWriter;
     .locals 2
-    .param p1, "value"    # F
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1070,13 +1005,11 @@
 
     invoke-virtual {v0, p1}, Ljava/io/DataOutputStream;->writeFloat(F)V
 
-    .line 141
     return-object p0
 .end method
 
 .method public value(I)Lcom/badlogic/gdx/utils/UBJsonWriter;
     .locals 2
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1098,13 +1031,11 @@
 
     invoke-virtual {v0, p1}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    .line 123
     return-object p0
 .end method
 
 .method public value(J)Lcom/badlogic/gdx/utils/UBJsonWriter;
     .locals 2
-    .param p1, "value"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1126,13 +1057,11 @@
 
     invoke-virtual {v0, p1, p2}, Ljava/io/DataOutputStream;->writeLong(J)V
 
-    .line 132
     return-object p0
 .end method
 
 .method public value(Lcom/badlogic/gdx/utils/JsonValue;)Lcom/badlogic/gdx/utils/UBJsonWriter;
     .locals 2
-    .param p1, "value"    # Lcom/badlogic/gdx/utils/JsonValue;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1164,22 +1093,20 @@
 
     .line 352
     :goto_0
-    iget-object v0, p1, Lcom/badlogic/gdx/utils/JsonValue;->child:Lcom/badlogic/gdx/utils/JsonValue;
+    iget-object p1, p1, Lcom/badlogic/gdx/utils/JsonValue;->child:Lcom/badlogic/gdx/utils/JsonValue;
 
-    .local v0, "child":Lcom/badlogic/gdx/utils/JsonValue;
     :goto_1
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 353
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(Lcom/badlogic/gdx/utils/JsonValue;)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(Lcom/badlogic/gdx/utils/JsonValue;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
     .line 352
-    iget-object v0, v0, Lcom/badlogic/gdx/utils/JsonValue;->next:Lcom/badlogic/gdx/utils/JsonValue;
+    iget-object p1, p1, Lcom/badlogic/gdx/utils/JsonValue;->next:Lcom/badlogic/gdx/utils/JsonValue;
 
     goto :goto_1
 
     .line 354
-    .end local v0    # "child":Lcom/badlogic/gdx/utils/JsonValue;
     :cond_1
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->pop()Lcom/badlogic/gdx/utils/UBJsonWriter;
 
@@ -1211,22 +1138,20 @@
 
     .line 360
     :goto_2
-    iget-object v0, p1, Lcom/badlogic/gdx/utils/JsonValue;->child:Lcom/badlogic/gdx/utils/JsonValue;
+    iget-object p1, p1, Lcom/badlogic/gdx/utils/JsonValue;->child:Lcom/badlogic/gdx/utils/JsonValue;
 
-    .restart local v0    # "child":Lcom/badlogic/gdx/utils/JsonValue;
     :goto_3
-    if-eqz v0, :cond_4
+    if-eqz p1, :cond_4
 
     .line 361
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(Lcom/badlogic/gdx/utils/JsonValue;)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(Lcom/badlogic/gdx/utils/JsonValue;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
     .line 360
-    iget-object v0, v0, Lcom/badlogic/gdx/utils/JsonValue;->next:Lcom/badlogic/gdx/utils/JsonValue;
+    iget-object p1, p1, Lcom/badlogic/gdx/utils/JsonValue;->next:Lcom/badlogic/gdx/utils/JsonValue;
 
     goto :goto_3
 
     .line 362
-    .end local v0    # "child":Lcom/badlogic/gdx/utils/JsonValue;
     :cond_4
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->pop()Lcom/badlogic/gdx/utils/UBJsonWriter;
 
@@ -1253,9 +1178,9 @@
     :cond_6
     invoke-virtual {p1}, Lcom/badlogic/gdx/utils/JsonValue;->asBoolean()Z
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
     goto :goto_4
 
@@ -1334,9 +1259,9 @@
     :cond_c
     invoke-virtual {p1}, Lcom/badlogic/gdx/utils/JsonValue;->asString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
     goto :goto_4
 
@@ -1353,47 +1278,44 @@
 
     if-eqz v0, :cond_e
 
-    iget-object v0, p1, Lcom/badlogic/gdx/utils/JsonValue;->name:Ljava/lang/String;
+    iget-object p1, p1, Lcom/badlogic/gdx/utils/JsonValue;->name:Ljava/lang/String;
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
     .line 377
     :cond_e
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value()Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    .line 381
     :goto_4
     return-object p0
 
     .line 379
     :cond_f
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "Unhandled JsonValue type"
+    const-string v0, "Unhandled JsonValue type"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public value(Ljava/lang/Object;)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 3
-    .param p1, "object"    # Ljava/lang/Object;
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 388
     if-nez p1, :cond_0
 
     .line 389
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value()Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 390
     :cond_0
@@ -1407,20 +1329,19 @@
     check-cast v0, Ljava/lang/Number;
 
     .line 392
-    .local v0, "number":Ljava/lang/Number;
     instance-of v1, p1, Ljava/lang/Byte;
 
     if-eqz v1, :cond_1
 
     invoke-virtual {v0}, Ljava/lang/Number;->byteValue()B
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {p0, v1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(B)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(B)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 393
     :cond_1
@@ -1430,13 +1351,13 @@
 
     invoke-virtual {v0}, Ljava/lang/Number;->shortValue()S
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {p0, v1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(S)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(S)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 394
     :cond_2
@@ -1446,13 +1367,13 @@
 
     invoke-virtual {v0}, Ljava/lang/Number;->intValue()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {p0, v1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(I)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(I)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 395
     :cond_3
@@ -1462,13 +1383,13 @@
 
     invoke-virtual {v0}, Ljava/lang/Number;->longValue()J
 
-    move-result-wide v1
+    move-result-wide v0
 
-    invoke-virtual {p0, v1, v2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(J)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p0, v0, v1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(J)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 396
     :cond_4
@@ -1478,36 +1399,31 @@
 
     invoke-virtual {v0}, Ljava/lang/Number;->floatValue()F
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {p0, v1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(F)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(F)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 397
     :cond_5
-    instance-of v1, p1, Ljava/lang/Double;
+    instance-of p1, p1, Ljava/lang/Double;
 
-    if-eqz v1, :cond_6
+    if-eqz p1, :cond_6
 
     invoke-virtual {v0}, Ljava/lang/Number;->doubleValue()D
 
-    move-result-wide v1
+    move-result-wide v0
 
-    invoke-virtual {p0, v1, v2}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(D)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p0, v0, v1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(D)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
-    .line 398
-    .end local v0    # "number":Ljava/lang/Number;
     :cond_6
-    nop
-
-    .line 405
     return-object p0
 
     .line 398
@@ -1517,19 +1433,17 @@
     if-eqz v0, :cond_8
 
     .line 399
-    move-object v0, p1
+    check-cast p1, Ljava/lang/Character;
 
-    check-cast v0, Ljava/lang/Character;
+    invoke-virtual {p1}, Ljava/lang/Character;->charValue()C
 
-    invoke-virtual {v0}, Ljava/lang/Character;->charValue()C
+    move-result p1
 
-    move-result v0
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(C)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(C)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 
     .line 400
     :cond_8
@@ -1540,28 +1454,27 @@
     .line 401
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 403
     :cond_9
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "Unknown object type."
+    const-string v0, "Unknown object type."
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public value(Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 3
-    .param p1, "value"    # Ljava/lang/String;
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1571,96 +1484,93 @@
     .line 176
     invoke-direct {p0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->checkName()V
 
-    .line 177
     const-string v0, "UTF-8"
 
+    .line 177
     invoke-virtual {p1, v0}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
-    move-result-object v0
+    move-result-object p1
 
     .line 178
-    .local v0, "bytes":[B
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
 
-    const/16 v2, 0x53
+    const/16 v1, 0x53
 
-    invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeByte(I)V
+    invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->writeByte(I)V
 
     .line 179
-    array-length v1, v0
+    array-length v0, p1
 
-    const/16 v2, 0x7f
+    const/16 v1, 0x7f
 
-    if-gt v1, v2, :cond_0
+    if-gt v0, v1, :cond_0
 
     .line 180
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
 
-    const/16 v2, 0x69
+    const/16 v1, 0x69
 
-    invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeByte(I)V
+    invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->writeByte(I)V
 
     .line 181
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
 
-    array-length v2, v0
+    array-length v1, p1
 
-    invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeByte(I)V
+    invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->writeByte(I)V
 
     goto :goto_0
 
     .line 182
     :cond_0
-    array-length v1, v0
+    array-length v0, p1
 
-    const/16 v2, 0x7fff
+    const/16 v1, 0x7fff
 
-    if-gt v1, v2, :cond_1
+    if-gt v0, v1, :cond_1
 
     .line 183
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
 
-    const/16 v2, 0x49
+    const/16 v1, 0x49
 
-    invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeByte(I)V
+    invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->writeByte(I)V
 
     .line 184
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
 
-    array-length v2, v0
+    array-length v1, p1
 
-    invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeShort(I)V
+    invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->writeShort(I)V
 
     goto :goto_0
 
     .line 186
     :cond_1
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
 
-    const/16 v2, 0x6c
+    const/16 v1, 0x6c
 
-    invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeByte(I)V
+    invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->writeByte(I)V
 
     .line 187
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
 
-    array-length v2, v0
+    array-length v1, p1
 
-    invoke-virtual {v1, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+    invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 189
     :goto_0
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
 
-    invoke-virtual {v1, v0}, Ljava/io/DataOutputStream;->write([B)V
+    invoke-virtual {v0, p1}, Ljava/io/DataOutputStream;->write([B)V
 
-    .line 190
     return-object p0
 .end method
 
 .method public value(S)Lcom/badlogic/gdx/utils/UBJsonWriter;
     .locals 2
-    .param p1, "value"    # S
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1682,13 +1592,11 @@
 
     invoke-virtual {v0, p1}, Ljava/io/DataOutputStream;->writeShort(I)V
 
-    .line 114
     return-object p0
 .end method
 
 .method public value(Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
-    .locals 2
-    .param p1, "value"    # Z
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1703,23 +1611,21 @@
 
     if-eqz p1, :cond_0
 
-    const/16 v1, 0x54
+    const/16 p1, 0x54
 
     goto :goto_0
 
     :cond_0
-    const/16 v1, 0x46
+    const/16 p1, 0x46
 
     :goto_0
-    invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->writeByte(I)V
+    invoke-virtual {v0, p1}, Ljava/io/DataOutputStream;->writeByte(I)V
 
-    .line 160
     return-object p0
 .end method
 
 .method public value([B)Lcom/badlogic/gdx/utils/UBJsonWriter;
     .locals 4
-    .param p1, "values"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1756,42 +1662,35 @@
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(I)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
     .line 202
-    const/4 v0, 0x0
+    array-length v0, p1
 
-    .local v0, "i":I
-    array-length v1, p1
+    const/4 v1, 0x0
 
-    .local v1, "n":I
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge v1, v0, :cond_0
 
     .line 203
     iget-object v2, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
 
-    aget-byte v3, p1, v0
+    aget-byte v3, p1, v1
 
     invoke-virtual {v2, v3}, Ljava/io/DataOutputStream;->writeByte(I)V
 
-    .line 202
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 205
-    .end local v0    # "i":I
-    .end local v1    # "n":I
     :cond_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->pop(Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    .line 205
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->pop(Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    .line 206
     return-object p0
 .end method
 
 .method public value([C)Lcom/badlogic/gdx/utils/UBJsonWriter;
     .locals 4
-    .param p1, "values"    # [C
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1828,42 +1727,35 @@
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(I)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
     .line 310
-    const/4 v0, 0x0
+    array-length v0, p1
 
-    .local v0, "i":I
-    array-length v1, p1
+    const/4 v1, 0x0
 
-    .local v1, "n":I
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge v1, v0, :cond_0
 
     .line 311
     iget-object v2, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
 
-    aget-char v3, p1, v0
+    aget-char v3, p1, v1
 
     invoke-virtual {v2, v3}, Ljava/io/DataOutputStream;->writeChar(I)V
 
-    .line 310
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 313
-    .end local v0    # "i":I
-    .end local v1    # "n":I
     :cond_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->pop(Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    .line 313
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->pop(Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    .line 314
     return-object p0
 .end method
 
 .method public value([D)Lcom/badlogic/gdx/utils/UBJsonWriter;
     .locals 5
-    .param p1, "values"    # [D
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1900,42 +1792,35 @@
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(I)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
     .line 283
-    const/4 v0, 0x0
+    array-length v0, p1
 
-    .local v0, "i":I
-    array-length v1, p1
+    const/4 v1, 0x0
 
-    .local v1, "n":I
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge v1, v0, :cond_0
 
     .line 284
     iget-object v2, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
 
-    aget-wide v3, p1, v0
+    aget-wide v3, p1, v1
 
     invoke-virtual {v2, v3, v4}, Ljava/io/DataOutputStream;->writeDouble(D)V
 
-    .line 283
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 286
-    .end local v0    # "i":I
-    .end local v1    # "n":I
     :cond_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->pop(Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    .line 286
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->pop(Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    .line 287
     return-object p0
 .end method
 
 .method public value([F)Lcom/badlogic/gdx/utils/UBJsonWriter;
     .locals 4
-    .param p1, "values"    # [F
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1972,42 +1857,35 @@
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(I)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
     .line 266
-    const/4 v0, 0x0
+    array-length v0, p1
 
-    .local v0, "i":I
-    array-length v1, p1
+    const/4 v1, 0x0
 
-    .local v1, "n":I
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge v1, v0, :cond_0
 
     .line 267
     iget-object v2, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
 
-    aget v3, p1, v0
+    aget v3, p1, v1
 
     invoke-virtual {v2, v3}, Ljava/io/DataOutputStream;->writeFloat(F)V
 
-    .line 266
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 269
-    .end local v0    # "i":I
-    .end local v1    # "n":I
     :cond_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->pop(Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    .line 269
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->pop(Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    .line 270
     return-object p0
 .end method
 
 .method public value([I)Lcom/badlogic/gdx/utils/UBJsonWriter;
     .locals 4
-    .param p1, "values"    # [I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2044,42 +1922,35 @@
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(I)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
     .line 234
-    const/4 v0, 0x0
+    array-length v0, p1
 
-    .local v0, "i":I
-    array-length v1, p1
+    const/4 v1, 0x0
 
-    .local v1, "n":I
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge v1, v0, :cond_0
 
     .line 235
     iget-object v2, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
 
-    aget v3, p1, v0
+    aget v3, p1, v1
 
     invoke-virtual {v2, v3}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    .line 234
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 237
-    .end local v0    # "i":I
-    .end local v1    # "n":I
     :cond_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->pop(Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    .line 237
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->pop(Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    .line 238
     return-object p0
 .end method
 
 .method public value([J)Lcom/badlogic/gdx/utils/UBJsonWriter;
     .locals 5
-    .param p1, "values"    # [J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2116,42 +1987,35 @@
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(I)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
     .line 250
-    const/4 v0, 0x0
+    array-length v0, p1
 
-    .local v0, "i":I
-    array-length v1, p1
+    const/4 v1, 0x0
 
-    .local v1, "n":I
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge v1, v0, :cond_0
 
     .line 251
     iget-object v2, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
 
-    aget-wide v3, p1, v0
+    aget-wide v3, p1, v1
 
     invoke-virtual {v2, v3, v4}, Ljava/io/DataOutputStream;->writeLong(J)V
 
-    .line 250
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 253
-    .end local v0    # "i":I
-    .end local v1    # "n":I
     :cond_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->pop(Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    .line 253
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->pop(Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    .line 254
     return-object p0
 .end method
 
 .method public value([Ljava/lang/String;)Lcom/badlogic/gdx/utils/UBJsonWriter;
     .locals 5
-    .param p1, "values"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2188,17 +2052,15 @@
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(I)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
     .line 326
-    const/4 v0, 0x0
+    array-length v0, p1
 
-    .local v0, "i":I
-    array-length v1, p1
+    const/4 v1, 0x0
 
-    .local v1, "n":I
     :goto_0
-    if-ge v0, v1, :cond_2
+    if-ge v1, v0, :cond_2
 
     .line 327
-    aget-object v2, p1, v0
+    aget-object v2, p1, v1
 
     const-string v3, "UTF-8"
 
@@ -2207,7 +2069,6 @@
     move-result-object v2
 
     .line 328
-    .local v2, "bytes":[B
     array-length v3, v2
 
     const/16 v4, 0x7f
@@ -2275,27 +2136,21 @@
 
     invoke-virtual {v3, v2}, Ljava/io/DataOutputStream;->write([B)V
 
-    .line 326
-    .end local v2    # "bytes":[B
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 340
-    .end local v0    # "i":I
-    .end local v1    # "n":I
     :cond_2
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->pop(Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    .line 340
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->pop(Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    .line 341
     return-object p0
 .end method
 
 .method public value([S)Lcom/badlogic/gdx/utils/UBJsonWriter;
     .locals 4
-    .param p1, "values"    # [S
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2332,42 +2187,35 @@
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->value(I)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
     .line 218
-    const/4 v0, 0x0
+    array-length v0, p1
 
-    .local v0, "i":I
-    array-length v1, p1
+    const/4 v1, 0x0
 
-    .local v1, "n":I
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge v1, v0, :cond_0
 
     .line 219
     iget-object v2, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
 
-    aget-short v3, p1, v0
+    aget-short v3, p1, v1
 
     invoke-virtual {v2, v3}, Ljava/io/DataOutputStream;->writeShort(I)V
 
-    .line 218
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 221
-    .end local v0    # "i":I
-    .end local v1    # "n":I
     :cond_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->pop(Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
+    .line 221
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/UBJsonWriter;->pop(Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    .line 222
     return-object p0
 .end method
 
 .method public value([Z)Lcom/badlogic/gdx/utils/UBJsonWriter;
     .locals 4
-    .param p1, "values"    # [Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2378,19 +2226,17 @@
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->array()Lcom/badlogic/gdx/utils/UBJsonWriter;
 
     .line 294
-    const/4 v0, 0x0
+    array-length v0, p1
 
-    .local v0, "i":I
-    array-length v1, p1
+    const/4 v1, 0x0
 
-    .local v1, "n":I
     :goto_0
-    if-ge v0, v1, :cond_1
+    if-ge v1, v0, :cond_1
 
     .line 295
     iget-object v2, p0, Lcom/badlogic/gdx/utils/UBJsonWriter;->out:Ljava/io/DataOutputStream;
 
-    aget-boolean v3, p1, v0
+    aget-boolean v3, p1, v1
 
     if-eqz v3, :cond_0
 
@@ -2404,17 +2250,13 @@
     :goto_1
     invoke-virtual {v2, v3}, Ljava/io/DataOutputStream;->writeByte(I)V
 
-    .line 294
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 297
-    .end local v0    # "i":I
-    .end local v1    # "n":I
     :cond_1
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/UBJsonWriter;->pop()Lcom/badlogic/gdx/utils/UBJsonWriter;
 
-    .line 298
     return-object p0
 .end method

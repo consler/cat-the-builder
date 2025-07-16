@@ -31,8 +31,7 @@
 
 # direct methods
 .method protected constructor <init>(Lorg/apache/commons/collections/map/AbstractHashedMap;)V
-    .locals 4
-    .param p1, "parent"    # Lorg/apache/commons/collections/map/AbstractHashedMap;
+    .locals 3
 
     .line 1094
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,23 +43,18 @@
     iget-object v0, p1, Lorg/apache/commons/collections/map/AbstractHashedMap;->data:[Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
 
     .line 1097
-    .local v0, "data":[Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
     array-length v1, v0
 
-    .line 1098
-    .local v1, "i":I
     const/4 v2, 0x0
 
-    .line 1099
-    .local v2, "next":Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
     :goto_0
     if-lez v1, :cond_0
 
     if-nez v2, :cond_0
 
-    .line 1100
     add-int/lit8 v1, v1, -0x1
 
+    .line 1100
     aget-object v2, v0, v1
 
     goto :goto_0
@@ -73,11 +67,10 @@
     iput v1, p0, Lorg/apache/commons/collections/map/AbstractHashedMap$HashIterator;->hashIndex:I
 
     .line 1104
-    iget v3, p1, Lorg/apache/commons/collections/map/AbstractHashedMap;->modCount:I
+    iget p1, p1, Lorg/apache/commons/collections/map/AbstractHashedMap;->modCount:I
 
-    iput v3, p0, Lorg/apache/commons/collections/map/AbstractHashedMap$HashIterator;->expectedModCount:I
+    iput p1, p0, Lorg/apache/commons/collections/map/AbstractHashedMap$HashIterator;->expectedModCount:I
 
-    .line 1105
     return-void
 .end method
 
@@ -126,8 +119,6 @@
     .line 1115
     iget-object v0, p0, Lorg/apache/commons/collections/map/AbstractHashedMap$HashIterator;->next:Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
 
-    .line 1116
-    .local v0, "newCurrent":Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
     if-eqz v0, :cond_1
 
     .line 1119
@@ -136,23 +127,19 @@
     iget-object v1, v1, Lorg/apache/commons/collections/map/AbstractHashedMap;->data:[Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
 
     .line 1120
-    .local v1, "data":[Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
     iget v2, p0, Lorg/apache/commons/collections/map/AbstractHashedMap$HashIterator;->hashIndex:I
 
     .line 1121
-    .local v2, "i":I
     iget-object v3, v0, Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;->next:Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
 
-    .line 1122
-    .local v3, "n":Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
     :goto_0
     if-nez v3, :cond_0
 
     if-lez v2, :cond_0
 
-    .line 1123
     add-int/lit8 v2, v2, -0x1
 
+    .line 1123
     aget-object v3, v1, v2
 
     goto :goto_0
@@ -167,24 +154,19 @@
     .line 1127
     iput-object v0, p0, Lorg/apache/commons/collections/map/AbstractHashedMap$HashIterator;->last:Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
 
-    .line 1128
     return-object v0
 
     .line 1117
-    .end local v1    # "data":[Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
-    .end local v2    # "i":I
-    .end local v3    # "n":Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
     :cond_1
-    new-instance v1, Ljava/util/NoSuchElementException;
+    new-instance v0, Ljava/util/NoSuchElementException;
 
-    const-string v2, "No next() entry in the iteration"
+    const-string v1, "No next() entry in the iteration"
 
-    invoke-direct {v1, v2}, Ljava/util/NoSuchElementException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/util/NoSuchElementException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 
     .line 1113
-    .end local v0    # "newCurrent":Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
     :cond_2
     new-instance v0, Ljava/util/ConcurrentModificationException;
 
@@ -221,9 +203,9 @@
 
     invoke-virtual {v0, v1}, Lorg/apache/commons/collections/map/AbstractHashedMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1143
     const/4 v0, 0x0
 
+    .line 1143
     iput-object v0, p0, Lorg/apache/commons/collections/map/AbstractHashedMap$HashIterator;->last:Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
 
     .line 1144
@@ -233,7 +215,6 @@
 
     iput v0, p0, Lorg/apache/commons/collections/map/AbstractHashedMap$HashIterator;->expectedModCount:I
 
-    .line 1145
     return-void
 
     .line 1140
@@ -266,11 +247,9 @@
     .line 1149
     new-instance v0, Ljava/lang/StringBuffer;
 
-    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
-
     const-string v1, "Iterator["
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
     iget-object v1, p0, Lorg/apache/commons/collections/map/AbstractHashedMap$HashIterator;->last:Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
 
@@ -280,9 +259,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
+    move-result-object v0
+
     const-string v1, "="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
 
     iget-object v1, p0, Lorg/apache/commons/collections/map/AbstractHashedMap$HashIterator;->last:Lorg/apache/commons/collections/map/AbstractHashedMap$HashEntry;
 
@@ -292,9 +275,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
+    move-result-object v0
+
     const-string v1, "]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
@@ -302,7 +289,6 @@
 
     return-object v0
 
-    .line 1151
     :cond_0
     const-string v0, "Iterator[]"
 

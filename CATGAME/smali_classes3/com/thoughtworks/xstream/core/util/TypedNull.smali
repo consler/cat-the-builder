@@ -10,7 +10,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
     .locals 0
-    .param p1, "type"    # Ljava/lang/Class;
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -18,7 +17,6 @@
     .line 26
     iput-object p1, p0, Lcom/thoughtworks/xstream/core/util/TypedNull;->type:Ljava/lang/Class;
 
-    .line 27
     return-void
 .end method
 

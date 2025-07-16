@@ -29,12 +29,11 @@
     .line 172
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/serializers/ImmutableSerializer;-><init>()V
 
-    .line 174
     const/4 v0, 0x1
 
+    .line 174
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$BigIntegerSerializer;->setAcceptsNull(Z)V
 
-    .line 175
     return-void
 .end method
 
@@ -52,9 +51,7 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/math/BigInteger;
-    .locals 6
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -68,153 +65,136 @@
         }
     .end annotation
 
+    const/4 p1, 0x1
+
     .line 195
-    .local p3, "type":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/math/BigInteger;>;"
-    const/4 v0, 0x1
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Input;->readVarInt(Z)I
 
-    invoke-virtual {p2, v0}, Lcom/esotericsoftware/kryo/io/Input;->readVarInt(Z)I
+    move-result v0
 
-    move-result v1
+    if-nez v0, :cond_0
 
-    .line 196
-    .local v1, "length":I
-    if-nez v1, :cond_0
+    const/4 p1, 0x0
 
-    const/4 v0, 0x0
+    return-object p1
 
-    return-object v0
+    :cond_0
+    add-int/lit8 v1, v0, -0x1
 
     .line 197
-    :cond_0
-    add-int/lit8 v2, v1, -0x1
+    invoke-virtual {p2, v1}, Lcom/esotericsoftware/kryo/io/Input;->readBytes(I)[B
 
-    invoke-virtual {p2, v2}, Lcom/esotericsoftware/kryo/io/Input;->readBytes(I)[B
-
-    move-result-object v2
+    move-result-object p2
 
     .line 198
-    .local v2, "bytes":[B
-    const-class v3, Ljava/math/BigInteger;
+    const-class v1, Ljava/math/BigInteger;
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    if-eq p3, v3, :cond_2
+    if-eq p3, v1, :cond_2
 
     if-eqz p3, :cond_2
 
-    .line 201
     :try_start_0
-    new-array v3, v0, [Ljava/lang/Class;
+    new-array v0, p1, [Ljava/lang/Class;
 
-    const-class v5, [B
+    .line 201
+    const-class v1, [B
 
-    aput-object v5, v3, v4
+    aput-object v1, v0, v2
 
-    invoke-virtual {p3, v3}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+    invoke-virtual {p3, v0}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
-    move-result-object v3
+    move-result-object p3
 
     .line 202
-    .local v3, "constructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<+Ljava/math/BigInteger;>;"
-    invoke-virtual {v3}, Ljava/lang/reflect/Constructor;->isAccessible()Z
+    invoke-virtual {p3}, Ljava/lang/reflect/Constructor;->isAccessible()Z
 
-    move-result v5
+    move-result v0
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
-    if-nez v5, :cond_1
+    if-nez v0, :cond_1
 
     .line 204
     :try_start_1
-    invoke-virtual {v3, v0}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
+    invoke-virtual {p3, p1}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
     :try_end_1
     .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 206
-    goto :goto_0
-
-    .line 205
     :catch_0
-    move-exception v5
+    :cond_1
+    :try_start_2
+    new-array p1, p1, [Ljava/lang/Object;
+
+    aput-object p2, p1, v2
 
     .line 208
-    :cond_1
-    :goto_0
-    :try_start_2
-    new-array v0, v0, [Ljava/lang/Object;
+    invoke-virtual {p3, p1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
-    aput-object v2, v0, v4
+    move-result-object p1
 
-    invoke-virtual {v3, v0}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/math/BigInteger;
+    check-cast p1, Ljava/math/BigInteger;
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
 
-    return-object v0
+    return-object p1
 
-    .line 209
-    .end local v3    # "constructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<+Ljava/math/BigInteger;>;"
     :catch_1
-    move-exception v0
+    move-exception p1
 
     .line 210
-    .local v0, "ex":Ljava/lang/Exception;
-    new-instance v3, Lcom/esotericsoftware/kryo/KryoException;
+    new-instance p2, Lcom/esotericsoftware/kryo/KryoException;
 
-    invoke-direct {v3, v0}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p2, p1}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v3
+    throw p2
 
-    .line 213
-    .end local v0    # "ex":Ljava/lang/Exception;
     :cond_2
-    const/4 v3, 0x2
+    const/4 p3, 0x2
 
-    if-ne v1, v3, :cond_6
+    if-ne v0, p3, :cond_6
 
     .line 215
-    aget-byte v3, v2, v4
+    aget-byte p3, p2, v2
 
-    if-eqz v3, :cond_5
+    if-eqz p3, :cond_5
 
-    if-eq v3, v0, :cond_4
+    if-eq p3, p1, :cond_4
 
-    const/16 v0, 0xa
+    const/16 p1, 0xa
 
-    if-eq v3, v0, :cond_3
+    if-eq p3, p1, :cond_3
 
-    goto :goto_1
+    goto :goto_0
 
     .line 221
     :cond_3
-    sget-object v0, Ljava/math/BigInteger;->TEN:Ljava/math/BigInteger;
+    sget-object p1, Ljava/math/BigInteger;->TEN:Ljava/math/BigInteger;
 
-    return-object v0
+    return-object p1
 
     .line 219
     :cond_4
-    sget-object v0, Ljava/math/BigInteger;->ONE:Ljava/math/BigInteger;
+    sget-object p1, Ljava/math/BigInteger;->ONE:Ljava/math/BigInteger;
 
-    return-object v0
+    return-object p1
 
     .line 217
     :cond_5
-    sget-object v0, Ljava/math/BigInteger;->ZERO:Ljava/math/BigInteger;
+    sget-object p1, Ljava/math/BigInteger;->ZERO:Ljava/math/BigInteger;
 
-    return-object v0
+    return-object p1
 
     .line 224
     :cond_6
-    :goto_1
-    new-instance v0, Ljava/math/BigInteger;
+    :goto_0
+    new-instance p1, Ljava/math/BigInteger;
 
-    invoke-direct {v0, v2}, Ljava/math/BigInteger;-><init>([B)V
+    invoke-direct {p1, p2}, Ljava/math/BigInteger;-><init>([B)V
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
@@ -229,58 +209,50 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/math/BigInteger;)V
-    .locals 3
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p3, "object"    # Ljava/math/BigInteger;
+    .locals 1
 
-    .line 178
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     if-nez p3, :cond_0
 
     .line 179
-    invoke-virtual {p2, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(B)V
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(B)V
 
-    .line 180
     return-void
 
     .line 183
     :cond_0
-    sget-object v1, Ljava/math/BigInteger;->ZERO:Ljava/math/BigInteger;
+    sget-object v0, Ljava/math/BigInteger;->ZERO:Ljava/math/BigInteger;
 
-    if-ne p3, v1, :cond_1
+    if-ne p3, v0, :cond_1
+
+    const/4 p3, 0x2
 
     .line 184
-    const/4 v1, 0x2
-
-    invoke-virtual {p2, v1}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(I)V
+    invoke-virtual {p2, p3}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(I)V
 
     .line 185
-    invoke-virtual {p2, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(I)V
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(I)V
 
-    .line 186
     return-void
 
     .line 189
     :cond_1
     invoke-virtual {p3}, Ljava/math/BigInteger;->toByteArray()[B
 
-    move-result-object v0
+    move-result-object p1
 
     .line 190
-    .local v0, "bytes":[B
-    array-length v1, v0
+    array-length p3, p1
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    add-int/2addr v1, v2
+    add-int/2addr p3, v0
 
-    invoke-virtual {p2, v1, v2}, Lcom/esotericsoftware/kryo/io/Output;->writeVarInt(IZ)I
+    invoke-virtual {p2, p3, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeVarInt(IZ)I
 
     .line 191
-    invoke-virtual {p2, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeBytes([B)V
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeBytes([B)V
 
-    .line 192
     return-void
 .end method

@@ -15,7 +15,6 @@
 
 .method public static createFrom(Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat;)Landroidx/camera/core/CameraUnavailableException;
     .locals 2
-    .param p0, "e"    # Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat;
 
     .line 39
     invoke-virtual {p0}, Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat;->getReason()I
@@ -24,19 +23,19 @@
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_5
+    if-eq v0, v1, :cond_1
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_4
+    if-eq v0, v1, :cond_1
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_3
+    if-eq v0, v1, :cond_1
 
     const/4 v1, 0x4
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_1
 
     const/4 v1, 0x5
 
@@ -46,71 +45,19 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 59
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    .local v0, "errorCode":I
     goto :goto_0
 
-    .line 56
-    .end local v0    # "errorCode":I
     :cond_0
-    const/4 v0, 0x6
-
-    .line 57
-    .restart local v0    # "errorCode":I
-    goto :goto_0
-
-    .line 53
-    .end local v0    # "errorCode":I
-    :cond_1
-    const/4 v0, 0x5
-
-    .line 54
-    .restart local v0    # "errorCode":I
-    goto :goto_0
-
-    .line 50
-    .end local v0    # "errorCode":I
-    :cond_2
-    const/4 v0, 0x4
-
-    .line 51
-    .restart local v0    # "errorCode":I
-    goto :goto_0
-
-    .line 47
-    .end local v0    # "errorCode":I
-    :cond_3
-    const/4 v0, 0x3
-
-    .line 48
-    .restart local v0    # "errorCode":I
-    goto :goto_0
-
-    .line 44
-    .end local v0    # "errorCode":I
-    :cond_4
-    const/4 v0, 0x2
-
-    .line 45
-    .restart local v0    # "errorCode":I
-    goto :goto_0
-
-    .line 41
-    .end local v0    # "errorCode":I
-    :cond_5
-    const/4 v0, 0x1
-
-    .line 42
-    .restart local v0    # "errorCode":I
-    nop
+    const/4 v1, 0x6
 
     .line 61
+    :cond_1
     :goto_0
-    new-instance v1, Landroidx/camera/core/CameraUnavailableException;
+    new-instance v0, Landroidx/camera/core/CameraUnavailableException;
 
-    invoke-direct {v1, v0, p0}, Landroidx/camera/core/CameraUnavailableException;-><init>(ILjava/lang/Throwable;)V
+    invoke-direct {v0, v1, p0}, Landroidx/camera/core/CameraUnavailableException;-><init>(ILjava/lang/Throwable;)V
 
-    return-object v1
+    return-object v0
 .end method

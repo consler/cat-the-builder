@@ -19,23 +19,20 @@
 # direct methods
 .method constructor <init>(IZ)V
     .locals 12
-    .param p1, "samplingRate"    # I
-    .param p2, "isMono"    # Z
 
     .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 33
     const/16 v0, 0x400
 
     new-array v0, v0, [S
 
+    .line 33
     iput-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidAudioDevice;->buffer:[S
 
     .line 42
     iput-boolean p2, p0, Lcom/badlogic/gdx/backends/android/AndroidAudioDevice;->isMono:Z
 
-    .line 43
     const/4 v0, 0x4
 
     const/16 v1, 0xc
@@ -52,12 +49,12 @@
     :goto_0
     const/4 v3, 0x2
 
+    .line 43
     invoke-static {p1, v2, v3}, Landroid/media/AudioTrack;->getMinBufferSize(III)I
 
     move-result v2
 
     .line 45
-    .local v2, "minSize":I
     new-instance v11, Landroid/media/AudioTrack;
 
     const/4 v5, 0x3
@@ -89,17 +86,16 @@
     .line 47
     invoke-virtual {v11}, Landroid/media/AudioTrack;->play()V
 
-    .line 48
     if-eqz p2, :cond_2
 
     const/4 v3, 0x1
 
+    .line 48
     :cond_2
-    div-int v0, v2, v3
+    div-int/2addr v2, v3
 
-    iput v0, p0, Lcom/badlogic/gdx/backends/android/AndroidAudioDevice;->latency:I
+    iput v2, p0, Lcom/badlogic/gdx/backends/android/AndroidAudioDevice;->latency:I
 
-    .line 49
     return-void
 .end method
 
@@ -118,7 +114,6 @@
 
     invoke-virtual {v0}, Landroid/media/AudioTrack;->release()V
 
-    .line 55
     return-void
 .end method
 
@@ -142,22 +137,17 @@
 
 .method public setVolume(F)V
     .locals 1
-    .param p1, "volume"    # F
 
     .line 94
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidAudioDevice;->track:Landroid/media/AudioTrack;
 
     invoke-virtual {v0, p1, p1}, Landroid/media/AudioTrack;->setStereoVolume(FF)I
 
-    .line 95
     return-void
 .end method
 
 .method public writeSamples([FII)V
     .locals 6
-    .param p1, "samples"    # [F
-    .param p2, "offset"    # I
-    .param p3, "numSamples"    # I
 
     .line 71
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidAudioDevice;->buffer:[S
@@ -174,113 +164,90 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidAudioDevice;->buffer:[S
 
-    .line 73
     :cond_0
     add-int v0, p2, p3
 
-    .line 74
-    .local v0, "bound":I
-    move v1, p2
+    const/4 v1, 0x0
 
-    .local v1, "i":I
-    const/4 v2, 0x0
+    move v2, v1
 
-    .local v2, "j":I
     :goto_0
-    if-ge v1, v0, :cond_3
+    if-ge p2, v0, :cond_3
 
     .line 75
-    aget v3, p1, v1
+    aget v3, p1, p2
 
-    .line 76
-    .local v3, "fValue":F
     const/high16 v4, 0x3f800000    # 1.0f
 
-    cmpl-float v4, v3, v4
+    cmpl-float v5, v3, v4
 
-    if-lez v4, :cond_1
+    if-lez v5, :cond_1
 
-    const/high16 v3, 0x3f800000    # 1.0f
+    move v3, v4
 
-    .line 77
     :cond_1
     const/high16 v4, -0x40800000    # -1.0f
 
-    cmpg-float v4, v3, v4
+    cmpg-float v5, v3, v4
 
-    if-gez v4, :cond_2
+    if-gez v5, :cond_2
 
-    const/high16 v3, -0x40800000    # -1.0f
+    move v3, v4
 
-    .line 78
     :cond_2
     const v4, 0x46fffe00    # 32767.0f
 
-    mul-float/2addr v4, v3
+    mul-float/2addr v3, v4
 
-    float-to-int v4, v4
+    float-to-int v3, v3
 
-    int-to-short v4, v4
+    int-to-short v3, v3
 
     .line 79
-    .local v4, "value":S
-    iget-object v5, p0, Lcom/badlogic/gdx/backends/android/AndroidAudioDevice;->buffer:[S
+    iget-object v4, p0, Lcom/badlogic/gdx/backends/android/AndroidAudioDevice;->buffer:[S
 
-    aput-short v4, v5, v2
+    aput-short v3, v4, v2
 
-    .line 74
-    .end local v3    # "fValue":F
-    .end local v4    # "value":S
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p2, p2, 0x1
 
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 82
-    .end local v1    # "i":I
-    .end local v2    # "j":I
     :cond_3
-    iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidAudioDevice;->track:Landroid/media/AudioTrack;
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidAudioDevice;->track:Landroid/media/AudioTrack;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidAudioDevice;->buffer:[S
+    iget-object p2, p0, Lcom/badlogic/gdx/backends/android/AndroidAudioDevice;->buffer:[S
 
-    const/4 v3, 0x0
+    invoke-virtual {p1, p2, v1, p3}, Landroid/media/AudioTrack;->write([SII)I
 
-    invoke-virtual {v1, v2, v3, p3}, Landroid/media/AudioTrack;->write([SII)I
+    move-result p1
 
-    move-result v1
-
-    .line 83
-    .local v1, "writtenSamples":I
     :goto_1
-    if-eq v1, p3, :cond_4
+    if-eq p1, p3, :cond_4
 
     .line 84
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidAudioDevice;->track:Landroid/media/AudioTrack;
+    iget-object p2, p0, Lcom/badlogic/gdx/backends/android/AndroidAudioDevice;->track:Landroid/media/AudioTrack;
 
-    iget-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidAudioDevice;->buffer:[S
+    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidAudioDevice;->buffer:[S
 
-    sub-int v4, p3, v1
+    sub-int v1, p3, p1
 
-    invoke-virtual {v2, v3, v1, v4}, Landroid/media/AudioTrack;->write([SII)I
+    invoke-virtual {p2, v0, p1, v1}, Landroid/media/AudioTrack;->write([SII)I
 
-    move-result v2
+    move-result p2
 
-    add-int/2addr v1, v2
+    add-int/2addr p1, p2
 
     goto :goto_1
 
-    .line 85
     :cond_4
     return-void
 .end method
 
 .method public writeSamples([SII)V
     .locals 4
-    .param p1, "samples"    # [S
-    .param p2, "offset"    # I
-    .param p3, "numSamples"    # I
 
     .line 64
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidAudioDevice;->track:Landroid/media/AudioTrack;
@@ -289,8 +256,6 @@
 
     move-result v0
 
-    .line 65
-    .local v0, "writtenSamples":I
     :goto_0
     if-eq v0, p3, :cond_0
 
@@ -309,7 +274,6 @@
 
     goto :goto_0
 
-    .line 67
     :cond_0
     return-void
 .end method

@@ -38,13 +38,11 @@
 
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
-    .line 193
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/proto/HkdfPrfParams$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/proto/HkdfPrfParams$1;
 
     .line 185
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/HkdfPrfParams$Builder;-><init>()V
@@ -67,7 +65,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/HkdfPrfParams;->access$300(Lcom/google/crypto/tink/proto/HkdfPrfParams;)V
 
-    .line 239
     return-object p0
 .end method
 
@@ -84,7 +81,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/HkdfPrfParams;->access$500(Lcom/google/crypto/tink/proto/HkdfPrfParams;)V
 
-    .line 282
     return-object p0
 .end method
 
@@ -135,7 +131,6 @@
 
 .method public setHash(Lcom/google/crypto/tink/proto/HashType;)Lcom/google/crypto/tink/proto/HkdfPrfParams$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/HashType;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -155,13 +150,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/HkdfPrfParams;->access$200(Lcom/google/crypto/tink/proto/HkdfPrfParams;Lcom/google/crypto/tink/proto/HashType;)V
 
-    .line 230
     return-object p0
 .end method
 
 .method public setHashValue(I)Lcom/google/crypto/tink/proto/HkdfPrfParams$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -181,13 +174,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/HkdfPrfParams;->access$100(Lcom/google/crypto/tink/proto/HkdfPrfParams;I)V
 
-    .line 212
     return-object p0
 .end method
 
 .method public setSalt(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/HkdfPrfParams$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -207,6 +198,5 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/HkdfPrfParams;->access$400(Lcom/google/crypto/tink/proto/HkdfPrfParams;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    .line 268
     return-object p0
 .end method

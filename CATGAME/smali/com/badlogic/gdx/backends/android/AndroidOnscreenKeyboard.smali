@@ -30,9 +30,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;Lcom/badlogic/gdx/backends/android/AndroidInput;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "handler"    # Landroid/os/Handler;
-    .param p3, "input"    # Lcom/badlogic/gdx/backends/android/AndroidInput;
 
     .line 59
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,28 +43,24 @@
     .line 62
     iput-object p3, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->input:Lcom/badlogic/gdx/backends/android/AndroidInput;
 
-    .line 63
     return-void
 .end method
 
 .method public static createView(Landroid/content/Context;)Landroid/widget/TextView;
     .locals 1
-    .param p0, "context"    # Landroid/content/Context;
 
     .line 87
     new-instance v0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard$1;
 
     invoke-direct {v0, p0}, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard$1;-><init>(Landroid/content/Context;)V
 
-    .line 118
-    .local v0, "view":Landroid/widget/TextView;
     return-object v0
 .end method
 
 
 # virtual methods
 .method createDialog()Landroid/app/Dialog;
-    .locals 6
+    .locals 4
 
     .line 66
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->context:Landroid/content/Context;
@@ -84,124 +77,111 @@
     .line 68
     new-instance v0, Landroid/widget/FrameLayout$LayoutParams;
 
-    const/4 v1, -0x1
+    const/4 v1, -0x2
 
-    const/4 v2, -0x2
+    const/16 v2, 0x50
 
-    const/16 v3, 0x50
+    const/4 v3, -0x1
 
-    invoke-direct {v0, v1, v2, v3}, Landroid/widget/FrameLayout$LayoutParams;-><init>(III)V
+    invoke-direct {v0, v3, v1, v2}, Landroid/widget/FrameLayout$LayoutParams;-><init>(III)V
 
     .line 70
-    .local v0, "textBoxLayoutParams":Landroid/widget/FrameLayout$LayoutParams;
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->textView:Landroid/widget/TextView;
+    iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->textView:Landroid/widget/TextView;
 
-    invoke-virtual {v2, v0}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 71
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->textView:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->textView:Landroid/widget/TextView;
 
-    const/4 v3, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setFocusable(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setFocusable(Z)V
 
     .line 72
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->textView:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->textView:Landroid/widget/TextView;
 
-    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setFocusableInTouchMode(Z)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setFocusableInTouchMode(Z)V
 
     .line 73
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->textView:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->textView:Landroid/widget/TextView;
 
-    invoke-virtual {v2}, Landroid/widget/TextView;->getImeOptions()I
+    invoke-virtual {v0}, Landroid/widget/TextView;->getImeOptions()I
 
-    move-result v3
+    move-result v1
 
-    const/high16 v4, 0x10000000
+    const/high16 v2, 0x10000000
 
-    or-int/2addr v3, v4
+    or-int/2addr v1, v2
 
-    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setImeOptions(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setImeOptions(I)V
 
     .line 75
-    new-instance v2, Landroid/widget/FrameLayout;
+    new-instance v0, Landroid/widget/FrameLayout;
 
-    iget-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->context:Landroid/content/Context;
+    iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->context:Landroid/content/Context;
 
-    invoke-direct {v2, v3}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
     .line 76
-    .local v2, "layout":Landroid/widget/FrameLayout;
-    new-instance v3, Landroid/view/ViewGroup$LayoutParams;
+    new-instance v1, Landroid/view/ViewGroup$LayoutParams;
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    invoke-direct {v3, v1, v4}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
-
-    move-object v1, v3
+    invoke-direct {v1, v3, v2}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
     .line 77
-    .local v1, "layoutParams":Landroid/view/ViewGroup$LayoutParams;
-    invoke-virtual {v2, v1}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 78
-    iget-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->textView:Landroid/widget/TextView;
+    iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->textView:Landroid/widget/TextView;
 
-    invoke-virtual {v2, v3}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
 
     .line 79
-    invoke-virtual {v2, p0}, Landroid/widget/FrameLayout;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+    invoke-virtual {v0, p0}, Landroid/widget/FrameLayout;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
     .line 81
-    new-instance v3, Landroid/app/Dialog;
+    new-instance v1, Landroid/app/Dialog;
 
-    iget-object v4, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->context:Landroid/content/Context;
+    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->context:Landroid/content/Context;
 
-    const v5, 0x1030011
+    const v3, 0x1030011
 
-    invoke-direct {v3, v4, v5}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V
+    invoke-direct {v1, v2, v3}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V
 
-    iput-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->dialog:Landroid/app/Dialog;
+    iput-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->dialog:Landroid/app/Dialog;
 
     .line 82
-    invoke-virtual {v3, v2}, Landroid/app/Dialog;->setContentView(Landroid/view/View;)V
+    invoke-virtual {v1, v0}, Landroid/app/Dialog;->setContentView(Landroid/view/View;)V
 
     .line 83
-    iget-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->dialog:Landroid/app/Dialog;
+    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->dialog:Landroid/app/Dialog;
 
-    return-object v3
+    return-object v0
 .end method
 
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
-    .locals 1
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "keycode"    # I
-    .param p3, "e"    # Landroid/view/KeyEvent;
+    .locals 0
 
-    .line 311
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 1
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "e"    # Landroid/view/MotionEvent;
+    .locals 0
 
-    .line 306
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public setVisible(Z)V
     .locals 2
-    .param p1, "visible"    # Z
 
-    .line 122
     if-eqz p1, :cond_0
 
+    .line 122
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->dialog:Landroid/app/Dialog;
 
     if-eqz v0, :cond_0
@@ -209,15 +189,15 @@
     .line 123
     invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 124
     const/4 v0, 0x0
 
+    .line 124
     iput-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->dialog:Landroid/app/Dialog;
 
-    .line 126
     :cond_0
     if-eqz p1, :cond_1
 
+    .line 126
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->dialog:Landroid/app/Dialog;
 
     if-nez v0, :cond_1
@@ -233,28 +213,27 @@
     if-nez v0, :cond_1
 
     .line 127
-    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->handler:Landroid/os/Handler;
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->handler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard$2;
+    new-instance v0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard$2;
 
-    invoke-direct {v1, p0}, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard$2;-><init>(Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;)V
+    invoke-direct {v0, p0}, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard$2;-><init>(Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;)V
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     goto :goto_0
 
-    .line 163
     :cond_1
     if-nez p1, :cond_2
 
-    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->dialog:Landroid/app/Dialog;
+    .line 163
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->dialog:Landroid/app/Dialog;
 
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
     .line 164
-    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
+    invoke-virtual {p1}, Landroid/app/Dialog;->dismiss()V
 
-    .line 167
     :cond_2
     :goto_0
     return-void

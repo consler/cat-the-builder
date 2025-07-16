@@ -385,13 +385,6 @@
         <item>@color/pocketpaint_color_picker_white</item>
         <item>@color/pocketpaint_color_picker_transparent</item>
     </array>
-    <string-array name="pocketpaint_main_text_tool_fonts">
-        <item>@string/text_tool_dialog_font_sans_serif</item>
-        <item>@string/text_tool_dialog_font_monospace</item>
-        <item>@string/text_tool_dialog_font_serif</item>
-        <item>@string/text_tool_dialog_font_dubai</item>
-        <item>@string/text_tool_dialog_font_arabic_stc</item>
-    </string-array>
     <string-array name="port_chooser">
         <item>@string/lego_port_1</item>
         <item>@string/lego_port_2</item>
@@ -413,5 +406,32 @@
         <item>0013</item>
         <item>a01041</item>
         <item>TODO</item>
+    </string-array>
+    <string-array name="state_listening">
+        <item>Listening…</item>
+    </string-array>
+    <string-array name="state_nonetwork">
+        <item>No Internet connection</item>
+        <item>Poor Internet connection</item>
+        <item>Check your network</item>
+        <item>Check your network settings</item>
+    </string-array>
+    <string-array name="state_nosound">
+        <item>Please say something</item>
+        <item>"Didn't catch that. Please try again."</item>
+        <item>Get a little closer and try again</item>
+        <item>Please speak into the mic</item>
+    </string-array>
+    <string-array name="state_nounderstand">
+        <item>"Sorry, I don't quite understand"</item>
+        <item>"Sorry, I didn't catch that"</item>
+        <item>"I didn't quite catch that"</item>
+        <item>"Sorry, I don't understand"</item>
+    </string-array>
+    <string-array name="state_service_unavailable">
+        <item>Service unavailable</item>
+    </string-array>
+    <string-array name="state_waiting">
+        <item>...</item>
     </string-array>
 </resources>

@@ -28,29 +28,29 @@
     .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 38
     const/16 v0, 0x2c
 
+    .line 38
     iput-char v0, p0, Lcom/opencsv/CSVParserBuilder;->separator:C
 
-    .line 39
     const/16 v0, 0x22
 
+    .line 39
     iput-char v0, p0, Lcom/opencsv/CSVParserBuilder;->quoteChar:C
 
-    .line 40
     const/16 v0, 0x5c
 
+    .line 40
     iput-char v0, p0, Lcom/opencsv/CSVParserBuilder;->escapeChar:C
 
-    .line 41
     const/4 v0, 0x0
 
+    .line 41
     iput-boolean v0, p0, Lcom/opencsv/CSVParserBuilder;->strictQuotes:Z
 
-    .line 42
     const/4 v1, 0x1
 
+    .line 42
     iput-boolean v1, p0, Lcom/opencsv/CSVParserBuilder;->ignoreLeadingWhiteSpace:Z
 
     .line 43
@@ -68,7 +68,6 @@
 
     iput-object v0, p0, Lcom/opencsv/CSVParserBuilder;->errorLocale:Ljava/util/Locale;
 
-    .line 52
     return-void
 .end method
 
@@ -168,7 +167,6 @@
 
 .method public withErrorLocale(Ljava/util/Locale;)Lcom/opencsv/CSVParserBuilder;
     .locals 1
-    .param p1, "errorLocale"    # Ljava/util/Locale;
 
     .line 210
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
@@ -177,89 +175,74 @@
 
     invoke-static {p1, v0}, Lorg/apache/commons/lang3/ObjectUtils;->defaultIfNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Locale;
+    check-cast p1, Ljava/util/Locale;
 
-    iput-object v0, p0, Lcom/opencsv/CSVParserBuilder;->errorLocale:Ljava/util/Locale;
+    iput-object p1, p0, Lcom/opencsv/CSVParserBuilder;->errorLocale:Ljava/util/Locale;
 
-    .line 211
     return-object p0
 .end method
 
 .method public withEscapeChar(C)Lcom/opencsv/CSVParserBuilder;
     .locals 0
-    .param p1, "escapeChar"    # C
 
     .line 88
     iput-char p1, p0, Lcom/opencsv/CSVParserBuilder;->escapeChar:C
 
-    .line 89
     return-object p0
 .end method
 
 .method public withFieldAsNull(Lcom/opencsv/enums/CSVReaderNullFieldIndicator;)Lcom/opencsv/CSVParserBuilder;
     .locals 0
-    .param p1, "fieldIndicator"    # Lcom/opencsv/enums/CSVReaderNullFieldIndicator;
 
     .line 198
     iput-object p1, p0, Lcom/opencsv/CSVParserBuilder;->nullFieldIndicator:Lcom/opencsv/enums/CSVReaderNullFieldIndicator;
 
-    .line 199
     return-object p0
 .end method
 
 .method public withIgnoreLeadingWhiteSpace(Z)Lcom/opencsv/CSVParserBuilder;
     .locals 0
-    .param p1, "ignoreLeadingWhiteSpace"    # Z
 
     .line 115
     iput-boolean p1, p0, Lcom/opencsv/CSVParserBuilder;->ignoreLeadingWhiteSpace:Z
 
-    .line 116
     return-object p0
 .end method
 
 .method public withIgnoreQuotations(Z)Lcom/opencsv/CSVParserBuilder;
     .locals 0
-    .param p1, "ignoreQuotations"    # Z
 
     .line 127
     iput-boolean p1, p0, Lcom/opencsv/CSVParserBuilder;->ignoreQuotations:Z
 
-    .line 128
     return-object p0
 .end method
 
 .method public withQuoteChar(C)Lcom/opencsv/CSVParserBuilder;
     .locals 0
-    .param p1, "quoteChar"    # C
 
     .line 75
     iput-char p1, p0, Lcom/opencsv/CSVParserBuilder;->quoteChar:C
 
-    .line 76
     return-object p0
 .end method
 
 .method public withSeparator(C)Lcom/opencsv/CSVParserBuilder;
     .locals 0
-    .param p1, "separator"    # C
 
     .line 62
     iput-char p1, p0, Lcom/opencsv/CSVParserBuilder;->separator:C
 
-    .line 63
     return-object p0
 .end method
 
 .method public withStrictQuotes(Z)Lcom/opencsv/CSVParserBuilder;
     .locals 0
-    .param p1, "strictQuotes"    # Z
 
     .line 102
     iput-boolean p1, p0, Lcom/opencsv/CSVParserBuilder;->strictQuotes:Z
 
-    .line 103
     return-object p0
 .end method

@@ -30,14 +30,12 @@
 
 .method public static millisToNanos(J)J
     .locals 2
-    .param p0, "millis"    # J
 
-    .line 45
     const-wide/32 v0, 0xf4240
 
-    mul-long/2addr v0, p0
+    mul-long/2addr p0, v0
 
-    return-wide v0
+    return-wide p0
 .end method
 
 .method public static nanoTime()J
@@ -53,19 +51,17 @@
 
 .method public static nanosToMillis(J)J
     .locals 2
-    .param p0, "nanos"    # J
 
-    .line 38
     const-wide/32 v0, 0xf4240
 
-    div-long v0, p0, v0
+    .line 38
+    div-long/2addr p0, v0
 
-    return-wide v0
+    return-wide p0
 .end method
 
 .method public static timeSinceMillis(J)J
     .locals 2
-    .param p0, "prevTime"    # J
 
     .line 59
     invoke-static {}, Lcom/badlogic/gdx/utils/TimeUtils;->millis()J
@@ -79,7 +75,6 @@
 
 .method public static timeSinceNanos(J)J
     .locals 2
-    .param p0, "prevTime"    # J
 
     .line 52
     invoke-static {}, Lcom/badlogic/gdx/utils/TimeUtils;->nanoTime()J

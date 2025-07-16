@@ -47,10 +47,6 @@
 # direct methods
 .method constructor <init>(Landroidx/room/RoomDatabase;Landroidx/room/InvalidationLiveDataContainer;ZLjava/util/concurrent/Callable;[Ljava/lang/String;)V
     .locals 2
-    .param p1, "database"    # Landroidx/room/RoomDatabase;
-    .param p2, "container"    # Landroidx/room/InvalidationLiveDataContainer;
-    .param p3, "inTransaction"    # Z
-    .param p5, "tableNames"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -82,8 +78,6 @@
     .end annotation
 
     .line 134
-    .local p0, "this":Landroidx/room/RoomTrackingLiveData;, "Landroidx/room/RoomTrackingLiveData<TT;>;"
-    .local p4, "computeFunction":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TT;>;"
     invoke-direct {p0}, Landroidx/lifecycle/LiveData;-><init>()V
 
     .line 62
@@ -138,20 +132,17 @@
     iput-object p2, p0, Landroidx/room/RoomTrackingLiveData;->mContainer:Landroidx/room/InvalidationLiveDataContainer;
 
     .line 139
-    new-instance v0, Landroidx/room/RoomTrackingLiveData$3;
+    new-instance p1, Landroidx/room/RoomTrackingLiveData$3;
 
-    invoke-direct {v0, p0, p5}, Landroidx/room/RoomTrackingLiveData$3;-><init>(Landroidx/room/RoomTrackingLiveData;[Ljava/lang/String;)V
+    invoke-direct {p1, p0, p5}, Landroidx/room/RoomTrackingLiveData$3;-><init>(Landroidx/room/RoomTrackingLiveData;[Ljava/lang/String;)V
 
-    iput-object v0, p0, Landroidx/room/RoomTrackingLiveData;->mObserver:Landroidx/room/InvalidationTracker$Observer;
+    iput-object p1, p0, Landroidx/room/RoomTrackingLiveData;->mObserver:Landroidx/room/InvalidationTracker$Observer;
 
-    .line 145
     return-void
 .end method
 
 .method static synthetic access$000(Landroidx/room/RoomTrackingLiveData;Ljava/lang/Object;)V
     .locals 0
-    .param p0, "x0"    # Landroidx/room/RoomTrackingLiveData;
-    .param p1, "x1"    # Ljava/lang/Object;
 
     .line 47
     invoke-virtual {p0, p1}, Landroidx/room/RoomTrackingLiveData;->postValue(Ljava/lang/Object;)V
@@ -165,7 +156,6 @@
     .locals 1
 
     .line 161
-    .local p0, "this":Landroidx/room/RoomTrackingLiveData;, "Landroidx/room/RoomTrackingLiveData<TT;>;"
     iget-boolean v0, p0, Landroidx/room/RoomTrackingLiveData;->mInTransaction:Z
 
     if-eqz v0, :cond_0
@@ -194,7 +184,6 @@
     .locals 2
 
     .line 149
-    .local p0, "this":Landroidx/room/RoomTrackingLiveData;, "Landroidx/room/RoomTrackingLiveData<TT;>;"
     invoke-super {p0}, Landroidx/lifecycle/LiveData;->onActive()V
 
     .line 150
@@ -211,7 +200,6 @@
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 152
     return-void
 .end method
 
@@ -219,7 +207,6 @@
     .locals 1
 
     .line 156
-    .local p0, "this":Landroidx/room/RoomTrackingLiveData;, "Landroidx/room/RoomTrackingLiveData<TT;>;"
     invoke-super {p0}, Landroidx/lifecycle/LiveData;->onInactive()V
 
     .line 157
@@ -227,6 +214,5 @@
 
     invoke-virtual {v0, p0}, Landroidx/room/InvalidationLiveDataContainer;->onInactive(Landroidx/lifecycle/LiveData;)V
 
-    .line 158
     return-void
 .end method

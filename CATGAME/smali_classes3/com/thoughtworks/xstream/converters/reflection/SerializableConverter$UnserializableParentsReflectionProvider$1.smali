@@ -15,7 +15,6 @@
 # direct methods
 .method constructor <init>(Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter$UnserializableParentsReflectionProvider;Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider$Visitor;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter$UnserializableParentsReflectionProvider;
 
     .line 478
     iput-object p1, p0, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter$UnserializableParentsReflectionProvider$1;->this$0:Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter$UnserializableParentsReflectionProvider;
@@ -31,10 +30,6 @@
 # virtual methods
 .method public visit(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Object;)V
     .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "type"    # Ljava/lang/Class;
-    .param p3, "definedIn"    # Ljava/lang/Class;
-    .param p4, "value"    # Ljava/lang/Object;
 
     .line 480
     sget-object v0, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter;->class$java$io$Serializable:Ljava/lang/Class;
@@ -66,7 +61,6 @@
 
     invoke-interface {v0, p1, p2, p3, p4}, Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider$Visitor;->visit(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Object;)V
 
-    .line 483
     :cond_1
     return-void
 .end method

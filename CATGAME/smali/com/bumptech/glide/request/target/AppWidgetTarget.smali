@@ -27,151 +27,123 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;IIILandroid/widget/RemoteViews;Landroid/content/ComponentName;)V
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
-    .param p4, "viewId"    # I
-    .param p5, "remoteViews"    # Landroid/widget/RemoteViews;
-    .param p6, "componentName"    # Landroid/content/ComponentName;
+    .locals 0
 
     .line 94
     invoke-direct {p0, p2, p3}, Lcom/bumptech/glide/request/target/CustomTarget;-><init>(II)V
 
+    const-string p2, "Context can not be null!"
+
     .line 95
-    const-string v0, "Context can not be null!"
+    invoke-static {p1, p2}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-static {p1, v0}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
+    check-cast p1, Landroid/content/Context;
 
-    check-cast v0, Landroid/content/Context;
+    iput-object p1, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->context:Landroid/content/Context;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->context:Landroid/content/Context;
-
-    .line 96
-    nop
+    const-string p1, "RemoteViews object can not be null!"
 
     .line 97
-    const-string v0, "RemoteViews object can not be null!"
+    invoke-static {p5, p1}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-static {p5, v0}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
+    check-cast p1, Landroid/widget/RemoteViews;
 
-    check-cast v0, Landroid/widget/RemoteViews;
+    iput-object p1, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->remoteViews:Landroid/widget/RemoteViews;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->remoteViews:Landroid/widget/RemoteViews;
-
-    .line 98
-    nop
+    const-string p1, "ComponentName can not be null!"
 
     .line 99
-    const-string v0, "ComponentName can not be null!"
+    invoke-static {p6, p1}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-static {p6, v0}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
+    check-cast p1, Landroid/content/ComponentName;
 
-    check-cast v0, Landroid/content/ComponentName;
-
-    iput-object v0, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->componentName:Landroid/content/ComponentName;
+    iput-object p1, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->componentName:Landroid/content/ComponentName;
 
     .line 100
     iput p4, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->viewId:I
 
+    const/4 p1, 0x0
+
     .line 101
-    const/4 v0, 0x0
+    iput-object p1, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->widgetIds:[I
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->widgetIds:[I
-
-    .line 102
     return-void
 .end method
 
 .method public varargs constructor <init>(Landroid/content/Context;IIILandroid/widget/RemoteViews;[I)V
-    .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
-    .param p4, "viewId"    # I
-    .param p5, "remoteViews"    # Landroid/widget/RemoteViews;
-    .param p6, "widgetIds"    # [I
+    .locals 0
 
     .line 50
     invoke-direct {p0, p2, p3}, Lcom/bumptech/glide/request/target/CustomTarget;-><init>(II)V
 
     .line 51
-    array-length v0, p6
+    array-length p2, p6
 
-    if-eqz v0, :cond_0
+    if-eqz p2, :cond_0
+
+    const-string p2, "Context can not be null!"
 
     .line 54
-    const-string v0, "Context can not be null!"
+    invoke-static {p1, p2}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-static {p1, v0}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
+    check-cast p1, Landroid/content/Context;
 
-    check-cast v0, Landroid/content/Context;
+    iput-object p1, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->context:Landroid/content/Context;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->context:Landroid/content/Context;
-
-    .line 55
-    nop
+    const-string p1, "RemoteViews object can not be null!"
 
     .line 56
-    const-string v0, "RemoteViews object can not be null!"
+    invoke-static {p5, p1}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-static {p5, v0}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
+    check-cast p1, Landroid/widget/RemoteViews;
 
-    check-cast v0, Landroid/widget/RemoteViews;
+    iput-object p1, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->remoteViews:Landroid/widget/RemoteViews;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->remoteViews:Landroid/widget/RemoteViews;
+    const-string p1, "WidgetIds can not be null!"
 
     .line 57
-    const-string v0, "WidgetIds can not be null!"
+    invoke-static {p6, p1}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-static {p6, v0}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
+    check-cast p1, [I
 
-    check-cast v0, [I
-
-    iput-object v0, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->widgetIds:[I
+    iput-object p1, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->widgetIds:[I
 
     .line 58
     iput p4, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->viewId:I
 
+    const/4 p1, 0x0
+
     .line 59
-    const/4 v0, 0x0
+    iput-object p1, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->componentName:Landroid/content/ComponentName;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->componentName:Landroid/content/ComponentName;
-
-    .line 60
     return-void
 
     .line 52
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "WidgetIds must have length > 0"
+    const-string p2, "WidgetIds must have length > 0"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public constructor <init>(Landroid/content/Context;ILandroid/widget/RemoteViews;Landroid/content/ComponentName;)V
     .locals 7
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "viewId"    # I
-    .param p3, "remoteViews"    # Landroid/widget/RemoteViews;
-    .param p4, "componentName"    # Landroid/content/ComponentName;
 
-    .line 115
     const/high16 v2, -0x80000000
 
     const/high16 v3, -0x80000000
@@ -186,20 +158,15 @@
 
     move-object v6, p4
 
+    .line 115
     invoke-direct/range {v0 .. v6}, Lcom/bumptech/glide/request/target/AppWidgetTarget;-><init>(Landroid/content/Context;IIILandroid/widget/RemoteViews;Landroid/content/ComponentName;)V
 
-    .line 116
     return-void
 .end method
 
 .method public varargs constructor <init>(Landroid/content/Context;ILandroid/widget/RemoteViews;[I)V
     .locals 7
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "viewId"    # I
-    .param p3, "remoteViews"    # Landroid/widget/RemoteViews;
-    .param p4, "widgetIds"    # [I
 
-    .line 72
     const/high16 v2, -0x80000000
 
     const/high16 v3, -0x80000000
@@ -214,15 +181,14 @@
 
     move-object v6, p4
 
+    .line 72
     invoke-direct/range {v0 .. v6}, Lcom/bumptech/glide/request/target/AppWidgetTarget;-><init>(Landroid/content/Context;IIILandroid/widget/RemoteViews;[I)V
 
-    .line 73
     return-void
 .end method
 
 .method private setBitmap(Landroid/graphics/Bitmap;)V
     .locals 2
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
     .line 140
     iget-object v0, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->remoteViews:Landroid/widget/RemoteViews;
@@ -234,7 +200,6 @@
     .line 141
     invoke-direct {p0}, Lcom/bumptech/glide/request/target/AppWidgetTarget;->update()V
 
-    .line 142
     return-void
 .end method
 
@@ -249,7 +214,6 @@
     move-result-object v0
 
     .line 121
-    .local v0, "appWidgetManager":Landroid/appwidget/AppWidgetManager;
     iget-object v1, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->componentName:Landroid/content/ComponentName;
 
     if-eqz v1, :cond_0
@@ -269,7 +233,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/appwidget/AppWidgetManager;->updateAppWidget([ILandroid/widget/RemoteViews;)V
 
-    .line 126
     :goto_0
     return-void
 .end method
@@ -277,21 +240,18 @@
 
 # virtual methods
 .method public onLoadCleared(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
-    .param p1, "placeholder"    # Landroid/graphics/drawable/Drawable;
+    .locals 0
+
+    const/4 p1, 0x0
 
     .line 136
-    const/4 v0, 0x0
+    invoke-direct {p0, p1}, Lcom/bumptech/glide/request/target/AppWidgetTarget;->setBitmap(Landroid/graphics/Bitmap;)V
 
-    invoke-direct {p0, v0}, Lcom/bumptech/glide/request/target/AppWidgetTarget;->setBitmap(Landroid/graphics/Bitmap;)V
-
-    .line 137
     return-void
 .end method
 
 .method public onResourceReady(Landroid/graphics/Bitmap;Lcom/bumptech/glide/request/transition/Transition;)V
     .locals 0
-    .param p1, "resource"    # Landroid/graphics/Bitmap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -304,10 +264,8 @@
     .end annotation
 
     .line 131
-    .local p2, "transition":Lcom/bumptech/glide/request/transition/Transition;, "Lcom/bumptech/glide/request/transition/Transition<-Landroid/graphics/Bitmap;>;"
     invoke-direct {p0, p1}, Lcom/bumptech/glide/request/target/AppWidgetTarget;->setBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 132
     return-void
 .end method
 

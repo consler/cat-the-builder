@@ -23,8 +23,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/path/Path;)V
     .locals 0
-    .param p1, "item"    # Ljava/lang/Object;
-    .param p2, "path"    # Lcom/thoughtworks/xstream/io/path/Path;
 
     .line 125
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,7 +33,6 @@
     .line 127
     iput-object p2, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceMarshaller$Id;->path:Lcom/thoughtworks/xstream/io/path/Path;
 
-    .line 128
     return-void
 .end method
 

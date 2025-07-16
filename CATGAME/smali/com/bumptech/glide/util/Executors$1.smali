@@ -46,13 +46,11 @@
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
     .locals 1
-    .param p1, "command"    # Ljava/lang/Runnable;
 
     .line 23
     iget-object v0, p0, Lcom/bumptech/glide/util/Executors$1;->handler:Landroid/os/Handler;
 
     invoke-virtual {v0, p1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 24
     return-void
 .end method

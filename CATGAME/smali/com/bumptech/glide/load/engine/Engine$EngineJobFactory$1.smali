@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;
 
     .line 545
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory$1;->this$0:Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;

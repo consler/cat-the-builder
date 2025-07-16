@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Collection;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -51,11 +51,8 @@
     .end annotation
 
     .line 53
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/LoopingIterator;, "Lorg/apache/commons/collections4/iterators/LoopingIterator<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<+TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 54
     if-eqz p1, :cond_0
 
     .line 57
@@ -64,18 +61,17 @@
     .line 58
     invoke-virtual {p0}, Lorg/apache/commons/collections4/iterators/LoopingIterator;->reset()V
 
-    .line 59
     return-void
 
     .line 55
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "The collection must not be null"
+    const-string v0, "The collection must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -84,7 +80,6 @@
     .locals 1
 
     .line 71
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/LoopingIterator;, "Lorg/apache/commons/collections4/iterators/LoopingIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/LoopingIterator;->collection:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->size()I
@@ -113,7 +108,6 @@
     .end annotation
 
     .line 85
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/LoopingIterator;, "Lorg/apache/commons/collections4/iterators/LoopingIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/LoopingIterator;->collection:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->size()I
@@ -159,12 +153,10 @@
     .locals 1
 
     .line 108
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/LoopingIterator;, "Lorg/apache/commons/collections4/iterators/LoopingIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/LoopingIterator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 109
     return-void
 .end method
 
@@ -172,7 +164,6 @@
     .locals 1
 
     .line 116
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/LoopingIterator;, "Lorg/apache/commons/collections4/iterators/LoopingIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/LoopingIterator;->collection:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
@@ -181,7 +172,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections4/iterators/LoopingIterator;->iterator:Ljava/util/Iterator;
 
-    .line 117
     return-void
 .end method
 
@@ -189,7 +179,6 @@
     .locals 1
 
     .line 125
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/LoopingIterator;, "Lorg/apache/commons/collections4/iterators/LoopingIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/LoopingIterator;->collection:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->size()I

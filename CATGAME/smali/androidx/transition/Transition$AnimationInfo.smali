@@ -29,11 +29,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/View;Ljava/lang/String;Landroidx/transition/Transition;Landroidx/transition/WindowIdImpl;Landroidx/transition/TransitionValues;)V
     .locals 0
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "name"    # Ljava/lang/String;
-    .param p3, "transition"    # Landroidx/transition/Transition;
-    .param p4, "windowId"    # Landroidx/transition/WindowIdImpl;
-    .param p5, "values"    # Landroidx/transition/TransitionValues;
 
     .line 2368
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,6 +48,5 @@
     .line 2373
     iput-object p3, p0, Landroidx/transition/Transition$AnimationInfo;->mTransition:Landroidx/transition/Transition;
 
-    .line 2374
     return-void
 .end method

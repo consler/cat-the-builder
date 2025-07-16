@@ -22,13 +22,11 @@
 
     invoke-direct {p0, v0}, Lorg/apache/commons/collections/bag/AbstractMapBag;-><init>(Ljava/util/Map;)V
 
-    .line 55
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Collection;)V
     .locals 0
-    .param p1, "coll"    # Ljava/util/Collection;
 
     .line 63
     invoke-direct {p0}, Lorg/apache/commons/collections/bag/HashBag;-><init>()V
@@ -36,13 +34,11 @@
     .line 64
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections/bag/HashBag;->addAll(Ljava/util/Collection;)Z
 
-    .line 65
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 1
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -60,13 +56,11 @@
 
     invoke-super {p0, v0, p1}, Lorg/apache/commons/collections/bag/AbstractMapBag;->doReadObject(Ljava/util/Map;Ljava/io/ObjectInputStream;)V
 
-    .line 82
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 0
-    .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -79,6 +73,5 @@
     .line 73
     invoke-super {p0, p1}, Lorg/apache/commons/collections/bag/AbstractMapBag;->doWriteObject(Ljava/io/ObjectOutputStream;)V
 
-    .line 74
     return-void
 .end method

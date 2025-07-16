@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/appcompat/view/menu/MenuPopupHelper;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/appcompat/view/menu/MenuPopupHelper;
 
     .line 334
     iput-object p1, p0, Landroidx/appcompat/view/menu/MenuPopupHelper$1;->this$0:Landroidx/appcompat/view/menu/MenuPopupHelper;
@@ -44,6 +43,5 @@
 
     invoke-virtual {v0}, Landroidx/appcompat/view/menu/MenuPopupHelper;->onDismiss()V
 
-    .line 338
     return-void
 .end method

@@ -52,14 +52,13 @@
     move-result-object v0
 
     .line 485
-    .local v0, "key":Ljava/lang/Object;
     iget-object v1, p0, Lorg/apache/commons/collections/BeanMap$10;->this$0:Lorg/apache/commons/collections/BeanMap;
 
     invoke-virtual {v1, v0}, Lorg/apache/commons/collections/BeanMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public remove()V

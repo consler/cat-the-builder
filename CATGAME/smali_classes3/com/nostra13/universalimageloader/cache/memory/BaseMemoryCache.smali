@@ -51,7 +51,6 @@
 
     invoke-interface {v0}, Ljava/util/Map;->clear()V
 
-    .line 67
     return-void
 .end method
 
@@ -69,38 +68,33 @@
 .end method
 
 .method public get(Ljava/lang/String;)Landroid/graphics/Bitmap;
-    .locals 3
-    .param p1, "key"    # Ljava/lang/String;
-
-    .line 37
-    const/4 v0, 0x0
+    .locals 1
 
     .line 38
-    .local v0, "result":Landroid/graphics/Bitmap;
-    iget-object v1, p0, Lcom/nostra13/universalimageloader/cache/memory/BaseMemoryCache;->softMap:Ljava/util/Map;
+    iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/memory/BaseMemoryCache;->softMap:Ljava/util/Map;
 
-    invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Ljava/lang/ref/Reference;
+    check-cast p1, Ljava/lang/ref/Reference;
 
-    .line 39
-    .local v1, "reference":Ljava/lang/ref/Reference;, "Ljava/lang/ref/Reference<Landroid/graphics/Bitmap;>;"
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
     .line 40
-    invoke-virtual {v1}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    move-object v0, v2
+    check-cast p1, Landroid/graphics/Bitmap;
 
-    check-cast v0, Landroid/graphics/Bitmap;
+    goto :goto_0
 
-    .line 42
     :cond_0
-    return-object v0
+    const/4 p1, 0x0
+
+    :goto_0
+    return-object p1
 .end method
 
 .method public keys()Ljava/util/Collection;
@@ -135,10 +129,10 @@
 
     return-object v1
 
-    .line 61
     :catchall_0
     move-exception v1
 
+    .line 61
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -147,53 +141,48 @@
 .end method
 
 .method public put(Ljava/lang/String;Landroid/graphics/Bitmap;)Z
-    .locals 2
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "value"    # Landroid/graphics/Bitmap;
+    .locals 1
 
     .line 47
     iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/memory/BaseMemoryCache;->softMap:Ljava/util/Map;
 
     invoke-virtual {p0, p2}, Lcom/nostra13/universalimageloader/cache/memory/BaseMemoryCache;->createReference(Landroid/graphics/Bitmap;)Ljava/lang/ref/Reference;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 48
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public remove(Ljava/lang/String;)Landroid/graphics/Bitmap;
-    .locals 2
-    .param p1, "key"    # Ljava/lang/String;
+    .locals 1
 
     .line 53
     iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/memory/BaseMemoryCache;->softMap:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/lang/ref/Reference;
+    check-cast p1, Ljava/lang/ref/Reference;
 
-    .line 54
-    .local v0, "bmpRef":Ljava/lang/ref/Reference;, "Ljava/lang/ref/Reference<Landroid/graphics/Bitmap;>;"
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
+    .line 54
     :cond_0
-    invoke-virtual {v0}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Landroid/graphics/Bitmap;
+    check-cast p1, Landroid/graphics/Bitmap;
 
     :goto_0
-    return-object v1
+    return-object p1
 .end method

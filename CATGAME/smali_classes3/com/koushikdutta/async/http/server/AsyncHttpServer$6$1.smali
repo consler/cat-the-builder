@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/server/AsyncHttpServer$6;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/koushikdutta/async/http/server/AsyncHttpServer$6;
 
     .line 474
     iput-object p1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$6$1;->this$1:Lcom/koushikdutta/async/http/server/AsyncHttpServer$6;
@@ -46,24 +45,22 @@
 
 # virtual methods
 .method public compare(Ljava/io/File;Ljava/io/File;)I
-    .locals 2
-    .param p1, "lhs"    # Ljava/io/File;
-    .param p2, "rhs"    # Ljava/io/File;
+    .locals 0
 
     .line 477
     invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
     invoke-virtual {p2}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
+    invoke-virtual {p1, p2}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I

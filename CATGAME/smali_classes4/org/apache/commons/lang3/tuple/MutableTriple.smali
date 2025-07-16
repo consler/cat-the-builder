@@ -57,10 +57,8 @@
     .locals 0
 
     .line 64
-    .local p0, "this":Lorg/apache/commons/lang3/tuple/MutableTriple;, "Lorg/apache/commons/lang3/tuple/MutableTriple<TL;TM;TR;>;"
     invoke-direct {p0}, Lorg/apache/commons/lang3/tuple/Triple;-><init>()V
 
-    .line 65
     return-void
 .end method
 
@@ -75,10 +73,6 @@
     .end annotation
 
     .line 75
-    .local p0, "this":Lorg/apache/commons/lang3/tuple/MutableTriple;, "Lorg/apache/commons/lang3/tuple/MutableTriple<TL;TM;TR;>;"
-    .local p1, "left":Ljava/lang/Object;, "TL;"
-    .local p2, "middle":Ljava/lang/Object;, "TM;"
-    .local p3, "right":Ljava/lang/Object;, "TR;"
     invoke-direct {p0}, Lorg/apache/commons/lang3/tuple/Triple;-><init>()V
 
     .line 76
@@ -90,7 +84,6 @@
     .line 78
     iput-object p3, p0, Lorg/apache/commons/lang3/tuple/MutableTriple;->right:Ljava/lang/Object;
 
-    .line 79
     return-void
 .end method
 
@@ -115,9 +108,6 @@
     .end annotation
 
     .line 57
-    .local p0, "left":Ljava/lang/Object;, "TL;"
-    .local p1, "middle":Ljava/lang/Object;, "TM;"
-    .local p2, "right":Ljava/lang/Object;, "TR;"
     new-instance v0, Lorg/apache/commons/lang3/tuple/MutableTriple;
 
     invoke-direct {v0, p0, p1, p2}, Lorg/apache/commons/lang3/tuple/MutableTriple;-><init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
@@ -137,7 +127,6 @@
     .end annotation
 
     .line 87
-    .local p0, "this":Lorg/apache/commons/lang3/tuple/MutableTriple;, "Lorg/apache/commons/lang3/tuple/MutableTriple<TL;TM;TR;>;"
     iget-object v0, p0, Lorg/apache/commons/lang3/tuple/MutableTriple;->left:Ljava/lang/Object;
 
     return-object v0
@@ -152,7 +141,6 @@
     .end annotation
 
     .line 104
-    .local p0, "this":Lorg/apache/commons/lang3/tuple/MutableTriple;, "Lorg/apache/commons/lang3/tuple/MutableTriple<TL;TM;TR;>;"
     iget-object v0, p0, Lorg/apache/commons/lang3/tuple/MutableTriple;->middle:Ljava/lang/Object;
 
     return-object v0
@@ -167,7 +155,6 @@
     .end annotation
 
     .line 121
-    .local p0, "this":Lorg/apache/commons/lang3/tuple/MutableTriple;, "Lorg/apache/commons/lang3/tuple/MutableTriple<TL;TM;TR;>;"
     iget-object v0, p0, Lorg/apache/commons/lang3/tuple/MutableTriple;->right:Ljava/lang/Object;
 
     return-object v0
@@ -184,11 +171,8 @@
     .end annotation
 
     .line 96
-    .local p0, "this":Lorg/apache/commons/lang3/tuple/MutableTriple;, "Lorg/apache/commons/lang3/tuple/MutableTriple<TL;TM;TR;>;"
-    .local p1, "left":Ljava/lang/Object;, "TL;"
     iput-object p1, p0, Lorg/apache/commons/lang3/tuple/MutableTriple;->left:Ljava/lang/Object;
 
-    .line 97
     return-void
 .end method
 
@@ -201,11 +185,8 @@
     .end annotation
 
     .line 113
-    .local p0, "this":Lorg/apache/commons/lang3/tuple/MutableTriple;, "Lorg/apache/commons/lang3/tuple/MutableTriple<TL;TM;TR;>;"
-    .local p1, "middle":Ljava/lang/Object;, "TM;"
     iput-object p1, p0, Lorg/apache/commons/lang3/tuple/MutableTriple;->middle:Ljava/lang/Object;
 
-    .line 114
     return-void
 .end method
 
@@ -218,10 +199,7 @@
     .end annotation
 
     .line 130
-    .local p0, "this":Lorg/apache/commons/lang3/tuple/MutableTriple;, "Lorg/apache/commons/lang3/tuple/MutableTriple<TL;TM;TR;>;"
-    .local p1, "right":Ljava/lang/Object;, "TR;"
     iput-object p1, p0, Lorg/apache/commons/lang3/tuple/MutableTriple;->right:Ljava/lang/Object;
 
-    .line 131
     return-void
 .end method

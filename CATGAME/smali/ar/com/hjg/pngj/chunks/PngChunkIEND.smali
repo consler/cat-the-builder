@@ -10,14 +10,12 @@
 # direct methods
 .method public constructor <init>(Lar/com/hjg/pngj/ImageInfo;)V
     .locals 1
-    .param p1, "info"    # Lar/com/hjg/pngj/ImageInfo;
 
-    .line 16
     const-string v0, "IEND"
 
+    .line 16
     invoke-direct {p0, v0, p1}, Lar/com/hjg/pngj/chunks/PngChunkSingle;-><init>(Ljava/lang/String;Lar/com/hjg/pngj/ImageInfo;)V
 
-    .line 17
     return-void
 .end method
 
@@ -29,14 +27,12 @@
     .line 26
     new-instance v0, Lar/com/hjg/pngj/chunks/ChunkRaw;
 
-    sget-object v1, Lar/com/hjg/pngj/chunks/ChunkHelper;->b_IEND:[B
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    sget-object v2, Lar/com/hjg/pngj/chunks/ChunkHelper;->b_IEND:[B
 
-    invoke-direct {v0, v2, v1, v2}, Lar/com/hjg/pngj/chunks/ChunkRaw;-><init>(I[BZ)V
+    invoke-direct {v0, v1, v2, v1}, Lar/com/hjg/pngj/chunks/ChunkRaw;-><init>(I[BZ)V
 
-    .line 27
-    .local v0, "c":Lar/com/hjg/pngj/chunks/ChunkRaw;
     return-object v0
 .end method
 
@@ -51,8 +47,6 @@
 
 .method public parseFromRaw(Lar/com/hjg/pngj/chunks/ChunkRaw;)V
     .locals 0
-    .param p1, "c"    # Lar/com/hjg/pngj/chunks/ChunkRaw;
 
-    .line 33
     return-void
 .end method

@@ -44,7 +44,6 @@
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/Executor;Lretrofit2/Call;)V
     .locals 0
-    .param p1, "callbackExecutor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -55,8 +54,6 @@
     .end annotation
 
     .line 69
-    .local p0, "this":Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;, "Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall<TT;>;"
-    .local p2, "delegate":Lretrofit2/Call;, "Lretrofit2/Call<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 70
@@ -65,7 +62,6 @@
     .line 71
     iput-object p2, p0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->delegate:Lretrofit2/Call;
 
-    .line 72
     return-void
 .end method
 
@@ -75,12 +71,10 @@
     .locals 1
 
     .line 113
-    .local p0, "this":Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;, "Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall<TT;>;"
     iget-object v0, p0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->delegate:Lretrofit2/Call;
 
     invoke-interface {v0}, Lretrofit2/Call;->cancel()V
 
-    .line 114
     return-void
 .end method
 
@@ -93,7 +87,6 @@
     .end annotation
 
     .line 65
-    .local p0, "this":Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;, "Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall<TT;>;"
     invoke-virtual {p0}, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->clone()Lretrofit2/Call;
 
     move-result-object v0
@@ -112,7 +105,6 @@
     .end annotation
 
     .line 124
-    .local p0, "this":Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;, "Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall<TT;>;"
     new-instance v0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;
 
     iget-object v1, p0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->callbackExecutor:Ljava/util/concurrent/Executor;
@@ -138,11 +130,9 @@
         }
     .end annotation
 
-    .line 76
-    .local p0, "this":Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;, "Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall<TT;>;"
-    .local p1, "callback":Lretrofit2/Callback;, "Lretrofit2/Callback<TT;>;"
     const-string v0, "callback == null"
 
+    .line 76
     invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 78
@@ -154,7 +144,6 @@
 
     invoke-interface {v0, v1}, Lretrofit2/Call;->enqueue(Lretrofit2/Callback;)V
 
-    .line 99
     return-void
 .end method
 
@@ -175,7 +164,6 @@
     .end annotation
 
     .line 108
-    .local p0, "this":Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;, "Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall<TT;>;"
     iget-object v0, p0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->delegate:Lretrofit2/Call;
 
     invoke-interface {v0}, Lretrofit2/Call;->execute()Lretrofit2/Response;
@@ -189,7 +177,6 @@
     .locals 1
 
     .line 118
-    .local p0, "this":Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;, "Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall<TT;>;"
     iget-object v0, p0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->delegate:Lretrofit2/Call;
 
     invoke-interface {v0}, Lretrofit2/Call;->isCanceled()Z
@@ -203,7 +190,6 @@
     .locals 1
 
     .line 103
-    .local p0, "this":Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;, "Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall<TT;>;"
     iget-object v0, p0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->delegate:Lretrofit2/Call;
 
     invoke-interface {v0}, Lretrofit2/Call;->isExecuted()Z
@@ -217,7 +203,6 @@
     .locals 1
 
     .line 129
-    .local p0, "this":Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;, "Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall<TT;>;"
     iget-object v0, p0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->delegate:Lretrofit2/Call;
 
     invoke-interface {v0}, Lretrofit2/Call;->request()Lokhttp3/Request;
@@ -231,7 +216,6 @@
     .locals 1
 
     .line 134
-    .local p0, "this":Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;, "Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall<TT;>;"
     iget-object v0, p0, Lretrofit2/DefaultCallAdapterFactory$ExecutorCallbackCall;->delegate:Lretrofit2/Call;
 
     invoke-interface {v0}, Lretrofit2/Call;->timeout()Lokio/Timeout;

@@ -67,20 +67,18 @@
     .line 56
     invoke-static {}, Lcom/badlogic/gdx/utils/GdxNativesLoader;->load()V
 
-    .line 57
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaperService;)V
     .locals 2
-    .param p1, "service"    # Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaperService;
 
     .line 75
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 68
     const/4 v0, 0x1
 
+    .line 68
     iput-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->firstResume:Z
 
     .line 69
@@ -106,15 +104,14 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->lifecycleListeners:Lcom/badlogic/gdx/utils/SnapshotArray;
 
-    .line 72
     const/4 v0, 0x2
 
+    .line 72
     iput v0, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->logLevel:I
 
     .line 76
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->service:Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaperService;
 
-    .line 77
     return-void
 .end method
 
@@ -122,7 +119,6 @@
 # virtual methods
 .method public addLifecycleListener(Lcom/badlogic/gdx/LifecycleListener;)V
     .locals 2
-    .param p1, "listener"    # Lcom/badlogic/gdx/LifecycleListener;
 
     .line 321
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->lifecycleListeners:Lcom/badlogic/gdx/utils/SnapshotArray;
@@ -138,24 +134,20 @@
     .line 323
     monitor-exit v0
 
-    .line 324
     return-void
 
-    .line 323
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public debug(Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
-    .param p1, "tag"    # Ljava/lang/String;
-    .param p2, "message"    # Ljava/lang/String;
 
     .line 266
     iget v0, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->logLevel:I
@@ -170,16 +162,12 @@
 
     invoke-interface {v0, p1, p2}, Lcom/badlogic/gdx/ApplicationLogger;->debug(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 267
     :cond_0
     return-void
 .end method
 
 .method public debug(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "tag"    # Ljava/lang/String;
-    .param p2, "message"    # Ljava/lang/String;
-    .param p3, "exception"    # Ljava/lang/Throwable;
 
     .line 271
     iget v0, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->logLevel:I
@@ -194,15 +182,12 @@
 
     invoke-interface {v0, p1, p2, p3}, Lcom/badlogic/gdx/ApplicationLogger;->debug(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 272
     :cond_0
     return-void
 .end method
 
 .method public error(Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
-    .param p1, "tag"    # Ljava/lang/String;
-    .param p2, "message"    # Ljava/lang/String;
 
     .line 286
     iget v0, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->logLevel:I
@@ -217,16 +202,12 @@
 
     invoke-interface {v0, p1, p2}, Lcom/badlogic/gdx/ApplicationLogger;->error(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 287
     :cond_0
     return-void
 .end method
 
 .method public error(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "tag"    # Ljava/lang/String;
-    .param p2, "message"    # Ljava/lang/String;
-    .param p3, "exception"    # Ljava/lang/Throwable;
 
     .line 291
     iget v0, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->logLevel:I
@@ -241,7 +222,6 @@
 
     invoke-interface {v0, p1, p2, p3}, Lcom/badlogic/gdx/ApplicationLogger;->error(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 292
     :cond_0
     return-void
 .end method
@@ -249,7 +229,6 @@
 .method public exit()V
     .locals 0
 
-    .line 317
     return-void
 .end method
 
@@ -448,7 +427,6 @@
 
 .method public getPreferences(Ljava/lang/String;)Lcom/badlogic/gdx/Preferences;
     .locals 3
-    .param p1, "name"    # Ljava/lang/String;
 
     .line 256
     new-instance v0, Lcom/badlogic/gdx/backends/android/AndroidPreferences;
@@ -459,9 +437,9 @@
 
     invoke-virtual {v1, p1, v2}, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaperService;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/backends/android/AndroidPreferences;-><init>(Landroid/content/SharedPreferences;)V
+    invoke-direct {v0, p1}, Lcom/badlogic/gdx/backends/android/AndroidPreferences;-><init>(Landroid/content/SharedPreferences;)V
 
     return-object v0
 .end method
@@ -525,8 +503,6 @@
 
 .method public initialize(Lcom/badlogic/gdx/ApplicationListener;Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;)V
     .locals 3
-    .param p1, "listener"    # Lcom/badlogic/gdx/ApplicationListener;
-    .param p2, "config"    # Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;
 
     .line 80
     invoke-virtual {p0}, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->getVersion()I
@@ -636,62 +612,59 @@
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->listener:Lcom/badlogic/gdx/ApplicationListener;
 
     .line 99
-    new-instance v0, Lcom/badlogic/gdx/backends/android/AndroidClipboard;
+    new-instance p1, Lcom/badlogic/gdx/backends/android/AndroidClipboard;
 
     invoke-virtual {p0}, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->getService()Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaperService;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/backends/android/AndroidClipboard;-><init>(Landroid/content/Context;)V
+    invoke-direct {p1, p2}, Lcom/badlogic/gdx/backends/android/AndroidClipboard;-><init>(Landroid/content/Context;)V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->clipboard:Lcom/badlogic/gdx/backends/android/AndroidClipboard;
+    iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->clipboard:Lcom/badlogic/gdx/backends/android/AndroidClipboard;
 
     .line 104
     sput-object p0, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
 
     .line 105
-    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->input:Lcom/badlogic/gdx/backends/android/AndroidInput;
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->input:Lcom/badlogic/gdx/backends/android/AndroidInput;
 
-    sput-object v0, Lcom/badlogic/gdx/Gdx;->input:Lcom/badlogic/gdx/Input;
+    sput-object p1, Lcom/badlogic/gdx/Gdx;->input:Lcom/badlogic/gdx/Input;
 
     .line 106
-    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->audio:Lcom/badlogic/gdx/backends/android/AndroidAudio;
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->audio:Lcom/badlogic/gdx/backends/android/AndroidAudio;
 
-    sput-object v0, Lcom/badlogic/gdx/Gdx;->audio:Lcom/badlogic/gdx/Audio;
+    sput-object p1, Lcom/badlogic/gdx/Gdx;->audio:Lcom/badlogic/gdx/Audio;
 
     .line 107
-    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->files:Lcom/badlogic/gdx/backends/android/AndroidFiles;
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->files:Lcom/badlogic/gdx/backends/android/AndroidFiles;
 
-    sput-object v0, Lcom/badlogic/gdx/Gdx;->files:Lcom/badlogic/gdx/Files;
+    sput-object p1, Lcom/badlogic/gdx/Gdx;->files:Lcom/badlogic/gdx/Files;
 
     .line 108
-    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->graphics:Lcom/badlogic/gdx/backends/android/AndroidGraphicsLiveWallpaper;
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->graphics:Lcom/badlogic/gdx/backends/android/AndroidGraphicsLiveWallpaper;
 
-    sput-object v0, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
+    sput-object p1, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
 
     .line 109
-    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->net:Lcom/badlogic/gdx/backends/android/AndroidNet;
+    iget-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->net:Lcom/badlogic/gdx/backends/android/AndroidNet;
 
-    sput-object v0, Lcom/badlogic/gdx/Gdx;->net:Lcom/badlogic/gdx/Net;
+    sput-object p1, Lcom/badlogic/gdx/Gdx;->net:Lcom/badlogic/gdx/Net;
 
-    .line 110
     return-void
 
     .line 81
     :cond_1
-    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v1, "LibGDX requires Android API Level 9 or later."
+    const-string p2, "LibGDX requires Android API Level 9 or later."
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public log(Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
-    .param p1, "tag"    # Ljava/lang/String;
-    .param p2, "message"    # Ljava/lang/String;
 
     .line 276
     iget v0, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->logLevel:I
@@ -706,16 +679,12 @@
 
     invoke-interface {v0, p1, p2}, Lcom/badlogic/gdx/ApplicationLogger;->log(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 277
     :cond_0
     return-void
 .end method
 
 .method public log(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "tag"    # Ljava/lang/String;
-    .param p2, "message"    # Ljava/lang/String;
-    .param p3, "exception"    # Ljava/lang/Throwable;
 
     .line 281
     iget v0, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->logLevel:I
@@ -730,7 +699,6 @@
 
     invoke-interface {v0, p1, p2, p3}, Lcom/badlogic/gdx/ApplicationLogger;->log(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 282
     :cond_0
     return-void
 .end method
@@ -755,7 +723,6 @@
     .line 184
     invoke-virtual {v0}, Lcom/badlogic/gdx/backends/android/AndroidAudio;->dispose()V
 
-    .line 186
     :cond_1
     return-void
 .end method
@@ -803,7 +770,6 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 141
     :cond_2
     return-void
 .end method
@@ -870,20 +836,18 @@
 
     goto :goto_0
 
-    .line 161
     :cond_1
     const/4 v0, 0x0
 
+    .line 161
     iput-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->firstResume:Z
 
-    .line 162
     :goto_0
     return-void
 .end method
 
 .method public postRunnable(Ljava/lang/Runnable;)V
     .locals 2
-    .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 204
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->runnables:Lcom/badlogic/gdx/utils/Array;
@@ -899,23 +863,20 @@
     .line 206
     monitor-exit v0
 
-    .line 207
     return-void
 
-    .line 206
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public removeLifecycleListener(Lcom/badlogic/gdx/LifecycleListener;)V
     .locals 3
-    .param p1, "listener"    # Lcom/badlogic/gdx/LifecycleListener;
 
     .line 328
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->lifecycleListeners:Lcom/badlogic/gdx/utils/SnapshotArray;
@@ -933,23 +894,20 @@
     .line 330
     monitor-exit v0
 
-    .line 331
     return-void
 
-    .line 330
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public runOnUiThread(Ljava/lang/Runnable;)V
     .locals 2
-    .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 370
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
@@ -979,54 +937,46 @@
     :cond_0
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
 
-    .line 379
     :goto_0
     return-void
 .end method
 
 .method public setApplicationLogger(Lcom/badlogic/gdx/ApplicationLogger;)V
     .locals 0
-    .param p1, "applicationLogger"    # Lcom/badlogic/gdx/ApplicationLogger;
 
     .line 306
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->applicationLogger:Lcom/badlogic/gdx/ApplicationLogger;
 
-    .line 307
     return-void
 .end method
 
 .method public setLogLevel(I)V
     .locals 0
-    .param p1, "logLevel"    # I
 
     .line 296
     iput p1, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->logLevel:I
 
-    .line 297
     return-void
 .end method
 
 .method public startActivity(Landroid/content/Intent;)V
     .locals 1
-    .param p1, "intent"    # Landroid/content/Intent;
 
     .line 355
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaper;->service:Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaperService;
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/backends/android/AndroidLiveWallpaperService;->startActivity(Landroid/content/Intent;)V
 
-    .line 356
     return-void
 .end method
 
 .method public useImmersiveMode(Z)V
-    .locals 1
-    .param p1, "b"    # Z
+    .locals 0
 
     .line 383
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method

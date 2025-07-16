@@ -29,7 +29,6 @@
 # direct methods
 .method constructor <init>(Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;Ljava/lang/Class;)V
     .locals 0
-    .param p2, "definedIn"    # Ljava/lang/Class;
 
     .line 164
     iput-object p1, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->this$0:Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
@@ -60,20 +59,16 @@
     .line 165
     iput-object p2, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->definedIn:Ljava/lang/Class;
 
-    .line 166
     return-void
 .end method
 
 .method private getImplicitCollectionDefByItemFieldName(Ljava/lang/String;)Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;
-    .locals 4
-    .param p1, "itemFieldName"    # Ljava/lang/String;
+    .locals 3
 
-    .line 212
     const/4 v0, 0x0
 
     if-nez p1, :cond_0
 
-    .line 213
     return-object v0
 
     .line 215
@@ -86,32 +81,28 @@
 
     check-cast v1, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;
 
-    .line 216
-    .local v1, "mapping":Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;
     if-eqz v1, :cond_1
 
-    .line 217
     return-object v1
 
     .line 219
     :cond_1
-    iget-object v2, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->this$0:Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
+    iget-object v1, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->this$0:Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
 
-    iget-object v3, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->definedIn:Ljava/lang/Class;
+    iget-object v2, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->definedIn:Ljava/lang/Class;
 
-    invoke-virtual {v3}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
-
-    move-result-object v3
-
-    invoke-static {v2, v3, v0}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->access$000(Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;Ljava/lang/Class;Ljava/lang/String;)Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;
+    invoke-virtual {v2}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
 
     move-result-object v2
 
-    .line 220
-    .local v2, "mapper":Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;
-    if-eqz v2, :cond_2
+    invoke-static {v1, v2, v0}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->access$000(Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;Ljava/lang/Class;Ljava/lang/String;)Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;
 
-    invoke-direct {v2, p1}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->getImplicitCollectionDefByItemFieldName(Ljava/lang/String;)Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;
+    move-result-object v1
+
+    if-eqz v1, :cond_2
+
+    .line 220
+    invoke-direct {v1, p1}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->getImplicitCollectionDefByItemFieldName(Ljava/lang/String;)Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;
 
     move-result-object v0
 
@@ -123,7 +114,6 @@
 # virtual methods
 .method public add(Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;)V
     .locals 2
-    .param p1, "def"    # Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;
 
     .line 236
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->fieldNameToDef:Ljava/util/Map;
@@ -159,179 +149,164 @@
 
     invoke-interface {v0, v1, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 241
     :cond_0
     return-void
 .end method
 
 .method public getFieldNameForItemTypeAndName(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
     .locals 6
-    .param p1, "itemType"    # Ljava/lang/Class;
-    .param p2, "itemFieldName"    # Ljava/lang/String;
-
-    .line 169
-    const/4 v0, 0x0
 
     .line 170
-    .local v0, "unnamed":Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;
-    iget-object v1, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->namedItemTypeToDef:Ljava/util/Map;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->namedItemTypeToDef:Ljava/util/Map;
 
-    invoke-interface {v1}, Ljava/util/Map;->keySet()Ljava/util/Set;
+    invoke-interface {v0}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v0
 
-    .local v1, "iterator":Ljava/util/Iterator;
+    const/4 v1, 0x0
+
+    move-object v2, v1
+
+    :cond_0
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_5
+    if-eqz v3, :cond_5
 
     .line 171
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;
-
-    .line 172
-    .local v2, "itemTypeForFieldName":Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;
-    iget-object v3, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->namedItemTypeToDef:Ljava/util/Map;
-
-    .line 173
-    invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
-    check-cast v3, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;
+    check-cast v3, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;
+
+    .line 172
+    iget-object v4, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->namedItemTypeToDef:Ljava/util/Map;
+
+    .line 173
+    invoke-interface {v4, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;
 
     .line 174
-    .local v3, "def":Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;
-    sget-object v4, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->class$com$thoughtworks$xstream$mapper$Mapper$Null:Ljava/lang/Class;
+    sget-object v5, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->class$com$thoughtworks$xstream$mapper$Mapper$Null:Ljava/lang/Class;
 
-    if-nez v4, :cond_0
+    if-nez v5, :cond_1
 
-    const-string v4, "com.thoughtworks.xstream.mapper.Mapper$Null"
+    const-string v5, "com.thoughtworks.xstream.mapper.Mapper$Null"
 
-    invoke-static {v4}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->class$(Ljava/lang/String;)Ljava/lang/Class;
-
-    move-result-object v4
-
-    sput-object v4, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->class$com$thoughtworks$xstream$mapper$Mapper$Null:Ljava/lang/Class;
-
-    goto :goto_1
-
-    :cond_0
-    sget-object v4, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->class$com$thoughtworks$xstream$mapper$Mapper$Null:Ljava/lang/Class;
-
-    :goto_1
-    if-ne p1, v4, :cond_1
-
-    .line 175
-    move-object v0, v3
-
-    .line 176
-    goto :goto_2
-
-    .line 177
-    :cond_1
-    iget-object v4, v2, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;->itemType:Ljava/lang/Class;
-
-    invoke-virtual {v4, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    .line 178
-    invoke-virtual {v3}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;->getItemFieldName()Ljava/lang/String;
-
-    move-result-object v4
-
-    if-eqz v4, :cond_2
-
-    .line 179
-    invoke-virtual {v3}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;->getItemFieldName()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v4, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    .line 180
-    invoke-virtual {v3}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;->getFieldName()Ljava/lang/String;
-
-    move-result-object v4
-
-    return-object v4
-
-    .line 183
-    :cond_2
-    if-eqz v0, :cond_3
-
-    .line 184
-    invoke-virtual {v0}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;->getItemType()Ljava/lang/Class;
-
-    move-result-object v4
-
-    if-eqz v4, :cond_3
-
-    .line 185
-    invoke-virtual {v3}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;->getItemType()Ljava/lang/Class;
-
-    move-result-object v4
-
-    if-eqz v4, :cond_4
-
-    .line 186
-    invoke-virtual {v0}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;->getItemType()Ljava/lang/Class;
-
-    move-result-object v4
-
-    invoke-virtual {v3}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;->getItemType()Ljava/lang/Class;
+    invoke-static {v5}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->class$(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v5
 
-    invoke-virtual {v4, v5}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    sput-object v5, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->class$com$thoughtworks$xstream$mapper$Mapper$Null:Ljava/lang/Class;
 
-    move-result v4
+    goto :goto_1
 
-    if-eqz v4, :cond_4
+    :cond_1
+    sget-object v5, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->class$com$thoughtworks$xstream$mapper$Mapper$Null:Ljava/lang/Class;
 
-    .line 187
+    :goto_1
+    if-ne p1, v5, :cond_2
+
+    move-object v2, v4
+
+    goto :goto_2
+
+    .line 177
+    :cond_2
+    iget-object v3, v3, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;->itemType:Ljava/lang/Class;
+
+    invoke-virtual {v3, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    .line 178
+    invoke-virtual {v4}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;->getItemFieldName()Ljava/lang/String;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_3
+
+    .line 179
+    invoke-virtual {v4}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;->getItemFieldName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    .line 180
+    invoke-virtual {v4}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;->getFieldName()Ljava/lang/String;
+
+    move-result-object p1
+
+    return-object p1
+
     :cond_3
-    move-object v0, v3
+    if-eqz v2, :cond_4
 
-    .line 191
-    .end local v2    # "itemTypeForFieldName":Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;
-    .end local v3    # "def":Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;
+    .line 184
+    invoke-virtual {v2}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;->getItemType()Ljava/lang/Class;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_4
+
+    .line 185
+    invoke-virtual {v4}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;->getItemType()Ljava/lang/Class;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_0
+
+    .line 186
+    invoke-virtual {v2}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;->getItemType()Ljava/lang/Class;
+
+    move-result-object v3
+
+    invoke-virtual {v4}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;->getItemType()Ljava/lang/Class;
+
+    move-result-object v5
+
+    invoke-virtual {v3, v5}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
     :cond_4
+    move-object v2, v4
+
     goto :goto_0
 
-    .line 192
-    .end local v1    # "iterator":Ljava/util/Iterator;
     :cond_5
     :goto_2
-    if-eqz v0, :cond_6
+    if-eqz v2, :cond_6
 
     .line 193
-    invoke-virtual {v0}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;->getFieldName()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;->getFieldName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 195
     :cond_6
-    iget-object v1, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->this$0:Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->this$0:Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
 
     iget-object v2, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->definedIn:Ljava/lang/Class;
 
@@ -339,27 +314,23 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    invoke-static {v0, v2, v1}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->access$000(Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;Ljava/lang/Class;Ljava/lang/String;)Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;
 
-    invoke-static {v1, v2, v3}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->access$000(Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;Ljava/lang/Class;Ljava/lang/String;)Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;
+    move-result-object v0
+
+    if-eqz v0, :cond_7
+
+    .line 196
+    invoke-virtual {v0, p1, p2}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->getFieldNameForItemTypeAndName(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 196
-    .local v1, "mapper":Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;
-    if-eqz v1, :cond_7
-
-    invoke-virtual {v1, p1, p2}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->getFieldNameForItemTypeAndName(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
     :cond_7
-    return-object v3
+    return-object v1
 .end method
 
 .method public getImplicitCollectionDefForFieldName(Ljava/lang/String;)Lcom/thoughtworks/xstream/mapper/Mapper$ImplicitCollectionMapping;
-    .locals 4
-    .param p1, "fieldName"    # Ljava/lang/String;
+    .locals 3
 
     .line 226
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->fieldNameToDef:Ljava/util/Map;
@@ -370,85 +341,77 @@
 
     check-cast v0, Lcom/thoughtworks/xstream/mapper/Mapper$ImplicitCollectionMapping;
 
-    .line 227
-    .local v0, "mapping":Lcom/thoughtworks/xstream/mapper/Mapper$ImplicitCollectionMapping;
     if-eqz v0, :cond_0
 
-    .line 228
     return-object v0
 
     .line 230
     :cond_0
-    iget-object v1, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->this$0:Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->this$0:Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
 
-    iget-object v2, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->definedIn:Ljava/lang/Class;
+    iget-object v1, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->definedIn:Ljava/lang/Class;
 
-    invoke-virtual {v2}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    invoke-static {v1, v2, v3}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->access$000(Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;Ljava/lang/Class;Ljava/lang/String;)Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;
+    invoke-virtual {v1}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
 
     move-result-object v1
 
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->access$000(Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;Ljava/lang/Class;Ljava/lang/String;)Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
     .line 231
-    .local v1, "mapper":Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;
-    if-eqz v1, :cond_1
+    invoke-virtual {v0, p1}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->getImplicitCollectionDefForFieldName(Ljava/lang/String;)Lcom/thoughtworks/xstream/mapper/Mapper$ImplicitCollectionMapping;
 
-    invoke-virtual {v1, p1}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->getImplicitCollectionDefForFieldName(Ljava/lang/String;)Lcom/thoughtworks/xstream/mapper/Mapper$ImplicitCollectionMapping;
-
-    move-result-object v3
+    move-result-object v2
 
     :cond_1
-    return-object v3
+    return-object v2
 .end method
 
 .method public getItemTypeForItemFieldName(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 4
-    .param p1, "itemFieldName"    # Ljava/lang/String;
+    .locals 3
 
     .line 201
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->getImplicitCollectionDefByItemFieldName(Ljava/lang/String;)Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;
 
     move-result-object v0
 
-    .line 202
-    .local v0, "def":Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;
     if-eqz v0, :cond_0
 
     .line 203
     invoke-virtual {v0}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;->getItemType()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 205
     :cond_0
-    iget-object v1, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->this$0:Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->this$0:Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
 
-    iget-object v2, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->definedIn:Ljava/lang/Class;
+    iget-object v1, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->definedIn:Ljava/lang/Class;
 
-    invoke-virtual {v2}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    invoke-static {v1, v2, v3}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->access$000(Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;Ljava/lang/Class;Ljava/lang/String;)Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;
+    invoke-virtual {v1}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
 
     move-result-object v1
 
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->access$000(Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;Ljava/lang/Class;Ljava/lang/String;)Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
     .line 206
-    .local v1, "mapper":Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;
-    if-eqz v1, :cond_1
+    invoke-virtual {v0, p1}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->getItemTypeForItemFieldName(Ljava/lang/String;)Ljava/lang/Class;
 
-    invoke-virtual {v1, p1}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMapperForClass;->getItemTypeForItemFieldName(Ljava/lang/String;)Ljava/lang/Class;
-
-    move-result-object v3
+    move-result-object v2
 
     :cond_1
-    return-object v3
+    return-object v2
 .end method

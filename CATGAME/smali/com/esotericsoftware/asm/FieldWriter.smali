@@ -726,11 +726,11 @@
 
     iget-object v1, p0, Lcom/esotericsoftware/asm/FieldWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
+    const/4 v2, 0x1
+
     iget p2, v4, Lcom/esotericsoftware/asm/ByteVector;->b:I
 
     add-int/lit8 v5, p2, -0x2
-
-    const/4 v2, 0x1
 
     move-object v0, p1
 

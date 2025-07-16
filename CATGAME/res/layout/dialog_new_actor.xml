@@ -8,13 +8,14 @@
         </TableRow>
         <TableRow android:layout_width="fill_parent" android:layout_height="fill_parent">
             <TextView android:textSize="?medium" android:gravity="center" android:id="@id/dialog_new_look_gallery" android:background="@drawable/new_object_dialog_selector" android:text="@string/add_look_choose_image" app:drawableTopCompat="@drawable/ic_gallery" />
-            <TextView android:textSize="?medium" android:gravity="center" android:id="@id/dialog_new_look_object_library" android:background="@drawable/new_object_dialog_selector" android:text="@string/add_look_object_library" app:drawableTopCompat="@drawable/ic_apps_white" />
-        </TableRow>
-        <TableRow android:layout_width="fill_parent" android:layout_height="fill_parent">
             <TextView android:textSize="?medium" android:gravity="center" android:id="@id/dialog_new_look_camera" android:background="@drawable/new_object_dialog_selector" android:text="@string/add_look_from_camera" app:drawableTopCompat="@drawable/ic_camera" />
-            <TextView android:textSize="?medium" android:gravity="center" android:id="@id/dialog_new_look_backpack" android:background="@drawable/new_object_dialog_selector" android:text="@string/backpack" app:drawableTopCompat="@drawable/ic_content_paste" />
         </TableRow>
         <TableRow android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:textSize="?medium" android:gravity="center" android:id="@id/dialog_new_look_backpack" android:background="@drawable/new_object_dialog_selector" android:text="@string/backpack" app:drawableTopCompat="@drawable/ic_content_paste" />
+            <TextView android:textSize="?medium" android:gravity="center" android:id="@id/dialog_new_look_from_actors_and_objects" android:background="@drawable/new_object_dialog_selector" android:text="@string/add_look_actors_and_object" app:drawableTopCompat="@drawable/ic_library_add" />
+        </TableRow>
+        <TableRow android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:textSize="?medium" android:gravity="center" android:id="@id/dialog_new_look_empty_object" android:background="@drawable/new_object_dialog_selector" android:text="@string/add_look_empty_object" app:drawableTint="@color/solid_white" app:drawableTopCompat="@drawable/ic_plus" />
             <TextView android:textSize="?medium" android:gravity="center" android:id="@id/dialog_new_look_from_local" android:background="@drawable/new_object_dialog_selector" android:text="@string/add_look_from_local_project" app:drawableTopCompat="@drawable/ic_library_add" />
         </TableRow>
     </TableLayout>

@@ -35,10 +35,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections/bidimap/TreeBidiMap;II)V
-    .locals 1
-    .param p1, "main"    # Lorg/apache/commons/collections/bidimap/TreeBidiMap;
-    .param p2, "orderType"    # I
-    .param p3, "dataType"    # I
+    .locals 0
 
     .line 1540
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,32 +52,31 @@
     .line 1544
     invoke-static {p1}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->access$1600(Lorg/apache/commons/collections/bidimap/TreeBidiMap;)I
 
-    move-result v0
+    move-result p3
 
-    iput v0, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$ViewIterator;->expectedModifications:I
+    iput p3, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$ViewIterator;->expectedModifications:I
 
     .line 1545
     invoke-static {p1}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->access$1700(Lorg/apache/commons/collections/bidimap/TreeBidiMap;)[Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;
 
-    move-result-object v0
+    move-result-object p1
 
-    aget-object v0, v0, p2
+    aget-object p1, p1, p2
 
-    invoke-static {v0, p2}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->access$1800(Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;I)Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;
+    invoke-static {p1, p2}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->access$1800(Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;I)Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$ViewIterator;->nextNode:Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;
+    iput-object p1, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$ViewIterator;->nextNode:Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;
+
+    const/4 p1, 0x0
 
     .line 1546
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$ViewIterator;->lastReturnedNode:Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;
+    iput-object p1, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$ViewIterator;->lastReturnedNode:Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;
 
     .line 1547
-    iput-object v0, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$ViewIterator;->previousNode:Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;
+    iput-object p1, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$ViewIterator;->previousNode:Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;
 
-    .line 1548
     return-void
 .end method
 
@@ -106,7 +102,6 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 1602
     const/4 v0, 0x0
 
     return-object v0
@@ -282,7 +277,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$ViewIterator;->nextNode:Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;
 
-    .line 1579
     if-nez v0, :cond_0
 
     .line 1580
@@ -372,9 +366,9 @@
 
     iput v0, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$ViewIterator;->expectedModifications:I
 
-    .line 1614
     const/4 v0, 0x0
 
+    .line 1614
     iput-object v0, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$ViewIterator;->lastReturnedNode:Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;
 
     .line 1615
@@ -413,7 +407,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$ViewIterator;->previousNode:Lorg/apache/commons/collections/bidimap/TreeBidiMap$Node;
 
-    .line 1620
     :goto_0
     return-void
 

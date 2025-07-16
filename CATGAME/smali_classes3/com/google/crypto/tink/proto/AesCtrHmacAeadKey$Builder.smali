@@ -38,13 +38,11 @@
 
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
-    .line 234
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey$1;
 
     .line 226
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey$Builder;-><init>()V
@@ -67,7 +65,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;->access$500(Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;)V
 
-    .line 309
     return-object p0
 .end method
 
@@ -84,7 +81,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;->access$800(Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;)V
 
-    .line 356
     return-object p0
 .end method
 
@@ -101,7 +97,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;->access$200(Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;)V
 
-    .line 262
     return-object p0
 .end method
 
@@ -182,7 +177,6 @@
 
 .method public mergeAesCtrKey(Lcom/google/crypto/tink/proto/AesCtrKey;)Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/AesCtrKey;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -202,13 +196,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;->access$400(Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;Lcom/google/crypto/tink/proto/AesCtrKey;)V
 
-    .line 302
     return-object p0
 .end method
 
 .method public mergeHmacKey(Lcom/google/crypto/tink/proto/HmacKey;)Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/HmacKey;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -228,13 +220,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;->access$700(Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;Lcom/google/crypto/tink/proto/HmacKey;)V
 
-    .line 349
     return-object p0
 .end method
 
 .method public setAesCtrKey(Lcom/google/crypto/tink/proto/AesCtrKey$Builder;)Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey$Builder;
-    .locals 2
-    .param p1, "builderForValue"    # Lcom/google/crypto/tink/proto/AesCtrKey$Builder;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -254,19 +244,17 @@
 
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/AesCtrKey$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Lcom/google/crypto/tink/proto/AesCtrKey;
+    check-cast p1, Lcom/google/crypto/tink/proto/AesCtrKey;
 
-    invoke-static {v0, v1}, Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;->access$300(Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;Lcom/google/crypto/tink/proto/AesCtrKey;)V
+    invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;->access$300(Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;Lcom/google/crypto/tink/proto/AesCtrKey;)V
 
-    .line 294
     return-object p0
 .end method
 
 .method public setAesCtrKey(Lcom/google/crypto/tink/proto/AesCtrKey;)Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/AesCtrKey;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -286,13 +274,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;->access$300(Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;Lcom/google/crypto/tink/proto/AesCtrKey;)V
 
-    .line 285
     return-object p0
 .end method
 
 .method public setHmacKey(Lcom/google/crypto/tink/proto/HmacKey$Builder;)Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey$Builder;
-    .locals 2
-    .param p1, "builderForValue"    # Lcom/google/crypto/tink/proto/HmacKey$Builder;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -312,19 +298,17 @@
 
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/HmacKey$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Lcom/google/crypto/tink/proto/HmacKey;
+    check-cast p1, Lcom/google/crypto/tink/proto/HmacKey;
 
-    invoke-static {v0, v1}, Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;->access$600(Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;Lcom/google/crypto/tink/proto/HmacKey;)V
+    invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;->access$600(Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;Lcom/google/crypto/tink/proto/HmacKey;)V
 
-    .line 341
     return-object p0
 .end method
 
 .method public setHmacKey(Lcom/google/crypto/tink/proto/HmacKey;)Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/HmacKey;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -344,13 +328,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;->access$600(Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;Lcom/google/crypto/tink/proto/HmacKey;)V
 
-    .line 332
     return-object p0
 .end method
 
 .method public setVersion(I)Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -370,6 +352,5 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;->access$100(Lcom/google/crypto/tink/proto/AesCtrHmacAeadKey;I)V
 
-    .line 253
     return-object p0
 .end method

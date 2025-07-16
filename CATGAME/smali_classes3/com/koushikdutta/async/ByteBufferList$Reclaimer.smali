@@ -55,8 +55,6 @@
 
 .method public compare(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I
     .locals 2
-    .param p1, "byteBuffer"    # Ljava/nio/ByteBuffer;
-    .param p2, "byteBuffer2"    # Ljava/nio/ByteBuffer;
 
     .line 408
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->capacity()I
@@ -69,31 +67,28 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 409
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 410
     :cond_0
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->capacity()I
 
-    move-result v0
+    move-result p1
 
     invoke-virtual {p2}, Ljava/nio/ByteBuffer;->capacity()I
 
-    move-result v1
+    move-result p2
 
-    if-le v0, v1, :cond_1
+    if-le p1, p2, :cond_1
 
-    .line 411
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
-    .line 412
     :cond_1
-    const/4 v0, -0x1
+    const/4 p1, -0x1
 
-    return v0
+    return p1
 .end method

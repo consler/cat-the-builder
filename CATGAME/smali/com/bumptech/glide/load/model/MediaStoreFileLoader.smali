@@ -32,7 +32,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,18 +39,13 @@
     .line 26
     iput-object p1, p0, Lcom/bumptech/glide/load/model/MediaStoreFileLoader;->context:Landroid/content/Context;
 
-    .line 27
     return-void
 .end method
 
 
 # virtual methods
 .method public buildLoadData(Landroid/net/Uri;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
-    .locals 4
-    .param p1, "uri"    # Landroid/net/Uri;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
-    .param p4, "options"    # Lcom/bumptech/glide/load/Options;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -66,21 +60,21 @@
     .end annotation
 
     .line 32
-    new-instance v0, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
+    new-instance p2, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
 
-    new-instance v1, Lcom/bumptech/glide/signature/ObjectKey;
+    new-instance p3, Lcom/bumptech/glide/signature/ObjectKey;
 
-    invoke-direct {v1, p1}, Lcom/bumptech/glide/signature/ObjectKey;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p3, p1}, Lcom/bumptech/glide/signature/ObjectKey;-><init>(Ljava/lang/Object;)V
 
-    new-instance v2, Lcom/bumptech/glide/load/model/MediaStoreFileLoader$FilePathFetcher;
+    new-instance p4, Lcom/bumptech/glide/load/model/MediaStoreFileLoader$FilePathFetcher;
 
-    iget-object v3, p0, Lcom/bumptech/glide/load/model/MediaStoreFileLoader;->context:Landroid/content/Context;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/MediaStoreFileLoader;->context:Landroid/content/Context;
 
-    invoke-direct {v2, v3, p1}, Lcom/bumptech/glide/load/model/MediaStoreFileLoader$FilePathFetcher;-><init>(Landroid/content/Context;Landroid/net/Uri;)V
+    invoke-direct {p4, v0, p1}, Lcom/bumptech/glide/load/model/MediaStoreFileLoader$FilePathFetcher;-><init>(Landroid/content/Context;Landroid/net/Uri;)V
 
-    invoke-direct {v0, v1, v2}, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;-><init>(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/data/DataFetcher;)V
+    invoke-direct {p2, p3, p4}, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;-><init>(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/data/DataFetcher;)V
 
-    return-object v0
+    return-object p2
 .end method
 
 .method public bridge synthetic buildLoadData(Ljava/lang/Object;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
@@ -97,15 +91,14 @@
 .end method
 
 .method public handles(Landroid/net/Uri;)Z
-    .locals 1
-    .param p1, "uri"    # Landroid/net/Uri;
+    .locals 0
 
     .line 37
     invoke-static {p1}, Lcom/bumptech/glide/load/data/mediastore/MediaStoreUtil;->isMediaStoreUri(Landroid/net/Uri;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic handles(Ljava/lang/Object;)Z

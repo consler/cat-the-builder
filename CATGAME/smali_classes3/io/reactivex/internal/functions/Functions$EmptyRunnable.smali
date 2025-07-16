@@ -32,14 +32,12 @@
 .method public run()V
     .locals 0
 
-    .line 666
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .line 670
     const-string v0, "EmptyRunnable"
 
     return-object v0

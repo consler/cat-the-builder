@@ -13,18 +13,15 @@
 # direct methods
 .method private constructor <init>(Lorg/apache/commons/collections/BoundedCollection;)V
     .locals 0
-    .param p1, "coll"    # Lorg/apache/commons/collections/BoundedCollection;
 
     .line 101
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/collection/AbstractSerializableCollectionDecorator;-><init>(Ljava/util/Collection;)V
 
-    .line 102
     return-void
 .end method
 
 .method public static decorate(Lorg/apache/commons/collections/BoundedCollection;)Lorg/apache/commons/collections/BoundedCollection;
     .locals 1
-    .param p0, "coll"    # Lorg/apache/commons/collections/BoundedCollection;
 
     .line 57
     new-instance v0, Lorg/apache/commons/collections/collection/UnmodifiableBoundedCollection;
@@ -36,15 +33,11 @@
 
 .method public static decorateUsing(Ljava/util/Collection;)Lorg/apache/commons/collections/BoundedCollection;
     .locals 2
-    .param p0, "coll"    # Ljava/util/Collection;
 
-    .line 71
     if-eqz p0, :cond_4
 
-    .line 76
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     const/16 v1, 0x3e8
 
@@ -55,7 +48,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 78
     goto :goto_2
 
     .line 79
@@ -65,11 +57,9 @@
     if-eqz v1, :cond_1
 
     .line 80
-    move-object v1, p0
+    check-cast p0, Lorg/apache/commons/collections/collection/AbstractCollectionDecorator;
 
-    check-cast v1, Lorg/apache/commons/collections/collection/AbstractCollectionDecorator;
-
-    iget-object p0, v1, Lorg/apache/commons/collections/collection/AbstractCollectionDecorator;->collection:Ljava/util/Collection;
+    iget-object p0, p0, Lorg/apache/commons/collections/collection/AbstractCollectionDecorator;->collection:Ljava/util/Collection;
 
     goto :goto_1
 
@@ -80,20 +70,16 @@
     if-eqz v1, :cond_2
 
     .line 82
-    move-object v1, p0
+    check-cast p0, Lorg/apache/commons/collections/collection/SynchronizedCollection;
 
-    check-cast v1, Lorg/apache/commons/collections/collection/SynchronizedCollection;
+    iget-object p0, p0, Lorg/apache/commons/collections/collection/SynchronizedCollection;->collection:Ljava/util/Collection;
 
-    iget-object p0, v1, Lorg/apache/commons/collections/collection/SynchronizedCollection;->collection:Ljava/util/Collection;
-
-    .line 76
     :goto_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 88
-    .end local v0    # "i":I
     :cond_2
     :goto_2
     instance-of v0, p0, Lorg/apache/commons/collections/BoundedCollection;
@@ -103,59 +89,55 @@
     .line 91
     new-instance v0, Lorg/apache/commons/collections/collection/UnmodifiableBoundedCollection;
 
-    move-object v1, p0
+    check-cast p0, Lorg/apache/commons/collections/BoundedCollection;
 
-    check-cast v1, Lorg/apache/commons/collections/BoundedCollection;
-
-    invoke-direct {v0, v1}, Lorg/apache/commons/collections/collection/UnmodifiableBoundedCollection;-><init>(Lorg/apache/commons/collections/BoundedCollection;)V
+    invoke-direct {v0, p0}, Lorg/apache/commons/collections/collection/UnmodifiableBoundedCollection;-><init>(Lorg/apache/commons/collections/BoundedCollection;)V
 
     return-object v0
 
     .line 89
     :cond_3
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "The collection is not a bounded collection"
+    const-string v0, "The collection is not a bounded collection"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 72
     :cond_4
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "The collection must not be null"
+    const-string v0, "The collection must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
+    .locals 0
 
     .line 110
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .locals 1
-    .param p1, "coll"    # Ljava/util/Collection;
+    .locals 0
 
     .line 114
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public clear()V
@@ -219,37 +201,34 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
+    .locals 0
 
     .line 122
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 1
-    .param p1, "coll"    # Ljava/util/Collection;
+    .locals 0
 
     .line 126
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 1
-    .param p1, "coll"    # Ljava/util/Collection;
+    .locals 0
 
     .line 130
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method

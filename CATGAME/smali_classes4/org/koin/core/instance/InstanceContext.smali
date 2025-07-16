@@ -64,9 +64,6 @@
 # direct methods
 .method public constructor <init>(Lorg/koin/core/Koin;Lorg/koin/core/scope/Scope;Lkotlin/jvm/functions/Function0;)V
     .locals 1
-    .param p1, "koin"    # Lorg/koin/core/Koin;
-    .param p2, "scope"    # Lorg/koin/core/scope/Scope;
-    .param p3, "_parameters"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -95,26 +92,26 @@
 
     iput-object p3, p0, Lorg/koin/core/instance/InstanceContext;->_parameters:Lkotlin/jvm/functions/Function0;
 
-    .line 19
     if-eqz p3, :cond_0
 
+    .line 19
     invoke-interface {p3}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lorg/koin/core/parameter/DefinitionParameters;
+    check-cast p1, Lorg/koin/core/parameter/DefinitionParameters;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
     :cond_0
     invoke-static {}, Lorg/koin/core/parameter/DefinitionParametersKt;->emptyParametersHolder()Lorg/koin/core/parameter/DefinitionParameters;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    iput-object v0, p0, Lorg/koin/core/instance/InstanceContext;->parameters:Lorg/koin/core/parameter/DefinitionParameters;
+    iput-object p1, p0, Lorg/koin/core/instance/InstanceContext;->parameters:Lorg/koin/core/parameter/DefinitionParameters;
 
     return-void
 .end method
@@ -126,10 +123,12 @@
 
     if-eqz p4, :cond_0
 
-    .line 17
     const/4 p3, 0x0
 
-    check-cast p3, Lkotlin/jvm/functions/Function0;
+    .line 17
+    move-object p4, p3
+
+    check-cast p4, Lkotlin/jvm/functions/Function0;
 
     :cond_0
     invoke-direct {p0, p1, p2, p3}, Lorg/koin/core/instance/InstanceContext;-><init>(Lorg/koin/core/Koin;Lorg/koin/core/scope/Scope;Lkotlin/jvm/functions/Function0;)V

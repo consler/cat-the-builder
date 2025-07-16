@@ -43,6 +43,5 @@
 
     invoke-interface {v0}, Lcom/koushikdutta/async/DataEmitter;->resume()V
 
-    .line 137
     return-void
 .end method

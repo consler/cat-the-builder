@@ -44,8 +44,6 @@
 
 .method synthetic constructor <init>(Lcom/koushikdutta/async/AsyncServer;Lcom/koushikdutta/async/AsyncServer$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/koushikdutta/async/AsyncServer;
-    .param p2, "x1"    # Lcom/koushikdutta/async/AsyncServer$1;
 
     .line 346
     invoke-direct {p0, p1}, Lcom/koushikdutta/async/AsyncServer$ConnectFuture;-><init>(Lcom/koushikdutta/async/AsyncServer;)V
@@ -68,21 +66,11 @@
     if-eqz v0, :cond_0
 
     .line 352
-    iget-object v0, p0, Lcom/koushikdutta/async/AsyncServer$ConnectFuture;->socket:Ljava/nio/channels/SocketChannel;
-
     invoke-virtual {v0}, Ljava/nio/channels/SocketChannel;->close()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 355
-    :cond_0
-    goto :goto_0
-
-    .line 354
     :catch_0
-    move-exception v0
-
-    .line 356
-    :goto_0
+    :cond_0
     return-void
 .end method

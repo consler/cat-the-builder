@@ -63,28 +63,27 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 199
     const/4 v0, 0x1
 
+    .line 199
     invoke-direct {p0, v0}, Landroidx/core/app/FrameMetricsAggregator;-><init>(I)V
 
-    .line 200
     return-void
 .end method
 
 .method public constructor <init>(I)V
-    .locals 2
-    .param p1, "metricTypeFlags"    # I
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "metricTypeFlags"
+        }
+    .end annotation
 
     .line 212
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 213
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x18
-
-    if-lt v0, v1, :cond_0
 
     .line 214
     new-instance v0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsApi24Impl;
@@ -93,18 +92,6 @@
 
     iput-object v0, p0, Landroidx/core/app/FrameMetricsAggregator;->mInstance:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsBaseImpl;
 
-    goto :goto_0
-
-    .line 216
-    :cond_0
-    new-instance v0, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsBaseImpl;
-
-    invoke-direct {v0}, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsBaseImpl;-><init>()V
-
-    iput-object v0, p0, Landroidx/core/app/FrameMetricsAggregator;->mInstance:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsBaseImpl;
-
-    .line 218
-    :goto_0
     return-void
 .end method
 
@@ -112,14 +99,20 @@
 # virtual methods
 .method public add(Landroid/app/Activity;)V
     .locals 1
-    .param p1, "activity"    # Landroid/app/Activity;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "activity"
+        }
+    .end annotation
 
     .line 226
     iget-object v0, p0, Landroidx/core/app/FrameMetricsAggregator;->mInstance:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsBaseImpl;
 
     invoke-virtual {v0, p1}, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsBaseImpl;->add(Landroid/app/Activity;)V
 
-    .line 227
     return-void
 .end method
 
@@ -138,16 +131,23 @@
 
 .method public remove(Landroid/app/Activity;)[Landroid/util/SparseIntArray;
     .locals 1
-    .param p1, "activity"    # Landroid/app/Activity;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "activity"
+        }
+    .end annotation
 
     .line 243
     iget-object v0, p0, Landroidx/core/app/FrameMetricsAggregator;->mInstance:Landroidx/core/app/FrameMetricsAggregator$FrameMetricsBaseImpl;
 
     invoke-virtual {v0, p1}, Landroidx/core/app/FrameMetricsAggregator$FrameMetricsBaseImpl;->remove(Landroid/app/Activity;)[Landroid/util/SparseIntArray;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public reset()[Landroid/util/SparseIntArray;

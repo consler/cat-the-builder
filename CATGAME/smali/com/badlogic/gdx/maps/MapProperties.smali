@@ -30,7 +30,6 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/maps/MapProperties;->properties:Lcom/badlogic/gdx/utils/ObjectMap;
 
-    .line 34
     return-void
 .end method
 
@@ -44,41 +43,37 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/ObjectMap;->clear()V
 
-    .line 87
     return-void
 .end method
 
 .method public containsKey(Ljava/lang/String;)Z
     .locals 1
-    .param p1, "key"    # Ljava/lang/String;
 
     .line 39
     iget-object v0, p0, Lcom/badlogic/gdx/maps/MapProperties;->properties:Lcom/badlogic/gdx/utils/ObjectMap;
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/ObjectMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public get(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
-    .param p1, "key"    # Ljava/lang/String;
 
     .line 45
     iget-object v0, p0, Lcom/badlogic/gdx/maps/MapProperties;->properties:Lcom/badlogic/gdx/utils/ObjectMap;
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/ObjectMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public get(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "key"    # Ljava/lang/String;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -91,17 +86,15 @@
     .end annotation
 
     .line 54
-    .local p2, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/maps/MapProperties;->get(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public get(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 2
-    .param p1, "key"    # Ljava/lang/String;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -115,25 +108,19 @@
     .end annotation
 
     .line 64
-    .local p2, "defaultValue":Ljava/lang/Object;, "TT;"
-    .local p3, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/maps/MapProperties;->get(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 65
-    .local v0, "object":Ljava/lang/Object;
-    if-nez v0, :cond_0
-
-    move-object v1, p2
+    if-nez p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    move-object v1, v0
+    move-object p2, p1
 
     :goto_0
-    return-object v1
+    return-object p2
 .end method
 
 .method public getKeys()Ljava/util/Iterator;
@@ -180,42 +167,35 @@
 
 .method public put(Ljava/lang/String;Ljava/lang/Object;)V
     .locals 1
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/Object;
 
     .line 71
     iget-object v0, p0, Lcom/badlogic/gdx/maps/MapProperties;->properties:Lcom/badlogic/gdx/utils/ObjectMap;
 
     invoke-virtual {v0, p1, p2}, Lcom/badlogic/gdx/utils/ObjectMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 72
     return-void
 .end method
 
 .method public putAll(Lcom/badlogic/gdx/maps/MapProperties;)V
-    .locals 2
-    .param p1, "properties"    # Lcom/badlogic/gdx/maps/MapProperties;
+    .locals 1
 
     .line 76
     iget-object v0, p0, Lcom/badlogic/gdx/maps/MapProperties;->properties:Lcom/badlogic/gdx/utils/ObjectMap;
 
-    iget-object v1, p1, Lcom/badlogic/gdx/maps/MapProperties;->properties:Lcom/badlogic/gdx/utils/ObjectMap;
+    iget-object p1, p1, Lcom/badlogic/gdx/maps/MapProperties;->properties:Lcom/badlogic/gdx/utils/ObjectMap;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/utils/ObjectMap;->putAll(Lcom/badlogic/gdx/utils/ObjectMap;)V
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/ObjectMap;->putAll(Lcom/badlogic/gdx/utils/ObjectMap;)V
 
-    .line 77
     return-void
 .end method
 
 .method public remove(Ljava/lang/String;)V
     .locals 1
-    .param p1, "key"    # Ljava/lang/String;
 
     .line 81
     iget-object v0, p0, Lcom/badlogic/gdx/maps/MapProperties;->properties:Lcom/badlogic/gdx/utils/ObjectMap;
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/ObjectMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 82
     return-void
 .end method

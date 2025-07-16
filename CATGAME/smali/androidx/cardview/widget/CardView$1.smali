@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroidx/cardview/widget/CardView;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/cardview/widget/CardView;
 
     .line 447
     iput-object p1, p0, Landroidx/cardview/widget/CardView$1;->this$0:Landroidx/cardview/widget/CardView;
@@ -84,7 +83,6 @@
 
 .method public setCardBackground(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 452
     iput-object p1, p0, Landroidx/cardview/widget/CardView$1;->mCardBackground:Landroid/graphics/drawable/Drawable;
@@ -94,14 +92,11 @@
 
     invoke-virtual {v0, p1}, Landroidx/cardview/widget/CardView;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 454
     return-void
 .end method
 
 .method public setMinWidthHeightInternal(II)V
     .locals 1
-    .param p1, "width"    # I
-    .param p2, "height"    # I
 
     .line 475
     iget-object v0, p0, Landroidx/cardview/widget/CardView$1;->this$0:Landroidx/cardview/widget/CardView;
@@ -117,28 +112,23 @@
 
     .line 478
     :cond_0
-    iget-object v0, p0, Landroidx/cardview/widget/CardView$1;->this$0:Landroidx/cardview/widget/CardView;
+    iget-object p1, p0, Landroidx/cardview/widget/CardView$1;->this$0:Landroidx/cardview/widget/CardView;
 
-    iget v0, v0, Landroidx/cardview/widget/CardView;->mUserSetMinHeight:I
+    iget p1, p1, Landroidx/cardview/widget/CardView;->mUserSetMinHeight:I
 
-    if-le p2, v0, :cond_1
+    if-le p2, p1, :cond_1
 
     .line 479
-    iget-object v0, p0, Landroidx/cardview/widget/CardView$1;->this$0:Landroidx/cardview/widget/CardView;
+    iget-object p1, p0, Landroidx/cardview/widget/CardView$1;->this$0:Landroidx/cardview/widget/CardView;
 
-    invoke-static {v0, p2}, Landroidx/cardview/widget/CardView;->access$201(Landroidx/cardview/widget/CardView;I)V
+    invoke-static {p1, p2}, Landroidx/cardview/widget/CardView;->access$201(Landroidx/cardview/widget/CardView;I)V
 
-    .line 481
     :cond_1
     return-void
 .end method
 
 .method public setShadowPadding(IIII)V
-    .locals 5
-    .param p1, "left"    # I
-    .param p2, "top"    # I
-    .param p3, "right"    # I
-    .param p4, "bottom"    # I
+    .locals 2
 
     .line 468
     iget-object v0, p0, Landroidx/cardview/widget/CardView$1;->this$0:Landroidx/cardview/widget/CardView;
@@ -154,34 +144,33 @@
 
     iget v1, v1, Landroid/graphics/Rect;->left:I
 
-    add-int/2addr v1, p1
+    add-int/2addr p1, v1
 
-    iget-object v2, p0, Landroidx/cardview/widget/CardView$1;->this$0:Landroidx/cardview/widget/CardView;
+    iget-object v1, p0, Landroidx/cardview/widget/CardView$1;->this$0:Landroidx/cardview/widget/CardView;
 
-    iget-object v2, v2, Landroidx/cardview/widget/CardView;->mContentPadding:Landroid/graphics/Rect;
+    iget-object v1, v1, Landroidx/cardview/widget/CardView;->mContentPadding:Landroid/graphics/Rect;
 
-    iget v2, v2, Landroid/graphics/Rect;->top:I
+    iget v1, v1, Landroid/graphics/Rect;->top:I
 
-    add-int/2addr v2, p2
+    add-int/2addr p2, v1
 
-    iget-object v3, p0, Landroidx/cardview/widget/CardView$1;->this$0:Landroidx/cardview/widget/CardView;
+    iget-object v1, p0, Landroidx/cardview/widget/CardView$1;->this$0:Landroidx/cardview/widget/CardView;
 
-    iget-object v3, v3, Landroidx/cardview/widget/CardView;->mContentPadding:Landroid/graphics/Rect;
+    iget-object v1, v1, Landroidx/cardview/widget/CardView;->mContentPadding:Landroid/graphics/Rect;
 
-    iget v3, v3, Landroid/graphics/Rect;->right:I
+    iget v1, v1, Landroid/graphics/Rect;->right:I
 
-    add-int/2addr v3, p3
+    add-int/2addr p3, v1
 
-    iget-object v4, p0, Landroidx/cardview/widget/CardView$1;->this$0:Landroidx/cardview/widget/CardView;
+    iget-object v1, p0, Landroidx/cardview/widget/CardView$1;->this$0:Landroidx/cardview/widget/CardView;
 
-    iget-object v4, v4, Landroidx/cardview/widget/CardView;->mContentPadding:Landroid/graphics/Rect;
+    iget-object v1, v1, Landroidx/cardview/widget/CardView;->mContentPadding:Landroid/graphics/Rect;
 
-    iget v4, v4, Landroid/graphics/Rect;->bottom:I
+    iget v1, v1, Landroid/graphics/Rect;->bottom:I
 
-    add-int/2addr v4, p4
+    add-int/2addr p4, v1
 
-    invoke-static {v0, v1, v2, v3, v4}, Landroidx/cardview/widget/CardView;->access$001(Landroidx/cardview/widget/CardView;IIII)V
+    invoke-static {v0, p1, p2, p3, p4}, Landroidx/cardview/widget/CardView;->access$001(Landroidx/cardview/widget/CardView;IIII)V
 
-    .line 471
     return-void
 .end method

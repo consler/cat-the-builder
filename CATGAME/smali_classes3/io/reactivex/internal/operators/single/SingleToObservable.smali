@@ -44,14 +44,11 @@
     .end annotation
 
     .line 28
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleToObservable;, "Lio/reactivex/internal/operators/single/SingleToObservable<TT;>;"
-    .local p1, "source":Lio/reactivex/SingleSource;, "Lio/reactivex/SingleSource<+TT;>;"
     invoke-direct {p0}, Lio/reactivex/Observable;-><init>()V
 
     .line 29
     iput-object p1, p0, Lio/reactivex/internal/operators/single/SingleToObservable;->source:Lio/reactivex/SingleSource;
 
-    .line 30
     return-void
 .end method
 
@@ -68,8 +65,6 @@
     .end annotation
 
     .line 34
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleToObservable;, "Lio/reactivex/internal/operators/single/SingleToObservable<TT;>;"
-    .local p1, "s":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleToObservable;->source:Lio/reactivex/SingleSource;
 
     new-instance v1, Lio/reactivex/internal/operators/single/SingleToObservable$SingleToObservableObserver;
@@ -78,6 +73,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/SingleSource;->subscribe(Lio/reactivex/SingleObserver;)V
 
-    .line 35
     return-void
 .end method

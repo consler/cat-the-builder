@@ -64,7 +64,6 @@
     .end annotation
 
     .line 192
-    .local p0, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Ljava/lang/Iterable<+TU;>;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$FlatMapIntoIterable;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$FlatMapIntoIterable;-><init>(Lio/reactivex/functions/Function;)V
@@ -97,8 +96,6 @@
     .end annotation
 
     .line 175
-    .local p0, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TU;>;>;"
-    .local p1, "combiner":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-TT;-TU;+TR;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$FlatMapWithCombinerOuter;
 
     invoke-direct {v0, p1, p0}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$FlatMapWithCombinerOuter;-><init>(Lio/reactivex/functions/BiFunction;Lio/reactivex/functions/Function;)V
@@ -127,7 +124,6 @@
     .end annotation
 
     .line 85
-    .local p0, "itemDelay":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<TU;>;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$ItemDelayFunction;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$ItemDelayFunction;-><init>(Lio/reactivex/functions/Function;)V
@@ -151,7 +147,6 @@
     .end annotation
 
     .line 196
-    .local p0, "parent":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$ReplayCallable;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$ReplayCallable;-><init>(Lio/reactivex/Flowable;)V
@@ -161,7 +156,6 @@
 
 .method public static replayCallable(Lio/reactivex/Flowable;I)Ljava/util/concurrent/Callable;
     .locals 1
-    .param p1, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -176,7 +170,6 @@
     .end annotation
 
     .line 200
-    .local p0, "parent":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$BufferedReplayCallable;
 
     invoke-direct {v0, p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$BufferedReplayCallable;-><init>(Lio/reactivex/Flowable;I)V
@@ -186,10 +179,6 @@
 
 .method public static replayCallable(Lio/reactivex/Flowable;IJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Ljava/util/concurrent/Callable;
     .locals 8
-    .param p1, "bufferSize"    # I
-    .param p2, "time"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -207,7 +196,6 @@
     .end annotation
 
     .line 204
-    .local p0, "parent":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v7, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$BufferedTimedReplay;
 
     move-object v0, v7
@@ -229,9 +217,6 @@
 
 .method public static replayCallable(Lio/reactivex/Flowable;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)Ljava/util/concurrent/Callable;
     .locals 7
-    .param p1, "time"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -249,7 +234,6 @@
     .end annotation
 
     .line 208
-    .local p0, "parent":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     new-instance v6, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$TimedReplay;
 
     move-object v0, v6
@@ -269,7 +253,6 @@
 
 .method public static replayFunction(Lio/reactivex/functions/Function;Lio/reactivex/Scheduler;)Lio/reactivex/functions/Function;
     .locals 1
-    .param p1, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -294,7 +277,6 @@
     .end annotation
 
     .line 212
-    .local p0, "selector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Lio/reactivex/Flowable<TT;>;+Lorg/reactivestreams/Publisher<TR;>;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$ReplayFunction;
 
     invoke-direct {v0, p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$ReplayFunction;-><init>(Lio/reactivex/functions/Function;Lio/reactivex/Scheduler;)V
@@ -323,7 +305,6 @@
     .end annotation
 
     .line 68
-    .local p0, "consumer":Lio/reactivex/functions/BiConsumer;, "Lio/reactivex/functions/BiConsumer<TS;Lio/reactivex/Emitter<TT;>;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$SimpleBiGenerator;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$SimpleBiGenerator;-><init>(Lio/reactivex/functions/BiConsumer;)V
@@ -351,7 +332,6 @@
     .end annotation
 
     .line 50
-    .local p0, "consumer":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<Lio/reactivex/Emitter<TT;>;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$SimpleGenerator;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$SimpleGenerator;-><init>(Lio/reactivex/functions/Consumer;)V
@@ -373,7 +353,6 @@
     .end annotation
 
     .line 136
-    .local p0, "subscriber":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$SubscriberOnComplete;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$SubscriberOnComplete;-><init>(Lorg/reactivestreams/Subscriber;)V
@@ -397,7 +376,6 @@
     .end annotation
 
     .line 132
-    .local p0, "subscriber":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$SubscriberOnError;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$SubscriberOnError;-><init>(Lorg/reactivestreams/Subscriber;)V
@@ -420,7 +398,6 @@
     .end annotation
 
     .line 128
-    .local p0, "subscriber":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$SubscriberOnNext;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$SubscriberOnNext;-><init>(Lorg/reactivestreams/Subscriber;)V
@@ -451,7 +428,6 @@
     .end annotation
 
     .line 238
-    .local p0, "zipper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-[Ljava/lang/Object;+TR;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$ZipIterableFunction;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$ZipIterableFunction;-><init>(Lio/reactivex/functions/Function;)V

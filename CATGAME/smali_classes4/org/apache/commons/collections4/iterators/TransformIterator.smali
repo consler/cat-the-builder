@@ -46,10 +46,8 @@
     .locals 0
 
     .line 42
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/TransformIterator;, "Lorg/apache/commons/collections4/iterators/TransformIterator<TI;TO;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 43
     return-void
 .end method
 
@@ -64,14 +62,11 @@
     .end annotation
 
     .line 52
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/TransformIterator;, "Lorg/apache/commons/collections4/iterators/TransformIterator<TI;TO;>;"
-    .local p1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TI;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 53
     iput-object p1, p0, Lorg/apache/commons/collections4/iterators/TransformIterator;->iterator:Ljava/util/Iterator;
 
-    .line 54
     return-void
 .end method
 
@@ -88,9 +83,6 @@
     .end annotation
 
     .line 66
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/TransformIterator;, "Lorg/apache/commons/collections4/iterators/TransformIterator<TI;TO;>;"
-    .local p1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TI;>;"
-    .local p2, "transformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TI;+TO;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 67
@@ -99,7 +91,6 @@
     .line 68
     iput-object p2, p0, Lorg/apache/commons/collections4/iterators/TransformIterator;->transformer:Lorg/apache/commons/collections4/Transformer;
 
-    .line 69
     return-void
 .end method
 
@@ -116,7 +107,6 @@
     .end annotation
 
     .line 102
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/TransformIterator;, "Lorg/apache/commons/collections4/iterators/TransformIterator<TI;TO;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/TransformIterator;->iterator:Ljava/util/Iterator;
 
     return-object v0
@@ -133,7 +123,6 @@
     .end annotation
 
     .line 122
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/TransformIterator;, "Lorg/apache/commons/collections4/iterators/TransformIterator<TI;TO;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/TransformIterator;->transformer:Lorg/apache/commons/collections4/Transformer;
 
     return-object v0
@@ -143,7 +132,6 @@
     .locals 1
 
     .line 74
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/TransformIterator;, "Lorg/apache/commons/collections4/iterators/TransformIterator<TI;TO;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/TransformIterator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -162,7 +150,6 @@
     .end annotation
 
     .line 87
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/TransformIterator;, "Lorg/apache/commons/collections4/iterators/TransformIterator<TI;TO;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/TransformIterator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -180,12 +167,10 @@
     .locals 1
 
     .line 92
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/TransformIterator;, "Lorg/apache/commons/collections4/iterators/TransformIterator<TI;TO;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/TransformIterator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 93
     return-void
 .end method
 
@@ -200,11 +185,8 @@
     .end annotation
 
     .line 112
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/TransformIterator;, "Lorg/apache/commons/collections4/iterators/TransformIterator<TI;TO;>;"
-    .local p1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TI;>;"
     iput-object p1, p0, Lorg/apache/commons/collections4/iterators/TransformIterator;->iterator:Ljava/util/Iterator;
 
-    .line 113
     return-void
 .end method
 
@@ -219,11 +201,8 @@
     .end annotation
 
     .line 132
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/TransformIterator;, "Lorg/apache/commons/collections4/iterators/TransformIterator<TI;TO;>;"
-    .local p1, "transformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TI;+TO;>;"
     iput-object p1, p0, Lorg/apache/commons/collections4/iterators/TransformIterator;->transformer:Lorg/apache/commons/collections4/Transformer;
 
-    .line 133
     return-void
 .end method
 
@@ -236,13 +215,11 @@
     .end annotation
 
     .line 144
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/TransformIterator;, "Lorg/apache/commons/collections4/iterators/TransformIterator<TI;TO;>;"
-    .local p1, "source":Ljava/lang/Object;, "TI;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/TransformIterator;->transformer:Lorg/apache/commons/collections4/Transformer;
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Transformer;->transform(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

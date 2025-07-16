@@ -33,7 +33,6 @@
     .line 55
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 56
     return-void
 .end method
 
@@ -49,15 +48,14 @@
 
 # virtual methods
 .method public execute(Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "input"    # Ljava/lang/Object;
+    .locals 1
 
     .line 65
-    new-instance v0, Lorg/apache/commons/collections/FunctorException;
+    new-instance p1, Lorg/apache/commons/collections/FunctorException;
 
-    const-string v1, "ExceptionClosure invoked"
+    const-string v0, "ExceptionClosure invoked"
 
-    invoke-direct {v0, v1}, Lorg/apache/commons/collections/FunctorException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lorg/apache/commons/collections/FunctorException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

@@ -35,9 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/security/Key;)V
-    .locals 5
-    .param p1, "algorithm"    # Ljava/lang/String;
-    .param p2, "key"    # Ljava/security/Key;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -74,166 +72,158 @@
     .line 57
     invoke-interface {p2}, Ljava/security/Key;->getEncoded()[B
 
-    move-result-object v0
+    move-result-object p2
 
-    array-length v0, v0
+    array-length p2, p2
 
     const/16 v1, 0x10
 
-    if-lt v0, v1, :cond_5
+    if-lt p2, v1, :cond_4
 
     .line 62
-    const/4 v0, -0x1
+    invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
     invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
-    move-result v1
+    move-result p2
 
-    const/4 v2, 0x3
+    const/4 v1, -0x1
 
-    const/4 v3, 0x2
+    sparse-switch p2, :sswitch_data_0
 
-    const/4 v4, 0x1
-
-    sparse-switch v1, :sswitch_data_0
-
-    :cond_0
     goto :goto_0
 
     :sswitch_0
-    const-string v1, "HMACSHA512"
+    const-string p2, "HMACSHA512"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p2
 
-    if-eqz v1, :cond_0
+    if-nez p2, :cond_0
 
-    move v0, v2
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x3
 
     goto :goto_0
 
     :sswitch_1
-    const-string v1, "HMACSHA384"
+    const-string p2, "HMACSHA384"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p2
 
-    if-eqz v1, :cond_0
+    if-nez p2, :cond_1
 
-    move v0, v3
+    goto :goto_0
+
+    :cond_1
+    const/4 v1, 0x2
 
     goto :goto_0
 
     :sswitch_2
-    const-string v1, "HMACSHA256"
+    const-string p2, "HMACSHA256"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p2
 
-    if-eqz v1, :cond_0
+    if-nez p2, :cond_2
 
-    move v0, v4
+    goto :goto_0
+
+    :cond_2
+    const/4 v1, 0x1
 
     goto :goto_0
 
     :sswitch_3
-    const-string v1, "HMACSHA1"
+    const-string p2, "HMACSHA1"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p2
 
-    if-eqz v1, :cond_0
+    if-nez p2, :cond_3
 
-    const/4 v0, 0x0
+    goto :goto_0
+
+    :cond_3
+    const/4 v1, 0x0
 
     :goto_0
-    if-eqz v0, :cond_4
-
-    if-eq v0, v4, :cond_3
-
-    if-eq v0, v3, :cond_2
-
-    if-ne v0, v2, :cond_1
-
-    .line 73
-    const/16 v0, 0x40
-
-    iput v0, p0, Lcom/google/crypto/tink/subtle/PrfHmacJce;->maxOutputLength:I
-
-    .line 74
-    goto :goto_1
+    packed-switch v1, :pswitch_data_0
 
     .line 76
-    :cond_1
-    new-instance v0, Ljava/security/NoSuchAlgorithmException;
+    new-instance p2, Ljava/security/NoSuchAlgorithmException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "unknown Hmac algorithm: "
 
-    const-string v2, "unknown Hmac algorithm: "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/security/NoSuchAlgorithmException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Ljava/security/NoSuchAlgorithmException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p2
+
+    :pswitch_0
+    const/16 p1, 0x40
+
+    .line 73
+    iput p1, p0, Lcom/google/crypto/tink/subtle/PrfHmacJce;->maxOutputLength:I
+
+    goto :goto_1
+
+    :pswitch_1
+    const/16 p1, 0x30
 
     .line 70
-    :cond_2
-    const/16 v0, 0x30
+    iput p1, p0, Lcom/google/crypto/tink/subtle/PrfHmacJce;->maxOutputLength:I
 
-    iput v0, p0, Lcom/google/crypto/tink/subtle/PrfHmacJce;->maxOutputLength:I
-
-    .line 71
     goto :goto_1
+
+    :pswitch_2
+    const/16 p1, 0x20
 
     .line 67
-    :cond_3
-    const/16 v0, 0x20
+    iput p1, p0, Lcom/google/crypto/tink/subtle/PrfHmacJce;->maxOutputLength:I
 
-    iput v0, p0, Lcom/google/crypto/tink/subtle/PrfHmacJce;->maxOutputLength:I
-
-    .line 68
     goto :goto_1
 
+    :pswitch_3
+    const/16 p1, 0x14
+
     .line 64
-    :cond_4
-    const/16 v0, 0x14
-
-    iput v0, p0, Lcom/google/crypto/tink/subtle/PrfHmacJce;->maxOutputLength:I
-
-    .line 65
-    nop
+    iput p1, p0, Lcom/google/crypto/tink/subtle/PrfHmacJce;->maxOutputLength:I
 
     .line 80
     :goto_1
-    iget-object v0, p0, Lcom/google/crypto/tink/subtle/PrfHmacJce;->localMac:Ljava/lang/ThreadLocal;
-
     invoke-virtual {v0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
 
-    .line 81
     return-void
 
     .line 58
-    :cond_5
-    new-instance v0, Ljava/security/InvalidAlgorithmParameterException;
+    :cond_4
+    new-instance p1, Ljava/security/InvalidAlgorithmParameterException;
 
-    const-string v1, "key size too small, need at least 16 bytes"
+    const-string p2, "key size too small, need at least 16 bytes"
 
-    invoke-direct {v0, v1}, Ljava/security/InvalidAlgorithmParameterException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/security/InvalidAlgorithmParameterException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     nop
 
@@ -244,34 +234,38 @@
         0x1762450a -> :sswitch_1
         0x17624bb1 -> :sswitch_0
     .end sparse-switch
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method
 
 .method static synthetic access$000(Lcom/google/crypto/tink/subtle/PrfHmacJce;)Ljava/lang/String;
-    .locals 1
-    .param p0, "x0"    # Lcom/google/crypto/tink/subtle/PrfHmacJce;
+    .locals 0
 
     .line 29
-    iget-object v0, p0, Lcom/google/crypto/tink/subtle/PrfHmacJce;->algorithm:Ljava/lang/String;
+    iget-object p0, p0, Lcom/google/crypto/tink/subtle/PrfHmacJce;->algorithm:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$100(Lcom/google/crypto/tink/subtle/PrfHmacJce;)Ljava/security/Key;
-    .locals 1
-    .param p0, "x0"    # Lcom/google/crypto/tink/subtle/PrfHmacJce;
+    .locals 0
 
     .line 29
-    iget-object v0, p0, Lcom/google/crypto/tink/subtle/PrfHmacJce;->key:Ljava/security/Key;
+    iget-object p0, p0, Lcom/google/crypto/tink/subtle/PrfHmacJce;->key:Ljava/security/Key;
 
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public compute([BI)[B
-    .locals 2
-    .param p1, "data"    # [B
-    .param p2, "outputLength"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -306,33 +300,33 @@
     invoke-virtual {v0, p1}, Ljavax/crypto/Mac;->update([B)V
 
     .line 90
-    iget-object v0, p0, Lcom/google/crypto/tink/subtle/PrfHmacJce;->localMac:Ljava/lang/ThreadLocal;
+    iget-object p1, p0, Lcom/google/crypto/tink/subtle/PrfHmacJce;->localMac:Ljava/lang/ThreadLocal;
 
-    invoke-virtual {v0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljavax/crypto/Mac;
+    check-cast p1, Ljavax/crypto/Mac;
 
-    invoke-virtual {v0}, Ljavax/crypto/Mac;->doFinal()[B
+    invoke-virtual {p1}, Ljavax/crypto/Mac;->doFinal()[B
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0, p2}, Ljava/util/Arrays;->copyOf([BI)[B
+    invoke-static {p1, p2}, Ljava/util/Arrays;->copyOf([BI)[B
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 86
     :cond_0
-    new-instance v0, Ljava/security/InvalidAlgorithmParameterException;
+    new-instance p1, Ljava/security/InvalidAlgorithmParameterException;
 
-    const-string v1, "tag size too big"
+    const-string p2, "tag size too big"
 
-    invoke-direct {v0, v1}, Ljava/security/InvalidAlgorithmParameterException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/security/InvalidAlgorithmParameterException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public getMaxOutputLength()I

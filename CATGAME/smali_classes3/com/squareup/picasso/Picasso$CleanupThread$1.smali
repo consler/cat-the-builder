@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/squareup/picasso/Picasso$CleanupThread;Ljava/lang/Exception;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/squareup/picasso/Picasso$CleanupThread;
 
     .line 643
     iput-object p1, p0, Lcom/squareup/picasso/Picasso$CleanupThread$1;->this$0:Lcom/squareup/picasso/Picasso$CleanupThread;

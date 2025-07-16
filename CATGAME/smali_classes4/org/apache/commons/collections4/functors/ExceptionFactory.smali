@@ -45,10 +45,8 @@
     .locals 0
 
     .line 53
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ExceptionFactory;, "Lorg/apache/commons/collections4/functors/ExceptionFactory<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 54
     return-void
 .end method
 
@@ -74,7 +72,6 @@
     .locals 1
 
     .line 68
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ExceptionFactory;, "Lorg/apache/commons/collections4/functors/ExceptionFactory<TT;>;"
     sget-object v0, Lorg/apache/commons/collections4/functors/ExceptionFactory;->INSTANCE:Lorg/apache/commons/collections4/Factory;
 
     return-object v0
@@ -91,7 +88,6 @@
     .end annotation
 
     .line 64
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ExceptionFactory;, "Lorg/apache/commons/collections4/functors/ExceptionFactory<TT;>;"
     new-instance v0, Lorg/apache/commons/collections4/FunctorException;
 
     const-string v1, "ExceptionFactory invoked"

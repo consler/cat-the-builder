@@ -30,10 +30,9 @@
         }
     .end annotation
 
-    .line 29
+    .line 1
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/huawei/hms/support/api/PendingResultImpl;-><init>(Lcom/huawei/hms/support/api/client/ApiClient;Ljava/lang/String;Lcom/huawei/hms/core/aidl/IMessageEntity;Ljava/lang/Class;)V
 
-    .line 30
     return-void
 .end method
 
@@ -54,7 +53,7 @@
         }
     .end annotation
 
-    .line 43
+    .line 1
     new-instance v0, Lcom/huawei/hms/support/api/ResolvePendingResult;
 
     invoke-direct {v0, p0, p1, p2, p3}, Lcom/huawei/hms/support/api/ResolvePendingResult;-><init>(Lcom/huawei/hms/support/api/client/ApiClient;Ljava/lang/String;Lcom/huawei/hms/core/aidl/IMessageEntity;Ljava/lang/Class;)V
@@ -72,14 +71,14 @@
         }
     .end annotation
 
-    .line 66
-    invoke-virtual {p0}, Lcom/huawei/hms/support/api/ResolvePendingResult;->await()Lcom/huawei/hms/support/api/client/Result;
+    .line 1
+    invoke-virtual {p0}, Lcom/huawei/hms/support/api/PendingResultImpl;->await()Lcom/huawei/hms/support/api/client/Result;
 
     move-result-object v0
 
     check-cast v0, Lcom/huawei/hms/support/api/ResolveResult;
 
-    .line 67
+    .line 2
     invoke-virtual {v0}, Lcom/huawei/hms/support/api/ResolveResult;->getValue()Ljava/lang/Object;
 
     move-result-object v0
@@ -99,12 +98,12 @@
         }
     .end annotation
 
-    .line 55
+    .line 2
     new-instance v0, Lcom/huawei/hms/support/api/ResolveResult;
 
     invoke-direct {v0, p1}, Lcom/huawei/hms/support/api/ResolveResult;-><init>(Ljava/lang/Object;)V
 
-    .line 56
+    .line 3
     new-instance p1, Lcom/huawei/hms/support/api/client/Status;
 
     const/4 v1, 0x0
@@ -113,14 +112,13 @@
 
     invoke-virtual {v0, p1}, Lcom/huawei/hms/support/api/ResolveResult;->setStatus(Lcom/huawei/hms/support/api/client/Status;)V
 
-    .line 57
     return-object v0
 .end method
 
 .method public bridge synthetic onComplete(Lcom/huawei/hms/core/aidl/IMessageEntity;)Lcom/huawei/hms/support/api/client/Result;
     .locals 0
 
-    .line 19
+    .line 1
     invoke-virtual {p0, p1}, Lcom/huawei/hms/support/api/ResolvePendingResult;->onComplete(Lcom/huawei/hms/core/aidl/IMessageEntity;)Lcom/huawei/hms/support/api/ResolveResult;
 
     move-result-object p1

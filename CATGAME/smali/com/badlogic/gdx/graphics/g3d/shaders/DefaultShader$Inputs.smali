@@ -95,7 +95,7 @@
     .line 82
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    const-string/jumbo v1, "u_projTrans"
+    const-string v1, "u_projTrans"
 
     invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;)V
 
@@ -104,7 +104,7 @@
     .line 83
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    const-string/jumbo v1, "u_viewTrans"
+    const-string v1, "u_viewTrans"
 
     invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;)V
 
@@ -113,7 +113,7 @@
     .line 84
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    const-string/jumbo v1, "u_projViewTrans"
+    const-string v1, "u_projViewTrans"
 
     invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;)V
 
@@ -122,7 +122,7 @@
     .line 85
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    const-string/jumbo v1, "u_cameraPosition"
+    const-string v1, "u_cameraPosition"
 
     invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;)V
 
@@ -131,7 +131,7 @@
     .line 86
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    const-string/jumbo v1, "u_cameraDirection"
+    const-string v1, "u_cameraDirection"
 
     invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;)V
 
@@ -140,7 +140,7 @@
     .line 87
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    const-string/jumbo v1, "u_cameraUp"
+    const-string v1, "u_cameraUp"
 
     invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;)V
 
@@ -149,7 +149,7 @@
     .line 88
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    const-string/jumbo v1, "u_cameraNearFar"
+    const-string v1, "u_cameraNearFar"
 
     invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;)V
 
@@ -158,7 +158,7 @@
     .line 90
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    const-string/jumbo v1, "u_worldTrans"
+    const-string v1, "u_worldTrans"
 
     invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;)V
 
@@ -167,7 +167,7 @@
     .line 91
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    const-string/jumbo v1, "u_viewWorldTrans"
+    const-string v1, "u_viewWorldTrans"
 
     invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;)V
 
@@ -176,7 +176,7 @@
     .line 92
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    const-string/jumbo v1, "u_projViewWorldTrans"
+    const-string v1, "u_projViewWorldTrans"
 
     invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;)V
 
@@ -185,7 +185,7 @@
     .line 93
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    const-string/jumbo v1, "u_normalMatrix"
+    const-string v1, "u_normalMatrix"
 
     invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;)V
 
@@ -194,7 +194,7 @@
     .line 94
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    const-string/jumbo v1, "u_bones"
+    const-string v1, "u_bones"
 
     invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;)V
 
@@ -203,205 +203,205 @@
     .line 96
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    sget-wide v1, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;->Shininess:J
+    const-string v1, "u_shininess"
 
-    const-string/jumbo v3, "u_shininess"
+    sget-wide v2, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;->Shininess:J
 
-    invoke-direct {v0, v3, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
 
     sput-object v0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Inputs;->shininess:Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
     .line 97
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    sget-wide v1, Lcom/badlogic/gdx/graphics/g3d/attributes/BlendingAttribute;->Type:J
+    const-string v1, "u_opacity"
 
-    const-string/jumbo v3, "u_opacity"
+    sget-wide v2, Lcom/badlogic/gdx/graphics/g3d/attributes/BlendingAttribute;->Type:J
 
-    invoke-direct {v0, v3, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
 
     sput-object v0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Inputs;->opacity:Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
     .line 98
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    sget-wide v1, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Diffuse:J
+    const-string v1, "u_diffuseColor"
 
-    const-string/jumbo v3, "u_diffuseColor"
+    sget-wide v2, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Diffuse:J
 
-    invoke-direct {v0, v3, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
 
     sput-object v0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Inputs;->diffuseColor:Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
     .line 99
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    sget-wide v1, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Diffuse:J
+    const-string v1, "u_diffuseTexture"
 
-    const-string/jumbo v3, "u_diffuseTexture"
+    sget-wide v2, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Diffuse:J
 
-    invoke-direct {v0, v3, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
 
     sput-object v0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Inputs;->diffuseTexture:Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
     .line 100
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    sget-wide v1, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Diffuse:J
+    const-string v1, "u_diffuseUVTransform"
 
-    const-string/jumbo v3, "u_diffuseUVTransform"
+    sget-wide v2, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Diffuse:J
 
-    invoke-direct {v0, v3, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
 
     sput-object v0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Inputs;->diffuseUVTransform:Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
     .line 101
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    sget-wide v1, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Specular:J
+    const-string v1, "u_specularColor"
 
-    const-string/jumbo v3, "u_specularColor"
+    sget-wide v2, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Specular:J
 
-    invoke-direct {v0, v3, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
 
     sput-object v0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Inputs;->specularColor:Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
     .line 102
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    sget-wide v1, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Specular:J
+    const-string v1, "u_specularTexture"
 
-    const-string/jumbo v3, "u_specularTexture"
+    sget-wide v2, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Specular:J
 
-    invoke-direct {v0, v3, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
 
     sput-object v0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Inputs;->specularTexture:Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
     .line 103
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    sget-wide v1, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Specular:J
+    const-string v1, "u_specularUVTransform"
 
-    const-string/jumbo v3, "u_specularUVTransform"
+    sget-wide v2, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Specular:J
 
-    invoke-direct {v0, v3, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
 
     sput-object v0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Inputs;->specularUVTransform:Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
     .line 104
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    sget-wide v1, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Emissive:J
+    const-string v1, "u_emissiveColor"
 
-    const-string/jumbo v3, "u_emissiveColor"
+    sget-wide v2, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Emissive:J
 
-    invoke-direct {v0, v3, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
 
     sput-object v0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Inputs;->emissiveColor:Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
     .line 105
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    sget-wide v1, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Emissive:J
+    const-string v1, "u_emissiveTexture"
 
-    const-string/jumbo v3, "u_emissiveTexture"
+    sget-wide v2, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Emissive:J
 
-    invoke-direct {v0, v3, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
 
     sput-object v0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Inputs;->emissiveTexture:Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
     .line 106
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    sget-wide v1, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Emissive:J
+    const-string v1, "u_emissiveUVTransform"
 
-    const-string/jumbo v3, "u_emissiveUVTransform"
+    sget-wide v2, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Emissive:J
 
-    invoke-direct {v0, v3, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
 
     sput-object v0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Inputs;->emissiveUVTransform:Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
     .line 107
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    sget-wide v1, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Reflection:J
+    const-string v1, "u_reflectionColor"
 
-    const-string/jumbo v3, "u_reflectionColor"
+    sget-wide v2, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Reflection:J
 
-    invoke-direct {v0, v3, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
 
     sput-object v0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Inputs;->reflectionColor:Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
     .line 108
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    sget-wide v1, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Reflection:J
+    const-string v1, "u_reflectionTexture"
 
-    const-string/jumbo v3, "u_reflectionTexture"
+    sget-wide v2, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Reflection:J
 
-    invoke-direct {v0, v3, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
 
     sput-object v0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Inputs;->reflectionTexture:Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
     .line 109
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    sget-wide v1, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Reflection:J
+    const-string v1, "u_reflectionUVTransform"
 
-    const-string/jumbo v3, "u_reflectionUVTransform"
+    sget-wide v2, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Reflection:J
 
-    invoke-direct {v0, v3, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
 
     sput-object v0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Inputs;->reflectionUVTransform:Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
     .line 110
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    sget-wide v1, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Normal:J
+    const-string v1, "u_normalTexture"
 
-    const-string/jumbo v3, "u_normalTexture"
+    sget-wide v2, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Normal:J
 
-    invoke-direct {v0, v3, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
 
     sput-object v0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Inputs;->normalTexture:Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
     .line 111
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    sget-wide v1, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Normal:J
+    const-string v1, "u_normalUVTransform"
 
-    const-string/jumbo v3, "u_normalUVTransform"
+    sget-wide v2, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Normal:J
 
-    invoke-direct {v0, v3, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
 
     sput-object v0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Inputs;->normalUVTransform:Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
     .line 112
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    sget-wide v1, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Ambient:J
+    const-string v1, "u_ambientTexture"
 
-    const-string/jumbo v3, "u_ambientTexture"
+    sget-wide v2, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Ambient:J
 
-    invoke-direct {v0, v3, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
 
     sput-object v0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Inputs;->ambientTexture:Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
     .line 113
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    sget-wide v1, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Ambient:J
+    const-string v1, "u_ambientUVTransform"
 
-    const-string/jumbo v3, "u_ambientUVTransform"
+    sget-wide v2, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Ambient:J
 
-    invoke-direct {v0, v3, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;J)V
 
     sput-object v0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Inputs;->ambientUVTransform:Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
     .line 114
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    const-string/jumbo v1, "u_alphaTest"
+    const-string v1, "u_alphaTest"
 
     invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;)V
 
@@ -410,7 +410,7 @@
     .line 116
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    const-string/jumbo v1, "u_ambientCubemap"
+    const-string v1, "u_ambientCubemap"
 
     invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;)V
 
@@ -419,7 +419,7 @@
     .line 117
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    const-string/jumbo v1, "u_dirLights"
+    const-string v1, "u_dirLights"
 
     invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;)V
 
@@ -428,7 +428,7 @@
     .line 118
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    const-string/jumbo v1, "u_pointLights"
+    const-string v1, "u_pointLights"
 
     invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;)V
 
@@ -437,7 +437,7 @@
     .line 119
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    const-string/jumbo v1, "u_spotLights"
+    const-string v1, "u_spotLights"
 
     invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;)V
 
@@ -446,7 +446,7 @@
     .line 120
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;
 
-    const-string/jumbo v1, "u_environmentCubemap"
+    const-string v1, "u_environmentCubemap"
 
     invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;)V
 

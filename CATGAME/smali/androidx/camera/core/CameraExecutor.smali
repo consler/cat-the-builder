@@ -47,9 +47,6 @@
 
     iput-object v0, p0, Landroidx/camera/core/CameraExecutor;->mExecutorLock:Ljava/lang/Object;
 
-    .line 40
-    nop
-
     .line 42
     invoke-static {}, Landroidx/camera/core/CameraExecutor;->createExecutor()Ljava/util/concurrent/ThreadPoolExecutor;
 
@@ -57,7 +54,6 @@
 
     iput-object v0, p0, Landroidx/camera/core/CameraExecutor;->mThreadPoolExecutor:Ljava/util/concurrent/ThreadPoolExecutor;
 
-    .line 40
     return-void
 .end method
 
@@ -67,6 +63,12 @@
     .line 119
     new-instance v8, Ljava/util/concurrent/ThreadPoolExecutor;
 
+    const/4 v1, 0x1
+
+    const/4 v2, 0x1
+
+    const-wide/16 v3, 0x0
+
     sget-object v5, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
     new-instance v6, Ljava/util/concurrent/LinkedBlockingQueue;
@@ -74,12 +76,6 @@
     invoke-direct {v6}, Ljava/util/concurrent/LinkedBlockingQueue;-><init>()V
 
     sget-object v7, Landroidx/camera/core/CameraExecutor;->THREAD_FACTORY:Ljava/util/concurrent/ThreadFactory;
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x1
-
-    const-wide/16 v3, 0x0
 
     move-object v0, v8
 
@@ -117,10 +113,8 @@
     :cond_0
     monitor-exit v0
 
-    .line 102
     return-void
 
-    .line 101
     :catchall_0
     move-exception v1
 
@@ -133,7 +127,6 @@
 
 .method public execute(Ljava/lang/Runnable;)V
     .locals 2
-    .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 111
     invoke-static {p1}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -152,23 +145,20 @@
     .line 115
     monitor-exit v0
 
-    .line 116
     return-void
 
-    .line 115
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method init(Landroidx/camera/core/impl/CameraFactory;)V
-    .locals 3
-    .param p1, "cameraFactory"    # Landroidx/camera/core/impl/CameraFactory;
+    .locals 2
 
     .line 67
     invoke-static {p1}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -200,70 +190,56 @@
     iget-object v1, p0, Landroidx/camera/core/CameraExecutor;->mThreadPoolExecutor:Ljava/util/concurrent/ThreadPoolExecutor;
 
     .line 75
-    .local v1, "executor":Ljava/util/concurrent/ThreadPoolExecutor;
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 77
-    const/4 v0, 0x0
-
     .line 79
-    .local v0, "cameraNumber":I
     :try_start_1
     invoke-interface {p1}, Landroidx/camera/core/impl/CameraFactory;->getAvailableCameraIds()Ljava/util/Set;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-interface {v2}, Ljava/util/Set;->size()I
+    invoke-interface {p1}, Ljava/util/Set;->size()I
 
-    move-result v2
+    move-result p1
     :try_end_1
     .catch Landroidx/camera/core/CameraUnavailableException; {:try_start_1 .. :try_end_1} :catch_0
 
-    move v0, v2
-
-    .line 82
     goto :goto_0
 
-    .line 80
     :catch_0
-    move-exception v2
+    move-exception p1
 
     .line 81
-    .local v2, "e":Landroidx/camera/core/CameraUnavailableException;
-    invoke-virtual {v2}, Landroidx/camera/core/CameraUnavailableException;->printStackTrace()V
+    invoke-virtual {p1}, Landroidx/camera/core/CameraUnavailableException;->printStackTrace()V
+
+    const/4 p1, 0x0
+
+    :goto_0
+    const/4 v0, 0x1
 
     .line 88
-    .end local v2    # "e":Landroidx/camera/core/CameraUnavailableException;
-    :goto_0
-    const/4 v2, 0x1
+    invoke-static {v0, p1}, Ljava/lang/Math;->max(II)I
 
-    invoke-static {v2, v0}, Ljava/lang/Math;->max(II)I
-
-    move-result v2
+    move-result p1
 
     .line 89
-    .local v2, "corePoolSize":I
-    invoke-virtual {v1, v2}, Ljava/util/concurrent/ThreadPoolExecutor;->setMaximumPoolSize(I)V
+    invoke-virtual {v1, p1}, Ljava/util/concurrent/ThreadPoolExecutor;->setMaximumPoolSize(I)V
 
     .line 90
-    invoke-virtual {v1, v2}, Ljava/util/concurrent/ThreadPoolExecutor;->setCorePoolSize(I)V
+    invoke-virtual {v1, p1}, Ljava/util/concurrent/ThreadPoolExecutor;->setCorePoolSize(I)V
 
-    .line 91
     return-void
 
-    .line 75
-    .end local v0    # "cameraNumber":I
-    .end local v1    # "executor":Ljava/util/concurrent/ThreadPoolExecutor;
-    .end local v2    # "corePoolSize":I
     :catchall_0
-    move-exception v1
+    move-exception p1
 
+    .line 75
     :try_start_2
     monitor-exit v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    throw v1
+    throw p1
 .end method

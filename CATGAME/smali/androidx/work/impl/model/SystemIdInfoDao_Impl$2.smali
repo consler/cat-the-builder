@@ -21,8 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/work/impl/model/SystemIdInfoDao_Impl;Landroidx/room/RoomDatabase;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/work/impl/model/SystemIdInfoDao_Impl;
-    .param p2, "database"    # Landroidx/room/RoomDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
@@ -45,14 +43,9 @@
 
 # virtual methods
 .method public createQuery()Ljava/lang/String;
-    .locals 2
+    .locals 1
 
-    .line 46
     const-string v0, "DELETE FROM SystemIdInfo where work_spec_id=?"
 
-    .line 47
-    .local v0, "_query":Ljava/lang/String;
-    const-string v1, "DELETE FROM SystemIdInfo where work_spec_id=?"
-
-    return-object v1
+    return-object v0
 .end method

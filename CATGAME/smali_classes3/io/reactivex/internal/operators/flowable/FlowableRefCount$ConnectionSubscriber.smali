@@ -55,8 +55,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/flowable/FlowableRefCount;Lorg/reactivestreams/Subscriber;Lio/reactivex/disposables/CompositeDisposable;Lio/reactivex/disposables/Disposable;)V
     .locals 0
-    .param p3, "currentBase"    # Lio/reactivex/disposables/CompositeDisposable;
-    .param p4, "resource"    # Lio/reactivex/disposables/Disposable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,8 +67,6 @@
     .end annotation
 
     .line 56
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableRefCount$ConnectionSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableRefCount<TT;>.ConnectionSubscriber;"
-    .local p2, "subscriber":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableRefCount$ConnectionSubscriber;->this$0:Lio/reactivex/internal/operators/flowable/FlowableRefCount;
 
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
@@ -91,7 +87,6 @@
 
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableRefCount$ConnectionSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
-    .line 61
     return-void
 .end method
 
@@ -101,7 +96,6 @@
     .locals 1
 
     .line 92
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableRefCount$ConnectionSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableRefCount<TT;>.ConnectionSubscriber;"
     invoke-static {p0}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->cancel(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
     .line 93
@@ -109,7 +103,6 @@
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 94
     return-void
 .end method
 
@@ -117,7 +110,6 @@
     .locals 2
 
     .line 99
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableRefCount$ConnectionSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableRefCount<TT;>.ConnectionSubscriber;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRefCount$ConnectionSubscriber;->this$0:Lio/reactivex/internal/operators/flowable/FlowableRefCount;
 
     iget-object v0, v0, Lio/reactivex/internal/operators/flowable/FlowableRefCount;->lock:Ljava/util/concurrent/locks/ReentrantLock;
@@ -188,13 +180,8 @@
 
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 111
-    nop
-
-    .line 112
     return-void
 
-    .line 110
     :catchall_0
     move-exception v0
 
@@ -211,7 +198,6 @@
     .locals 1
 
     .line 81
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableRefCount$ConnectionSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableRefCount<TT;>.ConnectionSubscriber;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableRefCount$ConnectionSubscriber;->cleanup()V
 
     .line 82
@@ -219,16 +205,13 @@
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 83
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 70
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableRefCount$ConnectionSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableRefCount<TT;>.ConnectionSubscriber;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableRefCount$ConnectionSubscriber;->cleanup()V
 
     .line 71
@@ -236,7 +219,6 @@
 
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 72
     return-void
 .end method
 
@@ -249,40 +231,31 @@
     .end annotation
 
     .line 76
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableRefCount$ConnectionSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableRefCount<TT;>.ConnectionSubscriber;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRefCount$ConnectionSubscriber;->subscriber:Lorg/reactivestreams/Subscriber;
 
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
-    .line 77
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 1
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 65
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableRefCount$ConnectionSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableRefCount<TT;>.ConnectionSubscriber;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRefCount$ConnectionSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
     invoke-static {p0, v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->deferredSetOnce(Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/concurrent/atomic/AtomicLong;Lorg/reactivestreams/Subscription;)Z
 
-    .line 66
     return-void
 .end method
 
 .method public request(J)V
     .locals 1
-    .param p1, "n"    # J
 
     .line 87
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableRefCount$ConnectionSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableRefCount<TT;>.ConnectionSubscriber;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRefCount$ConnectionSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
     invoke-static {p0, v0, p1, p2}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->deferredRequest(Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/concurrent/atomic/AtomicLong;J)V
 
-    .line 88
     return-void
 .end method

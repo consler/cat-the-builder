@@ -46,13 +46,11 @@
 
     invoke-direct {p0, v0, v1}, Lcom/google/crypto/tink/KeyTypeManager;-><init>(Ljava/lang/Class;[Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;)V
 
-    .line 51
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/google/crypto/tink/proto/AesCmacParams;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/AesCmacParams;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/GeneralSecurityException;
@@ -67,7 +65,6 @@
 
 .method static synthetic access$100(I)V
     .locals 0
-    .param p0, "x0"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/GeneralSecurityException;
@@ -81,16 +78,16 @@
 .end method
 
 .method public static final aes256CmacTemplate()Lcom/google/crypto/tink/KeyTemplate;
-    .locals 4
+    .locals 3
 
     .line 141
     invoke-static {}, Lcom/google/crypto/tink/proto/AesCmacKeyFormat;->newBuilder()Lcom/google/crypto/tink/proto/AesCmacKeyFormat$Builder;
 
     move-result-object v0
 
-    .line 142
     const/16 v1, 0x20
 
+    .line 142
     invoke-virtual {v0, v1}, Lcom/google/crypto/tink/proto/AesCmacKeyFormat$Builder;->setKeySize(I)Lcom/google/crypto/tink/proto/AesCmacKeyFormat$Builder;
 
     move-result-object v0
@@ -124,7 +121,6 @@
     check-cast v0, Lcom/google/crypto/tink/proto/AesCmacKeyFormat;
 
     .line 145
-    .local v0, "format":Lcom/google/crypto/tink/proto/AesCmacKeyFormat;
     new-instance v1, Lcom/google/crypto/tink/mac/AesCmacKeyManager;
 
     invoke-direct {v1}, Lcom/google/crypto/tink/mac/AesCmacKeyManager;-><init>()V
@@ -137,29 +133,29 @@
     .line 147
     invoke-virtual {v0}, Lcom/google/crypto/tink/proto/AesCmacKeyFormat;->toByteArray()[B
 
-    move-result-object v2
+    move-result-object v0
 
-    sget-object v3, Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;->TINK:Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;
+    sget-object v2, Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;->TINK:Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;
 
     .line 145
-    invoke-static {v1, v2, v3}, Lcom/google/crypto/tink/KeyTemplate;->create(Ljava/lang/String;[BLcom/google/crypto/tink/KeyTemplate$OutputPrefixType;)Lcom/google/crypto/tink/KeyTemplate;
+    invoke-static {v1, v0, v2}, Lcom/google/crypto/tink/KeyTemplate;->create(Ljava/lang/String;[BLcom/google/crypto/tink/KeyTemplate$OutputPrefixType;)Lcom/google/crypto/tink/KeyTemplate;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public static final rawAes256CmacTemplate()Lcom/google/crypto/tink/KeyTemplate;
-    .locals 4
+    .locals 3
 
     .line 162
     invoke-static {}, Lcom/google/crypto/tink/proto/AesCmacKeyFormat;->newBuilder()Lcom/google/crypto/tink/proto/AesCmacKeyFormat$Builder;
 
     move-result-object v0
 
-    .line 163
     const/16 v1, 0x20
 
+    .line 163
     invoke-virtual {v0, v1}, Lcom/google/crypto/tink/proto/AesCmacKeyFormat$Builder;->setKeySize(I)Lcom/google/crypto/tink/proto/AesCmacKeyFormat$Builder;
 
     move-result-object v0
@@ -193,7 +189,6 @@
     check-cast v0, Lcom/google/crypto/tink/proto/AesCmacKeyFormat;
 
     .line 166
-    .local v0, "format":Lcom/google/crypto/tink/proto/AesCmacKeyFormat;
     new-instance v1, Lcom/google/crypto/tink/mac/AesCmacKeyManager;
 
     invoke-direct {v1}, Lcom/google/crypto/tink/mac/AesCmacKeyManager;-><init>()V
@@ -206,21 +201,20 @@
     .line 168
     invoke-virtual {v0}, Lcom/google/crypto/tink/proto/AesCmacKeyFormat;->toByteArray()[B
 
-    move-result-object v2
+    move-result-object v0
 
-    sget-object v3, Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;->RAW:Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;
+    sget-object v2, Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;->RAW:Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;
 
     .line 166
-    invoke-static {v1, v2, v3}, Lcom/google/crypto/tink/KeyTemplate;->create(Ljava/lang/String;[BLcom/google/crypto/tink/KeyTemplate$OutputPrefixType;)Lcom/google/crypto/tink/KeyTemplate;
+    invoke-static {v1, v0, v2}, Lcom/google/crypto/tink/KeyTemplate;->create(Ljava/lang/String;[BLcom/google/crypto/tink/KeyTemplate$OutputPrefixType;)Lcom/google/crypto/tink/KeyTemplate;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public static register(Z)V
     .locals 1
-    .param p0, "newKeyAllowed"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -243,13 +237,11 @@
 
     invoke-static {v0, p0}, Lcom/google/crypto/tink/Registry;->registerKeyManager(Lcom/google/crypto/tink/KeyTypeManager;Z)V
 
-    .line 128
     return-void
 .end method
 
 .method private static validateParams(Lcom/google/crypto/tink/proto/AesCmacParams;)V
     .locals 2
-    .param p0, "params"    # Lcom/google/crypto/tink/proto/AesCmacParams;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -277,39 +269,37 @@
     .line 89
     invoke-virtual {p0}, Lcom/google/crypto/tink/proto/AesCmacParams;->getTagSize()I
 
-    move-result v0
+    move-result p0
 
-    const/16 v1, 0x10
+    const/16 v0, 0x10
 
-    if-gt v0, v1, :cond_0
+    if-gt p0, v0, :cond_0
 
-    .line 92
     return-void
 
     .line 90
     :cond_0
-    new-instance v0, Ljava/security/GeneralSecurityException;
+    new-instance p0, Ljava/security/GeneralSecurityException;
 
-    const-string v1, "tag size too long"
+    const-string v0, "tag size too long"
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 87
     :cond_1
-    new-instance v0, Ljava/security/GeneralSecurityException;
+    new-instance p0, Ljava/security/GeneralSecurityException;
 
-    const-string v1, "tag size too short"
+    const-string v0, "tag size too short"
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method private static validateSize(I)V
-    .locals 2
-    .param p0, "size"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -325,23 +315,21 @@
         }
     .end annotation
 
-    .line 95
     const/16 v0, 0x20
 
     if-ne p0, v0, :cond_0
 
-    .line 98
     return-void
 
     .line 96
     :cond_0
-    new-instance v0, Ljava/security/GeneralSecurityException;
+    new-instance p0, Ljava/security/GeneralSecurityException;
 
-    const-string v1, "AesCmacKey size wrong, must be 32 bytes"
+    const-string v0, "AesCmacKey size wrong, must be 32 bytes"
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
@@ -349,7 +337,6 @@
 .method public getKeyType()Ljava/lang/String;
     .locals 1
 
-    .line 60
     const-string v0, "type.googleapis.com/google.crypto.tink.AesCmacKey"
 
     return-object v0
@@ -358,7 +345,6 @@
 .method public getVersion()I
     .locals 1
 
-    .line 65
     const/4 v0, 0x0
 
     return v0
@@ -397,7 +383,6 @@
 
 .method public parseKey(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/AesCmacKey;
     .locals 1
-    .param p1, "byteString"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -420,9 +405,9 @@
 
     invoke-static {p1, v0}, Lcom/google/crypto/tink/proto/AesCmacKey;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/AesCmacKey;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic parseKey(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
@@ -452,7 +437,6 @@
 
 .method public validateKey(Lcom/google/crypto/tink/proto/AesCmacKey;)V
     .locals 2
-    .param p1, "key"    # Lcom/google/crypto/tink/proto/AesCmacKey;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -493,11 +477,10 @@
     .line 77
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/AesCmacKey;->getParams()Lcom/google/crypto/tink/proto/AesCmacParams;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Lcom/google/crypto/tink/mac/AesCmacKeyManager;->validateParams(Lcom/google/crypto/tink/proto/AesCmacParams;)V
+    invoke-static {p1}, Lcom/google/crypto/tink/mac/AesCmacKeyManager;->validateParams(Lcom/google/crypto/tink/proto/AesCmacParams;)V
 
-    .line 78
     return-void
 .end method
 

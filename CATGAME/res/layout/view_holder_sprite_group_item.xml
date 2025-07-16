@@ -4,11 +4,13 @@
     <CheckBox android:layout_gravity="center_vertical" android:id="@id/checkbox" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="@dimen/checkbox_margin" />
     <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
         <ImageView android:layout_gravity="center_vertical" android:id="@id/ic_ripples" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_ripples" android:layout_marginEnd="@dimen/img_margin" />
-        <ImageView android:id="@id/image_view" android:background="@drawable/image_contour" android:layout_width="72.0dip" android:layout_height="65.0dip" android:scaleType="centerCrop" android:cropToPadding="true" android:layout_weight="0.0" android:layout_marginEnd="@dimen/img_margin" />
+        <com.google.android.material.card.MaterialCardView android:layout_width="72.0dip" android:layout_height="65.0dip" android:layout_marginEnd="@dimen/img_margin" app:cardCornerRadius="10.0dip" app:cardElevation="10.0dip" app:strokeColor="@color/black" app:strokeWidth="1.0dip" xmlns:app="http://schemas.android.com/apk/res-auto">
+            <ImageView android:id="@id/image_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" android:cropToPadding="true" android:layout_weight="0.0" />
+        </com.google.android.material.card.MaterialCardView>
         <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="1.0">
             <TextView android:textSize="?large" android:textColor="@color/view_holder_item_title" android:id="@id/title_view" android:layout_width="fill_parent" android:layout_height="wrap_content" />
             <TextView android:textColor="@color/view_holder_item_details" android:id="@id/details_view" android:layout_width="wrap_content" android:layout_height="wrap_content" />
         </LinearLayout>
-        <ImageButton android:gravity="center_vertical" android:id="@id/settings_button" android:background="@drawable/ic_more_vert" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="0.0" android:backgroundTint="@color/accent" />
+        <ImageButton android:gravity="center_vertical" android:id="@id/settings_button" android:background="@drawable/ic_more_vert" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="0.0" android:contentDescription="@string/settings" android:backgroundTint="@color/accent" />
     </LinearLayout>
 </LinearLayout>

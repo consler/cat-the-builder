@@ -14,8 +14,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/camera/core/ImageProxy;)V
-    .locals 4
-    .param p1, "imageProxy"    # Landroidx/camera/core/ImageProxy;
+    .locals 2
 
     .line 42
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,77 +24,67 @@
 
     move-result-object v0
 
-    .line 45
-    .local v0, "imageInfo":Landroidx/camera/core/ImageInfo;
     if-eqz v0, :cond_2
 
     .line 49
     invoke-interface {v0}, Landroidx/camera/core/ImageInfo;->getTag()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    .line 51
-    .local v1, "tag":Ljava/lang/Object;
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 55
-    instance-of v2, v1, Ljava/lang/Integer;
+    instance-of v1, v0, Ljava/lang/Integer;
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
     .line 59
-    move-object v2, v1
+    check-cast v0, Ljava/lang/Integer;
 
-    check-cast v2, Ljava/lang/Integer;
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    move-result v0
 
-    move-result v2
-
-    iput v2, p0, Landroidx/camera/core/impl/SingleImageProxyBundle;->mCaptureId:I
+    iput v0, p0, Landroidx/camera/core/impl/SingleImageProxyBundle;->mCaptureId:I
 
     .line 60
     iput-object p1, p0, Landroidx/camera/core/impl/SingleImageProxyBundle;->mImageProxy:Landroidx/camera/core/ImageProxy;
 
-    .line 61
     return-void
 
     .line 56
     :cond_0
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v3, "ImageProxy has tag that isn\'t an integer"
+    const-string v0, "ImageProxy has tag that isn\'t an integer"
 
-    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p1
 
     .line 52
     :cond_1
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v3, "ImageProxy has no associated tag"
+    const-string v0, "ImageProxy has no associated tag"
 
-    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p1
 
     .line 46
-    .end local v1    # "tag":Ljava/lang/Object;
     :cond_2
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v2, "ImageProxy has no associated ImageInfo"
+    const-string v0, "ImageProxy has no associated ImageInfo"
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 .end method
 
 .method constructor <init>(Landroidx/camera/core/ImageProxy;I)V
     .locals 0
-    .param p1, "imageProxy"    # Landroidx/camera/core/ImageProxy;
-    .param p2, "captureId"    # I
 
     .line 67
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -106,7 +95,6 @@
     .line 69
     iput-object p1, p0, Landroidx/camera/core/impl/SingleImageProxyBundle;->mImageProxy:Landroidx/camera/core/ImageProxy;
 
-    .line 70
     return-void
 .end method
 
@@ -120,7 +108,6 @@
 
     invoke-interface {v0}, Landroidx/camera/core/ImageProxy;->close()V
 
-    .line 75
     return-void
 .end method
 
@@ -150,8 +137,7 @@
 .end method
 
 .method public getImageProxy(I)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 2
-    .param p1, "captureId"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -167,25 +153,25 @@
     if-eq p1, v0, :cond_0
 
     .line 81
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Capture id does not exist in the bundle"
+    const-string v0, "Capture id does not exist in the bundle"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    invoke-static {v0}, Landroidx/camera/core/impl/utils/futures/Futures;->immediateFailedFuture(Ljava/lang/Throwable;)Lcom/google/common/util/concurrent/ListenableFuture;
+    invoke-static {p1}, Landroidx/camera/core/impl/utils/futures/Futures;->immediateFailedFuture(Ljava/lang/Throwable;)Lcom/google/common/util/concurrent/ListenableFuture;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 84
     :cond_0
-    iget-object v0, p0, Landroidx/camera/core/impl/SingleImageProxyBundle;->mImageProxy:Landroidx/camera/core/ImageProxy;
+    iget-object p1, p0, Landroidx/camera/core/impl/SingleImageProxyBundle;->mImageProxy:Landroidx/camera/core/ImageProxy;
 
-    invoke-static {v0}, Landroidx/camera/core/impl/utils/futures/Futures;->immediateFuture(Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
+    invoke-static {p1}, Landroidx/camera/core/impl/utils/futures/Futures;->immediateFuture(Ljava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

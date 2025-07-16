@@ -48,13 +48,11 @@
 
     invoke-direct {p0, v0}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;-><init>(Lcom/bumptech/glide/manager/ActivityFragmentLifecycle;)V
 
-    .line 40
     return-void
 .end method
 
 .method public constructor <init>(Lcom/bumptech/glide/manager/ActivityFragmentLifecycle;)V
     .locals 1
-    .param p1, "lifecycle"    # Lcom/bumptech/glide/manager/ActivityFragmentLifecycle;
 
     .line 44
     invoke-direct {p0}, Landroidx/fragment/app/Fragment;-><init>()V
@@ -76,49 +74,42 @@
     .line 45
     iput-object p1, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->lifecycle:Lcom/bumptech/glide/manager/ActivityFragmentLifecycle;
 
-    .line 46
     return-void
 .end method
 
 .method private addChildRequestManagerFragment(Lcom/bumptech/glide/manager/SupportRequestManagerFragment;)V
     .locals 1
-    .param p1, "child"    # Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
 
     .line 78
     iget-object v0, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->childRequestManagerFragments:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 79
     return-void
 .end method
 
 .method private getParentFragmentUsingHint()Landroidx/fragment/app/Fragment;
-    .locals 2
+    .locals 1
 
     .line 134
     invoke-virtual {p0}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->getParentFragment()Landroidx/fragment/app/Fragment;
 
     move-result-object v0
 
-    .line 135
-    .local v0, "fragment":Landroidx/fragment/app/Fragment;
     if-eqz v0, :cond_0
-
-    move-object v1, v0
 
     goto :goto_0
 
+    .line 135
     :cond_0
-    iget-object v1, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->parentFragmentHint:Landroidx/fragment/app/Fragment;
+    iget-object v0, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->parentFragmentHint:Landroidx/fragment/app/Fragment;
 
     :goto_0
-    return-object v1
+    return-object v0
 .end method
 
 .method private static getRootFragmentManager(Landroidx/fragment/app/Fragment;)Landroidx/fragment/app/FragmentManager;
     .locals 1
-    .param p0, "fragment"    # Landroidx/fragment/app/Fragment;
 
     .line 126
     :goto_0
@@ -139,14 +130,13 @@
     :cond_0
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getFragmentManager()Landroidx/fragment/app/FragmentManager;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private isDescendant(Landroidx/fragment/app/Fragment;)Z
-    .locals 3
-    .param p1, "fragment"    # Landroidx/fragment/app/Fragment;
+    .locals 2
 
     .line 140
     invoke-direct {p0}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->getParentFragmentUsingHint()Landroidx/fragment/app/Fragment;
@@ -154,28 +144,23 @@
     move-result-object v0
 
     .line 142
-    .local v0, "root":Landroidx/fragment/app/Fragment;
     :goto_0
     invoke-virtual {p1}, Landroidx/fragment/app/Fragment;->getParentFragment()Landroidx/fragment/app/Fragment;
 
     move-result-object v1
 
-    move-object v2, v1
-
-    .local v2, "parentFragment":Landroidx/fragment/app/Fragment;
     if-eqz v1, :cond_1
 
     .line 143
-    invoke-virtual {v2, v0}, Landroidx/fragment/app/Fragment;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v0}, Landroidx/fragment/app/Fragment;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 144
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    return v1
+    return p1
 
     .line 146
     :cond_0
@@ -185,23 +170,17 @@
 
     goto :goto_0
 
-    .line 148
     :cond_1
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return v1
+    return p1
 .end method
 
 .method private registerFragmentWithRoot(Landroid/content/Context;Landroidx/fragment/app/FragmentManager;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "fragmentManager"    # Landroidx/fragment/app/FragmentManager;
 
     .line 153
     invoke-direct {p0}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->unregisterFragmentWithRoot()V
-
-    .line 154
-    nop
 
     .line 155
     invoke-static {p1}, Lcom/bumptech/glide/Glide;->get(Landroid/content/Context;)Lcom/bumptech/glide/Glide;
@@ -216,37 +195,34 @@
     .line 157
     invoke-virtual {v0, p1, p2}, Lcom/bumptech/glide/manager/RequestManagerRetriever;->getSupportRequestManagerFragment(Landroid/content/Context;Landroidx/fragment/app/FragmentManager;)Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->rootRequestManagerFragment:Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
+    iput-object p1, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->rootRequestManagerFragment:Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
 
     .line 158
-    invoke-virtual {p0, v0}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 159
-    iget-object v0, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->rootRequestManagerFragment:Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
+    iget-object p1, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->rootRequestManagerFragment:Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
 
-    invoke-direct {v0, p0}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->addChildRequestManagerFragment(Lcom/bumptech/glide/manager/SupportRequestManagerFragment;)V
+    invoke-direct {p1, p0}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->addChildRequestManagerFragment(Lcom/bumptech/glide/manager/SupportRequestManagerFragment;)V
 
-    .line 161
     :cond_0
     return-void
 .end method
 
 .method private removeChildRequestManagerFragment(Lcom/bumptech/glide/manager/SupportRequestManagerFragment;)V
     .locals 1
-    .param p1, "child"    # Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
 
     .line 82
     iget-object v0, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->childRequestManagerFragments:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
-    .line 83
     return-void
 .end method
 
@@ -261,12 +237,11 @@
     .line 165
     invoke-direct {v0, p0}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->removeChildRequestManagerFragment(Lcom/bumptech/glide/manager/SupportRequestManagerFragment;)V
 
-    .line 166
     const/4 v0, 0x0
 
+    .line 166
     iput-object v0, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->rootRequestManagerFragment:Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
 
-    .line 168
     :cond_0
     return-void
 .end method
@@ -320,7 +295,6 @@
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     .line 99
-    .local v0, "descendants":Ljava/util/Set;, "Ljava/util/Set<Lcom/bumptech/glide/manager/SupportRequestManagerFragment;>;"
     iget-object v1, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->rootRequestManagerFragment:Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
 
     invoke-virtual {v1}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->getDescendantRequestManagerFragments()Ljava/util/Set;
@@ -331,6 +305,7 @@
 
     move-result-object v1
 
+    :cond_2
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -345,7 +320,6 @@
     check-cast v2, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
 
     .line 100
-    .local v2, "fragment":Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
     invoke-direct {v2}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->getParentFragmentUsingHint()Landroidx/fragment/app/Fragment;
 
     move-result-object v3
@@ -359,18 +333,15 @@
     .line 101
     invoke-interface {v0, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 103
-    .end local v2    # "fragment":Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
-    :cond_2
     goto :goto_0
 
     .line 104
     :cond_3
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableSet(Ljava/util/Set;)Ljava/util/Set;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method getGlideLifecycle()Lcom/bumptech/glide/manager/ActivityFragmentLifecycle;
@@ -401,8 +372,7 @@
 .end method
 
 .method public onAttach(Landroid/content/Context;)V
-    .locals 4
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 3
 
     .line 172
     invoke-super {p0, p1}, Landroidx/fragment/app/Fragment;->onAttach(Landroid/content/Context;)V
@@ -410,29 +380,26 @@
     .line 174
     invoke-static {p0}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->getRootFragmentManager(Landroidx/fragment/app/Fragment;)Landroidx/fragment/app/FragmentManager;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 175
-    .local v0, "rootFragmentManager":Landroidx/fragment/app/FragmentManager;
-    const/4 v1, 0x5
+    const/4 v0, 0x5
 
-    const-string v2, "SupportRMFragment"
+    const-string v1, "SupportRMFragment"
 
-    if-nez v0, :cond_1
+    if-nez p1, :cond_1
 
     .line 176
-    invoke-static {v2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+    invoke-static {v1, v0}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
+
+    const-string p1, "Unable to register fragment with root, ancestor detached"
 
     .line 178
-    const-string v1, "Unable to register fragment with root, ancestor detached"
+    invoke-static {v1, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v2, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 180
     :cond_0
     return-void
 
@@ -441,34 +408,29 @@
     :try_start_0
     invoke-virtual {p0}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->getContext()Landroid/content/Context;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-direct {p0, v3, v0}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->registerFragmentWithRoot(Landroid/content/Context;Landroidx/fragment/app/FragmentManager;)V
+    invoke-direct {p0, v2, p1}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->registerFragmentWithRoot(Landroid/content/Context;Landroidx/fragment/app/FragmentManager;)V
     :try_end_0
     .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 190
     goto :goto_0
 
-    .line 185
     :catch_0
-    move-exception v3
+    move-exception p1
 
     .line 187
-    .local v3, "e":Ljava/lang/IllegalStateException;
-    invoke-static {v2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+    invoke-static {v1, v0}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
+
+    const-string v0, "Unable to register fragment with root"
 
     .line 188
-    const-string v1, "Unable to register fragment with root"
+    invoke-static {v1, v0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    invoke-static {v2, v1, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 191
-    .end local v3    # "e":Ljava/lang/IllegalStateException;
     :cond_2
     :goto_0
     return-void
@@ -488,7 +450,6 @@
     .line 216
     invoke-direct {p0}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->unregisterFragmentWithRoot()V
 
-    .line 217
     return-void
 .end method
 
@@ -498,15 +459,14 @@
     .line 195
     invoke-super {p0}, Landroidx/fragment/app/Fragment;->onDetach()V
 
-    .line 196
     const/4 v0, 0x0
 
+    .line 196
     iput-object v0, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->parentFragmentHint:Landroidx/fragment/app/Fragment;
 
     .line 197
     invoke-direct {p0}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->unregisterFragmentWithRoot()V
 
-    .line 198
     return-void
 .end method
 
@@ -521,7 +481,6 @@
 
     invoke-virtual {v0}, Lcom/bumptech/glide/manager/ActivityFragmentLifecycle;->onStart()V
 
-    .line 204
     return-void
 .end method
 
@@ -536,20 +495,18 @@
 
     invoke-virtual {v0}, Lcom/bumptech/glide/manager/ActivityFragmentLifecycle;->onStop()V
 
-    .line 210
     return-void
 .end method
 
 .method setParentFragmentHint(Landroidx/fragment/app/Fragment;)V
-    .locals 2
-    .param p1, "parentFragmentHint"    # Landroidx/fragment/app/Fragment;
+    .locals 1
 
     .line 113
     iput-object p1, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->parentFragmentHint:Landroidx/fragment/app/Fragment;
 
-    .line 114
     if-eqz p1, :cond_2
 
+    .line 114
     invoke-virtual {p1}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -564,26 +521,18 @@
 
     move-result-object v0
 
-    .line 118
-    .local v0, "rootFragmentManager":Landroidx/fragment/app/FragmentManager;
     if-nez v0, :cond_1
 
-    .line 119
     return-void
 
     .line 121
     :cond_1
     invoke-virtual {p1}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {p0, v1, v0}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->registerFragmentWithRoot(Landroid/content/Context;Landroidx/fragment/app/FragmentManager;)V
+    invoke-direct {p0, p1, v0}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->registerFragmentWithRoot(Landroid/content/Context;Landroidx/fragment/app/FragmentManager;)V
 
-    .line 122
-    return-void
-
-    .line 115
-    .end local v0    # "rootFragmentManager":Landroidx/fragment/app/FragmentManager;
     :cond_2
     :goto_0
     return-void
@@ -591,12 +540,10 @@
 
 .method public setRequestManager(Lcom/bumptech/glide/RequestManager;)V
     .locals 0
-    .param p1, "requestManager"    # Lcom/bumptech/glide/RequestManager;
 
     .line 54
     iput-object p1, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->requestManager:Lcom/bumptech/glide/RequestManager;
 
-    .line 55
     return-void
 .end method
 
@@ -614,9 +561,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "{parent="
+    move-result-object v0
+
+    const-string v1, "{parent="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-direct {p0}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->getParentFragmentUsingHint()Landroidx/fragment/app/Fragment;
 
@@ -624,9 +575,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "}"
+    move-result-object v0
+
+    const-string v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

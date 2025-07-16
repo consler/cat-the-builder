@@ -24,10 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/request/target/CustomViewTarget;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/bumptech/glide/request/target/CustomViewTarget;
 
     .line 140
-    .local p0, "this":Lcom/bumptech/glide/request/target/CustomViewTarget$1;, "Lcom/bumptech/glide/request/target/CustomViewTarget$1;"
     iput-object p1, p0, Lcom/bumptech/glide/request/target/CustomViewTarget$1;->this$0:Lcom/bumptech/glide/request/target/CustomViewTarget;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,29 +36,23 @@
 
 # virtual methods
 .method public onViewAttachedToWindow(Landroid/view/View;)V
-    .locals 1
-    .param p1, "v"    # Landroid/view/View;
+    .locals 0
 
     .line 143
-    .local p0, "this":Lcom/bumptech/glide/request/target/CustomViewTarget$1;, "Lcom/bumptech/glide/request/target/CustomViewTarget$1;"
-    iget-object v0, p0, Lcom/bumptech/glide/request/target/CustomViewTarget$1;->this$0:Lcom/bumptech/glide/request/target/CustomViewTarget;
+    iget-object p1, p0, Lcom/bumptech/glide/request/target/CustomViewTarget$1;->this$0:Lcom/bumptech/glide/request/target/CustomViewTarget;
 
-    invoke-virtual {v0}, Lcom/bumptech/glide/request/target/CustomViewTarget;->resumeMyRequest()V
+    invoke-virtual {p1}, Lcom/bumptech/glide/request/target/CustomViewTarget;->resumeMyRequest()V
 
-    .line 144
     return-void
 .end method
 
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
-    .locals 1
-    .param p1, "v"    # Landroid/view/View;
+    .locals 0
 
     .line 148
-    .local p0, "this":Lcom/bumptech/glide/request/target/CustomViewTarget$1;, "Lcom/bumptech/glide/request/target/CustomViewTarget$1;"
-    iget-object v0, p0, Lcom/bumptech/glide/request/target/CustomViewTarget$1;->this$0:Lcom/bumptech/glide/request/target/CustomViewTarget;
+    iget-object p1, p0, Lcom/bumptech/glide/request/target/CustomViewTarget$1;->this$0:Lcom/bumptech/glide/request/target/CustomViewTarget;
 
-    invoke-virtual {v0}, Lcom/bumptech/glide/request/target/CustomViewTarget;->pauseMyRequest()V
+    invoke-virtual {p1}, Lcom/bumptech/glide/request/target/CustomViewTarget;->pauseMyRequest()V
 
-    .line 149
     return-void
 .end method

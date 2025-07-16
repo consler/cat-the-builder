@@ -56,14 +56,11 @@
     .end annotation
 
     .line 90
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleInternalHelper$ToFlowableIterable;, "Lio/reactivex/internal/operators/single/SingleInternalHelper$ToFlowableIterable<TT;>;"
-    .local p1, "sources":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lio/reactivex/SingleSource<+TT;>;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 91
     iput-object p1, p0, Lio/reactivex/internal/operators/single/SingleInternalHelper$ToFlowableIterable;->sources:Ljava/lang/Iterable;
 
-    .line 92
     return-void
 .end method
 
@@ -81,7 +78,6 @@
     .end annotation
 
     .line 96
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleInternalHelper$ToFlowableIterable;, "Lio/reactivex/internal/operators/single/SingleInternalHelper$ToFlowableIterable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/single/SingleInternalHelper$ToFlowableIterator;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/single/SingleInternalHelper$ToFlowableIterable;->sources:Ljava/lang/Iterable;

@@ -51,8 +51,6 @@
     .end annotation
 
     .line 74
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/PushbackIterator;, "Lorg/apache/commons/collections4/iterators/PushbackIterator<TE;>;"
-    .local p1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 41
@@ -65,12 +63,11 @@
     .line 75
     iput-object p1, p0, Lorg/apache/commons/collections4/iterators/PushbackIterator;->iterator:Ljava/util/Iterator;
 
-    .line 76
     return-void
 .end method
 
 .method public static pushbackIterator(Ljava/util/Iterator;)Lorg/apache/commons/collections4/iterators/PushbackIterator;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -83,8 +80,6 @@
         }
     .end annotation
 
-    .line 55
-    .local p0, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     if-eqz p0, :cond_1
 
     .line 58
@@ -93,16 +88,11 @@
     if-eqz v0, :cond_0
 
     .line 60
-    move-object v0, p0
+    check-cast p0, Lorg/apache/commons/collections4/iterators/PushbackIterator;
 
-    check-cast v0, Lorg/apache/commons/collections4/iterators/PushbackIterator;
-
-    .line 61
-    .local v0, "it":Lorg/apache/commons/collections4/iterators/PushbackIterator;, "Lorg/apache/commons/collections4/iterators/PushbackIterator<TE;>;"
-    return-object v0
+    return-object p0
 
     .line 63
-    .end local v0    # "it":Lorg/apache/commons/collections4/iterators/PushbackIterator;, "Lorg/apache/commons/collections4/iterators/PushbackIterator<TE;>;"
     :cond_0
     new-instance v0, Lorg/apache/commons/collections4/iterators/PushbackIterator;
 
@@ -112,13 +102,13 @@
 
     .line 56
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Iterator must not be null"
+    const-string v0, "Iterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
@@ -127,7 +117,6 @@
     .locals 1
 
     .line 91
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/PushbackIterator;, "Lorg/apache/commons/collections4/iterators/PushbackIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/PushbackIterator;->items:Ljava/util/Deque;
 
     invoke-interface {v0}, Ljava/util/Deque;->isEmpty()Z
@@ -168,7 +157,6 @@
     .end annotation
 
     .line 96
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/PushbackIterator;, "Lorg/apache/commons/collections4/iterators/PushbackIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/PushbackIterator;->items:Ljava/util/Deque;
 
     invoke-interface {v0}, Ljava/util/Deque;->isEmpty()Z
@@ -205,13 +193,10 @@
     .end annotation
 
     .line 86
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/PushbackIterator;, "Lorg/apache/commons/collections4/iterators/PushbackIterator<TE;>;"
-    .local p1, "item":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/PushbackIterator;->items:Ljava/util/Deque;
 
     invoke-interface {v0, p1}, Ljava/util/Deque;->push(Ljava/lang/Object;)V
 
-    .line 87
     return-void
 .end method
 
@@ -219,7 +204,6 @@
     .locals 1
 
     .line 106
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/PushbackIterator;, "Lorg/apache/commons/collections4/iterators/PushbackIterator<TE;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

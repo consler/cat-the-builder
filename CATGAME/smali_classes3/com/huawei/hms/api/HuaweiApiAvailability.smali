@@ -6,6 +6,17 @@
 # static fields
 .field public static final ACTIVITY_NAME:Ljava/lang/String; = "com.huawei.hms.core.activity.JumpActivity"
 
+.field private static final API_MAP:Ljava/util/Map;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Map<",
+            "Ljava/lang/String;",
+            "Ljava/lang/Integer;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field public static final APPID_HMS:Ljava/lang/String; = "C10132067"
 
 .field public static final APPID_HMS_TV:Ljava/lang/String; = "C100636709"
@@ -28,15 +39,17 @@
 
 .field public static final HMS_JSON_VERSION_MIN:I = 0x1c9c380
 
-.field public static final HMS_SDK_VERSION_CODE:I = 0x26266e4
+.field public static final HMS_SDK_VERSION_CODE:I = 0x39cafec
 
-.field public static final HMS_SDK_VERSION_NAME:Ljava/lang/String; = "4.0.3.300"
+.field public static final HMS_SDK_VERSION_NAME:Ljava/lang/String; = "6.6.0.300"
 
 .field public static final HMS_VERSION_CODE_GAME:I = 0x138d9d8
 
 .field public static final HMS_VERSION_CODE_IAP:I = 0x13bdc8c
 
 .field public static final HMS_VERSION_CODE_ID:I = 0x1c9c380
+
+.field public static final HMS_VERSION_CODE_KIT_UPDATE:I = 0x2625a00
 
 .field public static final HMS_VERSION_CODE_MIN:I = 0x138d9d8
 
@@ -73,44 +86,33 @@
     .end annotation
 .end field
 
+.field public static final SERVICES_SIGNATURE_CAR:Ljava/lang/String; = "3517262215D8D3008CBF888750B6418EDC4D562AC33ED6874E0D73ABA667BC3C"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
 .field public static final SERVICES_SIGNATURE_TV:Ljava/lang/String; = "3517262215D8D3008CBF888750B6418EDC4D562AC33ED6874E0D73ABA667BC3C"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
 
-.field public static SERVICES_VERSION_CODE:I
-
-.field private static final a:Ljava/util/Map;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Map<",
-            "Ljava/lang/String;",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public static SERVICES_VERSION_CODE:I = 0x1c9c3e4
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 3
 
-    .line 190
-    const v0, 0x1c9c3e4
-
-    sput v0, Lcom/huawei/hms/api/HuaweiApiAvailability;->SERVICES_VERSION_CODE:I
-
-    .line 192
+    .line 1
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    sput-object v0, Lcom/huawei/hms/api/HuaweiApiAvailability;->a:Ljava/util/Map;
+    sput-object v0, Lcom/huawei/hms/api/HuaweiApiAvailability;->API_MAP:Ljava/util/Map;
 
-    .line 195
     const v1, 0x1c9c380
 
+    .line 4
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
@@ -119,11 +121,9 @@
 
     invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 196
-    sget-object v0, Lcom/huawei/hms/api/HuaweiApiAvailability;->a:Ljava/util/Map;
-
     const v1, 0x138d9d8
 
+    .line 5
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
@@ -132,32 +132,24 @@
 
     invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 197
-    sget-object v0, Lcom/huawei/hms/api/HuaweiApiAvailability;->a:Ljava/util/Map;
-
     const-string v2, "HuaweiPay.API"
 
+    .line 6
     invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 198
-    sget-object v0, Lcom/huawei/hms/api/HuaweiApiAvailability;->a:Ljava/util/Map;
 
     const-string v2, "HuaweiPush.API"
 
+    .line 7
     invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 199
-    sget-object v0, Lcom/huawei/hms/api/HuaweiApiAvailability;->a:Ljava/util/Map;
 
     const-string v2, "HuaweiGame.API"
 
+    .line 8
     invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 200
-    sget-object v0, Lcom/huawei/hms/api/HuaweiApiAvailability;->a:Ljava/util/Map;
 
     const v1, 0x13a58a8
 
+    .line 9
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
@@ -166,11 +158,9 @@
 
     invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 201
-    sget-object v0, Lcom/huawei/hms/api/HuaweiApiAvailability;->a:Ljava/util/Map;
-
     const v1, 0x13bdc8c
 
+    .line 10
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
@@ -179,21 +169,18 @@
 
     invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 202
-    sget-object v0, Lcom/huawei/hms/api/HuaweiApiAvailability;->a:Ljava/util/Map;
-
     const-string v2, "HuaweiPPSkit.API"
 
+    .line 11
     invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 203
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
-    .line 30
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -211,8 +198,8 @@
         }
     .end annotation
 
-    .line 187
-    sget-object v0, Lcom/huawei/hms/api/HuaweiApiAvailability;->a:Ljava/util/Map;
+    .line 1
+    sget-object v0, Lcom/huawei/hms/api/HuaweiApiAvailability;->API_MAP:Ljava/util/Map;
 
     return-object v0
 .end method
@@ -220,8 +207,8 @@
 .method public static getInstance()Lcom/huawei/hms/api/HuaweiApiAvailability;
     .locals 1
 
-    .line 221
-    invoke-static {}, Lcom/huawei/hms/api/b;->a()Lcom/huawei/hms/api/b;
+    .line 1
+    invoke-static {}, Lcom/huawei/hms/api/b;->getInstance()Lcom/huawei/hms/api/b;
 
     move-result-object v0
 
@@ -231,7 +218,7 @@
 .method public static getServicesVersionCode()I
     .locals 1
 
-    .line 225
+    .line 1
     sget v0, Lcom/huawei/hms/api/HuaweiApiAvailability;->SERVICES_VERSION_CODE:I
 
     return v0
@@ -240,10 +227,9 @@
 .method public static setServicesVersionCode(I)V
     .locals 0
 
-    .line 229
+    .line 1
     sput p0, Lcom/huawei/hms/api/HuaweiApiAvailability;->SERVICES_VERSION_CODE:I
 
-    .line 230
     return-void
 .end method
 

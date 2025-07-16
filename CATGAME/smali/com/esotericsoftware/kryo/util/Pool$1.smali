@@ -28,11 +28,8 @@
 # direct methods
 .method constructor <init>(Lcom/esotericsoftware/kryo/util/Pool;I)V
     .locals 0
-    .param p1, "this$0"    # Lcom/esotericsoftware/kryo/util/Pool;
-    .param p2, "arg0"    # I
 
     .line 48
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/Pool$1;, "Lcom/esotericsoftware/kryo/util/Pool$1;"
     iput-object p1, p0, Lcom/esotericsoftware/kryo/util/Pool$1;->this$0:Lcom/esotericsoftware/kryo/util/Pool;
 
     invoke-direct {p0, p2}, Ljava/util/concurrent/LinkedBlockingQueue;-><init>(I)V
@@ -43,7 +40,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -51,11 +48,9 @@
     .end annotation
 
     .line 51
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/Pool$1;, "Lcom/esotericsoftware/kryo/util/Pool$1;"
-    .local p1, "o":Ljava/lang/Object;, "TT;"
     invoke-super {p0, p1}, Ljava/util/concurrent/LinkedBlockingQueue;->offer(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

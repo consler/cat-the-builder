@@ -10,13 +10,11 @@
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 45
     return-void
 .end method
 
 .method public static retrieveCameraCaptureResult(Landroidx/camera/core/ImageInfo;)Landroidx/camera/core/impl/CameraCaptureResult;
     .locals 1
-    .param p0, "imageInfo"    # Landroidx/camera/core/ImageInfo;
 
     .line 37
     instance-of v0, p0, Landroidx/camera/core/internal/CameraCaptureResultImageInfo;
@@ -24,19 +22,16 @@
     if-eqz v0, :cond_0
 
     .line 38
-    move-object v0, p0
+    check-cast p0, Landroidx/camera/core/internal/CameraCaptureResultImageInfo;
 
-    check-cast v0, Landroidx/camera/core/internal/CameraCaptureResultImageInfo;
+    invoke-virtual {p0}, Landroidx/camera/core/internal/CameraCaptureResultImageInfo;->getCameraCaptureResult()Landroidx/camera/core/impl/CameraCaptureResult;
 
-    invoke-virtual {v0}, Landroidx/camera/core/internal/CameraCaptureResultImageInfo;->getCameraCaptureResult()Landroidx/camera/core/impl/CameraCaptureResult;
+    move-result-object p0
 
-    move-result-object v0
+    return-object p0
 
-    return-object v0
-
-    .line 40
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method

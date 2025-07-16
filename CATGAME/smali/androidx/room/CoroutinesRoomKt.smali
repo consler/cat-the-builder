@@ -38,8 +38,7 @@
 
 # direct methods
 .method public static final getQueryDispatcher(Landroidx/room/RoomDatabase;)Lkotlinx/coroutines/CoroutineDispatcher;
-    .locals 7
-    .param p0, "$this$queryDispatcher"    # Landroidx/room/RoomDatabase;
+    .locals 3
 
     const-string v0, "$this$queryDispatcher"
 
@@ -56,80 +55,49 @@
 
     const-string v1, "QueryDispatcher"
 
-    .local v0, "$this$getOrPut$iv":Ljava/util/Map;
-    .local v1, "key$iv":Ljava/lang/Object;
-    const/4 v2, 0x0
-
     .line 153
-    .local v2, "$i$f$getOrPut":I
     invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    .line 154
-    .local v3, "value$iv":Ljava/lang/Object;
-    if-nez v3, :cond_0
-
-    .line 155
-    const/4 v4, 0x0
+    if-nez v2, :cond_0
 
     .line 140
-    .local v4, "$i$a$-getOrPut-CoroutinesRoomKt$queryDispatcher$1":I
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->getQueryExecutor()Ljava/util/concurrent/Executor;
 
-    move-result-object v5
+    move-result-object p0
 
-    const-string v6, "queryExecutor"
+    const-string v2, "queryExecutor"
 
-    invoke-static {v5, v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p0, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v5}, Lkotlinx/coroutines/ExecutorsKt;->from(Ljava/util/concurrent/Executor;)Lkotlinx/coroutines/CoroutineDispatcher;
+    invoke-static {p0}, Lkotlinx/coroutines/ExecutorsKt;->from(Ljava/util/concurrent/Executor;)Lkotlinx/coroutines/CoroutineDispatcher;
 
-    move-result-object v4
+    move-result-object v2
 
     .line 156
-    .local v4, "answer$iv":Ljava/lang/Object;
-    invoke-interface {v0, v1, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 157
-    nop
-
-    .end local v4    # "answer$iv":Ljava/lang/Object;
-    goto :goto_0
-
-    .line 159
     :cond_0
-    move-object v4, v3
+    if-eqz v2, :cond_1
 
     .line 154
-    :goto_0
-    nop
+    check-cast v2, Lkotlinx/coroutines/CoroutineDispatcher;
 
-    .end local v0    # "$this$getOrPut$iv":Ljava/util/Map;
-    .end local v1    # "key$iv":Ljava/lang/Object;
-    .end local v2    # "$i$f$getOrPut":I
-    .end local v3    # "value$iv":Ljava/lang/Object;
-    if-eqz v4, :cond_1
+    return-object v2
 
-    check-cast v4, Lkotlinx/coroutines/CoroutineDispatcher;
-
-    .line 141
-    return-object v4
-
-    .line 154
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "null cannot be cast to non-null type kotlinx.coroutines.CoroutineDispatcher"
+    const-string v0, "null cannot be cast to non-null type kotlinx.coroutines.CoroutineDispatcher"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static final getTransactionDispatcher(Landroidx/room/RoomDatabase;)Lkotlinx/coroutines/CoroutineDispatcher;
-    .locals 7
-    .param p0, "$this$transactionDispatcher"    # Landroidx/room/RoomDatabase;
+    .locals 3
 
     const-string v0, "$this$transactionDispatcher"
 
@@ -146,73 +114,43 @@
 
     const-string v1, "TransactionDispatcher"
 
-    .local v0, "$this$getOrPut$iv":Ljava/util/Map;
-    .local v1, "key$iv":Ljava/lang/Object;
-    const/4 v2, 0x0
-
     .line 160
-    .local v2, "$i$f$getOrPut":I
     invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    .line 161
-    .local v3, "value$iv":Ljava/lang/Object;
-    if-nez v3, :cond_0
-
-    .line 162
-    const/4 v4, 0x0
+    if-nez v2, :cond_0
 
     .line 150
-    .local v4, "$i$a$-getOrPut-CoroutinesRoomKt$transactionDispatcher$1":I
     invoke-virtual {p0}, Landroidx/room/RoomDatabase;->getTransactionExecutor()Ljava/util/concurrent/Executor;
 
-    move-result-object v5
+    move-result-object p0
 
-    const-string/jumbo v6, "transactionExecutor"
+    const-string v2, "transactionExecutor"
 
-    invoke-static {v5, v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p0, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v5}, Lkotlinx/coroutines/ExecutorsKt;->from(Ljava/util/concurrent/Executor;)Lkotlinx/coroutines/CoroutineDispatcher;
+    invoke-static {p0}, Lkotlinx/coroutines/ExecutorsKt;->from(Ljava/util/concurrent/Executor;)Lkotlinx/coroutines/CoroutineDispatcher;
 
-    move-result-object v4
+    move-result-object v2
 
     .line 163
-    .local v4, "answer$iv":Ljava/lang/Object;
-    invoke-interface {v0, v1, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 164
-    nop
-
-    .end local v4    # "answer$iv":Ljava/lang/Object;
-    goto :goto_0
-
-    .line 166
     :cond_0
-    move-object v4, v3
+    if-eqz v2, :cond_1
 
     .line 161
-    :goto_0
-    nop
+    check-cast v2, Lkotlinx/coroutines/CoroutineDispatcher;
 
-    .end local v0    # "$this$getOrPut$iv":Ljava/util/Map;
-    .end local v1    # "key$iv":Ljava/lang/Object;
-    .end local v2    # "$i$f$getOrPut":I
-    .end local v3    # "value$iv":Ljava/lang/Object;
-    if-eqz v4, :cond_1
+    return-object v2
 
-    check-cast v4, Lkotlinx/coroutines/CoroutineDispatcher;
-
-    .line 151
-    return-object v4
-
-    .line 161
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "null cannot be cast to non-null type kotlinx.coroutines.CoroutineDispatcher"
+    const-string v0, "null cannot be cast to non-null type kotlinx.coroutines.CoroutineDispatcher"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method

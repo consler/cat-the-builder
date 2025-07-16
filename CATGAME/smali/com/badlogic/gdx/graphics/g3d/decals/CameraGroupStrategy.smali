@@ -66,7 +66,6 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/Camera;)V
     .locals 1
-    .param p1, "camera"    # Lcom/badlogic/gdx/graphics/Camera;
 
     .line 99
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy$2;
@@ -75,13 +74,11 @@
 
     invoke-direct {p0, p1, v0}, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;-><init>(Lcom/badlogic/gdx/graphics/Camera;Ljava/util/Comparator;)V
 
-    .line 107
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/Camera;Ljava/util/Comparator;)V
     .locals 2
-    .param p1, "camera"    # Lcom/badlogic/gdx/graphics/Camera;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -93,7 +90,6 @@
     .end annotation
 
     .line 109
-    .local p2, "sorter":Ljava/util/Comparator;, "Ljava/util/Comparator<Lcom/badlogic/gdx/graphics/g3d/decals/Decal;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 85
@@ -128,86 +124,76 @@
     .line 112
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->createDefaultShader()V
 
-    .line 114
     return-void
 .end method
 
 .method private createDefaultShader()V
-    .locals 5
-
-    .line 180
-    const-string v0, "attribute vec4 a_position;\nattribute vec4 a_color;\nattribute vec2 a_texCoord0;\nuniform mat4 u_projectionViewMatrix;\nvarying vec4 v_color;\nvarying vec2 v_texCoords;\n\nvoid main()\n{\n   v_color = a_color;\n   v_color.a = v_color.a * (255.0/254.0);\n   v_texCoords = a_texCoord0;\n   gl_Position =  u_projectionViewMatrix * a_position;\n}\n"
-
-    .line 194
-    .local v0, "vertexShader":Ljava/lang/String;
-    const-string v1, "#ifdef GL_ES\nprecision mediump float;\n#endif\nvarying vec4 v_color;\nvarying vec2 v_texCoords;\nuniform sampler2D u_texture;\nvoid main()\n{\n  gl_FragColor = v_color * texture2D(u_texture, v_texCoords);\n}"
+    .locals 3
 
     .line 205
-    .local v1, "fragmentShader":Ljava/lang/String;
-    new-instance v2, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
+    new-instance v0, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
 
-    invoke-direct {v2, v0, v1}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    const-string v1, "attribute vec4 a_position;\nattribute vec4 a_color;\nattribute vec2 a_texCoord0;\nuniform mat4 u_projectionViewMatrix;\nvarying vec4 v_color;\nvarying vec2 v_texCoords;\n\nvoid main()\n{\n   v_color = a_color;\n   v_color.a = v_color.a * (255.0/254.0);\n   v_texCoords = a_texCoord0;\n   gl_Position =  u_projectionViewMatrix * a_position;\n}\n"
 
-    iput-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->shader:Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
+    const-string v2, "#ifdef GL_ES\nprecision mediump float;\n#endif\nvarying vec4 v_color;\nvarying vec2 v_texCoords;\nuniform sampler2D u_texture;\nvoid main()\n{\n  gl_FragColor = v_color * texture2D(u_texture, v_texCoords);\n}"
+
+    invoke-direct {v0, v1, v2}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->shader:Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
 
     .line 206
-    invoke-virtual {v2}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;->isCompiled()Z
+    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;->isCompiled()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 207
     return-void
 
-    .line 206
     :cond_0
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "couldn\'t compile shader: "
 
-    const-string v4, "couldn\'t compile shader: "
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->shader:Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
 
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->shader:Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
+    invoke-virtual {v2}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;->getLog()Ljava/lang/String;
 
-    invoke-virtual {v4}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;->getLog()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v4
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw v0
 .end method
 
 
 # virtual methods
 .method public afterGroup(I)V
-    .locals 2
-    .param p1, "group"    # I
+    .locals 1
 
-    .line 160
     const/4 v0, 0x1
 
     if-ne p1, v0, :cond_0
 
     .line 161
-    sget-object v0, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
+    sget-object p1, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
 
-    const/16 v1, 0xbe2
+    const/16 v0, 0xbe2
 
-    invoke-interface {v0, v1}, Lcom/badlogic/gdx/graphics/GL20;->glDisable(I)V
+    invoke-interface {p1, v0}, Lcom/badlogic/gdx/graphics/GL20;->glDisable(I)V
 
-    .line 163
     :cond_0
     return-void
 .end method
@@ -227,13 +213,11 @@
 
     invoke-interface {v0, v1}, Lcom/badlogic/gdx/graphics/GL20;->glDisable(I)V
 
-    .line 177
     return-void
 .end method
 
 .method public beforeGroup(ILcom/badlogic/gdx/utils/Array;)V
-    .locals 6
-    .param p1, "group"    # I
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -243,154 +227,136 @@
         }
     .end annotation
 
-    .line 131
-    .local p2, "contents":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/g3d/decals/Decal;>;"
     const/4 v0, 0x1
 
     if-ne p1, v0, :cond_0
 
     .line 132
-    sget-object v0, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
+    sget-object p1, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
 
-    const/16 v1, 0xbe2
+    const/16 v0, 0xbe2
 
-    invoke-interface {v0, v1}, Lcom/badlogic/gdx/graphics/GL20;->glEnable(I)V
+    invoke-interface {p1, v0}, Lcom/badlogic/gdx/graphics/GL20;->glEnable(I)V
 
     .line 133
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->cameraSorter:Ljava/util/Comparator;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->cameraSorter:Ljava/util/Comparator;
 
-    invoke-virtual {p2, v0}, Lcom/badlogic/gdx/utils/Array;->sort(Ljava/util/Comparator;)V
+    invoke-virtual {p2, p1}, Lcom/badlogic/gdx/utils/Array;->sort(Ljava/util/Comparator;)V
 
     goto :goto_2
 
     .line 135
     :cond_0
+    iget p1, p2, Lcom/badlogic/gdx/utils/Array;->size:I
+
     const/4 v0, 0x0
 
-    .local v0, "i":I
-    iget v1, p2, Lcom/badlogic/gdx/utils/Array;->size:I
-
-    .local v1, "n":I
     :goto_0
-    if-ge v0, v1, :cond_2
+    if-ge v0, p1, :cond_2
 
     .line 136
     invoke-virtual {p2, v0}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
+    check-cast v1, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
 
     .line 137
-    .local v2, "decal":Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->materialGroups:Lcom/badlogic/gdx/utils/ObjectMap;
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->materialGroups:Lcom/badlogic/gdx/utils/ObjectMap;
 
-    iget-object v4, v2, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->material:Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;
+    iget-object v3, v1, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->material:Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;
 
-    invoke-virtual {v3, v4}, Lcom/badlogic/gdx/utils/ObjectMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Lcom/badlogic/gdx/utils/ObjectMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Lcom/badlogic/gdx/utils/Array;
+    check-cast v2, Lcom/badlogic/gdx/utils/Array;
 
-    .line 138
-    .local v3, "materialGroup":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/g3d/decals/Decal;>;"
-    if-nez v3, :cond_1
+    if-nez v2, :cond_1
 
     .line 139
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->arrayPool:Lcom/badlogic/gdx/utils/Pool;
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->arrayPool:Lcom/badlogic/gdx/utils/Pool;
 
-    invoke-virtual {v4}, Lcom/badlogic/gdx/utils/Pool;->obtain()Ljava/lang/Object;
+    invoke-virtual {v2}, Lcom/badlogic/gdx/utils/Pool;->obtain()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v2
 
-    move-object v3, v4
-
-    check-cast v3, Lcom/badlogic/gdx/utils/Array;
+    check-cast v2, Lcom/badlogic/gdx/utils/Array;
 
     .line 140
-    invoke-virtual {v3}, Lcom/badlogic/gdx/utils/Array;->clear()V
+    invoke-virtual {v2}, Lcom/badlogic/gdx/utils/Array;->clear()V
 
     .line 141
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->usedArrays:Lcom/badlogic/gdx/utils/Array;
+    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->usedArrays:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v4, v3}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v3, v2}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
     .line 142
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->materialGroups:Lcom/badlogic/gdx/utils/ObjectMap;
+    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->materialGroups:Lcom/badlogic/gdx/utils/ObjectMap;
 
-    iget-object v5, v2, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->material:Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;
+    iget-object v4, v1, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->material:Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;
 
-    invoke-virtual {v4, v5, v3}, Lcom/badlogic/gdx/utils/ObjectMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, v4, v2}, Lcom/badlogic/gdx/utils/ObjectMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 144
     :cond_1
-    invoke-virtual {v3, v2}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v2, v1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 135
-    .end local v2    # "decal":Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
-    .end local v3    # "materialGroup":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/g3d/decals/Decal;>;"
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 147
-    .end local v0    # "i":I
-    .end local v1    # "n":I
     :cond_2
     invoke-virtual {p2}, Lcom/badlogic/gdx/utils/Array;->clear()V
 
     .line 148
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->materialGroups:Lcom/badlogic/gdx/utils/ObjectMap;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->materialGroups:Lcom/badlogic/gdx/utils/ObjectMap;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/ObjectMap;->values()Lcom/badlogic/gdx/utils/ObjectMap$Values;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/ObjectMap;->values()Lcom/badlogic/gdx/utils/ObjectMap$Values;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/ObjectMap$Values;->iterator()Lcom/badlogic/gdx/utils/ObjectMap$Values;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/ObjectMap$Values;->iterator()Lcom/badlogic/gdx/utils/ObjectMap$Values;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_1
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_3
+    if-eqz v0, :cond_3
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/badlogic/gdx/utils/Array;
+    check-cast v0, Lcom/badlogic/gdx/utils/Array;
 
     .line 149
-    .local v1, "materialGroup":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/g3d/decals/Decal;>;"
-    invoke-virtual {p2, v1}, Lcom/badlogic/gdx/utils/Array;->addAll(Lcom/badlogic/gdx/utils/Array;)V
+    invoke-virtual {p2, v0}, Lcom/badlogic/gdx/utils/Array;->addAll(Lcom/badlogic/gdx/utils/Array;)V
 
-    .line 150
-    .end local v1    # "materialGroup":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/g3d/decals/Decal;>;"
     goto :goto_1
 
     .line 152
     :cond_3
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->materialGroups:Lcom/badlogic/gdx/utils/ObjectMap;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->materialGroups:Lcom/badlogic/gdx/utils/ObjectMap;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/ObjectMap;->clear()V
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/ObjectMap;->clear()V
 
     .line 153
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->arrayPool:Lcom/badlogic/gdx/utils/Pool;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->arrayPool:Lcom/badlogic/gdx/utils/Pool;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->usedArrays:Lcom/badlogic/gdx/utils/Array;
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->usedArrays:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/utils/Pool;->freeAll(Lcom/badlogic/gdx/utils/Array;)V
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/utils/Pool;->freeAll(Lcom/badlogic/gdx/utils/Array;)V
 
     .line 154
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->usedArrays:Lcom/badlogic/gdx/utils/Array;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->usedArrays:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->clear()V
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/Array;->clear()V
 
-    .line 156
     :goto_2
     return-void
 .end method
@@ -417,39 +383,37 @@
 
     iget-object v1, v1, Lcom/badlogic/gdx/graphics/Camera;->combined:Lcom/badlogic/gdx/math/Matrix4;
 
-    const-string/jumbo v2, "u_projectionViewMatrix"
+    const-string v2, "u_projectionViewMatrix"
 
     invoke-virtual {v0, v2, v1}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;->setUniformMatrix(Ljava/lang/String;Lcom/badlogic/gdx/math/Matrix4;)V
 
     .line 170
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->shader:Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
 
-    const-string/jumbo v1, "u_texture"
+    const-string v1, "u_texture"
 
     const/4 v2, 0x0
 
     invoke-virtual {v0, v1, v2}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;->setUniformi(Ljava/lang/String;I)V
 
-    .line 171
     return-void
 .end method
 
 .method public decideGroup(Lcom/badlogic/gdx/graphics/g3d/decals/Decal;)I
-    .locals 1
-    .param p1, "decal"    # Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
+    .locals 0
 
     .line 126
     invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->getMaterial()Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->isOpaque()Z
+    invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->isOpaque()Z
 
-    move-result v0
+    move-result p1
 
-    xor-int/lit8 v0, v0, 0x1
+    xor-int/lit8 p1, p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public dispose()V
@@ -462,7 +426,6 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;->dispose()V
 
-    .line 217
     :cond_0
     return-void
 .end method
@@ -477,22 +440,19 @@
 .end method
 
 .method public getGroupShader(I)Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
-    .locals 1
-    .param p1, "group"    # I
+    .locals 0
 
     .line 211
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->shader:Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->shader:Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public setCamera(Lcom/badlogic/gdx/graphics/Camera;)V
     .locals 0
-    .param p1, "camera"    # Lcom/badlogic/gdx/graphics/Camera;
 
     .line 117
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/CameraGroupStrategy;->camera:Lcom/badlogic/gdx/graphics/Camera;
 
-    .line 118
     return-void
 .end method

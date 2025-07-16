@@ -65,11 +65,6 @@
 # direct methods
 .method constructor <init>(Lorg/koin/core/scope/Scope;Lorg/koin/androidx/viewmodel/ViewModelParameter;Landroidx/savedstate/SavedStateRegistryOwner;Landroidx/savedstate/SavedStateRegistryOwner;Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "$receiver"    # Lorg/koin/core/scope/Scope;
-    .param p2, "$captured_local_variable$1"    # Lorg/koin/androidx/viewmodel/ViewModelParameter;
-    .param p3, "$captured_local_variable$2"    # Landroidx/savedstate/SavedStateRegistryOwner;
-    .param p4, "$super_call_param$3"    # Landroidx/savedstate/SavedStateRegistryOwner;
-    .param p5, "$super_call_param$4"    # Landroid/os/Bundle;
 
     .line 21
     iput-object p1, p0, Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$stateViewModelFactory$1;->$this_stateViewModelFactory:Lorg/koin/core/scope/Scope;
@@ -84,21 +79,18 @@
 .end method
 
 .method public static final synthetic access$insertStateParameter(Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$stateViewModelFactory$1;Landroidx/lifecycle/SavedStateHandle;)[Ljava/lang/Object;
-    .locals 1
-    .param p0, "$this"    # Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$stateViewModelFactory$1;
-    .param p1, "handle"    # Landroidx/lifecycle/SavedStateHandle;
+    .locals 0
 
     .line 21
     invoke-direct {p0, p1}, Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$stateViewModelFactory$1;->insertStateParameter(Landroidx/lifecycle/SavedStateHandle;)[Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private final insertStateParameter(Landroidx/lifecycle/SavedStateHandle;)[Ljava/lang/Object;
-    .locals 7
-    .param p1, "handle"    # Landroidx/lifecycle/SavedStateHandle;
+    .locals 3
 
     .line 32
     iget-object v0, p0, Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$stateViewModelFactory$1;->$vmParams:Lorg/koin/androidx/viewmodel/ViewModelParameter;
@@ -125,115 +117,95 @@
     move-result-object v0
 
     .line 33
-    .local v0, "parameters":Lorg/koin/core/parameter/DefinitionParameters;
     :goto_0
     invoke-virtual {v0}, Lorg/koin/core/parameter/DefinitionParameters;->getValues()[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v1}, Lkotlin/collections/ArraysKt;->toMutableList([Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {v0}, Lkotlin/collections/ArraysKt;->toMutableList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 34
-    .local v1, "values":Ljava/util/List;
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    const/4 v2, 0x4
+
+    if-gt v1, v2, :cond_2
+
+    const/4 v1, 0x0
+
+    .line 38
+    invoke-interface {v0, v1, p1}, Ljava/util/List;->add(ILjava/lang/Object;)V
+
+    .line 39
+    check-cast v0, Ljava/util/Collection;
+
+    new-array p1, v1, [Ljava/lang/Object;
+
+    .line 55
+    invoke-interface {v0, p1}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_1
+
+    return-object p1
+
+    :cond_1
+    new-instance p1, Lkotlin/TypeCastException;
+
+    const-string v0, "null cannot be cast to non-null type kotlin.Array<T>"
+
+    invoke-direct {p1, v0}, Lkotlin/TypeCastException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
+    .line 35
+    :cond_2
+    new-instance p1, Lorg/koin/core/error/DefinitionParameterException;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    const-string v2, "Can\'t add SavedStateHandle to your definition function parameters, as you already have "
+
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v2
 
-    const/4 v3, 0x4
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    if-gt v2, v3, :cond_2
+    move-result-object v1
 
-    .line 38
-    const/4 v2, 0x0
+    const-string v2, " elements: "
 
-    invoke-interface {v1, v2, p1}, Ljava/util/List;->add(ILjava/lang/Object;)V
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 39
-    move-object v3, v1
+    move-result-object v1
 
-    check-cast v3, Ljava/util/Collection;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .local v3, "$this$toTypedArray$iv":Ljava/util/Collection;
-    const/4 v4, 0x0
+    move-result-object v0
 
-    .line 54
-    .local v4, "$i$f$toTypedArray":I
-    move-object v5, v3
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    .line 55
-    .local v5, "thisCollection$iv":Ljava/util/Collection;
-    new-array v2, v2, [Ljava/lang/Object;
+    move-result-object v0
 
-    invoke-interface {v5, v2}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-direct {p1, v0}, Lorg/koin/core/error/DefinitionParameterException;-><init>(Ljava/lang/String;)V
 
-    move-result-object v2
+    check-cast p1, Ljava/lang/Throwable;
 
-    if-eqz v2, :cond_1
-
-    .end local v3    # "$this$toTypedArray$iv":Ljava/util/Collection;
-    .end local v4    # "$i$f$toTypedArray":I
-    .end local v5    # "thisCollection$iv":Ljava/util/Collection;
-    return-object v2
-
-    .restart local v3    # "$this$toTypedArray$iv":Ljava/util/Collection;
-    .restart local v4    # "$i$f$toTypedArray":I
-    .restart local v5    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_1
-    new-instance v2, Lkotlin/TypeCastException;
-
-    const-string v6, "null cannot be cast to non-null type kotlin.Array<T>"
-
-    invoke-direct {v2, v6}, Lkotlin/TypeCastException;-><init>(Ljava/lang/String;)V
-
-    throw v2
-
-    .line 35
-    .end local v3    # "$this$toTypedArray$iv":Ljava/util/Collection;
-    .end local v4    # "$i$f$toTypedArray":I
-    .end local v5    # "thisCollection$iv":Ljava/util/Collection;
-    :cond_2
-    new-instance v2, Lorg/koin/core/error/DefinitionParameterException;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Can\'t add SavedStateHandle to your definition function parameters, as you already have "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-interface {v1}, Ljava/util/List;->size()I
-
-    move-result v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v4, " elements: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {v2, v3}, Lorg/koin/core/error/DefinitionParameterException;-><init>(Ljava/lang/String;)V
-
-    check-cast v2, Ljava/lang/Throwable;
-
-    throw v2
+    throw p1
 .end method
 
 
 # virtual methods
 .method protected create(Ljava/lang/String;Ljava/lang/Class;Landroidx/lifecycle/SavedStateHandle;)Landroidx/lifecycle/ViewModel;
-    .locals 4
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "modelClass"    # Ljava/lang/Class;
-    .param p3, "handle"    # Landroidx/lifecycle/SavedStateHandle;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -251,44 +223,44 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "modelClass"
+    const-string p1, "modelClass"
 
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "handle"
+    const-string p1, "handle"
 
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p3, p1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 25
-    iget-object v0, p0, Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$stateViewModelFactory$1;->$this_stateViewModelFactory:Lorg/koin/core/scope/Scope;
+    iget-object p1, p0, Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$stateViewModelFactory$1;->$this_stateViewModelFactory:Lorg/koin/core/scope/Scope;
 
     .line 26
-    iget-object v1, p0, Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$stateViewModelFactory$1;->$vmParams:Lorg/koin/androidx/viewmodel/ViewModelParameter;
+    iget-object p2, p0, Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$stateViewModelFactory$1;->$vmParams:Lorg/koin/androidx/viewmodel/ViewModelParameter;
 
-    invoke-virtual {v1}, Lorg/koin/androidx/viewmodel/ViewModelParameter;->getClazz()Lkotlin/reflect/KClass;
+    invoke-virtual {p2}, Lorg/koin/androidx/viewmodel/ViewModelParameter;->getClazz()Lkotlin/reflect/KClass;
 
-    move-result-object v1
+    move-result-object p2
 
     .line 27
-    iget-object v2, p0, Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$stateViewModelFactory$1;->$vmParams:Lorg/koin/androidx/viewmodel/ViewModelParameter;
+    iget-object v0, p0, Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$stateViewModelFactory$1;->$vmParams:Lorg/koin/androidx/viewmodel/ViewModelParameter;
 
-    invoke-virtual {v2}, Lorg/koin/androidx/viewmodel/ViewModelParameter;->getQualifier()Lorg/koin/core/qualifier/Qualifier;
-
-    move-result-object v2
-
-    .line 28
-    new-instance v3, Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$stateViewModelFactory$1$create$1;
-
-    invoke-direct {v3, p0, p3}, Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$stateViewModelFactory$1$create$1;-><init>(Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$stateViewModelFactory$1;Landroidx/lifecycle/SavedStateHandle;)V
-
-    check-cast v3, Lkotlin/jvm/functions/Function0;
-
-    .line 25
-    invoke-virtual {v0, v1, v2, v3}, Lorg/koin/core/scope/Scope;->get(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+    invoke-virtual {v0}, Lorg/koin/androidx/viewmodel/ViewModelParameter;->getQualifier()Lorg/koin/core/qualifier/Qualifier;
 
     move-result-object v0
 
-    check-cast v0, Landroidx/lifecycle/ViewModel;
+    .line 28
+    new-instance v1, Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$stateViewModelFactory$1$create$1;
 
-    return-object v0
+    invoke-direct {v1, p0, p3}, Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$stateViewModelFactory$1$create$1;-><init>(Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$stateViewModelFactory$1;Landroidx/lifecycle/SavedStateHandle;)V
+
+    check-cast v1, Lkotlin/jvm/functions/Function0;
+
+    .line 25
+    invoke-virtual {p1, p2, v0, v1}, Lorg/koin/core/scope/Scope;->get(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroidx/lifecycle/ViewModel;
+
+    return-object p1
 .end method

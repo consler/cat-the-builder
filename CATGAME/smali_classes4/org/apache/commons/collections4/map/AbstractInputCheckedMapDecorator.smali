@@ -30,10 +30,8 @@
     .locals 0
 
     .line 54
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator<TK;TV;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/map/AbstractMapDecorator;-><init>()V
 
-    .line 55
     return-void
 .end method
 
@@ -48,11 +46,8 @@
     .end annotation
 
     .line 64
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/map/AbstractMapDecorator;-><init>(Ljava/util/Map;)V
 
-    .line 65
     return-void
 .end method
 
@@ -78,7 +73,6 @@
     .end annotation
 
     .line 104
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator;->isSetValueChecking()Z
 
     move-result v0
@@ -112,8 +106,6 @@
 .method protected isSetValueChecking()Z
     .locals 1
 
-    .line 98
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator<TK;TV;>;"
     const/4 v0, 0x1
 
     return v0

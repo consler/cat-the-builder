@@ -53,8 +53,6 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet;Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;Ljava/lang/Object;II)V
     .locals 1
-    .param p4, "offset"    # I
-    .param p5, "lengthInBits"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -64,9 +62,6 @@
     .end annotation
 
     .line 2371
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeEntrySet.EntryIterator;"
-    .local p2, "startScan":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry<TK;TV;>;"
-    .local p3, "prefix":Ljava/lang/Object;, "TK;"
     iput-object p1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->this$1:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet;
 
     iget-object v0, p1, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
@@ -94,7 +89,6 @@
     .line 2376
     iput p5, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->lengthInBits:I
 
-    .line 2377
     return-void
 .end method
 
@@ -113,8 +107,6 @@
     .end annotation
 
     .line 2390
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeEntrySet.EntryIterator;"
-    .local p1, "prior":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->this$1:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet;
 
     iget-object v0, v0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
@@ -123,16 +115,15 @@
 
     invoke-virtual {v0, p1, v1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->nextEntryInSubtree(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;)Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
     .locals 1
 
     .line 2356
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeEntrySet.EntryIterator;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->next()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -151,53 +142,50 @@
     .end annotation
 
     .line 2381
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeEntrySet.EntryIterator;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->nextEntry()Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
     move-result-object v0
 
     .line 2382
-    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     iget-boolean v1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->lastOne:Z
 
     if-eqz v1, :cond_0
 
-    .line 2383
     const/4 v1, 0x0
 
+    .line 2383
     iput-object v1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->next:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
-    .line 2385
     :cond_0
     return-object v0
 .end method
 
 .method public remove()V
-    .locals 6
-
-    .line 2397
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeEntrySet.EntryIterator;"
-    const/4 v0, 0x0
+    .locals 5
 
     .line 2398
-    .local v0, "needsFixing":Z
-    iget-object v1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->subtree:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
+    iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->subtree:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
-    iget v1, v1, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;->bitIndex:I
+    iget v0, v0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;->bitIndex:I
 
     .line 2399
-    .local v1, "bitIdx":I
-    iget-object v2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->current:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
+    iget-object v1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->current:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
-    iget-object v3, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->subtree:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
+    iget-object v2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->subtree:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
-    if-ne v2, v3, :cond_0
+    const/4 v3, 0x1
 
-    .line 2400
-    const/4 v0, 0x1
+    if-ne v1, v2, :cond_0
+
+    move v1, v3
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
 
     .line 2403
-    :cond_0
+    :goto_0
     invoke-super {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieIterator;->remove()V
 
     .line 2407
@@ -205,44 +193,41 @@
 
     iget v2, v2, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;->bitIndex:I
 
-    if-ne v1, v2, :cond_1
+    if-ne v0, v2, :cond_1
 
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
     .line 2408
     :cond_1
-    iget-object v2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->this$1:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet;
+    iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->this$1:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet;
 
-    iget-object v2, v2, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
+    iget-object v0, v0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
-    iget-object v3, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->prefix:Ljava/lang/Object;
+    iget-object v1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->prefix:Ljava/lang/Object;
 
-    iget v4, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->offset:I
+    iget v2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->offset:I
 
-    iget v5, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->lengthInBits:I
+    iget v4, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->lengthInBits:I
 
-    invoke-virtual {v2, v3, v4, v5}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->subtree(Ljava/lang/Object;II)Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
+    invoke-virtual {v0, v1, v2, v4}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->subtree(Ljava/lang/Object;II)Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
-    move-result-object v2
+    move-result-object v0
 
-    iput-object v2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->subtree:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
+    iput-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->subtree:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
     .line 2414
     :cond_2
-    iget v2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->lengthInBits:I
+    iget v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->lengthInBits:I
 
-    iget-object v3, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->subtree:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
+    iget-object v1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->subtree:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
-    iget v3, v3, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;->bitIndex:I
+    iget v1, v1, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;->bitIndex:I
 
-    if-lt v2, v3, :cond_3
+    if-lt v0, v1, :cond_3
 
     .line 2415
-    const/4 v2, 0x1
+    iput-boolean v3, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->lastOne:Z
 
-    iput-boolean v2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$EntryIterator;->lastOne:Z
-
-    .line 2417
     :cond_3
     return-void
 .end method

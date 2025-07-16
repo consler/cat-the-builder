@@ -31,7 +31,6 @@
 # direct methods
 .method public constructor <init>(Lcom/google/crypto/tink/subtle/prf/HkdfStreamingPrf;[B)V
     .locals 0
-    .param p2, "input"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1010,
@@ -48,9 +47,9 @@
 
     invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
 
-    .line 66
     const/4 p1, -0x1
 
+    .line 66
     iput p1, p0, Lcom/google/crypto/tink/subtle/prf/HkdfStreamingPrf$HkdfInputStream;->ctr:I
 
     .line 67
@@ -62,7 +61,6 @@
 
     iput-object p1, p0, Lcom/google/crypto/tink/subtle/prf/HkdfStreamingPrf$HkdfInputStream;->input:[B
 
-    .line 68
     return-void
 .end method
 
@@ -98,9 +96,6 @@
     iput-object v0, p0, Lcom/google/crypto/tink/subtle/prf/HkdfStreamingPrf$HkdfInputStream;->mac:Ljavax/crypto/Mac;
     :try_end_0
     .catch Ljava/security/GeneralSecurityException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 76
-    nop
 
     .line 77
     iget-object v0, p0, Lcom/google/crypto/tink/subtle/prf/HkdfStreamingPrf$HkdfInputStream;->this$0:Lcom/google/crypto/tink/subtle/prf/HkdfStreamingPrf;
@@ -201,9 +196,9 @@
 
     iput-object v0, p0, Lcom/google/crypto/tink/subtle/prf/HkdfStreamingPrf$HkdfInputStream;->prk:[B
 
-    .line 86
     const/4 v0, 0x0
 
+    .line 86
     invoke-static {v0}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
 
     move-result-object v1
@@ -216,15 +211,12 @@
     .line 88
     iput v0, p0, Lcom/google/crypto/tink/subtle/prf/HkdfStreamingPrf$HkdfInputStream;->ctr:I
 
-    .line 89
     return-void
 
-    .line 74
     :catch_0
     move-exception v0
 
     .line 75
-    .local v0, "e":Ljava/security/GeneralSecurityException;
     new-instance v1, Ljava/io/IOException;
 
     const-string v2, "Creating HMac failed"
@@ -313,7 +305,6 @@
     .line 101
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->mark()Ljava/nio/Buffer;
 
-    .line 102
     return-void
 .end method
 
@@ -327,53 +318,45 @@
         }
     .end annotation
 
-    .line 106
     const/4 v0, 0x1
 
     new-array v1, v0, [B
 
-    .line 107
-    .local v1, "oneByte":[B
     const/4 v2, 0x0
 
+    .line 107
     invoke-virtual {p0, v1, v2, v0}, Lcom/google/crypto/tink/subtle/prf/HkdfStreamingPrf$HkdfInputStream;->read([BII)I
 
     move-result v3
 
-    .line 108
-    .local v3, "ret":I
     if-ne v3, v0, :cond_0
 
-    .line 109
     aget-byte v0, v1, v2
 
     and-int/lit16 v0, v0, 0xff
 
     return v0
 
-    .line 110
     :cond_0
     const/4 v0, -0x1
 
     if-ne v3, v0, :cond_1
 
-    .line 111
     return v3
 
     .line 113
     :cond_1
     new-instance v0, Ljava/io/IOException;
 
-    const-string v2, "Reading failed"
+    const-string v1, "Reading failed"
 
-    invoke-direct {v0, v2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public read([B)I
     .locals 2
-    .param p1, "dst"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -389,23 +372,20 @@
         }
     .end annotation
 
+    const/4 v0, 0x0
+
     .line 119
-    array-length v0, p1
+    array-length v1, p1
 
-    const/4 v1, 0x0
+    invoke-virtual {p0, p1, v0, v1}, Lcom/google/crypto/tink/subtle/prf/HkdfStreamingPrf$HkdfInputStream;->read([BII)I
 
-    invoke-virtual {p0, p1, v1, v0}, Lcom/google/crypto/tink/subtle/prf/HkdfStreamingPrf$HkdfInputStream;->read([BII)I
+    move-result p1
 
-    move-result v0
-
-    return v0
+    return p1
 .end method
 
 .method public read([BII)I
-    .locals 4
-    .param p1, "b"    # [B
-    .param p2, "off"    # I
-    .param p3, "len"    # I
+    .locals 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -425,23 +405,20 @@
         }
     .end annotation
 
-    .line 124
-    const/4 v0, 0x0
-
     .line 126
-    .local v0, "totalRead":I
     :try_start_0
-    iget v1, p0, Lcom/google/crypto/tink/subtle/prf/HkdfStreamingPrf$HkdfInputStream;->ctr:I
+    iget v0, p0, Lcom/google/crypto/tink/subtle/prf/HkdfStreamingPrf$HkdfInputStream;->ctr:I
 
-    const/4 v2, -0x1
+    const/4 v1, -0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne v0, v1, :cond_0
 
     .line 127
     invoke-direct {p0}, Lcom/google/crypto/tink/subtle/prf/HkdfStreamingPrf$HkdfInputStream;->initialize()V
 
-    .line 130
     :cond_0
+    const/4 v0, 0x0
+
     :goto_0
     if-ge v0, p3, :cond_3
 
@@ -461,17 +438,16 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 135
     return v0
 
     .line 137
     :cond_1
     invoke-direct {p0}, Lcom/google/crypto/tink/subtle/prf/HkdfStreamingPrf$HkdfInputStream;->updateBuffer()V
 
-    .line 140
     :cond_2
     sub-int v1, p3, v0
 
+    .line 140
     iget-object v2, p0, Lcom/google/crypto/tink/subtle/prf/HkdfStreamingPrf$HkdfInputStream;->buffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v2}, Ljava/nio/ByteBuffer;->remaining()I
@@ -483,46 +459,35 @@
     move-result v1
 
     .line 141
-    .local v1, "toRead":I
     iget-object v2, p0, Lcom/google/crypto/tink/subtle/prf/HkdfStreamingPrf$HkdfInputStream;->buffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v2, p1, p2, v1}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
     :try_end_0
     .catch Ljava/security/GeneralSecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 142
     add-int/2addr p2, v1
 
-    .line 143
     add-int/2addr v0, v1
 
-    .line 144
-    .end local v1    # "toRead":I
     goto :goto_0
 
-    .line 148
     :cond_3
-    nop
-
-    .line 149
     return v0
 
-    .line 145
     :catch_0
-    move-exception v1
+    move-exception p1
+
+    const/4 p2, 0x0
 
     .line 146
-    .local v1, "e":Ljava/security/GeneralSecurityException;
-    const/4 v2, 0x0
-
-    iput-object v2, p0, Lcom/google/crypto/tink/subtle/prf/HkdfStreamingPrf$HkdfInputStream;->mac:Ljavax/crypto/Mac;
+    iput-object p2, p0, Lcom/google/crypto/tink/subtle/prf/HkdfStreamingPrf$HkdfInputStream;->mac:Ljavax/crypto/Mac;
 
     .line 147
-    new-instance v2, Ljava/io/IOException;
+    new-instance p2, Ljava/io/IOException;
 
-    const-string v3, "HkdfInputStream failed"
+    const-string p3, "HkdfInputStream failed"
 
-    invoke-direct {v2, v3, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p2, p3, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v2
+    throw p2
 .end method

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/input/GestureDetector;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/input/GestureDetector;
 
     .line 55
     iput-object p1, p0, Lcom/badlogic/gdx/input/GestureDetector$1;->this$0:Lcom/badlogic/gdx/input/GestureDetector;
@@ -65,7 +64,6 @@
 
     iput-boolean v1, v0, Lcom/badlogic/gdx/input/GestureDetector;->longPressFired:Z
 
-    .line 59
     :cond_0
     return-void
 .end method

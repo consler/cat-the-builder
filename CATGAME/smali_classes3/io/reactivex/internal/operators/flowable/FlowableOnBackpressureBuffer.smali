@@ -34,10 +34,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/Flowable;IZZLio/reactivex/functions/Action;)V
     .locals 0
-    .param p2, "bufferSize"    # I
-    .param p3, "unbounded"    # Z
-    .param p4, "delayError"    # Z
-    .param p5, "onOverflow"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -49,8 +45,6 @@
     .end annotation
 
     .line 37
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer;, "Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer<TT;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
     .line 38
@@ -65,7 +59,6 @@
     .line 41
     iput-object p5, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer;->onOverflow:Lio/reactivex/functions/Action;
 
-    .line 42
     return-void
 .end method
 
@@ -82,8 +75,6 @@
     .end annotation
 
     .line 46
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer;, "Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer<TT;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer;->source:Lio/reactivex/Flowable;
 
     new-instance v7, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBuffer$BackpressureBufferSubscriber;
@@ -104,6 +95,5 @@
 
     invoke-virtual {v0, v7}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 47
     return-void
 .end method

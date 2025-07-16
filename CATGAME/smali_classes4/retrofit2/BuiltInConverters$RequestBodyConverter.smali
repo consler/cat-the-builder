@@ -76,8 +76,6 @@
 
 .method public convert(Lokhttp3/RequestBody;)Lokhttp3/RequestBody;
     .locals 0
-    .param p1, "value"    # Lokhttp3/RequestBody;
 
-    .line 91
     return-object p1
 .end method

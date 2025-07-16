@@ -6,7 +6,9 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroidx/core/view/DisplayCompat$ModeCompat;
+        Landroidx/core/view/DisplayCompat$ModeCompat;,
+        Landroidx/core/view/DisplayCompat$Api17Impl;,
+        Landroidx/core/view/DisplayCompat$Api23Impl;
     }
 .end annotation
 
@@ -21,279 +23,168 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 49
+    .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 51
     return-void
 .end method
 
-.method private static getPhysicalDisplaySize(Landroid/content/Context;Landroid/view/Display;)Landroid/graphics/Point;
-    .locals 4
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "display"    # Landroid/view/Display;
+.method static getCurrentDisplaySizeFromWorkarounds(Landroid/content/Context;Landroid/view/Display;)Landroid/graphics/Point;
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "context",
+            "display"
+        }
+    .end annotation
 
-    .line 201
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    const-string v0, "vendor.display-size"
 
-    const/16 v1, 0x1c
-
-    if-ge v0, v1, :cond_0
-
-    .line 202
-    const-string v0, "sys.display-size"
-
+    .line 193
     invoke-static {v0, p1}, Landroidx/core/view/DisplayCompat;->parsePhysicalDisplaySizeFromSystemProperties(Ljava/lang/String;Landroid/view/Display;)Landroid/graphics/Point;
 
     move-result-object v0
 
-    goto :goto_0
+    if-eqz v0, :cond_0
 
-    .line 203
-    :cond_0
-    const-string/jumbo v0, "vendor.display-size"
-
-    invoke-static {v0, p1}, Landroidx/core/view/DisplayCompat;->parsePhysicalDisplaySizeFromSystemProperties(Ljava/lang/String;Landroid/view/Display;)Landroid/graphics/Point;
-
-    move-result-object v0
-
-    :goto_0
-    nop
-
-    .line 204
-    .local v0, "displaySize":Landroid/graphics/Point;
-    if-eqz v0, :cond_1
-
-    .line 205
     return-object v0
 
-    .line 206
-    :cond_1
+    .line 196
+    :cond_0
     invoke-static {p0}, Landroidx/core/view/DisplayCompat;->isSonyBravia4kTv(Landroid/content/Context;)Z
 
-    move-result v1
+    move-result p0
 
-    if-eqz v1, :cond_2
+    const/4 v0, 0x0
 
-    .line 208
-    new-instance v1, Landroid/graphics/Point;
+    if-eqz p0, :cond_1
 
-    const/16 v2, 0xf00
+    .line 201
+    invoke-static {p1}, Landroidx/core/view/DisplayCompat;->isCurrentModeTheLargestMode(Landroid/view/Display;)Z
 
-    const/16 v3, 0x870
+    move-result p0
 
-    invoke-direct {v1, v2, v3}, Landroid/graphics/Point;-><init>(II)V
+    if-eqz p0, :cond_1
 
-    return-object v1
+    .line 202
+    new-instance v0, Landroid/graphics/Point;
 
-    .line 213
-    :cond_2
-    new-instance v1, Landroid/graphics/Point;
+    const/16 p0, 0xf00
 
-    invoke-direct {v1}, Landroid/graphics/Point;-><init>()V
+    const/16 p1, 0x870
 
-    move-object v0, v1
+    invoke-direct {v0, p0, p1}, Landroid/graphics/Point;-><init>(II)V
 
-    .line 214
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x17
-
-    if-lt v1, v2, :cond_3
-
-    .line 215
-    invoke-virtual {p1}, Landroid/view/Display;->getMode()Landroid/view/Display$Mode;
-
-    move-result-object v1
-
-    .line 216
-    .local v1, "mode":Landroid/view/Display$Mode;
-    invoke-virtual {v1}, Landroid/view/Display$Mode;->getPhysicalWidth()I
-
-    move-result v2
-
-    iput v2, v0, Landroid/graphics/Point;->x:I
-
-    .line 217
-    invoke-virtual {v1}, Landroid/view/Display$Mode;->getPhysicalHeight()I
-
-    move-result v2
-
-    iput v2, v0, Landroid/graphics/Point;->y:I
-
-    .line 218
-    .end local v1    # "mode":Landroid/view/Display$Mode;
-    goto :goto_1
-
-    :cond_3
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x11
-
-    if-lt v1, v2, :cond_4
-
-    .line 219
-    invoke-virtual {p1, v0}, Landroid/view/Display;->getRealSize(Landroid/graphics/Point;)V
-
-    goto :goto_1
-
-    .line 221
-    :cond_4
-    invoke-virtual {p1, v0}, Landroid/view/Display;->getSize(Landroid/graphics/Point;)V
-
-    .line 224
-    :goto_1
+    :cond_1
     return-object v0
 .end method
 
-.method public static getSupportedModes(Landroid/content/Context;Landroid/view/Display;)[Landroidx/core/view/DisplayCompat$ModeCompat;
-    .locals 9
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "display"    # Landroid/view/Display;
-
-    .line 65
-    invoke-static {p0, p1}, Landroidx/core/view/DisplayCompat;->getPhysicalDisplaySize(Landroid/content/Context;Landroid/view/Display;)Landroid/graphics/Point;
-
-    move-result-object v0
-
-    .line 66
-    .local v0, "physicalDisplaySize":Landroid/graphics/Point;
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x1
-
-    const/16 v4, 0x17
-
-    if-lt v1, v4, :cond_3
-
-    .line 68
-    invoke-virtual {p1}, Landroid/view/Display;->getSupportedModes()[Landroid/view/Display$Mode;
-
-    move-result-object v1
-
-    .line 69
-    .local v1, "supportedModes":[Landroid/view/Display$Mode;
-    new-instance v4, Ljava/util/ArrayList;
-
-    array-length v5, v1
-
-    invoke-direct {v4, v5}, Ljava/util/ArrayList;-><init>(I)V
-
-    .line 70
-    .local v4, "supportedModesCompat":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroidx/core/view/DisplayCompat$ModeCompat;>;"
-    const/4 v5, 0x0
+.method private static getDisplaySize(Landroid/content/Context;Landroid/view/Display;)Landroid/graphics/Point;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "context",
+            "display"
+        }
+    .end annotation
 
     .line 71
-    .local v5, "nativeModeExists":Z
-    const/4 v6, 0x0
+    invoke-static {p0, p1}, Landroidx/core/view/DisplayCompat;->getCurrentDisplaySizeFromWorkarounds(Landroid/content/Context;Landroid/view/Display;)Landroid/graphics/Point;
 
-    .local v6, "i":I
-    :goto_0
-    array-length v7, v1
+    move-result-object p0
 
-    if-ge v6, v7, :cond_1
+    if-eqz p0, :cond_0
 
-    .line 72
-    aget-object v7, v1, v6
-
-    invoke-static {v7, v0}, Landroidx/core/view/DisplayCompat;->physicalSizeEquals(Landroid/view/Display$Mode;Landroid/graphics/Point;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_0
-
-    .line 74
-    new-instance v7, Landroidx/core/view/DisplayCompat$ModeCompat;
-
-    aget-object v8, v1, v6
-
-    invoke-direct {v7, v8, v3}, Landroidx/core/view/DisplayCompat$ModeCompat;-><init>(Landroid/view/Display$Mode;Z)V
-
-    invoke-virtual {v4, v6, v7}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+    return-object p0
 
     .line 76
-    const/4 v5, 0x1
+    :cond_0
+    new-instance p0, Landroid/graphics/Point;
 
-    goto :goto_1
+    invoke-direct {p0}, Landroid/graphics/Point;-><init>()V
 
     .line 78
-    :cond_0
-    new-instance v7, Landroidx/core/view/DisplayCompat$ModeCompat;
+    invoke-static {p1, p0}, Landroidx/core/view/DisplayCompat$Api17Impl;->getRealSize(Landroid/view/Display;Landroid/graphics/Point;)V
 
-    aget-object v8, v1, v6
+    return-object p0
+.end method
 
-    invoke-direct {v7, v8, v2}, Landroidx/core/view/DisplayCompat$ModeCompat;-><init>(Landroid/view/Display$Mode;Z)V
+.method public static getMode(Landroid/content/Context;Landroid/view/Display;)Landroidx/core/view/DisplayCompat$ModeCompat;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "context",
+            "display"
+        }
+    .end annotation
 
-    invoke-virtual {v4, v6, v7}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+    .line 61
+    invoke-static {p0, p1}, Landroidx/core/view/DisplayCompat$Api23Impl;->getMode(Landroid/content/Context;Landroid/view/Display;)Landroidx/core/view/DisplayCompat$ModeCompat;
 
-    .line 71
-    :goto_1
-    add-int/lit8 v6, v6, 0x1
+    move-result-object p0
 
-    goto :goto_0
+    return-object p0
+.end method
 
-    .line 82
-    .end local v6    # "i":I
-    :cond_1
-    if-nez v5, :cond_2
+.method public static getSupportedModes(Landroid/content/Context;Landroid/view/Display;)[Landroidx/core/view/DisplayCompat$ModeCompat;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "context",
+            "display"
+        }
+    .end annotation
 
-    .line 85
-    new-instance v3, Landroidx/core/view/DisplayCompat$ModeCompat;
+    .line 94
+    invoke-static {p0, p1}, Landroidx/core/view/DisplayCompat$Api23Impl;->getSupportedModes(Landroid/content/Context;Landroid/view/Display;)[Landroidx/core/view/DisplayCompat$ModeCompat;
 
-    invoke-direct {v3, v0}, Landroidx/core/view/DisplayCompat$ModeCompat;-><init>(Landroid/graphics/Point;)V
+    move-result-object p0
 
-    invoke-virtual {v4, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 87
-    :cond_2
-    new-array v2, v2, [Landroidx/core/view/DisplayCompat$ModeCompat;
-
-    invoke-virtual {v4, v2}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, [Landroidx/core/view/DisplayCompat$ModeCompat;
-
-    return-object v2
-
-    .line 91
-    .end local v1    # "supportedModes":[Landroid/view/Display$Mode;
-    .end local v4    # "supportedModesCompat":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroidx/core/view/DisplayCompat$ModeCompat;>;"
-    .end local v5    # "nativeModeExists":Z
-    :cond_3
-    new-array v1, v3, [Landroidx/core/view/DisplayCompat$ModeCompat;
-
-    new-instance v3, Landroidx/core/view/DisplayCompat$ModeCompat;
-
-    invoke-direct {v3, v0}, Landroidx/core/view/DisplayCompat$ModeCompat;-><init>(Landroid/graphics/Point;)V
-
-    aput-object v3, v1, v2
-
-    return-object v1
+    return-object p0
 .end method
 
 .method private static getSystemProperty(Ljava/lang/String;)Ljava/lang/String;
     .locals 6
-    .param p0, "name"    # Ljava/lang/String;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "name"
+        }
+    .end annotation
 
-    .line 127
     :try_start_0
     const-string v0, "android.os.SystemProperties"
 
+    .line 133
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v0
 
-    .line 128
-    .local v0, "systemProperties":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const-string v1, "get"
 
     const/4 v2, 0x1
 
     new-array v3, v2, [Ljava/lang/Class;
 
+    .line 134
     const-class v4, Ljava/lang/String;
 
     const/4 v5, 0x0
@@ -304,52 +195,70 @@
 
     move-result-object v1
 
-    .line 129
-    .local v1, "getMethod":Ljava/lang/reflect/Method;
     new-array v2, v2, [Ljava/lang/Object;
 
     aput-object p0, v2, v5
 
+    .line 135
     invoke-virtual {v1, v0, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p0
 
-    check-cast v2, Ljava/lang/String;
+    check-cast p0, Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v2
+    return-object p0
 
-    .line 130
-    .end local v0    # "systemProperties":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .end local v1    # "getMethod":Ljava/lang/reflect/Method;
     :catch_0
-    move-exception v0
+    const/4 p0, 0x0
 
-    .line 131
-    .local v0, "e":Ljava/lang/Exception;
-    const/4 v1, 0x0
+    return-object p0
+.end method
 
-    return-object v1
+.method static isCurrentModeTheLargestMode(Landroid/view/Display;)Z
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "display"
+        }
+    .end annotation
+
+    .line 224
+    invoke-static {p0}, Landroidx/core/view/DisplayCompat$Api23Impl;->isCurrentModeTheLargestMode(Landroid/view/Display;)Z
+
+    move-result p0
+
+    return p0
 .end method
 
 .method private static isSonyBravia4kTv(Landroid/content/Context;)Z
     .locals 2
-    .param p0, "context"    # Landroid/content/Context;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "context"
+        }
+    .end annotation
 
-    .line 233
+    .line 212
     invoke-static {p0}, Landroidx/core/view/DisplayCompat;->isTv(Landroid/content/Context;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    sget-object v0, Landroid/os/Build;->MANUFACTURER:Ljava/lang/String;
+    const-string v0, "Sony"
 
-    .line 234
-    const-string v1, "Sony"
+    sget-object v1, Landroid/os/Build;->MANUFACTURER:Ljava/lang/String;
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .line 213
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -357,247 +266,206 @@
 
     sget-object v0, Landroid/os/Build;->MODEL:Ljava/lang/String;
 
-    .line 235
     const-string v1, "BRAVIA"
 
+    .line 214
     invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 236
+    .line 215
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "com.sony.dtv.hardware.panel.qfhd"
+    const-string v0, "com.sony.dtv.hardware.panel.qfhd"
 
-    invoke-virtual {v0, v1}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+    invoke-virtual {p0, v0}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    .line 233
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method private static isTv(Landroid/content/Context;)Z
-    .locals 3
-    .param p0, "context"    # Landroid/content/Context;
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "context"
+        }
+    .end annotation
 
-    .line 154
-    const-string/jumbo v0, "uimode"
+    const-string v0, "uimode"
 
+    .line 146
     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/app/UiModeManager;
+    check-cast p0, Landroid/app/UiModeManager;
 
-    .line 155
-    .local v0, "uiModeManager":Landroid/app/UiModeManager;
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    .line 156
-    invoke-virtual {v0}, Landroid/app/UiModeManager;->getCurrentModeType()I
+    .line 148
+    invoke-virtual {p0}, Landroid/app/UiModeManager;->getCurrentModeType()I
 
-    move-result v1
+    move-result p0
 
-    const/4 v2, 0x4
+    const/4 v0, 0x4
 
-    if-ne v1, v2, :cond_0
+    if-ne p0, v0, :cond_0
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p0, 0x0
 
-    .line 155
     :goto_0
-    return v1
+    return p0
 .end method
 
 .method private static parseDisplaySize(Ljava/lang/String;)Landroid/graphics/Point;
-    .locals 4
-    .param p0, "displaySize"    # Ljava/lang/String;
+    .locals 2
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "displaySize"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/NumberFormatException;
         }
     .end annotation
 
-    .line 106
+    .line 112
     invoke-virtual {p0}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string/jumbo v1, "x"
+    const-string v0, "x"
 
-    const/4 v2, -0x1
+    const/4 v1, -0x1
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->split(Ljava/lang/String;I)[Ljava/lang/String;
+    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;I)[Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    .line 107
-    .local v0, "displaySizeParts":[Ljava/lang/String;
-    array-length v1, v0
+    .line 113
+    array-length v0, p0
 
-    const/4 v2, 0x2
-
-    if-ne v1, v2, :cond_0
-
-    .line 108
-    const/4 v1, 0x0
-
-    aget-object v1, v0, v1
-
-    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v1
-
-    .line 109
-    .local v1, "width":I
-    const/4 v2, 0x1
-
-    aget-object v2, v0, v2
-
-    invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v2
-
-    .line 110
-    .local v2, "height":I
-    if-lez v1, :cond_0
-
-    if-lez v2, :cond_0
-
-    .line 111
-    new-instance v3, Landroid/graphics/Point;
-
-    invoke-direct {v3, v1, v2}, Landroid/graphics/Point;-><init>(II)V
-
-    return-object v3
-
-    .line 114
-    .end local v1    # "width":I
-    .end local v2    # "height":I
-    :cond_0
-    new-instance v1, Ljava/lang/NumberFormatException;
-
-    invoke-direct {v1}, Ljava/lang/NumberFormatException;-><init>()V
-
-    throw v1
-.end method
-
-.method private static parsePhysicalDisplaySizeFromSystemProperties(Ljava/lang/String;Landroid/view/Display;)Landroid/graphics/Point;
-    .locals 2
-    .param p0, "property"    # Ljava/lang/String;
-    .param p1, "display"    # Landroid/view/Display;
-
-    .line 171
-    invoke-virtual {p1}, Landroid/view/Display;->getDisplayId()I
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 174
-    invoke-static {p0}, Landroidx/core/view/DisplayCompat;->getSystemProperty(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 176
-    .local v0, "displaySize":Ljava/lang/String;
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    .line 178
-    :try_start_0
-    invoke-static {v0}, Landroidx/core/view/DisplayCompat;->parseDisplaySize(Ljava/lang/String;)Landroid/graphics/Point;
-
-    move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-object v1
-
-    .line 179
-    :catch_0
-    move-exception v1
-
-    .line 185
-    .end local v0    # "displaySize":Ljava/lang/String;
-    :cond_0
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method private static physicalSizeEquals(Landroid/view/Display$Mode;Landroid/graphics/Point;)Z
-    .locals 2
-    .param p0, "mode"    # Landroid/view/Display$Mode;
-    .param p1, "size"    # Landroid/graphics/Point;
-
-    .line 143
-    invoke-virtual {p0}, Landroid/view/Display$Mode;->getPhysicalWidth()I
-
-    move-result v0
-
-    iget v1, p1, Landroid/graphics/Point;->x:I
+    const/4 v1, 0x2
 
     if-ne v0, v1, :cond_0
 
-    invoke-virtual {p0}, Landroid/view/Display$Mode;->getPhysicalHeight()I
-
-    move-result v0
-
-    iget v1, p1, Landroid/graphics/Point;->y:I
-
-    if-eq v0, v1, :cond_1
-
-    .line 144
-    :cond_0
-    invoke-virtual {p0}, Landroid/view/Display$Mode;->getPhysicalWidth()I
-
-    move-result v0
-
-    iget v1, p1, Landroid/graphics/Point;->y:I
-
-    if-ne v0, v1, :cond_2
-
-    invoke-virtual {p0}, Landroid/view/Display$Mode;->getPhysicalHeight()I
-
-    move-result v0
-
-    iget v1, p1, Landroid/graphics/Point;->x:I
-
-    if-ne v0, v1, :cond_2
-
-    :cond_1
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_2
     const/4 v0, 0x0
 
-    .line 143
-    :goto_0
-    return v0
+    .line 114
+    aget-object v0, p0, v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    .line 115
+    aget-object p0, p0, v1
+
+    invoke-static {p0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result p0
+
+    if-lez v0, :cond_0
+
+    if-lez p0, :cond_0
+
+    .line 117
+    new-instance v1, Landroid/graphics/Point;
+
+    invoke-direct {v1, v0, p0}, Landroid/graphics/Point;-><init>(II)V
+
+    return-object v1
+
+    .line 120
+    :cond_0
+    new-instance p0, Ljava/lang/NumberFormatException;
+
+    invoke-direct {p0}, Ljava/lang/NumberFormatException;-><init>()V
+
+    throw p0
+.end method
+
+.method private static parsePhysicalDisplaySizeFromSystemProperties(Ljava/lang/String;Landroid/view/Display;)Landroid/graphics/Point;
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "property",
+            "display"
+        }
+    .end annotation
+
+    .line 164
+    invoke-virtual {p1}, Landroid/view/Display;->getDisplayId()I
+
+    move-result p1
+
+    const/4 v0, 0x0
+
+    if-eqz p1, :cond_0
+
+    return-object v0
+
+    .line 169
+    :cond_0
+    invoke-static {p0}, Landroidx/core/view/DisplayCompat;->getSystemProperty(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    .line 170
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    return-object v0
+
+    .line 175
+    :cond_1
+    :try_start_0
+    invoke-static {p0}, Landroidx/core/view/DisplayCompat;->parseDisplaySize(Ljava/lang/String;)Landroid/graphics/Point;
+
+    move-result-object p0
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object p0
+
+    :catch_0
+    return-object v0
 .end method

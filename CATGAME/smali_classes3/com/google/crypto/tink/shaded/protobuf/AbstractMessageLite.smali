@@ -36,19 +36,18 @@
     .locals 1
 
     .line 49
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite;, "Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite<TMessageType;TBuilderType;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 53
     const/4 v0, 0x0
 
+    .line 53
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite;->memoizedHashCode:I
 
     return-void
 .end method
 
 .method protected static addAll(Ljava/lang/Iterable;Ljava/util/Collection;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -65,15 +64,10 @@
     .end annotation
 
     .line 142
-    .local p0, "values":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TT;>;"
-    .local p1, "list":Ljava/util/Collection;, "Ljava/util/Collection<-TT;>;"
-    move-object v0, p1
+    check-cast p1, Ljava/util/List;
 
-    check-cast v0, Ljava/util/List;
+    invoke-static {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite$Builder;->addAll(Ljava/lang/Iterable;Ljava/util/List;)V
 
-    invoke-static {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite$Builder;->addAll(Ljava/lang/Iterable;Ljava/util/List;)V
-
-    .line 143
     return-void
 .end method
 
@@ -92,17 +86,13 @@
     .end annotation
 
     .line 146
-    .local p0, "values":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TT;>;"
-    .local p1, "list":Ljava/util/List;, "Ljava/util/List<-TT;>;"
     invoke-static {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite$Builder;->addAll(Ljava/lang/Iterable;Ljava/util/List;)V
 
-    .line 147
     return-void
 .end method
 
 .method protected static checkByteStringIsUtf8(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
-    .locals 2
-    .param p0, "byteString"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -112,37 +102,32 @@
     .line 134
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->isValidUtf8()Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    .line 137
     return-void
 
     .line 135
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Byte string is not UTF-8."
+    const-string v0, "Byte string is not UTF-8."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method private getSerializingExceptionMessage(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .param p1, "target"    # Ljava/lang/String;
 
     .line 125
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite;, "Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite<TMessageType;TBuilderType;>;"
     new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v1, "Serializing "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 126
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -155,22 +140,29 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " to a "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v1, " threw an IOException (should never happen)."
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v0
 
-    .line 125
-    return-object v0
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    const-string v0, " threw an IOException (should never happen)."
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    return-object p1
 .end method
 
 
@@ -179,7 +171,6 @@
     .locals 1
 
     .line 102
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite;, "Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite<TMessageType;TBuilderType;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -189,16 +180,12 @@
 
 .method getSerializedSize(Lcom/google/crypto/tink/shaded/protobuf/Schema;)I
     .locals 2
-    .param p1, "schema"    # Lcom/google/crypto/tink/shaded/protobuf/Schema;
 
     .line 111
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite;, "Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite<TMessageType;TBuilderType;>;"
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite;->getMemoizedSerializedSize()I
 
     move-result v0
 
-    .line 112
-    .local v0, "memoizedSerializedSize":I
     const/4 v1, -0x1
 
     if-ne v0, v1, :cond_0
@@ -211,7 +198,6 @@
     .line 114
     invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite;->setMemoizedSerializedSize(I)V
 
-    .line 116
     :cond_0
     return v0
 .end method
@@ -220,7 +206,6 @@
     .locals 1
 
     .line 121
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite;, "Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite<TMessageType;TBuilderType;>;"
     new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/UninitializedMessageException;
 
     invoke-direct {v0, p0}, Lcom/google/crypto/tink/shaded/protobuf/UninitializedMessageException;-><init>(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)V
@@ -229,23 +214,20 @@
 .end method
 
 .method setMemoizedSerializedSize(I)V
-    .locals 1
-    .param p1, "size"    # I
+    .locals 0
 
     .line 106
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite;, "Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite<TMessageType;TBuilderType;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public toByteArray()[B
     .locals 3
 
     .line 69
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite;, "Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite<TMessageType;TBuilderType;>;"
     :try_start_0
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite;->getSerializedSize()I
 
@@ -254,13 +236,11 @@
     new-array v0, v0, [B
 
     .line 70
-    .local v0, "result":[B
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->newInstance([B)Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;
 
     move-result-object v1
 
     .line 71
-    .local v1, "output":Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;
     invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite;->writeTo(Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;)V
 
     .line 72
@@ -268,17 +248,12 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 73
     return-object v0
 
-    .line 74
-    .end local v0    # "result":[B
-    .end local v1    # "output":Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;
     :catch_0
     move-exception v0
 
     .line 75
-    .local v0, "e":Ljava/io/IOException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "byte array"
@@ -296,7 +271,6 @@
     .locals 3
 
     .line 58
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite;, "Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite<TMessageType;TBuilderType;>;"
     :try_start_0
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite;->getSerializedSize()I
 
@@ -307,7 +281,6 @@
     move-result-object v0
 
     .line 59
-    .local v0, "out":Lcom/google/crypto/tink/shaded/protobuf/ByteString$CodedBuilder;
     invoke-virtual {v0}, Lcom/google/crypto/tink/shaded/protobuf/ByteString$CodedBuilder;->getCodedOutput()Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;
 
     move-result-object v1
@@ -317,19 +290,16 @@
     .line 60
     invoke-virtual {v0}, Lcom/google/crypto/tink/shaded/protobuf/ByteString$CodedBuilder;->build()Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v1
+    move-result-object v0
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v1
+    return-object v0
 
-    .line 61
-    .end local v0    # "out":Lcom/google/crypto/tink/shaded/protobuf/ByteString$CodedBuilder;
     :catch_0
     move-exception v0
 
     .line 62
-    .local v0, "e":Ljava/io/IOException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "ByteString"
@@ -344,8 +314,7 @@
 .end method
 
 .method public writeDelimitedTo(Ljava/io/OutputStream;)V
-    .locals 3
-    .param p1, "output"    # Ljava/io/OutputStream;
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -353,14 +322,9 @@
     .end annotation
 
     .line 89
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite;, "Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite<TMessageType;TBuilderType;>;"
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite;->getSerializedSize()I
 
     move-result v0
-
-    .line 90
-    .local v0, "serialized":I
-    nop
 
     .line 92
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->computeRawVarint32Size(I)I
@@ -375,28 +339,24 @@
     move-result v1
 
     .line 93
-    .local v1, "bufferSize":I
     invoke-static {p1, v1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->newInstance(Ljava/io/OutputStream;I)Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;
 
-    move-result-object v2
+    move-result-object p1
 
     .line 94
-    .local v2, "codedOutput":Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;
-    invoke-virtual {v2, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->writeRawVarint32(I)V
+    invoke-virtual {p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->writeRawVarint32(I)V
 
     .line 95
-    invoke-virtual {p0, v2}, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite;->writeTo(Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;)V
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite;->writeTo(Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;)V
 
     .line 96
-    invoke-virtual {v2}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->flush()V
+    invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->flush()V
 
-    .line 97
     return-void
 .end method
 
 .method public writeTo(Ljava/io/OutputStream;)V
-    .locals 2
-    .param p1, "output"    # Ljava/io/OutputStream;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -404,7 +364,6 @@
     .end annotation
 
     .line 81
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite;, "Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite<TMessageType;TBuilderType;>;"
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite;->getSerializedSize()I
 
     move-result v0
@@ -414,18 +373,15 @@
     move-result v0
 
     .line 82
-    .local v0, "bufferSize":I
     invoke-static {p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->newInstance(Ljava/io/OutputStream;I)Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 83
-    .local v1, "codedOutput":Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;
-    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite;->writeTo(Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;)V
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/AbstractMessageLite;->writeTo(Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;)V
 
     .line 84
-    invoke-virtual {v1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->flush()V
+    invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->flush()V
 
-    .line 85
     return-void
 .end method

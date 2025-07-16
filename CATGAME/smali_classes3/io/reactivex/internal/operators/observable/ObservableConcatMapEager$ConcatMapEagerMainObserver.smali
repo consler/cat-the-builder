@@ -109,10 +109,7 @@
 
 # direct methods
 .method constructor <init>(Lio/reactivex/Observer;Lio/reactivex/functions/Function;IILio/reactivex/internal/util/ErrorMode;)V
-    .locals 1
-    .param p3, "maxConcurrency"    # I
-    .param p4, "prefetch"    # I
-    .param p5, "errorMode"    # Lio/reactivex/internal/util/ErrorMode;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -128,9 +125,6 @@
     .end annotation
 
     .line 92
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;, "Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver<TT;TR;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TR;>;"
-    .local p2, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lio/reactivex/ObservableSource<+TR;>;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
 
     .line 93
@@ -149,20 +143,19 @@
     iput-object p5, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->errorMode:Lio/reactivex/internal/util/ErrorMode;
 
     .line 98
-    new-instance v0, Lio/reactivex/internal/util/AtomicThrowable;
+    new-instance p1, Lio/reactivex/internal/util/AtomicThrowable;
 
-    invoke-direct {v0}, Lio/reactivex/internal/util/AtomicThrowable;-><init>()V
+    invoke-direct {p1}, Lio/reactivex/internal/util/AtomicThrowable;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->error:Lio/reactivex/internal/util/AtomicThrowable;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->error:Lio/reactivex/internal/util/AtomicThrowable;
 
     .line 99
-    new-instance v0, Ljava/util/ArrayDeque;
+    new-instance p1, Ljava/util/ArrayDeque;
 
-    invoke-direct {v0}, Ljava/util/ArrayDeque;-><init>()V
+    invoke-direct {p1}, Ljava/util/ArrayDeque;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->observers:Ljava/util/ArrayDeque;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->observers:Ljava/util/ArrayDeque;
 
-    .line 100
     return-void
 .end method
 
@@ -171,10 +164,9 @@
 .method public dispose()V
     .locals 1
 
-    .line 164
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;, "Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver<TT;TR;>;"
     const/4 v0, 0x1
 
+    .line 164
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->cancelled:Z
 
     .line 165
@@ -192,20 +184,16 @@
     .line 167
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->disposeAll()V
 
-    .line 169
     :cond_0
     return-void
 .end method
 
 .method disposeAll()V
-    .locals 2
+    .locals 1
 
     .line 177
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;, "Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->current:Lio/reactivex/internal/observers/InnerQueuedObserver;
 
-    .line 179
-    .local v0, "inner":Lio/reactivex/internal/observers/InnerQueuedObserver;, "Lio/reactivex/internal/observers/InnerQueuedObserver<TR;>;"
     if-eqz v0, :cond_0
 
     .line 180
@@ -214,20 +202,16 @@
     .line 185
     :cond_0
     :goto_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->observers:Ljava/util/ArrayDeque;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->observers:Ljava/util/ArrayDeque;
 
-    invoke-virtual {v1}, Ljava/util/ArrayDeque;->poll()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/util/ArrayDeque;->poll()Ljava/lang/Object;
 
-    move-result-object v1
-
-    move-object v0, v1
+    move-result-object v0
 
     check-cast v0, Lio/reactivex/internal/observers/InnerQueuedObserver;
 
-    .line 187
     if-nez v0, :cond_1
 
-    .line 188
     return-void
 
     .line 191
@@ -247,14 +231,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 223
     return-void
 
-    .line 226
-    :cond_0
-    nop
-
     .line 228
+    :cond_0
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
     .line 229
@@ -271,6 +251,7 @@
     move v5, v4
 
     .line 236
+    :cond_1
     :goto_0
     iget v6, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->activeCount:I
 
@@ -278,12 +259,12 @@
     :goto_1
     iget v7, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->maxConcurrency:I
 
-    if-eq v6, v7, :cond_4
+    if-eq v6, v7, :cond_5
 
     .line 239
     iget-boolean v7, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->cancelled:Z
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_2
 
     .line 240
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->clear()V
@@ -291,14 +272,13 @@
     .line 241
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->disposeAll()V
 
-    .line 242
     return-void
 
     .line 245
-    :cond_1
+    :cond_2
     sget-object v7, Lio/reactivex/internal/util/ErrorMode;->IMMEDIATE:Lio/reactivex/internal/util/ErrorMode;
 
-    if-ne v3, v7, :cond_2
+    if-ne v3, v7, :cond_3
 
     .line 246
     iget-object v7, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->error:Lio/reactivex/internal/util/AtomicThrowable;
@@ -309,8 +289,7 @@
 
     check-cast v7, Ljava/lang/Throwable;
 
-    .line 247
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_3
 
     .line 248
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->clear()V
@@ -327,24 +306,21 @@
 
     invoke-interface {v2, v0}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 252
     return-void
 
     .line 260
-    :cond_2
+    :cond_3
     :try_start_0
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->poll()Ljava/lang/Object;
 
     move-result-object v7
 
-    .line 262
-    if-nez v7, :cond_3
+    if-nez v7, :cond_4
 
-    .line 263
     goto :goto_2
 
     .line 266
-    :cond_3
+    :cond_4
     iget-object v8, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->mapper:Lio/reactivex/functions/Function;
 
     invoke-interface {v8, v7}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
@@ -361,9 +337,6 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 275
-    nop
-
     .line 277
     new-instance v8, Lio/reactivex/internal/observers/InnerQueuedObserver;
 
@@ -377,13 +350,10 @@
     .line 281
     invoke-interface {v7, v8}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 283
     add-int/lit8 v6, v6, 0x1
 
-    .line 284
     goto :goto_1
 
-    .line 267
     :catchall_0
     move-exception v1
 
@@ -415,18 +385,17 @@
 
     invoke-interface {v2, v0}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 274
     return-void
 
     .line 286
-    :cond_4
+    :cond_5
     :goto_2
     iput v6, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->activeCount:I
 
     .line 288
     iget-boolean v6, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->cancelled:Z
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_6
 
     .line 289
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->clear()V
@@ -434,14 +403,13 @@
     .line 290
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->disposeAll()V
 
-    .line 291
     return-void
 
     .line 294
-    :cond_5
+    :cond_6
     sget-object v6, Lio/reactivex/internal/util/ErrorMode;->IMMEDIATE:Lio/reactivex/internal/util/ErrorMode;
 
-    if-ne v3, v6, :cond_6
+    if-ne v3, v6, :cond_7
 
     .line 295
     iget-object v6, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->error:Lio/reactivex/internal/util/AtomicThrowable;
@@ -452,8 +420,7 @@
 
     check-cast v6, Ljava/lang/Throwable;
 
-    .line 296
-    if-eqz v6, :cond_6
+    if-eqz v6, :cond_7
 
     .line 297
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->clear()V
@@ -470,22 +437,20 @@
 
     invoke-interface {v2, v0}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 301
     return-void
 
     .line 305
-    :cond_6
+    :cond_7
     iget-object v6, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->current:Lio/reactivex/internal/observers/InnerQueuedObserver;
 
-    .line 307
     const/4 v7, 0x0
 
-    if-nez v6, :cond_c
+    if-nez v6, :cond_d
 
     .line 308
     sget-object v6, Lio/reactivex/internal/util/ErrorMode;->BOUNDARY:Lio/reactivex/internal/util/ErrorMode;
 
-    if-ne v3, v6, :cond_7
+    if-ne v3, v6, :cond_8
 
     .line 309
     iget-object v6, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->error:Lio/reactivex/internal/util/AtomicThrowable;
@@ -496,8 +461,7 @@
 
     check-cast v6, Ljava/lang/Throwable;
 
-    .line 310
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_8
 
     .line 311
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->clear()V
@@ -514,11 +478,10 @@
 
     invoke-interface {v2, v0}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 315
     return-void
 
     .line 318
-    :cond_7
+    :cond_8
     iget-boolean v6, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->done:Z
 
     .line 320
@@ -528,21 +491,19 @@
 
     check-cast v8, Lio/reactivex/internal/observers/InnerQueuedObserver;
 
-    .line 322
-    if-nez v8, :cond_8
+    if-nez v8, :cond_9
 
     move v9, v4
 
     goto :goto_3
 
-    :cond_8
+    :cond_9
     move v9, v7
 
-    .line 324
     :goto_3
-    if-eqz v6, :cond_a
+    if-eqz v6, :cond_b
 
-    if-eqz v9, :cond_a
+    if-eqz v9, :cond_b
 
     .line 325
     iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->error:Lio/reactivex/internal/util/AtomicThrowable;
@@ -553,8 +514,7 @@
 
     check-cast v1, Ljava/lang/Throwable;
 
-    .line 326
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_a
 
     .line 327
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->clear()V
@@ -574,26 +534,23 @@
     goto :goto_4
 
     .line 332
-    :cond_9
+    :cond_a
     invoke-interface {v2}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 334
     :goto_4
     return-void
 
-    .line 337
-    :cond_a
-    if-nez v9, :cond_b
+    :cond_b
+    if-nez v9, :cond_c
 
     .line 338
     iput-object v8, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->current:Lio/reactivex/internal/observers/InnerQueuedObserver;
 
-    .line 343
-    :cond_b
+    :cond_c
     move-object v6, v8
 
-    :cond_c
-    if-eqz v6, :cond_12
+    :cond_d
+    if-eqz v6, :cond_13
 
     .line 344
     invoke-virtual {v6}, Lio/reactivex/internal/observers/InnerQueuedObserver;->queue()Lio/reactivex/internal/fuseable/SimpleQueue;
@@ -604,7 +561,7 @@
     :goto_5
     iget-boolean v9, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->cancelled:Z
 
-    if-eqz v9, :cond_d
+    if-eqz v9, :cond_e
 
     .line 348
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->clear()V
@@ -612,11 +569,10 @@
     .line 349
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->disposeAll()V
 
-    .line 350
     return-void
 
     .line 353
-    :cond_d
+    :cond_e
     invoke-virtual {v6}, Lio/reactivex/internal/observers/InnerQueuedObserver;->isDone()Z
 
     move-result v9
@@ -624,7 +580,7 @@
     .line 355
     sget-object v10, Lio/reactivex/internal/util/ErrorMode;->IMMEDIATE:Lio/reactivex/internal/util/ErrorMode;
 
-    if-ne v3, v10, :cond_e
+    if-ne v3, v10, :cond_f
 
     .line 356
     iget-object v10, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->error:Lio/reactivex/internal/util/AtomicThrowable;
@@ -635,8 +591,7 @@
 
     check-cast v10, Ljava/lang/Throwable;
 
-    .line 357
-    if-eqz v10, :cond_e
+    if-eqz v10, :cond_f
 
     .line 358
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->clear()V
@@ -653,13 +608,12 @@
 
     invoke-interface {v2, v0}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 362
     return-void
 
-    .line 369
-    :cond_e
+    :cond_f
     const/4 v10, 0x0
 
+    .line 369
     :try_start_1
     invoke-interface {v8}, Lio/reactivex/internal/fuseable/SimpleQueue;->poll()Ljava/lang/Object;
 
@@ -667,24 +621,19 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    .line 377
-    nop
-
-    .line 379
-    if-nez v11, :cond_f
+    if-nez v11, :cond_10
 
     move v12, v4
 
     goto :goto_6
 
-    :cond_f
+    :cond_10
     move v12, v7
 
-    .line 381
     :goto_6
-    if-eqz v9, :cond_10
+    if-eqz v9, :cond_11
 
-    if-eqz v12, :cond_10
+    if-eqz v12, :cond_11
 
     .line 382
     iput-object v10, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->current:Lio/reactivex/internal/observers/InnerQueuedObserver;
@@ -696,24 +645,19 @@
 
     iput v6, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->activeCount:I
 
-    .line 384
     goto/16 :goto_0
 
-    .line 387
-    :cond_10
-    if-eqz v12, :cond_11
+    :cond_11
+    if-eqz v12, :cond_12
 
-    .line 388
     goto :goto_7
 
     .line 391
-    :cond_11
+    :cond_12
     invoke-interface {v2, v11}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
-    .line 392
     goto :goto_5
 
-    .line 370
     :catchall_1
     move-exception v6
 
@@ -735,30 +679,20 @@
 
     iput v6, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->activeCount:I
 
-    .line 376
     goto/16 :goto_0
 
-    .line 395
-    :cond_12
+    :cond_13
     :goto_7
     neg-int v5, v5
 
+    .line 395
     invoke-virtual {p0, v5}, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->addAndGet(I)I
 
     move-result v5
 
-    .line 396
-    if-nez v5, :cond_13
+    if-nez v5, :cond_1
 
-    .line 397
-    nop
-
-    .line 400
     return-void
-
-    .line 399
-    :cond_13
-    goto/16 :goto_0
 .end method
 
 .method public innerComplete(Lio/reactivex/internal/observers/InnerQueuedObserver;)V
@@ -772,20 +706,16 @@
     .end annotation
 
     .line 216
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;, "Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver<TT;TR;>;"
-    .local p1, "inner":Lio/reactivex/internal/observers/InnerQueuedObserver;, "Lio/reactivex/internal/observers/InnerQueuedObserver<TR;>;"
     invoke-virtual {p1}, Lio/reactivex/internal/observers/InnerQueuedObserver;->setDone()V
 
     .line 217
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->drain()V
 
-    .line 218
     return-void
 .end method
 
 .method public innerError(Lio/reactivex/internal/observers/InnerQueuedObserver;Ljava/lang/Throwable;)V
-    .locals 2
-    .param p2, "e"    # Ljava/lang/Throwable;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -797,8 +727,6 @@
     .end annotation
 
     .line 203
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;, "Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver<TT;TR;>;"
-    .local p1, "inner":Lio/reactivex/internal/observers/InnerQueuedObserver;, "Lio/reactivex/internal/observers/InnerQueuedObserver<TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->error:Lio/reactivex/internal/util/AtomicThrowable;
 
     invoke-virtual {v0, p2}, Lio/reactivex/internal/util/AtomicThrowable;->addThrowable(Ljava/lang/Throwable;)Z
@@ -808,16 +736,16 @@
     if-eqz v0, :cond_1
 
     .line 204
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->errorMode:Lio/reactivex/internal/util/ErrorMode;
+    iget-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->errorMode:Lio/reactivex/internal/util/ErrorMode;
 
-    sget-object v1, Lio/reactivex/internal/util/ErrorMode;->IMMEDIATE:Lio/reactivex/internal/util/ErrorMode;
+    sget-object v0, Lio/reactivex/internal/util/ErrorMode;->IMMEDIATE:Lio/reactivex/internal/util/ErrorMode;
 
-    if-ne v0, v1, :cond_0
+    if-ne p2, v0, :cond_0
 
     .line 205
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->d:Lio/reactivex/disposables/Disposable;
+    iget-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->d:Lio/reactivex/disposables/Disposable;
 
-    invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
+    invoke-interface {p2}, Lio/reactivex/disposables/Disposable;->dispose()V
 
     .line 207
     :cond_0
@@ -832,13 +760,12 @@
     :cond_1
     invoke-static {p2}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 212
     :goto_0
     return-void
 .end method
 
 .method public innerNext(Lio/reactivex/internal/observers/InnerQueuedObserver;Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -848,19 +775,15 @@
     .end annotation
 
     .line 197
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;, "Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver<TT;TR;>;"
-    .local p1, "inner":Lio/reactivex/internal/observers/InnerQueuedObserver;, "Lio/reactivex/internal/observers/InnerQueuedObserver<TR;>;"
-    .local p2, "value":Ljava/lang/Object;, "TR;"
     invoke-virtual {p1}, Lio/reactivex/internal/observers/InnerQueuedObserver;->queue()Lio/reactivex/internal/fuseable/SimpleQueue;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0, p2}, Lio/reactivex/internal/fuseable/SimpleQueue;->offer(Ljava/lang/Object;)Z
+    invoke-interface {p1, p2}, Lio/reactivex/internal/fuseable/SimpleQueue;->offer(Ljava/lang/Object;)Z
 
     .line 198
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->drain()V
 
-    .line 199
     return-void
 .end method
 
@@ -868,7 +791,6 @@
     .locals 1
 
     .line 173
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;, "Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver<TT;TR;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->cancelled:Z
 
     return v0
@@ -877,25 +799,21 @@
 .method public onComplete()V
     .locals 1
 
-    .line 158
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;, "Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver<TT;TR;>;"
     const/4 v0, 0x1
 
+    .line 158
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->done:Z
 
     .line 159
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->drain()V
 
-    .line 160
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 148
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;, "Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->error:Lio/reactivex/internal/util/AtomicThrowable;
 
     invoke-virtual {v0, p1}, Lio/reactivex/internal/util/AtomicThrowable;->addThrowable(Ljava/lang/Throwable;)Z
@@ -904,10 +822,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 149
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->done:Z
+    .line 149
+    iput-boolean p1, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->done:Z
 
     .line 150
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->drain()V
@@ -918,7 +836,6 @@
     :cond_0
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 154
     :goto_0
     return-void
 .end method
@@ -932,8 +849,6 @@
     .end annotation
 
     .line 140
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;, "Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver<TT;TR;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     iget v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->sourceMode:I
 
     if-nez v0, :cond_0
@@ -947,16 +862,13 @@
     :cond_0
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->drain()V
 
-    .line 144
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
-    .locals 3
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
+    .locals 2
 
     .line 105
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;, "Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->d:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -974,82 +886,71 @@
     if-eqz v0, :cond_1
 
     .line 109
-    move-object v0, p1
+    check-cast p1, Lio/reactivex/internal/fuseable/QueueDisposable;
 
-    check-cast v0, Lio/reactivex/internal/fuseable/QueueDisposable;
+    const/4 v0, 0x3
 
     .line 111
-    .local v0, "qd":Lio/reactivex/internal/fuseable/QueueDisposable;, "Lio/reactivex/internal/fuseable/QueueDisposable<TT;>;"
-    const/4 v1, 0x3
+    invoke-interface {p1, v0}, Lio/reactivex/internal/fuseable/QueueDisposable;->requestFusion(I)I
 
-    invoke-interface {v0, v1}, Lio/reactivex/internal/fuseable/QueueDisposable;->requestFusion(I)I
+    move-result v0
 
-    move-result v1
+    const/4 v1, 0x1
 
-    .line 112
-    .local v1, "m":I
-    const/4 v2, 0x1
-
-    if-ne v1, v2, :cond_0
+    if-ne v0, v1, :cond_0
 
     .line 113
-    iput v1, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->sourceMode:I
+    iput v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->sourceMode:I
 
     .line 114
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
     .line 115
-    iput-boolean v2, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->done:Z
+    iput-boolean v1, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->done:Z
 
     .line 117
-    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v2, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 119
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->drain()V
 
-    .line 120
     return-void
 
-    .line 122
     :cond_0
-    const/4 v2, 0x2
+    const/4 v1, 0x2
 
-    if-ne v1, v2, :cond_1
+    if-ne v0, v1, :cond_1
 
     .line 123
-    iput v1, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->sourceMode:I
+    iput v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->sourceMode:I
 
     .line 124
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
     .line 126
-    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v2, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 128
     return-void
 
     .line 132
-    .end local v0    # "qd":Lio/reactivex/internal/fuseable/QueueDisposable;, "Lio/reactivex/internal/fuseable/QueueDisposable<TT;>;"
-    .end local v1    # "m":I
     :cond_1
-    iget v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->prefetch:I
+    iget p1, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->prefetch:I
 
-    invoke-static {v0}, Lio/reactivex/internal/util/QueueDrainHelper;->createQueue(I)Lio/reactivex/internal/fuseable/SimpleQueue;
+    invoke-static {p1}, Lio/reactivex/internal/util/QueueDrainHelper;->createQueue(I)Lio/reactivex/internal/fuseable/SimpleQueue;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
     .line 134
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v0, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 136
     :cond_2
     return-void
 .end method

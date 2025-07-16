@@ -19,73 +19,55 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/OutputStream;IJ)V
-    .locals 3
-    .param p1, "os"    # Ljava/io/OutputStream;
-    .param p2, "maxBlockLen"    # I
-    .param p3, "totalLen"    # J
+    .locals 1
 
     .line 25
     invoke-direct {p0, p1, p2, p3, p4}, Lar/com/hjg/pngj/pixels/CompressorStream;-><init>(Ljava/io/OutputStream;IJ)V
 
-    .line 20
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput v0, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->inbuf:I
+    .line 20
+    iput p1, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->inbuf:I
 
     .line 26
-    new-instance v0, Lar/com/hjg/pngj/pixels/DeflaterEstimatorLz4;
+    new-instance p1, Lar/com/hjg/pngj/pixels/DeflaterEstimatorLz4;
 
-    invoke-direct {v0}, Lar/com/hjg/pngj/pixels/DeflaterEstimatorLz4;-><init>()V
+    invoke-direct {p1}, Lar/com/hjg/pngj/pixels/DeflaterEstimatorLz4;-><init>()V
 
-    iput-object v0, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->lz4:Lar/com/hjg/pngj/pixels/DeflaterEstimatorLz4;
+    iput-object p1, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->lz4:Lar/com/hjg/pngj/pixels/DeflaterEstimatorLz4;
 
-    .line 27
-    const-wide/16 v0, 0x3e80
+    const-wide/16 p1, 0x3e80
 
-    cmp-long v2, p3, v0
+    cmp-long v0, p3, p1
 
-    if-lez v2, :cond_0
+    if-lez v0, :cond_0
 
-    goto :goto_0
+    move-wide p3, p1
 
     :cond_0
-    move-wide v0, p3
+    long-to-int p1, p3
 
-    :goto_0
-    long-to-int v0, v0
+    .line 27
+    iput p1, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->buffer_size:I
 
-    iput v0, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->buffer_size:I
-
-    .line 28
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/OutputStream;IJII)V
     .locals 0
-    .param p1, "os"    # Ljava/io/OutputStream;
-    .param p2, "maxBlockLen"    # I
-    .param p3, "totalLen"    # J
-    .param p5, "deflaterCompLevel"    # I
-    .param p6, "deflaterStrategy"    # I
 
     .line 36
     invoke-direct {p0, p1, p2, p3, p4}, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;-><init>(Ljava/io/OutputStream;IJ)V
 
-    .line 37
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/OutputStream;IJLjava/util/zip/Deflater;)V
     .locals 0
-    .param p1, "os"    # Ljava/io/OutputStream;
-    .param p2, "maxBlockLen"    # I
-    .param p3, "totalLen"    # J
-    .param p5, "def"    # Ljava/util/zip/Deflater;
 
     .line 31
     invoke-direct {p0, p1, p2, p3, p4}, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;-><init>(Ljava/io/OutputStream;IJ)V
 
-    .line 32
     return-void
 .end method
 
@@ -105,12 +87,11 @@
     .line 86
     invoke-super {p0}, Lar/com/hjg/pngj/pixels/CompressorStream;->close()V
 
-    .line 87
     const/4 v0, 0x0
 
+    .line 87
     iput-object v0, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->buf:[B
 
-    .line 89
     :cond_0
     return-void
 .end method
@@ -147,7 +128,6 @@
     .line 69
     iput v5, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->inbuf:I
 
-    .line 71
     :cond_0
     return-void
 .end method
@@ -163,29 +143,23 @@
     .line 76
     invoke-virtual {p0}, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->compressFromBuffer()V
 
-    .line 77
     const/4 v0, 0x1
 
+    .line 77
     iput-boolean v0, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->done:Z
 
     .line 78
     invoke-virtual {p0}, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->flush()V
 
-    .line 80
     :cond_0
     return-void
 .end method
 
 .method public mywrite([BII)V
     .locals 4
-    .param p1, "b"    # [B
-    .param p2, "off"    # I
-    .param p3, "len"    # I
 
-    .line 41
     if-nez p3, :cond_0
 
-    .line 42
     return-void
 
     .line 43
@@ -207,18 +181,18 @@
 
     iput-wide v0, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->bytesIn:J
 
-    .line 46
+    :cond_1
     :goto_0
     if-lez p3, :cond_7
 
     .line 47
     iget v0, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->inbuf:I
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
 
     const/16 v0, 0x3e80
 
-    if-ge p3, v0, :cond_1
+    if-ge p3, v0, :cond_2
 
     iget-wide v0, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->bytesIn:J
 
@@ -226,34 +200,33 @@
 
     cmp-long v0, v0, v2
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
 
     .line 49
-    :cond_1
+    :cond_2
     iget-wide v0, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->bytesOut:J
 
     iget-object v2, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->lz4:Lar/com/hjg/pngj/pixels/DeflaterEstimatorLz4;
 
     invoke-virtual {v2, p1, p2, p3}, Lar/com/hjg/pngj/pixels/DeflaterEstimatorLz4;->compressEstim([BII)I
 
-    move-result v2
+    move-result p3
 
-    int-to-long v2, v2
+    int-to-long v2, p3
 
     add-long/2addr v0, v2
 
     iput-wide v0, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->bytesOut:J
 
-    .line 50
     const/4 p3, 0x0
 
     goto :goto_0
 
     .line 52
-    :cond_2
+    :cond_3
     iget-object v0, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->buf:[B
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4
 
     .line 53
     iget v0, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->buffer_size:I
@@ -263,76 +236,64 @@
     iput-object v0, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->buf:[B
 
     .line 54
-    :cond_3
+    :cond_4
     iget v0, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->inbuf:I
 
     add-int v1, v0, p3
 
     iget v2, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->buffer_size:I
 
-    if-gt v1, v2, :cond_4
+    if-gt v1, v2, :cond_5
 
     move v2, p3
 
     goto :goto_1
 
-    :cond_4
+    :cond_5
     sub-int/2addr v2, v0
 
     :goto_1
-    move v0, v2
-
-    .line 55
-    .local v0, "len1":I
-    if-lez v0, :cond_5
+    if-lez v2, :cond_6
 
     .line 56
     iget-object v1, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->buf:[B
 
-    iget v2, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->inbuf:I
-
-    invoke-static {p1, p2, v1, v2, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p1, p2, v1, v0, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 57
-    :cond_5
-    iget v1, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->inbuf:I
+    :cond_6
+    iget v0, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->inbuf:I
 
-    add-int/2addr v1, v0
+    add-int/2addr v0, v2
 
-    iput v1, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->inbuf:I
+    iput v0, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->inbuf:I
 
-    .line 58
-    sub-int/2addr p3, v0
+    sub-int/2addr p3, v2
 
-    .line 59
-    add-int/2addr p2, v0
+    add-int/2addr p2, v2
 
     .line 60
-    iget v2, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->buffer_size:I
+    iget v1, p0, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->buffer_size:I
 
-    if-ne v1, v2, :cond_6
+    if-ne v0, v1, :cond_1
 
     .line 61
     invoke-virtual {p0}, Lar/com/hjg/pngj/pixels/CompressorStreamLz4;->compressFromBuffer()V
 
-    .line 62
-    .end local v0    # "len1":I
-    :cond_6
     goto :goto_0
 
-    .line 64
     :cond_7
     return-void
 
     .line 44
     :cond_8
-    new-instance v0, Lar/com/hjg/pngj/PngjOutputException;
+    new-instance p1, Lar/com/hjg/pngj/PngjOutputException;
 
-    const-string/jumbo v1, "write beyond end of stream"
+    const-string p2, "write beyond end of stream"
 
-    invoke-direct {v0, v1}, Lar/com/hjg/pngj/PngjOutputException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/PngjOutputException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public reset()V
@@ -344,6 +305,5 @@
     .line 94
     invoke-super {p0}, Lar/com/hjg/pngj/pixels/CompressorStream;->reset()V
 
-    .line 95
     return-void
 .end method

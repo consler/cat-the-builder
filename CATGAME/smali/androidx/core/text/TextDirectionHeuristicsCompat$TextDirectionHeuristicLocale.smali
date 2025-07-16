@@ -35,12 +35,11 @@
 .method constructor <init>()V
     .locals 1
 
-    .line 244
     const/4 v0, 0x0
 
+    .line 244
     invoke-direct {p0, v0}, Landroidx/core/text/TextDirectionHeuristicsCompat$TextDirectionHeuristicImpl;-><init>(Landroidx/core/text/TextDirectionHeuristicsCompat$TextDirectionAlgorithm;)V
 
-    .line 245
     return-void
 .end method
 
@@ -58,8 +57,6 @@
 
     move-result v0
 
-    .line 250
-    .local v0, "dir":I
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_0

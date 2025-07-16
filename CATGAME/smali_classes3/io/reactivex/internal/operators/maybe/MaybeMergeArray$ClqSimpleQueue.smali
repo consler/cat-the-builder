@@ -44,7 +44,6 @@
     .locals 1
 
     .line 414
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeMergeArray$ClqSimpleQueue;, "Lio/reactivex/internal/operators/maybe/MaybeMergeArray$ClqSimpleQueue<TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/ConcurrentLinkedQueue;-><init>()V
 
     .line 415
@@ -54,7 +53,6 @@
 
     iput-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeMergeArray$ClqSimpleQueue;->producerIndex:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    .line 416
     return-void
 .end method
 
@@ -64,7 +62,6 @@
     .locals 1
 
     .line 441
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeMergeArray$ClqSimpleQueue;, "Lio/reactivex/internal/operators/maybe/MaybeMergeArray$ClqSimpleQueue<TT;>;"
     iget v0, p0, Lio/reactivex/internal/operators/maybe/MaybeMergeArray$ClqSimpleQueue;->consumerIndex:I
 
     return v0
@@ -74,10 +71,8 @@
     .locals 0
 
     .line 451
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeMergeArray$ClqSimpleQueue;, "Lio/reactivex/internal/operators/maybe/MaybeMergeArray$ClqSimpleQueue<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/maybe/MaybeMergeArray$ClqSimpleQueue;->poll()Ljava/lang/Object;
 
-    .line 452
     return-void
 .end method
 
@@ -90,8 +85,6 @@
     .end annotation
 
     .line 425
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeMergeArray$ClqSimpleQueue;, "Lio/reactivex/internal/operators/maybe/MaybeMergeArray$ClqSimpleQueue<TT;>;"
-    .local p1, "e":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeMergeArray$ClqSimpleQueue;->producerIndex:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
@@ -99,13 +92,13 @@
     .line 426
     invoke-super {p0, p1}, Ljava/util/concurrent/ConcurrentLinkedQueue;->offer(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public offer(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;TT;)Z"
@@ -113,14 +106,11 @@
     .end annotation
 
     .line 420
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeMergeArray$ClqSimpleQueue;, "Lio/reactivex/internal/operators/maybe/MaybeMergeArray$ClqSimpleQueue<TT;>;"
-    .local p1, "v1":Ljava/lang/Object;, "TT;"
-    .local p2, "v2":Ljava/lang/Object;, "TT;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public poll()Ljava/lang/Object;
@@ -132,13 +122,10 @@
     .end annotation
 
     .line 432
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeMergeArray$ClqSimpleQueue;, "Lio/reactivex/internal/operators/maybe/MaybeMergeArray$ClqSimpleQueue<TT;>;"
     invoke-super {p0}, Ljava/util/concurrent/ConcurrentLinkedQueue;->poll()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 433
-    .local v0, "v":Ljava/lang/Object;, "TT;"
     if-eqz v0, :cond_0
 
     .line 434
@@ -148,7 +135,6 @@
 
     iput v1, p0, Lio/reactivex/internal/operators/maybe/MaybeMergeArray$ClqSimpleQueue;->consumerIndex:I
 
-    .line 436
     :cond_0
     return-object v0
 .end method
@@ -157,7 +143,6 @@
     .locals 1
 
     .line 446
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeMergeArray$ClqSimpleQueue;, "Lio/reactivex/internal/operators/maybe/MaybeMergeArray$ClqSimpleQueue<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeMergeArray$ClqSimpleQueue;->producerIndex:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I

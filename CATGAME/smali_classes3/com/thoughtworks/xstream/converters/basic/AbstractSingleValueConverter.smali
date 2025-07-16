@@ -25,21 +25,20 @@
 .end method
 
 .method public toString(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 0
 
-    .line 30
     if-nez p1, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
+    .line 30
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    return-object v0
+    return-object p1
 .end method

@@ -41,10 +41,8 @@
     .locals 0
 
     .line 56
-    .local p0, "this":Lorg/apache/commons/collections4/functors/CloneTransformer;, "Lorg/apache/commons/collections4/functors/CloneTransformer<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 57
     return-void
 .end method
 
@@ -69,32 +67,28 @@
 
 # virtual methods
 .method public transform(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)TT;"
         }
     .end annotation
 
-    .line 67
-    .local p0, "this":Lorg/apache/commons/collections4/functors/CloneTransformer;, "Lorg/apache/commons/collections4/functors/CloneTransformer<TT;>;"
-    .local p1, "input":Ljava/lang/Object;, "TT;"
     if-nez p1, :cond_0
 
-    .line 68
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 
     .line 70
     :cond_0
     invoke-static {p1}, Lorg/apache/commons/collections4/functors/PrototypeFactory;->prototypeFactory(Ljava/lang/Object;)Lorg/apache/commons/collections4/Factory;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Lorg/apache/commons/collections4/Factory;->create()Ljava/lang/Object;
+    invoke-interface {p1}, Lorg/apache/commons/collections4/Factory;->create()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

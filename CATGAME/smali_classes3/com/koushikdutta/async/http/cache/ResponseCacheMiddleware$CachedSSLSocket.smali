@@ -24,8 +24,6 @@
 # direct methods
 .method public constructor <init>(Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware;Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$EntryCacheResponse;J)V
     .locals 0
-    .param p2, "cacheResponse"    # Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$EntryCacheResponse;
-    .param p3, "contentLength"    # J
 
     .line 723
     iput-object p1, p0, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$CachedSSLSocket;->this$0:Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware;
@@ -33,7 +31,6 @@
     .line 724
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$CachedSocket;-><init>(Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware;Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$EntryCacheResponse;J)V
 
-    .line 725
     return-void
 .end method
 
@@ -42,7 +39,6 @@
 .method public getPeerCertificates()[Ljava/security/cert/X509Certificate;
     .locals 1
 
-    .line 734
     const/4 v0, 0x0
 
     return-object v0
@@ -51,7 +47,6 @@
 .method public getSSLEngine()Ljavax/net/ssl/SSLEngine;
     .locals 1
 
-    .line 729
     const/4 v0, 0x0
 
     return-object v0

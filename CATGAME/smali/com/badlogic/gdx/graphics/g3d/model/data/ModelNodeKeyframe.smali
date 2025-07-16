@@ -31,12 +31,11 @@
     .locals 1
 
     .line 19
-    .local p0, "this":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;, "Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 23
     const/4 v0, 0x0
 
+    .line 23
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelNodeKeyframe;->value:Ljava/lang/Object;
 
     return-void

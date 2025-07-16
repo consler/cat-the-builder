@@ -16,7 +16,7 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lcom/google/gson/TypeAdapter<",
-        "Ljava/lang/String;",
+        "Ljava/math/BigDecimal;",
         ">;"
     }
 .end annotation
@@ -26,7 +26,7 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 390
+    .line 401
     invoke-direct {p0}, Lcom/google/gson/TypeAdapter;-><init>()V
 
     return-void
@@ -42,66 +42,91 @@
         }
     .end annotation
 
-    .line 390
-    invoke-virtual {p0, p1}, Lcom/google/gson/internal/bind/TypeAdapters$16;->read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/String;
+    .line 401
+    invoke-virtual {p0, p1}, Lcom/google/gson/internal/bind/TypeAdapters$16;->read(Lcom/google/gson/stream/JsonReader;)Ljava/math/BigDecimal;
 
     move-result-object p1
 
     return-object p1
 .end method
 
-.method public read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/String;
-    .locals 2
-    .param p1, "in"    # Lcom/google/gson/stream/JsonReader;
+.method public read(Lcom/google/gson/stream/JsonReader;)Ljava/math/BigDecimal;
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 393
+    .line 403
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->peek()Lcom/google/gson/stream/JsonToken;
 
     move-result-object v0
 
-    .line 394
-    .local v0, "peek":Lcom/google/gson/stream/JsonToken;
     sget-object v1, Lcom/google/gson/stream/JsonToken;->NULL:Lcom/google/gson/stream/JsonToken;
 
     if-ne v0, v1, :cond_0
 
-    .line 395
+    .line 404
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextNull()V
 
-    .line 396
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 
-    .line 399
+    .line 407
     :cond_0
-    sget-object v1, Lcom/google/gson/stream/JsonToken;->BOOLEAN:Lcom/google/gson/stream/JsonToken;
-
-    if-ne v0, v1, :cond_1
-
-    .line 400
-    invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextBoolean()Z
-
-    move-result v1
-
-    invoke-static {v1}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
-
-    move-result-object v1
-
-    return-object v1
-
-    .line 402
-    :cond_1
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
+
+    .line 409
+    :try_start_0
+    new-instance v1, Ljava/math/BigDecimal;
+
+    invoke-direct {v1, v0}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-object v1
+
+    :catch_0
+    move-exception v1
+
+    .line 411
+    new-instance v2, Lcom/google/gson/JsonSyntaxException;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    const-string v4, "Failed parsing \'"
+
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v3, "\' as BigDecimal; at path "
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->getPreviousPath()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v2, p1, v1}, Lcom/google/gson/JsonSyntaxException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v2
 .end method
 
 .method public bridge synthetic write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
@@ -112,27 +137,24 @@
         }
     .end annotation
 
-    .line 390
-    check-cast p2, Ljava/lang/String;
+    .line 401
+    check-cast p2, Ljava/math/BigDecimal;
 
-    invoke-virtual {p0, p1, p2}, Lcom/google/gson/internal/bind/TypeAdapters$16;->write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/String;)V
+    invoke-virtual {p0, p1, p2}, Lcom/google/gson/internal/bind/TypeAdapters$16;->write(Lcom/google/gson/stream/JsonWriter;Ljava/math/BigDecimal;)V
 
     return-void
 .end method
 
-.method public write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/String;)V
+.method public write(Lcom/google/gson/stream/JsonWriter;Ljava/math/BigDecimal;)V
     .locals 0
-    .param p1, "out"    # Lcom/google/gson/stream/JsonWriter;
-    .param p2, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 406
-    invoke-virtual {p1, p2}, Lcom/google/gson/stream/JsonWriter;->value(Ljava/lang/String;)Lcom/google/gson/stream/JsonWriter;
+    .line 416
+    invoke-virtual {p1, p2}, Lcom/google/gson/stream/JsonWriter;->value(Ljava/lang/Number;)Lcom/google/gson/stream/JsonWriter;
 
-    .line 407
     return-void
 .end method

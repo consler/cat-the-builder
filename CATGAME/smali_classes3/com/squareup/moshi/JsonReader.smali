@@ -36,30 +36,28 @@
     .line 200
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 201
     const/16 v0, 0x20
 
     new-array v1, v0, [I
 
+    .line 201
     iput-object v1, p0, Lcom/squareup/moshi/JsonReader;->scopes:[I
 
-    .line 202
     new-array v1, v0, [Ljava/lang/String;
 
+    .line 202
     iput-object v1, p0, Lcom/squareup/moshi/JsonReader;->pathNames:[Ljava/lang/String;
 
-    .line 203
     new-array v0, v0, [I
 
+    .line 203
     iput-object v0, p0, Lcom/squareup/moshi/JsonReader;->pathIndices:[I
 
-    .line 204
     return-void
 .end method
 
 .method constructor <init>(Lcom/squareup/moshi/JsonReader;)V
     .locals 1
-    .param p1, "copyFrom"    # Lcom/squareup/moshi/JsonReader;
 
     .line 207
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -108,17 +106,15 @@
     iput-boolean v0, p0, Lcom/squareup/moshi/JsonReader;->lenient:Z
 
     .line 213
-    iget-boolean v0, p1, Lcom/squareup/moshi/JsonReader;->failOnUnknown:Z
+    iget-boolean p1, p1, Lcom/squareup/moshi/JsonReader;->failOnUnknown:Z
 
-    iput-boolean v0, p0, Lcom/squareup/moshi/JsonReader;->failOnUnknown:Z
+    iput-boolean p1, p0, Lcom/squareup/moshi/JsonReader;->failOnUnknown:Z
 
-    .line 214
     return-void
 .end method
 
 .method public static of(Lokio/BufferedSource;)Lcom/squareup/moshi/JsonReader;
     .locals 1
-    .param p0, "source"    # Lokio/BufferedSource;
     .annotation runtime Ljavax/annotation/CheckReturnValue;
     .end annotation
 
@@ -314,7 +310,6 @@
 
 .method final pushScope(I)V
     .locals 3
-    .param p1, "newTop"    # I
 
     .line 217
     iget v0, p0, Lcom/squareup/moshi/JsonReader;->stackSize:I
@@ -325,7 +320,6 @@
 
     if-ne v0, v2, :cond_1
 
-    .line 218
     const/16 v2, 0x100
 
     if-eq v0, v2, :cond_0
@@ -373,29 +367,29 @@
 
     .line 219
     :cond_0
-    new-instance v0, Lcom/squareup/moshi/JsonDataException;
+    new-instance p1, Lcom/squareup/moshi/JsonDataException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Nesting too deep at "
 
-    const-string v2, "Nesting too deep at "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/squareup/moshi/JsonReader;->getPath()Ljava/lang/String;
 
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Lcom/squareup/moshi/JsonDataException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    throw v0
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p1, v0}, Lcom/squareup/moshi/JsonDataException;-><init>(Ljava/lang/String;)V
+
+    throw p1
 
     .line 225
     :cond_1
@@ -410,12 +404,11 @@
 
     aput p1, v0, v1
 
-    .line 226
     return-void
 .end method
 
 .method public final readJsonValue()Ljava/lang/Object;
-    .locals 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -445,11 +438,9 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Expected a value but was "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 473
     invoke-virtual {p0}, Lcom/squareup/moshi/JsonReader;->peek()Lcom/squareup/moshi/JsonReader$Token;
@@ -458,15 +449,21 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, " at path "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {p0}, Lcom/squareup/moshi/JsonReader;->getPath()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -523,7 +520,6 @@
     invoke-direct {v0}, Lcom/squareup/moshi/LinkedHashTreeMap;-><init>()V
 
     .line 446
-    .local v0, "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     invoke-virtual {p0}, Lcom/squareup/moshi/JsonReader;->beginObject()V
 
     .line 447
@@ -540,94 +536,89 @@
     move-result-object v1
 
     .line 449
-    .local v1, "name":Ljava/lang/String;
     invoke-virtual {p0}, Lcom/squareup/moshi/JsonReader;->readJsonValue()Ljava/lang/Object;
 
     move-result-object v2
 
     .line 450
-    .local v2, "value":Ljava/lang/Object;
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
-    .line 451
-    .local v3, "replaced":Ljava/lang/Object;
     if-nez v3, :cond_0
 
-    .line 455
-    .end local v1    # "name":Ljava/lang/String;
-    .end local v2    # "value":Ljava/lang/Object;
-    .end local v3    # "replaced":Ljava/lang/Object;
     goto :goto_0
 
     .line 452
-    .restart local v1    # "name":Ljava/lang/String;
-    .restart local v2    # "value":Ljava/lang/Object;
-    .restart local v3    # "replaced":Ljava/lang/Object;
     :cond_0
-    new-instance v4, Lcom/squareup/moshi/JsonDataException;
+    new-instance v0, Lcom/squareup/moshi/JsonDataException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v5, "Map key \'"
 
-    const-string v6, "Map key \'"
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    const-string v6, "\' has multiple values at path "
+    const-string v4, "\' has multiple values at path "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     .line 453
     invoke-virtual {p0}, Lcom/squareup/moshi/JsonReader;->getPath()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v6, ": "
+    move-result-object v1
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v4, ": "
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v6, " and "
+    move-result-object v1
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v3, " and "
 
-    move-result-object v5
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v4, v5}, Lcom/squareup/moshi/JsonDataException;-><init>(Ljava/lang/String;)V
+    move-result-object v1
 
-    throw v4
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Lcom/squareup/moshi/JsonDataException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 
     .line 456
-    .end local v1    # "name":Ljava/lang/String;
-    .end local v2    # "value":Ljava/lang/Object;
-    .end local v3    # "replaced":Ljava/lang/Object;
     :cond_1
     invoke-virtual {p0}, Lcom/squareup/moshi/JsonReader;->endObject()V
 
-    .line 457
     return-object v0
 
     .line 436
-    .end local v0    # "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     :pswitch_5
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 437
-    .local v0, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Object;>;"
     invoke-virtual {p0}, Lcom/squareup/moshi/JsonReader;->beginArray()V
 
     .line 438
@@ -651,7 +642,6 @@
     :cond_2
     invoke-virtual {p0}, Lcom/squareup/moshi/JsonReader;->endArray()V
 
-    .line 442
     return-object v0
 
     :pswitch_data_0
@@ -689,23 +679,19 @@
 
 .method public final setFailOnUnknown(Z)V
     .locals 0
-    .param p1, "failOnUnknown"    # Z
 
     .line 291
     iput-boolean p1, p0, Lcom/squareup/moshi/JsonReader;->failOnUnknown:Z
 
-    .line 292
     return-void
 .end method
 
 .method public final setLenient(Z)V
     .locals 0
-    .param p1, "lenient"    # Z
 
     .line 272
     iput-boolean p1, p0, Lcom/squareup/moshi/JsonReader;->lenient:Z
 
-    .line 273
     return-void
 .end method
 
@@ -726,8 +712,7 @@
 .end method
 
 .method final syntaxError(Ljava/lang/String;)Lcom/squareup/moshi/JsonEncodingException;
-    .locals 3
-    .param p1, "message"    # Ljava/lang/String;
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/squareup/moshi/JsonEncodingException;
@@ -743,68 +728,75 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, " at path "
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " at path "
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     invoke-virtual {p0}, Lcom/squareup/moshi/JsonReader;->getPath()Ljava/lang/String;
 
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Lcom/squareup/moshi/JsonEncodingException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Lcom/squareup/moshi/JsonEncodingException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method final typeMismatch(Ljava/lang/Object;Ljava/lang/Object;)Lcom/squareup/moshi/JsonDataException;
     .locals 3
-    .param p1, "value"    # Ljava/lang/Object;
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "expected"    # Ljava/lang/Object;
 
-    .line 237
     const-string v0, "Expected "
 
     if-nez p1, :cond_0
 
     .line 238
-    new-instance v1, Lcom/squareup/moshi/JsonDataException;
+    new-instance p1, Lcom/squareup/moshi/JsonDataException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
     const-string v0, " but was null at path "
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
 
     .line 239
     invoke-virtual {p0}, Lcom/squareup/moshi/JsonReader;->getPath()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p2
 
-    move-result-object v0
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v1, v0}, Lcom/squareup/moshi/JsonDataException;-><init>(Ljava/lang/String;)V
+    move-result-object p2
 
-    .line 238
-    return-object v1
+    invoke-direct {p1, p2}, Lcom/squareup/moshi/JsonDataException;-><init>(Ljava/lang/String;)V
+
+    return-object p1
 
     .line 241
     :cond_0
@@ -812,49 +804,60 @@
 
     new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object p2
+
     const-string v0, " but was "
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p2
+
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
 
     const-string v0, ", a "
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
 
     .line 242
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, ", at path "
+    move-result-object p1
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p2, ", at path "
+
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     invoke-virtual {p0}, Lcom/squareup/moshi/JsonReader;->getPath()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v1, v0}, Lcom/squareup/moshi/JsonDataException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    .line 241
+    invoke-direct {v1, p1}, Lcom/squareup/moshi/JsonDataException;-><init>(Ljava/lang/String;)V
+
     return-object v1
 .end method

@@ -49,14 +49,11 @@
     .end annotation
 
     .line 34
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeToFlowable;, "Lio/reactivex/internal/operators/maybe/MaybeToFlowable<TT;>;"
-    .local p1, "source":Lio/reactivex/MaybeSource;, "Lio/reactivex/MaybeSource<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Flowable;-><init>()V
 
     .line 35
     iput-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeToFlowable;->source:Lio/reactivex/MaybeSource;
 
-    .line 36
     return-void
 .end method
 
@@ -73,7 +70,6 @@
     .end annotation
 
     .line 40
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeToFlowable;, "Lio/reactivex/internal/operators/maybe/MaybeToFlowable<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeToFlowable;->source:Lio/reactivex/MaybeSource;
 
     return-object v0
@@ -90,8 +86,6 @@
     .end annotation
 
     .line 45
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeToFlowable;, "Lio/reactivex/internal/operators/maybe/MaybeToFlowable<TT;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeToFlowable;->source:Lio/reactivex/MaybeSource;
 
     new-instance v1, Lio/reactivex/internal/operators/maybe/MaybeToFlowable$MaybeToFlowableSubscriber;
@@ -100,6 +94,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/MaybeSource;->subscribe(Lio/reactivex/MaybeObserver;)V
 
-    .line 46
     return-void
 .end method

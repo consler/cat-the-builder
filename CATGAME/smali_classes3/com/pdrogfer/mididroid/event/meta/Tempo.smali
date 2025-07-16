@@ -19,7 +19,6 @@
 .method public constructor <init>()V
     .locals 6
 
-    .line 36
     const-wide/16 v1, 0x0
 
     const-wide/16 v3, 0x0
@@ -28,17 +27,16 @@
 
     move-object v0, p0
 
+    .line 36
     invoke-direct/range {v0 .. v5}, Lcom/pdrogfer/mididroid/event/meta/Tempo;-><init>(JJI)V
 
-    .line 37
     return-void
 .end method
 
 .method public constructor <init>(JJI)V
     .locals 7
-    .param p1, "tick"    # J
-    .param p3, "delta"    # J
-    .param p5, "mpqn"    # I
+
+    const/16 v5, 0x51
 
     .line 41
     new-instance v6, Lcom/pdrogfer/mididroid/util/VariableLengthInt;
@@ -46,8 +44,6 @@
     const/4 v0, 0x3
 
     invoke-direct {v6, v0}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;-><init>(I)V
-
-    const/16 v5, 0x51
 
     move-object v0, p0
 
@@ -60,15 +56,11 @@
     .line 43
     invoke-virtual {p0, p5}, Lcom/pdrogfer/mididroid/event/meta/Tempo;->setMpqn(I)V
 
-    .line 44
     return-void
 .end method
 
 .method public static parseTempo(JJLcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;)Lcom/pdrogfer/mididroid/event/meta/MetaEvent;
-    .locals 9
-    .param p0, "tick"    # J
-    .param p2, "delta"    # J
-    .param p4, "info"    # Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;
+    .locals 8
 
     .line 85
     iget-object v0, p4, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->length:Lcom/pdrogfer/mididroid/util/VariableLengthInt;
@@ -98,36 +90,32 @@
 
     .line 90
     :cond_0
-    iget-object v0, p4, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->data:[B
+    iget-object p4, p4, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->data:[B
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    invoke-static {v0, v2, v1}, Lcom/pdrogfer/mididroid/util/MidiUtil;->bytesToInt([BII)I
+    invoke-static {p4, v0, v1}, Lcom/pdrogfer/mididroid/util/MidiUtil;->bytesToInt([BII)I
 
-    move-result v0
+    move-result v7
 
     .line 92
-    .local v0, "mpqn":I
-    new-instance v1, Lcom/pdrogfer/mididroid/event/meta/Tempo;
+    new-instance p4, Lcom/pdrogfer/mididroid/event/meta/Tempo;
 
-    move-object v3, v1
+    move-object v2, p4
 
-    move-wide v4, p0
+    move-wide v3, p0
 
-    move-wide v6, p2
+    move-wide v5, p2
 
-    move v8, v0
+    invoke-direct/range {v2 .. v7}, Lcom/pdrogfer/mididroid/event/meta/Tempo;-><init>(JJI)V
 
-    invoke-direct/range {v3 .. v8}, Lcom/pdrogfer/mididroid/event/meta/Tempo;-><init>(JJI)V
-
-    return-object v1
+    return-object p4
 .end method
 
 
 # virtual methods
 .method public compareTo(Lcom/pdrogfer/mididroid/event/MidiEvent;)I
     .locals 7
-    .param p1, "other"    # Lcom/pdrogfer/mididroid/event/MidiEvent;
 
     .line 98
     iget-wide v0, p0, Lcom/pdrogfer/mididroid/event/meta/Tempo;->mTick:J
@@ -151,9 +139,9 @@
 
     move-result-wide v5
 
-    cmp-long v0, v3, v5
+    cmp-long p1, v3, v5
 
-    if-gez v0, :cond_0
+    if-gez p1, :cond_0
 
     goto :goto_0
 
@@ -194,9 +182,9 @@
 
     move-result-wide v5
 
-    cmp-long v0, v3, v5
+    cmp-long p1, v3, v5
 
-    if-gez v0, :cond_2
+    if-gez p1, :cond_2
 
     move v1, v2
 
@@ -209,25 +197,20 @@
 
     if-nez v0, :cond_4
 
-    .line 109
     return v2
 
     .line 112
     :cond_4
-    move-object v0, p1
-
-    check-cast v0, Lcom/pdrogfer/mididroid/event/meta/Tempo;
+    check-cast p1, Lcom/pdrogfer/mididroid/event/meta/Tempo;
 
     .line 114
-    .local v0, "o":Lcom/pdrogfer/mididroid/event/meta/Tempo;
-    iget v3, p0, Lcom/pdrogfer/mididroid/event/meta/Tempo;->mMPQN:I
+    iget v0, p0, Lcom/pdrogfer/mididroid/event/meta/Tempo;->mMPQN:I
 
-    iget v4, v0, Lcom/pdrogfer/mididroid/event/meta/Tempo;->mMPQN:I
+    iget p1, p1, Lcom/pdrogfer/mididroid/event/meta/Tempo;->mMPQN:I
 
-    if-eq v3, v4, :cond_6
+    if-eq v0, p1, :cond_6
 
-    .line 116
-    if-ge v3, v4, :cond_5
+    if-ge v0, p1, :cond_5
 
     goto :goto_1
 
@@ -237,11 +220,10 @@
     :goto_1
     return v1
 
-    .line 118
     :cond_6
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return v1
+    return p1
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
@@ -269,7 +251,6 @@
 .method protected getEventSize()I
     .locals 1
 
-    .line 71
     const/4 v0, 0x6
 
     return v0
@@ -286,47 +267,42 @@
 
 .method public setBpm(F)V
     .locals 1
-    .param p1, "b"    # F
 
     .line 64
     iput p1, p0, Lcom/pdrogfer/mididroid/event/meta/Tempo;->mBPM:F
 
-    .line 65
     const v0, 0x4c64e1c0    # 6.0E7f
 
     div-float/2addr v0, p1
 
-    float-to-int v0, v0
+    float-to-int p1, v0
 
-    iput v0, p0, Lcom/pdrogfer/mididroid/event/meta/Tempo;->mMPQN:I
+    .line 65
+    iput p1, p0, Lcom/pdrogfer/mididroid/event/meta/Tempo;->mMPQN:I
 
-    .line 66
     return-void
 .end method
 
 .method public setMpqn(I)V
-    .locals 2
-    .param p1, "m"    # I
+    .locals 1
 
     .line 58
     iput p1, p0, Lcom/pdrogfer/mididroid/event/meta/Tempo;->mMPQN:I
 
+    const v0, 0x4c64e1c0    # 6.0E7f
+
+    int-to-float p1, p1
+
+    div-float/2addr v0, p1
+
     .line 59
-    int-to-float v0, p1
+    iput v0, p0, Lcom/pdrogfer/mididroid/event/meta/Tempo;->mBPM:F
 
-    const v1, 0x4c64e1c0    # 6.0E7f
-
-    div-float/2addr v1, v0
-
-    iput v1, p0, Lcom/pdrogfer/mididroid/event/meta/Tempo;->mBPM:F
-
-    .line 60
     return-void
 .end method
 
 .method public writeToFile(Ljava/io/OutputStream;)V
     .locals 2
-    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -336,9 +312,9 @@
     .line 77
     invoke-super {p0, p1}, Lcom/pdrogfer/mididroid/event/meta/MetaEvent;->writeToFile(Ljava/io/OutputStream;)V
 
-    .line 79
     const/4 v0, 0x3
 
+    .line 79
     invoke-virtual {p1, v0}, Ljava/io/OutputStream;->write(I)V
 
     .line 80
@@ -350,6 +326,5 @@
 
     invoke-virtual {p1, v0}, Ljava/io/OutputStream;->write([B)V
 
-    .line 81
     return-void
 .end method

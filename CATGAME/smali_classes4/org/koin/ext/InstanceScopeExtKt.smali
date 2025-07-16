@@ -46,7 +46,6 @@
 # direct methods
 .method private static final createScope(Ljava/lang/Object;)Lorg/koin/core/scope/Scope;
     .locals 3
-    .param p0, "$this$createScope"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -75,15 +74,13 @@
 
     invoke-virtual {v0, v1, v2, p0}, Lorg/koin/core/Koin;->createScope(Ljava/lang/String;Lorg/koin/core/qualifier/Qualifier;Ljava/lang/Object;)Lorg/koin/core/scope/Scope;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private static final createScope(Ljava/lang/Object;Lorg/koin/core/Koin;)Lorg/koin/core/scope/Scope;
     .locals 2
-    .param p0, "$this$createScope"    # Ljava/lang/Object;
-    .param p1, "koin"    # Lorg/koin/core/Koin;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -108,14 +105,13 @@
 
     invoke-virtual {p1, v0, v1, p0}, Lorg/koin/core/Koin;->createScope(Ljava/lang/String;Lorg/koin/core/qualifier/Qualifier;Ljava/lang/Object;)Lorg/koin/core/scope/Scope;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final getOrCreateScope(Ljava/lang/Object;)Lorg/koin/core/scope/Scope;
     .locals 2
-    .param p0, "$this$getOrCreateScope"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -137,7 +133,6 @@
     move-result-object v0
 
     .line 16
-    .local v0, "koin":Lorg/koin/core/Koin;
     invoke-static {p0, v0}, Lorg/koin/ext/InstanceScopeExtKt;->getScopeOrNull(Ljava/lang/Object;Lorg/koin/core/Koin;)Lorg/koin/core/scope/Scope;
 
     move-result-object v1
@@ -157,8 +152,6 @@
 
 .method public static final getOrCreateScope(Ljava/lang/Object;Lorg/koin/core/Koin;)Lorg/koin/core/scope/Scope;
     .locals 2
-    .param p0, "$this$getOrCreateScope"    # Ljava/lang/Object;
-    .param p1, "koin"    # Lorg/koin/core/Koin;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -184,7 +177,6 @@
     move-result-object v0
 
     .line 21
-    .local v0, "scopeId":Ljava/lang/String;
     invoke-virtual {p1, v0}, Lorg/koin/core/Koin;->getScopeOrNull(Ljava/lang/String;)Lorg/koin/core/scope/Scope;
 
     move-result-object v1
@@ -210,7 +202,6 @@
 
 .method public static final getScope(Ljava/lang/Object;)Lorg/koin/core/scope/Scope;
     .locals 1
-    .param p0, "$this$scope"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -227,14 +218,13 @@
     .line 12
     invoke-static {p0}, Lorg/koin/ext/InstanceScopeExtKt;->getOrCreateScope(Ljava/lang/Object;)Lorg/koin/core/scope/Scope;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final getScopeId(Ljava/lang/Object;)Ljava/lang/String;
     .locals 2
-    .param p0, "$this$getScopeId"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -267,26 +257,31 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "@"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {p0}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v0
 
-    return-object v0
+    invoke-static {p0}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
+
+    move-result p0
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static final getScopeName(Ljava/lang/Object;)Lorg/koin/core/qualifier/TypeQualifier;
-    .locals 2
-    .param p0, "$this$getScopeName"    # Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -305,21 +300,19 @@
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-static {v1}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+    invoke-static {p0}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Lorg/koin/core/qualifier/TypeQualifier;-><init>(Lkotlin/reflect/KClass;)V
+    invoke-direct {v0, p0}, Lorg/koin/core/qualifier/TypeQualifier;-><init>(Lkotlin/reflect/KClass;)V
 
     return-object v0
 .end method
 
 .method private static final getScopeOrNull(Ljava/lang/Object;Lorg/koin/core/Koin;)Lorg/koin/core/scope/Scope;
-    .locals 2
-    .param p0, "$this$getScopeOrNull"    # Ljava/lang/Object;
-    .param p1, "koin"    # Lorg/koin/core/Koin;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -334,15 +327,14 @@
     .line 25
     invoke-static {p0}, Lorg/koin/ext/InstanceScopeExtKt;->getScopeId(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 26
-    .local v0, "scopeId":Ljava/lang/String;
-    invoke-virtual {p1, v0}, Lorg/koin/core/Koin;->getScopeOrNull(Ljava/lang/String;)Lorg/koin/core/scope/Scope;
+    invoke-virtual {p1, p0}, Lorg/koin/core/Koin;->getScopeOrNull(Ljava/lang/String;)Lorg/koin/core/scope/Scope;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method static synthetic getScopeOrNull$default(Ljava/lang/Object;Lorg/koin/core/Koin;ILjava/lang/Object;)Lorg/koin/core/scope/Scope;

@@ -23,7 +23,6 @@
 # direct methods
 .method constructor <init>(Landroid/hardware/camera2/params/OutputConfiguration;)V
     .locals 0
-    .param p1, "configuration"    # Landroid/hardware/camera2/params/OutputConfiguration;
 
     .line 169
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,15 +30,13 @@
     .line 170
     iput-object p1, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl$OutputConfigurationParamsApi26;->mOutputConfiguration:Landroid/hardware/camera2/params/OutputConfiguration;
 
-    .line 171
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 3
 
     .line 175
     instance-of v0, p1, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl$OutputConfigurationParamsApi26;
@@ -48,92 +45,74 @@
 
     if-nez v0, :cond_0
 
-    .line 176
     return v1
 
     .line 179
     :cond_0
-    move-object v0, p1
-
-    check-cast v0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl$OutputConfigurationParamsApi26;
+    check-cast p1, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl$OutputConfigurationParamsApi26;
 
     .line 181
-    .local v0, "otherOutputConfig":Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl$OutputConfigurationParamsApi26;
-    iget-object v2, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl$OutputConfigurationParamsApi26;->mOutputConfiguration:Landroid/hardware/camera2/params/OutputConfiguration;
+    iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl$OutputConfigurationParamsApi26;->mOutputConfiguration:Landroid/hardware/camera2/params/OutputConfiguration;
 
-    iget-object v3, v0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl$OutputConfigurationParamsApi26;->mOutputConfiguration:Landroid/hardware/camera2/params/OutputConfiguration;
+    iget-object v2, p1, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl$OutputConfigurationParamsApi26;->mOutputConfiguration:Landroid/hardware/camera2/params/OutputConfiguration;
 
-    invoke-static {v2, v3}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, v2}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_1
 
-    iget-object v2, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl$OutputConfigurationParamsApi26;->mPhysicalCameraId:Ljava/lang/String;
+    iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl$OutputConfigurationParamsApi26;->mPhysicalCameraId:Ljava/lang/String;
 
-    iget-object v3, v0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl$OutputConfigurationParamsApi26;->mPhysicalCameraId:Ljava/lang/String;
+    iget-object p1, p1, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl$OutputConfigurationParamsApi26;->mPhysicalCameraId:Ljava/lang/String;
 
     .line 182
-    invoke-static {v2, v3}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, p1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_1
+    if-eqz p1, :cond_1
 
     const/4 v1, 0x1
 
-    goto :goto_0
-
     :cond_1
-    nop
-
-    .line 181
-    :goto_0
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 3
-
-    .line 188
-    const/4 v0, 0x1
+    .locals 2
 
     .line 191
-    .local v0, "h":I
-    shl-int/lit8 v1, v0, 0x5
+    iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl$OutputConfigurationParamsApi26;->mOutputConfiguration:Landroid/hardware/camera2/params/OutputConfiguration;
 
-    sub-int/2addr v1, v0
+    invoke-virtual {v0}, Landroid/hardware/camera2/params/OutputConfiguration;->hashCode()I
 
-    iget-object v2, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl$OutputConfigurationParamsApi26;->mOutputConfiguration:Landroid/hardware/camera2/params/OutputConfiguration;
+    move-result v0
 
-    invoke-virtual {v2}, Landroid/hardware/camera2/params/OutputConfiguration;->hashCode()I
+    const/16 v1, 0x1f
 
-    move-result v2
+    xor-int/2addr v0, v1
 
-    xor-int v0, v1, v2
-
-    .line 193
     shl-int/lit8 v1, v0, 0x5
 
     sub-int/2addr v1, v0
 
     .line 194
-    iget-object v2, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl$OutputConfigurationParamsApi26;->mPhysicalCameraId:Ljava/lang/String;
+    iget-object v0, p0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl$OutputConfigurationParamsApi26;->mPhysicalCameraId:Ljava/lang/String;
 
-    if-nez v2, :cond_0
+    if-nez v0, :cond_0
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v2}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
-    move-result v2
+    move-result v0
 
     :goto_0
-    xor-int v0, v1, v2
+    xor-int/2addr v0, v1
 
-    .line 196
     return v0
 .end method

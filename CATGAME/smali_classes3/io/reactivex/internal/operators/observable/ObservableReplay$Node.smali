@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "value"    # Ljava/lang/Object;
 
     .line 577
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
@@ -41,6 +40,5 @@
     .line 578
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableReplay$Node;->value:Ljava/lang/Object;
 
-    .line 579
     return-void
 .end method

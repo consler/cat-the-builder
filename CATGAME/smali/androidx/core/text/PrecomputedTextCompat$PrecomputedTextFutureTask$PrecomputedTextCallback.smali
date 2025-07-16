@@ -35,8 +35,16 @@
 # direct methods
 .method constructor <init>(Landroidx/core/text/PrecomputedTextCompat$Params;Ljava/lang/CharSequence;)V
     .locals 0
-    .param p1, "params"    # Landroidx/core/text/PrecomputedTextCompat$Params;
-    .param p2, "cs"    # Ljava/lang/CharSequence;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x10,
+            0x10
+        }
+        names = {
+            "params",
+            "cs"
+        }
+    .end annotation
 
     .line 573
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,7 +55,6 @@
     .line 575
     iput-object p2, p0, Landroidx/core/text/PrecomputedTextCompat$PrecomputedTextFutureTask$PrecomputedTextCallback;->mText:Ljava/lang/CharSequence;
 
-    .line 576
     return-void
 .end method
 

@@ -20,8 +20,6 @@
 # direct methods
 .method public constructor <init>(Lcom/nostra13/universalimageloader/core/assist/FailReason$FailType;Ljava/lang/Throwable;)V
     .locals 0
-    .param p1, "type"    # Lcom/nostra13/universalimageloader/core/assist/FailReason$FailType;
-    .param p2, "cause"    # Ljava/lang/Throwable;
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +30,6 @@
     .line 32
     iput-object p2, p0, Lcom/nostra13/universalimageloader/core/assist/FailReason;->cause:Ljava/lang/Throwable;
 
-    .line 33
     return-void
 .end method
 

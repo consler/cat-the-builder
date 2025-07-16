@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/room/AutoCloser;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/room/AutoCloser;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010
@@ -58,6 +57,5 @@
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 87
     return-void
 .end method

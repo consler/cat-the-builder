@@ -24,8 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .locals 1
-    .param p1, "in"    # Ljava/io/InputStream;
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -52,15 +51,13 @@
     .line 141
     invoke-virtual {v0}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;->getValue()I
 
-    move-result v0
+    move-result v1
 
-    new-array v0, v0, [B
+    new-array v1, v1, [B
 
-    iput-object v0, p0, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->data:[B
+    iput-object v1, p0, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->data:[B
 
     .line 142
-    iget-object v0, p0, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->length:Lcom/pdrogfer/mididroid/util/VariableLengthInt;
-
     invoke-virtual {v0}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;->getValue()I
 
     move-result v0
@@ -68,11 +65,8 @@
     if-lez v0, :cond_0
 
     .line 144
-    iget-object v0, p0, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->data:[B
+    invoke-virtual {p1, v1}, Ljava/io/InputStream;->read([B)I
 
-    invoke-virtual {p1, v0}, Ljava/io/InputStream;->read([B)I
-
-    .line 146
     :cond_0
     return-void
 .end method

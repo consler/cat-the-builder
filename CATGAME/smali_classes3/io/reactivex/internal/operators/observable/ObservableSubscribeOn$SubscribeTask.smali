@@ -42,8 +42,6 @@
     .end annotation
 
     .line 90
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSubscribeOn$SubscribeTask;, "Lio/reactivex/internal/operators/observable/ObservableSubscribeOn<TT;>.SubscribeTask;"
-    .local p2, "parent":Lio/reactivex/internal/operators/observable/ObservableSubscribeOn$SubscribeOnObserver;, "Lio/reactivex/internal/operators/observable/ObservableSubscribeOn$SubscribeOnObserver<TT;>;"
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableSubscribeOn$SubscribeTask;->this$0:Lio/reactivex/internal/operators/observable/ObservableSubscribeOn;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,7 +49,6 @@
     .line 91
     iput-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableSubscribeOn$SubscribeTask;->parent:Lio/reactivex/internal/operators/observable/ObservableSubscribeOn$SubscribeOnObserver;
 
-    .line 92
     return-void
 .end method
 
@@ -61,7 +58,6 @@
     .locals 2
 
     .line 96
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSubscribeOn$SubscribeTask;, "Lio/reactivex/internal/operators/observable/ObservableSubscribeOn<TT;>.SubscribeTask;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSubscribeOn$SubscribeTask;->this$0:Lio/reactivex/internal/operators/observable/ObservableSubscribeOn;
 
     iget-object v0, v0, Lio/reactivex/internal/operators/observable/ObservableSubscribeOn;->source:Lio/reactivex/ObservableSource;
@@ -70,6 +66,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 97
     return-void
 .end method

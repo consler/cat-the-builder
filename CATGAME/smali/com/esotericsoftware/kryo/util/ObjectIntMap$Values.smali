@@ -34,10 +34,8 @@
     .end annotation
 
     .line 482
-    .local p1, "map":Lcom/esotericsoftware/kryo/util/ObjectIntMap;, "Lcom/esotericsoftware/kryo/util/ObjectIntMap<*>;"
     invoke-direct {p0, p1}, Lcom/esotericsoftware/kryo/util/ObjectIntMap$MapIterator;-><init>(Lcom/esotericsoftware/kryo/util/ObjectIntMap;)V
 
-    .line 483
     return-void
 .end method
 
@@ -70,7 +68,6 @@
 .method public iterator()Lcom/esotericsoftware/kryo/util/ObjectIntMap$Values;
     .locals 0
 
-    .line 500
     return-object p0
 .end method
 
@@ -97,7 +94,6 @@
     aget v0, v0, v1
 
     .line 494
-    .local v0, "value":I
     iget v1, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Values;->nextIndex:I
 
     iput v1, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Values;->currentIndex:I
@@ -105,11 +101,9 @@
     .line 495
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Values;->findNextIndex()V
 
-    .line 496
     return v0
 
     .line 492
-    .end local v0    # "value":I
     :cond_0
     new-instance v0, Lcom/esotericsoftware/kryo/KryoException;
 
@@ -161,7 +155,6 @@
     invoke-direct {v0, v2, v1}, Lcom/esotericsoftware/kryo/util/IntArray;-><init>(ZI)V
 
     .line 506
-    .local v0, "array":Lcom/esotericsoftware/kryo/util/IntArray;
     :goto_0
     iget-boolean v1, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Values;->hasNext:Z
 
@@ -176,14 +169,12 @@
 
     goto :goto_0
 
-    .line 508
     :cond_0
     return-object v0
 .end method
 
 .method public toArray(Lcom/esotericsoftware/kryo/util/IntArray;)Lcom/esotericsoftware/kryo/util/IntArray;
     .locals 1
-    .param p1, "array"    # Lcom/esotericsoftware/kryo/util/IntArray;
 
     .line 513
     :goto_0
@@ -200,7 +191,6 @@
 
     goto :goto_0
 
-    .line 515
     :cond_0
     return-object p1
 .end method

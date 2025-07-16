@@ -138,7 +138,7 @@
 .end method
 
 .method a(I)V
-    .locals 1
+    .locals 2
 
     const/4 v0, 0x3
 
@@ -146,11 +146,11 @@
 
     iput p1, p0, Lcom/esotericsoftware/asm/Item;->c:I
 
+    const v1, 0x7fffffff
+
     add-int/2addr v0, p1
 
-    const p1, 0x7fffffff
-
-    and-int/2addr p1, v0
+    and-int p1, v0, v1
 
     iput p1, p0, Lcom/esotericsoftware/asm/Item;->j:I
 

@@ -37,61 +37,57 @@
 
 # direct methods
 .method protected constructor <init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
-    .locals 2
-    .param p1, "nameCoder"    # Lcom/thoughtworks/xstream/io/naming/NameCoder;
+    .locals 1
 
     .line 51
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/io/xml/AbstractXmlReader;-><init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
     .line 35
-    new-instance v0, Lcom/thoughtworks/xstream/core/util/FastStack;
+    new-instance p1, Lcom/thoughtworks/xstream/core/util/FastStack;
 
-    const/16 v1, 0x10
+    const/16 v0, 0x10
 
-    invoke-direct {v0, v1}, Lcom/thoughtworks/xstream/core/util/FastStack;-><init>(I)V
+    invoke-direct {p1, v0}, Lcom/thoughtworks/xstream/core/util/FastStack;-><init>(I)V
 
-    iput-object v0, p0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->elementStack:Lcom/thoughtworks/xstream/core/util/FastStack;
+    iput-object p1, p0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->elementStack:Lcom/thoughtworks/xstream/core/util/FastStack;
 
     .line 36
-    new-instance v0, Lcom/thoughtworks/xstream/core/util/FastStack;
+    new-instance p1, Lcom/thoughtworks/xstream/core/util/FastStack;
 
-    invoke-direct {v0, v1}, Lcom/thoughtworks/xstream/core/util/FastStack;-><init>(I)V
+    invoke-direct {p1, v0}, Lcom/thoughtworks/xstream/core/util/FastStack;-><init>(I)V
 
-    iput-object v0, p0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->pool:Lcom/thoughtworks/xstream/core/util/FastStack;
+    iput-object p1, p0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->pool:Lcom/thoughtworks/xstream/core/util/FastStack;
 
     .line 38
-    new-instance v0, Lcom/thoughtworks/xstream/core/util/FastStack;
+    new-instance p1, Lcom/thoughtworks/xstream/core/util/FastStack;
 
-    const/4 v1, 0x4
+    const/4 v0, 0x4
 
-    invoke-direct {v0, v1}, Lcom/thoughtworks/xstream/core/util/FastStack;-><init>(I)V
+    invoke-direct {p1, v0}, Lcom/thoughtworks/xstream/core/util/FastStack;-><init>(I)V
 
-    iput-object v0, p0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->lookahead:Lcom/thoughtworks/xstream/core/util/FastStack;
+    iput-object p1, p0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->lookahead:Lcom/thoughtworks/xstream/core/util/FastStack;
 
     .line 39
-    new-instance v0, Lcom/thoughtworks/xstream/core/util/FastStack;
+    new-instance p1, Lcom/thoughtworks/xstream/core/util/FastStack;
 
-    invoke-direct {v0, v1}, Lcom/thoughtworks/xstream/core/util/FastStack;-><init>(I)V
+    invoke-direct {p1, v0}, Lcom/thoughtworks/xstream/core/util/FastStack;-><init>(I)V
 
-    iput-object v0, p0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->lookback:Lcom/thoughtworks/xstream/core/util/FastStack;
+    iput-object p1, p0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->lookback:Lcom/thoughtworks/xstream/core/util/FastStack;
 
-    .line 52
     return-void
 .end method
 
 .method protected constructor <init>(Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;)V
     .locals 0
-    .param p1, "replacer"    # Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;
 
     .line 59
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;-><init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 60
     return-void
 .end method
 
 .method private move()V
-    .locals 3
+    .locals 2
 
     .line 118
     invoke-direct {p0}, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->readEvent()Lcom/thoughtworks/xstream/io/xml/AbstractPullReader$Event;
@@ -99,46 +95,41 @@
     move-result-object v0
 
     .line 119
-    .local v0, "event":Lcom/thoughtworks/xstream/io/xml/AbstractPullReader$Event;
     iget-object v1, p0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->pool:Lcom/thoughtworks/xstream/core/util/FastStack;
 
     invoke-virtual {v1, v0}, Lcom/thoughtworks/xstream/core/util/FastStack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 120
-    iget v1, v0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader$Event;->type:I
+    iget v0, v0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader$Event;->type:I
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    if-eq v1, v2, :cond_1
+    if-eq v0, v1, :cond_1
 
-    const/4 v2, 0x2
+    const/4 v1, 0x2
 
-    if-eq v1, v2, :cond_0
+    if-eq v0, v1, :cond_0
 
     goto :goto_0
 
     .line 125
     :cond_0
-    iget-object v1, p0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->elementStack:Lcom/thoughtworks/xstream/core/util/FastStack;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->elementStack:Lcom/thoughtworks/xstream/core/util/FastStack;
 
-    invoke-virtual {v1}, Lcom/thoughtworks/xstream/core/util/FastStack;->pop()Ljava/lang/Object;
+    invoke-virtual {v0}, Lcom/thoughtworks/xstream/core/util/FastStack;->pop()Ljava/lang/Object;
 
     goto :goto_0
 
     .line 122
     :cond_1
-    iget-object v1, p0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->elementStack:Lcom/thoughtworks/xstream/core/util/FastStack;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->elementStack:Lcom/thoughtworks/xstream/core/util/FastStack;
 
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->pullElementName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v1, v2}, Lcom/thoughtworks/xstream/core/util/FastStack;->push(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Lcom/thoughtworks/xstream/core/util/FastStack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 123
-    nop
-
-    .line 128
     :goto_0
     return-void
 .end method
@@ -253,7 +244,6 @@
     invoke-direct {v0, v1}, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader$Event;-><init>(Lcom/thoughtworks/xstream/io/xml/AbstractPullReader$1;)V
 
     .line 148
-    .local v0, "event":Lcom/thoughtworks/xstream/io/xml/AbstractPullReader$Event;
     :goto_0
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->pullNextEvent()I
 
@@ -298,7 +288,6 @@
     :cond_2
     iput-object v1, v0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader$Event;->value:Ljava/lang/String;
 
-    .line 156
     :goto_1
     return-object v0
 .end method
@@ -338,117 +327,92 @@
 .method public getValue()Ljava/lang/String;
     .locals 5
 
-    .line 176
-    const/4 v0, 0x0
-
-    .line 177
-    .local v0, "last":Ljava/lang/String;
-    const/4 v1, 0x0
-
     .line 179
-    .local v1, "buffer":Ljava/lang/StringBuffer;
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->mark()V
 
     .line 180
     invoke-direct {p0}, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->readEvent()Lcom/thoughtworks/xstream/io/xml/AbstractPullReader$Event;
 
-    move-result-object v2
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    move-object v2, v1
 
     .line 182
-    .local v2, "event":Lcom/thoughtworks/xstream/io/xml/AbstractPullReader$Event;
     :goto_0
-    iget v3, v2, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader$Event;->type:I
+    iget v3, v0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader$Event;->type:I
 
     const/4 v4, 0x3
 
     if-ne v3, v4, :cond_2
 
     .line 183
-    iget-object v3, v2, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader$Event;->value:Ljava/lang/String;
+    iget-object v0, v0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader$Event;->value:Ljava/lang/String;
+
+    if-eqz v0, :cond_5
 
     .line 184
-    .local v3, "text":Ljava/lang/String;
-    if-eqz v3, :cond_5
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
 
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
+    move-result v3
 
-    move-result v4
+    if-lez v3, :cond_5
 
-    if-lez v4, :cond_5
+    if-nez v2, :cond_0
 
-    .line 185
-    if-nez v0, :cond_0
+    move-object v2, v0
 
-    .line 186
-    move-object v0, v3
+    goto :goto_1
 
-    goto :goto_2
-
-    .line 188
     :cond_0
     if-nez v1, :cond_1
 
     .line 189
-    new-instance v4, Ljava/lang/StringBuffer;
+    new-instance v1, Ljava/lang/StringBuffer;
 
-    invoke-direct {v4, v0}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
-
-    move-object v1, v4
+    invoke-direct {v1, v2}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
     .line 191
     :cond_1
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    goto :goto_2
+    goto :goto_1
 
     .line 194
-    .end local v3    # "text":Ljava/lang/String;
     :cond_2
-    iget v3, v2, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader$Event;->type:I
+    iget v0, v0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader$Event;->type:I
 
-    const/4 v4, 0x4
+    const/4 v3, 0x4
 
-    if-eq v3, v4, :cond_5
-
-    .line 195
-    nop
+    if-eq v0, v3, :cond_5
 
     .line 199
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->reset()V
 
-    .line 200
     if-eqz v1, :cond_3
 
     .line 201
     invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    return-object v3
+    return-object v0
 
-    .line 203
     :cond_3
-    if-nez v0, :cond_4
+    if-nez v2, :cond_4
 
-    const-string v3, ""
-
-    goto :goto_1
+    const-string v2, ""
 
     :cond_4
-    move-object v3, v0
-
-    :goto_1
-    return-object v3
-
-    .line 194
-    :cond_5
-    :goto_2
-    nop
+    return-object v2
 
     .line 197
+    :cond_5
+    :goto_1
     invoke-direct {p0}, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->readEvent()Lcom/thoughtworks/xstream/io/xml/AbstractPullReader$Event;
 
-    move-result-object v2
+    move-result-object v0
 
     goto :goto_0
 .end method
@@ -475,14 +439,12 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 95
     goto :goto_0
 
     .line 92
     :cond_0
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->reset()V
 
-    .line 93
     const/4 v0, 0x0
 
     return v0
@@ -491,19 +453,17 @@
     :cond_1
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->reset()V
 
-    .line 90
     return v1
 .end method
 
 .method public mark()V
     .locals 1
 
-    .line 160
     const/4 v0, 0x1
 
+    .line 160
     iput-boolean v0, p0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->marked:Z
 
-    .line 161
     return-void
 .end method
 
@@ -518,7 +478,6 @@
     move-result v0
 
     .line 102
-    .local v0, "currentDepth":I
     :goto_0
     iget-object v1, p0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->elementStack:Lcom/thoughtworks/xstream/core/util/FastStack;
 
@@ -544,13 +503,12 @@
 
     .line 105
     :cond_0
-    new-instance v1, Ljava/lang/RuntimeException;
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    invoke-direct {v1}, Ljava/lang/RuntimeException;-><init>()V
+    invoke-direct {v0}, Ljava/lang/RuntimeException;-><init>()V
 
-    throw v1
+    throw v0
 
-    .line 108
     :cond_1
     return-void
 .end method
@@ -566,7 +524,6 @@
     move-result v0
 
     .line 112
-    .local v0, "currentDepth":I
     :goto_0
     iget-object v1, p0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->elementStack:Lcom/thoughtworks/xstream/core/util/FastStack;
 
@@ -581,7 +538,6 @@
 
     goto :goto_0
 
-    .line 115
     :cond_0
     return-void
 .end method
@@ -599,37 +555,34 @@
     move-result-object v0
 
     .line 219
-    .local v0, "ev":Lcom/thoughtworks/xstream/io/xml/AbstractPullReader$Event;
     iget v1, v0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader$Event;->type:I
 
     const/4 v2, 0x1
 
     if-eq v1, v2, :cond_1
 
-    const/4 v2, 0x2
+    const/4 v0, 0x2
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v0, :cond_0
 
-    .line 227
     goto :goto_0
 
     .line 224
     :cond_0
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->reset()V
 
-    .line 225
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    return-object v1
+    return-object v0
 
     .line 221
     :cond_1
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->reset()V
 
     .line 222
-    iget-object v1, v0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader$Event;->value:Ljava/lang/String;
+    iget-object v0, v0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader$Event;->value:Ljava/lang/String;
 
-    return-object v1
+    return-object v0
 .end method
 
 .method protected abstract pullElementName()Ljava/lang/String;
@@ -667,12 +620,11 @@
 
     goto :goto_0
 
-    .line 167
     :cond_0
     const/4 v0, 0x0
 
+    .line 167
     iput-boolean v0, p0, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;->marked:Z
 
-    .line 168
     return-void
 .end method

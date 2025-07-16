@@ -44,13 +44,13 @@
 
     sput-object v0, Lio/reactivex/internal/operators/maybe/MaybeToPublisher;->INSTANCE:Lio/reactivex/internal/operators/maybe/MaybeToPublisher;
 
-    .line 24
     const/4 v1, 0x1
 
     new-array v1, v1, [Lio/reactivex/internal/operators/maybe/MaybeToPublisher;
 
     aput-object v0, v1, v2
 
+    .line 24
     sput-object v1, Lio/reactivex/internal/operators/maybe/MaybeToPublisher;->$VALUES:[Lio/reactivex/internal/operators/maybe/MaybeToPublisher;
 
     return-void
@@ -93,18 +93,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lio/reactivex/internal/operators/maybe/MaybeToPublisher;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 24
     const-class v0, Lio/reactivex/internal/operators/maybe/MaybeToPublisher;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lio/reactivex/internal/operators/maybe/MaybeToPublisher;
+    check-cast p0, Lio/reactivex/internal/operators/maybe/MaybeToPublisher;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lio/reactivex/internal/operators/maybe/MaybeToPublisher;
@@ -125,8 +124,7 @@
 
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -134,15 +132,13 @@
     .end annotation
 
     .line 24
-    move-object v0, p1
+    check-cast p1, Lio/reactivex/MaybeSource;
 
-    check-cast v0, Lio/reactivex/MaybeSource;
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/maybe/MaybeToPublisher;->apply(Lio/reactivex/MaybeSource;)Lorg/reactivestreams/Publisher;
 
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/maybe/MaybeToPublisher;->apply(Lio/reactivex/MaybeSource;)Lorg/reactivestreams/Publisher;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public apply(Lio/reactivex/MaybeSource;)Lorg/reactivestreams/Publisher;
@@ -166,7 +162,6 @@
     .end annotation
 
     .line 34
-    .local p1, "t":Lio/reactivex/MaybeSource;, "Lio/reactivex/MaybeSource<Ljava/lang/Object;>;"
     new-instance v0, Lio/reactivex/internal/operators/maybe/MaybeToFlowable;
 
     invoke-direct {v0, p1}, Lio/reactivex/internal/operators/maybe/MaybeToFlowable;-><init>(Lio/reactivex/MaybeSource;)V

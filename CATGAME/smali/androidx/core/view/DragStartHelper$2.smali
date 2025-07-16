@@ -24,7 +24,14 @@
 # direct methods
 .method constructor <init>(Landroidx/core/view/DragStartHelper;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/core/view/DragStartHelper;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x8010
+        }
+        names = {
+            "this$0"
+        }
+    .end annotation
 
     .line 188
     iput-object p1, p0, Landroidx/core/view/DragStartHelper$2;->this$0:Landroidx/core/view/DragStartHelper;
@@ -38,15 +45,23 @@
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 1
-    .param p1, "v"    # Landroid/view/View;
-    .param p2, "event"    # Landroid/view/MotionEvent;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "v",
+            "event"
+        }
+    .end annotation
 
     .line 191
     iget-object v0, p0, Landroidx/core/view/DragStartHelper$2;->this$0:Landroidx/core/view/DragStartHelper;
 
     invoke-virtual {v0, p1, p2}, Landroidx/core/view/DragStartHelper;->onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

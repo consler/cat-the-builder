@@ -18,7 +18,6 @@
 # direct methods
 .method public constructor <init>([Lio/reactivex/CompletableSource;)V
     .locals 0
-    .param p1, "sources"    # [Lio/reactivex/CompletableSource;
 
     .line 25
     invoke-direct {p0}, Lio/reactivex/Completable;-><init>()V
@@ -26,15 +25,13 @@
     .line 26
     iput-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableMergeArray;->sources:[Lio/reactivex/CompletableSource;
 
-    .line 27
     return-void
 .end method
 
 
 # virtual methods
 .method public subscribeActual(Lio/reactivex/CompletableObserver;)V
-    .locals 9
-    .param p1, "s"    # Lio/reactivex/CompletableObserver;
+    .locals 6
 
     .line 31
     new-instance v0, Lio/reactivex/disposables/CompositeDisposable;
@@ -42,13 +39,11 @@
     invoke-direct {v0}, Lio/reactivex/disposables/CompositeDisposable;-><init>()V
 
     .line 32
-    .local v0, "set":Lio/reactivex/disposables/CompositeDisposable;
     new-instance v1, Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-direct {v1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
 
     .line 34
-    .local v1, "once":Ljava/util/concurrent/atomic/AtomicBoolean;
     new-instance v2, Lio/reactivex/internal/operators/completable/CompletableMergeArray$InnerCompletableObserver;
 
     iget-object v3, p0, Lio/reactivex/internal/operators/completable/CompletableMergeArray;->sources:[Lio/reactivex/CompletableSource;
@@ -60,74 +55,58 @@
     invoke-direct {v2, p1, v1, v0, v3}, Lio/reactivex/internal/operators/completable/CompletableMergeArray$InnerCompletableObserver;-><init>(Lio/reactivex/CompletableObserver;Ljava/util/concurrent/atomic/AtomicBoolean;Lio/reactivex/disposables/CompositeDisposable;I)V
 
     .line 35
-    .local v2, "shared":Lio/reactivex/internal/operators/completable/CompletableMergeArray$InnerCompletableObserver;
     invoke-interface {p1, v0}, Lio/reactivex/CompletableObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 37
-    iget-object v3, p0, Lio/reactivex/internal/operators/completable/CompletableMergeArray;->sources:[Lio/reactivex/CompletableSource;
+    iget-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableMergeArray;->sources:[Lio/reactivex/CompletableSource;
 
-    .local v3, "arr$":[Lio/reactivex/CompletableSource;
-    array-length v4, v3
+    array-length v1, p1
 
-    .local v4, "len$":I
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
-    .local v5, "i$":I
     :goto_0
-    if-ge v5, v4, :cond_2
+    if-ge v3, v1, :cond_2
 
-    aget-object v6, v3, v5
+    aget-object v4, p1, v3
 
     .line 38
-    .local v6, "c":Lio/reactivex/CompletableSource;
     invoke-virtual {v0}, Lio/reactivex/disposables/CompositeDisposable;->isDisposed()Z
 
-    move-result v7
+    move-result v5
 
-    if-eqz v7, :cond_0
+    if-eqz v5, :cond_0
 
-    .line 39
     return-void
 
-    .line 42
     :cond_0
-    if-nez v6, :cond_1
+    if-nez v4, :cond_1
 
     .line 43
     invoke-virtual {v0}, Lio/reactivex/disposables/CompositeDisposable;->dispose()V
 
     .line 44
-    new-instance v7, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v8, "A completable source is null"
+    const-string v0, "A completable source is null"
 
-    invoke-direct {v7, v8}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
     .line 45
-    .local v7, "npe":Ljava/lang/NullPointerException;
-    invoke-virtual {v2, v7}, Lio/reactivex/internal/operators/completable/CompletableMergeArray$InnerCompletableObserver;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {v2, p1}, Lio/reactivex/internal/operators/completable/CompletableMergeArray$InnerCompletableObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 46
     return-void
 
     .line 49
-    .end local v7    # "npe":Ljava/lang/NullPointerException;
     :cond_1
-    invoke-interface {v6, v2}, Lio/reactivex/CompletableSource;->subscribe(Lio/reactivex/CompletableObserver;)V
+    invoke-interface {v4, v2}, Lio/reactivex/CompletableSource;->subscribe(Lio/reactivex/CompletableObserver;)V
 
-    .line 37
-    .end local v6    # "c":Lio/reactivex/CompletableSource;
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     .line 52
-    .end local v3    # "arr$":[Lio/reactivex/CompletableSource;
-    .end local v4    # "len$":I
-    .end local v5    # "i$":I
     :cond_2
     invoke-virtual {v2}, Lio/reactivex/internal/operators/completable/CompletableMergeArray$InnerCompletableObserver;->onComplete()V
 
-    .line 53
     return-void
 .end method

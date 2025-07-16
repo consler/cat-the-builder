@@ -38,7 +38,6 @@
     .locals 1
 
     .line 56
-    .local p0, "this":Lio/reactivex/observers/DisposableSingleObserver;, "Lio/reactivex/observers/DisposableSingleObserver<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 58
@@ -57,12 +56,10 @@
     .locals 1
 
     .line 80
-    .local p0, "this":Lio/reactivex/observers/DisposableSingleObserver;, "Lio/reactivex/observers/DisposableSingleObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/observers/DisposableSingleObserver;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 81
     return-void
 .end method
 
@@ -70,7 +67,6 @@
     .locals 2
 
     .line 75
-    .local p0, "this":Lio/reactivex/observers/DisposableSingleObserver;, "Lio/reactivex/observers/DisposableSingleObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/observers/DisposableSingleObserver;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -95,17 +91,13 @@
 .method protected onStart()V
     .locals 0
 
-    .line 71
-    .local p0, "this":Lio/reactivex/observers/DisposableSingleObserver;, "Lio/reactivex/observers/DisposableSingleObserver<TT;>;"
     return-void
 .end method
 
 .method public final onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 2
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 62
-    .local p0, "this":Lio/reactivex/observers/DisposableSingleObserver;, "Lio/reactivex/observers/DisposableSingleObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/observers/DisposableSingleObserver;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -114,14 +106,13 @@
 
     invoke-static {v0, p1, v1}, Lio/reactivex/internal/util/EndConsumerHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;Ljava/lang/Class;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 63
     invoke-virtual {p0}, Lio/reactivex/observers/DisposableSingleObserver;->onStart()V
 
-    .line 65
     :cond_0
     return-void
 .end method

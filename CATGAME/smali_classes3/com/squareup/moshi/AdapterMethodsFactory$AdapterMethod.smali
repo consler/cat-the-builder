@@ -49,13 +49,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/reflect/Type;Ljava/util/Set;Ljava/lang/Object;Ljava/lang/reflect/Method;IIZ)V
-    .locals 1
-    .param p1, "type"    # Ljava/lang/reflect/Type;
-    .param p3, "adapter"    # Ljava/lang/Object;
-    .param p4, "method"    # Ljava/lang/reflect/Method;
-    .param p5, "parameterCount"    # I
-    .param p6, "adaptersOffset"    # I
-    .param p7, "nullable"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,15 +65,14 @@
     .end annotation
 
     .line 293
-    .local p2, "annotations":Ljava/util/Set;, "Ljava/util/Set<+Ljava/lang/annotation/Annotation;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 294
     invoke-static {p1}, Lcom/squareup/moshi/internal/Util;->canonicalize(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/squareup/moshi/AdapterMethodsFactory$AdapterMethod;->type:Ljava/lang/reflect/Type;
+    iput-object p1, p0, Lcom/squareup/moshi/AdapterMethodsFactory$AdapterMethod;->type:Ljava/lang/reflect/Type;
 
     .line 295
     iput-object p2, p0, Lcom/squareup/moshi/AdapterMethodsFactory$AdapterMethod;->annotations:Ljava/util/Set;
@@ -93,17 +86,16 @@
     .line 298
     iput p6, p0, Lcom/squareup/moshi/AdapterMethodsFactory$AdapterMethod;->adaptersOffset:I
 
+    sub-int/2addr p5, p6
+
     .line 299
-    sub-int v0, p5, p6
+    new-array p1, p5, [Lcom/squareup/moshi/JsonAdapter;
 
-    new-array v0, v0, [Lcom/squareup/moshi/JsonAdapter;
-
-    iput-object v0, p0, Lcom/squareup/moshi/AdapterMethodsFactory$AdapterMethod;->jsonAdapters:[Lcom/squareup/moshi/JsonAdapter;
+    iput-object p1, p0, Lcom/squareup/moshi/AdapterMethodsFactory$AdapterMethod;->jsonAdapters:[Lcom/squareup/moshi/JsonAdapter;
 
     .line 300
     iput-boolean p7, p0, Lcom/squareup/moshi/AdapterMethodsFactory$AdapterMethod;->nullable:Z
 
-    .line 301
     return-void
 .end method
 
@@ -111,8 +103,6 @@
 # virtual methods
 .method public bind(Lcom/squareup/moshi/Moshi;Lcom/squareup/moshi/JsonAdapter$Factory;)V
     .locals 9
-    .param p1, "moshi"    # Lcom/squareup/moshi/Moshi;
-    .param p2, "factory"    # Lcom/squareup/moshi/JsonAdapter$Factory;
 
     .line 304
     iget-object v0, p0, Lcom/squareup/moshi/AdapterMethodsFactory$AdapterMethod;->jsonAdapters:[Lcom/squareup/moshi/JsonAdapter;
@@ -129,7 +119,6 @@
     move-result-object v0
 
     .line 306
-    .local v0, "parameterTypes":[Ljava/lang/reflect/Type;
     iget-object v1, p0, Lcom/squareup/moshi/AdapterMethodsFactory$AdapterMethod;->method:Ljava/lang/reflect/Method;
 
     invoke-virtual {v1}, Ljava/lang/reflect/Method;->getParameterAnnotations()[[Ljava/lang/annotation/Annotation;
@@ -137,13 +126,10 @@
     move-result-object v1
 
     .line 307
-    .local v1, "parameterAnnotations":[[Ljava/lang/annotation/Annotation;
     iget v2, p0, Lcom/squareup/moshi/AdapterMethodsFactory$AdapterMethod;->adaptersOffset:I
 
-    .local v2, "i":I
     array-length v3, v0
 
-    .local v3, "size":I
     :goto_0
     if-ge v2, v3, :cond_1
 
@@ -161,7 +147,6 @@
     aget-object v4, v4, v5
 
     .line 309
-    .local v4, "type":Ljava/lang/reflect/Type;
     aget-object v5, v1, v2
 
     invoke-static {v5}, Lcom/squareup/moshi/internal/Util;->jsonAnnotations([Ljava/lang/annotation/Annotation;)Ljava/util/Set;
@@ -169,7 +154,6 @@
     move-result-object v5
 
     .line 310
-    .local v5, "jsonAnnotations":Ljava/util/Set;, "Ljava/util/Set<+Ljava/lang/annotation/Annotation;>;"
     iget-object v6, p0, Lcom/squareup/moshi/AdapterMethodsFactory$AdapterMethod;->jsonAdapters:[Lcom/squareup/moshi/JsonAdapter;
 
     iget v7, p0, Lcom/squareup/moshi/AdapterMethodsFactory$AdapterMethod;->adaptersOffset:I
@@ -196,7 +180,7 @@
     .line 312
     invoke-virtual {p1, p2, v4, v5}, Lcom/squareup/moshi/Moshi;->nextAdapter(Lcom/squareup/moshi/JsonAdapter$Factory;Ljava/lang/reflect/Type;Ljava/util/Set;)Lcom/squareup/moshi/JsonAdapter;
 
-    move-result-object v8
+    move-result-object v4
 
     goto :goto_1
 
@@ -204,31 +188,21 @@
     :cond_0
     invoke-virtual {p1, v4, v5}, Lcom/squareup/moshi/Moshi;->adapter(Ljava/lang/reflect/Type;Ljava/util/Set;)Lcom/squareup/moshi/JsonAdapter;
 
-    move-result-object v8
+    move-result-object v4
 
     :goto_1
-    aput-object v8, v6, v7
+    aput-object v4, v6, v7
 
-    .line 307
-    .end local v4    # "type":Ljava/lang/reflect/Type;
-    .end local v5    # "jsonAnnotations":Ljava/util/Set;, "Ljava/util/Set<+Ljava/lang/annotation/Annotation;>;"
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 316
-    .end local v0    # "parameterTypes":[Ljava/lang/reflect/Type;
-    .end local v1    # "parameterAnnotations":[[Ljava/lang/annotation/Annotation;
-    .end local v2    # "i":I
-    .end local v3    # "size":I
     :cond_1
     return-void
 .end method
 
 .method public fromJson(Lcom/squareup/moshi/Moshi;Lcom/squareup/moshi/JsonReader;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "moshi"    # Lcom/squareup/moshi/Moshi;
-    .param p2, "reader"    # Lcom/squareup/moshi/JsonReader;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -240,16 +214,16 @@
     .end annotation
 
     .line 325
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method protected invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 5
-    .param p1, "a1"    # Ljava/lang/Object;
+    .locals 4
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -273,51 +247,46 @@
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    .line 331
-    .local v1, "args":[Ljava/lang/Object;
     const/4 v3, 0x0
 
+    .line 331
     aput-object p1, v1, v3
 
     .line 332
-    array-length v4, v0
+    array-length p1, v0
 
-    invoke-static {v0, v3, v1, v2, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v0, v3, v1, v2, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 335
     :try_start_0
-    iget-object v0, p0, Lcom/squareup/moshi/AdapterMethodsFactory$AdapterMethod;->method:Ljava/lang/reflect/Method;
+    iget-object p1, p0, Lcom/squareup/moshi/AdapterMethodsFactory$AdapterMethod;->method:Ljava/lang/reflect/Method;
 
-    iget-object v2, p0, Lcom/squareup/moshi/AdapterMethodsFactory$AdapterMethod;->adapter:Ljava/lang/Object;
+    iget-object v0, p0, Lcom/squareup/moshi/AdapterMethodsFactory$AdapterMethod;->adapter:Ljava/lang/Object;
 
-    invoke-virtual {v0, v2, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1, v0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
     :try_end_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
-
-    .line 336
-    :catch_0
-    move-exception v0
+    return-object p1
 
     .line 337
-    .local v0, "e":Ljava/lang/IllegalAccessException;
-    new-instance v2, Ljava/lang/AssertionError;
+    :catch_0
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v2}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v2
+    throw p1
 .end method
 
 .method protected invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 5
-    .param p1, "a1"    # Ljava/lang/Object;
+    .locals 4
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "a2"    # Ljava/lang/Object;
+    .param p2    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -338,54 +307,47 @@
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    .line 345
-    .local v1, "args":[Ljava/lang/Object;
     const/4 v3, 0x0
 
+    .line 345
     aput-object p1, v1, v3
 
-    .line 346
-    const/4 v4, 0x1
+    const/4 p1, 0x1
 
-    aput-object p2, v1, v4
+    .line 346
+    aput-object p2, v1, p1
 
     .line 347
-    array-length v4, v0
+    array-length p1, v0
 
-    invoke-static {v0, v3, v1, v2, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v0, v3, v1, v2, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 350
     :try_start_0
-    iget-object v0, p0, Lcom/squareup/moshi/AdapterMethodsFactory$AdapterMethod;->method:Ljava/lang/reflect/Method;
+    iget-object p1, p0, Lcom/squareup/moshi/AdapterMethodsFactory$AdapterMethod;->method:Ljava/lang/reflect/Method;
 
-    iget-object v2, p0, Lcom/squareup/moshi/AdapterMethodsFactory$AdapterMethod;->adapter:Ljava/lang/Object;
+    iget-object p2, p0, Lcom/squareup/moshi/AdapterMethodsFactory$AdapterMethod;->adapter:Ljava/lang/Object;
 
-    invoke-virtual {v0, v2, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1, p2, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
     :try_end_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
-
-    .line 351
-    :catch_0
-    move-exception v0
+    return-object p1
 
     .line 352
-    .local v0, "e":Ljava/lang/IllegalAccessException;
-    new-instance v2, Ljava/lang/AssertionError;
+    :catch_0
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v2}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v2
+    throw p1
 .end method
 
 .method public toJson(Lcom/squareup/moshi/Moshi;Lcom/squareup/moshi/JsonWriter;Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "moshi"    # Lcom/squareup/moshi/Moshi;
-    .param p2, "writer"    # Lcom/squareup/moshi/JsonWriter;
-    .param p3, "value"    # Ljava/lang/Object;
+    .locals 0
+    .param p3    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -397,9 +359,9 @@
     .end annotation
 
     .line 320
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method

@@ -27,7 +27,6 @@
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/FragmentManager;Landroid/view/ViewGroup;Landroid/view/View;Landroidx/fragment/app/Fragment;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/fragment/app/FragmentManager;
 
     .line 1384
     iput-object p1, p0, Landroidx/fragment/app/FragmentManager$5;->this$0:Landroidx/fragment/app/FragmentManager;
@@ -47,7 +46,6 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
-    .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 1387
     iget-object v0, p0, Landroidx/fragment/app/FragmentManager$5;->val$container:Landroid/view/ViewGroup;
@@ -60,28 +58,27 @@
     invoke-virtual {p1, p0}, Landroid/animation/Animator;->removeListener(Landroid/animation/Animator$AnimatorListener;)V
 
     .line 1389
-    iget-object v0, p0, Landroidx/fragment/app/FragmentManager$5;->val$fragment:Landroidx/fragment/app/Fragment;
+    iget-object p1, p0, Landroidx/fragment/app/FragmentManager$5;->val$fragment:Landroidx/fragment/app/Fragment;
 
-    iget-object v0, v0, Landroidx/fragment/app/Fragment;->mView:Landroid/view/View;
+    iget-object p1, p1, Landroidx/fragment/app/Fragment;->mView:Landroid/view/View;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    iget-object v0, p0, Landroidx/fragment/app/FragmentManager$5;->val$fragment:Landroidx/fragment/app/Fragment;
+    iget-object p1, p0, Landroidx/fragment/app/FragmentManager$5;->val$fragment:Landroidx/fragment/app/Fragment;
 
-    iget-boolean v0, v0, Landroidx/fragment/app/Fragment;->mHidden:Z
+    iget-boolean p1, p1, Landroidx/fragment/app/Fragment;->mHidden:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 1390
-    iget-object v0, p0, Landroidx/fragment/app/FragmentManager$5;->val$fragment:Landroidx/fragment/app/Fragment;
+    iget-object p1, p0, Landroidx/fragment/app/FragmentManager$5;->val$fragment:Landroidx/fragment/app/Fragment;
 
-    iget-object v0, v0, Landroidx/fragment/app/Fragment;->mView:Landroid/view/View;
+    iget-object p1, p1, Landroidx/fragment/app/Fragment;->mView:Landroid/view/View;
 
-    const/16 v1, 0x8
+    const/16 v0, 0x8
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1392
     :cond_0
     return-void
 .end method

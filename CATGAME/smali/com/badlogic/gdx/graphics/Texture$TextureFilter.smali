@@ -46,136 +46,123 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 10
+    .locals 16
 
     .line 54
     new-instance v0, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
-    const-string v1, "Nearest"
+    const/16 v1, 0x2600
 
-    const/4 v2, 0x0
+    const-string v2, "Nearest"
 
-    const/16 v3, 0x2600
+    const/4 v3, 0x0
 
-    invoke-direct {v0, v1, v2, v3}, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v0, v2, v3, v1}, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;->Nearest:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
     .line 57
-    new-instance v0, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
+    new-instance v1, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
-    const-string v1, "Linear"
+    const/16 v2, 0x2601
 
-    const/4 v3, 0x1
+    const-string v4, "Linear"
 
-    const/16 v4, 0x2601
+    const/4 v5, 0x1
 
-    invoke-direct {v0, v1, v3, v4}, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v1, v4, v5, v2}, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;-><init>(Ljava/lang/String;II)V
 
-    sput-object v0, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;->Linear:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
+    sput-object v1, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;->Linear:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
     .line 60
-    new-instance v0, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
+    new-instance v2, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
-    const-string v1, "MipMap"
+    const-string v4, "MipMap"
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    const/16 v5, 0x2703
+    const/16 v7, 0x2703
 
-    invoke-direct {v0, v1, v4, v5}, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v2, v4, v6, v7}, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;-><init>(Ljava/lang/String;II)V
 
-    sput-object v0, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;->MipMap:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
+    sput-object v2, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;->MipMap:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
     .line 64
-    new-instance v0, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
+    new-instance v4, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
-    const-string v1, "MipMapNearestNearest"
+    const/16 v8, 0x2700
 
-    const/4 v6, 0x3
+    const-string v9, "MipMapNearestNearest"
 
-    const/16 v7, 0x2700
+    const/4 v10, 0x3
 
-    invoke-direct {v0, v1, v6, v7}, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v4, v9, v10, v8}, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;-><init>(Ljava/lang/String;II)V
 
-    sput-object v0, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;->MipMapNearestNearest:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
+    sput-object v4, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;->MipMapNearestNearest:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
     .line 68
-    new-instance v0, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
+    new-instance v8, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
-    const-string v1, "MipMapLinearNearest"
+    const/16 v9, 0x2701
 
-    const/4 v7, 0x4
+    const-string v11, "MipMapLinearNearest"
 
-    const/16 v8, 0x2701
+    const/4 v12, 0x4
 
-    invoke-direct {v0, v1, v7, v8}, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v8, v11, v12, v9}, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;-><init>(Ljava/lang/String;II)V
 
-    sput-object v0, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;->MipMapLinearNearest:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
+    sput-object v8, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;->MipMapLinearNearest:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
     .line 72
-    new-instance v0, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
+    new-instance v9, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
-    const-string v1, "MipMapNearestLinear"
+    const/16 v11, 0x2702
 
-    const/4 v8, 0x5
+    const-string v13, "MipMapNearestLinear"
 
-    const/16 v9, 0x2702
+    const/4 v14, 0x5
 
-    invoke-direct {v0, v1, v8, v9}, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v9, v13, v14, v11}, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;-><init>(Ljava/lang/String;II)V
 
-    sput-object v0, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;->MipMapNearestLinear:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
+    sput-object v9, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;->MipMapNearestLinear:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
     .line 76
-    new-instance v0, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
+    new-instance v11, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
-    const-string v1, "MipMapLinearLinear"
+    const-string v13, "MipMapLinearLinear"
 
-    const/4 v9, 0x6
+    const/4 v15, 0x6
 
-    invoke-direct {v0, v1, v9, v5}, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v11, v13, v15, v7}, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;-><init>(Ljava/lang/String;II)V
 
-    sput-object v0, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;->MipMapLinearLinear:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
+    sput-object v11, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;->MipMapLinearLinear:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
+
+    const/4 v7, 0x7
+
+    new-array v7, v7, [Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
+
+    aput-object v0, v7, v3
+
+    aput-object v1, v7, v5
+
+    aput-object v2, v7, v6
+
+    aput-object v4, v7, v10
+
+    aput-object v8, v7, v12
+
+    aput-object v9, v7, v14
+
+    aput-object v11, v7, v15
 
     .line 52
-    const/4 v1, 0x7
-
-    new-array v1, v1, [Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
-
-    sget-object v5, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;->Nearest:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
-
-    aput-object v5, v1, v2
-
-    sget-object v2, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;->Linear:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;->MipMap:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;->MipMapNearestNearest:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
-
-    aput-object v2, v1, v6
-
-    sget-object v2, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;->MipMapLinearNearest:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
-
-    aput-object v2, v1, v7
-
-    sget-object v2, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;->MipMapNearestLinear:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
-
-    aput-object v2, v1, v8
-
-    aput-object v0, v1, v9
-
-    sput-object v1, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;->$VALUES:[Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
+    sput-object v7, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;->$VALUES:[Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .param p3, "glEnum"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -188,24 +175,22 @@
     .line 81
     iput p3, p0, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;->glEnum:I
 
-    .line 82
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 52
     const-class v0, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
+    check-cast p0, Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/badlogic/gdx/graphics/Texture$TextureFilter;

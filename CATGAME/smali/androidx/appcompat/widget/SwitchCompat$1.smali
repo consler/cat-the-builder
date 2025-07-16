@@ -26,10 +26,8 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Class;Ljava/lang/String;)V
     .locals 0
-    .param p2, "arg1"    # Ljava/lang/String;
 
     .line 103
-    .local p1, "arg0":Ljava/lang/Class;, "Ljava/lang/Class<Ljava/lang/Float;>;"
     invoke-direct {p0, p1, p2}, Landroid/util/Property;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
 
     return-void
@@ -38,17 +36,16 @@
 
 # virtual methods
 .method public get(Landroidx/appcompat/widget/SwitchCompat;)Ljava/lang/Float;
-    .locals 1
-    .param p1, "object"    # Landroidx/appcompat/widget/SwitchCompat;
+    .locals 0
 
     .line 106
-    iget v0, p1, Landroidx/appcompat/widget/SwitchCompat;->mThumbPosition:F
+    iget p1, p1, Landroidx/appcompat/widget/SwitchCompat;->mThumbPosition:F
 
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -65,18 +62,15 @@
 .end method
 
 .method public set(Landroidx/appcompat/widget/SwitchCompat;Ljava/lang/Float;)V
-    .locals 1
-    .param p1, "object"    # Landroidx/appcompat/widget/SwitchCompat;
-    .param p2, "value"    # Ljava/lang/Float;
+    .locals 0
 
     .line 111
     invoke-virtual {p2}, Ljava/lang/Float;->floatValue()F
 
-    move-result v0
+    move-result p2
 
-    invoke-virtual {p1, v0}, Landroidx/appcompat/widget/SwitchCompat;->setThumbPosition(F)V
+    invoke-virtual {p1, p2}, Landroidx/appcompat/widget/SwitchCompat;->setThumbPosition(F)V
 
-    .line 112
     return-void
 .end method
 

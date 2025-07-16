@@ -49,15 +49,11 @@
     .end annotation
 
     .line 53
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDoAfterNext$DoAfterSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDoAfterNext$DoAfterSubscriber<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
-    .local p2, "onAfterNext":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/subscribers/BasicFuseableSubscriber;-><init>(Lorg/reactivestreams/Subscriber;)V
 
     .line 54
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableDoAfterNext$DoAfterSubscriber;->onAfterNext:Lio/reactivex/functions/Consumer;
 
-    .line 55
     return-void
 .end method
 
@@ -72,13 +68,10 @@
     .end annotation
 
     .line 59
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDoAfterNext$DoAfterSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDoAfterNext$DoAfterSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDoAfterNext$DoAfterSubscriber;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 60
     return-void
 
     .line 62
@@ -100,19 +93,14 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 69
     goto :goto_0
 
-    .line 67
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     .line 68
-    .local v0, "ex":Ljava/lang/Throwable;
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/flowable/FlowableDoAfterNext$DoAfterSubscriber;->fail(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableDoAfterNext$DoAfterSubscriber;->fail(Ljava/lang/Throwable;)V
 
-    .line 71
-    .end local v0    # "ex":Ljava/lang/Throwable;
     :cond_1
     :goto_0
     return-void
@@ -133,15 +121,12 @@
     .end annotation
 
     .line 81
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDoAfterNext$DoAfterSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDoAfterNext$DoAfterSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDoAfterNext$DoAfterSubscriber;->qs:Lio/reactivex/internal/fuseable/QueueSubscription;
 
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/QueueSubscription;->poll()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 82
-    .local v0, "v":Ljava/lang/Object;, "TT;"
     if-eqz v0, :cond_0
 
     .line 83
@@ -149,20 +134,17 @@
 
     invoke-interface {v1, v0}, Lio/reactivex/functions/Consumer;->accept(Ljava/lang/Object;)V
 
-    .line 85
     :cond_0
     return-object v0
 .end method
 
 .method public requestFusion(I)I
-    .locals 1
-    .param p1, "mode"    # I
+    .locals 0
 
     .line 75
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDoAfterNext$DoAfterSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDoAfterNext$DoAfterSubscriber<TT;>;"
     invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableDoAfterNext$DoAfterSubscriber;->transitiveBoundaryFusion(I)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

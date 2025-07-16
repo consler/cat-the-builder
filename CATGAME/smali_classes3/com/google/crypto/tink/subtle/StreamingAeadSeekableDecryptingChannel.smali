@@ -53,9 +53,6 @@
 # direct methods
 .method public constructor <init>(Lcom/google/crypto/tink/subtle/NonceBasedStreamingAead;Ljava/nio/channels/SeekableByteChannel;[B)V
     .locals 8
-    .param p1, "streamAead"    # Lcom/google/crypto/tink/subtle/NonceBasedStreamingAead;
-    .param p2, "ciphertext"    # Ljava/nio/channels/SeekableByteChannel;
-    .param p3, "associatedData"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -110,208 +107,183 @@
     .line 69
     invoke-static {v0}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextSegment:Ljava/nio/ByteBuffer;
+    iput-object v1, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextSegment:Ljava/nio/ByteBuffer;
 
     .line 70
     invoke-virtual {p1}, Lcom/google/crypto/tink/subtle/NonceBasedStreamingAead;->getPlaintextSegmentSize()I
 
-    move-result v0
-
-    iput v0, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegmentSize:I
-
-    .line 71
-    add-int/lit8 v0, v0, 0x10
-
-    invoke-static {v0}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegment:Ljava/nio/ByteBuffer;
-
-    .line 72
-    const-wide/16 v0, 0x0
-
-    iput-wide v0, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextPosition:J
-
-    .line 73
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->headerRead:Z
-
-    .line 74
-    const/4 v1, -0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->currentSegmentNr:I
-
-    .line 75
-    iput-boolean v0, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->isCurrentSegmentDecrypted:Z
-
-    .line 76
-    iget-object v0, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextChannel:Ljava/nio/channels/SeekableByteChannel;
-
-    invoke-interface {v0}, Ljava/nio/channels/SeekableByteChannel;->size()J
-
-    move-result-wide v0
-
-    iput-wide v0, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextChannelSize:J
-
-    .line 77
-    array-length v0, p3
-
-    invoke-static {p3, v0}, Ljava/util/Arrays;->copyOf([BI)[B
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->aad:[B
-
-    .line 78
-    iget-object v0, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextChannel:Ljava/nio/channels/SeekableByteChannel;
-
-    invoke-interface {v0}, Ljava/nio/channels/SeekableByteChannel;->isOpen()Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->isopen:Z
-
-    .line 79
-    iget-wide v0, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextChannelSize:J
-
-    iget v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextSegmentSize:I
-
-    int-to-long v3, v2
-
-    div-long v3, v0, v3
-
-    long-to-int v3, v3
-
-    .line 80
-    .local v3, "fullSegments":I
-    int-to-long v4, v2
-
-    rem-long/2addr v0, v4
-
-    long-to-int v0, v0
-
-    .line 81
-    .local v0, "remainder":I
-    invoke-virtual {p1}, Lcom/google/crypto/tink/subtle/NonceBasedStreamingAead;->getCiphertextOverhead()I
-
     move-result v1
 
-    .line 82
-    .local v1, "ciphertextOverhead":I
-    if-lez v0, :cond_1
+    iput v1, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegmentSize:I
+
+    add-int/lit8 v1, v1, 0x10
+
+    .line 71
+    invoke-static {v1}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegment:Ljava/nio/ByteBuffer;
+
+    const-wide/16 v1, 0x0
+
+    .line 72
+    iput-wide v1, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextPosition:J
+
+    const/4 v1, 0x0
+
+    .line 73
+    iput-boolean v1, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->headerRead:Z
+
+    const/4 v2, -0x1
+
+    .line 74
+    iput v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->currentSegmentNr:I
+
+    .line 75
+    iput-boolean v1, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->isCurrentSegmentDecrypted:Z
+
+    .line 76
+    invoke-interface {p2}, Ljava/nio/channels/SeekableByteChannel;->size()J
+
+    move-result-wide v1
+
+    iput-wide v1, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextChannelSize:J
+
+    .line 77
+    array-length v3, p3
+
+    invoke-static {p3, v3}, Ljava/util/Arrays;->copyOf([BI)[B
+
+    move-result-object p3
+
+    iput-object p3, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->aad:[B
+
+    .line 78
+    invoke-interface {p2}, Ljava/nio/channels/SeekableByteChannel;->isOpen()Z
+
+    move-result p2
+
+    iput-boolean p2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->isopen:Z
+
+    int-to-long p2, v0
+
+    .line 79
+    div-long p2, v1, p2
+
+    long-to-int p2, p2
+
+    int-to-long v3, v0
+
+    .line 80
+    rem-long v3, v1, v3
+
+    long-to-int p3, v3
+
+    .line 81
+    invoke-virtual {p1}, Lcom/google/crypto/tink/subtle/NonceBasedStreamingAead;->getCiphertextOverhead()I
+
+    move-result v3
+
+    if-lez p3, :cond_1
+
+    add-int/lit8 p2, p2, 0x1
 
     .line 83
-    add-int/lit8 v2, v3, 0x1
+    iput p2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->numberOfSegments:I
 
-    iput v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->numberOfSegments:I
-
-    .line 84
-    if-lt v0, v1, :cond_0
+    if-lt p3, v3, :cond_0
 
     .line 87
-    iput v0, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->lastCiphertextSegmentSize:I
+    iput p3, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->lastCiphertextSegmentSize:I
 
     goto :goto_0
 
     .line 85
     :cond_0
-    new-instance v2, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v4, "Invalid ciphertext size"
+    const-string p2, "Invalid ciphertext size"
 
-    invoke-direct {v2, v4}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p1
 
     .line 89
     :cond_1
-    iput v3, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->numberOfSegments:I
+    iput p2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->numberOfSegments:I
 
     .line 90
-    iget v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextSegmentSize:I
-
-    iput v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->lastCiphertextSegmentSize:I
+    iput v0, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->lastCiphertextSegmentSize:I
 
     .line 92
     :goto_0
     invoke-virtual {p1}, Lcom/google/crypto/tink/subtle/NonceBasedStreamingAead;->getCiphertextOffset()I
 
-    move-result v2
+    move-result p2
 
-    iput v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextOffset:I
+    iput p2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextOffset:I
 
     .line 93
     invoke-virtual {p1}, Lcom/google/crypto/tink/subtle/NonceBasedStreamingAead;->getHeaderLength()I
 
-    move-result v4
+    move-result p1
 
-    sub-int/2addr v2, v4
+    sub-int p1, p2, p1
 
-    iput v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->firstSegmentOffset:I
+    iput p1, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->firstSegmentOffset:I
 
-    .line 94
-    if-ltz v2, :cond_3
+    if-ltz p1, :cond_3
 
     .line 97
-    iget v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->numberOfSegments:I
+    iget p1, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->numberOfSegments:I
 
-    int-to-long v4, v2
+    int-to-long v4, p1
 
-    int-to-long v6, v1
+    int-to-long v6, v3
 
     mul-long/2addr v4, v6
 
-    iget v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextOffset:I
+    int-to-long p1, p2
 
-    int-to-long v6, v2
+    add-long/2addr v4, p1
 
-    add-long/2addr v4, v6
+    cmp-long p1, v4, v1
 
-    .line 98
-    .local v4, "overhead":J
-    iget-wide v6, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextChannelSize:J
+    if-gtz p1, :cond_2
 
-    cmp-long v2, v4, v6
-
-    if-gtz v2, :cond_2
+    sub-long/2addr v1, v4
 
     .line 101
-    sub-long/2addr v6, v4
+    iput-wide v1, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSize:J
 
-    iput-wide v6, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSize:J
-
-    .line 102
     return-void
 
     .line 99
     :cond_2
-    new-instance v2, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v6, "Ciphertext is too short"
+    const-string p2, "Ciphertext is too short"
 
-    invoke-direct {v2, v6}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p1
 
     .line 95
-    .end local v4    # "overhead":J
     :cond_3
-    new-instance v2, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v4, "Invalid ciphertext offset or header length"
+    const-string p2, "Invalid ciphertext offset or header length"
 
-    invoke-direct {v2, v4}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p1
 .end method
 
 .method private getSegmentNr(J)I
-    .locals 4
-    .param p1, "plaintextPosition"    # J
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -326,17 +298,17 @@
 
     int-to-long v0, v0
 
-    add-long/2addr v0, p1
+    add-long/2addr p1, v0
 
-    iget v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegmentSize:I
+    iget v0, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegmentSize:I
 
-    int-to-long v2, v2
+    int-to-long v0, v0
 
-    div-long/2addr v0, v2
+    div-long/2addr p1, v0
 
-    long-to-int v0, v0
+    long-to-int p1, p1
 
-    return v0
+    return p1
 .end method
 
 .method private reachedEnd()Z
@@ -345,17 +317,17 @@
     .line 253
     iget-boolean v0, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->isCurrentSegmentDecrypted:Z
 
-    const/4 v1, 0x1
-
     if-eqz v0, :cond_0
 
     iget v0, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->currentSegmentNr:I
 
-    iget v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->numberOfSegments:I
+    iget v1, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->numberOfSegments:I
 
-    sub-int/2addr v2, v1
+    const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_0
+    sub-int/2addr v1, v2
+
+    if-ne v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegment:Ljava/nio/ByteBuffer;
 
@@ -369,16 +341,14 @@
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    .line 253
     :goto_0
-    return v1
+    return v2
 .end method
 
 .method private tryLoadSegment(I)Z
-    .locals 7
-    .param p1, "segmentNr"    # I
+    .locals 8
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -394,14 +364,13 @@
         }
     .end annotation
 
-    .line 202
     if-ltz p1, :cond_7
 
+    .line 202
     iget v0, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->numberOfSegments:I
 
     if-ge p1, v0, :cond_7
 
-    .line 205
     const/4 v1, 0x1
 
     sub-int/2addr v0, v1
@@ -418,7 +387,6 @@
     move v0, v2
 
     .line 206
-    .local v0, "isLast":Z
     :goto_0
     iget v3, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->currentSegmentNr:I
 
@@ -429,41 +397,32 @@
 
     if-eqz v3, :cond_4
 
-    .line 208
     return v1
 
-    .line 212
     :cond_1
     int-to-long v3, p1
 
+    .line 212
     iget v5, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextSegmentSize:I
 
-    int-to-long v5, v5
+    int-to-long v6, v5
 
-    mul-long/2addr v3, v5
+    mul-long/2addr v3, v6
 
-    .line 213
-    .local v3, "ciphertextPosition":J
-    iget v5, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextSegmentSize:I
-
-    .line 214
-    .local v5, "segmentSize":I
     if-eqz v0, :cond_2
 
     .line 215
     iget v5, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->lastCiphertextSegmentSize:I
 
-    .line 217
     :cond_2
     if-nez p1, :cond_3
 
     .line 218
-    iget v6, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextOffset:I
+    iget v3, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextOffset:I
 
-    sub-int/2addr v5, v6
+    sub-int/2addr v5, v3
 
-    .line 219
-    int-to-long v3, v6
+    int-to-long v3, v3
 
     .line 221
     :cond_3
@@ -472,14 +431,14 @@
     invoke-interface {v6, v3, v4}, Ljava/nio/channels/SeekableByteChannel;->position(J)Ljava/nio/channels/SeekableByteChannel;
 
     .line 222
-    iget-object v6, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextSegment:Ljava/nio/ByteBuffer;
+    iget-object v3, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextSegment:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v6}, Ljava/nio/ByteBuffer;->clear()Ljava/nio/Buffer;
+    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->clear()Ljava/nio/Buffer;
 
     .line 223
-    iget-object v6, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextSegment:Ljava/nio/ByteBuffer;
+    iget-object v3, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextSegment:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v6, v5}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {v3, v5}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
     .line 224
     iput p1, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->currentSegmentNr:I
@@ -488,8 +447,6 @@
     iput-boolean v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->isCurrentSegmentDecrypted:Z
 
     .line 227
-    .end local v3    # "ciphertextPosition":J
-    .end local v5    # "segmentSize":I
     :cond_4
     iget-object v3, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextSegment:Ljava/nio/ByteBuffer;
 
@@ -516,7 +473,6 @@
 
     if-lez v3, :cond_6
 
-    .line 231
     return v2
 
     .line 233
@@ -542,50 +498,42 @@
     :try_end_0
     .catch Ljava/security/GeneralSecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 242
-    nop
-
     .line 243
-    iget-object v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegment:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegment:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;
 
     .line 244
     iput-boolean v1, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->isCurrentSegmentDecrypted:Z
 
-    .line 245
     return v1
 
-    .line 237
     :catch_0
-    move-exception v1
+    move-exception p1
+
+    const/4 v0, -0x1
 
     .line 240
-    .local v1, "ex":Ljava/security/GeneralSecurityException;
-    const/4 v2, -0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->currentSegmentNr:I
+    iput v0, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->currentSegmentNr:I
 
     .line 241
-    new-instance v2, Ljava/io/IOException;
-
-    const-string v3, "Failed to decrypt"
-
-    invoke-direct {v2, v3, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    throw v2
-
-    .line 203
-    .end local v0    # "isLast":Z
-    .end local v1    # "ex":Ljava/security/GeneralSecurityException;
-    :cond_7
     new-instance v0, Ljava/io/IOException;
 
-    const-string v1, "Invalid position"
+    const-string v1, "Failed to decrypt"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v0
+
+    .line 203
+    :cond_7
+    new-instance p1, Ljava/io/IOException;
+
+    const-string v0, "Invalid position"
+
+    invoke-direct {p1, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw p1
 .end method
 
 .method private tryReadHeader()Z
@@ -629,7 +577,6 @@
 
     if-lez v0, :cond_0
 
-    .line 174
     const/4 v0, 0x0
 
     return v0
@@ -650,25 +597,19 @@
 
     invoke-interface {v0, v1, v2}, Lcom/google/crypto/tink/subtle/StreamSegmentDecrypter;->init(Ljava/nio/ByteBuffer;[B)V
 
-    .line 179
     const/4 v0, 0x1
 
+    .line 179
     iput-boolean v0, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->headerRead:Z
     :try_end_0
     .catch Ljava/security/GeneralSecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 183
-    nop
-
-    .line 184
     return v0
 
-    .line 180
     :catch_0
     move-exception v0
 
     .line 182
-    .local v0, "ex":Ljava/security/GeneralSecurityException;
     new-instance v1, Ljava/io/IOException;
 
     invoke-direct {v1, v0}, Ljava/io/IOException;-><init>(Ljava/lang/Throwable;)V
@@ -694,9 +635,9 @@
 
     invoke-interface {v0}, Ljava/nio/channels/SeekableByteChannel;->close()V
 
-    .line 353
     const/4 v0, 0x0
 
+    .line 353
     iput-boolean v0, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->isopen:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -706,8 +647,6 @@
 
     return-void
 
-    .line 351
-    .end local p0    # "this":Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;
     :catchall_0
     move-exception v0
 
@@ -731,8 +670,6 @@
 
     return v0
 
-    .line 358
-    .end local p0    # "this":Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;
     :catchall_0
     move-exception v0
 
@@ -756,8 +693,6 @@
 
     return-wide v0
 
-    .line 147
-    .end local p0    # "this":Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;
     :catchall_0
     move-exception v0
 
@@ -768,7 +703,6 @@
 
 .method public declared-synchronized position(J)Ljava/nio/channels/SeekableByteChannel;
     .locals 0
-    .param p1, "newPosition"    # J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -791,9 +725,6 @@
 
     return-object p0
 
-    .line 156
-    .end local p0    # "this":Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;
-    .end local p1    # "newPosition":J
     :catchall_0
     move-exception p1
 
@@ -803,8 +734,7 @@
 .end method
 
 .method public declared-synchronized read(Ljava/nio/ByteBuffer;)I
-    .locals 9
-    .param p1, "dst"    # Ljava/nio/ByteBuffer;
+    .locals 6
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -843,14 +773,13 @@
     if-nez v0, :cond_0
 
     .line 281
-    const/4 v0, 0x0
-
     monitor-exit p0
 
-    return v0
+    const/4 p1, 0x0
+
+    return p1
 
     .line 284
-    .end local p0    # "this":Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;
     :cond_0
     :try_start_1
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->position()I
@@ -858,7 +787,6 @@
     move-result v0
 
     .line 285
-    .local v0, "startPos":I
     :goto_0
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
 
@@ -870,31 +798,26 @@
 
     iget-wide v3, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSize:J
 
-    cmp-long v1, v1, v3
+    cmp-long v3, v1, v3
 
-    if-gez v1, :cond_3
+    if-gez v3, :cond_3
 
     .line 288
-    iget-wide v1, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextPosition:J
-
     invoke-direct {p0, v1, v2}, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->getSegmentNr(J)I
 
     move-result v1
 
-    .line 290
-    .local v1, "segmentNr":I
     if-nez v1, :cond_1
 
     .line 291
     iget-wide v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextPosition:J
 
+    :goto_1
     long-to-int v2, v2
 
-    .local v2, "segmentOffset":I
-    goto :goto_1
+    goto :goto_2
 
     .line 293
-    .end local v2    # "segmentOffset":I
     :cond_1
     iget-wide v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextPosition:J
 
@@ -910,162 +833,146 @@
 
     rem-long/2addr v2, v4
 
-    long-to-int v2, v2
+    goto :goto_1
 
     .line 296
-    .restart local v2    # "segmentOffset":I
-    :goto_1
+    :goto_2
     invoke-direct {p0, v1}, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->tryLoadSegment(I)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_3
+    if-eqz v1, :cond_3
 
     .line 297
-    iget-object v3, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegment:Ljava/nio/ByteBuffer;
+    iget-object v1, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegment:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v3, v2}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 298
+    iget-object v1, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegment:Ljava/nio/ByteBuffer;
+
+    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->remaining()I
+
+    move-result v1
+
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
+
+    move-result v2
+
+    if-gt v1, v2, :cond_2
+
+    .line 299
+    iget-wide v1, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextPosition:J
+
     iget-object v3, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegment:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v3}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v3
 
-    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
+    int-to-long v3, v3
 
-    move-result v4
+    add-long/2addr v1, v3
 
-    if-gt v3, v4, :cond_2
-
-    .line 299
-    iget-wide v3, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextPosition:J
-
-    iget-object v5, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegment:Ljava/nio/ByteBuffer;
-
-    invoke-virtual {v5}, Ljava/nio/ByteBuffer;->remaining()I
-
-    move-result v5
-
-    int-to-long v5, v5
-
-    add-long/2addr v3, v5
-
-    iput-wide v3, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextPosition:J
+    iput-wide v1, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextPosition:J
 
     .line 300
-    iget-object v3, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegment:Ljava/nio/ByteBuffer;
+    iget-object v1, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegment:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {p1, v3}, Ljava/nio/ByteBuffer;->put(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;
+    invoke-virtual {p1, v1}, Ljava/nio/ByteBuffer;->put(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;
 
-    goto :goto_2
+    goto :goto_0
 
     .line 302
     :cond_2
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
 
-    move-result v3
+    move-result v1
 
     .line 303
-    .local v3, "sliceSize":I
-    iget-object v4, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegment:Ljava/nio/ByteBuffer;
+    iget-object v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegment:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v4}, Ljava/nio/ByteBuffer;->duplicate()Ljava/nio/ByteBuffer;
+    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->duplicate()Ljava/nio/ByteBuffer;
 
-    move-result-object v4
+    move-result-object v2
 
     .line 304
-    .local v4, "slice":Ljava/nio/ByteBuffer;
-    invoke-virtual {v4}, Ljava/nio/ByteBuffer;->position()I
+    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->position()I
 
-    move-result v5
+    move-result v3
 
-    add-int/2addr v5, v3
+    add-int/2addr v3, v1
 
-    invoke-virtual {v4, v5}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
     .line 305
-    invoke-virtual {p1, v4}, Ljava/nio/ByteBuffer;->put(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;
+    invoke-virtual {p1, v2}, Ljava/nio/ByteBuffer;->put(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;
 
     .line 306
-    iget-wide v5, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextPosition:J
+    iget-wide v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextPosition:J
 
-    int-to-long v7, v3
+    int-to-long v4, v1
 
-    add-long/2addr v5, v7
+    add-long/2addr v2, v4
 
-    iput-wide v5, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextPosition:J
+    iput-wide v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextPosition:J
 
     .line 307
-    iget-object v5, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegment:Ljava/nio/ByteBuffer;
+    iget-object v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegment:Ljava/nio/ByteBuffer;
 
-    iget-object v6, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegment:Ljava/nio/ByteBuffer;
+    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->position()I
 
-    invoke-virtual {v6}, Ljava/nio/ByteBuffer;->position()I
+    move-result v3
 
-    move-result v6
+    add-int/2addr v3, v1
 
-    add-int/2addr v6, v3
+    invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
-    invoke-virtual {v5, v6}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
-
-    .line 312
-    .end local v1    # "segmentNr":I
-    .end local v2    # "segmentOffset":I
-    .end local v3    # "sliceSize":I
-    .end local v4    # "slice":Ljava/nio/ByteBuffer;
-    :goto_2
     goto :goto_0
 
     .line 313
     :cond_3
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->position()I
 
-    move-result v1
+    move-result p1
 
-    sub-int/2addr v1, v0
+    sub-int/2addr p1, v0
+
+    if-nez p1, :cond_4
 
     .line 314
-    .local v1, "read":I
-    if-nez v1, :cond_4
-
     invoke-direct {p0}, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->reachedEnd()Z
 
-    move-result v2
+    move-result v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-eqz v2, :cond_4
+    if-eqz v0, :cond_4
 
     .line 315
-    const/4 v2, -0x1
-
     monitor-exit p0
 
-    return v2
+    const/4 p1, -0x1
+
+    return p1
 
     .line 317
     :cond_4
     monitor-exit p0
 
-    return v1
+    return p1
 
     .line 277
-    .end local v0    # "startPos":I
-    .end local v1    # "read":I
     :cond_5
     :try_start_2
-    new-instance v0, Ljava/nio/channels/ClosedChannelException;
+    new-instance p1, Ljava/nio/channels/ClosedChannelException;
 
-    invoke-direct {v0}, Ljava/nio/channels/ClosedChannelException;-><init>()V
+    invoke-direct {p1}, Ljava/nio/channels/ClosedChannelException;-><init>()V
 
-    throw v0
+    throw p1
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 275
-    .end local p1    # "dst":Ljava/nio/ByteBuffer;
     :catchall_0
     move-exception p1
 
@@ -1075,9 +982,7 @@
 .end method
 
 .method public declared-synchronized read(Ljava/nio/ByteBuffer;J)I
-    .locals 3
-    .param p1, "dst"    # Ljava/nio/ByteBuffer;
-    .param p2, "start"    # J
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -1106,14 +1011,13 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     .line 267
-    .local v0, "oldPosition":J
     :try_start_1
     invoke-virtual {p0, p2, p3}, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->position(J)Ljava/nio/channels/SeekableByteChannel;
 
     .line 268
     invoke-virtual {p0, p1}, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->read(Ljava/nio/ByteBuffer;)I
 
-    move-result v2
+    move-result p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -1126,25 +1030,20 @@
     .line 268
     monitor-exit p0
 
-    return v2
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 270
-    .end local p0    # "this":Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;
-    :catchall_0
-    move-exception v2
-
     :try_start_3
     invoke-virtual {p0, v0, v1}, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->position(J)Ljava/nio/channels/SeekableByteChannel;
 
     .line 271
-    throw v2
+    throw p1
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    .line 264
-    .end local v0    # "oldPosition":J
-    .end local p1    # "dst":Ljava/nio/ByteBuffer;
-    .end local p2    # "start":J
     :catchall_1
     move-exception p1
 
@@ -1163,191 +1062,209 @@
 .end method
 
 .method public declared-synchronized toString()Ljava/lang/String;
-    .locals 4
+    .locals 8
+
+    const-string v0, "\nplaintextSegment position:"
+
+    const-string v1, "\nciphertextSgement position:"
+
+    const-string v2, "\nHeader position:"
+
+    const-string v3, "position:"
+
+    const-string v4, "StreamingAeadSeekableDecryptingChannel\nciphertextChannel"
 
     monitor-enter p0
 
     .line 111
     :try_start_0
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 115
-    .local v0, "res":Ljava/lang/StringBuilder;
     :try_start_1
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    const-string v2, "position:"
+    iget-object v3, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextChannel:Ljava/nio/channels/SeekableByteChannel;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-interface {v3}, Ljava/nio/channels/SeekableByteChannel;->position()J
 
-    iget-object v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextChannel:Ljava/nio/channels/SeekableByteChannel;
+    move-result-wide v6
 
-    invoke-interface {v2}, Ljava/nio/channels/SeekableByteChannel;->position()J
+    invoke-virtual {v4, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-wide v2
+    move-result-object v3
 
-    invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
+    move-result-object v3
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 118
-    .local v1, "ctChannel":Ljava/lang/String;
     goto :goto_0
 
-    .line 116
-    .end local v1    # "ctChannel":Ljava/lang/String;
-    .end local p0    # "this":Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;
     :catch_0
-    move-exception v1
-
-    .line 117
-    .local v1, "ex":Ljava/io/IOException;
     :try_start_2
-    const-string v2, "position: n/a"
-
-    move-object v1, v2
-
-    .line 119
-    .local v1, "ctChannel":Ljava/lang/String;
-    :goto_0
-    const-string v2, "StreamingAeadSeekableDecryptingChannel"
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v2, "\nciphertextChannel"
+    const-string v3, "position: n/a"
 
     .line 120
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :goto_0
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    const-string v2, "\nciphertextChannelSize:"
+    const-string v4, "\nciphertextChannelSize:"
 
     .line 121
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-wide v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextChannelSize:J
+    move-result-object v3
 
-    invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    iget-wide v6, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextChannelSize:J
 
-    const-string v2, "\nplaintextSize:"
+    invoke-virtual {v3, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, "\nplaintextSize:"
 
     .line 122
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-wide v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSize:J
+    move-result-object v3
 
-    invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    iget-wide v6, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSize:J
 
-    const-string v2, "\nciphertextSegmentSize:"
+    invoke-virtual {v3, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, "\nciphertextSegmentSize:"
 
     .line 123
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextSegmentSize:I
+    move-result-object v3
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iget v4, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextSegmentSize:I
 
-    const-string v2, "\nnumberOfSegments:"
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, "\nnumberOfSegments:"
 
     .line 124
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->numberOfSegments:I
+    move-result-object v3
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iget v4, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->numberOfSegments:I
 
-    const-string v2, "\nheaderRead:"
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, "\nheaderRead:"
 
     .line 125
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->headerRead:Z
+    move-result-object v3
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    iget-boolean v4, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->headerRead:Z
 
-    const-string v2, "\nplaintextPosition:"
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, "\nplaintextPosition:"
 
     .line 126
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-wide v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextPosition:J
+    move-result-object v3
 
-    invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    iget-wide v6, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextPosition:J
 
-    const-string v2, "\nHeader"
+    invoke-virtual {v3, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v3
 
     .line 127
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, " position:"
+    move-result-object v2
 
     .line 128
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->header:Ljava/nio/ByteBuffer;
 
-    iget-object v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->header:Ljava/nio/ByteBuffer;
+    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->position()I
 
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->position()I
+    move-result v3
 
-    move-result v2
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    const-string v2, " limit:"
+    const-string v3, " limit:"
 
     .line 129
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->header:Ljava/nio/ByteBuffer;
+    move-result-object v2
 
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->position()I
+    iget-object v3, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->header:Ljava/nio/ByteBuffer;
 
-    move-result v2
+    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->position()I
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result v3
 
-    const-string v2, "\ncurrentSegmentNr:"
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, "\ncurrentSegmentNr:"
 
     .line 130
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->currentSegmentNr:I
+    move-result-object v2
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iget v3, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->currentSegmentNr:I
 
-    const-string v2, "\nciphertextSgement"
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     .line 131
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, " position:"
+    move-result-object v1
 
     .line 132
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     iget-object v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextSegment:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v2}, Ljava/nio/ByteBuffer;->position()I
 
     move-result v2
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     const-string v2, " limit:"
 
     .line 133
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     iget-object v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->ciphertextSegment:Ljava/nio/ByteBuffer;
 
@@ -1355,62 +1272,65 @@
 
     move-result v2
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     const-string v2, "\nisCurrentSegmentDecrypted:"
 
     .line 134
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     iget-boolean v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->isCurrentSegmentDecrypted:Z
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    const-string v2, "\nplaintextSegment"
+    move-result-object v1
 
     .line 135
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, " position:"
+    move-result-object v0
 
     .line 136
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v1, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegment:Ljava/nio/ByteBuffer;
 
-    iget-object v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegment:Ljava/nio/ByteBuffer;
+    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->position()I
 
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->position()I
+    move-result v1
 
-    move-result v2
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    const-string v2, " limit:"
+    const-string v1, " limit:"
 
     .line 137
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegment:Ljava/nio/ByteBuffer;
+    move-result-object v0
 
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->limit()I
+    iget-object v1, p0, Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;->plaintextSegment:Ljava/nio/ByteBuffer;
 
-    move-result v2
+    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->limit()I
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 138
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     monitor-exit p0
 
-    return-object v2
+    return-object v0
 
-    .line 110
-    .end local v0    # "res":Ljava/lang/StringBuilder;
-    .end local v1    # "ctChannel":Ljava/lang/String;
     :catchall_0
     move-exception v0
 
@@ -1420,8 +1340,7 @@
 .end method
 
 .method public truncate(J)Ljava/nio/channels/SeekableByteChannel;
-    .locals 1
-    .param p1, "size"    # J
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1438,11 +1357,11 @@
     .end annotation
 
     .line 342
-    new-instance v0, Ljava/nio/channels/NonWritableChannelException;
+    new-instance p1, Ljava/nio/channels/NonWritableChannelException;
 
-    invoke-direct {v0}, Ljava/nio/channels/NonWritableChannelException;-><init>()V
+    invoke-direct {p1}, Ljava/nio/channels/NonWritableChannelException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public declared-synchronized verifiedSize()J
@@ -1477,7 +1396,6 @@
     return-wide v0
 
     .line 336
-    .end local p0    # "this":Lcom/google/crypto/tink/subtle/StreamingAeadSeekableDecryptingChannel;
     :cond_0
     :try_start_1
     new-instance v0, Ljava/io/IOException;
@@ -1490,7 +1408,6 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 332
     :catchall_0
     move-exception v0
 
@@ -1500,8 +1417,7 @@
 .end method
 
 .method public write(Ljava/nio/ByteBuffer;)I
-    .locals 1
-    .param p1, "src"    # Ljava/nio/ByteBuffer;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1518,9 +1434,9 @@
     .end annotation
 
     .line 347
-    new-instance v0, Ljava/nio/channels/NonWritableChannelException;
+    new-instance p1, Ljava/nio/channels/NonWritableChannelException;
 
-    invoke-direct {v0}, Ljava/nio/channels/NonWritableChannelException;-><init>()V
+    invoke-direct {p1}, Ljava/nio/channels/NonWritableChannelException;-><init>()V
 
-    throw v0
+    throw p1
 .end method

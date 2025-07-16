@@ -78,10 +78,6 @@
     .end annotation
 
     .line 72
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber<TT;TU;>;"
-    .local p1, "actual":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TU;>;"
-    .local p2, "u":Ljava/lang/Object;, "TU;"
-    .local p3, "collector":Lio/reactivex/functions/BiConsumer;, "Lio/reactivex/functions/BiConsumer<-TU;-TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 73
@@ -93,7 +89,6 @@
     .line 75
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber;->u:Ljava/lang/Object;
 
-    .line 76
     return-void
 .end method
 
@@ -103,7 +98,6 @@
     .locals 1
 
     .line 124
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber<TT;TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
@@ -113,7 +107,6 @@
 
     iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    .line 126
     return-void
 .end method
 
@@ -121,7 +114,6 @@
     .locals 2
 
     .line 130
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber<TT;TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     sget-object v1, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
@@ -143,18 +135,16 @@
     .locals 2
 
     .line 114
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber<TT;TU;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 115
     return-void
 
-    .line 117
     :cond_0
     const/4 v0, 0x1
 
+    .line 117
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber;->done:Z
 
     .line 118
@@ -169,16 +159,13 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/SingleObserver;->onSuccess(Ljava/lang/Object;)V
 
-    .line 120
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 103
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber<TT;TU;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber;->done:Z
 
     if-eqz v0, :cond_0
@@ -186,13 +173,12 @@
     .line 104
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 105
     return-void
 
-    .line 107
     :cond_0
     const/4 v0, 0x1
 
+    .line 107
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber;->done:Z
 
     .line 108
@@ -205,7 +191,6 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/SingleObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 110
     return-void
 .end method
 
@@ -218,13 +203,10 @@
     .end annotation
 
     .line 89
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber<TT;TU;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 90
     return-void
 
     .line 93
@@ -238,37 +220,30 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 98
     goto :goto_0
 
-    .line 94
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     .line 95
-    .local v0, "e":Ljava/lang/Throwable;
-    invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 96
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber;->s:Lorg/reactivestreams/Subscription;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    invoke-interface {v1}, Lorg/reactivestreams/Subscription;->cancel()V
+    invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
 
     .line 97
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 99
-    .end local v0    # "e":Ljava/lang/Throwable;
     :goto_0
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 80
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber<TT;TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCollectSingle$CollectSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -285,12 +260,11 @@
 
     invoke-interface {v0, p0}, Lio/reactivex/SingleObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 83
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 83
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 85
     :cond_0
     return-void
 .end method

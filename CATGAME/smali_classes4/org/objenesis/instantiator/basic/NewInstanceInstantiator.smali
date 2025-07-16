@@ -46,14 +46,11 @@
     .end annotation
 
     .line 35
-    .local p0, "this":Lorg/objenesis/instantiator/basic/NewInstanceInstantiator;, "Lorg/objenesis/instantiator/basic/NewInstanceInstantiator<TT;>;"
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 36
     iput-object p1, p0, Lorg/objenesis/instantiator/basic/NewInstanceInstantiator;->type:Ljava/lang/Class;
 
-    .line 37
     return-void
 .end method
 
@@ -68,7 +65,6 @@
     .end annotation
 
     .line 40
-    .local p0, "this":Lorg/objenesis/instantiator/basic/NewInstanceInstantiator;, "Lorg/objenesis/instantiator/basic/NewInstanceInstantiator<TT;>;"
     iget-object v0, p0, Lorg/objenesis/instantiator/basic/NewInstanceInstantiator;->type:Ljava/lang/Class;
 
     invoke-static {v0}, Lorg/objenesis/instantiator/util/ClassUtils;->newInstance(Ljava/lang/Class;)Ljava/lang/Object;

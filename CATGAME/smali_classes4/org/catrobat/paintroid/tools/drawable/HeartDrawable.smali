@@ -8,11 +8,6 @@
 
 # annotations
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u0000,\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\u0018\u00002\u00020\u0001B\u0005\u00a2\u0006\u0002\u0010\u0002J \u0010\u0007\u001a\u00020\u00082\u0006\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\u000c2\u0006\u0010\r\u001a\u00020\u0004H\u0016R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u000e"
     }
@@ -31,14 +26,15 @@
         "shapeRect",
         "Landroid/graphics/RectF;",
         "drawPaint",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -75,10 +71,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;Landroid/graphics/RectF;Landroid/graphics/Paint;)V
-    .locals 22
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
-    .param p2, "shapeRect"    # Landroid/graphics/RectF;
-    .param p3, "drawPaint"    # Landroid/graphics/Paint;
+    .locals 18
 
     move-object/from16 v0, p0
 
@@ -108,177 +101,113 @@
     .line 39
     invoke-virtual/range {p2 .. p2}, Landroid/graphics/RectF;->width()F
 
-    move-result v4
+    move-result v3
 
-    const/4 v5, 0x2
+    const/4 v4, 0x2
 
-    int-to-float v5, v5
+    int-to-float v4, v4
 
-    div-float/2addr v4, v5
+    div-float/2addr v3, v4
 
     .line 40
-    .local v4, "midWidth":F
     invoke-virtual/range {p2 .. p2}, Landroid/graphics/RectF;->height()F
 
-    move-result v5
+    move-result v4
 
     .line 41
-    .local v5, "height":F
     invoke-virtual/range {p2 .. p2}, Landroid/graphics/RectF;->width()F
 
-    move-result v13
+    move-result v12
 
     .line 42
-    .local v13, "width":F
-    iget-object v14, v0, Lorg/catrobat/paintroid/tools/drawable/HeartDrawable;->path:Landroid/graphics/Path;
-
-    .local v14, "$this$run":Landroid/graphics/Path;
-    const/4 v15, 0x0
+    iget-object v13, v0, Lorg/catrobat/paintroid/tools/drawable/HeartDrawable;->path:Landroid/graphics/Path;
 
     .line 43
-    .local v15, "$i$a$-run-HeartDrawable$draw$1":I
-    invoke-virtual {v14}, Landroid/graphics/Path;->reset()V
+    invoke-virtual {v13}, Landroid/graphics/Path;->reset()V
 
     .line 44
-    invoke-virtual {v14, v4, v5}, Landroid/graphics/Path;->moveTo(FF)V
+    invoke-virtual {v13, v3, v4}, Landroid/graphics/Path;->moveTo(FF)V
 
-    .line 45
-    const v6, -0x41b33333    # -0.2f
+    const v5, -0x41b33333    # -0.2f
 
-    mul-float v16, v13, v6
+    mul-float v6, v12, v5
 
-    .line 46
-    .local v16, "x1":F
-    const v6, 0x3f4ccccd    # 0.8f
+    const v5, 0x3f4ccccd    # 0.8f
 
-    mul-float/2addr v6, v13
+    mul-float/2addr v5, v12
 
-    const/high16 v17, 0x41000000    # 8.0f
+    const/high16 v14, 0x41000000    # 8.0f
 
-    div-float v18, v6, v17
+    div-float v8, v5, v14
 
-    .line 47
-    .local v18, "x2":F
-    const/high16 v6, 0x40900000    # 4.5f
+    const/high16 v5, 0x40900000    # 4.5f
 
-    mul-float/2addr v6, v5
+    mul-float/2addr v5, v4
 
-    div-float v19, v6, v17
+    div-float v15, v5, v14
 
-    .line 48
-    .local v19, "y1":F
-    const/high16 v6, -0x40400000    # -1.5f
+    const/high16 v5, -0x40400000    # -1.5f
 
-    mul-float/2addr v6, v5
+    mul-float/2addr v5, v4
 
-    div-float v12, v6, v17
+    div-float v11, v5, v14
 
-    .line 49
-    .local v12, "y2":F
-    nop
+    neg-float v10, v11
 
-    .line 50
-    nop
+    move-object v5, v13
 
-    .line 51
-    nop
+    move v7, v15
 
-    .line 52
-    neg-float v11, v12
+    move v9, v11
+
+    move/from16 v16, v10
+
+    move v10, v3
+
+    move/from16 v17, v11
+
+    move/from16 v11, v16
 
     .line 49
-    move-object v6, v14
+    invoke-virtual/range {v5 .. v11}, Landroid/graphics/Path;->cubicTo(FFFFFF)V
 
-    move/from16 v7, v16
+    const v5, 0x40e66666    # 7.2f
 
-    move/from16 v8, v19
+    mul-float/2addr v5, v12
 
-    move/from16 v9, v18
+    div-float v6, v5, v14
 
-    move v10, v12
+    const v5, 0x3f99999a    # 1.2f
 
-    move/from16 v20, v11
+    mul-float v8, v12, v5
+
+    move-object v5, v13
+
+    move/from16 v7, v17
+
+    move v9, v15
 
     move v11, v4
 
-    move/from16 v21, v12
-
-    .end local v12    # "y2":F
-    .local v21, "y2":F
-    move/from16 v12, v20
-
-    invoke-virtual/range {v6 .. v12}, Landroid/graphics/Path;->cubicTo(FFFFFF)V
-
-    .line 54
-    const v6, 0x40e66666    # 7.2f
-
-    mul-float/2addr v6, v13
-
-    div-float v16, v6, v17
-
-    .line 55
-    const v6, 0x3f99999a    # 1.2f
-
-    mul-float v17, v13, v6
-
     .line 56
-    .end local v18    # "x2":F
-    .local v17, "x2":F
-    nop
-
-    .line 57
-    nop
-
-    .line 58
-    nop
-
-    .line 59
-    nop
-
-    .line 56
-    move-object v6, v14
-
-    move/from16 v7, v16
-
-    move/from16 v8, v21
-
-    move/from16 v9, v17
-
-    move/from16 v10, v19
-
-    move v12, v5
-
-    invoke-virtual/range {v6 .. v12}, Landroid/graphics/Path;->cubicTo(FFFFFF)V
+    invoke-virtual/range {v5 .. v11}, Landroid/graphics/Path;->cubicTo(FFFFFF)V
 
     .line 61
-    invoke-virtual {v14}, Landroid/graphics/Path;->close()V
+    invoke-virtual {v13}, Landroid/graphics/Path;->close()V
 
     .line 62
-    iget v6, v2, Landroid/graphics/RectF;->left:F
+    iget v3, v2, Landroid/graphics/RectF;->left:F
 
-    iget v7, v2, Landroid/graphics/RectF;->top:F
+    iget v2, v2, Landroid/graphics/RectF;->top:F
 
-    invoke-virtual {v14, v6, v7}, Landroid/graphics/Path;->offset(FF)V
-
-    .line 63
-    .end local v16    # "x1":F
-    .end local v17    # "x2":F
-    .end local v19    # "y1":F
-    .end local v21    # "y2":F
-    nop
-
-    .line 42
-    .end local v14    # "$this$run":Landroid/graphics/Path;
-    .end local v15    # "$i$a$-run-HeartDrawable$draw$1":I
-    nop
+    invoke-virtual {v13, v3, v2}, Landroid/graphics/Path;->offset(FF)V
 
     .line 64
-    iget-object v6, v0, Lorg/catrobat/paintroid/tools/drawable/HeartDrawable;->path:Landroid/graphics/Path;
+    iget-object v2, v0, Lorg/catrobat/paintroid/tools/drawable/HeartDrawable;->path:Landroid/graphics/Path;
 
-    iget-object v7, v0, Lorg/catrobat/paintroid/tools/drawable/HeartDrawable;->paint:Landroid/graphics/Paint;
+    iget-object v3, v0, Lorg/catrobat/paintroid/tools/drawable/HeartDrawable;->paint:Landroid/graphics/Paint;
 
-    invoke-virtual {v1, v6, v7}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
+    invoke-virtual {v1, v2, v3}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
-    .line 65
     return-void
 .end method

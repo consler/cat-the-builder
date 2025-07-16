@@ -40,7 +40,14 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/support/v4/os/ResultReceiver;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "in"
+        }
+    .end annotation
 
     .line 148
     new-instance v0, Landroid/support/v4/os/ResultReceiver;
@@ -52,6 +59,14 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1000
+        }
+        names = {
+            "in"
+        }
+    .end annotation
 
     .line 145
     invoke-virtual {p0, p1}, Landroid/support/v4/os/ResultReceiver$1;->createFromParcel(Landroid/os/Parcel;)Landroid/support/v4/os/ResultReceiver;
@@ -62,17 +77,32 @@
 .end method
 
 .method public newArray(I)[Landroid/support/v4/os/ResultReceiver;
-    .locals 1
-    .param p1, "size"    # I
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "size"
+        }
+    .end annotation
 
     .line 152
-    new-array v0, p1, [Landroid/support/v4/os/ResultReceiver;
+    new-array p1, p1, [Landroid/support/v4/os/ResultReceiver;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1000
+        }
+        names = {
+            "size"
+        }
+    .end annotation
 
     .line 145
     invoke-virtual {p0, p1}, Landroid/support/v4/os/ResultReceiver$1;->newArray(I)[Landroid/support/v4/os/ResultReceiver;

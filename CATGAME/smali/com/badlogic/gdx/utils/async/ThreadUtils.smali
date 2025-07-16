@@ -19,6 +19,5 @@
     .line 23
     invoke-static {}, Ljava/lang/Thread;->yield()V
 
-    .line 24
     return-void
 .end method

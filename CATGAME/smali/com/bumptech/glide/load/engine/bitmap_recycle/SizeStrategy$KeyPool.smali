@@ -58,7 +58,6 @@
 
 .method public get(I)Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$Key;
     .locals 1
-    .param p1, "size"    # I
 
     .line 115
     invoke-super {p0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/BaseKeyPool;->get()Lcom/bumptech/glide/load/engine/bitmap_recycle/Poolable;
@@ -68,9 +67,7 @@
     check-cast v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$Key;
 
     .line 116
-    .local v0, "result":Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$Key;
     invoke-virtual {v0, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$Key;->init(I)V
 
-    .line 117
     return-object v0
 .end method

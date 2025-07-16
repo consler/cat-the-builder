@@ -24,10 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;
 
     .line 17
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction$1;, "Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction$1;"
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,11 +36,9 @@
 
 # virtual methods
 .method public handle(Lcom/badlogic/gdx/scenes/scene2d/Event;)Z
-    .locals 2
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/Event;
+    .locals 1
 
     .line 19
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction$1;, "Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction$1;"
     iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;
 
     iget-boolean v0, v0, Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;->active:Z
@@ -67,21 +63,20 @@
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;->handle(Lcom/badlogic/gdx/scenes/scene2d/Event;)Z
 
-    move-result v1
+    move-result p1
 
-    iput-boolean v1, v0, Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;->result:Z
+    iput-boolean p1, v0, Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;->result:Z
 
     .line 21
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;
 
-    iget-boolean v0, v0, Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;->result:Z
+    iget-boolean p1, p1, Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;->result:Z
 
-    return v0
+    return p1
 
-    .line 19
     :cond_1
     :goto_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

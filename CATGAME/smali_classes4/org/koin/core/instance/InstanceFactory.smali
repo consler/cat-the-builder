@@ -20,7 +20,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nInstanceFactory.kt\nKotlin\n*S Kotlin\n*F\n+ 1 InstanceFactory.kt\norg/koin/core/instance/InstanceFactory\n+ 2 _Arrays.kt\nkotlin/collections/ArraysKt___ArraysKt\n*L\n1#1,76:1\n4950#2,7:77\n*E\n*S KotlinDebug\n*F\n+ 1 InstanceFactory.kt\norg/koin/core/instance/InstanceFactory\n*L\n56#1,7:77\n*E\n"
+    value = "SMAP\nInstanceFactory.kt\nKotlin\n*S Kotlin\n*F\n+ 1 InstanceFactory.kt\norg/koin/core/instance/InstanceFactory\n+ 2 _Arrays.kt\nkotlin/collections/ArraysKt___ArraysKt\n*L\n1#1,76:1\n4988#2,7:77\n*E\n*S KotlinDebug\n*F\n+ 1 InstanceFactory.kt\norg/koin/core/instance/InstanceFactory\n*L\n56#1,7:77\n*E\n"
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
@@ -100,8 +100,6 @@
 
 .method public constructor <init>(Lorg/koin/core/Koin;Lorg/koin/core/definition/BeanDefinition;)V
     .locals 1
-    .param p1, "_koin"    # Lorg/koin/core/Koin;
-    .param p2, "beanDefinition"    # Lorg/koin/core/definition/BeanDefinition;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -132,8 +130,7 @@
 
 # virtual methods
 .method public create(Lorg/koin/core/instance/InstanceContext;)Ljava/lang/Object;
-    .locals 17
-    .param p1, "context"    # Lorg/koin/core/instance/InstanceContext;
+    .locals 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -142,238 +139,177 @@
         }
     .end annotation
 
-    move-object/from16 v1, p0
-
     const-string v0, "context"
 
-    move-object/from16 v2, p1
-
-    invoke-static {v2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 45
-    iget-object v0, v1, Lorg/koin/core/instance/InstanceFactory;->_koin:Lorg/koin/core/Koin;
+    iget-object v0, p0, Lorg/koin/core/instance/InstanceFactory;->_koin:Lorg/koin/core/Koin;
 
     invoke-virtual {v0}, Lorg/koin/core/Koin;->get_logger()Lorg/koin/core/logger/Logger;
 
     move-result-object v0
 
-    sget-object v3, Lorg/koin/core/logger/Level;->DEBUG:Lorg/koin/core/logger/Level;
+    sget-object v1, Lorg/koin/core/logger/Level;->DEBUG:Lorg/koin/core/logger/Level;
 
-    invoke-virtual {v0, v3}, Lorg/koin/core/logger/Logger;->isAt(Lorg/koin/core/logger/Level;)Z
+    invoke-virtual {v0, v1}, Lorg/koin/core/logger/Logger;->isAt(Lorg/koin/core/logger/Level;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
     .line 46
-    iget-object v0, v1, Lorg/koin/core/instance/InstanceFactory;->_koin:Lorg/koin/core/Koin;
+    iget-object v0, p0, Lorg/koin/core/instance/InstanceFactory;->_koin:Lorg/koin/core/Koin;
 
     invoke-virtual {v0}, Lorg/koin/core/Koin;->get_logger()Lorg/koin/core/logger/Logger;
 
     move-result-object v0
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "| create instance for "
 
-    const-string v4, "| create instance for "
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v2, p0, Lorg/koin/core/instance/InstanceFactory;->beanDefinition:Lorg/koin/core/definition/BeanDefinition;
 
-    iget-object v4, v1, Lorg/koin/core/instance/InstanceFactory;->beanDefinition:Lorg/koin/core/definition/BeanDefinition;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v0, v3}, Lorg/koin/core/logger/Logger;->debug(Ljava/lang/String;)V
-
-    .line 48
-    :cond_0
-    nop
+    invoke-virtual {v0, v1}, Lorg/koin/core/logger/Logger;->debug(Ljava/lang/String;)V
 
     .line 49
+    :cond_0
     :try_start_0
-    invoke-virtual/range {p1 .. p1}, Lorg/koin/core/instance/InstanceContext;->getParameters()Lorg/koin/core/parameter/DefinitionParameters;
+    invoke-virtual {p1}, Lorg/koin/core/instance/InstanceContext;->getParameters()Lorg/koin/core/parameter/DefinitionParameters;
 
     move-result-object v0
 
     .line 50
-    .local v0, "parameters":Lorg/koin/core/parameter/DefinitionParameters;
-    iget-object v3, v1, Lorg/koin/core/instance/InstanceFactory;->beanDefinition:Lorg/koin/core/definition/BeanDefinition;
+    iget-object v1, p0, Lorg/koin/core/instance/InstanceFactory;->beanDefinition:Lorg/koin/core/definition/BeanDefinition;
 
-    invoke-virtual {v3}, Lorg/koin/core/definition/BeanDefinition;->getDefinition()Lkotlin/jvm/functions/Function2;
+    invoke-virtual {v1}, Lorg/koin/core/definition/BeanDefinition;->getDefinition()Lkotlin/jvm/functions/Function2;
 
-    move-result-object v3
+    move-result-object v1
 
     .line 51
-    invoke-virtual/range {p1 .. p1}, Lorg/koin/core/instance/InstanceContext;->getScope()Lorg/koin/core/scope/Scope;
+    invoke-virtual {p1}, Lorg/koin/core/instance/InstanceContext;->getScope()Lorg/koin/core/scope/Scope;
 
-    move-result-object v4
-
-    .line 52
-    nop
+    move-result-object p1
 
     .line 50
-    invoke-interface {v3, v4, v0}, Lkotlin/jvm/functions/Function2;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, p1, v0}, Lkotlin/jvm/functions/Function2;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p1
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v3
+    return-object p1
 
-    .line 54
-    .end local v0    # "parameters":Lorg/koin/core/parameter/DefinitionParameters;
     :catch_0
-    move-exception v0
-
-    .line 55
-    .local v0, "e":Ljava/lang/Exception;
-    nop
+    move-exception p1
 
     .line 56
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/Exception;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, "\n\t"
+    move-result-object v0
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "\n\t"
 
-    .line 57
-    nop
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 56
-    invoke-virtual {v0}, Ljava/lang/Exception;->getStackTrace()[Ljava/lang/StackTraceElement;
+    move-result-object v0
 
-    move-result-object v5
+    invoke-virtual {p1}, Ljava/lang/Exception;->getStackTrace()[Ljava/lang/StackTraceElement;
 
-    const-string v6, "e.stackTrace"
+    move-result-object v2
 
-    invoke-static {v5, v6}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v3, "e.stackTrace"
 
-    .local v5, "$this$takeWhile$iv":[Ljava/lang/Object;
-    const/4 v6, 0x0
+    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 77
-    .local v6, "$i$f$takeWhile":I
-    new-instance v7, Ljava/util/ArrayList;
+    new-instance v3, Ljava/util/ArrayList;
 
-    invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
     .line 78
-    .local v7, "list$iv":Ljava/util/ArrayList;
-    array-length v8, v5
+    array-length v4, v2
 
-    const/4 v9, 0x0
-
-    move v10, v9
-
-    :goto_0
-    if-ge v10, v8, :cond_2
-
-    aget-object v11, v5, v10
-
-    .line 79
-    .local v11, "item$iv":Ljava/lang/Object;
-    move-object v12, v11
-
-    .local v12, "it":Ljava/lang/StackTraceElement;
-    const/4 v13, 0x0
-
-    .line 56
-    .local v13, "$i$a$-takeWhile-InstanceFactory$create$stack$1":I
-    const-string v14, "it"
-
-    invoke-static {v12, v14}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {v12}, Ljava/lang/StackTraceElement;->getClassName()Ljava/lang/String;
-
-    move-result-object v14
-
-    const-string v15, "it.className"
-
-    invoke-static {v14, v15}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
-
-    check-cast v14, Ljava/lang/CharSequence;
-
-    const-string v15, "sun.reflect"
-
-    check-cast v15, Ljava/lang/CharSequence;
-
-    const/4 v2, 0x2
-
-    move-object/from16 v16, v5
-
-    .end local v5    # "$this$takeWhile$iv":[Ljava/lang/Object;
-    .local v16, "$this$takeWhile$iv":[Ljava/lang/Object;
     const/4 v5, 0x0
 
-    invoke-static {v14, v15, v9, v2, v5}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+    move v6, v5
 
-    move-result v2
+    :goto_0
+    if-ge v6, v4, :cond_1
 
-    .end local v12    # "it":Ljava/lang/StackTraceElement;
-    .end local v13    # "$i$a$-takeWhile-InstanceFactory$create$stack$1":I
-    xor-int/lit8 v2, v2, 0x1
+    aget-object v7, v2, v6
 
-    if-eqz v2, :cond_1
+    const-string v8, "it"
+
+    .line 56
+    invoke-static {v7, v8}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+
+    invoke-virtual {v7}, Ljava/lang/StackTraceElement;->getClassName()Ljava/lang/String;
+
+    move-result-object v8
+
+    const-string v9, "it.className"
+
+    invoke-static {v8, v9}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+
+    check-cast v8, Ljava/lang/CharSequence;
+
+    const-string v9, "sun.reflect"
+
+    check-cast v9, Ljava/lang/CharSequence;
+
+    const/4 v10, 0x2
+
+    const/4 v11, 0x0
+
+    invoke-static {v8, v9, v5, v10, v11}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+
+    move-result v8
+
+    xor-int/lit8 v8, v8, 0x1
+
+    if-eqz v8, :cond_1
 
     .line 81
-    invoke-virtual {v7, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 78
-    nop
-
-    .end local v11    # "item$iv":Ljava/lang/Object;
-    add-int/lit8 v10, v10, 0x1
-
-    move-object/from16 v2, p1
-
-    move-object/from16 v5, v16
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
-    .line 80
-    .restart local v11    # "item$iv":Ljava/lang/Object;
-    :cond_1
-    goto :goto_1
-
-    .line 78
-    .end local v11    # "item$iv":Ljava/lang/Object;
-    .end local v16    # "$this$takeWhile$iv":[Ljava/lang/Object;
-    .restart local v5    # "$this$takeWhile$iv":[Ljava/lang/Object;
-    :cond_2
-    move-object/from16 v16, v5
-
     .line 83
-    .end local v5    # "$this$takeWhile$iv":[Ljava/lang/Object;
-    .restart local v16    # "$this$takeWhile$iv":[Ljava/lang/Object;
-    :goto_1
-    move-object v2, v7
+    :cond_1
+    check-cast v3, Ljava/util/List;
 
-    check-cast v2, Ljava/util/List;
+    move-object v4, v3
 
-    .end local v6    # "$i$f$takeWhile":I
-    .end local v7    # "list$iv":Ljava/util/ArrayList;
-    .end local v16    # "$this$takeWhile$iv":[Ljava/lang/Object;
-    move-object v5, v2
-
-    check-cast v5, Ljava/lang/Iterable;
+    check-cast v4, Ljava/lang/Iterable;
 
     .line 57
-    move-object v6, v4
+    move-object v5, v1
 
-    check-cast v6, Ljava/lang/CharSequence;
+    check-cast v5, Ljava/lang/CharSequence;
+
+    const/4 v6, 0x0
 
     const/4 v7, 0x0
 
@@ -383,81 +319,81 @@
 
     const/4 v10, 0x0
 
-    const/4 v11, 0x0
+    const/16 v11, 0x3e
 
-    const/16 v12, 0x3e
+    const/4 v12, 0x0
 
-    const/4 v13, 0x0
+    invoke-static/range {v4 .. v12}, Lkotlin/collections/CollectionsKt;->joinToString$default(Ljava/lang/Iterable;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;ILjava/lang/CharSequence;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/lang/String;
 
-    invoke-static/range {v5 .. v13}, Lkotlin/collections/CollectionsKt;->joinToString$default(Ljava/lang/Iterable;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;ILjava/lang/CharSequence;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
-
-    .line 55
-    nop
+    move-result-object v0
 
     .line 58
-    .local v2, "stack":Ljava/lang/String;
-    iget-object v3, v1, Lorg/koin/core/instance/InstanceFactory;->_koin:Lorg/koin/core/Koin;
+    iget-object v1, p0, Lorg/koin/core/instance/InstanceFactory;->_koin:Lorg/koin/core/Koin;
 
-    invoke-virtual {v3}, Lorg/koin/core/Koin;->get_logger()Lorg/koin/core/logger/Logger;
+    invoke-virtual {v1}, Lorg/koin/core/Koin;->get_logger()Lorg/koin/core/logger/Logger;
 
-    move-result-object v3
+    move-result-object v1
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "Instance creation error : could not create instance for "
 
-    const-string v5, "Instance creation error : could not create instance for "
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lorg/koin/core/instance/InstanceFactory;->beanDefinition:Lorg/koin/core/definition/BeanDefinition;
 
-    iget-object v5, v1, Lorg/koin/core/instance/InstanceFactory;->beanDefinition:Lorg/koin/core/definition/BeanDefinition;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    const-string v5, ": "
+    const-string v3, ": "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v3, v4}, Lorg/koin/core/logger/Logger;->error(Ljava/lang/String;)V
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Lorg/koin/core/logger/Logger;->error(Ljava/lang/String;)V
 
     .line 59
-    new-instance v3, Lorg/koin/core/error/InstanceCreationException;
+    new-instance v0, Lorg/koin/core/error/InstanceCreationException;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "Could not create instance for "
 
-    const-string v5, "Could not create instance for "
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v2, p0, Lorg/koin/core/instance/InstanceFactory;->beanDefinition:Lorg/koin/core/definition/BeanDefinition;
 
-    iget-object v5, v1, Lorg/koin/core/instance/InstanceFactory;->beanDefinition:Lorg/koin/core/definition/BeanDefinition;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-direct {v3, v4, v0}, Lorg/koin/core/error/InstanceCreationException;-><init>(Ljava/lang/String;Ljava/lang/Exception;)V
+    invoke-direct {v0, v1, p1}, Lorg/koin/core/error/InstanceCreationException;-><init>(Ljava/lang/String;Ljava/lang/Exception;)V
 
-    check-cast v3, Ljava/lang/Throwable;
+    check-cast v0, Ljava/lang/Throwable;
 
-    throw v3
+    throw v0
 .end method
 
 .method public abstract drop()V

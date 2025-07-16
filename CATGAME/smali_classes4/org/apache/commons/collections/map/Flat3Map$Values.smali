@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections/map/Flat3Map;)V
     .locals 0
-    .param p1, "parent"    # Lorg/apache/commons/collections/map/Flat3Map;
 
     .line 941
     invoke-direct {p0}, Ljava/util/AbstractCollection;-><init>()V
@@ -29,7 +28,6 @@
     .line 942
     iput-object p1, p0, Lorg/apache/commons/collections/map/Flat3Map$Values;->parent:Lorg/apache/commons/collections/map/Flat3Map;
 
-    .line 943
     return-void
 .end method
 
@@ -43,22 +41,20 @@
 
     invoke-virtual {v0}, Lorg/apache/commons/collections/map/Flat3Map;->clear()V
 
-    .line 951
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "value"    # Ljava/lang/Object;
 
     .line 954
     iget-object v0, p0, Lorg/apache/commons/collections/map/Flat3Map$Values;->parent:Lorg/apache/commons/collections/map/Flat3Map;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections/map/Flat3Map;->containsValue(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public iterator()Ljava/util/Iterator;

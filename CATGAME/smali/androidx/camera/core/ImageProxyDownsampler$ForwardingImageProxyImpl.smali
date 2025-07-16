@@ -25,10 +25,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ImageProxy;[Landroidx/camera/core/ImageProxy$PlaneProxy;II)V
     .locals 0
-    .param p1, "originalImage"    # Landroidx/camera/core/ImageProxy;
-    .param p2, "downsampledPlanes"    # [Landroidx/camera/core/ImageProxy$PlaneProxy;
-    .param p3, "downsampledWidth"    # I
-    .param p4, "downsampledHeight"    # I
 
     .line 231
     invoke-direct {p0, p1}, Landroidx/camera/core/ForwardingImageProxy;-><init>(Landroidx/camera/core/ImageProxy;)V
@@ -42,7 +38,6 @@
     .line 234
     iput p4, p0, Landroidx/camera/core/ImageProxyDownsampler$ForwardingImageProxyImpl;->mDownsampledHeight:I
 
-    .line 235
     return-void
 .end method
 
@@ -63,8 +58,6 @@
 
     return v0
 
-    .line 244
-    .end local p0    # "this":Landroidx/camera/core/ImageProxyDownsampler$ForwardingImageProxyImpl;
     :catchall_0
     move-exception v0
 
@@ -88,8 +81,6 @@
 
     return-object v0
 
-    .line 250
-    .end local p0    # "this":Landroidx/camera/core/ImageProxyDownsampler$ForwardingImageProxyImpl;
     :catchall_0
     move-exception v0
 
@@ -113,8 +104,6 @@
 
     return v0
 
-    .line 239
-    .end local p0    # "this":Landroidx/camera/core/ImageProxyDownsampler$ForwardingImageProxyImpl;
     :catchall_0
     move-exception v0
 

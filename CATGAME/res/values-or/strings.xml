@@ -53,33 +53,12 @@
     <string name="fallback_menu_item_copy_link">ଲିଙ୍କ୍ କପି କରନ୍ତୁ</string>
     <string name="fallback_menu_item_open_in_browser">ବ୍ରାଉଜର୍‌ରେ ଖୋଲନ୍ତୁ</string>
     <string name="fallback_menu_item_share_link">ଲିଙ୍କ୍ ସେୟାର୍ କରନ୍ତୁ</string>
-    <string name="hms_abort">ବନ୍ଦ କରନ୍ତୁ</string>
-    <string name="hms_abort_message">ଡାଉନଲୋଡ୍ କରିବା ସ୍ଥଗିତ କରିବେ?</string>
-    <string name="hms_bindfaildlg_message">%1$s Huawei Mobile Services ବ୍ୟବହାର କରିବାକୁ ଅସମର୍ଥ। ଦୟାକରି ଅପ୍ଟିମାଇଜର୍‌ (ଫୋନ୍ ପରିଚାଳକ) ଉନ୍ମୋଚନ କରନ୍ତୁ କିମ୍ୱା ସେଟିଂସକୁ ଯାଆନ୍ତୁ, (ଅନ୍ତର୍ଭୁକ୍ତ ସ୍ଵତଃ-ଲଞ୍ଚ ଏବଂ ଗୌଣ ଲଞ୍ଚ) %2$s ପାଇଁ ସମସ୍ତ ଅନୁମତିଗୁଡ଼ିକ ସକ୍ଷମ କରନ୍ତୁ, ଏବଂ ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
-    <string name="hms_cancel">ବାତିଲ୍ କରନ୍ତୁ</string>
-    <string name="hms_check_failure">ଅପଡେଟସ୍‌ ଯାଞ୍ଚ କରିବାକୁ ବିଫଳ ହୋଇଛି।</string>
-    <string name="hms_check_no_update">ଆପଣଙ୍କ ସଂସ୍କରଣ ଅପ୍‌ ଟୁ ଡେଟ୍‌ ଅଛି।</string>
-    <string name="hms_checking">ଅପଡେଟ୍‌ଗୁଡିକ ପାଇଁ ଯାଞ୍ଚ ହେଉଛି…</string>
+    <string name="hms_apk_not_installed_hints">%1$sରେ ଥିବା କିଛି ବିଶେଷତା HMS Coreରେ ଉପଯୁକ୍ତ ଭାବେ କାମ କରିନପାରେ, ଯାହା ଆପଣଙ୍କ ଡିଭାଇସ୍‌ରେ ସଂସ୍ଥାପନ କରାଯାଇ ନାହିଁ।</string>
+    <string name="hms_bindfaildlg_message">%1$s HMS Core ବ୍ୟବହାର କରିବାକୁ ଅସମର୍ଥ। ଦୟାକରି ଅପ୍ଟିମାଇଜର୍‌ (ଫୋନ୍ ପରିଚାଳକ) ଉନ୍ମୋଚନ କରନ୍ତୁ କିମ୍ୱା ସେଟିଂସକୁ ଯାଆନ୍ତୁ, (ଅନ୍ତର୍ଭୁକ୍ତ ସ୍ଵତଃ-ଲଞ୍ଚ ଏବଂ ଗୌଣ ଲଞ୍ଚ) %2$s ପାଇଁ ସମସ୍ତ ଅନୁମତିଗୁଡ଼ିକ ସକ୍ଷମ କରନ୍ତୁ, ଏବଂ ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="hms_confirm">ଓକେ</string>
-    <string name="hms_download_failure">Huawei Mobile Services ପ୍ୟାକେଜ୍ ଡାଉନଲୋଡ୍ କରିବାକୁ ବିଫଳ ହୋଇଛି।</string>
-    <string name="hms_download_no_space">ପର୍ଯ୍ୟାପ୍ତ ଖାଲି ସ୍ଥାନ ନାହିଁ। ଡାଉନଲୋଡ୍ ସମ୍ପୂର୍ଣ୍ଣ ହୋଇପାରିବ ନାହିଁ।</string>
-    <string name="hms_download_retry">ଡାଉନଲୋଡ୍ ବିଫଳ ହୋଇଛି। ପୁନଃଚେଷ୍ଟା କରିବେ?</string>
-    <string name="hms_downloading">"Huawei Mobile Services ଡାଉନଲୋଡ୍ ହେଉଛି
-ପ୍ରଗତି: %d%%"</string>
-    <string name="hms_downloading_loading">ଡାଉନଲୋଡ୍ ହେଉଛି</string>
-    <string name="hms_downloading_new">HMS ଡାଉନଲୋଡ୍ ହେଉଛି</string>
-    <string name="hms_gamebox_name">HUAWEI GameCenter</string>
-    <string name="hms_install">ସଂସ୍ଥାପନ କରନ୍ତୁ</string>
-    <string name="hms_install_message">ଏହି ବିଶେଷତା ବ୍ୟବହାର କରିବାକୁ ନିଶ୍ଚିତ ଭାବରେ Huawei Mobile Services ସଂସ୍ଥାପିତ କରିବା ଆବଶ୍ୟକ। ସଂସ୍ଥାପନ କରିବେ?</string>
-    <string name="hms_retry">ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ</string>
-    <string name="hms_update">ଅପଡେଟ୍‌ କରନ୍ତୁ</string>
-    <string name="hms_update_continue">ଡାଉନ‌ଲୋଡ୍ କରନ୍ତୁ</string>
-    <string name="hms_update_message">ଏହି ବିଶେଷତା ବ୍ୟବହାର କରିବାକୁ Huawei Mobile Services ର ନବୀନତ୍ତମ ସଂସ୍କରଣ ଅପଡେଟ୍ କରନ୍ତୁ। ବର୍ତ୍ତମାନ ଅପଡେଟ୍‌ କରିବେ?</string>
-    <string name="hms_update_message_new">"ଏହି ସେବା ପାଇଁ ନିମ୍ନଲିଖିତ ଆପ୍ ର ନବୀନତ୍ତମ ସଂସ୍କରଣ ଆବଶ୍ୟକ ଅଟେ:
-
-%1$s"</string>
-    <string name="hms_update_nettype">କୌଣସି Wi-Fi ସଂଯୋଜନା ନାହିଁ। ମୋବାଇଲ୍‌ ଡାଟା ବ୍ୟବହାର କରି ଡାଉନଲୋଡ୍ କରିବେ?</string>
-    <string name="hms_update_title">Huawei Mobile Services</string>
+    <string name="hms_is_spoof">ଜଣା ପଡୁଛି ଯେ ଆପଣଙ୍କ ଡିଭାଇସ୍‌ରେ ଏକ ଅଣଅଫିସିଆଲ୍‌ HMS Core (%1$s)ର ସଂସ୍କରଣ ସଂସ୍ଥାପନ କରାଯାଇଛି। ଦୟାକରି ସେଟିଂସ୍‌ରୁ HMS Core ଅଣସଂସ୍ଥାପନ କରନ୍ତୁ ଏବଂ ଅଫିସିଆଲ୍‌ ସଂସ୍କରଣ ସଂସ୍ଥାପନ କରିବାକୁ ଏହି ଆପ୍‌କୁ ଫେରନ୍ତୁ।</string>
+    <string name="hms_spoof_hints">ନୋଟ୍</string>
+    <string name="mlkit_asr_machine_learning_kit">ML କିଟ୍‌ ଦ୍ୱାରା ପରିଚାଳିତ</string>
     <string name="mr_button_content_description">କାଷ୍ଟ ବଟନ୍‍</string>
     <string name="mr_cast_button_connected">କାଷ୍ଟ ବଟନ୍‍। କନେକ୍ଟ ହୋ‌ଇଛି</string>
     <string name="mr_cast_button_connecting">କାଷ୍ଟ ବଟନ୍‍। କନେକ୍ଟ କରାଯାଉଛି</string>
@@ -106,27 +85,4 @@
     <string name="mr_user_route_category_name">ଡିଭାଇସ୍‌</string>
     <string name="search_menu_title">ସର୍ଚ୍ଚ କରନ୍ତୁ</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="upsdk_app_dl_installing">AppGallery ଡାଉନଲୋଡ୍ ହେଉଛି</string>
-    <string name="upsdk_app_download_info_new">ସଂସ୍ଥାପନ କରନ୍ତୁ</string>
-    <string name="upsdk_app_size">ଆକାର</string>
-    <string name="upsdk_app_version">ସଂସ୍କରଣ</string>
-    <string name="upsdk_cancel">ବାତିଲ୍ କରନ୍ତୁ</string>
-    <string name="upsdk_checking_update_prompt">ଅପଡେଟ୍‌ଗୁଡିକ ପାଇଁ ଯାଞ୍ଚ ହେଉଛି…</string>
-    <string name="upsdk_choice_update">ଅପଡେଟ୍‌ ଉପଲବ୍ଧ। ଦୟାକରି ନବୀନତ୍ତମ ସଂସ୍କରଣ ଡାଉନଲୋଡ୍ କରନ୍ତୁ ଏବଂ ସଂସ୍ଥାପନ କରନ୍ତୁ।</string>
-    <string name="upsdk_connect_server_fail_prompt_toast">ସର୍ଭରକୁ ସଂଯୋଗ କରିବାକୁ ଅସମର୍ଥ। ଦୟାକରି ପରେ ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
-    <string name="upsdk_detail">ବିବରଣୀ</string>
-    <string name="upsdk_getting_message_fail_prompt_toast">ସୂଚନା ପୁନରୁଦ୍ଧାର କରିବାକୁ ଅସମର୍ଥ ହୋଇଛି। ଦୟାକରି ପରେ ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
-    <string name="upsdk_install">ଅପଡେଟ୍‌ କରିବାକୁ AppGallery ସଂସ୍ଥାପନ କରନ୍ତୁ। ବର୍ତ୍ତମାନ ସଂସ୍ଥାପନ କରନ୍ତୁ?</string>
-    <string name="upsdk_no_available_network_prompt_toast">କୌଣସି ଇଣ୍ଟର୍ନେଟ୍‌ ସଂଯୋଜନା ନାହିଁ। ଦୟାକରି ଆପଣଙ୍କ ନେଟୱାର୍କ୍‌ ସେଟିଂସ୍ ଯାଞ୍ଚ କରନ୍ତୁ।</string>
-    <string name="upsdk_ota_app_name">ଆପ୍</string>
-    <string name="upsdk_ota_cancel">ପରେ</string>
-    <string name="upsdk_ota_force_cancel_new">ପ୍ରସ୍ଥାନ କରନ୍ତୁ</string>
-    <string name="upsdk_ota_notify_updatebtn">ଅପଡେଟ୍‌ କରନ୍ତୁ</string>
-    <string name="upsdk_ota_title">ନୂତନ ସଂସ୍କରଣ</string>
-    <string name="upsdk_storage_utils">%1$s MB</string>
-    <string name="upsdk_third_app_dl_cancel_download_prompt_ex">ସଂସ୍ଥାପନା ବାତିଲ୍ କରିବେ?</string>
-    <string name="upsdk_third_app_dl_install_failed">ସଂସ୍ଥାପନା ବିଫଳ ହୋଇଛି।</string>
-    <string name="upsdk_third_app_dl_sure_cancel_download">ହଁ</string>
-    <string name="upsdk_update_check_no_new_version">ଆପଣଙ୍କ ସଂସ୍କରଣ ଅପ୍‌ ଟୁ ଡେଟ୍‌ ଅଛି।</string>
-    <string name="upsdk_updating">ଅପଡେଟ୍ କରାଯାଉଛି</string>
 </resources>

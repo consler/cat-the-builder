@@ -35,11 +35,8 @@
     .end annotation
 
     .line 73
-    .local p0, "this":Lorg/apache/commons/collections4/set/UnmodifiableSet;, "Lorg/apache/commons/collections4/set/UnmodifiableSet<TE;>;"
-    .local p1, "set":Ljava/util/Set;, "Ljava/util/Set<+TE;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/set/AbstractSerializableSetDecorator;-><init>(Ljava/util/Set;)V
 
-    .line 74
     return-void
 .end method
 
@@ -58,20 +55,13 @@
     .end annotation
 
     .line 56
-    .local p0, "set":Ljava/util/Set;, "Ljava/util/Set<+TE;>;"
     instance-of v0, p0, Lorg/apache/commons/collections4/Unmodifiable;
 
     if-eqz v0, :cond_0
 
-    .line 58
-    move-object v0, p0
-
-    .line 59
-    .local v0, "tmpSet":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
-    return-object v0
+    return-object p0
 
     .line 61
-    .end local v0    # "tmpSet":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
     :cond_0
     new-instance v0, Lorg/apache/commons/collections4/set/UnmodifiableSet;
 
@@ -83,7 +73,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)Z"
@@ -91,17 +81,15 @@
     .end annotation
 
     .line 84
-    .local p0, "this":Lorg/apache/commons/collections4/set/UnmodifiableSet;, "Lorg/apache/commons/collections4/set/UnmodifiableSet<TE;>;"
-    .local p1, "object":Ljava/lang/Object;, "TE;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -111,20 +99,17 @@
     .end annotation
 
     .line 89
-    .local p0, "this":Lorg/apache/commons/collections4/set/UnmodifiableSet;, "Lorg/apache/commons/collections4/set/UnmodifiableSet<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<+TE;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public clear()V
     .locals 1
 
     .line 94
-    .local p0, "this":Lorg/apache/commons/collections4/set/UnmodifiableSet;, "Lorg/apache/commons/collections4/set/UnmodifiableSet<TE;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -143,7 +128,6 @@
     .end annotation
 
     .line 79
-    .local p0, "this":Lorg/apache/commons/collections4/set/UnmodifiableSet;, "Lorg/apache/commons/collections4/set/UnmodifiableSet<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/UnmodifiableSet;->decorated()Ljava/util/Set;
 
     move-result-object v0
@@ -160,20 +144,18 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
+    .locals 0
 
     .line 99
-    .local p0, "this":Lorg/apache/commons/collections4/set/UnmodifiableSet;, "Lorg/apache/commons/collections4/set/UnmodifiableSet<TE;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -183,17 +165,15 @@
     .end annotation
 
     .line 112
-    .local p0, "this":Lorg/apache/commons/collections4/set/UnmodifiableSet;, "Lorg/apache/commons/collections4/set/UnmodifiableSet<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public removeIf(Ljava/util/function/Predicate;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -203,17 +183,15 @@
     .end annotation
 
     .line 107
-    .local p0, "this":Lorg/apache/commons/collections4/set/UnmodifiableSet;, "Lorg/apache/commons/collections4/set/UnmodifiableSet<TE;>;"
-    .local p1, "filter":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<-TE;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -223,11 +201,9 @@
     .end annotation
 
     .line 117
-    .local p0, "this":Lorg/apache/commons/collections4/set/UnmodifiableSet;, "Lorg/apache/commons/collections4/set/UnmodifiableSet<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method

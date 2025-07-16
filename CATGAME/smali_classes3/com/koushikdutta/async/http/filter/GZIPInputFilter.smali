@@ -42,15 +42,11 @@
 
     iput-object v0, p0, Lcom/koushikdutta/async/http/filter/GZIPInputFilter;->crc:Ljava/util/zip/CRC32;
 
-    .line 38
     return-void
 .end method
 
 .method static peekShort([BILjava/nio/ByteOrder;)S
-    .locals 2
-    .param p0, "src"    # [B
-    .param p1, "offset"    # I
-    .param p2, "order"    # Ljava/nio/ByteOrder;
+    .locals 1
 
     .line 19
     sget-object v0, Ljava/nio/ByteOrder;->BIG_ENDIAN:Ljava/nio/ByteOrder;
@@ -58,57 +54,48 @@
     if-ne p2, v0, :cond_0
 
     .line 20
-    aget-byte v0, p0, p1
+    aget-byte p2, p0, p1
 
-    shl-int/lit8 v0, v0, 0x8
+    shl-int/lit8 p2, p2, 0x8
 
-    add-int/lit8 v1, p1, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    aget-byte v1, p0, v1
+    aget-byte p0, p0, p1
 
-    and-int/lit16 v1, v1, 0xff
+    :goto_0
+    and-int/lit16 p0, p0, 0xff
 
-    or-int/2addr v0, v1
+    or-int/2addr p0, p2
 
-    int-to-short v0, v0
+    int-to-short p0, p0
 
-    return v0
+    return p0
+
+    :cond_0
+    add-int/lit8 p2, p1, 0x1
 
     .line 22
-    :cond_0
-    add-int/lit8 v0, p1, 0x1
+    aget-byte p2, p0, p2
 
-    aget-byte v0, p0, v0
+    shl-int/lit8 p2, p2, 0x8
 
-    shl-int/lit8 v0, v0, 0x8
+    aget-byte p0, p0, p1
 
-    aget-byte v1, p0, p1
-
-    and-int/lit16 v1, v1, 0xff
-
-    or-int/2addr v0, v1
-
-    int-to-short v0, v0
-
-    return v0
+    goto :goto_0
 .end method
 
 .method public static unsignedToBytes(B)I
-    .locals 1
-    .param p0, "b"    # B
+    .locals 0
 
-    .line 44
-    and-int/lit16 v0, p0, 0xff
+    and-int/lit16 p0, p0, 0xff
 
-    return v0
+    return p0
 .end method
 
 
 # virtual methods
 .method public onDataAvailable(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/ByteBufferList;)V
-    .locals 3
-    .param p1, "emitter"    # Lcom/koushikdutta/async/DataEmitter;
-    .param p2, "bb"    # Lcom/koushikdutta/async/ByteBufferList;
+    .locals 1
 
     .line 50
     iget-boolean v0, p0, Lcom/koushikdutta/async/http/filter/GZIPInputFilter;->mNeedsHeader:Z
@@ -116,29 +103,25 @@
     if-eqz v0, :cond_0
 
     .line 51
-    new-instance v0, Lcom/koushikdutta/async/PushParser;
+    new-instance p2, Lcom/koushikdutta/async/PushParser;
 
-    invoke-direct {v0, p1}, Lcom/koushikdutta/async/PushParser;-><init>(Lcom/koushikdutta/async/DataEmitter;)V
+    invoke-direct {p2, p1}, Lcom/koushikdutta/async/PushParser;-><init>(Lcom/koushikdutta/async/DataEmitter;)V
 
     .line 52
-    .local v0, "parser":Lcom/koushikdutta/async/PushParser;
-    const/16 v1, 0xa
+    new-instance v0, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;
 
-    new-instance v2, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;
+    invoke-direct {v0, p0, p1, p2}, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;-><init>(Lcom/koushikdutta/async/http/filter/GZIPInputFilter;Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/PushParser;)V
 
-    invoke-direct {v2, p0, p1, v0}, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;-><init>(Lcom/koushikdutta/async/http/filter/GZIPInputFilter;Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/PushParser;)V
+    const/16 p1, 0xa
 
-    invoke-virtual {v0, v1, v2}, Lcom/koushikdutta/async/PushParser;->readByteArray(ILcom/koushikdutta/async/PushParser$ParseCallback;)Lcom/koushikdutta/async/PushParser;
+    invoke-virtual {p2, p1, v0}, Lcom/koushikdutta/async/PushParser;->readByteArray(ILcom/koushikdutta/async/PushParser$ParseCallback;)Lcom/koushikdutta/async/PushParser;
 
-    .line 139
-    .end local v0    # "parser":Lcom/koushikdutta/async/PushParser;
     goto :goto_0
 
     .line 141
     :cond_0
     invoke-super {p0, p1, p2}, Lcom/koushikdutta/async/http/filter/InflaterInputFilter;->onDataAvailable(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/ByteBufferList;)V
 
-    .line 143
     :goto_0
     return-void
 .end method

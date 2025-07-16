@@ -49,8 +49,6 @@
     .end annotation
 
     .line 480
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$SetAdapter;, "Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter<TK;TV;TRealValue;>.SetAdapter;"
-    .local p2, "realSet":Ljava/util/Set;, "Ljava/util/Set<Ljava/util/Map$Entry<TK;TRealValue;>;>;"
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$SetAdapter;->this$0:Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter;
 
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
@@ -58,7 +56,6 @@
     .line 481
     iput-object p2, p0, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$SetAdapter;->realSet:Ljava/util/Set;
 
-    .line 482
     return-void
 .end method
 
@@ -76,7 +73,6 @@
     .end annotation
 
     .line 486
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$SetAdapter;, "Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter<TK;TV;TRealValue;>.SetAdapter;"
     new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$IteratorAdapter;
 
     iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$SetAdapter;->this$0:Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter;
@@ -96,7 +92,6 @@
     .locals 1
 
     .line 491
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$SetAdapter;, "Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter<TK;TV;TRealValue;>.SetAdapter;"
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$SetAdapter;->realSet:Ljava/util/Set;
 
     invoke-interface {v0}, Ljava/util/Set;->size()I

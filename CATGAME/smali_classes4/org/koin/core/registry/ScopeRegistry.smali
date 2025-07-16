@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nScopeRegistry.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ScopeRegistry.kt\norg/koin/core/registry/ScopeRegistry\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,182:1\n1360#2:183\n1429#2,3:184\n1642#2,2:187\n1642#2,2:189\n704#2:191\n777#2,2:192\n1642#2,2:194\n1642#2,2:196\n1642#2,2:198\n1642#2,2:200\n1642#2,2:202\n250#2,2:204\n704#2:206\n777#2,2:207\n1642#2,2:209\n*E\n*S KotlinDebug\n*F\n+ 1 ScopeRegistry.kt\norg/koin/core/registry/ScopeRegistry\n*L\n50#1:183\n50#1,3:184\n53#1,2:187\n69#1,2:189\n80#1:191\n80#1,2:192\n80#1,2:194\n94#1,2:196\n157#1,2:198\n161#1,2:200\n168#1,2:202\n176#1,2:204\n180#1:206\n180#1,2:207\n180#1,2:209\n*E\n"
+    value = "SMAP\nScopeRegistry.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ScopeRegistry.kt\norg/koin/core/registry/ScopeRegistry\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,182:1\n1366#2:183\n1435#2,3:184\n1648#2,2:187\n1648#2,2:189\n706#2:191\n783#2,2:192\n1648#2,2:194\n1648#2,2:196\n1648#2,2:198\n1648#2,2:200\n1648#2,2:202\n250#2,2:204\n706#2:206\n783#2,2:207\n1648#2,2:209\n*E\n*S KotlinDebug\n*F\n+ 1 ScopeRegistry.kt\norg/koin/core/registry/ScopeRegistry\n*L\n50#1:183\n50#1,3:184\n53#1,2:187\n69#1,2:189\n80#1:191\n80#1,2:192\n80#1,2:194\n94#1,2:196\n157#1,2:198\n161#1,2:200\n168#1,2:202\n176#1,2:204\n180#1:206\n180#1,2:207\n180#1,2:209\n*E\n"
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
@@ -131,7 +131,6 @@
 # direct methods
 .method public constructor <init>(Lorg/koin/core/Koin;)V
     .locals 1
-    .param p1, "_koin"    # Lorg/koin/core/Koin;
 
     const-string v0, "_koin"
 
@@ -143,24 +142,24 @@
     iput-object p1, p0, Lorg/koin/core/registry/ScopeRegistry;->_koin:Lorg/koin/core/Koin;
 
     .line 37
-    new-instance v0, Ljava/util/HashMap;
+    new-instance p1, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {p1}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lorg/koin/core/registry/ScopeRegistry;->_scopeDefinitions:Ljava/util/HashMap;
+    iput-object p1, p0, Lorg/koin/core/registry/ScopeRegistry;->_scopeDefinitions:Ljava/util/HashMap;
 
     .line 41
-    new-instance v0, Ljava/util/HashMap;
+    new-instance p1, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {p1}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lorg/koin/core/registry/ScopeRegistry;->_scopes:Ljava/util/HashMap;
+    iput-object p1, p0, Lorg/koin/core/registry/ScopeRegistry;->_scopes:Ljava/util/HashMap;
 
     return-void
 .end method
 
 .method private final clearScopes()V
-    .locals 6
+    .locals 2
 
     .line 157
     iget-object v0, p0, Lorg/koin/core/registry/ScopeRegistry;->_scopes:Ljava/util/HashMap;
@@ -175,58 +174,35 @@
 
     check-cast v0, Ljava/lang/Iterable;
 
-    .local v0, "$this$forEach$iv":Ljava/lang/Iterable;
-    const/4 v1, 0x0
-
     .line 198
-    .local v1, "$i$f$forEach":I
     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v0
 
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_0
+    if-eqz v1, :cond_0
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    .local v3, "element$iv":Ljava/lang/Object;
-    move-object v4, v3
-
-    check-cast v4, Lorg/koin/core/scope/Scope;
-
-    .local v4, "scope":Lorg/koin/core/scope/Scope;
-    const/4 v5, 0x0
+    check-cast v1, Lorg/koin/core/scope/Scope;
 
     .line 157
-    .local v5, "$i$a$-forEach-ScopeRegistry$clearScopes$1":I
-    invoke-virtual {v4}, Lorg/koin/core/scope/Scope;->clear$koin_core()V
+    invoke-virtual {v1}, Lorg/koin/core/scope/Scope;->clear$koin_core()V
 
-    .end local v3    # "element$iv":Ljava/lang/Object;
-    .end local v4    # "scope":Lorg/koin/core/scope/Scope;
-    .end local v5    # "$i$a$-forEach-ScopeRegistry$clearScopes$1":I
     goto :goto_0
 
-    .line 199
     :cond_0
-    nop
-
-    .line 158
-    .end local v0    # "$this$forEach$iv":Ljava/lang/Iterable;
-    .end local v1    # "$i$f$forEach":I
     return-void
 .end method
 
 .method private final createScope(Ljava/lang/String;Lorg/koin/core/scope/ScopeDefinition;Ljava/lang/Object;)Lorg/koin/core/scope/Scope;
-    .locals 3
-    .param p1, "scopeId"    # Ljava/lang/String;
-    .param p2, "scopeDefinition"    # Lorg/koin/core/scope/ScopeDefinition;
-    .param p3, "source"    # Ljava/lang/Object;
+    .locals 2
 
     .line 133
     new-instance v0, Lorg/koin/core/scope/Scope;
@@ -236,36 +212,27 @@
     invoke-direct {v0, p1, p2, v1, p3}, Lorg/koin/core/scope/Scope;-><init>(Ljava/lang/String;Lorg/koin/core/scope/ScopeDefinition;Lorg/koin/core/Koin;Ljava/lang/Object;)V
 
     .line 134
-    .local v0, "scope":Lorg/koin/core/scope/Scope;
-    iget-object v1, p0, Lorg/koin/core/registry/ScopeRegistry;->_rootScope:Lorg/koin/core/scope/Scope;
+    iget-object p1, p0, Lorg/koin/core/registry/ScopeRegistry;->_rootScope:Lorg/koin/core/scope/Scope;
 
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
-    .local v1, "it":Lorg/koin/core/scope/Scope;
-    const/4 v2, 0x0
+    invoke-static {p1}, Lkotlin/collections/CollectionsKt;->listOf(Ljava/lang/Object;)Ljava/util/List;
 
-    .local v2, "$i$a$-let-ScopeRegistry$createScope$links$1":I
-    invoke-static {v1}, Lkotlin/collections/CollectionsKt;->listOf(Ljava/lang/Object;)Ljava/util/List;
+    move-result-object p1
 
-    move-result-object v1
-
-    .end local v1    # "it":Lorg/koin/core/scope/Scope;
-    .end local v2    # "$i$a$-let-ScopeRegistry$createScope$links$1":I
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
     :cond_0
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 135
-    .local v1, "links":Ljava/util/List;
     :goto_0
-    invoke-virtual {v0, v1}, Lorg/koin/core/scope/Scope;->create$koin_core(Ljava/util/List;)V
+    invoke-virtual {v0, p1}, Lorg/koin/core/scope/Scope;->create$koin_core(Ljava/util/List;)V
 
-    .line 136
     return-object v0
 .end method
 
@@ -276,9 +243,9 @@
 
     if-eqz p4, :cond_0
 
-    .line 117
     const/4 p3, 0x0
 
+    .line 117
     :cond_0
     invoke-virtual {p0, p1, p2, p3}, Lorg/koin/core/registry/ScopeRegistry;->createScope(Ljava/lang/String;Lorg/koin/core/qualifier/Qualifier;Ljava/lang/Object;)Lorg/koin/core/scope/Scope;
 
@@ -288,8 +255,7 @@
 .end method
 
 .method private final declareDefinitions(Lorg/koin/core/scope/ScopeDefinition;)V
-    .locals 3
-    .param p1, "definition"    # Lorg/koin/core/scope/ScopeDefinition;
+    .locals 2
 
     .line 84
     invoke-virtual {p0}, Lorg/koin/core/registry/ScopeRegistry;->getScopeDefinitions()Ljava/util/Map;
@@ -331,21 +297,16 @@
 
     invoke-virtual {p1}, Lorg/koin/core/scope/ScopeDefinition;->copy()Lorg/koin/core/scope/ScopeDefinition;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 88
     :goto_0
-    nop
-
-    .line 89
     return-void
 .end method
 
 .method private final declareInstances(Lorg/koin/core/scope/ScopeDefinition;)V
-    .locals 10
-    .param p1, "scopeDefinition"    # Lorg/koin/core/scope/ScopeDefinition;
+    .locals 4
 
     .line 80
     iget-object v0, p0, Lorg/koin/core/registry/ScopeRegistry;->_scopes:Ljava/util/HashMap;
@@ -360,134 +321,84 @@
 
     check-cast v0, Ljava/lang/Iterable;
 
-    .local v0, "$this$filter$iv":Ljava/lang/Iterable;
-    const/4 v1, 0x0
-
     .line 191
-    .local v1, "$i$f$filter":I
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    check-cast v2, Ljava/util/Collection;
-
-    .local v2, "destination$iv$iv":Ljava/util/Collection;
-    move-object v3, v0
-
-    .local v3, "$this$filterTo$iv$iv":Ljava/lang/Iterable;
-    const/4 v4, 0x0
+    check-cast v1, Ljava/util/Collection;
 
     .line 192
-    .local v4, "$i$f$filterTo":I
-    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v5
+    move-result-object v0
 
     :cond_0
     :goto_0
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v6
+    move-result v2
 
-    if-eqz v6, :cond_1
+    if-eqz v2, :cond_1
 
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v2
 
-    .local v6, "element$iv$iv":Ljava/lang/Object;
-    move-object v7, v6
+    move-object v3, v2
 
-    check-cast v7, Lorg/koin/core/scope/Scope;
-
-    .local v7, "it":Lorg/koin/core/scope/Scope;
-    const/4 v8, 0x0
+    check-cast v3, Lorg/koin/core/scope/Scope;
 
     .line 80
-    .local v8, "$i$a$-filter-ScopeRegistry$declareInstances$1":I
-    invoke-virtual {v7}, Lorg/koin/core/scope/Scope;->get_scopeDefinition()Lorg/koin/core/scope/ScopeDefinition;
+    invoke-virtual {v3}, Lorg/koin/core/scope/Scope;->get_scopeDefinition()Lorg/koin/core/scope/ScopeDefinition;
 
-    move-result-object v9
+    move-result-object v3
 
-    invoke-static {v9, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v3, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v3
 
-    .end local v7    # "it":Lorg/koin/core/scope/Scope;
-    .end local v8    # "$i$a$-filter-ScopeRegistry$declareInstances$1":I
-    if-eqz v7, :cond_0
+    if-eqz v3, :cond_0
 
-    invoke-interface {v2, v6}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v2}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     .line 193
-    .end local v6    # "element$iv$iv":Ljava/lang/Object;
     :cond_1
-    nop
+    check-cast v1, Ljava/util/List;
 
-    .end local v2    # "destination$iv$iv":Ljava/util/Collection;
-    .end local v3    # "$this$filterTo$iv$iv":Ljava/lang/Iterable;
-    .end local v4    # "$i$f$filterTo":I
-    move-object v0, v2
-
-    check-cast v0, Ljava/util/List;
-
-    .end local v0    # "$this$filter$iv":Ljava/lang/Iterable;
-    .end local v1    # "$i$f$filter":I
-    check-cast v0, Ljava/lang/Iterable;
-
-    .line 80
-    .local v0, "$this$forEach$iv":Ljava/lang/Iterable;
-    const/4 v1, 0x0
+    check-cast v1, Ljava/lang/Iterable;
 
     .line 194
-    .local v1, "$i$f$forEach":I
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v0
 
     :goto_1
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_2
+    if-eqz v1, :cond_2
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    .local v3, "element$iv":Ljava/lang/Object;
-    move-object v4, v3
-
-    check-cast v4, Lorg/koin/core/scope/Scope;
-
-    .local v4, "it":Lorg/koin/core/scope/Scope;
-    const/4 v5, 0x0
+    check-cast v1, Lorg/koin/core/scope/Scope;
 
     .line 80
-    .local v5, "$i$a$-forEach-ScopeRegistry$declareInstances$2":I
-    invoke-virtual {v4, p1}, Lorg/koin/core/scope/Scope;->loadDefinitions(Lorg/koin/core/scope/ScopeDefinition;)V
+    invoke-virtual {v1, p1}, Lorg/koin/core/scope/Scope;->loadDefinitions(Lorg/koin/core/scope/ScopeDefinition;)V
 
-    .end local v3    # "element$iv":Ljava/lang/Object;
-    .end local v4    # "it":Lorg/koin/core/scope/Scope;
-    .end local v5    # "$i$a$-forEach-ScopeRegistry$declareInstances$2":I
     goto :goto_1
 
-    .line 195
     :cond_2
-    nop
-
-    .line 81
-    .end local v0    # "$this$forEach$iv":Ljava/lang/Iterable;
-    .end local v1    # "$i$f$forEach":I
     return-void
 .end method
 
 .method private final declareScope(Lorg/koin/core/scope/ScopeDefinition;)V
     .locals 0
-    .param p1, "scopeDefinition"    # Lorg/koin/core/scope/ScopeDefinition;
 
     .line 75
     invoke-direct {p0, p1}, Lorg/koin/core/registry/ScopeRegistry;->declareDefinitions(Lorg/koin/core/scope/ScopeDefinition;)V
@@ -495,13 +406,11 @@
     .line 76
     invoke-direct {p0, p1}, Lorg/koin/core/registry/ScopeRegistry;->declareInstances(Lorg/koin/core/scope/ScopeDefinition;)V
 
-    .line 77
     return-void
 .end method
 
 .method private final declareScopes(Ljava/util/List;)V
-    .locals 6
-    .param p1, "list"    # Ljava/util/List;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -512,63 +421,37 @@
     .end annotation
 
     .line 69
-    move-object v0, p1
-
-    check-cast v0, Ljava/lang/Iterable;
-
-    .local v0, "$this$forEach$iv":Ljava/lang/Iterable;
-    const/4 v1, 0x0
+    check-cast p1, Ljava/lang/Iterable;
 
     .line 189
-    .local v1, "$i$f$forEach":I
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v0
 
-    .local v3, "element$iv":Ljava/lang/Object;
-    move-object v4, v3
-
-    check-cast v4, Lorg/koin/core/scope/ScopeDefinition;
-
-    .local v4, "scopeDefinition":Lorg/koin/core/scope/ScopeDefinition;
-    const/4 v5, 0x0
+    check-cast v0, Lorg/koin/core/scope/ScopeDefinition;
 
     .line 70
-    .local v5, "$i$a$-forEach-ScopeRegistry$declareScopes$1":I
-    invoke-direct {p0, v4}, Lorg/koin/core/registry/ScopeRegistry;->declareScope(Lorg/koin/core/scope/ScopeDefinition;)V
+    invoke-direct {p0, v0}, Lorg/koin/core/registry/ScopeRegistry;->declareScope(Lorg/koin/core/scope/ScopeDefinition;)V
 
-    .line 71
-    .end local v4    # "scopeDefinition":Lorg/koin/core/scope/ScopeDefinition;
-    .end local v5    # "$i$a$-forEach-ScopeRegistry$declareScopes$1":I
-    nop
-
-    .end local v3    # "element$iv":Ljava/lang/Object;
     goto :goto_0
 
-    .line 190
     :cond_0
-    nop
-
-    .line 72
-    .end local v0    # "$this$forEach$iv":Ljava/lang/Iterable;
-    .end local v1    # "$i$f$forEach":I
     return-void
 .end method
 
 .method private final loadModule(Lorg/koin/core/module/Module;)V
     .locals 1
-    .param p1, "module"    # Lorg/koin/core/module/Module;
 
     .line 64
     invoke-virtual {p1}, Lorg/koin/core/module/Module;->getRootScope()Lorg/koin/core/scope/ScopeDefinition;
@@ -580,19 +463,17 @@
     .line 65
     invoke-virtual {p1}, Lorg/koin/core/module/Module;->getOtherScopes()Ljava/util/ArrayList;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/List;
+    check-cast p1, Ljava/util/List;
 
-    invoke-direct {p0, v0}, Lorg/koin/core/registry/ScopeRegistry;->declareScopes(Ljava/util/List;)V
+    invoke-direct {p0, p1}, Lorg/koin/core/registry/ScopeRegistry;->declareScopes(Ljava/util/List;)V
 
-    .line 66
     return-void
 .end method
 
 .method private final mergeDefinitions(Lorg/koin/core/scope/ScopeDefinition;)V
-    .locals 10
-    .param p1, "definition"    # Lorg/koin/core/scope/ScopeDefinition;
+    .locals 5
 
     .line 92
     invoke-virtual {p0}, Lorg/koin/core/registry/ScopeRegistry;->getScopeDefinitions()Ljava/util/Map;
@@ -616,109 +497,87 @@
     if-eqz v0, :cond_1
 
     .line 94
-    .local v0, "existing":Lorg/koin/core/scope/ScopeDefinition;
     invoke-virtual {p1}, Lorg/koin/core/scope/ScopeDefinition;->getDefinitions()Ljava/util/Set;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/Iterable;
+
+    .line 196
+    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Ljava/lang/Iterable;
+    check-cast v1, Lorg/koin/core/definition/BeanDefinition;
 
-    .local v1, "$this$forEach$iv":Ljava/lang/Iterable;
-    const/4 v2, 0x0
+    const/4 v2, 0x2
 
-    .line 196
-    .local v2, "$i$f$forEach":I
-    invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    const/4 v3, 0x0
 
-    move-result-object v3
-
-    :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v4
-
-    .local v4, "element$iv":Ljava/lang/Object;
-    move-object v5, v4
-
-    check-cast v5, Lorg/koin/core/definition/BeanDefinition;
-
-    .local v5, "it":Lorg/koin/core/definition/BeanDefinition;
-    const/4 v6, 0x0
+    const/4 v4, 0x0
 
     .line 95
-    .local v6, "$i$a$-forEach-ScopeRegistry$mergeDefinitions$1":I
-    const/4 v7, 0x0
+    invoke-static {v0, v1, v4, v2, v3}, Lorg/koin/core/scope/ScopeDefinition;->save$default(Lorg/koin/core/scope/ScopeDefinition;Lorg/koin/core/definition/BeanDefinition;ZILjava/lang/Object;)V
 
-    const/4 v8, 0x2
-
-    const/4 v9, 0x0
-
-    invoke-static {v0, v5, v7, v8, v9}, Lorg/koin/core/scope/ScopeDefinition;->save$default(Lorg/koin/core/scope/ScopeDefinition;Lorg/koin/core/definition/BeanDefinition;ZILjava/lang/Object;)V
-
-    .line 96
-    .end local v5    # "it":Lorg/koin/core/definition/BeanDefinition;
-    .end local v6    # "$i$a$-forEach-ScopeRegistry$mergeDefinitions$1":I
-    nop
-
-    .end local v4    # "element$iv":Ljava/lang/Object;
     goto :goto_0
 
-    .line 197
     :cond_0
-    nop
-
-    .line 97
-    .end local v1    # "$this$forEach$iv":Ljava/lang/Iterable;
-    .end local v2    # "$i$f$forEach":I
     return-void
 
     .line 93
-    .end local v0    # "existing":Lorg/koin/core/scope/ScopeDefinition;
     :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "Scope definition \'"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v1, "\' not found in "
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, "\' not found in "
 
-    iget-object v1, p0, Lorg/koin/core/registry/ScopeRegistry;->_scopeDefinitions:Ljava/util/HashMap;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget-object v0, p0, Lorg/koin/core/registry/ScopeRegistry;->_scopeDefinitions:Ljava/util/HashMap;
 
-    move-result-object v0
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/IllegalStateException;
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {v1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    check-cast v1, Ljava/lang/Throwable;
+    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    throw v1
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    check-cast v0, Ljava/lang/Throwable;
+
+    throw v0
 .end method
 
 .method private final unloadDefinitions(Lorg/koin/core/scope/ScopeDefinition;)V
-    .locals 6
-    .param p1, "scopeDefinition"    # Lorg/koin/core/scope/ScopeDefinition;
+    .locals 3
 
     .line 175
     invoke-direct {p0, p1}, Lorg/koin/core/registry/ScopeRegistry;->unloadInstances(Lorg/koin/core/scope/ScopeDefinition;)V
@@ -736,74 +595,53 @@
 
     check-cast v0, Ljava/lang/Iterable;
 
-    .local v0, "$this$firstOrNull$iv":Ljava/lang/Iterable;
-    const/4 v1, 0x0
-
     .line 204
-    .local v1, "$i$f$firstOrNull":I
     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v0
 
     :cond_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_1
+    if-eqz v1, :cond_1
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    .local v3, "element$iv":Ljava/lang/Object;
-    move-object v4, v3
+    move-object v2, v1
 
-    check-cast v4, Lorg/koin/core/scope/ScopeDefinition;
-
-    .local v4, "it":Lorg/koin/core/scope/ScopeDefinition;
-    const/4 v5, 0x0
+    check-cast v2, Lorg/koin/core/scope/ScopeDefinition;
 
     .line 176
-    .local v5, "$i$a$-firstOrNull-ScopeRegistry$unloadDefinitions$1":I
-    invoke-static {v4, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v2, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v2
 
-    .end local v4    # "it":Lorg/koin/core/scope/ScopeDefinition;
-    .end local v5    # "$i$a$-firstOrNull-ScopeRegistry$unloadDefinitions$1":I
-    if-eqz v4, :cond_0
+    if-eqz v2, :cond_0
 
     goto :goto_0
 
-    .line 205
-    .end local v3    # "element$iv":Ljava/lang/Object;
     :cond_1
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
-    .end local v0    # "$this$firstOrNull$iv":Ljava/lang/Iterable;
-    .end local v1    # "$i$f$firstOrNull":I
+    .line 205
     :goto_0
-    check-cast v3, Lorg/koin/core/scope/ScopeDefinition;
+    check-cast v1, Lorg/koin/core/scope/ScopeDefinition;
 
-    if-eqz v3, :cond_2
+    if-eqz v1, :cond_2
 
     .line 176
-    invoke-virtual {v3, p1}, Lorg/koin/core/scope/ScopeDefinition;->unloadDefinitions(Lorg/koin/core/scope/ScopeDefinition;)V
-
-    goto :goto_1
+    invoke-virtual {v1, p1}, Lorg/koin/core/scope/ScopeDefinition;->unloadDefinitions(Lorg/koin/core/scope/ScopeDefinition;)V
 
     :cond_2
-    nop
-
-    .line 177
-    :goto_1
     return-void
 .end method
 
 .method private final unloadInstances(Lorg/koin/core/scope/ScopeDefinition;)V
-    .locals 10
-    .param p1, "scopeDefinition"    # Lorg/koin/core/scope/ScopeDefinition;
+    .locals 4
 
     .line 180
     iget-object v0, p0, Lorg/koin/core/registry/ScopeRegistry;->_scopes:Ljava/util/HashMap;
@@ -818,128 +656,79 @@
 
     check-cast v0, Ljava/lang/Iterable;
 
-    .local v0, "$this$filter$iv":Ljava/lang/Iterable;
-    const/4 v1, 0x0
-
     .line 206
-    .local v1, "$i$f$filter":I
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    check-cast v2, Ljava/util/Collection;
-
-    .local v2, "destination$iv$iv":Ljava/util/Collection;
-    move-object v3, v0
-
-    .local v3, "$this$filterTo$iv$iv":Ljava/lang/Iterable;
-    const/4 v4, 0x0
+    check-cast v1, Ljava/util/Collection;
 
     .line 207
-    .local v4, "$i$f$filterTo":I
-    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v5
+    move-result-object v0
 
     :cond_0
     :goto_0
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v6
+    move-result v2
 
-    if-eqz v6, :cond_1
+    if-eqz v2, :cond_1
 
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v2
 
-    .local v6, "element$iv$iv":Ljava/lang/Object;
-    move-object v7, v6
+    move-object v3, v2
 
-    check-cast v7, Lorg/koin/core/scope/Scope;
-
-    .local v7, "it":Lorg/koin/core/scope/Scope;
-    const/4 v8, 0x0
+    check-cast v3, Lorg/koin/core/scope/Scope;
 
     .line 180
-    .local v8, "$i$a$-filter-ScopeRegistry$unloadInstances$1":I
-    invoke-virtual {v7}, Lorg/koin/core/scope/Scope;->get_scopeDefinition()Lorg/koin/core/scope/ScopeDefinition;
+    invoke-virtual {v3}, Lorg/koin/core/scope/Scope;->get_scopeDefinition()Lorg/koin/core/scope/ScopeDefinition;
 
-    move-result-object v9
+    move-result-object v3
 
-    invoke-static {v9, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v3, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v3
 
-    .end local v7    # "it":Lorg/koin/core/scope/Scope;
-    .end local v8    # "$i$a$-filter-ScopeRegistry$unloadInstances$1":I
-    if-eqz v7, :cond_0
+    if-eqz v3, :cond_0
 
-    invoke-interface {v2, v6}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v2}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     .line 208
-    .end local v6    # "element$iv$iv":Ljava/lang/Object;
     :cond_1
-    nop
+    check-cast v1, Ljava/util/List;
 
-    .end local v2    # "destination$iv$iv":Ljava/util/Collection;
-    .end local v3    # "$this$filterTo$iv$iv":Ljava/lang/Iterable;
-    .end local v4    # "$i$f$filterTo":I
-    move-object v0, v2
-
-    check-cast v0, Ljava/util/List;
-
-    .end local v0    # "$this$filter$iv":Ljava/lang/Iterable;
-    .end local v1    # "$i$f$filter":I
-    check-cast v0, Ljava/lang/Iterable;
-
-    .line 180
-    .local v0, "$this$forEach$iv":Ljava/lang/Iterable;
-    const/4 v1, 0x0
+    check-cast v1, Ljava/lang/Iterable;
 
     .line 209
-    .local v1, "$i$f$forEach":I
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v0
 
     :goto_1
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_2
+    if-eqz v1, :cond_2
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    .local v3, "element$iv":Ljava/lang/Object;
-    move-object v4, v3
-
-    check-cast v4, Lorg/koin/core/scope/Scope;
-
-    .local v4, "it":Lorg/koin/core/scope/Scope;
-    const/4 v5, 0x0
+    check-cast v1, Lorg/koin/core/scope/Scope;
 
     .line 180
-    .local v5, "$i$a$-forEach-ScopeRegistry$unloadInstances$2":I
-    invoke-virtual {v4, p1}, Lorg/koin/core/scope/Scope;->dropInstances(Lorg/koin/core/scope/ScopeDefinition;)V
+    invoke-virtual {v1, p1}, Lorg/koin/core/scope/Scope;->dropInstances(Lorg/koin/core/scope/ScopeDefinition;)V
 
-    .end local v3    # "element$iv":Ljava/lang/Object;
-    .end local v4    # "it":Lorg/koin/core/scope/Scope;
-    .end local v5    # "$i$a$-forEach-ScopeRegistry$unloadInstances$2":I
     goto :goto_1
 
-    .line 210
     :cond_2
-    nop
-
-    .line 181
-    .end local v0    # "$this$forEach$iv":Ljava/lang/Iterable;
-    .end local v1    # "$i$f$forEach":I
     return-void
 .end method
 
@@ -961,21 +750,22 @@
 
     invoke-virtual {v0}, Ljava/util/HashMap;->clear()V
 
-    .line 152
     const/4 v0, 0x0
 
+    .line 152
     move-object v1, v0
 
     check-cast v1, Lorg/koin/core/scope/ScopeDefinition;
 
-    iput-object v1, p0, Lorg/koin/core/registry/ScopeRegistry;->_rootScopeDefinition:Lorg/koin/core/scope/ScopeDefinition;
+    iput-object v0, p0, Lorg/koin/core/registry/ScopeRegistry;->_rootScopeDefinition:Lorg/koin/core/scope/ScopeDefinition;
 
     .line 153
-    check-cast v0, Lorg/koin/core/scope/Scope;
+    move-object v1, v0
+
+    check-cast v1, Lorg/koin/core/scope/Scope;
 
     iput-object v0, p0, Lorg/koin/core/registry/ScopeRegistry;->_rootScope:Lorg/koin/core/scope/Scope;
 
-    .line 154
     return-void
 .end method
 
@@ -986,9 +776,6 @@
     iget-object v0, p0, Lorg/koin/core/registry/ScopeRegistry;->_rootScope:Lorg/koin/core/scope/Scope;
 
     if-nez v0, :cond_0
-
-    .line 108
-    nop
 
     .line 109
     sget-object v0, Lorg/koin/core/scope/ScopeDefinition;->Companion:Lorg/koin/core/scope/ScopeDefinition$Companion;
@@ -1009,7 +796,6 @@
 
     iput-object v0, p0, Lorg/koin/core/registry/ScopeRegistry;->_rootScope:Lorg/koin/core/scope/Scope;
 
-    .line 111
     :cond_0
     return-void
 .end method
@@ -1023,13 +809,6 @@
     invoke-virtual {v0}, Lorg/koin/core/scope/ScopeDefinition$Companion;->rootDefinition()Lorg/koin/core/scope/ScopeDefinition;
 
     move-result-object v0
-
-    .line 101
-    .local v0, "scopeDefinition":Lorg/koin/core/scope/ScopeDefinition;
-    nop
-
-    .line 102
-    nop
 
     .line 101
     iget-object v1, p0, Lorg/koin/core/registry/ScopeRegistry;->_scopeDefinitions:Ljava/util/HashMap;
@@ -1051,15 +830,11 @@
     .line 103
     iput-object v0, p0, Lorg/koin/core/registry/ScopeRegistry;->_rootScopeDefinition:Lorg/koin/core/scope/ScopeDefinition;
 
-    .line 104
     return-void
 .end method
 
 .method public final createScope(Ljava/lang/String;Lorg/koin/core/qualifier/Qualifier;Ljava/lang/Object;)Lorg/koin/core/scope/Scope;
-    .locals 4
-    .param p1, "scopeId"    # Ljava/lang/String;
-    .param p2, "qualifier"    # Lorg/koin/core/qualifier/Qualifier;
-    .param p3, "source"    # Ljava/lang/Object;
+    .locals 2
 
     const-string v0, "scopeId"
 
@@ -1095,95 +870,89 @@
 
     check-cast v0, Lorg/koin/core/scope/ScopeDefinition;
 
-    .line 123
-    .local v0, "scopeDefinition":Lorg/koin/core/scope/ScopeDefinition;
     if-eqz v0, :cond_0
 
     .line 124
     invoke-direct {p0, p1, v0, p3}, Lorg/koin/core/registry/ScopeRegistry;->createScope(Ljava/lang/String;Lorg/koin/core/scope/ScopeDefinition;Ljava/lang/Object;)Lorg/koin/core/scope/Scope;
 
-    move-result-object v1
+    move-result-object p2
 
     .line 125
-    .local v1, "createdScope":Lorg/koin/core/scope/Scope;
-    iget-object v2, p0, Lorg/koin/core/registry/ScopeRegistry;->_scopes:Ljava/util/HashMap;
+    iget-object p3, p0, Lorg/koin/core/registry/ScopeRegistry;->_scopes:Ljava/util/HashMap;
 
-    check-cast v2, Ljava/util/Map;
+    check-cast p3, Ljava/util/Map;
 
-    invoke-interface {v2, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p3, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 126
-    nop
-
-    .line 123
-    .end local v1    # "createdScope":Lorg/koin/core/scope/Scope;
-    return-object v1
+    return-object p2
 
     .line 128
     :cond_0
-    new-instance v1, Lorg/koin/core/error/NoScopeDefFoundException;
+    new-instance p1, Lorg/koin/core/error/NoScopeDefFoundException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "No Scope Definition found for qualifer \'"
 
-    const-string v3, "No Scope Definition found for qualifer \'"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {p3, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-interface {p2}, Lorg/koin/core/qualifier/Qualifier;->getValue()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p2
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v3, 0x27
+    move-result-object p2
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    const/16 p3, 0x27
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-direct {v1, v2}, Lorg/koin/core/error/NoScopeDefFoundException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    check-cast v1, Ljava/lang/Throwable;
+    move-result-object p2
 
-    throw v1
+    invoke-direct {p1, p2}, Lorg/koin/core/error/NoScopeDefFoundException;-><init>(Ljava/lang/String;)V
+
+    check-cast p1, Ljava/lang/Throwable;
+
+    throw p1
 
     .line 119
-    .end local v0    # "scopeDefinition":Lorg/koin/core/scope/ScopeDefinition;
     :cond_1
-    new-instance v0, Lorg/koin/core/error/ScopeAlreadyCreatedException;
+    new-instance p2, Lorg/koin/core/error/ScopeAlreadyCreatedException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "Scope with id \'"
 
-    const-string v2, "Scope with id \'"
+    invoke-direct {p3, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    const-string v2, "\' is already created"
+    const-string p3, "\' is already created"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Lorg/koin/core/error/ScopeAlreadyCreatedException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    check-cast v0, Ljava/lang/Throwable;
+    invoke-direct {p2, p1}, Lorg/koin/core/error/ScopeAlreadyCreatedException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    check-cast p2, Ljava/lang/Throwable;
+
+    throw p2
 .end method
 
 .method public final deleteScope(Ljava/lang/String;)V
     .locals 1
-    .param p1, "scopeId"    # Ljava/lang/String;
 
     const-string v0, "scopeId"
 
@@ -1194,13 +963,11 @@
 
     invoke-virtual {v0, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 142
     return-void
 .end method
 
 .method public final deleteScope(Lorg/koin/core/scope/Scope;)V
-    .locals 2
-    .param p1, "scope"    # Lorg/koin/core/scope/Scope;
+    .locals 1
 
     const-string v0, "scope"
 
@@ -1211,11 +978,10 @@
 
     invoke-virtual {p1}, Lorg/koin/core/scope/Scope;->getId()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 146
     return-void
 .end method
 
@@ -1267,7 +1033,6 @@
 
 .method public final getScopeOrNull(Ljava/lang/String;)Lorg/koin/core/scope/Scope;
     .locals 1
-    .param p1, "scopeId"    # Ljava/lang/String;
 
     const-string v0, "scopeId"
 
@@ -1280,11 +1045,11 @@
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lorg/koin/core/scope/Scope;
+    check-cast p1, Lorg/koin/core/scope/Scope;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final getScopes()Ljava/util/Map;
@@ -1326,8 +1091,7 @@
 .end method
 
 .method public final loadModules$koin_core(Ljava/lang/Iterable;)V
-    .locals 9
-    .param p1, "modules"    # Ljava/lang/Iterable;
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1341,108 +1105,79 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 53
-    move-object v0, p1
-
-    .local v0, "$this$forEach$iv":Ljava/lang/Iterable;
-    const/4 v1, 0x0
-
     .line 187
-    .local v1, "$i$f$forEach":I
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_1
+    if-eqz v0, :cond_1
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v0
 
-    .local v3, "element$iv":Ljava/lang/Object;
-    move-object v4, v3
-
-    check-cast v4, Lorg/koin/core/module/Module;
-
-    .local v4, "module":Lorg/koin/core/module/Module;
-    const/4 v5, 0x0
+    check-cast v0, Lorg/koin/core/module/Module;
 
     .line 54
-    .local v5, "$i$a$-forEach-ScopeRegistry$loadModules$1":I
-    invoke-virtual {v4}, Lorg/koin/core/module/Module;->isLoaded()Z
+    invoke-virtual {v0}, Lorg/koin/core/module/Module;->isLoaded()Z
 
-    move-result v6
+    move-result v1
 
-    if-nez v6, :cond_0
+    if-nez v1, :cond_0
 
     .line 55
-    invoke-direct {p0, v4}, Lorg/koin/core/registry/ScopeRegistry;->loadModule(Lorg/koin/core/module/Module;)V
+    invoke-direct {p0, v0}, Lorg/koin/core/registry/ScopeRegistry;->loadModule(Lorg/koin/core/module/Module;)V
+
+    const/4 v1, 0x1
 
     .line 56
-    const/4 v6, 0x1
+    invoke-virtual {v0, v1}, Lorg/koin/core/module/Module;->setLoaded$koin_core(Z)V
 
-    invoke-virtual {v4, v6}, Lorg/koin/core/module/Module;->setLoaded$koin_core(Z)V
-
-    goto :goto_1
+    goto :goto_0
 
     .line 58
     :cond_0
-    iget-object v6, p0, Lorg/koin/core/registry/ScopeRegistry;->_koin:Lorg/koin/core/Koin;
+    iget-object v1, p0, Lorg/koin/core/registry/ScopeRegistry;->_koin:Lorg/koin/core/Koin;
 
-    invoke-virtual {v6}, Lorg/koin/core/Koin;->get_logger()Lorg/koin/core/logger/Logger;
+    invoke-virtual {v1}, Lorg/koin/core/Koin;->get_logger()Lorg/koin/core/logger/Logger;
 
-    move-result-object v6
+    move-result-object v1
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "module \'"
 
-    const-string v8, "module \'"
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    const-string v8, "\' already loaded!"
+    const-string v2, "\' already loaded!"
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v7
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v6, v7}, Lorg/koin/core/logger/Logger;->error(Ljava/lang/String;)V
+    move-result-object v0
 
-    .line 59
-    .end local v4    # "module":Lorg/koin/core/module/Module;
-    .end local v5    # "$i$a$-forEach-ScopeRegistry$loadModules$1":I
-    :goto_1
-    nop
+    invoke-virtual {v1, v0}, Lorg/koin/core/logger/Logger;->error(Ljava/lang/String;)V
 
-    .line 60
-    nop
-
-    .end local v3    # "element$iv":Ljava/lang/Object;
     goto :goto_0
 
-    .line 188
     :cond_1
-    nop
-
-    .line 61
-    .end local v0    # "$this$forEach$iv":Ljava/lang/Iterable;
-    .end local v1    # "$i$f$forEach":I
     return-void
 .end method
 
 .method public final set_rootScope(Lorg/koin/core/scope/Scope;)V
     .locals 0
-    .param p1, "<set-?>"    # Lorg/koin/core/scope/Scope;
 
     .line 46
     iput-object p1, p0, Lorg/koin/core/registry/ScopeRegistry;->_rootScope:Lorg/koin/core/scope/Scope;
@@ -1452,7 +1187,6 @@
 
 .method public final set_rootScopeDefinition(Lorg/koin/core/scope/ScopeDefinition;)V
     .locals 0
-    .param p1, "<set-?>"    # Lorg/koin/core/scope/ScopeDefinition;
 
     .line 45
     iput-object p1, p0, Lorg/koin/core/registry/ScopeRegistry;->_rootScopeDefinition:Lorg/koin/core/scope/ScopeDefinition;
@@ -1461,7 +1195,7 @@
 .end method
 
 .method public final size()I
-    .locals 9
+    .locals 3
 
     .line 50
     invoke-virtual {p0}, Lorg/koin/core/registry/ScopeRegistry;->getScopeDefinitions()Ljava/util/Map;
@@ -1474,90 +1208,59 @@
 
     check-cast v0, Ljava/lang/Iterable;
 
-    .local v0, "$this$map$iv":Ljava/lang/Iterable;
-    const/4 v1, 0x0
-
     .line 183
-    .local v1, "$i$f$map":I
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    const/16 v3, 0xa
+    const/16 v2, 0xa
 
-    invoke-static {v0, v3}, Lkotlin/collections/CollectionsKt;->collectionSizeOrDefault(Ljava/lang/Iterable;I)I
+    invoke-static {v0, v2}, Lkotlin/collections/CollectionsKt;->collectionSizeOrDefault(Ljava/lang/Iterable;I)I
 
-    move-result v3
+    move-result v2
 
-    invoke-direct {v2, v3}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
 
-    check-cast v2, Ljava/util/Collection;
-
-    .local v2, "destination$iv$iv":Ljava/util/Collection;
-    move-object v3, v0
-
-    .local v3, "$this$mapTo$iv$iv":Ljava/lang/Iterable;
-    const/4 v4, 0x0
+    check-cast v1, Ljava/util/Collection;
 
     .line 184
-    .local v4, "$i$f$mapTo":I
-    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v5
+    move-result-object v0
 
     :goto_0
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v6
+    move-result v2
 
-    if-eqz v6, :cond_0
+    if-eqz v2, :cond_0
 
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v2
 
     .line 185
-    .local v6, "item$iv$iv":Ljava/lang/Object;
-    move-object v7, v6
-
-    check-cast v7, Lorg/koin/core/scope/ScopeDefinition;
-
-    .local v7, "it":Lorg/koin/core/scope/ScopeDefinition;
-    const/4 v8, 0x0
+    check-cast v2, Lorg/koin/core/scope/ScopeDefinition;
 
     .line 50
-    .local v8, "$i$a$-map-ScopeRegistry$size$1":I
-    invoke-virtual {v7}, Lorg/koin/core/scope/ScopeDefinition;->size$koin_core()I
+    invoke-virtual {v2}, Lorg/koin/core/scope/ScopeDefinition;->size$koin_core()I
 
-    move-result v7
+    move-result v2
 
-    .end local v7    # "it":Lorg/koin/core/scope/ScopeDefinition;
-    .end local v8    # "$i$a$-map-ScopeRegistry$size$1":I
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v7
+    move-result-object v2
 
-    invoke-interface {v2, v7}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v2}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    .line 184
-    .end local v6    # "item$iv$iv":Ljava/lang/Object;
     goto :goto_0
 
     .line 186
     :cond_0
-    nop
+    check-cast v1, Ljava/util/List;
 
-    .end local v2    # "destination$iv$iv":Ljava/util/Collection;
-    .end local v3    # "$this$mapTo$iv$iv":Ljava/lang/Iterable;
-    .end local v4    # "$i$f$mapTo":I
-    move-object v0, v2
-
-    check-cast v0, Ljava/util/List;
-
-    .end local v0    # "$this$map$iv":Ljava/lang/Iterable;
-    .end local v1    # "$i$f$map":I
-    check-cast v0, Ljava/lang/Iterable;
+    check-cast v1, Ljava/lang/Iterable;
 
     .line 50
-    invoke-static {v0}, Lkotlin/collections/CollectionsKt;->sumOfInt(Ljava/lang/Iterable;)I
+    invoke-static {v1}, Lkotlin/collections/CollectionsKt;->sumOfInt(Ljava/lang/Iterable;)I
 
     move-result v0
 
@@ -1565,8 +1268,7 @@
 .end method
 
 .method public final unloadModules(Ljava/lang/Iterable;)V
-    .locals 6
-    .param p1, "modules"    # Ljava/lang/Iterable;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1580,62 +1282,35 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 161
-    move-object v0, p1
-
-    .local v0, "$this$forEach$iv":Ljava/lang/Iterable;
-    const/4 v1, 0x0
-
     .line 200
-    .local v1, "$i$f$forEach":I
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v0
 
-    .local v3, "element$iv":Ljava/lang/Object;
-    move-object v4, v3
-
-    check-cast v4, Lorg/koin/core/module/Module;
-
-    .local v4, "it":Lorg/koin/core/module/Module;
-    const/4 v5, 0x0
+    check-cast v0, Lorg/koin/core/module/Module;
 
     .line 162
-    .local v5, "$i$a$-forEach-ScopeRegistry$unloadModules$1":I
-    invoke-virtual {p0, v4}, Lorg/koin/core/registry/ScopeRegistry;->unloadModules(Lorg/koin/core/module/Module;)V
+    invoke-virtual {p0, v0}, Lorg/koin/core/registry/ScopeRegistry;->unloadModules(Lorg/koin/core/module/Module;)V
 
-    .line 163
-    .end local v4    # "it":Lorg/koin/core/module/Module;
-    .end local v5    # "$i$a$-forEach-ScopeRegistry$unloadModules$1":I
-    nop
-
-    .end local v3    # "element$iv":Ljava/lang/Object;
     goto :goto_0
 
-    .line 201
     :cond_0
-    nop
-
-    .line 164
-    .end local v0    # "$this$forEach$iv":Ljava/lang/Iterable;
-    .end local v1    # "$i$f$forEach":I
     return-void
 .end method
 
 .method public final unloadModules(Lorg/koin/core/module/Module;)V
-    .locals 7
-    .param p1, "module"    # Lorg/koin/core/module/Module;
+    .locals 2
 
     const-string v0, "module"
 
@@ -1657,62 +1332,36 @@
     move-result-object v0
 
     .line 168
-    .local v0, "scopeDefinitions":Ljava/util/List;
-    move-object v1, v0
-
-    check-cast v1, Ljava/lang/Iterable;
-
-    .local v1, "$this$forEach$iv":Ljava/lang/Iterable;
-    const/4 v2, 0x0
+    check-cast v0, Ljava/lang/Iterable;
 
     .line 202
-    .local v2, "$i$f$forEach":I
-    invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object v0
 
     :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v1
 
-    if-eqz v4, :cond_0
+    if-eqz v1, :cond_0
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v1
 
-    .local v4, "element$iv":Ljava/lang/Object;
-    move-object v5, v4
-
-    check-cast v5, Lorg/koin/core/scope/ScopeDefinition;
-
-    .local v5, "it":Lorg/koin/core/scope/ScopeDefinition;
-    const/4 v6, 0x0
+    check-cast v1, Lorg/koin/core/scope/ScopeDefinition;
 
     .line 169
-    .local v6, "$i$a$-forEach-ScopeRegistry$unloadModules$2":I
-    invoke-direct {p0, v5}, Lorg/koin/core/registry/ScopeRegistry;->unloadDefinitions(Lorg/koin/core/scope/ScopeDefinition;)V
+    invoke-direct {p0, v1}, Lorg/koin/core/registry/ScopeRegistry;->unloadDefinitions(Lorg/koin/core/scope/ScopeDefinition;)V
 
-    .line 170
-    .end local v5    # "it":Lorg/koin/core/scope/ScopeDefinition;
-    .end local v6    # "$i$a$-forEach-ScopeRegistry$unloadModules$2":I
-    nop
-
-    .end local v4    # "element$iv":Ljava/lang/Object;
     goto :goto_0
 
-    .line 203
     :cond_0
-    nop
+    const/4 v0, 0x0
 
     .line 171
-    .end local v1    # "$this$forEach$iv":Ljava/lang/Iterable;
-    .end local v2    # "$i$f$forEach":I
-    const/4 v1, 0x0
+    invoke-virtual {p1, v0}, Lorg/koin/core/module/Module;->setLoaded$koin_core(Z)V
 
-    invoke-virtual {p1, v1}, Lorg/koin/core/module/Module;->setLoaded$koin_core(Z)V
-
-    .line 172
     return-void
 .end method

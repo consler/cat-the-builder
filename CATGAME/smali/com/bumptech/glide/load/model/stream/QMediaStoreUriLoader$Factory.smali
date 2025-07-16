@@ -45,7 +45,6 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;Ljava/lang/Class;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,8 +55,6 @@
     .end annotation
 
     .line 248
-    .local p0, "this":Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader$Factory;, "Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader$Factory<TDataT;>;"
-    .local p2, "dataClass":Ljava/lang/Class;, "Ljava/lang/Class<TDataT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 249
@@ -66,7 +63,6 @@
     .line 250
     iput-object p2, p0, Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader$Factory;->dataClass:Ljava/lang/Class;
 
-    .line 251
     return-void
 .end method
 
@@ -74,7 +70,6 @@
 # virtual methods
 .method public final build(Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;)Lcom/bumptech/glide/load/model/ModelLoader;
     .locals 5
-    .param p1, "multiFactory"    # Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -87,7 +82,6 @@
     .end annotation
 
     .line 256
-    .local p0, "this":Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader$Factory;, "Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader$Factory<TDataT;>;"
     new-instance v0, Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader;
 
     iget-object v1, p0, Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader$Factory;->context:Landroid/content/Context;
@@ -108,20 +102,17 @@
     .line 259
     invoke-virtual {p1, v3, v4}, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->build(Ljava/lang/Class;Ljava/lang/Class;)Lcom/bumptech/glide/load/model/ModelLoader;
 
-    move-result-object v3
+    move-result-object p1
 
-    iget-object v4, p0, Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader$Factory;->dataClass:Ljava/lang/Class;
+    iget-object v3, p0, Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader$Factory;->dataClass:Ljava/lang/Class;
 
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader;-><init>(Landroid/content/Context;Lcom/bumptech/glide/load/model/ModelLoader;Lcom/bumptech/glide/load/model/ModelLoader;Ljava/lang/Class;)V
+    invoke-direct {v0, v1, v2, p1, v3}, Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader;-><init>(Landroid/content/Context;Lcom/bumptech/glide/load/model/ModelLoader;Lcom/bumptech/glide/load/model/ModelLoader;Ljava/lang/Class;)V
 
-    .line 256
     return-object v0
 .end method
 
 .method public final teardown()V
     .locals 0
 
-    .line 266
-    .local p0, "this":Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader$Factory;, "Lcom/bumptech/glide/load/model/stream/QMediaStoreUriLoader$Factory<TDataT;>;"
     return-void
 .end method

@@ -28,9 +28,6 @@
 # virtual methods
 .method public onMessage(Landroidx/webkit/WebMessagePortCompat;Landroidx/webkit/WebMessageCompat;)V
     .locals 0
-    .param p1, "port"    # Landroidx/webkit/WebMessagePortCompat;
-    .param p2, "message"    # Landroidx/webkit/WebMessageCompat;
 
-    .line 80
     return-void
 .end method

@@ -34,10 +34,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/ObservableSource;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;Z)V
     .locals 0
-    .param p2, "delay"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p6, "delayError"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,8 +46,6 @@
     .end annotation
 
     .line 31
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDelay;, "Lio/reactivex/internal/operators/observable/ObservableDelay<TT;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/observable/AbstractObservableWithUpstream;-><init>(Lio/reactivex/ObservableSource;)V
 
     .line 32
@@ -66,14 +60,13 @@
     .line 35
     iput-boolean p6, p0, Lio/reactivex/internal/operators/observable/ObservableDelay;->delayError:Z
 
-    .line 36
     return-void
 .end method
 
 
 # virtual methods
 .method public subscribeActual(Lio/reactivex/Observer;)V
-    .locals 11
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -83,39 +76,34 @@
     .end annotation
 
     .line 42
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDelay;, "Lio/reactivex/internal/operators/observable/ObservableDelay<TT;>;"
-    .local p1, "t":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableDelay;->delayError:Z
 
     if-eqz v0, :cond_0
 
-    .line 43
-    move-object v0, p1
+    move-object v2, p1
 
-    .local v0, "s":Lio/reactivex/Observer;, "Lio/reactivex/Observer<TT;>;"
     goto :goto_0
 
     .line 45
-    .end local v0    # "s":Lio/reactivex/Observer;, "Lio/reactivex/Observer<TT;>;"
     :cond_0
     new-instance v0, Lio/reactivex/observers/SerializedObserver;
 
     invoke-direct {v0, p1}, Lio/reactivex/observers/SerializedObserver;-><init>(Lio/reactivex/Observer;)V
 
+    move-object v2, v0
+
     .line 48
-    .restart local v0    # "s":Lio/reactivex/Observer;, "Lio/reactivex/Observer<TT;>;"
     :goto_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableDelay;->scheduler:Lio/reactivex/Scheduler;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableDelay;->scheduler:Lio/reactivex/Scheduler;
 
-    invoke-virtual {v1}, Lio/reactivex/Scheduler;->createWorker()Lio/reactivex/Scheduler$Worker;
+    invoke-virtual {p1}, Lio/reactivex/Scheduler;->createWorker()Lio/reactivex/Scheduler$Worker;
 
-    move-result-object v8
+    move-result-object v6
 
     .line 50
-    .local v8, "w":Lio/reactivex/Scheduler$Worker;
-    iget-object v9, p0, Lio/reactivex/internal/operators/observable/ObservableDelay;->source:Lio/reactivex/ObservableSource;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableDelay;->source:Lio/reactivex/ObservableSource;
 
-    new-instance v10, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;
+    new-instance v0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;
 
     iget-wide v3, p0, Lio/reactivex/internal/operators/observable/ObservableDelay;->delay:J
 
@@ -123,16 +111,11 @@
 
     iget-boolean v7, p0, Lio/reactivex/internal/operators/observable/ObservableDelay;->delayError:Z
 
-    move-object v1, v10
-
-    move-object v2, v0
-
-    move-object v6, v8
+    move-object v1, v0
 
     invoke-direct/range {v1 .. v7}, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;-><init>(Lio/reactivex/Observer;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler$Worker;Z)V
 
-    invoke-interface {v9, v10}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
+    invoke-interface {p1, v0}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 51
     return-void
 .end method

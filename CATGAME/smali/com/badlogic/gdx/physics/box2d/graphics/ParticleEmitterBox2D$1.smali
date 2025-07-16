@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;
 
     .line 49
     iput-object p1, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$1;->this$0:Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;
@@ -37,36 +36,31 @@
 
 # virtual methods
 .method public reportRayFixture(Lcom/badlogic/gdx/physics/box2d/Fixture;Lcom/badlogic/gdx/math/Vector2;Lcom/badlogic/gdx/math/Vector2;F)F
-    .locals 3
-    .param p1, "fixture"    # Lcom/badlogic/gdx/physics/box2d/Fixture;
-    .param p2, "point"    # Lcom/badlogic/gdx/math/Vector2;
-    .param p3, "normal"    # Lcom/badlogic/gdx/math/Vector2;
-    .param p4, "fraction"    # F
+    .locals 0
 
     .line 51
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$1;->this$0:Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$1;->this$0:Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;
 
-    const/4 v1, 0x1
+    const/4 p2, 0x1
 
-    iput-boolean v1, v0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;->particleCollided:Z
+    iput-boolean p2, p1, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;->particleCollided:Z
 
     .line 52
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$1;->this$0:Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$1;->this$0:Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;
 
-    iget v1, p3, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iget p2, p3, Lcom/badlogic/gdx/math/Vector2;->y:F
 
-    iget v2, p3, Lcom/badlogic/gdx/math/Vector2;->x:F
+    iget p3, p3, Lcom/badlogic/gdx/math/Vector2;->x:F
 
-    invoke-static {v1, v2}, Lcom/badlogic/gdx/math/MathUtils;->atan2(FF)F
+    invoke-static {p2, p3}, Lcom/badlogic/gdx/math/MathUtils;->atan2(FF)F
 
-    move-result v1
+    move-result p2
 
-    const v2, 0x42652ee0
+    const p3, 0x42652ee0
 
-    mul-float/2addr v1, v2
+    mul-float/2addr p2, p3
 
-    iput v1, v0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;->normalAngle:F
+    iput p2, p1, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;->normalAngle:F
 
-    .line 53
     return p4
 .end method

@@ -18,9 +18,9 @@
 .method constructor <init>(Ljava/lang/String;I)V
     .locals 1
 
-    .line 190
     const/4 v0, 0x0
 
+    .line 190
     invoke-direct {p0, p1, p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat$Utf8Validation;-><init>(Ljava/lang/String;ILcom/google/crypto/tink/shaded/protobuf/WireFormat$1;)V
 
     return-void
@@ -29,8 +29,7 @@
 
 # virtual methods
 .method readString(Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "input"    # Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -40,7 +39,7 @@
     .line 193
     invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;->readString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

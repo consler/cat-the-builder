@@ -79,7 +79,6 @@
 # virtual methods
 .method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "it"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TX;)TY;"
@@ -91,7 +90,7 @@
 
     invoke-interface {v0, p1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

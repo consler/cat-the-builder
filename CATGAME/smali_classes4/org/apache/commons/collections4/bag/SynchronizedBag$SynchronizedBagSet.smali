@@ -37,8 +37,6 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections4/bag/SynchronizedBag;Ljava/util/Set;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "this$0"    # Lorg/apache/commons/collections4/bag/SynchronizedBag;
-    .param p3, "lock"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,13 +48,10 @@
     .end annotation
 
     .line 148
-    .local p0, "this":Lorg/apache/commons/collections4/bag/SynchronizedBag$SynchronizedBagSet;, "Lorg/apache/commons/collections4/bag/SynchronizedBag<TE;>.SynchronizedBagSet;"
-    .local p2, "set":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
     iput-object p1, p0, Lorg/apache/commons/collections4/bag/SynchronizedBag$SynchronizedBagSet;->this$0:Lorg/apache/commons/collections4/bag/SynchronizedBag;
 
     .line 149
     invoke-direct {p0, p2, p3}, Lorg/apache/commons/collections4/collection/SynchronizedCollection;-><init>(Ljava/util/Collection;Ljava/lang/Object;)V
 
-    .line 150
     return-void
 .end method

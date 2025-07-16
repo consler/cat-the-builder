@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/AsyncServer;Lcom/koushikdutta/async/AsyncDatagramSocket;Ljava/nio/channels/DatagramChannel;Ljava/net/SocketAddress;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/AsyncServer;
 
     .line 542
     iput-object p1, p0, Lcom/koushikdutta/async/AsyncServer$13;->this$0:Lcom/koushikdutta/async/AsyncServer;
@@ -49,7 +48,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 3
 
     .line 546
     :try_start_0
@@ -68,29 +67,22 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 551
     goto :goto_0
 
-    .line 549
     :catch_0
-    move-exception v0
+    const/4 v0, 0x1
+
+    new-array v0, v0, [Ljava/io/Closeable;
+
+    const/4 v1, 0x0
 
     .line 550
-    .local v0, "e":Ljava/io/IOException;
-    const/4 v1, 0x1
+    iget-object v2, p0, Lcom/koushikdutta/async/AsyncServer$13;->val$socket:Ljava/nio/channels/DatagramChannel;
 
-    new-array v1, v1, [Ljava/io/Closeable;
+    aput-object v2, v0, v1
 
-    const/4 v2, 0x0
+    invoke-static {v0}, Lcom/koushikdutta/async/util/StreamUtility;->closeQuietly([Ljava/io/Closeable;)V
 
-    iget-object v3, p0, Lcom/koushikdutta/async/AsyncServer$13;->val$socket:Ljava/nio/channels/DatagramChannel;
-
-    aput-object v3, v1, v2
-
-    invoke-static {v1}, Lcom/koushikdutta/async/util/StreamUtility;->closeQuietly([Ljava/io/Closeable;)V
-
-    .line 552
-    .end local v0    # "e":Ljava/io/IOException;
     :goto_0
     return-void
 .end method

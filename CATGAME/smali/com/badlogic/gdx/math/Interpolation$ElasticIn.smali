@@ -17,15 +17,10 @@
 # direct methods
 .method public constructor <init>(FFIF)V
     .locals 0
-    .param p1, "value"    # F
-    .param p2, "power"    # F
-    .param p3, "bounces"    # I
-    .param p4, "scale"    # F
 
     .line 264
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/badlogic/gdx/math/Interpolation$Elastic;-><init>(FFIF)V
 
-    .line 265
     return-void
 .end method
 
@@ -33,9 +28,7 @@
 # virtual methods
 .method public apply(F)F
     .locals 4
-    .param p1, "a"    # F
 
-    .line 268
     float-to-double v0, p1
 
     const-wide v2, 0x3fefae147ae147aeL    # 0.99
@@ -70,17 +63,17 @@
 
     iget v1, p0, Lcom/badlogic/gdx/math/Interpolation$ElasticIn;->bounces:F
 
-    mul-float/2addr v1, p1
+    mul-float/2addr p1, v1
 
-    invoke-static {v1}, Lcom/badlogic/gdx/math/MathUtils;->sin(F)F
+    invoke-static {p1}, Lcom/badlogic/gdx/math/MathUtils;->sin(F)F
 
-    move-result v1
+    move-result p1
 
-    mul-float/2addr v0, v1
+    mul-float/2addr v0, p1
 
-    iget v1, p0, Lcom/badlogic/gdx/math/Interpolation$ElasticIn;->scale:F
+    iget p1, p0, Lcom/badlogic/gdx/math/Interpolation$ElasticIn;->scale:F
 
-    mul-float/2addr v0, v1
+    mul-float/2addr v0, p1
 
     return v0
 .end method

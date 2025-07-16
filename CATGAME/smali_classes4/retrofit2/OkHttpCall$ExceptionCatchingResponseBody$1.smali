@@ -21,8 +21,6 @@
 # direct methods
 .method constructor <init>(Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody;Lokio/Source;)V
     .locals 0
-    .param p1, "this$0"    # Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody;
-    .param p2, "arg0"    # Lokio/Source;
 
     .line 310
     iput-object p1, p0, Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody$1;->this$0:Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody;
@@ -35,9 +33,7 @@
 
 # virtual methods
 .method public read(Lokio/Buffer;J)J
-    .locals 2
-    .param p1, "sink"    # Lokio/Buffer;
-    .param p2, "byteCount"    # J
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -48,22 +44,20 @@
     :try_start_0
     invoke-super {p0, p1, p2, p3}, Lokio/ForwardingSource;->read(Lokio/Buffer;J)J
 
-    move-result-wide v0
+    move-result-wide p1
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-wide v0
+    return-wide p1
 
-    .line 315
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 316
-    .local v0, "e":Ljava/io/IOException;
-    iget-object v1, p0, Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody$1;->this$0:Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody;
+    iget-object p2, p0, Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody$1;->this$0:Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody;
 
-    iput-object v0, v1, Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody;->thrownException:Ljava/io/IOException;
+    iput-object p1, p2, Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody;->thrownException:Ljava/io/IOException;
 
     .line 317
-    throw v0
+    throw p1
 .end method

@@ -39,9 +39,15 @@
 
 .method public static capabilityToString(I)Ljava/lang/String;
     .locals 1
-    .param p0, "capability"    # I
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "capability"
+        }
+    .end annotation
 
-    .line 307
     const/4 v0, 0x1
 
     if-eq p0, v0, :cond_3
@@ -58,52 +64,52 @@
 
     if-eq p0, v0, :cond_0
 
-    .line 317
-    const-string v0, "UNKNOWN"
+    const-string p0, "UNKNOWN"
 
-    return-object v0
+    return-object p0
 
-    .line 315
     :cond_0
-    const-string v0, "CAPABILITY_CAN_FILTER_KEY_EVENTS"
+    const-string p0, "CAPABILITY_CAN_FILTER_KEY_EVENTS"
 
-    return-object v0
+    return-object p0
 
-    .line 313
     :cond_1
-    const-string v0, "CAPABILITY_CAN_REQUEST_ENHANCED_WEB_ACCESSIBILITY"
+    const-string p0, "CAPABILITY_CAN_REQUEST_ENHANCED_WEB_ACCESSIBILITY"
 
-    return-object v0
+    return-object p0
 
-    .line 311
     :cond_2
-    const-string v0, "CAPABILITY_CAN_REQUEST_TOUCH_EXPLORATION"
+    const-string p0, "CAPABILITY_CAN_REQUEST_TOUCH_EXPLORATION"
 
-    return-object v0
+    return-object p0
 
-    .line 309
     :cond_3
-    const-string v0, "CAPABILITY_CAN_RETRIEVE_WINDOW_CONTENT"
+    const-string p0, "CAPABILITY_CAN_RETRIEVE_WINDOW_CONTENT"
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static feedbackTypeToString(I)Ljava/lang/String;
     .locals 4
-    .param p0, "feedbackType"    # I
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "feedbackType"
+        }
+    .end annotation
 
     .line 215
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 216
-    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v1, "["
 
+    .line 216
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 217
     :goto_0
     if-lez p0, :cond_6
 
@@ -116,8 +122,6 @@
 
     shl-int v1, v2, v1
 
-    .line 219
-    .local v1, "feedbackTypeFlag":I
     not-int v3, v1
 
     and-int/2addr p0, v3
@@ -129,12 +133,11 @@
 
     if-le v3, v2, :cond_0
 
-    .line 221
     const-string v3, ", "
 
+    .line 221
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 223
     :cond_0
     if-eq v1, v2, :cond_5
 
@@ -154,76 +157,73 @@
 
     if-eq v1, v2, :cond_1
 
-    goto :goto_1
-
-    .line 231
-    :cond_1
-    const-string v2, "FEEDBACK_GENERIC"
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 232
-    goto :goto_1
-
-    .line 237
-    :cond_2
-    const-string v2, "FEEDBACK_VISUAL"
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    goto :goto_1
-
-    .line 225
-    :cond_3
-    const-string v2, "FEEDBACK_AUDIBLE"
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 226
-    goto :goto_1
-
-    .line 228
-    :cond_4
-    const-string v2, "FEEDBACK_HAPTIC"
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 229
-    goto :goto_1
-
-    .line 234
-    :cond_5
-    const-string v2, "FEEDBACK_SPOKEN"
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 235
-    nop
-
-    .line 240
-    .end local v1    # "feedbackTypeFlag":I
-    :goto_1
     goto :goto_0
 
-    .line 241
-    :cond_6
-    const-string v1, "]"
+    :cond_1
+    const-string v1, "FEEDBACK_GENERIC"
 
+    .line 231
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_0
+
+    :cond_2
+    const-string v1, "FEEDBACK_VISUAL"
+
+    .line 237
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_0
+
+    :cond_3
+    const-string v1, "FEEDBACK_AUDIBLE"
+
+    .line 225
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_0
+
+    :cond_4
+    const-string v1, "FEEDBACK_HAPTIC"
+
+    .line 228
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_0
+
+    :cond_5
+    const-string v1, "FEEDBACK_SPOKEN"
+
+    .line 234
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_0
+
+    :cond_6
+    const-string p0, "]"
+
+    .line 241
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 242
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static flagToString(I)Ljava/lang/String;
     .locals 1
-    .param p0, "flag"    # I
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "flag"
+        }
+    .end annotation
 
-    .line 255
     const/4 v0, 0x1
 
     if-eq p0, v0, :cond_5
@@ -248,110 +248,77 @@
 
     if-eq p0, v0, :cond_0
 
-    .line 269
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
-    .line 267
     :cond_0
-    const-string v0, "FLAG_REQUEST_FILTER_KEY_EVENTS"
+    const-string p0, "FLAG_REQUEST_FILTER_KEY_EVENTS"
 
-    return-object v0
+    return-object p0
 
-    .line 265
     :cond_1
-    const-string v0, "FLAG_REPORT_VIEW_IDS"
+    const-string p0, "FLAG_REPORT_VIEW_IDS"
 
-    return-object v0
+    return-object p0
 
-    .line 263
     :cond_2
-    const-string v0, "FLAG_REQUEST_ENHANCED_WEB_ACCESSIBILITY"
+    const-string p0, "FLAG_REQUEST_ENHANCED_WEB_ACCESSIBILITY"
 
-    return-object v0
+    return-object p0
 
-    .line 261
     :cond_3
-    const-string v0, "FLAG_REQUEST_TOUCH_EXPLORATION_MODE"
+    const-string p0, "FLAG_REQUEST_TOUCH_EXPLORATION_MODE"
 
-    return-object v0
+    return-object p0
 
-    .line 259
     :cond_4
-    const-string v0, "FLAG_INCLUDE_NOT_IMPORTANT_VIEWS"
+    const-string p0, "FLAG_INCLUDE_NOT_IMPORTANT_VIEWS"
 
-    return-object v0
+    return-object p0
 
-    .line 257
     :cond_5
-    const-string v0, "DEFAULT"
+    const-string p0, "DEFAULT"
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static getCapabilities(Landroid/accessibilityservice/AccessibilityServiceInfo;)I
-    .locals 2
-    .param p0, "info"    # Landroid/accessibilityservice/AccessibilityServiceInfo;
-
-    .line 287
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x12
-
-    if-lt v0, v1, :cond_0
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "info"
+        }
+    .end annotation
 
     .line 288
     invoke-virtual {p0}, Landroid/accessibilityservice/AccessibilityServiceInfo;->getCapabilities()I
 
-    move-result v0
+    move-result p0
 
-    return v0
-
-    .line 290
-    :cond_0
-    invoke-virtual {p0}, Landroid/accessibilityservice/AccessibilityServiceInfo;->getCanRetrieveWindowContent()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 291
-    const/4 v0, 0x1
-
-    return v0
-
-    .line 293
-    :cond_1
-    const/4 v0, 0x0
-
-    return v0
+    return p0
 .end method
 
 .method public static loadDescription(Landroid/accessibilityservice/AccessibilityServiceInfo;Landroid/content/pm/PackageManager;)Ljava/lang/String;
-    .locals 2
-    .param p0, "info"    # Landroid/accessibilityservice/AccessibilityServiceInfo;
-    .param p1, "packageManager"    # Landroid/content/pm/PackageManager;
-
-    .line 198
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x10
-
-    if-lt v0, v1, :cond_0
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "info",
+            "packageManager"
+        }
+    .end annotation
 
     .line 199
     invoke-virtual {p0, p1}, Landroid/accessibilityservice/AccessibilityServiceInfo;->loadDescription(Landroid/content/pm/PackageManager;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
-
-    .line 201
-    :cond_0
-    invoke-virtual {p0}, Landroid/accessibilityservice/AccessibilityServiceInfo;->getDescription()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method

@@ -47,9 +47,6 @@
 # direct methods
 .method constructor <init>(Lorg/reactivestreams/Subscriber;Lio/reactivex/Scheduler$Worker;ZI)V
     .locals 0
-    .param p2, "worker"    # Lio/reactivex/Scheduler$Worker;
-    .param p3, "delayError"    # Z
-    .param p4, "prefetch"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -61,25 +58,20 @@
     .end annotation
 
     .line 254
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-direct {p0, p2, p3, p4}, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$BaseObserveOnSubscriber;-><init>(Lio/reactivex/Scheduler$Worker;ZI)V
 
     .line 255
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    .line 256
     return-void
 .end method
 
 
 # virtual methods
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
-    .locals 4
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
+    .locals 3
 
     .line 260
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -101,16 +93,13 @@
 
     check-cast v0, Lio/reactivex/internal/fuseable/QueueSubscription;
 
-    .line 267
-    .local v0, "f":Lio/reactivex/internal/fuseable/QueueSubscription;, "Lio/reactivex/internal/fuseable/QueueSubscription<TT;>;"
     const/4 v1, 0x7
 
+    .line 267
     invoke-interface {v0, v1}, Lio/reactivex/internal/fuseable/QueueSubscription;->requestFusion(I)I
 
     move-result v1
 
-    .line 269
-    .local v1, "m":I
     const/4 v2, 0x1
 
     if-ne v1, v2, :cond_0
@@ -125,14 +114,12 @@
     iput-boolean v2, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->done:Z
 
     .line 274
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v2, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
+    invoke-interface {p1, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
-    .line 275
     return-void
 
-    .line 277
     :cond_0
     const/4 v2, 0x2
 
@@ -145,23 +132,20 @@
     iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
     .line 281
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v2, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
+    invoke-interface {v0, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
     .line 283
-    iget v2, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->prefetch:I
+    iget v0, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->prefetch:I
 
-    int-to-long v2, v2
+    int-to-long v0, v0
 
-    invoke-interface {p1, v2, v3}, Lorg/reactivestreams/Subscription;->request(J)V
+    invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 285
     return-void
 
     .line 289
-    .end local v0    # "f":Lio/reactivex/internal/fuseable/QueueSubscription;, "Lio/reactivex/internal/fuseable/QueueSubscription<TT;>;"
-    .end local v1    # "m":I
     :cond_1
     new-instance v0, Lio/reactivex/internal/queue/SpscArrayQueue;
 
@@ -183,7 +167,6 @@
 
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 295
     :cond_2
     return-void
 .end method
@@ -203,17 +186,15 @@
     .end annotation
 
     .line 464
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->poll()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 465
-    .local v0, "v":Ljava/lang/Object;, "TT;"
     if-eqz v0, :cond_1
 
+    .line 465
     iget v1, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->sourceMode:I
 
     const/4 v2, 0x1
@@ -228,7 +209,6 @@
     add-long/2addr v1, v3
 
     .line 467
-    .local v1, "p":J
     iget v3, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->limit:I
 
     int-to-long v3, v3
@@ -237,9 +217,9 @@
 
     if-nez v3, :cond_0
 
-    .line 468
     const-wide/16 v3, 0x0
 
+    .line 468
     iput-wide v3, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->produced:J
 
     .line 469
@@ -253,36 +233,29 @@
     :cond_0
     iput-wide v1, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->produced:J
 
-    .line 474
-    .end local v1    # "p":J
     :cond_1
     :goto_0
     return-object v0
 .end method
 
 .method runAsync()V
-    .locals 13
-
-    .line 362
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber<TT;>;"
-    const/4 v0, 0x1
+    .locals 12
 
     .line 364
-    .local v0, "missed":I
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
     .line 365
-    .local v1, "a":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
+    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
     .line 367
-    .local v2, "q":Lio/reactivex/internal/fuseable/SimpleQueue;, "Lio/reactivex/internal/fuseable/SimpleQueue<TT;>;"
-    iget-wide v3, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->produced:J
+    iget-wide v2, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->produced:J
 
-    .local v3, "e":J
-    const/4 v5, 0x0
+    const/4 v4, 0x1
+
+    move v5, v4
 
     .line 371
+    :cond_0
     :goto_0
     iget-object v6, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
@@ -290,296 +263,227 @@
 
     move-result-wide v6
 
-    .line 373
-    .local v6, "r":J
+    :cond_1
     :goto_1
-    cmp-long v8, v3, v6
+    cmp-long v8, v2, v6
 
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_6
 
     .line 374
-    iget-boolean v8, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->done:Z
+    iget-boolean v9, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->done:Z
 
     .line 378
-    .local v8, "d":Z
     :try_start_0
-    invoke-interface {v2}, Lio/reactivex/internal/fuseable/SimpleQueue;->poll()Ljava/lang/Object;
+    invoke-interface {v1}, Lio/reactivex/internal/fuseable/SimpleQueue;->poll()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v10
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 388
-    .local v5, "v":Ljava/lang/Object;, "TT;"
-    nop
+    if-nez v10, :cond_2
 
-    .line 390
-    if-nez v5, :cond_0
-
-    const/4 v9, 0x1
+    move v11, v4
 
     goto :goto_2
 
-    :cond_0
-    const/4 v9, 0x0
+    :cond_2
+    const/4 v11, 0x0
 
     .line 392
-    .local v9, "empty":Z
     :goto_2
-    invoke-virtual {p0, v8, v9, v1}, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->checkTerminated(ZZLorg/reactivestreams/Subscriber;)Z
+    invoke-virtual {p0, v9, v11, v0}, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->checkTerminated(ZZLorg/reactivestreams/Subscriber;)Z
 
-    move-result v10
+    move-result v9
 
-    if-eqz v10, :cond_1
+    if-eqz v9, :cond_3
 
-    .line 393
     return-void
 
-    .line 396
-    :cond_1
-    if-eqz v9, :cond_2
+    :cond_3
+    if-eqz v11, :cond_4
 
-    .line 397
     goto :goto_3
 
     .line 400
-    :cond_2
-    invoke-interface {v1, v5}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
+    :cond_4
+    invoke-interface {v0, v10}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
-    .line 402
-    const-wide/16 v10, 0x1
+    const-wide/16 v8, 0x1
 
-    add-long/2addr v3, v10
+    add-long/2addr v2, v8
 
     .line 403
-    iget v10, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->limit:I
+    iget v8, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->limit:I
 
-    int-to-long v10, v10
+    int-to-long v8, v8
 
-    cmp-long v10, v3, v10
+    cmp-long v8, v2, v8
 
-    if-nez v10, :cond_4
+    if-nez v8, :cond_1
 
-    .line 404
-    const-wide v10, 0x7fffffffffffffffL
+    const-wide v8, 0x7fffffffffffffffL
 
-    cmp-long v10, v6, v10
+    cmp-long v8, v6, v8
 
-    if-eqz v10, :cond_3
+    if-eqz v8, :cond_5
 
     .line 405
-    iget-object v10, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
+    iget-object v6, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
-    neg-long v11, v3
+    neg-long v7, v2
 
-    invoke-virtual {v10, v11, v12}, Ljava/util/concurrent/atomic/AtomicLong;->addAndGet(J)J
+    invoke-virtual {v6, v7, v8}, Ljava/util/concurrent/atomic/AtomicLong;->addAndGet(J)J
 
     move-result-wide v6
 
     .line 407
-    :cond_3
-    iget-object v10, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->s:Lorg/reactivestreams/Subscription;
+    :cond_5
+    iget-object v8, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    invoke-interface {v10, v3, v4}, Lorg/reactivestreams/Subscription;->request(J)V
+    invoke-interface {v8, v2, v3}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 408
-    const-wide/16 v3, 0x0
+    const-wide/16 v2, 0x0
 
-    .line 410
-    .end local v5    # "v":Ljava/lang/Object;, "TT;"
-    .end local v8    # "d":Z
-    .end local v9    # "empty":Z
-    :cond_4
     goto :goto_1
 
-    .line 379
-    .restart local v8    # "d":Z
     :catchall_0
-    move-exception v9
+    move-exception v2
 
     .line 380
-    .restart local v5    # "v":Ljava/lang/Object;, "TT;"
-    .local v9, "ex":Ljava/lang/Throwable;
-    invoke-static {v9}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {v2}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 382
-    iget-object v10, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->s:Lorg/reactivestreams/Subscription;
+    iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    invoke-interface {v10}, Lorg/reactivestreams/Subscription;->cancel()V
+    invoke-interface {v3}, Lorg/reactivestreams/Subscription;->cancel()V
 
     .line 383
-    invoke-interface {v2}, Lio/reactivex/internal/fuseable/SimpleQueue;->clear()V
+    invoke-interface {v1}, Lio/reactivex/internal/fuseable/SimpleQueue;->clear()V
 
     .line 385
-    invoke-interface {v1, v9}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v0, v2}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
     .line 386
-    iget-object v10, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->worker:Lio/reactivex/Scheduler$Worker;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->worker:Lio/reactivex/Scheduler$Worker;
 
-    invoke-virtual {v10}, Lio/reactivex/Scheduler$Worker;->dispose()V
+    invoke-virtual {v0}, Lio/reactivex/Scheduler$Worker;->dispose()V
 
-    .line 387
     return-void
 
-    .line 412
-    .end local v5    # "v":Ljava/lang/Object;, "TT;"
-    .end local v8    # "d":Z
-    .end local v9    # "ex":Ljava/lang/Throwable;
-    :cond_5
+    :cond_6
     :goto_3
-    cmp-long v8, v3, v6
+    if-nez v8, :cond_7
 
-    if-nez v8, :cond_6
+    .line 412
+    iget-boolean v6, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->done:Z
 
-    iget-boolean v8, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->done:Z
+    invoke-interface {v1}, Lio/reactivex/internal/fuseable/SimpleQueue;->isEmpty()Z
 
-    invoke-interface {v2}, Lio/reactivex/internal/fuseable/SimpleQueue;->isEmpty()Z
+    move-result v7
 
-    move-result v9
+    invoke-virtual {p0, v6, v7, v0}, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->checkTerminated(ZZLorg/reactivestreams/Subscriber;)Z
 
-    invoke-virtual {p0, v8, v9, v1}, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->checkTerminated(ZZLorg/reactivestreams/Subscriber;)Z
+    move-result v6
 
-    move-result v8
+    if-eqz v6, :cond_7
 
-    if-eqz v8, :cond_6
-
-    .line 413
     return-void
 
     .line 416
-    :cond_6
+    :cond_7
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->get()I
 
-    move-result v8
+    move-result v6
 
-    .line 417
-    .local v8, "w":I
-    if-ne v0, v8, :cond_7
+    if-ne v5, v6, :cond_8
 
     .line 418
-    iput-wide v3, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->produced:J
+    iput-wide v2, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->produced:J
+
+    neg-int v5, v5
 
     .line 419
-    neg-int v9, v0
+    invoke-virtual {p0, v5}, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->addAndGet(I)I
 
-    invoke-virtual {p0, v9}, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->addAndGet(I)I
+    move-result v5
 
-    move-result v0
+    if-nez v5, :cond_0
 
-    .line 420
-    if-nez v0, :cond_8
-
-    .line 421
-    nop
-
-    .line 427
-    .end local v6    # "r":J
-    .end local v8    # "w":I
     return-void
 
-    .line 424
-    .restart local v6    # "r":J
-    .restart local v8    # "w":I
-    :cond_7
-    move v0, v8
-
-    .line 426
-    .end local v6    # "r":J
-    .end local v8    # "w":I
     :cond_8
+    move v5, v6
+
     goto :goto_0
 .end method
 
 .method runBackfused()V
     .locals 4
 
-    .line 431
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber<TT;>;"
     const/4 v0, 0x1
 
     .line 435
-    .local v0, "missed":I
-    :goto_0
+    :cond_0
     iget-boolean v1, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->cancelled:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
-    .line 436
     return-void
 
     .line 439
-    :cond_0
+    :cond_1
     iget-boolean v1, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->done:Z
 
     .line 441
-    .local v1, "d":Z
     iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
     const/4 v3, 0x0
 
     invoke-interface {v2, v3}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
-    .line 443
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     .line 444
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->error:Ljava/lang/Throwable;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->error:Ljava/lang/Throwable;
 
-    .line 445
-    .local v2, "e":Ljava/lang/Throwable;
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_2
 
     .line 446
-    iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v3, v2}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v1, v0}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    goto :goto_1
+    goto :goto_0
 
     .line 448
-    :cond_1
-    iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    :cond_2
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v3}, Lorg/reactivestreams/Subscriber;->onComplete()V
+    invoke-interface {v0}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
     .line 450
-    :goto_1
-    iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->worker:Lio/reactivex/Scheduler$Worker;
+    :goto_0
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->worker:Lio/reactivex/Scheduler$Worker;
 
-    invoke-virtual {v3}, Lio/reactivex/Scheduler$Worker;->dispose()V
+    invoke-virtual {v0}, Lio/reactivex/Scheduler$Worker;->dispose()V
 
-    .line 451
     return-void
 
-    .line 454
-    .end local v2    # "e":Ljava/lang/Throwable;
-    :cond_2
-    neg-int v2, v0
+    :cond_3
+    neg-int v0, v0
 
-    invoke-virtual {p0, v2}, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->addAndGet(I)I
+    .line 454
+    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->addAndGet(I)I
 
     move-result v0
 
-    .line 455
-    if-nez v0, :cond_3
+    if-nez v0, :cond_0
 
-    .line 456
-    nop
-
-    .line 459
-    .end local v1    # "d":Z
     return-void
-
-    .line 458
-    :cond_3
-    goto :goto_0
 .end method
 
 .method runSync()V
     .locals 9
-
-    .line 299
-    nop
 
     .line 301
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->actual:Lorg/reactivestreams/Subscriber;
@@ -593,6 +497,7 @@
     const/4 v4, 0x1
 
     .line 308
+    :cond_0
     :goto_0
     iget-object v5, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
@@ -600,11 +505,10 @@
 
     move-result-wide v5
 
-    .line 310
     :goto_1
     cmp-long v7, v2, v5
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_3
 
     .line 314
     :try_start_0
@@ -614,20 +518,15 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 321
-    nop
-
     .line 323
     iget-boolean v8, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->cancelled:Z
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_1
 
-    .line 324
     return-void
 
-    .line 326
-    :cond_0
-    if-nez v7, :cond_1
+    :cond_1
+    if-nez v7, :cond_2
 
     .line 327
     invoke-interface {v0}, Lorg/reactivestreams/Subscriber;->onComplete()V
@@ -637,22 +536,18 @@
 
     invoke-virtual {v0}, Lio/reactivex/Scheduler$Worker;->dispose()V
 
-    .line 329
     return-void
 
     .line 332
-    :cond_1
+    :cond_2
     invoke-interface {v0, v7}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
-    .line 334
     const-wide/16 v7, 0x1
 
     add-long/2addr v2, v7
 
-    .line 335
     goto :goto_1
 
-    .line 315
     :catchall_0
     move-exception v1
 
@@ -672,25 +567,23 @@
 
     invoke-virtual {v0}, Lio/reactivex/Scheduler$Worker;->dispose()V
 
-    .line 320
     return-void
 
     .line 337
-    :cond_2
+    :cond_3
     iget-boolean v5, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->cancelled:Z
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4
 
-    .line 338
     return-void
 
     .line 341
-    :cond_3
+    :cond_4
     invoke-interface {v1}, Lio/reactivex/internal/fuseable/SimpleQueue;->isEmpty()Z
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_5
 
     .line 342
     invoke-interface {v0}, Lorg/reactivestreams/Subscriber;->onComplete()V
@@ -700,42 +593,32 @@
 
     invoke-virtual {v0}, Lio/reactivex/Scheduler$Worker;->dispose()V
 
-    .line 344
     return-void
 
     .line 347
-    :cond_4
+    :cond_5
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->get()I
 
     move-result v5
 
-    .line 348
-    if-ne v4, v5, :cond_5
+    if-ne v4, v5, :cond_6
 
     .line 349
     iput-wide v2, p0, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->produced:J
 
-    .line 350
     neg-int v4, v4
 
+    .line 350
     invoke-virtual {p0, v4}, Lio/reactivex/internal/operators/flowable/FlowableObserveOn$ObserveOnSubscriber;->addAndGet(I)I
 
     move-result v4
 
-    .line 351
-    if-nez v4, :cond_6
+    if-nez v4, :cond_0
 
-    .line 352
-    nop
-
-    .line 358
     return-void
 
-    .line 355
-    :cond_5
+    :cond_6
     move v4, v5
 
-    .line 357
-    :cond_6
     goto :goto_0
 .end method

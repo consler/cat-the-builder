@@ -27,31 +27,29 @@
 
 # virtual methods
 .method public allocateDirectBuffer(I)Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
-    .locals 1
-    .param p1, "capacity"    # I
+    .locals 0
 
     .line 50
     invoke-static {p1}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;->wrap(Ljava/nio/ByteBuffer;)Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
+    invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;->wrap(Ljava/nio/ByteBuffer;)Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public allocateHeapBuffer(I)Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
-    .locals 1
-    .param p1, "capacity"    # I
+    .locals 0
 
     .line 45
-    new-array v0, p1, [B
+    new-array p1, p1, [B
 
-    invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;->wrap([B)Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
+    invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;->wrap([B)Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

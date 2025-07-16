@@ -23,12 +23,10 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/assets/loaders/FileHandleResolver;)V
     .locals 0
-    .param p1, "resolver"    # Lcom/badlogic/gdx/assets/loaders/FileHandleResolver;
 
     .line 32
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/assets/loaders/SynchronousAssetLoader;-><init>(Lcom/badlogic/gdx/assets/loaders/FileHandleResolver;)V
 
-    .line 33
     return-void
 .end method
 
@@ -48,10 +46,7 @@
 .end method
 
 .method public getDependencies(Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/loaders/ParticleEffectLoader$ParticleEffectParameter;)Lcom/badlogic/gdx/utils/Array;
-    .locals 4
-    .param p1, "fileName"    # Ljava/lang/String;
-    .param p2, "file"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p3, "param"    # Lcom/badlogic/gdx/assets/loaders/ParticleEffectLoader$ParticleEffectParameter;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,89 +60,82 @@
         }
     .end annotation
 
-    .line 49
-    const/4 v0, 0x0
-
-    .line 50
-    .local v0, "deps":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/assets/AssetDescriptor;>;"
     if-eqz p3, :cond_0
 
-    iget-object v1, p3, Lcom/badlogic/gdx/assets/loaders/ParticleEffectLoader$ParticleEffectParameter;->atlasFile:Ljava/lang/String;
+    .line 50
+    iget-object p1, p3, Lcom/badlogic/gdx/assets/loaders/ParticleEffectLoader$ParticleEffectParameter;->atlasFile:Ljava/lang/String;
 
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
     .line 51
-    new-instance v1, Lcom/badlogic/gdx/utils/Array;
+    new-instance p1, Lcom/badlogic/gdx/utils/Array;
 
-    invoke-direct {v1}, Lcom/badlogic/gdx/utils/Array;-><init>()V
-
-    move-object v0, v1
+    invoke-direct {p1}, Lcom/badlogic/gdx/utils/Array;-><init>()V
 
     .line 52
-    new-instance v1, Lcom/badlogic/gdx/assets/AssetDescriptor;
+    new-instance p2, Lcom/badlogic/gdx/assets/AssetDescriptor;
 
-    iget-object v2, p3, Lcom/badlogic/gdx/assets/loaders/ParticleEffectLoader$ParticleEffectParameter;->atlasFile:Ljava/lang/String;
+    iget-object p3, p3, Lcom/badlogic/gdx/assets/loaders/ParticleEffectLoader$ParticleEffectParameter;->atlasFile:Ljava/lang/String;
 
-    const-class v3, Lcom/badlogic/gdx/graphics/g2d/TextureAtlas;
+    const-class v0, Lcom/badlogic/gdx/graphics/g2d/TextureAtlas;
 
-    invoke-direct {v1, v2, v3}, Lcom/badlogic/gdx/assets/AssetDescriptor;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
+    invoke-direct {p2, p3, v0}, Lcom/badlogic/gdx/assets/AssetDescriptor;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
-
-    .line 54
-    :cond_0
-    return-object v0
-.end method
-
-.method public load(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/loaders/ParticleEffectLoader$ParticleEffectParameter;)Lcom/badlogic/gdx/graphics/g2d/ParticleEffect;
-    .locals 3
-    .param p1, "am"    # Lcom/badlogic/gdx/assets/AssetManager;
-    .param p2, "fileName"    # Ljava/lang/String;
-    .param p3, "file"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p4, "param"    # Lcom/badlogic/gdx/assets/loaders/ParticleEffectLoader$ParticleEffectParameter;
-
-    .line 37
-    new-instance v0, Lcom/badlogic/gdx/graphics/g2d/ParticleEffect;
-
-    invoke-direct {v0}, Lcom/badlogic/gdx/graphics/g2d/ParticleEffect;-><init>()V
-
-    .line 38
-    .local v0, "effect":Lcom/badlogic/gdx/graphics/g2d/ParticleEffect;
-    if-eqz p4, :cond_0
-
-    iget-object v1, p4, Lcom/badlogic/gdx/assets/loaders/ParticleEffectLoader$ParticleEffectParameter;->atlasFile:Ljava/lang/String;
-
-    if-eqz v1, :cond_0
-
-    .line 39
-    iget-object v1, p4, Lcom/badlogic/gdx/assets/loaders/ParticleEffectLoader$ParticleEffectParameter;->atlasFile:Ljava/lang/String;
-
-    const-class v2, Lcom/badlogic/gdx/graphics/g2d/TextureAtlas;
-
-    invoke-virtual {p1, v1, v2}, Lcom/badlogic/gdx/assets/AssetManager;->get(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/badlogic/gdx/graphics/g2d/TextureAtlas;
-
-    iget-object v2, p4, Lcom/badlogic/gdx/assets/loaders/ParticleEffectLoader$ParticleEffectParameter;->atlasPrefix:Ljava/lang/String;
-
-    invoke-virtual {v0, p3, v1, v2}, Lcom/badlogic/gdx/graphics/g2d/ParticleEffect;->load(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/graphics/g2d/TextureAtlas;Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
     goto :goto_0
 
-    .line 40
+    :cond_0
+    const/4 p1, 0x0
+
+    :goto_0
+    return-object p1
+.end method
+
+.method public load(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/loaders/ParticleEffectLoader$ParticleEffectParameter;)Lcom/badlogic/gdx/graphics/g2d/ParticleEffect;
+    .locals 2
+
+    .line 37
+    new-instance p2, Lcom/badlogic/gdx/graphics/g2d/ParticleEffect;
+
+    invoke-direct {p2}, Lcom/badlogic/gdx/graphics/g2d/ParticleEffect;-><init>()V
+
+    if-eqz p4, :cond_0
+
+    .line 38
+    iget-object v0, p4, Lcom/badlogic/gdx/assets/loaders/ParticleEffectLoader$ParticleEffectParameter;->atlasFile:Ljava/lang/String;
+
+    if-eqz v0, :cond_0
+
+    .line 39
+    iget-object v0, p4, Lcom/badlogic/gdx/assets/loaders/ParticleEffectLoader$ParticleEffectParameter;->atlasFile:Ljava/lang/String;
+
+    const-class v1, Lcom/badlogic/gdx/graphics/g2d/TextureAtlas;
+
+    invoke-virtual {p1, v0, v1}, Lcom/badlogic/gdx/assets/AssetManager;->get(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/badlogic/gdx/graphics/g2d/TextureAtlas;
+
+    iget-object p4, p4, Lcom/badlogic/gdx/assets/loaders/ParticleEffectLoader$ParticleEffectParameter;->atlasPrefix:Ljava/lang/String;
+
+    invoke-virtual {p2, p3, p1, p4}, Lcom/badlogic/gdx/graphics/g2d/ParticleEffect;->load(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/graphics/g2d/TextureAtlas;Ljava/lang/String;)V
+
+    goto :goto_0
+
     :cond_0
     if-eqz p4, :cond_1
 
-    iget-object v1, p4, Lcom/badlogic/gdx/assets/loaders/ParticleEffectLoader$ParticleEffectParameter;->imagesDir:Lcom/badlogic/gdx/files/FileHandle;
+    .line 40
+    iget-object p1, p4, Lcom/badlogic/gdx/assets/loaders/ParticleEffectLoader$ParticleEffectParameter;->imagesDir:Lcom/badlogic/gdx/files/FileHandle;
 
-    if-eqz v1, :cond_1
+    if-eqz p1, :cond_1
 
     .line 41
-    iget-object v1, p4, Lcom/badlogic/gdx/assets/loaders/ParticleEffectLoader$ParticleEffectParameter;->imagesDir:Lcom/badlogic/gdx/files/FileHandle;
+    iget-object p1, p4, Lcom/badlogic/gdx/assets/loaders/ParticleEffectLoader$ParticleEffectParameter;->imagesDir:Lcom/badlogic/gdx/files/FileHandle;
 
-    invoke-virtual {v0, p3, v1}, Lcom/badlogic/gdx/graphics/g2d/ParticleEffect;->load(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/files/FileHandle;)V
+    invoke-virtual {p2, p3, p1}, Lcom/badlogic/gdx/graphics/g2d/ParticleEffect;->load(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/files/FileHandle;)V
 
     goto :goto_0
 
@@ -155,13 +143,12 @@
     :cond_1
     invoke-virtual {p3}, Lcom/badlogic/gdx/files/FileHandle;->parent()Lcom/badlogic/gdx/files/FileHandle;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, p3, v1}, Lcom/badlogic/gdx/graphics/g2d/ParticleEffect;->load(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/files/FileHandle;)V
+    invoke-virtual {p2, p3, p1}, Lcom/badlogic/gdx/graphics/g2d/ParticleEffect;->load(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/files/FileHandle;)V
 
-    .line 44
     :goto_0
-    return-object v0
+    return-object p2
 .end method
 
 .method public bridge synthetic load(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/AssetLoaderParameters;)Ljava/lang/Object;

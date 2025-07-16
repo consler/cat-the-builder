@@ -27,25 +27,21 @@
 
 # virtual methods
 .method addFixed32(Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;II)V
-    .locals 2
-    .param p1, "fields"    # Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
-    .param p2, "number"    # I
-    .param p3, "value"    # I
+    .locals 1
 
-    .line 58
     const/4 v0, 0x5
 
+    .line 58
     invoke-static {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->makeTag(II)I
 
-    move-result v0
+    move-result p2
 
     invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p3
 
-    invoke-virtual {p1, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;->storeField(ILjava/lang/Object;)V
+    invoke-virtual {p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;->storeField(ILjava/lang/Object;)V
 
-    .line 59
     return-void
 .end method
 
@@ -61,25 +57,21 @@
 .end method
 
 .method addFixed64(Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;IJ)V
-    .locals 2
-    .param p1, "fields"    # Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
-    .param p2, "number"    # I
-    .param p3, "value"    # J
+    .locals 1
 
-    .line 63
     const/4 v0, 0x1
 
+    .line 63
     invoke-static {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->makeTag(II)I
 
-    move-result v0
+    move-result p2
 
     invoke-static {p3, p4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v1
+    move-result-object p3
 
-    invoke-virtual {p1, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;->storeField(ILjava/lang/Object;)V
+    invoke-virtual {p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;->storeField(ILjava/lang/Object;)V
 
-    .line 64
     return-void
 .end method
 
@@ -96,20 +88,16 @@
 
 .method addGroup(Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;ILcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;)V
     .locals 1
-    .param p1, "fields"    # Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
-    .param p2, "number"    # I
-    .param p3, "subFieldSet"    # Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
 
-    .line 73
     const/4 v0, 0x3
 
+    .line 73
     invoke-static {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->makeTag(II)I
 
-    move-result v0
+    move-result p2
 
-    invoke-virtual {p1, v0, p3}, Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;->storeField(ILjava/lang/Object;)V
+    invoke-virtual {p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;->storeField(ILjava/lang/Object;)V
 
-    .line 74
     return-void
 .end method
 
@@ -128,20 +116,16 @@
 
 .method addLengthDelimited(Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;ILcom/google/crypto/tink/shaded/protobuf/ByteString;)V
     .locals 1
-    .param p1, "fields"    # Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
-    .param p2, "number"    # I
-    .param p3, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    .line 68
     const/4 v0, 0x2
 
+    .line 68
     invoke-static {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->makeTag(II)I
 
-    move-result v0
+    move-result p2
 
-    invoke-virtual {p1, v0, p3}, Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;->storeField(ILjava/lang/Object;)V
+    invoke-virtual {p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;->storeField(ILjava/lang/Object;)V
 
-    .line 69
     return-void
 .end method
 
@@ -157,25 +141,21 @@
 .end method
 
 .method addVarint(Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;IJ)V
-    .locals 2
-    .param p1, "fields"    # Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
-    .param p2, "number"    # I
-    .param p3, "value"    # J
+    .locals 1
 
-    .line 53
     const/4 v0, 0x0
 
+    .line 53
     invoke-static {p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->makeTag(II)I
 
-    move-result v0
+    move-result p2
 
     invoke-static {p3, p4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v1
+    move-result-object p3
 
-    invoke-virtual {p1, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;->storeField(ILjava/lang/Object;)V
+    invoke-virtual {p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;->storeField(ILjava/lang/Object;)V
 
-    .line 54
     return-void
 .end method
 
@@ -192,7 +172,6 @@
 
 .method getBuilderFromMessage(Ljava/lang/Object;)Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
     .locals 2
-    .param p1, "message"    # Ljava/lang/Object;
 
     .line 94
     invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLiteSchema;->getFromMessage(Ljava/lang/Object;)Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
@@ -200,7 +179,6 @@
     move-result-object v0
 
     .line 97
-    .local v0, "unknownFields":Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;->getDefaultInstance()Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
 
     move-result-object v1
@@ -215,7 +193,6 @@
     .line 99
     invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLiteSchema;->setToMessage(Ljava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;)V
 
-    .line 101
     :cond_0
     return-object v0
 .end method
@@ -232,17 +209,14 @@
 .end method
 
 .method getFromMessage(Ljava/lang/Object;)Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
-    .locals 1
-    .param p1, "message"    # Ljava/lang/Object;
+    .locals 0
 
     .line 89
-    move-object v0, p1
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
+    iget-object p1, p1, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->unknownFields:Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
 
-    iget-object v0, v0, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->unknownFields:Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
-
-    return-object v0
+    return-object p1
 .end method
 
 .method bridge synthetic getFromMessage(Ljava/lang/Object;)Ljava/lang/Object;
@@ -257,15 +231,14 @@
 .end method
 
 .method getSerializedSize(Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;)I
-    .locals 1
-    .param p1, "unknowns"    # Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
+    .locals 0
 
     .line 133
     invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;->getSerializedSize()I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method bridge synthetic getSerializedSize(Ljava/lang/Object;)I
@@ -282,15 +255,14 @@
 .end method
 
 .method getSerializedSizeAsMessageSet(Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;)I
-    .locals 1
-    .param p1, "unknowns"    # Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
+    .locals 0
 
     .line 138
     invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;->getSerializedSizeAsMessageSet()I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method bridge synthetic getSerializedSizeAsMessageSet(Ljava/lang/Object;)I
@@ -307,24 +279,20 @@
 .end method
 
 .method makeImmutable(Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "message"    # Ljava/lang/Object;
+    .locals 0
 
     .line 111
     invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLiteSchema;->getFromMessage(Ljava/lang/Object;)Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;->makeImmutable()V
+    invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;->makeImmutable()V
 
-    .line 112
     return-void
 .end method
 
 .method merge(Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;)Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
     .locals 1
-    .param p1, "message"    # Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
-    .param p2, "other"    # Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
 
     .line 126
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;->getDefaultInstance()Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
@@ -337,20 +305,16 @@
 
     if-eqz v0, :cond_0
 
-    .line 127
-    move-object v0, p1
-
     goto :goto_0
 
     .line 128
     :cond_0
     invoke-static {p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;->mutableCopyOf(Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;)Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 126
     :goto_0
-    return-object v0
+    return-object p1
 .end method
 
 .method bridge synthetic merge(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -392,13 +356,10 @@
 
 .method setBuilderToMessage(Ljava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;)V
     .locals 0
-    .param p1, "message"    # Ljava/lang/Object;
-    .param p2, "fields"    # Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
 
     .line 106
     invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLiteSchema;->setToMessage(Ljava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;)V
 
-    .line 107
     return-void
 .end method
 
@@ -414,18 +375,13 @@
 .end method
 
 .method setToMessage(Ljava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;)V
-    .locals 1
-    .param p1, "message"    # Ljava/lang/Object;
-    .param p2, "fields"    # Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
+    .locals 0
 
     .line 84
-    move-object v0, p1
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
+    iput-object p2, p1, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->unknownFields:Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
 
-    iput-object p2, v0, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->unknownFields:Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
-
-    .line 85
     return-void
 .end method
 
@@ -441,23 +397,19 @@
 .end method
 
 .method shouldDiscardUnknownFields(Lcom/google/crypto/tink/shaded/protobuf/Reader;)Z
-    .locals 1
-    .param p1, "reader"    # Lcom/google/crypto/tink/shaded/protobuf/Reader;
+    .locals 0
 
-    .line 43
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method toImmutable(Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;)Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
     .locals 0
-    .param p1, "fields"    # Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
 
     .line 78
     invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;->makeImmutable()V
 
-    .line 79
     return-object p1
 .end method
 
@@ -476,8 +428,6 @@
 
 .method writeAsMessageSetTo(Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;Lcom/google/crypto/tink/shaded/protobuf/Writer;)V
     .locals 0
-    .param p1, "fields"    # Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
-    .param p2, "writer"    # Lcom/google/crypto/tink/shaded/protobuf/Writer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -487,7 +437,6 @@
     .line 121
     invoke-virtual {p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;->writeAsMessageSetTo(Lcom/google/crypto/tink/shaded/protobuf/Writer;)V
 
-    .line 122
     return-void
 .end method
 
@@ -509,8 +458,6 @@
 
 .method writeTo(Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;Lcom/google/crypto/tink/shaded/protobuf/Writer;)V
     .locals 0
-    .param p1, "fields"    # Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;
-    .param p2, "writer"    # Lcom/google/crypto/tink/shaded/protobuf/Writer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -520,7 +467,6 @@
     .line 116
     invoke-virtual {p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/UnknownFieldSetLite;->writeTo(Lcom/google/crypto/tink/shaded/protobuf/Writer;)V
 
-    .line 117
     return-void
 .end method
 

@@ -45,7 +45,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/utils/compression/lzma/Encoder;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/utils/compression/lzma/Encoder;
 
     .line 251
     iput-object p1, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$Optimal;->this$0:Lcom/badlogic/gdx/utils/compression/lzma/Encoder;
@@ -79,31 +78,29 @@
 .method public MakeAsChar()V
     .locals 1
 
-    .line 270
     const/4 v0, -0x1
 
+    .line 270
     iput v0, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$Optimal;->BackPrev:I
 
-    .line 271
     const/4 v0, 0x0
 
+    .line 271
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$Optimal;->Prev1IsChar:Z
 
-    .line 272
     return-void
 .end method
 
 .method public MakeAsShortRep()V
     .locals 1
 
-    .line 275
     const/4 v0, 0x0
 
+    .line 275
     iput v0, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$Optimal;->BackPrev:I
 
     .line 277
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$Optimal;->Prev1IsChar:Z
 
-    .line 278
     return-void
 .end method

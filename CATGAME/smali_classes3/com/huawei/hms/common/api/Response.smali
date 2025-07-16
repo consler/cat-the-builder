@@ -28,10 +28,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 18
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 19
     return-void
 .end method
 
@@ -43,13 +42,12 @@
         }
     .end annotation
 
-    .line 21
+    .line 2
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 22
+    .line 3
     iput-object p1, p0, Lcom/huawei/hms/common/api/Response;->result:Lcom/huawei/hms/support/api/client/Result;
 
-    .line 23
     return-void
 .end method
 
@@ -63,7 +61,7 @@
         }
     .end annotation
 
-    .line 26
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/api/Response;->result:Lcom/huawei/hms/support/api/client/Result;
 
     return-object v0
@@ -77,9 +75,8 @@
         }
     .end annotation
 
-    .line 30
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/common/api/Response;->result:Lcom/huawei/hms/support/api/client/Result;
 
-    .line 31
     return-void
 .end method

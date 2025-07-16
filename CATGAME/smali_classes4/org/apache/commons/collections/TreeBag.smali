@@ -17,13 +17,11 @@
 
     invoke-direct {p0, v0}, Lorg/apache/commons/collections/DefaultMapBag;-><init>(Ljava/util/Map;)V
 
-    .line 42
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Collection;)V
     .locals 0
-    .param p1, "coll"    # Ljava/util/Collection;
 
     .line 61
     invoke-direct {p0}, Lorg/apache/commons/collections/TreeBag;-><init>()V
@@ -31,13 +29,11 @@
     .line 62
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections/TreeBag;->addAll(Ljava/util/Collection;)Z
 
-    .line 63
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Comparator;)V
     .locals 1
-    .param p1, "comparator"    # Ljava/util/Comparator;
 
     .line 51
     new-instance v0, Ljava/util/TreeMap;
@@ -46,7 +42,6 @@
 
     invoke-direct {p0, v0}, Lorg/apache/commons/collections/DefaultMapBag;-><init>(Ljava/util/Map;)V
 
-    .line 52
     return-void
 .end method
 

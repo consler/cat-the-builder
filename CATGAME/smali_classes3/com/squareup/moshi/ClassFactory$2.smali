@@ -71,11 +71,11 @@
 
     new-array v2, v2, [Ljava/lang/Object;
 
-    iget-object v3, p0, Lcom/squareup/moshi/ClassFactory$2;->val$rawType:Ljava/lang/Class;
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    iget-object v4, p0, Lcom/squareup/moshi/ClassFactory$2;->val$rawType:Ljava/lang/Class;
 
-    aput-object v3, v2, v4
+    aput-object v4, v2, v3
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 

@@ -46,37 +46,31 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/time/Period;
-    .locals 4
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "in"    # Lcom/esotericsoftware/kryo/io/Input;
-    .param p3, "type"    # Ljava/lang/Class;
+    .locals 1
+
+    const/4 p1, 0x1
 
     .line 317
-    const/4 v0, 0x1
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Input;->readInt(Z)I
 
-    invoke-virtual {p2, v0}, Lcom/esotericsoftware/kryo/io/Input;->readInt(Z)I
-
-    move-result v1
+    move-result p3
 
     .line 318
-    .local v1, "years":I
-    invoke-virtual {p2, v0}, Lcom/esotericsoftware/kryo/io/Input;->readInt(Z)I
-
-    move-result v2
-
-    .line 319
-    .local v2, "months":I
-    invoke-virtual {p2, v0}, Lcom/esotericsoftware/kryo/io/Input;->readInt(Z)I
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Input;->readInt(Z)I
 
     move-result v0
 
+    .line 319
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Input;->readInt(Z)I
+
+    move-result p1
+
     .line 320
-    .local v0, "days":I
-    invoke-static {v1, v2, v0}, Ljava/time/Period;->of(III)Ljava/time/Period;
+    invoke-static {p3, v0, p1}, Ljava/time/Period;->of(III)Ljava/time/Period;
 
-    move-result-object v3
+    move-result-object p1
 
-    return-object v3
+    return-object p1
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
@@ -91,34 +85,30 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/time/Period;)V
-    .locals 2
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "out"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p3, "obj"    # Ljava/time/Period;
+    .locals 1
 
     .line 311
     invoke-virtual {p3}, Ljava/time/Period;->getYears()I
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    invoke-virtual {p2, v0, v1}, Lcom/esotericsoftware/kryo/io/Output;->writeVarInt(IZ)I
+    invoke-virtual {p2, p1, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeVarInt(IZ)I
 
     .line 312
     invoke-virtual {p3}, Ljava/time/Period;->getMonths()I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p2, v0, v1}, Lcom/esotericsoftware/kryo/io/Output;->writeVarInt(IZ)I
+    invoke-virtual {p2, p1, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeVarInt(IZ)I
 
     .line 313
     invoke-virtual {p3}, Ljava/time/Period;->getDays()I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p2, v0, v1}, Lcom/esotericsoftware/kryo/io/Output;->writeVarInt(IZ)I
+    invoke-virtual {p2, p1, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeVarInt(IZ)I
 
-    .line 314
     return-void
 .end method

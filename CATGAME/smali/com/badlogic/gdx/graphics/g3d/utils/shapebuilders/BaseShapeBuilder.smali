@@ -275,7 +275,6 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/FlushablePool;->flush()V
 
-    .line 93
     return-void
 .end method
 
@@ -291,8 +290,6 @@
 
     check-cast v0, Lcom/badlogic/gdx/math/Matrix4;
 
-    .line 86
-    .local v0, "result":Lcom/badlogic/gdx/math/Matrix4;
     return-object v0
 .end method
 

@@ -27,23 +27,11 @@
 # direct methods
 .method public constructor <init>(IIIIIZ)V
     .locals 1
-    .param p1, "w"    # I
-    .param p2, "h"    # I
-    .param p3, "internalFormat"    # I
-    .param p4, "format"    # I
-    .param p5, "type"    # I
-    .param p6, "isGpuOnly"    # Z
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 35
     const/4 v0, 0x0
-
-    iput v0, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->width:I
-
-    .line 36
-    iput v0, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->height:I
 
     .line 44
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->isPrepared:Z
@@ -66,15 +54,13 @@
     .line 53
     iput-boolean p6, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->isGpuOnly:Z
 
-    .line 54
     return-void
 .end method
 
 
 # virtual methods
 .method public consumeCustomData(I)V
-    .locals 12
-    .param p1, "target"    # I
+    .locals 11
 
     .line 84
     sget-object v0, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
@@ -135,38 +121,38 @@
 
     .line 97
     :cond_1
-    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v1, "Extension GL_ARB_texture_float not supported!"
+    const-string v0, "Extension GL_ARB_texture_float not supported!"
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 101
     :cond_2
     :goto_0
-    sget-object v2, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
+    sget-object v1, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    iget v5, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->internalFormat:I
+    iget v4, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->internalFormat:I
 
-    iget v6, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->width:I
+    iget v5, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->width:I
 
-    iget v7, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->height:I
+    iget v6, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->height:I
 
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
-    iget v9, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->format:I
+    iget v8, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->format:I
 
-    const/16 v10, 0x1406
+    const/16 v9, 0x1406
 
-    iget-object v11, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->buffer:Ljava/nio/FloatBuffer;
+    iget-object v10, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->buffer:Ljava/nio/FloatBuffer;
 
-    move v3, p1
+    move v2, p1
 
-    invoke-interface/range {v2 .. v11}, Lcom/badlogic/gdx/graphics/GL20;->glTexImage2D(IIIIIIIILjava/nio/Buffer;)V
+    invoke-interface/range {v1 .. v10}, Lcom/badlogic/gdx/graphics/GL20;->glTexImage2D(IIIIIIIILjava/nio/Buffer;)V
 
     goto :goto_2
 
@@ -206,19 +192,18 @@
 
     invoke-interface/range {v1 .. v10}, Lcom/badlogic/gdx/graphics/GL20;->glTexImage2D(IIIIIIIILjava/nio/Buffer;)V
 
-    .line 103
     :goto_2
     return-void
 
     .line 88
     :cond_4
-    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v1, "Extension OES_texture_float not supported!"
+    const-string v0, "Extension OES_texture_float not supported!"
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public consumePixmap()Lcom/badlogic/gdx/graphics/Pixmap;
@@ -295,7 +280,6 @@
 .method public isManaged()Z
     .locals 1
 
-    .line 137
     const/4 v0, 0x1
 
     return v0
@@ -311,128 +295,110 @@
 .end method
 
 .method public prepare()V
-    .locals 3
+    .locals 4
 
     .line 68
     iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->isPrepared:Z
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_8
 
     .line 69
     iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->isGpuOnly:Z
 
-    if-nez v0, :cond_8
+    const/4 v1, 0x1
 
-    .line 70
-    const/4 v0, 0x4
+    if-nez v0, :cond_7
 
     .line 71
-    .local v0, "amountOfFloats":I
-    sget-object v1, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
+    sget-object v0, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
 
-    invoke-interface {v1}, Lcom/badlogic/gdx/Graphics;->getGLVersion()Lcom/badlogic/gdx/graphics/glutils/GLVersion;
+    invoke-interface {v0}, Lcom/badlogic/gdx/Graphics;->getGLVersion()Lcom/badlogic/gdx/graphics/glutils/GLVersion;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/glutils/GLVersion;->getType()Lcom/badlogic/gdx/graphics/glutils/GLVersion$Type;
+    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/glutils/GLVersion;->getType()Lcom/badlogic/gdx/graphics/glutils/GLVersion$Type;
 
-    move-result-object v1
+    move-result-object v0
 
     sget-object v2, Lcom/badlogic/gdx/graphics/glutils/GLVersion$Type;->OpenGL:Lcom/badlogic/gdx/graphics/glutils/GLVersion$Type;
 
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/graphics/glutils/GLVersion$Type;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Lcom/badlogic/gdx/graphics/glutils/GLVersion$Type;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_7
+    const/4 v2, 0x4
+
+    if-eqz v0, :cond_6
 
     .line 72
-    iget v1, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->internalFormat:I
+    iget v0, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->internalFormat:I
 
-    const v2, 0x881a
+    const v3, 0x881a
 
-    if-eq v1, v2, :cond_0
+    if-eq v0, v3, :cond_0
 
-    const v2, 0x8814
-
-    if-ne v1, v2, :cond_1
+    const v3, 0x8814
 
     :cond_0
-    const/4 v0, 0x4
+    const v3, 0x881b
 
-    .line 73
+    if-eq v0, v3, :cond_1
+
+    const v3, 0x8815
+
+    if-ne v0, v3, :cond_2
+
     :cond_1
-    iget v1, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->internalFormat:I
-
-    const v2, 0x881b
-
-    if-eq v1, v2, :cond_2
-
-    const v2, 0x8815
-
-    if-ne v1, v2, :cond_3
+    const/4 v2, 0x3
 
     :cond_2
-    const/4 v0, 0x3
+    const v3, 0x822f
 
-    .line 74
+    if-eq v0, v3, :cond_3
+
+    const v3, 0x8230
+
+    if-ne v0, v3, :cond_4
+
     :cond_3
-    iget v1, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->internalFormat:I
-
-    const v2, 0x822f
-
-    if-eq v1, v2, :cond_4
-
-    const v2, 0x8230
-
-    if-ne v1, v2, :cond_5
+    const/4 v2, 0x2
 
     :cond_4
-    const/4 v0, 0x2
+    const v3, 0x822d
 
-    .line 75
+    if-eq v0, v3, :cond_5
+
+    const v3, 0x822e
+
+    if-ne v0, v3, :cond_6
+
     :cond_5
-    iget v1, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->internalFormat:I
-
-    const v2, 0x822d
-
-    if-eq v1, v2, :cond_6
-
-    const v2, 0x822e
-
-    if-ne v1, v2, :cond_7
-
-    :cond_6
-    const/4 v0, 0x1
+    move v2, v1
 
     .line 77
-    :cond_7
-    iget v1, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->width:I
+    :cond_6
+    iget v0, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->width:I
 
-    iget v2, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->height:I
+    iget v3, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->height:I
 
-    mul-int/2addr v1, v2
+    mul-int/2addr v0, v3
 
-    mul-int/2addr v1, v0
+    mul-int/2addr v0, v2
 
-    invoke-static {v1}, Lcom/badlogic/gdx/utils/BufferUtils;->newFloatBuffer(I)Ljava/nio/FloatBuffer;
+    invoke-static {v0}, Lcom/badlogic/gdx/utils/BufferUtils;->newFloatBuffer(I)Ljava/nio/FloatBuffer;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->buffer:Ljava/nio/FloatBuffer;
+    iput-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->buffer:Ljava/nio/FloatBuffer;
 
     .line 79
-    .end local v0    # "amountOfFloats":I
-    :cond_8
-    const/4 v0, 0x1
+    :cond_7
+    iput-boolean v1, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->isPrepared:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/FloatTextureData;->isPrepared:Z
-
-    .line 80
     return-void
 
     .line 68
-    :cond_9
+    :cond_8
     new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
     const-string v1, "Already prepared"
@@ -445,7 +411,6 @@
 .method public useMipMaps()Z
     .locals 1
 
-    .line 132
     const/4 v0, 0x0
 
     return v0

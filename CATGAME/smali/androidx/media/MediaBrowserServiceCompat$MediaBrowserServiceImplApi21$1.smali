@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;Landroid/support/v4/media/session/MediaSessionCompat$Token;)V
     .locals 0
-    .param p1, "this$1"    # Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;
 
     .line 324
     iput-object p1, p0, Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21$1;->this$1:Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;
@@ -61,8 +60,6 @@
 
     move-result-object v0
 
-    .line 329
-    .local v0, "extraBinder":Landroid/support/v4/media/session/IMediaSession;
     if-eqz v0, :cond_0
 
     .line 330
@@ -87,34 +84,27 @@
 
     check-cast v2, Landroid/os/Bundle;
 
-    .line 331
-    .local v2, "rootExtras":Landroid/os/Bundle;
-    nop
+    const-string v3, "extra_session_binder"
 
     .line 332
     invoke-interface {v0}, Landroid/support/v4/media/session/IMediaSession;->asBinder()Landroid/os/IBinder;
 
-    move-result-object v3
+    move-result-object v4
 
     .line 331
-    const-string v4, "extra_session_binder"
+    invoke-static {v2, v3, v4}, Landroidx/core/app/BundleCompat;->putBinder(Landroid/os/Bundle;Ljava/lang/String;Landroid/os/IBinder;)V
 
-    invoke-static {v2, v4, v3}, Landroidx/core/app/BundleCompat;->putBinder(Landroid/os/Bundle;Ljava/lang/String;Landroid/os/IBinder;)V
-
-    .line 333
-    .end local v2    # "rootExtras":Landroid/os/Bundle;
     goto :goto_0
 
     .line 335
     :cond_0
-    iget-object v1, p0, Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21$1;->this$1:Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;
+    iget-object v0, p0, Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21$1;->this$1:Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;
 
-    iget-object v1, v1, Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;->mRootExtrasList:Ljava/util/List;
+    iget-object v0, v0, Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;->mRootExtrasList:Ljava/util/List;
 
-    invoke-interface {v1}, Ljava/util/List;->clear()V
+    invoke-interface {v0}, Ljava/util/List;->clear()V
 
     .line 337
-    .end local v0    # "extraBinder":Landroid/support/v4/media/session/IMediaSession;
     :cond_1
     iget-object v0, p0, Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21$1;->this$1:Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;
 
@@ -130,6 +120,5 @@
 
     invoke-virtual {v0, v1}, Landroid/service/media/MediaBrowserService;->setSessionToken(Landroid/media/session/MediaSession$Token;)V
 
-    .line 338
     return-void
 .end method

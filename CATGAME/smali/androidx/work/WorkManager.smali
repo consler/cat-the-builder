@@ -10,12 +10,11 @@
     .line 585
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 586
     return-void
 .end method
 
 .method public static getInstance()Landroidx/work/WorkManager;
-    .locals 3
+    .locals 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -24,27 +23,23 @@
 
     move-result-object v0
 
-    .line 164
-    .local v0, "workManager":Landroidx/work/WorkManager;
     if-eqz v0, :cond_0
 
-    .line 170
     return-object v0
 
     .line 165
     :cond_0
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    const-string v2, "WorkManager is not initialized properly.  The most likely cause is that you disabled WorkManagerInitializer in your manifest but forgot to call WorkManager#initialize in your Application#onCreate or a ContentProvider."
+    const-string v1, "WorkManager is not initialized properly.  The most likely cause is that you disabled WorkManagerInitializer in your manifest but forgot to call WorkManager#initialize in your Application#onCreate or a ContentProvider."
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public static getInstance(Landroid/content/Context;)Landroidx/work/WorkManager;
-    .locals 1
-    .param p0, "context"    # Landroid/content/Context;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -57,15 +52,13 @@
     .line 184
     invoke-static {p0}, Landroidx/work/impl/WorkManagerImpl;->getInstance(Landroid/content/Context;)Landroidx/work/impl/WorkManagerImpl;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static initialize(Landroid/content/Context;Landroidx/work/Configuration;)V
     .locals 0
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "configuration"    # Landroidx/work/Configuration;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -80,17 +73,13 @@
     .line 210
     invoke-static {p0, p1}, Landroidx/work/impl/WorkManagerImpl;->initialize(Landroid/content/Context;Landroidx/work/Configuration;)V
 
-    .line 211
     return-void
 .end method
 
 
 # virtual methods
 .method public final beginUniqueWork(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Landroidx/work/OneTimeWorkRequest;)Landroidx/work/WorkContinuation;
-    .locals 1
-    .param p1, "uniqueWorkName"    # Ljava/lang/String;
-    .param p2, "existingWorkPolicy"    # Landroidx/work/ExistingWorkPolicy;
-    .param p3, "work"    # Landroidx/work/OneTimeWorkRequest;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -107,13 +96,13 @@
     .line 292
     invoke-static {p3}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p3
 
-    invoke-virtual {p0, p1, p2, v0}, Landroidx/work/WorkManager;->beginUniqueWork(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Ljava/util/List;)Landroidx/work/WorkContinuation;
+    invoke-virtual {p0, p1, p2, p3}, Landroidx/work/WorkManager;->beginUniqueWork(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Ljava/util/List;)Landroidx/work/WorkContinuation;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public abstract beginUniqueWork(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Ljava/util/List;)Landroidx/work/WorkContinuation;
@@ -144,8 +133,7 @@
 .end method
 
 .method public final beginWith(Landroidx/work/OneTimeWorkRequest;)Landroidx/work/WorkContinuation;
-    .locals 1
-    .param p1, "work"    # Landroidx/work/OneTimeWorkRequest;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -158,13 +146,13 @@
     .line 245
     invoke-static {p1}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Landroidx/work/WorkManager;->beginWith(Ljava/util/List;)Landroidx/work/WorkContinuation;
+    invoke-virtual {p0, p1}, Landroidx/work/WorkManager;->beginWith(Ljava/util/List;)Landroidx/work/WorkContinuation;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public abstract beginWith(Ljava/util/List;)Landroidx/work/WorkContinuation;
@@ -236,8 +224,7 @@
 .end method
 
 .method public final enqueue(Landroidx/work/WorkRequest;)Landroidx/work/Operation;
-    .locals 1
-    .param p1, "workRequest"    # Landroidx/work/WorkRequest;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -250,13 +237,13 @@
     .line 221
     invoke-static {p1}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Landroidx/work/WorkManager;->enqueue(Ljava/util/List;)Landroidx/work/Operation;
+    invoke-virtual {p0, p1}, Landroidx/work/WorkManager;->enqueue(Ljava/util/List;)Landroidx/work/Operation;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public abstract enqueue(Ljava/util/List;)Landroidx/work/Operation;
@@ -297,10 +284,7 @@
 .end method
 
 .method public enqueueUniqueWork(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Landroidx/work/OneTimeWorkRequest;)Landroidx/work/Operation;
-    .locals 1
-    .param p1, "uniqueWorkName"    # Ljava/lang/String;
-    .param p2, "existingWorkPolicy"    # Landroidx/work/ExistingWorkPolicy;
-    .param p3, "work"    # Landroidx/work/OneTimeWorkRequest;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -314,20 +298,17 @@
         }
     .end annotation
 
-    .line 351
-    nop
-
     .line 354
     invoke-static {p3}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p3
 
     .line 351
-    invoke-virtual {p0, p1, p2, v0}, Landroidx/work/WorkManager;->enqueueUniqueWork(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Ljava/util/List;)Landroidx/work/Operation;
+    invoke-virtual {p0, p1, p2, p3}, Landroidx/work/WorkManager;->enqueueUniqueWork(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Ljava/util/List;)Landroidx/work/Operation;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public abstract enqueueUniqueWork(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Ljava/util/List;)Landroidx/work/Operation;

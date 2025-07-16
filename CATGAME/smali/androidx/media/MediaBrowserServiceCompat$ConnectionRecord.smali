@@ -52,11 +52,6 @@
 # direct methods
 .method constructor <init>(Landroidx/media/MediaBrowserServiceCompat;Ljava/lang/String;IILandroid/os/Bundle;Landroidx/media/MediaBrowserServiceCompat$ServiceCallbacks;)V
     .locals 0
-    .param p2, "pkg"    # Ljava/lang/String;
-    .param p3, "pid"    # I
-    .param p4, "uid"    # I
-    .param p5, "rootHints"    # Landroid/os/Bundle;
-    .param p6, "callback"    # Landroidx/media/MediaBrowserServiceCompat$ServiceCallbacks;
 
     .line 796
     iput-object p1, p0, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;->this$0:Landroidx/media/MediaBrowserServiceCompat;
@@ -92,7 +87,6 @@
     .line 802
     iput-object p6, p0, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;->callbacks:Landroidx/media/MediaBrowserServiceCompat$ServiceCallbacks;
 
-    .line 803
     return-void
 .end method
 
@@ -112,6 +106,5 @@
 
     invoke-virtual {v0, v1}, Landroidx/media/MediaBrowserServiceCompat$ServiceHandler;->post(Ljava/lang/Runnable;)Z
 
-    .line 813
     return-void
 .end method

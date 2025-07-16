@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/server/AsyncHttpServer;Landroid/content/Context;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/server/AsyncHttpServer;
 
     .line 431
     iput-object p1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$5;->this$0:Lcom/koushikdutta/async/http/server/AsyncHttpServer;
@@ -45,117 +44,120 @@
 
 # virtual methods
 .method public onRequest(Lcom/koushikdutta/async/http/server/AsyncHttpServerRequest;Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;)V
-    .locals 6
-    .param p1, "request"    # Lcom/koushikdutta/async/http/server/AsyncHttpServerRequest;
-    .param p2, "response"    # Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;
+    .locals 4
 
     .line 434
     invoke-interface {p1}, Lcom/koushikdutta/async/http/server/AsyncHttpServerRequest;->getMatcher()Ljava/util/regex/Matcher;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, ""
+    const-string v0, ""
 
-    invoke-virtual {v0, v1}, Ljava/util/regex/Matcher;->replaceAll(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/util/regex/Matcher;->replaceAll(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 435
-    .local v0, "path":Ljava/lang/String;
-    iget-object v1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$5;->val$_context:Landroid/content/Context;
+    iget-object v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$5;->val$_context:Landroid/content/Context;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v3, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$5;->val$assetPath:Ljava/lang/String;
+    iget-object v2, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$5;->val$assetPath:Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Lcom/koushikdutta/async/http/server/AsyncHttpServer;->getAssetStream(Landroid/content/Context;Ljava/lang/String;)Landroid/util/Pair;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/koushikdutta/async/http/server/AsyncHttpServer;->getAssetStream(Landroid/content/Context;Ljava/lang/String;)Landroid/util/Pair;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
     .line 436
-    .local v1, "pair":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Integer;Ljava/io/InputStream;>;"
-    if-eqz v1, :cond_1
+    iget-object v1, v0, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    iget-object v2, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
-
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
     goto :goto_0
 
     .line 441
     :cond_0
-    iget-object v2, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
+    iget-object v1, v0, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    check-cast v2, Ljava/io/InputStream;
+    check-cast v1, Ljava/io/InputStream;
+
+    const/4 v2, 0x1
+
+    new-array v2, v2, [Ljava/io/Closeable;
+
+    const/4 v3, 0x0
+
+    aput-object v1, v2, v3
 
     .line 442
-    .local v2, "is":Ljava/io/InputStream;
-    const/4 v3, 0x1
-
-    new-array v3, v3, [Ljava/io/Closeable;
-
-    const/4 v4, 0x0
-
-    aput-object v2, v3, v4
-
-    invoke-static {v3}, Lcom/koushikdutta/async/util/StreamUtility;->closeQuietly([Ljava/io/Closeable;)V
+    invoke-static {v2}, Lcom/koushikdutta/async/util/StreamUtility;->closeQuietly([Ljava/io/Closeable;)V
 
     .line 443
     invoke-interface {p2}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;->getHeaders()Lcom/koushikdutta/async/http/Headers;
 
-    move-result-object v3
+    move-result-object v1
 
-    iget-object v4, v1, Landroid/util/Pair;->first:Ljava/lang/Object;
+    iget-object v0, v0, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    invoke-static {v4}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    const-string v5, "Content-Length"
+    const-string v2, "Content-Length"
 
-    invoke-virtual {v3, v5, v4}, Lcom/koushikdutta/async/http/Headers;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/koushikdutta/async/http/Headers;
+    invoke-virtual {v1, v2, v0}, Lcom/koushikdutta/async/http/Headers;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/koushikdutta/async/http/Headers;
+
+    const/16 v0, 0xc8
 
     .line 444
-    const/16 v3, 0xc8
-
-    invoke-interface {p2, v3}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;->code(I)Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;
+    invoke-interface {p2, v0}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;->code(I)Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;
 
     .line 445
     invoke-interface {p2}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;->getHeaders()Lcom/koushikdutta/async/http/Headers;
 
-    move-result-object v3
+    move-result-object v0
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v5, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$5;->val$assetPath:Ljava/lang/String;
+    iget-object v2, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$5;->val$assetPath:Ljava/lang/String;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-static {v4}, Lcom/koushikdutta/async/http/server/AsyncHttpServer;->getContentType(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p1
 
-    const-string v5, "Content-Type"
+    invoke-static {p1}, Lcom/koushikdutta/async/http/server/AsyncHttpServer;->getContentType(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v3, v5, v4}, Lcom/koushikdutta/async/http/Headers;->add(Ljava/lang/String;Ljava/lang/String;)Lcom/koushikdutta/async/http/Headers;
+    move-result-object p1
+
+    const-string v1, "Content-Type"
+
+    invoke-virtual {v0, v1, p1}, Lcom/koushikdutta/async/http/Headers;->add(Ljava/lang/String;Ljava/lang/String;)Lcom/koushikdutta/async/http/Headers;
 
     .line 446
     invoke-interface {p2}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;->writeHead()V
@@ -163,20 +165,17 @@
     .line 447
     invoke-interface {p2}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;->end()V
 
-    .line 448
     return-void
 
-    .line 437
-    .end local v2    # "is":Ljava/io/InputStream;
     :cond_1
     :goto_0
-    const/16 v2, 0x194
+    const/16 p1, 0x194
 
-    invoke-interface {p2, v2}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;->code(I)Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;
+    .line 437
+    invoke-interface {p2, p1}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;->code(I)Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;
 
     .line 438
     invoke-interface {p2}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;->end()V
 
-    .line 439
     return-void
 .end method

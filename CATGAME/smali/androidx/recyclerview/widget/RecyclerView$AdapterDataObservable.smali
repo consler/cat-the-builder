@@ -61,7 +61,6 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -76,21 +75,16 @@
 
     invoke-virtual {v1}, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;->onChanged()V
 
-    .line 12252
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 12255
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public notifyItemMoved(II)V
     .locals 3
-    .param p1, "fromPosition"    # I
-    .param p2, "toPosition"    # I
 
     .line 12293
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObservable;->mObservers:Ljava/util/ArrayList;
@@ -103,7 +97,6 @@
 
     sub-int/2addr v0, v1
 
-    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -118,36 +111,27 @@
 
     invoke-virtual {v2, p1, p2, v1}, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;->onItemRangeMoved(III)V
 
-    .line 12293
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 12296
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public notifyItemRangeChanged(II)V
     .locals 1
-    .param p1, "positionStart"    # I
-    .param p2, "itemCount"    # I
 
-    .line 12258
     const/4 v0, 0x0
 
+    .line 12258
     invoke-virtual {p0, p1, p2, v0}, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObservable;->notifyItemRangeChanged(IILjava/lang/Object;)V
 
-    .line 12259
     return-void
 .end method
 
 .method public notifyItemRangeChanged(IILjava/lang/Object;)V
     .locals 2
-    .param p1, "positionStart"    # I
-    .param p2, "itemCount"    # I
-    .param p3, "payload"    # Ljava/lang/Object;
 
     .line 12267
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObservable;->mObservers:Ljava/util/ArrayList;
@@ -158,7 +142,6 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -173,21 +156,16 @@
 
     invoke-virtual {v1, p1, p2, p3}, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;->onItemRangeChanged(IILjava/lang/Object;)V
 
-    .line 12267
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 12270
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public notifyItemRangeInserted(II)V
     .locals 2
-    .param p1, "positionStart"    # I
-    .param p2, "itemCount"    # I
 
     .line 12277
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObservable;->mObservers:Ljava/util/ArrayList;
@@ -198,7 +176,6 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -213,21 +190,16 @@
 
     invoke-virtual {v1, p1, p2}, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;->onItemRangeInserted(II)V
 
-    .line 12277
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 12280
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public notifyItemRangeRemoved(II)V
     .locals 2
-    .param p1, "positionStart"    # I
-    .param p2, "itemCount"    # I
 
     .line 12287
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObservable;->mObservers:Ljava/util/ArrayList;
@@ -238,7 +210,6 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -253,13 +224,10 @@
 
     invoke-virtual {v1, p1, p2}, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;->onItemRangeRemoved(II)V
 
-    .line 12287
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 12290
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method

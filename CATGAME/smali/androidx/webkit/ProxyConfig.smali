@@ -65,8 +65,6 @@
     .end annotation
 
     .line 76
-    .local p1, "proxyRules":Ljava/util/List;, "Ljava/util/List<Landroidx/webkit/ProxyConfig$ProxyRule;>;"
-    .local p2, "bypassRules":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 77
@@ -75,7 +73,6 @@
     .line 78
     iput-object p2, p0, Landroidx/webkit/ProxyConfig;->mBypassRules:Ljava/util/List;
 
-    .line 79
     return-void
 .end method
 

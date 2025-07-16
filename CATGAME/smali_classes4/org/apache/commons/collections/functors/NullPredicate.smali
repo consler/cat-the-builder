@@ -33,7 +33,6 @@
     .line 53
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 54
     return-void
 .end method
 
@@ -49,19 +48,17 @@
 
 # virtual methods
 .method public evaluate(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
+    .locals 0
 
-    .line 63
     if-nez p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method

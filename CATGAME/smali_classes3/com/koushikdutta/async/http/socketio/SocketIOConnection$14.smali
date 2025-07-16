@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/socketio/SocketIOConnection;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/socketio/SocketIOConnection;
 
     .line 456
     iput-object p1, p0, Lcom/koushikdutta/async/http/socketio/SocketIOConnection$14;->this$0:Lcom/koushikdutta/async/http/socketio/SocketIOConnection;
@@ -38,7 +37,6 @@
 # virtual methods
 .method public onSelect(Lcom/koushikdutta/async/http/socketio/SocketIOClient;)V
     .locals 1
-    .param p1, "client"    # Lcom/koushikdutta/async/http/socketio/SocketIOClient;
 
     .line 459
     iget-object v0, p1, Lcom/koushikdutta/async/http/socketio/SocketIOClient;->endpoint:Ljava/lang/String;
@@ -49,7 +47,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 460
     return-void
 
     .line 462
@@ -58,6 +55,5 @@
 
     invoke-virtual {v0, p1}, Lcom/koushikdutta/async/http/socketio/SocketIOConnection;->connect(Lcom/koushikdutta/async/http/socketio/SocketIOClient;)V
 
-    .line 463
     return-void
 .end method

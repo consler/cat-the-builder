@@ -40,8 +40,6 @@
 # virtual methods
 .method public compare(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)I
     .locals 4
-    .param p1, "former"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-    .param p2, "latter"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     .line 266
     invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->iterator()Lcom/google/crypto/tink/shaded/protobuf/ByteString$ByteIterator;
@@ -49,14 +47,12 @@
     move-result-object v0
 
     .line 267
-    .local v0, "formerBytes":Lcom/google/crypto/tink/shaded/protobuf/ByteString$ByteIterator;
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->iterator()Lcom/google/crypto/tink/shaded/protobuf/ByteString$ByteIterator;
 
     move-result-object v1
 
     .line 269
-    .local v1, "latterBytes":Lcom/google/crypto/tink/shaded/protobuf/ByteString$ByteIterator;
-    :goto_0
+    :cond_0
     invoke-interface {v0}, Lcom/google/crypto/tink/shaded/protobuf/ByteString$ByteIterator;->hasNext()Z
 
     move-result v2
@@ -68,9 +64,6 @@
     move-result v2
 
     if-eqz v2, :cond_1
-
-    .line 272
-    nop
 
     .line 273
     invoke-interface {v0}, Lcom/google/crypto/tink/shaded/protobuf/ByteString$ByteIterator;->nextByte()B
@@ -93,33 +86,25 @@
 
     move-result v2
 
-    .line 274
-    .local v2, "result":I
     if-eqz v2, :cond_0
 
-    .line 275
     return v2
-
-    .line 277
-    .end local v2    # "result":I
-    :cond_0
-    goto :goto_0
 
     .line 279
     :cond_1
     invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->size()I
 
-    move-result v2
+    move-result p1
 
     invoke-virtual {p2}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->size()I
 
-    move-result v3
+    move-result p2
 
-    invoke-static {v2, v3}, Ljava/lang/Integer;->compare(II)I
+    invoke-static {p1, p2}, Ljava/lang/Integer;->compare(II)I
 
-    move-result v2
+    move-result p1
 
-    return v2
+    return p1
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I

@@ -27,7 +27,6 @@
 
     invoke-direct {p0}, Landroid/media/browse/MediaBrowser$ConnectionCallback;-><init>()V
 
-    .line 680
     return-void
 .end method
 
@@ -56,7 +55,6 @@
 
     invoke-virtual {v0}, Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback;->onConnected()V
 
-    .line 688
     return-void
 .end method
 
@@ -83,7 +81,6 @@
 
     invoke-virtual {v0}, Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback;->onConnectionFailed()V
 
-    .line 704
     return-void
 .end method
 
@@ -110,6 +107,5 @@
 
     invoke-virtual {v0}, Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback;->onConnectionSuspended()V
 
-    .line 696
     return-void
 .end method

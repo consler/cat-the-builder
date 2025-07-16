@@ -52,7 +52,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Lcom/bumptech/glide/load/model/DataUrlLoader$DataDecoder;)V
     .locals 0
-    .param p1, "dataUri"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -63,8 +62,6 @@
     .end annotation
 
     .line 74
-    .local p0, "this":Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher;, "Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher<TData;>;"
-    .local p2, "reader":Lcom/bumptech/glide/load/model/DataUrlLoader$DataDecoder;, "Lcom/bumptech/glide/load/model/DataUrlLoader$DataDecoder<TData;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 75
@@ -73,7 +70,6 @@
     .line 76
     iput-object p2, p0, Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher;->reader:Lcom/bumptech/glide/load/model/DataUrlLoader$DataDecoder;
 
-    .line 77
     return-void
 .end method
 
@@ -82,8 +78,6 @@
 .method public cancel()V
     .locals 0
 
-    .line 101
-    .local p0, "this":Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher;, "Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher<TData;>;"
     return-void
 .end method
 
@@ -91,7 +85,6 @@
     .locals 2
 
     .line 92
-    .local p0, "this":Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher;, "Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher<TData;>;"
     :try_start_0
     iget-object v0, p0, Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher;->reader:Lcom/bumptech/glide/load/model/DataUrlLoader$DataDecoder;
 
@@ -101,15 +94,7 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 95
-    goto :goto_0
-
-    .line 93
     :catch_0
-    move-exception v0
-
-    .line 96
-    :goto_0
     return-void
 .end method
 
@@ -124,7 +109,6 @@
     .end annotation
 
     .line 106
-    .local p0, "this":Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher;, "Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher<TData;>;"
     iget-object v0, p0, Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher;->reader:Lcom/bumptech/glide/load/model/DataUrlLoader$DataDecoder;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/model/DataUrlLoader$DataDecoder;->getDataClass()Ljava/lang/Class;
@@ -138,15 +122,13 @@
     .locals 1
 
     .line 112
-    .local p0, "this":Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher;, "Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher<TData;>;"
     sget-object v0, Lcom/bumptech/glide/load/DataSource;->LOCAL:Lcom/bumptech/glide/load/DataSource;
 
     return-object v0
 .end method
 
 .method public loadData(Lcom/bumptech/glide/Priority;Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;)V
-    .locals 2
-    .param p1, "priority"    # Lcom/bumptech/glide/Priority;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -157,37 +139,30 @@
     .end annotation
 
     .line 82
-    .local p0, "this":Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher;, "Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher<TData;>;"
-    .local p2, "callback":Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;, "Lcom/bumptech/glide/load/data/DataFetcher$DataCallback<-TData;>;"
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher;->reader:Lcom/bumptech/glide/load/model/DataUrlLoader$DataDecoder;
+    iget-object p1, p0, Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher;->reader:Lcom/bumptech/glide/load/model/DataUrlLoader$DataDecoder;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher;->dataUri:Ljava/lang/String;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher;->dataUri:Ljava/lang/String;
 
-    invoke-interface {v0, v1}, Lcom/bumptech/glide/load/model/DataUrlLoader$DataDecoder;->decode(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-interface {p1, v0}, Lcom/bumptech/glide/load/model/DataUrlLoader$DataDecoder;->decode(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher;->data:Ljava/lang/Object;
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/DataUrlLoader$DataUriFetcher;->data:Ljava/lang/Object;
 
     .line 83
-    invoke-interface {p2, v0}, Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;->onDataReady(Ljava/lang/Object;)V
+    invoke-interface {p2, p1}, Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;->onDataReady(Ljava/lang/Object;)V
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 86
     goto :goto_0
 
-    .line 84
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 85
-    .local v0, "e":Ljava/lang/IllegalArgumentException;
-    invoke-interface {p2, v0}, Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;->onLoadFailed(Ljava/lang/Exception;)V
+    invoke-interface {p2, p1}, Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;->onLoadFailed(Ljava/lang/Exception;)V
 
-    .line 87
-    .end local v0    # "e":Ljava/lang/IllegalArgumentException;
     :goto_0
     return-void
 .end method

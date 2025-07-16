@@ -34,7 +34,6 @@
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/Transformation;Z)V
     .locals 0
-    .param p2, "isRequired"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -45,7 +44,6 @@
     .end annotation
 
     .line 35
-    .local p1, "wrapped":Lcom/bumptech/glide/load/Transformation;, "Lcom/bumptech/glide/load/Transformation<Landroid/graphics/Bitmap;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 36
@@ -54,13 +52,11 @@
     .line 37
     iput-boolean p2, p0, Lcom/bumptech/glide/load/resource/bitmap/DrawableTransformation;->isRequired:Z
 
-    .line 38
     return-void
 .end method
 
 .method private newDrawableResource(Landroid/content/Context;Lcom/bumptech/glide/load/engine/Resource;)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -74,22 +70,16 @@
         }
     .end annotation
 
-    .line 74
-    .local p2, "transformed":Lcom/bumptech/glide/load/engine/Resource;, "Lcom/bumptech/glide/load/engine/Resource<Landroid/graphics/Bitmap;>;"
-    nop
-
     .line 75
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0, p2}, Lcom/bumptech/glide/load/resource/bitmap/LazyBitmapDrawableResource;->obtain(Landroid/content/res/Resources;Lcom/bumptech/glide/load/engine/Resource;)Lcom/bumptech/glide/load/engine/Resource;
+    invoke-static {p1, p2}, Lcom/bumptech/glide/load/resource/bitmap/LazyBitmapDrawableResource;->obtain(Landroid/content/res/Resources;Lcom/bumptech/glide/load/engine/Resource;)Lcom/bumptech/glide/load/engine/Resource;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 76
-    .local v0, "result":Lcom/bumptech/glide/load/engine/Resource;, "Lcom/bumptech/glide/load/engine/Resource<+Landroid/graphics/drawable/Drawable;>;"
-    return-object v0
+    return-object p1
 .end method
 
 
@@ -105,13 +95,11 @@
         }
     .end annotation
 
-    .line 42
     return-object p0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 1
 
     .line 81
     instance-of v0, p1, Lcom/bumptech/glide/load/resource/bitmap/DrawableTransformation;
@@ -119,28 +107,23 @@
     if-eqz v0, :cond_0
 
     .line 82
-    move-object v0, p1
-
-    check-cast v0, Lcom/bumptech/glide/load/resource/bitmap/DrawableTransformation;
+    check-cast p1, Lcom/bumptech/glide/load/resource/bitmap/DrawableTransformation;
 
     .line 83
-    .local v0, "other":Lcom/bumptech/glide/load/resource/bitmap/DrawableTransformation;
-    iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/DrawableTransformation;->wrapped:Lcom/bumptech/glide/load/Transformation;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/DrawableTransformation;->wrapped:Lcom/bumptech/glide/load/Transformation;
 
-    iget-object v2, v0, Lcom/bumptech/glide/load/resource/bitmap/DrawableTransformation;->wrapped:Lcom/bumptech/glide/load/Transformation;
+    iget-object p1, p1, Lcom/bumptech/glide/load/resource/bitmap/DrawableTransformation;->wrapped:Lcom/bumptech/glide/load/Transformation;
 
-    invoke-virtual {v1, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 
-    .line 85
-    .end local v0    # "other":Lcom/bumptech/glide/load/resource/bitmap/DrawableTransformation;
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public hashCode()I
@@ -157,10 +140,7 @@
 .end method
 
 .method public transform(Landroid/content/Context;Lcom/bumptech/glide/load/engine/Resource;II)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 6
-    .param p1, "context"    # Landroid/content/Context;
-    .param p3, "outWidth"    # I
-    .param p4, "outHeight"    # I
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -175,7 +155,6 @@
     .end annotation
 
     .line 49
-    .local p2, "resource":Lcom/bumptech/glide/load/engine/Resource;, "Lcom/bumptech/glide/load/engine/Resource<Landroid/graphics/drawable/Drawable;>;"
     invoke-static {p1}, Lcom/bumptech/glide/Glide;->get(Landroid/content/Context;)Lcom/bumptech/glide/Glide;
 
     move-result-object v0
@@ -185,101 +164,91 @@
     move-result-object v0
 
     .line 50
-    .local v0, "bitmapPool":Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
     invoke-interface {p2}, Lcom/bumptech/glide/load/engine/Resource;->get()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/graphics/drawable/Drawable;
 
-    .line 51
-    .local v1, "drawable":Landroid/graphics/drawable/Drawable;
-    nop
-
     .line 52
     invoke-static {v0, v1, p3, p4}, Lcom/bumptech/glide/load/resource/bitmap/DrawableToBitmapConverter;->convert(Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Landroid/graphics/drawable/Drawable;II)Lcom/bumptech/glide/load/engine/Resource;
 
-    move-result-object v2
+    move-result-object v0
 
-    .line 53
-    .local v2, "bitmapResourceToTransform":Lcom/bumptech/glide/load/engine/Resource;, "Lcom/bumptech/glide/load/engine/Resource<Landroid/graphics/Bitmap;>;"
-    if-nez v2, :cond_1
+    if-nez v0, :cond_1
 
     .line 54
-    iget-boolean v3, p0, Lcom/bumptech/glide/load/resource/bitmap/DrawableTransformation;->isRequired:Z
+    iget-boolean p1, p0, Lcom/bumptech/glide/load/resource/bitmap/DrawableTransformation;->isRequired:Z
 
-    if-nez v3, :cond_0
+    if-nez p1, :cond_0
 
-    .line 57
     return-object p2
 
     .line 55
     :cond_0
-    new-instance v3, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    const-string p3, "Unable to convert "
 
-    const-string v5, "Unable to convert "
+    invoke-direct {p2, p3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    const-string v5, " to a Bitmap"
+    const-string p3, " to a Bitmap"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p2
 
-    move-result-object v4
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p2
 
-    throw v3
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p1
 
     .line 60
     :cond_1
-    iget-object v3, p0, Lcom/bumptech/glide/load/resource/bitmap/DrawableTransformation;->wrapped:Lcom/bumptech/glide/load/Transformation;
+    iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/DrawableTransformation;->wrapped:Lcom/bumptech/glide/load/Transformation;
 
     .line 61
-    invoke-interface {v3, p1, v2, p3, p4}, Lcom/bumptech/glide/load/Transformation;->transform(Landroid/content/Context;Lcom/bumptech/glide/load/engine/Resource;II)Lcom/bumptech/glide/load/engine/Resource;
+    invoke-interface {v1, p1, v0, p3, p4}, Lcom/bumptech/glide/load/Transformation;->transform(Landroid/content/Context;Lcom/bumptech/glide/load/engine/Resource;II)Lcom/bumptech/glide/load/engine/Resource;
 
-    move-result-object v3
+    move-result-object p3
 
     .line 63
-    .local v3, "transformedBitmapResource":Lcom/bumptech/glide/load/engine/Resource;, "Lcom/bumptech/glide/load/engine/Resource<Landroid/graphics/Bitmap;>;"
-    invoke-virtual {v3, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p3, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result p4
 
-    if-eqz v4, :cond_2
+    if-eqz p4, :cond_2
 
     .line 64
-    invoke-interface {v3}, Lcom/bumptech/glide/load/engine/Resource;->recycle()V
+    invoke-interface {p3}, Lcom/bumptech/glide/load/engine/Resource;->recycle()V
 
-    .line 65
     return-object p2
 
     .line 67
     :cond_2
-    invoke-direct {p0, p1, v3}, Lcom/bumptech/glide/load/resource/bitmap/DrawableTransformation;->newDrawableResource(Landroid/content/Context;Lcom/bumptech/glide/load/engine/Resource;)Lcom/bumptech/glide/load/engine/Resource;
+    invoke-direct {p0, p1, p3}, Lcom/bumptech/glide/load/resource/bitmap/DrawableTransformation;->newDrawableResource(Landroid/content/Context;Lcom/bumptech/glide/load/engine/Resource;)Lcom/bumptech/glide/load/engine/Resource;
 
-    move-result-object v4
+    move-result-object p1
 
-    return-object v4
+    return-object p1
 .end method
 
 .method public updateDiskCacheKey(Ljava/security/MessageDigest;)V
     .locals 1
-    .param p1, "messageDigest"    # Ljava/security/MessageDigest;
 
     .line 95
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/DrawableTransformation;->wrapped:Lcom/bumptech/glide/load/Transformation;
 
     invoke-interface {v0, p1}, Lcom/bumptech/glide/load/Transformation;->updateDiskCacheKey(Ljava/security/MessageDigest;)V
 
-    .line 96
     return-void
 .end method

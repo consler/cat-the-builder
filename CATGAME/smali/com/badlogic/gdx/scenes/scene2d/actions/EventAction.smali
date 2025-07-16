@@ -43,8 +43,6 @@
     .end annotation
 
     .line 25
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;, "Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction<TT;>;"
-    .local p1, "eventClass":Ljava/lang/Class;, "Ljava/lang/Class<+TT;>;"
     invoke-direct {p0}, Lcom/badlogic/gdx/scenes/scene2d/Action;-><init>()V
 
     .line 17
@@ -57,26 +55,23 @@
     .line 26
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;->eventClass:Ljava/lang/Class;
 
-    .line 27
     return-void
 .end method
 
 
 # virtual methods
 .method public act(F)Z
-    .locals 1
-    .param p1, "delta"    # F
+    .locals 0
+
+    const/4 p1, 0x1
 
     .line 45
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;, "Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction<TT;>;"
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;->active:Z
+    iput-boolean p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;->active:Z
 
     .line 46
-    iget-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;->result:Z
+    iget-boolean p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;->result:Z
 
-    return v0
+    return p1
 .end method
 
 .method public abstract handle(Lcom/badlogic/gdx/scenes/scene2d/Event;)Z
@@ -91,7 +86,6 @@
     .locals 1
 
     .line 50
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;, "Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction<TT;>;"
     iget-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;->active:Z
 
     return v0
@@ -100,37 +94,30 @@
 .method public restart()V
     .locals 1
 
-    .line 30
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;, "Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction<TT;>;"
     const/4 v0, 0x0
 
+    .line 30
     iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;->result:Z
 
     .line 31
     iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;->active:Z
 
-    .line 32
     return-void
 .end method
 
 .method public setActive(Z)V
     .locals 0
-    .param p1, "active"    # Z
 
     .line 54
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;, "Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction<TT;>;"
     iput-boolean p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;->active:Z
 
-    .line 55
     return-void
 .end method
 
 .method public setTarget(Lcom/badlogic/gdx/scenes/scene2d/Actor;)V
     .locals 2
-    .param p1, "newTarget"    # Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
     .line 35
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;, "Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction<TT;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;->target:Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
     if-eqz v0, :cond_0
@@ -145,14 +132,13 @@
     :cond_0
     invoke-super {p0, p1}, Lcom/badlogic/gdx/scenes/scene2d/Action;->setTarget(Lcom/badlogic/gdx/scenes/scene2d/Actor;)V
 
-    .line 37
     if-eqz p1, :cond_1
 
+    .line 37
     iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/EventAction;->listener:Lcom/badlogic/gdx/scenes/scene2d/EventListener;
 
     invoke-virtual {p1, v0}, Lcom/badlogic/gdx/scenes/scene2d/Actor;->addListener(Lcom/badlogic/gdx/scenes/scene2d/EventListener;)Z
 
-    .line 38
     :cond_1
     return-void
 .end method

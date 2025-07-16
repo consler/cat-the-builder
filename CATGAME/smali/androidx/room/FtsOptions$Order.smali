@@ -46,28 +46,26 @@
     sput-object v0, Landroidx/room/FtsOptions$Order;->ASC:Landroidx/room/FtsOptions$Order;
 
     .line 91
-    new-instance v0, Landroidx/room/FtsOptions$Order;
+    new-instance v1, Landroidx/room/FtsOptions$Order;
 
-    const-string v1, "DESC"
+    const-string v3, "DESC"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Landroidx/room/FtsOptions$Order;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Landroidx/room/FtsOptions$Order;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/room/FtsOptions$Order;->DESC:Landroidx/room/FtsOptions$Order;
+    sput-object v1, Landroidx/room/FtsOptions$Order;->DESC:Landroidx/room/FtsOptions$Order;
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Landroidx/room/FtsOptions$Order;
+
+    aput-object v0, v3, v2
+
+    aput-object v1, v3, v4
 
     .line 78
-    const/4 v1, 0x2
-
-    new-array v1, v1, [Landroidx/room/FtsOptions$Order;
-
-    sget-object v4, Landroidx/room/FtsOptions$Order;->ASC:Landroidx/room/FtsOptions$Order;
-
-    aput-object v4, v1, v2
-
-    aput-object v0, v1, v3
-
-    sput-object v1, Landroidx/room/FtsOptions$Order;->$VALUES:[Landroidx/room/FtsOptions$Order;
+    sput-object v3, Landroidx/room/FtsOptions$Order;->$VALUES:[Landroidx/room/FtsOptions$Order;
 
     return-void
 .end method
@@ -88,18 +86,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/room/FtsOptions$Order;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 78
     const-class v0, Landroidx/room/FtsOptions$Order;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroidx/room/FtsOptions$Order;
+    check-cast p0, Landroidx/room/FtsOptions$Order;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Landroidx/room/FtsOptions$Order;

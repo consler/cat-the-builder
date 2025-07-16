@@ -34,7 +34,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/AsyncHttpClient$10;Lcom/koushikdutta/async/http/AsyncHttpResponse;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/koushikdutta/async/http/AsyncHttpClient$10;
 
     .line 644
     iput-object p1, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$10$1;->this$1:Lcom/koushikdutta/async/http/AsyncHttpClient$10;
@@ -50,7 +49,6 @@
 # virtual methods
 .method public onCompleted(Ljava/lang/Exception;Ljava/lang/Object;)V
     .locals 7
-    .param p1, "e"    # Ljava/lang/Exception;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -60,7 +58,6 @@
     .end annotation
 
     .line 647
-    .local p2, "result":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$10$1;->this$1:Lcom/koushikdutta/async/http/AsyncHttpClient$10;
 
     iget-object v1, v0, Lcom/koushikdutta/async/http/AsyncHttpClient$10;->this$0:Lcom/koushikdutta/async/http/AsyncHttpClient;
@@ -81,6 +78,5 @@
 
     invoke-static/range {v1 .. v6}, Lcom/koushikdutta/async/http/AsyncHttpClient;->access$900(Lcom/koushikdutta/async/http/AsyncHttpClient;Lcom/koushikdutta/async/http/callback/RequestCallback;Lcom/koushikdutta/async/future/SimpleFuture;Lcom/koushikdutta/async/http/AsyncHttpResponse;Ljava/lang/Exception;Ljava/lang/Object;)V
 
-    .line 648
     return-void
 .end method

@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/BufferedDataSink;Lcom/koushikdutta/async/ByteBufferList;Z)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/BufferedDataSink;
 
     .line 64
     iput-object p1, p0, Lcom/koushikdutta/async/BufferedDataSink$2;->this$0:Lcom/koushikdutta/async/BufferedDataSink;
@@ -56,6 +55,5 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/koushikdutta/async/BufferedDataSink;->write(Lcom/koushikdutta/async/ByteBufferList;Z)V
 
-    .line 68
     return-void
 .end method

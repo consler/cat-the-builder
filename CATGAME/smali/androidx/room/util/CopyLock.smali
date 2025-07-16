@@ -41,10 +41,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/io/File;Z)V
-    .locals 3
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "lockDir"    # Ljava/io/File;
-    .param p3, "processLock"    # Z
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -70,39 +67,41 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, ".lck"
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, ".lck"
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, p2, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v0, p2, p1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     iput-object v0, p0, Landroidx/room/util/CopyLock;->mCopyLockFile:Ljava/io/File;
 
     .line 71
     invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Landroidx/room/util/CopyLock;->getThreadLock(Ljava/lang/String;)Ljava/util/concurrent/locks/Lock;
+    invoke-static {p1}, Landroidx/room/util/CopyLock;->getThreadLock(Ljava/lang/String;)Ljava/util/concurrent/locks/Lock;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/room/util/CopyLock;->mThreadLock:Ljava/util/concurrent/locks/Lock;
+    iput-object p1, p0, Landroidx/room/util/CopyLock;->mThreadLock:Ljava/util/concurrent/locks/Lock;
 
     .line 72
     iput-boolean p3, p0, Landroidx/room/util/CopyLock;->mFileLevelLock:Z
 
-    .line 73
     return-void
 .end method
 
 .method private static getThreadLock(Ljava/lang/String;)Ljava/util/concurrent/locks/Lock;
-    .locals 3
-    .param p0, "key"    # Ljava/lang/String;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -119,29 +118,21 @@
 
     .line 104
     :try_start_0
-    sget-object v1, Landroidx/room/util/CopyLock;->sThreadLocks:Ljava/util/Map;
-
-    invoke-interface {v1, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/util/concurrent/locks/Lock;
 
-    .line 105
-    .local v1, "threadLock":Ljava/util/concurrent/locks/Lock;
     if-nez v1, :cond_0
 
     .line 106
-    new-instance v2, Ljava/util/concurrent/locks/ReentrantLock;
+    new-instance v1, Ljava/util/concurrent/locks/ReentrantLock;
 
-    invoke-direct {v2}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V
-
-    move-object v1, v2
+    invoke-direct {v1}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V
 
     .line 107
-    sget-object v2, Landroidx/room/util/CopyLock;->sThreadLocks:Ljava/util/Map;
-
-    invoke-interface {v2, p0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 109
     :cond_0
@@ -149,16 +140,15 @@
 
     return-object v1
 
-    .line 110
-    .end local v1    # "threadLock":Ljava/util/concurrent/locks/Lock;
     :catchall_0
-    move-exception v1
+    move-exception p0
 
+    .line 110
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 
@@ -195,15 +185,12 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 86
     goto :goto_0
 
-    .line 84
     :catch_0
     move-exception v0
 
     .line 85
-    .local v0, "e":Ljava/io/IOException;
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "Unable to grab copy lock."
@@ -212,8 +199,6 @@
 
     throw v1
 
-    .line 88
-    .end local v0    # "e":Ljava/io/IOException;
     :cond_0
     :goto_0
     return-void
@@ -233,19 +218,12 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
-
-    .line 97
-    :catch_0
-    move-exception v0
-
     .line 99
+    :catch_0
     :cond_0
-    :goto_0
     iget-object v0, p0, Landroidx/room/util/CopyLock;->mThreadLock:Ljava/util/concurrent/locks/Lock;
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
-    .line 100
     return-void
 .end method

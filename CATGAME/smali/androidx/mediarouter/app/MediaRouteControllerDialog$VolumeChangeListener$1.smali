@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener;)V
     .locals 0
-    .param p1, "this$1"    # Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener;
 
     .line 1228
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener$1;->this$1:Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener;
@@ -79,7 +78,6 @@
 
     invoke-virtual {v0, v1}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->update(Z)V
 
-    .line 1237
     :cond_0
     return-void
 .end method

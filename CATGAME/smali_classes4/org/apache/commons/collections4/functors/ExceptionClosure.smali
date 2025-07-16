@@ -45,10 +45,8 @@
     .locals 0
 
     .line 53
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ExceptionClosure;, "Lorg/apache/commons/collections4/functors/ExceptionClosure<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 54
     return-void
 .end method
 
@@ -74,7 +72,6 @@
     .locals 1
 
     .line 68
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ExceptionClosure;, "Lorg/apache/commons/collections4/functors/ExceptionClosure<TE;>;"
     sget-object v0, Lorg/apache/commons/collections4/functors/ExceptionClosure;->INSTANCE:Lorg/apache/commons/collections4/Closure;
 
     return-object v0
@@ -83,7 +80,7 @@
 
 # virtual methods
 .method public execute(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)V"
@@ -91,13 +88,11 @@
     .end annotation
 
     .line 64
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ExceptionClosure;, "Lorg/apache/commons/collections4/functors/ExceptionClosure<TE;>;"
-    .local p1, "input":Ljava/lang/Object;, "TE;"
-    new-instance v0, Lorg/apache/commons/collections4/FunctorException;
+    new-instance p1, Lorg/apache/commons/collections4/FunctorException;
 
-    const-string v1, "ExceptionClosure invoked"
+    const-string v0, "ExceptionClosure invoked"
 
-    invoke-direct {v0, v1}, Lorg/apache/commons/collections4/FunctorException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lorg/apache/commons/collections4/FunctorException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

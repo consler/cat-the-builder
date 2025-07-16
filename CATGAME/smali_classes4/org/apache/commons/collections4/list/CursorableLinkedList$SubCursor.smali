@@ -38,7 +38,6 @@
 # direct methods
 .method protected constructor <init>(Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedSubList;I)V
     .locals 2
-    .param p2, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -48,29 +47,26 @@
     .end annotation
 
     .line 596
-    .local p0, "this":Lorg/apache/commons/collections4/list/CursorableLinkedList$SubCursor;, "Lorg/apache/commons/collections4/list/CursorableLinkedList$SubCursor<TE;>;"
-    .local p1, "sub":Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedSubList;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedSubList<TE;>;"
     iget-object v0, p1, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedSubList;->parent:Lorg/apache/commons/collections4/list/AbstractLinkedList;
 
     check-cast v0, Lorg/apache/commons/collections4/list/CursorableLinkedList;
 
     iget v1, p1, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedSubList;->offset:I
 
-    add-int/2addr v1, p2
+    add-int/2addr p2, v1
 
-    invoke-direct {p0, v0, v1}, Lorg/apache/commons/collections4/list/CursorableLinkedList$Cursor;-><init>(Lorg/apache/commons/collections4/list/CursorableLinkedList;I)V
+    invoke-direct {p0, v0, p2}, Lorg/apache/commons/collections4/list/CursorableLinkedList$Cursor;-><init>(Lorg/apache/commons/collections4/list/CursorableLinkedList;I)V
 
     .line 597
     iput-object p1, p0, Lorg/apache/commons/collections4/list/CursorableLinkedList$SubCursor;->sub:Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedSubList;
 
-    .line 598
     return-void
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)V"
@@ -78,29 +74,26 @@
     .end annotation
 
     .line 617
-    .local p0, "this":Lorg/apache/commons/collections4/list/CursorableLinkedList$SubCursor;, "Lorg/apache/commons/collections4/list/CursorableLinkedList$SubCursor<TE;>;"
-    .local p1, "obj":Ljava/lang/Object;, "TE;"
     invoke-super {p0, p1}, Lorg/apache/commons/collections4/list/CursorableLinkedList$Cursor;->add(Ljava/lang/Object;)V
 
     .line 618
-    iget-object v0, p0, Lorg/apache/commons/collections4/list/CursorableLinkedList$SubCursor;->sub:Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedSubList;
+    iget-object p1, p0, Lorg/apache/commons/collections4/list/CursorableLinkedList$SubCursor;->sub:Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedSubList;
 
-    iget-object v1, p0, Lorg/apache/commons/collections4/list/CursorableLinkedList$SubCursor;->parent:Lorg/apache/commons/collections4/list/AbstractLinkedList;
+    iget-object v0, p0, Lorg/apache/commons/collections4/list/CursorableLinkedList$SubCursor;->parent:Lorg/apache/commons/collections4/list/AbstractLinkedList;
 
-    iget v1, v1, Lorg/apache/commons/collections4/list/AbstractLinkedList;->modCount:I
+    iget v0, v0, Lorg/apache/commons/collections4/list/AbstractLinkedList;->modCount:I
 
-    iput v1, v0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedSubList;->expectedModCount:I
+    iput v0, p1, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedSubList;->expectedModCount:I
 
     .line 619
-    iget-object v0, p0, Lorg/apache/commons/collections4/list/CursorableLinkedList$SubCursor;->sub:Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedSubList;
+    iget-object p1, p0, Lorg/apache/commons/collections4/list/CursorableLinkedList$SubCursor;->sub:Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedSubList;
 
-    iget v1, v0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedSubList;->size:I
+    iget v0, p1, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedSubList;->size:I
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    iput v1, v0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedSubList;->size:I
+    iput v0, p1, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedSubList;->size:I
 
-    .line 620
     return-void
 .end method
 
@@ -108,7 +101,6 @@
     .locals 2
 
     .line 602
-    .local p0, "this":Lorg/apache/commons/collections4/list/CursorableLinkedList$SubCursor;, "Lorg/apache/commons/collections4/list/CursorableLinkedList$SubCursor<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/list/CursorableLinkedList$SubCursor;->nextIndex()I
 
     move-result v0
@@ -134,7 +126,6 @@
     .locals 1
 
     .line 607
-    .local p0, "this":Lorg/apache/commons/collections4/list/CursorableLinkedList$SubCursor;, "Lorg/apache/commons/collections4/list/CursorableLinkedList$SubCursor<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/list/CursorableLinkedList$SubCursor;->previousIndex()I
 
     move-result v0
@@ -156,7 +147,6 @@
     .locals 2
 
     .line 612
-    .local p0, "this":Lorg/apache/commons/collections4/list/CursorableLinkedList$SubCursor;, "Lorg/apache/commons/collections4/list/CursorableLinkedList$SubCursor<TE;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/list/CursorableLinkedList$Cursor;->nextIndex()I
 
     move-result v0
@@ -174,7 +164,6 @@
     .locals 2
 
     .line 624
-    .local p0, "this":Lorg/apache/commons/collections4/list/CursorableLinkedList$SubCursor;, "Lorg/apache/commons/collections4/list/CursorableLinkedList$SubCursor<TE;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/list/CursorableLinkedList$Cursor;->remove()V
 
     .line 625
@@ -195,6 +184,5 @@
 
     iput v1, v0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedSubList;->size:I
 
-    .line 627
     return-void
 .end method

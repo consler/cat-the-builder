@@ -82,7 +82,6 @@
 # virtual methods
 .method public final apply(Ljava/lang/Object;)Landroidx/lifecycle/LiveData;
     .locals 1
-    .param p1, "it"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TX;)",
@@ -96,11 +95,11 @@
 
     invoke-interface {v0, p1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroidx/lifecycle/LiveData;
+    check-cast p1, Landroidx/lifecycle/LiveData;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;

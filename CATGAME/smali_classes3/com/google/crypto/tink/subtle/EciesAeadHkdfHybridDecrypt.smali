@@ -28,11 +28,11 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 33
     const/4 v0, 0x0
 
     new-array v0, v0, [B
 
+    .line 33
     sput-object v0, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridDecrypt;->EMPTY_AAD:[B
 
     return-void
@@ -40,11 +40,6 @@
 
 .method public constructor <init>(Ljava/security/interfaces/ECPrivateKey;[BLjava/lang/String;Lcom/google/crypto/tink/subtle/EllipticCurves$PointFormatType;Lcom/google/crypto/tink/subtle/EciesAeadHkdfDemHelper;)V
     .locals 1
-    .param p1, "recipientPrivateKey"    # Ljava/security/interfaces/ECPrivateKey;
-    .param p2, "hkdfSalt"    # [B
-    .param p3, "hkdfHmacAlgo"    # Ljava/lang/String;
-    .param p4, "ecPointFormat"    # Lcom/google/crypto/tink/subtle/EllipticCurves$PointFormatType;
-    .param p5, "demHelper"    # Lcom/google/crypto/tink/subtle/EciesAeadHkdfDemHelper;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -93,16 +88,13 @@
     .line 53
     iput-object p5, p0, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridDecrypt;->demHelper:Lcom/google/crypto/tink/subtle/EciesAeadHkdfDemHelper;
 
-    .line 54
     return-void
 .end method
 
 
 # virtual methods
 .method public decrypt([B[B)[B
-    .locals 10
-    .param p1, "ciphertext"    # [B
-    .param p2, "contextInfo"    # [B
+    .locals 9
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -132,86 +124,76 @@
     move-result-object v0
 
     .line 60
-    .local v0, "curve":Ljava/security/spec/EllipticCurve;
     iget-object v1, p0, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridDecrypt;->ecPointFormat:Lcom/google/crypto/tink/subtle/EllipticCurves$PointFormatType;
 
     invoke-static {v0, v1}, Lcom/google/crypto/tink/subtle/EllipticCurves;->encodingSizeInBytes(Ljava/security/spec/EllipticCurve;Lcom/google/crypto/tink/subtle/EllipticCurves$PointFormatType;)I
 
-    move-result v1
+    move-result v0
 
     .line 61
-    .local v1, "headerSize":I
-    array-length v2, p1
+    array-length v1, p1
 
-    if-lt v2, v1, :cond_0
+    if-lt v1, v0, :cond_0
+
+    const/4 v1, 0x0
 
     .line 64
-    const/4 v2, 0x0
-
-    invoke-static {p1, v2, v1}, Ljava/util/Arrays;->copyOfRange([BII)[B
-
-    move-result-object v2
-
-    .line 65
-    .local v2, "kemBytes":[B
-    iget-object v3, p0, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridDecrypt;->recipientKem:Lcom/google/crypto/tink/subtle/EciesHkdfRecipientKem;
-
-    iget-object v5, p0, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridDecrypt;->hkdfHmacAlgo:Ljava/lang/String;
-
-    iget-object v6, p0, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridDecrypt;->hkdfSalt:[B
-
-    iget-object v4, p0, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridDecrypt;->demHelper:Lcom/google/crypto/tink/subtle/EciesAeadHkdfDemHelper;
-
-    .line 71
-    invoke-interface {v4}, Lcom/google/crypto/tink/subtle/EciesAeadHkdfDemHelper;->getSymmetricKeySizeInBytes()I
-
-    move-result v8
-
-    iget-object v9, p0, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridDecrypt;->ecPointFormat:Lcom/google/crypto/tink/subtle/EllipticCurves$PointFormatType;
-
-    .line 66
-    move-object v4, v2
-
-    move-object v7, p2
-
-    invoke-virtual/range {v3 .. v9}, Lcom/google/crypto/tink/subtle/EciesHkdfRecipientKem;->generateKey([BLjava/lang/String;[B[BILcom/google/crypto/tink/subtle/EllipticCurves$PointFormatType;)[B
+    invoke-static {p1, v1, v0}, Ljava/util/Arrays;->copyOfRange([BII)[B
 
     move-result-object v3
 
+    .line 65
+    iget-object v2, p0, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridDecrypt;->recipientKem:Lcom/google/crypto/tink/subtle/EciesHkdfRecipientKem;
+
+    iget-object v4, p0, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridDecrypt;->hkdfHmacAlgo:Ljava/lang/String;
+
+    iget-object v5, p0, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridDecrypt;->hkdfSalt:[B
+
+    iget-object v1, p0, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridDecrypt;->demHelper:Lcom/google/crypto/tink/subtle/EciesAeadHkdfDemHelper;
+
+    .line 71
+    invoke-interface {v1}, Lcom/google/crypto/tink/subtle/EciesAeadHkdfDemHelper;->getSymmetricKeySizeInBytes()I
+
+    move-result v7
+
+    iget-object v8, p0, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridDecrypt;->ecPointFormat:Lcom/google/crypto/tink/subtle/EllipticCurves$PointFormatType;
+
+    move-object v6, p2
+
+    .line 66
+    invoke-virtual/range {v2 .. v8}, Lcom/google/crypto/tink/subtle/EciesHkdfRecipientKem;->generateKey([BLjava/lang/String;[B[BILcom/google/crypto/tink/subtle/EllipticCurves$PointFormatType;)[B
+
+    move-result-object p2
+
     .line 73
-    .local v3, "symmetricKey":[B
-    iget-object v4, p0, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridDecrypt;->demHelper:Lcom/google/crypto/tink/subtle/EciesAeadHkdfDemHelper;
+    iget-object v1, p0, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridDecrypt;->demHelper:Lcom/google/crypto/tink/subtle/EciesAeadHkdfDemHelper;
 
-    invoke-interface {v4, v3}, Lcom/google/crypto/tink/subtle/EciesAeadHkdfDemHelper;->getAead([B)Lcom/google/crypto/tink/Aead;
+    invoke-interface {v1, p2}, Lcom/google/crypto/tink/subtle/EciesAeadHkdfDemHelper;->getAead([B)Lcom/google/crypto/tink/Aead;
 
-    move-result-object v4
+    move-result-object p2
 
     .line 74
-    .local v4, "aead":Lcom/google/crypto/tink/Aead;
-    array-length v5, p1
+    array-length v1, p1
 
-    invoke-static {p1, v1, v5}, Ljava/util/Arrays;->copyOfRange([BII)[B
+    invoke-static {p1, v0, v1}, Ljava/util/Arrays;->copyOfRange([BII)[B
 
-    move-result-object v5
+    move-result-object p1
 
-    sget-object v6, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridDecrypt;->EMPTY_AAD:[B
+    sget-object v0, Lcom/google/crypto/tink/subtle/EciesAeadHkdfHybridDecrypt;->EMPTY_AAD:[B
 
-    invoke-interface {v4, v5, v6}, Lcom/google/crypto/tink/Aead;->decrypt([B[B)[B
+    invoke-interface {p2, p1, v0}, Lcom/google/crypto/tink/Aead;->decrypt([B[B)[B
 
-    move-result-object v5
+    move-result-object p1
 
-    return-object v5
+    return-object p1
 
     .line 62
-    .end local v2    # "kemBytes":[B
-    .end local v3    # "symmetricKey":[B
-    .end local v4    # "aead":Lcom/google/crypto/tink/Aead;
     :cond_0
-    new-instance v2, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    const-string v3, "ciphertext too short"
+    const-string p2, "ciphertext too short"
 
-    invoke-direct {v2, v3}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p1
 .end method

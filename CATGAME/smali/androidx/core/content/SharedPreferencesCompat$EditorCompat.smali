@@ -45,7 +45,6 @@
 
     iput-object v0, p0, Landroidx/core/content/SharedPreferencesCompat$EditorCompat;->mHelper:Landroidx/core/content/SharedPreferencesCompat$EditorCompat$Helper;
 
-    .line 59
     return-void
 .end method
 
@@ -77,7 +76,15 @@
 # virtual methods
 .method public apply(Landroid/content/SharedPreferences$Editor;)V
     .locals 1
-    .param p1, "editor"    # Landroid/content/SharedPreferences$Editor;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "editor"
+        }
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -86,6 +93,5 @@
 
     invoke-virtual {v0, p1}, Landroidx/core/content/SharedPreferencesCompat$EditorCompat$Helper;->apply(Landroid/content/SharedPreferences$Editor;)V
 
-    .line 81
     return-void
 .end method

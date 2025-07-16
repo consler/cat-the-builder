@@ -28,10 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/thoughtworks/xstream/mapper/Mapper;Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;Lcom/thoughtworks/xstream/annotations/AnnotationProvider;)V
-    .locals 1
-    .param p1, "mapper"    # Lcom/thoughtworks/xstream/mapper/Mapper;
-    .param p2, "reflectionProvider"    # Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;
-    .param p3, "annotationProvider"    # Lcom/thoughtworks/xstream/annotations/AnnotationProvider;
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -42,13 +39,12 @@
     iput-object p3, p0, Lcom/thoughtworks/xstream/annotations/AnnotationReflectionConverter;->annotationProvider:Lcom/thoughtworks/xstream/annotations/AnnotationProvider;
 
     .line 51
-    new-instance v0, Ljava/util/HashMap;
+    new-instance p1, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {p1}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lcom/thoughtworks/xstream/annotations/AnnotationReflectionConverter;->cachedConverters:Ljava/util/Map;
+    iput-object p1, p0, Lcom/thoughtworks/xstream/annotations/AnnotationReflectionConverter;->cachedConverters:Ljava/util/Map;
 
-    .line 52
     return-void
 .end method
 
@@ -65,7 +61,6 @@
     .end annotation
 
     .line 67
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<+Lcom/thoughtworks/xstream/converters/ConverterMatcher;>;"
     iget-object v0, p0, Lcom/thoughtworks/xstream/annotations/AnnotationReflectionConverter;->cachedConverters:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -83,7 +78,6 @@
 
     invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 70
     :cond_0
     return-void
 .end method
@@ -101,10 +95,9 @@
         }
     .end annotation
 
-    .line 96
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<+Lcom/thoughtworks/xstream/converters/ConverterMatcher;>;"
     const-string v0, "Cannot construct "
 
+    .line 96
     :try_start_0
     const-class v1, Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
@@ -116,9 +109,9 @@
 
     if-eqz v1, :cond_0
 
-    .line 97
     new-array v1, v2, [Ljava/lang/Class;
 
+    .line 97
     invoke-virtual {p1, v1}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v1
@@ -132,23 +125,16 @@
     check-cast v1, Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
     .line 98
-    .local v1, "svc":Lcom/thoughtworks/xstream/converters/SingleValueConverter;
     new-instance v2, Lcom/thoughtworks/xstream/converters/SingleValueConverterWrapper;
 
     invoke-direct {v2, v1}, Lcom/thoughtworks/xstream/converters/SingleValueConverterWrapper;-><init>(Lcom/thoughtworks/xstream/converters/SingleValueConverter;)V
 
-    move-object v0, v2
-
-    .line 99
-    .end local v1    # "svc":Lcom/thoughtworks/xstream/converters/SingleValueConverter;
-    .local v0, "converter":Lcom/thoughtworks/xstream/converters/Converter;
     goto :goto_0
 
-    .line 100
-    .end local v0    # "converter":Lcom/thoughtworks/xstream/converters/Converter;
     :cond_0
     new-array v1, v2, [Ljava/lang/Class;
 
+    .line 100
     invoke-virtual {p1, v1}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v1
@@ -159,141 +145,124 @@
 
     move-result-object v1
 
-    check-cast v1, Lcom/thoughtworks/xstream/converters/Converter;
+    move-object v2, v1
+
+    check-cast v2, Lcom/thoughtworks/xstream/converters/Converter;
     :try_end_0
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_3
     .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_2
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-object v0, v1
-
-    .line 111
-    .restart local v0    # "converter":Lcom/thoughtworks/xstream/converters/Converter;
     :goto_0
-    nop
+    return-object v2
 
-    .line 112
-    return-object v0
-
-    .line 109
-    .end local v0    # "converter":Lcom/thoughtworks/xstream/converters/Converter;
     :catch_0
     move-exception v1
 
     .line 110
-    .local v1, "e":Ljava/lang/NoSuchMethodException;
     new-instance v2, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
 
     new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v3, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v2, v0, v1}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    move-result-object p1
+
+    invoke-direct {v2, p1, v1}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v2
 
-    .line 107
-    .end local v1    # "e":Ljava/lang/NoSuchMethodException;
     :catch_1
     move-exception v1
 
     .line 108
-    .local v1, "e":Ljava/lang/IllegalAccessException;
     new-instance v2, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
 
     new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v3, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v2, v0, v1}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    move-result-object p1
+
+    invoke-direct {v2, p1, v1}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v2
 
-    .line 105
-    .end local v1    # "e":Ljava/lang/IllegalAccessException;
     :catch_2
     move-exception v1
 
     .line 106
-    .local v1, "e":Ljava/lang/InstantiationException;
     new-instance v2, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
 
     new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v3, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v2, v0, v1}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    move-result-object p1
+
+    invoke-direct {v2, p1, v1}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v2
 
-    .line 102
-    .end local v1    # "e":Ljava/lang/InstantiationException;
     :catch_3
     move-exception v1
 
     .line 103
-    .local v1, "e":Ljava/lang/reflect/InvocationTargetException;
     new-instance v2, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
 
     new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v3, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
 
     .line 104
     invoke-virtual {v1}, Ljava/lang/reflect/InvocationTargetException;->getCause()Ljava/lang/Throwable;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-direct {v2, v0, v3}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v2, p1, v0}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v2
 .end method
@@ -301,10 +270,7 @@
 
 # virtual methods
 .method protected marshallField(Lcom/thoughtworks/xstream/converters/MarshallingContext;Ljava/lang/Object;Ljava/lang/reflect/Field;)V
-    .locals 3
-    .param p1, "context"    # Lcom/thoughtworks/xstream/converters/MarshallingContext;
-    .param p2, "newObj"    # Ljava/lang/Object;
-    .param p3, "field"    # Ljava/lang/reflect/Field;
+    .locals 2
 
     .line 55
     iget-object v0, p0, Lcom/thoughtworks/xstream/annotations/AnnotationReflectionConverter;->annotationProvider:Lcom/thoughtworks/xstream/annotations/AnnotationProvider;
@@ -313,53 +279,43 @@
 
     invoke-virtual {v0, p3, v1}, Lcom/thoughtworks/xstream/annotations/AnnotationProvider;->getAnnotation(Ljava/lang/reflect/Field;Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
 
-    move-result-object v0
+    move-result-object p3
 
-    check-cast v0, Lcom/thoughtworks/xstream/annotations/XStreamConverter;
+    check-cast p3, Lcom/thoughtworks/xstream/annotations/XStreamConverter;
 
-    .line 57
-    .local v0, "annotation":Lcom/thoughtworks/xstream/annotations/XStreamConverter;
-    if-eqz v0, :cond_0
+    if-eqz p3, :cond_0
 
     .line 58
-    invoke-interface {v0}, Lcom/thoughtworks/xstream/annotations/XStreamConverter;->value()Ljava/lang/Class;
+    invoke-interface {p3}, Lcom/thoughtworks/xstream/annotations/XStreamConverter;->value()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object p3
 
     .line 59
-    .local v1, "type":Ljava/lang/Class;, "Ljava/lang/Class<+Lcom/thoughtworks/xstream/converters/ConverterMatcher;>;"
-    invoke-direct {p0, v1}, Lcom/thoughtworks/xstream/annotations/AnnotationReflectionConverter;->ensureCache(Ljava/lang/Class;)V
+    invoke-direct {p0, p3}, Lcom/thoughtworks/xstream/annotations/AnnotationReflectionConverter;->ensureCache(Ljava/lang/Class;)V
 
     .line 60
-    iget-object v2, p0, Lcom/thoughtworks/xstream/annotations/AnnotationReflectionConverter;->cachedConverters:Ljava/util/Map;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/annotations/AnnotationReflectionConverter;->cachedConverters:Ljava/util/Map;
 
-    invoke-interface {v2, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p3
 
-    check-cast v2, Lcom/thoughtworks/xstream/converters/Converter;
+    check-cast p3, Lcom/thoughtworks/xstream/converters/Converter;
 
-    invoke-interface {p1, p2, v2}, Lcom/thoughtworks/xstream/converters/MarshallingContext;->convertAnother(Ljava/lang/Object;Lcom/thoughtworks/xstream/converters/Converter;)V
+    invoke-interface {p1, p2, p3}, Lcom/thoughtworks/xstream/converters/MarshallingContext;->convertAnother(Ljava/lang/Object;Lcom/thoughtworks/xstream/converters/Converter;)V
 
-    .line 61
-    .end local v1    # "type":Ljava/lang/Class;, "Ljava/lang/Class<+Lcom/thoughtworks/xstream/converters/ConverterMatcher;>;"
     goto :goto_0
 
     .line 62
     :cond_0
     invoke-interface {p1, p2}, Lcom/thoughtworks/xstream/converters/MarshallingContext;->convertAnother(Ljava/lang/Object;)V
 
-    .line 64
     :goto_0
     return-void
 .end method
 
 .method protected unmarshallField(Lcom/thoughtworks/xstream/converters/UnmarshallingContext;Ljava/lang/Object;Ljava/lang/Class;Ljava/lang/reflect/Field;)Ljava/lang/Object;
-    .locals 3
-    .param p1, "context"    # Lcom/thoughtworks/xstream/converters/UnmarshallingContext;
-    .param p2, "result"    # Ljava/lang/Object;
-    .param p3, "type"    # Ljava/lang/Class;
-    .param p4, "field"    # Ljava/lang/reflect/Field;
+    .locals 2
 
     .line 75
     iget-object v0, p0, Lcom/thoughtworks/xstream/annotations/AnnotationReflectionConverter;->annotationProvider:Lcom/thoughtworks/xstream/annotations/AnnotationProvider;
@@ -368,44 +324,40 @@
 
     invoke-virtual {v0, p4, v1}, Lcom/thoughtworks/xstream/annotations/AnnotationProvider;->getAnnotation(Ljava/lang/reflect/Field;Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
 
-    move-result-object v0
+    move-result-object p4
 
-    check-cast v0, Lcom/thoughtworks/xstream/annotations/XStreamConverter;
+    check-cast p4, Lcom/thoughtworks/xstream/annotations/XStreamConverter;
 
-    .line 77
-    .local v0, "annotation":Lcom/thoughtworks/xstream/annotations/XStreamConverter;
-    if-eqz v0, :cond_0
+    if-eqz p4, :cond_0
 
     .line 78
-    invoke-interface {v0}, Lcom/thoughtworks/xstream/annotations/XStreamConverter;->value()Ljava/lang/Class;
+    invoke-interface {p4}, Lcom/thoughtworks/xstream/annotations/XStreamConverter;->value()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object p4
 
     .line 79
-    .local v1, "converterType":Ljava/lang/Class;, "Ljava/lang/Class<+Lcom/thoughtworks/xstream/converters/Converter;>;"
-    invoke-direct {p0, v1}, Lcom/thoughtworks/xstream/annotations/AnnotationReflectionConverter;->ensureCache(Ljava/lang/Class;)V
+    invoke-direct {p0, p4}, Lcom/thoughtworks/xstream/annotations/AnnotationReflectionConverter;->ensureCache(Ljava/lang/Class;)V
 
     .line 80
-    iget-object v2, p0, Lcom/thoughtworks/xstream/annotations/AnnotationReflectionConverter;->cachedConverters:Ljava/util/Map;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/annotations/AnnotationReflectionConverter;->cachedConverters:Ljava/util/Map;
 
-    invoke-interface {v2, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p4
 
-    check-cast v2, Lcom/thoughtworks/xstream/converters/Converter;
+    check-cast p4, Lcom/thoughtworks/xstream/converters/Converter;
 
-    invoke-interface {p1, p2, p3, v2}, Lcom/thoughtworks/xstream/converters/UnmarshallingContext;->convertAnother(Ljava/lang/Object;Ljava/lang/Class;Lcom/thoughtworks/xstream/converters/Converter;)Ljava/lang/Object;
+    invoke-interface {p1, p2, p3, p4}, Lcom/thoughtworks/xstream/converters/UnmarshallingContext;->convertAnother(Ljava/lang/Object;Ljava/lang/Class;Lcom/thoughtworks/xstream/converters/Converter;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 
     .line 82
-    .end local v1    # "converterType":Ljava/lang/Class;, "Ljava/lang/Class<+Lcom/thoughtworks/xstream/converters/Converter;>;"
     :cond_0
     invoke-interface {p1, p2, p3}, Lcom/thoughtworks/xstream/converters/UnmarshallingContext;->convertAnother(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method

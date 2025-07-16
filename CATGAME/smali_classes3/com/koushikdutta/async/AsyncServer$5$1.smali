@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/AsyncServer$5;Ljava/nio/channels/ServerSocketChannel;Lcom/koushikdutta/async/ServerSocketChannelWrapper;Ljava/nio/channels/SelectionKey;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/koushikdutta/async/AsyncServer$5;
 
     .line 319
     iput-object p1, p0, Lcom/koushikdutta/async/AsyncServer$5$1;->this$1:Lcom/koushikdutta/async/AsyncServer$5;
@@ -68,16 +67,16 @@
 .method public stop()V
     .locals 3
 
-    .line 327
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/io/Closeable;
 
-    iget-object v1, p0, Lcom/koushikdutta/async/AsyncServer$5$1;->val$wrapper:Lcom/koushikdutta/async/ServerSocketChannelWrapper;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    .line 327
+    iget-object v2, p0, Lcom/koushikdutta/async/AsyncServer$5$1;->val$wrapper:Lcom/koushikdutta/async/ServerSocketChannelWrapper;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     invoke-static {v0}, Lcom/koushikdutta/async/util/StreamUtility;->closeQuietly([Ljava/io/Closeable;)V
 
@@ -89,14 +88,6 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 332
-    goto :goto_0
-
-    .line 331
     :catch_0
-    move-exception v0
-
-    .line 333
-    :goto_0
     return-void
 .end method

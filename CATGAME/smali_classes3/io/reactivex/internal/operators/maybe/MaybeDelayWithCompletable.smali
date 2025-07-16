@@ -38,7 +38,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/MaybeSource;Lio/reactivex/CompletableSource;)V
     .locals 0
-    .param p2, "other"    # Lio/reactivex/CompletableSource;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,8 +49,6 @@
     .end annotation
 
     .line 31
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable;, "Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable<TT;>;"
-    .local p1, "source":Lio/reactivex/MaybeSource;, "Lio/reactivex/MaybeSource<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Maybe;-><init>()V
 
     .line 32
@@ -60,7 +57,6 @@
     .line 33
     iput-object p2, p0, Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable;->other:Lio/reactivex/CompletableSource;
 
-    .line 34
     return-void
 .end method
 
@@ -77,8 +73,6 @@
     .end annotation
 
     .line 38
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable;, "Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable<TT;>;"
-    .local p1, "subscriber":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable;->other:Lio/reactivex/CompletableSource;
 
     new-instance v1, Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable$OtherObserver;
@@ -89,6 +83,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/CompletableSource;->subscribe(Lio/reactivex/CompletableObserver;)V
 
-    .line 39
     return-void
 .end method

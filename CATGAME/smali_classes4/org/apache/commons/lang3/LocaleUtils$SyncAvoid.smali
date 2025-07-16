@@ -54,7 +54,6 @@
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     .line 355
-    .local v0, "list":Ljava/util/List;, "Ljava/util/List<Ljava/util/Locale;>;"
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
     move-result-object v1
@@ -68,12 +67,10 @@
 
     invoke-static {v1}, Ljava/util/Collections;->unmodifiableSet(Ljava/util/Set;)Ljava/util/Set;
 
-    move-result-object v1
+    move-result-object v0
 
-    sput-object v1, Lorg/apache/commons/lang3/LocaleUtils$SyncAvoid;->AVAILABLE_LOCALE_SET:Ljava/util/Set;
+    sput-object v0, Lorg/apache/commons/lang3/LocaleUtils$SyncAvoid;->AVAILABLE_LOCALE_SET:Ljava/util/Set;
 
-    .line 357
-    .end local v0    # "list":Ljava/util/List;, "Ljava/util/List<Ljava/util/Locale;>;"
     return-void
 .end method
 

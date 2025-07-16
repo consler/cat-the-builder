@@ -30,16 +30,15 @@
 # direct methods
 .method public constructor <init>(Lorg/apache/commons/collections/FastArrayList;I)V
     .locals 1
-    .param p2, "i"    # I
 
     .line 1261
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lorg/apache/commons/collections/FastArrayList$ListIter;->this$0:Lorg/apache/commons/collections/FastArrayList;
 
-    .line 1258
     const/4 v0, -0x1
 
+    .line 1258
     iput v0, p0, Lorg/apache/commons/collections/FastArrayList$ListIter;->lastReturnedIndex:I
 
     .line 1262
@@ -58,7 +57,6 @@
 
     iput-object p1, p0, Lorg/apache/commons/collections/FastArrayList$ListIter;->iter:Ljava/util/ListIterator;
 
-    .line 1264
     return-void
 .end method
 
@@ -74,7 +72,6 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 1270
     return-void
 
     .line 1268
@@ -89,8 +86,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
-    .locals 3
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 2
 
     .line 1324
     invoke-direct {p0}, Lorg/apache/commons/collections/FastArrayList$ListIter;->checkMod()V
@@ -101,7 +97,6 @@
     move-result v0
 
     .line 1326
-    .local v0, "i":I
     invoke-virtual {p0}, Lorg/apache/commons/collections/FastArrayList$ListIter;->get()Ljava/util/List;
 
     move-result-object v1
@@ -109,31 +104,30 @@
     invoke-interface {v1, v0, p1}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
     .line 1327
-    iget-object v1, p0, Lorg/apache/commons/collections/FastArrayList$ListIter;->this$0:Lorg/apache/commons/collections/FastArrayList;
+    iget-object p1, p0, Lorg/apache/commons/collections/FastArrayList$ListIter;->this$0:Lorg/apache/commons/collections/FastArrayList;
 
-    iget-object v1, v1, Lorg/apache/commons/collections/FastArrayList;->list:Ljava/util/ArrayList;
+    iget-object p1, p1, Lorg/apache/commons/collections/FastArrayList;->list:Ljava/util/ArrayList;
 
-    iput-object v1, p0, Lorg/apache/commons/collections/FastArrayList$ListIter;->expected:Ljava/util/List;
+    iput-object p1, p0, Lorg/apache/commons/collections/FastArrayList$ListIter;->expected:Ljava/util/List;
 
     .line 1328
     invoke-virtual {p0}, Lorg/apache/commons/collections/FastArrayList$ListIter;->get()Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p1
 
-    add-int/lit8 v2, v0, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    invoke-interface {v1, v2}, Ljava/util/List;->listIterator(I)Ljava/util/ListIterator;
+    invoke-interface {p1, v0}, Ljava/util/List;->listIterator(I)Ljava/util/ListIterator;
 
-    move-result-object v1
+    move-result-object p1
 
-    iput-object v1, p0, Lorg/apache/commons/collections/FastArrayList$ListIter;->iter:Ljava/util/ListIterator;
+    iput-object p1, p0, Lorg/apache/commons/collections/FastArrayList$ListIter;->iter:Ljava/util/ListIterator;
+
+    const/4 p1, -0x1
 
     .line 1329
-    const/4 v1, -0x1
+    iput p1, p0, Lorg/apache/commons/collections/FastArrayList$ListIter;->lastReturnedIndex:I
 
-    iput v1, p0, Lorg/apache/commons/collections/FastArrayList$ListIter;->lastReturnedIndex:I
-
-    .line 1330
     return-void
 .end method
 
@@ -282,12 +276,11 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/FastArrayList$ListIter;->iter:Ljava/util/ListIterator;
 
-    .line 1310
     const/4 v0, -0x1
 
+    .line 1310
     iput v0, p0, Lorg/apache/commons/collections/FastArrayList$ListIter;->lastReturnedIndex:I
 
-    .line 1311
     return-void
 
     .line 1305
@@ -301,7 +294,6 @@
 
 .method public set(Ljava/lang/Object;)V
     .locals 2
-    .param p1, "o"    # Ljava/lang/Object;
 
     .line 1314
     invoke-direct {p0}, Lorg/apache/commons/collections/FastArrayList$ListIter;->checkMod()V
@@ -321,37 +313,36 @@
     invoke-interface {v0, v1, p1}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
     .line 1319
-    iget-object v0, p0, Lorg/apache/commons/collections/FastArrayList$ListIter;->this$0:Lorg/apache/commons/collections/FastArrayList;
+    iget-object p1, p0, Lorg/apache/commons/collections/FastArrayList$ListIter;->this$0:Lorg/apache/commons/collections/FastArrayList;
 
-    iget-object v0, v0, Lorg/apache/commons/collections/FastArrayList;->list:Ljava/util/ArrayList;
+    iget-object p1, p1, Lorg/apache/commons/collections/FastArrayList;->list:Ljava/util/ArrayList;
 
-    iput-object v0, p0, Lorg/apache/commons/collections/FastArrayList$ListIter;->expected:Ljava/util/List;
+    iput-object p1, p0, Lorg/apache/commons/collections/FastArrayList$ListIter;->expected:Ljava/util/List;
 
     .line 1320
     invoke-virtual {p0}, Lorg/apache/commons/collections/FastArrayList$ListIter;->get()Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
     invoke-virtual {p0}, Lorg/apache/commons/collections/FastArrayList$ListIter;->previousIndex()I
 
-    move-result v1
+    move-result v0
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    invoke-interface {v0, v1}, Ljava/util/List;->listIterator(I)Ljava/util/ListIterator;
+    invoke-interface {p1, v0}, Ljava/util/List;->listIterator(I)Ljava/util/ListIterator;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lorg/apache/commons/collections/FastArrayList$ListIter;->iter:Ljava/util/ListIterator;
+    iput-object p1, p0, Lorg/apache/commons/collections/FastArrayList$ListIter;->iter:Ljava/util/ListIterator;
 
-    .line 1321
     return-void
 
     .line 1316
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/IllegalStateException;-><init>()V
 
-    throw v0
+    throw p1
 .end method

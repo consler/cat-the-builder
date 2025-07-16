@@ -27,60 +27,48 @@
 
 # virtual methods
 .method public onControlRequest(Landroid/content/Intent;Landroidx/mediarouter/media/MediaRouter$ControlRequestCallback;)Z
-    .locals 1
-    .param p1, "intent"    # Landroid/content/Intent;
-    .param p2, "callback"    # Landroidx/mediarouter/media/MediaRouter$ControlRequestCallback;
+    .locals 0
 
-    .line 452
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public onRelease()V
     .locals 0
 
-    .line 389
     return-void
 .end method
 
 .method public onSelect()V
     .locals 0
 
-    .line 395
     return-void
 .end method
 
 .method public onSetVolume(I)V
     .locals 0
-    .param p1, "volume"    # I
 
-    .line 428
     return-void
 .end method
 
 .method public onUnselect()V
     .locals 0
 
-    .line 401
     return-void
 .end method
 
 .method public onUnselect(I)V
     .locals 0
-    .param p1, "reason"    # I
 
     .line 418
     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteProvider$RouteController;->onUnselect()V
 
-    .line 419
     return-void
 .end method
 
 .method public onUpdateVolume(I)V
     .locals 0
-    .param p1, "delta"    # I
 
-    .line 436
     return-void
 .end method

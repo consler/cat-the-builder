@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/app/MediaRouteControllerDialog;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
     .line 365
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$4;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
@@ -37,70 +36,63 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 4
-    .param p1, "v"    # Landroid/view/View;
+    .locals 1
 
     .line 368
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$4;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$4;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
-    iget-object v0, v0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mMediaController:Landroid/support/v4/media/session/MediaControllerCompat;
+    iget-object p1, p1, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mMediaController:Landroid/support/v4/media/session/MediaControllerCompat;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 369
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$4;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$4;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
-    iget-object v0, v0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mMediaController:Landroid/support/v4/media/session/MediaControllerCompat;
+    iget-object p1, p1, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mMediaController:Landroid/support/v4/media/session/MediaControllerCompat;
 
-    invoke-virtual {v0}, Landroid/support/v4/media/session/MediaControllerCompat;->getSessionActivity()Landroid/app/PendingIntent;
+    invoke-virtual {p1}, Landroid/support/v4/media/session/MediaControllerCompat;->getSessionActivity()Landroid/app/PendingIntent;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 370
-    .local v0, "pi":Landroid/app/PendingIntent;
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 372
     :try_start_0
-    invoke-virtual {v0}, Landroid/app/PendingIntent;->send()V
+    invoke-virtual {p1}, Landroid/app/PendingIntent;->send()V
 
     .line 373
-    iget-object v1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$4;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
+    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$4;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
-    invoke-virtual {v1}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->dismiss()V
+    invoke-virtual {v0}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->dismiss()V
     :try_end_0
     .catch Landroid/app/PendingIntent$CanceledException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 376
     goto :goto_0
 
-    .line 374
-    :catch_0
-    move-exception v1
-
     .line 375
-    .local v1, "e":Landroid/app/PendingIntent$CanceledException;
-    new-instance v2, Ljava/lang/StringBuilder;
+    :catch_0
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v3, " was not sent, it had been canceled."
+    move-result-object p1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " was not sent, it had been canceled."
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object p1
 
-    const-string v3, "MediaRouteCtrlDialog"
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v3, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object p1
 
-    .line 379
-    .end local v0    # "pi":Landroid/app/PendingIntent;
-    .end local v1    # "e":Landroid/app/PendingIntent$CanceledException;
+    const-string v0, "MediaRouteCtrlDialog"
+
+    invoke-static {v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
     :cond_0
     :goto_0
     return-void

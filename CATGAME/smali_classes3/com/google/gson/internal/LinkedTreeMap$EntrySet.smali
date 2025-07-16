@@ -29,10 +29,8 @@
 # direct methods
 .method constructor <init>(Lcom/google/gson/internal/LinkedTreeMap;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/google/gson/internal/LinkedTreeMap;
 
-    .line 560
-    .local p0, "this":Lcom/google/gson/internal/LinkedTreeMap$EntrySet;, "Lcom/google/gson/internal/LinkedTreeMap<TK;TV;>.EntrySet;"
+    .line 563
     iput-object p1, p0, Lcom/google/gson/internal/LinkedTreeMap$EntrySet;->this$0:Lcom/google/gson/internal/LinkedTreeMap;
 
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
@@ -45,47 +43,41 @@
 .method public clear()V
     .locals 1
 
-    .line 591
-    .local p0, "this":Lcom/google/gson/internal/LinkedTreeMap$EntrySet;, "Lcom/google/gson/internal/LinkedTreeMap<TK;TV;>.EntrySet;"
+    .line 594
     iget-object v0, p0, Lcom/google/gson/internal/LinkedTreeMap$EntrySet;->this$0:Lcom/google/gson/internal/LinkedTreeMap;
 
     invoke-virtual {v0}, Lcom/google/gson/internal/LinkedTreeMap;->clear()V
 
-    .line 592
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 2
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 1
 
-    .line 574
-    .local p0, "this":Lcom/google/gson/internal/LinkedTreeMap$EntrySet;, "Lcom/google/gson/internal/LinkedTreeMap<TK;TV;>.EntrySet;"
+    .line 577
     instance-of v0, p1, Ljava/util/Map$Entry;
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/google/gson/internal/LinkedTreeMap$EntrySet;->this$0:Lcom/google/gson/internal/LinkedTreeMap;
 
-    move-object v1, p1
+    check-cast p1, Ljava/util/Map$Entry;
 
-    check-cast v1, Ljava/util/Map$Entry;
+    invoke-virtual {v0, p1}, Lcom/google/gson/internal/LinkedTreeMap;->findByEntry(Ljava/util/Map$Entry;)Lcom/google/gson/internal/LinkedTreeMap$Node;
 
-    invoke-virtual {v0, v1}, Lcom/google/gson/internal/LinkedTreeMap;->findByEntry(Ljava/util/Map$Entry;)Lcom/google/gson/internal/LinkedTreeMap$Node;
+    move-result-object p1
 
-    move-result-object v0
+    if-eqz p1, :cond_0
 
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
@@ -99,8 +91,7 @@
         }
     .end annotation
 
-    .line 566
-    .local p0, "this":Lcom/google/gson/internal/LinkedTreeMap$EntrySet;, "Lcom/google/gson/internal/LinkedTreeMap<TK;TV;>.EntrySet;"
+    .line 569
     new-instance v0, Lcom/google/gson/internal/LinkedTreeMap$EntrySet$1;
 
     invoke-direct {v0, p0}, Lcom/google/gson/internal/LinkedTreeMap$EntrySet$1;-><init>(Lcom/google/gson/internal/LinkedTreeMap$EntrySet;)V
@@ -109,56 +100,46 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 2
 
-    .line 578
-    .local p0, "this":Lcom/google/gson/internal/LinkedTreeMap$EntrySet;, "Lcom/google/gson/internal/LinkedTreeMap<TK;TV;>.EntrySet;"
+    .line 581
     instance-of v0, p1, Ljava/util/Map$Entry;
 
     const/4 v1, 0x0
 
     if-nez v0, :cond_0
 
-    .line 579
     return v1
 
-    .line 582
+    .line 585
     :cond_0
     iget-object v0, p0, Lcom/google/gson/internal/LinkedTreeMap$EntrySet;->this$0:Lcom/google/gson/internal/LinkedTreeMap;
 
-    move-object v2, p1
+    check-cast p1, Ljava/util/Map$Entry;
 
-    check-cast v2, Ljava/util/Map$Entry;
+    invoke-virtual {v0, p1}, Lcom/google/gson/internal/LinkedTreeMap;->findByEntry(Ljava/util/Map$Entry;)Lcom/google/gson/internal/LinkedTreeMap$Node;
 
-    invoke-virtual {v0, v2}, Lcom/google/gson/internal/LinkedTreeMap;->findByEntry(Ljava/util/Map$Entry;)Lcom/google/gson/internal/LinkedTreeMap$Node;
+    move-result-object p1
 
-    move-result-object v0
+    if-nez p1, :cond_1
 
-    .line 583
-    .local v0, "node":Lcom/google/gson/internal/LinkedTreeMap$Node;, "Lcom/google/gson/internal/LinkedTreeMap$Node<TK;TV;>;"
-    if-nez v0, :cond_1
-
-    .line 584
     return v1
 
-    .line 586
+    .line 589
     :cond_1
-    iget-object v1, p0, Lcom/google/gson/internal/LinkedTreeMap$EntrySet;->this$0:Lcom/google/gson/internal/LinkedTreeMap;
+    iget-object v0, p0, Lcom/google/gson/internal/LinkedTreeMap$EntrySet;->this$0:Lcom/google/gson/internal/LinkedTreeMap;
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {v1, v0, v2}, Lcom/google/gson/internal/LinkedTreeMap;->removeInternal(Lcom/google/gson/internal/LinkedTreeMap$Node;Z)V
+    invoke-virtual {v0, p1, v1}, Lcom/google/gson/internal/LinkedTreeMap;->removeInternal(Lcom/google/gson/internal/LinkedTreeMap$Node;Z)V
 
-    .line 587
-    return v2
+    return v1
 .end method
 
 .method public size()I
     .locals 1
 
-    .line 562
-    .local p0, "this":Lcom/google/gson/internal/LinkedTreeMap$EntrySet;, "Lcom/google/gson/internal/LinkedTreeMap<TK;TV;>.EntrySet;"
+    .line 565
     iget-object v0, p0, Lcom/google/gson/internal/LinkedTreeMap$EntrySet;->this$0:Lcom/google/gson/internal/LinkedTreeMap;
 
     iget v0, v0, Lcom/google/gson/internal/LinkedTreeMap;->size:I

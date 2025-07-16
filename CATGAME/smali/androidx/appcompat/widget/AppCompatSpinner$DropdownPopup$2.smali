@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;)V
     .locals 0
-    .param p1, "this$1"    # Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;
 
     .line 1071
     iput-object p1, p0, Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup$2;->this$1:Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;
@@ -68,7 +67,6 @@
 
     invoke-static {v0}, Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;->access$001(Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;)V
 
-    .line 1083
     :goto_0
     return-void
 .end method

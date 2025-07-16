@@ -28,8 +28,6 @@
 # direct methods
 .method public constructor <init>(Ljava/awt/image/BufferedImage;Lar/com/hjg/pngj/ImageInfo;)V
     .locals 2
-    .param p1, "bi"    # Ljava/awt/image/BufferedImage;
-    .param p2, "imginfo"    # Lar/com/hjg/pngj/ImageInfo;
 
     .line 16
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +41,9 @@
     .line 19
     new-instance v0, Lar/com/hjg/pngj/pixels/ImageLineARGBbi;
 
-    invoke-virtual {p1}, Ljava/awt/image/BufferedImage;->getRaster()Ljava/awt/image/WritableRaster;
+    iget-object v1, p0, Lar/com/hjg/pngj/pixels/ImageLineSetARGBbi;->image:Ljava/awt/image/BufferedImage;
+
+    invoke-virtual {v1}, Ljava/awt/image/BufferedImage;->getRaster()Ljava/awt/image/WritableRaster;
 
     move-result-object v1
 
@@ -61,27 +61,24 @@
 
     iput-object v0, p0, Lar/com/hjg/pngj/pixels/ImageLineSetARGBbi;->line:Lar/com/hjg/pngj/pixels/ImageLineARGBbi;
 
-    .line 22
     return-void
 .end method
 
 
 # virtual methods
 .method public bridge synthetic getImageLine(I)Lar/com/hjg/pngj/IImageLine;
-    .locals 1
-    .param p1, "x0"    # I
+    .locals 0
 
     .line 9
     invoke-virtual {p0, p1}, Lar/com/hjg/pngj/pixels/ImageLineSetARGBbi;->getImageLine(I)Lar/com/hjg/pngj/pixels/ImageLineARGBbi;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getImageLine(I)Lar/com/hjg/pngj/pixels/ImageLineARGBbi;
     .locals 1
-    .param p1, "n"    # I
 
     .line 25
     iget-object v0, p0, Lar/com/hjg/pngj/pixels/ImageLineSetARGBbi;->line:Lar/com/hjg/pngj/pixels/ImageLineARGBbi;
@@ -89,39 +86,37 @@
     invoke-virtual {v0, p1}, Lar/com/hjg/pngj/pixels/ImageLineARGBbi;->setRowNumber(I)V
 
     .line 26
-    iget-object v0, p0, Lar/com/hjg/pngj/pixels/ImageLineSetARGBbi;->line:Lar/com/hjg/pngj/pixels/ImageLineARGBbi;
+    iget-object p1, p0, Lar/com/hjg/pngj/pixels/ImageLineSetARGBbi;->line:Lar/com/hjg/pngj/pixels/ImageLineARGBbi;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public hasImageLine(I)Z
     .locals 1
-    .param p1, "n"    # I
 
-    .line 30
     if-ltz p1, :cond_0
 
+    .line 30
     iget-object v0, p0, Lar/com/hjg/pngj/pixels/ImageLineSetARGBbi;->imginfo:Lar/com/hjg/pngj/ImageInfo;
 
     iget v0, v0, Lar/com/hjg/pngj/ImageInfo;->rows:I
 
     if-ge p1, v0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public size()I
     .locals 1
 
-    .line 34
     const/4 v0, 0x1
 
     return v0

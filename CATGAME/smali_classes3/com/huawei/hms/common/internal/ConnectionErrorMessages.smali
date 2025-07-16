@@ -3,169 +3,244 @@
 .source "ConnectionErrorMessages.java"
 
 
-# static fields
-.field private static final a:Ljava/util/Map;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Map<",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    .line 23
-    new-instance v0, Ljava/util/HashMap;
-
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
-
-    sput-object v0, Lcom/huawei/hms/common/internal/ConnectionErrorMessages;->a:Ljava/util/Map;
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 0
 
-    .line 22
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method public static getErrorDialogButtonMessage(Landroid/app/Activity;I)Ljava/lang/String;
+.method private static a(Landroid/content/Context;)Z
     .locals 1
 
-    .line 46
-    invoke-static {}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->getmContext()Landroid/content/Context;
+    if-eqz p0, :cond_0
 
-    move-result-object v0
+    .line 1
+    invoke-static {p0}, Lcom/huawei/hms/utils/Util;->isAvailableLibExist(Landroid/content/Context;)Z
 
-    if-nez v0, :cond_0
+    move-result v0
 
-    .line 47
-    invoke-virtual {p0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    if-eqz v0, :cond_0
 
-    move-result-object p0
+    .line 2
+    invoke-static {p0}, Lcom/huawei/hms/adapter/AvailableUtil;->isInstallerLibExist(Landroid/content/Context;)Z
 
-    invoke-static {p0}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->setmContext(Landroid/content/Context;)V
+    move-result p0
 
-    .line 49
-    :cond_0
+    if-eqz p0, :cond_0
+
     const/4 p0, 0x1
 
-    if-eq p1, p0, :cond_2
+    goto :goto_0
 
-    const/4 p0, 0x2
+    :cond_0
+    const/4 p0, 0x0
 
-    if-eq p1, p0, :cond_1
-
-    .line 55
-    const-string p0, "hms_confirm"
-
-    invoke-static {p0}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
-    .line 53
-    :cond_1
-    const-string p0, "hms_update"
-
-    invoke-static {p0}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
-    .line 51
-    :cond_2
-    const-string p0, "hms_install"
-
-    invoke-static {p0}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
+    :goto_0
+    return p0
 .end method
 
-.method public static getErrorMessage(Landroid/app/Activity;I)Ljava/lang/String;
-    .locals 1
+.method public static getErrorDialogButtonMessage(Landroid/app/Activity;I)Ljava/lang/String;
+    .locals 2
 
-    .line 60
+    .line 1
     invoke-static {}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->getmContext()Landroid/content/Context;
 
     move-result-object v0
 
     if-nez v0, :cond_0
 
-    .line 61
+    .line 2
     invoke-virtual {p0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-static {p0}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->setmContext(Landroid/content/Context;)V
+    invoke-static {v0}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->setmContext(Landroid/content/Context;)V
 
-    .line 63
     :cond_0
-    const-string p0, "hms_update_title"
-
-    invoke-static {p0}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p0
-
-    .line 64
     const/4 v0, 0x1
 
-    if-eq p1, v0, :cond_1
+    const-string v1, "hms_confirm"
+
+    if-eq p1, v0, :cond_3
 
     const/4 v0, 0x2
 
     if-eq p1, v0, :cond_1
 
-    .line 69
-    const/4 p0, 0x0
+    .line 15
+    invoke-static {v1}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
 
     return-object p0
 
-    .line 67
+    .line 16
     :cond_1
+    invoke-static {p0}, Lcom/huawei/hms/common/internal/ConnectionErrorMessages;->a(Landroid/content/Context;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_2
+
+    const-string p0, "hms_update"
+
+    .line 17
+    invoke-static {p0}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    goto :goto_0
+
+    .line 18
+    :cond_2
+    invoke-static {v1}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    :goto_0
+    return-object p0
+
+    .line 19
+    :cond_3
+    invoke-static {p0}, Lcom/huawei/hms/common/internal/ConnectionErrorMessages;->a(Landroid/content/Context;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_4
+
+    const-string p0, "hms_install"
+
+    .line 20
+    invoke-static {p0}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    goto :goto_1
+
+    .line 21
+    :cond_4
+    invoke-static {v1}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    :goto_1
+    return-object p0
+.end method
+
+.method public static getErrorMessage(Landroid/app/Activity;I)Ljava/lang/String;
+    .locals 3
+
+    const/4 v0, 0x0
+
+    if-nez p0, :cond_0
+
+    return-object v0
+
+    .line 1
+    :cond_0
+    invoke-static {}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->getmContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    if-nez v1, :cond_1
+
+    .line 2
+    invoke-virtual {p0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->setmContext(Landroid/content/Context;)V
+
+    :cond_1
+    const/4 v1, 0x1
+
+    if-eq p1, v1, :cond_2
+
+    const/4 v2, 0x2
+
+    if-eq p1, v2, :cond_2
+
+    return-object v0
+
+    .line 8
+    :cond_2
+    invoke-static {p0}, Lcom/huawei/hms/common/internal/ConnectionErrorMessages;->a(Landroid/content/Context;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_3
+
+    const-string p0, "hms_update_title"
+
+    .line 9
+    invoke-static {p0}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_3
+    const-string p1, "hms_apk_not_installed_hints"
+
+    .line 11
+    invoke-static {p1}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->getStringId(Ljava/lang/String;)I
+
+    move-result p1
+
+    .line 12
+    invoke-virtual {p0}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p0, v0}, Lcom/huawei/hms/utils/Util;->getAppName(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    aput-object v0, v1, v2
+
+    .line 13
+    invoke-virtual {p0, p1, v1}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
+
     return-object p0
 .end method
 
 .method public static getErrorTitle(Landroid/app/Activity;I)Ljava/lang/String;
     .locals 3
 
-    .line 26
+    .line 1
     invoke-static {}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->getmContext()Landroid/content/Context;
 
     move-result-object v0
 
     if-nez v0, :cond_0
 
-    .line 27
+    .line 2
     invoke-virtual {p0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-static {p0}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->setmContext(Landroid/content/Context;)V
+    invoke-static {v0}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->setmContext(Landroid/content/Context;)V
 
-    .line 29
     :cond_0
-    const/4 p0, 0x1
+    const/4 v0, 0x1
 
-    if-eq p1, p0, :cond_4
+    const/4 v1, 0x0
 
-    const/4 p0, 0x2
+    if-eq p1, v0, :cond_5
 
-    if-eq p1, p0, :cond_3
+    const/4 v0, 0x2
+
+    if-eq p1, v0, :cond_3
 
     const/4 p0, 0x3
 
@@ -173,68 +248,80 @@
 
     const/16 p0, 0x9
 
-    const/4 v0, 0x0
-
-    const-string v1, "HuaweiApiAvailability"
+    const-string v0, "HuaweiApiAvailability"
 
     if-eq p1, p0, :cond_1
 
-    .line 40
+    .line 19
     new-instance p0, Ljava/lang/StringBuilder;
-
-    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v2, "Unexpected error code "
 
-    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {p0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object p0
 
     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-static {v1, p0}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, p0}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 41
-    return-object v0
+    return-object v1
 
-    .line 37
     :cond_1
     const-string p0, "Huawei Mobile Services is invalid. Cannot recover."
 
-    invoke-static {v1, p0}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    .line 20
+    invoke-static {v0, p0}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 38
-    return-object v0
+    return-object v1
 
-    .line 35
     :cond_2
     const-string p0, "hms_bindfaildlg_message"
 
+    .line 21
     invoke-static {p0}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 
     return-object p0
 
-    .line 33
+    .line 22
     :cond_3
+    invoke-static {p0}, Lcom/huawei/hms/common/internal/ConnectionErrorMessages;->a(Landroid/content/Context;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_4
+
     const-string p0, "hms_update_message"
 
+    .line 23
     invoke-static {p0}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v1
 
-    return-object p0
-
-    .line 31
     :cond_4
+    return-object v1
+
+    .line 24
+    :cond_5
+    invoke-static {p0}, Lcom/huawei/hms/common/internal/ConnectionErrorMessages;->a(Landroid/content/Context;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_6
+
     const-string p0, "hms_install_message"
 
+    .line 25
     invoke-static {p0}, Lcom/huawei/hms/utils/ResourceLoaderUtil;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v1
 
-    return-object p0
+    :cond_6
+    return-object v1
 .end method

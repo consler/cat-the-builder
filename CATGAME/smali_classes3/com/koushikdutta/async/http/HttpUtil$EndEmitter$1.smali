@@ -49,6 +49,5 @@
 
     invoke-static {v0, v1}, Lcom/koushikdutta/async/http/HttpUtil$EndEmitter;->access$000(Lcom/koushikdutta/async/http/HttpUtil$EndEmitter;Ljava/lang/Exception;)V
 
-    .line 56
     return-void
 .end method

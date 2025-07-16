@@ -47,10 +47,8 @@
     .locals 0
 
     .line 59
-    .local p0, "this":Lorg/apache/commons/lang3/tuple/MutablePair;, "Lorg/apache/commons/lang3/tuple/MutablePair<TL;TR;>;"
     invoke-direct {p0}, Lorg/apache/commons/lang3/tuple/Pair;-><init>()V
 
-    .line 60
     return-void
 .end method
 
@@ -65,9 +63,6 @@
     .end annotation
 
     .line 69
-    .local p0, "this":Lorg/apache/commons/lang3/tuple/MutablePair;, "Lorg/apache/commons/lang3/tuple/MutablePair<TL;TR;>;"
-    .local p1, "left":Ljava/lang/Object;, "TL;"
-    .local p2, "right":Ljava/lang/Object;, "TR;"
     invoke-direct {p0}, Lorg/apache/commons/lang3/tuple/Pair;-><init>()V
 
     .line 70
@@ -76,7 +71,6 @@
     .line 71
     iput-object p2, p0, Lorg/apache/commons/lang3/tuple/MutablePair;->right:Ljava/lang/Object;
 
-    .line 72
     return-void
 .end method
 
@@ -99,8 +93,6 @@
     .end annotation
 
     .line 52
-    .local p0, "left":Ljava/lang/Object;, "TL;"
-    .local p1, "right":Ljava/lang/Object;, "TR;"
     new-instance v0, Lorg/apache/commons/lang3/tuple/MutablePair;
 
     invoke-direct {v0, p0, p1}, Lorg/apache/commons/lang3/tuple/MutablePair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
@@ -120,7 +112,6 @@
     .end annotation
 
     .line 80
-    .local p0, "this":Lorg/apache/commons/lang3/tuple/MutablePair;, "Lorg/apache/commons/lang3/tuple/MutablePair<TL;TR;>;"
     iget-object v0, p0, Lorg/apache/commons/lang3/tuple/MutablePair;->left:Ljava/lang/Object;
 
     return-object v0
@@ -135,7 +126,6 @@
     .end annotation
 
     .line 97
-    .local p0, "this":Lorg/apache/commons/lang3/tuple/MutablePair;, "Lorg/apache/commons/lang3/tuple/MutablePair<TL;TR;>;"
     iget-object v0, p0, Lorg/apache/commons/lang3/tuple/MutablePair;->right:Ljava/lang/Object;
 
     return-object v0
@@ -152,11 +142,8 @@
     .end annotation
 
     .line 89
-    .local p0, "this":Lorg/apache/commons/lang3/tuple/MutablePair;, "Lorg/apache/commons/lang3/tuple/MutablePair<TL;TR;>;"
-    .local p1, "left":Ljava/lang/Object;, "TL;"
     iput-object p1, p0, Lorg/apache/commons/lang3/tuple/MutablePair;->left:Ljava/lang/Object;
 
-    .line 90
     return-void
 .end method
 
@@ -169,11 +156,8 @@
     .end annotation
 
     .line 106
-    .local p0, "this":Lorg/apache/commons/lang3/tuple/MutablePair;, "Lorg/apache/commons/lang3/tuple/MutablePair<TL;TR;>;"
-    .local p1, "right":Ljava/lang/Object;, "TR;"
     iput-object p1, p0, Lorg/apache/commons/lang3/tuple/MutablePair;->right:Ljava/lang/Object;
 
-    .line 107
     return-void
 .end method
 
@@ -186,16 +170,12 @@
     .end annotation
 
     .line 118
-    .local p0, "this":Lorg/apache/commons/lang3/tuple/MutablePair;, "Lorg/apache/commons/lang3/tuple/MutablePair<TL;TR;>;"
-    .local p1, "value":Ljava/lang/Object;, "TR;"
     invoke-virtual {p0}, Lorg/apache/commons/lang3/tuple/MutablePair;->getRight()Ljava/lang/Object;
 
     move-result-object v0
 
     .line 119
-    .local v0, "result":Ljava/lang/Object;, "TR;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/lang3/tuple/MutablePair;->setRight(Ljava/lang/Object;)V
 
-    .line 120
     return-object v0
 .end method

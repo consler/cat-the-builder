@@ -17,7 +17,6 @@
 # direct methods
 .method constructor <init>(Lcom/thoughtworks/xstream/XStream;Lcom/thoughtworks/xstream/io/StatefulWriter;Lcom/thoughtworks/xstream/converters/DataHolder;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/thoughtworks/xstream/XStream;
 
     .line 2112
     iput-object p1, p0, Lcom/thoughtworks/xstream/XStream$3;->this$0:Lcom/thoughtworks/xstream/XStream;
@@ -57,7 +56,6 @@
 
     invoke-virtual {v0}, Lcom/thoughtworks/xstream/io/StatefulWriter;->close()V
 
-    .line 2134
     :cond_0
     return-void
 .end method
@@ -88,13 +86,11 @@
 
     invoke-virtual {v0}, Lcom/thoughtworks/xstream/io/StatefulWriter;->flush()V
 
-    .line 2127
     return-void
 .end method
 
 .method public writeFieldsToStream(Ljava/util/Map;)V
-    .locals 2
-    .param p1, "fields"    # Ljava/util/Map;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/NotActiveException;
@@ -102,18 +98,17 @@
     .end annotation
 
     .line 2118
-    new-instance v0, Ljava/io/NotActiveException;
+    new-instance p1, Ljava/io/NotActiveException;
 
-    const-string v1, "not in call to writeObject"
+    const-string v0, "not in call to writeObject"
 
-    invoke-direct {v0, v1}, Ljava/io/NotActiveException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/io/NotActiveException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public writeToStream(Ljava/lang/Object;)V
     .locals 3
-    .param p1, "object"    # Ljava/lang/Object;
 
     .line 2114
     iget-object v0, p0, Lcom/thoughtworks/xstream/XStream$3;->this$0:Lcom/thoughtworks/xstream/XStream;
@@ -124,6 +119,5 @@
 
     invoke-virtual {v0, p1, v1, v2}, Lcom/thoughtworks/xstream/XStream;->marshal(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/DataHolder;)V
 
-    .line 2115
     return-void
 .end method

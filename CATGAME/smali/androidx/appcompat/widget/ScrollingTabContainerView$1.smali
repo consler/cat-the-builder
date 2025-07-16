@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/ScrollingTabContainerView;Landroid/view/View;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/appcompat/widget/ScrollingTabContainerView;
 
     .line 265
     iput-object p1, p0, Landroidx/appcompat/widget/ScrollingTabContainerView$1;->this$0:Landroidx/appcompat/widget/ScrollingTabContainerView;
@@ -69,7 +68,6 @@
     sub-int/2addr v0, v1
 
     .line 269
-    .local v0, "scrollPos":I
     iget-object v1, p0, Landroidx/appcompat/widget/ScrollingTabContainerView$1;->this$0:Landroidx/appcompat/widget/ScrollingTabContainerView;
 
     const/4 v2, 0x0
@@ -77,12 +75,11 @@
     invoke-virtual {v1, v0, v2}, Landroidx/appcompat/widget/ScrollingTabContainerView;->smoothScrollTo(II)V
 
     .line 270
-    iget-object v1, p0, Landroidx/appcompat/widget/ScrollingTabContainerView$1;->this$0:Landroidx/appcompat/widget/ScrollingTabContainerView;
+    iget-object v0, p0, Landroidx/appcompat/widget/ScrollingTabContainerView$1;->this$0:Landroidx/appcompat/widget/ScrollingTabContainerView;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    iput-object v2, v1, Landroidx/appcompat/widget/ScrollingTabContainerView;->mTabSelector:Ljava/lang/Runnable;
+    iput-object v1, v0, Landroidx/appcompat/widget/ScrollingTabContainerView;->mTabSelector:Ljava/lang/Runnable;
 
-    .line 271
     return-void
 .end method

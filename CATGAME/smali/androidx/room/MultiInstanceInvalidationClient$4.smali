@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/room/MultiInstanceInvalidationClient;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/room/MultiInstanceInvalidationClient;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010
@@ -58,6 +57,5 @@
 
     invoke-virtual {v0, v1}, Landroidx/room/InvalidationTracker;->removeObserver(Landroidx/room/InvalidationTracker$Observer;)V
 
-    .line 138
     return-void
 .end method

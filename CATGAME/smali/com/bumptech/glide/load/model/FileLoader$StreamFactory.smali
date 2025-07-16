@@ -33,6 +33,5 @@
 
     invoke-direct {p0, v0}, Lcom/bumptech/glide/load/model/FileLoader$Factory;-><init>(Lcom/bumptech/glide/load/model/FileLoader$FileOpener;)V
 
-    .line 155
     return-void
 .end method

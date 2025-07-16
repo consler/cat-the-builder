@@ -105,7 +105,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/reactivestreams/Subscriber;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;Lorg/reactivestreams/Publisher;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -123,11 +123,6 @@
     .end annotation
 
     .line 237
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber<TT;TU;TV;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
-    .local p2, "firstTimeoutIndicator":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TU;>;"
-    .local p3, "itemTimeoutIndicator":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<TV;>;>;"
-    .local p4, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 233
@@ -150,15 +145,14 @@
     iput-object p4, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->other:Lorg/reactivestreams/Publisher;
 
     .line 242
-    new-instance v0, Lio/reactivex/internal/subscriptions/FullArbiter;
+    new-instance p2, Lio/reactivex/internal/subscriptions/FullArbiter;
 
-    const/16 v1, 0x8
+    const/16 p3, 0x8
 
-    invoke-direct {v0, p1, p0, v1}, Lio/reactivex/internal/subscriptions/FullArbiter;-><init>(Lorg/reactivestreams/Subscriber;Lio/reactivex/disposables/Disposable;I)V
+    invoke-direct {p2, p1, p0, p3}, Lio/reactivex/internal/subscriptions/FullArbiter;-><init>(Lorg/reactivestreams/Subscriber;Lio/reactivex/disposables/Disposable;I)V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->arbiter:Lio/reactivex/internal/subscriptions/FullArbiter;
+    iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->arbiter:Lio/reactivex/internal/subscriptions/FullArbiter;
 
-    .line 243
     return-void
 .end method
 
@@ -167,10 +161,9 @@
 .method public dispose()V
     .locals 1
 
-    .line 328
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber<TT;TU;TV;>;"
     const/4 v0, 0x1
 
+    .line 328
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->cancelled:Z
 
     .line 329
@@ -183,7 +176,6 @@
 
     invoke-static {v0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 331
     return-void
 .end method
 
@@ -191,7 +183,6 @@
     .locals 1
 
     .line 335
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber<TT;TU;TV;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->cancelled:Z
 
     return v0
@@ -201,18 +192,16 @@
     .locals 2
 
     .line 318
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber<TT;TU;TV;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 319
     return-void
 
-    .line 321
     :cond_0
     const/4 v0, 0x1
 
+    .line 321
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->done:Z
 
     .line 322
@@ -225,16 +214,13 @@
 
     invoke-virtual {v0, v1}, Lio/reactivex/internal/subscriptions/FullArbiter;->onComplete(Lorg/reactivestreams/Subscription;)V
 
-    .line 324
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 307
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber<TT;TU;TV;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->done:Z
 
     if-eqz v0, :cond_0
@@ -242,13 +228,12 @@
     .line 308
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 309
     return-void
 
-    .line 311
     :cond_0
     const/4 v0, 0x1
 
+    .line 311
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->done:Z
 
     .line 312
@@ -261,12 +246,11 @@
 
     invoke-virtual {v0, p1, v1}, Lio/reactivex/internal/subscriptions/FullArbiter;->onError(Ljava/lang/Throwable;Lorg/reactivestreams/Subscription;)V
 
-    .line 314
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 6
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -274,13 +258,10 @@
     .end annotation
 
     .line 273
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber<TT;TU;TV;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 274
     return-void
 
     .line 276
@@ -292,7 +273,6 @@
     add-long/2addr v0, v2
 
     .line 277
-    .local v0, "idx":J
     iput-wide v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->index:J
 
     .line 279
@@ -306,7 +286,6 @@
 
     if-nez v2, :cond_1
 
-    .line 280
     return-void
 
     .line 283
@@ -319,8 +298,6 @@
 
     check-cast v2, Lio/reactivex/disposables/Disposable;
 
-    .line 284
-    .local v2, "d":Lio/reactivex/disposables/Disposable;
     if-eqz v2, :cond_2
 
     .line 285
@@ -328,79 +305,61 @@
 
     .line 291
     :cond_2
-    const/4 v3, 0x0
-
     :try_start_0
-    iget-object v4, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->itemTimeoutIndicator:Lio/reactivex/functions/Function;
+    iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->itemTimeoutIndicator:Lio/reactivex/functions/Function;
 
-    invoke-interface {v4, p1}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, p1}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object p1
 
-    const-string v5, "The publisher returned is null"
+    const-string v3, "The publisher returned is null"
 
-    invoke-static {v4, v5}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p1, v3}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object p1
 
-    check-cast v4, Lorg/reactivestreams/Publisher;
+    check-cast p1, Lorg/reactivestreams/Publisher;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-object v3, v4
-
-    .line 296
-    .local v3, "p":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TV;>;"
-    nop
-
     .line 298
-    new-instance v4, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutInnerSubscriber;
+    new-instance v3, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutInnerSubscriber;
 
-    invoke-direct {v4, p0, v0, v1}, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutInnerSubscriber;-><init>(Lio/reactivex/internal/operators/flowable/FlowableTimeout$OnTimeout;J)V
+    invoke-direct {v3, p0, v0, v1}, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutInnerSubscriber;-><init>(Lio/reactivex/internal/operators/flowable/FlowableTimeout$OnTimeout;J)V
 
     .line 300
-    .local v4, "tis":Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutInnerSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutInnerSubscriber<TT;TU;TV;>;"
-    iget-object v5, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->timeout:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->timeout:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v5, v2, v4}, Ljava/util/concurrent/atomic/AtomicReference;->compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, v2, v3}, Lcom/google/android/gms/common/api/internal/zap$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v0
 
-    if-eqz v5, :cond_3
+    if-eqz v0, :cond_3
 
     .line 301
-    invoke-interface {v3, v4}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
+    invoke-interface {p1, v3}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
 
-    .line 303
     :cond_3
     return-void
 
-    .line 292
-    .end local v3    # "p":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TV;>;"
-    .end local v4    # "tis":Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutInnerSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutInnerSubscriber<TT;TU;TV;>;"
     :catchall_0
-    move-exception v4
+    move-exception p1
 
     .line 293
-    .restart local v3    # "p":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TV;>;"
-    .local v4, "e":Ljava/lang/Throwable;
-    invoke-static {v4}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 294
-    iget-object v5, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v5, v4}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 295
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
-    .locals 5
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
+    .locals 4
 
     .line 247
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber<TT;TU;TV;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -409,7 +368,6 @@
 
     if-nez v0, :cond_0
 
-    .line 248
     return-void
 
     .line 250
@@ -421,95 +379,84 @@
 
     invoke-virtual {v0, p1}, Lio/reactivex/internal/subscriptions/FullArbiter;->setSubscription(Lorg/reactivestreams/Subscription;)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_1
+    if-nez p1, :cond_1
 
-    .line 253
     return-void
 
     .line 255
     :cond_1
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
     .line 257
-    .local v0, "a":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->firstTimeoutIndicator:Lorg/reactivestreams/Publisher;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->firstTimeoutIndicator:Lorg/reactivestreams/Publisher;
 
-    .line 259
-    .local v1, "p":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TU;>;"
-    if-eqz v1, :cond_3
+    if-eqz v0, :cond_2
 
     .line 260
-    new-instance v2, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutInnerSubscriber;
+    new-instance v1, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutInnerSubscriber;
 
-    const-wide/16 v3, 0x0
+    const-wide/16 v2, 0x0
 
-    invoke-direct {v2, p0, v3, v4}, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutInnerSubscriber;-><init>(Lio/reactivex/internal/operators/flowable/FlowableTimeout$OnTimeout;J)V
+    invoke-direct {v1, p0, v2, v3}, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutInnerSubscriber;-><init>(Lio/reactivex/internal/operators/flowable/FlowableTimeout$OnTimeout;J)V
 
     .line 262
-    .local v2, "tis":Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutInnerSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutInnerSubscriber<TT;TU;TV;>;"
-    iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->timeout:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->timeout:Ljava/util/concurrent/atomic/AtomicReference;
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {v3, v4, v2}, Ljava/util/concurrent/atomic/AtomicReference;->compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v2, v3, v1}, Lcom/google/android/gms/common/api/internal/zap$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_3
 
     .line 263
-    iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->arbiter:Lio/reactivex/internal/subscriptions/FullArbiter;
+    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->arbiter:Lio/reactivex/internal/subscriptions/FullArbiter;
 
-    invoke-interface {v0, v3}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
+    invoke-interface {p1, v2}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
     .line 264
-    invoke-interface {v1, v2}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
+    invoke-interface {v0, v1}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
 
-    .line 266
-    .end local v2    # "tis":Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutInnerSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutInnerSubscriber<TT;TU;TV;>;"
-    :cond_2
     goto :goto_0
 
     .line 267
+    :cond_2
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->arbiter:Lio/reactivex/internal/subscriptions/FullArbiter;
+
+    invoke-interface {p1, v0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
+
     :cond_3
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->arbiter:Lio/reactivex/internal/subscriptions/FullArbiter;
-
-    invoke-interface {v0, v2}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
-
-    .line 269
     :goto_0
     return-void
 .end method
 
 .method public timeout(J)V
-    .locals 3
-    .param p1, "idx"    # J
+    .locals 2
 
     .line 340
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber<TT;TU;TV;>;"
     iget-wide v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->index:J
 
-    cmp-long v0, p1, v0
+    cmp-long p1, p1, v0
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 341
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->dispose()V
 
     .line 342
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->other:Lorg/reactivestreams/Publisher;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->other:Lorg/reactivestreams/Publisher;
 
-    new-instance v1, Lio/reactivex/internal/subscribers/FullArbiterSubscriber;
+    new-instance p2, Lio/reactivex/internal/subscribers/FullArbiterSubscriber;
 
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->arbiter:Lio/reactivex/internal/subscriptions/FullArbiter;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeout$TimeoutOtherSubscriber;->arbiter:Lio/reactivex/internal/subscriptions/FullArbiter;
 
-    invoke-direct {v1, v2}, Lio/reactivex/internal/subscribers/FullArbiterSubscriber;-><init>(Lio/reactivex/internal/subscriptions/FullArbiter;)V
+    invoke-direct {p2, v0}, Lio/reactivex/internal/subscribers/FullArbiterSubscriber;-><init>(Lio/reactivex/internal/subscriptions/FullArbiter;)V
 
-    invoke-interface {v0, v1}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
+    invoke-interface {p1, p2}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
 
-    .line 344
     :cond_0
     return-void
 .end method

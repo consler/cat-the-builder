@@ -21,8 +21,6 @@
 # direct methods
 .method constructor <init>(Ljava/io/FileDescriptor;Ljava/io/OutputStream;)V
     .locals 0
-    .param p1, "descriptor"    # Ljava/io/FileDescriptor;
-    .param p2, "encryptedOutputStream"    # Ljava/io/OutputStream;
 
     .line 236
     invoke-direct {p0, p1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/FileDescriptor;)V
@@ -30,7 +28,6 @@
     .line 237
     iput-object p2, p0, Landroidx/security/crypto/EncryptedFile$EncryptedFileOutputStream;->mEncryptedOutputStream:Ljava/io/OutputStream;
 
-    .line 238
     return-void
 .end method
 
@@ -49,7 +46,6 @@
 
     invoke-virtual {v0}, Ljava/io/OutputStream;->close()V
 
-    .line 258
     return-void
 .end method
 
@@ -66,7 +62,6 @@
 
     invoke-virtual {v0}, Ljava/io/OutputStream;->flush()V
 
-    .line 270
     return-void
 .end method
 
@@ -85,7 +80,6 @@
 
 .method public write(I)V
     .locals 1
-    .param p1, "b"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -97,13 +91,11 @@
 
     invoke-virtual {v0, p1}, Ljava/io/OutputStream;->write(I)V
 
-    .line 248
     return-void
 .end method
 
 .method public write([B)V
     .locals 1
-    .param p1, "b"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -115,15 +107,11 @@
 
     invoke-virtual {v0, p1}, Ljava/io/OutputStream;->write([B)V
 
-    .line 243
     return-void
 .end method
 
 .method public write([BII)V
     .locals 1
-    .param p1, "b"    # [B
-    .param p2, "off"    # I
-    .param p3, "len"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -135,6 +123,5 @@
 
     invoke-virtual {v0, p1, p2, p3}, Ljava/io/OutputStream;->write([BII)V
 
-    .line 253
     return-void
 .end method

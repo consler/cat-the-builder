@@ -57,14 +57,11 @@
     .end annotation
 
     .line 580
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner;, "Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner<TR;>;"
-    .local p1, "parent":Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapSupport;, "Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapSupport<TR;>;"
     invoke-direct {p0}, Lio/reactivex/internal/subscriptions/SubscriptionArbiter;-><init>()V
 
     .line 581
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner;->parent:Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapSupport;
 
-    .line 582
     return-void
 .end method
 
@@ -74,11 +71,8 @@
     .locals 5
 
     .line 610
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner;, "Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner<TR;>;"
     iget-wide v0, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner;->produced:J
 
-    .line 612
-    .local v0, "p":J
     const-wide/16 v2, 0x0
 
     cmp-long v4, v0, v2
@@ -93,24 +87,19 @@
 
     .line 617
     :cond_0
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner;->parent:Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapSupport;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner;->parent:Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapSupport;
 
-    invoke-interface {v2}, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapSupport;->innerComplete()V
+    invoke-interface {v0}, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapSupport;->innerComplete()V
 
-    .line 618
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 5
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 598
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner;, "Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner<TR;>;"
     iget-wide v0, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner;->produced:J
 
-    .line 600
-    .local v0, "p":J
     const-wide/16 v2, 0x0
 
     cmp-long v4, v0, v2
@@ -125,11 +114,10 @@
 
     .line 605
     :cond_0
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner;->parent:Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapSupport;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner;->parent:Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapSupport;
 
-    invoke-interface {v2, p1}, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapSupport;->innerError(Ljava/lang/Throwable;)V
+    invoke-interface {v0, p1}, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapSupport;->innerError(Ljava/lang/Throwable;)V
 
-    .line 606
     return-void
 .end method
 
@@ -142,8 +130,6 @@
     .end annotation
 
     .line 591
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner;, "Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner<TR;>;"
-    .local p1, "t":Ljava/lang/Object;, "TR;"
     iget-wide v0, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner;->produced:J
 
     const-wide/16 v2, 0x1
@@ -157,18 +143,14 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapSupport;->innerNext(Ljava/lang/Object;)V
 
-    .line 594
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 0
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 586
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner;, "Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner<TR;>;"
     invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableConcatMap$ConcatMapInner;->setSubscription(Lorg/reactivestreams/Subscription;)V
 
-    .line 587
     return-void
 .end method

@@ -55,7 +55,6 @@
     .locals 1
 
     .line 50
-    .local p0, "this":Landroidx/camera/core/impl/LiveDataObservable;, "Landroidx/camera/core/impl/LiveDataObservable<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 53
@@ -78,8 +77,7 @@
 
 # virtual methods
 .method public addObserver(Ljava/util/concurrent/Executor;Landroidx/camera/core/impl/Observable$Observer;)V
-    .locals 5
-    .param p1, "executor"    # Ljava/util/concurrent/Executor;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -90,8 +88,6 @@
     .end annotation
 
     .line 111
-    .local p0, "this":Landroidx/camera/core/impl/LiveDataObservable;, "Landroidx/camera/core/impl/LiveDataObservable<TT;>;"
-    .local p2, "observer":Landroidx/camera/core/impl/Observable$Observer;, "Landroidx/camera/core/impl/Observable$Observer<TT;>;"
     iget-object v0, p0, Landroidx/camera/core/impl/LiveDataObservable;->mObservers:Ljava/util/Map;
 
     monitor-enter v0
@@ -106,8 +102,6 @@
 
     check-cast v1, Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;
 
-    .line 113
-    .local v1, "oldAdapter":Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;, "Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter<TT;>;"
     if-eqz v1, :cond_0
 
     .line 114
@@ -120,39 +114,34 @@
     invoke-direct {v2, p1, p2}, Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;-><init>(Ljava/util/concurrent/Executor;Landroidx/camera/core/impl/Observable$Observer;)V
 
     .line 119
-    .local v2, "newAdapter":Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;, "Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter<TT;>;"
-    iget-object v3, p0, Landroidx/camera/core/impl/LiveDataObservable;->mObservers:Ljava/util/Map;
+    iget-object p1, p0, Landroidx/camera/core/impl/LiveDataObservable;->mObservers:Ljava/util/Map;
 
-    invoke-interface {v3, p2, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, p2, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 121
     invoke-static {}, Landroidx/camera/core/impl/utils/executor/CameraXExecutors;->mainThreadExecutor()Ljava/util/concurrent/ScheduledExecutorService;
 
-    move-result-object v3
+    move-result-object p1
 
-    new-instance v4, Landroidx/camera/core/impl/LiveDataObservable$2;
+    new-instance p2, Landroidx/camera/core/impl/LiveDataObservable$2;
 
-    invoke-direct {v4, p0, v1, v2}, Landroidx/camera/core/impl/LiveDataObservable$2;-><init>(Landroidx/camera/core/impl/LiveDataObservable;Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;)V
+    invoke-direct {p2, p0, v1, v2}, Landroidx/camera/core/impl/LiveDataObservable$2;-><init>(Landroidx/camera/core/impl/LiveDataObservable;Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;)V
 
-    invoke-interface {v3, v4}, Ljava/util/concurrent/ScheduledExecutorService;->execute(Ljava/lang/Runnable;)V
+    invoke-interface {p1, p2}, Ljava/util/concurrent/ScheduledExecutorService;->execute(Ljava/lang/Runnable;)V
 
     .line 128
-    .end local v1    # "oldAdapter":Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;, "Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter<TT;>;"
-    .end local v2    # "newAdapter":Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;, "Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter<TT;>;"
     monitor-exit v0
 
-    .line 129
     return-void
 
-    .line 128
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public fetchData()Lcom/google/common/util/concurrent/ListenableFuture;
@@ -166,7 +155,6 @@
     .end annotation
 
     .line 83
-    .local p0, "this":Landroidx/camera/core/impl/LiveDataObservable;, "Landroidx/camera/core/impl/LiveDataObservable<TT;>;"
     new-instance v0, Landroidx/camera/core/impl/LiveDataObservable$1;
 
     invoke-direct {v0, p0}, Landroidx/camera/core/impl/LiveDataObservable$1;-><init>(Landroidx/camera/core/impl/LiveDataObservable;)V
@@ -190,32 +178,28 @@
     .end annotation
 
     .line 77
-    .local p0, "this":Landroidx/camera/core/impl/LiveDataObservable;, "Landroidx/camera/core/impl/LiveDataObservable<TT;>;"
     iget-object v0, p0, Landroidx/camera/core/impl/LiveDataObservable;->mLiveData:Landroidx/lifecycle/MutableLiveData;
 
     return-object v0
 .end method
 
 .method public postError(Ljava/lang/Throwable;)V
-    .locals 2
-    .param p1, "error"    # Ljava/lang/Throwable;
+    .locals 1
 
     .line 69
-    .local p0, "this":Landroidx/camera/core/impl/LiveDataObservable;, "Landroidx/camera/core/impl/LiveDataObservable<TT;>;"
     iget-object v0, p0, Landroidx/camera/core/impl/LiveDataObservable;->mLiveData:Landroidx/lifecycle/MutableLiveData;
 
     invoke-static {p1}, Landroidx/camera/core/impl/LiveDataObservable$Result;->fromError(Ljava/lang/Throwable;)Landroidx/camera/core/impl/LiveDataObservable$Result;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Landroidx/lifecycle/MutableLiveData;->postValue(Ljava/lang/Object;)V
+    invoke-virtual {v0, p1}, Landroidx/lifecycle/MutableLiveData;->postValue(Ljava/lang/Object;)V
 
-    .line 70
     return-void
 .end method
 
 .method public postValue(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -223,22 +207,19 @@
     .end annotation
 
     .line 62
-    .local p0, "this":Landroidx/camera/core/impl/LiveDataObservable;, "Landroidx/camera/core/impl/LiveDataObservable<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Landroidx/camera/core/impl/LiveDataObservable;->mLiveData:Landroidx/lifecycle/MutableLiveData;
 
     invoke-static {p1}, Landroidx/camera/core/impl/LiveDataObservable$Result;->fromValue(Ljava/lang/Object;)Landroidx/camera/core/impl/LiveDataObservable$Result;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Landroidx/lifecycle/MutableLiveData;->postValue(Ljava/lang/Object;)V
+    invoke-virtual {v0, p1}, Landroidx/lifecycle/MutableLiveData;->postValue(Ljava/lang/Object;)V
 
-    .line 63
     return-void
 .end method
 
 .method public removeObserver(Landroidx/camera/core/impl/Observable$Observer;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -248,8 +229,6 @@
     .end annotation
 
     .line 133
-    .local p0, "this":Landroidx/camera/core/impl/LiveDataObservable;, "Landroidx/camera/core/impl/LiveDataObservable<TT;>;"
-    .local p1, "observer":Landroidx/camera/core/impl/Observable$Observer;, "Landroidx/camera/core/impl/Observable$Observer<TT;>;"
     iget-object v0, p0, Landroidx/camera/core/impl/LiveDataObservable;->mObservers:Ljava/util/Map;
 
     monitor-enter v0
@@ -260,43 +239,38 @@
 
     invoke-interface {v1, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;
+    check-cast p1, Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;
 
-    .line 136
-    .local v1, "adapter":Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;, "Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter<TT;>;"
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
     .line 137
-    invoke-virtual {v1}, Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;->disable()V
+    invoke-virtual {p1}, Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;->disable()V
 
     .line 138
     invoke-static {}, Landroidx/camera/core/impl/utils/executor/CameraXExecutors;->mainThreadExecutor()Ljava/util/concurrent/ScheduledExecutorService;
 
-    move-result-object v2
+    move-result-object v1
 
-    new-instance v3, Landroidx/camera/core/impl/LiveDataObservable$3;
+    new-instance v2, Landroidx/camera/core/impl/LiveDataObservable$3;
 
-    invoke-direct {v3, p0, v1}, Landroidx/camera/core/impl/LiveDataObservable$3;-><init>(Landroidx/camera/core/impl/LiveDataObservable;Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;)V
+    invoke-direct {v2, p0, p1}, Landroidx/camera/core/impl/LiveDataObservable$3;-><init>(Landroidx/camera/core/impl/LiveDataObservable;Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;)V
 
-    invoke-interface {v2, v3}, Ljava/util/concurrent/ScheduledExecutorService;->execute(Ljava/lang/Runnable;)V
+    invoke-interface {v1, v2}, Ljava/util/concurrent/ScheduledExecutorService;->execute(Ljava/lang/Runnable;)V
 
     .line 145
-    .end local v1    # "adapter":Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;, "Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter<TT;>;"
     :cond_0
     monitor-exit v0
 
-    .line 146
     return-void
 
-    .line 145
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method

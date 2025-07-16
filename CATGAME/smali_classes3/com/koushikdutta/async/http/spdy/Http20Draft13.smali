@@ -79,19 +79,15 @@
 
     sput-object v0, Lcom/koushikdutta/async/http/spdy/Http20Draft13;->logger:Ljava/util/logging/Logger;
 
-    .line 49
-    nop
-
-    .line 50
     const-string v0, "PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n"
 
+    .line 50
     invoke-static {v0}, Lcom/koushikdutta/async/http/spdy/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/koushikdutta/async/http/spdy/ByteString;
 
     move-result-object v0
 
     sput-object v0, Lcom/koushikdutta/async/http/spdy/Http20Draft13;->CONNECTION_PREFACE:Lcom/koushikdutta/async/http/spdy/ByteString;
 
-    .line 49
     return-void
 .end method
 
@@ -114,9 +110,7 @@
 .end method
 
 .method static synthetic access$1500(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/IOException;
-    .locals 1
-    .param p0, "x0"    # Ljava/lang/String;
-    .param p1, "x1"    # [Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -126,16 +120,13 @@
     .line 41
     invoke-static {p0, p1}, Lcom/koushikdutta/async/http/spdy/Http20Draft13;->ioException(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/IOException;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$1600(SBS)S
-    .locals 1
-    .param p0, "x0"    # S
-    .param p1, "x1"    # B
-    .param p2, "x2"    # S
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -145,9 +136,9 @@
     .line 41
     invoke-static {p0, p1, p2}, Lcom/koushikdutta/async/http/spdy/Http20Draft13;->lengthWithoutPadding(SBS)S
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$1700()Lcom/koushikdutta/async/http/spdy/ByteString;
@@ -160,22 +151,18 @@
 .end method
 
 .method static synthetic access$1800(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/IllegalArgumentException;
-    .locals 1
-    .param p0, "x0"    # Ljava/lang/String;
-    .param p1, "x1"    # [Ljava/lang/Object;
+    .locals 0
 
     .line 41
     invoke-static {p0, p1}, Lcom/koushikdutta/async/http/spdy/Http20Draft13;->illegalArgument(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/IllegalArgumentException;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private static varargs illegalArgument(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/IllegalArgumentException;
     .locals 2
-    .param p0, "message"    # Ljava/lang/String;
-    .param p1, "args"    # [Ljava/lang/Object;
 
     .line 636
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -184,17 +171,15 @@
 
     invoke-static {v1, p0, p1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method private static varargs ioException(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/IOException;
     .locals 2
-    .param p0, "message"    # Ljava/lang/String;
-    .param p1, "args"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -208,73 +193,67 @@
 
     invoke-static {v1, p0, p1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method private static lengthWithoutPadding(SBS)S
-    .locals 3
-    .param p0, "length"    # S
-    .param p1, "flags"    # B
-    .param p2, "padding"    # S
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 645
-    and-int/lit8 v0, p1, 0x8
+    and-int/lit8 p1, p1, 0x8
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    add-int/lit8 v0, p0, -0x1
+    add-int/lit8 p0, p0, -0x1
 
-    int-to-short p0, v0
+    int-to-short p0, p0
 
-    .line 646
     :cond_0
     if-gt p2, p0, :cond_1
 
-    .line 649
-    sub-int v0, p0, p2
+    sub-int/2addr p0, p2
 
-    int-to-short v0, v0
+    int-to-short p0, p0
 
-    return v0
+    return p0
+
+    :cond_1
+    const/4 p1, 0x2
+
+    new-array p1, p1, [Ljava/lang/Object;
+
+    const/4 v0, 0x0
 
     .line 647
-    :cond_1
-    const/4 v0, 0x2
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    const/4 v1, 0x0
-
     invoke-static {p2}, Ljava/lang/Short;->valueOf(S)Ljava/lang/Short;
 
-    move-result-object v2
+    move-result-object p2
 
-    aput-object v2, v0, v1
+    aput-object p2, p1, v0
 
     invoke-static {p0}, Ljava/lang/Short;->valueOf(S)Ljava/lang/Short;
 
-    move-result-object v1
+    move-result-object p0
 
-    const/4 v2, 0x1
+    const/4 p2, 0x1
 
-    aput-object v1, v0, v2
+    aput-object p0, p1, p2
 
-    const-string v1, "PROTOCOL_ERROR padding %s > remaining length %s"
+    const-string p0, "PROTOCOL_ERROR padding %s > remaining length %s"
 
-    invoke-static {v1, v0}, Lcom/koushikdutta/async/http/spdy/Http20Draft13;->ioException(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/IOException;
+    invoke-static {p0, p1}, Lcom/koushikdutta/async/http/spdy/Http20Draft13;->ioException(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/IOException;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 .end method
 
 
@@ -291,7 +270,6 @@
 .method public maxFrameSize()I
     .locals 1
 
-    .line 91
     const/16 v0, 0x3fff
 
     return v0
@@ -299,9 +277,6 @@
 
 .method public newReader(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/http/spdy/FrameReader$Handler;Z)Lcom/koushikdutta/async/http/spdy/FrameReader;
     .locals 2
-    .param p1, "source"    # Lcom/koushikdutta/async/DataEmitter;
-    .param p2, "handler"    # Lcom/koushikdutta/async/http/spdy/FrameReader$Handler;
-    .param p3, "client"    # Z
 
     .line 81
     new-instance v0, Lcom/koushikdutta/async/http/spdy/Http20Draft13$Reader;
@@ -315,8 +290,6 @@
 
 .method public newWriter(Lcom/koushikdutta/async/BufferedDataSink;Z)Lcom/koushikdutta/async/http/spdy/FrameWriter;
     .locals 1
-    .param p1, "sink"    # Lcom/koushikdutta/async/BufferedDataSink;
-    .param p2, "client"    # Z
 
     .line 86
     new-instance v0, Lcom/koushikdutta/async/http/spdy/Http20Draft13$Writer;

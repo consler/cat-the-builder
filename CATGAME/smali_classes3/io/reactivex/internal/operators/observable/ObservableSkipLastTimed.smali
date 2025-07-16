@@ -36,11 +36,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/ObservableSource;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;IZ)V
     .locals 0
-    .param p2, "time"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p6, "bufferSize"    # I
-    .param p7, "delayError"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -53,8 +48,6 @@
     .end annotation
 
     .line 33
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSkipLastTimed;, "Lio/reactivex/internal/operators/observable/ObservableSkipLastTimed<TT;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/observable/AbstractObservableWithUpstream;-><init>(Lio/reactivex/ObservableSource;)V
 
     .line 34
@@ -72,7 +65,6 @@
     .line 38
     iput-boolean p7, p0, Lio/reactivex/internal/operators/observable/ObservableSkipLastTimed;->delayError:Z
 
-    .line 39
     return-void
 .end method
 
@@ -89,8 +81,6 @@
     .end annotation
 
     .line 43
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSkipLastTimed;, "Lio/reactivex/internal/operators/observable/ObservableSkipLastTimed<TT;>;"
-    .local p1, "t":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSkipLastTimed;->source:Lio/reactivex/ObservableSource;
 
     new-instance v9, Lio/reactivex/internal/operators/observable/ObservableSkipLastTimed$SkipLastTimedObserver;
@@ -113,6 +103,5 @@
 
     invoke-interface {v0, v9}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 44
     return-void
 .end method

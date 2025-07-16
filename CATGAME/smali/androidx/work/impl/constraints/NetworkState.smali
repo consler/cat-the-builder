@@ -16,10 +16,6 @@
 # direct methods
 .method public constructor <init>(ZZZZ)V
     .locals 0
-    .param p1, "isConnected"    # Z
-    .param p2, "isValidated"    # Z
-    .param p3, "isMetered"    # Z
-    .param p4, "isNotRoaming"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -50,15 +46,13 @@
     .line 36
     iput-boolean p4, p0, Landroidx/work/impl/constraints/NetworkState;->mIsNotRoaming:Z
 
-    .line 37
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -68,12 +62,10 @@
         }
     .end annotation
 
-    .line 77
     const/4 v0, 0x1
 
     if-ne p0, p1, :cond_0
 
-    .line 78
     return v0
 
     .line 80
@@ -84,40 +76,36 @@
 
     if-nez v1, :cond_1
 
-    .line 81
     return v2
 
     .line 83
     :cond_1
-    move-object v1, p1
-
-    check-cast v1, Landroidx/work/impl/constraints/NetworkState;
+    check-cast p1, Landroidx/work/impl/constraints/NetworkState;
 
     .line 84
-    .local v1, "other":Landroidx/work/impl/constraints/NetworkState;
-    iget-boolean v3, p0, Landroidx/work/impl/constraints/NetworkState;->mIsConnected:Z
+    iget-boolean v1, p0, Landroidx/work/impl/constraints/NetworkState;->mIsConnected:Z
 
-    iget-boolean v4, v1, Landroidx/work/impl/constraints/NetworkState;->mIsConnected:Z
+    iget-boolean v3, p1, Landroidx/work/impl/constraints/NetworkState;->mIsConnected:Z
 
-    if-ne v3, v4, :cond_2
+    if-ne v1, v3, :cond_2
 
-    iget-boolean v3, p0, Landroidx/work/impl/constraints/NetworkState;->mIsValidated:Z
+    iget-boolean v1, p0, Landroidx/work/impl/constraints/NetworkState;->mIsValidated:Z
 
-    iget-boolean v4, v1, Landroidx/work/impl/constraints/NetworkState;->mIsValidated:Z
+    iget-boolean v3, p1, Landroidx/work/impl/constraints/NetworkState;->mIsValidated:Z
 
-    if-ne v3, v4, :cond_2
+    if-ne v1, v3, :cond_2
 
-    iget-boolean v3, p0, Landroidx/work/impl/constraints/NetworkState;->mIsMetered:Z
+    iget-boolean v1, p0, Landroidx/work/impl/constraints/NetworkState;->mIsMetered:Z
 
-    iget-boolean v4, v1, Landroidx/work/impl/constraints/NetworkState;->mIsMetered:Z
+    iget-boolean v3, p1, Landroidx/work/impl/constraints/NetworkState;->mIsMetered:Z
 
-    if-ne v3, v4, :cond_2
+    if-ne v1, v3, :cond_2
 
-    iget-boolean v3, p0, Landroidx/work/impl/constraints/NetworkState;->mIsNotRoaming:Z
+    iget-boolean v1, p0, Landroidx/work/impl/constraints/NetworkState;->mIsNotRoaming:Z
 
-    iget-boolean v4, v1, Landroidx/work/impl/constraints/NetworkState;->mIsNotRoaming:Z
+    iget-boolean p1, p1, Landroidx/work/impl/constraints/NetworkState;->mIsNotRoaming:Z
 
-    if-ne v3, v4, :cond_2
+    if-ne v1, p1, :cond_2
 
     goto :goto_0
 
@@ -131,43 +119,33 @@
 .method public hashCode()I
     .locals 2
 
-    .line 92
-    const/4 v0, 0x0
-
     .line 93
-    .local v0, "result":I
-    iget-boolean v1, p0, Landroidx/work/impl/constraints/NetworkState;->mIsConnected:Z
-
-    if-eqz v1, :cond_0
-
-    add-int/lit8 v0, v0, 0x1
+    iget-boolean v0, p0, Landroidx/work/impl/constraints/NetworkState;->mIsConnected:Z
 
     .line 94
-    :cond_0
     iget-boolean v1, p0, Landroidx/work/impl/constraints/NetworkState;->mIsValidated:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     add-int/lit8 v0, v0, 0x10
 
     .line 95
-    :cond_1
+    :cond_0
     iget-boolean v1, p0, Landroidx/work/impl/constraints/NetworkState;->mIsMetered:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     add-int/lit16 v0, v0, 0x100
 
     .line 96
-    :cond_2
+    :cond_1
     iget-boolean v1, p0, Landroidx/work/impl/constraints/NetworkState;->mIsNotRoaming:Z
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
     add-int/lit16 v0, v0, 0x1000
 
-    .line 97
-    :cond_3
+    :cond_2
     return v0
 .end method
 
@@ -210,11 +188,11 @@
 .method public toString()Ljava/lang/String;
     .locals 3
 
-    .line 103
     const/4 v0, 0x4
 
     new-array v0, v0, [Ljava/lang/Object;
 
+    .line 103
     iget-boolean v1, p0, Landroidx/work/impl/constraints/NetworkState;->mIsConnected:Z
 
     .line 104
@@ -256,9 +234,9 @@
 
     aput-object v1, v0, v2
 
-    .line 103
     const-string v1, "[ Connected=%b Validated=%b Metered=%b NotRoaming=%b ]"
 
+    .line 103
     invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0

@@ -50,24 +50,20 @@
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .param p1, "source"    # Landroid/os/Parcel;
 
     .line 390
     invoke-direct {p0, p1}, Landroid/view/View$BaseSavedState;-><init>(Landroid/os/Parcel;)V
 
-    .line 391
     const/4 v0, 0x0
 
+    .line 391
     invoke-direct {p0, p1, v0}, Landroidx/viewpager2/widget/ViewPager2$SavedState;->readValues(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
 
-    .line 392
     return-void
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
     .locals 0
-    .param p1, "source"    # Landroid/os/Parcel;
-    .param p2, "loader"    # Ljava/lang/ClassLoader;
 
     .line 385
     invoke-direct {p0, p1, p2}, Landroid/view/View$BaseSavedState;-><init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
@@ -75,25 +71,20 @@
     .line 386
     invoke-direct {p0, p1, p2}, Landroidx/viewpager2/widget/ViewPager2$SavedState;->readValues(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
 
-    .line 387
     return-void
 .end method
 
 .method constructor <init>(Landroid/os/Parcelable;)V
     .locals 0
-    .param p1, "superState"    # Landroid/os/Parcelable;
 
     .line 395
     invoke-direct {p0, p1}, Landroid/view/View$BaseSavedState;-><init>(Landroid/os/Parcelable;)V
 
-    .line 396
     return-void
 .end method
 
 .method private readValues(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
     .locals 1
-    .param p1, "source"    # Landroid/os/Parcel;
-    .param p2, "loader"    # Ljava/lang/ClassLoader;
 
     .line 399
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -112,11 +103,10 @@
     .line 401
     invoke-virtual {p1, p2}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/viewpager2/widget/ViewPager2$SavedState;->mAdapterState:Landroid/os/Parcelable;
+    iput-object p1, p0, Landroidx/viewpager2/widget/ViewPager2$SavedState;->mAdapterState:Landroid/os/Parcelable;
 
-    .line 402
     return-void
 .end method
 
@@ -124,8 +114,6 @@
 # virtual methods
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
-    .param p1, "out"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
     .line 406
     invoke-super {p0, p1, p2}, Landroid/view/View$BaseSavedState;->writeToParcel(Landroid/os/Parcel;I)V
@@ -145,6 +133,5 @@
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 410
     return-void
 .end method

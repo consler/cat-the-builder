@@ -63,9 +63,6 @@
     .end annotation
 
     .line 32
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleResumeNext;, "Lio/reactivex/internal/operators/single/SingleResumeNext<TT;>;"
-    .local p1, "source":Lio/reactivex/SingleSource;, "Lio/reactivex/SingleSource<+TT;>;"
-    .local p2, "nextFunction":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Ljava/lang/Throwable;+Lio/reactivex/SingleSource<+TT;>;>;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 33
@@ -74,7 +71,6 @@
     .line 34
     iput-object p2, p0, Lio/reactivex/internal/operators/single/SingleResumeNext;->nextFunction:Lio/reactivex/functions/Function;
 
-    .line 35
     return-void
 .end method
 
@@ -91,8 +87,6 @@
     .end annotation
 
     .line 39
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleResumeNext;, "Lio/reactivex/internal/operators/single/SingleResumeNext<TT;>;"
-    .local p1, "s":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleResumeNext;->source:Lio/reactivex/SingleSource;
 
     new-instance v1, Lio/reactivex/internal/operators/single/SingleResumeNext$ResumeMainSingleObserver;
@@ -103,6 +97,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/SingleSource;->subscribe(Lio/reactivex/SingleObserver;)V
 
-    .line 40
     return-void
 .end method

@@ -39,16 +39,13 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/CompletableObserver;)V
     .locals 0
-    .param p1, "actual"    # Lio/reactivex/CompletableObserver;
 
     .line 41
-    .local p0, "this":Lio/reactivex/internal/operators/completable/CompletableFromPublisher$FromPublisherSubscriber;, "Lio/reactivex/internal/operators/completable/CompletableFromPublisher$FromPublisherSubscriber<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 42
     iput-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableFromPublisher$FromPublisherSubscriber;->cs:Lio/reactivex/CompletableObserver;
 
-    .line 43
     return-void
 .end method
 
@@ -58,7 +55,6 @@
     .locals 1
 
     .line 74
-    .local p0, "this":Lio/reactivex/internal/operators/completable/CompletableFromPublisher$FromPublisherSubscriber;, "Lio/reactivex/internal/operators/completable/CompletableFromPublisher$FromPublisherSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableFromPublisher$FromPublisherSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
@@ -68,7 +64,6 @@
 
     iput-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableFromPublisher$FromPublisherSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    .line 76
     return-void
 .end method
 
@@ -76,7 +71,6 @@
     .locals 2
 
     .line 80
-    .local p0, "this":Lio/reactivex/internal/operators/completable/CompletableFromPublisher$FromPublisherSubscriber;, "Lio/reactivex/internal/operators/completable/CompletableFromPublisher$FromPublisherSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableFromPublisher$FromPublisherSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     sget-object v1, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
@@ -98,26 +92,21 @@
     .locals 1
 
     .line 69
-    .local p0, "this":Lio/reactivex/internal/operators/completable/CompletableFromPublisher$FromPublisherSubscriber;, "Lio/reactivex/internal/operators/completable/CompletableFromPublisher$FromPublisherSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableFromPublisher$FromPublisherSubscriber;->cs:Lio/reactivex/CompletableObserver;
 
     invoke-interface {v0}, Lio/reactivex/CompletableObserver;->onComplete()V
 
-    .line 70
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 64
-    .local p0, "this":Lio/reactivex/internal/operators/completable/CompletableFromPublisher$FromPublisherSubscriber;, "Lio/reactivex/internal/operators/completable/CompletableFromPublisher$FromPublisherSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableFromPublisher$FromPublisherSubscriber;->cs:Lio/reactivex/CompletableObserver;
 
     invoke-interface {v0, p1}, Lio/reactivex/CompletableObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 65
     return-void
 .end method
 
@@ -129,18 +118,13 @@
         }
     .end annotation
 
-    .line 60
-    .local p0, "this":Lio/reactivex/internal/operators/completable/CompletableFromPublisher$FromPublisherSubscriber;, "Lio/reactivex/internal/operators/completable/CompletableFromPublisher$FromPublisherSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 47
-    .local p0, "this":Lio/reactivex/internal/operators/completable/CompletableFromPublisher$FromPublisherSubscriber;, "Lio/reactivex/internal/operators/completable/CompletableFromPublisher$FromPublisherSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableFromPublisher$FromPublisherSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -157,12 +141,11 @@
 
     invoke-interface {v0, p0}, Lio/reactivex/CompletableObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 52
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 52
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 54
     :cond_0
     return-void
 .end method

@@ -60,14 +60,11 @@
     .end annotation
 
     .line 52
-    .local p0, "this":Lio/reactivex/internal/observers/DeferredScalarDisposable;, "Lio/reactivex/internal/observers/DeferredScalarDisposable<TT;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     invoke-direct {p0}, Lio/reactivex/internal/observers/BasicIntQueueDisposable;-><init>()V
 
     .line 53
     iput-object p1, p0, Lio/reactivex/internal/observers/DeferredScalarDisposable;->actual:Lio/reactivex/Observer;
 
-    .line 54
     return-void
 .end method
 
@@ -76,56 +73,49 @@
 .method public final clear()V
     .locals 1
 
-    .line 133
-    .local p0, "this":Lio/reactivex/internal/observers/DeferredScalarDisposable;, "Lio/reactivex/internal/observers/DeferredScalarDisposable<TT;>;"
     const/16 v0, 0x20
 
+    .line 133
     invoke-virtual {p0, v0}, Lio/reactivex/internal/observers/DeferredScalarDisposable;->lazySet(I)V
 
-    .line 134
     const/4 v0, 0x0
 
+    .line 134
     iput-object v0, p0, Lio/reactivex/internal/observers/DeferredScalarDisposable;->value:Ljava/lang/Object;
 
-    .line 135
     return-void
 .end method
 
 .method public final complete()V
-    .locals 2
+    .locals 1
 
     .line 106
-    .local p0, "this":Lio/reactivex/internal/observers/DeferredScalarDisposable;, "Lio/reactivex/internal/observers/DeferredScalarDisposable<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/observers/DeferredScalarDisposable;->get()I
 
     move-result v0
 
-    .line 107
-    .local v0, "state":I
-    and-int/lit8 v1, v0, 0x36
+    and-int/lit8 v0, v0, 0x36
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 108
     return-void
 
-    .line 110
     :cond_0
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
-    invoke-virtual {p0, v1}, Lio/reactivex/internal/observers/DeferredScalarDisposable;->lazySet(I)V
+    .line 110
+    invoke-virtual {p0, v0}, Lio/reactivex/internal/observers/DeferredScalarDisposable;->lazySet(I)V
 
     .line 111
-    iget-object v1, p0, Lio/reactivex/internal/observers/DeferredScalarDisposable;->actual:Lio/reactivex/Observer;
+    iget-object v0, p0, Lio/reactivex/internal/observers/DeferredScalarDisposable;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v1}, Lio/reactivex/Observer;->onComplete()V
+    invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 112
     return-void
 .end method
 
 .method public final complete(Ljava/lang/Object;)V
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -133,22 +123,16 @@
     .end annotation
 
     .line 71
-    .local p0, "this":Lio/reactivex/internal/observers/DeferredScalarDisposable;, "Lio/reactivex/internal/observers/DeferredScalarDisposable<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     invoke-virtual {p0}, Lio/reactivex/internal/observers/DeferredScalarDisposable;->get()I
 
     move-result v0
 
-    .line 72
-    .local v0, "state":I
     and-int/lit8 v1, v0, 0x36
 
     if-eqz v1, :cond_0
 
-    .line 73
     return-void
 
-    .line 75
     :cond_0
     const/16 v1, 0x8
 
@@ -157,40 +141,38 @@
     .line 76
     iput-object p1, p0, Lio/reactivex/internal/observers/DeferredScalarDisposable;->value:Ljava/lang/Object;
 
-    .line 77
-    const/16 v1, 0x10
+    const/16 v0, 0x10
 
-    invoke-virtual {p0, v1}, Lio/reactivex/internal/observers/DeferredScalarDisposable;->lazySet(I)V
+    .line 77
+    invoke-virtual {p0, v0}, Lio/reactivex/internal/observers/DeferredScalarDisposable;->lazySet(I)V
 
     goto :goto_0
 
-    .line 79
     :cond_1
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
-    invoke-virtual {p0, v1}, Lio/reactivex/internal/observers/DeferredScalarDisposable;->lazySet(I)V
+    .line 79
+    invoke-virtual {p0, v0}, Lio/reactivex/internal/observers/DeferredScalarDisposable;->lazySet(I)V
 
     .line 81
     :goto_0
-    iget-object v1, p0, Lio/reactivex/internal/observers/DeferredScalarDisposable;->actual:Lio/reactivex/Observer;
+    iget-object v0, p0, Lio/reactivex/internal/observers/DeferredScalarDisposable;->actual:Lio/reactivex/Observer;
 
     .line 82
-    .local v1, "a":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
-    invoke-interface {v1, p1}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
+    invoke-interface {v0, p1}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
     .line 83
     invoke-virtual {p0}, Lio/reactivex/internal/observers/DeferredScalarDisposable;->get()I
 
-    move-result v2
+    move-result p1
 
-    const/4 v3, 0x4
+    const/4 v1, 0x4
 
-    if-eq v2, v3, :cond_2
+    if-eq p1, v1, :cond_2
 
     .line 84
-    invoke-interface {v1}, Lio/reactivex/Observer;->onComplete()V
+    invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 86
     :cond_2
     return-void
 .end method
@@ -198,55 +180,47 @@
 .method public dispose()V
     .locals 1
 
-    .line 139
-    .local p0, "this":Lio/reactivex/internal/observers/DeferredScalarDisposable;, "Lio/reactivex/internal/observers/DeferredScalarDisposable<TT;>;"
     const/4 v0, 0x4
 
+    .line 139
     invoke-virtual {p0, v0}, Lio/reactivex/internal/observers/DeferredScalarDisposable;->set(I)V
 
-    .line 140
     const/4 v0, 0x0
 
+    .line 140
     iput-object v0, p0, Lio/reactivex/internal/observers/DeferredScalarDisposable;->value:Ljava/lang/Object;
 
-    .line 141
     return-void
 .end method
 
 .method public final error(Ljava/lang/Throwable;)V
-    .locals 2
-    .param p1, "t"    # Ljava/lang/Throwable;
+    .locals 1
 
     .line 93
-    .local p0, "this":Lio/reactivex/internal/observers/DeferredScalarDisposable;, "Lio/reactivex/internal/observers/DeferredScalarDisposable<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/observers/DeferredScalarDisposable;->get()I
 
     move-result v0
 
-    .line 94
-    .local v0, "state":I
-    and-int/lit8 v1, v0, 0x36
+    and-int/lit8 v0, v0, 0x36
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 95
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 96
     return-void
 
-    .line 98
     :cond_0
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
-    invoke-virtual {p0, v1}, Lio/reactivex/internal/observers/DeferredScalarDisposable;->lazySet(I)V
+    .line 98
+    invoke-virtual {p0, v0}, Lio/reactivex/internal/observers/DeferredScalarDisposable;->lazySet(I)V
 
     .line 99
-    iget-object v1, p0, Lio/reactivex/internal/observers/DeferredScalarDisposable;->actual:Lio/reactivex/Observer;
+    iget-object v0, p0, Lio/reactivex/internal/observers/DeferredScalarDisposable;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v1, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v0, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 100
     return-void
 .end method
 
@@ -254,7 +228,6 @@
     .locals 2
 
     .line 153
-    .local p0, "this":Lio/reactivex/internal/observers/DeferredScalarDisposable;, "Lio/reactivex/internal/observers/DeferredScalarDisposable<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/observers/DeferredScalarDisposable;->get()I
 
     move-result v0
@@ -278,7 +251,6 @@
     .locals 2
 
     .line 128
-    .local p0, "this":Lio/reactivex/internal/observers/DeferredScalarDisposable;, "Lio/reactivex/internal/observers/DeferredScalarDisposable<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/observers/DeferredScalarDisposable;->get()I
 
     move-result v0
@@ -313,72 +285,61 @@
     .end annotation
 
     .line 117
-    .local p0, "this":Lio/reactivex/internal/observers/DeferredScalarDisposable;, "Lio/reactivex/internal/observers/DeferredScalarDisposable<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/observers/DeferredScalarDisposable;->get()I
 
     move-result v0
 
-    const/4 v1, 0x0
+    const/16 v1, 0x10
 
-    const/16 v2, 0x10
+    const/4 v2, 0x0
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v1, :cond_0
 
     .line 118
     iget-object v0, p0, Lio/reactivex/internal/observers/DeferredScalarDisposable;->value:Ljava/lang/Object;
 
     .line 119
-    .local v0, "v":Ljava/lang/Object;, "TT;"
-    iput-object v1, p0, Lio/reactivex/internal/observers/DeferredScalarDisposable;->value:Ljava/lang/Object;
+    iput-object v2, p0, Lio/reactivex/internal/observers/DeferredScalarDisposable;->value:Ljava/lang/Object;
 
-    .line 120
     const/16 v1, 0x20
 
+    .line 120
     invoke-virtual {p0, v1}, Lio/reactivex/internal/observers/DeferredScalarDisposable;->lazySet(I)V
 
-    .line 121
     return-object v0
 
-    .line 123
-    .end local v0    # "v":Ljava/lang/Object;, "TT;"
     :cond_0
-    return-object v1
+    return-object v2
 .end method
 
 .method public final requestFusion(I)I
     .locals 1
-    .param p1, "mode"    # I
 
-    .line 58
-    .local p0, "this":Lio/reactivex/internal/observers/DeferredScalarDisposable;, "Lio/reactivex/internal/observers/DeferredScalarDisposable<TT;>;"
-    and-int/lit8 v0, p1, 0x2
-
-    if-eqz v0, :cond_0
-
-    .line 59
-    const/16 v0, 0x8
-
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/observers/DeferredScalarDisposable;->lazySet(I)V
-
-    .line 60
     const/4 v0, 0x2
 
+    and-int/2addr p1, v0
+
+    if-eqz p1, :cond_0
+
+    const/16 p1, 0x8
+
+    .line 59
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/observers/DeferredScalarDisposable;->lazySet(I)V
+
     return v0
 
-    .line 62
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public final tryDispose()Z
     .locals 2
 
-    .line 148
-    .local p0, "this":Lio/reactivex/internal/observers/DeferredScalarDisposable;, "Lio/reactivex/internal/observers/DeferredScalarDisposable<TT;>;"
     const/4 v0, 0x4
 
+    .line 148
     invoke-virtual {p0, v0}, Lio/reactivex/internal/observers/DeferredScalarDisposable;->getAndSet(I)I
 
     move-result v1

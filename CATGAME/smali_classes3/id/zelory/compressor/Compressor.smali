@@ -17,20 +17,19 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 20
     const/16 v0, 0x264
 
+    .line 20
     iput v0, p0, Lid/zelory/compressor/Compressor;->maxWidth:I
 
-    .line 21
     const/16 v0, 0x330
 
+    .line 21
     iput v0, p0, Lid/zelory/compressor/Compressor;->maxHeight:I
 
     .line 22
@@ -38,9 +37,9 @@
 
     iput-object v0, p0, Lid/zelory/compressor/Compressor;->compressFormat:Landroid/graphics/Bitmap$CompressFormat;
 
-    .line 23
     const/16 v0, 0x50
 
+    .line 23
     iput v0, p0, Lid/zelory/compressor/Compressor;->quality:I
 
     .line 27
@@ -50,29 +49,34 @@
 
     invoke-virtual {p1}, Landroid/content/Context;->getCacheDir()Ljava/io/File;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1}, Ljava/io/File;->getPath()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/io/File;->getPath()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v1, Ljava/io/File;->separator:Ljava/lang/String;
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v0, Ljava/io/File;->separator:Ljava/lang/String;
 
-    const-string v1, "images"
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v0, "images"
 
-    move-result-object v0
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iput-object v0, p0, Lid/zelory/compressor/Compressor;->destinationDirectoryPath:Ljava/lang/String;
+    move-result-object p1
 
-    .line 28
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lid/zelory/compressor/Compressor;->destinationDirectoryPath:Ljava/lang/String;
+
     return-void
 .end method
 
@@ -80,7 +84,6 @@
 # virtual methods
 .method public compressToBitmap(Ljava/io/File;)Landroid/graphics/Bitmap;
     .locals 2
-    .param p1, "imageFile"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -94,14 +97,13 @@
 
     invoke-static {p1, v0, v1}, Lid/zelory/compressor/ImageUtil;->decodeSampledBitmapFromFile(Ljava/io/File;II)Landroid/graphics/Bitmap;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public compressToBitmapAsFlowable(Ljava/io/File;)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "imageFile"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -120,14 +122,13 @@
 
     invoke-static {v0}, Lio/reactivex/Flowable;->defer(Ljava/util/concurrent/Callable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public compressToFile(Ljava/io/File;)Ljava/io/File;
     .locals 1
-    .param p1, "imageFile"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -141,15 +142,13 @@
 
     invoke-virtual {p0, p1, v0}, Lid/zelory/compressor/Compressor;->compressToFile(Ljava/io/File;Ljava/lang/String;)Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public compressToFile(Ljava/io/File;Ljava/lang/String;)Ljava/io/File;
     .locals 6
-    .param p1, "imageFile"    # Ljava/io/File;
-    .param p2, "compressedFileName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -173,13 +172,19 @@
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     sget-object v5, Ljava/io/File;->separator:Ljava/lang/String;
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
@@ -187,14 +192,13 @@
 
     invoke-static/range {v0 .. v5}, Lid/zelory/compressor/ImageUtil;->compressImage(Ljava/io/File;IILandroid/graphics/Bitmap$CompressFormat;ILjava/lang/String;)Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public compressToFileAsFlowable(Ljava/io/File;)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "imageFile"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -213,15 +217,13 @@
 
     invoke-virtual {p0, p1, v0}, Lid/zelory/compressor/Compressor;->compressToFileAsFlowable(Ljava/io/File;Ljava/lang/String;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public compressToFileAsFlowable(Ljava/io/File;Ljava/lang/String;)Lio/reactivex/Flowable;
     .locals 1
-    .param p1, "imageFile"    # Ljava/io/File;
-    .param p2, "compressedFileName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -241,62 +243,52 @@
 
     invoke-static {v0}, Lio/reactivex/Flowable;->defer(Ljava/util/concurrent/Callable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public setCompressFormat(Landroid/graphics/Bitmap$CompressFormat;)Lid/zelory/compressor/Compressor;
     .locals 0
-    .param p1, "compressFormat"    # Landroid/graphics/Bitmap$CompressFormat;
 
     .line 41
     iput-object p1, p0, Lid/zelory/compressor/Compressor;->compressFormat:Landroid/graphics/Bitmap$CompressFormat;
 
-    .line 42
     return-object p0
 .end method
 
 .method public setDestinationDirectoryPath(Ljava/lang/String;)Lid/zelory/compressor/Compressor;
     .locals 0
-    .param p1, "destinationDirectoryPath"    # Ljava/lang/String;
 
     .line 51
     iput-object p1, p0, Lid/zelory/compressor/Compressor;->destinationDirectoryPath:Ljava/lang/String;
 
-    .line 52
     return-object p0
 .end method
 
 .method public setMaxHeight(I)Lid/zelory/compressor/Compressor;
     .locals 0
-    .param p1, "maxHeight"    # I
 
     .line 36
     iput p1, p0, Lid/zelory/compressor/Compressor;->maxHeight:I
 
-    .line 37
     return-object p0
 .end method
 
 .method public setMaxWidth(I)Lid/zelory/compressor/Compressor;
     .locals 0
-    .param p1, "maxWidth"    # I
 
     .line 31
     iput p1, p0, Lid/zelory/compressor/Compressor;->maxWidth:I
 
-    .line 32
     return-object p0
 .end method
 
 .method public setQuality(I)Lid/zelory/compressor/Compressor;
     .locals 0
-    .param p1, "quality"    # I
 
     .line 46
     iput p1, p0, Lid/zelory/compressor/Compressor;->quality:I
 
-    .line 47
     return-object p0
 .end method

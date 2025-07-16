@@ -14,7 +14,6 @@
 # direct methods
 .method private constructor <init>(Ljava/util/Iterator;)V
     .locals 0
-    .param p1, "iterator"    # Ljava/util/Iterator;
 
     .line 62
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -22,15 +21,12 @@
     .line 63
     iput-object p1, p0, Lorg/apache/commons/collections/iterators/UnmodifiableIterator;->iterator:Ljava/util/Iterator;
 
-    .line 64
     return-void
 .end method
 
 .method public static decorate(Ljava/util/Iterator;)Ljava/util/Iterator;
-    .locals 2
-    .param p0, "iterator"    # Ljava/util/Iterator;
+    .locals 1
 
-    .line 46
     if-eqz p0, :cond_1
 
     .line 49
@@ -38,7 +34,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 50
     return-object p0
 
     .line 52
@@ -51,13 +46,13 @@
 
     .line 47
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Iterator must not be null"
+    const-string v0, "Iterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 

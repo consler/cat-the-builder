@@ -6,22 +6,19 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
 
-    .line 35
     const/4 v0, 0x0
 
+    .line 35
     invoke-direct {p0, p1, v0}, Landroidx/camera/camera2/internal/compat/CameraManagerCompatApi28Impl;-><init>(Landroid/content/Context;Ljava/lang/Object;)V
 
-    .line 36
     return-void
 .end method
 
 
 # virtual methods
 .method public getCameraCharacteristics(Ljava/lang/String;)Landroid/hardware/camera2/CameraCharacteristics;
-    .locals 2
-    .param p1, "cameraId"    # Ljava/lang/String;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat;
@@ -34,30 +31,25 @@
 
     invoke-virtual {v0, p1}, Landroid/hardware/camera2/CameraManager;->getCameraCharacteristics(Ljava/lang/String;)Landroid/hardware/camera2/CameraCharacteristics;
 
-    move-result-object v0
+    move-result-object p1
     :try_end_0
     .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p1
 
-    .line 59
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 60
-    .local v0, "e":Landroid/hardware/camera2/CameraAccessException;
-    invoke-static {v0}, Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat;->toCameraAccessExceptionCompat(Landroid/hardware/camera2/CameraAccessException;)Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat;
+    invoke-static {p1}, Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat;->toCameraAccessExceptionCompat(Landroid/hardware/camera2/CameraAccessException;)Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 .end method
 
 .method public openCamera(Ljava/lang/String;Ljava/util/concurrent/Executor;Landroid/hardware/camera2/CameraDevice$StateCallback;)V
-    .locals 2
-    .param p1, "cameraId"    # Ljava/lang/String;
-    .param p2, "executor"    # Ljava/util/concurrent/Executor;
-    .param p3, "callback"    # Landroid/hardware/camera2/CameraDevice$StateCallback;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat;
@@ -72,21 +64,15 @@
     :try_end_0
     .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 48
-    nop
-
-    .line 49
     return-void
 
-    .line 46
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 47
-    .local v0, "e":Landroid/hardware/camera2/CameraAccessException;
-    invoke-static {v0}, Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat;->toCameraAccessExceptionCompat(Landroid/hardware/camera2/CameraAccessException;)Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat;
+    invoke-static {p1}, Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat;->toCameraAccessExceptionCompat(Landroid/hardware/camera2/CameraAccessException;)Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 .end method

@@ -49,34 +49,33 @@
 .method static constructor <clinit>()V
     .locals 5
 
-    .line 30
     const/4 v0, 0x6
 
     new-array v0, v0, [I
 
+    .line 30
     fill-array-data v0, :array_0
 
     sput-object v0, Landroidx/transition/Styleable;->TRANSITION_TARGET:[I
 
-    .line 55
     const/4 v0, 0x3
 
     new-array v1, v0, [I
 
+    .line 55
     fill-array-data v1, :array_1
 
     sput-object v1, Landroidx/transition/Styleable;->TRANSITION_MANAGER:[I
 
-    .line 71
     const/4 v1, 0x4
 
     new-array v1, v1, [I
 
+    .line 71
     fill-array-data v1, :array_2
 
     sput-object v1, Landroidx/transition/Styleable;->TRANSITION:[I
 
-    .line 90
     const/4 v1, 0x1
 
     new-array v2, v1, [I
@@ -87,67 +86,68 @@
 
     aput v3, v2, v4
 
+    .line 90
     sput-object v2, Landroidx/transition/Styleable;->CHANGE_BOUNDS:[I
 
-    .line 100
     new-array v2, v1, [I
 
     const v3, 0x101047c
 
     aput v3, v2, v4
 
+    .line 100
     sput-object v2, Landroidx/transition/Styleable;->VISIBILITY_TRANSITION:[I
 
-    .line 110
     new-array v2, v1, [I
 
     const v3, 0x10103e1
 
     aput v3, v2, v4
 
+    .line 110
     sput-object v2, Landroidx/transition/Styleable;->FADE:[I
 
-    .line 120
     const/4 v2, 0x2
 
     new-array v2, v2, [I
 
+    .line 120
     fill-array-data v2, :array_3
 
     sput-object v2, Landroidx/transition/Styleable;->CHANGE_TRANSFORM:[I
 
-    .line 133
     new-array v2, v1, [I
 
     const v3, 0x1010430
 
     aput v3, v2, v4
 
+    .line 133
     sput-object v2, Landroidx/transition/Styleable;->SLIDE:[I
 
-    .line 143
     new-array v2, v1, [I
 
     const v3, 0x10103e0
 
     aput v3, v2, v4
 
+    .line 143
     sput-object v2, Landroidx/transition/Styleable;->TRANSITION_SET:[I
 
-    .line 153
     new-array v0, v0, [I
 
+    .line 153
     fill-array-data v0, :array_4
 
     sput-object v0, Landroidx/transition/Styleable;->ARC_MOTION:[I
 
-    .line 169
     new-array v0, v1, [I
 
     const v1, 0x10104ca
 
     aput v1, v0, v4
 
+    .line 169
     sput-object v0, Landroidx/transition/Styleable;->PATTERN_PATH_MOTION:[I
 
     return-void
@@ -197,6 +197,5 @@
     .line 178
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 179
     return-void
 .end method

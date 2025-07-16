@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/camera/core/ImageCapture;->lambda$takePictureInternal$9(Landroidx/camera/core/ImageCapture$ImageCaptureRequest;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)Ljava/lang/Object;
+    value = Landroidx/camera/core/ImageCapture;->lambda$takePictureInternal$9$androidx-camera-core-ImageCapture(Landroidx/camera/core/ImageCapture$ImageCaptureRequest;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)Ljava/lang/Object;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -37,7 +37,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ImageCapture;Landroidx/camera/core/ImageCapture$TakePictureState;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/core/ImageCapture;
 
     .line 813
     iput-object p1, p0, Landroidx/camera/core/ImageCapture$5;->this$0:Landroidx/camera/core/ImageCapture;
@@ -55,7 +54,6 @@
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "throwable"    # Ljava/lang/Throwable;
 
     .line 821
     iget-object v0, p0, Landroidx/camera/core/ImageCapture$5;->this$0:Landroidx/camera/core/ImageCapture;
@@ -69,7 +67,6 @@
 
     invoke-virtual {v0, p1}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->setException(Ljava/lang/Throwable;)Z
 
-    .line 824
     return-void
 .end method
 
@@ -85,16 +82,14 @@
 .end method
 
 .method public onSuccess(Ljava/lang/Void;)V
-    .locals 2
-    .param p1, "result"    # Ljava/lang/Void;
+    .locals 1
 
     .line 816
-    iget-object v0, p0, Landroidx/camera/core/ImageCapture$5;->this$0:Landroidx/camera/core/ImageCapture;
+    iget-object p1, p0, Landroidx/camera/core/ImageCapture$5;->this$0:Landroidx/camera/core/ImageCapture;
 
-    iget-object v1, p0, Landroidx/camera/core/ImageCapture$5;->val$state:Landroidx/camera/core/ImageCapture$TakePictureState;
+    iget-object v0, p0, Landroidx/camera/core/ImageCapture$5;->val$state:Landroidx/camera/core/ImageCapture$TakePictureState;
 
-    invoke-virtual {v0, v1}, Landroidx/camera/core/ImageCapture;->postTakePicture(Landroidx/camera/core/ImageCapture$TakePictureState;)V
+    invoke-virtual {p1, v0}, Landroidx/camera/core/ImageCapture;->postTakePicture(Landroidx/camera/core/ImageCapture$TakePictureState;)V
 
-    .line 817
     return-void
 .end method

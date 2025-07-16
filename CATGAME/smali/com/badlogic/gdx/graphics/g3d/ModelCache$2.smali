@@ -29,7 +29,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/graphics/g3d/ModelCache;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/graphics/g3d/ModelCache;
 
     .line 172
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/ModelCache$2;->this$0:Lcom/badlogic/gdx/graphics/g3d/ModelCache;

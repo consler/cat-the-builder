@@ -17,7 +17,6 @@
 .method static constructor <clinit>()V
     .locals 0
 
-    .line 12
     return-void
 .end method
 
@@ -31,13 +30,11 @@
 
     invoke-direct {p0, v0}, Lcom/koushikdutta/async/http/filter/InflaterInputFilter;-><init>(Ljava/util/zip/Inflater;)V
 
-    .line 62
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/zip/Inflater;)V
     .locals 1
-    .param p1, "inflater"    # Ljava/util/zip/Inflater;
 
     .line 64
     invoke-direct {p0}, Lcom/koushikdutta/async/FilteredDataEmitter;-><init>()V
@@ -52,229 +49,197 @@
     .line 65
     iput-object p1, p0, Lcom/koushikdutta/async/http/filter/InflaterInputFilter;->mInflater:Ljava/util/zip/Inflater;
 
-    .line 66
     return-void
 .end method
 
 
 # virtual methods
 .method public onDataAvailable(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/ByteBufferList;)V
-    .locals 7
-    .param p1, "emitter"    # Lcom/koushikdutta/async/DataEmitter;
-    .param p2, "bb"    # Lcom/koushikdutta/async/ByteBufferList;
+    .locals 5
 
     .line 28
     :try_start_0
     invoke-virtual {p2}, Lcom/koushikdutta/async/ByteBufferList;->remaining()I
 
-    move-result v0
+    move-result p1
 
-    mul-int/lit8 v0, v0, 0x2
+    mul-int/lit8 p1, p1, 0x2
 
-    invoke-static {v0}, Lcom/koushikdutta/async/ByteBufferList;->obtain(I)Ljava/nio/ByteBuffer;
+    invoke-static {p1}, Lcom/koushikdutta/async/ByteBufferList;->obtain(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v0
-
-    .line 29
-    .local v0, "output":Ljava/nio/ByteBuffer;
-    const/4 v1, 0x0
+    move-result-object p1
 
     .line 30
-    .local v1, "totalRead":I
     :goto_0
     invoke-virtual {p2}, Lcom/koushikdutta/async/ByteBufferList;->size()I
 
-    move-result v2
+    move-result v0
 
-    if-lez v2, :cond_3
+    if-lez v0, :cond_3
 
     .line 31
     invoke-virtual {p2}, Lcom/koushikdutta/async/ByteBufferList;->remove()Ljava/nio/ByteBuffer;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 32
-    .local v2, "b":Ljava/nio/ByteBuffer;
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->hasRemaining()Z
+    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->hasRemaining()Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_2
+    if-eqz v1, :cond_2
 
     .line 33
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->remaining()I
-
-    move-result v3
-
-    move v1, v3
+    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->remaining()I
 
     .line 34
-    iget-object v3, p0, Lcom/koushikdutta/async/http/filter/InflaterInputFilter;->mInflater:Ljava/util/zip/Inflater;
-
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->array()[B
-
-    move-result-object v4
-
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->arrayOffset()I
-
-    move-result v5
-
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->position()I
-
-    move-result v6
-
-    add-int/2addr v5, v6
-
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->remaining()I
-
-    move-result v6
-
-    invoke-virtual {v3, v4, v5, v6}, Ljava/util/zip/Inflater;->setInput([BII)V
-
-    .line 36
-    :cond_0
-    iget-object v3, p0, Lcom/koushikdutta/async/http/filter/InflaterInputFilter;->mInflater:Ljava/util/zip/Inflater;
+    iget-object v1, p0, Lcom/koushikdutta/async/http/filter/InflaterInputFilter;->mInflater:Ljava/util/zip/Inflater;
 
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->array()[B
 
-    move-result-object v4
+    move-result-object v2
 
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->arrayOffset()I
 
-    move-result v5
+    move-result v3
 
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->position()I
 
-    move-result v6
+    move-result v4
 
-    add-int/2addr v5, v6
+    add-int/2addr v3, v4
 
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->remaining()I
 
-    move-result v6
+    move-result v4
 
-    invoke-virtual {v3, v4, v5, v6}, Ljava/util/zip/Inflater;->inflate([BII)I
+    invoke-virtual {v1, v2, v3, v4}, Ljava/util/zip/Inflater;->setInput([BII)V
+
+    .line 36
+    :cond_0
+    iget-object v1, p0, Lcom/koushikdutta/async/http/filter/InflaterInputFilter;->mInflater:Ljava/util/zip/Inflater;
+
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->array()[B
+
+    move-result-object v2
+
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->arrayOffset()I
 
     move-result v3
+
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->position()I
+
+    move-result v4
+
+    add-int/2addr v3, v4
+
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
+
+    move-result v4
+
+    invoke-virtual {v1, v2, v3, v4}, Ljava/util/zip/Inflater;->inflate([BII)I
+
+    move-result v1
 
     .line 37
-    .local v3, "inflated":I
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->position()I
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->position()I
 
-    move-result v4
+    move-result v2
 
-    add-int/2addr v4, v3
+    add-int/2addr v2, v1
 
-    invoke-virtual {v0, v4}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, v2}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 38
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->hasRemaining()Z
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->hasRemaining()Z
 
-    move-result v4
+    move-result v1
 
-    if-nez v4, :cond_1
+    if-nez v1, :cond_1
 
     .line 39
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;
 
     .line 40
-    iget-object v4, p0, Lcom/koushikdutta/async/http/filter/InflaterInputFilter;->transformed:Lcom/koushikdutta/async/ByteBufferList;
+    iget-object v1, p0, Lcom/koushikdutta/async/http/filter/InflaterInputFilter;->transformed:Lcom/koushikdutta/async/ByteBufferList;
 
-    invoke-virtual {v4, v0}, Lcom/koushikdutta/async/ByteBufferList;->add(Ljava/nio/ByteBuffer;)Lcom/koushikdutta/async/ByteBufferList;
-
-    .line 41
-    nop
+    invoke-virtual {v1, p1}, Lcom/koushikdutta/async/ByteBufferList;->add(Ljava/nio/ByteBuffer;)Lcom/koushikdutta/async/ByteBufferList;
 
     .line 42
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->capacity()I
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->capacity()I
 
-    move-result v4
+    move-result p1
 
-    mul-int/lit8 v4, v4, 0x2
+    mul-int/lit8 p1, p1, 0x2
 
     .line 43
-    .local v4, "newSize":I
-    invoke-static {v4}, Lcom/koushikdutta/async/ByteBufferList;->obtain(I)Ljava/nio/ByteBuffer;
+    invoke-static {p1}, Lcom/koushikdutta/async/ByteBufferList;->obtain(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v5
-
-    move-object v0, v5
+    move-result-object p1
 
     .line 46
-    .end local v3    # "inflated":I
-    .end local v4    # "newSize":I
     :cond_1
-    iget-object v3, p0, Lcom/koushikdutta/async/http/filter/InflaterInputFilter;->mInflater:Ljava/util/zip/Inflater;
+    iget-object v1, p0, Lcom/koushikdutta/async/http/filter/InflaterInputFilter;->mInflater:Ljava/util/zip/Inflater;
 
-    invoke-virtual {v3}, Ljava/util/zip/Inflater;->needsInput()Z
+    invoke-virtual {v1}, Ljava/util/zip/Inflater;->needsInput()Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_2
+    if-nez v1, :cond_2
 
-    iget-object v3, p0, Lcom/koushikdutta/async/http/filter/InflaterInputFilter;->mInflater:Ljava/util/zip/Inflater;
+    iget-object v1, p0, Lcom/koushikdutta/async/http/filter/InflaterInputFilter;->mInflater:Ljava/util/zip/Inflater;
 
-    invoke-virtual {v3}, Ljava/util/zip/Inflater;->finished()Z
+    invoke-virtual {v1}, Ljava/util/zip/Inflater;->finished()Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_0
+    if-eqz v1, :cond_0
 
     .line 48
     :cond_2
-    invoke-static {v2}, Lcom/koushikdutta/async/ByteBufferList;->reclaim(Ljava/nio/ByteBuffer;)V
+    invoke-static {v0}, Lcom/koushikdutta/async/ByteBufferList;->reclaim(Ljava/nio/ByteBuffer;)V
 
-    .line 49
-    .end local v2    # "b":Ljava/nio/ByteBuffer;
     goto :goto_0
 
     .line 50
     :cond_3
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;
 
     .line 51
-    iget-object v2, p0, Lcom/koushikdutta/async/http/filter/InflaterInputFilter;->transformed:Lcom/koushikdutta/async/ByteBufferList;
+    iget-object p2, p0, Lcom/koushikdutta/async/http/filter/InflaterInputFilter;->transformed:Lcom/koushikdutta/async/ByteBufferList;
 
-    invoke-virtual {v2, v0}, Lcom/koushikdutta/async/ByteBufferList;->add(Ljava/nio/ByteBuffer;)Lcom/koushikdutta/async/ByteBufferList;
+    invoke-virtual {p2, p1}, Lcom/koushikdutta/async/ByteBufferList;->add(Ljava/nio/ByteBuffer;)Lcom/koushikdutta/async/ByteBufferList;
 
     .line 53
-    iget-object v2, p0, Lcom/koushikdutta/async/http/filter/InflaterInputFilter;->transformed:Lcom/koushikdutta/async/ByteBufferList;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/filter/InflaterInputFilter;->transformed:Lcom/koushikdutta/async/ByteBufferList;
 
-    invoke-static {p0, v2}, Lcom/koushikdutta/async/Util;->emitAllData(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/ByteBufferList;)V
+    invoke-static {p0, p1}, Lcom/koushikdutta/async/Util;->emitAllData(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/ByteBufferList;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 57
-    .end local v0    # "output":Ljava/nio/ByteBuffer;
-    .end local v1    # "totalRead":I
     goto :goto_1
 
-    .line 55
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 56
-    .local v0, "ex":Ljava/lang/Exception;
-    invoke-virtual {p0, v0}, Lcom/koushikdutta/async/http/filter/InflaterInputFilter;->report(Ljava/lang/Exception;)V
+    invoke-virtual {p0, p1}, Lcom/koushikdutta/async/http/filter/InflaterInputFilter;->report(Ljava/lang/Exception;)V
 
-    .line 58
-    .end local v0    # "ex":Ljava/lang/Exception;
     :goto_1
     return-void
 .end method
 
 .method protected report(Ljava/lang/Exception;)V
     .locals 2
-    .param p1, "e"    # Ljava/lang/Exception;
 
     .line 17
     iget-object v0, p0, Lcom/koushikdutta/async/http/filter/InflaterInputFilter;->mInflater:Ljava/util/zip/Inflater;
 
     invoke-virtual {v0}, Ljava/util/zip/Inflater;->end()V
 
-    .line 18
     if-eqz p1, :cond_0
 
+    .line 18
     iget-object v0, p0, Lcom/koushikdutta/async/http/filter/InflaterInputFilter;->mInflater:Ljava/util/zip/Inflater;
 
     invoke-virtual {v0}, Ljava/util/zip/Inflater;->getRemaining()I
@@ -296,6 +261,5 @@
     :cond_0
     invoke-super {p0, p1}, Lcom/koushikdutta/async/FilteredDataEmitter;->report(Ljava/lang/Exception;)V
 
-    .line 22
     return-void
 .end method

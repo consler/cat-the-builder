@@ -25,7 +25,6 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
     .locals 1
-    .param p1, "textureRegion"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
     .line 110
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,13 +37,11 @@
     .line 111
     iput-object p1, p0, Lcom/badlogic/gdx/maps/tiled/tiles/StaticTiledMapTile;->textureRegion:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
-    .line 112
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/maps/tiled/tiles/StaticTiledMapTile;)V
     .locals 2
-    .param p1, "copy"    # Lcom/badlogic/gdx/maps/tiled/tiles/StaticTiledMapTile;
 
     .line 117
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -80,11 +77,10 @@
     iput-object v0, p0, Lcom/badlogic/gdx/maps/tiled/tiles/StaticTiledMapTile;->textureRegion:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
     .line 123
-    iget v0, p1, Lcom/badlogic/gdx/maps/tiled/tiles/StaticTiledMapTile;->id:I
+    iget p1, p1, Lcom/badlogic/gdx/maps/tiled/tiles/StaticTiledMapTile;->id:I
 
-    iput v0, p0, Lcom/badlogic/gdx/maps/tiled/tiles/StaticTiledMapTile;->id:I
+    iput p1, p0, Lcom/badlogic/gdx/maps/tiled/tiles/StaticTiledMapTile;->id:I
 
-    .line 124
     return-void
 .end method
 
@@ -181,55 +177,45 @@
 
 .method public setBlendMode(Lcom/badlogic/gdx/maps/tiled/TiledMapTile$BlendMode;)V
     .locals 0
-    .param p1, "blendMode"    # Lcom/badlogic/gdx/maps/tiled/TiledMapTile$BlendMode;
 
     .line 58
     iput-object p1, p0, Lcom/badlogic/gdx/maps/tiled/tiles/StaticTiledMapTile;->blendMode:Lcom/badlogic/gdx/maps/tiled/TiledMapTile$BlendMode;
 
-    .line 59
     return-void
 .end method
 
 .method public setId(I)V
     .locals 0
-    .param p1, "id"    # I
 
     .line 48
     iput p1, p0, Lcom/badlogic/gdx/maps/tiled/tiles/StaticTiledMapTile;->id:I
 
-    .line 49
     return-void
 .end method
 
 .method public setOffsetX(F)V
     .locals 0
-    .param p1, "offsetX"    # F
 
     .line 94
     iput p1, p0, Lcom/badlogic/gdx/maps/tiled/tiles/StaticTiledMapTile;->offsetX:F
 
-    .line 95
     return-void
 .end method
 
 .method public setOffsetY(F)V
     .locals 0
-    .param p1, "offsetY"    # F
 
     .line 104
     iput p1, p0, Lcom/badlogic/gdx/maps/tiled/tiles/StaticTiledMapTile;->offsetY:F
 
-    .line 105
     return-void
 .end method
 
 .method public setTextureRegion(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
     .locals 0
-    .param p1, "textureRegion"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
     .line 84
     iput-object p1, p0, Lcom/badlogic/gdx/maps/tiled/tiles/StaticTiledMapTile;->textureRegion:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
-    .line 85
     return-void
 .end method

@@ -14,29 +14,24 @@
 
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/io/xml/AbstractXppDomDriver;-><init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 30
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
     .locals 0
-    .param p1, "nameCoder"    # Lcom/thoughtworks/xstream/io/naming/NameCoder;
 
     .line 36
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/io/xml/AbstractXppDomDriver;-><init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 37
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;)V
     .locals 0
-    .param p1, "replacer"    # Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;
 
     .line 44
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/io/xml/AbstractXppDomDriver;-><init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 45
     return-void
 .end method
 
@@ -64,8 +59,6 @@
 
     return-object v0
 
-    .line 48
-    .end local p0    # "this":Lcom/thoughtworks/xstream/io/xml/XppDomDriver;
     :catchall_0
     move-exception v0
 

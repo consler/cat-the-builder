@@ -18,7 +18,6 @@
 .method public onDisableSession()Landroidx/camera/core/impl/CaptureConfig;
     .locals 1
 
-    .line 77
     const/4 v0, 0x0
 
     return-object v0
@@ -27,7 +26,6 @@
 .method public onEnableSession()Landroidx/camera/core/impl/CaptureConfig;
     .locals 1
 
-    .line 52
     const/4 v0, 0x0
 
     return-object v0
@@ -36,7 +34,6 @@
 .method public onPresetSession()Landroidx/camera/core/impl/CaptureConfig;
     .locals 1
 
-    .line 39
     const/4 v0, 0x0
 
     return-object v0
@@ -45,7 +42,6 @@
 .method public onRepeating()Landroidx/camera/core/impl/CaptureConfig;
     .locals 1
 
-    .line 64
     const/4 v0, 0x0
 
     return-object v0

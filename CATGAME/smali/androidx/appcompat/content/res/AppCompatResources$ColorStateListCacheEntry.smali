@@ -23,8 +23,6 @@
 # direct methods
 .method constructor <init>(Landroid/content/res/ColorStateList;Landroid/content/res/Configuration;)V
     .locals 0
-    .param p1, "value"    # Landroid/content/res/ColorStateList;
-    .param p2, "configuration"    # Landroid/content/res/Configuration;
 
     .line 186
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,6 +33,5 @@
     .line 188
     iput-object p2, p0, Landroidx/appcompat/content/res/AppCompatResources$ColorStateListCacheEntry;->configuration:Landroid/content/res/Configuration;
 
-    .line 189
     return-void
 .end method

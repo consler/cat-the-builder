@@ -46,11 +46,7 @@
 .end method
 
 .method public constructor <init>(IIILcom/badlogic/gdx/graphics/Pixmap$Format;)V
-    .locals 10
-    .param p1, "width"    # I
-    .param p2, "height"    # I
-    .param p3, "depth"    # I
-    .param p4, "format"    # Lcom/badlogic/gdx/graphics/Pixmap$Format;
+    .locals 9
 
     .line 131
     new-instance v1, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;
@@ -91,6 +87,14 @@
 
     invoke-direct {v7, v0, v2, v3, v4}, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;-><init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap$Format;ZZ)V
 
+    new-instance p3, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;
+
+    new-instance v0, Lcom/badlogic/gdx/graphics/Pixmap;
+
+    invoke-direct {v0, p1, p2, p4}, Lcom/badlogic/gdx/graphics/Pixmap;-><init>(IILcom/badlogic/gdx/graphics/Pixmap$Format;)V
+
+    invoke-direct {p3, v0, v2, v3, v4}, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;-><init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap$Format;ZZ)V
+
     new-instance v8, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;
 
     new-instance v0, Lcom/badlogic/gdx/graphics/Pixmap;
@@ -98,14 +102,6 @@
     invoke-direct {v0, p1, p2, p4}, Lcom/badlogic/gdx/graphics/Pixmap;-><init>(IILcom/badlogic/gdx/graphics/Pixmap$Format;)V
 
     invoke-direct {v8, v0, v2, v3, v4}, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;-><init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap$Format;ZZ)V
-
-    new-instance v9, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;
-
-    new-instance v0, Lcom/badlogic/gdx/graphics/Pixmap;
-
-    invoke-direct {v0, p1, p2, p4}, Lcom/badlogic/gdx/graphics/Pixmap;-><init>(IILcom/badlogic/gdx/graphics/Pixmap$Format;)V
-
-    invoke-direct {v9, v0, v2, v3, v4}, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;-><init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap$Format;ZZ)V
 
     move-object v0, p0
 
@@ -115,26 +111,18 @@
 
     move-object v4, v7
 
-    move-object v5, v8
+    move-object v5, p3
 
-    move-object v6, v9
+    move-object v6, v8
 
     invoke-direct/range {v0 .. v6}, Lcom/badlogic/gdx/graphics/Cubemap;-><init>(Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;)V
 
-    .line 135
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/files/FileHandle;)V
     .locals 8
-    .param p1, "positiveX"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p2, "negativeX"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p3, "positiveY"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p4, "negativeY"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p5, "positiveZ"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p6, "negativeZ"    # Lcom/badlogic/gdx/files/FileHandle;
 
-    .line 103
     const/4 v7, 0x0
 
     move-object v0, p0
@@ -151,65 +139,66 @@
 
     move-object v6, p6
 
+    .line 103
     invoke-direct/range {v0 .. v7}, Lcom/badlogic/gdx/graphics/Cubemap;-><init>(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/files/FileHandle;Z)V
 
-    .line 104
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/files/FileHandle;Z)V
-    .locals 7
-    .param p1, "positiveX"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p2, "negativeX"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p3, "positiveY"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p4, "negativeY"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p5, "positiveZ"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p6, "negativeZ"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p7, "useMipMaps"    # Z
+    .locals 5
 
     .line 109
     invoke-static {p1, p7}, Lcom/badlogic/gdx/graphics/TextureData$Factory;->loadFromFile(Lcom/badlogic/gdx/files/FileHandle;Z)Lcom/badlogic/gdx/graphics/TextureData;
 
-    move-result-object v1
+    move-result-object v0
 
     invoke-static {p2, p7}, Lcom/badlogic/gdx/graphics/TextureData$Factory;->loadFromFile(Lcom/badlogic/gdx/files/FileHandle;Z)Lcom/badlogic/gdx/graphics/TextureData;
 
-    move-result-object v2
+    move-result-object v1
 
     .line 110
     invoke-static {p3, p7}, Lcom/badlogic/gdx/graphics/TextureData$Factory;->loadFromFile(Lcom/badlogic/gdx/files/FileHandle;Z)Lcom/badlogic/gdx/graphics/TextureData;
 
-    move-result-object v3
+    move-result-object v2
 
     invoke-static {p4, p7}, Lcom/badlogic/gdx/graphics/TextureData$Factory;->loadFromFile(Lcom/badlogic/gdx/files/FileHandle;Z)Lcom/badlogic/gdx/graphics/TextureData;
 
-    move-result-object v4
+    move-result-object v3
 
     .line 111
     invoke-static {p5, p7}, Lcom/badlogic/gdx/graphics/TextureData$Factory;->loadFromFile(Lcom/badlogic/gdx/files/FileHandle;Z)Lcom/badlogic/gdx/graphics/TextureData;
 
-    move-result-object v5
+    move-result-object v4
 
     invoke-static {p6, p7}, Lcom/badlogic/gdx/graphics/TextureData$Factory;->loadFromFile(Lcom/badlogic/gdx/files/FileHandle;Z)Lcom/badlogic/gdx/graphics/TextureData;
 
-    move-result-object v6
+    move-result-object p7
+
+    move-object p1, p0
+
+    move-object p2, v0
+
+    move-object p3, v1
+
+    move-object p4, v2
+
+    move-object p5, v3
+
+    move-object p6, v4
 
     .line 109
-    move-object v0, p0
+    invoke-direct/range {p1 .. p7}, Lcom/badlogic/gdx/graphics/Cubemap;-><init>(Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;)V
 
-    invoke-direct/range {v0 .. v6}, Lcom/badlogic/gdx/graphics/Cubemap;-><init>(Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;)V
-
-    .line 112
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/CubemapData;)V
     .locals 1
-    .param p1, "data"    # Lcom/badlogic/gdx/graphics/CubemapData;
 
-    .line 95
     const v0, 0x8513
 
+    .line 95
     invoke-direct {p0, v0}, Lcom/badlogic/gdx/graphics/GLTexture;-><init>(I)V
 
     .line 96
@@ -218,20 +207,12 @@
     .line 97
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/Cubemap;->load(Lcom/badlogic/gdx/graphics/CubemapData;)V
 
-    .line 98
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap;)V
     .locals 8
-    .param p1, "positiveX"    # Lcom/badlogic/gdx/graphics/Pixmap;
-    .param p2, "negativeX"    # Lcom/badlogic/gdx/graphics/Pixmap;
-    .param p3, "positiveY"    # Lcom/badlogic/gdx/graphics/Pixmap;
-    .param p4, "negativeY"    # Lcom/badlogic/gdx/graphics/Pixmap;
-    .param p5, "positiveZ"    # Lcom/badlogic/gdx/graphics/Pixmap;
-    .param p6, "negativeZ"    # Lcom/badlogic/gdx/graphics/Pixmap;
 
-    .line 116
     const/4 v7, 0x0
 
     move-object v0, p0
@@ -248,145 +229,125 @@
 
     move-object v6, p6
 
+    .line 116
     invoke-direct/range {v0 .. v7}, Lcom/badlogic/gdx/graphics/Cubemap;-><init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap;Z)V
 
-    .line 117
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap;Z)V
-    .locals 17
-    .param p1, "positiveX"    # Lcom/badlogic/gdx/graphics/Pixmap;
-    .param p2, "negativeX"    # Lcom/badlogic/gdx/graphics/Pixmap;
-    .param p3, "positiveY"    # Lcom/badlogic/gdx/graphics/Pixmap;
-    .param p4, "negativeY"    # Lcom/badlogic/gdx/graphics/Pixmap;
-    .param p5, "positiveZ"    # Lcom/badlogic/gdx/graphics/Pixmap;
-    .param p6, "negativeZ"    # Lcom/badlogic/gdx/graphics/Pixmap;
-    .param p7, "useMipMaps"    # Z
+    .locals 7
 
-    .line 122
-    move-object/from16 v0, p1
+    const/4 v0, 0x0
 
-    move-object/from16 v1, p2
+    const/4 v1, 0x0
 
-    move-object/from16 v2, p3
+    if-nez p1, :cond_0
 
-    move-object/from16 v3, p4
-
-    move-object/from16 v4, p5
-
-    move-object/from16 v5, p6
-
-    move/from16 v6, p7
-
-    const/4 v7, 0x0
-
-    const/4 v8, 0x0
-
-    if-nez v0, :cond_0
-
-    move-object v11, v8
+    move-object v2, v1
 
     goto :goto_0
 
+    .line 122
     :cond_0
-    new-instance v9, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;
+    new-instance v2, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;
 
-    invoke-direct {v9, v0, v8, v6, v7}, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;-><init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap$Format;ZZ)V
-
-    move-object v11, v9
+    invoke-direct {v2, p1, v1, p7, v0}, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;-><init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap$Format;ZZ)V
 
     :goto_0
-    if-nez v1, :cond_1
+    if-nez p2, :cond_1
 
-    move-object v12, v8
+    move-object v3, v1
 
     goto :goto_1
 
     :cond_1
-    new-instance v9, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;
+    new-instance p1, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;
 
-    invoke-direct {v9, v1, v8, v6, v7}, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;-><init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap$Format;ZZ)V
+    invoke-direct {p1, p2, v1, p7, v0}, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;-><init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap$Format;ZZ)V
 
-    move-object v12, v9
+    move-object v3, p1
 
     :goto_1
-    if-nez v2, :cond_2
+    if-nez p3, :cond_2
 
-    move-object v13, v8
+    move-object v4, v1
 
     goto :goto_2
 
     :cond_2
-    new-instance v9, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;
+    new-instance p1, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;
 
-    invoke-direct {v9, v2, v8, v6, v7}, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;-><init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap$Format;ZZ)V
+    invoke-direct {p1, p3, v1, p7, v0}, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;-><init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap$Format;ZZ)V
 
-    move-object v13, v9
+    move-object v4, p1
 
     :goto_2
-    if-nez v3, :cond_3
+    if-nez p4, :cond_3
 
-    move-object v14, v8
+    move-object v5, v1
 
     goto :goto_3
 
     :cond_3
-    new-instance v9, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;
+    new-instance p1, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;
 
-    invoke-direct {v9, v3, v8, v6, v7}, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;-><init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap$Format;ZZ)V
+    invoke-direct {p1, p4, v1, p7, v0}, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;-><init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap$Format;ZZ)V
 
-    move-object v14, v9
+    move-object v5, p1
 
     :goto_3
-    if-nez v4, :cond_4
+    if-nez p5, :cond_4
 
-    move-object v15, v8
+    move-object v6, v1
 
     goto :goto_4
 
     :cond_4
-    new-instance v9, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;
+    new-instance p1, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;
 
-    invoke-direct {v9, v4, v8, v6, v7}, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;-><init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap$Format;ZZ)V
+    invoke-direct {p1, p5, v1, p7, v0}, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;-><init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap$Format;ZZ)V
 
-    move-object v15, v9
+    move-object v6, p1
 
     :goto_4
-    if-nez v5, :cond_5
+    if-nez p6, :cond_5
 
-    move-object/from16 v16, v8
+    move-object p7, v1
 
     goto :goto_5
 
     :cond_5
-    new-instance v9, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;
+    new-instance p1, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;
 
-    invoke-direct {v9, v5, v8, v6, v7}, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;-><init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap$Format;ZZ)V
+    invoke-direct {p1, p6, v1, p7, v0}, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;-><init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap$Format;ZZ)V
 
-    move-object/from16 v16, v9
+    move-object p7, p1
 
     :goto_5
-    move-object/from16 v10, p0
+    move-object p1, p0
 
-    invoke-direct/range {v10 .. v16}, Lcom/badlogic/gdx/graphics/Cubemap;-><init>(Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;)V
+    move-object p2, v2
 
-    .line 127
+    move-object p3, v3
+
+    move-object p4, v4
+
+    move-object p5, v5
+
+    move-object p6, v6
+
+    invoke-direct/range {p1 .. p7}, Lcom/badlogic/gdx/graphics/Cubemap;-><init>(Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;)V
+
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;Lcom/badlogic/gdx/graphics/TextureData;)V
     .locals 8
-    .param p1, "positiveX"    # Lcom/badlogic/gdx/graphics/TextureData;
-    .param p2, "negativeX"    # Lcom/badlogic/gdx/graphics/TextureData;
-    .param p3, "positiveY"    # Lcom/badlogic/gdx/graphics/TextureData;
-    .param p4, "negativeY"    # Lcom/badlogic/gdx/graphics/TextureData;
-    .param p5, "positiveZ"    # Lcom/badlogic/gdx/graphics/TextureData;
-    .param p6, "negativeZ"    # Lcom/badlogic/gdx/graphics/TextureData;
 
-    .line 140
     const v0, 0x8513
 
+    .line 140
     invoke-direct {p0, v0}, Lcom/badlogic/gdx/graphics/GLTexture;-><init>(I)V
 
     .line 141
@@ -433,57 +394,46 @@
     .line 146
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/Cubemap;->load(Lcom/badlogic/gdx/graphics/CubemapData;)V
 
-    .line 147
     return-void
 .end method
 
 .method private static addManagedCubemap(Lcom/badlogic/gdx/Application;Lcom/badlogic/gdx/graphics/Cubemap;)V
     .locals 2
-    .param p0, "app"    # Lcom/badlogic/gdx/Application;
-    .param p1, "cubemap"    # Lcom/badlogic/gdx/graphics/Cubemap;
 
     .line 203
     sget-object v0, Lcom/badlogic/gdx/graphics/Cubemap;->managedCubemaps:Ljava/util/Map;
 
     invoke-interface {v0, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lcom/badlogic/gdx/utils/Array;
+    check-cast v1, Lcom/badlogic/gdx/utils/Array;
+
+    if-nez v1, :cond_0
 
     .line 204
-    .local v0, "managedCubemapArray":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/Cubemap;>;"
-    if-nez v0, :cond_0
-
     new-instance v1, Lcom/badlogic/gdx/utils/Array;
 
     invoke-direct {v1}, Lcom/badlogic/gdx/utils/Array;-><init>()V
 
-    move-object v0, v1
-
     .line 205
     :cond_0
-    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v1, p1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
     .line 206
-    sget-object v1, Lcom/badlogic/gdx/graphics/Cubemap;->managedCubemaps:Ljava/util/Map;
+    invoke-interface {v0, p0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v1, p0, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 207
     return-void
 .end method
 
 .method public static clearAllCubemaps(Lcom/badlogic/gdx/Application;)V
     .locals 1
-    .param p0, "app"    # Lcom/badlogic/gdx/Application;
 
     .line 211
     sget-object v0, Lcom/badlogic/gdx/graphics/Cubemap;->managedCubemaps:Ljava/util/Map;
 
     invoke-interface {v0, p0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 212
     return-void
 .end method
 
@@ -493,13 +443,9 @@
     .line 282
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    .line 283
-    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v1, "Managed cubemap/app: { "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 284
     sget-object v1, Lcom/badlogic/gdx/graphics/Cubemap;->managedCubemaps:Ljava/util/Map;
@@ -526,40 +472,37 @@
     check-cast v2, Lcom/badlogic/gdx/Application;
 
     .line 285
-    .local v2, "app":Lcom/badlogic/gdx/Application;
     sget-object v3, Lcom/badlogic/gdx/graphics/Cubemap;->managedCubemaps:Ljava/util/Map;
 
     invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Lcom/badlogic/gdx/utils/Array;
+    check-cast v2, Lcom/badlogic/gdx/utils/Array;
 
-    iget v3, v3, Lcom/badlogic/gdx/utils/Array;->size:I
+    iget v2, v2, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v2, " "
 
     .line 286
-    const-string v3, " "
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 287
-    .end local v2    # "app":Lcom/badlogic/gdx/Application;
     goto :goto_0
 
-    .line 288
     :cond_0
-    const-string/jumbo v1, "}"
+    const-string v1, "}"
 
+    .line 288
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 289
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public static getNumManagedCubemaps()I
@@ -582,72 +525,60 @@
 .end method
 
 .method public static invalidateAllCubemaps(Lcom/badlogic/gdx/Application;)V
-    .locals 9
-    .param p0, "app"    # Lcom/badlogic/gdx/Application;
+    .locals 8
 
     .line 216
     sget-object v0, Lcom/badlogic/gdx/graphics/Cubemap;->managedCubemaps:Ljava/util/Map;
 
     invoke-interface {v0, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/badlogic/gdx/utils/Array;
+    check-cast p0, Lcom/badlogic/gdx/utils/Array;
 
-    .line 217
-    .local v0, "managedCubemapArray":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/Cubemap;>;"
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     return-void
 
     .line 219
     :cond_0
-    sget-object v1, Lcom/badlogic/gdx/graphics/Cubemap;->assetManager:Lcom/badlogic/gdx/assets/AssetManager;
+    sget-object v0, Lcom/badlogic/gdx/graphics/Cubemap;->assetManager:Lcom/badlogic/gdx/assets/AssetManager;
 
-    if-nez v1, :cond_2
-
-    .line 220
     const/4 v1, 0x0
 
-    .local v1, "i":I
-    :goto_0
-    iget v2, v0, Lcom/badlogic/gdx/utils/Array;->size:I
-
-    if-ge v1, v2, :cond_1
-
-    .line 221
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/badlogic/gdx/graphics/Cubemap;
-
-    .line 222
-    .local v2, "cubemap":Lcom/badlogic/gdx/graphics/Cubemap;
-    invoke-virtual {v2}, Lcom/badlogic/gdx/graphics/Cubemap;->reload()V
+    if-nez v0, :cond_1
 
     .line 220
-    .end local v2    # "cubemap":Lcom/badlogic/gdx/graphics/Cubemap;
+    :goto_0
+    iget v0, p0, Lcom/badlogic/gdx/utils/Array;->size:I
+
+    if-ge v1, v0, :cond_4
+
+    .line 221
+    invoke-virtual {p0, v1}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/badlogic/gdx/graphics/Cubemap;
+
+    .line 222
+    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/Cubemap;->reload()V
+
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .end local v1    # "i":I
-    :cond_1
-    goto/16 :goto_3
-
     .line 228
-    :cond_2
-    invoke-virtual {v1}, Lcom/badlogic/gdx/assets/AssetManager;->finishLoading()V
+    :cond_1
+    invoke-virtual {v0}, Lcom/badlogic/gdx/assets/AssetManager;->finishLoading()V
 
     .line 232
-    new-instance v1, Lcom/badlogic/gdx/utils/Array;
+    new-instance v0, Lcom/badlogic/gdx/utils/Array;
 
-    invoke-direct {v1, v0}, Lcom/badlogic/gdx/utils/Array;-><init>(Lcom/badlogic/gdx/utils/Array;)V
+    invoke-direct {v0, p0}, Lcom/badlogic/gdx/utils/Array;-><init>(Lcom/badlogic/gdx/utils/Array;)V
 
     .line 233
-    .local v1, "cubemaps":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/Cubemap;>;"
-    invoke-virtual {v1}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
@@ -656,7 +587,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_3
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -665,24 +596,21 @@
     check-cast v3, Lcom/badlogic/gdx/graphics/Cubemap;
 
     .line 234
-    .local v3, "cubemap":Lcom/badlogic/gdx/graphics/Cubemap;
     sget-object v4, Lcom/badlogic/gdx/graphics/Cubemap;->assetManager:Lcom/badlogic/gdx/assets/AssetManager;
 
     invoke-virtual {v4, v3}, Lcom/badlogic/gdx/assets/AssetManager;->getAssetFileName(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 235
-    .local v4, "fileName":Ljava/lang/String;
-    if-nez v4, :cond_3
+    if-nez v4, :cond_2
 
     .line 236
     invoke-virtual {v3}, Lcom/badlogic/gdx/graphics/Cubemap;->reload()V
 
-    goto :goto_2
+    goto :goto_1
 
     .line 242
-    :cond_3
+    :cond_2
     sget-object v5, Lcom/badlogic/gdx/graphics/Cubemap;->assetManager:Lcom/badlogic/gdx/assets/AssetManager;
 
     invoke-virtual {v5, v4}, Lcom/badlogic/gdx/assets/AssetManager;->getReferenceCount(Ljava/lang/String;)I
@@ -690,15 +618,12 @@
     move-result v5
 
     .line 243
-    .local v5, "refCount":I
     sget-object v6, Lcom/badlogic/gdx/graphics/Cubemap;->assetManager:Lcom/badlogic/gdx/assets/AssetManager;
 
-    const/4 v7, 0x0
-
-    invoke-virtual {v6, v4, v7}, Lcom/badlogic/gdx/assets/AssetManager;->setReferenceCount(Ljava/lang/String;I)V
+    invoke-virtual {v6, v4, v1}, Lcom/badlogic/gdx/assets/AssetManager;->setReferenceCount(Ljava/lang/String;I)V
 
     .line 244
-    iput v7, v3, Lcom/badlogic/gdx/graphics/Cubemap;->glHandle:I
+    iput v1, v3, Lcom/badlogic/gdx/graphics/Cubemap;->glHandle:I
 
     .line 248
     new-instance v6, Lcom/badlogic/gdx/assets/loaders/CubemapLoader$CubemapParameter;
@@ -706,7 +631,6 @@
     invoke-direct {v6}, Lcom/badlogic/gdx/assets/loaders/CubemapLoader$CubemapParameter;-><init>()V
 
     .line 249
-    .local v6, "params":Lcom/badlogic/gdx/assets/loaders/CubemapLoader$CubemapParameter;
     invoke-virtual {v3}, Lcom/badlogic/gdx/graphics/Cubemap;->getCubemapData()Lcom/badlogic/gdx/graphics/CubemapData;
 
     move-result-object v7
@@ -752,55 +676,45 @@
     iput-object v7, v6, Lcom/badlogic/gdx/assets/loaders/CubemapLoader$CubemapParameter;->loadedCallback:Lcom/badlogic/gdx/assets/AssetLoaderParameters$LoadedCallback;
 
     .line 263
-    sget-object v7, Lcom/badlogic/gdx/graphics/Cubemap;->assetManager:Lcom/badlogic/gdx/assets/AssetManager;
+    sget-object v5, Lcom/badlogic/gdx/graphics/Cubemap;->assetManager:Lcom/badlogic/gdx/assets/AssetManager;
 
-    invoke-virtual {v7, v4}, Lcom/badlogic/gdx/assets/AssetManager;->unload(Ljava/lang/String;)V
+    invoke-virtual {v5, v4}, Lcom/badlogic/gdx/assets/AssetManager;->unload(Ljava/lang/String;)V
 
     .line 264
-    sget-object v7, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
+    sget-object v5, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
 
-    invoke-interface {v7}, Lcom/badlogic/gdx/graphics/GL20;->glGenTexture()I
+    invoke-interface {v5}, Lcom/badlogic/gdx/graphics/GL20;->glGenTexture()I
 
-    move-result v7
+    move-result v5
 
-    iput v7, v3, Lcom/badlogic/gdx/graphics/Cubemap;->glHandle:I
+    iput v5, v3, Lcom/badlogic/gdx/graphics/Cubemap;->glHandle:I
 
     .line 265
-    sget-object v7, Lcom/badlogic/gdx/graphics/Cubemap;->assetManager:Lcom/badlogic/gdx/assets/AssetManager;
+    sget-object v3, Lcom/badlogic/gdx/graphics/Cubemap;->assetManager:Lcom/badlogic/gdx/assets/AssetManager;
 
-    const-class v8, Lcom/badlogic/gdx/graphics/Cubemap;
+    const-class v5, Lcom/badlogic/gdx/graphics/Cubemap;
 
-    invoke-virtual {v7, v4, v8, v6}, Lcom/badlogic/gdx/assets/AssetManager;->load(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/assets/AssetLoaderParameters;)V
+    invoke-virtual {v3, v4, v5, v6}, Lcom/badlogic/gdx/assets/AssetManager;->load(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/assets/AssetLoaderParameters;)V
 
-    .line 267
-    .end local v3    # "cubemap":Lcom/badlogic/gdx/graphics/Cubemap;
-    .end local v4    # "fileName":Ljava/lang/String;
-    .end local v5    # "refCount":I
-    .end local v6    # "params":Lcom/badlogic/gdx/assets/loaders/CubemapLoader$CubemapParameter;
-    :goto_2
     goto :goto_1
 
     .line 268
-    :cond_4
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->clear()V
+    :cond_3
+    invoke-virtual {p0}, Lcom/badlogic/gdx/utils/Array;->clear()V
 
     .line 269
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/utils/Array;->addAll(Lcom/badlogic/gdx/utils/Array;)V
+    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/Array;->addAll(Lcom/badlogic/gdx/utils/Array;)V
 
-    .line 271
-    .end local v1    # "cubemaps":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/Cubemap;>;"
-    :goto_3
+    :cond_4
     return-void
 .end method
 
 .method public static setAssetManager(Lcom/badlogic/gdx/assets/AssetManager;)V
     .locals 0
-    .param p0, "manager"    # Lcom/badlogic/gdx/assets/AssetManager;
 
     .line 278
     sput-object p0, Lcom/badlogic/gdx/graphics/Cubemap;->assetManager:Lcom/badlogic/gdx/assets/AssetManager;
 
-    .line 279
     return-void
 .end method
 
@@ -835,11 +749,9 @@
 
     invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_1
-
-    sget-object v0, Lcom/badlogic/gdx/graphics/Cubemap;->managedCubemaps:Ljava/util/Map;
+    if-eqz v1, :cond_1
 
     sget-object v1, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
 
@@ -853,7 +765,6 @@
 
     invoke-virtual {v0, p0, v1}, Lcom/badlogic/gdx/utils/Array;->removeValue(Ljava/lang/Object;Z)Z
 
-    .line 200
     :cond_1
     return-void
 .end method
@@ -870,7 +781,6 @@
 .method public getDepth()I
     .locals 1
 
-    .line 187
     const/4 v0, 0x0
 
     return v0
@@ -917,7 +827,6 @@
 
 .method public load(Lcom/badlogic/gdx/graphics/CubemapData;)V
     .locals 3
-    .param p1, "data"    # Lcom/badlogic/gdx/graphics/CubemapData;
 
     .line 151
     invoke-interface {p1}, Lcom/badlogic/gdx/graphics/CubemapData;->isPrepared()Z
@@ -952,15 +861,14 @@
     invoke-interface {p1}, Lcom/badlogic/gdx/graphics/CubemapData;->consumeCubemapData()V
 
     .line 156
-    sget-object v0, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
+    sget-object p1, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
 
-    iget v1, p0, Lcom/badlogic/gdx/graphics/Cubemap;->glTarget:I
+    iget v0, p0, Lcom/badlogic/gdx/graphics/Cubemap;->glTarget:I
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-interface {v0, v1, v2}, Lcom/badlogic/gdx/graphics/GL20;->glBindTexture(II)V
+    invoke-interface {p1, v0, v1}, Lcom/badlogic/gdx/graphics/GL20;->glBindTexture(II)V
 
-    .line 157
     return-void
 .end method
 
@@ -988,7 +896,6 @@
 
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/Cubemap;->load(Lcom/badlogic/gdx/graphics/CubemapData;)V
 
-    .line 173
     return-void
 
     .line 170

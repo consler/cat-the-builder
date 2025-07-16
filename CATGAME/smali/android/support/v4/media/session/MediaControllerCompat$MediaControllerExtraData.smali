@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/media/session/MediaControllerCompat;)V
     .locals 0
-    .param p1, "mediaController"    # Landroid/support/v4/media/session/MediaControllerCompat;
 
     .line 149
     invoke-direct {p0}, Landroidx/core/app/ComponentActivity$ExtraData;-><init>()V
@@ -29,7 +28,6 @@
     .line 150
     iput-object p1, p0, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerExtraData;->mMediaController:Landroid/support/v4/media/session/MediaControllerCompat;
 
-    .line 151
     return-void
 .end method
 

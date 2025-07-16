@@ -82,9 +82,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/reactivestreams/Subscriber;Lio/reactivex/Scheduler$Worker;Lorg/reactivestreams/Publisher;Z)V
-    .locals 1
-    .param p2, "worker"    # Lio/reactivex/Scheduler$Worker;
-    .param p4, "nonScheduledRequests"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -97,9 +95,6 @@
     .end annotation
 
     .line 68
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
-    .local p3, "source":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 69
@@ -112,23 +107,22 @@
     iput-object p3, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->source:Lorg/reactivestreams/Publisher;
 
     .line 72
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicReference;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     .line 73
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicLong;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicLong;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
     .line 74
     iput-boolean p4, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->nonScheduledRequests:Z
 
-    .line 75
     return-void
 .end method
 
@@ -138,7 +132,6 @@
     .locals 1
 
     .line 141
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->cancel(Ljava/util/concurrent/atomic/AtomicReference;)Z
@@ -148,7 +141,6 @@
 
     invoke-virtual {v0}, Lio/reactivex/Scheduler$Worker;->dispose()V
 
-    .line 143
     return-void
 .end method
 
@@ -156,7 +148,6 @@
     .locals 1
 
     .line 108
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscriber;->onComplete()V
@@ -166,26 +157,22 @@
 
     invoke-virtual {v0}, Lio/reactivex/Scheduler$Worker;->dispose()V
 
-    .line 110
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 102
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
     .line 103
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->worker:Lio/reactivex/Scheduler$Worker;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->worker:Lio/reactivex/Scheduler$Worker;
 
-    invoke-virtual {v0}, Lio/reactivex/Scheduler$Worker;->dispose()V
+    invoke-virtual {p1}, Lio/reactivex/Scheduler$Worker;->dispose()V
 
-    .line 104
     return-void
 .end method
 
@@ -198,22 +185,17 @@
     .end annotation
 
     .line 97
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
-    .line 98
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 5
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 87
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lorg/reactivestreams/Subscription;)Z
@@ -231,8 +213,6 @@
 
     move-result-wide v3
 
-    .line 89
-    .local v3, "r":J
     cmp-long v0, v3, v1
 
     if-eqz v0, :cond_0
@@ -240,18 +220,14 @@
     .line 90
     invoke-virtual {p0, v3, v4, p1}, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->requestUpstream(JLorg/reactivestreams/Subscription;)V
 
-    .line 93
-    .end local v3    # "r":J
     :cond_0
     return-void
 .end method
 
 .method public request(J)V
-    .locals 6
-    .param p1, "n"    # J
+    .locals 4
 
     .line 114
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber<TT;>;"
     invoke-static {p1, p2}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(J)Z
 
     move-result v0
@@ -267,8 +243,6 @@
 
     check-cast v0, Lorg/reactivestreams/Subscription;
 
-    .line 116
-    .local v0, "s":Lorg/reactivestreams/Subscription;
     if-eqz v0, :cond_0
 
     .line 117
@@ -278,45 +252,37 @@
 
     .line 119
     :cond_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
-    invoke-static {v1, p1, p2}, Lio/reactivex/internal/util/BackpressureHelper;->add(Ljava/util/concurrent/atomic/AtomicLong;J)J
+    invoke-static {v0, p1, p2}, Lio/reactivex/internal/util/BackpressureHelper;->add(Ljava/util/concurrent/atomic/AtomicLong;J)J
 
     .line 120
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    move-object v0, v1
+    check-cast p1, Lorg/reactivestreams/Subscription;
 
-    check-cast v0, Lorg/reactivestreams/Subscription;
-
-    .line 121
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 122
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
+    iget-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
-    const-wide/16 v2, 0x0
+    const-wide/16 v0, 0x0
 
-    invoke-virtual {v1, v2, v3}, Ljava/util/concurrent/atomic/AtomicLong;->getAndSet(J)J
+    invoke-virtual {p2, v0, v1}, Ljava/util/concurrent/atomic/AtomicLong;->getAndSet(J)J
 
-    move-result-wide v4
+    move-result-wide v2
 
-    .line 123
-    .local v4, "r":J
-    cmp-long v1, v4, v2
+    cmp-long p2, v2, v0
 
-    if-eqz v1, :cond_1
+    if-eqz p2, :cond_1
 
     .line 124
-    invoke-virtual {p0, v4, v5, v0}, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->requestUpstream(JLorg/reactivestreams/Subscription;)V
+    invoke-virtual {p0, v2, v3, p1}, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->requestUpstream(JLorg/reactivestreams/Subscription;)V
 
-    .line 129
-    .end local v0    # "s":Lorg/reactivestreams/Subscription;
-    .end local v4    # "r":J
     :cond_1
     :goto_0
     return-void
@@ -324,11 +290,8 @@
 
 .method requestUpstream(JLorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "n"    # J
-    .param p3, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 132
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->nonScheduledRequests:Z
 
     if-nez v0, :cond_1
@@ -362,7 +325,6 @@
     :goto_0
     invoke-interface {p3, p1, p2}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 137
     :goto_1
     return-void
 .end method
@@ -371,7 +333,6 @@
     .locals 2
 
     .line 79
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber<TT;>;"
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v0
@@ -381,15 +342,13 @@
     .line 80
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->source:Lorg/reactivestreams/Publisher;
 
-    .line 81
-    .local v0, "src":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TT;>;"
     const/4 v1, 0x0
 
+    .line 81
     iput-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;->source:Lorg/reactivestreams/Publisher;
 
     .line 82
     invoke-interface {v0, p0}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
 
-    .line 83
     return-void
 .end method

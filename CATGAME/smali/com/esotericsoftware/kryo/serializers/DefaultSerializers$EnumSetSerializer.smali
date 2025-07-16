@@ -48,16 +48,14 @@
 .end method
 
 .method public copy(Lcom/esotericsoftware/kryo/Kryo;Ljava/util/EnumSet;)Ljava/util/EnumSet;
-    .locals 1
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "original"    # Ljava/util/EnumSet;
+    .locals 0
 
     .line 412
     invoke-static {p2}, Ljava/util/EnumSet;->copyOf(Ljava/util/EnumSet;)Ljava/util/EnumSet;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
@@ -72,9 +70,7 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/util/EnumSet;
-    .locals 6
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -89,61 +85,51 @@
     .end annotation
 
     .line 402
-    .local p3, "type":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/util/EnumSet;>;"
     invoke-virtual {p1, p2}, Lcom/esotericsoftware/kryo/Kryo;->readClass(Lcom/esotericsoftware/kryo/io/Input;)Lcom/esotericsoftware/kryo/Registration;
+
+    move-result-object p3
+
+    .line 403
+    invoke-virtual {p3}, Lcom/esotericsoftware/kryo/Registration;->getType()Ljava/lang/Class;
 
     move-result-object v0
 
-    .line 403
-    .local v0, "registration":Lcom/esotericsoftware/kryo/Registration;
-    invoke-virtual {v0}, Lcom/esotericsoftware/kryo/Registration;->getType()Ljava/lang/Class;
+    invoke-static {v0}, Ljava/util/EnumSet;->noneOf(Ljava/lang/Class;)Ljava/util/EnumSet;
 
-    move-result-object v1
-
-    invoke-static {v1}, Ljava/util/EnumSet;->noneOf(Ljava/lang/Class;)Ljava/util/EnumSet;
-
-    move-result-object v1
+    move-result-object v0
 
     .line 404
-    .local v1, "object":Ljava/util/EnumSet;
-    invoke-virtual {v0}, Lcom/esotericsoftware/kryo/Registration;->getSerializer()Lcom/esotericsoftware/kryo/Serializer;
+    invoke-virtual {p3}, Lcom/esotericsoftware/kryo/Registration;->getSerializer()Lcom/esotericsoftware/kryo/Serializer;
 
-    move-result-object v2
+    move-result-object p3
+
+    const/4 v1, 0x1
 
     .line 405
-    .local v2, "serializer":Lcom/esotericsoftware/kryo/Serializer;
-    const/4 v3, 0x1
+    invoke-virtual {p2, v1}, Lcom/esotericsoftware/kryo/io/Input;->readVarInt(Z)I
 
-    invoke-virtual {p2, v3}, Lcom/esotericsoftware/kryo/io/Input;->readVarInt(Z)I
+    move-result v1
 
-    move-result v3
+    const/4 v2, 0x0
 
-    .line 406
-    .local v3, "length":I
-    const/4 v4, 0x0
-
-    .local v4, "i":I
     :goto_0
-    if-ge v4, v3, :cond_0
+    if-ge v2, v1, :cond_0
+
+    const/4 v3, 0x0
 
     .line 407
-    const/4 v5, 0x0
+    invoke-virtual {p3, p1, p2, v3}, Lcom/esotericsoftware/kryo/Serializer;->read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
 
-    invoke-virtual {v2, p1, p2, v5}, Lcom/esotericsoftware/kryo/Serializer;->read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
+    move-result-object v3
 
-    move-result-object v5
+    invoke-virtual {v0, v3}, Ljava/util/EnumSet;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v1, v5}, Ljava/util/EnumSet;->add(Ljava/lang/Object;)Z
-
-    .line 406
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 408
-    .end local v4    # "i":I
     :cond_0
-    return-object v1
+    return-object v0
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
@@ -159,9 +145,6 @@
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/util/EnumSet;)V
     .locals 3
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p3, "object"    # Ljava/util/EnumSet;
 
     .line 389
     invoke-virtual {p3}, Ljava/util/EnumSet;->isEmpty()Z
@@ -176,7 +159,6 @@
     move-result-object v0
 
     .line 391
-    .local v0, "tmp":Ljava/util/EnumSet;
     invoke-virtual {v0}, Ljava/util/EnumSet;->isEmpty()Z
 
     move-result v1
@@ -186,41 +168,37 @@
     .line 392
     invoke-virtual {v0}, Ljava/util/EnumSet;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v1
-
-    invoke-virtual {p1, p2, v1}, Lcom/esotericsoftware/kryo/Kryo;->writeClass(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Registration;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/esotericsoftware/kryo/Registration;->getSerializer()Lcom/esotericsoftware/kryo/Serializer;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 393
-    .local v0, "serializer":Lcom/esotericsoftware/kryo/Serializer;
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v0
+
+    invoke-virtual {p1, p2, v0}, Lcom/esotericsoftware/kryo/Kryo;->writeClass(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Registration;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/esotericsoftware/kryo/Registration;->getSerializer()Lcom/esotericsoftware/kryo/Serializer;
+
+    move-result-object v0
+
     goto :goto_0
 
     .line 391
-    .local v0, "tmp":Ljava/util/EnumSet;
     :cond_0
-    new-instance v1, Lcom/esotericsoftware/kryo/KryoException;
+    new-instance p1, Lcom/esotericsoftware/kryo/KryoException;
 
-    const-string v2, "An EnumSet must have a defined Enum to be serialized."
+    const-string p2, "An EnumSet must have a defined Enum to be serialized."
 
-    invoke-direct {v1, v2}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 
     .line 394
-    .end local v0    # "tmp":Ljava/util/EnumSet;
     :cond_1
     invoke-virtual {p3}, Ljava/util/EnumSet;->iterator()Ljava/util/Iterator;
 
@@ -243,7 +221,6 @@
     move-result-object v0
 
     .line 396
-    .local v0, "serializer":Lcom/esotericsoftware/kryo/Serializer;
     :goto_0
     invoke-virtual {p3}, Ljava/util/EnumSet;->size()I
 
@@ -256,27 +233,24 @@
     .line 397
     invoke-virtual {p3}, Ljava/util/EnumSet;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object p3
 
     :goto_1
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p3}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_2
+    if-eqz v1, :cond_2
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
     .line 398
-    .local v2, "element":Ljava/lang/Object;
-    invoke-virtual {v0, p1, p2, v2}, Lcom/esotericsoftware/kryo/Serializer;->write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
+    invoke-virtual {v0, p1, p2, v1}, Lcom/esotericsoftware/kryo/Serializer;->write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
 
-    .end local v2    # "element":Ljava/lang/Object;
     goto :goto_1
 
-    .line 399
     :cond_2
     return-void
 .end method

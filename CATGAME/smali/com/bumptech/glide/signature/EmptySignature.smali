@@ -30,7 +30,6 @@
     .line 16
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 18
     return-void
 .end method
 
@@ -48,7 +47,6 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .line 22
     const-string v0, "EmptySignature"
 
     return-object v0
@@ -56,8 +54,6 @@
 
 .method public updateDiskCacheKey(Ljava/security/MessageDigest;)V
     .locals 0
-    .param p1, "messageDigest"    # Ljava/security/MessageDigest;
 
-    .line 28
     return-void
 .end method

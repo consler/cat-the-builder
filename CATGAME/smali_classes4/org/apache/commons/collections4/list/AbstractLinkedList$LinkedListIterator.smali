@@ -67,7 +67,6 @@
 # direct methods
 .method protected constructor <init>(Lorg/apache/commons/collections4/list/AbstractLinkedList;I)V
     .locals 1
-    .param p2, "fromIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -83,8 +82,6 @@
     .end annotation
 
     .line 808
-    .local p0, "this":Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator<TE;>;"
-    .local p1, "parent":Lorg/apache/commons/collections4/list/AbstractLinkedList;, "Lorg/apache/commons/collections4/list/AbstractLinkedList<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 809
@@ -95,19 +92,18 @@
 
     iput v0, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->expectedModCount:I
 
-    .line 811
     const/4 v0, 0x1
 
+    .line 811
     invoke-virtual {p1, p2, v0}, Lorg/apache/commons/collections4/list/AbstractLinkedList;->getNode(IZ)Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->next:Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;
+    iput-object p1, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->next:Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;
 
     .line 812
     iput p2, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->nextIndex:I
 
-    .line 813
     return-void
 .end method
 
@@ -122,8 +118,6 @@
     .end annotation
 
     .line 913
-    .local p0, "this":Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator<TE;>;"
-    .local p1, "obj":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->checkModCount()V
 
     .line 914
@@ -133,26 +127,25 @@
 
     invoke-virtual {v0, v1, p1}, Lorg/apache/commons/collections4/list/AbstractLinkedList;->addNodeBefore(Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;Ljava/lang/Object;)V
 
-    .line 915
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->current:Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;
+    .line 915
+    iput-object p1, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->current:Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;
 
     .line 916
-    iget v0, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->nextIndex:I
+    iget p1, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->nextIndex:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v0, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->nextIndex:I
+    iput p1, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->nextIndex:I
 
     .line 917
-    iget v0, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->expectedModCount:I
+    iget p1, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->expectedModCount:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v0, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->expectedModCount:I
+    iput p1, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->expectedModCount:I
 
-    .line 918
     return-void
 .end method
 
@@ -160,7 +153,6 @@
     .locals 2
 
     .line 823
-    .local p0, "this":Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->parent:Lorg/apache/commons/collections4/list/AbstractLinkedList;
 
     iget v0, v0, Lorg/apache/commons/collections4/list/AbstractLinkedList;->modCount:I
@@ -169,7 +161,6 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 826
     return-void
 
     .line 824
@@ -198,12 +189,10 @@
     .end annotation
 
     .line 836
-    .local p0, "this":Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->current:Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;
 
     if-eqz v0, :cond_0
 
-    .line 839
     return-object v0
 
     .line 837
@@ -219,7 +208,6 @@
     .locals 2
 
     .line 844
-    .local p0, "this":Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->next:Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;
 
     iget-object v1, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->parent:Lorg/apache/commons/collections4/list/AbstractLinkedList;
@@ -243,7 +231,6 @@
     .locals 2
 
     .line 862
-    .local p0, "this":Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->next:Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;
 
     iget-object v0, v0, Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;->previous:Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;
@@ -274,7 +261,6 @@
     .end annotation
 
     .line 849
-    .local p0, "this":Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->checkModCount()V
 
     .line 850
@@ -292,7 +278,6 @@
     move-result-object v0
 
     .line 854
-    .local v0, "value":Ljava/lang/Object;, "TE;"
     iget-object v1, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->next:Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;
 
     iput-object v1, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->current:Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;
@@ -309,29 +294,29 @@
 
     iput v1, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->nextIndex:I
 
-    .line 857
     return-object v0
 
     .line 851
-    .end local v0    # "value":Ljava/lang/Object;, "TE;"
     :cond_0
     new-instance v0, Ljava/util/NoSuchElementException;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "No element at index "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget v2, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->nextIndex:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, "."
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -346,7 +331,6 @@
     .locals 1
 
     .line 880
-    .local p0, "this":Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator<TE;>;"
     iget v0, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->nextIndex:I
 
     return v0
@@ -361,7 +345,6 @@
     .end annotation
 
     .line 867
-    .local p0, "this":Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->checkModCount()V
 
     .line 868
@@ -384,7 +367,6 @@
     move-result-object v0
 
     .line 873
-    .local v0, "value":Ljava/lang/Object;, "TE;"
     iget-object v1, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->next:Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;
 
     iput-object v1, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->current:Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;
@@ -396,11 +378,9 @@
 
     iput v1, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->nextIndex:I
 
-    .line 875
     return-object v0
 
     .line 869
-    .end local v0    # "value":Ljava/lang/Object;, "TE;"
     :cond_0
     new-instance v0, Ljava/util/NoSuchElementException;
 
@@ -415,7 +395,6 @@
     .locals 1
 
     .line 886
-    .local p0, "this":Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->nextIndex()I
 
     move-result v0
@@ -429,7 +408,6 @@
     .locals 2
 
     .line 891
-    .local p0, "this":Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->checkModCount()V
 
     .line 892
@@ -472,10 +450,10 @@
 
     iput v0, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->nextIndex:I
 
-    .line 901
     :goto_0
     const/4 v0, 0x0
 
+    .line 901
     iput-object v0, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->current:Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;
 
     .line 902
@@ -485,7 +463,6 @@
 
     iput v0, p0, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->expectedModCount:I
 
-    .line 903
     return-void
 .end method
 
@@ -498,8 +475,6 @@
     .end annotation
 
     .line 907
-    .local p0, "this":Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;, "Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator<TE;>;"
-    .local p1, "obj":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/list/AbstractLinkedList$LinkedListIterator;->checkModCount()V
 
     .line 908
@@ -509,6 +484,5 @@
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/list/AbstractLinkedList$Node;->setValue(Ljava/lang/Object;)V
 
-    .line 909
     return-void
 .end method

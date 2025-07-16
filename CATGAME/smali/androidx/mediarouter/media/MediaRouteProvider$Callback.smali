@@ -28,9 +28,6 @@
 # virtual methods
 .method public onDescriptorChanged(Landroidx/mediarouter/media/MediaRouteProvider;Landroidx/mediarouter/media/MediaRouteProviderDescriptor;)V
     .locals 0
-    .param p1, "provider"    # Landroidx/mediarouter/media/MediaRouteProvider;
-    .param p2, "descriptor"    # Landroidx/mediarouter/media/MediaRouteProviderDescriptor;
 
-    .line 826
     return-void
 .end method

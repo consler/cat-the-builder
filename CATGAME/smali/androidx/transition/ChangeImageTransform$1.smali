@@ -39,15 +39,11 @@
 
 # virtual methods
 .method public evaluate(FLandroid/graphics/Matrix;Landroid/graphics/Matrix;)Landroid/graphics/Matrix;
-    .locals 1
-    .param p1, "fraction"    # F
-    .param p2, "startValue"    # Landroid/graphics/Matrix;
-    .param p3, "endValue"    # Landroid/graphics/Matrix;
+    .locals 0
 
-    .line 57
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;

@@ -14,9 +14,6 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;FF)V
     .locals 0
-    .param p1, "region"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
 
     .line 29
     invoke-direct {p0}, Lcom/badlogic/gdx/maps/MapLayer;-><init>()V
@@ -30,7 +27,6 @@
     .line 32
     iput p3, p0, Lcom/badlogic/gdx/maps/tiled/TiledMapImageLayer;->y:F
 
-    .line 33
     return-void
 .end method
 
@@ -65,33 +61,27 @@
 
 .method public setTextureRegion(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
     .locals 0
-    .param p1, "region"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
     .line 40
     iput-object p1, p0, Lcom/badlogic/gdx/maps/tiled/TiledMapImageLayer;->region:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
-    .line 41
     return-void
 .end method
 
 .method public setX(F)V
     .locals 0
-    .param p1, "x"    # F
 
     .line 48
     iput p1, p0, Lcom/badlogic/gdx/maps/tiled/TiledMapImageLayer;->x:F
 
-    .line 49
     return-void
 .end method
 
 .method public setY(F)V
     .locals 0
-    .param p1, "y"    # F
 
     .line 56
     iput p1, p0, Lcom/badlogic/gdx/maps/tiled/TiledMapImageLayer;->y:F
 
-    .line 57
     return-void
 .end method

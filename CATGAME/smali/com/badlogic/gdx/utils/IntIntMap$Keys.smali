@@ -17,12 +17,10 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/utils/IntIntMap;)V
     .locals 0
-    .param p1, "map"    # Lcom/badlogic/gdx/utils/IntIntMap;
 
     .line 817
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntIntMap$MapIterator;-><init>(Lcom/badlogic/gdx/utils/IntIntMap;)V
 
-    .line 818
     return-void
 .end method
 
@@ -86,7 +84,6 @@
     aget v0, v0, v1
 
     .line 829
-    .local v0, "key":I
     :goto_0
     iget v1, p0, Lcom/badlogic/gdx/utils/IntIntMap$Keys;->nextIndex:I
 
@@ -95,11 +92,9 @@
     .line 830
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/IntIntMap$Keys;->findNextIndex()V
 
-    .line 831
     return v0
 
     .line 827
-    .end local v0    # "key":I
     :cond_1
     new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
@@ -151,7 +146,6 @@
     invoke-direct {v0, v2, v1}, Lcom/badlogic/gdx/utils/IntArray;-><init>(ZI)V
 
     .line 837
-    .local v0, "array":Lcom/badlogic/gdx/utils/IntArray;
     :goto_0
     iget-boolean v1, p0, Lcom/badlogic/gdx/utils/IntIntMap$Keys;->hasNext:Z
 
@@ -166,7 +160,6 @@
 
     goto :goto_0
 
-    .line 839
     :cond_0
     return-object v0
 .end method

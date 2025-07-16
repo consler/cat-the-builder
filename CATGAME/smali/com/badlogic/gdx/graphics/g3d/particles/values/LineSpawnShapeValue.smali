@@ -10,13 +10,11 @@
     .line 31
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/g3d/particles/values/PrimitiveSpawnShapeValue;-><init>()V
 
-    .line 32
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/particles/values/LineSpawnShapeValue;)V
     .locals 0
-    .param p1, "value"    # Lcom/badlogic/gdx/graphics/g3d/particles/values/LineSpawnShapeValue;
 
     .line 27
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/values/PrimitiveSpawnShapeValue;-><init>(Lcom/badlogic/gdx/graphics/g3d/particles/values/PrimitiveSpawnShapeValue;)V
@@ -24,7 +22,6 @@
     .line 28
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/values/LineSpawnShapeValue;->load(Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;)V
 
-    .line 29
     return-void
 .end method
 
@@ -43,8 +40,6 @@
 
 .method public spawnAux(Lcom/badlogic/gdx/math/Vector3;F)V
     .locals 5
-    .param p1, "vector"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "percent"    # F
 
     .line 36
     iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/LineSpawnShapeValue;->spawnWidth:F
@@ -62,7 +57,6 @@
     add-float/2addr v0, v1
 
     .line 37
-    .local v0, "width":F
     iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/LineSpawnShapeValue;->spawnHeight:F
 
     iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/LineSpawnShapeValue;->spawnHeightDiff:F
@@ -78,7 +72,6 @@
     add-float/2addr v1, v2
 
     .line 38
-    .local v1, "height":F
     iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/LineSpawnShapeValue;->spawnDepth:F
 
     iget v3, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/LineSpawnShapeValue;->spawnDepthDiff:F
@@ -87,34 +80,31 @@
 
     invoke-virtual {v4, p2}, Lcom/badlogic/gdx/graphics/g3d/particles/values/ScaledNumericValue;->getScale(F)F
 
-    move-result v4
+    move-result p2
 
-    mul-float/2addr v3, v4
+    mul-float/2addr v3, p2
 
     add-float/2addr v2, v3
 
     .line 40
-    .local v2, "depth":F
     invoke-static {}, Lcom/badlogic/gdx/math/MathUtils;->random()F
 
-    move-result v3
+    move-result p2
+
+    mul-float/2addr v0, p2
 
     .line 41
-    .local v3, "a":F
-    mul-float v4, v3, v0
+    iput v0, p1, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    iput v4, p1, Lcom/badlogic/gdx/math/Vector3;->x:F
+    mul-float/2addr v1, p2
 
     .line 42
-    mul-float v4, v3, v1
+    iput v1, p1, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    iput v4, p1, Lcom/badlogic/gdx/math/Vector3;->y:F
+    mul-float/2addr p2, v2
 
     .line 43
-    mul-float v4, v3, v2
+    iput p2, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    iput v4, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
-
-    .line 44
     return-void
 .end method

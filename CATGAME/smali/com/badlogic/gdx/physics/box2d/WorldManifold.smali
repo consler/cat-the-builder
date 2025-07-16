@@ -27,11 +27,11 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/WorldManifold;->normal:Lcom/badlogic/gdx/math/Vector2;
 
-    .line 24
     const/4 v0, 0x2
 
     new-array v1, v0, [Lcom/badlogic/gdx/math/Vector2;
 
+    .line 24
     new-instance v2, Lcom/badlogic/gdx/math/Vector2;
 
     invoke-direct {v2}, Lcom/badlogic/gdx/math/Vector2;-><init>()V
@@ -50,12 +50,11 @@
 
     iput-object v1, p0, Lcom/badlogic/gdx/physics/box2d/WorldManifold;->points:[Lcom/badlogic/gdx/math/Vector2;
 
-    .line 25
     new-array v0, v0, [F
 
+    .line 25
     iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/WorldManifold;->separations:[F
 
-    .line 29
     return-void
 .end method
 

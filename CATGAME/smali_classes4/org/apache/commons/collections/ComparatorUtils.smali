@@ -27,25 +27,22 @@
     .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 50
     return-void
 .end method
 
 .method public static booleanComparator(Z)Ljava/util/Comparator;
-    .locals 1
-    .param p0, "trueFirst"    # Z
+    .locals 0
 
     .line 147
     invoke-static {p0}, Lorg/apache/commons/collections/comparators/BooleanComparator;->getBooleanComparator(Z)Lorg/apache/commons/collections/comparators/BooleanComparator;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static chainedComparator(Ljava/util/Collection;)Ljava/util/Comparator;
     .locals 1
-    .param p0, "comparators"    # Ljava/util/Collection;
 
     .line 115
     invoke-interface {p0}, Ljava/util/Collection;->size()I
@@ -56,25 +53,22 @@
 
     invoke-interface {p0, v0}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, [Ljava/util/Comparator;
+    check-cast p0, [Ljava/util/Comparator;
 
-    check-cast v0, [Ljava/util/Comparator;
+    check-cast p0, [Ljava/util/Comparator;
 
-    invoke-static {v0}, Lorg/apache/commons/collections/ComparatorUtils;->chainedComparator([Ljava/util/Comparator;)Ljava/util/Comparator;
+    invoke-static {p0}, Lorg/apache/commons/collections/ComparatorUtils;->chainedComparator([Ljava/util/Comparator;)Ljava/util/Comparator;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static chainedComparator(Ljava/util/Comparator;Ljava/util/Comparator;)Ljava/util/Comparator;
     .locals 2
-    .param p0, "comparator1"    # Ljava/util/Comparator;
-    .param p1, "comparator2"    # Ljava/util/Comparator;
 
-    .line 80
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/util/Comparator;
@@ -83,31 +77,29 @@
 
     aput-object p0, v0, v1
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v0, v1
+    aput-object p1, v0, p0
 
+    .line 80
     invoke-static {v0}, Lorg/apache/commons/collections/ComparatorUtils;->chainedComparator([Ljava/util/Comparator;)Ljava/util/Comparator;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static chainedComparator([Ljava/util/Comparator;)Ljava/util/Comparator;
-    .locals 4
-    .param p0, "comparators"    # [Ljava/util/Comparator;
+    .locals 3
 
     .line 93
     new-instance v0, Lorg/apache/commons/collections/comparators/ComparatorChain;
 
     invoke-direct {v0}, Lorg/apache/commons/collections/comparators/ComparatorChain;-><init>()V
 
-    .line 94
-    .local v0, "chain":Lorg/apache/commons/collections/comparators/ComparatorChain;
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    .line 94
     :goto_0
     array-length v2, p0
 
@@ -119,38 +111,29 @@
     if-eqz v2, :cond_0
 
     .line 98
-    aget-object v2, p0, v1
-
     invoke-virtual {v0, v2}, Lorg/apache/commons/collections/comparators/ComparatorChain;->addComparator(Ljava/util/Comparator;)V
 
-    .line 94
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 96
     :cond_0
-    new-instance v2, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v3, "Comparator cannot be null"
+    const-string v0, "Comparator cannot be null"
 
-    invoke-direct {v2, v3}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 
-    .line 100
-    .end local v1    # "i":I
     :cond_1
     return-object v0
 .end method
 
 .method public static max(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/Comparator;)Ljava/lang/Object;
-    .locals 2
-    .param p0, "o1"    # Ljava/lang/Object;
-    .param p1, "o2"    # Ljava/lang/Object;
-    .param p2, "comparator"    # Ljava/util/Comparator;
+    .locals 0
 
-    .line 234
     if-nez p2, :cond_0
 
     .line 235
@@ -160,30 +143,22 @@
     :cond_0
     invoke-interface {p2, p0, p1}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p2
 
-    .line 238
-    .local v0, "c":I
-    if-lez v0, :cond_1
-
-    move-object v1, p0
+    if-lez p2, :cond_1
 
     goto :goto_0
 
     :cond_1
-    move-object v1, p1
+    move-object p0, p1
 
     :goto_0
-    return-object v1
+    return-object p0
 .end method
 
 .method public static min(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/Comparator;)Ljava/lang/Object;
-    .locals 2
-    .param p0, "o1"    # Ljava/lang/Object;
-    .param p1, "o2"    # Ljava/lang/Object;
-    .param p2, "comparator"    # Ljava/util/Comparator;
+    .locals 0
 
-    .line 216
     if-nez p2, :cond_0
 
     .line 217
@@ -193,21 +168,17 @@
     :cond_0
     invoke-interface {p2, p0, p1}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p2
 
-    .line 220
-    .local v0, "c":I
-    if-gez v0, :cond_1
-
-    move-object v1, p0
+    if-gez p2, :cond_1
 
     goto :goto_0
 
     :cond_1
-    move-object v1, p1
+    move-object p0, p1
 
     :goto_0
-    return-object v1
+    return-object p0
 .end method
 
 .method public static naturalComparator()Ljava/util/Comparator;
@@ -221,9 +192,7 @@
 
 .method public static nullHighComparator(Ljava/util/Comparator;)Ljava/util/Comparator;
     .locals 2
-    .param p0, "comparator"    # Ljava/util/Comparator;
 
-    .line 180
     if-nez p0, :cond_0
 
     .line 181
@@ -242,9 +211,7 @@
 
 .method public static nullLowComparator(Ljava/util/Comparator;)Ljava/util/Comparator;
     .locals 2
-    .param p0, "comparator"    # Ljava/util/Comparator;
 
-    .line 162
     if-nez p0, :cond_0
 
     .line 163
@@ -263,9 +230,7 @@
 
 .method public static reversedComparator(Ljava/util/Comparator;)Ljava/util/Comparator;
     .locals 1
-    .param p0, "comparator"    # Ljava/util/Comparator;
 
-    .line 128
     if-nez p0, :cond_0
 
     .line 129
@@ -282,10 +247,7 @@
 
 .method public static transformedComparator(Ljava/util/Comparator;Lorg/apache/commons/collections/Transformer;)Ljava/util/Comparator;
     .locals 1
-    .param p0, "comparator"    # Ljava/util/Comparator;
-    .param p1, "transformer"    # Lorg/apache/commons/collections/Transformer;
 
-    .line 199
     if-nez p0, :cond_0
 
     .line 200

@@ -31,8 +31,6 @@
 # virtual methods
 .method public handle(Ljava/lang/Throwable;)V
     .locals 0
-    .param p1, "t"    # Ljava/lang/Throwable;
 
-    .line 325
     return-void
 .end method

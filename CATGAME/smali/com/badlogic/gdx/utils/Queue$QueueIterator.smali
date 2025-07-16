@@ -59,20 +59,16 @@
         }
     .end annotation
 
-    .line 444
-    .local p0, "this":Lcom/badlogic/gdx/utils/Queue$QueueIterator;, "Lcom/badlogic/gdx/utils/Queue$QueueIterator<TT;>;"
-    .local p1, "queue":Lcom/badlogic/gdx/utils/Queue;, "Lcom/badlogic/gdx/utils/Queue<TT;>;"
     const/4 v0, 0x1
 
+    .line 444
     invoke-direct {p0, p1, v0}, Lcom/badlogic/gdx/utils/Queue$QueueIterator;-><init>(Lcom/badlogic/gdx/utils/Queue;Z)V
 
-    .line 445
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/utils/Queue;Z)V
     .locals 1
-    .param p2, "allowRemove"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -82,13 +78,11 @@
     .end annotation
 
     .line 447
-    .local p0, "this":Lcom/badlogic/gdx/utils/Queue$QueueIterator;, "Lcom/badlogic/gdx/utils/Queue$QueueIterator<TT;>;"
-    .local p1, "queue":Lcom/badlogic/gdx/utils/Queue;, "Lcom/badlogic/gdx/utils/Queue<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 439
     const/4 v0, 0x1
 
+    .line 439
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/Queue$QueueIterator;->valid:Z
 
     .line 448
@@ -97,7 +91,6 @@
     .line 449
     iput-boolean p2, p0, Lcom/badlogic/gdx/utils/Queue$QueueIterator;->allowRemove:Z
 
-    .line 450
     return-void
 .end method
 
@@ -107,7 +100,6 @@
     .locals 2
 
     .line 453
-    .local p0, "this":Lcom/badlogic/gdx/utils/Queue$QueueIterator;, "Lcom/badlogic/gdx/utils/Queue$QueueIterator<TT;>;"
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/Queue$QueueIterator;->valid:Z
 
     if-eqz v0, :cond_1
@@ -152,8 +144,6 @@
         }
     .end annotation
 
-    .line 480
-    .local p0, "this":Lcom/badlogic/gdx/utils/Queue$QueueIterator;, "Lcom/badlogic/gdx/utils/Queue$QueueIterator<TT;>;"
     return-object p0
 .end method
 
@@ -166,7 +156,6 @@
     .end annotation
 
     .line 461
-    .local p0, "this":Lcom/badlogic/gdx/utils/Queue$QueueIterator;, "Lcom/badlogic/gdx/utils/Queue$QueueIterator<TT;>;"
     iget v0, p0, Lcom/badlogic/gdx/utils/Queue$QueueIterator;->index:I
 
     iget-object v1, p0, Lcom/badlogic/gdx/utils/Queue$QueueIterator;->queue:Lcom/badlogic/gdx/utils/Queue;
@@ -224,7 +213,6 @@
     .locals 2
 
     .line 470
-    .local p0, "this":Lcom/badlogic/gdx/utils/Queue$QueueIterator;, "Lcom/badlogic/gdx/utils/Queue$QueueIterator<TT;>;"
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/Queue$QueueIterator;->allowRemove:Z
 
     if-eqz v0, :cond_0
@@ -241,7 +229,6 @@
 
     invoke-virtual {v1, v0}, Lcom/badlogic/gdx/utils/Queue;->removeIndex(I)Ljava/lang/Object;
 
-    .line 473
     return-void
 
     .line 470
@@ -258,12 +245,10 @@
 .method public reset()V
     .locals 1
 
-    .line 476
-    .local p0, "this":Lcom/badlogic/gdx/utils/Queue$QueueIterator;, "Lcom/badlogic/gdx/utils/Queue$QueueIterator<TT;>;"
     const/4 v0, 0x0
 
+    .line 476
     iput v0, p0, Lcom/badlogic/gdx/utils/Queue$QueueIterator;->index:I
 
-    .line 477
     return-void
 .end method

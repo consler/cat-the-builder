@@ -53,9 +53,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
-    .locals 7
-    .param p1, "source"    # Landroid/os/Parcel;
-    .param p2, "loader"    # Ljava/lang/ClassLoader;
+    .locals 5
 
     .line 3335
     invoke-direct {p0, p1, p2}, Landroidx/customview/view/AbsSavedState;-><init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
@@ -66,61 +64,51 @@
     move-result v0
 
     .line 3339
-    .local v0, "size":I
     new-array v1, v0, [I
 
     .line 3340
-    .local v1, "ids":[I
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->readIntArray([I)V
 
     .line 3342
     invoke-virtual {p1, p2}, Landroid/os/Parcel;->readParcelableArray(Ljava/lang/ClassLoader;)[Landroid/os/Parcelable;
 
-    move-result-object v2
+    move-result-object p1
 
     .line 3344
-    .local v2, "states":[Landroid/os/Parcelable;
-    new-instance v3, Landroid/util/SparseArray;
+    new-instance p2, Landroid/util/SparseArray;
 
-    invoke-direct {v3, v0}, Landroid/util/SparseArray;-><init>(I)V
+    invoke-direct {p2, v0}, Landroid/util/SparseArray;-><init>(I)V
 
-    iput-object v3, p0, Landroidx/coordinatorlayout/widget/CoordinatorLayout$SavedState;->behaviorStates:Landroid/util/SparseArray;
+    iput-object p2, p0, Landroidx/coordinatorlayout/widget/CoordinatorLayout$SavedState;->behaviorStates:Landroid/util/SparseArray;
 
-    .line 3345
-    const/4 v3, 0x0
+    const/4 p2, 0x0
 
-    .local v3, "i":I
     :goto_0
-    if-ge v3, v0, :cond_0
+    if-ge p2, v0, :cond_0
 
     .line 3346
-    iget-object v4, p0, Landroidx/coordinatorlayout/widget/CoordinatorLayout$SavedState;->behaviorStates:Landroid/util/SparseArray;
+    iget-object v2, p0, Landroidx/coordinatorlayout/widget/CoordinatorLayout$SavedState;->behaviorStates:Landroid/util/SparseArray;
 
-    aget v5, v1, v3
+    aget v3, v1, p2
 
-    aget-object v6, v2, v3
+    aget-object v4, p1, p2
 
-    invoke-virtual {v4, v5, v6}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
+    invoke-virtual {v2, v3, v4}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
 
-    .line 3345
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 p2, p2, 0x1
 
     goto :goto_0
 
-    .line 3348
-    .end local v3    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public constructor <init>(Landroid/os/Parcelable;)V
     .locals 0
-    .param p1, "superState"    # Landroid/os/Parcelable;
 
     .line 3351
     invoke-direct {p0, p1}, Landroidx/customview/view/AbsSavedState;-><init>(Landroid/os/Parcelable;)V
 
-    .line 3352
     return-void
 .end method
 
@@ -128,14 +116,14 @@
 # virtual methods
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 5
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
 
     .line 3356
     invoke-super {p0, p1, p2}, Landroidx/customview/view/AbsSavedState;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 3358
     iget-object v0, p0, Landroidx/coordinatorlayout/widget/CoordinatorLayout$SavedState;->behaviorStates:Landroid/util/SparseArray;
+
+    const/4 v1, 0x0
 
     if-eqz v0, :cond_0
 
@@ -146,61 +134,51 @@
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    move v0, v1
 
     .line 3359
-    .local v0, "size":I
     :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 3361
-    new-array v1, v0, [I
+    new-array v2, v0, [I
 
     .line 3362
-    .local v1, "ids":[I
-    new-array v2, v0, [Landroid/os/Parcelable;
+    new-array v3, v0, [Landroid/os/Parcelable;
 
-    .line 3364
-    .local v2, "states":[Landroid/os/Parcelable;
-    const/4 v3, 0x0
-
-    .local v3, "i":I
     :goto_1
-    if-ge v3, v0, :cond_1
+    if-ge v1, v0, :cond_1
 
     .line 3365
     iget-object v4, p0, Landroidx/coordinatorlayout/widget/CoordinatorLayout$SavedState;->behaviorStates:Landroid/util/SparseArray;
 
-    invoke-virtual {v4, v3}, Landroid/util/SparseArray;->keyAt(I)I
+    invoke-virtual {v4, v1}, Landroid/util/SparseArray;->keyAt(I)I
 
     move-result v4
 
-    aput v4, v1, v3
+    aput v4, v2, v1
 
     .line 3366
     iget-object v4, p0, Landroidx/coordinatorlayout/widget/CoordinatorLayout$SavedState;->behaviorStates:Landroid/util/SparseArray;
 
-    invoke-virtual {v4, v3}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v4, v1}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Landroid/os/Parcelable;
 
-    aput-object v4, v2, v3
+    aput-object v4, v3, v1
 
-    .line 3364
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
     .line 3368
-    .end local v3    # "i":I
     :cond_1
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeIntArray([I)V
+    invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeIntArray([I)V
 
     .line 3369
-    invoke-virtual {p1, v2, p2}, Landroid/os/Parcel;->writeParcelableArray([Landroid/os/Parcelable;I)V
+    invoke-virtual {p1, v3, p2}, Landroid/os/Parcel;->writeParcelableArray([Landroid/os/Parcelable;I)V
 
-    .line 3371
     return-void
 .end method

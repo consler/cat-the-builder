@@ -51,116 +51,93 @@
 
 # direct methods
 .method protected constructor <init>(JJILcom/pdrogfer/mididroid/util/VariableLengthInt;)V
-    .locals 1
-    .param p1, "tick"    # J
-    .param p3, "delta"    # J
-    .param p5, "type"    # I
-    .param p6, "length"    # Lcom/pdrogfer/mididroid/util/VariableLengthInt;
+    .locals 0
 
     .line 33
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/pdrogfer/mididroid/event/MidiEvent;-><init>(JJ)V
 
-    .line 35
-    and-int/lit16 v0, p5, 0xff
+    and-int/lit16 p1, p5, 0xff
 
-    iput v0, p0, Lcom/pdrogfer/mididroid/event/meta/MetaEvent;->mType:I
+    .line 35
+    iput p1, p0, Lcom/pdrogfer/mididroid/event/meta/MetaEvent;->mType:I
 
     .line 36
     iput-object p6, p0, Lcom/pdrogfer/mididroid/event/meta/MetaEvent;->mLength:Lcom/pdrogfer/mididroid/util/VariableLengthInt;
 
-    .line 37
     return-void
 .end method
 
 .method public static parseMetaEvent(JJLjava/io/InputStream;)Lcom/pdrogfer/mididroid/event/meta/MetaEvent;
-    .locals 17
-    .param p0, "tick"    # J
-    .param p2, "delta"    # J
-    .param p4, "in"    # Ljava/io/InputStream;
+    .locals 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    move-wide v1, p0
+
+    move-wide v3, p2
+
     .line 56
-    move-wide/from16 v12, p0
+    new-instance v5, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;
 
-    move-wide/from16 v14, p2
+    move-object/from16 v0, p4
 
-    new-instance v0, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;
-
-    move-object/from16 v9, p4
-
-    invoke-direct {v0, v9}, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;-><init>(Ljava/io/InputStream;)V
-
-    move-object v10, v0
-
-    .line 58
-    .local v10, "eventData":Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;
-    const/4 v0, 0x0
+    invoke-direct {v5, v0}, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;-><init>(Ljava/io/InputStream;)V
 
     .line 59
-    .local v0, "isText":Z
-    iget v1, v10, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->type:I
+    iget v0, v5, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->type:I
 
-    const/16 v2, 0x59
+    const/16 v6, 0x59
 
-    const/16 v3, 0x58
+    const/16 v7, 0x58
 
-    const/16 v4, 0x54
+    const/16 v8, 0x54
 
-    const/16 v5, 0x51
+    const/16 v9, 0x51
 
-    const/16 v6, 0x2f
+    const/16 v10, 0x2f
 
-    const/16 v7, 0x20
+    const/16 v11, 0x20
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    if-eq v1, v7, :cond_0
+    if-eq v0, v11, :cond_0
 
-    if-eq v1, v6, :cond_0
+    if-eq v0, v10, :cond_0
 
-    if-eq v1, v5, :cond_0
+    if-eq v0, v9, :cond_0
 
-    if-eq v1, v4, :cond_0
+    if-eq v0, v8, :cond_0
 
-    if-eq v1, v3, :cond_0
+    if-eq v0, v7, :cond_0
 
-    if-eq v1, v2, :cond_0
+    if-eq v0, v6, :cond_0
 
-    .line 79
     const/4 v0, 0x1
-
-    move/from16 v16, v0
 
     goto :goto_0
 
-    .line 68
     :cond_0
-    move/from16 v16, v0
+    const/4 v0, 0x0
 
-    .line 83
-    .end local v0    # "isText":Z
-    .local v16, "isText":Z
     :goto_0
-    if-eqz v16, :cond_2
+    if-eqz v0, :cond_2
 
     .line 85
-    new-instance v11, Ljava/lang/String;
+    new-instance v6, Ljava/lang/String;
 
-    iget-object v0, v10, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->data:[B
+    iget-object v0, v5, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->data:[B
 
-    invoke-direct {v11, v0}, Ljava/lang/String;-><init>([B)V
+    invoke-direct {v6, v0}, Ljava/lang/String;-><init>([B)V
 
     .line 87
-    .local v11, "text":Ljava/lang/String;
-    iget v0, v10, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->type:I
+    iget v0, v5, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->type:I
 
-    const/16 v1, 0x7f
+    const/16 v7, 0x7f
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v7, :cond_1
 
     packed-switch v0, :pswitch_data_0
 
@@ -169,11 +146,9 @@
 
     move-object v0, v6
 
-    move-wide/from16 v1, p0
+    move-wide v1, p0
 
-    move-wide/from16 v3, p2
-
-    move-object v5, v10
+    move-wide v3, p2
 
     invoke-direct/range {v0 .. v5}, Lcom/pdrogfer/mididroid/event/meta/GenericMetaEvent;-><init>(JJLcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;)V
 
@@ -181,174 +156,149 @@
 
     .line 102
     :pswitch_0
-    new-instance v0, Lcom/pdrogfer/mididroid/event/meta/CuePoint;
+    new-instance v7, Lcom/pdrogfer/mididroid/event/meta/CuePoint;
 
-    move-object v6, v0
+    move-object v0, v7
 
-    move-wide/from16 v7, p0
+    move-wide v1, p0
 
-    move-object v5, v10
+    move-wide v3, p2
 
-    .end local v10    # "eventData":Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;
-    .local v5, "eventData":Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;
-    move-wide/from16 v9, p2
+    move-object v5, v6
 
-    invoke-direct/range {v6 .. v11}, Lcom/pdrogfer/mididroid/event/meta/CuePoint;-><init>(JJLjava/lang/String;)V
+    invoke-direct/range {v0 .. v5}, Lcom/pdrogfer/mididroid/event/meta/CuePoint;-><init>(JJLjava/lang/String;)V
 
-    return-object v0
+    return-object v7
 
     .line 100
-    .end local v5    # "eventData":Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;
-    .restart local v10    # "eventData":Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;
     :pswitch_1
-    move-object v5, v10
+    new-instance v7, Lcom/pdrogfer/mididroid/event/meta/Marker;
 
-    .end local v10    # "eventData":Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;
-    .restart local v5    # "eventData":Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;
-    new-instance v6, Lcom/pdrogfer/mididroid/event/meta/Marker;
+    move-object v0, v7
 
-    move-object v0, v6
+    move-wide v1, p0
 
-    move-wide/from16 v1, p0
+    move-wide v3, p2
 
-    move-wide/from16 v3, p2
-
-    move-object v8, v5
-
-    .end local v5    # "eventData":Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;
-    .local v8, "eventData":Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;
-    move-object v5, v11
+    move-object v5, v6
 
     invoke-direct/range {v0 .. v5}, Lcom/pdrogfer/mididroid/event/meta/Marker;-><init>(JJLjava/lang/String;)V
 
-    return-object v6
+    return-object v7
 
     .line 98
-    .end local v8    # "eventData":Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;
-    .restart local v10    # "eventData":Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;
     :pswitch_2
-    new-instance v6, Lcom/pdrogfer/mididroid/event/meta/Lyrics;
+    new-instance v7, Lcom/pdrogfer/mididroid/event/meta/Lyrics;
 
-    move-object v0, v6
+    move-object v0, v7
 
-    move-wide/from16 v1, p0
+    move-wide v1, p0
 
-    move-wide/from16 v3, p2
+    move-wide v3, p2
 
-    move-object v5, v11
+    move-object v5, v6
 
     invoke-direct/range {v0 .. v5}, Lcom/pdrogfer/mididroid/event/meta/Lyrics;-><init>(JJLjava/lang/String;)V
 
-    return-object v6
+    return-object v7
 
     .line 96
     :pswitch_3
-    new-instance v6, Lcom/pdrogfer/mididroid/event/meta/InstrumentName;
+    new-instance v7, Lcom/pdrogfer/mididroid/event/meta/InstrumentName;
 
-    move-object v0, v6
+    move-object v0, v7
 
-    move-wide/from16 v1, p0
+    move-wide v1, p0
 
-    move-wide/from16 v3, p2
+    move-wide v3, p2
 
-    move-object v5, v11
+    move-object v5, v6
 
     invoke-direct/range {v0 .. v5}, Lcom/pdrogfer/mididroid/event/meta/InstrumentName;-><init>(JJLjava/lang/String;)V
 
-    return-object v6
+    return-object v7
 
     .line 94
     :pswitch_4
-    new-instance v6, Lcom/pdrogfer/mididroid/event/meta/TrackName;
+    new-instance v7, Lcom/pdrogfer/mididroid/event/meta/TrackName;
 
-    move-object v0, v6
+    move-object v0, v7
 
-    move-wide/from16 v1, p0
+    move-wide v1, p0
 
-    move-wide/from16 v3, p2
+    move-wide v3, p2
 
-    move-object v5, v11
+    move-object v5, v6
 
     invoke-direct/range {v0 .. v5}, Lcom/pdrogfer/mididroid/event/meta/TrackName;-><init>(JJLjava/lang/String;)V
 
-    return-object v6
+    return-object v7
 
     .line 92
     :pswitch_5
-    new-instance v6, Lcom/pdrogfer/mididroid/event/meta/CopyrightNotice;
+    new-instance v7, Lcom/pdrogfer/mididroid/event/meta/CopyrightNotice;
 
-    move-object v0, v6
+    move-object v0, v7
 
-    move-wide/from16 v1, p0
+    move-wide v1, p0
 
-    move-wide/from16 v3, p2
+    move-wide v3, p2
 
-    move-object v5, v11
+    move-object v5, v6
 
     invoke-direct/range {v0 .. v5}, Lcom/pdrogfer/mididroid/event/meta/CopyrightNotice;-><init>(JJLjava/lang/String;)V
 
-    return-object v6
+    return-object v7
 
     .line 90
     :pswitch_6
-    new-instance v6, Lcom/pdrogfer/mididroid/event/meta/Text;
+    new-instance v7, Lcom/pdrogfer/mididroid/event/meta/Text;
 
-    move-object v0, v6
+    move-object v0, v7
 
-    move-wide/from16 v1, p0
+    move-wide v1, p0
 
-    move-wide/from16 v3, p2
+    move-wide v3, p2
 
-    move-object v5, v11
+    move-object v5, v6
 
     invoke-direct/range {v0 .. v5}, Lcom/pdrogfer/mididroid/event/meta/Text;-><init>(JJLjava/lang/String;)V
 
-    return-object v6
+    return-object v7
 
     .line 104
     :cond_1
-    move-object v8, v10
-
-    .end local v10    # "eventData":Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;
-    .restart local v8    # "eventData":Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;
     new-instance v6, Lcom/pdrogfer/mididroid/event/meta/SequencerSpecificEvent;
 
-    iget-object v5, v8, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->data:[B
+    iget-object v5, v5, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->data:[B
 
     move-object v0, v6
 
-    move-wide/from16 v1, p0
+    move-wide v1, p0
 
-    move-wide/from16 v3, p2
+    move-wide v3, p2
 
     invoke-direct/range {v0 .. v5}, Lcom/pdrogfer/mididroid/event/meta/SequencerSpecificEvent;-><init>(JJ[B)V
 
     return-object v6
 
     .line 110
-    .end local v8    # "eventData":Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;
-    .end local v11    # "text":Ljava/lang/String;
-    .restart local v10    # "eventData":Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;
     :cond_2
-    move-object v8, v10
-
-    .end local v10    # "eventData":Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;
-    .restart local v8    # "eventData":Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;
-    iget v0, v8, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->type:I
+    iget v0, v5, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->type:I
 
     if-eqz v0, :cond_9
 
-    if-eq v0, v7, :cond_8
+    if-eq v0, v11, :cond_8
 
-    if-eq v0, v6, :cond_7
+    if-eq v0, v10, :cond_7
 
-    if-eq v0, v5, :cond_6
+    if-eq v0, v9, :cond_6
 
-    if-eq v0, v4, :cond_5
+    if-eq v0, v8, :cond_5
 
-    if-eq v0, v3, :cond_4
+    if-eq v0, v7, :cond_4
 
-    if-eq v0, v2, :cond_3
+    if-eq v0, v6, :cond_3
 
     .line 127
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -357,14 +307,13 @@
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 128
     const/4 v0, 0x0
 
     return-object v0
 
     .line 125
     :cond_3
-    invoke-static {v12, v13, v14, v15, v8}, Lcom/pdrogfer/mididroid/event/meta/KeySignature;->parseKeySignature(JJLcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;)Lcom/pdrogfer/mididroid/event/meta/MetaEvent;
+    invoke-static {p0, p1, p2, p3, v5}, Lcom/pdrogfer/mididroid/event/meta/KeySignature;->parseKeySignature(JJLcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;)Lcom/pdrogfer/mididroid/event/meta/MetaEvent;
 
     move-result-object v0
 
@@ -372,7 +321,7 @@
 
     .line 123
     :cond_4
-    invoke-static {v12, v13, v14, v15, v8}, Lcom/pdrogfer/mididroid/event/meta/TimeSignature;->parseTimeSignature(JJLcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;)Lcom/pdrogfer/mididroid/event/meta/MetaEvent;
+    invoke-static {p0, p1, p2, p3, v5}, Lcom/pdrogfer/mididroid/event/meta/TimeSignature;->parseTimeSignature(JJLcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;)Lcom/pdrogfer/mididroid/event/meta/MetaEvent;
 
     move-result-object v0
 
@@ -380,7 +329,7 @@
 
     .line 121
     :cond_5
-    invoke-static {v12, v13, v14, v15, v8}, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;->parseSmpteOffset(JJLcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;)Lcom/pdrogfer/mididroid/event/meta/MetaEvent;
+    invoke-static {p0, p1, p2, p3, v5}, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;->parseSmpteOffset(JJLcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;)Lcom/pdrogfer/mididroid/event/meta/MetaEvent;
 
     move-result-object v0
 
@@ -388,7 +337,7 @@
 
     .line 119
     :cond_6
-    invoke-static {v12, v13, v14, v15, v8}, Lcom/pdrogfer/mididroid/event/meta/Tempo;->parseTempo(JJLcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;)Lcom/pdrogfer/mididroid/event/meta/MetaEvent;
+    invoke-static {p0, p1, p2, p3, v5}, Lcom/pdrogfer/mididroid/event/meta/Tempo;->parseTempo(JJLcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;)Lcom/pdrogfer/mididroid/event/meta/MetaEvent;
 
     move-result-object v0
 
@@ -398,13 +347,13 @@
     :cond_7
     new-instance v0, Lcom/pdrogfer/mididroid/event/meta/EndOfTrack;
 
-    invoke-direct {v0, v12, v13, v14, v15}, Lcom/pdrogfer/mididroid/event/meta/EndOfTrack;-><init>(JJ)V
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/pdrogfer/mididroid/event/meta/EndOfTrack;-><init>(JJ)V
 
     return-object v0
 
     .line 115
     :cond_8
-    invoke-static {v12, v13, v14, v15, v8}, Lcom/pdrogfer/mididroid/event/meta/MidiChannelPrefix;->parseMidiChannelPrefix(JJLcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;)Lcom/pdrogfer/mididroid/event/meta/MetaEvent;
+    invoke-static {p0, p1, p2, p3, v5}, Lcom/pdrogfer/mididroid/event/meta/MidiChannelPrefix;->parseMidiChannelPrefix(JJLcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;)Lcom/pdrogfer/mididroid/event/meta/MetaEvent;
 
     move-result-object v0
 
@@ -412,7 +361,7 @@
 
     .line 113
     :cond_9
-    invoke-static {v12, v13, v14, v15, v8}, Lcom/pdrogfer/mididroid/event/meta/SequenceNumber;->parseSequenceNumber(JJLcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;)Lcom/pdrogfer/mididroid/event/meta/MetaEvent;
+    invoke-static {p0, p1, p2, p3, v5}, Lcom/pdrogfer/mididroid/event/meta/SequenceNumber;->parseSequenceNumber(JJLcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;)Lcom/pdrogfer/mididroid/event/meta/MetaEvent;
 
     move-result-object v0
 
@@ -439,21 +388,20 @@
 
 .method protected writeToFile(Ljava/io/OutputStream;)V
     .locals 1
-    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 49
     const/4 v0, 0x1
 
+    .line 49
     invoke-super {p0, p1, v0}, Lcom/pdrogfer/mididroid/event/MidiEvent;->writeToFile(Ljava/io/OutputStream;Z)V
 
-    .line 50
     const/16 v0, 0xff
 
+    .line 50
     invoke-virtual {p1, v0}, Ljava/io/OutputStream;->write(I)V
 
     .line 51
@@ -461,14 +409,11 @@
 
     invoke-virtual {p1, v0}, Ljava/io/OutputStream;->write(I)V
 
-    .line 52
     return-void
 .end method
 
 .method public writeToFile(Ljava/io/OutputStream;Z)V
     .locals 0
-    .param p1, "out"    # Ljava/io/OutputStream;
-    .param p2, "writeType"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -478,6 +423,5 @@
     .line 44
     invoke-virtual {p0, p1}, Lcom/pdrogfer/mididroid/event/meta/MetaEvent;->writeToFile(Ljava/io/OutputStream;)V
 
-    .line 45
     return-void
 .end method

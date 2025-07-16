@@ -26,7 +26,6 @@
 # direct methods
 .method public constructor <init>(Ljava/io/Writer;)V
     .locals 1
-    .param p1, "writer"    # Ljava/io/Writer;
 
     .line 50
     invoke-direct {p0}, Ljava/io/Writer;-><init>()V
@@ -41,7 +40,6 @@
     .line 51
     iput-object p1, p0, Lcom/badlogic/gdx/utils/XmlWriter;->writer:Ljava/io/Writer;
 
-    .line 52
     return-void
 .end method
 
@@ -57,18 +55,15 @@
     iget v0, p0, Lcom/badlogic/gdx/utils/XmlWriter;->indent:I
 
     .line 56
-    .local v0, "count":I
     iget-object v1, p0, Lcom/badlogic/gdx/utils/XmlWriter;->currentElement:Ljava/lang/String;
 
     if-eqz v1, :cond_0
 
     add-int/lit8 v0, v0, 0x1
 
-    .line 57
     :cond_0
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_1
 
@@ -79,13 +74,10 @@
 
     invoke-virtual {v2, v3}, Ljava/io/Writer;->write(I)V
 
-    .line 57
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 59
-    .end local v1    # "i":I
     :cond_1
     return-void
 .end method
@@ -122,9 +114,9 @@
 
     invoke-virtual {v1, v0}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 78
     const/4 v0, 0x0
 
+    .line 78
     iput-object v0, p0, Lcom/badlogic/gdx/utils/XmlWriter;->currentElement:Ljava/lang/String;
 
     .line 79
@@ -134,7 +126,6 @@
 
     invoke-virtual {v0, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    .line 80
     return v2
 .end method
 
@@ -142,8 +133,6 @@
 # virtual methods
 .method public attribute(Ljava/lang/String;Ljava/lang/Object;)Lcom/badlogic/gdx/utils/XmlWriter;
     .locals 2
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -168,46 +157,45 @@
     invoke-virtual {v0, p1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
     .line 87
-    iget-object v0, p0, Lcom/badlogic/gdx/utils/XmlWriter;->writer:Ljava/io/Writer;
+    iget-object p1, p0, Lcom/badlogic/gdx/utils/XmlWriter;->writer:Ljava/io/Writer;
 
-    const-string v1, "=\""
+    const-string v0, "=\""
 
-    invoke-virtual {v0, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
     .line 88
-    iget-object v0, p0, Lcom/badlogic/gdx/utils/XmlWriter;->writer:Ljava/io/Writer;
+    iget-object p1, p0, Lcom/badlogic/gdx/utils/XmlWriter;->writer:Ljava/io/Writer;
 
     if-nez p2, :cond_0
 
-    const-string v1, "null"
+    const-string p2, "null"
 
     goto :goto_0
 
     :cond_0
     invoke-virtual {p2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
     :goto_0
-    invoke-virtual {v0, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
     .line 89
-    iget-object v0, p0, Lcom/badlogic/gdx/utils/XmlWriter;->writer:Ljava/io/Writer;
+    iget-object p1, p0, Lcom/badlogic/gdx/utils/XmlWriter;->writer:Ljava/io/Writer;
 
-    const/16 v1, 0x22
+    const/16 p2, 0x22
 
-    invoke-virtual {v0, v1}, Ljava/io/Writer;->write(I)V
+    invoke-virtual {p1, p2}, Ljava/io/Writer;->write(I)V
 
-    .line 90
     return-object p0
 
     .line 84
     :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/IllegalStateException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public close()V
@@ -237,13 +225,11 @@
 
     invoke-virtual {v0}, Ljava/io/Writer;->close()V
 
-    .line 126
     return-void
 .end method
 
 .method public element(Ljava/lang/String;)Lcom/badlogic/gdx/utils/XmlWriter;
     .locals 2
-    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -282,14 +268,11 @@
     .line 66
     iput-object p1, p0, Lcom/badlogic/gdx/utils/XmlWriter;->currentElement:Ljava/lang/String;
 
-    .line 67
     return-object p0
 .end method
 
 .method public element(Ljava/lang/String;Ljava/lang/Object;)Lcom/badlogic/gdx/utils/XmlWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "text"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -299,17 +282,17 @@
     .line 71
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/XmlWriter;->element(Ljava/lang/String;)Lcom/badlogic/gdx/utils/XmlWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/utils/XmlWriter;->text(Ljava/lang/Object;)Lcom/badlogic/gdx/utils/XmlWriter;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/utils/XmlWriter;->text(Ljava/lang/Object;)Lcom/badlogic/gdx/utils/XmlWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/XmlWriter;->pop()Lcom/badlogic/gdx/utils/XmlWriter;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/XmlWriter;->pop()Lcom/badlogic/gdx/utils/XmlWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public flush()V
@@ -325,7 +308,6 @@
 
     invoke-virtual {v0}, Ljava/io/Writer;->flush()V
 
-    .line 135
     return-void
 .end method
 
@@ -351,9 +333,9 @@
 
     invoke-virtual {v0, v2}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    .line 109
     const/4 v0, 0x0
 
+    .line 109
     iput-object v0, p0, Lcom/badlogic/gdx/utils/XmlWriter;->currentElement:Ljava/lang/String;
 
     goto :goto_0
@@ -411,13 +393,11 @@
     :goto_0
     iput-boolean v1, p0, Lcom/badlogic/gdx/utils/XmlWriter;->indentNextClose:Z
 
-    .line 118
     return-object p0
 .end method
 
 .method public text(Ljava/lang/Object;)Lcom/badlogic/gdx/utils/XmlWriter;
-    .locals 3
-    .param p1, "text"    # Ljava/lang/Object;
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -427,77 +407,71 @@
     .line 94
     invoke-direct {p0}, Lcom/badlogic/gdx/utils/XmlWriter;->startElementContent()Z
 
-    .line 95
     if-nez p1, :cond_0
 
-    const-string v0, "null"
+    const-string p1, "null"
 
     goto :goto_0
 
+    .line 95
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 96
-    .local v0, "string":Ljava/lang/String;
     :goto_0
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v0
 
-    const/16 v2, 0x40
+    const/16 v1, 0x40
 
-    if-le v1, v2, :cond_1
+    if-le v0, v1, :cond_1
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
     goto :goto_1
 
     :cond_1
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :goto_1
-    iput-boolean v1, p0, Lcom/badlogic/gdx/utils/XmlWriter;->indentNextClose:Z
+    iput-boolean v0, p0, Lcom/badlogic/gdx/utils/XmlWriter;->indentNextClose:Z
 
-    .line 97
-    const/16 v2, 0xa
+    const/16 v1, 0xa
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
     .line 98
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/XmlWriter;->writer:Ljava/io/Writer;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/XmlWriter;->writer:Ljava/io/Writer;
 
-    invoke-virtual {v1, v2}, Ljava/io/Writer;->write(I)V
+    invoke-virtual {v0, v1}, Ljava/io/Writer;->write(I)V
 
     .line 99
     invoke-direct {p0}, Lcom/badlogic/gdx/utils/XmlWriter;->indent()V
 
     .line 101
     :cond_2
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/XmlWriter;->writer:Ljava/io/Writer;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/XmlWriter;->writer:Ljava/io/Writer;
 
-    invoke-virtual {v1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {v0, p1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
     .line 102
-    iget-boolean v1, p0, Lcom/badlogic/gdx/utils/XmlWriter;->indentNextClose:Z
+    iget-boolean p1, p0, Lcom/badlogic/gdx/utils/XmlWriter;->indentNextClose:Z
 
-    if-eqz v1, :cond_3
+    if-eqz p1, :cond_3
 
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/XmlWriter;->writer:Ljava/io/Writer;
+    iget-object p1, p0, Lcom/badlogic/gdx/utils/XmlWriter;->writer:Ljava/io/Writer;
 
-    invoke-virtual {v1, v2}, Ljava/io/Writer;->write(I)V
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(I)V
 
-    .line 103
     :cond_3
     return-object p0
 .end method
 
 .method public write([CII)V
     .locals 1
-    .param p1, "cbuf"    # [C
-    .param p2, "off"    # I
-    .param p3, "len"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -512,6 +486,5 @@
 
     invoke-virtual {v0, p1, p2, p3}, Ljava/io/Writer;->write([CII)V
 
-    .line 131
     return-void
 .end method

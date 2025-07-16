@@ -42,8 +42,6 @@
     .end annotation
 
     .line 45
-    .local p0, "this":Lio/reactivex/internal/operators/completable/CompletableToSingle$ToSingle;, "Lio/reactivex/internal/operators/completable/CompletableToSingle<TT;>.ToSingle;"
-    .local p2, "observer":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
     iput-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableToSingle$ToSingle;->this$0:Lio/reactivex/internal/operators/completable/CompletableToSingle;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,22 +49,18 @@
     .line 46
     iput-object p2, p0, Lio/reactivex/internal/operators/completable/CompletableToSingle$ToSingle;->observer:Lio/reactivex/SingleObserver;
 
-    .line 47
     return-void
 .end method
 
 
 # virtual methods
 .method public onComplete()V
-    .locals 4
+    .locals 3
 
     .line 53
-    .local p0, "this":Lio/reactivex/internal/operators/completable/CompletableToSingle$ToSingle;, "Lio/reactivex/internal/operators/completable/CompletableToSingle<TT;>.ToSingle;"
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableToSingle$ToSingle;->this$0:Lio/reactivex/internal/operators/completable/CompletableToSingle;
 
     iget-object v0, v0, Lio/reactivex/internal/operators/completable/CompletableToSingle;->completionValueSupplier:Ljava/util/concurrent/Callable;
-
-    const/4 v1, 0x0
 
     if-eqz v0, :cond_0
 
@@ -82,54 +76,40 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 60
-    .local v0, "v":Ljava/lang/Object;, "TT;"
     goto :goto_0
 
-    .line 56
-    .end local v0    # "v":Ljava/lang/Object;, "TT;"
     :catchall_0
     move-exception v0
 
     .line 57
-    .local v0, "e":Ljava/lang/Throwable;
-    .local v1, "v":Ljava/lang/Object;, "TT;"
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 58
-    iget-object v2, p0, Lio/reactivex/internal/operators/completable/CompletableToSingle$ToSingle;->observer:Lio/reactivex/SingleObserver;
+    iget-object v1, p0, Lio/reactivex/internal/operators/completable/CompletableToSingle$ToSingle;->observer:Lio/reactivex/SingleObserver;
 
-    invoke-interface {v2, v0}, Lio/reactivex/SingleObserver;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v1, v0}, Lio/reactivex/SingleObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 59
     return-void
 
-    .line 53
-    .end local v0    # "e":Ljava/lang/Throwable;
-    .end local v1    # "v":Ljava/lang/Object;, "TT;"
-    :cond_0
-    move-object v0, v1
-
     .line 62
-    .local v0, "v":Ljava/lang/Object;, "TT;"
-    iget-object v1, p0, Lio/reactivex/internal/operators/completable/CompletableToSingle$ToSingle;->this$0:Lio/reactivex/internal/operators/completable/CompletableToSingle;
+    :cond_0
+    iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableToSingle$ToSingle;->this$0:Lio/reactivex/internal/operators/completable/CompletableToSingle;
 
-    iget-object v0, v1, Lio/reactivex/internal/operators/completable/CompletableToSingle;->completionValue:Ljava/lang/Object;
+    iget-object v0, v0, Lio/reactivex/internal/operators/completable/CompletableToSingle;->completionValue:Ljava/lang/Object;
 
-    .line 65
     :goto_0
     if-nez v0, :cond_1
 
     .line 66
-    iget-object v1, p0, Lio/reactivex/internal/operators/completable/CompletableToSingle$ToSingle;->observer:Lio/reactivex/SingleObserver;
+    iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableToSingle$ToSingle;->observer:Lio/reactivex/SingleObserver;
 
-    new-instance v2, Ljava/lang/NullPointerException;
+    new-instance v1, Ljava/lang/NullPointerException;
 
-    const-string v3, "The value supplied is null"
+    const-string v2, "The value supplied is null"
 
-    invoke-direct {v2, v3}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    invoke-interface {v1, v2}, Lio/reactivex/SingleObserver;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v0, v1}, Lio/reactivex/SingleObserver;->onError(Ljava/lang/Throwable;)V
 
     goto :goto_1
 
@@ -139,35 +119,28 @@
 
     invoke-interface {v1, v0}, Lio/reactivex/SingleObserver;->onSuccess(Ljava/lang/Object;)V
 
-    .line 70
     :goto_1
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 74
-    .local p0, "this":Lio/reactivex/internal/operators/completable/CompletableToSingle$ToSingle;, "Lio/reactivex/internal/operators/completable/CompletableToSingle<TT;>.ToSingle;"
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableToSingle$ToSingle;->observer:Lio/reactivex/SingleObserver;
 
     invoke-interface {v0, p1}, Lio/reactivex/SingleObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 75
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 79
-    .local p0, "this":Lio/reactivex/internal/operators/completable/CompletableToSingle$ToSingle;, "Lio/reactivex/internal/operators/completable/CompletableToSingle<TT;>.ToSingle;"
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableToSingle$ToSingle;->observer:Lio/reactivex/SingleObserver;
 
     invoke-interface {v0, p1}, Lio/reactivex/SingleObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 80
     return-void
 .end method

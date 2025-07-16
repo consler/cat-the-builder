@@ -15,8 +15,6 @@
 # direct methods
 .method protected constructor <init>(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "key"    # Ljava/lang/Object;
-    .param p2, "value"    # Ljava/lang/Object;
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +25,6 @@
     .line 49
     iput-object p2, p0, Lorg/apache/commons/collections/keyvalue/AbstractKeyValue;->value:Ljava/lang/Object;
 
-    .line 50
     return-void
 .end method
 
@@ -65,15 +62,21 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
+    move-result-object v0
+
     const/16 v1, 0x3d
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+
+    move-result-object v0
 
     invoke-virtual {p0}, Lorg/apache/commons/collections/keyvalue/AbstractKeyValue;->getValue()Ljava/lang/Object;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 

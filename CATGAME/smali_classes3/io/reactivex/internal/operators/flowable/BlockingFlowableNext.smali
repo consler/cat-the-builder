@@ -49,14 +49,11 @@
     .end annotation
 
     .line 38
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/BlockingFlowableNext;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableNext<TT;>;"
-    .local p1, "source":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 39
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableNext;->source:Lorg/reactivestreams/Publisher;
 
-    .line 40
     return-void
 .end method
 
@@ -73,13 +70,11 @@
     .end annotation
 
     .line 44
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/BlockingFlowableNext;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableNext<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextSubscriber;
 
     invoke-direct {v0}, Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextSubscriber;-><init>()V
 
     .line 45
-    .local v0, "nextSubscriber":Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextSubscriber;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextSubscriber<TT;>;"
     new-instance v1, Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextIterator;
 
     iget-object v2, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableNext;->source:Lorg/reactivestreams/Publisher;

@@ -57,14 +57,11 @@
     .end annotation
 
     .line 152
-    .local p0, "this":Lcom/google/crypto/tink/KeyManagerImpl$KeyFactoryHelper;, "Lcom/google/crypto/tink/KeyManagerImpl$KeyFactoryHelper<TKeyFormatProtoT;TKeyProtoT;>;"
-    .local p1, "keyFactory":Lcom/google/crypto/tink/KeyTypeManager$KeyFactory;, "Lcom/google/crypto/tink/KeyTypeManager$KeyFactory<TKeyFormatProtoT;TKeyProtoT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 153
     iput-object p1, p0, Lcom/google/crypto/tink/KeyManagerImpl$KeyFactoryHelper;->keyFactory:Lcom/google/crypto/tink/KeyTypeManager$KeyFactory;
 
-    .line 154
     return-void
 .end method
 
@@ -92,8 +89,6 @@
     .end annotation
 
     .line 159
-    .local p0, "this":Lcom/google/crypto/tink/KeyManagerImpl$KeyFactoryHelper;, "Lcom/google/crypto/tink/KeyManagerImpl$KeyFactoryHelper<TKeyFormatProtoT;TKeyProtoT;>;"
-    .local p1, "keyFormat":Lcom/google/crypto/tink/shaded/protobuf/MessageLite;, "TKeyFormatProtoT;"
     iget-object v0, p0, Lcom/google/crypto/tink/KeyManagerImpl$KeyFactoryHelper;->keyFactory:Lcom/google/crypto/tink/KeyTypeManager$KeyFactory;
 
     invoke-virtual {v0, p1}, Lcom/google/crypto/tink/KeyTypeManager$KeyFactory;->validateKeyFormat(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)V
@@ -103,18 +98,17 @@
 
     invoke-virtual {v0, p1}, Lcom/google/crypto/tink/KeyTypeManager$KeyFactory;->createKey(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
 
-    return-object v0
+    return-object p1
 .end method
 
 
 # virtual methods
 .method castValidateCreate(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
     .locals 2
-    .param p1, "message"    # Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -139,14 +133,11 @@
     .end annotation
 
     .line 169
-    .local p0, "this":Lcom/google/crypto/tink/KeyManagerImpl$KeyFactoryHelper;, "Lcom/google/crypto/tink/KeyManagerImpl$KeyFactoryHelper<TKeyFormatProtoT;TKeyProtoT;>;"
     new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v1, "Expected proto of type "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v1, p0, Lcom/google/crypto/tink/KeyManagerImpl$KeyFactoryHelper;->keyFactory:Lcom/google/crypto/tink/KeyTypeManager$KeyFactory;
 
@@ -160,6 +151,8 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -175,21 +168,20 @@
     .line 170
     invoke-static {p1, v0, v1}, Lcom/google/crypto/tink/KeyManagerImpl;->access$000(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
 
     .line 169
-    invoke-direct {p0, v0}, Lcom/google/crypto/tink/KeyManagerImpl$KeyFactoryHelper;->validateCreate(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
+    invoke-direct {p0, p1}, Lcom/google/crypto/tink/KeyManagerImpl$KeyFactoryHelper;->validateCreate(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method parseValidateCreate(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
     .locals 1
-    .param p1, "serializedKeyFormat"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -215,16 +207,15 @@
     .end annotation
 
     .line 165
-    .local p0, "this":Lcom/google/crypto/tink/KeyManagerImpl$KeyFactoryHelper;, "Lcom/google/crypto/tink/KeyManagerImpl$KeyFactoryHelper<TKeyFormatProtoT;TKeyProtoT;>;"
     iget-object v0, p0, Lcom/google/crypto/tink/KeyManagerImpl$KeyFactoryHelper;->keyFactory:Lcom/google/crypto/tink/KeyTypeManager$KeyFactory;
 
     invoke-virtual {v0, p1}, Lcom/google/crypto/tink/KeyTypeManager$KeyFactory;->parseKeyFormat(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0}, Lcom/google/crypto/tink/KeyManagerImpl$KeyFactoryHelper;->validateCreate(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
+    invoke-direct {p0, p1}, Lcom/google/crypto/tink/KeyManagerImpl$KeyFactoryHelper;->validateCreate(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

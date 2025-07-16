@@ -25,11 +25,20 @@
 # direct methods
 .method constructor <init>(ILjava/lang/Class;I)V
     .locals 0
-    .param p1, "tagKey"    # I
-    .param p3, "frameworkMinimumSdk"    # I
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "tagKey",
+            "type",
+            "frameworkMinimumSdk"
+        }
+    .end annotation
 
-    .line 4057
-    .local p2, "type":Ljava/lang/Class;, "Ljava/lang/Class<Ljava/lang/Boolean;>;"
+    .line 4330
     invoke-direct {p0, p1, p2, p3}, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;-><init>(ILjava/lang/Class;I)V
 
     return-void
@@ -38,25 +47,40 @@
 
 # virtual methods
 .method frameworkGet(Landroid/view/View;)Ljava/lang/Boolean;
-    .locals 1
-    .param p1, "view"    # Landroid/view/View;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "view"
+        }
+    .end annotation
 
-    .line 4062
+    .line 4335
     invoke-virtual {p1}, Landroid/view/View;->isAccessibilityHeading()Z
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method bridge synthetic frameworkGet(Landroid/view/View;)Ljava/lang/Object;
     .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1000
+        }
+        names = {
+            "view"
+        }
+    .end annotation
 
-    .line 4057
+    .line 4330
     invoke-virtual {p0, p1}, Landroidx/core/view/ViewCompat$5;->frameworkGet(Landroid/view/View;)Ljava/lang/Boolean;
 
     move-result-object p1
@@ -65,25 +89,42 @@
 .end method
 
 .method frameworkSet(Landroid/view/View;Ljava/lang/Boolean;)V
-    .locals 1
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "value"    # Ljava/lang/Boolean;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "view",
+            "value"
+        }
+    .end annotation
 
-    .line 4068
+    .line 4341
     invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v0
+    move-result p2
 
-    invoke-virtual {p1, v0}, Landroid/view/View;->setAccessibilityHeading(Z)V
+    invoke-virtual {p1, p2}, Landroid/view/View;->setAccessibilityHeading(Z)V
 
-    .line 4069
     return-void
 .end method
 
 .method bridge synthetic frameworkSet(Landroid/view/View;Ljava/lang/Object;)V
     .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1000,
+            0x1000
+        }
+        names = {
+            "view",
+            "value"
+        }
+    .end annotation
 
-    .line 4057
+    .line 4330
     check-cast p2, Ljava/lang/Boolean;
 
     invoke-virtual {p0, p1, p2}, Landroidx/core/view/ViewCompat$5;->frameworkSet(Landroid/view/View;Ljava/lang/Boolean;)V
@@ -92,24 +133,42 @@
 .end method
 
 .method shouldUpdate(Ljava/lang/Boolean;Ljava/lang/Boolean;)Z
-    .locals 1
-    .param p1, "oldValue"    # Ljava/lang/Boolean;
-    .param p2, "newValue"    # Ljava/lang/Boolean;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "oldValue",
+            "newValue"
+        }
+    .end annotation
 
-    .line 4073
+    .line 4346
     invoke-virtual {p0, p1, p2}, Landroidx/core/view/ViewCompat$5;->booleanNullToFalseEquals(Ljava/lang/Boolean;Ljava/lang/Boolean;)Z
 
-    move-result v0
+    move-result p1
 
-    xor-int/lit8 v0, v0, 0x1
+    xor-int/lit8 p1, p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method bridge synthetic shouldUpdate(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1000,
+            0x1000
+        }
+        names = {
+            "oldValue",
+            "newValue"
+        }
+    .end annotation
 
-    .line 4057
+    .line 4330
     check-cast p1, Ljava/lang/Boolean;
 
     check-cast p2, Ljava/lang/Boolean;

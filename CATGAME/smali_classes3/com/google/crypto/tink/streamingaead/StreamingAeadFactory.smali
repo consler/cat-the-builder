@@ -20,7 +20,6 @@
 
 .method public static getPrimitive(Lcom/google/crypto/tink/KeysetHandle;)Lcom/google/crypto/tink/StreamingAead;
     .locals 1
-    .param p0, "keysetHandle"    # Lcom/google/crypto/tink/KeysetHandle;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -36,19 +35,18 @@
         }
     .end annotation
 
-    .line 49
     const/4 v0, 0x0
 
+    .line 49
     invoke-static {p0, v0}, Lcom/google/crypto/tink/streamingaead/StreamingAeadFactory;->getPrimitive(Lcom/google/crypto/tink/KeysetHandle;Lcom/google/crypto/tink/KeyManager;)Lcom/google/crypto/tink/StreamingAead;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static getPrimitive(Lcom/google/crypto/tink/KeysetHandle;Lcom/google/crypto/tink/KeyManager;)Lcom/google/crypto/tink/StreamingAead;
-    .locals 2
-    .param p0, "keysetHandle"    # Lcom/google/crypto/tink/KeysetHandle;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -78,7 +76,6 @@
     .end annotation
 
     .line 60
-    .local p1, "keyManager":Lcom/google/crypto/tink/KeyManager;, "Lcom/google/crypto/tink/KeyManager<Lcom/google/crypto/tink/StreamingAead;>;"
     new-instance v0, Lcom/google/crypto/tink/streamingaead/StreamingAeadWrapper;
 
     invoke-direct {v0}, Lcom/google/crypto/tink/streamingaead/StreamingAeadWrapper;-><init>()V
@@ -91,15 +88,14 @@
     .line 62
     invoke-static {p0, p1, v0}, Lcom/google/crypto/tink/Registry;->getPrimitives(Lcom/google/crypto/tink/KeysetHandle;Lcom/google/crypto/tink/KeyManager;Ljava/lang/Class;)Lcom/google/crypto/tink/PrimitiveSet;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 63
-    .local v0, "primitives":Lcom/google/crypto/tink/PrimitiveSet;, "Lcom/google/crypto/tink/PrimitiveSet<Lcom/google/crypto/tink/StreamingAead;>;"
-    invoke-static {v0}, Lcom/google/crypto/tink/Registry;->wrap(Lcom/google/crypto/tink/PrimitiveSet;)Ljava/lang/Object;
+    invoke-static {p0}, Lcom/google/crypto/tink/Registry;->wrap(Lcom/google/crypto/tink/PrimitiveSet;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Lcom/google/crypto/tink/StreamingAead;
+    check-cast p0, Lcom/google/crypto/tink/StreamingAead;
 
-    return-object v1
+    return-object p0
 .end method

@@ -31,8 +31,6 @@
 # virtual methods
 .method public transformRequest(Lcom/squareup/picasso/Request;)Lcom/squareup/picasso/Request;
     .locals 0
-    .param p1, "request"    # Lcom/squareup/picasso/Request;
 
-    .line 97
     return-object p1
 .end method

@@ -23,7 +23,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/camera2/internal/FocusMeteringControl;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/camera2/internal/FocusMeteringControl;
 
     .line 464
     iput-object p1, p0, Landroidx/camera/camera2/internal/FocusMeteringControl$2;->this$0:Landroidx/camera/camera2/internal/FocusMeteringControl;
@@ -54,14 +53,12 @@
 
     invoke-virtual {v0, v1}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->setException(Ljava/lang/Throwable;)Z
 
-    .line 486
     :cond_0
     return-void
 .end method
 
 .method public onCaptureCompleted(Landroidx/camera/core/impl/CameraCaptureResult;)V
     .locals 1
-    .param p1, "cameraCaptureResult"    # Landroidx/camera/core/impl/CameraCaptureResult;
 
     .line 467
     iget-object v0, p0, Landroidx/camera/camera2/internal/FocusMeteringControl$2;->val$completer:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -71,14 +68,12 @@
     .line 468
     invoke-virtual {v0, p1}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
 
-    .line 470
     :cond_0
     return-void
 .end method
 
 .method public onCaptureFailed(Landroidx/camera/core/impl/CameraCaptureFailure;)V
     .locals 2
-    .param p1, "failure"    # Landroidx/camera/core/impl/CameraCaptureFailure;
 
     .line 474
     iget-object v0, p0, Landroidx/camera/camera2/internal/FocusMeteringControl$2;->val$completer:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -92,7 +87,6 @@
 
     invoke-virtual {v0, v1}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->setException(Ljava/lang/Throwable;)Z
 
-    .line 478
     :cond_0
     return-void
 .end method

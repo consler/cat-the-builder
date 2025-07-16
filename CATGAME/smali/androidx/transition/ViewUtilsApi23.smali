@@ -4,17 +4,12 @@
 
 
 # static fields
-.field private static sTryHiddenSetTransitionVisibility:Z
+.field private static sTryHiddenSetTransitionVisibility:Z = true
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
-
-    .line 32
-    const/4 v0, 0x1
-
-    sput-boolean v0, Landroidx/transition/ViewUtilsApi23;->sTryHiddenSetTransitionVisibility:Z
+    .locals 0
 
     return-void
 .end method
@@ -32,8 +27,6 @@
 # virtual methods
 .method public setTransitionVisibility(Landroid/view/View;I)V
     .locals 2
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "visibility"    # I
 
     .line 38
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -59,21 +52,14 @@
     :try_end_0
     .catch Ljava/lang/NoSuchMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 48
     goto :goto_0
 
-    .line 46
     :catch_0
-    move-exception v0
+    const/4 p1, 0x0
 
     .line 47
-    .local v0, "e":Ljava/lang/NoSuchMethodError;
-    const/4 v1, 0x0
+    sput-boolean p1, Landroidx/transition/ViewUtilsApi23;->sTryHiddenSetTransitionVisibility:Z
 
-    sput-boolean v1, Landroidx/transition/ViewUtilsApi23;->sTryHiddenSetTransitionVisibility:Z
-
-    .line 51
-    .end local v0    # "e":Ljava/lang/NoSuchMethodError;
     :cond_1
     :goto_0
     return-void

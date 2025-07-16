@@ -55,19 +55,16 @@
     .end annotation
 
     .line 203
-    .local p0, "this":Lcom/badlogic/gdx/graphics/VertexAttributes$ReadonlyIterator;, "Lcom/badlogic/gdx/graphics/VertexAttributes$ReadonlyIterator<TT;>;"
-    .local p1, "array":[Ljava/lang/Object;, "[TT;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 201
     const/4 v0, 0x1
 
+    .line 201
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/VertexAttributes$ReadonlyIterator;->valid:Z
 
     .line 204
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/VertexAttributes$ReadonlyIterator;->array:[Ljava/lang/Object;
 
-    .line 205
     return-void
 .end method
 
@@ -77,7 +74,6 @@
     .locals 2
 
     .line 209
-    .local p0, "this":Lcom/badlogic/gdx/graphics/VertexAttributes$ReadonlyIterator;, "Lcom/badlogic/gdx/graphics/VertexAttributes$ReadonlyIterator<TT;>;"
     iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/VertexAttributes$ReadonlyIterator;->valid:Z
 
     if-eqz v0, :cond_1
@@ -122,8 +118,6 @@
         }
     .end annotation
 
-    .line 231
-    .local p0, "this":Lcom/badlogic/gdx/graphics/VertexAttributes$ReadonlyIterator;, "Lcom/badlogic/gdx/graphics/VertexAttributes$ReadonlyIterator<TT;>;"
     return-object p0
 .end method
 
@@ -136,7 +130,6 @@
     .end annotation
 
     .line 215
-    .local p0, "this":Lcom/badlogic/gdx/graphics/VertexAttributes$ReadonlyIterator;, "Lcom/badlogic/gdx/graphics/VertexAttributes$ReadonlyIterator<TT;>;"
     iget v0, p0, Lcom/badlogic/gdx/graphics/VertexAttributes$ReadonlyIterator;->index:I
 
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/VertexAttributes$ReadonlyIterator;->array:[Ljava/lang/Object;
@@ -150,9 +143,9 @@
 
     if-eqz v2, :cond_0
 
-    .line 217
     add-int/lit8 v2, v0, 0x1
 
+    .line 217
     iput v2, p0, Lcom/badlogic/gdx/graphics/VertexAttributes$ReadonlyIterator;->index:I
 
     aget-object v0, v1, v0
@@ -188,7 +181,6 @@
     .locals 2
 
     .line 222
-    .local p0, "this":Lcom/badlogic/gdx/graphics/VertexAttributes$ReadonlyIterator;, "Lcom/badlogic/gdx/graphics/VertexAttributes$ReadonlyIterator<TT;>;"
     new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
     const-string v1, "Remove not allowed."
@@ -201,12 +193,10 @@
 .method public reset()V
     .locals 1
 
-    .line 226
-    .local p0, "this":Lcom/badlogic/gdx/graphics/VertexAttributes$ReadonlyIterator;, "Lcom/badlogic/gdx/graphics/VertexAttributes$ReadonlyIterator<TT;>;"
     const/4 v0, 0x0
 
+    .line 226
     iput v0, p0, Lcom/badlogic/gdx/graphics/VertexAttributes$ReadonlyIterator;->index:I
 
-    .line 227
     return-void
 .end method

@@ -32,7 +32,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/mediarouter/media/RemoteControlClientCompat$JellybeanImpl;)V
     .locals 1
-    .param p1, "impl"    # Landroidx/mediarouter/media/RemoteControlClientCompat$JellybeanImpl;
 
     .line 170
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,72 +43,63 @@
 
     iput-object v0, p0, Landroidx/mediarouter/media/RemoteControlClientCompat$JellybeanImpl$VolumeCallbackWrapper;->mImplWeak:Ljava/lang/ref/WeakReference;
 
-    .line 172
     return-void
 .end method
 
 
 # virtual methods
 .method public onVolumeSetRequest(Ljava/lang/Object;I)V
-    .locals 2
-    .param p1, "routeObj"    # Ljava/lang/Object;
-    .param p2, "volume"    # I
+    .locals 1
 
     .line 184
-    iget-object v0, p0, Landroidx/mediarouter/media/RemoteControlClientCompat$JellybeanImpl$VolumeCallbackWrapper;->mImplWeak:Ljava/lang/ref/WeakReference;
+    iget-object p1, p0, Landroidx/mediarouter/media/RemoteControlClientCompat$JellybeanImpl$VolumeCallbackWrapper;->mImplWeak:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroidx/mediarouter/media/RemoteControlClientCompat$JellybeanImpl;
+    check-cast p1, Landroidx/mediarouter/media/RemoteControlClientCompat$JellybeanImpl;
+
+    if-eqz p1, :cond_0
 
     .line 185
-    .local v0, "impl":Landroidx/mediarouter/media/RemoteControlClientCompat$JellybeanImpl;
+    iget-object v0, p1, Landroidx/mediarouter/media/RemoteControlClientCompat$JellybeanImpl;->mVolumeCallback:Landroidx/mediarouter/media/RemoteControlClientCompat$VolumeCallback;
+
     if-eqz v0, :cond_0
 
-    iget-object v1, v0, Landroidx/mediarouter/media/RemoteControlClientCompat$JellybeanImpl;->mVolumeCallback:Landroidx/mediarouter/media/RemoteControlClientCompat$VolumeCallback;
-
-    if-eqz v1, :cond_0
-
     .line 186
-    iget-object v1, v0, Landroidx/mediarouter/media/RemoteControlClientCompat$JellybeanImpl;->mVolumeCallback:Landroidx/mediarouter/media/RemoteControlClientCompat$VolumeCallback;
+    iget-object p1, p1, Landroidx/mediarouter/media/RemoteControlClientCompat$JellybeanImpl;->mVolumeCallback:Landroidx/mediarouter/media/RemoteControlClientCompat$VolumeCallback;
 
-    invoke-interface {v1, p2}, Landroidx/mediarouter/media/RemoteControlClientCompat$VolumeCallback;->onVolumeSetRequest(I)V
+    invoke-interface {p1, p2}, Landroidx/mediarouter/media/RemoteControlClientCompat$VolumeCallback;->onVolumeSetRequest(I)V
 
-    .line 188
     :cond_0
     return-void
 .end method
 
 .method public onVolumeUpdateRequest(Ljava/lang/Object;I)V
-    .locals 2
-    .param p1, "routeObj"    # Ljava/lang/Object;
-    .param p2, "direction"    # I
+    .locals 1
 
     .line 176
-    iget-object v0, p0, Landroidx/mediarouter/media/RemoteControlClientCompat$JellybeanImpl$VolumeCallbackWrapper;->mImplWeak:Ljava/lang/ref/WeakReference;
+    iget-object p1, p0, Landroidx/mediarouter/media/RemoteControlClientCompat$JellybeanImpl$VolumeCallbackWrapper;->mImplWeak:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroidx/mediarouter/media/RemoteControlClientCompat$JellybeanImpl;
+    check-cast p1, Landroidx/mediarouter/media/RemoteControlClientCompat$JellybeanImpl;
+
+    if-eqz p1, :cond_0
 
     .line 177
-    .local v0, "impl":Landroidx/mediarouter/media/RemoteControlClientCompat$JellybeanImpl;
+    iget-object v0, p1, Landroidx/mediarouter/media/RemoteControlClientCompat$JellybeanImpl;->mVolumeCallback:Landroidx/mediarouter/media/RemoteControlClientCompat$VolumeCallback;
+
     if-eqz v0, :cond_0
 
-    iget-object v1, v0, Landroidx/mediarouter/media/RemoteControlClientCompat$JellybeanImpl;->mVolumeCallback:Landroidx/mediarouter/media/RemoteControlClientCompat$VolumeCallback;
-
-    if-eqz v1, :cond_0
-
     .line 178
-    iget-object v1, v0, Landroidx/mediarouter/media/RemoteControlClientCompat$JellybeanImpl;->mVolumeCallback:Landroidx/mediarouter/media/RemoteControlClientCompat$VolumeCallback;
+    iget-object p1, p1, Landroidx/mediarouter/media/RemoteControlClientCompat$JellybeanImpl;->mVolumeCallback:Landroidx/mediarouter/media/RemoteControlClientCompat$VolumeCallback;
 
-    invoke-interface {v1, p2}, Landroidx/mediarouter/media/RemoteControlClientCompat$VolumeCallback;->onVolumeUpdateRequest(I)V
+    invoke-interface {p1, p2}, Landroidx/mediarouter/media/RemoteControlClientCompat$VolumeCallback;->onVolumeUpdateRequest(I)V
 
-    .line 180
     :cond_0
     return-void
 .end method

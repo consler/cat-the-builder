@@ -36,9 +36,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/Flowable;JJI)V
     .locals 0
-    .param p2, "size"    # J
-    .param p4, "skip"    # J
-    .param p6, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -48,8 +45,6 @@
     .end annotation
 
     .line 36
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableWindow;, "Lio/reactivex/internal/operators/flowable/FlowableWindow<TT;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
     .line 37
@@ -61,7 +56,6 @@
     .line 39
     iput p6, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow;->bufferSize:I
 
-    .line 40
     return-void
 .end method
 
@@ -80,8 +74,6 @@
     .end annotation
 
     .line 44
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableWindow;, "Lio/reactivex/internal/operators/flowable/FlowableWindow<TT;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-Lio/reactivex/Flowable<TT;>;>;"
     iget-wide v0, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow;->skip:J
 
     iget-wide v2, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow;->size:J
@@ -105,7 +97,6 @@
 
     goto :goto_0
 
-    .line 47
     :cond_0
     cmp-long v0, v0, v2
 
@@ -152,7 +143,6 @@
 
     invoke-virtual {v0, v8}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 52
     :goto_0
     return-void
 .end method

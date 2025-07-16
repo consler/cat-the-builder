@@ -25,18 +25,15 @@
     .line 438
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$Strength;-><init>()V
 
-    .line 439
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$BrownianAcceleration;)V
     .locals 0
-    .param p1, "rotation"    # Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$BrownianAcceleration;
 
     .line 442
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$Strength;-><init>(Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$Strength;)V
 
-    .line 443
     return-void
 .end method
 
@@ -63,7 +60,6 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$BrownianAcceleration;->accelerationChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    .line 449
     return-void
 .end method
 
@@ -92,36 +88,30 @@
 .method public update()V
     .locals 11
 
-    .line 453
-    const/4 v0, 0x2
+    .line 454
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$BrownianAcceleration;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
 
-    .local v0, "lifeOffset":I
-    const/4 v1, 0x0
+    iget-object v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->particles:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;
 
-    .local v1, "strengthOffset":I
+    iget v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;->size:I
+
+    const/4 v1, 0x2
+
     const/4 v2, 0x0
 
-    .line 454
-    .local v2, "forceOffset":I
-    const/4 v3, 0x0
+    move v3, v2
 
-    .local v3, "i":I
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$BrownianAcceleration;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
+    move v4, v3
 
-    iget-object v4, v4, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->particles:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;
-
-    iget v4, v4, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;->size:I
-
-    .local v4, "c":I
     :goto_0
-    if-ge v3, v4, :cond_0
+    if-ge v2, v0, :cond_0
 
     .line 456
     iget-object v5, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$BrownianAcceleration;->strengthChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
     iget-object v5, v5, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v6, v1, 0x0
+    add-int/lit8 v6, v3, 0x0
 
     aget v5, v5, v6
 
@@ -129,7 +119,7 @@
 
     iget-object v6, v6, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v7, v1, 0x1
+    add-int/lit8 v7, v3, 0x1
 
     aget v6, v6, v7
 
@@ -139,7 +129,7 @@
 
     iget-object v8, v8, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    aget v8, v8, v0
+    aget v8, v8, v1
 
     .line 458
     invoke-virtual {v7, v8}, Lcom/badlogic/gdx/graphics/g3d/particles/values/ScaledNumericValue;->getScale(F)F
@@ -151,7 +141,6 @@
     add-float/2addr v5, v6
 
     .line 459
-    .local v5, "strength":F
     sget-object v6, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$BrownianAcceleration;->TMP_V3:Lcom/badlogic/gdx/math/Vector3;
 
     const/high16 v7, -0x40800000    # -1.0f
@@ -181,83 +170,79 @@
     invoke-virtual {v6, v5}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
 
     .line 460
-    iget-object v6, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$BrownianAcceleration;->accelerationChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+    iget-object v5, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$BrownianAcceleration;->accelerationChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    iget-object v6, v6, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
+    iget-object v5, v5, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v7, v2, 0x0
+    add-int/lit8 v6, v4, 0x0
 
-    aget v8, v6, v7
+    aget v7, v5, v6
 
-    sget-object v9, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$BrownianAcceleration;->TMP_V3:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v8, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$BrownianAcceleration;->TMP_V3:Lcom/badlogic/gdx/math/Vector3;
 
-    iget v9, v9, Lcom/badlogic/gdx/math/Vector3;->x:F
+    iget v8, v8, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    add-float/2addr v8, v9
+    add-float/2addr v7, v8
 
-    aput v8, v6, v7
+    aput v7, v5, v6
 
     .line 461
-    iget-object v6, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$BrownianAcceleration;->accelerationChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+    iget-object v5, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$BrownianAcceleration;->accelerationChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    iget-object v6, v6, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
+    iget-object v5, v5, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v7, v2, 0x1
+    add-int/lit8 v6, v4, 0x1
 
-    aget v8, v6, v7
+    aget v7, v5, v6
 
-    sget-object v9, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$BrownianAcceleration;->TMP_V3:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v8, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$BrownianAcceleration;->TMP_V3:Lcom/badlogic/gdx/math/Vector3;
 
-    iget v9, v9, Lcom/badlogic/gdx/math/Vector3;->y:F
+    iget v8, v8, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    add-float/2addr v8, v9
+    add-float/2addr v7, v8
 
-    aput v8, v6, v7
+    aput v7, v5, v6
 
     .line 462
-    iget-object v6, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$BrownianAcceleration;->accelerationChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+    iget-object v5, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$BrownianAcceleration;->accelerationChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    iget-object v6, v6, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
+    iget-object v5, v5, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v7, v2, 0x2
+    add-int/lit8 v6, v4, 0x2
 
-    aget v8, v6, v7
+    aget v7, v5, v6
 
-    sget-object v9, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$BrownianAcceleration;->TMP_V3:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v8, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$BrownianAcceleration;->TMP_V3:Lcom/badlogic/gdx/math/Vector3;
 
-    iget v9, v9, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget v8, v8, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    add-float/2addr v8, v9
+    add-float/2addr v7, v8
 
-    aput v8, v6, v7
+    aput v7, v5, v6
+
+    add-int/lit8 v2, v2, 0x1
 
     .line 454
-    .end local v5    # "strength":F
-    add-int/lit8 v3, v3, 0x1
-
     iget-object v5, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$BrownianAcceleration;->strengthChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
     iget v5, v5, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
 
-    add-int/2addr v1, v5
+    add-int/2addr v3, v5
 
     iget-object v5, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$BrownianAcceleration;->accelerationChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
     iget v5, v5, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
 
-    add-int/2addr v2, v5
+    add-int/2addr v4, v5
 
     iget-object v5, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$BrownianAcceleration;->lifeChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
     iget v5, v5, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
 
-    add-int/2addr v0, v5
+    add-int/2addr v1, v5
 
     goto :goto_0
 
-    .line 464
-    .end local v3    # "i":I
-    .end local v4    # "c":I
     :cond_0
     return-void
 .end method

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Runnable;)V
     .locals 0
-    .param p1, "action"    # Ljava/lang/Runnable;
 
     .line 219
     invoke-direct {p0}, Lio/reactivex/internal/schedulers/SchedulerWhen$ScheduledAction;-><init>()V
@@ -29,7 +28,6 @@
     .line 220
     iput-object p1, p0, Lio/reactivex/internal/schedulers/SchedulerWhen$ImmediateAction;->action:Ljava/lang/Runnable;
 
-    .line 221
     return-void
 .end method
 
@@ -37,8 +35,6 @@
 # virtual methods
 .method protected callActual(Lio/reactivex/Scheduler$Worker;Lio/reactivex/CompletableObserver;)Lio/reactivex/disposables/Disposable;
     .locals 2
-    .param p1, "actualWorker"    # Lio/reactivex/Scheduler$Worker;
-    .param p2, "actionCompletable"    # Lio/reactivex/CompletableObserver;
 
     .line 225
     new-instance v0, Lio/reactivex/internal/schedulers/SchedulerWhen$OnCompletedAction;
@@ -49,7 +45,7 @@
 
     invoke-virtual {p1, v0}, Lio/reactivex/Scheduler$Worker;->schedule(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

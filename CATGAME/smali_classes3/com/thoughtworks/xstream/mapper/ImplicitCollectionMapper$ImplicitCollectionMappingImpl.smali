@@ -30,10 +30,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .param p1, "fieldName"    # Ljava/lang/String;
-    .param p2, "itemType"    # Ljava/lang/Class;
-    .param p3, "itemFieldName"    # Ljava/lang/String;
-    .param p4, "keyFieldName"    # Ljava/lang/String;
 
     .line 251
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +46,6 @@
     .line 255
     iput-object p4, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$ImplicitCollectionMappingImpl;->keyFieldName:Ljava/lang/String;
 
-    .line 256
     return-void
 .end method
 

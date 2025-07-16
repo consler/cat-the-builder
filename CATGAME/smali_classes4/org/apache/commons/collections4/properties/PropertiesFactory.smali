@@ -37,7 +37,6 @@
     .line 38
     invoke-direct {p0}, Lorg/apache/commons/collections4/properties/AbstractPropertiesFactory;-><init>()V
 
-    .line 40
     return-void
 .end method
 

@@ -43,31 +43,24 @@
     .end annotation
 
     .line 56
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/ConstantInitializer;, "Lorg/apache/commons/lang3/concurrent/ConstantInitializer<TT;>;"
-    .local p1, "obj":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 57
     iput-object p1, p0, Lorg/apache/commons/lang3/concurrent/ConstantInitializer;->object:Ljava/lang/Object;
 
-    .line 58
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 1
 
-    .line 105
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/ConstantInitializer;, "Lorg/apache/commons/lang3/concurrent/ConstantInitializer<TT;>;"
     if-ne p0, p1, :cond_0
 
-    .line 106
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
     .line 108
     :cond_0
@@ -75,32 +68,28 @@
 
     if-nez v0, :cond_1
 
-    .line 109
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 112
     :cond_1
-    move-object v0, p1
-
-    check-cast v0, Lorg/apache/commons/lang3/concurrent/ConstantInitializer;
+    check-cast p1, Lorg/apache/commons/lang3/concurrent/ConstantInitializer;
 
     .line 113
-    .local v0, "c":Lorg/apache/commons/lang3/concurrent/ConstantInitializer;, "Lorg/apache/commons/lang3/concurrent/ConstantInitializer<*>;"
     invoke-virtual {p0}, Lorg/apache/commons/lang3/concurrent/ConstantInitializer;->getObject()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v0}, Lorg/apache/commons/lang3/concurrent/ConstantInitializer;->getObject()Ljava/lang/Object;
+    invoke-virtual {p1}, Lorg/apache/commons/lang3/concurrent/ConstantInitializer;->getObject()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-static {v1, v2}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, p1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 .end method
 
 .method public get()Ljava/lang/Object;
@@ -118,7 +107,6 @@
     .end annotation
 
     .line 80
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/ConstantInitializer;, "Lorg/apache/commons/lang3/concurrent/ConstantInitializer<TT;>;"
     invoke-virtual {p0}, Lorg/apache/commons/lang3/concurrent/ConstantInitializer;->getObject()Ljava/lang/Object;
 
     move-result-object v0
@@ -135,7 +123,6 @@
     .end annotation
 
     .line 68
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/ConstantInitializer;, "Lorg/apache/commons/lang3/concurrent/ConstantInitializer<TT;>;"
     iget-object v0, p0, Lorg/apache/commons/lang3/concurrent/ConstantInitializer;->object:Ljava/lang/Object;
 
     return-object v0
@@ -145,7 +132,6 @@
     .locals 1
 
     .line 91
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/ConstantInitializer;, "Lorg/apache/commons/lang3/concurrent/ConstantInitializer<TT;>;"
     invoke-virtual {p0}, Lorg/apache/commons/lang3/concurrent/ConstantInitializer;->getObject()Ljava/lang/Object;
 
     move-result-object v0
@@ -172,12 +158,11 @@
 .method public toString()Ljava/lang/String;
     .locals 3
 
-    .line 125
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/ConstantInitializer;, "Lorg/apache/commons/lang3/concurrent/ConstantInitializer<TT;>;"
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Object;
 
+    .line 125
     invoke-static {p0}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
 
     move-result v1
@@ -203,9 +188,9 @@
 
     aput-object v1, v0, v2
 
-    .line 125
     const-string v1, "ConstantInitializer@%d [ object = %s ]"
 
+    .line 125
     invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0

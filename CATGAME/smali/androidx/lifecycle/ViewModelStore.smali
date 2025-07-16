@@ -63,11 +63,8 @@
     check-cast v1, Landroidx/lifecycle/ViewModel;
 
     .line 62
-    .local v1, "vm":Landroidx/lifecycle/ViewModel;
     invoke-virtual {v1}, Landroidx/lifecycle/ViewModel;->clear()V
 
-    .line 63
-    .end local v1    # "vm":Landroidx/lifecycle/ViewModel;
     goto :goto_0
 
     .line 64
@@ -76,24 +73,22 @@
 
     invoke-virtual {v0}, Ljava/util/HashMap;->clear()V
 
-    .line 65
     return-void
 .end method
 
 .method final get(Ljava/lang/String;)Landroidx/lifecycle/ViewModel;
     .locals 1
-    .param p1, "key"    # Ljava/lang/String;
 
     .line 50
     iget-object v0, p0, Landroidx/lifecycle/ViewModelStore;->mMap:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroidx/lifecycle/ViewModel;
+    check-cast p1, Landroidx/lifecycle/ViewModel;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method keys()Ljava/util/Set;
@@ -123,26 +118,21 @@
 
 .method final put(Ljava/lang/String;Landroidx/lifecycle/ViewModel;)V
     .locals 1
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "viewModel"    # Landroidx/lifecycle/ViewModel;
 
     .line 43
     iget-object v0, p0, Landroidx/lifecycle/ViewModelStore;->mMap:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroidx/lifecycle/ViewModel;
+    check-cast p1, Landroidx/lifecycle/ViewModel;
 
-    .line 44
-    .local v0, "oldViewModel":Landroidx/lifecycle/ViewModel;
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 45
-    invoke-virtual {v0}, Landroidx/lifecycle/ViewModel;->onCleared()V
+    invoke-virtual {p1}, Landroidx/lifecycle/ViewModel;->onCleared()V
 
-    .line 47
     :cond_0
     return-void
 .end method

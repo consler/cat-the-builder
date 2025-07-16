@@ -49,15 +49,11 @@
     .end annotation
 
     .line 37
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher;, "Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher<TT;TU;>;"
-    .local p1, "source":Lio/reactivex/MaybeSource;, "Lio/reactivex/MaybeSource<TT;>;"
-    .local p2, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TU;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/maybe/AbstractMaybeWithUpstream;-><init>(Lio/reactivex/MaybeSource;)V
 
     .line 38
     iput-object p2, p0, Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher;->other:Lorg/reactivestreams/Publisher;
 
-    .line 39
     return-void
 .end method
 
@@ -74,8 +70,6 @@
     .end annotation
 
     .line 43
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher;, "Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher<TT;TU;>;"
-    .local p1, "observer":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher;->source:Lio/reactivex/MaybeSource;
 
     new-instance v1, Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$DelayMaybeObserver;
@@ -86,6 +80,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/MaybeSource;->subscribe(Lio/reactivex/MaybeObserver;)V
 
-    .line 44
     return-void
 .end method

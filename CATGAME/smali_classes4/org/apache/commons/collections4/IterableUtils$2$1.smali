@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections4/IterableUtils$2;)V
     .locals 0
-    .param p1, "this$0"    # Lorg/apache/commons/collections4/IterableUtils$2;
 
     .line 174
     iput-object p1, p0, Lorg/apache/commons/collections4/IterableUtils$2$1;->this$0:Lorg/apache/commons/collections4/IterableUtils$2;
@@ -41,8 +40,7 @@
 
 # virtual methods
 .method protected nextIterator(I)Ljava/util/Iterator;
-    .locals 2
-    .param p1, "count"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -60,10 +58,9 @@
 
     if-le p1, v0, :cond_0
 
-    .line 178
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 
     .line 180
     :cond_0
@@ -71,13 +68,13 @@
 
     iget-object v0, v0, Lorg/apache/commons/collections4/IterableUtils$2;->val$iterables:[Ljava/lang/Iterable;
 
-    add-int/lit8 v1, p1, -0x1
+    add-int/lit8 p1, p1, -0x1
 
-    aget-object v0, v0, v1
+    aget-object p1, v0, p1
 
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

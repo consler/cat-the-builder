@@ -34,14 +34,14 @@
 
     iput-object v0, p0, Lcom/thoughtworks/xstream/core/util/PrioritizedList;->set:Ljava/util/Set;
 
-    .line 32
     const v0, 0x7fffffff
 
+    .line 32
     iput v0, p0, Lcom/thoughtworks/xstream/core/util/PrioritizedList;->lowestPriority:I
 
-    .line 34
     const/4 v0, 0x0
 
+    .line 34
     iput v0, p0, Lcom/thoughtworks/xstream/core/util/PrioritizedList;->lastId:I
 
     return-void
@@ -51,8 +51,6 @@
 # virtual methods
 .method public add(Ljava/lang/Object;I)V
     .locals 3
-    .param p1, "item"    # Ljava/lang/Object;
-    .param p2, "priority"    # I
 
     .line 37
     iget v0, p0, Lcom/thoughtworks/xstream/core/util/PrioritizedList;->lowestPriority:I
@@ -78,7 +76,6 @@
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 41
     return-void
 .end method
 

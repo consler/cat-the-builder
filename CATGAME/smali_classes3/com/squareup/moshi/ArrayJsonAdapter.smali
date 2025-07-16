@@ -66,8 +66,6 @@
     .end annotation
 
     .line 47
-    .local p1, "elementClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p2, "elementAdapter":Lcom/squareup/moshi/JsonAdapter;, "Lcom/squareup/moshi/JsonAdapter<Ljava/lang/Object;>;"
     invoke-direct {p0}, Lcom/squareup/moshi/JsonAdapter;-><init>()V
 
     .line 48
@@ -76,15 +74,13 @@
     .line 49
     iput-object p2, p0, Lcom/squareup/moshi/ArrayJsonAdapter;->elementAdapter:Lcom/squareup/moshi/JsonAdapter;
 
-    .line 50
     return-void
 .end method
 
 
 # virtual methods
 .method public fromJson(Lcom/squareup/moshi/JsonReader;)Ljava/lang/Object;
-    .locals 4
-    .param p1, "reader"    # Lcom/squareup/moshi/JsonReader;
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -97,7 +93,6 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 54
-    .local v0, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Object;>;"
     invoke-virtual {p1}, Lcom/squareup/moshi/JsonReader;->beginArray()V
 
     .line 55
@@ -124,50 +119,43 @@
     invoke-virtual {p1}, Lcom/squareup/moshi/JsonReader;->endArray()V
 
     .line 59
-    iget-object v1, p0, Lcom/squareup/moshi/ArrayJsonAdapter;->elementClass:Ljava/lang/Class;
+    iget-object p1, p0, Lcom/squareup/moshi/ArrayJsonAdapter;->elementClass:Ljava/lang/Class;
 
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    invoke-static {p1, v1}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
+
+    move-result-object p1
+
+    const/4 v1, 0x0
+
+    .line 60
+    :goto_1
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v2
 
-    invoke-static {v1, v2}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    .line 60
-    .local v1, "array":Ljava/lang/Object;
-    const/4 v2, 0x0
-
-    .local v2, "i":I
-    :goto_1
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v3
-
-    if-ge v2, v3, :cond_1
+    if-ge v1, v2, :cond_1
 
     .line 61
-    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-static {v1, v2, v3}, Ljava/lang/reflect/Array;->set(Ljava/lang/Object;ILjava/lang/Object;)V
+    invoke-static {p1, v1, v2}, Ljava/lang/reflect/Array;->set(Ljava/lang/Object;ILjava/lang/Object;)V
 
-    .line 60
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 63
-    .end local v2    # "i":I
     :cond_1
-    return-object v1
+    return-object p1
 .end method
 
 .method public toJson(Lcom/squareup/moshi/JsonWriter;Ljava/lang/Object;)V
     .locals 4
-    .param p1, "writer"    # Lcom/squareup/moshi/JsonWriter;
-    .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -178,38 +166,32 @@
     invoke-virtual {p1}, Lcom/squareup/moshi/JsonWriter;->beginArray()Lcom/squareup/moshi/JsonWriter;
 
     .line 68
-    const/4 v0, 0x0
-
-    .local v0, "i":I
     invoke-static {p2}, Ljava/lang/reflect/Array;->getLength(Ljava/lang/Object;)I
 
-    move-result v1
+    move-result v0
 
-    .local v1, "size":I
+    const/4 v1, 0x0
+
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge v1, v0, :cond_0
 
     .line 69
     iget-object v2, p0, Lcom/squareup/moshi/ArrayJsonAdapter;->elementAdapter:Lcom/squareup/moshi/JsonAdapter;
 
-    invoke-static {p2, v0}, Ljava/lang/reflect/Array;->get(Ljava/lang/Object;I)Ljava/lang/Object;
+    invoke-static {p2, v1}, Ljava/lang/reflect/Array;->get(Ljava/lang/Object;I)Ljava/lang/Object;
 
     move-result-object v3
 
     invoke-virtual {v2, p1, v3}, Lcom/squareup/moshi/JsonAdapter;->toJson(Lcom/squareup/moshi/JsonWriter;Ljava/lang/Object;)V
 
-    .line 68
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 71
-    .end local v0    # "i":I
-    .end local v1    # "size":I
     :cond_0
     invoke-virtual {p1}, Lcom/squareup/moshi/JsonWriter;->endArray()Lcom/squareup/moshi/JsonWriter;
 
-    .line 72
     return-void
 .end method
 
@@ -225,9 +207,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ".array()"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

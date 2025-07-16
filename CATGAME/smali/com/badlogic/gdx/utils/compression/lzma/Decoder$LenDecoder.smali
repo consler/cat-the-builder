@@ -30,46 +30,45 @@
 
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/utils/compression/lzma/Decoder;)V
-    .locals 2
-    .param p1, "this$0"    # Lcom/badlogic/gdx/utils/compression/lzma/Decoder;
+    .locals 1
 
     .line 25
     iput-object p1, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LenDecoder;->this$0:Lcom/badlogic/gdx/utils/compression/lzma/Decoder;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    const/4 p1, 0x2
+
+    new-array p1, p1, [S
+
     .line 26
-    const/4 v0, 0x2
+    iput-object p1, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LenDecoder;->m_Choice:[S
 
-    new-array v0, v0, [S
+    const/16 p1, 0x10
 
-    iput-object v0, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LenDecoder;->m_Choice:[S
+    new-array v0, p1, [Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;
 
     .line 27
-    const/16 v0, 0x10
+    iput-object v0, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LenDecoder;->m_LowCoder:[Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;
 
-    new-array v1, v0, [Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;
-
-    iput-object v1, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LenDecoder;->m_LowCoder:[Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;
+    new-array p1, p1, [Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;
 
     .line 28
-    new-array v0, v0, [Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;
-
-    iput-object v0, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LenDecoder;->m_MidCoder:[Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;
+    iput-object p1, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LenDecoder;->m_MidCoder:[Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;
 
     .line 29
-    new-instance v0, Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;
+    new-instance p1, Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;
 
-    const/16 v1, 0x8
+    const/16 v0, 0x8
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;-><init>(I)V
+    invoke-direct {p1, v0}, Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;-><init>(I)V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LenDecoder;->m_HighCoder:Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;
+    iput-object p1, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LenDecoder;->m_HighCoder:Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;
+
+    const/4 p1, 0x0
 
     .line 30
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LenDecoder;->m_NumPosStates:I
+    iput p1, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LenDecoder;->m_NumPosStates:I
 
     return-void
 .end method
@@ -78,7 +77,6 @@
 # virtual methods
 .method public Create(I)V
     .locals 4
-    .param p1, "numPosStates"    # I
 
     .line 33
     :goto_0
@@ -117,15 +115,12 @@
 
     goto :goto_0
 
-    .line 37
     :cond_0
     return-void
 .end method
 
 .method public Decode(Lcom/badlogic/gdx/utils/compression/rangecoder/Decoder;I)I
-    .locals 3
-    .param p1, "rangeDecoder"    # Lcom/badlogic/gdx/utils/compression/rangecoder/Decoder;
-    .param p2, "posState"    # I
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -145,58 +140,51 @@
 
     iget-object v0, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LenDecoder;->m_LowCoder:[Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;
 
-    aget-object v0, v0, p2
+    aget-object p2, v0, p2
 
-    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;->Decode(Lcom/badlogic/gdx/utils/compression/rangecoder/Decoder;)I
+    invoke-virtual {p2, p1}, Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;->Decode(Lcom/badlogic/gdx/utils/compression/rangecoder/Decoder;)I
+
+    move-result p1
+
+    return p1
+
+    .line 51
+    :cond_0
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LenDecoder;->m_Choice:[S
+
+    const/4 v1, 0x1
+
+    invoke-virtual {p1, v0, v1}, Lcom/badlogic/gdx/utils/compression/rangecoder/Decoder;->DecodeBit([SI)I
 
     move-result v0
 
-    return v0
-
-    .line 50
-    :cond_0
-    const/16 v0, 0x8
-
-    .line 51
-    .local v0, "symbol":I
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LenDecoder;->m_Choice:[S
-
-    const/4 v2, 0x1
-
-    invoke-virtual {p1, v1, v2}, Lcom/badlogic/gdx/utils/compression/rangecoder/Decoder;->DecodeBit([SI)I
-
-    move-result v1
-
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
 
     .line 52
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LenDecoder;->m_MidCoder:[Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LenDecoder;->m_MidCoder:[Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;
 
-    aget-object v1, v1, p2
+    aget-object p2, v0, p2
 
-    invoke-virtual {v1, p1}, Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;->Decode(Lcom/badlogic/gdx/utils/compression/rangecoder/Decoder;)I
+    invoke-virtual {p2, p1}, Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;->Decode(Lcom/badlogic/gdx/utils/compression/rangecoder/Decoder;)I
 
-    move-result v1
-
-    add-int/2addr v0, v1
+    move-result p1
 
     goto :goto_0
 
     .line 54
     :cond_1
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LenDecoder;->m_HighCoder:Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;
+    iget-object p2, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LenDecoder;->m_HighCoder:Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;
 
-    invoke-virtual {v1, p1}, Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;->Decode(Lcom/badlogic/gdx/utils/compression/rangecoder/Decoder;)I
+    invoke-virtual {p2, p1}, Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;->Decode(Lcom/badlogic/gdx/utils/compression/rangecoder/Decoder;)I
 
-    move-result v1
+    move-result p1
 
-    add-int/lit8 v1, v1, 0x8
+    add-int/lit8 p1, p1, 0x8
 
-    add-int/2addr v0, v1
-
-    .line 55
     :goto_0
-    return v0
+    add-int/lit8 p1, p1, 0x8
+
+    return p1
 .end method
 
 .method public Init()V
@@ -207,10 +195,9 @@
 
     invoke-static {v0}, Lcom/badlogic/gdx/utils/compression/rangecoder/Decoder;->InitBitModels([S)V
 
-    .line 41
     const/4 v0, 0x0
 
-    .local v0, "posState":I
+    .line 41
     :goto_0
     iget v1, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LenDecoder;->m_NumPosStates:I
 
@@ -230,18 +217,15 @@
 
     invoke-virtual {v1}, Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;->Init()V
 
-    .line 41
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 45
-    .end local v0    # "posState":I
     :cond_0
     iget-object v0, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LenDecoder;->m_HighCoder:Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/compression/rangecoder/BitTreeDecoder;->Init()V
 
-    .line 46
     return-void
 .end method

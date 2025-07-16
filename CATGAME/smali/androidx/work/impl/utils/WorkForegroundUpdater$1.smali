@@ -32,7 +32,6 @@
 # direct methods
 .method constructor <init>(Landroidx/work/impl/utils/WorkForegroundUpdater;Landroidx/work/impl/utils/futures/SettableFuture;Ljava/util/UUID;Landroidx/work/ForegroundInfo;Landroid/content/Context;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/work/impl/utils/WorkForegroundUpdater;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
@@ -50,7 +49,7 @@
         }
     .end annotation
 
-    .line 78
+    .line 81
     iput-object p1, p0, Landroidx/work/impl/utils/WorkForegroundUpdater$1;->this$0:Landroidx/work/impl/utils/WorkForegroundUpdater;
 
     iput-object p2, p0, Landroidx/work/impl/utils/WorkForegroundUpdater$1;->val$future:Landroidx/work/impl/utils/futures/SettableFuture;
@@ -69,9 +68,9 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 3
 
-    .line 82
+    .line 85
     :try_start_0
     iget-object v0, p0, Landroidx/work/impl/utils/WorkForegroundUpdater$1;->val$future:Landroidx/work/impl/utils/futures/SettableFuture;
 
@@ -81,15 +80,14 @@
 
     if-nez v0, :cond_1
 
-    .line 83
+    .line 86
     iget-object v0, p0, Landroidx/work/impl/utils/WorkForegroundUpdater$1;->val$id:Ljava/util/UUID;
 
     invoke-virtual {v0}, Ljava/util/UUID;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 84
-    .local v0, "workSpecId":Ljava/lang/String;
+    .line 87
     iget-object v1, p0, Landroidx/work/impl/utils/WorkForegroundUpdater$1;->this$0:Landroidx/work/impl/utils/WorkForegroundUpdater;
 
     iget-object v1, v1, Landroidx/work/impl/utils/WorkForegroundUpdater;->mWorkSpecDao:Landroidx/work/impl/model/WorkSpecDao;
@@ -98,59 +96,51 @@
 
     move-result-object v1
 
-    .line 85
-    .local v1, "state":Landroidx/work/WorkInfo$State;
     if-eqz v1, :cond_0
 
+    .line 88
     invoke-virtual {v1}, Landroidx/work/WorkInfo$State;->isFinished()Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
-    .line 95
-    iget-object v2, p0, Landroidx/work/impl/utils/WorkForegroundUpdater$1;->this$0:Landroidx/work/impl/utils/WorkForegroundUpdater;
+    .line 100
+    iget-object v1, p0, Landroidx/work/impl/utils/WorkForegroundUpdater$1;->this$0:Landroidx/work/impl/utils/WorkForegroundUpdater;
 
-    iget-object v2, v2, Landroidx/work/impl/utils/WorkForegroundUpdater;->mForegroundProcessor:Landroidx/work/impl/foreground/ForegroundProcessor;
+    iget-object v1, v1, Landroidx/work/impl/utils/WorkForegroundUpdater;->mForegroundProcessor:Landroidx/work/impl/foreground/ForegroundProcessor;
 
-    iget-object v3, p0, Landroidx/work/impl/utils/WorkForegroundUpdater$1;->val$foregroundInfo:Landroidx/work/ForegroundInfo;
+    iget-object v2, p0, Landroidx/work/impl/utils/WorkForegroundUpdater$1;->val$foregroundInfo:Landroidx/work/ForegroundInfo;
 
-    invoke-interface {v2, v0, v3}, Landroidx/work/impl/foreground/ForegroundProcessor;->startForeground(Ljava/lang/String;Landroidx/work/ForegroundInfo;)V
+    invoke-interface {v1, v0, v2}, Landroidx/work/impl/foreground/ForegroundProcessor;->startForeground(Ljava/lang/String;Landroidx/work/ForegroundInfo;)V
 
-    .line 96
-    iget-object v2, p0, Landroidx/work/impl/utils/WorkForegroundUpdater$1;->val$context:Landroid/content/Context;
+    .line 101
+    iget-object v1, p0, Landroidx/work/impl/utils/WorkForegroundUpdater$1;->val$context:Landroid/content/Context;
 
-    iget-object v3, p0, Landroidx/work/impl/utils/WorkForegroundUpdater$1;->val$foregroundInfo:Landroidx/work/ForegroundInfo;
+    iget-object v2, p0, Landroidx/work/impl/utils/WorkForegroundUpdater$1;->val$foregroundInfo:Landroidx/work/ForegroundInfo;
 
-    invoke-static {v2, v0, v3}, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->createNotifyIntent(Landroid/content/Context;Ljava/lang/String;Landroidx/work/ForegroundInfo;)Landroid/content/Intent;
+    invoke-static {v1, v0, v2}, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->createNotifyIntent(Landroid/content/Context;Ljava/lang/String;Landroidx/work/ForegroundInfo;)Landroid/content/Intent;
 
-    move-result-object v2
+    move-result-object v0
 
-    .line 97
-    .local v2, "intent":Landroid/content/Intent;
-    iget-object v3, p0, Landroidx/work/impl/utils/WorkForegroundUpdater$1;->val$context:Landroid/content/Context;
+    .line 102
+    iget-object v1, p0, Landroidx/work/impl/utils/WorkForegroundUpdater$1;->val$context:Landroid/content/Context;
 
-    invoke-virtual {v3, v2}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+    invoke-virtual {v1, v0}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
     goto :goto_0
 
-    .line 87
-    .end local v2    # "intent":Landroid/content/Intent;
     :cond_0
-    const-string v2, "Calls to setForegroundAsync() must complete before a ListenableWorker signals completion of work by returning an instance of Result."
+    const-string v0, "Calls to setForegroundAsync() must complete before a ListenableWorker signals completion of work by returning an instance of Result."
 
-    .line 91
-    .local v2, "message":Ljava/lang/String;
-    new-instance v3, Ljava/lang/IllegalStateException;
+    .line 94
+    new-instance v1, Ljava/lang/IllegalStateException;
 
-    invoke-direct {v3, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw v1
 
-    .line 99
-    .end local v0    # "workSpecId":Ljava/lang/String;
-    .end local v1    # "state":Landroidx/work/WorkInfo$State;
-    .end local v2    # "message":Ljava/lang/String;
+    .line 104
     :cond_1
     :goto_0
     iget-object v0, p0, Landroidx/work/impl/utils/WorkForegroundUpdater$1;->val$future:Landroidx/work/impl/utils/futures/SettableFuture;
@@ -161,21 +151,16 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 102
     goto :goto_1
 
-    .line 100
     :catchall_0
     move-exception v0
 
-    .line 101
-    .local v0, "throwable":Ljava/lang/Throwable;
+    .line 106
     iget-object v1, p0, Landroidx/work/impl/utils/WorkForegroundUpdater$1;->val$future:Landroidx/work/impl/utils/futures/SettableFuture;
 
     invoke-virtual {v1, v0}, Landroidx/work/impl/utils/futures/SettableFuture;->setException(Ljava/lang/Throwable;)Z
 
-    .line 103
-    .end local v0    # "throwable":Ljava/lang/Throwable;
     :goto_1
     return-void
 .end method

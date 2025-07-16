@@ -16,10 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/security/interfaces/ECPrivateKey;Lcom/google/crypto/tink/subtle/Enums$HashType;Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;)V
-    .locals 1
-    .param p1, "priv"    # Ljava/security/interfaces/ECPrivateKey;
-    .param p2, "hash"    # Lcom/google/crypto/tink/subtle/Enums$HashType;
-    .param p3, "encoding"    # Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -48,22 +45,20 @@
     .line 40
     invoke-static {p2}, Lcom/google/crypto/tink/subtle/SubtleUtil;->toEcdsaAlgo(Lcom/google/crypto/tink/subtle/Enums$HashType;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/google/crypto/tink/subtle/EcdsaSignJce;->signatureAlgorithm:Ljava/lang/String;
+    iput-object p1, p0, Lcom/google/crypto/tink/subtle/EcdsaSignJce;->signatureAlgorithm:Ljava/lang/String;
 
     .line 41
     iput-object p3, p0, Lcom/google/crypto/tink/subtle/EcdsaSignJce;->encoding:Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
 
-    .line 42
     return-void
 .end method
 
 
 # virtual methods
 .method public sign([B)[B
-    .locals 4
-    .param p1, "data"    # [B
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -91,7 +86,6 @@
     check-cast v0, Ljava/security/Signature;
 
     .line 47
-    .local v0, "signer":Ljava/security/Signature;
     iget-object v1, p0, Lcom/google/crypto/tink/subtle/EcdsaSignJce;->privateKey:Ljava/security/interfaces/ECPrivateKey;
 
     invoke-virtual {v0, v1}, Ljava/security/Signature;->initSign(Ljava/security/PrivateKey;)V
@@ -102,44 +96,37 @@
     .line 49
     invoke-virtual {v0}, Ljava/security/Signature;->sign()[B
 
-    move-result-object v1
+    move-result-object p1
 
     .line 50
-    .local v1, "signature":[B
-    iget-object v2, p0, Lcom/google/crypto/tink/subtle/EcdsaSignJce;->encoding:Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
+    iget-object v0, p0, Lcom/google/crypto/tink/subtle/EcdsaSignJce;->encoding:Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
 
-    sget-object v3, Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;->IEEE_P1363:Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
+    sget-object v1, Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;->IEEE_P1363:Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
 
-    if-ne v2, v3, :cond_0
+    if-ne v0, v1, :cond_0
 
     .line 51
-    iget-object v2, p0, Lcom/google/crypto/tink/subtle/EcdsaSignJce;->privateKey:Ljava/security/interfaces/ECPrivateKey;
+    iget-object v0, p0, Lcom/google/crypto/tink/subtle/EcdsaSignJce;->privateKey:Ljava/security/interfaces/ECPrivateKey;
 
-    invoke-interface {v2}, Ljava/security/interfaces/ECPrivateKey;->getParams()Ljava/security/spec/ECParameterSpec;
+    invoke-interface {v0}, Ljava/security/interfaces/ECPrivateKey;->getParams()Ljava/security/spec/ECParameterSpec;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2}, Ljava/security/spec/ECParameterSpec;->getCurve()Ljava/security/spec/EllipticCurve;
+    invoke-virtual {v0}, Ljava/security/spec/ECParameterSpec;->getCurve()Ljava/security/spec/EllipticCurve;
 
-    move-result-object v2
-
-    .line 52
-    .local v2, "curve":Ljava/security/spec/EllipticCurve;
-    nop
+    move-result-object v0
 
     .line 53
-    invoke-static {v2}, Lcom/google/crypto/tink/subtle/EllipticCurves;->fieldSizeInBytes(Ljava/security/spec/EllipticCurve;)I
+    invoke-static {v0}, Lcom/google/crypto/tink/subtle/EllipticCurves;->fieldSizeInBytes(Ljava/security/spec/EllipticCurve;)I
 
-    move-result v3
+    move-result v0
 
-    mul-int/lit8 v3, v3, 0x2
+    mul-int/lit8 v0, v0, 0x2
 
-    invoke-static {v1, v3}, Lcom/google/crypto/tink/subtle/EllipticCurves;->ecdsaDer2Ieee([BI)[B
+    invoke-static {p1, v0}, Lcom/google/crypto/tink/subtle/EllipticCurves;->ecdsaDer2Ieee([BI)[B
 
-    move-result-object v1
+    move-result-object p1
 
-    .line 55
-    .end local v2    # "curve":Ljava/security/spec/EllipticCurve;
     :cond_0
-    return-object v1
+    return-object p1
 .end method

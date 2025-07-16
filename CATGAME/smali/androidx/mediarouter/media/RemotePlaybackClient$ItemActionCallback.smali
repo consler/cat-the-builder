@@ -28,12 +28,6 @@
 # virtual methods
 .method public onResult(Landroid/os/Bundle;Ljava/lang/String;Landroidx/mediarouter/media/MediaSessionStatus;Ljava/lang/String;Landroidx/mediarouter/media/MediaItemStatus;)V
     .locals 0
-    .param p1, "data"    # Landroid/os/Bundle;
-    .param p2, "sessionId"    # Ljava/lang/String;
-    .param p3, "sessionStatus"    # Landroidx/mediarouter/media/MediaSessionStatus;
-    .param p4, "itemId"    # Ljava/lang/String;
-    .param p5, "itemStatus"    # Landroidx/mediarouter/media/MediaItemStatus;
 
-    .line 1015
     return-void
 .end method

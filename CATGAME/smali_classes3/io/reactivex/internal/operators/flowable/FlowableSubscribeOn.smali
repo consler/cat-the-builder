@@ -30,8 +30,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/Flowable;Lio/reactivex/Scheduler;Z)V
     .locals 0
-    .param p2, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p3, "nonScheduledRequests"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -43,8 +41,6 @@
     .end annotation
 
     .line 37
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn;, "Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn<TT;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
     .line 38
@@ -53,7 +49,6 @@
     .line 39
     iput-boolean p3, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn;->nonScheduledRequests:Z
 
-    .line 40
     return-void
 .end method
 
@@ -70,8 +65,6 @@
     .end annotation
 
     .line 44
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn;, "Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn<TT;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn;->scheduler:Lio/reactivex/Scheduler;
 
     invoke-virtual {v0}, Lio/reactivex/Scheduler;->createWorker()Lio/reactivex/Scheduler$Worker;
@@ -79,7 +72,6 @@
     move-result-object v0
 
     .line 45
-    .local v0, "w":Lio/reactivex/Scheduler$Worker;
     new-instance v1, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;
 
     iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn;->source:Lio/reactivex/Flowable;
@@ -89,12 +81,10 @@
     invoke-direct {v1, p1, v0, v2, v3}, Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;-><init>(Lorg/reactivestreams/Subscriber;Lio/reactivex/Scheduler$Worker;Lorg/reactivestreams/Publisher;Z)V
 
     .line 46
-    .local v1, "sos":Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableSubscribeOn$SubscribeOnSubscriber<TT;>;"
     invoke-interface {p1, v1}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
     .line 48
     invoke-virtual {v0, v1}, Lio/reactivex/Scheduler$Worker;->schedule(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
 
-    .line 49
     return-void
 .end method

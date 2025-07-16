@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .locals 9
 
     .line 26
     new-instance v0, Lorg/objenesis/instantiator/annotations/Typology;
@@ -41,58 +41,52 @@
     sput-object v0, Lorg/objenesis/instantiator/annotations/Typology;->STANDARD:Lorg/objenesis/instantiator/annotations/Typology;
 
     .line 31
-    new-instance v0, Lorg/objenesis/instantiator/annotations/Typology;
+    new-instance v1, Lorg/objenesis/instantiator/annotations/Typology;
 
-    const-string v1, "SERIALIZATION"
+    const-string v3, "SERIALIZATION"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Lorg/objenesis/instantiator/annotations/Typology;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Lorg/objenesis/instantiator/annotations/Typology;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lorg/objenesis/instantiator/annotations/Typology;->SERIALIZATION:Lorg/objenesis/instantiator/annotations/Typology;
+    sput-object v1, Lorg/objenesis/instantiator/annotations/Typology;->SERIALIZATION:Lorg/objenesis/instantiator/annotations/Typology;
 
     .line 37
-    new-instance v0, Lorg/objenesis/instantiator/annotations/Typology;
+    new-instance v3, Lorg/objenesis/instantiator/annotations/Typology;
 
-    const-string v1, "NOT_COMPLIANT"
+    const-string v5, "NOT_COMPLIANT"
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v1, v4}, Lorg/objenesis/instantiator/annotations/Typology;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Lorg/objenesis/instantiator/annotations/Typology;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lorg/objenesis/instantiator/annotations/Typology;->NOT_COMPLIANT:Lorg/objenesis/instantiator/annotations/Typology;
+    sput-object v3, Lorg/objenesis/instantiator/annotations/Typology;->NOT_COMPLIANT:Lorg/objenesis/instantiator/annotations/Typology;
 
     .line 42
-    new-instance v0, Lorg/objenesis/instantiator/annotations/Typology;
+    new-instance v5, Lorg/objenesis/instantiator/annotations/Typology;
 
-    const-string v1, "UNKNOWN"
+    const-string v7, "UNKNOWN"
 
-    const/4 v5, 0x3
+    const/4 v8, 0x3
 
-    invoke-direct {v0, v1, v5}, Lorg/objenesis/instantiator/annotations/Typology;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v5, v7, v8}, Lorg/objenesis/instantiator/annotations/Typology;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lorg/objenesis/instantiator/annotations/Typology;->UNKNOWN:Lorg/objenesis/instantiator/annotations/Typology;
+    sput-object v5, Lorg/objenesis/instantiator/annotations/Typology;->UNKNOWN:Lorg/objenesis/instantiator/annotations/Typology;
+
+    const/4 v7, 0x4
+
+    new-array v7, v7, [Lorg/objenesis/instantiator/annotations/Typology;
+
+    aput-object v0, v7, v2
+
+    aput-object v1, v7, v4
+
+    aput-object v3, v7, v6
+
+    aput-object v5, v7, v8
 
     .line 22
-    const/4 v1, 0x4
-
-    new-array v1, v1, [Lorg/objenesis/instantiator/annotations/Typology;
-
-    sget-object v6, Lorg/objenesis/instantiator/annotations/Typology;->STANDARD:Lorg/objenesis/instantiator/annotations/Typology;
-
-    aput-object v6, v1, v2
-
-    sget-object v2, Lorg/objenesis/instantiator/annotations/Typology;->SERIALIZATION:Lorg/objenesis/instantiator/annotations/Typology;
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lorg/objenesis/instantiator/annotations/Typology;->NOT_COMPLIANT:Lorg/objenesis/instantiator/annotations/Typology;
-
-    aput-object v2, v1, v4
-
-    aput-object v0, v1, v5
-
-    sput-object v1, Lorg/objenesis/instantiator/annotations/Typology;->$VALUES:[Lorg/objenesis/instantiator/annotations/Typology;
+    sput-object v7, Lorg/objenesis/instantiator/annotations/Typology;->$VALUES:[Lorg/objenesis/instantiator/annotations/Typology;
 
     return-void
 .end method
@@ -113,18 +107,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lorg/objenesis/instantiator/annotations/Typology;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 22
     const-class v0, Lorg/objenesis/instantiator/annotations/Typology;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lorg/objenesis/instantiator/annotations/Typology;
+    check-cast p0, Lorg/objenesis/instantiator/annotations/Typology;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lorg/objenesis/instantiator/annotations/Typology;

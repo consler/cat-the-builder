@@ -36,9 +36,9 @@
 
     iput-object p1, p0, Lorg/apache/commons/collections/FastHashMap$CollectionView$CollectionViewIterator;->this$1:Lorg/apache/commons/collections/FastHashMap$CollectionView;
 
-    .line 627
     const/4 v0, 0x0
 
+    .line 627
     iput-object v0, p0, Lorg/apache/commons/collections/FastHashMap$CollectionView$CollectionViewIterator;->lastReturned:Ljava/util/Map$Entry;
 
     .line 631
@@ -61,7 +61,6 @@
 
     iput-object p1, p0, Lorg/apache/commons/collections/FastHashMap$CollectionView$CollectionViewIterator;->iterator:Ljava/util/Iterator;
 
-    .line 633
     return-void
 .end method
 
@@ -232,10 +231,10 @@
 
     throw v1
 
-    .line 662
     :catchall_0
     move-exception v1
 
+    .line 662
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -251,7 +250,6 @@
     .line 665
     iput-object v1, p0, Lorg/apache/commons/collections/FastHashMap$CollectionView$CollectionViewIterator;->lastReturned:Ljava/util/Map$Entry;
 
-    .line 667
     :goto_0
     return-void
 

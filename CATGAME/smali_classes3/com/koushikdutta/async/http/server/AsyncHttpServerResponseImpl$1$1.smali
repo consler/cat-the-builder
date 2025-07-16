@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$1;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$1;
 
     .line 128
     iput-object p1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$1$1;->this$1:Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$1;
@@ -48,14 +47,11 @@
 
     move-result-object v0
 
-    .line 132
-    .local v0, "wb":Lcom/koushikdutta/async/callback/WritableCallback;
     if-eqz v0, :cond_0
 
     .line 133
     invoke-interface {v0}, Lcom/koushikdutta/async/callback/WritableCallback;->onWriteable()V
 
-    .line 134
     :cond_0
     return-void
 .end method

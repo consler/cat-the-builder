@@ -78,43 +78,32 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 2
-    .param p1, "capacityHint"    # I
 
-    .line 150
-    .local p0, "this":Lio/reactivex/processors/UnicastProcessor;, "Lio/reactivex/processors/UnicastProcessor<TT;>;"
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
+    .line 150
     invoke-direct {p0, p1, v0, v1}, Lio/reactivex/processors/UnicastProcessor;-><init>(ILjava/lang/Runnable;Z)V
 
-    .line 151
     return-void
 .end method
 
 .method constructor <init>(ILjava/lang/Runnable;)V
     .locals 1
-    .param p1, "capacityHint"    # I
-    .param p2, "onTerminate"    # Ljava/lang/Runnable;
 
-    .line 161
-    .local p0, "this":Lio/reactivex/processors/UnicastProcessor;, "Lio/reactivex/processors/UnicastProcessor<TT;>;"
     const/4 v0, 0x1
 
+    .line 161
     invoke-direct {p0, p1, p2, v0}, Lio/reactivex/processors/UnicastProcessor;-><init>(ILjava/lang/Runnable;Z)V
 
-    .line 162
     return-void
 .end method
 
 .method constructor <init>(ILjava/lang/Runnable;Z)V
     .locals 2
-    .param p1, "capacityHint"    # I
-    .param p2, "onTerminate"    # Ljava/lang/Runnable;
-    .param p3, "delayError"    # Z
 
     .line 172
-    .local p0, "this":Lio/reactivex/processors/UnicastProcessor;, "Lio/reactivex/processors/UnicastProcessor<TT;>;"
     invoke-direct {p0}, Lio/reactivex/processors/FlowableProcessor;-><init>()V
 
     .line 173
@@ -124,51 +113,50 @@
 
     invoke-static {p1, v1}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
-    move-result v1
+    move-result p1
 
-    invoke-direct {v0, v1}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;-><init>(I)V
+    invoke-direct {v0, p1}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;-><init>(I)V
 
     iput-object v0, p0, Lio/reactivex/processors/UnicastProcessor;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
 
     .line 174
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicReference;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-direct {v0, p2}, Ljava/util/concurrent/atomic/AtomicReference;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p1, p2}, Ljava/util/concurrent/atomic/AtomicReference;-><init>(Ljava/lang/Object;)V
 
-    iput-object v0, p0, Lio/reactivex/processors/UnicastProcessor;->onTerminate:Ljava/util/concurrent/atomic/AtomicReference;
+    iput-object p1, p0, Lio/reactivex/processors/UnicastProcessor;->onTerminate:Ljava/util/concurrent/atomic/AtomicReference;
 
     .line 175
     iput-boolean p3, p0, Lio/reactivex/processors/UnicastProcessor;->delayError:Z
 
     .line 176
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicReference;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/processors/UnicastProcessor;->actual:Ljava/util/concurrent/atomic/AtomicReference;
+    iput-object p1, p0, Lio/reactivex/processors/UnicastProcessor;->actual:Ljava/util/concurrent/atomic/AtomicReference;
 
     .line 177
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/processors/UnicastProcessor;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iput-object p1, p0, Lio/reactivex/processors/UnicastProcessor;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     .line 178
-    new-instance v0, Lio/reactivex/processors/UnicastProcessor$UnicastQueueSubscription;
+    new-instance p1, Lio/reactivex/processors/UnicastProcessor$UnicastQueueSubscription;
 
-    invoke-direct {v0, p0}, Lio/reactivex/processors/UnicastProcessor$UnicastQueueSubscription;-><init>(Lio/reactivex/processors/UnicastProcessor;)V
+    invoke-direct {p1, p0}, Lio/reactivex/processors/UnicastProcessor$UnicastQueueSubscription;-><init>(Lio/reactivex/processors/UnicastProcessor;)V
 
-    iput-object v0, p0, Lio/reactivex/processors/UnicastProcessor;->wip:Lio/reactivex/internal/subscriptions/BasicIntQueueSubscription;
+    iput-object p1, p0, Lio/reactivex/processors/UnicastProcessor;->wip:Lio/reactivex/internal/subscriptions/BasicIntQueueSubscription;
 
     .line 179
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicLong;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicLong;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/processors/UnicastProcessor;->requested:Ljava/util/concurrent/atomic/AtomicLong;
+    iput-object p1, p0, Lio/reactivex/processors/UnicastProcessor;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
-    .line 180
     return-void
 .end method
 
@@ -201,7 +189,6 @@
 
 .method public static create(I)Lio/reactivex/processors/UnicastProcessor;
     .locals 1
-    .param p0, "capacityHint"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -225,8 +212,6 @@
 
 .method public static create(ILjava/lang/Runnable;)Lio/reactivex/processors/UnicastProcessor;
     .locals 1
-    .param p0, "capacityHint"    # I
-    .param p1, "onCancelled"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -242,9 +227,9 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 119
     const-string v0, "onTerminate"
 
+    .line 119
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 120
@@ -257,9 +242,6 @@
 
 .method public static create(ILjava/lang/Runnable;Z)Lio/reactivex/processors/UnicastProcessor;
     .locals 1
-    .param p0, "capacityHint"    # I
-    .param p1, "onCancelled"    # Ljava/lang/Runnable;
-    .param p2, "delayError"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -275,9 +257,9 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 140
     const-string v0, "onTerminate"
 
+    .line 140
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 141
@@ -290,7 +272,6 @@
 
 .method public static create(Z)Lio/reactivex/processors/UnicastProcessor;
     .locals 3
-    .param p0, "delayError"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -321,10 +302,7 @@
 
 # virtual methods
 .method checkTerminated(ZZZLorg/reactivestreams/Subscriber;Lio/reactivex/internal/queue/SpscLinkedArrayQueue;)Z
-    .locals 4
-    .param p1, "failFast"    # Z
-    .param p2, "d"    # Z
-    .param p3, "empty"    # Z
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZZZ",
@@ -336,9 +314,6 @@
     .end annotation
 
     .line 303
-    .local p0, "this":Lio/reactivex/processors/UnicastProcessor;, "Lio/reactivex/processors/UnicastProcessor<TT;>;"
-    .local p4, "a":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
-    .local p5, "q":Lio/reactivex/internal/queue/SpscLinkedArrayQueue;, "Lio/reactivex/internal/queue/SpscLinkedArrayQueue<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/processors/UnicastProcessor;->cancelled:Z
 
     const/4 v1, 0x1
@@ -351,58 +326,52 @@
     invoke-virtual {p5}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->clear()V
 
     .line 305
-    iget-object v0, p0, Lio/reactivex/processors/UnicastProcessor;->actual:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object p1, p0, Lio/reactivex/processors/UnicastProcessor;->actual:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v0, v2}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
+    invoke-virtual {p1, v2}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
 
-    .line 306
     return v1
 
-    .line 309
     :cond_0
     if-eqz p2, :cond_3
 
-    .line 310
     if-eqz p1, :cond_1
 
-    iget-object v0, p0, Lio/reactivex/processors/UnicastProcessor;->error:Ljava/lang/Throwable;
+    .line 310
+    iget-object p1, p0, Lio/reactivex/processors/UnicastProcessor;->error:Ljava/lang/Throwable;
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 311
     invoke-virtual {p5}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->clear()V
 
     .line 312
-    iget-object v0, p0, Lio/reactivex/processors/UnicastProcessor;->actual:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object p1, p0, Lio/reactivex/processors/UnicastProcessor;->actual:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v0, v2}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
+    invoke-virtual {p1, v2}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
 
     .line 313
-    iget-object v0, p0, Lio/reactivex/processors/UnicastProcessor;->error:Ljava/lang/Throwable;
+    iget-object p1, p0, Lio/reactivex/processors/UnicastProcessor;->error:Ljava/lang/Throwable;
 
-    invoke-interface {p4, v0}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {p4, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 314
     return v1
 
-    .line 316
     :cond_1
     if-eqz p3, :cond_3
 
     .line 317
-    iget-object v0, p0, Lio/reactivex/processors/UnicastProcessor;->error:Ljava/lang/Throwable;
+    iget-object p1, p0, Lio/reactivex/processors/UnicastProcessor;->error:Ljava/lang/Throwable;
 
     .line 318
-    .local v0, "e":Ljava/lang/Throwable;
-    iget-object v3, p0, Lio/reactivex/processors/UnicastProcessor;->actual:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object p2, p0, Lio/reactivex/processors/UnicastProcessor;->actual:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v3, v2}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
+    invoke-virtual {p2, v2}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
 
-    .line 319
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
     .line 320
-    invoke-interface {p4, v0}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {p4, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
     goto :goto_0
 
@@ -410,23 +379,19 @@
     :cond_2
     invoke-interface {p4}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 324
     :goto_0
     return v1
 
-    .line 328
-    .end local v0    # "e":Ljava/lang/Throwable;
     :cond_3
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method doTerminate()V
     .locals 3
 
     .line 183
-    .local p0, "this":Lio/reactivex/processors/UnicastProcessor;, "Lio/reactivex/processors/UnicastProcessor<TT;>;"
     iget-object v0, p0, Lio/reactivex/processors/UnicastProcessor;->onTerminate:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -435,15 +400,14 @@
 
     check-cast v0, Ljava/lang/Runnable;
 
-    .line 184
-    .local v0, "r":Ljava/lang/Runnable;
     if-eqz v0, :cond_0
 
+    .line 184
     iget-object v1, p0, Lio/reactivex/processors/UnicastProcessor;->onTerminate:Ljava/util/concurrent/atomic/AtomicReference;
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v0, v2}, Ljava/util/concurrent/atomic/AtomicReference;->compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v1, v0, v2}, Lcom/google/android/gms/common/api/internal/zap$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
@@ -452,16 +416,14 @@
     .line 185
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    .line 187
     :cond_0
     return-void
 .end method
 
 .method drain()V
-    .locals 4
+    .locals 2
 
     .line 276
-    .local p0, "this":Lio/reactivex/processors/UnicastProcessor;, "Lio/reactivex/processors/UnicastProcessor<TT;>;"
     iget-object v0, p0, Lio/reactivex/processors/UnicastProcessor;->wip:Lio/reactivex/internal/subscriptions/BasicIntQueueSubscription;
 
     invoke-virtual {v0}, Lio/reactivex/internal/subscriptions/BasicIntQueueSubscription;->getAndIncrement()I
@@ -470,76 +432,63 @@
 
     if-eqz v0, :cond_0
 
-    .line 277
     return-void
 
-    .line 280
-    :cond_0
-    const/4 v0, 0x1
-
     .line 282
-    .local v0, "missed":I
-    iget-object v1, p0, Lio/reactivex/processors/UnicastProcessor;->actual:Ljava/util/concurrent/atomic/AtomicReference;
+    :cond_0
+    iget-object v0, p0, Lio/reactivex/processors/UnicastProcessor;->actual:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lorg/reactivestreams/Subscriber;
+    check-cast v0, Lorg/reactivestreams/Subscriber;
 
-    .line 284
-    .local v1, "a":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
+    const/4 v1, 0x1
+
     :goto_0
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
     .line 286
-    iget-boolean v2, p0, Lio/reactivex/processors/UnicastProcessor;->enableOperatorFusion:Z
+    iget-boolean v1, p0, Lio/reactivex/processors/UnicastProcessor;->enableOperatorFusion:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
     .line 287
-    invoke-virtual {p0, v1}, Lio/reactivex/processors/UnicastProcessor;->drainFused(Lorg/reactivestreams/Subscriber;)V
+    invoke-virtual {p0, v0}, Lio/reactivex/processors/UnicastProcessor;->drainFused(Lorg/reactivestreams/Subscriber;)V
 
     goto :goto_1
 
     .line 289
     :cond_1
-    invoke-virtual {p0, v1}, Lio/reactivex/processors/UnicastProcessor;->drainRegular(Lorg/reactivestreams/Subscriber;)V
+    invoke-virtual {p0, v0}, Lio/reactivex/processors/UnicastProcessor;->drainRegular(Lorg/reactivestreams/Subscriber;)V
 
-    .line 291
     :goto_1
     return-void
 
     .line 294
     :cond_2
-    iget-object v2, p0, Lio/reactivex/processors/UnicastProcessor;->wip:Lio/reactivex/internal/subscriptions/BasicIntQueueSubscription;
+    iget-object v0, p0, Lio/reactivex/processors/UnicastProcessor;->wip:Lio/reactivex/internal/subscriptions/BasicIntQueueSubscription;
 
-    neg-int v3, v0
+    neg-int v1, v1
 
-    invoke-virtual {v2, v3}, Lio/reactivex/internal/subscriptions/BasicIntQueueSubscription;->addAndGet(I)I
+    invoke-virtual {v0, v1}, Lio/reactivex/internal/subscriptions/BasicIntQueueSubscription;->addAndGet(I)I
 
-    move-result v0
+    move-result v1
 
-    .line 295
-    if-nez v0, :cond_3
+    if-nez v1, :cond_3
 
-    .line 296
-    nop
-
-    .line 300
     return-void
 
     .line 298
     :cond_3
-    iget-object v2, p0, Lio/reactivex/processors/UnicastProcessor;->actual:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object v0, p0, Lio/reactivex/processors/UnicastProcessor;->actual:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v2}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    move-object v1, v2
-
-    check-cast v1, Lorg/reactivestreams/Subscriber;
+    check-cast v0, Lorg/reactivestreams/Subscriber;
 
     goto :goto_0
 .end method
@@ -554,127 +503,103 @@
         }
     .end annotation
 
-    .line 234
-    .local p0, "this":Lio/reactivex/processors/UnicastProcessor;, "Lio/reactivex/processors/UnicastProcessor<TT;>;"
-    .local p1, "a":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
-    const/4 v0, 0x1
-
     .line 236
-    .local v0, "missed":I
-    iget-object v1, p0, Lio/reactivex/processors/UnicastProcessor;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
+    iget-object v0, p0, Lio/reactivex/processors/UnicastProcessor;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
 
     .line 237
-    .local v1, "q":Lio/reactivex/internal/queue/SpscLinkedArrayQueue;, "Lio/reactivex/internal/queue/SpscLinkedArrayQueue<TT;>;"
-    iget-boolean v2, p0, Lio/reactivex/processors/UnicastProcessor;->delayError:Z
+    iget-boolean v1, p0, Lio/reactivex/processors/UnicastProcessor;->delayError:Z
 
-    xor-int/lit8 v2, v2, 0x1
+    const/4 v2, 0x1
+
+    xor-int/2addr v1, v2
 
     .line 240
-    .local v2, "failFast":Z
-    :goto_0
+    :cond_0
     iget-boolean v3, p0, Lio/reactivex/processors/UnicastProcessor;->cancelled:Z
 
     const/4 v4, 0x0
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     .line 241
-    invoke-virtual {v1}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->clear()V
+    invoke-virtual {v0}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->clear()V
 
     .line 242
-    iget-object v3, p0, Lio/reactivex/processors/UnicastProcessor;->actual:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object p1, p0, Lio/reactivex/processors/UnicastProcessor;->actual:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v3, v4}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
+    invoke-virtual {p1, v4}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
 
-    .line 243
     return-void
 
     .line 246
-    :cond_0
+    :cond_1
     iget-boolean v3, p0, Lio/reactivex/processors/UnicastProcessor;->done:Z
 
+    if-eqz v1, :cond_2
+
+    if-eqz v3, :cond_2
+
     .line 248
-    .local v3, "d":Z
-    if-eqz v2, :cond_1
-
-    if-eqz v3, :cond_1
-
     iget-object v5, p0, Lio/reactivex/processors/UnicastProcessor;->error:Ljava/lang/Throwable;
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2
 
     .line 249
-    invoke-virtual {v1}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->clear()V
+    invoke-virtual {v0}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->clear()V
 
     .line 250
-    iget-object v5, p0, Lio/reactivex/processors/UnicastProcessor;->actual:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object v0, p0, Lio/reactivex/processors/UnicastProcessor;->actual:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v5, v4}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
+    invoke-virtual {v0, v4}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
 
     .line 251
-    iget-object v4, p0, Lio/reactivex/processors/UnicastProcessor;->error:Ljava/lang/Throwable;
+    iget-object v0, p0, Lio/reactivex/processors/UnicastProcessor;->error:Ljava/lang/Throwable;
 
-    invoke-interface {p1, v4}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {p1, v0}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 252
     return-void
 
     .line 254
-    :cond_1
+    :cond_2
     invoke-interface {p1, v4}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
-    .line 256
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     .line 257
-    iget-object v5, p0, Lio/reactivex/processors/UnicastProcessor;->actual:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object v0, p0, Lio/reactivex/processors/UnicastProcessor;->actual:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v5, v4}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
+    invoke-virtual {v0, v4}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
 
     .line 259
-    iget-object v4, p0, Lio/reactivex/processors/UnicastProcessor;->error:Ljava/lang/Throwable;
+    iget-object v0, p0, Lio/reactivex/processors/UnicastProcessor;->error:Ljava/lang/Throwable;
 
-    .line 260
-    .local v4, "ex":Ljava/lang/Throwable;
-    if-eqz v4, :cond_2
+    if-eqz v0, :cond_3
 
     .line 261
-    invoke-interface {p1, v4}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {p1, v0}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    goto :goto_1
+    goto :goto_0
 
     .line 263
-    :cond_2
+    :cond_3
     invoke-interface {p1}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 265
-    :goto_1
+    :goto_0
     return-void
 
     .line 268
-    .end local v4    # "ex":Ljava/lang/Throwable;
-    :cond_3
-    iget-object v4, p0, Lio/reactivex/processors/UnicastProcessor;->wip:Lio/reactivex/internal/subscriptions/BasicIntQueueSubscription;
-
-    neg-int v5, v0
-
-    invoke-virtual {v4, v5}, Lio/reactivex/internal/subscriptions/BasicIntQueueSubscription;->addAndGet(I)I
-
-    move-result v0
-
-    .line 269
-    if-nez v0, :cond_4
-
-    .line 270
-    nop
-
-    .line 273
-    .end local v3    # "d":Z
-    return-void
-
-    .line 272
     :cond_4
-    goto :goto_0
+    iget-object v3, p0, Lio/reactivex/processors/UnicastProcessor;->wip:Lio/reactivex/internal/subscriptions/BasicIntQueueSubscription;
+
+    neg-int v2, v2
+
+    invoke-virtual {v3, v2}, Lio/reactivex/internal/subscriptions/BasicIntQueueSubscription;->addAndGet(I)I
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    return-void
 .end method
 
 .method drainRegular(Lorg/reactivestreams/Subscriber;)V
@@ -687,198 +612,167 @@
         }
     .end annotation
 
-    .line 190
-    .local p0, "this":Lio/reactivex/processors/UnicastProcessor;, "Lio/reactivex/processors/UnicastProcessor<TT;>;"
-    .local p1, "a":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
-    move-object/from16 v8, p0
-
-    const/4 v0, 0x1
+    move-object/from16 v6, p0
 
     .line 192
-    .local v0, "missed":I
-    iget-object v9, v8, Lio/reactivex/processors/UnicastProcessor;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
+    iget-object v7, v6, Lio/reactivex/processors/UnicastProcessor;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
 
     .line 193
-    .local v9, "q":Lio/reactivex/internal/queue/SpscLinkedArrayQueue;, "Lio/reactivex/internal/queue/SpscLinkedArrayQueue<TT;>;"
-    iget-boolean v1, v8, Lio/reactivex/processors/UnicastProcessor;->delayError:Z
+    iget-boolean v0, v6, Lio/reactivex/processors/UnicastProcessor;->delayError:Z
 
-    const/4 v10, 0x1
+    const/4 v8, 0x1
 
-    xor-int/2addr v1, v10
+    xor-int/lit8 v9, v0, 0x1
 
-    move v11, v0
+    move v10, v8
 
     .line 196
-    .end local v0    # "missed":I
-    .local v1, "failFast":Z
-    .local v11, "missed":I
     :goto_0
-    iget-object v0, v8, Lio/reactivex/processors/UnicastProcessor;->requested:Ljava/util/concurrent/atomic/AtomicLong;
+    iget-object v0, v6, Lio/reactivex/processors/UnicastProcessor;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
 
-    move-result-wide v12
+    move-result-wide v11
 
-    .line 197
-    .local v12, "r":J
-    const-wide/16 v2, 0x0
+    const-wide/16 v4, 0x0
 
-    move-wide v14, v2
-
-    .line 199
-    .local v14, "e":J
     :goto_1
-    cmp-long v0, v12, v14
+    cmp-long v15, v11, v4
 
-    if-eqz v0, :cond_3
+    if-eqz v15, :cond_3
 
     .line 200
-    iget-boolean v6, v8, Lio/reactivex/processors/UnicastProcessor;->done:Z
+    iget-boolean v2, v6, Lio/reactivex/processors/UnicastProcessor;->done:Z
 
     .line 202
-    .local v6, "d":Z
-    invoke-virtual {v9}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->poll()Ljava/lang/Object;
+    invoke-virtual {v7}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->poll()Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v3
 
-    .line 203
-    .local v7, "t":Ljava/lang/Object;, "TT;"
-    if-nez v7, :cond_0
+    if-nez v3, :cond_0
 
-    move v0, v10
+    move/from16 v16, v8
 
     goto :goto_2
 
     :cond_0
     const/4 v0, 0x0
 
-    :goto_2
     move/from16 v16, v0
 
-    .line 205
-    .local v16, "empty":Z
+    :goto_2
     move-object/from16 v0, p0
 
-    move v2, v6
+    move v1, v9
+
+    move-object v8, v3
 
     move/from16 v3, v16
 
+    move-wide v13, v4
+
     move-object/from16 v4, p1
 
-    move-object v5, v9
+    move-object v5, v7
 
+    .line 205
     invoke-virtual/range {v0 .. v5}, Lio/reactivex/processors/UnicastProcessor;->checkTerminated(ZZZLorg/reactivestreams/Subscriber;Lio/reactivex/internal/queue/SpscLinkedArrayQueue;)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 206
     return-void
 
-    .line 209
     :cond_1
     if-eqz v16, :cond_2
 
-    .line 210
-    move-object/from16 v0, p1
-
     goto :goto_3
 
-    .line 213
     :cond_2
-    move-object/from16 v0, p1
+    move-object/from16 v5, p1
 
-    invoke-interface {v0, v7}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
+    .line 213
+    invoke-interface {v5, v8}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
-    .line 215
-    const-wide/16 v2, 0x1
+    const-wide/16 v0, 0x1
 
-    add-long/2addr v14, v2
+    add-long/2addr v0, v13
 
-    .line 216
-    .end local v6    # "d":Z
-    .end local v7    # "t":Ljava/lang/Object;, "TT;"
-    .end local v16    # "empty":Z
+    move-wide v4, v0
+
+    const/4 v8, 0x1
+
     goto :goto_1
 
-    .line 199
     :cond_3
-    move-object/from16 v0, p1
+    move-wide v13, v4
+
+    :goto_3
+    move-object/from16 v5, p1
+
+    if-nez v15, :cond_4
 
     .line 218
-    :goto_3
-    cmp-long v2, v12, v14
+    iget-boolean v2, v6, Lio/reactivex/processors/UnicastProcessor;->done:Z
 
-    if-nez v2, :cond_4
+    invoke-virtual {v7}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->isEmpty()Z
 
-    iget-boolean v4, v8, Lio/reactivex/processors/UnicastProcessor;->done:Z
+    move-result v3
 
-    invoke-virtual {v9}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->isEmpty()Z
+    move-object/from16 v0, p0
 
-    move-result v5
+    move v1, v9
 
-    move-object/from16 v2, p0
+    move-object/from16 v4, p1
 
-    move v3, v1
+    move-object v5, v7
 
-    move-object/from16 v6, p1
+    invoke-virtual/range {v0 .. v5}, Lio/reactivex/processors/UnicastProcessor;->checkTerminated(ZZZLorg/reactivestreams/Subscriber;Lio/reactivex/internal/queue/SpscLinkedArrayQueue;)Z
 
-    move-object v7, v9
+    move-result v0
 
-    invoke-virtual/range {v2 .. v7}, Lio/reactivex/processors/UnicastProcessor;->checkTerminated(ZZZLorg/reactivestreams/Subscriber;Lio/reactivex/internal/queue/SpscLinkedArrayQueue;)Z
+    if-eqz v0, :cond_4
 
-    move-result v2
-
-    if-eqz v2, :cond_4
-
-    .line 219
     return-void
 
-    .line 222
     :cond_4
-    const-wide/16 v2, 0x0
+    const-wide/16 v0, 0x0
 
-    cmp-long v2, v14, v2
+    cmp-long v0, v13, v0
 
-    if-eqz v2, :cond_5
+    if-eqz v0, :cond_5
 
-    const-wide v2, 0x7fffffffffffffffL
+    const-wide v0, 0x7fffffffffffffffL
 
-    cmp-long v2, v12, v2
+    cmp-long v0, v11, v0
 
-    if-eqz v2, :cond_5
+    if-eqz v0, :cond_5
 
     .line 223
-    iget-object v2, v8, Lio/reactivex/processors/UnicastProcessor;->requested:Ljava/util/concurrent/atomic/AtomicLong;
+    iget-object v0, v6, Lio/reactivex/processors/UnicastProcessor;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
-    neg-long v3, v14
+    neg-long v1, v13
 
-    invoke-virtual {v2, v3, v4}, Ljava/util/concurrent/atomic/AtomicLong;->addAndGet(J)J
+    invoke-virtual {v0, v1, v2}, Ljava/util/concurrent/atomic/AtomicLong;->addAndGet(J)J
 
     .line 226
     :cond_5
-    iget-object v2, v8, Lio/reactivex/processors/UnicastProcessor;->wip:Lio/reactivex/internal/subscriptions/BasicIntQueueSubscription;
+    iget-object v0, v6, Lio/reactivex/processors/UnicastProcessor;->wip:Lio/reactivex/internal/subscriptions/BasicIntQueueSubscription;
 
-    neg-int v3, v11
+    neg-int v1, v10
 
-    invoke-virtual {v2, v3}, Lio/reactivex/internal/subscriptions/BasicIntQueueSubscription;->addAndGet(I)I
+    invoke-virtual {v0, v1}, Lio/reactivex/internal/subscriptions/BasicIntQueueSubscription;->addAndGet(I)I
 
-    move-result v11
+    move-result v10
 
-    .line 227
-    if-nez v11, :cond_6
+    if-nez v10, :cond_6
 
-    .line 228
-    nop
-
-    .line 231
-    .end local v12    # "r":J
-    .end local v14    # "e":J
     return-void
 
-    .line 230
     :cond_6
+    const/4 v8, 0x1
+
     goto :goto_0
 .end method
 
@@ -886,7 +780,6 @@
     .locals 1
 
     .line 466
-    .local p0, "this":Lio/reactivex/processors/UnicastProcessor;, "Lio/reactivex/processors/UnicastProcessor<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/processors/UnicastProcessor;->done:Z
 
     if-eqz v0, :cond_0
@@ -896,7 +789,6 @@
 
     return-object v0
 
-    .line 469
     :cond_0
     const/4 v0, 0x0
 
@@ -907,7 +799,6 @@
     .locals 1
 
     .line 474
-    .local p0, "this":Lio/reactivex/processors/UnicastProcessor;, "Lio/reactivex/processors/UnicastProcessor<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/processors/UnicastProcessor;->done:Z
 
     if-eqz v0, :cond_0
@@ -931,7 +822,6 @@
     .locals 1
 
     .line 461
-    .local p0, "this":Lio/reactivex/processors/UnicastProcessor;, "Lio/reactivex/processors/UnicastProcessor<TT;>;"
     iget-object v0, p0, Lio/reactivex/processors/UnicastProcessor;->actual:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -955,7 +845,6 @@
     .locals 1
 
     .line 479
-    .local p0, "this":Lio/reactivex/processors/UnicastProcessor;, "Lio/reactivex/processors/UnicastProcessor<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/processors/UnicastProcessor;->done:Z
 
     if-eqz v0, :cond_0
@@ -979,7 +868,6 @@
     .locals 1
 
     .line 376
-    .local p0, "this":Lio/reactivex/processors/UnicastProcessor;, "Lio/reactivex/processors/UnicastProcessor<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/processors/UnicastProcessor;->done:Z
 
     if-nez v0, :cond_1
@@ -990,10 +878,10 @@
 
     goto :goto_0
 
-    .line 380
     :cond_0
     const/4 v0, 0x1
 
+    .line 380
     iput-boolean v0, p0, Lio/reactivex/processors/UnicastProcessor;->done:Z
 
     .line 382
@@ -1002,21 +890,15 @@
     .line 384
     invoke-virtual {p0}, Lio/reactivex/processors/UnicastProcessor;->drain()V
 
-    .line 385
-    return-void
-
-    .line 377
     :cond_1
     :goto_0
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
-    .locals 2
-    .param p1, "t"    # Ljava/lang/Throwable;
+    .locals 1
 
     .line 357
-    .local p0, "this":Lio/reactivex/processors/UnicastProcessor;, "Lio/reactivex/processors/UnicastProcessor<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/processors/UnicastProcessor;->done:Z
 
     if-nez v0, :cond_2
@@ -1027,27 +909,24 @@
 
     goto :goto_0
 
-    .line 362
     :cond_0
     if-nez p1, :cond_1
 
     .line 363
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "onError called with null. Null values are generally not allowed in 2.x operators and sources."
+    const-string v0, "onError called with null. Null values are generally not allowed in 2.x operators and sources."
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    move-object p1, v0
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
     .line 366
     :cond_1
     iput-object p1, p0, Lio/reactivex/processors/UnicastProcessor;->error:Ljava/lang/Throwable;
 
-    .line 367
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lio/reactivex/processors/UnicastProcessor;->done:Z
+    .line 367
+    iput-boolean p1, p0, Lio/reactivex/processors/UnicastProcessor;->done:Z
 
     .line 369
     invoke-virtual {p0}, Lio/reactivex/processors/UnicastProcessor;->doTerminate()V
@@ -1055,7 +934,6 @@
     .line 371
     invoke-virtual {p0}, Lio/reactivex/processors/UnicastProcessor;->drain()V
 
-    .line 372
     return-void
 
     .line 358
@@ -1063,12 +941,11 @@
     :goto_0
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 359
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -1076,8 +953,6 @@
     .end annotation
 
     .line 342
-    .local p0, "this":Lio/reactivex/processors/UnicastProcessor;, "Lio/reactivex/processors/UnicastProcessor<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/processors/UnicastProcessor;->done:Z
 
     if-nez v0, :cond_2
@@ -1088,20 +963,18 @@
 
     goto :goto_0
 
-    .line 346
     :cond_0
     if-nez p1, :cond_1
 
     .line 347
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "onNext called with null. Null values are generally not allowed in 2.x operators and sources."
+    const-string v0, "onNext called with null. Null values are generally not allowed in 2.x operators and sources."
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v0}, Lio/reactivex/processors/UnicastProcessor;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/processors/UnicastProcessor;->onError(Ljava/lang/Throwable;)V
 
-    .line 348
     return-void
 
     .line 351
@@ -1113,10 +986,6 @@
     .line 352
     invoke-virtual {p0}, Lio/reactivex/processors/UnicastProcessor;->drain()V
 
-    .line 353
-    return-void
-
-    .line 343
     :cond_2
     :goto_0
     return-void
@@ -1124,10 +993,8 @@
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 333
-    .local p0, "this":Lio/reactivex/processors/UnicastProcessor;, "Lio/reactivex/processors/UnicastProcessor<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/processors/UnicastProcessor;->done:Z
 
     if-nez v0, :cond_1
@@ -1138,10 +1005,10 @@
 
     goto :goto_0
 
-    .line 336
     :cond_0
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 336
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
     goto :goto_1
@@ -1151,7 +1018,6 @@
     :goto_0
     invoke-interface {p1}, Lorg/reactivestreams/Subscription;->cancel()V
 
-    .line 338
     :goto_1
     return-void
 .end method
@@ -1167,8 +1033,6 @@
     .end annotation
 
     .line 389
-    .local p0, "this":Lio/reactivex/processors/UnicastProcessor;, "Lio/reactivex/processors/UnicastProcessor<TT;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     iget-object v0, p0, Lio/reactivex/processors/UnicastProcessor;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
@@ -1200,16 +1064,16 @@
     invoke-virtual {v0, p1}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
 
     .line 393
-    iget-boolean v0, p0, Lio/reactivex/processors/UnicastProcessor;->cancelled:Z
+    iget-boolean p1, p0, Lio/reactivex/processors/UnicastProcessor;->cancelled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 394
-    iget-object v0, p0, Lio/reactivex/processors/UnicastProcessor;->actual:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object p1, p0, Lio/reactivex/processors/UnicastProcessor;->actual:Ljava/util/concurrent/atomic/AtomicReference;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
+    invoke-virtual {p1, v0}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
 
     goto :goto_0
 
@@ -1229,7 +1093,6 @@
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/EmptySubscription;->error(Ljava/lang/Throwable;Lorg/reactivestreams/Subscriber;)V
 
-    .line 401
     :goto_0
     return-void
 .end method

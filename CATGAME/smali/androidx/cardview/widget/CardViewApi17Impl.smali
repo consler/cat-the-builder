@@ -25,6 +25,5 @@
 
     sput-object v0, Landroidx/cardview/widget/RoundRectDrawableWithShadow;->sRoundRectHelper:Landroidx/cardview/widget/RoundRectDrawableWithShadow$RoundRectHelper;
 
-    .line 37
     return-void
 .end method

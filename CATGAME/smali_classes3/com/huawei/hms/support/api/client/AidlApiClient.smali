@@ -18,5 +18,5 @@
     .end annotation
 .end method
 
-.method public abstract getService()Lcom/huawei/hms/core/aidl/d;
+.method public abstract getService()Lcom/huawei/hms/core/aidl/IAIDLInvoke;
 .end method

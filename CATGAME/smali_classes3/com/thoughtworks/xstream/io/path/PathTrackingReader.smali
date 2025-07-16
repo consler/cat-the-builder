@@ -9,9 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/io/path/PathTracker;)V
-    .locals 1
-    .param p1, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .param p2, "pathTracker"    # Lcom/thoughtworks/xstream/io/path/PathTracker;
+    .locals 0
 
     .line 31
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/io/ReaderWrapper;-><init>(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;)V
@@ -22,11 +20,10 @@
     .line 33
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/io/path/PathTrackingReader;->getNodeName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p2, v0}, Lcom/thoughtworks/xstream/io/path/PathTracker;->pushElement(Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Lcom/thoughtworks/xstream/io/path/PathTracker;->pushElement(Ljava/lang/String;)V
 
-    .line 34
     return-void
 .end method
 
@@ -34,7 +31,6 @@
 # virtual methods
 .method public appendErrors(Lcom/thoughtworks/xstream/converters/ErrorWriter;)V
     .locals 2
-    .param p1, "errorWriter"    # Lcom/thoughtworks/xstream/converters/ErrorWriter;
 
     .line 47
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/path/PathTrackingReader;->pathTracker:Lcom/thoughtworks/xstream/io/path/PathTracker;
@@ -54,7 +50,6 @@
     .line 48
     invoke-super {p0, p1}, Lcom/thoughtworks/xstream/io/ReaderWrapper;->appendErrors(Lcom/thoughtworks/xstream/converters/ErrorWriter;)V
 
-    .line 49
     return-void
 .end method
 
@@ -73,7 +68,6 @@
 
     invoke-virtual {v0, v1}, Lcom/thoughtworks/xstream/io/path/PathTracker;->pushElement(Ljava/lang/String;)V
 
-    .line 39
     return-void
 .end method
 
@@ -88,6 +82,5 @@
 
     invoke-virtual {v0}, Lcom/thoughtworks/xstream/io/path/PathTracker;->popElement()V
 
-    .line 44
     return-void
 .end method

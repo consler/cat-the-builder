@@ -16,26 +16,21 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/ImageView;)V
     .locals 0
-    .param p1, "view"    # Landroid/widget/ImageView;
 
     .line 14
     invoke-direct {p0, p1}, Lcom/bumptech/glide/request/target/ImageViewTarget;-><init>(Landroid/widget/ImageView;)V
 
-    .line 15
     return-void
 .end method
 
 .method public constructor <init>(Landroid/widget/ImageView;Z)V
     .locals 0
-    .param p1, "view"    # Landroid/widget/ImageView;
-    .param p2, "waitForLayout"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 22
     invoke-direct {p0, p1, p2}, Lcom/bumptech/glide/request/target/ImageViewTarget;-><init>(Landroid/widget/ImageView;Z)V
 
-    .line 23
     return-void
 .end method
 
@@ -43,7 +38,6 @@
 # virtual methods
 .method protected setResource(Landroid/graphics/Bitmap;)V
     .locals 1
-    .param p1, "resource"    # Landroid/graphics/Bitmap;
 
     .line 33
     iget-object v0, p0, Lcom/bumptech/glide/request/target/BitmapImageViewTarget;->view:Landroid/view/View;
@@ -52,7 +46,6 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 34
     return-void
 .end method
 

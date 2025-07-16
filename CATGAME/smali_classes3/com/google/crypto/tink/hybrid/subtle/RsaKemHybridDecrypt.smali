@@ -19,10 +19,6 @@
 # direct methods
 .method public constructor <init>(Ljava/security/interfaces/RSAPrivateKey;Ljava/lang/String;[BLcom/google/crypto/tink/aead/subtle/AeadFactory;)V
     .locals 1
-    .param p1, "recipientPrivateKey"    # Ljava/security/interfaces/RSAPrivateKey;
-    .param p2, "hkdfHmacAlgo"    # Ljava/lang/String;
-    .param p3, "hkdfSalt"    # [B
-    .param p4, "aeadFactory"    # Lcom/google/crypto/tink/aead/subtle/AeadFactory;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -66,16 +62,13 @@
     .line 48
     iput-object p4, p0, Lcom/google/crypto/tink/hybrid/subtle/RsaKemHybridDecrypt;->aeadFactory:Lcom/google/crypto/tink/aead/subtle/AeadFactory;
 
-    .line 49
     return-void
 .end method
 
 
 # virtual methods
 .method public decrypt([B[B)[B
-    .locals 9
-    .param p1, "ciphertext"    # [B
-    .param p2, "contextInfo"    # [B
+    .locals 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -105,7 +98,6 @@
     move-result v0
 
     .line 55
-    .local v0, "modSizeInBytes":I
     array-length v1, p1
 
     const/4 v2, 0x2
@@ -115,121 +107,107 @@
     .line 63
     invoke-static {p1}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 64
-    .local v1, "cipherBuffer":Ljava/nio/ByteBuffer;
-    new-array v3, v0, [B
+    new-array v0, v0, [B
 
     .line 65
-    .local v3, "token":[B
-    invoke-virtual {v1, v3}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
+    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
+
+    const-string v1, "RSA/ECB/NoPadding"
 
     .line 66
-    const-string v4, "RSA/ECB/NoPadding"
+    invoke-static {v1}, Ljavax/crypto/Cipher;->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;
 
-    invoke-static {v4}, Ljavax/crypto/Cipher;->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;
-
-    move-result-object v4
+    move-result-object v1
 
     .line 67
-    .local v4, "rsaCipher":Ljavax/crypto/Cipher;
-    iget-object v5, p0, Lcom/google/crypto/tink/hybrid/subtle/RsaKemHybridDecrypt;->recipientPrivateKey:Ljava/security/interfaces/RSAPrivateKey;
+    iget-object v3, p0, Lcom/google/crypto/tink/hybrid/subtle/RsaKemHybridDecrypt;->recipientPrivateKey:Ljava/security/interfaces/RSAPrivateKey;
 
-    invoke-virtual {v4, v2, v5}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;)V
+    invoke-virtual {v1, v2, v3}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;)V
 
     .line 68
-    invoke-virtual {v4, v3}, Ljavax/crypto/Cipher;->doFinal([B)[B
+    invoke-virtual {v1, v0}, Ljavax/crypto/Cipher;->doFinal([B)[B
 
-    move-result-object v2
+    move-result-object v0
 
     .line 71
-    .local v2, "sharedSecret":[B
-    iget-object v5, p0, Lcom/google/crypto/tink/hybrid/subtle/RsaKemHybridDecrypt;->hkdfHmacAlgo:Ljava/lang/String;
+    iget-object v1, p0, Lcom/google/crypto/tink/hybrid/subtle/RsaKemHybridDecrypt;->hkdfHmacAlgo:Ljava/lang/String;
 
-    iget-object v6, p0, Lcom/google/crypto/tink/hybrid/subtle/RsaKemHybridDecrypt;->hkdfSalt:[B
+    iget-object v2, p0, Lcom/google/crypto/tink/hybrid/subtle/RsaKemHybridDecrypt;->hkdfSalt:[B
 
-    iget-object v7, p0, Lcom/google/crypto/tink/hybrid/subtle/RsaKemHybridDecrypt;->aeadFactory:Lcom/google/crypto/tink/aead/subtle/AeadFactory;
+    iget-object v3, p0, Lcom/google/crypto/tink/hybrid/subtle/RsaKemHybridDecrypt;->aeadFactory:Lcom/google/crypto/tink/aead/subtle/AeadFactory;
 
     .line 73
-    invoke-interface {v7}, Lcom/google/crypto/tink/aead/subtle/AeadFactory;->getKeySizeInBytes()I
+    invoke-interface {v3}, Lcom/google/crypto/tink/aead/subtle/AeadFactory;->getKeySizeInBytes()I
 
-    move-result v7
+    move-result v3
 
     .line 72
-    invoke-static {v5, v2, v6, p2, v7}, Lcom/google/crypto/tink/subtle/Hkdf;->computeHkdf(Ljava/lang/String;[B[B[BI)[B
+    invoke-static {v1, v0, v2, p2, v3}, Lcom/google/crypto/tink/subtle/Hkdf;->computeHkdf(Ljava/lang/String;[B[B[BI)[B
 
-    move-result-object v5
+    move-result-object p2
 
     .line 76
-    .local v5, "demKey":[B
-    iget-object v6, p0, Lcom/google/crypto/tink/hybrid/subtle/RsaKemHybridDecrypt;->aeadFactory:Lcom/google/crypto/tink/aead/subtle/AeadFactory;
+    iget-object v0, p0, Lcom/google/crypto/tink/hybrid/subtle/RsaKemHybridDecrypt;->aeadFactory:Lcom/google/crypto/tink/aead/subtle/AeadFactory;
 
-    invoke-interface {v6, v5}, Lcom/google/crypto/tink/aead/subtle/AeadFactory;->createAead([B)Lcom/google/crypto/tink/Aead;
+    invoke-interface {v0, p2}, Lcom/google/crypto/tink/aead/subtle/AeadFactory;->createAead([B)Lcom/google/crypto/tink/Aead;
 
-    move-result-object v6
+    move-result-object p2
 
     .line 77
-    .local v6, "aead":Lcom/google/crypto/tink/Aead;
-    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->remaining()I
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
 
-    move-result v7
+    move-result v0
 
-    new-array v7, v7, [B
+    new-array v0, v0, [B
 
     .line 78
-    .local v7, "demPayload":[B
-    invoke-virtual {v1, v7}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
+    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
 
     .line 79
-    sget-object v8, Lcom/google/crypto/tink/hybrid/subtle/RsaKem;->EMPTY_AAD:[B
+    sget-object p1, Lcom/google/crypto/tink/hybrid/subtle/RsaKem;->EMPTY_AAD:[B
 
-    invoke-interface {v6, v7, v8}, Lcom/google/crypto/tink/Aead;->decrypt([B[B)[B
+    invoke-interface {p2, v0, p1}, Lcom/google/crypto/tink/Aead;->decrypt([B[B)[B
 
-    move-result-object v8
+    move-result-object p1
 
-    return-object v8
+    return-object p1
 
     .line 56
-    .end local v1    # "cipherBuffer":Ljava/nio/ByteBuffer;
-    .end local v2    # "sharedSecret":[B
-    .end local v3    # "token":[B
-    .end local v4    # "rsaCipher":Ljavax/crypto/Cipher;
-    .end local v5    # "demKey":[B
-    .end local v6    # "aead":Lcom/google/crypto/tink/Aead;
-    .end local v7    # "demPayload":[B
     :cond_0
-    new-instance v1, Ljava/security/GeneralSecurityException;
+    new-instance p2, Ljava/security/GeneralSecurityException;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v1, v2, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     .line 59
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v0
 
-    aput-object v4, v2, v3
+    aput-object v0, v1, v2
 
-    const/4 v3, 0x1
+    array-length p1, p1
 
-    array-length v4, p1
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object p1
 
-    move-result-object v4
+    const/4 v0, 0x1
 
-    aput-object v4, v2, v3
+    aput-object p1, v1, v0
+
+    const-string p1, "Ciphertext must be of at least size %d bytes, but got %d"
 
     .line 57
-    const-string v3, "Ciphertext must be of at least size %d bytes, but got %d"
+    invoke-static {p1, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v3, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v2
+    invoke-direct {p2, p1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v1, v2}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
-
-    throw v1
+    throw p2
 .end method

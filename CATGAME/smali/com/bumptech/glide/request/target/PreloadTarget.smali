@@ -45,32 +45,23 @@
 
     sput-object v0, Lcom/bumptech/glide/request/target/PreloadTarget;->HANDLER:Landroid/os/Handler;
 
-    .line 22
     return-void
 .end method
 
 .method private constructor <init>(Lcom/bumptech/glide/RequestManager;II)V
     .locals 0
-    .param p1, "requestManager"    # Lcom/bumptech/glide/RequestManager;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
 
     .line 50
-    .local p0, "this":Lcom/bumptech/glide/request/target/PreloadTarget;, "Lcom/bumptech/glide/request/target/PreloadTarget<TZ;>;"
     invoke-direct {p0, p2, p3}, Lcom/bumptech/glide/request/target/CustomTarget;-><init>(II)V
 
     .line 51
     iput-object p1, p0, Lcom/bumptech/glide/request/target/PreloadTarget;->requestManager:Lcom/bumptech/glide/RequestManager;
 
-    .line 52
     return-void
 .end method
 
 .method public static obtain(Lcom/bumptech/glide/RequestManager;II)Lcom/bumptech/glide/request/target/PreloadTarget;
     .locals 1
-    .param p0, "requestManager"    # Lcom/bumptech/glide/RequestManager;
-    .param p1, "width"    # I
-    .param p2, "height"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<Z:",
@@ -97,26 +88,21 @@
     .locals 1
 
     .line 67
-    .local p0, "this":Lcom/bumptech/glide/request/target/PreloadTarget;, "Lcom/bumptech/glide/request/target/PreloadTarget<TZ;>;"
     iget-object v0, p0, Lcom/bumptech/glide/request/target/PreloadTarget;->requestManager:Lcom/bumptech/glide/RequestManager;
 
     invoke-virtual {v0, p0}, Lcom/bumptech/glide/RequestManager;->clear(Lcom/bumptech/glide/request/target/Target;)V
 
-    .line 68
     return-void
 .end method
 
 .method public onLoadCleared(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .param p1, "placeholder"    # Landroid/graphics/drawable/Drawable;
 
-    .line 62
-    .local p0, "this":Lcom/bumptech/glide/request/target/PreloadTarget;, "Lcom/bumptech/glide/request/target/PreloadTarget<TZ;>;"
     return-void
 .end method
 
 .method public onResourceReady(Ljava/lang/Object;Lcom/bumptech/glide/request/transition/Transition;)V
-    .locals 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TZ;",
@@ -126,19 +112,15 @@
     .end annotation
 
     .line 56
-    .local p0, "this":Lcom/bumptech/glide/request/target/PreloadTarget;, "Lcom/bumptech/glide/request/target/PreloadTarget<TZ;>;"
-    .local p1, "resource":Ljava/lang/Object;, "TZ;"
-    .local p2, "transition":Lcom/bumptech/glide/request/transition/Transition;, "Lcom/bumptech/glide/request/transition/Transition<-TZ;>;"
-    sget-object v0, Lcom/bumptech/glide/request/target/PreloadTarget;->HANDLER:Landroid/os/Handler;
+    sget-object p1, Lcom/bumptech/glide/request/target/PreloadTarget;->HANDLER:Landroid/os/Handler;
 
-    const/4 v1, 0x1
+    const/4 p2, 0x1
 
-    invoke-virtual {v0, v1, p0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p1, p2, p0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual {p1}, Landroid/os/Message;->sendToTarget()V
 
-    .line 57
     return-void
 .end method

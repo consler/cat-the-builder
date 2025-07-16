@@ -66,9 +66,7 @@
 .end method
 
 .method public getInstance(Ljava/lang/String;Ljava/security/Provider;)Ljavax/crypto/KeyAgreement;
-    .locals 1
-    .param p1, "algorithm"    # Ljava/lang/String;
-    .param p2, "provider"    # Ljava/security/Provider;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -86,21 +84,20 @@
         }
     .end annotation
 
-    .line 127
     if-nez p2, :cond_0
 
     .line 128
     invoke-static {p1}, Ljavax/crypto/KeyAgreement;->getInstance(Ljava/lang/String;)Ljavax/crypto/KeyAgreement;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 130
     :cond_0
     invoke-static {p1, p2}, Ljavax/crypto/KeyAgreement;->getInstance(Ljava/lang/String;Ljava/security/Provider;)Ljavax/crypto/KeyAgreement;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

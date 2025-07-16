@@ -15,7 +15,6 @@
 # direct methods
 .method constructor <init>(Lcom/thoughtworks/xstream/io/binary/ReaderDepthState;Ljava/util/Iterator;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/thoughtworks/xstream/io/binary/ReaderDepthState;
 
     .line 132
     iput-object p1, p0, Lcom/thoughtworks/xstream/io/binary/ReaderDepthState$1;->this$0:Lcom/thoughtworks/xstream/io/binary/ReaderDepthState;
@@ -43,7 +42,7 @@
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 2
+    .locals 1
 
     .line 138
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/binary/ReaderDepthState$1;->val$attributeIterator:Ljava/util/Iterator;
@@ -55,10 +54,9 @@
     check-cast v0, Lcom/thoughtworks/xstream/io/binary/ReaderDepthState$Attribute;
 
     .line 139
-    .local v0, "attribute":Lcom/thoughtworks/xstream/io/binary/ReaderDepthState$Attribute;
-    iget-object v1, v0, Lcom/thoughtworks/xstream/io/binary/ReaderDepthState$Attribute;->name:Ljava/lang/String;
+    iget-object v0, v0, Lcom/thoughtworks/xstream/io/binary/ReaderDepthState$Attribute;->name:Ljava/lang/String;
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public remove()V

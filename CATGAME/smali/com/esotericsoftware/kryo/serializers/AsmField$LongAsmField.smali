@@ -17,12 +17,10 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/reflect/Field;)V
     .locals 0
-    .param p1, "field"    # Ljava/lang/reflect/Field;
 
     .line 174
     invoke-direct {p0, p1}, Lcom/esotericsoftware/kryo/serializers/FieldSerializer$CachedField;-><init>(Ljava/lang/reflect/Field;)V
 
-    .line 175
     return-void
 .end method
 
@@ -30,8 +28,6 @@
 # virtual methods
 .method public copy(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 4
-    .param p1, "original"    # Ljava/lang/Object;
-    .param p2, "copy"    # Ljava/lang/Object;
 
     .line 192
     iget-object v0, p0, Lcom/esotericsoftware/kryo/serializers/AsmField$LongAsmField;->access:Lcom/esotericsoftware/reflectasm/FieldAccess;
@@ -48,14 +44,11 @@
 
     invoke-virtual {v0, p2, v1, v2, v3}, Lcom/esotericsoftware/reflectasm/FieldAccess;->setLong(Ljava/lang/Object;IJ)V
 
-    .line 193
     return-void
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Object;)V
     .locals 4
-    .param p1, "input"    # Lcom/esotericsoftware/kryo/io/Input;
-    .param p2, "object"    # Ljava/lang/Object;
 
     .line 185
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/serializers/AsmField$LongAsmField;->varEncoding:Z
@@ -89,15 +82,12 @@
 
     invoke-virtual {v0, p2, v1, v2, v3}, Lcom/esotericsoftware/reflectasm/FieldAccess;->setLong(Ljava/lang/Object;IJ)V
 
-    .line 189
     :goto_0
     return-void
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 3
-    .param p1, "output"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p2, "object"    # Ljava/lang/Object;
+    .locals 2
 
     .line 178
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/serializers/AsmField$LongAsmField;->varEncoding:Z
@@ -113,9 +103,9 @@
 
     move-result-wide v0
 
-    const/4 v2, 0x0
+    const/4 p2, 0x0
 
-    invoke-virtual {p1, v0, v1, v2}, Lcom/esotericsoftware/kryo/io/Output;->writeVarLong(JZ)I
+    invoke-virtual {p1, v0, v1, p2}, Lcom/esotericsoftware/kryo/io/Output;->writeVarLong(JZ)I
 
     goto :goto_0
 
@@ -131,7 +121,6 @@
 
     invoke-virtual {p1, v0, v1}, Lcom/esotericsoftware/kryo/io/Output;->writeLong(J)V
 
-    .line 182
     :goto_0
     return-void
 .end method

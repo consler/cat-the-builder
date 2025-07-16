@@ -40,11 +40,8 @@
     .end annotation
 
     .line 406
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCreate$ErrorAsyncEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableCreate$ErrorAsyncEmitter<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableCreate$NoOverflowBaseAsyncEmitter;-><init>(Lorg/reactivestreams/Subscriber;)V
 
-    .line 407
     return-void
 .end method
 
@@ -54,7 +51,6 @@
     .locals 2
 
     .line 411
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCreate$ErrorAsyncEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableCreate$ErrorAsyncEmitter<TT;>;"
     new-instance v0, Lio/reactivex/exceptions/MissingBackpressureException;
 
     const-string v1, "create: could not emit value due to lack of requests"
@@ -63,6 +59,5 @@
 
     invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/flowable/FlowableCreate$ErrorAsyncEmitter;->onError(Ljava/lang/Throwable;)V
 
-    .line 412
     return-void
 .end method

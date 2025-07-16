@@ -49,13 +49,13 @@
 
     sput-object v0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$RequestMax;->INSTANCE:Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$RequestMax;
 
-    .line 215
     const/4 v1, 0x1
 
     new-array v1, v1, [Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$RequestMax;
 
     aput-object v0, v1, v2
 
+    .line 215
     sput-object v1, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$RequestMax;->$VALUES:[Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$RequestMax;
 
     return-void
@@ -77,18 +77,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$RequestMax;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 215
     const-class v0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$RequestMax;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$RequestMax;
+    check-cast p0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$RequestMax;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$RequestMax;
@@ -109,8 +108,7 @@
 
 # virtual methods
 .method public bridge synthetic accept(Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -118,29 +116,25 @@
     .end annotation
 
     .line 215
-    move-object v0, p1
+    check-cast p1, Lorg/reactivestreams/Subscription;
 
-    check-cast v0, Lorg/reactivestreams/Subscription;
-
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$RequestMax;->accept(Lorg/reactivestreams/Subscription;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$RequestMax;->accept(Lorg/reactivestreams/Subscription;)V
 
     return-void
 .end method
 
 .method public accept(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "t"    # Lorg/reactivestreams/Subscription;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    .line 219
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 219
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 220
     return-void
 .end method

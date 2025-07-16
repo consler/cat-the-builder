@@ -62,7 +62,6 @@
     invoke-direct {v0}, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;-><init>()V
 
     .line 481
-    .local v0, "defaultInstance":Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
     sput-object v0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->DEFAULT_INSTANCE:Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
 
     .line 482
@@ -70,8 +69,6 @@
 
     invoke-static {v1, v0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->registerDefaultInstance(Ljava/lang/Class;Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
-    .line 484
-    .end local v0    # "defaultInstance":Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
     return-void
 .end method
 
@@ -86,7 +83,6 @@
 
     iput-object v0, p0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->keyValue_:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    .line 20
     return-void
 .end method
 
@@ -101,8 +97,6 @@
 
 .method static synthetic access$100(Lcom/google/crypto/tink/proto/EcdsaPrivateKey;I)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
-    .param p1, "x1"    # I
 
     .line 13
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->setVersion(I)V
@@ -112,7 +106,6 @@
 
 .method static synthetic access$200(Lcom/google/crypto/tink/proto/EcdsaPrivateKey;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
 
     .line 13
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->clearVersion()V
@@ -122,8 +115,6 @@
 
 .method static synthetic access$300(Lcom/google/crypto/tink/proto/EcdsaPrivateKey;Lcom/google/crypto/tink/proto/EcdsaPublicKey;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
-    .param p1, "x1"    # Lcom/google/crypto/tink/proto/EcdsaPublicKey;
 
     .line 13
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->setPublicKey(Lcom/google/crypto/tink/proto/EcdsaPublicKey;)V
@@ -133,8 +124,6 @@
 
 .method static synthetic access$400(Lcom/google/crypto/tink/proto/EcdsaPrivateKey;Lcom/google/crypto/tink/proto/EcdsaPublicKey;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
-    .param p1, "x1"    # Lcom/google/crypto/tink/proto/EcdsaPublicKey;
 
     .line 13
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->mergePublicKey(Lcom/google/crypto/tink/proto/EcdsaPublicKey;)V
@@ -144,7 +133,6 @@
 
 .method static synthetic access$500(Lcom/google/crypto/tink/proto/EcdsaPrivateKey;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
 
     .line 13
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->clearPublicKey()V
@@ -154,8 +142,6 @@
 
 .method static synthetic access$600(Lcom/google/crypto/tink/proto/EcdsaPrivateKey;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
-    .param p1, "x1"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     .line 13
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->setKeyValue(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
@@ -165,7 +151,6 @@
 
 .method static synthetic access$700(Lcom/google/crypto/tink/proto/EcdsaPrivateKey;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
 
     .line 13
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->clearKeyValue()V
@@ -187,31 +172,28 @@
 
     iput-object v0, p0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->keyValue_:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    .line 165
     return-void
 .end method
 
 .method private clearPublicKey()V
     .locals 1
 
-    .line 121
     const/4 v0, 0x0
 
+    .line 121
     iput-object v0, p0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->publicKey_:Lcom/google/crypto/tink/proto/EcdsaPublicKey;
 
-    .line 123
     return-void
 .end method
 
 .method private clearVersion()V
     .locals 1
 
-    .line 56
     const/4 v0, 0x0
 
+    .line 56
     iput v0, p0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->version_:I
 
-    .line 57
     return-void
 .end method
 
@@ -226,7 +208,6 @@
 
 .method private mergePublicKey(Lcom/google/crypto/tink/proto/EcdsaPublicKey;)V
     .locals 2
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/EcdsaPublicKey;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -261,17 +242,17 @@
 
     invoke-virtual {v0, p1}, Lcom/google/crypto/tink/proto/EcdsaPublicKey$Builder;->mergeFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/google/crypto/tink/proto/EcdsaPublicKey$Builder;
+    check-cast p1, Lcom/google/crypto/tink/proto/EcdsaPublicKey$Builder;
 
-    invoke-virtual {v0}, Lcom/google/crypto/tink/proto/EcdsaPublicKey$Builder;->buildPartial()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/EcdsaPublicKey$Builder;->buildPartial()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/google/crypto/tink/proto/EcdsaPublicKey;
+    check-cast p1, Lcom/google/crypto/tink/proto/EcdsaPublicKey;
 
-    iput-object v0, p0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->publicKey_:Lcom/google/crypto/tink/proto/EcdsaPublicKey;
+    iput-object p1, p0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->publicKey_:Lcom/google/crypto/tink/proto/EcdsaPublicKey;
 
     goto :goto_0
 
@@ -279,7 +260,6 @@
     :cond_0
     iput-object p1, p0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->publicKey_:Lcom/google/crypto/tink/proto/EcdsaPublicKey;
 
-    .line 113
     :goto_0
     return-void
 .end method
@@ -301,7 +281,6 @@
 
 .method public static newBuilder(Lcom/google/crypto/tink/proto/EcdsaPrivateKey;)Lcom/google/crypto/tink/proto/EcdsaPrivateKey$Builder;
     .locals 1
-    .param p0, "prototype"    # Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -316,16 +295,15 @@
 
     invoke-virtual {v0, p0}, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->createBuilder(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey$Builder;
+    check-cast p0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey$Builder;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseDelimitedFrom(Ljava/io/InputStream;)Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
     .locals 1
-    .param p0, "input"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -346,17 +324,15 @@
 
     invoke-static {v0, p0}, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->parseDelimitedFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Ljava/io/InputStream;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
+    check-cast p0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseDelimitedFrom(Ljava/io/InputStream;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
     .locals 1
-    .param p0, "input"    # Ljava/io/InputStream;
-    .param p1, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -379,16 +355,15 @@
 
     invoke-static {v0, p0, p1}, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->parseDelimitedFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Ljava/io/InputStream;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
+    check-cast p0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
     .locals 1
-    .param p0, "data"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -409,17 +384,15 @@
 
     invoke-static {v0, p0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
+    check-cast p0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
     .locals 1
-    .param p0, "data"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-    .param p1, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -442,16 +415,15 @@
 
     invoke-static {v0, p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
+    check-cast p0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom(Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;)Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
     .locals 1
-    .param p0, "input"    # Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -472,17 +444,15 @@
 
     invoke-static {v0, p0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
+    check-cast p0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom(Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
     .locals 1
-    .param p0, "input"    # Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;
-    .param p1, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -505,16 +475,15 @@
 
     invoke-static {v0, p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
+    check-cast p0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom(Ljava/io/InputStream;)Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
     .locals 1
-    .param p0, "input"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -535,17 +504,15 @@
 
     invoke-static {v0, p0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Ljava/io/InputStream;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
+    check-cast p0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom(Ljava/io/InputStream;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
     .locals 1
-    .param p0, "input"    # Ljava/io/InputStream;
-    .param p1, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -568,16 +535,15 @@
 
     invoke-static {v0, p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Ljava/io/InputStream;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
+    check-cast p0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom(Ljava/nio/ByteBuffer;)Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
     .locals 1
-    .param p0, "data"    # Ljava/nio/ByteBuffer;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -598,17 +564,15 @@
 
     invoke-static {v0, p0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Ljava/nio/ByteBuffer;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
+    check-cast p0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom(Ljava/nio/ByteBuffer;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
     .locals 1
-    .param p0, "data"    # Ljava/nio/ByteBuffer;
-    .param p1, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -631,16 +595,15 @@
 
     invoke-static {v0, p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Ljava/nio/ByteBuffer;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
+    check-cast p0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom([B)Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
     .locals 1
-    .param p0, "data"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -661,17 +624,15 @@
 
     invoke-static {v0, p0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;[B)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
+    check-cast p0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom([BLcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
     .locals 1
-    .param p0, "data"    # [B
-    .param p1, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -694,11 +655,11 @@
 
     invoke-static {v0, p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;[BLcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
+    check-cast p0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parser()Lcom/google/crypto/tink/shaded/protobuf/Parser;
@@ -724,7 +685,6 @@
 
 .method private setKeyValue(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
     .locals 0
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -740,13 +700,11 @@
     .line 152
     iput-object p1, p0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->keyValue_:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    .line 153
     return-void
 .end method
 
 .method private setPublicKey(Lcom/google/crypto/tink/proto/EcdsaPublicKey;)V
     .locals 0
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/EcdsaPublicKey;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -762,13 +720,11 @@
     .line 92
     iput-object p1, p0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->publicKey_:Lcom/google/crypto/tink/proto/EcdsaPublicKey;
 
-    .line 94
     return-void
 .end method
 
 .method private setVersion(I)V
     .locals 0
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -781,17 +737,13 @@
     .line 45
     iput p1, p0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->version_:I
 
-    .line 46
     return-void
 .end method
 
 
 # virtual methods
 .method protected final dynamicMethod(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$MethodToInvoke;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
-    .param p1, "method"    # Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$MethodToInvoke;
-    .param p2, "arg0"    # Ljava/lang/Object;
-    .param p3, "arg1"    # Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -806,153 +758,137 @@
     .end annotation
 
     .line 427
-    sget-object v0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey$1;->$SwitchMap$com$google$protobuf$GeneratedMessageLite$MethodToInvoke:[I
+    sget-object p2, Lcom/google/crypto/tink/proto/EcdsaPrivateKey$1;->$SwitchMap$com$google$protobuf$GeneratedMessageLite$MethodToInvoke:[I
 
     invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$MethodToInvoke;->ordinal()I
 
-    move-result v1
+    move-result p1
 
-    aget v0, v0, v1
+    aget p1, p2, p1
 
-    const/4 v1, 0x1
+    const/4 p2, 0x1
 
-    const/4 v2, 0x0
+    const/4 p3, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch p1, :pswitch_data_0
 
     .line 471
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 
-    .line 468
     :pswitch_0
-    return-object v2
+    return-object p3
 
     .line 465
     :pswitch_1
-    invoke-static {v1}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
+    invoke-static {p2}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 450
     :pswitch_2
-    sget-object v0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->PARSER:Lcom/google/crypto/tink/shaded/protobuf/Parser;
+    sget-object p1, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->PARSER:Lcom/google/crypto/tink/shaded/protobuf/Parser;
 
-    .line 451
-    .local v0, "parser":Lcom/google/crypto/tink/shaded/protobuf/Parser;, "Lcom/google/crypto/tink/shaded/protobuf/Parser<Lcom/google/crypto/tink/proto/EcdsaPrivateKey;>;"
-    if-nez v0, :cond_1
+    if-nez p1, :cond_1
 
     .line 452
-    const-class v1, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
+    const-class p2, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
 
-    monitor-enter v1
+    monitor-enter p2
 
     .line 453
     :try_start_0
-    sget-object v2, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->PARSER:Lcom/google/crypto/tink/shaded/protobuf/Parser;
+    sget-object p1, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->PARSER:Lcom/google/crypto/tink/shaded/protobuf/Parser;
 
-    move-object v0, v2
-
-    .line 454
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 455
-    new-instance v2, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$DefaultInstanceBasedParser;
+    new-instance p1, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$DefaultInstanceBasedParser;
 
-    sget-object v3, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->DEFAULT_INSTANCE:Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
+    sget-object p3, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->DEFAULT_INSTANCE:Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
 
-    invoke-direct {v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$DefaultInstanceBasedParser;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
-
-    move-object v0, v2
+    invoke-direct {p1, p3}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$DefaultInstanceBasedParser;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
     .line 458
-    sput-object v0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->PARSER:Lcom/google/crypto/tink/shaded/protobuf/Parser;
+    sput-object p1, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->PARSER:Lcom/google/crypto/tink/shaded/protobuf/Parser;
 
     .line 460
     :cond_0
-    monitor-exit v1
+    monitor-exit p2
 
     goto :goto_0
 
     :catchall_0
-    move-exception v2
+    move-exception p1
 
-    monitor-exit v1
+    monitor-exit p2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v2
+    throw p1
 
-    .line 462
     :cond_1
     :goto_0
-    return-object v0
+    return-object p1
 
     .line 447
-    .end local v0    # "parser":Lcom/google/crypto/tink/shaded/protobuf/Parser;, "Lcom/google/crypto/tink/shaded/protobuf/Parser<Lcom/google/crypto/tink/proto/EcdsaPrivateKey;>;"
     :pswitch_3
-    sget-object v0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->DEFAULT_INSTANCE:Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
+    sget-object p1, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->DEFAULT_INSTANCE:Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
 
-    return-object v0
+    return-object p1
 
-    .line 435
     :pswitch_4
-    const/4 v0, 0x3
+    const/4 p1, 0x3
 
-    new-array v0, v0, [Ljava/lang/Object;
+    new-array p1, p1, [Ljava/lang/Object;
 
-    const/4 v2, 0x0
+    const/4 p3, 0x0
 
-    const-string v3, "version_"
+    const-string v0, "version_"
 
-    aput-object v3, v0, v2
+    aput-object v0, p1, p3
 
-    const-string v2, "publicKey_"
+    const-string p3, "publicKey_"
 
-    aput-object v2, v0, v1
+    aput-object p3, p1, p2
 
-    const/4 v1, 0x2
+    const/4 p2, 0x2
 
-    const-string v2, "keyValue_"
+    const-string p3, "keyValue_"
 
-    aput-object v2, v0, v1
+    aput-object p3, p1, p2
 
-    .line 440
-    .local v0, "objects":[Ljava/lang/Object;
-    const-string v1, "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0000\u0000\u0001\u000b\u0002\t\u0003\n"
+    const-string p2, "\u0000\u0003\u0000\u0000\u0001\u0003\u0003\u0000\u0000\u0000\u0001\u000b\u0002\t\u0003\n"
 
     .line 443
-    .local v1, "info":Ljava/lang/String;
-    sget-object v2, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->DEFAULT_INSTANCE:Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
+    sget-object p3, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->DEFAULT_INSTANCE:Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
 
-    invoke-static {v2, v1, v0}, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->newMessageInfo(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p3, p2, p1}, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->newMessageInfo(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 
     .line 432
-    .end local v0    # "objects":[Ljava/lang/Object;
-    .end local v1    # "info":Ljava/lang/String;
     :pswitch_5
-    new-instance v0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey$Builder;
+    new-instance p1, Lcom/google/crypto/tink/proto/EcdsaPrivateKey$Builder;
 
-    invoke-direct {v0, v2}, Lcom/google/crypto/tink/proto/EcdsaPrivateKey$Builder;-><init>(Lcom/google/crypto/tink/proto/EcdsaPrivateKey$1;)V
+    invoke-direct {p1, p3}, Lcom/google/crypto/tink/proto/EcdsaPrivateKey$Builder;-><init>(Lcom/google/crypto/tink/proto/EcdsaPrivateKey$1;)V
 
-    return-object v0
+    return-object p1
 
     .line 429
     :pswitch_6
-    new-instance v0, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
+    new-instance p1, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
 
-    invoke-direct {v0}, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;-><init>()V
+    invoke-direct {p1}, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;-><init>()V
 
-    return-object v0
+    return-object p1
 
     :pswitch_data_0
     .packed-switch 0x1

@@ -25,7 +25,6 @@
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/resource/bitmap/Downsampler;)V
     .locals 0
-    .param p1, "downsampler"    # Lcom/bumptech/glide/load/resource/bitmap/Downsampler;
 
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +32,6 @@
     .line 22
     iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/ParcelFileDescriptorBitmapDecoder;->downsampler:Lcom/bumptech/glide/load/resource/bitmap/Downsampler;
 
-    .line 23
     return-void
 .end method
 
@@ -41,10 +39,6 @@
 # virtual methods
 .method public decode(Landroid/os/ParcelFileDescriptor;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/engine/Resource;
     .locals 1
-    .param p1, "source"    # Landroid/os/ParcelFileDescriptor;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
-    .param p4, "options"    # Lcom/bumptech/glide/load/Options;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,9 +63,9 @@
 
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/bumptech/glide/load/resource/bitmap/Downsampler;->decode(Landroid/os/ParcelFileDescriptor;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/engine/Resource;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic decode(Ljava/lang/Object;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/engine/Resource;
@@ -93,18 +87,16 @@
 .end method
 
 .method public handles(Landroid/os/ParcelFileDescriptor;Lcom/bumptech/glide/load/Options;)Z
-    .locals 1
-    .param p1, "source"    # Landroid/os/ParcelFileDescriptor;
-    .param p2, "options"    # Lcom/bumptech/glide/load/Options;
+    .locals 0
 
     .line 27
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/ParcelFileDescriptorBitmapDecoder;->downsampler:Lcom/bumptech/glide/load/resource/bitmap/Downsampler;
+    iget-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/ParcelFileDescriptorBitmapDecoder;->downsampler:Lcom/bumptech/glide/load/resource/bitmap/Downsampler;
 
-    invoke-virtual {v0, p1}, Lcom/bumptech/glide/load/resource/bitmap/Downsampler;->handles(Landroid/os/ParcelFileDescriptor;)Z
+    invoke-virtual {p2, p1}, Lcom/bumptech/glide/load/resource/bitmap/Downsampler;->handles(Landroid/os/ParcelFileDescriptor;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic handles(Ljava/lang/Object;Lcom/bumptech/glide/load/Options;)Z

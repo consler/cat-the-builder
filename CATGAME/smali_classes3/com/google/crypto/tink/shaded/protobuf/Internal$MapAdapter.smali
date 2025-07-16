@@ -71,9 +71,6 @@
     .end annotation
 
     .line 448
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter;, "Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter<TK;TV;TRealValue;>;"
-    .local p1, "realMap":Ljava/util/Map;, "Ljava/util/Map<TK;TRealValue;>;"
-    .local p2, "valueConverter":Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$Converter;, "Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$Converter<TRealValue;TV;>;"
     invoke-direct {p0}, Ljava/util/AbstractMap;-><init>()V
 
     .line 449
@@ -82,18 +79,16 @@
     .line 450
     iput-object p2, p0, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter;->valueConverter:Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$Converter;
 
-    .line 451
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter;)Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$Converter;
-    .locals 1
-    .param p0, "x0"    # Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter;
+    .locals 0
 
     .line 421
-    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter;->valueConverter:Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$Converter;
+    iget-object p0, p0, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter;->valueConverter:Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$Converter;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static newEnumConverter(Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLiteMap;Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLite;)Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$Converter;
@@ -112,8 +107,6 @@
     .end annotation
 
     .line 431
-    .local p0, "enumMap":Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLiteMap;, "Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLiteMap<TT;>;"
-    .local p1, "unrecognizedValue":Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLite;, "TT;"
     new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$1;
 
     invoke-direct {v0, p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$1;-><init>(Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLiteMap;Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLite;)V
@@ -135,7 +128,6 @@
     .end annotation
 
     .line 474
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter;, "Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter<TK;TV;TRealValue;>;"
     new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$SetAdapter;
 
     iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter;->realMap:Ljava/util/Map;
@@ -150,8 +142,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -161,31 +152,27 @@
     .end annotation
 
     .line 456
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter;, "Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter<TK;TV;TRealValue;>;"
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter;->realMap:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 457
-    .local v0, "result":Ljava/lang/Object;, "TRealValue;"
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    .line 458
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 
     .line 460
     :cond_0
-    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter;->valueConverter:Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$Converter;
+    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter;->valueConverter:Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$Converter;
 
-    invoke-interface {v1, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$Converter;->doForward(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$Converter;->doForward(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -197,37 +184,31 @@
     .end annotation
 
     .line 465
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter;, "Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter<TK;TV;TRealValue;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter;->realMap:Ljava/util/Map;
 
     iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter;->valueConverter:Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$Converter;
 
     invoke-interface {v1, p2}, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$Converter;->doBackward(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 466
-    .local v0, "oldValue":Ljava/lang/Object;, "TRealValue;"
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    .line 467
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 
     .line 469
     :cond_0
-    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter;->valueConverter:Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$Converter;
+    iget-object p2, p0, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter;->valueConverter:Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$Converter;
 
-    invoke-interface {v1, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$Converter;->doForward(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p2, p1}, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$Converter;->doForward(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method

@@ -38,17 +38,13 @@
     .end annotation
 
     .line 101
-    .local p0, "this":Lorg/apache/commons/collections4/queue/TransformedQueue;, "Lorg/apache/commons/collections4/queue/TransformedQueue<TE;>;"
-    .local p1, "queue":Ljava/util/Queue;, "Ljava/util/Queue<TE;>;"
-    .local p2, "transformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TE;+TE;>;"
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections4/collection/TransformedCollection;-><init>(Ljava/util/Collection;Lorg/apache/commons/collections4/Transformer;)V
 
-    .line 102
     return-void
 .end method
 
 .method public static transformedQueue(Ljava/util/Queue;Lorg/apache/commons/collections4/Transformer;)Lorg/apache/commons/collections4/queue/TransformedQueue;
-    .locals 7
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -64,14 +60,11 @@
     .end annotation
 
     .line 77
-    .local p0, "queue":Ljava/util/Queue;, "Ljava/util/Queue<TE;>;"
-    .local p1, "transformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TE;+TE;>;"
     new-instance v0, Lorg/apache/commons/collections4/queue/TransformedQueue;
 
     invoke-direct {v0, p0, p1}, Lorg/apache/commons/collections4/queue/TransformedQueue;-><init>(Ljava/util/Queue;Lorg/apache/commons/collections4/Transformer;)V
 
     .line 78
-    .local v0, "decorated":Lorg/apache/commons/collections4/queue/TransformedQueue;, "Lorg/apache/commons/collections4/queue/TransformedQueue<TE;>;"
     invoke-interface {p0}, Ljava/util/Queue;->size()I
 
     move-result v1
@@ -86,39 +79,33 @@
     check-cast v1, [Ljava/lang/Object;
 
     .line 81
-    .local v1, "values":[Ljava/lang/Object;, "[TE;"
     invoke-interface {p0}, Ljava/util/Queue;->clear()V
 
     .line 82
-    array-length v2, v1
+    array-length p0, v1
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v3, v2, :cond_0
+    if-ge v2, p0, :cond_0
 
-    aget-object v4, v1, v3
+    aget-object v3, v1, v2
 
     .line 83
-    .local v4, "value":Ljava/lang/Object;, "TE;"
     invoke-virtual {v0}, Lorg/apache/commons/collections4/queue/TransformedQueue;->decorated()Ljava/util/Collection;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-interface {p1, v4}, Lorg/apache/commons/collections4/Transformer;->transform(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, v3}, Lorg/apache/commons/collections4/Transformer;->transform(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v3
 
-    invoke-interface {v5, v6}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    invoke-interface {v4, v3}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    .line 82
-    .end local v4    # "value":Ljava/lang/Object;, "TE;"
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 86
-    .end local v1    # "values":[Ljava/lang/Object;, "[TE;"
     :cond_0
     return-object v0
 .end method
@@ -140,8 +127,6 @@
     .end annotation
 
     .line 56
-    .local p0, "queue":Ljava/util/Queue;, "Ljava/util/Queue<TE;>;"
-    .local p1, "transformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TE;+TE;>;"
     new-instance v0, Lorg/apache/commons/collections4/queue/TransformedQueue;
 
     invoke-direct {v0, p0, p1}, Lorg/apache/commons/collections4/queue/TransformedQueue;-><init>(Ljava/util/Queue;Lorg/apache/commons/collections4/Transformer;)V
@@ -160,7 +145,6 @@
     .end annotation
 
     .line 132
-    .local p0, "this":Lorg/apache/commons/collections4/queue/TransformedQueue;, "Lorg/apache/commons/collections4/queue/TransformedQueue<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/queue/TransformedQueue;->getQueue()Ljava/util/Queue;
 
     move-result-object v0
@@ -183,7 +167,6 @@
     .end annotation
 
     .line 110
-    .local p0, "this":Lorg/apache/commons/collections4/queue/TransformedQueue;, "Lorg/apache/commons/collections4/queue/TransformedQueue<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/queue/TransformedQueue;->decorated()Ljava/util/Collection;
 
     move-result-object v0
@@ -194,7 +177,7 @@
 .end method
 
 .method public offer(Ljava/lang/Object;)Z
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)Z"
@@ -202,21 +185,19 @@
     .end annotation
 
     .line 117
-    .local p0, "this":Lorg/apache/commons/collections4/queue/TransformedQueue;, "Lorg/apache/commons/collections4/queue/TransformedQueue<TE;>;"
-    .local p1, "obj":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/queue/TransformedQueue;->getQueue()Ljava/util/Queue;
 
     move-result-object v0
 
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/queue/TransformedQueue;->transform(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Ljava/util/Queue;->offer(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Ljava/util/Queue;->offer(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public peek()Ljava/lang/Object;
@@ -228,7 +209,6 @@
     .end annotation
 
     .line 127
-    .local p0, "this":Lorg/apache/commons/collections4/queue/TransformedQueue;, "Lorg/apache/commons/collections4/queue/TransformedQueue<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/queue/TransformedQueue;->getQueue()Ljava/util/Queue;
 
     move-result-object v0
@@ -249,7 +229,6 @@
     .end annotation
 
     .line 122
-    .local p0, "this":Lorg/apache/commons/collections4/queue/TransformedQueue;, "Lorg/apache/commons/collections4/queue/TransformedQueue<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/queue/TransformedQueue;->getQueue()Ljava/util/Queue;
 
     move-result-object v0
@@ -270,7 +249,6 @@
     .end annotation
 
     .line 137
-    .local p0, "this":Lorg/apache/commons/collections4/queue/TransformedQueue;, "Lorg/apache/commons/collections4/queue/TransformedQueue<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/queue/TransformedQueue;->getQueue()Ljava/util/Queue;
 
     move-result-object v0

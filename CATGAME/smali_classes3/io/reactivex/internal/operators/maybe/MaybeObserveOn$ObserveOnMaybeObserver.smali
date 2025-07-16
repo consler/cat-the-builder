@@ -64,7 +64,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/MaybeObserver;Lio/reactivex/Scheduler;)V
     .locals 0
-    .param p2, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -76,8 +75,6 @@
     .end annotation
 
     .line 55
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 56
@@ -86,7 +83,6 @@
     .line 57
     iput-object p2, p0, Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;->scheduler:Lio/reactivex/Scheduler;
 
-    .line 58
     return-void
 .end method
 
@@ -96,10 +92,8 @@
     .locals 0
 
     .line 62
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver<TT;>;"
     invoke-static {p0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 63
     return-void
 .end method
 
@@ -107,7 +101,6 @@
     .locals 1
 
     .line 67
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -125,7 +118,6 @@
     .locals 1
 
     .line 91
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;->scheduler:Lio/reactivex/Scheduler;
 
     invoke-virtual {v0, p0}, Lio/reactivex/Scheduler;->scheduleDirect(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
@@ -134,55 +126,48 @@
 
     invoke-static {p0, v0}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 92
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
-    .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
+    .locals 0
 
     .line 85
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver<TT;>;"
     iput-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;->error:Ljava/lang/Throwable;
 
     .line 86
-    iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;->scheduler:Lio/reactivex/Scheduler;
+    iget-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;->scheduler:Lio/reactivex/Scheduler;
 
-    invoke-virtual {v0, p0}, Lio/reactivex/Scheduler;->scheduleDirect(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
+    invoke-virtual {p1, p0}, Lio/reactivex/Scheduler;->scheduleDirect(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {p0, v0}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
+    invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 87
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
-    .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
+    .locals 0
 
     .line 72
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver<TT;>;"
     invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 73
-    iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
 
-    invoke-interface {v0, p0}, Lio/reactivex/MaybeObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/MaybeObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 75
     :cond_0
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -190,32 +175,26 @@
     .end annotation
 
     .line 79
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     iput-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;->value:Ljava/lang/Object;
 
     .line 80
-    iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;->scheduler:Lio/reactivex/Scheduler;
+    iget-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;->scheduler:Lio/reactivex/Scheduler;
 
-    invoke-virtual {v0, p0}, Lio/reactivex/Scheduler;->scheduleDirect(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
+    invoke-virtual {p1, p0}, Lio/reactivex/Scheduler;->scheduleDirect(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {p0, v0}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
+    invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 81
     return-void
 .end method
 
 .method public run()V
-    .locals 3
+    .locals 2
 
     .line 96
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;->error:Ljava/lang/Throwable;
 
-    .line 97
-    .local v0, "ex":Ljava/lang/Throwable;
     const/4 v1, 0x0
 
     if-eqz v0, :cond_0
@@ -232,11 +211,9 @@
 
     .line 101
     :cond_0
-    iget-object v2, p0, Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;->value:Ljava/lang/Object;
+    iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;->value:Ljava/lang/Object;
 
-    .line 102
-    .local v2, "v":Ljava/lang/Object;, "TT;"
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_1
 
     .line 103
     iput-object v1, p0, Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;->value:Ljava/lang/Object;
@@ -244,18 +221,16 @@
     .line 104
     iget-object v1, p0, Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
 
-    invoke-interface {v1, v2}, Lio/reactivex/MaybeObserver;->onSuccess(Ljava/lang/Object;)V
+    invoke-interface {v1, v0}, Lio/reactivex/MaybeObserver;->onSuccess(Ljava/lang/Object;)V
 
     goto :goto_0
 
     .line 106
     :cond_1
-    iget-object v1, p0, Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
+    iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeObserveOn$ObserveOnMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
 
-    invoke-interface {v1}, Lio/reactivex/MaybeObserver;->onComplete()V
+    invoke-interface {v0}, Lio/reactivex/MaybeObserver;->onComplete()V
 
-    .line 109
-    .end local v2    # "v":Ljava/lang/Object;, "TT;"
     :goto_0
     return-void
 .end method

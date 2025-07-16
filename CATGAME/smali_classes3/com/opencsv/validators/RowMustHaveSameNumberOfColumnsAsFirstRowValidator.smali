@@ -21,12 +21,11 @@
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 22
     const/4 v0, 0x0
 
+    .line 22
     iput v0, p0, Lcom/opencsv/validators/RowMustHaveSameNumberOfColumnsAsFirstRowValidator;->numRows:I
 
-    .line 28
     return-void
 .end method
 
@@ -52,14 +51,13 @@
 
 # virtual methods
 .method public isValid([Ljava/lang/String;)Z
-    .locals 3
-    .param p1, "row"    # [Ljava/lang/String;
+    .locals 2
 
-    .line 32
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_2
 
+    .line 32
     array-length v1, p1
 
     if-nez v1, :cond_0
@@ -81,26 +79,21 @@
 
     .line 39
     :cond_1
-    array-length v1, p1
+    array-length p1, p1
 
-    iget v2, p0, Lcom/opencsv/validators/RowMustHaveSameNumberOfColumnsAsFirstRowValidator;->numRows:I
+    iget v1, p0, Lcom/opencsv/validators/RowMustHaveSameNumberOfColumnsAsFirstRowValidator;->numRows:I
 
-    if-ne v1, v2, :cond_2
+    if-ne p1, v1, :cond_2
 
     const/4 v0, 0x1
 
     :cond_2
-    return v0
-
-    .line 33
-    :cond_3
     :goto_0
     return v0
 .end method
 
 .method public validate([Ljava/lang/String;)V
     .locals 4
-    .param p1, "row"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/opencsv/exceptions/CsvValidationException;
@@ -121,9 +114,9 @@
 
     if-nez v0, :cond_2
 
-    .line 47
     if-eqz p1, :cond_1
 
+    .line 47
     array-length v0, p1
 
     if-nez v0, :cond_0
@@ -138,58 +131,57 @@
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    const/4 v2, 0x0
+    iget v2, p0, Lcom/opencsv/validators/RowMustHaveSameNumberOfColumnsAsFirstRowValidator;->numRows:I
 
-    iget v3, p0, Lcom/opencsv/validators/RowMustHaveSameNumberOfColumnsAsFirstRowValidator;->numRows:I
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v2
 
-    move-result-object v3
+    const/4 v3, 0x0
 
-    aput-object v3, v1, v2
+    aput-object v2, v1, v3
+
+    array-length p1, p1
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
 
     const/4 v2, 0x1
 
-    array-length v3, p1
+    aput-object p1, v1, v2
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const-string p1, "Row was expected to have %d elements but had %d instead"
 
-    move-result-object v3
+    invoke-static {p1, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    aput-object v3, v1, v2
+    move-result-object p1
 
-    const-string v2, "Row was expected to have %d elements but had %d instead"
-
-    invoke-static {v2, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Lcom/opencsv/exceptions/CsvValidationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Lcom/opencsv/exceptions/CsvValidationException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 48
     :cond_1
     :goto_0
-    new-instance v0, Lcom/opencsv/exceptions/CsvValidationException;
+    new-instance p1, Lcom/opencsv/exceptions/CsvValidationException;
 
-    const-string v1, "Row should not be empty or null"
+    const-string v0, "Row should not be empty or null"
 
-    invoke-direct {v0, v1}, Lcom/opencsv/exceptions/CsvValidationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lcom/opencsv/exceptions/CsvValidationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 46
     :cond_2
-    new-instance v0, Lcom/opencsv/exceptions/CsvValidationException;
+    new-instance p1, Lcom/opencsv/exceptions/CsvValidationException;
 
-    const-string v1, "First row should not be empty or null"
+    const-string v0, "First row should not be empty or null"
 
-    invoke-direct {v0, v1}, Lcom/opencsv/exceptions/CsvValidationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lcom/opencsv/exceptions/CsvValidationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 54
     :cond_3
     return-void
 .end method

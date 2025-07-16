@@ -28,14 +28,14 @@
 .method clear()V
     .locals 2
 
-    .line 35
     const/4 v0, 0x0
 
+    .line 35
     iput-object v0, p0, Landroidx/appcompat/widget/TintInfo;->mTintList:Landroid/content/res/ColorStateList;
 
-    .line 36
     const/4 v1, 0x0
 
+    .line 36
     iput-boolean v1, p0, Landroidx/appcompat/widget/TintInfo;->mHasTintList:Z
 
     .line 37
@@ -44,6 +44,5 @@
     .line 38
     iput-boolean v1, p0, Landroidx/appcompat/widget/TintInfo;->mHasTintMode:Z
 
-    .line 39
     return-void
 .end method

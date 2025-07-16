@@ -21,7 +21,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/mediarouter/media/MediaRouter$RouteInfo;
 
     .line 1777
     iput-object p1, p0, Landroidx/mediarouter/media/MediaRouter$RouteInfo$DynamicGroupState;->this$0:Landroidx/mediarouter/media/MediaRouter$RouteInfo;

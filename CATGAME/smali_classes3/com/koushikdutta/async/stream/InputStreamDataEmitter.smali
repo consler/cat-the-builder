@@ -27,15 +27,13 @@
 # direct methods
 .method public constructor <init>(Lcom/koushikdutta/async/AsyncServer;Ljava/io/InputStream;)V
     .locals 1
-    .param p1, "server"    # Lcom/koushikdutta/async/AsyncServer;
-    .param p2, "inputStream"    # Ljava/io/InputStream;
 
     .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 73
     const/4 v0, 0x0
 
+    .line 73
     iput v0, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter;->mToAlloc:I
 
     .line 74
@@ -61,14 +59,11 @@
     .line 25
     invoke-direct {p0}, Lcom/koushikdutta/async/stream/InputStreamDataEmitter;->doResume()V
 
-    .line 26
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/koushikdutta/async/stream/InputStreamDataEmitter;Ljava/lang/Exception;)V
     .locals 0
-    .param p0, "x0"    # Lcom/koushikdutta/async/stream/InputStreamDataEmitter;
-    .param p1, "x1"    # Ljava/lang/Exception;
 
     .line 19
     invoke-direct {p0, p1}, Lcom/koushikdutta/async/stream/InputStreamDataEmitter;->report(Ljava/lang/Exception;)V
@@ -88,13 +83,11 @@
 
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
-    .line 117
     return-void
 .end method
 
 .method private report(Ljava/lang/Exception;)V
     .locals 2
-    .param p1, "e"    # Ljava/lang/Exception;
 
     .line 57
     invoke-virtual {p0}, Lcom/koushikdutta/async/stream/InputStreamDataEmitter;->getServer()Lcom/koushikdutta/async/AsyncServer;
@@ -107,7 +100,6 @@
 
     invoke-virtual {v0, v1}, Lcom/koushikdutta/async/AsyncServer;->post(Ljava/lang/Runnable;)Ljava/lang/Object;
 
-    .line 71
     return-void
 .end method
 
@@ -116,7 +108,6 @@
 .method public charset()Ljava/lang/String;
     .locals 1
 
-    .line 152
     const/4 v0, 0x0
 
     return-object v0
@@ -125,9 +116,9 @@
 .method public close()V
     .locals 1
 
-    .line 142
     const/4 v0, 0x0
 
+    .line 142
     invoke-direct {p0, v0}, Lcom/koushikdutta/async/stream/InputStreamDataEmitter;->report(Ljava/lang/Exception;)V
 
     .line 144
@@ -138,15 +129,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 147
-    goto :goto_0
-
-    .line 146
     :catch_0
-    move-exception v0
-
-    .line 148
-    :goto_0
     return-void
 .end method
 
@@ -180,7 +163,6 @@
 .method public isChunked()Z
     .locals 1
 
-    .line 41
     const/4 v0, 0x0
 
     return v0
@@ -198,48 +180,42 @@
 .method public pause()V
     .locals 1
 
-    .line 47
     const/4 v0, 0x1
 
+    .line 47
     iput-boolean v0, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter;->paused:Z
 
-    .line 48
     return-void
 .end method
 
 .method public resume()V
     .locals 1
 
-    .line 52
     const/4 v0, 0x0
 
+    .line 52
     iput-boolean v0, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter;->paused:Z
 
     .line 53
     invoke-direct {p0}, Lcom/koushikdutta/async/stream/InputStreamDataEmitter;->doResume()V
 
-    .line 54
     return-void
 .end method
 
 .method public setDataCallback(Lcom/koushikdutta/async/callback/DataCallback;)V
     .locals 0
-    .param p1, "callback"    # Lcom/koushikdutta/async/callback/DataCallback;
 
     .line 31
     iput-object p1, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter;->callback:Lcom/koushikdutta/async/callback/DataCallback;
 
-    .line 32
     return-void
 .end method
 
 .method public setEndCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
     .locals 0
-    .param p1, "callback"    # Lcom/koushikdutta/async/callback/CompletedCallback;
 
     .line 127
     iput-object p1, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter;->endCallback:Lcom/koushikdutta/async/callback/CompletedCallback;
 
-    .line 128
     return-void
 .end method

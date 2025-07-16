@@ -35,16 +35,13 @@
 
     invoke-direct {p0, v0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>(Ljava/lang/Object;)V
 
-    .line 161
     return-void
 .end method
 
 
 # virtual methods
 .method call(Lio/reactivex/Scheduler$Worker;Lio/reactivex/CompletableObserver;)V
-    .locals 3
-    .param p1, "actualWorker"    # Lio/reactivex/Scheduler$Worker;
-    .param p2, "actionCompletable"    # Lio/reactivex/CompletableObserver;
+    .locals 2
 
     .line 164
     invoke-virtual {p0}, Lio/reactivex/internal/schedulers/SchedulerWhen$ScheduledAction;->get()Ljava/lang/Object;
@@ -54,12 +51,10 @@
     check-cast v0, Lio/reactivex/disposables/Disposable;
 
     .line 166
-    .local v0, "oldState":Lio/reactivex/disposables/Disposable;
     sget-object v1, Lio/reactivex/internal/schedulers/SchedulerWhen;->DISPOSED:Lio/reactivex/disposables/Disposable;
 
     if-ne v0, v1, :cond_0
 
-    .line 168
     return-void
 
     .line 170
@@ -68,29 +63,26 @@
 
     if-eq v0, v1, :cond_1
 
-    .line 174
     return-void
 
     .line 177
     :cond_1
     invoke-virtual {p0, p1, p2}, Lio/reactivex/internal/schedulers/SchedulerWhen$ScheduledAction;->callActual(Lio/reactivex/Scheduler$Worker;Lio/reactivex/CompletableObserver;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 179
-    .local v1, "newState":Lio/reactivex/disposables/Disposable;
-    sget-object v2, Lio/reactivex/internal/schedulers/SchedulerWhen;->SUBSCRIBED:Lio/reactivex/disposables/Disposable;
+    sget-object p2, Lio/reactivex/internal/schedulers/SchedulerWhen;->SUBSCRIBED:Lio/reactivex/disposables/Disposable;
 
-    invoke-virtual {p0, v2, v1}, Lio/reactivex/internal/schedulers/SchedulerWhen$ScheduledAction;->compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-virtual {p0, p2, p1}, Lio/reactivex/internal/schedulers/SchedulerWhen$ScheduledAction;->compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p2
 
-    if-nez v2, :cond_2
+    if-nez p2, :cond_2
 
     .line 184
-    invoke-interface {v1}, Lio/reactivex/disposables/Disposable;->dispose()V
+    invoke-interface {p1}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 186
     :cond_2
     return-void
 .end method
@@ -105,8 +97,7 @@
     sget-object v0, Lio/reactivex/internal/schedulers/SchedulerWhen;->DISPOSED:Lio/reactivex/disposables/Disposable;
 
     .line 201
-    .local v0, "newState":Lio/reactivex/disposables/Disposable;
-    :goto_0
+    :cond_0
     invoke-virtual {p0}, Lio/reactivex/internal/schedulers/SchedulerWhen$ScheduledAction;->get()Ljava/lang/Object;
 
     move-result-object v1
@@ -114,37 +105,30 @@
     check-cast v1, Lio/reactivex/disposables/Disposable;
 
     .line 202
-    .local v1, "oldState":Lio/reactivex/disposables/Disposable;
     sget-object v2, Lio/reactivex/internal/schedulers/SchedulerWhen;->DISPOSED:Lio/reactivex/disposables/Disposable;
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_1
 
-    .line 204
     return-void
 
     .line 206
-    :cond_0
+    :cond_1
     invoke-virtual {p0, v1, v0}, Lio/reactivex/internal/schedulers/SchedulerWhen$ScheduledAction;->compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_0
 
     .line 208
-    sget-object v2, Lio/reactivex/internal/schedulers/SchedulerWhen;->SUBSCRIBED:Lio/reactivex/disposables/Disposable;
+    sget-object v0, Lio/reactivex/internal/schedulers/SchedulerWhen;->SUBSCRIBED:Lio/reactivex/disposables/Disposable;
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v0, :cond_2
 
     .line 210
     invoke-interface {v1}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 212
-    :cond_1
-    return-void
-
-    .line 206
     :cond_2
-    goto :goto_0
+    return-void
 .end method
 
 .method public isDisposed()Z

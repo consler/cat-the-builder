@@ -33,7 +33,6 @@
     .line 1359
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$RangedNumericValue;-><init>()V
 
-    .line 1360
     const/4 v0, 0x1
 
     new-array v1, v0, [F
@@ -44,15 +43,16 @@
 
     aput v2, v1, v3
 
+    .line 1360
     iput-object v1, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->scaling:[F
 
-    .line 1361
     new-array v0, v0, [F
 
     const/4 v1, 0x0
 
     aput v1, v0, v3
 
+    .line 1361
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->timeline:[F
 
     return-void
@@ -79,101 +79,82 @@
 .end method
 
 .method public getScale(F)F
-    .locals 10
-    .param p1, "percent"    # F
-
-    .line 1448
-    const/4 v0, -0x1
+    .locals 6
 
     .line 1449
-    .local v0, "endIndex":I
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->timeline:[F
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->timeline:[F
 
     .line 1450
-    .local v1, "timeline":[F
-    array-length v2, v1
+    array-length v1, v0
 
-    .line 1451
-    .local v2, "n":I
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    .local v3, "i":I
+    move v3, v2
+
     :goto_0
-    if-ge v3, v2, :cond_1
+    const/4 v4, -0x1
+
+    if-ge v3, v1, :cond_1
 
     .line 1452
-    aget v4, v1, v3
+    aget v5, v0, v3
 
-    .line 1453
-    .local v4, "t":F
-    cmpl-float v5, v4, p1
+    cmpl-float v5, v5, p1
 
     if-lez v5, :cond_0
 
-    .line 1454
-    move v0, v3
-
-    .line 1455
     goto :goto_1
 
-    .line 1451
-    .end local v4    # "t":F
     :cond_0
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 1458
-    .end local v3    # "i":I
     :cond_1
+    move v3, v4
+
     :goto_1
-    const/4 v3, -0x1
+    if-ne v3, v4, :cond_2
 
-    if-ne v0, v3, :cond_2
+    .line 1458
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->scaling:[F
 
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->scaling:[F
+    sub-int/2addr v1, v2
 
-    add-int/lit8 v4, v2, -0x1
+    aget p1, p1, v1
 
-    aget v3, v3, v4
-
-    return v3
+    return p1
 
     .line 1459
     :cond_2
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->scaling:[F
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->scaling:[F
 
-    .line 1460
-    .local v3, "scaling":[F
-    add-int/lit8 v4, v0, -0x1
+    add-int/lit8 v2, v3, -0x1
 
     .line 1461
-    .local v4, "startIndex":I
-    aget v5, v3, v4
+    aget v4, v1, v2
 
     .line 1462
-    .local v5, "startValue":F
-    aget v6, v1, v4
+    aget v2, v0, v2
 
     .line 1463
-    .local v6, "startTime":F
-    aget v7, v3, v0
+    aget v1, v1, v3
 
-    sub-float/2addr v7, v5
+    sub-float/2addr v1, v4
 
-    sub-float v8, p1, v6
+    sub-float/2addr p1, v2
 
-    aget v9, v1, v0
+    aget v0, v0, v3
 
-    sub-float/2addr v9, v6
+    sub-float/2addr v0, v2
 
-    div-float/2addr v8, v9
+    div-float/2addr p1, v0
 
-    mul-float/2addr v7, v8
+    mul-float/2addr v1, p1
 
-    add-float/2addr v7, v5
+    add-float/2addr v4, v1
 
-    return v7
+    return v4
 .end method
 
 .method public getScaling()[F
@@ -205,7 +186,6 @@
 
 .method public load(Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;)V
     .locals 4
-    .param p1, "value"    # Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;
 
     .line 1495
     invoke-super {p0, p1}, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$RangedNumericValue;->load(Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$RangedNumericValue;)V
@@ -255,17 +235,15 @@
     invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 1502
-    iget-boolean v0, p1, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->relative:Z
+    iget-boolean p1, p1, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->relative:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->relative:Z
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->relative:Z
 
-    .line 1503
     return-void
 .end method
 
 .method public load(Ljava/io/BufferedReader;)V
-    .locals 4
-    .param p1, "reader"    # Ljava/io/BufferedReader;
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -282,37 +260,37 @@
 
     return-void
 
-    .line 1483
     :cond_0
     const-string v0, "highMin"
 
+    .line 1483
     invoke-static {p1, v0}, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter;->readFloat(Ljava/io/BufferedReader;Ljava/lang/String;)F
 
     move-result v0
 
     iput v0, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->highMin:F
 
-    .line 1484
     const-string v0, "highMax"
 
+    .line 1484
     invoke-static {p1, v0}, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter;->readFloat(Ljava/io/BufferedReader;Ljava/lang/String;)F
 
     move-result v0
 
     iput v0, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->highMax:F
 
-    .line 1485
     const-string v0, "relative"
 
+    .line 1485
     invoke-static {p1, v0}, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter;->readBoolean(Ljava/io/BufferedReader;Ljava/lang/String;)Z
 
     move-result v0
 
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->relative:Z
 
-    .line 1486
     const-string v0, "scalingCount"
 
+    .line 1486
     invoke-static {p1, v0}, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter;->readInt(Ljava/io/BufferedReader;Ljava/lang/String;)I
 
     move-result v0
@@ -321,60 +299,56 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->scaling:[F
 
-    .line 1487
     const/4 v0, 0x0
 
-    .local v0, "i":I
-    :goto_0
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->scaling:[F
-
-    array-length v2, v1
-
-    if-ge v0, v2, :cond_1
-
-    .line 1488
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "scaling"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {p1, v2}, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter;->readFloat(Ljava/io/BufferedReader;Ljava/lang/String;)F
-
-    move-result v2
-
-    aput v2, v1, v0
+    move v1, v0
 
     .line 1487
-    add-int/lit8 v0, v0, 0x1
+    :goto_0
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->scaling:[F
+
+    array-length v3, v2
+
+    if-ge v1, v3, :cond_1
+
+    .line 1488
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    const-string v4, "scaling"
+
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {p1, v3}, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter;->readFloat(Ljava/io/BufferedReader;Ljava/lang/String;)F
+
+    move-result v3
+
+    aput v3, v2, v1
+
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 1489
-    .end local v0    # "i":I
     :cond_1
-    const-string/jumbo v0, "timelineCount"
+    const-string v1, "timelineCount"
 
-    invoke-static {p1, v0}, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter;->readInt(Ljava/io/BufferedReader;Ljava/lang/String;)I
+    .line 1489
+    invoke-static {p1, v1}, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter;->readInt(Ljava/io/BufferedReader;Ljava/lang/String;)I
 
-    move-result v0
+    move-result v1
 
-    new-array v0, v0, [F
+    new-array v1, v1, [F
 
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->timeline:[F
+    iput-object v1, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->timeline:[F
 
     .line 1490
-    const/4 v0, 0x0
-
-    .restart local v0    # "i":I
     :goto_1
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->timeline:[F
 
@@ -385,13 +359,13 @@
     .line 1491
     new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "timeline"
 
-    const-string/jumbo v3, "timeline"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -403,13 +377,10 @@
 
     aput v2, v1, v0
 
-    .line 1490
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 1492
-    .end local v0    # "i":I
     :cond_2
     return-void
 .end method
@@ -436,8 +407,7 @@
 .end method
 
 .method public save(Ljava/io/Writer;)V
-    .locals 5
-    .param p1, "output"    # Ljava/io/Writer;
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -458,19 +428,21 @@
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "highMin: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget v1, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->highMin:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "\n"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -481,17 +453,19 @@
     .line 1470
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "highMax: "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget v2, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->highMax:F
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -502,17 +476,19 @@
     .line 1471
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "relative: "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-boolean v2, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->relative:Z
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -523,11 +499,9 @@
     .line 1472
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "scalingCount: "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v2, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->scaling:[F
 
@@ -535,7 +509,11 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -543,39 +521,76 @@
 
     invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    .line 1473
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    move v2, v0
+
+    .line 1473
     :goto_0
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->scaling:[F
-
-    array-length v2, v2
-
-    const-string v3, ": "
-
-    if-ge v0, v2, :cond_1
-
-    .line 1474
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "scaling"
-
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     iget-object v3, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->scaling:[F
 
-    aget v3, v3, v0
+    array-length v3, v3
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    const-string v4, ": "
+
+    if-ge v2, v3, :cond_1
+
+    .line 1474
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    const-string v5, "scaling"
+
+    invoke-direct {v3, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->scaling:[F
+
+    aget v4, v4, v2
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p1, v3}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    .line 1475
+    :cond_1
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    const-string v3, "timelineCount: "
+
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->timeline:[F
+
+    array-length v3, v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -583,40 +598,7 @@
 
     invoke-virtual {p1, v2}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    .line 1473
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    .line 1475
-    .end local v0    # "i":I
-    :cond_1
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "timelineCount: "
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->timeline:[F
-
-    array-length v2, v2
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
-
     .line 1476
-    const/4 v0, 0x0
-
-    .restart local v0    # "i":I
     :goto_1
     iget-object v2, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->timeline:[F
 
@@ -627,23 +609,29 @@
     .line 1477
     new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "timeline"
 
-    const-string/jumbo v4, "timeline"
-
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->timeline:[F
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    aget v4, v4, v0
+    move-result-object v2
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->timeline:[F
+
+    aget v3, v3, v0
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -651,20 +639,16 @@
 
     invoke-virtual {p1, v2}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    .line 1476
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 1478
-    .end local v0    # "i":I
     :cond_2
     return-void
 .end method
 
 .method public scale(F)V
     .locals 1
-    .param p1, "scale"    # F
 
     .line 1396
     invoke-super {p0, p1}, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$RangedNumericValue;->scale(F)V
@@ -683,13 +667,11 @@
 
     iput v0, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->highMax:F
 
-    .line 1399
     return-void
 .end method
 
 .method public set(Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$RangedNumericValue;)V
     .locals 1
-    .param p1, "value"    # Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$RangedNumericValue;
 
     .line 1402
     instance-of v0, p1, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;
@@ -697,11 +679,9 @@
     if-eqz v0, :cond_0
 
     .line 1403
-    move-object v0, p1
+    check-cast p1, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;
 
-    check-cast v0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;
-
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->set(Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;)V
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->set(Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;)V
 
     goto :goto_0
 
@@ -709,14 +689,12 @@
     :cond_0
     invoke-super {p0, p1}, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$RangedNumericValue;->set(Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$RangedNumericValue;)V
 
-    .line 1406
     :goto_0
     return-void
 .end method
 
 .method public set(Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;)V
     .locals 5
-    .param p1, "value"    # Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;
 
     .line 1409
     invoke-super {p0, p1}, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$RangedNumericValue;->set(Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$RangedNumericValue;)V
@@ -792,17 +770,15 @@
 
     .line 1420
     :goto_1
-    iget-boolean v0, p1, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->relative:Z
+    iget-boolean p1, p1, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->relative:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->relative:Z
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->relative:Z
 
-    .line 1421
     return-void
 .end method
 
 .method public setHigh(F)V
     .locals 0
-    .param p1, "value"    # F
 
     .line 1370
     iput p1, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->highMin:F
@@ -810,14 +786,11 @@
     .line 1371
     iput p1, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->highMax:F
 
-    .line 1372
     return-void
 .end method
 
 .method public setHigh(FF)V
     .locals 0
-    .param p1, "min"    # F
-    .param p2, "max"    # F
 
     .line 1375
     iput p1, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->highMin:F
@@ -825,61 +798,50 @@
     .line 1376
     iput p2, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->highMax:F
 
-    .line 1377
     return-void
 .end method
 
 .method public setHighMax(F)V
     .locals 0
-    .param p1, "highMax"    # F
 
     .line 1392
     iput p1, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->highMax:F
 
-    .line 1393
     return-void
 .end method
 
 .method public setHighMin(F)V
     .locals 0
-    .param p1, "highMin"    # F
 
     .line 1384
     iput p1, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->highMin:F
 
-    .line 1385
     return-void
 .end method
 
 .method public setRelative(Z)V
     .locals 0
-    .param p1, "relative"    # Z
 
     .line 1444
     iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->relative:Z
 
-    .line 1445
     return-void
 .end method
 
 .method public setScaling([F)V
     .locals 0
-    .param p1, "values"    # [F
 
     .line 1428
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->scaling:[F
 
-    .line 1429
     return-void
 .end method
 
 .method public setTimeline([F)V
     .locals 0
-    .param p1, "timeline"    # [F
 
     .line 1436
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$ScaledNumericValue;->timeline:[F
 
-    .line 1437
     return-void
 .end method

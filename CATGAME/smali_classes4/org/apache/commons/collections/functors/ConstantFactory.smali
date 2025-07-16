@@ -35,7 +35,6 @@
 
 .method public constructor <init>(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "constantToReturn"    # Ljava/lang/Object;
 
     .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,21 +42,18 @@
     .line 67
     iput-object p1, p0, Lorg/apache/commons/collections/functors/ConstantFactory;->iConstant:Ljava/lang/Object;
 
-    .line 68
     return-void
 .end method
 
 .method public static getInstance(Ljava/lang/Object;)Lorg/apache/commons/collections/Factory;
     .locals 1
-    .param p0, "constantToReturn"    # Ljava/lang/Object;
 
-    .line 53
     if-nez p0, :cond_0
 
     .line 54
-    sget-object v0, Lorg/apache/commons/collections/functors/ConstantFactory;->NULL_INSTANCE:Lorg/apache/commons/collections/Factory;
+    sget-object p0, Lorg/apache/commons/collections/functors/ConstantFactory;->NULL_INSTANCE:Lorg/apache/commons/collections/Factory;
 
-    return-object v0
+    return-object p0
 
     .line 56
     :cond_0

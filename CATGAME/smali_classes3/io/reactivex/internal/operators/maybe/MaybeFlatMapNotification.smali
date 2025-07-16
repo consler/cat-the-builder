@@ -86,11 +86,6 @@
     .end annotation
 
     .line 44
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeFlatMapNotification;, "Lio/reactivex/internal/operators/maybe/MaybeFlatMapNotification<TT;TR;>;"
-    .local p1, "source":Lio/reactivex/MaybeSource;, "Lio/reactivex/MaybeSource<TT;>;"
-    .local p2, "onSuccessMapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lio/reactivex/MaybeSource<+TR;>;>;"
-    .local p3, "onErrorMapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Ljava/lang/Throwable;+Lio/reactivex/MaybeSource<+TR;>;>;"
-    .local p4, "onCompleteSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<+Lio/reactivex/MaybeSource<+TR;>;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/maybe/AbstractMaybeWithUpstream;-><init>(Lio/reactivex/MaybeSource;)V
 
     .line 45
@@ -102,7 +97,6 @@
     .line 47
     iput-object p4, p0, Lio/reactivex/internal/operators/maybe/MaybeFlatMapNotification;->onCompleteSupplier:Ljava/util/concurrent/Callable;
 
-    .line 48
     return-void
 .end method
 
@@ -119,8 +113,6 @@
     .end annotation
 
     .line 52
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeFlatMapNotification;, "Lio/reactivex/internal/operators/maybe/MaybeFlatMapNotification<TT;TR;>;"
-    .local p1, "observer":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeFlatMapNotification;->source:Lio/reactivex/MaybeSource;
 
     new-instance v1, Lio/reactivex/internal/operators/maybe/MaybeFlatMapNotification$FlatMapMaybeObserver;
@@ -135,6 +127,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/MaybeSource;->subscribe(Lio/reactivex/MaybeObserver;)V
 
-    .line 53
     return-void
 .end method

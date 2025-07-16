@@ -23,8 +23,6 @@
 # direct methods
 .method constructor <init>(IJ)V
     .locals 0
-    .param p1, "count"    # I
-    .param p2, "intervalStart"    # J
 
     .line 441
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,7 +33,6 @@
     .line 443
     iput-wide p2, p0, Lorg/apache/commons/lang3/concurrent/EventCountCircuitBreaker$CheckIntervalData;->checkIntervalStart:J
 
-    .line 444
     return-void
 .end method
 
@@ -61,15 +58,14 @@
 
 .method public increment(I)Lorg/apache/commons/lang3/concurrent/EventCountCircuitBreaker$CheckIntervalData;
     .locals 4
-    .param p1, "delta"    # I
 
-    .line 472
     if-nez p1, :cond_0
 
     move-object v0, p0
 
     goto :goto_0
 
+    .line 472
     :cond_0
     new-instance v0, Lorg/apache/commons/lang3/concurrent/EventCountCircuitBreaker$CheckIntervalData;
 
@@ -86,7 +82,6 @@
 
     invoke-direct {v0, v1, v2, v3}, Lorg/apache/commons/lang3/concurrent/EventCountCircuitBreaker$CheckIntervalData;-><init>(IJ)V
 
-    .line 472
     :goto_0
     return-object v0
 .end method

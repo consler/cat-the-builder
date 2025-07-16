@@ -60,7 +60,6 @@
     .locals 2
 
     .line 75
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap<TK;TV;>;"
     new-instance v0, Ljava/util/TreeMap;
 
     invoke-direct {v0}, Ljava/util/TreeMap;-><init>()V
@@ -71,15 +70,14 @@
 
     invoke-direct {p0, v0, v1}, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap;-><init>(Ljava/util/Map;Ljava/util/Map;)V
 
-    .line 76
     const/4 v0, 0x0
 
+    .line 76
     iput-object v0, p0, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->comparator:Ljava/util/Comparator;
 
     .line 77
     iput-object v0, p0, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->valueComparator:Ljava/util/Comparator;
 
-    .line 78
     return-void
 .end method
 
@@ -96,9 +94,6 @@
     .end annotation
 
     .line 100
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap<TK;TV;>;"
-    .local p1, "keyComparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TK;>;"
-    .local p2, "valueComparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TV;>;"
     new-instance v0, Ljava/util/TreeMap;
 
     invoke-direct {v0, p1}, Ljava/util/TreeMap;-><init>(Ljava/util/Comparator;)V
@@ -115,7 +110,6 @@
     .line 102
     iput-object p2, p0, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->valueComparator:Ljava/util/Comparator;
 
-    .line 103
     return-void
 .end method
 
@@ -130,8 +124,6 @@
     .end annotation
 
     .line 87
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     new-instance v0, Ljava/util/TreeMap;
 
     invoke-direct {v0}, Ljava/util/TreeMap;-><init>()V
@@ -145,20 +137,19 @@
     .line 88
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->putAll(Ljava/util/Map;)V
 
-    .line 89
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->comparator:Ljava/util/Comparator;
+    .line 89
+    iput-object p1, p0, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->comparator:Ljava/util/Comparator;
 
     .line 90
-    iput-object v0, p0, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->valueComparator:Ljava/util/Comparator;
+    iput-object p1, p0, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->valueComparator:Ljava/util/Comparator;
 
-    .line 91
     return-void
 .end method
 
 .method protected constructor <init>(Ljava/util/Map;Ljava/util/Map;Lorg/apache/commons/collections4/BidiMap;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -172,41 +163,31 @@
     .end annotation
 
     .line 114
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap<TK;TV;>;"
-    .local p1, "normalMap":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    .local p2, "reverseMap":Ljava/util/Map;, "Ljava/util/Map<TV;TK;>;"
-    .local p3, "inverseBidiMap":Lorg/apache/commons/collections4/BidiMap;, "Lorg/apache/commons/collections4/BidiMap<TV;TK;>;"
     invoke-direct {p0, p1, p2, p3}, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap;-><init>(Ljava/util/Map;Ljava/util/Map;Lorg/apache/commons/collections4/BidiMap;)V
 
     .line 115
-    move-object v0, p1
+    check-cast p1, Ljava/util/SortedMap;
 
-    check-cast v0, Ljava/util/SortedMap;
+    invoke-interface {p1}, Ljava/util/SortedMap;->comparator()Ljava/util/Comparator;
 
-    invoke-interface {v0}, Ljava/util/SortedMap;->comparator()Ljava/util/Comparator;
+    move-result-object p1
 
-    move-result-object v0
-
-    iput-object v0, p0, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->comparator:Ljava/util/Comparator;
+    iput-object p1, p0, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->comparator:Ljava/util/Comparator;
 
     .line 116
-    move-object v0, p2
+    check-cast p2, Ljava/util/SortedMap;
 
-    check-cast v0, Ljava/util/SortedMap;
+    invoke-interface {p2}, Ljava/util/SortedMap;->comparator()Ljava/util/Comparator;
 
-    invoke-interface {v0}, Ljava/util/SortedMap;->comparator()Ljava/util/Comparator;
+    move-result-object p1
 
-    move-result-object v0
+    iput-object p1, p0, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->valueComparator:Ljava/util/Comparator;
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->valueComparator:Ljava/util/Comparator;
-
-    .line 117
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 2
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -215,7 +196,6 @@
     .end annotation
 
     .line 411
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
     .line 412
@@ -239,21 +219,18 @@
     .line 415
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Map;
+    check-cast p1, Ljava/util/Map;
 
     .line 416
-    .local v0, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    invoke-virtual {p0, v0}, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->putAll(Ljava/util/Map;)V
+    invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->putAll(Ljava/util/Map;)V
 
-    .line 417
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -261,7 +238,6 @@
     .end annotation
 
     .line 406
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
     .line 407
@@ -269,7 +245,6 @@
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    .line 408
     return-void
 .end method
 
@@ -286,7 +261,6 @@
     .end annotation
 
     .line 137
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->normalMap:Ljava/util/Map;
 
     check-cast v0, Ljava/util/SortedMap;
@@ -302,7 +276,6 @@
     .locals 0
 
     .line 59
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap<TK;TV;>;"
     invoke-virtual {p0, p1, p2, p3}, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->createBidiMap(Ljava/util/Map;Ljava/util/Map;Lorg/apache/commons/collections4/BidiMap;)Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;
 
     move-result-object p1
@@ -327,10 +300,6 @@
     .end annotation
 
     .line 130
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap<TK;TV;>;"
-    .local p1, "normalMap":Ljava/util/Map;, "Ljava/util/Map<TV;TK;>;"
-    .local p2, "reverseMap":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    .local p3, "inverseMap":Lorg/apache/commons/collections4/BidiMap;, "Lorg/apache/commons/collections4/BidiMap<TK;TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;
 
     invoke-direct {v0, p1, p2, p3}, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;-><init>(Ljava/util/Map;Ljava/util/Map;Lorg/apache/commons/collections4/BidiMap;)V
@@ -347,7 +316,6 @@
     .end annotation
 
     .line 147
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->normalMap:Ljava/util/Map;
 
     check-cast v0, Ljava/util/SortedMap;
@@ -360,7 +328,7 @@
 .end method
 
 .method public headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",
@@ -370,30 +338,26 @@
     .end annotation
 
     .line 214
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap<TK;TV;>;"
-    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->normalMap:Ljava/util/Map;
 
     check-cast v0, Ljava/util/SortedMap;
 
     invoke-interface {v0, p1}, Ljava/util/SortedMap;->headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 215
-    .local v0, "sub":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
-    new-instance v1, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap$ViewMap;
+    new-instance v0, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap$ViewMap;
 
-    invoke-direct {v1, p0, v0}, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap$ViewMap;-><init>(Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;Ljava/util/SortedMap;)V
+    invoke-direct {v0, p0, p1}, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap$ViewMap;-><init>(Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;Ljava/util/SortedMap;)V
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public bridge synthetic inverseBidiMap()Lorg/apache/commons/collections4/BidiMap;
     .locals 1
 
     .line 59
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->inverseBidiMap()Lorg/apache/commons/collections4/SortedBidiMap;
 
     move-result-object v0
@@ -405,7 +369,6 @@
     .locals 1
 
     .line 59
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->inverseBidiMap()Lorg/apache/commons/collections4/SortedBidiMap;
 
     move-result-object v0
@@ -424,7 +387,6 @@
     .end annotation
 
     .line 232
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap<TK;TV;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap;->inverseBidiMap()Lorg/apache/commons/collections4/BidiMap;
 
     move-result-object v0
@@ -445,7 +407,6 @@
     .end annotation
 
     .line 207
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->inverseBidiMap()Lorg/apache/commons/collections4/SortedBidiMap;
 
     move-result-object v0
@@ -464,7 +425,6 @@
     .end annotation
 
     .line 203
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->inverseBidiMap()Lorg/apache/commons/collections4/SortedBidiMap;
 
     move-result-object v0
@@ -481,7 +441,6 @@
     .end annotation
 
     .line 152
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->normalMap:Ljava/util/Map;
 
     check-cast v0, Ljava/util/SortedMap;
@@ -497,7 +456,6 @@
     .locals 1
 
     .line 59
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->mapIterator()Lorg/apache/commons/collections4/OrderedMapIterator;
 
     move-result-object v0
@@ -516,7 +474,6 @@
     .end annotation
 
     .line 199
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap<TK;TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap$BidiOrderedMapIterator;
 
     invoke-direct {v0, p0}, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap$BidiOrderedMapIterator;-><init>(Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap;)V
@@ -525,7 +482,7 @@
 .end method
 
 .method public nextKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TK;"
@@ -533,8 +490,6 @@
     .end annotation
 
     .line 157
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->isEmpty()Z
 
     move-result v0
@@ -543,7 +498,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 158
     return-object v1
 
     .line 160
@@ -561,9 +515,9 @@
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/OrderedMap;->nextKey(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 163
     :cond_1
@@ -572,44 +526,41 @@
     check-cast v0, Ljava/util/SortedMap;
 
     .line 164
-    .local v0, "sm":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
     invoke-interface {v0, p1}, Ljava/util/SortedMap;->tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-interface {v2}, Ljava/util/SortedMap;->keySet()Ljava/util/Set;
+    invoke-interface {p1}, Ljava/util/SortedMap;->keySet()Ljava/util/Set;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object p1
 
     .line 165
-    .local v2, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<TK;>;"
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     .line 166
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_2
+    if-eqz v0, :cond_2
 
     .line 167
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
-    .line 169
     :cond_2
     return-object v1
 .end method
 
 .method public previousKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TK;"
@@ -617,8 +568,6 @@
     .end annotation
 
     .line 174
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->isEmpty()Z
 
     move-result v0
@@ -627,7 +576,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 175
     return-object v1
 
     .line 177
@@ -645,9 +593,9 @@
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/OrderedMap;->previousKey(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 180
     :cond_1
@@ -656,33 +604,30 @@
     check-cast v0, Ljava/util/SortedMap;
 
     .line 181
-    .local v0, "sm":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
     invoke-interface {v0, p1}, Ljava/util/SortedMap;->headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v2
+    move-result-object p1
 
     .line 182
-    .local v2, "hm":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
-    invoke-interface {v2}, Ljava/util/SortedMap;->isEmpty()Z
+    invoke-interface {p1}, Ljava/util/SortedMap;->isEmpty()Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_2
+    if-eqz v0, :cond_2
 
-    .line 183
     return-object v1
 
     .line 185
     :cond_2
-    invoke-interface {v2}, Ljava/util/SortedMap;->lastKey()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/SortedMap;->lastKey()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TK;)",
@@ -692,28 +637,24 @@
     .end annotation
 
     .line 226
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
-    .local p2, "toKey":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->normalMap:Ljava/util/Map;
 
     check-cast v0, Ljava/util/SortedMap;
 
     invoke-interface {v0, p1, p2}, Ljava/util/SortedMap;->subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 227
-    .local v0, "sub":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
-    new-instance v1, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap$ViewMap;
+    new-instance p2, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap$ViewMap;
 
-    invoke-direct {v1, p0, v0}, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap$ViewMap;-><init>(Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;Ljava/util/SortedMap;)V
+    invoke-direct {p2, p0, p1}, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap$ViewMap;-><init>(Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;Ljava/util/SortedMap;)V
 
-    return-object v1
+    return-object p2
 .end method
 
 .method public tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",
@@ -723,23 +664,20 @@
     .end annotation
 
     .line 220
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->normalMap:Ljava/util/Map;
 
     check-cast v0, Ljava/util/SortedMap;
 
     invoke-interface {v0, p1}, Ljava/util/SortedMap;->tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 221
-    .local v0, "sub":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
-    new-instance v1, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap$ViewMap;
+    new-instance v0, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap$ViewMap;
 
-    invoke-direct {v1, p0, v0}, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap$ViewMap;-><init>(Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;Ljava/util/SortedMap;)V
+    invoke-direct {v0, p0, p1}, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap$ViewMap;-><init>(Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;Ljava/util/SortedMap;)V
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public valueComparator()Ljava/util/Comparator;
@@ -753,7 +691,6 @@
     .end annotation
 
     .line 142
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/DualTreeBidiMap;->reverseMap:Ljava/util/Map;
 
     check-cast v0, Ljava/util/SortedMap;

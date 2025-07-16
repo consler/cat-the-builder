@@ -20,20 +20,18 @@
 
 # virtual methods
 .method public act(F)Z
-    .locals 2
-    .param p1, "delta"    # F
+    .locals 1
 
     .line 28
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RemoveAction;->target:Lcom/badlogic/gdx/scenes/scene2d/Actor;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RemoveAction;->target:Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RemoveAction;->action:Lcom/badlogic/gdx/scenes/scene2d/Action;
+    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RemoveAction;->action:Lcom/badlogic/gdx/scenes/scene2d/Action;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/Actor;->removeAction(Lcom/badlogic/gdx/scenes/scene2d/Action;)V
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/scenes/scene2d/Actor;->removeAction(Lcom/badlogic/gdx/scenes/scene2d/Action;)V
 
-    .line 29
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public getAction()Lcom/badlogic/gdx/scenes/scene2d/Action;
@@ -51,22 +49,19 @@
     .line 41
     invoke-super {p0}, Lcom/badlogic/gdx/scenes/scene2d/Action;->reset()V
 
-    .line 42
     const/4 v0, 0x0
 
+    .line 42
     iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RemoveAction;->action:Lcom/badlogic/gdx/scenes/scene2d/Action;
 
-    .line 43
     return-void
 .end method
 
 .method public setAction(Lcom/badlogic/gdx/scenes/scene2d/Action;)V
     .locals 0
-    .param p1, "action"    # Lcom/badlogic/gdx/scenes/scene2d/Action;
 
     .line 37
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RemoveAction;->action:Lcom/badlogic/gdx/scenes/scene2d/Action;
 
-    .line 38
     return-void
 .end method

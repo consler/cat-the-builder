@@ -37,15 +37,13 @@
     .line 71
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 72
     return-void
 .end method
 
 
 # virtual methods
 .method protected update(F)F
-    .locals 7
-    .param p1, "delta"    # F
+    .locals 5
 
     .line 76
     iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->loopCount:I
@@ -62,51 +60,50 @@
     mul-float/2addr v0, p1
 
     .line 79
-    .local v0, "diff":F
-    iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->duration:F
+    iget p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->duration:F
 
-    invoke-static {v1}, Lcom/badlogic/gdx/math/MathUtils;->isZero(F)Z
+    invoke-static {p1}, Lcom/badlogic/gdx/math/MathUtils;->isZero(F)Z
 
-    move-result v1
+    move-result p1
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    if-nez v1, :cond_1
+    const/4 v2, 0x1
+
+    if-nez p1, :cond_1
 
     .line 80
-    iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->time:F
+    iget p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->time:F
 
-    add-float/2addr v1, v0
+    add-float/2addr p1, v0
 
-    iput v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->time:F
+    iput p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->time:F
 
     .line 81
     iget v3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->duration:F
 
-    div-float/2addr v1, v3
+    div-float/2addr p1, v3
 
-    invoke-static {v1}, Ljava/lang/Math;->abs(F)F
+    invoke-static {p1}, Ljava/lang/Math;->abs(F)F
 
-    move-result v1
+    move-result p1
 
-    float-to-int v1, v1
+    float-to-int p1, p1
 
     .line 82
-    .local v1, "loops":I
     iget v3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->time:F
 
-    cmpg-float v3, v3, v2
+    cmpg-float v3, v3, v1
 
     if-gez v3, :cond_0
 
-    .line 83
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p1, p1, 0x1
 
     .line 84
     :goto_0
     iget v3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->time:F
 
-    cmpg-float v4, v3, v2
+    cmpg-float v4, v3, v1
 
     if-gez v4, :cond_0
 
@@ -135,19 +132,14 @@
 
     goto :goto_1
 
-    .line 89
-    .end local v1    # "loops":I
     :cond_1
-    const/4 v1, 0x1
+    move p1, v2
 
-    .line 90
-    .restart local v1    # "loops":I
     :goto_1
     const/4 v3, 0x0
 
-    .local v3, "i":I
     :goto_2
-    if-ge v3, v1, :cond_8
+    if-ge v3, p1, :cond_8
 
     .line 91
     iget v4, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->loopCount:I
@@ -176,73 +168,57 @@
 
     if-nez v4, :cond_7
 
+    sub-int/2addr p1, v2
+
+    sub-int/2addr p1, v3
+
+    int-to-float p1, p1
+
     .line 94
-    add-int/lit8 v4, v1, -0x1
+    iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->duration:F
 
-    sub-int/2addr v4, v3
+    mul-float/2addr p1, v2
 
-    int-to-float v4, v4
+    cmpg-float v0, v0, v1
 
-    iget v5, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->duration:F
+    iget v3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->time:F
 
-    mul-float/2addr v4, v5
+    if-gez v0, :cond_4
 
-    cmpg-float v6, v0, v2
+    sub-float v3, v2, v3
 
-    if-gez v6, :cond_4
+    :cond_4
+    add-float/2addr p1, v3
 
-    iget v6, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->time:F
-
-    sub-float/2addr v5, v6
+    if-gez v0, :cond_5
 
     goto :goto_3
 
-    :cond_4
-    iget v5, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->time:F
-
-    :goto_3
-    add-float/2addr v4, v5
+    :cond_5
+    move v1, v2
 
     .line 95
-    .local v4, "result":F
-    cmpg-float v5, v0, v2
-
-    if-gez v5, :cond_5
-
-    goto :goto_4
-
-    :cond_5
-    iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->duration:F
-
-    :goto_4
-    iput v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->time:F
+    :goto_3
+    iput v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->time:F
 
     .line 96
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->listener:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;->listener:Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;
 
-    if-eqz v2, :cond_6
+    if-eqz v0, :cond_6
 
-    invoke-interface {v2, p0}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;->onEnd(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;)V
+    invoke-interface {v0, p0}, Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationListener;->onEnd(Lcom/badlogic/gdx/graphics/g3d/utils/AnimationController$AnimationDesc;)V
 
-    .line 97
     :cond_6
-    return v4
+    return p1
 
-    .line 90
-    .end local v4    # "result":F
     :cond_7
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
-    .line 100
-    .end local v3    # "i":I
     :cond_8
-    return v2
+    return v1
 
-    .line 102
-    .end local v0    # "diff":F
-    .end local v1    # "loops":I
     :cond_9
     return p1
 .end method

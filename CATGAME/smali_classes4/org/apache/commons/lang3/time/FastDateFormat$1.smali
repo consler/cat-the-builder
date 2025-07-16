@@ -47,9 +47,6 @@
 
 .method protected createInstance(Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Lorg/apache/commons/lang3/time/FastDateFormat;
     .locals 1
-    .param p1, "pattern"    # Ljava/lang/String;
-    .param p2, "timeZone"    # Ljava/util/TimeZone;
-    .param p3, "locale"    # Ljava/util/Locale;
 
     .line 105
     new-instance v0, Lorg/apache/commons/lang3/time/FastDateFormat;

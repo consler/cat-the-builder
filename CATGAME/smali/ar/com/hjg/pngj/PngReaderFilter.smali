@@ -9,8 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .locals 1
-    .param p1, "arg0"    # Ljava/io/InputStream;
+    .locals 0
 
     .line 31
     invoke-direct {p0, p1}, Ljava/io/FilterInputStream;-><init>(Ljava/io/InputStream;)V
@@ -18,11 +17,10 @@
     .line 32
     invoke-virtual {p0}, Lar/com/hjg/pngj/PngReaderFilter;->createChunkSequenceReader()Lar/com/hjg/pngj/ChunkSeqReaderPng;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lar/com/hjg/pngj/PngReaderFilter;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
+    iput-object p1, p0, Lar/com/hjg/pngj/PngReaderFilter;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
 
-    .line 33
     return-void
 .end method
 
@@ -44,7 +42,6 @@
 
     invoke-virtual {v0}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->close()V
 
-    .line 59
     return-void
 .end method
 
@@ -104,8 +101,6 @@
 
     move-result v0
 
-    .line 64
-    .local v0, "r":I
     if-lez v0, :cond_0
 
     .line 65
@@ -123,14 +118,12 @@
 
     invoke-virtual {v1, v3, v5, v2}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->feedAll([BII)Z
 
-    .line 66
     :cond_0
     return v0
 .end method
 
 .method public read([B)I
     .locals 3
-    .param p1, "b"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -142,8 +135,6 @@
 
     move-result v0
 
-    .line 80
-    .local v0, "res":I
     if-lez v0, :cond_0
 
     .line 81
@@ -153,16 +144,12 @@
 
     invoke-virtual {v1, p1, v2, v0}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->feedAll([BII)Z
 
-    .line 82
     :cond_0
     return v0
 .end method
 
 .method public read([BII)I
-    .locals 2
-    .param p1, "b"    # [B
-    .param p2, "off"    # I
-    .param p3, "len"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -172,20 +159,17 @@
     .line 71
     invoke-super {p0, p1, p2, p3}, Ljava/io/FilterInputStream;->read([BII)I
 
-    move-result v0
+    move-result p3
 
-    .line 72
-    .local v0, "res":I
-    if-lez v0, :cond_0
+    if-lez p3, :cond_0
 
     .line 73
-    iget-object v1, p0, Lar/com/hjg/pngj/PngReaderFilter;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
+    iget-object v0, p0, Lar/com/hjg/pngj/PngReaderFilter;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
 
-    invoke-virtual {v1, p1, p2, v0}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->feedAll([BII)Z
+    invoke-virtual {v0, p1, p2, p3}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->feedAll([BII)Z
 
-    .line 74
     :cond_0
-    return v0
+    return p3
 .end method
 
 .method public readUntilEndAndClose()V
@@ -204,7 +188,6 @@
     invoke-direct {v0, v1}, Lar/com/hjg/pngj/BufferedStreamFeeder;-><init>(Ljava/io/InputStream;)V
 
     .line 87
-    .local v0, "br":Lar/com/hjg/pngj/BufferedStreamFeeder;
     :goto_0
     iget-object v1, p0, Lar/com/hjg/pngj/PngReaderFilter;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
 
@@ -231,6 +214,5 @@
     :cond_0
     invoke-virtual {p0}, Lar/com/hjg/pngj/PngReaderFilter;->close()V
 
-    .line 90
     return-void
 .end method

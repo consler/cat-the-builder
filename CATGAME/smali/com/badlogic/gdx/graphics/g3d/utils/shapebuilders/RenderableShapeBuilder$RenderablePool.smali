@@ -29,7 +29,6 @@
     .line 34
     invoke-direct {p0}, Lcom/badlogic/gdx/utils/FlushablePool;-><init>()V
 
-    .line 35
     return-void
 .end method
 
@@ -67,10 +66,9 @@
 
     check-cast v0, Lcom/badlogic/gdx/graphics/g3d/Renderable;
 
-    .line 45
-    .local v0, "renderable":Lcom/badlogic/gdx/graphics/g3d/Renderable;
     const/4 v1, 0x0
 
+    .line 45
     iput-object v1, v0, Lcom/badlogic/gdx/graphics/g3d/Renderable;->environment:Lcom/badlogic/gdx/graphics/g3d/Environment;
 
     .line 46
@@ -97,7 +95,6 @@
     .line 49
     iput-object v1, v0, Lcom/badlogic/gdx/graphics/g3d/Renderable;->userData:Ljava/lang/Object;
 
-    .line 50
     return-object v0
 .end method
 

@@ -34,10 +34,8 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/future/HandlerFuture;Lcom/koushikdutta/async/future/FutureCallback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/future/HandlerFuture;
 
     .line 21
-    .local p0, "this":Lcom/koushikdutta/async/future/HandlerFuture$1;, "Lcom/koushikdutta/async/future/HandlerFuture$1;"
     iput-object p1, p0, Lcom/koushikdutta/async/future/HandlerFuture$1;->this$0:Lcom/koushikdutta/async/future/HandlerFuture;
 
     iput-object p2, p0, Lcom/koushikdutta/async/future/HandlerFuture$1;->val$callback:Lcom/koushikdutta/async/future/FutureCallback;
@@ -51,7 +49,6 @@
 # virtual methods
 .method public onCompleted(Ljava/lang/Exception;Ljava/lang/Object;)V
     .locals 2
-    .param p1, "e"    # Ljava/lang/Exception;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -61,8 +58,6 @@
     .end annotation
 
     .line 24
-    .local p0, "this":Lcom/koushikdutta/async/future/HandlerFuture$1;, "Lcom/koushikdutta/async/future/HandlerFuture$1;"
-    .local p2, "result":Ljava/lang/Object;, "TT;"
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
     move-result-object v0
@@ -82,7 +77,6 @@
 
     invoke-interface {v0, p1, p2}, Lcom/koushikdutta/async/future/FutureCallback;->onCompleted(Ljava/lang/Exception;Ljava/lang/Object;)V
 
-    .line 26
     return-void
 
     .line 29
@@ -97,6 +91,5 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 35
     return-void
 .end method

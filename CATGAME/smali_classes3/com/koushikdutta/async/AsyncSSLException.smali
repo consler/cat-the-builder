@@ -10,19 +10,17 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "cause"    # Ljava/lang/Throwable;
 
-    .line 5
     const-string v0, "Peer not trusted by any of the system trust managers."
 
+    .line 5
     invoke-direct {p0, v0, p1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
+    const/4 p1, 0x0
+
     .line 7
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/koushikdutta/async/AsyncSSLException;->mIgnore:Z
 
-    iput-boolean v0, p0, Lcom/koushikdutta/async/AsyncSSLException;->mIgnore:Z
-
-    .line 6
     return-void
 .end method
 
@@ -39,11 +37,9 @@
 
 .method public setIgnore(Z)V
     .locals 0
-    .param p1, "ignore"    # Z
 
     .line 9
     iput-boolean p1, p0, Lcom/koushikdutta/async/AsyncSSLException;->mIgnore:Z
 
-    .line 10
     return-void
 .end method

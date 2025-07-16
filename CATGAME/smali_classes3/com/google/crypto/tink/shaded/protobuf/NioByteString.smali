@@ -9,49 +9,45 @@
 
 # direct methods
 .method constructor <init>(Ljava/nio/ByteBuffer;)V
-    .locals 2
-    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
+    .locals 1
 
     .line 51
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/ByteString$LeafByteString;-><init>()V
 
-    .line 52
     const-string v0, "buffer"
 
+    .line 52
     invoke-static {p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 55
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->slice()Ljava/nio/ByteBuffer;
 
-    move-result-object v0
+    move-result-object p1
 
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
-
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->buffer:Ljava/nio/ByteBuffer;
+    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    .line 56
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->buffer:Ljava/nio/ByteBuffer;
+
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/google/crypto/tink/shaded/protobuf/NioByteString;)Ljava/nio/ByteBuffer;
-    .locals 1
-    .param p0, "x0"    # Lcom/google/crypto/tink/shaded/protobuf/NioByteString;
+    .locals 0
 
     .line 48
-    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->buffer:Ljava/nio/ByteBuffer;
+    iget-object p0, p0, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->buffer:Ljava/nio/ByteBuffer;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -59,19 +55,17 @@
     .end annotation
 
     .line 68
-    new-instance v0, Ljava/io/InvalidObjectException;
+    new-instance p1, Ljava/io/InvalidObjectException;
 
-    const-string v1, "NioByteString instances are not to be serialized directly"
+    const-string v0, "NioByteString instances are not to be serialized directly"
 
-    invoke-direct {v0, v1}, Ljava/io/InvalidObjectException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/io/InvalidObjectException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method private slice(II)Ljava/nio/ByteBuffer;
-    .locals 4
-    .param p1, "beginIndex"    # I
-    .param p2, "endIndex"    # I
+    .locals 3
 
     .line 282
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->buffer:Ljava/nio/ByteBuffer;
@@ -100,33 +94,30 @@
     move-result-object v0
 
     .line 288
-    .local v0, "slice":Ljava/nio/ByteBuffer;
     iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->buffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->position()I
 
     move-result v1
 
-    sub-int v1, p1, v1
+    sub-int/2addr p1, v1
 
-    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, p1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 289
-    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->buffer:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->buffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->position()I
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->position()I
 
-    move-result v1
+    move-result p1
 
-    sub-int v1, p2, v1
+    sub-int/2addr p2, p1
 
-    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, p2}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
-    .line 290
     return-object v0
 
     .line 283
-    .end local v0    # "slice":Ljava/nio/ByteBuffer;
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -139,25 +130,25 @@
     .line 284
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object p1
 
-    aput-object v3, v1, v2
+    aput-object p1, v1, v2
 
-    const/4 v2, 0x1
+    const/4 p1, 0x1
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object p2
 
-    aput-object v3, v1, v2
+    aput-object p2, v1, p1
 
-    const-string v2, "Invalid indices [%d, %d]"
+    const-string p1, "Invalid indices [%d, %d]"
 
-    invoke-static {v2, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p1, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
@@ -218,8 +209,7 @@
 .end method
 
 .method public byteAt(I)B
-    .locals 3
-    .param p1, "index"    # I
+    .locals 1
 
     .line 76
     :try_start_0
@@ -227,42 +217,36 @@
 
     invoke-virtual {v0, p1}, Ljava/nio/ByteBuffer;->get(I)B
 
-    move-result v0
+    move-result p1
     :try_end_0
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v0
+    return p1
 
-    .line 79
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 80
-    .local v0, "e":Ljava/lang/IndexOutOfBoundsException;
-    new-instance v1, Ljava/lang/ArrayIndexOutOfBoundsException;
+    new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
 
-    invoke-virtual {v0}, Ljava/lang/IndexOutOfBoundsException;->getMessage()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/IndexOutOfBoundsException;->getMessage()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 
-    .line 77
-    .end local v0    # "e":Ljava/lang/IndexOutOfBoundsException;
     :catch_1
-    move-exception v0
+    move-exception p1
 
     .line 78
-    .local v0, "e":Ljava/lang/ArrayIndexOutOfBoundsException;
-    throw v0
+    throw p1
 .end method
 
 .method public copyTo(Ljava/nio/ByteBuffer;)V
     .locals 1
-    .param p1, "target"    # Ljava/nio/ByteBuffer;
 
     .line 118
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->buffer:Ljava/nio/ByteBuffer;
@@ -273,16 +257,11 @@
 
     invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->put(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;
 
-    .line 119
     return-void
 .end method
 
 .method protected copyToInternal([BIII)V
     .locals 1
-    .param p1, "target"    # [B
-    .param p2, "sourceOffset"    # I
-    .param p3, "targetOffset"    # I
-    .param p4, "numberToCopy"    # I
 
     .line 111
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->buffer:Ljava/nio/ByteBuffer;
@@ -292,26 +271,21 @@
     move-result-object v0
 
     .line 112
-    .local v0, "slice":Ljava/nio/ByteBuffer;
     invoke-virtual {v0, p2}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 113
     invoke-virtual {v0, p1, p3, p4}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
 
-    .line 114
     return-void
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
-    .param p1, "other"    # Ljava/lang/Object;
 
-    .line 189
     const/4 v0, 0x1
 
     if-ne p1, p0, :cond_0
 
-    .line 190
     return v0
 
     .line 192
@@ -322,7 +296,6 @@
 
     if-nez v1, :cond_1
 
-    .line 193
     return v2
 
     .line 195
@@ -332,7 +305,6 @@
     check-cast v1, Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     .line 196
-    .local v1, "otherString":Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->size()I
 
     move-result v3
@@ -343,7 +315,6 @@
 
     if-eq v3, v4, :cond_2
 
-    .line 197
     return v2
 
     .line 199
@@ -354,7 +325,6 @@
 
     if-nez v2, :cond_3
 
-    .line 200
     return v0
 
     .line 202
@@ -366,17 +336,15 @@
     .line 203
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->buffer:Ljava/nio/ByteBuffer;
 
-    move-object v2, p1
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;
 
-    check-cast v2, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;
+    iget-object p1, p1, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->buffer:Ljava/nio/ByteBuffer;
 
-    iget-object v2, v2, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->buffer:Ljava/nio/ByteBuffer;
+    invoke-virtual {v0, p1}, Ljava/nio/ByteBuffer;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v2}, Ljava/nio/ByteBuffer;->equals(Ljava/lang/Object;)Z
+    move-result p1
 
-    move-result v0
-
-    return v0
+    return p1
 
     .line 205
     :cond_4
@@ -387,61 +355,57 @@
     .line 206
     invoke-virtual {p1, p0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
     .line 208
     :cond_5
-    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->buffer:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->buffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->asReadOnlyByteBuffer()Ljava/nio/ByteBuffer;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v0, v2}, Ljava/nio/ByteBuffer;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method equalsRange(Lcom/google/crypto/tink/shaded/protobuf/ByteString;II)Z
-    .locals 2
-    .param p1, "other"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-    .param p2, "offset"    # I
-    .param p3, "length"    # I
+    .locals 1
 
-    .line 128
     const/4 v0, 0x0
 
+    .line 128
     invoke-virtual {p0, v0, p3}, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->substring(II)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     move-result-object v0
 
-    add-int v1, p2, p3
+    add-int/2addr p3, p2
 
-    invoke-virtual {p1, p2, v1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->substring(II)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    invoke-virtual {p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->substring(II)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public internalByteAt(I)B
-    .locals 1
-    .param p1, "index"    # I
+    .locals 0
 
     .line 88
     invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->byteAt(I)B
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public isValidUtf8()Z
@@ -484,58 +448,47 @@
 .end method
 
 .method protected partialHash(III)I
-    .locals 3
-    .param p1, "h"    # I
-    .param p2, "offset"    # I
-    .param p3, "length"    # I
+    .locals 2
 
-    .line 213
     move v0, p2
 
-    .local v0, "i":I
     :goto_0
     add-int v1, p2, p3
 
     if-ge v0, v1, :cond_0
 
+    mul-int/lit8 p1, p1, 0x1f
+
     .line 214
-    mul-int/lit8 v1, p1, 0x1f
+    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->buffer:Ljava/nio/ByteBuffer;
 
-    iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->buffer:Ljava/nio/ByteBuffer;
+    invoke-virtual {v1, v0}, Ljava/nio/ByteBuffer;->get(I)B
 
-    invoke-virtual {v2, v0}, Ljava/nio/ByteBuffer;->get(I)B
+    move-result v1
 
-    move-result v2
+    add-int/2addr p1, v1
 
-    add-int p1, v1, v2
-
-    .line 213
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 216
-    .end local v0    # "i":I
     :cond_0
     return p1
 .end method
 
 .method protected partialIsValidUtf8(III)I
-    .locals 2
-    .param p1, "state"    # I
-    .param p2, "offset"    # I
-    .param p3, "length"    # I
+    .locals 1
 
     .line 184
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->buffer:Ljava/nio/ByteBuffer;
 
-    add-int v1, p2, p3
+    add-int/2addr p3, p2
 
-    invoke-static {p1, v0, p2, v1}, Lcom/google/crypto/tink/shaded/protobuf/Utf8;->partialIsValidUtf8(ILjava/nio/ByteBuffer;II)I
+    invoke-static {p1, v0, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/Utf8;->partialIsValidUtf8(ILjava/nio/ByteBuffer;II)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public size()I
@@ -552,57 +505,47 @@
 .end method
 
 .method public substring(II)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-    .locals 3
-    .param p1, "beginIndex"    # I
-    .param p2, "endIndex"    # I
+    .locals 0
 
     .line 99
     :try_start_0
     invoke-direct {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->slice(II)Ljava/nio/ByteBuffer;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 100
-    .local v0, "slice":Ljava/nio/ByteBuffer;
-    new-instance v1, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;
+    new-instance p2, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;
 
-    invoke-direct {v1, v0}, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;-><init>(Ljava/nio/ByteBuffer;)V
+    invoke-direct {p2, p1}, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;-><init>(Ljava/nio/ByteBuffer;)V
     :try_end_0
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v1
+    return-object p2
 
-    .line 103
-    .end local v0    # "slice":Ljava/nio/ByteBuffer;
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 104
-    .local v0, "e":Ljava/lang/IndexOutOfBoundsException;
-    new-instance v1, Ljava/lang/ArrayIndexOutOfBoundsException;
+    new-instance p2, Ljava/lang/ArrayIndexOutOfBoundsException;
 
-    invoke-virtual {v0}, Ljava/lang/IndexOutOfBoundsException;->getMessage()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/IndexOutOfBoundsException;->getMessage()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p2
 
-    .line 101
-    .end local v0    # "e":Ljava/lang/IndexOutOfBoundsException;
     :catch_1
-    move-exception v0
+    move-exception p1
 
     .line 102
-    .local v0, "e":Ljava/lang/ArrayIndexOutOfBoundsException;
-    throw v0
+    throw p1
 .end method
 
 .method protected toStringInternal(Ljava/nio/charset/Charset;)Ljava/lang/String;
     .locals 4
-    .param p1, "charset"    # Ljava/nio/charset/Charset;
 
     .line 164
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->buffer:Ljava/nio/ByteBuffer;
@@ -621,7 +564,6 @@
     move-result-object v0
 
     .line 166
-    .local v0, "bytes":[B
     iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->buffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->arrayOffset()I
@@ -637,35 +579,26 @@
     add-int/2addr v1, v2
 
     .line 167
-    .local v1, "offset":I
     iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->buffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v2}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v2
 
-    .local v2, "length":I
     goto :goto_0
 
     .line 170
-    .end local v0    # "bytes":[B
-    .end local v1    # "offset":I
-    .end local v2    # "length":I
     :cond_0
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->toByteArray()[B
 
     move-result-object v0
 
-    .line 171
-    .restart local v0    # "bytes":[B
-    const/4 v1, 0x0
-
     .line 172
-    .restart local v1    # "offset":I
     array-length v2, v0
 
+    const/4 v1, 0x0
+
     .line 174
-    .restart local v2    # "length":I
     :goto_0
     new-instance v3, Ljava/lang/String;
 
@@ -676,7 +609,6 @@
 
 .method writeTo(Lcom/google/crypto/tink/shaded/protobuf/ByteOutput;)V
     .locals 1
-    .param p1, "output"    # Lcom/google/crypto/tink/shaded/protobuf/ByteOutput;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -692,13 +624,11 @@
 
     invoke-virtual {p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/ByteOutput;->writeLazy(Ljava/nio/ByteBuffer;)V
 
-    .line 147
     return-void
 .end method
 
 .method public writeTo(Ljava/io/OutputStream;)V
     .locals 1
-    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -712,15 +642,11 @@
 
     invoke-virtual {p1, v0}, Ljava/io/OutputStream;->write([B)V
 
-    .line 124
     return-void
 .end method
 
 .method writeToInternal(Ljava/io/OutputStream;II)V
     .locals 2
-    .param p1, "out"    # Ljava/io/OutputStream;
-    .param p2, "sourceOffset"    # I
-    .param p3, "numberToWrite"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -754,29 +680,25 @@
     add-int/2addr v0, p2
 
     .line 137
-    .local v0, "bufferOffset":I
-    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->buffer:Ljava/nio/ByteBuffer;
+    iget-object p2, p0, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->buffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->array()[B
+    invoke-virtual {p2}, Ljava/nio/ByteBuffer;->array()[B
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {p1, v1, v0, p3}, Ljava/io/OutputStream;->write([BII)V
+    invoke-virtual {p1, p2, v0, p3}, Ljava/io/OutputStream;->write([BII)V
 
-    .line 138
     return-void
 
-    .line 141
-    .end local v0    # "bufferOffset":I
     :cond_0
-    add-int v0, p2, p3
+    add-int/2addr p3, p2
 
-    invoke-direct {p0, p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->slice(II)Ljava/nio/ByteBuffer;
+    .line 141
+    invoke-direct {p0, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/NioByteString;->slice(II)Ljava/nio/ByteBuffer;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-static {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteBufferWriter;->write(Ljava/nio/ByteBuffer;Ljava/io/OutputStream;)V
+    invoke-static {p2, p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteBufferWriter;->write(Ljava/nio/ByteBuffer;Ljava/io/OutputStream;)V
 
-    .line 142
     return-void
 .end method

@@ -12,7 +12,6 @@
 # direct methods
 .method constructor <init>(Ljava/nio/channels/DatagramChannel;)V
     .locals 0
-    .param p1, "channel"    # Ljava/nio/channels/DatagramChannel;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -25,7 +24,6 @@
     .line 30
     iput-object p1, p0, Lcom/koushikdutta/async/DatagramChannelWrapper;->mChannel:Ljava/nio/channels/DatagramChannel;
 
-    .line 31
     return-void
 .end method
 
@@ -44,7 +42,6 @@
 
     invoke-virtual {v0}, Ljava/nio/channels/DatagramChannel;->disconnect()Ljava/nio/channels/DatagramChannel;
 
-    .line 26
     return-void
 .end method
 
@@ -90,7 +87,6 @@
 .method public isChunked()Z
     .locals 1
 
-    .line 62
     const/4 v0, 0x1
 
     return v0
@@ -111,7 +107,6 @@
 
 .method public read(Ljava/nio/ByteBuffer;)I
     .locals 2
-    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -131,7 +126,6 @@
     move-result v0
 
     .line 36
-    .local v0, "position":I
     iget-object v1, p0, Lcom/koushikdutta/async/DatagramChannelWrapper;->mChannel:Ljava/nio/channels/DatagramChannel;
 
     invoke-virtual {v1, p1}, Ljava/nio/channels/DatagramChannel;->receive(Ljava/nio/ByteBuffer;)Ljava/net/SocketAddress;
@@ -142,29 +136,26 @@
 
     iput-object v1, p0, Lcom/koushikdutta/async/DatagramChannelWrapper;->address:Ljava/net/InetSocketAddress;
 
-    .line 37
     if-nez v1, :cond_0
 
-    .line 38
-    const/4 v1, -0x1
+    const/4 p1, -0x1
 
-    return v1
+    return p1
 
     .line 39
     :cond_0
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->position()I
 
-    move-result v1
+    move-result p1
 
-    sub-int/2addr v1, v0
+    sub-int/2addr p1, v0
 
-    return v1
+    return p1
 
-    .line 41
-    .end local v0    # "position":I
     :cond_1
     const/4 v0, 0x0
 
+    .line 41
     iput-object v0, p0, Lcom/koushikdutta/async/DatagramChannelWrapper;->address:Ljava/net/InetSocketAddress;
 
     .line 42
@@ -172,14 +163,13 @@
 
     invoke-virtual {v0, p1}, Ljava/nio/channels/DatagramChannel;->read(Ljava/nio/ByteBuffer;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public read([Ljava/nio/ByteBuffer;)J
     .locals 2
-    .param p1, "byteBuffers"    # [Ljava/nio/ByteBuffer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -197,10 +187,7 @@
 .end method
 
 .method public read([Ljava/nio/ByteBuffer;II)J
-    .locals 2
-    .param p1, "byteBuffers"    # [Ljava/nio/ByteBuffer;
-    .param p2, "i"    # I
-    .param p3, "i2"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -212,34 +199,31 @@
 
     invoke-virtual {v0, p1, p2, p3}, Ljava/nio/channels/DatagramChannel;->read([Ljava/nio/ByteBuffer;II)J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    return-wide v0
+    return-wide p1
 .end method
 
 .method public register(Ljava/nio/channels/Selector;)Ljava/nio/channels/SelectionKey;
     .locals 1
-    .param p1, "sel"    # Ljava/nio/channels/Selector;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/nio/channels/ClosedChannelException;
         }
     .end annotation
 
-    .line 66
     const/4 v0, 0x1
 
+    .line 66
     invoke-virtual {p0, p1, v0}, Lcom/koushikdutta/async/DatagramChannelWrapper;->register(Ljava/nio/channels/Selector;I)Ljava/nio/channels/SelectionKey;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public register(Ljava/nio/channels/Selector;I)Ljava/nio/channels/SelectionKey;
     .locals 1
-    .param p1, "sel"    # Ljava/nio/channels/Selector;
-    .param p2, "ops"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/nio/channels/ClosedChannelException;
@@ -251,28 +235,25 @@
 
     invoke-virtual {v0, p1, p2}, Ljava/nio/channels/DatagramChannel;->register(Ljava/nio/channels/Selector;I)Ljava/nio/channels/SelectionKey;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public shutdownInput()V
     .locals 0
 
-    .line 75
     return-void
 .end method
 
 .method public shutdownOutput()V
     .locals 0
 
-    .line 71
     return-void
 .end method
 
 .method public write(Ljava/nio/ByteBuffer;)I
     .locals 1
-    .param p1, "src"    # Ljava/nio/ByteBuffer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -284,14 +265,13 @@
 
     invoke-virtual {v0, p1}, Ljava/nio/channels/DatagramChannel;->write(Ljava/nio/ByteBuffer;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public write([Ljava/nio/ByteBuffer;)I
     .locals 2
-    .param p1, "src"    # [Ljava/nio/ByteBuffer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -305,7 +285,7 @@
 
     move-result-wide v0
 
-    long-to-int v0, v0
+    long-to-int p1, v0
 
-    return v0
+    return p1
 .end method

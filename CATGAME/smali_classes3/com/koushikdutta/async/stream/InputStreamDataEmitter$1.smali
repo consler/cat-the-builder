@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/stream/InputStreamDataEmitter;Ljava/lang/Exception;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/stream/InputStreamDataEmitter;
 
     .line 57
     iput-object p1, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter$1;->this$0:Lcom/koushikdutta/async/stream/InputStreamDataEmitter;
@@ -47,7 +46,6 @@
     iget-object v0, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter$1;->val$e:Ljava/lang/Exception;
 
     .line 62
-    .local v0, "ex":Ljava/lang/Exception;
     :try_start_0
     iget-object v1, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter$1;->this$0:Lcom/koushikdutta/async/stream/InputStreamDataEmitter;
 
@@ -57,19 +55,12 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 66
     goto :goto_0
 
-    .line 64
     :catch_0
-    move-exception v1
-
-    .line 65
-    .local v1, "e":Ljava/lang/Exception;
-    move-object v0, v1
+    move-exception v0
 
     .line 67
-    .end local v1    # "e":Ljava/lang/Exception;
     :goto_0
     iget-object v1, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter$1;->this$0:Lcom/koushikdutta/async/stream/InputStreamDataEmitter;
 
@@ -84,7 +75,6 @@
 
     invoke-interface {v1, v0}, Lcom/koushikdutta/async/callback/CompletedCallback;->onCompleted(Ljava/lang/Exception;)V
 
-    .line 69
     :cond_0
     return-void
 .end method

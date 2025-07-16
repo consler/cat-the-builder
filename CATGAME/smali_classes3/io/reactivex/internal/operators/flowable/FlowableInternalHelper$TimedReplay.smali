@@ -49,9 +49,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/Flowable;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)V
     .locals 0
-    .param p2, "time"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -64,8 +61,6 @@
     .end annotation
 
     .line 296
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$TimedReplay;, "Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$TimedReplay<TT;>;"
-    .local p1, "parent":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 297
@@ -80,7 +75,6 @@
     .line 300
     iput-object p5, p0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$TimedReplay;->scheduler:Lio/reactivex/Scheduler;
 
-    .line 301
     return-void
 .end method
 
@@ -97,7 +91,6 @@
     .end annotation
 
     .line 305
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$TimedReplay;, "Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$TimedReplay<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$TimedReplay;->parent:Lio/reactivex/Flowable;
 
     iget-wide v1, p0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$TimedReplay;->time:J
@@ -122,7 +115,6 @@
     .end annotation
 
     .line 290
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$TimedReplay;, "Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$TimedReplay<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$TimedReplay;->call()Lio/reactivex/flowables/ConnectableFlowable;
 
     move-result-object v0

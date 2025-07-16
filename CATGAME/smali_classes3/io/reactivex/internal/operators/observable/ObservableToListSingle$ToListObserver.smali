@@ -65,9 +65,6 @@
     .end annotation
 
     .line 73
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver;, "Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver<TT;TU;>;"
-    .local p1, "actual":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TU;>;"
-    .local p2, "collection":Ljava/util/Collection;, "TU;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 74
@@ -76,7 +73,6 @@
     .line 75
     iput-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver;->collection:Ljava/util/Collection;
 
-    .line 76
     return-void
 .end method
 
@@ -86,12 +82,10 @@
     .locals 1
 
     .line 89
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver;, "Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver<TT;TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 90
     return-void
 .end method
 
@@ -99,7 +93,6 @@
     .locals 1
 
     .line 94
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver;, "Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver<TT;TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->isDisposed()Z
@@ -113,13 +106,11 @@
     .locals 2
 
     .line 111
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver;, "Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver<TT;TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver;->collection:Ljava/util/Collection;
 
-    .line 112
-    .local v0, "c":Ljava/util/Collection;, "TU;"
     const/4 v1, 0x0
 
+    .line 112
     iput-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver;->collection:Ljava/util/Collection;
 
     .line 113
@@ -127,18 +118,15 @@
 
     invoke-interface {v1, v0}, Lio/reactivex/SingleObserver;->onSuccess(Ljava/lang/Object;)V
 
-    .line 114
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
-    .line 105
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver;, "Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver<TT;TU;>;"
     const/4 v0, 0x0
 
+    .line 105
     iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver;->collection:Ljava/util/Collection;
 
     .line 106
@@ -146,7 +134,6 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/SingleObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 107
     return-void
 .end method
 
@@ -159,22 +146,17 @@
     .end annotation
 
     .line 100
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver;, "Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver<TT;TU;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver;->collection:Ljava/util/Collection;
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    .line 101
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 80
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver;, "Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver<TT;TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -187,11 +169,10 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver;->s:Lio/reactivex/disposables/Disposable;
 
     .line 82
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver;->actual:Lio/reactivex/SingleObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableToListSingle$ToListObserver;->actual:Lio/reactivex/SingleObserver;
 
-    invoke-interface {v0, p0}, Lio/reactivex/SingleObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/SingleObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 84
     :cond_0
     return-void
 .end method

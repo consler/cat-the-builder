@@ -27,11 +27,8 @@
     .end annotation
 
     .line 21
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSerialized;, "Lio/reactivex/internal/operators/observable/ObservableSerialized<TT;>;"
-    .local p1, "upstream":Lio/reactivex/Observable;, "Lio/reactivex/Observable<TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/observable/AbstractObservableWithUpstream;-><init>(Lio/reactivex/ObservableSource;)V
 
-    .line 22
     return-void
 .end method
 
@@ -48,8 +45,6 @@
     .end annotation
 
     .line 26
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSerialized;, "Lio/reactivex/internal/operators/observable/ObservableSerialized<TT;>;"
-    .local p1, "observer":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSerialized;->source:Lio/reactivex/ObservableSource;
 
     new-instance v1, Lio/reactivex/observers/SerializedObserver;
@@ -58,6 +53,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 27
     return-void
 .end method

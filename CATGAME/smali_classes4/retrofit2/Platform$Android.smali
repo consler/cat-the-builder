@@ -22,26 +22,13 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 2
-
-    .line 114
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x18
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     const/4 v0, 0x1
 
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
+    .line 114
     invoke-direct {p0, v0}, Lretrofit2/Platform;-><init>(Z)V
 
-    .line 115
     return-void
 .end method
 
@@ -59,10 +46,7 @@
 .end method
 
 .method varargs invokeDefaultMethod(Ljava/lang/reflect/Method;Ljava/lang/Class;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
-    .param p1, "method"    # Ljava/lang/reflect/Method;
-    .param p3, "object"    # Ljava/lang/Object;
-    .param p4, "args"    # [Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -86,28 +70,10 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .line 126
-    .local p2, "declaringClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1a
-
-    if-lt v0, v1, :cond_0
-
     .line 130
     invoke-super {p0, p1, p2, p3, p4}, Lretrofit2/Platform;->invokeDefaultMethod(Ljava/lang/reflect/Method;Ljava/lang/Class;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
-
-    .line 127
-    :cond_0
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
-
-    const-string v1, "Calling default methods on API 24 and 25 is not supported"
-
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    return-object p1
 .end method

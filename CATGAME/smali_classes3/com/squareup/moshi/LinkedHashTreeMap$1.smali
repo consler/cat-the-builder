@@ -39,16 +39,14 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Comparable;Ljava/lang/Comparable;)I
-    .locals 1
-    .param p1, "a"    # Ljava/lang/Comparable;
-    .param p2, "b"    # Ljava/lang/Comparable;
+    .locals 0
 
     .line 43
     invoke-interface {p1, p2}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I

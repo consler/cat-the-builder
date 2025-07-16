@@ -48,19 +48,16 @@
     .end annotation
 
     .line 59
-    .local p0, "this":Lorg/apache/commons/collections4/functors/NullIsExceptionPredicate;, "Lorg/apache/commons/collections4/functors/NullIsExceptionPredicate<TT;>;"
-    .local p1, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 60
     iput-object p1, p0, Lorg/apache/commons/collections4/functors/NullIsExceptionPredicate;->iPredicate:Lorg/apache/commons/collections4/Predicate;
 
-    .line 61
     return-void
 .end method
 
 .method public static nullIsExceptionPredicate(Lorg/apache/commons/collections4/Predicate;)Lorg/apache/commons/collections4/Predicate;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -73,8 +70,6 @@
         }
     .end annotation
 
-    .line 46
-    .local p0, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TT;>;"
     if-eqz p0, :cond_0
 
     .line 49
@@ -86,28 +81,25 @@
 
     .line 47
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Predicate must not be null"
+    const-string v0, "Predicate must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
 # virtual methods
 .method public evaluate(Ljava/lang/Object;)Z
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
         }
     .end annotation
 
-    .line 73
-    .local p0, "this":Lorg/apache/commons/collections4/functors/NullIsExceptionPredicate;, "Lorg/apache/commons/collections4/functors/NullIsExceptionPredicate<TT;>;"
-    .local p1, "object":Ljava/lang/Object;, "TT;"
     if-eqz p1, :cond_0
 
     .line 76
@@ -115,19 +107,19 @@
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Predicate;->evaluate(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
     .line 74
     :cond_0
-    new-instance v0, Lorg/apache/commons/collections4/FunctorException;
+    new-instance p1, Lorg/apache/commons/collections4/FunctorException;
 
-    const-string v1, "Input Object must not be null"
+    const-string v0, "Input Object must not be null"
 
-    invoke-direct {v0, v1}, Lorg/apache/commons/collections4/FunctorException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lorg/apache/commons/collections4/FunctorException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public getPredicates()[Lorg/apache/commons/collections4/Predicate;
@@ -140,17 +132,16 @@
         }
     .end annotation
 
-    .line 88
-    .local p0, "this":Lorg/apache/commons/collections4/functors/NullIsExceptionPredicate;, "Lorg/apache/commons/collections4/functors/NullIsExceptionPredicate<TT;>;"
     const/4 v0, 0x1
 
     new-array v0, v0, [Lorg/apache/commons/collections4/Predicate;
 
-    iget-object v1, p0, Lorg/apache/commons/collections4/functors/NullIsExceptionPredicate;->iPredicate:Lorg/apache/commons/collections4/Predicate;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    .line 88
+    iget-object v2, p0, Lorg/apache/commons/collections4/functors/NullIsExceptionPredicate;->iPredicate:Lorg/apache/commons/collections4/Predicate;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     return-object v0
 .end method

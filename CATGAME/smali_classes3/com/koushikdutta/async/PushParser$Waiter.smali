@@ -21,7 +21,6 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .param p1, "length"    # I
 
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,7 +28,6 @@
     .line 22
     iput p1, p0, Lcom/koushikdutta/async/PushParser$Waiter;->length:I
 
-    .line 23
     return-void
 .end method
 

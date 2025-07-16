@@ -44,13 +44,12 @@
 .end method
 
 .method static synthetic access$000(Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;)Ljava/lang/ref/ReferenceQueue;
-    .locals 1
-    .param p0, "x0"    # Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;
+    .locals 0
 
     .line 28
-    iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;->queue:Ljava/lang/ref/ReferenceQueue;
+    iget-object p0, p0, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;->queue:Ljava/lang/ref/ReferenceQueue;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private cleanup()V
@@ -66,19 +65,15 @@
 
     check-cast v0, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary$WeakIdWrapper;
 
-    move-object v1, v0
-
-    .local v1, "wrapper":Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary$WeakIdWrapper;
     if-eqz v0, :cond_0
 
     .line 119
-    iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;->map:Ljava/util/Map;
+    iget-object v1, p0, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;->map:Ljava/util/Map;
 
-    invoke-interface {v0, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
-    .line 121
     :cond_0
     return-void
 .end method
@@ -87,8 +82,6 @@
 # virtual methods
 .method public associateId(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
-    .param p2, "id"    # Ljava/lang/Object;
 
     .line 91
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;->map:Ljava/util/Map;
@@ -102,13 +95,11 @@
     .line 92
     invoke-direct {p0}, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;->cleanup()V
 
-    .line 93
     return-void
 .end method
 
 .method public containsId(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "item"    # Ljava/lang/Object;
 
     .line 101
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;->map:Ljava/util/Map;
@@ -119,16 +110,13 @@
 
     invoke-interface {v0, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    .line 102
-    .local v0, "b":Z
-    return v0
+    return p1
 .end method
 
 .method public lookupId(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 96
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;->map:Ljava/util/Map;
@@ -139,16 +127,13 @@
 
     invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 97
-    .local v0, "id":Ljava/lang/Object;
-    return-object v0
+    return-object p1
 .end method
 
 .method public removeId(Ljava/lang/Object;)V
     .locals 2
-    .param p1, "item"    # Ljava/lang/Object;
 
     .line 106
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;->map:Ljava/util/Map;
@@ -162,7 +147,6 @@
     .line 107
     invoke-direct {p0}, Lcom/thoughtworks/xstream/core/util/ObjectIdDictionary;->cleanup()V
 
-    .line 108
     return-void
 .end method
 

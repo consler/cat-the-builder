@@ -57,13 +57,13 @@
 
     sput-object v0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ErrorMapperFilter;->INSTANCE:Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ErrorMapperFilter;
 
-    .line 242
     const/4 v1, 0x1
 
     new-array v1, v1, [Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ErrorMapperFilter;
 
     aput-object v0, v1, v2
 
+    .line 242
     sput-object v1, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ErrorMapperFilter;->$VALUES:[Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ErrorMapperFilter;
 
     return-void
@@ -85,18 +85,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ErrorMapperFilter;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 242
     const-class v0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ErrorMapperFilter;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ErrorMapperFilter;
+    check-cast p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ErrorMapperFilter;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ErrorMapperFilter;
@@ -117,8 +116,7 @@
 
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -126,19 +124,17 @@
     .end annotation
 
     .line 242
-    move-object v0, p1
+    check-cast p1, Lio/reactivex/Notification;
 
-    check-cast v0, Lio/reactivex/Notification;
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ErrorMapperFilter;->apply(Lio/reactivex/Notification;)Ljava/lang/Throwable;
 
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ErrorMapperFilter;->apply(Lio/reactivex/Notification;)Ljava/lang/Throwable;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public apply(Lio/reactivex/Notification;)Ljava/lang/Throwable;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -156,16 +152,15 @@
     .end annotation
 
     .line 247
-    .local p1, "t":Lio/reactivex/Notification;, "Lio/reactivex/Notification<Ljava/lang/Object;>;"
     invoke-virtual {p1}, Lio/reactivex/Notification;->getError()Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public test(Lio/reactivex/Notification;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -182,17 +177,15 @@
     .end annotation
 
     .line 252
-    .local p1, "t":Lio/reactivex/Notification;, "Lio/reactivex/Notification<Ljava/lang/Object;>;"
     invoke-virtual {p1}, Lio/reactivex/Notification;->isOnError()Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic test(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -200,13 +193,11 @@
     .end annotation
 
     .line 242
-    move-object v0, p1
+    check-cast p1, Lio/reactivex/Notification;
 
-    check-cast v0, Lio/reactivex/Notification;
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ErrorMapperFilter;->test(Lio/reactivex/Notification;)Z
 
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ErrorMapperFilter;->test(Lio/reactivex/Notification;)Z
+    move-result p1
 
-    move-result v0
-
-    return v0
+    return p1
 .end method

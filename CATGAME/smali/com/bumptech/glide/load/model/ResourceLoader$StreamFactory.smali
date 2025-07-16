@@ -34,7 +34,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/res/Resources;)V
     .locals 0
-    .param p1, "resources"    # Landroid/content/res/Resources;
 
     .line 69
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +41,6 @@
     .line 70
     iput-object p1, p0, Lcom/bumptech/glide/load/model/ResourceLoader$StreamFactory;->resources:Landroid/content/res/Resources;
 
-    .line 71
     return-void
 .end method
 
@@ -50,7 +48,6 @@
 # virtual methods
 .method public build(Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;)Lcom/bumptech/glide/load/model/ModelLoader;
     .locals 4
-    .param p1, "multiFactory"    # Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -74,9 +71,9 @@
 
     invoke-virtual {p1, v2, v3}, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->build(Ljava/lang/Class;Ljava/lang/Class;)Lcom/bumptech/glide/load/model/ModelLoader;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v0, v1, v2}, Lcom/bumptech/glide/load/model/ResourceLoader;-><init>(Landroid/content/res/Resources;Lcom/bumptech/glide/load/model/ModelLoader;)V
+    invoke-direct {v0, v1, p1}, Lcom/bumptech/glide/load/model/ResourceLoader;-><init>(Landroid/content/res/Resources;Lcom/bumptech/glide/load/model/ModelLoader;)V
 
     return-object v0
 .end method
@@ -84,6 +81,5 @@
 .method public teardown()V
     .locals 0
 
-    .line 82
     return-void
 .end method

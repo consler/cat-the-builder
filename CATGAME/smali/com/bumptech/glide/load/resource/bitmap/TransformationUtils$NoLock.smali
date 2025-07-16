@@ -32,7 +32,6 @@
 .method public lock()V
     .locals 0
 
-    .line 639
     return-void
 .end method
 
@@ -44,7 +43,6 @@
         }
     .end annotation
 
-    .line 644
     return-void
 .end method
 
@@ -64,31 +62,26 @@
 .method public tryLock()Z
     .locals 1
 
-    .line 648
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public tryLock(JLjava/util/concurrent/TimeUnit;)Z
-    .locals 1
-    .param p1, "time"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InterruptedException;
         }
     .end annotation
 
-    .line 653
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public unlock()V
     .locals 0
 
-    .line 659
     return-void
 .end method

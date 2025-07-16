@@ -32,7 +32,6 @@
 .method public asBinder()Landroid/os/IBinder;
     .locals 1
 
-    .line 16
     const/4 v0, 0x0
 
     return-object v0
@@ -40,14 +39,22 @@
 
 .method public send(ILandroid/os/Bundle;)V
     .locals 0
-    .param p1, "resultCode"    # I
-    .param p2, "resultData"    # Landroid/os/Bundle;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "resultCode",
+            "resultData"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .line 13
     return-void
 .end method

@@ -32,32 +32,26 @@
 .method public clear()V
     .locals 0
 
-    .line 65
     return-void
 .end method
 
 .method public clearKeyUri(Ljava/lang/String;)V
     .locals 0
-    .param p1, "keyPrefix"    # Ljava/lang/String;
 
-    .line 68
     return-void
 .end method
 
 .method public get(Ljava/lang/String;)Landroid/graphics/Bitmap;
-    .locals 1
-    .param p1, "key"    # Ljava/lang/String;
+    .locals 0
 
-    .line 49
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public maxSize()I
     .locals 1
 
-    .line 61
     const/4 v0, 0x0
 
     return v0
@@ -65,17 +59,13 @@
 
 .method public set(Ljava/lang/String;Landroid/graphics/Bitmap;)V
     .locals 0
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "bitmap"    # Landroid/graphics/Bitmap;
 
-    .line 54
     return-void
 .end method
 
 .method public size()I
     .locals 1
 
-    .line 57
     const/4 v0, 0x0
 
     return v0

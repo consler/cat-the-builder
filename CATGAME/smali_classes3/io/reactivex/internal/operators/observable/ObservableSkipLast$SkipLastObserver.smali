@@ -53,7 +53,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/Observer;I)V
     .locals 0
-    .param p2, "skip"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -63,8 +62,6 @@
     .end annotation
 
     .line 44
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver;, "Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     invoke-direct {p0, p2}, Ljava/util/ArrayDeque;-><init>(I)V
 
     .line 45
@@ -73,7 +70,6 @@
     .line 46
     iput p2, p0, Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver;->skip:I
 
-    .line 47
     return-void
 .end method
 
@@ -83,12 +79,10 @@
     .locals 1
 
     .line 60
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver;, "Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 61
     return-void
 .end method
 
@@ -96,7 +90,6 @@
     .locals 1
 
     .line 65
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver;, "Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->isDisposed()Z
@@ -110,26 +103,21 @@
     .locals 1
 
     .line 83
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver;, "Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver;->actual:Lio/reactivex/Observer;
 
     invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 84
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 78
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver;, "Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver;->actual:Lio/reactivex/Observer;
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 79
     return-void
 .end method
 
@@ -142,8 +130,6 @@
     .end annotation
 
     .line 70
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver;, "Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget v0, p0, Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver;->skip:I
 
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver;->size()I
@@ -165,16 +151,13 @@
     :cond_0
     invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver;->offer(Ljava/lang/Object;)Z
 
-    .line 74
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 51
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver;, "Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -187,11 +170,10 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver;->s:Lio/reactivex/disposables/Disposable;
 
     .line 53
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableSkipLast$SkipLastObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v0, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 55
     :cond_0
     return-void
 .end method

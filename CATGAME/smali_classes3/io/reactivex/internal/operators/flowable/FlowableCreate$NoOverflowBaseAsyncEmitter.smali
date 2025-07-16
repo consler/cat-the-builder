@@ -40,11 +40,8 @@
     .end annotation
 
     .line 359
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCreate$NoOverflowBaseAsyncEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableCreate$NoOverflowBaseAsyncEmitter<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter;-><init>(Lorg/reactivestreams/Subscriber;)V
 
-    .line 360
     return-void
 .end method
 
@@ -59,31 +56,26 @@
     .end annotation
 
     .line 364
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCreate$NoOverflowBaseAsyncEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableCreate$NoOverflowBaseAsyncEmitter<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableCreate$NoOverflowBaseAsyncEmitter;->isCancelled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 365
     return-void
 
-    .line 368
     :cond_0
     if-nez p1, :cond_1
 
     .line 369
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "onNext called with null. Null values are generally not allowed in 2.x operators and sources."
+    const-string v0, "onNext called with null. Null values are generally not allowed in 2.x operators and sources."
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/flowable/FlowableCreate$NoOverflowBaseAsyncEmitter;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableCreate$NoOverflowBaseAsyncEmitter;->onError(Ljava/lang/Throwable;)V
 
-    .line 370
     return-void
 
     .line 373
@@ -103,9 +95,9 @@
 
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
-    .line 375
     const-wide/16 v0, 0x1
 
+    .line 375
     invoke-static {p0, v0, v1}, Lio/reactivex/internal/util/BackpressureHelper;->produced(Ljava/util/concurrent/atomic/AtomicLong;J)J
 
     goto :goto_0
@@ -114,7 +106,6 @@
     :cond_2
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableCreate$NoOverflowBaseAsyncEmitter;->onOverflow()V
 
-    .line 379
     :goto_0
     return-void
 .end method

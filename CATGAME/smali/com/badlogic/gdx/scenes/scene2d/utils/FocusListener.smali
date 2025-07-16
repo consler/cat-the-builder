@@ -28,7 +28,6 @@
 # virtual methods
 .method public handle(Lcom/badlogic/gdx/scenes/scene2d/Event;)Z
     .locals 4
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/Event;
 
     .line 27
     instance-of v0, p1, Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent;
@@ -46,7 +45,6 @@
     check-cast v0, Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent;
 
     .line 29
-    .local v0, "focusEvent":Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent;
     sget-object v2, Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$1;->$SwitchMap$com$badlogic$gdx$scenes$scene2d$utils$FocusListener$FocusEvent$Type:[I
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent;->getType()Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent$Type;
@@ -73,13 +71,13 @@
     :cond_1
     invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/Event;->getTarget()Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    move-result-object v2
+    move-result-object p1
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent;->isFocused()Z
 
-    move-result v3
+    move-result v2
 
-    invoke-virtual {p0, v0, v2, v3}, Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener;->scrollFocusChanged(Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent;Lcom/badlogic/gdx/scenes/scene2d/Actor;Z)V
+    invoke-virtual {p0, v0, p1, v2}, Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener;->scrollFocusChanged(Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent;Lcom/badlogic/gdx/scenes/scene2d/Actor;Z)V
 
     goto :goto_0
 
@@ -87,38 +85,26 @@
     :cond_2
     invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/Event;->getTarget()Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    move-result-object v2
+    move-result-object p1
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent;->isFocused()Z
 
-    move-result v3
+    move-result v2
 
-    invoke-virtual {p0, v0, v2, v3}, Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener;->keyboardFocusChanged(Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent;Lcom/badlogic/gdx/scenes/scene2d/Actor;Z)V
+    invoke-virtual {p0, v0, p1, v2}, Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener;->keyboardFocusChanged(Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent;Lcom/badlogic/gdx/scenes/scene2d/Actor;Z)V
 
-    .line 32
-    nop
-
-    .line 37
     :goto_0
     return v1
 .end method
 
 .method public keyboardFocusChanged(Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent;Lcom/badlogic/gdx/scenes/scene2d/Actor;Z)V
     .locals 0
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent;
-    .param p2, "actor"    # Lcom/badlogic/gdx/scenes/scene2d/Actor;
-    .param p3, "focused"    # Z
 
-    .line 42
     return-void
 .end method
 
 .method public scrollFocusChanged(Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent;Lcom/badlogic/gdx/scenes/scene2d/Actor;Z)V
     .locals 0
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/utils/FocusListener$FocusEvent;
-    .param p2, "actor"    # Lcom/badlogic/gdx/scenes/scene2d/Actor;
-    .param p3, "focused"    # Z
 
-    .line 46
     return-void
 .end method

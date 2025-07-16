@@ -46,29 +46,24 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/time/MonthDay;
-    .locals 3
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "in"    # Lcom/esotericsoftware/kryo/io/Input;
-    .param p3, "type"    # Ljava/lang/Class;
+    .locals 0
 
     .line 303
     invoke-virtual {p2}, Lcom/esotericsoftware/kryo/io/Input;->readByte()B
 
-    move-result v0
+    move-result p1
 
     .line 304
-    .local v0, "month":B
     invoke-virtual {p2}, Lcom/esotericsoftware/kryo/io/Input;->readByte()B
 
-    move-result v1
+    move-result p2
 
     .line 305
-    .local v1, "day":B
-    invoke-static {v0, v1}, Ljava/time/MonthDay;->of(II)Ljava/time/MonthDay;
+    invoke-static {p1, p2}, Ljava/time/MonthDay;->of(II)Ljava/time/MonthDay;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
@@ -83,25 +78,21 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/time/MonthDay;)V
-    .locals 1
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "out"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p3, "obj"    # Ljava/time/MonthDay;
+    .locals 0
 
     .line 298
     invoke-virtual {p3}, Ljava/time/MonthDay;->getMonthValue()I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p2, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(I)V
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(I)V
 
     .line 299
     invoke-virtual {p3}, Ljava/time/MonthDay;->getDayOfMonth()I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p2, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(I)V
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(I)V
 
-    .line 300
     return-void
 .end method

@@ -24,12 +24,10 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Runnable;)V
     .locals 0
-    .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 31
     invoke-direct {p0, p1}, Lio/reactivex/internal/schedulers/AbstractDirectTask;-><init>(Ljava/lang/Runnable;)V
 
-    .line 32
     return-void
 .end method
 
@@ -66,9 +64,9 @@
 
     iput-object v0, p0, Lio/reactivex/internal/schedulers/ScheduledDirectTask;->runner:Ljava/lang/Thread;
 
-    .line 38
     const/4 v0, 0x0
 
+    .line 38
     :try_start_0
     iget-object v1, p0, Lio/reactivex/internal/schedulers/ScheduledDirectTask;->runnable:Ljava/lang/Runnable;
 
@@ -84,16 +82,12 @@
     .line 41
     iput-object v0, p0, Lio/reactivex/internal/schedulers/ScheduledDirectTask;->runner:Ljava/lang/Thread;
 
-    .line 42
-    nop
-
-    .line 43
     return-object v0
 
-    .line 40
     :catchall_0
     move-exception v1
 
+    .line 40
     sget-object v2, Lio/reactivex/internal/schedulers/ScheduledDirectTask;->FINISHED:Ljava/util/concurrent/FutureTask;
 
     invoke-virtual {p0, v2}, Lio/reactivex/internal/schedulers/ScheduledDirectTask;->lazySet(Ljava/lang/Object;)V

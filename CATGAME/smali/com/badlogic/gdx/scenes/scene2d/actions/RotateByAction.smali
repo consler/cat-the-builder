@@ -30,18 +30,15 @@
 
 .method public setAmount(F)V
     .locals 0
-    .param p1, "rotationAmount"    # F
 
     .line 33
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RotateByAction;->amount:F
 
-    .line 34
     return-void
 .end method
 
 .method protected updateRelative(F)V
     .locals 2
-    .param p1, "percentDelta"    # F
 
     .line 25
     iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RotateByAction;->target:Lcom/badlogic/gdx/scenes/scene2d/Actor;
@@ -52,6 +49,5 @@
 
     invoke-virtual {v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/Actor;->rotateBy(F)V
 
-    .line 26
     return-void
 .end method

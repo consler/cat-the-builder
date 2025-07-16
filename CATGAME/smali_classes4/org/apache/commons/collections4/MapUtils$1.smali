@@ -26,7 +26,6 @@
     .locals 0
 
     .line 1777
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/map/AbstractMapDecorator;-><init>(Ljava/util/Map;)V
 
     return-void

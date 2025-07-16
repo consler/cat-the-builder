@@ -49,21 +49,17 @@
 # virtual methods
 .method public drawRoundedCorners(Landroid/graphics/Canvas;Landroid/graphics/Paint;Landroid/graphics/RectF;)V
     .locals 4
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
-    .param p2, "paint"    # Landroid/graphics/Paint;
-    .param p3, "rect"    # Landroid/graphics/RectF;
 
     .line 519
     new-instance v0, Landroid/graphics/Path;
 
     invoke-direct {v0}, Landroid/graphics/Path;-><init>()V
 
-    .line 520
-    .local v0, "path":Landroid/graphics/Path;
     const/16 v1, 0x8
 
     new-array v1, v1, [F
 
+    .line 520
     iget v2, p0, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils$2;->val$topLeft:F
 
     const/4 v3, 0x0
@@ -111,6 +107,5 @@
     .line 533
     invoke-virtual {p1, v0, p2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
-    .line 534
     return-void
 .end method

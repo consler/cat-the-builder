@@ -13,18 +13,15 @@
     .line 42
     invoke-direct {p0}, Lorg/apache/commons/collections/collection/AbstractCollectionDecorator;-><init>()V
 
-    .line 43
     return-void
 .end method
 
 .method protected constructor <init>(Lorg/apache/commons/collections/Bag;)V
     .locals 0
-    .param p1, "bag"    # Lorg/apache/commons/collections/Bag;
 
     .line 52
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/collection/AbstractCollectionDecorator;-><init>(Ljava/util/Collection;)V
 
-    .line 53
     return-void
 .end method
 
@@ -32,8 +29,6 @@
 # virtual methods
 .method public add(Ljava/lang/Object;I)Z
     .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
-    .param p2, "count"    # I
 
     .line 70
     invoke-virtual {p0}, Lorg/apache/commons/collections/bag/AbstractBagDecorator;->getBag()Lorg/apache/commons/collections/Bag;
@@ -42,9 +37,9 @@
 
     invoke-interface {v0, p1, p2}, Lorg/apache/commons/collections/Bag;->add(Ljava/lang/Object;I)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method protected getBag()Lorg/apache/commons/collections/Bag;
@@ -62,7 +57,6 @@
 
 .method public getCount(Ljava/lang/Object;)I
     .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
 
     .line 66
     invoke-virtual {p0}, Lorg/apache/commons/collections/bag/AbstractBagDecorator;->getBag()Lorg/apache/commons/collections/Bag;
@@ -71,15 +65,13 @@
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections/Bag;->getCount(Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public remove(Ljava/lang/Object;I)Z
     .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
-    .param p2, "count"    # I
 
     .line 74
     invoke-virtual {p0}, Lorg/apache/commons/collections/bag/AbstractBagDecorator;->getBag()Lorg/apache/commons/collections/Bag;
@@ -88,9 +80,9 @@
 
     invoke-interface {v0, p1, p2}, Lorg/apache/commons/collections/Bag;->remove(Ljava/lang/Object;I)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public uniqueSet()Ljava/util/Set;

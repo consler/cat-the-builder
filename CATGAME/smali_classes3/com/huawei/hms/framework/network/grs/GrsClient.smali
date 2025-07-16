@@ -1,9 +1,14 @@
 .class public Lcom/huawei/hms/framework/network/grs/GrsClient;
 .super Ljava/lang/Object;
+.source ""
+
+
+# static fields
+.field private static final EMPTY_STRING:Ljava/lang/String; = ""
 
 
 # instance fields
-.field private grsClientGlobal:Lcom/huawei/hms/framework/network/grs/c;
+.field private final grsClientGlobal:Lcom/huawei/hms/framework/network/grs/c;
 
 
 # direct methods
@@ -41,6 +46,15 @@
 
     iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/GrsClient;->grsClientGlobal:Lcom/huawei/hms/framework/network/grs/c;
 
+    if-nez v0, :cond_0
+
+    const/4 p1, -0x8
+
+    invoke-interface {p3, p1}, Lcom/huawei/hms/framework/network/grs/IQueryUrlCallBack;->onCallBackFail(I)V
+
+    return-void
+
+    :cond_0
     invoke-virtual {v0, p1, p2, p3}, Lcom/huawei/hms/framework/network/grs/c;->a(Ljava/lang/String;Ljava/lang/String;Lcom/huawei/hms/framework/network/grs/IQueryUrlCallBack;)V
 
     return-void
@@ -51,6 +65,15 @@
 
     iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/GrsClient;->grsClientGlobal:Lcom/huawei/hms/framework/network/grs/c;
 
+    if-nez v0, :cond_0
+
+    const/4 p1, -0x8
+
+    invoke-interface {p2, p1}, Lcom/huawei/hms/framework/network/grs/IQueryUrlsCallBack;->onCallBackFail(I)V
+
+    return-void
+
+    :cond_0
     invoke-virtual {v0, p1, p2}, Lcom/huawei/hms/framework/network/grs/c;->a(Ljava/lang/String;Lcom/huawei/hms/framework/network/grs/IQueryUrlsCallBack;)V
 
     return-void
@@ -61,7 +84,12 @@
 
     iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/GrsClient;->grsClientGlobal:Lcom/huawei/hms/framework/network/grs/c;
 
-    invoke-virtual {v0}, Lcom/huawei/hms/framework/network/grs/c;->b()V
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {v0}, Lcom/huawei/hms/framework/network/grs/c;->a()V
 
     return-void
 .end method
@@ -71,7 +99,14 @@
 
     iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/GrsClient;->grsClientGlobal:Lcom/huawei/hms/framework/network/grs/c;
 
-    invoke-virtual {v0}, Lcom/huawei/hms/framework/network/grs/c;->a()Z
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    return v0
+
+    :cond_0
+    invoke-virtual {v0}, Lcom/huawei/hms/framework/network/grs/c;->b()Z
 
     move-result v0
 
@@ -83,6 +118,13 @@
 
     iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/GrsClient;->grsClientGlobal:Lcom/huawei/hms/framework/network/grs/c;
 
+    if-nez v0, :cond_0
+
+    const-string p1, ""
+
+    return-object p1
+
+    :cond_0
     invoke-virtual {v0, p1, p2}, Lcom/huawei/hms/framework/network/grs/c;->a(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
@@ -106,6 +148,15 @@
 
     iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/GrsClient;->grsClientGlobal:Lcom/huawei/hms/framework/network/grs/c;
 
+    if-nez v0, :cond_0
+
+    new-instance p1, Ljava/util/HashMap;
+
+    invoke-direct {p1}, Ljava/util/HashMap;-><init>()V
+
+    return-object p1
+
+    :cond_0
     invoke-virtual {v0, p1}, Lcom/huawei/hms/framework/network/grs/c;->a(Ljava/lang/String;)Ljava/util/Map;
 
     move-result-object p1

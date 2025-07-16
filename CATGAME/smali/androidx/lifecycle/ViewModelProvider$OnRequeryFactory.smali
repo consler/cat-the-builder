@@ -28,8 +28,6 @@
 # virtual methods
 .method onRequery(Landroidx/lifecycle/ViewModel;)V
     .locals 0
-    .param p1, "viewModel"    # Landroidx/lifecycle/ViewModel;
 
-    .line 56
     return-void
 .end method

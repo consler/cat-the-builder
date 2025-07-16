@@ -37,32 +37,29 @@
 
     invoke-direct {p0, v0}, Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader;-><init>(Lcom/badlogic/gdx/assets/loaders/FileHandleResolver;)V
 
-    .line 62
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/assets/loaders/FileHandleResolver;)V
-    .locals 1
-    .param p1, "resolver"    # Lcom/badlogic/gdx/assets/loaders/FileHandleResolver;
+    .locals 0
 
     .line 65
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/assets/loaders/SynchronousAssetLoader;-><init>(Lcom/badlogic/gdx/assets/loaders/FileHandleResolver;)V
 
     .line 56
-    new-instance v0, Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader$PolygonRegionParameters;
+    new-instance p1, Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader$PolygonRegionParameters;
 
-    invoke-direct {v0}, Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader$PolygonRegionParameters;-><init>()V
+    invoke-direct {p1}, Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader$PolygonRegionParameters;-><init>()V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader;->defaultParameters:Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader$PolygonRegionParameters;
+    iput-object p1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader;->defaultParameters:Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader$PolygonRegionParameters;
 
     .line 58
-    new-instance v0, Lcom/badlogic/gdx/math/EarClippingTriangulator;
+    new-instance p1, Lcom/badlogic/gdx/math/EarClippingTriangulator;
 
-    invoke-direct {v0}, Lcom/badlogic/gdx/math/EarClippingTriangulator;-><init>()V
+    invoke-direct {p1}, Lcom/badlogic/gdx/math/EarClippingTriangulator;-><init>()V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader;->triangulator:Lcom/badlogic/gdx/math/EarClippingTriangulator;
+    iput-object p1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader;->triangulator:Lcom/badlogic/gdx/math/EarClippingTriangulator;
 
-    .line 66
     return-void
 .end method
 
@@ -82,10 +79,7 @@
 .end method
 
 .method public getDependencies(Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader$PolygonRegionParameters;)Lcom/badlogic/gdx/utils/Array;
-    .locals 8
-    .param p1, "fileName"    # Ljava/lang/String;
-    .param p2, "file"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p3, "params"    # Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader$PolygonRegionParameters;
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -99,38 +93,34 @@
         }
     .end annotation
 
-    .line 80
     if-nez p3, :cond_0
 
+    .line 80
     iget-object p3, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader;->defaultParameters:Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader$PolygonRegionParameters;
 
-    .line 81
-    :cond_0
-    const/4 v0, 0x0
-
     .line 83
-    .local v0, "image":Ljava/lang/String;
+    :cond_0
     :try_start_0
-    iget v1, p3, Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader$PolygonRegionParameters;->readerBuffer:I
+    iget v0, p3, Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader$PolygonRegionParameters;->readerBuffer:I
 
-    invoke-virtual {p2, v1}, Lcom/badlogic/gdx/files/FileHandle;->reader(I)Ljava/io/BufferedReader;
+    invoke-virtual {p2, v0}, Lcom/badlogic/gdx/files/FileHandle;->reader(I)Ljava/io/BufferedReader;
+
+    move-result-object v0
+
+    .line 84
+    :cond_1
+    invoke-virtual {v0}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 84
-    .local v1, "reader":Ljava/io/BufferedReader;
-    invoke-virtual {v1}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+    const/4 v2, 0x0
 
-    move-result-object v2
-
-    .local v2, "line":Ljava/lang/String;
-    :goto_0
-    if-eqz v2, :cond_2
+    if-eqz v1, :cond_2
 
     .line 85
     iget-object v3, p3, Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader$PolygonRegionParameters;->texturePrefix:Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v1, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v3
 
@@ -143,300 +133,250 @@
 
     move-result v3
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v1, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v3
-
-    move-object v0, v3
-
-    .line 87
-    goto :goto_1
-
-    .line 84
-    :cond_1
-    invoke-virtual {v1}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
-
-    move-result-object v3
-
-    move-object v2, v3
+    move-result-object v1
 
     goto :goto_0
 
-    .line 89
-    .end local v2    # "line":Ljava/lang/String;
     :cond_2
-    :goto_1
-    invoke-virtual {v1}, Ljava/io/BufferedReader;->close()V
+    move-object v1, v2
+
+    .line 89
+    :goto_0
+    invoke-virtual {v0}, Ljava/io/BufferedReader;->close()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 92
-    .end local v1    # "reader":Ljava/io/BufferedReader;
-    nop
+    if-nez v1, :cond_4
 
     .line 94
-    if-nez v0, :cond_4
+    iget-object p1, p3, Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader$PolygonRegionParameters;->textureExtensions:[Ljava/lang/String;
 
-    iget-object v1, p3, Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader$PolygonRegionParameters;->textureExtensions:[Ljava/lang/String;
+    if-eqz p1, :cond_4
 
-    if-eqz v1, :cond_4
+    iget-object p1, p3, Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader$PolygonRegionParameters;->textureExtensions:[Ljava/lang/String;
 
-    iget-object v1, p3, Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader$PolygonRegionParameters;->textureExtensions:[Ljava/lang/String;
+    array-length p3, p1
 
-    array-length v2, v1
+    const/4 v0, 0x0
 
-    const/4 v3, 0x0
+    :goto_1
+    if-ge v0, p3, :cond_4
 
-    :goto_2
-    if-ge v3, v2, :cond_4
-
-    aget-object v4, v1, v3
+    aget-object v3, p1, v0
 
     .line 95
-    .local v4, "extension":Ljava/lang/String;
     invoke-virtual {p2}, Lcom/badlogic/gdx/files/FileHandle;->nameWithoutExtension()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v6, "."
 
-    const-string v7, "."
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {p2, v5}, Lcom/badlogic/gdx/files/FileHandle;->sibling(Ljava/lang/String;)Lcom/badlogic/gdx/files/FileHandle;
-
-    move-result-object v5
-
-    .line 96
-    .local v5, "sibling":Lcom/badlogic/gdx/files/FileHandle;
-    invoke-virtual {v5}, Lcom/badlogic/gdx/files/FileHandle;->exists()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_3
-
-    invoke-virtual {v5}, Lcom/badlogic/gdx/files/FileHandle;->name()Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 94
-    .end local v4    # "extension":Ljava/lang/String;
-    .end local v5    # "sibling":Lcom/badlogic/gdx/files/FileHandle;
-    :cond_3
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_2
-
-    .line 99
-    :cond_4
-    if-eqz v0, :cond_5
-
-    .line 100
-    new-instance v1, Lcom/badlogic/gdx/utils/Array;
-
-    const/4 v2, 0x1
-
-    invoke-direct {v1, v2}, Lcom/badlogic/gdx/utils/Array;-><init>(I)V
-
-    .line 101
-    .local v1, "deps":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/assets/AssetDescriptor;>;"
-    new-instance v2, Lcom/badlogic/gdx/assets/AssetDescriptor;
-
-    invoke-virtual {p2, v0}, Lcom/badlogic/gdx/files/FileHandle;->sibling(Ljava/lang/String;)Lcom/badlogic/gdx/files/FileHandle;
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
-
-    const-class v4, Lcom/badlogic/gdx/graphics/Texture;
-
-    invoke-direct {v2, v3, v4}, Lcom/badlogic/gdx/assets/AssetDescriptor;-><init>(Lcom/badlogic/gdx/files/FileHandle;Ljava/lang/Class;)V
-
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
-
-    .line 102
-    return-object v1
-
-    .line 105
-    .end local v1    # "deps":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/assets/AssetDescriptor;>;"
-    :cond_5
-    const/4 v1, 0x0
-
-    return-object v1
-
-    .line 90
-    :catch_0
-    move-exception v1
-
-    .line 91
-    .local v1, "e":Ljava/io/IOException;
-    new-instance v2, Lcom/badlogic/gdx/utils/GdxRuntimeException;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Error reading "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-direct {v2, v3, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-virtual {v4, v3}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
 
-    throw v2
+    move-result-object v3
+
+    invoke-virtual {p2, v3}, Lcom/badlogic/gdx/files/FileHandle;->sibling(Ljava/lang/String;)Lcom/badlogic/gdx/files/FileHandle;
+
+    move-result-object v3
+
+    .line 96
+    invoke-virtual {v3}, Lcom/badlogic/gdx/files/FileHandle;->exists()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    invoke-virtual {v3}, Lcom/badlogic/gdx/files/FileHandle;->name()Ljava/lang/String;
+
+    move-result-object v1
+
+    :cond_3
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
+
+    :cond_4
+    if-eqz v1, :cond_5
+
+    .line 100
+    new-instance p1, Lcom/badlogic/gdx/utils/Array;
+
+    const/4 p3, 0x1
+
+    invoke-direct {p1, p3}, Lcom/badlogic/gdx/utils/Array;-><init>(I)V
+
+    .line 101
+    new-instance p3, Lcom/badlogic/gdx/assets/AssetDescriptor;
+
+    invoke-virtual {p2, v1}, Lcom/badlogic/gdx/files/FileHandle;->sibling(Ljava/lang/String;)Lcom/badlogic/gdx/files/FileHandle;
+
+    move-result-object p2
+
+    const-class v0, Lcom/badlogic/gdx/graphics/Texture;
+
+    invoke-direct {p3, p2, v0}, Lcom/badlogic/gdx/assets/AssetDescriptor;-><init>(Lcom/badlogic/gdx/files/FileHandle;Ljava/lang/Class;)V
+
+    invoke-virtual {p1, p3}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+
+    return-object p1
+
+    :cond_5
+    return-object v2
+
+    :catch_0
+    move-exception p2
+
+    .line 91
+    new-instance p3, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "Error reading "
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p3, p1, p2}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw p3
 .end method
 
 .method public load(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader$PolygonRegionParameters;)Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;
-    .locals 2
-    .param p1, "manager"    # Lcom/badlogic/gdx/assets/AssetManager;
-    .param p2, "fileName"    # Ljava/lang/String;
-    .param p3, "file"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p4, "parameter"    # Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader$PolygonRegionParameters;
+    .locals 0
 
     .line 70
     invoke-virtual {p1, p2}, Lcom/badlogic/gdx/assets/AssetManager;->getDependencies(Ljava/lang/String;)Lcom/badlogic/gdx/utils/Array;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->first()Ljava/lang/Object;
+    invoke-virtual {p2}, Lcom/badlogic/gdx/utils/Array;->first()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p2
 
-    check-cast v0, Ljava/lang/String;
+    check-cast p2, Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/assets/AssetManager;->get(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/assets/AssetManager;->get(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/badlogic/gdx/graphics/Texture;
+    check-cast p1, Lcom/badlogic/gdx/graphics/Texture;
 
     .line 71
-    .local v0, "texture":Lcom/badlogic/gdx/graphics/Texture;
-    new-instance v1, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+    new-instance p2, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
-    invoke-direct {v1, v0}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;-><init>(Lcom/badlogic/gdx/graphics/Texture;)V
+    invoke-direct {p2, p1}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;-><init>(Lcom/badlogic/gdx/graphics/Texture;)V
 
-    invoke-virtual {p0, v1, p3}, Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader;->load(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;Lcom/badlogic/gdx/files/FileHandle;)Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;
+    invoke-virtual {p0, p2, p3}, Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader;->load(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;Lcom/badlogic/gdx/files/FileHandle;)Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public load(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;Lcom/badlogic/gdx/files/FileHandle;)Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;
-    .locals 7
-    .param p1, "textureRegion"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
-    .param p2, "file"    # Lcom/badlogic/gdx/files/FileHandle;
+    .locals 6
 
-    .line 118
     const/16 v0, 0x100
 
+    .line 118
     invoke-virtual {p2, v0}, Lcom/badlogic/gdx/files/FileHandle;->reader(I)Ljava/io/BufferedReader;
 
     move-result-object v0
 
     .line 121
-    .local v0, "reader":Ljava/io/BufferedReader;
-    :goto_0
+    :cond_0
     :try_start_0
     invoke-virtual {v0}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 122
-    .local v1, "line":Ljava/lang/String;
     if-eqz v1, :cond_2
 
-    .line 123
     const-string v2, "s"
 
+    .line 123
     invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_0
 
-    .line 125
     const/4 v2, 0x1
 
+    .line 125
     invoke-virtual {v1, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Ljava/lang/String;->trim()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    const-string v3, ","
+    const-string v2, ","
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {v1, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
     .line 126
-    .local v2, "polygonStrings":[Ljava/lang/String;
-    array-length v3, v2
+    array-length v2, v1
 
-    new-array v3, v3, [F
+    new-array v3, v2, [F
 
-    .line 127
-    .local v3, "vertices":[F
     const/4 v4, 0x0
 
-    .local v4, "i":I
-    array-length v5, v3
-
-    .local v5, "n":I
-    :goto_1
-    if-ge v4, v5, :cond_0
+    :goto_0
+    if-ge v4, v2, :cond_1
 
     .line 128
-    aget-object v6, v2, v4
+    aget-object v5, v1, v4
 
-    invoke-static {v6}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static {v5}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
-    move-result v6
+    move-result v5
 
-    aput v6, v3, v4
+    aput v5, v3, v4
 
-    .line 127
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 130
-    .end local v4    # "i":I
-    .end local v5    # "n":I
-    :cond_0
-    new-instance v4, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;
+    :cond_1
+    new-instance v1, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;
 
-    iget-object v5, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader;->triangulator:Lcom/badlogic/gdx/math/EarClippingTriangulator;
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader;->triangulator:Lcom/badlogic/gdx/math/EarClippingTriangulator;
 
-    invoke-virtual {v5, v3}, Lcom/badlogic/gdx/math/EarClippingTriangulator;->computeTriangles([F)Lcom/badlogic/gdx/utils/ShortArray;
+    invoke-virtual {v2, v3}, Lcom/badlogic/gdx/math/EarClippingTriangulator;->computeTriangles([F)Lcom/badlogic/gdx/utils/ShortArray;
 
-    move-result-object v5
+    move-result-object v2
 
-    invoke-virtual {v5}, Lcom/badlogic/gdx/utils/ShortArray;->toArray()[S
+    invoke-virtual {v2}, Lcom/badlogic/gdx/utils/ShortArray;->toArray()[S
 
-    move-result-object v5
+    move-result-object v2
 
-    invoke-direct {v4, p1, v3, v5}, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;-><init>(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;[F[S)V
+    invoke-direct {v1, p1, v3, v2}, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;-><init>(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;[F[S)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -444,91 +384,73 @@
     .line 136
     invoke-static {v0}, Lcom/badlogic/gdx/utils/StreamUtils;->closeQuietly(Ljava/io/Closeable;)V
 
-    .line 130
-    return-object v4
+    return-object v1
 
-    .line 132
-    .end local v1    # "line":Ljava/lang/String;
-    .end local v2    # "polygonStrings":[Ljava/lang/String;
-    .end local v3    # "vertices":[F
-    :cond_1
-    goto :goto_0
-
-    .line 136
     :cond_2
     invoke-static {v0}, Lcom/badlogic/gdx/utils/StreamUtils;->closeQuietly(Ljava/io/Closeable;)V
 
-    .line 137
-    nop
-
     .line 138
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "Polygon shape not found: "
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-direct {p1, p2}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
+    :catchall_0
+    move-exception p1
+
+    goto :goto_1
+
+    :catch_0
+    move-exception p1
+
+    .line 134
+    :try_start_1
     new-instance v1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Polygon shape not found: "
+    const-string v3, "Error reading polygon shape file: "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v2
 
-    invoke-direct {v1, v2}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-direct {v1, p2, p1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v1
-
-    .line 136
-    :catchall_0
-    move-exception v1
-
-    goto :goto_2
-
-    .line 133
-    :catch_0
-    move-exception v1
-
-    .line 134
-    .local v1, "ex":Ljava/io/IOException;
-    :try_start_1
-    new-instance v2, Lcom/badlogic/gdx/utils/GdxRuntimeException;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Error reading polygon shape file: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {v2, v3, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    .end local v0    # "reader":Ljava/io/BufferedReader;
-    .end local p1    # "textureRegion":Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
-    .end local p2    # "file":Lcom/badlogic/gdx/files/FileHandle;
-    throw v2
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 136
-    .end local v1    # "ex":Ljava/io/IOException;
-    .restart local v0    # "reader":Ljava/io/BufferedReader;
-    .restart local p1    # "textureRegion":Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
-    .restart local p2    # "file":Lcom/badlogic/gdx/files/FileHandle;
-    :goto_2
+    :goto_1
     invoke-static {v0}, Lcom/badlogic/gdx/utils/StreamUtils;->closeQuietly(Ljava/io/Closeable;)V
 
-    throw v1
+    throw p1
 .end method
 
 .method public bridge synthetic load(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/AssetLoaderParameters;)Ljava/lang/Object;

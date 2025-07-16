@@ -59,14 +59,11 @@
     .end annotation
 
     .line 37
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver;, "Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-Lio/reactivex/Notification<TT;>;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 38
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver;->actual:Lio/reactivex/Observer;
 
-    .line 39
     return-void
 .end method
 
@@ -76,12 +73,10 @@
     .locals 1
 
     .line 52
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver;, "Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 53
     return-void
 .end method
 
@@ -89,7 +84,6 @@
     .locals 1
 
     .line 57
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver;, "Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->isDisposed()Z
@@ -103,53 +97,46 @@
     .locals 2
 
     .line 74
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver;, "Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver<TT;>;"
     invoke-static {}, Lio/reactivex/Notification;->createOnComplete()Lio/reactivex/Notification;
 
     move-result-object v0
 
     .line 76
-    .local v0, "v":Lio/reactivex/Notification;, "Lio/reactivex/Notification<TT;>;"
     iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver;->actual:Lio/reactivex/Observer;
 
     invoke-interface {v1, v0}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
     .line 77
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver;->actual:Lio/reactivex/Observer;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v1}, Lio/reactivex/Observer;->onComplete()V
+    invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 78
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
-    .locals 2
-    .param p1, "t"    # Ljava/lang/Throwable;
+    .locals 1
 
     .line 67
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver;, "Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver<TT;>;"
     invoke-static {p1}, Lio/reactivex/Notification;->createOnError(Ljava/lang/Throwable;)Lio/reactivex/Notification;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 68
-    .local v0, "v":Lio/reactivex/Notification;, "Lio/reactivex/Notification<TT;>;"
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver;->actual:Lio/reactivex/Observer;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v1, v0}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
+    invoke-interface {v0, p1}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
     .line 69
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v1}, Lio/reactivex/Observer;->onComplete()V
+    invoke-interface {p1}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 70
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -157,26 +144,21 @@
     .end annotation
 
     .line 62
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver;, "Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver;->actual:Lio/reactivex/Observer;
 
     invoke-static {p1}, Lio/reactivex/Notification;->createOnNext(Ljava/lang/Object;)Lio/reactivex/Notification;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
+    invoke-interface {v0, p1}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
-    .line 63
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 43
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver;, "Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -189,11 +171,10 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver;->s:Lio/reactivex/disposables/Disposable;
 
     .line 45
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableMaterialize$MaterializeObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v0, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 47
     :cond_0
     return-void
 .end method

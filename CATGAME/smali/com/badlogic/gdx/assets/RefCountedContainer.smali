@@ -11,35 +11,32 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "object"    # Ljava/lang/Object;
+    .locals 1
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 21
     const/4 v0, 0x1
 
+    .line 21
     iput v0, p0, Lcom/badlogic/gdx/assets/RefCountedContainer;->refCount:I
 
-    .line 24
     if-eqz p1, :cond_0
 
     .line 25
     iput-object p1, p0, Lcom/badlogic/gdx/assets/RefCountedContainer;->object:Ljava/lang/Object;
 
-    .line 26
     return-void
 
     .line 24
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Object must not be null"
+    const-string v0, "Object must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -54,12 +51,11 @@
 
     iput v0, p0, Lcom/badlogic/gdx/assets/RefCountedContainer;->refCount:I
 
-    .line 34
     return-void
 .end method
 
 .method public getObject(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -71,10 +67,9 @@
     .end annotation
 
     .line 45
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
-    iget-object v0, p0, Lcom/badlogic/gdx/assets/RefCountedContainer;->object:Ljava/lang/Object;
+    iget-object p1, p0, Lcom/badlogic/gdx/assets/RefCountedContainer;->object:Ljava/lang/Object;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getRefCount()I
@@ -96,28 +91,23 @@
 
     iput v0, p0, Lcom/badlogic/gdx/assets/RefCountedContainer;->refCount:I
 
-    .line 30
     return-void
 .end method
 
 .method public setObject(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "asset"    # Ljava/lang/Object;
 
     .line 49
     iput-object p1, p0, Lcom/badlogic/gdx/assets/RefCountedContainer;->object:Ljava/lang/Object;
 
-    .line 50
     return-void
 .end method
 
 .method public setRefCount(I)V
     .locals 0
-    .param p1, "refCount"    # I
 
     .line 41
     iput p1, p0, Lcom/badlogic/gdx/assets/RefCountedContainer;->refCount:I
 
-    .line 42
     return-void
 .end method

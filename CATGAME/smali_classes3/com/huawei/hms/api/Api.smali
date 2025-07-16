@@ -22,16 +22,7 @@
 
 
 # instance fields
-.field private final a:Ljava/lang/String;
-
-.field private final b:Lcom/huawei/hms/api/Api$Options;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/huawei/hms/api/Api$Options<",
-            "TO;>;"
-        }
-    .end annotation
-.end field
+.field private final mApiName:Ljava/lang/String;
 
 .field public mConnetctPostList:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -43,23 +34,31 @@
     .end annotation
 .end field
 
+.field private final mOption:Lcom/huawei/hms/api/Api$Options;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/huawei/hms/api/Api$Options<",
+            "TO;>;"
+        }
+    .end annotation
+.end field
+
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
 
-    .line 45
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 46
-    iput-object p1, p0, Lcom/huawei/hms/api/Api;->a:Ljava/lang/String;
+    .line 2
+    iput-object p1, p0, Lcom/huawei/hms/api/Api;->mApiName:Ljava/lang/String;
 
-    .line 47
     const/4 p1, 0x0
 
-    iput-object p1, p0, Lcom/huawei/hms/api/Api;->b:Lcom/huawei/hms/api/Api$Options;
+    .line 3
+    iput-object p1, p0, Lcom/huawei/hms/api/Api;->mOption:Lcom/huawei/hms/api/Api$Options;
 
-    .line 48
     return-void
 .end method
 
@@ -74,16 +73,15 @@
         }
     .end annotation
 
-    .line 56
+    .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 57
-    iput-object p1, p0, Lcom/huawei/hms/api/Api;->a:Ljava/lang/String;
+    .line 5
+    iput-object p1, p0, Lcom/huawei/hms/api/Api;->mApiName:Ljava/lang/String;
 
-    .line 58
-    iput-object p2, p0, Lcom/huawei/hms/api/Api;->b:Lcom/huawei/hms/api/Api$Options;
+    .line 6
+    iput-object p2, p0, Lcom/huawei/hms/api/Api;->mOption:Lcom/huawei/hms/api/Api$Options;
 
-    .line 59
     return-void
 .end method
 
@@ -92,8 +90,8 @@
 .method public getApiName()Ljava/lang/String;
     .locals 1
 
-    .line 67
-    iget-object v0, p0, Lcom/huawei/hms/api/Api;->a:Ljava/lang/String;
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/api/Api;->mApiName:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -108,8 +106,8 @@
         }
     .end annotation
 
-    .line 76
-    iget-object v0, p0, Lcom/huawei/hms/api/Api;->b:Lcom/huawei/hms/api/Api$Options;
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/api/Api;->mOption:Lcom/huawei/hms/api/Api$Options;
 
     return-object v0
 .end method
@@ -125,7 +123,7 @@
         }
     .end annotation
 
-    .line 85
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/api/Api;->mConnetctPostList:Ljava/util/List;
 
     return-object v0
@@ -142,9 +140,8 @@
         }
     .end annotation
 
-    .line 93
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/api/Api;->mConnetctPostList:Ljava/util/List;
 
-    .line 94
     return-void
 .end method

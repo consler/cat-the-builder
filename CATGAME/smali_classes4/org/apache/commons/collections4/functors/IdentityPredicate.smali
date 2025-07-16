@@ -45,14 +45,11 @@
     .end annotation
 
     .line 58
-    .local p0, "this":Lorg/apache/commons/collections4/functors/IdentityPredicate;, "Lorg/apache/commons/collections4/functors/IdentityPredicate<TT;>;"
-    .local p1, "object":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 59
     iput-object p1, p0, Lorg/apache/commons/collections4/functors/IdentityPredicate;->iValue:Ljava/lang/Object;
 
-    .line 60
     return-void
 .end method
 
@@ -68,16 +65,14 @@
         }
     .end annotation
 
-    .line 45
-    .local p0, "object":Ljava/lang/Object;, "TT;"
     if-nez p0, :cond_0
 
     .line 46
     invoke-static {}, Lorg/apache/commons/collections4/functors/NullPredicate;->nullPredicate()Lorg/apache/commons/collections4/Predicate;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 48
     :cond_0
@@ -99,21 +94,19 @@
     .end annotation
 
     .line 71
-    .local p0, "this":Lorg/apache/commons/collections4/functors/IdentityPredicate;, "Lorg/apache/commons/collections4/functors/IdentityPredicate<TT;>;"
-    .local p1, "object":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/IdentityPredicate;->iValue:Ljava/lang/Object;
 
     if-ne v0, p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public getValue()Ljava/lang/Object;
@@ -125,7 +118,6 @@
     .end annotation
 
     .line 81
-    .local p0, "this":Lorg/apache/commons/collections4/functors/IdentityPredicate;, "Lorg/apache/commons/collections4/functors/IdentityPredicate<TT;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/IdentityPredicate;->iValue:Ljava/lang/Object;
 
     return-object v0

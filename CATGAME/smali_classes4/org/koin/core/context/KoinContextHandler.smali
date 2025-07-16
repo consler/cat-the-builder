@@ -139,8 +139,7 @@
 .end method
 
 .method public final register(Lorg/koin/core/context/KoinContext;)V
-    .locals 3
-    .param p1, "koinContext"    # Lorg/koin/core/context/KoinContext;
+    .locals 1
 
     const-string v0, "koinContext"
 
@@ -149,65 +148,55 @@
     .line 47
     monitor-enter p0
 
-    const/4 v0, 0x0
-
     .line 48
-    .local v0, "$i$a$-synchronized-KoinContextHandler$register$1":I
     :try_start_0
-    sget-object v1, Lorg/koin/core/context/KoinContextHandler;->_context:Lorg/koin/core/context/KoinContext;
+    sget-object v0, Lorg/koin/core/context/KoinContextHandler;->_context:Lorg/koin/core/context/KoinContext;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     .line 51
     sput-object p1, Lorg/koin/core/context/KoinContextHandler;->_context:Lorg/koin/core/context/KoinContext;
 
     .line 52
-    .end local v0    # "$i$a$-synchronized-KoinContextHandler$register$1":I
-    sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 47
     monitor-exit p0
 
-    .line 52
     return-void
 
-    .line 49
-    .restart local v0    # "$i$a$-synchronized-KoinContextHandler$register$1":I
     :cond_0
     :try_start_1
-    const-string v1, "A KoinContext is already started"
+    const-string p1, "A KoinContext is already started"
 
-    new-instance v2, Ljava/lang/IllegalStateException;
+    .line 49
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v2, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    check-cast v2, Ljava/lang/Throwable;
+    check-cast v0, Ljava/lang/Throwable;
 
-    .end local p1    # "koinContext":Lorg/koin/core/context/KoinContext;
-    throw v2
+    throw v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 47
-    .end local v0    # "$i$a$-synchronized-KoinContextHandler$register$1":I
-    .restart local p1    # "koinContext":Lorg/koin/core/context/KoinContext;
     :catchall_0
-    move-exception v0
+    move-exception p1
 
+    .line 47
     monitor-exit p0
 
-    throw v0
+    throw p1
 .end method
 
 .method public final start(Lorg/koin/core/KoinApplication;)V
     .locals 1
-    .param p1, "koinApplication"    # Lorg/koin/core/KoinApplication;
 
     const-string v0, "koinApplication"
 
@@ -220,12 +209,11 @@
 
     invoke-interface {v0, p1}, Lorg/koin/core/context/KoinContext;->setup(Lorg/koin/core/KoinApplication;)V
 
-    .line 59
     return-void
 .end method
 
 .method public final stop()V
-    .locals 1
+    .locals 2
 
     .line 65
     sget-object v0, Lorg/koin/core/context/KoinContextHandler;->_context:Lorg/koin/core/context/KoinContext;
@@ -234,14 +222,15 @@
 
     invoke-interface {v0}, Lorg/koin/core/context/KoinContext;->stop()V
 
-    .line 66
     :cond_0
     const/4 v0, 0x0
 
-    check-cast v0, Lorg/koin/core/context/KoinContext;
+    .line 66
+    move-object v1, v0
+
+    check-cast v1, Lorg/koin/core/context/KoinContext;
 
     sput-object v0, Lorg/koin/core/context/KoinContextHandler;->_context:Lorg/koin/core/context/KoinContext;
 
-    .line 67
     return-void
 .end method

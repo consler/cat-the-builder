@@ -24,7 +24,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 362
+    .line 374
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -33,8 +33,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -44,14 +43,13 @@
         }
     .end annotation
 
-    .line 372
     if-ne p0, p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
-    .line 373
+    .line 385
     :cond_0
     instance-of v0, p1, Landroidx/work/impl/model/WorkSpec$IdAndState;
 
@@ -61,59 +59,52 @@
 
     return v1
 
-    .line 375
+    .line 387
     :cond_1
-    move-object v0, p1
+    check-cast p1, Landroidx/work/impl/model/WorkSpec$IdAndState;
 
-    check-cast v0, Landroidx/work/impl/model/WorkSpec$IdAndState;
+    .line 389
+    iget-object v0, p0, Landroidx/work/impl/model/WorkSpec$IdAndState;->state:Landroidx/work/WorkInfo$State;
 
-    .line 377
-    .local v0, "that":Landroidx/work/impl/model/WorkSpec$IdAndState;
-    iget-object v2, p0, Landroidx/work/impl/model/WorkSpec$IdAndState;->state:Landroidx/work/WorkInfo$State;
+    iget-object v2, p1, Landroidx/work/impl/model/WorkSpec$IdAndState;->state:Landroidx/work/WorkInfo$State;
 
-    iget-object v3, v0, Landroidx/work/impl/model/WorkSpec$IdAndState;->state:Landroidx/work/WorkInfo$State;
-
-    if-eq v2, v3, :cond_2
+    if-eq v0, v2, :cond_2
 
     return v1
 
-    .line 378
+    .line 390
     :cond_2
-    iget-object v1, p0, Landroidx/work/impl/model/WorkSpec$IdAndState;->id:Ljava/lang/String;
+    iget-object v0, p0, Landroidx/work/impl/model/WorkSpec$IdAndState;->id:Ljava/lang/String;
 
-    iget-object v2, v0, Landroidx/work/impl/model/WorkSpec$IdAndState;->id:Ljava/lang/String;
+    iget-object p1, p1, Landroidx/work/impl/model/WorkSpec$IdAndState;->id:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .locals 2
 
-    .line 383
+    .line 395
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpec$IdAndState;->id:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
     move-result v0
 
-    .line 384
-    .local v0, "result":I
-    mul-int/lit8 v1, v0, 0x1f
+    mul-int/lit8 v0, v0, 0x1f
 
-    iget-object v2, p0, Landroidx/work/impl/model/WorkSpec$IdAndState;->state:Landroidx/work/WorkInfo$State;
+    .line 396
+    iget-object v1, p0, Landroidx/work/impl/model/WorkSpec$IdAndState;->state:Landroidx/work/WorkInfo$State;
 
-    invoke-virtual {v2}, Landroidx/work/WorkInfo$State;->hashCode()I
+    invoke-virtual {v1}, Landroidx/work/WorkInfo$State;->hashCode()I
 
-    move-result v2
+    move-result v1
 
-    add-int/2addr v1, v2
+    add-int/2addr v0, v1
 
-    .line 385
-    .end local v0    # "result":I
-    .local v1, "result":I
-    return v1
+    return v0
 .end method

@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/engine/cache/DiskCache$Factory;)V
     .locals 0
-    .param p1, "factory"    # Lcom/bumptech/glide/load/engine/cache/DiskCache$Factory;
 
     .line 443
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +33,6 @@
     .line 444
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/Engine$LazyDiskCacheProvider;->factory:Lcom/bumptech/glide/load/engine/cache/DiskCache$Factory;
 
-    .line 445
     return-void
 .end method
 
@@ -72,8 +70,6 @@
 
     return-void
 
-    .line 448
-    .end local p0    # "this":Lcom/bumptech/glide/load/engine/Engine$LazyDiskCacheProvider;
     :catchall_0
     move-exception v0
 

@@ -21,8 +21,7 @@
 
 # direct methods
 .method public varargs constructor <init>([Landroidx/camera/camera2/impl/CameraEventCallback;)V
-    .locals 1
-    .param p1, "callbacks"    # [Landroidx/camera/camera2/impl/CameraEventCallback;
+    .locals 0
 
     .line 33
     invoke-direct {p0}, Landroidx/camera/core/impl/MultiValueSet;-><init>()V
@@ -30,11 +29,10 @@
     .line 34
     invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Landroidx/camera/camera2/impl/CameraEventCallbacks;->addAll(Ljava/util/List;)V
+    invoke-virtual {p0, p1}, Landroidx/camera/camera2/impl/CameraEventCallbacks;->addAll(Ljava/util/List;)V
 
-    .line 35
     return-void
 .end method
 
@@ -72,14 +70,12 @@
     move-result-object v0
 
     .line 53
-    .local v0, "ret":Landroidx/camera/camera2/impl/CameraEventCallbacks;
     invoke-virtual {p0}, Landroidx/camera/camera2/impl/CameraEventCallbacks;->getAllItems()Ljava/util/List;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroidx/camera/camera2/impl/CameraEventCallbacks;->addAll(Ljava/util/List;)V
 
-    .line 54
     return-object v0
 .end method
 

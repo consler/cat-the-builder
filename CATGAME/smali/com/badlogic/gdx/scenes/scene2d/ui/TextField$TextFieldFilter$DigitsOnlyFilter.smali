@@ -30,14 +30,12 @@
 
 # virtual methods
 .method public acceptChar(Lcom/badlogic/gdx/scenes/scene2d/ui/TextField;C)Z
-    .locals 1
-    .param p1, "textField"    # Lcom/badlogic/gdx/scenes/scene2d/ui/TextField;
-    .param p2, "c"    # C
+    .locals 0
 
     .line 799
     invoke-static {p2}, Ljava/lang/Character;->isDigit(C)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

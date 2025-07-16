@@ -65,9 +65,6 @@
     .end annotation
 
     .line 74
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableToListSingle$ToListSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableToListSingle$ToListSubscriber<TT;TU;>;"
-    .local p1, "actual":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TU;>;"
-    .local p2, "collection":Ljava/util/Collection;, "TU;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 75
@@ -76,7 +73,6 @@
     .line 76
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableToListSingle$ToListSubscriber;->value:Ljava/util/Collection;
 
-    .line 77
     return-void
 .end method
 
@@ -86,7 +82,6 @@
     .locals 1
 
     .line 108
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableToListSingle$ToListSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableToListSingle$ToListSubscriber<TT;TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableToListSingle$ToListSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
@@ -96,7 +91,6 @@
 
     iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableToListSingle$ToListSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    .line 110
     return-void
 .end method
 
@@ -104,7 +98,6 @@
     .locals 2
 
     .line 114
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableToListSingle$ToListSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableToListSingle$ToListSubscriber<TT;TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableToListSingle$ToListSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     sget-object v1, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
@@ -126,7 +119,6 @@
     .locals 2
 
     .line 102
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableToListSingle$ToListSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableToListSingle$ToListSubscriber<TT;TU;>;"
     sget-object v0, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
 
     iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableToListSingle$ToListSubscriber;->s:Lorg/reactivestreams/Subscription;
@@ -138,18 +130,15 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/SingleObserver;->onSuccess(Ljava/lang/Object;)V
 
-    .line 104
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
-    .line 95
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableToListSingle$ToListSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableToListSingle$ToListSubscriber<TT;TU;>;"
     const/4 v0, 0x0
 
+    .line 95
     iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableToListSingle$ToListSubscriber;->value:Ljava/util/Collection;
 
     .line 96
@@ -162,7 +151,6 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/SingleObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 98
     return-void
 .end method
 
@@ -175,22 +163,17 @@
     .end annotation
 
     .line 90
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableToListSingle$ToListSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableToListSingle$ToListSubscriber<TT;TU;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableToListSingle$ToListSubscriber;->value:Ljava/util/Collection;
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    .line 91
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 81
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableToListSingle$ToListSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableToListSingle$ToListSubscriber<TT;TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableToListSingle$ToListSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -207,12 +190,11 @@
 
     invoke-interface {v0, p0}, Lio/reactivex/SingleObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 84
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 84
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 86
     :cond_0
     return-void
 .end method

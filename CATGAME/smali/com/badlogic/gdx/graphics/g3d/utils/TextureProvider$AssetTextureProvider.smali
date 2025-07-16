@@ -24,7 +24,6 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/assets/AssetManager;)V
     .locals 0
-    .param p1, "assetManager"    # Lcom/badlogic/gdx/assets/AssetManager;
 
     .line 62
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +31,6 @@
     .line 63
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider$AssetTextureProvider;->assetManager:Lcom/badlogic/gdx/assets/AssetManager;
 
-    .line 64
     return-void
 .end method
 
@@ -40,7 +38,6 @@
 # virtual methods
 .method public load(Ljava/lang/String;)Lcom/badlogic/gdx/graphics/Texture;
     .locals 2
-    .param p1, "fileName"    # Ljava/lang/String;
 
     .line 68
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider$AssetTextureProvider;->assetManager:Lcom/badlogic/gdx/assets/AssetManager;
@@ -49,9 +46,9 @@
 
     invoke-virtual {v0, p1, v1}, Lcom/badlogic/gdx/assets/AssetManager;->get(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/badlogic/gdx/graphics/Texture;
+    check-cast p1, Lcom/badlogic/gdx/graphics/Texture;
 
-    return-object v0
+    return-object p1
 .end method

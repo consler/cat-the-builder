@@ -32,24 +32,20 @@
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/request/transition/ViewPropertyTransition$Animator;)V
     .locals 0
-    .param p1, "animator"    # Lcom/bumptech/glide/request/transition/ViewPropertyTransition$Animator;
 
     .line 24
-    .local p0, "this":Lcom/bumptech/glide/request/transition/ViewPropertyTransition;, "Lcom/bumptech/glide/request/transition/ViewPropertyTransition<TR;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 25
     iput-object p1, p0, Lcom/bumptech/glide/request/transition/ViewPropertyTransition;->animator:Lcom/bumptech/glide/request/transition/ViewPropertyTransition$Animator;
 
-    .line 26
     return-void
 .end method
 
 
 # virtual methods
 .method public transition(Ljava/lang/Object;Lcom/bumptech/glide/request/transition/Transition$ViewAdapter;)Z
-    .locals 3
-    .param p2, "adapter"    # Lcom/bumptech/glide/request/transition/Transition$ViewAdapter;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;",
@@ -59,28 +55,23 @@
     .end annotation
 
     .line 39
-    .local p0, "this":Lcom/bumptech/glide/request/transition/ViewPropertyTransition;, "Lcom/bumptech/glide/request/transition/ViewPropertyTransition<TR;>;"
-    .local p1, "current":Ljava/lang/Object;, "TR;"
     invoke-interface {p2}, Lcom/bumptech/glide/request/transition/Transition$ViewAdapter;->getView()Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 40
-    .local v0, "view":Landroid/view/View;
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 41
-    iget-object v1, p0, Lcom/bumptech/glide/request/transition/ViewPropertyTransition;->animator:Lcom/bumptech/glide/request/transition/ViewPropertyTransition$Animator;
+    iget-object p1, p0, Lcom/bumptech/glide/request/transition/ViewPropertyTransition;->animator:Lcom/bumptech/glide/request/transition/ViewPropertyTransition$Animator;
 
     invoke-interface {p2}, Lcom/bumptech/glide/request/transition/Transition$ViewAdapter;->getView()Landroid/view/View;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-interface {v1, v2}, Lcom/bumptech/glide/request/transition/ViewPropertyTransition$Animator;->animate(Landroid/view/View;)V
+    invoke-interface {p1, p2}, Lcom/bumptech/glide/request/transition/ViewPropertyTransition$Animator;->animate(Landroid/view/View;)V
 
-    .line 43
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return v1
+    return p1
 .end method

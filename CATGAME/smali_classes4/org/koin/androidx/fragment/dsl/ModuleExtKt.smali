@@ -46,11 +46,7 @@
 
 # direct methods
 .method public static final synthetic fragment(Lorg/koin/core/module/Module;Lorg/koin/core/qualifier/Qualifier;ZLkotlin/jvm/functions/Function2;)Lorg/koin/core/definition/BeanDefinition;
-    .locals 27
-    .param p0, "$this$fragment"    # Lorg/koin/core/module/Module;
-    .param p1, "qualifier"    # Lorg/koin/core/qualifier/Qualifier;
-    .param p2, "override"    # Z
-    .param p3, "definition"    # Lkotlin/jvm/functions/Function2;
+    .locals 17
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -70,288 +66,50 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    move-object/from16 v0, p0
 
-    .local v0, "$i$f$fragment":I
     const-string v1, "$this$fragment"
 
-    move-object/from16 v2, p0
-
-    invoke-static {v2, v1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     const-string v1, "definition"
 
-    move-object/from16 v15, p3
+    move-object/from16 v6, p3
 
-    invoke-static {v15, v1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 37
-    move-object/from16 v1, p0
-
-    .local v1, "this_$iv":Lorg/koin/core/module/Module;
-    const/16 v16, 0x0
+    invoke-static {v6, v1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 38
-    .local v16, "$i$f$factory":I
-    sget-object v17, Lorg/koin/core/definition/Definitions;->INSTANCE:Lorg/koin/core/definition/Definitions;
+    sget-object v1, Lorg/koin/core/definition/Definitions;->INSTANCE:Lorg/koin/core/definition/Definitions;
 
-    .local v17, "this_$iv$iv":Lorg/koin/core/definition/Definitions;
-    invoke-virtual {v1}, Lorg/koin/core/module/Module;->getRootScope()Lorg/koin/core/scope/ScopeDefinition;
+    invoke-virtual/range {p0 .. p0}, Lorg/koin/core/module/Module;->getRootScope()Lorg/koin/core/scope/ScopeDefinition;
 
-    move-result-object v14
+    move-result-object v1
 
-    .local v14, "scopeDefinition$iv$iv":Lorg/koin/core/scope/ScopeDefinition;
+    const/4 v14, 0x0
+
+    const/4 v15, 0x2
+
     const/4 v13, 0x0
 
-    const/4 v12, 0x2
+    move/from16 v2, p2
 
-    const/4 v11, 0x0
-
-    move/from16 v9, p2
-
-    invoke-static {v1, v9, v13, v12, v11}, Lorg/koin/core/module/Module;->makeOptions$default(Lorg/koin/core/module/Module;ZZILjava/lang/Object;)Lorg/koin/core/definition/Options;
-
-    move-result-object v10
-
-    .local v10, "options$iv$iv":Lorg/koin/core/definition/Options;
-    const/16 v18, 0x0
-
-    .line 39
-    .local v18, "$i$f$saveFactory":I
-    move-object/from16 v19, v17
-
-    .line 40
-    .local v19, "this_$iv$iv$iv":Lorg/koin/core/definition/Definitions;
-    invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
-
-    move-result-object v20
-
-    .local v20, "secondaryTypes$iv$iv$iv":Ljava/util/List;
-    const/16 v21, 0x0
-
-    .line 42
-    .local v21, "$i$f$createFactory":I
-    new-instance v22, Lorg/koin/core/definition/BeanDefinition;
-
-    .line 43
-    nop
-
-    .line 44
-    const/4 v3, 0x4
-
-    const-string v4, "T"
-
-    invoke-static {v3, v4}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
-
-    const-class v3, Ljava/lang/Object;
-
-    invoke-static {v3}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
-
-    move-result-object v5
-
-    .line 45
-    nop
-
-    .line 46
-    nop
-
-    .line 47
-    sget-object v8, Lorg/koin/core/definition/Kind;->Factory:Lorg/koin/core/definition/Kind;
-
-    .line 48
-    nop
-
-    .line 49
-    nop
-
-    .line 42
-    const/16 v23, 0x0
-
-    const/16 v24, 0x0
-
-    const/16 v25, 0x180
-
-    const/16 v26, 0x0
-
-    move-object/from16 v3, v22
-
-    move-object v4, v14
-
-    move-object/from16 v6, p1
-
-    move-object/from16 v7, p3
-
-    move-object/from16 v9, v20
-
-    move-object/from16 v11, v23
-
-    move-object/from16 v12, v24
-
-    move/from16 v13, v25
-
-    move/from16 v23, v0
-
-    move-object v0, v14
-
-    .end local v14    # "scopeDefinition$iv$iv":Lorg/koin/core/scope/ScopeDefinition;
-    .local v0, "scopeDefinition$iv$iv":Lorg/koin/core/scope/ScopeDefinition;
-    .local v23, "$i$f$fragment":I
-    move-object/from16 v14, v26
-
-    invoke-direct/range {v3 .. v14}, Lorg/koin/core/definition/BeanDefinition;-><init>(Lorg/koin/core/scope/ScopeDefinition;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function2;Lorg/koin/core/definition/Kind;Ljava/util/List;Lorg/koin/core/definition/Options;Lorg/koin/core/definition/Properties;Lorg/koin/core/definition/Callbacks;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    .line 39
-    .end local v19    # "this_$iv$iv$iv":Lorg/koin/core/definition/Definitions;
-    .end local v20    # "secondaryTypes$iv$iv$iv":Ljava/util/List;
-    .end local v21    # "$i$f$createFactory":I
-    nop
-
-    .line 50
-    .local v3, "beanDefinition$iv$iv":Lorg/koin/core/definition/BeanDefinition;
-    const/4 v4, 0x0
-
-    const/4 v5, 0x2
-
-    const/4 v6, 0x0
-
-    invoke-static {v0, v3, v6, v5, v4}, Lorg/koin/core/scope/ScopeDefinition;->save$default(Lorg/koin/core/scope/ScopeDefinition;Lorg/koin/core/definition/BeanDefinition;ZILjava/lang/Object;)V
-
-    .line 51
-    nop
-
-    .line 37
-    .end local v0    # "scopeDefinition$iv$iv":Lorg/koin/core/scope/ScopeDefinition;
-    .end local v1    # "this_$iv":Lorg/koin/core/module/Module;
-    .end local v3    # "beanDefinition$iv$iv":Lorg/koin/core/definition/BeanDefinition;
-    .end local v10    # "options$iv$iv":Lorg/koin/core/definition/Options;
-    .end local v16    # "$i$f$factory":I
-    .end local v17    # "this_$iv$iv":Lorg/koin/core/definition/Definitions;
-    .end local v18    # "$i$f$saveFactory":I
-    return-object v3
-.end method
-
-.method public static synthetic fragment$default(Lorg/koin/core/module/Module;Lorg/koin/core/qualifier/Qualifier;ZLkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lorg/koin/core/definition/BeanDefinition;
-    .locals 28
-    .param p0, "$this$fragment"    # Lorg/koin/core/module/Module;
-    .param p1, "qualifier"    # Lorg/koin/core/qualifier/Qualifier;
-    .param p2, "override"    # Z
-    .param p3, "definition"    # Lkotlin/jvm/functions/Function2;
-
-    and-int/lit8 v0, p4, 0x1
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    .line 34
-    move-object v0, v1
-
-    check-cast v0, Lorg/koin/core/qualifier/Qualifier;
-
-    .end local p1    # "qualifier":Lorg/koin/core/qualifier/Qualifier;
-    .local v0, "qualifier":Lorg/koin/core/qualifier/Qualifier;
-    goto :goto_0
-
-    .line 0
-    .end local v0    # "qualifier":Lorg/koin/core/qualifier/Qualifier;
-    .restart local p1    # "qualifier":Lorg/koin/core/qualifier/Qualifier;
-    :cond_0
-    move-object/from16 v0, p1
-
-    .line 34
-    .end local p1    # "qualifier":Lorg/koin/core/qualifier/Qualifier;
-    .restart local v0    # "qualifier":Lorg/koin/core/qualifier/Qualifier;
-    :goto_0
-    const/4 v14, 0x2
-
-    and-int/lit8 v2, p4, 0x2
-
-    if-eqz v2, :cond_1
-
-    .line 35
-    const/4 v2, 0x0
-
-    move v15, v2
-
-    .end local p2    # "override":Z
-    .local v2, "override":Z
-    goto :goto_1
-
-    .line 34
-    .end local v2    # "override":Z
-    .restart local p2    # "override":Z
-    :cond_1
-    move/from16 v15, p2
-
-    .line 35
-    .end local p2    # "override":Z
-    .local v15, "override":Z
-    :goto_1
-    const/16 v16, 0x0
-
-    .local v16, "$i$f$fragment":I
-    const-string v2, "$this$fragment"
-
-    move-object/from16 v13, p0
-
-    invoke-static {v13, v2}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v2, "definition"
-
-    move-object/from16 v12, p3
-
-    invoke-static {v12, v2}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 52
-    move-object/from16 v11, p0
-
-    .local v11, "this_$iv":Lorg/koin/core/module/Module;
-    const/16 v17, 0x0
-
-    .line 53
-    .local v17, "$i$f$factory":I
-    sget-object v18, Lorg/koin/core/definition/Definitions;->INSTANCE:Lorg/koin/core/definition/Definitions;
-
-    .local v18, "this_$iv$iv":Lorg/koin/core/definition/Definitions;
-    invoke-virtual {v11}, Lorg/koin/core/module/Module;->getRootScope()Lorg/koin/core/scope/ScopeDefinition;
-
-    move-result-object v10
-
-    .local v10, "scopeDefinition$iv$iv":Lorg/koin/core/scope/ScopeDefinition;
-    const/4 v8, 0x0
-
-    invoke-static {v11, v15, v8, v14, v1}, Lorg/koin/core/module/Module;->makeOptions$default(Lorg/koin/core/module/Module;ZZILjava/lang/Object;)Lorg/koin/core/definition/Options;
+    invoke-static {v0, v2, v14, v15, v13}, Lorg/koin/core/module/Module;->makeOptions$default(Lorg/koin/core/module/Module;ZZILjava/lang/Object;)Lorg/koin/core/definition/Options;
 
     move-result-object v9
 
-    .local v9, "options$iv$iv":Lorg/koin/core/definition/Options;
-    const/16 v19, 0x0
-
-    .line 54
-    .local v19, "$i$f$saveFactory":I
-    move-object/from16 v20, v18
-
-    .line 55
-    .local v20, "this_$iv$iv$iv":Lorg/koin/core/definition/Definitions;
+    .line 40
     invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
 
-    move-result-object v21
+    move-result-object v8
 
-    .local v21, "secondaryTypes$iv$iv$iv":Ljava/util/List;
-    const/16 v22, 0x0
+    .line 42
+    new-instance v0, Lorg/koin/core/definition/BeanDefinition;
 
-    .line 57
-    .local v22, "$i$f$createFactory":I
-    new-instance v23, Lorg/koin/core/definition/BeanDefinition;
-
-    .line 58
-    nop
-
-    .line 59
     const/4 v2, 0x4
 
     const-string v3, "T"
 
+    .line 44
     invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
     const-class v2, Ljava/lang/Object;
@@ -360,82 +118,145 @@
 
     move-result-object v4
 
-    .line 60
-    nop
-
-    .line 61
-    nop
-
-    .line 62
+    .line 47
     sget-object v7, Lorg/koin/core/definition/Kind;->Factory:Lorg/koin/core/definition/Kind;
 
-    .line 63
-    nop
+    const/4 v10, 0x0
 
-    .line 64
-    const/16 v24, 0x0
+    const/4 v11, 0x0
 
-    const/16 v25, 0x0
+    const/16 v12, 0x180
 
-    const/16 v26, 0x180
+    const/16 v16, 0x0
 
-    const/16 v27, 0x0
+    move-object v2, v0
 
-    .line 57
-    move-object/from16 v2, v23
+    move-object v3, v1
 
-    move-object v3, v10
+    move-object/from16 v5, p1
 
-    move-object v5, v0
+    move-object/from16 v13, v16
 
-    move-object/from16 v6, p3
-
-    move v1, v8
-
-    move-object/from16 v8, v21
-
-    move-object v1, v10
-
-    .end local v10    # "scopeDefinition$iv$iv":Lorg/koin/core/scope/ScopeDefinition;
-    .local v1, "scopeDefinition$iv$iv":Lorg/koin/core/scope/ScopeDefinition;
-    move-object/from16 v10, v24
-
-    move-object/from16 v24, v11
-
-    .end local v11    # "this_$iv":Lorg/koin/core/module/Module;
-    .local v24, "this_$iv":Lorg/koin/core/module/Module;
-    move-object/from16 v11, v25
-
-    move/from16 v12, v26
-
-    move-object/from16 v13, v27
-
+    .line 42
     invoke-direct/range {v2 .. v13}, Lorg/koin/core/definition/BeanDefinition;-><init>(Lorg/koin/core/scope/ScopeDefinition;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function2;Lorg/koin/core/definition/Kind;Ljava/util/List;Lorg/koin/core/definition/Options;Lorg/koin/core/definition/Properties;Lorg/koin/core/definition/Callbacks;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 
-    .line 54
-    .end local v20    # "this_$iv$iv$iv":Lorg/koin/core/definition/Definitions;
-    .end local v21    # "secondaryTypes$iv$iv$iv":Ljava/util/List;
-    .end local v22    # "$i$f$createFactory":I
-    nop
+    const/4 v2, 0x0
+
+    .line 50
+    invoke-static {v1, v0, v14, v15, v2}, Lorg/koin/core/scope/ScopeDefinition;->save$default(Lorg/koin/core/scope/ScopeDefinition;Lorg/koin/core/definition/BeanDefinition;ZILjava/lang/Object;)V
+
+    return-object v0
+.end method
+
+.method public static synthetic fragment$default(Lorg/koin/core/module/Module;Lorg/koin/core/qualifier/Qualifier;ZLkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lorg/koin/core/definition/BeanDefinition;
+    .locals 18
+
+    move-object/from16 v0, p0
+
+    and-int/lit8 v1, p4, 0x1
+
+    const/4 v2, 0x0
+
+    if-eqz v1, :cond_0
+
+    .line 34
+    move-object v1, v2
+
+    check-cast v1, Lorg/koin/core/qualifier/Qualifier;
+
+    move-object v6, v2
+
+    goto :goto_0
+
+    :cond_0
+    move-object/from16 v6, p1
+
+    :goto_0
+    const/4 v1, 0x2
+
+    and-int/lit8 v3, p4, 0x2
+
+    const/4 v15, 0x0
+
+    if-eqz v3, :cond_1
+
+    move v3, v15
+
+    goto :goto_1
+
+    :cond_1
+    move/from16 v3, p2
+
+    :goto_1
+    const-string v4, "$this$fragment"
+
+    .line 35
+    invoke-static {v0, v4}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v4, "definition"
+
+    move-object/from16 v7, p3
+
+    invoke-static {v7, v4}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 53
+    sget-object v4, Lorg/koin/core/definition/Definitions;->INSTANCE:Lorg/koin/core/definition/Definitions;
+
+    invoke-virtual/range {p0 .. p0}, Lorg/koin/core/module/Module;->getRootScope()Lorg/koin/core/scope/ScopeDefinition;
+
+    move-result-object v14
+
+    invoke-static {v0, v3, v15, v1, v2}, Lorg/koin/core/module/Module;->makeOptions$default(Lorg/koin/core/module/Module;ZZILjava/lang/Object;)Lorg/koin/core/definition/Options;
+
+    move-result-object v10
+
+    .line 55
+    invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
+
+    move-result-object v9
+
+    .line 57
+    new-instance v0, Lorg/koin/core/definition/BeanDefinition;
+
+    const/4 v3, 0x4
+
+    const-string v4, "T"
+
+    .line 59
+    invoke-static {v3, v4}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
+
+    const-class v3, Ljava/lang/Object;
+
+    invoke-static {v3}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+
+    move-result-object v5
+
+    .line 62
+    sget-object v8, Lorg/koin/core/definition/Kind;->Factory:Lorg/koin/core/definition/Kind;
+
+    const/4 v11, 0x0
+
+    const/4 v12, 0x0
+
+    const/16 v13, 0x180
+
+    const/16 v16, 0x0
+
+    move-object v3, v0
+
+    move-object v4, v14
+
+    move-object/from16 v17, v14
+
+    move-object/from16 v14, v16
+
+    .line 57
+    invoke-direct/range {v3 .. v14}, Lorg/koin/core/definition/BeanDefinition;-><init>(Lorg/koin/core/scope/ScopeDefinition;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function2;Lorg/koin/core/definition/Kind;Ljava/util/List;Lorg/koin/core/definition/Options;Lorg/koin/core/definition/Properties;Lorg/koin/core/definition/Callbacks;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+    move-object/from16 v3, v17
 
     .line 65
-    .local v2, "beanDefinition$iv$iv":Lorg/koin/core/definition/BeanDefinition;
-    const/4 v3, 0x0
+    invoke-static {v3, v0, v15, v1, v2}, Lorg/koin/core/scope/ScopeDefinition;->save$default(Lorg/koin/core/scope/ScopeDefinition;Lorg/koin/core/definition/BeanDefinition;ZILjava/lang/Object;)V
 
-    const/4 v4, 0x0
-
-    invoke-static {v1, v2, v3, v14, v4}, Lorg/koin/core/scope/ScopeDefinition;->save$default(Lorg/koin/core/scope/ScopeDefinition;Lorg/koin/core/definition/BeanDefinition;ZILjava/lang/Object;)V
-
-    .line 66
-    nop
-
-    .line 52
-    .end local v1    # "scopeDefinition$iv$iv":Lorg/koin/core/scope/ScopeDefinition;
-    .end local v2    # "beanDefinition$iv$iv":Lorg/koin/core/definition/BeanDefinition;
-    .end local v9    # "options$iv$iv":Lorg/koin/core/definition/Options;
-    .end local v17    # "$i$f$factory":I
-    .end local v18    # "this_$iv$iv":Lorg/koin/core/definition/Definitions;
-    .end local v19    # "$i$f$saveFactory":I
-    .end local v24    # "this_$iv":Lorg/koin/core/module/Module;
-    return-object v2
+    return-object v0
 .end method

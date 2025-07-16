@@ -44,16 +44,15 @@
 
     sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/ListFieldSchema$ListFieldSchemaFull;->UNMODIFIABLE_LIST_CLASS:Ljava/lang/Class;
 
-    .line 65
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 1
 
-    .line 63
     const/4 v0, 0x0
 
+    .line 63
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/ListFieldSchema;-><init>(Lcom/google/crypto/tink/shaded/protobuf/ListFieldSchema$1;)V
 
     return-void
@@ -61,7 +60,6 @@
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/ListFieldSchema$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/shaded/protobuf/ListFieldSchema$1;
 
     .line 63
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/ListFieldSchema$ListFieldSchemaFull;-><init>()V
@@ -70,9 +68,7 @@
 .end method
 
 .method static getList(Ljava/lang/Object;J)Ljava/util/List;
-    .locals 1
-    .param p0, "message"    # Ljava/lang/Object;
-    .param p1, "offset"    # J
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -88,18 +84,15 @@
     .line 141
     invoke-static {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getObject(Ljava/lang/Object;J)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Ljava/util/List;
+    check-cast p0, Ljava/util/List;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private static mutableListAt(Ljava/lang/Object;JI)Ljava/util/List;
     .locals 3
-    .param p0, "message"    # Ljava/lang/Object;
-    .param p1, "offset"    # J
-    .param p3, "additionalCapacity"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<",
@@ -120,7 +113,6 @@
     move-result-object v0
 
     .line 96
-    .local v0, "list":Ljava/util/List;, "Ljava/util/List<TL;>;"
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v1
@@ -133,11 +125,9 @@
     if-eqz v1, :cond_0
 
     .line 98
-    new-instance v1, Lcom/google/crypto/tink/shaded/protobuf/LazyStringArrayList;
+    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/LazyStringArrayList;
 
-    invoke-direct {v1, p3}, Lcom/google/crypto/tink/shaded/protobuf/LazyStringArrayList;-><init>(I)V
-
-    move-object v0, v1
+    invoke-direct {v0, p3}, Lcom/google/crypto/tink/shaded/protobuf/LazyStringArrayList;-><init>(I)V
 
     goto :goto_0
 
@@ -152,29 +142,27 @@
     if-eqz v1, :cond_1
 
     .line 100
-    move-object v1, v0
+    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;
 
-    check-cast v1, Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;
+    invoke-interface {v0, p3}, Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;->mutableCopyWithCapacity(I)Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;
 
-    invoke-interface {v1, p3}, Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;->mutableCopyWithCapacity(I)Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;
+    move-result-object p3
 
-    move-result-object v0
+    move-object v0, p3
 
     goto :goto_0
 
     .line 102
     :cond_1
-    new-instance v1, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/ArrayList;
 
-    invoke-direct {v1, p3}, Ljava/util/ArrayList;-><init>(I)V
-
-    move-object v0, v1
+    invoke-direct {v0, p3}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 104
     :goto_0
     invoke-static {p0, p1, p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_2
 
     .line 105
     :cond_2
@@ -202,23 +190,21 @@
     invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 107
-    .local v1, "newList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TL;>;"
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    .line 108
+    .line 109
+    invoke-static {p0, p1, p2, v1}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V
+
+    :goto_1
     move-object v0, v1
 
-    .line 109
-    invoke-static {p0, p1, p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V
+    goto :goto_2
 
     .line 110
-    .end local v1    # "newList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TL;>;"
-    goto :goto_1
-
     :cond_3
     instance-of v1, v0, Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_4
 
     .line 111
     new-instance v1, Lcom/google/crypto/tink/shaded/protobuf/LazyStringArrayList;
@@ -232,32 +218,24 @@
     invoke-direct {v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/LazyStringArrayList;-><init>(I)V
 
     .line 112
-    .local v1, "newList":Lcom/google/crypto/tink/shaded/protobuf/LazyStringArrayList;
-    move-object v2, v0
+    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;
 
-    check-cast v2, Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;
-
-    invoke-virtual {v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/LazyStringArrayList;->addAll(Ljava/util/Collection;)Z
-
-    .line 113
-    move-object v0, v1
+    invoke-virtual {v1, v0}, Lcom/google/crypto/tink/shaded/protobuf/LazyStringArrayList;->addAll(Ljava/util/Collection;)Z
 
     .line 114
-    invoke-static {p0, p1, p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V
+    invoke-static {p0, p1, p2, v1}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V
 
-    .line 115
-    .end local v1    # "newList":Lcom/google/crypto/tink/shaded/protobuf/LazyStringArrayList;
-    :cond_4
     goto :goto_1
 
-    :cond_5
+    .line 115
+    :cond_4
     instance-of v1, v0, Lcom/google/crypto/tink/shaded/protobuf/PrimitiveNonBoxingCollection;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_5
 
     instance-of v1, v0, Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_5
 
     move-object v1, v0
 
@@ -266,40 +244,33 @@
     .line 117
     invoke-interface {v1}, Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;->isModifiable()Z
 
-    move-result v1
-
-    if-nez v1, :cond_6
-
-    .line 118
-    move-object v1, v0
-
-    check-cast v1, Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
     move-result v2
 
-    add-int/2addr v2, p3
+    if-nez v2, :cond_5
 
-    invoke-interface {v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;->mutableCopyWithCapacity(I)Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;
+    .line 118
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    add-int/2addr v0, p3
+
+    invoke-interface {v1, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;->mutableCopyWithCapacity(I)Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;
 
     move-result-object v0
 
     .line 119
     invoke-static {p0, p1, p2, v0}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V
 
-    .line 121
-    :cond_6
-    :goto_1
+    :cond_5
+    :goto_2
     return-object v0
 .end method
 
 
 # virtual methods
 .method makeImmutableListAt(Ljava/lang/Object;J)V
-    .locals 4
-    .param p1, "message"    # Ljava/lang/Object;
-    .param p2, "offset"    # J
+    .locals 3
 
     .line 75
     invoke-static {p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->getObject(Ljava/lang/Object;J)Ljava/lang/Object;
@@ -308,73 +279,58 @@
 
     check-cast v0, Ljava/util/List;
 
-    .line 76
-    .local v0, "list":Ljava/util/List;, "Ljava/util/List<*>;"
-    const/4 v1, 0x0
-
     .line 77
-    .local v1, "immutable":Ljava/lang/Object;
-    instance-of v2, v0, Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
+    instance-of v1, v0, Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
     .line 78
-    move-object v2, v0
+    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
 
-    check-cast v2, Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
+    invoke-interface {v0}, Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;->getUnmodifiableView()Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
 
-    invoke-interface {v2}, Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;->getUnmodifiableView()Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
-
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_0
 
     .line 79
     :cond_0
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/ListFieldSchema$ListFieldSchemaFull;->UNMODIFIABLE_LIST_CLASS:Ljava/lang/Class;
+    sget-object v1, Lcom/google/crypto/tink/shaded/protobuf/ListFieldSchema$ListFieldSchemaFull;->UNMODIFIABLE_LIST_CLASS:Ljava/lang/Class;
 
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v2, v3}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
-    .line 81
     return-void
 
     .line 82
     :cond_1
-    instance-of v2, v0, Lcom/google/crypto/tink/shaded/protobuf/PrimitiveNonBoxingCollection;
+    instance-of v1, v0, Lcom/google/crypto/tink/shaded/protobuf/PrimitiveNonBoxingCollection;
 
-    if-eqz v2, :cond_3
+    if-eqz v1, :cond_3
 
-    instance-of v2, v0, Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;
+    instance-of v1, v0, Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;
 
-    if-eqz v2, :cond_3
+    if-eqz v1, :cond_3
 
     .line 83
-    move-object v2, v0
+    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;
 
-    check-cast v2, Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;
+    invoke-interface {v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;->isModifiable()Z
 
-    invoke-interface {v2}, Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;->isModifiable()Z
+    move-result p1
 
-    move-result v2
-
-    if-eqz v2, :cond_2
+    if-eqz p1, :cond_2
 
     .line 84
-    move-object v2, v0
+    invoke-interface {v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;->makeImmutable()V
 
-    check-cast v2, Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;
-
-    invoke-interface {v2}, Lcom/google/crypto/tink/shaded/protobuf/Internal$ProtobufList;->makeImmutable()V
-
-    .line 86
     :cond_2
     return-void
 
@@ -382,21 +338,17 @@
     :cond_3
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 90
     :goto_0
-    invoke-static {p1, p2, p3, v1}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V
+    invoke-static {p1, p2, p3, v0}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V
 
-    .line 91
     return-void
 .end method
 
 .method mergeListsAt(Ljava/lang/Object;Ljava/lang/Object;J)V
-    .locals 5
-    .param p1, "msg"    # Ljava/lang/Object;
-    .param p2, "otherMsg"    # Ljava/lang/Object;
-    .param p3, "offset"    # J
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -411,63 +363,48 @@
     .line 126
     invoke-static {p2, p3, p4}, Lcom/google/crypto/tink/shaded/protobuf/ListFieldSchema$ListFieldSchemaFull;->getList(Ljava/lang/Object;J)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p2
 
     .line 127
-    .local v0, "other":Ljava/util/List;, "Ljava/util/List<TE;>;"
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    invoke-static {p1, p3, p4, v0}, Lcom/google/crypto/tink/shaded/protobuf/ListFieldSchema$ListFieldSchemaFull;->mutableListAt(Ljava/lang/Object;JI)Ljava/util/List;
+
+    move-result-object v0
+
+    .line 129
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
 
-    invoke-static {p1, p3, p4, v1}, Lcom/google/crypto/tink/shaded/protobuf/ListFieldSchema$ListFieldSchemaFull;->mutableListAt(Ljava/lang/Object;JI)Ljava/util/List;
-
-    move-result-object v1
-
-    .line 129
-    .local v1, "mine":Ljava/util/List;, "Ljava/util/List<TE;>;"
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    .line 130
+    invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v2
 
-    .line 130
-    .local v2, "size":I
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    if-lez v1, :cond_0
 
-    move-result v3
-
-    .line 131
-    .local v3, "otherSize":I
     if-lez v2, :cond_0
 
-    if-lez v3, :cond_0
-
     .line 132
-    invoke-interface {v1, v0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+    invoke-interface {v0, p2}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 135
     :cond_0
-    if-lez v2, :cond_1
+    if-lez v1, :cond_1
 
-    move-object v4, v1
-
-    goto :goto_0
-
-    :cond_1
-    move-object v4, v0
+    move-object p2, v0
 
     .line 136
-    .local v4, "merged":Ljava/util/List;, "Ljava/util/List<TE;>;"
-    :goto_0
-    invoke-static {p1, p3, p4, v4}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V
+    :cond_1
+    invoke-static {p1, p3, p4, p2}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->putObject(Ljava/lang/Object;JLjava/lang/Object;)V
 
-    .line 137
     return-void
 .end method
 
 .method mutableListAt(Ljava/lang/Object;J)Ljava/util/List;
     .locals 1
-    .param p1, "message"    # Ljava/lang/Object;
-    .param p2, "offset"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<",
@@ -482,12 +419,12 @@
         }
     .end annotation
 
-    .line 70
     const/16 v0, 0xa
 
+    .line 70
     invoke-static {p1, p2, p3, v0}, Lcom/google/crypto/tink/shaded/protobuf/ListFieldSchema$ListFieldSchemaFull;->mutableListAt(Ljava/lang/Object;JI)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

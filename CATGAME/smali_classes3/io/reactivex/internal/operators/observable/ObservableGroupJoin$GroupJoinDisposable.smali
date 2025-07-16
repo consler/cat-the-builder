@@ -154,36 +154,36 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 120
     const/4 v0, 0x1
 
+    .line 120
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
     sput-object v0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->LEFT_VALUE:Ljava/lang/Integer;
 
-    .line 122
     const/4 v0, 0x2
 
+    .line 122
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
     sput-object v0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->RIGHT_VALUE:Ljava/lang/Integer;
 
-    .line 124
     const/4 v0, 0x3
 
+    .line 124
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
     sput-object v0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->LEFT_CLOSE:Ljava/lang/Integer;
 
-    .line 126
     const/4 v0, 0x4
 
+    .line 126
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
@@ -194,7 +194,7 @@
 .end method
 
 .method constructor <init>(Lio/reactivex/Observer;Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;Lio/reactivex/functions/BiFunction;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -222,54 +222,49 @@
     .end annotation
 
     .line 132
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;, "Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable<TTLeft;TTRight;TTLeftEnd;TTRightEnd;TR;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TR;>;"
-    .local p2, "leftEnd":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TTLeft;+Lio/reactivex/ObservableSource<TTLeftEnd;>;>;"
-    .local p3, "rightEnd":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TTRight;+Lio/reactivex/ObservableSource<TTRightEnd;>;>;"
-    .local p4, "resultSelector":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-TTLeft;-Lio/reactivex/Observable<TTRight;>;+TR;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
 
     .line 133
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->actual:Lio/reactivex/Observer;
 
     .line 134
-    new-instance v0, Lio/reactivex/disposables/CompositeDisposable;
+    new-instance p1, Lio/reactivex/disposables/CompositeDisposable;
 
-    invoke-direct {v0}, Lio/reactivex/disposables/CompositeDisposable;-><init>()V
+    invoke-direct {p1}, Lio/reactivex/disposables/CompositeDisposable;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->disposables:Lio/reactivex/disposables/CompositeDisposable;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->disposables:Lio/reactivex/disposables/CompositeDisposable;
 
     .line 135
-    new-instance v0, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
+    new-instance p1, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
 
     invoke-static {}, Lio/reactivex/Observable;->bufferSize()I
 
-    move-result v1
+    move-result v0
 
-    invoke-direct {v0, v1}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;-><init>(I)V
+    invoke-direct {p1, v0}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;-><init>(I)V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
 
     .line 136
-    new-instance v0, Ljava/util/LinkedHashMap;
+    new-instance p1, Ljava/util/LinkedHashMap;
 
-    invoke-direct {v0}, Ljava/util/LinkedHashMap;-><init>()V
+    invoke-direct {p1}, Ljava/util/LinkedHashMap;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->lefts:Ljava/util/Map;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->lefts:Ljava/util/Map;
 
     .line 137
-    new-instance v0, Ljava/util/LinkedHashMap;
+    new-instance p1, Ljava/util/LinkedHashMap;
 
-    invoke-direct {v0}, Ljava/util/LinkedHashMap;-><init>()V
+    invoke-direct {p1}, Ljava/util/LinkedHashMap;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->rights:Ljava/util/Map;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->rights:Ljava/util/Map;
 
     .line 138
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicReference;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->error:Ljava/util/concurrent/atomic/AtomicReference;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->error:Ljava/util/concurrent/atomic/AtomicReference;
 
     .line 139
     iput-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->leftEnd:Lio/reactivex/functions/Function;
@@ -281,15 +276,14 @@
     iput-object p4, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->resultSelector:Lio/reactivex/functions/BiFunction;
 
     .line 142
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicInteger;
 
-    const/4 v1, 0x2
+    const/4 p2, 0x2
 
-    invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
+    invoke-direct {p1, p2}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->active:Ljava/util/concurrent/atomic/AtomicInteger;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->active:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    .line 143
     return-void
 .end method
 
@@ -299,12 +293,10 @@
     .locals 1
 
     .line 163
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;, "Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable<TTLeft;TTRight;TTLeftEnd;TTRightEnd;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->disposables:Lio/reactivex/disposables/CompositeDisposable;
 
     invoke-virtual {v0}, Lio/reactivex/disposables/CompositeDisposable;->dispose()V
 
-    .line 164
     return-void
 .end method
 
@@ -312,18 +304,16 @@
     .locals 1
 
     .line 147
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;, "Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable<TTLeft;TTRight;TTLeftEnd;TTRightEnd;TR;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->cancelled:Z
 
     if-eqz v0, :cond_0
 
-    .line 148
     return-void
 
-    .line 150
     :cond_0
     const/4 v0, 0x1
 
+    .line 150
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->cancelled:Z
 
     .line 151
@@ -341,7 +331,6 @@
 
     invoke-virtual {v0}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->clear()V
 
-    .line 155
     :cond_1
     return-void
 .end method
@@ -356,14 +345,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 189
     return-void
 
-    .line 192
-    :cond_0
-    nop
-
     .line 193
+    :cond_0
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
 
     .line 194
@@ -383,7 +368,6 @@
     .line 199
     invoke-virtual {v0}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->clear()V
 
-    .line 200
     return-void
 
     .line 203
@@ -396,7 +380,6 @@
 
     check-cast v4, Ljava/lang/Throwable;
 
-    .line 204
     if-eqz v4, :cond_3
 
     .line 205
@@ -408,7 +391,6 @@
     .line 207
     invoke-virtual {p0, v1}, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->errorAll(Lio/reactivex/Observer;)V
 
-    .line 208
     return-void
 
     .line 211
@@ -438,7 +420,6 @@
 
     check-cast v6, Ljava/lang/Integer;
 
-    .line 215
     if-nez v6, :cond_5
 
     move v7, v2
@@ -448,7 +429,6 @@
     :cond_5
     move v7, v5
 
-    .line 217
     :goto_2
     if-eqz v4, :cond_7
 
@@ -481,7 +461,6 @@
     .line 219
     invoke-virtual {v2}, Lio/reactivex/subjects/UnicastSubject;->onComplete()V
 
-    .line 220
     goto :goto_3
 
     .line 222
@@ -503,30 +482,20 @@
     .line 226
     invoke-interface {v1}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 227
     return-void
 
-    .line 230
     :cond_7
     if-eqz v7, :cond_8
 
-    .line 231
-    nop
-
-    .line 332
     neg-int v3, v3
 
+    .line 332
     invoke-virtual {p0, v3}, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->addAndGet(I)I
 
     move-result v3
 
-    .line 333
     if-nez v3, :cond_1
 
-    .line 334
-    nop
-
-    .line 337
     return-void
 
     .line 234
@@ -538,10 +507,7 @@
     .line 236
     sget-object v7, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->LEFT_VALUE:Ljava/lang/Integer;
 
-    if-ne v6, v7, :cond_b
-
-    .line 238
-    nop
+    if-ne v6, v7, :cond_a
 
     .line 240
     invoke-static {}, Lio/reactivex/subjects/UnicastSubject;->create()Lio/reactivex/subjects/UnicastSubject;
@@ -582,9 +548,6 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 251
-    nop
-
     .line 253
     new-instance v8, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$LeftRightEndObserver;
 
@@ -607,7 +570,6 @@
 
     check-cast v6, Ljava/lang/Throwable;
 
-    .line 259
     if-eqz v6, :cond_9
 
     .line 260
@@ -619,7 +581,6 @@
     .line 262
     invoke-virtual {p0, v1}, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->errorAll(Lio/reactivex/Observer;)V
 
-    .line 263
     return-void
 
     .line 269
@@ -638,9 +599,6 @@
     move-result-object v4
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    .line 273
-    nop
 
     .line 275
     invoke-interface {v1, v4}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
@@ -661,7 +619,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_a
+    if-eqz v6, :cond_1
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -670,41 +628,29 @@
     .line 278
     invoke-virtual {v5, v6}, Lio/reactivex/subjects/UnicastSubject;->onNext(Ljava/lang/Object;)V
 
-    .line 279
     goto :goto_4
 
-    .line 280
-    :cond_a
-    goto/16 :goto_6
-
-    .line 270
     :catchall_0
     move-exception v2
 
     .line 271
     invoke-virtual {p0, v2, v1, v0}, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->fail(Ljava/lang/Throwable;Lio/reactivex/Observer;Lio/reactivex/internal/queue/SpscLinkedArrayQueue;)V
 
-    .line 272
     return-void
 
-    .line 248
     :catchall_1
     move-exception v2
 
     .line 249
     invoke-virtual {p0, v2, v1, v0}, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->fail(Ljava/lang/Throwable;Lio/reactivex/Observer;Lio/reactivex/internal/queue/SpscLinkedArrayQueue;)V
 
-    .line 250
     return-void
 
     .line 281
-    :cond_b
+    :cond_a
     sget-object v7, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->RIGHT_VALUE:Ljava/lang/Integer;
 
-    if-ne v6, v7, :cond_e
-
-    .line 283
-    nop
+    if-ne v6, v7, :cond_c
 
     .line 285
     iget v6, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->rightIndex:I
@@ -740,9 +686,6 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
-    .line 296
-    nop
-
     .line 298
     new-instance v8, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$LeftRightEndObserver;
 
@@ -765,8 +708,7 @@
 
     check-cast v5, Ljava/lang/Throwable;
 
-    .line 304
-    if-eqz v5, :cond_c
+    if-eqz v5, :cond_b
 
     .line 305
     invoke-virtual {v0}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->clear()V
@@ -777,11 +719,10 @@
     .line 307
     invoke-virtual {p0, v1}, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->errorAll(Lio/reactivex/Observer;)V
 
-    .line 308
     return-void
 
     .line 311
-    :cond_c
+    :cond_b
     iget-object v5, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->lefts:Ljava/util/Map;
 
     invoke-interface {v5}, Ljava/util/Map;->values()Ljava/util/Collection;
@@ -797,7 +738,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_d
+    if-eqz v6, :cond_1
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -808,28 +749,21 @@
     .line 312
     invoke-virtual {v6, v4}, Lio/reactivex/subjects/UnicastSubject;->onNext(Ljava/lang/Object;)V
 
-    .line 313
     goto :goto_5
 
-    .line 314
-    :cond_d
-    goto :goto_6
-
-    .line 293
     :catchall_2
     move-exception v2
 
     .line 294
     invoke-virtual {p0, v2, v1, v0}, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->fail(Ljava/lang/Throwable;Lio/reactivex/Observer;Lio/reactivex/internal/queue/SpscLinkedArrayQueue;)V
 
-    .line 295
     return-void
 
     .line 315
-    :cond_e
+    :cond_c
     sget-object v5, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->LEFT_CLOSE:Ljava/lang/Integer;
 
-    if-ne v6, v5, :cond_10
+    if-ne v6, v5, :cond_d
 
     .line 316
     check-cast v4, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$LeftRightEndObserver;
@@ -854,21 +788,18 @@
 
     invoke-virtual {v6, v4}, Lio/reactivex/disposables/CompositeDisposable;->remove(Lio/reactivex/disposables/Disposable;)Z
 
-    .line 320
-    if-eqz v5, :cond_f
+    if-eqz v5, :cond_1
 
     .line 321
     invoke-virtual {v5}, Lio/reactivex/subjects/UnicastSubject;->onComplete()V
 
-    .line 323
-    :cond_f
-    goto :goto_6
+    goto/16 :goto_0
 
     .line 324
-    :cond_10
+    :cond_d
     sget-object v5, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->RIGHT_CLOSE:Ljava/lang/Integer;
 
-    if-ne v6, v5, :cond_11
+    if-ne v6, v5, :cond_1
 
     .line 325
     check-cast v4, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$LeftRightEndObserver;
@@ -889,9 +820,6 @@
 
     invoke-virtual {v5, v4}, Lio/reactivex/disposables/CompositeDisposable;->remove(Lio/reactivex/disposables/Disposable;)Z
 
-    .line 330
-    :cond_11
-    :goto_6
     goto/16 :goto_0
 .end method
 
@@ -906,8 +834,6 @@
     .end annotation
 
     .line 167
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;, "Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable<TTLeft;TTRight;TTLeftEnd;TTRightEnd;TR;>;"
-    .local p1, "a":Lio/reactivex/Observer;, "Lio/reactivex/Observer<*>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->error:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0}, Lio/reactivex/internal/util/ExceptionHelper;->terminate(Ljava/util/concurrent/atomic/AtomicReference;)Ljava/lang/Throwable;
@@ -915,7 +841,6 @@
     move-result-object v0
 
     .line 169
-    .local v0, "ex":Ljava/lang/Throwable;
     iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->lefts:Ljava/util/Map;
 
     invoke-interface {v1}, Ljava/util/Map;->values()Ljava/util/Collection;
@@ -926,7 +851,6 @@
 
     move-result-object v1
 
-    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -941,15 +865,11 @@
     check-cast v2, Lio/reactivex/subjects/UnicastSubject;
 
     .line 170
-    .local v2, "up":Lio/reactivex/subjects/UnicastSubject;, "Lio/reactivex/subjects/UnicastSubject<TTRight;>;"
     invoke-virtual {v2, v0}, Lio/reactivex/subjects/UnicastSubject;->onError(Ljava/lang/Throwable;)V
 
-    .line 171
-    .end local v2    # "up":Lio/reactivex/subjects/UnicastSubject;, "Lio/reactivex/subjects/UnicastSubject<TTRight;>;"
     goto :goto_0
 
     .line 173
-    .end local v1    # "i$":Ljava/util/Iterator;
     :cond_0
     iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->lefts:Ljava/util/Map;
 
@@ -963,13 +883,11 @@
     .line 176
     invoke-interface {p1, v0}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 177
     return-void
 .end method
 
 .method fail(Ljava/lang/Throwable;Lio/reactivex/Observer;Lio/reactivex/internal/queue/SpscLinkedArrayQueue;)V
     .locals 1
-    .param p1, "exc"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -982,9 +900,6 @@
     .end annotation
 
     .line 180
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;, "Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable<TTLeft;TTRight;TTLeftEnd;TTRightEnd;TR;>;"
-    .local p2, "a":Lio/reactivex/Observer;, "Lio/reactivex/Observer<*>;"
-    .local p3, "q":Lio/reactivex/internal/queue/SpscLinkedArrayQueue;, "Lio/reactivex/internal/queue/SpscLinkedArrayQueue<*>;"
     invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 181
@@ -1001,17 +916,13 @@
     .line 184
     invoke-virtual {p0, p2}, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->errorAll(Lio/reactivex/Observer;)V
 
-    .line 185
     return-void
 .end method
 
 .method public innerClose(ZLio/reactivex/internal/operators/observable/ObservableGroupJoin$LeftRightEndObserver;)V
-    .locals 2
-    .param p1, "isLeft"    # Z
-    .param p2, "index"    # Lio/reactivex/internal/operators/observable/ObservableGroupJoin$LeftRightEndObserver;
+    .locals 1
 
     .line 366
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;, "Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable<TTLeft;TTRight;TTLeftEnd;TTRightEnd;TR;>;"
     monitor-enter p0
 
     .line 367
@@ -1020,15 +931,15 @@
 
     if-eqz p1, :cond_0
 
-    sget-object v1, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->LEFT_CLOSE:Ljava/lang/Integer;
+    sget-object p1, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->LEFT_CLOSE:Ljava/lang/Integer;
 
     goto :goto_0
 
     :cond_0
-    sget-object v1, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->RIGHT_CLOSE:Ljava/lang/Integer;
+    sget-object p1, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->RIGHT_CLOSE:Ljava/lang/Integer;
 
     :goto_0
-    invoke-virtual {v0, v1, p2}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->offer(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1, p2}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->offer(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     .line 368
     monitor-exit p0
@@ -1038,27 +949,24 @@
     .line 369
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->drain()V
 
-    .line 370
     return-void
 
-    .line 368
     :catchall_0
-    move-exception v0
+    move-exception p1
 
+    .line 368
     :try_start_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 .method public innerCloseError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "ex"    # Ljava/lang/Throwable;
 
     .line 374
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;, "Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable<TTLeft;TTRight;TTLeftEnd;TTRightEnd;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->error:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/util/ExceptionHelper;->addThrowable(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Throwable;)Z
@@ -1076,39 +984,33 @@
     :cond_0
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 379
     :goto_0
     return-void
 .end method
 
 .method public innerComplete(Lio/reactivex/internal/operators/observable/ObservableGroupJoin$LeftRightObserver;)V
     .locals 1
-    .param p1, "sender"    # Lio/reactivex/internal/operators/observable/ObservableGroupJoin$LeftRightObserver;
 
     .line 351
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;, "Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable<TTLeft;TTRight;TTLeftEnd;TTRightEnd;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->disposables:Lio/reactivex/disposables/CompositeDisposable;
 
     invoke-virtual {v0, p1}, Lio/reactivex/disposables/CompositeDisposable;->delete(Lio/reactivex/disposables/Disposable;)Z
 
     .line 352
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->active:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->active:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
+    invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
 
     .line 353
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->drain()V
 
-    .line 354
     return-void
 .end method
 
 .method public innerError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "ex"    # Ljava/lang/Throwable;
 
     .line 341
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;, "Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable<TTLeft;TTRight;TTLeftEnd;TTRightEnd;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->error:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/util/ExceptionHelper;->addThrowable(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Throwable;)Z
@@ -1118,9 +1020,9 @@
     if-eqz v0, :cond_0
 
     .line 342
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->active:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->active:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
+    invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
 
     .line 343
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->drain()V
@@ -1131,18 +1033,14 @@
     :cond_0
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 347
     :goto_0
     return-void
 .end method
 
 .method public innerValue(ZLjava/lang/Object;)V
-    .locals 2
-    .param p1, "isLeft"    # Z
-    .param p2, "o"    # Ljava/lang/Object;
+    .locals 1
 
     .line 358
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;, "Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable<TTLeft;TTRight;TTLeftEnd;TTRightEnd;TR;>;"
     monitor-enter p0
 
     .line 359
@@ -1151,15 +1049,15 @@
 
     if-eqz p1, :cond_0
 
-    sget-object v1, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->LEFT_VALUE:Ljava/lang/Integer;
+    sget-object p1, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->LEFT_VALUE:Ljava/lang/Integer;
 
     goto :goto_0
 
     :cond_0
-    sget-object v1, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->RIGHT_VALUE:Ljava/lang/Integer;
+    sget-object p1, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->RIGHT_VALUE:Ljava/lang/Integer;
 
     :goto_0
-    invoke-virtual {v0, v1, p2}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->offer(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1, p2}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->offer(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     .line 360
     monitor-exit p0
@@ -1169,26 +1067,24 @@
     .line 361
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->drain()V
 
-    .line 362
     return-void
 
-    .line 360
     :catchall_0
-    move-exception v0
+    move-exception p1
 
+    .line 360
     :try_start_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 .method public isDisposed()Z
     .locals 1
 
     .line 159
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;, "Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable<TTLeft;TTRight;TTLeftEnd;TTRightEnd;TR;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableGroupJoin$GroupJoinDisposable;->cancelled:Z
 
     return v0

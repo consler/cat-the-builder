@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/parser/ByteBufferListParser;Lcom/koushikdutta/async/ByteBufferList;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/parser/ByteBufferListParser;
 
     .line 27
     iput-object p1, p0, Lcom/koushikdutta/async/parser/ByteBufferListParser$2;->this$0:Lcom/koushikdutta/async/parser/ByteBufferListParser;
@@ -41,15 +40,12 @@
 
 # virtual methods
 .method public onDataAvailable(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/ByteBufferList;)V
-    .locals 1
-    .param p1, "emitter"    # Lcom/koushikdutta/async/DataEmitter;
-    .param p2, "data"    # Lcom/koushikdutta/async/ByteBufferList;
+    .locals 0
 
     .line 30
-    iget-object v0, p0, Lcom/koushikdutta/async/parser/ByteBufferListParser$2;->val$bb:Lcom/koushikdutta/async/ByteBufferList;
+    iget-object p1, p0, Lcom/koushikdutta/async/parser/ByteBufferListParser$2;->val$bb:Lcom/koushikdutta/async/ByteBufferList;
 
-    invoke-virtual {p2, v0}, Lcom/koushikdutta/async/ByteBufferList;->get(Lcom/koushikdutta/async/ByteBufferList;)V
+    invoke-virtual {p2, p1}, Lcom/koushikdutta/async/ByteBufferList;->get(Lcom/koushikdutta/async/ByteBufferList;)V
 
-    .line 31
     return-void
 .end method

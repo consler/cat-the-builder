@@ -36,13 +36,18 @@
 .field public static final FAIL_REASON_WRONG_CERTIFICATES:I = -0x2
 
 .field public static final RESULT_OK:I
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field static final RESULT_SUCCESS:I
 
 
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
-    .line 493
+    .line 478
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -52,16 +57,28 @@
 # virtual methods
 .method public onTypefaceRequestFailed(I)V
     .locals 0
-    .param p1, "reason"    # I
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "reason"
+        }
+    .end annotation
 
-    .line 514
     return-void
 .end method
 
 .method public onTypefaceRetrieved(Landroid/graphics/Typeface;)V
     .locals 0
-    .param p1, "typeface"    # Landroid/graphics/Typeface;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "typeface"
+        }
+    .end annotation
 
-    .line 501
     return-void
 .end method

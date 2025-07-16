@@ -43,9 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Lio/reactivex/ObservableSource;Lio/reactivex/functions/Function;ILio/reactivex/internal/util/ErrorMode;)V
-    .locals 1
-    .param p3, "bufferSize"    # I
-    .param p4, "delayErrors"    # Lio/reactivex/internal/util/ErrorMode;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -61,9 +59,6 @@
     .end annotation
 
     .line 38
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableConcatMap;, "Lio/reactivex/internal/operators/observable/ObservableConcatMap<TT;TU;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
-    .local p2, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lio/reactivex/ObservableSource<+TU;>;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/observable/AbstractObservableWithUpstream;-><init>(Lio/reactivex/ObservableSource;)V
 
     .line 39
@@ -72,16 +67,15 @@
     .line 40
     iput-object p4, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMap;->delayErrors:Lio/reactivex/internal/util/ErrorMode;
 
+    const/16 p1, 0x8
+
     .line 41
-    const/16 v0, 0x8
+    invoke-static {p1, p3}, Ljava/lang/Math;->max(II)I
 
-    invoke-static {v0, p3}, Ljava/lang/Math;->max(II)I
+    move-result p1
 
-    move-result v0
+    iput p1, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMap;->bufferSize:I
 
-    iput v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMap;->bufferSize:I
-
-    .line 42
     return-void
 .end method
 
@@ -98,8 +92,6 @@
     .end annotation
 
     .line 46
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableConcatMap;, "Lio/reactivex/internal/operators/observable/ObservableConcatMap<TT;TU;>;"
-    .local p1, "s":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMap;->source:Lio/reactivex/ObservableSource;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMap;->mapper:Lio/reactivex/functions/Function;
@@ -110,7 +102,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 47
     return-void
 
     .line 50
@@ -127,21 +118,18 @@
     invoke-direct {v0, p1}, Lio/reactivex/observers/SerializedObserver;-><init>(Lio/reactivex/Observer;)V
 
     .line 52
-    .local v0, "serial":Lio/reactivex/observers/SerializedObserver;, "Lio/reactivex/observers/SerializedObserver<TU;>;"
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMap;->source:Lio/reactivex/ObservableSource;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMap;->source:Lio/reactivex/ObservableSource;
 
-    new-instance v2, Lio/reactivex/internal/operators/observable/ObservableConcatMap$SourceObserver;
+    new-instance v1, Lio/reactivex/internal/operators/observable/ObservableConcatMap$SourceObserver;
 
-    iget-object v3, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMap;->mapper:Lio/reactivex/functions/Function;
+    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMap;->mapper:Lio/reactivex/functions/Function;
 
-    iget v4, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMap;->bufferSize:I
+    iget v3, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMap;->bufferSize:I
 
-    invoke-direct {v2, v0, v3, v4}, Lio/reactivex/internal/operators/observable/ObservableConcatMap$SourceObserver;-><init>(Lio/reactivex/Observer;Lio/reactivex/functions/Function;I)V
+    invoke-direct {v1, v0, v2, v3}, Lio/reactivex/internal/operators/observable/ObservableConcatMap$SourceObserver;-><init>(Lio/reactivex/Observer;Lio/reactivex/functions/Function;I)V
 
-    invoke-interface {v1, v2}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
+    invoke-interface {p1, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 53
-    .end local v0    # "serial":Lio/reactivex/observers/SerializedObserver;, "Lio/reactivex/observers/SerializedObserver<TU;>;"
     goto :goto_1
 
     .line 54
@@ -172,7 +160,6 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 56
     :goto_1
     return-void
 .end method

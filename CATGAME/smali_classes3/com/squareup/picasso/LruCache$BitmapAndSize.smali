@@ -23,8 +23,6 @@
 # direct methods
 .method constructor <init>(Landroid/graphics/Bitmap;I)V
     .locals 0
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
-    .param p2, "byteCount"    # I
 
     .line 113
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,6 +33,5 @@
     .line 115
     iput p2, p0, Lcom/squareup/picasso/LruCache$BitmapAndSize;->byteCount:I
 
-    .line 116
     return-void
 .end method

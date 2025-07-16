@@ -51,12 +51,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/ObservableSource;JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;Ljava/util/concurrent/Callable;IZ)V
     .locals 0
-    .param p2, "timespan"    # J
-    .param p4, "timeskip"    # J
-    .param p6, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p7, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p9, "maxSize"    # I
-    .param p10, "restartTimerOnMaxSize"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -70,9 +64,6 @@
     .end annotation
 
     .line 45
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableBufferTimed;, "Lio/reactivex/internal/operators/observable/ObservableBufferTimed<TT;TU;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
-    .local p8, "bufferSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TU;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/observable/AbstractObservableWithUpstream;-><init>(Lio/reactivex/ObservableSource;)V
 
     .line 46
@@ -96,14 +87,13 @@
     .line 52
     iput-boolean p10, p0, Lio/reactivex/internal/operators/observable/ObservableBufferTimed;->restartTimerOnMaxSize:Z
 
-    .line 53
     return-void
 .end method
 
 
 # virtual methods
 .method protected subscribeActual(Lio/reactivex/Observer;)V
-    .locals 12
+    .locals 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -113,8 +103,6 @@
     .end annotation
 
     .line 57
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableBufferTimed;, "Lio/reactivex/internal/operators/observable/ObservableBufferTimed<TT;TU;>;"
-    .local p1, "t":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TU;>;"
     iget-wide v0, p0, Lio/reactivex/internal/operators/observable/ObservableBufferTimed;->timespan:J
 
     iget-wide v2, p0, Lio/reactivex/internal/operators/observable/ObservableBufferTimed;->timeskip:J
@@ -152,7 +140,6 @@
 
     invoke-interface {v0, v8}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 61
     return-void
 
     .line 63
@@ -161,22 +148,21 @@
 
     invoke-virtual {v0}, Lio/reactivex/Scheduler;->createWorker()Lio/reactivex/Scheduler$Worker;
 
-    move-result-object v0
+    move-result-object v9
 
     .line 65
-    .local v0, "w":Lio/reactivex/Scheduler$Worker;
-    iget-wide v1, p0, Lio/reactivex/internal/operators/observable/ObservableBufferTimed;->timespan:J
+    iget-wide v0, p0, Lio/reactivex/internal/operators/observable/ObservableBufferTimed;->timespan:J
 
-    iget-wide v3, p0, Lio/reactivex/internal/operators/observable/ObservableBufferTimed;->timeskip:J
+    iget-wide v2, p0, Lio/reactivex/internal/operators/observable/ObservableBufferTimed;->timeskip:J
 
-    cmp-long v1, v1, v3
+    cmp-long v0, v0, v2
 
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
 
     .line 66
-    iget-object v10, p0, Lio/reactivex/internal/operators/observable/ObservableBufferTimed;->source:Lio/reactivex/ObservableSource;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableBufferTimed;->source:Lio/reactivex/ObservableSource;
 
-    new-instance v11, Lio/reactivex/internal/operators/observable/ObservableBufferTimed$BufferExactBoundedObserver;
+    new-instance v10, Lio/reactivex/internal/operators/observable/ObservableBufferTimed$BufferExactBoundedObserver;
 
     new-instance v2, Lio/reactivex/observers/SerializedObserver;
 
@@ -192,22 +178,19 @@
 
     iget-boolean v8, p0, Lio/reactivex/internal/operators/observable/ObservableBufferTimed;->restartTimerOnMaxSize:Z
 
-    move-object v1, v11
-
-    move-object v9, v0
+    move-object v1, v10
 
     invoke-direct/range {v1 .. v9}, Lio/reactivex/internal/operators/observable/ObservableBufferTimed$BufferExactBoundedObserver;-><init>(Lio/reactivex/Observer;Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;IZLio/reactivex/Scheduler$Worker;)V
 
-    invoke-interface {v10, v11}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
+    invoke-interface {v0, v10}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 71
     return-void
 
     .line 75
     :cond_1
-    iget-object v10, p0, Lio/reactivex/internal/operators/observable/ObservableBufferTimed;->source:Lio/reactivex/ObservableSource;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableBufferTimed;->source:Lio/reactivex/ObservableSource;
 
-    new-instance v11, Lio/reactivex/internal/operators/observable/ObservableBufferTimed$BufferSkipBoundedObserver;
+    new-instance v10, Lio/reactivex/internal/operators/observable/ObservableBufferTimed$BufferSkipBoundedObserver;
 
     new-instance v2, Lio/reactivex/observers/SerializedObserver;
 
@@ -221,14 +204,11 @@
 
     iget-object v8, p0, Lio/reactivex/internal/operators/observable/ObservableBufferTimed;->unit:Ljava/util/concurrent/TimeUnit;
 
-    move-object v1, v11
-
-    move-object v9, v0
+    move-object v1, v10
 
     invoke-direct/range {v1 .. v9}, Lio/reactivex/internal/operators/observable/ObservableBufferTimed$BufferSkipBoundedObserver;-><init>(Lio/reactivex/Observer;Ljava/util/concurrent/Callable;JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler$Worker;)V
 
-    invoke-interface {v10, v11}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
+    invoke-interface {v0, v10}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 79
     return-void
 .end method

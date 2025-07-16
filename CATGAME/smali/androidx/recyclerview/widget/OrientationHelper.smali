@@ -22,14 +22,13 @@
 # direct methods
 .method private constructor <init>(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)V
     .locals 1
-    .param p1, "layoutManager"    # Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
 
     .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 42
     const/high16 v0, -0x80000000
 
+    .line 42
     iput v0, p0, Landroidx/recyclerview/widget/OrientationHelper;->mLastTotalSpace:I
 
     .line 44
@@ -42,14 +41,11 @@
     .line 47
     iput-object p1, p0, Landroidx/recyclerview/widget/OrientationHelper;->mLayoutManager:Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
 
-    .line 48
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;Landroidx/recyclerview/widget/OrientationHelper$1;)V
     .locals 0
-    .param p1, "x0"    # Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
-    .param p2, "x1"    # Landroidx/recyclerview/widget/OrientationHelper$1;
 
     .line 32
     invoke-direct {p0, p1}, Landroidx/recyclerview/widget/OrientationHelper;-><init>(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)V
@@ -59,7 +55,6 @@
 
 .method public static createHorizontalHelper(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)Landroidx/recyclerview/widget/OrientationHelper;
     .locals 1
-    .param p0, "layoutManager"    # Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
 
     .line 258
     new-instance v0, Landroidx/recyclerview/widget/OrientationHelper$1;
@@ -70,11 +65,8 @@
 .end method
 
 .method public static createOrientationHelper(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;I)Landroidx/recyclerview/widget/OrientationHelper;
-    .locals 2
-    .param p0, "layoutManager"    # Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
-    .param p1, "orientation"    # I
+    .locals 1
 
-    .line 241
     if-eqz p1, :cond_1
 
     const/4 v0, 0x1
@@ -84,32 +76,31 @@
     .line 245
     invoke-static {p0}, Landroidx/recyclerview/widget/OrientationHelper;->createVerticalHelper(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)Landroidx/recyclerview/widget/OrientationHelper;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 247
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "invalid orientation"
+    const-string p1, "invalid orientation"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 243
     :cond_1
     invoke-static {p0}, Landroidx/recyclerview/widget/OrientationHelper;->createHorizontalHelper(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)Landroidx/recyclerview/widget/OrientationHelper;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static createVerticalHelper(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)Landroidx/recyclerview/widget/OrientationHelper;
     .locals 1
-    .param p0, "layoutManager"    # Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
 
     .line 356
     new-instance v0, Landroidx/recyclerview/widget/OrientationHelper$2;
@@ -166,12 +157,12 @@
 .method public getTotalSpaceChange()I
     .locals 2
 
+    const/high16 v0, -0x80000000
+
     .line 78
-    iget v0, p0, Landroidx/recyclerview/widget/OrientationHelper;->mLastTotalSpace:I
+    iget v1, p0, Landroidx/recyclerview/widget/OrientationHelper;->mLastTotalSpace:I
 
-    const/high16 v1, -0x80000000
-
-    if-ne v1, v0, :cond_0
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x0
 
@@ -212,6 +203,5 @@
 
     iput v0, p0, Landroidx/recyclerview/widget/OrientationHelper;->mLastTotalSpace:I
 
-    .line 65
     return-void
 .end method

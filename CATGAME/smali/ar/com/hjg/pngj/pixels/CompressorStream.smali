@@ -28,53 +28,45 @@
 # direct methods
 .method public constructor <init>(Ljava/io/OutputStream;IJ)V
     .locals 4
-    .param p1, "os"    # Ljava/io/OutputStream;
-    .param p2, "blockLen"    # I
-    .param p3, "totalbytes"    # J
 
     .line 49
     invoke-direct {p0, p1}, Ljava/io/FilterOutputStream;-><init>(Ljava/io/OutputStream;)V
 
-    .line 32
     const/4 v0, 0x0
 
+    .line 32
     iput-boolean v0, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->closed:Z
 
     .line 33
     iput-boolean v0, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->done:Z
 
-    .line 34
     const-wide/16 v1, 0x0
 
+    .line 34
     iput-wide v1, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->bytesIn:J
 
     .line 35
     iput-wide v1, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->bytesOut:J
 
-    .line 36
     const/4 v3, -0x1
 
+    .line 36
     iput v3, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->block:I
 
     .line 40
     iput-boolean v0, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->storeFirstByte:Z
 
-    .line 50
     if-gez p2, :cond_0
 
-    .line 51
     const/16 p2, 0x1000
 
-    .line 52
     :cond_0
     cmp-long v0, p3, v1
 
     if-gez v0, :cond_1
 
-    .line 53
     const-wide p3, 0x7fffffffffffffffL
 
-    .line 54
     :cond_1
     const/4 v0, 0x1
 
@@ -95,18 +87,17 @@
     .line 58
     iput-wide p3, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->totalbytes:J
 
-    .line 59
     return-void
 
     .line 55
     :cond_2
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    const-string v1, " maxBlockLen or totalLen invalid"
+    const-string p2, " maxBlockLen or totalLen invalid"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -117,12 +108,11 @@
     .line 64
     invoke-virtual {p0}, Lar/com/hjg/pngj/pixels/CompressorStream;->done()V
 
-    .line 65
     const/4 v0, 0x1
 
+    .line 65
     iput-boolean v0, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->closed:Z
 
-    .line 66
     return-void
 .end method
 
@@ -143,23 +133,18 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 164
     goto :goto_0
 
-    .line 162
     :catch_0
     move-exception v0
 
     .line 163
-    .local v0, "e":Ljava/io/IOException;
     new-instance v1, Lar/com/hjg/pngj/PngjOutputException;
 
     invoke-direct {v1, v0}, Lar/com/hjg/pngj/PngjOutputException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 
-    .line 165
-    .end local v0    # "e":Ljava/io/IOException;
     :cond_0
     :goto_0
     return-void
@@ -259,13 +244,11 @@
 
     invoke-virtual {p0, v0}, Lar/com/hjg/pngj/pixels/CompressorStream;->reset(Ljava/io/OutputStream;)V
 
-    .line 111
     return-void
 .end method
 
 .method public reset(Ljava/io/OutputStream;)V
     .locals 2
-    .param p1, "os"    # Ljava/io/OutputStream;
 
     .line 119
     iget-boolean v0, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->closed:Z
@@ -275,84 +258,78 @@
     .line 121
     invoke-virtual {p0}, Lar/com/hjg/pngj/pixels/CompressorStream;->done()V
 
-    .line 122
     const-wide/16 v0, 0x0
 
+    .line 122
     iput-wide v0, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->bytesIn:J
 
     .line 123
     iput-wide v0, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->bytesOut:J
 
-    .line 124
     const/4 v0, -0x1
 
+    .line 124
     iput v0, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->block:I
 
-    .line 125
     const/4 v0, 0x0
 
+    .line 125
     iput-boolean v0, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->done:Z
 
     .line 126
     iput-object p1, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->os:Ljava/io/OutputStream;
 
-    .line 127
     return-void
 
     .line 120
     :cond_0
-    new-instance v0, Lar/com/hjg/pngj/PngjOutputException;
+    new-instance p1, Lar/com/hjg/pngj/PngjOutputException;
 
-    const-string v1, "cannot reset, discarded object"
+    const-string v0, "cannot reset, discarded object"
 
-    invoke-direct {v0, v1}, Lar/com/hjg/pngj/PngjOutputException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lar/com/hjg/pngj/PngjOutputException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setStoreFirstByte(ZI)V
-    .locals 1
-    .param p1, "storeFirstByte"    # Z
-    .param p2, "nblocks"    # I
+    .locals 0
 
     .line 180
     iput-boolean p1, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->storeFirstByte:Z
 
-    .line 181
     if-eqz p1, :cond_1
 
     .line 182
-    iget-object v0, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->firstBytes:[B
+    iget-object p1, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->firstBytes:[B
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    array-length v0, v0
+    array-length p1, p1
 
-    if-ge v0, p2, :cond_2
+    if-ge p1, p2, :cond_2
 
     .line 183
     :cond_0
-    new-array v0, p2, [B
+    new-array p1, p2, [B
 
-    iput-object v0, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->firstBytes:[B
+    iput-object p1, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->firstBytes:[B
 
     goto :goto_0
 
-    .line 185
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->firstBytes:[B
+    .line 185
+    iput-object p1, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->firstBytes:[B
 
-    .line 186
     :cond_2
     :goto_0
     return-void
 .end method
 
 .method public write(I)V
-    .locals 2
-    .param p1, "b"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -360,35 +337,30 @@
     .end annotation
 
     .line 106
-    new-instance v0, Lar/com/hjg/pngj/PngjOutputException;
+    new-instance p1, Lar/com/hjg/pngj/PngjOutputException;
 
-    const-string v1, "should not be used"
+    const-string v0, "should not be used"
 
-    invoke-direct {v0, v1}, Lar/com/hjg/pngj/PngjOutputException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lar/com/hjg/pngj/PngjOutputException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public final write([B)V
     .locals 2
-    .param p1, "b"    # [B
+
+    const/4 v0, 0x0
 
     .line 101
-    array-length v0, p1
+    array-length v1, p1
 
-    const/4 v1, 0x0
+    invoke-virtual {p0, p1, v0, v1}, Lar/com/hjg/pngj/pixels/CompressorStream;->write([BII)V
 
-    invoke-virtual {p0, p1, v1, v0}, Lar/com/hjg/pngj/pixels/CompressorStream;->write([BII)V
-
-    .line 102
     return-void
 .end method
 
 .method public final write([BII)V
-    .locals 4
-    .param p1, "b"    # [B
-    .param p2, "off"    # I
-    .param p3, "len"    # I
+    .locals 2
 
     .line 75
     iget v0, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->block:I
@@ -406,26 +378,25 @@
     invoke-virtual {p0, p1, p2, p3}, Lar/com/hjg/pngj/pixels/CompressorStream;->mywrite([BII)V
 
     .line 78
-    iget-boolean v0, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->storeFirstByte:Z
+    iget-boolean p3, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->storeFirstByte:Z
 
-    if-eqz v0, :cond_1
+    if-eqz p3, :cond_1
 
-    iget v0, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->block:I
+    iget p3, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->block:I
 
-    iget-object v1, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->firstBytes:[B
+    iget-object v0, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->firstBytes:[B
 
-    array-length v2, v1
+    array-length v1, v0
 
-    if-ge v0, v2, :cond_1
+    if-ge p3, v1, :cond_1
 
     .line 79
-    aget-byte v2, p1, p2
+    aget-byte p1, p1, p2
 
-    aput-byte v2, v1, v0
+    aput-byte p1, v0, p3
 
     goto :goto_1
 
-    .line 82
     :cond_0
     :goto_0
     if-lez p3, :cond_1
@@ -440,7 +411,6 @@
 
     add-int/2addr p2, v0
 
-    .line 85
     sub-int/2addr p3, v0
 
     goto :goto_0
@@ -448,18 +418,17 @@
     .line 88
     :cond_1
     :goto_1
-    iget-wide v0, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->bytesIn:J
+    iget-wide p1, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->bytesIn:J
 
-    iget-wide v2, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->totalbytes:J
+    iget-wide v0, p0, Lar/com/hjg/pngj/pixels/CompressorStream;->totalbytes:J
 
-    cmp-long v0, v0, v2
+    cmp-long p1, p1, v0
 
-    if-ltz v0, :cond_2
+    if-ltz p1, :cond_2
 
     .line 89
     invoke-virtual {p0}, Lar/com/hjg/pngj/pixels/CompressorStream;->done()V
 
-    .line 91
     :cond_2
     return-void
 .end method

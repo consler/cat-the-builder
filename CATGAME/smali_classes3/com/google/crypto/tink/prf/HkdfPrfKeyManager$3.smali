@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/google/crypto/tink/prf/HkdfPrfKeyManager;Ljava/lang/Class;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/google/crypto/tink/prf/HkdfPrfKeyManager;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
@@ -43,7 +42,6 @@
     .end annotation
 
     .line 108
-    .local p2, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<Lcom/google/crypto/tink/proto/HkdfPrfKeyFormat;>;"
     iput-object p1, p0, Lcom/google/crypto/tink/prf/HkdfPrfKeyManager$3;->this$0:Lcom/google/crypto/tink/prf/HkdfPrfKeyManager;
 
     invoke-direct {p0, p2}, Lcom/google/crypto/tink/KeyTypeManager$KeyFactory;-><init>(Ljava/lang/Class;)V
@@ -55,7 +53,6 @@
 # virtual methods
 .method public createKey(Lcom/google/crypto/tink/proto/HkdfPrfKeyFormat;)Lcom/google/crypto/tink/proto/HkdfPrfKey;
     .locals 2
-    .param p1, "format"    # Lcom/google/crypto/tink/proto/HkdfPrfKeyFormat;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -107,21 +104,20 @@
     .line 126
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/HkdfPrfKeyFormat;->getParams()Lcom/google/crypto/tink/proto/HkdfPrfParams;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/proto/HkdfPrfKey$Builder;->setParams(Lcom/google/crypto/tink/proto/HkdfPrfParams;)Lcom/google/crypto/tink/proto/HkdfPrfKey$Builder;
+    invoke-virtual {v0, p1}, Lcom/google/crypto/tink/proto/HkdfPrfKey$Builder;->setParams(Lcom/google/crypto/tink/proto/HkdfPrfParams;)Lcom/google/crypto/tink/proto/HkdfPrfKey$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 127
-    invoke-virtual {v0}, Lcom/google/crypto/tink/proto/HkdfPrfKey$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/HkdfPrfKey$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/google/crypto/tink/proto/HkdfPrfKey;
+    check-cast p1, Lcom/google/crypto/tink/proto/HkdfPrfKey;
 
-    .line 123
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic createKey(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)Ljava/lang/Object;
@@ -153,7 +149,6 @@
 
 .method public parseKeyFormat(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/HkdfPrfKeyFormat;
     .locals 1
-    .param p1, "byteString"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -176,9 +171,9 @@
 
     invoke-static {p1, v0}, Lcom/google/crypto/tink/proto/HkdfPrfKeyFormat;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/HkdfPrfKeyFormat;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic parseKeyFormat(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
@@ -208,7 +203,6 @@
 
 .method public validateKeyFormat(Lcom/google/crypto/tink/proto/HkdfPrfKeyFormat;)V
     .locals 1
-    .param p1, "format"    # Lcom/google/crypto/tink/proto/HkdfPrfKeyFormat;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -234,11 +228,10 @@
     .line 112
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/HkdfPrfKeyFormat;->getParams()Lcom/google/crypto/tink/proto/HkdfPrfParams;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Lcom/google/crypto/tink/prf/HkdfPrfKeyManager;->access$200(Lcom/google/crypto/tink/proto/HkdfPrfParams;)V
+    invoke-static {p1}, Lcom/google/crypto/tink/prf/HkdfPrfKeyManager;->access$200(Lcom/google/crypto/tink/proto/HkdfPrfParams;)V
 
-    .line 113
     return-void
 .end method
 

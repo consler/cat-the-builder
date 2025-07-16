@@ -44,98 +44,79 @@
 # virtual methods
 .method public addListener(Ljava/lang/String;Lcom/koushikdutta/async/http/socketio/EventCallback;)V
     .locals 0
-    .param p1, "event"    # Ljava/lang/String;
-    .param p2, "callback"    # Lcom/koushikdutta/async/http/socketio/EventCallback;
 
     .line 32
     invoke-virtual {p0, p1, p2}, Lcom/koushikdutta/async/http/socketio/EventEmitter;->on(Ljava/lang/String;Lcom/koushikdutta/async/http/socketio/EventCallback;)V
 
-    .line 33
     return-void
 .end method
 
 .method public on(Ljava/lang/String;Lcom/koushikdutta/async/http/socketio/EventCallback;)V
     .locals 1
-    .param p1, "event"    # Ljava/lang/String;
-    .param p2, "callback"    # Lcom/koushikdutta/async/http/socketio/EventCallback;
 
     .line 45
     iget-object v0, p0, Lcom/koushikdutta/async/http/socketio/EventEmitter;->callbacks:Lcom/koushikdutta/async/util/HashList;
 
     invoke-virtual {v0, p1, p2}, Lcom/koushikdutta/async/util/HashList;->add(Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 46
     return-void
 .end method
 
 .method onEvent(Ljava/lang/String;Lorg/json/JSONArray;Lcom/koushikdutta/async/http/socketio/Acknowledge;)V
-    .locals 4
-    .param p1, "event"    # Ljava/lang/String;
-    .param p2, "arguments"    # Lorg/json/JSONArray;
-    .param p3, "acknowledge"    # Lcom/koushikdutta/async/http/socketio/Acknowledge;
+    .locals 1
 
     .line 19
     iget-object v0, p0, Lcom/koushikdutta/async/http/socketio/EventEmitter;->callbacks:Lcom/koushikdutta/async/util/HashList;
 
     invoke-virtual {v0, p1}, Lcom/koushikdutta/async/util/HashList;->get(Ljava/lang/String;)Ljava/util/ArrayList;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 20
-    .local v0, "list":Ljava/util/List;, "Ljava/util/List<Lcom/koushikdutta/async/http/socketio/EventCallback;>;"
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    .line 21
     return-void
 
     .line 22
     :cond_0
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 23
-    .local v1, "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/koushikdutta/async/http/socketio/EventCallback;>;"
+    :cond_1
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_2
+    if-eqz v0, :cond_2
 
     .line 24
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Lcom/koushikdutta/async/http/socketio/EventCallback;
+    check-cast v0, Lcom/koushikdutta/async/http/socketio/EventCallback;
 
     .line 25
-    .local v2, "cb":Lcom/koushikdutta/async/http/socketio/EventCallback;
-    invoke-interface {v2, p2, p3}, Lcom/koushikdutta/async/http/socketio/EventCallback;->onEvent(Lorg/json/JSONArray;Lcom/koushikdutta/async/http/socketio/Acknowledge;)V
+    invoke-interface {v0, p2, p3}, Lcom/koushikdutta/async/http/socketio/EventCallback;->onEvent(Lorg/json/JSONArray;Lcom/koushikdutta/async/http/socketio/Acknowledge;)V
 
     .line 26
-    instance-of v3, v2, Lcom/koushikdutta/async/http/socketio/EventEmitter$OnceCallback;
+    instance-of v0, v0, Lcom/koushikdutta/async/http/socketio/EventEmitter$OnceCallback;
 
-    if-eqz v3, :cond_1
+    if-eqz v0, :cond_1
 
     .line 27
-    invoke-interface {v1}, Ljava/util/Iterator;->remove()V
+    invoke-interface {p1}, Ljava/util/Iterator;->remove()V
 
-    .line 28
-    .end local v2    # "cb":Lcom/koushikdutta/async/http/socketio/EventCallback;
-    :cond_1
     goto :goto_0
 
-    .line 29
     :cond_2
     return-void
 .end method
 
 .method public once(Ljava/lang/String;Lcom/koushikdutta/async/http/socketio/EventCallback;)V
     .locals 1
-    .param p1, "event"    # Ljava/lang/String;
-    .param p2, "callback"    # Lcom/koushikdutta/async/http/socketio/EventCallback;
 
     .line 36
     new-instance v0, Lcom/koushikdutta/async/http/socketio/EventEmitter$1;
@@ -144,33 +125,26 @@
 
     invoke-virtual {p0, p1, v0}, Lcom/koushikdutta/async/http/socketio/EventEmitter;->on(Ljava/lang/String;Lcom/koushikdutta/async/http/socketio/EventCallback;)V
 
-    .line 42
     return-void
 .end method
 
 .method public removeListener(Ljava/lang/String;Lcom/koushikdutta/async/http/socketio/EventCallback;)V
     .locals 1
-    .param p1, "event"    # Ljava/lang/String;
-    .param p2, "callback"    # Lcom/koushikdutta/async/http/socketio/EventCallback;
 
     .line 49
     iget-object v0, p0, Lcom/koushikdutta/async/http/socketio/EventEmitter;->callbacks:Lcom/koushikdutta/async/util/HashList;
 
     invoke-virtual {v0, p1}, Lcom/koushikdutta/async/util/HashList;->get(Ljava/lang/String;)Ljava/util/ArrayList;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 50
-    .local v0, "list":Ljava/util/List;, "Ljava/util/List<Lcom/koushikdutta/async/http/socketio/EventCallback;>;"
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    .line 51
     return-void
 
     .line 52
     :cond_0
-    invoke-interface {v0, p2}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+    invoke-interface {p1, p2}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    .line 53
     return-void
 .end method

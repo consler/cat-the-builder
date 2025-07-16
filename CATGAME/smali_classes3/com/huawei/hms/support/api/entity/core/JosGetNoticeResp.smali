@@ -14,7 +14,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 16
+    .line 1
     invoke-direct {p0}, Lcom/huawei/hms/support/api/entity/core/JosBaseResp;-><init>()V
 
     return-void
@@ -30,7 +30,6 @@
         }
     .end annotation
 
-    .line 25
     return-object p0
 .end method
 
@@ -39,7 +38,7 @@
 .method public getNoticeIntent()Landroid/content/Intent;
     .locals 1
 
-    .line 29
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/support/api/entity/core/JosGetNoticeResp;->noticeIntent:Landroid/content/Intent;
 
     invoke-static {v0}, Lcom/huawei/hms/support/api/entity/core/JosGetNoticeResp;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -54,9 +53,8 @@
 .method public setNoticeIntent(Landroid/content/Intent;)V
     .locals 0
 
-    .line 33
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/support/api/entity/core/JosGetNoticeResp;->noticeIntent:Landroid/content/Intent;
 
-    .line 34
     return-void
 .end method

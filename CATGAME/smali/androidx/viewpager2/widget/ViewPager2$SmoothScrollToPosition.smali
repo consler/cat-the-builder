@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(ILandroidx/recyclerview/widget/RecyclerView;)V
     .locals 0
-    .param p1, "position"    # I
-    .param p2, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
 
     .line 1062
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +36,6 @@
     .line 1064
     iput-object p2, p0, Landroidx/viewpager2/widget/ViewPager2$SmoothScrollToPosition;->mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
-    .line 1065
     return-void
 .end method
 
@@ -54,6 +51,5 @@
 
     invoke-virtual {v0, v1}, Landroidx/recyclerview/widget/RecyclerView;->smoothScrollToPosition(I)V
 
-    .line 1070
     return-void
 .end method

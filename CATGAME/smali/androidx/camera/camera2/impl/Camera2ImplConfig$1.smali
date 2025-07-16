@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/camera2/impl/Camera2ImplConfig;Ljava/util/Set;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/camera2/impl/Camera2ImplConfig;
 
     .line 129
     iput-object p1, p0, Landroidx/camera/camera2/impl/Camera2ImplConfig$1;->this$0:Landroidx/camera/camera2/impl/Camera2ImplConfig;
@@ -51,13 +50,11 @@
     .end annotation
 
     .line 132
-    .local p1, "option":Landroidx/camera/core/impl/Config$Option;, "Landroidx/camera/core/impl/Config$Option<*>;"
     iget-object v0, p0, Landroidx/camera/camera2/impl/Camera2ImplConfig$1;->val$optionSet:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 133
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method

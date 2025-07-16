@@ -67,10 +67,6 @@
     .end annotation
 
     .line 29
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleOnErrorReturn;, "Lio/reactivex/internal/operators/single/SingleOnErrorReturn<TT;>;"
-    .local p1, "source":Lio/reactivex/SingleSource;, "Lio/reactivex/SingleSource<+TT;>;"
-    .local p2, "valueSupplier":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Ljava/lang/Throwable;+TT;>;"
-    .local p3, "value":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 30
@@ -82,7 +78,6 @@
     .line 32
     iput-object p3, p0, Lio/reactivex/internal/operators/single/SingleOnErrorReturn;->value:Ljava/lang/Object;
 
-    .line 33
     return-void
 .end method
 
@@ -99,8 +94,6 @@
     .end annotation
 
     .line 40
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleOnErrorReturn;, "Lio/reactivex/internal/operators/single/SingleOnErrorReturn<TT;>;"
-    .local p1, "s":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleOnErrorReturn;->source:Lio/reactivex/SingleSource;
 
     new-instance v1, Lio/reactivex/internal/operators/single/SingleOnErrorReturn$OnErrorReturn;
@@ -109,6 +102,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/SingleSource;->subscribe(Lio/reactivex/SingleObserver;)V
 
-    .line 41
     return-void
 .end method

@@ -44,7 +44,6 @@
 # direct methods
 .method constructor <init>([BLcom/bumptech/glide/load/model/ByteArrayLoader$Converter;)V
     .locals 0
-    .param p1, "model"    # [B
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([B",
@@ -54,8 +53,6 @@
     .end annotation
 
     .line 60
-    .local p0, "this":Lcom/bumptech/glide/load/model/ByteArrayLoader$Fetcher;, "Lcom/bumptech/glide/load/model/ByteArrayLoader$Fetcher<TData;>;"
-    .local p2, "converter":Lcom/bumptech/glide/load/model/ByteArrayLoader$Converter;, "Lcom/bumptech/glide/load/model/ByteArrayLoader$Converter<TData;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 61
@@ -64,7 +61,6 @@
     .line 62
     iput-object p2, p0, Lcom/bumptech/glide/load/model/ByteArrayLoader$Fetcher;->converter:Lcom/bumptech/glide/load/model/ByteArrayLoader$Converter;
 
-    .line 63
     return-void
 .end method
 
@@ -73,16 +69,12 @@
 .method public cancel()V
     .locals 0
 
-    .line 79
-    .local p0, "this":Lcom/bumptech/glide/load/model/ByteArrayLoader$Fetcher;, "Lcom/bumptech/glide/load/model/ByteArrayLoader$Fetcher<TData;>;"
     return-void
 .end method
 
 .method public cleanup()V
     .locals 0
 
-    .line 74
-    .local p0, "this":Lcom/bumptech/glide/load/model/ByteArrayLoader$Fetcher;, "Lcom/bumptech/glide/load/model/ByteArrayLoader$Fetcher<TData;>;"
     return-void
 .end method
 
@@ -97,7 +89,6 @@
     .end annotation
 
     .line 84
-    .local p0, "this":Lcom/bumptech/glide/load/model/ByteArrayLoader$Fetcher;, "Lcom/bumptech/glide/load/model/ByteArrayLoader$Fetcher<TData;>;"
     iget-object v0, p0, Lcom/bumptech/glide/load/model/ByteArrayLoader$Fetcher;->converter:Lcom/bumptech/glide/load/model/ByteArrayLoader$Converter;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/model/ByteArrayLoader$Converter;->getDataClass()Ljava/lang/Class;
@@ -111,15 +102,13 @@
     .locals 1
 
     .line 90
-    .local p0, "this":Lcom/bumptech/glide/load/model/ByteArrayLoader$Fetcher;, "Lcom/bumptech/glide/load/model/ByteArrayLoader$Fetcher<TData;>;"
     sget-object v0, Lcom/bumptech/glide/load/DataSource;->LOCAL:Lcom/bumptech/glide/load/DataSource;
 
     return-object v0
 .end method
 
 .method public loadData(Lcom/bumptech/glide/Priority;Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;)V
-    .locals 2
-    .param p1, "priority"    # Lcom/bumptech/glide/Priority;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -130,20 +119,16 @@
     .end annotation
 
     .line 67
-    .local p0, "this":Lcom/bumptech/glide/load/model/ByteArrayLoader$Fetcher;, "Lcom/bumptech/glide/load/model/ByteArrayLoader$Fetcher<TData;>;"
-    .local p2, "callback":Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;, "Lcom/bumptech/glide/load/data/DataFetcher$DataCallback<-TData;>;"
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/ByteArrayLoader$Fetcher;->converter:Lcom/bumptech/glide/load/model/ByteArrayLoader$Converter;
+    iget-object p1, p0, Lcom/bumptech/glide/load/model/ByteArrayLoader$Fetcher;->converter:Lcom/bumptech/glide/load/model/ByteArrayLoader$Converter;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/model/ByteArrayLoader$Fetcher;->model:[B
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/ByteArrayLoader$Fetcher;->model:[B
 
-    invoke-interface {v0, v1}, Lcom/bumptech/glide/load/model/ByteArrayLoader$Converter;->convert([B)Ljava/lang/Object;
+    invoke-interface {p1, v0}, Lcom/bumptech/glide/load/model/ByteArrayLoader$Converter;->convert([B)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 68
-    .local v0, "result":Ljava/lang/Object;, "TData;"
-    invoke-interface {p2, v0}, Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;->onDataReady(Ljava/lang/Object;)V
+    invoke-interface {p2, p1}, Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;->onDataReady(Ljava/lang/Object;)V
 
-    .line 69
     return-void
 .end method

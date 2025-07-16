@@ -26,25 +26,20 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
-        "\u0000\u0008\n\u0000\n\u0002\u0010\u000b\n\u0000\u0010\u0000\u001a\u00020\u0001H\n\u00a2\u0006\u0002\u0008\u0002"
+        "\u0000\u0006\n\u0000\n\u0002\u0010\u000b\u0010\u0000\u001a\u00020\u0001H\n"
     }
     d2 = {
         "<anonymous>",
-        "",
-        "invoke"
+        ""
     }
     k = 0x3
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -77,14 +72,33 @@
 
 
 # virtual methods
-.method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 1
+.method public final invoke()Ljava/lang/Boolean;
+    .locals 2
 
-    .line 104
-    invoke-virtual {p0}, Lorg/catrobat/paintroid/MainActivity$isRunningEspressoTests$2;->invoke()Z
+    :try_start_0
+    const-string v0, "androidx.test.espresso.Espresso"
 
-    move-result v0
+    .line 170
+    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    :try_end_0
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :catch_0
+    const-string v0, "MainActivity"
+
+    const-string v1, "Application is not in test mode."
+
+    .line 173
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x0
+
+    .line 174
+    :goto_0
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -92,44 +106,13 @@
     return-object v0
 .end method
 
-.method public final invoke()Z
-    .locals 3
+.method public bridge synthetic invoke()Ljava/lang/Object;
+    .locals 1
 
-    .line 151
-    nop
+    .line 168
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/MainActivity$isRunningEspressoTests$2;->invoke()Ljava/lang/Boolean;
 
-    .line 152
-    :try_start_0
-    const-string v0, "androidx.test.espresso.Espresso"
+    move-result-object v0
 
-    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 153
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    .line 154
-    :catch_0
-    move-exception v0
-
-    .line 155
-    .local v0, "e":Ljava/lang/ClassNotFoundException;
-    const-string v1, "MainActivity"
-
-    const-string v2, "Application is not in test mode."
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 156
-    const/4 v1, 0x0
-
-    move v0, v1
-
-    .line 151
-    .end local v0    # "e":Ljava/lang/ClassNotFoundException;
-    :goto_0
-    return v0
+    return-object v0
 .end method

@@ -49,22 +49,18 @@
     .end annotation
 
     .line 29
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableMap;, "Lio/reactivex/internal/operators/flowable/FlowableMap<TT;TU;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p2, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TU;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
     .line 30
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableMap;->mapper:Lio/reactivex/functions/Function;
 
-    .line 31
     return-void
 .end method
 
 
 # virtual methods
 .method protected subscribeActual(Lorg/reactivestreams/Subscriber;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -74,8 +70,6 @@
     .end annotation
 
     .line 35
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableMap;, "Lio/reactivex/internal/operators/flowable/FlowableMap<TT;TU;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TU;>;"
     instance-of v0, p1, Lio/reactivex/internal/fuseable/ConditionalSubscriber;
 
     if-eqz v0, :cond_0
@@ -85,13 +79,11 @@
 
     new-instance v1, Lio/reactivex/internal/operators/flowable/FlowableMap$MapConditionalSubscriber;
 
-    move-object v2, p1
+    check-cast p1, Lio/reactivex/internal/fuseable/ConditionalSubscriber;
 
-    check-cast v2, Lio/reactivex/internal/fuseable/ConditionalSubscriber;
+    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableMap;->mapper:Lio/reactivex/functions/Function;
 
-    iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableMap;->mapper:Lio/reactivex/functions/Function;
-
-    invoke-direct {v1, v2, v3}, Lio/reactivex/internal/operators/flowable/FlowableMap$MapConditionalSubscriber;-><init>(Lio/reactivex/internal/fuseable/ConditionalSubscriber;Lio/reactivex/functions/Function;)V
+    invoke-direct {v1, p1, v2}, Lio/reactivex/internal/operators/flowable/FlowableMap$MapConditionalSubscriber;-><init>(Lio/reactivex/internal/fuseable/ConditionalSubscriber;Lio/reactivex/functions/Function;)V
 
     invoke-virtual {v0, v1}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
@@ -109,7 +101,6 @@
 
     invoke-virtual {v0, v1}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 40
     :goto_0
     return-void
 .end method

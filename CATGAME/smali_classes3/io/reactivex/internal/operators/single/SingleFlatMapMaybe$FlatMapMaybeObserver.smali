@@ -64,9 +64,6 @@
     .end annotation
 
     .line 105
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleFlatMapMaybe$FlatMapMaybeObserver;, "Lio/reactivex/internal/operators/single/SingleFlatMapMaybe$FlatMapMaybeObserver<TR;>;"
-    .local p1, "parent":Ljava/util/concurrent/atomic/AtomicReference;, "Ljava/util/concurrent/atomic/AtomicReference<Lio/reactivex/disposables/Disposable;>;"
-    .local p2, "actual":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TR;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 106
@@ -75,7 +72,6 @@
     .line 107
     iput-object p2, p0, Lio/reactivex/internal/operators/single/SingleFlatMapMaybe$FlatMapMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
 
-    .line 108
     return-void
 .end method
 
@@ -85,40 +81,32 @@
     .locals 1
 
     .line 127
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleFlatMapMaybe$FlatMapMaybeObserver;, "Lio/reactivex/internal/operators/single/SingleFlatMapMaybe$FlatMapMaybeObserver<TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleFlatMapMaybe$FlatMapMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
 
     invoke-interface {v0}, Lio/reactivex/MaybeObserver;->onComplete()V
 
-    .line 128
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 122
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleFlatMapMaybe$FlatMapMaybeObserver;, "Lio/reactivex/internal/operators/single/SingleFlatMapMaybe$FlatMapMaybeObserver<TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleFlatMapMaybe$FlatMapMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
 
     invoke-interface {v0, p1}, Lio/reactivex/MaybeObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 123
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 112
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleFlatMapMaybe$FlatMapMaybeObserver;, "Lio/reactivex/internal/operators/single/SingleFlatMapMaybe$FlatMapMaybeObserver<TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleFlatMapMaybe$FlatMapMaybeObserver;->parent:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 113
     return-void
 .end method
 
@@ -131,12 +119,9 @@
     .end annotation
 
     .line 117
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleFlatMapMaybe$FlatMapMaybeObserver;, "Lio/reactivex/internal/operators/single/SingleFlatMapMaybe$FlatMapMaybeObserver<TR;>;"
-    .local p1, "value":Ljava/lang/Object;, "TR;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleFlatMapMaybe$FlatMapMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
 
     invoke-interface {v0, p1}, Lio/reactivex/MaybeObserver;->onSuccess(Ljava/lang/Object;)V
 
-    .line 118
     return-void
 .end method

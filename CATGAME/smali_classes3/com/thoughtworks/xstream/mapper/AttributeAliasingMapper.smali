@@ -6,20 +6,17 @@
 # direct methods
 .method public constructor <init>(Lcom/thoughtworks/xstream/mapper/Mapper;)V
     .locals 0
-    .param p1, "wrapped"    # Lcom/thoughtworks/xstream/mapper/Mapper;
 
     .line 26
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/mapper/AbstractAttributeAliasingMapper;-><init>(Lcom/thoughtworks/xstream/mapper/Mapper;)V
 
-    .line 27
     return-void
 .end method
 
 
 # virtual methods
 .method public aliasForAttribute(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
-    .param p1, "attribute"    # Ljava/lang/String;
+    .locals 1
 
     .line 30
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/AttributeAliasingMapper;->nameToAlias:Ljava/util/Map;
@@ -30,26 +27,19 @@
 
     check-cast v0, Ljava/lang/String;
 
-    .line 31
-    .local v0, "alias":Ljava/lang/String;
     if-nez v0, :cond_0
 
+    .line 31
     invoke-super {p0, p1}, Lcom/thoughtworks/xstream/mapper/AbstractAttributeAliasingMapper;->aliasForAttribute(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
-
-    goto :goto_0
+    move-result-object v0
 
     :cond_0
-    move-object v1, v0
-
-    :goto_0
-    return-object v1
+    return-object v0
 .end method
 
 .method public attributeForAlias(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
-    .param p1, "alias"    # Ljava/lang/String;
+    .locals 1
 
     .line 35
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/AttributeAliasingMapper;->aliasToName:Ljava/util/Map;
@@ -60,19 +50,13 @@
 
     check-cast v0, Ljava/lang/String;
 
-    .line 36
-    .local v0, "name":Ljava/lang/String;
     if-nez v0, :cond_0
 
+    .line 36
     invoke-super {p0, p1}, Lcom/thoughtworks/xstream/mapper/AbstractAttributeAliasingMapper;->attributeForAlias(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
-
-    goto :goto_0
+    move-result-object v0
 
     :cond_0
-    move-object v1, v0
-
-    :goto_0
-    return-object v1
+    return-object v0
 .end method

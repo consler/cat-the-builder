@@ -34,8 +34,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/Class;Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "_tag"    # Ljava/lang/String;
-    .param p3, "_args"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -48,7 +46,6 @@
     .end annotation
 
     .line 66
-    .local p2, "_class":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 67
@@ -60,6 +57,5 @@
     .line 69
     iput-object p3, p0, Landroidx/fragment/app/FragmentTabHost$TabInfo;->args:Landroid/os/Bundle;
 
-    .line 70
     return-void
 .end method

@@ -73,14 +73,11 @@
     .line 122
     invoke-virtual {p0}, Lcom/badlogic/gdx/math/collision/BoundingBox;->clr()Lcom/badlogic/gdx/math/collision/BoundingBox;
 
-    .line 123
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)V
     .locals 1
-    .param p1, "minimum"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "maximum"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 136
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -116,13 +113,11 @@
     .line 137
     invoke-virtual {p0, p1, p2}, Lcom/badlogic/gdx/math/collision/BoundingBox;->set(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
-    .line 138
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/math/collision/BoundingBox;)V
     .locals 1
-    .param p1, "bounds"    # Lcom/badlogic/gdx/math/collision/BoundingBox;
 
     .line 128
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -158,50 +153,36 @@
     .line 129
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->set(Lcom/badlogic/gdx/math/collision/BoundingBox;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
-    .line 130
     return-void
 .end method
 
 .method static final max(FF)F
     .locals 1
-    .param p0, "a"    # F
-    .param p1, "b"    # F
 
-    .line 327
     cmpl-float v0, p0, p1
 
     if-lez v0, :cond_0
 
-    move v0, p0
-
     goto :goto_0
 
     :cond_0
-    move v0, p1
+    move p0, p1
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method static final min(FF)F
     .locals 1
-    .param p0, "a"    # F
-    .param p1, "b"    # F
 
-    .line 323
     cmpl-float v0, p0, p1
 
     if-lez v0, :cond_0
 
-    move v0, p1
-
-    goto :goto_0
+    move p0, p1
 
     :cond_0
-    move v0, p0
-
-    :goto_0
-    return v0
+    return p0
 .end method
 
 
@@ -233,7 +214,6 @@
 
 .method public contains(Lcom/badlogic/gdx/math/Vector3;)Z
     .locals 2
-    .param p1, "v"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 304
     iget-object v0, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->min:Lcom/badlogic/gdx/math/Vector3;
@@ -290,26 +270,25 @@
 
     iget v0, v0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    iget v1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    cmpl-float v0, v0, v1
+    cmpl-float p1, v0, p1
 
-    if-ltz v0, :cond_0
+    if-ltz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public contains(Lcom/badlogic/gdx/math/collision/BoundingBox;)Z
     .locals 2
-    .param p1, "b"    # Lcom/badlogic/gdx/math/collision/BoundingBox;
 
     .line 275
     invoke-virtual {p0}, Lcom/badlogic/gdx/math/collision/BoundingBox;->isValid()Z
@@ -382,34 +361,31 @@
 
     iget v0, v0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    iget-object v1, p1, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p1, p1, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
 
-    iget v1, v1, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    cmpl-float v0, v0, v1
+    cmpl-float p1, v0, p1
 
-    if-ltz v0, :cond_0
+    if-ltz p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     :goto_1
-    return v0
+    return p1
 .end method
 
 .method public ext(FFF)Lcom/badlogic/gdx/math/collision/BoundingBox;
-    .locals 5
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "z"    # F
+    .locals 4
 
     .line 319
     iget-object v0, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->min:Lcom/badlogic/gdx/math/Vector3;
@@ -446,38 +422,37 @@
 
     invoke-static {v2, p1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->max(FF)F
 
-    move-result v2
+    move-result p1
 
-    iget-object v3, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v2, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
 
-    iget v3, v3, Lcom/badlogic/gdx/math/Vector3;->y:F
+    iget v2, v2, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    invoke-static {v3, p2}, Lcom/badlogic/gdx/math/collision/BoundingBox;->max(FF)F
+    invoke-static {v2, p2}, Lcom/badlogic/gdx/math/collision/BoundingBox;->max(FF)F
 
-    move-result v3
+    move-result p2
 
-    iget-object v4, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v2, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
 
-    iget v4, v4, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget v2, v2, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    invoke-static {v4, p3}, Lcom/badlogic/gdx/math/collision/BoundingBox;->max(FF)F
+    invoke-static {v2, p3}, Lcom/badlogic/gdx/math/collision/BoundingBox;->max(FF)F
 
-    move-result v4
+    move-result p3
 
-    invoke-virtual {v1, v2, v3, v4}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v1, p1, p2, p3}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {p0, v0, v1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->set(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
+    invoke-virtual {p0, v0, p1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->set(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
-    .locals 6
-    .param p1, "point"    # Lcom/badlogic/gdx/math/Vector3;
+    .locals 5
 
     .line 200
     iget-object v0, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->min:Lcom/badlogic/gdx/math/Vector3;
@@ -539,28 +514,26 @@
 
     iget v4, v4, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    iget v5, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    invoke-static {v4, v5}, Ljava/lang/Math;->max(FF)F
+    invoke-static {v4, p1}, Ljava/lang/Math;->max(FF)F
 
-    move-result v4
+    move-result p1
 
-    invoke-virtual {v1, v2, v3, v4}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v1, v2, v3, p1}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 200
-    invoke-virtual {p0, v0, v1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->set(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
+    invoke-virtual {p0, v0, p1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->set(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public ext(Lcom/badlogic/gdx/math/Vector3;F)Lcom/badlogic/gdx/math/collision/BoundingBox;
-    .locals 6
-    .param p1, "center"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "radius"    # F
+    .locals 5
 
     .line 231
     iget-object v0, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->min:Lcom/badlogic/gdx/math/Vector3;
@@ -632,29 +605,28 @@
 
     iget v4, v4, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    iget v5, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    add-float/2addr v5, p2
+    add-float/2addr p1, p2
 
-    invoke-static {v4, v5}, Lcom/badlogic/gdx/math/collision/BoundingBox;->max(FF)F
+    invoke-static {v4, p1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->max(FF)F
 
-    move-result v4
+    move-result p1
 
-    invoke-virtual {v1, v2, v3, v4}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v1, v2, v3, p1}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 231
-    invoke-virtual {p0, v0, v1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->set(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
+    invoke-virtual {p0, v0, p1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->set(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public ext(Lcom/badlogic/gdx/math/collision/BoundingBox;)Lcom/badlogic/gdx/math/collision/BoundingBox;
-    .locals 6
-    .param p1, "a_bounds"    # Lcom/badlogic/gdx/math/collision/BoundingBox;
+    .locals 5
 
     .line 221
     iget-object v0, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->min:Lcom/badlogic/gdx/math/Vector3;
@@ -726,30 +698,28 @@
 
     iget v4, v4, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    iget-object v5, p1, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p1, p1, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
 
-    iget v5, v5, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    invoke-static {v4, v5}, Lcom/badlogic/gdx/math/collision/BoundingBox;->max(FF)F
+    invoke-static {v4, p1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->max(FF)F
 
-    move-result v4
+    move-result p1
 
-    invoke-virtual {v1, v2, v3, v4}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v1, v2, v3, p1}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 221
-    invoke-virtual {p0, v0, v1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->set(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
+    invoke-virtual {p0, v0, p1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->set(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public ext(Lcom/badlogic/gdx/math/collision/BoundingBox;Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/collision/BoundingBox;
     .locals 4
-    .param p1, "bounds"    # Lcom/badlogic/gdx/math/collision/BoundingBox;
-    .param p2, "transform"    # Lcom/badlogic/gdx/math/Matrix4;
 
     .line 241
     sget-object v0, Lcom/badlogic/gdx/math/collision/BoundingBox;->tmpVector:Lcom/badlogic/gdx/math/Vector3;
@@ -768,17 +738,15 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v1, p2}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
+    invoke-virtual {p0, v1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
     .line 242
-    sget-object v0, Lcom/badlogic/gdx/math/collision/BoundingBox;->tmpVector:Lcom/badlogic/gdx/math/Vector3;
-
     iget-object v1, p1, Lcom/badlogic/gdx/math/collision/BoundingBox;->min:Lcom/badlogic/gdx/math/Vector3;
 
     iget v1, v1, Lcom/badlogic/gdx/math/Vector3;->x:F
@@ -793,17 +761,15 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v1, p2}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
+    invoke-virtual {p0, v1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
     .line 243
-    sget-object v0, Lcom/badlogic/gdx/math/collision/BoundingBox;->tmpVector:Lcom/badlogic/gdx/math/Vector3;
-
     iget-object v1, p1, Lcom/badlogic/gdx/math/collision/BoundingBox;->min:Lcom/badlogic/gdx/math/Vector3;
 
     iget v1, v1, Lcom/badlogic/gdx/math/Vector3;->x:F
@@ -818,17 +784,15 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v1, p2}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
+    invoke-virtual {p0, v1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
     .line 244
-    sget-object v0, Lcom/badlogic/gdx/math/collision/BoundingBox;->tmpVector:Lcom/badlogic/gdx/math/Vector3;
-
     iget-object v1, p1, Lcom/badlogic/gdx/math/collision/BoundingBox;->min:Lcom/badlogic/gdx/math/Vector3;
 
     iget v1, v1, Lcom/badlogic/gdx/math/Vector3;->x:F
@@ -843,17 +807,15 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v1, p2}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
+    invoke-virtual {p0, v1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
     .line 245
-    sget-object v0, Lcom/badlogic/gdx/math/collision/BoundingBox;->tmpVector:Lcom/badlogic/gdx/math/Vector3;
-
     iget-object v1, p1, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
 
     iget v1, v1, Lcom/badlogic/gdx/math/Vector3;->x:F
@@ -868,17 +830,15 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v1, p2}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
+    invoke-virtual {p0, v1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
     .line 246
-    sget-object v0, Lcom/badlogic/gdx/math/collision/BoundingBox;->tmpVector:Lcom/badlogic/gdx/math/Vector3;
-
     iget-object v1, p1, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
 
     iget v1, v1, Lcom/badlogic/gdx/math/Vector3;->x:F
@@ -893,17 +853,15 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v1, p2}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
+    invoke-virtual {p0, v1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
     .line 247
-    sget-object v0, Lcom/badlogic/gdx/math/collision/BoundingBox;->tmpVector:Lcom/badlogic/gdx/math/Vector3;
-
     iget-object v1, p1, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
 
     iget v1, v1, Lcom/badlogic/gdx/math/Vector3;->x:F
@@ -918,17 +876,15 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v1, p2}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
+    invoke-virtual {p0, v1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
     .line 248
-    sget-object v0, Lcom/badlogic/gdx/math/collision/BoundingBox;->tmpVector:Lcom/badlogic/gdx/math/Vector3;
-
     iget-object v1, p1, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
 
     iget v1, v1, Lcom/badlogic/gdx/math/Vector3;->x:F
@@ -937,36 +893,34 @@
 
     iget v2, v2, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    iget-object v3, p1, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p1, p1, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
 
-    iget v3, v3, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v0, v1, v2, p1}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
-    .line 249
     return-object p0
 .end method
 
 .method public getCenter(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
     .locals 1
-    .param p1, "out"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 43
     iget-object v0, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->cnt:Lcom/badlogic/gdx/math/Vector3;
 
     invoke-virtual {p1, v0}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getCenterX()F
@@ -1004,7 +958,6 @@
 
 .method public getCorner000(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
     .locals 3
-    .param p1, "out"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 59
     iget-object v0, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->min:Lcom/badlogic/gdx/math/Vector3;
@@ -1021,14 +974,13 @@
 
     invoke-virtual {p1, v0, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getCorner001(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
     .locals 3
-    .param p1, "out"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 63
     iget-object v0, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->min:Lcom/badlogic/gdx/math/Vector3;
@@ -1045,14 +997,13 @@
 
     invoke-virtual {p1, v0, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getCorner010(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
     .locals 3
-    .param p1, "out"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 67
     iget-object v0, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->min:Lcom/badlogic/gdx/math/Vector3;
@@ -1069,14 +1020,13 @@
 
     invoke-virtual {p1, v0, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getCorner011(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
     .locals 3
-    .param p1, "out"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 71
     iget-object v0, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->min:Lcom/badlogic/gdx/math/Vector3;
@@ -1093,14 +1043,13 @@
 
     invoke-virtual {p1, v0, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getCorner100(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
     .locals 3
-    .param p1, "out"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 75
     iget-object v0, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
@@ -1117,14 +1066,13 @@
 
     invoke-virtual {p1, v0, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getCorner101(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
     .locals 3
-    .param p1, "out"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 79
     iget-object v0, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
@@ -1141,14 +1089,13 @@
 
     invoke-virtual {p1, v0, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getCorner110(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
     .locals 3
-    .param p1, "out"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 83
     iget-object v0, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
@@ -1165,14 +1112,13 @@
 
     invoke-virtual {p1, v0, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getCorner111(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
     .locals 3
-    .param p1, "out"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 87
     iget-object v0, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
@@ -1189,9 +1135,9 @@
 
     invoke-virtual {p1, v0, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getDepth()F
@@ -1207,16 +1153,15 @@
 
 .method public getDimensions(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
     .locals 1
-    .param p1, "out"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 93
     iget-object v0, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->dim:Lcom/badlogic/gdx/math/Vector3;
 
     invoke-virtual {p1, v0}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getHeight()F
@@ -1232,30 +1177,28 @@
 
 .method public getMax(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
     .locals 1
-    .param p1, "out"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 117
     iget-object v0, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
 
     invoke-virtual {p1, v0}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getMin(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
     .locals 1
-    .param p1, "out"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 111
     iget-object v0, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->min:Lcom/badlogic/gdx/math/Vector3;
 
     invoke-virtual {p1, v0}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getWidth()F
@@ -1298,13 +1241,11 @@
 
     invoke-virtual {v0, v1, v1, v1}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    .line 193
     return-object p0
 .end method
 
 .method public intersects(Lcom/badlogic/gdx/math/collision/BoundingBox;)Z
-    .locals 9
-    .param p1, "b"    # Lcom/badlogic/gdx/math/collision/BoundingBox;
+    .locals 8
 
     .line 283
     invoke-virtual {p0}, Lcom/badlogic/gdx/math/collision/BoundingBox;->isValid()Z
@@ -1334,7 +1275,6 @@
     move-result v0
 
     .line 288
-    .local v0, "lx":F
     iget-object v2, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->dim:Lcom/badlogic/gdx/math/Vector3;
 
     iget v2, v2, Lcom/badlogic/gdx/math/Vector3;->x:F
@@ -1352,7 +1292,6 @@
     add-float/2addr v2, v4
 
     .line 290
-    .local v2, "sumx":F
     iget-object v4, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->cnt:Lcom/badlogic/gdx/math/Vector3;
 
     iget v4, v4, Lcom/badlogic/gdx/math/Vector3;->y:F
@@ -1368,7 +1307,6 @@
     move-result v4
 
     .line 291
-    .local v4, "ly":F
     iget-object v5, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->dim:Lcom/badlogic/gdx/math/Vector3;
 
     iget v5, v5, Lcom/badlogic/gdx/math/Vector3;->y:F
@@ -1384,7 +1322,6 @@
     add-float/2addr v5, v6
 
     .line 293
-    .local v5, "sumy":F
     iget-object v6, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->cnt:Lcom/badlogic/gdx/math/Vector3;
 
     iget v6, v6, Lcom/badlogic/gdx/math/Vector3;->z:F
@@ -1400,34 +1337,31 @@
     move-result v6
 
     .line 294
-    .local v6, "lz":F
     iget-object v7, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->dim:Lcom/badlogic/gdx/math/Vector3;
 
     iget v7, v7, Lcom/badlogic/gdx/math/Vector3;->z:F
 
     div-float/2addr v7, v3
 
-    iget-object v8, p1, Lcom/badlogic/gdx/math/collision/BoundingBox;->dim:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p1, p1, Lcom/badlogic/gdx/math/collision/BoundingBox;->dim:Lcom/badlogic/gdx/math/Vector3;
 
-    iget v8, v8, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    div-float/2addr v8, v3
+    div-float/2addr p1, v3
 
-    add-float/2addr v7, v8
+    add-float/2addr v7, p1
 
-    .line 296
-    .local v7, "sumz":F
-    cmpg-float v3, v0, v2
+    cmpg-float p1, v0, v2
 
-    if-gtz v3, :cond_1
+    if-gtz p1, :cond_1
 
-    cmpg-float v3, v4, v5
+    cmpg-float p1, v4, v5
 
-    if-gtz v3, :cond_1
+    if-gtz p1, :cond_1
 
-    cmpg-float v3, v6, v7
+    cmpg-float p1, v6, v7
 
-    if-gtz v3, :cond_1
+    if-gtz p1, :cond_1
 
     const/4 v1, 0x1
 
@@ -1487,41 +1421,34 @@
 .end method
 
 .method public mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/collision/BoundingBox;
-    .locals 7
-    .param p1, "transform"    # Lcom/badlogic/gdx/math/Matrix4;
+    .locals 8
 
     .line 258
     iget-object v0, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->min:Lcom/badlogic/gdx/math/Vector3;
 
     iget v0, v0, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    .local v0, "x0":F
     iget-object v1, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->min:Lcom/badlogic/gdx/math/Vector3;
 
     iget v1, v1, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    .local v1, "y0":F
     iget-object v2, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->min:Lcom/badlogic/gdx/math/Vector3;
 
     iget v2, v2, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    .local v2, "z0":F
     iget-object v3, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
 
     iget v3, v3, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    .local v3, "x1":F
     iget-object v4, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
 
     iget v4, v4, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    .local v4, "y1":F
     iget-object v5, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
 
     iget v5, v5, Lcom/badlogic/gdx/math/Vector3;->z:F
 
     .line 259
-    .local v5, "z1":F
     invoke-virtual {p0}, Lcom/badlogic/gdx/math/collision/BoundingBox;->inf()Lcom/badlogic/gdx/math/collision/BoundingBox;
 
     .line 260
@@ -1529,113 +1456,96 @@
 
     invoke-virtual {v6, v0, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, p1}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v7, p1}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {p0, v6}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
+    invoke-virtual {p0, v7}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
     .line 261
-    sget-object v6, Lcom/badlogic/gdx/math/collision/BoundingBox;->tmpVector:Lcom/badlogic/gdx/math/Vector3;
-
     invoke-virtual {v6, v0, v1, v5}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, p1}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v7, p1}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {p0, v6}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
+    invoke-virtual {p0, v7}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
     .line 262
-    sget-object v6, Lcom/badlogic/gdx/math/collision/BoundingBox;->tmpVector:Lcom/badlogic/gdx/math/Vector3;
-
     invoke-virtual {v6, v0, v4, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, p1}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v7, p1}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {p0, v6}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
+    invoke-virtual {p0, v7}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
     .line 263
-    sget-object v6, Lcom/badlogic/gdx/math/collision/BoundingBox;->tmpVector:Lcom/badlogic/gdx/math/Vector3;
-
     invoke-virtual {v6, v0, v4, v5}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v6
+    move-result-object v0
 
-    invoke-virtual {v6, p1}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v6
+    move-result-object v0
 
-    invoke-virtual {p0, v6}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
+    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
     .line 264
-    sget-object v6, Lcom/badlogic/gdx/math/collision/BoundingBox;->tmpVector:Lcom/badlogic/gdx/math/Vector3;
-
     invoke-virtual {v6, v3, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v6
+    move-result-object v0
 
-    invoke-virtual {v6, p1}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v6
+    move-result-object v0
 
-    invoke-virtual {p0, v6}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
+    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
     .line 265
-    sget-object v6, Lcom/badlogic/gdx/math/collision/BoundingBox;->tmpVector:Lcom/badlogic/gdx/math/Vector3;
-
     invoke-virtual {v6, v3, v1, v5}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v6
+    move-result-object v0
 
-    invoke-virtual {v6, p1}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v6
+    move-result-object v0
 
-    invoke-virtual {p0, v6}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
+    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
     .line 266
-    sget-object v6, Lcom/badlogic/gdx/math/collision/BoundingBox;->tmpVector:Lcom/badlogic/gdx/math/Vector3;
-
     invoke-virtual {v6, v3, v4, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v6
+    move-result-object v0
 
-    invoke-virtual {v6, p1}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v6
+    move-result-object v0
 
-    invoke-virtual {p0, v6}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
+    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
     .line 267
-    sget-object v6, Lcom/badlogic/gdx/math/collision/BoundingBox;->tmpVector:Lcom/badlogic/gdx/math/Vector3;
-
     invoke-virtual {v6, v3, v4, v5}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v6
+    move-result-object v0
 
-    invoke-virtual {v6, p1}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v6
+    move-result-object p1
 
-    invoke-virtual {p0, v6}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
-    .line 268
     return-object p0
 .end method
 
 .method public set(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
     .locals 5
-    .param p1, "minimum"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "maximum"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 154
     iget-object v0, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->min:Lcom/badlogic/gdx/math/Vector3;
@@ -1733,70 +1643,68 @@
 
     if-lez v3, :cond_5
 
-    iget v3, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
     goto :goto_5
 
     :cond_5
-    iget v3, p2, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p2, Lcom/badlogic/gdx/math/Vector3;->z:F
 
     :goto_5
-    invoke-virtual {v0, v1, v2, v3}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v0, v1, v2, p1}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
     .line 158
-    iget-object v0, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->cnt:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p1, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->cnt:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->min:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p2, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->min:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p2, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector3;->add(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/math/Vector3;->add(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/high16 v1, 0x3f000000    # 0.5f
+    const/high16 p2, 0x3f000000    # 0.5f
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
 
     .line 159
-    iget-object v0, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->dim:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p1, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->dim:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p2, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->min:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p2, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->min:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector3;->sub(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/math/Vector3;->sub(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    .line 160
     return-object p0
 .end method
 
 .method public set(Lcom/badlogic/gdx/math/collision/BoundingBox;)Lcom/badlogic/gdx/math/collision/BoundingBox;
-    .locals 2
-    .param p1, "bounds"    # Lcom/badlogic/gdx/math/collision/BoundingBox;
+    .locals 1
 
     .line 145
     iget-object v0, p1, Lcom/badlogic/gdx/math/collision/BoundingBox;->min:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v1, p1, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p1, p1, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {p0, v0, v1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->set(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
+    invoke-virtual {p0, v0, p1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->set(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public set(Ljava/util/List;)Lcom/badlogic/gdx/math/collision/BoundingBox;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1808,42 +1716,37 @@
     .end annotation
 
     .line 179
-    .local p1, "points":Ljava/util/List;, "Ljava/util/List<Lcom/badlogic/gdx/math/Vector3;>;"
     invoke-virtual {p0}, Lcom/badlogic/gdx/math/collision/BoundingBox;->inf()Lcom/badlogic/gdx/math/collision/BoundingBox;
 
     .line 180
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/badlogic/gdx/math/Vector3;
+    check-cast v0, Lcom/badlogic/gdx/math/Vector3;
 
     .line 181
-    .local v1, "l_point":Lcom/badlogic/gdx/math/Vector3;
-    invoke-virtual {p0, v1}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
+    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
     goto :goto_0
 
-    .line 182
-    .end local v1    # "l_point":Lcom/badlogic/gdx/math/Vector3;
     :cond_0
     return-object p0
 .end method
 
 .method public set([Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
     .locals 3
-    .param p1, "points"    # [Lcom/badlogic/gdx/math/Vector3;
 
     .line 168
     invoke-virtual {p0}, Lcom/badlogic/gdx/math/collision/BoundingBox;->inf()Lcom/badlogic/gdx/math/collision/BoundingBox;
@@ -1859,16 +1762,12 @@
     aget-object v2, p1, v1
 
     .line 170
-    .local v2, "l_point":Lcom/badlogic/gdx/math/Vector3;
     invoke-virtual {p0, v2}, Lcom/badlogic/gdx/math/collision/BoundingBox;->ext(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/collision/BoundingBox;
 
-    .line 169
-    .end local v2    # "l_point":Lcom/badlogic/gdx/math/Vector3;
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 171
     :cond_0
     return-object p0
 .end method
@@ -1879,27 +1778,33 @@
     .line 309
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "["
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v1, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->min:Lcom/badlogic/gdx/math/Vector3;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "|"
+    move-result-object v0
+
+    const-string v1, "|"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Lcom/badlogic/gdx/math/collision/BoundingBox;->max:Lcom/badlogic/gdx/math/Vector3;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

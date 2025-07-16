@@ -31,9 +31,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 123
     const-string v0, "_data"
 
+    .line 123
     filled-new-array {v0}, [Ljava/lang/String;
 
     move-result-object v0
@@ -45,7 +45,6 @@
 
 .method constructor <init>(Landroid/content/ContentResolver;)V
     .locals 0
-    .param p1, "contentResolver"    # Landroid/content/ContentResolver;
 
     .line 119
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,44 +52,41 @@
     .line 120
     iput-object p1, p0, Lcom/bumptech/glide/load/data/mediastore/ThumbFetcher$VideoThumbnailQuery;->contentResolver:Landroid/content/ContentResolver;
 
-    .line 121
     return-void
 .end method
 
 
 # virtual methods
 .method public query(Landroid/net/Uri;)Landroid/database/Cursor;
-    .locals 7
-    .param p1, "uri"    # Landroid/net/Uri;
+    .locals 6
 
     .line 134
     invoke-virtual {p1}, Landroid/net/Uri;->getLastPathSegment()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 135
-    .local v0, "videoId":Ljava/lang/String;
-    iget-object v1, p0, Lcom/bumptech/glide/load/data/mediastore/ThumbFetcher$VideoThumbnailQuery;->contentResolver:Landroid/content/ContentResolver;
+    iget-object v0, p0, Lcom/bumptech/glide/load/data/mediastore/ThumbFetcher$VideoThumbnailQuery;->contentResolver:Landroid/content/ContentResolver;
 
-    sget-object v2, Landroid/provider/MediaStore$Video$Thumbnails;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
+    sget-object v1, Landroid/provider/MediaStore$Video$Thumbnails;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-    sget-object v3, Lcom/bumptech/glide/load/data/mediastore/ThumbFetcher$VideoThumbnailQuery;->PATH_PROJECTION:[Ljava/lang/String;
+    sget-object v2, Lcom/bumptech/glide/load/data/mediastore/ThumbFetcher$VideoThumbnailQuery;->PATH_PROJECTION:[Ljava/lang/String;
+
+    const-string v3, "kind = 1 AND video_id = ?"
 
     const/4 v4, 0x1
 
-    new-array v5, v4, [Ljava/lang/String;
+    new-array v4, v4, [Ljava/lang/String;
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    aput-object v0, v5, v4
+    aput-object p1, v4, v5
 
-    const-string v4, "kind = 1 AND video_id = ?"
+    const/4 v5, 0x0
 
-    const/4 v6, 0x0
+    invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
-    invoke-virtual/range {v1 .. v6}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+    move-result-object p1
 
-    move-result-object v1
-
-    return-object v1
+    return-object p1
 .end method

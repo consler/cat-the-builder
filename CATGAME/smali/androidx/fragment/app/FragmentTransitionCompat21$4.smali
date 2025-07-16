@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/FragmentTransitionCompat21;Ljava/lang/Runnable;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/fragment/app/FragmentTransitionCompat21;
 
     .line 271
     iput-object p1, p0, Landroidx/fragment/app/FragmentTransitionCompat21$4;->this$0:Landroidx/fragment/app/FragmentTransitionCompat21;
@@ -42,45 +41,35 @@
 # virtual methods
 .method public onTransitionCancel(Landroid/transition/Transition;)V
     .locals 0
-    .param p1, "transition"    # Landroid/transition/Transition;
 
-    .line 281
     return-void
 .end method
 
 .method public onTransitionEnd(Landroid/transition/Transition;)V
-    .locals 1
-    .param p1, "transition"    # Landroid/transition/Transition;
+    .locals 0
 
     .line 277
-    iget-object v0, p0, Landroidx/fragment/app/FragmentTransitionCompat21$4;->val$transitionCompleteRunnable:Ljava/lang/Runnable;
+    iget-object p1, p0, Landroidx/fragment/app/FragmentTransitionCompat21$4;->val$transitionCompleteRunnable:Ljava/lang/Runnable;
 
-    invoke-interface {v0}, Ljava/lang/Runnable;->run()V
+    invoke-interface {p1}, Ljava/lang/Runnable;->run()V
 
-    .line 278
     return-void
 .end method
 
 .method public onTransitionPause(Landroid/transition/Transition;)V
     .locals 0
-    .param p1, "transition"    # Landroid/transition/Transition;
 
-    .line 284
     return-void
 .end method
 
 .method public onTransitionResume(Landroid/transition/Transition;)V
     .locals 0
-    .param p1, "transition"    # Landroid/transition/Transition;
 
-    .line 287
     return-void
 .end method
 
 .method public onTransitionStart(Landroid/transition/Transition;)V
     .locals 0
-    .param p1, "transition"    # Landroid/transition/Transition;
 
-    .line 273
     return-void
 .end method

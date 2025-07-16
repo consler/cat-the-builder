@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/socketio/SocketIOConnection;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/socketio/SocketIOConnection;
 
     .line 375
     iput-object p1, p0, Lcom/koushikdutta/async/http/socketio/SocketIOConnection$12;->this$0:Lcom/koushikdutta/async/http/socketio/SocketIOConnection;
@@ -38,7 +37,6 @@
 # virtual methods
 .method public onCompleted(Ljava/lang/Exception;)V
     .locals 2
-    .param p1, "ex"    # Ljava/lang/Exception;
 
     .line 378
     iget-object v0, p0, Lcom/koushikdutta/async/http/socketio/SocketIOConnection$12;->this$0:Lcom/koushikdutta/async/http/socketio/SocketIOConnection;
@@ -52,6 +50,5 @@
 
     invoke-static {v0, p1}, Lcom/koushikdutta/async/http/socketio/SocketIOConnection;->access$000(Lcom/koushikdutta/async/http/socketio/SocketIOConnection;Ljava/lang/Exception;)V
 
-    .line 380
     return-void
 .end method

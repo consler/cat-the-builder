@@ -42,24 +42,22 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 991
     const/4 v0, 0x0
 
     new-array v0, v0, [B
 
+    .line 991
     sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->EMPTY_BYTE_ARRAY:[B
 
     return-void
 .end method
 
 .method constructor <init>(I)V
-    .locals 2
-    .param p1, "initialCapacity"    # I
+    .locals 1
 
     .line 1008
     invoke-direct {p0}, Ljava/io/OutputStream;-><init>()V
 
-    .line 1009
     if-ltz p1, :cond_0
 
     .line 1012
@@ -73,51 +71,45 @@
     iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->flushedBuffers:Ljava/util/ArrayList;
 
     .line 1014
-    new-array v0, p1, [B
+    new-array p1, p1, [B
 
-    iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->buffer:[B
+    iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->buffer:[B
 
-    .line 1015
     return-void
 
     .line 1010
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Buffer size < 0"
+    const-string v0, "Buffer size < 0"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method private copyArray([BI)[B
-    .locals 3
-    .param p1, "buffer"    # [B
-    .param p2, "length"    # I
+    .locals 2
 
     .line 1058
     new-array v0, p2, [B
 
     .line 1059
-    .local v0, "result":[B
     array-length v1, p1
 
     invoke-static {v1, p2}, Ljava/lang/Math;->min(II)I
 
-    move-result v1
+    move-result p2
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {p1, v2, v0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p1, v1, v0, v1, p2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 1060
     return-object v0
 .end method
 
 .method private flushFullBuffer(I)V
     .locals 3
-    .param p1, "minSize"    # I
 
     .line 1119
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->flushedBuffers:Ljava/util/ArrayList;
@@ -148,24 +140,22 @@
 
     invoke-static {p1, v0}, Ljava/lang/Math;->max(II)I
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
+    invoke-static {v1, p1}, Ljava/lang/Math;->max(II)I
 
-    move-result v0
+    move-result p1
 
     .line 1125
-    .local v0, "newSize":I
-    new-array v1, v0, [B
+    new-array p1, p1, [B
 
-    iput-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->buffer:[B
+    iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->buffer:[B
+
+    const/4 p1, 0x0
 
     .line 1126
-    const/4 v1, 0x0
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->bufferPos:I
 
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->bufferPos:I
-
-    .line 1127
     return-void
 .end method
 
@@ -181,7 +171,6 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 1135
     if-lez v0, :cond_1
 
     .line 1136
@@ -190,7 +179,6 @@
     move-result-object v0
 
     .line 1137
-    .local v0, "bufferCopy":[B
     iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->flushedBuffers:Ljava/util/ArrayList;
 
     new-instance v2, Lcom/google/crypto/tink/shaded/protobuf/ByteString$LiteralByteString;
@@ -199,8 +187,6 @@
 
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1138
-    .end local v0    # "bufferCopy":[B
     goto :goto_0
 
     .line 1142
@@ -231,12 +217,11 @@
 
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->flushedBuffersTotalBytes:I
 
-    .line 1151
     const/4 v0, 0x0
 
+    .line 1151
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->bufferPos:I
 
-    .line 1152
     return-void
 .end method
 
@@ -253,9 +238,9 @@
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    .line 1103
     const/4 v0, 0x0
 
+    .line 1103
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->flushedBuffersTotalBytes:I
 
     .line 1104
@@ -268,8 +253,6 @@
 
     return-void
 
-    .line 1101
-    .end local p0    # "this":Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;
     :catchall_0
     move-exception v0
 
@@ -297,8 +280,6 @@
 
     return v0
 
-    .line 1094
-    .end local p0    # "this":Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;
     :catchall_0
     move-exception v0
 
@@ -329,8 +310,6 @@
 
     return-object v0
 
-    .line 1051
-    .end local p0    # "this":Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;
     :catchall_0
     move-exception v0
 
@@ -342,7 +321,6 @@
 .method public toString()Ljava/lang/String;
     .locals 3
 
-    .line 1109
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -372,9 +350,9 @@
 
     aput-object v1, v0, v2
 
-    .line 1109
     const-string v1, "<ByteString.Output@%s size=%d>"
 
+    .line 1109
     invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
@@ -384,7 +362,6 @@
 
 .method public declared-synchronized write(I)V
     .locals 3
-    .param p1, "b"    # I
 
     monitor-enter p0
 
@@ -398,13 +375,12 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 1020
     const/4 v0, 0x1
 
+    .line 1020
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->flushFullBuffer(I)V
 
     .line 1022
-    .end local p0    # "this":Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;
     :cond_0
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->buffer:[B
 
@@ -414,9 +390,9 @@
 
     iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->bufferPos:I
 
-    int-to-byte v2, p1
+    int-to-byte p1, p1
 
-    aput-byte v2, v0, v1
+    aput-byte p1, v0, v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -425,8 +401,6 @@
 
     return-void
 
-    .line 1018
-    .end local p1    # "b":I
     :catchall_0
     move-exception p1
 
@@ -437,9 +411,6 @@
 
 .method public declared-synchronized write([BII)V
     .locals 3
-    .param p1, "b"    # [B
-    .param p2, "offset"    # I
-    .param p3, "length"    # I
 
     monitor-enter p0
 
@@ -447,64 +418,48 @@
     :try_start_0
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->buffer:[B
 
-    array-length v0, v0
+    array-length v1, v0
 
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->bufferPos:I
+    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->bufferPos:I
 
-    sub-int/2addr v0, v1
+    sub-int/2addr v1, v2
 
-    if-gt p3, v0, :cond_0
+    if-gt p3, v1, :cond_0
 
     .line 1029
-    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->buffer:[B
-
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->bufferPos:I
-
-    invoke-static {p1, p2, v0, v1, p3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p1, p2, v0, v2, p3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 1030
-    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->bufferPos:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->bufferPos:I
 
-    add-int/2addr v0, p3
+    add-int/2addr p1, p3
 
-    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->bufferPos:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->bufferPos:I
 
     goto :goto_0
 
     .line 1033
-    .end local p0    # "this":Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;
     :cond_0
-    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->buffer:[B
+    array-length v1, v0
 
-    array-length v0, v0
-
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->bufferPos:I
-
-    sub-int/2addr v0, v1
+    sub-int/2addr v1, v2
 
     .line 1034
-    .local v0, "copySize":I
-    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->buffer:[B
+    invoke-static {p1, p2, v0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->bufferPos:I
+    add-int/2addr p2, v1
 
-    invoke-static {p1, p2, v1, v2, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    .line 1035
-    add-int/2addr p2, v0
-
-    .line 1036
-    sub-int/2addr p3, v0
+    sub-int/2addr p3, v1
 
     .line 1039
     invoke-direct {p0, p3}, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->flushFullBuffer(I)V
 
     .line 1040
-    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->buffer:[B
+    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->buffer:[B
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {p1, p2, v1, v2, p3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p1, p2, v0, v1, p3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 1041
     iput p3, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->bufferPos:I
@@ -512,16 +467,11 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1043
-    .end local v0    # "copySize":I
     :goto_0
     monitor-exit p0
 
     return-void
 
-    .line 1026
-    .end local p1    # "b":[B
-    .end local p2    # "offset":I
-    .end local p3    # "length":I
     :catchall_0
     move-exception p1
 
@@ -532,7 +482,6 @@
 
 .method public writeTo(Ljava/io/OutputStream;)V
     .locals 6
-    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -546,9 +495,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->flushedBuffers:Ljava/util/ArrayList;
 
-    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->flushedBuffers:Ljava/util/ArrayList;
-
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
@@ -561,15 +508,12 @@
     check-cast v0, [Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     .line 1078
-    .local v0, "cachedFlushBuffers":[Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->buffer:[B
 
     .line 1079
-    .local v1, "cachedBuffer":[B
     iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->bufferPos:I
 
     .line 1080
-    .local v2, "cachedBufferPos":I
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -585,11 +529,8 @@
     aget-object v5, v0, v4
 
     .line 1082
-    .local v5, "byteString":Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     invoke-virtual {v5, p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->writeTo(Ljava/io/OutputStream;)V
 
-    .line 1081
-    .end local v5    # "byteString":Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
@@ -598,24 +539,20 @@
     :cond_0
     invoke-direct {p0, v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/ByteString$Output;->copyArray([BI)[B
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {p1, v3}, Ljava/io/OutputStream;->write([B)V
+    invoke-virtual {p1, v0}, Ljava/io/OutputStream;->write([B)V
 
-    .line 1086
     return-void
 
-    .line 1080
-    .end local v0    # "cachedFlushBuffers":[Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-    .end local v1    # "cachedBuffer":[B
-    .end local v2    # "cachedBufferPos":I
     :catchall_0
-    move-exception v0
+    move-exception p1
 
+    .line 1080
     :try_start_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw p1
 .end method

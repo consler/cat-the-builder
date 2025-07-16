@@ -70,10 +70,8 @@
     .line 52
     monitor-exit v0
 
-    .line 53
     return-void
 
-    .line 52
     :catchall_0
     move-exception v1
 
@@ -85,7 +83,7 @@
 .end method
 
 .method public get(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;)Ljava/util/List;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -102,9 +100,6 @@
     .end annotation
 
     .line 24
-    .local p1, "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p2, "resourceClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p3, "transcodeClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     iget-object v0, p0, Lcom/bumptech/glide/provider/ModelToResourceClassCache;->resourceClassKeyRef:Ljava/util/concurrent/atomic/AtomicReference;
 
     const/4 v1, 0x0
@@ -115,16 +110,12 @@
 
     check-cast v0, Lcom/bumptech/glide/util/MultiClassKey;
 
-    .line 25
-    .local v0, "key":Lcom/bumptech/glide/util/MultiClassKey;
     if-nez v0, :cond_0
 
     .line 26
-    new-instance v1, Lcom/bumptech/glide/util/MultiClassKey;
+    new-instance v0, Lcom/bumptech/glide/util/MultiClassKey;
 
-    invoke-direct {v1, p1, p2, p3}, Lcom/bumptech/glide/util/MultiClassKey;-><init>(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;)V
-
-    move-object v0, v1
+    invoke-direct {v0, p1, p2, p3}, Lcom/bumptech/glide/util/MultiClassKey;-><init>(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;)V
 
     goto :goto_0
 
@@ -134,45 +125,42 @@
 
     .line 31
     :goto_0
-    iget-object v1, p0, Lcom/bumptech/glide/provider/ModelToResourceClassCache;->registeredResourceClassCache:Landroidx/collection/ArrayMap;
+    iget-object p1, p0, Lcom/bumptech/glide/provider/ModelToResourceClassCache;->registeredResourceClassCache:Landroidx/collection/ArrayMap;
 
-    monitor-enter v1
+    monitor-enter p1
 
     .line 32
     :try_start_0
-    iget-object v2, p0, Lcom/bumptech/glide/provider/ModelToResourceClassCache;->registeredResourceClassCache:Landroidx/collection/ArrayMap;
+    iget-object p2, p0, Lcom/bumptech/glide/provider/ModelToResourceClassCache;->registeredResourceClassCache:Landroidx/collection/ArrayMap;
 
-    invoke-virtual {v2, v0}, Landroidx/collection/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p2, v0}, Landroidx/collection/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p2
 
-    check-cast v2, Ljava/util/List;
+    check-cast p2, Ljava/util/List;
 
     .line 33
-    .local v2, "result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Class<*>;>;"
-    monitor-exit v1
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 34
-    iget-object v1, p0, Lcom/bumptech/glide/provider/ModelToResourceClassCache;->resourceClassKeyRef:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object p1, p0, Lcom/bumptech/glide/provider/ModelToResourceClassCache;->resourceClassKeyRef:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v1, v0}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
+    invoke-virtual {p1, v0}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
 
-    .line 35
-    return-object v2
+    return-object p2
+
+    :catchall_0
+    move-exception p2
 
     .line 33
-    .end local v2    # "result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Class<*>;>;"
-    :catchall_0
-    move-exception v2
-
     :try_start_1
-    monitor-exit v1
+    monitor-exit p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v2
+    throw p2
 .end method
 
 .method public put(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;Ljava/util/List;)V
@@ -193,10 +181,6 @@
     .end annotation
 
     .line 43
-    .local p1, "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p2, "resourceClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p3, "transcodeClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p4, "resourceClasses":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Class<*>;>;"
     iget-object v0, p0, Lcom/bumptech/glide/provider/ModelToResourceClassCache;->registeredResourceClassCache:Landroidx/collection/ArrayMap;
 
     monitor-enter v0
@@ -214,16 +198,14 @@
     .line 46
     monitor-exit v0
 
-    .line 47
     return-void
 
-    .line 46
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method

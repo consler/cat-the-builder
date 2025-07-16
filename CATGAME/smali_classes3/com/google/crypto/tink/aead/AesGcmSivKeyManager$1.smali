@@ -36,7 +36,6 @@
     .end annotation
 
     .line 47
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<Lcom/google/crypto/tink/Aead;>;"
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;-><init>(Ljava/lang/Class;)V
 
     return-void
@@ -45,8 +44,7 @@
 
 # virtual methods
 .method public getPrimitive(Lcom/google/crypto/tink/proto/AesGcmSivKey;)Lcom/google/crypto/tink/Aead;
-    .locals 2
-    .param p1, "key"    # Lcom/google/crypto/tink/proto/AesGcmSivKey;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -67,13 +65,13 @@
 
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/AesGcmSivKey;->getKeyValue()Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->toByteArray()[B
+    invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->toByteArray()[B
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Lcom/google/crypto/tink/aead/subtle/AesGcmSiv;-><init>([B)V
+    invoke-direct {v0, p1}, Lcom/google/crypto/tink/aead/subtle/AesGcmSiv;-><init>([B)V
 
     return-object v0
 .end method

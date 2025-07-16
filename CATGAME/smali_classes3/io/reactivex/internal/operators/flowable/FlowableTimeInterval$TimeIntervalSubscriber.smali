@@ -54,8 +54,6 @@
 # direct methods
 .method constructor <init>(Lorg/reactivestreams/Subscriber;Ljava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)V
     .locals 0
-    .param p2, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p3, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -70,8 +68,6 @@
     .end annotation
 
     .line 49
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-Lio/reactivex/schedulers/Timed<TT;>;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 50
@@ -83,7 +79,6 @@
     .line 52
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber;->unit:Ljava/util/concurrent/TimeUnit;
 
-    .line 53
     return-void
 .end method
 
@@ -93,12 +88,10 @@
     .locals 1
 
     .line 90
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
 
-    .line 91
     return-void
 .end method
 
@@ -106,31 +99,26 @@
     .locals 1
 
     .line 80
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 81
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 75
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 76
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 9
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -138,8 +126,6 @@
     .end annotation
 
     .line 66
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber;->scheduler:Lio/reactivex/Scheduler;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber;->unit:Ljava/util/concurrent/TimeUnit;
@@ -149,38 +135,31 @@
     move-result-wide v0
 
     .line 67
-    .local v0, "now":J
     iget-wide v2, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber;->lastTime:J
 
     .line 68
-    .local v2, "last":J
     iput-wide v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber;->lastTime:J
 
-    .line 69
-    sub-long v4, v0, v2
+    sub-long/2addr v0, v2
 
     .line 70
-    .local v4, "delta":J
-    iget-object v6, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    new-instance v7, Lio/reactivex/schedulers/Timed;
+    new-instance v3, Lio/reactivex/schedulers/Timed;
 
-    iget-object v8, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber;->unit:Ljava/util/concurrent/TimeUnit;
+    iget-object v4, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber;->unit:Ljava/util/concurrent/TimeUnit;
 
-    invoke-direct {v7, p1, v4, v5, v8}, Lio/reactivex/schedulers/Timed;-><init>(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)V
+    invoke-direct {v3, p1, v0, v1, v4}, Lio/reactivex/schedulers/Timed;-><init>(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)V
 
-    invoke-interface {v6, v7}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
+    invoke-interface {v2, v3}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
-    .line 71
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 57
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -204,25 +183,21 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     .line 60
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v0, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
+    invoke-interface {p1, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
-    .line 62
     :cond_0
     return-void
 .end method
 
 .method public request(J)V
     .locals 1
-    .param p1, "n"    # J
 
     .line 85
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTimeInterval$TimeIntervalSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-interface {v0, p1, p2}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 86
     return-void
 .end method

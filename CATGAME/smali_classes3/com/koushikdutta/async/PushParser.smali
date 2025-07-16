@@ -117,7 +117,6 @@
 
 .method public constructor <init>(Lcom/koushikdutta/async/DataEmitter;)V
     .locals 2
-    .param p1, "s"    # Lcom/koushikdutta/async/DataEmitter;
 
     .line 250
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -220,23 +219,20 @@
     .line 252
     invoke-interface {p1, p0}, Lcom/koushikdutta/async/DataEmitter;->setDataCallback(Lcom/koushikdutta/async/callback/DataCallback;)V
 
-    .line 253
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/koushikdutta/async/PushParser;)Ljava/util/ArrayList;
-    .locals 1
-    .param p0, "x0"    # Lcom/koushikdutta/async/PushParser;
+    .locals 0
 
     .line 13
-    iget-object v0, p0, Lcom/koushikdutta/async/PushParser;->args:Ljava/util/ArrayList;
+    iget-object p0, p0, Lcom/koushikdutta/async/PushParser;->args:Ljava/util/ArrayList;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static getTap(Lcom/koushikdutta/async/TapCallback;)Ljava/lang/reflect/Method;
-    .locals 8
-    .param p0, "callback"    # Lcom/koushikdutta/async/TapCallback;
+    .locals 7
 
     .line 346
     sget-object v0, Lcom/koushikdutta/async/PushParser;->mTable:Ljava/util/Hashtable;
@@ -251,64 +247,57 @@
 
     check-cast v0, Ljava/lang/reflect/Method;
 
-    .line 347
-    .local v0, "found":Ljava/lang/reflect/Method;
     if-eqz v0, :cond_0
 
-    .line 348
     return-object v0
 
     .line 350
     :cond_0
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getMethods()[Ljava/lang/reflect/Method;
+    invoke-virtual {v0}, Ljava/lang/Class;->getMethods()[Ljava/lang/reflect/Method;
 
-    move-result-object v1
+    move-result-object v0
 
-    array-length v2, v1
+    array-length v1, v0
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    move v4, v3
+    move v3, v2
 
     :goto_0
-    if-ge v4, v2, :cond_2
+    if-ge v3, v1, :cond_2
 
-    aget-object v5, v1, v4
+    aget-object v4, v0, v3
+
+    const-string v5, "tap"
 
     .line 351
-    .local v5, "method":Ljava/lang/reflect/Method;
-    invoke-virtual {v5}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
 
     move-result-object v6
 
-    const-string v7, "tap"
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v7, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v5
 
-    move-result v6
-
-    if-eqz v6, :cond_1
+    if-eqz v5, :cond_1
 
     .line 352
-    sget-object v1, Lcom/koushikdutta/async/PushParser;->mTable:Ljava/util/Hashtable;
+    sget-object v0, Lcom/koushikdutta/async/PushParser;->mTable:Ljava/util/Hashtable;
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v1, v2, v5}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p0, v4}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 353
-    return-object v5
+    return-object v4
 
-    .line 350
-    .end local v5    # "method":Ljava/lang/reflect/Method;
     :cond_1
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
@@ -316,36 +305,33 @@
     :cond_2
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getDeclaredMethods()[Ljava/lang/reflect/Method;
+    invoke-virtual {p0}, Ljava/lang/Class;->getDeclaredMethods()[Ljava/lang/reflect/Method;
 
-    move-result-object v1
+    move-result-object p0
 
     .line 360
-    .local v1, "candidates":[Ljava/lang/reflect/Method;
-    array-length v2, v1
+    array-length v0, p0
 
-    const/4 v4, 0x1
+    const/4 v1, 0x1
 
-    if-ne v2, v4, :cond_3
+    if-ne v0, v1, :cond_3
 
     .line 361
-    aget-object v2, v1, v3
+    aget-object p0, p0, v2
 
-    return-object v2
-
-    .line 363
-    :cond_3
-    const-string v2, "-keep class * extends com.koushikdutta.async.TapCallback {\n    *;\n}\n"
+    return-object p0
 
     .line 369
-    .local v2, "fail":Ljava/lang/String;
-    new-instance v3, Ljava/lang/AssertionError;
+    :cond_3
+    new-instance p0, Ljava/lang/AssertionError;
 
-    invoke-direct {v3, v2}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+    const-string v0, "-keep class * extends com.koushikdutta.async.TapCallback {\n    *;\n}\n"
 
-    throw v3
+    invoke-direct {p0, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+
+    throw p0
 .end method
 
 
@@ -360,14 +346,11 @@
 
     invoke-virtual {v0, v1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    .line 324
     return-object p0
 .end method
 
 .method public onDataAvailable(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/ByteBufferList;)V
     .locals 2
-    .param p1, "emitter"    # Lcom/koushikdutta/async/DataEmitter;
-    .param p2, "bb"    # Lcom/koushikdutta/async/ByteBufferList;
 
     .line 330
     iget-object v0, p0, Lcom/koushikdutta/async/PushParser;->pending:Lcom/koushikdutta/async/ByteBufferList;
@@ -375,6 +358,7 @@
     invoke-virtual {p2, v0}, Lcom/koushikdutta/async/ByteBufferList;->get(Lcom/koushikdutta/async/ByteBufferList;)V
 
     .line 331
+    :cond_0
     :goto_0
     iget-object v0, p0, Lcom/koushikdutta/async/PushParser;->mWaiting:Ljava/util/LinkedList;
 
@@ -424,35 +408,30 @@
 
     move-result-object v0
 
-    .line 334
-    .local v0, "next":Lcom/koushikdutta/async/PushParser$Waiter;
     if-eqz v0, :cond_0
 
+    .line 334
     iget-object v1, p0, Lcom/koushikdutta/async/PushParser;->mWaiting:Ljava/util/LinkedList;
 
     invoke-virtual {v1, v0}, Ljava/util/LinkedList;->addFirst(Ljava/lang/Object;)V
 
-    .line 335
-    .end local v0    # "next":Lcom/koushikdutta/async/PushParser$Waiter;
-    :cond_0
     goto :goto_0
 
     .line 336
     :cond_1
-    iget-object v0, p0, Lcom/koushikdutta/async/PushParser;->mWaiting:Ljava/util/LinkedList;
+    iget-object p1, p0, Lcom/koushikdutta/async/PushParser;->mWaiting:Ljava/util/LinkedList;
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->size()I
+    invoke-virtual {p1}, Ljava/util/LinkedList;->size()I
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_2
+    if-nez p1, :cond_2
 
     .line 337
-    iget-object v0, p0, Lcom/koushikdutta/async/PushParser;->pending:Lcom/koushikdutta/async/ByteBufferList;
+    iget-object p1, p0, Lcom/koushikdutta/async/PushParser;->pending:Lcom/koushikdutta/async/ByteBufferList;
 
-    invoke-virtual {v0, p2}, Lcom/koushikdutta/async/ByteBufferList;->get(Lcom/koushikdutta/async/ByteBufferList;)V
+    invoke-virtual {p1, p2}, Lcom/koushikdutta/async/ByteBufferList;->get(Lcom/koushikdutta/async/ByteBufferList;)V
 
-    .line 338
     :cond_2
     return-void
 .end method
@@ -467,22 +446,20 @@
 
     invoke-virtual {v0, v1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    .line 277
     return-object p0
 .end method
 
 .method public readByteArray(I)Lcom/koushikdutta/async/PushParser;
     .locals 1
-    .param p1, "length"    # I
 
-    .line 296
     const/4 v0, -0x1
 
     if-ne p1, v0, :cond_0
 
+    .line 296
     invoke-virtual {p0}, Lcom/koushikdutta/async/PushParser;->readLenByteArray()Lcom/koushikdutta/async/PushParser;
 
-    move-result-object v0
+    move-result-object p1
 
     goto :goto_0
 
@@ -491,15 +468,14 @@
 
     invoke-virtual {p0, p1, v0}, Lcom/koushikdutta/async/PushParser;->readByteArray(ILcom/koushikdutta/async/PushParser$ParseCallback;)Lcom/koushikdutta/async/PushParser;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    return-object v0
+    return-object p1
 .end method
 
 .method public readByteArray(ILcom/koushikdutta/async/PushParser$ParseCallback;)Lcom/koushikdutta/async/PushParser;
     .locals 2
-    .param p1, "length"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -510,7 +486,6 @@
     .end annotation
 
     .line 261
-    .local p2, "callback":Lcom/koushikdutta/async/PushParser$ParseCallback;, "Lcom/koushikdutta/async/PushParser$ParseCallback<[B>;"
     iget-object v0, p0, Lcom/koushikdutta/async/PushParser;->mWaiting:Ljava/util/LinkedList;
 
     new-instance v1, Lcom/koushikdutta/async/PushParser$ByteArrayWaiter;
@@ -519,22 +494,20 @@
 
     invoke-virtual {v0, v1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    .line 262
     return-object p0
 .end method
 
 .method public readByteBufferList(I)Lcom/koushikdutta/async/PushParser;
     .locals 1
-    .param p1, "length"    # I
 
-    .line 305
     const/4 v0, -0x1
 
     if-ne p1, v0, :cond_0
 
+    .line 305
     invoke-virtual {p0}, Lcom/koushikdutta/async/PushParser;->readLenByteBufferList()Lcom/koushikdutta/async/PushParser;
 
-    move-result-object v0
+    move-result-object p1
 
     goto :goto_0
 
@@ -543,15 +516,14 @@
 
     invoke-virtual {p0, p1, v0}, Lcom/koushikdutta/async/PushParser;->readByteBufferList(ILcom/koushikdutta/async/PushParser$ParseCallback;)Lcom/koushikdutta/async/PushParser;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    return-object v0
+    return-object p1
 .end method
 
 .method public readByteBufferList(ILcom/koushikdutta/async/PushParser$ParseCallback;)Lcom/koushikdutta/async/PushParser;
     .locals 2
-    .param p1, "length"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -563,7 +535,6 @@
     .end annotation
 
     .line 266
-    .local p2, "callback":Lcom/koushikdutta/async/PushParser$ParseCallback;, "Lcom/koushikdutta/async/PushParser$ParseCallback<Lcom/koushikdutta/async/ByteBufferList;>;"
     iget-object v0, p0, Lcom/koushikdutta/async/PushParser;->mWaiting:Ljava/util/LinkedList;
 
     new-instance v1, Lcom/koushikdutta/async/PushParser$ByteBufferListWaiter;
@@ -572,7 +543,6 @@
 
     invoke-virtual {v0, v1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    .line 267
     return-object p0
 .end method
 
@@ -586,7 +556,6 @@
 
     invoke-virtual {v0, v1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    .line 287
     return-object p0
 .end method
 
@@ -603,7 +572,6 @@
     .end annotation
 
     .line 256
-    .local p1, "callback":Lcom/koushikdutta/async/PushParser$ParseCallback;, "Lcom/koushikdutta/async/PushParser$ParseCallback<Ljava/lang/Integer;>;"
     iget-object v0, p0, Lcom/koushikdutta/async/PushParser;->mWaiting:Ljava/util/LinkedList;
 
     new-instance v1, Lcom/koushikdutta/async/PushParser$IntWaiter;
@@ -612,7 +580,6 @@
 
     invoke-virtual {v0, v1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    .line 257
     return-object p0
 .end method
 
@@ -630,7 +597,6 @@
 
     invoke-virtual {v0, v1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    .line 301
     return-object p0
 .end method
 
@@ -660,7 +626,6 @@
     .end annotation
 
     .line 313
-    .local p1, "callback":Lcom/koushikdutta/async/PushParser$ParseCallback;, "Lcom/koushikdutta/async/PushParser$ParseCallback<Lcom/koushikdutta/async/ByteBufferList;>;"
     iget-object v0, p0, Lcom/koushikdutta/async/PushParser;->mWaiting:Ljava/util/LinkedList;
 
     new-instance v1, Lcom/koushikdutta/async/PushParser$LenByteBufferListWaiter;
@@ -669,7 +634,6 @@
 
     invoke-virtual {v0, v1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    .line 314
     return-object p0
 .end method
 
@@ -683,7 +647,6 @@
 
     invoke-virtual {v0, v1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    .line 292
     return-object p0
 .end method
 
@@ -697,7 +660,6 @@
 
     invoke-virtual {v0, v1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    .line 282
     return-object p0
 .end method
 
@@ -715,24 +677,20 @@
 
     invoke-virtual {v0, v1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    .line 319
     return-object p0
 .end method
 
 .method public setOrder(Ljava/nio/ByteOrder;)Lcom/koushikdutta/async/PushParser;
     .locals 0
-    .param p1, "order"    # Ljava/nio/ByteOrder;
 
     .line 246
     iput-object p1, p0, Lcom/koushikdutta/async/PushParser;->order:Ljava/nio/ByteOrder;
 
-    .line 247
     return-object p0
 .end method
 
 .method public tap(Lcom/koushikdutta/async/TapCallback;)V
     .locals 2
-    .param p1, "callback"    # Lcom/koushikdutta/async/TapCallback;
 
     .line 341
     iget-object v0, p0, Lcom/koushikdutta/async/PushParser;->mWaiting:Ljava/util/LinkedList;
@@ -743,14 +701,11 @@
 
     invoke-virtual {v0, v1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    .line 342
     return-void
 .end method
 
 .method public until(BLcom/koushikdutta/async/callback/DataCallback;)Lcom/koushikdutta/async/PushParser;
     .locals 2
-    .param p1, "b"    # B
-    .param p2, "callback"    # Lcom/koushikdutta/async/callback/DataCallback;
 
     .line 271
     iget-object v0, p0, Lcom/koushikdutta/async/PushParser;->mWaiting:Ljava/util/LinkedList;
@@ -761,6 +716,5 @@
 
     invoke-virtual {v0, v1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    .line 272
     return-object p0
 .end method

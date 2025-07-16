@@ -15,120 +15,92 @@
 
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;[F[S)V
-    .locals 16
-    .param p1, "region"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
-    .param p2, "vertices"    # [F
-    .param p3, "triangles"    # [S
+    .locals 10
 
     .line 33
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p1
-
-    move-object/from16 v2, p2
-
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 34
-    iput-object v1, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;->region:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+    iput-object p1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;->region:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
     .line 35
-    iput-object v2, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;->vertices:[F
+    iput-object p2, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;->vertices:[F
 
     .line 36
-    move-object/from16 v3, p3
-
-    iput-object v3, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;->triangles:[S
+    iput-object p3, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;->triangles:[S
 
     .line 38
-    array-length v4, v2
+    array-length p3, p2
 
-    new-array v4, v4, [F
+    new-array p3, p3, [F
 
-    iput-object v4, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;->textureCoords:[F
+    iput-object p3, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;->textureCoords:[F
 
     .line 39
-    .local v4, "textureCoords":[F
-    iget v5, v1, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->u:F
+    iget v0, p1, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->u:F
 
-    .local v5, "u":F
-    iget v6, v1, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->v:F
+    iget v1, p1, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->v:F
 
     .line 40
-    .local v6, "v":F
-    iget v7, v1, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->u2:F
+    iget v2, p1, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->u2:F
 
-    sub-float/2addr v7, v5
+    sub-float/2addr v2, v0
 
     .line 41
-    .local v7, "uvWidth":F
-    iget v8, v1, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->v2:F
+    iget v3, p1, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->v2:F
 
-    sub-float/2addr v8, v6
+    sub-float/2addr v3, v1
 
     .line 42
-    .local v8, "uvHeight":F
-    iget v9, v1, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->regionWidth:I
+    iget v4, p1, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->regionWidth:I
 
     .line 43
-    .local v9, "width":I
-    iget v10, v1, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->regionHeight:I
+    iget p1, p1, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->regionHeight:I
 
     .line 44
-    .local v10, "height":I
-    const/4 v11, 0x0
+    array-length v5, p2
 
-    .local v11, "i":I
-    array-length v12, v2
+    const/4 v6, 0x0
 
-    .local v12, "n":I
     :goto_0
-    if-ge v11, v12, :cond_0
+    if-ge v6, v5, :cond_0
 
     .line 45
-    aget v13, v2, v11
+    aget v7, p2, v6
 
-    int-to-float v14, v9
+    int-to-float v8, v4
 
-    div-float/2addr v13, v14
+    div-float/2addr v7, v8
 
-    mul-float/2addr v13, v7
+    mul-float/2addr v7, v2
 
-    add-float/2addr v13, v5
+    add-float/2addr v7, v0
 
-    aput v13, v4, v11
+    aput v7, p3, v6
+
+    add-int/lit8 v7, v6, 0x1
 
     .line 46
-    add-int/lit8 v13, v11, 0x1
+    aget v8, p2, v7
 
-    const/high16 v14, 0x3f800000    # 1.0f
+    int-to-float v9, p1
 
-    add-int/lit8 v15, v11, 0x1
+    div-float/2addr v8, v9
 
-    aget v15, v2, v15
+    const/high16 v9, 0x3f800000    # 1.0f
 
-    int-to-float v0, v10
+    sub-float/2addr v9, v8
 
-    div-float/2addr v15, v0
+    mul-float/2addr v9, v3
 
-    sub-float/2addr v14, v15
+    add-float/2addr v9, v1
 
-    mul-float/2addr v14, v8
+    aput v9, p3, v7
 
-    add-float/2addr v14, v6
-
-    aput v14, v4, v13
-
-    .line 44
-    add-int/lit8 v11, v11, 0x2
-
-    move-object/from16 v0, p0
+    add-int/lit8 v6, v6, 0x2
 
     goto :goto_0
 
-    .line 48
-    .end local v11    # "i":I
-    .end local v12    # "n":I
     :cond_0
     return-void
 .end method

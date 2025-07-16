@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Landroidx/work/impl/foreground/SystemForegroundDispatcher;Landroidx/work/impl/WorkDatabase;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/work/impl/foreground/SystemForegroundDispatcher;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
@@ -72,10 +71,9 @@
 
     move-result-object v0
 
-    .line 251
-    .local v0, "workSpec":Landroidx/work/impl/model/WorkSpec;
     if-eqz v0, :cond_0
 
+    .line 251
     invoke-virtual {v0}, Landroidx/work/impl/model/WorkSpec;->hasConstraints()Z
 
     move-result v1
@@ -107,15 +105,15 @@
     invoke-interface {v2, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 255
+    iget-object v0, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher$1;->this$0:Landroidx/work/impl/foreground/SystemForegroundDispatcher;
+
+    iget-object v0, v0, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mConstraintsTracker:Landroidx/work/impl/constraints/WorkConstraintsTracker;
+
     iget-object v2, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher$1;->this$0:Landroidx/work/impl/foreground/SystemForegroundDispatcher;
 
-    iget-object v2, v2, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mConstraintsTracker:Landroidx/work/impl/constraints/WorkConstraintsTracker;
+    iget-object v2, v2, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mTrackedWorkSpecs:Ljava/util/Set;
 
-    iget-object v3, p0, Landroidx/work/impl/foreground/SystemForegroundDispatcher$1;->this$0:Landroidx/work/impl/foreground/SystemForegroundDispatcher;
-
-    iget-object v3, v3, Landroidx/work/impl/foreground/SystemForegroundDispatcher;->mTrackedWorkSpecs:Ljava/util/Set;
-
-    invoke-virtual {v2, v3}, Landroidx/work/impl/constraints/WorkConstraintsTracker;->replace(Ljava/lang/Iterable;)V
+    invoke-virtual {v0, v2}, Landroidx/work/impl/constraints/WorkConstraintsTracker;->replace(Ljava/lang/Iterable;)V
 
     .line 256
     monitor-exit v1
@@ -123,15 +121,14 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v2
+    move-exception v0
 
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v2
+    throw v0
 
-    .line 258
     :cond_0
     :goto_0
     return-void

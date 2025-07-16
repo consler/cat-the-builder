@@ -17,7 +17,6 @@
 # direct methods
 .method constructor <init>(Lcom/thoughtworks/xstream/XStream;Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/DataHolder;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/thoughtworks/xstream/XStream;
 
     .line 2195
     iput-object p1, p0, Lcom/thoughtworks/xstream/XStream$4;->this$0:Lcom/thoughtworks/xstream/XStream;
@@ -41,7 +40,6 @@
 
     invoke-interface {v0}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->close()V
 
-    .line 2221
     return-void
 .end method
 
@@ -115,16 +113,13 @@
     move-result-object v0
 
     .line 2202
-    .local v0, "result":Ljava/lang/Object;
     iget-object v1, p0, Lcom/thoughtworks/xstream/XStream$4;->val$reader:Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
 
     invoke-interface {v1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->moveUp()V
 
-    .line 2203
     return-object v0
 
     .line 2198
-    .end local v0    # "result":Ljava/lang/Object;
     :cond_0
     new-instance v0, Ljava/io/EOFException;
 
@@ -134,9 +129,7 @@
 .end method
 
 .method public registerValidation(Ljava/io/ObjectInputValidation;I)V
-    .locals 2
-    .param p1, "validation"    # Ljava/io/ObjectInputValidation;
-    .param p2, "priority"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/NotActiveException;
@@ -144,11 +137,11 @@
     .end annotation
 
     .line 2216
-    new-instance v0, Ljava/io/NotActiveException;
+    new-instance p1, Ljava/io/NotActiveException;
 
-    const-string v1, "stream inactive"
+    const-string p2, "stream inactive"
 
-    invoke-direct {v0, v1}, Ljava/io/NotActiveException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/NotActiveException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

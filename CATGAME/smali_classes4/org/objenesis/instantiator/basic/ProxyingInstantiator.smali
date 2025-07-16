@@ -30,13 +30,10 @@
         }
     .end annotation
 
-    .line 30
-    .local p0, "this":Lorg/objenesis/instantiator/basic/ProxyingInstantiator;, "Lorg/objenesis/instantiator/basic/ProxyingInstantiator<TT;>;"
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     const-string v0, "org.objenesis.instantiator.exotic.ProxyingInstantiator"
 
+    .line 30
     invoke-direct {p0, v0, p1}, Lorg/objenesis/instantiator/basic/DelegatingToExoticInstantiator;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 31
     return-void
 .end method

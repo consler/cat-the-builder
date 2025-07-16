@@ -71,20 +71,16 @@
     .end annotation
 
     .line 91
-    .local p0, "this":Lcom/badlogic/gdx/utils/Predicate$PredicateIterable;, "Lcom/badlogic/gdx/utils/Predicate$PredicateIterable<TT;>;"
-    .local p1, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TT;>;"
-    .local p2, "predicate":Lcom/badlogic/gdx/utils/Predicate;, "Lcom/badlogic/gdx/utils/Predicate<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 89
     const/4 v0, 0x0
 
+    .line 89
     iput-object v0, p0, Lcom/badlogic/gdx/utils/Predicate$PredicateIterable;->iterator:Lcom/badlogic/gdx/utils/Predicate$PredicateIterator;
 
     .line 92
     invoke-virtual {p0, p1, p2}, Lcom/badlogic/gdx/utils/Predicate$PredicateIterable;->set(Ljava/lang/Iterable;Lcom/badlogic/gdx/utils/Predicate;)V
 
-    .line 93
     return-void
 .end method
 
@@ -101,7 +97,6 @@
     .end annotation
 
     .line 106
-    .local p0, "this":Lcom/badlogic/gdx/utils/Predicate$PredicateIterable;, "Lcom/badlogic/gdx/utils/Predicate$PredicateIterable<TT;>;"
     sget-boolean v0, Lcom/badlogic/gdx/utils/Collections;->allocateIterators:Z
 
     if-eqz v0, :cond_0
@@ -175,14 +170,10 @@
     .end annotation
 
     .line 96
-    .local p0, "this":Lcom/badlogic/gdx/utils/Predicate$PredicateIterable;, "Lcom/badlogic/gdx/utils/Predicate$PredicateIterable<TT;>;"
-    .local p1, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TT;>;"
-    .local p2, "predicate":Lcom/badlogic/gdx/utils/Predicate;, "Lcom/badlogic/gdx/utils/Predicate<TT;>;"
     iput-object p1, p0, Lcom/badlogic/gdx/utils/Predicate$PredicateIterable;->iterable:Ljava/lang/Iterable;
 
     .line 97
     iput-object p2, p0, Lcom/badlogic/gdx/utils/Predicate$PredicateIterable;->predicate:Lcom/badlogic/gdx/utils/Predicate;
 
-    .line 98
     return-void
 .end method

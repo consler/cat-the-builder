@@ -16,75 +16,75 @@
 
 # direct methods
 .method public constructor <init>(IILjava/lang/String;)V
-    .locals 3
-    .param p1, "from"    # I
-    .param p2, "to"    # I
-    .param p3, "element"    # Ljava/lang/String;
+    .locals 2
 
     .line 157
     new-instance v0, Ljava/lang/StringBuffer;
 
-    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
-
     const-string v1, "Cannot turn from state "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
     invoke-static {p1}, Lcom/thoughtworks/xstream/io/json/AbstractJsonWriter$IllegalWriterStateException;->getState(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    const-string v1, " into state "
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    const-string v0, " into state "
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object p1
 
     invoke-static {p2}, Lcom/thoughtworks/xstream/io/json/AbstractJsonWriter$IllegalWriterStateException;->getState(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object p1
 
     if-nez p3, :cond_0
 
-    const-string v1, ""
+    const-string p2, ""
 
     goto :goto_0
 
     :cond_0
-    new-instance v1, Ljava/lang/StringBuffer;
+    new-instance p2, Ljava/lang/StringBuffer;
 
-    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
+    const-string v0, " for property "
 
-    const-string v2, " for property "
+    invoke-direct {p2, v0}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-result-object p2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
     :goto_0
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    .line 159
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
     return-void
 .end method
 
 .method private static getState(I)Ljava/lang/String;
     .locals 3
-    .param p0, "state"    # I
 
-    .line 161
     const/4 v0, 0x1
 
     if-eq p0, v0, :cond_9
@@ -125,10 +125,9 @@
 
     if-ne p0, v0, :cond_0
 
-    .line 171
-    const-string v0, "SET_VALUE"
+    const-string p0, "SET_VALUE"
 
-    return-object v0
+    return-object p0
 
     .line 172
     :cond_0
@@ -136,77 +135,70 @@
 
     new-instance v1, Ljava/lang/StringBuffer;
 
-    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
-
     const-string v2, "Unknown state provided: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    const-string v2, ", cannot create message for IllegalWriterStateException"
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    const-string v1, ", cannot create message for IllegalWriterStateException"
 
-    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 170
     :cond_1
-    const-string v0, "END_ELEMENTS"
+    const-string p0, "END_ELEMENTS"
 
-    return-object v0
+    return-object p0
 
-    .line 169
     :cond_2
-    const-string v0, "NEXT_ELEMENT"
+    const-string p0, "NEXT_ELEMENT"
 
-    return-object v0
+    return-object p0
 
-    .line 168
     :cond_3
-    const-string v0, "START_ELEMENTS"
+    const-string p0, "START_ELEMENTS"
 
-    return-object v0
+    return-object p0
 
-    .line 167
     :cond_4
-    const-string v0, "END_ATTRIBUTES"
+    const-string p0, "END_ATTRIBUTES"
 
-    return-object v0
+    return-object p0
 
-    .line 166
     :cond_5
-    const-string v0, "NEXT_ATTRIBUTE"
+    const-string p0, "NEXT_ATTRIBUTE"
 
-    return-object v0
+    return-object p0
 
-    .line 165
     :cond_6
-    const-string v0, "START_ATTRIBUTES"
+    const-string p0, "START_ATTRIBUTES"
 
-    return-object v0
+    return-object p0
 
-    .line 164
     :cond_7
-    const-string v0, "START_OBJECT"
+    const-string p0, "START_OBJECT"
 
-    return-object v0
+    return-object p0
 
-    .line 163
     :cond_8
-    const-string v0, "END_OBJECT"
+    const-string p0, "END_OBJECT"
 
-    return-object v0
+    return-object p0
 
-    .line 162
     :cond_9
-    const-string v0, "ROOT"
+    const-string p0, "ROOT"
 
-    return-object v0
+    return-object p0
 .end method

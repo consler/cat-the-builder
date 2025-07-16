@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/SavedStateHandle;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/lifecycle/SavedStateHandle;
 
     .line 63
     iput-object p1, p0, Landroidx/lifecycle/SavedStateHandle$1;->this$0:Landroidx/lifecycle/SavedStateHandle;
@@ -37,7 +36,7 @@
 
 # virtual methods
 .method public saveState()Landroid/os/Bundle;
-    .locals 6
+    .locals 5
 
     .line 68
     iget-object v0, p0, Landroidx/lifecycle/SavedStateHandle$1;->this$0:Landroidx/lifecycle/SavedStateHandle;
@@ -49,7 +48,6 @@
     move-result-object v0
 
     .line 69
-    .local v0, "keySet":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-interface {v0}, Ljava/util/Set;->size()I
@@ -59,7 +57,6 @@
     invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 70
-    .local v1, "keys":Ljava/util/ArrayList;
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
@@ -69,60 +66,54 @@
     invoke-direct {v2, v3}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 71
-    .local v2, "value":Ljava/util/ArrayList;
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
-    :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/lang/String;
+    check-cast v3, Ljava/lang/String;
 
     .line 72
-    .local v4, "key":Ljava/lang/String;
-    invoke-virtual {v1, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 73
-    iget-object v5, p0, Landroidx/lifecycle/SavedStateHandle$1;->this$0:Landroidx/lifecycle/SavedStateHandle;
+    iget-object v4, p0, Landroidx/lifecycle/SavedStateHandle$1;->this$0:Landroidx/lifecycle/SavedStateHandle;
 
-    iget-object v5, v5, Landroidx/lifecycle/SavedStateHandle;->mRegular:Ljava/util/Map;
+    iget-object v4, v4, Landroidx/lifecycle/SavedStateHandle;->mRegular:Ljava/util/Map;
 
-    invoke-interface {v5, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v4, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {v2, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 74
-    .end local v4    # "key":Ljava/lang/String;
     goto :goto_0
 
     .line 76
     :cond_0
-    new-instance v3, Landroid/os/Bundle;
+    new-instance v0, Landroid/os/Bundle;
 
-    invoke-direct {v3}, Landroid/os/Bundle;-><init>()V
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+
+    const-string v3, "keys"
 
     .line 78
-    .local v3, "res":Landroid/os/Bundle;
-    const-string v4, "keys"
+    invoke-virtual {v0, v3, v1}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    invoke-virtual {v3, v4, v1}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
+    const-string v1, "values"
 
     .line 79
-    const-string/jumbo v4, "values"
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    invoke-virtual {v3, v4, v2}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
-
-    .line 80
-    return-object v3
+    return-object v0
 .end method

@@ -68,16 +68,12 @@
     .end annotation
 
     .line 93
-    .local p0, "this":Lorg/apache/commons/collections4/functors/IfClosure;, "Lorg/apache/commons/collections4/functors/IfClosure<TE;>;"
-    .local p1, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TE;>;"
-    .local p2, "trueClosure":Lorg/apache/commons/collections4/Closure;, "Lorg/apache/commons/collections4/Closure<-TE;>;"
     invoke-static {}, Lorg/apache/commons/collections4/functors/NOPClosure;->nopClosure()Lorg/apache/commons/collections4/Closure;
 
     move-result-object v0
 
     invoke-direct {p0, p1, p2, v0}, Lorg/apache/commons/collections4/functors/IfClosure;-><init>(Lorg/apache/commons/collections4/Predicate;Lorg/apache/commons/collections4/Closure;Lorg/apache/commons/collections4/Closure;)V
 
-    .line 94
     return-void
 .end method
 
@@ -96,10 +92,6 @@
     .end annotation
 
     .line 106
-    .local p0, "this":Lorg/apache/commons/collections4/functors/IfClosure;, "Lorg/apache/commons/collections4/functors/IfClosure<TE;>;"
-    .local p1, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TE;>;"
-    .local p2, "trueClosure":Lorg/apache/commons/collections4/Closure;, "Lorg/apache/commons/collections4/Closure<-TE;>;"
-    .local p3, "falseClosure":Lorg/apache/commons/collections4/Closure;, "Lorg/apache/commons/collections4/Closure<-TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 107
@@ -111,7 +103,6 @@
     .line 109
     iput-object p3, p0, Lorg/apache/commons/collections4/functors/IfClosure;->iFalseClosure:Lorg/apache/commons/collections4/Closure;
 
-    .line 110
     return-void
 .end method
 
@@ -132,21 +123,19 @@
     .end annotation
 
     .line 56
-    .local p0, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TE;>;"
-    .local p1, "trueClosure":Lorg/apache/commons/collections4/Closure;, "Lorg/apache/commons/collections4/Closure<-TE;>;"
     invoke-static {}, Lorg/apache/commons/collections4/functors/NOPClosure;->nopClosure()Lorg/apache/commons/collections4/Closure;
 
     move-result-object v0
 
     invoke-static {p0, p1, v0}, Lorg/apache/commons/collections4/functors/IfClosure;->ifClosure(Lorg/apache/commons/collections4/Predicate;Lorg/apache/commons/collections4/Closure;Lorg/apache/commons/collections4/Closure;)Lorg/apache/commons/collections4/Closure;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static ifClosure(Lorg/apache/commons/collections4/Predicate;Lorg/apache/commons/collections4/Closure;Lorg/apache/commons/collections4/Closure;)Lorg/apache/commons/collections4/Closure;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -163,13 +152,8 @@
         }
     .end annotation
 
-    .line 72
-    .local p0, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TE;>;"
-    .local p1, "trueClosure":Lorg/apache/commons/collections4/Closure;, "Lorg/apache/commons/collections4/Closure<-TE;>;"
-    .local p2, "falseClosure":Lorg/apache/commons/collections4/Closure;, "Lorg/apache/commons/collections4/Closure<-TE;>;"
     if-eqz p0, :cond_1
 
-    .line 75
     if-eqz p1, :cond_0
 
     if-eqz p2, :cond_0
@@ -183,23 +167,23 @@
 
     .line 76
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Closures must not be null"
+    const-string p1, "Closures must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 73
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Predicate must not be null"
+    const-string p1, "Predicate must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
@@ -213,8 +197,6 @@
     .end annotation
 
     .line 119
-    .local p0, "this":Lorg/apache/commons/collections4/functors/IfClosure;, "Lorg/apache/commons/collections4/functors/IfClosure<TE;>;"
-    .local p1, "input":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/IfClosure;->iPredicate:Lorg/apache/commons/collections4/Predicate;
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Predicate;->evaluate(Ljava/lang/Object;)Z
@@ -236,7 +218,6 @@
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Closure;->execute(Ljava/lang/Object;)V
 
-    .line 124
     :goto_0
     return-void
 .end method
@@ -252,7 +233,6 @@
     .end annotation
 
     .line 153
-    .local p0, "this":Lorg/apache/commons/collections4/functors/IfClosure;, "Lorg/apache/commons/collections4/functors/IfClosure<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/IfClosure;->iFalseClosure:Lorg/apache/commons/collections4/Closure;
 
     return-object v0
@@ -269,7 +249,6 @@
     .end annotation
 
     .line 133
-    .local p0, "this":Lorg/apache/commons/collections4/functors/IfClosure;, "Lorg/apache/commons/collections4/functors/IfClosure<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/IfClosure;->iPredicate:Lorg/apache/commons/collections4/Predicate;
 
     return-object v0
@@ -286,7 +265,6 @@
     .end annotation
 
     .line 143
-    .local p0, "this":Lorg/apache/commons/collections4/functors/IfClosure;, "Lorg/apache/commons/collections4/functors/IfClosure<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/IfClosure;->iTrueClosure:Lorg/apache/commons/collections4/Closure;
 
     return-object v0

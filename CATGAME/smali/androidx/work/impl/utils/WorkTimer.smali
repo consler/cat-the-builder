@@ -50,9 +50,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 42
     const-string v0, "WorkTimer"
 
+    .line 42
     invoke-static {v0}, Landroidx/work/Logger;->tagWithPrefix(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -63,7 +63,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .locals 2
 
     .line 63
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -76,36 +76,33 @@
     iput-object v0, p0, Landroidx/work/impl/utils/WorkTimer;->mBackgroundThreadFactory:Ljava/util/concurrent/ThreadFactory;
 
     .line 64
-    new-instance v0, Ljava/util/HashMap;
+    new-instance v1, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Landroidx/work/impl/utils/WorkTimer;->mTimerMap:Ljava/util/Map;
+    iput-object v1, p0, Landroidx/work/impl/utils/WorkTimer;->mTimerMap:Ljava/util/Map;
 
     .line 65
-    new-instance v0, Ljava/util/HashMap;
+    new-instance v1, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Landroidx/work/impl/utils/WorkTimer;->mListeners:Ljava/util/Map;
+    iput-object v1, p0, Landroidx/work/impl/utils/WorkTimer;->mListeners:Ljava/util/Map;
 
     .line 66
-    new-instance v0, Ljava/lang/Object;
+    new-instance v1, Ljava/lang/Object;
 
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v1}, Ljava/lang/Object;-><init>()V
 
-    iput-object v0, p0, Landroidx/work/impl/utils/WorkTimer;->mLock:Ljava/lang/Object;
+    iput-object v1, p0, Landroidx/work/impl/utils/WorkTimer;->mLock:Ljava/lang/Object;
 
     .line 67
-    iget-object v0, p0, Landroidx/work/impl/utils/WorkTimer;->mBackgroundThreadFactory:Ljava/util/concurrent/ThreadFactory;
-
     invoke-static {v0}, Ljava/util/concurrent/Executors;->newSingleThreadScheduledExecutor(Ljava/util/concurrent/ThreadFactory;)Ljava/util/concurrent/ScheduledExecutorService;
 
     move-result-object v0
 
     iput-object v0, p0, Landroidx/work/impl/utils/WorkTimer;->mExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
 
-    .line 68
     return-void
 .end method
 
@@ -144,8 +141,6 @@
 
     return-object v0
 
-    .line 132
-    .end local p0    # "this":Landroidx/work/impl/utils/WorkTimer;
     :catchall_0
     move-exception v0
 
@@ -178,8 +173,6 @@
 
     return-object v0
 
-    .line 126
-    .end local p0    # "this":Landroidx/work/impl/utils/WorkTimer;
     :catchall_0
     move-exception v0
 
@@ -205,16 +198,12 @@
 
     invoke-interface {v0}, Ljava/util/concurrent/ScheduledExecutorService;->shutdownNow()Ljava/util/List;
 
-    .line 121
     :cond_0
     return-void
 .end method
 
 .method public startTimer(Ljava/lang/String;JLandroidx/work/impl/utils/WorkTimer$TimeLimitExceededListener;)V
     .locals 6
-    .param p1, "workSpecId"    # Ljava/lang/String;
-    .param p2, "processingTimeMillis"    # J
-    .param p4, "listener"    # Landroidx/work/impl/utils/WorkTimer$TimeLimitExceededListener;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -268,7 +257,6 @@
     invoke-direct {v1, p0, p1}, Landroidx/work/impl/utils/WorkTimer$WorkTimerRunnable;-><init>(Landroidx/work/impl/utils/WorkTimer;Ljava/lang/String;)V
 
     .line 90
-    .local v1, "runnable":Landroidx/work/impl/utils/WorkTimer$WorkTimerRunnable;
     iget-object v2, p0, Landroidx/work/impl/utils/WorkTimer;->mTimerMap:Ljava/util/Map;
 
     invoke-interface {v2, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -279,35 +267,29 @@
     invoke-interface {v2, p1, p4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 92
-    iget-object v2, p0, Landroidx/work/impl/utils/WorkTimer;->mExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
+    iget-object p1, p0, Landroidx/work/impl/utils/WorkTimer;->mExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
 
-    sget-object v3, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+    sget-object p4, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-interface {v2, v1, p2, p3, v3}, Ljava/util/concurrent/ScheduledExecutorService;->schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
+    invoke-interface {p1, v1, p2, p3, p4}, Ljava/util/concurrent/ScheduledExecutorService;->schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;
 
     .line 93
-    nop
-
-    .end local v1    # "runnable":Landroidx/work/impl/utils/WorkTimer$WorkTimerRunnable;
     monitor-exit v0
 
-    .line 94
     return-void
 
-    .line 93
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public stopTimer(Ljava/lang/String;)V
-    .locals 7
-    .param p1, "workSpecId"    # Ljava/lang/String;
+    .locals 6
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -332,55 +314,50 @@
 
     check-cast v1, Landroidx/work/impl/utils/WorkTimer$WorkTimerRunnable;
 
-    .line 104
-    .local v1, "removed":Landroidx/work/impl/utils/WorkTimer$WorkTimerRunnable;
     if-eqz v1, :cond_0
 
     .line 105
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
-    move-result-object v2
+    move-result-object v1
 
-    sget-object v3, Landroidx/work/impl/utils/WorkTimer;->TAG:Ljava/lang/String;
+    sget-object v2, Landroidx/work/impl/utils/WorkTimer;->TAG:Ljava/lang/String;
 
-    const-string v4, "Stopping timer for %s"
+    const-string v3, "Stopping timer for %s"
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
-    new-array v5, v5, [Ljava/lang/Object;
+    new-array v4, v4, [Ljava/lang/Object;
 
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
-    aput-object p1, v5, v6
+    aput-object p1, v4, v5
 
-    invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    new-array v5, v6, [Ljava/lang/Throwable;
+    new-array v4, v5, [Ljava/lang/Throwable;
 
-    invoke-virtual {v2, v3, v4, v5}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {v1, v2, v3, v4}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
     .line 106
-    iget-object v2, p0, Landroidx/work/impl/utils/WorkTimer;->mListeners:Ljava/util/Map;
+    iget-object v1, p0, Landroidx/work/impl/utils/WorkTimer;->mListeners:Ljava/util/Map;
 
-    invoke-interface {v2, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 108
-    .end local v1    # "removed":Landroidx/work/impl/utils/WorkTimer$WorkTimerRunnable;
     :cond_0
     monitor-exit v0
 
-    .line 109
     return-void
 
-    .line 108
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method

@@ -70,7 +70,6 @@
     .locals 0
 
     .line 12
-    .local p0, "this":Lcom/bumptech/glide/request/transition/NoTransition;, "Lcom/bumptech/glide/request/transition/NoTransition<TR;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -115,13 +114,9 @@
 
 # virtual methods
 .method public transition(Ljava/lang/Object;Lcom/bumptech/glide/request/transition/Transition$ViewAdapter;)Z
-    .locals 1
-    .param p1, "current"    # Ljava/lang/Object;
-    .param p2, "adapter"    # Lcom/bumptech/glide/request/transition/Transition$ViewAdapter;
+    .locals 0
 
-    .line 47
-    .local p0, "this":Lcom/bumptech/glide/request/transition/NoTransition;, "Lcom/bumptech/glide/request/transition/NoTransition<TR;>;"
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

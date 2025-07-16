@@ -26,10 +26,9 @@
 .method constructor <init>(Lcom/squareup/moshi/JsonAdapter;)V
     .locals 1
 
-    .line 53
-    .local p1, "elementAdapter":Lcom/squareup/moshi/JsonAdapter;, "Lcom/squareup/moshi/JsonAdapter<TT;>;"
     const/4 v0, 0x0
 
+    .line 53
     invoke-direct {p0, p1, v0}, Lcom/squareup/moshi/CollectionJsonAdapter;-><init>(Lcom/squareup/moshi/JsonAdapter;Lcom/squareup/moshi/CollectionJsonAdapter$1;)V
 
     return-void

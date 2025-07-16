@@ -43,10 +43,10 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 21
-    new-instance v0, Lcom/huawei/hms/common/a;
+    .line 1
+    new-instance v0, Lcom/huawei/hms/common/FeatureCreator;
 
-    invoke-direct {v0}, Lcom/huawei/hms/common/a;-><init>()V
+    invoke-direct {v0}, Lcom/huawei/hms/common/FeatureCreator;-><init>()V
 
     sput-object v0, Lcom/huawei/hms/common/Feature;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -56,31 +56,29 @@
 .method public constructor <init>(Ljava/lang/String;IJ)V
     .locals 0
 
-    .line 45
+    .line 2
     invoke-direct {p0}, Lcom/huawei/hms/common/internal/safeparcel/AbstractSafeParcelable;-><init>()V
 
-    .line 46
+    .line 3
     iput-object p1, p0, Lcom/huawei/hms/common/Feature;->name:Ljava/lang/String;
 
-    .line 47
+    .line 4
     iput p2, p0, Lcom/huawei/hms/common/Feature;->serviceVersion:I
 
-    .line 48
+    .line 5
     iput-wide p3, p0, Lcom/huawei/hms/common/Feature;->apiVersion:J
 
-    .line 49
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;J)V
     .locals 1
 
-    .line 42
     const/4 v0, -0x1
 
+    .line 1
     invoke-direct {p0, p1, v0, p2, p3}, Lcom/huawei/hms/common/Feature;-><init>(Ljava/lang/String;IJ)V
 
-    .line 43
     return-void
 .end method
 
@@ -89,21 +87,20 @@
 .method public equals(Ljava/lang/Object;)Z
     .locals 6
 
-    .line 72
+    .line 1
     instance-of v0, p1, Lcom/huawei/hms/common/Feature;
 
     const/4 v1, 0x0
 
     if-nez v0, :cond_0
 
-    .line 73
     return v1
 
-    .line 76
+    .line 5
     :cond_0
     check-cast p1, Lcom/huawei/hms/common/Feature;
 
-    .line 77
+    .line 6
     iget-object v0, p0, Lcom/huawei/hms/common/Feature;->name:Ljava/lang/String;
 
     invoke-virtual {p1}, Lcom/huawei/hms/common/Feature;->getName()Ljava/lang/String;
@@ -116,10 +113,9 @@
 
     if-nez v0, :cond_1
 
-    .line 78
     return v1
 
-    .line 80
+    .line 9
     :cond_1
     invoke-virtual {p0}, Lcom/huawei/hms/common/Feature;->getVersion()J
 
@@ -133,10 +129,8 @@
 
     if-eqz p1, :cond_2
 
-    .line 81
     return v1
 
-    .line 83
     :cond_2
     const/4 p1, 0x1
 
@@ -146,7 +140,7 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .line 52
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/Feature;->name:Ljava/lang/String;
 
     return-object v0
@@ -155,22 +149,20 @@
 .method public getVersion()J
     .locals 4
 
-    .line 56
+    .line 1
     iget-wide v0, p0, Lcom/huawei/hms/common/Feature;->apiVersion:J
 
-    .line 57
     const-wide/16 v2, -0x1
 
     cmp-long v2, v2, v0
 
     if-nez v2, :cond_0
 
-    .line 58
+    .line 3
     iget v0, p0, Lcom/huawei/hms/common/Feature;->serviceVersion:I
 
     int-to-long v0, v0
 
-    .line 60
     :cond_0
     return-wide v0
 .end method
@@ -178,11 +170,11 @@
 .method public hashCode()I
     .locals 3
 
-    .line 87
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Object;
 
+    .line 1
     invoke-virtual {p0}, Lcom/huawei/hms/common/Feature;->getName()Ljava/lang/String;
 
     move-result-object v1
@@ -213,12 +205,12 @@
 .method public toString()Ljava/lang/String;
     .locals 3
 
-    .line 91
+    .line 1
     invoke-static {p0}, Lcom/huawei/hms/common/internal/Objects;->toStringHelper(Ljava/lang/Object;)Lcom/huawei/hms/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
-    .line 92
+    .line 2
     invoke-virtual {p0}, Lcom/huawei/hms/common/Feature;->getName()Ljava/lang/String;
 
     move-result-object v1
@@ -229,7 +221,7 @@
 
     move-result-object v0
 
-    .line 93
+    .line 3
     invoke-virtual {p0}, Lcom/huawei/hms/common/Feature;->getVersion()J
 
     move-result-wide v1
@@ -244,24 +236,23 @@
 
     move-result-object v0
 
-    .line 94
+    .line 4
     invoke-virtual {v0}, Lcom/huawei/hms/common/internal/Objects$ToStringHelper;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 91
     return-object v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
 
-    .line 64
+    .line 1
     invoke-static {p1}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelWriter;->beginObjectHeader(Landroid/os/Parcel;)I
 
     move-result p2
 
-    .line 65
+    .line 2
     invoke-virtual {p0}, Lcom/huawei/hms/common/Feature;->getName()Ljava/lang/String;
 
     move-result-object v0
@@ -272,14 +263,14 @@
 
     invoke-static {p1, v1, v0, v2}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelWriter;->writeString(Landroid/os/Parcel;ILjava/lang/String;Z)V
 
-    .line 66
+    .line 3
     iget v0, p0, Lcom/huawei/hms/common/Feature;->serviceVersion:I
 
     const/4 v1, 0x2
 
     invoke-static {p1, v1, v0}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelWriter;->writeInt(Landroid/os/Parcel;II)V
 
-    .line 67
+    .line 4
     invoke-virtual {p0}, Lcom/huawei/hms/common/Feature;->getVersion()J
 
     move-result-wide v0
@@ -288,9 +279,8 @@
 
     invoke-static {p1, v2, v0, v1}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelWriter;->writeLong(Landroid/os/Parcel;IJ)V
 
-    .line 68
+    .line 5
     invoke-static {p1, p2}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelWriter;->finishObjectHeader(Landroid/os/Parcel;I)V
 
-    .line 69
     return-void
 .end method

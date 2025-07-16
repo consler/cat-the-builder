@@ -36,7 +36,6 @@
 # direct methods
 .method constructor <init>(Landroidx/work/impl/WorkManagerImpl;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/work/impl/WorkManagerImpl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010
@@ -46,7 +45,7 @@
         }
     .end annotation
 
-    .line 517
+    .line 523
     iput-object p1, p0, Landroidx/work/impl/WorkManagerImpl$2;->this$0:Landroidx/work/impl/WorkManagerImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,7 +56,7 @@
 
 # virtual methods
 .method public apply(Ljava/util/List;)Landroidx/work/WorkInfo;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -77,36 +76,35 @@
         }
     .end annotation
 
-    .line 520
-    .local p1, "input":Ljava/util/List;, "Ljava/util/List<Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;>;"
-    const/4 v0, 0x0
-
-    .line 521
-    .local v0, "workInfo":Landroidx/work/WorkInfo;
     if-eqz p1, :cond_0
 
+    .line 527
     invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v1
+    move-result v0
 
-    if-lez v1, :cond_0
+    if-lez v0, :cond_0
 
-    .line 522
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    .line 528
+    invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;
+    check-cast p1, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;
 
-    invoke-virtual {v1}, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->toWorkInfo()Landroidx/work/WorkInfo;
+    invoke-virtual {p1}, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->toWorkInfo()Landroidx/work/WorkInfo;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 524
+    goto :goto_0
+
     :cond_0
-    return-object v0
+    const/4 p1, 0x0
+
+    :goto_0
+    return-object p1
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
@@ -120,7 +118,7 @@
         }
     .end annotation
 
-    .line 517
+    .line 523
     check-cast p1, Ljava/util/List;
 
     invoke-virtual {p0, p1}, Landroidx/work/impl/WorkManagerImpl$2;->apply(Ljava/util/List;)Landroidx/work/WorkInfo;

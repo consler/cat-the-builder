@@ -16,9 +16,9 @@
     .line 31
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/Camera;-><init>()V
 
-    .line 29
     const/high16 v0, 0x3f800000    # 1.0f
 
+    .line 29
     iput v0, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->zoom:F
 
     .line 47
@@ -28,26 +28,23 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->tmp:Lcom/badlogic/gdx/math/Vector3;
 
-    .line 32
     const/4 v0, 0x0
 
+    .line 32
     iput v0, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->near:F
 
-    .line 33
     return-void
 .end method
 
 .method public constructor <init>(FF)V
     .locals 1
-    .param p1, "viewportWidth"    # F
-    .param p2, "viewportHeight"    # F
 
     .line 40
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/Camera;-><init>()V
 
-    .line 29
     const/high16 v0, 0x3f800000    # 1.0f
 
+    .line 29
     iput v0, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->zoom:F
 
     .line 47
@@ -63,15 +60,14 @@
     .line 42
     iput p2, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->viewportHeight:F
 
-    .line 43
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput v0, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->near:F
+    .line 43
+    iput p1, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->near:F
 
     .line 44
     invoke-virtual {p0}, Lcom/badlogic/gdx/graphics/OrthographicCamera;->update()V
 
-    .line 45
     return-void
 .end method
 
@@ -79,20 +75,17 @@
 # virtual methods
 .method public rotate(F)V
     .locals 1
-    .param p1, "angle"    # F
 
     .line 98
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->direction:Lcom/badlogic/gdx/math/Vector3;
 
     invoke-virtual {p0, v0, p1}, Lcom/badlogic/gdx/graphics/OrthographicCamera;->rotate(Lcom/badlogic/gdx/math/Vector3;F)V
 
-    .line 99
     return-void
 .end method
 
 .method public setToOrtho(Z)V
     .locals 2
-    .param p1, "yDown"    # Z
 
     .line 73
     sget-object v0, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
@@ -113,17 +106,12 @@
 
     invoke-virtual {p0, p1, v0, v1}, Lcom/badlogic/gdx/graphics/OrthographicCamera;->setToOrtho(ZFF)V
 
-    .line 74
     return-void
 .end method
 
 .method public setToOrtho(ZFF)V
-    .locals 5
-    .param p1, "yDown"    # Z
-    .param p2, "viewportWidth"    # F
-    .param p3, "viewportHeight"    # F
+    .locals 4
 
-    .line 82
     const/high16 v0, -0x40800000    # -1.0f
 
     const/high16 v1, 0x3f800000    # 1.0f
@@ -133,45 +121,45 @@
     if-eqz p1, :cond_0
 
     .line 83
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->up:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->up:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v3, v2, v0, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p1, v2, v0, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
     .line 84
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->direction:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->direction:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v0, v2, v2, v1}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p1, v2, v2, v1}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
     goto :goto_0
 
     .line 86
     :cond_0
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->up:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->up:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v3, v2, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p1, v2, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
     .line 87
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->direction:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->direction:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v1, v2, v2, v0}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p1, v2, v2, v0}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
     .line 89
     :goto_0
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->position:Lcom/badlogic/gdx/math/Vector3;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->position:Lcom/badlogic/gdx/math/Vector3;
 
-    iget v1, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->zoom:F
+    iget v0, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->zoom:F
 
-    mul-float v3, v1, p2
+    mul-float v1, v0, p2
 
-    const/high16 v4, 0x40000000    # 2.0f
+    const/high16 v3, 0x40000000    # 2.0f
 
-    div-float/2addr v3, v4
+    div-float/2addr v1, v3
 
-    mul-float/2addr v1, p3
+    mul-float/2addr v0, p3
 
-    div-float/2addr v1, v4
+    div-float/2addr v0, v3
 
-    invoke-virtual {v0, v3, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p1, v1, v0, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
     .line 90
     iput p2, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->viewportWidth:F
@@ -182,56 +170,48 @@
     .line 92
     invoke-virtual {p0}, Lcom/badlogic/gdx/graphics/OrthographicCamera;->update()V
 
-    .line 93
     return-void
 .end method
 
 .method public translate(FF)V
     .locals 1
-    .param p1, "x"    # F
-    .param p2, "y"    # F
 
-    .line 105
     const/4 v0, 0x0
 
+    .line 105
     invoke-virtual {p0, p1, p2, v0}, Lcom/badlogic/gdx/graphics/OrthographicCamera;->translate(FFF)V
 
-    .line 106
     return-void
 .end method
 
 .method public translate(Lcom/badlogic/gdx/math/Vector2;)V
-    .locals 3
-    .param p1, "vec"    # Lcom/badlogic/gdx/math/Vector2;
+    .locals 2
 
     .line 111
     iget v0, p1, Lcom/badlogic/gdx/math/Vector2;->x:F
 
-    iget v1, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/badlogic/gdx/graphics/OrthographicCamera;->translate(FFF)V
+    invoke-virtual {p0, v0, p1, v1}, Lcom/badlogic/gdx/graphics/OrthographicCamera;->translate(FFF)V
 
-    .line 112
     return-void
 .end method
 
 .method public update()V
     .locals 1
 
-    .line 51
     const/4 v0, 0x1
 
+    .line 51
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/OrthographicCamera;->update(Z)V
 
-    .line 52
     return-void
 .end method
 
 .method public update(Z)V
     .locals 8
-    .param p1, "updateFrustum"    # Z
 
     .line 56
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->projection:Lcom/badlogic/gdx/math/Matrix4;
@@ -331,31 +311,29 @@
 
     invoke-static {v0, v1}, Lcom/badlogic/gdx/math/Matrix4;->mul([F[F)V
 
-    .line 62
     if-eqz p1, :cond_0
 
     .line 63
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->invProjectionView:Lcom/badlogic/gdx/math/Matrix4;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->invProjectionView:Lcom/badlogic/gdx/math/Matrix4;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->combined:Lcom/badlogic/gdx/math/Matrix4;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->combined:Lcom/badlogic/gdx/math/Matrix4;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Matrix4;->set(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Matrix4;
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/math/Matrix4;->set(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Matrix4;
 
     .line 64
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->invProjectionView:Lcom/badlogic/gdx/math/Matrix4;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->invProjectionView:Lcom/badlogic/gdx/math/Matrix4;
 
-    iget-object v0, v0, Lcom/badlogic/gdx/math/Matrix4;->val:[F
+    iget-object p1, p1, Lcom/badlogic/gdx/math/Matrix4;->val:[F
 
-    invoke-static {v0}, Lcom/badlogic/gdx/math/Matrix4;->inv([F)Z
+    invoke-static {p1}, Lcom/badlogic/gdx/math/Matrix4;->inv([F)Z
 
     .line 65
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->frustum:Lcom/badlogic/gdx/math/Frustum;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->frustum:Lcom/badlogic/gdx/math/Frustum;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->invProjectionView:Lcom/badlogic/gdx/math/Matrix4;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/OrthographicCamera;->invProjectionView:Lcom/badlogic/gdx/math/Matrix4;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Frustum;->update(Lcom/badlogic/gdx/math/Matrix4;)V
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/math/Frustum;->update(Lcom/badlogic/gdx/math/Matrix4;)V
 
-    .line 67
     :cond_0
     return-void
 .end method

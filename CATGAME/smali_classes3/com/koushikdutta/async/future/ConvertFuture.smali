@@ -22,7 +22,6 @@
     .locals 0
 
     .line 6
-    .local p0, "this":Lcom/koushikdutta/async/future/ConvertFuture;, "Lcom/koushikdutta/async/future/ConvertFuture<TT;TF;>;"
     invoke-direct {p0}, Lcom/koushikdutta/async/future/TransformFuture;-><init>()V
 
     return-void
@@ -47,7 +46,7 @@
 .end method
 
 .method protected final transform(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TF;)V"
@@ -61,14 +60,11 @@
     .end annotation
 
     .line 9
-    .local p0, "this":Lcom/koushikdutta/async/future/ConvertFuture;, "Lcom/koushikdutta/async/future/ConvertFuture<TT;TF;>;"
-    .local p1, "result":Ljava/lang/Object;, "TF;"
     invoke-virtual {p0, p1}, Lcom/koushikdutta/async/future/ConvertFuture;->convert(Ljava/lang/Object;)Lcom/koushikdutta/async/future/Future;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/koushikdutta/async/future/ConvertFuture;->setComplete(Lcom/koushikdutta/async/future/Future;)Lcom/koushikdutta/async/future/SimpleFuture;
+    invoke-virtual {p0, p1}, Lcom/koushikdutta/async/future/ConvertFuture;->setComplete(Lcom/koushikdutta/async/future/Future;)Lcom/koushikdutta/async/future/SimpleFuture;
 
-    .line 10
     return-void
 .end method

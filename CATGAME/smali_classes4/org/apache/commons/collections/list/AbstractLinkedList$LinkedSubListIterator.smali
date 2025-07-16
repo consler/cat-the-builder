@@ -21,53 +21,48 @@
 # direct methods
 .method protected constructor <init>(Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;I)V
     .locals 2
-    .param p1, "sub"    # Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;
-    .param p2, "startIndex"    # I
 
     .line 861
     iget-object v0, p1, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->parent:Lorg/apache/commons/collections/list/AbstractLinkedList;
 
     iget v1, p1, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->offset:I
 
-    add-int/2addr v1, p2
+    add-int/2addr p2, v1
 
-    invoke-direct {p0, v0, v1}, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedListIterator;-><init>(Lorg/apache/commons/collections/list/AbstractLinkedList;I)V
+    invoke-direct {p0, v0, p2}, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedListIterator;-><init>(Lorg/apache/commons/collections/list/AbstractLinkedList;I)V
 
     .line 862
     iput-object p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubListIterator;->sub:Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;
 
-    .line 863
     return-void
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 1
 
     .line 878
     invoke-super {p0, p1}, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedListIterator;->add(Ljava/lang/Object;)V
 
     .line 879
-    iget-object v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubListIterator;->sub:Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;
+    iget-object p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubListIterator;->sub:Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;
 
-    iget-object v1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubListIterator;->parent:Lorg/apache/commons/collections/list/AbstractLinkedList;
+    iget-object v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubListIterator;->parent:Lorg/apache/commons/collections/list/AbstractLinkedList;
 
-    iget v1, v1, Lorg/apache/commons/collections/list/AbstractLinkedList;->modCount:I
+    iget v0, v0, Lorg/apache/commons/collections/list/AbstractLinkedList;->modCount:I
 
-    iput v1, v0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->expectedModCount:I
+    iput v0, p1, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->expectedModCount:I
 
     .line 880
-    iget-object v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubListIterator;->sub:Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;
+    iget-object p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubListIterator;->sub:Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;
 
-    iget v1, v0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
+    iget v0, p1, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    iput v1, v0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
+    iput v0, p1, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
 
-    .line 881
     return-void
 .end method
 
@@ -158,6 +153,5 @@
 
     iput v1, v0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
 
-    .line 887
     return-void
 .end method

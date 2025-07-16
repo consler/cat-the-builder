@@ -46,9 +46,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/reflect/Field;)V
     .locals 0
-    .param p1, "distance"    # Ljava/lang/Integer;
-    .param p2, "header"    # Ljava/lang/String;
-    .param p4, "field"    # Ljava/lang/reflect/Field;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,7 +59,6 @@
     .end annotation
 
     .line 96
-    .local p3, "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 97
@@ -77,15 +73,13 @@
     .line 100
     iput-object p4, p0, Lcom/opencsv/bean/FuzzyMappingStrategy$FuzzyComparison;->field:Ljava/lang/reflect/Field;
 
-    .line 101
     return-void
 .end method
 
 
 # virtual methods
 .method public compareTo(Lcom/opencsv/bean/FuzzyMappingStrategy$FuzzyComparison;)I
-    .locals 2
-    .param p1, "o"    # Lcom/opencsv/bean/FuzzyMappingStrategy$FuzzyComparison;
+    .locals 1
 
     .line 105
     iget-object v0, p0, Lcom/opencsv/bean/FuzzyMappingStrategy$FuzzyComparison;->distance:Ljava/lang/Integer;
@@ -94,17 +88,17 @@
 
     move-result v0
 
-    iget-object v1, p1, Lcom/opencsv/bean/FuzzyMappingStrategy$FuzzyComparison;->distance:Ljava/lang/Integer;
+    iget-object p1, p1, Lcom/opencsv/bean/FuzzyMappingStrategy$FuzzyComparison;->distance:Ljava/lang/Integer;
 
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    move-result v1
+    move-result p1
 
-    invoke-static {v0, v1}, Ljava/lang/Integer;->compare(II)I
+    invoke-static {v0, p1}, Ljava/lang/Integer;->compare(II)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
@@ -121,16 +115,13 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 1
 
-    .line 110
     if-ne p0, p1, :cond_0
 
-    .line 111
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
     .line 113
     :cond_0
@@ -138,43 +129,39 @@
 
     if-nez v0, :cond_1
 
-    .line 114
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 116
     :cond_1
-    move-object v0, p1
-
-    check-cast v0, Lcom/opencsv/bean/FuzzyMappingStrategy$FuzzyComparison;
+    check-cast p1, Lcom/opencsv/bean/FuzzyMappingStrategy$FuzzyComparison;
 
     .line 117
-    .local v0, "that":Lcom/opencsv/bean/FuzzyMappingStrategy$FuzzyComparison;
-    iget-object v1, p0, Lcom/opencsv/bean/FuzzyMappingStrategy$FuzzyComparison;->distance:Ljava/lang/Integer;
+    iget-object v0, p0, Lcom/opencsv/bean/FuzzyMappingStrategy$FuzzyComparison;->distance:Ljava/lang/Integer;
 
-    iget-object v2, v0, Lcom/opencsv/bean/FuzzyMappingStrategy$FuzzyComparison;->distance:Ljava/lang/Integer;
+    iget-object p1, p1, Lcom/opencsv/bean/FuzzyMappingStrategy$FuzzyComparison;->distance:Ljava/lang/Integer;
 
-    invoke-static {v1, v2}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, p1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 .end method
 
 .method public hashCode()I
     .locals 3
 
-    .line 122
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    iget-object v1, p0, Lcom/opencsv/bean/FuzzyMappingStrategy$FuzzyComparison;->distance:Ljava/lang/Integer;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    .line 122
+    iget-object v2, p0, Lcom/opencsv/bean/FuzzyMappingStrategy$FuzzyComparison;->distance:Ljava/lang/Integer;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     invoke-static {v0}, Ljava/util/Objects;->hash([Ljava/lang/Object;)I
 

@@ -23,7 +23,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/AsyncSocketMiddleware;Lcom/koushikdutta/async/AsyncSocket;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/AsyncSocketMiddleware;
 
     .line 324
     iput-object p1, p0, Lcom/koushikdutta/async/http/AsyncSocketMiddleware$4;->this$0:Lcom/koushikdutta/async/http/AsyncSocketMiddleware;
@@ -38,9 +37,7 @@
 
 # virtual methods
 .method public onDataAvailable(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/ByteBufferList;)V
-    .locals 2
-    .param p1, "emitter"    # Lcom/koushikdutta/async/DataEmitter;
-    .param p2, "bb"    # Lcom/koushikdutta/async/ByteBufferList;
+    .locals 0
 
     .line 327
     invoke-super {p0, p1, p2}, Lcom/koushikdutta/async/callback/DataCallback$NullDataCallback;->onDataAvailable(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/ByteBufferList;)V
@@ -49,17 +46,16 @@
     invoke-virtual {p2}, Lcom/koushikdutta/async/ByteBufferList;->recycle()V
 
     .line 329
-    iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncSocketMiddleware$4;->val$socket:Lcom/koushikdutta/async/AsyncSocket;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/AsyncSocketMiddleware$4;->val$socket:Lcom/koushikdutta/async/AsyncSocket;
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    invoke-interface {v0, v1}, Lcom/koushikdutta/async/AsyncSocket;->setClosedCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
+    invoke-interface {p1, p2}, Lcom/koushikdutta/async/AsyncSocket;->setClosedCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
 
     .line 330
-    iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncSocketMiddleware$4;->val$socket:Lcom/koushikdutta/async/AsyncSocket;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/AsyncSocketMiddleware$4;->val$socket:Lcom/koushikdutta/async/AsyncSocket;
 
-    invoke-interface {v0}, Lcom/koushikdutta/async/AsyncSocket;->close()V
+    invoke-interface {p1}, Lcom/koushikdutta/async/AsyncSocket;->close()V
 
-    .line 331
     return-void
 .end method

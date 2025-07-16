@@ -36,20 +36,18 @@
 
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/utils/IntFloatMap;)V
-    .locals 1
-    .param p1, "map"    # Lcom/badlogic/gdx/utils/IntFloatMap;
+    .locals 0
 
     .line 763
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntFloatMap$MapIterator;-><init>(Lcom/badlogic/gdx/utils/IntFloatMap;)V
 
     .line 760
-    new-instance v0, Lcom/badlogic/gdx/utils/IntFloatMap$Entry;
+    new-instance p1, Lcom/badlogic/gdx/utils/IntFloatMap$Entry;
 
-    invoke-direct {v0}, Lcom/badlogic/gdx/utils/IntFloatMap$Entry;-><init>()V
+    invoke-direct {p1}, Lcom/badlogic/gdx/utils/IntFloatMap$Entry;-><init>()V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Entries;->entry:Lcom/badlogic/gdx/utils/IntFloatMap$Entry;
+    iput-object p1, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Entries;->entry:Lcom/badlogic/gdx/utils/IntFloatMap$Entry;
 
-    .line 764
     return-void
 .end method
 
@@ -90,12 +88,11 @@
         }
     .end annotation
 
-    .line 789
     return-object p0
 .end method
 
 .method public next()Lcom/badlogic/gdx/utils/IntFloatMap$Entry;
-    .locals 4
+    .locals 3
 
     .line 768
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Entries;->hasNext:Z
@@ -113,7 +110,6 @@
     iget-object v0, v0, Lcom/badlogic/gdx/utils/IntFloatMap;->keyTable:[I
 
     .line 771
-    .local v0, "keyTable":[I
     iget v1, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Entries;->nextIndex:I
 
     const/4 v2, -0x1
@@ -121,20 +117,20 @@
     if-ne v1, v2, :cond_0
 
     .line 772
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Entries;->entry:Lcom/badlogic/gdx/utils/IntFloatMap$Entry;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Entries;->entry:Lcom/badlogic/gdx/utils/IntFloatMap$Entry;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    iput v2, v1, Lcom/badlogic/gdx/utils/IntFloatMap$Entry;->key:I
+    iput v1, v0, Lcom/badlogic/gdx/utils/IntFloatMap$Entry;->key:I
 
     .line 773
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Entries;->entry:Lcom/badlogic/gdx/utils/IntFloatMap$Entry;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Entries;->entry:Lcom/badlogic/gdx/utils/IntFloatMap$Entry;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Entries;->map:Lcom/badlogic/gdx/utils/IntFloatMap;
+    iget-object v1, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Entries;->map:Lcom/badlogic/gdx/utils/IntFloatMap;
 
-    iget v2, v2, Lcom/badlogic/gdx/utils/IntFloatMap;->zeroValue:F
+    iget v1, v1, Lcom/badlogic/gdx/utils/IntFloatMap;->zeroValue:F
 
-    iput v2, v1, Lcom/badlogic/gdx/utils/IntFloatMap$Entry;->value:F
+    iput v1, v0, Lcom/badlogic/gdx/utils/IntFloatMap$Entry;->value:F
 
     goto :goto_0
 
@@ -144,39 +140,38 @@
 
     iget v2, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Entries;->nextIndex:I
 
-    aget v2, v0, v2
+    aget v0, v0, v2
 
-    iput v2, v1, Lcom/badlogic/gdx/utils/IntFloatMap$Entry;->key:I
+    iput v0, v1, Lcom/badlogic/gdx/utils/IntFloatMap$Entry;->key:I
 
     .line 776
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Entries;->entry:Lcom/badlogic/gdx/utils/IntFloatMap$Entry;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Entries;->entry:Lcom/badlogic/gdx/utils/IntFloatMap$Entry;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Entries;->map:Lcom/badlogic/gdx/utils/IntFloatMap;
+    iget-object v1, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Entries;->map:Lcom/badlogic/gdx/utils/IntFloatMap;
 
-    iget-object v2, v2, Lcom/badlogic/gdx/utils/IntFloatMap;->valueTable:[F
+    iget-object v1, v1, Lcom/badlogic/gdx/utils/IntFloatMap;->valueTable:[F
 
-    iget v3, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Entries;->nextIndex:I
+    iget v2, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Entries;->nextIndex:I
 
-    aget v2, v2, v3
+    aget v1, v1, v2
 
-    iput v2, v1, Lcom/badlogic/gdx/utils/IntFloatMap$Entry;->value:F
+    iput v1, v0, Lcom/badlogic/gdx/utils/IntFloatMap$Entry;->value:F
 
     .line 778
     :goto_0
-    iget v1, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Entries;->nextIndex:I
+    iget v0, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Entries;->nextIndex:I
 
-    iput v1, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Entries;->currentIndex:I
+    iput v0, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Entries;->currentIndex:I
 
     .line 779
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/IntFloatMap$Entries;->findNextIndex()V
 
     .line 780
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Entries;->entry:Lcom/badlogic/gdx/utils/IntFloatMap$Entry;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Entries;->entry:Lcom/badlogic/gdx/utils/IntFloatMap$Entry;
 
-    return-object v1
+    return-object v0
 
     .line 769
-    .end local v0    # "keyTable":[I
     :cond_1
     new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
@@ -212,7 +207,6 @@
     .line 793
     invoke-super {p0}, Lcom/badlogic/gdx/utils/IntFloatMap$MapIterator;->remove()V
 
-    .line 794
     return-void
 .end method
 

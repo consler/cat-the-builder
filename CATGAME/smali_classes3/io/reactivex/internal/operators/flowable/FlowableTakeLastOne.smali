@@ -33,11 +33,8 @@
     .end annotation
 
     .line 23
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTakeLastOne;, "Lio/reactivex/internal/operators/flowable/FlowableTakeLastOne<TT;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
-    .line 24
     return-void
 .end method
 
@@ -54,8 +51,6 @@
     .end annotation
 
     .line 28
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTakeLastOne;, "Lio/reactivex/internal/operators/flowable/FlowableTakeLastOne<TT;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTakeLastOne;->source:Lio/reactivex/Flowable;
 
     new-instance v1, Lio/reactivex/internal/operators/flowable/FlowableTakeLastOne$TakeLastOneSubscriber;
@@ -64,6 +59,5 @@
 
     invoke-virtual {v0, v1}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 29
     return-void
 .end method

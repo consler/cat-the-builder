@@ -27,18 +27,15 @@
     .line 41
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier;-><init>()V
 
-    .line 42
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;)V
     .locals 0
-    .param p1, "rotation"    # Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;
 
     .line 45
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier;-><init>(Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier;)V
 
-    .line 46
     return-void
 .end method
 
@@ -77,7 +74,6 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->accellerationChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    .line 52
     return-void
 .end method
 
@@ -93,34 +89,31 @@
 .end method
 
 .method public update()V
-    .locals 19
+    .locals 18
 
-    .line 56
     move-object/from16 v0, p0
 
-    const/4 v1, 0x0
+    .line 56
+    iget-object v1, v0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
 
-    .local v1, "i":I
+    iget-object v1, v1, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->particles:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;
+
+    iget v1, v1, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;->size:I
+
+    iget-object v2, v0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->rotationChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+
+    iget v2, v2, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
+
+    mul-int/2addr v1, v2
+
     const/4 v2, 0x0
 
-    .local v2, "accelOffset":I
-    iget-object v3, v0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
+    add-int/2addr v1, v2
 
-    iget-object v3, v3, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->particles:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;
+    move v3, v2
 
-    iget v3, v3, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;->size:I
-
-    iget-object v4, v0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->rotationChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
-
-    iget v4, v4, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
-
-    mul-int/2addr v3, v4
-
-    add-int/2addr v3, v1
-
-    .local v3, "c":I
     :goto_0
-    if-ge v1, v3, :cond_0
+    if-ge v2, v1, :cond_0
 
     .line 58
     sget-object v4, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->TMP_V1:Lcom/badlogic/gdx/math/Vector3;
@@ -129,7 +122,7 @@
 
     iget-object v5, v5, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v6, v2, 0x0
+    add-int/lit8 v6, v3, 0x0
 
     aget v5, v5, v6
 
@@ -137,7 +130,7 @@
 
     iget-object v6, v6, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v7, v2, 0x1
+    add-int/lit8 v7, v3, 0x1
 
     aget v6, v6, v7
 
@@ -145,7 +138,7 @@
 
     iget-object v7, v7, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v8, v2, 0x2
+    add-int/lit8 v8, v3, 0x2
 
     aget v7, v7, v8
 
@@ -158,7 +151,6 @@
 
     move-result-object v4
 
-    .local v4, "axisZ":Lcom/badlogic/gdx/math/Vector3;
     sget-object v5, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->TMP_V2:Lcom/badlogic/gdx/math/Vector3;
 
     sget-object v6, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->TMP_V1:Lcom/badlogic/gdx/math/Vector3;
@@ -188,7 +180,6 @@
 
     move-result-object v5
 
-    .local v5, "axisY":Lcom/badlogic/gdx/math/Vector3;
     sget-object v6, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->TMP_V3:Lcom/badlogic/gdx/math/Vector3;
 
     invoke-virtual {v6, v5}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
@@ -204,8 +195,9 @@
     move-result-object v6
 
     .line 62
-    .local v6, "axisX":Lcom/badlogic/gdx/math/Vector3;
     sget-object v7, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->TMP_Q:Lcom/badlogic/gdx/math/Quaternion;
+
+    const/4 v8, 0x0
 
     iget v9, v6, Lcom/badlogic/gdx/math/Vector3;->x:F
 
@@ -221,98 +213,83 @@
 
     iget v15, v6, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    iget v8, v5, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget v5, v5, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    move/from16 v18, v3
+    iget v4, v4, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    .end local v3    # "c":I
-    .local v18, "c":I
-    iget v3, v4, Lcom/badlogic/gdx/math/Vector3;->z:F
+    move/from16 v16, v5
 
-    move/from16 v16, v8
-
-    const/4 v8, 0x0
-
-    move/from16 v17, v3
+    move/from16 v17, v4
 
     invoke-virtual/range {v7 .. v17}, Lcom/badlogic/gdx/math/Quaternion;->setFromAxes(ZFFFFFFFFF)Lcom/badlogic/gdx/math/Quaternion;
 
     .line 63
-    iget-object v3, v0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->rotationChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+    iget-object v4, v0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->rotationChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    iget-object v3, v3, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
+    iget-object v4, v4, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v7, v1, 0x0
+    add-int/lit8 v5, v2, 0x0
 
-    sget-object v8, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->TMP_Q:Lcom/badlogic/gdx/math/Quaternion;
+    sget-object v6, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->TMP_Q:Lcom/badlogic/gdx/math/Quaternion;
 
-    iget v8, v8, Lcom/badlogic/gdx/math/Quaternion;->x:F
+    iget v6, v6, Lcom/badlogic/gdx/math/Quaternion;->x:F
 
-    aput v8, v3, v7
+    aput v6, v4, v5
 
     .line 64
-    iget-object v3, v0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->rotationChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+    iget-object v4, v0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->rotationChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    iget-object v3, v3, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
+    iget-object v4, v4, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v7, v1, 0x1
+    add-int/lit8 v5, v2, 0x1
 
-    sget-object v8, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->TMP_Q:Lcom/badlogic/gdx/math/Quaternion;
+    sget-object v6, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->TMP_Q:Lcom/badlogic/gdx/math/Quaternion;
 
-    iget v8, v8, Lcom/badlogic/gdx/math/Quaternion;->y:F
+    iget v6, v6, Lcom/badlogic/gdx/math/Quaternion;->y:F
 
-    aput v8, v3, v7
+    aput v6, v4, v5
 
     .line 65
-    iget-object v3, v0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->rotationChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+    iget-object v4, v0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->rotationChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    iget-object v3, v3, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
+    iget-object v4, v4, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v7, v1, 0x2
+    add-int/lit8 v5, v2, 0x2
 
-    sget-object v8, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->TMP_Q:Lcom/badlogic/gdx/math/Quaternion;
+    sget-object v6, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->TMP_Q:Lcom/badlogic/gdx/math/Quaternion;
 
-    iget v8, v8, Lcom/badlogic/gdx/math/Quaternion;->z:F
+    iget v6, v6, Lcom/badlogic/gdx/math/Quaternion;->z:F
 
-    aput v8, v3, v7
+    aput v6, v4, v5
 
     .line 66
-    iget-object v3, v0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->rotationChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+    iget-object v4, v0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->rotationChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    iget-object v3, v3, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
+    iget-object v4, v4, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v7, v1, 0x3
+    add-int/lit8 v5, v2, 0x3
 
-    sget-object v8, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->TMP_Q:Lcom/badlogic/gdx/math/Quaternion;
+    sget-object v6, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->TMP_Q:Lcom/badlogic/gdx/math/Quaternion;
 
-    iget v8, v8, Lcom/badlogic/gdx/math/Quaternion;->w:F
+    iget v6, v6, Lcom/badlogic/gdx/math/Quaternion;->w:F
 
-    aput v8, v3, v7
+    aput v6, v4, v5
 
     .line 56
-    .end local v4    # "axisZ":Lcom/badlogic/gdx/math/Vector3;
-    .end local v5    # "axisY":Lcom/badlogic/gdx/math/Vector3;
-    .end local v6    # "axisX":Lcom/badlogic/gdx/math/Vector3;
-    iget-object v3, v0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->rotationChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+    iget-object v4, v0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->rotationChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    iget v3, v3, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
+    iget v4, v4, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
 
-    add-int/2addr v1, v3
+    add-int/2addr v2, v4
 
-    iget-object v3, v0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->accellerationChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+    iget-object v4, v0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$FaceDirection;->accellerationChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    iget v3, v3, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
+    iget v4, v4, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
 
-    add-int/2addr v2, v3
-
-    move/from16 v3, v18
+    add-int/2addr v3, v4
 
     goto/16 :goto_0
 
-    .line 68
-    .end local v1    # "i":I
-    .end local v2    # "accelOffset":I
-    .end local v18    # "c":I
     :cond_0
     return-void
 .end method

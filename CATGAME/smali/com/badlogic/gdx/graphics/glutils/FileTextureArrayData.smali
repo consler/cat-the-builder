@@ -21,9 +21,6 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/Pixmap$Format;Z[Lcom/badlogic/gdx/files/FileHandle;)V
     .locals 3
-    .param p1, "format"    # Lcom/badlogic/gdx/graphics/Pixmap$Format;
-    .param p2, "useMipMaps"    # Z
-    .param p3, "files"    # [Lcom/badlogic/gdx/files/FileHandle;
 
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,10 +43,9 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureArrayData;->textureDatas:[Lcom/badlogic/gdx/graphics/TextureData;
 
-    .line 41
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 41
     :goto_0
     array-length v1, p3
 
@@ -66,13 +62,10 @@
 
     aput-object v2, v1, v0
 
-    .line 41
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 44
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
@@ -80,99 +73,89 @@
 
 # virtual methods
 .method public consumeTextureArrayData()V
-    .locals 17
+    .locals 15
+
+    const/4 v0, 0x0
 
     .line 71
-    move-object/from16 v0, p0
-
-    const/4 v1, 0x0
-
-    .local v1, "i":I
     :goto_0
-    iget-object v2, v0, Lcom/badlogic/gdx/graphics/glutils/FileTextureArrayData;->textureDatas:[Lcom/badlogic/gdx/graphics/TextureData;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureArrayData;->textureDatas:[Lcom/badlogic/gdx/graphics/TextureData;
 
-    array-length v3, v2
+    array-length v2, v1
 
-    if-ge v1, v3, :cond_4
+    if-ge v0, v2, :cond_4
 
     .line 72
-    aget-object v2, v2, v1
+    aget-object v1, v1, v0
 
-    invoke-interface {v2}, Lcom/badlogic/gdx/graphics/TextureData;->getType()Lcom/badlogic/gdx/graphics/TextureData$TextureDataType;
+    invoke-interface {v1}, Lcom/badlogic/gdx/graphics/TextureData;->getType()Lcom/badlogic/gdx/graphics/TextureData$TextureDataType;
 
-    move-result-object v2
+    move-result-object v1
 
-    sget-object v3, Lcom/badlogic/gdx/graphics/TextureData$TextureDataType;->Custom:Lcom/badlogic/gdx/graphics/TextureData$TextureDataType;
+    sget-object v2, Lcom/badlogic/gdx/graphics/TextureData$TextureDataType;->Custom:Lcom/badlogic/gdx/graphics/TextureData$TextureDataType;
 
-    if-ne v2, v3, :cond_0
+    if-ne v1, v2, :cond_0
 
     .line 73
-    iget-object v2, v0, Lcom/badlogic/gdx/graphics/glutils/FileTextureArrayData;->textureDatas:[Lcom/badlogic/gdx/graphics/TextureData;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureArrayData;->textureDatas:[Lcom/badlogic/gdx/graphics/TextureData;
 
-    aget-object v2, v2, v1
+    aget-object v1, v1, v0
 
-    const v3, 0x8c1a
+    const v2, 0x8c1a
 
-    invoke-interface {v2, v3}, Lcom/badlogic/gdx/graphics/TextureData;->consumeCustomData(I)V
+    invoke-interface {v1, v2}, Lcom/badlogic/gdx/graphics/TextureData;->consumeCustomData(I)V
 
     goto/16 :goto_2
 
     .line 75
     :cond_0
-    iget-object v2, v0, Lcom/badlogic/gdx/graphics/glutils/FileTextureArrayData;->textureDatas:[Lcom/badlogic/gdx/graphics/TextureData;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureArrayData;->textureDatas:[Lcom/badlogic/gdx/graphics/TextureData;
 
-    aget-object v14, v2, v1
+    aget-object v1, v1, v0
 
     .line 76
-    .local v14, "texData":Lcom/badlogic/gdx/graphics/TextureData;
-    invoke-interface {v14}, Lcom/badlogic/gdx/graphics/TextureData;->consumePixmap()Lcom/badlogic/gdx/graphics/Pixmap;
+    invoke-interface {v1}, Lcom/badlogic/gdx/graphics/TextureData;->consumePixmap()Lcom/badlogic/gdx/graphics/Pixmap;
 
     move-result-object v10
 
     .line 77
-    .local v10, "pixmap":Lcom/badlogic/gdx/graphics/Pixmap;
-    invoke-interface {v14}, Lcom/badlogic/gdx/graphics/TextureData;->disposePixmap()Z
+    invoke-interface {v1}, Lcom/badlogic/gdx/graphics/TextureData;->disposePixmap()Z
 
-    move-result v11
+    move-result v2
 
     .line 78
-    .local v11, "disposePixmap":Z
-    invoke-interface {v14}, Lcom/badlogic/gdx/graphics/TextureData;->getFormat()Lcom/badlogic/gdx/graphics/Pixmap$Format;
-
-    move-result-object v2
-
-    invoke-virtual {v10}, Lcom/badlogic/gdx/graphics/Pixmap;->getFormat()Lcom/badlogic/gdx/graphics/Pixmap$Format;
+    invoke-interface {v1}, Lcom/badlogic/gdx/graphics/TextureData;->getFormat()Lcom/badlogic/gdx/graphics/Pixmap$Format;
 
     move-result-object v3
 
-    if-eq v2, v3, :cond_2
+    invoke-virtual {v10}, Lcom/badlogic/gdx/graphics/Pixmap;->getFormat()Lcom/badlogic/gdx/graphics/Pixmap$Format;
+
+    move-result-object v4
+
+    if-eq v3, v4, :cond_2
 
     .line 79
-    new-instance v2, Lcom/badlogic/gdx/graphics/Pixmap;
+    new-instance v11, Lcom/badlogic/gdx/graphics/Pixmap;
 
     invoke-virtual {v10}, Lcom/badlogic/gdx/graphics/Pixmap;->getWidth()I
 
-    move-result v3
+    move-result v2
 
     invoke-virtual {v10}, Lcom/badlogic/gdx/graphics/Pixmap;->getHeight()I
 
-    move-result v4
+    move-result v3
 
-    invoke-interface {v14}, Lcom/badlogic/gdx/graphics/TextureData;->getFormat()Lcom/badlogic/gdx/graphics/Pixmap$Format;
+    invoke-interface {v1}, Lcom/badlogic/gdx/graphics/TextureData;->getFormat()Lcom/badlogic/gdx/graphics/Pixmap$Format;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-direct {v2, v3, v4, v5}, Lcom/badlogic/gdx/graphics/Pixmap;-><init>(IILcom/badlogic/gdx/graphics/Pixmap$Format;)V
-
-    move-object v12, v2
+    invoke-direct {v11, v2, v3, v4}, Lcom/badlogic/gdx/graphics/Pixmap;-><init>(IILcom/badlogic/gdx/graphics/Pixmap$Format;)V
 
     .line 80
-    .local v12, "temp":Lcom/badlogic/gdx/graphics/Pixmap;
     sget-object v2, Lcom/badlogic/gdx/graphics/Pixmap$Blending;->None:Lcom/badlogic/gdx/graphics/Pixmap$Blending;
 
-    invoke-virtual {v12, v2}, Lcom/badlogic/gdx/graphics/Pixmap;->setBlending(Lcom/badlogic/gdx/graphics/Pixmap$Blending;)V
+    invoke-virtual {v11, v2}, Lcom/badlogic/gdx/graphics/Pixmap;->setBlending(Lcom/badlogic/gdx/graphics/Pixmap$Blending;)V
 
-    .line 81
     const/4 v4, 0x0
 
     const/4 v5, 0x0
@@ -181,6 +164,7 @@
 
     const/4 v7, 0x0
 
+    .line 81
     invoke-virtual {v10}, Lcom/badlogic/gdx/graphics/Pixmap;->getWidth()I
 
     move-result v8
@@ -189,101 +173,85 @@
 
     move-result v9
 
-    move-object v2, v12
+    move-object v2, v11
 
     move-object v3, v10
 
     invoke-virtual/range {v2 .. v9}, Lcom/badlogic/gdx/graphics/Pixmap;->drawPixmap(Lcom/badlogic/gdx/graphics/Pixmap;IIIIII)V
 
     .line 82
-    invoke-interface {v14}, Lcom/badlogic/gdx/graphics/TextureData;->disposePixmap()Z
+    invoke-interface {v1}, Lcom/badlogic/gdx/graphics/TextureData;->disposePixmap()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
     .line 83
     invoke-virtual {v10}, Lcom/badlogic/gdx/graphics/Pixmap;->dispose()V
 
-    .line 85
     :cond_1
-    move-object v10, v12
+    const/4 v2, 0x1
 
-    .line 86
-    const/4 v11, 0x1
+    move v13, v2
 
-    move-object v15, v10
-
-    move/from16 v16, v11
+    move-object v14, v11
 
     goto :goto_1
 
-    .line 78
-    .end local v12    # "temp":Lcom/badlogic/gdx/graphics/Pixmap;
     :cond_2
-    move-object v15, v10
+    move v13, v2
 
-    move/from16 v16, v11
+    move-object v14, v10
 
     .line 88
-    .end local v10    # "pixmap":Lcom/badlogic/gdx/graphics/Pixmap;
-    .end local v11    # "disposePixmap":Z
-    .local v15, "pixmap":Lcom/badlogic/gdx/graphics/Pixmap;
-    .local v16, "disposePixmap":Z
     :goto_1
-    sget-object v2, Lcom/badlogic/gdx/Gdx;->gl30:Lcom/badlogic/gdx/graphics/GL30;
+    sget-object v1, Lcom/badlogic/gdx/Gdx;->gl30:Lcom/badlogic/gdx/graphics/GL30;
 
-    const v3, 0x8c1a
+    const v2, 0x8c1a
+
+    const/4 v3, 0x0
 
     const/4 v4, 0x0
 
     const/4 v5, 0x0
 
-    const/4 v6, 0x0
+    invoke-virtual {v14}, Lcom/badlogic/gdx/graphics/Pixmap;->getWidth()I
 
-    invoke-virtual {v15}, Lcom/badlogic/gdx/graphics/Pixmap;->getWidth()I
+    move-result v7
+
+    invoke-virtual {v14}, Lcom/badlogic/gdx/graphics/Pixmap;->getHeight()I
 
     move-result v8
 
-    invoke-virtual {v15}, Lcom/badlogic/gdx/graphics/Pixmap;->getHeight()I
+    const/4 v9, 0x1
 
-    move-result v9
+    invoke-virtual {v14}, Lcom/badlogic/gdx/graphics/Pixmap;->getGLInternalFormat()I
 
-    const/4 v10, 0x1
+    move-result v10
 
-    invoke-virtual {v15}, Lcom/badlogic/gdx/graphics/Pixmap;->getGLInternalFormat()I
+    invoke-virtual {v14}, Lcom/badlogic/gdx/graphics/Pixmap;->getGLType()I
 
     move-result v11
 
-    invoke-virtual {v15}, Lcom/badlogic/gdx/graphics/Pixmap;->getGLType()I
+    invoke-virtual {v14}, Lcom/badlogic/gdx/graphics/Pixmap;->getPixels()Ljava/nio/ByteBuffer;
 
-    move-result v12
+    move-result-object v12
 
-    invoke-virtual {v15}, Lcom/badlogic/gdx/graphics/Pixmap;->getPixels()Ljava/nio/ByteBuffer;
+    move v6, v0
 
-    move-result-object v13
+    invoke-interface/range {v1 .. v12}, Lcom/badlogic/gdx/graphics/GL30;->glTexSubImage3D(IIIIIIIIIILjava/nio/Buffer;)V
 
-    move v7, v1
-
-    invoke-interface/range {v2 .. v13}, Lcom/badlogic/gdx/graphics/GL30;->glTexSubImage3D(IIIIIIIIIILjava/nio/Buffer;)V
+    if-eqz v13, :cond_3
 
     .line 89
-    if-eqz v16, :cond_3
+    invoke-virtual {v14}, Lcom/badlogic/gdx/graphics/Pixmap;->dispose()V
 
-    invoke-virtual {v15}, Lcom/badlogic/gdx/graphics/Pixmap;->dispose()V
-
-    .line 71
-    .end local v14    # "texData":Lcom/badlogic/gdx/graphics/TextureData;
-    .end local v15    # "pixmap":Lcom/badlogic/gdx/graphics/Pixmap;
-    .end local v16    # "disposePixmap":Z
     :cond_3
     :goto_2
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto/16 :goto_0
 
-    .line 92
-    .end local v1    # "i":I
     :cond_4
     return-void
 .end method
@@ -358,7 +326,7 @@
 .end method
 
 .method public isManaged()Z
-    .locals 6
+    .locals 5
 
     .line 121
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureArrayData;->textureDatas:[Lcom/badlogic/gdx/graphics/TextureData;
@@ -375,24 +343,19 @@
     aget-object v4, v0, v3
 
     .line 122
-    .local v4, "data":Lcom/badlogic/gdx/graphics/TextureData;
     invoke-interface {v4}, Lcom/badlogic/gdx/graphics/TextureData;->isManaged()Z
 
-    move-result v5
+    move-result v4
 
-    if-nez v5, :cond_0
+    if-nez v4, :cond_0
 
-    .line 123
     return v2
 
-    .line 121
-    .end local v4    # "data":Lcom/badlogic/gdx/graphics/TextureData;
     :cond_0
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 126
     :cond_1
     const/4 v0, 0x1
 
@@ -409,89 +372,77 @@
 .end method
 
 .method public prepare()V
-    .locals 7
-
-    .line 53
-    const/4 v0, -0x1
-
-    .line 54
-    .local v0, "width":I
-    const/4 v1, -0x1
+    .locals 8
 
     .line 55
-    .local v1, "height":I
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureArrayData;->textureDatas:[Lcom/badlogic/gdx/graphics/TextureData;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureArrayData;->textureDatas:[Lcom/badlogic/gdx/graphics/TextureData;
 
-    array-length v3, v2
+    array-length v1, v0
 
-    const/4 v4, 0x0
+    const/4 v2, -0x1
+
+    const/4 v3, 0x0
+
+    move v4, v2
+
+    move v5, v4
 
     :goto_0
-    if-ge v4, v3, :cond_2
+    if-ge v3, v1, :cond_2
 
-    aget-object v5, v2, v4
+    aget-object v6, v0, v3
 
     .line 56
-    .local v5, "data":Lcom/badlogic/gdx/graphics/TextureData;
-    invoke-interface {v5}, Lcom/badlogic/gdx/graphics/TextureData;->prepare()V
+    invoke-interface {v6}, Lcom/badlogic/gdx/graphics/TextureData;->prepare()V
 
-    .line 57
-    const/4 v6, -0x1
-
-    if-ne v0, v6, :cond_0
+    if-ne v4, v2, :cond_0
 
     .line 58
-    invoke-interface {v5}, Lcom/badlogic/gdx/graphics/TextureData;->getWidth()I
+    invoke-interface {v6}, Lcom/badlogic/gdx/graphics/TextureData;->getWidth()I
 
-    move-result v0
+    move-result v4
 
     .line 59
-    invoke-interface {v5}, Lcom/badlogic/gdx/graphics/TextureData;->getHeight()I
+    invoke-interface {v6}, Lcom/badlogic/gdx/graphics/TextureData;->getHeight()I
 
-    move-result v1
+    move-result v5
 
-    .line 60
     goto :goto_1
 
     .line 62
     :cond_0
-    invoke-interface {v5}, Lcom/badlogic/gdx/graphics/TextureData;->getWidth()I
+    invoke-interface {v6}, Lcom/badlogic/gdx/graphics/TextureData;->getWidth()I
+
+    move-result v7
+
+    if-ne v4, v7, :cond_1
+
+    invoke-interface {v6}, Lcom/badlogic/gdx/graphics/TextureData;->getHeight()I
 
     move-result v6
 
-    if-ne v0, v6, :cond_1
+    if-ne v5, v6, :cond_1
 
-    invoke-interface {v5}, Lcom/badlogic/gdx/graphics/TextureData;->getHeight()I
-
-    move-result v6
-
-    if-ne v1, v6, :cond_1
-
-    .line 55
-    .end local v5    # "data":Lcom/badlogic/gdx/graphics/TextureData;
     :goto_1
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     .line 63
-    .restart local v5    # "data":Lcom/badlogic/gdx/graphics/TextureData;
     :cond_1
-    new-instance v2, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v3, "Error whilst preparing TextureArray: TextureArray Textures must have equal dimensions."
+    const-string v1, "Error whilst preparing TextureArray: TextureArray Textures must have equal dimensions."
 
-    invoke-direct {v2, v3}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw v0
+
+    :cond_2
+    const/4 v0, 0x1
 
     .line 66
-    .end local v5    # "data":Lcom/badlogic/gdx/graphics/TextureData;
-    :cond_2
-    const/4 v2, 0x1
+    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureArrayData;->prepared:Z
 
-    iput-boolean v2, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureArrayData;->prepared:Z
-
-    .line 67
     return-void
 .end method

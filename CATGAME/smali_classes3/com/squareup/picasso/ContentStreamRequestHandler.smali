@@ -10,7 +10,6 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
 
     .line 32
     invoke-direct {p0}, Lcom/squareup/picasso/RequestHandler;-><init>()V
@@ -18,35 +17,32 @@
     .line 33
     iput-object p1, p0, Lcom/squareup/picasso/ContentStreamRequestHandler;->context:Landroid/content/Context;
 
-    .line 34
     return-void
 .end method
 
 
 # virtual methods
 .method public canHandleRequest(Lcom/squareup/picasso/Request;)Z
-    .locals 2
-    .param p1, "data"    # Lcom/squareup/picasso/Request;
+    .locals 1
 
     .line 37
-    iget-object v0, p1, Lcom/squareup/picasso/Request;->uri:Landroid/net/Uri;
+    iget-object p1, p1, Lcom/squareup/picasso/Request;->uri:Landroid/net/Uri;
 
-    invoke-virtual {v0}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
+    invoke-virtual {p1}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "content"
+    const-string v0, "content"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method getInputStream(Lcom/squareup/picasso/Request;)Ljava/io/InputStream;
-    .locals 2
-    .param p1, "request"    # Lcom/squareup/picasso/Request;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -61,20 +57,17 @@
     move-result-object v0
 
     .line 47
-    .local v0, "contentResolver":Landroid/content/ContentResolver;
-    iget-object v1, p1, Lcom/squareup/picasso/Request;->uri:Landroid/net/Uri;
+    iget-object p1, p1, Lcom/squareup/picasso/Request;->uri:Landroid/net/Uri;
 
-    invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->openInputStream(Landroid/net/Uri;)Ljava/io/InputStream;
+    invoke-virtual {v0, p1}, Landroid/content/ContentResolver;->openInputStream(Landroid/net/Uri;)Ljava/io/InputStream;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public load(Lcom/squareup/picasso/Request;I)Lcom/squareup/picasso/RequestHandler$Result;
-    .locals 3
-    .param p1, "request"    # Lcom/squareup/picasso/Request;
-    .param p2, "networkPolicy"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -84,19 +77,18 @@
     .line 41
     invoke-virtual {p0, p1}, Lcom/squareup/picasso/ContentStreamRequestHandler;->getInputStream(Lcom/squareup/picasso/Request;)Ljava/io/InputStream;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Lokio/Okio;->source(Ljava/io/InputStream;)Lokio/Source;
+    invoke-static {p1}, Lokio/Okio;->source(Ljava/io/InputStream;)Lokio/Source;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 42
-    .local v0, "source":Lokio/Source;
-    new-instance v1, Lcom/squareup/picasso/RequestHandler$Result;
+    new-instance p2, Lcom/squareup/picasso/RequestHandler$Result;
 
-    sget-object v2, Lcom/squareup/picasso/Picasso$LoadedFrom;->DISK:Lcom/squareup/picasso/Picasso$LoadedFrom;
+    sget-object v0, Lcom/squareup/picasso/Picasso$LoadedFrom;->DISK:Lcom/squareup/picasso/Picasso$LoadedFrom;
 
-    invoke-direct {v1, v0, v2}, Lcom/squareup/picasso/RequestHandler$Result;-><init>(Lokio/Source;Lcom/squareup/picasso/Picasso$LoadedFrom;)V
+    invoke-direct {p2, p1, v0}, Lcom/squareup/picasso/RequestHandler$Result;-><init>(Lokio/Source;Lcom/squareup/picasso/Picasso$LoadedFrom;)V
 
-    return-object v1
+    return-object p2
 .end method

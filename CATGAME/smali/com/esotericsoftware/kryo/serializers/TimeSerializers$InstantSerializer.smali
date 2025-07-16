@@ -46,33 +46,28 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/time/Instant;
-    .locals 5
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "in"    # Lcom/esotericsoftware/kryo/io/Input;
-    .param p3, "type"    # Ljava/lang/Class;
+    .locals 2
+
+    const/4 p1, 0x1
 
     .line 90
-    const/4 v0, 0x1
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Input;->readVarLong(Z)J
 
-    invoke-virtual {p2, v0}, Lcom/esotericsoftware/kryo/io/Input;->readVarLong(Z)J
-
-    move-result-wide v1
+    move-result-wide v0
 
     .line 91
-    .local v1, "seconds":J
-    invoke-virtual {p2, v0}, Lcom/esotericsoftware/kryo/io/Input;->readInt(Z)I
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Input;->readInt(Z)I
 
-    move-result v0
+    move-result p1
+
+    int-to-long p1, p1
 
     .line 92
-    .local v0, "nanos":I
-    int-to-long v3, v0
+    invoke-static {v0, v1, p1, p2}, Ljava/time/Instant;->ofEpochSecond(JJ)Ljava/time/Instant;
 
-    invoke-static {v1, v2, v3, v4}, Ljava/time/Instant;->ofEpochSecond(JJ)Ljava/time/Instant;
+    move-result-object p1
 
-    move-result-object v3
-
-    return-object v3
+    return-object p1
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
@@ -87,27 +82,23 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/time/Instant;)V
-    .locals 3
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "out"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p3, "instant"    # Ljava/time/Instant;
+    .locals 2
 
     .line 85
     invoke-virtual {p3}, Ljava/time/Instant;->getEpochSecond()J
 
     move-result-wide v0
 
-    const/4 v2, 0x1
+    const/4 p1, 0x1
 
-    invoke-virtual {p2, v0, v1, v2}, Lcom/esotericsoftware/kryo/io/Output;->writeVarLong(JZ)I
+    invoke-virtual {p2, v0, v1, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeVarLong(JZ)I
 
     .line 86
     invoke-virtual {p3}, Ljava/time/Instant;->getNano()I
 
-    move-result v0
+    move-result p3
 
-    invoke-virtual {p2, v0, v2}, Lcom/esotericsoftware/kryo/io/Output;->writeInt(IZ)I
+    invoke-virtual {p2, p3, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeInt(IZ)I
 
-    .line 87
     return-void
 .end method

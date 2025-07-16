@@ -50,36 +50,36 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    const-string v0, "camerax.core.target.name"
+
     .line 42
-    const-class v0, Ljava/lang/String;
+    const-class v1, Ljava/lang/String;
 
-    const-string v1, "camerax.core.target.name"
-
-    invoke-static {v1, v0}, Landroidx/camera/core/impl/Config$Option;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
+    invoke-static {v0, v1}, Landroidx/camera/core/impl/Config$Option;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
 
     move-result-object v0
 
     sput-object v0, Landroidx/camera/core/internal/TargetConfig;->OPTION_TARGET_NAME:Landroidx/camera/core/impl/Config$Option;
 
+    const-string v0, "camerax.core.target.class"
+
     .line 50
-    const-class v0, Ljava/lang/Class;
+    const-class v1, Ljava/lang/Class;
 
     .line 51
-    const-string v1, "camerax.core.target.class"
-
-    invoke-static {v1, v0}, Landroidx/camera/core/impl/Config$Option;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
+    invoke-static {v0, v1}, Landroidx/camera/core/impl/Config$Option;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
 
     move-result-object v0
 
     sput-object v0, Landroidx/camera/core/internal/TargetConfig;->OPTION_TARGET_CLASS:Landroidx/camera/core/impl/Config$Option;
 
-    .line 50
     return-void
 .end method
 
 
 # virtual methods
-.method public abstract getTargetClass()Ljava/lang/Class;
+.method public getTargetClass()Ljava/lang/Class;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -87,9 +87,21 @@
             "TT;>;"
         }
     .end annotation
+
+    .line 77
+    sget-object v0, Landroidx/camera/core/internal/TargetConfig;->OPTION_TARGET_CLASS:Landroidx/camera/core/impl/Config$Option;
+
+    invoke-interface {p0, v0}, Landroidx/camera/core/internal/TargetConfig;->retrieveOption(Landroidx/camera/core/impl/Config$Option;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Class;
+
+    return-object v0
 .end method
 
-.method public abstract getTargetClass(Ljava/lang/Class;)Ljava/lang/Class;
+.method public getTargetClass(Ljava/lang/Class;)Ljava/lang/Class;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -99,10 +111,45 @@
             "TT;>;"
         }
     .end annotation
+
+    .line 65
+    sget-object v0, Landroidx/camera/core/internal/TargetConfig;->OPTION_TARGET_CLASS:Landroidx/camera/core/impl/Config$Option;
+
+    invoke-interface {p0, v0, p1}, Landroidx/camera/core/internal/TargetConfig;->retrieveOption(Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/Class;
+
+    return-object p1
 .end method
 
-.method public abstract getTargetName()Ljava/lang/String;
+.method public getTargetName()Ljava/lang/String;
+    .locals 1
+
+    .line 106
+    sget-object v0, Landroidx/camera/core/internal/TargetConfig;->OPTION_TARGET_NAME:Landroidx/camera/core/impl/Config$Option;
+
+    invoke-interface {p0, v0}, Landroidx/camera/core/internal/TargetConfig;->retrieveOption(Landroidx/camera/core/impl/Config$Option;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    return-object v0
 .end method
 
-.method public abstract getTargetName(Ljava/lang/String;)Ljava/lang/String;
+.method public getTargetName(Ljava/lang/String;)Ljava/lang/String;
+    .locals 1
+
+    .line 92
+    sget-object v0, Landroidx/camera/core/internal/TargetConfig;->OPTION_TARGET_NAME:Landroidx/camera/core/impl/Config$Option;
+
+    invoke-interface {p0, v0, p1}, Landroidx/camera/core/internal/TargetConfig;->retrieveOption(Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/String;
+
+    return-object p1
 .end method

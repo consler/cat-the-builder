@@ -19,145 +19,112 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .line 32
     const/4 v0, 0x0
 
     new-array v1, v0, [Ljava/lang/Class;
 
+    .line 32
     sput-object v1, Lcom/thoughtworks/xstream/converters/extended/ISO8601GregorianCalendarConverter;->EMPTY_CLASS_ARRAY:[Ljava/lang/Class;
 
-    .line 33
     new-array v0, v0, [Ljava/lang/Object;
 
+    .line 33
     sput-object v0, Lcom/thoughtworks/xstream/converters/extended/ISO8601GregorianCalendarConverter;->EMPTY_OBJECT_ARRAY:[Ljava/lang/Object;
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 4
+    .locals 2
 
     .line 36
     invoke-direct {p0}, Lcom/thoughtworks/xstream/converters/basic/AbstractSingleValueConverter;-><init>()V
 
-    .line 37
-    const/4 v0, 0x0
+    const/16 v0, 0x8
 
     .line 38
-    .local v0, "svConverter":Lcom/thoughtworks/xstream/converters/SingleValueConverter;
-    const/16 v1, 0x8
+    invoke-static {v0}, Lcom/thoughtworks/xstream/core/JVM;->isVersion(I)Z
 
-    invoke-static {v1}, Lcom/thoughtworks/xstream/core/JVM;->isVersion(I)Z
+    move-result v0
 
-    move-result v1
+    if-eqz v0, :cond_0
 
-    if-eqz v1, :cond_0
-
-    const-string v1, "com.thoughtworks.xstream.core.util.ISO8601JavaTimeConverter"
+    const-string v0, "com.thoughtworks.xstream.core.util.ISO8601JavaTimeConverter"
 
     goto :goto_0
 
     :cond_0
-    const-string v1, "com.thoughtworks.xstream.core.util.ISO8601JodaTimeConverter"
+    const-string v0, "com.thoughtworks.xstream.core.util.ISO8601JodaTimeConverter"
 
     :goto_0
-    invoke-static {v1}, Lcom/thoughtworks/xstream/core/JVM;->loadClassForName(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-static {v0}, Lcom/thoughtworks/xstream/core/JVM;->loadClassForName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 42
-    .local v1, "type":Ljava/lang/Class;
     :try_start_0
-    sget-object v2, Lcom/thoughtworks/xstream/converters/extended/ISO8601GregorianCalendarConverter;->EMPTY_CLASS_ARRAY:[Ljava/lang/Class;
+    sget-object v1, Lcom/thoughtworks/xstream/converters/extended/ISO8601GregorianCalendarConverter;->EMPTY_CLASS_ARRAY:[Ljava/lang/Class;
 
-    invoke-virtual {v1, v2}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+    invoke-virtual {v0, v1}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
-    move-result-object v2
+    move-result-object v0
 
-    sget-object v3, Lcom/thoughtworks/xstream/converters/extended/ISO8601GregorianCalendarConverter;->EMPTY_OBJECT_ARRAY:[Ljava/lang/Object;
+    sget-object v1, Lcom/thoughtworks/xstream/converters/extended/ISO8601GregorianCalendarConverter;->EMPTY_OBJECT_ARRAY:[Ljava/lang/Object;
 
-    invoke-virtual {v2, v3}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Lcom/thoughtworks/xstream/converters/SingleValueConverter;
+    check-cast v0, Lcom/thoughtworks/xstream/converters/SingleValueConverter;
     :try_end_0
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-object v0, v2
+    goto :goto_1
 
-    .line 52
-    :goto_1
-    goto :goto_2
-
-    .line 50
     :catch_0
-    move-exception v2
-
-    goto :goto_2
-
-    .line 48
-    :catch_1
-    move-exception v2
-
-    goto :goto_1
-
-    .line 46
-    :catch_2
-    move-exception v2
-
-    goto :goto_1
-
-    .line 44
-    :catch_3
-    move-exception v2
-
-    goto :goto_1
+    const/4 v0, 0x0
 
     .line 53
-    :goto_2
+    :goto_1
     iput-object v0, p0, Lcom/thoughtworks/xstream/converters/extended/ISO8601GregorianCalendarConverter;->converter:Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
-    .line 54
     return-void
 .end method
 
 .method static synthetic class$(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 2
-    .param p0, "x0"    # Ljava/lang/String;
+    .locals 1
 
     .line 57
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/lang/NoClassDefFoundError;
+    new-instance v0, Ljava/lang/NoClassDefFoundError;
 
-    invoke-direct {v1}, Ljava/lang/NoClassDefFoundError;-><init>()V
+    invoke-direct {v0}, Ljava/lang/NoClassDefFoundError;-><init>()V
 
-    invoke-virtual {v1, v0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, p0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 .end method
 
 
 # virtual methods
 .method public canConvert(Ljava/lang/Class;)Z
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
 
     .line 57
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/extended/ISO8601GregorianCalendarConverter;->converter:Lcom/thoughtworks/xstream/converters/SingleValueConverter;
@@ -179,41 +146,39 @@
     :cond_0
     if-ne p1, v0, :cond_1
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public fromString(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
-    .param p1, "str"    # Ljava/lang/String;
 
     .line 61
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/extended/ISO8601GregorianCalendarConverter;->converter:Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
     invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/converters/SingleValueConverter;->fromString(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public toString(Ljava/lang/Object;)Ljava/lang/String;
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 65
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/extended/ISO8601GregorianCalendarConverter;->converter:Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
     invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/converters/SingleValueConverter;->toString(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

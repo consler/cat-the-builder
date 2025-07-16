@@ -21,10 +21,7 @@
 
 # virtual methods
 .method public final translate(Ljava/lang/CharSequence;ILjava/io/Writer;)I
-    .locals 2
-    .param p1, "input"    # Ljava/lang/CharSequence;
-    .param p2, "index"    # I
-    .param p3, "out"    # Ljava/io/Writer;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -34,17 +31,14 @@
     .line 40
     invoke-static {p1, p2}, Ljava/lang/Character;->codePointAt(Ljava/lang/CharSequence;I)I
 
-    move-result v0
+    move-result p1
 
     .line 41
-    .local v0, "codepoint":I
-    invoke-virtual {p0, v0, p3}, Lorg/apache/commons/lang3/text/translate/CodePointTranslator;->translate(ILjava/io/Writer;)Z
+    invoke-virtual {p0, p1, p3}, Lorg/apache/commons/lang3/text/translate/CodePointTranslator;->translate(ILjava/io/Writer;)Z
 
-    move-result v1
+    move-result p1
 
-    .line 42
-    .local v1, "consumed":Z
-    return v1
+    return p1
 .end method
 
 .method public abstract translate(ILjava/io/Writer;)Z

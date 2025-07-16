@@ -20,14 +20,11 @@
     .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 46
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "key"    # Ljava/lang/Object;
-    .param p2, "value"    # Ljava/lang/Object;
 
     .line 69
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,13 +35,11 @@
     .line 71
     iput-object p2, p0, Lorg/apache/commons/collections/DefaultMapEntry;->value:Ljava/lang/Object;
 
-    .line 72
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Map$Entry;)V
     .locals 1
-    .param p1, "entry"    # Ljava/util/Map$Entry;
 
     .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,26 +54,22 @@
     .line 58
     invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lorg/apache/commons/collections/DefaultMapEntry;->value:Ljava/lang/Object;
+    iput-object p1, p0, Lorg/apache/commons/collections/DefaultMapEntry;->value:Ljava/lang/Object;
 
-    .line 59
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 4
 
-    .line 130
     const/4 v0, 0x1
 
     if-ne p1, p0, :cond_0
 
-    .line 131
     return v0
 
     .line 133
@@ -89,83 +80,78 @@
 
     if-nez v1, :cond_1
 
-    .line 134
     return v2
 
     .line 136
     :cond_1
-    move-object v1, p1
-
-    check-cast v1, Ljava/util/Map$Entry;
+    check-cast p1, Ljava/util/Map$Entry;
 
     .line 137
-    .local v1, "other":Ljava/util/Map$Entry;
     invoke-virtual {p0}, Lorg/apache/commons/collections/DefaultMapEntry;->getKey()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    if-nez v3, :cond_2
+    if-nez v1, :cond_2
 
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    if-nez v3, :cond_4
+    if-nez v1, :cond_4
 
     goto :goto_0
 
     :cond_2
     invoke-virtual {p0}, Lorg/apache/commons/collections/DefaultMapEntry;->getKey()Ljava/lang/Object;
 
+    move-result-object v1
+
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
     move-result-object v3
 
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-virtual {v1, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v4
+    move-result v1
 
-    invoke-virtual {v3, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
+    if-eqz v1, :cond_4
 
     :goto_0
     invoke-virtual {p0}, Lorg/apache/commons/collections/DefaultMapEntry;->getValue()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    if-nez v3, :cond_3
+    if-nez v1, :cond_3
 
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p1
 
-    if-nez v3, :cond_4
+    if-nez p1, :cond_4
 
     goto :goto_1
 
     :cond_3
     invoke-virtual {p0}, Lorg/apache/commons/collections/DefaultMapEntry;->getValue()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-virtual {v3, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result p1
 
-    if-eqz v3, :cond_4
+    if-eqz p1, :cond_4
 
-    :goto_1
-    goto :goto_2
+    goto :goto_1
 
     :cond_4
     move v0, v2
 
-    :goto_2
+    :goto_1
     return v0
 .end method
 
@@ -238,27 +224,22 @@
 
 .method public setKey(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 93
     iput-object p1, p0, Lorg/apache/commons/collections/DefaultMapEntry;->key:Ljava/lang/Object;
 
-    .line 94
     return-void
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "value"    # Ljava/lang/Object;
 
     .line 114
     iget-object v0, p0, Lorg/apache/commons/collections/DefaultMapEntry;->value:Ljava/lang/Object;
 
     .line 115
-    .local v0, "answer":Ljava/lang/Object;
     iput-object p1, p0, Lorg/apache/commons/collections/DefaultMapEntry;->value:Ljava/lang/Object;
 
-    .line 116
     return-object v0
 .end method
 
@@ -268,11 +249,9 @@
     .line 160
     new-instance v0, Ljava/lang/StringBuffer;
 
-    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
-
     const-string v1, ""
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lorg/apache/commons/collections/DefaultMapEntry;->getKey()Ljava/lang/Object;
 
@@ -280,15 +259,21 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
+    move-result-object v0
+
     const-string v1, "="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
 
     invoke-virtual {p0}, Lorg/apache/commons/collections/DefaultMapEntry;->getValue()Ljava/lang/Object;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 

@@ -18,14 +18,12 @@
 # direct methods
 .method public constructor <init>(Lar/com/hjg/pngj/ImageInfo;)V
     .locals 1
-    .param p1, "info"    # Lar/com/hjg/pngj/ImageInfo;
 
-    .line 21
     const-string v0, "oFFs"
 
+    .line 21
     invoke-direct {p0, v0, p1}, Lar/com/hjg/pngj/chunks/PngChunkSingle;-><init>(Ljava/lang/String;Lar/com/hjg/pngj/ImageInfo;)V
 
-    .line 22
     return-void
 .end method
 
@@ -34,17 +32,16 @@
 .method public createRawChunk()Lar/com/hjg/pngj/chunks/ChunkRaw;
     .locals 4
 
-    .line 31
     const/16 v0, 0x9
 
     const/4 v1, 0x1
 
+    .line 31
     invoke-virtual {p0, v0, v1}, Lar/com/hjg/pngj/chunks/PngChunkOFFS;->createEmptyChunk(IZ)Lar/com/hjg/pngj/chunks/ChunkRaw;
 
     move-result-object v0
 
     .line 32
-    .local v0, "c":Lar/com/hjg/pngj/chunks/ChunkRaw;
     iget-wide v1, p0, Lar/com/hjg/pngj/chunks/PngChunkOFFS;->posX:J
 
     long-to-int v1, v1
@@ -77,7 +74,6 @@
 
     aput-byte v2, v1, v3
 
-    .line 35
     return-object v0
 .end method
 
@@ -119,7 +115,6 @@
 
 .method public parseFromRaw(Lar/com/hjg/pngj/chunks/ChunkRaw;)V
     .locals 7
-    .param p1, "chunk"    # Lar/com/hjg/pngj/chunks/ChunkRaw;
 
     .line 40
     iget v0, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->len:I
@@ -141,7 +136,6 @@
 
     iput-wide v0, p0, Lar/com/hjg/pngj/chunks/PngChunkOFFS;->posX:J
 
-    .line 43
     const-wide/16 v2, 0x0
 
     cmp-long v4, v0, v2
@@ -150,9 +144,9 @@
 
     if-gez v4, :cond_0
 
-    .line 44
     add-long/2addr v0, v5
 
+    .line 44
     iput-wide v0, p0, Lar/com/hjg/pngj/chunks/PngChunkOFFS;->posX:J
 
     .line 45
@@ -169,29 +163,27 @@
 
     iput-wide v0, p0, Lar/com/hjg/pngj/chunks/PngChunkOFFS;->posY:J
 
-    .line 46
     cmp-long v2, v0, v2
 
     if-gez v2, :cond_1
 
-    .line 47
     add-long/2addr v0, v5
 
+    .line 47
     iput-wide v0, p0, Lar/com/hjg/pngj/chunks/PngChunkOFFS;->posY:J
 
     .line 48
     :cond_1
-    iget-object v0, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
+    iget-object p1, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
 
-    const/16 v1, 0x8
+    const/16 v0, 0x8
 
-    invoke-static {v0, v1}, Lar/com/hjg/pngj/PngHelperInternal;->readInt1fromByte([BI)I
+    invoke-static {p1, v0}, Lar/com/hjg/pngj/PngHelperInternal;->readInt1fromByte([BI)I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lar/com/hjg/pngj/chunks/PngChunkOFFS;->units:I
+    iput p1, p0, Lar/com/hjg/pngj/chunks/PngChunkOFFS;->units:I
 
-    .line 49
     return-void
 
     .line 41
@@ -200,52 +192,46 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "bad chunk length "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Lar/com/hjg/pngj/PngjException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Lar/com/hjg/pngj/PngjException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public setPosX(J)V
     .locals 0
-    .param p1, "posX"    # J
 
     .line 70
     iput-wide p1, p0, Lar/com/hjg/pngj/chunks/PngChunkOFFS;->posX:J
 
-    .line 71
     return-void
 .end method
 
 .method public setPosY(J)V
     .locals 0
-    .param p1, "posY"    # J
 
     .line 78
     iput-wide p1, p0, Lar/com/hjg/pngj/chunks/PngChunkOFFS;->posY:J
 
-    .line 79
     return-void
 .end method
 
 .method public setUnits(I)V
     .locals 0
-    .param p1, "units"    # I
 
     .line 62
     iput p1, p0, Lar/com/hjg/pngj/chunks/PngChunkOFFS;->units:I
 
-    .line 63
     return-void
 .end method

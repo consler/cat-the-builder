@@ -17,12 +17,10 @@
 # direct methods
 .method public constructor <init>(Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;)V
     .locals 0
-    .param p1, "reflectionProvider"    # Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;
 
     .line 447
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/converters/reflection/ReflectionProviderWrapper;-><init>(Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;)V
 
-    .line 448
     return-void
 .end method
 
@@ -30,8 +28,6 @@
 # virtual methods
 .method public visitSerializableFields(Ljava/lang/Object;Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider$Visitor;)V
     .locals 2
-    .param p1, "object"    # Ljava/lang/Object;
-    .param p2, "visitor"    # Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider$Visitor;
 
     .line 451
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/reflection/CGLIBEnhancedConverter$CGLIBFilteringReflectionProvider;->wrapped:Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;
@@ -42,6 +38,5 @@
 
     invoke-interface {v0, p1, v1}, Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;->visitSerializableFields(Ljava/lang/Object;Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider$Visitor;)V
 
-    .line 458
     return-void
 .end method

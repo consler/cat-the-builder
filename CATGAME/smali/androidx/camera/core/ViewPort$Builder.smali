@@ -33,20 +33,18 @@
 # direct methods
 .method public constructor <init>(Landroid/util/Rational;I)V
     .locals 1
-    .param p1, "aspectRatio"    # Landroid/util/Rational;
-    .param p2, "rotation"    # I
 
     .line 242
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 205
     const/4 v0, 0x1
 
+    .line 205
     iput v0, p0, Landroidx/camera/core/ViewPort$Builder;->mScaleType:I
 
-    .line 213
     const/4 v0, 0x0
 
+    .line 213
     iput v0, p0, Landroidx/camera/core/ViewPort$Builder;->mLayoutDirection:I
 
     .line 243
@@ -55,7 +53,6 @@
     .line 244
     iput p2, p0, Landroidx/camera/core/ViewPort$Builder;->mRotation:I
 
-    .line 245
     return-void
 .end method
 
@@ -89,22 +86,18 @@
 
 .method public setLayoutDirection(I)Landroidx/camera/core/ViewPort$Builder;
     .locals 0
-    .param p1, "layoutDirection"    # I
 
     .line 275
     iput p1, p0, Landroidx/camera/core/ViewPort$Builder;->mLayoutDirection:I
 
-    .line 276
     return-object p0
 .end method
 
 .method public setScaleType(I)Landroidx/camera/core/ViewPort$Builder;
     .locals 0
-    .param p1, "scaleType"    # I
 
     .line 259
     iput p1, p0, Landroidx/camera/core/ViewPort$Builder;->mScaleType:I
 
-    .line 260
     return-object p0
 .end method

@@ -4,7 +4,8 @@
     <include layout="@layout/toolbar" />
     <RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
         <ImageButton android:layout_gravity="center" android:id="@id/pocketmusic_play_button" android:background="@drawable/button_background_selector" android:layout_width="fill_parent" android:layout_height="@dimen/actionbar_height" android:src="@drawable/ic_play" android:layout_alignParentBottom="true" />
-        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent" android:weightSum="1.0" android:layout_above="@id/pocketmusic_play_button">  <org.catrobat.catroid.pocketmusic.ui.PianoView android:id="@id/musicdroid_piano" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="0.22" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent" android:weightSum="1.0" android:layout_above="@id/pocketmusic_play_button">
+            <org.catrobat.catroid.pocketmusic.ui.PianoView android:id="@id/musicdroid_piano" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="0.22" />
             <FrameLayout android:background="@color/solid_black" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="0.78">
                 <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
                     <org.catrobat.catroid.pocketmusic.ui.TactScrollRecyclerView android:id="@id/tact_scroller" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="fill_parent" />

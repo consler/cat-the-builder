@@ -72,7 +72,6 @@
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
     .locals 0
-    .param p1, "$constructor_marker"    # Lkotlin/jvm/internal/DefaultConstructorMarker;
 
     .line 44
     invoke-direct {p0}, Landroidx/room/CoroutinesRoom$Companion;-><init>()V
@@ -84,10 +83,6 @@
 # virtual methods
 .method public final createFlow(Landroidx/room/RoomDatabase;Z[Ljava/lang/String;Ljava/util/concurrent/Callable;)Lkotlinx/coroutines/flow/Flow;
     .locals 7
-    .param p1, "db"    # Landroidx/room/RoomDatabase;
-    .param p2, "inTransaction"    # Z
-    .param p3, "tableNames"    # [Ljava/lang/String;
-    .param p4, "callable"    # Ljava/util/concurrent/Callable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -139,19 +134,13 @@
 
     invoke-static {v0}, Lkotlinx/coroutines/flow/FlowKt;->flow(Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 129
-    return-object v0
+    return-object p1
 .end method
 
 .method public final execute(Landroidx/room/RoomDatabase;ZLandroid/os/CancellationSignal;Ljava/util/concurrent/Callable;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 19
-    .param p1, "db"    # Landroidx/room/RoomDatabase;
-    .param p2, "inTransaction"    # Z
-    .param p3, "cancellationSignal"    # Landroid/os/CancellationSignal;
-    .param p4, "callable"    # Ljava/util/concurrent/Callable;
-    .param p5, "$completion"    # Lkotlin/coroutines/Continuation;
+    .locals 15
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -217,10 +206,10 @@
 
     goto :goto_1
 
-    .line 79
     :cond_1
     if-eqz p2, :cond_2
 
+    .line 79
     invoke-static/range {p1 .. p1}, Landroidx/room/CoroutinesRoomKt;->getTransactionDispatcher(Landroidx/room/RoomDatabase;)Lkotlinx/coroutines/CoroutineDispatcher;
 
     move-result-object v0
@@ -235,68 +224,46 @@
     :goto_0
     check-cast v0, Lkotlin/coroutines/ContinuationInterceptor;
 
-    .line 78
-    :goto_1
-    nop
-
-    .line 80
-    .local v0, "context":Lkotlin/coroutines/ContinuationInterceptor;
-    const/4 v7, 0x0
-
-    .line 153
-    .local v7, "$i$f$suspendCancellableCoroutine":I
-    move-object/from16 v8, p5
-
-    .local v8, "uCont$iv":Lkotlin/coroutines/Continuation;
-    const/4 v9, 0x0
-
     .line 154
-    .local v9, "$i$a$-suspendCoroutineUninterceptedOrReturn-CancellableContinuationKt$suspendCancellableCoroutine$2$iv":I
-    new-instance v1, Lkotlinx/coroutines/CancellableContinuationImpl;
+    :goto_1
+    new-instance v7, Lkotlinx/coroutines/CancellableContinuationImpl;
 
-    invoke-static {v8}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->intercepted(Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
+    invoke-static/range {p5 .. p5}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->intercepted(Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
 
-    move-result-object v2
+    move-result-object v1
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    invoke-direct {v1, v2, v3}, Lkotlinx/coroutines/CancellableContinuationImpl;-><init>(Lkotlin/coroutines/Continuation;I)V
-
-    move-object v10, v1
+    invoke-direct {v7, v1, v2}, Lkotlinx/coroutines/CancellableContinuationImpl;-><init>(Lkotlin/coroutines/Continuation;I)V
 
     .line 160
-    .local v10, "cancellable$iv":Lkotlinx/coroutines/CancellableContinuationImpl;
-    invoke-virtual {v10}, Lkotlinx/coroutines/CancellableContinuationImpl;->initCancellability()V
+    invoke-virtual {v7}, Lkotlinx/coroutines/CancellableContinuationImpl;->initCancellability()V
 
     .line 161
-    move-object v11, v10
+    move-object v8, v7
 
-    check-cast v11, Lkotlinx/coroutines/CancellableContinuation;
-
-    .local v11, "continuation":Lkotlinx/coroutines/CancellableContinuation;
-    const/4 v12, 0x0
+    check-cast v8, Lkotlinx/coroutines/CancellableContinuation;
 
     .line 81
-    .local v12, "$i$a$-suspendCancellableCoroutine-CoroutinesRoom$Companion$execute$4":I
     sget-object v1, Lkotlinx/coroutines/GlobalScope;->INSTANCE:Lkotlinx/coroutines/GlobalScope;
 
-    move-object v13, v1
+    move-object v9, v1
 
-    check-cast v13, Lkotlinx/coroutines/CoroutineScope;
+    check-cast v9, Lkotlinx/coroutines/CoroutineScope;
 
-    move-object v14, v0
+    move-object v10, v0
 
-    check-cast v14, Lkotlin/coroutines/CoroutineContext;
+    check-cast v10, Lkotlin/coroutines/CoroutineContext;
 
-    const/4 v15, 0x0
+    const/4 v11, 0x0
 
-    new-instance v16, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$1;
+    new-instance v12, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$1;
 
     const/4 v3, 0x0
 
-    move-object/from16 v1, v16
+    move-object v1, v12
 
-    move-object v2, v11
+    move-object v2, v8
 
     move-object v4, v0
 
@@ -306,18 +273,17 @@
 
     invoke-direct/range {v1 .. v6}, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$1;-><init>(Lkotlinx/coroutines/CancellableContinuation;Lkotlin/coroutines/Continuation;Lkotlin/coroutines/ContinuationInterceptor;Ljava/util/concurrent/Callable;Landroid/os/CancellationSignal;)V
 
-    check-cast v16, Lkotlin/jvm/functions/Function2;
+    check-cast v12, Lkotlin/jvm/functions/Function2;
 
-    const/16 v17, 0x2
+    const/4 v13, 0x2
 
-    const/16 v18, 0x0
+    const/4 v14, 0x0
 
-    invoke-static/range {v13 .. v18}, Lkotlinx/coroutines/BuildersKt;->launch$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
+    invoke-static/range {v9 .. v14}, Lkotlinx/coroutines/BuildersKt;->launch$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
 
     move-result-object v1
 
     .line 89
-    .local v1, "job":Lkotlinx/coroutines/Job;
     new-instance v2, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$2;
 
     move-object/from16 v3, p3
@@ -328,46 +294,28 @@
 
     check-cast v2, Lkotlin/jvm/functions/Function1;
 
-    invoke-interface {v11, v2}, Lkotlinx/coroutines/CancellableContinuation;->invokeOnCancellation(Lkotlin/jvm/functions/Function1;)V
-
-    .line 95
-    .end local v1    # "job":Lkotlinx/coroutines/Job;
-    nop
+    invoke-interface {v8, v2}, Lkotlinx/coroutines/CancellableContinuation;->invokeOnCancellation(Lkotlin/jvm/functions/Function1;)V
 
     .line 162
-    .end local v11    # "continuation":Lkotlinx/coroutines/CancellableContinuation;
-    .end local v12    # "$i$a$-suspendCancellableCoroutine-CoroutinesRoom$Companion$execute$4":I
-    invoke-virtual {v10}, Lkotlinx/coroutines/CancellableContinuationImpl;->getResult()Ljava/lang/Object;
+    invoke-virtual {v7}, Lkotlinx/coroutines/CancellableContinuationImpl;->getResult()Ljava/lang/Object;
+
+    move-result-object v0
+
+    .line 153
+    invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 153
-    .end local v8    # "uCont$iv":Lkotlin/coroutines/Continuation;
-    .end local v9    # "$i$a$-suspendCoroutineUninterceptedOrReturn-CancellableContinuationKt$suspendCancellableCoroutine$2$iv":I
-    .end local v10    # "cancellable$iv":Lkotlinx/coroutines/CancellableContinuationImpl;
-    invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
-
-    move-result-object v2
-
-    if-ne v1, v2, :cond_3
+    if-ne v0, v1, :cond_3
 
     invoke-static/range {p5 .. p5}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    .line 163
     :cond_3
-    nop
-
-    .line 80
-    .end local v7    # "$i$f$suspendCancellableCoroutine":I
-    return-object v1
+    return-object v0
 .end method
 
 .method public final execute(Landroidx/room/RoomDatabase;ZLjava/util/concurrent/Callable;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 4
-    .param p1, "db"    # Landroidx/room/RoomDatabase;
-    .param p2, "inTransaction"    # Z
-    .param p3, "callable"    # Ljava/util/concurrent/Callable;
-    .param p4, "$completion"    # Lkotlin/coroutines/Continuation;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -402,9 +350,9 @@
     .line 53
     invoke-interface {p3}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 58
     :cond_0
@@ -432,45 +380,41 @@
 
     goto :goto_1
 
-    .line 59
     :cond_1
     if-eqz p2, :cond_2
 
+    .line 59
     invoke-static {p1}, Landroidx/room/CoroutinesRoomKt;->getTransactionDispatcher(Landroidx/room/RoomDatabase;)Lkotlinx/coroutines/CoroutineDispatcher;
 
-    move-result-object v0
+    move-result-object p1
 
     goto :goto_0
 
     :cond_2
     invoke-static {p1}, Landroidx/room/CoroutinesRoomKt;->getQueryDispatcher(Landroidx/room/RoomDatabase;)Lkotlinx/coroutines/CoroutineDispatcher;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
+    move-object v0, p1
+
     check-cast v0, Lkotlin/coroutines/ContinuationInterceptor;
 
-    .line 58
-    :goto_1
-    nop
-
     .line 60
-    .local v0, "context":Lkotlin/coroutines/ContinuationInterceptor;
-    move-object v1, v0
+    :goto_1
+    check-cast v0, Lkotlin/coroutines/CoroutineContext;
 
-    check-cast v1, Lkotlin/coroutines/CoroutineContext;
+    new-instance p1, Landroidx/room/CoroutinesRoom$Companion$execute$2;
 
-    new-instance v2, Landroidx/room/CoroutinesRoom$Companion$execute$2;
+    const/4 p2, 0x0
 
-    const/4 v3, 0x0
+    invoke-direct {p1, p3, p2}, Landroidx/room/CoroutinesRoom$Companion$execute$2;-><init>(Ljava/util/concurrent/Callable;Lkotlin/coroutines/Continuation;)V
 
-    invoke-direct {v2, p3, v3}, Landroidx/room/CoroutinesRoom$Companion$execute$2;-><init>(Ljava/util/concurrent/Callable;Lkotlin/coroutines/Continuation;)V
+    check-cast p1, Lkotlin/jvm/functions/Function2;
 
-    check-cast v2, Lkotlin/jvm/functions/Function2;
+    invoke-static {v0, p1, p4}, Lkotlinx/coroutines/BuildersKt;->withContext(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
-    invoke-static {v1, v2, p4}, Lkotlinx/coroutines/BuildersKt;->withContext(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v1
-
-    return-object v1
+    return-object p1
 .end method

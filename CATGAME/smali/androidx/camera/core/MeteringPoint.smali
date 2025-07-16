@@ -16,10 +16,6 @@
 # direct methods
 .method constructor <init>(FFFLandroid/util/Rational;)V
     .locals 0
-    .param p1, "normalizedX"    # F
-    .param p2, "normalizedY"    # F
-    .param p3, "size"    # F
-    .param p4, "surfaceAspectRatio"    # Landroid/util/Rational;
 
     .line 73
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +32,6 @@
     .line 77
     iput-object p4, p0, Landroidx/camera/core/MeteringPoint;->mSurfaceAspectRatio:Landroid/util/Rational;
 
-    .line 78
     return-void
 .end method
 

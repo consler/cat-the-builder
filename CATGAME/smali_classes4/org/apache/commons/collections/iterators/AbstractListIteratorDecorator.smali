@@ -12,44 +12,39 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/ListIterator;)V
-    .locals 2
-    .param p1, "iterator"    # Ljava/util/ListIterator;
+    .locals 1
 
     .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 46
     if-eqz p1, :cond_0
 
     .line 49
     iput-object p1, p0, Lorg/apache/commons/collections/iterators/AbstractListIteratorDecorator;->iterator:Ljava/util/ListIterator;
 
-    .line 50
     return-void
 
     .line 47
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "ListIterator must not be null"
+    const-string v0, "ListIterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 95
     iget-object v0, p0, Lorg/apache/commons/collections/iterators/AbstractListIteratorDecorator;->iterator:Ljava/util/ListIterator;
 
     invoke-interface {v0, p1}, Ljava/util/ListIterator;->add(Ljava/lang/Object;)V
 
-    .line 96
     return-void
 .end method
 
@@ -148,19 +143,16 @@
 
     invoke-interface {v0}, Ljava/util/ListIterator;->remove()V
 
-    .line 88
     return-void
 .end method
 
 .method public set(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 91
     iget-object v0, p0, Lorg/apache/commons/collections/iterators/AbstractListIteratorDecorator;->iterator:Ljava/util/ListIterator;
 
     invoke-interface {v0, p1}, Ljava/util/ListIterator;->set(Ljava/lang/Object;)V
 
-    .line 92
     return-void
 .end method

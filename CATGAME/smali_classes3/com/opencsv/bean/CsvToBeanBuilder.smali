@@ -92,24 +92,22 @@
 
 # direct methods
 .method public constructor <init>(Lcom/opencsv/CSVReader;)V
-    .locals 3
-    .param p1, "csvReader"    # Lcom/opencsv/CSVReader;
+    .locals 2
 
     .line 146
-    .local p0, "this":Lcom/opencsv/bean/CsvToBeanBuilder;, "Lcom/opencsv/bean/CsvToBeanBuilder<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 58
     const/4 v0, 0x0
 
+    .line 58
     iput-object v0, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->mappingStrategy:Lcom/opencsv/bean/MappingStrategy;
 
     .line 72
     iput-object v0, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->filter:Lcom/opencsv/bean/CsvToBeanFilter;
 
-    .line 75
     const/4 v1, 0x1
 
+    .line 75
     iput-boolean v1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->throwExceptions:Z
 
     .line 78
@@ -169,7 +167,6 @@
 
     iput-object v1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->ignoredFields:Lorg/apache/commons/collections4/ListValuedMap;
 
-    .line 147
     if-eqz p1, :cond_0
 
     .line 152
@@ -178,51 +175,48 @@
     .line 153
     iput-object p1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->csvReader:Lcom/opencsv/CSVReader;
 
-    .line 154
     return-void
 
     .line 148
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
+
+    const-string v0, "opencsv"
 
     .line 149
-    const-string v1, "opencsv"
+    invoke-static {v0}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;)Ljava/util/ResourceBundle;
 
-    invoke-static {v1}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;)Ljava/util/ResourceBundle;
+    move-result-object v0
 
-    move-result-object v1
+    const-string v1, "reader.null"
 
     .line 150
-    const-string v2, "reader.null"
+    invoke-virtual {v0, v1}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    throw p1
 .end method
 
 .method public constructor <init>(Ljava/io/Reader;)V
-    .locals 3
-    .param p1, "reader"    # Ljava/io/Reader;
+    .locals 2
 
     .line 130
-    .local p0, "this":Lcom/opencsv/bean/CsvToBeanBuilder;, "Lcom/opencsv/bean/CsvToBeanBuilder<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 58
     const/4 v0, 0x0
 
+    .line 58
     iput-object v0, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->mappingStrategy:Lcom/opencsv/bean/MappingStrategy;
 
     .line 72
     iput-object v0, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->filter:Lcom/opencsv/bean/CsvToBeanFilter;
 
-    .line 75
     const/4 v1, 0x1
 
+    .line 75
     iput-boolean v1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->throwExceptions:Z
 
     .line 78
@@ -282,7 +276,6 @@
 
     iput-object v1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->ignoredFields:Lorg/apache/commons/collections4/ListValuedMap;
 
-    .line 131
     if-eqz p1, :cond_0
 
     .line 136
@@ -291,43 +284,40 @@
     .line 137
     iput-object v0, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->csvReader:Lcom/opencsv/CSVReader;
 
-    .line 138
     return-void
 
     .line 132
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
+
+    const-string v0, "opencsv"
 
     .line 133
-    const-string v1, "opencsv"
+    invoke-static {v0}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;)Ljava/util/ResourceBundle;
 
-    invoke-static {v1}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;)Ljava/util/ResourceBundle;
+    move-result-object v0
 
-    move-result-object v1
+    const-string v1, "reader.null"
 
     .line 134
-    const-string v2, "reader.null"
+    invoke-virtual {v0, v1}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    throw p1
 .end method
 
 .method private buildParser()Lcom/opencsv/CSVParser;
     .locals 2
 
     .line 209
-    .local p0, "this":Lcom/opencsv/bean/CsvToBeanBuilder;, "Lcom/opencsv/bean/CsvToBeanBuilder<TT;>;"
     new-instance v0, Lcom/opencsv/CSVParserBuilder;
 
     invoke-direct {v0}, Lcom/opencsv/CSVParserBuilder;-><init>()V
 
     .line 210
-    .local v0, "csvpb":Lcom/opencsv/CSVParserBuilder;
     iget-object v1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->nullFieldIndicator:Lcom/opencsv/enums/CSVReaderNullFieldIndicator;
 
     if-eqz v1, :cond_0
@@ -422,17 +412,15 @@
     .line 233
     invoke-virtual {v0}, Lcom/opencsv/CSVParserBuilder;->build()Lcom/opencsv/CSVParser;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method private buildReader(Lcom/opencsv/CSVParser;)Lcom/opencsv/CSVReader;
     .locals 2
-    .param p1, "parser"    # Lcom/opencsv/CSVParser;
 
     .line 243
-    .local p0, "this":Lcom/opencsv/bean/CsvToBeanBuilder;, "Lcom/opencsv/bean/CsvToBeanBuilder<TT;>;"
     new-instance v0, Lcom/opencsv/CSVReaderBuilder;
 
     iget-object v1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->reader:Ljava/io/Reader;
@@ -440,64 +428,63 @@
     invoke-direct {v0, v1}, Lcom/opencsv/CSVReaderBuilder;-><init>(Ljava/io/Reader;)V
 
     .line 244
-    .local v0, "csvrb":Lcom/opencsv/CSVReaderBuilder;
     invoke-virtual {v0, p1}, Lcom/opencsv/CSVReaderBuilder;->withCSVParser(Lcom/opencsv/ICSVParser;)Lcom/opencsv/CSVReaderBuilder;
 
     .line 245
-    iget-boolean v1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->keepCR:Z
+    iget-boolean p1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->keepCR:Z
 
-    invoke-virtual {v0, v1}, Lcom/opencsv/CSVReaderBuilder;->withKeepCarriageReturn(Z)Lcom/opencsv/CSVReaderBuilder;
+    invoke-virtual {v0, p1}, Lcom/opencsv/CSVReaderBuilder;->withKeepCarriageReturn(Z)Lcom/opencsv/CSVReaderBuilder;
 
     .line 246
-    iget-object v1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->verifyReader:Ljava/lang/Boolean;
+    iget-object p1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->verifyReader:Ljava/lang/Boolean;
 
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
     .line 247
-    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/opencsv/CSVReaderBuilder;->withVerifyReader(Z)Lcom/opencsv/CSVReaderBuilder;
+    invoke-virtual {v0, p1}, Lcom/opencsv/CSVReaderBuilder;->withVerifyReader(Z)Lcom/opencsv/CSVReaderBuilder;
 
     .line 249
     :cond_0
-    iget-object v1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->skipLines:Ljava/lang/Integer;
+    iget-object p1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->skipLines:Ljava/lang/Integer;
 
-    if-eqz v1, :cond_1
+    if-eqz p1, :cond_1
 
     .line 250
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/opencsv/CSVReaderBuilder;->withSkipLines(I)Lcom/opencsv/CSVReaderBuilder;
+    invoke-virtual {v0, p1}, Lcom/opencsv/CSVReaderBuilder;->withSkipLines(I)Lcom/opencsv/CSVReaderBuilder;
 
     .line 252
     :cond_1
-    iget-object v1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->multilineLimit:Ljava/lang/Integer;
+    iget-object p1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->multilineLimit:Ljava/lang/Integer;
 
-    if-eqz v1, :cond_2
+    if-eqz p1, :cond_2
 
     .line 253
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/opencsv/CSVReaderBuilder;->withMultilineLimit(I)Lcom/opencsv/CSVReaderBuilder;
+    invoke-virtual {v0, p1}, Lcom/opencsv/CSVReaderBuilder;->withMultilineLimit(I)Lcom/opencsv/CSVReaderBuilder;
 
     .line 255
     :cond_2
-    iget-object v1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->errorLocale:Ljava/util/Locale;
+    iget-object p1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->errorLocale:Ljava/util/Locale;
 
-    invoke-virtual {v0, v1}, Lcom/opencsv/CSVReaderBuilder;->withErrorLocale(Ljava/util/Locale;)Lcom/opencsv/CSVReaderBuilder;
+    invoke-virtual {v0, p1}, Lcom/opencsv/CSVReaderBuilder;->withErrorLocale(Ljava/util/Locale;)Lcom/opencsv/CSVReaderBuilder;
 
     .line 256
     invoke-virtual {v0}, Lcom/opencsv/CSVReaderBuilder;->build()Lcom/opencsv/CSVReader;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 
@@ -519,7 +506,6 @@
     .end annotation
 
     .line 165
-    .local p0, "this":Lcom/opencsv/bean/CsvToBeanBuilder;, "Lcom/opencsv/bean/CsvToBeanBuilder<TT;>;"
     iget-object v0, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->mappingStrategy:Lcom/opencsv/bean/MappingStrategy;
 
     if-nez v0, :cond_1
@@ -534,11 +520,11 @@
     :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
-    iget-object v1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->errorLocale:Ljava/util/Locale;
+    const-string v1, "opencsv"
 
-    const-string v2, "opencsv"
+    iget-object v2, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->errorLocale:Ljava/util/Locale;
 
-    invoke-static {v2, v1}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;
+    invoke-static {v1, v2}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;
 
     move-result-object v1
 
@@ -560,7 +546,6 @@
     invoke-direct {v0}, Lcom/opencsv/bean/CsvToBean;-><init>()V
 
     .line 172
-    .local v0, "bean":Lcom/opencsv/bean/CsvToBean;, "Lcom/opencsv/bean/CsvToBean<TT;>;"
     iget-object v1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->csvReader:Lcom/opencsv/CSVReader;
 
     if-eqz v1, :cond_2
@@ -577,15 +562,13 @@
     move-result-object v1
 
     .line 176
-    .local v1, "parser":Lcom/opencsv/CSVParser;
     invoke-direct {p0, v1}, Lcom/opencsv/bean/CsvToBeanBuilder;->buildReader(Lcom/opencsv/CSVParser;)Lcom/opencsv/CSVReader;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0, v2}, Lcom/opencsv/bean/CsvToBean;->setCsvReader(Lcom/opencsv/CSVReader;)V
+    invoke-virtual {v0, v1}, Lcom/opencsv/bean/CsvToBean;->setCsvReader(Lcom/opencsv/CSVReader;)V
 
     .line 180
-    .end local v1    # "parser":Lcom/opencsv/CSVParser;
     :goto_1
     iget-boolean v1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->throwExceptions:Z
 
@@ -653,13 +636,11 @@
 
     invoke-virtual {v0, v1}, Lcom/opencsv/bean/CsvToBean;->setErrorLocale(Ljava/util/Locale;)V
 
-    .line 200
     return-object v0
 .end method
 
 .method public withErrorLocale(Ljava/util/Locale;)Lcom/opencsv/bean/CsvToBeanBuilder;
     .locals 1
-    .param p1, "errorLocale"    # Ljava/util/Locale;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -671,26 +652,23 @@
     .end annotation
 
     .line 440
-    .local p0, "this":Lcom/opencsv/bean/CsvToBeanBuilder;, "Lcom/opencsv/bean/CsvToBeanBuilder<TT;>;"
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v0
 
     invoke-static {p1, v0}, Lorg/apache/commons/lang3/ObjectUtils;->defaultIfNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Locale;
+    check-cast p1, Ljava/util/Locale;
 
-    iput-object v0, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->errorLocale:Ljava/util/Locale;
+    iput-object p1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->errorLocale:Ljava/util/Locale;
 
-    .line 441
     return-object p0
 .end method
 
 .method public withEscapeChar(C)Lcom/opencsv/bean/CsvToBeanBuilder;
-    .locals 1
-    .param p1, "escapeChar"    # C
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(C)",
@@ -700,20 +678,17 @@
     .end annotation
 
     .line 357
-    .local p0, "this":Lcom/opencsv/bean/CsvToBeanBuilder;, "Lcom/opencsv/bean/CsvToBeanBuilder<TT;>;"
     invoke-static {p1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->escapeChar:Ljava/lang/Character;
+    iput-object p1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->escapeChar:Ljava/lang/Character;
 
-    .line 358
     return-object p0
 .end method
 
 .method public withFieldAsNull(Lcom/opencsv/enums/CSVReaderNullFieldIndicator;)Lcom/opencsv/bean/CsvToBeanBuilder;
     .locals 0
-    .param p1, "indicator"    # Lcom/opencsv/enums/CSVReaderNullFieldIndicator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -725,16 +700,13 @@
     .end annotation
 
     .line 297
-    .local p0, "this":Lcom/opencsv/bean/CsvToBeanBuilder;, "Lcom/opencsv/bean/CsvToBeanBuilder<TT;>;"
     iput-object p1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->nullFieldIndicator:Lcom/opencsv/enums/CSVReaderNullFieldIndicator;
 
-    .line 298
     return-object p0
 .end method
 
 .method public withFilter(Lcom/opencsv/bean/CsvToBeanFilter;)Lcom/opencsv/bean/CsvToBeanBuilder;
     .locals 0
-    .param p1, "filter"    # Lcom/opencsv/bean/CsvToBeanFilter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -749,16 +721,13 @@
     .end annotation
 
     .line 277
-    .local p0, "this":Lcom/opencsv/bean/CsvToBeanBuilder;, "Lcom/opencsv/bean/CsvToBeanBuilder<TT;>;"
     iput-object p1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->filter:Lcom/opencsv/bean/CsvToBeanFilter;
 
-    .line 278
     return-object p0
 .end method
 
 .method public withIgnoreField(Ljava/lang/Class;Ljava/lang/reflect/Field;)Lcom/opencsv/bean/CsvToBeanBuilder;
-    .locals 3
-    .param p2, "field"    # Ljava/lang/reflect/Field;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -777,13 +746,11 @@
         }
     .end annotation
 
-    .line 478
-    .local p0, "this":Lcom/opencsv/bean/CsvToBeanBuilder;, "Lcom/opencsv/bean/CsvToBeanBuilder<TT;>;"
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     if-eqz p1, :cond_0
 
     if-eqz p2, :cond_0
 
+    .line 478
     invoke-virtual {p2}, Ljava/lang/reflect/Field;->getDeclaringClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -799,36 +766,34 @@
 
     invoke-interface {v0, p1, p2}, Lorg/apache/commons/collections4/ListValuedMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    .line 486
     return-object p0
 
     .line 482
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    iget-object v1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->errorLocale:Ljava/util/Locale;
+    const-string p2, "opencsv"
 
-    const-string v2, "opencsv"
+    iget-object v0, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->errorLocale:Ljava/util/Locale;
 
-    invoke-static {v2, v1}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;
+    invoke-static {p2, v0}, Ljava/util/ResourceBundle;->getBundle(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;
 
-    move-result-object v1
+    move-result-object p2
+
+    const-string v0, "ignore.field.inconsistent"
 
     .line 484
-    const-string v2, "ignore.field.inconsistent"
+    invoke-virtual {p2, v0}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/util/ResourceBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object p2
 
-    move-result-object v1
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    throw p1
 .end method
 
 .method public withIgnoreLeadingWhiteSpace(Z)Lcom/opencsv/bean/CsvToBeanBuilder;
-    .locals 1
-    .param p1, "ignoreLeadingWhiteSpace"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)",
@@ -838,20 +803,17 @@
     .end annotation
 
     .line 377
-    .local p0, "this":Lcom/opencsv/bean/CsvToBeanBuilder;, "Lcom/opencsv/bean/CsvToBeanBuilder<TT;>;"
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->ignoreLeadingWhiteSpace:Ljava/lang/Boolean;
+    iput-object p1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->ignoreLeadingWhiteSpace:Ljava/lang/Boolean;
 
-    .line 378
     return-object p0
 .end method
 
 .method public withIgnoreQuotations(Z)Lcom/opencsv/bean/CsvToBeanBuilder;
-    .locals 1
-    .param p1, "ignoreQuotations"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)",
@@ -861,20 +823,17 @@
     .end annotation
 
     .line 387
-    .local p0, "this":Lcom/opencsv/bean/CsvToBeanBuilder;, "Lcom/opencsv/bean/CsvToBeanBuilder<TT;>;"
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->ignoreQuotations:Ljava/lang/Boolean;
+    iput-object p1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->ignoreQuotations:Ljava/lang/Boolean;
 
-    .line 388
     return-object p0
 .end method
 
 .method public withKeepCarriageReturn(Z)Lcom/opencsv/bean/CsvToBeanBuilder;
     .locals 0
-    .param p1, "keepCR"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)",
@@ -884,10 +843,8 @@
     .end annotation
 
     .line 306
-    .local p0, "this":Lcom/opencsv/bean/CsvToBeanBuilder;, "Lcom/opencsv/bean/CsvToBeanBuilder<TT;>;"
     iput-boolean p1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->keepCR:Z
 
-    .line 307
     return-object p0
 .end method
 
@@ -904,17 +861,13 @@
     .end annotation
 
     .line 265
-    .local p0, "this":Lcom/opencsv/bean/CsvToBeanBuilder;, "Lcom/opencsv/bean/CsvToBeanBuilder<TT;>;"
-    .local p1, "mappingStrategy":Lcom/opencsv/bean/MappingStrategy;, "Lcom/opencsv/bean/MappingStrategy<+TT;>;"
     iput-object p1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->mappingStrategy:Lcom/opencsv/bean/MappingStrategy;
 
-    .line 266
     return-object p0
 .end method
 
 .method public withMultilineLimit(I)Lcom/opencsv/bean/CsvToBeanBuilder;
-    .locals 1
-    .param p1, "multilineLimit"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -924,20 +877,17 @@
     .end annotation
 
     .line 414
-    .local p0, "this":Lcom/opencsv/bean/CsvToBeanBuilder;, "Lcom/opencsv/bean/CsvToBeanBuilder<TT;>;"
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->multilineLimit:Ljava/lang/Integer;
+    iput-object p1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->multilineLimit:Ljava/lang/Integer;
 
-    .line 415
     return-object p0
 .end method
 
 .method public withOrderedResults(Z)Lcom/opencsv/bean/CsvToBeanBuilder;
     .locals 0
-    .param p1, "orderedResults"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)",
@@ -947,16 +897,13 @@
     .end annotation
 
     .line 427
-    .local p0, "this":Lcom/opencsv/bean/CsvToBeanBuilder;, "Lcom/opencsv/bean/CsvToBeanBuilder<TT;>;"
     iput-boolean p1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->orderedResults:Z
 
-    .line 428
     return-object p0
 .end method
 
 .method public withQuoteChar(C)Lcom/opencsv/bean/CsvToBeanBuilder;
-    .locals 1
-    .param p1, "quoteChar"    # C
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(C)",
@@ -966,20 +913,17 @@
     .end annotation
 
     .line 347
-    .local p0, "this":Lcom/opencsv/bean/CsvToBeanBuilder;, "Lcom/opencsv/bean/CsvToBeanBuilder<TT;>;"
     invoke-static {p1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->quoteChar:Ljava/lang/Character;
+    iput-object p1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->quoteChar:Ljava/lang/Character;
 
-    .line 348
     return-object p0
 .end method
 
 .method public withSeparator(C)Lcom/opencsv/bean/CsvToBeanBuilder;
-    .locals 1
-    .param p1, "separator"    # C
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(C)",
@@ -989,20 +933,17 @@
     .end annotation
 
     .line 337
-    .local p0, "this":Lcom/opencsv/bean/CsvToBeanBuilder;, "Lcom/opencsv/bean/CsvToBeanBuilder<TT;>;"
     invoke-static {p1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->separator:Ljava/lang/Character;
+    iput-object p1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->separator:Ljava/lang/Character;
 
-    .line 338
     return-object p0
 .end method
 
 .method public withSkipLines(I)Lcom/opencsv/bean/CsvToBeanBuilder;
-    .locals 1
-    .param p1, "skipLines"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -1012,20 +953,17 @@
     .end annotation
 
     .line 327
-    .local p0, "this":Lcom/opencsv/bean/CsvToBeanBuilder;, "Lcom/opencsv/bean/CsvToBeanBuilder<TT;>;"
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->skipLines:Ljava/lang/Integer;
+    iput-object p1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->skipLines:Ljava/lang/Integer;
 
-    .line 328
     return-object p0
 .end method
 
 .method public withStrictQuotes(Z)Lcom/opencsv/bean/CsvToBeanBuilder;
-    .locals 1
-    .param p1, "strictQuotes"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)",
@@ -1035,20 +973,17 @@
     .end annotation
 
     .line 367
-    .local p0, "this":Lcom/opencsv/bean/CsvToBeanBuilder;, "Lcom/opencsv/bean/CsvToBeanBuilder<TT;>;"
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->strictQuotes:Ljava/lang/Boolean;
+    iput-object p1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->strictQuotes:Ljava/lang/Boolean;
 
-    .line 368
     return-object p0
 .end method
 
 .method public withThrowExceptions(Z)Lcom/opencsv/bean/CsvToBeanBuilder;
     .locals 0
-    .param p1, "throwExceptions"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)",
@@ -1058,10 +993,8 @@
     .end annotation
 
     .line 287
-    .local p0, "this":Lcom/opencsv/bean/CsvToBeanBuilder;, "Lcom/opencsv/bean/CsvToBeanBuilder<TT;>;"
     iput-boolean p1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->throwExceptions:Z
 
-    .line 288
     return-object p0
 .end method
 
@@ -1078,11 +1011,8 @@
     .end annotation
 
     .line 401
-    .local p0, "this":Lcom/opencsv/bean/CsvToBeanBuilder;, "Lcom/opencsv/bean/CsvToBeanBuilder<TT;>;"
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<+TT;>;"
     iput-object p1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->type:Ljava/lang/Class;
 
-    .line 402
     return-object p0
 .end method
 
@@ -1098,9 +1028,6 @@
         }
     .end annotation
 
-    .line 457
-    .local p0, "this":Lcom/opencsv/bean/CsvToBeanBuilder;, "Lcom/opencsv/bean/CsvToBeanBuilder<TT;>;"
-    .local p1, "verifier":Lcom/opencsv/bean/BeanVerifier;, "Lcom/opencsv/bean/BeanVerifier<TT;>;"
     if-eqz p1, :cond_0
 
     .line 458
@@ -1108,14 +1035,12 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 460
     :cond_0
     return-object p0
 .end method
 
 .method public withVerifyReader(Z)Lcom/opencsv/bean/CsvToBeanBuilder;
-    .locals 1
-    .param p1, "verifyReader"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)",
@@ -1125,13 +1050,11 @@
     .end annotation
 
     .line 316
-    .local p0, "this":Lcom/opencsv/bean/CsvToBeanBuilder;, "Lcom/opencsv/bean/CsvToBeanBuilder<TT;>;"
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->verifyReader:Ljava/lang/Boolean;
+    iput-object p1, p0, Lcom/opencsv/bean/CsvToBeanBuilder;->verifyReader:Ljava/lang/Boolean;
 
-    .line 317
     return-object p0
 .end method

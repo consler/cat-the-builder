@@ -42,13 +42,10 @@
 # direct methods
 .method protected constructor <init>(Ljava/lang/String;Lar/com/hjg/pngj/ImageInfo;)V
     .locals 0
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "info"    # Lar/com/hjg/pngj/ImageInfo;
 
     .line 26
     invoke-direct {p0, p1, p2}, Lar/com/hjg/pngj/chunks/PngChunkMultiple;-><init>(Ljava/lang/String;Lar/com/hjg/pngj/ImageInfo;)V
 
-    .line 27
     return-void
 .end method
 
@@ -83,8 +80,6 @@
 
 .method public setKeyVal(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "val"    # Ljava/lang/String;
 
     .line 56
     iput-object p1, p0, Lar/com/hjg/pngj/chunks/PngChunkTextVar;->key:Ljava/lang/String;
@@ -92,6 +87,5 @@
     .line 57
     iput-object p2, p0, Lar/com/hjg/pngj/chunks/PngChunkTextVar;->val:Ljava/lang/String;
 
-    .line 58
     return-void
 .end method

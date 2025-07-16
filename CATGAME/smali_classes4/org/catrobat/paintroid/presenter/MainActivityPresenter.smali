@@ -17,17 +17,12 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nMainActivityPresenter.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MainActivityPresenter.kt\norg/catrobat/paintroid/presenter/MainActivityPresenter\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,1047:1\n1#2:1048\n*E\n"
+    value = "SMAP\nMainActivityPresenter.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MainActivityPresenter.kt\norg/catrobat/paintroid/presenter/MainActivityPresenter\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,1270:1\n1#2:1271\n*E\n"
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
-        "\u0000\u00f2\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0018\u0002\n\u0002\u0008\u0007\n\u0002\u0010\u0008\n\u0002\u0008\u0003\n\u0002\u0010\u000b\n\u0002\u0008\u0004\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0010\u0002\n\u0002\u0008\u0011\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u0011\n\u0000\n\u0002\u0010\u0015\n\u0002\u0008\u0011\n\u0002\u0018\u0002\n\u0002\u0008\u0006\n\u0002\u0018\u0002\n\u0002\u0008\u0005\n\u0002\u0018\u0002\n\u0002\u0008\u0017\n\u0002\u0018\u0002\n\u0002\u0008\u0019\u0008\u0016\u0018\u0000 \u00ae\u00012\u00020\u00012\u00020\u00022\u00020\u00032\u00020\u0004:\u0002\u00ae\u0001B\u008f\u0001\u0012\u0008\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\u0006\u0010\u0007\u001a\u00020\u0008\u0012\u0006\u0010\t\u001a\u00020\n\u0012\u0006\u0010\u000b\u001a\u00020\u000c\u0012\u0006\u0010\r\u001a\u00020\u000e\u0012\u0006\u0010\u000f\u001a\u00020\u0010\u0012\u0006\u0010\u0011\u001a\u00020\u0012\u0012\u0006\u0010\u0013\u001a\u00020\u0014\u0012\u0006\u0010\u0015\u001a\u00020\u0016\u0012\u0006\u0010\u0017\u001a\u00020\u0018\u0012\u0006\u0010\u0019\u001a\u00020\u001a\u0012\u0006\u0010\u001b\u001a\u00020\u001c\u0012\u0006\u0010\u001d\u001a\u00020\u001e\u0012\u0006\u0010\u001f\u001a\u00020 \u0012\u0006\u0010!\u001a\u00020\"\u0012\u0006\u0010#\u001a\u00020$\u0012\u0006\u0010%\u001a\u00020&\u00a2\u0006\u0002\u0010\'J\u0008\u0010A\u001a\u00020BH\u0016J\u0008\u0010C\u001a\u00020BH\u0016J\u0010\u0010D\u001a\u00020B2\u0006\u0010E\u001a\u000205H\u0002J\u0008\u0010F\u001a\u00020BH\u0016J\u0010\u0010G\u001a\u00020B2\u0006\u0010H\u001a\u00020)H\u0016J\u0008\u0010I\u001a\u00020BH\u0002J\u0008\u0010J\u001a\u000209H\u0016J\u0008\u0010K\u001a\u00020BH\u0002J\u0008\u0010L\u001a\u00020BH\u0016J\u0008\u0010M\u001a\u00020BH\u0002J\u0008\u0010N\u001a\u00020BH\u0016J\u0008\u0010O\u001a\u00020BH\u0002J\u0008\u0010P\u001a\u00020BH\u0016J\u0008\u0010Q\u001a\u00020BH\u0016J\u0008\u0010R\u001a\u00020BH\u0016J\u0012\u0010S\u001a\u0004\u0018\u00010T2\u0006\u0010U\u001a\u00020VH\u0002J\"\u0010W\u001a\u00020B2\u0006\u0010E\u001a\u0002052\u0006\u0010X\u001a\u0002052\u0008\u0010Y\u001a\u0004\u0018\u00010ZH\u0016J+\u0010[\u001a\u00020B2\u0006\u0010E\u001a\u0002052\u000c\u0010\\\u001a\u0008\u0012\u0004\u0012\u00020T0]2\u0006\u0010^\u001a\u00020_H\u0016\u00a2\u0006\u0002\u0010`J\u0008\u0010a\u001a\u00020BH\u0016J\u0008\u0010b\u001a\u00020BH\u0016J\u001c\u0010c\u001a\u00020B2\u0008\u0010d\u001a\u0004\u0018\u00010T2\u0008\u0010e\u001a\u0004\u0018\u00010TH\u0016J\u0008\u0010f\u001a\u00020BH\u0016J\u0008\u0010g\u001a\u00020BH\u0016J\u001a\u0010h\u001a\u00020B2\u0008\u0010U\u001a\u0004\u0018\u00010V2\u0006\u0010E\u001a\u000205H\u0016J\u0008\u0010i\u001a\u00020BH\u0016J\u0008\u0010j\u001a\u00020BH\u0016J\u0008\u0010k\u001a\u00020BH\u0016J\u001a\u0010l\u001a\u00020B2\u0006\u0010E\u001a\u0002052\u0008\u0010m\u001a\u0004\u0018\u00010&H\u0016J\u0008\u0010n\u001a\u00020BH\u0016J$\u0010o\u001a\u00020B2\u0006\u0010E\u001a\u0002052\u0008\u0010U\u001a\u0004\u0018\u00010V2\u0008\u0010p\u001a\u0004\u0018\u00010qH\u0016J\u0010\u0010r\u001a\u00020B2\u0006\u0010E\u001a\u000205H\u0016J\u0008\u0010s\u001a\u00020BH\u0016J\"\u0010t\u001a\u00020B2\u0006\u0010E\u001a\u0002052\u0008\u0010U\u001a\u0004\u0018\u00010V2\u0006\u0010u\u001a\u000209H\u0016J\u0010\u0010v\u001a\u00020B2\u0006\u0010E\u001a\u000205H\u0016J\u0012\u0010w\u001a\u0004\u0018\u00010x2\u0006\u0010\u000b\u001a\u00020\u000cH\u0016J\u0008\u0010y\u001a\u00020BH\u0016J\u0008\u0010z\u001a\u00020BH\u0016J\u0008\u0010{\u001a\u00020BH\u0002J\u0012\u0010|\u001a\u00020B2\u0008\u0010}\u001a\u0004\u0018\u00010~H\u0016JB\u0010\u007f\u001a\u00020B2\u0007\u0010\u0080\u0001\u001a\u0002092\u0007\u0010\u0081\u0001\u001a\u0002092\u0007\u0010\u0082\u0001\u001a\u0002092\u0007\u0010\u0083\u0001\u001a\u0002092\t\u0010\u0084\u0001\u001a\u0004\u0018\u00010V2\t\u0010\u0085\u0001\u001a\u0004\u0018\u00010VH\u0016J\t\u0010\u0086\u0001\u001a\u00020BH\u0016J\t\u0010\u0087\u0001\u001a\u00020BH\u0016J\t\u0010\u0088\u0001\u001a\u00020BH\u0016J\u0011\u0010\u0089\u0001\u001a\u00020B2\u0006\u00108\u001a\u000209H\u0016J\u0011\u0010\u008a\u0001\u001a\u00020B2\u0006\u0010E\u001a\u000205H\u0016J\t\u0010\u008b\u0001\u001a\u00020BH\u0016J\u001b\u0010\u008c\u0001\u001a\u00020B2\u0006\u0010E\u001a\u0002052\u0008\u0010U\u001a\u0004\u0018\u00010VH\u0016J\t\u0010\u008d\u0001\u001a\u00020BH\u0016J\t\u0010\u008e\u0001\u001a\u00020BH\u0016J\t\u0010\u008f\u0001\u001a\u00020BH\u0016J\u0012\u0010\u0090\u0001\u001a\u00020B2\u0007\u0010\u0091\u0001\u001a\u000205H\u0016J\t\u0010\u0092\u0001\u001a\u00020BH\u0002J\u0011\u0010\u0093\u0001\u001a\u00020B2\u0006\u0010=\u001a\u00020>H\u0016J\u0013\u0010\u0094\u0001\u001a\u00020B2\u0008\u0010\u0095\u0001\u001a\u00030\u0096\u0001H\u0002J\t\u0010\u0097\u0001\u001a\u00020BH\u0016J\t\u0010\u0098\u0001\u001a\u00020BH\u0016J\t\u0010\u0099\u0001\u001a\u00020BH\u0016J\t\u0010\u009a\u0001\u001a\u00020BH\u0016J\t\u0010\u009b\u0001\u001a\u00020BH\u0016J\t\u0010\u009c\u0001\u001a\u00020BH\u0016J\t\u0010\u009d\u0001\u001a\u00020BH\u0016J\t\u0010\u009e\u0001\u001a\u00020BH\u0016J\t\u0010\u009f\u0001\u001a\u00020BH\u0016J\t\u0010\u00a0\u0001\u001a\u00020BH\u0016J\t\u0010\u00a1\u0001\u001a\u00020BH\u0002J\t\u0010\u00a2\u0001\u001a\u00020BH\u0016J\u001a\u0010\u00a3\u0001\u001a\u00020B2\u0007\u0010\u00a4\u0001\u001a\u0002052\u0006\u00108\u001a\u000209H\u0016J\t\u0010\u00a5\u0001\u001a\u00020BH\u0016J\t\u0010\u00a6\u0001\u001a\u00020BH\u0016J\t\u0010\u00a7\u0001\u001a\u00020BH\u0002J\u000f\u0010\u00a8\u0001\u001a\u00020B2\u0006\u0010E\u001a\u000205J\u0019\u0010\u00a8\u0001\u001a\u00020B2\u0006\u0010E\u001a\u0002052\u0006\u00108\u001a\u000209H\u0016J\u001e\u0010\u00a9\u0001\u001a\u00020B2\u0008\u0010\u00aa\u0001\u001a\u00030\u0096\u00012\t\u0008\u0002\u0010\u00ab\u0001\u001a\u000209H\u0002J\u0013\u0010\u00ac\u0001\u001a\u00020B2\u0008\u0010\u0095\u0001\u001a\u00030\u0096\u0001H\u0016J\t\u0010\u00ad\u0001\u001a\u00020BH\u0016R\u0016\u0010(\u001a\u0004\u0018\u00010)8VX\u0096\u0004\u00a2\u0006\u0006\u001a\u0004\u0008*\u0010+R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0018X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u001aX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u001cX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0014\u0010,\u001a\u00020-8VX\u0096\u0004\u00a2\u0006\u0006\u001a\u0004\u0008.\u0010/R\u0014\u0010#\u001a\u00020$X\u0096\u0004\u00a2\u0006\u0008\n\u0000\u001a\u0004\u00080\u00101R\u000e\u0010\u0015\u001a\u00020\u0016X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u0005\u001a\u0004\u0018\u00010\u0006X\u0096\u0004\u00a2\u0006\u0008\n\u0000\u001a\u0004\u00082\u00103R\u0014\u00104\u001a\u0002058VX\u0096\u0004\u00a2\u0006\u0006\u001a\u0004\u00086\u00107R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010%\u001a\u00020&X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u00108\u001a\u000209X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u0014\u0010:\u001a\u0002098VX\u0096\u0004\u00a2\u0006\u0006\u001a\u0004\u0008:\u0010;R\u0014\u0010<\u001a\u0002098BX\u0082\u0004\u00a2\u0006\u0006\u001a\u0004\u0008<\u0010;R\u0010\u0010=\u001a\u0004\u0018\u00010>X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u001d\u001a\u00020\u001eX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010?\u001a\u000209X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010!\u001a\u00020\"X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u001f\u001a\u00020 X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0008X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010@\u001a\u000209X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\u000cX\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u00af\u0001"
+        "\u0000\u0090\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0010\u000b\n\u0002\u0008\u0005\n\u0002\u0018\u0002\n\u0002\u0008\u0005\n\u0002\u0018\u0002\n\u0002\u0008\u0005\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0010\u0008\n\u0002\u0008\u0006\n\u0002\u0018\u0002\n\u0002\u0008\u0006\n\u0002\u0010\u0002\n\u0002\u0008\u0015\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u0011\n\u0000\n\u0002\u0010\u0015\n\u0002\u0008\u0011\n\u0002\u0018\u0002\n\u0002\u0008\u0006\n\u0002\u0018\u0002\n\u0002\u0008\u0005\n\u0002\u0018\u0002\n\u0002\u0008\u0016\n\u0002\u0018\u0002\n\u0002\u0008\u0004\n\u0002\u0018\u0002\n\u0002\u0008\u0019\u0008\u0016\u0018\u0000 \u00c7\u00012\u00020\u00012\u00020\u00022\u00020\u00032\u00020\u0004:\u0002\u00c7\u0001B\u0097\u0001\u0012\u0008\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\u0006\u0010\u0007\u001a\u00020\u0008\u0012\u0006\u0010\t\u001a\u00020\n\u0012\u0006\u0010\u000b\u001a\u00020\u000c\u0012\u0006\u0010\r\u001a\u00020\u000e\u0012\u0006\u0010\u000f\u001a\u00020\u0010\u0012\u0006\u0010\u0011\u001a\u00020\u0012\u0012\u0006\u0010\u0013\u001a\u00020\u0014\u0012\u0006\u0010\u0015\u001a\u00020\u0016\u0012\u0006\u0010\u0017\u001a\u00020\u0018\u0012\u0006\u0010\u0019\u001a\u00020\u001a\u0012\u0006\u0010\u001b\u001a\u00020\u001c\u0012\u0006\u0010\u001d\u001a\u00020\u001e\u0012\u0006\u0010\u001f\u001a\u00020 \u0012\u0006\u0010!\u001a\u00020\"\u0012\u0006\u0010#\u001a\u00020$\u0012\u0006\u0010%\u001a\u00020&\u0012\u0006\u0010\'\u001a\u00020(\u00a2\u0006\u0002\u0010)J\u0008\u0010R\u001a\u00020SH\u0016J\u0008\u0010T\u001a\u00020SH\u0016J\u0008\u0010U\u001a\u00020SH\u0016J\u0006\u0010V\u001a\u00020SJ\u0010\u0010W\u001a\u00020S2\u0006\u0010X\u001a\u00020EH\u0002J\u0008\u0010Y\u001a\u00020SH\u0016J\u0010\u0010Z\u001a\u00020S2\u0006\u0010[\u001a\u00020+H\u0016J\u0008\u0010\\\u001a\u00020SH\u0002J\u0008\u0010]\u001a\u00020SH\u0002J\u0008\u0010^\u001a\u00020/H\u0016J\u0006\u0010_\u001a\u00020SJ\u0008\u0010`\u001a\u00020SH\u0002J\u0008\u0010a\u001a\u00020SH\u0016J\u0008\u0010b\u001a\u00020SH\u0002J\u0008\u0010c\u001a\u00020SH\u0016J\u0008\u0010d\u001a\u00020SH\u0002J\u0008\u0010e\u001a\u00020SH\u0016J\u0008\u0010f\u001a\u00020SH\u0016J\u0008\u0010g\u001a\u00020SH\u0016J\u0012\u0010h\u001a\u0004\u0018\u00010i2\u0006\u0010j\u001a\u00020kH\u0002J\"\u0010l\u001a\u00020S2\u0006\u0010X\u001a\u00020E2\u0006\u0010m\u001a\u00020E2\u0008\u0010n\u001a\u0004\u0018\u00010oH\u0016J+\u0010p\u001a\u00020S2\u0006\u0010X\u001a\u00020E2\u000c\u0010q\u001a\u0008\u0012\u0004\u0012\u00020i0r2\u0006\u0010s\u001a\u00020tH\u0016\u00a2\u0006\u0002\u0010uJ\u0006\u0010v\u001a\u00020SJ\u0008\u0010w\u001a\u00020SH\u0016J\u0008\u0010x\u001a\u00020SH\u0016J\u001c\u0010y\u001a\u00020S2\u0008\u0010z\u001a\u0004\u0018\u00010i2\u0008\u0010{\u001a\u0004\u0018\u00010iH\u0016J\u0008\u0010|\u001a\u00020SH\u0016J\u001a\u0010}\u001a\u00020S2\u0008\u0010j\u001a\u0004\u0018\u00010k2\u0006\u0010X\u001a\u00020EH\u0016J\u0008\u0010~\u001a\u00020SH\u0016J\u0008\u0010\u007f\u001a\u00020SH\u0016J\t\u0010\u0080\u0001\u001a\u00020SH\u0016J\u001c\u0010\u0081\u0001\u001a\u00020S2\u0006\u0010X\u001a\u00020E2\t\u0010\u0082\u0001\u001a\u0004\u0018\u00010&H\u0016J\t\u0010\u0083\u0001\u001a\u00020SH\u0016J\'\u0010\u0084\u0001\u001a\u00020S2\u0006\u0010X\u001a\u00020E2\u0008\u0010j\u001a\u0004\u0018\u00010k2\n\u0010\u0085\u0001\u001a\u0005\u0018\u00010\u0086\u0001H\u0016J\u0011\u0010\u0087\u0001\u001a\u00020S2\u0006\u0010X\u001a\u00020EH\u0016J\t\u0010\u0088\u0001\u001a\u00020SH\u0016J$\u0010\u0089\u0001\u001a\u00020S2\u0006\u0010X\u001a\u00020E2\u0008\u0010j\u001a\u0004\u0018\u00010k2\u0007\u0010\u008a\u0001\u001a\u00020/H\u0016J\u0011\u0010\u008b\u0001\u001a\u00020S2\u0006\u0010X\u001a\u00020EH\u0016J\u000c\u0010\u008c\u0001\u001a\u0005\u0018\u00010\u008d\u0001H\u0016J\t\u0010\u008e\u0001\u001a\u00020SH\u0016J\t\u0010\u008f\u0001\u001a\u00020SH\u0016J\t\u0010\u0090\u0001\u001a\u00020SH\u0002J\u0015\u0010\u0091\u0001\u001a\u00020S2\n\u0010\u0092\u0001\u001a\u0005\u0018\u00010\u0093\u0001H\u0016J\t\u0010\u0094\u0001\u001a\u00020SH\u0016JC\u0010\u0095\u0001\u001a\u00020S2\u0007\u0010\u0096\u0001\u001a\u00020/2\u0007\u0010\u0097\u0001\u001a\u00020/2\u0007\u0010\u0098\u0001\u001a\u00020/2\u0007\u0010\u0099\u0001\u001a\u00020/2\t\u0010\u009a\u0001\u001a\u0004\u0018\u00010k2\t\u0010\u009b\u0001\u001a\u0004\u0018\u00010kH\u0016J\t\u0010\u009c\u0001\u001a\u00020SH\u0016J\t\u0010\u009d\u0001\u001a\u00020SH\u0016J\t\u0010\u009e\u0001\u001a\u00020SH\u0016J\u0011\u0010\u009f\u0001\u001a\u00020S2\u0006\u0010H\u001a\u00020/H\u0016J\u001b\u0010\u00a0\u0001\u001a\u00020S2\u0006\u0010X\u001a\u00020E2\u0008\u0010j\u001a\u0004\u0018\u00010kH\u0016J\t\u0010\u00a1\u0001\u001a\u00020SH\u0016J\u001b\u0010\u00a2\u0001\u001a\u00020S2\u0006\u0010X\u001a\u00020E2\u0008\u0010j\u001a\u0004\u0018\u00010kH\u0016J\t\u0010\u00a3\u0001\u001a\u00020SH\u0016J\t\u0010\u00a4\u0001\u001a\u00020SH\u0016J\t\u0010\u00a5\u0001\u001a\u00020SH\u0016J\u0012\u0010\u00a6\u0001\u001a\u00020S2\u0007\u0010\u00a7\u0001\u001a\u00020EH\u0016J\u0015\u0010\u00a8\u0001\u001a\u00020S2\n\u0010\u00a9\u0001\u001a\u0005\u0018\u00010\u00aa\u0001H\u0016J\t\u0010\u00ab\u0001\u001a\u00020SH\u0002J\u0011\u0010\u00ac\u0001\u001a\u00020S2\u0006\u0010K\u001a\u00020LH\u0016J\u0013\u0010\u00ad\u0001\u001a\u00020S2\u0008\u0010\u00ae\u0001\u001a\u00030\u00af\u0001H\u0002J\t\u0010\u00b0\u0001\u001a\u00020SH\u0016J\t\u0010\u00b1\u0001\u001a\u00020SH\u0016J\t\u0010\u00b2\u0001\u001a\u00020SH\u0016J\t\u0010\u00b3\u0001\u001a\u00020SH\u0016J\t\u0010\u00b4\u0001\u001a\u00020SH\u0016J\t\u0010\u00b5\u0001\u001a\u00020SH\u0016J\t\u0010\u00b6\u0001\u001a\u00020SH\u0016J\t\u0010\u00b7\u0001\u001a\u00020SH\u0016J\t\u0010\u00b8\u0001\u001a\u00020SH\u0016J\t\u0010\u00b9\u0001\u001a\u00020SH\u0016J\t\u0010\u00ba\u0001\u001a\u00020SH\u0002J\t\u0010\u00bb\u0001\u001a\u00020SH\u0016J\u001a\u0010\u00bc\u0001\u001a\u00020S2\u0007\u0010\u00bd\u0001\u001a\u00020E2\u0006\u0010H\u001a\u00020/H\u0016J\t\u0010\u00be\u0001\u001a\u00020SH\u0016J\t\u0010\u00bf\u0001\u001a\u00020SH\u0016J\t\u0010\u00c0\u0001\u001a\u00020SH\u0002J\u0011\u0010\u00c1\u0001\u001a\u00020S2\u0006\u0010\u001f\u001a\u00020 H\u0016J\u000f\u0010\u00c2\u0001\u001a\u00020S2\u0006\u0010X\u001a\u00020EJ\u0019\u0010\u00c2\u0001\u001a\u00020S2\u0006\u0010X\u001a\u00020E2\u0006\u0010H\u001a\u00020/H\u0016J\u0013\u0010\u00c3\u0001\u001a\u00020S2\u0008\u0010\u00c4\u0001\u001a\u00030\u00af\u0001H\u0002J\u0013\u0010\u00c5\u0001\u001a\u00020S2\u0008\u0010\u00ae\u0001\u001a\u00030\u00af\u0001H\u0016J\t\u0010\u00c6\u0001\u001a\u00020SH\u0016R\u0016\u0010*\u001a\u0004\u0018\u00010+8VX\u0096\u0004\u00a2\u0006\u0006\u001a\u0004\u0008,\u0010-R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0018X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u001a\u0010.\u001a\u00020/X\u0086\u000e\u00a2\u0006\u000e\n\u0000\u001a\u0004\u00080\u00101\"\u0004\u00082\u00103R\u001a\u00104\u001a\u000205X\u0086\u000e\u00a2\u0006\u000e\n\u0000\u001a\u0004\u00086\u00107\"\u0004\u00088\u00109R\u000e\u0010\u0019\u001a\u00020\u001aX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u001cX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\'\u001a\u00020(X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0014\u0010:\u001a\u00020;8VX\u0096\u0004\u00a2\u0006\u0006\u001a\u0004\u0008<\u0010=R\u0014\u0010#\u001a\u00020$X\u0096\u0004\u00a2\u0006\u0008\n\u0000\u001a\u0004\u0008>\u0010?R\u0010\u0010@\u001a\u0004\u0018\u00010AX\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0016X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u0005\u001a\u0004\u0018\u00010\u0006X\u0096\u0004\u00a2\u0006\u0008\n\u0000\u001a\u0004\u0008B\u0010CR\u000e\u0010!\u001a\u00020\"X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0014\u0010D\u001a\u00020E8VX\u0096\u0004\u00a2\u0006\u0006\u001a\u0004\u0008F\u0010GR\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010%\u001a\u00020&X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010H\u001a\u00020/X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u0014\u0010I\u001a\u00020/8VX\u0096\u0004\u00a2\u0006\u0006\u001a\u0004\u0008I\u00101R\u0014\u0010J\u001a\u00020/8BX\u0082\u0004\u00a2\u0006\u0006\u001a\u0004\u0008J\u00101R\u0010\u0010K\u001a\u0004\u0018\u00010LX\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010M\u001a\u00020/X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u001f\u001a\u00020 X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u001d\u001a\u00020\u001eX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u001a\u0010N\u001a\u00020/X\u0086\u000e\u00a2\u0006\u000e\n\u0000\u001a\u0004\u0008O\u00101\"\u0004\u0008P\u00103R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0008X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010Q\u001a\u00020/X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\u000cX\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u00c8\u0001"
     }
     d2 = {
         "Lorg/catrobat/paintroid/presenter/MainActivityPresenter;",
@@ -59,27 +54,43 @@
         "Lorg/catrobat/paintroid/command/CommandFactory;",
         "commandManager",
         "Lorg/catrobat/paintroid/command/CommandManager;",
-        "perspective",
-        "Lorg/catrobat/paintroid/ui/Perspective;",
         "toolController",
         "Lorg/catrobat/paintroid/controller/ToolController;",
         "sharedPreferences",
         "Lorg/catrobat/paintroid/UserPreferences;",
+        "idlingResource",
+        "Landroidx/test/espresso/idling/CountingIdlingResource;",
         "context",
         "Landroid/content/Context;",
         "internalMemoryPath",
         "Ljava/io/File;",
-        "(Landroid/app/Activity;Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;Lorg/catrobat/paintroid/tools/Workspace;Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomBarViewHolder;Lorg/catrobat/paintroid/contract/MainActivityContracts$DrawerLayoutViewHolder;Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomNavigationViewHolder;Lorg/catrobat/paintroid/command/CommandFactory;Lorg/catrobat/paintroid/command/CommandManager;Lorg/catrobat/paintroid/ui/Perspective;Lorg/catrobat/paintroid/controller/ToolController;Lorg/catrobat/paintroid/UserPreferences;Landroid/content/Context;Ljava/io/File;)V",
+        "commandSerializer",
+        "Lorg/catrobat/paintroid/command/serialization/CommandSerializer;",
+        "(Landroid/app/Activity;Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;Lorg/catrobat/paintroid/tools/Workspace;Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomBarViewHolder;Lorg/catrobat/paintroid/contract/MainActivityContracts$DrawerLayoutViewHolder;Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomNavigationViewHolder;Lorg/catrobat/paintroid/command/CommandFactory;Lorg/catrobat/paintroid/command/CommandManager;Lorg/catrobat/paintroid/controller/ToolController;Lorg/catrobat/paintroid/UserPreferences;Landroidx/test/espresso/idling/CountingIdlingResource;Landroid/content/Context;Ljava/io/File;Lorg/catrobat/paintroid/command/serialization/CommandSerializer;)V",
         "bitmap",
         "Landroid/graphics/Bitmap;",
         "getBitmap",
         "()Landroid/graphics/Bitmap;",
+        "clippingToolInUseAndUndoRedoClicked",
+        "",
+        "getClippingToolInUseAndUndoRedoClicked",
+        "()Z",
+        "setClippingToolInUseAndUndoRedoClicked",
+        "(Z)V",
+        "clippingToolPaint",
+        "Landroid/graphics/Paint;",
+        "getClippingToolPaint",
+        "()Landroid/graphics/Paint;",
+        "setClippingToolPaint",
+        "(Landroid/graphics/Paint;)V",
         "contentResolver",
         "Landroid/content/ContentResolver;",
         "getContentResolver",
         "()Landroid/content/ContentResolver;",
         "getContext",
         "()Landroid/content/Context;",
+        "downTimer",
+        "Landroid/os/CountDownTimer;",
         "getFileActivity",
         "()Landroid/app/Activity;",
         "imageNumber",
@@ -87,30 +98,35 @@
         "getImageNumber",
         "()I",
         "isExport",
-        "",
         "isFinishing",
-        "()Z",
         "isImageUnchanged",
         "layerAdapter",
         "Lorg/catrobat/paintroid/ui/LayerAdapter;",
         "resetPerspectiveAfterNextCommand",
+        "toolOptionsViewWasShown",
+        "getToolOptionsViewWasShown",
+        "setToolOptionsViewWasShown",
         "wasImageLoaded",
         "actionCurrentToolClicked",
         "",
         "actionToolsClicked",
+        "addImageToCurrentLayerClicked",
+        "adjustClippingToolPostCommandExecute",
         "askForReadAndWriteExternalStoragePermission",
         "requestCode",
         "backToPocketCodeClicked",
         "bitmapLoadedFromSource",
         "loadedImage",
         "checkForDefaultFilename",
+        "checkForImplicitToolApplication",
         "checkForTemporaryFile",
+        "checkIfClippingToolNeedsAdjustment",
         "countUpImageNumber",
         "discardImageClicked",
-        "enterFullscreen",
-        "enterFullscreenClicked",
-        "exitFullscreen",
-        "exitFullscreenClicked",
+        "enterHideButtons",
+        "enterHideButtonsClicked",
+        "exitHideButtons",
+        "exitHideButtonsClicked",
         "finishActivity",
         "finishInitialize",
         "getFileName",
@@ -127,12 +143,12 @@
         "grantResults",
         "",
         "(I[Ljava/lang/String;[I)V",
+        "hideBottomBarViewHolder",
         "importFromGalleryClicked",
         "importStickersClicked",
         "initializeFromCleanState",
         "extraPicturePath",
         "extraPictureName",
-        "loadImageClicked",
         "loadNewImage",
         "loadScaledImage",
         "newImageClicked",
@@ -150,13 +166,14 @@
         "saveAsCopy",
         "onSaveImagePreExecute",
         "openTemporaryFile",
-        "Lorg/catrobat/paintroid/model/CommandManagerModel;",
+        "Lorg/catrobat/paintroid/iotasks/WorkspaceReturnValue;",
         "rateUsClicked",
         "redoClicked",
         "refreshTopBarButtons",
         "removeMoreOptionsItems",
         "menu",
         "Landroid/view/Menu;",
+        "replaceImageClicked",
         "restoreState",
         "isFullscreen",
         "isSaved",
@@ -176,6 +193,9 @@
         "setAntialiasingOnOkClicked",
         "setBottomNavigationColor",
         "color",
+        "setColorHistoryAfterLoadImage",
+        "colorHistory",
+        "Lorg/catrobat/paintroid/colorpicker/ColorHistory;",
         "setFirstCheckBoxInLayerMenu",
         "setLayerAdapter",
         "setTool",
@@ -198,21 +218,22 @@
         "showPngInformationDialog",
         "showRateUsDialog",
         "showSecurityQuestionBeforeExit",
+        "showZoomWindowSettingsClicked",
         "switchBetweenVersions",
         "switchTool",
         "type",
-        "backPressed",
         "toolClicked",
         "undoClicked",
         "Companion",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -225,15 +246,25 @@
 
 .field private final bottomNavigationViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomNavigationViewHolder;
 
+.field private clippingToolInUseAndUndoRedoClicked:Z
+
+.field private clippingToolPaint:Landroid/graphics/Paint;
+
 .field private final commandFactory:Lorg/catrobat/paintroid/command/CommandFactory;
 
 .field private final commandManager:Lorg/catrobat/paintroid/command/CommandManager;
 
+.field private final commandSerializer:Lorg/catrobat/paintroid/command/serialization/CommandSerializer;
+
 .field private final context:Landroid/content/Context;
+
+.field private downTimer:Landroid/os/CountDownTimer;
 
 .field private final drawerLayoutViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$DrawerLayoutViewHolder;
 
 .field private final fileActivity:Landroid/app/Activity;
+
+.field private final idlingResource:Landroidx/test/espresso/idling/CountingIdlingResource;
 
 .field private final interactor:Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;
 
@@ -247,13 +278,13 @@
 
 .field private final navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-.field private final perspective:Lorg/catrobat/paintroid/ui/Perspective;
-
 .field private resetPerspectiveAfterNextCommand:Z
 
 .field private final sharedPreferences:Lorg/catrobat/paintroid/UserPreferences;
 
 .field private final toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+.field private toolOptionsViewWasShown:Z
 
 .field private final topBarViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;
 
@@ -279,25 +310,8 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/app/Activity;Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;Lorg/catrobat/paintroid/tools/Workspace;Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomBarViewHolder;Lorg/catrobat/paintroid/contract/MainActivityContracts$DrawerLayoutViewHolder;Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomNavigationViewHolder;Lorg/catrobat/paintroid/command/CommandFactory;Lorg/catrobat/paintroid/command/CommandManager;Lorg/catrobat/paintroid/ui/Perspective;Lorg/catrobat/paintroid/controller/ToolController;Lorg/catrobat/paintroid/UserPreferences;Landroid/content/Context;Ljava/io/File;)V
+.method public constructor <init>(Landroid/app/Activity;Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;Lorg/catrobat/paintroid/tools/Workspace;Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomBarViewHolder;Lorg/catrobat/paintroid/contract/MainActivityContracts$DrawerLayoutViewHolder;Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomNavigationViewHolder;Lorg/catrobat/paintroid/command/CommandFactory;Lorg/catrobat/paintroid/command/CommandManager;Lorg/catrobat/paintroid/controller/ToolController;Lorg/catrobat/paintroid/UserPreferences;Landroidx/test/espresso/idling/CountingIdlingResource;Landroid/content/Context;Ljava/io/File;Lorg/catrobat/paintroid/command/serialization/CommandSerializer;)V
     .locals 16
-    .param p1, "fileActivity"    # Landroid/app/Activity;
-    .param p2, "view"    # Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
-    .param p3, "model"    # Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
-    .param p4, "workspace"    # Lorg/catrobat/paintroid/tools/Workspace;
-    .param p5, "navigator"    # Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
-    .param p6, "interactor"    # Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;
-    .param p7, "topBarViewHolder"    # Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;
-    .param p8, "bottomBarViewHolder"    # Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomBarViewHolder;
-    .param p9, "drawerLayoutViewHolder"    # Lorg/catrobat/paintroid/contract/MainActivityContracts$DrawerLayoutViewHolder;
-    .param p10, "bottomNavigationViewHolder"    # Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomNavigationViewHolder;
-    .param p11, "commandFactory"    # Lorg/catrobat/paintroid/command/CommandFactory;
-    .param p12, "commandManager"    # Lorg/catrobat/paintroid/command/CommandManager;
-    .param p13, "perspective"    # Lorg/catrobat/paintroid/ui/Perspective;
-    .param p14, "toolController"    # Lorg/catrobat/paintroid/controller/ToolController;
-    .param p15, "sharedPreferences"    # Lorg/catrobat/paintroid/UserPreferences;
-    .param p16, "context"    # Landroid/content/Context;
-    .param p17, "internalMemoryPath"    # Ljava/io/File;
 
     move-object/from16 v0, p0
 
@@ -330,6 +344,8 @@
     move-object/from16 v14, p15
 
     move-object/from16 v15, p16
+
+    move-object/from16 v0, p17
 
     const-string v0, "view"
 
@@ -375,15 +391,15 @@
 
     invoke-static {v11, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "perspective"
+    const-string v0, "toolController"
 
     invoke-static {v12, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "toolController"
+    const-string v0, "sharedPreferences"
 
     invoke-static {v13, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "sharedPreferences"
+    const-string v0, "idlingResource"
 
     invoke-static {v14, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -397,59 +413,129 @@
 
     invoke-static {v15, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 88
+    const-string v0, "commandSerializer"
+
+    move-object/from16 v15, p18
+
+    invoke-static {v15, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 105
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     move-object/from16 v0, p0
 
     move-object/from16 v15, p1
 
+    .line 107
     iput-object v15, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->fileActivity:Landroid/app/Activity;
 
+    .line 108
     iput-object v1, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
 
+    .line 109
     iput-object v2, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
+    .line 110
     iput-object v3, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
 
+    .line 111
     iput-object v4, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
+    .line 112
     iput-object v5, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->interactor:Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;
 
+    .line 113
     iput-object v6, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->topBarViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;
 
+    .line 114
     iput-object v7, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->bottomBarViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomBarViewHolder;
 
+    .line 115
     iput-object v8, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->drawerLayoutViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$DrawerLayoutViewHolder;
 
+    .line 116
     iput-object v9, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->bottomNavigationViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomNavigationViewHolder;
 
+    .line 117
     iput-object v10, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandFactory:Lorg/catrobat/paintroid/command/CommandFactory;
 
+    .line 118
     iput-object v11, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
 
-    iput-object v12, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->perspective:Lorg/catrobat/paintroid/ui/Perspective;
+    .line 119
+    iput-object v12, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
-    iput-object v13, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+    .line 120
+    iput-object v13, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->sharedPreferences:Lorg/catrobat/paintroid/UserPreferences;
 
-    iput-object v14, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->sharedPreferences:Lorg/catrobat/paintroid/UserPreferences;
+    .line 121
+    iput-object v14, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->idlingResource:Landroidx/test/espresso/idling/CountingIdlingResource;
 
     move-object/from16 v1, p16
 
+    .line 122
     iput-object v1, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->context:Landroid/content/Context;
 
     move-object/from16 v1, p17
 
+    .line 123
     iput-object v1, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->internalMemoryPath:Ljava/io/File;
+
+    move-object/from16 v1, p18
+
+    .line 124
+    iput-object v1, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandSerializer:Lorg/catrobat/paintroid/command/serialization/CommandSerializer;
+
+    .line 153
+    new-instance v1, Landroid/graphics/Paint;
+
+    invoke-direct {v1}, Landroid/graphics/Paint;-><init>()V
+
+    iput-object v1, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->clippingToolPaint:Landroid/graphics/Paint;
+
+    return-void
+.end method
+
+.method public static final synthetic access$getDownTimer$p(Lorg/catrobat/paintroid/presenter/MainActivityPresenter;)Landroid/os/CountDownTimer;
+    .locals 0
+
+    .line 105
+    iget-object p0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->downTimer:Landroid/os/CountDownTimer;
+
+    return-object p0
+.end method
+
+.method public static final synthetic access$getToolController$p(Lorg/catrobat/paintroid/presenter/MainActivityPresenter;)Lorg/catrobat/paintroid/controller/ToolController;
+    .locals 0
+
+    .line 105
+    iget-object p0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+    return-object p0
+.end method
+
+.method public static final synthetic access$getWorkspace$p(Lorg/catrobat/paintroid/presenter/MainActivityPresenter;)Lorg/catrobat/paintroid/tools/Workspace;
+    .locals 0
+
+    .line 105
+    iget-object p0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
+
+    return-object p0
+.end method
+
+.method public static final synthetic access$setTool(Lorg/catrobat/paintroid/presenter/MainActivityPresenter;Lorg/catrobat/paintroid/tools/ToolType;)V
+    .locals 0
+
+    .line 105
+    invoke-direct {p0, p1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->setTool(Lorg/catrobat/paintroid/tools/ToolType;)V
 
     return-void
 .end method
 
 .method private final askForReadAndWriteExternalStoragePermission(I)V
     .locals 4
-    .param p1, "requestCode"    # I
 
-    .line 343
+    .line 383
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->isOpenedFromCatroid()Z
@@ -468,39 +554,80 @@
 
     if-ne p1, v0, :cond_0
 
-    .line 344
-    nop
-
-    .line 345
-    nop
-
-    .line 346
+    .line 386
     filled-new-array {v2}, [Ljava/lang/String;
 
     move-result-object v0
 
-    .line 347
     new-array v1, v1, [I
 
     aput v3, v1, v3
 
-    .line 344
+    .line 384
     invoke-virtual {p0, p1, v0, v1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->handleRequestPermissionsResult(I[Ljava/lang/String;[I)V
 
-    .line 349
     return-void
 
-    .line 351
+    .line 393
     :cond_0
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->isSdkAboveOrEqualT()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 394
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
+
+    const-string v2, "android.permission.READ_MEDIA_IMAGES"
+
+    invoke-interface {v0, v2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->doIHavePermission(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    .line 395
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
+
+    .line 396
+    filled-new-array {v2}, [Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 395
+    invoke-interface {v0, v1, p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->askForPermission([Ljava/lang/String;I)V
+
+    goto :goto_0
+
+    .line 402
+    :cond_1
+    filled-new-array {v2}, [Ljava/lang/String;
+
+    move-result-object v0
+
+    new-array v1, v1, [I
+
+    aput v3, v1, v3
+
+    .line 400
+    invoke-virtual {p0, p1, v0, v1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->handleRequestPermissionsResult(I[Ljava/lang/String;[I)V
+
+    goto :goto_0
+
+    .line 406
+    :cond_2
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->isSdkAboveOrEqualQ()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4
 
-    .line 352
+    .line 407
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     const-string v2, "android.permission.READ_EXTERNAL_STORAGE"
@@ -509,56 +636,45 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_3
 
-    .line 353
+    .line 408
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    .line 354
+    .line 409
     filled-new-array {v2}, [Ljava/lang/String;
 
     move-result-object v1
 
-    .line 355
-    nop
-
-    .line 353
+    .line 408
     invoke-interface {v0, v1, p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->askForPermission([Ljava/lang/String;I)V
 
     goto :goto_0
 
-    .line 358
-    :cond_1
-    nop
-
-    .line 359
-    nop
-
-    .line 360
+    .line 415
+    :cond_3
     filled-new-array {v2}, [Ljava/lang/String;
 
     move-result-object v0
 
-    .line 361
     new-array v1, v1, [I
 
     aput v3, v1, v3
 
-    .line 358
+    .line 413
     invoke-virtual {p0, p1, v0, v1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->handleRequestPermissionsResult(I[Ljava/lang/String;[I)V
 
-    .line 363
     goto :goto_0
 
-    .line 365
-    :cond_2
+    .line 420
+    :cond_4
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->isSdkAboveOrEqualM()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5
 
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
@@ -566,229 +682,322 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_5
 
-    .line 366
+    .line 421
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    .line 367
+    .line 422
     filled-new-array {v2}, [Ljava/lang/String;
 
     move-result-object v1
 
-    .line 368
-    nop
-
-    .line 366
+    .line 421
     invoke-interface {v0, v1, p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->askForPermission([Ljava/lang/String;I)V
 
     goto :goto_0
 
-    .line 371
-    :cond_3
-    nop
-
-    .line 372
-    nop
-
-    .line 373
+    .line 428
+    :cond_5
     filled-new-array {v2}, [Ljava/lang/String;
 
     move-result-object v0
 
-    .line 374
     new-array v1, v1, [I
 
     aput v3, v1, v3
 
-    .line 371
+    .line 426
     invoke-virtual {p0, p1, v0, v1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->handleRequestPermissionsResult(I[Ljava/lang/String;[I)V
 
-    .line 376
     :goto_0
-    nop
-
-    .line 377
-    nop
-
-    .line 378
     return-void
 .end method
 
 .method private final checkForDefaultFilename()V
     .locals 2
 
-    .line 381
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "image"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
+    .line 436
     invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getImageNumber()I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
-    .line 382
-    .local v0, "standard":Ljava/lang/String;
+    const-string v1, "image"
+
+    invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 437
     sget-object v1, Lorg/catrobat/paintroid/FileIO;->filename:Ljava/lang/String;
 
     invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 383
+    .line 438
     invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->countUpImageNumber()V
 
-    .line 385
     :cond_0
+    return-void
+.end method
+
+.method private final checkForImplicitToolApplication()V
+    .locals 3
+
+    .line 819
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->getCurrentTool()Lorg/catrobat/paintroid/tools/Tool;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    .line 820
+    :cond_0
+    invoke-interface {v0}, Lorg/catrobat/paintroid/tools/Tool;->getToolType()Lorg/catrobat/paintroid/tools/ToolType;
+
+    move-result-object v1
+
+    .line 821
+    :goto_0
+    iget-object v2, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+    invoke-interface {v2}, Lorg/catrobat/paintroid/controller/ToolController;->getToolList()Ljava/util/HashSet;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/Iterable;
+
+    invoke-static {v2, v1}, Lkotlin/collections/CollectionsKt;->contains(Ljava/lang/Iterable;Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    if-eqz v0, :cond_1
+
+    .line 822
+    check-cast v0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;
+
+    .line 823
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->onClickOnButton()V
+
+    goto :goto_1
+
+    .line 822
+    :cond_1
+    new-instance v0, Ljava/lang/NullPointerException;
+
+    const-string v1, "null cannot be cast to non-null type org.catrobat.paintroid.tools.implementation.BaseToolWithShape"
+
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 824
+    :cond_2
+    sget-object v2, Lorg/catrobat/paintroid/tools/ToolType;->CLIP:Lorg/catrobat/paintroid/tools/ToolType;
+
+    if-ne v1, v2, :cond_4
+
+    if-eqz v0, :cond_3
+
+    check-cast v0, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;
+
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;->onClickOnButton()V
+
+    goto :goto_1
+
+    :cond_3
+    new-instance v0, Ljava/lang/NullPointerException;
+
+    const-string v1, "null cannot be cast to non-null type org.catrobat.paintroid.tools.implementation.ClippingTool"
+
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_4
+    :goto_1
     return-void
 .end method
 
 .method private final countUpImageNumber()V
     .locals 2
 
-    .line 224
+    .line 261
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->sharedPreferences:Lorg/catrobat/paintroid/UserPreferences;
 
     invoke-virtual {v0}, Lorg/catrobat/paintroid/UserPreferences;->getPreferenceImageNumber()I
 
     move-result v0
 
-    .line 225
-    .local v0, "imageNumber":I
     add-int/lit8 v0, v0, 0x1
 
-    .line 226
+    .line 263
     iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->sharedPreferences:Lorg/catrobat/paintroid/UserPreferences;
 
     invoke-virtual {v1, v0}, Lorg/catrobat/paintroid/UserPreferences;->setPreferenceImageNumber(I)V
 
-    .line 227
     return-void
 .end method
 
-.method private final enterFullscreen()V
+.method private final enterHideButtons()V
     .locals 1
 
-    .line 636
+    .line 759
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->toolOptionsViewVisible()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    .line 760
+    iput-boolean v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolOptionsViewWasShown:Z
+
+    .line 762
+    :cond_0
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->hideKeyboard()V
 
-    .line 637
+    .line 763
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
 
-    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->enterFullscreen()V
+    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->enterHideButtons()V
 
-    .line 638
+    .line 764
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->topBarViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;->hide()V
 
-    .line 639
+    .line 765
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->bottomBarViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomBarViewHolder;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomBarViewHolder;->hide()V
 
-    .line 640
+    .line 766
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->bottomNavigationViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomNavigationViewHolder;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomNavigationViewHolder;->hide()V
 
-    .line 641
+    .line 767
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->disableToolOptionsView()V
 
-    .line 642
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->perspective:Lorg/catrobat/paintroid/ui/Perspective;
+    .line 768
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
-    invoke-virtual {v0}, Lorg/catrobat/paintroid/ui/Perspective;->enterFullscreen()V
+    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->disableHideOption()V
 
-    .line 643
     return-void
 .end method
 
-.method private final exitFullscreen()V
+.method private final exitHideButtons()V
     .locals 1
 
-    .line 628
+    .line 747
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
 
-    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->exitFullscreen()V
+    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->exitHideButtons()V
 
-    .line 629
+    .line 748
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->topBarViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;->show()V
 
-    .line 630
+    .line 749
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->bottomNavigationViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomNavigationViewHolder;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomNavigationViewHolder;->show()V
 
-    .line 631
+    .line 750
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->enableToolOptionsView()V
 
-    .line 632
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->perspective:Lorg/catrobat/paintroid/ui/Perspective;
+    .line 751
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
-    invoke-virtual {v0}, Lorg/catrobat/paintroid/ui/Perspective;->exitFullscreen()V
+    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->enableHideOption()V
 
-    .line 633
+    .line 752
+    iget-boolean v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolOptionsViewWasShown:Z
+
+    if-eqz v0, :cond_0
+
+    .line 753
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->showToolOptionsView()V
+
+    const/4 v0, 0x0
+
+    .line 754
+    iput-boolean v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolOptionsViewWasShown:Z
+
+    :cond_0
     return-void
 .end method
 
 .method private final getFileName(Landroid/net/Uri;)Ljava/lang/String;
-    .locals 9
-    .param p1, "uri"    # Landroid/net/Uri;
+    .locals 8
 
-    .line 915
-    const/4 v0, 0x0
-
-    move-object v1, v0
-
-    check-cast v1, Ljava/lang/String;
-
-    .line 916
-    .local v1, "result":Ljava/lang/Object;
+    .line 1077
     invoke-virtual {p1}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    const-string v3, "content"
+    const-string v1, "content"
 
-    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_2
+    const/4 v1, 0x0
 
-    .line 917
+    if-eqz v0, :cond_4
+
+    .line 1078
     invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getFileActivity()Landroid/app/Activity;
 
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    :goto_0
+    move-object p1, v1
+
+    goto :goto_1
+
+    :cond_0
+    invoke-virtual {v0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-nez v2, :cond_1
 
-    invoke-virtual {v2}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    goto :goto_0
 
-    move-result-object v3
-
-    if-eqz v3, :cond_0
+    :cond_1
+    const/4 v4, 0x0
 
     const/4 v5, 0x0
 
@@ -796,99 +1005,83 @@
 
     const/4 v7, 0x0
 
-    const/4 v8, 0x0
+    move-object v3, p1
 
-    move-object v4, p1
+    invoke-virtual/range {v2 .. v7}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
-    invoke-virtual/range {v3 .. v8}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+    move-result-object p1
 
-    move-result-object v2
+    :goto_1
+    if-nez p1, :cond_2
 
-    goto :goto_0
+    goto :goto_3
 
-    :cond_0
-    move-object v2, v0
+    .line 1079
+    :cond_2
+    check-cast p1, Ljava/io/Closeable;
 
-    .line 918
-    .local v2, "cursor":Landroid/database/Cursor;
-    :goto_0
-    if-eqz v2, :cond_2
-
-    move-object v3, v2
-
-    check-cast v3, Ljava/io/Closeable;
+    move-object v0, v1
 
     check-cast v0, Ljava/lang/Throwable;
 
     :try_start_0
-    move-object v4, v3
+    move-object v0, p1
 
-    check-cast v4, Landroid/database/Cursor;
+    check-cast v0, Landroid/database/Cursor;
 
-    .local v4, "it":Landroid/database/Cursor;
-    const/4 v5, 0x0
+    .line 1080
+    invoke-interface {v0}, Landroid/database/Cursor;->moveToFirst()Z
 
-    .line 919
-    .local v5, "$i$a$-use-MainActivityPresenter$getFileName$1":I
-    invoke-interface {v4}, Landroid/database/Cursor;->moveToFirst()Z
+    move-result v2
 
-    move-result v6
+    if-eqz v2, :cond_3
 
-    if-eqz v6, :cond_1
+    const-string v2, "_display_name"
 
-    .line 920
-    const-string v6, "_display_name"
+    .line 1081
+    invoke-interface {v0, v2}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
 
-    invoke-interface {v4, v6}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    move-result v2
 
-    move-result v6
+    invoke-interface {v0, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    invoke-interface {v4, v6}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v6
+    goto :goto_2
 
-    move-object v1, v6
+    :cond_3
+    move-object v0, v1
 
-    .line 922
-    :cond_1
-    nop
-
-    .end local v4    # "it":Landroid/database/Cursor;
-    .end local v5    # "$i$a$-use-MainActivityPresenter$getFileName$1":I
-    sget-object v4, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    .line 1083
+    :goto_2
+    sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 918
-    invoke-static {v3, v0}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+    .line 1079
+    invoke-static {p1, v1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
-    goto :goto_1
+    move-object v1, v0
+
+    goto :goto_3
 
     :catchall_0
     move-exception v0
 
-    .end local v1    # "result":Ljava/lang/Object;
-    .end local v2    # "cursor":Landroid/database/Cursor;
-    .end local p1    # "uri":Landroid/net/Uri;
     :try_start_1
     throw v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    .restart local v1    # "result":Ljava/lang/Object;
-    .restart local v2    # "cursor":Landroid/database/Cursor;
-    .restart local p1    # "uri":Landroid/net/Uri;
     :catchall_1
-    move-exception v4
+    move-exception v1
 
-    invoke-static {v3, v0}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+    invoke-static {p1, v0}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
-    throw v4
+    throw v1
 
-    .line 924
-    .end local v2    # "cursor":Landroid/database/Cursor;
-    :cond_2
-    :goto_1
+    :cond_4
+    :goto_3
     return-object v1
 .end method
 
@@ -901,15 +1094,15 @@
 
     invoke-virtual {v0, p0, p1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;->getPathFromUri(Landroid/content/Context;Landroid/net/Uri;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private final isImageUnchanged()Z
     .locals 1
 
-    .line 112
+    .line 132
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/command/CommandManager;->isUndoAvailable()Z
@@ -924,7 +1117,7 @@
 .method private final refreshTopBarButtons()V
     .locals 1
 
-    .line 668
+    .line 794
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/command/CommandManager;->isUndoAvailable()Z
@@ -933,24 +1126,21 @@
 
     if-eqz v0, :cond_0
 
-    .line 669
+    .line 795
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->topBarViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;->enableUndoButton()V
 
     goto :goto_0
 
-    .line 671
+    .line 797
     :cond_0
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->topBarViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;->disableUndoButton()V
 
-    .line 672
+    .line 799
     :goto_0
-    nop
-
-    .line 673
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/command/CommandManager;->isRedoAvailable()Z
@@ -959,128 +1149,126 @@
 
     if-eqz v0, :cond_1
 
-    .line 674
+    .line 800
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->topBarViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;->enableRedoButton()V
 
     goto :goto_1
 
-    .line 676
+    .line 802
     :cond_1
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->topBarViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;->disableRedoButton()V
 
-    .line 677
     :goto_1
-    nop
-
-    .line 678
     return-void
 .end method
 
 .method private final setFirstCheckBoxInLayerMenu()V
-    .locals 3
+    .locals 2
 
-    .line 138
+    .line 169
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->layerAdapter:Lorg/catrobat/paintroid/ui/LayerAdapter;
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
+    goto :goto_0
+
+    :cond_0
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lorg/catrobat/paintroid/ui/LayerAdapter;->getViewHolderAt(I)Lorg/catrobat/paintroid/contract/LayerContracts$LayerViewHolder;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_1
 
-    .line 1048
-    .local v0, "$this$apply":Lorg/catrobat/paintroid/contract/LayerContracts$LayerViewHolder;
-    const/4 v1, 0x0
+    goto :goto_0
 
-    .line 138
-    .local v1, "$i$a$-apply-MainActivityPresenter$setFirstCheckBoxInLayerMenu$1":I
-    const/4 v2, 0x1
+    :cond_1
+    const/4 v1, 0x1
 
-    invoke-interface {v0, v2}, Lorg/catrobat/paintroid/contract/LayerContracts$LayerViewHolder;->setLayerVisibilityCheckbox(Z)V
+    invoke-interface {v0, v1}, Lorg/catrobat/paintroid/contract/LayerContracts$LayerViewHolder;->setLayerVisibilityCheckbox(Z)V
 
-    .line 139
-    .end local v0    # "$this$apply":Lorg/catrobat/paintroid/contract/LayerContracts$LayerViewHolder;
-    .end local v1    # "$i$a$-apply-MainActivityPresenter$setFirstCheckBoxInLayerMenu$1":I
-    :cond_0
+    :goto_0
     return-void
 .end method
 
 .method private final setTool(Lorg/catrobat/paintroid/tools/ToolType;)V
-    .locals 3
-    .param p1, "toolType"    # Lorg/catrobat/paintroid/tools/ToolType;
+    .locals 2
 
-    .line 701
+    .line 853
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->idlingResource:Landroidx/test/espresso/idling/CountingIdlingResource;
+
+    invoke-virtual {v0}, Landroidx/test/espresso/idling/CountingIdlingResource;->increment()V
+
+    .line 854
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->bottomBarViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomBarViewHolder;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomBarViewHolder;->hide()V
 
-    .line 702
+    .line 855
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->bottomNavigationViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomNavigationViewHolder;
 
     invoke-interface {v0, p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomNavigationViewHolder;->showCurrentTool(Lorg/catrobat/paintroid/tools/ToolType;)V
 
-    .line 703
+    .line 856
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->topBarViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;->getHeight()I
 
     move-result v0
 
-    .line 704
-    .local v0, "offset":I
+    .line 857
     iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-virtual {p1}, Lorg/catrobat/paintroid/tools/ToolType;->getNameResource()I
 
-    move-result v2
+    move-result p1
 
-    invoke-interface {v1, v0, v2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showToolChangeToast(II)V
+    invoke-interface {v1, v0, p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showToolChangeToast(II)V
 
-    .line 705
+    .line 858
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->idlingResource:Landroidx/test/espresso/idling/CountingIdlingResource;
+
+    invoke-virtual {p1}, Landroidx/test/espresso/idling/CountingIdlingResource;->decrement()V
+
     return-void
 .end method
 
 .method private final showLikeUsDialogIfFirstTimeSave()V
-    .locals 2
+    .locals 1
 
-    .line 216
+    .line 253
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->sharedPreferences:Lorg/catrobat/paintroid/UserPreferences;
 
     invoke-virtual {v0}, Lorg/catrobat/paintroid/UserPreferences;->getPreferenceLikeUsDialogValue()Z
 
     move-result v0
 
-    .line 217
-    .local v0, "dialogHasBeenShown":Z
     if-nez v0, :cond_0
 
-    iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
+    .line 254
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
-    invoke-interface {v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->isOpenedFromCatroid()Z
+    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->isOpenedFromCatroid()Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    .line 218
-    iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
+    .line 255
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    invoke-interface {v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showLikeUsDialog()V
+    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showLikeUsDialog()V
 
-    .line 219
-    iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->sharedPreferences:Lorg/catrobat/paintroid/UserPreferences;
+    .line 256
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->sharedPreferences:Lorg/catrobat/paintroid/UserPreferences;
 
-    invoke-virtual {v1}, Lorg/catrobat/paintroid/UserPreferences;->setPreferenceLikeUsDialogValue()V
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/UserPreferences;->setPreferenceLikeUsDialogValue()V
 
-    .line 221
     :cond_0
     return-void
 .end method
@@ -1088,7 +1276,7 @@
 .method private final showSecurityQuestionBeforeExit()V
     .locals 1
 
-    .line 173
+    .line 207
     invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->isImageUnchanged()Z
 
     move-result v0
@@ -1118,7 +1306,7 @@
 
     goto :goto_0
 
-    .line 175
+    .line 209
     :cond_1
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
@@ -1128,12 +1316,12 @@
 
     if-eqz v0, :cond_2
 
-    .line 176
+    .line 210
     invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->saveBeforeFinish()V
 
     goto :goto_1
 
-    .line 178
+    .line 212
     :cond_2
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
@@ -1141,76 +1329,93 @@
 
     goto :goto_1
 
-    .line 174
+    .line 208
     :cond_3
     :goto_0
     invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->finishActivity()V
 
-    .line 179
     :goto_1
-    nop
-
-    .line 180
     return-void
 .end method
 
-.method private final switchTool(Lorg/catrobat/paintroid/tools/ToolType;Z)V
-    .locals 1
-    .param p1, "type"    # Lorg/catrobat/paintroid/tools/ToolType;
-    .param p2, "backPressed"    # Z
+.method private final switchTool(Lorg/catrobat/paintroid/tools/ToolType;)V
+    .locals 9
 
-    .line 692
+    .line 828
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->setMaskFilterToNull()V
 
-    .line 693
-    invoke-direct {p0, p1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->setTool(Lorg/catrobat/paintroid/tools/ToolType;)V
+    .line 829
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
 
-    .line 694
+    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->hideKeyboard()V
+
+    .line 832
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
-    invoke-interface {v0, p1, p2}, Lorg/catrobat/paintroid/controller/ToolController;->switchTool(Lorg/catrobat/paintroid/tools/ToolType;Z)V
+    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->getToolList()Ljava/util/HashSet;
 
-    .line 695
-    sget-object v0, Lorg/catrobat/paintroid/tools/ToolType;->IMPORTPNG:Lorg/catrobat/paintroid/tools/ToolType;
+    move-result-object v0
 
-    if-ne p1, v0, :cond_0
+    check-cast v0, Ljava/lang/Iterable;
 
-    .line 696
-    invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->showImportDialog()V
+    iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
-    .line 698
-    :cond_0
-    return-void
-.end method
+    invoke-interface {v1}, Lorg/catrobat/paintroid/controller/ToolController;->getCurrentTool()Lorg/catrobat/paintroid/tools/Tool;
 
-.method static synthetic switchTool$default(Lorg/catrobat/paintroid/presenter/MainActivityPresenter;Lorg/catrobat/paintroid/tools/ToolType;ZILjava/lang/Object;)V
-    .locals 0
+    move-result-object v1
 
-    if-nez p4, :cond_1
+    if-nez v1, :cond_0
 
-    and-int/lit8 p3, p3, 0x2
+    const/4 v1, 0x0
 
-    if-eqz p3, :cond_0
-
-    .line 691
-    const/4 p2, 0x0
+    goto :goto_0
 
     :cond_0
-    invoke-direct {p0, p1, p2}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->switchTool(Lorg/catrobat/paintroid/tools/ToolType;Z)V
+    invoke-interface {v1}, Lorg/catrobat/paintroid/tools/Tool;->getToolType()Lorg/catrobat/paintroid/tools/ToolType;
 
-    return-void
+    move-result-object v1
 
-    .line 0
+    :goto_0
+    invoke-static {v0, v1}, Lkotlin/collections/CollectionsKt;->contains(Ljava/lang/Iterable;Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const-wide/16 v0, 0xfa
+
+    goto :goto_1
+
     :cond_1
-    new-instance p0, Ljava/lang/UnsupportedOperationException;
+    const-wide/16 v0, 0x0
 
-    const-string p1, "Super calls with default arguments not supported in this target, function: switchTool"
+    :goto_1
+    move-wide v5, v0
 
-    invoke-direct {p0, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    .line 830
+    new-instance v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$switchTool$1;
 
-    throw p0
+    const-wide/16 v7, 0x53
+
+    move-object v2, v0
+
+    move-object v3, p0
+
+    move-object v4, p1
+
+    invoke-direct/range {v2 .. v8}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$switchTool$1;-><init>(Lorg/catrobat/paintroid/presenter/MainActivityPresenter;Lorg/catrobat/paintroid/tools/ToolType;JJ)V
+
+    .line 849
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$switchTool$1;->start()Landroid/os/CountDownTimer;
+
+    move-result-object p1
+
+    .line 830
+    iput-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->downTimer:Landroid/os/CountDownTimer;
+
+    return-void
 .end method
 
 
@@ -1218,7 +1423,7 @@
 .method public actionCurrentToolClicked()V
     .locals 2
 
-    .line 898
+    .line 1059
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->getToolType()Lorg/catrobat/paintroid/tools/ToolType;
@@ -1229,13 +1434,12 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 899
+    .line 1060
     invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->showImportDialog()V
 
-    .line 900
     return-void
 
-    .line 902
+    .line 1063
     :cond_0
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->bottomBarViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomBarViewHolder;
 
@@ -1245,12 +1449,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 903
+    .line 1064
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->bottomBarViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomBarViewHolder;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomBarViewHolder;->hide()V
 
-    .line 905
+    .line 1066
     :cond_1
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
@@ -1260,14 +1464,14 @@
 
     if-eqz v0, :cond_2
 
-    .line 906
+    .line 1067
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->hideToolOptionsView()V
 
     goto :goto_0
 
-    .line 908
+    .line 1069
     :cond_2
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
@@ -1277,24 +1481,20 @@
 
     if-eqz v0, :cond_3
 
-    .line 909
+    .line 1070
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->showToolOptionsView()V
 
-    .line 911
     :cond_3
     :goto_0
-    nop
-
-    .line 912
     return-void
 .end method
 
 .method public actionToolsClicked()V
     .locals 3
 
-    .line 883
+    .line 1043
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->toolOptionsViewVisible()Z
@@ -1303,12 +1503,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 884
+    .line 1044
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->hideToolOptionsView()V
 
-    .line 886
+    .line 1046
     :cond_0
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->bottomBarViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomBarViewHolder;
 
@@ -1318,25 +1518,33 @@
 
     if-eqz v0, :cond_1
 
-    .line 887
+    .line 1047
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->bottomBarViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomBarViewHolder;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomBarViewHolder;->hide()V
 
-    goto :goto_0
+    goto :goto_1
 
-    .line 889
+    .line 1049
     :cond_1
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->layerAdapter:Lorg/catrobat/paintroid/ui/LayerAdapter;
 
-    if-eqz v0, :cond_2
+    const/4 v1, 0x0
 
+    if-nez v0, :cond_2
+
+    goto :goto_0
+
+    :cond_2
     invoke-virtual {v0}, Lorg/catrobat/paintroid/ui/LayerAdapter;->getPresenter()Lorg/catrobat/paintroid/contract/LayerContracts$Presenter;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-nez v0, :cond_3
 
+    goto :goto_0
+
+    :cond_3
     iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
 
     invoke-interface {v1}, Lorg/catrobat/paintroid/tools/Workspace;->getCurrentLayerIndex()I
@@ -1345,17 +1553,19 @@
 
     invoke-interface {v0, v1}, Lorg/catrobat/paintroid/contract/LayerContracts$Presenter;->getLayerItem(I)Lorg/catrobat/paintroid/contract/LayerContracts$Layer;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_2
+    :goto_0
+    if-eqz v1, :cond_4
 
-    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/LayerContracts$Layer;->isVisible()Z
+    .line 1050
+    invoke-interface {v1}, Lorg/catrobat/paintroid/contract/LayerContracts$Layer;->isVisible()Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_4
 
-    .line 890
+    .line 1051
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     sget v1, Lorg/catrobat/paintroid/R$string;->no_tools_on_hidden_layer:I
@@ -1364,54 +1574,189 @@
 
     invoke-interface {v0, v1, v2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showToast(II)V
 
-    .line 891
     return-void
 
-    .line 893
-    :cond_2
+    .line 1054
+    :cond_4
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->bottomBarViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomBarViewHolder;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomBarViewHolder;->show()V
 
-    .line 894
-    :goto_0
-    nop
-
-    .line 895
+    :goto_1
     return-void
+.end method
+
+.method public addImageToCurrentLayerClicked()V
+    .locals 1
+
+    .line 163
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->checkIfClippingToolNeedsAdjustment()V
+
+    .line 164
+    sget-object v0, Lorg/catrobat/paintroid/tools/ToolType;->IMPORTPNG:Lorg/catrobat/paintroid/tools/ToolType;
+
+    invoke-direct {p0, v0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->setTool(Lorg/catrobat/paintroid/tools/ToolType;)V
+
+    const/4 v0, 0x7
+
+    .line 165
+    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->switchBetweenVersions(I)V
+
+    return-void
+.end method
+
+.method public final adjustClippingToolPostCommandExecute()V
+    .locals 7
+
+    .line 674
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->getCurrentTool()Lorg/catrobat/paintroid/tools/Tool;
+
+    move-result-object v0
+
+    const-string v1, "null cannot be cast to non-null type org.catrobat.paintroid.tools.implementation.ClippingTool"
+
+    if-eqz v0, :cond_2
+
+    check-cast v0, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;
+
+    .line 675
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;->getAreaClosed()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 676
+    iget-object v2, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
+
+    invoke-interface {v2}, Lorg/catrobat/paintroid/command/CommandManager;->popFirstCommandInRedo()V
+
+    :cond_0
+    const/4 v2, 0x0
+
+    .line 678
+    invoke-virtual {v0, v2}, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;->setAreaClosed(Z)V
+
+    .line 679
+    iget-object v3, v0, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;->pathToDraw:Lorg/catrobat/paintroid/command/serialization/SerializablePath;
+
+    invoke-virtual {v3}, Lorg/catrobat/paintroid/command/serialization/SerializablePath;->rewind()V
+
+    .line 680
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;->getPointArray()Ljava/util/List;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/util/List;->clear()V
+
+    const/4 v3, 0x0
+
+    .line 681
+    invoke-virtual {v0, v3}, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;->setInitialEventCoordinate(Landroid/graphics/PointF;)V
+
+    .line 682
+    iput-object v3, v0, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;->previousEventCoordinate:Landroid/graphics/PointF;
+
+    .line 683
+    move-object v4, v0
+
+    check-cast v4, Lorg/catrobat/paintroid/tools/Tool;
+
+    iget-object v5, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->clippingToolPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v5}, Landroid/graphics/Paint;->getColor()I
+
+    move-result v5
+
+    const/4 v6, 0x2
+
+    invoke-static {v4, v5, v2, v6, v3}, Lorg/catrobat/paintroid/tools/Tool$DefaultImpls;->changePaintColor$default(Lorg/catrobat/paintroid/tools/Tool;IZILjava/lang/Object;)V
+
+    .line 684
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;->getMainActivity()Lorg/catrobat/paintroid/MainActivity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/MainActivity;->getBottomNavigationViewHolder()Lorg/catrobat/paintroid/ui/viewholder/BottomNavigationViewHolder;
+
+    move-result-object v0
+
+    .line 685
+    iget-object v3, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->clippingToolPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v3}, Landroid/graphics/Paint;->getColor()I
+
+    move-result v3
+
+    invoke-virtual {v0, v3}, Lorg/catrobat/paintroid/ui/viewholder/BottomNavigationViewHolder;->setColorButtonColor(I)V
+
+    .line 686
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->getCurrentTool()Lorg/catrobat/paintroid/tools/Tool;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    check-cast v0, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;->setWasRecentlyApplied(Z)V
+
+    .line 687
+    iput-boolean v2, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->clippingToolInUseAndUndoRedoClicked:Z
+
+    return-void
+
+    .line 686
+    :cond_1
+    new-instance v0, Ljava/lang/NullPointerException;
+
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 674
+    :cond_2
+    new-instance v0, Ljava/lang/NullPointerException;
+
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
 
 .method public backToPocketCodeClicked()V
     .locals 0
 
-    .line 240
+    .line 277
     invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->showSecurityQuestionBeforeExit()V
 
-    .line 241
     return-void
 .end method
 
 .method public bitmapLoadedFromSource(Landroid/graphics/Bitmap;)V
     .locals 1
-    .param p1, "loadedImage"    # Landroid/graphics/Bitmap;
 
     const-string v0, "loadedImage"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 948
+    .line 1112
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
     invoke-interface {v0, p1}, Lorg/catrobat/paintroid/controller/ToolController;->setBitmapFromSource(Landroid/graphics/Bitmap;)V
 
-    .line 949
     return-void
 .end method
 
 .method public checkForTemporaryFile()Z
     .locals 2
 
-    .line 963
+    .line 1127
     sget-object v0, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
 
     iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->internalMemoryPath:Ljava/io/File;
@@ -1423,10 +1768,153 @@
     return v0
 .end method
 
+.method public final checkIfClippingToolNeedsAdjustment()V
+    .locals 6
+
+    .line 1142
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->getCurrentTool()Lorg/catrobat/paintroid/tools/Tool;
+
+    move-result-object v0
+
+    instance-of v0, v0, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;
+
+    if-eqz v0, :cond_6
+
+    .line 1143
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->getCurrentTool()Lorg/catrobat/paintroid/tools/Tool;
+
+    move-result-object v0
+
+    const-string v1, "null cannot be cast to non-null type org.catrobat.paintroid.tools.implementation.ClippingTool"
+
+    if-eqz v0, :cond_5
+
+    check-cast v0, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;
+
+    .line 1144
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;->getAreaClosed()Z
+
+    move-result v2
+
+    const/4 v3, 0x1
+
+    if-eqz v2, :cond_3
+
+    .line 1146
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;->getInitialEventCoordinate()Landroid/graphics/PointF;
+
+    move-result-object v2
+
+    const/4 v4, 0x0
+
+    if-nez v2, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget v2, v2, Landroid/graphics/PointF;->x:F
+
+    .line 1147
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;->getInitialEventCoordinate()Landroid/graphics/PointF;
+
+    move-result-object v5
+
+    if-nez v5, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    iget v4, v5, Landroid/graphics/PointF;->y:F
+
+    .line 1148
+    new-instance v5, Landroid/graphics/PointF;
+
+    invoke-direct {v5, v2, v4}, Landroid/graphics/PointF;-><init>(FF)V
+
+    move-object v4, v5
+
+    .line 1145
+    :goto_0
+    invoke-virtual {v0, v4}, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;->handleDown(Landroid/graphics/PointF;)Z
+
+    .line 1155
+    iget-object v2, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+    invoke-interface {v2}, Lorg/catrobat/paintroid/controller/ToolController;->getCurrentTool()Lorg/catrobat/paintroid/tools/Tool;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_2
+
+    check-cast v2, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;
+
+    invoke-virtual {v2, v3}, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;->setWasRecentlyApplied(Z)V
+
+    .line 1156
+    sget-object v1, Lorg/catrobat/paintroid/tools/Tool$StateChange;->NEW_IMAGE_LOADED:Lorg/catrobat/paintroid/tools/Tool$StateChange;
+
+    invoke-virtual {v0, v1}, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;->resetInternalState(Lorg/catrobat/paintroid/tools/Tool$StateChange;)V
+
+    goto :goto_1
+
+    .line 1155
+    :cond_2
+    new-instance v0, Ljava/lang/NullPointerException;
+
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 1158
+    :cond_3
+    iget-object v2, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+    invoke-interface {v2}, Lorg/catrobat/paintroid/controller/ToolController;->getCurrentTool()Lorg/catrobat/paintroid/tools/Tool;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_4
+
+    check-cast v2, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;
+
+    invoke-virtual {v2, v3}, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;->setWasRecentlyApplied(Z)V
+
+    .line 1159
+    sget-object v1, Lorg/catrobat/paintroid/tools/Tool$StateChange;->NEW_IMAGE_LOADED:Lorg/catrobat/paintroid/tools/Tool$StateChange;
+
+    invoke-virtual {v0, v1}, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;->resetInternalState(Lorg/catrobat/paintroid/tools/Tool$StateChange;)V
+
+    goto :goto_1
+
+    .line 1158
+    :cond_4
+    new-instance v0, Ljava/lang/NullPointerException;
+
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 1143
+    :cond_5
+    new-instance v0, Ljava/lang/NullPointerException;
+
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_6
+    :goto_1
+    return-void
+.end method
+
 .method public discardImageClicked()V
     .locals 2
 
-    .line 303
+    .line 342
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
 
     iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandFactory:Lorg/catrobat/paintroid/command/CommandFactory;
@@ -1437,91 +1925,82 @@
 
     invoke-interface {v0, v1}, Lorg/catrobat/paintroid/command/CommandManager;->addCommand(Lorg/catrobat/paintroid/command/Command;)V
 
-    .line 304
     return-void
 .end method
 
-.method public enterFullscreenClicked()V
+.method public enterHideButtonsClicked()V
     .locals 2
 
-    .line 230
+    .line 267
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
     const/4 v1, 0x1
 
     invoke-interface {v0, v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setFullscreen(Z)V
 
-    .line 231
-    invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->enterFullscreen()V
+    .line 268
+    invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->enterHideButtons()V
 
-    .line 232
     return-void
 .end method
 
-.method public exitFullscreenClicked()V
+.method public exitHideButtonsClicked()V
     .locals 2
 
-    .line 235
+    .line 272
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
     const/4 v1, 0x0
 
     invoke-interface {v0, v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setFullscreen(Z)V
 
-    .line 236
-    invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->exitFullscreen()V
+    .line 273
+    invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->exitHideButtons()V
 
-    .line 237
     return-void
 .end method
 
 .method public finishActivity()V
     .locals 1
 
-    .line 183
+    .line 217
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->finishActivity()V
 
-    .line 184
     return-void
 .end method
 
 .method public finishInitialize()V
-    .locals 3
+    .locals 2
 
-    .line 604
+    .line 723
     invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->refreshTopBarButtons()V
 
-    .line 605
+    .line 724
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->getToolColor()Ljava/lang/Integer;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
+    goto :goto_0
+
+    :cond_0
     check-cast v0, Ljava/lang/Number;
 
     invoke-virtual {v0}, Ljava/lang/Number;->intValue()I
 
     move-result v0
 
-    .line 1048
-    .local v0, "it":I
-    const/4 v1, 0x0
+    iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->bottomNavigationViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomNavigationViewHolder;
 
-    .line 605
-    .local v1, "$i$a$-let-MainActivityPresenter$finishInitialize$1":I
-    iget-object v2, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->bottomNavigationViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomNavigationViewHolder;
+    invoke-interface {v1, v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomNavigationViewHolder;->setColorButtonColor(I)V
 
-    invoke-interface {v2, v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomNavigationViewHolder;->setColorButtonColor(I)V
-
-    .line 606
-    .end local v0    # "it":I
-    .end local v1    # "$i$a$-let-MainActivityPresenter$finishInitialize$1":I
-    :cond_0
+    .line 725
+    :goto_0
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->bottomNavigationViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomNavigationViewHolder;
 
     iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
@@ -1532,7 +2011,7 @@
 
     invoke-interface {v0, v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomNavigationViewHolder;->showCurrentTool(Lorg/catrobat/paintroid/tools/ToolType;)V
 
-    .line 607
+    .line 726
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->isFullscreen()Z
@@ -1541,20 +2020,17 @@
 
     if-eqz v0, :cond_1
 
-    .line 608
-    invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->enterFullscreen()V
+    .line 727
+    invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->enterHideButtons()V
 
-    goto :goto_0
+    goto :goto_1
 
-    .line 610
+    .line 729
     :cond_1
-    invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->exitFullscreen()V
+    invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->exitHideButtons()V
 
-    .line 611
-    :goto_0
-    nop
-
-    .line 612
+    .line 731
+    :goto_1
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
 
     iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
@@ -1565,7 +2041,7 @@
 
     invoke-interface {v0, v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->initializeActionBar(Z)V
 
-    .line 613
+    .line 732
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/command/CommandManager;->isBusy()Z
@@ -1574,12 +2050,11 @@
 
     if-eqz v0, :cond_2
 
-    .line 614
+    .line 733
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showIndeterminateProgressDialog()V
 
-    .line 616
     :cond_2
     return-void
 .end method
@@ -1587,7 +2062,7 @@
 .method public getBitmap()Landroid/graphics/Bitmap;
     .locals 1
 
-    .line 115
+    .line 135
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/tools/Workspace;->getBitmapOfAllLayers()Landroid/graphics/Bitmap;
@@ -1597,10 +2072,28 @@
     return-object v0
 .end method
 
+.method public final getClippingToolInUseAndUndoRedoClicked()Z
+    .locals 1
+
+    .line 152
+    iget-boolean v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->clippingToolInUseAndUndoRedoClicked:Z
+
+    return v0
+.end method
+
+.method public final getClippingToolPaint()Landroid/graphics/Paint;
+    .locals 1
+
+    .line 153
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->clippingToolPaint:Landroid/graphics/Paint;
+
+    return-object v0
+.end method
+
 .method public getContentResolver()Landroid/content/ContentResolver;
     .locals 1
 
-    .line 121
+    .line 141
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->getMyContentResolver()Landroid/content/ContentResolver;
@@ -1613,7 +2106,7 @@
 .method public getContext()Landroid/content/Context;
     .locals 1
 
-    .line 104
+    .line 122
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->context:Landroid/content/Context;
 
     return-object v0
@@ -1622,63 +2115,65 @@
 .method public getFileActivity()Landroid/app/Activity;
     .locals 1
 
-    .line 89
+    .line 107
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->fileActivity:Landroid/app/Activity;
 
     return-object v0
 .end method
 
 .method public getImageNumber()I
-    .locals 2
+    .locals 1
 
-    .line 125
+    .line 145
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->sharedPreferences:Lorg/catrobat/paintroid/UserPreferences;
 
     invoke-virtual {v0}, Lorg/catrobat/paintroid/UserPreferences;->getPreferenceImageNumber()I
 
     move-result v0
 
-    .line 126
-    .local v0, "imageNumber":I
     if-nez v0, :cond_0
 
-    .line 127
+    .line 147
     invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->countUpImageNumber()V
 
-    .line 129
+    .line 149
     :cond_0
-    iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->sharedPreferences:Lorg/catrobat/paintroid/UserPreferences;
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->sharedPreferences:Lorg/catrobat/paintroid/UserPreferences;
 
-    invoke-virtual {v1}, Lorg/catrobat/paintroid/UserPreferences;->getPreferenceImageNumber()I
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/UserPreferences;->getPreferenceImageNumber()I
 
-    move-result v1
+    move-result v0
 
-    return v1
+    return v0
+.end method
+
+.method public final getToolOptionsViewWasShown()Z
+    .locals 1
+
+    .line 154
+    iget-boolean v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolOptionsViewWasShown:Z
+
+    return v0
 .end method
 
 .method public handleActivityResult(IILandroid/content/Intent;)V
-    .locals 12
-    .param p1, "requestCode"    # I
-    .param p2, "resultCode"    # I
-    .param p3, "data"    # Landroid/content/Intent;
+    .locals 8
 
-    .line 392
-    if-eqz p3, :cond_0
+    if-nez p3, :cond_0
 
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    .line 447
+    :cond_0
     invoke-virtual {p3}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v0
 
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
     :goto_0
     move-object v4, v0
 
-    .line 393
-    .local v4, "imageUri":Landroid/net/Uri;
     const/4 v0, -0x1
 
     const/4 v1, 0x1
@@ -1693,137 +2188,108 @@
 
     if-eq p1, v0, :cond_1
 
-    .line 428
+    .line 483
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
 
     invoke-interface {v0, p1, p2, p3}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->superHandleActivityResult(IILandroid/content/Intent;)V
 
     goto :goto_1
 
-    .line 422
     :cond_1
-    const/16 v0, 0xa
+    const/16 p1, 0xa
 
-    if-ne p2, v0, :cond_6
+    if-ne p2, p1, :cond_6
 
-    .line 423
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
+    .line 478
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    .line 424
-    sget v2, Lorg/catrobat/paintroid/R$string;->pocketpaint_intro_split_screen_not_supported:I
+    .line 479
+    sget p2, Lorg/catrobat/paintroid/R$string;->pocketpaint_intro_split_screen_not_supported:I
 
-    .line 425
-    nop
-
-    .line 423
-    invoke-interface {v0, v2, v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showToast(II)V
+    .line 478
+    invoke-interface {p1, p2, v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showToast(II)V
 
     goto :goto_1
 
-    .line 410
     :cond_2
     if-eq p2, v0, :cond_3
 
-    .line 411
     return-void
 
-    .line 413
+    .line 468
     :cond_3
     iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->interactor:Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;
 
-    .line 414
+    .line 469
     move-object v2, p0
 
     check-cast v2, Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;
 
-    .line 415
     const/4 v3, 0x1
 
-    .line 416
-    nop
-
-    .line 417
+    .line 472
     invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getContext()Landroid/content/Context;
 
     move-result-object v5
 
-    .line 418
     const/4 v6, 0x0
 
-    .line 419
-    iget-object v7, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
+    .line 474
+    iget-object v7, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandSerializer:Lorg/catrobat/paintroid/command/serialization/CommandSerializer;
 
-    .line 413
-    invoke-interface/range {v1 .. v7}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;->loadFile(Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;ILandroid/net/Uri;Landroid/content/Context;ZLorg/catrobat/paintroid/tools/Workspace;)V
+    .line 468
+    invoke-interface/range {v1 .. v7}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;->loadFile(Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;ILandroid/net/Uri;Landroid/content/Context;ZLorg/catrobat/paintroid/command/serialization/CommandSerializer;)V
 
     goto :goto_1
 
-    .line 395
     :cond_4
     if-eq p2, v0, :cond_5
 
-    .line 396
     return-void
 
-    .line 398
+    .line 453
     :cond_5
-    sget-object v0, Lorg/catrobat/paintroid/tools/ToolType;->IMPORTPNG:Lorg/catrobat/paintroid/tools/ToolType;
+    sget-object p1, Lorg/catrobat/paintroid/tools/ToolType;->IMPORTPNG:Lorg/catrobat/paintroid/tools/ToolType;
 
-    invoke-direct {p0, v0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->setTool(Lorg/catrobat/paintroid/tools/ToolType;)V
+    invoke-direct {p0, p1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->setTool(Lorg/catrobat/paintroid/tools/ToolType;)V
 
-    .line 399
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+    .line 454
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
-    sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->IMPORTPNG:Lorg/catrobat/paintroid/tools/ToolType;
+    sget-object p2, Lorg/catrobat/paintroid/tools/ToolType;->IMPORTPNG:Lorg/catrobat/paintroid/tools/ToolType;
 
-    const/4 v2, 0x0
+    invoke-interface {p1, p2}, Lorg/catrobat/paintroid/controller/ToolController;->switchTool(Lorg/catrobat/paintroid/tools/ToolType;)V
 
-    invoke-interface {v0, v1, v2}, Lorg/catrobat/paintroid/controller/ToolController;->switchTool(Lorg/catrobat/paintroid/tools/ToolType;Z)V
+    .line 455
+    iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->interactor:Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;
 
-    .line 400
-    iget-object v5, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->interactor:Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;
+    .line 456
+    move-object v2, p0
 
-    .line 401
-    move-object v6, p0
+    check-cast v2, Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;
 
-    check-cast v6, Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;
+    const/4 v3, 0x2
 
-    .line 402
-    const/4 v7, 0x2
-
-    .line 403
-    nop
-
-    .line 404
+    .line 459
     invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getContext()Landroid/content/Context;
 
-    move-result-object v9
+    move-result-object v5
 
-    .line 405
-    const/4 v10, 0x0
+    const/4 v6, 0x0
 
-    .line 406
-    iget-object v11, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
+    .line 461
+    iget-object v7, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandSerializer:Lorg/catrobat/paintroid/command/serialization/CommandSerializer;
 
-    .line 400
-    move-object v8, v4
+    .line 455
+    invoke-interface/range {v1 .. v7}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;->loadFile(Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;ILandroid/net/Uri;Landroid/content/Context;ZLorg/catrobat/paintroid/command/serialization/CommandSerializer;)V
 
-    invoke-interface/range {v5 .. v11}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;->loadFile(Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;ILandroid/net/Uri;Landroid/content/Context;ZLorg/catrobat/paintroid/tools/Workspace;)V
-
-    .line 429
     :cond_6
     :goto_1
-    nop
-
-    .line 430
     return-void
 .end method
 
 .method public handleRequestPermissionsResult(I[Ljava/lang/String;[I)V
     .locals 4
-    .param p1, "requestCode"    # I
-    .param p2, "permissions"    # [Ljava/lang/String;
-    .param p3, "grantResults"    # [I
 
     const-string v0, "permissions"
 
@@ -1833,7 +2299,7 @@
 
     invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 437
+    .line 492
     array-length v0, p2
 
     const/4 v1, 0x1
@@ -1852,6 +2318,7 @@
 
     if-nez v2, :cond_0
 
+    .line 493
     aget-object v2, p2, v0
 
     const-string v3, "android.permission.WRITE_EXTERNAL_STORAGE"
@@ -1860,9 +2327,20 @@
 
     move-result v2
 
+    if-nez v2, :cond_0
+
+    .line 494
+    aget-object v2, p2, v0
+
+    const-string v3, "android.permission.READ_MEDIA_IMAGES"
+
+    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v2
+
     if-eqz v2, :cond_6
 
-    .line 438
+    .line 495
     :cond_0
     array-length v2, p3
 
@@ -1884,210 +2362,166 @@
 
     if-nez v0, :cond_4
 
-    .line 439
     const/4 v0, 0x2
 
     packed-switch p1, :pswitch_data_0
 
-    .line 482
+    .line 542
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
 
-    .line 483
-    nop
-
-    .line 484
-    nop
-
-    .line 485
-    nop
-
-    .line 482
     invoke-interface {v0, p1, p2, p3}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->superHandleRequestPermissionsResult(I[Ljava/lang/String;[I)V
 
-    .line 487
-    goto/16 :goto_3
+    goto/16 :goto_2
 
-    .line 479
+    .line 539
     :pswitch_0
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    .line 480
-    nop
+    invoke-interface {p1, v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->startImportImageActivity(I)V
 
-    .line 479
-    invoke-interface {v0, v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->startImportImageActivity(I)V
+    goto/16 :goto_2
 
-    goto/16 :goto_3
-
-    .line 474
+    .line 534
     :pswitch_1
     invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->isImageUnchanged()Z
 
-    move-result v1
+    move-result p1
 
-    if-nez v1, :cond_3
+    if-nez p1, :cond_3
 
-    iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
-    invoke-interface {v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->isSaved()Z
+    invoke-interface {p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->isSaved()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_2
+    if-eqz p1, :cond_2
 
     goto :goto_1
 
-    .line 477
+    .line 537
     :cond_2
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showSaveBeforeLoadImageDialog()V
-
-    .line 478
-    goto :goto_3
-
-    .line 475
-    :cond_3
-    :goto_1
-    iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
-
-    invoke-interface {v1, v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->startLoadImageActivity(I)V
-
-    goto :goto_3
-
-    .line 449
-    :pswitch_2
-    nop
-
-    .line 450
-    const/4 v0, 0x4
-
-    .line 451
-    sget-object v1, Lorg/catrobat/paintroid/FileIO;->storeImageUri:Landroid/net/Uri;
-
-    .line 449
-    invoke-virtual {p0, v0, v1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->saveImageConfirmClicked(ILandroid/net/Uri;)V
-
-    .line 453
-    invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->checkForDefaultFilename()V
-
-    goto :goto_3
-
-    .line 463
-    :pswitch_3
-    nop
-
-    .line 464
-    nop
-
-    .line 465
-    sget-object v1, Lorg/catrobat/paintroid/FileIO;->storeImageUri:Landroid/net/Uri;
-
-    .line 463
-    invoke-virtual {p0, v0, v1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->saveImageConfirmClicked(ILandroid/net/Uri;)V
-
-    .line 467
-    invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->checkForDefaultFilename()V
-
-    goto :goto_3
-
-    .line 456
-    :pswitch_4
-    nop
-
-    .line 457
-    const/4 v0, 0x3
-
-    .line 458
-    sget-object v1, Lorg/catrobat/paintroid/FileIO;->storeImageUri:Landroid/net/Uri;
-
-    .line 456
-    invoke-virtual {p0, v0, v1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->saveImageConfirmClicked(ILandroid/net/Uri;)V
-
-    .line 460
-    invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->checkForDefaultFilename()V
-
-    goto :goto_3
-
-    .line 470
-    :pswitch_5
-    invoke-virtual {p0, v1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->saveCopyConfirmClicked(I)V
-
-    .line 471
-    invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->checkForDefaultFilename()V
-
-    goto :goto_3
-
-    .line 441
-    :pswitch_6
-    nop
-
-    .line 442
-    nop
-
-    .line 443
-    sget-object v0, Lorg/catrobat/paintroid/FileIO;->storeImageUri:Landroid/net/Uri;
-
-    .line 441
-    invoke-virtual {p0, v1, v0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->saveImageConfirmClicked(ILandroid/net/Uri;)V
-
-    .line 445
-    invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->checkForDefaultFilename()V
-
-    .line 446
-    invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->showLikeUsDialogIfFirstTimeSave()V
-
-    goto :goto_3
-
-    .line 489
-    :cond_4
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
-
-    invoke-interface {v0, p2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->isPermissionPermanentlyDenied([Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_5
-
-    .line 490
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
-
-    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showRequestPermanentlyDeniedPermissionRationaleDialog()V
+    invoke-interface {p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showSaveBeforeLoadImageDialog()V
 
     goto :goto_2
 
-    .line 492
+    .line 535
+    :cond_3
+    :goto_1
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
+
+    invoke-interface {p1, v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->startLoadImageActivity(I)V
+
+    goto :goto_2
+
+    :pswitch_2
+    const/4 p1, 0x4
+
+    .line 508
+    sget-object p2, Lorg/catrobat/paintroid/FileIO;->storeImageUri:Landroid/net/Uri;
+
+    .line 506
+    invoke-virtual {p0, p1, p2}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->saveImageConfirmClicked(ILandroid/net/Uri;)V
+
+    .line 510
+    invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->checkForDefaultFilename()V
+
+    goto :goto_2
+
+    .line 522
+    :pswitch_3
+    sget-object p1, Lorg/catrobat/paintroid/FileIO;->storeImageUri:Landroid/net/Uri;
+
+    .line 520
+    invoke-virtual {p0, v0, p1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->saveImageConfirmClicked(ILandroid/net/Uri;)V
+
+    .line 524
+    invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->checkForDefaultFilename()V
+
+    goto :goto_2
+
+    :pswitch_4
+    const/4 p1, 0x3
+
+    .line 515
+    sget-object p2, Lorg/catrobat/paintroid/FileIO;->storeImageUri:Landroid/net/Uri;
+
+    .line 513
+    invoke-virtual {p0, p1, p2}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->saveImageConfirmClicked(ILandroid/net/Uri;)V
+
+    .line 517
+    invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->checkForDefaultFilename()V
+
+    goto :goto_2
+
+    .line 529
+    :pswitch_5
+    sget-object p1, Lorg/catrobat/paintroid/FileIO;->storeImageUri:Landroid/net/Uri;
+
+    .line 527
+    invoke-virtual {p0, v1, p1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->saveCopyConfirmClicked(ILandroid/net/Uri;)V
+
+    .line 531
+    invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->checkForDefaultFilename()V
+
+    goto :goto_2
+
+    .line 500
+    :pswitch_6
+    sget-object p1, Lorg/catrobat/paintroid/FileIO;->storeImageUri:Landroid/net/Uri;
+
+    .line 498
+    invoke-virtual {p0, v1, p1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->saveImageConfirmClicked(ILandroid/net/Uri;)V
+
+    .line 502
+    invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->checkForDefaultFilename()V
+
+    .line 503
+    invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->showLikeUsDialogIfFirstTimeSave()V
+
+    goto :goto_2
+
+    .line 549
+    :cond_4
+    iget-object p3, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
+
+    invoke-interface {p3, p2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->isPermissionPermanentlyDenied([Ljava/lang/String;)Z
+
+    move-result p3
+
+    if-eqz p3, :cond_5
+
+    .line 550
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
+
+    invoke-interface {p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showRequestPermanentlyDeniedPermissionRationaleDialog()V
+
+    goto :goto_2
+
+    .line 552
     :cond_5
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
+    iget-object p3, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    .line 493
-    sget-object v1, Lorg/catrobat/paintroid/dialog/PermissionInfoDialog$PermissionType;->EXTERNAL_STORAGE:Lorg/catrobat/paintroid/dialog/PermissionInfoDialog$PermissionType;
+    .line 553
+    sget-object v0, Lorg/catrobat/paintroid/dialog/PermissionInfoDialog$PermissionType;->EXTERNAL_STORAGE:Lorg/catrobat/paintroid/dialog/PermissionInfoDialog$PermissionType;
 
-    .line 494
-    nop
+    .line 552
+    invoke-interface {p3, v0, p2, p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showRequestPermissionRationaleDialog(Lorg/catrobat/paintroid/dialog/PermissionInfoDialog$PermissionType;[Ljava/lang/String;I)V
 
-    .line 492
-    invoke-interface {v0, v1, p2, p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showRequestPermissionRationaleDialog(Lorg/catrobat/paintroid/dialog/PermissionInfoDialog$PermissionType;[Ljava/lang/String;I)V
+    goto :goto_2
 
-    .line 496
-    :goto_2
-    nop
-
-    .line 497
-    goto :goto_3
-
-    .line 499
+    .line 559
     :cond_6
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
 
     invoke-interface {v0, p1, p2, p3}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->superHandleRequestPermissionsResult(I[Ljava/lang/String;[I)V
 
-    .line 500
-    :goto_3
-    nop
-
-    .line 501
+    :goto_2
     return-void
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -2101,36 +2535,92 @@
     .end packed-switch
 .end method
 
+.method public final hideBottomBarViewHolder()V
+    .locals 1
+
+    .line 1165
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->bottomBarViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomBarViewHolder;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomBarViewHolder;->isVisible()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 1166
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->bottomBarViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomBarViewHolder;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomBarViewHolder;->hide()V
+
+    :cond_0
+    return-void
+.end method
+
 .method public importFromGalleryClicked()V
     .locals 1
 
-    .line 936
     const/4 v0, 0x7
 
+    .line 1097
     invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->switchBetweenVersions(I)V
 
-    .line 937
     return-void
 .end method
 
 .method public importStickersClicked()V
-    .locals 1
+    .locals 3
 
-    .line 944
+    .line 1105
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showCatroidMediaGallery()V
 
-    .line 945
+    .line 1106
+    sget-object v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->Companion:Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;
+
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;->access$checkForInternet(Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 1107
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    sget v2, Lorg/catrobat/paintroid/R$string;->no_connection_sticker:I
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/CharSequence;
+
+    const/4 v2, 0x1
+
+    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+
+    :cond_0
     return-void
 .end method
 
 .method public initializeFromCleanState(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 10
-    .param p1, "extraPicturePath"    # Ljava/lang/String;
-    .param p2, "extraPictureName"    # Ljava/lang/String;
+    .locals 7
 
-    .line 576
+    .line 695
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
     const/4 v1, 0x1
@@ -2149,123 +2639,104 @@
     :goto_0
     invoke-interface {v0, v3}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setOpenedFromCatroid(Z)V
 
-    .line 577
+    .line 696
     iput-boolean v2, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->wasImageLoaded:Z
 
-    .line 578
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_2
 
-    .line 579
+    .line 698
     new-instance v0, Ljava/io/File;
 
     invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 580
-    .local v0, "imageFile":Ljava/io/File;
+    .line 699
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_1
+    if-eqz p1, :cond_1
 
-    .line 581
-    iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
+    .line 700
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
-    iget-object v2, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
+    iget-object p2, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
 
-    invoke-interface {v2, v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->getUriFromFile(Ljava/io/File;)Landroid/net/Uri;
+    invoke-interface {p2, v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->getUriFromFile(Ljava/io/File;)Landroid/net/Uri;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-interface {v1, v2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setSavedPictureUri(Landroid/net/Uri;)V
+    invoke-interface {p1, p2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setSavedPictureUri(Landroid/net/Uri;)V
 
-    .line 582
-    iget-object v3, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->interactor:Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;
+    .line 701
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->interactor:Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;
 
-    .line 583
-    move-object v4, p0
+    .line 702
+    move-object v1, p0
 
-    check-cast v4, Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;
+    check-cast v1, Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;
 
-    .line 584
-    const/4 v5, 0x3
+    const/4 v2, 0x3
 
-    .line 585
-    iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
+    .line 704
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
-    invoke-interface {v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->getSavedPictureUri()Landroid/net/Uri;
+    invoke-interface {p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->getSavedPictureUri()Landroid/net/Uri;
 
-    move-result-object v6
+    move-result-object v3
 
-    .line 586
+    .line 705
     invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getContext()Landroid/content/Context;
 
-    move-result-object v7
+    move-result-object v4
 
-    .line 587
-    const/4 v8, 0x0
+    const/4 v5, 0x0
 
-    .line 588
-    iget-object v9, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
+    .line 707
+    iget-object v6, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandSerializer:Lorg/catrobat/paintroid/command/serialization/CommandSerializer;
 
-    .line 582
-    invoke-interface/range {v3 .. v9}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;->loadFile(Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;ILandroid/net/Uri;Landroid/content/Context;ZLorg/catrobat/paintroid/tools/Workspace;)V
+    .line 701
+    invoke-interface/range {v0 .. v6}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;->loadFile(Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;ILandroid/net/Uri;Landroid/content/Context;ZLorg/catrobat/paintroid/command/serialization/CommandSerializer;)V
 
     goto :goto_1
 
-    .line 590
     :cond_1
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_3
 
-    .line 591
-    iget-object v2, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->interactor:Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;
+    .line 710
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->interactor:Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;
 
-    .line 592
-    move-object v3, p0
+    .line 711
+    move-object v0, p0
 
-    check-cast v3, Lorg/catrobat/paintroid/iotasks/CreateFile$CreateFileCallback;
+    check-cast v0, Lorg/catrobat/paintroid/iotasks/CreateFile$CreateFileCallback;
 
-    .line 593
-    nop
+    .line 710
+    invoke-interface {p1, v0, v1, p2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;->createFile(Lorg/catrobat/paintroid/iotasks/CreateFile$CreateFileCallback;ILjava/lang/String;)V
 
-    .line 594
-    nop
-
-    .line 591
-    invoke-interface {v2, v3, v1, p2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;->createFile(Lorg/catrobat/paintroid/iotasks/CreateFile$CreateFileCallback;ILjava/lang/String;)V
-
-    .line 596
-    .end local v0    # "imageFile":Ljava/io/File;
-    :cond_2
     goto :goto_1
 
-    .line 598
+    .line 717
+    :cond_2
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+    invoke-interface {p1}, Lorg/catrobat/paintroid/controller/ToolController;->resetToolInternalStateOnImageLoaded()V
+
+    .line 718
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
+
+    const/4 p2, 0x0
+
+    invoke-interface {p1, p2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setSavedPictureUri(Landroid/net/Uri;)V
+
     :cond_3
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
-
-    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->resetToolInternalStateOnImageLoaded()V
-
-    .line 599
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
-
-    const/4 v1, 0x0
-
-    check-cast v1, Landroid/net/Uri;
-
-    invoke-interface {v0, v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setSavedPictureUri(Landroid/net/Uri;)V
-
-    .line 600
     :goto_1
-    nop
-
-    .line 601
     return-void
 .end method
 
 .method public isFinishing()Z
     .locals 1
 
-    .line 118
+    .line 138
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->getFinishing()Z
@@ -2275,46 +2746,28 @@
     return v0
 .end method
 
-.method public loadImageClicked()V
-    .locals 2
-
-    .line 133
-    const/4 v0, 0x6
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v0, v1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->switchBetweenVersions(IZ)V
-
-    .line 134
-    invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->setFirstCheckBoxInLayerMenu()V
-
-    .line 135
-    return-void
-.end method
-
 .method public loadNewImage()V
     .locals 2
 
-    .line 150
+    .line 181
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->checkIfClippingToolNeedsAdjustment()V
+
+    .line 182
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     const/4 v1, 0x2
 
     invoke-interface {v0, v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->startLoadImageActivity(I)V
 
-    .line 151
+    .line 183
     invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->setFirstCheckBoxInLayerMenu()V
 
-    .line 152
     return-void
 .end method
 
 .method public loadScaledImage(Landroid/net/Uri;I)V
-    .locals 19
-    .param p1, "uri"    # Landroid/net/Uri;
-    .param p2, "requestCode"    # I
+    .locals 17
 
-    .line 720
     move-object/from16 v0, p0
 
     move/from16 v1, p2
@@ -2331,107 +2784,94 @@
 
     if-eq v1, v2, :cond_1
 
-    .line 741
-    const-string v2, "MainActivity"
+    const-string v1, "MainActivity"
 
-    const-string v3, "wrong request code for loading pictures"
+    const-string v2, "wrong request code for loading pictures"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    .line 895
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    .line 722
+    .line 876
     :cond_0
+    sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->IMPORTPNG:Lorg/catrobat/paintroid/tools/ToolType;
+
+    invoke-direct {v0, v1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->setTool(Lorg/catrobat/paintroid/tools/ToolType;)V
+
+    .line 877
+    iget-object v1, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
     sget-object v2, Lorg/catrobat/paintroid/tools/ToolType;->IMPORTPNG:Lorg/catrobat/paintroid/tools/ToolType;
 
-    invoke-direct {v0, v2}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->setTool(Lorg/catrobat/paintroid/tools/ToolType;)V
+    invoke-interface {v1, v2}, Lorg/catrobat/paintroid/controller/ToolController;->switchTool(Lorg/catrobat/paintroid/tools/ToolType;)V
 
-    .line 723
-    iget-object v2, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+    .line 878
+    iget-object v3, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->interactor:Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;
 
-    sget-object v3, Lorg/catrobat/paintroid/tools/ToolType;->IMPORTPNG:Lorg/catrobat/paintroid/tools/ToolType;
+    .line 879
+    move-object v4, v0
 
-    const/4 v4, 0x0
+    check-cast v4, Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;
 
-    invoke-interface {v2, v3, v4}, Lorg/catrobat/paintroid/controller/ToolController;->switchTool(Lorg/catrobat/paintroid/tools/ToolType;Z)V
+    const/4 v5, 0x2
 
-    .line 724
-    iget-object v5, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->interactor:Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;
-
-    .line 725
-    move-object v6, v0
-
-    check-cast v6, Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;
-
-    .line 726
-    const/4 v7, 0x2
-
-    .line 727
-    nop
-
-    .line 728
+    .line 882
     invoke-virtual/range {p0 .. p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getContext()Landroid/content/Context;
 
-    move-result-object v9
+    move-result-object v7
 
-    .line 729
-    const/4 v10, 0x1
+    const/4 v8, 0x1
 
-    .line 730
-    iget-object v11, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
+    .line 884
+    iget-object v9, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandSerializer:Lorg/catrobat/paintroid/command/serialization/CommandSerializer;
 
-    .line 724
-    move-object/from16 v8, p1
+    move-object/from16 v6, p1
 
-    invoke-interface/range {v5 .. v11}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;->loadFile(Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;ILandroid/net/Uri;Landroid/content/Context;ZLorg/catrobat/paintroid/tools/Workspace;)V
+    .line 878
+    invoke-interface/range {v3 .. v9}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;->loadFile(Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;ILandroid/net/Uri;Landroid/content/Context;ZLorg/catrobat/paintroid/command/serialization/CommandSerializer;)V
 
     goto :goto_0
 
-    .line 733
+    .line 887
     :cond_1
-    iget-object v12, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->interactor:Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;
+    iget-object v10, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->interactor:Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;
 
-    .line 734
-    move-object v13, v0
+    .line 888
+    move-object v11, v0
 
-    check-cast v13, Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;
+    check-cast v11, Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;
 
-    .line 735
-    const/4 v14, 0x1
+    const/4 v12, 0x1
 
-    .line 736
-    nop
-
-    .line 737
+    .line 891
     invoke-virtual/range {p0 .. p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getContext()Landroid/content/Context;
 
-    move-result-object v16
+    move-result-object v14
 
-    .line 738
-    const/16 v17, 0x1
+    const/4 v15, 0x1
 
-    .line 739
-    iget-object v2, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
+    .line 893
+    iget-object v1, v0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandSerializer:Lorg/catrobat/paintroid/command/serialization/CommandSerializer;
 
-    .line 733
-    move-object/from16 v15, p1
+    move-object/from16 v13, p1
 
-    move-object/from16 v18, v2
+    move-object/from16 v16, v1
 
-    invoke-interface/range {v12 .. v18}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;->loadFile(Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;ILandroid/net/Uri;Landroid/content/Context;ZLorg/catrobat/paintroid/tools/Workspace;)V
+    .line 887
+    invoke-interface/range {v10 .. v16}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;->loadFile(Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;ILandroid/net/Uri;Landroid/content/Context;ZLorg/catrobat/paintroid/command/serialization/CommandSerializer;)V
 
-    .line 742
     :goto_0
-    nop
-
-    .line 743
     return-void
 .end method
 
 .method public newImageClicked()V
     .locals 1
 
-    .line 155
+    .line 187
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->checkIfClippingToolNeedsAdjustment()V
+
+    .line 188
     invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->isImageUnchanged()Z
 
     move-result v0
@@ -2448,37 +2888,33 @@
 
     goto :goto_0
 
-    .line 159
+    .line 192
     :cond_0
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showSaveBeforeNewImageDialog()V
 
-    .line 160
+    .line 193
     invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->setFirstCheckBoxInLayerMenu()V
 
     goto :goto_1
 
-    .line 156
+    .line 189
     :cond_1
     :goto_0
     invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->onNewImage()V
 
-    .line 157
+    .line 190
     invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->setFirstCheckBoxInLayerMenu()V
 
-    .line 161
     :goto_1
-    nop
-
-    .line 162
     return-void
 .end method
 
 .method public onBackPressed()V
     .locals 3
 
-    .line 504
+    .line 564
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->drawerLayoutViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$DrawerLayoutViewHolder;
 
     const v1, 0x800003
@@ -2491,14 +2927,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 505
+    .line 565
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->drawerLayoutViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$DrawerLayoutViewHolder;
 
     invoke-interface {v0, v1, v2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$DrawerLayoutViewHolder;->closeDrawer(IZ)V
 
-    goto :goto_0
+    goto :goto_1
 
-    .line 506
+    .line 566
     :cond_0
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->drawerLayoutViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$DrawerLayoutViewHolder;
 
@@ -2510,14 +2946,14 @@
 
     if-eqz v0, :cond_1
 
-    .line 507
+    .line 567
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->drawerLayoutViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$DrawerLayoutViewHolder;
 
     invoke-interface {v0, v1, v2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$DrawerLayoutViewHolder;->closeDrawer(IZ)V
 
-    goto :goto_0
+    goto :goto_1
 
-    .line 508
+    .line 568
     :cond_1
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
@@ -2527,12 +2963,12 @@
 
     if-eqz v0, :cond_2
 
-    .line 509
-    invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->exitFullscreenClicked()V
+    .line 569
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->exitHideButtonsClicked()V
 
-    goto :goto_0
+    goto :goto_1
 
-    .line 510
+    .line 570
     :cond_2
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
@@ -2540,630 +2976,642 @@
 
     move-result v0
 
+    if-nez v0, :cond_5
+
+    .line 571
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->getCurrentTool()Lorg/catrobat/paintroid/tools/Tool;
+
+    move-result-object v0
+
     if-nez v0, :cond_3
 
-    .line 511
-    sget-object v0, Lorg/catrobat/paintroid/tools/ToolType;->BRUSH:Lorg/catrobat/paintroid/tools/ToolType;
-
-    invoke-direct {p0, v0, v2}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->switchTool(Lorg/catrobat/paintroid/tools/ToolType;Z)V
+    const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 513
     :cond_3
+    invoke-interface {v0}, Lorg/catrobat/paintroid/tools/Tool;->getToolType()Lorg/catrobat/paintroid/tools/ToolType;
+
+    move-result-object v0
+
+    :goto_0
+    sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->CLIP:Lorg/catrobat/paintroid/tools/ToolType;
+
+    if-ne v0, v1, :cond_4
+
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+    invoke-interface {v0, v2}, Lorg/catrobat/paintroid/controller/ToolController;->adjustClippingToolOnBackPressed(Z)V
+
+    .line 572
+    :cond_4
+    sget-object v0, Lorg/catrobat/paintroid/tools/ToolType;->BRUSH:Lorg/catrobat/paintroid/tools/ToolType;
+
+    invoke-direct {p0, v0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->switchTool(Lorg/catrobat/paintroid/tools/ToolType;)V
+
+    goto :goto_1
+
+    .line 574
+    :cond_5
     invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->showSecurityQuestionBeforeExit()V
 
-    .line 514
-    :goto_0
-    nop
-
-    .line 515
+    :goto_1
     return-void
 .end method
 
 .method public onCommandPostExecute()V
     .locals 2
 
-    .line 560
+    .line 659
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->dismissIndeterminateProgressDialog()V
 
-    .line 561
+    .line 660
     iget-boolean v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->resetPerspectiveAfterNextCommand:Z
 
     const/4 v1, 0x0
 
     if-eqz v0, :cond_0
 
-    .line 562
+    .line 661
     iput-boolean v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->resetPerspectiveAfterNextCommand:Z
 
-    .line 563
+    .line 662
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/tools/Workspace;->resetPerspective()V
 
-    .line 565
+    .line 664
     :cond_0
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
     invoke-interface {v0, v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setSaved(Z)V
 
-    .line 566
+    .line 665
+    iget-boolean v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->clippingToolInUseAndUndoRedoClicked:Z
+
+    if-eqz v0, :cond_1
+
+    .line 666
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->adjustClippingToolPostCommandExecute()V
+
+    .line 668
+    :cond_1
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->resetToolInternalState()V
 
-    .line 567
+    .line 669
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->refreshDrawingSurface()V
 
-    .line 568
+    .line 670
     invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->refreshTopBarButtons()V
 
-    .line 569
     return-void
 .end method
 
 .method public onCreateFilePostExecute(ILjava/io/File;)V
-    .locals 2
-    .param p1, "requestCode"    # I
-    .param p2, "file"    # Ljava/io/File;
+    .locals 1
 
-    .line 708
     if-nez p2, :cond_0
 
-    .line 709
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
+    .line 863
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showSaveErrorDialog()V
+    invoke-interface {p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showSaveErrorDialog()V
 
-    .line 710
     return-void
 
-    .line 712
     :cond_0
     const/4 v0, 0x1
 
     if-ne p1, v0, :cond_1
 
-    .line 713
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
+    .line 867
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
-    iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
 
-    invoke-interface {v1, p2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->getUriFromFile(Ljava/io/File;)Landroid/net/Uri;
+    invoke-interface {v0, p2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->getUriFromFile(Ljava/io/File;)Landroid/net/Uri;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-interface {v0, v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setSavedPictureUri(Landroid/net/Uri;)V
+    invoke-interface {p1, p2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setSavedPictureUri(Landroid/net/Uri;)V
 
-    .line 716
-    nop
-
-    .line 717
     return-void
 
-    .line 715
+    .line 869
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    check-cast v0, Ljava/lang/Throwable;
-
-    throw v0
+    throw p1
 .end method
 
 .method public onCreateTool()V
     .locals 1
 
-    .line 664
+    .line 790
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->createTool()V
 
-    .line 665
     return-void
 .end method
 
 .method public onLoadImagePostExecute(ILandroid/net/Uri;Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;)V
-    .locals 7
-    .param p1, "requestCode"    # I
-    .param p2, "uri"    # Landroid/net/Uri;
-    .param p3, "result"    # Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;
+    .locals 6
 
-    .line 750
     if-nez p3, :cond_0
 
-    .line 751
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
+    .line 905
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showLoadErrorDialog()V
+    invoke-interface {p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showLoadErrorDialog()V
 
-    .line 752
     return-void
 
-    .line 754
+    .line 908
     :cond_0
     iget-object v0, p3, Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;->model:Lorg/catrobat/paintroid/model/CommandManagerModel;
 
-    const/4 v1, 0x1
-
-    if-eqz v0, :cond_1
-
-    .line 755
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
-
-    iget-object v2, p3, Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;->model:Lorg/catrobat/paintroid/model/CommandManagerModel;
-
-    invoke-interface {v0, v2}, Lorg/catrobat/paintroid/command/CommandManager;->loadCommandsCatrobatImage(Lorg/catrobat/paintroid/model/CommandManagerModel;)V
-
-    .line 756
-    iput-boolean v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->resetPerspectiveAfterNextCommand:Z
-
-    .line 757
-    return-void
-
-    .line 759
-    :cond_1
-    iget-boolean v0, p3, Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;->toBeScaled:Z
-
-    if-eqz v0, :cond_2
-
-    .line 760
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
-
-    invoke-interface {v0, p2, p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showScaleImageRequestDialog(Landroid/net/Uri;I)V
-
-    .line 761
-    return-void
-
-    .line 763
-    :cond_2
-    const/4 v0, 0x2
+    const-string v1, "(this as java.lang.Strin\u2026ing(startIndex, endIndex)"
 
     const/4 v2, 0x0
 
-    if-eq p1, v1, :cond_7
+    const/4 v3, 0x1
 
-    if-eq p1, v0, :cond_5
+    if-eqz v0, :cond_2
 
-    const/4 v0, 0x3
+    .line 909
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
 
-    if-ne p1, v0, :cond_4
+    iget-object v0, p3, Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;->model:Lorg/catrobat/paintroid/model/CommandManagerModel;
 
-    .line 809
-    iput-boolean v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->resetPerspectiveAfterNextCommand:Z
+    invoke-interface {p1, v0}, Lorg/catrobat/paintroid/command/CommandManager;->loadCommandsCatrobatImage(Lorg/catrobat/paintroid/model/CommandManagerModel;)V
 
-    .line 810
-    iget-object v0, p3, Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;->bitmap:Landroid/graphics/Bitmap;
+    .line 910
+    iput-boolean v3, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->resetPerspectiveAfterNextCommand:Z
+
+    .line 911
+    iget-object p1, p3, Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;->colorHistory:Lorg/catrobat/paintroid/colorpicker/ColorHistory;
+
+    invoke-virtual {p0, p1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->setColorHistoryAfterLoadImage(Lorg/catrobat/paintroid/colorpicker/ColorHistory;)V
+
+    .line 912
+    sget-object p1, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
+
+    sget-object p1, Lorg/catrobat/paintroid/FileIO$FileType;->CATROBAT:Lorg/catrobat/paintroid/FileIO$FileType;
+
+    sput-object p1, Lorg/catrobat/paintroid/FileIO;->fileType:Lorg/catrobat/paintroid/FileIO$FileType;
+
+    if-eqz p2, :cond_1
+
+    .line 914
+    invoke-direct {p0, p2}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getFileName(Landroid/net/Uri;)Ljava/lang/String;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_1
+
+    .line 916
+    sget-object p2, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
+
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
+
+    move-result p2
+
+    sget-object p3, Lorg/catrobat/paintroid/FileIO;->fileType:Lorg/catrobat/paintroid/FileIO$FileType;
+
+    invoke-virtual {p3}, Lorg/catrobat/paintroid/FileIO$FileType;->toExtension()Ljava/lang/String;
+
+    move-result-object p3
+
+    invoke-virtual {p3}, Ljava/lang/String;->length()I
+
+    move-result p3
+
+    sub-int/2addr p2, p3
+
+    invoke-virtual {p1, v2, p2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {p1, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    sput-object p1, Lorg/catrobat/paintroid/FileIO;->filename:Ljava/lang/String;
+
+    :cond_1
+    return-void
+
+    .line 921
+    :cond_2
+    iget-boolean v0, p3, Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;->toBeScaled:Z
 
     if-eqz v0, :cond_3
 
-    .local v0, "it":Landroid/graphics/Bitmap;
-    const/4 v1, 0x0
+    .line 922
+    iget-object p3, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    .line 811
-    .local v1, "$i$a$-let-MainActivityPresenter$onLoadImagePostExecute$3":I
-    iget-object v3, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
+    invoke-interface {p3, p2, p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showScaleImageRequestDialog(Landroid/net/Uri;I)V
 
-    iget-object v4, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandFactory:Lorg/catrobat/paintroid/command/CommandFactory;
+    return-void
 
-    invoke-interface {v4, v0}, Lorg/catrobat/paintroid/command/CommandFactory;->createInitCommand(Landroid/graphics/Bitmap;)Lorg/catrobat/paintroid/command/Command;
-
-    move-result-object v4
-
-    invoke-interface {v3, v4}, Lorg/catrobat/paintroid/command/CommandManager;->setInitialStateCommand(Lorg/catrobat/paintroid/command/Command;)V
-
-    .line 812
-    nop
-
-    .line 810
-    .end local v0    # "it":Landroid/graphics/Bitmap;
-    .end local v1    # "$i$a$-let-MainActivityPresenter$onLoadImagePostExecute$3":I
-    nop
-
-    .line 813
     :cond_3
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
+    const/4 v0, 0x2
 
-    invoke-interface {v0}, Lorg/catrobat/paintroid/command/CommandManager;->reset()V
-
-    .line 814
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
-
-    invoke-interface {v0, p2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setSavedPictureUri(Landroid/net/Uri;)V
-
-    .line 815
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
-
-    check-cast v2, Landroid/net/Uri;
-
-    invoke-interface {v0, v2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setCameraImageUri(Landroid/net/Uri;)V
-
-    goto/16 :goto_2
-
-    .line 817
-    :cond_4
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
-
-    check-cast v0, Ljava/lang/Throwable;
-
-    throw v0
-
-    .line 800
-    :cond_5
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
-
-    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->getToolType()Lorg/catrobat/paintroid/tools/ToolType;
-
-    move-result-object v0
-
-    sget-object v1, Lorg/catrobat/paintroid/tools/ToolType;->IMPORTPNG:Lorg/catrobat/paintroid/tools/ToolType;
-
-    if-ne v0, v1, :cond_6
-
-    .line 801
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
-
-    iget-object v1, p3, Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;->bitmap:Landroid/graphics/Bitmap;
-
-    invoke-interface {v0, v1}, Lorg/catrobat/paintroid/controller/ToolController;->setBitmapFromSource(Landroid/graphics/Bitmap;)V
-
-    goto/16 :goto_2
-
-    .line 803
-    :cond_6
-    nop
-
-    .line 804
-    nop
-
-    .line 805
-    nop
-
-    .line 803
-    const-string v0, "MainActivity"
-
-    const-string v1, "importPngToFloatingBox: Current tool is no ImportTool as required"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 807
-    goto/16 :goto_2
-
-    .line 765
-    :cond_7
-    iput-boolean v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->resetPerspectiveAfterNextCommand:Z
-
-    .line 766
-    iget-object v3, p3, Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;->bitmap:Landroid/graphics/Bitmap;
-
-    if-eqz v3, :cond_8
-
-    .line 767
-    iget-object v3, p3, Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;->bitmap:Landroid/graphics/Bitmap;
-
-    if-eqz v3, :cond_9
-
-    .local v3, "it":Landroid/graphics/Bitmap;
     const/4 v4, 0x0
 
-    .line 768
-    .local v4, "$i$a$-let-MainActivityPresenter$onLoadImagePostExecute$1":I
-    iget-object v5, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
+    if-eq p1, v3, :cond_8
 
-    iget-object v6, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandFactory:Lorg/catrobat/paintroid/command/CommandFactory;
+    if-eq p1, v0, :cond_6
 
-    invoke-interface {v6, v3}, Lorg/catrobat/paintroid/command/CommandFactory;->createInitCommand(Landroid/graphics/Bitmap;)Lorg/catrobat/paintroid/command/Command;
+    const/4 v0, 0x3
 
-    move-result-object v6
+    if-ne p1, v0, :cond_5
 
-    invoke-interface {v5, v6}, Lorg/catrobat/paintroid/command/CommandManager;->setInitialStateCommand(Lorg/catrobat/paintroid/command/Command;)V
+    .line 969
+    iput-boolean v3, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->resetPerspectiveAfterNextCommand:Z
 
-    .line 769
-    nop
+    .line 970
+    iget-object p1, p3, Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;->bitmap:Landroid/graphics/Bitmap;
 
-    .line 767
-    .end local v3    # "it":Landroid/graphics/Bitmap;
-    .end local v4    # "$i$a$-let-MainActivityPresenter$onLoadImagePostExecute$1":I
+    if-nez p1, :cond_4
+
     goto :goto_0
 
-    .line 771
-    :cond_8
-    iget-object v3, p3, Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;->bitmapList:Ljava/util/List;
+    .line 971
+    :cond_4
+    iget-object p3, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
 
-    if-eqz v3, :cond_9
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandFactory:Lorg/catrobat/paintroid/command/CommandFactory;
 
-    .local v3, "it":Ljava/util/List;
-    const/4 v4, 0x0
+    invoke-interface {v0, p1}, Lorg/catrobat/paintroid/command/CommandFactory;->createInitCommand(Landroid/graphics/Bitmap;)Lorg/catrobat/paintroid/command/Command;
 
-    .line 772
-    .local v4, "$i$a$-let-MainActivityPresenter$onLoadImagePostExecute$2":I
-    iget-object v5, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
+    move-result-object p1
 
-    iget-object v6, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandFactory:Lorg/catrobat/paintroid/command/CommandFactory;
+    invoke-interface {p3, p1}, Lorg/catrobat/paintroid/command/CommandManager;->setInitialStateCommand(Lorg/catrobat/paintroid/command/Command;)V
 
-    invoke-interface {v6, v3}, Lorg/catrobat/paintroid/command/CommandFactory;->createInitCommand(Ljava/util/List;)Lorg/catrobat/paintroid/command/Command;
-
-    move-result-object v6
-
-    invoke-interface {v5, v6}, Lorg/catrobat/paintroid/command/CommandManager;->setInitialStateCommand(Lorg/catrobat/paintroid/command/Command;)V
-
-    .line 773
-    nop
-
-    .line 771
-    .end local v3    # "it":Ljava/util/List;
-    .end local v4    # "$i$a$-let-MainActivityPresenter$onLoadImagePostExecute$2":I
-    nop
-
-    .line 774
-    :cond_9
+    .line 973
     :goto_0
-    nop
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
 
-    .line 775
-    iget-object v3, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
+    invoke-interface {p1}, Lorg/catrobat/paintroid/command/CommandManager;->reset()V
 
-    invoke-interface {v3}, Lorg/catrobat/paintroid/command/CommandManager;->reset()V
+    .line 974
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
-    .line 776
-    iget-object v3, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
+    invoke-interface {p1, p2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setSavedPictureUri(Landroid/net/Uri;)V
 
-    invoke-interface {v3}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->isOpenedFromCatroid()Z
+    .line 975
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
-    move-result v3
+    invoke-interface {p1, v4}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setCameraImageUri(Landroid/net/Uri;)V
 
-    if-nez v3, :cond_a
+    goto/16 :goto_4
 
-    .line 777
-    iget-object v3, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
+    .line 977
+    :cond_5
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    move-object v4, v2
+    invoke-direct {p1}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    check-cast v4, Landroid/net/Uri;
+    throw p1
 
-    invoke-interface {v3, v4}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setSavedPictureUri(Landroid/net/Uri;)V
+    .line 960
+    :cond_6
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
-    .line 779
-    :cond_a
-    iget-object v3, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
+    invoke-interface {p1}, Lorg/catrobat/paintroid/controller/ToolController;->getToolType()Lorg/catrobat/paintroid/tools/ToolType;
 
-    move-object v4, v2
+    move-result-object p1
 
-    check-cast v4, Landroid/net/Uri;
+    sget-object p2, Lorg/catrobat/paintroid/tools/ToolType;->IMPORTPNG:Lorg/catrobat/paintroid/tools/ToolType;
 
-    invoke-interface {v3, v4}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setCameraImageUri(Landroid/net/Uri;)V
+    if-ne p1, p2, :cond_7
 
-    .line 780
-    iput-boolean v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->wasImageLoaded:Z
+    .line 961
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
-    .line 781
-    if-eqz p2, :cond_e
+    iget-object p2, p3, Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;->bitmap:Landroid/graphics/Bitmap;
 
-    .line 782
-    invoke-direct {p0, p2}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getFileName(Landroid/net/Uri;)Ljava/lang/String;
+    invoke-interface {p1, p2}, Lorg/catrobat/paintroid/controller/ToolController;->setBitmapFromSource(Landroid/graphics/Bitmap;)V
 
-    move-result-object v3
+    goto/16 :goto_4
 
-    .line 783
-    .local v3, "name":Ljava/lang/String;
-    if-eqz v3, :cond_e
+    :cond_7
+    const-string p1, "MainActivity"
 
-    .line 784
-    sget-object v4, Lorg/catrobat/paintroid/FileIO$FileType;->JPG:Lorg/catrobat/paintroid/FileIO$FileType;
+    const-string p2, "importPngToFloatingBox: Current tool is no ImportTool as required"
 
-    invoke-virtual {v4}, Lorg/catrobat/paintroid/FileIO$FileType;->getValue()Ljava/lang/String;
+    .line 963
+    invoke-static {p1, p2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v4
+    goto/16 :goto_4
 
-    const/4 v5, 0x0
+    .line 927
+    :cond_8
+    iput-boolean v3, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->resetPerspectiveAfterNextCommand:Z
 
-    invoke-static {v3, v4, v5, v0, v2}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
+    .line 928
+    iget-object p1, p3, Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;->bitmap:Landroid/graphics/Bitmap;
 
-    move-result v4
+    if-eqz p1, :cond_a
 
-    if-nez v4, :cond_d
+    .line 929
+    iget-object p1, p3, Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;->bitmap:Landroid/graphics/Bitmap;
 
-    const-string v4, "jpeg"
-
-    invoke-static {v3, v4, v5, v0, v2}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_b
+    if-nez p1, :cond_9
 
     goto :goto_1
 
-    .line 788
+    .line 930
+    :cond_9
+    iget-object p3, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
+
+    iget-object v5, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandFactory:Lorg/catrobat/paintroid/command/CommandFactory;
+
+    invoke-interface {v5, p1}, Lorg/catrobat/paintroid/command/CommandFactory;->createInitCommand(Landroid/graphics/Bitmap;)Lorg/catrobat/paintroid/command/Command;
+
+    move-result-object p1
+
+    invoke-interface {p3, p1}, Lorg/catrobat/paintroid/command/CommandManager;->setInitialStateCommand(Lorg/catrobat/paintroid/command/Command;)V
+
+    goto :goto_1
+
+    .line 933
+    :cond_a
+    iget-object p1, p3, Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;->layerList:Ljava/util/List;
+
+    if-nez p1, :cond_b
+
+    goto :goto_1
+
+    .line 934
     :cond_b
-    sget-object v4, Lorg/catrobat/paintroid/FileIO$FileType;->PNG:Lorg/catrobat/paintroid/FileIO$FileType;
+    iget-object p3, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
 
-    invoke-virtual {v4}, Lorg/catrobat/paintroid/FileIO$FileType;->getValue()Ljava/lang/String;
+    iget-object v5, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandFactory:Lorg/catrobat/paintroid/command/CommandFactory;
 
-    move-result-object v4
+    invoke-interface {v5, p1}, Lorg/catrobat/paintroid/command/CommandFactory;->createInitCommand(Ljava/util/List;)Lorg/catrobat/paintroid/command/Command;
 
-    invoke-static {v3, v4, v5, v0, v2}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
+    move-result-object p1
 
-    move-result v0
+    invoke-interface {p3, p1}, Lorg/catrobat/paintroid/command/CommandManager;->setInitialStateCommand(Lorg/catrobat/paintroid/command/Command;)V
 
-    if-eqz v0, :cond_c
-
-    .line 789
-    sget-object v0, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
-
-    sput-object v0, Lorg/catrobat/paintroid/FileIO;->compressFormat:Landroid/graphics/Bitmap$CompressFormat;
-
-    .line 790
-    sget-object v0, Lorg/catrobat/paintroid/FileIO$FileType;->PNG:Lorg/catrobat/paintroid/FileIO$FileType;
-
-    sput-object v0, Lorg/catrobat/paintroid/FileIO;->fileType:Lorg/catrobat/paintroid/FileIO$FileType;
-
-    .line 791
-    sput-boolean v5, Lorg/catrobat/paintroid/FileIO;->isCatrobatImage:Z
-
-    goto :goto_2
-
-    .line 793
-    :cond_c
-    sget-object v0, Lorg/catrobat/paintroid/FileIO$FileType;->ORA:Lorg/catrobat/paintroid/FileIO$FileType;
-
-    sput-object v0, Lorg/catrobat/paintroid/FileIO;->fileType:Lorg/catrobat/paintroid/FileIO$FileType;
-
-    .line 794
-    sput-boolean v1, Lorg/catrobat/paintroid/FileIO;->isCatrobatImage:Z
-
-    .line 795
-    .end local v3    # "name":Ljava/lang/String;
-    goto :goto_2
-
-    .line 785
-    .restart local v3    # "name":Ljava/lang/String;
-    :cond_d
+    .line 937
     :goto_1
-    sget-object v0, Landroid/graphics/Bitmap$CompressFormat;->JPEG:Landroid/graphics/Bitmap$CompressFormat;
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
 
-    sput-object v0, Lorg/catrobat/paintroid/FileIO;->compressFormat:Landroid/graphics/Bitmap$CompressFormat;
+    invoke-interface {p1}, Lorg/catrobat/paintroid/command/CommandManager;->reset()V
 
-    .line 786
-    sget-object v0, Lorg/catrobat/paintroid/FileIO$FileType;->JPG:Lorg/catrobat/paintroid/FileIO$FileType;
+    .line 938
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
-    sput-object v0, Lorg/catrobat/paintroid/FileIO;->fileType:Lorg/catrobat/paintroid/FileIO$FileType;
+    invoke-interface {p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->isOpenedFromCatroid()Z
 
-    .line 787
-    sput-boolean v5, Lorg/catrobat/paintroid/FileIO;->isCatrobatImage:Z
+    move-result p1
 
-    .line 818
-    .end local v3    # "name":Ljava/lang/String;
+    if-nez p1, :cond_c
+
+    .line 939
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
+
+    invoke-interface {p1, v4}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setSavedPictureUri(Landroid/net/Uri;)V
+
+    .line 941
+    :cond_c
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
+
+    invoke-interface {p1, v4}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setCameraImageUri(Landroid/net/Uri;)V
+
+    .line 942
+    iput-boolean v3, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->wasImageLoaded:Z
+
+    if-eqz p2, :cond_10
+
+    .line 944
+    invoke-direct {p0, p2}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getFileName(Landroid/net/Uri;)Ljava/lang/String;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_10
+
+    .line 946
+    sget-object p2, Lorg/catrobat/paintroid/FileIO$FileType;->JPG:Lorg/catrobat/paintroid/FileIO$FileType;
+
+    invoke-virtual {p2}, Lorg/catrobat/paintroid/FileIO$FileType;->getValue()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-static {p1, p2, v2, v0, v4}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
+
+    move-result p2
+
+    if-nez p2, :cond_f
+
+    const-string p2, "jpeg"
+
+    invoke-static {p1, p2, v2, v0, v4}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
+
+    move-result p2
+
+    if-eqz p2, :cond_d
+
+    goto :goto_2
+
+    .line 949
+    :cond_d
+    sget-object p2, Lorg/catrobat/paintroid/FileIO$FileType;->PNG:Lorg/catrobat/paintroid/FileIO$FileType;
+
+    invoke-virtual {p2}, Lorg/catrobat/paintroid/FileIO$FileType;->getValue()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-static {p1, p2, v2, v0, v4}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
+
+    move-result p2
+
+    if-eqz p2, :cond_e
+
+    .line 950
+    sget-object p2, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
+
+    sget-object p2, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
+
+    sput-object p2, Lorg/catrobat/paintroid/FileIO;->compressFormat:Landroid/graphics/Bitmap$CompressFormat;
+
+    .line 951
+    sget-object p2, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
+
+    sget-object p2, Lorg/catrobat/paintroid/FileIO$FileType;->PNG:Lorg/catrobat/paintroid/FileIO$FileType;
+
+    sput-object p2, Lorg/catrobat/paintroid/FileIO;->fileType:Lorg/catrobat/paintroid/FileIO$FileType;
+
+    goto :goto_3
+
+    .line 953
     :cond_e
-    :goto_2
-    nop
+    sget-object p2, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
 
-    .line 819
+    sget-object p2, Lorg/catrobat/paintroid/FileIO$FileType;->ORA:Lorg/catrobat/paintroid/FileIO$FileType;
+
+    sput-object p2, Lorg/catrobat/paintroid/FileIO;->fileType:Lorg/catrobat/paintroid/FileIO$FileType;
+
+    goto :goto_3
+
+    .line 947
+    :cond_f
+    :goto_2
+    sget-object p2, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
+
+    sget-object p2, Landroid/graphics/Bitmap$CompressFormat;->JPEG:Landroid/graphics/Bitmap$CompressFormat;
+
+    sput-object p2, Lorg/catrobat/paintroid/FileIO;->compressFormat:Landroid/graphics/Bitmap$CompressFormat;
+
+    .line 948
+    sget-object p2, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
+
+    sget-object p2, Lorg/catrobat/paintroid/FileIO$FileType;->JPG:Lorg/catrobat/paintroid/FileIO$FileType;
+
+    sput-object p2, Lorg/catrobat/paintroid/FileIO;->fileType:Lorg/catrobat/paintroid/FileIO$FileType;
+
+    .line 955
+    :goto_3
+    sget-object p2, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
+
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
+
+    move-result p2
+
+    sget-object p3, Lorg/catrobat/paintroid/FileIO;->fileType:Lorg/catrobat/paintroid/FileIO$FileType;
+
+    invoke-virtual {p3}, Lorg/catrobat/paintroid/FileIO$FileType;->toExtension()Ljava/lang/String;
+
+    move-result-object p3
+
+    invoke-virtual {p3}, Ljava/lang/String;->length()I
+
+    move-result p3
+
+    sub-int/2addr p2, p3
+
+    invoke-virtual {p1, v2, p2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {p1, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    sput-object p1, Lorg/catrobat/paintroid/FileIO;->filename:Ljava/lang/String;
+
+    :cond_10
+    :goto_4
     return-void
 .end method
 
 .method public onLoadImagePreExecute(I)V
     .locals 0
-    .param p1, "requestCode"    # I
 
-    .line 821
     return-void
 .end method
 
 .method public onNewImage()V
-    .locals 4
+    .locals 3
 
-    .line 288
+    .line 329
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
     move-result-object v0
 
-    .line 289
-    .local v0, "metrics":Landroid/util/DisplayMetrics;
     const/4 v1, 0x1
 
+    .line 330
     iput-boolean v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->resetPerspectiveAfterNextCommand:Z
 
-    .line 290
+    .line 331
     iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
     const/4 v2, 0x0
 
-    check-cast v2, Landroid/net/Uri;
-
     invoke-interface {v1, v2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setSavedPictureUri(Landroid/net/Uri;)V
 
-    .line 291
+    .line 332
+    sget-object v1, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
+
     const-string v1, "image"
 
     sput-object v1, Lorg/catrobat/paintroid/FileIO;->filename:Ljava/lang/String;
 
-    .line 292
+    .line 333
+    sget-object v1, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
+
     sget-object v1, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
 
     sput-object v1, Lorg/catrobat/paintroid/FileIO;->compressFormat:Landroid/graphics/Bitmap$CompressFormat;
 
-    .line 293
+    .line 334
+    sget-object v1, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
+
     sget-object v1, Lorg/catrobat/paintroid/FileIO$FileType;->PNG:Lorg/catrobat/paintroid/FileIO$FileType;
 
     sput-object v1, Lorg/catrobat/paintroid/FileIO;->fileType:Lorg/catrobat/paintroid/FileIO$FileType;
 
-    .line 294
-    const/4 v1, 0x0
-
-    sput-boolean v1, Lorg/catrobat/paintroid/FileIO;->isCatrobatImage:Z
-
-    .line 295
+    .line 335
     sget-object v1, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
 
     iget-object v2, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->internalMemoryPath:Ljava/io/File;
 
     invoke-virtual {v1, v2}, Lorg/catrobat/paintroid/FileIO;->deleteTempFile(Ljava/io/File;)V
 
-    .line 296
-    nop
-
-    .line 297
+    .line 336
     iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandFactory:Lorg/catrobat/paintroid/command/CommandFactory;
 
     iget v2, v0, Landroid/util/DisplayMetrics;->widthPixels:I
 
-    iget v3, v0, Landroid/util/DisplayMetrics;->heightPixels:I
+    iget v0, v0, Landroid/util/DisplayMetrics;->heightPixels:I
 
-    invoke-interface {v1, v2, v3}, Lorg/catrobat/paintroid/command/CommandFactory;->createInitCommand(II)Lorg/catrobat/paintroid/command/Command;
+    invoke-interface {v1, v2, v0}, Lorg/catrobat/paintroid/command/CommandFactory;->createInitCommand(II)Lorg/catrobat/paintroid/command/Command;
 
-    move-result-object v1
+    move-result-object v0
 
-    .line 296
-    nop
+    .line 337
+    iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
 
-    .line 298
-    .local v1, "initCommand":Lorg/catrobat/paintroid/command/Command;
-    iget-object v2, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
+    invoke-interface {v1, v0}, Lorg/catrobat/paintroid/command/CommandManager;->setInitialStateCommand(Lorg/catrobat/paintroid/command/Command;)V
 
-    invoke-interface {v2, v1}, Lorg/catrobat/paintroid/command/CommandManager;->setInitialStateCommand(Lorg/catrobat/paintroid/command/Command;)V
+    .line 338
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
 
-    .line 299
-    iget-object v2, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
+    invoke-interface {v0}, Lorg/catrobat/paintroid/command/CommandManager;->reset()V
 
-    invoke-interface {v2}, Lorg/catrobat/paintroid/command/CommandManager;->reset()V
-
-    .line 300
     return-void
 .end method
 
 .method public onSaveImagePostExecute(ILandroid/net/Uri;Z)V
-    .locals 7
-    .param p1, "requestCode"    # I
-    .param p2, "uri"    # Landroid/net/Uri;
-    .param p3, "saveAsCopy"    # Z
+    .locals 5
 
-    .line 832
+    .line 992
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->hideContentLoadingProgressBar()V
 
-    .line 833
     if-nez p2, :cond_0
 
-    .line 834
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
+    .line 994
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showSaveErrorDialog()V
+    invoke-interface {p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showSaveErrorDialog()V
 
-    .line 835
     return-void
 
-    .line 837
     :cond_0
     const-string v0, "null"
 
@@ -3171,7 +3619,7 @@
 
     if-eqz p3, :cond_4
 
-    .line 838
+    .line 998
     iget-object v2, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
     invoke-interface {v2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->isOpenedFromCatroid()Z
@@ -3184,16 +3632,16 @@
 
     if-nez v2, :cond_1
 
-    .line 839
+    .line 999
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     sget v2, Lorg/catrobat/paintroid/R$string;->copy:I
 
     invoke-interface {v0, v2, v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showToast(II)V
 
-    goto/16 :goto_1
+    goto/16 :goto_5
 
-    .line 841
+    .line 1001
     :cond_1
     invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getContext()Landroid/content/Context;
 
@@ -3205,57 +3653,46 @@
 
     move-result-object v2
 
-    .line 842
-    .local v2, "msg":Ljava/lang/Object;
+    .line 1002
     invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getFileActivity()Landroid/app/Activity;
 
     move-result-object v3
 
-    if-eqz v3, :cond_2
+    if-nez v3, :cond_2
 
-    .local v3, "it":Landroid/app/Activity;
-    const/4 v4, 0x0
+    goto :goto_0
 
-    .line 843
-    .local v4, "$i$a$-let-MainActivityPresenter$onSaveImagePostExecute$1":I
-    sget-object v5, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->Companion:Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;
+    .line 1003
+    :cond_2
+    sget-object v4, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->Companion:Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;
 
-    move-object v6, v3
+    check-cast v3, Landroid/content/Context;
 
-    check-cast v6, Landroid/content/Context;
+    invoke-virtual {v4, v3, p2}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;->getPathFromUri(Landroid/content/Context;Landroid/net/Uri;)Ljava/lang/String;
 
-    invoke-virtual {v5, v6, p2}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;->getPathFromUri(Landroid/content/Context;Landroid/net/Uri;)Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v5
-
-    invoke-static {v2, v5}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 844
-    nop
-
-    .line 842
-    .end local v3    # "it":Landroid/app/Activity;
-    .end local v4    # "$i$a$-let-MainActivityPresenter$onSaveImagePostExecute$1":I
-    nop
-
-    .line 845
-    :cond_2
+    .line 1005
+    :goto_0
     iget-object v3, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    if-eqz v2, :cond_3
+    if-nez v2, :cond_3
 
-    move-object v0, v2
-
-    :cond_3
-    invoke-interface {v3, v0, v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showToast(Ljava/lang/String;I)V
-
-    .line 846
-    .end local v2    # "msg":Ljava/lang/Object;
     goto :goto_1
 
-    .line 848
+    :cond_3
+    move-object v0, v2
+
+    :goto_1
+    invoke-interface {v3, v0, v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showToast(Ljava/lang/String;I)V
+
+    goto :goto_5
+
+    .line 1008
     :cond_4
     iget-object v2, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
@@ -3269,16 +3706,16 @@
 
     if-nez v2, :cond_5
 
-    .line 849
+    .line 1009
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     sget v2, Lorg/catrobat/paintroid/R$string;->saved:I
 
     invoke-interface {v0, v2, v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showToast(II)V
 
-    goto :goto_0
+    goto :goto_4
 
-    .line 851
+    .line 1011
     :cond_5
     invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getContext()Landroid/content/Context;
 
@@ -3290,72 +3727,56 @@
 
     move-result-object v2
 
-    .line 852
-    .restart local v2    # "msg":Ljava/lang/Object;
+    .line 1012
     invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getFileActivity()Landroid/app/Activity;
 
     move-result-object v3
 
-    if-eqz v3, :cond_6
+    if-nez v3, :cond_6
 
-    .restart local v3    # "it":Landroid/app/Activity;
-    const/4 v4, 0x0
+    goto :goto_2
 
-    .line 853
-    .local v4, "$i$a$-let-MainActivityPresenter$onSaveImagePostExecute$2":I
-    sget-object v5, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->Companion:Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;
+    .line 1013
+    :cond_6
+    sget-object v4, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->Companion:Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;
 
-    move-object v6, v3
+    check-cast v3, Landroid/content/Context;
 
-    check-cast v6, Landroid/content/Context;
+    invoke-virtual {v4, v3, p2}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;->getPathFromUri(Landroid/content/Context;Landroid/net/Uri;)Ljava/lang/String;
 
-    invoke-virtual {v5, v6, p2}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter$Companion;->getPathFromUri(Landroid/content/Context;Landroid/net/Uri;)Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v5
-
-    invoke-static {v2, v5}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 854
-    nop
-
-    .line 852
-    .end local v3    # "it":Landroid/app/Activity;
-    .end local v4    # "$i$a$-let-MainActivityPresenter$onSaveImagePostExecute$2":I
-    nop
-
-    .line 855
-    :cond_6
+    .line 1015
+    :goto_2
     iget-object v3, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    if-eqz v2, :cond_7
+    if-nez v2, :cond_7
 
-    move-object v0, v2
+    goto :goto_3
 
     :cond_7
+    move-object v0, v2
+
+    :goto_3
     invoke-interface {v3, v0, v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showToast(Ljava/lang/String;I)V
 
-    .line 856
-    .end local v2    # "msg":Ljava/lang/Object;
-    :goto_0
-    nop
-
-    .line 857
+    .line 1017
+    :goto_4
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
     invoke-interface {v0, p2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setSavedPictureUri(Landroid/net/Uri;)V
 
-    .line 858
+    .line 1018
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
     invoke-interface {v0, v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setSaved(Z)V
 
-    .line 859
-    :goto_1
-    nop
-
-    .line 860
+    .line 1020
+    :goto_5
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->isOpenedFromCatroid()Z
@@ -3366,125 +3787,101 @@
 
     if-eqz p3, :cond_9
 
-    .line 861
+    .line 1021
     :cond_8
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
+    iget-object p3, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    invoke-interface {v0, p2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->broadcastAddPictureToGallery(Landroid/net/Uri;)V
+    invoke-interface {p3, p2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->broadcastAddPictureToGallery(Landroid/net/Uri;)V
 
-    .line 863
     :cond_9
     if-eq p1, v1, :cond_e
 
-    const/4 v0, 0x2
+    const/4 p3, 0x2
 
-    if-eq p1, v0, :cond_d
+    if-eq p1, p3, :cond_d
 
-    const/4 v1, 0x3
+    const/4 v0, 0x3
 
-    if-eq p1, v1, :cond_c
+    if-eq p1, v0, :cond_c
 
-    const/4 v0, 0x4
+    const/4 p3, 0x4
 
-    if-ne p1, v0, :cond_b
+    if-ne p1, p3, :cond_b
 
-    .line 868
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
+    .line 1028
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
-    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->isOpenedFromCatroid()Z
+    invoke-interface {p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->isOpenedFromCatroid()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_a
+    if-eqz p1, :cond_a
 
-    .line 869
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
+    .line 1029
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-virtual {p2}, Landroid/net/Uri;->getPath()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-interface {v0, v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->returnToPocketCode(Ljava/lang/String;)V
+    invoke-interface {p1, p2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->returnToPocketCode(Ljava/lang/String;)V
 
-    goto :goto_2
+    goto :goto_6
 
-    .line 871
+    .line 1031
     :cond_a
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->finishActivity()V
+    invoke-interface {p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->finishActivity()V
 
-    .line 872
-    :goto_2
-    nop
-
-    .line 873
+    :goto_6
     return-void
 
-    .line 878
+    .line 1038
     :cond_b
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    check-cast v0, Ljava/lang/Throwable;
+    throw p1
 
-    throw v0
-
-    .line 875
+    .line 1035
     :cond_c
-    iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    .line 876
-    nop
+    invoke-interface {p1, p3}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->startLoadImageActivity(I)V
 
-    .line 875
-    invoke-interface {v1, v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->startLoadImageActivity(I)V
+    goto :goto_7
 
-    goto :goto_3
-
-    .line 864
+    .line 1024
     :cond_d
     invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->onNewImage()V
 
-    goto :goto_3
-
     :cond_e
-    nop
-
-    .line 879
-    :goto_3
-    nop
-
-    .line 880
+    :goto_7
     return-void
 .end method
 
 .method public onSaveImagePreExecute(I)V
-    .locals 1
-    .param p1, "requestCode"    # I
+    .locals 0
 
-    .line 824
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
+    .line 984
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
 
-    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->showContentLoadingProgressBar()V
+    invoke-interface {p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->showContentLoadingProgressBar()V
 
-    .line 825
     return-void
 .end method
 
-.method public openTemporaryFile(Lorg/catrobat/paintroid/tools/Workspace;)Lorg/catrobat/paintroid/model/CommandManagerModel;
-    .locals 1
-    .param p1, "workspace"    # Lorg/catrobat/paintroid/tools/Workspace;
+.method public openTemporaryFile()Lorg/catrobat/paintroid/iotasks/WorkspaceReturnValue;
+    .locals 2
 
-    const-string v0, "workspace"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 960
+    .line 1124
     sget-object v0, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
 
-    invoke-virtual {v0, p1}, Lorg/catrobat/paintroid/FileIO;->openTemporaryPictureFile(Lorg/catrobat/paintroid/tools/Workspace;)Lorg/catrobat/paintroid/model/CommandManagerModel;
+    iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandSerializer:Lorg/catrobat/paintroid/command/serialization/CommandSerializer;
+
+    invoke-virtual {v0, v1}, Lorg/catrobat/paintroid/FileIO;->openTemporaryPictureFile(Lorg/catrobat/paintroid/command/serialization/CommandSerializer;)Lorg/catrobat/paintroid/iotasks/WorkspaceReturnValue;
 
     move-result-object v0
 
@@ -3494,19 +3891,23 @@
 .method public rateUsClicked()V
     .locals 1
 
-    .line 928
+    .line 1089
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->rateUsClicked()V
 
-    .line 929
     return-void
 .end method
 
 .method public redoClicked()V
-    .locals 1
+    .locals 2
 
-    .line 534
+    .line 620
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->idlingResource:Landroidx/test/espresso/idling/CountingIdlingResource;
+
+    invoke-virtual {v0}, Landroidx/test/espresso/idling/CountingIdlingResource;->increment()V
+
+    .line 621
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->isKeyboardShown()Z
@@ -3515,32 +3916,85 @@
 
     if-eqz v0, :cond_0
 
-    .line 535
+    .line 622
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->hideKeyboard()V
 
     goto :goto_0
 
-    .line 537
+    .line 624
     :cond_0
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->getCurrentTool()Lorg/catrobat/paintroid/tools/Tool;
+
+    move-result-object v0
+
+    instance-of v0, v0, Lorg/catrobat/paintroid/tools/implementation/LineTool;
+
+    if-eqz v0, :cond_2
+
+    .line 625
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->getCurrentTool()Lorg/catrobat/paintroid/tools/Tool;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    check-cast v0, Lorg/catrobat/paintroid/tools/implementation/LineTool;
+
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/tools/implementation/LineTool;->redoLineTool()V
+
+    goto :goto_0
+
+    :cond_1
+    new-instance v0, Ljava/lang/NullPointerException;
+
+    const-string v1, "null cannot be cast to non-null type org.catrobat.paintroid.tools.implementation.LineTool"
+
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 627
+    :cond_2
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/command/CommandManager;->redo()V
 
-    .line 538
-    :goto_0
-    nop
+    .line 628
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
-    .line 539
+    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->getCurrentTool()Lorg/catrobat/paintroid/tools/Tool;
+
+    move-result-object v0
+
+    instance-of v0, v0, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;
+
+    if-eqz v0, :cond_3
+
+    const/4 v0, 0x1
+
+    .line 629
+    iput-boolean v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->clippingToolInUseAndUndoRedoClicked:Z
+
+    .line 633
+    :cond_3
+    :goto_0
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->idlingResource:Landroidx/test/espresso/idling/CountingIdlingResource;
+
+    invoke-virtual {v0}, Landroidx/test/espresso/idling/CountingIdlingResource;->decrement()V
+
     return-void
 .end method
 
 .method public removeMoreOptionsItems(Landroid/view/Menu;)V
     .locals 1
-    .param p1, "menu"    # Landroid/view/Menu;
 
-    .line 619
+    .line 738
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->isOpenedFromCatroid()Z
@@ -3549,761 +4003,875 @@
 
     if-eqz v0, :cond_0
 
-    .line 620
+    .line 739
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->topBarViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;
 
     invoke-interface {v0, p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;->removeStandaloneMenuItems(Landroid/view/Menu;)V
 
-    .line 621
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->topBarViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;
+    .line 740
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->topBarViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;
 
-    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;->hideTitleIfNotStandalone()V
+    invoke-interface {p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;->hideTitleIfNotStandalone()V
 
     goto :goto_0
 
-    .line 623
+    .line 742
     :cond_0
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->topBarViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;
 
     invoke-interface {v0, p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$TopBarViewHolder;->removeCatroidMenuItems(Landroid/view/Menu;)V
 
-    .line 624
     :goto_0
-    nop
+    return-void
+.end method
 
-    .line 625
+.method public replaceImageClicked()V
+    .locals 2
+
+    .line 157
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->checkIfClippingToolNeedsAdjustment()V
+
+    const/4 v0, 0x6
+
+    const/4 v1, 0x0
+
+    .line 158
+    invoke-virtual {p0, v0, v1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->switchBetweenVersions(IZ)V
+
+    .line 159
+    invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->setFirstCheckBoxInLayerMenu()V
+
     return-void
 .end method
 
 .method public restoreState(ZZZZLandroid/net/Uri;Landroid/net/Uri;)V
     .locals 1
-    .param p1, "isFullscreen"    # Z
-    .param p2, "isSaved"    # Z
-    .param p3, "isOpenedFromCatroid"    # Z
-    .param p4, "isOpenedFromFormulaEditorInCatroid"    # Z
-    .param p5, "savedPictureUri"    # Landroid/net/Uri;
-    .param p6, "cameraImageUri"    # Landroid/net/Uri;
 
-    .line 653
+    .line 779
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
     invoke-interface {v0, p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setFullscreen(Z)V
 
-    .line 654
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
+    .line 780
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
-    invoke-interface {v0, p2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setSaved(Z)V
+    invoke-interface {p1, p2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setSaved(Z)V
 
-    .line 655
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
+    .line 781
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
-    invoke-interface {v0, p3}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setOpenedFromCatroid(Z)V
+    invoke-interface {p1, p3}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setOpenedFromCatroid(Z)V
 
-    .line 656
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
+    .line 782
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
-    invoke-interface {v0, p4}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setOpenedFromFormulaEditorInCatroid(Z)V
+    invoke-interface {p1, p4}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setOpenedFromFormulaEditorInCatroid(Z)V
 
-    .line 657
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
+    .line 783
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
-    invoke-interface {v0, p5}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setSavedPictureUri(Landroid/net/Uri;)V
+    invoke-interface {p1, p5}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setSavedPictureUri(Landroid/net/Uri;)V
 
-    .line 658
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
+    .line 784
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
-    invoke-interface {v0, p6}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setCameraImageUri(Landroid/net/Uri;)V
+    invoke-interface {p1, p6}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setCameraImageUri(Landroid/net/Uri;)V
 
-    .line 659
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
+    .line 785
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->restoreFragmentListeners()V
+    invoke-interface {p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->restoreFragmentListeners()V
 
-    .line 660
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+    .line 786
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
-    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->resetToolInternalStateOnImageLoaded()V
+    invoke-interface {p1}, Lorg/catrobat/paintroid/controller/ToolController;->resetToolInternalStateOnImageLoaded()V
 
-    .line 661
     return-void
 .end method
 
 .method public saveBeforeFinish()V
     .locals 4
 
-    .line 187
+    .line 221
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->checkIfClippingToolNeedsAdjustment()V
+
+    .line 222
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    .line 188
-    nop
-
-    .line 189
+    .line 224
     invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getImageNumber()I
 
     move-result v1
 
-    .line 190
-    nop
+    const/4 v2, 0x0
 
-    .line 187
-    const/4 v2, 0x5
+    const/4 v3, 0x5
 
-    const/4 v3, 0x0
+    .line 222
+    invoke-interface {v0, v3, v1, v2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showSaveImageInformationDialogWhenStandalone(IIZ)V
 
-    invoke-interface {v0, v2, v1, v3}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showSaveImageInformationDialogWhenStandalone(IIZ)V
-
-    .line 192
     return-void
 .end method
 
 .method public saveBeforeLoadImage()V
     .locals 4
 
-    .line 142
+    .line 173
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    .line 143
-    nop
-
-    .line 144
+    .line 175
     invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getImageNumber()I
 
     move-result v1
 
-    .line 145
-    nop
+    const/4 v2, 0x0
 
-    .line 142
-    const/4 v2, 0x3
+    const/4 v3, 0x3
 
-    const/4 v3, 0x0
+    .line 173
+    invoke-interface {v0, v3, v1, v2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showSaveImageInformationDialogWhenStandalone(IIZ)V
 
-    invoke-interface {v0, v2, v1, v3}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showSaveImageInformationDialogWhenStandalone(IIZ)V
-
-    .line 147
     return-void
 .end method
 
 .method public saveBeforeNewImage()V
     .locals 4
 
-    .line 165
+    .line 198
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->checkIfClippingToolNeedsAdjustment()V
+
+    .line 199
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    .line 166
-    nop
-
-    .line 167
+    .line 201
     invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getImageNumber()I
 
     move-result v1
 
-    .line 168
-    nop
+    const/4 v2, 0x0
 
-    .line 165
-    const/4 v2, 0x4
+    const/4 v3, 0x4
 
-    const/4 v3, 0x0
+    .line 199
+    invoke-interface {v0, v3, v1, v2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showSaveImageInformationDialogWhenStandalone(IIZ)V
 
-    invoke-interface {v0, v2, v1, v3}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showSaveImageInformationDialogWhenStandalone(IIZ)V
-
-    .line 170
     return-void
 .end method
 
 .method public saveCopyClicked(Z)V
     .locals 3
-    .param p1, "isExport"    # Z
 
-    .line 195
+    .line 230
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    .line 196
-    nop
+    const/4 v1, 0x2
 
-    .line 197
+    .line 232
     invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getImageNumber()I
 
-    move-result v1
+    move-result v2
 
-    .line 198
-    nop
+    .line 230
+    invoke-interface {v0, v1, v2, p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showSaveImageInformationDialogWhenStandalone(IIZ)V
 
-    .line 195
-    const/4 v2, 0x2
-
-    invoke-interface {v0, v2, v1, p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showSaveImageInformationDialogWhenStandalone(IIZ)V
-
-    .line 200
     return-void
 .end method
 
-.method public saveCopyConfirmClicked(I)V
-    .locals 4
-    .param p1, "requestCode"    # I
+.method public saveCopyConfirmClicked(ILandroid/net/Uri;)V
+    .locals 8
 
-    .line 522
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->interactor:Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;
+    .line 585
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->checkIfClippingToolNeedsAdjustment()V
 
-    move-object v1, p0
+    .line 586
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
 
-    check-cast v1, Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;
+    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->refreshDrawingSurface()V
 
-    iget-object v2, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
+    .line 587
+    iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->interactor:Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;
+
+    move-object v2, p0
+
+    check-cast v2, Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;
+
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/tools/Workspace;->getLayerModel()Lorg/catrobat/paintroid/contract/LayerContracts$Model;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandSerializer:Lorg/catrobat/paintroid/command/serialization/CommandSerializer;
 
     invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getContext()Landroid/content/Context;
 
-    move-result-object v3
+    move-result-object v7
 
-    invoke-interface {v0, v1, p1, v2, v3}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;->saveCopy(Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;ILorg/catrobat/paintroid/tools/Workspace;Landroid/content/Context;)V
+    move v3, p1
 
-    .line 523
+    move-object v6, p2
+
+    invoke-interface/range {v1 .. v7}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;->saveCopy(Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;ILorg/catrobat/paintroid/contract/LayerContracts$Model;Lorg/catrobat/paintroid/command/serialization/CommandSerializer;Landroid/net/Uri;Landroid/content/Context;)V
+
     return-void
 .end method
 
 .method public saveImageClicked()V
     .locals 4
 
-    .line 203
+    .line 238
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    .line 204
-    nop
-
-    .line 205
+    .line 240
     invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getImageNumber()I
 
     move-result v1
 
-    .line 206
-    nop
+    const/4 v2, 0x0
 
-    .line 203
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    const/4 v3, 0x0
+    .line 238
+    invoke-interface {v0, v3, v1, v2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showSaveImageInformationDialogWhenStandalone(IIZ)V
 
-    invoke-interface {v0, v2, v1, v3}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showSaveImageInformationDialogWhenStandalone(IIZ)V
-
-    .line 208
     return-void
 .end method
 
 .method public saveImageConfirmClicked(ILandroid/net/Uri;)V
-    .locals 6
-    .param p1, "requestCode"    # I
-    .param p2, "uri"    # Landroid/net/Uri;
+    .locals 8
 
-    .line 518
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->interactor:Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;
+    .line 579
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->checkIfClippingToolNeedsAdjustment()V
 
-    move-object v1, p0
+    .line 580
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
 
-    check-cast v1, Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;
+    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->refreshDrawingSurface()V
 
-    iget-object v3, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
+    .line 581
+    iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->interactor:Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;
+
+    move-object v2, p0
+
+    check-cast v2, Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;
+
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/tools/Workspace;->getLayerModel()Lorg/catrobat/paintroid/contract/LayerContracts$Model;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandSerializer:Lorg/catrobat/paintroid/command/serialization/CommandSerializer;
 
     invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getContext()Landroid/content/Context;
 
-    move-result-object v5
+    move-result-object v7
 
-    move v2, p1
+    move v3, p1
 
-    move-object v4, p2
+    move-object v6, p2
 
-    invoke-interface/range {v0 .. v5}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;->saveImage(Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;ILorg/catrobat/paintroid/tools/Workspace;Landroid/net/Uri;Landroid/content/Context;)V
+    invoke-interface/range {v1 .. v7}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Interactor;->saveImage(Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;ILorg/catrobat/paintroid/contract/LayerContracts$Model;Lorg/catrobat/paintroid/command/serialization/CommandSerializer;Landroid/net/Uri;Landroid/content/Context;)V
 
-    .line 519
     return-void
 .end method
 
 .method public saveNewTemporaryImage()V
     .locals 3
 
-    .line 956
+    .line 1120
     sget-object v0, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
 
     iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->internalMemoryPath:Ljava/io/File;
 
-    iget-object v2, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
+    iget-object v2, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandSerializer:Lorg/catrobat/paintroid/command/serialization/CommandSerializer;
 
-    invoke-virtual {v0, v1, v2}, Lorg/catrobat/paintroid/FileIO;->saveTemporaryPictureFile(Ljava/io/File;Lorg/catrobat/paintroid/tools/Workspace;)V
+    invoke-virtual {v0, v1, v2}, Lorg/catrobat/paintroid/FileIO;->saveTemporaryPictureFile(Ljava/io/File;Lorg/catrobat/paintroid/command/serialization/CommandSerializer;)V
 
-    .line 957
     return-void
 .end method
 
 .method public sendFeedback()V
     .locals 1
 
-    .line 284
+    .line 325
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->sendFeedback()V
 
-    .line 285
     return-void
 .end method
 
 .method public setAntialiasingOnOkClicked()V
     .locals 1
 
-    .line 952
+    .line 1116
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->setAntialiasingOnToolPaint()V
 
-    .line 953
     return-void
 .end method
 
 .method public setBottomNavigationColor(I)V
     .locals 1
-    .param p1, "color"    # I
 
-    .line 572
+    .line 691
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->bottomNavigationViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomNavigationViewHolder;
 
     invoke-interface {v0, p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomNavigationViewHolder;->setColorButtonColor(I)V
 
-    .line 573
+    return-void
+.end method
+
+.method public final setClippingToolInUseAndUndoRedoClicked(Z)V
+    .locals 0
+
+    .line 152
+    iput-boolean p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->clippingToolInUseAndUndoRedoClicked:Z
+
+    return-void
+.end method
+
+.method public final setClippingToolPaint(Landroid/graphics/Paint;)V
+    .locals 1
+
+    const-string v0, "<set-?>"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 153
+    iput-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->clippingToolPaint:Landroid/graphics/Paint;
+
+    return-void
+.end method
+
+.method public setColorHistoryAfterLoadImage(Lorg/catrobat/paintroid/colorpicker/ColorHistory;)V
+    .locals 4
+
+    if-nez p1, :cond_0
+
+    .line 1131
+    new-instance p1, Lorg/catrobat/paintroid/colorpicker/ColorHistory;
+
+    invoke-direct {p1}, Lorg/catrobat/paintroid/colorpicker/ColorHistory;-><init>()V
+
+    .line 1132
+    :cond_0
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
+
+    invoke-interface {v0, p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->setColorHistory(Lorg/catrobat/paintroid/colorpicker/ColorHistory;)V
+
+    .line 1133
+    new-instance v0, Lorg/catrobat/paintroid/tools/implementation/DefaultToolPaint;
+
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Lorg/catrobat/paintroid/tools/implementation/DefaultToolPaint;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/tools/implementation/DefaultToolPaint;->getColor()I
+
+    move-result v0
+
+    .line 1134
+    invoke-virtual {p1}, Lorg/catrobat/paintroid/colorpicker/ColorHistory;->getColors()Ljava/util/ArrayList;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/util/Collection;
+
+    invoke-interface {v1}, Ljava/util/Collection;->isEmpty()Z
+
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-eqz v1, :cond_1
+
+    .line 1135
+    invoke-virtual {p1}, Lorg/catrobat/paintroid/colorpicker/ColorHistory;->getColors()Ljava/util/ArrayList;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/util/List;
+
+    invoke-static {p1}, Lkotlin/collections/CollectionsKt;->last(Ljava/util/List;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/Number;
+
+    invoke-virtual {p1}, Ljava/lang/Number;->intValue()I
+
+    move-result v0
+
+    .line 1137
+    :cond_1
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+    invoke-interface {p1}, Lorg/catrobat/paintroid/controller/ToolController;->getCurrentTool()Lorg/catrobat/paintroid/tools/Tool;
+
+    move-result-object p1
+
+    if-nez p1, :cond_2
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v1, 0x2
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    invoke-static {p1, v0, v3, v1, v2}, Lorg/catrobat/paintroid/tools/Tool$DefaultImpls;->changePaintColor$default(Lorg/catrobat/paintroid/tools/Tool;IZILjava/lang/Object;)V
+
+    .line 1138
+    :goto_0
+    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->setBottomNavigationColor(I)V
+
     return-void
 .end method
 
 .method public setLayerAdapter(Lorg/catrobat/paintroid/ui/LayerAdapter;)V
     .locals 1
-    .param p1, "layerAdapter"    # Lorg/catrobat/paintroid/ui/LayerAdapter;
 
     const-string v0, "layerAdapter"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 932
+    .line 1093
     iput-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->layerAdapter:Lorg/catrobat/paintroid/ui/LayerAdapter;
 
-    .line 933
+    return-void
+.end method
+
+.method public final setToolOptionsViewWasShown(Z)V
+    .locals 0
+
+    .line 154
+    iput-boolean p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolOptionsViewWasShown:Z
+
     return-void
 .end method
 
 .method public shareImageClicked()V
     .locals 2
 
-    .line 211
+    .line 246
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->checkIfClippingToolNeedsAdjustment()V
+
+    .line 247
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->refreshDrawingSurface()V
+
+    .line 248
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/tools/Workspace;->getBitmapOfAllLayers()Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    .line 212
-    .local v0, "bitmap":Landroid/graphics/Bitmap;
+    .line 249
     iget-object v1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-interface {v1, v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->startShareImageActivity(Landroid/graphics/Bitmap;)V
 
-    .line 213
     return-void
 .end method
 
 .method public showAboutClicked()V
     .locals 1
 
-    .line 248
+    .line 285
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showAboutDialog()V
 
-    .line 249
     return-void
 .end method
 
 .method public showAdvancedSettingsClicked()V
     .locals 1
 
-    .line 252
+    .line 293
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showAdvancedSettingsDialog()V
 
-    .line 253
     return-void
 .end method
 
 .method public showCatrobatInformationDialog()V
     .locals 1
 
-    .line 280
+    .line 321
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showCatrobatInformationDialog()V
 
-    .line 281
     return-void
 .end method
 
 .method public showColorPickerClicked()V
     .locals 1
 
-    .line 542
+    .line 637
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showColorPickerDialog()V
 
-    .line 543
     return-void
 .end method
 
 .method public showFeedbackDialog()V
     .locals 1
 
-    .line 260
+    .line 301
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showFeedbackDialog()V
 
-    .line 261
     return-void
 .end method
 
 .method public showHelpClicked()V
     .locals 2
 
-    .line 244
+    .line 281
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     const/4 v1, 0x3
 
     invoke-interface {v0, v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->startWelcomeActivity(I)V
 
-    .line 245
     return-void
 .end method
 
 .method public showImportDialog()V
     .locals 1
 
-    .line 940
+    .line 1101
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showImageImportDialog()V
 
-    .line 941
     return-void
 .end method
 
 .method public showJpgInformationDialog()V
     .locals 1
 
-    .line 272
+    .line 313
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showJpgInformationDialog()V
 
-    .line 273
     return-void
 .end method
 
 .method public showLayerMenuClicked()V
-    .locals 8
+    .locals 6
 
-    .line 546
+    .line 641
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->idlingResource:Landroidx/test/espresso/idling/CountingIdlingResource;
+
+    invoke-virtual {v0}, Landroidx/test/espresso/idling/CountingIdlingResource;->increment()V
+
+    .line 642
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->layerAdapter:Lorg/catrobat/paintroid/ui/LayerAdapter;
 
-    if-eqz v0, :cond_3
+    if-nez v0, :cond_0
 
-    .local v0, "$this$apply":Lorg/catrobat/paintroid/ui/LayerAdapter;
-    const/4 v1, 0x0
+    goto :goto_2
 
-    .line 547
-    .local v1, "$i$a$-apply-MainActivityPresenter$showLayerMenuClicked$1":I
+    .line 643
+    :cond_0
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/ui/LayerAdapter;->getItemCount()I
+
+    move-result v1
+
+    if-lez v1, :cond_4
+
     const/4 v2, 0x0
 
-    invoke-virtual {v0}, Lorg/catrobat/paintroid/ui/LayerAdapter;->getCount()I
-
-    move-result v3
-
     :goto_0
-    if-ge v2, v3, :cond_2
+    add-int/lit8 v3, v2, 0x1
 
-    .line 548
-    .local v2, "i":I
+    .line 644
     invoke-virtual {v0, v2}, Lorg/catrobat/paintroid/ui/LayerAdapter;->getViewHolderAt(I)Lorg/catrobat/paintroid/contract/LayerContracts$LayerViewHolder;
 
     move-result-object v4
 
-    .line 549
-    .local v4, "currentHolder":Lorg/catrobat/paintroid/contract/LayerContracts$LayerViewHolder;
-    if-eqz v4, :cond_1
+    if-nez v4, :cond_1
 
-    move-object v5, v4
+    goto :goto_1
 
-    .local v5, "it":Lorg/catrobat/paintroid/contract/LayerContracts$LayerViewHolder;
-    const/4 v6, 0x0
-
-    .line 550
-    .local v6, "$i$a$-let-MainActivityPresenter$showLayerMenuClicked$1$1":I
-    invoke-interface {v5}, Lorg/catrobat/paintroid/contract/LayerContracts$LayerViewHolder;->getBitmap()Landroid/graphics/Bitmap;
-
-    move-result-object v7
-
-    if-eqz v7, :cond_0
-
-    .line 551
-    invoke-interface {v5}, Lorg/catrobat/paintroid/contract/LayerContracts$LayerViewHolder;->getBitmap()Landroid/graphics/Bitmap;
-
-    move-result-object v7
-
-    invoke-interface {v5, v7}, Lorg/catrobat/paintroid/contract/LayerContracts$LayerViewHolder;->updateImageView(Landroid/graphics/Bitmap;)V
-
-    .line 553
-    :cond_0
-    nop
-
-    .line 549
-    .end local v5    # "it":Lorg/catrobat/paintroid/contract/LayerContracts$LayerViewHolder;
-    .end local v6    # "$i$a$-let-MainActivityPresenter$showLayerMenuClicked$1$1":I
-    nop
-
-    .line 547
-    .end local v4    # "currentHolder":Lorg/catrobat/paintroid/contract/LayerContracts$LayerViewHolder;
+    .line 646
     :cond_1
-    nop
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/ui/LayerAdapter;->getPresenter()Lorg/catrobat/paintroid/contract/LayerContracts$Presenter;
 
-    .end local v2    # "i":I
-    add-int/lit8 v2, v2, 0x1
+    move-result-object v5
+
+    invoke-interface {v5, v2}, Lorg/catrobat/paintroid/contract/LayerContracts$Presenter;->getLayerItem(I)Lorg/catrobat/paintroid/contract/LayerContracts$Layer;
+
+    move-result-object v2
+
+    .line 647
+    invoke-interface {v4}, Lorg/catrobat/paintroid/contract/LayerContracts$LayerViewHolder;->getBitmap()Landroid/graphics/Bitmap;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_2
+
+    if-eqz v2, :cond_2
+
+    .line 648
+    invoke-interface {v4, v2}, Lorg/catrobat/paintroid/contract/LayerContracts$LayerViewHolder;->updateImageView(Lorg/catrobat/paintroid/contract/LayerContracts$Layer;)V
+
+    :cond_2
+    :goto_1
+    if-lt v3, v1, :cond_3
+
+    goto :goto_2
+
+    :cond_3
+    move v2, v3
 
     goto :goto_0
 
-    .line 555
-    :cond_2
-    nop
+    .line 653
+    :cond_4
+    :goto_2
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->checkIfClippingToolNeedsAdjustment()V
 
-    .line 546
-    .end local v0    # "$this$apply":Lorg/catrobat/paintroid/ui/LayerAdapter;
-    .end local v1    # "$i$a$-apply-MainActivityPresenter$showLayerMenuClicked$1":I
-    nop
-
-    .line 556
-    :cond_3
+    .line 654
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->drawerLayoutViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$DrawerLayoutViewHolder;
 
     const v1, 0x800005
 
     invoke-interface {v0, v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$DrawerLayoutViewHolder;->openDrawer(I)V
 
-    .line 557
+    .line 655
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->idlingResource:Landroidx/test/espresso/idling/CountingIdlingResource;
+
+    invoke-virtual {v0}, Landroidx/test/espresso/idling/CountingIdlingResource;->decrement()V
+
     return-void
 .end method
 
 .method public showOraInformationDialog()V
     .locals 1
 
-    .line 276
+    .line 317
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showOraInformationDialog()V
 
-    .line 277
     return-void
 .end method
 
 .method public showOverwriteDialog(IZ)V
     .locals 1
-    .param p1, "permissionCode"    # I
-    .param p2, "isExport"    # Z
 
-    .line 264
+    .line 305
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-interface {v0, p1, p2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showOverwriteDialog(IZ)V
 
-    .line 265
     return-void
 .end method
 
 .method public showPngInformationDialog()V
     .locals 1
 
-    .line 268
+    .line 309
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showPngInformationDialog()V
 
-    .line 269
     return-void
 .end method
 
 .method public showRateUsDialog()V
     .locals 1
 
-    .line 256
+    .line 297
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showRateUsDialog()V
 
-    .line 257
+    return-void
+.end method
+
+.method public showZoomWindowSettingsClicked(Lorg/catrobat/paintroid/UserPreferences;)V
+    .locals 1
+
+    const-string v0, "sharedPreferences"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 289
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
+
+    invoke-interface {v0, p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showZoomWindowSettingsDialog(Lorg/catrobat/paintroid/UserPreferences;)V
+
     return-void
 .end method
 
 .method public final switchBetweenVersions(I)V
     .locals 1
-    .param p1, "requestCode"    # I
 
-    .line 307
     const/4 v0, 0x0
 
+    .line 346
     invoke-virtual {p0, p1, v0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->switchBetweenVersions(IZ)V
 
-    .line 308
     return-void
 .end method
 
 .method public switchBetweenVersions(IZ)V
-    .locals 2
-    .param p1, "requestCode"    # I
-    .param p2, "isExport"    # Z
+    .locals 1
 
-    .line 311
+    .line 350
     iput-boolean p2, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->isExport:Z
 
-    .line 313
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
+    .line 352
+    iget-object p2, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
-    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->isOpenedFromCatroid()Z
+    invoke-interface {p2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->isOpenedFromCatroid()Z
 
-    move-result v0
+    move-result p2
 
-    if-eqz v0, :cond_0
+    if-eqz p2, :cond_0
 
-    .line 314
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
+    .line 353
+    sget-object p2, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
 
-    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->getSavedPictureUri()Landroid/net/Uri;
+    iget-object p2, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
-    move-result-object v0
+    invoke-interface {p2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->getSavedPictureUri()Landroid/net/Uri;
 
-    sput-object v0, Lorg/catrobat/paintroid/FileIO;->storeImageUri:Landroid/net/Uri;
+    move-result-object p2
 
-    .line 317
+    sput-object p2, Lorg/catrobat/paintroid/FileIO;->storeImageUri:Landroid/net/Uri;
+
+    .line 356
     :cond_0
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
+    iget-object p2, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->isSdkAboveOrEqualM()Z
+    invoke-interface {p2}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->isSdkAboveOrEqualM()Z
 
-    move-result v0
+    move-result p2
 
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
-    if-eqz v0, :cond_2
+    if-eqz p2, :cond_2
 
-    .line 318
+    .line 357
     invoke-direct {p0, p1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->askForReadAndWriteExternalStoragePermission(I)V
 
-    .line 319
-    const/4 v0, 0x1
+    const/4 p2, 0x1
+
+    if-eq p1, p2, :cond_1
 
     if-eq p1, v0, :cond_1
 
-    if-eq p1, v1, :cond_1
+    const/4 p2, 0x3
 
-    const/4 v0, 0x3
+    if-eq p1, p2, :cond_1
 
-    if-eq p1, v0, :cond_1
+    const/4 p2, 0x4
 
-    const/4 v0, 0x4
+    if-eq p1, p2, :cond_1
 
-    if-eq p1, v0, :cond_1
+    const/4 p2, 0x5
 
-    const/4 v0, 0x5
+    if-eq p1, p2, :cond_1
 
-    if-eq p1, v0, :cond_1
-
-    .line 326
     goto :goto_1
 
-    .line 325
+    .line 365
     :cond_1
     invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->checkForDefaultFilename()V
 
     goto :goto_1
 
-    .line 328
     :cond_2
-    const/4 v0, 0x6
+    const/4 p2, 0x6
 
-    if-ne p1, v0, :cond_5
+    if-ne p1, p2, :cond_5
 
-    .line 329
+    .line 369
     invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->isImageUnchanged()Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_4
+    if-nez p1, :cond_4
 
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->model:Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;
 
-    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->isSaved()Z
+    invoke-interface {p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Model;->isSaved()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_3
+    if-eqz p1, :cond_3
 
     goto :goto_0
 
-    .line 333
+    .line 373
     :cond_3
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showSaveBeforeLoadImageDialog()V
+    invoke-interface {p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->showSaveBeforeLoadImageDialog()V
 
-    .line 334
+    .line 374
     invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->setFirstCheckBoxInLayerMenu()V
 
-    .line 335
     goto :goto_1
 
-    .line 330
+    .line 370
     :cond_4
     :goto_0
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->navigator:Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;
 
-    invoke-interface {v0, v1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->startLoadImageActivity(I)V
+    invoke-interface {p1, v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Navigator;->startLoadImageActivity(I)V
 
-    .line 331
+    .line 371
     invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->setFirstCheckBoxInLayerMenu()V
 
     goto :goto_1
 
-    .line 337
+    .line 377
     :cond_5
     invoke-direct {p0, p1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->askForReadAndWriteExternalStoragePermission(I)V
 
-    .line 338
     :goto_1
-    nop
-
-    .line 339
-    nop
-
-    .line 340
     return-void
 .end method
 
 .method public toolClicked(Lorg/catrobat/paintroid/tools/ToolType;)V
-    .locals 3
-    .param p1, "toolType"    # Lorg/catrobat/paintroid/tools/ToolType;
+    .locals 1
 
     const-string v0, "toolType"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 681
+    .line 807
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->idlingResource:Landroidx/test/espresso/idling/CountingIdlingResource;
+
+    invoke-virtual {v0}, Landroidx/test/espresso/idling/CountingIdlingResource;->increment()V
+
+    .line 808
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->bottomBarViewHolder:Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomBarViewHolder;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$BottomBarViewHolder;->hide()V
 
-    .line 682
+    .line 809
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->getToolType()Lorg/catrobat/paintroid/tools/ToolType;
@@ -4320,52 +4888,38 @@
 
     if-eqz v0, :cond_0
 
-    .line 683
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+    .line 810
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
 
-    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->toggleToolOptionsView()V
+    invoke-interface {p1}, Lorg/catrobat/paintroid/controller/ToolController;->toggleToolOptionsView()V
 
     goto :goto_0
 
-    .line 684
+    .line 812
     :cond_0
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
+    invoke-direct {p0}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->checkForImplicitToolApplication()V
 
-    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->isKeyboardShown()Z
+    .line 813
+    invoke-direct {p0, p1}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->switchTool(Lorg/catrobat/paintroid/tools/ToolType;)V
 
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 685
-    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
-
-    invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->hideKeyboard()V
-
-    goto :goto_0
-
-    .line 687
-    :cond_1
-    const/4 v0, 0x0
-
-    const/4 v1, 0x2
-
-    const/4 v2, 0x0
-
-    invoke-static {p0, p1, v0, v1, v2}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->switchTool$default(Lorg/catrobat/paintroid/presenter/MainActivityPresenter;Lorg/catrobat/paintroid/tools/ToolType;ZILjava/lang/Object;)V
-
-    .line 688
+    .line 815
     :goto_0
-    nop
+    iget-object p1, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->idlingResource:Landroidx/test/espresso/idling/CountingIdlingResource;
 
-    .line 689
+    invoke-virtual {p1}, Landroidx/test/espresso/idling/CountingIdlingResource;->decrement()V
+
     return-void
 .end method
 
 .method public undoClicked()V
-    .locals 1
+    .locals 5
 
-    .line 526
+    .line 591
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->idlingResource:Landroidx/test/espresso/idling/CountingIdlingResource;
+
+    invoke-virtual {v0}, Landroidx/test/espresso/idling/CountingIdlingResource;->increment()V
+
+    .line 592
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->isKeyboardShown()Z
@@ -4374,23 +4928,186 @@
 
     if-eqz v0, :cond_0
 
-    .line 527
+    .line 593
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->view:Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$MainView;->hideKeyboard()V
 
+    goto/16 :goto_1
+
+    .line 595
+    :cond_0
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->getCurrentTool()Lorg/catrobat/paintroid/tools/Tool;
+
+    move-result-object v0
+
+    instance-of v0, v0, Lorg/catrobat/paintroid/tools/implementation/EraserTool;
+
+    const/4 v1, 0x0
+
+    const/high16 v2, -0x1000000
+
+    if-nez v0, :cond_3
+
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/command/CommandManager;->isLastColorCommandOnTop()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/command/CommandManager;->getColorCommandCount()I
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    .line 596
+    :cond_1
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->getCurrentTool()Lorg/catrobat/paintroid/tools/Tool;
+
+    move-result-object v0
+
+    if-nez v0, :cond_2
+
     goto :goto_0
 
-    .line 529
-    :cond_0
+    :cond_2
+    const/4 v3, 0x2
+
+    const/4 v4, 0x0
+
+    invoke-static {v0, v2, v1, v3, v4}, Lorg/catrobat/paintroid/tools/Tool$DefaultImpls;->changePaintColor$default(Lorg/catrobat/paintroid/tools/Tool;IZILjava/lang/Object;)V
+
+    .line 597
+    :goto_0
+    invoke-virtual {p0, v2}, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->setBottomNavigationColor(I)V
+
+    .line 599
+    :cond_3
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->getCurrentTool()Lorg/catrobat/paintroid/tools/Tool;
+
+    move-result-object v0
+
+    instance-of v0, v0, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;
+
+    if-eqz v0, :cond_5
+
+    .line 600
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->getCurrentTool()Lorg/catrobat/paintroid/tools/Tool;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_4
+
+    check-cast v0, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;
+
+    .line 601
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/tools/implementation/ClippingTool;->getDrawPaint()Landroid/graphics/Paint;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->clippingToolPaint:Landroid/graphics/Paint;
+
+    .line 602
     iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/command/CommandManager;->undo()V
 
-    .line 530
-    :goto_0
-    nop
+    const/4 v0, 0x1
 
-    .line 531
+    .line 603
+    iput-boolean v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->clippingToolInUseAndUndoRedoClicked:Z
+
+    goto :goto_1
+
+    .line 600
+    :cond_4
+    new-instance v0, Ljava/lang/NullPointerException;
+
+    const-string v1, "null cannot be cast to non-null type org.catrobat.paintroid.tools.implementation.ClippingTool"
+
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 605
+    :cond_5
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->getCurrentTool()Lorg/catrobat/paintroid/tools/Tool;
+
+    move-result-object v0
+
+    instance-of v0, v0, Lorg/catrobat/paintroid/tools/implementation/LineTool;
+
+    if-eqz v0, :cond_7
+
+    .line 606
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->getCurrentTool()Lorg/catrobat/paintroid/tools/Tool;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_6
+
+    check-cast v0, Lorg/catrobat/paintroid/tools/implementation/LineTool;
+
+    invoke-virtual {v0, v2, v1}, Lorg/catrobat/paintroid/tools/implementation/LineTool;->undoChangePaintColor(IZ)V
+
+    goto :goto_1
+
+    :cond_6
+    new-instance v0, Ljava/lang/NullPointerException;
+
+    const-string v1, "null cannot be cast to non-null type org.catrobat.paintroid.tools.implementation.LineTool"
+
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 608
+    :cond_7
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->toolController:Lorg/catrobat/paintroid/controller/ToolController;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/controller/ToolController;->getCurrentTool()Lorg/catrobat/paintroid/tools/Tool;
+
+    move-result-object v0
+
+    instance-of v0, v0, Lorg/catrobat/paintroid/tools/implementation/EraserTool;
+
+    if-eqz v0, :cond_8
+
+    .line 609
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/command/CommandManager;->undoIgnoringColorChanges()V
+
+    goto :goto_1
+
+    .line 611
+    :cond_8
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
+
+    invoke-interface {v0}, Lorg/catrobat/paintroid/command/CommandManager;->undo()V
+
+    .line 616
+    :goto_1
+    iget-object v0, p0, Lorg/catrobat/paintroid/presenter/MainActivityPresenter;->idlingResource:Landroidx/test/espresso/idling/CountingIdlingResource;
+
+    invoke-virtual {v0}, Landroidx/test/espresso/idling/CountingIdlingResource;->decrement()V
+
     return-void
 .end method

@@ -52,22 +52,18 @@
     .end annotation
 
     .line 119
-    .local p0, "this":Lcom/bumptech/glide/load/model/FileLoader$Factory;, "Lcom/bumptech/glide/load/model/FileLoader$Factory<TData;>;"
-    .local p1, "opener":Lcom/bumptech/glide/load/model/FileLoader$FileOpener;, "Lcom/bumptech/glide/load/model/FileLoader$FileOpener<TData;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 120
     iput-object p1, p0, Lcom/bumptech/glide/load/model/FileLoader$Factory;->opener:Lcom/bumptech/glide/load/model/FileLoader$FileOpener;
 
-    .line 121
     return-void
 .end method
 
 
 # virtual methods
 .method public final build(Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;)Lcom/bumptech/glide/load/model/ModelLoader;
-    .locals 2
-    .param p1, "multiFactory"    # Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -80,20 +76,17 @@
     .end annotation
 
     .line 126
-    .local p0, "this":Lcom/bumptech/glide/load/model/FileLoader$Factory;, "Lcom/bumptech/glide/load/model/FileLoader$Factory<TData;>;"
-    new-instance v0, Lcom/bumptech/glide/load/model/FileLoader;
+    new-instance p1, Lcom/bumptech/glide/load/model/FileLoader;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/model/FileLoader$Factory;->opener:Lcom/bumptech/glide/load/model/FileLoader$FileOpener;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/FileLoader$Factory;->opener:Lcom/bumptech/glide/load/model/FileLoader$FileOpener;
 
-    invoke-direct {v0, v1}, Lcom/bumptech/glide/load/model/FileLoader;-><init>(Lcom/bumptech/glide/load/model/FileLoader$FileOpener;)V
+    invoke-direct {p1, v0}, Lcom/bumptech/glide/load/model/FileLoader;-><init>(Lcom/bumptech/glide/load/model/FileLoader$FileOpener;)V
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final teardown()V
     .locals 0
 
-    .line 132
-    .local p0, "this":Lcom/bumptech/glide/load/model/FileLoader$Factory;, "Lcom/bumptech/glide/load/model/FileLoader$Factory<TData;>;"
     return-void
 .end method

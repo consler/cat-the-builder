@@ -10,8 +10,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/String;
 
     .line 10
     invoke-virtual {p2}, Ljava/lang/String;->getBytes()[B
@@ -29,7 +27,6 @@
     .line 11
     iput-object p2, p0, Lcom/koushikdutta/async/http/body/StringPart;->value:Ljava/lang/String;
 
-    .line 12
     return-void
 .end method
 

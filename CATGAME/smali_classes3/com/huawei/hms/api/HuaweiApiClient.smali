@@ -20,7 +20,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 89
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -34,7 +34,7 @@
 .method public connect(I)V
     .locals 0
 
-    .line 624
+    .line 1
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V

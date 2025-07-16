@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/esotericsoftware/kryo/util/DefaultInstantiatorStrategy;Lcom/esotericsoftware/reflectasm/ConstructorAccess;Ljava/lang/Class;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/esotericsoftware/kryo/util/DefaultInstantiatorStrategy;
 
     .line 60
     iput-object p1, p0, Lcom/esotericsoftware/kryo/util/DefaultInstantiatorStrategy$1;->this$0:Lcom/esotericsoftware/kryo/util/DefaultInstantiatorStrategy;
@@ -59,21 +58,17 @@
 
     return-object v0
 
-    .line 64
     :catch_0
     move-exception v0
 
     .line 65
-    .local v0, "ex":Ljava/lang/Exception;
     new-instance v1, Lcom/esotericsoftware/kryo/KryoException;
 
     new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v3, "Error constructing instance of class: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v3, p0, Lcom/esotericsoftware/kryo/util/DefaultInstantiatorStrategy$1;->val$type:Ljava/lang/Class;
 
@@ -82,6 +77,8 @@
     move-result-object v3
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

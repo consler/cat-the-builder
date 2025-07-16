@@ -72,10 +72,6 @@
     .end annotation
 
     .line 152
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber<TT;TK;>;"
-    .local p1, "actual":Lio/reactivex/internal/fuseable/ConditionalSubscriber;, "Lio/reactivex/internal/fuseable/ConditionalSubscriber<-TT;>;"
-    .local p2, "keySelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;TK;>;"
-    .local p3, "comparer":Lio/reactivex/functions/BiPredicate;, "Lio/reactivex/functions/BiPredicate<-TK;-TK;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/subscribers/BasicFuseableConditionalSubscriber;-><init>(Lio/reactivex/internal/fuseable/ConditionalSubscriber;)V
 
     .line 153
@@ -84,14 +80,13 @@
     .line 154
     iput-object p3, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->comparer:Lio/reactivex/functions/BiPredicate;
 
-    .line 155
     return-void
 .end method
 
 
 # virtual methods
 .method public onNext(Ljava/lang/Object;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -99,22 +94,19 @@
     .end annotation
 
     .line 159
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber<TT;TK;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->tryOnNext(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 160
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->s:Lorg/reactivestreams/Subscription;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    const-wide/16 v1, 0x1
+    const-wide/16 v0, 0x1
 
-    invoke-interface {v0, v1, v2}, Lorg/reactivestreams/Subscription;->request(J)V
+    invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 162
     :cond_0
     return-void
 .end method
@@ -134,7 +126,7 @@
     .end annotation
 
     .line 205
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber<TT;TK;>;"
+    :cond_0
     :goto_0
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->qs:Lio/reactivex/internal/fuseable/QueueSubscription;
 
@@ -142,17 +134,14 @@
 
     move-result-object v0
 
-    .line 206
-    .local v0, "v":Ljava/lang/Object;, "TT;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
-    .line 207
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    return-object v1
+    return-object v0
 
     .line 209
-    :cond_0
+    :cond_1
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->keySelector:Lio/reactivex/functions/Function;
 
     invoke-interface {v1, v0}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
@@ -160,12 +149,11 @@
     move-result-object v1
 
     .line 210
-    .local v1, "key":Ljava/lang/Object;, "TK;"
     iget-boolean v2, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->hasValue:Z
 
     const/4 v3, 0x1
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2
 
     .line 211
     iput-boolean v3, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->hasValue:Z
@@ -173,11 +161,10 @@
     .line 212
     iput-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->last:Ljava/lang/Object;
 
-    .line 213
     return-object v0
 
     .line 216
-    :cond_1
+    :cond_2
     iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->comparer:Lio/reactivex/functions/BiPredicate;
 
     iget-object v4, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->last:Ljava/lang/Object;
@@ -186,48 +173,41 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_3
 
     .line 217
     iput-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->last:Ljava/lang/Object;
 
-    .line 218
     return-object v0
 
     .line 220
-    :cond_2
+    :cond_3
     iput-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->last:Ljava/lang/Object;
 
     .line 221
-    iget v2, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->sourceMode:I
+    iget v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->sourceMode:I
 
-    if-eq v2, v3, :cond_3
+    if-eq v0, v3, :cond_0
 
     .line 222
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->s:Lorg/reactivestreams/Subscription;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    const-wide/16 v3, 0x1
+    const-wide/16 v1, 0x1
 
-    invoke-interface {v2, v3, v4}, Lorg/reactivestreams/Subscription;->request(J)V
+    invoke-interface {v0, v1, v2}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 224
-    .end local v0    # "v":Ljava/lang/Object;, "TT;"
-    .end local v1    # "key":Ljava/lang/Object;, "TK;"
-    :cond_3
     goto :goto_0
 .end method
 
 .method public requestFusion(I)I
-    .locals 1
-    .param p1, "mode"    # I
+    .locals 0
 
     .line 198
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber<TT;TK;>;"
     invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->transitiveBoundaryFusion(I)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public tryOnNext(Ljava/lang/Object;)Z
@@ -239,15 +219,12 @@
     .end annotation
 
     .line 166
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber<TT;TK;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->done:Z
 
     const/4 v1, 0x0
 
     if-eqz v0, :cond_0
 
-    .line 167
     return v1
 
     .line 169
@@ -261,31 +238,25 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/internal/fuseable/ConditionalSubscriber;->tryOnNext(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
-    .line 176
     :cond_1
     const/4 v0, 0x1
 
-    const/4 v2, 0x0
-
+    .line 176
     :try_start_0
-    iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->keySelector:Lio/reactivex/functions/Function;
+    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->keySelector:Lio/reactivex/functions/Function;
 
-    invoke-interface {v3, p1}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, p1}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     .line 177
-    .local v2, "key":Ljava/lang/Object;, "TK;"
-    :try_start_1
     iget-boolean v3, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->hasValue:Z
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_2
 
     .line 178
     iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->comparer:Lio/reactivex/functions/BiPredicate;
@@ -297,57 +268,34 @@
     move-result v3
 
     .line 179
-    .local v3, "equal":Z
     iput-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->last:Ljava/lang/Object;
 
-    .line 180
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
-    .line 181
     return v1
 
-    .line 183
-    .end local v3    # "equal":Z
-    :cond_2
-    goto :goto_0
-
     .line 184
-    :cond_3
+    :cond_2
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->hasValue:Z
 
     .line 185
     iput-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->last:Ljava/lang/Object;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    .line 190
-    :goto_0
-    nop
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 192
+    :cond_3
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->actual:Lio/reactivex/internal/fuseable/ConditionalSubscriber;
 
     invoke-interface {v1, p1}, Lio/reactivex/internal/fuseable/ConditionalSubscriber;->onNext(Ljava/lang/Object;)V
 
-    .line 193
     return v0
 
-    .line 187
     :catchall_0
-    move-exception v1
-
-    goto :goto_1
-
-    .end local v2    # "key":Ljava/lang/Object;, "TK;"
-    :catchall_1
-    move-exception v1
+    move-exception p1
 
     .line 188
-    .local v1, "ex":Ljava/lang/Throwable;
-    .restart local v2    # "key":Ljava/lang/Object;, "TK;"
-    :goto_1
-    invoke-virtual {p0, v1}, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->fail(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableDistinctUntilChanged$DistinctUntilChangedConditionalSubscriber;->fail(Ljava/lang/Throwable;)V
 
-    .line 189
     return v0
 .end method

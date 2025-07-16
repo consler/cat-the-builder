@@ -66,9 +66,6 @@
     .end annotation
 
     .line 66
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;, "Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
-    .local p2, "parent":Lio/reactivex/internal/operators/maybe/MaybePeek;, "Lio/reactivex/internal/operators/maybe/MaybePeek<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 67
@@ -77,7 +74,6 @@
     .line 68
     iput-object p2, p0, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->parent:Lio/reactivex/internal/operators/maybe/MaybePeek;
 
-    .line 69
     return-void
 .end method
 
@@ -87,7 +83,6 @@
     .locals 1
 
     .line 74
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;, "Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver<TT;>;"
     :try_start_0
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->parent:Lio/reactivex/internal/operators/maybe/MaybePeek;
 
@@ -97,22 +92,18 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 78
     goto :goto_0
 
-    .line 75
     :catchall_0
     move-exception v0
 
     .line 76
-    .local v0, "ex":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 77
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
     .line 80
-    .end local v0    # "ex":Ljava/lang/Throwable;
     :goto_0
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->d:Lio/reactivex/disposables/Disposable;
 
@@ -123,7 +114,6 @@
 
     iput-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->d:Lio/reactivex/disposables/Disposable;
 
-    .line 82
     return-void
 .end method
 
@@ -131,7 +121,6 @@
     .locals 1
 
     .line 86
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;, "Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->d:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->isDisposed()Z
@@ -145,7 +134,6 @@
     .locals 1
 
     .line 174
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;, "Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver<TT;>;"
     :try_start_0
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->parent:Lio/reactivex/internal/operators/maybe/MaybePeek;
 
@@ -155,22 +143,17 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 178
     goto :goto_0
 
-    .line 175
     :catchall_0
     move-exception v0
 
     .line 176
-    .local v0, "ex":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 177
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 179
-    .end local v0    # "ex":Ljava/lang/Throwable;
     :goto_0
     return-void
 .end method
@@ -179,14 +162,12 @@
     .locals 2
 
     .line 154
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;, "Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->d:Lio/reactivex/disposables/Disposable;
 
     sget-object v1, Lio/reactivex/internal/disposables/DisposableHelper;->DISPOSED:Lio/reactivex/internal/disposables/DisposableHelper;
 
     if-ne v0, v1, :cond_0
 
-    .line 155
     return-void
 
     .line 159
@@ -199,9 +180,6 @@
     invoke-interface {v0}, Lio/reactivex/functions/Action;->run()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 164
-    nop
 
     .line 165
     sget-object v0, Lio/reactivex/internal/disposables/DisposableHelper;->DISPOSED:Lio/reactivex/internal/disposables/DisposableHelper;
@@ -216,30 +194,24 @@
     .line 169
     invoke-virtual {p0}, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->onAfterTerminate()V
 
-    .line 170
     return-void
 
-    .line 160
     :catchall_0
     move-exception v0
 
     .line 161
-    .local v0, "ex":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 162
     invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->onErrorInner(Ljava/lang/Throwable;)V
 
-    .line 163
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 129
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;, "Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->d:Lio/reactivex/disposables/Disposable;
 
     sget-object v1, Lio/reactivex/internal/disposables/DisposableHelper;->DISPOSED:Lio/reactivex/internal/disposables/DisposableHelper;
@@ -249,23 +221,19 @@
     .line 130
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 131
     return-void
 
     .line 134
     :cond_0
     invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->onErrorInner(Ljava/lang/Throwable;)V
 
-    .line 135
     return-void
 .end method
 
 .method onErrorInner(Ljava/lang/Throwable;)V
     .locals 4
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 139
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;, "Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver<TT;>;"
     :try_start_0
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->parent:Lio/reactivex/internal/operators/maybe/MaybePeek;
 
@@ -275,15 +243,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 143
     goto :goto_0
 
-    .line 140
     :catchall_0
     move-exception v0
 
     .line 141
-    .local v0, "ex":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 142
@@ -297,16 +262,15 @@
 
     aput-object p1, v2, v3
 
-    const/4 v3, 0x1
+    const/4 p1, 0x1
 
-    aput-object v0, v2, v3
+    aput-object v0, v2, p1
 
     invoke-direct {v1, v2}, Lio/reactivex/exceptions/CompositeException;-><init>([Ljava/lang/Throwable;)V
 
     move-object p1, v1
 
     .line 145
-    .end local v0    # "ex":Ljava/lang/Throwable;
     :goto_0
     sget-object v0, Lio/reactivex/internal/disposables/DisposableHelper;->DISPOSED:Lio/reactivex/internal/disposables/DisposableHelper;
 
@@ -320,16 +284,13 @@
     .line 149
     invoke-virtual {p0}, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->onAfterTerminate()V
 
-    .line 150
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
-    .locals 2
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
+    .locals 1
 
     .line 91
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;, "Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->d:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -348,45 +309,35 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 100
-    nop
-
     .line 102
     iput-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->d:Lio/reactivex/disposables/Disposable;
 
     .line 104
-    iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->actual:Lio/reactivex/MaybeObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->actual:Lio/reactivex/MaybeObserver;
 
-    invoke-interface {v0, p0}, Lio/reactivex/MaybeObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/MaybeObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     goto :goto_0
 
-    .line 94
     :catchall_0
     move-exception v0
 
     .line 95
-    .local v0, "ex":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 96
     invoke-interface {p1}, Lio/reactivex/disposables/Disposable;->dispose()V
 
     .line 97
-    sget-object v1, Lio/reactivex/internal/disposables/DisposableHelper;->DISPOSED:Lio/reactivex/internal/disposables/DisposableHelper;
+    sget-object p1, Lio/reactivex/internal/disposables/DisposableHelper;->DISPOSED:Lio/reactivex/internal/disposables/DisposableHelper;
 
-    iput-object v1, p0, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->d:Lio/reactivex/disposables/Disposable;
+    iput-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->d:Lio/reactivex/disposables/Disposable;
 
     .line 98
-    iget-object v1, p0, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->actual:Lio/reactivex/MaybeObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->actual:Lio/reactivex/MaybeObserver;
 
-    invoke-static {v0, v1}, Lio/reactivex/internal/disposables/EmptyDisposable;->error(Ljava/lang/Throwable;Lio/reactivex/MaybeObserver;)V
+    invoke-static {v0, p1}, Lio/reactivex/internal/disposables/EmptyDisposable;->error(Ljava/lang/Throwable;Lio/reactivex/MaybeObserver;)V
 
-    .line 99
-    return-void
-
-    .line 106
-    .end local v0    # "ex":Ljava/lang/Throwable;
     :cond_0
     :goto_0
     return-void
@@ -401,15 +352,12 @@
     .end annotation
 
     .line 110
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;, "Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->d:Lio/reactivex/disposables/Disposable;
 
     sget-object v1, Lio/reactivex/internal/disposables/DisposableHelper;->DISPOSED:Lio/reactivex/internal/disposables/DisposableHelper;
 
     if-ne v0, v1, :cond_0
 
-    .line 111
     return-void
 
     .line 114
@@ -422,9 +370,6 @@
     invoke-interface {v0, p1}, Lio/reactivex/functions/Consumer;->accept(Ljava/lang/Object;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 119
-    nop
 
     .line 120
     sget-object v0, Lio/reactivex/internal/disposables/DisposableHelper;->DISPOSED:Lio/reactivex/internal/disposables/DisposableHelper;
@@ -439,20 +384,16 @@
     .line 124
     invoke-virtual {p0}, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->onAfterTerminate()V
 
-    .line 125
     return-void
 
-    .line 115
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     .line 116
-    .local v0, "ex":Ljava/lang/Throwable;
-    invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 117
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->onErrorInner(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;->onErrorInner(Ljava/lang/Throwable;)V
 
-    .line 118
     return-void
 .end method

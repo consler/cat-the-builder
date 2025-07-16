@@ -36,13 +36,11 @@
     .line 45
     invoke-direct {p0}, Ljava/lang/Number;-><init>()V
 
-    .line 46
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Number;)V
-    .locals 1
-    .param p1, "value"    # Ljava/lang/Number;
+    .locals 0
 
     .line 65
     invoke-direct {p0}, Ljava/lang/Number;-><init>()V
@@ -50,17 +48,15 @@
     .line 66
     invoke-virtual {p1}, Ljava/lang/Number;->shortValue()S
 
-    move-result v0
+    move-result p1
 
-    iput-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
+    iput-short p1, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
-    .line 67
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "value"    # Ljava/lang/String;
+    .locals 0
 
     .line 77
     invoke-direct {p0}, Ljava/lang/Number;-><init>()V
@@ -68,17 +64,15 @@
     .line 78
     invoke-static {p1}, Ljava/lang/Short;->parseShort(Ljava/lang/String;)S
 
-    move-result v0
+    move-result p1
 
-    iput-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
+    iput-short p1, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
-    .line 79
     return-void
 .end method
 
 .method public constructor <init>(S)V
     .locals 0
-    .param p1, "value"    # S
 
     .line 54
     invoke-direct {p0}, Ljava/lang/Number;-><init>()V
@@ -86,86 +80,77 @@
     .line 55
     iput-short p1, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
-    .line 56
     return-void
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Number;)V
-    .locals 2
-    .param p1, "operand"    # Ljava/lang/Number;
+    .locals 1
 
     .line 200
     iget-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
     invoke-virtual {p1}, Ljava/lang/Number;->shortValue()S
 
-    move-result v1
+    move-result p1
 
-    add-int/2addr v0, v1
+    add-int/2addr v0, p1
 
-    int-to-short v0, v0
+    int-to-short p1, v0
 
-    iput-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
+    iput-short p1, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
-    .line 201
     return-void
 .end method
 
 .method public add(S)V
     .locals 1
-    .param p1, "operand"    # S
 
     .line 189
     iget-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
     add-int/2addr v0, p1
 
-    int-to-short v0, v0
+    int-to-short p1, v0
 
-    iput-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
+    iput-short p1, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
-    .line 190
     return-void
 .end method
 
 .method public addAndGet(Ljava/lang/Number;)S
-    .locals 2
-    .param p1, "operand"    # Ljava/lang/Number;
+    .locals 1
 
     .line 247
     iget-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
     invoke-virtual {p1}, Ljava/lang/Number;->shortValue()S
 
-    move-result v1
+    move-result p1
 
-    add-int/2addr v0, v1
+    add-int/2addr v0, p1
 
-    int-to-short v0, v0
+    int-to-short p1, v0
 
-    iput-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
+    iput-short p1, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
-    .line 248
-    return v0
+    return p1
 .end method
 
 .method public addAndGet(S)S
     .locals 1
-    .param p1, "operand"    # S
 
     .line 233
     iget-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
     add-int/2addr v0, p1
 
-    int-to-short v0, v0
+    int-to-short p1, v0
 
-    iput-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
+    iput-short p1, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
-    .line 234
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
@@ -182,19 +167,18 @@
 .end method
 
 .method public compareTo(Lorg/apache/commons/lang3/mutable/MutableShort;)I
-    .locals 2
-    .param p1, "other"    # Lorg/apache/commons/lang3/mutable/MutableShort;
+    .locals 1
 
     .line 378
     iget-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
-    iget-short v1, p1, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
+    iget-short p1, p1, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
-    invoke-static {v0, v1}, Lorg/apache/commons/lang3/math/NumberUtils;->compare(SS)I
+    invoke-static {v0, p1}, Lorg/apache/commons/lang3/math/NumberUtils;->compare(SS)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public decrement()V
@@ -209,7 +193,6 @@
 
     iput-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
-    .line 154
     return-void
 .end method
 
@@ -225,7 +208,6 @@
 
     iput-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
-    .line 178
     return v0
 .end method
 
@@ -241,36 +223,29 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 2
 
     .line 353
     instance-of v0, p1, Lorg/apache/commons/lang3/mutable/MutableShort;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     .line 354
     iget-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
-    move-object v2, p1
+    check-cast p1, Lorg/apache/commons/lang3/mutable/MutableShort;
 
-    check-cast v2, Lorg/apache/commons/lang3/mutable/MutableShort;
+    invoke-virtual {p1}, Lorg/apache/commons/lang3/mutable/MutableShort;->shortValue()S
 
-    invoke-virtual {v2}, Lorg/apache/commons/lang3/mutable/MutableShort;->shortValue()S
+    move-result p1
 
-    move-result v2
-
-    if-ne v0, v2, :cond_0
+    if-ne v0, p1, :cond_0
 
     const/4 v1, 0x1
 
     :cond_0
-    return v1
-
-    .line 356
-    :cond_1
     return v1
 .end method
 
@@ -286,48 +261,38 @@
 .end method
 
 .method public getAndAdd(Ljava/lang/Number;)S
-    .locals 3
-    .param p1, "operand"    # Ljava/lang/Number;
+    .locals 1
 
     .line 275
     iget-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
     .line 276
-    .local v0, "last":S
-    iget-short v1, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
-
     invoke-virtual {p1}, Ljava/lang/Number;->shortValue()S
 
-    move-result v2
+    move-result p1
 
-    add-int/2addr v1, v2
+    add-int/2addr p1, v0
 
-    int-to-short v1, v1
+    int-to-short p1, p1
 
-    iput-short v1, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
+    iput-short p1, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
-    .line 277
     return v0
 .end method
 
 .method public getAndAdd(S)S
-    .locals 2
-    .param p1, "operand"    # S
+    .locals 1
 
     .line 260
     iget-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
+    add-int/2addr p1, v0
+
+    int-to-short p1, p1
+
     .line 261
-    .local v0, "last":S
-    iget-short v1, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
+    iput-short p1, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
-    add-int/2addr v1, p1
-
-    int-to-short v1, v1
-
-    iput-short v1, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
-
-    .line 262
     return v0
 .end method
 
@@ -337,17 +302,13 @@
     .line 164
     iget-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
-    .line 165
-    .local v0, "last":S
-    iget-short v1, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
-
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v1, v0, -0x1
 
     int-to-short v1, v1
 
+    .line 165
     iput-short v1, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
-    .line 166
     return v0
 .end method
 
@@ -357,17 +318,13 @@
     .line 130
     iget-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
-    .line 131
-    .local v0, "last":S
-    iget-short v1, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
-
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v1, v0, 0x1
 
     int-to-short v1, v1
 
+    .line 131
     iput-short v1, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
-    .line 132
     return v0
 .end method
 
@@ -416,7 +373,6 @@
 
     iput-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
-    .line 120
     return-void
 .end method
 
@@ -432,7 +388,6 @@
 
     iput-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
-    .line 144
     return v0
 .end method
 
@@ -457,17 +412,15 @@
 .end method
 
 .method public setValue(Ljava/lang/Number;)V
-    .locals 1
-    .param p1, "value"    # Ljava/lang/Number;
+    .locals 0
 
     .line 109
     invoke-virtual {p1}, Ljava/lang/Number;->shortValue()S
 
-    move-result v0
+    move-result p1
 
-    iput-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
+    iput-short p1, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
-    .line 110
     return-void
 .end method
 
@@ -484,12 +437,10 @@
 
 .method public setValue(S)V
     .locals 0
-    .param p1, "value"    # S
 
     .line 98
     iput-short p1, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
-    .line 99
     return-void
 .end method
 
@@ -503,40 +454,36 @@
 .end method
 
 .method public subtract(Ljava/lang/Number;)V
-    .locals 2
-    .param p1, "operand"    # Ljava/lang/Number;
+    .locals 1
 
     .line 221
     iget-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
     invoke-virtual {p1}, Ljava/lang/Number;->shortValue()S
 
-    move-result v1
+    move-result p1
 
-    sub-int/2addr v0, v1
+    sub-int/2addr v0, p1
 
-    int-to-short v0, v0
+    int-to-short p1, v0
 
-    iput-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
+    iput-short p1, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
-    .line 222
     return-void
 .end method
 
 .method public subtract(S)V
     .locals 1
-    .param p1, "operand"    # S
 
     .line 210
     iget-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
     sub-int/2addr v0, p1
 
-    int-to-short v0, v0
+    int-to-short p1, v0
 
-    iput-short v0, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
+    iput-short p1, p0, Lorg/apache/commons/lang3/mutable/MutableShort;->value:S
 
-    .line 211
     return-void
 .end method
 

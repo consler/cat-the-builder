@@ -44,9 +44,7 @@
 
 # direct methods
 .method constructor <init>(Lio/reactivex/CompletableObserver;Lio/reactivex/CompletableSource;)V
-    .locals 1
-    .param p1, "actual"    # Lio/reactivex/CompletableObserver;
-    .param p2, "source"    # Lio/reactivex/CompletableSource;
+    .locals 0
 
     .line 56
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
@@ -58,13 +56,12 @@
     iput-object p2, p0, Lio/reactivex/internal/operators/completable/CompletableSubscribeOn$SubscribeOnObserver;->source:Lio/reactivex/CompletableSource;
 
     .line 59
-    new-instance v0, Lio/reactivex/internal/disposables/SequentialDisposable;
+    new-instance p1, Lio/reactivex/internal/disposables/SequentialDisposable;
 
-    invoke-direct {v0}, Lio/reactivex/internal/disposables/SequentialDisposable;-><init>()V
+    invoke-direct {p1}, Lio/reactivex/internal/disposables/SequentialDisposable;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableSubscribeOn$SubscribeOnObserver;->task:Lio/reactivex/internal/disposables/SequentialDisposable;
+    iput-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableSubscribeOn$SubscribeOnObserver;->task:Lio/reactivex/internal/disposables/SequentialDisposable;
 
-    .line 60
     return-void
 .end method
 
@@ -81,7 +78,6 @@
 
     invoke-virtual {v0}, Lio/reactivex/internal/disposables/SequentialDisposable;->dispose()V
 
-    .line 86
     return-void
 .end method
 
@@ -110,31 +106,26 @@
 
     invoke-interface {v0}, Lio/reactivex/CompletableObserver;->onComplete()V
 
-    .line 80
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 74
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableSubscribeOn$SubscribeOnObserver;->actual:Lio/reactivex/CompletableObserver;
 
     invoke-interface {v0, p1}, Lio/reactivex/CompletableObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 75
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 0
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 69
     invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 70
     return-void
 .end method
 
@@ -146,6 +137,5 @@
 
     invoke-interface {v0, p0}, Lio/reactivex/CompletableSource;->subscribe(Lio/reactivex/CompletableObserver;)V
 
-    .line 65
     return-void
 .end method

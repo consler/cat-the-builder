@@ -109,11 +109,11 @@
 
     new-array v2, v9, [Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;
 
-    .line 65
     const/16 v8, 0x20
 
     const/16 v10, 0x7f
 
+    .line 65
     invoke-static {v8, v10}, Lorg/apache/commons/lang3/text/translate/JavaUnicodeEscaper;->outsideOf(II)Lorg/apache/commons/lang3/text/translate/JavaUnicodeEscaper;
 
     move-result-object v11
@@ -187,9 +187,9 @@
 
     aput-object v12, v11, v9
 
-    .line 87
     const/16 v12, 0x20
 
+    .line 87
     invoke-static {v12, v10}, Lorg/apache/commons/lang3/text/translate/JavaUnicodeEscaper;->outsideOf(II)Lorg/apache/commons/lang3/text/translate/JavaUnicodeEscaper;
 
     move-result-object v14
@@ -246,9 +246,9 @@
 
     aput-object v1, v11, v9
 
-    .line 108
     const/16 v1, 0x20
 
+    .line 108
     invoke-static {v1, v10}, Lorg/apache/commons/lang3/text/translate/JavaUnicodeEscaper;->outsideOf(II)Lorg/apache/commons/lang3/text/translate/JavaUnicodeEscaper;
 
     move-result-object v1
@@ -635,22 +635,22 @@
 
     aput-object v11, v8, v6
 
-    .line 175
     const/16 v6, 0x84
 
     const/16 v11, 0x7f
 
+    .line 175
     invoke-static {v11, v6}, Lorg/apache/commons/lang3/text/translate/NumericEntityEscaper;->between(II)Lorg/apache/commons/lang3/text/translate/NumericEntityEscaper;
 
     move-result-object v6
 
     aput-object v6, v8, v2
 
-    .line 176
     const/16 v6, 0x86
 
     const/16 v11, 0x9f
 
+    .line 176
     invoke-static {v6, v11}, Lorg/apache/commons/lang3/text/translate/NumericEntityEscaper;->between(II)Lorg/apache/commons/lang3/text/translate/NumericEntityEscaper;
 
     move-result-object v6
@@ -754,44 +754,44 @@
 
     aput-object v8, v6, v12
 
+    const/4 v1, 0x1
+
+    const/16 v8, 0x8
+
     .line 201
-    const/16 v1, 0x8
+    invoke-static {v1, v8}, Lorg/apache/commons/lang3/text/translate/NumericEntityEscaper;->between(II)Lorg/apache/commons/lang3/text/translate/NumericEntityEscaper;
 
-    const/4 v8, 0x1
+    move-result-object v8
 
-    invoke-static {v8, v1}, Lorg/apache/commons/lang3/text/translate/NumericEntityEscaper;->between(II)Lorg/apache/commons/lang3/text/translate/NumericEntityEscaper;
+    aput-object v8, v6, v2
 
-    move-result-object v1
-
-    aput-object v1, v6, v2
-
-    .line 202
     const/16 v1, 0xe
 
     const/16 v8, 0x1f
 
+    .line 202
     invoke-static {v1, v8}, Lorg/apache/commons/lang3/text/translate/NumericEntityEscaper;->between(II)Lorg/apache/commons/lang3/text/translate/NumericEntityEscaper;
 
     move-result-object v1
 
     aput-object v1, v6, v14
 
-    .line 203
     const/16 v1, 0x84
 
     const/16 v8, 0x7f
 
+    .line 203
     invoke-static {v8, v1}, Lorg/apache/commons/lang3/text/translate/NumericEntityEscaper;->between(II)Lorg/apache/commons/lang3/text/translate/NumericEntityEscaper;
 
     move-result-object v1
 
     aput-object v1, v6, v9
 
-    .line 204
     const/16 v1, 0x86
 
     const/16 v8, 0x9f
 
+    .line 204
     invoke-static {v1, v8}, Lorg/apache/commons/lang3/text/translate/NumericEntityEscaper;->between(II)Lorg/apache/commons/lang3/text/translate/NumericEntityEscaper;
 
     move-result-object v1
@@ -921,56 +921,54 @@
 
     invoke-direct {v1}, Lorg/apache/commons/lang3/text/translate/UnicodeUnescaper;-><init>()V
 
-    const/4 v8, 0x1
+    const/4 v9, 0x1
 
-    aput-object v1, v6, v8
+    aput-object v1, v6, v9
 
     new-instance v1, Lorg/apache/commons/lang3/text/translate/LookupTranslator;
 
     .line 294
     invoke-static {}, Lorg/apache/commons/lang3/text/translate/EntityArrays;->JAVA_CTRL_CHARS_UNESCAPE()[[Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v11
 
-    invoke-direct {v1, v9}, Lorg/apache/commons/lang3/text/translate/LookupTranslator;-><init>([[Ljava/lang/CharSequence;)V
+    invoke-direct {v1, v11}, Lorg/apache/commons/lang3/text/translate/LookupTranslator;-><init>([[Ljava/lang/CharSequence;)V
 
-    const/4 v9, 0x2
+    const/4 v11, 0x2
 
-    aput-object v1, v6, v9
+    aput-object v1, v6, v11
 
     new-instance v1, Lorg/apache/commons/lang3/text/translate/LookupTranslator;
 
-    const/4 v11, 0x4
+    const/4 v12, 0x4
 
-    new-array v12, v11, [[Ljava/lang/String;
+    new-array v14, v12, [[Ljava/lang/String;
 
     filled-new-array {v7, v5}, [Ljava/lang/String;
 
     move-result-object v7
 
-    const/4 v11, 0x0
-
-    aput-object v7, v12, v11
+    aput-object v7, v14, v8
 
     filled-new-array {v4, v3}, [Ljava/lang/String;
 
     move-result-object v3
 
-    aput-object v3, v12, v8
+    aput-object v3, v14, v9
 
     filled-new-array {v13, v15}, [Ljava/lang/String;
 
     move-result-object v3
 
-    aput-object v3, v12, v9
+    aput-object v3, v14, v11
 
     filled-new-array {v5, v10}, [Ljava/lang/String;
 
     move-result-object v3
 
-    aput-object v3, v12, v2
+    aput-object v3, v14, v2
 
-    invoke-direct {v1, v12}, Lorg/apache/commons/lang3/text/translate/LookupTranslator;-><init>([[Ljava/lang/CharSequence;)V
+    invoke-direct {v1, v14}, Lorg/apache/commons/lang3/text/translate/LookupTranslator;-><init>([[Ljava/lang/CharSequence;)V
 
     aput-object v1, v6, v2
 
@@ -1021,9 +1019,9 @@
 
     invoke-direct {v3, v5}, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper;-><init>([Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;)V
 
-    const/4 v4, 0x2
+    const/4 v5, 0x2
 
-    aput-object v3, v1, v4
+    aput-object v3, v1, v5
 
     invoke-direct {v0, v1}, Lorg/apache/commons/lang3/text/translate/AggregateTranslator;-><init>([Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;)V
 
@@ -1041,11 +1039,9 @@
     .line 353
     invoke-static {}, Lorg/apache/commons/lang3/text/translate/EntityArrays;->BASIC_UNESCAPE()[[Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-direct {v3, v4}, Lorg/apache/commons/lang3/text/translate/LookupTranslator;-><init>([[Ljava/lang/CharSequence;)V
-
-    const/4 v4, 0x0
+    invoke-direct {v3, v5}, Lorg/apache/commons/lang3/text/translate/LookupTranslator;-><init>([[Ljava/lang/CharSequence;)V
 
     aput-object v3, v1, v4
 
@@ -1054,30 +1050,28 @@
     .line 354
     invoke-static {}, Lorg/apache/commons/lang3/text/translate/EntityArrays;->ISO8859_1_UNESCAPE()[[Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-direct {v3, v4}, Lorg/apache/commons/lang3/text/translate/LookupTranslator;-><init>([[Ljava/lang/CharSequence;)V
+    invoke-direct {v3, v5}, Lorg/apache/commons/lang3/text/translate/LookupTranslator;-><init>([[Ljava/lang/CharSequence;)V
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    aput-object v3, v1, v4
+    aput-object v3, v1, v5
 
     new-instance v3, Lorg/apache/commons/lang3/text/translate/LookupTranslator;
 
     .line 355
     invoke-static {}, Lorg/apache/commons/lang3/text/translate/EntityArrays;->HTML40_EXTENDED_UNESCAPE()[[Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-direct {v3, v4}, Lorg/apache/commons/lang3/text/translate/LookupTranslator;-><init>([[Ljava/lang/CharSequence;)V
+    invoke-direct {v3, v5}, Lorg/apache/commons/lang3/text/translate/LookupTranslator;-><init>([[Ljava/lang/CharSequence;)V
 
-    const/4 v4, 0x2
+    const/4 v5, 0x2
 
-    aput-object v3, v1, v4
+    aput-object v3, v1, v5
 
     new-instance v3, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper;
-
-    const/4 v4, 0x0
 
     new-array v5, v4, [Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;
 
@@ -1103,26 +1097,24 @@
 
     invoke-direct {v2, v3}, Lorg/apache/commons/lang3/text/translate/LookupTranslator;-><init>([[Ljava/lang/CharSequence;)V
 
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
+    aput-object v2, v1, v4
 
     new-instance v2, Lorg/apache/commons/lang3/text/translate/LookupTranslator;
 
     .line 371
     invoke-static {}, Lorg/apache/commons/lang3/text/translate/EntityArrays;->APOS_UNESCAPE()[[Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-direct {v2, v4}, Lorg/apache/commons/lang3/text/translate/LookupTranslator;-><init>([[Ljava/lang/CharSequence;)V
+    invoke-direct {v2, v3}, Lorg/apache/commons/lang3/text/translate/LookupTranslator;-><init>([[Ljava/lang/CharSequence;)V
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    aput-object v2, v1, v4
+    aput-object v2, v1, v3
 
     new-instance v2, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper;
 
-    new-array v3, v3, [Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;
+    new-array v3, v4, [Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;
 
     invoke-direct {v2, v3}, Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper;-><init>([Lorg/apache/commons/lang3/text/translate/NumericEntityUnescaper$OPTION;)V
 
@@ -1150,97 +1142,89 @@
     .line 431
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 432
     return-void
 .end method
 
 .method public static final escapeCsv(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p0, "input"    # Ljava/lang/String;
 
     .line 778
     sget-object v0, Lorg/apache/commons/lang3/StringEscapeUtils;->ESCAPE_CSV:Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;
 
     invoke-virtual {v0, p0}, Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;->translate(Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final escapeEcmaScript(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p0, "input"    # Ljava/lang/String;
 
     .line 485
     sget-object v0, Lorg/apache/commons/lang3/StringEscapeUtils;->ESCAPE_ECMASCRIPT:Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;
 
     invoke-virtual {v0, p0}, Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;->translate(Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final escapeHtml3(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p0, "input"    # Ljava/lang/String;
 
     .line 606
     sget-object v0, Lorg/apache/commons/lang3/StringEscapeUtils;->ESCAPE_HTML3:Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;
 
     invoke-virtual {v0, p0}, Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;->translate(Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final escapeHtml4(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p0, "input"    # Ljava/lang/String;
 
     .line 593
     sget-object v0, Lorg/apache/commons/lang3/StringEscapeUtils;->ESCAPE_HTML4:Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;
 
     invoke-virtual {v0, p0}, Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;->translate(Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final escapeJava(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p0, "input"    # Ljava/lang/String;
 
     .line 457
     sget-object v0, Lorg/apache/commons/lang3/StringEscapeUtils;->ESCAPE_JAVA:Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;
 
     invoke-virtual {v0, p0}, Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;->translate(Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final escapeJson(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p0, "input"    # Ljava/lang/String;
 
     .line 513
     sget-object v0, Lorg/apache/commons/lang3/StringEscapeUtils;->ESCAPE_JSON:Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;
 
     invoke-virtual {v0, p0}, Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;->translate(Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final escapeXml(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p0, "input"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1249,133 +1233,124 @@
 
     invoke-virtual {v0, p0}, Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;->translate(Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static escapeXml10(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p0, "input"    # Ljava/lang/String;
 
     .line 700
     sget-object v0, Lorg/apache/commons/lang3/StringEscapeUtils;->ESCAPE_XML10:Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;
 
     invoke-virtual {v0, p0}, Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;->translate(Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static escapeXml11(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p0, "input"    # Ljava/lang/String;
 
     .line 730
     sget-object v0, Lorg/apache/commons/lang3/StringEscapeUtils;->ESCAPE_XML11:Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;
 
     invoke-virtual {v0, p0}, Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;->translate(Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final unescapeCsv(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p0, "input"    # Ljava/lang/String;
 
     .line 803
     sget-object v0, Lorg/apache/commons/lang3/StringEscapeUtils;->UNESCAPE_CSV:Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;
 
     invoke-virtual {v0, p0}, Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;->translate(Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final unescapeEcmaScript(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p0, "input"    # Ljava/lang/String;
 
     .line 543
     sget-object v0, Lorg/apache/commons/lang3/StringEscapeUtils;->UNESCAPE_ECMASCRIPT:Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;
 
     invoke-virtual {v0, p0}, Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;->translate(Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final unescapeHtml3(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p0, "input"    # Ljava/lang/String;
 
     .line 642
     sget-object v0, Lorg/apache/commons/lang3/StringEscapeUtils;->UNESCAPE_HTML3:Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;
 
     invoke-virtual {v0, p0}, Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;->translate(Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final unescapeHtml4(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p0, "input"    # Ljava/lang/String;
 
     .line 628
     sget-object v0, Lorg/apache/commons/lang3/StringEscapeUtils;->UNESCAPE_HTML4:Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;
 
     invoke-virtual {v0, p0}, Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;->translate(Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final unescapeJava(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p0, "input"    # Ljava/lang/String;
 
     .line 526
     sget-object v0, Lorg/apache/commons/lang3/StringEscapeUtils;->UNESCAPE_JAVA:Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;
 
     invoke-virtual {v0, p0}, Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;->translate(Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final unescapeJson(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p0, "input"    # Ljava/lang/String;
 
     .line 560
     sget-object v0, Lorg/apache/commons/lang3/StringEscapeUtils;->UNESCAPE_JSON:Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;
 
     invoke-virtual {v0, p0}, Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;->translate(Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final unescapeXml(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p0, "input"    # Ljava/lang/String;
 
     .line 752
     sget-object v0, Lorg/apache/commons/lang3/StringEscapeUtils;->UNESCAPE_XML:Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;
 
     invoke-virtual {v0, p0}, Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;->translate(Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

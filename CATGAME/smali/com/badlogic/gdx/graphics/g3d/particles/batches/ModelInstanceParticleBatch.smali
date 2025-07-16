@@ -49,7 +49,6 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/batches/ModelInstanceParticleBatch;->controllersRenderData:Lcom/badlogic/gdx/utils/Array;
 
-    .line 34
     return-void
 .end method
 
@@ -63,18 +62,16 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->clear()V
 
-    .line 52
     const/4 v0, 0x0
 
+    .line 52
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/batches/ModelInstanceParticleBatch;->bufferedParticlesCount:I
 
-    .line 53
     return-void
 .end method
 
 .method public draw(Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ModelInstanceControllerRenderData;)V
-    .locals 2
-    .param p1, "data"    # Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ModelInstanceControllerRenderData;
+    .locals 1
 
     .line 61
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/batches/ModelInstanceParticleBatch;->controllersRenderData:Lcom/badlogic/gdx/utils/Array;
@@ -84,17 +81,16 @@
     .line 62
     iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/batches/ModelInstanceParticleBatch;->bufferedParticlesCount:I
 
-    iget-object v1, p1, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ModelInstanceControllerRenderData;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ModelInstanceControllerRenderData;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
 
-    iget-object v1, v1, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->particles:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->particles:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;
 
-    iget v1, v1, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;->size:I
+    iget p1, p1, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;->size:I
 
-    add-int/2addr v0, v1
+    add-int/2addr v0, p1
 
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/batches/ModelInstanceParticleBatch;->bufferedParticlesCount:I
 
-    .line 63
     return-void
 .end method
 
@@ -112,7 +108,6 @@
 .method public end()V
     .locals 0
 
-    .line 57
     return-void
 .end method
 
@@ -140,15 +135,13 @@
     .end annotation
 
     .line 38
-    .local p1, "renderables":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/g3d/Renderable;>;"
-    .local p2, "pool":Lcom/badlogic/gdx/utils/Pool;, "Lcom/badlogic/gdx/utils/Pool<Lcom/badlogic/gdx/graphics/g3d/Renderable;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/batches/ModelInstanceParticleBatch;->controllersRenderData:Lcom/badlogic/gdx/utils/Array;
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    :goto_0
+    :cond_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
@@ -162,19 +155,16 @@
     check-cast v1, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ModelInstanceControllerRenderData;
 
     .line 39
-    .local v1, "data":Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ModelInstanceControllerRenderData;
-    const/4 v2, 0x0
+    iget-object v2, v1, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ModelInstanceControllerRenderData;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
 
-    .local v2, "i":I
-    iget-object v3, v1, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ModelInstanceControllerRenderData;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
+    iget-object v2, v2, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->particles:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;
 
-    iget-object v3, v3, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->particles:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;
+    iget v2, v2, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;->size:I
 
-    iget v3, v3, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;->size:I
+    const/4 v3, 0x0
 
-    .local v3, "count":I
-    :goto_1
-    if-ge v2, v3, :cond_0
+    :goto_0
+    if-ge v3, v2, :cond_0
 
     .line 40
     iget-object v4, v1, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ModelInstanceControllerRenderData;->modelInstanceChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$ObjectChannel;
@@ -183,41 +173,26 @@
 
     check-cast v4, [Lcom/badlogic/gdx/graphics/g3d/ModelInstance;
 
-    aget-object v4, v4, v2
+    aget-object v4, v4, v3
 
     invoke-virtual {v4, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/ModelInstance;->getRenderables(Lcom/badlogic/gdx/utils/Array;Lcom/badlogic/gdx/utils/Pool;)V
 
-    .line 39
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
-
-    .line 42
-    .end local v1    # "data":Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ModelInstanceControllerRenderData;
-    .end local v2    # "i":I
-    .end local v3    # "count":I
-    :cond_0
     goto :goto_0
 
-    .line 43
     :cond_1
     return-void
 .end method
 
 .method public load(Lcom/badlogic/gdx/assets/AssetManager;Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;)V
     .locals 0
-    .param p1, "manager"    # Lcom/badlogic/gdx/assets/AssetManager;
-    .param p2, "assetDependencyData"    # Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;
 
-    .line 71
     return-void
 .end method
 
 .method public save(Lcom/badlogic/gdx/assets/AssetManager;Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;)V
     .locals 0
-    .param p1, "manager"    # Lcom/badlogic/gdx/assets/AssetManager;
-    .param p2, "assetDependencyData"    # Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;
 
-    .line 67
     return-void
 .end method

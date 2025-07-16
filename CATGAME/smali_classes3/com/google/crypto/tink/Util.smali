@@ -11,9 +11,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 32
     const-string v0, "UTF-8"
 
+    .line 32
     invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
 
     move-result-object v0
@@ -34,7 +34,6 @@
 
 .method public static getKeyInfo(Lcom/google/crypto/tink/proto/Keyset$Key;)Lcom/google/crypto/tink/proto/KeysetInfo$KeyInfo;
     .locals 2
-    .param p0, "key"    # Lcom/google/crypto/tink/proto/Keyset$Key;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -83,26 +82,24 @@
     .line 49
     invoke-virtual {p0}, Lcom/google/crypto/tink/proto/Keyset$Key;->getKeyId()I
 
-    move-result v1
+    move-result p0
 
-    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/proto/KeysetInfo$KeyInfo$Builder;->setKeyId(I)Lcom/google/crypto/tink/proto/KeysetInfo$KeyInfo$Builder;
+    invoke-virtual {v0, p0}, Lcom/google/crypto/tink/proto/KeysetInfo$KeyInfo$Builder;->setKeyId(I)Lcom/google/crypto/tink/proto/KeysetInfo$KeyInfo$Builder;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 50
-    invoke-virtual {v0}, Lcom/google/crypto/tink/proto/KeysetInfo$KeyInfo$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
+    invoke-virtual {p0}, Lcom/google/crypto/tink/proto/KeysetInfo$KeyInfo$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/KeysetInfo$KeyInfo;
+    check-cast p0, Lcom/google/crypto/tink/proto/KeysetInfo$KeyInfo;
 
-    .line 45
-    return-object v0
+    return-object p0
 .end method
 
 .method public static getKeysetInfo(Lcom/google/crypto/tink/proto/Keyset;)Lcom/google/crypto/tink/proto/KeysetInfo;
-    .locals 4
-    .param p0, "keyset"    # Lcom/google/crypto/tink/proto/Keyset;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -126,54 +123,49 @@
     move-result-object v0
 
     .line 37
-    .local v0, "info":Lcom/google/crypto/tink/proto/KeysetInfo$Builder;
     invoke-virtual {p0}, Lcom/google/crypto/tink/proto/Keyset;->getKeyList()Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object p0
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Lcom/google/crypto/tink/proto/Keyset$Key;
+    check-cast v1, Lcom/google/crypto/tink/proto/Keyset$Key;
 
     .line 38
-    .local v2, "key":Lcom/google/crypto/tink/proto/Keyset$Key;
-    invoke-static {v2}, Lcom/google/crypto/tink/Util;->getKeyInfo(Lcom/google/crypto/tink/proto/Keyset$Key;)Lcom/google/crypto/tink/proto/KeysetInfo$KeyInfo;
+    invoke-static {v1}, Lcom/google/crypto/tink/Util;->getKeyInfo(Lcom/google/crypto/tink/proto/Keyset$Key;)Lcom/google/crypto/tink/proto/KeysetInfo$KeyInfo;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v0, v3}, Lcom/google/crypto/tink/proto/KeysetInfo$Builder;->addKeyInfo(Lcom/google/crypto/tink/proto/KeysetInfo$KeyInfo;)Lcom/google/crypto/tink/proto/KeysetInfo$Builder;
+    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/proto/KeysetInfo$Builder;->addKeyInfo(Lcom/google/crypto/tink/proto/KeysetInfo$KeyInfo;)Lcom/google/crypto/tink/proto/KeysetInfo$Builder;
 
-    .line 39
-    .end local v2    # "key":Lcom/google/crypto/tink/proto/Keyset$Key;
     goto :goto_0
 
     .line 40
     :cond_0
     invoke-virtual {v0}, Lcom/google/crypto/tink/proto/KeysetInfo$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Lcom/google/crypto/tink/proto/KeysetInfo;
+    check-cast p0, Lcom/google/crypto/tink/proto/KeysetInfo;
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static readAll(Ljava/io/InputStream;)[B
-    .locals 5
-    .param p0, "inputStream"    # Ljava/io/InputStream;
+    .locals 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -194,30 +186,24 @@
 
     invoke-direct {v0}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
-    .line 114
-    .local v0, "result":Ljava/io/ByteArrayOutputStream;
     const/16 v1, 0x400
 
     new-array v1, v1, [B
 
     .line 116
-    .local v1, "buf":[B
     :goto_0
     invoke-virtual {p0, v1}, Ljava/io/InputStream;->read([B)I
 
     move-result v2
 
-    move v3, v2
+    const/4 v3, -0x1
 
-    .local v3, "count":I
-    const/4 v4, -0x1
+    if-eq v2, v3, :cond_0
 
-    if-eq v2, v4, :cond_0
+    const/4 v3, 0x0
 
     .line 117
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2, v3}, Ljava/io/ByteArrayOutputStream;->write([BII)V
+    invoke-virtual {v0, v1, v3, v2}, Ljava/io/ByteArrayOutputStream;->write([BII)V
 
     goto :goto_0
 
@@ -225,14 +211,13 @@
     :cond_0
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 .end method
 
 .method public static validateKey(Lcom/google/crypto/tink/proto/Keyset$Key;)V
     .locals 4
-    .param p0, "key"    # Lcom/google/crypto/tink/proto/Keyset$Key;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -277,7 +262,6 @@
 
     if-eq v0, v3, :cond_0
 
-    .line 72
     return-void
 
     .line 69
@@ -289,21 +273,21 @@
     .line 70
     invoke-virtual {p0}, Lcom/google/crypto/tink/proto/Keyset$Key;->getKeyId()I
 
-    move-result v3
+    move-result p0
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object p0
 
-    aput-object v3, v2, v1
+    aput-object p0, v2, v1
 
-    const-string v1, "key %d has unknown status"
+    const-string p0, "key %d has unknown status"
 
-    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
@@ -316,21 +300,21 @@
     .line 65
     invoke-virtual {p0}, Lcom/google/crypto/tink/proto/Keyset$Key;->getKeyId()I
 
-    move-result v3
+    move-result p0
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object p0
 
-    aput-object v3, v2, v1
+    aput-object p0, v2, v1
 
-    const-string v1, "key %d has unknown prefix"
+    const-string p0, "key %d has unknown prefix"
 
-    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
@@ -342,28 +326,27 @@
 
     invoke-virtual {p0}, Lcom/google/crypto/tink/proto/Keyset$Key;->getKeyId()I
 
-    move-result v3
+    move-result p0
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object p0
 
-    aput-object v3, v2, v1
+    aput-object p0, v2, v1
 
-    const-string v1, "key %d has no key data"
+    const-string p0, "key %d has no key data"
 
-    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public static validateKeyset(Lcom/google/crypto/tink/proto/Keyset;)V
-    .locals 8
-    .param p0, "keyset"    # Lcom/google/crypto/tink/proto/Keyset;
+    .locals 9
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -384,87 +367,80 @@
 
     move-result v0
 
-    .line 81
-    .local v0, "primaryKeyId":I
-    const/4 v1, 0x0
-
-    .line 82
-    .local v1, "hasPrimaryKey":Z
-    const/4 v2, 0x1
-
-    .line 83
-    .local v2, "containsOnlyPublicKeyMaterial":Z
-    const/4 v3, 0x0
-
     .line 84
-    .local v3, "numEnabledKeys":I
     invoke-virtual {p0}, Lcom/google/crypto/tink/proto/Keyset;->getKeyList()Ljava/util/List;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v4
+    move-result-object p0
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x1
+
+    move v3, v1
+
+    move v4, v3
+
+    move v5, v2
 
     :goto_0
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v5
+    move-result v6
 
-    if-eqz v5, :cond_4
+    if-eqz v6, :cond_4
 
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/google/crypto/tink/proto/Keyset$Key;
-
-    .line 85
-    .local v5, "key":Lcom/google/crypto/tink/proto/Keyset$Key;
-    invoke-virtual {v5}, Lcom/google/crypto/tink/proto/Keyset$Key;->getStatus()Lcom/google/crypto/tink/proto/KeyStatusType;
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v6
 
-    sget-object v7, Lcom/google/crypto/tink/proto/KeyStatusType;->ENABLED:Lcom/google/crypto/tink/proto/KeyStatusType;
+    check-cast v6, Lcom/google/crypto/tink/proto/Keyset$Key;
 
-    if-eq v6, v7, :cond_0
+    .line 85
+    invoke-virtual {v6}, Lcom/google/crypto/tink/proto/Keyset$Key;->getStatus()Lcom/google/crypto/tink/proto/KeyStatusType;
 
-    .line 86
+    move-result-object v7
+
+    sget-object v8, Lcom/google/crypto/tink/proto/KeyStatusType;->ENABLED:Lcom/google/crypto/tink/proto/KeyStatusType;
+
+    if-eq v7, v8, :cond_0
+
     goto :goto_0
 
     .line 88
     :cond_0
-    invoke-static {v5}, Lcom/google/crypto/tink/Util;->validateKey(Lcom/google/crypto/tink/proto/Keyset$Key;)V
+    invoke-static {v6}, Lcom/google/crypto/tink/Util;->validateKey(Lcom/google/crypto/tink/proto/Keyset$Key;)V
 
     .line 89
-    invoke-virtual {v5}, Lcom/google/crypto/tink/proto/Keyset$Key;->getKeyId()I
+    invoke-virtual {v6}, Lcom/google/crypto/tink/proto/Keyset$Key;->getKeyId()I
 
-    move-result v6
+    move-result v7
 
-    if-ne v6, v0, :cond_2
+    if-ne v7, v0, :cond_2
 
-    .line 90
-    if-nez v1, :cond_1
+    if-nez v4, :cond_1
 
-    .line 93
-    const/4 v1, 0x1
+    move v4, v2
 
     goto :goto_1
 
     .line 91
     :cond_1
-    new-instance v4, Ljava/security/GeneralSecurityException;
+    new-instance p0, Ljava/security/GeneralSecurityException;
 
-    const-string v6, "keyset contains multiple primary keys"
+    const-string v0, "keyset contains multiple primary keys"
 
-    invoke-direct {v4, v6}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v4
+    throw p0
 
     .line 95
     :cond_2
     :goto_1
-    invoke-virtual {v5}, Lcom/google/crypto/tink/proto/Keyset$Key;->getKeyData()Lcom/google/crypto/tink/proto/KeyData;
+    invoke-virtual {v6}, Lcom/google/crypto/tink/proto/Keyset$Key;->getKeyData()Lcom/google/crypto/tink/proto/KeyData;
 
     move-result-object v6
 
@@ -476,52 +452,43 @@
 
     if-eq v6, v7, :cond_3
 
-    .line 96
-    const/4 v2, 0x0
+    move v5, v1
 
-    .line 98
     :cond_3
-    nop
-
-    .end local v5    # "key":Lcom/google/crypto/tink/proto/Keyset$Key;
     add-int/lit8 v3, v3, 0x1
 
-    .line 99
     goto :goto_0
 
-    .line 100
     :cond_4
     if-eqz v3, :cond_7
 
-    .line 104
-    if-nez v1, :cond_6
+    if-nez v4, :cond_6
 
-    if-eqz v2, :cond_5
+    if-eqz v5, :cond_5
 
     goto :goto_2
 
     .line 105
     :cond_5
-    new-instance v4, Ljava/security/GeneralSecurityException;
+    new-instance p0, Ljava/security/GeneralSecurityException;
 
-    const-string v5, "keyset doesn\'t contain a valid primary key"
+    const-string v0, "keyset doesn\'t contain a valid primary key"
 
-    invoke-direct {v4, v5}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v4
+    throw p0
 
-    .line 107
     :cond_6
     :goto_2
     return-void
 
     .line 101
     :cond_7
-    new-instance v4, Ljava/security/GeneralSecurityException;
+    new-instance p0, Ljava/security/GeneralSecurityException;
 
-    const-string v5, "keyset must contain at least one ENABLED key"
+    const-string v0, "keyset must contain at least one ENABLED key"
 
-    invoke-direct {v4, v5}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v4
+    throw p0
 .end method

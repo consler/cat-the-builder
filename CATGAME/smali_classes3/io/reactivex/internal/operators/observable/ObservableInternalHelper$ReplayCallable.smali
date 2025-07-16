@@ -52,14 +52,11 @@
     .end annotation
 
     .line 330
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayCallable;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayCallable<TT;>;"
-    .local p1, "parent":Lio/reactivex/Observable;, "Lio/reactivex/Observable<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 331
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayCallable;->parent:Lio/reactivex/Observable;
 
-    .line 332
     return-void
 .end method
 
@@ -76,7 +73,6 @@
     .end annotation
 
     .line 336
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayCallable;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayCallable<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayCallable;->parent:Lio/reactivex/Observable;
 
     invoke-virtual {v0}, Lio/reactivex/Observable;->replay()Lio/reactivex/observables/ConnectableObservable;
@@ -95,7 +91,6 @@
     .end annotation
 
     .line 327
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayCallable;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayCallable<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayCallable;->call()Lio/reactivex/observables/ConnectableObservable;
 
     move-result-object v0

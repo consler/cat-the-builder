@@ -79,18 +79,12 @@
     :try_end_0
     .catch Ljava/security/GeneralSecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 65
-    nop
-
-    .line 66
     return-void
 
-    .line 63
     :catch_0
     move-exception v0
 
     .line 64
-    .local v0, "e":Ljava/security/GeneralSecurityException;
     new-instance v1, Ljava/lang/ExceptionInInitializerError;
 
     invoke-direct {v1, v0}, Ljava/lang/ExceptionInInitializerError;-><init>(Ljava/lang/Throwable;)V
@@ -121,7 +115,6 @@
     .line 81
     invoke-static {}, Lcom/google/crypto/tink/hybrid/HybridConfig;->register()V
 
-    .line 82
     return-void
 .end method
 
@@ -136,9 +129,9 @@
     .line 96
     invoke-static {}, Lcom/google/crypto/tink/aead/AeadConfig;->register()V
 
-    .line 97
     const/4 v0, 0x1
 
+    .line 97
     invoke-static {v0}, Lcom/google/crypto/tink/hybrid/EciesAeadHkdfPrivateKeyManager;->registerPair(Z)V
 
     .line 98
@@ -147,6 +140,5 @@
     .line 99
     invoke-static {}, Lcom/google/crypto/tink/hybrid/HybridEncryptWrapper;->register()V
 
-    .line 100
     return-void
 .end method

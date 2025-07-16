@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/TextField;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/scenes/scene2d/ui/TextField;
 
     .line 114
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TextField$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/TextField;
@@ -50,6 +49,5 @@
 
     invoke-interface {v0}, Lcom/badlogic/gdx/Graphics;->requestRendering()V
 
-    .line 118
     return-void
 .end method

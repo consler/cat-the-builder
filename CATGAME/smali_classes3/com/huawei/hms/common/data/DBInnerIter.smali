@@ -43,23 +43,22 @@
         }
     .end annotation
 
-    .line 23
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 21
     const/4 v0, -0x1
 
+    .line 2
     iput v0, p0, Lcom/huawei/hms/common/data/DBInnerIter;->index:I
 
-    .line 24
     const-string v0, "dataBuffer cannot be null"
 
+    .line 5
     invoke-static {p1, v0}, Lcom/huawei/hms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 25
+    .line 6
     iput-object p1, p0, Lcom/huawei/hms/common/data/DBInnerIter;->dataBuffer:Lcom/huawei/hms/common/data/DataBuffer;
 
-    .line 26
     return-void
 .end method
 
@@ -68,7 +67,7 @@
 .method public hasNext()Z
     .locals 3
 
-    .line 29
+    .line 1
     iget v0, p0, Lcom/huawei/hms/common/data/DBInnerIter;->index:I
 
     const/4 v1, 0x1
@@ -83,10 +82,8 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 30
     return v1
 
-    .line 32
     :cond_0
     const/4 v0, 0x0
 
@@ -101,7 +98,7 @@
         }
     .end annotation
 
-    .line 37
+    .line 1
     invoke-virtual {p0}, Lcom/huawei/hms/common/data/DBInnerIter;->hasNext()Z
 
     move-result v0

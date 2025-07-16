@@ -45,22 +45,18 @@
     .end annotation
 
     .line 24
-    .local p0, "this":Lio/reactivex/internal/util/SorterFunction;, "Lio/reactivex/internal/util/SorterFunction<TT;>;"
-    .local p1, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 25
     iput-object p1, p0, Lio/reactivex/internal/util/SorterFunction;->comparator:Ljava/util/Comparator;
 
-    .line 26
     return-void
 .end method
 
 
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -68,16 +64,13 @@
     .end annotation
 
     .line 20
-    .local p0, "this":Lio/reactivex/internal/util/SorterFunction;, "Lio/reactivex/internal/util/SorterFunction<TT;>;"
-    move-object v0, p1
+    check-cast p1, Ljava/util/List;
 
-    check-cast v0, Ljava/util/List;
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/util/SorterFunction;->apply(Ljava/util/List;)Ljava/util/List;
 
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/util/SorterFunction;->apply(Ljava/util/List;)Ljava/util/List;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public apply(Ljava/util/List;)Ljava/util/List;
@@ -99,12 +92,9 @@
     .end annotation
 
     .line 30
-    .local p0, "this":Lio/reactivex/internal/util/SorterFunction;, "Lio/reactivex/internal/util/SorterFunction<TT;>;"
-    .local p1, "t":Ljava/util/List;, "Ljava/util/List<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/util/SorterFunction;->comparator:Ljava/util/Comparator;
 
     invoke-static {p1, v0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    .line 31
     return-object p1
 .end method

@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/graphics/g3d/decals/SimpleOrthoGroupStrategy;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/graphics/g3d/decals/SimpleOrthoGroupStrategy;
 
     .line 110
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/SimpleOrthoGroupStrategy$Comparator;->this$0:Lcom/badlogic/gdx/graphics/g3d/decals/SimpleOrthoGroupStrategy;
@@ -47,8 +46,6 @@
 # virtual methods
 .method public compare(Lcom/badlogic/gdx/graphics/g3d/decals/Decal;Lcom/badlogic/gdx/graphics/g3d/decals/Decal;)I
     .locals 2
-    .param p1, "a"    # Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
-    .param p2, "b"    # Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
 
     .line 113
     invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->getZ()F
@@ -63,37 +60,37 @@
 
     if-nez v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 114
     :cond_0
     invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->getZ()F
 
-    move-result v0
+    move-result p1
 
     invoke-virtual {p2}, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->getZ()F
 
-    move-result v1
+    move-result p2
 
-    sub-float/2addr v0, v1
+    sub-float/2addr p1, p2
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    cmpg-float v0, v0, v1
+    cmpg-float p1, p1, p2
 
-    if-gez v0, :cond_1
+    if-gez p1, :cond_1
 
-    const/4 v0, -0x1
+    const/4 p1, -0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I

@@ -15,13 +15,7 @@
 
 .method public static build(Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;FFFI)V
     .locals 7
-    .param p0, "builder"    # Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;
-    .param p1, "width"    # F
-    .param p2, "height"    # F
-    .param p3, "depth"    # F
-    .param p4, "divisions"    # I
 
-    .line 27
     const/4 v5, 0x0
 
     const/high16 v6, 0x43b40000    # 360.0f
@@ -36,23 +30,15 @@
 
     move v4, p4
 
+    .line 27
     invoke-static/range {v0 .. v6}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/ConeShapeBuilder;->build(Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;FFFIFF)V
 
-    .line 28
     return-void
 .end method
 
 .method public static build(Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;FFFIFF)V
     .locals 8
-    .param p0, "builder"    # Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;
-    .param p1, "width"    # F
-    .param p2, "height"    # F
-    .param p3, "depth"    # F
-    .param p4, "divisions"    # I
-    .param p5, "angleFrom"    # F
-    .param p6, "angleTo"    # F
 
-    .line 32
     const/4 v7, 0x1
 
     move-object v0, p0
@@ -69,245 +55,191 @@
 
     move v6, p6
 
+    .line 32
     invoke-static/range {v0 .. v7}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/ConeShapeBuilder;->build(Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;FFFIFFZ)V
 
-    .line 33
     return-void
 .end method
 
 .method public static build(Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;FFFIFFZ)V
-    .locals 32
-    .param p0, "builder"    # Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;
-    .param p1, "width"    # F
-    .param p2, "height"    # F
-    .param p3, "depth"    # F
-    .param p4, "divisions"    # I
-    .param p5, "angleFrom"    # F
-    .param p6, "angleTo"    # F
-    .param p7, "close"    # Z
+    .locals 20
+
+    move-object/from16 v0, p0
+
+    move/from16 v5, p4
+
+    add-int/lit8 v1, v5, 0x2
 
     .line 38
-    move-object/from16 v5, p0
-
-    move/from16 v2, p4
-
-    add-int/lit8 v0, v2, 0x2
-
-    invoke-interface {v5, v0}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->ensureVertices(I)V
+    invoke-interface {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->ensureVertices(I)V
 
     .line 39
-    invoke-interface {v5, v2}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->ensureTriangleIndices(I)V
+    invoke-interface {v0, v5}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->ensureTriangleIndices(I)V
 
-    .line 41
-    const/high16 v0, 0x3f000000    # 0.5f
+    const/high16 v1, 0x3f000000    # 0.5f
 
-    mul-float v20, p1, v0
+    mul-float v2, p1, v1
 
-    .line 42
-    .local v20, "hw":F
-    mul-float v1, p2, v0
+    mul-float v7, p2, v1
 
-    .line 43
-    .local v1, "hh":F
-    mul-float v21, p3, v0
+    mul-float v3, p3, v1
 
-    .line 44
-    .local v21, "hd":F
-    const v3, 0x3c8efa35
+    const v4, 0x3c8efa35
 
-    mul-float v22, p5, v3
+    mul-float v6, p5, v4
 
-    .line 45
-    .local v22, "ao":F
-    sub-float v4, p6, p5
+    sub-float v8, p6, p5
 
-    mul-float/2addr v4, v3
+    mul-float/2addr v8, v4
 
-    int-to-float v3, v2
+    int-to-float v4, v5
 
-    div-float v23, v4, v3
+    div-float/2addr v8, v4
 
-    .line 46
-    .local v23, "step":F
-    int-to-float v3, v2
+    const/high16 v9, 0x3f800000    # 1.0f
 
-    const/high16 v4, 0x3f800000    # 1.0f
-
-    div-float v24, v4, v3
-
-    .line 47
-    .local v24, "us":F
-    const/4 v3, 0x0
-
-    .line 48
-    .local v3, "u":F
-    const/4 v6, 0x0
+    div-float v4, v9, v4
 
     .line 49
-    .local v6, "angle":F
-    sget-object v7, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/ConeShapeBuilder;->vertTmp3:Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
+    sget-object v10, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/ConeShapeBuilder;->vertTmp3:Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
 
-    const/4 v8, 0x0
+    const/4 v11, 0x0
 
-    invoke-virtual {v7, v8, v8, v8, v8}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->set(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/graphics/Color;Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
+    invoke-virtual {v10, v11, v11, v11, v11}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->set(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/graphics/Color;Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
 
-    move-result-object v15
+    move-result-object v10
+
+    const/4 v12, 0x1
 
     .line 50
-    .local v15, "curr1":Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
-    const/4 v7, 0x1
+    iput-boolean v12, v10, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->hasNormal:Z
 
-    iput-boolean v7, v15, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->hasNormal:Z
+    iput-boolean v12, v10, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->hasPosition:Z
 
-    iput-boolean v7, v15, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->hasPosition:Z
-
-    iput-boolean v7, v15, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->hasUV:Z
+    iput-boolean v12, v10, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->hasUV:Z
 
     .line 51
-    sget-object v7, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/ConeShapeBuilder;->vertTmp4:Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
+    sget-object v12, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/ConeShapeBuilder;->vertTmp4:Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
 
-    invoke-virtual {v7, v8, v8, v8, v8}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->set(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/graphics/Color;Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
+    invoke-virtual {v12, v11, v11, v11, v11}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->set(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/graphics/Color;Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
 
-    move-result-object v7
+    move-result-object v11
 
-    const/4 v8, 0x0
+    const/4 v12, 0x0
 
-    invoke-virtual {v7, v8, v1, v8}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->setPos(FFF)Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
+    invoke-virtual {v11, v12, v7, v12}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->setPos(FFF)Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
 
-    move-result-object v7
+    move-result-object v11
 
-    invoke-virtual {v7, v8, v4, v8}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->setNor(FFF)Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
+    invoke-virtual {v11, v12, v9, v12}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->setNor(FFF)Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
 
-    move-result-object v7
+    move-result-object v11
 
-    invoke-virtual {v7, v0, v8}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->setUV(FF)Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
+    invoke-virtual {v11, v1, v12}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->setUV(FF)Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 52
-    .local v0, "curr2":Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
-    invoke-interface {v5, v0}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->vertex(Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;)S
+    invoke-interface {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->vertex(Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;)S
 
-    move-result v14
+    move-result v1
 
-    .line 53
-    .local v14, "base":S
-    const/4 v7, 0x0
+    const/4 v11, 0x0
 
-    .line 54
-    .local v7, "i2":S
-    const/4 v9, 0x0
+    move v13, v11
 
-    move/from16 v25, v3
-
-    move/from16 v26, v6
-
-    move v13, v7
-
-    .end local v3    # "u":F
-    .end local v6    # "angle":F
-    .end local v7    # "i2":S
-    .local v9, "i":I
-    .local v13, "i2":S
-    .local v25, "u":F
-    .local v26, "angle":F
     :goto_0
-    if-gt v9, v2, :cond_1
+    if-gt v11, v5, :cond_1
 
-    .line 55
-    int-to-float v3, v9
+    int-to-float v14, v11
 
-    mul-float v3, v3, v23
+    mul-float v15, v8, v14
 
-    add-float v26, v22, v3
+    add-float/2addr v15, v6
 
-    .line 56
-    int-to-float v3, v9
+    mul-float/2addr v14, v4
 
-    mul-float v3, v3, v24
-
-    sub-float v3, v4, v3
+    sub-float v14, v9, v14
 
     .line 57
-    .end local v25    # "u":F
-    .restart local v3    # "u":F
-    iget-object v6, v15, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->position:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v9, v10, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->position:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-static/range {v26 .. v26}, Lcom/badlogic/gdx/math/MathUtils;->cos(F)F
+    invoke-static {v15}, Lcom/badlogic/gdx/math/MathUtils;->cos(F)F
 
-    move-result v7
+    move-result v16
 
-    mul-float v7, v7, v20
+    mul-float v12, v16, v2
 
-    invoke-static/range {v26 .. v26}, Lcom/badlogic/gdx/math/MathUtils;->sin(F)F
+    invoke-static {v15}, Lcom/badlogic/gdx/math/MathUtils;->sin(F)F
 
-    move-result v10
+    move-result v15
 
-    mul-float v10, v10, v21
+    mul-float/2addr v15, v3
 
-    invoke-virtual {v6, v7, v8, v10}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    move/from16 v16, v2
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v9, v12, v2, v15}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
     .line 58
-    iget-object v6, v15, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->normal:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v9, v10, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->normal:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v7, v15, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->position:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v12, v10, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->position:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v6, v7}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v9, v12}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v6
+    move-result-object v9
 
-    invoke-virtual {v6}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v9}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
 
     .line 59
-    iget-object v6, v15, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->position:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v9, v10, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->position:Lcom/badlogic/gdx/math/Vector3;
 
-    neg-float v7, v1
+    neg-float v12, v7
 
-    iput v7, v6, Lcom/badlogic/gdx/math/Vector3;->y:F
+    iput v12, v9, Lcom/badlogic/gdx/math/Vector3;->y:F
 
     .line 60
-    iget-object v6, v15, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->uv:Lcom/badlogic/gdx/math/Vector2;
+    iget-object v9, v10, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;->uv:Lcom/badlogic/gdx/math/Vector2;
 
-    invoke-virtual {v6, v3, v4}, Lcom/badlogic/gdx/math/Vector2;->set(FF)Lcom/badlogic/gdx/math/Vector2;
+    const/high16 v12, 0x3f800000    # 1.0f
+
+    invoke-virtual {v9, v14, v12}, Lcom/badlogic/gdx/math/Vector2;->set(FF)Lcom/badlogic/gdx/math/Vector2;
 
     .line 61
-    invoke-interface {v5, v15}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->vertex(Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;)S
+    invoke-interface {v0, v10}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->vertex(Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;)S
 
-    move-result v6
+    move-result v9
+
+    if-eqz v11, :cond_0
 
     .line 62
-    .local v6, "i1":S
-    if-eqz v9, :cond_0
+    invoke-interface {v0, v1, v9, v13}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->triangle(SSS)V
 
-    invoke-interface {v5, v14, v6, v13}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->triangle(SSS)V
-
-    .line 63
     :cond_0
-    move v13, v6
+    add-int/lit8 v11, v11, 0x1
 
-    .line 54
-    add-int/lit8 v9, v9, 0x1
+    move v13, v9
 
-    move/from16 v25, v3
+    move v9, v12
+
+    move v12, v2
+
+    move/from16 v2, v16
 
     goto :goto_0
 
-    .line 65
-    .end local v3    # "u":F
-    .end local v6    # "i1":S
-    .end local v9    # "i":I
-    .restart local v25    # "u":F
     :cond_1
     if-eqz p7, :cond_2
 
-    .line 66
     const/4 v3, 0x0
 
     const/4 v4, 0x0
 
     const/4 v6, 0x0
 
-    neg-float v7, v1
+    neg-float v7, v7
 
     const/4 v8, 0x0
 
@@ -319,87 +251,33 @@
 
     const/high16 v12, -0x40800000    # -1.0f
 
+    const/4 v13, 0x0
+
+    const/4 v14, 0x0
+
+    const/4 v15, 0x0
+
     const/16 v16, 0x0
-
-    move/from16 v27, v13
-
-    .end local v13    # "i2":S
-    .local v27, "i2":S
-    move/from16 v13, v16
-
-    move/from16 v28, v14
-
-    .end local v14    # "base":S
-    .local v28, "base":S
-    move/from16 v14, v16
-
-    move-object/from16 v29, v15
-
-    .end local v15    # "curr1":Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
-    .local v29, "curr1":Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
-    move/from16 v15, v16
 
     const/high16 v17, 0x3f800000    # 1.0f
 
-    const/high16 v19, 0x43340000    # 180.0f
+    const/high16 v1, 0x43340000    # 180.0f
 
-    sub-float v18, v19, p6
+    sub-float v18, v1, p6
 
-    sub-float v19, v19, p5
+    sub-float v19, v1, p5
 
-    move-object/from16 v30, v0
-
-    .end local v0    # "curr2":Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
-    .local v30, "curr2":Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
     move-object/from16 v0, p0
 
-    move/from16 v31, v1
-
-    .end local v1    # "hh":F
-    .local v31, "hh":F
     move/from16 v1, p1
 
     move/from16 v2, p3
 
     move/from16 v5, p4
 
+    .line 66
     invoke-static/range {v0 .. v19}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/EllipseShapeBuilder;->build(Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;FFFFIFFFFFFFFFFFFFF)V
 
-    goto :goto_1
-
-    .line 65
-    .end local v27    # "i2":S
-    .end local v28    # "base":S
-    .end local v29    # "curr1":Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
-    .end local v30    # "curr2":Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
-    .end local v31    # "hh":F
-    .restart local v0    # "curr2":Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
-    .restart local v1    # "hh":F
-    .restart local v13    # "i2":S
-    .restart local v14    # "base":S
-    .restart local v15    # "curr1":Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
     :cond_2
-    move-object/from16 v30, v0
-
-    move/from16 v31, v1
-
-    move/from16 v27, v13
-
-    move/from16 v28, v14
-
-    move-object/from16 v29, v15
-
-    .line 68
-    .end local v0    # "curr2":Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
-    .end local v1    # "hh":F
-    .end local v13    # "i2":S
-    .end local v14    # "base":S
-    .end local v15    # "curr1":Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
-    .restart local v27    # "i2":S
-    .restart local v28    # "base":S
-    .restart local v29    # "curr1":Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
-    .restart local v30    # "curr2":Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder$VertexInfo;
-    .restart local v31    # "hh":F
-    :goto_1
     return-void
 .end method

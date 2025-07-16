@@ -3,8 +3,8 @@
 .source "ResponseHeader.java"
 
 # interfaces
-.implements Lcom/huawei/hms/common/internal/ResponseErrorCode;
 .implements Lcom/huawei/hms/core/aidl/IMessageEntity;
+.implements Lcom/huawei/hms/common/internal/ResponseErrorCode;
 
 
 # static fields
@@ -69,39 +69,37 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 60
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 61
     const-string v0, ""
 
+    .line 2
     iput-object v0, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->app_id:Ljava/lang/String;
 
-    .line 62
     return-void
 .end method
 
 .method public constructor <init>(IILjava/lang/String;)V
     .locals 1
 
-    .line 64
+    .line 3
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 65
     const-string v0, ""
 
+    .line 4
     iput-object v0, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->app_id:Ljava/lang/String;
 
-    .line 66
+    .line 5
     iput p1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->status_code:I
 
-    .line 67
+    .line 6
     iput p2, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->error_code:I
 
-    .line 68
+    .line 7
     iput-object p3, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->error_reason:Ljava/lang/String;
 
-    .line 69
     return-void
 .end method
 
@@ -110,96 +108,96 @@
 .method public fromJson(Ljava/lang/String;)Z
     .locals 2
 
-    .line 191
+    .line 1
     :try_start_0
     new-instance v0, Lorg/json/JSONObject;
 
     invoke-direct {v0, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
-    .line 192
     const-string p1, "status_code"
 
+    .line 2
     invoke-static {v0, p1}, Lcom/huawei/hms/utils/JsonUtil;->getIntValue(Lorg/json/JSONObject;Ljava/lang/String;)I
 
     move-result p1
 
     iput p1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->status_code:I
 
-    .line 193
     const-string p1, "error_code"
 
+    .line 3
     invoke-static {v0, p1}, Lcom/huawei/hms/utils/JsonUtil;->getIntValue(Lorg/json/JSONObject;Ljava/lang/String;)I
 
     move-result p1
 
     iput p1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->error_code:I
 
-    .line 194
     const-string p1, "error_reason"
 
+    .line 4
     invoke-static {v0, p1}, Lcom/huawei/hms/utils/JsonUtil;->getStringValue(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
     iput-object p1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->error_reason:Ljava/lang/String;
 
-    .line 195
     const-string p1, "srv_name"
 
+    .line 5
     invoke-static {v0, p1}, Lcom/huawei/hms/utils/JsonUtil;->getStringValue(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
     iput-object p1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->srv_name:Ljava/lang/String;
 
-    .line 196
     const-string p1, "api_name"
 
+    .line 6
     invoke-static {v0, p1}, Lcom/huawei/hms/utils/JsonUtil;->getStringValue(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
     iput-object p1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->api_name:Ljava/lang/String;
 
-    .line 197
     const-string p1, "app_id"
 
+    .line 7
     invoke-static {v0, p1}, Lcom/huawei/hms/utils/JsonUtil;->getStringValue(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
     iput-object p1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->app_id:Ljava/lang/String;
 
-    .line 198
     const-string p1, "pkg_name"
 
+    .line 8
     invoke-static {v0, p1}, Lcom/huawei/hms/utils/JsonUtil;->getStringValue(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
     iput-object p1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->pkg_name:Ljava/lang/String;
 
-    .line 200
     const-string p1, "session_id"
 
+    .line 10
     invoke-static {v0, p1}, Lcom/huawei/hms/utils/JsonUtil;->getStringValue(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
     iput-object p1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->session_id:Ljava/lang/String;
 
-    .line 201
     const-string p1, "transaction_id"
 
+    .line 11
     invoke-static {v0, p1}, Lcom/huawei/hms/utils/JsonUtil;->getStringValue(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
     iput-object p1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->transaction_id:Ljava/lang/String;
 
-    .line 202
     const-string p1, "resolution"
 
+    .line 12
     invoke-static {v0, p1}, Lcom/huawei/hms/utils/JsonUtil;->getStringValue(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
@@ -208,23 +206,19 @@
     :try_end_0
     .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 203
     const/4 p1, 0x1
 
     return p1
 
-    .line 204
     :catch_0
     move-exception p1
 
-    .line 205
+    .line 15
     new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v1, "fromJson failed: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Lorg/json/JSONException;->getMessage()Ljava/lang/String;
 
@@ -232,7 +226,9 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -240,7 +236,6 @@
 
     invoke-static {v0, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 207
     const/4 p1, 0x0
 
     return p1
@@ -249,7 +244,7 @@
 .method public getActualAppID()Ljava/lang/String;
     .locals 3
 
-    .line 129
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->app_id:Ljava/lang/String;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -260,10 +255,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 130
     return-object v1
 
-    .line 132
+    .line 4
     :cond_0
     iget-object v0, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->app_id:Ljava/lang/String;
 
@@ -273,15 +267,14 @@
 
     move-result-object v0
 
-    .line 133
+    .line 5
     array-length v2, v0
 
     if-nez v2, :cond_1
 
-    .line 134
     return-object v1
 
-    .line 135
+    .line 7
     :cond_1
     array-length v1, v0
 
@@ -289,14 +282,14 @@
 
     if-ne v1, v2, :cond_2
 
-    .line 136
     const/4 v1, 0x0
 
+    .line 8
     aget-object v0, v0, v1
 
     return-object v0
 
-    .line 138
+    .line 10
     :cond_2
     aget-object v0, v0, v2
 
@@ -306,7 +299,7 @@
 .method public getApiName()Ljava/lang/String;
     .locals 1
 
-    .line 108
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->api_name:Ljava/lang/String;
 
     return-object v0
@@ -315,7 +308,7 @@
 .method public getAppID()Ljava/lang/String;
     .locals 1
 
-    .line 116
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->app_id:Ljava/lang/String;
 
     return-object v0
@@ -324,7 +317,7 @@
 .method public getErrorCode()I
     .locals 1
 
-    .line 84
+    .line 1
     iget v0, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->error_code:I
 
     return v0
@@ -333,7 +326,7 @@
 .method public getErrorReason()Ljava/lang/String;
     .locals 1
 
-    .line 92
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->error_reason:Ljava/lang/String;
 
     return-object v0
@@ -342,7 +335,7 @@
 .method public getParcelable()Landroid/os/Parcelable;
     .locals 1
 
-    .line 172
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->parcelable:Landroid/os/Parcelable;
 
     return-object v0
@@ -351,7 +344,7 @@
 .method public getPkgName()Ljava/lang/String;
     .locals 1
 
-    .line 143
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->pkg_name:Ljava/lang/String;
 
     return-object v0
@@ -360,7 +353,7 @@
 .method public getResolution()Ljava/lang/String;
     .locals 1
 
-    .line 167
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->resolution:Ljava/lang/String;
 
     return-object v0
@@ -369,7 +362,7 @@
 .method public getSessionId()Ljava/lang/String;
     .locals 1
 
-    .line 151
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->session_id:Ljava/lang/String;
 
     return-object v0
@@ -378,7 +371,7 @@
 .method public getSrvName()Ljava/lang/String;
     .locals 1
 
-    .line 100
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->srv_name:Ljava/lang/String;
 
     return-object v0
@@ -387,7 +380,7 @@
 .method public getStatusCode()I
     .locals 1
 
-    .line 76
+    .line 1
     iget v0, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->status_code:I
 
     return v0
@@ -396,16 +389,35 @@
 .method public getTransactionId()Ljava/lang/String;
     .locals 1
 
-    .line 159
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->transaction_id:Ljava/lang/String;
 
     return-object v0
 .end method
 
+.method public hasResolution()Z
+    .locals 1
+
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->parcelable:Landroid/os/Parcelable;
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
 .method public isSuccess()Z
     .locals 1
 
-    .line 72
+    .line 1
     iget v0, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->status_code:I
 
     if-nez v0, :cond_0
@@ -424,219 +436,231 @@
 .method public setApiName(Ljava/lang/String;)V
     .locals 0
 
-    .line 112
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->api_name:Ljava/lang/String;
 
-    .line 113
     return-void
 .end method
 
 .method public setAppID(Ljava/lang/String;)V
     .locals 0
 
-    .line 120
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->app_id:Ljava/lang/String;
 
-    .line 121
     return-void
 .end method
 
 .method public setErrorCode(I)V
     .locals 0
 
-    .line 88
+    .line 1
     iput p1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->error_code:I
 
-    .line 89
     return-void
 .end method
 
 .method public setErrorReason(Ljava/lang/String;)V
     .locals 0
 
-    .line 96
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->error_reason:Ljava/lang/String;
 
-    .line 97
     return-void
 .end method
 
 .method public setParcelable(Landroid/os/Parcelable;)V
     .locals 0
 
-    .line 176
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->parcelable:Landroid/os/Parcelable;
 
-    .line 177
     return-void
 .end method
 
 .method public setPkgName(Ljava/lang/String;)V
     .locals 0
 
-    .line 147
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->pkg_name:Ljava/lang/String;
 
-    .line 148
     return-void
 .end method
 
 .method public setResolution(Ljava/lang/String;)V
     .locals 0
 
-    .line 180
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->resolution:Ljava/lang/String;
 
-    .line 181
     return-void
 .end method
 
 .method public setSessionId(Ljava/lang/String;)V
     .locals 0
 
-    .line 155
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->session_id:Ljava/lang/String;
 
-    .line 156
     return-void
 .end method
 
 .method public setSrvName(Ljava/lang/String;)V
     .locals 0
 
-    .line 104
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->srv_name:Ljava/lang/String;
 
-    .line 105
     return-void
 .end method
 
 .method public setStatusCode(I)V
     .locals 0
 
-    .line 80
+    .line 1
     iput p1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->status_code:I
 
-    .line 81
     return-void
 .end method
 
 .method public setTransactionId(Ljava/lang/String;)V
     .locals 0
 
-    .line 163
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->transaction_id:Ljava/lang/String;
 
-    .line 164
     return-void
 .end method
 
 .method public toJson()Ljava/lang/String;
     .locals 4
 
-    .line 216
+    .line 1
     new-instance v0, Lorg/json/JSONObject;
 
     invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
-    .line 218
-    :try_start_0
     const-string v1, "status_code"
 
+    .line 3
+    :try_start_0
     iget v2, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->status_code:I
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    :try_end_0
+    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 219
     const-string v1, "error_code"
 
+    .line 4
+    :try_start_1
     iget v2, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->error_code:I
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    :try_end_1
+    .catch Lorg/json/JSONException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 220
     const-string v1, "error_reason"
 
+    .line 5
+    :try_start_2
     iget-object v2, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->error_reason:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    :try_end_2
+    .catch Lorg/json/JSONException; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 221
     const-string v1, "srv_name"
 
+    .line 6
+    :try_start_3
     iget-object v2, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->srv_name:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    :try_end_3
+    .catch Lorg/json/JSONException; {:try_start_3 .. :try_end_3} :catch_0
 
-    .line 222
     const-string v1, "api_name"
 
+    .line 7
+    :try_start_4
     iget-object v2, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->api_name:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    :try_end_4
+    .catch Lorg/json/JSONException; {:try_start_4 .. :try_end_4} :catch_0
 
-    .line 223
     const-string v1, "app_id"
 
+    .line 8
+    :try_start_5
     iget-object v2, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->app_id:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    :try_end_5
+    .catch Lorg/json/JSONException; {:try_start_5 .. :try_end_5} :catch_0
 
-    .line 224
     const-string v1, "pkg_name"
 
+    .line 9
+    :try_start_6
     iget-object v2, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->pkg_name:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 225
+    .line 10
     iget-object v1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->session_id:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
+    :try_end_6
+    .catch Lorg/json/JSONException; {:try_start_6 .. :try_end_6} :catch_0
 
     if-nez v1, :cond_0
 
-    .line 226
     const-string v1, "session_id"
 
+    .line 11
+    :try_start_7
     iget-object v2, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->session_id:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    :try_end_7
+    .catch Lorg/json/JSONException; {:try_start_7 .. :try_end_7} :catch_0
 
-    .line 228
     :cond_0
     const-string v1, "transaction_id"
 
+    .line 13
+    :try_start_8
     iget-object v2, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->transaction_id:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    :try_end_8
+    .catch Lorg/json/JSONException; {:try_start_8 .. :try_end_8} :catch_0
 
-    .line 229
     const-string v1, "resolution"
 
+    .line 14
+    :try_start_9
     iget-object v2, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->resolution:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-    :try_end_0
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Lorg/json/JSONException; {:try_start_9 .. :try_end_9} :catch_0
 
-    .line 233
     goto :goto_0
 
-    .line 231
     :catch_0
     move-exception v1
 
-    .line 232
+    .line 17
     new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v3, "toJson failed: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1}, Lorg/json/JSONException;->getMessage()Ljava/lang/String;
 
@@ -644,7 +668,9 @@
 
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -652,7 +678,7 @@
 
     invoke-static {v2, v1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 234
+    .line 19
     :goto_0
     invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
@@ -664,66 +690,90 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .line 243
+    .line 1
     new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v1, "status_code:"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget v1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->status_code:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v1, ", error_code"
+    move-result-object v0
+
+    const-string v1, ", error_code:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->error_code:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", api_name:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->api_name:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", app_id:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->app_id:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", pkg_name:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->pkg_name:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", session_id:*, transaction_id:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->transaction_id:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", resolution:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Lcom/huawei/hms/common/internal/ResponseHeader;->resolution:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

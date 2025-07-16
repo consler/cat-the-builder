@@ -51,13 +51,11 @@
     .end annotation
 
     .line 23
-    .local p1, "glideUrlLoader":Lcom/bumptech/glide/load/model/ModelLoader;, "Lcom/bumptech/glide/load/model/ModelLoader<Lcom/bumptech/glide/load/model/GlideUrl;Ljava/io/InputStream;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 24
     iput-object p1, p0, Lcom/bumptech/glide/load/model/stream/UrlLoader;->glideUrlLoader:Lcom/bumptech/glide/load/model/ModelLoader;
 
-    .line 25
     return-void
 .end method
 
@@ -78,10 +76,6 @@
 
 .method public buildLoadData(Ljava/net/URL;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
     .locals 2
-    .param p1, "model"    # Ljava/net/URL;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
-    .param p4, "options"    # Lcom/bumptech/glide/load/Options;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -104,9 +98,9 @@
 
     invoke-interface {v0, v1, p2, p3, p4}, Lcom/bumptech/glide/load/model/ModelLoader;->buildLoadData(Ljava/lang/Object;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic handles(Ljava/lang/Object;)Z
@@ -123,11 +117,9 @@
 .end method
 
 .method public handles(Ljava/net/URL;)Z
-    .locals 1
-    .param p1, "model"    # Ljava/net/URL;
+    .locals 0
 
-    .line 35
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method

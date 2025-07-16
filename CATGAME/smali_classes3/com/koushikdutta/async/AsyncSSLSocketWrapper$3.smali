@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/AsyncSSLSocketWrapper;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/AsyncSSLSocketWrapper;
 
     .line 138
     iput-object p1, p0, Lcom/koushikdutta/async/AsyncSSLSocketWrapper$3;->this$0:Lcom/koushikdutta/async/AsyncSSLSocketWrapper;
@@ -53,7 +52,6 @@
 
     invoke-interface {v0}, Lcom/koushikdutta/async/callback/WritableCallback;->onWriteable()V
 
-    .line 143
     :cond_0
     return-void
 .end method

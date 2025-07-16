@@ -73,10 +73,6 @@
     .end annotation
 
     .line 36
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCollectSingle;, "Lio/reactivex/internal/operators/flowable/FlowableCollectSingle<TT;TU;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p2, "initialSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<+TU;>;"
-    .local p3, "collector":Lio/reactivex/functions/BiConsumer;, "Lio/reactivex/functions/BiConsumer<-TU;-TT;>;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 37
@@ -88,7 +84,6 @@
     .line 39
     iput-object p3, p0, Lio/reactivex/internal/operators/flowable/FlowableCollectSingle;->collector:Lio/reactivex/functions/BiConsumer;
 
-    .line 40
     return-void
 .end method
 
@@ -105,7 +100,6 @@
     .end annotation
 
     .line 57
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCollectSingle;, "Lio/reactivex/internal/operators/flowable/FlowableCollectSingle<TT;TU;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableCollect;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCollectSingle;->source:Lio/reactivex/Flowable;
@@ -134,28 +128,20 @@
     .end annotation
 
     .line 46
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCollectSingle;, "Lio/reactivex/internal/operators/flowable/FlowableCollectSingle<TT;TU;>;"
-    .local p1, "s":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TU;>;"
-    const/4 v0, 0x0
-
     :try_start_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCollectSingle;->initialSupplier:Ljava/util/concurrent/Callable;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCollectSingle;->initialSupplier:Ljava/util/concurrent/Callable;
 
-    invoke-interface {v1}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string v2, "The initialSupplier returned a null value"
+    const-string v1, "The initialSupplier returned a null value"
 
-    invoke-static {v1, v2}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v0, v1}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 50
-    .local v0, "u":Ljava/lang/Object;, "TU;"
-    nop
 
     .line 52
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCollectSingle;->source:Lio/reactivex/Flowable;
@@ -168,19 +154,13 @@
 
     invoke-virtual {v1, v2}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 53
     return-void
 
-    .line 47
-    .end local v0    # "u":Ljava/lang/Object;, "TU;"
     :catchall_0
-    move-exception v1
+    move-exception v0
 
     .line 48
-    .restart local v0    # "u":Ljava/lang/Object;, "TU;"
-    .local v1, "e":Ljava/lang/Throwable;
-    invoke-static {v1, p1}, Lio/reactivex/internal/disposables/EmptyDisposable;->error(Ljava/lang/Throwable;Lio/reactivex/SingleObserver;)V
+    invoke-static {v0, p1}, Lio/reactivex/internal/disposables/EmptyDisposable;->error(Ljava/lang/Throwable;Lio/reactivex/SingleObserver;)V
 
-    .line 49
     return-void
 .end method

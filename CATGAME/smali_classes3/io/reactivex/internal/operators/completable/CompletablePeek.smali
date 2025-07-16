@@ -48,11 +48,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/CompletableSource;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;Lio/reactivex/functions/Action;Lio/reactivex/functions/Action;Lio/reactivex/functions/Action;)V
     .locals 0
-    .param p1, "source"    # Lio/reactivex/CompletableSource;
-    .param p4, "onComplete"    # Lio/reactivex/functions/Action;
-    .param p5, "onTerminate"    # Lio/reactivex/functions/Action;
-    .param p6, "onAfterTerminate"    # Lio/reactivex/functions/Action;
-    .param p7, "onDispose"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -74,8 +69,6 @@
     .end annotation
 
     .line 38
-    .local p2, "onSubscribe":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Lio/reactivex/disposables/Disposable;>;"
-    .local p3, "onError":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Ljava/lang/Throwable;>;"
     invoke-direct {p0}, Lio/reactivex/Completable;-><init>()V
 
     .line 39
@@ -99,7 +92,6 @@
     .line 45
     iput-object p7, p0, Lio/reactivex/internal/operators/completable/CompletablePeek;->onDispose:Lio/reactivex/functions/Action;
 
-    .line 46
     return-void
 .end method
 
@@ -107,7 +99,6 @@
 # virtual methods
 .method protected subscribeActual(Lio/reactivex/CompletableObserver;)V
     .locals 2
-    .param p1, "s"    # Lio/reactivex/CompletableObserver;
 
     .line 51
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletablePeek;->source:Lio/reactivex/CompletableSource;
@@ -118,6 +109,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/CompletableSource;->subscribe(Lio/reactivex/CompletableObserver;)V
 
-    .line 52
     return-void
 .end method

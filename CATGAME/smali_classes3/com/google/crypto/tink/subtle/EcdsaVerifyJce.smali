@@ -16,10 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/security/interfaces/ECPublicKey;Lcom/google/crypto/tink/subtle/Enums$HashType;Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;)V
-    .locals 1
-    .param p1, "pubKey"    # Ljava/security/interfaces/ECPublicKey;
-    .param p2, "hash"    # Lcom/google/crypto/tink/subtle/Enums$HashType;
-    .param p3, "encoding"    # Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -48,9 +45,9 @@
     .line 40
     invoke-static {p2}, Lcom/google/crypto/tink/subtle/SubtleUtil;->toEcdsaAlgo(Lcom/google/crypto/tink/subtle/Enums$HashType;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p2
 
-    iput-object v0, p0, Lcom/google/crypto/tink/subtle/EcdsaVerifyJce;->signatureAlgorithm:Ljava/lang/String;
+    iput-object p2, p0, Lcom/google/crypto/tink/subtle/EcdsaVerifyJce;->signatureAlgorithm:Ljava/lang/String;
 
     .line 41
     iput-object p1, p0, Lcom/google/crypto/tink/subtle/EcdsaVerifyJce;->publicKey:Ljava/security/interfaces/ECPublicKey;
@@ -58,16 +55,13 @@
     .line 42
     iput-object p3, p0, Lcom/google/crypto/tink/subtle/EcdsaVerifyJce;->encoding:Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
 
-    .line 43
     return-void
 .end method
 
 
 # virtual methods
 .method public verify([B[B)V
-    .locals 5
-    .param p1, "signature"    # [B
-    .param p2, "data"    # [B
+    .locals 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -85,135 +79,111 @@
         }
     .end annotation
 
-    .line 47
-    move-object v0, p1
-
     .line 48
-    .local v0, "derSignature":[B
-    iget-object v1, p0, Lcom/google/crypto/tink/subtle/EcdsaVerifyJce;->encoding:Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
+    iget-object v0, p0, Lcom/google/crypto/tink/subtle/EcdsaVerifyJce;->encoding:Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
 
-    sget-object v2, Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;->IEEE_P1363:Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
+    sget-object v1, Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;->IEEE_P1363:Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
 
-    const-string v3, "Invalid signature"
+    const-string v2, "Invalid signature"
 
-    if-ne v1, v2, :cond_1
+    if-ne v0, v1, :cond_1
 
     .line 49
-    iget-object v1, p0, Lcom/google/crypto/tink/subtle/EcdsaVerifyJce;->publicKey:Ljava/security/interfaces/ECPublicKey;
+    iget-object v0, p0, Lcom/google/crypto/tink/subtle/EcdsaVerifyJce;->publicKey:Ljava/security/interfaces/ECPublicKey;
 
-    invoke-interface {v1}, Ljava/security/interfaces/ECPublicKey;->getParams()Ljava/security/spec/ECParameterSpec;
+    invoke-interface {v0}, Ljava/security/interfaces/ECPublicKey;->getParams()Ljava/security/spec/ECParameterSpec;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/security/spec/ECParameterSpec;->getCurve()Ljava/security/spec/EllipticCurve;
+    invoke-virtual {v0}, Ljava/security/spec/ECParameterSpec;->getCurve()Ljava/security/spec/EllipticCurve;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 50
-    .local v1, "curve":Ljava/security/spec/EllipticCurve;
-    array-length v2, p1
+    array-length v1, p1
 
-    invoke-static {v1}, Lcom/google/crypto/tink/subtle/EllipticCurves;->fieldSizeInBytes(Ljava/security/spec/EllipticCurve;)I
+    invoke-static {v0}, Lcom/google/crypto/tink/subtle/EllipticCurves;->fieldSizeInBytes(Ljava/security/spec/EllipticCurve;)I
 
-    move-result v4
+    move-result v0
 
-    mul-int/lit8 v4, v4, 0x2
+    mul-int/lit8 v0, v0, 0x2
 
-    if-ne v2, v4, :cond_0
+    if-ne v1, v0, :cond_0
 
     .line 53
     invoke-static {p1}, Lcom/google/crypto/tink/subtle/EllipticCurves;->ecdsaIeee2Der([B)[B
 
-    move-result-object v0
+    move-result-object p1
 
     goto :goto_0
 
     .line 51
     :cond_0
-    new-instance v2, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    invoke-direct {v2, v3}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v2}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p1
 
     .line 55
-    .end local v1    # "curve":Ljava/security/spec/EllipticCurve;
     :cond_1
     :goto_0
-    invoke-static {v0}, Lcom/google/crypto/tink/subtle/EllipticCurves;->isValidDerEncoding([B)Z
+    invoke-static {p1}, Lcom/google/crypto/tink/subtle/EllipticCurves;->isValidDerEncoding([B)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_3
+    if-eqz v0, :cond_3
 
     .line 58
-    sget-object v1, Lcom/google/crypto/tink/subtle/EngineFactory;->SIGNATURE:Lcom/google/crypto/tink/subtle/EngineFactory;
+    sget-object v0, Lcom/google/crypto/tink/subtle/EngineFactory;->SIGNATURE:Lcom/google/crypto/tink/subtle/EngineFactory;
 
-    iget-object v2, p0, Lcom/google/crypto/tink/subtle/EcdsaVerifyJce;->signatureAlgorithm:Ljava/lang/String;
+    iget-object v1, p0, Lcom/google/crypto/tink/subtle/EcdsaVerifyJce;->signatureAlgorithm:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Lcom/google/crypto/tink/subtle/EngineFactory;->getInstance(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/subtle/EngineFactory;->getInstance(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ljava/security/Signature;
+    check-cast v0, Ljava/security/Signature;
 
     .line 59
-    .local v1, "verifier":Ljava/security/Signature;
-    iget-object v2, p0, Lcom/google/crypto/tink/subtle/EcdsaVerifyJce;->publicKey:Ljava/security/interfaces/ECPublicKey;
+    iget-object v1, p0, Lcom/google/crypto/tink/subtle/EcdsaVerifyJce;->publicKey:Ljava/security/interfaces/ECPublicKey;
 
-    invoke-virtual {v1, v2}, Ljava/security/Signature;->initVerify(Ljava/security/PublicKey;)V
+    invoke-virtual {v0, v1}, Ljava/security/Signature;->initVerify(Ljava/security/PublicKey;)V
 
     .line 60
-    invoke-virtual {v1, p2}, Ljava/security/Signature;->update([B)V
-
-    .line 61
-    const/4 v2, 0x0
+    invoke-virtual {v0, p2}, Ljava/security/Signature;->update([B)V
 
     .line 63
-    .local v2, "verified":Z
     :try_start_0
-    invoke-virtual {v1, v0}, Ljava/security/Signature;->verify([B)Z
+    invoke-virtual {v0, p1}, Ljava/security/Signature;->verify([B)Z
 
-    move-result v4
+    move-result p1
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move v2, v4
-
-    .line 66
     goto :goto_1
 
-    .line 64
     :catch_0
-    move-exception v4
+    const/4 p1, 0x0
 
-    .line 65
-    .local v4, "ex":Ljava/lang/RuntimeException;
-    const/4 v2, 0x0
-
-    .line 67
-    .end local v4    # "ex":Ljava/lang/RuntimeException;
     :goto_1
-    if-eqz v2, :cond_2
+    if-eqz p1, :cond_2
 
-    .line 70
     return-void
 
     .line 68
     :cond_2
-    new-instance v4, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    invoke-direct {v4, v3}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v2}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v4
+    throw p1
 
     .line 56
-    .end local v1    # "verifier":Ljava/security/Signature;
-    .end local v2    # "verified":Z
     :cond_3
-    new-instance v1, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    invoke-direct {v1, v3}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v2}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 .end method

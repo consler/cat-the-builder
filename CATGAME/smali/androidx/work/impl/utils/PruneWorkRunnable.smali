@@ -14,8 +14,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/work/impl/WorkManagerImpl;)V
-    .locals 1
-    .param p1, "workManagerImpl"    # Landroidx/work/impl/WorkManagerImpl;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -32,13 +31,12 @@
     iput-object p1, p0, Landroidx/work/impl/utils/PruneWorkRunnable;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
 
     .line 41
-    new-instance v0, Landroidx/work/impl/OperationImpl;
+    new-instance p1, Landroidx/work/impl/OperationImpl;
 
-    invoke-direct {v0}, Landroidx/work/impl/OperationImpl;-><init>()V
+    invoke-direct {p1}, Landroidx/work/impl/OperationImpl;-><init>()V
 
-    iput-object v0, p0, Landroidx/work/impl/utils/PruneWorkRunnable;->mOperation:Landroidx/work/impl/OperationImpl;
+    iput-object p1, p0, Landroidx/work/impl/utils/PruneWorkRunnable;->mOperation:Landroidx/work/impl/OperationImpl;
 
-    .line 42
     return-void
 .end method
 
@@ -54,7 +52,7 @@
 .end method
 
 .method public run()V
-    .locals 4
+    .locals 3
 
     .line 55
     :try_start_0
@@ -65,35 +63,28 @@
     move-result-object v0
 
     .line 56
-    .local v0, "workDatabase":Landroidx/work/impl/WorkDatabase;
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->workSpecDao()Landroidx/work/impl/model/WorkSpecDao;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 57
-    .local v1, "workSpecDao":Landroidx/work/impl/model/WorkSpecDao;
-    invoke-interface {v1}, Landroidx/work/impl/model/WorkSpecDao;->pruneFinishedWorkWithZeroDependentsIgnoringKeepForAtLeast()V
+    invoke-interface {v0}, Landroidx/work/impl/model/WorkSpecDao;->pruneFinishedWorkWithZeroDependentsIgnoringKeepForAtLeast()V
 
     .line 58
-    iget-object v2, p0, Landroidx/work/impl/utils/PruneWorkRunnable;->mOperation:Landroidx/work/impl/OperationImpl;
+    iget-object v0, p0, Landroidx/work/impl/utils/PruneWorkRunnable;->mOperation:Landroidx/work/impl/OperationImpl;
 
-    sget-object v3, Landroidx/work/Operation;->SUCCESS:Landroidx/work/Operation$State$SUCCESS;
+    sget-object v1, Landroidx/work/Operation;->SUCCESS:Landroidx/work/Operation$State$SUCCESS;
 
-    invoke-virtual {v2, v3}, Landroidx/work/impl/OperationImpl;->setState(Landroidx/work/Operation$State;)V
+    invoke-virtual {v0, v1}, Landroidx/work/impl/OperationImpl;->setState(Landroidx/work/Operation$State;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 61
-    .end local v0    # "workDatabase":Landroidx/work/impl/WorkDatabase;
-    .end local v1    # "workSpecDao":Landroidx/work/impl/model/WorkSpecDao;
     goto :goto_0
 
-    .line 59
     :catchall_0
     move-exception v0
 
     .line 60
-    .local v0, "exception":Ljava/lang/Throwable;
     iget-object v1, p0, Landroidx/work/impl/utils/PruneWorkRunnable;->mOperation:Landroidx/work/impl/OperationImpl;
 
     new-instance v2, Landroidx/work/Operation$State$FAILURE;
@@ -102,8 +93,6 @@
 
     invoke-virtual {v1, v2}, Landroidx/work/impl/OperationImpl;->setState(Landroidx/work/Operation$State;)V
 
-    .line 62
-    .end local v0    # "exception":Ljava/lang/Throwable;
     :goto_0
     return-void
 .end method

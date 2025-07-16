@@ -38,8 +38,6 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/lang3/builder/DiffBuilder;Ljava/lang/String;[C[C)V
     .locals 0
-    .param p1, "this$0"    # Lorg/apache/commons/lang3/builder/DiffBuilder;
-    .param p2, "fieldName"    # Ljava/lang/String;
 
     .line 371
     iput-object p1, p0, Lorg/apache/commons/lang3/builder/DiffBuilder$6;->this$0:Lorg/apache/commons/lang3/builder/DiffBuilder;

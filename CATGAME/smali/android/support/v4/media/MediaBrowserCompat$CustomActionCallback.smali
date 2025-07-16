@@ -28,30 +28,18 @@
 # virtual methods
 .method public onError(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "action"    # Ljava/lang/String;
-    .param p2, "extras"    # Landroid/os/Bundle;
-    .param p3, "data"    # Landroid/os/Bundle;
 
-    .line 966
     return-void
 .end method
 
 .method public onProgressUpdate(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "action"    # Ljava/lang/String;
-    .param p2, "extras"    # Landroid/os/Bundle;
-    .param p3, "data"    # Landroid/os/Bundle;
 
-    .line 945
     return-void
 .end method
 
 .method public onResult(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "action"    # Ljava/lang/String;
-    .param p2, "extras"    # Landroid/os/Bundle;
-    .param p3, "resultData"    # Landroid/os/Bundle;
 
-    .line 955
     return-void
 .end method

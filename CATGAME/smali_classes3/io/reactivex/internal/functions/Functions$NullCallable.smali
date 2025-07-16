@@ -41,7 +41,6 @@
 .method public call()Ljava/lang/Object;
     .locals 1
 
-    .line 730
     const/4 v0, 0x0
 
     return-object v0

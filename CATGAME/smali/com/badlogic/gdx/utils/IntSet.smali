@@ -53,59 +53,52 @@
 .method public constructor <init>()V
     .locals 2
 
-    .line 51
     const/16 v0, 0x33
 
     const v1, 0x3f4ccccd    # 0.8f
 
+    .line 51
     invoke-direct {p0, v0, v1}, Lcom/badlogic/gdx/utils/IntSet;-><init>(IF)V
 
-    .line 52
     return-void
 .end method
 
 .method public constructor <init>(I)V
     .locals 1
-    .param p1, "initialCapacity"    # I
 
-    .line 57
     const v0, 0x3f4ccccd    # 0.8f
 
+    .line 57
     invoke-direct {p0, p1, v0}, Lcom/badlogic/gdx/utils/IntSet;-><init>(IF)V
 
-    .line 58
     return-void
 .end method
 
 .method public constructor <init>(IF)V
-    .locals 4
-    .param p1, "initialCapacity"    # I
-    .param p2, "loadFactor"    # F
+    .locals 2
 
     .line 63
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 64
     if-ltz p1, :cond_2
 
+    int-to-float p1, p1
+
+    div-float/2addr p1, p2
+
+    float-to-double v0, p1
+
     .line 65
-    int-to-float v0, p1
-
-    div-float/2addr v0, p2
-
-    float-to-double v0, v0
-
     invoke-static {v0, v1}, Ljava/lang/Math;->ceil(D)D
 
     move-result-wide v0
 
-    double-to-int v0, v0
+    double-to-int p1, v0
 
-    invoke-static {v0}, Lcom/badlogic/gdx/math/MathUtils;->nextPowerOfTwo(I)I
+    invoke-static {p1}, Lcom/badlogic/gdx/math/MathUtils;->nextPowerOfTwo(I)I
 
     move-result p1
 
-    .line 66
     const/high16 v0, 0x40000000    # 2.0f
 
     if-gt p1, v0, :cond_1
@@ -113,7 +106,6 @@
     .line 67
     iput p1, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
 
-    .line 69
     const/4 v0, 0x0
 
     cmpg-float v0, p2, v0
@@ -123,165 +115,163 @@
     .line 70
     iput p2, p0, Lcom/badlogic/gdx/utils/IntSet;->loadFactor:F
 
-    .line 72
     int-to-float v0, p1
 
     mul-float/2addr v0, p2
 
-    float-to-int v0, v0
+    float-to-int p2, v0
 
-    iput v0, p0, Lcom/badlogic/gdx/utils/IntSet;->threshold:I
+    .line 72
+    iput p2, p0, Lcom/badlogic/gdx/utils/IntSet;->threshold:I
+
+    add-int/lit8 p2, p1, -0x1
 
     .line 73
-    add-int/lit8 v0, p1, -0x1
-
-    iput v0, p0, Lcom/badlogic/gdx/utils/IntSet;->mask:I
+    iput p2, p0, Lcom/badlogic/gdx/utils/IntSet;->mask:I
 
     .line 74
     invoke-static {p1}, Ljava/lang/Integer;->numberOfTrailingZeros(I)I
 
-    move-result v0
+    move-result p1
 
-    rsub-int/lit8 v0, v0, 0x1f
+    rsub-int/lit8 p1, p1, 0x1f
 
-    iput v0, p0, Lcom/badlogic/gdx/utils/IntSet;->hashShift:I
+    iput p1, p0, Lcom/badlogic/gdx/utils/IntSet;->hashShift:I
 
     .line 75
-    const/4 v0, 0x3
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
 
-    iget v1, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
+    int-to-double p1, p1
 
-    int-to-double v1, v1
+    invoke-static {p1, p2}, Ljava/lang/Math;->log(D)D
 
-    invoke-static {v1, v2}, Ljava/lang/Math;->log(D)D
+    move-result-wide p1
 
-    move-result-wide v1
+    invoke-static {p1, p2}, Ljava/lang/Math;->ceil(D)D
 
-    invoke-static {v1, v2}, Ljava/lang/Math;->ceil(D)D
+    move-result-wide p1
 
-    move-result-wide v1
+    double-to-int p1, p1
 
-    double-to-int v1, v1
+    mul-int/lit8 p1, p1, 0x2
 
-    mul-int/lit8 v1, v1, 0x2
+    const/4 p2, 0x3
 
-    invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
+    invoke-static {p2, p1}, Ljava/lang/Math;->max(II)I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/badlogic/gdx/utils/IntSet;->stashCapacity:I
+    iput p1, p0, Lcom/badlogic/gdx/utils/IntSet;->stashCapacity:I
 
     .line 76
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
+
+    const/16 p2, 0x8
+
+    invoke-static {p1, p2}, Ljava/lang/Math;->min(II)I
+
+    move-result p1
+
     iget v0, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
 
-    const/16 v1, 0x8
+    int-to-double v0, v0
 
-    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
+    invoke-static {v0, v1}, Ljava/lang/Math;->sqrt(D)D
 
-    move-result v0
+    move-result-wide v0
 
-    iget v2, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
+    double-to-int v0, v0
 
-    int-to-double v2, v2
+    div-int/2addr v0, p2
 
-    invoke-static {v2, v3}, Ljava/lang/Math;->sqrt(D)D
+    invoke-static {p1, v0}, Ljava/lang/Math;->max(II)I
 
-    move-result-wide v2
+    move-result p1
 
-    double-to-int v2, v2
-
-    div-int/2addr v2, v1
-
-    invoke-static {v0, v2}, Ljava/lang/Math;->max(II)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/badlogic/gdx/utils/IntSet;->pushIterations:I
+    iput p1, p0, Lcom/badlogic/gdx/utils/IntSet;->pushIterations:I
 
     .line 78
-    iget v0, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
 
-    iget v1, p0, Lcom/badlogic/gdx/utils/IntSet;->stashCapacity:I
+    iget p2, p0, Lcom/badlogic/gdx/utils/IntSet;->stashCapacity:I
 
-    add-int/2addr v0, v1
+    add-int/2addr p1, p2
 
-    new-array v0, v0, [I
+    new-array p1, p1, [I
 
-    iput-object v0, p0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
+    iput-object p1, p0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
 
-    .line 79
     return-void
 
     .line 69
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "loadFactor must be > 0: "
 
-    const-string v2, "loadFactor must be > 0: "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 66
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p2, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "initialCapacity is too large: "
 
-    const-string v2, "initialCapacity is too large: "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p2
 
     .line 64
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p2, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "initialCapacity must be >= 0: "
 
-    const-string v2, "initialCapacity must be >= 0: "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p2
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/utils/IntSet;)V
     .locals 4
-    .param p1, "set"    # Lcom/badlogic/gdx/utils/IntSet;
 
     .line 83
     iget v0, p1, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
@@ -326,178 +316,146 @@
     iput v0, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
     .line 87
-    iget-boolean v0, p1, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
+    iget-boolean p1, p1, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
+    iput-boolean p1, p0, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
 
-    .line 88
     return-void
 .end method
 
 .method private addResize(I)V
-    .locals 15
-    .param p1, "key"    # I
-
-    .line 170
-    move-object v8, p0
+    .locals 10
 
     const/4 v0, 0x1
 
     if-nez p1, :cond_0
 
     .line 171
-    iput-boolean v0, v8, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
+    iput-boolean v0, p0, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
 
-    .line 172
     return-void
 
     .line 176
     :cond_0
-    iget v1, v8, Lcom/badlogic/gdx/utils/IntSet;->mask:I
+    iget v1, p0, Lcom/badlogic/gdx/utils/IntSet;->mask:I
 
-    and-int v9, p1, v1
+    and-int v4, p1, v1
 
     .line 177
-    .local v9, "index1":I
-    iget-object v1, v8, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
+    iget-object v1, p0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
 
-    aget v10, v1, v9
+    aget v5, v1, v4
 
-    .line 178
-    .local v10, "key1":I
-    if-nez v10, :cond_2
+    if-nez v5, :cond_2
 
     .line 179
-    aput p1, v1, v9
+    aput p1, v1, v4
 
     .line 180
-    iget v1, v8, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    add-int/lit8 v2, v1, 0x1
+    add-int/lit8 v1, p1, 0x1
 
-    iput v2, v8, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iput v1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    iget v2, v8, Lcom/badlogic/gdx/utils/IntSet;->threshold:I
+    iget v1, p0, Lcom/badlogic/gdx/utils/IntSet;->threshold:I
 
-    if-lt v1, v2, :cond_1
+    if-lt p1, v1, :cond_1
 
-    iget v1, v8, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
 
-    shl-int/lit8 v0, v1, 0x1
+    shl-int/2addr p1, v0
 
-    invoke-direct {p0, v0}, Lcom/badlogic/gdx/utils/IntSet;->resize(I)V
+    invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->resize(I)V
 
-    .line 181
     :cond_1
     return-void
 
     .line 184
     :cond_2
-    invoke-direct/range {p0 .. p1}, Lcom/badlogic/gdx/utils/IntSet;->hash2(I)I
+    invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->hash2(I)I
 
-    move-result v11
+    move-result v6
 
     .line 185
-    .local v11, "index2":I
-    iget-object v1, v8, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
+    iget-object v1, p0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
 
-    aget v12, v1, v11
+    aget v7, v1, v6
 
-    .line 186
-    .local v12, "key2":I
-    if-nez v12, :cond_4
+    if-nez v7, :cond_4
 
     .line 187
-    aput p1, v1, v11
+    aput p1, v1, v6
 
     .line 188
-    iget v1, v8, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    add-int/lit8 v2, v1, 0x1
+    add-int/lit8 v1, p1, 0x1
 
-    iput v2, v8, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iput v1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    iget v2, v8, Lcom/badlogic/gdx/utils/IntSet;->threshold:I
+    iget v1, p0, Lcom/badlogic/gdx/utils/IntSet;->threshold:I
 
-    if-lt v1, v2, :cond_3
+    if-lt p1, v1, :cond_3
 
-    iget v1, v8, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
 
-    shl-int/lit8 v0, v1, 0x1
+    shl-int/2addr p1, v0
 
-    invoke-direct {p0, v0}, Lcom/badlogic/gdx/utils/IntSet;->resize(I)V
+    invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->resize(I)V
 
-    .line 189
     :cond_3
     return-void
 
     .line 192
     :cond_4
-    invoke-direct/range {p0 .. p1}, Lcom/badlogic/gdx/utils/IntSet;->hash3(I)I
+    invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->hash3(I)I
 
-    move-result v13
+    move-result v8
 
     .line 193
-    .local v13, "index3":I
-    iget-object v1, v8, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
+    iget-object v1, p0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
 
-    aget v14, v1, v13
+    aget v9, v1, v8
 
-    .line 194
-    .local v14, "key3":I
-    if-nez v14, :cond_6
+    if-nez v9, :cond_6
 
     .line 195
-    aput p1, v1, v13
+    aput p1, v1, v8
 
     .line 196
-    iget v1, v8, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    add-int/lit8 v2, v1, 0x1
+    add-int/lit8 v1, p1, 0x1
 
-    iput v2, v8, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iput v1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    iget v2, v8, Lcom/badlogic/gdx/utils/IntSet;->threshold:I
+    iget v1, p0, Lcom/badlogic/gdx/utils/IntSet;->threshold:I
 
-    if-lt v1, v2, :cond_5
+    if-lt p1, v1, :cond_5
 
-    iget v1, v8, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
 
-    shl-int/lit8 v0, v1, 0x1
+    shl-int/2addr p1, v0
 
-    invoke-direct {p0, v0}, Lcom/badlogic/gdx/utils/IntSet;->resize(I)V
+    invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->resize(I)V
 
-    .line 197
     :cond_5
     return-void
 
-    .line 200
     :cond_6
-    move-object v0, p0
+    move-object v2, p0
 
-    move/from16 v1, p1
+    move v3, p1
 
-    move v2, v9
+    .line 200
+    invoke-direct/range {v2 .. v9}, Lcom/badlogic/gdx/utils/IntSet;->push(IIIIIII)V
 
-    move v3, v10
-
-    move v4, v11
-
-    move v5, v12
-
-    move v6, v13
-
-    move v7, v14
-
-    invoke-direct/range {v0 .. v7}, Lcom/badlogic/gdx/utils/IntSet;->push(IIIIIII)V
-
-    .line 201
     return-void
 .end method
 
 .method private addStash(I)V
     .locals 3
-    .param p1, "key"    # I
 
     .line 262
     iget v0, p0, Lcom/badlogic/gdx/utils/IntSet;->stashSize:I
@@ -516,7 +474,6 @@
     .line 265
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->addResize(I)V
 
-    .line 266
     return-void
 
     .line 269
@@ -526,44 +483,38 @@
     add-int/2addr v1, v0
 
     .line 270
-    .local v1, "index":I
     iget-object v2, p0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
 
     aput p1, v2, v1
 
-    .line 271
     add-int/lit8 v0, v0, 0x1
 
+    .line 271
     iput v0, p0, Lcom/badlogic/gdx/utils/IntSet;->stashSize:I
 
     .line 272
-    iget v0, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v0, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iput p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    .line 273
     return-void
 .end method
 
 .method private containsKeyStash(I)Z
     .locals 4
-    .param p1, "key"    # I
 
     .line 382
     iget-object v0, p0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
 
     .line 383
-    .local v0, "keyTable":[I
     iget v1, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
 
-    .local v1, "i":I
     iget v2, p0, Lcom/badlogic/gdx/utils/IntSet;->stashSize:I
 
     add-int/2addr v2, v1
 
-    .local v2, "n":I
     :goto_0
     if-ge v1, v2, :cond_1
 
@@ -572,30 +523,24 @@
 
     if-ne v3, p1, :cond_0
 
-    const/4 v3, 0x1
+    const/4 p1, 0x1
 
-    return v3
+    return p1
 
-    .line 383
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 385
-    .end local v1    # "i":I
-    .end local v2    # "n":I
     :cond_1
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return v1
+    return p1
 .end method
 
 .method private hash2(I)I
-    .locals 2
-    .param p1, "h"    # I
+    .locals 1
 
-    .line 430
     const v0, -0x4b47d1c7
 
     mul-int/2addr p1, v0
@@ -605,20 +550,18 @@
 
     ushr-int v0, p1, v0
 
-    xor-int/2addr v0, p1
+    xor-int/2addr p1, v0
 
-    iget v1, p0, Lcom/badlogic/gdx/utils/IntSet;->mask:I
+    iget v0, p0, Lcom/badlogic/gdx/utils/IntSet;->mask:I
 
-    and-int/2addr v0, v1
+    and-int/2addr p1, v0
 
-    return v0
+    return p1
 .end method
 
 .method private hash3(I)I
-    .locals 2
-    .param p1, "h"    # I
+    .locals 1
 
-    .line 435
     const v0, -0x312e3dbf
 
     mul-int/2addr p1, v0
@@ -628,216 +571,176 @@
 
     ushr-int v0, p1, v0
 
-    xor-int/2addr v0, p1
+    xor-int/2addr p1, v0
 
-    iget v1, p0, Lcom/badlogic/gdx/utils/IntSet;->mask:I
+    iget v0, p0, Lcom/badlogic/gdx/utils/IntSet;->mask:I
 
-    and-int/2addr v0, v1
+    and-int/2addr p1, v0
 
-    return v0
+    return p1
 .end method
 
 .method private push(IIIIIII)V
-    .locals 8
-    .param p1, "insertKey"    # I
-    .param p2, "index1"    # I
-    .param p3, "key1"    # I
-    .param p4, "index2"    # I
-    .param p5, "key2"    # I
-    .param p6, "index3"    # I
-    .param p7, "key3"    # I
+    .locals 6
 
     .line 204
     iget-object v0, p0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
 
     .line 206
-    .local v0, "keyTable":[I
     iget v1, p0, Lcom/badlogic/gdx/utils/IntSet;->mask:I
 
     .line 210
-    .local v1, "mask":I
-    const/4 v2, 0x0
+    iget v2, p0, Lcom/badlogic/gdx/utils/IntSet;->pushIterations:I
 
-    .local v2, "i":I
-    iget v3, p0, Lcom/badlogic/gdx/utils/IntSet;->pushIterations:I
+    const/4 v3, 0x0
 
-    .line 213
-    .local v3, "pushIterations":I
-    :goto_0
+    :cond_0
     const/4 v4, 0x2
 
+    .line 213
     invoke-static {v4}, Lcom/badlogic/gdx/math/MathUtils;->random(I)I
 
     move-result v4
 
     const/4 v5, 0x1
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2
 
-    if-eq v4, v5, :cond_0
-
-    .line 223
-    move v4, p7
+    if-eq v4, v5, :cond_1
 
     .line 224
-    .local v4, "evictedKey":I
     aput p1, v0, p6
 
-    goto :goto_1
+    move p1, p7
 
-    .line 219
-    .end local v4    # "evictedKey":I
-    :cond_0
-    move v4, p5
+    goto :goto_0
 
     .line 220
-    .restart local v4    # "evictedKey":I
+    :cond_1
     aput p1, v0, p4
 
-    .line 221
-    goto :goto_1
+    move p1, p5
 
-    .line 215
-    .end local v4    # "evictedKey":I
-    :cond_1
-    move v4, p3
+    goto :goto_0
 
     .line 216
-    .restart local v4    # "evictedKey":I
+    :cond_2
     aput p1, v0, p2
 
-    .line 217
-    nop
+    move p1, p3
 
-    .line 229
-    :goto_1
-    and-int p2, v4, v1
+    :goto_0
+    and-int p2, p1, v1
 
     .line 230
     aget p3, v0, p2
 
-    .line 231
-    if-nez p3, :cond_3
+    if-nez p3, :cond_4
 
     .line 232
-    aput v4, v0, p2
+    aput p1, v0, p2
 
     .line 233
-    iget v6, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    add-int/lit8 v7, v6, 0x1
+    add-int/lit8 p2, p1, 0x1
 
-    iput v7, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iput p2, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    iget v7, p0, Lcom/badlogic/gdx/utils/IntSet;->threshold:I
+    iget p2, p0, Lcom/badlogic/gdx/utils/IntSet;->threshold:I
 
-    if-lt v6, v7, :cond_2
+    if-lt p1, p2, :cond_3
 
-    iget v6, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
 
-    shl-int/lit8 v5, v6, 0x1
+    shl-int/2addr p1, v5
 
-    invoke-direct {p0, v5}, Lcom/badlogic/gdx/utils/IntSet;->resize(I)V
+    invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->resize(I)V
 
-    .line 234
-    :cond_2
+    :cond_3
     return-void
 
     .line 237
-    :cond_3
-    invoke-direct {p0, v4}, Lcom/badlogic/gdx/utils/IntSet;->hash2(I)I
+    :cond_4
+    invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->hash2(I)I
 
     move-result p4
 
     .line 238
     aget p5, v0, p4
 
-    .line 239
-    if-nez p5, :cond_5
+    if-nez p5, :cond_6
 
     .line 240
-    aput v4, v0, p4
+    aput p1, v0, p4
 
     .line 241
-    iget v6, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    add-int/lit8 v7, v6, 0x1
+    add-int/lit8 p2, p1, 0x1
 
-    iput v7, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iput p2, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    iget v7, p0, Lcom/badlogic/gdx/utils/IntSet;->threshold:I
+    iget p2, p0, Lcom/badlogic/gdx/utils/IntSet;->threshold:I
 
-    if-lt v6, v7, :cond_4
+    if-lt p1, p2, :cond_5
 
-    iget v6, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
 
-    shl-int/lit8 v5, v6, 0x1
+    shl-int/2addr p1, v5
 
-    invoke-direct {p0, v5}, Lcom/badlogic/gdx/utils/IntSet;->resize(I)V
+    invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->resize(I)V
 
-    .line 242
-    :cond_4
+    :cond_5
     return-void
 
     .line 245
-    :cond_5
-    invoke-direct {p0, v4}, Lcom/badlogic/gdx/utils/IntSet;->hash3(I)I
+    :cond_6
+    invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->hash3(I)I
 
     move-result p6
 
     .line 246
     aget p7, v0, p6
 
-    .line 247
-    if-nez p7, :cond_7
+    if-nez p7, :cond_8
 
     .line 248
-    aput v4, v0, p6
+    aput p1, v0, p6
 
     .line 249
-    iget v6, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    add-int/lit8 v7, v6, 0x1
+    add-int/lit8 p2, p1, 0x1
 
-    iput v7, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iput p2, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    iget v7, p0, Lcom/badlogic/gdx/utils/IntSet;->threshold:I
+    iget p2, p0, Lcom/badlogic/gdx/utils/IntSet;->threshold:I
 
-    if-lt v6, v7, :cond_6
+    if-lt p1, p2, :cond_7
 
-    iget v6, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
 
-    shl-int/lit8 v5, v6, 0x1
+    shl-int/2addr p1, v5
 
-    invoke-direct {p0, v5}, Lcom/badlogic/gdx/utils/IntSet;->resize(I)V
+    invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->resize(I)V
 
-    .line 250
-    :cond_6
+    :cond_7
     return-void
 
-    .line 253
-    :cond_7
-    add-int/lit8 v2, v2, 0x1
+    :cond_8
+    add-int/2addr v3, v5
 
-    if-ne v2, v3, :cond_8
+    if-ne v3, v2, :cond_0
 
     .line 258
-    invoke-direct {p0, v4}, Lcom/badlogic/gdx/utils/IntSet;->addStash(I)V
+    invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->addStash(I)V
 
-    .line 259
     return-void
-
-    .line 255
-    :cond_8
-    move p1, v4
-
-    .line 256
-    goto :goto_0
 .end method
 
 .method private resize(I)V
     .locals 5
-    .param p1, "newSize"    # I
 
     .line 405
     iget v0, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
@@ -847,12 +750,11 @@
     add-int/2addr v0, v1
 
     .line 407
-    .local v0, "oldEndIndex":I
     iput p1, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
 
-    .line 408
     int-to-float v1, p1
 
+    .line 408
     iget v2, p0, Lcom/badlogic/gdx/utils/IntSet;->loadFactor:F
 
     mul-float/2addr v1, v2
@@ -861,9 +763,9 @@
 
     iput v1, p0, Lcom/badlogic/gdx/utils/IntSet;->threshold:I
 
-    .line 409
     add-int/lit8 v1, p1, -0x1
 
+    .line 409
     iput v1, p0, Lcom/badlogic/gdx/utils/IntSet;->mask:I
 
     .line 410
@@ -875,47 +777,45 @@
 
     iput v1, p0, Lcom/badlogic/gdx/utils/IntSet;->hashShift:I
 
-    .line 411
     int-to-double v1, p1
 
+    .line 411
     invoke-static {v1, v2}, Ljava/lang/Math;->log(D)D
 
-    move-result-wide v1
+    move-result-wide v3
 
-    invoke-static {v1, v2}, Ljava/lang/Math;->ceil(D)D
-
-    move-result-wide v1
-
-    double-to-int v1, v1
-
-    mul-int/lit8 v1, v1, 0x2
-
-    const/4 v2, 0x3
-
-    invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
-
-    move-result v1
-
-    iput v1, p0, Lcom/badlogic/gdx/utils/IntSet;->stashCapacity:I
-
-    .line 412
-    const/16 v1, 0x8
-
-    invoke-static {p1, v1}, Ljava/lang/Math;->min(II)I
-
-    move-result v2
-
-    int-to-double v3, p1
-
-    invoke-static {v3, v4}, Ljava/lang/Math;->sqrt(D)D
+    invoke-static {v3, v4}, Ljava/lang/Math;->ceil(D)D
 
     move-result-wide v3
 
     double-to-int v3, v3
 
-    div-int/2addr v3, v1
+    mul-int/lit8 v3, v3, 0x2
 
-    invoke-static {v2, v3}, Ljava/lang/Math;->max(II)I
+    const/4 v4, 0x3
+
+    invoke-static {v4, v3}, Ljava/lang/Math;->max(II)I
+
+    move-result v3
+
+    iput v3, p0, Lcom/badlogic/gdx/utils/IntSet;->stashCapacity:I
+
+    const/16 v3, 0x8
+
+    .line 412
+    invoke-static {p1, v3}, Ljava/lang/Math;->min(II)I
+
+    move-result v4
+
+    invoke-static {v1, v2}, Ljava/lang/Math;->sqrt(D)D
+
+    move-result-wide v1
+
+    double-to-int v1, v1
+
+    div-int/2addr v1, v3
+
+    invoke-static {v4, v1}, Ljava/lang/Math;->max(II)I
 
     move-result v1
 
@@ -925,64 +825,51 @@
     iget-object v1, p0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
 
     .line 416
-    .local v1, "oldKeyTable":[I
     iget v2, p0, Lcom/badlogic/gdx/utils/IntSet;->stashCapacity:I
 
-    add-int/2addr v2, p1
+    add-int/2addr p1, v2
 
-    new-array v2, v2, [I
+    new-array p1, p1, [I
 
-    iput-object v2, p0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
+    iput-object p1, p0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
 
     .line 418
-    iget v2, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
     .line 419
-    .local v2, "oldSize":I
-    iget-boolean v3, p0, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
+    iget-boolean v2, p0, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
 
-    iput v3, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iput v2, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
+
+    const/4 v2, 0x0
 
     .line 420
-    const/4 v3, 0x0
+    iput v2, p0, Lcom/badlogic/gdx/utils/IntSet;->stashSize:I
 
-    iput v3, p0, Lcom/badlogic/gdx/utils/IntSet;->stashSize:I
+    if-lez p1, :cond_1
 
-    .line 421
-    if-lez v2, :cond_1
-
-    .line 422
-    const/4 v3, 0x0
-
-    .local v3, "i":I
     :goto_0
-    if-ge v3, v0, :cond_1
+    if-ge v2, v0, :cond_1
 
     .line 423
-    aget v4, v1, v3
+    aget p1, v1, v2
+
+    if-eqz p1, :cond_0
 
     .line 424
-    .local v4, "key":I
-    if-eqz v4, :cond_0
+    invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->addResize(I)V
 
-    invoke-direct {p0, v4}, Lcom/badlogic/gdx/utils/IntSet;->addResize(I)V
-
-    .line 422
-    .end local v4    # "key":I
     :cond_0
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 427
-    .end local v3    # "i":I
     :cond_1
     return-void
 .end method
 
 .method public static varargs with([I)Lcom/badlogic/gdx/utils/IntSet;
     .locals 1
-    .param p0, "array"    # [I
 
     .line 506
     new-instance v0, Lcom/badlogic/gdx/utils/IntSet;
@@ -990,277 +877,226 @@
     invoke-direct {v0}, Lcom/badlogic/gdx/utils/IntSet;-><init>()V
 
     .line 507
-    .local v0, "set":Lcom/badlogic/gdx/utils/IntSet;
     invoke-virtual {v0, p0}, Lcom/badlogic/gdx/utils/IntSet;->addAll([I)V
 
-    .line 508
     return-object v0
 .end method
 
 
 # virtual methods
 .method public add(I)Z
-    .locals 18
-    .param p1, "key"    # I
-
-    .line 92
-    move-object/from16 v8, p0
-
-    move/from16 v9, p1
+    .locals 12
 
     const/4 v0, 0x0
 
-    const/4 v10, 0x1
+    const/4 v1, 0x1
 
-    if-nez v9, :cond_1
+    if-nez p1, :cond_1
 
     .line 93
-    iget-boolean v1, v8, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
+    iget-boolean p1, p0, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
 
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
     return v0
 
     .line 94
     :cond_0
-    iput-boolean v10, v8, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
+    iput-boolean v1, p0, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
 
     .line 95
-    iget v0, v8, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    add-int/2addr v0, v10
+    add-int/2addr p1, v1
 
-    iput v0, v8, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iput p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    .line 96
-    return v10
+    return v1
 
     .line 99
     :cond_1
-    iget-object v11, v8, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
+    iget-object v2, p0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
 
     .line 102
-    .local v11, "keyTable":[I
-    iget v1, v8, Lcom/badlogic/gdx/utils/IntSet;->mask:I
+    iget v3, p0, Lcom/badlogic/gdx/utils/IntSet;->mask:I
 
-    and-int v12, v9, v1
+    and-int v6, p1, v3
 
     .line 103
-    .local v12, "index1":I
-    aget v13, v11, v12
+    aget v7, v2, v6
 
-    .line 104
-    .local v13, "key1":I
-    if-ne v13, v9, :cond_2
+    if-ne v7, p1, :cond_2
 
     return v0
 
     .line 106
     :cond_2
-    invoke-direct/range {p0 .. p1}, Lcom/badlogic/gdx/utils/IntSet;->hash2(I)I
+    invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->hash2(I)I
 
-    move-result v14
+    move-result v8
 
     .line 107
-    .local v14, "index2":I
-    aget v15, v11, v14
+    aget v9, v2, v8
 
-    .line 108
-    .local v15, "key2":I
-    if-ne v15, v9, :cond_3
+    if-ne v9, p1, :cond_3
 
     return v0
 
     .line 110
     :cond_3
-    invoke-direct/range {p0 .. p1}, Lcom/badlogic/gdx/utils/IntSet;->hash3(I)I
+    invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->hash3(I)I
 
-    move-result v16
+    move-result v10
 
     .line 111
-    .local v16, "index3":I
-    aget v7, v11, v16
+    aget v11, v2, v10
 
-    .line 112
-    .local v7, "key3":I
-    if-ne v7, v9, :cond_4
+    if-ne v11, p1, :cond_4
 
     return v0
 
     .line 115
     :cond_4
-    iget v1, v8, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
+    iget v3, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
 
-    .local v1, "i":I
-    iget v2, v8, Lcom/badlogic/gdx/utils/IntSet;->stashSize:I
+    iget v4, p0, Lcom/badlogic/gdx/utils/IntSet;->stashSize:I
 
-    add-int/2addr v2, v1
+    add-int/2addr v4, v3
 
-    .local v2, "n":I
     :goto_0
-    if-ge v1, v2, :cond_6
+    if-ge v3, v4, :cond_6
 
     .line 116
-    aget v3, v11, v1
+    aget v5, v2, v3
 
-    if-ne v3, v9, :cond_5
+    if-ne v5, p1, :cond_5
 
     return v0
 
-    .line 115
     :cond_5
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 119
-    .end local v1    # "i":I
-    .end local v2    # "n":I
     :cond_6
-    if-nez v13, :cond_8
+    if-nez v7, :cond_8
 
     .line 120
-    aput v9, v11, v12
+    aput p1, v2, v6
 
     .line 121
-    iget v0, v8, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    add-int/lit8 v1, v0, 0x1
+    add-int/lit8 v0, p1, 0x1
 
-    iput v1, v8, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iput v0, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    iget v1, v8, Lcom/badlogic/gdx/utils/IntSet;->threshold:I
+    iget v0, p0, Lcom/badlogic/gdx/utils/IntSet;->threshold:I
 
-    if-lt v0, v1, :cond_7
+    if-lt p1, v0, :cond_7
 
-    iget v0, v8, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
 
-    shl-int/2addr v0, v10
+    shl-int/2addr p1, v1
 
-    invoke-direct {v8, v0}, Lcom/badlogic/gdx/utils/IntSet;->resize(I)V
+    invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->resize(I)V
 
-    .line 122
     :cond_7
-    return v10
+    return v1
 
-    .line 125
     :cond_8
-    if-nez v15, :cond_a
+    if-nez v9, :cond_a
 
     .line 126
-    aput v9, v11, v14
+    aput p1, v2, v8
 
     .line 127
-    iget v0, v8, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    add-int/lit8 v1, v0, 0x1
+    add-int/lit8 v0, p1, 0x1
 
-    iput v1, v8, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iput v0, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    iget v1, v8, Lcom/badlogic/gdx/utils/IntSet;->threshold:I
+    iget v0, p0, Lcom/badlogic/gdx/utils/IntSet;->threshold:I
 
-    if-lt v0, v1, :cond_9
+    if-lt p1, v0, :cond_9
 
-    iget v0, v8, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
 
-    shl-int/2addr v0, v10
+    shl-int/2addr p1, v1
 
-    invoke-direct {v8, v0}, Lcom/badlogic/gdx/utils/IntSet;->resize(I)V
+    invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->resize(I)V
 
-    .line 128
     :cond_9
-    return v10
+    return v1
 
-    .line 131
     :cond_a
-    if-nez v7, :cond_c
+    if-nez v11, :cond_c
 
     .line 132
-    aput v9, v11, v16
+    aput p1, v2, v10
 
     .line 133
-    iget v0, v8, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    add-int/lit8 v1, v0, 0x1
+    add-int/lit8 v0, p1, 0x1
 
-    iput v1, v8, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iput v0, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    iget v1, v8, Lcom/badlogic/gdx/utils/IntSet;->threshold:I
+    iget v0, p0, Lcom/badlogic/gdx/utils/IntSet;->threshold:I
 
-    if-lt v0, v1, :cond_b
+    if-lt p1, v0, :cond_b
 
-    iget v0, v8, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
 
-    shl-int/2addr v0, v10
+    shl-int/2addr p1, v1
 
-    invoke-direct {v8, v0}, Lcom/badlogic/gdx/utils/IntSet;->resize(I)V
+    invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->resize(I)V
 
-    .line 134
     :cond_b
-    return v10
+    return v1
+
+    :cond_c
+    move-object v4, p0
+
+    move v5, p1
 
     .line 137
-    :cond_c
-    move-object/from16 v0, p0
+    invoke-direct/range {v4 .. v11}, Lcom/badlogic/gdx/utils/IntSet;->push(IIIIIII)V
 
-    move/from16 v1, p1
-
-    move v2, v12
-
-    move v3, v13
-
-    move v4, v14
-
-    move v5, v15
-
-    move/from16 v6, v16
-
-    move/from16 v17, v7
-
-    .end local v7    # "key3":I
-    .local v17, "key3":I
-    invoke-direct/range {v0 .. v7}, Lcom/badlogic/gdx/utils/IntSet;->push(IIIIIII)V
-
-    .line 138
-    return v10
+    return v1
 .end method
 
 .method public addAll(Lcom/badlogic/gdx/utils/IntArray;)V
-    .locals 3
-    .param p1, "array"    # Lcom/badlogic/gdx/utils/IntArray;
+    .locals 2
 
     .line 142
     iget-object v0, p1, Lcom/badlogic/gdx/utils/IntArray;->items:[I
 
-    iget v1, p1, Lcom/badlogic/gdx/utils/IntArray;->size:I
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    iget p1, p1, Lcom/badlogic/gdx/utils/IntArray;->size:I
 
-    invoke-virtual {p0, v0, v2, v1}, Lcom/badlogic/gdx/utils/IntSet;->addAll([III)V
+    invoke-virtual {p0, v0, v1, p1}, Lcom/badlogic/gdx/utils/IntSet;->addAll([III)V
 
-    .line 143
     return-void
 .end method
 
 .method public addAll(Lcom/badlogic/gdx/utils/IntArray;II)V
     .locals 3
-    .param p1, "array"    # Lcom/badlogic/gdx/utils/IntArray;
-    .param p2, "offset"    # I
-    .param p3, "length"    # I
 
-    .line 146
     add-int v0, p2, p3
 
+    .line 146
     iget v1, p1, Lcom/badlogic/gdx/utils/IntArray;->size:I
 
     if-gt v0, v1, :cond_0
 
     .line 148
-    iget-object v0, p1, Lcom/badlogic/gdx/utils/IntArray;->items:[I
+    iget-object p1, p1, Lcom/badlogic/gdx/utils/IntArray;->items:[I
 
-    invoke-virtual {p0, v0, p2, p3}, Lcom/badlogic/gdx/utils/IntSet;->addAll([III)V
+    invoke-virtual {p0, p1, p2, p3}, Lcom/badlogic/gdx/utils/IntSet;->addAll([III)V
 
-    .line 149
     return-void
 
     .line 147
@@ -1269,40 +1105,47 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "offset + length must be <= size: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v2, " + "
+    move-result-object p2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " + "
 
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, " <= "
+    move-result-object p2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    iget v2, p1, Lcom/badlogic/gdx/utils/IntArray;->size:I
+    move-result-object p2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string p3, " <= "
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    iget p1, p1, Lcom/badlogic/gdx/utils/IntArray;->size:I
+
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public addAll(Lcom/badlogic/gdx/utils/IntSet;)V
-    .locals 2
-    .param p1, "set"    # Lcom/badlogic/gdx/utils/IntSet;
+    .locals 1
 
     .line 162
     iget v0, p1, Lcom/badlogic/gdx/utils/IntSet;->size:I
@@ -1312,76 +1155,60 @@
     .line 163
     invoke-virtual {p1}, Lcom/badlogic/gdx/utils/IntSet;->iterator()Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 164
-    .local v0, "iterator":Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;
     :goto_0
-    iget-boolean v1, v0, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->hasNext:Z
+    iget-boolean v0, p1, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->hasNext:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 165
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->next()I
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/IntSet$IntSetIterator;->next()I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {p0, v1}, Lcom/badlogic/gdx/utils/IntSet;->add(I)Z
+    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/IntSet;->add(I)Z
 
     goto :goto_0
 
-    .line 166
     :cond_0
     return-void
 .end method
 
 .method public varargs addAll([I)V
     .locals 2
-    .param p1, "array"    # [I
+
+    const/4 v0, 0x0
 
     .line 152
-    array-length v0, p1
+    array-length v1, p1
 
-    const/4 v1, 0x0
+    invoke-virtual {p0, p1, v0, v1}, Lcom/badlogic/gdx/utils/IntSet;->addAll([III)V
 
-    invoke-virtual {p0, p1, v1, v0}, Lcom/badlogic/gdx/utils/IntSet;->addAll([III)V
-
-    .line 153
     return-void
 .end method
 
 .method public addAll([III)V
-    .locals 3
-    .param p1, "array"    # [I
-    .param p2, "offset"    # I
-    .param p3, "length"    # I
+    .locals 1
 
     .line 156
     invoke-virtual {p0, p3}, Lcom/badlogic/gdx/utils/IntSet;->ensureCapacity(I)V
 
-    .line 157
-    move v0, p2
+    add-int/2addr p3, p2
 
-    .local v0, "i":I
-    add-int v1, v0, p3
-
-    .local v1, "n":I
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge p2, p3, :cond_0
 
     .line 158
-    aget v2, p1, v0
+    aget v0, p1, p2
 
-    invoke-virtual {p0, v2}, Lcom/badlogic/gdx/utils/IntSet;->add(I)Z
+    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/IntSet;->add(I)Z
 
-    .line 157
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p2, p2, 0x1
 
     goto :goto_0
 
-    .line 159
-    .end local v0    # "i":I
-    .end local v1    # "n":I
     :cond_0
     return-void
 .end method
@@ -1401,19 +1228,15 @@
     iget-object v0, p0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
 
     .line 361
-    .local v0, "keyTable":[I
     iget v1, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
 
     iget v2, p0, Lcom/badlogic/gdx/utils/IntSet;->stashSize:I
 
     add-int/2addr v1, v2
 
-    .local v1, "i":I
     :goto_0
     add-int/lit8 v2, v1, -0x1
 
-    .end local v1    # "i":I
-    .local v2, "i":I
     const/4 v3, 0x0
 
     if-lez v1, :cond_1
@@ -1426,7 +1249,6 @@
     goto :goto_0
 
     .line 363
-    .end local v2    # "i":I
     :cond_1
     iput v3, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
@@ -1436,13 +1258,11 @@
     .line 365
     iput-boolean v3, p0, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
 
-    .line 366
     return-void
 .end method
 
 .method public clear(I)V
     .locals 1
-    .param p1, "maximumCapacity"    # I
 
     .line 349
     iget v0, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
@@ -1452,13 +1272,12 @@
     .line 350
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/IntSet;->clear()V
 
-    .line 351
     return-void
 
-    .line 353
     :cond_0
     const/4 v0, 0x0
 
+    .line 353
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
 
     .line 354
@@ -1467,20 +1286,18 @@
     .line 355
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->resize(I)V
 
-    .line 356
     return-void
 .end method
 
 .method public contains(I)Z
     .locals 2
-    .param p1, "key"    # I
 
-    .line 369
     if-nez p1, :cond_0
 
-    iget-boolean v0, p0, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
+    .line 369
+    iget-boolean p1, p0, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
 
-    return v0
+    return p1
 
     .line 370
     :cond_0
@@ -1489,12 +1306,11 @@
     and-int/2addr v0, p1
 
     .line 371
-    .local v0, "index":I
     iget-object v1, p0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
 
-    aget v1, v1, v0
+    aget v0, v1, v0
 
-    if-eq v1, p1, :cond_1
+    if-eq v0, p1, :cond_1
 
     .line 372
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->hash2(I)I
@@ -1504,9 +1320,9 @@
     .line 373
     iget-object v1, p0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
 
-    aget v1, v1, v0
+    aget v0, v1, v0
 
-    if-eq v1, p1, :cond_1
+    if-eq v0, p1, :cond_1
 
     .line 374
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->hash3(I)I
@@ -1516,28 +1332,25 @@
     .line 375
     iget-object v1, p0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
 
-    aget v1, v1, v0
+    aget v0, v1, v0
 
-    if-eq v1, p1, :cond_1
+    if-eq v0, p1, :cond_1
 
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->containsKeyStash(I)Z
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 
-    .line 378
     :cond_1
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    return v1
+    return p1
 .end method
 
 .method public ensureCapacity(I)V
     .locals 3
-    .param p1, "additionalCapacity"    # I
 
-    .line 399
     if-ltz p1, :cond_1
 
     .line 400
@@ -1546,62 +1359,58 @@
     add-int/2addr v0, p1
 
     .line 401
-    .local v0, "sizeNeeded":I
-    iget v1, p0, Lcom/badlogic/gdx/utils/IntSet;->threshold:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->threshold:I
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, p1, :cond_0
 
-    int-to-float v1, v0
+    int-to-float p1, v0
 
-    iget v2, p0, Lcom/badlogic/gdx/utils/IntSet;->loadFactor:F
+    iget v0, p0, Lcom/badlogic/gdx/utils/IntSet;->loadFactor:F
 
-    div-float/2addr v1, v2
+    div-float/2addr p1, v0
 
-    float-to-double v1, v1
+    float-to-double v0, p1
 
-    invoke-static {v1, v2}, Ljava/lang/Math;->ceil(D)D
+    invoke-static {v0, v1}, Ljava/lang/Math;->ceil(D)D
 
-    move-result-wide v1
+    move-result-wide v0
 
-    double-to-int v1, v1
+    double-to-int p1, v0
 
-    invoke-static {v1}, Lcom/badlogic/gdx/math/MathUtils;->nextPowerOfTwo(I)I
+    invoke-static {p1}, Lcom/badlogic/gdx/math/MathUtils;->nextPowerOfTwo(I)I
 
-    move-result v1
+    move-result p1
 
-    invoke-direct {p0, v1}, Lcom/badlogic/gdx/utils/IntSet;->resize(I)V
+    invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->resize(I)V
 
-    .line 402
     :cond_0
     return-void
 
     .line 399
-    .end local v0    # "sizeNeeded":I
     :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "additionalCapacity must be >= 0: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 6
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 5
 
     .line 447
     instance-of v0, p1, Lcom/badlogic/gdx/utils/IntSet;
@@ -1614,77 +1423,65 @@
 
     .line 448
     :cond_0
-    move-object v0, p1
-
-    check-cast v0, Lcom/badlogic/gdx/utils/IntSet;
+    check-cast p1, Lcom/badlogic/gdx/utils/IntSet;
 
     .line 449
-    .local v0, "other":Lcom/badlogic/gdx/utils/IntSet;
-    iget v2, v0, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iget v0, p1, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    iget v3, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iget v2, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    if-eq v2, v3, :cond_1
+    if-eq v0, v2, :cond_1
 
     return v1
 
     .line 450
     :cond_1
-    iget-boolean v2, v0, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
+    iget-boolean v0, p1, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
 
-    iget-boolean v3, p0, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
+    iget-boolean v2, p0, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
 
-    if-eq v2, v3, :cond_2
+    if-eq v0, v2, :cond_2
 
     return v1
 
     .line 451
     :cond_2
-    iget-object v2, p0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
 
     .line 452
-    .local v2, "keyTable":[I
-    const/4 v3, 0x0
+    iget v2, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
 
-    .local v3, "i":I
-    iget v4, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
+    iget v3, p0, Lcom/badlogic/gdx/utils/IntSet;->stashSize:I
 
-    iget v5, p0, Lcom/badlogic/gdx/utils/IntSet;->stashSize:I
+    add-int/2addr v2, v3
 
-    add-int/2addr v4, v5
+    move v3, v1
 
-    .local v4, "n":I
     :goto_0
-    if-ge v3, v4, :cond_4
+    if-ge v3, v2, :cond_4
 
     .line 453
-    aget v5, v2, v3
+    aget v4, v0, v3
 
-    if-eqz v5, :cond_3
+    if-eqz v4, :cond_3
 
-    aget v5, v2, v3
+    invoke-virtual {p1, v4}, Lcom/badlogic/gdx/utils/IntSet;->contains(I)Z
 
-    invoke-virtual {v0, v5}, Lcom/badlogic/gdx/utils/IntSet;->contains(I)Z
+    move-result v4
 
-    move-result v5
-
-    if-nez v5, :cond_3
+    if-nez v4, :cond_3
 
     return v1
 
-    .line 452
     :cond_3
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 454
-    .end local v3    # "i":I
-    .end local v4    # "n":I
     :cond_4
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    return v1
+    return p1
 .end method
 
 .method public first()I
@@ -1693,28 +1490,23 @@
     .line 389
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
 
+    const/4 v1, 0x0
+
     if-eqz v0, :cond_0
 
-    const/4 v0, 0x0
-
-    return v0
+    return v1
 
     .line 390
     :cond_0
     iget-object v0, p0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
 
     .line 391
-    .local v0, "keyTable":[I
-    const/4 v1, 0x0
-
-    .local v1, "i":I
     iget v2, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
 
     iget v3, p0, Lcom/badlogic/gdx/utils/IntSet;->stashSize:I
 
     add-int/2addr v2, v3
 
-    .local v2, "n":I
     :goto_0
     if-ge v1, v2, :cond_2
 
@@ -1723,72 +1515,57 @@
 
     if-eqz v3, :cond_1
 
-    aget v3, v0, v1
-
     return v3
 
-    .line 391
     :cond_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 393
-    .end local v1    # "i":I
-    .end local v2    # "n":I
     :cond_2
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    const-string v2, "IntSet is empty."
+    const-string v1, "IntSet is empty."
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public hashCode()I
-    .locals 5
-
-    .line 440
-    const/4 v0, 0x0
+    .locals 4
 
     .line 441
-    .local v0, "h":I
+    iget v0, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
+
+    iget v1, p0, Lcom/badlogic/gdx/utils/IntSet;->stashSize:I
+
+    add-int/2addr v0, v1
+
     const/4 v1, 0x0
 
-    .local v1, "i":I
-    iget v2, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
+    move v2, v1
 
-    iget v3, p0, Lcom/badlogic/gdx/utils/IntSet;->stashSize:I
-
-    add-int/2addr v2, v3
-
-    .local v2, "n":I
     :goto_0
-    if-ge v1, v2, :cond_1
+    if-ge v1, v0, :cond_1
 
     .line 442
     iget-object v3, p0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
 
-    aget v4, v3, v1
-
-    if-eqz v4, :cond_0
-
     aget v3, v3, v1
 
-    add-int/2addr v0, v3
+    if-eqz v3, :cond_0
 
-    .line 441
+    add-int/2addr v2, v3
+
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 443
-    .end local v1    # "i":I
-    .end local v2    # "n":I
     :cond_1
-    return v0
+    return v2
 .end method
 
 .method public isEmpty()Z
@@ -1919,9 +1696,7 @@
 
 .method public remove(I)Z
     .locals 5
-    .param p1, "key"    # I
 
-    .line 277
     const/4 v0, 0x0
 
     const/4 v1, 0x1
@@ -1929,9 +1704,9 @@
     if-nez p1, :cond_1
 
     .line 278
-    iget-boolean v2, p0, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
+    iget-boolean p1, p0, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
 
-    if-nez v2, :cond_0
+    if-nez p1, :cond_0
 
     return v0
 
@@ -1940,13 +1715,12 @@
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
 
     .line 280
-    iget v0, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    sub-int/2addr v0, v1
+    sub-int/2addr p1, v1
 
-    iput v0, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iput p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    .line 281
     return v1
 
     .line 284
@@ -1956,7 +1730,6 @@
     and-int/2addr v2, p1
 
     .line 285
-    .local v2, "index":I
     iget-object v3, p0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
 
     aget v4, v3, v2
@@ -1967,13 +1740,12 @@
     aput v0, v3, v2
 
     .line 287
-    iget v0, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    sub-int/2addr v0, v1
+    sub-int/2addr p1, v1
 
-    iput v0, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iput p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    .line 288
     return v1
 
     .line 291
@@ -1993,13 +1765,12 @@
     aput v0, v3, v2
 
     .line 294
-    iget v0, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    sub-int/2addr v0, v1
+    sub-int/2addr p1, v1
 
-    iput v0, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iput p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    .line 295
     return v1
 
     .line 298
@@ -2019,41 +1790,36 @@
     aput v0, v3, v2
 
     .line 301
-    iget v0, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    sub-int/2addr v0, v1
+    sub-int/2addr p1, v1
 
-    iput v0, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iput p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    .line 302
     return v1
 
     .line 305
     :cond_4
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->removeStash(I)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method removeStash(I)Z
-    .locals 5
-    .param p1, "key"    # I
+    .locals 4
 
     .line 309
     iget-object v0, p0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
 
     .line 310
-    .local v0, "keyTable":[I
     iget v1, p0, Lcom/badlogic/gdx/utils/IntSet;->capacity:I
 
-    .local v1, "i":I
     iget v2, p0, Lcom/badlogic/gdx/utils/IntSet;->stashSize:I
 
     add-int/2addr v2, v1
 
-    .local v2, "n":I
     :goto_0
     if-ge v1, v2, :cond_1
 
@@ -2066,35 +1832,29 @@
     invoke-virtual {p0, v1}, Lcom/badlogic/gdx/utils/IntSet;->removeStashIndex(I)V
 
     .line 313
-    iget v3, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    const/4 v4, 0x1
+    const/4 v0, 0x1
 
-    sub-int/2addr v3, v4
+    sub-int/2addr p1, v0
 
-    iput v3, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    iput p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
 
-    .line 314
-    return v4
+    return v0
 
-    .line 310
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 317
-    .end local v1    # "i":I
-    .end local v2    # "n":I
     :cond_1
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return v1
+    return p1
 .end method
 
 .method removeStashIndex(I)V
-    .locals 3
-    .param p1, "index"    # I
+    .locals 2
 
     .line 322
     iget v0, p0, Lcom/badlogic/gdx/utils/IntSet;->stashSize:I
@@ -2108,26 +1868,22 @@
 
     add-int/2addr v1, v0
 
-    .line 324
-    .local v1, "lastIndex":I
     if-ge p1, v1, :cond_0
 
+    .line 324
     iget-object v0, p0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
 
-    aget v2, v0, v1
+    aget v1, v0, v1
 
-    aput v2, v0, p1
+    aput v1, v0, p1
 
-    .line 325
     :cond_0
     return-void
 .end method
 
 .method public shrink(I)V
     .locals 3
-    .param p1, "maximumCapacity"    # I
 
-    .line 340
     if-ltz p1, :cond_2
 
     .line 341
@@ -2135,7 +1891,7 @@
 
     if-le v0, p1, :cond_0
 
-    iget p1, p0, Lcom/badlogic/gdx/utils/IntSet;->size:I
+    move p1, v0
 
     .line 342
     :cond_0
@@ -2154,7 +1910,6 @@
     .line 344
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntSet;->resize(I)V
 
-    .line 345
     return-void
 
     .line 340
@@ -2163,19 +1918,19 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "maximumCapacity must be >= 0: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
@@ -2200,46 +1955,38 @@
 
     invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/StringBuilder;-><init>(I)V
 
-    .line 460
-    .local v0, "buffer":Lcom/badlogic/gdx/utils/StringBuilder;
     const/16 v1, 0x5b
 
+    .line 460
     invoke-virtual {v0, v1}, Lcom/badlogic/gdx/utils/StringBuilder;->append(C)Lcom/badlogic/gdx/utils/StringBuilder;
 
     .line 461
     iget-object v1, p0, Lcom/badlogic/gdx/utils/IntSet;->keyTable:[I
 
     .line 462
-    .local v1, "keyTable":[I
     array-length v2, v1
 
     .line 463
-    .local v2, "i":I
     iget-boolean v3, p0, Lcom/badlogic/gdx/utils/IntSet;->hasZeroValue:Z
 
     if-eqz v3, :cond_1
 
-    .line 464
     const-string v3, "0"
 
+    .line 464
     invoke-virtual {v0, v3}, Lcom/badlogic/gdx/utils/StringBuilder;->append(Ljava/lang/String;)Lcom/badlogic/gdx/utils/StringBuilder;
 
     goto :goto_2
 
-    .line 466
     :cond_1
     :goto_0
     add-int/lit8 v3, v2, -0x1
 
-    .end local v2    # "i":I
-    .local v3, "i":I
     if-lez v2, :cond_3
 
     .line 467
     aget v2, v1, v3
 
-    .line 468
-    .local v2, "key":I
     if-nez v2, :cond_2
 
     move v2, v3
@@ -2250,53 +1997,43 @@
     :cond_2
     invoke-virtual {v0, v2}, Lcom/badlogic/gdx/utils/StringBuilder;->append(I)Lcom/badlogic/gdx/utils/StringBuilder;
 
-    .line 473
-    .end local v2    # "key":I
     :cond_3
     :goto_1
     move v2, v3
 
-    .end local v3    # "i":I
-    .local v2, "i":I
     :goto_2
     add-int/lit8 v3, v2, -0x1
 
-    .end local v2    # "i":I
-    .restart local v3    # "i":I
     if-lez v2, :cond_5
 
     .line 474
     aget v2, v1, v3
 
-    .line 475
-    .local v2, "key":I
     if-nez v2, :cond_4
 
     goto :goto_1
 
-    .line 476
     :cond_4
     const-string v4, ", "
 
+    .line 476
     invoke-virtual {v0, v4}, Lcom/badlogic/gdx/utils/StringBuilder;->append(Ljava/lang/String;)Lcom/badlogic/gdx/utils/StringBuilder;
 
     .line 477
     invoke-virtual {v0, v2}, Lcom/badlogic/gdx/utils/StringBuilder;->append(I)Lcom/badlogic/gdx/utils/StringBuilder;
 
-    .line 478
-    .end local v2    # "key":I
     goto :goto_1
 
-    .line 479
     :cond_5
-    const/16 v2, 0x5d
+    const/16 v1, 0x5d
 
-    invoke-virtual {v0, v2}, Lcom/badlogic/gdx/utils/StringBuilder;->append(C)Lcom/badlogic/gdx/utils/StringBuilder;
+    .line 479
+    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/utils/StringBuilder;->append(C)Lcom/badlogic/gdx/utils/StringBuilder;
 
     .line 480
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    return-object v2
+    return-object v0
 .end method

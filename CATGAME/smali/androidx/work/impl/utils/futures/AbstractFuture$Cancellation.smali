@@ -64,15 +64,12 @@
 
     sput-object v0, Landroidx/work/impl/utils/futures/AbstractFuture$Cancellation;->CAUSELESS_INTERRUPTED:Landroidx/work/impl/utils/futures/AbstractFuture$Cancellation;
 
-    .line 252
     :goto_0
     return-void
 .end method
 
 .method constructor <init>(ZLjava/lang/Throwable;)V
     .locals 0
-    .param p1, "wasInterrupted"    # Z
-    .param p2, "cause"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -93,6 +90,5 @@
     .line 260
     iput-object p2, p0, Landroidx/work/impl/utils/futures/AbstractFuture$Cancellation;->cause:Ljava/lang/Throwable;
 
-    .line 261
     return-void
 .end method

@@ -29,11 +29,6 @@
 # direct methods
 .method constructor <init>(Lar/com/hjg/pngj/ImageLineSetDefault$1;Lar/com/hjg/pngj/ImageInfo;ZIII)V
     .locals 6
-    .param p2, "x0"    # Lar/com/hjg/pngj/ImageInfo;
-    .param p3, "x1"    # Z
-    .param p4, "x2"    # I
-    .param p5, "x3"    # I
-    .param p6, "x4"    # I
 
     .line 117
     iput-object p1, p0, Lar/com/hjg/pngj/ImageLineSetDefault$1$1;->this$0:Lar/com/hjg/pngj/ImageLineSetDefault$1;

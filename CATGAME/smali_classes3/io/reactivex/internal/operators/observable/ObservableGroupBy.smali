@@ -56,8 +56,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/ObservableSource;Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;IZ)V
     .locals 0
-    .param p4, "bufferSize"    # I
-    .param p5, "delayError"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,10 +69,6 @@
     .end annotation
 
     .line 39
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableGroupBy;, "Lio/reactivex/internal/operators/observable/ObservableGroupBy<TT;TK;TV;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
-    .local p2, "keySelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TK;>;"
-    .local p3, "valueSelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TV;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/observable/AbstractObservableWithUpstream;-><init>(Lio/reactivex/ObservableSource;)V
 
     .line 40
@@ -89,7 +83,6 @@
     .line 43
     iput-boolean p5, p0, Lio/reactivex/internal/operators/observable/ObservableGroupBy;->delayError:Z
 
-    .line 44
     return-void
 .end method
 
@@ -108,8 +101,6 @@
     .end annotation
 
     .line 48
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableGroupBy;, "Lio/reactivex/internal/operators/observable/ObservableGroupBy<TT;TK;TV;>;"
-    .local p1, "t":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-Lio/reactivex/observables/GroupedObservable<TK;TV;>;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableGroupBy;->source:Lio/reactivex/ObservableSource;
 
     new-instance v7, Lio/reactivex/internal/operators/observable/ObservableGroupBy$GroupByObserver;
@@ -130,6 +121,5 @@
 
     invoke-interface {v0, v7}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 49
     return-void
 .end method

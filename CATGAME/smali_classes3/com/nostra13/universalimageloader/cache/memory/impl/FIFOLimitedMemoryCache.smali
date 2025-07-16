@@ -17,24 +17,22 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 1
-    .param p1, "sizeLimit"    # I
+    .locals 0
 
     .line 42
     invoke-direct {p0, p1}, Lcom/nostra13/universalimageloader/cache/memory/LimitedMemoryCache;-><init>(I)V
 
     .line 39
-    new-instance v0, Ljava/util/LinkedList;
+    new-instance p1, Ljava/util/LinkedList;
 
-    invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
+    invoke-direct {p1}, Ljava/util/LinkedList;-><init>()V
 
-    invoke-static {v0}, Ljava/util/Collections;->synchronizedList(Ljava/util/List;)Ljava/util/List;
+    invoke-static {p1}, Ljava/util/Collections;->synchronizedList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/nostra13/universalimageloader/cache/memory/impl/FIFOLimitedMemoryCache;->queue:Ljava/util/List;
+    iput-object p1, p0, Lcom/nostra13/universalimageloader/cache/memory/impl/FIFOLimitedMemoryCache;->queue:Ljava/util/List;
 
-    .line 43
     return-void
 .end method
 
@@ -51,13 +49,11 @@
     .line 67
     invoke-super {p0}, Lcom/nostra13/universalimageloader/cache/memory/LimitedMemoryCache;->clear()V
 
-    .line 68
     return-void
 .end method
 
 .method protected createReference(Landroid/graphics/Bitmap;)Ljava/lang/ref/Reference;
     .locals 1
-    .param p1, "value"    # Landroid/graphics/Bitmap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -78,8 +74,7 @@
 .end method
 
 .method protected getSize(Landroid/graphics/Bitmap;)I
-    .locals 2
-    .param p1, "value"    # Landroid/graphics/Bitmap;
+    .locals 1
 
     .line 72
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getRowBytes()I
@@ -88,53 +83,46 @@
 
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
 
-    move-result v1
+    move-result p1
 
-    mul-int/2addr v0, v1
+    mul-int/2addr v0, p1
 
     return v0
 .end method
 
 .method public put(Ljava/lang/String;Landroid/graphics/Bitmap;)Z
-    .locals 1
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "value"    # Landroid/graphics/Bitmap;
+    .locals 0
 
     .line 47
     invoke-super {p0, p1, p2}, Lcom/nostra13/universalimageloader/cache/memory/LimitedMemoryCache;->put(Ljava/lang/String;Landroid/graphics/Bitmap;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 48
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/memory/impl/FIFOLimitedMemoryCache;->queue:Ljava/util/List;
+    iget-object p1, p0, Lcom/nostra13/universalimageloader/cache/memory/impl/FIFOLimitedMemoryCache;->queue:Ljava/util/List;
 
-    invoke-interface {v0, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 49
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
-    .line 51
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public remove(Ljava/lang/String;)Landroid/graphics/Bitmap;
     .locals 2
-    .param p1, "key"    # Ljava/lang/String;
 
     .line 57
     invoke-super {p0, p1}, Lcom/nostra13/universalimageloader/cache/memory/LimitedMemoryCache;->get(Ljava/lang/String;)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    .line 58
-    .local v0, "value":Landroid/graphics/Bitmap;
     if-eqz v0, :cond_0
 
     .line 59
@@ -146,9 +134,9 @@
     :cond_0
     invoke-super {p0, p1}, Lcom/nostra13/universalimageloader/cache/memory/LimitedMemoryCache;->remove(Ljava/lang/String;)Landroid/graphics/Bitmap;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method protected removeNext()Landroid/graphics/Bitmap;

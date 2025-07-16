@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(JLio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactBoundedObserver;)V
     .locals 0
-    .param p1, "index"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -43,7 +42,6 @@
     .end annotation
 
     .line 498
-    .local p3, "parent":Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactBoundedObserver;, "Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactBoundedObserver<*>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 499
@@ -52,7 +50,6 @@
     .line 500
     iput-object p3, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactBoundedObserver$ConsumerIndexHolder;->parent:Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactBoundedObserver;
 
-    .line 501
     return-void
 .end method
 
@@ -65,7 +62,6 @@
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactBoundedObserver$ConsumerIndexHolder;->parent:Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactBoundedObserver;
 
     .line 507
-    .local v0, "p":Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactBoundedObserver;, "Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactBoundedObserver<*>;"
     invoke-static {v0}, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactBoundedObserver;->access$000(Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactBoundedObserver;)Z
 
     move-result v1
@@ -81,10 +77,10 @@
 
     goto :goto_0
 
-    .line 510
     :cond_0
     const/4 v1, 0x1
 
+    .line 510
     iput-boolean v1, v0, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactBoundedObserver;->terminated:Z
 
     .line 511
@@ -101,7 +97,6 @@
     .line 514
     invoke-virtual {v0}, Lio/reactivex/internal/operators/observable/ObservableWindowTimed$WindowExactBoundedObserver;->drainLoop()V
 
-    .line 516
     :cond_1
     return-void
 .end method

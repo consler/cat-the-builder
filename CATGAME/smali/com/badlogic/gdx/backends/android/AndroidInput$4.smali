@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/backends/android/AndroidInput;Z)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/backends/android/AndroidInput;
 
     .line 601
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput$4;->this$0:Lcom/badlogic/gdx/backends/android/AndroidInput;
@@ -57,7 +56,6 @@
     check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
     .line 604
-    .local v0, "manager":Landroid/view/inputmethod/InputMethodManager;
     iget-boolean v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput$4;->val$visible:Z
 
     const/4 v2, 0x0
@@ -79,34 +77,31 @@
 
     move-result-object v1
 
-    .line 606
-    .local v1, "view":Landroid/view/View;
     const/4 v3, 0x1
 
+    .line 606
     invoke-virtual {v1, v3}, Landroid/view/View;->setFocusable(Z)V
 
     .line 607
     invoke-virtual {v1, v3}, Landroid/view/View;->setFocusableInTouchMode(Z)V
 
     .line 608
-    iget-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidInput$4;->this$0:Lcom/badlogic/gdx/backends/android/AndroidInput;
+    iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput$4;->this$0:Lcom/badlogic/gdx/backends/android/AndroidInput;
 
-    iget-object v3, v3, Lcom/badlogic/gdx/backends/android/AndroidInput;->app:Lcom/badlogic/gdx/Application;
+    iget-object v1, v1, Lcom/badlogic/gdx/backends/android/AndroidInput;->app:Lcom/badlogic/gdx/Application;
 
-    invoke-interface {v3}, Lcom/badlogic/gdx/Application;->getGraphics()Lcom/badlogic/gdx/Graphics;
+    invoke-interface {v1}, Lcom/badlogic/gdx/Application;->getGraphics()Lcom/badlogic/gdx/Graphics;
 
-    move-result-object v3
+    move-result-object v1
 
-    check-cast v3, Lcom/badlogic/gdx/backends/android/AndroidGraphics;
+    check-cast v1, Lcom/badlogic/gdx/backends/android/AndroidGraphics;
 
-    invoke-virtual {v3}, Lcom/badlogic/gdx/backends/android/AndroidGraphics;->getView()Landroid/view/View;
+    invoke-virtual {v1}, Lcom/badlogic/gdx/backends/android/AndroidGraphics;->getView()Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v0, v3, v2}, Landroid/view/inputmethod/InputMethodManager;->showSoftInput(Landroid/view/View;I)Z
+    invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->showSoftInput(Landroid/view/View;I)Z
 
-    .line 609
-    .end local v1    # "view":Landroid/view/View;
     goto :goto_0
 
     .line 610
@@ -131,7 +126,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
-    .line 612
     :goto_0
     return-void
 .end method

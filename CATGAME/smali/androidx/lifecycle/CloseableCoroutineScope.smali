@@ -47,7 +47,6 @@
 # direct methods
 .method public constructor <init>(Lkotlin/coroutines/CoroutineContext;)V
     .locals 1
-    .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
 
     const-string v0, "context"
 
@@ -78,7 +77,6 @@
 
     invoke-static {v0, v1, v2, v1}, Lkotlinx/coroutines/JobKt;->cancel$default(Lkotlin/coroutines/CoroutineContext;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
 
-    .line 50
     return-void
 .end method
 

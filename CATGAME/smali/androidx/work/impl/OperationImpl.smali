@@ -54,7 +54,6 @@
 
     invoke-virtual {p0, v0}, Landroidx/work/impl/OperationImpl;->setState(Landroidx/work/Operation$State;)V
 
-    .line 44
     return-void
 .end method
 
@@ -95,8 +94,7 @@
 .end method
 
 .method public setState(Landroidx/work/Operation$State;)V
-    .locals 3
-    .param p1, "state"    # Landroidx/work/Operation$State;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -119,11 +117,9 @@
     .line 66
     iget-object v0, p0, Landroidx/work/impl/OperationImpl;->mOperationFuture:Landroidx/work/impl/utils/futures/SettableFuture;
 
-    move-object v1, p1
+    check-cast p1, Landroidx/work/Operation$State$SUCCESS;
 
-    check-cast v1, Landroidx/work/Operation$State$SUCCESS;
-
-    invoke-virtual {v0, v1}, Landroidx/work/impl/utils/futures/SettableFuture;->set(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Landroidx/work/impl/utils/futures/SettableFuture;->set(Ljava/lang/Object;)Z
 
     goto :goto_0
 
@@ -134,22 +130,17 @@
     if-eqz v0, :cond_1
 
     .line 68
-    move-object v0, p1
-
-    check-cast v0, Landroidx/work/Operation$State$FAILURE;
+    check-cast p1, Landroidx/work/Operation$State$FAILURE;
 
     .line 69
-    .local v0, "failed":Landroidx/work/Operation$State$FAILURE;
-    iget-object v1, p0, Landroidx/work/impl/OperationImpl;->mOperationFuture:Landroidx/work/impl/utils/futures/SettableFuture;
+    iget-object v0, p0, Landroidx/work/impl/OperationImpl;->mOperationFuture:Landroidx/work/impl/utils/futures/SettableFuture;
 
-    invoke-virtual {v0}, Landroidx/work/Operation$State$FAILURE;->getThrowable()Ljava/lang/Throwable;
+    invoke-virtual {p1}, Landroidx/work/Operation$State$FAILURE;->getThrowable()Ljava/lang/Throwable;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Landroidx/work/impl/utils/futures/SettableFuture;->setException(Ljava/lang/Throwable;)Z
+    invoke-virtual {v0, p1}, Landroidx/work/impl/utils/futures/SettableFuture;->setException(Ljava/lang/Throwable;)Z
 
-    .line 71
-    .end local v0    # "failed":Landroidx/work/Operation$State$FAILURE;
     :cond_1
     :goto_0
     return-void

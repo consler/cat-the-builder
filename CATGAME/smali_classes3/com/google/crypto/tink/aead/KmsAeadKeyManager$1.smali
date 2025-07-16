@@ -36,7 +36,6 @@
     .end annotation
 
     .line 41
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<Lcom/google/crypto/tink/Aead;>;"
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;-><init>(Ljava/lang/Class;)V
 
     return-void
@@ -45,8 +44,7 @@
 
 # virtual methods
 .method public getPrimitive(Lcom/google/crypto/tink/proto/KmsAeadKey;)Lcom/google/crypto/tink/Aead;
-    .locals 3
-    .param p1, "keyProto"    # Lcom/google/crypto/tink/proto/KmsAeadKey;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -65,25 +63,23 @@
     .line 44
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/KmsAeadKey;->getParams()Lcom/google/crypto/tink/proto/KmsAeadKeyFormat;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/google/crypto/tink/proto/KmsAeadKeyFormat;->getKeyUri()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/KmsAeadKeyFormat;->getKeyUri()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 45
-    .local v0, "keyUri":Ljava/lang/String;
-    invoke-static {v0}, Lcom/google/crypto/tink/KmsClients;->get(Ljava/lang/String;)Lcom/google/crypto/tink/KmsClient;
+    invoke-static {p1}, Lcom/google/crypto/tink/KmsClients;->get(Ljava/lang/String;)Lcom/google/crypto/tink/KmsClient;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 46
-    .local v1, "kmsClient":Lcom/google/crypto/tink/KmsClient;
-    invoke-interface {v1, v0}, Lcom/google/crypto/tink/KmsClient;->getAead(Ljava/lang/String;)Lcom/google/crypto/tink/Aead;
+    invoke-interface {v0, p1}, Lcom/google/crypto/tink/KmsClient;->getAead(Ljava/lang/String;)Lcom/google/crypto/tink/Aead;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 .end method
 
 .method public bridge synthetic getPrimitive(Ljava/lang/Object;)Ljava/lang/Object;

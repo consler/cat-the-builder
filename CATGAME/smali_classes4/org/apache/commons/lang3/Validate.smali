@@ -52,17 +52,12 @@
     .line 82
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 83
     return-void
 .end method
 
 .method public static exclusiveBetween(DDD)V
-    .locals 4
-    .param p0, "start"    # D
-    .param p2, "end"    # D
-    .param p4, "value"    # D
+    .locals 3
 
-    .line 1213
     cmpg-double v0, p4, p0
 
     if-lez v0, :cond_0
@@ -71,7 +66,6 @@
 
     if-gez v0, :cond_0
 
-    .line 1216
     return-void
 
     .line 1214
@@ -86,72 +80,62 @@
 
     invoke-static {p4, p5}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    move-result-object v3
+    move-result-object p4
 
-    aput-object v3, v1, v2
+    aput-object p4, v1, v2
 
-    const/4 v2, 0x1
+    const/4 p4, 0x1
 
     invoke-static {p0, p1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    move-result-object v3
+    move-result-object p0
 
-    aput-object v3, v1, v2
+    aput-object p0, v1, p4
 
-    const/4 v2, 0x2
+    const/4 p0, 0x2
 
     invoke-static {p2, p3}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    move-result-object v3
+    move-result-object p1
 
-    aput-object v3, v1, v2
+    aput-object p1, v1, p0
 
-    const-string v2, "The value %s is not in the specified exclusive range of %s to %s"
+    const-string p0, "The value %s is not in the specified exclusive range of %s to %s"
 
-    invoke-static {v2, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public static exclusiveBetween(DDDLjava/lang/String;)V
-    .locals 1
-    .param p0, "start"    # D
-    .param p2, "end"    # D
-    .param p4, "value"    # D
-    .param p6, "message"    # Ljava/lang/String;
+    .locals 0
 
-    .line 1236
-    cmpg-double v0, p4, p0
+    cmpg-double p0, p4, p0
 
-    if-lez v0, :cond_0
+    if-lez p0, :cond_0
 
-    cmpl-double v0, p4, p2
+    cmpl-double p0, p4, p2
 
-    if-gez v0, :cond_0
+    if-gez p0, :cond_0
 
-    .line 1239
     return-void
 
     .line 1237
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0, p6}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p6}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static exclusiveBetween(JJJ)V
-    .locals 4
-    .param p0, "start"    # J
-    .param p2, "end"    # J
-    .param p4, "value"    # J
+    .locals 3
 
-    .line 1169
     cmp-long v0, p4, p0
 
     if-lez v0, :cond_0
@@ -160,7 +144,6 @@
 
     if-gez v0, :cond_0
 
-    .line 1172
     return-void
 
     .line 1170
@@ -175,63 +158,57 @@
 
     invoke-static {p4, p5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v3
+    move-result-object p4
 
-    aput-object v3, v1, v2
+    aput-object p4, v1, v2
 
-    const/4 v2, 0x1
+    const/4 p4, 0x1
 
     invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v3
+    move-result-object p0
 
-    aput-object v3, v1, v2
+    aput-object p0, v1, p4
 
-    const/4 v2, 0x2
+    const/4 p0, 0x2
 
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v3
+    move-result-object p1
 
-    aput-object v3, v1, v2
+    aput-object p1, v1, p0
 
-    const-string v2, "The value %s is not in the specified exclusive range of %s to %s"
+    const-string p0, "The value %s is not in the specified exclusive range of %s to %s"
 
-    invoke-static {v2, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public static exclusiveBetween(JJJLjava/lang/String;)V
-    .locals 1
-    .param p0, "start"    # J
-    .param p2, "end"    # J
-    .param p4, "value"    # J
-    .param p6, "message"    # Ljava/lang/String;
+    .locals 0
 
-    .line 1192
-    cmp-long v0, p4, p0
+    cmp-long p0, p4, p0
 
-    if-lez v0, :cond_0
+    if-lez p0, :cond_0
 
-    cmp-long v0, p4, p2
+    cmp-long p0, p4, p2
 
-    if-gez v0, :cond_0
+    if-gez p0, :cond_0
 
-    .line 1195
     return-void
 
     .line 1193
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0, p6}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p6}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static exclusiveBetween(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Comparable;)V
@@ -247,9 +224,6 @@
     .end annotation
 
     .line 1123
-    .local p0, "start":Ljava/lang/Object;, "TT;"
-    .local p1, "end":Ljava/lang/Object;, "TT;"
-    .local p2, "value":Ljava/lang/Comparable;, "Ljava/lang/Comparable<TT;>;"
     invoke-interface {p2, p0}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
 
     move-result v0
@@ -262,7 +236,6 @@
 
     if-gez v0, :cond_0
 
-    .line 1126
     return-void
 
     .line 1124
@@ -277,29 +250,27 @@
 
     aput-object p2, v1, v2
 
-    const/4 v2, 0x1
+    const/4 p2, 0x1
 
-    aput-object p0, v1, v2
+    aput-object p0, v1, p2
 
-    const/4 v2, 0x2
+    const/4 p0, 0x2
 
-    aput-object p1, v1, v2
+    aput-object p1, v1, p0
 
-    const-string v2, "The value %s is not in the specified exclusive range of %s to %s"
+    const-string p0, "The value %s is not in the specified exclusive range of %s to %s"
 
-    invoke-static {v2, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public static varargs exclusiveBetween(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Comparable;Ljava/lang/String;[Ljava/lang/Object;)V
-    .locals 2
-    .param p3, "message"    # Ljava/lang/String;
-    .param p4, "values"    # [Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -315,67 +286,58 @@
     .end annotation
 
     .line 1148
-    .local p0, "start":Ljava/lang/Object;, "TT;"
-    .local p1, "end":Ljava/lang/Object;, "TT;"
-    .local p2, "value":Ljava/lang/Comparable;, "Ljava/lang/Comparable<TT;>;"
     invoke-interface {p2, p0}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p0
 
-    if-lez v0, :cond_0
+    if-lez p0, :cond_0
 
     invoke-interface {p2, p1}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p0
 
-    if-gez v0, :cond_0
+    if-gez p0, :cond_0
 
-    .line 1151
     return-void
 
     .line 1149
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p3, p4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static finite(D)V
     .locals 3
-    .param p0, "value"    # D
 
-    .line 942
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/lang/Object;
 
+    const/4 v1, 0x0
+
+    .line 942
     invoke-static {p0, p1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    move-result-object v1
+    move-result-object v2
 
-    const/4 v2, 0x0
-
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     const-string v1, "The value is invalid: %f"
 
     invoke-static {p0, p1, v1, v0}, Lorg/apache/commons/lang3/Validate;->finite(DLjava/lang/String;[Ljava/lang/Object;)V
 
-    .line 943
     return-void
 .end method
 
 .method public static varargs finite(DLjava/lang/String;[Ljava/lang/Object;)V
-    .locals 2
-    .param p0, "value"    # D
-    .param p2, "message"    # Ljava/lang/String;
-    .param p3, "values"    # [Ljava/lang/Object;
+    .locals 1
 
     .line 960
     invoke-static {p0, p1}, Ljava/lang/Double;->isNaN(D)Z
@@ -386,33 +348,28 @@
 
     invoke-static {p0, p1}, Ljava/lang/Double;->isInfinite(D)Z
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    .line 963
     return-void
 
     .line 961
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p2, p3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static inclusiveBetween(DDD)V
-    .locals 4
-    .param p0, "start"    # D
-    .param p2, "end"    # D
-    .param p4, "value"    # D
+    .locals 3
 
-    .line 1075
     cmpg-double v0, p4, p0
 
     if-ltz v0, :cond_0
@@ -421,7 +378,6 @@
 
     if-gtz v0, :cond_0
 
-    .line 1078
     return-void
 
     .line 1076
@@ -436,72 +392,62 @@
 
     invoke-static {p4, p5}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    move-result-object v3
+    move-result-object p4
 
-    aput-object v3, v1, v2
+    aput-object p4, v1, v2
 
-    const/4 v2, 0x1
+    const/4 p4, 0x1
 
     invoke-static {p0, p1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    move-result-object v3
+    move-result-object p0
 
-    aput-object v3, v1, v2
+    aput-object p0, v1, p4
 
-    const/4 v2, 0x2
+    const/4 p0, 0x2
 
     invoke-static {p2, p3}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    move-result-object v3
+    move-result-object p1
 
-    aput-object v3, v1, v2
+    aput-object p1, v1, p0
 
-    const-string v2, "The value %s is not in the specified inclusive range of %s to %s"
+    const-string p0, "The value %s is not in the specified inclusive range of %s to %s"
 
-    invoke-static {v2, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public static inclusiveBetween(DDDLjava/lang/String;)V
-    .locals 1
-    .param p0, "start"    # D
-    .param p2, "end"    # D
-    .param p4, "value"    # D
-    .param p6, "message"    # Ljava/lang/String;
+    .locals 0
 
-    .line 1098
-    cmpg-double v0, p4, p0
+    cmpg-double p0, p4, p0
 
-    if-ltz v0, :cond_0
+    if-ltz p0, :cond_0
 
-    cmpl-double v0, p4, p2
+    cmpl-double p0, p4, p2
 
-    if-gtz v0, :cond_0
+    if-gtz p0, :cond_0
 
-    .line 1101
     return-void
 
     .line 1099
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0, p6}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p6}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static inclusiveBetween(JJJ)V
-    .locals 4
-    .param p0, "start"    # J
-    .param p2, "end"    # J
-    .param p4, "value"    # J
+    .locals 3
 
-    .line 1031
     cmp-long v0, p4, p0
 
     if-ltz v0, :cond_0
@@ -510,7 +456,6 @@
 
     if-gtz v0, :cond_0
 
-    .line 1034
     return-void
 
     .line 1032
@@ -525,63 +470,57 @@
 
     invoke-static {p4, p5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v3
+    move-result-object p4
 
-    aput-object v3, v1, v2
+    aput-object p4, v1, v2
 
-    const/4 v2, 0x1
+    const/4 p4, 0x1
 
     invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v3
+    move-result-object p0
 
-    aput-object v3, v1, v2
+    aput-object p0, v1, p4
 
-    const/4 v2, 0x2
+    const/4 p0, 0x2
 
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v3
+    move-result-object p1
 
-    aput-object v3, v1, v2
+    aput-object p1, v1, p0
 
-    const-string v2, "The value %s is not in the specified inclusive range of %s to %s"
+    const-string p0, "The value %s is not in the specified inclusive range of %s to %s"
 
-    invoke-static {v2, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public static inclusiveBetween(JJJLjava/lang/String;)V
-    .locals 1
-    .param p0, "start"    # J
-    .param p2, "end"    # J
-    .param p4, "value"    # J
-    .param p6, "message"    # Ljava/lang/String;
+    .locals 0
 
-    .line 1054
-    cmp-long v0, p4, p0
+    cmp-long p0, p4, p0
 
-    if-ltz v0, :cond_0
+    if-ltz p0, :cond_0
 
-    cmp-long v0, p4, p2
+    cmp-long p0, p4, p2
 
-    if-gtz v0, :cond_0
+    if-gtz p0, :cond_0
 
-    .line 1057
     return-void
 
     .line 1055
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0, p6}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p6}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static inclusiveBetween(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Comparable;)V
@@ -597,9 +536,6 @@
     .end annotation
 
     .line 985
-    .local p0, "start":Ljava/lang/Object;, "TT;"
-    .local p1, "end":Ljava/lang/Object;, "TT;"
-    .local p2, "value":Ljava/lang/Comparable;, "Ljava/lang/Comparable<TT;>;"
     invoke-interface {p2, p0}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
 
     move-result v0
@@ -612,7 +548,6 @@
 
     if-gtz v0, :cond_0
 
-    .line 988
     return-void
 
     .line 986
@@ -627,29 +562,27 @@
 
     aput-object p2, v1, v2
 
-    const/4 v2, 0x1
+    const/4 p2, 0x1
 
-    aput-object p0, v1, v2
+    aput-object p0, v1, p2
 
-    const/4 v2, 0x2
+    const/4 p0, 0x2
 
-    aput-object p1, v1, v2
+    aput-object p1, v1, p0
 
-    const-string v2, "The value %s is not in the specified inclusive range of %s to %s"
+    const-string p0, "The value %s is not in the specified inclusive range of %s to %s"
 
-    invoke-static {v2, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public static varargs inclusiveBetween(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Comparable;Ljava/lang/String;[Ljava/lang/Object;)V
-    .locals 2
-    .param p3, "message"    # Ljava/lang/String;
-    .param p4, "values"    # [Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -665,39 +598,35 @@
     .end annotation
 
     .line 1010
-    .local p0, "start":Ljava/lang/Object;, "TT;"
-    .local p1, "end":Ljava/lang/Object;, "TT;"
-    .local p2, "value":Ljava/lang/Comparable;, "Ljava/lang/Comparable<TT;>;"
     invoke-interface {p2, p0}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p0
 
-    if-ltz v0, :cond_0
+    if-ltz p0, :cond_0
 
     invoke-interface {p2, p1}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p0
 
-    if-gtz v0, :cond_0
+    if-gtz p0, :cond_0
 
-    .line 1013
     return-void
 
     .line 1011
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p3, p4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static isAssignableFrom(Ljava/lang/Class;Ljava/lang/Class;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -709,8 +638,6 @@
     .end annotation
 
     .line 1313
-    .local p0, "superType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-virtual {p0, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
     move-result v0
@@ -724,51 +651,48 @@
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    const/4 v2, 0x0
-
     if-nez p1, :cond_0
 
-    const-string v3, "null"
+    const-string p1, "null"
 
     goto :goto_0
 
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
     :goto_0
-    aput-object v3, v1, v2
+    const/4 v2, 0x0
 
-    const/4 v2, 0x1
+    aput-object p1, v1, v2
+
+    const/4 p1, 0x1
 
     .line 1315
     invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    aput-object v3, v1, v2
+    aput-object p0, v1, p1
+
+    const-string p0, "Cannot assign a %s to a %s"
 
     .line 1314
-    const-string v2, "Cannot assign a %s to a %s"
+    invoke-static {p0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v2, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 1317
     :cond_1
     return-void
 .end method
 
 .method public static varargs isAssignableFrom(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Object;)V
-    .locals 2
-    .param p2, "message"    # Ljava/lang/String;
-    .param p3, "values"    # [Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -784,33 +708,29 @@
     .end annotation
 
     .line 1338
-    .local p0, "superType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-virtual {p0, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    .line 1341
     return-void
 
     .line 1339
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p2, p3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static isInstanceOf(Ljava/lang/Class;Ljava/lang/Object;)V
-    .locals 4
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -822,7 +742,6 @@
     .end annotation
 
     .line 1262
-    .local p0, "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-virtual {p0, p1}, Ljava/lang/Class;->isInstance(Ljava/lang/Object;)Z
 
     move-result v0
@@ -840,52 +759,48 @@
 
     invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    aput-object v3, v1, v2
+    aput-object p0, v1, v2
 
-    const/4 v2, 0x1
-
-    .line 1264
     if-nez p1, :cond_0
 
-    const-string v3, "null"
+    const-string p0, "null"
 
     goto :goto_0
 
+    .line 1264
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
     :goto_0
-    aput-object v3, v1, v2
+    const/4 p1, 0x1
+
+    aput-object p0, v1, p1
+
+    const-string p0, "Expected type: %s, actual: %s"
 
     .line 1263
-    const-string v2, "Expected type: %s, actual: %s"
+    invoke-static {p0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v2, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 1266
     :cond_1
     return-void
 .end method
 
 .method public static varargs isInstanceOf(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
-    .param p2, "message"    # Ljava/lang/String;
-    .param p3, "values"    # [Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -900,153 +815,131 @@
     .end annotation
 
     .line 1287
-    .local p0, "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-virtual {p0, p1}, Ljava/lang/Class;->isInstance(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    .line 1290
     return-void
 
     .line 1288
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p2, p3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static isTrue(Z)V
-    .locals 2
-    .param p0, "expression"    # Z
+    .locals 1
 
-    .line 182
     if-eqz p0, :cond_0
 
-    .line 185
     return-void
 
     .line 183
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "The validated expression is false"
+    const-string v0, "The validated expression is false"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static isTrue(ZLjava/lang/String;D)V
-    .locals 4
-    .param p0, "expression"    # Z
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "value"    # D
+    .locals 2
 
-    .line 133
     if-eqz p0, :cond_0
 
-    .line 136
     return-void
 
     .line 134
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     invoke-static {p2, p3}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    move-result-object v3
+    move-result-object p2
 
-    aput-object v3, v1, v2
+    aput-object p2, v0, v1
 
-    invoke-static {p1, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static isTrue(ZLjava/lang/String;J)V
-    .locals 4
-    .param p0, "expression"    # Z
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "value"    # J
+    .locals 2
 
-    .line 108
     if-eqz p0, :cond_0
 
-    .line 111
     return-void
 
     .line 109
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v3
+    move-result-object p2
 
-    aput-object v3, v1, v2
+    aput-object p2, v0, v1
 
-    invoke-static {p1, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static varargs isTrue(ZLjava/lang/String;[Ljava/lang/Object;)V
-    .locals 2
-    .param p0, "expression"    # Z
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "values"    # [Ljava/lang/Object;
+    .locals 0
 
-    .line 157
     if-eqz p0, :cond_0
 
-    .line 160
     return-void
 
     .line 158
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p1, p2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static matchesPattern(Ljava/lang/CharSequence;Ljava/lang/String;)V
     .locals 3
-    .param p0, "input"    # Ljava/lang/CharSequence;
-    .param p1, "pattern"    # Ljava/lang/String;
 
     .line 853
     invoke-static {p1, p0}, Ljava/util/regex/Pattern;->matches(Ljava/lang/String;Ljava/lang/CharSequence;)Z
@@ -1055,7 +948,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 856
     return-void
 
     .line 854
@@ -1070,49 +962,44 @@
 
     aput-object p0, v1, v2
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v1, v2
+    aput-object p1, v1, p0
 
-    const-string v2, "The string %s does not match the pattern %s"
+    const-string p0, "The string %s does not match the pattern %s"
 
-    invoke-static {v2, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public static varargs matchesPattern(Ljava/lang/CharSequence;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
-    .locals 2
-    .param p0, "input"    # Ljava/lang/CharSequence;
-    .param p1, "pattern"    # Ljava/lang/String;
-    .param p2, "message"    # Ljava/lang/String;
-    .param p3, "values"    # [Ljava/lang/Object;
+    .locals 0
 
     .line 877
     invoke-static {p1, p0}, Ljava/util/regex/Pattern;->matches(Ljava/lang/String;Ljava/lang/CharSequence;)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    .line 880
     return-void
 
     .line 878
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p2, p3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static noNullElements(Ljava/lang/Iterable;)Ljava/lang/Iterable;
@@ -1125,25 +1012,22 @@
         }
     .end annotation
 
-    .line 604
-    .local p0, "iterable":Ljava/lang/Iterable;, "TT;"
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Object;
 
     const-string v1, "The validated collection contains null element at index: %d"
 
+    .line 604
     invoke-static {p0, v1, v0}, Lorg/apache/commons/lang3/Validate;->noNullElements(Ljava/lang/Iterable;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Iterable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs noNullElements(Ljava/lang/Iterable;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Iterable;
-    .locals 5
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "values"    # [Ljava/lang/Object;
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -1157,71 +1041,62 @@
     .end annotation
 
     .line 571
-    .local p0, "iterable":Ljava/lang/Iterable;, "TT;"
     invoke-static {p0}, Lorg/apache/commons/lang3/Validate;->notNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 572
-    const/4 v0, 0x0
-
     .line 573
-    .local v0, "i":I
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v0
 
-    .local v1, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<*>;"
+    const/4 v1, 0x0
+
+    move v2, v1
+
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_1
+    if-eqz v3, :cond_1
 
     .line 574
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
-    .line 573
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 575
     :cond_0
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array p0, p0, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    .line 575
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v0
 
-    move-result-object v4
+    aput-object v0, p0, v1
 
-    aput-object v4, v2, v3
+    invoke-static {p2, p0}, Lorg/apache/commons/lang3/ArrayUtils;->addAll([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
 
-    invoke-static {p2, v2}, Lorg/apache/commons/lang3/ArrayUtils;->addAll([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
-
-    move-result-object v2
+    move-result-object p0
 
     .line 576
-    .local v2, "values2":[Ljava/lang/Object;
-    new-instance v3, Ljava/lang/IllegalArgumentException;
+    new-instance p2, Ljava/lang/IllegalArgumentException;
 
-    invoke-static {p1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p1, p0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p0
 
-    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw p2
 
-    .line 579
-    .end local v1    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<*>;"
-    .end local v2    # "values2":[Ljava/lang/Object;
     :cond_1
     return-object p0
 .end method
@@ -1236,25 +1111,22 @@
         }
     .end annotation
 
-    .line 541
-    .local p0, "array":[Ljava/lang/Object;, "[TT;"
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Object;
 
     const-string v1, "The validated array contains null element at index: %d"
 
+    .line 541
     invoke-static {p0, v1, v0}, Lorg/apache/commons/lang3/Validate;->noNullElements([Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs noNullElements([Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 4
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "values"    # [Ljava/lang/Object;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1268,13 +1140,11 @@
     .end annotation
 
     .line 509
-    .local p0, "array":[Ljava/lang/Object;, "[TT;"
     invoke-static {p0}, Lorg/apache/commons/lang3/Validate;->notNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 510
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 510
     :goto_0
     array-length v1, p0
 
@@ -1285,7 +1155,6 @@
 
     if-eqz v1, :cond_0
 
-    .line 510
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
@@ -1294,27 +1163,23 @@
     :cond_0
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-static {p2, v1}, Lorg/apache/commons/lang3/ArrayUtils;->add([Ljava/lang/Object;Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-static {p2, p0}, Lorg/apache/commons/lang3/ArrayUtils;->add([Ljava/lang/Object;Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
     .line 513
-    .local v1, "values2":[Ljava/lang/Object;
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p2, Ljava/lang/IllegalArgumentException;
 
-    invoke-static {p1, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p1, p0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p2
 
-    .line 516
-    .end local v0    # "i":I
-    .end local v1    # "values2":[Ljava/lang/Object;
     :cond_1
     return-object p0
 .end method
@@ -1329,25 +1194,22 @@
         }
     .end annotation
 
-    .line 479
-    .local p0, "chars":Ljava/lang/CharSequence;, "TT;"
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Object;
 
     const-string v1, "The validated character sequence is blank"
 
+    .line 479
     invoke-static {p0, v1, v0}, Lorg/apache/commons/lang3/Validate;->notBlank(Ljava/lang/CharSequence;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/CharSequence;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs notBlank(Ljava/lang/CharSequence;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/CharSequence;
-    .locals 2
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "values"    # [Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -1360,8 +1222,6 @@
         }
     .end annotation
 
-    .line 450
-    .local p0, "chars":Ljava/lang/CharSequence;, "TT;"
     if-eqz p0, :cond_1
 
     .line 453
@@ -1371,32 +1231,31 @@
 
     if-nez v0, :cond_0
 
-    .line 456
     return-object p0
 
     .line 454
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p1, p2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 451
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
     invoke-static {p1, p2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static notEmpty(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
@@ -1409,25 +1268,22 @@
         }
     .end annotation
 
-    .line 424
-    .local p0, "chars":Ljava/lang/CharSequence;, "TT;"
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Object;
 
     const-string v1, "The validated character sequence is empty"
 
+    .line 424
     invoke-static {p0, v1, v0}, Lorg/apache/commons/lang3/Validate;->notEmpty(Ljava/lang/CharSequence;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/CharSequence;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs notEmpty(Ljava/lang/CharSequence;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/CharSequence;
-    .locals 2
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "values"    # [Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -1440,8 +1296,6 @@
         }
     .end annotation
 
-    .line 397
-    .local p0, "chars":Ljava/lang/CharSequence;, "TT;"
     if-eqz p0, :cond_1
 
     .line 400
@@ -1451,32 +1305,31 @@
 
     if-eqz v0, :cond_0
 
-    .line 403
     return-object p0
 
     .line 401
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p1, p2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 398
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
     invoke-static {p1, p2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static notEmpty(Ljava/util/Collection;)Ljava/util/Collection;
@@ -1489,25 +1342,22 @@
         }
     .end annotation
 
-    .line 325
-    .local p0, "collection":Ljava/util/Collection;, "TT;"
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Object;
 
     const-string v1, "The validated collection is empty"
 
+    .line 325
     invoke-static {p0, v1, v0}, Lorg/apache/commons/lang3/Validate;->notEmpty(Ljava/util/Collection;Ljava/lang/String;[Ljava/lang/Object;)Ljava/util/Collection;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs notEmpty(Ljava/util/Collection;Ljava/lang/String;[Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 2
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "values"    # [Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -1520,8 +1370,6 @@
         }
     .end annotation
 
-    .line 299
-    .local p0, "collection":Ljava/util/Collection;, "TT;"
     if-eqz p0, :cond_1
 
     .line 302
@@ -1531,32 +1379,31 @@
 
     if-nez v0, :cond_0
 
-    .line 305
     return-object p0
 
     .line 303
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p1, p2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 300
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
     invoke-static {p1, p2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static notEmpty(Ljava/util/Map;)Ljava/util/Map;
@@ -1569,25 +1416,22 @@
         }
     .end annotation
 
-    .line 374
-    .local p0, "map":Ljava/util/Map;, "TT;"
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Object;
 
     const-string v1, "The validated map is empty"
 
+    .line 374
     invoke-static {p0, v1, v0}, Lorg/apache/commons/lang3/Validate;->notEmpty(Ljava/util/Map;Ljava/lang/String;[Ljava/lang/Object;)Ljava/util/Map;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs notEmpty(Ljava/util/Map;Ljava/lang/String;[Ljava/lang/Object;)Ljava/util/Map;
-    .locals 2
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "values"    # [Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -1600,8 +1444,6 @@
         }
     .end annotation
 
-    .line 348
-    .local p0, "map":Ljava/util/Map;, "TT;"
     if-eqz p0, :cond_1
 
     .line 351
@@ -1611,32 +1453,31 @@
 
     if-nez v0, :cond_0
 
-    .line 354
     return-object p0
 
     .line 352
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p1, p2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 349
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
     invoke-static {p1, p2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static notEmpty([Ljava/lang/Object;)[Ljava/lang/Object;
@@ -1649,25 +1490,22 @@
         }
     .end annotation
 
-    .line 276
-    .local p0, "array":[Ljava/lang/Object;, "[TT;"
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Object;
 
     const-string v1, "The validated array is empty"
 
+    .line 276
     invoke-static {p0, v1, v0}, Lorg/apache/commons/lang3/Validate;->notEmpty([Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs notEmpty([Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 2
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "values"    # [Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1680,8 +1518,6 @@
         }
     .end annotation
 
-    .line 250
-    .local p0, "array":[Ljava/lang/Object;, "[TT;"
     if-eqz p0, :cond_1
 
     .line 253
@@ -1689,78 +1525,71 @@
 
     if-eqz v0, :cond_0
 
-    .line 256
     return-object p0
 
     .line 254
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p1, p2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 251
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
     invoke-static {p1, p2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static notNaN(D)V
     .locals 2
-    .param p0, "value"    # D
 
-    .line 901
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Object;
 
     const-string v1, "The validated value is not a number"
 
+    .line 901
     invoke-static {p0, p1, v1, v0}, Lorg/apache/commons/lang3/Validate;->notNaN(DLjava/lang/String;[Ljava/lang/Object;)V
 
-    .line 902
     return-void
 .end method
 
 .method public static varargs notNaN(DLjava/lang/String;[Ljava/lang/Object;)V
-    .locals 2
-    .param p0, "value"    # D
-    .param p2, "message"    # Ljava/lang/String;
-    .param p3, "values"    # [Ljava/lang/Object;
+    .locals 0
 
     .line 919
     invoke-static {p0, p1}, Ljava/lang/Double;->isNaN(D)Z
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    .line 922
     return-void
 
     .line 920
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p2, p3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static notNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1773,25 +1602,22 @@
         }
     .end annotation
 
-    .line 206
-    .local p0, "object":Ljava/lang/Object;, "TT;"
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Object;
 
     const-string v1, "The validated object is null"
 
+    .line 206
     invoke-static {p0, v1, v0}, Lorg/apache/commons/lang3/Validate;->notNull(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs notNull(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "values"    # [Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1804,29 +1630,25 @@
         }
     .end annotation
 
-    .line 224
-    .local p0, "object":Ljava/lang/Object;, "TT;"
     if-eqz p0, :cond_0
 
-    .line 227
     return-object p0
 
     .line 225
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
     invoke-static {p1, p2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static validIndex(Ljava/lang/CharSequence;I)Ljava/lang/CharSequence;
     .locals 3
-    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -1835,34 +1657,30 @@
         }
     .end annotation
 
-    .line 780
-    .local p0, "chars":Ljava/lang/CharSequence;, "TT;"
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/lang/Object;
 
+    const/4 v1, 0x0
+
+    .line 780
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object v2
 
-    const/4 v2, 0x0
-
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     const-string v1, "The validated character sequence index is invalid: %d"
 
     invoke-static {p0, p1, v1, v0}, Lorg/apache/commons/lang3/Validate;->validIndex(Ljava/lang/CharSequence;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/CharSequence;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs validIndex(Ljava/lang/CharSequence;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/CharSequence;
-    .locals 2
-    .param p1, "index"    # I
-    .param p2, "message"    # Ljava/lang/String;
-    .param p3, "values"    # [Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -1876,37 +1694,34 @@
     .end annotation
 
     .line 748
-    .local p0, "chars":Ljava/lang/CharSequence;, "TT;"
     invoke-static {p0}, Lorg/apache/commons/lang3/Validate;->notNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 749
     if-ltz p1, :cond_0
 
+    .line 749
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
 
     if-ge p1, v0, :cond_0
 
-    .line 752
     return-object p0
 
     .line 750
     :cond_0
-    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
+    new-instance p0, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-static {p2, p3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static validIndex(Ljava/util/Collection;I)Ljava/util/Collection;
     .locals 3
-    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -1915,34 +1730,30 @@
         }
     .end annotation
 
-    .line 719
-    .local p0, "collection":Ljava/util/Collection;, "TT;"
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/lang/Object;
 
+    const/4 v1, 0x0
+
+    .line 719
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object v2
 
-    const/4 v2, 0x0
-
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     const-string v1, "The validated collection index is invalid: %d"
 
     invoke-static {p0, p1, v1, v0}, Lorg/apache/commons/lang3/Validate;->validIndex(Ljava/util/Collection;ILjava/lang/String;[Ljava/lang/Object;)Ljava/util/Collection;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs validIndex(Ljava/util/Collection;ILjava/lang/String;[Ljava/lang/Object;)Ljava/util/Collection;
-    .locals 2
-    .param p1, "index"    # I
-    .param p2, "message"    # Ljava/lang/String;
-    .param p3, "values"    # [Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -1956,37 +1767,34 @@
     .end annotation
 
     .line 691
-    .local p0, "collection":Ljava/util/Collection;, "TT;"
     invoke-static {p0}, Lorg/apache/commons/lang3/Validate;->notNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 692
     if-ltz p1, :cond_0
 
+    .line 692
     invoke-interface {p0}, Ljava/util/Collection;->size()I
 
     move-result v0
 
     if-ge p1, v0, :cond_0
 
-    .line 695
     return-object p0
 
     .line 693
     :cond_0
-    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
+    new-instance p0, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-static {p2, p3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static validIndex([Ljava/lang/Object;I)[Ljava/lang/Object;
     .locals 3
-    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1995,34 +1803,30 @@
         }
     .end annotation
 
-    .line 663
-    .local p0, "array":[Ljava/lang/Object;, "[TT;"
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/lang/Object;
 
+    const/4 v1, 0x0
+
+    .line 663
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object v2
 
-    const/4 v2, 0x0
-
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     const-string v1, "The validated array index is invalid: %d"
 
     invoke-static {p0, p1, v1, v0}, Lorg/apache/commons/lang3/Validate;->validIndex([Ljava/lang/Object;ILjava/lang/String;[Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs validIndex([Ljava/lang/Object;ILjava/lang/String;[Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 2
-    .param p1, "index"    # I
-    .param p2, "message"    # Ljava/lang/String;
-    .param p3, "values"    # [Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -2036,74 +1840,64 @@
     .end annotation
 
     .line 632
-    .local p0, "array":[Ljava/lang/Object;, "[TT;"
     invoke-static {p0}, Lorg/apache/commons/lang3/Validate;->notNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 633
     if-ltz p1, :cond_0
 
+    .line 633
     array-length v0, p0
 
     if-ge p1, v0, :cond_0
 
-    .line 636
     return-object p0
 
     .line 634
     :cond_0
-    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
+    new-instance p0, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-static {p2, p3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static validState(Z)V
-    .locals 2
-    .param p0, "expression"    # Z
+    .locals 1
 
-    .line 806
     if-eqz p0, :cond_0
 
-    .line 809
     return-void
 
     .line 807
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v1, "The validated state is false"
+    const-string v0, "The validated state is false"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static varargs validState(ZLjava/lang/String;[Ljava/lang/Object;)V
-    .locals 2
-    .param p0, "expression"    # Z
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "values"    # [Ljava/lang/Object;
+    .locals 0
 
-    .line 828
     if-eqz p0, :cond_0
 
-    .line 831
     return-void
 
     .line 829
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
     invoke-static {p1, p2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method

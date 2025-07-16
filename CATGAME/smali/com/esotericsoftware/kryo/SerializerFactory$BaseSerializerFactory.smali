@@ -33,7 +33,6 @@
     .locals 0
 
     .line 45
-    .local p0, "this":Lcom/esotericsoftware/kryo/SerializerFactory$BaseSerializerFactory;, "Lcom/esotericsoftware/kryo/SerializerFactory$BaseSerializerFactory<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,12 +41,9 @@
 
 # virtual methods
 .method public isSupported(Ljava/lang/Class;)Z
-    .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
+    .locals 0
 
-    .line 47
-    .local p0, "this":Lcom/esotericsoftware/kryo/SerializerFactory$BaseSerializerFactory;, "Lcom/esotericsoftware/kryo/SerializerFactory$BaseSerializerFactory<TT;>;"
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method

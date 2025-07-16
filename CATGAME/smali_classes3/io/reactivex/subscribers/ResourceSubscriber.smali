@@ -42,7 +42,6 @@
     .locals 1
 
     .line 95
-    .local p0, "this":Lio/reactivex/subscribers/ResourceSubscriber;, "Lio/reactivex/subscribers/ResourceSubscriber<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 97
@@ -73,12 +72,10 @@
 # virtual methods
 .method public final add(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "resource"    # Lio/reactivex/disposables/Disposable;
 
-    .line 113
-    .local p0, "this":Lio/reactivex/subscribers/ResourceSubscriber;, "Lio/reactivex/subscribers/ResourceSubscriber<TT;>;"
     const-string v0, "resource is null"
 
+    .line 113
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 114
@@ -86,7 +83,6 @@
 
     invoke-virtual {v0, p1}, Lio/reactivex/internal/disposables/ListCompositeDisposable;->add(Lio/reactivex/disposables/Disposable;)Z
 
-    .line 115
     return-void
 .end method
 
@@ -94,7 +90,6 @@
     .locals 1
 
     .line 159
-    .local p0, "this":Lio/reactivex/subscribers/ResourceSubscriber;, "Lio/reactivex/subscribers/ResourceSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/subscribers/ResourceSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->cancel(Ljava/util/concurrent/atomic/AtomicReference;)Z
@@ -108,7 +103,6 @@
 
     invoke-virtual {v0}, Lio/reactivex/internal/disposables/ListCompositeDisposable;->dispose()V
 
-    .line 162
     :cond_0
     return-void
 .end method
@@ -117,7 +111,6 @@
     .locals 1
 
     .line 170
-    .local p0, "this":Lio/reactivex/subscribers/ResourceSubscriber;, "Lio/reactivex/subscribers/ResourceSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/subscribers/ResourceSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -136,22 +129,18 @@
 .method protected onStart()V
     .locals 2
 
-    .line 135
-    .local p0, "this":Lio/reactivex/subscribers/ResourceSubscriber;, "Lio/reactivex/subscribers/ResourceSubscriber<TT;>;"
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 135
     invoke-virtual {p0, v0, v1}, Lio/reactivex/subscribers/ResourceSubscriber;->request(J)V
 
-    .line 136
     return-void
 .end method
 
 .method public final onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 5
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 119
-    .local p0, "this":Lio/reactivex/subscribers/ResourceSubscriber;, "Lio/reactivex/subscribers/ResourceSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/subscribers/ResourceSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -173,8 +162,6 @@
 
     move-result-wide v3
 
-    .line 121
-    .local v3, "r":J
     cmp-long v0, v3, v1
 
     if-eqz v0, :cond_0
@@ -186,24 +173,19 @@
     :cond_0
     invoke-virtual {p0}, Lio/reactivex/subscribers/ResourceSubscriber;->onStart()V
 
-    .line 126
-    .end local v3    # "r":J
     :cond_1
     return-void
 .end method
 
 .method protected final request(J)V
     .locals 2
-    .param p1, "n"    # J
 
     .line 147
-    .local p0, "this":Lio/reactivex/subscribers/ResourceSubscriber;, "Lio/reactivex/subscribers/ResourceSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/subscribers/ResourceSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     iget-object v1, p0, Lio/reactivex/subscribers/ResourceSubscriber;->missedRequested:Ljava/util/concurrent/atomic/AtomicLong;
 
     invoke-static {v0, v1, p1, p2}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->deferredRequest(Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/concurrent/atomic/AtomicLong;J)V
 
-    .line 148
     return-void
 .end method

@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Landroidx/browser/customtabs/CustomTabsClient$2;Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "this$1"    # Landroidx/browser/customtabs/CustomTabsClient$2;
 
     .line 330
     iput-object p1, p0, Landroidx/browser/customtabs/CustomTabsClient$2$4;->this$1:Landroidx/browser/customtabs/CustomTabsClient$2;
@@ -58,6 +57,5 @@
 
     invoke-virtual {v0, v1, v2}, Landroidx/browser/customtabs/CustomTabsCallback;->onPostMessage(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 334
     return-void
 .end method

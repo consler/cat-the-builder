@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/RecyclerView;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/recyclerview/widget/RecyclerView;
 
     .line 588
     iput-object p1, p0, Landroidx/recyclerview/widget/RecyclerView$2;->this$0:Landroidx/recyclerview/widget/RecyclerView;
@@ -61,6 +60,5 @@
 
     iput-boolean v1, v0, Landroidx/recyclerview/widget/RecyclerView;->mPostedAnimatorRunner:Z
 
-    .line 595
     return-void
 .end method

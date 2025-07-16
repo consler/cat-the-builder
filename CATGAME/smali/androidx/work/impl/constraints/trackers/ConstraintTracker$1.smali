@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroidx/work/impl/constraints/trackers/ConstraintTracker;Ljava/util/List;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/work/impl/constraints/trackers/ConstraintTracker;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
@@ -39,7 +38,6 @@
     .end annotation
 
     .line 110
-    .local p0, "this":Landroidx/work/impl/constraints/trackers/ConstraintTracker$1;, "Landroidx/work/impl/constraints/trackers/ConstraintTracker$1;"
     iput-object p1, p0, Landroidx/work/impl/constraints/trackers/ConstraintTracker$1;->this$0:Landroidx/work/impl/constraints/trackers/ConstraintTracker;
 
     iput-object p2, p0, Landroidx/work/impl/constraints/trackers/ConstraintTracker$1;->val$listenersList:Ljava/util/List;
@@ -55,7 +53,6 @@
     .locals 3
 
     .line 113
-    .local p0, "this":Landroidx/work/impl/constraints/trackers/ConstraintTracker$1;, "Landroidx/work/impl/constraints/trackers/ConstraintTracker$1;"
     iget-object v0, p0, Landroidx/work/impl/constraints/trackers/ConstraintTracker$1;->val$listenersList:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -76,18 +73,14 @@
     check-cast v1, Landroidx/work/impl/constraints/ConstraintListener;
 
     .line 114
-    .local v1, "listener":Landroidx/work/impl/constraints/ConstraintListener;, "Landroidx/work/impl/constraints/ConstraintListener<TT;>;"
     iget-object v2, p0, Landroidx/work/impl/constraints/trackers/ConstraintTracker$1;->this$0:Landroidx/work/impl/constraints/trackers/ConstraintTracker;
 
     iget-object v2, v2, Landroidx/work/impl/constraints/trackers/ConstraintTracker;->mCurrentState:Ljava/lang/Object;
 
     invoke-interface {v1, v2}, Landroidx/work/impl/constraints/ConstraintListener;->onConstraintChanged(Ljava/lang/Object;)V
 
-    .line 115
-    .end local v1    # "listener":Landroidx/work/impl/constraints/ConstraintListener;, "Landroidx/work/impl/constraints/ConstraintListener<TT;>;"
     goto :goto_0
 
-    .line 116
     :cond_0
     return-void
 .end method

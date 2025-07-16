@@ -39,18 +39,16 @@
 
     invoke-direct {p0, v0, v1}, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;-><init>(Ljava/util/Map;Ljava/util/Map;)V
 
-    .line 71
     const/4 v0, 0x0
 
+    .line 71
     iput-object v0, p0, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap;->comparator:Ljava/util/Comparator;
 
-    .line 72
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Comparator;)V
     .locals 2
-    .param p1, "comparator"    # Ljava/util/Comparator;
 
     .line 92
     new-instance v0, Ljava/util/TreeMap;
@@ -66,13 +64,11 @@
     .line 93
     iput-object p1, p0, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap;->comparator:Ljava/util/Comparator;
 
-    .line 94
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Map;)V
     .locals 2
-    .param p1, "map"    # Ljava/util/Map;
 
     .line 81
     new-instance v0, Ljava/util/TreeMap;
@@ -88,42 +84,34 @@
     .line 82
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap;->putAll(Ljava/util/Map;)V
 
+    const/4 p1, 0x0
+
     .line 83
-    const/4 v0, 0x0
+    iput-object p1, p0, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap;->comparator:Ljava/util/Comparator;
 
-    iput-object v0, p0, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap;->comparator:Ljava/util/Comparator;
-
-    .line 84
     return-void
 .end method
 
 .method protected constructor <init>(Ljava/util/Map;Ljava/util/Map;Lorg/apache/commons/collections/BidiMap;)V
-    .locals 1
-    .param p1, "normalMap"    # Ljava/util/Map;
-    .param p2, "reverseMap"    # Ljava/util/Map;
-    .param p3, "inverseBidiMap"    # Lorg/apache/commons/collections/BidiMap;
+    .locals 0
 
     .line 104
     invoke-direct {p0, p1, p2, p3}, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;-><init>(Ljava/util/Map;Ljava/util/Map;Lorg/apache/commons/collections/BidiMap;)V
 
     .line 105
-    move-object v0, p1
+    check-cast p1, Ljava/util/SortedMap;
 
-    check-cast v0, Ljava/util/SortedMap;
+    invoke-interface {p1}, Ljava/util/SortedMap;->comparator()Ljava/util/Comparator;
 
-    invoke-interface {v0}, Ljava/util/SortedMap;->comparator()Ljava/util/Comparator;
+    move-result-object p1
 
-    move-result-object v0
+    iput-object p1, p0, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap;->comparator:Ljava/util/Comparator;
 
-    iput-object v0, p0, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap;->comparator:Ljava/util/Comparator;
-
-    .line 106
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 3
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -163,21 +151,18 @@
     .line 345
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Map;
+    check-cast p1, Ljava/util/Map;
 
     .line 346
-    .local v0, "map":Ljava/util/Map;
-    invoke-virtual {p0, v0}, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap;->putAll(Ljava/util/Map;)V
+    invoke-virtual {p0, p1}, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap;->putAll(Ljava/util/Map;)V
 
-    .line 347
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 2
-    .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -196,7 +181,6 @@
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    .line 339
     return-void
 .end method
 
@@ -223,9 +207,6 @@
 
 .method protected createBidiMap(Ljava/util/Map;Ljava/util/Map;Lorg/apache/commons/collections/BidiMap;)Lorg/apache/commons/collections/BidiMap;
     .locals 1
-    .param p1, "normalMap"    # Ljava/util/Map;
-    .param p2, "reverseMap"    # Ljava/util/Map;
-    .param p3, "inverseMap"    # Lorg/apache/commons/collections/BidiMap;
 
     .line 117
     new-instance v0, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap;
@@ -256,7 +237,6 @@
 
 .method public headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
     .locals 2
-    .param p1, "toKey"    # Ljava/lang/Object;
 
     .line 187
     iget-object v0, p0, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap;->maps:[Ljava/util/Map;
@@ -269,15 +249,14 @@
 
     invoke-interface {v0, p1}, Ljava/util/SortedMap;->headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 188
-    .local v0, "sub":Ljava/util/SortedMap;
-    new-instance v1, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap$ViewMap;
+    new-instance v0, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap$ViewMap;
 
-    invoke-direct {v1, p0, v0}, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap$ViewMap;-><init>(Lorg/apache/commons/collections/bidimap/DualTreeBidiMap;Ljava/util/SortedMap;)V
+    invoke-direct {v0, p0, p1}, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap$ViewMap;-><init>(Lorg/apache/commons/collections/bidimap/DualTreeBidiMap;Ljava/util/SortedMap;)V
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public inverseOrderedBidiMap()Lorg/apache/commons/collections/OrderedBidiMap;
@@ -326,8 +305,7 @@
 .end method
 
 .method public nextKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 3
 
     .line 134
     invoke-virtual {p0}, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap;->isEmpty()Z
@@ -338,7 +316,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 135
     return-object v1
 
     .line 137
@@ -362,9 +339,9 @@
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections/OrderedMap;->nextKey(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 140
     :cond_1
@@ -375,38 +352,35 @@
     check-cast v0, Ljava/util/SortedMap;
 
     .line 141
-    .local v0, "sm":Ljava/util/SortedMap;
     invoke-interface {v0, p1}, Ljava/util/SortedMap;->tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-interface {v2}, Ljava/util/SortedMap;->keySet()Ljava/util/Set;
+    invoke-interface {p1}, Ljava/util/SortedMap;->keySet()Ljava/util/Set;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object p1
 
     .line 142
-    .local v2, "it":Ljava/util/Iterator;
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     .line 143
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_2
+    if-eqz v0, :cond_2
 
     .line 144
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
-    .line 146
     :cond_2
     return-object v1
 .end method
@@ -423,8 +397,7 @@
 .end method
 
 .method public previousKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 3
 
     .line 150
     invoke-virtual {p0}, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap;->isEmpty()Z
@@ -435,7 +408,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 151
     return-object v1
 
     .line 153
@@ -459,9 +431,9 @@
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections/OrderedMap;->previousKey(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 156
     :cond_1
@@ -472,35 +444,30 @@
     check-cast v0, Ljava/util/SortedMap;
 
     .line 157
-    .local v0, "sm":Ljava/util/SortedMap;
     invoke-interface {v0, p1}, Ljava/util/SortedMap;->headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v2
+    move-result-object p1
 
     .line 158
-    .local v2, "hm":Ljava/util/SortedMap;
-    invoke-interface {v2}, Ljava/util/SortedMap;->isEmpty()Z
+    invoke-interface {p1}, Ljava/util/SortedMap;->isEmpty()Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_2
+    if-eqz v0, :cond_2
 
-    .line 159
     return-object v1
 
     .line 161
     :cond_2
-    invoke-interface {v2}, Ljava/util/SortedMap;->lastKey()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/SortedMap;->lastKey()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
     .locals 2
-    .param p1, "fromKey"    # Ljava/lang/Object;
-    .param p2, "toKey"    # Ljava/lang/Object;
 
     .line 197
     iget-object v0, p0, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap;->maps:[Ljava/util/Map;
@@ -513,20 +480,18 @@
 
     invoke-interface {v0, p1, p2}, Ljava/util/SortedMap;->subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 198
-    .local v0, "sub":Ljava/util/SortedMap;
-    new-instance v1, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap$ViewMap;
+    new-instance p2, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap$ViewMap;
 
-    invoke-direct {v1, p0, v0}, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap$ViewMap;-><init>(Lorg/apache/commons/collections/bidimap/DualTreeBidiMap;Ljava/util/SortedMap;)V
+    invoke-direct {p2, p0, p1}, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap$ViewMap;-><init>(Lorg/apache/commons/collections/bidimap/DualTreeBidiMap;Ljava/util/SortedMap;)V
 
-    return-object v1
+    return-object p2
 .end method
 
 .method public tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
     .locals 2
-    .param p1, "fromKey"    # Ljava/lang/Object;
 
     .line 192
     iget-object v0, p0, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap;->maps:[Ljava/util/Map;
@@ -539,13 +504,12 @@
 
     invoke-interface {v0, p1}, Ljava/util/SortedMap;->tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 193
-    .local v0, "sub":Ljava/util/SortedMap;
-    new-instance v1, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap$ViewMap;
+    new-instance v0, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap$ViewMap;
 
-    invoke-direct {v1, p0, v0}, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap$ViewMap;-><init>(Lorg/apache/commons/collections/bidimap/DualTreeBidiMap;Ljava/util/SortedMap;)V
+    invoke-direct {v0, p0, p1}, Lorg/apache/commons/collections/bidimap/DualTreeBidiMap$ViewMap;-><init>(Lorg/apache/commons/collections/bidimap/DualTreeBidiMap;Ljava/util/SortedMap;)V
 
-    return-object v1
+    return-object v0
 .end method

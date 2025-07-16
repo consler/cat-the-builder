@@ -31,27 +31,21 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
-        "\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@\u00a2\u0006\u0004\u0008\u0003\u0010\u0004"
+        "\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"
     }
     d2 = {
         "<anonymous>",
         "",
-        "Lkotlinx/coroutines/CoroutineScope;",
-        "invoke",
-        "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"
+        "Lkotlinx/coroutines/CoroutineScope;"
     }
     k = 0x3
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 .annotation runtime Lkotlin/coroutines/jvm/internal/DebugMetadata;
@@ -67,6 +61,14 @@
 
 # instance fields
 .field final synthetic $bitmap:Lkotlin/jvm/internal/Ref$ObjectRef;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lkotlin/jvm/internal/Ref$ObjectRef<",
+            "Landroid/graphics/Bitmap;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field final synthetic $context:Landroid/content/Context;
 
@@ -78,6 +80,20 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;Ljava/lang/String;Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlin/coroutines/Continuation;)V
     .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "Ljava/lang/String;",
+            "Lkotlin/jvm/internal/Ref$ObjectRef<",
+            "Landroid/graphics/Bitmap;",
+            ">;",
+            "Lkotlin/coroutines/Continuation<",
+            "-",
+            "Lorg/catrobat/paintroid/colorpicker/FileOperationsKt$loadBitmapByName$2;",
+            ">;)V"
+        }
+    .end annotation
 
     iput-object p1, p0, Lorg/catrobat/paintroid/colorpicker/FileOperationsKt$loadBitmapByName$2;->$context:Landroid/content/Context;
 
@@ -95,7 +111,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -108,27 +124,48 @@
         }
     .end annotation
 
-    const-string v0, "completion"
+    new-instance p1, Lorg/catrobat/paintroid/colorpicker/FileOperationsKt$loadBitmapByName$2;
 
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/FileOperationsKt$loadBitmapByName$2;->$context:Landroid/content/Context;
 
-    new-instance v0, Lorg/catrobat/paintroid/colorpicker/FileOperationsKt$loadBitmapByName$2;
+    iget-object v1, p0, Lorg/catrobat/paintroid/colorpicker/FileOperationsKt$loadBitmapByName$2;->$imageName:Ljava/lang/String;
 
-    iget-object v1, p0, Lorg/catrobat/paintroid/colorpicker/FileOperationsKt$loadBitmapByName$2;->$context:Landroid/content/Context;
+    iget-object v2, p0, Lorg/catrobat/paintroid/colorpicker/FileOperationsKt$loadBitmapByName$2;->$bitmap:Lkotlin/jvm/internal/Ref$ObjectRef;
 
-    iget-object v2, p0, Lorg/catrobat/paintroid/colorpicker/FileOperationsKt$loadBitmapByName$2;->$imageName:Ljava/lang/String;
+    invoke-direct {p1, v0, v1, v2, p2}, Lorg/catrobat/paintroid/colorpicker/FileOperationsKt$loadBitmapByName$2;-><init>(Landroid/content/Context;Ljava/lang/String;Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlin/coroutines/Continuation;)V
 
-    iget-object v3, p0, Lorg/catrobat/paintroid/colorpicker/FileOperationsKt$loadBitmapByName$2;->$bitmap:Lkotlin/jvm/internal/Ref$ObjectRef;
+    check-cast p1, Lkotlin/coroutines/Continuation;
 
-    invoke-direct {v0, v1, v2, v3, p2}, Lorg/catrobat/paintroid/colorpicker/FileOperationsKt$loadBitmapByName$2;-><init>(Landroid/content/Context;Ljava/lang/String;Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlin/coroutines/Continuation;)V
-
-    return-object v0
+    return-object p1
 .end method
 
-.method public final invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+.method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
+    check-cast p1, Lkotlinx/coroutines/CoroutineScope;
+
     check-cast p2, Lkotlin/coroutines/Continuation;
+
+    invoke-virtual {p0, p1, p2}, Lorg/catrobat/paintroid/colorpicker/FileOperationsKt$loadBitmapByName$2;->invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lkotlinx/coroutines/CoroutineScope;",
+            "Lkotlin/coroutines/Continuation<",
+            "-",
+            "Lkotlin/Unit;",
+            ">;)",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
 
     invoke-virtual {p0, p1, p2}, Lorg/catrobat/paintroid/colorpicker/FileOperationsKt$loadBitmapByName$2;->create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
 
@@ -146,7 +183,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .locals 2
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -157,117 +194,90 @@
 
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    move-object v0, p0
-
-    .line 56
-    .local v0, "this":Lorg/catrobat/paintroid/colorpicker/FileOperationsKt$loadBitmapByName$2;
-    .local p1, "$result":Ljava/lang/Object;
-    const/4 v1, 0x0
-
-    check-cast v1, Ljava/io/FileInputStream;
-
-    .line 57
-    .local v1, "fileInputStream":Ljava/io/FileInputStream;
-    nop
+    const/4 p1, 0x0
 
     .line 58
     :try_start_0
-    iget-object v2, v0, Lorg/catrobat/paintroid/colorpicker/FileOperationsKt$loadBitmapByName$2;->$context:Landroid/content/Context;
+    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/FileOperationsKt$loadBitmapByName$2;->$context:Landroid/content/Context;
 
-    iget-object v3, v0, Lorg/catrobat/paintroid/colorpicker/FileOperationsKt$loadBitmapByName$2;->$imageName:Ljava/lang/String;
+    iget-object v1, p0, Lorg/catrobat/paintroid/colorpicker/FileOperationsKt$loadBitmapByName$2;->$imageName:Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Landroid/content/Context;->openFileInput(Ljava/lang/String;)Ljava/io/FileInputStream;
+    invoke-virtual {v0, v1}, Landroid/content/Context;->openFileInput(Ljava/lang/String;)Ljava/io/FileInputStream;
 
-    move-result-object v2
-
-    move-object v1, v2
+    move-result-object p1
 
     .line 59
-    iget-object v2, v0, Lorg/catrobat/paintroid/colorpicker/FileOperationsKt$loadBitmapByName$2;->$bitmap:Lkotlin/jvm/internal/Ref$ObjectRef;
+    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/FileOperationsKt$loadBitmapByName$2;->$bitmap:Lkotlin/jvm/internal/Ref$ObjectRef;
 
-    move-object v3, v1
+    move-object v1, p1
 
-    check-cast v3, Ljava/io/InputStream;
+    check-cast v1, Ljava/io/InputStream;
 
-    invoke-static {v3}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
+    invoke-static {v1}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
 
-    move-result-object v3
+    move-result-object v1
 
-    iput-object v3, v2, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
+    iput-object v1, v0, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 65
-    if-eqz v1, :cond_0
+    if-nez p1, :cond_0
 
     goto :goto_0
 
-    .line 66
+    .line 65
+    :cond_0
+    invoke-virtual {p1}, Ljava/io/FileInputStream;->close()V
+
+    goto :goto_0
+
     :catchall_0
-    move-exception v2
+    move-exception v0
 
     goto :goto_1
 
-    .line 62
     :catch_0
-    move-exception v2
+    move-exception v0
 
     .line 63
-    .local v2, "e":Ljava/io/IOException;
     :try_start_1
-    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
-    .line 65
-    .end local v2    # "e":Ljava/io/IOException;
-    if-eqz v1, :cond_0
+    if-nez p1, :cond_0
 
     goto :goto_0
 
-    .line 60
     :catch_1
-    move-exception v2
+    move-exception v0
 
     .line 61
-    .local v2, "e":Ljava/io/FileNotFoundException;
-    invoke-virtual {v2}, Ljava/io/FileNotFoundException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/io/FileNotFoundException;->printStackTrace()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 65
-    .end local v2    # "e":Ljava/io/FileNotFoundException;
-    if-eqz v1, :cond_0
+    if-nez p1, :cond_0
 
+    .line 67
     :goto_0
-    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
+    sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    .line 66
-    :cond_0
-    nop
+    return-object p1
 
-    .line 67
-    .end local v1    # "fileInputStream":Ljava/io/FileInputStream;
-    sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    :goto_1
+    if-nez p1, :cond_1
 
-    return-object v1
+    goto :goto_2
 
     .line 65
-    .restart local v1    # "fileInputStream":Ljava/io/FileInputStream;
-    :goto_1
-    if-eqz v1, :cond_1
-
-    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
-
-    nop
-
-    .end local v1    # "fileInputStream":Ljava/io/FileInputStream;
     :cond_1
-    throw v2
+    invoke-virtual {p1}, Ljava/io/FileInputStream;->close()V
+
+    :goto_2
+    throw v0
 
     .line 67
-    .end local v0    # "this":Lorg/catrobat/paintroid/colorpicker/FileOperationsKt$loadBitmapByName$2;
-    .end local p1    # "$result":Ljava/lang/Object;
     :cond_2
     new-instance p1, Ljava/lang/IllegalStateException;
 

@@ -12,8 +12,6 @@
 # direct methods
 .method public constructor <init>(Ljava/io/BufferedReader;Z)V
     .locals 0
-    .param p1, "reader"    # Ljava/io/BufferedReader;
-    .param p2, "keepCarriageReturns"    # Z
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +22,6 @@
     .line 31
     iput-boolean p2, p0, Lcom/opencsv/stream/reader/LineReader;->keepCarriageReturns:Z
 
-    .line 32
     return-void
 .end method
 
@@ -44,15 +41,13 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 46
-    .local v0, "sb":Ljava/lang/StringBuilder;
+    :goto_0
     iget-object v1, p0, Lcom/opencsv/stream/reader/LineReader;->reader:Ljava/io/BufferedReader;
 
     invoke-virtual {v1}, Ljava/io/BufferedReader;->read()I
 
     move-result v1
 
-    .local v1, "c":I
-    :goto_0
     const/4 v2, -0x1
 
     if-le v1, v2, :cond_0
@@ -61,22 +56,14 @@
 
     if-eq v1, v2, :cond_0
 
+    int-to-char v1, v1
+
     .line 47
-    int-to-char v2, v1
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    .line 46
-    iget-object v2, p0, Lcom/opencsv/stream/reader/LineReader;->reader:Ljava/io/BufferedReader;
-
-    invoke-virtual {v2}, Ljava/io/BufferedReader;->read()I
-
-    move-result v1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     goto :goto_0
 
     .line 50
-    .end local v1    # "c":I
     :cond_0
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
@@ -86,15 +73,15 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_1
 
     :cond_1
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :goto_1
-    return-object v1
+    return-object v0
 .end method
 
 

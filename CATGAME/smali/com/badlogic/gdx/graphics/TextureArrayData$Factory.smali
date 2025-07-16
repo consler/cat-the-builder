@@ -26,9 +26,6 @@
 
 .method public static varargs loadFromFiles(Lcom/badlogic/gdx/graphics/Pixmap$Format;Z[Lcom/badlogic/gdx/files/FileHandle;)Lcom/badlogic/gdx/graphics/TextureArrayData;
     .locals 1
-    .param p0, "format"    # Lcom/badlogic/gdx/graphics/Pixmap$Format;
-    .param p1, "useMipMaps"    # Z
-    .param p2, "files"    # [Lcom/badlogic/gdx/files/FileHandle;
 
     .line 68
     new-instance v0, Lcom/badlogic/gdx/graphics/glutils/FileTextureArrayData;

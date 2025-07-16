@@ -46,28 +46,26 @@
     sput-object v0, Lorg/apache/commons/lang3/time/StopWatch$SplitState;->SPLIT:Lorg/apache/commons/lang3/time/StopWatch$SplitState;
 
     .line 178
-    new-instance v0, Lorg/apache/commons/lang3/time/StopWatch$SplitState;
+    new-instance v1, Lorg/apache/commons/lang3/time/StopWatch$SplitState;
 
-    const-string v1, "UNSPLIT"
+    const-string v3, "UNSPLIT"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Lorg/apache/commons/lang3/time/StopWatch$SplitState;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Lorg/apache/commons/lang3/time/StopWatch$SplitState;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lorg/apache/commons/lang3/time/StopWatch$SplitState;->UNSPLIT:Lorg/apache/commons/lang3/time/StopWatch$SplitState;
+    sput-object v1, Lorg/apache/commons/lang3/time/StopWatch$SplitState;->UNSPLIT:Lorg/apache/commons/lang3/time/StopWatch$SplitState;
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Lorg/apache/commons/lang3/time/StopWatch$SplitState;
+
+    aput-object v0, v3, v2
+
+    aput-object v1, v3, v4
 
     .line 176
-    const/4 v1, 0x2
-
-    new-array v1, v1, [Lorg/apache/commons/lang3/time/StopWatch$SplitState;
-
-    sget-object v4, Lorg/apache/commons/lang3/time/StopWatch$SplitState;->SPLIT:Lorg/apache/commons/lang3/time/StopWatch$SplitState;
-
-    aput-object v4, v1, v2
-
-    aput-object v0, v1, v3
-
-    sput-object v1, Lorg/apache/commons/lang3/time/StopWatch$SplitState;->$VALUES:[Lorg/apache/commons/lang3/time/StopWatch$SplitState;
+    sput-object v3, Lorg/apache/commons/lang3/time/StopWatch$SplitState;->$VALUES:[Lorg/apache/commons/lang3/time/StopWatch$SplitState;
 
     return-void
 .end method
@@ -88,18 +86,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lorg/apache/commons/lang3/time/StopWatch$SplitState;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 176
     const-class v0, Lorg/apache/commons/lang3/time/StopWatch$SplitState;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lorg/apache/commons/lang3/time/StopWatch$SplitState;
+    check-cast p0, Lorg/apache/commons/lang3/time/StopWatch$SplitState;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lorg/apache/commons/lang3/time/StopWatch$SplitState;

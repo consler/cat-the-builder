@@ -69,7 +69,6 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->delete(II)Ljava/lang/StringBuilder;
 
-    .line 1847
     :cond_0
     return-void
 .end method
@@ -82,7 +81,6 @@
     .line 1823
     invoke-direct {p0}, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$LogWriter;->flushBuilder()V
 
-    .line 1824
     return-void
 .end method
 
@@ -92,30 +90,22 @@
     .line 1827
     invoke-direct {p0}, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceViewAPI18$LogWriter;->flushBuilder()V
 
-    .line 1828
     return-void
 .end method
 
 .method public write([CII)V
     .locals 3
-    .param p1, "buf"    # [C
-    .param p2, "offset"    # I
-    .param p3, "count"    # I
 
-    .line 1831
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     if-ge v0, p3, :cond_1
 
-    .line 1832
     add-int v1, p2, v0
 
+    .line 1832
     aget-char v1, p1, v1
 
-    .line 1833
-    .local v1, "c":C
     const/16 v2, 0xa
 
     if-ne v1, v2, :cond_0
@@ -131,15 +121,11 @@
 
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 1831
-    .end local v1    # "c":C
     :goto_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1840
-    .end local v0    # "i":I
     :cond_1
     return-void
 .end method

@@ -1,5 +1,5 @@
 .class public Lcom/huawei/hms/common/internal/TaskApiCallWrapper;
-.super Lcom/huawei/hms/common/internal/a;
+.super Lcom/huawei/hms/common/internal/BaseContentWrapper;
 .source "TaskApiCallWrapper.java"
 
 
@@ -9,7 +9,7 @@
         "<TResult:",
         "Ljava/lang/Object;",
         ">",
-        "Lcom/huawei/hms/common/internal/a;"
+        "Lcom/huawei/hms/common/internal/BaseContentWrapper;"
     }
 .end annotation
 
@@ -51,18 +51,17 @@
         }
     .end annotation
 
-    .line 27
     const/4 v0, 0x1
 
-    invoke-direct {p0, v0}, Lcom/huawei/hms/common/internal/a;-><init>(I)V
+    .line 1
+    invoke-direct {p0, v0}, Lcom/huawei/hms/common/internal/BaseContentWrapper;-><init>(I)V
 
-    .line 28
+    .line 2
     iput-object p1, p0, Lcom/huawei/hms/common/internal/TaskApiCallWrapper;->a:Lcom/huawei/hms/common/internal/TaskApiCall;
 
-    .line 29
+    .line 3
     iput-object p2, p0, Lcom/huawei/hms/common/internal/TaskApiCallWrapper;->b:Lcom/huawei/hmf/tasks/TaskCompletionSource;
 
-    .line 30
     return-void
 .end method
 
@@ -80,7 +79,7 @@
         }
     .end annotation
 
-    .line 38
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/internal/TaskApiCallWrapper;->a:Lcom/huawei/hms/common/internal/TaskApiCall;
 
     return-object v0
@@ -96,7 +95,7 @@
         }
     .end annotation
 
-    .line 47
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/internal/TaskApiCallWrapper;->b:Lcom/huawei/hmf/tasks/TaskCompletionSource;
 
     return-object v0

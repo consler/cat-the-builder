@@ -29,57 +29,43 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;IIILandroid/widget/RemoteViews;Landroid/app/Notification;ILjava/lang/String;)V
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
-    .param p4, "viewId"    # I
-    .param p5, "remoteViews"    # Landroid/widget/RemoteViews;
-    .param p6, "notification"    # Landroid/app/Notification;
-    .param p7, "notificationId"    # I
-    .param p8, "notificationTag"    # Ljava/lang/String;
+    .locals 0
 
     .line 107
     invoke-direct {p0, p2, p3}, Lcom/bumptech/glide/request/target/CustomTarget;-><init>(II)V
 
+    const-string p2, "Context must not be null!"
+
     .line 108
-    const-string v0, "Context must not be null!"
+    invoke-static {p1, p2}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-static {p1, v0}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
+    check-cast p1, Landroid/content/Context;
 
-    check-cast v0, Landroid/content/Context;
+    iput-object p1, p0, Lcom/bumptech/glide/request/target/NotificationTarget;->context:Landroid/content/Context;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/target/NotificationTarget;->context:Landroid/content/Context;
-
-    .line 109
-    nop
+    const-string p1, "Notification object can not be null!"
 
     .line 110
-    const-string v0, "Notification object can not be null!"
+    invoke-static {p6, p1}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-static {p6, v0}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
+    check-cast p1, Landroid/app/Notification;
 
-    check-cast v0, Landroid/app/Notification;
+    iput-object p1, p0, Lcom/bumptech/glide/request/target/NotificationTarget;->notification:Landroid/app/Notification;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/target/NotificationTarget;->notification:Landroid/app/Notification;
-
-    .line 111
-    nop
+    const-string p1, "RemoteViews object can not be null!"
 
     .line 112
-    const-string v0, "RemoteViews object can not be null!"
+    invoke-static {p5, p1}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-static {p5, v0}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
+    check-cast p1, Landroid/widget/RemoteViews;
 
-    check-cast v0, Landroid/widget/RemoteViews;
-
-    iput-object v0, p0, Lcom/bumptech/glide/request/target/NotificationTarget;->remoteViews:Landroid/widget/RemoteViews;
+    iput-object p1, p0, Lcom/bumptech/glide/request/target/NotificationTarget;->remoteViews:Landroid/widget/RemoteViews;
 
     .line 113
     iput p4, p0, Lcom/bumptech/glide/request/target/NotificationTarget;->viewId:I
@@ -90,19 +76,12 @@
     .line 115
     iput-object p8, p0, Lcom/bumptech/glide/request/target/NotificationTarget;->notificationTag:Ljava/lang/String;
 
-    .line 116
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;ILandroid/widget/RemoteViews;Landroid/app/Notification;I)V
     .locals 7
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "viewId"    # I
-    .param p3, "remoteViews"    # Landroid/widget/RemoteViews;
-    .param p4, "notification"    # Landroid/app/Notification;
-    .param p5, "notificationId"    # I
 
-    .line 48
     const/4 v6, 0x0
 
     move-object v0, p0
@@ -117,22 +96,15 @@
 
     move v5, p5
 
+    .line 48
     invoke-direct/range {v0 .. v6}, Lcom/bumptech/glide/request/target/NotificationTarget;-><init>(Landroid/content/Context;ILandroid/widget/RemoteViews;Landroid/app/Notification;ILjava/lang/String;)V
 
-    .line 49
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;ILandroid/widget/RemoteViews;Landroid/app/Notification;ILjava/lang/String;)V
     .locals 9
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "viewId"    # I
-    .param p3, "remoteViews"    # Landroid/widget/RemoteViews;
-    .param p4, "notification"    # Landroid/app/Notification;
-    .param p5, "notificationId"    # I
-    .param p6, "notificationTag"    # Ljava/lang/String;
 
-    .line 71
     const/high16 v2, -0x80000000
 
     const/high16 v3, -0x80000000
@@ -151,15 +123,14 @@
 
     move-object v8, p6
 
+    .line 71
     invoke-direct/range {v0 .. v8}, Lcom/bumptech/glide/request/target/NotificationTarget;-><init>(Landroid/content/Context;IIILandroid/widget/RemoteViews;Landroid/app/Notification;ILjava/lang/String;)V
 
-    .line 80
     return-void
 .end method
 
 .method private setBitmap(Landroid/graphics/Bitmap;)V
     .locals 2
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
     .line 138
     iget-object v0, p0, Lcom/bumptech/glide/request/target/NotificationTarget;->remoteViews:Landroid/widget/RemoteViews;
@@ -171,19 +142,18 @@
     .line 139
     invoke-direct {p0}, Lcom/bumptech/glide/request/target/NotificationTarget;->update()V
 
-    .line 140
     return-void
 .end method
 
 .method private update()V
-    .locals 5
+    .locals 4
 
     .line 120
     iget-object v0, p0, Lcom/bumptech/glide/request/target/NotificationTarget;->context:Landroid/content/Context;
 
-    .line 121
     const-string v1, "notification"
 
+    .line 121
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
@@ -191,44 +161,39 @@
     check-cast v0, Landroid/app/NotificationManager;
 
     .line 122
-    .local v0, "manager":Landroid/app/NotificationManager;
     invoke-static {v0}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/app/NotificationManager;
+    check-cast v0, Landroid/app/NotificationManager;
 
-    iget-object v2, p0, Lcom/bumptech/glide/request/target/NotificationTarget;->notificationTag:Ljava/lang/String;
+    iget-object v1, p0, Lcom/bumptech/glide/request/target/NotificationTarget;->notificationTag:Ljava/lang/String;
 
-    iget v3, p0, Lcom/bumptech/glide/request/target/NotificationTarget;->notificationId:I
+    iget v2, p0, Lcom/bumptech/glide/request/target/NotificationTarget;->notificationId:I
 
-    iget-object v4, p0, Lcom/bumptech/glide/request/target/NotificationTarget;->notification:Landroid/app/Notification;
+    iget-object v3, p0, Lcom/bumptech/glide/request/target/NotificationTarget;->notification:Landroid/app/Notification;
 
     .line 123
-    invoke-virtual {v1, v2, v3, v4}, Landroid/app/NotificationManager;->notify(Ljava/lang/String;ILandroid/app/Notification;)V
+    invoke-virtual {v0, v1, v2, v3}, Landroid/app/NotificationManager;->notify(Ljava/lang/String;ILandroid/app/Notification;)V
 
-    .line 124
     return-void
 .end method
 
 
 # virtual methods
 .method public onLoadCleared(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
-    .param p1, "placeholder"    # Landroid/graphics/drawable/Drawable;
+    .locals 0
+
+    const/4 p1, 0x0
 
     .line 134
-    const/4 v0, 0x0
+    invoke-direct {p0, p1}, Lcom/bumptech/glide/request/target/NotificationTarget;->setBitmap(Landroid/graphics/Bitmap;)V
 
-    invoke-direct {p0, v0}, Lcom/bumptech/glide/request/target/NotificationTarget;->setBitmap(Landroid/graphics/Bitmap;)V
-
-    .line 135
     return-void
 .end method
 
 .method public onResourceReady(Landroid/graphics/Bitmap;Lcom/bumptech/glide/request/transition/Transition;)V
     .locals 0
-    .param p1, "resource"    # Landroid/graphics/Bitmap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -241,10 +206,8 @@
     .end annotation
 
     .line 129
-    .local p2, "transition":Lcom/bumptech/glide/request/transition/Transition;, "Lcom/bumptech/glide/request/transition/Transition<-Landroid/graphics/Bitmap;>;"
     invoke-direct {p0, p1}, Lcom/bumptech/glide/request/target/NotificationTarget;->setBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 130
     return-void
 .end method
 

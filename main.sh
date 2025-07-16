@@ -2,28 +2,33 @@
 
 cp -r CATGAME/. Build/
 
-# changing the stock catrobat_project.zip to the user`s one
-cp $1 Build/assets/catrobat_project.zip
+# changing the stock catgame to the user`s one
+mkdir Build/assets/CATGAME >> /dev/null
+
+cp $1 Build/assets/CATGAME/CATGAME.catrobat
+
+unzip Build/assets/CATGAME/CATGAME.catrobat -d Build/assets/CATGAME/
 
 # changing manifest to match user`s prefernces
-sed -i "s/my.owner.app/$2/g" Build/AndroidManifest.xml
-sed -i "s/android:label=\"App\"/android:label=\"$3\"/g" Build/AndroidManifest.xml
+sed -i "s/my.catgame/$2/g" Build/AndroidManifest.xml
+sed -i "s/android:label=\"CATGAME\"/android:label=\"$3\"/g" Build/AndroidManifest.xml
 
 # changing the icon
-cp $4 Build/res/mipmap-xxxhdpi/ic_launcher.png -f
+cp $4 Build/res/mipmap-xxhdpi/ic_launcher.png -f
+cp $4 Build/res/mipmap-xxhdpi/ic_launcher_round.png -f
 
 # zipping the apk
 apktool b Build
 
 mv Build/dist/CATGAME.apk Release
 
-rm -rf Build
+# rm -rf Build
 
 cd Release
 
 # zipaligning 
 mv CATGAME.apk CATGAME-prealigned.apk
-echo "Zip aligning CATGAME"
+echo "Zip aligning CATGAME..."
 zipalign 4 CATGAME-prealigned.apk CATGAME.apk
 rm CATGAME-prealigned.apk
 

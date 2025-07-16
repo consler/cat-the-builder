@@ -5,13 +5,8 @@
 
 # annotations
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
-        "\u0000l\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0008\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u0007\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\r\n\u0002\u0018\u0002\n\u0002\u0008\u0002\u0008&\u0018\u00002\u00020\u0001B/\u0008\u0007\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007\u0012\u0006\u0010\u0008\u001a\u00020\t\u0012\u0006\u0010\n\u001a\u00020\u000b\u00a2\u0006\u0002\u0010\u000cJ\u0010\u0010\u0018\u001a\u00020\u00192\u0006\u0010\u001a\u001a\u00020\u001bH&J \u0010\u001c\u001a\u00020\u00192\u0006\u0010\u001a\u001a\u00020\u001b2\u0006\u0010\u001d\u001a\u00020\u001e2\u0006\u0010\u001f\u001a\u00020\u001eH\u0014J(\u0010 \u001a\u00020!2\u0006\u0010\"\u001a\u00020\u001e2\u0006\u0010#\u001a\u00020\u001e2\u0006\u0010$\u001a\u00020\u00122\u0006\u0010%\u001a\u00020\u0012H\u0016J\u000e\u0010&\u001a\u00020\u001e2\u0006\u0010\'\u001a\u00020\u001eJ\u001e\u0010(\u001a\u00020\u001e2\u0006\u0010)\u001a\u00020\u001e2\u0006\u0010*\u001a\u00020\u001e2\u0006\u0010+\u001a\u00020\u001eJ\u0008\u0010,\u001a\u00020\u0019H&J\u0012\u0010-\u001a\u00020\u00192\u0008\u0010.\u001a\u0004\u0018\u00010/H\u0016J\u0012\u00100\u001a\u00020\u00192\u0008\u0010.\u001a\u0004\u0018\u00010/H\u0016R\u0010\u0010\r\u001a\u00020\u000e8\u0006X\u0087\u0004\u00a2\u0006\u0002\n\u0000R\u0010\u0010\u000f\u001a\u00020\u00108\u0006X\u0087\u0004\u00a2\u0006\u0002\n\u0000R\u0012\u0010\u0011\u001a\u00020\u00128\u0006@\u0006X\u0087\u000e\u00a2\u0006\u0002\n\u0000R\u0012\u0010\u0013\u001a\u00020\u00128\u0006@\u0006X\u0087\u000e\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u0014\u001a\u00020\u00158\u0006X\u0087\u0004\u00a2\u0006\u0008\n\u0000\u0012\u0004\u0008\u0016\u0010\u0017\u00a8\u00061"
+        "\u0000r\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0008\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u0007\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\r\n\u0002\u0018\u0002\n\u0002\u0008\u0002\u0008&\u0018\u00002\u00020\u0001B7\u0008\u0007\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007\u0012\u0006\u0010\u0008\u001a\u00020\t\u0012\u0006\u0010\n\u001a\u00020\u000b\u0012\u0006\u0010\u000c\u001a\u00020\r\u00a2\u0006\u0002\u0010\u000eJ\u0010\u0010\u001a\u001a\u00020\u001b2\u0006\u0010\u001c\u001a\u00020\u001dH&J \u0010\u001e\u001a\u00020\u001b2\u0006\u0010\u001c\u001a\u00020\u001d2\u0006\u0010\u001f\u001a\u00020 2\u0006\u0010!\u001a\u00020 H\u0014J(\u0010\"\u001a\u00020#2\u0006\u0010$\u001a\u00020 2\u0006\u0010%\u001a\u00020 2\u0006\u0010&\u001a\u00020\u00142\u0006\u0010\'\u001a\u00020\u0014H\u0016J\u000e\u0010(\u001a\u00020 2\u0006\u0010)\u001a\u00020 J\u001e\u0010*\u001a\u00020 2\u0006\u0010+\u001a\u00020 2\u0006\u0010,\u001a\u00020 2\u0006\u0010-\u001a\u00020 J\u0008\u0010.\u001a\u00020\u001bH&J\u0012\u0010/\u001a\u00020\u001b2\u0008\u00100\u001a\u0004\u0018\u000101H\u0016J\u0012\u00102\u001a\u00020\u001b2\u0008\u00100\u001a\u0004\u0018\u000101H\u0016R\u0010\u0010\u000f\u001a\u00020\u00108\u0006X\u0087\u0004\u00a2\u0006\u0002\n\u0000R\u0010\u0010\u0011\u001a\u00020\u00128\u0006X\u0087\u0004\u00a2\u0006\u0002\n\u0000R\u0012\u0010\u0013\u001a\u00020\u00148\u0006@\u0006X\u0087\u000e\u00a2\u0006\u0002\n\u0000R\u0012\u0010\u0015\u001a\u00020\u00148\u0006@\u0006X\u0087\u000e\u00a2\u0006\u0002\n\u0000R\u0018\u0010\u0016\u001a\u00020\u00178\u0006@\u0006X\u0087\u000e\u00a2\u0006\u0008\n\u0000\u0012\u0004\u0008\u0018\u0010\u0019\u00a8\u00063"
     }
     d2 = {
         "Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;",
@@ -24,9 +19,11 @@
         "Lorg/catrobat/paintroid/tools/ToolPaint;",
         "workspace",
         "Lorg/catrobat/paintroid/tools/Workspace;",
+        "idlingResource",
+        "Landroidx/test/espresso/idling/CountingIdlingResource;",
         "commandManager",
         "Lorg/catrobat/paintroid/command/CommandManager;",
-        "(Lorg/catrobat/paintroid/tools/ContextCallback;Lorg/catrobat/paintroid/tools/options/ToolOptionsViewController;Lorg/catrobat/paintroid/tools/ToolPaint;Lorg/catrobat/paintroid/tools/Workspace;Lorg/catrobat/paintroid/command/CommandManager;)V",
+        "(Lorg/catrobat/paintroid/tools/ContextCallback;Lorg/catrobat/paintroid/tools/options/ToolOptionsViewController;Lorg/catrobat/paintroid/tools/ToolPaint;Lorg/catrobat/paintroid/tools/Workspace;Landroidx/test/espresso/idling/CountingIdlingResource;Lorg/catrobat/paintroid/command/CommandManager;)V",
         "linePaint",
         "Landroid/graphics/Paint;",
         "metrics",
@@ -63,14 +60,15 @@
         "bundle",
         "Landroid/os/Bundle;",
         "onSaveInstanceState",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -83,17 +81,12 @@
 
 .field public secondaryShapeColor:I
 
-.field public final toolPosition:Landroid/graphics/PointF;
+.field public toolPosition:Landroid/graphics/PointF;
 
 
 # direct methods
-.method public constructor <init>(Lorg/catrobat/paintroid/tools/ContextCallback;Lorg/catrobat/paintroid/tools/options/ToolOptionsViewController;Lorg/catrobat/paintroid/tools/ToolPaint;Lorg/catrobat/paintroid/tools/Workspace;Lorg/catrobat/paintroid/command/CommandManager;)V
-    .locals 5
-    .param p1, "contextCallback"    # Lorg/catrobat/paintroid/tools/ContextCallback;
-    .param p2, "toolOptionsViewController"    # Lorg/catrobat/paintroid/tools/options/ToolOptionsViewController;
-    .param p3, "toolPaint"    # Lorg/catrobat/paintroid/tools/ToolPaint;
-    .param p4, "workspace"    # Lorg/catrobat/paintroid/tools/Workspace;
-    .param p5, "commandManager"    # Lorg/catrobat/paintroid/command/CommandManager;
+.method public constructor <init>(Lorg/catrobat/paintroid/tools/ContextCallback;Lorg/catrobat/paintroid/tools/options/ToolOptionsViewController;Lorg/catrobat/paintroid/tools/ToolPaint;Lorg/catrobat/paintroid/tools/Workspace;Landroidx/test/espresso/idling/CountingIdlingResource;Lorg/catrobat/paintroid/command/CommandManager;)V
+    .locals 1
 
     const-string v0, "contextCallback"
 
@@ -111,142 +104,125 @@
 
     invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "commandManager"
+    const-string v0, "idlingResource"
 
     invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 41
-    nop
+    const-string v0, "commandManager"
 
-    .line 48
-    nop
+    invoke-static {p6, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 49
-    nop
-
-    .line 50
-    nop
-
-    .line 51
-    nop
-
-    .line 52
-    nop
-
-    .line 47
-    invoke-direct/range {p0 .. p5}, Lorg/catrobat/paintroid/tools/implementation/BaseTool;-><init>(Lorg/catrobat/paintroid/tools/ContextCallback;Lorg/catrobat/paintroid/tools/options/ToolOptionsViewController;Lorg/catrobat/paintroid/tools/ToolPaint;Lorg/catrobat/paintroid/tools/Workspace;Lorg/catrobat/paintroid/command/CommandManager;)V
-
-    .line 61
-    sget v0, Lorg/catrobat/paintroid/R$color;->pocketpaint_main_rectangle_tool_primary_color:I
-
-    invoke-interface {p1, v0}, Lorg/catrobat/paintroid/tools/ContextCallback;->getColor(I)I
-
-    move-result v0
-
-    iput v0, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->primaryShapeColor:I
+    invoke-direct/range {p0 .. p6}, Lorg/catrobat/paintroid/tools/implementation/BaseTool;-><init>(Lorg/catrobat/paintroid/tools/ContextCallback;Lorg/catrobat/paintroid/tools/options/ToolOptionsViewController;Lorg/catrobat/paintroid/tools/ToolPaint;Lorg/catrobat/paintroid/tools/Workspace;Landroidx/test/espresso/idling/CountingIdlingResource;Lorg/catrobat/paintroid/command/CommandManager;)V
 
     .line 64
-    sget v0, Lorg/catrobat/paintroid/R$color;->pocketpaint_colorAccent:I
+    sget p2, Lorg/catrobat/paintroid/R$color;->pocketpaint_main_rectangle_tool_primary_color:I
 
-    invoke-interface {p1, v0}, Lorg/catrobat/paintroid/tools/ContextCallback;->getColor(I)I
+    invoke-interface {p1, p2}, Lorg/catrobat/paintroid/tools/ContextCallback;->getColor(I)I
 
-    move-result v0
+    move-result p2
 
-    iput v0, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->secondaryShapeColor:I
+    iput p2, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->primaryShapeColor:I
 
-    .line 70
-    invoke-interface {p1}, Lorg/catrobat/paintroid/tools/ContextCallback;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    .line 67
+    sget p2, Lorg/catrobat/paintroid/R$color;->pocketpaint_colorAccentAlpha60:I
 
-    move-result-object v0
+    invoke-interface {p1, p2}, Lorg/catrobat/paintroid/tools/ContextCallback;->getColor(I)I
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->metrics:Landroid/util/DisplayMetrics;
+    move-result p2
 
-    .line 72
-    nop
+    iput p2, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->secondaryShapeColor:I
 
     .line 73
-    invoke-interface {p4}, Lorg/catrobat/paintroid/tools/Workspace;->getPerspective()Lorg/catrobat/paintroid/ui/Perspective;
+    invoke-interface {p1}, Lorg/catrobat/paintroid/tools/ContextCallback;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 74
-    .local v0, "perspective":Lorg/catrobat/paintroid/ui/Perspective;
-    invoke-virtual {v0}, Lorg/catrobat/paintroid/ui/Perspective;->getScale()F
-
-    move-result v1
-
-    const/4 v2, 0x1
-
-    int-to-float v2, v2
-
-    cmpl-float v1, v1, v2
-
-    if-lez v1, :cond_0
-
-    .line 75
-    new-instance v1, Landroid/graphics/PointF;
+    iput-object p1, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->metrics:Landroid/util/DisplayMetrics;
 
     .line 76
-    iget v2, v0, Lorg/catrobat/paintroid/ui/Perspective;->surfaceCenterX:F
+    invoke-interface {p4}, Lorg/catrobat/paintroid/tools/Workspace;->getPerspective()Lorg/catrobat/paintroid/ui/Perspective;
 
-    iget v3, v0, Lorg/catrobat/paintroid/ui/Perspective;->surfaceTranslationX:F
-
-    sub-float/2addr v2, v3
+    move-result-object p1
 
     .line 77
-    iget v3, v0, Lorg/catrobat/paintroid/ui/Perspective;->surfaceCenterY:F
+    invoke-virtual {p1}, Lorg/catrobat/paintroid/ui/Perspective;->getScale()F
 
-    iget v4, v0, Lorg/catrobat/paintroid/ui/Perspective;->surfaceTranslationY:F
+    move-result p2
 
-    sub-float/2addr v3, v4
+    const/high16 p3, 0x3f800000    # 1.0f
 
-    .line 75
-    invoke-direct {v1, v2, v3}, Landroid/graphics/PointF;-><init>(FF)V
+    cmpl-float p2, p2, p3
+
+    if-lez p2, :cond_0
+
+    .line 78
+    new-instance p2, Landroid/graphics/PointF;
+
+    .line 79
+    iget p3, p1, Lorg/catrobat/paintroid/ui/Perspective;->surfaceCenterX:F
+
+    iget p4, p1, Lorg/catrobat/paintroid/ui/Perspective;->surfaceTranslationX:F
+
+    sub-float/2addr p3, p4
+
+    .line 80
+    iget p4, p1, Lorg/catrobat/paintroid/ui/Perspective;->surfaceCenterY:F
+
+    iget p1, p1, Lorg/catrobat/paintroid/ui/Perspective;->surfaceTranslationY:F
+
+    sub-float/2addr p4, p1
+
+    .line 78
+    invoke-direct {p2, p3, p4}, Landroid/graphics/PointF;-><init>(FF)V
 
     goto :goto_0
 
-    .line 80
+    .line 83
     :cond_0
-    new-instance v1, Landroid/graphics/PointF;
+    new-instance p2, Landroid/graphics/PointF;
 
     invoke-interface {p4}, Lorg/catrobat/paintroid/tools/Workspace;->getWidth()I
 
-    move-result v2
+    move-result p1
 
-    int-to-float v2, v2
+    int-to-float p1, p1
 
-    const/high16 v3, 0x40000000    # 2.0f
+    const/high16 p3, 0x40000000    # 2.0f
 
-    div-float/2addr v2, v3
+    div-float/2addr p1, p3
 
     invoke-interface {p4}, Lorg/catrobat/paintroid/tools/Workspace;->getHeight()I
 
-    move-result v4
+    move-result p4
 
-    int-to-float v4, v4
+    int-to-float p4, p4
 
-    div-float/2addr v4, v3
+    div-float/2addr p4, p3
 
-    invoke-direct {v1, v2, v4}, Landroid/graphics/PointF;-><init>(FF)V
+    invoke-direct {p2, p1, p4}, Landroid/graphics/PointF;-><init>(FF)V
 
-    .line 74
+    .line 77
     :goto_0
-    iput-object v1, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->toolPosition:Landroid/graphics/PointF;
+    iput-object p2, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->toolPosition:Landroid/graphics/PointF;
 
-    .line 82
-    new-instance v1, Landroid/graphics/Paint;
+    .line 85
+    new-instance p1, Landroid/graphics/Paint;
 
-    invoke-direct {v1}, Landroid/graphics/Paint;-><init>()V
+    invoke-direct {p1}, Landroid/graphics/Paint;-><init>()V
 
-    iput-object v1, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->linePaint:Landroid/graphics/Paint;
+    iput-object p1, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->linePaint:Landroid/graphics/Paint;
 
-    .line 83
-    iget v2, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->primaryShapeColor:I
+    .line 86
+    iget p2, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->primaryShapeColor:I
 
-    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-virtual {p1, p2}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 84
-    .end local v0    # "perspective":Lorg/catrobat/paintroid/ui/Perspective;
+    const/4 p2, 0x0
+
+    .line 87
+    invoke-virtual {p1, p2}, Landroid/graphics/Paint;->setPathEffect(Landroid/graphics/PathEffect;)Landroid/graphics/PathEffect;
+
     return-void
 .end method
 
@@ -262,218 +238,169 @@
 .end method
 
 .method protected drawToolSpecifics(Landroid/graphics/Canvas;FF)V
-    .locals 1
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
-    .param p2, "boxWidth"    # F
-    .param p3, "boxHeight"    # F
+    .locals 0
 
-    const-string v0, "canvas"
+    const-string p2, "canvas"
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 135
     return-void
 .end method
 
 .method public getAutoScrollDirection(FFII)Landroid/graphics/Point;
-    .locals 4
-    .param p1, "pointX"    # F
-    .param p2, "pointY"    # F
-    .param p3, "screenWidth"    # I
-    .param p4, "screenHeight"    # I
-
-    .line 124
-    iget-object v0, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
-
-    iget-object v1, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->toolPosition:Landroid/graphics/PointF;
-
-    invoke-interface {v0, v1}, Lorg/catrobat/paintroid/tools/Workspace;->getSurfacePointFromCanvasPoint(Landroid/graphics/PointF;)Landroid/graphics/PointF;
-
-    move-result-object v0
-
-    .line 125
-    .local v0, "surfaceToolPosition":Landroid/graphics/PointF;
-    iget-object v1, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->scrollBehavior:Lorg/catrobat/paintroid/tools/common/ScrollBehavior;
-
-    .line 126
-    iget v2, v0, Landroid/graphics/PointF;->x:F
-
-    .line 127
-    iget v3, v0, Landroid/graphics/PointF;->y:F
+    .locals 1
 
     .line 128
-    nop
+    iget-object p1, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
+
+    iget-object p2, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->toolPosition:Landroid/graphics/PointF;
+
+    invoke-interface {p1, p2}, Lorg/catrobat/paintroid/tools/Workspace;->getSurfacePointFromCanvasPoint(Landroid/graphics/PointF;)Landroid/graphics/PointF;
+
+    move-result-object p1
 
     .line 129
-    nop
+    iget-object p2, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->scrollBehavior:Lorg/catrobat/paintroid/tools/common/ScrollBehavior;
 
-    .line 125
-    invoke-interface {v1, v2, v3, p3, p4}, Lorg/catrobat/paintroid/tools/common/ScrollBehavior;->getScrollDirection(FFII)Landroid/graphics/Point;
+    .line 130
+    iget v0, p1, Landroid/graphics/PointF;->x:F
 
-    move-result-object v1
+    .line 131
+    iget p1, p1, Landroid/graphics/PointF;->y:F
 
-    return-object v1
+    .line 129
+    invoke-interface {p2, v0, p1, p3, p4}, Lorg/catrobat/paintroid/tools/common/ScrollBehavior;->getScrollDirection(FFII)Landroid/graphics/Point;
+
+    move-result-object p1
+
+    return-object p1
 .end method
 
 .method public final getInverselyProportionalSizeForZoom(F)F
     .locals 2
-    .param p1, "defaultSize"    # F
 
-    .line 98
+    .line 102
     iget-object v0, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/tools/Workspace;->getScale()F
 
     move-result v0
 
-    .line 99
-    .local v0, "applicationScale":F
+    .line 103
     iget-object v1, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->metrics:Landroid/util/DisplayMetrics;
 
     iget v1, v1, Landroid/util/DisplayMetrics;->density:F
 
-    mul-float/2addr v1, p1
+    mul-float/2addr p1, v1
 
-    div-float/2addr v1, v0
+    div-float/2addr p1, v0
 
-    return v1
+    return p1
 .end method
 
 .method public final getStrokeWidthForZoom(FFF)F
-    .locals 2
-    .param p1, "defaultStrokeWidth"    # F
-    .param p2, "minStrokeWidth"    # F
-    .param p3, "maxStrokeWidth"    # F
+    .locals 1
 
-    .line 93
+    .line 97
     iget-object v0, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->metrics:Landroid/util/DisplayMetrics;
 
     iget v0, v0, Landroid/util/DisplayMetrics;->density:F
 
-    mul-float/2addr v0, p1
+    mul-float/2addr p1, v0
 
-    iget-object v1, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
+    iget-object v0, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
 
-    invoke-interface {v1}, Lorg/catrobat/paintroid/tools/Workspace;->getScale()F
+    invoke-interface {v0}, Lorg/catrobat/paintroid/tools/Workspace;->getScale()F
 
-    move-result v1
+    move-result v0
 
-    div-float/2addr v0, v1
+    div-float/2addr p1, v0
 
-    .line 94
-    .local v0, "strokeWidth":F
-    invoke-static {p2, v0}, Ljava/lang/Math;->max(FF)F
+    .line 98
+    invoke-static {p2, p1}, Ljava/lang/Math;->max(FF)F
 
-    move-result v1
+    move-result p1
 
-    invoke-static {p3, v1}, Ljava/lang/Math;->min(FF)F
+    invoke-static {p3, p1}, Ljava/lang/Math;->min(FF)F
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 .end method
 
 .method public abstract onClickOnButton()V
 .end method
 
 .method public onRestoreInstanceState(Landroid/os/Bundle;)V
-    .locals 5
-    .param p1, "bundle"    # Landroid/os/Bundle;
-
-    .line 111
-    invoke-super {p0, p1}, Lorg/catrobat/paintroid/tools/implementation/BaseTool;->onRestoreInstanceState(Landroid/os/Bundle;)V
-
-    .line 112
-    if-eqz p1, :cond_0
-
-    move-object v0, p1
-
-    .local v0, "$this$apply":Landroid/os/Bundle;
-    const/4 v1, 0x0
-
-    .line 113
-    .local v1, "$i$a$-apply-BaseToolWithShape$onRestoreInstanceState$1":I
-    iget-object v2, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->toolPosition:Landroid/graphics/PointF;
-
-    iget v3, v2, Landroid/graphics/PointF;->x:F
-
-    const-string v4, "TOOL_POSITION_X"
-
-    invoke-virtual {v0, v4, v3}, Landroid/os/Bundle;->getFloat(Ljava/lang/String;F)F
-
-    move-result v3
-
-    iput v3, v2, Landroid/graphics/PointF;->x:F
-
-    .line 114
-    iget-object v2, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->toolPosition:Landroid/graphics/PointF;
-
-    iget v3, v2, Landroid/graphics/PointF;->y:F
-
-    const-string v4, "TOOL_POSITION_Y"
-
-    invoke-virtual {v0, v4, v3}, Landroid/os/Bundle;->getFloat(Ljava/lang/String;F)F
-
-    move-result v3
-
-    iput v3, v2, Landroid/graphics/PointF;->y:F
+    .locals 3
 
     .line 115
-    nop
+    invoke-super {p0, p1}, Lorg/catrobat/paintroid/tools/implementation/BaseTool;->onRestoreInstanceState(Landroid/os/Bundle;)V
 
-    .line 112
-    .end local v0    # "$this$apply":Landroid/os/Bundle;
-    .end local v1    # "$i$a$-apply-BaseToolWithShape$onRestoreInstanceState$1":I
-    nop
+    if-nez p1, :cond_0
 
-    .line 116
+    goto :goto_0
+
+    .line 117
     :cond_0
+    iget-object v0, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->toolPosition:Landroid/graphics/PointF;
+
+    const-string v1, "TOOL_POSITION_X"
+
+    iget v2, v0, Landroid/graphics/PointF;->x:F
+
+    invoke-virtual {p1, v1, v2}, Landroid/os/Bundle;->getFloat(Ljava/lang/String;F)F
+
+    move-result v1
+
+    iput v1, v0, Landroid/graphics/PointF;->x:F
+
+    .line 118
+    iget-object v0, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->toolPosition:Landroid/graphics/PointF;
+
+    const-string v1, "TOOL_POSITION_Y"
+
+    iget v2, v0, Landroid/graphics/PointF;->y:F
+
+    invoke-virtual {p1, v1, v2}, Landroid/os/Bundle;->getFloat(Ljava/lang/String;F)F
+
+    move-result p1
+
+    iput p1, v0, Landroid/graphics/PointF;->y:F
+
+    :goto_0
     return-void
 .end method
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
-    .locals 4
-    .param p1, "bundle"    # Landroid/os/Bundle;
-
-    .line 103
-    invoke-super {p0, p1}, Lorg/catrobat/paintroid/tools/implementation/BaseTool;->onSaveInstanceState(Landroid/os/Bundle;)V
-
-    .line 104
-    if-eqz p1, :cond_0
-
-    move-object v0, p1
-
-    .local v0, "$this$apply":Landroid/os/Bundle;
-    const/4 v1, 0x0
-
-    .line 105
-    .local v1, "$i$a$-apply-BaseToolWithShape$onSaveInstanceState$1":I
-    iget-object v2, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->toolPosition:Landroid/graphics/PointF;
-
-    iget v2, v2, Landroid/graphics/PointF;->x:F
-
-    const-string v3, "TOOL_POSITION_X"
-
-    invoke-virtual {v0, v3, v2}, Landroid/os/Bundle;->putFloat(Ljava/lang/String;F)V
-
-    .line 106
-    iget-object v2, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->toolPosition:Landroid/graphics/PointF;
-
-    iget v2, v2, Landroid/graphics/PointF;->y:F
-
-    const-string v3, "TOOL_POSITION_Y"
-
-    invoke-virtual {v0, v3, v2}, Landroid/os/Bundle;->putFloat(Ljava/lang/String;F)V
+    .locals 2
 
     .line 107
-    nop
+    invoke-super {p0, p1}, Lorg/catrobat/paintroid/tools/implementation/BaseTool;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 104
-    .end local v0    # "$this$apply":Landroid/os/Bundle;
-    .end local v1    # "$i$a$-apply-BaseToolWithShape$onSaveInstanceState$1":I
-    nop
+    if-nez p1, :cond_0
 
-    .line 108
+    goto :goto_0
+
+    .line 109
     :cond_0
+    iget-object v0, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->toolPosition:Landroid/graphics/PointF;
+
+    iget v0, v0, Landroid/graphics/PointF;->x:F
+
+    const-string v1, "TOOL_POSITION_X"
+
+    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putFloat(Ljava/lang/String;F)V
+
+    .line 110
+    iget-object v0, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithShape;->toolPosition:Landroid/graphics/PointF;
+
+    iget v0, v0, Landroid/graphics/PointF;->y:F
+
+    const-string v1, "TOOL_POSITION_Y"
+
+    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putFloat(Ljava/lang/String;F)V
+
+    :goto_0
     return-void
 .end method

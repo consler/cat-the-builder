@@ -25,7 +25,6 @@
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/resource/bitmap/Downsampler;)V
     .locals 0
-    .param p1, "downsampler"    # Lcom/bumptech/glide/load/resource/bitmap/Downsampler;
 
     .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +32,6 @@
     .line 18
     iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/ByteBufferBitmapDecoder;->downsampler:Lcom/bumptech/glide/load/resource/bitmap/Downsampler;
 
-    .line 19
     return-void
 .end method
 
@@ -58,11 +56,7 @@
 .end method
 
 .method public decode(Ljava/nio/ByteBuffer;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 2
-    .param p1, "source"    # Ljava/nio/ByteBuffer;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
-    .param p4, "options"    # Lcom/bumptech/glide/load/Options;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -85,17 +79,16 @@
     .line 30
     invoke-static {p1}, Lcom/bumptech/glide/util/ByteBufferUtil;->toStream(Ljava/nio/ByteBuffer;)Ljava/io/InputStream;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 31
-    .local v0, "is":Ljava/io/InputStream;
-    iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/ByteBufferBitmapDecoder;->downsampler:Lcom/bumptech/glide/load/resource/bitmap/Downsampler;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/ByteBufferBitmapDecoder;->downsampler:Lcom/bumptech/glide/load/resource/bitmap/Downsampler;
 
-    invoke-virtual {v1, v0, p2, p3, p4}, Lcom/bumptech/glide/load/resource/bitmap/Downsampler;->decode(Ljava/io/InputStream;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/engine/Resource;
+    invoke-virtual {v0, p1, p2, p3, p4}, Lcom/bumptech/glide/load/resource/bitmap/Downsampler;->decode(Ljava/io/InputStream;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/engine/Resource;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public bridge synthetic handles(Ljava/lang/Object;Lcom/bumptech/glide/load/Options;)Z
@@ -117,16 +110,14 @@
 .end method
 
 .method public handles(Ljava/nio/ByteBuffer;Lcom/bumptech/glide/load/Options;)Z
-    .locals 1
-    .param p1, "source"    # Ljava/nio/ByteBuffer;
-    .param p2, "options"    # Lcom/bumptech/glide/load/Options;
+    .locals 0
 
     .line 23
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/ByteBufferBitmapDecoder;->downsampler:Lcom/bumptech/glide/load/resource/bitmap/Downsampler;
+    iget-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/ByteBufferBitmapDecoder;->downsampler:Lcom/bumptech/glide/load/resource/bitmap/Downsampler;
 
-    invoke-virtual {v0, p1}, Lcom/bumptech/glide/load/resource/bitmap/Downsampler;->handles(Ljava/nio/ByteBuffer;)Z
+    invoke-virtual {p2, p1}, Lcom/bumptech/glide/load/resource/bitmap/Downsampler;->handles(Ljava/nio/ByteBuffer;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

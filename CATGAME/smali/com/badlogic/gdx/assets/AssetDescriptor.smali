@@ -34,7 +34,6 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/files/FileHandle;Ljava/lang/Class;)V
     .locals 1
-    .param p1, "file"    # Lcom/badlogic/gdx/files/FileHandle;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -44,20 +43,16 @@
         }
     .end annotation
 
-    .line 37
-    .local p0, "this":Lcom/badlogic/gdx/assets/AssetDescriptor;, "Lcom/badlogic/gdx/assets/AssetDescriptor<TT;>;"
-    .local p2, "assetType":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     const/4 v0, 0x0
 
+    .line 37
     invoke-direct {p0, p1, p2, v0}, Lcom/badlogic/gdx/assets/AssetDescriptor;-><init>(Lcom/badlogic/gdx/files/FileHandle;Ljava/lang/Class;Lcom/badlogic/gdx/assets/AssetLoaderParameters;)V
 
-    .line 38
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/files/FileHandle;Ljava/lang/Class;Lcom/badlogic/gdx/assets/AssetLoaderParameters;)V
     .locals 3
-    .param p1, "file"    # Lcom/badlogic/gdx/files/FileHandle;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -70,9 +65,6 @@
     .end annotation
 
     .line 47
-    .local p0, "this":Lcom/badlogic/gdx/assets/AssetDescriptor;, "Lcom/badlogic/gdx/assets/AssetDescriptor<TT;>;"
-    .local p2, "assetType":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
-    .local p3, "params":Lcom/badlogic/gdx/assets/AssetLoaderParameters;, "Lcom/badlogic/gdx/assets/AssetLoaderParameters<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 48
@@ -99,13 +91,11 @@
     .line 51
     iput-object p3, p0, Lcom/badlogic/gdx/assets/AssetDescriptor;->params:Lcom/badlogic/gdx/assets/AssetLoaderParameters;
 
-    .line 52
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Class;)V
     .locals 1
-    .param p1, "fileName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -115,20 +105,16 @@
         }
     .end annotation
 
-    .line 32
-    .local p0, "this":Lcom/badlogic/gdx/assets/AssetDescriptor;, "Lcom/badlogic/gdx/assets/AssetDescriptor<TT;>;"
-    .local p2, "assetType":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     const/4 v0, 0x0
 
+    .line 32
     invoke-direct {p0, p1, p2, v0}, Lcom/badlogic/gdx/assets/AssetDescriptor;-><init>(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/assets/AssetLoaderParameters;)V
 
-    .line 33
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/assets/AssetLoaderParameters;)V
     .locals 2
-    .param p1, "fileName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -141,21 +127,18 @@
     .end annotation
 
     .line 40
-    .local p0, "this":Lcom/badlogic/gdx/assets/AssetDescriptor;, "Lcom/badlogic/gdx/assets/AssetDescriptor<TT;>;"
-    .local p2, "assetType":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
-    .local p3, "params":Lcom/badlogic/gdx/assets/AssetLoaderParameters;, "Lcom/badlogic/gdx/assets/AssetLoaderParameters<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 41
     const-string v0, "\\\\"
 
     const-string v1, "/"
 
+    .line 41
     invoke-virtual {p1, v0, v1}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/badlogic/gdx/assets/AssetDescriptor;->fileName:Ljava/lang/String;
+    iput-object p1, p0, Lcom/badlogic/gdx/assets/AssetDescriptor;->fileName:Ljava/lang/String;
 
     .line 42
     iput-object p2, p0, Lcom/badlogic/gdx/assets/AssetDescriptor;->type:Ljava/lang/Class;
@@ -163,7 +146,6 @@
     .line 43
     iput-object p3, p0, Lcom/badlogic/gdx/assets/AssetDescriptor;->params:Lcom/badlogic/gdx/assets/AssetLoaderParameters;
 
-    .line 44
     return-void
 .end method
 
@@ -173,20 +155,18 @@
     .locals 2
 
     .line 56
-    .local p0, "this":Lcom/badlogic/gdx/assets/AssetDescriptor;, "Lcom/badlogic/gdx/assets/AssetDescriptor<TT;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 57
-    .local v0, "sb":Ljava/lang/StringBuilder;
     iget-object v1, p0, Lcom/badlogic/gdx/assets/AssetDescriptor;->fileName:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 58
     const-string v1, ", "
 
+    .line 58
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 59
@@ -201,7 +181,7 @@
     .line 60
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method

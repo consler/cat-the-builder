@@ -40,31 +40,27 @@
 
     iget-object v0, p0, Lcom/esotericsoftware/asm/ByteVector;->a:[B
 
-    array-length v0, v0
+    array-length v1, v0
 
-    mul-int/lit8 v0, v0, 0x2
+    mul-int/lit8 v1, v1, 0x2
 
-    iget v1, p0, Lcom/esotericsoftware/asm/ByteVector;->b:I
+    iget v2, p0, Lcom/esotericsoftware/asm/ByteVector;->b:I
 
-    add-int/2addr v1, p1
+    add-int/2addr p1, v2
 
-    if-le v0, v1, :cond_0
+    if-le v1, p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    move v0, v1
+    move v1, p1
 
     :goto_0
-    new-array p1, v0, [B
+    new-array p1, v1, [B
 
-    iget-object v0, p0, Lcom/esotericsoftware/asm/ByteVector;->a:[B
+    const/4 v1, 0x0
 
-    iget v1, p0, Lcom/esotericsoftware/asm/ByteVector;->b:I
-
-    const/4 v2, 0x0
-
-    invoke-static {v0, v2, p1, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v0, v1, p1, v1, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     iput-object p1, p0, Lcom/esotericsoftware/asm/ByteVector;->a:[B
 
@@ -207,29 +203,27 @@
 
     iget p3, p0, Lcom/esotericsoftware/asm/ByteVector;->b:I
 
-    sub-int/2addr p3, p2
+    sub-int v1, p3, p2
 
-    add-int/lit8 p3, p3, -0x2
+    add-int/lit8 v1, v1, -0x2
 
-    if-ltz p3, :cond_3
+    if-ltz v1, :cond_3
 
-    iget-object v1, p0, Lcom/esotericsoftware/asm/ByteVector;->a:[B
+    iget-object v6, p0, Lcom/esotericsoftware/asm/ByteVector;->a:[B
 
-    ushr-int/lit8 v6, v2, 0x8
+    ushr-int/lit8 v7, v2, 0x8
 
-    int-to-byte v6, v6
+    int-to-byte v7, v7
 
-    aput-byte v6, v1, p3
+    aput-byte v7, v6, v1
 
-    add-int/2addr p3, v5
+    add-int/2addr v1, v5
 
-    int-to-byte v6, v2
+    int-to-byte v7, v2
 
-    aput-byte v6, v1, p3
+    aput-byte v7, v6, v1
 
     :cond_3
-    iget p3, p0, Lcom/esotericsoftware/asm/ByteVector;->b:I
-
     add-int/2addr p3, v2
 
     sub-int/2addr p3, p2

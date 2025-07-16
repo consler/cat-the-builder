@@ -51,14 +51,11 @@
     .end annotation
 
     .line 28
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCountSingle;, "Lio/reactivex/internal/operators/flowable/FlowableCountSingle<TT;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 29
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableCountSingle;->source:Lio/reactivex/Flowable;
 
-    .line 30
     return-void
 .end method
 
@@ -76,7 +73,6 @@
     .end annotation
 
     .line 39
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCountSingle;, "Lio/reactivex/internal/operators/flowable/FlowableCountSingle<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableCount;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCountSingle;->source:Lio/reactivex/Flowable;
@@ -103,8 +99,6 @@
     .end annotation
 
     .line 34
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCountSingle;, "Lio/reactivex/internal/operators/flowable/FlowableCountSingle<TT;>;"
-    .local p1, "s":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-Ljava/lang/Long;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCountSingle;->source:Lio/reactivex/Flowable;
 
     new-instance v1, Lio/reactivex/internal/operators/flowable/FlowableCountSingle$CountSubscriber;
@@ -113,6 +107,5 @@
 
     invoke-virtual {v0, v1}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 35
     return-void
 .end method

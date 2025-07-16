@@ -47,14 +47,11 @@
     .end annotation
 
     .line 1069
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$Values;, "Lorg/apache/commons/collections4/map/Flat3Map$Values<TV;>;"
-    .local p1, "parent":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<*TV;>;"
     invoke-direct {p0}, Ljava/util/AbstractCollection;-><init>()V
 
     .line 1070
     iput-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map$Values;->parent:Lorg/apache/commons/collections4/map/Flat3Map;
 
-    .line 1071
     return-void
 .end method
 
@@ -64,28 +61,24 @@
     .locals 1
 
     .line 1080
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$Values;, "Lorg/apache/commons/collections4/map/Flat3Map$Values<TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$Values;->parent:Lorg/apache/commons/collections4/map/Flat3Map;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/map/Flat3Map;->clear()V
 
-    .line 1081
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "value"    # Ljava/lang/Object;
 
     .line 1085
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$Values;, "Lorg/apache/commons/collections4/map/Flat3Map$Values<TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$Values;->parent:Lorg/apache/commons/collections4/map/Flat3Map;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/map/Flat3Map;->containsValue(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
@@ -99,7 +92,6 @@
     .end annotation
 
     .line 1090
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$Values;, "Lorg/apache/commons/collections4/map/Flat3Map$Values<TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$Values;->parent:Lorg/apache/commons/collections4/map/Flat3Map;
 
     invoke-static {v0}, Lorg/apache/commons/collections4/map/Flat3Map;->access$700(Lorg/apache/commons/collections4/map/Flat3Map;)Lorg/apache/commons/collections4/map/AbstractHashedMap;
@@ -157,7 +149,6 @@
     .locals 1
 
     .line 1075
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$Values;, "Lorg/apache/commons/collections4/map/Flat3Map$Values<TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$Values;->parent:Lorg/apache/commons/collections4/map/Flat3Map;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/map/Flat3Map;->size()I

@@ -13,7 +13,6 @@
 # direct methods
 .method public constructor <init>(Lcom/thoughtworks/xstream/security/TypePermission;)V
     .locals 0
-    .param p1, "permission"    # Lcom/thoughtworks/xstream/security/TypePermission;
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -21,7 +20,6 @@
     .line 30
     iput-object p1, p0, Lcom/thoughtworks/xstream/security/NoPermission;->permission:Lcom/thoughtworks/xstream/security/TypePermission;
 
-    .line 31
     return-void
 .end method
 
@@ -29,7 +27,6 @@
 # virtual methods
 .method public allows(Ljava/lang/Class;)Z
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
 
     .line 34
     iget-object v0, p0, Lcom/thoughtworks/xstream/security/NoPermission;->permission:Lcom/thoughtworks/xstream/security/TypePermission;
@@ -42,10 +39,9 @@
 
     if-nez v0, :cond_0
 
-    .line 37
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 35
     :cond_0

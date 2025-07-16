@@ -17,12 +17,10 @@
 # direct methods
 .method protected constructor <init>(Lorg/apache/commons/collections/map/AbstractHashedMap;)V
     .locals 0
-    .param p1, "parent"    # Lorg/apache/commons/collections/map/AbstractHashedMap;
 
     .line 510
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/map/AbstractHashedMap$KeySet;-><init>(Lorg/apache/commons/collections/map/AbstractHashedMap;)V
 
-    .line 511
     return-void
 .end method
 
@@ -31,11 +29,11 @@
 .method public toArray()[Ljava/lang/Object;
     .locals 1
 
-    .line 514
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Object;
 
+    .line 514
     invoke-virtual {p0, v0}, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceKeySet;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v0
@@ -45,7 +43,6 @@
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
     .locals 3
-    .param p1, "arr"    # [Ljava/lang/Object;
 
     .line 519
     new-instance v0, Ljava/util/ArrayList;
@@ -59,12 +56,10 @@
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 520
-    .local v0, "list":Ljava/util/List;
     invoke-virtual {p0}, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceKeySet;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    .local v1, "it":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -82,11 +77,10 @@
     goto :goto_0
 
     .line 523
-    .end local v1    # "it":Ljava/util/Iterator;
     :cond_0
     invoke-interface {v0, p1}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method

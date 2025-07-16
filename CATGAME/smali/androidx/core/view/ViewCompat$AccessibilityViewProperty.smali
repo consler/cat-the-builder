@@ -24,6 +24,8 @@
 
 
 # instance fields
+.field private final mContentChangeType:I
+
 .field private final mFrameworkMinimumSdk:I
 
 .field private final mTagKey:I
@@ -41,8 +43,19 @@
 # direct methods
 .method constructor <init>(ILjava/lang/Class;I)V
     .locals 1
-    .param p1, "tagKey"    # I
-    .param p3, "frameworkMinimumSdk"    # I
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "tagKey",
+            "type",
+            "frameworkMinimumSdk"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -51,22 +64,31 @@
         }
     .end annotation
 
-    .line 4085
-    .local p0, "this":Landroidx/core/view/ViewCompat$AccessibilityViewProperty;, "Landroidx/core/view/ViewCompat$AccessibilityViewProperty<TT;>;"
-    .local p2, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     const/4 v0, 0x0
 
+    .line 4359
     invoke-direct {p0, p1, p2, v0, p3}, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;-><init>(ILjava/lang/Class;II)V
 
-    .line 4087
     return-void
 .end method
 
 .method constructor <init>(ILjava/lang/Class;II)V
     .locals 0
-    .param p1, "tagKey"    # I
-    .param p3, "contentChangeType"    # I
-    .param p4, "frameworkMinimumSdk"    # I
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "tagKey",
+            "type",
+            "contentChangeType",
+            "frameworkMinimumSdk"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -75,51 +97,36 @@
         }
     .end annotation
 
-    .line 4090
-    .local p0, "this":Landroidx/core/view/ViewCompat$AccessibilityViewProperty;, "Landroidx/core/view/ViewCompat$AccessibilityViewProperty<TT;>;"
-    .local p2, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
+    .line 4364
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4091
+    .line 4365
     iput p1, p0, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;->mTagKey:I
 
-    .line 4092
+    .line 4366
     iput-object p2, p0, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;->mType:Ljava/lang/Class;
 
-    .line 4093
+    .line 4367
+    iput p3, p0, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;->mContentChangeType:I
+
+    .line 4368
     iput p4, p0, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;->mFrameworkMinimumSdk:I
 
-    .line 4094
     return-void
 .end method
 
 .method private extrasAvailable()Z
-    .locals 2
-
-    .line 4127
-    .local p0, "this":Landroidx/core/view/ViewCompat$AccessibilityViewProperty;, "Landroidx/core/view/ViewCompat$AccessibilityViewProperty<TT;>;"
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x13
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     const/4 v0, 0x1
 
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
     return v0
 .end method
 
 .method private frameworkAvailable()Z
     .locals 2
 
-    .line 4123
-    .local p0, "this":Landroidx/core/view/ViewCompat$AccessibilityViewProperty;, "Landroidx/core/view/ViewCompat$AccessibilityViewProperty<TT;>;"
+    .line 4398
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     iget v1, p0, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;->mFrameworkMinimumSdk:I
@@ -140,43 +147,47 @@
 
 # virtual methods
 .method booleanNullToFalseEquals(Ljava/lang/Boolean;Ljava/lang/Boolean;)Z
-    .locals 3
-    .param p1, "a"    # Ljava/lang/Boolean;
-    .param p2, "b"    # Ljava/lang/Boolean;
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "a",
+            "b"
+        }
+    .end annotation
 
-    .line 4138
-    .local p0, "this":Landroidx/core/view/ViewCompat$AccessibilityViewProperty;, "Landroidx/core/view/ViewCompat$AccessibilityViewProperty<TT;>;"
     const/4 v0, 0x0
 
     if-nez p1, :cond_0
 
-    move v1, v0
+    move p1, v0
 
     goto :goto_0
 
+    .line 4413
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v1
+    move-result p1
 
-    .line 4139
-    .local v1, "aBool":Z
     :goto_0
     if-nez p2, :cond_1
 
-    move v2, v0
+    move p2, v0
 
     goto :goto_1
 
+    .line 4414
     :cond_1
     invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v2
+    move-result p2
 
-    .line 4140
-    .local v2, "bBool":Z
     :goto_1
-    if-ne v1, v2, :cond_2
+    if-ne p1, p2, :cond_2
 
     const/4 v0, 0x1
 
@@ -185,6 +196,15 @@
 .end method
 
 .method abstract frameworkGet(Landroid/view/View;)Ljava/lang/Object;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "view"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -195,6 +215,17 @@
 .end method
 
 .method abstract frameworkSet(Landroid/view/View;Ljava/lang/Object;)V
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "view",
+            "value"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -205,8 +236,16 @@
 .end method
 
 .method get(Landroid/view/View;)Ljava/lang/Object;
-    .locals 2
-    .param p1, "view"    # Landroid/view/View;
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "view"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -215,22 +254,21 @@
         }
     .end annotation
 
-    .line 4112
-    .local p0, "this":Landroidx/core/view/ViewCompat$AccessibilityViewProperty;, "Landroidx/core/view/ViewCompat$AccessibilityViewProperty<TT;>;"
+    .line 4387
     invoke-direct {p0}, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;->frameworkAvailable()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 4113
+    .line 4388
     invoke-virtual {p0, p1}, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;->frameworkGet(Landroid/view/View;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
-    .line 4114
+    .line 4389
     :cond_0
     invoke-direct {p0}, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;->extrasAvailable()Z
 
@@ -238,37 +276,43 @@
 
     if-eqz v0, :cond_1
 
-    .line 4115
+    .line 4390
     iget v0, p0, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;->mTagKey:I
 
     invoke-virtual {p1, v0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 4116
-    .local v0, "value":Ljava/lang/Object;
-    iget-object v1, p0, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;->mType:Ljava/lang/Class;
+    .line 4391
+    iget-object v0, p0, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;->mType:Ljava/lang/Class;
 
-    invoke-virtual {v1, v0}, Ljava/lang/Class;->isInstance(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/Class;->isInstance(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    .line 4117
-    return-object v0
+    return-object p1
 
-    .line 4120
-    .end local v0    # "value":Ljava/lang/Object;
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method set(Landroid/view/View;Ljava/lang/Object;)V
     .locals 1
-    .param p1, "view"    # Landroid/view/View;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "view",
+            "value"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -277,21 +321,19 @@
         }
     .end annotation
 
-    .line 4097
-    .local p0, "this":Landroidx/core/view/ViewCompat$AccessibilityViewProperty;, "Landroidx/core/view/ViewCompat$AccessibilityViewProperty<TT;>;"
-    .local p2, "value":Ljava/lang/Object;, "TT;"
+    .line 4373
     invoke-direct {p0}, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;->frameworkAvailable()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 4098
+    .line 4374
     invoke-virtual {p0, p1, p2}, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;->frameworkSet(Landroid/view/View;Ljava/lang/Object;)V
 
     goto :goto_0
 
-    .line 4099
+    .line 4375
     :cond_0
     invoke-direct {p0}, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;->extrasAvailable()Z
 
@@ -309,42 +351,49 @@
 
     if-eqz v0, :cond_1
 
-    .line 4100
+    .line 4376
     invoke-static {p1}, Landroidx/core/view/ViewCompat;->getOrCreateAccessibilityDelegateCompat(Landroid/view/View;)Landroidx/core/view/AccessibilityDelegateCompat;
 
-    .line 4101
+    .line 4377
     iget v0, p0, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;->mTagKey:I
 
     invoke-virtual {p1, v0, p2}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
-    .line 4105
-    const/4 v0, 0x0
+    .line 4381
+    iget p2, p0, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;->mContentChangeType:I
 
-    invoke-static {p1, v0}, Landroidx/core/view/ViewCompat;->notifyViewAccessibilityStateChangedIfNeeded(Landroid/view/View;I)V
+    invoke-static {p1, p2}, Landroidx/core/view/ViewCompat;->notifyViewAccessibilityStateChangedIfNeeded(Landroid/view/View;I)V
 
-    .line 4108
     :cond_1
     :goto_0
     return-void
 .end method
 
 .method shouldUpdate(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "oldValue",
+            "newValue"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;TT;)Z"
         }
     .end annotation
 
-    .line 4131
-    .local p0, "this":Landroidx/core/view/ViewCompat$AccessibilityViewProperty;, "Landroidx/core/view/ViewCompat$AccessibilityViewProperty<TT;>;"
-    .local p1, "oldValue":Ljava/lang/Object;, "TT;"
-    .local p2, "newValue":Ljava/lang/Object;, "TT;"
+    .line 4406
     invoke-virtual {p2, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    xor-int/lit8 v0, v0, 0x1
+    xor-int/lit8 p1, p1, 0x1
 
-    return v0
+    return p1
 .end method

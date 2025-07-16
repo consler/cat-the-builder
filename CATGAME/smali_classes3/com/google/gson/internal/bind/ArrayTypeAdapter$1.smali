@@ -30,8 +30,7 @@
 
 # virtual methods
 .method public create(Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
-    .locals 5
-    .param p1, "gson"    # Lcom/google/gson/Gson;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -46,64 +45,58 @@
     .end annotation
 
     .line 42
-    .local p2, "typeToken":Lcom/google/gson/reflect/TypeToken;, "Lcom/google/gson/reflect/TypeToken<TT;>;"
     invoke-virtual {p2}, Lcom/google/gson/reflect/TypeToken;->getType()Ljava/lang/reflect/Type;
 
-    move-result-object v0
+    move-result-object p2
 
     .line 43
-    .local v0, "type":Ljava/lang/reflect/Type;
-    instance-of v1, v0, Ljava/lang/reflect/GenericArrayType;
+    instance-of v0, p2, Ljava/lang/reflect/GenericArrayType;
 
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
 
-    instance-of v1, v0, Ljava/lang/Class;
+    instance-of v0, p2, Ljava/lang/Class;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    move-object v1, v0
+    move-object v0, p2
 
-    check-cast v1, Ljava/lang/Class;
+    check-cast v0, Ljava/lang/Class;
 
-    invoke-virtual {v1}, Ljava/lang/Class;->isArray()Z
+    invoke-virtual {v0}, Ljava/lang/Class;->isArray()Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
 
-    .line 44
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 
     .line 47
     :cond_1
-    invoke-static {v0}, Lcom/google/gson/internal/$Gson$Types;->getArrayComponentType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
+    invoke-static {p2}, Lcom/google/gson/internal/$Gson$Types;->getArrayComponentType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
 
-    move-result-object v1
+    move-result-object p2
 
     .line 48
-    .local v1, "componentType":Ljava/lang/reflect/Type;
-    invoke-static {v1}, Lcom/google/gson/reflect/TypeToken;->get(Ljava/lang/reflect/Type;)Lcom/google/gson/reflect/TypeToken;
+    invoke-static {p2}, Lcom/google/gson/reflect/TypeToken;->get(Ljava/lang/reflect/Type;)Lcom/google/gson/reflect/TypeToken;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {p1, v2}, Lcom/google/gson/Gson;->getAdapter(Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
+    invoke-virtual {p1, v0}, Lcom/google/gson/Gson;->getAdapter(Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 49
-    .local v2, "componentTypeAdapter":Lcom/google/gson/TypeAdapter;, "Lcom/google/gson/TypeAdapter<*>;"
-    new-instance v3, Lcom/google/gson/internal/bind/ArrayTypeAdapter;
+    new-instance v1, Lcom/google/gson/internal/bind/ArrayTypeAdapter;
 
     .line 50
-    invoke-static {v1}, Lcom/google/gson/internal/$Gson$Types;->getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;
+    invoke-static {p2}, Lcom/google/gson/internal/$Gson$Types;->getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;
 
-    move-result-object v4
+    move-result-object p2
 
-    invoke-direct {v3, p1, v2, v4}, Lcom/google/gson/internal/bind/ArrayTypeAdapter;-><init>(Lcom/google/gson/Gson;Lcom/google/gson/TypeAdapter;Ljava/lang/Class;)V
+    invoke-direct {v1, p1, v0, p2}, Lcom/google/gson/internal/bind/ArrayTypeAdapter;-><init>(Lcom/google/gson/Gson;Lcom/google/gson/TypeAdapter;Ljava/lang/Class;)V
 
-    .line 49
-    return-object v3
+    return-object v1
 .end method

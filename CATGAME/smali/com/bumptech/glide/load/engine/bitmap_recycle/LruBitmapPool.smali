@@ -66,7 +66,6 @@
 
 .method public constructor <init>(J)V
     .locals 2
-    .param p1, "maxSize"    # J
 
     .line 55
     invoke-static {}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->getDefaultStrategy()Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
@@ -79,14 +78,11 @@
 
     invoke-direct {p0, p1, p2, v0, v1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;-><init>(JLcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;Ljava/util/Set;)V
 
-    .line 56
     return-void
 .end method
 
 .method constructor <init>(JLcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;Ljava/util/Set;)V
-    .locals 1
-    .param p1, "maxSize"    # J
-    .param p3, "strategy"    # Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -98,7 +94,6 @@
     .end annotation
 
     .line 41
-    .local p4, "allowedConfigs":Ljava/util/Set;, "Ljava/util/Set<Landroid/graphics/Bitmap$Config;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 42
@@ -114,19 +109,17 @@
     iput-object p4, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->allowedConfigs:Ljava/util/Set;
 
     .line 46
-    new-instance v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool$NullBitmapTracker;
+    new-instance p1, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool$NullBitmapTracker;
 
-    invoke-direct {v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool$NullBitmapTracker;-><init>()V
+    invoke-direct {p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool$NullBitmapTracker;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->tracker:Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool$BitmapTracker;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->tracker:Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool$BitmapTracker;
 
-    .line 47
     return-void
 .end method
 
 .method public constructor <init>(JLjava/util/Set;)V
     .locals 1
-    .param p1, "maxSize"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -137,99 +130,81 @@
     .end annotation
 
     .line 68
-    .local p3, "allowedConfigs":Ljava/util/Set;, "Ljava/util/Set<Landroid/graphics/Bitmap$Config;>;"
     invoke-static {}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->getDefaultStrategy()Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
 
     move-result-object v0
 
     invoke-direct {p0, p1, p2, v0, p3}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;-><init>(JLcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;Ljava/util/Set;)V
 
-    .line 69
     return-void
 .end method
 
 .method private static assertNotHardwareConfig(Landroid/graphics/Bitmap$Config;)V
     .locals 3
-    .param p0, "config"    # Landroid/graphics/Bitmap$Config;
-
-    .line 181
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1a
-
-    if-ge v0, v1, :cond_0
-
-    .line 182
-    return-void
 
     .line 185
-    :cond_0
     sget-object v0, Landroid/graphics/Bitmap$Config;->HARDWARE:Landroid/graphics/Bitmap$Config;
 
-    if-eq p0, v0, :cond_1
+    if-eq p0, v0, :cond_0
 
-    .line 192
     return-void
 
     .line 186
-    :cond_1
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Cannot create a mutable Bitmap with config: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v2, ". Consider setting Downsampler#ALLOW_HARDWARE_CONFIG to false in your RequestOptions and/or in GlideBuilder.setDefaultRequestOptions"
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, ". Consider setting Downsampler#ALLOW_HARDWARE_CONFIG to false in your RequestOptions and/or in GlideBuilder.setDefaultRequestOptions"
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method private static createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-    .locals 1
-    .param p0, "width"    # I
-    .param p1, "height"    # I
-    .param p2, "config"    # Landroid/graphics/Bitmap$Config;
+    .locals 0
 
-    .line 175
     if-eqz p2, :cond_0
-
-    move-object v0, p2
 
     goto :goto_0
 
+    .line 175
     :cond_0
-    sget-object v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->DEFAULT_CONFIG:Landroid/graphics/Bitmap$Config;
+    sget-object p2, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->DEFAULT_CONFIG:Landroid/graphics/Bitmap$Config;
 
     :goto_0
-    invoke-static {p0, p1, v0}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+    invoke-static {p0, p1, p2}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private dump()V
     .locals 2
 
-    .line 282
     const-string v0, "LruBitmapPool"
 
     const/4 v1, 0x2
 
+    .line 282
     invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
     move-result v0
@@ -239,7 +214,6 @@
     .line 283
     invoke-direct {p0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->dumpUnchecked()V
 
-    .line 285
     :cond_0
     return-void
 .end method
@@ -250,63 +224,87 @@
     .line 288
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "Hits="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->hits:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", misses="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->misses:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", puts="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->puts:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", evictions="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->evictions:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", currentSize="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-wide v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->currentSize:J
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", maxSize="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-wide v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->maxSize:J
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "\nStrategy="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->strategy:Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -316,7 +314,6 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 304
     return-void
 .end method
 
@@ -328,12 +325,11 @@
 
     invoke-direct {p0, v0, v1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->trimToSize(J)V
 
-    .line 145
     return-void
 .end method
 
 .method private static getDefaultAllowedConfigs()Ljava/util/Set;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -356,26 +352,10 @@
 
     invoke-direct {v0, v1}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
 
-    .line 319
-    .local v0, "configs":Ljava/util/Set;, "Ljava/util/Set<Landroid/graphics/Bitmap$Config;>;"
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x13
-
-    if-lt v1, v2, :cond_0
-
-    .line 323
     const/4 v1, 0x0
 
+    .line 323
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    .line 325
-    :cond_0
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x1a
-
-    if-lt v1, v2, :cond_1
 
     .line 326
     sget-object v1, Landroid/graphics/Bitmap$Config;->HARDWARE:Landroid/graphics/Bitmap$Config;
@@ -383,50 +363,30 @@
     invoke-interface {v0, v1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
     .line 328
-    :cond_1
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableSet(Ljava/util/Set;)Ljava/util/Set;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method private static getDefaultStrategy()Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
-    .locals 2
-
-    .line 308
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x13
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     .line 309
     new-instance v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;-><init>()V
 
-    .local v0, "strategy":Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
-    goto :goto_0
-
-    .line 311
-    .end local v0    # "strategy":Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
-    :cond_0
-    new-instance v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/AttributeStrategy;
-
-    invoke-direct {v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/AttributeStrategy;-><init>()V
-
-    .line 313
-    .restart local v0    # "strategy":Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
-    :goto_0
     return-object v0
 .end method
 
 .method private declared-synchronized getDirtyOrNull(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-    .locals 5
-    .param p1, "width"    # I
-    .param p2, "height"    # I
-    .param p3, "config"    # Landroid/graphics/Bitmap$Config;
+    .locals 7
+
+    const-string v0, "Get bitmap="
+
+    const-string v1, "Missing bitmap="
 
     monitor-enter p0
 
@@ -435,64 +395,59 @@
     invoke-static {p3}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->assertNotHardwareConfig(Landroid/graphics/Bitmap$Config;)V
 
     .line 200
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->strategy:Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->strategy:Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
 
     if-eqz p3, :cond_0
 
-    move-object v1, p3
+    move-object v3, p3
 
     goto :goto_0
 
     :cond_0
-    sget-object v1, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->DEFAULT_CONFIG:Landroid/graphics/Bitmap$Config;
+    sget-object v3, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->DEFAULT_CONFIG:Landroid/graphics/Bitmap$Config;
 
     :goto_0
-    invoke-interface {v0, p1, p2, v1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;->get(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    .line 201
-    .local v0, "result":Landroid/graphics/Bitmap;
-    if-nez v0, :cond_2
-
-    .line 202
-    const-string v1, "LruBitmapPool"
-
-    const/4 v2, 0x3
-
-    invoke-static {v1, v2}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    .line 203
-    const-string v1, "LruBitmapPool"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Missing bitmap="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->strategy:Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
-
-    invoke-interface {v3, p1, p2, p3}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;->logBitmap(IILandroid/graphics/Bitmap$Config;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-interface {v2, p1, p2, v3}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;->get(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-nez v2, :cond_2
+
+    const-string v3, "LruBitmapPool"
+
+    const/4 v4, 0x3
+
+    .line 202
+    invoke-static {v3, v4}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const-string v3, "LruBitmapPool"
+
+    .line 203
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->strategy:Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
+
+    invoke-interface {v1, p1, p2, p3}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;->logBitmap(IILandroid/graphics/Bitmap$Config;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v3, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 205
-    .end local p0    # "this":Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;
     :cond_1
     iget v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->misses:I
 
@@ -511,64 +466,62 @@
     iput v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->hits:I
 
     .line 208
-    iget-wide v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->currentSize:J
+    iget-wide v3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->currentSize:J
 
-    iget-object v3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->strategy:Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->strategy:Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
 
-    invoke-interface {v3, v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;->getSize(Landroid/graphics/Bitmap;)I
+    invoke-interface {v1, v2}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;->getSize(Landroid/graphics/Bitmap;)I
 
-    move-result v3
+    move-result v1
 
-    int-to-long v3, v3
+    int-to-long v5, v1
 
-    sub-long/2addr v1, v3
+    sub-long/2addr v3, v5
 
-    iput-wide v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->currentSize:J
+    iput-wide v3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->currentSize:J
 
     .line 209
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->tracker:Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool$BitmapTracker;
 
-    invoke-interface {v1, v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool$BitmapTracker;->remove(Landroid/graphics/Bitmap;)V
+    invoke-interface {v1, v2}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool$BitmapTracker;->remove(Landroid/graphics/Bitmap;)V
 
     .line 210
-    invoke-static {v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->normalize(Landroid/graphics/Bitmap;)V
+    invoke-static {v2}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->normalize(Landroid/graphics/Bitmap;)V
 
-    .line 212
     :goto_1
     const-string v1, "LruBitmapPool"
 
-    const/4 v2, 0x2
+    const/4 v3, 0x2
 
-    invoke-static {v1, v2}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+    .line 212
+    invoke-static {v1, v3}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
     move-result v1
 
     if-eqz v1, :cond_3
 
-    .line 213
     const-string v1, "LruBitmapPool"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    .line 213
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    const-string v3, "Get bitmap="
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->strategy:Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-interface {v0, p1, p2, p3}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;->logBitmap(IILandroid/graphics/Bitmap$Config;)Ljava/lang/String;
 
-    iget-object v3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->strategy:Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
+    move-result-object p1
 
-    invoke-interface {v3, p1, p2, p3}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;->logBitmap(IILandroid/graphics/Bitmap$Config;)Ljava/lang/String;
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 215
     :cond_3
@@ -579,13 +532,8 @@
     .line 217
     monitor-exit p0
 
-    return-object v0
+    return-object v2
 
-    .line 196
-    .end local v0    # "result":Landroid/graphics/Bitmap;
-    .end local p1    # "width":I
-    .end local p2    # "height":I
-    .end local p3    # "config":Landroid/graphics/Bitmap$Config;
     :catchall_0
     move-exception p1
 
@@ -595,45 +543,32 @@
 .end method
 
 .method private static maybeSetPreMultiplied(Landroid/graphics/Bitmap;)V
-    .locals 2
-    .param p0, "bitmap"    # Landroid/graphics/Bitmap;
+    .locals 1
 
-    .line 229
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x13
-
-    if-lt v0, v1, :cond_0
-
-    .line 230
     const/4 v0, 0x1
 
+    .line 230
     invoke-virtual {p0, v0}, Landroid/graphics/Bitmap;->setPremultiplied(Z)V
 
-    .line 232
-    :cond_0
     return-void
 .end method
 
 .method private static normalize(Landroid/graphics/Bitmap;)V
     .locals 1
-    .param p0, "bitmap"    # Landroid/graphics/Bitmap;
 
-    .line 223
     const/4 v0, 0x1
 
+    .line 223
     invoke-virtual {p0, v0}, Landroid/graphics/Bitmap;->setHasAlpha(Z)V
 
     .line 224
     invoke-static {p0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->maybeSetPreMultiplied(Landroid/graphics/Bitmap;)V
 
-    .line 225
     return-void
 .end method
 
 .method private declared-synchronized trimToSize(J)V
     .locals 5
-    .param p1, "size"    # J
 
     monitor-enter p0
 
@@ -653,37 +588,34 @@
 
     move-result-object v0
 
-    .line 262
-    .local v0, "removed":Landroid/graphics/Bitmap;
     if-nez v0, :cond_1
 
+    const-string p1, "LruBitmapPool"
+
+    const/4 p2, 0x5
+
     .line 263
-    const-string v1, "LruBitmapPool"
+    invoke-static {p1, p2}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
-    const/4 v2, 0x5
+    move-result p1
 
-    invoke-static {v1, v2}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+    if-eqz p1, :cond_0
 
-    move-result v1
+    const-string p1, "LruBitmapPool"
 
-    if-eqz v1, :cond_0
+    const-string p2, "Size mismatch, resetting"
 
     .line 264
-    const-string v1, "LruBitmapPool"
-
-    const-string v2, "Size mismatch, resetting"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 265
     invoke-direct {p0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->dumpUnchecked()V
 
-    .line 267
-    .end local p0    # "this":Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;
     :cond_0
-    const-wide/16 v1, 0x0
+    const-wide/16 p1, 0x0
 
-    iput-wide v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->currentSize:J
+    .line 267
+    iput-wide p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->currentSize:J
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -721,20 +653,20 @@
 
     iput v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->evictions:I
 
-    .line 273
     const-string v1, "LruBitmapPool"
 
     const/4 v2, 0x3
 
+    .line 273
     invoke-static {v1, v2}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
     move-result v1
 
     if-eqz v1, :cond_2
 
-    .line 274
     const-string v1, "LruBitmapPool"
 
+    .line 274
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -743,6 +675,8 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v2
+
     iget-object v3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->strategy:Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
 
     invoke-interface {v3, v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;->logBitmap(Landroid/graphics/Bitmap;)Ljava/lang/String;
@@ -750,6 +684,8 @@
     move-result-object v3
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -766,8 +702,6 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 278
-    .end local v0    # "removed":Landroid/graphics/Bitmap;
     goto :goto_0
 
     .line 279
@@ -776,8 +710,6 @@
 
     return-void
 
-    .line 258
-    .end local p1    # "size":J
     :catchall_0
     move-exception p1
 
@@ -791,29 +723,28 @@
 .method public clearMemory()V
     .locals 2
 
+    const/4 v0, 0x3
+
+    const-string v1, "LruBitmapPool"
+
     .line 236
-    const-string v0, "LruBitmapPool"
+    invoke-static {v1, v0}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
-    const/4 v1, 0x3
+    move-result v0
 
-    invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+    if-eqz v0, :cond_0
 
-    move-result v1
-
-    if-eqz v1, :cond_0
+    const-string v0, "clearMemory"
 
     .line 237
-    const-string v1, "clearMemory"
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 239
     :cond_0
     const-wide/16 v0, 0x0
 
+    .line 239
     invoke-direct {p0, v0, v1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->trimToSize(J)V
 
-    .line 240
     return-void
 .end method
 
@@ -829,24 +760,19 @@
 .end method
 
 .method public get(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-    .locals 2
-    .param p1, "width"    # I
-    .param p2, "height"    # I
-    .param p3, "config"    # Landroid/graphics/Bitmap$Config;
+    .locals 1
 
     .line 150
     invoke-direct {p0, p1, p2, p3}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->getDirtyOrNull(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    .line 151
-    .local v0, "result":Landroid/graphics/Bitmap;
     if-eqz v0, :cond_0
 
-    .line 155
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Bitmap;->eraseColor(I)V
+    .line 155
+    invoke-virtual {v0, p1}, Landroid/graphics/Bitmap;->eraseColor(I)V
 
     goto :goto_0
 
@@ -856,7 +782,6 @@
 
     move-result-object v0
 
-    .line 160
     :goto_0
     return-object v0
 .end method
@@ -872,17 +797,12 @@
 
 .method public getDirty(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
     .locals 1
-    .param p1, "width"    # I
-    .param p2, "height"    # I
-    .param p3, "config"    # Landroid/graphics/Bitmap$Config;
 
     .line 166
     invoke-direct {p0, p1, p2, p3}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->getDirtyOrNull(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    .line 167
-    .local v0, "result":Landroid/graphics/Bitmap;
     if-nez v0, :cond_0
 
     .line 168
@@ -890,7 +810,6 @@
 
     move-result-object v0
 
-    .line 170
     :cond_0
     return-object v0
 .end method
@@ -927,71 +846,72 @@
 .end method
 
 .method public declared-synchronized put(Landroid/graphics/Bitmap;)V
-    .locals 6
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
+    .locals 8
+
+    const-string v0, "Put bitmap in pool="
+
+    const-string v1, "Reject bitmap from pool, bitmap: "
 
     monitor-enter p0
 
-    .line 104
     if-eqz p1, :cond_5
 
     .line 107
     :try_start_0
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->isRecycled()Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_4
+    if-nez v2, :cond_4
 
     .line 110
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->isMutable()Z
 
-    move-result v0
+    move-result v2
 
-    const/4 v1, 0x2
+    const/4 v3, 0x2
 
-    if-eqz v0, :cond_2
+    if-eqz v2, :cond_2
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->strategy:Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->strategy:Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
 
     .line 111
-    invoke-interface {v0, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;->getSize(Landroid/graphics/Bitmap;)I
+    invoke-interface {v2, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;->getSize(Landroid/graphics/Bitmap;)I
 
-    move-result v0
+    move-result v2
 
-    int-to-long v2, v0
+    int-to-long v4, v2
 
-    iget-wide v4, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->maxSize:J
+    iget-wide v6, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->maxSize:J
 
-    cmp-long v0, v2, v4
+    cmp-long v2, v4, v6
 
-    if-gtz v0, :cond_2
+    if-gtz v2, :cond_2
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->allowedConfigs:Ljava/util/Set;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->allowedConfigs:Ljava/util/Set;
 
     .line 112
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-interface {v0, v2}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    invoke-interface {v2, v4}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
     goto :goto_0
 
     .line 128
     :cond_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->strategy:Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->strategy:Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
 
-    invoke-interface {v0, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;->getSize(Landroid/graphics/Bitmap;)I
+    invoke-interface {v1, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;->getSize(Landroid/graphics/Bitmap;)I
 
-    move-result v0
+    move-result v1
 
     .line 129
-    .local v0, "size":I
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->strategy:Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
 
     invoke-interface {v2, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;->put(Landroid/graphics/Bitmap;)V
@@ -1009,50 +929,47 @@
     iput v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->puts:I
 
     .line 133
-    iget-wide v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->currentSize:J
+    iget-wide v4, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->currentSize:J
 
-    int-to-long v4, v0
+    int-to-long v1, v1
 
-    add-long/2addr v2, v4
+    add-long/2addr v4, v1
 
-    iput-wide v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->currentSize:J
+    iput-wide v4, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->currentSize:J
+
+    const-string v1, "LruBitmapPool"
 
     .line 135
-    const-string v2, "LruBitmapPool"
-
-    invoke-static {v2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+    invoke-static {v1, v3}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 136
     const-string v1, "LruBitmapPool"
 
+    .line 136
     new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    const-string v3, "Put bitmap in pool="
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->strategy:Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-interface {v0, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;->logBitmap(Landroid/graphics/Bitmap;)Ljava/lang/String;
 
-    iget-object v3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->strategy:Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
+    move-result-object p1
 
-    invoke-interface {v3, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;->logBitmap(Landroid/graphics/Bitmap;)Ljava/lang/String;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 138
-    .end local p0    # "this":Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;
     :cond_1
     invoke-direct {p0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->dump()V
 
@@ -1066,42 +983,41 @@
 
     return-void
 
-    .line 113
-    .end local v0    # "size":I
     :cond_2
     :goto_0
     :try_start_1
     const-string v0, "LruBitmapPool"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+    .line 113
+    invoke-static {v0, v3}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
     move-result v0
 
     if-eqz v0, :cond_3
 
-    .line 114
     const-string v0, "LruBitmapPool"
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    .line 114
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    const-string v2, "Reject bitmap from pool, bitmap: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->strategy:Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->strategy:Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;
 
     .line 118
-    invoke-interface {v2, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;->logBitmap(Landroid/graphics/Bitmap;)Ljava/lang/String;
+    invoke-interface {v1, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruPoolStrategy;->logBitmap(Landroid/graphics/Bitmap;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     const-string v2, ", is mutable: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     .line 120
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->isMutable()Z
@@ -1110,9 +1026,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, ", is allowed config: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->allowedConfigs:Ljava/util/Set;
 
@@ -1126,6 +1046,8 @@
     move-result v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1148,36 +1070,31 @@
     .line 108
     :cond_4
     :try_start_2
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Cannot pool recycled bitmap"
+    const-string v0, "Cannot pool recycled bitmap"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 103
-    .end local p1    # "bitmap":Landroid/graphics/Bitmap;
     :catchall_0
     move-exception p1
 
     goto :goto_1
 
     .line 105
-    .restart local p1    # "bitmap":Landroid/graphics/Bitmap;
     :cond_5
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "Bitmap must not be null"
+    const-string v0, "Bitmap must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 103
-    .end local p1    # "bitmap":Landroid/graphics/Bitmap;
     :goto_1
     monitor-exit p0
 
@@ -1186,7 +1103,6 @@
 
 .method public declared-synchronized setSizeMultiplier(F)V
     .locals 2
-    .param p1, "sizeMultiplier"    # F
 
     monitor-enter p0
 
@@ -1200,9 +1116,9 @@
 
     invoke-static {v0}, Ljava/lang/Math;->round(F)I
 
-    move-result v0
+    move-result p1
 
-    int-to-long v0, v0
+    int-to-long v0, p1
 
     iput-wide v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->maxSize:J
 
@@ -1216,9 +1132,6 @@
 
     return-void
 
-    .line 97
-    .end local p0    # "this":Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;
-    .end local p1    # "sizeMultiplier":F
     :catchall_0
     move-exception p1
 
@@ -1229,57 +1142,48 @@
 
 .method public trimMemory(I)V
     .locals 4
-    .param p1, "level"    # I
+
+    const/4 v0, 0x3
+
+    const-string v1, "LruBitmapPool"
 
     .line 245
-    const-string v0, "LruBitmapPool"
+    invoke-static {v1, v0}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
-    const/4 v1, 0x3
+    move-result v0
 
-    invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 246
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "trimMemory, level="
 
-    const-string/jumbo v2, "trimMemory, level="
+    invoke-direct {v0, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 248
     :cond_0
     const/16 v0, 0x28
 
     if-ge p1, v0, :cond_3
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    const/16 v0, 0x14
 
-    const/16 v1, 0x17
-
-    const/16 v2, 0x14
-
-    if-lt v0, v1, :cond_1
-
-    if-lt p1, v2, :cond_1
+    if-lt p1, v0, :cond_1
 
     goto :goto_0
 
-    .line 252
     :cond_1
-    if-ge p1, v2, :cond_2
+    if-ge p1, v0, :cond_2
 
     const/16 v0, 0xf
 
@@ -1304,7 +1208,6 @@
     :goto_0
     invoke-virtual {p0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool;->clearMemory()V
 
-    .line 256
     :cond_4
     :goto_1
     return-void

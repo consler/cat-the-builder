@@ -21,9 +21,9 @@
 .method public run()Ljava/lang/Object;
     .locals 1
 
-    .line 175
     const-string v0, "org.apache.commons.collections.enableUnsafeSerialization"
 
+    .line 175
     invoke-static {v0}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0

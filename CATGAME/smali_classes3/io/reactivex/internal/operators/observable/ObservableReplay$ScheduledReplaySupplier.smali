@@ -41,13 +41,8 @@
 # direct methods
 .method constructor <init>(IJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)V
     .locals 0
-    .param p1, "bufferSize"    # I
-    .param p2, "maxAge"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
 
     .line 945
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableReplay$ScheduledReplaySupplier;, "Lio/reactivex/internal/operators/observable/ObservableReplay$ScheduledReplaySupplier<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 946
@@ -62,7 +57,6 @@
     .line 949
     iput-object p5, p0, Lio/reactivex/internal/operators/observable/ObservableReplay$ScheduledReplaySupplier;->scheduler:Lio/reactivex/Scheduler;
 
-    .line 950
     return-void
 .end method
 
@@ -79,7 +73,6 @@
     .end annotation
 
     .line 954
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableReplay$ScheduledReplaySupplier;, "Lio/reactivex/internal/operators/observable/ObservableReplay$ScheduledReplaySupplier<TT;>;"
     new-instance v6, Lio/reactivex/internal/operators/observable/ObservableReplay$SizeAndTimeBoundReplayBuffer;
 
     iget v1, p0, Lio/reactivex/internal/operators/observable/ObservableReplay$ScheduledReplaySupplier;->bufferSize:I

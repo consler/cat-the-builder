@@ -47,8 +47,7 @@
 .end method
 
 .method private addMigration(Landroidx/room/migration/Migration;)V
-    .locals 6
-    .param p1, "migration"    # Landroidx/room/migration/Migration;
+    .locals 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -62,11 +61,9 @@
     iget v0, p1, Landroidx/room/migration/Migration;->startVersion:I
 
     .line 1385
-    .local v0, "start":I
     iget v1, p1, Landroidx/room/migration/Migration;->endVersion:I
 
     .line 1386
-    .local v1, "end":I
     iget-object v2, p0, Landroidx/room/RoomDatabase$MigrationContainer;->mMigrations:Ljava/util/HashMap;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -79,84 +76,78 @@
 
     check-cast v2, Ljava/util/TreeMap;
 
-    .line 1387
-    .local v2, "targetMap":Ljava/util/TreeMap;, "Ljava/util/TreeMap<Ljava/lang/Integer;Landroidx/room/migration/Migration;>;"
     if-nez v2, :cond_0
 
     .line 1388
-    new-instance v3, Ljava/util/TreeMap;
+    new-instance v2, Ljava/util/TreeMap;
 
-    invoke-direct {v3}, Ljava/util/TreeMap;-><init>()V
-
-    move-object v2, v3
+    invoke-direct {v2}, Ljava/util/TreeMap;-><init>()V
 
     .line 1389
     iget-object v3, p0, Landroidx/room/RoomDatabase$MigrationContainer;->mMigrations:Ljava/util/HashMap;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v3, v4, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, v0, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1391
     :cond_0
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Ljava/util/TreeMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v0}, Ljava/util/TreeMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v0
 
-    check-cast v3, Landroidx/room/migration/Migration;
+    check-cast v0, Landroidx/room/migration/Migration;
 
-    .line 1392
-    .local v3, "existing":Landroidx/room/migration/Migration;
-    if-eqz v3, :cond_1
+    if-eqz v0, :cond_1
 
     .line 1393
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v4, "Overriding migration "
 
-    const-string v5, "Overriding migration "
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    const-string v5, " with "
+    const-string v3, " with "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    const-string v5, "ROOM"
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v5, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v0
+
+    const-string v3, "ROOM"
+
+    invoke-static {v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1395
     :cond_1
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v2, v4, p1}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v0, p1}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1396
     return-void
 .end method
 
 .method private findUpMigrationPath(Ljava/util/List;ZII)Ljava/util/List;
-    .locals 8
-    .param p2, "upgrade"    # Z
-    .param p3, "start"    # I
-    .param p4, "end"    # I
+    .locals 6
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -184,20 +175,18 @@
         }
     .end annotation
 
-    .line 1420
-    .local p1, "result":Ljava/util/List;, "Ljava/util/List<Landroidx/room/migration/Migration;>;"
-    :goto_0
-    if-eqz p2, :cond_0
-
-    if-ge p3, p4, :cond_9
-
-    goto :goto_1
-
     :cond_0
-    if-le p3, p4, :cond_9
+    if-eqz p2, :cond_1
+
+    if-ge p3, p4, :cond_8
+
+    goto :goto_0
+
+    :cond_1
+    if-le p3, p4, :cond_8
 
     .line 1421
-    :goto_1
+    :goto_0
     iget-object v0, p0, Landroidx/room/RoomDatabase$MigrationContainer;->mMigrations:Ljava/util/HashMap;
 
     invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -210,146 +199,100 @@
 
     check-cast v0, Ljava/util/TreeMap;
 
-    .line 1422
-    .local v0, "targetNodes":Ljava/util/TreeMap;, "Ljava/util/TreeMap<Ljava/lang/Integer;Landroidx/room/migration/Migration;>;"
     const/4 v1, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
-    .line 1423
     return-object v1
 
-    .line 1427
-    :cond_1
-    if-eqz p2, :cond_2
+    :cond_2
+    if-eqz p2, :cond_3
 
     .line 1428
     invoke-virtual {v0}, Ljava/util/TreeMap;->descendingKeySet()Ljava/util/NavigableSet;
 
     move-result-object v2
 
-    .local v2, "keySet":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Integer;>;"
-    goto :goto_2
+    goto :goto_1
 
     .line 1430
-    .end local v2    # "keySet":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Integer;>;"
-    :cond_2
+    :cond_3
     invoke-virtual {v0}, Ljava/util/TreeMap;->keySet()Ljava/util/Set;
 
     move-result-object v2
 
-    .line 1432
-    .restart local v2    # "keySet":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Integer;>;"
-    :goto_2
-    const/4 v3, 0x0
-
     .line 1433
-    .local v3, "found":Z
+    :goto_1
     invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v4
+    move-result-object v2
 
-    :goto_3
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_7
-
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Ljava/lang/Integer;
-
-    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
-
-    move-result v5
-
-    .line 1435
-    .local v5, "targetVersion":I
-    const/4 v6, 0x1
-
-    const/4 v7, 0x0
-
-    if-eqz p2, :cond_4
-
-    .line 1436
-    if-gt v5, p4, :cond_3
-
-    if-le v5, p3, :cond_3
-
-    goto :goto_4
-
-    :cond_3
-    move v6, v7
-
-    .local v6, "shouldAddToPath":Z
-    :goto_4
-    goto :goto_5
-
-    .line 1438
-    .end local v6    # "shouldAddToPath":Z
     :cond_4
-    if-lt v5, p4, :cond_5
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    if-ge v5, p3, :cond_5
+    move-result v3
 
-    goto :goto_5
+    const/4 v4, 0x0
 
-    :cond_5
-    move v6, v7
+    if-eqz v3, :cond_7
 
-    .line 1440
-    .restart local v6    # "shouldAddToPath":Z
-    :goto_5
-    if-eqz v6, :cond_6
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    .line 1441
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v3
 
-    move-result-object v4
+    check-cast v3, Ljava/lang/Integer;
 
-    invoke-virtual {v0, v4}, Ljava/util/TreeMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
 
-    move-result-object v4
+    move-result v3
 
-    check-cast v4, Landroidx/room/migration/Migration;
+    const/4 v5, 0x1
 
-    invoke-interface {p1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    if-eqz p2, :cond_5
 
-    .line 1442
-    move p3, v5
+    if-gt v3, p4, :cond_6
 
-    .line 1443
-    const/4 v3, 0x1
+    if-le v3, p3, :cond_6
 
-    .line 1444
-    goto :goto_6
+    :goto_2
+    move v4, v5
 
-    .line 1446
-    .end local v5    # "targetVersion":I
-    .end local v6    # "shouldAddToPath":Z
-    :cond_6
     goto :goto_3
 
-    .line 1447
-    :cond_7
-    :goto_6
-    if-nez v3, :cond_8
+    :cond_5
+    if-lt v3, p4, :cond_6
 
-    .line 1448
+    if-ge v3, p3, :cond_6
+
+    goto :goto_2
+
+    :cond_6
+    :goto_3
+    if-eqz v4, :cond_4
+
+    .line 1441
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p3
+
+    invoke-virtual {v0, p3}, Ljava/util/TreeMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p3
+
+    check-cast p3, Landroidx/room/migration/Migration;
+
+    invoke-interface {p1, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    move p3, v3
+
+    move v4, v5
+
+    :cond_7
+    if-nez v4, :cond_0
+
     return-object v1
 
-    .line 1450
-    .end local v0    # "targetNodes":Ljava/util/TreeMap;, "Ljava/util/TreeMap<Ljava/lang/Integer;Landroidx/room/migration/Migration;>;"
-    .end local v2    # "keySet":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Integer;>;"
-    .end local v3    # "found":Z
     :cond_8
-    goto :goto_0
-
-    .line 1451
-    :cond_9
     return-object p1
 .end method
 
@@ -357,7 +300,6 @@
 # virtual methods
 .method public varargs addMigrations([Landroidx/room/migration/Migration;)V
     .locals 3
-    .param p1, "migrations"    # [Landroidx/room/migration/Migration;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -378,24 +320,18 @@
     aget-object v2, p1, v1
 
     .line 1379
-    .local v2, "migration":Landroidx/room/migration/Migration;
     invoke-direct {p0, v2}, Landroidx/room/RoomDatabase$MigrationContainer;->addMigration(Landroidx/room/migration/Migration;)V
 
-    .line 1378
-    .end local v2    # "migration":Landroidx/room/migration/Migration;
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 1381
     :cond_0
     return-void
 .end method
 
 .method public findMigrationPath(II)Ljava/util/List;
-    .locals 3
-    .param p1, "start"    # I
-    .param p2, "end"    # I
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -416,17 +352,15 @@
         }
     .end annotation
 
-    .line 1410
     if-ne p1, p2, :cond_0
 
     .line 1411
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
-    .line 1413
     :cond_0
     if-le p2, p1, :cond_1
 
@@ -438,17 +372,15 @@
     const/4 v0, 0x0
 
     .line 1414
-    .local v0, "migrateUp":Z
     :goto_0
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     .line 1415
-    .local v1, "result":Ljava/util/List;, "Ljava/util/List<Landroidx/room/migration/Migration;>;"
     invoke-direct {p0, v1, v0, p1, p2}, Landroidx/room/RoomDatabase$MigrationContainer;->findUpMigrationPath(Ljava/util/List;ZII)Ljava/util/List;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 .end method

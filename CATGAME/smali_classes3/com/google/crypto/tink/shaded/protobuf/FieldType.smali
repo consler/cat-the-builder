@@ -150,20 +150,20 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 13
+    .locals 62
 
     .line 42
     new-instance v6, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    sget-object v4, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->DOUBLE:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
     const-string v1, "DOUBLE"
 
     const/4 v2, 0x0
 
     const/4 v3, 0x0
+
+    sget-object v4, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+
+    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->DOUBLE:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
     move-object v0, v6
 
@@ -174,15 +174,15 @@
     .line 43
     new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->FLOAT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
-
     const-string v8, "FLOAT"
 
     const/4 v9, 0x1
 
     const/4 v10, 0x1
+
+    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+
+    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->FLOAT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
     move-object v7, v0
 
@@ -191,30 +191,26 @@
     sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FLOAT:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 44
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v1, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v14, "INT64"
 
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/4 v15, 0x2
 
-    const-string v2, "INT64"
+    const/16 v16, 0x2
 
-    const/4 v3, 0x2
+    sget-object v17, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/4 v4, 0x2
+    sget-object v18, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v1, v0
+    move-object v13, v1
 
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v13 .. v18}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->INT64:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v1, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->INT64:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 45
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    new-instance v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     const-string v8, "UINT64"
 
@@ -222,37 +218,37 @@
 
     const/4 v10, 0x3
 
-    move-object v7, v0
-
-    invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
-
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->UINT64:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    .line 46
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
-
-    const-string v2, "INT32"
-
-    const/4 v3, 0x4
-
-    const/4 v4, 0x4
-
-    move-object v1, v0
-
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
-
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->INT32:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    .line 47
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
     sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
     sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+
+    move-object v7, v2
+
+    invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+
+    sput-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->UINT64:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    .line 46
+    new-instance v3, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    const-string v14, "INT32"
+
+    const/4 v15, 0x4
+
+    const/16 v16, 0x4
+
+    sget-object v17, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+
+    sget-object v18, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+
+    move-object v13, v3
+
+    invoke-direct/range {v13 .. v18}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+
+    sput-object v3, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->INT32:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    .line 47
+    new-instance v4, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     const-string v8, "FIXED64"
 
@@ -260,37 +256,37 @@
 
     const/4 v10, 0x5
 
-    move-object v7, v0
+    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+
+    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+
+    move-object v7, v4
 
     invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FIXED64:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v4, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FIXED64:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 48
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v14, "FIXED32"
 
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/4 v15, 0x6
 
-    const-string v2, "FIXED32"
+    const/16 v16, 0x6
 
-    const/4 v3, 0x6
+    sget-object v17, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/4 v4, 0x6
+    sget-object v18, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v1, v0
+    move-object v13, v5
 
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v13 .. v18}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FIXED32:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FIXED32:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 49
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->BOOLEAN:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    new-instance v13, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     const-string v8, "BOOL"
 
@@ -298,1143 +294,1051 @@
 
     const/4 v10, 0x7
 
-    move-object v7, v0
-
-    invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
-
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->BOOL:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    .line 50
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->STRING:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
-
-    const-string v2, "STRING"
-
-    const/16 v3, 0x8
-
-    const/16 v4, 0x8
-
-    move-object v1, v0
-
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
-
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->STRING:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    .line 51
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
     sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->MESSAGE:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
-
-    const-string v8, "MESSAGE"
-
-    const/16 v9, 0x9
-
-    const/16 v10, 0x9
-
-    move-object v7, v0
-
-    invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
-
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->MESSAGE:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    .line 52
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->BYTE_STRING:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
-
-    const-string v2, "BYTES"
-
-    const/16 v3, 0xa
-
-    const/16 v4, 0xa
-
-    move-object v1, v0
-
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
-
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->BYTES:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    .line 53
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
-
-    const-string v8, "UINT32"
-
-    const/16 v9, 0xb
-
-    const/16 v10, 0xb
-
-    move-object v7, v0
-
-    invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
-
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->UINT32:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    .line 54
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->ENUM:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
-
-    const-string v2, "ENUM"
-
-    const/16 v3, 0xc
-
-    const/16 v4, 0xc
-
-    move-object v1, v0
-
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
-
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->ENUM:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    .line 55
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
-
-    const-string v8, "SFIXED32"
-
-    const/16 v9, 0xd
-
-    const/16 v10, 0xd
-
-    move-object v7, v0
-
-    invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
-
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SFIXED32:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    .line 56
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
-
-    const-string v2, "SFIXED64"
-
-    const/16 v3, 0xe
-
-    const/16 v4, 0xe
-
-    move-object v1, v0
-
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
-
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SFIXED64:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    .line 57
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
-
-    const-string v8, "SINT32"
-
-    const/16 v9, 0xf
-
-    const/16 v10, 0xf
-
-    move-object v7, v0
-
-    invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
-
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SINT32:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    .line 58
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
-
-    const-string v2, "SINT64"
-
-    const/16 v3, 0x10
-
-    const/16 v4, 0x10
-
-    move-object v1, v0
-
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
-
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SINT64:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    .line 59
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->MESSAGE:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
-
-    const-string v8, "GROUP"
-
-    const/16 v9, 0x11
-
-    const/16 v10, 0x11
-
-    move-object v7, v0
-
-    invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
-
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->GROUP:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    .line 60
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->DOUBLE:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
-
-    const-string v2, "DOUBLE_LIST"
-
-    const/16 v3, 0x12
-
-    const/16 v4, 0x12
-
-    move-object v1, v0
-
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
-
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->DOUBLE_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    .line 61
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->FLOAT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
-
-    const-string v8, "FLOAT_LIST"
-
-    const/16 v9, 0x13
-
-    const/16 v10, 0x13
-
-    move-object v7, v0
-
-    invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
-
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FLOAT_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    .line 62
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
-
-    const-string v2, "INT64_LIST"
-
-    const/16 v3, 0x14
-
-    const/16 v4, 0x14
-
-    move-object v1, v0
-
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
-
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->INT64_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    .line 63
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
-
-    const-string v8, "UINT64_LIST"
-
-    const/16 v9, 0x15
-
-    const/16 v10, 0x15
-
-    move-object v7, v0
-
-    invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
-
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->UINT64_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    .line 64
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
-
-    const-string v2, "INT32_LIST"
-
-    const/16 v3, 0x16
-
-    const/16 v4, 0x16
-
-    move-object v1, v0
-
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
-
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->INT32_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    .line 65
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
-
-    const-string v8, "FIXED64_LIST"
-
-    const/16 v9, 0x17
-
-    const/16 v10, 0x17
-
-    move-object v7, v0
-
-    invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
-
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FIXED64_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    .line 66
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
-
-    const-string v2, "FIXED32_LIST"
-
-    const/16 v3, 0x18
-
-    const/16 v4, 0x18
-
-    move-object v1, v0
-
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
-
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FIXED32_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    .line 67
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
     sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->BOOLEAN:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    const-string v8, "BOOL_LIST"
-
-    const/16 v9, 0x19
-
-    const/16 v10, 0x19
-
-    move-object v7, v0
+    move-object v7, v13
 
     invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->BOOL_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v13, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->BOOL:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    .line 50
+    new-instance v7, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    const-string v15, "STRING"
+
+    const/16 v16, 0x8
+
+    const/16 v17, 0x8
+
+    sget-object v18, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+
+    sget-object v19, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->STRING:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+
+    move-object v14, v7
+
+    invoke-direct/range {v14 .. v19}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+
+    sput-object v7, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->STRING:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    .line 51
+    new-instance v8, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    const-string v21, "MESSAGE"
+
+    const/16 v22, 0x9
+
+    const/16 v23, 0x9
+
+    sget-object v24, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+
+    sget-object v25, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->MESSAGE:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+
+    move-object/from16 v20, v8
+
+    invoke-direct/range {v20 .. v25}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+
+    sput-object v8, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->MESSAGE:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    .line 52
+    new-instance v9, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    const-string v15, "BYTES"
+
+    const/16 v16, 0xa
+
+    const/16 v17, 0xa
+
+    sget-object v18, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+
+    sget-object v19, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->BYTE_STRING:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+
+    move-object v14, v9
+
+    invoke-direct/range {v14 .. v19}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+
+    sput-object v9, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->BYTES:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    .line 53
+    new-instance v10, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    const-string v21, "UINT32"
+
+    const/16 v22, 0xb
+
+    const/16 v23, 0xb
+
+    sget-object v24, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+
+    sget-object v25, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+
+    move-object/from16 v20, v10
+
+    invoke-direct/range {v20 .. v25}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+
+    sput-object v10, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->UINT32:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    .line 54
+    new-instance v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    const-string v15, "ENUM"
+
+    const/16 v16, 0xc
+
+    const/16 v17, 0xc
+
+    sget-object v18, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+
+    sget-object v19, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->ENUM:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+
+    move-object v14, v11
+
+    invoke-direct/range {v14 .. v19}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+
+    sput-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->ENUM:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    .line 55
+    new-instance v12, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    const-string v21, "SFIXED32"
+
+    const/16 v22, 0xd
+
+    const/16 v23, 0xd
+
+    sget-object v24, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+
+    sget-object v25, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+
+    move-object/from16 v20, v12
+
+    invoke-direct/range {v20 .. v25}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+
+    sput-object v12, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SFIXED32:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    .line 56
+    new-instance v20, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    const-string v15, "SFIXED64"
+
+    const/16 v16, 0xe
+
+    const/16 v17, 0xe
+
+    sget-object v18, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+
+    sget-object v19, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+
+    move-object/from16 v14, v20
+
+    invoke-direct/range {v14 .. v19}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+
+    sput-object v20, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SFIXED64:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    .line 57
+    new-instance v14, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    const-string v22, "SINT32"
+
+    const/16 v23, 0xf
+
+    const/16 v24, 0xf
+
+    sget-object v25, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+
+    sget-object v26, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+
+    move-object/from16 v21, v14
+
+    invoke-direct/range {v21 .. v26}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+
+    sput-object v14, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SINT32:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    .line 58
+    new-instance v15, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    const-string v28, "SINT64"
+
+    const/16 v29, 0x10
+
+    const/16 v30, 0x10
+
+    sget-object v31, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+
+    sget-object v32, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+
+    move-object/from16 v27, v15
+
+    invoke-direct/range {v27 .. v32}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+
+    sput-object v15, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SINT64:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    .line 59
+    new-instance v16, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    const-string v22, "GROUP"
+
+    const/16 v23, 0x11
+
+    const/16 v24, 0x11
+
+    sget-object v25, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+
+    sget-object v26, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->MESSAGE:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+
+    move-object/from16 v21, v16
+
+    invoke-direct/range {v21 .. v26}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+
+    sput-object v16, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->GROUP:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    .line 60
+    new-instance v17, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    const-string v28, "DOUBLE_LIST"
+
+    const/16 v29, 0x12
+
+    const/16 v30, 0x12
+
+    sget-object v31, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+
+    sget-object v32, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->DOUBLE:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+
+    move-object/from16 v27, v17
+
+    invoke-direct/range {v27 .. v32}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+
+    sput-object v17, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->DOUBLE_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    .line 61
+    new-instance v18, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    const-string v22, "FLOAT_LIST"
+
+    const/16 v23, 0x13
+
+    const/16 v24, 0x13
+
+    sget-object v25, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+
+    sget-object v26, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->FLOAT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+
+    move-object/from16 v21, v18
+
+    invoke-direct/range {v21 .. v26}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+
+    sput-object v18, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FLOAT_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    .line 62
+    new-instance v19, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    const-string v28, "INT64_LIST"
+
+    const/16 v29, 0x14
+
+    const/16 v30, 0x14
+
+    sget-object v31, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+
+    sget-object v32, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+
+    move-object/from16 v27, v19
+
+    invoke-direct/range {v27 .. v32}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+
+    sput-object v19, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->INT64_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    .line 63
+    new-instance v27, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    const-string v22, "UINT64_LIST"
+
+    const/16 v23, 0x15
+
+    const/16 v24, 0x15
+
+    sget-object v25, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+
+    sget-object v26, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+
+    move-object/from16 v21, v27
+
+    invoke-direct/range {v21 .. v26}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+
+    sput-object v27, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->UINT64_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    .line 64
+    new-instance v21, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    const-string v29, "INT32_LIST"
+
+    const/16 v30, 0x16
+
+    const/16 v31, 0x16
+
+    sget-object v32, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+
+    sget-object v33, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+
+    move-object/from16 v28, v21
+
+    invoke-direct/range {v28 .. v33}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+
+    sput-object v21, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->INT32_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    .line 65
+    new-instance v22, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    const-string v35, "FIXED64_LIST"
+
+    const/16 v36, 0x17
+
+    const/16 v37, 0x17
+
+    sget-object v38, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+
+    sget-object v39, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+
+    move-object/from16 v34, v22
+
+    invoke-direct/range {v34 .. v39}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+
+    sput-object v22, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FIXED64_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    .line 66
+    new-instance v23, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    const-string v29, "FIXED32_LIST"
+
+    const/16 v30, 0x18
+
+    const/16 v31, 0x18
+
+    sget-object v32, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+
+    sget-object v33, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+
+    move-object/from16 v28, v23
+
+    invoke-direct/range {v28 .. v33}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+
+    sput-object v23, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FIXED32_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    .line 67
+    new-instance v24, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    const-string v35, "BOOL_LIST"
+
+    const/16 v36, 0x19
+
+    const/16 v37, 0x19
+
+    sget-object v38, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+
+    sget-object v39, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->BOOLEAN:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+
+    move-object/from16 v34, v24
+
+    invoke-direct/range {v34 .. v39}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+
+    sput-object v24, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->BOOL_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 68
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v25, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v29, "STRING_LIST"
 
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->STRING:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v30, 0x1a
 
-    const-string v2, "STRING_LIST"
+    const/16 v31, 0x1a
 
-    const/16 v3, 0x1a
+    sget-object v32, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v4, 0x1a
+    sget-object v33, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->STRING:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v1, v0
+    move-object/from16 v28, v25
 
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v28 .. v33}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->STRING_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v25, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->STRING_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 69
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v26, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v35, "MESSAGE_LIST"
 
-    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->MESSAGE:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v36, 0x1b
 
-    const-string v8, "MESSAGE_LIST"
+    const/16 v37, 0x1b
 
-    const/16 v9, 0x1b
+    sget-object v38, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v10, 0x1b
+    sget-object v39, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->MESSAGE:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v7, v0
+    move-object/from16 v34, v26
 
-    invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v34 .. v39}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->MESSAGE_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v26, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->MESSAGE_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 70
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v34, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v29, "BYTES_LIST"
 
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->BYTE_STRING:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v30, 0x1c
 
-    const-string v2, "BYTES_LIST"
+    const/16 v31, 0x1c
 
-    const/16 v3, 0x1c
+    sget-object v32, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v4, 0x1c
+    sget-object v33, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->BYTE_STRING:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v1, v0
+    move-object/from16 v28, v34
 
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v28 .. v33}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->BYTES_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v34, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->BYTES_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 71
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v28, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v36, "UINT32_LIST"
 
-    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v37, 0x1d
 
-    const-string v8, "UINT32_LIST"
+    const/16 v38, 0x1d
 
-    const/16 v9, 0x1d
+    sget-object v39, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v10, 0x1d
+    sget-object v40, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v7, v0
+    move-object/from16 v35, v28
 
-    invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v35 .. v40}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->UINT32_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v28, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->UINT32_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 72
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v29, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v42, "ENUM_LIST"
 
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->ENUM:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v43, 0x1e
 
-    const-string v2, "ENUM_LIST"
+    const/16 v44, 0x1e
 
-    const/16 v3, 0x1e
+    sget-object v45, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v4, 0x1e
+    sget-object v46, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->ENUM:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v1, v0
+    move-object/from16 v41, v29
 
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v41 .. v46}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->ENUM_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v29, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->ENUM_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 73
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v30, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v36, "SFIXED32_LIST"
 
-    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v37, 0x1f
 
-    const-string v8, "SFIXED32_LIST"
+    const/16 v38, 0x1f
 
-    const/16 v9, 0x1f
+    sget-object v39, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v10, 0x1f
+    sget-object v40, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v7, v0
+    move-object/from16 v35, v30
 
-    invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v35 .. v40}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SFIXED32_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v30, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SFIXED32_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 74
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v31, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v42, "SFIXED64_LIST"
 
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v43, 0x20
 
-    const-string v2, "SFIXED64_LIST"
+    const/16 v44, 0x20
 
-    const/16 v3, 0x20
+    sget-object v45, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v4, 0x20
+    sget-object v46, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v1, v0
+    move-object/from16 v41, v31
 
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v41 .. v46}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SFIXED64_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v31, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SFIXED64_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 75
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v32, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v36, "SINT32_LIST"
 
-    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v37, 0x21
 
-    const-string v8, "SINT32_LIST"
+    const/16 v38, 0x21
 
-    const/16 v9, 0x21
+    sget-object v39, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v10, 0x21
+    sget-object v40, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v7, v0
+    move-object/from16 v35, v32
 
-    invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v35 .. v40}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SINT32_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v32, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SINT32_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 76
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v33, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v42, "SINT64_LIST"
 
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v43, 0x22
 
-    const-string v2, "SINT64_LIST"
+    const/16 v44, 0x22
 
-    const/16 v3, 0x22
+    sget-object v45, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v4, 0x22
+    sget-object v46, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v1, v0
+    move-object/from16 v41, v33
 
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v41 .. v46}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SINT64_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v33, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SINT64_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 77
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v41, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v36, "DOUBLE_LIST_PACKED"
 
-    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->DOUBLE:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v37, 0x23
 
-    const-string v8, "DOUBLE_LIST_PACKED"
+    const/16 v38, 0x23
 
-    const/16 v9, 0x23
+    sget-object v39, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v10, 0x23
+    sget-object v40, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->DOUBLE:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v7, v0
+    move-object/from16 v35, v41
 
-    invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v35 .. v40}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->DOUBLE_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v41, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->DOUBLE_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 78
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v35, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v43, "FLOAT_LIST_PACKED"
 
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->FLOAT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v44, 0x24
 
-    const-string v2, "FLOAT_LIST_PACKED"
+    const/16 v45, 0x24
 
-    const/16 v3, 0x24
+    sget-object v46, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v4, 0x24
+    sget-object v47, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->FLOAT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v1, v0
+    move-object/from16 v42, v35
 
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v42 .. v47}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FLOAT_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v35, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FLOAT_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 79
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v36, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v49, "INT64_LIST_PACKED"
 
-    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v50, 0x25
 
-    const-string v8, "INT64_LIST_PACKED"
+    const/16 v51, 0x25
 
-    const/16 v9, 0x25
+    sget-object v52, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v10, 0x25
+    sget-object v53, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v7, v0
+    move-object/from16 v48, v36
 
-    invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v48 .. v53}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->INT64_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v36, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->INT64_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 80
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v37, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v43, "UINT64_LIST_PACKED"
 
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v44, 0x26
 
-    const-string v2, "UINT64_LIST_PACKED"
+    const/16 v45, 0x26
 
-    const/16 v3, 0x26
+    sget-object v46, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v4, 0x26
+    sget-object v47, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v1, v0
+    move-object/from16 v42, v37
 
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v42 .. v47}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->UINT64_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v37, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->UINT64_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 81
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v38, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v49, "INT32_LIST_PACKED"
 
-    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v50, 0x27
 
-    const-string v8, "INT32_LIST_PACKED"
+    const/16 v51, 0x27
 
-    const/16 v9, 0x27
+    sget-object v52, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v10, 0x27
+    sget-object v53, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v7, v0
+    move-object/from16 v48, v38
 
-    invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v48 .. v53}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->INT32_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v38, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->INT32_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 82
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v39, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v43, "FIXED64_LIST_PACKED"
 
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v44, 0x28
 
-    const-string v2, "FIXED64_LIST_PACKED"
+    const/16 v45, 0x28
 
-    const/16 v3, 0x28
+    sget-object v46, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v4, 0x28
+    sget-object v47, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v1, v0
+    move-object/from16 v42, v39
 
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v42 .. v47}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FIXED64_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v39, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FIXED64_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 83
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v40, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v49, "FIXED32_LIST_PACKED"
 
-    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v50, 0x29
 
-    const-string v8, "FIXED32_LIST_PACKED"
+    const/16 v51, 0x29
 
-    const/16 v9, 0x29
+    sget-object v52, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v10, 0x29
+    sget-object v53, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v7, v0
+    move-object/from16 v48, v40
 
-    invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v48 .. v53}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FIXED32_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v40, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FIXED32_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 84
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v48, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v43, "BOOL_LIST_PACKED"
 
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->BOOLEAN:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v44, 0x2a
 
-    const-string v2, "BOOL_LIST_PACKED"
+    const/16 v45, 0x2a
 
-    const/16 v3, 0x2a
+    sget-object v46, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v4, 0x2a
+    sget-object v47, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->BOOLEAN:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v1, v0
+    move-object/from16 v42, v48
 
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v42 .. v47}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->BOOL_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v48, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->BOOL_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 85
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v42, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v50, "UINT32_LIST_PACKED"
 
-    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v51, 0x2b
 
-    const-string v8, "UINT32_LIST_PACKED"
+    const/16 v52, 0x2b
 
-    const/16 v9, 0x2b
+    sget-object v53, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v10, 0x2b
+    sget-object v54, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v7, v0
+    move-object/from16 v49, v42
 
-    invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v49 .. v54}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->UINT32_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v42, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->UINT32_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 86
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v43, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v56, "ENUM_LIST_PACKED"
 
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->ENUM:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v57, 0x2c
 
-    const-string v2, "ENUM_LIST_PACKED"
+    const/16 v58, 0x2c
 
-    const/16 v3, 0x2c
+    sget-object v59, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v4, 0x2c
+    sget-object v60, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->ENUM:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v1, v0
+    move-object/from16 v55, v43
 
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v55 .. v60}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->ENUM_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v43, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->ENUM_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 87
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v44, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v50, "SFIXED32_LIST_PACKED"
 
-    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v51, 0x2d
 
-    const-string v8, "SFIXED32_LIST_PACKED"
+    const/16 v52, 0x2d
 
-    const/16 v9, 0x2d
+    sget-object v53, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v10, 0x2d
+    sget-object v54, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v7, v0
+    move-object/from16 v49, v44
 
-    invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v49 .. v54}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SFIXED32_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v44, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SFIXED32_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 88
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v45, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v56, "SFIXED64_LIST_PACKED"
 
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v57, 0x2e
 
-    const-string v2, "SFIXED64_LIST_PACKED"
+    const/16 v58, 0x2e
 
-    const/16 v3, 0x2e
+    sget-object v59, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v4, 0x2e
+    sget-object v60, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v1, v0
+    move-object/from16 v55, v45
 
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v55 .. v60}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SFIXED64_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v45, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SFIXED64_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 89
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v46, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v50, "SINT32_LIST_PACKED"
 
-    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v51, 0x2f
 
-    const-string v8, "SINT32_LIST_PACKED"
+    const/16 v52, 0x2f
 
-    const/16 v9, 0x2f
+    sget-object v53, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v10, 0x2f
+    sget-object v54, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->INT:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v7, v0
+    move-object/from16 v49, v46
 
-    invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v49 .. v54}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SINT32_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v46, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SINT32_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 90
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v47, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v56, "SINT64_LIST_PACKED"
 
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v57, 0x30
 
-    const-string v2, "SINT64_LIST_PACKED"
+    const/16 v58, 0x30
 
-    const/16 v3, 0x30
+    sget-object v59, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v4, 0x30
+    sget-object v60, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->LONG:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v1, v0
+    move-object/from16 v55, v47
 
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v55 .. v60}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SINT64_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v47, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SINT64_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 91
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v55, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v11, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v50, "GROUP_LIST"
 
-    sget-object v12, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->MESSAGE:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v51, 0x31
 
-    const-string v8, "GROUP_LIST"
+    const/16 v52, 0x31
 
-    const/16 v9, 0x31
+    sget-object v53, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v10, 0x31
+    sget-object v54, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->MESSAGE:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v7, v0
+    move-object/from16 v49, v55
 
-    invoke-direct/range {v7 .. v12}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v49 .. v54}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->GROUP_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v55, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->GROUP_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 92
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-instance v49, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    sget-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->MAP:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    const-string v57, "MAP"
 
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->VOID:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    const/16 v58, 0x32
 
-    const-string v2, "MAP"
+    const/16 v59, 0x32
 
-    const/16 v3, 0x32
+    sget-object v60, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->MAP:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const/16 v4, 0x32
+    sget-object v61, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->VOID:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
-    move-object v1, v0
+    move-object/from16 v56, v49
 
-    invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
+    invoke-direct/range {v56 .. v61}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;-><init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->MAP:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sput-object v49, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->MAP:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    move-object/from16 v50, v15
+
+    const/16 v15, 0x33
+
+    new-array v15, v15, [Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+
+    move-object/from16 v51, v14
+
+    const/4 v14, 0x0
+
+    aput-object v6, v15, v14
+
+    const/4 v6, 0x1
+
+    aput-object v0, v15, v6
+
+    const/4 v0, 0x2
+
+    aput-object v1, v15, v0
+
+    const/4 v0, 0x3
+
+    aput-object v2, v15, v0
+
+    const/4 v0, 0x4
+
+    aput-object v3, v15, v0
+
+    const/4 v0, 0x5
+
+    aput-object v4, v15, v0
+
+    const/4 v0, 0x6
+
+    aput-object v5, v15, v0
+
+    const/4 v0, 0x7
+
+    aput-object v13, v15, v0
+
+    const/16 v0, 0x8
+
+    aput-object v7, v15, v0
+
+    const/16 v0, 0x9
+
+    aput-object v8, v15, v0
+
+    const/16 v0, 0xa
+
+    aput-object v9, v15, v0
+
+    const/16 v0, 0xb
+
+    aput-object v10, v15, v0
+
+    const/16 v0, 0xc
+
+    aput-object v11, v15, v0
+
+    const/16 v0, 0xd
+
+    aput-object v12, v15, v0
+
+    const/16 v0, 0xe
+
+    aput-object v20, v15, v0
+
+    const/16 v0, 0xf
+
+    aput-object v51, v15, v0
+
+    const/16 v0, 0x10
+
+    aput-object v50, v15, v0
+
+    const/16 v0, 0x11
+
+    aput-object v16, v15, v0
+
+    const/16 v0, 0x12
+
+    aput-object v17, v15, v0
+
+    const/16 v0, 0x13
+
+    aput-object v18, v15, v0
+
+    const/16 v0, 0x14
+
+    aput-object v19, v15, v0
+
+    const/16 v0, 0x15
+
+    aput-object v27, v15, v0
+
+    const/16 v0, 0x16
+
+    aput-object v21, v15, v0
+
+    const/16 v0, 0x17
+
+    aput-object v22, v15, v0
+
+    const/16 v0, 0x18
+
+    aput-object v23, v15, v0
+
+    const/16 v0, 0x19
+
+    aput-object v24, v15, v0
+
+    const/16 v0, 0x1a
+
+    aput-object v25, v15, v0
+
+    const/16 v0, 0x1b
+
+    aput-object v26, v15, v0
+
+    const/16 v0, 0x1c
+
+    aput-object v34, v15, v0
+
+    const/16 v0, 0x1d
+
+    aput-object v28, v15, v0
+
+    const/16 v0, 0x1e
+
+    aput-object v29, v15, v0
+
+    const/16 v0, 0x1f
+
+    aput-object v30, v15, v0
+
+    const/16 v0, 0x20
+
+    aput-object v31, v15, v0
+
+    const/16 v0, 0x21
+
+    aput-object v32, v15, v0
+
+    const/16 v0, 0x22
+
+    aput-object v33, v15, v0
+
+    const/16 v0, 0x23
+
+    aput-object v41, v15, v0
+
+    const/16 v0, 0x24
+
+    aput-object v35, v15, v0
+
+    const/16 v0, 0x25
+
+    aput-object v36, v15, v0
+
+    const/16 v0, 0x26
+
+    aput-object v37, v15, v0
+
+    const/16 v0, 0x27
+
+    aput-object v38, v15, v0
+
+    const/16 v0, 0x28
+
+    aput-object v39, v15, v0
+
+    const/16 v0, 0x29
+
+    aput-object v40, v15, v0
+
+    const/16 v0, 0x2a
+
+    aput-object v48, v15, v0
+
+    const/16 v0, 0x2b
+
+    aput-object v42, v15, v0
+
+    const/16 v0, 0x2c
+
+    aput-object v43, v15, v0
+
+    const/16 v0, 0x2d
+
+    aput-object v44, v15, v0
+
+    const/16 v0, 0x2e
+
+    aput-object v45, v15, v0
+
+    const/16 v0, 0x2f
+
+    aput-object v46, v15, v0
+
+    const/16 v0, 0x30
+
+    aput-object v47, v15, v0
+
+    const/16 v0, 0x31
+
+    aput-object v55, v15, v0
+
+    const/16 v0, 0x32
+
+    aput-object v49, v15, v0
 
     .line 40
-    const/16 v1, 0x33
+    sput-object v15, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->$VALUES:[Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    new-array v1, v1, [Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->DOUBLE:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FLOAT:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/4 v4, 0x1
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->INT64:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/4 v4, 0x2
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->UINT64:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/4 v4, 0x3
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->INT32:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/4 v4, 0x4
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FIXED64:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/4 v4, 0x5
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FIXED32:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/4 v4, 0x6
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->BOOL:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/4 v4, 0x7
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->STRING:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x8
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->MESSAGE:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x9
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->BYTES:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0xa
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->UINT32:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0xb
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->ENUM:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0xc
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SFIXED32:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0xd
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SFIXED64:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0xe
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SINT32:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0xf
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SINT64:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x10
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->GROUP:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x11
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->DOUBLE_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x12
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FLOAT_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x13
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->INT64_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x14
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->UINT64_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x15
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->INT32_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x16
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FIXED64_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x17
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FIXED32_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x18
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->BOOL_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x19
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->STRING_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x1a
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->MESSAGE_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x1b
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->BYTES_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x1c
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->UINT32_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x1d
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->ENUM_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x1e
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SFIXED32_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x1f
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SFIXED64_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x20
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SINT32_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x21
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SINT64_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x22
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->DOUBLE_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x23
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FLOAT_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x24
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->INT64_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x25
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->UINT64_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x26
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->INT32_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x27
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FIXED64_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x28
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->FIXED32_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x29
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->BOOL_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x2a
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->UINT32_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x2b
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->ENUM_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x2c
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SFIXED32_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x2d
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SFIXED64_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x2e
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SINT32_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x2f
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->SINT64_LIST_PACKED:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x30
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->GROUP_LIST:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-
-    const/16 v4, 0x31
-
-    aput-object v2, v1, v4
-
-    const/16 v2, 0x32
-
-    aput-object v0, v1, v2
-
-    sput-object v1, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->$VALUES:[Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    new-array v0, v14, [Ljava/lang/reflect/Type;
 
     .line 216
-    new-array v0, v3, [Ljava/lang/reflect/Type;
-
     sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->EMPTY_TYPES:[Ljava/lang/reflect/Type;
 
     .line 219
@@ -1443,7 +1347,6 @@
     move-result-object v0
 
     .line 220
-    .local v0, "values":[Lcom/google/crypto/tink/shaded/protobuf/FieldType;
     array-length v1, v0
 
     new-array v1, v1, [Lcom/google/crypto/tink/shaded/protobuf/FieldType;
@@ -1454,35 +1357,27 @@
     array-length v1, v0
 
     :goto_0
-    if-ge v3, v1, :cond_0
+    if-ge v14, v1, :cond_0
 
-    aget-object v2, v0, v3
+    aget-object v2, v0, v14
 
     .line 222
-    .local v2, "type":Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-    sget-object v4, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->VALUES:[Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    sget-object v3, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->VALUES:[Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    iget v5, v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->id:I
+    iget v4, v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->id:I
 
-    aput-object v2, v4, v5
+    aput-object v2, v3, v4
 
-    .line 221
-    .end local v2    # "type":Lcom/google/crypto/tink/shaded/protobuf/FieldType;
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v14, v14, 0x1
 
     goto :goto_0
 
-    .line 224
-    .end local v0    # "values":[Lcom/google/crypto/tink/shaded/protobuf/FieldType;
     :cond_0
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IILcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;Lcom/google/crypto/tink/shaded/protobuf/JavaType;)V
-    .locals 3
-    .param p3, "id"    # I
-    .param p4, "collection"    # Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-    .param p5, "javaType"    # Lcom/google/crypto/tink/shaded/protobuf/JavaType;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -1515,15 +1410,15 @@
 
     const/4 p2, 0x2
 
-    const/4 v0, 0x1
+    const/4 p3, 0x1
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, p3, :cond_1
 
     if-eq p1, p2, :cond_0
 
-    .line 114
     const/4 p1, 0x0
 
+    .line 114
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->elementType:Ljava/lang/Class;
 
     goto :goto_0
@@ -1536,7 +1431,6 @@
 
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->elementType:Ljava/lang/Class;
 
-    .line 111
     goto :goto_0
 
     .line 107
@@ -1547,56 +1441,47 @@
 
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->elementType:Ljava/lang/Class;
 
-    .line 108
-    nop
-
-    .line 118
-    :goto_0
-    const/4 p1, 0x0
-
     .line 119
-    .local p1, "primitiveScalar":Z
-    sget-object v1, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    :goto_0
+    sget-object p1, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    if-ne p4, v1, :cond_2
+    if-ne p4, p1, :cond_2
 
     .line 120
-    sget-object v1, Lcom/google/crypto/tink/shaded/protobuf/FieldType$1;->$SwitchMap$com$google$protobuf$JavaType:[I
+    sget-object p1, Lcom/google/crypto/tink/shaded/protobuf/FieldType$1;->$SwitchMap$com$google$protobuf$JavaType:[I
 
     invoke-virtual {p5}, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->ordinal()I
 
-    move-result v2
+    move-result p4
 
-    aget v1, v1, v2
+    aget p1, p1, p4
 
-    if-eq v1, v0, :cond_2
+    if-eq p1, p3, :cond_2
 
-    if-eq v1, p2, :cond_2
+    if-eq p1, p2, :cond_2
 
     const/4 p2, 0x3
 
-    if-eq v1, p2, :cond_2
+    if-eq p1, p2, :cond_2
 
-    .line 126
-    const/4 p1, 0x1
+    goto :goto_1
 
-    nop
+    :cond_2
+    const/4 p3, 0x0
 
     .line 130
-    :cond_2
-    iput-boolean p1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->primitiveScalar:Z
+    :goto_1
+    iput-boolean p3, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->primitiveScalar:Z
 
-    .line 131
     return-void
 .end method
 
 .method public static forId(I)Lcom/google/crypto/tink/shaded/protobuf/FieldType;
     .locals 2
-    .param p0, "id"    # I
 
-    .line 209
     if-ltz p0, :cond_1
 
+    .line 209
     sget-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->VALUES:[Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     array-length v1, v0
@@ -1607,20 +1492,19 @@
 
     .line 212
     :cond_0
-    aget-object v0, v0, p0
+    aget-object p0, v0, p0
 
-    return-object v0
+    return-object p0
 
-    .line 210
     :cond_1
     :goto_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private static getGenericSuperList(Ljava/lang/Class;)Ljava/lang/reflect/Type;
-    .locals 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1631,13 +1515,11 @@
     .end annotation
 
     .line 234
-    .local p0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-virtual {p0}, Ljava/lang/Class;->getGenericInterfaces()[Ljava/lang/reflect/Type;
 
     move-result-object v0
 
     .line 235
-    .local v0, "genericInterfaces":[Ljava/lang/reflect/Type;
     array-length v1, v0
 
     const/4 v2, 0x0
@@ -1648,7 +1530,6 @@
     aget-object v3, v0, v2
 
     .line 236
-    .local v3, "genericInterface":Ljava/lang/reflect/Type;
     instance-of v4, v3, Ljava/lang/reflect/ParameterizedType;
 
     if-eqz v4, :cond_0
@@ -1659,30 +1540,23 @@
     check-cast v4, Ljava/lang/reflect/ParameterizedType;
 
     .line 238
-    .local v4, "parameterizedType":Ljava/lang/reflect/ParameterizedType;
     invoke-interface {v4}, Ljava/lang/reflect/ParameterizedType;->getRawType()Ljava/lang/reflect/Type;
 
-    move-result-object v5
+    move-result-object v4
 
-    check-cast v5, Ljava/lang/Class;
+    check-cast v4, Ljava/lang/Class;
 
     .line 239
-    .local v5, "rawType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    const-class v6, Ljava/util/List;
+    const-class v5, Ljava/util/List;
 
-    invoke-virtual {v6, v5}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    invoke-virtual {v5, v4}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    move-result v6
+    move-result v4
 
-    if-eqz v6, :cond_0
+    if-eqz v4, :cond_0
 
-    .line 240
     return-object v3
 
-    .line 235
-    .end local v3    # "genericInterface":Ljava/lang/reflect/Type;
-    .end local v4    # "parameterizedType":Ljava/lang/reflect/ParameterizedType;
-    .end local v5    # "rawType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
@@ -1692,52 +1566,44 @@
     :cond_1
     invoke-virtual {p0}, Ljava/lang/Class;->getGenericSuperclass()Ljava/lang/reflect/Type;
 
-    move-result-object v1
+    move-result-object p0
 
     .line 247
-    .local v1, "type":Ljava/lang/reflect/Type;
-    instance-of v2, v1, Ljava/lang/reflect/ParameterizedType;
+    instance-of v0, p0, Ljava/lang/reflect/ParameterizedType;
 
-    if-eqz v2, :cond_2
+    if-eqz v0, :cond_2
 
     .line 248
-    move-object v2, v1
+    move-object v0, p0
 
-    check-cast v2, Ljava/lang/reflect/ParameterizedType;
+    check-cast v0, Ljava/lang/reflect/ParameterizedType;
 
     .line 249
-    .local v2, "parameterizedType":Ljava/lang/reflect/ParameterizedType;
-    invoke-interface {v2}, Ljava/lang/reflect/ParameterizedType;->getRawType()Ljava/lang/reflect/Type;
+    invoke-interface {v0}, Ljava/lang/reflect/ParameterizedType;->getRawType()Ljava/lang/reflect/Type;
 
-    move-result-object v3
+    move-result-object v0
 
-    check-cast v3, Ljava/lang/Class;
+    check-cast v0, Ljava/lang/Class;
 
     .line 250
-    .local v3, "rawType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    const-class v4, Ljava/util/List;
+    const-class v1, Ljava/util/List;
 
-    invoke-virtual {v4, v3}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    invoke-virtual {v1, v0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_2
+    if-eqz v0, :cond_2
 
-    .line 251
-    return-object v1
+    return-object p0
 
-    .line 256
-    .end local v2    # "parameterizedType":Ljava/lang/reflect/ParameterizedType;
-    .end local v3    # "rawType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :cond_2
-    const/4 v2, 0x0
+    const/4 p0, 0x0
 
-    return-object v2
+    return-object p0
 .end method
 
 .method private static getListParameter(Ljava/lang/Class;[Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
-    .locals 10
-    .param p1, "realTypes"    # [Ljava/lang/reflect/Type;
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1750,11 +1616,12 @@
     .end annotation
 
     .line 271
-    .local p0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :goto_0
     const-class v0, Ljava/util/List;
 
     const/4 v1, 0x0
+
+    const/4 v2, 0x1
 
     if-eq p0, v0, :cond_9
 
@@ -1764,95 +1631,77 @@
     move-result-object v0
 
     .line 274
-    .local v0, "genericType":Ljava/lang/reflect/Type;
-    instance-of v2, v0, Ljava/lang/reflect/ParameterizedType;
+    instance-of v3, v0, Ljava/lang/reflect/ParameterizedType;
 
-    if-eqz v2, :cond_6
+    if-eqz v3, :cond_6
 
     .line 276
-    move-object v1, v0
-
-    check-cast v1, Ljava/lang/reflect/ParameterizedType;
+    check-cast v0, Ljava/lang/reflect/ParameterizedType;
 
     .line 277
-    .local v1, "parameterizedType":Ljava/lang/reflect/ParameterizedType;
-    invoke-interface {v1}, Ljava/lang/reflect/ParameterizedType;->getActualTypeArguments()[Ljava/lang/reflect/Type;
+    invoke-interface {v0}, Ljava/lang/reflect/ParameterizedType;->getActualTypeArguments()[Ljava/lang/reflect/Type;
 
-    move-result-object v2
+    move-result-object v3
+
+    move v4, v1
 
     .line 278
-    .local v2, "superArgs":[Ljava/lang/reflect/Type;
-    const/4 v3, 0x0
-
-    .local v3, "i":I
     :goto_1
-    array-length v4, v2
+    array-length v5, v3
 
-    if-ge v3, v4, :cond_5
+    if-ge v4, v5, :cond_5
 
     .line 279
-    aget-object v4, v2, v3
+    aget-object v5, v3, v4
 
     .line 280
-    .local v4, "superArg":Ljava/lang/reflect/Type;
-    instance-of v5, v4, Ljava/lang/reflect/TypeVariable;
+    instance-of v6, v5, Ljava/lang/reflect/TypeVariable;
 
-    if-eqz v5, :cond_4
+    if-eqz v6, :cond_4
 
     .line 283
     invoke-virtual {p0}, Ljava/lang/Class;->getTypeParameters()[Ljava/lang/reflect/TypeVariable;
 
-    move-result-object v5
+    move-result-object v6
 
     .line 284
-    .local v5, "clazzParams":[Ljava/lang/reflect/TypeVariable;, "[Ljava/lang/reflect/TypeVariable<*>;"
-    array-length v6, p1
+    array-length v7, p1
 
-    array-length v7, v5
+    array-length v8, v6
 
-    if-ne v6, v7, :cond_3
+    if-ne v7, v8, :cond_3
 
-    .line 289
-    const/4 v6, 0x0
+    move v7, v1
 
     .line 290
-    .local v6, "foundReplacement":Z
-    const/4 v7, 0x0
-
-    .local v7, "j":I
     :goto_2
-    array-length v8, v5
+    array-length v8, v6
 
     if-ge v7, v8, :cond_1
 
     .line 291
-    aget-object v8, v5, v7
+    aget-object v8, v6, v7
 
-    if-ne v4, v8, :cond_0
+    if-ne v5, v8, :cond_0
 
     .line 292
-    aget-object v8, p1, v7
+    aget-object v6, p1, v7
 
     .line 293
-    .local v8, "realType":Ljava/lang/reflect/Type;
-    aput-object v8, v2, v3
+    aput-object v6, v3, v4
 
-    .line 294
-    const/4 v6, 0x1
+    move v6, v2
 
-    .line 295
     goto :goto_3
 
-    .line 290
-    .end local v8    # "realType":Ljava/lang/reflect/Type;
     :cond_0
     add-int/lit8 v7, v7, 0x1
 
     goto :goto_2
 
-    .line 298
-    .end local v7    # "j":I
     :cond_1
+    move v6, v1
+
     :goto_3
     if-eqz v6, :cond_2
 
@@ -1860,102 +1709,83 @@
 
     .line 299
     :cond_2
-    new-instance v7, Ljava/lang/RuntimeException;
+    new-instance p0, Ljava/lang/RuntimeException;
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "Unable to find replacement for "
 
-    const-string v9, "Unable to find replacement for "
+    invoke-direct {p1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object p1
 
-    invoke-direct {v7, v8}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v7
+    throw p0
 
     .line 285
-    .end local v6    # "foundReplacement":Z
     :cond_3
-    new-instance v6, Ljava/lang/RuntimeException;
+    new-instance p0, Ljava/lang/RuntimeException;
 
-    const-string v7, "Type array mismatch"
+    const-string p1, "Type array mismatch"
 
-    invoke-direct {v6, v7}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v6
+    throw p0
 
-    .line 278
-    .end local v4    # "superArg":Ljava/lang/reflect/Type;
-    .end local v5    # "clazzParams":[Ljava/lang/reflect/TypeVariable;, "[Ljava/lang/reflect/TypeVariable<*>;"
     :cond_4
     :goto_4
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_1
 
     .line 304
-    .end local v3    # "i":I
     :cond_5
-    invoke-interface {v1}, Ljava/lang/reflect/ParameterizedType;->getRawType()Ljava/lang/reflect/Type;
+    invoke-interface {v0}, Ljava/lang/reflect/ParameterizedType;->getRawType()Ljava/lang/reflect/Type;
 
-    move-result-object v3
+    move-result-object p0
 
-    check-cast v3, Ljava/lang/Class;
+    check-cast p0, Ljava/lang/Class;
 
-    .line 306
-    .local v3, "parent":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    move-object p1, v2
+    move-object p1, v3
 
-    .line 307
-    move-object p0, v3
-
-    .line 308
     goto :goto_0
 
     .line 313
-    .end local v1    # "parameterizedType":Ljava/lang/reflect/ParameterizedType;
-    .end local v2    # "superArgs":[Ljava/lang/reflect/Type;
-    .end local v3    # "parent":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :cond_6
     sget-object p1, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->EMPTY_TYPES:[Ljava/lang/reflect/Type;
 
     .line 314
     invoke-virtual {p0}, Ljava/lang/Class;->getInterfaces()[Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object v0
 
-    array-length v3, v2
+    array-length v2, v0
 
     :goto_5
-    if-ge v1, v3, :cond_8
+    if-ge v1, v2, :cond_8
 
-    aget-object v4, v2, v1
+    aget-object v3, v0, v1
 
     .line 315
-    .local v4, "iface":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    const-class v5, Ljava/util/List;
+    const-class v4, Ljava/util/List;
 
-    invoke-virtual {v5, v4}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    invoke-virtual {v4, v3}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_7
+    if-eqz v4, :cond_7
 
-    .line 316
-    move-object p0, v4
+    move-object p0, v3
 
-    .line 317
     goto :goto_0
 
-    .line 314
-    .end local v4    # "iface":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :cond_7
     add-int/lit8 v1, v1, 0x1
 
@@ -1967,37 +1797,32 @@
 
     move-result-object p0
 
-    .line 321
-    .end local v0    # "genericType":Ljava/lang/reflect/Type;
-    goto/16 :goto_0
+    goto :goto_0
 
     .line 323
     :cond_9
-    array-length v0, p1
+    array-length p0, p1
 
-    const/4 v2, 0x1
-
-    if-ne v0, v2, :cond_a
+    if-ne p0, v2, :cond_a
 
     .line 326
-    aget-object v0, p1, v1
+    aget-object p0, p1, v1
 
-    return-object v0
+    return-object p0
 
     .line 324
     :cond_a
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance p0, Ljava/lang/RuntimeException;
 
-    const-string v1, "Unable to identify parameter type for List<T>"
+    const-string p1, "Unable to identify parameter type for List<T>"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method private isValidForList(Ljava/lang/reflect/Field;)Z
-    .locals 6
-    .param p1, "field"    # Ljava/lang/reflect/Field;
+    .locals 3
 
     .line 184
     invoke-virtual {p1}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
@@ -2005,7 +1830,6 @@
     move-result-object v0
 
     .line 185
-    .local v0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->javaType:Lcom/google/crypto/tink/shaded/protobuf/JavaType;
 
     invoke-virtual {v1}, Lcom/google/crypto/tink/shaded/protobuf/JavaType;->getType()Ljava/lang/Class;
@@ -2018,35 +1842,32 @@
 
     if-nez v1, :cond_0
 
-    .line 187
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return v1
+    return p1
 
     .line 189
     :cond_0
     sget-object v1, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->EMPTY_TYPES:[Ljava/lang/reflect/Type;
 
     .line 190
-    .local v1, "types":[Ljava/lang/reflect/Type;
     invoke-virtual {p1}, Ljava/lang/reflect/Field;->getGenericType()Ljava/lang/reflect/Type;
 
     move-result-object v2
 
     .line 191
-    .local v2, "genericType":Ljava/lang/reflect/Type;
-    instance-of v3, v2, Ljava/lang/reflect/ParameterizedType;
+    instance-of v2, v2, Ljava/lang/reflect/ParameterizedType;
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
     .line 192
     invoke-virtual {p1}, Ljava/lang/reflect/Field;->getGenericType()Ljava/lang/reflect/Type;
 
-    move-result-object v3
+    move-result-object p1
 
-    check-cast v3, Ljava/lang/reflect/ParameterizedType;
+    check-cast p1, Ljava/lang/reflect/ParameterizedType;
 
-    invoke-interface {v3}, Ljava/lang/reflect/ParameterizedType;->getActualTypeArguments()[Ljava/lang/reflect/Type;
+    invoke-interface {p1}, Ljava/lang/reflect/ParameterizedType;->getActualTypeArguments()[Ljava/lang/reflect/Type;
 
     move-result-object v1
 
@@ -2054,48 +1875,43 @@
     :cond_1
     invoke-static {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->getListParameter(Ljava/lang/Class;[Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
 
-    move-result-object v3
+    move-result-object p1
 
     .line 195
-    .local v3, "listParameter":Ljava/lang/reflect/Type;
-    instance-of v4, v3, Ljava/lang/Class;
+    instance-of v0, p1, Ljava/lang/Class;
 
-    if-nez v4, :cond_2
+    if-nez v0, :cond_2
 
-    .line 197
-    const/4 v4, 0x1
+    const/4 p1, 0x1
 
-    return v4
+    return p1
 
     .line 199
     :cond_2
-    iget-object v4, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->elementType:Ljava/lang/Class;
+    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->elementType:Ljava/lang/Class;
 
-    move-object v5, v3
+    check-cast p1, Ljava/lang/Class;
 
-    check-cast v5, Ljava/lang/Class;
+    invoke-virtual {v0, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    invoke-virtual {v4, v5}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    move-result p1
 
-    move-result v4
-
-    return v4
+    return p1
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/crypto/tink/shaded/protobuf/FieldType;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 40
     const-class v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
+    check-cast p0, Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/google/crypto/tink/shaded/protobuf/FieldType;
@@ -2214,7 +2030,6 @@
 
 .method public isValidForField(Ljava/lang/reflect/Field;)Z
     .locals 2
-    .param p1, "field"    # Ljava/lang/reflect/Field;
 
     .line 176
     sget-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
@@ -2230,9 +2045,9 @@
     .line 177
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/FieldType;->isValidForList(Ljava/lang/reflect/Field;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
     .line 179
     :cond_0
@@ -2244,11 +2059,11 @@
 
     invoke-virtual {p1}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

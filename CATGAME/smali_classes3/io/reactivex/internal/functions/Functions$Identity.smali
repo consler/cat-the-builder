@@ -41,16 +41,13 @@
 # virtual methods
 .method public apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .param p1, "v"    # Ljava/lang/Object;
 
-    .line 655
     return-object p1
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .line 660
     const-string v0, "IdentityFunction"
 
     return-object v0

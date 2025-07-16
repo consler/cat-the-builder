@@ -17,7 +17,6 @@
 # direct methods
 .method public constructor <init>(Ljava/util/concurrent/Executor;)V
     .locals 2
-    .param p1, "backgroundExecutor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -55,7 +54,6 @@
 
     iput-object v0, p0, Landroidx/work/impl/utils/taskexecutor/WorkManagerTaskExecutor;->mBackgroundExecutor:Landroidx/work/impl/utils/SerialExecutor;
 
-    .line 41
     return-void
 .end method
 
@@ -63,13 +61,12 @@
 # virtual methods
 .method public executeOnBackgroundThread(Ljava/lang/Runnable;)V
     .locals 1
-    .param p1, "r"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
         }
         names = {
-            "r"
+            "runnable"
         }
     .end annotation
 
@@ -78,7 +75,6 @@
 
     invoke-virtual {v0, p1}, Landroidx/work/impl/utils/SerialExecutor;->execute(Ljava/lang/Runnable;)V
 
-    .line 65
     return-void
 .end method
 
@@ -102,13 +98,12 @@
 
 .method public postToMainThread(Ljava/lang/Runnable;)V
     .locals 1
-    .param p1, "r"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
         }
         names = {
-            "r"
+            "runnable"
         }
     .end annotation
 
@@ -117,6 +112,5 @@
 
     invoke-virtual {v0, p1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 55
     return-void
 .end method

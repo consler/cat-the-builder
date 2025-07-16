@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/engine/ActiveResources;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/bumptech/glide/load/engine/ActiveResources;
 
     .line 58
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/ActiveResources$2;->this$0:Lcom/bumptech/glide/load/engine/ActiveResources;
@@ -44,6 +43,5 @@
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/ActiveResources;->cleanReferenceQueue()V
 
-    .line 62
     return-void
 .end method

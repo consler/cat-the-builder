@@ -34,7 +34,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/AsyncHttpClient;Ljava/io/OutputStream;Ljava/io/File;Lcom/koushikdutta/async/http/AsyncHttpClient$FileCallback;Lcom/koushikdutta/async/future/SimpleFuture;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/AsyncHttpClient;
 
     .line 581
     iput-object p1, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$9;->this$0:Lcom/koushikdutta/async/http/AsyncHttpClient;
@@ -49,10 +48,10 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 582
-    const-wide/16 p2, 0x0
+    const-wide/16 p1, 0x0
 
-    iput-wide p2, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$9;->mDownloaded:J
+    .line 582
+    iput-wide p1, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$9;->mDownloaded:J
 
     return-void
 .end method
@@ -60,11 +59,8 @@
 
 # virtual methods
 .method public onConnectCompleted(Ljava/lang/Exception;Lcom/koushikdutta/async/http/AsyncHttpResponse;)V
-    .locals 9
-    .param p1, "ex"    # Ljava/lang/Exception;
-    .param p2, "response"    # Lcom/koushikdutta/async/http/AsyncHttpResponse;
+    .locals 7
 
-    .line 586
     if-eqz p1, :cond_0
 
     .line 588
@@ -75,15 +71,8 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 591
-    goto :goto_0
-
-    .line 590
-    :catch_0
-    move-exception v0
-
     .line 592
-    :goto_0
+    :catch_0
     iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$9;->val$file:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
@@ -103,53 +92,48 @@
 
     invoke-static/range {v1 .. v6}, Lcom/koushikdutta/async/http/AsyncHttpClient;->access$900(Lcom/koushikdutta/async/http/AsyncHttpClient;Lcom/koushikdutta/async/http/callback/RequestCallback;Lcom/koushikdutta/async/future/SimpleFuture;Lcom/koushikdutta/async/http/AsyncHttpResponse;Ljava/lang/Exception;Ljava/lang/Object;)V
 
-    .line 594
     return-void
 
     .line 596
     :cond_0
-    iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$9;->this$0:Lcom/koushikdutta/async/http/AsyncHttpClient;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$9;->this$0:Lcom/koushikdutta/async/http/AsyncHttpClient;
 
-    iget-object v1, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$9;->val$callback:Lcom/koushikdutta/async/http/AsyncHttpClient$FileCallback;
+    iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$9;->val$callback:Lcom/koushikdutta/async/http/AsyncHttpClient$FileCallback;
 
-    invoke-static {v0, v1, p2}, Lcom/koushikdutta/async/http/AsyncHttpClient;->access$1000(Lcom/koushikdutta/async/http/AsyncHttpClient;Lcom/koushikdutta/async/http/callback/RequestCallback;Lcom/koushikdutta/async/http/AsyncHttpResponse;)V
+    invoke-static {p1, v0, p2}, Lcom/koushikdutta/async/http/AsyncHttpClient;->access$1000(Lcom/koushikdutta/async/http/AsyncHttpClient;Lcom/koushikdutta/async/http/callback/RequestCallback;Lcom/koushikdutta/async/http/AsyncHttpResponse;)V
 
     .line 598
     invoke-interface {p2}, Lcom/koushikdutta/async/http/AsyncHttpResponse;->headers()Lcom/koushikdutta/async/http/Headers;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Lcom/koushikdutta/async/http/HttpUtil;->contentLength(Lcom/koushikdutta/async/http/Headers;)I
+    invoke-static {p1}, Lcom/koushikdutta/async/http/HttpUtil;->contentLength(Lcom/koushikdutta/async/http/Headers;)I
 
-    move-result v0
+    move-result p1
 
-    int-to-long v7, v0
+    int-to-long v4, p1
 
     .line 600
-    .local v7, "contentLength":J
-    new-instance v0, Lcom/koushikdutta/async/http/AsyncHttpClient$9$1;
+    new-instance p1, Lcom/koushikdutta/async/http/AsyncHttpClient$9$1;
 
-    iget-object v3, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$9;->val$fout:Ljava/io/OutputStream;
+    iget-object v2, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$9;->val$fout:Ljava/io/OutputStream;
 
-    move-object v1, v0
+    move-object v0, p1
 
-    move-object v2, p0
+    move-object v1, p0
 
-    move-object v4, p2
+    move-object v3, p2
 
-    move-wide v5, v7
+    invoke-direct/range {v0 .. v5}, Lcom/koushikdutta/async/http/AsyncHttpClient$9$1;-><init>(Lcom/koushikdutta/async/http/AsyncHttpClient$9;Ljava/io/OutputStream;Lcom/koushikdutta/async/http/AsyncHttpResponse;J)V
 
-    invoke-direct/range {v1 .. v6}, Lcom/koushikdutta/async/http/AsyncHttpClient$9$1;-><init>(Lcom/koushikdutta/async/http/AsyncHttpClient$9;Ljava/io/OutputStream;Lcom/koushikdutta/async/http/AsyncHttpResponse;J)V
-
-    invoke-interface {p2, v0}, Lcom/koushikdutta/async/http/AsyncHttpResponse;->setDataCallback(Lcom/koushikdutta/async/callback/DataCallback;)V
+    invoke-interface {p2, p1}, Lcom/koushikdutta/async/http/AsyncHttpResponse;->setDataCallback(Lcom/koushikdutta/async/callback/DataCallback;)V
 
     .line 608
-    new-instance v0, Lcom/koushikdutta/async/http/AsyncHttpClient$9$2;
+    new-instance p1, Lcom/koushikdutta/async/http/AsyncHttpClient$9$2;
 
-    invoke-direct {v0, p0, p2}, Lcom/koushikdutta/async/http/AsyncHttpClient$9$2;-><init>(Lcom/koushikdutta/async/http/AsyncHttpClient$9;Lcom/koushikdutta/async/http/AsyncHttpResponse;)V
+    invoke-direct {p1, p0, p2}, Lcom/koushikdutta/async/http/AsyncHttpClient$9$2;-><init>(Lcom/koushikdutta/async/http/AsyncHttpClient$9;Lcom/koushikdutta/async/http/AsyncHttpResponse;)V
 
-    invoke-interface {p2, v0}, Lcom/koushikdutta/async/http/AsyncHttpResponse;->setEndCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
+    invoke-interface {p2, p1}, Lcom/koushikdutta/async/http/AsyncHttpResponse;->setEndCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
 
-    .line 626
     return-void
 .end method

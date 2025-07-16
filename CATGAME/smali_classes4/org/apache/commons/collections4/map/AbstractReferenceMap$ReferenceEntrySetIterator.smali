@@ -44,11 +44,8 @@
     .end annotation
 
     .line 884
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceEntrySetIterator;, "Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceEntrySetIterator<TK;TV;>;"
-    .local p1, "parent":Lorg/apache/commons/collections4/map/AbstractReferenceMap;, "Lorg/apache/commons/collections4/map/AbstractReferenceMap<TK;TV;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceBaseIterator;-><init>(Lorg/apache/commons/collections4/map/AbstractReferenceMap;)V
 
-    .line 885
     return-void
 .end method
 
@@ -58,7 +55,6 @@
     .locals 1
 
     .line 880
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceEntrySetIterator;, "Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceEntrySetIterator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceEntrySetIterator;->next()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -77,7 +73,6 @@
     .end annotation
 
     .line 889
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceEntrySetIterator;, "Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceEntrySetIterator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceEntrySetIterator;->nextEntry()Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceEntry;
 
     move-result-object v0

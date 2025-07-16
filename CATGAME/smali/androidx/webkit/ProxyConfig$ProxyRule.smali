@@ -23,21 +23,17 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .param p1, "url"    # Ljava/lang/String;
 
-    .line 129
     const-string v0, "*"
 
+    .line 129
     invoke-direct {p0, v0, p1}, Landroidx/webkit/ProxyConfig$ProxyRule;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 130
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .param p1, "schemeFilter"    # Ljava/lang/String;
-    .param p2, "url"    # Ljava/lang/String;
 
     .line 119
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +44,6 @@
     .line 121
     iput-object p2, p0, Landroidx/webkit/ProxyConfig$ProxyRule;->mUrl:Ljava/lang/String;
 
-    .line 122
     return-void
 .end method
 

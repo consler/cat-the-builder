@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Landroidx/work/impl/foreground/SystemForegroundService;ILandroid/app/Notification;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/work/impl/foreground/SystemForegroundService;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
@@ -70,6 +69,5 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
 
-    .line 138
     return-void
 .end method

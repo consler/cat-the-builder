@@ -14,7 +14,7 @@
 .end method
 
 .method public static getNonSerializableSuperClass(Ljava/lang/Class;)Ljava/lang/Class;
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -27,42 +27,35 @@
         }
     .end annotation
 
-    .line 39
-    .local p0, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
-    move-object v0, p0
-
     .line 40
-    .local v0, "result":Ljava/lang/Class;, "Ljava/lang/Class<-TT;>;"
     :goto_0
-    const-class v1, Ljava/io/Serializable;
+    const-class v0, Ljava/io/Serializable;
 
-    invoke-virtual {v1, v0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    invoke-virtual {v0, p0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 41
-    invoke-virtual {v0}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
+    invoke-virtual {p0}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
 
-    .line 42
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
     goto :goto_0
 
     .line 43
     :cond_0
-    new-instance v1, Ljava/lang/Error;
+    new-instance p0, Ljava/lang/Error;
 
-    const-string v2, "Bad class hierarchy: No non-serializable parents"
+    const-string v0, "Bad class hierarchy: No non-serializable parents"
 
-    invoke-direct {v1, v2}, Ljava/lang/Error;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/Error;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 
-    .line 46
     :cond_1
-    return-object v0
+    return-object p0
 .end method

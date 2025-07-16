@@ -40,35 +40,46 @@
 # direct methods
 .method constructor <init>([Ljava/lang/String;Landroidx/core/app/RemoteInput;Landroid/app/PendingIntent;Landroid/app/PendingIntent;[Ljava/lang/String;J)V
     .locals 0
-    .param p1, "messages"    # [Ljava/lang/String;
-    .param p2, "remoteInput"    # Landroidx/core/app/RemoteInput;
-    .param p3, "replyPendingIntent"    # Landroid/app/PendingIntent;
-    .param p4, "readPendingIntent"    # Landroid/app/PendingIntent;
-    .param p5, "participants"    # [Ljava/lang/String;
-    .param p6, "latestTimestamp"    # J
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "messages",
+            "remoteInput",
+            "replyPendingIntent",
+            "readPendingIntent",
+            "participants",
+            "latestTimestamp"
+        }
+    .end annotation
 
-    .line 5225
+    .line 6409
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 5226
+    .line 6410
     iput-object p1, p0, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->mMessages:[Ljava/lang/String;
 
-    .line 5227
+    .line 6411
     iput-object p2, p0, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->mRemoteInput:Landroidx/core/app/RemoteInput;
 
-    .line 5228
+    .line 6412
     iput-object p4, p0, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->mReadPendingIntent:Landroid/app/PendingIntent;
 
-    .line 5229
+    .line 6413
     iput-object p3, p0, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->mReplyPendingIntent:Landroid/app/PendingIntent;
 
-    .line 5230
+    .line 6414
     iput-object p5, p0, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->mParticipants:[Ljava/lang/String;
 
-    .line 5231
+    .line 6415
     iput-wide p6, p0, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->mLatestTimestamp:J
 
-    .line 5232
     return-void
 .end method
 
@@ -77,7 +88,7 @@
 .method public getLatestTimestamp()J
     .locals 2
 
-    .line 5283
+    .line 6467
     iget-wide v0, p0, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->mLatestTimestamp:J
 
     return-wide v0
@@ -86,7 +97,7 @@
 .method public getMessages()[Ljava/lang/String;
     .locals 1
 
-    .line 5238
+    .line 6422
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->mMessages:[Ljava/lang/String;
 
     return-object v0
@@ -95,7 +106,7 @@
 .method public getParticipant()Ljava/lang/String;
     .locals 2
 
-    .line 5276
+    .line 6460
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->mParticipants:[Ljava/lang/String;
 
     array-length v1, v0
@@ -118,7 +129,7 @@
 .method public getParticipants()[Ljava/lang/String;
     .locals 1
 
-    .line 5269
+    .line 6453
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->mParticipants:[Ljava/lang/String;
 
     return-object v0
@@ -127,7 +138,7 @@
 .method public getReadPendingIntent()Landroid/app/PendingIntent;
     .locals 1
 
-    .line 5262
+    .line 6446
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->mReadPendingIntent:Landroid/app/PendingIntent;
 
     return-object v0
@@ -136,7 +147,7 @@
 .method public getRemoteInput()Landroidx/core/app/RemoteInput;
     .locals 1
 
-    .line 5246
+    .line 6430
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->mRemoteInput:Landroidx/core/app/RemoteInput;
 
     return-object v0
@@ -145,7 +156,7 @@
 .method public getReplyPendingIntent()Landroid/app/PendingIntent;
     .locals 1
 
-    .line 5254
+    .line 6438
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->mReplyPendingIntent:Landroid/app/PendingIntent;
 
     return-object v0

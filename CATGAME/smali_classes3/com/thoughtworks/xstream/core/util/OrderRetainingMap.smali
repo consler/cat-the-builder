@@ -40,13 +40,11 @@
 
     iput-object v0, p0, Lcom/thoughtworks/xstream/core/util/OrderRetainingMap;->valueOrder:Ljava/util/List;
 
-    .line 35
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Map;)V
     .locals 2
-    .param p1, "m"    # Ljava/util/Map;
 
     .line 38
     invoke-direct {p0}, Ljava/util/HashMap;-><init>()V
@@ -70,7 +68,6 @@
     .line 39
     invoke-virtual {p0, p1}, Lcom/thoughtworks/xstream/core/util/OrderRetainingMap;->putAll(Ljava/util/Map;)V
 
-    .line 40
     return-void
 .end method
 
@@ -92,7 +89,6 @@
     .line 72
     invoke-super {p0}, Ljava/util/HashMap;->clear()V
 
-    .line 73
     return-void
 .end method
 
@@ -107,7 +103,6 @@
     new-array v0, v0, [Ljava/util/Map$Entry;
 
     .line 85
-    .local v0, "entries":[Ljava/util/Map$Entry;
     invoke-super {p0}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
 
     move-result-object v1
@@ -116,7 +111,6 @@
 
     move-result-object v1
 
-    .local v1, "iter":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -132,7 +126,6 @@
     check-cast v2, Ljava/util/Map$Entry;
 
     .line 87
-    .local v2, "entry":Ljava/util/Map$Entry;
     iget-object v3, p0, Lcom/thoughtworks/xstream/core/util/OrderRetainingMap;->keyOrder:Lcom/thoughtworks/xstream/core/util/OrderRetainingMap$ArraySet;
 
     invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -145,12 +138,9 @@
 
     aput-object v2, v0, v3
 
-    .line 88
-    .end local v2    # "entry":Ljava/util/Map$Entry;
     goto :goto_0
 
     .line 89
-    .end local v1    # "iter":Ljava/util/Iterator;
     :cond_0
     new-instance v1, Lcom/thoughtworks/xstream/core/util/OrderRetainingMap$ArraySet;
 
@@ -159,19 +149,18 @@
     invoke-direct {v1, v2}, Lcom/thoughtworks/xstream/core/util/OrderRetainingMap$ArraySet;-><init>(Lcom/thoughtworks/xstream/core/util/OrderRetainingMap$1;)V
 
     .line 90
-    .local v1, "set":Ljava/util/Set;
     invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {v1, v2}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
+    invoke-interface {v1, v0}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
 
     .line 91
     invoke-static {v1}, Ljava/util/Collections;->unmodifiableSet(Ljava/util/Set;)Ljava/util/Set;
 
-    move-result-object v2
+    move-result-object v0
 
-    return-object v2
+    return-object v0
 .end method
 
 .method public keySet()Ljava/util/Set;
@@ -189,8 +178,6 @@
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
-    .param p1, "key"    # Ljava/lang/Object;
-    .param p2, "value"    # Ljava/lang/Object;
 
     .line 50
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/OrderRetainingMap;->keyOrder:Lcom/thoughtworks/xstream/core/util/OrderRetainingMap$ArraySet;
@@ -199,19 +186,17 @@
 
     move-result v0
 
-    .line 51
-    .local v0, "idx":I
     if-gez v0, :cond_0
 
     .line 52
-    iget-object v1, p0, Lcom/thoughtworks/xstream/core/util/OrderRetainingMap;->keyOrder:Lcom/thoughtworks/xstream/core/util/OrderRetainingMap$ArraySet;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/OrderRetainingMap;->keyOrder:Lcom/thoughtworks/xstream/core/util/OrderRetainingMap$ArraySet;
 
-    invoke-virtual {v1, p1}, Lcom/thoughtworks/xstream/core/util/OrderRetainingMap$ArraySet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Lcom/thoughtworks/xstream/core/util/OrderRetainingMap$ArraySet;->add(Ljava/lang/Object;)Z
 
     .line 53
-    iget-object v1, p0, Lcom/thoughtworks/xstream/core/util/OrderRetainingMap;->valueOrder:Ljava/util/List;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/OrderRetainingMap;->valueOrder:Ljava/util/List;
 
-    invoke-interface {v1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
@@ -225,64 +210,56 @@
     :goto_0
     invoke-super {p0, p1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 4
-    .param p1, "m"    # Ljava/util/Map;
+    .locals 2
 
     .line 43
     invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
-    .local v0, "iter":Ljava/util/Iterator;
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 44
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map$Entry;
+
+    .line 45
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Ljava/util/Map$Entry;
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    .line 45
-    .local v1, "entry":Ljava/util/Map$Entry;
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object v2
+    invoke-virtual {p0, v1, v0}, Lcom/thoughtworks/xstream/core/util/OrderRetainingMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v3
-
-    invoke-virtual {p0, v2, v3}, Lcom/thoughtworks/xstream/core/util/OrderRetainingMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 46
-    .end local v1    # "entry":Ljava/util/Map$Entry;
     goto :goto_0
 
-    .line 47
-    .end local v0    # "iter":Ljava/util/Iterator;
     :cond_0
     return-void
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 61
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/OrderRetainingMap;->keyOrder:Lcom/thoughtworks/xstream/core/util/OrderRetainingMap$ArraySet;
@@ -291,8 +268,6 @@
 
     move-result v0
 
-    .line 62
-    .local v0, "idx":I
     if-eqz v0, :cond_0
 
     .line 63
@@ -309,9 +284,9 @@
     :cond_0
     invoke-super {p0, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public values()Ljava/util/Collection;

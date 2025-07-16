@@ -21,7 +21,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Throwable;)V
     .locals 0
-    .param p1, "exception"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -37,7 +36,6 @@
     .line 131
     iput-object p1, p0, Landroidx/work/Operation$State$FAILURE;->mThrowable:Ljava/lang/Throwable;
 
-    .line 132
     return-void
 .end method
 
@@ -55,11 +53,11 @@
 .method public toString()Ljava/lang/String;
     .locals 3
 
-    .line 145
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/lang/Object;
 
+    .line 145
     iget-object v1, p0, Landroidx/work/Operation$State$FAILURE;->mThrowable:Ljava/lang/Throwable;
 
     invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;

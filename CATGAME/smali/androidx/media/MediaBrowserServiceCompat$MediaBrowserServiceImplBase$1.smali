@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase;Landroid/support/v4/media/session/MediaSessionCompat$Token;)V
     .locals 0
-    .param p1, "this$1"    # Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase;
 
     .line 223
     iput-object p1, p0, Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase$1;->this$1:Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase;
@@ -59,7 +58,6 @@
     move-result-object v0
 
     .line 227
-    .local v0, "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;>;"
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -75,7 +73,6 @@
     check-cast v1, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;
 
     .line 230
-    .local v1, "connection":Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;
     :try_start_0
     iget-object v2, v1, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;->callbacks:Landroidx/media/MediaBrowserServiceCompat$ServiceCallbacks;
 
@@ -99,49 +96,41 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 235
-    goto :goto_1
-
-    .line 232
-    :catch_0
-    move-exception v2
+    goto :goto_0
 
     .line 233
-    .local v2, "e":Landroid/os/RemoteException;
-    new-instance v3, Ljava/lang/StringBuilder;
+    :catch_0
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "Connection for "
 
-    const-string v4, "Connection for "
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v1, v1, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;->pkg:Ljava/lang/String;
 
-    iget-object v4, v1, Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;->pkg:Ljava/lang/String;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    const-string v4, " is no longer valid."
+    const-string v2, " is no longer valid."
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v3
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string v4, "MBServiceCompat"
+    move-result-object v1
 
-    invoke-static {v4, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v2, "MBServiceCompat"
+
+    invoke-static {v2, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 234
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 236
-    .end local v1    # "connection":Landroidx/media/MediaBrowserServiceCompat$ConnectionRecord;
-    .end local v2    # "e":Landroid/os/RemoteException;
-    :goto_1
     goto :goto_0
 
-    .line 237
     :cond_0
     return-void
 .end method

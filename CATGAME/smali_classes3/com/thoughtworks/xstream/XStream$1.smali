@@ -26,14 +26,13 @@
 # virtual methods
 .method public lookupConverterForType(Ljava/lang/Class;)Lcom/thoughtworks/xstream/converters/Converter;
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
 
     .line 517
     iget-object v0, p0, Lcom/thoughtworks/xstream/XStream$1;->val$defaultConverterLookup:Lcom/thoughtworks/xstream/core/DefaultConverterLookup;
 
     invoke-virtual {v0, p1}, Lcom/thoughtworks/xstream/core/DefaultConverterLookup;->lookupConverterForType(Ljava/lang/Class;)Lcom/thoughtworks/xstream/converters/Converter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

@@ -32,7 +32,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/backends/android/AndroidInput;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/badlogic/gdx/Input$TextInputListener;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/backends/android/AndroidInput;
 
     .line 226
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput$3;->this$0:Lcom/badlogic/gdx/backends/android/AndroidInput;
@@ -65,7 +64,6 @@
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     .line 229
-    .local v0, "alert":Landroid/app/AlertDialog$Builder;
     iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput$3;->val$title:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
@@ -80,7 +78,6 @@
     invoke-direct {v1, v2}, Landroid/widget/EditText;-><init>(Landroid/content/Context;)V
 
     .line 231
-    .local v1, "input":Landroid/widget/EditText;
     iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput$3;->val$hint:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setHint(Ljava/lang/CharSequence;)V
@@ -114,32 +111,31 @@
     invoke-virtual {v0, v2, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     .line 245
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput$3;->this$0:Lcom/badlogic/gdx/backends/android/AndroidInput;
+    iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput$3;->this$0:Lcom/badlogic/gdx/backends/android/AndroidInput;
 
-    iget-object v2, v2, Lcom/badlogic/gdx/backends/android/AndroidInput;->context:Landroid/content/Context;
+    iget-object v1, v1, Lcom/badlogic/gdx/backends/android/AndroidInput;->context:Landroid/content/Context;
 
-    const/high16 v3, 0x1040000
+    const/high16 v2, 0x1040000
 
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    new-instance v3, Lcom/badlogic/gdx/backends/android/AndroidInput$3$2;
+    new-instance v2, Lcom/badlogic/gdx/backends/android/AndroidInput$3$2;
 
-    invoke-direct {v3, p0}, Lcom/badlogic/gdx/backends/android/AndroidInput$3$2;-><init>(Lcom/badlogic/gdx/backends/android/AndroidInput$3;)V
+    invoke-direct {v2, p0}, Lcom/badlogic/gdx/backends/android/AndroidInput$3$2;-><init>(Lcom/badlogic/gdx/backends/android/AndroidInput$3;)V
 
-    invoke-virtual {v0, v2, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     .line 255
-    new-instance v2, Lcom/badlogic/gdx/backends/android/AndroidInput$3$3;
+    new-instance v1, Lcom/badlogic/gdx/backends/android/AndroidInput$3$3;
 
-    invoke-direct {v2, p0}, Lcom/badlogic/gdx/backends/android/AndroidInput$3$3;-><init>(Lcom/badlogic/gdx/backends/android/AndroidInput$3;)V
+    invoke-direct {v1, p0}, Lcom/badlogic/gdx/backends/android/AndroidInput$3$3;-><init>(Lcom/badlogic/gdx/backends/android/AndroidInput$3;)V
 
-    invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
 
     .line 266
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 267
     return-void
 .end method

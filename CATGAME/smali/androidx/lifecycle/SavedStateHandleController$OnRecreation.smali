@@ -30,8 +30,7 @@
 
 # virtual methods
 .method public onRecreated(Landroidx/savedstate/SavedStateRegistryOwner;)V
-    .locals 6
-    .param p1, "owner"    # Landroidx/savedstate/SavedStateRegistryOwner;
+    .locals 5
 
     .line 79
     instance-of v0, p1, Landroidx/lifecycle/ViewModelStoreOwner;
@@ -48,13 +47,11 @@
     move-result-object v0
 
     .line 85
-    .local v0, "viewModelStore":Landroidx/lifecycle/ViewModelStore;
     invoke-interface {p1}, Landroidx/savedstate/SavedStateRegistryOwner;->getSavedStateRegistry()Landroidx/savedstate/SavedStateRegistry;
 
     move-result-object v1
 
     .line 86
-    .local v1, "savedStateRegistry":Landroidx/savedstate/SavedStateRegistry;
     invoke-virtual {v0}, Landroidx/lifecycle/ViewModelStore;->keys()Ljava/util/Set;
 
     move-result-object v2
@@ -77,54 +74,46 @@
     check-cast v3, Ljava/lang/String;
 
     .line 87
-    .local v3, "key":Ljava/lang/String;
     invoke-virtual {v0, v3}, Landroidx/lifecycle/ViewModelStore;->get(Ljava/lang/String;)Landroidx/lifecycle/ViewModel;
+
+    move-result-object v3
+
+    .line 88
+    invoke-interface {p1}, Landroidx/savedstate/SavedStateRegistryOwner;->getLifecycle()Landroidx/lifecycle/Lifecycle;
 
     move-result-object v4
 
-    .line 88
-    .local v4, "viewModel":Landroidx/lifecycle/ViewModel;
-    invoke-interface {p1}, Landroidx/savedstate/SavedStateRegistryOwner;->getLifecycle()Landroidx/lifecycle/Lifecycle;
+    invoke-static {v3, v1, v4}, Landroidx/lifecycle/SavedStateHandleController;->attachHandleIfNeeded(Landroidx/lifecycle/ViewModel;Landroidx/savedstate/SavedStateRegistry;Landroidx/lifecycle/Lifecycle;)V
 
-    move-result-object v5
-
-    invoke-static {v4, v1, v5}, Landroidx/lifecycle/SavedStateHandleController;->attachHandleIfNeeded(Landroidx/lifecycle/ViewModel;Landroidx/savedstate/SavedStateRegistry;Landroidx/lifecycle/Lifecycle;)V
-
-    .line 89
-    .end local v3    # "key":Ljava/lang/String;
-    .end local v4    # "viewModel":Landroidx/lifecycle/ViewModel;
     goto :goto_0
 
     .line 90
     :cond_0
     invoke-virtual {v0}, Landroidx/lifecycle/ViewModelStore;->keys()Ljava/util/Set;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-interface {v2}, Ljava/util/Set;->isEmpty()Z
+    invoke-interface {p1}, Ljava/util/Set;->isEmpty()Z
 
-    move-result v2
+    move-result p1
 
-    if-nez v2, :cond_1
+    if-nez p1, :cond_1
 
     .line 91
-    const-class v2, Landroidx/lifecycle/SavedStateHandleController$OnRecreation;
+    const-class p1, Landroidx/lifecycle/SavedStateHandleController$OnRecreation;
 
-    invoke-virtual {v1, v2}, Landroidx/savedstate/SavedStateRegistry;->runOnNextRecreation(Ljava/lang/Class;)V
+    invoke-virtual {v1, p1}, Landroidx/savedstate/SavedStateRegistry;->runOnNextRecreation(Ljava/lang/Class;)V
 
-    .line 93
     :cond_1
     return-void
 
     .line 80
-    .end local v0    # "viewModelStore":Landroidx/lifecycle/ViewModelStore;
-    .end local v1    # "savedStateRegistry":Landroidx/savedstate/SavedStateRegistry;
     :cond_2
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Internal error: OnRecreation should be registered only on componentsthat implement ViewModelStoreOwner"
+    const-string v0, "Internal error: OnRecreation should be registered only on componentsthat implement ViewModelStoreOwner"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

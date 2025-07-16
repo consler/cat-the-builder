@@ -101,7 +101,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -114,27 +114,27 @@
         }
     .end annotation
 
-    const-string v0, "completion"
+    const-string p1, "completion"
 
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    new-instance v0, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$1;
+    new-instance p1, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$1;
 
-    iget-object v2, p0, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$1;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
+    iget-object v1, p0, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$1;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
 
-    iget-object v4, p0, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$1;->$context$inlined:Lkotlin/coroutines/ContinuationInterceptor;
+    iget-object v3, p0, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$1;->$context$inlined:Lkotlin/coroutines/ContinuationInterceptor;
 
-    iget-object v5, p0, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$1;->$callable$inlined:Ljava/util/concurrent/Callable;
+    iget-object v4, p0, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$1;->$callable$inlined:Ljava/util/concurrent/Callable;
 
-    iget-object v6, p0, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$1;->$cancellationSignal$inlined:Landroid/os/CancellationSignal;
+    iget-object v5, p0, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$1;->$cancellationSignal$inlined:Landroid/os/CancellationSignal;
 
-    move-object v1, v0
+    move-object v0, p1
 
-    move-object v3, p2
+    move-object v2, p2
 
-    invoke-direct/range {v1 .. v6}, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$1;-><init>(Lkotlinx/coroutines/CancellableContinuation;Lkotlin/coroutines/Continuation;Lkotlin/coroutines/ContinuationInterceptor;Ljava/util/concurrent/Callable;Landroid/os/CancellationSignal;)V
+    invoke-direct/range {v0 .. v5}, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$1;-><init>(Lkotlinx/coroutines/CancellableContinuation;Lkotlin/coroutines/Continuation;Lkotlin/coroutines/ContinuationInterceptor;Ljava/util/concurrent/Callable;Landroid/os/CancellationSignal;)V
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -158,7 +158,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .locals 2
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -169,74 +169,57 @@
 
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    move-object v0, p0
-
-    .line 82
-    .local v0, "this":Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$1;
-    .local p1, "$result":Ljava/lang/Object;
-    nop
-
     .line 83
     :try_start_0
-    iget-object v1, v0, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$1;->$callable$inlined:Ljava/util/concurrent/Callable;
+    iget-object p1, p0, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$1;->$callable$inlined:Ljava/util/concurrent/Callable;
 
-    invoke-interface {v1}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 84
-    .local v1, "result":Ljava/lang/Object;
-    iget-object v2, v0, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$1;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
+    iget-object v0, p0, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$1;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
 
-    check-cast v2, Lkotlin/coroutines/Continuation;
+    check-cast v0, Lkotlin/coroutines/Continuation;
 
-    sget-object v3, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+    sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
-    invoke-static {v1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p1
 
-    .end local v1    # "result":Ljava/lang/Object;
-    invoke-interface {v2, v3}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
+    invoke-interface {v0, p1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_0
 
-    .line 85
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     .line 86
-    .local v1, "exception":Ljava/lang/Throwable;
-    iget-object v2, v0, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$1;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
+    iget-object v0, p0, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$1;->$continuation:Lkotlinx/coroutines/CancellableContinuation;
 
-    check-cast v2, Lkotlin/coroutines/Continuation;
+    check-cast v0, Lkotlin/coroutines/Continuation;
 
-    sget-object v3, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+    sget-object v1, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
-    invoke-static {v1}, Lkotlin/ResultKt;->createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
+    invoke-static {p1}, Lkotlin/ResultKt;->createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-static {v3}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    .end local v1    # "exception":Ljava/lang/Throwable;
-    invoke-interface {v2, v1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
-
-    .line 87
-    :goto_0
-    nop
+    invoke-interface {v0, p1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
     .line 88
-    sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    :goto_0
+    sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    return-object v1
+    return-object p1
 
-    .end local v0    # "this":Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$1;
-    .end local p1    # "$result":Ljava/lang/Object;
     :cond_0
     new-instance p1, Ljava/lang/IllegalStateException;
 

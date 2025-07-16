@@ -56,14 +56,11 @@
     .end annotation
 
     .line 66
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleInternalHelper$ToFlowableIterator;, "Lio/reactivex/internal/operators/single/SingleInternalHelper$ToFlowableIterator<TT;>;"
-    .local p1, "sit":Ljava/util/Iterator;, "Ljava/util/Iterator<+Lio/reactivex/SingleSource<+TT;>;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 67
     iput-object p1, p0, Lio/reactivex/internal/operators/single/SingleInternalHelper$ToFlowableIterator;->sit:Ljava/util/Iterator;
 
-    .line 68
     return-void
 .end method
 
@@ -73,7 +70,6 @@
     .locals 1
 
     .line 72
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleInternalHelper$ToFlowableIterator;, "Lio/reactivex/internal/operators/single/SingleInternalHelper$ToFlowableIterator<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleInternalHelper$ToFlowableIterator;->sit:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -94,7 +90,6 @@
     .end annotation
 
     .line 77
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleInternalHelper$ToFlowableIterator;, "Lio/reactivex/internal/operators/single/SingleInternalHelper$ToFlowableIterator<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/single/SingleToFlowable;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/single/SingleInternalHelper$ToFlowableIterator;->sit:Ljava/util/Iterator;
@@ -114,7 +109,6 @@
     .locals 1
 
     .line 63
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleInternalHelper$ToFlowableIterator;, "Lio/reactivex/internal/operators/single/SingleInternalHelper$ToFlowableIterator<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/single/SingleInternalHelper$ToFlowableIterator;->next()Lio/reactivex/Flowable;
 
     move-result-object v0
@@ -126,7 +120,6 @@
     .locals 1
 
     .line 82
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleInternalHelper$ToFlowableIterator;, "Lio/reactivex/internal/operators/single/SingleInternalHelper$ToFlowableIterator<TT;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

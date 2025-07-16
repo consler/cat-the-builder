@@ -15,6 +15,8 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroidx/core/app/NotificationCompat$BubbleMetadata$Api30Impl;,
+        Landroidx/core/app/NotificationCompat$BubbleMetadata$Api29Impl;,
         Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;
     }
 .end annotation
@@ -39,274 +41,169 @@
 
 .field private mPendingIntent:Landroid/app/PendingIntent;
 
+.field private mShortcutId:Ljava/lang/String;
+
 
 # direct methods
-.method private constructor <init>(Landroid/app/PendingIntent;Landroid/app/PendingIntent;Landroidx/core/graphics/drawable/IconCompat;III)V
+.method private constructor <init>(Landroid/app/PendingIntent;Landroid/app/PendingIntent;Landroidx/core/graphics/drawable/IconCompat;IIILjava/lang/String;)V
     .locals 0
-    .param p1, "expandIntent"    # Landroid/app/PendingIntent;
-    .param p2, "deleteIntent"    # Landroid/app/PendingIntent;
-    .param p3, "icon"    # Landroidx/core/graphics/drawable/IconCompat;
-    .param p4, "height"    # I
-    .param p5, "heightResId"    # I
-    .param p6, "flags"    # I
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "expandIntent",
+            "deleteIntent",
+            "icon",
+            "height",
+            "heightResId",
+            "flags",
+            "shortcutId"
+        }
+    .end annotation
 
-    .line 5430
+    .line 6627
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 5431
+    .line 6628
     iput-object p1, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata;->mPendingIntent:Landroid/app/PendingIntent;
 
-    .line 5432
+    .line 6629
     iput-object p3, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata;->mIcon:Landroidx/core/graphics/drawable/IconCompat;
 
-    .line 5433
+    .line 6630
     iput p4, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata;->mDesiredHeight:I
 
-    .line 5434
+    .line 6631
     iput p5, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata;->mDesiredHeightResId:I
 
-    .line 5435
+    .line 6632
     iput-object p2, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata;->mDeleteIntent:Landroid/app/PendingIntent;
 
-    .line 5436
+    .line 6633
     iput p6, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata;->mFlags:I
 
-    .line 5437
+    .line 6634
+    iput-object p7, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata;->mShortcutId:Ljava/lang/String;
+
     return-void
 .end method
 
-.method synthetic constructor <init>(Landroid/app/PendingIntent;Landroid/app/PendingIntent;Landroidx/core/graphics/drawable/IconCompat;IIILandroidx/core/app/NotificationCompat$1;)V
+.method synthetic constructor <init>(Landroid/app/PendingIntent;Landroid/app/PendingIntent;Landroidx/core/graphics/drawable/IconCompat;IIILjava/lang/String;Landroidx/core/app/NotificationCompat$1;)V
     .locals 0
-    .param p1, "x0"    # Landroid/app/PendingIntent;
-    .param p2, "x1"    # Landroid/app/PendingIntent;
-    .param p3, "x2"    # Landroidx/core/graphics/drawable/IconCompat;
-    .param p4, "x3"    # I
-    .param p5, "x4"    # I
-    .param p6, "x5"    # I
-    .param p7, "x6"    # Landroidx/core/app/NotificationCompat$1;
 
-    .line 5396
-    invoke-direct/range {p0 .. p6}, Landroidx/core/app/NotificationCompat$BubbleMetadata;-><init>(Landroid/app/PendingIntent;Landroid/app/PendingIntent;Landroidx/core/graphics/drawable/IconCompat;III)V
+    .line 6582
+    invoke-direct/range {p0 .. p7}, Landroidx/core/app/NotificationCompat$BubbleMetadata;-><init>(Landroid/app/PendingIntent;Landroid/app/PendingIntent;Landroidx/core/graphics/drawable/IconCompat;IIILjava/lang/String;)V
 
     return-void
 .end method
 
 .method public static fromPlatform(Landroid/app/Notification$BubbleMetadata;)Landroidx/core/app/NotificationCompat$BubbleMetadata;
-    .locals 2
-    .param p0, "platformMetadata"    # Landroid/app/Notification$BubbleMetadata;
+    .locals 3
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "platformMetadata"
+        }
+    .end annotation
 
-    .line 5548
-    if-nez p0, :cond_0
-
-    .line 5549
     const/4 v0, 0x0
+
+    if-nez p0, :cond_0
 
     return-object v0
 
-    .line 5552
+    .line 6753
     :cond_0
-    new-instance v0, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    invoke-direct {v0}, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;-><init>()V
+    const/16 v2, 0x1e
 
-    .line 5553
-    invoke-virtual {p0}, Landroid/app/Notification$BubbleMetadata;->getAutoExpandBubble()Z
+    if-lt v1, v2, :cond_1
 
-    move-result v1
+    .line 6754
+    invoke-static {p0}, Landroidx/core/app/NotificationCompat$BubbleMetadata$Api30Impl;->fromPlatform(Landroid/app/Notification$BubbleMetadata;)Landroidx/core/app/NotificationCompat$BubbleMetadata;
 
-    invoke-virtual {v0, v1}, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->setAutoExpandBubble(Z)Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;
+    move-result-object p0
 
-    move-result-object v0
+    return-object p0
 
-    .line 5554
-    invoke-virtual {p0}, Landroid/app/Notification$BubbleMetadata;->getDeleteIntent()Landroid/app/PendingIntent;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->setDeleteIntent(Landroid/app/PendingIntent;)Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;
-
-    move-result-object v0
-
-    .line 5555
-    invoke-virtual {p0}, Landroid/app/Notification$BubbleMetadata;->getIcon()Landroid/graphics/drawable/Icon;
-
-    move-result-object v1
-
-    invoke-static {v1}, Landroidx/core/graphics/drawable/IconCompat;->createFromIcon(Landroid/graphics/drawable/Icon;)Landroidx/core/graphics/drawable/IconCompat;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->setIcon(Landroidx/core/graphics/drawable/IconCompat;)Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;
-
-    move-result-object v0
-
-    .line 5556
-    invoke-virtual {p0}, Landroid/app/Notification$BubbleMetadata;->getIntent()Landroid/app/PendingIntent;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->setIntent(Landroid/app/PendingIntent;)Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;
-
-    move-result-object v0
-
-    .line 5558
-    invoke-virtual {p0}, Landroid/app/Notification$BubbleMetadata;->isNotificationSuppressed()Z
-
-    move-result v1
-
-    .line 5557
-    invoke-virtual {v0, v1}, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->setSuppressNotification(Z)Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;
-
-    move-result-object v0
-
-    .line 5560
-    .local v0, "compatBuilder":Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;
-    invoke-virtual {p0}, Landroid/app/Notification$BubbleMetadata;->getDesiredHeight()I
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    .line 5561
-    invoke-virtual {p0}, Landroid/app/Notification$BubbleMetadata;->getDesiredHeight()I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->setDesiredHeight(I)Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;
-
-    .line 5564
+    .line 6755
     :cond_1
-    invoke-virtual {p0}, Landroid/app/Notification$BubbleMetadata;->getDesiredHeightResId()I
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    move-result v1
+    const/16 v2, 0x1d
 
-    if-eqz v1, :cond_2
+    if-ne v1, v2, :cond_2
 
-    .line 5565
-    invoke-virtual {p0}, Landroid/app/Notification$BubbleMetadata;->getDesiredHeightResId()I
+    .line 6756
+    invoke-static {p0}, Landroidx/core/app/NotificationCompat$BubbleMetadata$Api29Impl;->fromPlatform(Landroid/app/Notification$BubbleMetadata;)Landroidx/core/app/NotificationCompat$BubbleMetadata;
 
-    move-result v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->setDesiredHeightResId(I)Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;
+    return-object p0
 
-    .line 5568
     :cond_2
-    invoke-virtual {v0}, Landroidx/core/app/NotificationCompat$BubbleMetadata$Builder;->build()Landroidx/core/app/NotificationCompat$BubbleMetadata;
-
-    move-result-object v1
-
-    return-object v1
+    return-object v0
 .end method
 
 .method public static toPlatform(Landroidx/core/app/NotificationCompat$BubbleMetadata;)Landroid/app/Notification$BubbleMetadata;
-    .locals 2
-    .param p0, "compatMetadata"    # Landroidx/core/app/NotificationCompat$BubbleMetadata;
+    .locals 3
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "compatMetadata"
+        }
+    .end annotation
 
-    .line 5512
-    if-nez p0, :cond_0
-
-    .line 5513
     const/4 v0, 0x0
+
+    if-nez p0, :cond_0
 
     return-object v0
 
-    .line 5516
+    .line 6732
     :cond_0
-    new-instance v0, Landroid/app/Notification$BubbleMetadata$Builder;
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    invoke-direct {v0}, Landroid/app/Notification$BubbleMetadata$Builder;-><init>()V
+    const/16 v2, 0x1e
 
-    .line 5518
-    invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$BubbleMetadata;->getAutoExpandBubble()Z
+    if-lt v1, v2, :cond_1
 
-    move-result v1
+    .line 6733
+    invoke-static {p0}, Landroidx/core/app/NotificationCompat$BubbleMetadata$Api30Impl;->toPlatform(Landroidx/core/app/NotificationCompat$BubbleMetadata;)Landroid/app/Notification$BubbleMetadata;
 
-    invoke-virtual {v0, v1}, Landroid/app/Notification$BubbleMetadata$Builder;->setAutoExpandBubble(Z)Landroid/app/Notification$BubbleMetadata$Builder;
+    move-result-object p0
 
-    move-result-object v0
+    return-object p0
 
-    .line 5519
-    invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$BubbleMetadata;->getDeleteIntent()Landroid/app/PendingIntent;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/app/Notification$BubbleMetadata$Builder;->setDeleteIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$BubbleMetadata$Builder;
-
-    move-result-object v0
-
-    .line 5520
-    invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$BubbleMetadata;->getIcon()Landroidx/core/graphics/drawable/IconCompat;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroidx/core/graphics/drawable/IconCompat;->toIcon()Landroid/graphics/drawable/Icon;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/app/Notification$BubbleMetadata$Builder;->setIcon(Landroid/graphics/drawable/Icon;)Landroid/app/Notification$BubbleMetadata$Builder;
-
-    move-result-object v0
-
-    .line 5521
-    invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$BubbleMetadata;->getIntent()Landroid/app/PendingIntent;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/app/Notification$BubbleMetadata$Builder;->setIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$BubbleMetadata$Builder;
-
-    move-result-object v0
-
-    .line 5523
-    invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$BubbleMetadata;->isNotificationSuppressed()Z
-
-    move-result v1
-
-    .line 5522
-    invoke-virtual {v0, v1}, Landroid/app/Notification$BubbleMetadata$Builder;->setSuppressNotification(Z)Landroid/app/Notification$BubbleMetadata$Builder;
-
-    move-result-object v0
-
-    .line 5525
-    .local v0, "platformMetadataBuilder":Landroid/app/Notification$BubbleMetadata$Builder;
-    invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$BubbleMetadata;->getDesiredHeight()I
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    .line 5526
-    invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$BubbleMetadata;->getDesiredHeight()I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/app/Notification$BubbleMetadata$Builder;->setDesiredHeight(I)Landroid/app/Notification$BubbleMetadata$Builder;
-
-    .line 5529
+    .line 6734
     :cond_1
-    invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$BubbleMetadata;->getDesiredHeightResId()I
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    move-result v1
+    const/16 v2, 0x1d
 
-    if-eqz v1, :cond_2
+    if-ne v1, v2, :cond_2
 
-    .line 5530
-    nop
+    .line 6735
+    invoke-static {p0}, Landroidx/core/app/NotificationCompat$BubbleMetadata$Api29Impl;->toPlatform(Landroidx/core/app/NotificationCompat$BubbleMetadata;)Landroid/app/Notification$BubbleMetadata;
 
-    .line 5531
-    invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$BubbleMetadata;->getDesiredHeightResId()I
+    move-result-object p0
 
-    move-result v1
+    return-object p0
 
-    .line 5530
-    invoke-virtual {v0, v1}, Landroid/app/Notification$BubbleMetadata$Builder;->setDesiredHeightResId(I)Landroid/app/Notification$BubbleMetadata$Builder;
-
-    .line 5534
     :cond_2
-    invoke-virtual {v0}, Landroid/app/Notification$BubbleMetadata$Builder;->build()Landroid/app/Notification$BubbleMetadata;
-
-    move-result-object v1
-
-    return-object v1
+    return-object v0
 .end method
 
 
@@ -314,7 +211,7 @@
 .method public getAutoExpandBubble()Z
     .locals 2
 
-    .line 5489
+    .line 6701
     iget v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata;->mFlags:I
 
     const/4 v1, 0x1
@@ -335,7 +232,7 @@
 .method public getDeleteIntent()Landroid/app/PendingIntent;
     .locals 1
 
-    .line 5452
+    .line 6662
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata;->mDeleteIntent:Landroid/app/PendingIntent;
 
     return-object v0
@@ -344,7 +241,7 @@
 .method public getDesiredHeight()I
     .locals 1
 
-    .line 5470
+    .line 6682
     iget v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata;->mDesiredHeight:I
 
     return v0
@@ -353,7 +250,7 @@
 .method public getDesiredHeightResId()I
     .locals 1
 
-    .line 5480
+    .line 6692
     iget v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata;->mDesiredHeightResId:I
 
     return v0
@@ -362,7 +259,7 @@
 .method public getIcon()Landroidx/core/graphics/drawable/IconCompat;
     .locals 1
 
-    .line 5460
+    .line 6672
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata;->mIcon:Landroidx/core/graphics/drawable/IconCompat;
 
     return-object v0
@@ -371,8 +268,17 @@
 .method public getIntent()Landroid/app/PendingIntent;
     .locals 1
 
-    .line 5444
+    .line 6644
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata;->mPendingIntent:Landroid/app/PendingIntent;
+
+    return-object v0
+.end method
+
+.method public getShortcutId()Ljava/lang/String;
+    .locals 1
+
+    .line 6654
+    iget-object v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata;->mShortcutId:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -380,7 +286,7 @@
 .method public isNotificationSuppressed()Z
     .locals 1
 
-    .line 5498
+    .line 6710
     iget v0, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata;->mFlags:I
 
     and-int/lit8 v0, v0, 0x2
@@ -396,4 +302,21 @@
 
     :goto_0
     return v0
+.end method
+
+.method public setFlags(I)V
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "flags"
+        }
+    .end annotation
+
+    .line 6716
+    iput p1, p0, Landroidx/core/app/NotificationCompat$BubbleMetadata;->mFlags:I
+
+    return-void
 .end method

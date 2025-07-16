@@ -17,13 +17,11 @@
     .line 42
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 43
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Iterator;)V
     .locals 0
-    .param p1, "iterator"    # Ljava/util/Iterator;
 
     .line 52
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,7 +29,6 @@
     .line 53
     iput-object p1, p0, Lorg/apache/commons/collections/iterators/IteratorEnumeration;->iterator:Ljava/util/Iterator;
 
-    .line 54
     return-void
 .end method
 
@@ -74,11 +71,9 @@
 
 .method public setIterator(Ljava/util/Iterator;)V
     .locals 0
-    .param p1, "iterator"    # Ljava/util/Iterator;
 
     .line 97
     iput-object p1, p0, Lorg/apache/commons/collections/iterators/IteratorEnumeration;->iterator:Ljava/util/Iterator;
 
-    .line 98
     return-void
 .end method

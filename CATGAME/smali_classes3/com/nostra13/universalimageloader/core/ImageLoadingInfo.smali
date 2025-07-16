@@ -24,14 +24,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;Lcom/nostra13/universalimageloader/core/assist/ImageSize;Ljava/lang/String;Lcom/nostra13/universalimageloader/core/DisplayImageOptions;Lcom/nostra13/universalimageloader/core/listener/ImageLoadingListener;Lcom/nostra13/universalimageloader/core/listener/ImageLoadingProgressListener;Ljava/util/concurrent/locks/ReentrantLock;)V
     .locals 0
-    .param p1, "uri"    # Ljava/lang/String;
-    .param p2, "imageAware"    # Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;
-    .param p3, "targetSize"    # Lcom/nostra13/universalimageloader/core/assist/ImageSize;
-    .param p4, "memoryCacheKey"    # Ljava/lang/String;
-    .param p5, "options"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
-    .param p6, "listener"    # Lcom/nostra13/universalimageloader/core/listener/ImageLoadingListener;
-    .param p7, "progressListener"    # Lcom/nostra13/universalimageloader/core/listener/ImageLoadingProgressListener;
-    .param p8, "loadFromUriLock"    # Ljava/util/concurrent/locks/ReentrantLock;
 
     .line 48
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -60,6 +52,5 @@
     .line 56
     iput-object p4, p0, Lcom/nostra13/universalimageloader/core/ImageLoadingInfo;->memoryCacheKey:Ljava/lang/String;
 
-    .line 57
     return-void
 .end method

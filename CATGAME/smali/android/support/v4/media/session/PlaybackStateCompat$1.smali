@@ -40,7 +40,6 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/support/v4/media/session/PlaybackStateCompat;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
     .line 868
     new-instance v0, Landroid/support/v4/media/session/PlaybackStateCompat;
@@ -62,13 +61,12 @@
 .end method
 
 .method public newArray(I)[Landroid/support/v4/media/session/PlaybackStateCompat;
-    .locals 1
-    .param p1, "size"    # I
+    .locals 0
 
     .line 873
-    new-array v0, p1, [Landroid/support/v4/media/session/PlaybackStateCompat;
+    new-array p1, p1, [Landroid/support/v4/media/session/PlaybackStateCompat;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;

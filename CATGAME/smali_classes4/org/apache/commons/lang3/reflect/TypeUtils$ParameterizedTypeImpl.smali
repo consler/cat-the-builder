@@ -34,9 +34,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/Class;Ljava/lang/reflect/Type;[Ljava/lang/reflect/Type;)V
-    .locals 2
-    .param p2, "useOwner"    # Ljava/lang/reflect/Type;
-    .param p3, "typeArguments"    # [Ljava/lang/reflect/Type;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,7 +48,6 @@
     .end annotation
 
     .line 157
-    .local p1, "raw":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 158
@@ -60,28 +57,23 @@
     iput-object p2, p0, Lorg/apache/commons/lang3/reflect/TypeUtils$ParameterizedTypeImpl;->useOwner:Ljava/lang/reflect/Type;
 
     .line 160
-    array-length v0, p3
+    array-length p1, p3
 
-    const-class v1, [Ljava/lang/reflect/Type;
+    const-class p2, [Ljava/lang/reflect/Type;
 
-    invoke-static {p3, v0, v1}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;ILjava/lang/Class;)[Ljava/lang/Object;
+    invoke-static {p3, p1, p2}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;ILjava/lang/Class;)[Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, [Ljava/lang/reflect/Type;
+    check-cast p1, [Ljava/lang/reflect/Type;
 
-    iput-object v0, p0, Lorg/apache/commons/lang3/reflect/TypeUtils$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
+    iput-object p1, p0, Lorg/apache/commons/lang3/reflect/TypeUtils$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
 
-    .line 161
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/Class;Ljava/lang/reflect/Type;[Ljava/lang/reflect/Type;Lorg/apache/commons/lang3/reflect/TypeUtils$1;)V
     .locals 0
-    .param p1, "x0"    # Ljava/lang/Class;
-    .param p2, "x1"    # Ljava/lang/reflect/Type;
-    .param p3, "x2"    # [Ljava/lang/reflect/Type;
-    .param p4, "x3"    # Lorg/apache/commons/lang3/reflect/TypeUtils$1;
 
     .line 146
     invoke-direct {p0, p1, p2, p3}, Lorg/apache/commons/lang3/reflect/TypeUtils$ParameterizedTypeImpl;-><init>(Ljava/lang/Class;Ljava/lang/reflect/Type;[Ljava/lang/reflect/Type;)V
@@ -93,38 +85,35 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .line 200
     if-eq p1, p0, :cond_1
 
+    .line 200
     instance-of v0, p1, Ljava/lang/reflect/ParameterizedType;
 
     if-eqz v0, :cond_0
 
-    move-object v0, p1
+    check-cast p1, Ljava/lang/reflect/ParameterizedType;
 
-    check-cast v0, Ljava/lang/reflect/ParameterizedType;
+    invoke-static {p0, p1}, Lorg/apache/commons/lang3/reflect/TypeUtils;->access$200(Ljava/lang/reflect/ParameterizedType;Ljava/lang/reflect/Type;)Z
 
-    invoke-static {p0, v0}, Lorg/apache/commons/lang3/reflect/TypeUtils;->access$200(Ljava/lang/reflect/ParameterizedType;Ljava/lang/reflect/Type;)Z
+    move-result p1
 
-    move-result v0
-
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     :goto_1
-    return v0
+    return p1
 .end method
 
 .method public getActualTypeArguments()[Ljava/lang/reflect/Type;
@@ -163,20 +152,15 @@
 .method public hashCode()I
     .locals 2
 
-    .line 208
-    const/16 v0, 0x470
-
     .line 209
-    .local v0, "result":I
-    iget-object v1, p0, Lorg/apache/commons/lang3/reflect/TypeUtils$ParameterizedTypeImpl;->raw:Ljava/lang/Class;
+    iget-object v0, p0, Lorg/apache/commons/lang3/reflect/TypeUtils$ParameterizedTypeImpl;->raw:Ljava/lang/Class;
 
-    invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
+    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
-    move-result v1
+    move-result v0
 
-    or-int/2addr v0, v1
+    or-int/lit16 v0, v0, 0x470
 
-    .line 210
     shl-int/lit8 v0, v0, 0x4
 
     .line 211
@@ -188,7 +172,6 @@
 
     or-int/2addr v0, v1
 
-    .line 212
     shl-int/lit8 v0, v0, 0x8
 
     .line 213
@@ -200,7 +183,6 @@
 
     or-int/2addr v0, v1
 
-    .line 214
     return v0
 .end method
 

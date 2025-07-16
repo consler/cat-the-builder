@@ -42,21 +42,17 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
 
-    .line 100
     const/4 v0, 0x0
 
+    .line 100
     invoke-direct {p0, p1, v0}, Landroidx/mediarouter/media/MediaRouteProvider;-><init>(Landroid/content/Context;Landroidx/mediarouter/media/MediaRouteProvider$ProviderMetadata;)V
 
-    .line 101
     return-void
 .end method
 
 .method constructor <init>(Landroid/content/Context;Landroidx/mediarouter/media/MediaRouteProvider$ProviderMetadata;)V
-    .locals 3
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "metadata"    # Landroidx/mediarouter/media/MediaRouteProvider$ProviderMetadata;
+    .locals 2
 
     .line 103
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -68,29 +64,27 @@
 
     iput-object v0, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mHandler:Landroidx/mediarouter/media/MediaRouteProvider$ProviderHandler;
 
-    .line 104
     if-eqz p1, :cond_1
 
     .line 108
     iput-object p1, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mContext:Landroid/content/Context;
 
-    .line 109
     if-nez p2, :cond_0
 
     .line 110
-    new-instance v0, Landroidx/mediarouter/media/MediaRouteProvider$ProviderMetadata;
+    new-instance p2, Landroidx/mediarouter/media/MediaRouteProvider$ProviderMetadata;
 
-    new-instance v1, Landroid/content/ComponentName;
+    new-instance v0, Landroid/content/ComponentName;
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {v1, p1, v2}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    invoke-direct {v0, p1, v1}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    invoke-direct {v0, v1}, Landroidx/mediarouter/media/MediaRouteProvider$ProviderMetadata;-><init>(Landroid/content/ComponentName;)V
+    invoke-direct {p2, v0}, Landroidx/mediarouter/media/MediaRouteProvider$ProviderMetadata;-><init>(Landroid/content/ComponentName;)V
 
-    iput-object v0, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mMetadata:Landroidx/mediarouter/media/MediaRouteProvider$ProviderMetadata;
+    iput-object p2, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mMetadata:Landroidx/mediarouter/media/MediaRouteProvider$ProviderMetadata;
 
     goto :goto_0
 
@@ -98,19 +92,18 @@
     :cond_0
     iput-object p2, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mMetadata:Landroidx/mediarouter/media/MediaRouteProvider$ProviderMetadata;
 
-    .line 114
     :goto_0
     return-void
 
     .line 105
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "context must not be null"
+    const-string p2, "context must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -118,9 +111,9 @@
 .method deliverDescriptorChanged()V
     .locals 2
 
-    .line 254
     const/4 v0, 0x0
 
+    .line 254
     iput-boolean v0, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mPendingDescriptorChange:Z
 
     .line 256
@@ -133,7 +126,6 @@
 
     invoke-virtual {v0, p0, v1}, Landroidx/mediarouter/media/MediaRouteProvider$Callback;->onDescriptorChanged(Landroidx/mediarouter/media/MediaRouteProvider;Landroidx/mediarouter/media/MediaRouteProviderDescriptor;)V
 
-    .line 259
     :cond_0
     return-void
 .end method
@@ -141,9 +133,9 @@
 .method deliverDiscoveryRequestChanged()V
     .locals 1
 
-    .line 183
     const/4 v0, 0x0
 
+    .line 183
     iput-boolean v0, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mPendingDiscoveryRequestChange:Z
 
     .line 184
@@ -151,7 +143,6 @@
 
     invoke-virtual {p0, v0}, Landroidx/mediarouter/media/MediaRouteProvider;->onDiscoveryRequestChanged(Landroidx/mediarouter/media/MediaRouteDiscoveryRequest;)V
 
-    .line 185
     return-void
 .end method
 
@@ -201,101 +192,88 @@
 .end method
 
 .method public onCreateDynamicGroupRouteController(Ljava/lang/String;)Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;
-    .locals 2
-    .param p1, "initialMemberRouteId"    # Ljava/lang/String;
+    .locals 1
 
-    .line 321
     if-eqz p1, :cond_0
 
-    .line 324
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 
     .line 322
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "initialMemberRouteId cannot be null."
+    const-string v0, "initialMemberRouteId cannot be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public onCreateRouteController(Ljava/lang/String;)Landroidx/mediarouter/media/MediaRouteProvider$RouteController;
-    .locals 2
-    .param p1, "routeId"    # Ljava/lang/String;
+    .locals 1
 
-    .line 274
     if-eqz p1, :cond_0
 
-    .line 277
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 
     .line 275
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "routeId cannot be null"
+    const-string v0, "routeId cannot be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public onCreateRouteController(Ljava/lang/String;Ljava/lang/String;)Landroidx/mediarouter/media/MediaRouteProvider$RouteController;
-    .locals 2
-    .param p1, "routeId"    # Ljava/lang/String;
-    .param p2, "routeGroupId"    # Ljava/lang/String;
+    .locals 0
 
-    .line 298
     if-eqz p1, :cond_1
 
-    .line 301
     if-eqz p2, :cond_0
 
     .line 304
     invoke-virtual {p0, p1}, Landroidx/mediarouter/media/MediaRouteProvider;->onCreateRouteController(Ljava/lang/String;)Landroidx/mediarouter/media/MediaRouteProvider$RouteController;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 302
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "routeGroupId cannot be null"
+    const-string p2, "routeGroupId cannot be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 299
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "routeId cannot be null"
+    const-string p2, "routeId cannot be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public onDiscoveryRequestChanged(Landroidx/mediarouter/media/MediaRouteDiscoveryRequest;)V
     .locals 0
-    .param p1, "request"    # Landroidx/mediarouter/media/MediaRouteDiscoveryRequest;
 
-    .line 211
     return-void
 .end method
 
 .method public final setCallback(Landroidx/mediarouter/media/MediaRouteProvider$Callback;)V
     .locals 0
-    .param p1, "callback"    # Landroidx/mediarouter/media/MediaRouteProvider$Callback;
 
     .line 143
     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->checkCallingThread()V
@@ -303,13 +281,11 @@
     .line 144
     iput-object p1, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mCallback:Landroidx/mediarouter/media/MediaRouteProvider$Callback;
 
-    .line 145
     return-void
 .end method
 
 .method public final setDescriptor(Landroidx/mediarouter/media/MediaRouteProviderDescriptor;)V
-    .locals 2
-    .param p1, "descriptor"    # Landroidx/mediarouter/media/MediaRouteProviderDescriptor;
+    .locals 1
 
     .line 242
     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->checkCallingThread()V
@@ -323,28 +299,26 @@
     iput-object p1, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mDescriptor:Landroidx/mediarouter/media/MediaRouteProviderDescriptor;
 
     .line 246
-    iget-boolean v0, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mPendingDescriptorChange:Z
+    iget-boolean p1, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mPendingDescriptorChange:Z
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
+
+    const/4 p1, 0x1
 
     .line 247
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mPendingDescriptorChange:Z
+    iput-boolean p1, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mPendingDescriptorChange:Z
 
     .line 248
-    iget-object v1, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mHandler:Landroidx/mediarouter/media/MediaRouteProvider$ProviderHandler;
+    iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mHandler:Landroidx/mediarouter/media/MediaRouteProvider$ProviderHandler;
 
-    invoke-virtual {v1, v0}, Landroidx/mediarouter/media/MediaRouteProvider$ProviderHandler;->sendEmptyMessage(I)Z
+    invoke-virtual {v0, p1}, Landroidx/mediarouter/media/MediaRouteProvider$ProviderHandler;->sendEmptyMessage(I)Z
 
-    .line 251
     :cond_0
     return-void
 .end method
 
 .method public final setDiscoveryRequest(Landroidx/mediarouter/media/MediaRouteDiscoveryRequest;)V
-    .locals 2
-    .param p1, "request"    # Landroidx/mediarouter/media/MediaRouteDiscoveryRequest;
+    .locals 1
 
     .line 169
     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->checkCallingThread()V
@@ -358,7 +332,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 172
     return-void
 
     .line 175
@@ -366,23 +339,22 @@
     iput-object p1, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mDiscoveryRequest:Landroidx/mediarouter/media/MediaRouteDiscoveryRequest;
 
     .line 176
-    iget-boolean v0, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mPendingDiscoveryRequestChange:Z
+    iget-boolean p1, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mPendingDiscoveryRequestChange:Z
 
-    if-nez v0, :cond_1
+    if-nez p1, :cond_1
+
+    const/4 p1, 0x1
 
     .line 177
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mPendingDiscoveryRequestChange:Z
+    iput-boolean p1, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mPendingDiscoveryRequestChange:Z
 
     .line 178
-    iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mHandler:Landroidx/mediarouter/media/MediaRouteProvider$ProviderHandler;
+    iget-object p1, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mHandler:Landroidx/mediarouter/media/MediaRouteProvider$ProviderHandler;
 
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
-    invoke-virtual {v0, v1}, Landroidx/mediarouter/media/MediaRouteProvider$ProviderHandler;->sendEmptyMessage(I)Z
+    invoke-virtual {p1, v0}, Landroidx/mediarouter/media/MediaRouteProvider$ProviderHandler;->sendEmptyMessage(I)Z
 
-    .line 180
     :cond_1
     return-void
 .end method

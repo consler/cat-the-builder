@@ -27,39 +27,35 @@
 
 # virtual methods
 .method public set(Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;ILcom/badlogic/gdx/graphics/g3d/Renderable;Lcom/badlogic/gdx/graphics/g3d/Attributes;)V
-    .locals 7
-    .param p1, "shader"    # Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;
-    .param p2, "inputID"    # I
-    .param p3, "renderable"    # Lcom/badlogic/gdx/graphics/g3d/Renderable;
-    .param p4, "combinedAttributes"    # Lcom/badlogic/gdx/graphics/g3d/Attributes;
+    .locals 6
 
     .line 318
     sget-wide v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Normal:J
 
     invoke-virtual {p4, v0, v1}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->get(J)Lcom/badlogic/gdx/graphics/g3d/Attribute;
 
-    move-result-object v0
+    move-result-object p3
 
-    check-cast v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
+    check-cast p3, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
 
-    check-cast v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
+    move-object p4, p3
+
+    check-cast p4, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
 
     .line 319
-    .local v0, "ta":Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
-    iget v3, v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetU:F
+    iget v2, p3, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetU:F
 
-    iget v4, v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetV:F
+    iget v3, p3, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetV:F
 
-    iget v5, v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleU:F
+    iget v4, p3, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleU:F
 
-    iget v6, v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleV:F
+    iget v5, p3, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleV:F
 
-    move-object v1, p1
+    move-object v0, p1
 
-    move v2, p2
+    move v1, p2
 
-    invoke-virtual/range {v1 .. v6}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;->set(IFFFF)Z
+    invoke-virtual/range {v0 .. v5}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;->set(IFFFF)Z
 
-    .line 320
     return-void
 .end method

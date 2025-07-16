@@ -15,7 +15,6 @@
 # direct methods
 .method constructor <init>(Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter$2;Ljava/io/ObjectInputValidation;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter$2;
 
     .line 412
     iput-object p1, p0, Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter$2$1;->this$1:Lcom/thoughtworks/xstream/converters/reflection/SerializableConverter$2;
@@ -40,18 +39,12 @@
     :try_end_0
     .catch Ljava/io/InvalidObjectException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 418
-    nop
-
-    .line 419
     return-void
 
-    .line 416
     :catch_0
     move-exception v0
 
     .line 417
-    .local v0, "e":Ljava/io/InvalidObjectException;
     new-instance v1, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
 
     const-string v2, "Cannot validate object"

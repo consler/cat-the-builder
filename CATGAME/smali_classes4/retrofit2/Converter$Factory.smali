@@ -25,21 +25,18 @@
 .end method
 
 .method protected static getParameterUpperBound(ILjava/lang/reflect/ParameterizedType;)Ljava/lang/reflect/Type;
-    .locals 1
-    .param p0, "index"    # I
-    .param p1, "type"    # Ljava/lang/reflect/ParameterizedType;
+    .locals 0
 
     .line 88
     invoke-static {p0, p1}, Lretrofit2/Utils;->getParameterUpperBound(ILjava/lang/reflect/ParameterizedType;)Ljava/lang/reflect/Type;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method protected static getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;
-    .locals 1
-    .param p0, "type"    # Ljava/lang/reflect/Type;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -53,19 +50,15 @@
     .line 96
     invoke-static {p0}, Lretrofit2/Utils;->getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public requestBodyConverter(Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;[Ljava/lang/annotation/Annotation;Lretrofit2/Retrofit;)Lretrofit2/Converter;
-    .locals 1
-    .param p1, "type"    # Ljava/lang/reflect/Type;
-    .param p2, "parameterAnnotations"    # [Ljava/lang/annotation/Annotation;
-    .param p3, "methodAnnotations"    # [Ljava/lang/annotation/Annotation;
-    .param p4, "retrofit"    # Lretrofit2/Retrofit;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -86,17 +79,13 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .line 68
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public responseBodyConverter(Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lretrofit2/Retrofit;)Lretrofit2/Converter;
-    .locals 1
-    .param p1, "type"    # Ljava/lang/reflect/Type;
-    .param p2, "annotations"    # [Ljava/lang/annotation/Annotation;
-    .param p3, "retrofit"    # Lretrofit2/Retrofit;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -114,17 +103,13 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .line 55
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public stringConverter(Ljava/lang/reflect/Type;[Ljava/lang/annotation/Annotation;Lretrofit2/Retrofit;)Lretrofit2/Converter;
-    .locals 1
-    .param p1, "type"    # Ljava/lang/reflect/Type;
-    .param p2, "annotations"    # [Ljava/lang/annotation/Annotation;
-    .param p3, "retrofit"    # Lretrofit2/Retrofit;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -143,8 +128,7 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .line 80
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method

@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroidx/browser/customtabs/CustomTabsClient$2;Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "this$1"    # Landroidx/browser/customtabs/CustomTabsClient$2;
 
     .line 318
     iput-object p1, p0, Landroidx/browser/customtabs/CustomTabsClient$2$3;->this$1:Landroidx/browser/customtabs/CustomTabsClient$2;
@@ -52,6 +51,5 @@
 
     invoke-virtual {v0, v1}, Landroidx/browser/customtabs/CustomTabsCallback;->onMessageChannelReady(Landroid/os/Bundle;)V
 
-    .line 322
     return-void
 .end method

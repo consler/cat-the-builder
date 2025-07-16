@@ -35,14 +35,11 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 2
-    .param p1, "rootId"    # Ljava/lang/String;
-    .param p2, "extras"    # Landroid/os/Bundle;
+    .locals 0
 
     .line 1949
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1950
     if-eqz p1, :cond_0
 
     .line 1954
@@ -51,38 +48,35 @@
     .line 1955
     iput-object p2, p0, Landroidx/media/MediaBrowserServiceCompat$BrowserRoot;->mExtras:Landroid/os/Bundle;
 
-    .line 1956
     return-void
 
     .line 1951
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "The root id in BrowserRoot cannot be null. Use null for BrowserRoot instead"
+    const-string p2, "The root id in BrowserRoot cannot be null. Use null for BrowserRoot instead"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method static synthetic access$000(Landroidx/media/MediaBrowserServiceCompat$BrowserRoot;)Ljava/lang/String;
-    .locals 1
-    .param p0, "x0"    # Landroidx/media/MediaBrowserServiceCompat$BrowserRoot;
+    .locals 0
 
     .line 1864
-    iget-object v0, p0, Landroidx/media/MediaBrowserServiceCompat$BrowserRoot;->mRootId:Ljava/lang/String;
+    iget-object p0, p0, Landroidx/media/MediaBrowserServiceCompat$BrowserRoot;->mRootId:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$100(Landroidx/media/MediaBrowserServiceCompat$BrowserRoot;)Landroid/os/Bundle;
-    .locals 1
-    .param p0, "x0"    # Landroidx/media/MediaBrowserServiceCompat$BrowserRoot;
+    .locals 0
 
     .line 1864
-    iget-object v0, p0, Landroidx/media/MediaBrowserServiceCompat$BrowserRoot;->mExtras:Landroid/os/Bundle;
+    iget-object p0, p0, Landroidx/media/MediaBrowserServiceCompat$BrowserRoot;->mExtras:Landroid/os/Bundle;
 
-    return-object v0
+    return-object p0
 .end method
 
 

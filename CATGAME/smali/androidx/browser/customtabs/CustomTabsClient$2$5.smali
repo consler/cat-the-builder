@@ -32,7 +32,6 @@
 # direct methods
 .method constructor <init>(Landroidx/browser/customtabs/CustomTabsClient$2;ILandroid/net/Uri;ZLandroid/os/Bundle;)V
     .locals 0
-    .param p1, "this$1"    # Landroidx/browser/customtabs/CustomTabsClient$2;
 
     .line 343
     iput-object p1, p0, Landroidx/browser/customtabs/CustomTabsClient$2$5;->this$1:Landroidx/browser/customtabs/CustomTabsClient$2;
@@ -70,6 +69,5 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroidx/browser/customtabs/CustomTabsCallback;->onRelationshipValidationResult(ILandroid/net/Uri;ZLandroid/os/Bundle;)V
 
-    .line 348
     return-void
 .end method

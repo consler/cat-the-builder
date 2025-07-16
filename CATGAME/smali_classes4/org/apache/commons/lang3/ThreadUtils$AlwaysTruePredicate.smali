@@ -25,13 +25,11 @@
     .line 279
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 280
     return-void
 .end method
 
 .method synthetic constructor <init>(Lorg/apache/commons/lang3/ThreadUtils$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/lang3/ThreadUtils$1;
 
     .line 277
     invoke-direct {p0}, Lorg/apache/commons/lang3/ThreadUtils$AlwaysTruePredicate;-><init>()V
@@ -42,21 +40,17 @@
 
 # virtual methods
 .method public test(Ljava/lang/Thread;)Z
-    .locals 1
-    .param p1, "thread"    # Ljava/lang/Thread;
+    .locals 0
 
-    .line 289
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public test(Ljava/lang/ThreadGroup;)Z
-    .locals 1
-    .param p1, "threadGroup"    # Ljava/lang/ThreadGroup;
+    .locals 0
 
-    .line 284
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method

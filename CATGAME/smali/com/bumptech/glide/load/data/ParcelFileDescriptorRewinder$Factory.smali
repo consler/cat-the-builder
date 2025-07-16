@@ -40,7 +40,6 @@
 # virtual methods
 .method public build(Landroid/os/ParcelFileDescriptor;)Lcom/bumptech/glide/load/data/DataRewinder;
     .locals 1
-    .param p1, "parcelFileDescriptor"    # Landroid/os/ParcelFileDescriptor;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

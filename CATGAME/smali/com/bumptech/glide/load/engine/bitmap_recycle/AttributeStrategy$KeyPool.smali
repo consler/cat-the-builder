@@ -58,9 +58,6 @@
 
 .method get(IILandroid/graphics/Bitmap$Config;)Lcom/bumptech/glide/load/engine/bitmap_recycle/AttributeStrategy$Key;
     .locals 1
-    .param p1, "width"    # I
-    .param p2, "height"    # I
-    .param p3, "config"    # Landroid/graphics/Bitmap$Config;
 
     .line 68
     invoke-virtual {p0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/AttributeStrategy$KeyPool;->get()Lcom/bumptech/glide/load/engine/bitmap_recycle/Poolable;
@@ -70,9 +67,7 @@
     check-cast v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/AttributeStrategy$Key;
 
     .line 69
-    .local v0, "result":Lcom/bumptech/glide/load/engine/bitmap_recycle/AttributeStrategy$Key;
     invoke-virtual {v0, p1, p2, p3}, Lcom/bumptech/glide/load/engine/bitmap_recycle/AttributeStrategy$Key;->init(IILandroid/graphics/Bitmap$Config;)V
 
-    .line 70
     return-object v0
 .end method

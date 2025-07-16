@@ -70,15 +70,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;Lcom/bumptech/glide/Registry;Lcom/bumptech/glide/request/target/ImageViewTargetFactory;Lcom/bumptech/glide/Glide$RequestOptionsFactory;Ljava/util/Map;Ljava/util/List;Lcom/bumptech/glide/load/engine/Engine;ZI)V
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "arrayPool"    # Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;
-    .param p3, "registry"    # Lcom/bumptech/glide/Registry;
-    .param p4, "imageViewTargetFactory"    # Lcom/bumptech/glide/request/target/ImageViewTargetFactory;
-    .param p5, "defaultRequestOptionsFactory"    # Lcom/bumptech/glide/Glide$RequestOptionsFactory;
-    .param p8, "engine"    # Lcom/bumptech/glide/load/engine/Engine;
-    .param p9, "isLoggingRequestOriginsEnabled"    # Z
-    .param p10, "logLevel"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -102,13 +94,11 @@
     .end annotation
 
     .line 55
-    .local p6, "defaultTransitionOptions":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Class<*>;Lcom/bumptech/glide/TransitionOptions<**>;>;"
-    .local p7, "defaultRequestListeners":Ljava/util/List;, "Ljava/util/List<Lcom/bumptech/glide/request/RequestListener<Ljava/lang/Object;>;>;"
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0}, Landroid/content/ContextWrapper;-><init>(Landroid/content/Context;)V
+    invoke-direct {p0, p1}, Landroid/content/ContextWrapper;-><init>(Landroid/content/Context;)V
 
     .line 56
     iput-object p2, p0, Lcom/bumptech/glide/GlideContext;->arrayPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;
@@ -137,7 +127,6 @@
     .line 64
     iput p10, p0, Lcom/bumptech/glide/GlideContext;->logLevel:I
 
-    .line 65
     return-void
 .end method
 
@@ -145,7 +134,6 @@
 # virtual methods
 .method public buildImageViewTarget(Landroid/widget/ImageView;Ljava/lang/Class;)Lcom/bumptech/glide/request/target/ViewTarget;
     .locals 1
-    .param p1, "imageView"    # Landroid/widget/ImageView;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<X:",
@@ -161,14 +149,13 @@
     .end annotation
 
     .line 99
-    .local p2, "transcodeClass":Ljava/lang/Class;, "Ljava/lang/Class<TX;>;"
     iget-object v0, p0, Lcom/bumptech/glide/GlideContext;->imageViewTargetFactory:Lcom/bumptech/glide/request/target/ImageViewTargetFactory;
 
     invoke-virtual {v0, p1, p2}, Lcom/bumptech/glide/request/target/ImageViewTargetFactory;->buildTarget(Landroid/widget/ImageView;Ljava/lang/Class;)Lcom/bumptech/glide/request/target/ViewTarget;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getArrayPool()Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;
@@ -225,7 +212,6 @@
     iput-object v0, p0, Lcom/bumptech/glide/GlideContext;->defaultRequestOptions:Lcom/bumptech/glide/request/RequestOptions;
 
     .line 76
-    .end local p0    # "this":Lcom/bumptech/glide/GlideContext;
     :cond_0
     iget-object v0, p0, Lcom/bumptech/glide/GlideContext;->defaultRequestOptions:Lcom/bumptech/glide/request/RequestOptions;
     :try_end_0
@@ -235,7 +221,6 @@
 
     return-object v0
 
-    .line 71
     :catchall_0
     move-exception v0
 
@@ -259,7 +244,6 @@
     .end annotation
 
     .line 82
-    .local p1, "transcodeClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     iget-object v0, p0, Lcom/bumptech/glide/GlideContext;->defaultTransitionOptions:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -268,8 +252,6 @@
 
     check-cast v0, Lcom/bumptech/glide/TransitionOptions;
 
-    .line 83
-    .local v0, "result":Lcom/bumptech/glide/TransitionOptions;, "Lcom/bumptech/glide/TransitionOptions<**>;"
     if-nez v0, :cond_1
 
     .line 84
@@ -283,6 +265,7 @@
 
     move-result-object v1
 
+    :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -297,7 +280,6 @@
     check-cast v2, Ljava/util/Map$Entry;
 
     .line 85
-    .local v2, "value":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Class<*>;Lcom/bumptech/glide/TransitionOptions<**>;>;"
     invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v3
@@ -313,25 +295,18 @@
     .line 86
     invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v3
-
-    move-object v0, v3
+    move-result-object v0
 
     check-cast v0, Lcom/bumptech/glide/TransitionOptions;
 
-    .line 88
-    .end local v2    # "value":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Class<*>;Lcom/bumptech/glide/TransitionOptions<**>;>;"
-    :cond_0
     goto :goto_0
 
-    .line 90
     :cond_1
     if-nez v0, :cond_2
 
     .line 91
     sget-object v0, Lcom/bumptech/glide/GlideContext;->DEFAULT_TRANSITION_OPTIONS:Lcom/bumptech/glide/TransitionOptions;
 
-    .line 93
     :cond_2
     return-object v0
 .end method

@@ -13,8 +13,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/work/OneTimeWorkRequest$Builder;)V
-    .locals 3
-    .param p1, "builder"    # Landroidx/work/OneTimeWorkRequest$Builder;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -29,11 +28,10 @@
 
     iget-object v1, p1, Landroidx/work/OneTimeWorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
-    iget-object v2, p1, Landroidx/work/OneTimeWorkRequest$Builder;->mTags:Ljava/util/Set;
+    iget-object p1, p1, Landroidx/work/OneTimeWorkRequest$Builder;->mTags:Ljava/util/Set;
 
-    invoke-direct {p0, v0, v1, v2}, Landroidx/work/WorkRequest;-><init>(Ljava/util/UUID;Landroidx/work/impl/model/WorkSpec;Ljava/util/Set;)V
+    invoke-direct {p0, v0, v1, p1}, Landroidx/work/WorkRequest;-><init>(Ljava/util/UUID;Landroidx/work/impl/model/WorkSpec;Ljava/util/Set;)V
 
-    .line 66
     return-void
 .end method
 
@@ -60,22 +58,21 @@
     .end annotation
 
     .line 44
-    .local p0, "workerClass":Ljava/lang/Class;, "Ljava/lang/Class<+Landroidx/work/ListenableWorker;>;"
     new-instance v0, Landroidx/work/OneTimeWorkRequest$Builder;
 
     invoke-direct {v0, p0}, Landroidx/work/OneTimeWorkRequest$Builder;-><init>(Ljava/lang/Class;)V
 
     invoke-virtual {v0}, Landroidx/work/OneTimeWorkRequest$Builder;->build()Landroidx/work/WorkRequest;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroidx/work/OneTimeWorkRequest;
+    check-cast p0, Landroidx/work/OneTimeWorkRequest;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static from(Ljava/util/List;)Ljava/util/List;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -100,7 +97,6 @@
     .end annotation
 
     .line 57
-    .local p0, "workerClasses":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Class<+Landroidx/work/ListenableWorker;>;>;"
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-interface {p0}, Ljava/util/List;->size()I
@@ -110,43 +106,38 @@
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 58
-    .local v0, "workList":Ljava/util/List;, "Ljava/util/List<Landroidx/work/OneTimeWorkRequest;>;"
     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :goto_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Class;
+    check-cast v1, Ljava/lang/Class;
 
     .line 59
-    .local v2, "workerClass":Ljava/lang/Class;, "Ljava/lang/Class<+Landroidx/work/ListenableWorker;>;"
-    new-instance v3, Landroidx/work/OneTimeWorkRequest$Builder;
+    new-instance v2, Landroidx/work/OneTimeWorkRequest$Builder;
 
-    invoke-direct {v3, v2}, Landroidx/work/OneTimeWorkRequest$Builder;-><init>(Ljava/lang/Class;)V
+    invoke-direct {v2, v1}, Landroidx/work/OneTimeWorkRequest$Builder;-><init>(Ljava/lang/Class;)V
 
-    invoke-virtual {v3}, Landroidx/work/OneTimeWorkRequest$Builder;->build()Landroidx/work/WorkRequest;
+    invoke-virtual {v2}, Landroidx/work/OneTimeWorkRequest$Builder;->build()Landroidx/work/WorkRequest;
 
-    move-result-object v3
+    move-result-object v1
 
-    check-cast v3, Landroidx/work/OneTimeWorkRequest;
+    check-cast v1, Landroidx/work/OneTimeWorkRequest;
 
-    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 60
-    .end local v2    # "workerClass":Ljava/lang/Class;, "Ljava/lang/Class<+Landroidx/work/ListenableWorker;>;"
     goto :goto_0
 
-    .line 61
     :cond_0
     return-object v0
 .end method

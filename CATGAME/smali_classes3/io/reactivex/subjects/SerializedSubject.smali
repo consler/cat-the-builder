@@ -58,14 +58,11 @@
     .end annotation
 
     .line 42
-    .local p0, "this":Lio/reactivex/subjects/SerializedSubject;, "Lio/reactivex/subjects/SerializedSubject<TT;>;"
-    .local p1, "actual":Lio/reactivex/subjects/Subject;, "Lio/reactivex/subjects/Subject<TT;>;"
     invoke-direct {p0}, Lio/reactivex/subjects/Subject;-><init>()V
 
     .line 43
     iput-object p1, p0, Lio/reactivex/subjects/SerializedSubject;->actual:Lio/reactivex/subjects/Subject;
 
-    .line 44
     return-void
 .end method
 
@@ -74,29 +71,19 @@
 .method emitLoop()V
     .locals 2
 
-    .local p0, "this":Lio/reactivex/subjects/SerializedSubject;, "Lio/reactivex/subjects/SerializedSubject<TT;>;"
-    const/4 v0, 0x0
-
-    move-object v1, v0
-
     .line 168
     :goto_0
     monitor-enter p0
 
     .line 169
     :try_start_0
-    iget-object v1, p0, Lio/reactivex/subjects/SerializedSubject;->queue:Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    iget-object v0, p0, Lio/reactivex/subjects/SerializedSubject;->queue:Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;
 
-    .line 170
-    .local v1, "q":Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;, "Lio/reactivex/internal/util/AppendOnlyLinkedArrayList<Ljava/lang/Object;>;"
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    .line 171
     const/4 v0, 0x0
 
-    :try_start_1
+    .line 171
     iput-boolean v0, p0, Lio/reactivex/subjects/SerializedSubject;->emitting:Z
 
     .line 172
@@ -104,46 +91,38 @@
 
     return-void
 
-    .line 174
     :cond_0
-    iput-object v0, p0, Lio/reactivex/subjects/SerializedSubject;->queue:Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;
+    const/4 v1, 0x0
+
+    .line 174
+    iput-object v1, p0, Lio/reactivex/subjects/SerializedSubject;->queue:Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;
 
     .line 175
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 176
-    invoke-virtual {v1, p0}, Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;->forEachWhile(Lio/reactivex/internal/util/AppendOnlyLinkedArrayList$NonThrowingPredicate;)V
+    invoke-virtual {v0, p0}, Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;->forEachWhile(Lio/reactivex/internal/util/AppendOnlyLinkedArrayList$NonThrowingPredicate;)V
 
-    .line 177
-    .end local v1    # "q":Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;, "Lio/reactivex/internal/util/AppendOnlyLinkedArrayList<Ljava/lang/Object;>;"
     goto :goto_0
 
-    .line 175
     :catchall_0
     move-exception v0
 
-    .restart local v1    # "q":Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;, "Lio/reactivex/internal/util/AppendOnlyLinkedArrayList<Ljava/lang/Object;>;"
-    :goto_1
-    :try_start_2
+    .line 175
+    :try_start_1
     monitor-exit p0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
-
-    :catchall_1
-    move-exception v0
-
-    goto :goto_1
 .end method
 
 .method public getThrowable()Ljava/lang/Throwable;
     .locals 1
 
     .line 197
-    .local p0, "this":Lio/reactivex/subjects/SerializedSubject;, "Lio/reactivex/subjects/SerializedSubject<TT;>;"
     iget-object v0, p0, Lio/reactivex/subjects/SerializedSubject;->actual:Lio/reactivex/subjects/Subject;
 
     invoke-virtual {v0}, Lio/reactivex/subjects/Subject;->getThrowable()Ljava/lang/Throwable;
@@ -157,7 +136,6 @@
     .locals 1
 
     .line 202
-    .local p0, "this":Lio/reactivex/subjects/SerializedSubject;, "Lio/reactivex/subjects/SerializedSubject<TT;>;"
     iget-object v0, p0, Lio/reactivex/subjects/SerializedSubject;->actual:Lio/reactivex/subjects/Subject;
 
     invoke-virtual {v0}, Lio/reactivex/subjects/Subject;->hasComplete()Z
@@ -171,7 +149,6 @@
     .locals 1
 
     .line 187
-    .local p0, "this":Lio/reactivex/subjects/SerializedSubject;, "Lio/reactivex/subjects/SerializedSubject<TT;>;"
     iget-object v0, p0, Lio/reactivex/subjects/SerializedSubject;->actual:Lio/reactivex/subjects/Subject;
 
     invoke-virtual {v0}, Lio/reactivex/subjects/Subject;->hasObservers()Z
@@ -185,7 +162,6 @@
     .locals 1
 
     .line 192
-    .local p0, "this":Lio/reactivex/subjects/SerializedSubject;, "Lio/reactivex/subjects/SerializedSubject<TT;>;"
     iget-object v0, p0, Lio/reactivex/subjects/SerializedSubject;->actual:Lio/reactivex/subjects/Subject;
 
     invoke-virtual {v0}, Lio/reactivex/subjects/Subject;->hasThrowable()Z
@@ -196,15 +172,13 @@
 .end method
 
 .method public onComplete()V
-    .locals 3
+    .locals 2
 
     .line 142
-    .local p0, "this":Lio/reactivex/subjects/SerializedSubject;, "Lio/reactivex/subjects/SerializedSubject<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/subjects/SerializedSubject;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 143
     return-void
 
     .line 145
@@ -222,10 +196,10 @@
 
     return-void
 
-    .line 149
     :cond_1
     const/4 v0, 0x1
 
+    .line 149
     iput-boolean v0, p0, Lio/reactivex/subjects/SerializedSubject;->done:Z
 
     .line 150
@@ -236,18 +210,14 @@
     .line 151
     iget-object v0, p0, Lio/reactivex/subjects/SerializedSubject;->queue:Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;
 
-    .line 152
-    .local v0, "q":Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;, "Lio/reactivex/internal/util/AppendOnlyLinkedArrayList<Ljava/lang/Object;>;"
     if-nez v0, :cond_2
 
     .line 153
-    new-instance v1, Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;
+    new-instance v0, Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;
 
-    const/4 v2, 0x4
+    const/4 v1, 0x4
 
-    invoke-direct {v1, v2}, Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;-><init>(I)V
-
-    move-object v0, v1
+    invoke-direct {v0, v1}, Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;-><init>(I)V
 
     .line 154
     iput-object v0, p0, Lio/reactivex/subjects/SerializedSubject;->queue:Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;
@@ -266,7 +236,6 @@
     return-void
 
     .line 159
-    .end local v0    # "q":Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;, "Lio/reactivex/internal/util/AppendOnlyLinkedArrayList<Ljava/lang/Object;>;"
     :cond_3
     iput-boolean v0, p0, Lio/reactivex/subjects/SerializedSubject;->emitting:Z
 
@@ -280,13 +249,12 @@
 
     invoke-virtual {v0}, Lio/reactivex/subjects/Subject;->onComplete()V
 
-    .line 162
     return-void
 
-    .line 160
     :catchall_0
     move-exception v0
 
+    .line 160
     :try_start_1
     monitor-exit p0
     :try_end_1
@@ -296,11 +264,9 @@
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
-    .locals 4
-    .param p1, "t"    # Ljava/lang/Throwable;
+    .locals 2
 
     .line 110
-    .local p0, "this":Lio/reactivex/subjects/SerializedSubject;, "Lio/reactivex/subjects/SerializedSubject<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/subjects/SerializedSubject;->done:Z
 
     if-eqz v0, :cond_0
@@ -308,7 +274,6 @@
     .line 111
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 112
     return-void
 
     .line 115
@@ -316,121 +281,93 @@
     monitor-enter p0
 
     .line 116
-    const/4 v0, 0x0
-
     :try_start_0
-    iget-boolean v1, p0, Lio/reactivex/subjects/SerializedSubject;->done:Z
+    iget-boolean v0, p0, Lio/reactivex/subjects/SerializedSubject;->done:Z
 
-    if-eqz v1, :cond_1
+    const/4 v1, 0x1
 
-    .line 117
-    const/4 v0, 0x1
+    if-eqz v0, :cond_1
 
-    .local v0, "reportError":Z
     goto :goto_0
 
     .line 119
-    .end local v0    # "reportError":Z
     :cond_1
-    const/4 v1, 0x1
-
     iput-boolean v1, p0, Lio/reactivex/subjects/SerializedSubject;->done:Z
 
     .line 120
-    iget-boolean v2, p0, Lio/reactivex/subjects/SerializedSubject;->emitting:Z
+    iget-boolean v0, p0, Lio/reactivex/subjects/SerializedSubject;->emitting:Z
 
-    if-eqz v2, :cond_3
+    if-eqz v0, :cond_3
 
     .line 121
-    iget-object v1, p0, Lio/reactivex/subjects/SerializedSubject;->queue:Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;
+    iget-object v0, p0, Lio/reactivex/subjects/SerializedSubject;->queue:Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;
 
-    .line 122
-    .local v1, "q":Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;, "Lio/reactivex/internal/util/AppendOnlyLinkedArrayList<Ljava/lang/Object;>;"
-    if-nez v1, :cond_2
+    if-nez v0, :cond_2
 
     .line 123
-    new-instance v2, Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;
+    new-instance v0, Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;
 
-    const/4 v3, 0x4
+    const/4 v1, 0x4
 
-    invoke-direct {v2, v3}, Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;-><init>(I)V
-
-    move-object v1, v2
+    invoke-direct {v0, v1}, Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;-><init>(I)V
 
     .line 124
-    iput-object v1, p0, Lio/reactivex/subjects/SerializedSubject;->queue:Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;
+    iput-object v0, p0, Lio/reactivex/subjects/SerializedSubject;->queue:Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;
 
     .line 126
     :cond_2
     invoke-static {p1}, Lio/reactivex/internal/util/NotificationLite;->error(Ljava/lang/Throwable;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;->setFirst(Ljava/lang/Object;)V
+    invoke-virtual {v0, p1}, Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;->setFirst(Ljava/lang/Object;)V
 
     .line 127
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     return-void
 
-    .line 129
-    .end local v1    # "q":Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;, "Lio/reactivex/internal/util/AppendOnlyLinkedArrayList<Ljava/lang/Object;>;"
-    :cond_3
-    const/4 v0, 0x0
-
     .line 130
-    .restart local v0    # "reportError":Z
-    :try_start_1
+    :cond_3
     iput-boolean v1, p0, Lio/reactivex/subjects/SerializedSubject;->emitting:Z
+
+    const/4 v1, 0x0
 
     .line 132
     :goto_0
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 133
-    if-eqz v0, :cond_4
+    if-eqz v1, :cond_4
 
     .line 134
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 135
     return-void
 
     .line 137
     :cond_4
-    iget-object v1, p0, Lio/reactivex/subjects/SerializedSubject;->actual:Lio/reactivex/subjects/Subject;
+    iget-object v0, p0, Lio/reactivex/subjects/SerializedSubject;->actual:Lio/reactivex/subjects/Subject;
 
-    invoke-virtual {v1, p1}, Lio/reactivex/subjects/Subject;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {v0, p1}, Lio/reactivex/subjects/Subject;->onError(Ljava/lang/Throwable;)V
 
-    .line 138
     return-void
 
-    .line 132
-    .end local v0    # "reportError":Z
     :catchall_0
-    move-exception v1
+    move-exception p1
 
-    .restart local v0    # "reportError":Z
-    :goto_1
-    :try_start_2
+    .line 132
+    :try_start_1
     monitor-exit p0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
-
-    :catchall_1
-    move-exception v1
-
-    goto :goto_1
+    throw p1
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -438,13 +375,10 @@
     .end annotation
 
     .line 86
-    .local p0, "this":Lio/reactivex/subjects/SerializedSubject;, "Lio/reactivex/subjects/SerializedSubject<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/subjects/SerializedSubject;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 87
     return-void
 
     .line 89
@@ -471,18 +405,14 @@
     .line 94
     iget-object v0, p0, Lio/reactivex/subjects/SerializedSubject;->queue:Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;
 
-    .line 95
-    .local v0, "q":Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;, "Lio/reactivex/internal/util/AppendOnlyLinkedArrayList<Ljava/lang/Object;>;"
     if-nez v0, :cond_2
 
     .line 96
-    new-instance v1, Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;
+    new-instance v0, Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;
 
-    const/4 v2, 0x4
+    const/4 v1, 0x4
 
-    invoke-direct {v1, v2}, Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;-><init>(I)V
-
-    move-object v0, v1
+    invoke-direct {v0, v1}, Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;-><init>(I)V
 
     .line 97
     iput-object v0, p0, Lio/reactivex/subjects/SerializedSubject;->queue:Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;
@@ -491,20 +421,19 @@
     :cond_2
     invoke-static {p1}, Lio/reactivex/internal/util/NotificationLite;->next(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;->add(Ljava/lang/Object;)V
+    invoke-virtual {v0, p1}, Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;->add(Ljava/lang/Object;)V
 
     .line 100
     monitor-exit p0
 
     return-void
 
-    .line 102
-    .end local v0    # "q":Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;, "Lio/reactivex/internal/util/AppendOnlyLinkedArrayList<Ljava/lang/Object;>;"
     :cond_3
     const/4 v0, 0x1
 
+    .line 102
     iput-boolean v0, p0, Lio/reactivex/subjects/SerializedSubject;->emitting:Z
 
     .line 103
@@ -520,28 +449,27 @@
     .line 105
     invoke-virtual {p0}, Lio/reactivex/subjects/SerializedSubject;->emitLoop()V
 
-    .line 106
     return-void
 
-    .line 103
     :catchall_0
-    move-exception v0
+    move-exception p1
 
+    .line 103
     :try_start_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
-    .locals 4
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
+    .locals 2
 
     .line 55
-    .local p0, "this":Lio/reactivex/subjects/SerializedSubject;, "Lio/reactivex/subjects/SerializedSubject<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/subjects/SerializedSubject;->done:Z
+
+    const/4 v1, 0x1
 
     if-nez v0, :cond_3
 
@@ -549,52 +477,41 @@
     monitor-enter p0
 
     .line 57
-    const/4 v0, 0x0
-
     :try_start_0
-    iget-boolean v1, p0, Lio/reactivex/subjects/SerializedSubject;->done:Z
+    iget-boolean v0, p0, Lio/reactivex/subjects/SerializedSubject;->done:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 58
-    const/4 v0, 0x1
-
-    .local v0, "cancel":Z
     goto :goto_0
 
     .line 60
-    .end local v0    # "cancel":Z
     :cond_0
-    iget-boolean v1, p0, Lio/reactivex/subjects/SerializedSubject;->emitting:Z
+    iget-boolean v0, p0, Lio/reactivex/subjects/SerializedSubject;->emitting:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
     .line 61
-    iget-object v1, p0, Lio/reactivex/subjects/SerializedSubject;->queue:Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;
+    iget-object v0, p0, Lio/reactivex/subjects/SerializedSubject;->queue:Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;
 
-    .line 62
-    .local v1, "q":Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;, "Lio/reactivex/internal/util/AppendOnlyLinkedArrayList<Ljava/lang/Object;>;"
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
 
     .line 63
-    new-instance v2, Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;
+    new-instance v0, Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;
 
-    const/4 v3, 0x4
+    const/4 v1, 0x4
 
-    invoke-direct {v2, v3}, Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;-><init>(I)V
-
-    move-object v1, v2
+    invoke-direct {v0, v1}, Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;-><init>(I)V
 
     .line 64
-    iput-object v1, p0, Lio/reactivex/subjects/SerializedSubject;->queue:Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;
+    iput-object v0, p0, Lio/reactivex/subjects/SerializedSubject;->queue:Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;
 
     .line 66
     :cond_1
     invoke-static {p1}, Lio/reactivex/internal/util/NotificationLite;->disposable(Lio/reactivex/disposables/Disposable;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;->add(Ljava/lang/Object;)V
+    invoke-virtual {v0, p1}, Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;->add(Ljava/lang/Object;)V
 
     .line 67
     monitor-exit p0
@@ -602,68 +519,47 @@
     return-void
 
     .line 69
-    .end local v1    # "q":Lio/reactivex/internal/util/AppendOnlyLinkedArrayList;, "Lio/reactivex/internal/util/AppendOnlyLinkedArrayList<Ljava/lang/Object;>;"
     :cond_2
-    const/4 v1, 0x1
-
     iput-boolean v1, p0, Lio/reactivex/subjects/SerializedSubject;->emitting:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 70
     const/4 v0, 0x0
 
+    move v1, v0
+
     .line 72
-    .restart local v0    # "cancel":Z
     :goto_0
-    :try_start_1
     monitor-exit p0
-
-    goto :goto_2
-
-    .end local v0    # "cancel":Z
-    :catchall_0
-    move-exception v1
-
-    .restart local v0    # "cancel":Z
-    :goto_1
-    monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
-
-    throw v1
-
-    :catchall_1
-    move-exception v1
 
     goto :goto_1
 
-    .line 74
-    .end local v0    # "cancel":Z
-    :cond_3
-    const/4 v0, 0x1
+    :catchall_0
+    move-exception p1
 
-    .line 76
-    .restart local v0    # "cancel":Z
-    :goto_2
-    if-eqz v0, :cond_4
+    monitor-exit p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p1
+
+    :cond_3
+    :goto_1
+    if-eqz v1, :cond_4
 
     .line 77
     invoke-interface {p1}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    goto :goto_3
+    goto :goto_2
 
     .line 79
     :cond_4
-    iget-object v1, p0, Lio/reactivex/subjects/SerializedSubject;->actual:Lio/reactivex/subjects/Subject;
+    iget-object v0, p0, Lio/reactivex/subjects/SerializedSubject;->actual:Lio/reactivex/subjects/Subject;
 
-    invoke-virtual {v1, p1}, Lio/reactivex/subjects/Subject;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-virtual {v0, p1}, Lio/reactivex/subjects/Subject;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 80
     invoke-virtual {p0}, Lio/reactivex/subjects/SerializedSubject;->emitLoop()V
 
-    .line 82
-    :goto_3
+    :goto_2
     return-void
 .end method
 
@@ -678,27 +574,22 @@
     .end annotation
 
     .line 48
-    .local p0, "this":Lio/reactivex/subjects/SerializedSubject;, "Lio/reactivex/subjects/SerializedSubject<TT;>;"
-    .local p1, "observer":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     iget-object v0, p0, Lio/reactivex/subjects/SerializedSubject;->actual:Lio/reactivex/subjects/Subject;
 
     invoke-virtual {v0, p1}, Lio/reactivex/subjects/Subject;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 49
     return-void
 .end method
 
 .method public test(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
     .line 182
-    .local p0, "this":Lio/reactivex/subjects/SerializedSubject;, "Lio/reactivex/subjects/SerializedSubject<TT;>;"
     iget-object v0, p0, Lio/reactivex/subjects/SerializedSubject;->actual:Lio/reactivex/subjects/Subject;
 
     invoke-static {p1, v0}, Lio/reactivex/internal/util/NotificationLite;->acceptFull(Ljava/lang/Object;Lio/reactivex/Observer;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

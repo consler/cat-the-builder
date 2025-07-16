@@ -50,7 +50,6 @@
 # direct methods
 .method constructor <init>(Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "bundle"    # Landroid/os/Bundle;
 
     .line 199
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,17 +57,15 @@
     .line 200
     iput-object p1, p0, Landroidx/mediarouter/media/MediaItemStatus;->mBundle:Landroid/os/Bundle;
 
-    .line 201
     return-void
 .end method
 
 .method public static fromBundle(Landroid/os/Bundle;)Landroidx/mediarouter/media/MediaItemStatus;
     .locals 1
-    .param p0, "bundle"    # Landroid/os/Bundle;
 
-    .line 308
     if-eqz p0, :cond_0
 
+    .line 308
     new-instance v0, Landroidx/mediarouter/media/MediaItemStatus;
 
     invoke-direct {v0, p0}, Landroidx/mediarouter/media/MediaItemStatus;-><init>(Landroid/os/Bundle;)V
@@ -83,66 +80,56 @@
 .end method
 
 .method private static playbackStateToString(I)Ljava/lang/String;
-    .locals 1
-    .param p0, "playbackState"    # I
+    .locals 0
 
-    .line 271
     packed-switch p0, :pswitch_data_0
 
     .line 289
     invoke-static {p0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
-    .line 287
     :pswitch_0
-    const-string v0, "error"
+    const-string p0, "error"
 
-    return-object v0
+    return-object p0
 
-    .line 285
     :pswitch_1
-    const-string v0, "invalidated"
+    const-string p0, "invalidated"
 
-    return-object v0
+    return-object p0
 
-    .line 283
     :pswitch_2
-    const-string v0, "canceled"
+    const-string p0, "canceled"
 
-    return-object v0
+    return-object p0
 
-    .line 281
     :pswitch_3
-    const-string v0, "finished"
+    const-string p0, "finished"
 
-    return-object v0
+    return-object p0
 
-    .line 275
     :pswitch_4
-    const-string v0, "buffering"
+    const-string p0, "buffering"
 
-    return-object v0
+    return-object p0
 
-    .line 279
     :pswitch_5
-    const-string v0, "paused"
+    const-string p0, "paused"
 
-    return-object v0
+    return-object p0
 
-    .line 277
     :pswitch_6
-    const-string v0, "playing"
+    const-string p0, "playing"
 
-    return-object v0
+    return-object p0
 
-    .line 273
     :pswitch_7
-    const-string v0, "pending"
+    const-string p0, "pending"
 
-    return-object v0
+    return-object p0
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -240,7 +227,7 @@
     .line 210
     iget-object v0, p0, Landroidx/mediarouter/media/MediaItemStatus;->mBundle:Landroid/os/Bundle;
 
-    const-string/jumbo v1, "timestamp"
+    const-string v1, "timestamp"
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
@@ -257,15 +244,9 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
+    const-string v1, "MediaItemStatus{ timestamp="
+
     .line 258
-    .local v0, "result":Ljava/lang/StringBuilder;
-    const-string v1, "MediaItemStatus{ "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 259
-    const-string/jumbo v1, "timestamp="
-
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 260
@@ -281,68 +262,76 @@
 
     invoke-static {v1, v2, v0}, Landroidx/core/util/TimeUtils;->formatDuration(JLjava/lang/StringBuilder;)V
 
-    .line 261
     const-string v1, " ms ago"
 
+    .line 261
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 262
     const-string v1, ", playbackState="
 
+    .line 262
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaItemStatus;->getPlaybackState()I
 
-    move-result v1
+    move-result v2
 
-    invoke-static {v1}, Landroidx/mediarouter/media/MediaItemStatus;->playbackStateToString(I)Ljava/lang/String;
+    invoke-static {v2}, Landroidx/mediarouter/media/MediaItemStatus;->playbackStateToString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 263
     const-string v1, ", contentPosition="
 
+    .line 263
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaItemStatus;->getContentPosition()J
 
-    move-result-wide v1
+    move-result-wide v2
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    .line 264
     const-string v1, ", contentDuration="
 
+    .line 264
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaItemStatus;->getContentDuration()J
-
-    move-result-wide v1
-
-    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    .line 265
-    const-string v1, ", extras="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaItemStatus;->getExtras()Landroid/os/Bundle;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaItemStatus;->getContentDuration()J
 
-    .line 266
+    move-result-wide v2
+
+    invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    const-string v1, ", extras="
+
+    .line 265
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaItemStatus;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
     const-string v1, " }"
 
+    .line 266
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 267
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method

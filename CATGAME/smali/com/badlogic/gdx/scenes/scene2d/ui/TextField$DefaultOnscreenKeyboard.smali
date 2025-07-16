@@ -31,13 +31,11 @@
 # virtual methods
 .method public show(Z)V
     .locals 1
-    .param p1, "visible"    # Z
 
     .line 815
     sget-object v0, Lcom/badlogic/gdx/Gdx;->input:Lcom/badlogic/gdx/Input;
 
     invoke-interface {v0, p1}, Lcom/badlogic/gdx/Input;->setOnscreenKeyboardVisible(Z)V
 
-    .line 816
     return-void
 .end method

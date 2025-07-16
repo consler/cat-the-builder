@@ -39,18 +39,15 @@
 
 # virtual methods
 .method public initialize(Landroid/media/MediaMetadataRetriever;Landroid/os/ParcelFileDescriptor;)V
-    .locals 1
-    .param p1, "retriever"    # Landroid/media/MediaMetadataRetriever;
-    .param p2, "data"    # Landroid/os/ParcelFileDescriptor;
+    .locals 0
 
     .line 306
     invoke-virtual {p2}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {p1, v0}, Landroid/media/MediaMetadataRetriever;->setDataSource(Ljava/io/FileDescriptor;)V
+    invoke-virtual {p1, p2}, Landroid/media/MediaMetadataRetriever;->setDataSource(Ljava/io/FileDescriptor;)V
 
-    .line 307
     return-void
 .end method
 

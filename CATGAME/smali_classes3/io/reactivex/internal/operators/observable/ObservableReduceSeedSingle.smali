@@ -65,10 +65,6 @@
     .end annotation
 
     .line 39
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableReduceSeedSingle;, "Lio/reactivex/internal/operators/observable/ObservableReduceSeedSingle<TT;TR;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
-    .local p2, "seed":Ljava/lang/Object;, "TR;"
-    .local p3, "reducer":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<TR;-TT;TR;>;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 40
@@ -80,7 +76,6 @@
     .line 42
     iput-object p3, p0, Lio/reactivex/internal/operators/observable/ObservableReduceSeedSingle;->reducer:Lio/reactivex/functions/BiFunction;
 
-    .line 43
     return-void
 .end method
 
@@ -97,8 +92,6 @@
     .end annotation
 
     .line 47
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableReduceSeedSingle;, "Lio/reactivex/internal/operators/observable/ObservableReduceSeedSingle<TT;TR;>;"
-    .local p1, "observer":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableReduceSeedSingle;->source:Lio/reactivex/ObservableSource;
 
     new-instance v1, Lio/reactivex/internal/operators/observable/ObservableReduceSeedSingle$ReduceSeedObserver;
@@ -111,6 +104,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 48
     return-void
 .end method

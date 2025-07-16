@@ -61,7 +61,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/observable/ObservableAmb$AmbCoordinator;ILio/reactivex/Observer;)V
     .locals 0
-    .param p2, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -73,9 +72,6 @@
     .end annotation
 
     .line 149
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableAmb$AmbInnerObserver;, "Lio/reactivex/internal/operators/observable/ObservableAmb$AmbInnerObserver<TT;>;"
-    .local p1, "parent":Lio/reactivex/internal/operators/observable/ObservableAmb$AmbCoordinator;, "Lio/reactivex/internal/operators/observable/ObservableAmb$AmbCoordinator<TT;>;"
-    .local p3, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 150
@@ -87,7 +83,6 @@
     .line 152
     iput-object p3, p0, Lio/reactivex/internal/operators/observable/ObservableAmb$AmbInnerObserver;->actual:Lio/reactivex/Observer;
 
-    .line 153
     return-void
 .end method
 
@@ -97,10 +92,8 @@
     .locals 0
 
     .line 201
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableAmb$AmbInnerObserver;, "Lio/reactivex/internal/operators/observable/ObservableAmb$AmbInnerObserver<TT;>;"
     invoke-static {p0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 202
     return-void
 .end method
 
@@ -108,7 +101,6 @@
     .locals 2
 
     .line 190
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableAmb$AmbInnerObserver;, "Lio/reactivex/internal/operators/observable/ObservableAmb$AmbInnerObserver<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableAmb$AmbInnerObserver;->won:Z
 
     if-eqz v0, :cond_0
@@ -132,9 +124,9 @@
 
     if-eqz v0, :cond_1
 
-    .line 194
     const/4 v0, 0x1
 
+    .line 194
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableAmb$AmbInnerObserver;->won:Z
 
     .line 195
@@ -142,7 +134,6 @@
 
     invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 198
     :cond_1
     :goto_0
     return-void
@@ -150,10 +141,8 @@
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 176
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableAmb$AmbInnerObserver;, "Lio/reactivex/internal/operators/observable/ObservableAmb$AmbInnerObserver<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableAmb$AmbInnerObserver;->won:Z
 
     if-eqz v0, :cond_0
@@ -177,9 +166,9 @@
 
     if-eqz v0, :cond_1
 
-    .line 180
     const/4 v0, 0x1
 
+    .line 180
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableAmb$AmbInnerObserver;->won:Z
 
     .line 181
@@ -193,7 +182,6 @@
     :cond_1
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 186
     :goto_0
     return-void
 .end method
@@ -207,8 +195,6 @@
     .end annotation
 
     .line 162
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableAmb$AmbInnerObserver;, "Lio/reactivex/internal/operators/observable/ObservableAmb$AmbInnerObserver<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableAmb$AmbInnerObserver;->won:Z
 
     if-eqz v0, :cond_0
@@ -232,9 +218,9 @@
 
     if-eqz v0, :cond_1
 
-    .line 166
     const/4 v0, 0x1
 
+    .line 166
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableAmb$AmbInnerObserver;->won:Z
 
     .line 167
@@ -248,25 +234,21 @@
     :cond_1
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableAmb$AmbInnerObserver;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lio/reactivex/disposables/Disposable;
+    check-cast p1, Lio/reactivex/disposables/Disposable;
 
-    invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
+    invoke-interface {p1}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 172
     :goto_0
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 0
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 157
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableAmb$AmbInnerObserver;, "Lio/reactivex/internal/operators/observable/ObservableAmb$AmbInnerObserver<TT;>;"
     invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 158
     return-void
 .end method

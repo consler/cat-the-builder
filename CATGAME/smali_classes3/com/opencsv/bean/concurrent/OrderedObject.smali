@@ -29,7 +29,6 @@
 # direct methods
 .method constructor <init>(JLjava/lang/Object;)V
     .locals 0
-    .param p1, "ordinal"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(JTE;)V"
@@ -37,8 +36,6 @@
     .end annotation
 
     .line 34
-    .local p0, "this":Lcom/opencsv/bean/concurrent/OrderedObject;, "Lcom/opencsv/bean/concurrent/OrderedObject<TE;>;"
-    .local p3, "element":Ljava/lang/Object;, "TE;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 35
@@ -47,7 +44,6 @@
     .line 36
     iput-object p3, p0, Lcom/opencsv/bean/concurrent/OrderedObject;->element:Ljava/lang/Object;
 
-    .line 37
     return-void
 .end method
 
@@ -62,7 +58,6 @@
     .end annotation
 
     .line 50
-    .local p0, "this":Lcom/opencsv/bean/concurrent/OrderedObject;, "Lcom/opencsv/bean/concurrent/OrderedObject<TE;>;"
     iget-object v0, p0, Lcom/opencsv/bean/concurrent/OrderedObject;->element:Ljava/lang/Object;
 
     return-object v0
@@ -72,7 +67,6 @@
     .locals 2
 
     .line 43
-    .local p0, "this":Lcom/opencsv/bean/concurrent/OrderedObject;, "Lcom/opencsv/bean/concurrent/OrderedObject<TE;>;"
     iget-wide v0, p0, Lcom/opencsv/bean/concurrent/OrderedObject;->ordinal:J
 
     return-wide v0

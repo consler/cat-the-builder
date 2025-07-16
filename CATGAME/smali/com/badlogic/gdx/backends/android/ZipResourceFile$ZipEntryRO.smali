@@ -39,16 +39,13 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/io/File;Ljava/lang/String;)V
     .locals 2
-    .param p1, "zipFileName"    # Ljava/lang/String;
-    .param p2, "file"    # Ljava/io/File;
-    .param p3, "fileName"    # Ljava/lang/String;
 
     .line 99
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 117
     const-wide/16 v0, -0x1
 
+    .line 117
     iput-wide v0, p0, Lcom/badlogic/gdx/backends/android/ZipResourceFile$ZipEntryRO;->mOffset:J
 
     .line 100
@@ -60,7 +57,6 @@
     .line 102
     iput-object p2, p0, Lcom/badlogic/gdx/backends/android/ZipResourceFile$ZipEntryRO;->mFile:Ljava/io/File;
 
-    .line 103
     return-void
 .end method
 
@@ -85,7 +81,6 @@
     move-result-object v3
 
     .line 164
-    .local v3, "pfd":Landroid/os/ParcelFileDescriptor;
     new-instance v0, Landroid/content/res/AssetFileDescriptor;
 
     invoke-virtual {p0}, Lcom/badlogic/gdx/backends/android/ZipResourceFile$ZipEntryRO;->getOffset()J
@@ -102,17 +97,12 @@
 
     return-object v0
 
-    .line 166
-    .end local v3    # "pfd":Landroid/os/ParcelFileDescriptor;
     :catch_0
     move-exception v0
 
     .line 168
-    .local v0, "e":Ljava/io/FileNotFoundException;
     invoke-virtual {v0}, Ljava/io/FileNotFoundException;->printStackTrace()V
 
-    .line 171
-    .end local v0    # "e":Ljava/io/FileNotFoundException;
     :cond_0
     const/4 v0, 0x0
 
@@ -166,9 +156,7 @@
 .end method
 
 .method public setOffsetFromFile(Ljava/io/RandomAccessFile;Ljava/nio/ByteBuffer;)V
-    .locals 8
-    .param p1, "f"    # Ljava/io/RandomAccessFile;
-    .param p2, "buf"    # Ljava/nio/ByteBuffer;
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -179,7 +167,6 @@
     iget-wide v0, p0, Lcom/badlogic/gdx/backends/android/ZipResourceFile$ZipEntryRO;->mLocalHdrOffset:J
 
     .line 123
-    .local v0, "localHdrOffset":J
     :try_start_0
     invoke-virtual {p1, v0, v1}, Ljava/io/RandomAccessFile;->seek(J)V
 
@@ -190,107 +177,86 @@
 
     invoke-virtual {p1, v2}, Ljava/io/RandomAccessFile;->readFully([B)V
 
+    const/4 p1, 0x0
+
     .line 125
-    const/4 v2, 0x0
+    invoke-virtual {p2, p1}, Ljava/nio/ByteBuffer;->getInt(I)I
 
-    invoke-virtual {p2, v2}, Ljava/nio/ByteBuffer;->getInt(I)I
+    move-result p1
 
-    move-result v2
+    const v2, 0x4034b50
 
-    const v3, 0x4034b50
+    if-ne p1, v2, :cond_0
 
-    if-ne v2, v3, :cond_0
+    const/16 p1, 0x1a
 
     .line 129
-    const/16 v2, 0x1a
+    invoke-virtual {p2, p1}, Ljava/nio/ByteBuffer;->getShort(I)S
 
-    invoke-virtual {p2, v2}, Ljava/nio/ByteBuffer;->getShort(I)S
+    move-result p1
 
-    move-result v2
+    const v2, 0xffff
 
-    const v3, 0xffff
+    and-int/2addr p1, v2
 
-    and-int/2addr v2, v3
+    const/16 v3, 0x1c
 
     .line 130
-    .local v2, "nameLen":I
-    const/16 v4, 0x1c
+    invoke-virtual {p2, v3}, Ljava/nio/ByteBuffer;->getShort(I)S
 
-    invoke-virtual {p2, v4}, Ljava/nio/ByteBuffer;->getShort(I)S
+    move-result p2
 
-    move-result v4
+    and-int/2addr p2, v2
 
-    and-int/2addr v3, v4
+    const-wide/16 v2, 0x1e
+
+    add-long/2addr v0, v2
+
+    int-to-long v2, p1
+
+    add-long/2addr v0, v2
+
+    int-to-long p1, p2
+
+    add-long/2addr v0, p1
 
     .line 131
-    .local v3, "extraLen":I
-    const-wide/16 v4, 0x1e
+    iput-wide v0, p0, Lcom/badlogic/gdx/backends/android/ZipResourceFile$ZipEntryRO;->mOffset:J
 
-    add-long/2addr v4, v0
-
-    int-to-long v6, v2
-
-    add-long/2addr v4, v6
-
-    int-to-long v6, v3
-
-    add-long/2addr v4, v6
-
-    iput-wide v4, p0, Lcom/badlogic/gdx/backends/android/ZipResourceFile$ZipEntryRO;->mOffset:J
-
-    .end local v2    # "nameLen":I
-    .end local v3    # "extraLen":I
     goto :goto_0
 
-    .line 126
     :cond_0
-    const-string/jumbo v2, "zipro"
+    const-string p1, "zipro"
 
-    const-string v3, "didn\'t find signature at start of lfh"
+    const-string p2, "didn\'t find signature at start of lfh"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    .line 126
+    invoke-static {p1, p2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 127
-    new-instance v2, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    invoke-direct {v2}, Ljava/io/IOException;-><init>()V
+    invoke-direct {p1}, Ljava/io/IOException;-><init>()V
 
-    .end local v0    # "localHdrOffset":J
-    .end local p1    # "f":Ljava/io/RandomAccessFile;
-    .end local p2    # "buf":Ljava/nio/ByteBuffer;
-    throw v2
+    throw p1
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 134
-    .restart local v0    # "localHdrOffset":J
-    .restart local p1    # "f":Ljava/io/RandomAccessFile;
-    .restart local p2    # "buf":Ljava/nio/ByteBuffer;
     :catch_0
-    move-exception v2
+    move-exception p1
 
     .line 135
-    .local v2, "ioe":Ljava/io/IOException;
-    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {p1}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_1
+    goto :goto_0
 
-    .line 132
-    .end local v2    # "ioe":Ljava/io/IOException;
     :catch_1
-    move-exception v2
+    move-exception p1
 
     .line 133
-    .local v2, "e":Ljava/io/FileNotFoundException;
-    invoke-virtual {v2}, Ljava/io/FileNotFoundException;->printStackTrace()V
+    invoke-virtual {p1}, Ljava/io/FileNotFoundException;->printStackTrace()V
 
-    .line 136
-    .end local v2    # "e":Ljava/io/FileNotFoundException;
     :goto_0
-    nop
-
-    .line 137
-    :goto_1
     return-void
 .end method

@@ -27,7 +27,6 @@
 
     invoke-direct {p0}, Landroidx/mediarouter/media/MediaRouteProvider$Callback;-><init>()V
 
-    .line 2989
     return-void
 .end method
 
@@ -35,14 +34,11 @@
 # virtual methods
 .method public onDescriptorChanged(Landroidx/mediarouter/media/MediaRouteProvider;Landroidx/mediarouter/media/MediaRouteProviderDescriptor;)V
     .locals 1
-    .param p1, "provider"    # Landroidx/mediarouter/media/MediaRouteProvider;
-    .param p2, "descriptor"    # Landroidx/mediarouter/media/MediaRouteProviderDescriptor;
 
     .line 2994
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter$ProviderCallback;->this$0:Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
 
     invoke-virtual {v0, p1, p2}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->updateProviderDescriptor(Landroidx/mediarouter/media/MediaRouteProvider;Landroidx/mediarouter/media/MediaRouteProviderDescriptor;)V
 
-    .line 2995
     return-void
 .end method

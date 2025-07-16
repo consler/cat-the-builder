@@ -16,18 +16,17 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 2
-    .param p1, "statusCode"    # I
 
     .line 22
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "Http request failed with status code: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -35,42 +34,33 @@
 
     invoke-direct {p0, v0, p1}, Lcom/bumptech/glide/load/HttpException;-><init>(Ljava/lang/String;I)V
 
-    .line 23
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .param p1, "message"    # Ljava/lang/String;
 
-    .line 26
     const/4 v0, -0x1
 
+    .line 26
     invoke-direct {p0, p1, v0}, Lcom/bumptech/glide/load/HttpException;-><init>(Ljava/lang/String;I)V
 
-    .line 27
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 1
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "statusCode"    # I
 
-    .line 30
     const/4 v0, 0x0
 
+    .line 30
     invoke-direct {p0, p1, p2, v0}, Lcom/bumptech/glide/load/HttpException;-><init>(Ljava/lang/String;ILjava/lang/Throwable;)V
 
-    .line 31
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;ILjava/lang/Throwable;)V
     .locals 0
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "statusCode"    # I
-    .param p3, "cause"    # Ljava/lang/Throwable;
 
     .line 34
     invoke-direct {p0, p1, p3}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
@@ -78,7 +68,6 @@
     .line 35
     iput p2, p0, Lcom/bumptech/glide/load/HttpException;->statusCode:I
 
-    .line 36
     return-void
 .end method
 

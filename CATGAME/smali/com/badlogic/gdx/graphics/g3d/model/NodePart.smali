@@ -31,26 +31,23 @@
     .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 41
     const/4 v0, 0x1
 
+    .line 41
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->enabled:Z
 
-    .line 46
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;Lcom/badlogic/gdx/graphics/g3d/Material;)V
     .locals 1
-    .param p1, "meshPart"    # Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
-    .param p2, "material"    # Lcom/badlogic/gdx/graphics/g3d/Material;
 
     .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 41
     const/4 v0, 0x1
 
+    .line 41
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->enabled:Z
 
     .line 52
@@ -59,7 +56,6 @@
     .line 53
     iput-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->material:Lcom/badlogic/gdx/graphics/g3d/Material;
 
-    .line 54
     return-void
 .end method
 
@@ -82,7 +78,6 @@
 
 .method protected set(Lcom/badlogic/gdx/graphics/g3d/model/NodePart;)Lcom/badlogic/gdx/graphics/g3d/model/NodePart;
     .locals 5
-    .param p1, "other"    # Lcom/badlogic/gdx/graphics/g3d/model/NodePart;
 
     .line 75
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
@@ -108,26 +103,28 @@
 
     if-nez v0, :cond_0
 
-    .line 79
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->invBoneBindTransforms:Lcom/badlogic/gdx/utils/ArrayMap;
+    .line 79
+    iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->invBoneBindTransforms:Lcom/badlogic/gdx/utils/ArrayMap;
 
     .line 80
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->bones:[Lcom/badlogic/gdx/math/Matrix4;
+    iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->bones:[Lcom/badlogic/gdx/math/Matrix4;
 
     goto :goto_2
 
     .line 82
     :cond_0
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->invBoneBindTransforms:Lcom/badlogic/gdx/utils/ArrayMap;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->invBoneBindTransforms:Lcom/badlogic/gdx/utils/ArrayMap;
 
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
 
     .line 83
-    new-instance v1, Lcom/badlogic/gdx/utils/ArrayMap;
+    new-instance v0, Lcom/badlogic/gdx/utils/ArrayMap;
 
-    iget v0, v0, Lcom/badlogic/gdx/utils/ArrayMap;->size:I
+    iget-object v1, p1, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->invBoneBindTransforms:Lcom/badlogic/gdx/utils/ArrayMap;
+
+    iget v1, v1, Lcom/badlogic/gdx/utils/ArrayMap;->size:I
 
     const-class v2, Lcom/badlogic/gdx/graphics/g3d/model/Node;
 
@@ -135,79 +132,75 @@
 
     const/4 v4, 0x1
 
-    invoke-direct {v1, v4, v0, v2, v3}, Lcom/badlogic/gdx/utils/ArrayMap;-><init>(ZILjava/lang/Class;Ljava/lang/Class;)V
+    invoke-direct {v0, v4, v1, v2, v3}, Lcom/badlogic/gdx/utils/ArrayMap;-><init>(ZILjava/lang/Class;Ljava/lang/Class;)V
 
-    iput-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->invBoneBindTransforms:Lcom/badlogic/gdx/utils/ArrayMap;
+    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->invBoneBindTransforms:Lcom/badlogic/gdx/utils/ArrayMap;
 
     goto :goto_0
 
     .line 85
     :cond_1
-    invoke-virtual {v1}, Lcom/badlogic/gdx/utils/ArrayMap;->clear()V
+    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/ArrayMap;->clear()V
 
     .line 86
     :goto_0
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->invBoneBindTransforms:Lcom/badlogic/gdx/utils/ArrayMap;
 
-    iget-object v1, p1, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->invBoneBindTransforms:Lcom/badlogic/gdx/utils/ArrayMap;
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->invBoneBindTransforms:Lcom/badlogic/gdx/utils/ArrayMap;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/utils/ArrayMap;->putAll(Lcom/badlogic/gdx/utils/ArrayMap;)V
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/ArrayMap;->putAll(Lcom/badlogic/gdx/utils/ArrayMap;)V
 
     .line 88
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->bones:[Lcom/badlogic/gdx/math/Matrix4;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->bones:[Lcom/badlogic/gdx/math/Matrix4;
 
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
-    array-length v0, v0
+    array-length p1, p1
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->invBoneBindTransforms:Lcom/badlogic/gdx/utils/ArrayMap;
-
-    iget v1, v1, Lcom/badlogic/gdx/utils/ArrayMap;->size:I
-
-    if-eq v0, v1, :cond_3
-
-    .line 89
-    :cond_2
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->invBoneBindTransforms:Lcom/badlogic/gdx/utils/ArrayMap;
 
     iget v0, v0, Lcom/badlogic/gdx/utils/ArrayMap;->size:I
 
-    new-array v0, v0, [Lcom/badlogic/gdx/math/Matrix4;
+    if-eq p1, v0, :cond_3
 
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->bones:[Lcom/badlogic/gdx/math/Matrix4;
+    .line 89
+    :cond_2
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->invBoneBindTransforms:Lcom/badlogic/gdx/utils/ArrayMap;
+
+    iget p1, p1, Lcom/badlogic/gdx/utils/ArrayMap;->size:I
+
+    new-array p1, p1, [Lcom/badlogic/gdx/math/Matrix4;
+
+    iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->bones:[Lcom/badlogic/gdx/math/Matrix4;
+
+    :cond_3
+    const/4 p1, 0x0
 
     .line 91
-    :cond_3
-    const/4 v0, 0x0
-
-    .local v0, "i":I
     :goto_1
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->bones:[Lcom/badlogic/gdx/math/Matrix4;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->bones:[Lcom/badlogic/gdx/math/Matrix4;
 
-    array-length v2, v1
+    array-length v1, v0
 
-    if-ge v0, v2, :cond_5
+    if-ge p1, v1, :cond_5
 
     .line 92
-    aget-object v2, v1, v0
+    aget-object v1, v0, p1
 
-    if-nez v2, :cond_4
+    if-nez v1, :cond_4
 
     .line 93
-    new-instance v2, Lcom/badlogic/gdx/math/Matrix4;
+    new-instance v1, Lcom/badlogic/gdx/math/Matrix4;
 
-    invoke-direct {v2}, Lcom/badlogic/gdx/math/Matrix4;-><init>()V
+    invoke-direct {v1}, Lcom/badlogic/gdx/math/Matrix4;-><init>()V
 
-    aput-object v2, v1, v0
+    aput-object v1, v0, p1
 
-    .line 91
     :cond_4
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
     goto :goto_1
 
-    .line 96
-    .end local v0    # "i":I
     :cond_5
     :goto_2
     return-object p0
@@ -215,7 +208,6 @@
 
 .method public setRenderable(Lcom/badlogic/gdx/graphics/g3d/Renderable;)Lcom/badlogic/gdx/graphics/g3d/Renderable;
     .locals 2
-    .param p1, "out"    # Lcom/badlogic/gdx/graphics/g3d/Renderable;
 
     .line 64
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/NodePart;->material:Lcom/badlogic/gdx/graphics/g3d/Material;
@@ -234,6 +226,5 @@
 
     iput-object v0, p1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->bones:[Lcom/badlogic/gdx/math/Matrix4;
 
-    .line 67
     return-object p1
 .end method

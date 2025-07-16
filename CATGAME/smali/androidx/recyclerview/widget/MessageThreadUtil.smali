@@ -31,7 +31,6 @@
     .locals 0
 
     .line 27
-    .local p0, "this":Landroidx/recyclerview/widget/MessageThreadUtil;, "Landroidx/recyclerview/widget/MessageThreadUtil<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -52,8 +51,6 @@
     .end annotation
 
     .line 88
-    .local p0, "this":Landroidx/recyclerview/widget/MessageThreadUtil;, "Landroidx/recyclerview/widget/MessageThreadUtil<TT;>;"
-    .local p1, "callback":Landroidx/recyclerview/widget/ThreadUtil$BackgroundCallback;, "Landroidx/recyclerview/widget/ThreadUtil$BackgroundCallback<TT;>;"
     new-instance v0, Landroidx/recyclerview/widget/MessageThreadUtil$2;
 
     invoke-direct {v0, p0, p1}, Landroidx/recyclerview/widget/MessageThreadUtil$2;-><init>(Landroidx/recyclerview/widget/MessageThreadUtil;Landroidx/recyclerview/widget/ThreadUtil$BackgroundCallback;)V
@@ -74,8 +71,6 @@
     .end annotation
 
     .line 31
-    .local p0, "this":Landroidx/recyclerview/widget/MessageThreadUtil;, "Landroidx/recyclerview/widget/MessageThreadUtil<TT;>;"
-    .local p1, "callback":Landroidx/recyclerview/widget/ThreadUtil$MainThreadCallback;, "Landroidx/recyclerview/widget/ThreadUtil$MainThreadCallback<TT;>;"
     new-instance v0, Landroidx/recyclerview/widget/MessageThreadUtil$1;
 
     invoke-direct {v0, p0, p1}, Landroidx/recyclerview/widget/MessageThreadUtil$1;-><init>(Landroidx/recyclerview/widget/MessageThreadUtil;Landroidx/recyclerview/widget/ThreadUtil$MainThreadCallback;)V

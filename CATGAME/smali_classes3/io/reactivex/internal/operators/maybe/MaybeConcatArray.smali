@@ -45,14 +45,11 @@
     .end annotation
 
     .line 35
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeConcatArray;, "Lio/reactivex/internal/operators/maybe/MaybeConcatArray<TT;>;"
-    .local p1, "sources":[Lio/reactivex/MaybeSource;, "[Lio/reactivex/MaybeSource<+TT;>;"
     invoke-direct {p0}, Lio/reactivex/Flowable;-><init>()V
 
     .line 36
     iput-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeConcatArray;->sources:[Lio/reactivex/MaybeSource;
 
-    .line 37
     return-void
 .end method
 
@@ -69,8 +66,6 @@
     .end annotation
 
     .line 41
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeConcatArray;, "Lio/reactivex/internal/operators/maybe/MaybeConcatArray<TT;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/maybe/MaybeConcatArray$ConcatMaybeObserver;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/maybe/MaybeConcatArray;->sources:[Lio/reactivex/MaybeSource;
@@ -78,12 +73,10 @@
     invoke-direct {v0, p1, v1}, Lio/reactivex/internal/operators/maybe/MaybeConcatArray$ConcatMaybeObserver;-><init>(Lorg/reactivestreams/Subscriber;[Lio/reactivex/MaybeSource;)V
 
     .line 42
-    .local v0, "parent":Lio/reactivex/internal/operators/maybe/MaybeConcatArray$ConcatMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeConcatArray$ConcatMaybeObserver<TT;>;"
     invoke-interface {p1, v0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
     .line 43
     invoke-virtual {v0}, Lio/reactivex/internal/operators/maybe/MaybeConcatArray$ConcatMaybeObserver;->drain()V
 
-    .line 44
     return-void
 .end method

@@ -25,9 +25,9 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .line 15
     const-string v0, "directionalLights"
 
+    .line 15
     invoke-static {v0}, Lcom/badlogic/gdx/graphics/g3d/attributes/DirectionalLightsAttribute;->register(Ljava/lang/String;)J
 
     move-result-wide v0
@@ -54,13 +54,11 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/DirectionalLightsAttribute;->lights:Lcom/badlogic/gdx/utils/Array;
 
-    .line 26
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/attributes/DirectionalLightsAttribute;)V
-    .locals 2
-    .param p1, "copyFrom"    # Lcom/badlogic/gdx/graphics/g3d/attributes/DirectionalLightsAttribute;
+    .locals 1
 
     .line 29
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/g3d/attributes/DirectionalLightsAttribute;-><init>()V
@@ -68,43 +66,40 @@
     .line 30
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/DirectionalLightsAttribute;->lights:Lcom/badlogic/gdx/utils/Array;
 
-    iget-object v1, p1, Lcom/badlogic/gdx/graphics/g3d/attributes/DirectionalLightsAttribute;->lights:Lcom/badlogic/gdx/utils/Array;
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g3d/attributes/DirectionalLightsAttribute;->lights:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/utils/Array;->addAll(Lcom/badlogic/gdx/utils/Array;)V
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/Array;->addAll(Lcom/badlogic/gdx/utils/Array;)V
 
-    .line 31
     return-void
 .end method
 
 .method public static final is(J)Z
     .locals 2
-    .param p0, "mask"    # J
 
     .line 18
     sget-wide v0, Lcom/badlogic/gdx/graphics/g3d/attributes/DirectionalLightsAttribute;->Type:J
 
     and-long/2addr v0, p0
 
-    cmp-long v0, v0, p0
+    cmp-long p0, v0, p0
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 
 # virtual methods
 .method public compareTo(Lcom/badlogic/gdx/graphics/g3d/Attribute;)I
     .locals 4
-    .param p1, "o"    # Lcom/badlogic/gdx/graphics/g3d/Attribute;
 
     .line 48
     iget-wide v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/DirectionalLightsAttribute;->type:J
@@ -119,25 +114,24 @@
 
     iget-wide v2, p1, Lcom/badlogic/gdx/graphics/g3d/Attribute;->type:J
 
-    cmp-long v0, v0, v2
+    cmp-long p1, v0, v2
 
-    if-gez v0, :cond_0
+    if-gez p1, :cond_0
 
-    const/4 v0, -0x1
+    const/4 p1, -0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     :goto_0
-    return v0
+    return p1
 
-    .line 49
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
@@ -176,7 +170,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 5
+    .locals 3
 
     .line 40
     invoke-super {p0}, Lcom/badlogic/gdx/graphics/g3d/Attribute;->hashCode()I
@@ -184,7 +178,6 @@
     move-result v0
 
     .line 41
-    .local v0, "result":I
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/DirectionalLightsAttribute;->lights:Lcom/badlogic/gdx/utils/Array;
 
     invoke-virtual {v1}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
@@ -204,28 +197,25 @@
 
     check-cast v2, Lcom/badlogic/gdx/graphics/g3d/environment/DirectionalLight;
 
-    .line 42
-    .local v2, "light":Lcom/badlogic/gdx/graphics/g3d/environment/DirectionalLight;
-    mul-int/lit16 v3, v0, 0x4cd
+    mul-int/lit16 v0, v0, 0x4cd
 
     if-nez v2, :cond_0
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
     goto :goto_1
 
+    .line 42
     :cond_0
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
-    move-result v4
+    move-result v2
 
     :goto_1
-    add-int v0, v3, v4
+    add-int/2addr v0, v2
 
-    .end local v2    # "light":Lcom/badlogic/gdx/graphics/g3d/environment/DirectionalLight;
     goto :goto_0
 
-    .line 43
     :cond_1
     return v0
 .end method

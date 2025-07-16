@@ -64,7 +64,7 @@
 .end method
 
 .method public getKeyManager(Ljava/lang/Class;)Lcom/google/crypto/tink/KeyManager;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -93,7 +93,6 @@
     .end annotation
 
     .line 185
-    .local p1, "primitiveClass":Ljava/lang/Class;, "Ljava/lang/Class<TQ;>;"
     :try_start_0
     new-instance v0, Lcom/google/crypto/tink/KeyManagerImpl;
 
@@ -105,19 +104,17 @@
 
     return-object v0
 
-    .line 186
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 187
-    .local v0, "e":Ljava/lang/IllegalArgumentException;
-    new-instance v1, Ljava/security/GeneralSecurityException;
+    new-instance v0, Ljava/security/GeneralSecurityException;
 
-    const-string v2, "Primitive type not supported"
+    const-string v1, "Primitive type not supported"
 
-    invoke-direct {v1, v2, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v0, v1, p1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public getUntypedKeyManager()Lcom/google/crypto/tink/KeyManager;
@@ -142,13 +139,11 @@
 
     invoke-direct {v0, v1, v2}, Lcom/google/crypto/tink/KeyManagerImpl;-><init>(Lcom/google/crypto/tink/KeyTypeManager;Ljava/lang/Class;)V
 
-    .line 193
     return-object v0
 .end method
 
 .method public parseKey(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
-    .locals 2
-    .param p1, "serializedKey"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -170,16 +165,14 @@
 
     invoke-virtual {v0, p1}, Lcom/google/crypto/tink/KeyTypeManager;->parseKey(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 216
-    .local v0, "result":Lcom/google/crypto/tink/shaded/protobuf/MessageLite;, "TKeyProtoT;"
-    iget-object v1, p0, Lcom/google/crypto/tink/Registry$2;->val$localKeyManager:Lcom/google/crypto/tink/KeyTypeManager;
+    iget-object v0, p0, Lcom/google/crypto/tink/Registry$2;->val$localKeyManager:Lcom/google/crypto/tink/KeyTypeManager;
 
-    invoke-virtual {v1, v0}, Lcom/google/crypto/tink/KeyTypeManager;->validateKey(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)V
+    invoke-virtual {v0, p1}, Lcom/google/crypto/tink/KeyTypeManager;->validateKey(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)V
 
-    .line 217
-    return-object v0
+    return-object p1
 .end method
 
 .method public publicKeyManagerClassOrNull()Ljava/lang/Class;
@@ -192,7 +185,6 @@
         }
     .end annotation
 
-    .line 209
     const/4 v0, 0x0
 
     return-object v0

@@ -37,22 +37,22 @@
     .line 65
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 54
     const/4 v0, 0x0
 
+    .line 54
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->vertexShader:Ljava/lang/String;
 
     .line 56
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->fragmentShader:Ljava/lang/String;
 
-    .line 57
     const/4 v0, 0x1
 
+    .line 57
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->ignoreUnimplemented:Z
 
-    .line 59
     const/4 v0, -0x1
 
+    .line 59
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->defaultCullFace:I
 
     .line 61
@@ -68,33 +68,31 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->type:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$ParticleType;
 
-    .line 66
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;)V
     .locals 1
-    .param p1, "align"    # Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;
 
     .line 73
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 54
     const/4 v0, 0x0
 
+    .line 54
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->vertexShader:Ljava/lang/String;
 
     .line 56
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->fragmentShader:Ljava/lang/String;
 
-    .line 57
     const/4 v0, 0x1
 
+    .line 57
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->ignoreUnimplemented:Z
 
-    .line 59
     const/4 v0, -0x1
 
+    .line 59
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->defaultCullFace:I
 
     .line 61
@@ -113,34 +111,31 @@
     .line 74
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->align:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;
 
-    .line 75
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$ParticleType;)V
     .locals 1
-    .param p1, "align"    # Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;
-    .param p2, "type"    # Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$ParticleType;
 
     .line 68
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 54
     const/4 v0, 0x0
 
+    .line 54
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->vertexShader:Ljava/lang/String;
 
     .line 56
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->fragmentShader:Ljava/lang/String;
 
-    .line 57
     const/4 v0, 0x1
 
+    .line 57
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->ignoreUnimplemented:Z
 
-    .line 59
     const/4 v0, -0x1
 
+    .line 59
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->defaultCullFace:I
 
     .line 61
@@ -153,8 +148,6 @@
 
     .line 63
     sget-object v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$ParticleType;->Billboard:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$ParticleType;
-
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->type:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$ParticleType;
 
     .line 69
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->align:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;
@@ -162,33 +155,31 @@
     .line 70
     iput-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->type:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$ParticleType;
 
-    .line 71
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$ParticleType;)V
     .locals 1
-    .param p1, "type"    # Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$ParticleType;
 
     .line 77
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 54
     const/4 v0, 0x0
 
+    .line 54
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->vertexShader:Ljava/lang/String;
 
     .line 56
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->fragmentShader:Ljava/lang/String;
 
-    .line 57
     const/4 v0, 0x1
 
+    .line 57
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->ignoreUnimplemented:Z
 
-    .line 59
     const/4 v0, -0x1
 
+    .line 59
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->defaultCullFace:I
 
     .line 61
@@ -202,39 +193,34 @@
     .line 63
     sget-object v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$ParticleType;->Billboard:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$ParticleType;
 
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->type:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$ParticleType;
-
     .line 78
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->type:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$ParticleType;
 
-    .line 79
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .param p1, "vertexShader"    # Ljava/lang/String;
-    .param p2, "fragmentShader"    # Ljava/lang/String;
 
     .line 81
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 54
     const/4 v0, 0x0
 
+    .line 54
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->vertexShader:Ljava/lang/String;
 
     .line 56
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->fragmentShader:Ljava/lang/String;
 
-    .line 57
     const/4 v0, 0x1
 
+    .line 57
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->ignoreUnimplemented:Z
 
-    .line 59
     const/4 v0, -0x1
 
+    .line 59
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->defaultCullFace:I
 
     .line 61
@@ -256,6 +242,5 @@
     .line 83
     iput-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$Config;->fragmentShader:Ljava/lang/String;
 
-    .line 84
     return-void
 .end method

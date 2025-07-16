@@ -48,9 +48,6 @@
 # direct methods
 .method public constructor <init>(Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function;ZII)V
     .locals 0
-    .param p3, "delayErrors"    # Z
-    .param p4, "maxConcurrency"    # I
-    .param p5, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -64,9 +61,6 @@
     .end annotation
 
     .line 30
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableFlatMapPublisher;, "Lio/reactivex/internal/operators/flowable/FlowableFlatMapPublisher<TT;TU;>;"
-    .local p1, "source":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TT;>;"
-    .local p2, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TU;>;>;"
     invoke-direct {p0}, Lio/reactivex/Flowable;-><init>()V
 
     .line 31
@@ -84,7 +78,6 @@
     .line 35
     iput p5, p0, Lio/reactivex/internal/operators/flowable/FlowableFlatMapPublisher;->bufferSize:I
 
-    .line 36
     return-void
 .end method
 
@@ -101,8 +94,6 @@
     .end annotation
 
     .line 40
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableFlatMapPublisher;, "Lio/reactivex/internal/operators/flowable/FlowableFlatMapPublisher<TT;TU;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableFlatMapPublisher;->source:Lorg/reactivestreams/Publisher;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableFlatMapPublisher;->mapper:Lio/reactivex/functions/Function;
@@ -113,7 +104,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 41
     return-void
 
     .line 43
@@ -130,10 +120,9 @@
 
     invoke-static {p1, v1, v2, v3, v4}, Lio/reactivex/internal/operators/flowable/FlowableFlatMap;->subscribe(Lorg/reactivestreams/Subscriber;Lio/reactivex/functions/Function;ZII)Lio/reactivex/FlowableSubscriber;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
+    invoke-interface {v0, p1}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
 
-    .line 44
     return-void
 .end method

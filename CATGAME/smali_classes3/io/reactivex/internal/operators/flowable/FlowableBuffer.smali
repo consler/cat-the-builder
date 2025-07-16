@@ -43,8 +43,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/Flowable;IILjava/util/concurrent/Callable;)V
     .locals 0
-    .param p2, "size"    # I
-    .param p3, "skip"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,9 +54,6 @@
     .end annotation
 
     .line 38
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableBuffer;, "Lio/reactivex/internal/operators/flowable/FlowableBuffer<TT;TC;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p4, "bufferSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TC;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
     .line 39
@@ -70,7 +65,6 @@
     .line 41
     iput-object p4, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer;->bufferSupplier:Ljava/util/concurrent/Callable;
 
-    .line 42
     return-void
 .end method
 
@@ -87,8 +81,6 @@
     .end annotation
 
     .line 46
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableBuffer;, "Lio/reactivex/internal/operators/flowable/FlowableBuffer<TT;TC;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TC;>;"
     iget v0, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer;->size:I
 
     iget v1, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer;->skip:I
@@ -110,7 +102,6 @@
 
     goto :goto_0
 
-    .line 48
     :cond_0
     if-le v1, v0, :cond_1
 
@@ -147,7 +138,6 @@
 
     invoke-virtual {v0, v1}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 53
     :goto_0
     return-void
 .end method

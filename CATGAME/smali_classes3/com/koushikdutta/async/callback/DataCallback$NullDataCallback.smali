@@ -31,12 +31,9 @@
 # virtual methods
 .method public onDataAvailable(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/ByteBufferList;)V
     .locals 0
-    .param p1, "emitter"    # Lcom/koushikdutta/async/DataEmitter;
-    .param p2, "bb"    # Lcom/koushikdutta/async/ByteBufferList;
 
     .line 11
     invoke-virtual {p2}, Lcom/koushikdutta/async/ByteBufferList;->recycle()V
 
-    .line 12
     return-void
 .end method

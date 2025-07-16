@@ -18,18 +18,16 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 520
+    .line 564
     invoke-direct {p0}, Landroidx/work/ListenableWorker$Result;-><init>()V
 
-    .line 521
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -39,26 +37,25 @@
         }
     .end annotation
 
-    .line 525
     const/4 v0, 0x1
 
     if-ne p0, p1, :cond_0
 
     return v0
 
-    .line 527
     :cond_0
     if-eqz p1, :cond_1
 
+    .line 571
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object p1
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, p1, :cond_1
 
     goto :goto_0
 
@@ -69,29 +66,26 @@
     return v0
 .end method
 
+.method public getOutputData()Landroidx/work/Data;
+    .locals 1
+
+    .line 583
+    sget-object v0, Landroidx/work/Data;->EMPTY:Landroidx/work/Data;
+
+    return-object v0
+.end method
+
 .method public hashCode()I
-    .locals 2
+    .locals 1
 
-    .line 532
-    const-class v0, Landroidx/work/ListenableWorker$Result$Retry;
+    const v0, 0x18be74e
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 533
-    .local v0, "name":Ljava/lang/String;
-    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
-
-    move-result v1
-
-    return v1
+    return v0
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .line 538
     const-string v0, "Retry"
 
     return-object v0

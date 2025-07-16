@@ -27,9 +27,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 37
     const-string v0, "BrdcstRcvrCnstrntTrckr"
 
+    .line 37
     invoke-static {v0}, Landroidx/work/Logger;->tagWithPrefix(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -40,9 +40,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "taskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -55,17 +53,15 @@
     .end annotation
 
     .line 51
-    .local p0, "this":Landroidx/work/impl/constraints/trackers/BroadcastReceiverConstraintTracker;, "Landroidx/work/impl/constraints/trackers/BroadcastReceiverConstraintTracker<TT;>;"
     invoke-direct {p0, p1, p2}, Landroidx/work/impl/constraints/trackers/ConstraintTracker;-><init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
 
     .line 39
-    new-instance v0, Landroidx/work/impl/constraints/trackers/BroadcastReceiverConstraintTracker$1;
+    new-instance p1, Landroidx/work/impl/constraints/trackers/BroadcastReceiverConstraintTracker$1;
 
-    invoke-direct {v0, p0}, Landroidx/work/impl/constraints/trackers/BroadcastReceiverConstraintTracker$1;-><init>(Landroidx/work/impl/constraints/trackers/BroadcastReceiverConstraintTracker;)V
+    invoke-direct {p1, p0}, Landroidx/work/impl/constraints/trackers/BroadcastReceiverConstraintTracker$1;-><init>(Landroidx/work/impl/constraints/trackers/BroadcastReceiverConstraintTracker;)V
 
-    iput-object v0, p0, Landroidx/work/impl/constraints/trackers/BroadcastReceiverConstraintTracker;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
+    iput-object p1, p0, Landroidx/work/impl/constraints/trackers/BroadcastReceiverConstraintTracker;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 52
     return-void
 .end method
 
@@ -91,7 +87,6 @@
     .locals 5
 
     .line 70
-    .local p0, "this":Landroidx/work/impl/constraints/trackers/BroadcastReceiverConstraintTracker;, "Landroidx/work/impl/constraints/trackers/BroadcastReceiverConstraintTracker<TT;>;"
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v0
@@ -137,7 +132,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 74
     return-void
 .end method
 
@@ -145,7 +139,6 @@
     .locals 5
 
     .line 78
-    .local p0, "this":Landroidx/work/impl/constraints/trackers/BroadcastReceiverConstraintTracker;, "Landroidx/work/impl/constraints/trackers/BroadcastReceiverConstraintTracker<TT;>;"
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v0
@@ -187,6 +180,5 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 82
     return-void
 .end method

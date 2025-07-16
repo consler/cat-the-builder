@@ -127,11 +127,11 @@
 
     sput-object v0, Lorg/apache/commons/lang3/time/FastDateParser;->LONGER_FIRST_LOWERCASE:Ljava/util/Comparator;
 
-    .line 611
     const/16 v0, 0x11
 
     new-array v0, v0, [Ljava/util/concurrent/ConcurrentMap;
 
+    .line 611
     sput-object v0, Lorg/apache/commons/lang3/time/FastDateParser;->caches:[Ljava/util/concurrent/ConcurrentMap;
 
     .line 805
@@ -277,25 +277,17 @@
 
 .method protected constructor <init>(Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)V
     .locals 1
-    .param p1, "pattern"    # Ljava/lang/String;
-    .param p2, "timeZone"    # Ljava/util/TimeZone;
-    .param p3, "locale"    # Ljava/util/Locale;
 
-    .line 116
     const/4 v0, 0x0
 
+    .line 116
     invoke-direct {p0, p1, p2, p3, v0}, Lorg/apache/commons/lang3/time/FastDateParser;-><init>(Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;Ljava/util/Date;)V
 
-    .line 117
     return-void
 .end method
 
 .method protected constructor <init>(Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;Ljava/util/Date;)V
-    .locals 3
-    .param p1, "pattern"    # Ljava/lang/String;
-    .param p2, "timeZone"    # Ljava/util/TimeZone;
-    .param p3, "locale"    # Ljava/util/Locale;
-    .param p4, "centuryStart"    # Ljava/util/Date;
+    .locals 0
 
     .line 130
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -312,142 +304,121 @@
     .line 135
     invoke-static {p2, p3}, Ljava/util/Calendar;->getInstance(Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/util/Calendar;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 138
-    .local v0, "definingCalendar":Ljava/util/Calendar;
-    const/4 v1, 0x1
+    const/4 p2, 0x1
 
     if-eqz p4, :cond_0
 
     .line 139
-    invoke-virtual {v0, p4}, Ljava/util/Calendar;->setTime(Ljava/util/Date;)V
+    invoke-virtual {p1, p4}, Ljava/util/Calendar;->setTime(Ljava/util/Date;)V
 
     .line 140
-    invoke-virtual {v0, v1}, Ljava/util/Calendar;->get(I)I
+    invoke-virtual {p1, p2}, Ljava/util/Calendar;->get(I)I
 
-    move-result v1
+    move-result p2
 
-    .local v1, "centuryStartYear":I
     goto :goto_0
 
     .line 141
-    .end local v1    # "centuryStartYear":I
     :cond_0
-    sget-object v2, Lorg/apache/commons/lang3/time/FastDateParser;->JAPANESE_IMPERIAL:Ljava/util/Locale;
+    sget-object p4, Lorg/apache/commons/lang3/time/FastDateParser;->JAPANESE_IMPERIAL:Ljava/util/Locale;
 
-    invoke-virtual {p3, v2}, Ljava/util/Locale;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p3, p4}, Ljava/util/Locale;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p3
 
-    if-eqz v2, :cond_1
+    if-eqz p3, :cond_1
 
-    .line 142
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    .restart local v1    # "centuryStartYear":I
     goto :goto_0
 
     .line 145
-    .end local v1    # "centuryStartYear":I
     :cond_1
-    new-instance v2, Ljava/util/Date;
+    new-instance p3, Ljava/util/Date;
 
-    invoke-direct {v2}, Ljava/util/Date;-><init>()V
+    invoke-direct {p3}, Ljava/util/Date;-><init>()V
 
-    invoke-virtual {v0, v2}, Ljava/util/Calendar;->setTime(Ljava/util/Date;)V
+    invoke-virtual {p1, p3}, Ljava/util/Calendar;->setTime(Ljava/util/Date;)V
 
     .line 146
-    invoke-virtual {v0, v1}, Ljava/util/Calendar;->get(I)I
+    invoke-virtual {p1, p2}, Ljava/util/Calendar;->get(I)I
 
-    move-result v1
+    move-result p2
 
-    add-int/lit8 v1, v1, -0x50
+    add-int/lit8 p2, p2, -0x50
 
     .line 148
-    .restart local v1    # "centuryStartYear":I
     :goto_0
-    div-int/lit8 v2, v1, 0x64
+    div-int/lit8 p3, p2, 0x64
 
-    mul-int/lit8 v2, v2, 0x64
+    mul-int/lit8 p3, p3, 0x64
 
-    iput v2, p0, Lorg/apache/commons/lang3/time/FastDateParser;->century:I
+    iput p3, p0, Lorg/apache/commons/lang3/time/FastDateParser;->century:I
+
+    sub-int/2addr p2, p3
 
     .line 149
-    sub-int v2, v1, v2
-
-    iput v2, p0, Lorg/apache/commons/lang3/time/FastDateParser;->startYear:I
+    iput p2, p0, Lorg/apache/commons/lang3/time/FastDateParser;->startYear:I
 
     .line 151
-    invoke-direct {p0, v0}, Lorg/apache/commons/lang3/time/FastDateParser;->init(Ljava/util/Calendar;)V
+    invoke-direct {p0, p1}, Lorg/apache/commons/lang3/time/FastDateParser;->init(Ljava/util/Calendar;)V
 
-    .line 152
     return-void
 .end method
 
 .method static synthetic access$000(Lorg/apache/commons/lang3/time/FastDateParser;)Ljava/lang/String;
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/lang3/time/FastDateParser;
+    .locals 0
 
     .line 73
-    iget-object v0, p0, Lorg/apache/commons/lang3/time/FastDateParser;->pattern:Ljava/lang/String;
+    iget-object p0, p0, Lorg/apache/commons/lang3/time/FastDateParser;->pattern:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$100(C)Z
-    .locals 1
-    .param p0, "x0"    # C
+    .locals 0
 
     .line 73
     invoke-static {p0}, Lorg/apache/commons/lang3/time/FastDateParser;->isFormatLetter(C)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$200(Lorg/apache/commons/lang3/time/FastDateParser;CILjava/util/Calendar;)Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/lang3/time/FastDateParser;
-    .param p1, "x1"    # C
-    .param p2, "x2"    # I
-    .param p3, "x3"    # Ljava/util/Calendar;
+    .locals 0
 
     .line 73
     invoke-direct {p0, p1, p2, p3}, Lorg/apache/commons/lang3/time/FastDateParser;->getStrategy(CILjava/util/Calendar;)Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$600(Ljava/util/Calendar;Ljava/util/Locale;ILjava/lang/StringBuilder;)Ljava/util/Map;
-    .locals 1
-    .param p0, "x0"    # Ljava/util/Calendar;
-    .param p1, "x1"    # Ljava/util/Locale;
-    .param p2, "x2"    # I
-    .param p3, "x3"    # Ljava/lang/StringBuilder;
+    .locals 0
 
     .line 73
     invoke-static {p0, p1, p2, p3}, Lorg/apache/commons/lang3/time/FastDateParser;->appendDisplayNames(Ljava/util/Calendar;Ljava/util/Locale;ILjava/lang/StringBuilder;)Ljava/util/Map;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$700(Lorg/apache/commons/lang3/time/FastDateParser;I)I
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/lang3/time/FastDateParser;
-    .param p1, "x1"    # I
+    .locals 0
 
     .line 73
     invoke-direct {p0, p1}, Lorg/apache/commons/lang3/time/FastDateParser;->adjustYear(I)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$800()Ljava/util/Comparator;
@@ -460,21 +431,18 @@
 .end method
 
 .method static synthetic access$900(Ljava/lang/StringBuilder;Ljava/lang/String;)Ljava/lang/StringBuilder;
-    .locals 1
-    .param p0, "x0"    # Ljava/lang/StringBuilder;
-    .param p1, "x1"    # Ljava/lang/String;
+    .locals 0
 
     .line 73
     invoke-static {p0, p1}, Lorg/apache/commons/lang3/time/FastDateParser;->simpleQuote(Ljava/lang/StringBuilder;Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private adjustYear(I)I
     .locals 2
-    .param p1, "twoDigitYear"    # I
 
     .line 489
     iget v0, p0, Lorg/apache/commons/lang3/time/FastDateParser;->century:I
@@ -482,28 +450,21 @@
     add-int/2addr v0, p1
 
     .line 490
-    .local v0, "trial":I
     iget v1, p0, Lorg/apache/commons/lang3/time/FastDateParser;->startYear:I
 
     if-lt p1, v1, :cond_0
 
-    move v1, v0
-
     goto :goto_0
 
     :cond_0
-    add-int/lit8 v1, v0, 0x64
+    add-int/lit8 v0, v0, 0x64
 
     :goto_0
-    return v1
+    return v0
 .end method
 
 .method private static appendDisplayNames(Ljava/util/Calendar;Ljava/util/Locale;ILjava/lang/StringBuilder;)Ljava/util/Map;
-    .locals 7
-    .param p0, "cal"    # Ljava/util/Calendar;
-    .param p1, "locale"    # Ljava/util/Locale;
-    .param p2, "field"    # I
-    .param p3, "regex"    # Ljava/lang/StringBuilder;
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -524,121 +485,108 @@
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    .line 469
-    .local v0, "values":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;"
     const/4 v1, 0x0
 
+    .line 469
     invoke-virtual {p0, p2, v1, p1}, Ljava/util/Calendar;->getDisplayNames(IILjava/util/Locale;)Ljava/util/Map;
+
+    move-result-object p0
+
+    .line 470
+    new-instance p2, Ljava/util/TreeSet;
+
+    sget-object v1, Lorg/apache/commons/lang3/time/FastDateParser;->LONGER_FIRST_LOWERCASE:Ljava/util/Comparator;
+
+    invoke-direct {p2, v1}, Ljava/util/TreeSet;-><init>(Ljava/util/Comparator;)V
+
+    .line 471
+    invoke-interface {p0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :cond_0
+    :goto_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 470
-    .local v1, "displayNames":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;"
-    new-instance v2, Ljava/util/TreeSet;
-
-    sget-object v3, Lorg/apache/commons/lang3/time/FastDateParser;->LONGER_FIRST_LOWERCASE:Ljava/util/Comparator;
-
-    invoke-direct {v2, v3}, Ljava/util/TreeSet;-><init>(Ljava/util/Comparator;)V
-
-    .line 471
-    .local v2, "sorted":Ljava/util/TreeSet;, "Ljava/util/TreeSet<Ljava/lang/String;>;"
-    invoke-interface {v1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
-
-    move-result-object v3
-
-    invoke-interface {v3}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v3
-
-    :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/util/Map$Entry;
+    check-cast v1, Ljava/util/Map$Entry;
 
     .line 472
-    .local v4, "displayName":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Integer;>;"
-    invoke-interface {v4}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v2
 
-    check-cast v5, Ljava/lang/String;
+    check-cast v2, Ljava/lang/String;
 
-    invoke-virtual {v5, p1}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {v2, p1}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v2
 
     .line 473
-    .local v5, "key":Ljava/lang/String;
-    invoke-virtual {v2, v5}, Ljava/util/TreeSet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v2}, Ljava/util/TreeSet;->add(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v3
 
-    if-eqz v6, :cond_0
+    if-eqz v3, :cond_0
 
     .line 474
-    invoke-interface {v4}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v1
 
-    check-cast v6, Ljava/lang/Integer;
+    check-cast v1, Ljava/lang/Integer;
 
-    invoke-interface {v0, v5, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 476
-    .end local v4    # "displayName":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Integer;>;"
-    .end local v5    # "key":Ljava/lang/String;
-    :cond_0
     goto :goto_0
 
     .line 477
     :cond_1
-    invoke-virtual {v2}, Ljava/util/TreeSet;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p2}, Ljava/util/TreeSet;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object p0
 
     :goto_1
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result p1
 
-    if-eqz v4, :cond_2
+    if-eqz p1, :cond_2
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object p1
 
-    check-cast v4, Ljava/lang/String;
+    check-cast p1, Ljava/lang/String;
 
     .line 478
-    .local v4, "symbol":Ljava/lang/String;
-    invoke-static {p3, v4}, Lorg/apache/commons/lang3/time/FastDateParser;->simpleQuote(Ljava/lang/StringBuilder;Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {p3, p1}, Lorg/apache/commons/lang3/time/FastDateParser;->simpleQuote(Ljava/lang/StringBuilder;Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object p1
 
-    const/16 v6, 0x7c
+    const/16 p2, 0x7c
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 479
-    .end local v4    # "symbol":Ljava/lang/String;
     goto :goto_1
 
-    .line 480
     :cond_2
     return-object v0
 .end method
 
 .method private static getCache(I)Ljava/util/concurrent/ConcurrentMap;
-    .locals 4
-    .param p0, "field"    # I
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -656,48 +604,40 @@
 
     .line 620
     :try_start_0
-    sget-object v1, Lorg/apache/commons/lang3/time/FastDateParser;->caches:[Ljava/util/concurrent/ConcurrentMap;
-
-    aget-object v1, v1, p0
+    aget-object v1, v0, p0
 
     if-nez v1, :cond_0
 
     .line 621
-    sget-object v1, Lorg/apache/commons/lang3/time/FastDateParser;->caches:[Ljava/util/concurrent/ConcurrentMap;
+    new-instance v1, Ljava/util/concurrent/ConcurrentHashMap;
 
-    new-instance v2, Ljava/util/concurrent/ConcurrentHashMap;
+    const/4 v2, 0x3
 
-    const/4 v3, 0x3
+    invoke-direct {v1, v2}, Ljava/util/concurrent/ConcurrentHashMap;-><init>(I)V
 
-    invoke-direct {v2, v3}, Ljava/util/concurrent/ConcurrentHashMap;-><init>(I)V
-
-    aput-object v2, v1, p0
+    aput-object v1, v0, p0
 
     .line 623
     :cond_0
-    sget-object v1, Lorg/apache/commons/lang3/time/FastDateParser;->caches:[Ljava/util/concurrent/ConcurrentMap;
-
-    aget-object v1, v1, p0
+    aget-object p0, v0, p0
 
     monitor-exit v0
 
-    return-object v1
+    return-object p0
+
+    :catchall_0
+    move-exception p0
 
     .line 624
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method private getLocaleSpecificStrategy(ILjava/util/Calendar;)Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
-    .locals 4
-    .param p1, "field"    # I
-    .param p2, "definingCalendar"    # Ljava/util/Calendar;
+    .locals 3
 
     .line 634
     invoke-static {p1}, Lorg/apache/commons/lang3/time/FastDateParser;->getCache(I)Ljava/util/concurrent/ConcurrentMap;
@@ -705,7 +645,6 @@
     move-result-object v0
 
     .line 635
-    .local v0, "cache":Ljava/util/concurrent/ConcurrentMap;, "Ljava/util/concurrent/ConcurrentMap<Ljava/util/Locale;Lorg/apache/commons/lang3/time/FastDateParser$Strategy;>;"
     iget-object v1, p0, Lorg/apache/commons/lang3/time/FastDateParser;->locale:Ljava/util/Locale;
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/ConcurrentMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -714,64 +653,52 @@
 
     check-cast v1, Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
-    .line 636
-    .local v1, "strategy":Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
     if-nez v1, :cond_1
 
-    .line 637
-    const/16 v2, 0xf
+    const/16 v1, 0xf
 
-    if-ne p1, v2, :cond_0
+    if-ne p1, v1, :cond_0
 
     .line 638
-    new-instance v2, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy;
+    new-instance p1, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy;
 
-    iget-object v3, p0, Lorg/apache/commons/lang3/time/FastDateParser;->locale:Ljava/util/Locale;
+    iget-object p2, p0, Lorg/apache/commons/lang3/time/FastDateParser;->locale:Ljava/util/Locale;
 
-    invoke-direct {v2, v3}, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy;-><init>(Ljava/util/Locale;)V
+    invoke-direct {p1, p2}, Lorg/apache/commons/lang3/time/FastDateParser$TimeZoneStrategy;-><init>(Ljava/util/Locale;)V
+
+    move-object v1, p1
 
     goto :goto_0
 
     .line 639
     :cond_0
-    new-instance v2, Lorg/apache/commons/lang3/time/FastDateParser$CaseInsensitiveTextStrategy;
+    new-instance v1, Lorg/apache/commons/lang3/time/FastDateParser$CaseInsensitiveTextStrategy;
 
-    iget-object v3, p0, Lorg/apache/commons/lang3/time/FastDateParser;->locale:Ljava/util/Locale;
-
-    invoke-direct {v2, p1, p2, v3}, Lorg/apache/commons/lang3/time/FastDateParser$CaseInsensitiveTextStrategy;-><init>(ILjava/util/Calendar;Ljava/util/Locale;)V
-
-    :goto_0
-    move-object v1, v2
-
-    .line 640
     iget-object v2, p0, Lorg/apache/commons/lang3/time/FastDateParser;->locale:Ljava/util/Locale;
 
-    invoke-interface {v0, v2, v1}, Ljava/util/concurrent/ConcurrentMap;->putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-direct {v1, p1, p2, v2}, Lorg/apache/commons/lang3/time/FastDateParser$CaseInsensitiveTextStrategy;-><init>(ILjava/util/Calendar;Ljava/util/Locale;)V
 
-    move-result-object v2
+    .line 640
+    :goto_0
+    iget-object p1, p0, Lorg/apache/commons/lang3/time/FastDateParser;->locale:Ljava/util/Locale;
 
-    check-cast v2, Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
+    invoke-interface {v0, p1, v1}, Ljava/util/concurrent/ConcurrentMap;->putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 641
-    .local v2, "inCache":Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
-    if-eqz v2, :cond_1
+    move-result-object p1
 
-    .line 642
-    return-object v2
+    check-cast p1, Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
-    .line 645
-    .end local v2    # "inCache":Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
+    if-eqz p1, :cond_1
+
+    return-object p1
+
     :cond_1
     return-object v1
 .end method
 
 .method private getStrategy(CILjava/util/Calendar;)Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
-    .locals 3
-    .param p1, "f"    # C
-    .param p2, "width"    # I
-    .param p3, "definingCalendar"    # Ljava/util/Calendar;
+    .locals 2
 
-    .line 558
     const/16 v0, 0x79
 
     const/4 v1, 0x2
@@ -789,199 +716,202 @@
     packed-switch p1, :pswitch_data_1
 
     .line 560
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p2, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "Format \'"
 
-    const-string v2, "Format \'"
+    invoke-direct {p3, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    const-string v2, "\' not supported"
+    const-string p3, "\' not supported"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    throw v0
+    invoke-direct {p2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    .line 601
+    throw p2
+
     :pswitch_0
     if-ne p2, v1, :cond_1
 
     .line 602
     invoke-static {}, Lorg/apache/commons/lang3/time/FastDateParser$ISO8601TimeZoneStrategy;->access$400()Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 599
     :pswitch_1
     invoke-static {p2}, Lorg/apache/commons/lang3/time/FastDateParser$ISO8601TimeZoneStrategy;->getStrategy(I)Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 578
     :pswitch_2
-    sget-object v0, Lorg/apache/commons/lang3/time/FastDateParser;->WEEK_OF_MONTH_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
+    sget-object p1, Lorg/apache/commons/lang3/time/FastDateParser;->WEEK_OF_MONTH_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
-    return-object v0
+    return-object p1
 
     .line 594
     :sswitch_0
-    sget-object v0, Lorg/apache/commons/lang3/time/FastDateParser;->WEEK_OF_YEAR_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
+    sget-object p1, Lorg/apache/commons/lang3/time/FastDateParser;->WEEK_OF_YEAR_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
-    return-object v0
+    return-object p1
 
     .line 592
     :sswitch_1
-    sget-object v0, Lorg/apache/commons/lang3/time/FastDateParser;->DAY_OF_WEEK_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
+    sget-object p1, Lorg/apache/commons/lang3/time/FastDateParser;->DAY_OF_WEEK_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
-    return-object v0
+    return-object p1
 
     .line 590
     :sswitch_2
-    sget-object v0, Lorg/apache/commons/lang3/time/FastDateParser;->SECOND_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
+    sget-object p1, Lorg/apache/commons/lang3/time/FastDateParser;->SECOND_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
-    return-object v0
+    return-object p1
 
     .line 588
     :sswitch_3
-    sget-object v0, Lorg/apache/commons/lang3/time/FastDateParser;->MINUTE_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
+    sget-object p1, Lorg/apache/commons/lang3/time/FastDateParser;->MINUTE_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
-    return-object v0
+    return-object p1
 
     .line 586
     :sswitch_4
-    sget-object v0, Lorg/apache/commons/lang3/time/FastDateParser;->HOUR24_OF_DAY_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
+    sget-object p1, Lorg/apache/commons/lang3/time/FastDateParser;->HOUR24_OF_DAY_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
-    return-object v0
+    return-object p1
 
     .line 584
     :sswitch_5
-    sget-object v0, Lorg/apache/commons/lang3/time/FastDateParser;->HOUR12_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
+    sget-object p1, Lorg/apache/commons/lang3/time/FastDateParser;->HOUR12_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
-    return-object v0
+    return-object p1
 
     .line 582
     :sswitch_6
-    sget-object v0, Lorg/apache/commons/lang3/time/FastDateParser;->DAY_OF_MONTH_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
+    sget-object p1, Lorg/apache/commons/lang3/time/FastDateParser;->DAY_OF_MONTH_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
-    return-object v0
+    return-object p1
+
+    :sswitch_7
+    const/16 p1, 0x9
 
     .line 580
-    :sswitch_7
-    const/16 v0, 0x9
+    invoke-direct {p0, p1, p3}, Lorg/apache/commons/lang3/time/FastDateParser;->getLocaleSpecificStrategy(ILjava/util/Calendar;)Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
-    invoke-direct {p0, v0, p3}, Lorg/apache/commons/lang3/time/FastDateParser;->getLocaleSpecificStrategy(ILjava/util/Calendar;)Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 
     .line 576
     :sswitch_8
-    sget-object v0, Lorg/apache/commons/lang3/time/FastDateParser;->MILLISECOND_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
+    sget-object p1, Lorg/apache/commons/lang3/time/FastDateParser;->MILLISECOND_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
-    return-object v0
+    return-object p1
+
+    :sswitch_9
+    const/4 p1, 0x3
+
+    if-lt p2, p1, :cond_0
 
     .line 574
-    :sswitch_9
-    const/4 v0, 0x3
-
-    if-lt p2, v0, :cond_0
-
     invoke-direct {p0, v1, p3}, Lorg/apache/commons/lang3/time/FastDateParser;->getLocaleSpecificStrategy(ILjava/util/Calendar;)Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
-    move-result-object v0
+    move-result-object p1
 
     goto :goto_0
 
     :cond_0
-    sget-object v0, Lorg/apache/commons/lang3/time/FastDateParser;->NUMBER_MONTH_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
+    sget-object p1, Lorg/apache/commons/lang3/time/FastDateParser;->NUMBER_MONTH_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
     :goto_0
-    return-object v0
+    return-object p1
 
     .line 572
     :sswitch_a
-    sget-object v0, Lorg/apache/commons/lang3/time/FastDateParser;->HOUR_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
+    sget-object p1, Lorg/apache/commons/lang3/time/FastDateParser;->HOUR_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
-    return-object v0
+    return-object p1
 
     .line 570
     :pswitch_3
-    sget-object v0, Lorg/apache/commons/lang3/time/FastDateParser;->HOUR_OF_DAY_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
+    sget-object p1, Lorg/apache/commons/lang3/time/FastDateParser;->HOUR_OF_DAY_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
-    return-object v0
+    return-object p1
+
+    :pswitch_4
+    const/4 p1, 0x0
 
     .line 568
-    :pswitch_4
-    const/4 v0, 0x0
+    invoke-direct {p0, p1, p3}, Lorg/apache/commons/lang3/time/FastDateParser;->getLocaleSpecificStrategy(ILjava/util/Calendar;)Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
-    invoke-direct {p0, v0, p3}, Lorg/apache/commons/lang3/time/FastDateParser;->getLocaleSpecificStrategy(ILjava/util/Calendar;)Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 
     .line 566
     :pswitch_5
-    sget-object v0, Lorg/apache/commons/lang3/time/FastDateParser;->DAY_OF_WEEK_IN_MONTH_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
+    sget-object p1, Lorg/apache/commons/lang3/time/FastDateParser;->DAY_OF_WEEK_IN_MONTH_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
-    return-object v0
+    return-object p1
+
+    :pswitch_6
+    const/4 p1, 0x7
 
     .line 564
-    :pswitch_6
-    const/4 v0, 0x7
+    invoke-direct {p0, p1, p3}, Lorg/apache/commons/lang3/time/FastDateParser;->getLocaleSpecificStrategy(ILjava/util/Calendar;)Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
-    invoke-direct {p0, v0, p3}, Lorg/apache/commons/lang3/time/FastDateParser;->getLocaleSpecificStrategy(ILjava/util/Calendar;)Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 
     .line 562
     :pswitch_7
-    sget-object v0, Lorg/apache/commons/lang3/time/FastDateParser;->DAY_OF_YEAR_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
+    sget-object p1, Lorg/apache/commons/lang3/time/FastDateParser;->DAY_OF_YEAR_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
-    return-object v0
+    return-object p1
+
+    :cond_1
+    const/16 p1, 0xf
 
     .line 606
-    :cond_1
-    const/16 v0, 0xf
+    invoke-direct {p0, p1, p3}, Lorg/apache/commons/lang3/time/FastDateParser;->getLocaleSpecificStrategy(ILjava/util/Calendar;)Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
-    invoke-direct {p0, v0, p3}, Lorg/apache/commons/lang3/time/FastDateParser;->getLocaleSpecificStrategy(ILjava/util/Calendar;)Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
+    move-result-object p1
 
-    move-result-object v0
+    return-object p1
 
-    return-object v0
-
-    .line 597
     :cond_2
     :pswitch_8
     if-le p2, v1, :cond_3
 
-    sget-object v0, Lorg/apache/commons/lang3/time/FastDateParser;->LITERAL_YEAR_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
+    .line 597
+    sget-object p1, Lorg/apache/commons/lang3/time/FastDateParser;->LITERAL_YEAR_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
     goto :goto_1
 
     :cond_3
-    sget-object v0, Lorg/apache/commons/lang3/time/FastDateParser;->ABBREVIATED_YEAR_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
+    sget-object p1, Lorg/apache/commons/lang3/time/FastDateParser;->ABBREVIATED_YEAR_STRATEGY:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
     :goto_1
-    return-object v0
+    return-object p1
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x44
@@ -1017,8 +947,7 @@
 .end method
 
 .method private init(Ljava/util/Calendar;)V
-    .locals 3
-    .param p1, "definingCalendar"    # Ljava/util/Calendar;
+    .locals 2
 
     .line 161
     new-instance v0, Ljava/util/ArrayList;
@@ -1033,40 +962,27 @@
     invoke-direct {v0, p0, p1}, Lorg/apache/commons/lang3/time/FastDateParser$StrategyParser;-><init>(Lorg/apache/commons/lang3/time/FastDateParser;Ljava/util/Calendar;)V
 
     .line 165
-    .local v0, "fm":Lorg/apache/commons/lang3/time/FastDateParser$StrategyParser;
     :goto_0
     invoke-virtual {v0}, Lorg/apache/commons/lang3/time/FastDateParser$StrategyParser;->getNextStrategy()Lorg/apache/commons/lang3/time/FastDateParser$StrategyAndWidth;
 
-    move-result-object v1
+    move-result-object p1
 
-    .line 166
-    .local v1, "field":Lorg/apache/commons/lang3/time/FastDateParser$StrategyAndWidth;
-    if-nez v1, :cond_0
+    if-nez p1, :cond_0
 
-    .line 167
-    nop
-
-    .line 171
-    .end local v1    # "field":Lorg/apache/commons/lang3/time/FastDateParser$StrategyAndWidth;
     return-void
 
     .line 169
-    .restart local v1    # "field":Lorg/apache/commons/lang3/time/FastDateParser$StrategyAndWidth;
     :cond_0
-    iget-object v2, p0, Lorg/apache/commons/lang3/time/FastDateParser;->patterns:Ljava/util/List;
+    iget-object v1, p0, Lorg/apache/commons/lang3/time/FastDateParser;->patterns:Ljava/util/List;
 
-    invoke-interface {v2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 170
-    .end local v1    # "field":Lorg/apache/commons/lang3/time/FastDateParser$StrategyAndWidth;
     goto :goto_0
 .end method
 
 .method private static isFormatLetter(C)Z
     .locals 1
-    .param p0, "c"    # C
 
-    .line 259
     const/16 v0, 0x41
 
     if-lt p0, v0, :cond_0
@@ -1085,20 +1001,19 @@
     if-gt p0, v0, :cond_2
 
     :cond_1
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_2
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -1110,31 +1025,26 @@
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
     .line 341
-    iget-object v0, p0, Lorg/apache/commons/lang3/time/FastDateParser;->timeZone:Ljava/util/TimeZone;
+    iget-object p1, p0, Lorg/apache/commons/lang3/time/FastDateParser;->timeZone:Ljava/util/TimeZone;
 
-    iget-object v1, p0, Lorg/apache/commons/lang3/time/FastDateParser;->locale:Ljava/util/Locale;
+    iget-object v0, p0, Lorg/apache/commons/lang3/time/FastDateParser;->locale:Ljava/util/Locale;
 
-    invoke-static {v0, v1}, Ljava/util/Calendar;->getInstance(Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/util/Calendar;
+    invoke-static {p1, v0}, Ljava/util/Calendar;->getInstance(Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/util/Calendar;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 342
-    .local v0, "definingCalendar":Ljava/util/Calendar;
-    invoke-direct {p0, v0}, Lorg/apache/commons/lang3/time/FastDateParser;->init(Ljava/util/Calendar;)V
+    invoke-direct {p0, p1}, Lorg/apache/commons/lang3/time/FastDateParser;->init(Ljava/util/Calendar;)V
 
-    .line 343
     return-void
 .end method
 
 .method private static simpleQuote(Ljava/lang/StringBuilder;Ljava/lang/String;)Ljava/lang/StringBuilder;
     .locals 6
-    .param p0, "sb"    # Ljava/lang/StringBuilder;
-    .param p1, "value"    # Ljava/lang/String;
 
-    .line 431
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 431
     :goto_0
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -1151,8 +1061,6 @@
 
     move-result v1
 
-    .line 433
-    .local v1, "c":C
     const/16 v4, 0x24
 
     const/16 v5, 0x5c
@@ -1194,31 +1102,27 @@
     :goto_1
     invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 431
-    .end local v1    # "c":C
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 451
-    .end local v0    # "i":I
     :cond_1
     invoke-virtual {p0}, Ljava/lang/StringBuilder;->length()I
 
-    move-result v0
+    move-result p1
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p1, p1, -0x1
 
-    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->charAt(I)C
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->charAt(I)C
 
-    move-result v0
+    move-result p1
 
-    if-ne v0, v3, :cond_2
+    if-ne p1, v3, :cond_2
 
     .line 453
     invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 455
     :cond_2
     return-object p0
 
@@ -1234,8 +1138,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 3
 
     .line 299
     instance-of v0, p1, Lorg/apache/commons/lang3/time/FastDateParser;
@@ -1244,58 +1147,48 @@
 
     if-nez v0, :cond_0
 
-    .line 300
     return v1
 
     .line 302
     :cond_0
-    move-object v0, p1
-
-    check-cast v0, Lorg/apache/commons/lang3/time/FastDateParser;
+    check-cast p1, Lorg/apache/commons/lang3/time/FastDateParser;
 
     .line 303
-    .local v0, "other":Lorg/apache/commons/lang3/time/FastDateParser;
-    iget-object v2, p0, Lorg/apache/commons/lang3/time/FastDateParser;->pattern:Ljava/lang/String;
+    iget-object v0, p0, Lorg/apache/commons/lang3/time/FastDateParser;->pattern:Ljava/lang/String;
 
-    iget-object v3, v0, Lorg/apache/commons/lang3/time/FastDateParser;->pattern:Ljava/lang/String;
+    iget-object v2, p1, Lorg/apache/commons/lang3/time/FastDateParser;->pattern:Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_1
 
-    iget-object v2, p0, Lorg/apache/commons/lang3/time/FastDateParser;->timeZone:Ljava/util/TimeZone;
+    iget-object v0, p0, Lorg/apache/commons/lang3/time/FastDateParser;->timeZone:Ljava/util/TimeZone;
 
-    iget-object v3, v0, Lorg/apache/commons/lang3/time/FastDateParser;->timeZone:Ljava/util/TimeZone;
+    iget-object v2, p1, Lorg/apache/commons/lang3/time/FastDateParser;->timeZone:Ljava/util/TimeZone;
 
     .line 304
-    invoke-virtual {v2, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_1
 
-    iget-object v2, p0, Lorg/apache/commons/lang3/time/FastDateParser;->locale:Ljava/util/Locale;
+    iget-object v0, p0, Lorg/apache/commons/lang3/time/FastDateParser;->locale:Ljava/util/Locale;
 
-    iget-object v3, v0, Lorg/apache/commons/lang3/time/FastDateParser;->locale:Ljava/util/Locale;
+    iget-object p1, p1, Lorg/apache/commons/lang3/time/FastDateParser;->locale:Ljava/util/Locale;
 
     .line 305
-    invoke-virtual {v2, v3}, Ljava/util/Locale;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/util/Locale;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_1
+    if-eqz p1, :cond_1
 
     const/4 v1, 0x1
 
-    goto :goto_0
-
     :cond_1
-    nop
-
-    .line 303
-    :goto_0
     return v1
 .end method
 
@@ -1360,8 +1253,7 @@
 .end method
 
 .method public parse(Ljava/lang/String;)Ljava/util/Date;
-    .locals 5
-    .param p1, "source"    # Ljava/lang/String;
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/text/ParseException;
@@ -1376,95 +1268,93 @@
     invoke-direct {v0, v1}, Ljava/text/ParsePosition;-><init>(I)V
 
     .line 359
-    .local v0, "pp":Ljava/text/ParsePosition;
     invoke-virtual {p0, p1, v0}, Lorg/apache/commons/lang3/time/FastDateParser;->parse(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/util/Date;
 
     move-result-object v1
 
-    .line 360
-    .local v1, "date":Ljava/util/Date;
     if-nez v1, :cond_1
 
     .line 362
-    iget-object v2, p0, Lorg/apache/commons/lang3/time/FastDateParser;->locale:Ljava/util/Locale;
+    iget-object v1, p0, Lorg/apache/commons/lang3/time/FastDateParser;->locale:Ljava/util/Locale;
 
-    sget-object v3, Lorg/apache/commons/lang3/time/FastDateParser;->JAPANESE_IMPERIAL:Ljava/util/Locale;
+    sget-object v2, Lorg/apache/commons/lang3/time/FastDateParser;->JAPANESE_IMPERIAL:Ljava/util/Locale;
 
-    invoke-virtual {v2, v3}, Ljava/util/Locale;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/util/Locale;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
     .line 363
-    new-instance v2, Ljava/text/ParseException;
+    new-instance v1, Ljava/text/ParseException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "(The "
 
-    const-string v4, "(The "
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lorg/apache/commons/lang3/time/FastDateParser;->locale:Ljava/util/Locale;
 
-    iget-object v4, p0, Lorg/apache/commons/lang3/time/FastDateParser;->locale:Ljava/util/Locale;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    const-string v4, " locale does not support dates before 1868 AD)\nUnparseable date: \""
+    const-string v3, " locale does not support dates before 1868 AD)\nUnparseable date: \""
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
 
     .line 365
     invoke-virtual {v0}, Ljava/text/ParsePosition;->getErrorIndex()I
 
-    move-result v4
+    move-result v0
 
-    invoke-direct {v2, v3, v4}, Ljava/text/ParseException;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, p1, v0}, Ljava/text/ParseException;-><init>(Ljava/lang/String;I)V
 
-    throw v2
+    throw v1
 
     .line 367
     :cond_0
-    new-instance v2, Ljava/text/ParseException;
+    new-instance v1, Ljava/text/ParseException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "Unparseable date: "
 
-    const-string v4, "Unparseable date: "
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
     invoke-virtual {v0}, Ljava/text/ParsePosition;->getErrorIndex()I
 
-    move-result v4
+    move-result v0
 
-    invoke-direct {v2, v3, v4}, Ljava/text/ParseException;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, p1, v0}, Ljava/text/ParseException;-><init>(Ljava/lang/String;I)V
 
-    throw v2
+    throw v1
 
-    .line 369
     :cond_1
     return-object v1
 .end method
 
 .method public parse(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/util/Date;
     .locals 2
-    .param p1, "source"    # Ljava/lang/String;
-    .param p2, "pos"    # Ljava/text/ParsePosition;
 
     .line 395
     iget-object v0, p0, Lorg/apache/commons/lang3/time/FastDateParser;->timeZone:Ljava/util/TimeZone;
@@ -1476,34 +1366,30 @@
     move-result-object v0
 
     .line 396
-    .local v0, "cal":Ljava/util/Calendar;
     invoke-virtual {v0}, Ljava/util/Calendar;->clear()V
 
     .line 398
     invoke-virtual {p0, p1, p2, v0}, Lorg/apache/commons/lang3/time/FastDateParser;->parse(Ljava/lang/String;Ljava/text/ParsePosition;Ljava/util/Calendar;)Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
     invoke-virtual {v0}, Ljava/util/Calendar;->getTime()Ljava/util/Date;
 
-    move-result-object v1
+    move-result-object p1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return-object v1
+    return-object p1
 .end method
 
 .method public parse(Ljava/lang/String;Ljava/text/ParsePosition;Ljava/util/Calendar;)Z
-    .locals 9
-    .param p1, "source"    # Ljava/lang/String;
-    .param p2, "pos"    # Ljava/text/ParsePosition;
-    .param p3, "calendar"    # Ljava/util/Calendar;
+    .locals 8
 
     .line 416
     iget-object v0, p0, Lorg/apache/commons/lang3/time/FastDateParser;->patterns:Ljava/util/List;
@@ -1513,8 +1399,7 @@
     move-result-object v0
 
     .line 417
-    .local v0, "lt":Ljava/util/ListIterator;, "Ljava/util/ListIterator<Lorg/apache/commons/lang3/time/FastDateParser$StrategyAndWidth;>;"
-    :goto_0
+    :cond_0
     invoke-interface {v0}, Ljava/util/ListIterator;->hasNext()Z
 
     move-result v1
@@ -1529,13 +1414,11 @@
     check-cast v1, Lorg/apache/commons/lang3/time/FastDateParser$StrategyAndWidth;
 
     .line 419
-    .local v1, "strategyAndWidth":Lorg/apache/commons/lang3/time/FastDateParser$StrategyAndWidth;
     invoke-virtual {v1, v0}, Lorg/apache/commons/lang3/time/FastDateParser$StrategyAndWidth;->getMaxWidth(Ljava/util/ListIterator;)I
 
-    move-result v8
+    move-result v7
 
     .line 420
-    .local v8, "maxWidth":I
     iget-object v2, v1, Lorg/apache/commons/lang3/time/FastDateParser$StrategyAndWidth;->strategy:Lorg/apache/commons/lang3/time/FastDateParser$Strategy;
 
     move-object v3, p0
@@ -1546,35 +1429,24 @@
 
     move-object v6, p2
 
-    move v7, v8
-
     invoke-virtual/range {v2 .. v7}, Lorg/apache/commons/lang3/time/FastDateParser$Strategy;->parse(Lorg/apache/commons/lang3/time/FastDateParser;Ljava/util/Calendar;Ljava/lang/String;Ljava/text/ParsePosition;I)Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
-    .line 421
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
-    return v2
+    return p1
 
-    .line 423
-    .end local v1    # "strategyAndWidth":Lorg/apache/commons/lang3/time/FastDateParser$StrategyAndWidth;
-    .end local v8    # "maxWidth":I
-    :cond_0
-    goto :goto_0
-
-    .line 424
     :cond_1
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    return v1
+    return p1
 .end method
 
 .method public parseObject(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "source"    # Ljava/lang/String;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/text/ParseException;
@@ -1584,22 +1456,20 @@
     .line 350
     invoke-virtual {p0, p1}, Lorg/apache/commons/lang3/time/FastDateParser;->parse(Ljava/lang/String;)Ljava/util/Date;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public parseObject(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "source"    # Ljava/lang/String;
-    .param p2, "pos"    # Ljava/text/ParsePosition;
+    .locals 0
 
     .line 377
     invoke-virtual {p0, p1, p2}, Lorg/apache/commons/lang3/time/FastDateParser;->parse(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/util/Date;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -1608,25 +1478,31 @@
     .line 325
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "FastDateParser["
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v1, p0, Lorg/apache/commons/lang3/time/FastDateParser;->pattern:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ","
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v2, p0, Lorg/apache/commons/lang3/time/FastDateParser;->locale:Ljava/util/Locale;
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Lorg/apache/commons/lang3/time/FastDateParser;->timeZone:Ljava/util/TimeZone;
 
@@ -1636,9 +1512,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

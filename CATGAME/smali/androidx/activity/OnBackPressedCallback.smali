@@ -20,7 +20,6 @@
 # direct methods
 .method public constructor <init>(Z)V
     .locals 1
-    .param p1, "enabled"    # Z
 
     .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,7 +34,6 @@
     .line 55
     iput-boolean p1, p0, Landroidx/activity/OnBackPressedCallback;->mEnabled:Z
 
-    .line 56
     return-void
 .end method
 
@@ -43,14 +41,12 @@
 # virtual methods
 .method addCancellable(Landroidx/activity/Cancellable;)V
     .locals 1
-    .param p1, "cancellable"    # Landroidx/activity/Cancellable;
 
     .line 103
     iget-object v0, p0, Landroidx/activity/OnBackPressedCallback;->mCancellables:Ljava/util/concurrent/CopyOnWriteArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/CopyOnWriteArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 104
     return-void
 .end method
 
@@ -90,38 +86,30 @@
     check-cast v1, Landroidx/activity/Cancellable;
 
     .line 92
-    .local v1, "cancellable":Landroidx/activity/Cancellable;
     invoke-interface {v1}, Landroidx/activity/Cancellable;->cancel()V
 
-    .line 93
-    .end local v1    # "cancellable":Landroidx/activity/Cancellable;
     goto :goto_0
 
-    .line 94
     :cond_0
     return-void
 .end method
 
 .method removeCancellable(Landroidx/activity/Cancellable;)V
     .locals 1
-    .param p1, "cancellable"    # Landroidx/activity/Cancellable;
 
     .line 107
     iget-object v0, p0, Landroidx/activity/OnBackPressedCallback;->mCancellables:Ljava/util/concurrent/CopyOnWriteArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/CopyOnWriteArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 108
     return-void
 .end method
 
 .method public final setEnabled(Z)V
     .locals 0
-    .param p1, "enabled"    # Z
 
     .line 71
     iput-boolean p1, p0, Landroidx/activity/OnBackPressedCallback;->mEnabled:Z
 
-    .line 72
     return-void
 .end method

@@ -24,9 +24,6 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 3
-    nop
-
     .line 74
     new-instance v0, Lcom/koushikdutta/async/future/SimpleCancellable$1;
 
@@ -61,9 +58,9 @@
     if-eqz v0, :cond_0
 
     .line 41
-    const/4 v0, 0x0
-
     monitor-exit p0
+
+    const/4 v0, 0x0
 
     return v0
 
@@ -87,10 +84,9 @@
     .line 45
     iget-object v0, p0, Lcom/koushikdutta/async/future/SimpleCancellable;->parent:Lcom/koushikdutta/async/future/Cancellable;
 
-    .line 47
-    .local v0, "parent":Lcom/koushikdutta/async/future/Cancellable;
     const/4 v2, 0x0
 
+    .line 47
     iput-object v2, p0, Lcom/koushikdutta/async/future/SimpleCancellable;->parent:Lcom/koushikdutta/async/future/Cancellable;
 
     .line 48
@@ -98,7 +94,6 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 49
     if-eqz v0, :cond_2
 
     .line 50
@@ -111,14 +106,12 @@
     .line 52
     invoke-virtual {p0}, Lcom/koushikdutta/async/future/SimpleCancellable;->cleanup()V
 
-    .line 53
     return v1
 
-    .line 48
-    .end local v0    # "parent":Lcom/koushikdutta/async/future/Cancellable;
     :catchall_0
     move-exception v0
 
+    .line 48
     :try_start_1
     monitor-exit p0
     :try_end_1
@@ -130,21 +123,18 @@
 .method protected cancelCleanup()V
     .locals 0
 
-    .line 11
     return-void
 .end method
 
 .method protected cleanup()V
     .locals 0
 
-    .line 14
     return-void
 .end method
 
 .method protected completeCleanup()V
     .locals 0
 
-    .line 17
     return-void
 .end method
 
@@ -163,8 +153,6 @@
     iget-object v0, p0, Lcom/koushikdutta/async/future/SimpleCancellable;->parent:Lcom/koushikdutta/async/future/Cancellable;
 
     if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/koushikdutta/async/future/SimpleCancellable;->parent:Lcom/koushikdutta/async/future/Cancellable;
 
     invoke-interface {v0}, Lcom/koushikdutta/async/future/Cancellable;->isCancelled()Z
 
@@ -188,10 +176,10 @@
 
     return v0
 
-    .line 71
     :catchall_0
     move-exception v0
 
+    .line 71
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -214,15 +202,14 @@
     .line 81
     invoke-virtual {p0}, Lcom/koushikdutta/async/future/SimpleCancellable;->cancel()Z
 
-    .line 82
     const/4 v0, 0x0
 
+    .line 82
     iput-boolean v0, p0, Lcom/koushikdutta/async/future/SimpleCancellable;->complete:Z
 
     .line 83
     iput-boolean v0, p0, Lcom/koushikdutta/async/future/SimpleCancellable;->cancelled:Z
 
-    .line 84
     return-object p0
 .end method
 
@@ -239,9 +226,9 @@
     if-eqz v0, :cond_0
 
     .line 22
-    const/4 v0, 0x0
-
     monitor-exit p0
+
+    const/4 v0, 0x0
 
     return v0
 
@@ -253,9 +240,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 25
-    nop
-
     .line 26
     monitor-exit p0
 
@@ -265,9 +249,9 @@
     :cond_1
     iput-boolean v1, p0, Lcom/koushikdutta/async/future/SimpleCancellable;->complete:Z
 
-    .line 29
     const/4 v0, 0x0
 
+    .line 29
     iput-object v0, p0, Lcom/koushikdutta/async/future/SimpleCancellable;->parent:Lcom/koushikdutta/async/future/Cancellable;
 
     .line 30
@@ -281,13 +265,12 @@
     .line 32
     invoke-virtual {p0}, Lcom/koushikdutta/async/future/SimpleCancellable;->cleanup()V
 
-    .line 33
     return v1
 
-    .line 30
     :catchall_0
     move-exception v0
 
+    .line 30
     :try_start_1
     monitor-exit p0
     :try_end_1
@@ -309,7 +292,6 @@
 
 .method public setParent(Lcom/koushikdutta/async/future/Cancellable;)Lcom/koushikdutta/async/future/SimpleCancellable;
     .locals 1
-    .param p1, "parent"    # Lcom/koushikdutta/async/future/Cancellable;
 
     .line 60
     monitor-enter p0
@@ -329,16 +311,14 @@
     :cond_0
     monitor-exit p0
 
-    .line 64
     return-object p0
 
-    .line 63
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method

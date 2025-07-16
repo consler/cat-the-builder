@@ -21,7 +21,6 @@
     .line 432
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 433
     return-void
 .end method
 
@@ -29,8 +28,6 @@
 # virtual methods
 .method writeByteString(Ljava/nio/ByteBuffer;Lcom/koushikdutta/async/http/spdy/ByteString;)V
     .locals 3
-    .param p1, "out"    # Ljava/nio/ByteBuffer;
-    .param p2, "data"    # Lcom/koushikdutta/async/http/spdy/ByteString;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -51,16 +48,15 @@
     .line 489
     invoke-virtual {p2}, Lcom/koushikdutta/async/http/spdy/ByteString;->toByteArray()[B
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
+    invoke-virtual {p1, p2}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
-    .line 490
     return-void
 .end method
 
 .method writeHeaders(Ljava/util/List;)Lcom/koushikdutta/async/ByteBufferList;
-    .locals 9
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -78,44 +74,41 @@
     .end annotation
 
     .line 440
-    .local p1, "headerBlock":Ljava/util/List;, "Ljava/util/List<Lcom/koushikdutta/async/http/spdy/Header;>;"
     new-instance v0, Lcom/koushikdutta/async/ByteBufferList;
 
     invoke-direct {v0}, Lcom/koushikdutta/async/ByteBufferList;-><init>()V
 
-    .line 442
-    .local v0, "out":Lcom/koushikdutta/async/ByteBufferList;
     const/16 v1, 0x2000
 
+    .line 442
     invoke-static {v1}, Lcom/koushikdutta/async/ByteBufferList;->obtain(I)Ljava/nio/ByteBuffer;
 
     move-result-object v1
 
     .line 443
-    .local v1, "current":Ljava/nio/ByteBuffer;
-    const/4 v2, 0x0
-
-    .local v2, "i":I
     invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v3
+    move-result v2
 
-    .local v3, "size":I
+    const/4 v3, 0x0
+
+    move v4, v3
+
     :goto_0
-    if-ge v2, v3, :cond_2
+    if-ge v4, v2, :cond_2
 
     .line 444
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->remaining()I
 
-    move-result v4
+    move-result v5
 
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->capacity()I
 
-    move-result v5
+    move-result v6
 
-    div-int/lit8 v5, v5, 0x2
+    div-int/lit8 v6, v6, 0x2
 
-    if-ge v4, v5, :cond_0
+    if-ge v5, v6, :cond_0
 
     .line 445
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;
@@ -126,172 +119,147 @@
     .line 447
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->capacity()I
 
-    move-result v4
+    move-result v1
 
-    mul-int/lit8 v4, v4, 0x2
+    mul-int/lit8 v1, v1, 0x2
 
-    invoke-static {v4}, Lcom/koushikdutta/async/ByteBufferList;->obtain(I)Ljava/nio/ByteBuffer;
+    invoke-static {v1}, Lcom/koushikdutta/async/ByteBufferList;->obtain(I)Ljava/nio/ByteBuffer;
 
     move-result-object v1
 
     .line 449
     :cond_0
-    invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v5
 
-    check-cast v4, Lcom/koushikdutta/async/http/spdy/Header;
+    check-cast v5, Lcom/koushikdutta/async/http/spdy/Header;
 
-    iget-object v4, v4, Lcom/koushikdutta/async/http/spdy/Header;->name:Lcom/koushikdutta/async/http/spdy/ByteString;
+    iget-object v5, v5, Lcom/koushikdutta/async/http/spdy/Header;->name:Lcom/koushikdutta/async/http/spdy/ByteString;
 
-    invoke-virtual {v4}, Lcom/koushikdutta/async/http/spdy/ByteString;->toAsciiLowercase()Lcom/koushikdutta/async/http/spdy/ByteString;
+    invoke-virtual {v5}, Lcom/koushikdutta/async/http/spdy/ByteString;->toAsciiLowercase()Lcom/koushikdutta/async/http/spdy/ByteString;
 
-    move-result-object v4
+    move-result-object v5
 
     .line 450
-    .local v4, "name":Lcom/koushikdutta/async/http/spdy/ByteString;
     invoke-static {}, Lcom/koushikdutta/async/http/spdy/HpackDraft08;->access$200()Ljava/util/Map;
-
-    move-result-object v5
-
-    invoke-interface {v5, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Ljava/lang/Integer;
-
-    .line 451
-    .local v5, "staticIndex":Ljava/lang/Integer;
-    const/4 v6, 0x0
-
-    if-eqz v5, :cond_1
-
-    .line 453
-    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
-
-    move-result v7
-
-    add-int/lit8 v7, v7, 0x1
-
-    const/16 v8, 0xf
-
-    invoke-virtual {p0, v1, v7, v8, v6}, Lcom/koushikdutta/async/http/spdy/HpackDraft08$Writer;->writeInt(Ljava/nio/ByteBuffer;III)V
-
-    .line 454
-    invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v6
 
-    check-cast v6, Lcom/koushikdutta/async/http/spdy/Header;
+    invoke-interface {v6, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v6, v6, Lcom/koushikdutta/async/http/spdy/Header;->value:Lcom/koushikdutta/async/http/spdy/ByteString;
+    move-result-object v6
 
-    invoke-virtual {p0, v1, v6}, Lcom/koushikdutta/async/http/spdy/HpackDraft08$Writer;->writeByteString(Ljava/nio/ByteBuffer;Lcom/koushikdutta/async/http/spdy/ByteString;)V
+    check-cast v6, Ljava/lang/Integer;
+
+    if-eqz v6, :cond_1
+
+    .line 453
+    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
+
+    move-result v5
+
+    add-int/lit8 v5, v5, 0x1
+
+    const/16 v6, 0xf
+
+    invoke-virtual {p0, v1, v5, v6, v3}, Lcom/koushikdutta/async/http/spdy/HpackDraft08$Writer;->writeInt(Ljava/nio/ByteBuffer;III)V
+
+    .line 454
+    invoke-interface {p1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/koushikdutta/async/http/spdy/Header;
+
+    iget-object v5, v5, Lcom/koushikdutta/async/http/spdy/Header;->value:Lcom/koushikdutta/async/http/spdy/ByteString;
+
+    invoke-virtual {p0, v1, v5}, Lcom/koushikdutta/async/http/spdy/HpackDraft08$Writer;->writeByteString(Ljava/nio/ByteBuffer;Lcom/koushikdutta/async/http/spdy/ByteString;)V
 
     goto :goto_1
 
     .line 456
     :cond_1
-    invoke-virtual {v1, v6}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
+    invoke-virtual {v1, v3}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
     .line 457
-    invoke-virtual {p0, v1, v4}, Lcom/koushikdutta/async/http/spdy/HpackDraft08$Writer;->writeByteString(Ljava/nio/ByteBuffer;Lcom/koushikdutta/async/http/spdy/ByteString;)V
+    invoke-virtual {p0, v1, v5}, Lcom/koushikdutta/async/http/spdy/HpackDraft08$Writer;->writeByteString(Ljava/nio/ByteBuffer;Lcom/koushikdutta/async/http/spdy/ByteString;)V
 
     .line 458
-    invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v5
 
-    check-cast v6, Lcom/koushikdutta/async/http/spdy/Header;
+    check-cast v5, Lcom/koushikdutta/async/http/spdy/Header;
 
-    iget-object v6, v6, Lcom/koushikdutta/async/http/spdy/Header;->value:Lcom/koushikdutta/async/http/spdy/ByteString;
+    iget-object v5, v5, Lcom/koushikdutta/async/http/spdy/Header;->value:Lcom/koushikdutta/async/http/spdy/ByteString;
 
-    invoke-virtual {p0, v1, v6}, Lcom/koushikdutta/async/http/spdy/HpackDraft08$Writer;->writeByteString(Ljava/nio/ByteBuffer;Lcom/koushikdutta/async/http/spdy/ByteString;)V
+    invoke-virtual {p0, v1, v5}, Lcom/koushikdutta/async/http/spdy/HpackDraft08$Writer;->writeByteString(Ljava/nio/ByteBuffer;Lcom/koushikdutta/async/http/spdy/ByteString;)V
 
-    .line 443
-    .end local v4    # "name":Lcom/koushikdutta/async/http/spdy/ByteString;
-    .end local v5    # "staticIndex":Ljava/lang/Integer;
     :goto_1
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
     .line 462
-    .end local v2    # "i":I
-    .end local v3    # "size":I
     :cond_2
     invoke-virtual {v0, v1}, Lcom/koushikdutta/async/ByteBufferList;->add(Ljava/nio/ByteBuffer;)Lcom/koushikdutta/async/ByteBufferList;
 
-    .line 463
     return-object v0
 .end method
 
 .method writeInt(Ljava/nio/ByteBuffer;III)V
-    .locals 2
-    .param p1, "out"    # Ljava/nio/ByteBuffer;
-    .param p2, "value"    # I
-    .param p3, "prefixMask"    # I
-    .param p4, "bits"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 469
     if-ge p2, p3, :cond_0
 
+    or-int/2addr p2, p4
+
+    int-to-byte p2, p2
+
     .line 470
-    or-int v0, p4, p2
+    invoke-virtual {p1, p2}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
-    int-to-byte v0, v0
-
-    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
-
-    .line 471
     return-void
 
-    .line 475
     :cond_0
-    or-int v0, p4, p3
+    or-int/2addr p4, p3
 
-    int-to-byte v0, v0
+    int-to-byte p4, p4
 
-    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
+    .line 475
+    invoke-virtual {p1, p4}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
-    .line 476
     sub-int/2addr p2, p3
 
-    .line 479
     :goto_0
-    const/16 v0, 0x80
+    const/16 p3, 0x80
 
-    if-lt p2, v0, :cond_1
+    if-lt p2, p3, :cond_1
 
-    .line 480
-    and-int/lit8 v0, p2, 0x7f
+    and-int/lit8 p4, p2, 0x7f
+
+    or-int/2addr p3, p4
+
+    int-to-byte p3, p3
 
     .line 481
-    .local v0, "b":I
-    or-int/lit16 v1, v0, 0x80
+    invoke-virtual {p1, p3}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
-    int-to-byte v1, v1
-
-    invoke-virtual {p1, v1}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
-
-    .line 482
     ushr-int/lit8 p2, p2, 0x7
 
-    .line 483
-    .end local v0    # "b":I
     goto :goto_0
 
-    .line 484
     :cond_1
-    int-to-byte v0, p2
+    int-to-byte p2, p2
 
-    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
+    .line 484
+    invoke-virtual {p1, p2}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
-    .line 485
     return-void
 .end method

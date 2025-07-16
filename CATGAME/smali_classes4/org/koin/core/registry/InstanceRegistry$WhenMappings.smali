@@ -46,8 +46,6 @@
 
     aput v2, v0, v1
 
-    sget-object v0, Lorg/koin/core/registry/InstanceRegistry$WhenMappings;->$EnumSwitchMapping$0:[I
-
     sget-object v1, Lorg/koin/core/definition/Kind;->Factory:Lorg/koin/core/definition/Kind;
 
     invoke-virtual {v1}, Lorg/koin/core/definition/Kind;->ordinal()I

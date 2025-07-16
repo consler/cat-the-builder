@@ -37,9 +37,6 @@
 # virtual methods
 .method public drawRoundedCorners(Landroid/graphics/Canvas;Landroid/graphics/Paint;Landroid/graphics/RectF;)V
     .locals 2
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
-    .param p2, "paint"    # Landroid/graphics/Paint;
-    .param p3, "rect"    # Landroid/graphics/RectF;
 
     .line 485
     iget v0, p0, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils$1;->val$roundingRadius:I
@@ -50,6 +47,5 @@
 
     invoke-virtual {p1, p3, v1, v0, p2}, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V
 
-    .line 486
     return-void
 .end method

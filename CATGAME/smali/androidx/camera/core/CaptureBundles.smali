@@ -34,7 +34,6 @@
     .end annotation
 
     .line 47
-    .local p0, "captureStageList":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/core/impl/CaptureStage;>;"
     new-instance v0, Landroidx/camera/core/CaptureBundles$CaptureBundleImpl;
 
     invoke-direct {v0, p0}, Landroidx/camera/core/CaptureBundles$CaptureBundleImpl;-><init>(Ljava/util/List;)V
@@ -43,17 +42,16 @@
 .end method
 
 .method static varargs createCaptureBundle([Landroidx/camera/core/impl/CaptureStage;)Landroidx/camera/core/impl/CaptureBundle;
-    .locals 2
-    .param p0, "captureStages"    # [Landroidx/camera/core/impl/CaptureStage;
+    .locals 1
 
     .line 41
     new-instance v0, Landroidx/camera/core/CaptureBundles$CaptureBundleImpl;
 
     invoke-static {p0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Landroidx/camera/core/CaptureBundles$CaptureBundleImpl;-><init>(Ljava/util/List;)V
+    invoke-direct {v0, p0}, Landroidx/camera/core/CaptureBundles$CaptureBundleImpl;-><init>(Ljava/util/List;)V
 
     return-object v0
 .end method
@@ -61,11 +59,11 @@
 .method static singleDefaultCaptureBundle()Landroidx/camera/core/impl/CaptureBundle;
     .locals 3
 
-    .line 35
     const/4 v0, 0x1
 
     new-array v0, v0, [Landroidx/camera/core/impl/CaptureStage;
 
+    .line 35
     new-instance v1, Landroidx/camera/core/impl/CaptureStage$DefaultCaptureStage;
 
     invoke-direct {v1}, Landroidx/camera/core/impl/CaptureStage$DefaultCaptureStage;-><init>()V

@@ -27,22 +27,18 @@
 
     invoke-direct {p0}, Landroidx/mediarouter/media/MediaRouteProvider$Callback;-><init>()V
 
-    .line 638
     return-void
 .end method
 
 
 # virtual methods
 .method public onDescriptorChanged(Landroidx/mediarouter/media/MediaRouteProvider;Landroidx/mediarouter/media/MediaRouteProviderDescriptor;)V
-    .locals 1
-    .param p1, "provider"    # Landroidx/mediarouter/media/MediaRouteProvider;
-    .param p2, "descriptor"    # Landroidx/mediarouter/media/MediaRouteProviderDescriptor;
+    .locals 0
 
     .line 643
-    iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteProviderService$ProviderCallback;->this$0:Landroidx/mediarouter/media/MediaRouteProviderService;
+    iget-object p1, p0, Landroidx/mediarouter/media/MediaRouteProviderService$ProviderCallback;->this$0:Landroidx/mediarouter/media/MediaRouteProviderService;
 
-    invoke-virtual {v0, p2}, Landroidx/mediarouter/media/MediaRouteProviderService;->sendDescriptorChanged(Landroidx/mediarouter/media/MediaRouteProviderDescriptor;)V
+    invoke-virtual {p1, p2}, Landroidx/mediarouter/media/MediaRouteProviderService;->sendDescriptorChanged(Landroidx/mediarouter/media/MediaRouteProviderDescriptor;)V
 
-    .line 644
     return-void
 .end method

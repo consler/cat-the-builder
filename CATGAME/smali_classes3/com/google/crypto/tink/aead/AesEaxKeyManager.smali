@@ -36,19 +36,18 @@
 
     invoke-direct {p0, v0, v1}, Lcom/google/crypto/tink/KeyTypeManager;-><init>(Ljava/lang/Class;[Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;)V
 
-    .line 50
     return-void
 .end method
 
 .method public static final aes128EaxTemplate()Lcom/google/crypto/tink/KeyTemplate;
     .locals 2
 
+    const/16 v0, 0x10
+
     .line 124
-    sget-object v0, Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;->TINK:Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;
+    sget-object v1, Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;->TINK:Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;
 
-    const/16 v1, 0x10
-
-    invoke-static {v1, v1, v0}, Lcom/google/crypto/tink/aead/AesEaxKeyManager;->createKeyTemplate(IILcom/google/crypto/tink/KeyTemplate$OutputPrefixType;)Lcom/google/crypto/tink/KeyTemplate;
+    invoke-static {v0, v0, v1}, Lcom/google/crypto/tink/aead/AesEaxKeyManager;->createKeyTemplate(IILcom/google/crypto/tink/KeyTemplate$OutputPrefixType;)Lcom/google/crypto/tink/KeyTemplate;
 
     move-result-object v0
 
@@ -58,14 +57,14 @@
 .method public static final aes256EaxTemplate()Lcom/google/crypto/tink/KeyTemplate;
     .locals 3
 
+    const/16 v0, 0x10
+
     .line 150
-    sget-object v0, Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;->TINK:Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;
+    sget-object v1, Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;->TINK:Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;
 
-    const/16 v1, 0x20
+    const/16 v2, 0x20
 
-    const/16 v2, 0x10
-
-    invoke-static {v1, v2, v0}, Lcom/google/crypto/tink/aead/AesEaxKeyManager;->createKeyTemplate(IILcom/google/crypto/tink/KeyTemplate$OutputPrefixType;)Lcom/google/crypto/tink/KeyTemplate;
+    invoke-static {v2, v0, v1}, Lcom/google/crypto/tink/aead/AesEaxKeyManager;->createKeyTemplate(IILcom/google/crypto/tink/KeyTemplate$OutputPrefixType;)Lcom/google/crypto/tink/KeyTemplate;
 
     move-result-object v0
 
@@ -73,10 +72,7 @@
 .end method
 
 .method private static createKeyTemplate(IILcom/google/crypto/tink/KeyTemplate$OutputPrefixType;)Lcom/google/crypto/tink/KeyTemplate;
-    .locals 3
-    .param p0, "keySize"    # I
-    .param p1, "ivSize"    # I
-    .param p2, "prefixType"    # Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -98,66 +94,65 @@
     .line 174
     invoke-virtual {v0, p0}, Lcom/google/crypto/tink/proto/AesEaxKeyFormat$Builder;->setKeySize(I)Lcom/google/crypto/tink/proto/AesEaxKeyFormat$Builder;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 175
     invoke-static {}, Lcom/google/crypto/tink/proto/AesEaxParams;->newBuilder()Lcom/google/crypto/tink/proto/AesEaxParams$Builder;
 
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Lcom/google/crypto/tink/proto/AesEaxParams$Builder;->setIvSize(I)Lcom/google/crypto/tink/proto/AesEaxParams$Builder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/google/crypto/tink/proto/AesEaxParams$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/google/crypto/tink/proto/AesEaxParams;
-
-    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/proto/AesEaxKeyFormat$Builder;->setParams(Lcom/google/crypto/tink/proto/AesEaxParams;)Lcom/google/crypto/tink/proto/AesEaxKeyFormat$Builder;
-
     move-result-object v0
+
+    invoke-virtual {v0, p1}, Lcom/google/crypto/tink/proto/AesEaxParams$Builder;->setIvSize(I)Lcom/google/crypto/tink/proto/AesEaxParams$Builder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/AesEaxParams$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/google/crypto/tink/proto/AesEaxParams;
+
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/proto/AesEaxKeyFormat$Builder;->setParams(Lcom/google/crypto/tink/proto/AesEaxParams;)Lcom/google/crypto/tink/proto/AesEaxKeyFormat$Builder;
+
+    move-result-object p0
 
     .line 176
-    invoke-virtual {v0}, Lcom/google/crypto/tink/proto/AesEaxKeyFormat$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
+    invoke-virtual {p0}, Lcom/google/crypto/tink/proto/AesEaxKeyFormat$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/AesEaxKeyFormat;
+    check-cast p0, Lcom/google/crypto/tink/proto/AesEaxKeyFormat;
 
     .line 177
-    .local v0, "format":Lcom/google/crypto/tink/proto/AesEaxKeyFormat;
-    new-instance v1, Lcom/google/crypto/tink/aead/AesEaxKeyManager;
+    new-instance p1, Lcom/google/crypto/tink/aead/AesEaxKeyManager;
 
-    invoke-direct {v1}, Lcom/google/crypto/tink/aead/AesEaxKeyManager;-><init>()V
+    invoke-direct {p1}, Lcom/google/crypto/tink/aead/AesEaxKeyManager;-><init>()V
 
     .line 178
-    invoke-virtual {v1}, Lcom/google/crypto/tink/aead/AesEaxKeyManager;->getKeyType()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/aead/AesEaxKeyManager;->getKeyType()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/google/crypto/tink/proto/AesEaxKeyFormat;->toByteArray()[B
+    invoke-virtual {p0}, Lcom/google/crypto/tink/proto/AesEaxKeyFormat;->toByteArray()[B
 
-    move-result-object v2
+    move-result-object p0
 
     .line 177
-    invoke-static {v1, v2, p2}, Lcom/google/crypto/tink/KeyTemplate;->create(Ljava/lang/String;[BLcom/google/crypto/tink/KeyTemplate$OutputPrefixType;)Lcom/google/crypto/tink/KeyTemplate;
+    invoke-static {p1, p0, p2}, Lcom/google/crypto/tink/KeyTemplate;->create(Ljava/lang/String;[BLcom/google/crypto/tink/KeyTemplate$OutputPrefixType;)Lcom/google/crypto/tink/KeyTemplate;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static final rawAes128EaxTemplate()Lcom/google/crypto/tink/KeyTemplate;
     .locals 2
 
+    const/16 v0, 0x10
+
     .line 137
-    sget-object v0, Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;->RAW:Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;
+    sget-object v1, Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;->RAW:Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;
 
-    const/16 v1, 0x10
-
-    invoke-static {v1, v1, v0}, Lcom/google/crypto/tink/aead/AesEaxKeyManager;->createKeyTemplate(IILcom/google/crypto/tink/KeyTemplate$OutputPrefixType;)Lcom/google/crypto/tink/KeyTemplate;
+    invoke-static {v0, v0, v1}, Lcom/google/crypto/tink/aead/AesEaxKeyManager;->createKeyTemplate(IILcom/google/crypto/tink/KeyTemplate$OutputPrefixType;)Lcom/google/crypto/tink/KeyTemplate;
 
     move-result-object v0
 
@@ -167,14 +162,14 @@
 .method public static final rawAes256EaxTemplate()Lcom/google/crypto/tink/KeyTemplate;
     .locals 3
 
+    const/16 v0, 0x10
+
     .line 163
-    sget-object v0, Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;->RAW:Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;
+    sget-object v1, Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;->RAW:Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;
 
-    const/16 v1, 0x20
+    const/16 v2, 0x20
 
-    const/16 v2, 0x10
-
-    invoke-static {v1, v2, v0}, Lcom/google/crypto/tink/aead/AesEaxKeyManager;->createKeyTemplate(IILcom/google/crypto/tink/KeyTemplate$OutputPrefixType;)Lcom/google/crypto/tink/KeyTemplate;
+    invoke-static {v2, v0, v1}, Lcom/google/crypto/tink/aead/AesEaxKeyManager;->createKeyTemplate(IILcom/google/crypto/tink/KeyTemplate$OutputPrefixType;)Lcom/google/crypto/tink/KeyTemplate;
 
     move-result-object v0
 
@@ -183,7 +178,6 @@
 
 .method public static register(Z)V
     .locals 1
-    .param p0, "newKeyAllowed"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -206,7 +200,6 @@
 
     invoke-static {v0, p0}, Lcom/google/crypto/tink/Registry;->registerKeyManager(Lcom/google/crypto/tink/KeyTypeManager;Z)V
 
-    .line 112
     return-void
 .end method
 
@@ -215,7 +208,6 @@
 .method public getKeyType()Ljava/lang/String;
     .locals 1
 
-    .line 54
     const-string v0, "type.googleapis.com/google.crypto.tink.AesEaxKey"
 
     return-object v0
@@ -224,7 +216,6 @@
 .method public getVersion()I
     .locals 1
 
-    .line 59
     const/4 v0, 0x0
 
     return v0
@@ -263,7 +254,6 @@
 
 .method public parseKey(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/AesEaxKey;
     .locals 1
-    .param p1, "byteString"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -286,9 +276,9 @@
 
     invoke-static {p1, v0}, Lcom/google/crypto/tink/proto/AesEaxKey;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/AesEaxKey;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic parseKey(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
@@ -318,7 +308,6 @@
 
 .method public validateKey(Lcom/google/crypto/tink/proto/AesEaxKey;)V
     .locals 2
-    .param p1, "key"    # Lcom/google/crypto/tink/proto/AesEaxKey;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -371,29 +360,28 @@
 
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/AesEaxKey;->getParams()Lcom/google/crypto/tink/proto/AesEaxParams;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/google/crypto/tink/proto/AesEaxParams;->getIvSize()I
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/AesEaxParams;->getIvSize()I
 
-    move-result v0
+    move-result p1
 
-    const/16 v1, 0x10
+    const/16 v0, 0x10
 
-    if-ne v0, v1, :cond_0
+    if-ne p1, v0, :cond_0
 
     goto :goto_0
 
     .line 72
     :cond_0
-    new-instance v0, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    const-string v1, "invalid IV size; acceptable values have 12 or 16 bytes"
+    const-string v0, "invalid IV size; acceptable values have 12 or 16 bytes"
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 74
     :cond_1
     :goto_0
     return-void

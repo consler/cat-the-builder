@@ -59,11 +59,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/bumptech/glide/gifdecoder/GifDecoder;Lcom/bumptech/glide/load/Transformation;IILandroid/graphics/Bitmap;)V
     .locals 9
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "gifDecoder"    # Lcom/bumptech/glide/gifdecoder/GifDecoder;
-    .param p4, "targetFrameWidth"    # I
-    .param p5, "targetFrameHeight"    # I
-    .param p6, "firstFrame"    # Landroid/graphics/Bitmap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -78,7 +73,6 @@
     .end annotation
 
     .line 128
-    .local p3, "frameTransformation":Lcom/bumptech/glide/load/Transformation;, "Lcom/bumptech/glide/load/Transformation<Landroid/graphics/Bitmap;>;"
     new-instance v0, Lcom/bumptech/glide/load/resource/gif/GifDrawable$GifState;
 
     new-instance v8, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;
@@ -107,18 +101,11 @@
     .line 128
     invoke-direct {p0, v0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;-><init>(Lcom/bumptech/glide/load/resource/gif/GifDrawable$GifState;)V
 
-    .line 138
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lcom/bumptech/glide/gifdecoder/GifDecoder;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Lcom/bumptech/glide/load/Transformation;IILandroid/graphics/Bitmap;)V
     .locals 7
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "gifDecoder"    # Lcom/bumptech/glide/gifdecoder/GifDecoder;
-    .param p3, "bitmapPool"    # Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
-    .param p5, "targetFrameWidth"    # I
-    .param p6, "targetFrameHeight"    # I
-    .param p7, "firstFrame"    # Landroid/graphics/Bitmap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -136,8 +123,6 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 102
-    .local p4, "frameTransformation":Lcom/bumptech/glide/load/Transformation;, "Lcom/bumptech/glide/load/Transformation<Landroid/graphics/Bitmap;>;"
     move-object v0, p0
 
     move-object v1, p1
@@ -152,46 +137,42 @@
 
     move-object v6, p7
 
+    .line 102
     invoke-direct/range {v0 .. v6}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;-><init>(Landroid/content/Context;Lcom/bumptech/glide/gifdecoder/GifDecoder;Lcom/bumptech/glide/load/Transformation;IILandroid/graphics/Bitmap;)V
 
-    .line 103
     return-void
 .end method
 
 .method constructor <init>(Lcom/bumptech/glide/load/resource/gif/GifDrawable$GifState;)V
     .locals 1
-    .param p1, "state"    # Lcom/bumptech/glide/load/resource/gif/GifDrawable$GifState;
 
     .line 140
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
 
-    .line 61
     const/4 v0, 0x1
 
+    .line 61
     iput-boolean v0, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->isVisible:Z
 
-    .line 65
     const/4 v0, -0x1
 
+    .line 65
     iput v0, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->maxLoopCount:I
 
     .line 141
     invoke-static {p1}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/bumptech/glide/load/resource/gif/GifDrawable$GifState;
+    check-cast p1, Lcom/bumptech/glide/load/resource/gif/GifDrawable$GifState;
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->state:Lcom/bumptech/glide/load/resource/gif/GifDrawable$GifState;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->state:Lcom/bumptech/glide/load/resource/gif/GifDrawable$GifState;
 
-    .line 142
     return-void
 .end method
 
 .method constructor <init>(Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;Landroid/graphics/Paint;)V
     .locals 1
-    .param p1, "frameLoader"    # Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;
-    .param p2, "paint"    # Landroid/graphics/Paint;
 
     .line 146
     new-instance v0, Lcom/bumptech/glide/load/resource/gif/GifDrawable$GifState;
@@ -203,7 +184,6 @@
     .line 147
     iput-object p2, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->paint:Landroid/graphics/Paint;
 
-    .line 148
     return-void
 .end method
 
@@ -216,24 +196,20 @@
     move-result-object v0
 
     .line 327
-    .local v0, "callback":Landroid/graphics/drawable/Drawable$Callback;
     :goto_0
     instance-of v1, v0, Landroid/graphics/drawable/Drawable;
 
     if-eqz v1, :cond_0
 
     .line 328
-    move-object v1, v0
+    check-cast v0, Landroid/graphics/drawable/Drawable;
 
-    check-cast v1, Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->getCallback()Landroid/graphics/drawable/Drawable$Callback;
+    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getCallback()Landroid/graphics/drawable/Drawable$Callback;
 
     move-result-object v0
 
     goto :goto_0
 
-    .line 330
     :cond_0
     return-object v0
 .end method
@@ -293,14 +269,12 @@
     if-eqz v0, :cond_0
 
     .line 355
-    const/4 v1, 0x0
-
-    .local v1, "i":I
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v0
 
-    .local v0, "size":I
+    const/4 v1, 0x0
+
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -315,14 +289,10 @@
 
     invoke-virtual {v2, p0}, Landroidx/vectordrawable/graphics/drawable/Animatable2Compat$AnimationCallback;->onAnimationEnd(Landroid/graphics/drawable/Drawable;)V
 
-    .line 355
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 359
-    .end local v0    # "size":I
-    .end local v1    # "i":I
     :cond_0
     return-void
 .end method
@@ -330,12 +300,11 @@
 .method private resetLoopCount()V
     .locals 1
 
-    .line 188
     const/4 v0, 0x0
 
+    .line 188
     iput v0, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->loopCount:I
 
-    .line 189
     return-void
 .end method
 
@@ -388,7 +357,6 @@
     .line 228
     invoke-virtual {p0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->invalidateSelf()V
 
-    .line 230
     :cond_1
     :goto_0
     return-void
@@ -397,9 +365,9 @@
 .method private stopRunning()V
     .locals 1
 
-    .line 233
     const/4 v0, 0x0
 
+    .line 233
     iput-boolean v0, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->isRunning:Z
 
     .line 234
@@ -409,7 +377,6 @@
 
     invoke-virtual {v0, p0}, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->unsubscribe(Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$FrameCallback;)V
 
-    .line 235
     return-void
 .end method
 
@@ -426,21 +393,18 @@
     .line 427
     invoke-interface {v0}, Ljava/util/List;->clear()V
 
-    .line 429
     :cond_0
     return-void
 .end method
 
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 5
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 281
     iget-boolean v0, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->isRecycled:Z
 
     if-eqz v0, :cond_0
 
-    .line 282
     return-void
 
     .line 285
@@ -450,29 +414,29 @@
     if-eqz v0, :cond_1
 
     .line 286
-    const/16 v0, 0x77
-
     invoke-virtual {p0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->getIntrinsicWidth()I
 
-    move-result v1
+    move-result v0
 
     invoke-virtual {p0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->getIntrinsicHeight()I
 
-    move-result v2
+    move-result v1
 
     invoke-virtual {p0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->getBounds()Landroid/graphics/Rect;
 
-    move-result-object v3
+    move-result-object v2
 
     invoke-direct {p0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->getDestRect()Landroid/graphics/Rect;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-static {v0, v1, v2, v3, v4}, Landroid/view/Gravity;->apply(IIILandroid/graphics/Rect;Landroid/graphics/Rect;)V
+    const/16 v4, 0x77
 
-    .line 287
+    invoke-static {v4, v0, v1, v2, v3}, Landroid/view/Gravity;->apply(IIILandroid/graphics/Rect;Landroid/graphics/Rect;)V
+
     const/4 v0, 0x0
 
+    .line 287
     iput-boolean v0, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->applyGravity:Z
 
     .line 290
@@ -486,20 +450,18 @@
     move-result-object v0
 
     .line 291
-    .local v0, "currentFrame":Landroid/graphics/Bitmap;
-    const/4 v1, 0x0
-
     invoke-direct {p0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->getDestRect()Landroid/graphics/Rect;
 
-    move-result-object v2
+    move-result-object v1
 
     invoke-direct {p0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->getPaint()Landroid/graphics/Paint;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
+    const/4 v3, 0x0
 
-    .line 292
+    invoke-virtual {p1, v0, v3, v1, v2}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
+
     return-void
 .end method
 
@@ -628,7 +590,6 @@
 .method public getOpacity()I
     .locals 1
 
-    .line 321
     const/4 v0, -0x2
 
     return v0
@@ -668,18 +629,16 @@
 .end method
 
 .method protected onBoundsChange(Landroid/graphics/Rect;)V
-    .locals 1
-    .param p1, "bounds"    # Landroid/graphics/Rect;
+    .locals 0
 
     .line 275
     invoke-super {p0, p1}, Landroid/graphics/drawable/Drawable;->onBoundsChange(Landroid/graphics/Rect;)V
 
+    const/4 p1, 0x1
+
     .line 276
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->applyGravity:Z
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->applyGravity:Z
-
-    .line 277
     return-void
 .end method
 
@@ -699,7 +658,6 @@
     .line 337
     invoke-virtual {p0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->invalidateSelf()V
 
-    .line 338
     return-void
 
     .line 341
@@ -744,7 +702,6 @@
     .line 349
     invoke-virtual {p0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->stop()V
 
-    .line 351
     :cond_2
     return-void
 .end method
@@ -752,9 +709,9 @@
 .method public recycle()V
     .locals 1
 
-    .line 368
     const/4 v0, 0x1
 
+    .line 368
     iput-boolean v0, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->isRecycled:Z
 
     .line 369
@@ -764,18 +721,14 @@
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->clear()V
 
-    .line 370
     return-void
 .end method
 
 .method public registerAnimationCallback(Landroidx/vectordrawable/graphics/drawable/Animatable2Compat$AnimationCallback;)V
     .locals 1
-    .param p1, "animationCallback"    # Landroidx/vectordrawable/graphics/drawable/Animatable2Compat$AnimationCallback;
 
-    .line 407
     if-nez p1, :cond_0
 
-    .line 408
     return-void
 
     .line 410
@@ -797,13 +750,11 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 414
     return-void
 .end method
 
 .method public setAlpha(I)V
     .locals 1
-    .param p1, "i"    # I
 
     .line 296
     invoke-direct {p0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->getPaint()Landroid/graphics/Paint;
@@ -812,13 +763,11 @@
 
     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setAlpha(I)V
 
-    .line 297
     return-void
 .end method
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 1
-    .param p1, "colorFilter"    # Landroid/graphics/ColorFilter;
 
     .line 301
     invoke-direct {p0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->getPaint()Landroid/graphics/Paint;
@@ -827,13 +776,11 @@
 
     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
 
-    .line 302
     return-void
 .end method
 
 .method public setFrameTransformation(Lcom/bumptech/glide/load/Transformation;Landroid/graphics/Bitmap;)V
     .locals 1
-    .param p2, "firstFrame"    # Landroid/graphics/Bitmap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -846,33 +793,27 @@
     .end annotation
 
     .line 162
-    .local p1, "frameTransformation":Lcom/bumptech/glide/load/Transformation;, "Lcom/bumptech/glide/load/Transformation<Landroid/graphics/Bitmap;>;"
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->state:Lcom/bumptech/glide/load/resource/gif/GifDrawable$GifState;
 
     iget-object v0, v0, Lcom/bumptech/glide/load/resource/gif/GifDrawable$GifState;->frameLoader:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;
 
     invoke-virtual {v0, p1, p2}, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->setFrameTransformation(Lcom/bumptech/glide/load/Transformation;Landroid/graphics/Bitmap;)V
 
-    .line 163
     return-void
 .end method
 
 .method setIsRunning(Z)V
     .locals 0
-    .param p1, "isRunning"    # Z
 
     .line 270
     iput-boolean p1, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->isRunning:Z
 
-    .line 271
     return-void
 .end method
 
 .method public setLoopCount(I)V
-    .locals 2
-    .param p1, "loopCount"    # I
+    .locals 1
 
-    .line 380
     const/4 v0, -0x1
 
     if-gtz p1, :cond_1
@@ -885,60 +826,50 @@
 
     .line 381
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Loop count must be greater than 0, or equal to GlideDrawable.LOOP_FOREVER, or equal to GlideDrawable.LOOP_INTRINSIC"
+    const-string v0, "Loop count must be greater than 0, or equal to GlideDrawable.LOOP_FOREVER, or equal to GlideDrawable.LOOP_INTRINSIC"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 386
     :cond_1
     :goto_0
     if-nez p1, :cond_3
 
     .line 387
-    iget-object v1, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->state:Lcom/bumptech/glide/load/resource/gif/GifDrawable$GifState;
+    iget-object p1, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->state:Lcom/bumptech/glide/load/resource/gif/GifDrawable$GifState;
 
-    iget-object v1, v1, Lcom/bumptech/glide/load/resource/gif/GifDrawable$GifState;->frameLoader:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;
+    iget-object p1, p1, Lcom/bumptech/glide/load/resource/gif/GifDrawable$GifState;->frameLoader:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;
 
-    invoke-virtual {v1}, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->getLoopCount()I
+    invoke-virtual {p1}, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->getLoopCount()I
 
-    move-result v1
+    move-result p1
 
-    .line 388
-    .local v1, "intrinsicCount":I
-    nop
-
-    .line 389
-    if-nez v1, :cond_2
+    if-nez p1, :cond_2
 
     goto :goto_1
 
     :cond_2
-    move v0, v1
+    move v0, p1
 
+    .line 389
     :goto_1
     iput v0, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->maxLoopCount:I
 
-    .line 390
-    .end local v1    # "intrinsicCount":I
     goto :goto_2
 
     .line 391
     :cond_3
     iput p1, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->maxLoopCount:I
 
-    .line 393
     :goto_2
     return-void
 .end method
 
 .method public setVisible(ZZ)Z
     .locals 2
-    .param p1, "visible"    # Z
-    .param p2, "restart"    # Z
 
     .line 239
     iget-boolean v0, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->isRecycled:Z
@@ -952,7 +883,6 @@
     .line 244
     iput-boolean p1, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->isVisible:Z
 
-    .line 245
     if-nez p1, :cond_0
 
     .line 246
@@ -974,17 +904,17 @@
     :goto_0
     invoke-super {p0, p1, p2}, Landroid/graphics/drawable/Drawable;->setVisible(ZZ)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public start()V
     .locals 1
 
-    .line 204
     const/4 v0, 0x1
 
+    .line 204
     iput-boolean v0, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->isStarted:Z
 
     .line 205
@@ -998,7 +928,6 @@
     .line 207
     invoke-direct {p0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->startRunning()V
 
-    .line 209
     :cond_0
     return-void
 .end method
@@ -1025,28 +954,25 @@
     .line 199
     invoke-virtual {p0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->start()V
 
-    .line 200
     return-void
 .end method
 
 .method public stop()V
     .locals 1
 
-    .line 213
     const/4 v0, 0x0
 
+    .line 213
     iput-boolean v0, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->isStarted:Z
 
     .line 214
     invoke-direct {p0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->stopRunning()V
 
-    .line 215
     return-void
 .end method
 
 .method public unregisterAnimationCallback(Landroidx/vectordrawable/graphics/drawable/Animatable2Compat$AnimationCallback;)Z
     .locals 1
-    .param p1, "animationCallback"    # Landroidx/vectordrawable/graphics/drawable/Animatable2Compat$AnimationCallback;
 
     .line 418
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->animationCallbacks:Ljava/util/List;
@@ -1061,14 +987,13 @@
     :cond_0
     invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
-    .line 419
     :cond_1
     :goto_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

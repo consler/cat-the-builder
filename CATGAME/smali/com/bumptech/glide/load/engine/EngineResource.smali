@@ -50,11 +50,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/engine/Resource;ZZLcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/engine/EngineResource$ResourceListener;)V
-    .locals 1
-    .param p2, "isMemoryCacheable"    # Z
-    .param p3, "isRecyclable"    # Z
-    .param p4, "key"    # Lcom/bumptech/glide/load/Key;
-    .param p5, "listener"    # Lcom/bumptech/glide/load/engine/EngineResource$ResourceListener;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,18 +63,16 @@
     .end annotation
 
     .line 32
-    .local p0, "this":Lcom/bumptech/glide/load/engine/EngineResource;, "Lcom/bumptech/glide/load/engine/EngineResource<TZ;>;"
-    .local p1, "toWrap":Lcom/bumptech/glide/load/engine/Resource;, "Lcom/bumptech/glide/load/engine/Resource<TZ;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 33
     invoke-static {p1}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/bumptech/glide/load/engine/Resource;
+    check-cast p1, Lcom/bumptech/glide/load/engine/Resource;
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/EngineResource;->resource:Lcom/bumptech/glide/load/engine/Resource;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/EngineResource;->resource:Lcom/bumptech/glide/load/engine/Resource;
 
     .line 34
     iput-boolean p2, p0, Lcom/bumptech/glide/load/engine/EngineResource;->isMemoryCacheable:Z
@@ -92,13 +86,12 @@
     .line 37
     invoke-static {p5}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/bumptech/glide/load/engine/EngineResource$ResourceListener;
+    check-cast p1, Lcom/bumptech/glide/load/engine/EngineResource$ResourceListener;
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/EngineResource;->listener:Lcom/bumptech/glide/load/engine/EngineResource$ResourceListener;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/EngineResource;->listener:Lcom/bumptech/glide/load/engine/EngineResource$ResourceListener;
 
-    .line 38
     return-void
 .end method
 
@@ -107,7 +100,6 @@
 .method declared-synchronized acquire()V
     .locals 2
 
-    .local p0, "this":Lcom/bumptech/glide/load/engine/EngineResource;, "Lcom/bumptech/glide/load/engine/EngineResource<TZ;>;"
     monitor-enter p0
 
     .line 89
@@ -131,7 +123,6 @@
     return-void
 
     .line 90
-    .end local p0    # "this":Lcom/bumptech/glide/load/engine/EngineResource;, "Lcom/bumptech/glide/load/engine/EngineResource<TZ;>;"
     :cond_0
     :try_start_1
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -144,7 +135,6 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 88
     :catchall_0
     move-exception v0
 
@@ -162,7 +152,6 @@
     .end annotation
 
     .line 57
-    .local p0, "this":Lcom/bumptech/glide/load/engine/EngineResource;, "Lcom/bumptech/glide/load/engine/EngineResource<TZ;>;"
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineResource;->resource:Lcom/bumptech/glide/load/engine/Resource;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/engine/Resource;->get()Ljava/lang/Object;
@@ -183,7 +172,6 @@
     .end annotation
 
     .line 41
-    .local p0, "this":Lcom/bumptech/glide/load/engine/EngineResource;, "Lcom/bumptech/glide/load/engine/EngineResource<TZ;>;"
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineResource;->resource:Lcom/bumptech/glide/load/engine/Resource;
 
     return-object v0
@@ -200,7 +188,6 @@
     .end annotation
 
     .line 51
-    .local p0, "this":Lcom/bumptech/glide/load/engine/EngineResource;, "Lcom/bumptech/glide/load/engine/EngineResource<TZ;>;"
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineResource;->resource:Lcom/bumptech/glide/load/engine/Resource;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/engine/Resource;->getResourceClass()Ljava/lang/Class;
@@ -214,7 +201,6 @@
     .locals 1
 
     .line 62
-    .local p0, "this":Lcom/bumptech/glide/load/engine/EngineResource;, "Lcom/bumptech/glide/load/engine/EngineResource<TZ;>;"
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineResource;->resource:Lcom/bumptech/glide/load/engine/Resource;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/engine/Resource;->getSize()I
@@ -228,7 +214,6 @@
     .locals 1
 
     .line 45
-    .local p0, "this":Lcom/bumptech/glide/load/engine/EngineResource;, "Lcom/bumptech/glide/load/engine/EngineResource<TZ;>;"
     iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/EngineResource;->isMemoryCacheable:Z
 
     return v0
@@ -237,7 +222,6 @@
 .method public declared-synchronized recycle()V
     .locals 2
 
-    .local p0, "this":Lcom/bumptech/glide/load/engine/EngineResource;, "Lcom/bumptech/glide/load/engine/EngineResource<TZ;>;"
     monitor-enter p0
 
     .line 67
@@ -251,9 +235,9 @@
 
     if-nez v0, :cond_1
 
-    .line 73
     const/4 v0, 0x1
 
+    .line 73
     iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/EngineResource;->isRecycled:Z
 
     .line 74
@@ -269,7 +253,6 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 77
-    .end local p0    # "this":Lcom/bumptech/glide/load/engine/EngineResource;, "Lcom/bumptech/glide/load/engine/EngineResource<TZ;>;"
     :cond_0
     monitor-exit p0
 
@@ -298,7 +281,6 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 66
     :catchall_0
     move-exception v0
 
@@ -308,141 +290,155 @@
 .end method
 
 .method release()V
-    .locals 3
-
-    .line 106
-    .local p0, "this":Lcom/bumptech/glide/load/engine/EngineResource;, "Lcom/bumptech/glide/load/engine/EngineResource<TZ;>;"
-    const/4 v0, 0x0
+    .locals 2
 
     .line 107
-    .local v0, "release":Z
     monitor-enter p0
 
     .line 108
     :try_start_0
-    iget v1, p0, Lcom/bumptech/glide/load/engine/EngineResource;->acquired:I
+    iget v0, p0, Lcom/bumptech/glide/load/engine/EngineResource;->acquired:I
 
-    if-lez v1, :cond_2
+    if-lez v0, :cond_2
+
+    const/4 v1, 0x1
+
+    sub-int/2addr v0, v1
 
     .line 111
-    iget v1, p0, Lcom/bumptech/glide/load/engine/EngineResource;->acquired:I
+    iput v0, p0, Lcom/bumptech/glide/load/engine/EngineResource;->acquired:I
 
-    add-int/lit8 v1, v1, -0x1
+    if-nez v0, :cond_0
 
-    iput v1, p0, Lcom/bumptech/glide/load/engine/EngineResource;->acquired:I
+    goto :goto_0
 
-    if-nez v1, :cond_0
-
-    .line 112
-    const/4 v0, 0x1
+    :cond_0
+    const/4 v1, 0x0
 
     .line 114
-    :cond_0
+    :goto_0
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 115
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
     .line 116
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/EngineResource;->listener:Lcom/bumptech/glide/load/engine/EngineResource$ResourceListener;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineResource;->listener:Lcom/bumptech/glide/load/engine/EngineResource$ResourceListener;
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/EngineResource;->key:Lcom/bumptech/glide/load/Key;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/EngineResource;->key:Lcom/bumptech/glide/load/Key;
 
-    invoke-interface {v1, v2, p0}, Lcom/bumptech/glide/load/engine/EngineResource$ResourceListener;->onResourceReleased(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/engine/EngineResource;)V
+    invoke-interface {v0, v1, p0}, Lcom/bumptech/glide/load/engine/EngineResource$ResourceListener;->onResourceReleased(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/engine/EngineResource;)V
 
-    .line 118
     :cond_1
     return-void
 
     .line 109
     :cond_2
     :try_start_1
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    const-string v2, "Cannot release a recycled or not yet acquired resource"
+    const-string v1, "Cannot release a recycled or not yet acquired resource"
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    .end local v0    # "release":Z
-    throw v1
+    throw v0
+
+    :catchall_0
+    move-exception v0
 
     .line 114
-    .restart local v0    # "release":Z
-    :catchall_0
-    move-exception v1
-
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw v0
 .end method
 
 .method public declared-synchronized toString()Ljava/lang/String;
     .locals 2
 
-    .local p0, "this":Lcom/bumptech/glide/load/engine/EngineResource;, "Lcom/bumptech/glide/load/engine/EngineResource<TZ;>;"
+    const-string v0, "EngineResource{isMemoryCacheable="
+
     monitor-enter p0
 
     .line 122
     :try_start_0
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    const-string v1, "EngineResource{isMemoryCacheable="
+    iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/EngineResource;->isMemoryCacheable:Z
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    iget-boolean v1, p0, Lcom/bumptech/glide/load/engine/EngineResource;->isMemoryCacheable:Z
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     const-string v1, ", listener="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/EngineResource;->listener:Lcom/bumptech/glide/load/engine/EngineResource$ResourceListener;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     const-string v1, ", key="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/EngineResource;->key:Lcom/bumptech/glide/load/Key;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     const-string v1, ", acquired="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget v1, p0, Lcom/bumptech/glide/load/engine/EngineResource;->acquired:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     const-string v1, ", isRecycled="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-boolean v1, p0, Lcom/bumptech/glide/load/engine/EngineResource;->isRecycled:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     const-string v1, ", resource="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/EngineResource;->resource:Lcom/bumptech/glide/load/engine/Resource;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const/16 v1, 0x7d
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -454,8 +450,6 @@
 
     return-object v0
 
-    .line 122
-    .end local p0    # "this":Lcom/bumptech/glide/load/engine/EngineResource;, "Lcom/bumptech/glide/load/engine/EngineResource<TZ;>;"
     :catchall_0
     move-exception v0
 

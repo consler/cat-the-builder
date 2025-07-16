@@ -47,7 +47,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/esotericsoftware/kryo/util/ObjectIntMap;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -57,18 +57,15 @@
     .end annotation
 
     .line 455
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;, "Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries<TK;>;"
-    .local p1, "map":Lcom/esotericsoftware/kryo/util/ObjectIntMap;, "Lcom/esotericsoftware/kryo/util/ObjectIntMap<TK;>;"
     invoke-direct {p0, p1}, Lcom/esotericsoftware/kryo/util/ObjectIntMap$MapIterator;-><init>(Lcom/esotericsoftware/kryo/util/ObjectIntMap;)V
 
     .line 452
-    new-instance v0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entry;
+    new-instance p1, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entry;
 
-    invoke-direct {v0}, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entry;-><init>()V
+    invoke-direct {p1}, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entry;-><init>()V
 
-    iput-object v0, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;->entry:Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entry;
+    iput-object p1, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;->entry:Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entry;
 
-    .line 456
     return-void
 .end method
 
@@ -78,7 +75,6 @@
     .locals 2
 
     .line 471
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;, "Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries<TK;>;"
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;->valid:Z
 
     if-eqz v0, :cond_0
@@ -109,8 +105,6 @@
         }
     .end annotation
 
-    .line 476
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;, "Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries<TK;>;"
     return-object p0
 .end method
 
@@ -118,7 +112,6 @@
     .locals 1
 
     .line 451
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;, "Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries<TK;>;"
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;->iterator()Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;
 
     move-result-object v0
@@ -127,7 +120,7 @@
 .end method
 
 .method public next()Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entry;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -137,7 +130,6 @@
     .end annotation
 
     .line 460
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;, "Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries<TK;>;"
     iget-boolean v0, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;->hasNext:Z
 
     if-eqz v0, :cond_1
@@ -153,43 +145,41 @@
     iget-object v0, v0, Lcom/esotericsoftware/kryo/util/ObjectIntMap;->keyTable:[Ljava/lang/Object;
 
     .line 463
-    .local v0, "keyTable":[Ljava/lang/Object;, "[TK;"
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;->entry:Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entry;
 
     iget v2, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;->nextIndex:I
 
-    aget-object v2, v0, v2
+    aget-object v0, v0, v2
 
-    iput-object v2, v1, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entry;->key:Ljava/lang/Object;
+    iput-object v0, v1, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entry;->key:Ljava/lang/Object;
 
     .line 464
-    iget-object v1, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;->entry:Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entry;
+    iget-object v0, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;->entry:Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entry;
 
-    iget-object v2, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;->map:Lcom/esotericsoftware/kryo/util/ObjectIntMap;
+    iget-object v1, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;->map:Lcom/esotericsoftware/kryo/util/ObjectIntMap;
 
-    iget-object v2, v2, Lcom/esotericsoftware/kryo/util/ObjectIntMap;->valueTable:[I
+    iget-object v1, v1, Lcom/esotericsoftware/kryo/util/ObjectIntMap;->valueTable:[I
 
-    iget v3, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;->nextIndex:I
+    iget v2, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;->nextIndex:I
 
-    aget v2, v2, v3
+    aget v1, v1, v2
 
-    iput v2, v1, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entry;->value:I
+    iput v1, v0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entry;->value:I
 
     .line 465
-    iget v1, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;->nextIndex:I
+    iget v0, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;->nextIndex:I
 
-    iput v1, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;->currentIndex:I
+    iput v0, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;->currentIndex:I
 
     .line 466
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;->findNextIndex()V
 
     .line 467
-    iget-object v1, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;->entry:Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entry;
+    iget-object v0, p0, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;->entry:Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entry;
 
-    return-object v1
+    return-object v0
 
     .line 461
-    .end local v0    # "keyTable":[Ljava/lang/Object;, "[TK;"
     :cond_0
     new-instance v0, Lcom/esotericsoftware/kryo/KryoException;
 
@@ -212,7 +202,6 @@
     .locals 1
 
     .line 451
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;, "Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries<TK;>;"
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;->next()Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entry;
 
     move-result-object v0
@@ -224,7 +213,6 @@
     .locals 0
 
     .line 451
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;, "Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries<TK;>;"
     invoke-super {p0}, Lcom/esotericsoftware/kryo/util/ObjectIntMap$MapIterator;->remove()V
 
     return-void
@@ -234,7 +222,6 @@
     .locals 0
 
     .line 451
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries;, "Lcom/esotericsoftware/kryo/util/ObjectIntMap$Entries<TK;>;"
     invoke-super {p0}, Lcom/esotericsoftware/kryo/util/ObjectIntMap$MapIterator;->reset()V
 
     return-void

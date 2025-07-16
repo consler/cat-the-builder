@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/lang3/concurrent/TimedSemaphore;)V
     .locals 0
-    .param p1, "this$0"    # Lorg/apache/commons/lang3/concurrent/TimedSemaphore;
 
     .line 420
     iput-object p1, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore$1;->this$0:Lorg/apache/commons/lang3/concurrent/TimedSemaphore;
@@ -44,6 +43,5 @@
 
     invoke-virtual {v0}, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->endOfPeriod()V
 
-    .line 424
     return-void
 .end method

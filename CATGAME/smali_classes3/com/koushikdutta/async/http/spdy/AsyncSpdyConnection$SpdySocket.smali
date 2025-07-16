@@ -56,11 +56,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection;IZZLjava/util/List;)V
-    .locals 2
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection;
-    .param p2, "id"    # I
-    .param p3, "outFinished"    # Z
-    .param p4, "inFinished"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(IZZ",
@@ -71,93 +67,83 @@
     .end annotation
 
     .line 130
-    .local p5, "headerBlock":Ljava/util/List;, "Ljava/util/List<Lcom/koushikdutta/async/http/spdy/Header;>;"
     iput-object p1, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->this$0:Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 97
-    iget-object v0, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->this$0:Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection;
+    iget-object p1, p1, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection;->peerSettings:Lcom/koushikdutta/async/http/spdy/Settings;
 
-    iget-object v0, v0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection;->peerSettings:Lcom/koushikdutta/async/http/spdy/Settings;
+    const/high16 p3, 0x10000
 
-    const/high16 v1, 0x10000
+    invoke-virtual {p1, p3}, Lcom/koushikdutta/async/http/spdy/Settings;->getInitialWindowSize(I)I
 
-    invoke-virtual {v0, v1}, Lcom/koushikdutta/async/http/spdy/Settings;->getInitialWindowSize(I)I
+    move-result p1
 
-    move-result v0
+    int-to-long p3, p1
 
-    int-to-long v0, v0
-
-    iput-wide v0, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->bytesLeftInWriteWindow:J
+    iput-wide p3, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->bytesLeftInWriteWindow:J
 
     .line 103
-    new-instance v0, Lcom/koushikdutta/async/ByteBufferList;
+    new-instance p1, Lcom/koushikdutta/async/ByteBufferList;
 
-    invoke-direct {v0}, Lcom/koushikdutta/async/ByteBufferList;-><init>()V
+    invoke-direct {p1}, Lcom/koushikdutta/async/ByteBufferList;-><init>()V
 
-    iput-object v0, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->pending:Lcom/koushikdutta/async/ByteBufferList;
+    iput-object p1, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->pending:Lcom/koushikdutta/async/ByteBufferList;
 
     .line 104
-    new-instance v0, Lcom/koushikdutta/async/future/SimpleFuture;
+    new-instance p1, Lcom/koushikdutta/async/future/SimpleFuture;
 
-    invoke-direct {v0}, Lcom/koushikdutta/async/future/SimpleFuture;-><init>()V
+    invoke-direct {p1}, Lcom/koushikdutta/async/future/SimpleFuture;-><init>()V
 
-    iput-object v0, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->headers:Lcom/koushikdutta/async/future/SimpleFuture;
+    iput-object p1, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->headers:Lcom/koushikdutta/async/future/SimpleFuture;
+
+    const/4 p1, 0x1
 
     .line 105
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->isOpen:Z
+    iput-boolean p1, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->isOpen:Z
 
     .line 202
-    new-instance v0, Lcom/koushikdutta/async/ByteBufferList;
+    new-instance p1, Lcom/koushikdutta/async/ByteBufferList;
 
-    invoke-direct {v0}, Lcom/koushikdutta/async/ByteBufferList;-><init>()V
+    invoke-direct {p1}, Lcom/koushikdutta/async/ByteBufferList;-><init>()V
 
-    iput-object v0, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->writing:Lcom/koushikdutta/async/ByteBufferList;
+    iput-object p1, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->writing:Lcom/koushikdutta/async/ByteBufferList;
 
     .line 131
     iput p2, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->id:I
 
-    .line 132
     return-void
 .end method
 
 
 # virtual methods
 .method public addBytesToWriteWindow(J)V
-    .locals 6
-    .param p1, "delta"    # J
+    .locals 4
 
     .line 140
     iget-wide v0, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->bytesLeftInWriteWindow:J
 
+    add-long/2addr p1, v0
+
     .line 141
-    .local v0, "prev":J
-    iget-wide v2, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->bytesLeftInWriteWindow:J
+    iput-wide p1, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->bytesLeftInWriteWindow:J
 
-    add-long/2addr v2, p1
+    const-wide/16 v2, 0x0
 
-    iput-wide v2, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->bytesLeftInWriteWindow:J
+    cmp-long p1, p1, v2
 
-    .line 142
-    const-wide/16 v4, 0x0
+    if-lez p1, :cond_0
 
-    cmp-long v2, v2, v4
+    cmp-long p1, v0, v2
 
-    if-lez v2, :cond_0
-
-    cmp-long v2, v0, v4
-
-    if-gtz v2, :cond_0
+    if-gtz p1, :cond_0
 
     .line 143
-    iget-object v2, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->writable:Lcom/koushikdutta/async/callback/WritableCallback;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->writable:Lcom/koushikdutta/async/callback/WritableCallback;
 
-    invoke-static {v2}, Lcom/koushikdutta/async/Util;->writable(Lcom/koushikdutta/async/callback/WritableCallback;)V
+    invoke-static {p1}, Lcom/koushikdutta/async/Util;->writable(Lcom/koushikdutta/async/callback/WritableCallback;)V
 
-    .line 144
     :cond_0
     return-void
 .end method
@@ -165,7 +151,6 @@
 .method public charset()Ljava/lang/String;
     .locals 1
 
-    .line 199
     const/4 v0, 0x0
 
     return-object v0
@@ -174,12 +159,11 @@
 .method public close()V
     .locals 1
 
-    .line 179
     const/4 v0, 0x0
 
+    .line 179
     iput-boolean v0, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->isOpen:Z
 
-    .line 180
     return-void
 .end method
 
@@ -192,28 +176,22 @@
 
     iget-object v0, v0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection;->writer:Lcom/koushikdutta/async/http/spdy/FrameWriter;
 
-    const/4 v1, 0x1
+    iget v1, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->id:I
 
-    iget v2, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->id:I
+    iget-object v2, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->writing:Lcom/koushikdutta/async/ByteBufferList;
 
-    iget-object v3, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->writing:Lcom/koushikdutta/async/ByteBufferList;
+    const/4 v3, 0x1
 
-    invoke-interface {v0, v1, v2, v3}, Lcom/koushikdutta/async/http/spdy/FrameWriter;->data(ZILcom/koushikdutta/async/ByteBufferList;)V
+    invoke-interface {v0, v3, v1, v2}, Lcom/koushikdutta/async/http/spdy/FrameWriter;->data(ZILcom/koushikdutta/async/ByteBufferList;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 248
-    nop
-
-    .line 249
     return-void
 
-    .line 246
     :catch_0
     move-exception v0
 
     .line 247
-    .local v0, "e":Ljava/io/IOException;
     new-instance v1, Ljava/lang/AssertionError;
 
     invoke-direct {v1, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
@@ -302,7 +280,6 @@
 .method public isChunked()Z
     .locals 1
 
-    .line 163
     const/4 v0, 0x0
 
     return v0
@@ -330,7 +307,6 @@
     move v0, v2
 
     .line 136
-    .local v0, "streamIsClient":Z
     :goto_0
     iget-object v3, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->this$0:Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection;
 
@@ -368,18 +344,16 @@
 .method public pause()V
     .locals 1
 
-    .line 169
     const/4 v0, 0x1
 
+    .line 169
     iput-boolean v0, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->paused:Z
 
-    .line 170
     return-void
 .end method
 
 .method public receiveHeaders(Ljava/util/List;Lcom/koushikdutta/async/http/spdy/HeadersMode;)V
-    .locals 1
-    .param p2, "headerMode"    # Lcom/koushikdutta/async/http/spdy/HeadersMode;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -392,74 +366,62 @@
     .end annotation
 
     .line 262
-    .local p1, "headers":Ljava/util/List;, "Ljava/util/List<Lcom/koushikdutta/async/http/spdy/Header;>;"
-    iget-object v0, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->headers:Lcom/koushikdutta/async/future/SimpleFuture;
+    iget-object p2, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->headers:Lcom/koushikdutta/async/future/SimpleFuture;
 
-    invoke-virtual {v0, p1}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Object;)Z
 
-    .line 263
     return-void
 .end method
 
 .method public resume()V
     .locals 1
 
-    .line 174
     const/4 v0, 0x0
 
+    .line 174
     iput-boolean v0, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->paused:Z
 
-    .line 175
     return-void
 .end method
 
 .method public setClosedCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
     .locals 0
-    .param p1, "handler"    # Lcom/koushikdutta/async/callback/CompletedCallback;
 
     .line 253
     iput-object p1, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->closedCallback:Lcom/koushikdutta/async/callback/CompletedCallback;
 
-    .line 254
     return-void
 .end method
 
 .method public setDataCallback(Lcom/koushikdutta/async/callback/DataCallback;)V
     .locals 0
-    .param p1, "callback"    # Lcom/koushikdutta/async/callback/DataCallback;
 
     .line 153
     iput-object p1, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->dataCallback:Lcom/koushikdutta/async/callback/DataCallback;
 
-    .line 154
     return-void
 .end method
 
 .method public setEndCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
     .locals 0
-    .param p1, "callback"    # Lcom/koushikdutta/async/callback/CompletedCallback;
 
     .line 189
     iput-object p1, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->endCallback:Lcom/koushikdutta/async/callback/CompletedCallback;
 
-    .line 190
     return-void
 .end method
 
 .method public setWriteableCallback(Lcom/koushikdutta/async/callback/WritableCallback;)V
     .locals 0
-    .param p1, "handler"    # Lcom/koushikdutta/async/callback/WritableCallback;
 
     .line 228
     iput-object p1, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->writable:Lcom/koushikdutta/async/callback/WritableCallback;
 
-    .line 229
     return-void
 .end method
 
 .method updateWindowRead(I)V
     .locals 4
-    .param p1, "length"    # I
 
     .line 117
     iget v0, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->totalWindowRead:I
@@ -499,43 +461,35 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 124
-    nop
-
-    .line 125
     const/4 v0, 0x0
 
+    .line 125
     iput v0, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->totalWindowRead:I
 
     goto :goto_0
 
-    .line 122
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 123
-    .local v0, "e":Ljava/io/IOException;
-    new-instance v1, Ljava/lang/AssertionError;
+    new-instance v0, Ljava/lang/AssertionError;
 
-    invoke-direct {v1, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+    invoke-direct {v0, p1}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
-    throw v1
+    throw v0
 
     .line 127
-    .end local v0    # "e":Ljava/io/IOException;
     :cond_0
     :goto_0
     iget-object v0, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->this$0:Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection;
 
     invoke-virtual {v0, p1}, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection;->updateWindowRead(I)V
 
-    .line 128
     return-void
 .end method
 
 .method public write(Lcom/koushikdutta/async/ByteBufferList;)V
     .locals 5
-    .param p1, "bb"    # Lcom/koushikdutta/async/ByteBufferList;
 
     .line 205
     iget-wide v0, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->bytesLeftInWriteWindow:J
@@ -551,7 +505,6 @@
     long-to-int v0, v0
 
     .line 206
-    .local v0, "canWrite":I
     invoke-virtual {p1}, Lcom/koushikdutta/async/ByteBufferList;->remaining()I
 
     move-result v1
@@ -560,10 +513,8 @@
 
     move-result v0
 
-    .line 207
     if-nez v0, :cond_0
 
-    .line 208
     return-void
 
     .line 210
@@ -595,13 +546,13 @@
 
     .line 212
     :cond_1
-    new-instance v1, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    const-string v2, "wtf"
+    const-string v0, "wtf"
 
-    invoke-direct {v1, v2}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p1, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
-    throw v1
+    throw p1
 
     .line 218
     :cond_2
@@ -611,11 +562,11 @@
 
     iget-object v1, v1, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection;->writer:Lcom/koushikdutta/async/http/spdy/FrameWriter;
 
-    const/4 v2, 0x0
+    iget v2, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->id:I
 
-    iget v3, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->id:I
+    const/4 v3, 0x0
 
-    invoke-interface {v1, v2, v3, p1}, Lcom/koushikdutta/async/http/spdy/FrameWriter;->data(ZILcom/koushikdutta/async/ByteBufferList;)V
+    invoke-interface {v1, v3, v2, p1}, Lcom/koushikdutta/async/http/spdy/FrameWriter;->data(ZILcom/koushikdutta/async/ByteBufferList;)V
 
     .line 219
     iget-wide v1, p0, Lcom/koushikdutta/async/http/spdy/AsyncSpdyConnection$SpdySocket;->bytesLeftInWriteWindow:J
@@ -628,21 +579,15 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 223
-    nop
-
-    .line 224
     return-void
 
-    .line 221
     :catch_0
-    move-exception v1
+    move-exception p1
 
     .line 222
-    .local v1, "e":Ljava/io/IOException;
-    new-instance v2, Ljava/lang/AssertionError;
+    new-instance v0, Ljava/lang/AssertionError;
 
-    invoke-direct {v2, v1}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+    invoke-direct {v0, p1}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
-    throw v2
+    throw v0
 .end method

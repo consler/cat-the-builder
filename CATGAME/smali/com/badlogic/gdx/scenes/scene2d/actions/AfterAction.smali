@@ -39,8 +39,7 @@
 
 # virtual methods
 .method protected delegate(F)Z
-    .locals 6
-    .param p1, "delta"    # F
+    .locals 5
 
     .line 39
     iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AfterAction;->target:Lcom/badlogic/gdx/scenes/scene2d/Actor;
@@ -50,7 +49,6 @@
     move-result-object v0
 
     .line 40
-    .local v0, "currentActions":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/scenes/scene2d/Action;>;"
     iget v1, v0, Lcom/badlogic/gdx/utils/Array;->size:I
 
     const/4 v2, 0x1
@@ -69,7 +67,6 @@
 
     sub-int/2addr v1, v2
 
-    .local v1, "i":I
     :goto_0
     if-ltz v1, :cond_2
 
@@ -83,51 +80,45 @@
     check-cast v3, Lcom/badlogic/gdx/scenes/scene2d/Action;
 
     .line 43
-    .local v3, "action":Lcom/badlogic/gdx/scenes/scene2d/Action;
     invoke-virtual {v0, v3, v2}, Lcom/badlogic/gdx/utils/Array;->indexOf(Ljava/lang/Object;Z)I
 
-    move-result v4
+    move-result v3
+
+    const/4 v4, -0x1
+
+    if-ne v3, v4, :cond_1
 
     .line 44
-    .local v4, "index":I
-    const/4 v5, -0x1
+    iget-object v3, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AfterAction;->waitForActions:Lcom/badlogic/gdx/utils/Array;
 
-    if-ne v4, v5, :cond_1
+    invoke-virtual {v3, v1}, Lcom/badlogic/gdx/utils/Array;->removeIndex(I)Ljava/lang/Object;
 
-    iget-object v5, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AfterAction;->waitForActions:Lcom/badlogic/gdx/utils/Array;
-
-    invoke-virtual {v5, v1}, Lcom/badlogic/gdx/utils/Array;->removeIndex(I)Ljava/lang/Object;
-
-    .line 41
-    .end local v3    # "action":Lcom/badlogic/gdx/scenes/scene2d/Action;
-    .end local v4    # "index":I
     :cond_1
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
     .line 46
-    .end local v1    # "i":I
     :cond_2
-    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AfterAction;->waitForActions:Lcom/badlogic/gdx/utils/Array;
+    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AfterAction;->waitForActions:Lcom/badlogic/gdx/utils/Array;
 
-    iget v1, v1, Lcom/badlogic/gdx/utils/Array;->size:I
+    iget v0, v0, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    if-lez v1, :cond_3
+    if-lez v0, :cond_3
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return v1
+    return p1
 
     .line 47
     :cond_3
-    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AfterAction;->action:Lcom/badlogic/gdx/scenes/scene2d/Action;
+    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AfterAction;->action:Lcom/badlogic/gdx/scenes/scene2d/Action;
 
-    invoke-virtual {v1, p1}, Lcom/badlogic/gdx/scenes/scene2d/Action;->act(F)Z
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/scenes/scene2d/Action;->act(F)Z
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 .end method
 
 .method public restart()V
@@ -141,17 +132,15 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->clear()V
 
-    .line 36
     return-void
 .end method
 
 .method public setTarget(Lcom/badlogic/gdx/scenes/scene2d/Actor;)V
     .locals 2
-    .param p1, "target"    # Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    .line 29
     if-eqz p1, :cond_0
 
+    .line 29
     iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AfterAction;->waitForActions:Lcom/badlogic/gdx/utils/Array;
 
     invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/Actor;->getActions()Lcom/badlogic/gdx/utils/Array;
@@ -164,6 +153,5 @@
     :cond_0
     invoke-super {p0, p1}, Lcom/badlogic/gdx/scenes/scene2d/actions/DelegateAction;->setTarget(Lcom/badlogic/gdx/scenes/scene2d/Actor;)V
 
-    .line 31
     return-void
 .end method

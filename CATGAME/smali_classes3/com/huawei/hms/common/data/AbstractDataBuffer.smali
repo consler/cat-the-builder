@@ -27,13 +27,12 @@
 .method protected constructor <init>(Lcom/huawei/hms/common/data/DataHolder;)V
     .locals 0
 
-    .line 25
+    .line 1
     invoke-direct {p0}, Lcom/huawei/hms/support/api/client/Result;-><init>()V
 
-    .line 26
+    .line 2
     iput-object p1, p0, Lcom/huawei/hms/common/data/AbstractDataBuffer;->mDataHolder:Lcom/huawei/hms/common/data/DataHolder;
 
-    .line 27
     return-void
 .end method
 
@@ -44,10 +43,9 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 48
+    .line 1
     invoke-virtual {p0}, Lcom/huawei/hms/common/data/AbstractDataBuffer;->release()V
 
-    .line 49
     return-void
 .end method
 
@@ -62,7 +60,7 @@
 .method public getCount()I
     .locals 1
 
-    .line 43
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/data/AbstractDataBuffer;->mDataHolder:Lcom/huawei/hms/common/data/DataHolder;
 
     if-nez v0, :cond_0
@@ -83,7 +81,7 @@
 .method public getMetadata()Landroid/os/Bundle;
     .locals 1
 
-    .line 65
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/data/AbstractDataBuffer;->mDataHolder:Lcom/huawei/hms/common/data/DataHolder;
 
     invoke-virtual {v0}, Lcom/huawei/hms/common/data/DataHolder;->getMetadata()Landroid/os/Bundle;
@@ -98,17 +96,16 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 53
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/data/AbstractDataBuffer;->mDataHolder:Lcom/huawei/hms/common/data/DataHolder;
 
     if-nez v0, :cond_0
 
-    .line 54
     const/4 v0, 0x1
 
     return v0
 
-    .line 56
+    .line 4
     :cond_0
     invoke-virtual {v0}, Lcom/huawei/hms/common/data/DataHolder;->isClosed()Z
 
@@ -127,7 +124,7 @@
         }
     .end annotation
 
-    .line 74
+    .line 1
     new-instance v0, Lcom/huawei/hms/common/data/DBInnerIter;
 
     invoke-direct {v0, p0}, Lcom/huawei/hms/common/data/DBInnerIter;-><init>(Lcom/huawei/hms/common/data/DataBuffer;)V
@@ -138,15 +135,14 @@
 .method public release()V
     .locals 1
 
-    .line 90
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/data/AbstractDataBuffer;->mDataHolder:Lcom/huawei/hms/common/data/DataHolder;
 
     if-eqz v0, :cond_0
 
-    .line 91
+    .line 2
     invoke-virtual {v0}, Lcom/huawei/hms/common/data/DataHolder;->close()V
 
-    .line 93
     :cond_0
     return-void
 .end method
@@ -161,7 +157,7 @@
         }
     .end annotation
 
-    .line 83
+    .line 1
     new-instance v0, Lcom/huawei/hms/common/data/SingleRefDBInnerIter;
 
     invoke-direct {v0, p0}, Lcom/huawei/hms/common/data/SingleRefDBInnerIter;-><init>(Lcom/huawei/hms/common/data/DataBuffer;)V

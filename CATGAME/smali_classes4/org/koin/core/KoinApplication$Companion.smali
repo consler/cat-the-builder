@@ -51,7 +51,6 @@
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
     .locals 0
-    .param p1, "$constructor_marker"    # Lkotlin/jvm/internal/DefaultConstructorMarker;
 
     .line 152
     invoke-direct {p0}, Lorg/koin/core/KoinApplication$Companion;-><init>()V
@@ -74,9 +73,7 @@
     invoke-direct {v0, v1}, Lorg/koin/core/KoinApplication;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 
     .line 160
-    .local v0, "app":Lorg/koin/core/KoinApplication;
     invoke-virtual {v0}, Lorg/koin/core/KoinApplication;->init$koin_core()V
 
-    .line 161
     return-object v0
 .end method

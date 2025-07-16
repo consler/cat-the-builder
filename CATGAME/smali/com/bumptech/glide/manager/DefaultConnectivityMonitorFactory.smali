@@ -25,78 +25,65 @@
 
 # virtual methods
 .method public build(Landroid/content/Context;Lcom/bumptech/glide/manager/ConnectivityMonitor$ConnectivityListener;)Lcom/bumptech/glide/manager/ConnectivityMonitor;
-    .locals 4
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "listener"    # Lcom/bumptech/glide/manager/ConnectivityMonitor$ConnectivityListener;
+    .locals 3
 
-    .line 23
     const-string v0, "android.permission.ACCESS_NETWORK_STATE"
 
+    .line 23
     invoke-static {p1, v0}, Landroidx/core/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
 
     move-result v0
 
-    .line 24
-    .local v0, "permissionResult":I
     if-nez v0, :cond_0
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
+
+    :goto_0
+    const/4 v1, 0x3
+
+    const-string v2, "ConnectivityMonitor"
 
     .line 25
-    .local v1, "hasPermission":Z
-    :goto_0
-    const/4 v2, 0x3
+    invoke-static {v2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
-    const-string v3, "ConnectivityMonitor"
+    move-result v1
 
-    invoke-static {v3, v2}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+    if-eqz v1, :cond_2
 
-    move-result v2
+    if-eqz v0, :cond_1
 
-    if-eqz v2, :cond_2
-
-    .line 26
-    nop
-
-    .line 28
-    if-eqz v1, :cond_1
-
-    .line 29
-    const-string v2, "ACCESS_NETWORK_STATE permission granted, registering connectivity monitor"
+    const-string v1, "ACCESS_NETWORK_STATE permission granted, registering connectivity monitor"
 
     goto :goto_1
 
-    .line 30
     :cond_1
-    const-string v2, "ACCESS_NETWORK_STATE permission missing, cannot register connectivity monitor"
+    const-string v1, "ACCESS_NETWORK_STATE permission missing, cannot register connectivity monitor"
 
     .line 26
     :goto_1
-    invoke-static {v3, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 32
     :cond_2
-    if-eqz v1, :cond_3
+    if-eqz v0, :cond_3
 
     .line 33
-    new-instance v2, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;
+    new-instance v0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;
 
-    invoke-direct {v2, p1, p2}, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;-><init>(Landroid/content/Context;Lcom/bumptech/glide/manager/ConnectivityMonitor$ConnectivityListener;)V
+    invoke-direct {v0, p1, p2}, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;-><init>(Landroid/content/Context;Lcom/bumptech/glide/manager/ConnectivityMonitor$ConnectivityListener;)V
 
     goto :goto_2
 
     .line 34
     :cond_3
-    new-instance v2, Lcom/bumptech/glide/manager/NullConnectivityMonitor;
+    new-instance v0, Lcom/bumptech/glide/manager/NullConnectivityMonitor;
 
-    invoke-direct {v2}, Lcom/bumptech/glide/manager/NullConnectivityMonitor;-><init>()V
+    invoke-direct {v0}, Lcom/bumptech/glide/manager/NullConnectivityMonitor;-><init>()V
 
-    .line 32
     :goto_2
-    return-object v2
+    return-object v0
 .end method

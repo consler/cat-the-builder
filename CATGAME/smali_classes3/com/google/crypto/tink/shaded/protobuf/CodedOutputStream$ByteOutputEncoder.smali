@@ -20,31 +20,27 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/ByteOutput;I)V
-    .locals 2
-    .param p1, "out"    # Lcom/google/crypto/tink/shaded/protobuf/ByteOutput;
-    .param p2, "bufferSize"    # I
+    .locals 0
 
     .line 2398
     invoke-direct {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;-><init>(I)V
 
-    .line 2399
     if-eqz p1, :cond_0
 
     .line 2402
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->out:Lcom/google/crypto/tink/shaded/protobuf/ByteOutput;
 
-    .line 2403
     return-void
 
     .line 2400
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "out"
+    const-string p2, "out"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method private doFlush()V
@@ -69,13 +65,11 @@
     .line 2700
     iput v3, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->position:I
 
-    .line 2701
     return-void
 .end method
 
 .method private flushIfNotAvailable(I)V
     .locals 2
-    .param p1, "requiredSize"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -94,7 +88,6 @@
     .line 2694
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->doFlush()V
 
-    .line 2696
     :cond_0
     return-void
 .end method
@@ -117,14 +110,12 @@
     .line 2658
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->doFlush()V
 
-    .line 2660
     :cond_0
     return-void
 .end method
 
 .method public write(B)V
     .locals 2
-    .param p1, "value"    # B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -145,13 +136,11 @@
     :cond_0
     invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->buffer(B)V
 
-    .line 2557
     return-void
 .end method
 
 .method public write(Ljava/nio/ByteBuffer;)V
     .locals 2
-    .param p1, "value"    # Ljava/nio/ByteBuffer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -167,27 +156,22 @@
     move-result v0
 
     .line 2680
-    .local v0, "length":I
     iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->out:Lcom/google/crypto/tink/shaded/protobuf/ByteOutput;
 
     invoke-virtual {v1, p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteOutput;->write(Ljava/nio/ByteBuffer;)V
 
     .line 2681
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
 
-    add-int/2addr v1, v0
+    add-int/2addr p1, v0
 
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
 
-    .line 2682
     return-void
 .end method
 
 .method public write([BII)V
     .locals 1
-    .param p1, "value"    # [B
-    .param p2, "offset"    # I
-    .param p3, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -203,95 +187,80 @@
     invoke-virtual {v0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/ByteOutput;->write([BII)V
 
     .line 2666
-    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
 
-    add-int/2addr v0, p3
+    add-int/2addr p1, p3
 
-    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
 
-    .line 2667
     return-void
 .end method
 
 .method public writeBool(IZ)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 2447
     const/16 v0, 0xb
 
+    .line 2447
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->flushIfNotAvailable(I)V
 
-    .line 2448
     const/4 v0, 0x0
 
+    .line 2448
     invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->bufferTag(II)V
 
+    int-to-byte p1, p2
+
     .line 2449
-    int-to-byte v0, p2
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->buffer(B)V
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->buffer(B)V
-
-    .line 2450
     return-void
 .end method
 
 .method public writeByteArray(I[B)V
     .locals 2
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    const/4 v0, 0x0
+
     .line 2466
-    array-length v0, p2
+    array-length v1, p2
 
-    const/4 v1, 0x0
+    invoke-virtual {p0, p1, p2, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeByteArray(I[BII)V
 
-    invoke-virtual {p0, p1, p2, v1, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeByteArray(I[BII)V
-
-    .line 2467
     return-void
 .end method
 
 .method public writeByteArray(I[BII)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # [B
-    .param p3, "offset"    # I
-    .param p4, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 2473
     const/4 v0, 0x2
 
+    .line 2473
     invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeTag(II)V
 
     .line 2474
     invoke-virtual {p0, p2, p3, p4}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeByteArrayNoTag([BII)V
 
-    .line 2475
     return-void
 .end method
 
 .method public writeByteArrayNoTag([BII)V
     .locals 0
-    .param p1, "value"    # [B
-    .param p2, "offset"    # I
-    .param p3, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -304,64 +273,56 @@
     .line 2493
     invoke-virtual {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->write([BII)V
 
-    .line 2494
     return-void
 .end method
 
 .method public writeByteBuffer(ILjava/nio/ByteBuffer;)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # Ljava/nio/ByteBuffer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 2479
     const/4 v0, 0x2
 
+    .line 2479
     invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeTag(II)V
 
     .line 2480
     invoke-virtual {p2}, Ljava/nio/ByteBuffer;->capacity()I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeUInt32NoTag(I)V
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeUInt32NoTag(I)V
 
     .line 2481
     invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeRawBytes(Ljava/nio/ByteBuffer;)V
 
-    .line 2482
     return-void
 .end method
 
 .method public writeBytes(ILcom/google/crypto/tink/shaded/protobuf/ByteString;)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 2460
     const/4 v0, 0x2
 
+    .line 2460
     invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeTag(II)V
 
     .line 2461
     invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeBytesNoTag(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    .line 2462
     return-void
 .end method
 
 .method public writeBytesNoTag(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -378,143 +339,127 @@
     .line 2487
     invoke-virtual {p1, p0}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->writeTo(Lcom/google/crypto/tink/shaded/protobuf/ByteOutput;)V
 
-    .line 2488
     return-void
 .end method
 
 .method public writeFixed32(II)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 2426
     const/16 v0, 0xe
 
+    .line 2426
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->flushIfNotAvailable(I)V
 
-    .line 2427
     const/4 v0, 0x5
 
+    .line 2427
     invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->bufferTag(II)V
 
     .line 2428
     invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->bufferFixed32NoTag(I)V
 
-    .line 2429
     return-void
 .end method
 
 .method public writeFixed32NoTag(I)V
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 2577
     const/4 v0, 0x4
 
+    .line 2577
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->flushIfNotAvailable(I)V
 
     .line 2578
     invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->bufferFixed32NoTag(I)V
 
-    .line 2579
     return-void
 .end method
 
 .method public writeFixed64(IJ)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 2440
     const/16 v0, 0x12
 
+    .line 2440
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->flushIfNotAvailable(I)V
 
-    .line 2441
     const/4 v0, 0x1
 
+    .line 2441
     invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->bufferTag(II)V
 
     .line 2442
     invoke-virtual {p0, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->bufferFixed64NoTag(J)V
 
-    .line 2443
     return-void
 .end method
 
 .method public writeFixed64NoTag(J)V
     .locals 1
-    .param p1, "value"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 2589
     const/16 v0, 0x8
 
+    .line 2589
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->flushIfNotAvailable(I)V
 
     .line 2590
     invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->bufferFixed64NoTag(J)V
 
-    .line 2591
     return-void
 .end method
 
 .method public writeInt32(II)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 2412
     const/16 v0, 0x14
 
+    .line 2412
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->flushIfNotAvailable(I)V
 
-    .line 2413
     const/4 v0, 0x0
 
+    .line 2413
     invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->bufferTag(II)V
 
     .line 2414
     invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->bufferInt32NoTag(I)V
 
-    .line 2415
     return-void
 .end method
 
 .method public writeInt32NoTag(I)V
     .locals 2
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 2561
     if-ltz p1, :cond_0
 
     .line 2562
@@ -522,20 +467,18 @@
 
     goto :goto_0
 
-    .line 2565
     :cond_0
     int-to-long v0, p1
 
+    .line 2565
     invoke-virtual {p0, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeUInt64NoTag(J)V
 
-    .line 2567
     :goto_0
     return-void
 .end method
 
 .method public writeLazy(Ljava/nio/ByteBuffer;)V
     .locals 2
-    .param p1, "value"    # Ljava/nio/ByteBuffer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -551,27 +494,22 @@
     move-result v0
 
     .line 2688
-    .local v0, "length":I
     iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->out:Lcom/google/crypto/tink/shaded/protobuf/ByteOutput;
 
     invoke-virtual {v1, p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteOutput;->writeLazy(Ljava/nio/ByteBuffer;)V
 
     .line 2689
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
 
-    add-int/2addr v1, v0
+    add-int/2addr p1, v0
 
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
 
-    .line 2690
     return-void
 .end method
 
 .method public writeLazy([BII)V
     .locals 1
-    .param p1, "value"    # [B
-    .param p2, "offset"    # I
-    .param p3, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -587,64 +525,55 @@
     invoke-virtual {v0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/ByteOutput;->writeLazy([BII)V
 
     .line 2673
-    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
 
-    add-int/2addr v0, p3
+    add-int/2addr p1, p3
 
-    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
 
-    .line 2674
     return-void
 .end method
 
 .method public writeMessage(ILcom/google/crypto/tink/shaded/protobuf/MessageLite;)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 2509
     const/4 v0, 0x2
 
+    .line 2509
     invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeTag(II)V
 
     .line 2510
     invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeMessageNoTag(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)V
 
-    .line 2511
     return-void
 .end method
 
 .method writeMessage(ILcom/google/crypto/tink/shaded/protobuf/MessageLite;Lcom/google/crypto/tink/shaded/protobuf/Schema;)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
-    .param p3, "schema"    # Lcom/google/crypto/tink/shaded/protobuf/Schema;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 2516
     const/4 v0, 0x2
 
+    .line 2516
     invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeTag(II)V
 
     .line 2517
     invoke-virtual {p0, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeMessageNoTag(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;Lcom/google/crypto/tink/shaded/protobuf/Schema;)V
 
-    .line 2518
     return-void
 .end method
 
 .method public writeMessageNoTag(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)V
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -661,14 +590,11 @@
     .line 2541
     invoke-interface {p1, p0}, Lcom/google/crypto/tink/shaded/protobuf/MessageLite;->writeTo(Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;)V
 
-    .line 2542
     return-void
 .end method
 
 .method writeMessageNoTag(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;Lcom/google/crypto/tink/shaded/protobuf/Schema;)V
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
-    .param p2, "schema"    # Lcom/google/crypto/tink/shaded/protobuf/Schema;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -691,47 +617,42 @@
 
     invoke-interface {p2, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/Schema;->writeTo(Ljava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/Writer;)V
 
-    .line 2548
     return-void
 .end method
 
 .method public writeMessageSetExtension(ILcom/google/crypto/tink/shaded/protobuf/MessageLite;)V
     .locals 3
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 2523
     const/4 v0, 0x1
 
     const/4 v1, 0x3
 
+    .line 2523
     invoke-virtual {p0, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeTag(II)V
 
-    .line 2524
     const/4 v2, 0x2
 
+    .line 2524
     invoke-virtual {p0, v2, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeUInt32(II)V
 
     .line 2525
     invoke-virtual {p0, v1, p2}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeMessage(ILcom/google/crypto/tink/shaded/protobuf/MessageLite;)V
 
+    const/4 p1, 0x4
+
     .line 2526
-    const/4 v1, 0x4
+    invoke-virtual {p0, v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeTag(II)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeTag(II)V
-
-    .line 2527
     return-void
 .end method
 
 .method public writeRawBytes(Ljava/nio/ByteBuffer;)V
-    .locals 3
-    .param p1, "value"    # Ljava/nio/ByteBuffer;
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -756,9 +677,9 @@
 
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->capacity()I
 
-    move-result v2
+    move-result p1
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->write([BII)V
+    invoke-virtual {p0, v0, v1, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->write([BII)V
 
     goto :goto_0
 
@@ -766,80 +687,70 @@
     :cond_0
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->duplicate()Ljava/nio/ByteBuffer;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 2502
-    .local v0, "duplicated":Ljava/nio/ByteBuffer;
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->clear()Ljava/nio/Buffer;
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->clear()Ljava/nio/Buffer;
 
     .line 2503
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->write(Ljava/nio/ByteBuffer;)V
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->write(Ljava/nio/ByteBuffer;)V
 
-    .line 2505
-    .end local v0    # "duplicated":Ljava/nio/ByteBuffer;
     :goto_0
     return-void
 .end method
 
 .method public writeRawMessageSetExtension(ILcom/google/crypto/tink/shaded/protobuf/ByteString;)V
     .locals 3
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 2532
     const/4 v0, 0x1
 
     const/4 v1, 0x3
 
+    .line 2532
     invoke-virtual {p0, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeTag(II)V
 
-    .line 2533
     const/4 v2, 0x2
 
+    .line 2533
     invoke-virtual {p0, v2, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeUInt32(II)V
 
     .line 2534
     invoke-virtual {p0, v1, p2}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeBytes(ILcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
+    const/4 p1, 0x4
+
     .line 2535
-    const/4 v1, 0x4
+    invoke-virtual {p0, v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeTag(II)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeTag(II)V
-
-    .line 2536
     return-void
 .end method
 
 .method public writeString(ILjava/lang/String;)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 2454
     const/4 v0, 0x2
 
+    .line 2454
     invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeTag(II)V
 
     .line 2455
     invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeStringNoTag(Ljava/lang/String;)V
 
-    .line 2456
     return-void
 .end method
 
 .method public writeStringNoTag(Ljava/lang/String;)V
-    .locals 8
-    .param p1, "value"    # Ljava/lang/String;
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -854,207 +765,174 @@
     mul-int/lit8 v0, v0, 0x3
 
     .line 2598
-    .local v0, "maxLength":I
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->computeUInt32SizeNoTag(I)I
 
     move-result v1
 
-    .line 2602
-    .local v1, "maxLengthVarIntSize":I
     add-int v2, v1, v0
 
+    .line 2602
     iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->limit:I
 
     if-le v2, v3, :cond_0
 
     .line 2607
-    new-array v2, v0, [B
+    new-array v1, v0, [B
+
+    const/4 v2, 0x0
 
     .line 2608
-    .local v2, "encodedBytes":[B
-    const/4 v3, 0x0
+    invoke-static {p1, v1, v2, v0}, Lcom/google/crypto/tink/shaded/protobuf/Utf8;->encode(Ljava/lang/CharSequence;[BII)I
 
-    invoke-static {p1, v2, v3, v0}, Lcom/google/crypto/tink/shaded/protobuf/Utf8;->encode(Ljava/lang/CharSequence;[BII)I
-
-    move-result v4
+    move-result p1
 
     .line 2609
-    .local v4, "actualLength":I
-    invoke-virtual {p0, v4}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeUInt32NoTag(I)V
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeUInt32NoTag(I)V
 
     .line 2610
-    invoke-virtual {p0, v2, v3, v4}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeLazy([BII)V
+    invoke-virtual {p0, v1, v2, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeLazy([BII)V
 
-    .line 2611
     return-void
 
     .line 2615
-    .end local v2    # "encodedBytes":[B
-    .end local v4    # "actualLength":I
     :cond_0
-    add-int v2, v1, v0
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->limit:I
 
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->limit:I
+    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->position:I
 
-    iget v4, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->position:I
+    sub-int/2addr v0, v3
 
-    sub-int/2addr v3, v4
-
-    if-le v2, v3, :cond_1
+    if-le v2, v0, :cond_1
 
     .line 2617
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->doFlush()V
 
     .line 2620
     :cond_1
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->position:I
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->position:I
 
     .line 2624
-    .local v2, "oldPosition":I
     :try_start_0
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v3
+    move-result v2
 
-    invoke-static {v3}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->computeUInt32SizeNoTag(I)I
+    invoke-static {v2}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->computeUInt32SizeNoTag(I)I
 
-    move-result v3
+    move-result v2
 
-    .line 2626
-    .local v3, "minLengthVarIntSize":I
-    if-ne v3, v1, :cond_2
+    if-ne v2, v1, :cond_2
+
+    add-int v1, v0, v2
 
     .line 2627
-    add-int v4, v2, v3
-
-    iput v4, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->position:I
+    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->position:I
 
     .line 2628
-    iget-object v4, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->buffer:[B
+    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->buffer:[B
+
+    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->position:I
+
+    iget v4, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->limit:I
 
     iget v5, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->position:I
 
-    iget v6, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->limit:I
+    sub-int/2addr v4, v5
 
-    iget v7, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->position:I
+    invoke-static {p1, v1, v3, v4}, Lcom/google/crypto/tink/shaded/protobuf/Utf8;->encode(Ljava/lang/CharSequence;[BII)I
 
-    sub-int/2addr v6, v7
-
-    invoke-static {p1, v4, v5, v6}, Lcom/google/crypto/tink/shaded/protobuf/Utf8;->encode(Ljava/lang/CharSequence;[BII)I
-
-    move-result v4
+    move-result v1
 
     .line 2631
-    .local v4, "newPosition":I
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->position:I
+    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->position:I
 
-    .line 2632
-    sub-int v5, v4, v2
+    sub-int v3, v1, v0
 
-    sub-int/2addr v5, v3
+    sub-int/2addr v3, v2
 
     .line 2633
-    .local v5, "length":I
-    invoke-virtual {p0, v5}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->bufferUInt32NoTag(I)V
+    invoke-virtual {p0, v3}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->bufferUInt32NoTag(I)V
 
     .line 2634
-    iput v4, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->position:I
+    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->position:I
 
     .line 2635
-    iget v6, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
+    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
 
-    add-int/2addr v6, v5
+    add-int/2addr v1, v3
 
-    iput v6, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
+    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
 
-    .line 2636
-    .end local v4    # "newPosition":I
-    .end local v5    # "length":I
     goto :goto_0
 
     .line 2637
     :cond_2
     invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/Utf8;->encodedLength(Ljava/lang/CharSequence;)I
 
-    move-result v4
+    move-result v1
 
     .line 2638
-    .local v4, "length":I
-    invoke-virtual {p0, v4}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->bufferUInt32NoTag(I)V
+    invoke-virtual {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->bufferUInt32NoTag(I)V
 
     .line 2639
-    iget-object v5, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->buffer:[B
+    iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->buffer:[B
 
-    iget v6, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->position:I
+    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->position:I
 
-    invoke-static {p1, v5, v6, v4}, Lcom/google/crypto/tink/shaded/protobuf/Utf8;->encode(Ljava/lang/CharSequence;[BII)I
+    invoke-static {p1, v2, v3, v1}, Lcom/google/crypto/tink/shaded/protobuf/Utf8;->encode(Ljava/lang/CharSequence;[BII)I
 
-    move-result v5
+    move-result v2
 
-    iput v5, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->position:I
+    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->position:I
 
     .line 2640
-    iget v5, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
+    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
 
-    add-int/2addr v5, v4
+    add-int/2addr v2, v1
 
-    iput v5, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
+    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
     :try_end_0
     .catch Lcom/google/crypto/tink/shaded/protobuf/Utf8$UnpairedSurrogateException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    .line 2649
-    .end local v3    # "minLengthVarIntSize":I
-    .end local v4    # "length":I
     :catch_0
-    move-exception v3
+    move-exception p1
 
     .line 2650
-    .local v3, "e":Ljava/lang/IndexOutOfBoundsException;
-    new-instance v4, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$OutOfSpaceException;
+    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$OutOfSpaceException;
 
-    invoke-direct {v4, v3}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$OutOfSpaceException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$OutOfSpaceException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v4
+    throw v0
 
-    .line 2642
-    .end local v3    # "e":Ljava/lang/IndexOutOfBoundsException;
     :catch_1
-    move-exception v3
+    move-exception v1
 
     .line 2644
-    .local v3, "e":Lcom/google/crypto/tink/shaded/protobuf/Utf8$UnpairedSurrogateException;
-    iget v4, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
+    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
 
-    iget v5, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->position:I
+    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->position:I
 
-    sub-int/2addr v5, v2
+    sub-int/2addr v3, v0
 
-    sub-int/2addr v4, v5
+    sub-int/2addr v2, v3
 
-    iput v4, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
+    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->totalBytesWritten:I
 
     .line 2645
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->position:I
+    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->position:I
 
     .line 2648
-    invoke-virtual {p0, p1, v3}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->inefficientWriteStringNoTag(Ljava/lang/String;Lcom/google/crypto/tink/shaded/protobuf/Utf8$UnpairedSurrogateException;)V
+    invoke-virtual {p0, p1, v1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->inefficientWriteStringNoTag(Ljava/lang/String;Lcom/google/crypto/tink/shaded/protobuf/Utf8$UnpairedSurrogateException;)V
 
-    .line 2651
-    .end local v3    # "e":Lcom/google/crypto/tink/shaded/protobuf/Utf8$UnpairedSurrogateException;
     :goto_0
-    nop
-
-    .line 2652
     return-void
 .end method
 
 .method public writeTag(II)V
-    .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "wireType"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1064,106 +942,95 @@
     .line 2407
     invoke-static {p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->makeTag(II)I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeUInt32NoTag(I)V
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->writeUInt32NoTag(I)V
 
-    .line 2408
     return-void
 .end method
 
 .method public writeUInt32(II)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 2419
     const/16 v0, 0x14
 
+    .line 2419
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->flushIfNotAvailable(I)V
 
-    .line 2420
     const/4 v0, 0x0
 
+    .line 2420
     invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->bufferTag(II)V
 
     .line 2421
     invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->bufferUInt32NoTag(I)V
 
-    .line 2422
     return-void
 .end method
 
 .method public writeUInt32NoTag(I)V
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 2571
     const/4 v0, 0x5
 
+    .line 2571
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->flushIfNotAvailable(I)V
 
     .line 2572
     invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->bufferUInt32NoTag(I)V
 
-    .line 2573
     return-void
 .end method
 
 .method public writeUInt64(IJ)V
     .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "value"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 2433
     const/16 v0, 0x14
 
+    .line 2433
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->flushIfNotAvailable(I)V
 
-    .line 2434
     const/4 v0, 0x0
 
+    .line 2434
     invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->bufferTag(II)V
 
     .line 2435
     invoke-virtual {p0, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->bufferUInt64NoTag(J)V
 
-    .line 2436
     return-void
 .end method
 
 .method public writeUInt64NoTag(J)V
     .locals 1
-    .param p1, "value"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 2583
     const/16 v0, 0xa
 
+    .line 2583
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->flushIfNotAvailable(I)V
 
     .line 2584
     invoke-virtual {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$ByteOutputEncoder;->bufferUInt64NoTag(J)V
 
-    .line 2585
     return-void
 .end method

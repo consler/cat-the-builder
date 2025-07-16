@@ -29,80 +29,70 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 0
 
     .line 108
     invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
+    const/4 p1, 0x1
+
     .line 105
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Landroidx/fragment/app/FragmentContainerView;->mDrawDisappearingViewsFirst:Z
 
-    iput-boolean v0, p0, Landroidx/fragment/app/FragmentContainerView;->mDrawDisappearingViewsFirst:Z
-
-    .line 109
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .locals 0
 
     .line 116
     invoke-direct {p0, p1, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 105
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Landroidx/fragment/app/FragmentContainerView;->mDrawDisappearingViewsFirst:Z
+    .line 105
+    iput-boolean p1, p0, Landroidx/fragment/app/FragmentContainerView;->mDrawDisappearingViewsFirst:Z
 
     .line 117
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "FragmentContainerView must be within a FragmentActivity to be instantiated from XML."
+    const-string p2, "FragmentContainerView must be within a FragmentActivity to be instantiated from XML."
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
-    .param p3, "defStyleAttr"    # I
+    .locals 0
 
     .line 129
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 105
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Landroidx/fragment/app/FragmentContainerView;->mDrawDisappearingViewsFirst:Z
+    .line 105
+    iput-boolean p1, p0, Landroidx/fragment/app/FragmentContainerView;->mDrawDisappearingViewsFirst:Z
 
     .line 130
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "FragmentContainerView must be within a FragmentActivity to be instantiated from XML."
+    const-string p2, "FragmentContainerView must be within a FragmentActivity to be instantiated from XML."
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;Landroidx/fragment/app/FragmentManager;)V
-    .locals 9
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
-    .param p3, "fm"    # Landroidx/fragment/app/FragmentManager;
+    .locals 5
 
     .line 138
     invoke-direct {p0, p1, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 105
     const/4 v0, 0x1
 
+    .line 105
     iput-boolean v0, p0, Landroidx/fragment/app/FragmentContainerView;->mDrawDisappearingViewsFirst:Z
 
     .line 140
@@ -111,21 +101,18 @@
     move-result-object v1
 
     .line 141
-    .local v1, "name":Ljava/lang/String;
     sget-object v2, Landroidx/fragment/R$styleable;->FragmentContainerView:[I
 
     invoke-virtual {p1, p2, v2}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object v2
 
-    .line 142
-    .local v2, "a":Landroid/content/res/TypedArray;
     if-nez v1, :cond_0
 
     .line 143
-    sget v3, Landroidx/fragment/R$styleable;->FragmentContainerView_android_name:I
+    sget v1, Landroidx/fragment/R$styleable;->FragmentContainerView_android_name:I
 
-    invoke-virtual {v2, v3}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
+    invoke-virtual {v2, v1}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -138,127 +125,115 @@
     move-result-object v3
 
     .line 146
-    .local v3, "tag":Ljava/lang/String;
     invoke-virtual {v2}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 148
     invoke-virtual {p0}, Landroidx/fragment/app/FragmentContainerView;->getId()I
 
-    move-result v4
+    move-result v2
 
     .line 149
-    .local v4, "id":I
-    invoke-virtual {p3, v4}, Landroidx/fragment/app/FragmentManager;->findFragmentById(I)Landroidx/fragment/app/Fragment;
+    invoke-virtual {p3, v2}, Landroidx/fragment/app/FragmentManager;->findFragmentById(I)Landroidx/fragment/app/Fragment;
 
-    move-result-object v5
+    move-result-object v4
 
-    .line 152
-    .local v5, "existingFragment":Landroidx/fragment/app/Fragment;
     if-eqz v1, :cond_3
 
-    if-nez v5, :cond_3
+    if-nez v4, :cond_3
 
-    .line 153
-    if-gtz v4, :cond_2
+    if-gtz v2, :cond_2
 
-    .line 154
     if-eqz v3, :cond_1
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    .line 154
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string p2, " with tag "
 
-    const-string v6, " with tag "
+    invoke-direct {p1, p2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
     goto :goto_0
 
     :cond_1
-    const-string v0, ""
+    const-string p1, ""
 
     .line 157
-    .local v0, "tagMessage":Ljava/lang/String;
     :goto_0
-    new-instance v6, Ljava/lang/IllegalStateException;
+    new-instance p2, Ljava/lang/IllegalStateException;
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "FragmentContainerView must have an android:id to add Fragment "
 
-    const-string v8, "FragmentContainerView must have an android:id to add Fragment "
+    invoke-direct {p3, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p3
 
-    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v7
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v6, v7}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    throw v6
+    invoke-direct {p2, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    .line 160
-    .end local v0    # "tagMessage":Ljava/lang/String;
-    :cond_2
-    nop
+    throw p2
 
     .line 161
+    :cond_2
     invoke-virtual {p3}, Landroidx/fragment/app/FragmentManager;->getFragmentFactory()Landroidx/fragment/app/FragmentFactory;
 
-    move-result-object v6
+    move-result-object v2
 
     invoke-virtual {p1}, Landroid/content/Context;->getClassLoader()Ljava/lang/ClassLoader;
 
-    move-result-object v7
+    move-result-object v4
 
-    invoke-virtual {v6, v7, v1}, Landroidx/fragment/app/FragmentFactory;->instantiate(Ljava/lang/ClassLoader;Ljava/lang/String;)Landroidx/fragment/app/Fragment;
+    invoke-virtual {v2, v4, v1}, Landroidx/fragment/app/FragmentFactory;->instantiate(Ljava/lang/ClassLoader;Ljava/lang/String;)Landroidx/fragment/app/Fragment;
 
-    move-result-object v6
+    move-result-object v1
+
+    const/4 v2, 0x0
 
     .line 162
-    .local v6, "containerFragment":Landroidx/fragment/app/Fragment;
-    const/4 v7, 0x0
-
-    invoke-virtual {v6, p1, p2, v7}, Landroidx/fragment/app/Fragment;->onInflate(Landroid/content/Context;Landroid/util/AttributeSet;Landroid/os/Bundle;)V
+    invoke-virtual {v1, p1, p2, v2}, Landroidx/fragment/app/Fragment;->onInflate(Landroid/content/Context;Landroid/util/AttributeSet;Landroid/os/Bundle;)V
 
     .line 163
     invoke-virtual {p3}, Landroidx/fragment/app/FragmentManager;->beginTransaction()Landroidx/fragment/app/FragmentTransaction;
 
-    move-result-object v7
+    move-result-object p1
 
     .line 164
-    invoke-virtual {v7, v0}, Landroidx/fragment/app/FragmentTransaction;->setReorderingAllowed(Z)Landroidx/fragment/app/FragmentTransaction;
+    invoke-virtual {p1, v0}, Landroidx/fragment/app/FragmentTransaction;->setReorderingAllowed(Z)Landroidx/fragment/app/FragmentTransaction;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 165
-    invoke-virtual {v0, p0, v6, v3}, Landroidx/fragment/app/FragmentTransaction;->add(Landroid/view/ViewGroup;Landroidx/fragment/app/Fragment;Ljava/lang/String;)Landroidx/fragment/app/FragmentTransaction;
+    invoke-virtual {p1, p0, v1, v3}, Landroidx/fragment/app/FragmentTransaction;->add(Landroid/view/ViewGroup;Landroidx/fragment/app/Fragment;Ljava/lang/String;)Landroidx/fragment/app/FragmentTransaction;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 166
-    invoke-virtual {v0}, Landroidx/fragment/app/FragmentTransaction;->commitNowAllowingStateLoss()V
+    invoke-virtual {p1}, Landroidx/fragment/app/FragmentTransaction;->commitNowAllowingStateLoss()V
 
-    .line 168
-    .end local v6    # "containerFragment":Landroidx/fragment/app/Fragment;
     :cond_3
     return-void
 .end method
 
 .method private addDisappearingFragmentView(Landroid/view/View;)V
     .locals 1
-    .param p1, "v"    # Landroid/view/View;
 
     .line 362
     invoke-virtual {p1}, Landroid/view/View;->getAnimation()Landroid/view/animation/Animation;
@@ -297,7 +272,6 @@
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 369
     :cond_2
     return-void
 .end method
@@ -305,10 +279,7 @@
 
 # virtual methods
 .method public addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
-    .locals 3
-    .param p1, "child"    # Landroid/view/View;
-    .param p2, "index"    # I
-    .param p3, "params"    # Landroid/view/ViewGroup$LayoutParams;
+    .locals 1
 
     .line 275
     invoke-static {p1}, Landroidx/fragment/app/FragmentManager;->getViewFragment(Landroid/view/View;)Landroidx/fragment/app/Fragment;
@@ -320,42 +291,39 @@
     .line 280
     invoke-super {p0, p1, p2, p3}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
 
-    .line 281
     return-void
 
     .line 276
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p2, Ljava/lang/IllegalStateException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "Views added to a FragmentContainerView must be associated with a Fragment. View "
 
-    const-string v2, "Views added to a FragmentContainerView must be associated with a Fragment. View "
+    invoke-direct {p3, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    const-string v2, " is not associated with a Fragment."
+    const-string p3, " is not associated with a Fragment."
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    throw v0
+    invoke-direct {p2, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p2
 .end method
 
 .method protected addViewInLayout(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;Z)Z
-    .locals 3
-    .param p1, "child"    # Landroid/view/View;
-    .param p2, "index"    # I
-    .param p3, "params"    # Landroid/view/ViewGroup$LayoutParams;
-    .param p4, "preventRequestLayout"    # Z
+    .locals 1
 
     .line 293
     invoke-static {p1}, Landroidx/fragment/app/FragmentManager;->getViewFragment(Landroid/view/View;)Landroidx/fragment/app/Fragment;
@@ -367,40 +335,41 @@
     .line 298
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/FrameLayout;->addViewInLayout(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;Z)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
     .line 294
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p2, Ljava/lang/IllegalStateException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string p4, "Views added to a FragmentContainerView must be associated with a Fragment. View "
 
-    const-string v2, "Views added to a FragmentContainerView must be associated with a Fragment. View "
+    invoke-direct {p3, p4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    const-string v2, " is not associated with a Fragment."
+    const-string p3, " is not associated with a Fragment."
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    throw v0
+    invoke-direct {p2, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p2
 .end method
 
 .method protected dispatchDraw(Landroid/graphics/Canvas;)V
     .locals 4
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 218
     iget-boolean v0, p0, Landroidx/fragment/app/FragmentContainerView;->mDrawDisappearingViewsFirst:Z
@@ -411,10 +380,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 219
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 219
     :goto_0
     iget-object v1, p0, Landroidx/fragment/app/FragmentContainerView;->mDisappearingFragmentChildren:Ljava/util/ArrayList;
 
@@ -439,25 +407,19 @@
 
     invoke-super {p0, p1, v1, v2, v3}, Landroid/widget/FrameLayout;->drawChild(Landroid/graphics/Canvas;Landroid/view/View;J)Z
 
-    .line 219
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 223
-    .end local v0    # "i":I
     :cond_0
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchDraw(Landroid/graphics/Canvas;)V
 
-    .line 224
     return-void
 .end method
 
 .method protected drawChild(Landroid/graphics/Canvas;Landroid/view/View;J)Z
     .locals 1
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
-    .param p2, "child"    # Landroid/view/View;
-    .param p3, "drawingTime"    # J
 
     .line 228
     iget-boolean v0, p0, Landroidx/fragment/app/FragmentContainerView;->mDrawDisappearingViewsFirst:Z
@@ -484,23 +446,21 @@
 
     if-eqz v0, :cond_0
 
-    .line 232
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 235
     :cond_0
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/FrameLayout;->drawChild(Landroid/graphics/Canvas;Landroid/view/View;J)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public endViewTransition(Landroid/view/View;)V
     .locals 1
-    .param p1, "view"    # Landroid/view/View;
 
     .line 251
     iget-object v0, p0, Landroidx/fragment/app/FragmentContainerView;->mTransitioningFragmentViews:Ljava/util/ArrayList;
@@ -522,27 +482,24 @@
 
     if-eqz v0, :cond_0
 
-    .line 255
     const/4 v0, 0x1
 
+    .line 255
     iput-boolean v0, p0, Landroidx/fragment/app/FragmentContainerView;->mDrawDisappearingViewsFirst:Z
 
     .line 258
     :cond_0
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->endViewTransition(Landroid/view/View;)V
 
-    .line 259
     return-void
 .end method
 
 .method public onApplyWindowInsets(Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
     .locals 3
-    .param p1, "insets"    # Landroid/view/WindowInsets;
 
-    .line 208
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 208
     :goto_0
     invoke-virtual {p0}, Landroidx/fragment/app/FragmentContainerView;->getChildCount()I
 
@@ -556,21 +513,16 @@
     move-result-object v1
 
     .line 211
-    .local v1, "child":Landroid/view/View;
     new-instance v2, Landroid/view/WindowInsets;
 
     invoke-direct {v2, p1}, Landroid/view/WindowInsets;-><init>(Landroid/view/WindowInsets;)V
 
     invoke-virtual {v1, v2}, Landroid/view/View;->dispatchApplyWindowInsets(Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
 
-    .line 208
-    .end local v1    # "child":Landroid/view/View;
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 213
-    .end local v0    # "i":I
     :cond_0
     return-object p1
 .end method
@@ -585,7 +537,6 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -595,30 +546,22 @@
     move-result-object v1
 
     .line 342
-    .local v1, "view":Landroid/view/View;
     invoke-direct {p0, v1}, Landroidx/fragment/app/FragmentContainerView;->addDisappearingFragmentView(Landroid/view/View;)V
 
-    .line 340
-    .end local v1    # "view":Landroid/view/View;
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
     .line 344
-    .end local v0    # "i":I
     :cond_0
     invoke-super {p0}, Landroid/widget/FrameLayout;->removeAllViewsInLayout()V
 
-    .line 345
     return-void
 .end method
 
 .method protected removeDetachedView(Landroid/view/View;Z)V
     .locals 0
-    .param p1, "child"    # Landroid/view/View;
-    .param p2, "animate"    # Z
 
-    .line 349
     if-eqz p2, :cond_0
 
     .line 350
@@ -628,13 +571,11 @@
     :cond_0
     invoke-super {p0, p1, p2}, Landroid/widget/FrameLayout;->removeDetachedView(Landroid/view/View;Z)V
 
-    .line 353
     return-void
 .end method
 
 .method public removeView(Landroid/view/View;)V
     .locals 0
-    .param p1, "view"    # Landroid/view/View;
 
     .line 316
     invoke-direct {p0, p1}, Landroidx/fragment/app/FragmentContainerView;->addDisappearingFragmentView(Landroid/view/View;)V
@@ -642,13 +583,11 @@
     .line 317
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->removeView(Landroid/view/View;)V
 
-    .line 318
     return-void
 .end method
 
 .method public removeViewAt(I)V
     .locals 1
-    .param p1, "index"    # I
 
     .line 303
     invoke-virtual {p0, p1}, Landroidx/fragment/app/FragmentContainerView;->getChildAt(I)Landroid/view/View;
@@ -656,19 +595,16 @@
     move-result-object v0
 
     .line 304
-    .local v0, "view":Landroid/view/View;
     invoke-direct {p0, v0}, Landroidx/fragment/app/FragmentContainerView;->addDisappearingFragmentView(Landroid/view/View;)V
 
     .line 305
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->removeViewAt(I)V
 
-    .line 306
     return-void
 .end method
 
 .method public removeViewInLayout(Landroid/view/View;)V
     .locals 0
-    .param p1, "view"    # Landroid/view/View;
 
     .line 310
     invoke-direct {p0, p1}, Landroidx/fragment/app/FragmentContainerView;->addDisappearingFragmentView(Landroid/view/View;)V
@@ -676,19 +612,14 @@
     .line 311
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->removeViewInLayout(Landroid/view/View;)V
 
-    .line 312
     return-void
 .end method
 
 .method public removeViews(II)V
     .locals 2
-    .param p1, "start"    # I
-    .param p2, "count"    # I
 
-    .line 322
     move v0, p1
 
-    .local v0, "i":I
     :goto_0
     add-int v1, p1, p2
 
@@ -700,33 +631,24 @@
     move-result-object v1
 
     .line 324
-    .local v1, "view":Landroid/view/View;
     invoke-direct {p0, v1}, Landroidx/fragment/app/FragmentContainerView;->addDisappearingFragmentView(Landroid/view/View;)V
 
-    .line 322
-    .end local v1    # "view":Landroid/view/View;
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 326
-    .end local v0    # "i":I
     :cond_0
     invoke-super {p0, p1, p2}, Landroid/widget/FrameLayout;->removeViews(II)V
 
-    .line 327
     return-void
 .end method
 
 .method public removeViewsInLayout(II)V
     .locals 2
-    .param p1, "start"    # I
-    .param p2, "count"    # I
 
-    .line 331
     move v0, p1
 
-    .local v0, "i":I
     :goto_0
     add-int v1, p1, p2
 
@@ -738,66 +660,43 @@
     move-result-object v1
 
     .line 333
-    .local v1, "view":Landroid/view/View;
     invoke-direct {p0, v1}, Landroidx/fragment/app/FragmentContainerView;->addDisappearingFragmentView(Landroid/view/View;)V
 
-    .line 331
-    .end local v1    # "view":Landroid/view/View;
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 335
-    .end local v0    # "i":I
     :cond_0
     invoke-super {p0, p1, p2}, Landroid/widget/FrameLayout;->removeViewsInLayout(II)V
 
-    .line 336
     return-void
 .end method
 
 .method setDrawDisappearingViewsLast(Z)V
     .locals 0
-    .param p1, "drawDisappearingViewsFirst"    # Z
 
     .line 263
     iput-boolean p1, p0, Landroidx/fragment/app/FragmentContainerView;->mDrawDisappearingViewsFirst:Z
 
-    .line 264
     return-void
 .end method
 
 .method public setLayoutTransition(Landroid/animation/LayoutTransition;)V
-    .locals 2
-    .param p1, "transition"    # Landroid/animation/LayoutTransition;
-
-    .line 186
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x12
-
-    if-ge v0, v1, :cond_0
-
-    .line 190
-    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->setLayoutTransition(Landroid/animation/LayoutTransition;)V
-
-    .line 191
-    return-void
+    .locals 1
 
     .line 194
-    :cond_0
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "FragmentContainerView does not support Layout Transitions or animateLayoutChanges=\"true\"."
+    const-string v0, "FragmentContainerView does not support Layout Transitions or animateLayoutChanges=\"true\"."
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public startViewTransition(Landroid/view/View;)V
     .locals 1
-    .param p1, "view"    # Landroid/view/View;
 
     .line 240
     invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
@@ -828,6 +727,5 @@
     :cond_1
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->startViewTransition(Landroid/view/View;)V
 
-    .line 247
     return-void
 .end method

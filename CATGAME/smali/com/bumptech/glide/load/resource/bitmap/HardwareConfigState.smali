@@ -48,14 +48,14 @@
 .end method
 
 .method constructor <init>()V
-    .locals 2
+    .locals 1
 
     .line 88
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 73
     const/4 v0, 0x1
 
+    .line 73
     iput-boolean v0, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->isFdSizeBelowHardwareLimit:Z
 
     .line 89
@@ -65,38 +65,16 @@
 
     iput-boolean v0, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->isHardwareConfigAllowedByDeviceModel:Z
 
-    .line 90
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1c
-
-    if-lt v0, v1, :cond_0
-
-    .line 91
     const/16 v0, 0x4e20
 
+    .line 91
     iput v0, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->fdCountLimit:I
 
-    .line 92
     const/4 v0, 0x0
 
+    .line 92
     iput v0, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->minHardwareDimension:I
 
-    goto :goto_0
-
-    .line 94
-    :cond_0
-    const/16 v0, 0x2bc
-
-    iput v0, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->fdCountLimit:I
-
-    .line 95
-    const/16 v0, 0x80
-
-    iput v0, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->minHardwareDimension:I
-
-    .line 97
-    :goto_0
     return-void
 .end method
 
@@ -150,95 +128,96 @@
 .end method
 
 .method private declared-synchronized isFdSizeBelowHardwareLimit()Z
-    .locals 4
+    .locals 5
+
+    const-string v0, "Excluding HARDWARE bitmap config because we\'re over the file descriptor limit, file descriptors "
 
     monitor-enter p0
 
     .line 160
     :try_start_0
-    iget v0, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->decodesSinceLastFdCheck:I
+    iget v1, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->decodesSinceLastFdCheck:I
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v2
 
-    iput v0, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->decodesSinceLastFdCheck:I
+    iput v1, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->decodesSinceLastFdCheck:I
 
-    const/16 v2, 0x32
+    const/16 v3, 0x32
 
-    if-lt v0, v2, :cond_1
+    if-lt v1, v3, :cond_1
+
+    const/4 v1, 0x0
 
     .line 161
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->decodesSinceLastFdCheck:I
+    iput v1, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->decodesSinceLastFdCheck:I
 
     .line 162
-    sget-object v2, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->FD_SIZE_LIST:Ljava/io/File;
+    sget-object v3, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->FD_SIZE_LIST:Ljava/io/File;
 
-    invoke-virtual {v2}, Ljava/io/File;->list()[Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/io/File;->list()[Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    array-length v2, v2
+    array-length v3, v3
 
     .line 163
-    .local v2, "currentFds":I
-    iget v3, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->fdCountLimit:I
+    iget v4, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->fdCountLimit:I
 
-    if-ge v2, v3, :cond_0
+    if-ge v3, v4, :cond_0
 
     goto :goto_0
 
     :cond_0
-    move v1, v0
+    move v2, v1
 
     :goto_0
-    iput-boolean v1, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->isFdSizeBelowHardwareLimit:Z
+    iput-boolean v2, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->isFdSizeBelowHardwareLimit:Z
+
+    if-nez v2, :cond_1
+
+    const-string v1, "Downsampler"
+
+    const/4 v2, 0x5
 
     .line 165
-    if-nez v1, :cond_1
+    invoke-static {v1, v2}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
-    const-string v0, "Downsampler"
+    move-result v1
 
-    const/4 v1, 0x5
+    if-eqz v1, :cond_1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
+    const-string v1, "Downsampler"
 
     .line 166
-    const-string v0, "Downsampler"
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v3, "Excluding HARDWARE bitmap config because we\'re over the file descriptor limit, file descriptors "
+    move-result-object v0
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, ", limit "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ", limit "
+    move-result-object v0
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v2, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->fdCountLimit:I
 
-    iget v3, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->fdCountLimit:I
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 176
-    .end local v2    # "currentFds":I
-    .end local p0    # "this":Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;
     :cond_1
     iget-boolean v0, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->isFdSizeBelowHardwareLimit:Z
     :try_end_0
@@ -248,7 +227,6 @@
 
     return v0
 
-    .line 159
     :catchall_0
     move-exception v0
 
@@ -265,7 +243,7 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_8
 
     sget-object v0, Landroid/os/Build;->MODEL:Ljava/lang/String;
 
@@ -289,131 +267,135 @@
 
     move-result-object v0
 
-    const/4 v2, -0x1
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
-    move-result v4
+    move-result v2
 
-    sparse-switch v4, :sswitch_data_0
+    const/4 v4, -0x1
 
-    :cond_1
-    goto :goto_0
-
-    :sswitch_0
-    const-string v4, "SM-N935"
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    move v2, v3
-
-    goto :goto_0
-
-    :sswitch_1
-    const-string v4, "SM-J720"
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    move v2, v1
-
-    goto :goto_0
-
-    :sswitch_2
-    const-string v4, "SM-G965"
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const/4 v2, 0x3
-
-    goto :goto_0
-
-    :sswitch_3
-    const-string v4, "SM-G960"
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const/4 v2, 0x2
-
-    goto :goto_0
-
-    :sswitch_4
-    const-string v4, "SM-G935"
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const/4 v2, 0x4
-
-    goto :goto_0
-
-    :sswitch_5
-    const-string v4, "SM-G930"
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const/4 v2, 0x5
-
-    goto :goto_0
-
-    :sswitch_6
-    const-string v4, "SM-A520"
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const/4 v2, 0x6
+    sparse-switch v2, :sswitch_data_0
 
     :goto_0
-    packed-switch v2, :pswitch_data_0
-
-    .line 155
-    return v1
-
-    .line 153
-    :pswitch_0
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x1a
-
-    if-eq v0, v2, :cond_2
+    move v3, v4
 
     goto :goto_1
 
+    :sswitch_0
+    const-string v2, "SM-N935"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v3, 0x6
+
+    goto :goto_1
+
+    :sswitch_1
+    const-string v2, "SM-J720"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    goto :goto_0
+
     :cond_2
-    move v1, v3
+    const/4 v3, 0x5
 
-    :goto_1
-    return v1
+    goto :goto_1
 
-    .line 136
+    :sswitch_2
+    const-string v2, "SM-G965"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    goto :goto_0
+
     :cond_3
+    const/4 v3, 0x4
+
+    goto :goto_1
+
+    :sswitch_3
+    const-string v2, "SM-G960"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_4
+
+    goto :goto_0
+
+    :cond_4
+    const/4 v3, 0x3
+
+    goto :goto_1
+
+    :sswitch_4
+    const-string v2, "SM-G935"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_5
+
+    goto :goto_0
+
+    :cond_5
+    const/4 v3, 0x2
+
+    goto :goto_1
+
+    :sswitch_5
+    const-string v2, "SM-G930"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_6
+
+    goto :goto_0
+
+    :cond_6
+    move v3, v1
+
+    goto :goto_1
+
+    :sswitch_6
+    const-string v2, "SM-A520"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_7
+
+    goto :goto_0
+
+    :cond_7
+    :goto_1
+    packed-switch v3, :pswitch_data_0
+
+    :cond_8
     :goto_2
+    :pswitch_0
     return v1
 
     nop
@@ -444,94 +426,63 @@
 
 # virtual methods
 .method public isHardwareConfigAllowed(IIZZ)Z
-    .locals 3
-    .param p1, "targetWidth"    # I
-    .param p2, "targetHeight"    # I
-    .param p3, "isHardwareConfigAllowed"    # Z
-    .param p4, "isExifOrientationRequired"    # Z
+    .locals 1
 
-    .line 104
     const/4 v0, 0x0
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_1
 
-    iget-boolean v1, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->isHardwareConfigAllowedByDeviceModel:Z
+    .line 104
+    iget-boolean p3, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->isHardwareConfigAllowedByDeviceModel:Z
 
-    if-eqz v1, :cond_2
-
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x1a
-
-    if-lt v1, v2, :cond_2
+    if-eqz p3, :cond_1
 
     if-eqz p4, :cond_0
 
-    goto :goto_1
+    goto :goto_0
 
     .line 111
     :cond_0
-    iget v1, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->minHardwareDimension:I
+    iget p3, p0, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->minHardwareDimension:I
 
-    if-lt p1, v1, :cond_1
+    if-lt p1, p3, :cond_1
 
-    if-lt p2, v1, :cond_1
+    if-lt p2, p3, :cond_1
 
     .line 114
     invoke-direct {p0}, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->isFdSizeBelowHardwareLimit()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_1
+    if-eqz p1, :cond_1
 
     const/4 v0, 0x1
 
-    goto :goto_0
-
     :cond_1
-    nop
-
-    .line 111
     :goto_0
-    return v0
-
-    .line 108
-    :cond_2
-    :goto_1
     return v0
 .end method
 
 .method setHardwareConfigIfAllowed(IILandroid/graphics/BitmapFactory$Options;ZZ)Z
-    .locals 2
-    .param p1, "targetWidth"    # I
-    .param p2, "targetHeight"    # I
-    .param p3, "optionsWithScaling"    # Landroid/graphics/BitmapFactory$Options;
-    .param p4, "isHardwareConfigAllowed"    # Z
-    .param p5, "isExifOrientationRequired"    # Z
-
-    .line 124
-    nop
+    .locals 0
 
     .line 125
     invoke-virtual {p0, p1, p2, p4, p5}, Lcom/bumptech/glide/load/resource/bitmap/HardwareConfigState;->isHardwareConfigAllowed(IIZZ)Z
 
-    move-result v0
+    move-result p1
 
-    .line 127
-    .local v0, "result":Z
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 128
-    sget-object v1, Landroid/graphics/Bitmap$Config;->HARDWARE:Landroid/graphics/Bitmap$Config;
+    sget-object p2, Landroid/graphics/Bitmap$Config;->HARDWARE:Landroid/graphics/Bitmap$Config;
 
-    iput-object v1, p3, Landroid/graphics/BitmapFactory$Options;->inPreferredConfig:Landroid/graphics/Bitmap$Config;
+    iput-object p2, p3, Landroid/graphics/BitmapFactory$Options;->inPreferredConfig:Landroid/graphics/Bitmap$Config;
+
+    const/4 p2, 0x0
 
     .line 129
-    const/4 v1, 0x0
+    iput-boolean p2, p3, Landroid/graphics/BitmapFactory$Options;->inMutable:Z
 
-    iput-boolean v1, p3, Landroid/graphics/BitmapFactory$Options;->inMutable:Z
-
-    .line 131
     :cond_0
-    return v0
+    return p1
 .end method

@@ -66,9 +66,6 @@
     .end annotation
 
     .line 44
-    .local p0, "this":Lio/reactivex/internal/subscribers/QueueDrainSubscriber;, "Lio/reactivex/internal/subscribers/QueueDrainSubscriber<TT;TU;TV;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TV;>;"
-    .local p2, "queue":Lio/reactivex/internal/fuseable/SimplePlainQueue;, "Lio/reactivex/internal/fuseable/SimplePlainQueue<TU;>;"
     invoke-direct {p0}, Lio/reactivex/internal/subscribers/QueueDrainSubscriberPad4;-><init>()V
 
     .line 45
@@ -77,14 +74,13 @@
     .line 46
     iput-object p2, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->queue:Lio/reactivex/internal/fuseable/SimplePlainQueue;
 
-    .line 47
     return-void
 .end method
 
 
 # virtual methods
 .method public accept(Lorg/reactivestreams/Subscriber;Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -93,20 +89,15 @@
         }
     .end annotation
 
-    .line 133
-    .local p0, "this":Lio/reactivex/internal/subscribers/QueueDrainSubscriber;, "Lio/reactivex/internal/subscribers/QueueDrainSubscriber<TT;TU;TV;>;"
-    .local p1, "a":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TV;>;"
-    .local p2, "v":Ljava/lang/Object;, "TU;"
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public final cancelled()Z
     .locals 1
 
     .line 51
-    .local p0, "this":Lio/reactivex/internal/subscribers/QueueDrainSubscriber;, "Lio/reactivex/internal/subscribers/QueueDrainSubscriber<TT;TU;TV;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->cancelled:Z
 
     return v0
@@ -116,7 +107,6 @@
     .locals 1
 
     .line 56
-    .local p0, "this":Lio/reactivex/internal/subscribers/QueueDrainSubscriber;, "Lio/reactivex/internal/subscribers/QueueDrainSubscriber<TT;TU;TV;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->done:Z
 
     return v0
@@ -126,7 +116,6 @@
     .locals 1
 
     .line 61
-    .local p0, "this":Lio/reactivex/internal/subscribers/QueueDrainSubscriber;, "Lio/reactivex/internal/subscribers/QueueDrainSubscriber<TT;TU;TV;>;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
@@ -150,7 +139,6 @@
     .locals 1
 
     .line 138
-    .local p0, "this":Lio/reactivex/internal/subscribers/QueueDrainSubscriber;, "Lio/reactivex/internal/subscribers/QueueDrainSubscriber<TT;TU;TV;>;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->error:Ljava/lang/Throwable;
 
     return-object v0
@@ -160,40 +148,34 @@
     .locals 3
 
     .line 65
-    .local p0, "this":Lio/reactivex/internal/subscribers/QueueDrainSubscriber;, "Lio/reactivex/internal/subscribers/QueueDrainSubscriber<TT;TU;TV;>;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
 
     move-result v0
 
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     if-nez v0, :cond_0
 
     iget-object v0, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {v0, v2, v1}, Ljava/util/concurrent/atomic/AtomicInteger;->compareAndSet(II)Z
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/concurrent/atomic/AtomicInteger;->compareAndSet(II)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    goto :goto_0
-
-    :cond_0
     move v1, v2
 
-    :goto_0
+    :cond_0
     return v1
 .end method
 
 .method protected final fastPathEmitMax(Ljava/lang/Object;ZLio/reactivex/disposables/Disposable;)V
     .locals 6
-    .param p2, "delayError"    # Z
-    .param p3, "dispose"    # Lio/reactivex/disposables/Disposable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TU;Z",
@@ -203,16 +185,127 @@
     .end annotation
 
     .line 69
-    .local p0, "this":Lio/reactivex/internal/subscribers/QueueDrainSubscriber;, "Lio/reactivex/internal/subscribers/QueueDrainSubscriber<TT;TU;TV;>;"
-    .local p1, "value":Ljava/lang/Object;, "TU;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
     .line 70
-    .local v0, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TV;>;"
     iget-object v1, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->queue:Lio/reactivex/internal/fuseable/SimplePlainQueue;
 
     .line 72
-    .local v1, "q":Lio/reactivex/internal/fuseable/SimplePlainQueue;, "Lio/reactivex/internal/fuseable/SimplePlainQueue<TU;>;"
+    iget-object v2, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    invoke-virtual {v2}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    iget-object v2, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v2, v3, v4}, Ljava/util/concurrent/atomic/AtomicInteger;->compareAndSet(II)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    .line 73
+    iget-object v2, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
+
+    invoke-virtual {v2}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
+
+    move-result-wide v2
+
+    const-wide/16 v4, 0x0
+
+    cmp-long v4, v2, v4
+
+    if-eqz v4, :cond_1
+
+    .line 75
+    invoke-virtual {p0, v0, p1}, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->accept(Lorg/reactivestreams/Subscriber;Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    const-wide v4, 0x7fffffffffffffffL
+
+    cmp-long p1, v2, v4
+
+    if-eqz p1, :cond_0
+
+    const-wide/16 v2, 0x1
+
+    .line 77
+    invoke-virtual {p0, v2, v3}, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->produced(J)J
+
+    :cond_0
+    const/4 p1, -0x1
+
+    .line 80
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->leave(I)I
+
+    move-result p1
+
+    if-nez p1, :cond_3
+
+    return-void
+
+    .line 84
+    :cond_1
+    invoke-interface {p3}, Lio/reactivex/disposables/Disposable;->dispose()V
+
+    .line 85
+    new-instance p1, Lio/reactivex/exceptions/MissingBackpressureException;
+
+    const-string p2, "Could not emit buffer due to lack of requests"
+
+    invoke-direct {p1, p2}, Lio/reactivex/exceptions/MissingBackpressureException;-><init>(Ljava/lang/String;)V
+
+    invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+
+    return-void
+
+    .line 89
+    :cond_2
+    invoke-interface {v1, p1}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->offer(Ljava/lang/Object;)Z
+
+    .line 90
+    invoke-virtual {p0}, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->enter()Z
+
+    move-result p1
+
+    if-nez p1, :cond_3
+
+    return-void
+
+    .line 94
+    :cond_3
+    invoke-static {v1, v0, p2, p3, p0}, Lio/reactivex/internal/util/QueueDrainHelper;->drainMaxLoop(Lio/reactivex/internal/fuseable/SimplePlainQueue;Lorg/reactivestreams/Subscriber;ZLio/reactivex/disposables/Disposable;Lio/reactivex/internal/util/QueueDrain;)V
+
+    return-void
+.end method
+
+.method protected final fastPathOrderedEmitMax(Ljava/lang/Object;ZLio/reactivex/disposables/Disposable;)V
+    .locals 7
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TU;Z",
+            "Lio/reactivex/disposables/Disposable;",
+            ")V"
+        }
+    .end annotation
+
+    .line 98
+    iget-object v0, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+
+    .line 99
+    iget-object v1, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->queue:Lio/reactivex/internal/fuseable/SimplePlainQueue;
+
+    .line 101
     iget-object v2, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v2}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
@@ -233,142 +326,6 @@
 
     if-eqz v2, :cond_3
 
-    .line 73
-    iget-object v2, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
-
-    invoke-virtual {v2}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
-
-    move-result-wide v2
-
-    .line 74
-    .local v2, "r":J
-    const-wide/16 v4, 0x0
-
-    cmp-long v4, v2, v4
-
-    if-eqz v4, :cond_2
-
-    .line 75
-    invoke-virtual {p0, v0, p1}, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->accept(Lorg/reactivestreams/Subscriber;Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    .line 76
-    const-wide v4, 0x7fffffffffffffffL
-
-    cmp-long v4, v2, v4
-
-    if-eqz v4, :cond_0
-
-    .line 77
-    const-wide/16 v4, 0x1
-
-    invoke-virtual {p0, v4, v5}, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->produced(J)J
-
-    .line 80
-    :cond_0
-    const/4 v4, -0x1
-
-    invoke-virtual {p0, v4}, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->leave(I)I
-
-    move-result v4
-
-    if-nez v4, :cond_1
-
-    .line 81
-    return-void
-
-    .line 88
-    .end local v2    # "r":J
-    :cond_1
-    goto :goto_0
-
-    .line 84
-    .restart local v2    # "r":J
-    :cond_2
-    invoke-interface {p3}, Lio/reactivex/disposables/Disposable;->dispose()V
-
-    .line 85
-    new-instance v4, Lio/reactivex/exceptions/MissingBackpressureException;
-
-    const-string v5, "Could not emit buffer due to lack of requests"
-
-    invoke-direct {v4, v5}, Lio/reactivex/exceptions/MissingBackpressureException;-><init>(Ljava/lang/String;)V
-
-    invoke-interface {v0, v4}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
-
-    .line 86
-    return-void
-
-    .line 89
-    .end local v2    # "r":J
-    :cond_3
-    invoke-interface {v1, p1}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->offer(Ljava/lang/Object;)Z
-
-    .line 90
-    invoke-virtual {p0}, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->enter()Z
-
-    move-result v2
-
-    if-nez v2, :cond_4
-
-    .line 91
-    return-void
-
-    .line 94
-    :cond_4
-    :goto_0
-    invoke-static {v1, v0, p2, p3, p0}, Lio/reactivex/internal/util/QueueDrainHelper;->drainMaxLoop(Lio/reactivex/internal/fuseable/SimplePlainQueue;Lorg/reactivestreams/Subscriber;ZLio/reactivex/disposables/Disposable;Lio/reactivex/internal/util/QueueDrain;)V
-
-    .line 95
-    return-void
-.end method
-
-.method protected final fastPathOrderedEmitMax(Ljava/lang/Object;ZLio/reactivex/disposables/Disposable;)V
-    .locals 7
-    .param p2, "delayError"    # Z
-    .param p3, "dispose"    # Lio/reactivex/disposables/Disposable;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TU;Z",
-            "Lio/reactivex/disposables/Disposable;",
-            ")V"
-        }
-    .end annotation
-
-    .line 98
-    .local p0, "this":Lio/reactivex/internal/subscribers/QueueDrainSubscriber;, "Lio/reactivex/internal/subscribers/QueueDrainSubscriber<TT;TU;TV;>;"
-    .local p1, "value":Ljava/lang/Object;, "TU;"
-    iget-object v0, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->actual:Lorg/reactivestreams/Subscriber;
-
-    .line 99
-    .local v0, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TV;>;"
-    iget-object v1, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->queue:Lio/reactivex/internal/fuseable/SimplePlainQueue;
-
-    .line 101
-    .local v1, "q":Lio/reactivex/internal/fuseable/SimplePlainQueue;, "Lio/reactivex/internal/fuseable/SimplePlainQueue<TU;>;"
-    iget-object v2, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
-
-    invoke-virtual {v2}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
-
-    move-result v2
-
-    if-nez v2, :cond_4
-
-    iget-object v2, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x1
-
-    invoke-virtual {v2, v3, v4}, Ljava/util/concurrent/atomic/AtomicInteger;->compareAndSet(II)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_4
-
     .line 102
     iget-object v2, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
@@ -376,13 +333,11 @@
 
     move-result-wide v2
 
-    .line 103
-    .local v2, "r":J
     const-wide/16 v5, 0x0
 
     cmp-long v5, v2, v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_2
 
     .line 104
     invoke-interface {v1}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->isEmpty()Z
@@ -394,125 +349,110 @@
     .line 105
     invoke-virtual {p0, v0, p1}, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->accept(Lorg/reactivestreams/Subscriber;Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result p1
 
-    if-eqz v4, :cond_0
+    if-eqz p1, :cond_0
 
-    .line 106
     const-wide v4, 0x7fffffffffffffffL
 
-    cmp-long v4, v2, v4
+    cmp-long p1, v2, v4
 
-    if-eqz v4, :cond_0
+    if-eqz p1, :cond_0
+
+    const-wide/16 v2, 0x1
 
     .line 107
-    const-wide/16 v4, 0x1
+    invoke-virtual {p0, v2, v3}, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->produced(J)J
 
-    invoke-virtual {p0, v4, v5}, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->produced(J)J
+    :cond_0
+    const/4 p1, -0x1
 
     .line 110
-    :cond_0
-    const/4 v4, -0x1
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->leave(I)I
 
-    invoke-virtual {p0, v4}, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->leave(I)I
+    move-result p1
 
-    move-result v4
+    if-nez p1, :cond_4
 
-    if-nez v4, :cond_2
-
-    .line 111
     return-void
 
     .line 114
     :cond_1
     invoke-interface {v1, p1}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->offer(Ljava/lang/Object;)Z
 
-    .line 122
-    .end local v2    # "r":J
-    :cond_2
     goto :goto_0
 
     .line 117
-    .restart local v2    # "r":J
-    :cond_3
+    :cond_2
     iput-boolean v4, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->cancelled:Z
 
     .line 118
     invoke-interface {p3}, Lio/reactivex/disposables/Disposable;->dispose()V
 
     .line 119
-    new-instance v4, Lio/reactivex/exceptions/MissingBackpressureException;
+    new-instance p1, Lio/reactivex/exceptions/MissingBackpressureException;
 
-    const-string v5, "Could not emit buffer due to lack of requests"
+    const-string p2, "Could not emit buffer due to lack of requests"
 
-    invoke-direct {v4, v5}, Lio/reactivex/exceptions/MissingBackpressureException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Lio/reactivex/exceptions/MissingBackpressureException;-><init>(Ljava/lang/String;)V
 
-    invoke-interface {v0, v4}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 120
     return-void
 
     .line 123
-    .end local v2    # "r":J
-    :cond_4
+    :cond_3
     invoke-interface {v1, p1}, Lio/reactivex/internal/fuseable/SimplePlainQueue;->offer(Ljava/lang/Object;)Z
 
     .line 124
     invoke-virtual {p0}, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->enter()Z
 
-    move-result v2
+    move-result p1
 
-    if-nez v2, :cond_5
+    if-nez p1, :cond_4
 
-    .line 125
     return-void
 
     .line 128
-    :cond_5
+    :cond_4
     :goto_0
     invoke-static {v1, v0, p2, p3, p0}, Lio/reactivex/internal/util/QueueDrainHelper;->drainMaxLoop(Lio/reactivex/internal/fuseable/SimplePlainQueue;Lorg/reactivestreams/Subscriber;ZLio/reactivex/disposables/Disposable;Lio/reactivex/internal/util/QueueDrain;)V
 
-    .line 129
     return-void
 .end method
 
 .method public final leave(I)I
     .locals 1
-    .param p1, "m"    # I
 
     .line 143
-    .local p0, "this":Lio/reactivex/internal/subscribers/QueueDrainSubscriber;, "Lio/reactivex/internal/subscribers/QueueDrainSubscriber<TT;TU;TV;>;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/atomic/AtomicInteger;->addAndGet(I)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public final produced(J)J
-    .locals 3
-    .param p1, "n"    # J
+    .locals 1
 
     .line 153
-    .local p0, "this":Lio/reactivex/internal/subscribers/QueueDrainSubscriber;, "Lio/reactivex/internal/subscribers/QueueDrainSubscriber<TT;TU;TV;>;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
-    neg-long v1, p1
+    neg-long p1, p1
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/concurrent/atomic/AtomicLong;->addAndGet(J)J
+    invoke-virtual {v0, p1, p2}, Ljava/util/concurrent/atomic/AtomicLong;->addAndGet(J)J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    return-wide v0
+    return-wide p1
 .end method
 
 .method public final requested()J
     .locals 2
 
     .line 148
-    .local p0, "this":Lio/reactivex/internal/subscribers/QueueDrainSubscriber;, "Lio/reactivex/internal/subscribers/QueueDrainSubscriber<TT;TU;TV;>;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/QueueDrainSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
@@ -524,10 +464,8 @@
 
 .method public final requested(J)V
     .locals 1
-    .param p1, "n"    # J
 
     .line 157
-    .local p0, "this":Lio/reactivex/internal/subscribers/QueueDrainSubscriber;, "Lio/reactivex/internal/subscribers/QueueDrainSubscriber<TT;TU;TV;>;"
     invoke-static {p1, p2}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(J)Z
 
     move-result v0
@@ -539,7 +477,6 @@
 
     invoke-static {v0, p1, p2}, Lio/reactivex/internal/util/BackpressureHelper;->add(Ljava/util/concurrent/atomic/AtomicLong;J)J
 
-    .line 160
     :cond_0
     return-void
 .end method

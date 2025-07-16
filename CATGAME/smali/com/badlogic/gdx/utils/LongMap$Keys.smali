@@ -17,12 +17,10 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/utils/LongMap;)V
     .locals 0
-    .param p1, "map"    # Lcom/badlogic/gdx/utils/LongMap;
 
     .line 865
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/LongMap$MapIterator;-><init>(Lcom/badlogic/gdx/utils/LongMap;)V
 
-    .line 866
     return-void
 .end method
 
@@ -59,12 +57,9 @@
 
     iget v1, p0, Lcom/badlogic/gdx/utils/LongMap$Keys;->nextIndex:I
 
-    aget-wide v1, v0, v1
-
-    move-wide v0, v1
+    aget-wide v0, v0, v1
 
     .line 872
-    .local v0, "key":J
     :goto_0
     iget v2, p0, Lcom/badlogic/gdx/utils/LongMap$Keys;->nextIndex:I
 
@@ -73,11 +68,9 @@
     .line 873
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/LongMap$Keys;->findNextIndex()V
 
-    .line 874
     return-wide v0
 
     .line 870
-    .end local v0    # "key":J
     :cond_1
     new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
@@ -129,7 +122,6 @@
     invoke-direct {v0, v2, v1}, Lcom/badlogic/gdx/utils/LongArray;-><init>(ZI)V
 
     .line 880
-    .local v0, "array":Lcom/badlogic/gdx/utils/LongArray;
     :goto_0
     iget-boolean v1, p0, Lcom/badlogic/gdx/utils/LongMap$Keys;->hasNext:Z
 
@@ -144,7 +136,6 @@
 
     goto :goto_0
 
-    .line 882
     :cond_0
     return-object v0
 .end method

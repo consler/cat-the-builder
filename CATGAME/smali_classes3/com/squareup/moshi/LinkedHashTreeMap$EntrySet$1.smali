@@ -30,16 +30,14 @@
 
 # direct methods
 .method constructor <init>(Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet;)V
-    .locals 1
-    .param p1, "this$1"    # Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet;
+    .locals 0
 
     .line 797
-    .local p0, "this":Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet$1;, "Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet$1;"
     iput-object p1, p0, Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet$1;->this$1:Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet;
 
-    iget-object v0, p1, Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet;->this$0:Lcom/squareup/moshi/LinkedHashTreeMap;
+    iget-object p1, p1, Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet;->this$0:Lcom/squareup/moshi/LinkedHashTreeMap;
 
-    invoke-direct {p0, v0}, Lcom/squareup/moshi/LinkedHashTreeMap$LinkedTreeMapIterator;-><init>(Lcom/squareup/moshi/LinkedHashTreeMap;)V
+    invoke-direct {p0, p1}, Lcom/squareup/moshi/LinkedHashTreeMap$LinkedTreeMapIterator;-><init>(Lcom/squareup/moshi/LinkedHashTreeMap;)V
 
     return-void
 .end method
@@ -50,7 +48,6 @@
     .locals 1
 
     .line 797
-    .local p0, "this":Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet$1;, "Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet$1;"
     invoke-virtual {p0}, Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet$1;->next()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -69,7 +66,6 @@
     .end annotation
 
     .line 799
-    .local p0, "this":Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet$1;, "Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet$1;"
     invoke-virtual {p0}, Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet$1;->nextNode()Lcom/squareup/moshi/LinkedHashTreeMap$Node;
 
     move-result-object v0

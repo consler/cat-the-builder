@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/apache/commons/collections4/MapIterator;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -44,28 +44,24 @@
     .end annotation
 
     .line 43
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractMapIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractMapIteratorDecorator<TK;TV;>;"
-    .local p1, "iterator":Lorg/apache/commons/collections4/MapIterator;, "Lorg/apache/commons/collections4/MapIterator<TK;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 44
     if-eqz p1, :cond_0
 
     .line 47
     iput-object p1, p0, Lorg/apache/commons/collections4/iterators/AbstractMapIteratorDecorator;->iterator:Lorg/apache/commons/collections4/MapIterator;
 
-    .line 48
     return-void
 
     .line 45
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "MapIterator must not be null"
+    const-string v0, "MapIterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -79,7 +75,6 @@
     .end annotation
 
     .line 82
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractMapIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractMapIteratorDecorator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/AbstractMapIteratorDecorator;->iterator:Lorg/apache/commons/collections4/MapIterator;
 
     invoke-interface {v0}, Lorg/apache/commons/collections4/MapIterator;->getKey()Ljava/lang/Object;
@@ -100,7 +95,6 @@
     .end annotation
 
     .line 56
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractMapIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractMapIteratorDecorator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/AbstractMapIteratorDecorator;->iterator:Lorg/apache/commons/collections4/MapIterator;
 
     return-object v0
@@ -115,7 +109,6 @@
     .end annotation
 
     .line 88
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractMapIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractMapIteratorDecorator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/AbstractMapIteratorDecorator;->iterator:Lorg/apache/commons/collections4/MapIterator;
 
     invoke-interface {v0}, Lorg/apache/commons/collections4/MapIterator;->getValue()Ljava/lang/Object;
@@ -129,7 +122,6 @@
     .locals 1
 
     .line 64
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractMapIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractMapIteratorDecorator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/AbstractMapIteratorDecorator;->iterator:Lorg/apache/commons/collections4/MapIterator;
 
     invoke-interface {v0}, Lorg/apache/commons/collections4/MapIterator;->hasNext()Z
@@ -148,7 +140,6 @@
     .end annotation
 
     .line 70
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractMapIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractMapIteratorDecorator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/AbstractMapIteratorDecorator;->iterator:Lorg/apache/commons/collections4/MapIterator;
 
     invoke-interface {v0}, Lorg/apache/commons/collections4/MapIterator;->next()Ljava/lang/Object;
@@ -162,12 +153,10 @@
     .locals 1
 
     .line 76
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractMapIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractMapIteratorDecorator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/AbstractMapIteratorDecorator;->iterator:Lorg/apache/commons/collections4/MapIterator;
 
     invoke-interface {v0}, Lorg/apache/commons/collections4/MapIterator;->remove()V
 
-    .line 77
     return-void
 .end method
 
@@ -180,13 +169,11 @@
     .end annotation
 
     .line 94
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractMapIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractMapIteratorDecorator<TK;TV;>;"
-    .local p1, "obj":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/AbstractMapIteratorDecorator;->iterator:Lorg/apache/commons/collections4/MapIterator;
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/MapIterator;->setValue(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

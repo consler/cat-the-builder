@@ -59,8 +59,7 @@
 
 # direct methods
 .method public constructor <init>(Lio/reactivex/internal/subscribers/InnerQueuedSubscriberSupport;I)V
-    .locals 1
-    .param p2, "prefetch"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -70,8 +69,6 @@
     .end annotation
 
     .line 52
-    .local p0, "this":Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;, "Lio/reactivex/internal/subscribers/InnerQueuedSubscriber<TT;>;"
-    .local p1, "parent":Lio/reactivex/internal/subscribers/InnerQueuedSubscriberSupport;, "Lio/reactivex/internal/subscribers/InnerQueuedSubscriberSupport<TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 53
@@ -80,14 +77,13 @@
     .line 54
     iput p2, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->prefetch:I
 
+    shr-int/lit8 p1, p2, 0x2
+
+    sub-int/2addr p2, p1
+
     .line 55
-    shr-int/lit8 v0, p2, 0x2
+    iput p2, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->limit:I
 
-    sub-int v0, p2, v0
-
-    iput v0, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->limit:I
-
-    .line 56
     return-void
 .end method
 
@@ -97,10 +93,8 @@
     .locals 0
 
     .line 133
-    .local p0, "this":Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;, "Lio/reactivex/internal/subscribers/InnerQueuedSubscriber<TT;>;"
     invoke-static {p0}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->cancel(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 134
     return-void
 .end method
 
@@ -108,7 +102,6 @@
     .locals 1
 
     .line 137
-    .local p0, "this":Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;, "Lio/reactivex/internal/subscribers/InnerQueuedSubscriber<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->done:Z
 
     return v0
@@ -118,26 +111,21 @@
     .locals 1
 
     .line 103
-    .local p0, "this":Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;, "Lio/reactivex/internal/subscribers/InnerQueuedSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->parent:Lio/reactivex/internal/subscribers/InnerQueuedSubscriberSupport;
 
     invoke-interface {v0, p0}, Lio/reactivex/internal/subscribers/InnerQueuedSubscriberSupport;->innerComplete(Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;)V
 
-    .line 104
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 98
-    .local p0, "this":Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;, "Lio/reactivex/internal/subscribers/InnerQueuedSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->parent:Lio/reactivex/internal/subscribers/InnerQueuedSubscriberSupport;
 
     invoke-interface {v0, p0, p1}, Lio/reactivex/internal/subscribers/InnerQueuedSubscriberSupport;->innerError(Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;Ljava/lang/Throwable;)V
 
-    .line 99
     return-void
 .end method
 
@@ -150,8 +138,6 @@
     .end annotation
 
     .line 89
-    .local p0, "this":Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;, "Lio/reactivex/internal/subscribers/InnerQueuedSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget v0, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->fusionMode:I
 
     if-nez v0, :cond_0
@@ -165,21 +151,18 @@
 
     .line 92
     :cond_0
-    iget-object v0, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->parent:Lio/reactivex/internal/subscribers/InnerQueuedSubscriberSupport;
+    iget-object p1, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->parent:Lio/reactivex/internal/subscribers/InnerQueuedSubscriberSupport;
 
-    invoke-interface {v0}, Lio/reactivex/internal/subscribers/InnerQueuedSubscriberSupport;->drain()V
+    invoke-interface {p1}, Lio/reactivex/internal/subscribers/InnerQueuedSubscriberSupport;->drain()V
 
-    .line 94
     :goto_0
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 3
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 60
-    .local p0, "this":Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;, "Lio/reactivex/internal/subscribers/InnerQueuedSubscriber<TT;>;"
     invoke-static {p0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lorg/reactivestreams/Subscription;)Z
 
     move-result v0
@@ -196,16 +179,13 @@
 
     check-cast v0, Lio/reactivex/internal/fuseable/QueueSubscription;
 
-    .line 65
-    .local v0, "qs":Lio/reactivex/internal/fuseable/QueueSubscription;, "Lio/reactivex/internal/fuseable/QueueSubscription<TT;>;"
     const/4 v1, 0x3
 
+    .line 65
     invoke-interface {v0, v1}, Lio/reactivex/internal/fuseable/QueueSubscription;->requestFusion(I)I
 
     move-result v1
 
-    .line 66
-    .local v1, "m":I
     const/4 v2, 0x1
 
     if-ne v1, v2, :cond_0
@@ -220,14 +200,12 @@
     iput-boolean v2, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->done:Z
 
     .line 70
-    iget-object v2, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->parent:Lio/reactivex/internal/subscribers/InnerQueuedSubscriberSupport;
+    iget-object p1, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->parent:Lio/reactivex/internal/subscribers/InnerQueuedSubscriberSupport;
 
-    invoke-interface {v2, p0}, Lio/reactivex/internal/subscribers/InnerQueuedSubscriberSupport;->innerComplete(Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;)V
+    invoke-interface {p1, p0}, Lio/reactivex/internal/subscribers/InnerQueuedSubscriberSupport;->innerComplete(Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;)V
 
-    .line 71
     return-void
 
-    .line 73
     :cond_0
     const/4 v2, 0x2
 
@@ -240,16 +218,13 @@
     iput-object v0, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
     .line 76
-    iget v2, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->prefetch:I
+    iget v0, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->prefetch:I
 
-    invoke-static {p1, v2}, Lio/reactivex/internal/util/QueueDrainHelper;->request(Lorg/reactivestreams/Subscription;I)V
+    invoke-static {p1, v0}, Lio/reactivex/internal/util/QueueDrainHelper;->request(Lorg/reactivestreams/Subscription;I)V
 
-    .line 77
     return-void
 
     .line 81
-    .end local v0    # "qs":Lio/reactivex/internal/fuseable/QueueSubscription;, "Lio/reactivex/internal/fuseable/QueueSubscription<TT;>;"
-    .end local v1    # "m":I
     :cond_1
     iget v0, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->prefetch:I
 
@@ -264,7 +239,6 @@
 
     invoke-static {p1, v0}, Lio/reactivex/internal/util/QueueDrainHelper;->request(Lorg/reactivestreams/Subscription;I)V
 
-    .line 85
     :cond_2
     return-void
 .end method
@@ -280,18 +254,15 @@
     .end annotation
 
     .line 145
-    .local p0, "this":Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;, "Lio/reactivex/internal/subscribers/InnerQueuedSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
     return-object v0
 .end method
 
 .method public request(J)V
-    .locals 4
-    .param p1, "n"    # J
+    .locals 2
 
     .line 108
-    .local p0, "this":Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;, "Lio/reactivex/internal/subscribers/InnerQueuedSubscriber<TT;>;"
     iget v0, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->fusionMode:I
 
     const/4 v1, 0x1
@@ -304,28 +275,27 @@
     add-long/2addr v0, p1
 
     .line 110
-    .local v0, "p":J
-    iget v2, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->limit:I
+    iget p1, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->limit:I
 
-    int-to-long v2, v2
+    int-to-long p1, p1
 
-    cmp-long v2, v0, v2
+    cmp-long p1, v0, p1
 
-    if-ltz v2, :cond_0
+    if-ltz p1, :cond_0
+
+    const-wide/16 p1, 0x0
 
     .line 111
-    const-wide/16 v2, 0x0
-
-    iput-wide v2, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->produced:J
+    iput-wide p1, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->produced:J
 
     .line 112
     invoke-virtual {p0}, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->get()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    check-cast v2, Lorg/reactivestreams/Subscription;
+    check-cast p1, Lorg/reactivestreams/Subscription;
 
-    invoke-interface {v2, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
+    invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
     goto :goto_0
 
@@ -333,8 +303,6 @@
     :cond_0
     iput-wide v0, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->produced:J
 
-    .line 117
-    .end local v0    # "p":J
     :cond_1
     :goto_0
     return-void
@@ -344,7 +312,6 @@
     .locals 4
 
     .line 120
-    .local p0, "this":Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;, "Lio/reactivex/internal/subscribers/InnerQueuedSubscriber<TT;>;"
     iget v0, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->fusionMode:I
 
     const/4 v1, 0x1
@@ -359,7 +326,6 @@
     add-long/2addr v0, v2
 
     .line 122
-    .local v0, "p":J
     iget v2, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->limit:I
 
     int-to-long v2, v2
@@ -368,9 +334,9 @@
 
     if-nez v2, :cond_0
 
-    .line 123
     const-wide/16 v2, 0x0
 
+    .line 123
     iput-wide v2, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->produced:J
 
     .line 124
@@ -388,8 +354,6 @@
     :cond_0
     iput-wide v0, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->produced:J
 
-    .line 129
-    .end local v0    # "p":J
     :cond_1
     :goto_0
     return-void
@@ -398,12 +362,10 @@
 .method public setDone()V
     .locals 1
 
-    .line 141
-    .local p0, "this":Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;, "Lio/reactivex/internal/subscribers/InnerQueuedSubscriber<TT;>;"
     const/4 v0, 0x1
 
+    .line 141
     iput-boolean v0, p0, Lio/reactivex/internal/subscribers/InnerQueuedSubscriber;->done:Z
 
-    .line 142
     return-void
 .end method

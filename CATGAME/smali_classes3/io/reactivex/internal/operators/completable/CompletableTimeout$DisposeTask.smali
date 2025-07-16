@@ -36,9 +36,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/completable/CompletableTimeout;Ljava/util/concurrent/atomic/AtomicBoolean;Lio/reactivex/disposables/CompositeDisposable;Lio/reactivex/CompletableObserver;)V
     .locals 0
-    .param p2, "once"    # Ljava/util/concurrent/atomic/AtomicBoolean;
-    .param p3, "set"    # Lio/reactivex/disposables/CompositeDisposable;
-    .param p4, "s"    # Lio/reactivex/CompletableObserver;
 
     .line 96
     iput-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableTimeout$DisposeTask;->this$0:Lio/reactivex/internal/operators/completable/CompletableTimeout;
@@ -54,7 +51,6 @@
     .line 99
     iput-object p4, p0, Lio/reactivex/internal/operators/completable/CompletableTimeout$DisposeTask;->s:Lio/reactivex/CompletableObserver;
 
-    .line 100
     return-void
 .end method
 
@@ -111,7 +107,6 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/CompletableSource;->subscribe(Lio/reactivex/CompletableObserver;)V
 
-    .line 112
     :cond_1
     :goto_0
     return-void

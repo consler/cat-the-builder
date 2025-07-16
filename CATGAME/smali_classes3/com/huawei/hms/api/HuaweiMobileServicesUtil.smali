@@ -6,12 +6,16 @@
 # static fields
 .field public static final HMS_ERROR_DIALOG:Ljava/lang/String; = "HuaweiMobileServicesErrorDialog"
 
+.field private static final HMS_VERSION_CODE_NOMDM:I = 0x138ce20
+
+.field private static final TAG:Ljava/lang/String; = "HuaweiMobileServicesUtil"
+
 
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
-    .line 29
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -20,7 +24,7 @@
 .method public static getErrorDialog(ILandroid/app/Activity;I)Landroid/app/Dialog;
     .locals 2
 
-    .line 124
+    .line 1
     invoke-static {}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getInstance()Lcom/huawei/hms/api/HuaweiApiAvailability;
 
     move-result-object v0
@@ -37,7 +41,7 @@
 .method public static getErrorDialog(ILandroid/app/Activity;ILandroid/content/DialogInterface$OnCancelListener;)Landroid/app/Dialog;
     .locals 1
 
-    .line 138
+    .line 2
     invoke-static {}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getInstance()Lcom/huawei/hms/api/HuaweiApiAvailability;
 
     move-result-object v0
@@ -52,7 +56,7 @@
 .method public static getErrorString(I)Ljava/lang/String;
     .locals 1
 
-    .line 148
+    .line 1
     invoke-static {}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getInstance()Lcom/huawei/hms/api/HuaweiApiAvailability;
 
     move-result-object v0
@@ -69,7 +73,6 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 243
     const-string p0, ""
 
     return-object p0
@@ -78,7 +81,7 @@
 .method public static getRemoteContext(Landroid/content/Context;)Landroid/content/Context;
     .locals 2
 
-    .line 108
+    .line 1
     :try_start_0
     invoke-static {p0}, Lcom/huawei/hms/utils/HMSPackageManager;->getInstance(Landroid/content/Context;)Lcom/huawei/hms/utils/HMSPackageManager;
 
@@ -98,11 +101,7 @@
 
     return-object p0
 
-    .line 110
     :catch_0
-    move-exception p0
-
-    .line 111
     const/4 p0, 0x0
 
     return-object p0
@@ -111,7 +110,7 @@
 .method public static getRemoteResource(Landroid/content/Context;)Landroid/content/res/Resources;
     .locals 1
 
-    .line 94
+    .line 1
     :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
@@ -133,11 +132,7 @@
 
     return-object p0
 
-    .line 95
     :catch_0
-    move-exception p0
-
-    .line 96
     const/4 p0, 0x0
 
     return-object p0
@@ -146,7 +141,7 @@
 .method public static isHuaweiMobileServicesAvailable(Landroid/content/Context;)I
     .locals 1
 
-    .line 161
+    .line 71
     invoke-static {}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getInstance()Lcom/huawei/hms/api/HuaweiApiAvailability;
 
     move-result-object v0
@@ -159,141 +154,281 @@
 .end method
 
 .method public static isHuaweiMobileServicesAvailable(Landroid/content/Context;I)I
-    .locals 4
+    .locals 11
 
-    .line 48
     const-string v0, "context must not be null."
 
+    .line 1
     invoke-static {p0, v0}, Lcom/huawei/hms/utils/Checker;->checkNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 51
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    .line 9
+    invoke-static {p0}, Lcom/huawei/hms/utils/HMSPackageManager;->getInstance(Landroid/content/Context;)Lcom/huawei/hms/utils/HMSPackageManager;
 
-    const/16 v1, 0x10
+    move-result-object v0
 
-    if-ge v0, v1, :cond_0
+    invoke-virtual {v0}, Lcom/huawei/hms/utils/HMSPackageManager;->isUseOldCertificate()Z
 
-    .line 52
-    const/16 p0, 0x15
+    move-result v0
+
+    const-string v1, "HuaweiMobileServicesUtil"
+
+    if-eqz v0, :cond_0
+
+    const-string p0, "The CP uses the old certificate to terminate the connection."
+
+    .line 10
+    invoke-static {v1, p0}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/16 p0, 0xd
 
     return p0
 
-    .line 55
+    .line 14
     :cond_0
     new-instance v0, Lcom/huawei/hms/utils/PackageManagerHelper;
 
     invoke-direct {v0, p0}, Lcom/huawei/hms/utils/PackageManagerHelper;-><init>(Landroid/content/Context;)V
 
-    .line 56
+    .line 15
     invoke-static {p0}, Lcom/huawei/hms/utils/HMSPackageManager;->getInstance(Landroid/content/Context;)Lcom/huawei/hms/utils/HMSPackageManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/huawei/hms/utils/HMSPackageManager;->getHMSPackageName()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 58
-    invoke-virtual {v0, v1}, Lcom/huawei/hms/utils/PackageManagerHelper;->getPackageStates(Ljava/lang/String;)Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
 
     move-result-object v2
 
-    .line 59
-    sget-object v3, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;->NOT_INSTALLED:Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
+    invoke-virtual {v2}, Lcom/huawei/hms/utils/HMSPackageManager;->getHMSPackageNameForMultiService()Ljava/lang/String;
 
-    invoke-virtual {v3, v2}, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;->equals(Ljava/lang/Object;)Z
+    move-result-object v2
 
-    move-result v3
+    .line 16
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    if-eqz v3, :cond_1
+    const-string v4, "hmsPackageName is "
 
-    .line 60
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v1, v3}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 17
+    invoke-static {p0}, Lcom/huawei/hms/utils/HMSPackageManager;->getInstance(Landroid/content/Context;)Lcom/huawei/hms/utils/HMSPackageManager;
+
+    move-result-object v3
+
+    .line 18
+    invoke-virtual {v3}, Lcom/huawei/hms/utils/HMSPackageManager;->getHMSPackageStatesForMultiService()Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
+
+    move-result-object v3
+
+    .line 20
+    sget-object v4, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;->NOT_INSTALLED:Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
+
+    invoke-virtual {v4, v3}, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    const-string p0, "HMS is not installed"
+
+    .line 21
+    invoke-static {v1, p0}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
     const/4 p0, 0x1
 
     return p0
 
-    .line 64
+    .line 26
     :cond_1
-    sget-object v3, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;->DISABLED:Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
+    invoke-static {p0}, Lcom/huawei/hms/utils/ReadApkFileUtil;->getHmsPath(Landroid/content/Context;)Ljava/lang/String;
 
-    invoke-virtual {v3, v2}, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;->equals(Ljava/lang/Object;)Z
+    move-result-object v4
 
-    move-result v2
+    .line 27
+    sget v5, Lcom/huawei/hms/android/HwBuildEx$VERSION;->EMUI_SDK_INT:I
 
-    if-eqz v2, :cond_2
+    const/4 v6, 0x5
 
-    .line 65
+    const/4 v7, 0x2
+
+    const-string v8, "B92825C2BD5D6D6D1E7F39EECD17843B7D9016F611136B75441BC6F4D3F00F05"
+
+    const/16 v9, 0x9
+
+    const-string v10, "3517262215D8D3008CBF888750B6418EDC4D562AC33ED6874E0D73ABA667BC3C"
+
+    if-ge v5, v6, :cond_3
+
+    invoke-virtual {v0, v2}, Lcom/huawei/hms/utils/PackageManagerHelper;->getPackageVersionCode(Ljava/lang/String;)I
+
+    move-result v5
+
+    const v6, 0x138ce20
+
+    if-ge v5, v6, :cond_3
+
+    invoke-static {v4}, Lcom/huawei/hms/utils/ReadApkFileUtil;->isCertFound(Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    .line 29
+    invoke-virtual {v0, v2}, Lcom/huawei/hms/utils/PackageManagerHelper;->getPackageSignature(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    .line 30
+    invoke-virtual {v8, p0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result p1
+
+    if-nez p1, :cond_2
+
+    .line 31
+    invoke-virtual {v10, p0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result p1
+
+    if-nez p1, :cond_2
+
+    .line 32
+    invoke-virtual {v10, p0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_2
+
+    return v9
+
+    :cond_2
+    return v7
+
+    .line 41
+    :cond_3
+    sget-object v4, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;->SPOOF:Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
+
+    invoke-virtual {v4, v3}, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    const-string p0, "HMS is spoofed"
+
+    .line 42
+    invoke-static {v1, p0}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    return v9
+
+    .line 47
+    :cond_4
+    sget-object v4, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;->DISABLED:Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
+
+    invoke-virtual {v4, v3}, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_5
+
+    const-string p0, "HMS is disabled"
+
+    .line 48
+    invoke-static {v1, p0}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
     const/4 p0, 0x3
 
     return p0
 
-    .line 69
-    :cond_2
-    invoke-virtual {v0, v1}, Lcom/huawei/hms/utils/PackageManagerHelper;->getPackageSignature(Ljava/lang/String;)Ljava/lang/String;
+    .line 53
+    :cond_5
+    sget-object v4, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;->NOT_INSTALLED:Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;
+
+    invoke-virtual {v4, v3}, Lcom/huawei/hms/utils/PackageManagerHelper$PackageStates;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_6
+
+    .line 55
+    invoke-virtual {v0, v2}, Lcom/huawei/hms/utils/PackageManagerHelper;->getPackageSignature(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 70
-    const-string v1, "B92825C2BD5D6D6D1E7F39EECD17843B7D9016F611136B75441BC6F4D3F00F05"
+    .line 56
+    invoke-virtual {v8, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v2
 
-    move-result v1
+    if-nez v2, :cond_6
 
-    if-nez v1, :cond_3
+    .line 57
+    invoke-virtual {v10, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    const-string v1, "3517262215D8D3008CBF888750B6418EDC4D562AC33ED6874E0D73ABA667BC3C"
+    move-result v2
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    if-nez v2, :cond_6
+
+    .line 58
+    invoke-virtual {v10, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_6
 
-    .line 71
-    const/16 p0, 0x9
+    return v9
 
-    return p0
-
-    .line 75
-    :cond_3
+    .line 64
+    :cond_6
     invoke-static {p0}, Lcom/huawei/hms/utils/HMSPackageManager;->getInstance(Landroid/content/Context;)Lcom/huawei/hms/utils/HMSPackageManager;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0}, Lcom/huawei/hms/utils/HMSPackageManager;->getHmsVersionCode()I
+    invoke-virtual {v0}, Lcom/huawei/hms/utils/HMSPackageManager;->getHmsMultiServiceVersion()I
 
-    move-result p0
+    move-result v0
 
-    .line 77
-    new-instance v0, Ljava/lang/StringBuilder;
+    .line 66
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "connect versionCode:"
 
-    const-string v1, "connect versionCode:"
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string v1, "HuaweiMobileServicesUtil"
-
     invoke-static {v1, v0}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 79
-    if-ge p0, p1, :cond_4
+    .line 69
+    invoke-static {p0}, Lcom/huawei/hms/utils/HMSPackageManager;->getInstance(Landroid/content/Context;)Lcom/huawei/hms/utils/HMSPackageManager;
 
-    .line 80
-    const/4 p0, 0x2
+    move-result-object p0
 
-    return p0
+    invoke-virtual {p0, p1}, Lcom/huawei/hms/utils/HMSPackageManager;->isApkUpdateNecessary(I)Z
 
-    .line 83
-    :cond_4
+    move-result p0
+
+    if-eqz p0, :cond_7
+
+    const-string p0, "The current version does not meet the minimum version requirements"
+
+    .line 70
+    invoke-static {v1, p0}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    return v7
+
+    :cond_7
     const/4 p0, 0x0
 
     return p0
@@ -302,7 +437,7 @@
 .method public static isUserRecoverableError(I)Z
     .locals 1
 
-    .line 171
+    .line 1
     invoke-static {}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getInstance()Lcom/huawei/hms/api/HuaweiApiAvailability;
 
     move-result-object v0
@@ -317,29 +452,27 @@
 .method public static popupErrDlgFragment(ILandroid/app/Activity;ILandroid/content/DialogInterface$OnCancelListener;)Z
     .locals 1
 
-    .line 185
+    .line 1
     invoke-static {}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getInstance()Lcom/huawei/hms/api/HuaweiApiAvailability;
 
     move-result-object v0
 
-    .line 186
+    .line 2
     invoke-virtual {v0, p1, p0, p2, p3}, Lcom/huawei/hms/api/HuaweiApiAvailability;->showErrorDialogFragment(Landroid/app/Activity;IILandroid/content/DialogInterface$OnCancelListener;)Z
 
     move-result p0
 
-    .line 185
     return p0
 .end method
 
 .method public static popupErrDlgFragment(ILandroid/app/Activity;Landroid/app/Fragment;ILandroid/content/DialogInterface$OnCancelListener;)Z
     .locals 6
 
-    .line 201
+    .line 3
     invoke-static {}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getInstance()Lcom/huawei/hms/api/HuaweiApiAvailability;
 
     move-result-object v0
 
-    .line 202
     move-object v1, p1
 
     move v2, p0
@@ -350,30 +483,29 @@
 
     move-object v5, p4
 
+    .line 4
     invoke-virtual/range {v0 .. v5}, Lcom/huawei/hms/api/HuaweiApiAvailability;->showErrorDialogFragment(Landroid/app/Activity;ILandroid/app/Fragment;ILandroid/content/DialogInterface$OnCancelListener;)Z
 
     move-result p0
 
-    .line 201
     return p0
 .end method
 
 .method public static setApplication(Landroid/app/Application;)V
     .locals 1
 
-    .line 233
+    .line 1
     sget-object v0, Lcom/huawei/hms/support/common/ActivityMgr;->INST:Lcom/huawei/hms/support/common/ActivityMgr;
 
     invoke-virtual {v0, p0}, Lcom/huawei/hms/support/common/ActivityMgr;->init(Landroid/app/Application;)V
 
-    .line 234
     return-void
 .end method
 
 .method public static showErrorDialogFragment(ILandroid/app/Activity;I)Z
     .locals 2
 
-    .line 214
+    .line 1
     invoke-static {}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getInstance()Lcom/huawei/hms/api/HuaweiApiAvailability;
 
     move-result-object v0
@@ -390,13 +522,12 @@
 .method public static showErrorNotification(ILandroid/content/Context;)V
     .locals 1
 
-    .line 224
+    .line 1
     invoke-static {}, Lcom/huawei/hms/api/HuaweiApiAvailability;->getInstance()Lcom/huawei/hms/api/HuaweiApiAvailability;
 
     move-result-object v0
 
     invoke-virtual {v0, p1, p0}, Lcom/huawei/hms/api/HuaweiApiAvailability;->showErrorNotification(Landroid/content/Context;I)V
 
-    .line 225
     return-void
 .end method

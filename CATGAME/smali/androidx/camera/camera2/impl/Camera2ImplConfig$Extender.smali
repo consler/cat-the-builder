@@ -46,14 +46,11 @@
     .end annotation
 
     .line 294
-    .local p0, "this":Landroidx/camera/camera2/impl/Camera2ImplConfig$Extender;, "Landroidx/camera/camera2/impl/Camera2ImplConfig$Extender<TT;>;"
-    .local p1, "baseBuilder":Landroidx/camera/core/ExtendableBuilder;, "Landroidx/camera/core/ExtendableBuilder<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 295
     iput-object p1, p0, Landroidx/camera/camera2/impl/Camera2ImplConfig$Extender;->mBaseBuilder:Landroidx/camera/core/ExtendableBuilder;
 
-    .line 296
     return-void
 .end method
 
@@ -61,7 +58,6 @@
 # virtual methods
 .method public setCameraEventCallback(Landroidx/camera/camera2/impl/CameraEventCallbacks;)Landroidx/camera/camera2/impl/Camera2ImplConfig$Extender;
     .locals 2
-    .param p1, "cameraEventCallbacks"    # Landroidx/camera/camera2/impl/CameraEventCallbacks;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -73,7 +69,6 @@
     .end annotation
 
     .line 307
-    .local p0, "this":Landroidx/camera/camera2/impl/Camera2ImplConfig$Extender;, "Landroidx/camera/camera2/impl/Camera2ImplConfig$Extender<TT;>;"
     iget-object v0, p0, Landroidx/camera/camera2/impl/Camera2ImplConfig$Extender;->mBaseBuilder:Landroidx/camera/core/ExtendableBuilder;
 
     invoke-interface {v0}, Landroidx/camera/core/ExtendableBuilder;->getMutableConfig()Landroidx/camera/core/impl/MutableConfig;
@@ -84,6 +79,5 @@
 
     invoke-interface {v0, v1, p1}, Landroidx/camera/core/impl/MutableConfig;->insertOption(Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)V
 
-    .line 309
     return-object p0
 .end method

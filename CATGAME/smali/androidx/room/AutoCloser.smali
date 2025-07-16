@@ -32,9 +32,6 @@
 # direct methods
 .method constructor <init>(JLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/Executor;)V
     .locals 3
-    .param p1, "autoCloseTimeoutAmount"    # J
-    .param p3, "autoCloseTimeUnit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "autoCloseExecutor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -51,9 +48,9 @@
     .line 142
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 46
     const/4 v0, 0x0
 
+    .line 46
     iput-object v0, p0, Landroidx/room/AutoCloser;->mDelegateOpenHelper:Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 
     .line 49
@@ -78,13 +75,10 @@
 
     iput-object v0, p0, Landroidx/room/AutoCloser;->mLock:Ljava/lang/Object;
 
-    .line 68
     const/4 v0, 0x0
 
+    .line 68
     iput v0, p0, Landroidx/room/AutoCloser;->mRefCount:I
-
-    .line 72
-    nop
 
     .line 73
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
@@ -113,14 +107,13 @@
     .line 143
     invoke-virtual {p3, p1, p2}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    iput-wide v0, p0, Landroidx/room/AutoCloser;->mAutoCloseTimeoutInMs:J
+    iput-wide p1, p0, Landroidx/room/AutoCloser;->mAutoCloseTimeoutInMs:J
 
     .line 144
     iput-object p4, p0, Landroidx/room/AutoCloser;->mExecutor:Ljava/util/concurrent/Executor;
 
-    .line 145
     return-void
 .end method
 
@@ -139,9 +132,9 @@
 
     monitor-enter v0
 
-    .line 270
     const/4 v1, 0x1
 
+    .line 270
     :try_start_0
     iput-boolean v1, p0, Landroidx/room/AutoCloser;->mManuallyClosed:Z
 
@@ -151,23 +144,19 @@
     if-eqz v1, :cond_0
 
     .line 273
-    iget-object v1, p0, Landroidx/room/AutoCloser;->mDelegateDatabase:Landroidx/sqlite/db/SupportSQLiteDatabase;
-
     invoke-interface {v1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->close()V
 
-    .line 275
     :cond_0
     const/4 v1, 0x0
 
+    .line 275
     iput-object v1, p0, Landroidx/room/AutoCloser;->mDelegateDatabase:Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     .line 276
     monitor-exit v0
 
-    .line 277
     return-void
 
-    .line 276
     :catchall_0
     move-exception v1
 
@@ -192,14 +181,11 @@
 
     if-lez v1, :cond_2
 
-    .line 236
-    iget v1, p0, Landroidx/room/AutoCloser;->mRefCount:I
-
     add-int/lit8 v1, v1, -0x1
 
+    .line 236
     iput v1, p0, Landroidx/room/AutoCloser;->mRefCount:I
 
-    .line 239
     if-nez v1, :cond_1
 
     .line 240
@@ -226,7 +212,6 @@
     :cond_1
     monitor-exit v0
 
-    .line 247
     return-void
 
     .line 231
@@ -239,10 +224,10 @@
 
     throw v1
 
-    .line 246
     :catchall_0
     move-exception v1
 
+    .line 246
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -251,7 +236,7 @@
 .end method
 
 .method public executeRefCountingFunction(Landroidx/arch/core/util/Function;)Ljava/lang/Object;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -273,35 +258,30 @@
     .end annotation
 
     .line 173
-    .local p1, "function":Landroidx/arch/core/util/Function;, "Landroidx/arch/core/util/Function<Landroidx/sqlite/db/SupportSQLiteDatabase;TV;>;"
     :try_start_0
     invoke-virtual {p0}, Landroidx/room/AutoCloser;->incrementCountAndEnsureDbIsOpen()Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     move-result-object v0
 
     .line 174
-    .local v0, "db":Landroidx/sqlite/db/SupportSQLiteDatabase;
     invoke-interface {p1, v0}, Landroidx/arch/core/util/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 176
     invoke-virtual {p0}, Landroidx/room/AutoCloser;->decrementCountAndScheduleClose()V
 
-    .line 174
-    return-object v1
+    return-object p1
 
-    .line 176
-    .end local v0    # "db":Landroidx/sqlite/db/SupportSQLiteDatabase;
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     invoke-virtual {p0}, Landroidx/room/AutoCloser;->decrementCountAndScheduleClose()V
 
     .line 177
-    throw v0
+    throw p1
 .end method
 
 .method public getDelegateDatabase()Landroidx/sqlite/db/SupportSQLiteDatabase;
@@ -320,10 +300,10 @@
 
     return-object v1
 
-    .line 260
     :catchall_0
     move-exception v1
 
+    .line 260
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -347,10 +327,10 @@
 
     return v1
 
-    .line 299
     :catchall_0
     move-exception v1
 
+    .line 299
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -391,8 +371,6 @@
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Landroidx/room/AutoCloser;->mDelegateDatabase:Landroidx/sqlite/db/SupportSQLiteDatabase;
-
     invoke-interface {v1}, Landroidx/sqlite/db/SupportSQLiteDatabase;->isOpen()Z
 
     move-result v1
@@ -413,8 +391,6 @@
     if-eqz v1, :cond_1
 
     .line 212
-    iget-object v1, p0, Landroidx/room/AutoCloser;->mDelegateOpenHelper:Landroidx/sqlite/db/SupportSQLiteOpenHelper;
-
     invoke-interface {v1}, Landroidx/sqlite/db/SupportSQLiteOpenHelper;->getWritableDatabase()Landroidx/sqlite/db/SupportSQLiteDatabase;
 
     move-result-object v1
@@ -446,10 +422,10 @@
 
     throw v1
 
-    .line 220
     :catchall_0
     move-exception v1
 
+    .line 220
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -458,8 +434,7 @@
 .end method
 
 .method public init(Landroidx/sqlite/db/SupportSQLiteOpenHelper;)V
-    .locals 2
-    .param p1, "delegateOpenHelper"    # Landroidx/sqlite/db/SupportSQLiteOpenHelper;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -474,21 +449,19 @@
 
     if-eqz v0, :cond_0
 
+    const-string p1, "ROOM"
+
+    const-string v0, "AutoCloser initialized multiple times. Please file a bug against room at: https://issuetracker.google.com/issues/new?component=413107&template=1096568"
+
     .line 156
-    const-string v0, "ROOM"
+    invoke-static {p1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v1, "AutoCloser initialized multiple times. Please file a bug against room at: https://issuetracker.google.com/issues/new?component=413107&template=1096568"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 159
     return-void
 
     .line 161
     :cond_0
     iput-object p1, p0, Landroidx/room/AutoCloser;->mDelegateOpenHelper:Landroidx/sqlite/db/SupportSQLiteOpenHelper;
 
-    .line 162
     return-void
 .end method
 
@@ -505,7 +478,6 @@
 
 .method public setAutoCloseCallback(Ljava/lang/Runnable;)V
     .locals 0
-    .param p1, "onAutoClose"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -518,6 +490,5 @@
     .line 309
     iput-object p1, p0, Landroidx/room/AutoCloser;->mOnAutoCloseCallback:Ljava/lang/Runnable;
 
-    .line 310
     return-void
 .end method

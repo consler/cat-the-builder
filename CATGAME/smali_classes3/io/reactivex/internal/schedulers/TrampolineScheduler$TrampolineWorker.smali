@@ -69,7 +69,6 @@
 
     iput-object v0, p0, Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker;->counter:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    .line 134
     return-void
 .end method
 
@@ -78,19 +77,16 @@
 .method public dispose()V
     .locals 1
 
-    .line 126
     const/4 v0, 0x1
 
+    .line 126
     iput-boolean v0, p0, Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker;->disposed:Z
 
-    .line 127
     return-void
 .end method
 
 .method enqueue(Ljava/lang/Runnable;J)Lio/reactivex/disposables/Disposable;
-    .locals 4
-    .param p1, "action"    # Ljava/lang/Runnable;
-    .param p2, "execTime"    # J
+    .locals 1
 
     .line 93
     iget-boolean v0, p0, Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker;->disposed:Z
@@ -98,9 +94,9 @@
     if-eqz v0, :cond_0
 
     .line 94
-    sget-object v0, Lio/reactivex/internal/disposables/EmptyDisposable;->INSTANCE:Lio/reactivex/internal/disposables/EmptyDisposable;
+    sget-object p1, Lio/reactivex/internal/disposables/EmptyDisposable;->INSTANCE:Lio/reactivex/internal/disposables/EmptyDisposable;
 
-    return-object v0
+    return-object p1
 
     .line 96
     :cond_0
@@ -108,103 +104,85 @@
 
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v1
+    move-result-object p2
 
-    iget-object v2, p0, Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker;->counter:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object p3, p0, Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker;->counter:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {v2}, Ljava/util/concurrent/atomic/AtomicInteger;->incrementAndGet()I
+    invoke-virtual {p3}, Ljava/util/concurrent/atomic/AtomicInteger;->incrementAndGet()I
 
-    move-result v2
+    move-result p3
 
-    invoke-direct {v0, p1, v1, v2}, Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;-><init>(Ljava/lang/Runnable;Ljava/lang/Long;I)V
+    invoke-direct {v0, p1, p2, p3}, Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;-><init>(Ljava/lang/Runnable;Ljava/lang/Long;I)V
 
     .line 97
-    .local v0, "timedRunnable":Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;
-    iget-object v1, p0, Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker;->queue:Ljava/util/concurrent/PriorityBlockingQueue;
+    iget-object p1, p0, Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker;->queue:Ljava/util/concurrent/PriorityBlockingQueue;
 
-    invoke-virtual {v1, v0}, Ljava/util/concurrent/PriorityBlockingQueue;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Ljava/util/concurrent/PriorityBlockingQueue;->add(Ljava/lang/Object;)Z
 
     .line 99
-    iget-object v1, p0, Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object p1, p0, Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
+    invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
 
-    move-result v1
+    move-result p1
 
-    if-nez v1, :cond_4
+    if-nez p1, :cond_3
 
-    .line 100
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
     .line 103
-    .local v1, "missed":I
     :cond_1
     :goto_0
-    iget-object v2, p0, Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker;->queue:Ljava/util/concurrent/PriorityBlockingQueue;
+    iget-object p2, p0, Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker;->queue:Ljava/util/concurrent/PriorityBlockingQueue;
 
-    invoke-virtual {v2}, Ljava/util/concurrent/PriorityBlockingQueue;->poll()Ljava/lang/Object;
+    invoke-virtual {p2}, Ljava/util/concurrent/PriorityBlockingQueue;->poll()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p2
 
-    check-cast v2, Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;
+    check-cast p2, Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;
 
-    .line 104
-    .local v2, "polled":Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;
-    if-nez v2, :cond_2
-
-    .line 105
-    nop
+    if-nez p2, :cond_2
 
     .line 111
-    .end local v2    # "polled":Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;
-    iget-object v2, p0, Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object p2, p0, Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    neg-int v3, v1
+    neg-int p1, p1
 
-    invoke-virtual {v2, v3}, Ljava/util/concurrent/atomic/AtomicInteger;->addAndGet(I)I
+    invoke-virtual {p2, p1}, Ljava/util/concurrent/atomic/AtomicInteger;->addAndGet(I)I
 
-    move-result v1
+    move-result p1
 
-    .line 112
-    if-nez v1, :cond_1
-
-    .line 113
-    nop
+    if-nez p1, :cond_1
 
     .line 117
-    sget-object v2, Lio/reactivex/internal/disposables/EmptyDisposable;->INSTANCE:Lio/reactivex/internal/disposables/EmptyDisposable;
+    sget-object p1, Lio/reactivex/internal/disposables/EmptyDisposable;->INSTANCE:Lio/reactivex/internal/disposables/EmptyDisposable;
 
-    return-object v2
+    return-object p1
 
     .line 107
-    .restart local v2    # "polled":Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;
     :cond_2
-    iget-boolean v3, v2, Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;->disposed:Z
+    iget-boolean p3, p2, Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;->disposed:Z
 
-    if-nez v3, :cond_3
+    if-nez p3, :cond_1
 
     .line 108
-    iget-object v3, v2, Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;->run:Ljava/lang/Runnable;
+    iget-object p2, p2, Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;->run:Ljava/lang/Runnable;
 
-    invoke-interface {v3}, Ljava/lang/Runnable;->run()V
+    invoke-interface {p2}, Ljava/lang/Runnable;->run()V
 
-    .line 110
-    .end local v2    # "polled":Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;
-    :cond_3
     goto :goto_0
 
     .line 120
-    .end local v1    # "missed":I
-    :cond_4
-    new-instance v1, Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker$AppendToQueueTask;
+    :cond_3
+    new-instance p1, Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker$AppendToQueueTask;
 
-    invoke-direct {v1, p0, v0}, Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker$AppendToQueueTask;-><init>(Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker;Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;)V
+    invoke-direct {p1, p0, v0}, Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker$AppendToQueueTask;-><init>(Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker;Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;)V
 
-    invoke-static {v1}, Lio/reactivex/disposables/Disposables;->fromRunnable(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
+    invoke-static {p1}, Lio/reactivex/disposables/Disposables;->fromRunnable(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public isDisposed()Z
@@ -218,7 +196,6 @@
 
 .method public schedule(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
     .locals 2
-    .param p1, "action"    # Ljava/lang/Runnable;
 
     .line 81
     sget-object v0, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
@@ -229,16 +206,13 @@
 
     invoke-virtual {p0, p1, v0, v1}, Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker;->enqueue(Ljava/lang/Runnable;J)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
-    .locals 4
-    .param p1, "action"    # Ljava/lang/Runnable;
-    .param p2, "delayTime"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
+    .locals 2
 
     .line 87
     sget-object v0, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
@@ -249,19 +223,18 @@
 
     invoke-virtual {p4, p2, p3}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
 
-    move-result-wide v2
+    move-result-wide p2
 
-    add-long/2addr v0, v2
+    add-long/2addr v0, p2
 
     .line 89
-    .local v0, "execTime":J
-    new-instance v2, Lio/reactivex/internal/schedulers/TrampolineScheduler$SleepingRunnable;
+    new-instance p2, Lio/reactivex/internal/schedulers/TrampolineScheduler$SleepingRunnable;
 
-    invoke-direct {v2, p1, p0, v0, v1}, Lio/reactivex/internal/schedulers/TrampolineScheduler$SleepingRunnable;-><init>(Ljava/lang/Runnable;Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker;J)V
+    invoke-direct {p2, p1, p0, v0, v1}, Lio/reactivex/internal/schedulers/TrampolineScheduler$SleepingRunnable;-><init>(Ljava/lang/Runnable;Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker;J)V
 
-    invoke-virtual {p0, v2, v0, v1}, Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker;->enqueue(Ljava/lang/Runnable;J)Lio/reactivex/disposables/Disposable;
+    invoke-virtual {p0, p2, v0, v1}, Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker;->enqueue(Ljava/lang/Runnable;J)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 .end method

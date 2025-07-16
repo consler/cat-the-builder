@@ -57,7 +57,6 @@
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
     .locals 0
-    .param p1, "$constructor_marker"    # Lkotlin/jvm/internal/DefaultConstructorMarker;
 
     .line 95
     invoke-direct {p0}, Lorg/koin/core/scope/ScopeDefinition$Companion;-><init>()V
@@ -88,7 +87,7 @@
 
     check-cast v0, Lorg/koin/core/scope/ScopeDefinition$Companion;
 
-    invoke-virtual {v0}, Lorg/koin/core/scope/ScopeDefinition$Companion;->getROOT_SCOPE_QUALIFIER()Lorg/koin/core/qualifier/StringQualifier;
+    invoke-virtual {p0}, Lorg/koin/core/scope/ScopeDefinition$Companion;->getROOT_SCOPE_QUALIFIER()Lorg/koin/core/qualifier/StringQualifier;
 
     move-result-object v0
 

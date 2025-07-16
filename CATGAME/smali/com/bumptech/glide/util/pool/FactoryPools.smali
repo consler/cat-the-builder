@@ -70,17 +70,15 @@
     .end annotation
 
     .line 106
-    .local p0, "pool":Landroidx/core/util/Pools$Pool;, "Landroidx/core/util/Pools$Pool<TT;>;"
-    .local p1, "factory":Lcom/bumptech/glide/util/pool/FactoryPools$Factory;, "Lcom/bumptech/glide/util/pool/FactoryPools$Factory<TT;>;"
     invoke-static {}, Lcom/bumptech/glide/util/pool/FactoryPools;->emptyResetter()Lcom/bumptech/glide/util/pool/FactoryPools$Resetter;
 
     move-result-object v0
 
     invoke-static {p0, p1, v0}, Lcom/bumptech/glide/util/pool/FactoryPools;->build(Landroidx/core/util/Pools$Pool;Lcom/bumptech/glide/util/pool/FactoryPools$Factory;Lcom/bumptech/glide/util/pool/FactoryPools$Resetter;)Landroidx/core/util/Pools$Pool;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private static build(Landroidx/core/util/Pools$Pool;Lcom/bumptech/glide/util/pool/FactoryPools$Factory;Lcom/bumptech/glide/util/pool/FactoryPools$Resetter;)Landroidx/core/util/Pools$Pool;
@@ -102,9 +100,6 @@
     .end annotation
 
     .line 112
-    .local p0, "pool":Landroidx/core/util/Pools$Pool;, "Landroidx/core/util/Pools$Pool<TT;>;"
-    .local p1, "factory":Lcom/bumptech/glide/util/pool/FactoryPools$Factory;, "Lcom/bumptech/glide/util/pool/FactoryPools$Factory<TT;>;"
-    .local p2, "resetter":Lcom/bumptech/glide/util/pool/FactoryPools$Resetter;, "Lcom/bumptech/glide/util/pool/FactoryPools$Resetter<TT;>;"
     new-instance v0, Lcom/bumptech/glide/util/pool/FactoryPools$FactoryPool;
 
     invoke-direct {v0, p0, p1, p2}, Lcom/bumptech/glide/util/pool/FactoryPools$FactoryPool;-><init>(Landroidx/core/util/Pools$Pool;Lcom/bumptech/glide/util/pool/FactoryPools$Factory;Lcom/bumptech/glide/util/pool/FactoryPools$Resetter;)V
@@ -132,7 +127,6 @@
 
 .method public static simple(ILcom/bumptech/glide/util/pool/FactoryPools$Factory;)Landroidx/core/util/Pools$Pool;
     .locals 1
-    .param p0, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -146,21 +140,19 @@
     .end annotation
 
     .line 41
-    .local p1, "factory":Lcom/bumptech/glide/util/pool/FactoryPools$Factory;, "Lcom/bumptech/glide/util/pool/FactoryPools$Factory<TT;>;"
     new-instance v0, Landroidx/core/util/Pools$SimplePool;
 
     invoke-direct {v0, p0}, Landroidx/core/util/Pools$SimplePool;-><init>(I)V
 
     invoke-static {v0, p1}, Lcom/bumptech/glide/util/pool/FactoryPools;->build(Landroidx/core/util/Pools$Pool;Lcom/bumptech/glide/util/pool/FactoryPools$Factory;)Landroidx/core/util/Pools$Pool;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static threadSafe(ILcom/bumptech/glide/util/pool/FactoryPools$Factory;)Landroidx/core/util/Pools$Pool;
     .locals 1
-    .param p0, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -174,16 +166,15 @@
     .end annotation
 
     .line 56
-    .local p1, "factory":Lcom/bumptech/glide/util/pool/FactoryPools$Factory;, "Lcom/bumptech/glide/util/pool/FactoryPools$Factory<TT;>;"
     new-instance v0, Landroidx/core/util/Pools$SynchronizedPool;
 
     invoke-direct {v0, p0}, Landroidx/core/util/Pools$SynchronizedPool;-><init>(I)V
 
     invoke-static {v0, p1}, Lcom/bumptech/glide/util/pool/FactoryPools;->build(Landroidx/core/util/Pools$Pool;Lcom/bumptech/glide/util/pool/FactoryPools$Factory;)Landroidx/core/util/Pools$Pool;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static threadSafeList()Landroidx/core/util/Pools$Pool;
@@ -199,9 +190,9 @@
         }
     .end annotation
 
-    .line 70
     const/16 v0, 0x14
 
+    .line 70
     invoke-static {v0}, Lcom/bumptech/glide/util/pool/FactoryPools;->threadSafeList(I)Landroidx/core/util/Pools$Pool;
 
     move-result-object v0
@@ -210,8 +201,7 @@
 .end method
 
 .method public static threadSafeList(I)Landroidx/core/util/Pools$Pool;
-    .locals 3
-    .param p0, "size"    # I
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -228,17 +218,17 @@
 
     invoke-direct {v0, p0}, Landroidx/core/util/Pools$SynchronizedPool;-><init>(I)V
 
-    new-instance v1, Lcom/bumptech/glide/util/pool/FactoryPools$2;
+    new-instance p0, Lcom/bumptech/glide/util/pool/FactoryPools$2;
 
-    invoke-direct {v1}, Lcom/bumptech/glide/util/pool/FactoryPools$2;-><init>()V
+    invoke-direct {p0}, Lcom/bumptech/glide/util/pool/FactoryPools$2;-><init>()V
 
-    new-instance v2, Lcom/bumptech/glide/util/pool/FactoryPools$3;
+    new-instance v1, Lcom/bumptech/glide/util/pool/FactoryPools$3;
 
-    invoke-direct {v2}, Lcom/bumptech/glide/util/pool/FactoryPools$3;-><init>()V
+    invoke-direct {v1}, Lcom/bumptech/glide/util/pool/FactoryPools$3;-><init>()V
 
-    invoke-static {v0, v1, v2}, Lcom/bumptech/glide/util/pool/FactoryPools;->build(Landroidx/core/util/Pools$Pool;Lcom/bumptech/glide/util/pool/FactoryPools$Factory;Lcom/bumptech/glide/util/pool/FactoryPools$Resetter;)Landroidx/core/util/Pools$Pool;
+    invoke-static {v0, p0, v1}, Lcom/bumptech/glide/util/pool/FactoryPools;->build(Landroidx/core/util/Pools$Pool;Lcom/bumptech/glide/util/pool/FactoryPools$Factory;Lcom/bumptech/glide/util/pool/FactoryPools$Resetter;)Landroidx/core/util/Pools$Pool;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

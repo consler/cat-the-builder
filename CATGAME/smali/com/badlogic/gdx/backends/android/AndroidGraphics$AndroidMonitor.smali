@@ -21,9 +21,6 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/backends/android/AndroidGraphics;IILjava/lang/String;)V
     .locals 0
-    .param p2, "virtualX"    # I
-    .param p3, "virtualY"    # I
-    .param p4, "name"    # Ljava/lang/String;
 
     .line 745
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidGraphics$AndroidMonitor;->this$0:Lcom/badlogic/gdx/backends/android/AndroidGraphics;
@@ -31,6 +28,5 @@
     .line 746
     invoke-direct {p0, p2, p3, p4}, Lcom/badlogic/gdx/Graphics$Monitor;-><init>(IILjava/lang/String;)V
 
-    .line 747
     return-void
 .end method

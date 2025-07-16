@@ -60,7 +60,6 @@
     .locals 1
 
     .line 1049
-    .local p0, "this":Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$AbstractItr;, "Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque<TE;>.AbstractItr;"
     iput-object p1, p0, Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$AbstractItr;->this$0:Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -69,7 +68,6 @@
     iget-object p1, p1, Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque;->lock:Ljava/util/concurrent/locks/ReentrantLock;
 
     .line 1052
-    .local p1, "lock":Ljava/util/concurrent/locks/ReentrantLock;
     invoke-virtual {p1}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
     .line 1054
@@ -80,13 +78,13 @@
 
     iput-object v0, p0, Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$AbstractItr;->next:Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$Node;
 
-    .line 1055
     if-nez v0, :cond_0
 
     const/4 v0, 0x0
 
     goto :goto_0
 
+    .line 1055
     :cond_0
     iget-object v0, v0, Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$Node;->item:Ljava/lang/Object;
 
@@ -98,13 +96,8 @@
     .line 1057
     invoke-virtual {p1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 1058
-    nop
-
-    .line 1059
     return-void
 
-    .line 1057
     :catchall_0
     move-exception v0
 
@@ -126,21 +119,16 @@
     .end annotation
 
     .line 1069
-    .local p0, "this":Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$AbstractItr;, "Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque<TE;>.AbstractItr;"
-    .local p1, "n":Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$Node;, "Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$Node<TE;>;"
     :goto_0
     invoke-virtual {p0, p1}, Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$AbstractItr;->nextNode(Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$Node;)Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$Node;
 
     move-result-object v0
 
-    .line 1070
-    .local v0, "s":Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$Node;, "Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$Node<TE;>;"
     if-nez v0, :cond_0
 
-    .line 1071
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 
     .line 1072
     :cond_0
@@ -148,26 +136,21 @@
 
     if-eqz v1, :cond_1
 
-    .line 1073
     return-object v0
 
-    .line 1074
     :cond_1
     if-ne v0, p1, :cond_2
 
     .line 1075
     invoke-virtual {p0}, Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$AbstractItr;->firstNode()Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$Node;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
-    .line 1077
     :cond_2
     move-object p1, v0
 
-    .line 1078
-    .end local v0    # "s":Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$Node;, "Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$Node<TE;>;"
     goto :goto_0
 .end method
 
@@ -177,13 +160,11 @@
     .locals 2
 
     .line 1085
-    .local p0, "this":Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$AbstractItr;, "Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque<TE;>.AbstractItr;"
     iget-object v0, p0, Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$AbstractItr;->this$0:Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque;
 
     iget-object v0, v0, Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque;->lock:Ljava/util/concurrent/locks/ReentrantLock;
 
     .line 1086
-    .local v0, "lock":Ljava/util/concurrent/locks/ReentrantLock;
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
     .line 1089
@@ -196,13 +177,13 @@
 
     iput-object v1, p0, Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$AbstractItr;->next:Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$Node;
 
-    .line 1090
     if-nez v1, :cond_0
 
     const/4 v1, 0x0
 
     goto :goto_0
 
+    .line 1090
     :cond_0
     iget-object v1, v1, Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$Node;->item:Ljava/lang/Object;
 
@@ -214,13 +195,8 @@
     .line 1092
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 1093
-    nop
-
-    .line 1094
     return-void
 
-    .line 1092
     :catchall_0
     move-exception v1
 
@@ -243,7 +219,6 @@
     .locals 1
 
     .line 1097
-    .local p0, "this":Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$AbstractItr;, "Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque<TE;>.AbstractItr;"
     iget-object v0, p0, Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$AbstractItr;->next:Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$Node;
 
     if-eqz v0, :cond_0
@@ -268,7 +243,6 @@
     .end annotation
 
     .line 1101
-    .local p0, "this":Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$AbstractItr;, "Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque<TE;>.AbstractItr;"
     iget-object v0, p0, Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$AbstractItr;->next:Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$Node;
 
     if-eqz v0, :cond_0
@@ -280,14 +254,11 @@
     iget-object v0, p0, Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$AbstractItr;->nextItem:Ljava/lang/Object;
 
     .line 1105
-    .local v0, "x":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$AbstractItr;->advance()V
 
-    .line 1106
     return-object v0
 
     .line 1102
-    .end local v0    # "x":Ljava/lang/Object;, "TE;"
     :cond_0
     new-instance v0, Ljava/util/NoSuchElementException;
 
@@ -312,16 +283,13 @@
     .locals 3
 
     .line 1110
-    .local p0, "this":Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$AbstractItr;, "Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque<TE;>.AbstractItr;"
     iget-object v0, p0, Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$AbstractItr;->lastRet:Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$Node;
 
-    .line 1111
-    .local v0, "n":Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$Node;, "Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$Node<TE;>;"
     if-eqz v0, :cond_1
 
-    .line 1113
     const/4 v1, 0x0
 
+    .line 1113
     iput-object v1, p0, Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$AbstractItr;->lastRet:Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque$Node;
 
     .line 1114
@@ -330,7 +298,6 @@
     iget-object v1, v1, Lcom/nostra13/universalimageloader/core/assist/deque/LinkedBlockingDeque;->lock:Ljava/util/concurrent/locks/ReentrantLock;
 
     .line 1115
-    .local v1, "lock":Ljava/util/concurrent/locks/ReentrantLock;
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
     .line 1117
@@ -350,26 +317,20 @@
     :cond_0
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 1121
-    nop
-
-    .line 1122
     return-void
 
-    .line 1120
     :catchall_0
-    move-exception v2
+    move-exception v0
 
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    throw v2
+    throw v0
 
     .line 1112
-    .end local v1    # "lock":Ljava/util/concurrent/locks/ReentrantLock;
     :cond_1
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    invoke-direct {v1}, Ljava/lang/IllegalStateException;-><init>()V
+    invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
 
-    throw v1
+    throw v0
 .end method

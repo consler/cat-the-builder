@@ -14,7 +14,6 @@
 # direct methods
 .method private constructor <init>(Ljava/util/ListIterator;)V
     .locals 0
-    .param p1, "iterator"    # Ljava/util/ListIterator;
 
     .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -22,15 +21,12 @@
     .line 61
     iput-object p1, p0, Lorg/apache/commons/collections/iterators/UnmodifiableListIterator;->iterator:Ljava/util/ListIterator;
 
-    .line 62
     return-void
 .end method
 
 .method public static decorate(Ljava/util/ListIterator;)Ljava/util/ListIterator;
-    .locals 2
-    .param p0, "iterator"    # Ljava/util/ListIterator;
+    .locals 1
 
-    .line 44
     if-eqz p0, :cond_1
 
     .line 47
@@ -38,7 +34,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 48
     return-object p0
 
     .line 50
@@ -51,29 +46,28 @@
 
     .line 45
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "ListIterator must not be null"
+    const-string v0, "ListIterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 1
 
     .line 98
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "add() is not supported"
+    const-string v0, "add() is not supported"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public hasNext()Z
@@ -168,15 +162,14 @@
 .end method
 
 .method public set(Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 1
 
     .line 94
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "set() is not supported"
+    const-string v0, "set() is not supported"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

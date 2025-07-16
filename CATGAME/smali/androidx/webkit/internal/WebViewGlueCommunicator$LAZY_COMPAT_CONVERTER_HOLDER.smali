@@ -38,7 +38,6 @@
 
     sput-object v0, Landroidx/webkit/internal/WebViewGlueCommunicator$LAZY_COMPAT_CONVERTER_HOLDER;->INSTANCE:Landroidx/webkit/internal/WebkitToCompatConverter;
 
-    .line 59
     return-void
 .end method
 

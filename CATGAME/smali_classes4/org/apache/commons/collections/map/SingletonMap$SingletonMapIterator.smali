@@ -29,25 +29,23 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections/map/SingletonMap;)V
     .locals 1
-    .param p1, "parent"    # Lorg/apache/commons/collections/map/SingletonMap;
 
     .line 435
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 431
     const/4 v0, 0x1
 
+    .line 431
     iput-boolean v0, p0, Lorg/apache/commons/collections/map/SingletonMap$SingletonMapIterator;->hasNext:Z
 
-    .line 432
     const/4 v0, 0x0
 
+    .line 432
     iput-boolean v0, p0, Lorg/apache/commons/collections/map/SingletonMap$SingletonMapIterator;->canGetSet:Z
 
     .line 436
     iput-object p1, p0, Lorg/apache/commons/collections/map/SingletonMap$SingletonMapIterator;->parent:Lorg/apache/commons/collections/map/SingletonMap;
 
-    .line 437
     return-void
 .end method
 
@@ -137,14 +135,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 447
     const/4 v0, 0x0
 
+    .line 447
     iput-boolean v0, p0, Lorg/apache/commons/collections/map/SingletonMap$SingletonMapIterator;->hasNext:Z
 
-    .line 448
     const/4 v0, 0x1
 
+    .line 448
     iput-boolean v0, p0, Lorg/apache/commons/collections/map/SingletonMap$SingletonMapIterator;->canGetSet:Z
 
     .line 449
@@ -214,18 +212,16 @@
 .method public reset()V
     .locals 1
 
-    .line 490
     const/4 v0, 0x1
 
+    .line 490
     iput-boolean v0, p0, Lorg/apache/commons/collections/map/SingletonMap$SingletonMapIterator;->hasNext:Z
 
-    .line 491
     return-void
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
-    .param p1, "value"    # Ljava/lang/Object;
+    .locals 1
 
     .line 483
     iget-boolean v0, p0, Lorg/apache/commons/collections/map/SingletonMap$SingletonMapIterator;->canGetSet:Z
@@ -237,19 +233,19 @@
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections/map/SingletonMap;->setValue(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 484
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "setValue() can only be called after next() and before remove()"
+    const-string v0, "setValue() can only be called after next() and before remove()"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -260,7 +256,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 495
     const-string v0, "Iterator[]"
 
     return-object v0
@@ -269,11 +264,9 @@
     :cond_0
     new-instance v0, Ljava/lang/StringBuffer;
 
-    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
-
     const-string v1, "Iterator["
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lorg/apache/commons/collections/map/SingletonMap$SingletonMapIterator;->getKey()Ljava/lang/Object;
 
@@ -281,9 +274,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
+    move-result-object v0
+
     const-string v1, "="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
 
     invoke-virtual {p0}, Lorg/apache/commons/collections/map/SingletonMap$SingletonMapIterator;->getValue()Ljava/lang/Object;
 
@@ -291,9 +288,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
+    move-result-object v0
+
     const-string v1, "]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 

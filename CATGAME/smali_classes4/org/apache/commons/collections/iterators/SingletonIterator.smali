@@ -20,33 +20,29 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
 
-    .line 54
     const/4 v0, 0x1
 
+    .line 54
     invoke-direct {p0, p1, v0}, Lorg/apache/commons/collections/iterators/SingletonIterator;-><init>(Ljava/lang/Object;Z)V
 
-    .line 55
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;Z)V
     .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
-    .param p2, "removeAllowed"    # Z
 
     .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 41
     const/4 v0, 0x1
 
+    .line 41
     iput-boolean v0, p0, Lorg/apache/commons/collections/iterators/SingletonIterator;->beforeFirst:Z
 
-    .line 43
     const/4 v0, 0x0
 
+    .line 43
     iput-boolean v0, p0, Lorg/apache/commons/collections/iterators/SingletonIterator;->removed:Z
 
     .line 67
@@ -55,7 +51,6 @@
     .line 68
     iput-boolean p2, p0, Lorg/apache/commons/collections/iterators/SingletonIterator;->removeAllowed:Z
 
-    .line 69
     return-void
 .end method
 
@@ -96,9 +91,9 @@
 
     if-nez v0, :cond_0
 
-    .line 96
     const/4 v0, 0x0
 
+    .line 96
     iput-boolean v0, p0, Lorg/apache/commons/collections/iterators/SingletonIterator;->beforeFirst:Z
 
     .line 97
@@ -132,17 +127,16 @@
 
     if-nez v0, :cond_0
 
-    .line 114
     const/4 v0, 0x0
 
+    .line 114
     iput-object v0, p0, Lorg/apache/commons/collections/iterators/SingletonIterator;->object:Ljava/lang/Object;
 
-    .line 115
     const/4 v0, 0x1
 
+    .line 115
     iput-boolean v0, p0, Lorg/apache/commons/collections/iterators/SingletonIterator;->removed:Z
 
-    .line 120
     return-void
 
     .line 112
@@ -165,11 +159,10 @@
 .method public reset()V
     .locals 1
 
-    .line 126
     const/4 v0, 0x1
 
+    .line 126
     iput-boolean v0, p0, Lorg/apache/commons/collections/iterators/SingletonIterator;->beforeFirst:Z
 
-    .line 127
     return-void
 .end method

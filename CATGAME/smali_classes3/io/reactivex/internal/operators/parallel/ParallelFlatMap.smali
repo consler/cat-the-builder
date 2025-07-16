@@ -48,9 +48,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/parallel/ParallelFlowable;Lio/reactivex/functions/Function;ZII)V
     .locals 0
-    .param p3, "delayError"    # Z
-    .param p4, "maxConcurrency"    # I
-    .param p5, "prefetch"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -64,9 +61,6 @@
     .end annotation
 
     .line 45
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelFlatMap;, "Lio/reactivex/internal/operators/parallel/ParallelFlatMap<TT;TR;>;"
-    .local p1, "source":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p2, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     invoke-direct {p0}, Lio/reactivex/parallel/ParallelFlowable;-><init>()V
 
     .line 46
@@ -84,7 +78,6 @@
     .line 50
     iput p5, p0, Lio/reactivex/internal/operators/parallel/ParallelFlatMap;->prefetch:I
 
-    .line 51
     return-void
 .end method
 
@@ -94,7 +87,6 @@
     .locals 1
 
     .line 55
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelFlatMap;, "Lio/reactivex/internal/operators/parallel/ParallelFlatMap<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/parallel/ParallelFlatMap;->source:Lio/reactivex/parallel/ParallelFlowable;
 
     invoke-virtual {v0}, Lio/reactivex/parallel/ParallelFlowable;->parallelism()I
@@ -115,15 +107,12 @@
     .end annotation
 
     .line 60
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelFlatMap;, "Lio/reactivex/internal/operators/parallel/ParallelFlatMap<TT;TR;>;"
-    .local p1, "subscribers":[Lorg/reactivestreams/Subscriber;, "[Lorg/reactivestreams/Subscriber<-TR;>;"
     invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/parallel/ParallelFlatMap;->validate([Lorg/reactivestreams/Subscriber;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 61
     return-void
 
     .line 64
@@ -131,14 +120,10 @@
     array-length v0, p1
 
     .line 67
-    .local v0, "n":I
     new-array v1, v0, [Lorg/reactivestreams/Subscriber;
 
-    .line 69
-    .local v1, "parents":[Lorg/reactivestreams/Subscriber;, "[Lorg/reactivestreams/Subscriber<TT;>;"
     const/4 v2, 0x0
 
-    .local v2, "i":I
     :goto_0
     if-ge v2, v0, :cond_1
 
@@ -159,18 +144,15 @@
 
     aput-object v3, v1, v2
 
-    .line 69
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 73
-    .end local v2    # "i":I
     :cond_1
-    iget-object v2, p0, Lio/reactivex/internal/operators/parallel/ParallelFlatMap;->source:Lio/reactivex/parallel/ParallelFlowable;
+    iget-object p1, p0, Lio/reactivex/internal/operators/parallel/ParallelFlatMap;->source:Lio/reactivex/parallel/ParallelFlowable;
 
-    invoke-virtual {v2, v1}, Lio/reactivex/parallel/ParallelFlowable;->subscribe([Lorg/reactivestreams/Subscriber;)V
+    invoke-virtual {p1, v1}, Lio/reactivex/parallel/ParallelFlowable;->subscribe([Lorg/reactivestreams/Subscriber;)V
 
-    .line 74
     return-void
 .end method

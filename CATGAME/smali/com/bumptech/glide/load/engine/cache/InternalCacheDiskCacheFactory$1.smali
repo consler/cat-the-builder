@@ -49,14 +49,11 @@
 
     move-result-object v0
 
-    .line 32
-    .local v0, "cacheDirectory":Ljava/io/File;
     if-nez v0, :cond_0
 
-    .line 33
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    return-object v1
+    return-object v0
 
     .line 35
     :cond_0
@@ -73,7 +70,6 @@
 
     return-object v1
 
-    .line 38
     :cond_1
     return-object v0
 .end method

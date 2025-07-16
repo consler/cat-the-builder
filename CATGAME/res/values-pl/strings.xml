@@ -28,18 +28,19 @@
     <string name="abc_shareactionprovider_share_with">Udostępnij przez:</string>
     <string name="abc_shareactionprovider_share_with_application">Udostępnij przez: %s</string>
     <string name="abc_toolbar_collapse_description">Zwiń</string>
-    <string name="accept">Akceptuję</string>
     <string name="accessibility_font_dyslexic">Dyslektyczna</string>
     <string name="accessibility_font_regular">Standardowa</string>
     <string name="accessibility_font_serif">Serif</string>
     <string name="accessibility_settings_applied">Zastosowano zmiany</string>
     <string name="accountName">E-mail</string>
+    <string name="actor_object_title">Actors and Objects</string>
+    <string name="add_look_actors_and_object">Local actors and objects</string>
     <string name="add_look_choose_image">Galeria</string>
-    <string name="add_look_draw_new_image">Rysju obraz</string>
+    <string name="add_look_draw_new_image">Rysuj obraz</string>
+    <string name="add_look_empty_object">Pusty obiekt</string>
     <string name="add_look_from_camera">Kamera</string>
     <string name="add_look_from_local_project">Projekty lokalne</string>
     <string name="add_look_media_library">Wygląd</string>
-    <string name="add_look_object_library">Biblioteka</string>
     <string name="add_sound_choose_file">Wybierz plik</string>
     <string name="add_sound_choose_sound">Dźwięki</string>
     <string name="add_sound_from_recorder">Nagraj dźwięk</string>
@@ -67,6 +68,7 @@
     <string name="api_replacement_dialog_neutral">Prześlij bez zmian</string>
     <string name="api_replacement_dialog_warning">Projekt zawiera bloki które mają dostęp do sieci i wydaje się, że zawierają klucze API. Sprawdź %1s dlaczego załadowanie tych kluczy może być niebezpieczne.</string>
     <string name="assistant">Asystent</string>
+    <string name="at_string">w</string>
     <string name="authentication_failed">Wygląda na to, że masz problem z połączeniem z usługą, skontaktuj się z zespołem Catrobat!</string>
     <string name="author">Autor:</string>
     <string name="background">Tło</string>
@@ -146,6 +148,7 @@
     <string name="brick_copy_look">Skopiuj wygląd i nazwij go</string>
     <string name="brick_copy_look_name">nazwa skopiowanego wyglądu</string>
     <string name="brick_default_embroidery_file">haft.dst</string>
+    <string name="brick_default_plot_file">plot.svg</string>
     <string name="brick_delete_background">Usuń tło</string>
     <string name="brick_delete_item_from_userlist">na pozycji</string>
     <string name="brick_delete_item_from_userlist_delete">Usuń element z listy</string>
@@ -272,6 +275,7 @@
     <string name="brick_rotate_left">Obracaj w lewo</string>
     <string name="brick_rotate_right">Obracaj w prawo</string>
     <string name="brick_running_stitch">Szyj szwem o długości</string>
+    <string name="brick_save_plot">Save plot as SVG</string>
     <string name="brick_say_bubble">Powiedz</string>
     <string name="brick_say_bubble_default_value">Cześć!</string>
     <string name="brick_scene_start">Start sceny</string>
@@ -323,10 +327,12 @@
     <string name="brick_speak_default_value">Cześć!</string>
     <string name="brick_stamp">Stempluj</string>
     <string name="brick_start_listening_to_voice">Zacznij słuchać głosu i przechowywać wypowiedziane słowa w</string>
+    <string name="brick_start_plot">Start to plot</string>
     <string name="brick_stitch">Szyj</string>
     <string name="brick_stop_all_scripts">wszystkie skrypty</string>
     <string name="brick_stop_all_sounds">Zatrzymaj wszystkie dźwięki</string>
     <string name="brick_stop_other_scripts">inne skrypty tego aktora lub obiektu</string>
+    <string name="brick_stop_plot">Stop to plot</string>
     <string name="brick_stop_script">Zatrzymaj</string>
     <string name="brick_stop_sound">Zatrzymaj dźwięk</string>
     <string name="brick_stop_stitch">Zakończ bieżący ścieg</string>
@@ -398,6 +404,8 @@ ośmiornica, inteligentna"</string>
     <string name="button_apply">Zastosuj</string>
     <string name="button_brush">Pędzel</string>
     <string name="button_checkmark">Zaznaczenie</string>
+    <string name="button_clip">Obszar klipu</string>
+    <string name="button_clipboard">Schowek</string>
     <string name="button_cursor">Kursor</string>
     <string name="button_eraser">Gumka</string>
     <string name="button_fill">Zamaluj</string>
@@ -406,13 +414,10 @@ ośmiornica, inteligentna"</string>
     <string name="button_info">Informacje</string>
     <string name="button_line">Linia</string>
     <string name="button_pipette">Pipeta</string>
-    <string name="button_plus">Połącz segment linii</string>
     <string name="button_redo">Ponów</string>
-    <string name="button_set_center">Ustaw Środek</string>
     <string name="button_shape">Kształty</string>
     <string name="button_smudge">Smuga</string>
     <string name="button_spray_can">Sprej</string>
-    <string name="button_stamp">Stempluj</string>
     <string name="button_text">Tekst</string>
     <string name="button_transform">Przekształć</string>
     <string name="button_undo">Cofnij</string>
@@ -425,8 +430,6 @@ ośmiornica, inteligentna"</string>
     <string name="camera_error_text_detection">Wystąpił problem z wykrywaniem tekstu. Niektóre komponenty nadal mogą być pobierane w tle. Upewnij się, że jesteś połączony z Internetem i sprawdź ponownie później.</string>
     <string name="cancel">Anuluj</string>
     <string name="cancel_button_text">Anuluj</string>
-    <string name="cap_circle">Koło</string>
-    <string name="cap_square">Kwadrat</string>
     <string name="cast_button_menu_item_title">Przycisk Cast</string>
     <string name="cast_connection_timout_msg">Limit czasu połączenia. Spróbuj ponownie.</string>
     <string name="cast_device_selector_dialog_title">Przesyłaj do</string>
@@ -467,6 +470,7 @@ Nie widać twojego urządzenia? Spróbuj wyłączyć i włączyć WiFi w urządz
     <string name="category_motion">Ruch</string>
     <string name="category_pen">Pisak</string>
     <string name="category_phiro">Phiro</string>
+    <string name="category_plot">Plot</string>
     <string name="category_raspi">Raspberry Pi</string>
     <string name="category_recently_used">Ostatnio używane</string>
     <string name="category_search_bricks">Szukaj bloków</string>
@@ -475,14 +479,18 @@ Nie widać twojego urządzenia? Spróbuj wyłączyć i włączyć WiFi w urządz
     <string name="cello">Wiolonczela</string>
     <string name="change_tempo_by">Zmień tempo o</string>
     <string name="channel_description">%1$s kanał powiadomień</string>
+    <string name="checkbox">pole wyboru</string>
     <string name="choir">Chór</string>
     <string name="choose_camera_back">z tyłu</string>
     <string name="choose_camera_front">z przodu</string>
     <string name="clarinet">Klarnet</string>
     <string name="claves">Klawesyn</string>
+    <string name="clipboard_tool_copy">Kopiuj</string>
+    <string name="clipboard_tool_copy_hint">Naciśnij na kopię, aby skopiować zawartość</string>
+    <string name="clipboard_tool_cut">Wytnij</string>
+    <string name="clipboard_tool_paste">Wklej</string>
     <string name="close">Zamknij</string>
     <string name="closed_hi_hat">Zamknij hi-hat</string>
-    <string name="closing_catroid_security_question_title">Powrót do projektu</string>
     <string name="closing_security_question">Zapisać zmiany?</string>
     <string name="closing_security_question_title">Opuść</string>
     <string name="collision_with_anything">dowolną krawędzią, aktorem lub obiektem</string>
@@ -493,6 +501,7 @@ Nie widać twojego urządzenia? Spróbuj wyłączyć i włączyć WiFi w urządz
     <string name="color_picker_apply">Zastosuj</string>
     <string name="color_picker_cancel">Anuluj</string>
     <string name="color_picker_current_color">obecny</string>
+    <string name="color_picker_history_recently_used">ostatnio używane</string>
     <string name="color_picker_new_color">nowy</string>
     <string name="color_picker_no">nie</string>
     <string name="color_picker_pipette">Pipeta</string>
@@ -537,10 +546,8 @@ Proszę, czekaj…"</string>
     <string name="crash_cymbal">Talerz (perkusja)</string>
     <string name="cursor_draw_active">Przesuń, aby rysować, naciśnij ponownie, aby zatrzymać malowanie.</string>
     <string name="cursor_draw_inactive">Przesuń w wybrane miejsce, następnie dotknij, aby zacząć malowanie.</string>
-    <string name="cut">Wytnij</string>
     <string name="data_label">Nazwa</string>
     <string name="data_value">Wartość</string>
-    <string name="decline">Nie akceptuję</string>
     <string name="declined_terms_of_use_and_service_alert">Aby używać naszych aplikacji konieczne jest zaakceptowanie naszej polityki prywatności. Jeśli jednak nie chcesz tego robić, możesz skorzystać z naszych bezpłatnych usług internetowych na</string>
     <string name="default_broadcast_message_name">Wiadomość</string>
     <string name="default_cast_project_background_name">Tło</string>
@@ -617,7 +624,6 @@ Widoczność wskazówek może zostać zmieniona w ustawieniach."</string>
     <string name="dialog_scale_message">Obraz jest zbyt duży, aby go załadować. Kliknij OK, aby automatycznie obniżyć obraz.</string>
     <string name="dialog_scale_title">Obraz jest zbyt duży, aby go załadować</string>
     <string name="dialog_settings">Ustawienia</string>
-    <string name="dialog_shape_text">Kształt</string>
     <string name="dialog_smoothing">Wygładzanie</string>
     <string name="dialog_terms_of_use_info">"Aby móc korzystać z aplikacji i innych plików wykonywalnych oferowanych przez projekt Catrobat, musisz wyrazić zgodę na nasze Warunki korzystania i usługi. Trzeba ściśle przestrzegać tych warunków podczas korzystania z naszych aplikacji i innych plików wykonywalnych. Proszę zobaczyć poniższy link, aby uzyskać precyzyjne sformułowania.
 "</string>
@@ -625,6 +631,7 @@ Widoczność wskazówek może zostać zmieniona w ustawieniach."</string>
     <string name="dialog_terms_of_use_title">Warunki użytkowania i korzystania z usługi</string>
     <string name="dialog_tools_title">Narzędzia</string>
     <string name="dialog_warning_new_image">Zapisać zmiany?</string>
+    <string name="dialog_zoom_window_enabled">Włączone</string>
     <string name="discard">Odrzuć</string>
     <string name="discard_button_text">Odrzuć</string>
     <string name="disclaimer_privacy_police_header_headline">Witaj!</string>
@@ -706,6 +713,8 @@ Widoczność wskazówek może zostać zmieniona w ustawieniach."</string>
     <string name="error_no_network_title">Brak sieci</string>
     <string name="error_no_whatsapp">WhatsApp niezainstalowany</string>
     <string name="error_outdated_version">Ta wersja aplikacji jest przestarzała. Zaktualizować teraz?</string>
+    <string name="error_plot_data_not_found">Plot is missing.</string>
+    <string name="error_plot_file_write">Something went wrong while writing the svg plot file.</string>
     <string name="error_project_already_in_queue">Projekt %s jest już w kolejce.</string>
     <string name="error_project_compatibility">Projekt nie jest zgodny z tą wersją aplikacji.</string>
     <string name="error_project_download">Podczas pobierania programu wystąpił błąd.</string>
@@ -791,7 +800,7 @@ Widoczność wskazówek może zostać zmieniona w ustawieniach."</string>
     <string name="formula_editor_bracket_open">(</string>
     <string name="formula_editor_changes_discarded">Zmiany odrzucone!</string>
     <string name="formula_editor_choose_object_variable">Właściwości tego aktora lub obiektu</string>
-    <string name="formula_editor_compute">Oblicz</string>
+    <string name="formula_editor_confirm">Potwierdź</string>
     <string name="formula_editor_data">Dane</string>
     <string name="formula_editor_data_dialog_is_list">Zrób z tego listę</string>
     <string name="formula_editor_decimal_mark">.</string>
@@ -904,6 +913,8 @@ Widoczność wskazówek może zostać zmieniona w ustawieniach."</string>
     <string name="formula_editor_function_sin_parameter">(90)</string>
     <string name="formula_editor_function_sqrt">pierwiastek kwadratowy</string>
     <string name="formula_editor_function_sqrt_parameter">(4)</string>
+    <string name="formula_editor_function_subtext">podtekst</string>
+    <string name="formula_editor_function_subtext_parameter">"(3,5,'witaj świecie')"</string>
     <string name="formula_editor_function_tan">tangent</string>
     <string name="formula_editor_function_tan_parameter">(45)</string>
     <string name="formula_editor_function_text_block_from_camera">blok tekstowy z kamery</string>
@@ -919,7 +930,9 @@ Widoczność wskazówek może zostać zmieniona w ustawieniach."</string>
     <string name="formula_editor_functions_lists">Listy</string>
     <string name="formula_editor_functions_maths">Matematyka</string>
     <string name="formula_editor_functions_strings">Tekst</string>
+    <string name="formula_editor_image_button_description_calculate">calculate</string>
     <string name="formula_editor_image_button_description_color_picker">wybierz kolor</string>
+    <string name="formula_editor_image_button_description_confirm">confirm</string>
     <string name="formula_editor_image_button_description_delete">usuń</string>
     <string name="formula_editor_image_button_description_functions_toggle">Przełącz funkcję</string>
     <string name="formula_editor_intro_summary_compute">Aby przetestować formułę i wyświetlić jej aktualny wynik, możesz użyć \"Oblicz\".</string>
@@ -1131,6 +1144,8 @@ Aby połączyć formuły logiczne można używać operatorów logicznych, takich
     <string name="formula_editor_sensor_second_face_size">rozmiar drugiej twarzy</string>
     <string name="formula_editor_sensor_second_face_x_position">pozycja x drugiej twarzy</string>
     <string name="formula_editor_sensor_second_face_y_position">pozycja y drugiej twarzy</string>
+    <string name="formula_editor_sensor_stage_height">wysokość sceny</string>
+    <string name="formula_editor_sensor_stage_width">szerokość sceny</string>
     <string name="formula_editor_sensor_text_blocks_number">liczba bloków tekstowych</string>
     <string name="formula_editor_sensor_text_from_camera">tekst z aparatu</string>
     <string name="formula_editor_sensor_time_hour">godzina</string>
@@ -1156,7 +1171,6 @@ zmiennych lub list"</string>
     <string name="fragment_script_text_description">Naciśnij \"+\", aby dodać skrypty</string>
     <string name="fragment_sound_text_description">Naciśnij \"+\", aby dodać dźwięki</string>
     <string name="fragment_sprite_text_description">Naciśnij \"+\", aby dodać obiekty</string>
-    <string name="from_library">Dodaj z biblioteki</string>
     <string name="from_local">Dodaj z lokalnego</string>
     <string name="gallery">Galeria</string>
     <string name="global_lists_headline">Listy dla wszystkich aktorów i obiektów</string>
@@ -1168,6 +1182,8 @@ zmiennych lub list"</string>
     <string name="hand_clap">klaskanie</string>
     <string name="help">Pomoc</string>
     <string name="help_content_brush">Naciśnij symbole na dolnym pasku, aby zmienić kolor lub rozmiar pędzla.</string>
+    <string name="help_content_clip">Zaznacz obszar, który nie powinien być skasowany.</string>
+    <string name="help_content_clipboard">Przesuń i zmień rozmiar prostokąta, aby przykryć obszar, który chcesz stemplować. Dotknij kopiuj lub wycinaj, aby wybrać obszar. Przenieś go, a następnie naciśnij wklej, aby występlować.</string>
     <string name="help_content_color_chooser">Wybierz lub dostosuj kolor</string>
     <string name="help_content_cursor">Umieść kursor tam, gdzie chcesz rysować. Naciśnij, aby uaktywnić kursor. Przesuń palcem aby rysować. Naciśnij ponownie, aby wyłączyć.</string>
     <string name="help_content_eraser">Usuń części obrazu tak, jak gumką.</string>
@@ -1181,7 +1197,6 @@ zmiennych lub list"</string>
     <string name="help_content_shape">Wybierz kształt i naciśnij, aby wstawić go</string>
     <string name="help_content_smudge">Przesuń palcem na obrazku na różnych rysunkach, aby je rozmazać.</string>
     <string name="help_content_spray_can">Przesuń palcem po obrazie, aby użyć spreju.</string>
-    <string name="help_content_stamp">Przesuwaj i zmieniaj rozmiar prostokąta, aby pokrywał obszar, który chcesz ostemplować. Długo naciśnij, aby wybrać obszar. Przenieść i naciśnij ponownie, aby ostemplować.</string>
     <string name="help_content_text">Napisz tekst i sformatuj go. Następnie zmień rozmiar pola tekstowego. Dotknij, aby wstawić tekst na obrazie.</string>
     <string name="help_content_transform">Użyj, aby przekształcić obraz.</string>
     <string name="help_content_undo">Naciśnij, aby cofnąć poprzednią czynność.</string>
@@ -1195,33 +1210,11 @@ zmiennych lub list"</string>
     <string name="hint_objects">Program składa się z różnych aktorów i obiektów, które mogą oddziaływać na siebie nawzajem. Aby dodać nowego aktora lub obiekt naciśnij symbol \"+\".</string>
     <string name="hint_scripts">Skrypt określa zachowanie twojego aktora lub obiektu. Aby dodać bloczki do skryptu, naciśnij symbol „+”.</string>
     <string name="hint_sounds">Tutaj można dodać nowe dźwięki do aktora lub obiektu. Pamiętaj o użyciu bloku z kategorii dźwięku.</string>
-    <string name="hms_abort">Zatrzymaj</string>
-    <string name="hms_abort_message">Zatrzymać pobieranie?</string>
-    <string name="hms_bindfaildlg_message">Aplikacja %1$s nie może korzystać z Huawei Mobile Services. Włącz aplikację Optymalizator (Menedżer telefonu) lub przejdź do menu Ustawienia, włącz wszystkie uprawnienia dla %2$s (w tym możliwość automatycznego uruchamiania i uruchamiania pośredniego), a następnie spróbuj ponownie.</string>
-    <string name="hms_cancel">Anuluj</string>
-    <string name="hms_check_failure">Nie udało się sprawdzić aktualizacji.</string>
-    <string name="hms_check_no_update">Używasz obecnie najnowszej wersji.</string>
-    <string name="hms_checking">Sprawdzanie dostępność aktualizacji…</string>
+    <string name="hms_apk_not_installed_hints">Niektóre funkcje aplikacji %1$s mogą nie działać prawidłowo bez funkcji HMS Core, której nie zainstalowano na urządzeniu.</string>
+    <string name="hms_bindfaildlg_message">Aplikacja %1$s nie może korzystać z HMS Core. Włącz aplikację Optymalizator (Menedżer telefonu) lub przejdź do menu Ustawienia, włącz wszystkie uprawnienia dla %2$s (w tym możliwość automatycznego uruchamiania i uruchamiania pośredniego), a następnie spróbuj ponownie.</string>
     <string name="hms_confirm">OK</string>
-    <string name="hms_download_failure">Pobieranie pakietu Huawei Mobile Services nie powiodło się.</string>
-    <string name="hms_download_no_space">Za mało wolnego miejsca. Nie można dokończyć pobierania.</string>
-    <string name="hms_download_retry">Pobieranie nie powiodło się. Spróbować ponownie?</string>
-    <string name="hms_downloading">"Pobieranie Huawei Mobile Services
-Postęp: %d%%"</string>
-    <string name="hms_downloading_loading">Pobieranie</string>
-    <string name="hms_downloading_new">Pobieranie HMS</string>
-    <string name="hms_gamebox_name">HUAWEI GameCenter</string>
-    <string name="hms_install">Zainstaluj</string>
-    <string name="hms_install_message">Należy zainstalować aplikację Huawei Mobile Services, aby korzystać z tej funkcji. Zainstalować?</string>
-    <string name="hms_retry">Ponów</string>
-    <string name="hms_update">Aktualizuj</string>
-    <string name="hms_update_continue">Pobierz</string>
-    <string name="hms_update_message">Zaktualizuj aplikację Huawei Mobile Services do najnowszej wersji, aby użyć tej funkcji. Zaktualizować teraz?</string>
-    <string name="hms_update_message_new">"Ta usługa wymaga najnowszej wersji następującej aplikacji:
-
-%1$s"</string>
-    <string name="hms_update_nettype">Brak połączenia z siecią Wi-Fi. Pobrać przez komórkową transmisję danych?</string>
-    <string name="hms_update_title">Huawei Mobile Services</string>
+    <string name="hms_is_spoof">Wygląda na to, że na urządzeniu zainstalowano nieoficjalną wersję HMS Core (%1$s). Odinstaluj HMS Core w Ustawieniach i wróć do tej aplikacji, aby zainstalować oficjalną wersję.</string>
+    <string name="hms_spoof_hints">Uwaga</string>
     <string name="html_label">Wstaw tekst HTML</string>
     <string name="huawei_app_gallery">Huawei App Gallery</string>
     <string name="ignore">Ignoruj</string>
@@ -1250,6 +1243,7 @@ Postęp: %d%%"</string>
     <string name="layer_delete">Usuń warstwę</string>
     <string name="layer_merged">Scalone warstwy</string>
     <string name="layer_new">Nowa Warstwa</string>
+    <string name="layer_preview">Podgląd warstwy</string>
     <string name="layer_too_many_layers">Za dużo warstw</string>
     <string name="layers_title">Warstwy</string>
     <string name="lego_ev3_sensor_config_info_text">Bieżący program korzysta z bloczków lub czujników Lego Mindstorms EV3. Dla pełnej funkcjonalności proszę podłączyć czujniki do robota w następujący sposób</string>
@@ -1264,7 +1258,6 @@ Postęp: %d%%"</string>
     <string name="lego_sensor_port_config_dialog_title">Wybierz port do podłączenia do %1$s!</string>
     <string name="lets_go">Zaczynajmy!</string>
     <string name="list_headline_sprites">Aktorzy i obiekty</string>
-    <string name="load_sticker_error">Nie można załadować naklejki</string>
     <string name="loading">Ładowanie…</string>
     <string name="loading_check_oauth_token">Sprawdzanie danych logowania…</string>
     <string name="loading_google_exchange_code">Wymiana danych logowania Google…</string>
@@ -1283,6 +1276,7 @@ Postęp: %d%%"</string>
     <string name="main_menu_login">Zaloguj się</string>
     <string name="main_menu_logout">Wyloguj się</string>
     <string name="main_menu_new">Nowy projekt</string>
+    <string name="main_menu_play">Play project</string>
     <string name="main_menu_play_store_not_installed">Nie znaleziono Google Play</string>
     <string name="main_menu_privacy_policy">Polityka prywatności</string>
     <string name="main_menu_programs">Projekty na urządzeniu</string>
@@ -1295,6 +1289,7 @@ Postęp: %d%%"</string>
     <string name="marketing_app_details">Szczegóły aplikacji</string>
     <string name="marketing_created_with">Utworzono z</string>
     <string name="marketing_more_on_google_play">Więcej aplikacji w Google Play</string>
+    <string name="menu_add_to_current_layer">Dodaj do bieżącej warstwy</string>
     <string name="menu_advanced">Ustawienia zaawansowane</string>
     <string name="menu_discard_image">Odrzuć obrazek</string>
     <string name="menu_export">Eksportuj</string>
@@ -1304,10 +1299,13 @@ Postęp: %d%%"</string>
     <string name="menu_new_image">Nowy obraz</string>
     <string name="menu_quit">Opuść</string>
     <string name="menu_rate_us">Oceń nas!</string>
+    <string name="menu_replace_image">Zastąp obraz</string>
     <string name="menu_save_copy">Zapisz kopię</string>
     <string name="menu_save_image">Zapisz obraz</string>
+    <string name="menu_zoom_settings">Ustawienia powiększenia okna</string>
     <string name="merge">Scal</string>
     <string name="merging_project_text">Te dwa projekty nie mogą jeszcze zostać połączone</string>
+    <string name="mlkit_asr_machine_learning_kit">Obsługiwane przez ML Kit</string>
     <string name="mode">Tryb:</string>
     <string name="modified_at_x">Zmodyfikowano: %1$s</string>
     <string name="more_possibilities">Więcej możliwości</string>
@@ -1351,7 +1349,11 @@ Postęp: %d%%"</string>
     <string name="new_look_dialog_title">Dodaj wygląd</string>
     <string name="new_merge_project_dialog_title">Scal projekt</string>
     <string name="new_option">nowy…</string>
+    <string name="new_project_dialog_cast">Rzuć</string>
     <string name="new_project_dialog_example_project">Przykładowy projekt</string>
+    <string name="new_project_dialog_landscape">Poziomo</string>
+    <string name="new_project_dialog_portrait">Pionowo</string>
+    <string name="new_project_title">Utwórz projekt</string>
     <string name="new_scene">Nowa scena</string>
     <string name="new_scene_dialog">Nowa Scena</string>
     <string name="new_sound_dialog_title">Dodaj dźwięk</string>
@@ -1364,6 +1366,7 @@ Postęp: %d%%"</string>
     <string name="nfc_not_activated">Aktywuj NFC, a następnie naciśnij Wstecz, aby powrócić do aplikacji!</string>
     <string name="nfc_tag_name_label">Nazwa tagu NFC</string>
     <string name="no">Nie</string>
+    <string name="no_connection_sticker">Naklejki niedostępne, sprawdź swoje połączenie internetowe.</string>
     <string name="no_internet_connection">Brak połączenia z Internetem. Upewnij się, że Wi-Fi lub dane komórkowe są włączone.</string>
     <string name="no_longclick_on_hidden_layer">Możesz scalić lub zmienić kolejność tylko wtedy, gdy wszystkie warstwy są widoczne</string>
     <string name="no_nfc_available">NFC niedostępny</string>
@@ -1555,13 +1558,20 @@ Szczegółowe informacje na temat licencji znajdują się w poniższym linku."</
     <string name="preference_description_multiplayer_variables_enabled">Zezwalaj aplikacji na używanie zmiennych wieloosobowych udostępnianych przez Bluetooth</string>
     <string name="preference_description_nfc_bricks">Pozwala aplikacji na używanie tagów NFC w programach</string>
     <string name="preference_description_phiro_bricks">Pozwala aplikacji na kontrolowanie robota Phiro</string>
+    <string name="preference_description_plot_bricks">Create patterns for plotting machines</string>
     <string name="preference_description_quadcopter_bricks">Pozwala aplikacji kontrolę quadrocopterów ARDrone 2.0</string>
     <string name="preference_description_raspi_bricks">Pozwala aplikacji kontrolować Raspberry Pi</string>
     <string name="preference_description_test_bricks">Pozwala na tworzenie testów</string>
     <string name="preference_description_web_access">Edytuj aby dodać lub usunąć zaufane domeny</string>
+    <string name="preference_dialog_appgallery">Galeria Aplikacji</string>
+    <string name="preference_dialog_google_play">Sklep Play</string>
+    <string name="preference_dialog_use_full_features">Użyj pełnych funkcji</string>
     <string name="preference_disable_ev3_info_dialog_description">Konkretne ustawienia programu EV3 nie są wyświetlane, gdy program jest otwierany.</string>
     <string name="preference_disable_nxt_info_dialog">Wyłącz okno dialogowe Informacji</string>
     <string name="preference_disable_nxt_info_dialog_description">Konkretne ustawienia programu NXT nie są wyświetlane, gdy program jest otwierany.</string>
+    <string name="preference_embroidery_dialog_text">Aby skorzystać ze wszystkich funkcji rozszerzenia haftu, użyj aplikacji Catrobat Embroidery Designer.</string>
+    <string name="preference_lego_dialog_text">Aby wykorzystać wszystkie funkcje rozszerzeń Lego Mindstorms, użyj aplikacji Catrobat Mindstorms Code EV3 NXT.</string>
+    <string name="preference_phiro_dialog_text">Aby skorzystać ze wszystkich funkcji rozszerzenia robotyki Phiro użyj aplikacji Catrobat Phiro Code.</string>
     <string name="preference_raspi_enable_bricks">Włącz bloki i czujniki</string>
     <string name="preference_raspi_help">Pomoc / wprowadzenie</string>
     <string name="preference_raspi_help_summary">Uzyskaj pomoc na temat konfigurowania ustawień połączenia</string>
@@ -1604,6 +1614,7 @@ Szczegółowe informacje na temat licencji znajdują się w poniższym linku."</
     <string name="preference_title_enable_mindstorms_nxt_bricks">Bloki LEGO Mindstorms NXT</string>
     <string name="preference_title_enable_nfc_bricks">Bloki NFC</string>
     <string name="preference_title_enable_phiro_bricks">Bloki Phiro</string>
+    <string name="preference_title_enable_plot_bricks">Plot extension</string>
     <string name="preference_title_enable_quadcopter_bricks">Bloki Parrot AR.Drone 2.0</string>
     <string name="preference_title_enable_raspi_bricks">Bloki Raspberry Pi</string>
     <string name="preference_title_enable_test_bricks">Rozszerzenie Testów</string>
@@ -1715,6 +1726,7 @@ Czy chcesz ją zainstalować?"</string>
     <string name="search_failed">Nic nie znaleziono, spróbuj ponownie później.</string>
     <string name="search_hint">Szukaj</string>
     <string name="search_menu_title">Szukaj</string>
+    <string name="seconds_string">sekund</string>
     <string name="security_warning_dialog_msg">Projekt, który pobrałeś nasłuchuje twój głos w tle, a także wysyła dane do Internetu. Może to być nieszkodliwe i konieczne dla zamierzonego zachowania. Upewnij się jednak, że to, co mówisz, gdy projekt jest uruchomiony, jest bezpieczne. W razie wątpliwości usuń pobrany projekt. Możesz również zgłosić projekt na jego stronie na platformie społeczności Catrobat na wypadek, gdy jesteś pewien, że jest szkodliwy.</string>
     <string name="select_all">Zaznacz wszystko</string>
     <string name="select_look_from_camera">Wybierz zdjęcie</string>
@@ -1734,7 +1746,6 @@ Czy chcesz ją zainstalować?"</string>
     <string name="shape_tool_dialog_star_title">Gwiazdka</string>
     <string name="share_image_menu">Udostępnij obraz</string>
     <string name="share_image_via_text">Wyślij zdjęcie przez</string>
-    <string name="share_website_text">share.catrob.at</string>
     <string name="shared_at_x">Udostępniono: %1$s</string>
     <string name="show_details">Pokaż szczegóły</string>
     <string name="show_password">Pokaż hasło</string>
@@ -1782,10 +1793,6 @@ Rozciągnij"</string>
     <string name="stage_dialog_restart">Uruchom ponownie</string>
     <string name="stage_dialog_resume">Wznów</string>
     <string name="stage_dialog_screenshot">Podgląd</string>
-    <string name="stamp_tool_copy_hint">Naciśnij długo, aby skopiować zawartość</string>
-    <string name="stamptool_copy">Kopiuj</string>
-    <string name="stamptool_cut">Wytnij</string>
-    <string name="stamptool_paste">Wklej</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="status_conversion_failed">Konwersja nie powiodła się!</string>
     <string name="status_conversion_finished">Konwersja zakończona</string>
@@ -1808,11 +1815,8 @@ Rozciągnij"</string>
     <string name="text_tool_dialog_font_monospace">Monospace</string>
     <string name="text_tool_dialog_font_sans_serif">Sans Serif</string>
     <string name="text_tool_dialog_font_serif">Serif</string>
-    <string name="text_tool_dialog_format_options">Opcje formatowania:</string>
     <string name="text_tool_dialog_input_hint">Naciśnij tutaj, aby pisać</string>
-    <string name="text_tool_dialog_input_title">Twój tekst:</string>
     <string name="text_tool_dialog_italic_shortcut">I</string>
-    <string name="text_tool_dialog_strike_through_shortcut">abc</string>
     <string name="text_tool_dialog_underline_shortcut">U</string>
     <string name="title_other_devices">Dostępne urządzenia</string>
     <string name="title_paired_devices">Urządzenia sparowane</string>
@@ -1854,29 +1858,6 @@ Rozciągnij"</string>
     <string name="upload_project_dialog_title">Wyślij projekt</string>
     <string name="upload_tag_dialog_title">Proszę wybrać maksymalnie trzy kategorie</string>
     <string name="upload_tags_maximum_error">Wybór więcej niż 3 tagów nie jest możliwy.</string>
-    <string name="upsdk_app_dl_installing">Pobieranie aplikacji AppGallery</string>
-    <string name="upsdk_app_download_info_new">Zainstaluj</string>
-    <string name="upsdk_app_size">Rozmiar</string>
-    <string name="upsdk_app_version">Wersja</string>
-    <string name="upsdk_cancel">Nie</string>
-    <string name="upsdk_checking_update_prompt">Sprawdzanie aktualizacji…</string>
-    <string name="upsdk_choice_update">Dostępna aktualizacja. Pobierz i zainstaluj najnowszą wersję.</string>
-    <string name="upsdk_connect_server_fail_prompt_toast">Nie można połączyć się z serwerem. Spróbuj ponownie później.</string>
-    <string name="upsdk_detail">Szczegóły</string>
-    <string name="upsdk_getting_message_fail_prompt_toast">Nie można pobrać informacji. Spróbuj ponownie później.</string>
-    <string name="upsdk_install">Zainstaluj aplikację AppGallery, aby zaktualizować. Zainstalować teraz?</string>
-    <string name="upsdk_no_available_network_prompt_toast">Brak połączenia z Internetem. Sprawdź ustawienia sieciowe.</string>
-    <string name="upsdk_ota_app_name">Aplikacja</string>
-    <string name="upsdk_ota_cancel">Później</string>
-    <string name="upsdk_ota_force_cancel_new">Zamknij</string>
-    <string name="upsdk_ota_notify_updatebtn">Aktualizuj</string>
-    <string name="upsdk_ota_title">Nowa wersja</string>
-    <string name="upsdk_storage_utils">%1$s MB</string>
-    <string name="upsdk_third_app_dl_cancel_download_prompt_ex">Anulować instalację?</string>
-    <string name="upsdk_third_app_dl_install_failed">Instalacja nie powiodła się.</string>
-    <string name="upsdk_third_app_dl_sure_cancel_download">Tak</string>
-    <string name="upsdk_update_check_no_new_version">Używasz obecnie najnowszej wersji.</string>
-    <string name="upsdk_updating">Aktualizowanie</string>
     <string name="user_logged_in">Logowanie powiodło się</string>
     <string name="username">Nazwa użytkownika</string>
     <string name="vibraphone">Wibrafon</string>
@@ -1898,4 +1879,5 @@ Rozciągnij"</string>
     <string name="x_label">x:</string>
     <string name="y_label">y:</string>
     <string name="yes">Tak</string>
+    <string name="zoom_window_description">Używane do wyświetlania powiększenia części powierzchni rysunku</string>
 </resources>

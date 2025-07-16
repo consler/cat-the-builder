@@ -47,7 +47,6 @@
     .locals 1
 
     .line 125
-    .local p0, "this":Lcom/bumptech/glide/load/model/DataUrlLoader$StreamFactory;, "Lcom/bumptech/glide/load/model/DataUrlLoader$StreamFactory<TModel;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 126
@@ -57,15 +56,13 @@
 
     iput-object v0, p0, Lcom/bumptech/glide/load/model/DataUrlLoader$StreamFactory;->opener:Lcom/bumptech/glide/load/model/DataUrlLoader$DataDecoder;
 
-    .line 160
     return-void
 .end method
 
 
 # virtual methods
 .method public build(Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;)Lcom/bumptech/glide/load/model/ModelLoader;
-    .locals 2
-    .param p1, "multiFactory"    # Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -79,20 +76,17 @@
     .end annotation
 
     .line 165
-    .local p0, "this":Lcom/bumptech/glide/load/model/DataUrlLoader$StreamFactory;, "Lcom/bumptech/glide/load/model/DataUrlLoader$StreamFactory<TModel;>;"
-    new-instance v0, Lcom/bumptech/glide/load/model/DataUrlLoader;
+    new-instance p1, Lcom/bumptech/glide/load/model/DataUrlLoader;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/model/DataUrlLoader$StreamFactory;->opener:Lcom/bumptech/glide/load/model/DataUrlLoader$DataDecoder;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/DataUrlLoader$StreamFactory;->opener:Lcom/bumptech/glide/load/model/DataUrlLoader$DataDecoder;
 
-    invoke-direct {v0, v1}, Lcom/bumptech/glide/load/model/DataUrlLoader;-><init>(Lcom/bumptech/glide/load/model/DataUrlLoader$DataDecoder;)V
+    invoke-direct {p1, v0}, Lcom/bumptech/glide/load/model/DataUrlLoader;-><init>(Lcom/bumptech/glide/load/model/DataUrlLoader$DataDecoder;)V
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public teardown()V
     .locals 0
 
-    .line 171
-    .local p0, "this":Lcom/bumptech/glide/load/model/DataUrlLoader$StreamFactory;, "Lcom/bumptech/glide/load/model/DataUrlLoader$StreamFactory<TModel;>;"
     return-void
 .end method

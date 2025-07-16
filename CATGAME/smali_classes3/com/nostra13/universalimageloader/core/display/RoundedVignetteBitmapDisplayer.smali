@@ -14,50 +14,43 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 0
-    .param p1, "cornerRadiusPixels"    # I
-    .param p2, "marginPixels"    # I
 
     .line 41
     invoke-direct {p0, p1, p2}, Lcom/nostra13/universalimageloader/core/display/RoundedBitmapDisplayer;-><init>(II)V
 
-    .line 42
     return-void
 .end method
 
 
 # virtual methods
 .method public display(Landroid/graphics/Bitmap;Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;Lcom/nostra13/universalimageloader/core/assist/LoadedFrom;)V
-    .locals 3
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
-    .param p2, "imageAware"    # Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;
-    .param p3, "loadedFrom"    # Lcom/nostra13/universalimageloader/core/assist/LoadedFrom;
+    .locals 2
 
     .line 46
-    instance-of v0, p2, Lcom/nostra13/universalimageloader/core/imageaware/ImageViewAware;
+    instance-of p3, p2, Lcom/nostra13/universalimageloader/core/imageaware/ImageViewAware;
 
-    if-eqz v0, :cond_0
+    if-eqz p3, :cond_0
 
     .line 50
-    new-instance v0, Lcom/nostra13/universalimageloader/core/display/RoundedVignetteBitmapDisplayer$RoundedVignetteDrawable;
+    new-instance p3, Lcom/nostra13/universalimageloader/core/display/RoundedVignetteBitmapDisplayer$RoundedVignetteDrawable;
 
-    iget v1, p0, Lcom/nostra13/universalimageloader/core/display/RoundedVignetteBitmapDisplayer;->cornerRadius:I
+    iget v0, p0, Lcom/nostra13/universalimageloader/core/display/RoundedVignetteBitmapDisplayer;->cornerRadius:I
 
-    iget v2, p0, Lcom/nostra13/universalimageloader/core/display/RoundedVignetteBitmapDisplayer;->margin:I
+    iget v1, p0, Lcom/nostra13/universalimageloader/core/display/RoundedVignetteBitmapDisplayer;->margin:I
 
-    invoke-direct {v0, p1, v1, v2}, Lcom/nostra13/universalimageloader/core/display/RoundedVignetteBitmapDisplayer$RoundedVignetteDrawable;-><init>(Landroid/graphics/Bitmap;II)V
+    invoke-direct {p3, p1, v0, v1}, Lcom/nostra13/universalimageloader/core/display/RoundedVignetteBitmapDisplayer$RoundedVignetteDrawable;-><init>(Landroid/graphics/Bitmap;II)V
 
-    invoke-interface {p2, v0}, Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;->setImageDrawable(Landroid/graphics/drawable/Drawable;)Z
+    invoke-interface {p2, p3}, Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;->setImageDrawable(Landroid/graphics/drawable/Drawable;)Z
 
-    .line 51
     return-void
 
     .line 47
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "ImageAware should wrap ImageView. ImageViewAware is expected."
+    const-string p2, "ImageAware should wrap ImageView. ImageViewAware is expected."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

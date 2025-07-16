@@ -64,7 +64,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/SingleObserver;Lio/reactivex/Scheduler;)V
     .locals 0
-    .param p2, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -76,8 +75,6 @@
     .end annotation
 
     .line 49
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver;, "Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 50
@@ -86,7 +83,6 @@
     .line 51
     iput-object p2, p0, Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver;->scheduler:Lio/reactivex/Scheduler;
 
-    .line 52
     return-void
 .end method
 
@@ -96,10 +92,8 @@
     .locals 0
 
     .line 87
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver;, "Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver<TT;>;"
     invoke-static {p0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 88
     return-void
 .end method
 
@@ -107,7 +101,6 @@
     .locals 1
 
     .line 92
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver;, "Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -122,52 +115,45 @@
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
-    .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
+    .locals 0
 
     .line 70
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver;, "Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver<TT;>;"
     iput-object p1, p0, Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver;->error:Ljava/lang/Throwable;
 
     .line 71
-    iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver;->scheduler:Lio/reactivex/Scheduler;
+    iget-object p1, p0, Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver;->scheduler:Lio/reactivex/Scheduler;
 
-    invoke-virtual {v0, p0}, Lio/reactivex/Scheduler;->scheduleDirect(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
+    invoke-virtual {p1, p0}, Lio/reactivex/Scheduler;->scheduleDirect(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 72
-    .local v0, "d":Lio/reactivex/disposables/Disposable;
-    invoke-static {p0, v0}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
+    invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 73
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
-    .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
+    .locals 0
 
     .line 56
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver;, "Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver<TT;>;"
     invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 57
-    iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver;->actual:Lio/reactivex/SingleObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver;->actual:Lio/reactivex/SingleObserver;
 
-    invoke-interface {v0, p0}, Lio/reactivex/SingleObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/SingleObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 59
     :cond_0
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -175,34 +161,27 @@
     .end annotation
 
     .line 63
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver;, "Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     iput-object p1, p0, Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver;->value:Ljava/lang/Object;
 
     .line 64
-    iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver;->scheduler:Lio/reactivex/Scheduler;
+    iget-object p1, p0, Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver;->scheduler:Lio/reactivex/Scheduler;
 
-    invoke-virtual {v0, p0}, Lio/reactivex/Scheduler;->scheduleDirect(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
+    invoke-virtual {p1, p0}, Lio/reactivex/Scheduler;->scheduleDirect(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 65
-    .local v0, "d":Lio/reactivex/disposables/Disposable;
-    invoke-static {p0, v0}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
+    invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 66
     return-void
 .end method
 
 .method public run()V
-    .locals 3
+    .locals 2
 
     .line 77
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver;, "Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver;->error:Ljava/lang/Throwable;
 
-    .line 78
-    .local v0, "ex":Ljava/lang/Throwable;
     if-eqz v0, :cond_0
 
     .line 79
@@ -214,13 +193,12 @@
 
     .line 81
     :cond_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver;->actual:Lio/reactivex/SingleObserver;
+    iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver;->actual:Lio/reactivex/SingleObserver;
 
-    iget-object v2, p0, Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver;->value:Ljava/lang/Object;
+    iget-object v1, p0, Lio/reactivex/internal/operators/single/SingleObserveOn$ObserveOnSingleObserver;->value:Ljava/lang/Object;
 
-    invoke-interface {v1, v2}, Lio/reactivex/SingleObserver;->onSuccess(Ljava/lang/Object;)V
+    invoke-interface {v0, v1}, Lio/reactivex/SingleObserver;->onSuccess(Ljava/lang/Object;)V
 
-    .line 83
     :goto_0
     return-void
 .end method

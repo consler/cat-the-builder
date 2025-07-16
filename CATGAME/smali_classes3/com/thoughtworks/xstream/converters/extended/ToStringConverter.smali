@@ -19,11 +19,11 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .line 30
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/lang/Class;
 
+    .line 30
     sget-object v1, Lcom/thoughtworks/xstream/converters/extended/ToStringConverter;->class$java$lang$String:Ljava/lang/Class;
 
     if-nez v1, :cond_0
@@ -48,7 +48,6 @@
 
 .method public constructor <init>(Ljava/lang/Class;)V
     .locals 1
-    .param p1, "clazz"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/NoSuchMethodException;
@@ -66,67 +65,63 @@
 
     invoke-virtual {p1, v0}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/thoughtworks/xstream/converters/extended/ToStringConverter;->ctor:Ljava/lang/reflect/Constructor;
+    iput-object p1, p0, Lcom/thoughtworks/xstream/converters/extended/ToStringConverter;->ctor:Ljava/lang/reflect/Constructor;
 
-    .line 37
     return-void
 .end method
 
 .method static synthetic class$(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 2
-    .param p0, "x0"    # Ljava/lang/String;
+    .locals 1
 
     .line 30
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/lang/NoClassDefFoundError;
+    new-instance v0, Ljava/lang/NoClassDefFoundError;
 
-    invoke-direct {v1}, Ljava/lang/NoClassDefFoundError;-><init>()V
+    invoke-direct {v0}, Ljava/lang/NoClassDefFoundError;-><init>()V
 
-    invoke-virtual {v1, v0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, p0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 .end method
 
 
 # virtual methods
 .method public canConvert(Ljava/lang/Class;)Z
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
 
     .line 39
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/extended/ToStringConverter;->clazz:Ljava/lang/Class;
 
     if-ne p1, v0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public fromString(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 4
-    .param p1, "str"    # Ljava/lang/String;
+    .locals 3
 
     .line 47
     :try_start_0
@@ -142,79 +137,70 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
     :try_end_0
     .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_2
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p1
 
-    .line 52
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 53
-    .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
-    new-instance v1, Lcom/thoughtworks/xstream/converters/ConversionException;
+    new-instance v0, Lcom/thoughtworks/xstream/converters/ConversionException;
 
-    invoke-virtual {v0}, Ljava/lang/reflect/InvocationTargetException;->getTargetException()Ljava/lang/Throwable;
+    const-string v1, "Unable to target single String param constructor"
 
-    move-result-object v2
+    invoke-virtual {p1}, Ljava/lang/reflect/InvocationTargetException;->getTargetException()Ljava/lang/Throwable;
 
-    const-string v3, "Unable to target single String param constructor"
+    move-result-object p1
 
-    invoke-direct {v1, v3, v2}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v0, v1, p1}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 
-    .line 50
-    .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
     :catch_1
-    move-exception v0
+    move-exception p1
 
     .line 51
-    .local v0, "e":Ljava/lang/IllegalAccessException;
-    new-instance v1, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
+    new-instance v0, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
 
-    const-string v2, "Unable to access single String param constructor"
+    const-string v1, "Unable to access single String param constructor"
 
-    invoke-direct {v1, v2, v0}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v0, v1, p1}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 
-    .line 48
-    .end local v0    # "e":Ljava/lang/IllegalAccessException;
     :catch_2
-    move-exception v0
+    move-exception p1
 
     .line 49
-    .local v0, "e":Ljava/lang/InstantiationException;
-    new-instance v1, Lcom/thoughtworks/xstream/converters/ConversionException;
+    new-instance v0, Lcom/thoughtworks/xstream/converters/ConversionException;
 
-    const-string v2, "Unable to instantiate single String param constructor"
+    const-string v1, "Unable to instantiate single String param constructor"
 
-    invoke-direct {v1, v2, v0}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v0, v1, p1}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public toString(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 0
 
-    .line 42
     if-nez p1, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
+    .line 42
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    return-object v0
+    return-object p1
 .end method

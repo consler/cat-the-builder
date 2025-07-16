@@ -22,15 +22,11 @@
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 29
     return-void
 .end method
 
 .method public constructor <init>(FFF)V
     .locals 0
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "radius"    # F
 
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,13 +40,11 @@
     .line 39
     iput p3, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
 
-    .line 40
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/math/Circle;)V
     .locals 1
-    .param p1, "circle"    # Lcom/badlogic/gdx/math/Circle;
 
     .line 55
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,18 +60,15 @@
     iput v0, p0, Lcom/badlogic/gdx/math/Circle;->y:F
 
     .line 58
-    iget v0, p1, Lcom/badlogic/gdx/math/Circle;->radius:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Circle;->radius:F
 
-    iput v0, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
+    iput p1, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
 
-    .line 59
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/math/Vector2;F)V
     .locals 1
-    .param p1, "position"    # Lcom/badlogic/gdx/math/Vector2;
-    .param p2, "radius"    # F
 
     .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -88,21 +79,18 @@
     iput v0, p0, Lcom/badlogic/gdx/math/Circle;->x:F
 
     .line 48
-    iget v0, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
 
-    iput v0, p0, Lcom/badlogic/gdx/math/Circle;->y:F
+    iput p1, p0, Lcom/badlogic/gdx/math/Circle;->y:F
 
     .line 49
     iput p2, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
 
-    .line 50
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/math/Vector2;Lcom/badlogic/gdx/math/Vector2;)V
-    .locals 3
-    .param p1, "center"    # Lcom/badlogic/gdx/math/Vector2;
-    .param p2, "edge"    # Lcom/badlogic/gdx/math/Vector2;
+    .locals 2
 
     .line 65
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -124,19 +112,18 @@
 
     sub-float/2addr v0, v1
 
-    iget v1, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
 
-    iget v2, p2, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iget p2, p2, Lcom/badlogic/gdx/math/Vector2;->y:F
 
-    sub-float/2addr v1, v2
+    sub-float/2addr p1, p2
 
-    invoke-static {v0, v1}, Lcom/badlogic/gdx/math/Vector2;->len(FF)F
+    invoke-static {v0, p1}, Lcom/badlogic/gdx/math/Vector2;->len(FF)F
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
+    iput p1, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
 
-    .line 69
     return-void
 .end method
 
@@ -171,9 +158,7 @@
 .end method
 
 .method public contains(FF)Z
-    .locals 2
-    .param p1, "x"    # F
-    .param p2, "y"    # F
+    .locals 1
 
     .line 151
     iget v0, p0, Lcom/badlogic/gdx/math/Circle;->x:F
@@ -181,43 +166,38 @@
     sub-float/2addr v0, p1
 
     .line 152
-    .end local p1    # "x":F
-    .local v0, "x":F
     iget p1, p0, Lcom/badlogic/gdx/math/Circle;->y:F
 
     sub-float/2addr p1, p2
 
+    mul-float/2addr v0, v0
+
+    mul-float/2addr p1, p1
+
+    add-float/2addr v0, p1
+
     .line 153
-    .end local p2    # "y":F
-    .local p1, "y":F
-    mul-float p2, v0, v0
+    iget p1, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
 
-    mul-float v1, p1, p1
+    mul-float/2addr p1, p1
 
-    add-float/2addr p2, v1
+    cmpg-float p1, v0, p1
 
-    iget v1, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
+    if-gtz p1, :cond_0
 
-    mul-float/2addr v1, v1
-
-    cmpg-float p2, p2, v1
-
-    if-gtz p2, :cond_0
-
-    const/4 p2, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 p2, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return p2
+    return p1
 .end method
 
 .method public contains(Lcom/badlogic/gdx/math/Circle;)Z
-    .locals 8
-    .param p1, "c"    # Lcom/badlogic/gdx/math/Circle;
+    .locals 6
 
     .line 170
     iget v0, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
@@ -226,8 +206,6 @@
 
     sub-float v2, v0, v1
 
-    .line 171
-    .local v2, "radiusDiff":F
     const/4 v3, 0x0
 
     cmpg-float v3, v2, v3
@@ -247,38 +225,31 @@
     sub-float/2addr v3, v5
 
     .line 173
-    .local v3, "dx":F
     iget v5, p0, Lcom/badlogic/gdx/math/Circle;->y:F
 
-    iget v6, p1, Lcom/badlogic/gdx/math/Circle;->y:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Circle;->y:F
 
-    sub-float/2addr v5, v6
+    sub-float/2addr v5, p1
 
-    .line 174
-    .local v5, "dy":F
-    mul-float v6, v3, v3
+    mul-float/2addr v3, v3
 
-    mul-float v7, v5, v5
+    mul-float/2addr v5, v5
 
-    add-float/2addr v6, v7
+    add-float/2addr v3, v5
 
-    .line 175
-    .local v6, "dst":F
     add-float/2addr v0, v1
 
-    .line 176
-    .local v0, "radiusSum":F
-    mul-float v1, v2, v2
+    mul-float/2addr v2, v2
 
-    cmpg-float v1, v1, v6
+    cmpg-float p1, v2, v3
 
-    if-ltz v1, :cond_1
+    if-ltz p1, :cond_1
 
-    mul-float v1, v0, v0
+    mul-float/2addr v0, v0
 
-    cmpg-float v1, v6, v1
+    cmpg-float p1, v3, v0
 
-    if-gez v1, :cond_1
+    if-gez p1, :cond_1
 
     const/4 v4, 0x1
 
@@ -287,8 +258,7 @@
 .end method
 
 .method public contains(Lcom/badlogic/gdx/math/Vector2;)Z
-    .locals 4
-    .param p1, "point"    # Lcom/badlogic/gdx/math/Vector2;
+    .locals 2
 
     .line 162
     iget v0, p0, Lcom/badlogic/gdx/math/Circle;->x:F
@@ -298,57 +268,53 @@
     sub-float/2addr v0, v1
 
     .line 163
-    .local v0, "dx":F
     iget v1, p0, Lcom/badlogic/gdx/math/Circle;->y:F
 
-    iget v2, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
 
-    sub-float/2addr v1, v2
+    sub-float/2addr v1, p1
+
+    mul-float/2addr v0, v0
+
+    mul-float/2addr v1, v1
+
+    add-float/2addr v0, v1
 
     .line 164
-    .local v1, "dy":F
-    mul-float v2, v0, v0
+    iget p1, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
 
-    mul-float v3, v1, v1
+    mul-float/2addr p1, p1
 
-    add-float/2addr v2, v3
+    cmpg-float p1, v0, p1
 
-    iget v3, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
+    if-gtz p1, :cond_0
 
-    mul-float/2addr v3, v3
-
-    cmpg-float v2, v2, v3
-
-    if-gtz v2, :cond_0
-
-    const/4 v2, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v2
+    return p1
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 4
 
-    .line 207
     const/4 v0, 0x1
 
     if-ne p1, p0, :cond_0
 
     return v0
 
-    .line 208
     :cond_0
     const/4 v1, 0x0
 
     if-eqz p1, :cond_3
 
+    .line 208
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -363,35 +329,32 @@
 
     .line 209
     :cond_1
-    move-object v2, p1
-
-    check-cast v2, Lcom/badlogic/gdx/math/Circle;
+    check-cast p1, Lcom/badlogic/gdx/math/Circle;
 
     .line 210
-    .local v2, "c":Lcom/badlogic/gdx/math/Circle;
-    iget v3, p0, Lcom/badlogic/gdx/math/Circle;->x:F
+    iget v2, p0, Lcom/badlogic/gdx/math/Circle;->x:F
 
-    iget v4, v2, Lcom/badlogic/gdx/math/Circle;->x:F
+    iget v3, p1, Lcom/badlogic/gdx/math/Circle;->x:F
 
-    cmpl-float v3, v3, v4
+    cmpl-float v2, v2, v3
 
-    if-nez v3, :cond_2
+    if-nez v2, :cond_2
 
-    iget v3, p0, Lcom/badlogic/gdx/math/Circle;->y:F
+    iget v2, p0, Lcom/badlogic/gdx/math/Circle;->y:F
 
-    iget v4, v2, Lcom/badlogic/gdx/math/Circle;->y:F
+    iget v3, p1, Lcom/badlogic/gdx/math/Circle;->y:F
 
-    cmpl-float v3, v3, v4
+    cmpl-float v2, v2, v3
 
-    if-nez v3, :cond_2
+    if-nez v2, :cond_2
 
-    iget v3, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
+    iget v2, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
 
-    iget v4, v2, Lcom/badlogic/gdx/math/Circle;->radius:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Circle;->radius:F
 
-    cmpl-float v3, v3, v4
+    cmpl-float p1, v2, p1
 
-    if-nez v3, :cond_2
+    if-nez p1, :cond_2
 
     goto :goto_0
 
@@ -401,70 +364,52 @@
     :goto_0
     return v0
 
-    .line 208
-    .end local v2    # "c":Lcom/badlogic/gdx/math/Circle;
     :cond_3
     :goto_1
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 4
-
-    .line 215
-    const/16 v0, 0x29
-
-    .line 216
-    .local v0, "prime":I
-    const/4 v1, 0x1
+    .locals 3
 
     .line 217
-    .local v1, "result":I
-    mul-int/lit8 v2, v1, 0x29
+    iget v0, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
 
-    iget v3, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
+    invoke-static {v0}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToRawIntBits(F)I
 
-    invoke-static {v3}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToRawIntBits(F)I
+    move-result v0
 
-    move-result v3
+    const/16 v1, 0x29
 
-    add-int/2addr v2, v3
+    add-int/2addr v0, v1
+
+    mul-int/2addr v0, v1
 
     .line 218
-    .end local v1    # "result":I
-    .local v2, "result":I
-    mul-int/lit8 v1, v2, 0x29
+    iget v2, p0, Lcom/badlogic/gdx/math/Circle;->x:F
 
-    iget v3, p0, Lcom/badlogic/gdx/math/Circle;->x:F
+    invoke-static {v2}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToRawIntBits(F)I
 
-    invoke-static {v3}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToRawIntBits(F)I
+    move-result v2
 
-    move-result v3
+    add-int/2addr v0, v2
 
-    add-int/2addr v1, v3
+    mul-int/2addr v0, v1
 
     .line 219
-    .end local v2    # "result":I
-    .restart local v1    # "result":I
-    mul-int/lit8 v2, v1, 0x29
+    iget v1, p0, Lcom/badlogic/gdx/math/Circle;->y:F
 
-    iget v3, p0, Lcom/badlogic/gdx/math/Circle;->y:F
+    invoke-static {v1}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToRawIntBits(F)I
 
-    invoke-static {v3}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToRawIntBits(F)I
+    move-result v1
 
-    move-result v3
+    add-int/2addr v0, v1
 
-    add-int/2addr v2, v3
-
-    .line 220
-    .end local v1    # "result":I
-    .restart local v2    # "result":I
-    return v2
+    return v0
 .end method
 
 .method public overlaps(Lcom/badlogic/gdx/math/Circle;)Z
-    .locals 5
-    .param p1, "c"    # Lcom/badlogic/gdx/math/Circle;
+    .locals 3
 
     .line 182
     iget v0, p0, Lcom/badlogic/gdx/math/Circle;->x:F
@@ -474,53 +419,44 @@
     sub-float/2addr v0, v1
 
     .line 183
-    .local v0, "dx":F
     iget v1, p0, Lcom/badlogic/gdx/math/Circle;->y:F
 
     iget v2, p1, Lcom/badlogic/gdx/math/Circle;->y:F
 
     sub-float/2addr v1, v2
 
-    .line 184
-    .local v1, "dy":F
-    mul-float v2, v0, v0
+    mul-float/2addr v0, v0
 
-    mul-float v3, v1, v1
+    mul-float/2addr v1, v1
 
-    add-float/2addr v2, v3
+    add-float/2addr v0, v1
 
     .line 185
-    .local v2, "distance":F
-    iget v3, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
+    iget v1, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
 
-    iget v4, p1, Lcom/badlogic/gdx/math/Circle;->radius:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Circle;->radius:F
 
-    add-float/2addr v3, v4
+    add-float/2addr v1, p1
 
-    .line 186
-    .local v3, "radiusSum":F
-    mul-float v4, v3, v3
+    mul-float/2addr v1, v1
 
-    cmpg-float v4, v2, v4
+    cmpg-float p1, v0, v1
 
-    if-gez v4, :cond_0
+    if-gez p1, :cond_0
 
-    const/4 v4, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v4, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v4
+    return p1
 .end method
 
 .method public set(FFF)V
     .locals 0
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "radius"    # F
 
     .line 77
     iput p1, p0, Lcom/badlogic/gdx/math/Circle;->x:F
@@ -531,13 +467,11 @@
     .line 79
     iput p3, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
 
-    .line 80
     return-void
 .end method
 
 .method public set(Lcom/badlogic/gdx/math/Circle;)V
     .locals 1
-    .param p1, "circle"    # Lcom/badlogic/gdx/math/Circle;
 
     .line 96
     iget v0, p1, Lcom/badlogic/gdx/math/Circle;->x:F
@@ -550,18 +484,15 @@
     iput v0, p0, Lcom/badlogic/gdx/math/Circle;->y:F
 
     .line 98
-    iget v0, p1, Lcom/badlogic/gdx/math/Circle;->radius:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Circle;->radius:F
 
-    iput v0, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
+    iput p1, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
 
-    .line 99
     return-void
 .end method
 
 .method public set(Lcom/badlogic/gdx/math/Vector2;F)V
     .locals 1
-    .param p1, "position"    # Lcom/badlogic/gdx/math/Vector2;
-    .param p2, "radius"    # F
 
     .line 87
     iget v0, p1, Lcom/badlogic/gdx/math/Vector2;->x:F
@@ -569,21 +500,18 @@
     iput v0, p0, Lcom/badlogic/gdx/math/Circle;->x:F
 
     .line 88
-    iget v0, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
 
-    iput v0, p0, Lcom/badlogic/gdx/math/Circle;->y:F
+    iput p1, p0, Lcom/badlogic/gdx/math/Circle;->y:F
 
     .line 89
     iput p2, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
 
-    .line 90
     return-void
 .end method
 
 .method public set(Lcom/badlogic/gdx/math/Vector2;Lcom/badlogic/gdx/math/Vector2;)V
-    .locals 3
-    .param p1, "center"    # Lcom/badlogic/gdx/math/Vector2;
-    .param p2, "edge"    # Lcom/badlogic/gdx/math/Vector2;
+    .locals 2
 
     .line 106
     iget v0, p1, Lcom/badlogic/gdx/math/Vector2;->x:F
@@ -602,26 +530,23 @@
 
     sub-float/2addr v0, v1
 
-    iget v1, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
 
-    iget v2, p2, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iget p2, p2, Lcom/badlogic/gdx/math/Vector2;->y:F
 
-    sub-float/2addr v1, v2
+    sub-float/2addr p1, p2
 
-    invoke-static {v0, v1}, Lcom/badlogic/gdx/math/Vector2;->len(FF)F
+    invoke-static {v0, p1}, Lcom/badlogic/gdx/math/Vector2;->len(FF)F
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
+    iput p1, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
 
-    .line 109
     return-void
 .end method
 
 .method public setPosition(FF)V
     .locals 0
-    .param p1, "x"    # F
-    .param p2, "y"    # F
 
     .line 122
     iput p1, p0, Lcom/badlogic/gdx/math/Circle;->x:F
@@ -629,13 +554,11 @@
     .line 123
     iput p2, p0, Lcom/badlogic/gdx/math/Circle;->y:F
 
-    .line 124
     return-void
 .end method
 
 .method public setPosition(Lcom/badlogic/gdx/math/Vector2;)V
     .locals 1
-    .param p1, "position"    # Lcom/badlogic/gdx/math/Vector2;
 
     .line 114
     iget v0, p1, Lcom/badlogic/gdx/math/Vector2;->x:F
@@ -643,44 +566,37 @@
     iput v0, p0, Lcom/badlogic/gdx/math/Circle;->x:F
 
     .line 115
-    iget v0, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
 
-    iput v0, p0, Lcom/badlogic/gdx/math/Circle;->y:F
+    iput p1, p0, Lcom/badlogic/gdx/math/Circle;->y:F
 
-    .line 116
     return-void
 .end method
 
 .method public setRadius(F)V
     .locals 0
-    .param p1, "radius"    # F
 
     .line 141
     iput p1, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
 
-    .line 142
     return-void
 .end method
 
 .method public setX(F)V
     .locals 0
-    .param p1, "x"    # F
 
     .line 129
     iput p1, p0, Lcom/badlogic/gdx/math/Circle;->x:F
 
-    .line 130
     return-void
 .end method
 
 .method public setY(F)V
     .locals 0
-    .param p1, "y"    # F
 
     .line 135
     iput p1, p0, Lcom/badlogic/gdx/math/Circle;->y:F
 
-    .line 136
     return-void
 .end method
 
@@ -696,19 +612,29 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ","
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v2, p0, Lcom/badlogic/gdx/math/Circle;->y:F
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Lcom/badlogic/gdx/math/Circle;->radius:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

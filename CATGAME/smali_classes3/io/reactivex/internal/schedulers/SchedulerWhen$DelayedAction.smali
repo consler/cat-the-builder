@@ -25,9 +25,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)V
     .locals 0
-    .param p1, "action"    # Ljava/lang/Runnable;
-    .param p2, "delayTime"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
 
     .line 235
     invoke-direct {p0}, Lio/reactivex/internal/schedulers/SchedulerWhen$ScheduledAction;-><init>()V
@@ -41,16 +38,13 @@
     .line 238
     iput-object p4, p0, Lio/reactivex/internal/schedulers/SchedulerWhen$DelayedAction;->unit:Ljava/util/concurrent/TimeUnit;
 
-    .line 239
     return-void
 .end method
 
 
 # virtual methods
 .method protected callActual(Lio/reactivex/Scheduler$Worker;Lio/reactivex/CompletableObserver;)Lio/reactivex/disposables/Disposable;
-    .locals 4
-    .param p1, "actualWorker"    # Lio/reactivex/Scheduler$Worker;
-    .param p2, "actionCompletable"    # Lio/reactivex/CompletableObserver;
+    .locals 3
 
     .line 243
     new-instance v0, Lio/reactivex/internal/schedulers/SchedulerWhen$OnCompletedAction;
@@ -61,11 +55,11 @@
 
     iget-wide v1, p0, Lio/reactivex/internal/schedulers/SchedulerWhen$DelayedAction;->delayTime:J
 
-    iget-object v3, p0, Lio/reactivex/internal/schedulers/SchedulerWhen$DelayedAction;->unit:Ljava/util/concurrent/TimeUnit;
+    iget-object p2, p0, Lio/reactivex/internal/schedulers/SchedulerWhen$DelayedAction;->unit:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {p1, v0, v1, v2, v3}, Lio/reactivex/Scheduler$Worker;->schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
+    invoke-virtual {p1, v0, v1, v2, p2}, Lio/reactivex/Scheduler$Worker;->schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

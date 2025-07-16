@@ -10,7 +10,6 @@
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 26
     return-void
 .end method
 
@@ -26,6 +25,5 @@
 
     invoke-virtual {v0, v1}, Lcom/badlogic/gdx/utils/SharedLibraryLoader;->load(Ljava/lang/String;)V
 
-    .line 33
     return-void
 .end method

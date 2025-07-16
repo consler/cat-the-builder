@@ -65,7 +65,6 @@
 
 .method public constructor <init>(Lorg/koin/core/logger/Level;)V
     .locals 1
-    .param p1, "level"    # Lorg/koin/core/logger/Level;
 
     const-string v0, "level"
 
@@ -96,37 +95,32 @@
 .end method
 
 .method private final canLog(Lorg/koin/core/logger/Level;)Z
-    .locals 2
-    .param p1, "level"    # Lorg/koin/core/logger/Level;
+    .locals 1
 
     .line 27
     iget-object v0, p0, Lorg/koin/core/logger/Logger;->level:Lorg/koin/core/logger/Level;
 
-    move-object v1, p1
+    check-cast p1, Ljava/lang/Enum;
 
-    check-cast v1, Ljava/lang/Enum;
+    invoke-virtual {v0, p1}, Lorg/koin/core/logger/Level;->compareTo(Ljava/lang/Enum;)I
 
-    invoke-virtual {v0, v1}, Lorg/koin/core/logger/Level;->compareTo(Ljava/lang/Enum;)I
+    move-result p1
 
-    move-result v0
+    if-gtz p1, :cond_0
 
-    if-gtz v0, :cond_0
-
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method private final doLog(Lorg/koin/core/logger/Level;Ljava/lang/String;)V
     .locals 1
-    .param p1, "level"    # Lorg/koin/core/logger/Level;
-    .param p2, "msg"    # Ljava/lang/String;
 
     .line 30
     invoke-direct {p0, p1}, Lorg/koin/core/logger/Logger;->canLog(Lorg/koin/core/logger/Level;)Z
@@ -138,7 +132,6 @@
     .line 31
     invoke-virtual {p0, p1, p2}, Lorg/koin/core/logger/Logger;->log(Lorg/koin/core/logger/Level;Ljava/lang/String;)V
 
-    .line 33
     :cond_0
     return-void
 .end method
@@ -147,7 +140,6 @@
 # virtual methods
 .method public final debug(Ljava/lang/String;)V
     .locals 1
-    .param p1, "msg"    # Ljava/lang/String;
 
     const-string v0, "msg"
 
@@ -158,13 +150,11 @@
 
     invoke-direct {p0, v0, p1}, Lorg/koin/core/logger/Logger;->doLog(Lorg/koin/core/logger/Level;Ljava/lang/String;)V
 
-    .line 37
     return-void
 .end method
 
 .method public final error(Ljava/lang/String;)V
     .locals 1
-    .param p1, "msg"    # Ljava/lang/String;
 
     const-string v0, "msg"
 
@@ -175,7 +165,6 @@
 
     invoke-direct {p0, v0, p1}, Lorg/koin/core/logger/Logger;->doLog(Lorg/koin/core/logger/Level;Ljava/lang/String;)V
 
-    .line 45
     return-void
 .end method
 
@@ -190,7 +179,6 @@
 
 .method public final info(Ljava/lang/String;)V
     .locals 1
-    .param p1, "msg"    # Ljava/lang/String;
 
     const-string v0, "msg"
 
@@ -201,13 +189,11 @@
 
     invoke-direct {p0, v0, p1}, Lorg/koin/core/logger/Logger;->doLog(Lorg/koin/core/logger/Level;Ljava/lang/String;)V
 
-    .line 41
     return-void
 .end method
 
 .method public final isAt(Lorg/koin/core/logger/Level;)Z
-    .locals 2
-    .param p1, "lvl"    # Lorg/koin/core/logger/Level;
+    .locals 1
 
     const-string v0, "lvl"
 
@@ -216,25 +202,23 @@
     .line 47
     iget-object v0, p0, Lorg/koin/core/logger/Logger;->level:Lorg/koin/core/logger/Level;
 
-    move-object v1, p1
+    check-cast p1, Ljava/lang/Enum;
 
-    check-cast v1, Ljava/lang/Enum;
+    invoke-virtual {v0, p1}, Lorg/koin/core/logger/Level;->compareTo(Ljava/lang/Enum;)I
 
-    invoke-virtual {v0, v1}, Lorg/koin/core/logger/Level;->compareTo(Ljava/lang/Enum;)I
+    move-result p1
 
-    move-result v0
+    if-gtz p1, :cond_0
 
-    if-gtz v0, :cond_0
-
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public abstract log(Lorg/koin/core/logger/Level;Ljava/lang/String;)V
@@ -242,7 +226,6 @@
 
 .method public final setLevel(Lorg/koin/core/logger/Level;)V
     .locals 1
-    .param p1, "<set-?>"    # Lorg/koin/core/logger/Level;
 
     const-string v0, "<set-?>"
 

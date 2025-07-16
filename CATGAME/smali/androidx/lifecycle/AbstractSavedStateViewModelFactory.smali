@@ -18,8 +18,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/savedstate/SavedStateRegistryOwner;Landroid/os/Bundle;)V
     .locals 1
-    .param p1, "owner"    # Landroidx/savedstate/SavedStateRegistryOwner;
-    .param p2, "defaultArgs"    # Landroid/os/Bundle;
 
     .line 53
     invoke-direct {p0}, Landroidx/lifecycle/ViewModelProvider$KeyedFactory;-><init>()V
@@ -34,21 +32,20 @@
     .line 55
     invoke-interface {p1}, Landroidx/savedstate/SavedStateRegistryOwner;->getLifecycle()Landroidx/lifecycle/Lifecycle;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/lifecycle/AbstractSavedStateViewModelFactory;->mLifecycle:Landroidx/lifecycle/Lifecycle;
+    iput-object p1, p0, Landroidx/lifecycle/AbstractSavedStateViewModelFactory;->mLifecycle:Landroidx/lifecycle/Lifecycle;
 
     .line 56
     iput-object p2, p0, Landroidx/lifecycle/AbstractSavedStateViewModelFactory;->mDefaultArgs:Landroid/os/Bundle;
 
-    .line 57
     return-void
 .end method
 
 
 # virtual methods
 .method public final create(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -60,36 +57,32 @@
     .end annotation
 
     .line 80
-    .local p1, "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-virtual {p1}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 81
-    .local v0, "canonicalName":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 84
     invoke-virtual {p0, v0, p1}, Landroidx/lifecycle/AbstractSavedStateViewModelFactory;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 82
     :cond_0
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v2, "Local and anonymous classes can not be ViewModels"
+    const-string v0, "Local and anonymous classes can not be ViewModels"
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 .end method
 
 .method public final create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
     .locals 3
-    .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -102,7 +95,6 @@
     .end annotation
 
     .line 67
-    .local p2, "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     iget-object v0, p0, Landroidx/lifecycle/AbstractSavedStateViewModelFactory;->mSavedStateRegistry:Landroidx/savedstate/SavedStateRegistry;
 
     iget-object v1, p0, Landroidx/lifecycle/AbstractSavedStateViewModelFactory;->mLifecycle:Landroidx/lifecycle/Lifecycle;
@@ -114,23 +106,20 @@
     move-result-object v0
 
     .line 69
-    .local v0, "controller":Landroidx/lifecycle/SavedStateHandleController;
     invoke-virtual {v0}, Landroidx/lifecycle/SavedStateHandleController;->getHandle()Landroidx/lifecycle/SavedStateHandle;
 
     move-result-object v1
 
     invoke-virtual {p0, p1, p2, v1}, Landroidx/lifecycle/AbstractSavedStateViewModelFactory;->create(Ljava/lang/String;Ljava/lang/Class;Landroidx/lifecycle/SavedStateHandle;)Landroidx/lifecycle/ViewModel;
 
-    move-result-object v1
+    move-result-object p1
+
+    const-string p2, "androidx.lifecycle.savedstate.vm.tag"
 
     .line 70
-    .local v1, "viewmodel":Landroidx/lifecycle/ViewModel;, "TT;"
-    const-string v2, "androidx.lifecycle.savedstate.vm.tag"
+    invoke-virtual {p1, p2, v0}, Landroidx/lifecycle/ViewModel;->setTagIfAbsent(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v1, v2, v0}, Landroidx/lifecycle/ViewModel;->setTagIfAbsent(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 71
-    return-object v1
+    return-object p1
 .end method
 
 .method protected abstract create(Ljava/lang/String;Ljava/lang/Class;Landroidx/lifecycle/SavedStateHandle;)Landroidx/lifecycle/ViewModel;
@@ -150,7 +139,6 @@
 
 .method onRequery(Landroidx/lifecycle/ViewModel;)V
     .locals 2
-    .param p1, "viewModel"    # Landroidx/lifecycle/ViewModel;
 
     .line 103
     iget-object v0, p0, Landroidx/lifecycle/AbstractSavedStateViewModelFactory;->mSavedStateRegistry:Landroidx/savedstate/SavedStateRegistry;
@@ -159,6 +147,5 @@
 
     invoke-static {p1, v0, v1}, Landroidx/lifecycle/SavedStateHandleController;->attachHandleIfNeeded(Landroidx/lifecycle/ViewModel;Landroidx/savedstate/SavedStateRegistry;Landroidx/lifecycle/Lifecycle;)V
 
-    .line 104
     return-void
 .end method

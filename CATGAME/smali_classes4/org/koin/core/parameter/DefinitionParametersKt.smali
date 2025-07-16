@@ -52,7 +52,6 @@
 
 .method public static final varargs parametersOf([Ljava/lang/Object;)Lorg/koin/core/parameter/DefinitionParameters;
     .locals 2
-    .param p0, "parameters"    # [Ljava/lang/Object;
 
     const-string v0, "parameters"
 
@@ -71,20 +70,20 @@
 
     invoke-static {p0, v1}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Lorg/koin/core/parameter/DefinitionParameters;-><init>([Ljava/lang/Object;)V
+    invoke-direct {v0, p0}, Lorg/koin/core/parameter/DefinitionParameters;-><init>([Ljava/lang/Object;)V
 
     return-object v0
 
     :cond_0
-    new-instance v0, Lorg/koin/core/error/DefinitionParameterException;
+    new-instance p0, Lorg/koin/core/error/DefinitionParameterException;
 
-    const-string v1, "Can\'t build DefinitionParameters for more than 5 arguments"
+    const-string v0, "Can\'t build DefinitionParameters for more than 5 arguments"
 
-    invoke-direct {v0, v1}, Lorg/koin/core/error/DefinitionParameterException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Lorg/koin/core/error/DefinitionParameterException;-><init>(Ljava/lang/String;)V
 
-    check-cast v0, Ljava/lang/Throwable;
+    check-cast p0, Ljava/lang/Throwable;
 
-    throw v0
+    throw p0
 .end method

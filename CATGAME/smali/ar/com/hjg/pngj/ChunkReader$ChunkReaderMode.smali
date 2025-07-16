@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .locals 7
 
     .line 37
     new-instance v0, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
@@ -48,43 +48,39 @@
     sput-object v0, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;->BUFFER:Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
 
     .line 41
-    new-instance v0, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
+    new-instance v1, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
 
-    const-string v1, "PROCESS"
+    const-string v3, "PROCESS"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;->PROCESS:Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
+    sput-object v1, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;->PROCESS:Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
 
     .line 45
-    new-instance v0, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
+    new-instance v3, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
 
-    const-string v1, "SKIP"
+    const-string v5, "SKIP"
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v1, v4}, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;->SKIP:Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
+    sput-object v3, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;->SKIP:Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
+
+    const/4 v5, 0x3
+
+    new-array v5, v5, [Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
+
+    aput-object v0, v5, v2
+
+    aput-object v1, v5, v4
+
+    aput-object v3, v5, v6
 
     .line 33
-    const/4 v1, 0x3
-
-    new-array v1, v1, [Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
-
-    sget-object v5, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;->BUFFER:Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
-
-    aput-object v5, v1, v2
-
-    sget-object v2, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;->PROCESS:Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
-
-    aput-object v2, v1, v3
-
-    aput-object v0, v1, v4
-
-    sput-object v1, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;->$VALUES:[Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
+    sput-object v5, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;->$VALUES:[Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
 
     return-void
 .end method
@@ -105,18 +101,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 33
     const-class v0, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
+    check-cast p0, Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lar/com/hjg/pngj/ChunkReader$ChunkReaderMode;

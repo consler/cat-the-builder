@@ -32,11 +32,9 @@
 
     sput-object v0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->instanceMaps:Ljava/util/Map;
 
-    .line 40
     const/4 v0, 0x0
 
     .line 42
-    .local v0, "method":Ljava/lang/reflect/Method;
     :try_start_0
     sget-object v1, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->class$java$text$AttributedCharacterIterator$Attribute:Ljava/lang/Class;
 
@@ -50,23 +48,16 @@
 
     sput-object v1, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->class$java$text$AttributedCharacterIterator$Attribute:Ljava/lang/Class;
 
-    goto :goto_0
-
     :cond_0
-    sget-object v1, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->class$java$text$AttributedCharacterIterator$Attribute:Ljava/lang/Class;
-
-    :goto_0
     const-string v2, "getName"
 
-    const/4 v3, 0x0
+    move-object v3, v0
 
     check-cast v3, [Ljava/lang/Class;
 
-    invoke-virtual {v1, v2, v3}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v1, v2, v0}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    move-result-object v1
-
-    move-object v0, v1
+    move-result-object v0
 
     .line 44
     invoke-virtual {v0}, Ljava/lang/reflect/Method;->isAccessible()Z
@@ -75,43 +66,24 @@
 
     if-nez v1, :cond_1
 
-    .line 45
     const/4 v1, 0x1
 
+    .line 45
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
     :try_end_0
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1
-
-    .line 49
-    :catch_0
-    move-exception v1
-
-    goto :goto_2
-
-    .line 47
-    :catch_1
-    move-exception v1
-
-    .line 51
-    :cond_1
-    :goto_1
-    nop
-
     .line 52
-    :goto_2
+    :catch_0
+    :cond_1
     sput-object v0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->getName:Ljava/lang/reflect/Method;
 
-    .line 53
-    .end local v0    # "method":Ljava/lang/reflect/Method;
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 4
-    .param p1, "type"    # Ljava/lang/Class;
+    .locals 3
 
     .line 59
     invoke-direct {p0}, Lcom/thoughtworks/xstream/converters/basic/AbstractSingleValueConverter;-><init>()V
@@ -145,42 +117,43 @@
 
     invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    const-string v3, " is not a "
+    move-result-object p1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    const-string v2, " is not a "
 
-    sget-object v3, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->class$java$text$AttributedCharacterIterator$Attribute:Ljava/lang/Class;
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    if-nez v3, :cond_1
+    move-result-object p1
+
+    sget-object v2, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->class$java$text$AttributedCharacterIterator$Attribute:Ljava/lang/Class;
+
+    if-nez v2, :cond_1
 
     .line 62
     invoke-static {v1}, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->class$(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object v2
 
-    sput-object v3, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->class$java$text$AttributedCharacterIterator$Attribute:Ljava/lang/Class;
-
-    goto :goto_0
+    sput-object v2, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->class$java$text$AttributedCharacterIterator$Attribute:Ljava/lang/Class;
 
     :cond_1
-    nop
-
-    :goto_0
-    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
@@ -191,152 +164,137 @@
     .line 65
     invoke-direct {p0}, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->readResolve()Ljava/lang/Object;
 
-    .line 66
     return-void
 .end method
 
 .method static synthetic class$(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 2
-    .param p0, "x0"    # Ljava/lang/String;
+    .locals 1
 
     .line 42
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object p0
+
+    :catch_0
+    move-exception p0
+
+    new-instance v0, Ljava/lang/NoClassDefFoundError;
+
+    invoke-direct {v0}, Ljava/lang/NoClassDefFoundError;-><init>()V
+
+    invoke-virtual {v0, p0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+
+    move-result-object p0
+
+    throw p0
+.end method
+
+.method private getName(Ljava/text/AttributedCharacterIterator$Attribute;)Ljava/lang/String;
+    .locals 3
+
+    .line 78
+    sget-object v0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->getName:Ljava/lang/reflect/Method;
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    .line 80
+    :try_start_0
+    move-object v2, v1
+
+    check-cast v2, [Ljava/lang/Object;
+
+    invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-object v0
 
     :catch_0
     move-exception v0
 
-    new-instance v1, Ljava/lang/NoClassDefFoundError;
+    :goto_0
+    move-object v1, v0
 
-    invoke-direct {v1}, Ljava/lang/NoClassDefFoundError;-><init>()V
+    goto :goto_1
 
-    invoke-virtual {v1, v0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
-
-    move-result-object v0
-
-    throw v0
-.end method
-
-.method private getName(Ljava/text/AttributedCharacterIterator$Attribute;)Ljava/lang/String;
-    .locals 5
-    .param p1, "attribute"    # Ljava/text/AttributedCharacterIterator$Attribute;
-
-    .line 77
-    const/4 v0, 0x0
-
-    .line 78
-    .local v0, "ex":Ljava/lang/Exception;
-    sget-object v1, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->getName:Ljava/lang/reflect/Method;
-
-    if-eqz v1, :cond_0
-
-    .line 80
-    const/4 v2, 0x0
-
-    :try_start_0
-    check-cast v2, [Ljava/lang/Object;
-
-    invoke-virtual {v1, p1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-object v1
-
-    .line 83
-    :catch_0
-    move-exception v1
-
-    .line 84
-    .local v1, "e":Ljava/lang/reflect/InvocationTargetException;
-    move-object v0, v1
+    :catch_1
+    move-exception v0
 
     goto :goto_0
 
-    .line 81
-    .end local v1    # "e":Ljava/lang/reflect/InvocationTargetException;
-    :catch_1
-    move-exception v1
-
-    .line 82
-    .local v1, "e":Ljava/lang/IllegalAccessException;
-    move-object v0, v1
-
     .line 87
-    .end local v1    # "e":Ljava/lang/IllegalAccessException;
     :cond_0
-    :goto_0
+    :goto_1
     invoke-virtual {p1}, Ljava/text/AttributedCharacterIterator$Attribute;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 88
-    .local v1, "s":Ljava/lang/String;
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
     .line 89
-    .local v2, "className":Ljava/lang/String;
-    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
     .line 90
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v3
+    move-result p1
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
 
-    move-result v4
+    move-result v1
 
-    add-int/lit8 v4, v4, -0x1
+    add-int/lit8 v1, v1, -0x1
 
-    invoke-virtual {v1, v3, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v0, p1, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    return-object v3
+    return-object p1
 
     .line 92
     :cond_1
-    new-instance v3, Lcom/thoughtworks/xstream/converters/ConversionException;
+    new-instance v0, Lcom/thoughtworks/xstream/converters/ConversionException;
 
-    const-string v4, "Cannot find name of attribute"
+    const-string v2, "Cannot find name of attribute"
 
-    invoke-direct {v3, v4, v0}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v0, v2, v1}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    const-string v1, "attribute-type"
 
     .line 93
-    .local v3, "exception":Lcom/thoughtworks/xstream/converters/ConversionException;
-    const-string v4, "attribute-type"
-
-    invoke-virtual {v3, v4, v2}, Lcom/thoughtworks/xstream/converters/ConversionException;->add(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, p1}, Lcom/thoughtworks/xstream/converters/ConversionException;->add(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 94
-    throw v3
+    throw v0
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 10
+    .locals 8
 
     .line 108
     sget-object v0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->instanceMaps:Ljava/util/Map;
@@ -355,8 +313,7 @@
 
     iput-object v0, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->attributeMap:Ljava/util/Map;
 
-    .line 109
-    if-nez v0, :cond_a
+    if-nez v0, :cond_8
 
     .line 110
     new-instance v0, Ljava/util/HashMap;
@@ -387,285 +344,227 @@
 
     move-result-object v0
 
-    .line 112
-    .local v0, "instanceMap":Ljava/lang/reflect/Field;
     const/4 v1, 0x0
 
     const/4 v3, 0x0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4
 
     .line 114
     :try_start_0
-    invoke-static {v0, v3}, Lcom/thoughtworks/xstream/core/util/Fields;->read(Ljava/lang/reflect/Field;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v0, v1}, Lcom/thoughtworks/xstream/core/util/Fields;->read(Ljava/lang/reflect/Field;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map;
+
+    if-eqz v0, :cond_4
+
+    .line 117
+    invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object v4
 
-    check-cast v4, Ljava/util/Map;
+    invoke-interface {v4}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    .line 115
-    .local v4, "map":Ljava/util/Map;
-    if-eqz v4, :cond_4
+    move-result-object v4
 
-    .line 116
-    const/4 v5, 0x1
-
-    .line 117
-    .local v5, "valid":Z
-    invoke-interface {v4}, Ljava/util/Map;->entrySet()Ljava/util/Set;
-
-    move-result-object v6
-
-    invoke-interface {v6}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v6
-
-    .local v6, "iter":Ljava/util/Iterator;
     :goto_0
+    move v5, v2
+
+    :goto_1
     if-eqz v5, :cond_3
 
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_3
+    if-eqz v6, :cond_3
 
     .line 118
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Ljava/util/Map$Entry;
+
+    .line 119
+    invoke-interface {v5}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v6
+
+    sget-object v7, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->class$java$lang$String:Ljava/lang/Class;
+
+    if-nez v7, :cond_1
+
+    const-string v7, "java.lang.String"
+
+    invoke-static {v7}, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->class$(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v7
 
-    check-cast v7, Ljava/util/Map$Entry;
+    sput-object v7, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->class$java$lang$String:Ljava/lang/Class;
 
-    .line 119
-    .local v7, "entry":Ljava/util/Map$Entry;
-    invoke-interface {v7}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    :cond_1
+    if-ne v6, v7, :cond_2
 
-    move-result-object v8
+    invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    invoke-virtual {v8}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    move-result-object v5
 
-    move-result-object v8
+    invoke-virtual {v5}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    sget-object v9, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->class$java$lang$String:Ljava/lang/Class;
+    move-result-object v5
 
-    if-nez v9, :cond_1
+    iget-object v6, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->type:Ljava/lang/Class;
 
-    const-string v9, "java.lang.String"
+    if-ne v5, v6, :cond_2
 
-    invoke-static {v9}, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->class$(Ljava/lang/String;)Ljava/lang/Class;
+    goto :goto_0
 
-    move-result-object v9
-
-    sput-object v9, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->class$java$lang$String:Ljava/lang/Class;
+    :cond_2
+    move v5, v3
 
     goto :goto_1
 
-    :cond_1
-    sget-object v9, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->class$java$lang$String:Ljava/lang/Class;
-
-    :goto_1
-    if-ne v8, v9, :cond_2
-
-    invoke-interface {v7}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v8
-
-    iget-object v9, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->type:Ljava/lang/Class;
-
-    if-ne v8, v9, :cond_2
-
-    move v8, v2
-
-    goto :goto_2
-
-    :cond_2
-    move v8, v1
-
-    :goto_2
-    move v5, v8
-
-    .line 120
-    .end local v7    # "entry":Ljava/util/Map$Entry;
-    goto :goto_0
-
-    .line 121
-    .end local v6    # "iter":Ljava/util/Iterator;
     :cond_3
     if-eqz v5, :cond_4
 
     .line 122
-    iget-object v6, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->attributeMap:Ljava/util/Map;
+    iget-object v4, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->attributeMap:Ljava/util/Map;
 
-    invoke-interface {v6, v4}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
+    invoke-interface {v4, v0}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
     :try_end_0
     .catch Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 126
-    .end local v4    # "map":Ljava/util/Map;
-    .end local v5    # "valid":Z
-    :cond_4
-    goto :goto_3
-
-    .line 125
-    :catch_0
-    move-exception v4
-
     .line 128
-    :cond_5
-    :goto_3
-    iget-object v4, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->attributeMap:Ljava/util/Map;
+    :catch_0
+    :cond_4
+    iget-object v0, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->attributeMap:Ljava/util/Map;
 
-    invoke-interface {v4}, Ljava/util/Map;->isEmpty()Z
+    invoke-interface {v0}, Ljava/util/Map;->isEmpty()Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_9
+    if-eqz v0, :cond_7
 
     .line 130
     :try_start_1
-    iget-object v4, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->type:Ljava/lang/Class;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->type:Ljava/lang/Class;
 
-    invoke-virtual {v4}, Ljava/lang/Class;->getDeclaredFields()[Ljava/lang/reflect/Field;
+    invoke-virtual {v0}, Ljava/lang/Class;->getDeclaredFields()[Ljava/lang/reflect/Field;
 
-    move-result-object v4
+    move-result-object v0
+
+    move v4, v3
 
     .line 131
-    .local v4, "fields":[Ljava/lang/reflect/Field;
-    const/4 v5, 0x0
+    :goto_2
+    array-length v5, v0
 
-    .local v5, "i":I
-    :goto_4
-    array-length v6, v4
-
-    if-ge v5, v6, :cond_8
+    if-ge v4, v5, :cond_7
 
     .line 132
-    aget-object v6, v4, v5
+    aget-object v5, v0, v4
 
-    invoke-virtual {v6}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
+    invoke-virtual {v5}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
 
-    move-result-object v6
+    move-result-object v5
 
-    iget-object v7, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->type:Ljava/lang/Class;
+    iget-object v6, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->type:Ljava/lang/Class;
 
-    if-ne v6, v7, :cond_6
+    if-ne v5, v6, :cond_5
 
-    move v6, v2
+    move v5, v2
 
-    goto :goto_5
+    goto :goto_3
 
-    :cond_6
-    move v6, v1
+    :cond_5
+    move v5, v3
 
-    :goto_5
-    aget-object v7, v4, v5
+    :goto_3
+    aget-object v6, v0, v4
 
-    invoke-virtual {v7}, Ljava/lang/reflect/Field;->getModifiers()I
+    invoke-virtual {v6}, Ljava/lang/reflect/Field;->getModifiers()I
 
-    move-result v7
+    move-result v6
 
-    invoke-static {v7}, Ljava/lang/reflect/Modifier;->isStatic(I)Z
+    invoke-static {v6}, Ljava/lang/reflect/Modifier;->isStatic(I)Z
 
-    move-result v7
+    move-result v6
 
-    if-ne v6, v7, :cond_7
+    if-ne v5, v6, :cond_6
 
     .line 133
-    aget-object v6, v4, v5
+    aget-object v5, v0, v4
 
     .line 134
-    invoke-static {v6, v3}, Lcom/thoughtworks/xstream/core/util/Fields;->read(Ljava/lang/reflect/Field;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v5, v1}, Lcom/thoughtworks/xstream/core/util/Fields;->read(Ljava/lang/reflect/Field;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v5
 
-    check-cast v6, Ljava/text/AttributedCharacterIterator$Attribute;
+    check-cast v5, Ljava/text/AttributedCharacterIterator$Attribute;
 
     .line 135
-    .local v6, "attribute":Ljava/text/AttributedCharacterIterator$Attribute;
-    iget-object v7, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->attributeMap:Ljava/util/Map;
+    iget-object v6, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->attributeMap:Ljava/util/Map;
 
-    invoke-virtual {p0, v6}, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->toString(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v5}, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->toString(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-interface {v7, v8, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v6, v7, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_1
     .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_3
     .catch Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException; {:try_start_1 .. :try_end_1} :catch_2
     .catch Ljava/lang/NoClassDefFoundError; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 131
-    .end local v6    # "attribute":Ljava/text/AttributedCharacterIterator$Attribute;
-    :cond_7
-    add-int/lit8 v5, v5, 0x1
+    :cond_6
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_2
+
+    .line 143
+    :catch_1
+    iget-object v0, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->attributeMap:Ljava/util/Map;
+
+    invoke-interface {v0}, Ljava/util/Map;->clear()V
 
     goto :goto_4
 
-    .end local v4    # "fields":[Ljava/lang/reflect/Field;
-    .end local v5    # "i":I
-    :cond_8
-    goto :goto_6
-
-    .line 142
-    :catch_1
-    move-exception v1
-
-    .line 143
-    .local v1, "e":Ljava/lang/NoClassDefFoundError;
-    iget-object v2, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->attributeMap:Ljava/util/Map;
-
-    invoke-interface {v2}, Ljava/util/Map;->clear()V
-
-    goto :goto_6
-
-    .line 140
-    .end local v1    # "e":Ljava/lang/NoClassDefFoundError;
-    :catch_2
-    move-exception v1
-
     .line 141
-    .local v1, "e":Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
-    iget-object v2, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->attributeMap:Ljava/util/Map;
+    :catch_2
+    iget-object v0, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->attributeMap:Ljava/util/Map;
 
-    invoke-interface {v2}, Ljava/util/Map;->clear()V
+    invoke-interface {v0}, Ljava/util/Map;->clear()V
 
-    .end local v1    # "e":Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
-    goto :goto_6
-
-    .line 138
-    :catch_3
-    move-exception v1
+    goto :goto_4
 
     .line 139
-    .local v1, "e":Ljava/lang/SecurityException;
-    iget-object v2, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->attributeMap:Ljava/util/Map;
+    :catch_3
+    iget-object v0, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->attributeMap:Ljava/util/Map;
 
-    invoke-interface {v2}, Ljava/util/Map;->clear()V
+    invoke-interface {v0}, Ljava/util/Map;->clear()V
 
     .line 146
-    .end local v1    # "e":Ljava/lang/SecurityException;
-    :cond_9
-    :goto_6
-    sget-object v1, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->instanceMaps:Ljava/util/Map;
+    :cond_7
+    :goto_4
+    sget-object v0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->instanceMaps:Ljava/util/Map;
 
-    iget-object v2, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->type:Ljava/lang/Class;
+    iget-object v1, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->type:Ljava/lang/Class;
 
-    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    iget-object v3, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->attributeMap:Ljava/util/Map;
+    iget-object v2, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->attributeMap:Ljava/util/Map;
 
-    invoke-interface {v1, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 148
-    .end local v0    # "instanceMap":Ljava/lang/reflect/Field;
-    :cond_a
+    :cond_8
     return-object p0
 .end method
 
@@ -673,35 +572,33 @@
 # virtual methods
 .method public canConvert(Ljava/lang/Class;)Z
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
 
     .line 69
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->type:Ljava/lang/Class;
 
     if-ne p1, v0, :cond_0
 
-    iget-object v0, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->attributeMap:Ljava/util/Map;
+    iget-object p1, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->attributeMap:Ljava/util/Map;
 
-    invoke-interface {v0}, Ljava/util/Map;->isEmpty()Z
+    invoke-interface {p1}, Ljava/util/Map;->isEmpty()Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public fromString(Ljava/lang/String;)Ljava/lang/Object;
     .locals 3
-    .param p1, "str"    # Ljava/lang/String;
 
     .line 98
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->attributeMap:Ljava/util/Map;
@@ -717,9 +614,9 @@
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 101
     :cond_0
@@ -730,7 +627,6 @@
     invoke-direct {v0, v1}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;)V
 
     .line 102
-    .local v0, "exception":Lcom/thoughtworks/xstream/converters/ConversionException;
     iget-object v1, p0, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->type:Ljava/lang/Class;
 
     invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -741,9 +637,9 @@
 
     invoke-virtual {v0, v2, v1}, Lcom/thoughtworks/xstream/converters/ConversionException;->add(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 103
     const-string v1, "attribute-name"
 
+    .line 103
     invoke-virtual {v0, v1, p1}, Lcom/thoughtworks/xstream/converters/ConversionException;->add(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 104
@@ -751,17 +647,14 @@
 .end method
 
 .method public toString(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
-    .param p1, "source"    # Ljava/lang/Object;
+    .locals 0
 
     .line 73
-    move-object v0, p1
+    check-cast p1, Ljava/text/AttributedCharacterIterator$Attribute;
 
-    check-cast v0, Ljava/text/AttributedCharacterIterator$Attribute;
+    invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->getName(Ljava/text/AttributedCharacterIterator$Attribute;)Ljava/lang/String;
 
-    invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/converters/reflection/AbstractAttributedCharacterIteratorAttributeConverter;->getName(Ljava/text/AttributedCharacterIterator$Attribute;)Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method

@@ -57,7 +57,6 @@
 
 .method public getSize(Lcom/bumptech/glide/request/target/SizeReadyCallback;)V
     .locals 2
-    .param p1, "cb"    # Lcom/bumptech/glide/request/target/SizeReadyCallback;
 
     .line 280
     iget v0, p0, Lcom/bumptech/glide/ListPreloader$PreloadTarget;->photoWidth:I
@@ -66,44 +65,35 @@
 
     invoke-interface {p1, v0, v1}, Lcom/bumptech/glide/request/target/SizeReadyCallback;->onSizeReady(II)V
 
-    .line 281
     return-void
 .end method
 
 .method public onDestroy()V
     .locals 0
 
-    .line 312
     return-void
 .end method
 
 .method public onLoadCleared(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .param p1, "placeholder"    # Landroid/graphics/drawable/Drawable;
 
-    .line 276
     return-void
 .end method
 
 .method public onLoadFailed(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .param p1, "errorDrawable"    # Landroid/graphics/drawable/Drawable;
 
-    .line 265
     return-void
 .end method
 
 .method public onLoadStarted(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .param p1, "placeholder"    # Landroid/graphics/drawable/Drawable;
 
-    .line 260
     return-void
 .end method
 
 .method public onResourceReady(Ljava/lang/Object;Lcom/bumptech/glide/request/transition/Transition;)V
     .locals 0
-    .param p1, "resource"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -115,40 +105,32 @@
         }
     .end annotation
 
-    .line 271
-    .local p2, "transition":Lcom/bumptech/glide/request/transition/Transition;, "Lcom/bumptech/glide/request/transition/Transition<-Ljava/lang/Object;>;"
     return-void
 .end method
 
 .method public onStart()V
     .locals 0
 
-    .line 302
     return-void
 .end method
 
 .method public onStop()V
     .locals 0
 
-    .line 307
     return-void
 .end method
 
 .method public removeCallback(Lcom/bumptech/glide/request/target/SizeReadyCallback;)V
     .locals 0
-    .param p1, "cb"    # Lcom/bumptech/glide/request/target/SizeReadyCallback;
 
-    .line 286
     return-void
 .end method
 
 .method public setRequest(Lcom/bumptech/glide/request/Request;)V
     .locals 0
-    .param p1, "request"    # Lcom/bumptech/glide/request/Request;
 
     .line 290
     iput-object p1, p0, Lcom/bumptech/glide/ListPreloader$PreloadTarget;->request:Lcom/bumptech/glide/request/Request;
 
-    .line 291
     return-void
 .end method

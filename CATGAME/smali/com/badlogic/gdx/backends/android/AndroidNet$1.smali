@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/backends/android/AndroidNet;Landroid/net/Uri;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/backends/android/AndroidNet;
 
     .line 80
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidNet$1;->this$0:Lcom/badlogic/gdx/backends/android/AndroidNet;
@@ -46,14 +45,13 @@
     .line 83
     new-instance v0, Landroid/content/Intent;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidNet$1;->val$uri:Landroid/net/Uri;
+    const-string v1, "android.intent.action.VIEW"
 
-    const-string v2, "android.intent.action.VIEW"
+    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidNet$1;->val$uri:Landroid/net/Uri;
 
-    invoke-direct {v0, v2, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+    invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
     .line 85
-    .local v0, "intent":Landroid/content/Intent;
     iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidNet$1;->this$0:Lcom/badlogic/gdx/backends/android/AndroidNet;
 
     iget-object v1, v1, Lcom/badlogic/gdx/backends/android/AndroidNet;->app:Lcom/badlogic/gdx/backends/android/AndroidApplicationBase;
@@ -66,9 +64,9 @@
 
     if-nez v1, :cond_0
 
-    .line 86
     const/high16 v1, 0x10000000
 
+    .line 86
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     .line 87
@@ -79,6 +77,5 @@
 
     invoke-interface {v1, v0}, Lcom/badlogic/gdx/backends/android/AndroidApplicationBase;->startActivity(Landroid/content/Intent;)V
 
-    .line 88
     return-void
 .end method

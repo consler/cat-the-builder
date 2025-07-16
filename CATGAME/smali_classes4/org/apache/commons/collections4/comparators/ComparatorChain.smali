@@ -46,7 +46,6 @@
     .locals 2
 
     .line 73
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/ComparatorChain;, "Lorg/apache/commons/collections4/comparators/ComparatorChain<TE;>;"
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -57,7 +56,6 @@
 
     invoke-direct {p0, v0, v1}, Lorg/apache/commons/collections4/comparators/ComparatorChain;-><init>(Ljava/util/List;Ljava/util/BitSet;)V
 
-    .line 74
     return-void
 .end method
 
@@ -71,20 +69,16 @@
         }
     .end annotation
 
-    .line 83
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/ComparatorChain;, "Lorg/apache/commons/collections4/comparators/ComparatorChain<TE;>;"
-    .local p1, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<TE;>;"
     const/4 v0, 0x0
 
+    .line 83
     invoke-direct {p0, p1, v0}, Lorg/apache/commons/collections4/comparators/ComparatorChain;-><init>(Ljava/util/Comparator;Z)V
 
-    .line 84
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Comparator;Z)V
     .locals 3
-    .param p2, "reverse"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -94,18 +88,16 @@
     .end annotation
 
     .line 93
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/ComparatorChain;, "Lorg/apache/commons/collections4/comparators/ComparatorChain<TE;>;"
-    .local p1, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 61
     const/4 v0, 0x0
 
+    .line 61
     iput-object v0, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->orderingBits:Ljava/util/BitSet;
 
-    .line 63
     const/4 v0, 0x0
 
+    .line 63
     iput-boolean v0, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->isLocked:Z
 
     .line 94
@@ -121,19 +113,17 @@
     invoke-interface {v1, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 96
-    new-instance v1, Ljava/util/BitSet;
+    new-instance p1, Ljava/util/BitSet;
 
-    invoke-direct {v1, v2}, Ljava/util/BitSet;-><init>(I)V
+    invoke-direct {p1, v2}, Ljava/util/BitSet;-><init>(I)V
 
-    iput-object v1, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->orderingBits:Ljava/util/BitSet;
+    iput-object p1, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->orderingBits:Ljava/util/BitSet;
 
-    .line 97
     if-ne p2, v2, :cond_0
 
     .line 98
-    invoke-virtual {v1, v0}, Ljava/util/BitSet;->set(I)V
+    invoke-virtual {p1, v0}, Ljava/util/BitSet;->set(I)V
 
-    .line 100
     :cond_0
     return-void
 .end method
@@ -150,8 +140,6 @@
     .end annotation
 
     .line 111
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/ComparatorChain;, "Lorg/apache/commons/collections4/comparators/ComparatorChain<TE;>;"
-    .local p1, "list":Ljava/util/List;, "Ljava/util/List<Ljava/util/Comparator<TE;>;>;"
     new-instance v0, Ljava/util/BitSet;
 
     invoke-interface {p1}, Ljava/util/List;->size()I
@@ -162,13 +150,11 @@
 
     invoke-direct {p0, p1, v0}, Lorg/apache/commons/collections4/comparators/ComparatorChain;-><init>(Ljava/util/List;Ljava/util/BitSet;)V
 
-    .line 112
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/List;Ljava/util/BitSet;)V
     .locals 1
-    .param p2, "bits"    # Ljava/util/BitSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -181,18 +167,11 @@
     .end annotation
 
     .line 129
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/ComparatorChain;, "Lorg/apache/commons/collections4/comparators/ComparatorChain<TE;>;"
-    .local p1, "list":Ljava/util/List;, "Ljava/util/List<Ljava/util/Comparator<TE;>;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 61
     const/4 v0, 0x0
-
-    iput-object v0, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->orderingBits:Ljava/util/BitSet;
 
     .line 63
-    const/4 v0, 0x0
-
     iput-boolean v0, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->isLocked:Z
 
     .line 130
@@ -201,7 +180,6 @@
     .line 131
     iput-object p2, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->orderingBits:Ljava/util/BitSet;
 
-    .line 132
     return-void
 .end method
 
@@ -209,7 +187,6 @@
     .locals 2
 
     .line 254
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/ComparatorChain;, "Lorg/apache/commons/collections4/comparators/ComparatorChain<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->comparatorChain:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -218,7 +195,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 257
     return-void
 
     .line 255
@@ -236,14 +212,12 @@
     .locals 2
 
     .line 242
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/ComparatorChain;, "Lorg/apache/commons/collections4/comparators/ComparatorChain<TE;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->isLocked:Z
 
     const/4 v1, 0x1
 
     if-eq v0, v1, :cond_0
 
-    .line 246
     return-void
 
     .line 243
@@ -269,20 +243,16 @@
         }
     .end annotation
 
-    .line 142
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/ComparatorChain;, "Lorg/apache/commons/collections4/comparators/ComparatorChain<TE;>;"
-    .local p1, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<TE;>;"
     const/4 v0, 0x0
 
+    .line 142
     invoke-virtual {p0, p1, v0}, Lorg/apache/commons/collections4/comparators/ComparatorChain;->addComparator(Ljava/util/Comparator;Z)V
 
-    .line 143
     return-void
 .end method
 
 .method public addComparator(Ljava/util/Comparator;Z)V
-    .locals 3
-    .param p2, "reverse"    # Z
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -292,8 +262,6 @@
     .end annotation
 
     .line 153
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/ComparatorChain;, "Lorg/apache/commons/collections4/comparators/ComparatorChain<TE;>;"
-    .local p1, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<TE;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/comparators/ComparatorChain;->checkLocked()V
 
     .line 155
@@ -301,31 +269,29 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 156
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, p1, :cond_0
 
     .line 157
-    iget-object v1, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->orderingBits:Ljava/util/BitSet;
+    iget-object p2, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->orderingBits:Ljava/util/BitSet;
 
-    iget-object v2, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->comparatorChain:Ljava/util/List;
+    iget-object v0, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->comparatorChain:Ljava/util/List;
 
-    invoke-interface {v2}, Ljava/util/List;->size()I
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result v0
 
-    sub-int/2addr v2, v0
+    sub-int/2addr v0, p1
 
-    invoke-virtual {v1, v2}, Ljava/util/BitSet;->set(I)V
+    invoke-virtual {p2, v0}, Ljava/util/BitSet;->set(I)V
 
-    .line 159
     :cond_0
     return-void
 .end method
 
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;TE;)I"
@@ -339,9 +305,6 @@
     .end annotation
 
     .line 271
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/ComparatorChain;, "Lorg/apache/commons/collections4/comparators/ComparatorChain<TE;>;"
-    .local p1, "o1":Ljava/lang/Object;, "TE;"
-    .local p2, "o2":Ljava/lang/Object;, "TE;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->isLocked:Z
 
     const/4 v1, 0x1
@@ -362,97 +325,77 @@
 
     move-result-object v0
 
-    .line 278
-    .local v0, "comparators":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Comparator<TE;>;>;"
     const/4 v2, 0x0
 
-    .local v2, "comparatorIndex":I
+    move v3, v2
+
+    .line 278
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_4
+    if-eqz v4, :cond_4
 
     .line 280
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Ljava/util/Comparator;
+    check-cast v4, Ljava/util/Comparator;
 
     .line 281
-    .local v3, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TE;>;"
-    invoke-interface {v3, p1, p2}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    invoke-interface {v4, p1, p2}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
     move-result v4
 
-    .line 282
-    .local v4, "retval":I
     if-eqz v4, :cond_3
 
     .line 284
-    iget-object v5, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->orderingBits:Ljava/util/BitSet;
+    iget-object p1, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->orderingBits:Ljava/util/BitSet;
 
-    invoke-virtual {v5, v2}, Ljava/util/BitSet;->get(I)Z
+    invoke-virtual {p1, v3}, Ljava/util/BitSet;->get(I)Z
 
-    move-result v5
+    move-result p1
 
-    if-ne v5, v1, :cond_2
+    if-ne p1, v1, :cond_1
 
-    .line 285
-    if-lez v4, :cond_1
+    if-lez v4, :cond_2
 
-    .line 286
-    const/4 v4, -0x1
+    const/4 v1, -0x1
 
     goto :goto_1
 
-    .line 288
     :cond_1
-    const/4 v4, 0x1
+    move v1, v4
 
-    .line 291
     :cond_2
     :goto_1
-    return v4
+    return v1
 
-    .line 278
-    .end local v3    # "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TE;>;"
-    .end local v4    # "retval":I
     :cond_3
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 296
-    .end local v2    # "comparatorIndex":I
     :cond_4
-    const/4 v1, 0x0
-
-    return v1
+    return v2
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "object"    # Ljava/lang/Object;
+    .locals 4
 
-    .line 337
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/ComparatorChain;, "Lorg/apache/commons/collections4/comparators/ComparatorChain<TE;>;"
     const/4 v0, 0x1
 
     if-ne p0, p1, :cond_0
 
-    .line 338
     return v0
 
-    .line 340
     :cond_0
     const/4 v1, 0x0
 
     if-nez p1, :cond_1
 
-    .line 341
     return v1
 
     .line 343
@@ -472,64 +415,55 @@
     if-eqz v2, :cond_5
 
     .line 344
-    move-object v2, p1
-
-    check-cast v2, Lorg/apache/commons/collections4/comparators/ComparatorChain;
+    check-cast p1, Lorg/apache/commons/collections4/comparators/ComparatorChain;
 
     .line 345
-    .local v2, "chain":Lorg/apache/commons/collections4/comparators/ComparatorChain;, "Lorg/apache/commons/collections4/comparators/ComparatorChain<*>;"
-    iget-object v3, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->orderingBits:Ljava/util/BitSet;
+    iget-object v2, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->orderingBits:Ljava/util/BitSet;
 
-    if-nez v3, :cond_2
+    if-nez v2, :cond_2
 
-    iget-object v3, v2, Lorg/apache/commons/collections4/comparators/ComparatorChain;->orderingBits:Ljava/util/BitSet;
+    iget-object v2, p1, Lorg/apache/commons/collections4/comparators/ComparatorChain;->orderingBits:Ljava/util/BitSet;
 
-    if-nez v3, :cond_4
+    if-nez v2, :cond_4
 
     goto :goto_0
 
     :cond_2
-    iget-object v4, v2, Lorg/apache/commons/collections4/comparators/ComparatorChain;->orderingBits:Ljava/util/BitSet;
+    iget-object v3, p1, Lorg/apache/commons/collections4/comparators/ComparatorChain;->orderingBits:Ljava/util/BitSet;
 
-    invoke-virtual {v3, v4}, Ljava/util/BitSet;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/util/BitSet;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_4
+    if-eqz v2, :cond_4
 
     :goto_0
-    iget-object v3, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->comparatorChain:Ljava/util/List;
+    iget-object v2, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->comparatorChain:Ljava/util/List;
 
-    if-nez v3, :cond_3
+    iget-object p1, p1, Lorg/apache/commons/collections4/comparators/ComparatorChain;->comparatorChain:Ljava/util/List;
 
-    iget-object v3, v2, Lorg/apache/commons/collections4/comparators/ComparatorChain;->comparatorChain:Ljava/util/List;
+    if-nez v2, :cond_3
 
-    if-nez v3, :cond_4
+    if-nez p1, :cond_4
 
     goto :goto_1
 
-    :cond_3
-    iget-object v4, v2, Lorg/apache/commons/collections4/comparators/ComparatorChain;->comparatorChain:Ljava/util/List;
-
     .line 347
-    invoke-interface {v3, v4}, Ljava/util/List;->equals(Ljava/lang/Object;)Z
+    :cond_3
+    invoke-interface {v2, p1}, Ljava/util/List;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result p1
 
-    if-eqz v3, :cond_4
+    if-eqz p1, :cond_4
 
-    :goto_1
-    goto :goto_2
+    goto :goto_1
 
     :cond_4
     move v0, v1
 
-    .line 345
-    :goto_2
+    :goto_1
     return v0
 
-    .line 349
-    .end local v2    # "chain":Lorg/apache/commons/collections4/comparators/ComparatorChain;, "Lorg/apache/commons/collections4/comparators/ComparatorChain<*>;"
     :cond_5
     return v1
 .end method
@@ -537,46 +471,41 @@
 .method public hashCode()I
     .locals 2
 
-    .line 309
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/ComparatorChain;, "Lorg/apache/commons/collections4/comparators/ComparatorChain<TE;>;"
-    const/4 v0, 0x0
-
     .line 310
-    .local v0, "hash":I
-    iget-object v1, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->comparatorChain:Ljava/util/List;
+    iget-object v0, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->comparatorChain:Ljava/util/List;
 
-    if-eqz v1, :cond_0
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
 
     .line 311
-    invoke-interface {v1}, Ljava/util/List;->hashCode()I
+    invoke-interface {v0}, Ljava/util/List;->hashCode()I
 
-    move-result v1
+    move-result v0
 
-    xor-int/2addr v0, v1
+    xor-int/2addr v1, v0
 
     .line 313
     :cond_0
-    iget-object v1, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->orderingBits:Ljava/util/BitSet;
+    iget-object v0, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->orderingBits:Ljava/util/BitSet;
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 314
-    invoke-virtual {v1}, Ljava/util/BitSet;->hashCode()I
+    invoke-virtual {v0}, Ljava/util/BitSet;->hashCode()I
 
-    move-result v1
+    move-result v0
 
-    xor-int/2addr v0, v1
+    xor-int/2addr v1, v0
 
-    .line 316
     :cond_1
-    return v0
+    return v1
 .end method
 
 .method public isLocked()Z
     .locals 1
 
     .line 233
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/ComparatorChain;, "Lorg/apache/commons/collections4/comparators/ComparatorChain<TE;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->isLocked:Z
 
     return v0
@@ -584,7 +513,6 @@
 
 .method public setComparator(ILjava/util/Comparator;)V
     .locals 1
-    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -599,21 +527,16 @@
         }
     .end annotation
 
-    .line 171
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/ComparatorChain;, "Lorg/apache/commons/collections4/comparators/ComparatorChain<TE;>;"
-    .local p2, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<TE;>;"
     const/4 v0, 0x0
 
+    .line 171
     invoke-virtual {p0, p1, p2, v0}, Lorg/apache/commons/collections4/comparators/ComparatorChain;->setComparator(ILjava/util/Comparator;Z)V
 
-    .line 172
     return-void
 .end method
 
 .method public setComparator(ILjava/util/Comparator;Z)V
     .locals 1
-    .param p1, "index"    # I
-    .param p3, "reverse"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -623,8 +546,6 @@
     .end annotation
 
     .line 183
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/ComparatorChain;, "Lorg/apache/commons/collections4/comparators/ComparatorChain<TE;>;"
-    .local p2, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<TE;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/comparators/ComparatorChain;->checkLocked()V
 
     .line 185
@@ -632,35 +553,31 @@
 
     invoke-interface {v0, p1, p2}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    .line 186
-    const/4 v0, 0x1
+    const/4 p2, 0x1
 
-    if-ne p3, v0, :cond_0
+    if-ne p3, p2, :cond_0
 
     .line 187
-    iget-object v0, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->orderingBits:Ljava/util/BitSet;
+    iget-object p2, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->orderingBits:Ljava/util/BitSet;
 
-    invoke-virtual {v0, p1}, Ljava/util/BitSet;->set(I)V
+    invoke-virtual {p2, p1}, Ljava/util/BitSet;->set(I)V
 
     goto :goto_0
 
     .line 189
     :cond_0
-    iget-object v0, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->orderingBits:Ljava/util/BitSet;
+    iget-object p2, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->orderingBits:Ljava/util/BitSet;
 
-    invoke-virtual {v0, p1}, Ljava/util/BitSet;->clear(I)V
+    invoke-virtual {p2, p1}, Ljava/util/BitSet;->clear(I)V
 
-    .line 191
     :goto_0
     return-void
 .end method
 
 .method public setForwardSort(I)V
     .locals 1
-    .param p1, "index"    # I
 
     .line 200
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/ComparatorChain;, "Lorg/apache/commons/collections4/comparators/ComparatorChain<TE;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/comparators/ComparatorChain;->checkLocked()V
 
     .line 201
@@ -668,16 +585,13 @@
 
     invoke-virtual {v0, p1}, Ljava/util/BitSet;->clear(I)V
 
-    .line 202
     return-void
 .end method
 
 .method public setReverseSort(I)V
     .locals 1
-    .param p1, "index"    # I
 
     .line 211
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/ComparatorChain;, "Lorg/apache/commons/collections4/comparators/ComparatorChain<TE;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/comparators/ComparatorChain;->checkLocked()V
 
     .line 212
@@ -685,7 +599,6 @@
 
     invoke-virtual {v0, p1}, Ljava/util/BitSet;->set(I)V
 
-    .line 213
     return-void
 .end method
 
@@ -693,7 +606,6 @@
     .locals 1
 
     .line 221
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/ComparatorChain;, "Lorg/apache/commons/collections4/comparators/ComparatorChain<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/comparators/ComparatorChain;->comparatorChain:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I

@@ -26,10 +26,8 @@
     .end annotation
 
     .line 15
-    .local p1, "realFactory":Lcom/bumptech/glide/request/transition/TransitionFactory;, "Lcom/bumptech/glide/request/transition/TransitionFactory<Landroid/graphics/drawable/Drawable;>;"
     invoke-direct {p0, p1}, Lcom/bumptech/glide/request/transition/BitmapContainerTransitionFactory;-><init>(Lcom/bumptech/glide/request/transition/TransitionFactory;)V
 
-    .line 16
     return-void
 .end method
 
@@ -37,9 +35,7 @@
 # virtual methods
 .method protected getBitmap(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
     .locals 0
-    .param p1, "current"    # Landroid/graphics/Bitmap;
 
-    .line 21
     return-object p1
 .end method
 

@@ -45,17 +45,11 @@
     .line 1081
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1082
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g2d/BitmapFont;Lcom/badlogic/gdx/graphics/Color;Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;)V
     .locals 0
-    .param p1, "font"    # Lcom/badlogic/gdx/graphics/g2d/BitmapFont;
-    .param p2, "fontColor"    # Lcom/badlogic/gdx/graphics/Color;
-    .param p3, "cursor"    # Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
-    .param p4, "selection"    # Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
-    .param p5, "background"    # Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
     .line 1084
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -75,13 +69,11 @@
     .line 1089
     iput-object p4, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TextField$TextFieldStyle;->selection:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
-    .line 1090
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/TextField$TextFieldStyle;)V
     .locals 2
-    .param p1, "style"    # Lcom/badlogic/gdx/scenes/scene2d/ui/TextField$TextFieldStyle;
 
     .line 1092
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -173,10 +165,9 @@
 
     .line 1103
     :cond_3
-    iget-object v0, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/TextField$TextFieldStyle;->selection:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
+    iget-object p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/TextField$TextFieldStyle;->selection:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
-    iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TextField$TextFieldStyle;->selection:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
+    iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TextField$TextFieldStyle;->selection:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
-    .line 1104
     return-void
 .end method

@@ -13,7 +13,6 @@
 # direct methods
 .method public varargs constructor <init>([Lcom/badlogic/gdx/graphics/TextureData;)V
     .locals 3
-    .param p1, "mipMapData"    # [Lcom/badlogic/gdx/graphics/TextureData;
 
     .line 15
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,14 +24,13 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/MipMapTextureData;->mips:[Lcom/badlogic/gdx/graphics/TextureData;
 
+    const/4 v1, 0x0
+
     .line 17
-    array-length v1, p1
+    array-length v2, p1
 
-    const/4 v2, 0x0
+    invoke-static {p1, v1, v0, v1, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    invoke-static {p1, v2, v0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    .line 18
     return-void
 .end method
 
@@ -40,12 +38,10 @@
 # virtual methods
 .method public consumeCustomData(I)V
     .locals 3
-    .param p1, "target"    # I
 
-    .line 45
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 45
     :goto_0
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/MipMapTextureData;->mips:[Lcom/badlogic/gdx/graphics/TextureData;
 
@@ -58,13 +54,10 @@
 
     invoke-static {p1, v1, v0}, Lcom/badlogic/gdx/graphics/GLTexture;->uploadImageData(ILcom/badlogic/gdx/graphics/TextureData;I)V
 
-    .line 45
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 48
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
@@ -85,7 +78,6 @@
 .method public disposePixmap()Z
     .locals 1
 
-    .line 40
     const/4 v0, 0x0
 
     return v0
@@ -154,7 +146,6 @@
 .method public isManaged()Z
     .locals 1
 
-    .line 72
     const/4 v0, 0x1
 
     return v0
@@ -163,7 +154,6 @@
 .method public isPrepared()Z
     .locals 1
 
-    .line 27
     const/4 v0, 0x1
 
     return v0
@@ -172,14 +162,12 @@
 .method public prepare()V
     .locals 0
 
-    .line 31
     return-void
 .end method
 
 .method public useMipMaps()Z
     .locals 1
 
-    .line 67
     const/4 v0, 0x0
 
     return v0

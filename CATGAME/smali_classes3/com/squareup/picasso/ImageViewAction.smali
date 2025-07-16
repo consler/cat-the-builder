@@ -20,19 +20,7 @@
 # direct methods
 .method constructor <init>(Lcom/squareup/picasso/Picasso;Landroid/widget/ImageView;Lcom/squareup/picasso/Request;IIILandroid/graphics/drawable/Drawable;Ljava/lang/String;Ljava/lang/Object;Lcom/squareup/picasso/Callback;Z)V
     .locals 11
-    .param p1, "picasso"    # Lcom/squareup/picasso/Picasso;
-    .param p2, "imageView"    # Landroid/widget/ImageView;
-    .param p3, "data"    # Lcom/squareup/picasso/Request;
-    .param p4, "memoryPolicy"    # I
-    .param p5, "networkPolicy"    # I
-    .param p6, "errorResId"    # I
-    .param p7, "errorDrawable"    # Landroid/graphics/drawable/Drawable;
-    .param p8, "key"    # Ljava/lang/String;
-    .param p9, "tag"    # Ljava/lang/Object;
-    .param p10, "callback"    # Lcom/squareup/picasso/Callback;
-    .param p11, "noFade"    # Z
 
-    .line 31
     move-object v0, p0
 
     move-object v1, p1
@@ -55,14 +43,14 @@
 
     move/from16 v10, p11
 
+    .line 31
     invoke-direct/range {v0 .. v10}, Lcom/squareup/picasso/Action;-><init>(Lcom/squareup/picasso/Picasso;Ljava/lang/Object;Lcom/squareup/picasso/Request;IIILandroid/graphics/drawable/Drawable;Ljava/lang/String;Ljava/lang/Object;Z)V
 
-    .line 33
     move-object/from16 v1, p10
 
+    .line 33
     iput-object v1, v0, Lcom/squareup/picasso/ImageViewAction;->callback:Lcom/squareup/picasso/Callback;
 
-    .line 34
     return-void
 .end method
 
@@ -79,22 +67,18 @@
 
     if-eqz v0, :cond_0
 
-    .line 79
     const/4 v0, 0x0
 
+    .line 79
     iput-object v0, p0, Lcom/squareup/picasso/ImageViewAction;->callback:Lcom/squareup/picasso/Callback;
 
-    .line 81
     :cond_0
     return-void
 .end method
 
 .method public complete(Landroid/graphics/Bitmap;Lcom/squareup/picasso/Picasso$LoadedFrom;)V
-    .locals 9
-    .param p1, "result"    # Landroid/graphics/Bitmap;
-    .param p2, "from"    # Lcom/squareup/picasso/Picasso$LoadedFrom;
+    .locals 7
 
-    .line 37
     if-eqz p1, :cond_2
 
     .line 42
@@ -104,85 +88,71 @@
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/ImageView;
+    move-object v1, v0
 
-    .line 43
-    .local v0, "target":Landroid/widget/ImageView;
-    if-nez v0, :cond_0
+    check-cast v1, Landroid/widget/ImageView;
 
-    .line 44
+    if-nez v1, :cond_0
+
     return-void
 
     .line 47
     :cond_0
-    iget-object v1, p0, Lcom/squareup/picasso/ImageViewAction;->picasso:Lcom/squareup/picasso/Picasso;
+    iget-object v0, p0, Lcom/squareup/picasso/ImageViewAction;->picasso:Lcom/squareup/picasso/Picasso;
 
-    iget-object v7, v1, Lcom/squareup/picasso/Picasso;->context:Landroid/content/Context;
+    iget-object v2, v0, Lcom/squareup/picasso/Picasso;->context:Landroid/content/Context;
 
     .line 48
-    .local v7, "context":Landroid/content/Context;
-    iget-object v1, p0, Lcom/squareup/picasso/ImageViewAction;->picasso:Lcom/squareup/picasso/Picasso;
+    iget-object v0, p0, Lcom/squareup/picasso/ImageViewAction;->picasso:Lcom/squareup/picasso/Picasso;
 
-    iget-boolean v8, v1, Lcom/squareup/picasso/Picasso;->indicatorsEnabled:Z
+    iget-boolean v6, v0, Lcom/squareup/picasso/Picasso;->indicatorsEnabled:Z
 
     .line 49
-    .local v8, "indicatorsEnabled":Z
     iget-boolean v5, p0, Lcom/squareup/picasso/ImageViewAction;->noFade:Z
-
-    move-object v1, v0
-
-    move-object v2, v7
 
     move-object v3, p1
 
     move-object v4, p2
 
-    move v6, v8
-
     invoke-static/range {v1 .. v6}, Lcom/squareup/picasso/PicassoDrawable;->setBitmap(Landroid/widget/ImageView;Landroid/content/Context;Landroid/graphics/Bitmap;Lcom/squareup/picasso/Picasso$LoadedFrom;ZZ)V
 
     .line 51
-    iget-object v1, p0, Lcom/squareup/picasso/ImageViewAction;->callback:Lcom/squareup/picasso/Callback;
+    iget-object p1, p0, Lcom/squareup/picasso/ImageViewAction;->callback:Lcom/squareup/picasso/Callback;
 
-    if-eqz v1, :cond_1
+    if-eqz p1, :cond_1
 
     .line 52
-    invoke-interface {v1}, Lcom/squareup/picasso/Callback;->onSuccess()V
+    invoke-interface {p1}, Lcom/squareup/picasso/Callback;->onSuccess()V
 
-    .line 54
     :cond_1
     return-void
 
     .line 38
-    .end local v0    # "target":Landroid/widget/ImageView;
-    .end local v7    # "context":Landroid/content/Context;
-    .end local v8    # "indicatorsEnabled":Z
     :cond_2
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    const/4 v1, 0x1
+    const/4 p2, 0x1
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array p2, p2, [Ljava/lang/Object;
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    aput-object p0, v1, v2
+    aput-object p0, p2, v0
+
+    const-string v0, "Attempted to complete action with no result!\n%s"
 
     .line 39
-    const-string v2, "Attempted to complete action with no result!\n%s"
+    invoke-static {v0, p2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v2, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object p2
 
-    move-result-object v1
+    invoke-direct {p1, p2}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
-    invoke-direct {v0, v1}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
-
-    throw v0
+    throw p1
 .end method
 
 .method public error(Ljava/lang/Exception;)V
     .locals 3
-    .param p1, "e"    # Ljava/lang/Exception;
 
     .line 57
     iget-object v0, p0, Lcom/squareup/picasso/ImageViewAction;->target:Ljava/lang/ref/WeakReference;
@@ -193,11 +163,8 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    .line 58
-    .local v0, "target":Landroid/widget/ImageView;
     if-nez v0, :cond_0
 
-    .line 59
     return-void
 
     .line 61
@@ -207,53 +174,49 @@
     move-result-object v1
 
     .line 62
-    .local v1, "placeholder":Landroid/graphics/drawable/Drawable;
     instance-of v2, v1, Landroid/graphics/drawable/Animatable;
 
     if-eqz v2, :cond_1
 
     .line 63
-    move-object v2, v1
+    check-cast v1, Landroid/graphics/drawable/Animatable;
 
-    check-cast v2, Landroid/graphics/drawable/Animatable;
-
-    invoke-interface {v2}, Landroid/graphics/drawable/Animatable;->stop()V
+    invoke-interface {v1}, Landroid/graphics/drawable/Animatable;->stop()V
 
     .line 65
     :cond_1
-    iget v2, p0, Lcom/squareup/picasso/ImageViewAction;->errorResId:I
+    iget v1, p0, Lcom/squareup/picasso/ImageViewAction;->errorResId:I
 
-    if-eqz v2, :cond_2
+    if-eqz v1, :cond_2
 
     .line 66
-    iget v2, p0, Lcom/squareup/picasso/ImageViewAction;->errorResId:I
+    iget v1, p0, Lcom/squareup/picasso/ImageViewAction;->errorResId:I
 
-    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setImageResource(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
     goto :goto_0
 
     .line 67
     :cond_2
-    iget-object v2, p0, Lcom/squareup/picasso/ImageViewAction;->errorDrawable:Landroid/graphics/drawable/Drawable;
+    iget-object v1, p0, Lcom/squareup/picasso/ImageViewAction;->errorDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v2, :cond_3
+    if-eqz v1, :cond_3
 
     .line 68
-    iget-object v2, p0, Lcom/squareup/picasso/ImageViewAction;->errorDrawable:Landroid/graphics/drawable/Drawable;
+    iget-object v1, p0, Lcom/squareup/picasso/ImageViewAction;->errorDrawable:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 71
     :cond_3
     :goto_0
-    iget-object v2, p0, Lcom/squareup/picasso/ImageViewAction;->callback:Lcom/squareup/picasso/Callback;
+    iget-object v0, p0, Lcom/squareup/picasso/ImageViewAction;->callback:Lcom/squareup/picasso/Callback;
 
-    if-eqz v2, :cond_4
+    if-eqz v0, :cond_4
 
     .line 72
-    invoke-interface {v2, p1}, Lcom/squareup/picasso/Callback;->onError(Ljava/lang/Exception;)V
+    invoke-interface {v0, p1}, Lcom/squareup/picasso/Callback;->onError(Ljava/lang/Exception;)V
 
-    .line 74
     :cond_4
     return-void
 .end method

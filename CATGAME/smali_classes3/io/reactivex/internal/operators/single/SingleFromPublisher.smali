@@ -44,14 +44,11 @@
     .end annotation
 
     .line 29
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleFromPublisher;, "Lio/reactivex/internal/operators/single/SingleFromPublisher<TT;>;"
-    .local p1, "publisher":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 30
     iput-object p1, p0, Lio/reactivex/internal/operators/single/SingleFromPublisher;->publisher:Lorg/reactivestreams/Publisher;
 
-    .line 31
     return-void
 .end method
 
@@ -68,8 +65,6 @@
     .end annotation
 
     .line 35
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleFromPublisher;, "Lio/reactivex/internal/operators/single/SingleFromPublisher<TT;>;"
-    .local p1, "s":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleFromPublisher;->publisher:Lorg/reactivestreams/Publisher;
 
     new-instance v1, Lio/reactivex/internal/operators/single/SingleFromPublisher$ToSingleObserver;
@@ -78,6 +73,5 @@
 
     invoke-interface {v0, v1}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
 
-    .line 36
     return-void
 .end method

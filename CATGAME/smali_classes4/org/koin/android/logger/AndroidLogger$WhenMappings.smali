@@ -46,8 +46,6 @@
 
     aput v2, v0, v1
 
-    sget-object v0, Lorg/koin/android/logger/AndroidLogger$WhenMappings;->$EnumSwitchMapping$0:[I
-
     sget-object v1, Lorg/koin/core/logger/Level;->INFO:Lorg/koin/core/logger/Level;
 
     invoke-virtual {v1}, Lorg/koin/core/logger/Level;->ordinal()I
@@ -57,8 +55,6 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-
-    sget-object v0, Lorg/koin/android/logger/AndroidLogger$WhenMappings;->$EnumSwitchMapping$0:[I
 
     sget-object v1, Lorg/koin/core/logger/Level;->ERROR:Lorg/koin/core/logger/Level;
 

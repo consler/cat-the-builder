@@ -16,11 +16,11 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 37
     const/16 v0, 0x10
 
     new-array v0, v0, [C
 
+    .line 37
     fill-array-data v0, :array_0
 
     sput-object v0, Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;->HEX_DIGITS:[C
@@ -58,21 +58,20 @@
 .end method
 
 .method public static hex(I)Ljava/lang/String;
-    .locals 2
-    .param p0, "codepoint"    # I
+    .locals 1
 
     .line 136
     invoke-static {p0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    sget-object v1, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+    sget-object v0, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 
@@ -87,15 +86,12 @@
 
 .method public final translate(Ljava/lang/CharSequence;)Ljava/lang/String;
     .locals 2
-    .param p1, "input"    # Ljava/lang/CharSequence;
 
-    .line 59
     if-nez p1, :cond_0
 
-    .line 60
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 
     .line 63
     :cond_0
@@ -111,172 +107,138 @@
     invoke-direct {v0, v1}, Ljava/io/StringWriter;-><init>(I)V
 
     .line 64
-    .local v0, "writer":Ljava/io/StringWriter;
     invoke-virtual {p0, p1, v0}, Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;->translate(Ljava/lang/CharSequence;Ljava/io/Writer;)V
 
     .line 65
     invoke-virtual {v0}, Ljava/io/StringWriter;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v1
+    return-object p1
 
-    .line 66
-    .end local v0    # "writer":Ljava/io/StringWriter;
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 68
-    .local v0, "ioe":Ljava/io/IOException;
-    new-instance v1, Ljava/lang/RuntimeException;
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public final translate(Ljava/lang/CharSequence;Ljava/io/Writer;)V
     .locals 6
-    .param p1, "input"    # Ljava/lang/CharSequence;
-    .param p2, "out"    # Ljava/io/Writer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 81
-    if-eqz p2, :cond_6
+    if-eqz p2, :cond_4
 
-    .line 84
     if-nez p1, :cond_0
 
-    .line 85
     return-void
 
-    .line 87
-    :cond_0
-    const/4 v0, 0x0
-
     .line 88
-    .local v0, "pos":I
+    :cond_0
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
-    move-result v1
+    move-result v0
 
-    .line 89
-    .local v1, "len":I
+    const/4 v1, 0x0
+
+    move v2, v1
+
     :cond_1
     :goto_0
-    if-ge v0, v1, :cond_5
+    if-ge v2, v0, :cond_3
 
     .line 90
-    invoke-virtual {p0, p1, v0, p2}, Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;->translate(Ljava/lang/CharSequence;ILjava/io/Writer;)I
+    invoke-virtual {p0, p1, v2, p2}, Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;->translate(Ljava/lang/CharSequence;ILjava/io/Writer;)I
 
-    move-result v2
+    move-result v3
 
-    .line 91
-    .local v2, "consumed":I
-    if-nez v2, :cond_3
+    if-nez v3, :cond_2
 
     .line 94
-    invoke-interface {p1, v0}, Ljava/lang/CharSequence;->charAt(I)C
+    invoke-interface {p1, v2}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v3
 
     .line 95
-    .local v3, "c1":C
     invoke-virtual {p2, v3}, Ljava/io/Writer;->write(I)V
 
-    .line 96
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     .line 97
     invoke-static {v3}, Ljava/lang/Character;->isHighSurrogate(C)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    if-ge v2, v0, :cond_1
+
+    .line 98
+    invoke-interface {p1, v2}, Ljava/lang/CharSequence;->charAt(I)C
+
+    move-result v3
+
+    .line 99
+    invoke-static {v3}, Ljava/lang/Character;->isLowSurrogate(C)Z
 
     move-result v4
 
     if-eqz v4, :cond_1
 
-    if-ge v0, v1, :cond_1
+    .line 100
+    invoke-virtual {p2, v3}, Ljava/io/Writer;->write(I)V
 
-    .line 98
-    invoke-interface {p1, v0}, Ljava/lang/CharSequence;->charAt(I)C
+    add-int/lit8 v2, v2, 0x1
 
-    move-result v4
+    goto :goto_0
 
-    .line 99
-    .local v4, "c2":C
-    invoke-static {v4}, Ljava/lang/Character;->isLowSurrogate(C)Z
+    :cond_2
+    move v4, v1
+
+    :goto_1
+    if-ge v4, v3, :cond_1
+
+    .line 109
+    invoke-static {p1, v2}, Ljava/lang/Character;->codePointAt(Ljava/lang/CharSequence;I)I
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    invoke-static {v5}, Ljava/lang/Character;->charCount(I)I
 
-    .line 100
-    invoke-virtual {p2, v4}, Ljava/io/Writer;->write(I)V
+    move-result v5
 
-    .line 101
-    add-int/lit8 v0, v0, 0x1
+    add-int/2addr v2, v5
 
-    .line 103
-    .end local v4    # "c2":C
-    :cond_2
-    goto :goto_0
-
-    .line 108
-    .end local v3    # "c1":C
-    :cond_3
-    const/4 v3, 0x0
-
-    .local v3, "pt":I
-    :goto_1
-    if-ge v3, v2, :cond_4
-
-    .line 109
-    invoke-static {p1, v0}, Ljava/lang/Character;->codePointAt(Ljava/lang/CharSequence;I)I
-
-    move-result v4
-
-    invoke-static {v4}, Ljava/lang/Character;->charCount(I)I
-
-    move-result v4
-
-    add-int/2addr v0, v4
-
-    .line 108
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_1
 
-    .line 111
-    .end local v2    # "consumed":I
-    .end local v3    # "pt":I
-    :cond_4
-    goto :goto_0
-
-    .line 112
-    :cond_5
+    :cond_3
     return-void
 
     .line 82
-    .end local v0    # "pos":I
-    .end local v1    # "len":I
-    :cond_6
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    :cond_4
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "The Writer must not be null"
+    const-string p2, "The Writer must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public final varargs with([Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;)Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;
     .locals 4
-    .param p1, "translators"    # [Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;
 
     .line 122
     array-length v0, p1
@@ -287,10 +249,9 @@
 
     new-array v0, v0, [Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;
 
-    .line 123
-    .local v0, "newArray":[Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;
     const/4 v2, 0x0
 
+    .line 123
     aput-object p0, v0, v2
 
     .line 124
@@ -299,9 +260,9 @@
     invoke-static {p1, v2, v0, v1, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 125
-    new-instance v1, Lorg/apache/commons/lang3/text/translate/AggregateTranslator;
+    new-instance p1, Lorg/apache/commons/lang3/text/translate/AggregateTranslator;
 
-    invoke-direct {v1, v0}, Lorg/apache/commons/lang3/text/translate/AggregateTranslator;-><init>([Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;)V
+    invoke-direct {p1, v0}, Lorg/apache/commons/lang3/text/translate/AggregateTranslator;-><init>([Lorg/apache/commons/lang3/text/translate/CharSequenceTranslator;)V
 
-    return-object v1
+    return-object p1
 .end method

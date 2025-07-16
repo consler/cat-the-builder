@@ -36,7 +36,6 @@
     .end annotation
 
     .line 44
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<Lcom/google/crypto/tink/PublicKeyVerify;>;"
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;-><init>(Ljava/lang/Class;)V
 
     return-void
@@ -45,8 +44,7 @@
 
 # virtual methods
 .method public getPrimitive(Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey;)Lcom/google/crypto/tink/PublicKeyVerify;
-    .locals 9
-    .param p1, "keyProto"    # Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey;
+    .locals 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -74,7 +72,6 @@
     check-cast v0, Ljava/security/KeyFactory;
 
     .line 49
-    .local v0, "kf":Ljava/security/KeyFactory;
     new-instance v1, Ljava/math/BigInteger;
 
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey;->getN()Lcom/google/crypto/tink/shaded/protobuf/ByteString;
@@ -90,7 +87,6 @@
     invoke-direct {v1, v3, v2}, Ljava/math/BigInteger;-><init>(I[B)V
 
     .line 50
-    .local v1, "modulus":Ljava/math/BigInteger;
     new-instance v2, Ljava/math/BigInteger;
 
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey;->getE()Lcom/google/crypto/tink/shaded/protobuf/ByteString;
@@ -104,7 +100,6 @@
     invoke-direct {v2, v3, v4}, Ljava/math/BigInteger;-><init>(I[B)V
 
     .line 51
-    .local v2, "exponent":Ljava/math/BigInteger;
     new-instance v3, Ljava/security/spec/RSAPublicKeySpec;
 
     invoke-direct {v3, v1, v2}, Ljava/security/spec/RSAPublicKeySpec;-><init>(Ljava/math/BigInteger;Ljava/math/BigInteger;)V
@@ -112,47 +107,44 @@
     .line 52
     invoke-virtual {v0, v3}, Ljava/security/KeyFactory;->generatePublic(Ljava/security/spec/KeySpec;)Ljava/security/PublicKey;
 
-    move-result-object v3
+    move-result-object v0
 
-    check-cast v3, Ljava/security/interfaces/RSAPublicKey;
+    check-cast v0, Ljava/security/interfaces/RSAPublicKey;
 
     .line 53
-    .local v3, "publicKey":Ljava/security/interfaces/RSAPublicKey;
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey;->getParams()Lcom/google/crypto/tink/proto/RsaSsaPssParams;
 
-    move-result-object v4
+    move-result-object p1
 
     .line 54
-    .local v4, "params":Lcom/google/crypto/tink/proto/RsaSsaPssParams;
-    new-instance v5, Lcom/google/crypto/tink/subtle/RsaSsaPssVerifyJce;
+    new-instance v1, Lcom/google/crypto/tink/subtle/RsaSsaPssVerifyJce;
 
     .line 56
-    invoke-virtual {v4}, Lcom/google/crypto/tink/proto/RsaSsaPssParams;->getSigHash()Lcom/google/crypto/tink/proto/HashType;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/RsaSsaPssParams;->getSigHash()Lcom/google/crypto/tink/proto/HashType;
 
-    move-result-object v6
+    move-result-object v2
 
-    invoke-static {v6}, Lcom/google/crypto/tink/signature/SigUtil;->toHashType(Lcom/google/crypto/tink/proto/HashType;)Lcom/google/crypto/tink/subtle/Enums$HashType;
+    invoke-static {v2}, Lcom/google/crypto/tink/signature/SigUtil;->toHashType(Lcom/google/crypto/tink/proto/HashType;)Lcom/google/crypto/tink/subtle/Enums$HashType;
 
-    move-result-object v6
+    move-result-object v2
 
     .line 57
-    invoke-virtual {v4}, Lcom/google/crypto/tink/proto/RsaSsaPssParams;->getMgf1Hash()Lcom/google/crypto/tink/proto/HashType;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/RsaSsaPssParams;->getMgf1Hash()Lcom/google/crypto/tink/proto/HashType;
 
-    move-result-object v7
+    move-result-object v3
 
-    invoke-static {v7}, Lcom/google/crypto/tink/signature/SigUtil;->toHashType(Lcom/google/crypto/tink/proto/HashType;)Lcom/google/crypto/tink/subtle/Enums$HashType;
+    invoke-static {v3}, Lcom/google/crypto/tink/signature/SigUtil;->toHashType(Lcom/google/crypto/tink/proto/HashType;)Lcom/google/crypto/tink/subtle/Enums$HashType;
 
-    move-result-object v7
+    move-result-object v3
 
     .line 58
-    invoke-virtual {v4}, Lcom/google/crypto/tink/proto/RsaSsaPssParams;->getSaltLength()I
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/RsaSsaPssParams;->getSaltLength()I
 
-    move-result v8
+    move-result p1
 
-    invoke-direct {v5, v3, v6, v7, v8}, Lcom/google/crypto/tink/subtle/RsaSsaPssVerifyJce;-><init>(Ljava/security/interfaces/RSAPublicKey;Lcom/google/crypto/tink/subtle/Enums$HashType;Lcom/google/crypto/tink/subtle/Enums$HashType;I)V
+    invoke-direct {v1, v0, v2, v3, p1}, Lcom/google/crypto/tink/subtle/RsaSsaPssVerifyJce;-><init>(Ljava/security/interfaces/RSAPublicKey;Lcom/google/crypto/tink/subtle/Enums$HashType;Lcom/google/crypto/tink/subtle/Enums$HashType;I)V
 
-    .line 54
-    return-object v5
+    return-object v1
 .end method
 
 .method public bridge synthetic getPrimitive(Ljava/lang/Object;)Ljava/lang/Object;

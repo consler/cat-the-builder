@@ -29,12 +29,9 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .line 55
-    nop
-
-    .line 56
     const-wide v0, 0x4041800000000000L    # 35.0
 
+    .line 56
     invoke-static {v0, v1}, Ljava/lang/Math;->toRadians(D)D
 
     move-result-wide v0
@@ -47,7 +44,6 @@
 
     sput v0, Landroidx/transition/ArcMotion;->DEFAULT_MAX_TANGENT:F
 
-    .line 55
     return-void
 .end method
 
@@ -57,17 +53,17 @@
     .line 65
     invoke-direct {p0}, Landroidx/transition/PathMotion;-><init>()V
 
-    .line 58
     const/4 v0, 0x0
 
+    .line 58
     iput v0, p0, Landroidx/transition/ArcMotion;->mMinimumHorizontalAngle:F
 
     .line 59
     iput v0, p0, Landroidx/transition/ArcMotion;->mMinimumVerticalAngle:F
 
-    .line 60
     const/high16 v1, 0x428c0000    # 70.0f
 
+    .line 60
     iput v1, p0, Landroidx/transition/ArcMotion;->mMaximumAngle:F
 
     .line 61
@@ -81,29 +77,26 @@
 
     iput v0, p0, Landroidx/transition/ArcMotion;->mMaximumTangent:F
 
-    .line 66
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 7
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .locals 4
 
     .line 71
     invoke-direct {p0, p1, p2}, Landroidx/transition/PathMotion;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 58
     const/4 v0, 0x0
 
+    .line 58
     iput v0, p0, Landroidx/transition/ArcMotion;->mMinimumHorizontalAngle:F
 
     .line 59
     iput v0, p0, Landroidx/transition/ArcMotion;->mMinimumVerticalAngle:F
 
-    .line 60
     const/high16 v1, 0x428c0000    # 70.0f
 
+    .line 60
     iput v1, p0, Landroidx/transition/ArcMotion;->mMaximumAngle:F
 
     .line 61
@@ -122,66 +115,56 @@
 
     invoke-virtual {p1, p2, v2}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
-    move-result-object v2
+    move-result-object p1
 
     .line 73
-    .local v2, "a":Landroid/content/res/TypedArray;
-    move-object v3, p2
+    check-cast p2, Lorg/xmlpull/v1/XmlPullParser;
 
-    check-cast v3, Lorg/xmlpull/v1/XmlPullParser;
+    const-string v2, "minimumVerticalAngle"
+
+    const/4 v3, 0x1
 
     .line 74
-    .local v3, "parser":Lorg/xmlpull/v1/XmlPullParser;
-    const-string v4, "minimumVerticalAngle"
+    invoke-static {p1, p2, v2, v3, v0}, Landroidx/core/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
 
-    const/4 v5, 0x1
-
-    invoke-static {v2, v3, v4, v5, v0}, Landroidx/core/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
-
-    move-result v4
+    move-result v2
 
     .line 77
-    .local v4, "minimumVerticalAngle":F
-    invoke-virtual {p0, v4}, Landroidx/transition/ArcMotion;->setMinimumVerticalAngle(F)V
+    invoke-virtual {p0, v2}, Landroidx/transition/ArcMotion;->setMinimumVerticalAngle(F)V
+
+    const-string v2, "minimumHorizontalAngle"
+
+    const/4 v3, 0x0
 
     .line 78
-    const-string v5, "minimumHorizontalAngle"
-
-    const/4 v6, 0x0
-
-    invoke-static {v2, v3, v5, v6, v0}, Landroidx/core/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
+    invoke-static {p1, p2, v2, v3, v0}, Landroidx/core/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
 
     move-result v0
 
     .line 81
-    .local v0, "minimumHorizontalAngle":F
     invoke-virtual {p0, v0}, Landroidx/transition/ArcMotion;->setMinimumHorizontalAngle(F)V
 
+    const-string v0, "maximumAngle"
+
+    const/4 v2, 0x2
+
     .line 82
-    const-string v5, "maximumAngle"
+    invoke-static {p1, p2, v0, v2, v1}, Landroidx/core/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
 
-    const/4 v6, 0x2
-
-    invoke-static {v2, v3, v5, v6, v1}, Landroidx/core/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
-
-    move-result v1
+    move-result p2
 
     .line 84
-    .local v1, "maximumAngle":F
-    invoke-virtual {p0, v1}, Landroidx/transition/ArcMotion;->setMaximumAngle(F)V
+    invoke-virtual {p0, p2}, Landroidx/transition/ArcMotion;->setMaximumAngle(F)V
 
     .line 85
-    invoke-virtual {v2}, Landroid/content/res/TypedArray;->recycle()V
+    invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 86
     return-void
 .end method
 
 .method private static toTangent(F)F
     .locals 2
-    .param p0, "arcInDegrees"    # F
 
-    .line 177
     const/4 v0, 0x0
 
     cmpg-float v0, p0, v0
@@ -194,13 +177,13 @@
 
     if-gtz v0, :cond_0
 
-    .line 180
     const/high16 v0, 0x40000000    # 2.0f
 
-    div-float v0, p0, v0
+    div-float/2addr p0, v0
 
-    float-to-double v0, v0
+    float-to-double v0, p0
 
+    .line 180
     invoke-static {v0, v1}, Ljava/lang/Math;->toRadians(D)D
 
     move-result-wide v0
@@ -209,19 +192,19 @@
 
     move-result-wide v0
 
-    double-to-float v0, v0
+    double-to-float p0, v0
 
-    return v0
+    return p0
 
     .line 178
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Arc must be between 0 and 90 degrees"
+    const-string v0, "Arc must be between 0 and 90 degrees"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
@@ -254,365 +237,222 @@
 .end method
 
 .method public getPath(FFFF)Landroid/graphics/Path;
-    .locals 31
-    .param p1, "startX"    # F
-    .param p2, "startY"    # F
-    .param p3, "endX"    # F
-    .param p4, "endY"    # F
+    .locals 11
 
     .line 201
-    move-object/from16 v0, p0
+    new-instance v7, Landroid/graphics/Path;
 
-    move/from16 v1, p1
-
-    move/from16 v2, p2
-
-    new-instance v3, Landroid/graphics/Path;
-
-    invoke-direct {v3}, Landroid/graphics/Path;-><init>()V
-
-    move-object v10, v3
+    invoke-direct {v7}, Landroid/graphics/Path;-><init>()V
 
     .line 202
-    .local v10, "path":Landroid/graphics/Path;
-    invoke-virtual {v10, v1, v2}, Landroid/graphics/Path;->moveTo(FF)V
+    invoke-virtual {v7, p1, p2}, Landroid/graphics/Path;->moveTo(FF)V
 
-    .line 206
-    sub-float v11, p3, v1
+    sub-float v0, p3, p1
 
-    .line 207
-    .local v11, "deltaX":F
-    sub-float v12, p4, v2
+    sub-float v1, p4, p2
 
-    .line 210
-    .local v12, "deltaY":F
-    mul-float v3, v11, v11
+    mul-float v2, v0, v0
 
-    mul-float v4, v12, v12
+    mul-float v3, v1, v1
 
-    add-float v13, v3, v4
+    add-float/2addr v2, v3
 
-    .line 213
-    .local v13, "h2":F
-    add-float v3, v1, p3
+    add-float v3, p1, p3
 
     const/high16 v4, 0x40000000    # 2.0f
 
-    div-float v14, v3, v4
+    div-float/2addr v3, v4
 
-    .line 214
-    .local v14, "dx":F
-    add-float v3, v2, p4
+    add-float v5, p2, p4
 
-    div-float v15, v3, v4
+    div-float/2addr v5, v4
 
-    .line 217
-    .local v15, "dy":F
-    const/high16 v3, 0x3e800000    # 0.25f
+    const/high16 v6, 0x3e800000    # 0.25f
 
-    mul-float v16, v13, v3
+    mul-float/2addr v6, v2
 
-    .line 221
-    .local v16, "midDist2":F
-    cmpl-float v3, v2, p4
+    cmpl-float v8, p2, p4
 
-    if-lez v3, :cond_0
+    if-lez v8, :cond_0
 
-    const/4 v3, 0x1
+    const/4 v8, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v3, 0x0
-
-    :goto_0
-    move/from16 v17, v3
+    const/4 v8, 0x0
 
     .line 223
-    .local v17, "isMovingUpwards":Z
-    invoke-static {v11}, Ljava/lang/Math;->abs(F)F
+    :goto_0
+    invoke-static {v0}, Ljava/lang/Math;->abs(F)F
 
-    move-result v3
+    move-result v9
 
-    invoke-static {v12}, Ljava/lang/Math;->abs(F)F
+    invoke-static {v1}, Ljava/lang/Math;->abs(F)F
 
-    move-result v5
+    move-result v10
 
-    cmpg-float v3, v3, v5
+    cmpg-float v9, v9, v10
 
-    if-gez v3, :cond_2
+    if-gez v9, :cond_2
+
+    mul-float/2addr v1, v4
+
+    div-float/2addr v2, v1
 
     .line 229
-    mul-float v3, v12, v4
+    invoke-static {v2}, Ljava/lang/Math;->abs(F)F
 
-    div-float v3, v13, v3
+    move-result v0
 
-    invoke-static {v3}, Ljava/lang/Math;->abs(F)F
+    if-eqz v8, :cond_1
 
-    move-result v3
+    add-float/2addr v0, p4
 
-    .line 230
-    .local v3, "eDistY":F
-    if-eqz v17, :cond_1
+    move v1, p3
 
-    .line 231
-    add-float v5, p4, v3
-
-    .line 232
-    .local v5, "ey":F
-    move/from16 v6, p3
-
-    .local v6, "ex":F
     goto :goto_1
 
-    .line 234
-    .end local v5    # "ey":F
-    .end local v6    # "ex":F
     :cond_1
-    add-float v5, v2, v3
+    add-float/2addr v0, p2
 
-    .line 235
-    .restart local v5    # "ey":F
-    move/from16 v6, p1
+    move v1, p1
 
     .line 238
-    .restart local v6    # "ex":F
     :goto_1
-    iget v7, v0, Landroidx/transition/ArcMotion;->mMinimumVerticalTangent:F
-
-    mul-float v8, v16, v7
-
-    mul-float/2addr v8, v7
-
-    .line 240
-    .end local v3    # "eDistY":F
-    .local v8, "minimumArcDist2":F
-    move/from16 v18, v8
+    iget v2, p0, Landroidx/transition/ArcMotion;->mMinimumVerticalTangent:F
 
     goto :goto_3
 
-    .line 242
-    .end local v5    # "ey":F
-    .end local v6    # "ex":F
-    .end local v8    # "minimumArcDist2":F
     :cond_2
-    mul-float v3, v11, v4
+    mul-float/2addr v0, v4
 
-    div-float v3, v13, v3
+    div-float/2addr v2, v0
 
-    .line 243
-    .local v3, "eDistX":F
-    if-eqz v17, :cond_3
+    if-eqz v8, :cond_3
 
-    .line 244
-    add-float v5, v1, v3
+    add-float/2addr v2, p1
 
-    .line 245
-    .local v5, "ex":F
-    move/from16 v6, p2
+    move v0, p2
 
-    move/from16 v30, v6
+    move v1, v2
 
-    move v6, v5
-
-    move/from16 v5, v30
-
-    .local v6, "ey":F
     goto :goto_2
 
-    .line 247
-    .end local v5    # "ex":F
-    .end local v6    # "ey":F
     :cond_3
-    sub-float v5, p3, v3
+    sub-float v0, p3, v2
 
-    .line 248
-    .restart local v5    # "ex":F
-    move/from16 v6, p4
+    move v1, v0
 
-    move/from16 v30, v6
-
-    move v6, v5
-
-    move/from16 v5, v30
+    move v0, p4
 
     .line 251
-    .local v5, "ey":F
-    .local v6, "ex":F
     :goto_2
-    iget v7, v0, Landroidx/transition/ArcMotion;->mMinimumHorizontalTangent:F
+    iget v2, p0, Landroidx/transition/ArcMotion;->mMinimumHorizontalTangent:F
 
-    mul-float v8, v16, v7
-
-    mul-float/2addr v8, v7
-
-    move/from16 v18, v8
-
-    .line 254
-    .end local v3    # "eDistX":F
-    .local v18, "minimumArcDist2":F
     :goto_3
-    sub-float v19, v14, v6
+    mul-float v8, v6, v2
 
-    .line 255
-    .local v19, "arcDistX":F
-    sub-float v20, v15, v5
+    mul-float/2addr v8, v2
 
-    .line 256
-    .local v20, "arcDistY":F
-    mul-float v3, v19, v19
+    sub-float v2, v3, v1
 
-    mul-float v7, v20, v20
+    sub-float v9, v5, v0
 
-    add-float v21, v3, v7
+    mul-float/2addr v2, v2
+
+    mul-float/2addr v9, v9
+
+    add-float/2addr v2, v9
 
     .line 258
-    .local v21, "arcDist2":F
-    iget v3, v0, Landroidx/transition/ArcMotion;->mMaximumTangent:F
+    iget v9, p0, Landroidx/transition/ArcMotion;->mMaximumTangent:F
 
-    mul-float v7, v16, v3
+    mul-float/2addr v6, v9
 
-    mul-float v22, v7, v3
+    mul-float/2addr v6, v9
 
-    .line 260
-    .local v22, "maximumArcDist2":F
-    const/4 v3, 0x0
+    cmpg-float v9, v2, v8
 
-    .line 261
-    .local v3, "newArcDistance2":F
-    cmpg-float v7, v21, v18
+    const/4 v10, 0x0
 
-    if-gez v7, :cond_4
-
-    .line 262
-    move/from16 v3, v18
-
-    move/from16 v23, v3
+    if-gez v9, :cond_4
 
     goto :goto_4
 
-    .line 263
     :cond_4
-    cmpl-float v7, v21, v22
+    cmpl-float v8, v2, v6
 
-    if-lez v7, :cond_5
+    if-lez v8, :cond_5
 
-    .line 264
-    move/from16 v3, v22
-
-    move/from16 v23, v3
+    move v8, v6
 
     goto :goto_4
 
-    .line 263
     :cond_5
-    move/from16 v23, v3
+    move v8, v10
 
-    .line 266
-    .end local v3    # "newArcDistance2":F
-    .local v23, "newArcDistance2":F
     :goto_4
-    const/4 v3, 0x0
+    cmpl-float v6, v8, v10
 
-    cmpl-float v3, v23, v3
+    if-eqz v6, :cond_6
 
-    if-eqz v3, :cond_6
+    div-float/2addr v8, v2
 
-    .line 267
-    div-float v3, v23, v21
+    float-to-double v8, v8
 
     .line 268
-    .local v3, "ratio2":F
-    float-to-double v7, v3
+    invoke-static {v8, v9}, Ljava/lang/Math;->sqrt(D)D
 
-    invoke-static {v7, v8}, Ljava/lang/Math;->sqrt(D)D
+    move-result-wide v8
 
-    move-result-wide v7
+    double-to-float v2, v8
 
-    double-to-float v7, v7
+    sub-float/2addr v1, v3
 
-    .line 269
-    .local v7, "ratio":F
-    sub-float v8, v6, v14
+    mul-float/2addr v1, v2
 
-    mul-float/2addr v8, v7
+    add-float/2addr v1, v3
 
-    add-float v6, v14, v8
+    sub-float/2addr v0, v5
 
-    .line 270
-    sub-float v8, v5, v15
+    mul-float/2addr v2, v0
 
-    mul-float/2addr v8, v7
+    add-float v0, v5, v2
 
-    add-float v5, v15, v8
-
-    move/from16 v24, v5
-
-    move/from16 v25, v6
-
-    goto :goto_5
-
-    .line 266
-    .end local v3    # "ratio2":F
-    .end local v7    # "ratio":F
     :cond_6
-    move/from16 v24, v5
+    add-float/2addr p1, v1
 
-    move/from16 v25, v6
+    div-float/2addr p1, v4
 
-    .line 272
-    .end local v5    # "ey":F
-    .end local v6    # "ex":F
-    .local v24, "ey":F
-    .local v25, "ex":F
-    :goto_5
-    add-float v3, v1, v25
+    add-float/2addr p2, v0
 
-    div-float v26, v3, v4
+    div-float v2, p2, v4
 
-    .line 273
-    .local v26, "control1X":F
-    add-float v3, v2, v24
+    add-float/2addr v1, p3
 
-    div-float v27, v3, v4
+    div-float v3, v1, v4
 
-    .line 274
-    .local v27, "control1Y":F
-    add-float v3, v25, p3
+    add-float/2addr v0, p4
 
-    div-float v28, v3, v4
+    div-float v4, v0, v4
 
-    .line 275
-    .local v28, "control2X":F
-    add-float v3, v24, p4
+    move-object v0, v7
 
-    div-float v29, v3, v4
+    move v1, p1
+
+    move v5, p3
+
+    move v6, p4
 
     .line 276
-    .local v29, "control2Y":F
-    move-object v3, v10
+    invoke-virtual/range {v0 .. v6}, Landroid/graphics/Path;->cubicTo(FFFFFF)V
 
-    move/from16 v4, v26
-
-    move/from16 v5, v27
-
-    move/from16 v6, v28
-
-    move/from16 v7, v29
-
-    move/from16 v8, p3
-
-    move/from16 v9, p4
-
-    invoke-virtual/range {v3 .. v9}, Landroid/graphics/Path;->cubicTo(FFFFFF)V
-
-    .line 277
-    return-object v10
+    return-object v7
 .end method
 
 .method public setMaximumAngle(F)V
-    .locals 1
-    .param p1, "angleInDegrees"    # F
+    .locals 0
 
     .line 159
     iput p1, p0, Landroidx/transition/ArcMotion;->mMaximumAngle:F
@@ -620,17 +460,15 @@
     .line 160
     invoke-static {p1}, Landroidx/transition/ArcMotion;->toTangent(F)F
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Landroidx/transition/ArcMotion;->mMaximumTangent:F
+    iput p1, p0, Landroidx/transition/ArcMotion;->mMaximumTangent:F
 
-    .line 161
     return-void
 .end method
 
 .method public setMinimumHorizontalAngle(F)V
-    .locals 1
-    .param p1, "angleInDegrees"    # F
+    .locals 0
 
     .line 100
     iput p1, p0, Landroidx/transition/ArcMotion;->mMinimumHorizontalAngle:F
@@ -638,17 +476,15 @@
     .line 101
     invoke-static {p1}, Landroidx/transition/ArcMotion;->toTangent(F)F
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Landroidx/transition/ArcMotion;->mMinimumHorizontalTangent:F
+    iput p1, p0, Landroidx/transition/ArcMotion;->mMinimumHorizontalTangent:F
 
-    .line 102
     return-void
 .end method
 
 .method public setMinimumVerticalAngle(F)V
-    .locals 1
-    .param p1, "angleInDegrees"    # F
+    .locals 0
 
     .line 130
     iput p1, p0, Landroidx/transition/ArcMotion;->mMinimumVerticalAngle:F
@@ -656,10 +492,9 @@
     .line 131
     invoke-static {p1}, Landroidx/transition/ArcMotion;->toTangent(F)F
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Landroidx/transition/ArcMotion;->mMinimumVerticalTangent:F
+    iput p1, p0, Landroidx/transition/ArcMotion;->mMinimumVerticalTangent:F
 
-    .line 132
     return-void
 .end method

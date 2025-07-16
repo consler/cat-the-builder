@@ -36,12 +36,7 @@
 
 # direct methods
 .method public constructor <init>([BLjava/lang/String;III)V
-    .locals 4
-    .param p1, "ikm"    # [B
-    .param p2, "hkdfAlg"    # Ljava/lang/String;
-    .param p3, "keySizeInBytes"    # I
-    .param p4, "ciphertextSegmentSize"    # I
-    .param p5, "firstSegmentOffset"    # I
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -98,9 +93,9 @@
 
     invoke-static {p1, v0}, Ljava/util/Arrays;->copyOf([BI)[B
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/google/crypto/tink/subtle/AesGcmHkdfStreaming;->ikm:[B
+    iput-object p1, p0, Lcom/google/crypto/tink/subtle/AesGcmHkdfStreaming;->ikm:[B
 
     .line 106
     iput-object p2, p0, Lcom/google/crypto/tink/subtle/AesGcmHkdfStreaming;->hkdfAlg:Ljava/lang/String;
@@ -114,50 +109,49 @@
     .line 109
     iput p5, p0, Lcom/google/crypto/tink/subtle/AesGcmHkdfStreaming;->firstSegmentOffset:I
 
+    sub-int/2addr p4, v1
+
     .line 110
-    add-int/lit8 v0, p4, -0x10
+    iput p4, p0, Lcom/google/crypto/tink/subtle/AesGcmHkdfStreaming;->plaintextSegmentSize:I
 
-    iput v0, p0, Lcom/google/crypto/tink/subtle/AesGcmHkdfStreaming;->plaintextSegmentSize:I
-
-    .line 111
     return-void
 
     .line 103
     :cond_0
-    new-instance v0, Ljava/security/InvalidAlgorithmParameterException;
+    new-instance p1, Ljava/security/InvalidAlgorithmParameterException;
 
-    const-string v1, "ciphertextSegmentSize too small"
+    const-string p2, "ciphertextSegmentSize too small"
 
-    invoke-direct {v0, v1}, Ljava/security/InvalidAlgorithmParameterException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/security/InvalidAlgorithmParameterException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 98
     :cond_1
-    new-instance v0, Ljava/security/InvalidAlgorithmParameterException;
+    new-instance p1, Ljava/security/InvalidAlgorithmParameterException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string p4, "ikm too short, must be >= "
 
-    const-string v3, "ikm too short, must be >= "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {p2, p4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 99
     invoke-static {v1, p3}, Ljava/lang/Math;->max(II)I
 
-    move-result v1
+    move-result p3
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p2
 
-    move-result-object v1
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/security/InvalidAlgorithmParameterException;-><init>(Ljava/lang/String;)V
+    move-result-object p2
 
-    throw v0
+    invoke-direct {p1, p2}, Ljava/security/InvalidAlgorithmParameterException;-><init>(Ljava/lang/String;)V
+
+    throw p1
 .end method
 
 .method static synthetic access$000()Ljavax/crypto/Cipher;
@@ -177,15 +171,14 @@
 .end method
 
 .method static synthetic access$100(Lcom/google/crypto/tink/subtle/AesGcmHkdfStreaming;)[B
-    .locals 1
-    .param p0, "x0"    # Lcom/google/crypto/tink/subtle/AesGcmHkdfStreaming;
+    .locals 0
 
     .line 48
     invoke-direct {p0}, Lcom/google/crypto/tink/subtle/AesGcmHkdfStreaming;->randomSalt()[B
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$200()[B
@@ -200,10 +193,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/google/crypto/tink/subtle/AesGcmHkdfStreaming;[B[B)Ljavax/crypto/spec/SecretKeySpec;
-    .locals 1
-    .param p0, "x0"    # Lcom/google/crypto/tink/subtle/AesGcmHkdfStreaming;
-    .param p1, "x1"    # [B
-    .param p2, "x2"    # [B
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/GeneralSecurityException;
@@ -213,16 +203,13 @@
     .line 48
     invoke-direct {p0, p1, p2}, Lcom/google/crypto/tink/subtle/AesGcmHkdfStreaming;->deriveKeySpec([B[B)Ljavax/crypto/spec/SecretKeySpec;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$400([BJZ)Ljavax/crypto/spec/GCMParameterSpec;
-    .locals 1
-    .param p0, "x0"    # [B
-    .param p1, "x1"    # J
-    .param p3, "x2"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/GeneralSecurityException;
@@ -232,19 +219,18 @@
     .line 48
     invoke-static {p0, p1, p2, p3}, Lcom/google/crypto/tink/subtle/AesGcmHkdfStreaming;->paramsForSegment([BJZ)Ljavax/crypto/spec/GCMParameterSpec;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$500(Lcom/google/crypto/tink/subtle/AesGcmHkdfStreaming;)I
-    .locals 1
-    .param p0, "x0"    # Lcom/google/crypto/tink/subtle/AesGcmHkdfStreaming;
+    .locals 0
 
     .line 48
-    iget v0, p0, Lcom/google/crypto/tink/subtle/AesGcmHkdfStreaming;->keySizeInBytes:I
+    iget p0, p0, Lcom/google/crypto/tink/subtle/AesGcmHkdfStreaming;->keySizeInBytes:I
 
-    return v0
+    return p0
 .end method
 
 .method private static cipherInstance()Ljavax/crypto/Cipher;
@@ -271,8 +257,6 @@
 
 .method private deriveKeySpec([B[B)Ljavax/crypto/spec/SecretKeySpec;
     .locals 3
-    .param p1, "salt"    # [B
-    .param p2, "aad"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -299,24 +283,20 @@
 
     invoke-static {v0, v1, p1, p2, v2}, Lcom/google/crypto/tink/subtle/Hkdf;->computeHkdf(Ljava/lang/String;[B[B[BI)[B
 
-    move-result-object v0
+    move-result-object p1
 
     .line 192
-    .local v0, "key":[B
-    new-instance v1, Ljavax/crypto/spec/SecretKeySpec;
+    new-instance p2, Ljavax/crypto/spec/SecretKeySpec;
 
-    const-string v2, "AES"
+    const-string v0, "AES"
 
-    invoke-direct {v1, v0, v2}, Ljavax/crypto/spec/SecretKeySpec;-><init>([BLjava/lang/String;)V
+    invoke-direct {p2, p1, v0}, Ljavax/crypto/spec/SecretKeySpec;-><init>([BLjava/lang/String;)V
 
-    return-object v1
+    return-object p2
 .end method
 
 .method private static paramsForSegment([BJZ)Ljavax/crypto/spec/GCMParameterSpec;
-    .locals 4
-    .param p0, "prefix"    # [B
-    .param p1, "segmentNr"    # J
-    .param p3, "last"    # Z
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -336,15 +316,14 @@
         }
     .end annotation
 
-    .line 178
     const/16 v0, 0xc
 
+    .line 178
     invoke-static {v0}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
 
     move-result-object v0
 
     .line 179
-    .local v0, "nonce":Ljava/nio/ByteBuffer;
     sget-object v1, Ljava/nio/ByteOrder;->BIG_ENDIAN:Ljava/nio/ByteOrder;
 
     invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
@@ -355,31 +334,31 @@
     .line 181
     invoke-static {v0, p1, p2}, Lcom/google/crypto/tink/subtle/SubtleUtil;->putAsUnsigedInt(Ljava/nio/ByteBuffer;J)V
 
-    .line 182
-    int-to-byte v1, p3
+    int-to-byte p0, p3
 
-    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
+    .line 182
+    invoke-virtual {v0, p0}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
     .line 183
-    new-instance v1, Ljavax/crypto/spec/GCMParameterSpec;
+    new-instance p0, Ljavax/crypto/spec/GCMParameterSpec;
 
-    const/16 v2, 0x80
+    const/16 p1, 0x80
 
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->array()[B
 
-    move-result-object v3
+    move-result-object p2
 
-    invoke-direct {v1, v2, v3}, Ljavax/crypto/spec/GCMParameterSpec;-><init>(I[B)V
+    invoke-direct {p0, p1, p2}, Ljavax/crypto/spec/GCMParameterSpec;-><init>(I[B)V
 
-    return-object v1
+    return-object p0
 .end method
 
 .method private static randomNonce()[B
     .locals 1
 
-    .line 187
     const/4 v0, 0x7
 
+    .line 187
     invoke-static {v0}, Lcom/google/crypto/tink/subtle/Random;->randBytes(I)[B
 
     move-result-object v0
@@ -403,8 +382,7 @@
 
 # virtual methods
 .method public expectedCiphertextSize(J)J
-    .locals 11
-    .param p1, "plaintextSize"    # J
+    .locals 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -421,50 +399,41 @@
 
     int-to-long v0, v0
 
+    add-long/2addr p1, v0
+
     .line 159
-    .local v0, "offset":J
-    add-long v2, p1, v0
+    iget v0, p0, Lcom/google/crypto/tink/subtle/AesGcmHkdfStreaming;->plaintextSegmentSize:I
 
-    iget v4, p0, Lcom/google/crypto/tink/subtle/AesGcmHkdfStreaming;->plaintextSegmentSize:I
+    int-to-long v1, v0
 
-    int-to-long v5, v4
-
-    div-long/2addr v2, v5
+    div-long v1, p1, v1
 
     .line 160
-    .local v2, "fullSegments":J
-    iget v5, p0, Lcom/google/crypto/tink/subtle/AesGcmHkdfStreaming;->ciphertextSegmentSize:I
+    iget v3, p0, Lcom/google/crypto/tink/subtle/AesGcmHkdfStreaming;->ciphertextSegmentSize:I
 
-    int-to-long v5, v5
+    int-to-long v3, v3
 
-    mul-long/2addr v5, v2
+    mul-long/2addr v1, v3
+
+    int-to-long v3, v0
 
     .line 161
-    .local v5, "ciphertextSize":J
-    add-long v7, p1, v0
+    rem-long/2addr p1, v3
 
-    int-to-long v9, v4
+    const-wide/16 v3, 0x0
 
-    rem-long/2addr v7, v9
+    cmp-long v0, p1, v3
 
-    .line 162
-    .local v7, "lastSegmentSize":J
-    const-wide/16 v9, 0x0
+    if-lez v0, :cond_0
 
-    cmp-long v4, v7, v9
+    const-wide/16 v3, 0x10
 
-    if-lez v4, :cond_0
+    add-long/2addr p1, v3
 
-    .line 163
-    const-wide/16 v9, 0x10
+    add-long/2addr v1, p1
 
-    add-long/2addr v9, v7
-
-    add-long/2addr v5, v9
-
-    .line 165
     :cond_0
-    return-wide v5
+    return-wide v1
 .end method
 
 .method public getCiphertextOffset()I
@@ -485,7 +454,6 @@
 .method public getCiphertextOverhead()I
     .locals 1
 
-    .line 146
     const/16 v0, 0x10
 
     return v0
@@ -705,7 +673,6 @@
 
 .method public newStreamSegmentEncrypter([B)Lcom/google/crypto/tink/subtle/AesGcmHkdfStreaming$AesGcmHkdfStreamEncrypter;
     .locals 1
-    .param p1, "aad"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0

@@ -47,14 +47,14 @@
     .line 91
     invoke-direct {p0}, Lcom/badlogic/gdx/assets/AssetLoaderParameters;-><init>()V
 
-    .line 93
     const/4 v0, 0x0
 
+    .line 93
     iput-object v0, p0, Lcom/badlogic/gdx/assets/loaders/TextureLoader$TextureParameter;->format:Lcom/badlogic/gdx/graphics/Pixmap$Format;
 
-    .line 95
     const/4 v1, 0x0
 
+    .line 95
     iput-boolean v1, p0, Lcom/badlogic/gdx/assets/loaders/TextureLoader$TextureParameter;->genMipMaps:Z
 
     .line 97

@@ -32,7 +32,6 @@
     .locals 0
 
     .line 1433
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet$EntryIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.EntrySet.EntryIterator;"
     iput-object p1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet$EntryIterator;->this$1:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet;
 
     iget-object p1, p1, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
@@ -44,11 +43,8 @@
 
 .method synthetic constructor <init>(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet;Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet;
-    .param p2, "x1"    # Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$1;
 
     .line 1433
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet$EntryIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.EntrySet.EntryIterator;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet$EntryIterator;-><init>(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet;)V
 
     return-void
@@ -60,7 +56,6 @@
     .locals 1
 
     .line 1433
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet$EntryIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.EntrySet.EntryIterator;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet$EntryIterator;->next()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -79,7 +74,6 @@
     .end annotation
 
     .line 1436
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet$EntryIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.EntrySet.EntryIterator;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$EntrySet$EntryIterator;->nextEntry()Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
     move-result-object v0

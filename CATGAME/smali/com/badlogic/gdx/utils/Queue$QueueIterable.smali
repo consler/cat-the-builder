@@ -56,20 +56,16 @@
         }
     .end annotation
 
-    .line 492
-    .local p0, "this":Lcom/badlogic/gdx/utils/Queue$QueueIterable;, "Lcom/badlogic/gdx/utils/Queue$QueueIterable<TT;>;"
-    .local p1, "queue":Lcom/badlogic/gdx/utils/Queue;, "Lcom/badlogic/gdx/utils/Queue<TT;>;"
     const/4 v0, 0x1
 
+    .line 492
     invoke-direct {p0, p1, v0}, Lcom/badlogic/gdx/utils/Queue$QueueIterable;-><init>(Lcom/badlogic/gdx/utils/Queue;Z)V
 
-    .line 493
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/utils/Queue;Z)V
     .locals 0
-    .param p2, "allowRemove"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -79,8 +75,6 @@
     .end annotation
 
     .line 495
-    .local p0, "this":Lcom/badlogic/gdx/utils/Queue$QueueIterable;, "Lcom/badlogic/gdx/utils/Queue$QueueIterable<TT;>;"
-    .local p1, "queue":Lcom/badlogic/gdx/utils/Queue;, "Lcom/badlogic/gdx/utils/Queue<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 496
@@ -89,7 +83,6 @@
     .line 497
     iput-boolean p2, p0, Lcom/badlogic/gdx/utils/Queue$QueueIterable;->allowRemove:Z
 
-    .line 498
     return-void
 .end method
 
@@ -106,7 +99,6 @@
     .end annotation
 
     .line 502
-    .local p0, "this":Lcom/badlogic/gdx/utils/Queue$QueueIterable;, "Lcom/badlogic/gdx/utils/Queue$QueueIterable<TT;>;"
     sget-boolean v0, Lcom/badlogic/gdx/utils/Collections;->allocateIterators:Z
 
     if-eqz v0, :cond_0

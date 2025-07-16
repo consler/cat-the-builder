@@ -31,16 +31,12 @@
 # virtual methods
 .method public add(Landroid/graphics/Bitmap;)V
     .locals 0
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
-    .line 374
     return-void
 .end method
 
 .method public remove(Landroid/graphics/Bitmap;)V
     .locals 0
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
-    .line 379
     return-void
 .end method

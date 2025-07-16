@@ -26,10 +26,8 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Class;Ljava/lang/String;)V
     .locals 0
-    .param p2, "x1"    # Ljava/lang/String;
 
     .line 57
-    .local p1, "x0":Ljava/lang/Class;, "Ljava/lang/Class<Ljava/lang/Float;>;"
     invoke-direct {p0, p1, p2}, Landroid/util/Property;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
 
     return-void
@@ -38,19 +36,18 @@
 
 # virtual methods
 .method public get(Landroid/view/View;)Ljava/lang/Float;
-    .locals 1
-    .param p1, "view"    # Landroid/view/View;
+    .locals 0
 
     .line 61
     invoke-static {p1}, Landroidx/transition/ViewUtils;->getTransitionAlpha(Landroid/view/View;)F
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -67,18 +64,15 @@
 .end method
 
 .method public set(Landroid/view/View;Ljava/lang/Float;)V
-    .locals 1
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "alpha"    # Ljava/lang/Float;
+    .locals 0
 
     .line 66
     invoke-virtual {p2}, Ljava/lang/Float;->floatValue()F
 
-    move-result v0
+    move-result p2
 
-    invoke-static {p1, v0}, Landroidx/transition/ViewUtils;->setTransitionAlpha(Landroid/view/View;F)V
+    invoke-static {p1, p2}, Landroidx/transition/ViewUtils;->setTransitionAlpha(Landroid/view/View;F)V
 
-    .line 67
     return-void
 .end method
 

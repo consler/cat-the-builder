@@ -34,9 +34,9 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/math/Intersector$MinimumTranslationVector;->normal:Lcom/badlogic/gdx/math/Vector2;
 
-    .line 1346
     const/4 v0, 0x0
 
+    .line 1346
     iput v0, p0, Lcom/badlogic/gdx/math/Intersector$MinimumTranslationVector;->depth:F
 
     return-void

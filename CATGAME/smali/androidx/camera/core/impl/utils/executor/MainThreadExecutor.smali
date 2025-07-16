@@ -14,7 +14,6 @@
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 36
     return-void
 .end method
 
@@ -70,10 +69,10 @@
 
     return-object v0
 
-    .line 47
     :catchall_0
     move-exception v1
 
+    .line 47
     :try_start_1
     monitor-exit v0
     :try_end_1

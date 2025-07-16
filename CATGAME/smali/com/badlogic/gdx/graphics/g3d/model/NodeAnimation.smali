@@ -47,9 +47,9 @@
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 31
     const/4 v0, 0x0
 
+    .line 31
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/NodeAnimation;->translation:Lcom/badlogic/gdx/utils/Array;
 
     .line 33

@@ -40,11 +40,8 @@
     .end annotation
 
     .line 390
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCreate$DropAsyncEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableCreate$DropAsyncEmitter<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableCreate$NoOverflowBaseAsyncEmitter;-><init>(Lorg/reactivestreams/Subscriber;)V
 
-    .line 391
     return-void
 .end method
 
@@ -53,7 +50,5 @@
 .method onOverflow()V
     .locals 0
 
-    .line 396
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCreate$DropAsyncEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableCreate$DropAsyncEmitter<TT;>;"
     return-void
 .end method

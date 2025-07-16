@@ -21,30 +21,24 @@
     .line 275
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 276
     return-void
 .end method
 
 .method public static getName(Ljava/lang/Object;Landroid/content/Context;)Ljava/lang/CharSequence;
-    .locals 1
-    .param p0, "categoryObj"    # Ljava/lang/Object;
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 0
 
     .line 257
-    move-object v0, p0
+    check-cast p0, Landroid/media/MediaRouter$RouteCategory;
 
-    check-cast v0, Landroid/media/MediaRouter$RouteCategory;
+    invoke-virtual {p0, p1}, Landroid/media/MediaRouter$RouteCategory;->getName(Landroid/content/Context;)Ljava/lang/CharSequence;
 
-    invoke-virtual {v0, p1}, Landroid/media/MediaRouter$RouteCategory;->getName(Landroid/content/Context;)Ljava/lang/CharSequence;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method
 
 .method public static getRoutes(Ljava/lang/Object;)Ljava/util/List;
-    .locals 2
-    .param p0, "categoryObj"    # Ljava/lang/Object;
+    .locals 1
 
     .line 262
     new-instance v0, Ljava/util/ArrayList;
@@ -52,45 +46,35 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 263
-    .local v0, "out":Ljava/util/ArrayList;
-    move-object v1, p0
+    check-cast p0, Landroid/media/MediaRouter$RouteCategory;
 
-    check-cast v1, Landroid/media/MediaRouter$RouteCategory;
+    invoke-virtual {p0, v0}, Landroid/media/MediaRouter$RouteCategory;->getRoutes(Ljava/util/List;)Ljava/util/List;
 
-    invoke-virtual {v1, v0}, Landroid/media/MediaRouter$RouteCategory;->getRoutes(Ljava/util/List;)Ljava/util/List;
-
-    .line 264
     return-object v0
 .end method
 
 .method public static getSupportedTypes(Ljava/lang/Object;)I
-    .locals 1
-    .param p0, "categoryObj"    # Ljava/lang/Object;
+    .locals 0
 
     .line 268
-    move-object v0, p0
+    check-cast p0, Landroid/media/MediaRouter$RouteCategory;
 
-    check-cast v0, Landroid/media/MediaRouter$RouteCategory;
+    invoke-virtual {p0}, Landroid/media/MediaRouter$RouteCategory;->getSupportedTypes()I
 
-    invoke-virtual {v0}, Landroid/media/MediaRouter$RouteCategory;->getSupportedTypes()I
+    move-result p0
 
-    move-result v0
-
-    return v0
+    return p0
 .end method
 
 .method public static isGroupable(Ljava/lang/Object;)Z
-    .locals 1
-    .param p0, "categoryObj"    # Ljava/lang/Object;
+    .locals 0
 
     .line 272
-    move-object v0, p0
+    check-cast p0, Landroid/media/MediaRouter$RouteCategory;
 
-    check-cast v0, Landroid/media/MediaRouter$RouteCategory;
+    invoke-virtual {p0}, Landroid/media/MediaRouter$RouteCategory;->isGroupable()Z
 
-    invoke-virtual {v0}, Landroid/media/MediaRouter$RouteCategory;->isGroupable()Z
+    move-result p0
 
-    move-result v0
-
-    return v0
+    return p0
 .end method

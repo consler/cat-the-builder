@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/impl/utils/executor/SequentialExecutor;Ljava/lang/Runnable;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/core/impl/utils/executor/SequentialExecutor;
 
     .line 107
     iput-object p1, p0, Landroidx/camera/core/impl/utils/executor/SequentialExecutor$1;->this$0:Landroidx/camera/core/impl/utils/executor/SequentialExecutor;
@@ -48,6 +47,5 @@
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    .line 111
     return-void
 .end method

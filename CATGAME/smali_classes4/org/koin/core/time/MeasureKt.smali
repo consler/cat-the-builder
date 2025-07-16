@@ -42,8 +42,7 @@
 
 # direct methods
 .method public static final measureDuration(Lkotlin/jvm/functions/Function0;)D
-    .locals 4
-    .param p0, "code"    # Lkotlin/jvm/functions/Function0;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -61,31 +60,27 @@
     sget-object v0, Lkotlin/time/TimeSource$Monotonic;->INSTANCE:Lkotlin/time/TimeSource$Monotonic;
 
     .line 34
-    .local v0, "clock":Lkotlin/time/TimeSource$Monotonic;
     invoke-virtual {v0}, Lkotlin/time/TimeSource$Monotonic;->markNow()Lkotlin/time/TimeMark;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 35
-    .local v1, "mark":Lkotlin/time/TimeMark;
     invoke-interface {p0}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     .line 36
-    invoke-virtual {v1}, Lkotlin/time/TimeMark;->elapsedNow()D
+    invoke-virtual {v0}, Lkotlin/time/TimeMark;->elapsedNow()D
 
-    move-result-wide v2
+    move-result-wide v0
 
-    invoke-static {v2, v3}, Lkotlin/time/Duration;->getInMilliseconds-impl(D)D
+    invoke-static {v0, v1}, Lkotlin/time/Duration;->getInMilliseconds-impl(D)D
 
-    move-result-wide v2
+    move-result-wide v0
 
-    return-wide v2
+    return-wide v0
 .end method
 
 .method public static final measureDuration(Ljava/lang/String;Lkotlin/jvm/functions/Function0;)V
-    .locals 4
-    .param p0, "message"    # Ljava/lang/String;
-    .param p1, "code"    # Lkotlin/jvm/functions/Function0;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -110,39 +105,43 @@
     move-result-wide v0
 
     .line 42
-    .local v0, "time":D
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, " - "
+    move-result-object p0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p1, " - "
 
-    invoke-virtual {v2, v0, v1}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, " ms"
+    move-result-object p0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v0, v1}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v2
+    const-string p1, " ms"
 
-    sget-object v3, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v2}, Ljava/io/PrintStream;->println(Ljava/lang/Object;)V
+    move-result-object p0
 
-    .line 43
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    sget-object p1, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    invoke-virtual {p1, p0}, Ljava/io/PrintStream;->println(Ljava/lang/Object;)V
+
     return-void
 .end method
 
 .method public static final measureDurationForResult(Ljava/lang/String;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 5
-    .param p0, "message"    # Ljava/lang/String;
-    .param p1, "code"    # Lkotlin/jvm/functions/Function0;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -165,56 +164,60 @@
     .line 58
     invoke-static {p1}, Lorg/koin/core/time/MeasureKt;->measureDurationForResult(Lkotlin/jvm/functions/Function0;)Lkotlin/Pair;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lkotlin/Pair;->component1()Ljava/lang/Object;
-
-    move-result-object v1
-
-    .local v1, "result":Ljava/lang/Object;
-    invoke-virtual {v0}, Lkotlin/Pair;->component2()Ljava/lang/Object;
+    invoke-virtual {p1}, Lkotlin/Pair;->component1()Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Ljava/lang/Number;
+    invoke-virtual {p1}, Lkotlin/Pair;->component2()Ljava/lang/Object;
 
-    invoke-virtual {v0}, Ljava/lang/Number;->doubleValue()D
+    move-result-object p1
 
-    move-result-wide v2
+    check-cast p1, Ljava/lang/Number;
+
+    invoke-virtual {p1}, Ljava/lang/Number;->doubleValue()D
+
+    move-result-wide v1
 
     .line 59
-    .local v2, "time":D
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, " - "
+    move-result-object p0
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p1, " - "
 
-    invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, " ms"
+    move-result-object p0
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v1, v2}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v0
+    const-string p1, " ms"
 
-    sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v0}, Ljava/io/PrintStream;->println(Ljava/lang/Object;)V
+    move-result-object p0
 
-    .line 60
-    return-object v1
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    sget-object p1, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    invoke-virtual {p1, p0}, Ljava/io/PrintStream;->println(Ljava/lang/Object;)V
+
+    return-object v0
 .end method
 
 .method public static final measureDurationForResult(Lkotlin/jvm/functions/Function0;)Lkotlin/Pair;
-    .locals 6
-    .param p0, "code"    # Lkotlin/jvm/functions/Function0;
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -237,34 +240,31 @@
     sget-object v0, Lkotlin/time/TimeSource$Monotonic;->INSTANCE:Lkotlin/time/TimeSource$Monotonic;
 
     .line 51
-    .local v0, "clock":Lkotlin/time/TimeSource$Monotonic;
     invoke-virtual {v0}, Lkotlin/time/TimeSource$Monotonic;->markNow()Lkotlin/time/TimeMark;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 52
-    .local v1, "mark":Lkotlin/time/TimeMark;
     invoke-interface {p0}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p0
 
     .line 53
-    .local v2, "result":Ljava/lang/Object;
-    new-instance v3, Lkotlin/Pair;
+    new-instance v1, Lkotlin/Pair;
 
-    invoke-virtual {v1}, Lkotlin/time/TimeMark;->elapsedNow()D
+    invoke-virtual {v0}, Lkotlin/time/TimeMark;->elapsedNow()D
 
-    move-result-wide v4
+    move-result-wide v2
 
-    invoke-static {v4, v5}, Lkotlin/time/Duration;->getInMilliseconds-impl(D)D
+    invoke-static {v2, v3}, Lkotlin/time/Duration;->getInMilliseconds-impl(D)D
 
-    move-result-wide v4
+    move-result-wide v2
 
-    invoke-static {v4, v5}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+    invoke-static {v2, v3}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-direct {v3, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-direct {v1, p0, v0}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    return-object v3
+    return-object v1
 .end method

@@ -4,17 +4,12 @@
 
 
 # static fields
-.field private static sTryHiddenSetLeftTopRightBottom:Z
+.field private static sTryHiddenSetLeftTopRightBottom:Z = true
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
-
-    .line 31
-    const/4 v0, 0x1
-
-    sput-boolean v0, Landroidx/transition/ViewUtilsApi22;->sTryHiddenSetLeftTopRightBottom:Z
+    .locals 0
 
     return-void
 .end method
@@ -31,12 +26,7 @@
 
 # virtual methods
 .method public setLeftTopRightBottom(Landroid/view/View;IIII)V
-    .locals 2
-    .param p1, "v"    # Landroid/view/View;
-    .param p2, "left"    # I
-    .param p3, "top"    # I
-    .param p4, "right"    # I
-    .param p5, "bottom"    # I
+    .locals 1
 
     .line 36
     sget-boolean v0, Landroidx/transition/ViewUtilsApi22;->sTryHiddenSetLeftTopRightBottom:Z
@@ -49,21 +39,14 @@
     :try_end_0
     .catch Ljava/lang/NoSuchMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 43
     goto :goto_0
 
-    .line 41
     :catch_0
-    move-exception v0
+    const/4 p1, 0x0
 
     .line 42
-    .local v0, "e":Ljava/lang/NoSuchMethodError;
-    const/4 v1, 0x0
+    sput-boolean p1, Landroidx/transition/ViewUtilsApi22;->sTryHiddenSetLeftTopRightBottom:Z
 
-    sput-boolean v1, Landroidx/transition/ViewUtilsApi22;->sTryHiddenSetLeftTopRightBottom:Z
-
-    .line 45
-    .end local v0    # "e":Ljava/lang/NoSuchMethodError;
     :cond_0
     :goto_0
     return-void

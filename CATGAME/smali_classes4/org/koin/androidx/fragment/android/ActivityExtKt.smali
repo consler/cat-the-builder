@@ -36,15 +36,12 @@
 
 # direct methods
 .method public static final setupKoinFragmentFactory(Landroidx/fragment/app/FragmentActivity;Lorg/koin/core/scope/Scope;)V
-    .locals 10
-    .param p0, "$this$setupKoinFragmentFactory"    # Landroidx/fragment/app/FragmentActivity;
-    .param p1, "scope"    # Lorg/koin/core/scope/Scope;
+    .locals 2
 
     const-string v0, "$this$setupKoinFragmentFactory"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 11
     const-string v0, "supportFragmentManager"
 
     if-nez p1, :cond_0
@@ -52,80 +49,53 @@
     .line 12
     invoke-virtual {p0}, Landroidx/fragment/app/FragmentActivity;->getSupportFragmentManager()Landroidx/fragment/app/FragmentManager;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    move-object v0, p0
+    check-cast p0, Landroid/content/ComponentCallbacks;
 
-    check-cast v0, Landroid/content/ComponentCallbacks;
+    const/4 v0, 0x0
 
     .line 17
-    .local v0, "$this$get$iv":Landroid/content/ComponentCallbacks;
-    const/4 v2, 0x0
+    move-object v1, v0
 
-    move-object v3, v2
-
-    check-cast v3, Lorg/koin/core/qualifier/Qualifier;
+    check-cast v1, Lorg/koin/core/qualifier/Qualifier;
 
     .line 18
-    .local v3, "qualifier$iv":Lorg/koin/core/qualifier/Qualifier;
-    check-cast v2, Lkotlin/jvm/functions/Function0;
+    move-object v1, v0
 
-    .local v2, "parameters$iv":Lkotlin/jvm/functions/Function0;
-    const/4 v4, 0x0
+    check-cast v1, Lkotlin/jvm/functions/Function0;
 
     .line 19
-    .local v4, "$i$f$get":I
-    invoke-static {v0}, Lorg/koin/android/ext/android/ComponentCallbackExtKt;->getKoin(Landroid/content/ComponentCallbacks;)Lorg/koin/core/Koin;
+    invoke-static {p0}, Lorg/koin/android/ext/android/ComponentCallbackExtKt;->getKoin(Landroid/content/ComponentCallbacks;)Lorg/koin/core/Koin;
 
-    move-result-object v5
-
-    .local v5, "this_$iv$iv":Lorg/koin/core/Koin;
-    const/4 v6, 0x0
+    move-result-object p0
 
     .line 20
-    .local v6, "$i$f$get":I
-    invoke-virtual {v5}, Lorg/koin/core/Koin;->get_scopeRegistry()Lorg/koin/core/registry/ScopeRegistry;
+    invoke-virtual {p0}, Lorg/koin/core/Koin;->get_scopeRegistry()Lorg/koin/core/registry/ScopeRegistry;
 
-    move-result-object v7
+    move-result-object p0
 
-    invoke-virtual {v7}, Lorg/koin/core/registry/ScopeRegistry;->getRootScope()Lorg/koin/core/scope/Scope;
+    invoke-virtual {p0}, Lorg/koin/core/registry/ScopeRegistry;->getRootScope()Lorg/koin/core/scope/Scope;
 
-    move-result-object v7
-
-    .local v7, "this_$iv$iv$iv":Lorg/koin/core/scope/Scope;
-    const/4 v8, 0x0
+    move-result-object p0
 
     .line 21
-    .local v8, "$i$f$get":I
-    const-class v9, Landroidx/fragment/app/FragmentFactory;
+    const-class v1, Landroidx/fragment/app/FragmentFactory;
 
-    invoke-static {v9}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+    invoke-static {v1}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    move-result-object v9
+    move-result-object v1
 
-    invoke-virtual {v7, v9, v3, v2}, Lorg/koin/core/scope/Scope;->get(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+    invoke-virtual {p0, v1, v0, v0}, Lorg/koin/core/scope/Scope;->get(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
 
-    move-result-object v7
-
-    .line 20
-    .end local v7    # "this_$iv$iv$iv":Lorg/koin/core/scope/Scope;
-    .end local v8    # "$i$f$get":I
-    nop
+    move-result-object p0
 
     .line 19
-    .end local v5    # "this_$iv$iv":Lorg/koin/core/Koin;
-    .end local v6    # "$i$f$get":I
-    nop
+    check-cast p0, Landroidx/fragment/app/FragmentFactory;
 
-    .end local v0    # "$this$get$iv":Landroid/content/ComponentCallbacks;
-    .end local v2    # "parameters$iv":Lkotlin/jvm/functions/Function0;
-    .end local v3    # "qualifier$iv":Lorg/koin/core/qualifier/Qualifier;
-    .end local v4    # "$i$f$get":I
-    check-cast v7, Landroidx/fragment/app/FragmentFactory;
-
-    invoke-virtual {v1, v7}, Landroidx/fragment/app/FragmentManager;->setFragmentFactory(Landroidx/fragment/app/FragmentFactory;)V
+    invoke-virtual {p1, p0}, Landroidx/fragment/app/FragmentManager;->setFragmentFactory(Landroidx/fragment/app/FragmentFactory;)V
 
     goto :goto_0
 
@@ -133,9 +103,9 @@
     :cond_0
     invoke-virtual {p0}, Landroidx/fragment/app/FragmentActivity;->getSupportFragmentManager()Landroidx/fragment/app/FragmentManager;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     new-instance v0, Lorg/koin/androidx/fragment/android/KoinFragmentFactory;
 
@@ -143,13 +113,9 @@
 
     check-cast v0, Landroidx/fragment/app/FragmentFactory;
 
-    invoke-virtual {v1, v0}, Landroidx/fragment/app/FragmentManager;->setFragmentFactory(Landroidx/fragment/app/FragmentFactory;)V
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/FragmentManager;->setFragmentFactory(Landroidx/fragment/app/FragmentFactory;)V
 
-    .line 15
     :goto_0
-    nop
-
-    .line 16
     return-void
 .end method
 
@@ -160,10 +126,12 @@
 
     if-eqz p2, :cond_0
 
-    .line 10
     const/4 p1, 0x0
 
-    check-cast p1, Lorg/koin/core/scope/Scope;
+    .line 10
+    move-object p2, p1
+
+    check-cast p2, Lorg/koin/core/scope/Scope;
 
     :cond_0
     invoke-static {p0, p1}, Lorg/koin/androidx/fragment/android/ActivityExtKt;->setupKoinFragmentFactory(Landroidx/fragment/app/FragmentActivity;Lorg/koin/core/scope/Scope;)V

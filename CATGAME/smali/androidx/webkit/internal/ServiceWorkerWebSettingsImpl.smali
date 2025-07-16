@@ -12,7 +12,6 @@
 # direct methods
 .method public constructor <init>(Landroid/webkit/ServiceWorkerWebSettings;)V
     .locals 0
-    .param p1, "settings"    # Landroid/webkit/ServiceWorkerWebSettings;
 
     .line 53
     invoke-direct {p0}, Landroidx/webkit/ServiceWorkerWebSettingsCompat;-><init>()V
@@ -20,13 +19,11 @@
     .line 54
     iput-object p1, p0, Landroidx/webkit/internal/ServiceWorkerWebSettingsImpl;->mFrameworksImpl:Landroid/webkit/ServiceWorkerWebSettings;
 
-    .line 55
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/reflect/InvocationHandler;)V
     .locals 1
-    .param p1, "invocationHandler"    # Ljava/lang/reflect/InvocationHandler;
 
     .line 57
     invoke-direct {p0}, Landroidx/webkit/ServiceWorkerWebSettingsCompat;-><init>()V
@@ -36,13 +33,12 @@
 
     invoke-static {v0, p1}, Lorg/chromium/support_lib_boundary/util/BoundaryInterfaceReflectionUtil;->castToSuppLibClass(Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;
+    check-cast p1, Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;
 
-    iput-object v0, p0, Landroidx/webkit/internal/ServiceWorkerWebSettingsImpl;->mBoundaryInterface:Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;
+    iput-object p1, p0, Landroidx/webkit/internal/ServiceWorkerWebSettingsImpl;->mBoundaryInterface:Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;
 
-    .line 60
     return-void
 .end method
 
@@ -92,9 +88,6 @@
 
     if-nez v0, :cond_0
 
-    .line 65
-    nop
-
     .line 66
     invoke-static {}, Landroidx/webkit/internal/WebViewGlueCommunicator;->getCompatConverter()Landroidx/webkit/internal/WebkitToCompatConverter;
 
@@ -130,7 +123,6 @@
     sget-object v0, Landroidx/webkit/internal/WebViewFeatureInternal;->SERVICE_WORKER_CONTENT_ACCESS:Landroidx/webkit/internal/WebViewFeatureInternal;
 
     .line 133
-    .local v0, "feature":Landroidx/webkit/internal/WebViewFeatureInternal;
     invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByFramework()Z
 
     move-result v1
@@ -140,40 +132,40 @@
     .line 134
     invoke-direct {p0}, Landroidx/webkit/internal/ServiceWorkerWebSettingsImpl;->getFrameworksImpl()Landroid/webkit/ServiceWorkerWebSettings;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Landroid/webkit/ServiceWorkerWebSettings;->getAllowContentAccess()Z
+    invoke-virtual {v0}, Landroid/webkit/ServiceWorkerWebSettings;->getAllowContentAccess()Z
 
-    move-result v1
+    move-result v0
 
-    return v1
+    return v0
 
     .line 135
     :cond_0
     invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByWebView()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 136
     invoke-direct {p0}, Landroidx/webkit/internal/ServiceWorkerWebSettingsImpl;->getBoundaryInterface()Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1}, Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;->getAllowContentAccess()Z
+    invoke-interface {v0}, Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;->getAllowContentAccess()Z
 
-    move-result v1
+    move-result v0
 
-    return v1
+    return v0
 
     .line 138
     :cond_1
     invoke-static {}, Landroidx/webkit/internal/WebViewFeatureInternal;->getUnsupportedOperationException()Ljava/lang/UnsupportedOperationException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 .end method
 
 .method public getAllowFileAccess()Z
@@ -183,7 +175,6 @@
     sget-object v0, Landroidx/webkit/internal/WebViewFeatureInternal;->SERVICE_WORKER_FILE_ACCESS:Landroidx/webkit/internal/WebViewFeatureInternal;
 
     .line 159
-    .local v0, "feature":Landroidx/webkit/internal/WebViewFeatureInternal;
     invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByFramework()Z
 
     move-result v1
@@ -193,40 +184,40 @@
     .line 160
     invoke-direct {p0}, Landroidx/webkit/internal/ServiceWorkerWebSettingsImpl;->getFrameworksImpl()Landroid/webkit/ServiceWorkerWebSettings;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Landroid/webkit/ServiceWorkerWebSettings;->getAllowFileAccess()Z
+    invoke-virtual {v0}, Landroid/webkit/ServiceWorkerWebSettings;->getAllowFileAccess()Z
 
-    move-result v1
+    move-result v0
 
-    return v1
+    return v0
 
     .line 161
     :cond_0
     invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByWebView()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 162
     invoke-direct {p0}, Landroidx/webkit/internal/ServiceWorkerWebSettingsImpl;->getBoundaryInterface()Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1}, Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;->getAllowFileAccess()Z
+    invoke-interface {v0}, Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;->getAllowFileAccess()Z
 
-    move-result v1
+    move-result v0
 
-    return v1
+    return v0
 
     .line 164
     :cond_1
     invoke-static {}, Landroidx/webkit/internal/WebViewFeatureInternal;->getUnsupportedOperationException()Ljava/lang/UnsupportedOperationException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 .end method
 
 .method public getBlockNetworkLoads()Z
@@ -236,7 +227,6 @@
     sget-object v0, Landroidx/webkit/internal/WebViewFeatureInternal;->SERVICE_WORKER_BLOCK_NETWORK_LOADS:Landroidx/webkit/internal/WebViewFeatureInternal;
 
     .line 187
-    .local v0, "feature":Landroidx/webkit/internal/WebViewFeatureInternal;
     invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByFramework()Z
 
     move-result v1
@@ -246,40 +236,40 @@
     .line 188
     invoke-direct {p0}, Landroidx/webkit/internal/ServiceWorkerWebSettingsImpl;->getFrameworksImpl()Landroid/webkit/ServiceWorkerWebSettings;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Landroid/webkit/ServiceWorkerWebSettings;->getBlockNetworkLoads()Z
+    invoke-virtual {v0}, Landroid/webkit/ServiceWorkerWebSettings;->getBlockNetworkLoads()Z
 
-    move-result v1
+    move-result v0
 
-    return v1
+    return v0
 
     .line 189
     :cond_0
     invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByWebView()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 190
     invoke-direct {p0}, Landroidx/webkit/internal/ServiceWorkerWebSettingsImpl;->getBoundaryInterface()Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1}, Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;->getBlockNetworkLoads()Z
+    invoke-interface {v0}, Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;->getBlockNetworkLoads()Z
 
-    move-result v1
+    move-result v0
 
-    return v1
+    return v0
 
     .line 192
     :cond_1
     invoke-static {}, Landroidx/webkit/internal/WebViewFeatureInternal;->getUnsupportedOperationException()Ljava/lang/UnsupportedOperationException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 .end method
 
 .method public getCacheMode()I
@@ -289,7 +279,6 @@
     sget-object v0, Landroidx/webkit/internal/WebViewFeatureInternal;->SERVICE_WORKER_CACHE_MODE:Landroidx/webkit/internal/WebViewFeatureInternal;
 
     .line 107
-    .local v0, "feature":Landroidx/webkit/internal/WebViewFeatureInternal;
     invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByFramework()Z
 
     move-result v1
@@ -299,51 +288,49 @@
     .line 108
     invoke-direct {p0}, Landroidx/webkit/internal/ServiceWorkerWebSettingsImpl;->getFrameworksImpl()Landroid/webkit/ServiceWorkerWebSettings;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Landroid/webkit/ServiceWorkerWebSettings;->getCacheMode()I
+    invoke-virtual {v0}, Landroid/webkit/ServiceWorkerWebSettings;->getCacheMode()I
 
-    move-result v1
+    move-result v0
 
-    return v1
+    return v0
 
     .line 109
     :cond_0
     invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByWebView()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 110
     invoke-direct {p0}, Landroidx/webkit/internal/ServiceWorkerWebSettingsImpl;->getBoundaryInterface()Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1}, Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;->getCacheMode()I
+    invoke-interface {v0}, Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;->getCacheMode()I
 
-    move-result v1
+    move-result v0
 
-    return v1
+    return v0
 
     .line 112
     :cond_1
     invoke-static {}, Landroidx/webkit/internal/WebViewFeatureInternal;->getUnsupportedOperationException()Ljava/lang/UnsupportedOperationException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 .end method
 
 .method public setAllowContentAccess(Z)V
     .locals 2
-    .param p1, "allow"    # Z
 
     .line 119
     sget-object v0, Landroidx/webkit/internal/WebViewFeatureInternal;->SERVICE_WORKER_CONTENT_ACCESS:Landroidx/webkit/internal/WebViewFeatureInternal;
 
     .line 120
-    .local v0, "feature":Landroidx/webkit/internal/WebViewFeatureInternal;
     invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByFramework()Z
 
     move-result v1
@@ -353,9 +340,9 @@
     .line 121
     invoke-direct {p0}, Landroidx/webkit/internal/ServiceWorkerWebSettingsImpl;->getFrameworksImpl()Landroid/webkit/ServiceWorkerWebSettings;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, p1}, Landroid/webkit/ServiceWorkerWebSettings;->setAllowContentAccess(Z)V
+    invoke-virtual {v0, p1}, Landroid/webkit/ServiceWorkerWebSettings;->setAllowContentAccess(Z)V
 
     goto :goto_0
 
@@ -363,18 +350,17 @@
     :cond_0
     invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByWebView()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 123
     invoke-direct {p0}, Landroidx/webkit/internal/ServiceWorkerWebSettingsImpl;->getBoundaryInterface()Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1, p1}, Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;->setAllowContentAccess(Z)V
+    invoke-interface {v0, p1}, Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;->setAllowContentAccess(Z)V
 
-    .line 127
     :goto_0
     return-void
 
@@ -382,20 +368,18 @@
     :cond_1
     invoke-static {}, Landroidx/webkit/internal/WebViewFeatureInternal;->getUnsupportedOperationException()Ljava/lang/UnsupportedOperationException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 .end method
 
 .method public setAllowFileAccess(Z)V
     .locals 2
-    .param p1, "allow"    # Z
 
     .line 145
     sget-object v0, Landroidx/webkit/internal/WebViewFeatureInternal;->SERVICE_WORKER_FILE_ACCESS:Landroidx/webkit/internal/WebViewFeatureInternal;
 
     .line 146
-    .local v0, "feature":Landroidx/webkit/internal/WebViewFeatureInternal;
     invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByFramework()Z
 
     move-result v1
@@ -405,9 +389,9 @@
     .line 147
     invoke-direct {p0}, Landroidx/webkit/internal/ServiceWorkerWebSettingsImpl;->getFrameworksImpl()Landroid/webkit/ServiceWorkerWebSettings;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, p1}, Landroid/webkit/ServiceWorkerWebSettings;->setAllowFileAccess(Z)V
+    invoke-virtual {v0, p1}, Landroid/webkit/ServiceWorkerWebSettings;->setAllowFileAccess(Z)V
 
     goto :goto_0
 
@@ -415,18 +399,17 @@
     :cond_0
     invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByWebView()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 149
     invoke-direct {p0}, Landroidx/webkit/internal/ServiceWorkerWebSettingsImpl;->getBoundaryInterface()Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1, p1}, Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;->setAllowFileAccess(Z)V
+    invoke-interface {v0, p1}, Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;->setAllowFileAccess(Z)V
 
-    .line 153
     :goto_0
     return-void
 
@@ -434,20 +417,18 @@
     :cond_1
     invoke-static {}, Landroidx/webkit/internal/WebViewFeatureInternal;->getUnsupportedOperationException()Ljava/lang/UnsupportedOperationException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 .end method
 
 .method public setBlockNetworkLoads(Z)V
     .locals 2
-    .param p1, "flag"    # Z
 
     .line 171
     sget-object v0, Landroidx/webkit/internal/WebViewFeatureInternal;->SERVICE_WORKER_BLOCK_NETWORK_LOADS:Landroidx/webkit/internal/WebViewFeatureInternal;
 
     .line 173
-    .local v0, "feature":Landroidx/webkit/internal/WebViewFeatureInternal;
     invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByFramework()Z
 
     move-result v1
@@ -457,9 +438,9 @@
     .line 174
     invoke-direct {p0}, Landroidx/webkit/internal/ServiceWorkerWebSettingsImpl;->getFrameworksImpl()Landroid/webkit/ServiceWorkerWebSettings;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, p1}, Landroid/webkit/ServiceWorkerWebSettings;->setBlockNetworkLoads(Z)V
+    invoke-virtual {v0, p1}, Landroid/webkit/ServiceWorkerWebSettings;->setBlockNetworkLoads(Z)V
 
     goto :goto_0
 
@@ -467,18 +448,17 @@
     :cond_0
     invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByWebView()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 176
     invoke-direct {p0}, Landroidx/webkit/internal/ServiceWorkerWebSettingsImpl;->getBoundaryInterface()Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1, p1}, Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;->setBlockNetworkLoads(Z)V
+    invoke-interface {v0, p1}, Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;->setBlockNetworkLoads(Z)V
 
-    .line 180
     :goto_0
     return-void
 
@@ -486,20 +466,18 @@
     :cond_1
     invoke-static {}, Landroidx/webkit/internal/WebViewFeatureInternal;->getUnsupportedOperationException()Ljava/lang/UnsupportedOperationException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 .end method
 
 .method public setCacheMode(I)V
     .locals 2
-    .param p1, "mode"    # I
 
     .line 93
     sget-object v0, Landroidx/webkit/internal/WebViewFeatureInternal;->SERVICE_WORKER_CACHE_MODE:Landroidx/webkit/internal/WebViewFeatureInternal;
 
     .line 94
-    .local v0, "feature":Landroidx/webkit/internal/WebViewFeatureInternal;
     invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByFramework()Z
 
     move-result v1
@@ -509,9 +487,9 @@
     .line 95
     invoke-direct {p0}, Landroidx/webkit/internal/ServiceWorkerWebSettingsImpl;->getFrameworksImpl()Landroid/webkit/ServiceWorkerWebSettings;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, p1}, Landroid/webkit/ServiceWorkerWebSettings;->setCacheMode(I)V
+    invoke-virtual {v0, p1}, Landroid/webkit/ServiceWorkerWebSettings;->setCacheMode(I)V
 
     goto :goto_0
 
@@ -519,18 +497,17 @@
     :cond_0
     invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByWebView()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 97
     invoke-direct {p0}, Landroidx/webkit/internal/ServiceWorkerWebSettingsImpl;->getBoundaryInterface()Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1, p1}, Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;->setCacheMode(I)V
+    invoke-interface {v0, p1}, Lorg/chromium/support_lib_boundary/ServiceWorkerWebSettingsBoundaryInterface;->setCacheMode(I)V
 
-    .line 101
     :goto_0
     return-void
 
@@ -538,7 +515,7 @@
     :cond_1
     invoke-static {}, Landroidx/webkit/internal/WebViewFeatureInternal;->getUnsupportedOperationException()Ljava/lang/UnsupportedOperationException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 .end method

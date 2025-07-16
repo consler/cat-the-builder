@@ -25,17 +25,13 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap$Format;Z)V
     .locals 1
-    .param p1, "file"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p2, "preloadedPixmap"    # Lcom/badlogic/gdx/graphics/Pixmap;
-    .param p3, "format"    # Lcom/badlogic/gdx/graphics/Pixmap$Format;
-    .param p4, "useMipMaps"    # Z
 
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 31
     const/4 v0, 0x0
 
+    .line 31
     iput v0, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureData;->width:I
 
     .line 32
@@ -56,37 +52,35 @@
     .line 42
     iput-boolean p4, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureData;->useMipMaps:Z
 
-    .line 43
     if-eqz p2, :cond_0
 
     .line 44
     invoke-virtual {p2}, Lcom/badlogic/gdx/graphics/Pixmap;->getWidth()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureData;->width:I
+    iput p1, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureData;->width:I
 
     .line 45
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureData;->pixmap:Lcom/badlogic/gdx/graphics/Pixmap;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureData;->pixmap:Lcom/badlogic/gdx/graphics/Pixmap;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/Pixmap;->getHeight()I
+    invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/Pixmap;->getHeight()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureData;->height:I
+    iput p1, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureData;->height:I
 
-    .line 46
     if-nez p3, :cond_0
 
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureData;->pixmap:Lcom/badlogic/gdx/graphics/Pixmap;
+    .line 46
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureData;->pixmap:Lcom/badlogic/gdx/graphics/Pixmap;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/Pixmap;->getFormat()Lcom/badlogic/gdx/graphics/Pixmap$Format;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/Pixmap;->getFormat()Lcom/badlogic/gdx/graphics/Pixmap$Format;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureData;->format:Lcom/badlogic/gdx/graphics/Pixmap$Format;
+    iput-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureData;->format:Lcom/badlogic/gdx/graphics/Pixmap$Format;
 
-    .line 48
     :cond_0
     return-void
 .end method
@@ -94,17 +88,16 @@
 
 # virtual methods
 .method public consumeCustomData(I)V
-    .locals 2
-    .param p1, "target"    # I
+    .locals 1
 
     .line 120
-    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v1, "This TextureData implementation does not upload data itself"
+    const-string v0, "This TextureData implementation does not upload data itself"
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public consumePixmap()Lcom/badlogic/gdx/graphics/Pixmap;
@@ -115,25 +108,22 @@
 
     if-eqz v0, :cond_0
 
-    .line 73
     const/4 v0, 0x0
 
+    .line 73
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureData;->isPrepared:Z
 
     .line 74
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureData;->pixmap:Lcom/badlogic/gdx/graphics/Pixmap;
 
-    .line 75
-    .local v0, "pixmap":Lcom/badlogic/gdx/graphics/Pixmap;
     const/4 v1, 0x0
 
+    .line 75
     iput-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureData;->pixmap:Lcom/badlogic/gdx/graphics/Pixmap;
 
-    .line 76
     return-object v0
 
     .line 72
-    .end local v0    # "pixmap":Lcom/badlogic/gdx/graphics/Pixmap;
     :cond_0
     new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
@@ -147,7 +137,6 @@
 .method public disposePixmap()Z
     .locals 1
 
-    .line 81
     const/4 v0, 0x1
 
     return v0
@@ -201,7 +190,6 @@
 .method public isManaged()Z
     .locals 1
 
-    .line 106
     const/4 v0, 0x1
 
     return v0
@@ -297,13 +285,12 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureData;->format:Lcom/badlogic/gdx/graphics/Pixmap$Format;
 
-    .line 67
     :cond_1
     const/4 v0, 0x1
 
+    .line 67
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/FileTextureData;->isPrepared:Z
 
-    .line 68
     return-void
 
     .line 57

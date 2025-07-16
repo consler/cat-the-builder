@@ -44,7 +44,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .locals 13
 
     .line 803
     new-instance v0, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy$1;
@@ -58,88 +58,78 @@
     sput-object v0, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;->SPIN:Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;
 
     .line 810
-    new-instance v0, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy$2;
+    new-instance v1, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy$2;
 
-    const-string v1, "YIELD"
+    const-string v3, "YIELD"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy$2;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy$2;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;->YIELD:Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;
+    sput-object v1, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;->YIELD:Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;
 
     .line 817
-    new-instance v0, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy$3;
+    new-instance v3, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy$3;
 
-    const-string v1, "SLEEP_1MS"
+    const-string v5, "SLEEP_1MS"
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v1, v4}, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy$3;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy$3;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;->SLEEP_1MS:Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;
+    sput-object v3, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;->SLEEP_1MS:Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;
 
     .line 824
-    new-instance v0, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy$4;
+    new-instance v5, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy$4;
 
-    const-string v1, "SLEEP_10MS"
+    const-string v7, "SLEEP_10MS"
 
-    const/4 v5, 0x3
+    const/4 v8, 0x3
 
-    invoke-direct {v0, v1, v5}, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy$4;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v5, v7, v8}, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy$4;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;->SLEEP_10MS:Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;
+    sput-object v5, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;->SLEEP_10MS:Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;
 
     .line 831
-    new-instance v0, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy$5;
+    new-instance v7, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy$5;
 
-    const-string v1, "SLEEP_100MS"
+    const-string v9, "SLEEP_100MS"
 
-    const/4 v6, 0x4
+    const/4 v10, 0x4
 
-    invoke-direct {v0, v1, v6}, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy$5;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v7, v9, v10}, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy$5;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;->SLEEP_100MS:Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;
+    sput-object v7, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;->SLEEP_100MS:Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;
 
     .line 838
-    new-instance v0, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy$6;
+    new-instance v9, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy$6;
 
-    const-string v1, "SLEEP_1000MS"
+    const-string v11, "SLEEP_1000MS"
 
-    const/4 v7, 0x5
+    const/4 v12, 0x5
 
-    invoke-direct {v0, v1, v7}, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy$6;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v9, v11, v12}, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy$6;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;->SLEEP_1000MS:Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;
+    sput-object v9, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;->SLEEP_1000MS:Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;
+
+    const/4 v11, 0x6
+
+    new-array v11, v11, [Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;
+
+    aput-object v0, v11, v2
+
+    aput-object v1, v11, v4
+
+    aput-object v3, v11, v6
+
+    aput-object v5, v11, v8
+
+    aput-object v7, v11, v10
+
+    aput-object v9, v11, v12
 
     .line 801
-    const/4 v1, 0x6
-
-    new-array v1, v1, [Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;
-
-    sget-object v8, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;->SPIN:Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;
-
-    aput-object v8, v1, v2
-
-    sget-object v2, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;->YIELD:Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;->SLEEP_1MS:Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;->SLEEP_10MS:Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;
-
-    aput-object v2, v1, v5
-
-    sget-object v2, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;->SLEEP_100MS:Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;
-
-    aput-object v2, v1, v6
-
-    aput-object v0, v1, v7
-
-    sput-object v1, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;->$VALUES:[Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;
+    sput-object v11, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;->$VALUES:[Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;
 
     return-void
 .end method
@@ -160,9 +150,6 @@
 
 .method synthetic constructor <init>(Ljava/lang/String;ILio/reactivex/observers/BaseTestConsumer$1;)V
     .locals 0
-    .param p1, "x0"    # Ljava/lang/String;
-    .param p2, "x1"    # I
-    .param p3, "x2"    # Lio/reactivex/observers/BaseTestConsumer$1;
 
     .line 801
     invoke-direct {p0, p1, p2}, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;-><init>(Ljava/lang/String;I)V
@@ -172,49 +159,41 @@
 
 .method static sleep(I)V
     .locals 2
-    .param p0, "millis"    # I
 
-    .line 851
     int-to-long v0, p0
 
+    .line 851
     :try_start_0
     invoke-static {v0, v1}, Ljava/lang/Thread;->sleep(J)V
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 854
-    nop
-
-    .line 855
     return-void
 
-    .line 852
     :catch_0
-    move-exception v0
+    move-exception p0
 
     .line 853
-    .local v0, "ex":Ljava/lang/InterruptedException;
-    new-instance v1, Ljava/lang/RuntimeException;
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 801
     const-class v0, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;
+    check-cast p0, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;

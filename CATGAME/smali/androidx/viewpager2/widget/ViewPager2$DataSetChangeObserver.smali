@@ -26,7 +26,6 @@
 
 .method synthetic constructor <init>(Landroidx/viewpager2/widget/ViewPager2$1;)V
     .locals 0
-    .param p1, "x0"    # Landroidx/viewpager2/widget/ViewPager2$1;
 
     .line 1577
     invoke-direct {p0}, Landroidx/viewpager2/widget/ViewPager2$DataSetChangeObserver;-><init>()V
@@ -41,62 +40,45 @@
 
 .method public final onItemRangeChanged(II)V
     .locals 0
-    .param p1, "positionStart"    # I
-    .param p2, "itemCount"    # I
 
     .line 1583
     invoke-virtual {p0}, Landroidx/viewpager2/widget/ViewPager2$DataSetChangeObserver;->onChanged()V
 
-    .line 1584
     return-void
 .end method
 
 .method public final onItemRangeChanged(IILjava/lang/Object;)V
     .locals 0
-    .param p1, "positionStart"    # I
-    .param p2, "itemCount"    # I
-    .param p3, "payload"    # Ljava/lang/Object;
 
     .line 1589
     invoke-virtual {p0}, Landroidx/viewpager2/widget/ViewPager2$DataSetChangeObserver;->onChanged()V
 
-    .line 1590
     return-void
 .end method
 
 .method public final onItemRangeInserted(II)V
     .locals 0
-    .param p1, "positionStart"    # I
-    .param p2, "itemCount"    # I
 
     .line 1594
     invoke-virtual {p0}, Landroidx/viewpager2/widget/ViewPager2$DataSetChangeObserver;->onChanged()V
 
-    .line 1595
     return-void
 .end method
 
 .method public final onItemRangeMoved(III)V
     .locals 0
-    .param p1, "fromPosition"    # I
-    .param p2, "toPosition"    # I
-    .param p3, "itemCount"    # I
 
     .line 1604
     invoke-virtual {p0}, Landroidx/viewpager2/widget/ViewPager2$DataSetChangeObserver;->onChanged()V
 
-    .line 1605
     return-void
 .end method
 
 .method public final onItemRangeRemoved(II)V
     .locals 0
-    .param p1, "positionStart"    # I
-    .param p2, "itemCount"    # I
 
     .line 1599
     invoke-virtual {p0}, Landroidx/viewpager2/widget/ViewPager2$DataSetChangeObserver;->onChanged()V
 
-    .line 1600
     return-void
 .end method

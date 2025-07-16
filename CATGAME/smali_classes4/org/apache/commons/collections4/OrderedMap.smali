@@ -38,6 +38,17 @@
     .end annotation
 .end method
 
+.method public bridge synthetic mapIterator()Lorg/apache/commons/collections4/MapIterator;
+    .locals 1
+
+    .line 28
+    invoke-interface {p0}, Lorg/apache/commons/collections4/OrderedMap;->mapIterator()Lorg/apache/commons/collections4/OrderedMapIterator;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public abstract mapIterator()Lorg/apache/commons/collections4/OrderedMapIterator;
     .annotation system Ldalvik/annotation/Signature;
         value = {

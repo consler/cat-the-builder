@@ -20,7 +20,7 @@
 
 # virtual methods
 .method public declared-synchronized keys()Ljava/util/Enumeration;
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -39,7 +39,6 @@
     move-result-object v0
 
     .line 44
-    .local v0, "keySet":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Object;>;"
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-interface {v0}, Ljava/util/Set;->size()I
@@ -49,59 +48,49 @@
     invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 45
-    .local v1, "keys":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
     .line 46
-    .local v3, "key":Ljava/lang/Object;
-    invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-interface {v1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 47
-    nop
-
-    .end local v3    # "key":Ljava/lang/Object;
     goto :goto_0
 
     .line 48
-    .end local p0    # "this":Lorg/apache/commons/collections4/properties/SortedProperties;
     :cond_0
     invoke-static {v1}, Ljava/util/Collections;->sort(Ljava/util/List;)V
 
     .line 49
-    new-instance v2, Lorg/apache/commons/collections4/iterators/IteratorEnumeration;
+    new-instance v0, Lorg/apache/commons/collections4/iterators/IteratorEnumeration;
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-direct {v2, v3}, Lorg/apache/commons/collections4/iterators/IteratorEnumeration;-><init>(Ljava/util/Iterator;)V
+    invoke-direct {v0, v1}, Lorg/apache/commons/collections4/iterators/IteratorEnumeration;-><init>(Ljava/util/Iterator;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-object v2
+    return-object v0
 
-    .line 42
-    .end local v0    # "keySet":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Object;>;"
-    .end local v1    # "keys":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     :catchall_0
     move-exception v0
 

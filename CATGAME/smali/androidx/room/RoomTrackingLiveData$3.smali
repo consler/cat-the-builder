@@ -21,8 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/room/RoomTrackingLiveData;[Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/room/RoomTrackingLiveData;
-    .param p2, "tables"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
@@ -35,7 +33,6 @@
     .end annotation
 
     .line 139
-    .local p0, "this":Landroidx/room/RoomTrackingLiveData$3;, "Landroidx/room/RoomTrackingLiveData$3;"
     iput-object p1, p0, Landroidx/room/RoomTrackingLiveData$3;->this$0:Landroidx/room/RoomTrackingLiveData;
 
     invoke-direct {p0, p2}, Landroidx/room/InvalidationTracker$Observer;-><init>([Ljava/lang/String;)V
@@ -46,7 +43,7 @@
 
 # virtual methods
 .method public onInvalidated(Ljava/util/Set;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -66,18 +63,15 @@
     .end annotation
 
     .line 142
-    .local p0, "this":Landroidx/room/RoomTrackingLiveData$3;, "Landroidx/room/RoomTrackingLiveData$3;"
-    .local p1, "tables":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     invoke-static {}, Landroidx/arch/core/executor/ArchTaskExecutor;->getInstance()Landroidx/arch/core/executor/ArchTaskExecutor;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Landroidx/room/RoomTrackingLiveData$3;->this$0:Landroidx/room/RoomTrackingLiveData;
+    iget-object v0, p0, Landroidx/room/RoomTrackingLiveData$3;->this$0:Landroidx/room/RoomTrackingLiveData;
 
-    iget-object v1, v1, Landroidx/room/RoomTrackingLiveData;->mInvalidationRunnable:Ljava/lang/Runnable;
+    iget-object v0, v0, Landroidx/room/RoomTrackingLiveData;->mInvalidationRunnable:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Landroidx/arch/core/executor/ArchTaskExecutor;->executeOnMainThread(Ljava/lang/Runnable;)V
+    invoke-virtual {p1, v0}, Landroidx/arch/core/executor/ArchTaskExecutor;->executeOnMainThread(Ljava/lang/Runnable;)V
 
-    .line 143
     return-void
 .end method

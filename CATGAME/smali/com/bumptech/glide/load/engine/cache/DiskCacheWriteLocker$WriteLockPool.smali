@@ -44,7 +44,6 @@
 
     iput-object v0, p0, Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker$WriteLockPool;->pool:Ljava/util/Queue;
 
-    .line 84
     return-void
 .end method
 
@@ -69,30 +68,24 @@
     check-cast v1, Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker$WriteLock;
 
     .line 90
-    .local v1, "result":Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker$WriteLock;
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 91
     if-nez v1, :cond_0
 
     .line 92
-    new-instance v0, Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker$WriteLock;
+    new-instance v1, Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker$WriteLock;
 
-    invoke-direct {v0}, Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker$WriteLock;-><init>()V
+    invoke-direct {v1}, Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker$WriteLock;-><init>()V
 
-    move-object v1, v0
-
-    .line 94
     :cond_0
     return-object v1
 
-    .line 90
-    .end local v1    # "result":Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker$WriteLock;
     :catchall_0
     move-exception v1
 
+    .line 90
     :try_start_1
     monitor-exit v0
     :try_end_1
@@ -103,7 +96,6 @@
 
 .method offer(Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker$WriteLock;)V
     .locals 3
-    .param p1, "writeLock"    # Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker$WriteLock;
 
     .line 98
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker$WriteLockPool;->pool:Ljava/util/Queue;
@@ -131,16 +123,14 @@
     :cond_0
     monitor-exit v0
 
-    .line 103
     return-void
 
-    .line 102
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method

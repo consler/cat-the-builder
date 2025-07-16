@@ -61,7 +61,6 @@
 # direct methods
 .method constructor <init>(Lorg/reactivestreams/Subscriber;Lio/reactivex/processors/FlowableProcessor;Lorg/reactivestreams/Subscription;)V
     .locals 0
-    .param p3, "receiver"    # Lorg/reactivestreams/Subscription;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -75,9 +74,6 @@
     .end annotation
 
     .line 146
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableRepeatWhen$WhenSourceSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableRepeatWhen$WhenSourceSubscriber<TT;TU;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
-    .local p2, "processor":Lio/reactivex/processors/FlowableProcessor;, "Lio/reactivex/processors/FlowableProcessor<TU;>;"
     invoke-direct {p0}, Lio/reactivex/internal/subscriptions/SubscriptionArbiter;-><init>()V
 
     .line 147
@@ -89,7 +85,6 @@
     .line 149
     iput-object p3, p0, Lio/reactivex/internal/operators/flowable/FlowableRepeatWhen$WhenSourceSubscriber;->receiver:Lorg/reactivestreams/Subscription;
 
-    .line 150
     return-void
 .end method
 
@@ -104,12 +99,8 @@
     .end annotation
 
     .line 164
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableRepeatWhen$WhenSourceSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableRepeatWhen$WhenSourceSubscriber<TT;TU;>;"
-    .local p1, "signal":Ljava/lang/Object;, "TU;"
     iget-wide v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRepeatWhen$WhenSourceSubscriber;->produced:J
 
-    .line 165
-    .local v0, "p":J
     const-wide/16 v2, 0x0
 
     cmp-long v4, v0, v2
@@ -124,18 +115,17 @@
 
     .line 169
     :cond_0
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableRepeatWhen$WhenSourceSubscriber;->receiver:Lorg/reactivestreams/Subscription;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRepeatWhen$WhenSourceSubscriber;->receiver:Lorg/reactivestreams/Subscription;
 
-    const-wide/16 v3, 0x1
+    const-wide/16 v1, 0x1
 
-    invoke-interface {v2, v3, v4}, Lorg/reactivestreams/Subscription;->request(J)V
+    invoke-interface {v0, v1, v2}, Lorg/reactivestreams/Subscription;->request(J)V
 
     .line 170
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableRepeatWhen$WhenSourceSubscriber;->processor:Lio/reactivex/processors/FlowableProcessor;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRepeatWhen$WhenSourceSubscriber;->processor:Lio/reactivex/processors/FlowableProcessor;
 
-    invoke-virtual {v2, p1}, Lio/reactivex/processors/FlowableProcessor;->onNext(Ljava/lang/Object;)V
+    invoke-virtual {v0, p1}, Lio/reactivex/processors/FlowableProcessor;->onNext(Ljava/lang/Object;)V
 
-    .line 171
     return-void
 .end method
 
@@ -143,7 +133,6 @@
     .locals 1
 
     .line 175
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableRepeatWhen$WhenSourceSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableRepeatWhen$WhenSourceSubscriber<TT;TU;>;"
     invoke-super {p0}, Lio/reactivex/internal/subscriptions/SubscriptionArbiter;->cancel()V
 
     .line 176
@@ -151,7 +140,6 @@
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
 
-    .line 177
     return-void
 .end method
 
@@ -164,8 +152,6 @@
     .end annotation
 
     .line 159
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableRepeatWhen$WhenSourceSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableRepeatWhen$WhenSourceSubscriber<TT;TU;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-wide v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRepeatWhen$WhenSourceSubscriber;->produced:J
 
     const-wide/16 v2, 0x1
@@ -179,18 +165,14 @@
 
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
-    .line 161
     return-void
 .end method
 
 .method public final onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 0
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 154
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableRepeatWhen$WhenSourceSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableRepeatWhen$WhenSourceSubscriber<TT;TU;>;"
     invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableRepeatWhen$WhenSourceSubscriber;->setSubscription(Lorg/reactivestreams/Subscription;)V
 
-    .line 155
     return-void
 .end method

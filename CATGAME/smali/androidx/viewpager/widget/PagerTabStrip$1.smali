@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/viewpager/widget/PagerTabStrip;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/viewpager/widget/PagerTabStrip;
 
     .line 110
     iput-object p1, p0, Landroidx/viewpager/widget/PagerTabStrip$1;->this$0:Landroidx/viewpager/widget/PagerTabStrip;
@@ -37,26 +36,24 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
-    .param p1, "v"    # Landroid/view/View;
+    .locals 1
 
     .line 113
+    iget-object p1, p0, Landroidx/viewpager/widget/PagerTabStrip$1;->this$0:Landroidx/viewpager/widget/PagerTabStrip;
+
+    iget-object p1, p1, Landroidx/viewpager/widget/PagerTabStrip;->mPager:Landroidx/viewpager/widget/ViewPager;
+
     iget-object v0, p0, Landroidx/viewpager/widget/PagerTabStrip$1;->this$0:Landroidx/viewpager/widget/PagerTabStrip;
 
     iget-object v0, v0, Landroidx/viewpager/widget/PagerTabStrip;->mPager:Landroidx/viewpager/widget/ViewPager;
 
-    iget-object v1, p0, Landroidx/viewpager/widget/PagerTabStrip$1;->this$0:Landroidx/viewpager/widget/PagerTabStrip;
+    invoke-virtual {v0}, Landroidx/viewpager/widget/ViewPager;->getCurrentItem()I
 
-    iget-object v1, v1, Landroidx/viewpager/widget/PagerTabStrip;->mPager:Landroidx/viewpager/widget/ViewPager;
+    move-result v0
 
-    invoke-virtual {v1}, Landroidx/viewpager/widget/ViewPager;->getCurrentItem()I
+    add-int/lit8 v0, v0, -0x1
 
-    move-result v1
+    invoke-virtual {p1, v0}, Landroidx/viewpager/widget/ViewPager;->setCurrentItem(I)V
 
-    add-int/lit8 v1, v1, -0x1
-
-    invoke-virtual {v0, v1}, Landroidx/viewpager/widget/ViewPager;->setCurrentItem(I)V
-
-    .line 114
     return-void
 .end method

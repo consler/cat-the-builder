@@ -18,10 +18,8 @@
 # direct methods
 .method public constructor <init>(Z)V
     .locals 0
-    .param p1, "orderedResults"    # Z
 
     .line 23
-    .local p0, "this":Lcom/opencsv/bean/concurrent/LineExecutor;, "Lcom/opencsv/bean/concurrent/LineExecutor<TT;>;"
     invoke-direct {p0, p1}, Lcom/opencsv/bean/concurrent/IntolerantThreadPoolExecutor;-><init>(Z)V
 
     return-void
@@ -38,7 +36,6 @@
     .end annotation
 
     .line 17
-    .local p0, "this":Lcom/opencsv/bean/concurrent/LineExecutor;, "Lcom/opencsv/bean/concurrent/LineExecutor<TT;>;"
     invoke-super {p0}, Lcom/opencsv/bean/concurrent/IntolerantThreadPoolExecutor;->complete()V
 
     return-void
@@ -48,7 +45,6 @@
     .locals 1
 
     .line 17
-    .local p0, "this":Lcom/opencsv/bean/concurrent/LineExecutor;, "Lcom/opencsv/bean/concurrent/LineExecutor<TT;>;"
     invoke-super {p0}, Lcom/opencsv/bean/concurrent/IntolerantThreadPoolExecutor;->getCapturedExceptions()Ljava/util/List;
 
     move-result-object v0
@@ -60,7 +56,6 @@
     .locals 1
 
     .line 17
-    .local p0, "this":Lcom/opencsv/bean/concurrent/LineExecutor;, "Lcom/opencsv/bean/concurrent/LineExecutor<TT;>;"
     invoke-super {p0}, Lcom/opencsv/bean/concurrent/IntolerantThreadPoolExecutor;->getTerminalException()Ljava/lang/Throwable;
 
     move-result-object v0
@@ -72,7 +67,6 @@
     .locals 0
 
     .line 17
-    .local p0, "this":Lcom/opencsv/bean/concurrent/LineExecutor;, "Lcom/opencsv/bean/concurrent/LineExecutor<TT;>;"
     invoke-super {p0}, Lcom/opencsv/bean/concurrent/IntolerantThreadPoolExecutor;->prepare()V
 
     return-void
@@ -82,7 +76,6 @@
     .locals 1
 
     .line 17
-    .local p0, "this":Lcom/opencsv/bean/concurrent/LineExecutor;, "Lcom/opencsv/bean/concurrent/LineExecutor<TT;>;"
     invoke-super {p0}, Lcom/opencsv/bean/concurrent/IntolerantThreadPoolExecutor;->resultStream()Ljava/util/stream/Stream;
 
     move-result-object v0
@@ -94,7 +87,6 @@
     .locals 1
 
     .line 17
-    .local p0, "this":Lcom/opencsv/bean/concurrent/LineExecutor;, "Lcom/opencsv/bean/concurrent/LineExecutor<TT;>;"
     invoke-super {p0}, Lcom/opencsv/bean/concurrent/IntolerantThreadPoolExecutor;->shutdownNow()Ljava/util/List;
 
     move-result-object v0
@@ -104,10 +96,6 @@
 
 .method public submitLine(JLcom/opencsv/bean/MappingStrategy;Lcom/opencsv/bean/CsvToBeanFilter;Ljava/util/List;[Ljava/lang/String;Z)V
     .locals 12
-    .param p1, "lineNumber"    # J
-    .param p4, "filter"    # Lcom/opencsv/bean/CsvToBeanFilter;
-    .param p6, "line"    # [Ljava/lang/String;
-    .param p7, "throwExceptions"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -122,9 +110,6 @@
         }
     .end annotation
 
-    .local p0, "this":Lcom/opencsv/bean/concurrent/LineExecutor;, "Lcom/opencsv/bean/concurrent/LineExecutor<TT;>;"
-    .local p3, "mapper":Lcom/opencsv/bean/MappingStrategy;, "Lcom/opencsv/bean/MappingStrategy<+TT;>;"
-    .local p5, "verifiers":Ljava/util/List;, "Ljava/util/List<Lcom/opencsv/bean/BeanVerifier<TT;>;>;"
     move-object v1, p0
 
     .line 41
@@ -155,18 +140,12 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 50
-    nop
-
-    .line 51
     return-void
 
-    .line 45
     :catch_0
     move-exception v0
 
     .line 46
-    .local v0, "e":Ljava/lang/Exception;
     iget-object v2, v1, Lcom/opencsv/bean/concurrent/LineExecutor;->accumulateThread:Lcom/opencsv/bean/concurrent/AccumulateCsvResults;
 
     if-eqz v2, :cond_0

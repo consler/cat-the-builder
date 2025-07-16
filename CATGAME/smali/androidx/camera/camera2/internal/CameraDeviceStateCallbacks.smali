@@ -19,7 +19,6 @@
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 32
     return-void
 .end method
 
@@ -36,7 +35,6 @@
     .end annotation
 
     .line 48
-    .local p0, "callbacks":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/camera2/CameraDevice$StateCallback;>;"
     invoke-interface {p0}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
@@ -46,9 +44,9 @@
     .line 49
     invoke-static {}, Landroidx/camera/camera2/internal/CameraDeviceStateCallbacks;->createNoOpCallback()Landroid/hardware/camera2/CameraDevice$StateCallback;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 50
     :cond_0
@@ -60,16 +58,16 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 51
     const/4 v0, 0x0
 
+    .line 51
     invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/hardware/camera2/CameraDevice$StateCallback;
+    check-cast p0, Landroid/hardware/camera2/CameraDevice$StateCallback;
 
-    return-object v0
+    return-object p0
 
     .line 53
     :cond_1
@@ -81,19 +79,18 @@
 .end method
 
 .method public static varargs createComboCallback([Landroid/hardware/camera2/CameraDevice$StateCallback;)Landroid/hardware/camera2/CameraDevice$StateCallback;
-    .locals 1
-    .param p0, "callbacks"    # [Landroid/hardware/camera2/CameraDevice$StateCallback;
+    .locals 0
 
     .line 62
     invoke-static {p0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Landroidx/camera/camera2/internal/CameraDeviceStateCallbacks;->createComboCallback(Ljava/util/List;)Landroid/hardware/camera2/CameraDevice$StateCallback;
+    invoke-static {p0}, Landroidx/camera/camera2/internal/CameraDeviceStateCallbacks;->createComboCallback(Ljava/util/List;)Landroid/hardware/camera2/CameraDevice$StateCallback;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static createNoOpCallback()Landroid/hardware/camera2/CameraDevice$StateCallback;

@@ -22,16 +22,11 @@
     .line 53
     invoke-direct {p0}, Ljava/io/IOException;-><init>()V
 
-    .line 54
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;JLjava/lang/String;I)V
     .locals 0
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "row"    # J
-    .param p4, "context"    # Ljava/lang/String;
-    .param p5, "multilineLimit"    # I
 
     .line 64
     invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
@@ -45,7 +40,6 @@
     .line 67
     iput p5, p0, Lcom/opencsv/exceptions/CsvMultilineLimitBrokenException;->multilineLimit:I
 
-    .line 68
     return-void
 .end method
 

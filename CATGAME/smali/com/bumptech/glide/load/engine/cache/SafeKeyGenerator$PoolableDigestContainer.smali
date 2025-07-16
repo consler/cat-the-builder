@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Ljava/security/MessageDigest;)V
     .locals 1
-    .param p1, "messageDigest"    # Ljava/security/MessageDigest;
 
     .line 67
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +40,6 @@
     .line 68
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/cache/SafeKeyGenerator$PoolableDigestContainer;->messageDigest:Ljava/security/MessageDigest;
 
-    .line 69
     return-void
 .end method
 

@@ -12,8 +12,6 @@
 # direct methods
 .method constructor <init>(Lcom/thoughtworks/xstream/converters/reflection/PureJavaReflectionProvider;Ljava/io/InputStream;Ljava/lang/Class;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/thoughtworks/xstream/converters/reflection/PureJavaReflectionProvider;
-    .param p2, "x0"    # Ljava/io/InputStream;
 
     .line 117
     iput-object p1, p0, Lcom/thoughtworks/xstream/converters/reflection/PureJavaReflectionProvider$1;->this$0:Lcom/thoughtworks/xstream/converters/reflection/PureJavaReflectionProvider;
@@ -28,8 +26,7 @@
 
 # virtual methods
 .method protected resolveClass(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;
-    .locals 3
-    .param p1, "desc"    # Ljava/io/ObjectStreamClass;
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -40,19 +37,19 @@
     .line 120
     invoke-virtual {p1}, Ljava/io/ObjectStreamClass;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Lcom/thoughtworks/xstream/converters/reflection/PureJavaReflectionProvider$1;->val$type:Ljava/lang/Class;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/converters/reflection/PureJavaReflectionProvider$1;->val$type:Ljava/lang/Class;
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    invoke-static {v0, v2, v1}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v0
 
-    return-object v0
+    const/4 v1, 0x0
+
+    invoke-static {p1, v1, v0}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
+
+    move-result-object p1
+
+    return-object p1
 .end method

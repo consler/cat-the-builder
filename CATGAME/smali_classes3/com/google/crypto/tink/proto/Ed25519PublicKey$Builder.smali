@@ -38,13 +38,11 @@
 
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
-    .line 200
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/proto/Ed25519PublicKey$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/proto/Ed25519PublicKey$1;
 
     .line 192
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/Ed25519PublicKey$Builder;-><init>()V
@@ -67,7 +65,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/Ed25519PublicKey;->access$400(Lcom/google/crypto/tink/proto/Ed25519PublicKey;)V
 
-    .line 286
     return-object p0
 .end method
 
@@ -84,7 +81,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/Ed25519PublicKey;->access$200(Lcom/google/crypto/tink/proto/Ed25519PublicKey;)V
 
-    .line 240
     return-object p0
 .end method
 
@@ -120,7 +116,6 @@
 
 .method public setKeyValue(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/Ed25519PublicKey$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -140,13 +135,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/Ed25519PublicKey;->access$300(Lcom/google/crypto/tink/proto/Ed25519PublicKey;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    .line 271
     return-object p0
 .end method
 
 .method public setVersion(I)Lcom/google/crypto/tink/proto/Ed25519PublicKey$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -166,6 +159,5 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/Ed25519PublicKey;->access$100(Lcom/google/crypto/tink/proto/Ed25519PublicKey;I)V
 
-    .line 227
     return-object p0
 .end method

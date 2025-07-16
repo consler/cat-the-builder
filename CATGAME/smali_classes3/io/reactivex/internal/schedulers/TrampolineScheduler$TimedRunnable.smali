@@ -38,10 +38,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Runnable;Ljava/lang/Long;I)V
-    .locals 2
-    .param p1, "run"    # Ljava/lang/Runnable;
-    .param p2, "execTime"    # Ljava/lang/Long;
-    .param p3, "count"    # I
+    .locals 0
 
     .line 156
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,14 +49,13 @@
     .line 158
     invoke-virtual {p2}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    iput-wide v0, p0, Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;->execTime:J
+    iput-wide p1, p0, Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;->execTime:J
 
     .line 159
     iput p3, p0, Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;->count:I
 
-    .line 160
     return-void
 .end method
 
@@ -67,7 +63,6 @@
 # virtual methods
 .method public compareTo(Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;)I
     .locals 4
-    .param p1, "that"    # Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;
 
     .line 164
     iget-wide v0, p0, Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;->execTime:J
@@ -78,38 +73,32 @@
 
     move-result v0
 
-    .line 165
-    .local v0, "result":I
     if-nez v0, :cond_0
 
     .line 166
-    iget v1, p0, Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;->count:I
+    iget v0, p0, Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;->count:I
 
-    iget v2, p1, Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;->count:I
+    iget p1, p1, Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;->count:I
 
-    invoke-static {v1, v2}, Lio/reactivex/internal/functions/ObjectHelper;->compare(II)I
+    invoke-static {v0, p1}, Lio/reactivex/internal/functions/ObjectHelper;->compare(II)I
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 
-    .line 168
     :cond_0
     return v0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
+    .locals 0
 
     .line 149
-    move-object v0, p1
+    check-cast p1, Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;
 
-    check-cast v0, Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;->compareTo(Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;)I
 
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;->compareTo(Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;)I
+    move-result p1
 
-    move-result v0
-
-    return v0
+    return p1
 .end method

@@ -28,24 +28,23 @@
 # virtual methods
 .method public apply(F)F
     .locals 3
-    .param p1, "a"    # F
 
-    .line 91
     const/high16 v0, 0x3f800000    # 1.0f
 
-    sub-float v1, p1, v0
+    sub-float/2addr p1, v0
 
-    neg-float v1, v1
+    neg-float p1, p1
 
-    float-to-double v1, v1
+    float-to-double v1, p1
 
+    .line 91
     invoke-static {v1, v2}, Ljava/lang/Math;->cbrt(D)D
 
     move-result-wide v1
 
-    double-to-float v1, v1
+    double-to-float p1, v1
 
-    sub-float/2addr v0, v1
+    sub-float/2addr v0, p1
 
     return v0
 .end method

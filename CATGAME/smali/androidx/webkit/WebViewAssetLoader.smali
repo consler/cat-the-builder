@@ -47,21 +47,18 @@
     .end annotation
 
     .line 525
-    .local p1, "pathMatchers":Ljava/util/List;, "Ljava/util/List<Landroidx/webkit/WebViewAssetLoader$PathMatcher;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 526
     iput-object p1, p0, Landroidx/webkit/WebViewAssetLoader;->mMatchers:Ljava/util/List;
 
-    .line 527
     return-void
 .end method
 
 
 # virtual methods
 .method public shouldInterceptRequest(Landroid/net/Uri;)Landroid/webkit/WebResourceResponse;
-    .locals 5
-    .param p1, "url"    # Landroid/net/Uri;
+    .locals 4
 
     .line 543
     iget-object v0, p0, Landroidx/webkit/WebViewAssetLoader;->mMatchers:Ljava/util/List;
@@ -84,13 +81,10 @@
     check-cast v1, Landroidx/webkit/WebViewAssetLoader$PathMatcher;
 
     .line 544
-    .local v1, "matcher":Landroidx/webkit/WebViewAssetLoader$PathMatcher;
     invoke-virtual {v1, p1}, Landroidx/webkit/WebViewAssetLoader$PathMatcher;->match(Landroid/net/Uri;)Landroidx/webkit/WebViewAssetLoader$PathHandler;
 
     move-result-object v2
 
-    .line 546
-    .local v2, "handler":Landroidx/webkit/WebViewAssetLoader$PathHandler;
     if-nez v2, :cond_0
 
     goto :goto_0
@@ -103,31 +97,22 @@
 
     invoke-virtual {v1, v3}, Landroidx/webkit/WebViewAssetLoader$PathMatcher;->getSuffixPath(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
     .line 548
-    .local v3, "suffixPath":Ljava/lang/String;
-    invoke-interface {v2, v3}, Landroidx/webkit/WebViewAssetLoader$PathHandler;->handle(Ljava/lang/String;)Landroid/webkit/WebResourceResponse;
+    invoke-interface {v2, v1}, Landroidx/webkit/WebViewAssetLoader$PathHandler;->handle(Ljava/lang/String;)Landroid/webkit/WebResourceResponse;
 
-    move-result-object v4
+    move-result-object v1
 
-    .line 550
-    .local v4, "response":Landroid/webkit/WebResourceResponse;
-    if-nez v4, :cond_1
+    if-nez v1, :cond_1
 
     goto :goto_0
 
-    .line 552
     :cond_1
-    return-object v4
+    return-object v1
 
-    .line 554
-    .end local v1    # "matcher":Landroidx/webkit/WebViewAssetLoader$PathMatcher;
-    .end local v2    # "handler":Landroidx/webkit/WebViewAssetLoader$PathHandler;
-    .end local v3    # "suffixPath":Ljava/lang/String;
-    .end local v4    # "response":Landroid/webkit/WebResourceResponse;
     :cond_2
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method

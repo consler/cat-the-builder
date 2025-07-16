@@ -38,7 +38,7 @@
 
 # direct methods
 .method protected constructor <init>(Ljava/util/Map;Lorg/apache/commons/collections4/Factory;)V
-    .locals 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,37 +50,32 @@
     .end annotation
 
     .line 116
-    .local p0, "this":Lorg/apache/commons/collections4/map/LazyMap;, "Lorg/apache/commons/collections4/map/LazyMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    .local p2, "factory":Lorg/apache/commons/collections4/Factory;, "Lorg/apache/commons/collections4/Factory<+TV;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/map/AbstractMapDecorator;-><init>(Ljava/util/Map;)V
 
-    .line 117
     if-eqz p2, :cond_0
 
     .line 120
     invoke-static {p2}, Lorg/apache/commons/collections4/functors/FactoryTransformer;->factoryTransformer(Lorg/apache/commons/collections4/Factory;)Lorg/apache/commons/collections4/Transformer;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/map/LazyMap;->factory:Lorg/apache/commons/collections4/Transformer;
+    iput-object p1, p0, Lorg/apache/commons/collections4/map/LazyMap;->factory:Lorg/apache/commons/collections4/Transformer;
 
-    .line 121
     return-void
 
     .line 118
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "Factory must not be null"
+    const-string p2, "Factory must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method protected constructor <init>(Ljava/util/Map;Lorg/apache/commons/collections4/Transformer;)V
-    .locals 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -92,29 +87,24 @@
     .end annotation
 
     .line 131
-    .local p0, "this":Lorg/apache/commons/collections4/map/LazyMap;, "Lorg/apache/commons/collections4/map/LazyMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    .local p2, "factory":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TK;+TV;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/map/AbstractMapDecorator;-><init>(Ljava/util/Map;)V
 
-    .line 132
     if-eqz p2, :cond_0
 
     .line 135
     iput-object p2, p0, Lorg/apache/commons/collections4/map/LazyMap;->factory:Lorg/apache/commons/collections4/Transformer;
 
-    .line 136
     return-void
 
     .line 133
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "Factory must not be null"
+    const-string p2, "Factory must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public static lazyMap(Ljava/util/Map;Lorg/apache/commons/collections4/Factory;)Lorg/apache/commons/collections4/map/LazyMap;
@@ -136,8 +126,6 @@
     .end annotation
 
     .line 89
-    .local p0, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    .local p1, "factory":Lorg/apache/commons/collections4/Factory;, "Lorg/apache/commons/collections4/Factory<+TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/map/LazyMap;
 
     invoke-direct {v0, p0, p1}, Lorg/apache/commons/collections4/map/LazyMap;-><init>(Ljava/util/Map;Lorg/apache/commons/collections4/Factory;)V
@@ -164,8 +152,6 @@
     .end annotation
 
     .line 104
-    .local p0, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    .local p1, "factory":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TK;+TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/map/LazyMap;
 
     invoke-direct {v0, p0, p1}, Lorg/apache/commons/collections4/map/LazyMap;-><init>(Ljava/util/Map;Lorg/apache/commons/collections4/Transformer;)V
@@ -174,8 +160,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 1
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -184,25 +169,22 @@
     .end annotation
 
     .line 161
-    .local p0, "this":Lorg/apache/commons/collections4/map/LazyMap;, "Lorg/apache/commons/collections4/map/LazyMap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
     .line 162
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Map;
+    check-cast p1, Ljava/util/Map;
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/map/LazyMap;->map:Ljava/util/Map;
+    iput-object p1, p0, Lorg/apache/commons/collections4/map/LazyMap;->map:Ljava/util/Map;
 
-    .line 163
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -210,7 +192,6 @@
     .end annotation
 
     .line 147
-    .local p0, "this":Lorg/apache/commons/collections4/map/LazyMap;, "Lorg/apache/commons/collections4/map/LazyMap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
     .line 148
@@ -218,15 +199,13 @@
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    .line 149
     return-void
 .end method
 
 
 # virtual methods
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -236,7 +215,6 @@
     .end annotation
 
     .line 169
-    .local p0, "this":Lorg/apache/commons/collections4/map/LazyMap;, "Lorg/apache/commons/collections4/map/LazyMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/LazyMap;->map:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -245,35 +223,27 @@
 
     if-nez v0, :cond_0
 
-    .line 171
-    move-object v0, p1
-
     .line 172
-    .local v0, "castKey":Ljava/lang/Object;, "TK;"
-    iget-object v1, p0, Lorg/apache/commons/collections4/map/LazyMap;->factory:Lorg/apache/commons/collections4/Transformer;
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/LazyMap;->factory:Lorg/apache/commons/collections4/Transformer;
 
-    invoke-interface {v1, v0}, Lorg/apache/commons/collections4/Transformer;->transform(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Transformer;->transform(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 173
-    .local v1, "value":Ljava/lang/Object;, "TV;"
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/LazyMap;->map:Ljava/util/Map;
+    iget-object v1, p0, Lorg/apache/commons/collections4/map/LazyMap;->map:Ljava/util/Map;
 
-    invoke-interface {v2, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 174
-    return-object v1
+    return-object v0
 
     .line 176
-    .end local v0    # "castKey":Ljava/lang/Object;, "TK;"
-    .end local v1    # "value":Ljava/lang/Object;, "TV;"
     :cond_0
     iget-object v0, p0, Lorg/apache/commons/collections4/map/LazyMap;->map:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

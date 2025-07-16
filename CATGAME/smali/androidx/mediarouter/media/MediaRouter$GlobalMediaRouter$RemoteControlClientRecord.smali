@@ -28,7 +28,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;Ljava/lang/Object;)V
     .locals 0
-    .param p2, "rcc"    # Ljava/lang/Object;
 
     .line 3072
     iput-object p1, p0, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter$RemoteControlClientRecord;->this$0:Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
@@ -50,7 +49,6 @@
     .line 3075
     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter$RemoteControlClientRecord;->updatePlaybackInfo()V
 
-    .line 3076
     return-void
 .end method
 
@@ -59,9 +57,9 @@
 .method public disconnect()V
     .locals 2
 
-    .line 3083
     const/4 v0, 0x1
 
+    .line 3083
     iput-boolean v0, p0, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter$RemoteControlClientRecord;->mDisconnected:Z
 
     .line 3084
@@ -71,7 +69,6 @@
 
     invoke-virtual {v0, v1}, Landroidx/mediarouter/media/RemoteControlClientCompat;->setVolumeCallback(Landroidx/mediarouter/media/RemoteControlClientCompat$VolumeCallback;)V
 
-    .line 3085
     return-void
 .end method
 
@@ -90,7 +87,6 @@
 
 .method public onVolumeSetRequest(I)V
     .locals 1
-    .param p1, "volume"    # I
 
     .line 3093
     iget-boolean v0, p0, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter$RemoteControlClientRecord;->mDisconnected:Z
@@ -110,14 +106,12 @@
 
     invoke-virtual {v0, p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->requestSetVolume(I)V
 
-    .line 3096
     :cond_0
     return-void
 .end method
 
 .method public onVolumeUpdateRequest(I)V
     .locals 1
-    .param p1, "direction"    # I
 
     .line 3100
     iget-boolean v0, p0, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter$RemoteControlClientRecord;->mDisconnected:Z
@@ -137,7 +131,6 @@
 
     invoke-virtual {v0, p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->requestUpdateVolume(I)V
 
-    .line 3103
     :cond_0
     return-void
 .end method
@@ -154,6 +147,5 @@
 
     invoke-virtual {v0, v1}, Landroidx/mediarouter/media/RemoteControlClientCompat;->setPlaybackInfo(Landroidx/mediarouter/media/RemoteControlClientCompat$PlaybackInfo;)V
 
-    .line 3089
     return-void
 .end method

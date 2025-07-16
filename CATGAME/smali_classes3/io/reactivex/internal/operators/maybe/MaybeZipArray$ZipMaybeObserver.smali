@@ -50,7 +50,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipCoordinator;I)V
     .locals 0
-    .param p2, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -60,8 +59,6 @@
     .end annotation
 
     .line 162
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipMaybeObserver<TT;>;"
-    .local p1, "parent":Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipCoordinator;, "Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipCoordinator<TT;*>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 163
@@ -70,7 +67,6 @@
     .line 164
     iput p2, p0, Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipMaybeObserver;->index:I
 
-    .line 165
     return-void
 .end method
 
@@ -80,10 +76,8 @@
     .locals 0
 
     .line 168
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipMaybeObserver<TT;>;"
     invoke-static {p0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 169
     return-void
 .end method
 
@@ -91,42 +85,34 @@
     .locals 2
 
     .line 188
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipMaybeObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipMaybeObserver;->parent:Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipCoordinator;
 
     iget v1, p0, Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipMaybeObserver;->index:I
 
     invoke-virtual {v0, v1}, Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipCoordinator;->innerComplete(I)V
 
-    .line 189
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 183
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipMaybeObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipMaybeObserver;->parent:Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipCoordinator;
 
     iget v1, p0, Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipMaybeObserver;->index:I
 
     invoke-virtual {v0, p1, v1}, Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipCoordinator;->innerError(Ljava/lang/Throwable;I)V
 
-    .line 184
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 0
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 173
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipMaybeObserver<TT;>;"
     invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 174
     return-void
 .end method
 
@@ -139,14 +125,11 @@
     .end annotation
 
     .line 178
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipMaybeObserver<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipMaybeObserver;->parent:Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipCoordinator;
 
     iget v1, p0, Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipMaybeObserver;->index:I
 
     invoke-virtual {v0, p1, v1}, Lio/reactivex/internal/operators/maybe/MaybeZipArray$ZipCoordinator;->innerSuccess(Ljava/lang/Object;I)V
 
-    .line 179
     return-void
 .end method

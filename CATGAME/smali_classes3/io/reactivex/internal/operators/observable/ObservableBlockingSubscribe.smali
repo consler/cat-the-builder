@@ -33,13 +33,11 @@
     .end annotation
 
     .line 77
-    .local p0, "o":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<+TT;>;"
     new-instance v0, Lio/reactivex/internal/util/BlockingIgnoringReceiver;
 
     invoke-direct {v0}, Lio/reactivex/internal/util/BlockingIgnoringReceiver;-><init>()V
 
     .line 78
-    .local v0, "callback":Lio/reactivex/internal/util/BlockingIgnoringReceiver;
     new-instance v1, Lio/reactivex/internal/observers/LambdaObserver;
 
     invoke-static {}, Lio/reactivex/internal/functions/Functions;->emptyConsumer()Lio/reactivex/functions/Consumer;
@@ -53,29 +51,25 @@
     invoke-direct {v1, v2, v0, v0, v3}, Lio/reactivex/internal/observers/LambdaObserver;-><init>(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;Lio/reactivex/functions/Consumer;)V
 
     .line 81
-    .local v1, "ls":Lio/reactivex/internal/observers/LambdaObserver;, "Lio/reactivex/internal/observers/LambdaObserver<TT;>;"
     invoke-interface {p0, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
     .line 83
     invoke-static {v0, v1}, Lio/reactivex/internal/util/BlockingHelper;->awaitForComplete(Ljava/util/concurrent/CountDownLatch;Lio/reactivex/disposables/Disposable;)V
 
     .line 84
-    iget-object v2, v0, Lio/reactivex/internal/util/BlockingIgnoringReceiver;->error:Ljava/lang/Throwable;
+    iget-object p0, v0, Lio/reactivex/internal/util/BlockingIgnoringReceiver;->error:Ljava/lang/Throwable;
 
-    .line 85
-    .local v2, "e":Ljava/lang/Throwable;
-    if-nez v2, :cond_0
+    if-nez p0, :cond_0
 
-    .line 88
     return-void
 
     .line 86
     :cond_0
-    invoke-static {v2}, Lio/reactivex/internal/util/ExceptionHelper;->wrapOrThrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
+    invoke-static {p0}, Lio/reactivex/internal/util/ExceptionHelper;->wrapOrThrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
 
-    move-result-object v3
+    move-result-object p0
 
-    throw v3
+    throw p0
 .end method
 
 .method public static subscribe(Lio/reactivex/ObservableSource;Lio/reactivex/Observer;)V
@@ -93,77 +87,63 @@
     .end annotation
 
     .line 43
-    .local p0, "o":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<+TT;>;"
-    .local p1, "observer":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     new-instance v0, Ljava/util/concurrent/LinkedBlockingQueue;
 
     invoke-direct {v0}, Ljava/util/concurrent/LinkedBlockingQueue;-><init>()V
 
     .line 45
-    .local v0, "queue":Ljava/util/concurrent/BlockingQueue;, "Ljava/util/concurrent/BlockingQueue<Ljava/lang/Object;>;"
     new-instance v1, Lio/reactivex/internal/observers/BlockingObserver;
 
     invoke-direct {v1, v0}, Lio/reactivex/internal/observers/BlockingObserver;-><init>(Ljava/util/Queue;)V
 
     .line 46
-    .local v1, "bs":Lio/reactivex/internal/observers/BlockingObserver;, "Lio/reactivex/internal/observers/BlockingObserver<TT;>;"
     invoke-interface {p1, v1}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 48
     invoke-interface {p0, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
     .line 50
-    :goto_0
+    :cond_0
     invoke-virtual {v1}, Lio/reactivex/internal/observers/BlockingObserver;->isDisposed()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
-    .line 51
-    goto :goto_2
+    goto :goto_1
 
     .line 53
-    :cond_0
+    :cond_1
     invoke-interface {v0}, Ljava/util/concurrent/BlockingQueue;->poll()Ljava/lang/Object;
 
     move-result-object v2
 
-    .line 54
-    .local v2, "v":Ljava/lang/Object;
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2
 
     .line 56
     :try_start_0
     invoke-interface {v0}, Ljava/util/concurrent/BlockingQueue;->take()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-object v2, v3
+    goto :goto_0
 
-    .line 61
-    goto :goto_1
-
-    .line 57
     :catch_0
-    move-exception v3
+    move-exception p0
 
     .line 58
-    .local v3, "ex":Ljava/lang/InterruptedException;
     invoke-virtual {v1}, Lio/reactivex/internal/observers/BlockingObserver;->dispose()V
 
     .line 59
-    invoke-interface {p1, v3}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 60
     return-void
 
     .line 63
-    .end local v3    # "ex":Ljava/lang/InterruptedException;
-    :cond_1
-    :goto_1
+    :cond_2
+    :goto_0
     invoke-virtual {v1}, Lio/reactivex/internal/observers/BlockingObserver;->isDisposed()Z
 
     move-result v3
@@ -176,27 +156,17 @@
 
     invoke-static {v2, p1}, Lio/reactivex/internal/util/NotificationLite;->acceptFull(Ljava/lang/Object;Lio/reactivex/Observer;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_0
 
-    .line 66
-    goto :goto_2
-
-    .line 68
-    .end local v2    # "v":Ljava/lang/Object;
-    :cond_2
-    goto :goto_0
-
-    .line 69
     :cond_3
-    :goto_2
+    :goto_1
     return-void
 .end method
 
 .method public static subscribe(Lio/reactivex/ObservableSource;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;)V
     .locals 2
-    .param p3, "onComplete"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -215,22 +185,19 @@
         }
     .end annotation
 
-    .line 100
-    .local p0, "o":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<+TT;>;"
-    .local p1, "onNext":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
-    .local p2, "onError":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Ljava/lang/Throwable;>;"
     const-string v0, "onNext is null"
 
+    .line 100
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 101
     const-string v0, "onError is null"
 
+    .line 101
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 102
     const-string v0, "onComplete is null"
 
+    .line 102
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 103
@@ -244,6 +211,5 @@
 
     invoke-static {p0, v0}, Lio/reactivex/internal/operators/observable/ObservableBlockingSubscribe;->subscribe(Lio/reactivex/ObservableSource;Lio/reactivex/Observer;)V
 
-    .line 104
     return-void
 .end method

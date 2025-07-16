@@ -92,7 +92,7 @@
         }
     .end annotation
 
-    .line 41
+    .line 42
     iget-object v0, p0, Lorg/koin/androidx/viewmodel/ext/android/SavedStateRegistryOwnerExtKt$stateViewModel$1;->$this_stateViewModel:Landroidx/savedstate/SavedStateRegistryOwner;
 
     iget-object v1, p0, Lorg/koin/androidx/viewmodel/ext/android/SavedStateRegistryOwnerExtKt$stateViewModel$1;->$clazz:Lkotlin/reflect/KClass;

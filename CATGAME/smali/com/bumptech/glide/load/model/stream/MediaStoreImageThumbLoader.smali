@@ -30,8 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 0
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,22 +38,17 @@
     .line 25
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/model/stream/MediaStoreImageThumbLoader;->context:Landroid/content/Context;
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/stream/MediaStoreImageThumbLoader;->context:Landroid/content/Context;
 
-    .line 26
     return-void
 .end method
 
 
 # virtual methods
 .method public buildLoadData(Landroid/net/Uri;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
-    .locals 3
-    .param p1, "model"    # Landroid/net/Uri;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
-    .param p4, "options"    # Lcom/bumptech/glide/load/Options;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,32 +65,31 @@
     .line 31
     invoke-static {p2, p3}, Lcom/bumptech/glide/load/data/mediastore/MediaStoreUtil;->isThumbnailSize(II)Z
 
-    move-result v0
+    move-result p2
 
-    if-eqz v0, :cond_0
+    if-eqz p2, :cond_0
 
     .line 32
-    new-instance v0, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
+    new-instance p2, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
 
-    new-instance v1, Lcom/bumptech/glide/signature/ObjectKey;
+    new-instance p3, Lcom/bumptech/glide/signature/ObjectKey;
 
-    invoke-direct {v1, p1}, Lcom/bumptech/glide/signature/ObjectKey;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p3, p1}, Lcom/bumptech/glide/signature/ObjectKey;-><init>(Ljava/lang/Object;)V
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/model/stream/MediaStoreImageThumbLoader;->context:Landroid/content/Context;
+    iget-object p4, p0, Lcom/bumptech/glide/load/model/stream/MediaStoreImageThumbLoader;->context:Landroid/content/Context;
 
-    invoke-static {v2, p1}, Lcom/bumptech/glide/load/data/mediastore/ThumbFetcher;->buildImageFetcher(Landroid/content/Context;Landroid/net/Uri;)Lcom/bumptech/glide/load/data/mediastore/ThumbFetcher;
+    invoke-static {p4, p1}, Lcom/bumptech/glide/load/data/mediastore/ThumbFetcher;->buildImageFetcher(Landroid/content/Context;Landroid/net/Uri;)Lcom/bumptech/glide/load/data/mediastore/ThumbFetcher;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v0, v1, v2}, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;-><init>(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/data/DataFetcher;)V
+    invoke-direct {p2, p3, p1}, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;-><init>(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/data/DataFetcher;)V
 
-    return-object v0
+    return-object p2
 
-    .line 34
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic buildLoadData(Ljava/lang/Object;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
@@ -113,15 +106,14 @@
 .end method
 
 .method public handles(Landroid/net/Uri;)Z
-    .locals 1
-    .param p1, "model"    # Landroid/net/Uri;
+    .locals 0
 
     .line 40
     invoke-static {p1}, Lcom/bumptech/glide/load/data/mediastore/MediaStoreUtil;->isMediaStoreImageUri(Landroid/net/Uri;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic handles(Ljava/lang/Object;)Z

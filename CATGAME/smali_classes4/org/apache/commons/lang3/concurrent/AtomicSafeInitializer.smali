@@ -45,7 +45,6 @@
     .locals 1
 
     .line 55
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/AtomicSafeInitializer;, "Lorg/apache/commons/lang3/concurrent/AtomicSafeInitializer<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 58
@@ -68,7 +67,7 @@
 
 # virtual methods
 .method public final get()Ljava/lang/Object;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -82,7 +81,6 @@
     .end annotation
 
     .line 75
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/AtomicSafeInitializer;, "Lorg/apache/commons/lang3/concurrent/AtomicSafeInitializer<TT;>;"
     :cond_0
     :goto_0
     iget-object v0, p0, Lorg/apache/commons/lang3/concurrent/AtomicSafeInitializer;->reference:Ljava/util/concurrent/atomic/AtomicReference;
@@ -91,17 +89,14 @@
 
     move-result-object v0
 
-    move-object v1, v0
-
-    .local v1, "result":Ljava/lang/Object;, "TT;"
     if-nez v0, :cond_1
 
     .line 76
     iget-object v0, p0, Lorg/apache/commons/lang3/concurrent/AtomicSafeInitializer;->factory:Ljava/util/concurrent/atomic/AtomicReference;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v0, v2, p0}, Ljava/util/concurrent/atomic/AtomicReference;->compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, v1, p0}, Lcom/google/android/gms/common/api/internal/zap$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -112,15 +107,14 @@
 
     invoke-virtual {p0}, Lorg/apache/commons/lang3/concurrent/AtomicSafeInitializer;->initialize()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0, v2}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
 
     goto :goto_0
 
-    .line 81
     :cond_1
-    return-object v1
+    return-object v0
 .end method
 
 .method protected abstract initialize()Ljava/lang/Object;

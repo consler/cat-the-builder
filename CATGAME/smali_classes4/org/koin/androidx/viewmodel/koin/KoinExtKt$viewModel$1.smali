@@ -85,7 +85,7 @@
 
 # virtual methods
 .method public final invoke()Landroidx/lifecycle/ViewModel;
-    .locals 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -95,42 +95,29 @@
     .line 17
     iget-object v0, p0, Lorg/koin/androidx/viewmodel/koin/KoinExtKt$viewModel$1;->$this_viewModel:Lorg/koin/core/Koin;
 
-    .local v0, "$this$getViewModel$iv":Lorg/koin/core/Koin;
     iget-object v1, p0, Lorg/koin/androidx/viewmodel/koin/KoinExtKt$viewModel$1;->$owner:Landroidx/lifecycle/ViewModelStoreOwner;
 
-    .local v1, "owner$iv":Landroidx/lifecycle/ViewModelStoreOwner;
     iget-object v2, p0, Lorg/koin/androidx/viewmodel/koin/KoinExtKt$viewModel$1;->$qualifier:Lorg/koin/core/qualifier/Qualifier;
 
-    .local v2, "qualifier$iv":Lorg/koin/core/qualifier/Qualifier;
     iget-object v3, p0, Lorg/koin/androidx/viewmodel/koin/KoinExtKt$viewModel$1;->$parameters:Lkotlin/jvm/functions/Function0;
 
-    .local v3, "parameters$iv":Lkotlin/jvm/functions/Function0;
-    const/4 v4, 0x0
+    const/4 v4, 0x4
+
+    const-string v5, "T"
 
     .line 40
-    .local v4, "$i$f$getViewModel":I
-    const/4 v5, 0x4
+    invoke-static {v4, v5}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
-    const-string v6, "T"
+    const-class v4, Landroidx/lifecycle/ViewModel;
 
-    invoke-static {v5, v6}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
+    invoke-static {v4}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    const-class v5, Landroidx/lifecycle/ViewModel;
+    move-result-object v4
 
-    invoke-static {v5}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
-
-    move-result-object v5
-
-    invoke-static {v0, v1, v5, v2, v3}, Lorg/koin/androidx/viewmodel/koin/KoinExtKt;->getViewModel(Lorg/koin/core/Koin;Landroidx/lifecycle/ViewModelStoreOwner;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Landroidx/lifecycle/ViewModel;
+    invoke-static {v0, v1, v4, v2, v3}, Lorg/koin/androidx/viewmodel/koin/KoinExtKt;->getViewModel(Lorg/koin/core/Koin;Landroidx/lifecycle/ViewModelStoreOwner;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Landroidx/lifecycle/ViewModel;
 
     move-result-object v0
 
-    .line 17
-    .end local v0    # "$this$getViewModel$iv":Lorg/koin/core/Koin;
-    .end local v1    # "owner$iv":Landroidx/lifecycle/ViewModelStoreOwner;
-    .end local v2    # "qualifier$iv":Lorg/koin/core/qualifier/Qualifier;
-    .end local v3    # "parameters$iv":Lkotlin/jvm/functions/Function0;
-    .end local v4    # "$i$f$getViewModel":I
     return-object v0
 .end method
 

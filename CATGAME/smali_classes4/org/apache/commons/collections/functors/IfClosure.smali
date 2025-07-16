@@ -22,23 +22,17 @@
 # direct methods
 .method public constructor <init>(Lorg/apache/commons/collections/Predicate;Lorg/apache/commons/collections/Closure;)V
     .locals 1
-    .param p1, "predicate"    # Lorg/apache/commons/collections/Predicate;
-    .param p2, "trueClosure"    # Lorg/apache/commons/collections/Closure;
 
     .line 93
     sget-object v0, Lorg/apache/commons/collections/functors/NOPClosure;->INSTANCE:Lorg/apache/commons/collections/Closure;
 
     invoke-direct {p0, p1, p2, v0}, Lorg/apache/commons/collections/functors/IfClosure;-><init>(Lorg/apache/commons/collections/Predicate;Lorg/apache/commons/collections/Closure;Lorg/apache/commons/collections/Closure;)V
 
-    .line 94
     return-void
 .end method
 
 .method public constructor <init>(Lorg/apache/commons/collections/Predicate;Lorg/apache/commons/collections/Closure;Lorg/apache/commons/collections/Closure;)V
     .locals 0
-    .param p1, "predicate"    # Lorg/apache/commons/collections/Predicate;
-    .param p2, "trueClosure"    # Lorg/apache/commons/collections/Closure;
-    .param p3, "falseClosure"    # Lorg/apache/commons/collections/Closure;
 
     .line 105
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,35 +46,27 @@
     .line 108
     iput-object p3, p0, Lorg/apache/commons/collections/functors/IfClosure;->iFalseClosure:Lorg/apache/commons/collections/Closure;
 
-    .line 109
     return-void
 .end method
 
 .method public static getInstance(Lorg/apache/commons/collections/Predicate;Lorg/apache/commons/collections/Closure;)Lorg/apache/commons/collections/Closure;
     .locals 1
-    .param p0, "predicate"    # Lorg/apache/commons/collections/Predicate;
-    .param p1, "trueClosure"    # Lorg/apache/commons/collections/Closure;
 
     .line 59
     sget-object v0, Lorg/apache/commons/collections/functors/NOPClosure;->INSTANCE:Lorg/apache/commons/collections/Closure;
 
     invoke-static {p0, p1, v0}, Lorg/apache/commons/collections/functors/IfClosure;->getInstance(Lorg/apache/commons/collections/Predicate;Lorg/apache/commons/collections/Closure;Lorg/apache/commons/collections/Closure;)Lorg/apache/commons/collections/Closure;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static getInstance(Lorg/apache/commons/collections/Predicate;Lorg/apache/commons/collections/Closure;Lorg/apache/commons/collections/Closure;)Lorg/apache/commons/collections/Closure;
-    .locals 2
-    .param p0, "predicate"    # Lorg/apache/commons/collections/Predicate;
-    .param p1, "trueClosure"    # Lorg/apache/commons/collections/Closure;
-    .param p2, "falseClosure"    # Lorg/apache/commons/collections/Closure;
+    .locals 1
 
-    .line 72
     if-eqz p0, :cond_1
 
-    .line 75
     if-eqz p1, :cond_0
 
     if-eqz p2, :cond_0
@@ -94,30 +80,29 @@
 
     .line 76
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Closures must not be null"
+    const-string p1, "Closures must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 73
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Predicate must not be null"
+    const-string p1, "Predicate must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
 # virtual methods
 .method public execute(Ljava/lang/Object;)V
     .locals 2
-    .param p1, "input"    # Ljava/lang/Object;
 
     .line 117
     iget-object v0, p0, Lorg/apache/commons/collections/functors/IfClosure;->iPredicate:Lorg/apache/commons/collections/Predicate;
@@ -143,7 +128,6 @@
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections/Closure;->execute(Ljava/lang/Object;)V
 
-    .line 122
     :goto_0
     return-void
 .end method

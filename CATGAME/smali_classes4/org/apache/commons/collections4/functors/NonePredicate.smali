@@ -31,16 +31,13 @@
     .end annotation
 
     .line 84
-    .local p0, "this":Lorg/apache/commons/collections4/functors/NonePredicate;, "Lorg/apache/commons/collections4/functors/NonePredicate<TT;>;"
-    .local p1, "predicates":[Lorg/apache/commons/collections4/Predicate;, "[Lorg/apache/commons/collections4/Predicate<-TT;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/functors/AbstractQuantifierPredicate;-><init>([Lorg/apache/commons/collections4/Predicate;)V
 
-    .line 85
     return-void
 .end method
 
 .method public static nonePredicate(Ljava/util/Collection;)Lorg/apache/commons/collections4/Predicate;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -56,35 +53,33 @@
     .end annotation
 
     .line 70
-    .local p0, "predicates":Ljava/util/Collection;, "Ljava/util/Collection<+Lorg/apache/commons/collections4/Predicate<-TT;>;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/functors/FunctorUtils;->validate(Ljava/util/Collection;)[Lorg/apache/commons/collections4/Predicate;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 71
-    .local v0, "preds":[Lorg/apache/commons/collections4/Predicate;, "[Lorg/apache/commons/collections4/Predicate<-TT;>;"
-    array-length v1, v0
+    array-length v0, p0
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     .line 72
     invoke-static {}, Lorg/apache/commons/collections4/functors/TruePredicate;->truePredicate()Lorg/apache/commons/collections4/Predicate;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 
     .line 74
     :cond_0
-    new-instance v1, Lorg/apache/commons/collections4/functors/NonePredicate;
+    new-instance v0, Lorg/apache/commons/collections4/functors/NonePredicate;
 
-    invoke-direct {v1, v0}, Lorg/apache/commons/collections4/functors/NonePredicate;-><init>([Lorg/apache/commons/collections4/Predicate;)V
+    invoke-direct {v0, p0}, Lorg/apache/commons/collections4/functors/NonePredicate;-><init>([Lorg/apache/commons/collections4/Predicate;)V
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public static varargs nonePredicate([Lorg/apache/commons/collections4/Predicate;)Lorg/apache/commons/collections4/Predicate;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -98,7 +93,6 @@
     .end annotation
 
     .line 51
-    .local p0, "predicates":[Lorg/apache/commons/collections4/Predicate;, "[Lorg/apache/commons/collections4/Predicate<-TT;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/functors/FunctorUtils;->validate([Lorg/apache/commons/collections4/Predicate;)V
 
     .line 52
@@ -109,9 +103,9 @@
     .line 53
     invoke-static {}, Lorg/apache/commons/collections4/functors/TruePredicate;->truePredicate()Lorg/apache/commons/collections4/Predicate;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 55
     :cond_0
@@ -119,9 +113,9 @@
 
     invoke-static {p0}, Lorg/apache/commons/collections4/functors/FunctorUtils;->copy([Lorg/apache/commons/collections4/Predicate;)[Lorg/apache/commons/collections4/Predicate;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Lorg/apache/commons/collections4/functors/NonePredicate;-><init>([Lorg/apache/commons/collections4/Predicate;)V
+    invoke-direct {v0, p0}, Lorg/apache/commons/collections4/functors/NonePredicate;-><init>([Lorg/apache/commons/collections4/Predicate;)V
 
     return-object v0
 .end method
@@ -129,7 +123,7 @@
 
 # virtual methods
 .method public evaluate(Ljava/lang/Object;)Z
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -137,8 +131,6 @@
     .end annotation
 
     .line 95
-    .local p0, "this":Lorg/apache/commons/collections4/functors/NonePredicate;, "Lorg/apache/commons/collections4/functors/NonePredicate<TT;>;"
-    .local p1, "object":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/NonePredicate;->iPredicates:[Lorg/apache/commons/collections4/Predicate;
 
     array-length v1, v0
@@ -153,26 +145,21 @@
     aget-object v4, v0, v3
 
     .line 96
-    .local v4, "iPredicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TT;>;"
     invoke-interface {v4, p1}, Lorg/apache/commons/collections4/Predicate;->evaluate(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_0
+    if-eqz v4, :cond_0
 
-    .line 97
     return v2
 
-    .line 95
-    .end local v4    # "iPredicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TT;>;"
     :cond_0
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 100
     :cond_1
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method

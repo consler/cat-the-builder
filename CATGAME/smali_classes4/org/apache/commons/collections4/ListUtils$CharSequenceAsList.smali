@@ -29,7 +29,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;)V
     .locals 0
-    .param p1, "sequence"    # Ljava/lang/CharSequence;
 
     .line 643
     invoke-direct {p0}, Ljava/util/AbstractList;-><init>()V
@@ -37,7 +36,6 @@
     .line 644
     iput-object p1, p0, Lorg/apache/commons/collections4/ListUtils$CharSequenceAsList;->sequence:Ljava/lang/CharSequence;
 
-    .line 645
     return-void
 .end method
 
@@ -45,20 +43,19 @@
 # virtual methods
 .method public get(I)Ljava/lang/Character;
     .locals 1
-    .param p1, "index"    # I
 
     .line 649
     iget-object v0, p0, Lorg/apache/commons/collections4/ListUtils$CharSequenceAsList;->sequence:Ljava/lang/CharSequence;
 
     invoke-interface {v0, p1}, Ljava/lang/CharSequence;->charAt(I)C
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
+    invoke-static {p1}, Ljava/lang/Character;->valueOf(C)Ljava/lang/Character;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic get(I)Ljava/lang/Object;

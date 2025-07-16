@@ -36,27 +36,27 @@
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 26
     const/16 v0, 0x1388
 
+    .line 26
     iput v0, p0, Lcom/badlogic/gdx/net/SocketHints;->connectTimeout:I
 
-    .line 34
     const/4 v0, 0x0
 
+    .line 34
     iput v0, p0, Lcom/badlogic/gdx/net/SocketHints;->performancePrefConnectionTime:I
 
-    .line 35
     const/4 v1, 0x1
 
+    .line 35
     iput v1, p0, Lcom/badlogic/gdx/net/SocketHints;->performancePrefLatency:I
 
     .line 36
     iput v0, p0, Lcom/badlogic/gdx/net/SocketHints;->performancePrefBandwidth:I
 
-    .line 47
     const/16 v2, 0x14
 
+    .line 47
     iput v2, p0, Lcom/badlogic/gdx/net/SocketHints;->trafficClass:I
 
     .line 49
@@ -65,9 +65,9 @@
     .line 51
     iput-boolean v1, p0, Lcom/badlogic/gdx/net/SocketHints;->tcpNoDelay:Z
 
-    .line 53
     const/16 v1, 0x1000
 
+    .line 53
     iput v1, p0, Lcom/badlogic/gdx/net/SocketHints;->sendBufferSize:I
 
     .line 55

@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/utils/ObjectMap;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -51,18 +51,15 @@
     .end annotation
 
     .line 750
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectMap$Entries;, "Lcom/badlogic/gdx/utils/ObjectMap$Entries<TK;TV;>;"
-    .local p1, "map":Lcom/badlogic/gdx/utils/ObjectMap;, "Lcom/badlogic/gdx/utils/ObjectMap<TK;TV;>;"
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/ObjectMap$MapIterator;-><init>(Lcom/badlogic/gdx/utils/ObjectMap;)V
 
     .line 747
-    new-instance v0, Lcom/badlogic/gdx/utils/ObjectMap$Entry;
+    new-instance p1, Lcom/badlogic/gdx/utils/ObjectMap$Entry;
 
-    invoke-direct {v0}, Lcom/badlogic/gdx/utils/ObjectMap$Entry;-><init>()V
+    invoke-direct {p1}, Lcom/badlogic/gdx/utils/ObjectMap$Entry;-><init>()V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/utils/ObjectMap$Entries;->entry:Lcom/badlogic/gdx/utils/ObjectMap$Entry;
+    iput-object p1, p0, Lcom/badlogic/gdx/utils/ObjectMap$Entries;->entry:Lcom/badlogic/gdx/utils/ObjectMap$Entry;
 
-    .line 751
     return-void
 .end method
 
@@ -72,7 +69,6 @@
     .locals 2
 
     .line 766
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectMap$Entries;, "Lcom/badlogic/gdx/utils/ObjectMap$Entries<TK;TV;>;"
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/ObjectMap$Entries;->valid:Z
 
     if-eqz v0, :cond_0
@@ -103,8 +99,6 @@
         }
     .end annotation
 
-    .line 771
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectMap$Entries;, "Lcom/badlogic/gdx/utils/ObjectMap$Entries<TK;TV;>;"
     return-object p0
 .end method
 
@@ -112,7 +106,6 @@
     .locals 1
 
     .line 746
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectMap$Entries;, "Lcom/badlogic/gdx/utils/ObjectMap$Entries<TK;TV;>;"
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/ObjectMap$Entries;->iterator()Lcom/badlogic/gdx/utils/ObjectMap$Entries;
 
     move-result-object v0
@@ -121,7 +114,7 @@
 .end method
 
 .method public next()Lcom/badlogic/gdx/utils/ObjectMap$Entry;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -131,7 +124,6 @@
     .end annotation
 
     .line 755
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectMap$Entries;, "Lcom/badlogic/gdx/utils/ObjectMap$Entries<TK;TV;>;"
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/ObjectMap$Entries;->hasNext:Z
 
     if-eqz v0, :cond_1
@@ -147,43 +139,41 @@
     iget-object v0, v0, Lcom/badlogic/gdx/utils/ObjectMap;->keyTable:[Ljava/lang/Object;
 
     .line 758
-    .local v0, "keyTable":[Ljava/lang/Object;, "[TK;"
     iget-object v1, p0, Lcom/badlogic/gdx/utils/ObjectMap$Entries;->entry:Lcom/badlogic/gdx/utils/ObjectMap$Entry;
 
     iget v2, p0, Lcom/badlogic/gdx/utils/ObjectMap$Entries;->nextIndex:I
 
-    aget-object v2, v0, v2
+    aget-object v0, v0, v2
 
-    iput-object v2, v1, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->key:Ljava/lang/Object;
+    iput-object v0, v1, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->key:Ljava/lang/Object;
 
     .line 759
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/ObjectMap$Entries;->entry:Lcom/badlogic/gdx/utils/ObjectMap$Entry;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/ObjectMap$Entries;->entry:Lcom/badlogic/gdx/utils/ObjectMap$Entry;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/utils/ObjectMap$Entries;->map:Lcom/badlogic/gdx/utils/ObjectMap;
+    iget-object v1, p0, Lcom/badlogic/gdx/utils/ObjectMap$Entries;->map:Lcom/badlogic/gdx/utils/ObjectMap;
 
-    iget-object v2, v2, Lcom/badlogic/gdx/utils/ObjectMap;->valueTable:[Ljava/lang/Object;
+    iget-object v1, v1, Lcom/badlogic/gdx/utils/ObjectMap;->valueTable:[Ljava/lang/Object;
 
-    iget v3, p0, Lcom/badlogic/gdx/utils/ObjectMap$Entries;->nextIndex:I
+    iget v2, p0, Lcom/badlogic/gdx/utils/ObjectMap$Entries;->nextIndex:I
 
-    aget-object v2, v2, v3
+    aget-object v1, v1, v2
 
-    iput-object v2, v1, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->value:Ljava/lang/Object;
+    iput-object v1, v0, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->value:Ljava/lang/Object;
 
     .line 760
-    iget v1, p0, Lcom/badlogic/gdx/utils/ObjectMap$Entries;->nextIndex:I
+    iget v0, p0, Lcom/badlogic/gdx/utils/ObjectMap$Entries;->nextIndex:I
 
-    iput v1, p0, Lcom/badlogic/gdx/utils/ObjectMap$Entries;->currentIndex:I
+    iput v0, p0, Lcom/badlogic/gdx/utils/ObjectMap$Entries;->currentIndex:I
 
     .line 761
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/ObjectMap$Entries;->findNextIndex()V
 
     .line 762
-    iget-object v1, p0, Lcom/badlogic/gdx/utils/ObjectMap$Entries;->entry:Lcom/badlogic/gdx/utils/ObjectMap$Entry;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/ObjectMap$Entries;->entry:Lcom/badlogic/gdx/utils/ObjectMap$Entry;
 
-    return-object v1
+    return-object v0
 
     .line 756
-    .end local v0    # "keyTable":[Ljava/lang/Object;, "[TK;"
     :cond_0
     new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
@@ -206,7 +196,6 @@
     .locals 1
 
     .line 746
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectMap$Entries;, "Lcom/badlogic/gdx/utils/ObjectMap$Entries<TK;TV;>;"
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/ObjectMap$Entries;->next()Lcom/badlogic/gdx/utils/ObjectMap$Entry;
 
     move-result-object v0
@@ -218,7 +207,6 @@
     .locals 0
 
     .line 746
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectMap$Entries;, "Lcom/badlogic/gdx/utils/ObjectMap$Entries<TK;TV;>;"
     invoke-super {p0}, Lcom/badlogic/gdx/utils/ObjectMap$MapIterator;->remove()V
 
     return-void
@@ -228,7 +216,6 @@
     .locals 0
 
     .line 746
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectMap$Entries;, "Lcom/badlogic/gdx/utils/ObjectMap$Entries<TK;TV;>;"
     invoke-super {p0}, Lcom/badlogic/gdx/utils/ObjectMap$MapIterator;->reset()V
 
     return-void

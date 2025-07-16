@@ -14,7 +14,6 @@
 # direct methods
 .method public constructor <init>(Lcom/esotericsoftware/kryo/io/Input;)V
     .locals 0
-    .param p1, "input"    # Lcom/esotericsoftware/kryo/io/Input;
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -22,7 +21,6 @@
     .line 35
     iput-object p1, p0, Lcom/esotericsoftware/kryo/io/KryoDataInput;->input:Lcom/esotericsoftware/kryo/io/Input;
 
-    .line 36
     return-void
 .end method
 
@@ -41,7 +39,6 @@
 
     invoke-virtual {v0}, Lcom/esotericsoftware/kryo/io/Input;->close()V
 
-    .line 115
     return-void
 .end method
 
@@ -137,29 +134,24 @@
 
 .method public readFully([B)V
     .locals 2
-    .param p1, "b"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    const/4 v0, 0x0
+
     .line 43
-    array-length v0, p1
+    array-length v1, p1
 
-    const/4 v1, 0x0
+    invoke-virtual {p0, p1, v0, v1}, Lcom/esotericsoftware/kryo/io/KryoDataInput;->readFully([BII)V
 
-    invoke-virtual {p0, p1, v1, v0}, Lcom/esotericsoftware/kryo/io/KryoDataInput;->readFully([BII)V
-
-    .line 44
     return-void
 .end method
 
 .method public readFully([BII)V
-    .locals 3
-    .param p1, "b"    # [B
-    .param p2, "off"    # I
-    .param p3, "len"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -174,27 +166,21 @@
     :try_end_0
     .catch Lcom/esotericsoftware/kryo/KryoException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 51
-    nop
-
-    .line 52
     return-void
 
-    .line 49
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 50
-    .local v0, "ex":Lcom/esotericsoftware/kryo/KryoException;
-    new-instance v1, Ljava/io/EOFException;
+    new-instance p2, Ljava/io/EOFException;
 
-    invoke-virtual {v0}, Lcom/esotericsoftware/kryo/KryoException;->getMessage()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/esotericsoftware/kryo/KryoException;->getMessage()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Ljava/io/EOFException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Ljava/io/EOFException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p2
 .end method
 
 .method public readInt()I
@@ -323,18 +309,15 @@
 
 .method public setInput(Lcom/esotericsoftware/kryo/io/Input;)V
     .locals 0
-    .param p1, "input"    # Lcom/esotericsoftware/kryo/io/Input;
 
     .line 39
     iput-object p1, p0, Lcom/esotericsoftware/kryo/io/KryoDataInput;->input:Lcom/esotericsoftware/kryo/io/Input;
 
-    .line 40
     return-void
 .end method
 
 .method public skipBytes(I)I
     .locals 3
-    .param p1, "n"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -350,7 +333,7 @@
 
     move-result-wide v0
 
-    long-to-int v0, v0
+    long-to-int p1, v0
 
-    return v0
+    return p1
 .end method

@@ -69,11 +69,11 @@
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    iget-object v2, p0, Lcom/squareup/moshi/ClassFactory$3;->val$rawType:Ljava/lang/Class;
+    const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    iget-object v3, p0, Lcom/squareup/moshi/ClassFactory$3;->val$rawType:Ljava/lang/Class;
 
-    aput-object v2, v1, v3
+    aput-object v3, v1, v2
 
     iget v2, p0, Lcom/squareup/moshi/ClassFactory$3;->val$constructorId:I
 

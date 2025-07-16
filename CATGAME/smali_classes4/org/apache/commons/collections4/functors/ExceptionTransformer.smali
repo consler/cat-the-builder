@@ -47,10 +47,8 @@
     .locals 0
 
     .line 54
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ExceptionTransformer;, "Lorg/apache/commons/collections4/functors/ExceptionTransformer<TI;TO;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 55
     return-void
 .end method
 
@@ -78,7 +76,6 @@
     .locals 1
 
     .line 70
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ExceptionTransformer;, "Lorg/apache/commons/collections4/functors/ExceptionTransformer<TI;TO;>;"
     sget-object v0, Lorg/apache/commons/collections4/functors/ExceptionTransformer;->INSTANCE:Lorg/apache/commons/collections4/Transformer;
 
     return-object v0
@@ -87,7 +84,7 @@
 
 # virtual methods
 .method public transform(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TI;)TO;"
@@ -95,13 +92,11 @@
     .end annotation
 
     .line 66
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ExceptionTransformer;, "Lorg/apache/commons/collections4/functors/ExceptionTransformer<TI;TO;>;"
-    .local p1, "input":Ljava/lang/Object;, "TI;"
-    new-instance v0, Lorg/apache/commons/collections4/FunctorException;
+    new-instance p1, Lorg/apache/commons/collections4/FunctorException;
 
-    const-string v1, "ExceptionTransformer invoked"
+    const-string v0, "ExceptionTransformer invoked"
 
-    invoke-direct {v0, v1}, Lorg/apache/commons/collections4/FunctorException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lorg/apache/commons/collections4/FunctorException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

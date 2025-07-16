@@ -48,11 +48,8 @@
     .end annotation
 
     .line 427
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractLinkedMap$EntrySetIterator;, "Lorg/apache/commons/collections4/map/AbstractLinkedMap$EntrySetIterator<TK;TV;>;"
-    .local p1, "parent":Lorg/apache/commons/collections4/map/AbstractLinkedMap;, "Lorg/apache/commons/collections4/map/AbstractLinkedMap<TK;TV;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkIterator;-><init>(Lorg/apache/commons/collections4/map/AbstractLinkedMap;)V
 
-    .line 428
     return-void
 .end method
 
@@ -62,7 +59,6 @@
     .locals 1
 
     .line 423
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractLinkedMap$EntrySetIterator;, "Lorg/apache/commons/collections4/map/AbstractLinkedMap$EntrySetIterator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractLinkedMap$EntrySetIterator;->next()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -81,7 +77,6 @@
     .end annotation
 
     .line 432
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractLinkedMap$EntrySetIterator;, "Lorg/apache/commons/collections4/map/AbstractLinkedMap$EntrySetIterator<TK;TV;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkIterator;->nextEntry()Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
 
     move-result-object v0
@@ -93,7 +88,6 @@
     .locals 1
 
     .line 423
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractLinkedMap$EntrySetIterator;, "Lorg/apache/commons/collections4/map/AbstractLinkedMap$EntrySetIterator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractLinkedMap$EntrySetIterator;->previous()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -112,7 +106,6 @@
     .end annotation
 
     .line 437
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractLinkedMap$EntrySetIterator;, "Lorg/apache/commons/collections4/map/AbstractLinkedMap$EntrySetIterator<TK;TV;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkIterator;->previousEntry()Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
 
     move-result-object v0

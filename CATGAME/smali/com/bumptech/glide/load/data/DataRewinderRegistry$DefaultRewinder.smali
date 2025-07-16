@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "data"    # Ljava/lang/Object;
 
     .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +40,6 @@
     .line 57
     iput-object p1, p0, Lcom/bumptech/glide/load/data/DataRewinderRegistry$DefaultRewinder;->data:Ljava/lang/Object;
 
-    .line 58
     return-void
 .end method
 
@@ -50,7 +48,6 @@
 .method public cleanup()V
     .locals 0
 
-    .line 69
     return-void
 .end method
 

@@ -15,13 +15,11 @@
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 33
     return-void
 .end method
 
 .method public static varargs declared-synchronized configureAliases(Lcom/thoughtworks/xstream/XStream;[Ljava/lang/Class;)V
     .locals 1
-    .param p0, "xstream"    # Lcom/thoughtworks/xstream/XStream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -35,7 +33,6 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .local p1, "topLevelClasses":[Ljava/lang/Class;, "[Ljava/lang/Class<*>;"
     const-class v0, Lcom/thoughtworks/xstream/annotations/Annotations;
 
     monitor-enter v0
@@ -51,9 +48,6 @@
 
     return-void
 
-    .line 47
-    .end local p0    # "xstream":Lcom/thoughtworks/xstream/XStream;
-    .end local p1    # "topLevelClasses":[Ljava/lang/Class;, "[Ljava/lang/Class<*>;"
     :catchall_0
     move-exception p0
 

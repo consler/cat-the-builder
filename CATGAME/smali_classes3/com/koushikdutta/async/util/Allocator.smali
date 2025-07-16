@@ -18,14 +18,14 @@
     .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 12
     const/4 v0, 0x0
 
+    .line 12
     iput v0, p0, Lcom/koushikdutta/async/util/Allocator;->currentAlloc:I
 
-    .line 13
     const/16 v0, 0x1000
 
+    .line 13
     iput v0, p0, Lcom/koushikdutta/async/util/Allocator;->minAlloc:I
 
     .line 20
@@ -33,31 +33,28 @@
 
     iput v0, p0, Lcom/koushikdutta/async/util/Allocator;->maxAlloc:I
 
-    .line 21
     return-void
 .end method
 
 .method public constructor <init>(I)V
     .locals 1
-    .param p1, "maxAlloc"    # I
 
     .line 15
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 12
     const/4 v0, 0x0
 
+    .line 12
     iput v0, p0, Lcom/koushikdutta/async/util/Allocator;->currentAlloc:I
 
-    .line 13
     const/16 v0, 0x1000
 
+    .line 13
     iput v0, p0, Lcom/koushikdutta/async/util/Allocator;->minAlloc:I
 
     .line 16
     iput p1, p0, Lcom/koushikdutta/async/util/Allocator;->maxAlloc:I
 
-    .line 17
     return-void
 .end method
 
@@ -77,27 +74,26 @@
 .end method
 
 .method public allocate(I)Ljava/nio/ByteBuffer;
-    .locals 2
-    .param p1, "currentAlloc"    # I
+    .locals 1
 
     .line 28
     iget v0, p0, Lcom/koushikdutta/async/util/Allocator;->minAlloc:I
 
     invoke-static {p1, v0}, Ljava/lang/Math;->max(II)I
 
-    move-result v0
+    move-result p1
 
-    iget v1, p0, Lcom/koushikdutta/async/util/Allocator;->maxAlloc:I
+    iget v0, p0, Lcom/koushikdutta/async/util/Allocator;->maxAlloc:I
 
-    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
+    invoke-static {p1, v0}, Ljava/lang/Math;->min(II)I
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0}, Lcom/koushikdutta/async/ByteBufferList;->obtain(I)Ljava/nio/ByteBuffer;
+    invoke-static {p1}, Lcom/koushikdutta/async/ByteBufferList;->obtain(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getMaxAlloc()I
@@ -120,37 +116,31 @@
 
 .method public setCurrentAlloc(I)V
     .locals 0
-    .param p1, "currentAlloc"    # I
 
     .line 40
     iput p1, p0, Lcom/koushikdutta/async/util/Allocator;->currentAlloc:I
 
-    .line 41
     return-void
 .end method
 
 .method public setMinAlloc(I)Lcom/koushikdutta/async/util/Allocator;
     .locals 0
-    .param p1, "minAlloc"    # I
 
     .line 48
     iput p1, p0, Lcom/koushikdutta/async/util/Allocator;->minAlloc:I
 
-    .line 49
     return-object p0
 .end method
 
 .method public track(J)V
-    .locals 1
-    .param p1, "read"    # J
+    .locals 0
+
+    long-to-int p1, p1
+
+    mul-int/lit8 p1, p1, 0x2
 
     .line 32
-    long-to-int v0, p1
+    iput p1, p0, Lcom/koushikdutta/async/util/Allocator;->currentAlloc:I
 
-    mul-int/lit8 v0, v0, 0x2
-
-    iput v0, p0, Lcom/koushikdutta/async/util/Allocator;->currentAlloc:I
-
-    .line 33
     return-void
 .end method

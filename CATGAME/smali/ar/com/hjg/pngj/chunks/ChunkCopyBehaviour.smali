@@ -34,22 +34,18 @@
 .end method
 
 .method static synthetic access$000(II)Z
-    .locals 1
-    .param p0, "x0"    # I
-    .param p1, "x1"    # I
+    .locals 0
 
     .line 14
     invoke-static {p0, p1}, Lar/com/hjg/pngj/chunks/ChunkCopyBehaviour;->maskMatch(II)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static createPredicate(ILar/com/hjg/pngj/ImageInfo;)Lar/com/hjg/pngj/chunks/ChunkPredicate;
     .locals 1
-    .param p0, "copyFromMask"    # I
-    .param p1, "imgInfo"    # Lar/com/hjg/pngj/ImageInfo;
 
     .line 63
     new-instance v0, Lar/com/hjg/pngj/chunks/ChunkCopyBehaviour$1;
@@ -60,22 +56,19 @@
 .end method
 
 .method private static maskMatch(II)Z
-    .locals 1
-    .param p0, "v"    # I
-    .param p1, "mask"    # I
+    .locals 0
 
-    .line 51
-    and-int v0, p0, p1
+    and-int/2addr p0, p1
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method

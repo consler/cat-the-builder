@@ -47,8 +47,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/apache/commons/collections4/map/Flat3Map;I)V
-    .locals 1
-    .param p2, "index"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -58,8 +57,6 @@
     .end annotation
 
     .line 812
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;, "Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry<TK;TV;>;"
-    .local p1, "parent":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 813
@@ -68,30 +65,26 @@
     .line 814
     iput p2, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;->index:I
 
+    const/4 p1, 0x0
+
     .line 815
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;->removed:Z
 
-    iput-boolean v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;->removed:Z
-
-    .line 816
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 4
 
     .line 887
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;, "Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry<TK;TV;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;->removed:Z
 
     const/4 v1, 0x0
 
     if-eqz v0, :cond_0
 
-    .line 888
     return v1
 
     .line 890
@@ -100,79 +93,71 @@
 
     if-nez v0, :cond_1
 
-    .line 891
     return v1
 
     .line 893
     :cond_1
-    move-object v0, p1
-
-    check-cast v0, Ljava/util/Map$Entry;
+    check-cast p1, Ljava/util/Map$Entry;
 
     .line 894
-    .local v0, "other":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;->getKey()Ljava/lang/Object;
+
+    move-result-object v0
+
+    .line 895
+    invoke-virtual {p0}, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;->getValue()Ljava/lang/Object;
 
     move-result-object v2
 
-    .line 895
-    .local v2, "key":Ljava/lang/Object;
-    invoke-virtual {p0}, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;->getValue()Ljava/lang/Object;
-
-    move-result-object v3
+    if-nez v0, :cond_2
 
     .line 896
-    .local v3, "value":Ljava/lang/Object;
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v0
 
-    if-nez v2, :cond_2
-
-    if-nez v4, :cond_4
+    if-nez v0, :cond_4
 
     goto :goto_0
 
     :cond_2
-    invoke-virtual {v2, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result v4
+    move-result-object v3
 
-    if-eqz v4, :cond_4
+    invoke-virtual {v0, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
 
     :goto_0
-    if-nez v3, :cond_3
+    if-nez v2, :cond_3
 
     .line 897
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object p1
 
-    if-nez v4, :cond_4
+    if-nez p1, :cond_4
 
     goto :goto_1
 
     :cond_3
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-virtual {v3, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result p1
 
-    if-eqz v4, :cond_4
+    if-eqz p1, :cond_4
 
     :goto_1
     const/4 v1, 0x1
 
-    goto :goto_2
-
     :cond_4
-    nop
-
-    .line 896
-    :goto_2
     return v1
 .end method
 
@@ -185,7 +170,6 @@
     .end annotation
 
     .line 833
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;, "Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry<TK;TV;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;->removed:Z
 
     if-nez v0, :cond_3
@@ -220,15 +204,15 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Invalid map index: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget v2, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;->index:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -278,7 +262,6 @@
     .end annotation
 
     .line 849
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;, "Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry<TK;TV;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;->removed:Z
 
     if-nez v0, :cond_3
@@ -313,15 +296,15 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Invalid map index: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget v2, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;->index:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -363,17 +346,15 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
+    .locals 3
 
     .line 902
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;, "Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry<TK;TV;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;->removed:Z
 
     const/4 v1, 0x0
 
     if-eqz v0, :cond_0
 
-    .line 903
     return v1
 
     .line 905
@@ -383,23 +364,21 @@
     move-result-object v0
 
     .line 906
-    .local v0, "key":Ljava/lang/Object;
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;->getValue()Ljava/lang/Object;
 
     move-result-object v2
 
-    .line 907
-    .local v2, "value":Ljava/lang/Object;
     if-nez v0, :cond_1
 
-    move v3, v1
+    move v0, v1
 
     goto :goto_0
 
+    .line 907
     :cond_1
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
-    move-result v3
+    move-result v0
 
     :goto_0
     if-nez v2, :cond_2
@@ -413,26 +392,22 @@
     move-result v1
 
     :goto_1
-    xor-int/2addr v1, v3
+    xor-int/2addr v0, v1
 
-    .line 907
-    return v1
+    return v0
 .end method
 
 .method setRemoved(Z)V
     .locals 0
-    .param p1, "flag"    # Z
 
     .line 828
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;, "Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry<TK;TV;>;"
     iput-boolean p1, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;->removed:Z
 
-    .line 829
     return-void
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)TV;"
@@ -440,8 +415,6 @@
     .end annotation
 
     .line 865
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;, "Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry<TK;TV;>;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;->removed:Z
 
     if-nez v0, :cond_3
@@ -452,7 +425,6 @@
     move-result-object v0
 
     .line 869
-    .local v0, "old":Ljava/lang/Object;, "TV;"
     iget v1, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;->index:I
 
     const/4 v2, 0x1
@@ -472,32 +444,31 @@
 
     invoke-static {v1, p1}, Lorg/apache/commons/collections4/map/Flat3Map;->access$402(Lorg/apache/commons/collections4/map/Flat3Map;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 872
     goto :goto_0
 
     .line 880
     :cond_0
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Invalid map index: "
 
-    const-string v3, "Invalid map index: "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v1, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;->index:I
 
-    iget v3, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;->index:I
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 
     .line 874
     :cond_1
@@ -505,7 +476,6 @@
 
     invoke-static {v1, p1}, Lorg/apache/commons/collections4/map/Flat3Map;->access$502(Lorg/apache/commons/collections4/map/Flat3Map;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 875
     goto :goto_0
 
     .line 877
@@ -514,30 +484,24 @@
 
     invoke-static {v1, p1}, Lorg/apache/commons/collections4/map/Flat3Map;->access$602(Lorg/apache/commons/collections4/map/Flat3Map;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 878
-    nop
-
-    .line 882
     :goto_0
     return-object v0
 
     .line 866
-    .end local v0    # "old":Ljava/lang/Object;, "TV;"
     :cond_3
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "setValue() can only be called after next() and before remove()"
+    const-string v0, "setValue() can only be called after next() and before remove()"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 2
 
     .line 913
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;, "Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry<TK;TV;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;->removed:Z
 
     if-nez v0, :cond_0
@@ -553,9 +517,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;->getValue()Ljava/lang/Object;
 
@@ -563,13 +531,14 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 
-    .line 916
     :cond_0
     const-string v0, ""
 

@@ -31,16 +31,13 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Throwable;)V
     .locals 0
-    .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 128
-    .local p0, "this":Landroidx/camera/core/impl/utils/futures/ImmediateFuture$ImmediateFailedFuture;, "Landroidx/camera/core/impl/utils/futures/ImmediateFuture$ImmediateFailedFuture<TV;>;"
     invoke-direct {p0}, Landroidx/camera/core/impl/utils/futures/ImmediateFuture;-><init>()V
 
     .line 129
     iput-object p1, p0, Landroidx/camera/core/impl/utils/futures/ImmediateFuture$ImmediateFailedFuture;->mCause:Ljava/lang/Throwable;
 
-    .line 130
     return-void
 .end method
 
@@ -61,7 +58,6 @@
     .end annotation
 
     .line 135
-    .local p0, "this":Landroidx/camera/core/impl/utils/futures/ImmediateFuture$ImmediateFailedFuture;, "Landroidx/camera/core/impl/utils/futures/ImmediateFuture$ImmediateFailedFuture<TV;>;"
     new-instance v0, Ljava/util/concurrent/ExecutionException;
 
     iget-object v1, p0, Landroidx/camera/core/impl/utils/futures/ImmediateFuture$ImmediateFailedFuture;->mCause:Ljava/lang/Throwable;
@@ -75,7 +71,6 @@
     .locals 2
 
     .line 142
-    .local p0, "this":Landroidx/camera/core/impl/utils/futures/ImmediateFuture$ImmediateFailedFuture;, "Landroidx/camera/core/impl/utils/futures/ImmediateFuture$ImmediateFailedFuture<TV;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -86,17 +81,25 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "[status=FAILURE, cause=["
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Landroidx/camera/core/impl/utils/futures/ImmediateFuture$ImmediateFailedFuture;->mCause:Ljava/lang/Throwable;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "]]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

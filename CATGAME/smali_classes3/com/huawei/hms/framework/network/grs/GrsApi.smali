@@ -1,5 +1,11 @@
 .class public Lcom/huawei/hms/framework/network/grs/GrsApi;
 .super Ljava/lang/Object;
+.source ""
+
+
+# annotations
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
 
 
 # static fields
@@ -19,6 +25,8 @@
 
 .method public static ayncGetGrsUrl(Ljava/lang/String;Ljava/lang/String;Lcom/huawei/hms/framework/network/grs/IQueryUrlCallBack;)V
     .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     if-nez p2, :cond_0
 
@@ -57,6 +65,8 @@
 
 .method public static ayncGetGrsUrls(Ljava/lang/String;Lcom/huawei/hms/framework/network/grs/IQueryUrlsCallBack;)V
     .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     if-nez p1, :cond_0
 
@@ -93,6 +103,8 @@
 
 .method public static clearSp()V
     .locals 2
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     sget-object v0, Lcom/huawei/hms/framework/network/grs/GrsApi;->grsClient:Lcom/huawei/hms/framework/network/grs/GrsClient;
 
@@ -114,6 +126,8 @@
 
 .method public static forceExpire()Z
     .locals 2
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     sget-object v0, Lcom/huawei/hms/framework/network/grs/GrsApi;->grsClient:Lcom/huawei/hms/framework/network/grs/GrsClient;
 
@@ -139,6 +153,8 @@
 
 .method public static getCountryCode(Landroid/content/Context;Z)Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;
     .locals 0
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     invoke-static {p0, p1}, Lcom/huawei/hms/framework/network/grs/a;->a(Landroid/content/Context;Z)Lcom/huawei/hms/framework/network/grs/local/model/CountryCodeBean;
 
@@ -148,7 +164,15 @@
 .end method
 
 .method public static grsSdkInit(Landroid/content/Context;Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;)I
-    .locals 1
+    .locals 2
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    const-string v0, "GrsApi"
+
+    const-string v1, "GrsApi.grsSdkInit is @Deprecated,  And Only Application Can Call Once"
+
+    invoke-static {v0, v1}, Lcom/huawei/hms/framework/common/Logger;->w(Ljava/lang/String;Ljava/lang/Object;)V
 
     new-instance v0, Lcom/huawei/hms/framework/network/grs/GrsClient;
 
@@ -163,6 +187,8 @@
 
 .method public static synGetGrsUrl(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     sget-object v0, Lcom/huawei/hms/framework/network/grs/GrsApi;->grsClient:Lcom/huawei/hms/framework/network/grs/GrsClient;
 
@@ -206,6 +232,9 @@
             "Ljava/lang/String;",
             ">;"
         }
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     sget-object v0, Lcom/huawei/hms/framework/network/grs/GrsApi;->grsClient:Lcom/huawei/hms/framework/network/grs/GrsClient;

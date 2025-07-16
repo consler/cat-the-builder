@@ -4,6 +4,12 @@
 
 
 # virtual methods
+.method public abstract setHostContext(Landroid/content/Context;)V
+.end method
+
+.method public abstract setInnerHms()V
+.end method
+
 .method public abstract setSubAppId(Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

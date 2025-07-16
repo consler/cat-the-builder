@@ -32,8 +32,6 @@
 
 .method synthetic constructor <init>(Lorg/apache/commons/collections/map/MultiValueMap;Lorg/apache/commons/collections/map/MultiValueMap$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/collections/map/MultiValueMap;
-    .param p2, "x1"    # Lorg/apache/commons/collections/map/MultiValueMap$1;
 
     .line 374
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/map/MultiValueMap$Values;-><init>(Lorg/apache/commons/collections/map/MultiValueMap;)V
@@ -51,7 +49,6 @@
 
     invoke-virtual {v0}, Lorg/apache/commons/collections/map/MultiValueMap;->clear()V
 
-    .line 389
     return-void
 .end method
 
@@ -64,7 +61,6 @@
     invoke-direct {v0}, Lorg/apache/commons/collections/iterators/IteratorChain;-><init>()V
 
     .line 377
-    .local v0, "chain":Lorg/apache/commons/collections/iterators/IteratorChain;
     iget-object v1, p0, Lorg/apache/commons/collections/map/MultiValueMap$Values;->this$0:Lorg/apache/commons/collections/map/MultiValueMap;
 
     invoke-virtual {v1}, Lorg/apache/commons/collections/map/MultiValueMap;->keySet()Ljava/util/Set;
@@ -75,7 +71,6 @@
 
     move-result-object v1
 
-    .local v1, "it":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -98,8 +93,6 @@
 
     goto :goto_0
 
-    .line 380
-    .end local v1    # "it":Ljava/util/Iterator;
     :cond_0
     return-object v0
 .end method

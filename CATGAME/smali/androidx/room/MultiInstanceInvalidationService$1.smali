@@ -29,7 +29,6 @@
 # direct methods
 .method constructor <init>(Landroidx/room/MultiInstanceInvalidationService;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/room/MultiInstanceInvalidationService;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010
@@ -71,9 +70,7 @@
 .end method
 
 .method public onCallbackDied(Landroidx/room/IMultiInstanceInvalidationCallback;Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "callback"    # Landroidx/room/IMultiInstanceInvalidationCallback;
-    .param p2, "cookie"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -86,24 +83,21 @@
     .end annotation
 
     .line 56
-    iget-object v0, p0, Landroidx/room/MultiInstanceInvalidationService$1;->this$0:Landroidx/room/MultiInstanceInvalidationService;
+    iget-object p1, p0, Landroidx/room/MultiInstanceInvalidationService$1;->this$0:Landroidx/room/MultiInstanceInvalidationService;
 
-    iget-object v0, v0, Landroidx/room/MultiInstanceInvalidationService;->mClientNames:Ljava/util/HashMap;
+    iget-object p1, p1, Landroidx/room/MultiInstanceInvalidationService;->mClientNames:Ljava/util/HashMap;
 
-    move-object v1, p2
+    check-cast p2, Ljava/lang/Integer;
 
-    check-cast v1, Ljava/lang/Integer;
+    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+    move-result p2
 
-    move-result v1
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object p2
 
-    move-result-object v1
+    invoke-virtual {p1, p2}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 57
     return-void
 .end method

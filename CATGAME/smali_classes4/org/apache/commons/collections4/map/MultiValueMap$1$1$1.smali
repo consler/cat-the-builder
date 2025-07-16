@@ -34,10 +34,8 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections4/map/MultiValueMap$1$1;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "this$2"    # Lorg/apache/commons/collections4/map/MultiValueMap$1$1;
 
     .line 444
-    .local p0, "this":Lorg/apache/commons/collections4/map/MultiValueMap$1$1$1;, "Lorg/apache/commons/collections4/map/MultiValueMap$1$1$1;"
     iput-object p1, p0, Lorg/apache/commons/collections4/map/MultiValueMap$1$1$1;->this$2:Lorg/apache/commons/collections4/map/MultiValueMap$1$1;
 
     iput-object p2, p0, Lorg/apache/commons/collections4/map/MultiValueMap$1$1$1;->val$input:Ljava/lang/Object;
@@ -58,7 +56,6 @@
     .end annotation
 
     .line 447
-    .local p0, "this":Lorg/apache/commons/collections4/map/MultiValueMap$1$1$1;, "Lorg/apache/commons/collections4/map/MultiValueMap$1$1$1;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/MultiValueMap$1$1$1;->this$2:Lorg/apache/commons/collections4/map/MultiValueMap$1$1;
 
     iget-object v0, v0, Lorg/apache/commons/collections4/map/MultiValueMap$1$1;->val$key:Ljava/lang/Object;
@@ -75,14 +72,13 @@
     .end annotation
 
     .line 451
-    .local p0, "this":Lorg/apache/commons/collections4/map/MultiValueMap$1$1$1;, "Lorg/apache/commons/collections4/map/MultiValueMap$1$1$1;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/MultiValueMap$1$1$1;->val$input:Ljava/lang/Object;
 
     return-object v0
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)TV;"
@@ -90,11 +86,9 @@
     .end annotation
 
     .line 455
-    .local p0, "this":Lorg/apache/commons/collections4/map/MultiValueMap$1$1$1;, "Lorg/apache/commons/collections4/map/MultiValueMap$1$1$1;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method

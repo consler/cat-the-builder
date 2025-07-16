@@ -28,33 +28,24 @@
 # virtual methods
 .method public onClosed(Landroid/hardware/camera2/CameraDevice;)V
     .locals 0
-    .param p1, "cameraDevice"    # Landroid/hardware/camera2/CameraDevice;
 
-    .line 72
     return-void
 .end method
 
 .method public onDisconnected(Landroid/hardware/camera2/CameraDevice;)V
     .locals 0
-    .param p1, "cameraDevice"    # Landroid/hardware/camera2/CameraDevice;
 
-    .line 76
     return-void
 .end method
 
 .method public onError(Landroid/hardware/camera2/CameraDevice;I)V
     .locals 0
-    .param p1, "cameraDevice"    # Landroid/hardware/camera2/CameraDevice;
-    .param p2, "error"    # I
 
-    .line 80
     return-void
 .end method
 
 .method public onOpened(Landroid/hardware/camera2/CameraDevice;)V
     .locals 0
-    .param p1, "cameraDevice"    # Landroid/hardware/camera2/CameraDevice;
 
-    .line 68
     return-void
 .end method

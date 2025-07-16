@@ -23,7 +23,6 @@
 # direct methods
 .method constructor <init>([F)V
     .locals 0
-    .param p1, "reuseArray"    # [F
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,7 +30,6 @@
     .line 40
     iput-object p1, p0, Landroidx/transition/FloatArrayEvaluator;->mArray:[F
 
-    .line 41
     return-void
 .end method
 
@@ -53,28 +51,22 @@
 .end method
 
 .method public evaluate(F[F[F)[F
-    .locals 5
-    .param p1, "fraction"    # F
-    .param p2, "startValue"    # [F
-    .param p3, "endValue"    # [F
+    .locals 4
 
     .line 57
     iget-object v0, p0, Landroidx/transition/FloatArrayEvaluator;->mArray:[F
 
-    .line 58
-    .local v0, "array":[F
     if-nez v0, :cond_0
 
     .line 59
-    array-length v1, p2
+    array-length v0, p2
 
-    new-array v0, v1, [F
+    new-array v0, v0, [F
 
-    .line 62
     :cond_0
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    .line 62
     :goto_0
     array-length v2, v0
 
@@ -84,28 +76,21 @@
     aget v2, p2, v1
 
     .line 64
-    .local v2, "start":F
     aget v3, p3, v1
 
+    sub-float/2addr v3, v2
+
+    mul-float/2addr v3, p1
+
+    add-float/2addr v2, v3
+
     .line 65
-    .local v3, "end":F
-    sub-float v4, v3, v2
+    aput v2, v0, v1
 
-    mul-float/2addr v4, p1
-
-    add-float/2addr v4, v2
-
-    aput v4, v0, v1
-
-    .line 62
-    .end local v2    # "start":F
-    .end local v3    # "end":F
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 67
-    .end local v1    # "i":I
     :cond_1
     return-object v0
 .end method

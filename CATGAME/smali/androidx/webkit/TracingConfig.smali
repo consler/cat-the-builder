@@ -54,8 +54,6 @@
 # direct methods
 .method public constructor <init>(ILjava/util/List;I)V
     .locals 1
-    .param p1, "predefinedCategories"    # I
-    .param p3, "tracingMode"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -66,7 +64,6 @@
     .end annotation
 
     .line 130
-    .local p2, "customIncludedCategories":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 123
@@ -85,7 +82,6 @@
     .line 133
     iput p3, p0, Landroidx/webkit/TracingConfig;->mTracingMode:I
 
-    .line 134
     return-void
 .end method
 

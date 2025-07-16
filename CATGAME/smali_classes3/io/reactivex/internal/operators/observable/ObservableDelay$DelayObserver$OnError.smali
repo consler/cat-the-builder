@@ -26,10 +26,8 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;Ljava/lang/Throwable;)V
     .locals 0
-    .param p2, "throwable"    # Ljava/lang/Throwable;
 
     .line 121
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver$OnError;, "Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver<TT;>.OnError;"
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver$OnError;->this$0:Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +35,6 @@
     .line 122
     iput-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver$OnError;->throwable:Ljava/lang/Throwable;
 
-    .line 123
     return-void
 .end method
 
@@ -47,7 +44,6 @@
     .locals 2
 
     .line 128
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver$OnError;, "Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver<TT;>.OnError;"
     :try_start_0
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver$OnError;->this$0:Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;
 
@@ -66,13 +62,8 @@
 
     invoke-virtual {v0}, Lio/reactivex/Scheduler$Worker;->dispose()V
 
-    .line 131
-    nop
-
-    .line 132
     return-void
 
-    .line 130
     :catchall_0
     move-exception v0
 

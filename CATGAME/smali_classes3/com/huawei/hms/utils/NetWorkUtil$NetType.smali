@@ -25,6 +25,8 @@
 
 .field public static final TYPE_5G:I = 0x5
 
+.field public static final TYPE_ETHERNET:I = 0x9
+
 .field public static final TYPE_NEED_INIT:I = -0x1
 
 .field public static final TYPE_OTHER:I = 0x6
@@ -40,7 +42,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 97
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

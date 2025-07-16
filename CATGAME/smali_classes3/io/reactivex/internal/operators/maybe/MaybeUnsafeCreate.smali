@@ -27,11 +27,8 @@
     .end annotation
 
     .line 26
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeUnsafeCreate;, "Lio/reactivex/internal/operators/maybe/MaybeUnsafeCreate<TT;>;"
-    .local p1, "source":Lio/reactivex/MaybeSource;, "Lio/reactivex/MaybeSource<TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/maybe/AbstractMaybeWithUpstream;-><init>(Lio/reactivex/MaybeSource;)V
 
-    .line 27
     return-void
 .end method
 
@@ -48,12 +45,9 @@
     .end annotation
 
     .line 31
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeUnsafeCreate;, "Lio/reactivex/internal/operators/maybe/MaybeUnsafeCreate<TT;>;"
-    .local p1, "observer":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeUnsafeCreate;->source:Lio/reactivex/MaybeSource;
 
     invoke-interface {v0, p1}, Lio/reactivex/MaybeSource;->subscribe(Lio/reactivex/MaybeObserver;)V
 
-    .line 32
     return-void
 .end method

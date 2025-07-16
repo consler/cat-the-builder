@@ -45,7 +45,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/lang3/time/StopWatch;->splitState:Lorg/apache/commons/lang3/time/StopWatch$SplitState;
 
-    .line 214
     return-void
 .end method
 
@@ -58,10 +57,8 @@
     invoke-direct {v0}, Lorg/apache/commons/lang3/time/StopWatch;-><init>()V
 
     .line 73
-    .local v0, "sw":Lorg/apache/commons/lang3/time/StopWatch;
     invoke-virtual {v0}, Lorg/apache/commons/lang3/time/StopWatch;->start()V
 
-    .line 74
     return-object v0
 .end method
 
@@ -83,7 +80,7 @@
 
     if-ne v0, v1, :cond_0
 
-    goto :goto_0
+    goto :goto_1
 
     .line 412
     :cond_0
@@ -93,7 +90,6 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 413
     const-wide/16 v0, 0x0
 
     return-wide v0
@@ -113,6 +109,7 @@
 
     iget-wide v2, p0, Lorg/apache/commons/lang3/time/StopWatch;->startTime:J
 
+    :goto_0
     sub-long/2addr v0, v2
 
     return-wide v0
@@ -129,14 +126,12 @@
 
     .line 411
     :cond_3
-    :goto_0
+    :goto_1
     iget-wide v0, p0, Lorg/apache/commons/lang3/time/StopWatch;->stopTime:J
 
     iget-wide v2, p0, Lorg/apache/commons/lang3/time/StopWatch;->startTime:J
 
-    sub-long/2addr v0, v2
-
-    return-wide v0
+    goto :goto_0
 .end method
 
 .method public getSplitNanoTime()J
@@ -227,7 +222,6 @@
 
 .method public getTime(Ljava/util/concurrent/TimeUnit;)J
     .locals 3
-    .param p1, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
 
     .line 393
     invoke-virtual {p0}, Lorg/apache/commons/lang3/time/StopWatch;->getNanoTime()J
@@ -295,7 +289,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/lang3/time/StopWatch;->splitState:Lorg/apache/commons/lang3/time/StopWatch$SplitState;
 
-    .line 275
     return-void
 .end method
 
@@ -329,7 +322,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/lang3/time/StopWatch;->runningState:Lorg/apache/commons/lang3/time/StopWatch$State;
 
-    .line 358
     return-void
 
     .line 354
@@ -365,7 +357,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/lang3/time/StopWatch;->splitState:Lorg/apache/commons/lang3/time/StopWatch$SplitState;
 
-    .line 296
     return-void
 
     .line 292
@@ -415,7 +406,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/lang3/time/StopWatch;->runningState:Lorg/apache/commons/lang3/time/StopWatch$State;
 
-    .line 238
     return-void
 
     .line 233
@@ -489,7 +479,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/lang3/time/StopWatch;->runningState:Lorg/apache/commons/lang3/time/StopWatch$State;
 
-    .line 261
     return-void
 .end method
 
@@ -515,7 +504,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/lang3/time/StopWatch;->runningState:Lorg/apache/commons/lang3/time/StopWatch$State;
 
-    .line 337
     return-void
 
     .line 333
@@ -574,7 +562,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/lang3/time/StopWatch;->splitState:Lorg/apache/commons/lang3/time/StopWatch$SplitState;
 
-    .line 316
     return-void
 
     .line 313

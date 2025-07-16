@@ -67,7 +67,6 @@
     .end annotation
 
     .line 1788
-    .local p1, "input":Ljava/lang/Object;, "TE;"
     new-instance v0, Lorg/apache/commons/collections4/CollectionUtils$EquatorWrapper;
 
     iget-object v1, p0, Lorg/apache/commons/collections4/CollectionUtils$2;->val$equator:Lorg/apache/commons/collections4/Equator;

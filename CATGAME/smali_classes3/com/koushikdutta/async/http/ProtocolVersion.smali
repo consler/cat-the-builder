@@ -21,21 +21,15 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;II)V
-    .locals 2
-    .param p1, "protocol"    # Ljava/lang/String;
-    .param p2, "major"    # I
-    .param p3, "minor"    # I
+    .locals 0
 
     .line 77
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 78
     if-eqz p1, :cond_2
 
-    .line 82
     if-ltz p2, :cond_1
 
-    .line 86
     if-ltz p3, :cond_0
 
     .line 90
@@ -47,38 +41,37 @@
     .line 92
     iput p3, p0, Lcom/koushikdutta/async/http/ProtocolVersion;->minor:I
 
-    .line 93
     return-void
 
     .line 87
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Protocol minor version number may not be negative"
+    const-string p2, "Protocol minor version number may not be negative"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 83
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Protocol major version number must not be negative."
+    const-string p2, "Protocol major version number must not be negative."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 79
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Protocol name must not be null."
+    const-string p2, "Protocol name must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -101,9 +94,7 @@
 
 .method public compareToVersion(Lcom/koushikdutta/async/http/ProtocolVersion;)I
     .locals 3
-    .param p1, "that"    # Lcom/koushikdutta/async/http/ProtocolVersion;
 
-    .line 219
     if-eqz p1, :cond_2
 
     .line 223
@@ -128,75 +119,72 @@
 
     sub-int/2addr v0, v1
 
-    .line 230
-    .local v0, "delta":I
     if-nez v0, :cond_0
 
     .line 231
     invoke-virtual {p0}, Lcom/koushikdutta/async/http/ProtocolVersion;->getMinor()I
 
-    move-result v1
+    move-result v0
 
     invoke-virtual {p1}, Lcom/koushikdutta/async/http/ProtocolVersion;->getMinor()I
 
-    move-result v2
+    move-result p1
 
-    sub-int v0, v1, v2
+    sub-int/2addr v0, p1
 
-    .line 233
     :cond_0
     return v0
 
     .line 224
-    .end local v0    # "delta":I
     :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Versions for different protocols cannot be compared. "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     const-string v2, " "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 220
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Protocol version must not be null."
+    const-string v0, "Protocol version must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public final equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 4
 
-    .line 173
     const/4 v0, 0x1
 
     if-ne p0, p1, :cond_0
 
-    .line 174
     return v0
 
     .line 176
@@ -207,38 +195,34 @@
 
     if-nez v1, :cond_1
 
-    .line 177
     return v2
 
     .line 179
     :cond_1
-    move-object v1, p1
-
-    check-cast v1, Lcom/koushikdutta/async/http/ProtocolVersion;
+    check-cast p1, Lcom/koushikdutta/async/http/ProtocolVersion;
 
     .line 181
-    .local v1, "that":Lcom/koushikdutta/async/http/ProtocolVersion;
-    iget-object v3, p0, Lcom/koushikdutta/async/http/ProtocolVersion;->protocol:Ljava/lang/String;
+    iget-object v1, p0, Lcom/koushikdutta/async/http/ProtocolVersion;->protocol:Ljava/lang/String;
 
-    iget-object v4, v1, Lcom/koushikdutta/async/http/ProtocolVersion;->protocol:Ljava/lang/String;
+    iget-object v3, p1, Lcom/koushikdutta/async/http/ProtocolVersion;->protocol:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_2
+    if-eqz v1, :cond_2
 
-    iget v3, p0, Lcom/koushikdutta/async/http/ProtocolVersion;->major:I
+    iget v1, p0, Lcom/koushikdutta/async/http/ProtocolVersion;->major:I
 
-    iget v4, v1, Lcom/koushikdutta/async/http/ProtocolVersion;->major:I
+    iget v3, p1, Lcom/koushikdutta/async/http/ProtocolVersion;->major:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v1, v3, :cond_2
 
-    iget v3, p0, Lcom/koushikdutta/async/http/ProtocolVersion;->minor:I
+    iget v1, p0, Lcom/koushikdutta/async/http/ProtocolVersion;->minor:I
 
-    iget v4, v1, Lcom/koushikdutta/async/http/ProtocolVersion;->minor:I
+    iget p1, p1, Lcom/koushikdutta/async/http/ProtocolVersion;->minor:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v1, p1, :cond_2
 
     goto :goto_0
 
@@ -251,8 +235,6 @@
 
 .method public forVersion(II)Lcom/koushikdutta/async/http/ProtocolVersion;
     .locals 2
-    .param p1, "major"    # I
-    .param p2, "minor"    # I
 
     .line 140
     iget v0, p0, Lcom/koushikdutta/async/http/ProtocolVersion;->major:I
@@ -263,7 +245,6 @@
 
     if-ne p2, v0, :cond_0
 
-    .line 141
     return-object p0
 
     .line 145
@@ -306,7 +287,6 @@
 
 .method public final greaterEquals(Lcom/koushikdutta/async/http/ProtocolVersion;)Z
     .locals 1
-    .param p1, "version"    # Lcom/koushikdutta/async/http/ProtocolVersion;
 
     .line 248
     invoke-virtual {p0, p1}, Lcom/koushikdutta/async/http/ProtocolVersion;->isComparable(Lcom/koushikdutta/async/http/ProtocolVersion;)Z
@@ -317,19 +297,19 @@
 
     invoke-virtual {p0, p1}, Lcom/koushikdutta/async/http/ProtocolVersion;->compareToVersion(Lcom/koushikdutta/async/http/ProtocolVersion;)I
 
-    move-result v0
+    move-result p1
 
-    if-ltz v0, :cond_0
+    if-ltz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public final hashCode()I
@@ -358,36 +338,34 @@
 .end method
 
 .method public isComparable(Lcom/koushikdutta/async/http/ProtocolVersion;)Z
-    .locals 2
-    .param p1, "that"    # Lcom/koushikdutta/async/http/ProtocolVersion;
+    .locals 1
 
-    .line 198
     if-eqz p1, :cond_0
 
+    .line 198
     iget-object v0, p0, Lcom/koushikdutta/async/http/ProtocolVersion;->protocol:Ljava/lang/String;
 
-    iget-object v1, p1, Lcom/koushikdutta/async/http/ProtocolVersion;->protocol:Ljava/lang/String;
+    iget-object p1, p1, Lcom/koushikdutta/async/http/ProtocolVersion;->protocol:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public final lessEquals(Lcom/koushikdutta/async/http/ProtocolVersion;)Z
     .locals 1
-    .param p1, "version"    # Lcom/koushikdutta/async/http/ProtocolVersion;
 
     .line 263
     invoke-virtual {p0, p1}, Lcom/koushikdutta/async/http/ProtocolVersion;->isComparable(Lcom/koushikdutta/async/http/ProtocolVersion;)Z
@@ -398,19 +376,19 @@
 
     invoke-virtual {p0, p1}, Lcom/koushikdutta/async/http/ProtocolVersion;->compareToVersion(Lcom/koushikdutta/async/http/ProtocolVersion;)I
 
-    move-result v0
+    move-result p1
 
-    if-gtz v0, :cond_0
+    if-gtz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -422,14 +400,13 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 274
-    .local v0, "buffer":Ljava/lang/StringBuilder;
     iget-object v1, p0, Lcom/koushikdutta/async/http/ProtocolVersion;->protocol:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 275
     const/16 v1, 0x2f
 
+    .line 275
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 276
@@ -441,9 +418,9 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 277
     const/16 v1, 0x2e
 
+    .line 277
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 278
@@ -458,7 +435,7 @@
     .line 279
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method

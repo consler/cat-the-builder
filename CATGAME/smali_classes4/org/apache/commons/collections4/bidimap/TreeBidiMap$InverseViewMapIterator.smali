@@ -33,17 +33,13 @@
 # direct methods
 .method public constructor <init>(Lorg/apache/commons/collections4/bidimap/TreeBidiMap;Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;)V
     .locals 0
-    .param p1, "this$0"    # Lorg/apache/commons/collections4/bidimap/TreeBidiMap;
-    .param p2, "orderType"    # Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;
 
     .line 1796
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$InverseViewMapIterator;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.InverseViewMapIterator;"
     iput-object p1, p0, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$InverseViewMapIterator;->this$0:Lorg/apache/commons/collections4/bidimap/TreeBidiMap;
 
     .line 1797
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$ViewIterator;-><init>(Lorg/apache/commons/collections4/bidimap/TreeBidiMap;Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;)V
 
-    .line 1798
     return-void
 .end method
 
@@ -58,7 +54,6 @@
     .end annotation
 
     .line 1802
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$InverseViewMapIterator;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.InverseViewMapIterator;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$InverseViewMapIterator;->lastReturnedNode:Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Node;
 
     if-eqz v0, :cond_0
@@ -87,7 +82,6 @@
     .locals 1
 
     .line 1791
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$InverseViewMapIterator;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.InverseViewMapIterator;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$InverseViewMapIterator;->getKey()Ljava/lang/Comparable;
 
     move-result-object v0
@@ -104,7 +98,6 @@
     .end annotation
 
     .line 1811
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$InverseViewMapIterator;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.InverseViewMapIterator;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$InverseViewMapIterator;->lastReturnedNode:Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Node;
 
     if-eqz v0, :cond_0
@@ -133,7 +126,6 @@
     .locals 1
 
     .line 1791
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$InverseViewMapIterator;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.InverseViewMapIterator;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$InverseViewMapIterator;->getValue()Ljava/lang/Comparable;
 
     move-result-object v0
@@ -150,7 +142,6 @@
     .end annotation
 
     .line 1825
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$InverseViewMapIterator;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.InverseViewMapIterator;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$InverseViewMapIterator;->navigateNext()Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Node;
 
     move-result-object v0
@@ -166,7 +157,6 @@
     .locals 1
 
     .line 1791
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$InverseViewMapIterator;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.InverseViewMapIterator;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$InverseViewMapIterator;->next()Ljava/lang/Comparable;
 
     move-result-object v0
@@ -183,7 +173,6 @@
     .end annotation
 
     .line 1830
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$InverseViewMapIterator;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.InverseViewMapIterator;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$InverseViewMapIterator;->navigatePrevious()Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Node;
 
     move-result-object v0
@@ -199,7 +188,6 @@
     .locals 1
 
     .line 1791
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$InverseViewMapIterator;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.InverseViewMapIterator;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$InverseViewMapIterator;->previous()Ljava/lang/Comparable;
 
     move-result-object v0
@@ -208,7 +196,7 @@
 .end method
 
 .method public setValue(Ljava/lang/Comparable;)Ljava/lang/Comparable;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TK;"
@@ -216,20 +204,17 @@
     .end annotation
 
     .line 1820
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$InverseViewMapIterator;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.InverseViewMapIterator;"
-    .local p1, "obj":Ljava/lang/Comparable;, "TK;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public bridge synthetic setValue(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
     .line 1791
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$InverseViewMapIterator;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.InverseViewMapIterator;"
     check-cast p1, Ljava/lang/Comparable;
 
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$InverseViewMapIterator;->setValue(Ljava/lang/Comparable;)Ljava/lang/Comparable;

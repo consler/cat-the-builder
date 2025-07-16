@@ -41,7 +41,6 @@
 
 .method public load(Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;)V
     .locals 1
-    .param p1, "value"    # Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
 
     .line 59
     invoke-super {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;->load(Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;)V
@@ -52,11 +51,10 @@
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->lowMax:F
 
     .line 61
-    iget v0, p1, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->lowMin:F
+    iget p1, p1, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->lowMin:F
 
-    iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->lowMin:F
+    iput p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->lowMin:F
 
-    .line 62
     return-void
 .end method
 
@@ -83,18 +81,16 @@
 
 .method public read(Lcom/badlogic/gdx/utils/Json;Lcom/badlogic/gdx/utils/JsonValue;)V
     .locals 2
-    .param p1, "json"    # Lcom/badlogic/gdx/utils/Json;
-    .param p2, "jsonData"    # Lcom/badlogic/gdx/utils/JsonValue;
 
     .line 73
     invoke-super {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;->read(Lcom/badlogic/gdx/utils/Json;Lcom/badlogic/gdx/utils/JsonValue;)V
 
+    const-string v0, "lowMin"
+
     .line 74
-    sget-object v0, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
+    sget-object v1, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
-    const-string v1, "lowMin"
-
-    invoke-virtual {p1, v1, v0, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
+    invoke-virtual {p1, v0, v1, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -106,30 +102,28 @@
 
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->lowMin:F
 
+    const-string v0, "lowMax"
+
     .line 75
-    sget-object v0, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
+    sget-object v1, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
-    const-string v1, "lowMax"
+    invoke-virtual {p1, v0, v1, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
 
-    invoke-virtual {p1, v1, v0, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
+    check-cast p1, Ljava/lang/Float;
 
-    check-cast v0, Ljava/lang/Float;
+    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
 
-    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
+    move-result p1
 
-    move-result v0
+    iput p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->lowMax:F
 
-    iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->lowMax:F
-
-    .line 76
     return-void
 .end method
 
 .method public setLow(F)V
     .locals 0
-    .param p1, "value"    # F
 
     .line 33
     iput p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->lowMin:F
@@ -137,14 +131,11 @@
     .line 34
     iput p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->lowMax:F
 
-    .line 35
     return-void
 .end method
 
 .method public setLow(FF)V
     .locals 0
-    .param p1, "min"    # F
-    .param p2, "max"    # F
 
     .line 38
     iput p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->lowMin:F
@@ -152,35 +143,29 @@
     .line 39
     iput p2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->lowMax:F
 
-    .line 40
     return-void
 .end method
 
 .method public setLowMax(F)V
     .locals 0
-    .param p1, "lowMax"    # F
 
     .line 55
     iput p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->lowMax:F
 
-    .line 56
     return-void
 .end method
 
 .method public setLowMin(F)V
     .locals 0
-    .param p1, "lowMin"    # F
 
     .line 47
     iput p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->lowMin:F
 
-    .line 48
     return-void
 .end method
 
 .method public write(Lcom/badlogic/gdx/utils/Json;)V
     .locals 2
-    .param p1, "json"    # Lcom/badlogic/gdx/utils/Json;
 
     .line 66
     invoke-super {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;->write(Lcom/badlogic/gdx/utils/Json;)V
@@ -207,6 +192,5 @@
 
     invoke-virtual {p1, v1, v0}, Lcom/badlogic/gdx/utils/Json;->writeValue(Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 69
     return-void
 .end method

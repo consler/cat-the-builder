@@ -20,8 +20,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroidx/appcompat/view/ActionMode;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "supportActionMode"    # Landroidx/appcompat/view/ActionMode;
 
     .line 49
     invoke-direct {p0}, Landroid/view/ActionMode;-><init>()V
@@ -32,7 +30,6 @@
     .line 51
     iput-object p2, p0, Landroidx/appcompat/view/SupportActionModeWrapper;->mWrappedObject:Landroidx/appcompat/view/ActionMode;
 
-    .line 52
     return-void
 .end method
 
@@ -46,7 +43,6 @@
 
     invoke-virtual {v0}, Landroidx/appcompat/view/ActionMode;->finish()V
 
-    .line 82
     return-void
 .end method
 
@@ -157,7 +153,6 @@
 
     invoke-virtual {v0}, Landroidx/appcompat/view/ActionMode;->invalidate()V
 
-    .line 77
     return-void
 .end method
 
@@ -176,91 +171,77 @@
 
 .method public setCustomView(Landroid/view/View;)V
     .locals 1
-    .param p1, "view"    # Landroid/view/View;
 
     .line 116
     iget-object v0, p0, Landroidx/appcompat/view/SupportActionModeWrapper;->mWrappedObject:Landroidx/appcompat/view/ActionMode;
 
     invoke-virtual {v0, p1}, Landroidx/appcompat/view/ActionMode;->setCustomView(Landroid/view/View;)V
 
-    .line 117
     return-void
 .end method
 
 .method public setSubtitle(I)V
     .locals 1
-    .param p1, "resId"    # I
 
     .line 106
     iget-object v0, p0, Landroidx/appcompat/view/SupportActionModeWrapper;->mWrappedObject:Landroidx/appcompat/view/ActionMode;
 
     invoke-virtual {v0, p1}, Landroidx/appcompat/view/ActionMode;->setSubtitle(I)V
 
-    .line 107
     return-void
 .end method
 
 .method public setSubtitle(Ljava/lang/CharSequence;)V
     .locals 1
-    .param p1, "subtitle"    # Ljava/lang/CharSequence;
 
     .line 71
     iget-object v0, p0, Landroidx/appcompat/view/SupportActionModeWrapper;->mWrappedObject:Landroidx/appcompat/view/ActionMode;
 
     invoke-virtual {v0, p1}, Landroidx/appcompat/view/ActionMode;->setSubtitle(Ljava/lang/CharSequence;)V
 
-    .line 72
     return-void
 .end method
 
 .method public setTag(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "tag"    # Ljava/lang/Object;
 
     .line 61
     iget-object v0, p0, Landroidx/appcompat/view/SupportActionModeWrapper;->mWrappedObject:Landroidx/appcompat/view/ActionMode;
 
     invoke-virtual {v0, p1}, Landroidx/appcompat/view/ActionMode;->setTag(Ljava/lang/Object;)V
 
-    .line 62
     return-void
 .end method
 
 .method public setTitle(I)V
     .locals 1
-    .param p1, "resId"    # I
 
     .line 96
     iget-object v0, p0, Landroidx/appcompat/view/SupportActionModeWrapper;->mWrappedObject:Landroidx/appcompat/view/ActionMode;
 
     invoke-virtual {v0, p1}, Landroidx/appcompat/view/ActionMode;->setTitle(I)V
 
-    .line 97
     return-void
 .end method
 
 .method public setTitle(Ljava/lang/CharSequence;)V
     .locals 1
-    .param p1, "title"    # Ljava/lang/CharSequence;
 
     .line 66
     iget-object v0, p0, Landroidx/appcompat/view/SupportActionModeWrapper;->mWrappedObject:Landroidx/appcompat/view/ActionMode;
 
     invoke-virtual {v0, p1}, Landroidx/appcompat/view/ActionMode;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 67
     return-void
 .end method
 
 .method public setTitleOptionalHint(Z)V
     .locals 1
-    .param p1, "titleOptional"    # Z
 
     .line 131
     iget-object v0, p0, Landroidx/appcompat/view/SupportActionModeWrapper;->mWrappedObject:Landroidx/appcompat/view/ActionMode;
 
     invoke-virtual {v0, p1}, Landroidx/appcompat/view/ActionMode;->setTitleOptionalHint(Z)V
 
-    .line 132
     return-void
 .end method

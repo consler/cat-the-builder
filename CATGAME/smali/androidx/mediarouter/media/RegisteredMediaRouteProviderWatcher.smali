@@ -40,8 +40,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher$Callback;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "callback"    # Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher$Callback;
 
     .line 48
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -74,27 +72,24 @@
     iput-object p2, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mCallback:Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher$Callback;
 
     .line 51
-    new-instance v0, Landroid/os/Handler;
+    new-instance p2, Landroid/os/Handler;
 
-    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+    invoke-direct {p2}, Landroid/os/Handler;-><init>()V
 
-    iput-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mHandler:Landroid/os/Handler;
+    iput-object p2, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mHandler:Landroid/os/Handler;
 
     .line 52
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mPackageManager:Landroid/content/pm/PackageManager;
+    iput-object p1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mPackageManager:Landroid/content/pm/PackageManager;
 
-    .line 53
     return-void
 .end method
 
 .method private findProvider(Ljava/lang/String;Ljava/lang/String;)I
-    .locals 4
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p2, "className"    # Ljava/lang/String;
+    .locals 3
 
     .line 129
     iget-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mProviders:Ljava/util/ArrayList;
@@ -103,11 +98,8 @@
 
     move-result v0
 
-    .line 130
-    .local v0, "count":I
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_1
 
@@ -121,240 +113,198 @@
     check-cast v2, Landroidx/mediarouter/media/RegisteredMediaRouteProvider;
 
     .line 132
-    .local v2, "provider":Landroidx/mediarouter/media/RegisteredMediaRouteProvider;
     invoke-virtual {v2, p1, p2}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider;->hasComponentName(Ljava/lang/String;Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
-    .line 133
     return v1
 
-    .line 130
-    .end local v2    # "provider":Landroidx/mediarouter/media/RegisteredMediaRouteProvider;
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 136
-    .end local v1    # "i":I
     :cond_1
-    const/4 v1, -0x1
+    const/4 p1, -0x1
 
-    return v1
+    return p1
 .end method
 
 
 # virtual methods
 .method scanPackages()V
-    .locals 11
+    .locals 7
 
     .line 89
     iget-boolean v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mRunning:Z
 
     if-nez v0, :cond_0
 
-    .line 90
     return-void
 
-    .line 95
-    :cond_0
-    const/4 v0, 0x0
-
     .line 96
-    .local v0, "targetIndex":I
-    new-instance v1, Landroid/content/Intent;
+    :cond_0
+    new-instance v0, Landroid/content/Intent;
 
-    const-string v2, "android.media.MediaRouteProviderService"
+    const-string v1, "android.media.MediaRouteProviderService"
 
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 97
-    .local v1, "intent":Landroid/content/Intent;
-    iget-object v2, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mPackageManager:Landroid/content/pm/PackageManager;
+    iget-object v1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mPackageManager:Landroid/content/pm/PackageManager;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {v2, v1, v3}, Landroid/content/pm/PackageManager;->queryIntentServices(Landroid/content/Intent;I)Ljava/util/List;
+    invoke-virtual {v1, v0, v2}, Landroid/content/pm/PackageManager;->queryIntentServices(Landroid/content/Intent;I)Ljava/util/List;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v0
 
+    :cond_1
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/content/pm/ResolveInfo;
+
+    .line 98
+    iget-object v1, v1, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
+
+    if-eqz v1, :cond_1
+
+    .line 100
+    iget-object v3, v1, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
+
+    iget-object v4, v1, Landroid/content/pm/ServiceInfo;->name:Ljava/lang/String;
+
+    invoke-direct {p0, v3, v4}, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->findProvider(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v3
 
-    if-eqz v3, :cond_3
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/content/pm/ResolveInfo;
-
-    .line 98
-    .local v3, "resolveInfo":Landroid/content/pm/ResolveInfo;
-    iget-object v4, v3, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
-
-    .line 99
-    .local v4, "serviceInfo":Landroid/content/pm/ServiceInfo;
-    if-eqz v4, :cond_2
-
-    .line 100
-    iget-object v5, v4, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
-
-    iget-object v6, v4, Landroid/content/pm/ServiceInfo;->name:Ljava/lang/String;
-
-    invoke-direct {p0, v5, v6}, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->findProvider(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v5
-
-    .line 101
-    .local v5, "sourceIndex":I
-    if-gez v5, :cond_1
+    if-gez v3, :cond_2
 
     .line 102
-    new-instance v6, Landroidx/mediarouter/media/RegisteredMediaRouteProvider;
+    new-instance v3, Landroidx/mediarouter/media/RegisteredMediaRouteProvider;
 
-    iget-object v7, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mContext:Landroid/content/Context;
 
-    new-instance v8, Landroid/content/ComponentName;
+    new-instance v5, Landroid/content/ComponentName;
 
-    iget-object v9, v4, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
+    iget-object v6, v1, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
 
-    iget-object v10, v4, Landroid/content/pm/ServiceInfo;->name:Ljava/lang/String;
+    iget-object v1, v1, Landroid/content/pm/ServiceInfo;->name:Ljava/lang/String;
 
-    invoke-direct {v8, v9, v10}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v5, v6, v1}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-direct {v6, v7, v8}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider;-><init>(Landroid/content/Context;Landroid/content/ComponentName;)V
+    invoke-direct {v3, v4, v5}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider;-><init>(Landroid/content/Context;Landroid/content/ComponentName;)V
 
     .line 105
-    .local v6, "provider":Landroidx/mediarouter/media/RegisteredMediaRouteProvider;
-    invoke-virtual {v6}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider;->start()V
+    invoke-virtual {v3}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider;->start()V
 
     .line 106
-    iget-object v7, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mProviders:Ljava/util/ArrayList;
+    iget-object v1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mProviders:Ljava/util/ArrayList;
 
-    add-int/lit8 v8, v0, 0x1
+    add-int/lit8 v4, v2, 0x1
 
-    .end local v0    # "targetIndex":I
-    .local v8, "targetIndex":I
-    invoke-virtual {v7, v0, v6}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+    invoke-virtual {v1, v2, v3}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
     .line 107
-    iget-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mCallback:Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher$Callback;
+    iget-object v1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mCallback:Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher$Callback;
 
-    invoke-interface {v0, v6}, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher$Callback;->addProvider(Landroidx/mediarouter/media/MediaRouteProvider;)V
+    invoke-interface {v1, v3}, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher$Callback;->addProvider(Landroidx/mediarouter/media/MediaRouteProvider;)V
 
-    .line 108
-    .end local v6    # "provider":Landroidx/mediarouter/media/RegisteredMediaRouteProvider;
-    move v0, v8
+    :goto_1
+    move v2, v4
+
+    goto :goto_0
+
+    :cond_2
+    if-lt v3, v2, :cond_1
+
+    .line 109
+    iget-object v1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mProviders:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroidx/mediarouter/media/RegisteredMediaRouteProvider;
+
+    .line 110
+    invoke-virtual {v1}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider;->start()V
+
+    .line 111
+    invoke-virtual {v1}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider;->rebindIfDisconnected()V
+
+    .line 112
+    iget-object v1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mProviders:Ljava/util/ArrayList;
+
+    add-int/lit8 v4, v2, 0x1
+
+    invoke-static {v1, v3, v2}, Ljava/util/Collections;->swap(Ljava/util/List;II)V
 
     goto :goto_1
 
-    .end local v8    # "targetIndex":I
-    .restart local v0    # "targetIndex":I
-    :cond_1
-    if-lt v5, v0, :cond_2
-
-    .line 109
-    iget-object v6, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mProviders:Ljava/util/ArrayList;
-
-    invoke-virtual {v6, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Landroidx/mediarouter/media/RegisteredMediaRouteProvider;
-
-    .line 110
-    .restart local v6    # "provider":Landroidx/mediarouter/media/RegisteredMediaRouteProvider;
-    invoke-virtual {v6}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider;->start()V
-
-    .line 111
-    invoke-virtual {v6}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider;->rebindIfDisconnected()V
-
-    .line 112
-    iget-object v7, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mProviders:Ljava/util/ArrayList;
-
-    add-int/lit8 v8, v0, 0x1
-
-    .end local v0    # "targetIndex":I
-    .restart local v8    # "targetIndex":I
-    invoke-static {v7, v5, v0}, Ljava/util/Collections;->swap(Ljava/util/List;II)V
-
-    move v0, v8
-
-    .line 115
-    .end local v3    # "resolveInfo":Landroid/content/pm/ResolveInfo;
-    .end local v4    # "serviceInfo":Landroid/content/pm/ServiceInfo;
-    .end local v5    # "sourceIndex":I
-    .end local v6    # "provider":Landroidx/mediarouter/media/RegisteredMediaRouteProvider;
-    .end local v8    # "targetIndex":I
-    .restart local v0    # "targetIndex":I
-    :cond_2
-    :goto_1
-    goto :goto_0
-
     .line 118
     :cond_3
-    iget-object v2, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mProviders:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mProviders:Ljava/util/ArrayList;
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
-    move-result v2
+    move-result v0
 
-    if-ge v0, v2, :cond_4
+    if-ge v2, v0, :cond_4
 
     .line 119
-    iget-object v2, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mProviders:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mProviders:Ljava/util/ArrayList;
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
-    move-result v2
+    move-result v0
 
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    .local v2, "i":I
     :goto_2
-    if-lt v2, v0, :cond_4
+    if-lt v0, v2, :cond_4
 
     .line 120
-    iget-object v3, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mProviders:Ljava/util/ArrayList;
+    iget-object v1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mProviders:Ljava/util/ArrayList;
 
-    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    check-cast v3, Landroidx/mediarouter/media/RegisteredMediaRouteProvider;
+    check-cast v1, Landroidx/mediarouter/media/RegisteredMediaRouteProvider;
 
     .line 121
-    .local v3, "provider":Landroidx/mediarouter/media/RegisteredMediaRouteProvider;
-    iget-object v4, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mCallback:Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher$Callback;
+    iget-object v3, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mCallback:Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher$Callback;
 
-    invoke-interface {v4, v3}, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher$Callback;->removeProvider(Landroidx/mediarouter/media/MediaRouteProvider;)V
+    invoke-interface {v3, v1}, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher$Callback;->removeProvider(Landroidx/mediarouter/media/MediaRouteProvider;)V
 
     .line 122
-    iget-object v4, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mProviders:Ljava/util/ArrayList;
+    iget-object v3, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mProviders:Ljava/util/ArrayList;
 
-    invoke-virtual {v4, v3}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
     .line 123
-    invoke-virtual {v3}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider;->stop()V
+    invoke-virtual {v1}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider;->stop()V
 
-    .line 119
-    .end local v3    # "provider":Landroidx/mediarouter/media/RegisteredMediaRouteProvider;
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v0, v0, -0x1
 
     goto :goto_2
 
-    .line 126
-    .end local v2    # "i":I
     :cond_4
     return-void
 .end method
@@ -367,9 +317,9 @@
 
     if-nez v0, :cond_0
 
-    .line 57
     const/4 v0, 0x1
 
+    .line 57
     iput-boolean v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mRunning:Z
 
     .line 59
@@ -377,35 +327,34 @@
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 60
-    .local v0, "filter":Landroid/content/IntentFilter;
     const-string v1, "android.intent.action.PACKAGE_ADDED"
 
+    .line 60
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 61
     const-string v1, "android.intent.action.PACKAGE_REMOVED"
 
+    .line 61
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 62
     const-string v1, "android.intent.action.PACKAGE_CHANGED"
 
+    .line 62
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 63
     const-string v1, "android.intent.action.PACKAGE_REPLACED"
 
+    .line 63
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 64
     const-string v1, "android.intent.action.PACKAGE_RESTARTED"
 
+    .line 64
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 65
     const-string v1, "package"
 
+    .line 65
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addDataScheme(Ljava/lang/String;)V
 
     .line 66
@@ -420,14 +369,12 @@
     invoke-virtual {v1, v2, v0, v3, v4}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
     .line 70
-    iget-object v1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mHandler:Landroid/os/Handler;
+    iget-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mHandler:Landroid/os/Handler;
 
-    iget-object v2, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mScanPackagesRunnable:Ljava/lang/Runnable;
+    iget-object v1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mScanPackagesRunnable:Ljava/lang/Runnable;
 
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 72
-    .end local v0    # "filter":Landroid/content/IntentFilter;
     :cond_0
     return-void
 .end method
@@ -440,9 +387,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 76
     const/4 v0, 0x0
 
+    .line 76
     iput-boolean v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mRunning:Z
 
     .line 78
@@ -468,7 +415,6 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -483,13 +429,10 @@
 
     invoke-virtual {v1}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider;->stop()V
 
-    .line 82
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 86
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method

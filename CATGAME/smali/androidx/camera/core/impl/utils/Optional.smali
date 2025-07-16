@@ -27,10 +27,8 @@
     .locals 0
 
     .line 107
-    .local p0, "this":Landroidx/camera/core/impl/utils/Optional;, "Landroidx/camera/core/impl/utils/Optional<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 108
     return-void
 .end method
 
@@ -66,13 +64,12 @@
         }
     .end annotation
 
-    .line 103
-    .local p0, "nullableReference":Ljava/lang/Object;, "TT;"
     if-nez p0, :cond_0
 
+    .line 103
     invoke-static {}, Landroidx/camera/core/impl/utils/Optional;->absent()Landroidx/camera/core/impl/utils/Optional;
 
-    move-result-object v0
+    move-result-object p0
 
     goto :goto_0
 
@@ -81,12 +78,14 @@
 
     invoke-direct {v0, p0}, Landroidx/camera/core/impl/utils/Present;-><init>(Ljava/lang/Object;)V
 
+    move-object p0, v0
+
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public static of(Ljava/lang/Object;)Landroidx/camera/core/impl/utils/Optional;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -98,14 +97,13 @@
     .end annotation
 
     .line 91
-    .local p0, "reference":Ljava/lang/Object;, "TT;"
     new-instance v0, Landroidx/camera/core/impl/utils/Present;
 
     invoke-static {p0}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Landroidx/camera/core/impl/utils/Present;-><init>(Ljava/lang/Object;)V
+    invoke-direct {v0, p0}, Landroidx/camera/core/impl/utils/Present;-><init>(Ljava/lang/Object;)V
 
     return-object v0
 .end method

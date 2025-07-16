@@ -28,10 +28,8 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/Tree;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/scenes/scene2d/ui/Tree;
 
     .line 67
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/ui/Tree$1;, "Lcom/badlogic/gdx/scenes/scene2d/ui/Tree$1;"
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Tree$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Tree;
 
     invoke-direct {p0}, Lcom/badlogic/gdx/scenes/scene2d/utils/Selection;-><init>()V
@@ -45,7 +43,6 @@
     .locals 2
 
     .line 69
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/ui/Tree$1;, "Lcom/badlogic/gdx/scenes/scene2d/ui/Tree$1;"
     invoke-virtual {p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Tree$1;->size()I
 
     move-result v0
@@ -80,10 +77,6 @@
 
     iput-object v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Tree;->rangeStart:Lcom/badlogic/gdx/scenes/scene2d/ui/Tree$Node;
 
-    .line 72
-    nop
-
-    .line 77
     :goto_0
     return-void
 .end method

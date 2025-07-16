@@ -18,23 +18,20 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 276
     const/4 v0, 0x5
 
+    .line 276
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/io/binary/Token;-><init>(B)V
 
-    .line 277
     return-void
 .end method
 
 .method public constructor <init>(JLjava/lang/String;)V
     .locals 1
-    .param p1, "id"    # J
-    .param p3, "value"    # Ljava/lang/String;
 
-    .line 270
     const/4 v0, 0x5
 
+    .line 270
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/io/binary/Token;-><init>(B)V
 
     .line 271
@@ -43,7 +40,6 @@
     .line 272
     iput-object p3, p0, Lcom/thoughtworks/xstream/io/binary/Token$Attribute;->value:Ljava/lang/String;
 
-    .line 273
     return-void
 .end method
 
@@ -51,8 +47,6 @@
 # virtual methods
 .method public readFrom(Ljava/io/DataInput;B)V
     .locals 2
-    .param p1, "in"    # Ljava/io/DataInput;
-    .param p2, "idType"    # B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -69,18 +63,15 @@
     .line 286
     invoke-virtual {p0, p1}, Lcom/thoughtworks/xstream/io/binary/Token$Attribute;->readString(Ljava/io/DataInput;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/thoughtworks/xstream/io/binary/Token$Attribute;->value:Ljava/lang/String;
+    iput-object p1, p0, Lcom/thoughtworks/xstream/io/binary/Token$Attribute;->value:Ljava/lang/String;
 
-    .line 287
     return-void
 .end method
 
 .method public writeTo(Ljava/io/DataOutput;B)V
     .locals 2
-    .param p1, "out"    # Ljava/io/DataOutput;
-    .param p2, "idType"    # B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -93,10 +84,9 @@
     invoke-virtual {p0, p1, v0, v1, p2}, Lcom/thoughtworks/xstream/io/binary/Token$Attribute;->writeId(Ljava/io/DataOutput;JB)V
 
     .line 281
-    iget-object v0, p0, Lcom/thoughtworks/xstream/io/binary/Token$Attribute;->value:Ljava/lang/String;
+    iget-object p2, p0, Lcom/thoughtworks/xstream/io/binary/Token$Attribute;->value:Ljava/lang/String;
 
-    invoke-virtual {p0, p1, v0}, Lcom/thoughtworks/xstream/io/binary/Token$Attribute;->writeString(Ljava/io/DataOutput;Ljava/lang/String;)V
+    invoke-virtual {p0, p1, p2}, Lcom/thoughtworks/xstream/io/binary/Token$Attribute;->writeString(Ljava/io/DataOutput;Ljava/lang/String;)V
 
-    .line 282
     return-void
 .end method

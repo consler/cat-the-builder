@@ -39,34 +39,28 @@
 # virtual methods
 .method public addTransformer(Landroidx/viewpager2/widget/ViewPager2$PageTransformer;)V
     .locals 1
-    .param p1, "transformer"    # Landroidx/viewpager2/widget/ViewPager2$PageTransformer;
 
     .line 42
     iget-object v0, p0, Landroidx/viewpager2/widget/CompositePageTransformer;->mTransformers:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 43
     return-void
 .end method
 
 .method public removeTransformer(Landroidx/viewpager2/widget/ViewPager2$PageTransformer;)V
     .locals 1
-    .param p1, "transformer"    # Landroidx/viewpager2/widget/ViewPager2$PageTransformer;
 
     .line 47
     iget-object v0, p0, Landroidx/viewpager2/widget/CompositePageTransformer;->mTransformers:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    .line 48
     return-void
 .end method
 
 .method public transformPage(Landroid/view/View;F)V
     .locals 2
-    .param p1, "page"    # Landroid/view/View;
-    .param p2, "position"    # F
 
     .line 52
     iget-object v0, p0, Landroidx/viewpager2/widget/CompositePageTransformer;->mTransformers:Ljava/util/List;
@@ -89,14 +83,10 @@
     check-cast v1, Landroidx/viewpager2/widget/ViewPager2$PageTransformer;
 
     .line 53
-    .local v1, "transformer":Landroidx/viewpager2/widget/ViewPager2$PageTransformer;
     invoke-interface {v1, p1, p2}, Landroidx/viewpager2/widget/ViewPager2$PageTransformer;->transformPage(Landroid/view/View;F)V
 
-    .line 54
-    .end local v1    # "transformer":Landroidx/viewpager2/widget/ViewPager2$PageTransformer;
     goto :goto_0
 
-    .line 55
     :cond_0
     return-void
 .end method

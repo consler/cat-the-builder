@@ -27,11 +27,8 @@
     .end annotation
 
     .line 38
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractIteratorDecorator<TE;>;"
-    .local p1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<TE;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/iterators/AbstractUntypedIteratorDecorator;-><init>(Ljava/util/Iterator;)V
 
-    .line 39
     return-void
 .end method
 
@@ -46,7 +43,6 @@
     .end annotation
 
     .line 44
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractIteratorDecorator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/iterators/AbstractIteratorDecorator;->getIterator()Ljava/util/Iterator;
 
     move-result-object v0

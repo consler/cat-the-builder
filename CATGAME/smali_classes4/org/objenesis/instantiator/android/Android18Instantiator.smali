@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,8 +50,6 @@
     .end annotation
 
     .line 39
-    .local p0, "this":Lorg/objenesis/instantiator/android/Android18Instantiator;, "Lorg/objenesis/instantiator/android/Android18Instantiator<TT;>;"
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 40
@@ -60,18 +58,17 @@
     .line 41
     invoke-static {}, Lorg/objenesis/instantiator/android/Android18Instantiator;->getNewInstanceMethod()Ljava/lang/reflect/Method;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lorg/objenesis/instantiator/android/Android18Instantiator;->newInstanceMethod:Ljava/lang/reflect/Method;
+    iput-object p1, p0, Lorg/objenesis/instantiator/android/Android18Instantiator;->newInstanceMethod:Ljava/lang/reflect/Method;
 
     .line 42
     invoke-static {}, Lorg/objenesis/instantiator/android/Android18Instantiator;->findConstructorIdForJavaLangObjectConstructor()Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lorg/objenesis/instantiator/android/Android18Instantiator;->objectConstructorId:Ljava/lang/Long;
+    iput-object p1, p0, Lorg/objenesis/instantiator/android/Android18Instantiator;->objectConstructorId:Ljava/lang/Long;
 
-    .line 43
     return-void
 .end method
 
@@ -99,33 +96,30 @@
     move-result-object v0
 
     .line 70
-    .local v0, "newInstanceMethod":Ljava/lang/reflect/Method;
     invoke-virtual {v0, v2}, Ljava/lang/reflect/Method;->setAccessible(Z)V
 
+    new-array v1, v2, [Ljava/lang/Object;
+
     .line 72
-    const/4 v1, 0x0
+    const-class v2, Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    aput-object v2, v1, v5
 
-    const-class v3, Ljava/lang/Object;
+    const/4 v2, 0x0
 
-    aput-object v3, v2, v5
+    invoke-virtual {v0, v2, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/Long;
+    check-cast v0, Ljava/lang/Long;
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_3
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_2
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v1
+    return-object v0
 
-    .line 74
-    .end local v0    # "newInstanceMethod":Ljava/lang/reflect/Method;
     :catch_0
     move-exception v0
 
@@ -145,7 +139,6 @@
     move-exception v0
 
     .line 75
-    .local v0, "e":Ljava/lang/Exception;
     :goto_0
     new-instance v1, Lorg/objenesis/ObjenesisException;
 
@@ -167,11 +160,11 @@
 
     new-array v2, v2, [Ljava/lang/Class;
 
-    const/4 v3, 0x0
+    const-class v3, Ljava/lang/Class;
 
-    const-class v4, Ljava/lang/Class;
+    const/4 v4, 0x0
 
-    aput-object v4, v2, v3
+    aput-object v3, v2, v4
 
     sget-object v3, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
@@ -184,17 +177,13 @@
     move-result-object v0
 
     .line 58
-    .local v0, "newInstanceMethod":Ljava/lang/reflect/Method;
     invoke-virtual {v0, v4}, Ljava/lang/reflect/Method;->setAccessible(Z)V
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 59
     return-object v0
 
-    .line 61
-    .end local v0    # "newInstanceMethod":Ljava/lang/reflect/Method;
     :catch_0
     move-exception v0
 
@@ -204,7 +193,6 @@
     move-exception v0
 
     .line 62
-    .local v0, "e":Ljava/lang/Exception;
     :goto_0
     new-instance v1, Lorg/objenesis/ObjenesisException;
 
@@ -216,7 +204,7 @@
 
 # virtual methods
 .method public newInstance()Ljava/lang/Object;
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -224,31 +212,28 @@
     .end annotation
 
     .line 47
-    .local p0, "this":Lorg/objenesis/instantiator/android/Android18Instantiator;, "Lorg/objenesis/instantiator/android/Android18Instantiator<TT;>;"
     :try_start_0
     iget-object v0, p0, Lorg/objenesis/instantiator/android/Android18Instantiator;->type:Ljava/lang/Class;
 
     iget-object v1, p0, Lorg/objenesis/instantiator/android/Android18Instantiator;->newInstanceMethod:Ljava/lang/reflect/Method;
 
-    const/4 v2, 0x0
+    const/4 v2, 0x2
 
-    const/4 v3, 0x2
+    new-array v2, v2, [Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    aput-object v0, v2, v3
 
-    iget-object v5, p0, Lorg/objenesis/instantiator/android/Android18Instantiator;->type:Ljava/lang/Class;
-
-    aput-object v5, v3, v4
+    iget-object v3, p0, Lorg/objenesis/instantiator/android/Android18Instantiator;->objectConstructorId:Ljava/lang/Long;
 
     const/4 v4, 0x1
 
-    iget-object v5, p0, Lorg/objenesis/instantiator/android/Android18Instantiator;->objectConstructorId:Ljava/lang/Long;
+    aput-object v3, v2, v4
 
-    aput-object v5, v3, v4
+    const/4 v3, 0x0
 
-    invoke-virtual {v1, v2, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v3, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -260,12 +245,10 @@
 
     return-object v0
 
-    .line 49
     :catch_0
     move-exception v0
 
     .line 50
-    .local v0, "e":Ljava/lang/Exception;
     new-instance v1, Lorg/objenesis/ObjenesisException;
 
     invoke-direct {v1, v0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V

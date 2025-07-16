@@ -38,13 +38,11 @@
 .method static constructor <clinit>()V
     .locals 0
 
-    .line 15
     return-void
 .end method
 
 .method public constructor <init>(Lcom/koushikdutta/async/http/AsyncHttpRequest;)V
     .locals 1
-    .param p1, "request"    # Lcom/koushikdutta/async/http/AsyncHttpRequest;
 
     .line 110
     invoke-direct {p0}, Lcom/koushikdutta/async/FilteredDataEmitter;-><init>()V
@@ -56,31 +54,29 @@
 
     iput-object v0, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->mReporter:Lcom/koushikdutta/async/callback/CompletedCallback;
 
-    .line 114
     const/4 v0, 0x0
 
+    .line 114
     iput-boolean v0, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->mCompleted:Z
 
-    .line 170
     const/4 v0, 0x1
 
+    .line 170
     iput-boolean v0, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->mFirstWrite:Z
 
     .line 111
     iput-object p1, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->mRequest:Lcom/koushikdutta/async/http/AsyncHttpRequest;
 
-    .line 112
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;)Lcom/koushikdutta/async/AsyncSocket;
-    .locals 1
-    .param p0, "x0"    # Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;
+    .locals 0
 
     .line 15
-    iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->mSocket:Lcom/koushikdutta/async/AsyncSocket;
+    iget-object p0, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->mSocket:Lcom/koushikdutta/async/AsyncSocket;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private assertContent()V
@@ -91,22 +87,14 @@
 
     if-nez v0, :cond_0
 
-    .line 173
     return-void
 
-    .line 174
     :cond_0
     const/4 v0, 0x0
 
+    .line 174
     iput-boolean v0, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->mFirstWrite:Z
 
-    .line 175
-    nop
-
-    .line 176
-    nop
-
-    .line 177
     return-void
 .end method
 
@@ -122,14 +110,13 @@
 
     invoke-interface {v0, v1}, Lcom/koushikdutta/async/AsyncSocket;->setDataCallback(Lcom/koushikdutta/async/callback/DataCallback;)V
 
-    .line 88
     return-void
 .end method
 
 
 # virtual methods
 .method public charset()Ljava/lang/String;
-    .locals 3
+    .locals 2
 
     .line 236
     invoke-virtual {p0}, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->headers()Lcom/koushikdutta/async/http/Headers;
@@ -146,36 +133,29 @@
 
     move-result-object v0
 
-    .line 238
-    .local v0, "mm":Lcom/koushikdutta/async/http/Multimap;
     if-eqz v0, :cond_0
 
     const-string v1, "charset"
 
+    .line 238
     invoke-virtual {v0, v1}, Lcom/koushikdutta/async/http/Multimap;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    move-object v2, v1
+    if-eqz v0, :cond_0
 
-    .local v2, "cs":Ljava/lang/String;
-    if-eqz v1, :cond_0
-
-    invoke-static {v2}, Ljava/nio/charset/Charset;->isSupported(Ljava/lang/String;)Z
+    invoke-static {v0}, Ljava/nio/charset/Charset;->isSupported(Ljava/lang/String;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 239
-    return-object v2
+    return-object v0
 
-    .line 241
-    .end local v2    # "cs":Ljava/lang/String;
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public close()V
@@ -187,7 +167,6 @@
     .line 104
     invoke-direct {p0}, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->terminate()V
 
-    .line 105
     return-void
 .end method
 
@@ -202,12 +181,10 @@
 
 .method public code(I)Lcom/koushikdutta/async/http/AsyncHttpClientMiddleware$ResponseHead;
     .locals 0
-    .param p1, "code"    # I
 
     .line 135
     iput p1, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->code:I
 
-    .line 136
     return-object p0
 .end method
 
@@ -224,12 +201,10 @@
 
 .method public emitter(Lcom/koushikdutta/async/DataEmitter;)Lcom/koushikdutta/async/http/AsyncHttpClientMiddleware$ResponseHead;
     .locals 0
-    .param p1, "emitter"    # Lcom/koushikdutta/async/DataEmitter;
 
     .line 73
     invoke-virtual {p0, p1}, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->setDataEmitter(Lcom/koushikdutta/async/DataEmitter;)V
 
-    .line 74
     return-object p0
 .end method
 
@@ -296,12 +271,10 @@
 
 .method public headers(Lcom/koushikdutta/async/http/Headers;)Lcom/koushikdutta/async/http/AsyncHttpClientMiddleware$ResponseHead;
     .locals 0
-    .param p1, "headers"    # Lcom/koushikdutta/async/http/Headers;
 
     .line 123
     iput-object p1, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->mHeaders:Lcom/koushikdutta/async/http/Headers;
 
-    .line 124
     return-object p0
 .end method
 
@@ -329,12 +302,10 @@
 
 .method public message(Ljava/lang/String;)Lcom/koushikdutta/async/http/AsyncHttpClientMiddleware$ResponseHead;
     .locals 0
-    .param p1, "message"    # Ljava/lang/String;
 
     .line 147
     iput-object p1, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->message:Ljava/lang/String;
 
-    .line 148
     return-object p0
 .end method
 
@@ -350,7 +321,6 @@
 .method protected onHeadersReceived()V
     .locals 0
 
-    .line 63
     return-void
 .end method
 
@@ -364,8 +334,6 @@
 
     move-result-object v0
 
-    .line 35
-    .local v0, "requestBody":Lcom/koushikdutta/async/http/body/AsyncHttpRequestBody;
     if-eqz v0, :cond_0
 
     .line 36
@@ -379,33 +347,28 @@
 
     goto :goto_0
 
-    .line 43
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {p0, v1}, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->onRequestCompleted(Ljava/lang/Exception;)V
+    .line 43
+    invoke-virtual {p0, v0}, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->onRequestCompleted(Ljava/lang/Exception;)V
 
-    .line 45
     :goto_0
     return-void
 .end method
 
 .method protected onRequestCompleted(Ljava/lang/Exception;)V
     .locals 0
-    .param p1, "ex"    # Ljava/lang/Exception;
 
-    .line 48
     return-void
 .end method
 
 .method public protocol(Ljava/lang/String;)Lcom/koushikdutta/async/http/AsyncHttpClientMiddleware$ResponseHead;
     .locals 0
-    .param p1, "protocol"    # Ljava/lang/String;
 
     .line 141
     iput-object p1, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->protocol:Ljava/lang/String;
 
-    .line 142
     return-object p0
 .end method
 
@@ -419,8 +382,7 @@
 .end method
 
 .method protected report(Ljava/lang/Exception;)V
-    .locals 2
-    .param p1, "e"    # Ljava/lang/Exception;
+    .locals 1
 
     .line 92
     invoke-super {p0, p1}, Lcom/koushikdutta/async/FilteredDataEmitter;->report(Ljava/lang/Exception;)V
@@ -429,55 +391,49 @@
     invoke-direct {p0}, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->terminate()V
 
     .line 95
-    iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->mSocket:Lcom/koushikdutta/async/AsyncSocket;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->mSocket:Lcom/koushikdutta/async/AsyncSocket;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-interface {v0, v1}, Lcom/koushikdutta/async/AsyncSocket;->setWriteableCallback(Lcom/koushikdutta/async/callback/WritableCallback;)V
+    invoke-interface {p1, v0}, Lcom/koushikdutta/async/AsyncSocket;->setWriteableCallback(Lcom/koushikdutta/async/callback/WritableCallback;)V
 
     .line 96
-    iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->mSocket:Lcom/koushikdutta/async/AsyncSocket;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->mSocket:Lcom/koushikdutta/async/AsyncSocket;
 
-    invoke-interface {v0, v1}, Lcom/koushikdutta/async/AsyncSocket;->setClosedCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
+    invoke-interface {p1, v0}, Lcom/koushikdutta/async/AsyncSocket;->setClosedCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
 
     .line 97
-    iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->mSocket:Lcom/koushikdutta/async/AsyncSocket;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->mSocket:Lcom/koushikdutta/async/AsyncSocket;
 
-    invoke-interface {v0, v1}, Lcom/koushikdutta/async/AsyncSocket;->setEndCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
+    invoke-interface {p1, v0}, Lcom/koushikdutta/async/AsyncSocket;->setEndCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
+
+    const/4 p1, 0x1
 
     .line 98
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->mCompleted:Z
 
-    iput-boolean v0, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->mCompleted:Z
-
-    .line 99
     return-void
 .end method
 
 .method public setClosedCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
     .locals 1
-    .param p1, "handler"    # Lcom/koushikdutta/async/callback/CompletedCallback;
 
     .line 221
     iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->mSink:Lcom/koushikdutta/async/DataSink;
 
     invoke-interface {v0, p1}, Lcom/koushikdutta/async/DataSink;->setClosedCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
 
-    .line 222
     return-void
 .end method
 
 .method setSocket(Lcom/koushikdutta/async/AsyncSocket;)V
     .locals 1
-    .param p1, "exchange"    # Lcom/koushikdutta/async/AsyncSocket;
 
     .line 26
     iput-object p1, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->mSocket:Lcom/koushikdutta/async/AsyncSocket;
 
-    .line 27
     if-nez p1, :cond_0
 
-    .line 28
     return-void
 
     .line 30
@@ -486,20 +442,17 @@
 
     invoke-interface {p1, v0}, Lcom/koushikdutta/async/AsyncSocket;->setEndCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
 
-    .line 31
     return-void
 .end method
 
 .method public setWriteableCallback(Lcom/koushikdutta/async/callback/WritableCallback;)V
     .locals 1
-    .param p1, "handler"    # Lcom/koushikdutta/async/callback/WritableCallback;
 
     .line 205
     iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->mSink:Lcom/koushikdutta/async/DataSink;
 
     invoke-interface {v0, p1}, Lcom/koushikdutta/async/DataSink;->setWriteableCallback(Lcom/koushikdutta/async/callback/WritableCallback;)V
 
-    .line 206
     return-void
 .end method
 
@@ -514,12 +467,10 @@
 
 .method public sink(Lcom/koushikdutta/async/DataSink;)Lcom/koushikdutta/async/http/AsyncHttpClientMiddleware$ResponseHead;
     .locals 0
-    .param p1, "sink"    # Lcom/koushikdutta/async/DataSink;
 
     .line 188
     iput-object p1, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->mSink:Lcom/koushikdutta/async/DataSink;
 
-    .line 189
     return-object p0
 .end method
 
@@ -557,19 +508,29 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, " "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     iget v3, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->code:I
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     iget-object v2, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->message:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -584,7 +545,6 @@
 
 .method public write(Lcom/koushikdutta/async/ByteBufferList;)V
     .locals 1
-    .param p1, "bb"    # Lcom/koushikdutta/async/ByteBufferList;
 
     .line 194
     invoke-direct {p0}, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->assertContent()V
@@ -594,6 +554,5 @@
 
     invoke-interface {v0, p1}, Lcom/koushikdutta/async/DataSink;->write(Lcom/koushikdutta/async/ByteBufferList;)V
 
-    .line 196
     return-void
 .end method

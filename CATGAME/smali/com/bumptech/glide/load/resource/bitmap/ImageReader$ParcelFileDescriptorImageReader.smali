@@ -35,9 +35,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/ParcelFileDescriptor;Ljava/util/List;Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;)V
-    .locals 1
-    .param p1, "parcelFileDescriptor"    # Landroid/os/ParcelFileDescriptor;
-    .param p3, "byteArrayPool"    # Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -51,35 +49,33 @@
     .end annotation
 
     .line 79
-    .local p2, "parsers":Ljava/util/List;, "Ljava/util/List<Lcom/bumptech/glide/load/ImageHeaderParser;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 80
     invoke-static {p3}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p3
 
-    check-cast v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;
+    check-cast p3, Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageReader$ParcelFileDescriptorImageReader;->byteArrayPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;
+    iput-object p3, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageReader$ParcelFileDescriptorImageReader;->byteArrayPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;
 
     .line 81
     invoke-static {p2}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p2
 
-    check-cast v0, Ljava/util/List;
+    check-cast p2, Ljava/util/List;
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageReader$ParcelFileDescriptorImageReader;->parsers:Ljava/util/List;
+    iput-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageReader$ParcelFileDescriptorImageReader;->parsers:Ljava/util/List;
 
     .line 83
-    new-instance v0, Lcom/bumptech/glide/load/data/ParcelFileDescriptorRewinder;
+    new-instance p2, Lcom/bumptech/glide/load/data/ParcelFileDescriptorRewinder;
 
-    invoke-direct {v0, p1}, Lcom/bumptech/glide/load/data/ParcelFileDescriptorRewinder;-><init>(Landroid/os/ParcelFileDescriptor;)V
+    invoke-direct {p2, p1}, Lcom/bumptech/glide/load/data/ParcelFileDescriptorRewinder;-><init>(Landroid/os/ParcelFileDescriptor;)V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageReader$ParcelFileDescriptorImageReader;->dataRewinder:Lcom/bumptech/glide/load/data/ParcelFileDescriptorRewinder;
+    iput-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageReader$ParcelFileDescriptorImageReader;->dataRewinder:Lcom/bumptech/glide/load/data/ParcelFileDescriptorRewinder;
 
-    .line 84
     return-void
 .end method
 
@@ -87,7 +83,6 @@
 # virtual methods
 .method public decodeBitmap(Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
     .locals 2
-    .param p1, "options"    # Landroid/graphics/BitmapFactory$Options;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -106,14 +101,14 @@
 
     move-result-object v0
 
-    .line 89
     const/4 v1, 0x0
 
+    .line 89
     invoke-static {v0, v1, p1}, Landroid/graphics/BitmapFactory;->decodeFileDescriptor(Ljava/io/FileDescriptor;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getImageOrientation()I
@@ -163,6 +158,5 @@
 .method public stopGrowingBuffers()V
     .locals 0
 
-    .line 106
     return-void
 .end method

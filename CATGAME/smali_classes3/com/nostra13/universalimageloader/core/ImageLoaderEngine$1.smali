@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 2
 
     .line 72
     iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine$1;->this$0:Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;
@@ -59,59 +59,55 @@
 
     move-result-object v0
 
-    .line 73
-    .local v0, "image":Ljava/io/File;
     if-eqz v0, :cond_0
 
+    .line 73
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     .line 74
-    .local v1, "isImageCachedOnDisk":Z
     :goto_0
-    iget-object v2, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine$1;->this$0:Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;
+    iget-object v1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine$1;->this$0:Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;
 
-    invoke-static {v2}, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->access$000(Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;)V
+    invoke-static {v1}, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->access$000(Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;)V
 
-    .line 75
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 76
-    iget-object v2, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine$1;->this$0:Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;
+    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine$1;->this$0:Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;
 
-    invoke-static {v2}, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->access$100(Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;)Ljava/util/concurrent/Executor;
+    invoke-static {v0}, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->access$100(Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;)Ljava/util/concurrent/Executor;
 
-    move-result-object v2
+    move-result-object v0
 
-    iget-object v3, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine$1;->val$task:Lcom/nostra13/universalimageloader/core/LoadAndDisplayImageTask;
+    iget-object v1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine$1;->val$task:Lcom/nostra13/universalimageloader/core/LoadAndDisplayImageTask;
 
-    invoke-interface {v2, v3}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+    invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     goto :goto_1
 
     .line 78
     :cond_1
-    iget-object v2, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine$1;->this$0:Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;
+    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine$1;->this$0:Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;
 
-    invoke-static {v2}, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->access$200(Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;)Ljava/util/concurrent/Executor;
+    invoke-static {v0}, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->access$200(Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;)Ljava/util/concurrent/Executor;
 
-    move-result-object v2
+    move-result-object v0
 
-    iget-object v3, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine$1;->val$task:Lcom/nostra13/universalimageloader/core/LoadAndDisplayImageTask;
+    iget-object v1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine$1;->val$task:Lcom/nostra13/universalimageloader/core/LoadAndDisplayImageTask;
 
-    invoke-interface {v2, v3}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+    invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 80
     :goto_1
     return-void
 .end method

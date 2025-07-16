@@ -35,7 +35,6 @@
 
 .method static ensurePresent([Ljava/lang/annotation/Annotation;)[Ljava/lang/annotation/Annotation;
     .locals 4
-    .param p0, "annotations"    # [Ljava/lang/annotation/Annotation;
 
     .line 25
     const-class v0, Lretrofit2/SkipCallbackExecutor;
@@ -46,7 +45,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 26
     return-object p0
 
     .line 29
@@ -60,7 +58,6 @@
     new-array v0, v0, [Ljava/lang/annotation/Annotation;
 
     .line 31
-    .local v0, "newAnnotations":[Ljava/lang/annotation/Annotation;
     sget-object v2, Lretrofit2/SkipCallbackExecutorImpl;->INSTANCE:Lretrofit2/SkipCallbackExecutor;
 
     const/4 v3, 0x0
@@ -72,7 +69,6 @@
 
     invoke-static {p0, v3, v0, v1, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 33
     return-object v0
 .end method
 
@@ -97,19 +93,17 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 0
 
     .line 43
-    instance-of v0, p1, Lretrofit2/SkipCallbackExecutor;
+    instance-of p1, p1, Lretrofit2/SkipCallbackExecutor;
 
-    return v0
+    return p1
 .end method
 
 .method public hashCode()I
     .locals 1
 
-    .line 48
     const/4 v0, 0x0
 
     return v0
@@ -121,11 +115,9 @@
     .line 53
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "@"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     const-class v1, Lretrofit2/SkipCallbackExecutor;
 
@@ -135,9 +127,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "()"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

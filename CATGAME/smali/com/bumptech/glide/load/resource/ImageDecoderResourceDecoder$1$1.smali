@@ -24,10 +24,8 @@
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/resource/ImageDecoderResourceDecoder$1;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/bumptech/glide/load/resource/ImageDecoderResourceDecoder$1;
 
     .line 89
-    .local p0, "this":Lcom/bumptech/glide/load/resource/ImageDecoderResourceDecoder$1$1;, "Lcom/bumptech/glide/load/resource/ImageDecoderResourceDecoder$1$1;"
     iput-object p1, p0, Lcom/bumptech/glide/load/resource/ImageDecoderResourceDecoder$1$1;->this$1:Lcom/bumptech/glide/load/resource/ImageDecoderResourceDecoder$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,12 +36,9 @@
 
 # virtual methods
 .method public onPartialImage(Landroid/graphics/ImageDecoder$DecodeException;)Z
-    .locals 1
-    .param p1, "e"    # Landroid/graphics/ImageDecoder$DecodeException;
+    .locals 0
 
-    .line 93
-    .local p0, "this":Lcom/bumptech/glide/load/resource/ImageDecoderResourceDecoder$1$1;, "Lcom/bumptech/glide/load/resource/ImageDecoderResourceDecoder$1$1;"
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

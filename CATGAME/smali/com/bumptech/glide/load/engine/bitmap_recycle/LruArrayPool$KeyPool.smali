@@ -58,7 +58,6 @@
 
 .method get(ILjava/lang/Class;)Lcom/bumptech/glide/load/engine/bitmap_recycle/LruArrayPool$Key;
     .locals 1
-    .param p1, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -69,7 +68,6 @@
     .end annotation
 
     .line 227
-    .local p2, "arrayClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-virtual {p0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruArrayPool$KeyPool;->get()Lcom/bumptech/glide/load/engine/bitmap_recycle/Poolable;
 
     move-result-object v0
@@ -77,9 +75,7 @@
     check-cast v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruArrayPool$Key;
 
     .line 228
-    .local v0, "result":Lcom/bumptech/glide/load/engine/bitmap_recycle/LruArrayPool$Key;
     invoke-virtual {v0, p1, p2}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruArrayPool$Key;->init(ILjava/lang/Class;)V
 
-    .line 229
     return-object v0
 .end method

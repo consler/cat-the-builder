@@ -37,18 +37,17 @@
     .end annotation
 
     .line 78
-    .local p0, "transitionFactory":Lcom/bumptech/glide/request/transition/TransitionFactory;, "Lcom/bumptech/glide/request/transition/TransitionFactory<Landroid/graphics/Bitmap;>;"
     new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;-><init>()V
 
     invoke-virtual {v0, p0}, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;->transition(Lcom/bumptech/glide/request/transition/TransitionFactory;)Lcom/bumptech/glide/TransitionOptions;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
+    check-cast p0, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static withCrossFade()Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
@@ -68,7 +67,6 @@
 
 .method public static withCrossFade(I)Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
     .locals 1
-    .param p0, "duration"    # I
 
     .line 34
     new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
@@ -77,14 +75,13 @@
 
     invoke-virtual {v0, p0}, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;->crossFade(I)Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static withCrossFade(Lcom/bumptech/glide/request/transition/DrawableCrossFadeFactory$Builder;)Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
     .locals 1
-    .param p0, "builder"    # Lcom/bumptech/glide/request/transition/DrawableCrossFadeFactory$Builder;
 
     .line 56
     new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
@@ -93,14 +90,13 @@
 
     invoke-virtual {v0, p0}, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;->crossFade(Lcom/bumptech/glide/request/transition/DrawableCrossFadeFactory$Builder;)Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static withCrossFade(Lcom/bumptech/glide/request/transition/DrawableCrossFadeFactory;)Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
     .locals 1
-    .param p0, "drawableCrossFadeFactory"    # Lcom/bumptech/glide/request/transition/DrawableCrossFadeFactory;
 
     .line 45
     new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
@@ -109,9 +105,9 @@
 
     invoke-virtual {v0, p0}, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;->crossFade(Lcom/bumptech/glide/request/transition/DrawableCrossFadeFactory;)Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static withWrapped(Lcom/bumptech/glide/request/transition/TransitionFactory;)Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
@@ -127,16 +123,15 @@
     .end annotation
 
     .line 68
-    .local p0, "drawableCrossFadeFactory":Lcom/bumptech/glide/request/transition/TransitionFactory;, "Lcom/bumptech/glide/request/transition/TransitionFactory<Landroid/graphics/drawable/Drawable;>;"
     new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;-><init>()V
 
     invoke-virtual {v0, p0}, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;->transitionUsing(Lcom/bumptech/glide/request/transition/TransitionFactory;)Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 
@@ -158,7 +153,6 @@
 
 .method public crossFade(I)Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
     .locals 1
-    .param p1, "duration"    # I
 
     .line 100
     new-instance v0, Lcom/bumptech/glide/request/transition/DrawableCrossFadeFactory$Builder;
@@ -167,37 +161,35 @@
 
     invoke-virtual {p0, v0}, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;->crossFade(Lcom/bumptech/glide/request/transition/DrawableCrossFadeFactory$Builder;)Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public crossFade(Lcom/bumptech/glide/request/transition/DrawableCrossFadeFactory$Builder;)Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
-    .locals 1
-    .param p1, "builder"    # Lcom/bumptech/glide/request/transition/DrawableCrossFadeFactory$Builder;
+    .locals 0
 
     .line 126
     invoke-virtual {p1}, Lcom/bumptech/glide/request/transition/DrawableCrossFadeFactory$Builder;->build()Lcom/bumptech/glide/request/transition/DrawableCrossFadeFactory;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;->transitionUsing(Lcom/bumptech/glide/request/transition/TransitionFactory;)Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
+    invoke-virtual {p0, p1}, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;->transitionUsing(Lcom/bumptech/glide/request/transition/TransitionFactory;)Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public crossFade(Lcom/bumptech/glide/request/transition/DrawableCrossFadeFactory;)Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
-    .locals 1
-    .param p1, "drawableCrossFadeFactory"    # Lcom/bumptech/glide/request/transition/DrawableCrossFadeFactory;
+    .locals 0
 
     .line 110
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;->transitionUsing(Lcom/bumptech/glide/request/transition/TransitionFactory;)Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public transitionUsing(Lcom/bumptech/glide/request/transition/TransitionFactory;)Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
@@ -213,16 +205,15 @@
     .end annotation
 
     .line 117
-    .local p1, "drawableCrossFadeFactory":Lcom/bumptech/glide/request/transition/TransitionFactory;, "Lcom/bumptech/glide/request/transition/TransitionFactory<Landroid/graphics/drawable/Drawable;>;"
     new-instance v0, Lcom/bumptech/glide/request/transition/BitmapTransitionFactory;
 
     invoke-direct {v0, p1}, Lcom/bumptech/glide/request/transition/BitmapTransitionFactory;-><init>(Lcom/bumptech/glide/request/transition/TransitionFactory;)V
 
     invoke-virtual {p0, v0}, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;->transition(Lcom/bumptech/glide/request/transition/TransitionFactory;)Lcom/bumptech/glide/TransitionOptions;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
+    check-cast p1, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransitionOptions;
 
-    return-object v0
+    return-object p1
 .end method

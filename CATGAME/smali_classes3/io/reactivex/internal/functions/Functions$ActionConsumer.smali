@@ -35,23 +35,20 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/functions/Action;)V
     .locals 0
-    .param p1, "action"    # Lio/reactivex/functions/Action;
 
     .line 338
-    .local p0, "this":Lio/reactivex/internal/functions/Functions$ActionConsumer;, "Lio/reactivex/internal/functions/Functions$ActionConsumer<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 339
     iput-object p1, p0, Lio/reactivex/internal/functions/Functions$ActionConsumer;->action:Lio/reactivex/functions/Action;
 
-    .line 340
     return-void
 .end method
 
 
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -65,12 +62,9 @@
     .end annotation
 
     .line 344
-    .local p0, "this":Lio/reactivex/internal/functions/Functions$ActionConsumer;, "Lio/reactivex/internal/functions/Functions$ActionConsumer<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
-    iget-object v0, p0, Lio/reactivex/internal/functions/Functions$ActionConsumer;->action:Lio/reactivex/functions/Action;
+    iget-object p1, p0, Lio/reactivex/internal/functions/Functions$ActionConsumer;->action:Lio/reactivex/functions/Action;
 
-    invoke-interface {v0}, Lio/reactivex/functions/Action;->run()V
+    invoke-interface {p1}, Lio/reactivex/functions/Action;->run()V
 
-    .line 345
     return-void
 .end method

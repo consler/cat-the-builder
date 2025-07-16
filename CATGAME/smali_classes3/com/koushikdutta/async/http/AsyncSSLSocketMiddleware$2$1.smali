@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;Lcom/koushikdutta/async/AsyncSocket;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;
 
     .line 115
     iput-object p1, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1;->this$1:Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2;
@@ -41,10 +40,8 @@
 
 # virtual methods
 .method public onCompleted(Ljava/lang/Exception;)V
-    .locals 3
-    .param p1, "ex"    # Ljava/lang/Exception;
+    .locals 2
 
-    .line 118
     if-eqz p1, :cond_0
 
     .line 119
@@ -56,37 +53,34 @@
 
     invoke-interface {v0, p1, v1}, Lcom/koushikdutta/async/callback/ConnectCallback;->onConnectCompleted(Ljava/lang/Exception;Lcom/koushikdutta/async/AsyncSocket;)V
 
-    .line 120
     return-void
 
     .line 123
     :cond_0
-    new-instance v0, Lcom/koushikdutta/async/LineEmitter;
+    new-instance p1, Lcom/koushikdutta/async/LineEmitter;
 
-    invoke-direct {v0}, Lcom/koushikdutta/async/LineEmitter;-><init>()V
+    invoke-direct {p1}, Lcom/koushikdutta/async/LineEmitter;-><init>()V
 
     .line 124
-    .local v0, "liner":Lcom/koushikdutta/async/LineEmitter;
-    new-instance v1, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1$1;
+    new-instance v0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1$1;
 
-    invoke-direct {v1, p0}, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1$1;-><init>(Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1;)V
+    invoke-direct {v0, p0}, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1$1;-><init>(Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1;)V
 
-    invoke-virtual {v0, v1}, Lcom/koushikdutta/async/LineEmitter;->setLineCallback(Lcom/koushikdutta/async/LineEmitter$StringCallback;)V
+    invoke-virtual {p1, v0}, Lcom/koushikdutta/async/LineEmitter;->setLineCallback(Lcom/koushikdutta/async/LineEmitter$StringCallback;)V
 
     .line 145
-    iget-object v1, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1;->val$socket:Lcom/koushikdutta/async/AsyncSocket;
+    iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1;->val$socket:Lcom/koushikdutta/async/AsyncSocket;
 
-    invoke-interface {v1, v0}, Lcom/koushikdutta/async/AsyncSocket;->setDataCallback(Lcom/koushikdutta/async/callback/DataCallback;)V
+    invoke-interface {v0, p1}, Lcom/koushikdutta/async/AsyncSocket;->setDataCallback(Lcom/koushikdutta/async/callback/DataCallback;)V
 
     .line 147
-    iget-object v1, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1;->val$socket:Lcom/koushikdutta/async/AsyncSocket;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1;->val$socket:Lcom/koushikdutta/async/AsyncSocket;
 
-    new-instance v2, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1$2;
+    new-instance v0, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1$2;
 
-    invoke-direct {v2, p0}, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1$2;-><init>(Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1;)V
+    invoke-direct {v0, p0}, Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1$2;-><init>(Lcom/koushikdutta/async/http/AsyncSSLSocketMiddleware$2$1;)V
 
-    invoke-interface {v1, v2}, Lcom/koushikdutta/async/AsyncSocket;->setEndCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
+    invoke-interface {p1, v0}, Lcom/koushikdutta/async/AsyncSocket;->setEndCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
 
-    .line 155
     return-void
 .end method

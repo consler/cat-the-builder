@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections/map/SingletonMap;)V
     .locals 0
-    .param p1, "parent"    # Lorg/apache/commons/collections/map/SingletonMap;
 
     .line 511
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
@@ -36,7 +35,6 @@
     .line 512
     iput-object p1, p0, Lorg/apache/commons/collections/map/SingletonMap$SingletonValues;->parent:Lorg/apache/commons/collections/map/SingletonMap;
 
-    .line 513
     return-void
 .end method
 
@@ -55,22 +53,20 @@
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
 
     .line 522
     iget-object v0, p0, Lorg/apache/commons/collections/map/SingletonMap$SingletonValues;->parent:Lorg/apache/commons/collections/map/SingletonMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections/map/SingletonMap;->containsValue(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public isEmpty()Z
     .locals 1
 
-    .line 519
     const/4 v0, 0x0
 
     return v0
@@ -98,7 +94,6 @@
 .method public size()I
     .locals 1
 
-    .line 516
     const/4 v0, 0x1
 
     return v0

@@ -31,7 +31,6 @@
     .locals 0
 
     .line 614
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$EntryValues;, "Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap<TK;TV;>.EntryValues;"
     iput-object p1, p0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$EntryValues;->this$0:Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;
 
     invoke-direct {p0}, Ljava/util/AbstractCollection;-><init>()V
@@ -41,11 +40,8 @@
 
 .method synthetic constructor <init>(Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;
-    .param p2, "x1"    # Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$1;
 
     .line 614
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$EntryValues;, "Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap<TK;TV;>.EntryValues;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$EntryValues;-><init>(Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;)V
 
     return-void
@@ -65,7 +61,6 @@
     .end annotation
 
     .line 618
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$EntryValues;, "Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap<TK;TV;>.EntryValues;"
     new-instance v0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$EntryValues$1;
 
     invoke-direct {v0, p0}, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$EntryValues$1;-><init>(Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$EntryValues;)V
@@ -77,7 +72,6 @@
     .locals 1
 
     .line 644
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$EntryValues;, "Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap<TK;TV;>.EntryValues;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$EntryValues;->this$0:Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;->size()I

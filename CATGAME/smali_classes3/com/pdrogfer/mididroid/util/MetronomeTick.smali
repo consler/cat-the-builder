@@ -20,12 +20,10 @@
 # direct methods
 .method public constructor <init>(Lcom/pdrogfer/mididroid/event/meta/TimeSignature;I)V
     .locals 2
-    .param p1, "sig"    # Lcom/pdrogfer/mididroid/event/meta/TimeSignature;
-    .param p2, "resolution"    # I
 
-    .line 23
     const-wide/16 v0, 0x0
 
+    .line 23
     invoke-direct {p0, v0, v1, v0, v1}, Lcom/pdrogfer/mididroid/event/MidiEvent;-><init>(JJ)V
 
     .line 25
@@ -34,25 +32,22 @@
     .line 27
     invoke-virtual {p0, p1}, Lcom/pdrogfer/mididroid/util/MetronomeTick;->setTimeSignature(Lcom/pdrogfer/mididroid/event/meta/TimeSignature;)V
 
+    const/4 p1, 0x1
+
     .line 28
-    const/4 v0, 0x1
+    iput p1, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mCurrentMeasure:I
 
-    iput v0, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mCurrentMeasure:I
-
-    .line 29
     return-void
 .end method
 
 
 # virtual methods
 .method public compareTo(Lcom/pdrogfer/mididroid/event/MidiEvent;)I
-    .locals 1
-    .param p1, "o"    # Lcom/pdrogfer/mididroid/event/MidiEvent;
+    .locals 0
 
-    .line 97
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
@@ -82,7 +77,6 @@
 .method protected getEventSize()I
     .locals 1
 
-    .line 103
     const/4 v0, 0x0
 
     return v0
@@ -100,7 +94,6 @@
 .method public getSize()I
     .locals 1
 
-    .line 109
     const/4 v0, 0x0
 
     return v0
@@ -108,9 +101,7 @@
 
 .method public setMetronomeFrequency(I)V
     .locals 1
-    .param p1, "meter"    # I
 
-    .line 61
     const/16 v0, 0xc
 
     if-eq p1, v0, :cond_3
@@ -131,70 +122,62 @@
 
     .line 73
     :cond_0
-    iget v0, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mResolution:I
+    iget p1, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mResolution:I
 
-    mul-int/lit8 v0, v0, 0x4
+    mul-int/lit8 p1, p1, 0x4
 
-    iput v0, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mMetronomeFrequency:I
+    iput p1, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mMetronomeFrequency:I
 
     goto :goto_0
 
     .line 70
     :cond_1
-    iget v0, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mResolution:I
+    iget p1, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mResolution:I
 
-    mul-int/lit8 v0, v0, 0x2
+    mul-int/lit8 p1, p1, 0x2
 
-    iput v0, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mMetronomeFrequency:I
+    iput p1, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mMetronomeFrequency:I
 
-    .line 71
     goto :goto_0
 
     .line 67
     :cond_2
-    iget v0, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mResolution:I
+    iget p1, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mResolution:I
 
-    iput v0, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mMetronomeFrequency:I
+    iput p1, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mMetronomeFrequency:I
 
-    .line 68
     goto :goto_0
 
     .line 64
     :cond_3
-    iget v0, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mResolution:I
+    iget p1, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mResolution:I
 
-    div-int/lit8 v0, v0, 0x2
+    div-int/lit8 p1, p1, 0x2
 
-    iput v0, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mMetronomeFrequency:I
+    iput p1, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mMetronomeFrequency:I
 
-    .line 65
-    nop
-
-    .line 76
     :goto_0
     return-void
 .end method
 
 .method public setTimeSignature(Lcom/pdrogfer/mididroid/event/meta/TimeSignature;)V
     .locals 1
-    .param p1, "sig"    # Lcom/pdrogfer/mididroid/event/meta/TimeSignature;
 
     .line 33
     iput-object p1, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mSignature:Lcom/pdrogfer/mididroid/event/meta/TimeSignature;
 
-    .line 34
     const/4 v0, 0x0
 
+    .line 34
     iput v0, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mCurrentBeat:I
 
     .line 36
     invoke-virtual {p1}, Lcom/pdrogfer/mididroid/event/meta/TimeSignature;->getMeter()I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p0, v0}, Lcom/pdrogfer/mididroid/util/MetronomeTick;->setMetronomeFrequency(I)V
+    invoke-virtual {p0, p1}, Lcom/pdrogfer/mididroid/util/MetronomeTick;->setMetronomeFrequency(I)V
 
-    .line 37
     return-void
 .end method
 
@@ -204,25 +187,29 @@
     .line 91
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "Metronome: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget v1, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mCurrentMeasure:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "\t"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {p0}, Lcom/pdrogfer/mididroid/util/MetronomeTick;->getBeatNumber()I
 
     move-result v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -232,8 +219,7 @@
 .end method
 
 .method public update(D)Z
-    .locals 5
-    .param p1, "ticksElapsed"    # D
+    .locals 4
 
     .line 41
     iget-wide v0, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mMetronomeProgress:D
@@ -243,55 +229,52 @@
     iput-wide v0, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mMetronomeProgress:D
 
     .line 43
-    iget v2, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mMetronomeFrequency:I
+    iget p1, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mMetronomeFrequency:I
 
-    int-to-double v3, v2
+    int-to-double v2, p1
 
-    cmpl-double v3, v0, v3
+    cmpl-double p2, v0, v2
 
-    if-ltz v3, :cond_1
+    if-ltz p2, :cond_1
+
+    int-to-double p1, p1
+
+    rem-double/2addr v0, p1
 
     .line 46
-    int-to-double v2, v2
-
-    rem-double/2addr v0, v2
-
     iput-wide v0, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mMetronomeProgress:D
 
     .line 48
-    iget v0, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mCurrentBeat:I
+    iget p1, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mCurrentBeat:I
 
-    const/4 v1, 0x1
+    const/4 p2, 0x1
 
-    add-int/2addr v0, v1
+    add-int/2addr p1, p2
 
-    iget-object v2, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mSignature:Lcom/pdrogfer/mididroid/event/meta/TimeSignature;
+    iget-object v0, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mSignature:Lcom/pdrogfer/mididroid/event/meta/TimeSignature;
 
-    invoke-virtual {v2}, Lcom/pdrogfer/mididroid/event/meta/TimeSignature;->getNumerator()I
+    invoke-virtual {v0}, Lcom/pdrogfer/mididroid/event/meta/TimeSignature;->getNumerator()I
 
-    move-result v2
+    move-result v0
 
-    rem-int/2addr v0, v2
+    rem-int/2addr p1, v0
 
-    iput v0, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mCurrentBeat:I
+    iput p1, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mCurrentBeat:I
 
-    .line 49
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 51
-    iget v0, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mCurrentMeasure:I
+    iget p1, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mCurrentMeasure:I
 
-    add-int/2addr v0, v1
+    add-int/2addr p1, p2
 
-    iput v0, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mCurrentMeasure:I
+    iput p1, p0, Lcom/pdrogfer/mididroid/util/MetronomeTick;->mCurrentMeasure:I
 
-    .line 54
     :cond_0
-    return v1
+    return p2
 
-    .line 56
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

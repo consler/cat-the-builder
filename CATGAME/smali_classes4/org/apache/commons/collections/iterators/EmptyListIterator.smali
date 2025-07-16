@@ -35,6 +35,5 @@
     .line 52
     invoke-direct {p0}, Lorg/apache/commons/collections/iterators/AbstractEmptyIterator;-><init>()V
 
-    .line 53
     return-void
 .end method

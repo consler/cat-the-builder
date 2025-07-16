@@ -28,7 +28,6 @@
     .locals 0
 
     .line 28
-    .local p0, "this":Lio/reactivex/processors/FlowableProcessor;, "Lio/reactivex/processors/FlowableProcessor<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Flowable;-><init>()V
 
     return-void
@@ -59,12 +58,10 @@
     .end annotation
 
     .line 71
-    .local p0, "this":Lio/reactivex/processors/FlowableProcessor;, "Lio/reactivex/processors/FlowableProcessor<TT;>;"
     instance-of v0, p0, Lio/reactivex/processors/SerializedProcessor;
 
     if-eqz v0, :cond_0
 
-    .line 72
     return-object p0
 
     .line 74

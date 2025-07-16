@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;Ljava/util/Collection;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;
 
     .line 549
     iput-object p1, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$2;->this$0:Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;
@@ -54,6 +53,5 @@
 
     invoke-interface {v0, v1, v2}, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$OnDynamicRoutesChangedListener;->onRoutesChanged(Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;Ljava/util/Collection;)V
 
-    .line 554
     return-void
 .end method

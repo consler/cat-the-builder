@@ -29,17 +29,10 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .locals 1
 
     .line 629
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 630
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
 
     .line 631
     new-instance v0, Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback$ConnectionCallbackApi21;
@@ -48,16 +41,6 @@
 
     iput-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback;->mConnectionCallbackFwk:Landroid/media/browse/MediaBrowser$ConnectionCallback;
 
-    goto :goto_0
-
-    .line 633
-    :cond_0
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback;->mConnectionCallbackFwk:Landroid/media/browse/MediaBrowser$ConnectionCallback;
-
-    .line 635
-    :goto_0
     return-void
 .end method
 
@@ -66,31 +49,26 @@
 .method public onConnected()V
     .locals 0
 
-    .line 646
     return-void
 .end method
 
 .method public onConnectionFailed()V
     .locals 0
 
-    .line 665
     return-void
 .end method
 
 .method public onConnectionSuspended()V
     .locals 0
 
-    .line 657
     return-void
 .end method
 
 .method setInternalConnectionCallback(Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback$ConnectionCallbackInternal;)V
     .locals 0
-    .param p1, "connectionCallbackInternal"    # Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback$ConnectionCallbackInternal;
 
     .line 668
     iput-object p1, p0, Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback;->mConnectionCallbackInternal:Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback$ConnectionCallbackInternal;
 
-    .line 669
     return-void
 .end method

@@ -70,7 +70,6 @@
     .line 309
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 310
     return-void
 .end method
 
@@ -89,13 +88,12 @@
 
     goto :goto_0
 
-    .line 327
     :cond_0
     return-void
 .end method
 
 .method static obtain()Landroidx/recyclerview/widget/ViewInfoStore$InfoRecord;
-    .locals 2
+    .locals 1
 
     .line 313
     sget-object v0, Landroidx/recyclerview/widget/ViewInfoStore$InfoRecord;->sPool:Landroidx/core/util/Pools$Pool;
@@ -106,35 +104,28 @@
 
     check-cast v0, Landroidx/recyclerview/widget/ViewInfoStore$InfoRecord;
 
-    .line 314
-    .local v0, "record":Landroidx/recyclerview/widget/ViewInfoStore$InfoRecord;
     if-nez v0, :cond_0
 
-    new-instance v1, Landroidx/recyclerview/widget/ViewInfoStore$InfoRecord;
+    .line 314
+    new-instance v0, Landroidx/recyclerview/widget/ViewInfoStore$InfoRecord;
 
-    invoke-direct {v1}, Landroidx/recyclerview/widget/ViewInfoStore$InfoRecord;-><init>()V
-
-    goto :goto_0
+    invoke-direct {v0}, Landroidx/recyclerview/widget/ViewInfoStore$InfoRecord;-><init>()V
 
     :cond_0
-    move-object v1, v0
-
-    :goto_0
-    return-object v1
+    return-object v0
 .end method
 
 .method static recycle(Landroidx/recyclerview/widget/ViewInfoStore$InfoRecord;)V
     .locals 1
-    .param p0, "record"    # Landroidx/recyclerview/widget/ViewInfoStore$InfoRecord;
+
+    const/4 v0, 0x0
 
     .line 318
-    const/4 v0, 0x0
-
     iput v0, p0, Landroidx/recyclerview/widget/ViewInfoStore$InfoRecord;->flags:I
 
-    .line 319
     const/4 v0, 0x0
 
+    .line 319
     iput-object v0, p0, Landroidx/recyclerview/widget/ViewInfoStore$InfoRecord;->preInfo:Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;
 
     .line 320
@@ -145,6 +136,5 @@
 
     invoke-interface {v0, p0}, Landroidx/core/util/Pools$Pool;->release(Ljava/lang/Object;)Z
 
-    .line 322
     return-void
 .end method

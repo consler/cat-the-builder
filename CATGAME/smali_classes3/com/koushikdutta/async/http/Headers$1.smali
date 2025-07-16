@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/Headers;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/Headers;
 
     .line 24
     iput-object p1, p0, Lcom/koushikdutta/async/http/Headers$1;->this$0:Lcom/koushikdutta/async/http/Headers;

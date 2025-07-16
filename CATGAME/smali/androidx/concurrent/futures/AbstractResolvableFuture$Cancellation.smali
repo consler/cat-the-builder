@@ -64,15 +64,12 @@
 
     sput-object v0, Landroidx/concurrent/futures/AbstractResolvableFuture$Cancellation;->CAUSELESS_INTERRUPTED:Landroidx/concurrent/futures/AbstractResolvableFuture$Cancellation;
 
-    .line 250
     :goto_0
     return-void
 .end method
 
 .method constructor <init>(ZLjava/lang/Throwable;)V
     .locals 0
-    .param p1, "wasInterrupted"    # Z
-    .param p2, "cause"    # Ljava/lang/Throwable;
 
     .line 256
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -83,6 +80,5 @@
     .line 258
     iput-object p2, p0, Landroidx/concurrent/futures/AbstractResolvableFuture$Cancellation;->cause:Ljava/lang/Throwable;
 
-    .line 259
     return-void
 .end method

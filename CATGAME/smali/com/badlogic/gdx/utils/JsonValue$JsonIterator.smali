@@ -40,8 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/utils/JsonValue;)V
-    .locals 1
-    .param p1, "this$0"    # Lcom/badlogic/gdx/utils/JsonValue;
+    .locals 0
 
     .line 1187
     iput-object p1, p0, Lcom/badlogic/gdx/utils/JsonValue$JsonIterator;->this$0:Lcom/badlogic/gdx/utils/JsonValue;
@@ -49,11 +48,9 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 1188
-    iget-object v0, p0, Lcom/badlogic/gdx/utils/JsonValue$JsonIterator;->this$0:Lcom/badlogic/gdx/utils/JsonValue;
+    iget-object p1, p1, Lcom/badlogic/gdx/utils/JsonValue;->child:Lcom/badlogic/gdx/utils/JsonValue;
 
-    iget-object v0, v0, Lcom/badlogic/gdx/utils/JsonValue;->child:Lcom/badlogic/gdx/utils/JsonValue;
-
-    iput-object v0, p0, Lcom/badlogic/gdx/utils/JsonValue$JsonIterator;->entry:Lcom/badlogic/gdx/utils/JsonValue;
+    iput-object p1, p0, Lcom/badlogic/gdx/utils/JsonValue$JsonIterator;->entry:Lcom/badlogic/gdx/utils/JsonValue;
 
     return-void
 .end method
@@ -90,7 +87,6 @@
         }
     .end annotation
 
-    .line 1214
     return-object p0
 .end method
 
@@ -102,7 +98,6 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/utils/JsonValue$JsonIterator;->current:Lcom/badlogic/gdx/utils/JsonValue;
 
-    .line 1197
     if-eqz v0, :cond_0
 
     .line 1198
@@ -211,6 +206,5 @@
 
     iput v1, v0, Lcom/badlogic/gdx/utils/JsonValue;->size:I
 
-    .line 1211
     return-void
 .end method

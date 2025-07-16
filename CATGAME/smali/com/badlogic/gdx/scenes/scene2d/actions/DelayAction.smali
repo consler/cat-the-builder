@@ -16,13 +16,11 @@
     .line 24
     invoke-direct {p0}, Lcom/badlogic/gdx/scenes/scene2d/actions/DelegateAction;-><init>()V
 
-    .line 25
     return-void
 .end method
 
 .method public constructor <init>(F)V
     .locals 0
-    .param p1, "duration"    # F
 
     .line 27
     invoke-direct {p0}, Lcom/badlogic/gdx/scenes/scene2d/actions/DelegateAction;-><init>()V
@@ -30,7 +28,6 @@
     .line 28
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/DelayAction;->duration:F
 
-    .line 29
     return-void
 .end method
 
@@ -38,7 +35,6 @@
 # virtual methods
 .method protected delegate(F)Z
     .locals 3
-    .param p1, "delta"    # F
 
     .line 32
     iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/DelayAction;->time:F
@@ -49,21 +45,19 @@
 
     if-gez v2, :cond_1
 
-    .line 33
     add-float/2addr v0, p1
 
+    .line 33
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/DelayAction;->time:F
 
-    .line 34
-    cmpg-float v2, v0, v1
+    cmpg-float p1, v0, v1
 
-    if-gez v2, :cond_0
+    if-gez p1, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
-    .line 35
     :cond_0
     sub-float p1, v0, v1
 
@@ -73,9 +67,9 @@
 
     if-nez v0, :cond_2
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
     .line 38
     :cond_2
@@ -83,9 +77,9 @@
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/scenes/scene2d/Action;->act(F)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public finish()V
@@ -96,7 +90,6 @@
 
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/DelayAction;->time:F
 
-    .line 44
     return-void
 .end method
 
@@ -124,33 +117,28 @@
     .line 47
     invoke-super {p0}, Lcom/badlogic/gdx/scenes/scene2d/actions/DelegateAction;->restart()V
 
-    .line 48
     const/4 v0, 0x0
 
+    .line 48
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/DelayAction;->time:F
 
-    .line 49
     return-void
 .end method
 
 .method public setDuration(F)V
     .locals 0
-    .param p1, "duration"    # F
 
     .line 67
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/DelayAction;->duration:F
 
-    .line 68
     return-void
 .end method
 
 .method public setTime(F)V
     .locals 0
-    .param p1, "time"    # F
 
     .line 58
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/DelayAction;->time:F
 
-    .line 59
     return-void
 .end method

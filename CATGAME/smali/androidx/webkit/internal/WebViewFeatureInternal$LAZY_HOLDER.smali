@@ -50,7 +50,6 @@
 
     sput-object v0, Landroidx/webkit/internal/WebViewFeatureInternal$LAZY_HOLDER;->WEBVIEW_APK_FEATURES:Ljava/util/Set;
 
-    .line 430
     return-void
 .end method
 

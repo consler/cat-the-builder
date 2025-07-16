@@ -31,11 +31,7 @@
 
 # virtual methods
 .method public decode(Ljava/io/File;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 1
-    .param p1, "source"    # Ljava/io/File;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
-    .param p4, "options"    # Lcom/bumptech/glide/load/Options;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,11 +46,11 @@
     .end annotation
 
     .line 23
-    new-instance v0, Lcom/bumptech/glide/load/resource/file/FileResource;
+    new-instance p2, Lcom/bumptech/glide/load/resource/file/FileResource;
 
-    invoke-direct {v0, p1}, Lcom/bumptech/glide/load/resource/file/FileResource;-><init>(Ljava/io/File;)V
+    invoke-direct {p2, p1}, Lcom/bumptech/glide/load/resource/file/FileResource;-><init>(Ljava/io/File;)V
 
-    return-object v0
+    return-object p2
 .end method
 
 .method public bridge synthetic decode(Ljava/lang/Object;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/engine/Resource;
@@ -76,14 +72,11 @@
 .end method
 
 .method public handles(Ljava/io/File;Lcom/bumptech/glide/load/Options;)Z
-    .locals 1
-    .param p1, "source"    # Ljava/io/File;
-    .param p2, "options"    # Lcom/bumptech/glide/load/Options;
+    .locals 0
 
-    .line 17
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic handles(Ljava/lang/Object;Lcom/bumptech/glide/load/Options;)Z

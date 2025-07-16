@@ -27,8 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/ResponseBody;)V
-    .locals 2
-    .param p1, "delegate"    # Lokhttp3/ResponseBody;
+    .locals 1
 
     .line 306
     invoke-direct {p0}, Lokhttp3/ResponseBody;-><init>()V
@@ -42,18 +41,17 @@
     .line 310
     invoke-virtual {p1}, Lokhttp3/ResponseBody;->source()Lokio/BufferedSource;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, p0, v1}, Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody$1;-><init>(Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody;Lokio/Source;)V
+    invoke-direct {v0, p0, p1}, Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody$1;-><init>(Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody;Lokio/Source;)V
 
     .line 309
     invoke-static {v0}, Lokio/Okio;->buffer(Lokio/Source;)Lokio/BufferedSource;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody;->delegateSource:Lokio/BufferedSource;
+    iput-object p1, p0, Lretrofit2/OkHttpCall$ExceptionCatchingResponseBody;->delegateSource:Lokio/BufferedSource;
 
-    .line 321
     return-void
 .end method
 
@@ -67,7 +65,6 @@
 
     invoke-virtual {v0}, Lokhttp3/ResponseBody;->close()V
 
-    .line 341
     return-void
 .end method
 
@@ -119,7 +116,6 @@
 
     if-nez v0, :cond_0
 
-    .line 347
     return-void
 
     .line 345

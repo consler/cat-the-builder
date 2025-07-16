@@ -33,10 +33,8 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/impl/utils/futures/ListFuture;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/core/impl/utils/futures/ListFuture;
 
     .line 80
-    .local p0, "this":Landroidx/camera/core/impl/utils/futures/ListFuture$1;, "Landroidx/camera/core/impl/utils/futures/ListFuture$1;"
     iput-object p1, p0, Landroidx/camera/core/impl/utils/futures/ListFuture$1;->this$0:Landroidx/camera/core/impl/utils/futures/ListFuture;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,8 +57,6 @@
     .end annotation
 
     .line 84
-    .local p0, "this":Landroidx/camera/core/impl/utils/futures/ListFuture$1;, "Landroidx/camera/core/impl/utils/futures/ListFuture$1;"
-    .local p1, "completer":Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;, "Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer<Ljava/util/List<TV;>;>;"
     iget-object v0, p0, Landroidx/camera/core/impl/utils/futures/ListFuture$1;->this$0:Landroidx/camera/core/impl/utils/futures/ListFuture;
 
     iget-object v0, v0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mResultNotifier:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
@@ -85,23 +81,25 @@
     iput-object p1, v0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mResultNotifier:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
     .line 87
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "ListFuture["
 
-    const-string v1, "ListFuture["
+    invoke-direct {p1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    const-string v1, "]"
+    const-string v0, "]"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    return-object v0
+    move-result-object p1
+
+    return-object p1
 .end method

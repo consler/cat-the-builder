@@ -42,8 +42,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/graphics/g3d/loader/ObjLoader;Ljava/lang/String;)V
-    .locals 1
-    .param p2, "name"    # Ljava/lang/String;
+    .locals 0
 
     .line 319
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/loader/ObjLoader$Group;->this$0:Lcom/badlogic/gdx/graphics/g3d/loader/ObjLoader;
@@ -56,31 +55,30 @@
     .line 321
     new-instance p1, Lcom/badlogic/gdx/utils/Array;
 
-    const/16 v0, 0xc8
+    const/16 p2, 0xc8
 
-    invoke-direct {p1, v0}, Lcom/badlogic/gdx/utils/Array;-><init>(I)V
+    invoke-direct {p1, p2}, Lcom/badlogic/gdx/utils/Array;-><init>(I)V
 
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/loader/ObjLoader$Group;->faces:Lcom/badlogic/gdx/utils/Array;
 
-    .line 322
     const/4 p1, 0x0
 
+    .line 322
     iput p1, p0, Lcom/badlogic/gdx/graphics/g3d/loader/ObjLoader$Group;->numFaces:I
 
     .line 323
     new-instance p1, Lcom/badlogic/gdx/graphics/g3d/Material;
 
-    const-string v0, ""
+    const-string p2, ""
 
-    invoke-direct {p1, v0}, Lcom/badlogic/gdx/graphics/g3d/Material;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Lcom/badlogic/gdx/graphics/g3d/Material;-><init>(Ljava/lang/String;)V
 
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/loader/ObjLoader$Group;->mat:Lcom/badlogic/gdx/graphics/g3d/Material;
 
-    .line 324
     const-string p1, "default"
 
+    .line 324
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/loader/ObjLoader$Group;->materialName:Ljava/lang/String;
 
-    .line 325
     return-void
 .end method

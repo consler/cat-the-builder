@@ -55,34 +55,26 @@
 
 .method public compare(Ljava/lang/String;Ljava/lang/String;)I
     .locals 1
-    .param p1, "a"    # Ljava/lang/String;
-    .param p2, "b"    # Ljava/lang/String;
 
-    .line 50
     if-ne p1, p2, :cond_0
 
-    .line 51
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
-    .line 52
     :cond_0
     if-nez p1, :cond_1
 
-    .line 53
-    const/4 v0, -0x1
+    const/4 p1, -0x1
 
-    return v0
+    return p1
 
-    .line 54
     :cond_1
     if-nez p2, :cond_2
 
-    .line 55
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
     .line 57
     :cond_2
@@ -90,7 +82,7 @@
 
     invoke-interface {v0, p1, p2}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

@@ -12,9 +12,6 @@
 # direct methods
 .method constructor <init>(Landroidx/documentfile/provider/DocumentFile;Landroid/content/Context;Landroid/net/Uri;)V
     .locals 0
-    .param p1, "parent"    # Landroidx/documentfile/provider/DocumentFile;
-    .param p2, "context"    # Landroid/content/Context;
-    .param p3, "uri"    # Landroid/net/Uri;
 
     .line 32
     invoke-direct {p0, p1}, Landroidx/documentfile/provider/DocumentFile;-><init>(Landroidx/documentfile/provider/DocumentFile;)V
@@ -25,7 +22,6 @@
     .line 34
     iput-object p3, p0, Landroidx/documentfile/provider/SingleDocumentFile;->mUri:Landroid/net/Uri;
 
-    .line 35
     return-void
 .end method
 
@@ -62,28 +58,25 @@
 .end method
 
 .method public createDirectory(Ljava/lang/String;)Landroidx/documentfile/provider/DocumentFile;
-    .locals 1
-    .param p1, "displayName"    # Ljava/lang/String;
+    .locals 0
 
     .line 44
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public createFile(Ljava/lang/String;Ljava/lang/String;)Landroidx/documentfile/provider/DocumentFile;
-    .locals 1
-    .param p1, "mimeType"    # Ljava/lang/String;
-    .param p2, "displayName"    # Ljava/lang/String;
+    .locals 0
 
     .line 39
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public delete()Z
@@ -107,15 +100,10 @@
 
     return v0
 
-    .line 103
     :catch_0
-    move-exception v0
+    const/4 v0, 0x0
 
-    .line 104
-    .local v0, "e":Ljava/lang/Exception;
-    const/4 v1, 0x0
-
-    return v1
+    return v0
 .end method
 
 .method public exists()Z
@@ -259,13 +247,12 @@
 .end method
 
 .method public renameTo(Ljava/lang/String;)Z
-    .locals 1
-    .param p1, "displayName"    # Ljava/lang/String;
+    .locals 0
 
     .line 120
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method

@@ -51,6 +51,5 @@
 
     invoke-virtual {v0}, Lcom/koushikdutta/async/AsyncDatagramSocket;->close()V
 
-    .line 121
     return-void
 .end method

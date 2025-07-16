@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/ProcessLifecycleOwner;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/lifecycle/ProcessLifecycleOwner;
 
     .line 66
     iput-object p1, p0, Landroidx/lifecycle/ProcessLifecycleOwner$1;->this$0:Landroidx/lifecycle/ProcessLifecycleOwner;
@@ -49,6 +48,5 @@
 
     invoke-virtual {v0}, Landroidx/lifecycle/ProcessLifecycleOwner;->dispatchStopIfNeeded()V
 
-    .line 71
     return-void
 .end method

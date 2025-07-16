@@ -32,13 +32,11 @@
     .line 79
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 80
     return-void
 .end method
 
 .method protected constructor <init>(Ljava/util/Collection;)V
     .locals 0
-    .param p1, "coll"    # Ljava/util/Collection;
 
     .line 88
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +47,6 @@
     .line 90
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections/list/AbstractLinkedList;->addAll(Ljava/util/Collection;)Z
 
-    .line 91
     return-void
 .end method
 
@@ -57,130 +54,108 @@
 # virtual methods
 .method public add(ILjava/lang/Object;)V
     .locals 1
-    .param p1, "index"    # I
-    .param p2, "value"    # Ljava/lang/Object;
 
-    .line 208
     const/4 v0, 0x1
 
+    .line 208
     invoke-virtual {p0, p1, v0}, Lorg/apache/commons/collections/list/AbstractLinkedList;->getNode(IZ)Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 209
-    .local v0, "node":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
-    invoke-virtual {p0, v0, p2}, Lorg/apache/commons/collections/list/AbstractLinkedList;->addNodeBefore(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;Ljava/lang/Object;)V
+    invoke-virtual {p0, p1, p2}, Lorg/apache/commons/collections/list/AbstractLinkedList;->addNodeBefore(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;Ljava/lang/Object;)V
 
-    .line 210
     return-void
 .end method
 
 .method public add(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "value"    # Ljava/lang/Object;
+    .locals 0
 
     .line 203
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections/list/AbstractLinkedList;->addLast(Ljava/lang/Object;)Z
 
-    .line 204
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public addAll(ILjava/util/Collection;)Z
-    .locals 4
-    .param p1, "index"    # I
-    .param p2, "coll"    # Ljava/util/Collection;
+    .locals 2
 
-    .line 217
     const/4 v0, 0x1
 
+    .line 217
     invoke-virtual {p0, p1, v0}, Lorg/apache/commons/collections/list/AbstractLinkedList;->getNode(IZ)Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+
+    move-result-object p1
+
+    .line 218
+    invoke-interface {p2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object p2
+
+    :goto_0
+    invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 219
+    invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 218
-    .local v1, "node":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
-    invoke-interface {p2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    .local v2, "itr":Ljava/util/Iterator;
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    .line 219
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
     .line 220
-    .local v3, "value":Ljava/lang/Object;
-    invoke-virtual {p0, v1, v3}, Lorg/apache/commons/collections/list/AbstractLinkedList;->addNodeBefore(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;Ljava/lang/Object;)V
+    invoke-virtual {p0, p1, v1}, Lorg/apache/commons/collections/list/AbstractLinkedList;->addNodeBefore(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;Ljava/lang/Object;)V
 
-    .line 221
-    .end local v3    # "value":Ljava/lang/Object;
     goto :goto_0
 
-    .line 222
-    .end local v2    # "itr":Ljava/util/Iterator;
     :cond_0
     return v0
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
     .locals 1
-    .param p1, "coll"    # Ljava/util/Collection;
 
     .line 213
     iget v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->size:I
 
     invoke-virtual {p0, v0, p1}, Lorg/apache/commons/collections/list/AbstractLinkedList;->addAll(ILjava/util/Collection;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public addFirst(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
     .line 297
     iget-object v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->header:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     invoke-virtual {p0, v0, p1}, Lorg/apache/commons/collections/list/AbstractLinkedList;->addNodeAfter(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;Ljava/lang/Object;)V
 
-    .line 298
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public addLast(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
     .line 302
     iget-object v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->header:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     invoke-virtual {p0, v0, p1}, Lorg/apache/commons/collections/list/AbstractLinkedList;->addNodeBefore(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;Ljava/lang/Object;)V
 
-    .line 303
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method protected addNode(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;Lorg/apache/commons/collections/list/AbstractLinkedList$Node;)V
     .locals 1
-    .param p1, "nodeToInsert"    # Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
-    .param p2, "insertBeforeNode"    # Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     .line 468
     iput-object p2, p1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
@@ -199,58 +174,49 @@
     iput-object p1, p2, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->previous:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     .line 472
-    iget v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->size:I
+    iget p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->size:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->size:I
+    iput p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->size:I
 
     .line 473
-    iget v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->modCount:I
+    iget p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->modCount:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->modCount:I
+    iput p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->modCount:I
 
-    .line 474
     return-void
 .end method
 
 .method protected addNodeAfter(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "node"    # Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
-    .param p2, "value"    # Ljava/lang/Object;
+    .locals 0
 
     .line 456
     invoke-virtual {p0, p2}, Lorg/apache/commons/collections/list/AbstractLinkedList;->createNode(Ljava/lang/Object;)Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    move-result-object v0
+    move-result-object p2
 
     .line 457
-    .local v0, "newNode":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
-    iget-object v1, p1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    iget-object p1, p1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/commons/collections/list/AbstractLinkedList;->addNode(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;Lorg/apache/commons/collections/list/AbstractLinkedList$Node;)V
+    invoke-virtual {p0, p2, p1}, Lorg/apache/commons/collections/list/AbstractLinkedList;->addNode(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;Lorg/apache/commons/collections/list/AbstractLinkedList$Node;)V
 
-    .line 458
     return-void
 .end method
 
 .method protected addNodeBefore(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "node"    # Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
-    .param p2, "value"    # Ljava/lang/Object;
+    .locals 0
 
     .line 440
     invoke-virtual {p0, p2}, Lorg/apache/commons/collections/list/AbstractLinkedList;->createNode(Ljava/lang/Object;)Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    move-result-object v0
+    move-result-object p2
 
     .line 441
-    .local v0, "newNode":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
-    invoke-virtual {p0, v0, p1}, Lorg/apache/commons/collections/list/AbstractLinkedList;->addNode(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;Lorg/apache/commons/collections/list/AbstractLinkedList$Node;)V
+    invoke-virtual {p0, p2, p1}, Lorg/apache/commons/collections/list/AbstractLinkedList;->addNode(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;Lorg/apache/commons/collections/list/AbstractLinkedList$Node;)V
 
-    .line 442
     return-void
 .end method
 
@@ -260,73 +226,67 @@
     .line 276
     invoke-virtual {p0}, Lorg/apache/commons/collections/list/AbstractLinkedList;->removeAllNodes()V
 
-    .line 277
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 2
-    .param p1, "value"    # Ljava/lang/Object;
+    .locals 1
 
     .line 154
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections/list/AbstractLinkedList;->indexOf(Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, -0x1
+    const/4 v0, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq p1, v0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public containsAll(Ljava/util/Collection;)Z
-    .locals 2
-    .param p1, "coll"    # Ljava/util/Collection;
+    .locals 1
 
     .line 158
     invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 159
-    .local v0, "it":Ljava/util/Iterator;
     :cond_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 160
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {p0, v1}, Lorg/apache/commons/collections/list/AbstractLinkedList;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v0}, Lorg/apache/commons/collections/list/AbstractLinkedList;->contains(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    .line 161
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return v1
+    return p1
 
-    .line 164
     :cond_1
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    return v1
+    return p1
 .end method
 
 .method protected createHeaderNode()Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
@@ -342,7 +302,6 @@
 
 .method protected createNode(Ljava/lang/Object;)Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
     .locals 1
-    .param p1, "value"    # Ljava/lang/Object;
 
     .line 425
     new-instance v0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
@@ -354,22 +313,19 @@
 
 .method protected createSubListIterator(Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;)Ljava/util/Iterator;
     .locals 1
-    .param p1, "subList"    # Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;
 
-    .line 549
     const/4 v0, 0x0
 
+    .line 549
     invoke-virtual {p0, p1, v0}, Lorg/apache/commons/collections/list/AbstractLinkedList;->createSubListListIterator(Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;I)Ljava/util/ListIterator;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected createSubListListIterator(Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;I)Ljava/util/ListIterator;
     .locals 1
-    .param p1, "subList"    # Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;
-    .param p2, "fromIndex"    # I
 
     .line 559
     new-instance v0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubListIterator;
@@ -381,7 +337,6 @@
 
 .method protected doReadObject(Ljava/io/ObjectInputStream;)V
     .locals 3
-    .param p1, "inputStream"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -397,11 +352,8 @@
 
     move-result v0
 
-    .line 586
-    .local v0, "size":I
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -412,20 +364,16 @@
 
     invoke-virtual {p0, v2}, Lorg/apache/commons/collections/list/AbstractLinkedList;->add(Ljava/lang/Object;)Z
 
-    .line 586
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 589
-    .end local v1    # "i":I
     :cond_0
     return-void
 .end method
 
 .method protected doWriteObject(Ljava/io/ObjectOutputStream;)V
     .locals 2
-    .param p1, "outputStream"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -444,7 +392,6 @@
 
     move-result-object v0
 
-    .local v0, "itr":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -461,22 +408,17 @@
 
     goto :goto_0
 
-    .line 575
-    .end local v0    # "itr":Ljava/util/Iterator;
     :cond_0
     return-void
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 8
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 5
 
-    .line 328
     const/4 v0, 0x1
 
     if-ne p1, p0, :cond_0
 
-    .line 329
     return v0
 
     .line 331
@@ -487,135 +429,117 @@
 
     if-nez v1, :cond_1
 
-    .line 332
     return v2
 
     .line 334
     :cond_1
-    move-object v1, p1
-
-    check-cast v1, Ljava/util/List;
+    check-cast p1, Ljava/util/List;
 
     .line 335
-    .local v1, "other":Ljava/util/List;
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v3
+    move-result v1
 
     invoke-virtual {p0}, Lorg/apache/commons/collections/list/AbstractLinkedList;->size()I
 
-    move-result v4
+    move-result v3
 
-    if-eq v3, v4, :cond_2
+    if-eq v1, v3, :cond_2
 
-    .line 336
     return v2
 
     .line 338
     :cond_2
     invoke-virtual {p0}, Lorg/apache/commons/collections/list/AbstractLinkedList;->listIterator()Ljava/util/ListIterator;
 
-    move-result-object v3
+    move-result-object v1
 
     .line 339
-    .local v3, "it1":Ljava/util/ListIterator;
-    invoke-interface {v1}, Ljava/util/List;->listIterator()Ljava/util/ListIterator;
+    invoke-interface {p1}, Ljava/util/List;->listIterator()Ljava/util/ListIterator;
+
+    move-result-object p1
+
+    .line 340
+    :cond_3
+    :goto_0
+    invoke-interface {v1}, Ljava/util/ListIterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_6
+
+    invoke-interface {p1}, Ljava/util/ListIterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_6
+
+    .line 341
+    invoke-interface {v1}, Ljava/util/ListIterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    .line 342
+    invoke-interface {p1}, Ljava/util/ListIterator;->next()Ljava/lang/Object;
 
     move-result-object v4
 
-    .line 340
-    .local v4, "it2":Ljava/util/ListIterator;
-    :goto_0
-    invoke-interface {v3}, Ljava/util/ListIterator;->hasNext()Z
+    if-nez v3, :cond_4
 
-    move-result v5
+    if-nez v4, :cond_5
 
-    if-eqz v5, :cond_6
-
-    invoke-interface {v4}, Ljava/util/ListIterator;->hasNext()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_6
-
-    .line 341
-    invoke-interface {v3}, Ljava/util/ListIterator;->next()Ljava/lang/Object;
-
-    move-result-object v5
-
-    .line 342
-    .local v5, "o1":Ljava/lang/Object;
-    invoke-interface {v4}, Ljava/util/ListIterator;->next()Ljava/lang/Object;
-
-    move-result-object v6
+    goto :goto_0
 
     .line 343
-    .local v6, "o2":Ljava/lang/Object;
-    if-nez v5, :cond_3
-
-    if-nez v6, :cond_4
-
-    goto :goto_1
-
-    :cond_3
-    invoke-virtual {v5, v6}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-nez v7, :cond_5
-
-    .line 344
     :cond_4
-    return v2
+    invoke-virtual {v3, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    .line 345
-    .end local v5    # "o1":Ljava/lang/Object;
-    .end local v6    # "o2":Ljava/lang/Object;
+    move-result v3
+
+    if-nez v3, :cond_3
+
     :cond_5
-    :goto_1
-    goto :goto_0
+    return v2
 
     .line 346
     :cond_6
-    invoke-interface {v3}, Ljava/util/ListIterator;->hasNext()Z
+    invoke-interface {v1}, Ljava/util/ListIterator;->hasNext()Z
 
-    move-result v5
+    move-result v1
 
-    if-nez v5, :cond_7
+    if-nez v1, :cond_7
 
-    invoke-interface {v4}, Ljava/util/ListIterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/ListIterator;->hasNext()Z
 
-    move-result v5
+    move-result p1
 
-    if-nez v5, :cond_7
+    if-nez p1, :cond_7
 
-    goto :goto_2
+    goto :goto_1
 
     :cond_7
     move v0, v2
 
-    :goto_2
+    :goto_1
     return v0
 .end method
 
 .method public get(I)Ljava/lang/Object;
-    .locals 2
-    .param p1, "index"    # I
+    .locals 1
 
-    .line 113
     const/4 v0, 0x0
 
+    .line 113
     invoke-virtual {p0, p1, v0}, Lorg/apache/commons/collections/list/AbstractLinkedList;->getNode(IZ)Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 114
-    .local v0, "node":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
-    invoke-virtual {v0}, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->getValue()Ljava/lang/Object;
+    invoke-virtual {p1}, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->getValue()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public getFirst()Ljava/lang/Object;
@@ -627,7 +551,6 @@
     iget-object v0, v0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     .line 282
-    .local v0, "node":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
     iget-object v1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->header:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     if-eq v0, v1, :cond_0
@@ -635,17 +558,17 @@
     .line 285
     invoke-virtual {v0}, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->getValue()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 
     .line 283
     :cond_0
-    new-instance v1, Ljava/util/NoSuchElementException;
+    new-instance v0, Ljava/util/NoSuchElementException;
 
-    invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
+    invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
 
-    throw v1
+    throw v0
 .end method
 
 .method public getLast()Ljava/lang/Object;
@@ -657,7 +580,6 @@
     iget-object v0, v0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->previous:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     .line 290
-    .local v0, "node":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
     iget-object v1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->header:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     if-eq v0, v1, :cond_0
@@ -665,267 +587,243 @@
     .line 293
     invoke-virtual {v0}, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->getValue()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 
     .line 291
     :cond_0
-    new-instance v1, Ljava/util/NoSuchElementException;
+    new-instance v0, Ljava/util/NoSuchElementException;
 
-    invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
+    invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
 
-    throw v1
+    throw v0
 .end method
 
 .method protected getNode(IZ)Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
-    .locals 3
-    .param p1, "index"    # I
-    .param p2, "endMarkerAllowed"    # Z
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IndexOutOfBoundsException;
         }
     .end annotation
 
-    .line 511
     const-string v0, "Couldn\'t get the node: index ("
 
     if-ltz p1, :cond_6
 
-    .line 515
     if-nez p2, :cond_1
 
-    iget v1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->size:I
+    .line 515
+    iget p2, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->size:I
 
-    if-eq p1, v1, :cond_0
+    if-eq p1, p2, :cond_0
 
     goto :goto_0
 
     .line 516
     :cond_0
-    new-instance v1, Ljava/lang/IndexOutOfBoundsException;
+    new-instance p2, Ljava/lang/IndexOutOfBoundsException;
 
-    new-instance v2, Ljava/lang/StringBuffer;
+    new-instance v1, Ljava/lang/StringBuffer;
 
-    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v1, v0}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    move-result-object p1
 
     const-string v0, ") is the size of the list."
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    invoke-direct {v1, v0}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    throw v1
+    invoke-direct {p2, p1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+
+    throw p2
 
     .line 519
     :cond_1
     :goto_0
-    iget v1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->size:I
+    iget p2, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->size:I
 
-    if-gt p1, v1, :cond_5
+    if-gt p1, p2, :cond_5
 
     .line 526
-    div-int/lit8 v1, v1, 0x2
+    div-int/lit8 v0, p2, 0x2
 
-    if-ge p1, v1, :cond_3
+    if-ge p1, v0, :cond_2
 
     .line 528
-    iget-object v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->header:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    iget-object p2, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->header:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    iget-object v0, v0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    iget-object p2, p2, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    .line 529
-    .local v0, "node":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    .local v1, "currentIndex":I
     :goto_1
-    if-ge v1, p1, :cond_2
+    if-ge v0, p1, :cond_4
 
     .line 530
-    iget-object v0, v0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    iget-object p2, p2, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    .line 529
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .end local v1    # "currentIndex":I
-    :cond_2
-    goto :goto_3
-
     .line 534
-    .end local v0    # "node":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
-    :cond_3
+    :cond_2
     iget-object v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->header:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    .line 535
-    .restart local v0    # "node":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
-    iget v1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->size:I
-
-    .restart local v1    # "currentIndex":I
     :goto_2
-    if-le v1, p1, :cond_4
+    if-le p2, p1, :cond_3
 
     .line 536
     iget-object v0, v0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->previous:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    .line 535
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 p2, p2, -0x1
 
     goto :goto_2
 
-    .line 539
-    .end local v1    # "currentIndex":I
+    :cond_3
+    move-object p2, v0
+
     :cond_4
-    :goto_3
-    return-object v0
+    return-object p2
 
     .line 520
-    .end local v0    # "node":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
     :cond_5
-    new-instance v1, Ljava/lang/IndexOutOfBoundsException;
+    new-instance p2, Ljava/lang/IndexOutOfBoundsException;
 
-    new-instance v2, Ljava/lang/StringBuffer;
+    new-instance v1, Ljava/lang/StringBuffer;
 
-    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v1, v0}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    move-result-object p1
 
-    const-string v0, ") greater than the size of the "
+    const-string v0, ") greater than the size of the list ("
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    const-string v0, "list ("
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-result-object p1
 
     iget v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->size:I
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+
+    move-result-object p1
 
     const-string v0, ")."
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    invoke-direct {v1, v0}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    throw v1
+    invoke-direct {p2, p1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+
+    throw p2
 
     .line 512
     :cond_6
-    new-instance v1, Ljava/lang/IndexOutOfBoundsException;
+    new-instance p2, Ljava/lang/IndexOutOfBoundsException;
 
-    new-instance v2, Ljava/lang/StringBuffer;
+    new-instance v1, Ljava/lang/StringBuffer;
 
-    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v1, v0}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    move-result-object p1
 
     const-string v0, ") less than zero."
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    invoke-direct {v1, v0}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    throw v1
+    invoke-direct {p2, p1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+
+    throw p2
 .end method
 
 .method public hashCode()I
-    .locals 5
-
-    .line 350
-    const/4 v0, 0x1
+    .locals 3
 
     .line 351
-    .local v0, "hashCode":I
     invoke-virtual {p0}, Lorg/apache/commons/collections/list/AbstractLinkedList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v0
+
+    const/4 v1, 0x1
 
     .line 352
-    .local v1, "it":Ljava/util/Iterator;
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
     .line 353
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
-    .line 354
-    .local v2, "obj":Ljava/lang/Object;
-    mul-int/lit8 v3, v0, 0x1f
+    mul-int/lit8 v1, v1, 0x1f
 
     if-nez v2, :cond_0
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
     goto :goto_1
 
+    .line 354
     :cond_0
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
-    move-result v4
+    move-result v2
 
     :goto_1
-    add-int v0, v3, v4
+    add-int/2addr v1, v2
 
-    .line 355
-    .end local v2    # "obj":Ljava/lang/Object;
     goto :goto_0
 
-    .line 356
     :cond_1
-    return v0
+    return v1
 .end method
 
 .method public indexOf(Ljava/lang/Object;)I
     .locals 3
-    .param p1, "value"    # Ljava/lang/Object;
-
-    .line 132
-    const/4 v0, 0x0
 
     .line 133
-    .local v0, "i":I
-    iget-object v1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->header:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    iget-object v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->header:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    iget-object v1, v1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    iget-object v0, v0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    .local v1, "node":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    const/4 v1, 0x0
+
     :goto_0
     iget-object v2, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->header:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    if-eq v1, v2, :cond_1
+    if-eq v0, v2, :cond_1
 
     .line 134
-    invoke-virtual {v1}, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->getValue()Ljava/lang/Object;
+    invoke-virtual {v0}, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->getValue()Ljava/lang/Object;
 
     move-result-object v2
 
@@ -935,24 +833,20 @@
 
     if-eqz v2, :cond_0
 
-    .line 135
-    return v0
+    return v1
 
-    .line 137
     :cond_0
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     .line 133
-    iget-object v1, v1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    iget-object v0, v0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     goto :goto_0
 
-    .line 139
-    .end local v1    # "node":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
     :cond_1
-    const/4 v1, -0x1
+    const/4 p1, -0x1
 
-    return v1
+    return p1
 .end method
 
 .method protected init()V
@@ -965,7 +859,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->header:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    .line 101
     return-void
 .end method
 
@@ -991,38 +884,36 @@
 .end method
 
 .method protected isEqualValue(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "value1"    # Ljava/lang/Object;
-    .param p2, "value2"    # Ljava/lang/Object;
+    .locals 0
 
-    .line 391
     if-eq p1, p2, :cond_2
 
     if-nez p1, :cond_0
 
     goto :goto_0
 
+    .line 391
     :cond_0
     invoke-virtual {p1, p2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_2
 
     :cond_2
     :goto_1
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     :goto_2
-    return v0
+    return p1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
@@ -1038,7 +929,6 @@
 
 .method public lastIndexOf(Ljava/lang/Object;)I
     .locals 3
-    .param p1, "value"    # Ljava/lang/Object;
 
     .line 143
     iget v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->size:I
@@ -1046,13 +936,11 @@
     add-int/lit8 v0, v0, -0x1
 
     .line 144
-    .local v0, "i":I
     iget-object v1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->header:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
+    :goto_0
     iget-object v1, v1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->previous:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    .local v1, "node":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
-    :goto_0
     iget-object v2, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->header:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     if-eq v1, v2, :cond_1
@@ -1068,24 +956,17 @@
 
     if-eqz v2, :cond_0
 
-    .line 146
     return v0
 
-    .line 148
     :cond_0
     add-int/lit8 v0, v0, -0x1
 
-    .line 144
-    iget-object v1, v1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->previous:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
-
     goto :goto_0
 
-    .line 150
-    .end local v1    # "node":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
     :cond_1
-    const/4 v1, -0x1
+    const/4 p1, -0x1
 
-    return v1
+    return p1
 .end method
 
 .method public listIterator()Ljava/util/ListIterator;
@@ -1103,7 +984,6 @@
 
 .method public listIterator(I)Ljava/util/ListIterator;
     .locals 1
-    .param p1, "fromIndex"    # I
 
     .line 127
     new-instance v0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedListIterator;
@@ -1114,41 +994,35 @@
 .end method
 
 .method public remove(I)Ljava/lang/Object;
-    .locals 2
-    .param p1, "index"    # I
+    .locals 1
 
-    .line 227
     const/4 v0, 0x0
 
+    .line 227
     invoke-virtual {p0, p1, v0}, Lorg/apache/commons/collections/list/AbstractLinkedList;->getNode(IZ)Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+
+    move-result-object p1
+
+    .line 228
+    invoke-virtual {p1}, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->getValue()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 228
-    .local v0, "node":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
-    invoke-virtual {v0}, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->getValue()Ljava/lang/Object;
-
-    move-result-object v1
-
     .line 229
-    .local v1, "oldValue":Ljava/lang/Object;
-    invoke-virtual {p0, v0}, Lorg/apache/commons/collections/list/AbstractLinkedList;->removeNode(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;)V
+    invoke-virtual {p0, p1}, Lorg/apache/commons/collections/list/AbstractLinkedList;->removeNode(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;)V
 
-    .line 230
-    return-object v1
+    return-object v0
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "value"    # Ljava/lang/Object;
 
     .line 234
     iget-object v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->header:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
+    :cond_0
     iget-object v0, v0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    .local v0, "node":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
-    :goto_0
     iget-object v1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->header:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     if-eq v0, v1, :cond_1
@@ -1167,50 +1041,37 @@
     .line 236
     invoke-virtual {p0, v0}, Lorg/apache/commons/collections/list/AbstractLinkedList;->removeNode(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;)V
 
-    .line 237
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    return v1
+    return p1
 
-    .line 234
-    :cond_0
-    iget-object v0, v0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
-
-    goto :goto_0
-
-    .line 240
-    .end local v0    # "node":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
     .locals 3
-    .param p1, "coll"    # Ljava/util/Collection;
-
-    .line 244
-    const/4 v0, 0x0
 
     .line 245
-    .local v0, "modified":Z
     invoke-virtual {p0}, Lorg/apache/commons/collections/list/AbstractLinkedList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v0
+
+    const/4 v1, 0x0
 
     .line 246
-    .local v1, "it":Ljava/util/Iterator;
     :cond_0
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
     .line 247
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
@@ -1221,16 +1082,14 @@
     if-eqz v2, :cond_0
 
     .line 248
-    invoke-interface {v1}, Ljava/util/Iterator;->remove()V
+    invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 249
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 252
     :cond_1
-    return v0
+    return v1
 .end method
 
 .method protected removeAllNodes()V
@@ -1246,9 +1105,9 @@
 
     iput-object v0, v0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->previous:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    .line 495
     const/4 v0, 0x0
 
+    .line 495
     iput v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->size:I
 
     .line 496
@@ -1258,7 +1117,6 @@
 
     iput v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->modCount:I
 
-    .line 497
     return-void
 .end method
 
@@ -1271,7 +1129,6 @@
     iget-object v0, v0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     .line 308
-    .local v0, "node":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
     iget-object v1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->header:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     if-eq v0, v1, :cond_0
@@ -1282,20 +1139,17 @@
     move-result-object v1
 
     .line 312
-    .local v1, "oldValue":Ljava/lang/Object;
     invoke-virtual {p0, v0}, Lorg/apache/commons/collections/list/AbstractLinkedList;->removeNode(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;)V
 
-    .line 313
     return-object v1
 
     .line 309
-    .end local v1    # "oldValue":Ljava/lang/Object;
     :cond_0
-    new-instance v1, Ljava/util/NoSuchElementException;
+    new-instance v0, Ljava/util/NoSuchElementException;
 
-    invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
+    invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
 
-    throw v1
+    throw v0
 .end method
 
 .method public removeLast()Ljava/lang/Object;
@@ -1307,7 +1161,6 @@
     iget-object v0, v0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->previous:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     .line 318
-    .local v0, "node":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
     iget-object v1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->header:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     if-eq v0, v1, :cond_0
@@ -1318,25 +1171,21 @@
     move-result-object v1
 
     .line 322
-    .local v1, "oldValue":Ljava/lang/Object;
     invoke-virtual {p0, v0}, Lorg/apache/commons/collections/list/AbstractLinkedList;->removeNode(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;)V
 
-    .line 323
     return-object v1
 
     .line 319
-    .end local v1    # "oldValue":Ljava/lang/Object;
     :cond_0
-    new-instance v1, Ljava/util/NoSuchElementException;
+    new-instance v0, Ljava/util/NoSuchElementException;
 
-    invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
+    invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
 
-    throw v1
+    throw v0
 .end method
 
 .method protected removeNode(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;)V
     .locals 2
-    .param p1, "node"    # Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     .line 483
     iget-object v0, p1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->previous:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
@@ -1348,53 +1197,48 @@
     .line 484
     iget-object v0, p1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    iget-object v1, p1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->previous:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    iget-object p1, p1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->previous:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    iput-object v1, v0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->previous:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    iput-object p1, v0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->previous:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     .line 485
-    iget v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->size:I
+    iget p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->size:I
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p1, p1, -0x1
 
-    iput v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->size:I
+    iput p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->size:I
 
     .line 486
-    iget v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->modCount:I
+    iget p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->modCount:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->modCount:I
+    iput p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->modCount:I
 
-    .line 487
     return-void
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
     .locals 3
-    .param p1, "coll"    # Ljava/util/Collection;
-
-    .line 257
-    const/4 v0, 0x0
 
     .line 258
-    .local v0, "modified":Z
     invoke-virtual {p0}, Lorg/apache/commons/collections/list/AbstractLinkedList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v0
+
+    const/4 v1, 0x0
 
     .line 259
-    .local v1, "it":Ljava/util/Iterator;
     :cond_0
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
     .line 260
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
@@ -1405,42 +1249,35 @@
     if-nez v2, :cond_0
 
     .line 261
-    invoke-interface {v1}, Ljava/util/Iterator;->remove()V
+    invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 262
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 265
     :cond_1
-    return v0
+    return v1
 .end method
 
 .method public set(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 2
-    .param p1, "index"    # I
-    .param p2, "value"    # Ljava/lang/Object;
+    .locals 1
 
-    .line 269
     const/4 v0, 0x0
 
+    .line 269
     invoke-virtual {p0, p1, v0}, Lorg/apache/commons/collections/list/AbstractLinkedList;->getNode(IZ)Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+
+    move-result-object p1
+
+    .line 270
+    invoke-virtual {p1}, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->getValue()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 270
-    .local v0, "node":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
-    invoke-virtual {v0}, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->getValue()Ljava/lang/Object;
-
-    move-result-object v1
-
     .line 271
-    .local v1, "oldValue":Ljava/lang/Object;
-    invoke-virtual {p0, v0, p2}, Lorg/apache/commons/collections/list/AbstractLinkedList;->updateNode(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;Ljava/lang/Object;)V
+    invoke-virtual {p0, p1, p2}, Lorg/apache/commons/collections/list/AbstractLinkedList;->updateNode(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;Ljava/lang/Object;)V
 
-    .line 272
-    return-object v1
+    return-object v0
 .end method
 
 .method public size()I
@@ -1454,8 +1291,6 @@
 
 .method public subList(II)Ljava/util/List;
     .locals 1
-    .param p1, "fromIndexInclusive"    # I
-    .param p2, "toIndexExclusive"    # I
 
     .line 198
     new-instance v0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;
@@ -1482,7 +1317,6 @@
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
     .locals 3
-    .param p1, "array"    # [Ljava/lang/Object;
 
     .line 174
     array-length v0, p1
@@ -1494,78 +1328,69 @@
     .line 175
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
+    invoke-virtual {p1}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 176
-    .local v0, "componentType":Ljava/lang/Class;
-    iget v1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->size:I
+    iget v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->size:I
 
-    invoke-static {v0, v1}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
+    invoke-static {p1, v0}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
 
-    move-result-object v1
-
-    check-cast v1, [Ljava/lang/Object;
-
-    move-object p1, v1
+    move-result-object p1
 
     check-cast p1, [Ljava/lang/Object;
 
-    .line 179
-    .end local v0    # "componentType":Ljava/lang/Class;
-    :cond_0
-    const/4 v0, 0x0
+    check-cast p1, [Ljava/lang/Object;
 
     .line 180
-    .local v0, "i":I
-    iget-object v1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->header:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    :cond_0
+    iget-object v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->header:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    iget-object v1, v1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    iget-object v0, v0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    .local v1, "node":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    const/4 v1, 0x0
+
     :goto_0
     iget-object v2, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->header:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    if-eq v1, v2, :cond_1
+    if-eq v0, v2, :cond_1
 
     .line 181
-    invoke-virtual {v1}, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->getValue()Ljava/lang/Object;
+    invoke-virtual {v0}, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->getValue()Ljava/lang/Object;
 
     move-result-object v2
 
-    aput-object v2, p1, v0
+    aput-object v2, p1, v1
 
     .line 180
-    iget-object v1, v1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    iget-object v0, v0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 184
-    .end local v1    # "node":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
     :cond_1
-    array-length v1, p1
+    array-length v0, p1
 
-    iget v2, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->size:I
+    iget v1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList;->size:I
 
-    if-le v1, v2, :cond_2
+    if-le v0, v1, :cond_2
+
+    const/4 v0, 0x0
 
     .line 185
-    const/4 v1, 0x0
+    aput-object v0, p1, v1
 
-    aput-object v1, p1, v2
-
-    .line 187
     :cond_2
     return-object p1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 5
+    .locals 4
 
     .line 360
     invoke-virtual {p0}, Lorg/apache/commons/collections/list/AbstractLinkedList;->size()I
@@ -1574,7 +1399,6 @@
 
     if-nez v0, :cond_0
 
-    .line 361
     const-string v0, "[]"
 
     return-object v0
@@ -1591,10 +1415,9 @@
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuffer;-><init>(I)V
 
-    .line 364
-    .local v0, "buf":Ljava/lang/StringBuffer;
     const-string v1, "["
 
+    .line 364
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 366
@@ -1603,75 +1426,60 @@
     move-result-object v1
 
     .line 367
-    .local v1, "it":Ljava/util/Iterator;
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    .line 368
-    .local v2, "hasNext":Z
+    :cond_1
     :goto_0
     if-eqz v2, :cond_3
 
     .line 369
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
+
+    if-ne v2, p0, :cond_2
+
+    const-string v2, "(this Collection)"
 
     .line 370
-    .local v3, "value":Ljava/lang/Object;
-    if-ne v3, p0, :cond_1
-
-    const-string v4, "(this Collection)"
-
-    goto :goto_1
-
-    :cond_1
-    move-object v4, v3
-
-    :goto_1
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
+    :cond_2
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
     .line 371
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    .line 372
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1
+
+    const-string v3, ", "
 
     .line 373
-    const-string v4, ", "
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    .line 375
-    .end local v3    # "value":Ljava/lang/Object;
-    :cond_2
     goto :goto_0
 
-    .line 376
     :cond_3
-    const-string v3, "]"
+    const-string v1, "]"
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    .line 376
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 377
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    return-object v3
+    return-object v0
 .end method
 
 .method protected updateNode(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "node"    # Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
-    .param p2, "value"    # Ljava/lang/Object;
 
     .line 403
     invoke-virtual {p1, p2}, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->setValue(Ljava/lang/Object;)V
 
-    .line 404
     return-void
 .end method

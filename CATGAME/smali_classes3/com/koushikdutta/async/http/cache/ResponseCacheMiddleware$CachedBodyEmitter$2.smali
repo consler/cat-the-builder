@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$CachedBodyEmitter;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$CachedBodyEmitter;
 
     .line 486
     iput-object p1, p0, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$CachedBodyEmitter$2;->this$0:Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$CachedBodyEmitter;
@@ -44,6 +43,5 @@
 
     invoke-virtual {v0}, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$CachedBodyEmitter;->close()V
 
-    .line 490
     return-void
 .end method

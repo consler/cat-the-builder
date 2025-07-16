@@ -50,34 +50,29 @@
     sput-object v0, Landroidx/camera/core/Preview$Defaults;->DEFAULT_MAX_RESOLUTION:Landroid/util/Size;
 
     .line 542
-    new-instance v0, Landroidx/camera/core/Preview$Builder;
+    new-instance v1, Landroidx/camera/core/Preview$Builder;
 
-    invoke-direct {v0}, Landroidx/camera/core/Preview$Builder;-><init>()V
-
-    sget-object v1, Landroidx/camera/core/Preview$Defaults;->DEFAULT_MAX_RESOLUTION:Landroid/util/Size;
+    invoke-direct {v1}, Landroidx/camera/core/Preview$Builder;-><init>()V
 
     .line 544
-    invoke-virtual {v0, v1}, Landroidx/camera/core/Preview$Builder;->setMaxResolution(Landroid/util/Size;)Landroidx/camera/core/Preview$Builder;
+    invoke-virtual {v1, v0}, Landroidx/camera/core/Preview$Builder;->setMaxResolution(Landroid/util/Size;)Landroidx/camera/core/Preview$Builder;
 
     move-result-object v0
 
-    .line 545
     const/4 v1, 0x2
 
+    .line 545
     invoke-virtual {v0, v1}, Landroidx/camera/core/Preview$Builder;->setSurfaceOccupancyPriority(I)Landroidx/camera/core/Preview$Builder;
 
     move-result-object v0
 
     .line 546
-    .local v0, "builder":Landroidx/camera/core/Preview$Builder;
     invoke-virtual {v0}, Landroidx/camera/core/Preview$Builder;->getUseCaseConfig()Landroidx/camera/core/impl/PreviewConfig;
 
-    move-result-object v1
+    move-result-object v0
 
-    sput-object v1, Landroidx/camera/core/Preview$Defaults;->DEFAULT_CONFIG:Landroidx/camera/core/impl/PreviewConfig;
+    sput-object v0, Landroidx/camera/core/Preview$Defaults;->DEFAULT_CONFIG:Landroidx/camera/core/impl/PreviewConfig;
 
-    .line 547
-    .end local v0    # "builder":Landroidx/camera/core/Preview$Builder;
     return-void
 .end method
 
@@ -104,11 +99,10 @@
 .end method
 
 .method public getConfig(Landroidx/camera/core/CameraInfo;)Landroidx/camera/core/impl/PreviewConfig;
-    .locals 1
-    .param p1, "cameraInfo"    # Landroidx/camera/core/CameraInfo;
+    .locals 0
 
     .line 552
-    sget-object v0, Landroidx/camera/core/Preview$Defaults;->DEFAULT_CONFIG:Landroidx/camera/core/impl/PreviewConfig;
+    sget-object p1, Landroidx/camera/core/Preview$Defaults;->DEFAULT_CONFIG:Landroidx/camera/core/impl/PreviewConfig;
 
-    return-object v0
+    return-object p1
 .end method

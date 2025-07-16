@@ -85,12 +85,11 @@
 
 # virtual methods
 .method protected cleanUpSession(Landroidx/browser/customtabs/CustomTabsSessionToken;)Z
-    .locals 5
-    .param p1, "sessionToken"    # Landroidx/browser/customtabs/CustomTabsSessionToken;
+    .locals 3
 
-    .line 283
     const/4 v0, 0x0
 
+    .line 283
     :try_start_0
     iget-object v1, p0, Landroidx/browser/customtabs/CustomTabsService;->mDeathRecipientMap:Landroidx/collection/SimpleArrayMap;
 
@@ -102,71 +101,53 @@
     :try_start_1
     invoke-virtual {p1}, Landroidx/browser/customtabs/CustomTabsSessionToken;->getCallbackBinder()Landroid/os/IBinder;
 
-    move-result-object v2
+    move-result-object p1
+
+    if-nez p1, :cond_0
 
     .line 285
-    .local v2, "binder":Landroid/os/IBinder;
-    if-nez v2, :cond_0
-
     monitor-exit v1
 
     return v0
 
     .line 286
     :cond_0
-    iget-object v3, p0, Landroidx/browser/customtabs/CustomTabsService;->mDeathRecipientMap:Landroidx/collection/SimpleArrayMap;
+    iget-object v2, p0, Landroidx/browser/customtabs/CustomTabsService;->mDeathRecipientMap:Landroidx/collection/SimpleArrayMap;
 
-    invoke-virtual {v3, v2}, Landroidx/collection/SimpleArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1}, Landroidx/collection/SimpleArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Landroid/os/IBinder$DeathRecipient;
+    check-cast v2, Landroid/os/IBinder$DeathRecipient;
 
     .line 287
-    .local v3, "deathRecipient":Landroid/os/IBinder$DeathRecipient;
-    invoke-interface {v2, v3, v0}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
+    invoke-interface {p1, v2, v0}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
     .line 288
-    iget-object v4, p0, Landroidx/browser/customtabs/CustomTabsService;->mDeathRecipientMap:Landroidx/collection/SimpleArrayMap;
+    iget-object v2, p0, Landroidx/browser/customtabs/CustomTabsService;->mDeathRecipientMap:Landroidx/collection/SimpleArrayMap;
 
-    invoke-virtual {v4, v2}, Landroidx/collection/SimpleArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1}, Landroidx/collection/SimpleArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 289
-    nop
-
-    .end local v2    # "binder":Landroid/os/IBinder;
-    .end local v3    # "deathRecipient":Landroid/os/IBinder$DeathRecipient;
     monitor-exit v1
 
-    .line 292
-    nop
+    const/4 p1, 0x1
 
-    .line 293
-    const/4 v0, 0x1
+    return p1
 
-    return v0
-
-    .line 289
     :catchall_0
-    move-exception v2
+    move-exception p1
 
     monitor-exit v1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .end local p1    # "sessionToken":Landroidx/browser/customtabs/CustomTabsSessionToken;
     :try_start_2
-    throw v2
+    throw p1
     :try_end_2
     .catch Ljava/util/NoSuchElementException; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 290
-    .restart local p1    # "sessionToken":Landroidx/browser/customtabs/CustomTabsSessionToken;
     :catch_0
-    move-exception v1
-
-    .line 291
-    .local v1, "e":Ljava/util/NoSuchElementException;
     return v0
 .end method
 
@@ -191,13 +172,12 @@
 .end method
 
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .locals 1
-    .param p1, "intent"    # Landroid/content/Intent;
+    .locals 0
 
     .line 269
-    iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsService;->mBinder:Landroid/support/customtabs/ICustomTabsService$Stub;
+    iget-object p1, p0, Landroidx/browser/customtabs/CustomTabsService;->mBinder:Landroid/support/customtabs/ICustomTabsService$Stub;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected abstract postMessage(Landroidx/browser/customtabs/CustomTabsSessionToken;Ljava/lang/String;Landroid/os/Bundle;)I

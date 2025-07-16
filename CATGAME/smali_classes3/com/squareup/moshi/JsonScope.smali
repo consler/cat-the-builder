@@ -28,33 +28,21 @@
     .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 21
     return-void
 .end method
 
 .method static getPath(I[I[Ljava/lang/String;[I)Ljava/lang/String;
     .locals 4
-    .param p0, "stackSize"    # I
-    .param p1, "stack"    # [I
-    .param p2, "pathNames"    # [Ljava/lang/String;
-    .param p3, "pathIndices"    # [I
 
     .line 56
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "$"
 
-    const/16 v1, 0x24
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    .line 57
-    .local v0, "result":Ljava/lang/StringBuilder;
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, p0, :cond_3
 
@@ -83,10 +71,10 @@
 
     goto :goto_1
 
-    .line 67
     :cond_0
     const/16 v2, 0x2e
 
+    .line 67
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 68
@@ -95,30 +83,28 @@
     if-eqz v2, :cond_2
 
     .line 69
-    aget-object v2, p2, v1
-
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_1
 
-    .line 61
     :cond_1
     const/16 v2, 0x5b
 
+    .line 61
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    aget v2, p3, v1
+    move-result-object v2
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    aget v3, p3, v1
 
-    const/16 v2, 0x5d
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    .line 62
-    nop
+    const/16 v3, 0x5d
 
-    .line 57
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
     :cond_2
     :goto_1
     add-int/lit8 v1, v1, 0x1
@@ -126,11 +112,10 @@
     goto :goto_0
 
     .line 79
-    .end local v1    # "i":I
     :cond_3
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method

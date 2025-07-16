@@ -20,22 +20,20 @@
 
 # virtual methods
 .method public act(F)Z
-    .locals 2
-    .param p1, "delta"    # F
+    .locals 1
 
     .line 36
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/LayoutAction;->target:Lcom/badlogic/gdx/scenes/scene2d/Actor;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/LayoutAction;->target:Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    check-cast v0, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;
+    check-cast p1, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;
 
-    iget-boolean v1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/LayoutAction;->enabled:Z
+    iget-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/LayoutAction;->enabled:Z
 
-    invoke-interface {v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;->setLayoutEnabled(Z)V
+    invoke-interface {p1, v0}, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;->setLayoutEnabled(Z)V
 
-    .line 37
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public isEnabled()Z
@@ -49,22 +47,19 @@
 
 .method public setLayoutEnabled(Z)V
     .locals 0
-    .param p1, "enabled"    # Z
 
     .line 45
     iput-boolean p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/LayoutAction;->enabled:Z
 
-    .line 46
     return-void
 .end method
 
 .method public setTarget(Lcom/badlogic/gdx/scenes/scene2d/Actor;)V
     .locals 3
-    .param p1, "actor"    # Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    .line 31
     if-eqz p1, :cond_1
 
+    .line 31
     instance-of v0, p1, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;
 
     if-eqz v0, :cond_0
@@ -76,19 +71,19 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Actor must implement layout: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
@@ -97,6 +92,5 @@
     :goto_0
     invoke-super {p0, p1}, Lcom/badlogic/gdx/scenes/scene2d/Action;->setTarget(Lcom/badlogic/gdx/scenes/scene2d/Actor;)V
 
-    .line 33
     return-void
 .end method

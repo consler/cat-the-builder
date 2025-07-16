@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lretrofit2/Retrofit;Ljava/lang/Class;)V
     .locals 0
-    .param p1, "this$0"    # Lretrofit2/Retrofit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -47,16 +46,16 @@
     .line 147
     invoke-static {}, Lretrofit2/Platform;->get()Lretrofit2/Platform;
 
-    move-result-object p2
+    move-result-object p1
 
-    iput-object p2, p0, Lretrofit2/Retrofit$1;->platform:Lretrofit2/Platform;
+    iput-object p1, p0, Lretrofit2/Retrofit$1;->platform:Lretrofit2/Platform;
+
+    const/4 p1, 0x0
+
+    new-array p1, p1, [Ljava/lang/Object;
 
     .line 148
-    const/4 p2, 0x0
-
-    new-array p2, p2, [Ljava/lang/Object;
-
-    iput-object p2, p0, Lretrofit2/Retrofit$1;->emptyArgs:[Ljava/lang/Object;
+    iput-object p1, p0, Lretrofit2/Retrofit$1;->emptyArgs:[Ljava/lang/Object;
 
     return-void
 .end method
@@ -65,9 +64,7 @@
 # virtual methods
 .method public invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
-    .param p1, "proxy"    # Ljava/lang/Object;
-    .param p2, "method"    # Ljava/lang/reflect/Method;
-    .param p3, "args"    # [Ljava/lang/Object;
+    .param p3    # [Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -92,25 +89,21 @@
     .line 155
     invoke-virtual {p2, p0, p3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
-    .line 157
     :cond_0
     if-eqz p3, :cond_1
 
-    move-object v0, p3
-
     goto :goto_0
 
+    .line 157
     :cond_1
-    iget-object v0, p0, Lretrofit2/Retrofit$1;->emptyArgs:[Ljava/lang/Object;
-
-    :goto_0
-    move-object p3, v0
+    iget-object p3, p0, Lretrofit2/Retrofit$1;->emptyArgs:[Ljava/lang/Object;
 
     .line 158
+    :goto_0
     iget-object v0, p0, Lretrofit2/Retrofit$1;->platform:Lretrofit2/Platform;
 
     invoke-virtual {v0, p2}, Lretrofit2/Platform;->isDefaultMethod(Ljava/lang/reflect/Method;)Z
@@ -126,23 +119,22 @@
 
     invoke-virtual {v0, p2, v1, p1, p3}, Lretrofit2/Platform;->invokeDefaultMethod(Ljava/lang/reflect/Method;Ljava/lang/Class;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
     goto :goto_1
 
     .line 160
     :cond_2
-    iget-object v0, p0, Lretrofit2/Retrofit$1;->this$0:Lretrofit2/Retrofit;
+    iget-object p1, p0, Lretrofit2/Retrofit$1;->this$0:Lretrofit2/Retrofit;
 
-    invoke-virtual {v0, p2}, Lretrofit2/Retrofit;->loadServiceMethod(Ljava/lang/reflect/Method;)Lretrofit2/ServiceMethod;
+    invoke-virtual {p1, p2}, Lretrofit2/Retrofit;->loadServiceMethod(Ljava/lang/reflect/Method;)Lretrofit2/ServiceMethod;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p3}, Lretrofit2/ServiceMethod;->invoke([Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1, p3}, Lretrofit2/ServiceMethod;->invoke([Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 158
     :goto_1
-    return-object v0
+    return-object p1
 .end method

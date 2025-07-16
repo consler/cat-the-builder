@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/thoughtworks/xstream/persistence/XmlMap;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/thoughtworks/xstream/persistence/XmlMap;
 
     .line 55
     iput-object p1, p0, Lcom/thoughtworks/xstream/persistence/XmlMap$XmlMapEntries;->this$0:Lcom/thoughtworks/xstream/persistence/XmlMap;

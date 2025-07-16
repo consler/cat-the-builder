@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/spdy/HeaderReader;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/spdy/HeaderReader;
 
     .line 19
     iput-object p1, p0, Lcom/koushikdutta/async/http/spdy/HeaderReader$1;->this$0:Lcom/koushikdutta/async/http/spdy/HeaderReader;
@@ -35,9 +34,6 @@
 # virtual methods
 .method public inflate([BII)I
     .locals 2
-    .param p1, "buffer"    # [B
-    .param p2, "offset"    # I
-    .param p3, "count"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/util/zip/DataFormatException;
@@ -49,10 +45,9 @@
 
     move-result v0
 
-    .line 23
-    .local v0, "result":I
     if-nez v0, :cond_0
 
+    .line 23
     invoke-virtual {p0}, Lcom/koushikdutta/async/http/spdy/HeaderReader$1;->needsDictionary()Z
 
     move-result v1
@@ -60,16 +55,15 @@
     if-eqz v1, :cond_0
 
     .line 24
-    sget-object v1, Lcom/koushikdutta/async/http/spdy/Spdy3;->DICTIONARY:[B
+    sget-object v0, Lcom/koushikdutta/async/http/spdy/Spdy3;->DICTIONARY:[B
 
-    invoke-virtual {p0, v1}, Lcom/koushikdutta/async/http/spdy/HeaderReader$1;->setDictionary([B)V
+    invoke-virtual {p0, v0}, Lcom/koushikdutta/async/http/spdy/HeaderReader$1;->setDictionary([B)V
 
     .line 25
     invoke-super {p0, p1, p2, p3}, Ljava/util/zip/Inflater;->inflate([BII)I
 
     move-result v0
 
-    .line 27
     :cond_0
     return v0
 .end method

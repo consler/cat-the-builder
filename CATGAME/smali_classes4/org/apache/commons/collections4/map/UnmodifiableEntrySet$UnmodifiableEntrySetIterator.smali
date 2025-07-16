@@ -39,14 +39,11 @@
     .end annotation
 
     .line 164
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableEntrySet$UnmodifiableEntrySetIterator;, "Lorg/apache/commons/collections4/map/UnmodifiableEntrySet<TK;TV;>.UnmodifiableEntrySetIterator;"
-    .local p2, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;"
     iput-object p1, p0, Lorg/apache/commons/collections4/map/UnmodifiableEntrySet$UnmodifiableEntrySetIterator;->this$0:Lorg/apache/commons/collections4/map/UnmodifiableEntrySet;
 
     .line 165
     invoke-direct {p0, p2}, Lorg/apache/commons/collections4/iterators/AbstractIteratorDecorator;-><init>(Ljava/util/Iterator;)V
 
-    .line 166
     return-void
 .end method
 
@@ -56,7 +53,6 @@
     .locals 1
 
     .line 162
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableEntrySet$UnmodifiableEntrySetIterator;, "Lorg/apache/commons/collections4/map/UnmodifiableEntrySet<TK;TV;>.UnmodifiableEntrySetIterator;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/UnmodifiableEntrySet$UnmodifiableEntrySetIterator;->next()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -75,7 +71,6 @@
     .end annotation
 
     .line 170
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableEntrySet$UnmodifiableEntrySetIterator;, "Lorg/apache/commons/collections4/map/UnmodifiableEntrySet<TK;TV;>.UnmodifiableEntrySetIterator;"
     new-instance v0, Lorg/apache/commons/collections4/map/UnmodifiableEntrySet$UnmodifiableEntry;
 
     iget-object v1, p0, Lorg/apache/commons/collections4/map/UnmodifiableEntrySet$UnmodifiableEntrySetIterator;->this$0:Lorg/apache/commons/collections4/map/UnmodifiableEntrySet;
@@ -99,7 +94,6 @@
     .locals 1
 
     .line 175
-    .local p0, "this":Lorg/apache/commons/collections4/map/UnmodifiableEntrySet$UnmodifiableEntrySetIterator;, "Lorg/apache/commons/collections4/map/UnmodifiableEntrySet<TK;TV;>.UnmodifiableEntrySetIterator;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V

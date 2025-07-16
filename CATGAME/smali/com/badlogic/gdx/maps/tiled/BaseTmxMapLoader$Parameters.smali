@@ -41,9 +41,9 @@
     .line 37
     invoke-direct {p0}, Lcom/badlogic/gdx/assets/AssetLoaderParameters;-><init>()V
 
-    .line 39
     const/4 v0, 0x0
 
+    .line 39
     iput-boolean v0, p0, Lcom/badlogic/gdx/maps/tiled/BaseTmxMapLoader$Parameters;->generateMipMaps:Z
 
     .line 41
@@ -59,9 +59,9 @@
     .line 45
     iput-boolean v0, p0, Lcom/badlogic/gdx/maps/tiled/BaseTmxMapLoader$Parameters;->convertObjectToTileSpace:Z
 
-    .line 48
     const/4 v0, 0x1
 
+    .line 48
     iput-boolean v0, p0, Lcom/badlogic/gdx/maps/tiled/BaseTmxMapLoader$Parameters;->flipY:Z
 
     return-void

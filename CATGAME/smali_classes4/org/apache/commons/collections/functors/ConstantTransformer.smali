@@ -35,7 +35,6 @@
 
 .method public constructor <init>(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "constantToReturn"    # Ljava/lang/Object;
 
     .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,21 +42,18 @@
     .line 67
     iput-object p1, p0, Lorg/apache/commons/collections/functors/ConstantTransformer;->iConstant:Ljava/lang/Object;
 
-    .line 68
     return-void
 .end method
 
 .method public static getInstance(Ljava/lang/Object;)Lorg/apache/commons/collections/Transformer;
     .locals 1
-    .param p0, "constantToReturn"    # Ljava/lang/Object;
 
-    .line 53
     if-nez p0, :cond_0
 
     .line 54
-    sget-object v0, Lorg/apache/commons/collections/functors/ConstantTransformer;->NULL_INSTANCE:Lorg/apache/commons/collections/Transformer;
+    sget-object p0, Lorg/apache/commons/collections/functors/ConstantTransformer;->NULL_INSTANCE:Lorg/apache/commons/collections/Transformer;
 
-    return-object v0
+    return-object p0
 
     .line 56
     :cond_0
@@ -80,11 +76,10 @@
 .end method
 
 .method public transform(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "input"    # Ljava/lang/Object;
+    .locals 0
 
     .line 77
-    iget-object v0, p0, Lorg/apache/commons/collections/functors/ConstantTransformer;->iConstant:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections/functors/ConstantTransformer;->iConstant:Ljava/lang/Object;
 
-    return-object v0
+    return-object p1
 .end method

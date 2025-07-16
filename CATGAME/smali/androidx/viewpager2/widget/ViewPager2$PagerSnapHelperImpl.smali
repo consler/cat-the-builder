@@ -27,7 +27,6 @@
 
     invoke-direct {p0}, Landroidx/recyclerview/widget/PagerSnapHelper;-><init>()V
 
-    .line 1045
     return-void
 .end method
 
@@ -35,7 +34,6 @@
 # virtual methods
 .method public findSnapView(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)Landroid/view/View;
     .locals 1
-    .param p1, "layoutManager"    # Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
 
     .line 1054
     iget-object v0, p0, Landroidx/viewpager2/widget/ViewPager2$PagerSnapHelperImpl;->this$0:Landroidx/viewpager2/widget/ViewPager2;
@@ -46,15 +44,15 @@
 
     if-eqz v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
     :cond_0
     invoke-super {p0, p1}, Landroidx/recyclerview/widget/PagerSnapHelper;->findSnapView(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    return-object v0
+    return-object p1
 .end method

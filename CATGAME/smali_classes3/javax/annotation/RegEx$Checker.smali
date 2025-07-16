@@ -52,46 +52,35 @@
 .end method
 
 .method public forConstantValue(Ljavax/annotation/RegEx;Ljava/lang/Object;)Ljavax/annotation/meta/When;
-    .locals 2
-    .param p1, "annotation"    # Ljavax/annotation/RegEx;
-    .param p2, "value"    # Ljava/lang/Object;
+    .locals 0
 
     .line 29
-    instance-of v0, p2, Ljava/lang/String;
+    instance-of p1, p2, Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 30
-    sget-object v0, Ljavax/annotation/meta/When;->NEVER:Ljavax/annotation/meta/When;
+    sget-object p1, Ljavax/annotation/meta/When;->NEVER:Ljavax/annotation/meta/When;
 
-    return-object v0
+    return-object p1
 
     .line 33
     :cond_0
     :try_start_0
-    move-object v0, p2
+    check-cast p2, Ljava/lang/String;
 
-    check-cast v0, Ljava/lang/String;
-
-    invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
+    invoke-static {p2}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
     :try_end_0
     .catch Ljava/util/regex/PatternSyntaxException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 36
-    nop
-
     .line 37
-    sget-object v0, Ljavax/annotation/meta/When;->ALWAYS:Ljavax/annotation/meta/When;
+    sget-object p1, Ljavax/annotation/meta/When;->ALWAYS:Ljavax/annotation/meta/When;
 
-    return-object v0
-
-    .line 34
-    :catch_0
-    move-exception v0
+    return-object p1
 
     .line 35
-    .local v0, "e":Ljava/util/regex/PatternSyntaxException;
-    sget-object v1, Ljavax/annotation/meta/When;->NEVER:Ljavax/annotation/meta/When;
+    :catch_0
+    sget-object p1, Ljavax/annotation/meta/When;->NEVER:Ljavax/annotation/meta/When;
 
-    return-object v1
+    return-object p1
 .end method

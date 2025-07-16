@@ -53,12 +53,9 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .line 28
-    nop
-
-    .line 29
     const/16 v0, 0x9c4
 
+    .line 29
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
@@ -71,19 +68,17 @@
 
     sput-object v0, Lcom/bumptech/glide/load/model/stream/HttpGlideUrlLoader;->TIMEOUT:Lcom/bumptech/glide/load/Option;
 
-    .line 28
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 1
 
-    .line 34
     const/4 v0, 0x0
 
+    .line 34
     invoke-direct {p0, v0}, Lcom/bumptech/glide/load/model/stream/HttpGlideUrlLoader;-><init>(Lcom/bumptech/glide/load/model/ModelCache;)V
 
-    .line 35
     return-void
 .end method
 
@@ -100,24 +95,18 @@
     .end annotation
 
     .line 37
-    .local p1, "modelCache":Lcom/bumptech/glide/load/model/ModelCache;, "Lcom/bumptech/glide/load/model/ModelCache<Lcom/bumptech/glide/load/model/GlideUrl;Lcom/bumptech/glide/load/model/GlideUrl;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 38
     iput-object p1, p0, Lcom/bumptech/glide/load/model/stream/HttpGlideUrlLoader;->modelCache:Lcom/bumptech/glide/load/model/ModelCache;
 
-    .line 39
     return-void
 .end method
 
 
 # virtual methods
 .method public buildLoadData(Lcom/bumptech/glide/load/model/GlideUrl;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
-    .locals 4
-    .param p1, "model"    # Lcom/bumptech/glide/load/model/GlideUrl;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
-    .param p4, "options"    # Lcom/bumptech/glide/load/Options;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -131,62 +120,57 @@
         }
     .end annotation
 
-    .line 46
-    move-object v0, p1
-
     .line 47
-    .local v0, "url":Lcom/bumptech/glide/load/model/GlideUrl;
-    iget-object v1, p0, Lcom/bumptech/glide/load/model/stream/HttpGlideUrlLoader;->modelCache:Lcom/bumptech/glide/load/model/ModelCache;
+    iget-object p2, p0, Lcom/bumptech/glide/load/model/stream/HttpGlideUrlLoader;->modelCache:Lcom/bumptech/glide/load/model/ModelCache;
 
-    if-eqz v1, :cond_0
+    if-eqz p2, :cond_1
+
+    const/4 p3, 0x0
 
     .line 48
-    const/4 v2, 0x0
+    invoke-virtual {p2, p1, p3, p3}, Lcom/bumptech/glide/load/model/ModelCache;->get(Ljava/lang/Object;II)Ljava/lang/Object;
 
-    invoke-virtual {v1, p1, v2, v2}, Lcom/bumptech/glide/load/model/ModelCache;->get(Ljava/lang/Object;II)Ljava/lang/Object;
+    move-result-object p2
 
-    move-result-object v1
+    check-cast p2, Lcom/bumptech/glide/load/model/GlideUrl;
 
-    move-object v0, v1
-
-    check-cast v0, Lcom/bumptech/glide/load/model/GlideUrl;
-
-    .line 49
-    if-nez v0, :cond_0
+    if-nez p2, :cond_0
 
     .line 50
-    iget-object v1, p0, Lcom/bumptech/glide/load/model/stream/HttpGlideUrlLoader;->modelCache:Lcom/bumptech/glide/load/model/ModelCache;
+    iget-object p2, p0, Lcom/bumptech/glide/load/model/stream/HttpGlideUrlLoader;->modelCache:Lcom/bumptech/glide/load/model/ModelCache;
 
-    invoke-virtual {v1, p1, v2, v2, p1}, Lcom/bumptech/glide/load/model/ModelCache;->put(Ljava/lang/Object;IILjava/lang/Object;)V
+    invoke-virtual {p2, p1, p3, p3, p1}, Lcom/bumptech/glide/load/model/ModelCache;->put(Ljava/lang/Object;IILjava/lang/Object;)V
 
-    .line 51
-    move-object v0, p1
+    goto :goto_0
+
+    :cond_0
+    move-object p1, p2
 
     .line 54
-    :cond_0
-    sget-object v1, Lcom/bumptech/glide/load/model/stream/HttpGlideUrlLoader;->TIMEOUT:Lcom/bumptech/glide/load/Option;
+    :cond_1
+    :goto_0
+    sget-object p2, Lcom/bumptech/glide/load/model/stream/HttpGlideUrlLoader;->TIMEOUT:Lcom/bumptech/glide/load/Option;
 
-    invoke-virtual {p4, v1}, Lcom/bumptech/glide/load/Options;->get(Lcom/bumptech/glide/load/Option;)Ljava/lang/Object;
+    invoke-virtual {p4, p2}, Lcom/bumptech/glide/load/Options;->get(Lcom/bumptech/glide/load/Option;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p2
 
-    check-cast v1, Ljava/lang/Integer;
+    check-cast p2, Ljava/lang/Integer;
 
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
-    move-result v1
+    move-result p2
 
     .line 55
-    .local v1, "timeout":I
-    new-instance v2, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
+    new-instance p3, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
 
-    new-instance v3, Lcom/bumptech/glide/load/data/HttpUrlFetcher;
+    new-instance p4, Lcom/bumptech/glide/load/data/HttpUrlFetcher;
 
-    invoke-direct {v3, v0, v1}, Lcom/bumptech/glide/load/data/HttpUrlFetcher;-><init>(Lcom/bumptech/glide/load/model/GlideUrl;I)V
+    invoke-direct {p4, p1, p2}, Lcom/bumptech/glide/load/data/HttpUrlFetcher;-><init>(Lcom/bumptech/glide/load/model/GlideUrl;I)V
 
-    invoke-direct {v2, v0, v3}, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;-><init>(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/data/DataFetcher;)V
+    invoke-direct {p3, p1, p4}, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;-><init>(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/data/DataFetcher;)V
 
-    return-object v2
+    return-object p3
 .end method
 
 .method public bridge synthetic buildLoadData(Ljava/lang/Object;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
@@ -203,13 +187,11 @@
 .end method
 
 .method public handles(Lcom/bumptech/glide/load/model/GlideUrl;)Z
-    .locals 1
-    .param p1, "model"    # Lcom/bumptech/glide/load/model/GlideUrl;
+    .locals 0
 
-    .line 60
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic handles(Ljava/lang/Object;)Z

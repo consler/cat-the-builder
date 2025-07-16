@@ -17,7 +17,6 @@
 # virtual methods
 .method public createListener(Lcom/badlogic/gdx/backends/android/AndroidApplicationBase;)V
     .locals 3
-    .param p1, "application"    # Lcom/badlogic/gdx/backends/android/AndroidApplicationBase;
 
     .line 27
     :try_start_0
@@ -30,7 +29,6 @@
     move-result-object v0
 
     .line 28
-    .local v0, "rootView":Landroid/view/View;
     new-instance v1, Lcom/badlogic/gdx/backends/android/AndroidVisibilityListener$1;
 
     invoke-direct {v1, p0, p1}, Lcom/badlogic/gdx/backends/android/AndroidVisibilityListener$1;-><init>(Lcom/badlogic/gdx/backends/android/AndroidVisibilityListener;Lcom/badlogic/gdx/backends/android/AndroidApplicationBase;)V
@@ -39,24 +37,18 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 41
-    .end local v0    # "rootView":Landroid/view/View;
     goto :goto_0
 
-    .line 39
     :catchall_0
     move-exception v0
 
-    .line 40
-    .local v0, "t":Ljava/lang/Throwable;
     const-string v1, "AndroidApplication"
 
     const-string v2, "Can\'t create OnSystemUiVisibilityChangeListener, unable to use immersive mode."
 
+    .line 40
     invoke-interface {p1, v1, v2, v0}, Lcom/badlogic/gdx/backends/android/AndroidApplicationBase;->log(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 42
-    .end local v0    # "t":Ljava/lang/Throwable;
     :goto_0
     return-void
 .end method

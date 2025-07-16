@@ -27,7 +27,6 @@
     .line 22
     invoke-direct {p0}, Lio/reactivex/Completable;-><init>()V
 
-    .line 23
     return-void
 .end method
 
@@ -35,13 +34,11 @@
 # virtual methods
 .method protected subscribeActual(Lio/reactivex/CompletableObserver;)V
     .locals 1
-    .param p1, "s"    # Lio/reactivex/CompletableObserver;
 
     .line 27
     sget-object v0, Lio/reactivex/internal/disposables/EmptyDisposable;->NEVER:Lio/reactivex/internal/disposables/EmptyDisposable;
 
     invoke-interface {p1, v0}, Lio/reactivex/CompletableObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 28
     return-void
 .end method

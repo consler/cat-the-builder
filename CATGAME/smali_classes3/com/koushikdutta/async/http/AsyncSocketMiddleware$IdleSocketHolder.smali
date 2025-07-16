@@ -25,8 +25,6 @@
 # direct methods
 .method public constructor <init>(Lcom/koushikdutta/async/http/AsyncSocketMiddleware;Lcom/koushikdutta/async/AsyncSocket;)V
     .locals 2
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/AsyncSocketMiddleware;
-    .param p2, "socket"    # Lcom/koushikdutta/async/AsyncSocket;
 
     .line 99
     iput-object p1, p0, Lcom/koushikdutta/async/http/AsyncSocketMiddleware$IdleSocketHolder;->this$0:Lcom/koushikdutta/async/http/AsyncSocketMiddleware;
@@ -43,6 +41,5 @@
     .line 100
     iput-object p2, p0, Lcom/koushikdutta/async/http/AsyncSocketMiddleware$IdleSocketHolder;->socket:Lcom/koushikdutta/async/AsyncSocket;
 
-    .line 101
     return-void
 .end method

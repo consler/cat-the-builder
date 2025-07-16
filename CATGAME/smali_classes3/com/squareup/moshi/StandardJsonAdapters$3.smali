@@ -36,31 +36,30 @@
 # virtual methods
 .method public fromJson(Lcom/squareup/moshi/JsonReader;)Ljava/lang/Byte;
     .locals 3
-    .param p1, "reader"    # Lcom/squareup/moshi/JsonReader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    const/16 v0, -0x80
+
+    const/16 v1, 0xff
+
+    const-string v2, "a byte"
+
     .line 101
-    const-string v0, "a byte"
+    invoke-static {p1, v2, v0, v1}, Lcom/squareup/moshi/StandardJsonAdapters;->rangeCheckNextInt(Lcom/squareup/moshi/JsonReader;Ljava/lang/String;II)I
 
-    const/16 v1, -0x80
+    move-result p1
 
-    const/16 v2, 0xff
+    int-to-byte p1, p1
 
-    invoke-static {p1, v0, v1, v2}, Lcom/squareup/moshi/StandardJsonAdapters;->rangeCheckNextInt(Lcom/squareup/moshi/JsonReader;Ljava/lang/String;II)I
+    invoke-static {p1}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
 
-    move-result v0
+    move-result-object p1
 
-    int-to-byte v0, v0
-
-    invoke-static {v0}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
-
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic fromJson(Lcom/squareup/moshi/JsonReader;)Ljava/lang/Object;
@@ -81,8 +80,6 @@
 
 .method public toJson(Lcom/squareup/moshi/JsonWriter;Ljava/lang/Byte;)V
     .locals 2
-    .param p1, "writer"    # Lcom/squareup/moshi/JsonWriter;
-    .param p2, "value"    # Ljava/lang/Byte;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -92,15 +89,14 @@
     .line 105
     invoke-virtual {p2}, Ljava/lang/Byte;->intValue()I
 
-    move-result v0
+    move-result p2
 
-    and-int/lit16 v0, v0, 0xff
+    and-int/lit16 p2, p2, 0xff
 
-    int-to-long v0, v0
+    int-to-long v0, p2
 
     invoke-virtual {p1, v0, v1}, Lcom/squareup/moshi/JsonWriter;->value(J)Lcom/squareup/moshi/JsonWriter;
 
-    .line 106
     return-void
 .end method
 
@@ -123,7 +119,6 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .line 109
     const-string v0, "JsonAdapter(Byte)"
 
     return-object v0

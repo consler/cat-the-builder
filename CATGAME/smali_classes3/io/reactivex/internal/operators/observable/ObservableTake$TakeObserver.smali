@@ -50,7 +50,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/Observer;J)V
     .locals 0
-    .param p2, "limit"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -60,8 +59,6 @@
     .end annotation
 
     .line 41
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver;, "Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 42
@@ -70,7 +67,6 @@
     .line 43
     iput-wide p2, p0, Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver;->remaining:J
 
-    .line 44
     return-void
 .end method
 
@@ -80,12 +76,10 @@
     .locals 1
 
     .line 90
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver;, "Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver;->subscription:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 91
     return-void
 .end method
 
@@ -93,7 +87,6 @@
     .locals 1
 
     .line 95
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver;, "Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver;->subscription:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->isDisposed()Z
@@ -107,14 +100,13 @@
     .locals 1
 
     .line 81
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver;, "Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver;->done:Z
 
     if-nez v0, :cond_0
 
-    .line 82
     const/4 v0, 0x1
 
+    .line 82
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver;->done:Z
 
     .line 83
@@ -127,17 +119,14 @@
 
     invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 86
     :cond_0
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 70
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver;, "Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver;->done:Z
 
     if-eqz v0, :cond_0
@@ -145,13 +134,12 @@
     .line 71
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 72
     return-void
 
-    .line 75
     :cond_0
     const/4 v0, 0x1
 
+    .line 75
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver;->done:Z
 
     .line 76
@@ -164,7 +152,6 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 78
     return-void
 .end method
 
@@ -177,8 +164,6 @@
     .end annotation
 
     .line 60
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver;, "Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver;->done:Z
 
     if-nez v0, :cond_1
@@ -197,7 +182,6 @@
 
     if-lez v0, :cond_1
 
-    .line 61
     cmp-long v0, v2, v4
 
     if-nez v0, :cond_0
@@ -210,30 +194,24 @@
     const/4 v0, 0x0
 
     .line 62
-    .local v0, "stop":Z
     :goto_0
     iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver;->actual:Lio/reactivex/Observer;
 
     invoke-interface {v1, p1}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
-    .line 63
     if-eqz v0, :cond_1
 
     .line 64
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver;->onComplete()V
 
-    .line 67
-    .end local v0    # "stop":Z
     :cond_1
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 4
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 47
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver;, "Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver;->subscription:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -254,28 +232,27 @@
 
     if-nez v0, :cond_0
 
-    .line 50
     const/4 v0, 0x1
 
+    .line 50
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver;->done:Z
 
     .line 51
     invoke-interface {p1}, Lio/reactivex/disposables/Disposable;->dispose()V
 
     .line 52
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-static {v0}, Lio/reactivex/internal/disposables/EmptyDisposable;->complete(Lio/reactivex/Observer;)V
+    invoke-static {p1}, Lio/reactivex/internal/disposables/EmptyDisposable;->complete(Lio/reactivex/Observer;)V
 
     goto :goto_0
 
     .line 54
     :cond_0
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableTake$TakeObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v0, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 57
     :cond_1
     :goto_0
     return-void

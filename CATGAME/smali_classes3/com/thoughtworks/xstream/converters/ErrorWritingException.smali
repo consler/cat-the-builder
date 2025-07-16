@@ -17,7 +17,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .param p1, "message"    # Ljava/lang/String;
 
     .line 41
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/XStreamException;-><init>(Ljava/lang/String;)V
@@ -29,19 +28,16 @@
 
     iput-object v0, p0, Lcom/thoughtworks/xstream/converters/ErrorWritingException;->stuff:Ljava/util/Map;
 
-    .line 42
     const/4 v0, 0x0
 
+    .line 42
     invoke-direct {p0, p1, v0}, Lcom/thoughtworks/xstream/converters/ErrorWritingException;->addData(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 43
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "cause"    # Ljava/lang/Throwable;
 
     .line 64
     invoke-direct {p0, p1, p2}, Lcom/thoughtworks/xstream/XStreamException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
@@ -56,13 +52,11 @@
     .line 65
     invoke-direct {p0, p1, p2}, Lcom/thoughtworks/xstream/converters/ErrorWritingException;->addData(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 66
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 52
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/XStreamException;-><init>(Ljava/lang/Throwable;)V
@@ -74,71 +68,63 @@
 
     iput-object v0, p0, Lcom/thoughtworks/xstream/converters/ErrorWritingException;->stuff:Ljava/util/Map;
 
-    .line 53
     const/4 v0, 0x0
 
+    .line 53
     invoke-direct {p0, v0, p1}, Lcom/thoughtworks/xstream/converters/ErrorWritingException;->addData(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 54
     return-void
 .end method
 
 .method private addData(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 2
-    .param p1, "msg"    # Ljava/lang/String;
-    .param p2, "cause"    # Ljava/lang/Throwable;
+    .locals 1
 
-    .line 69
     if-eqz p1, :cond_0
 
-    .line 70
     const-string v0, "message"
 
+    .line 70
     invoke-virtual {p0, v0, p1}, Lcom/thoughtworks/xstream/converters/ErrorWritingException;->add(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 72
     :cond_0
     if-eqz p2, :cond_2
 
     .line 73
     invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "cause-exception"
+    const-string v0, "cause-exception"
 
-    invoke-virtual {p0, v1, v0}, Lcom/thoughtworks/xstream/converters/ErrorWritingException;->add(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, p1}, Lcom/thoughtworks/xstream/converters/ErrorWritingException;->add(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 74
-    instance-of v0, p2, Lcom/thoughtworks/xstream/converters/ErrorWritingException;
+    instance-of p1, p2, Lcom/thoughtworks/xstream/converters/ErrorWritingException;
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
-    move-object v0, p2
+    check-cast p2, Lcom/thoughtworks/xstream/converters/ErrorWritingException;
 
-    check-cast v0, Lcom/thoughtworks/xstream/converters/ErrorWritingException;
+    invoke-virtual {p2}, Lcom/thoughtworks/xstream/converters/ErrorWritingException;->getShortMessage()Ljava/lang/String;
 
-    invoke-virtual {v0}, Lcom/thoughtworks/xstream/converters/ErrorWritingException;->getShortMessage()Ljava/lang/String;
-
-    move-result-object v0
+    move-result-object p1
 
     goto :goto_0
 
     :cond_1
     invoke-virtual {p2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    const-string v1, "cause-message"
+    const-string p2, "cause-message"
 
-    invoke-virtual {p0, v1, v0}, Lcom/thoughtworks/xstream/converters/ErrorWritingException;->add(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, p2, p1}, Lcom/thoughtworks/xstream/converters/ErrorWritingException;->add(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 76
     :cond_2
     return-void
 .end method
@@ -146,23 +132,17 @@
 
 # virtual methods
 .method public add(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 5
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "information"    # Ljava/lang/String;
+    .locals 3
 
-    .line 83
-    move-object v0, p1
+    const/4 v0, 0x0
 
-    .line 84
-    .local v0, "key":Ljava/lang/String;
-    const/4 v1, 0x0
+    move-object v1, p1
 
     .line 85
-    .local v1, "i":I
     :goto_0
     iget-object v2, p0, Lcom/thoughtworks/xstream/converters/ErrorWritingException;->stuff:Ljava/util/Map;
 
-    invoke-interface {v2, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    invoke-interface {v2, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v2
 
@@ -171,79 +151,81 @@
     .line 86
     iget-object v2, p0, Lcom/thoughtworks/xstream/converters/ErrorWritingException;->stuff:Ljava/util/Map;
 
-    invoke-interface {v2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
     .line 87
-    .local v2, "value":Ljava/lang/String;
-    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_0
+    if-eqz v1, :cond_0
 
-    .line 88
     return-void
 
     .line 89
     :cond_0
-    new-instance v3, Ljava/lang/StringBuffer;
+    new-instance v1, Ljava/lang/StringBuffer;
 
-    invoke-direct {v3}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    const-string v4, "["
+    move-result-object v1
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    const-string v2, "["
 
-    add-int/lit8 v1, v1, 0x1
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    move-result-object v1
 
-    const-string v4, "]"
+    add-int/lit8 v0, v0, 0x1
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v0
+    const-string v2, "]"
 
-    .line 90
-    .end local v2    # "value":Ljava/lang/String;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
     goto :goto_0
 
     .line 91
     :cond_1
-    iget-object v2, p0, Lcom/thoughtworks/xstream/converters/ErrorWritingException;->stuff:Ljava/util/Map;
+    iget-object p1, p0, Lcom/thoughtworks/xstream/converters/ErrorWritingException;->stuff:Ljava/util/Map;
 
-    invoke-interface {v2, v0, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, v1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 92
     return-void
 .end method
 
 .method public get(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p1, "errorKey"    # Ljava/lang/String;
 
     .line 79
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/ErrorWritingException;->stuff:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/lang/String;
+    check-cast p1, Ljava/lang/String;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getMessage()Ljava/lang/String;
-    .locals 7
+    .locals 6
 
     .line 111
     new-instance v0, Ljava/lang/StringBuffer;
@@ -251,7 +233,6 @@
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 112
-    .local v0, "result":Ljava/lang/StringBuffer;
     invoke-super {p0}, Lcom/thoughtworks/xstream/XStreamException;->getMessage()Ljava/lang/String;
 
     move-result-object v1
@@ -279,9 +260,9 @@
 
     if-nez v1, :cond_1
 
-    .line 116
     const-string v1, "\n---- Debugging information ----"
 
+    .line 116
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 118
@@ -290,7 +271,6 @@
 
     move-result-object v1
 
-    .local v1, "iterator":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -306,61 +286,59 @@
     check-cast v3, Ljava/lang/String;
 
     .line 120
-    .local v3, "k":Ljava/lang/String;
     invoke-virtual {p0, v3}, Lcom/thoughtworks/xstream/converters/ErrorWritingException;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 121
-    .local v4, "v":Ljava/lang/String;
     const/16 v5, 0xa
 
+    .line 121
     invoke-virtual {v0, v5}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    .line 122
-    const/16 v5, 0x14
-
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
-
-    move-result v6
-
-    invoke-static {v5, v6}, Ljava/lang/Math;->min(II)I
-
-    move-result v5
-
-    const-string v6, "                    "
-
-    invoke-virtual {v6, v5}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    const/16 v5, 0x14
+
+    .line 122
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    invoke-static {v5, v3}, Ljava/lang/Math;->min(II)I
+
+    move-result v3
+
+    const-string v5, "                    "
+
+    invoke-virtual {v5, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    const-string v3, ": "
 
     .line 123
-    const-string v5, ": "
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-result-object v3
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 124
-    .end local v3    # "k":Ljava/lang/String;
-    .end local v4    # "v":Ljava/lang/String;
     goto :goto_0
 
     .line 125
-    .end local v1    # "iterator":Ljava/util/Iterator;
     :cond_2
     invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 126
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public getShortMessage()Ljava/lang/String;
@@ -392,68 +370,68 @@
 .end method
 
 .method public set(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 4
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "information"    # Ljava/lang/String;
-
-    .line 95
-    move-object v0, p1
-
-    .line 96
-    .local v0, "key":Ljava/lang/String;
-    const/4 v1, 0x0
+    .locals 2
 
     .line 97
-    .local v1, "i":I
-    iget-object v2, p0, Lcom/thoughtworks/xstream/converters/ErrorWritingException;->stuff:Ljava/util/Map;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/converters/ErrorWritingException;->stuff:Ljava/util/Map;
 
-    invoke-interface {v2, v0, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const/4 p2, 0x0
+
+    move-object v0, p1
 
     .line 98
     :goto_0
-    iget-object v2, p0, Lcom/thoughtworks/xstream/converters/ErrorWritingException;->stuff:Ljava/util/Map;
+    iget-object v1, p0, Lcom/thoughtworks/xstream/converters/ErrorWritingException;->stuff:Ljava/util/Map;
 
-    invoke-interface {v2, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    invoke-interface {v1, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
-    .line 99
-    if-eqz v1, :cond_0
+    if-eqz p2, :cond_0
 
     .line 100
-    iget-object v2, p0, Lcom/thoughtworks/xstream/converters/ErrorWritingException;->stuff:Ljava/util/Map;
+    iget-object v1, p0, Lcom/thoughtworks/xstream/converters/ErrorWritingException;->stuff:Ljava/util/Map;
 
-    invoke-interface {v2, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 102
     :cond_0
-    new-instance v2, Ljava/lang/StringBuffer;
+    new-instance v0, Ljava/lang/StringBuffer;
 
-    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    const-string v3, "["
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    const-string v1, "["
 
-    add-int/lit8 v1, v1, 0x1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    move-result-object v0
 
-    const-string v3, "]"
+    add-int/lit8 p2, p2, 0x1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    move-result-object v0
+
+    const-string v1, "]"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     goto :goto_0
 
-    .line 104
     :cond_1
     return-void
 .end method

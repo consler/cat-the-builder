@@ -30,7 +30,6 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 993
     return-void
 .end method
 
@@ -38,16 +37,12 @@
 # virtual methods
 .method public onAccuracyChanged(Landroid/hardware/Sensor;I)V
     .locals 0
-    .param p1, "arg0"    # Landroid/hardware/Sensor;
-    .param p2, "arg1"    # I
 
-    .line 998
     return-void
 .end method
 
 .method public onSensorChanged(Landroid/hardware/SensorEvent;)V
     .locals 6
-    .param p1, "event"    # Landroid/hardware/SensorEvent;
 
     .line 1002
     iget-object v0, p1, Landroid/hardware/SensorEvent;->sensor:Landroid/hardware/Sensor;
@@ -58,11 +53,11 @@
 
     const/4 v1, 0x2
 
-    const/4 v2, 0x1
+    const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    const/4 v3, 0x1
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v3, :cond_1
 
     .line 1003
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput$SensorListener;->this$0:Lcom/badlogic/gdx/backends/android/AndroidInput;
@@ -86,7 +81,7 @@
 
     array-length v5, v5
 
-    invoke-static {v0, v3, v4, v3, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v0, v2, v4, v2, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     goto :goto_0
 
@@ -98,9 +93,9 @@
 
     iget-object v4, p1, Landroid/hardware/SensorEvent;->values:[F
 
-    aget v4, v4, v2
+    aget v4, v4, v3
 
-    aput v4, v0, v3
+    aput v4, v0, v2
 
     .line 1007
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput$SensorListener;->this$0:Lcom/badlogic/gdx/backends/android/AndroidInput;
@@ -109,11 +104,11 @@
 
     iget-object v4, p1, Landroid/hardware/SensorEvent;->values:[F
 
-    aget v4, v4, v3
+    aget v4, v4, v2
 
     neg-float v4, v4
 
-    aput v4, v0, v2
+    aput v4, v0, v3
 
     .line 1008
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput$SensorListener;->this$0:Lcom/badlogic/gdx/backends/android/AndroidInput;
@@ -150,7 +145,7 @@
 
     array-length v5, v5
 
-    invoke-static {v0, v3, v4, v3, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v0, v2, v4, v2, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 1014
     :cond_2
@@ -186,7 +181,7 @@
 
     array-length v5, v5
 
-    invoke-static {v0, v3, v4, v3, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v0, v2, v4, v2, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     goto :goto_1
 
@@ -198,9 +193,9 @@
 
     iget-object v4, p1, Landroid/hardware/SensorEvent;->values:[F
 
-    aget v4, v4, v2
+    aget v4, v4, v3
 
-    aput v4, v0, v3
+    aput v4, v0, v2
 
     .line 1019
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput$SensorListener;->this$0:Lcom/badlogic/gdx/backends/android/AndroidInput;
@@ -209,11 +204,11 @@
 
     iget-object v4, p1, Landroid/hardware/SensorEvent;->values:[F
 
-    aget v4, v4, v3
+    aget v4, v4, v2
 
     neg-float v4, v4
 
-    aput v4, v0, v2
+    aput v4, v0, v3
 
     .line 1020
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput$SensorListener;->this$0:Lcom/badlogic/gdx/backends/android/AndroidInput;
@@ -249,19 +244,19 @@
     if-ne v0, v4, :cond_5
 
     .line 1025
-    iget-object v0, p1, Landroid/hardware/SensorEvent;->values:[F
+    iget-object p1, p1, Landroid/hardware/SensorEvent;->values:[F
+
+    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput$SensorListener;->this$0:Lcom/badlogic/gdx/backends/android/AndroidInput;
+
+    iget-object v0, v0, Lcom/badlogic/gdx/backends/android/AndroidInput;->rotationVectorValues:[F
 
     iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidInput$SensorListener;->this$0:Lcom/badlogic/gdx/backends/android/AndroidInput;
 
     iget-object v1, v1, Lcom/badlogic/gdx/backends/android/AndroidInput;->rotationVectorValues:[F
 
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidInput$SensorListener;->this$0:Lcom/badlogic/gdx/backends/android/AndroidInput;
+    array-length v1, v1
 
-    iget-object v2, v2, Lcom/badlogic/gdx/backends/android/AndroidInput;->rotationVectorValues:[F
-
-    array-length v2, v2
-
-    invoke-static {v0, v3, v1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p1, v2, v0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     goto :goto_2
 
@@ -273,9 +268,9 @@
 
     iget-object v4, p1, Landroid/hardware/SensorEvent;->values:[F
 
-    aget v4, v4, v2
+    aget v4, v4, v3
 
-    aput v4, v0, v3
+    aput v4, v0, v2
 
     .line 1028
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput$SensorListener;->this$0:Lcom/badlogic/gdx/backends/android/AndroidInput;
@@ -284,24 +279,23 @@
 
     iget-object v4, p1, Landroid/hardware/SensorEvent;->values:[F
 
-    aget v3, v4, v3
+    aget v2, v4, v2
 
-    neg-float v3, v3
+    neg-float v2, v2
 
-    aput v3, v0, v2
+    aput v2, v0, v3
 
     .line 1029
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidInput$SensorListener;->this$0:Lcom/badlogic/gdx/backends/android/AndroidInput;
 
     iget-object v0, v0, Lcom/badlogic/gdx/backends/android/AndroidInput;->rotationVectorValues:[F
 
-    iget-object v2, p1, Landroid/hardware/SensorEvent;->values:[F
+    iget-object p1, p1, Landroid/hardware/SensorEvent;->values:[F
 
-    aget v2, v2, v1
+    aget p1, p1, v1
 
-    aput v2, v0, v1
+    aput p1, v0, v1
 
-    .line 1032
     :cond_6
     :goto_2
     return-void

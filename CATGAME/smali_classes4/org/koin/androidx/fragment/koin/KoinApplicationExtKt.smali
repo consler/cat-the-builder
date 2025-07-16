@@ -30,8 +30,7 @@
 
 # direct methods
 .method public static final fragmentFactory(Lorg/koin/core/KoinApplication;)V
-    .locals 5
-    .param p0, "$this$fragmentFactory"    # Lorg/koin/core/KoinApplication;
+    .locals 4
 
     const-string v0, "$this$fragmentFactory"
 
@@ -40,28 +39,27 @@
     .line 12
     invoke-virtual {p0}, Lorg/koin/core/KoinApplication;->getKoin()Lorg/koin/core/Koin;
 
-    move-result-object v0
+    move-result-object p0
 
-    sget-object v1, Lorg/koin/androidx/fragment/koin/KoinApplicationExtKt$fragmentFactory$1;->INSTANCE:Lorg/koin/androidx/fragment/koin/KoinApplicationExtKt$fragmentFactory$1;
+    sget-object v0, Lorg/koin/androidx/fragment/koin/KoinApplicationExtKt$fragmentFactory$1;->INSTANCE:Lorg/koin/androidx/fragment/koin/KoinApplicationExtKt$fragmentFactory$1;
 
-    check-cast v1, Lkotlin/jvm/functions/Function1;
+    check-cast v0, Lkotlin/jvm/functions/Function1;
+
+    const/4 v1, 0x3
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x3
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    invoke-static {v3, v3, v0, v1, v2}, Lorg/koin/dsl/ModuleKt;->module$default(ZZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/koin/core/module/Module;
 
-    invoke-static {v2, v2, v1, v3, v4}, Lorg/koin/dsl/ModuleKt;->module$default(ZZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/koin/core/module/Module;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-static {v0}, Lkotlin/collections/CollectionsKt;->listOf(Ljava/lang/Object;)Ljava/util/List;
 
-    invoke-static {v1}, Lkotlin/collections/CollectionsKt;->listOf(Ljava/lang/Object;)Ljava/util/List;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-virtual {p0, v0}, Lorg/koin/core/Koin;->loadModules(Ljava/util/List;)V
 
-    invoke-virtual {v0, v1}, Lorg/koin/core/Koin;->loadModules(Ljava/util/List;)V
-
-    .line 15
     return-void
 .end method

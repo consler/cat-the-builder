@@ -1,5 +1,6 @@
 .class public Lcom/google/firebase/FirebaseExceptionMapper;
 .super Ljava/lang/Object;
+.source "com.google.android.gms:play-services-basement@@17.6.0"
 
 # interfaces
 .implements Lcom/google/android/gms/common/api/internal/StatusExceptionMapper;
@@ -9,7 +10,6 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -17,10 +17,10 @@
 
 
 # virtual methods
-.method public getException(Lcom/google/android/gms/common/api/Status;)Ljava/lang/Exception;
+.method public final getException(Lcom/google/android/gms/common/api/Status;)Ljava/lang/Exception;
     .locals 2
 
-    .line 2
+    .line 1
     invoke-virtual {p1}, Lcom/google/android/gms/common/api/Status;->getStatusCode()I
 
     move-result v0
@@ -29,10 +29,10 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 3
     new-instance v0, Lcom/google/firebase/FirebaseException;
 
-    invoke-virtual {p1}, Lcom/google/android/gms/common/api/Status;->zzg()Ljava/lang/String;
+    .line 2
+    invoke-virtual {p1}, Lcom/google/android/gms/common/api/Status;->zza()Ljava/lang/String;
 
     move-result-object p1
 
@@ -40,11 +40,11 @@
 
     return-object v0
 
-    .line 4
     :cond_0
     new-instance v0, Lcom/google/firebase/FirebaseApiNotAvailableException;
 
-    invoke-virtual {p1}, Lcom/google/android/gms/common/api/Status;->zzg()Ljava/lang/String;
+    .line 3
+    invoke-virtual {p1}, Lcom/google/android/gms/common/api/Status;->zza()Ljava/lang/String;
 
     move-result-object p1
 

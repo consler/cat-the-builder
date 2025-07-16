@@ -29,13 +29,11 @@
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 29
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;)V
     .locals 1
-    .param p1, "drawable"    # Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -94,11 +92,10 @@
     .line 39
     invoke-interface {p1}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/BaseDrawable;->minHeight:F
+    iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/BaseDrawable;->minHeight:F
 
-    .line 40
     return-void
 .end method
 
@@ -106,13 +103,7 @@
 # virtual methods
 .method public draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
     .locals 0
-    .param p1, "batch"    # Lcom/badlogic/gdx/graphics/g2d/Batch;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
-    .param p4, "width"    # F
-    .param p5, "height"    # F
 
-    .line 43
     return-void
 .end method
 
@@ -181,41 +172,33 @@
 
 .method public setBottomHeight(F)V
     .locals 0
-    .param p1, "bottomHeight"    # F
 
     .line 74
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/BaseDrawable;->bottomHeight:F
 
-    .line 75
     return-void
 .end method
 
 .method public setLeftWidth(F)V
     .locals 0
-    .param p1, "leftWidth"    # F
 
     .line 50
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/BaseDrawable;->leftWidth:F
 
-    .line 51
     return-void
 .end method
 
 .method public setMinHeight(F)V
     .locals 0
-    .param p1, "minHeight"    # F
 
     .line 97
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/BaseDrawable;->minHeight:F
 
-    .line 98
     return-void
 .end method
 
 .method public setMinSize(FF)V
     .locals 0
-    .param p1, "minWidth"    # F
-    .param p2, "minHeight"    # F
 
     .line 101
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/scenes/scene2d/utils/BaseDrawable;->setMinWidth(F)V
@@ -223,38 +206,29 @@
     .line 102
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/scenes/scene2d/utils/BaseDrawable;->setMinHeight(F)V
 
-    .line 103
     return-void
 .end method
 
 .method public setMinWidth(F)V
     .locals 0
-    .param p1, "minWidth"    # F
 
     .line 89
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/BaseDrawable;->minWidth:F
 
-    .line 90
     return-void
 .end method
 
 .method public setName(Ljava/lang/String;)V
     .locals 0
-    .param p1, "name"    # Ljava/lang/String;
 
     .line 110
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/BaseDrawable;->name:Ljava/lang/String;
 
-    .line 111
     return-void
 .end method
 
 .method public setPadding(FFFF)V
     .locals 0
-    .param p1, "topHeight"    # F
-    .param p2, "leftWidth"    # F
-    .param p3, "bottomHeight"    # F
-    .param p4, "rightWidth"    # F
 
     .line 78
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/scenes/scene2d/utils/BaseDrawable;->setTopHeight(F)V
@@ -268,29 +242,24 @@
     .line 81
     invoke-virtual {p0, p4}, Lcom/badlogic/gdx/scenes/scene2d/utils/BaseDrawable;->setRightWidth(F)V
 
-    .line 82
     return-void
 .end method
 
 .method public setRightWidth(F)V
     .locals 0
-    .param p1, "rightWidth"    # F
 
     .line 58
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/BaseDrawable;->rightWidth:F
 
-    .line 59
     return-void
 .end method
 
 .method public setTopHeight(F)V
     .locals 0
-    .param p1, "topHeight"    # F
 
     .line 66
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/BaseDrawable;->topHeight:F
 
-    .line 67
     return-void
 .end method
 
@@ -310,9 +279,6 @@
 
     move-result-object v0
 
-    return-object v0
-
-    .line 115
     :cond_0
     return-object v0
 .end method

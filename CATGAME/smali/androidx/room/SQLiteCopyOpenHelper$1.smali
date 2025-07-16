@@ -21,8 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/room/SQLiteCopyOpenHelper;I)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/room/SQLiteCopyOpenHelper;
-    .param p2, "version"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
@@ -46,7 +44,6 @@
 # virtual methods
 .method public onCreate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
     .locals 0
-    .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -56,15 +53,11 @@
         }
     .end annotation
 
-    .line 265
     return-void
 .end method
 
 .method public onUpgrade(Landroidx/sqlite/db/SupportSQLiteDatabase;II)V
     .locals 0
-    .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
-    .param p2, "oldVersion"    # I
-    .param p3, "newVersion"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -78,6 +71,5 @@
         }
     .end annotation
 
-    .line 270
     return-void
 .end method

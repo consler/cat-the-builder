@@ -15,62 +15,57 @@
 
 # direct methods
 .method public constructor <init>(Lcom/thoughtworks/xstream/mapper/Mapper;)V
-    .locals 1
-    .param p1, "wrapped"    # Lcom/thoughtworks/xstream/mapper/Mapper;
+    .locals 0
 
     .line 32
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;-><init>(Lcom/thoughtworks/xstream/mapper/Mapper;)V
 
     .line 28
-    new-instance v0, Ljava/util/HashSet;
+    new-instance p1, Ljava/util/HashSet;
 
-    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
+    invoke-direct {p1}, Ljava/util/HashSet;-><init>()V
 
-    iput-object v0, p0, Lcom/thoughtworks/xstream/mapper/ElementIgnoringMapper;->fieldsToOmit:Ljava/util/Set;
+    iput-object p1, p0, Lcom/thoughtworks/xstream/mapper/ElementIgnoringMapper;->fieldsToOmit:Ljava/util/Set;
 
     .line 29
-    new-instance v0, Ljava/util/LinkedHashSet;
+    new-instance p1, Ljava/util/LinkedHashSet;
 
-    invoke-direct {v0}, Ljava/util/LinkedHashSet;-><init>()V
+    invoke-direct {p1}, Ljava/util/LinkedHashSet;-><init>()V
 
-    iput-object v0, p0, Lcom/thoughtworks/xstream/mapper/ElementIgnoringMapper;->unknownElementsToIgnore:Ljava/util/Set;
+    iput-object p1, p0, Lcom/thoughtworks/xstream/mapper/ElementIgnoringMapper;->unknownElementsToIgnore:Ljava/util/Set;
 
-    .line 33
     return-void
 .end method
 
 .method static synthetic class$(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 2
-    .param p0, "x0"    # Ljava/lang/String;
+    .locals 1
 
     .line 46
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/lang/NoClassDefFoundError;
+    new-instance v0, Ljava/lang/NoClassDefFoundError;
 
-    invoke-direct {v1}, Ljava/lang/NoClassDefFoundError;-><init>()V
+    invoke-direct {v0}, Ljava/lang/NoClassDefFoundError;-><init>()V
 
-    invoke-virtual {v1, v0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, p0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 .end method
 
 .method private key(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
-    .param p2, "name"    # Ljava/lang/String;
 
     .line 65
     new-instance v0, Lcom/thoughtworks/xstream/core/util/FastField;
@@ -84,20 +79,17 @@
 # virtual methods
 .method public addElementsToIgnore(Ljava/util/regex/Pattern;)V
     .locals 1
-    .param p1, "pattern"    # Ljava/util/regex/Pattern;
 
     .line 36
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/ElementIgnoringMapper;->unknownElementsToIgnore:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 37
     return-void
 .end method
 
 .method public isIgnoredElement(Ljava/lang/String;)Z
-    .locals 3
-    .param p1, "name"    # Ljava/lang/String;
+    .locals 2
 
     .line 53
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/ElementIgnoringMapper;->unknownElementsToIgnore:Ljava/util/Set;
@@ -115,8 +107,7 @@
 
     move-result-object v0
 
-    .local v0, "iter":Ljava/util/Iterator;
-    :goto_0
+    :cond_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
@@ -131,59 +122,46 @@
     check-cast v1, Ljava/util/regex/Pattern;
 
     .line 56
-    .local v1, "pattern":Ljava/util/regex/Pattern;
     invoke-virtual {v1, p1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Ljava/util/regex/Matcher;->matches()Z
+    invoke-virtual {v1}, Ljava/util/regex/Matcher;->matches()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    .line 57
-    const/4 v2, 0x1
+    const/4 p1, 0x1
 
-    return v2
-
-    .line 59
-    .end local v1    # "pattern":Ljava/util/regex/Pattern;
-    :cond_0
-    goto :goto_0
+    return p1
 
     .line 61
-    .end local v0    # "iter":Ljava/util/Iterator;
     :cond_1
     invoke-super {p0, p1}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->isIgnoredElement(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public omitField(Ljava/lang/Class;Ljava/lang/String;)V
-    .locals 2
-    .param p1, "definedIn"    # Ljava/lang/Class;
-    .param p2, "fieldName"    # Ljava/lang/String;
+    .locals 1
 
     .line 40
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/ElementIgnoringMapper;->fieldsToOmit:Ljava/util/Set;
 
     invoke-direct {p0, p1, p2}, Lcom/thoughtworks/xstream/mapper/ElementIgnoringMapper;->key(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 41
     return-void
 .end method
 
 .method public shouldSerializeMember(Ljava/lang/Class;Ljava/lang/String;)Z
     .locals 2
-    .param p1, "definedIn"    # Ljava/lang/Class;
-    .param p2, "fieldName"    # Ljava/lang/String;
 
     .line 44
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/ElementIgnoringMapper;->fieldsToOmit:Ljava/util/Set;
@@ -200,7 +178,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 45
     return v1
 
     .line 46
@@ -226,14 +203,13 @@
 
     if-eqz v0, :cond_2
 
-    .line 47
     return v1
 
     .line 49
     :cond_2
     invoke-super {p0, p1, p2}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->shouldSerializeMember(Ljava/lang/Class;Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

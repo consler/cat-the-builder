@@ -95,8 +95,6 @@
 
     move-result-object v0
 
-    .line 798
-    .local v0, "inSharedElements":Landroidx/collection/ArrayMap;, "Landroidx/collection/ArrayMap<Ljava/lang/String;Landroid/view/View;>;"
     if-eqz v0, :cond_0
 
     .line 799
@@ -150,21 +148,17 @@
 
     invoke-static {v0, v1, v2, v3}, Landroidx/fragment/app/FragmentTransition;->getInEpicenterView(Landroidx/collection/ArrayMap;Landroidx/fragment/app/FragmentTransition$FragmentContainerTransition;Ljava/lang/Object;Z)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    .line 812
-    .local v1, "inEpicenterView":Landroid/view/View;
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 813
-    iget-object v2, p0, Landroidx/fragment/app/FragmentTransition$6;->val$impl:Landroidx/fragment/app/FragmentTransitionImpl;
+    iget-object v1, p0, Landroidx/fragment/app/FragmentTransition$6;->val$impl:Landroidx/fragment/app/FragmentTransitionImpl;
 
-    iget-object v3, p0, Landroidx/fragment/app/FragmentTransition$6;->val$inEpicenter:Landroid/graphics/Rect;
+    iget-object v2, p0, Landroidx/fragment/app/FragmentTransition$6;->val$inEpicenter:Landroid/graphics/Rect;
 
-    invoke-virtual {v2, v1, v3}, Landroidx/fragment/app/FragmentTransitionImpl;->getBoundsOnScreen(Landroid/view/View;Landroid/graphics/Rect;)V
+    invoke-virtual {v1, v0, v2}, Landroidx/fragment/app/FragmentTransitionImpl;->getBoundsOnScreen(Landroid/view/View;Landroid/graphics/Rect;)V
 
-    .line 817
-    .end local v1    # "inEpicenterView":Landroid/view/View;
     :cond_1
     return-void
 .end method

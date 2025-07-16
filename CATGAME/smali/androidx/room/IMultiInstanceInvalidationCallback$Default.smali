@@ -32,7 +32,6 @@
 .method public asBinder()Landroid/os/IBinder;
     .locals 1
 
-    .line 25
     const/4 v0, 0x0
 
     return-object v0
@@ -40,7 +39,6 @@
 
 .method public onInvalidation([Ljava/lang/String;)V
     .locals 0
-    .param p1, "tables"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -56,6 +54,5 @@
         }
     .end annotation
 
-    .line 22
     return-void
 .end method

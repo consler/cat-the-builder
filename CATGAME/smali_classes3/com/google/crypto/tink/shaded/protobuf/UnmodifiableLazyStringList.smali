@@ -26,7 +26,6 @@
 # direct methods
 .method public constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;)V
     .locals 0
-    .param p1, "list"    # Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
 
     .line 52
     invoke-direct {p0}, Ljava/util/AbstractList;-><init>()V
@@ -34,48 +33,44 @@
     .line 53
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;->list:Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
 
-    .line 54
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;)Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
-    .locals 1
-    .param p0, "x0"    # Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;
+    .locals 0
 
     .line 47
-    iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;->list:Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
+    iget-object p0, p0, Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;->list:Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
 
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public add(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
-    .locals 1
-    .param p1, "element"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    .locals 0
 
     .line 78
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public add([B)V
-    .locals 1
-    .param p1, "element"    # [B
+    .locals 0
 
     .line 98
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public addAllByteArray(Ljava/util/Collection;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -85,16 +80,15 @@
     .end annotation
 
     .line 108
-    .local p1, "element":Ljava/util/Collection;, "Ljava/util/Collection<[B>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public addAllByteString(Ljava/util/Collection;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -106,12 +100,11 @@
     .end annotation
 
     .line 88
-    .local p1, "element":Ljava/util/Collection;, "Ljava/util/Collection<+Lcom/google/crypto/tink/shaded/protobuf/ByteString;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public asByteArrayList()Ljava/util/List;
@@ -176,60 +169,56 @@
 
 .method public get(I)Ljava/lang/String;
     .locals 1
-    .param p1, "index"    # I
 
     .line 58
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;->list:Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
 
     invoke-interface {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/lang/String;
+    check-cast p1, Ljava/lang/String;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getByteArray(I)[B
     .locals 1
-    .param p1, "index"    # I
 
     .line 93
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;->list:Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
 
     invoke-interface {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;->getByteArray(I)[B
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getByteString(I)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .locals 1
-    .param p1, "index"    # I
 
     .line 73
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;->list:Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
 
     invoke-interface {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;->getByteString(I)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getRaw(I)Ljava/lang/Object;
     .locals 1
-    .param p1, "index"    # I
 
     .line 63
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/UnmodifiableLazyStringList;->list:Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
 
     invoke-interface {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;->getRaw(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getUnderlyingElements()Ljava/util/List;
@@ -255,7 +244,6 @@
 .method public getUnmodifiableView()Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
     .locals 0
 
-    .line 208
     return-object p0
 .end method
 
@@ -280,7 +268,6 @@
 
 .method public listIterator(I)Ljava/util/ListIterator;
     .locals 1
-    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -299,41 +286,36 @@
 .end method
 
 .method public mergeFrom(Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;)V
-    .locals 1
-    .param p1, "other"    # Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
+    .locals 0
 
     .line 193
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public set(ILcom/google/crypto/tink/shaded/protobuf/ByteString;)V
-    .locals 1
-    .param p1, "index"    # I
-    .param p2, "element"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    .locals 0
 
     .line 83
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public set(I[B)V
-    .locals 1
-    .param p1, "index"    # I
-    .param p2, "element"    # [B
+    .locals 0
 
     .line 103
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public size()I

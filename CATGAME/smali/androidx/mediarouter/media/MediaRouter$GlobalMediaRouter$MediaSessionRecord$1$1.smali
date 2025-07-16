@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter$MediaSessionRecord$1;I)V
     .locals 0
-    .param p1, "this$2"    # Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter$MediaSessionRecord$1;
 
     .line 3025
     iput-object p1, p0, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter$MediaSessionRecord$1$1;->this$2:Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter$MediaSessionRecord$1;
@@ -67,7 +66,6 @@
 
     invoke-virtual {v0, v1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->requestSetVolume(I)V
 
-    .line 3031
     :cond_0
     return-void
 .end method

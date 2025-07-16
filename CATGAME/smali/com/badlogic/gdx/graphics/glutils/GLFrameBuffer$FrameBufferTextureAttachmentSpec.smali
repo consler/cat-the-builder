@@ -33,9 +33,6 @@
 # direct methods
 .method public constructor <init>(III)V
     .locals 0
-    .param p1, "internalformat"    # I
-    .param p2, "format"    # I
-    .param p3, "type"    # I
 
     .line 423
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +46,6 @@
     .line 426
     iput p3, p0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferTextureAttachmentSpec;->type:I
 
-    .line 427
     return-void
 .end method
 

@@ -24,8 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/utils/JsonWriter;Z)V
-    .locals 1
-    .param p2, "array"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -45,17 +44,16 @@
 
     if-eqz p2, :cond_0
 
-    const/16 v0, 0x5b
+    const/16 p2, 0x5b
 
     goto :goto_0
 
     :cond_0
-    const/16 v0, 0x7b
+    const/16 p2, 0x7b
 
     :goto_0
-    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(I)V
+    invoke-virtual {p1, p2}, Ljava/io/Writer;->write(I)V
 
-    .line 157
     return-void
 .end method
 
@@ -88,6 +86,5 @@
     :goto_0
     invoke-virtual {v0, v1}, Ljava/io/Writer;->write(I)V
 
-    .line 161
     return-void
 .end method

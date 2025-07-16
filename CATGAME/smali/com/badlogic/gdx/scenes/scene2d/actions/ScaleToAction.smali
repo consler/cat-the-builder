@@ -46,7 +46,6 @@
 
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ScaleToAction;->startY:F
 
-    .line 28
     return-void
 .end method
 
@@ -70,7 +69,6 @@
 
 .method public setScale(F)V
     .locals 0
-    .param p1, "scale"    # F
 
     .line 51
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ScaleToAction;->endX:F
@@ -78,14 +76,11 @@
     .line 52
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ScaleToAction;->endY:F
 
-    .line 53
     return-void
 .end method
 
 .method public setScale(FF)V
     .locals 0
-    .param p1, "x"    # F
-    .param p2, "y"    # F
 
     .line 46
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ScaleToAction;->endX:F
@@ -93,37 +88,30 @@
     .line 47
     iput p2, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ScaleToAction;->endY:F
 
-    .line 48
     return-void
 .end method
 
 .method public setX(F)V
     .locals 0
-    .param p1, "x"    # F
 
     .line 60
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ScaleToAction;->endX:F
 
-    .line 61
     return-void
 .end method
 
 .method public setY(F)V
     .locals 0
-    .param p1, "y"    # F
 
     .line 68
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ScaleToAction;->endY:F
 
-    .line 69
     return-void
 .end method
 
 .method protected update(F)V
-    .locals 3
-    .param p1, "percent"    # F
+    .locals 4
 
-    .line 32
     const/4 v0, 0x0
 
     cmpl-float v0, p1, v0
@@ -131,18 +119,13 @@
     if-nez v0, :cond_0
 
     .line 33
-    iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ScaleToAction;->startX:F
+    iget p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ScaleToAction;->startX:F
 
     .line 34
-    .local v0, "x":F
-    iget v1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ScaleToAction;->startY:F
+    iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ScaleToAction;->startY:F
 
-    .local v1, "y":F
     goto :goto_0
 
-    .line 35
-    .end local v0    # "x":F
-    .end local v1    # "y":F
     :cond_0
     const/high16 v0, 0x3f800000    # 1.0f
 
@@ -151,18 +134,14 @@
     if-nez v0, :cond_1
 
     .line 36
-    iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ScaleToAction;->endX:F
+    iget p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ScaleToAction;->endX:F
 
     .line 37
-    .restart local v0    # "x":F
-    iget v1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ScaleToAction;->endY:F
+    iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ScaleToAction;->endY:F
 
-    .restart local v1    # "y":F
     goto :goto_0
 
     .line 39
-    .end local v0    # "x":F
-    .end local v1    # "y":F
     :cond_1
     iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ScaleToAction;->startX:F
 
@@ -175,7 +154,6 @@
     add-float/2addr v0, v1
 
     .line 40
-    .restart local v0    # "x":F
     iget v1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ScaleToAction;->startY:F
 
     iget v2, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ScaleToAction;->endY:F
@@ -184,15 +162,19 @@
 
     mul-float/2addr v2, p1
 
-    add-float/2addr v1, v2
+    add-float p1, v1, v2
+
+    move v3, v0
+
+    move v0, p1
+
+    move p1, v3
 
     .line 42
-    .restart local v1    # "y":F
     :goto_0
-    iget-object v2, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ScaleToAction;->target:Lcom/badlogic/gdx/scenes/scene2d/Actor;
+    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/ScaleToAction;->target:Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    invoke-virtual {v2, v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/Actor;->setScale(FF)V
+    invoke-virtual {v1, p1, v0}, Lcom/badlogic/gdx/scenes/scene2d/Actor;->setScale(FF)V
 
-    .line 43
     return-void
 .end method

@@ -55,22 +55,20 @@
 
     invoke-direct {v0, p0}, Lcom/bumptech/glide/load/engine/cache/SafeKeyGenerator$1;-><init>(Lcom/bumptech/glide/load/engine/cache/SafeKeyGenerator;)V
 
-    .line 24
     const/16 v1, 0xa
 
+    .line 24
     invoke-static {v1, v0}, Lcom/bumptech/glide/util/pool/FactoryPools;->threadSafe(ILcom/bumptech/glide/util/pool/FactoryPools$Factory;)Landroidx/core/util/Pools$Pool;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bumptech/glide/load/engine/cache/SafeKeyGenerator;->digestPool:Landroidx/core/util/Pools$Pool;
 
-    .line 23
     return-void
 .end method
 
 .method private calculateHexStringDigest(Lcom/bumptech/glide/load/Key;)Ljava/lang/String;
-    .locals 3
-    .param p1, "key"    # Lcom/bumptech/glide/load/Key;
+    .locals 2
 
     .line 52
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/cache/SafeKeyGenerator;->digestPool:Landroidx/core/util/Pools$Pool;
@@ -86,49 +84,45 @@
     check-cast v0, Lcom/bumptech/glide/load/engine/cache/SafeKeyGenerator$PoolableDigestContainer;
 
     .line 54
-    .local v0, "container":Lcom/bumptech/glide/load/engine/cache/SafeKeyGenerator$PoolableDigestContainer;
     :try_start_0
     iget-object v1, v0, Lcom/bumptech/glide/load/engine/cache/SafeKeyGenerator$PoolableDigestContainer;->messageDigest:Ljava/security/MessageDigest;
 
     invoke-interface {p1, v1}, Lcom/bumptech/glide/load/Key;->updateDiskCacheKey(Ljava/security/MessageDigest;)V
 
     .line 56
-    iget-object v1, v0, Lcom/bumptech/glide/load/engine/cache/SafeKeyGenerator$PoolableDigestContainer;->messageDigest:Ljava/security/MessageDigest;
+    iget-object p1, v0, Lcom/bumptech/glide/load/engine/cache/SafeKeyGenerator$PoolableDigestContainer;->messageDigest:Ljava/security/MessageDigest;
 
-    invoke-virtual {v1}, Ljava/security/MessageDigest;->digest()[B
+    invoke-virtual {p1}, Ljava/security/MessageDigest;->digest()[B
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-static {v1}, Lcom/bumptech/glide/util/Util;->sha256BytesToHex([B)Ljava/lang/String;
+    invoke-static {p1}, Lcom/bumptech/glide/util/Util;->sha256BytesToHex([B)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 58
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/cache/SafeKeyGenerator;->digestPool:Landroidx/core/util/Pools$Pool;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/cache/SafeKeyGenerator;->digestPool:Landroidx/core/util/Pools$Pool;
 
-    invoke-interface {v2, v0}, Landroidx/core/util/Pools$Pool;->release(Ljava/lang/Object;)Z
+    invoke-interface {v1, v0}, Landroidx/core/util/Pools$Pool;->release(Ljava/lang/Object;)Z
 
-    .line 56
-    return-object v1
+    return-object p1
 
-    .line 58
     :catchall_0
-    move-exception v1
+    move-exception p1
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/cache/SafeKeyGenerator;->digestPool:Landroidx/core/util/Pools$Pool;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/cache/SafeKeyGenerator;->digestPool:Landroidx/core/util/Pools$Pool;
 
-    invoke-interface {v2, v0}, Landroidx/core/util/Pools$Pool;->release(Ljava/lang/Object;)Z
+    invoke-interface {v1, v0}, Landroidx/core/util/Pools$Pool;->release(Ljava/lang/Object;)Z
 
-    throw v1
+    throw p1
 .end method
 
 
 # virtual methods
 .method public getSafeKey(Lcom/bumptech/glide/load/Key;)Ljava/lang/String;
     .locals 3
-    .param p1, "key"    # Lcom/bumptech/glide/load/Key;
 
     .line 39
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/cache/SafeKeyGenerator;->loadIdToSafeHash:Lcom/bumptech/glide/util/LruCache;
@@ -146,12 +140,10 @@
     check-cast v1, Ljava/lang/String;
 
     .line 41
-    .local v1, "safeKey":Ljava/lang/String;
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 42
     if-nez v1, :cond_0
 
     .line 43
@@ -174,28 +166,25 @@
     .line 47
     monitor-exit v2
 
-    .line 48
     return-object v1
 
-    .line 47
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit v2
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw p1
+
+    :catchall_1
+    move-exception p1
 
     .line 41
-    .end local v1    # "safeKey":Ljava/lang/String;
-    :catchall_1
-    move-exception v1
-
     :try_start_2
     monitor-exit v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    throw v1
+    throw p1
 .end method

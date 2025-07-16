@@ -28,10 +28,6 @@
 # virtual methods
 .method build(Lcom/bumptech/glide/gifdecoder/GifDecoder$BitmapProvider;Lcom/bumptech/glide/gifdecoder/GifHeader;Ljava/nio/ByteBuffer;I)Lcom/bumptech/glide/gifdecoder/GifDecoder;
     .locals 1
-    .param p1, "provider"    # Lcom/bumptech/glide/gifdecoder/GifDecoder$BitmapProvider;
-    .param p2, "header"    # Lcom/bumptech/glide/gifdecoder/GifHeader;
-    .param p3, "data"    # Ljava/nio/ByteBuffer;
-    .param p4, "sampleSize"    # I
 
     .line 165
     new-instance v0, Lcom/bumptech/glide/gifdecoder/StandardGifDecoder;

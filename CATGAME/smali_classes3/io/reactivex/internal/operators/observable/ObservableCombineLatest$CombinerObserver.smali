@@ -56,7 +56,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/observable/ObservableCombineLatest$LatestCoordinator;I)V
     .locals 1
-    .param p2, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -66,8 +65,6 @@
     .end annotation
 
     .line 304
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableCombineLatest$CombinerObserver;, "Lio/reactivex/internal/operators/observable/ObservableCombineLatest$CombinerObserver<TT;TR;>;"
-    .local p1, "parent":Lio/reactivex/internal/operators/observable/ObservableCombineLatest$LatestCoordinator;, "Lio/reactivex/internal/operators/observable/ObservableCombineLatest$LatestCoordinator<TT;TR;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 302
@@ -83,7 +80,6 @@
     .line 306
     iput p2, p0, Lio/reactivex/internal/operators/observable/ObservableCombineLatest$CombinerObserver;->index:I
 
-    .line 307
     return-void
 .end method
 
@@ -93,12 +89,10 @@
     .locals 1
 
     .line 331
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableCombineLatest$CombinerObserver;, "Lio/reactivex/internal/operators/observable/ObservableCombineLatest$CombinerObserver<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableCombineLatest$CombinerObserver;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 332
     return-void
 .end method
 
@@ -106,39 +100,34 @@
     .locals 3
 
     .line 327
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableCombineLatest$CombinerObserver;, "Lio/reactivex/internal/operators/observable/ObservableCombineLatest$CombinerObserver<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableCombineLatest$CombinerObserver;->parent:Lio/reactivex/internal/operators/observable/ObservableCombineLatest$LatestCoordinator;
 
-    iget v1, p0, Lio/reactivex/internal/operators/observable/ObservableCombineLatest$CombinerObserver;->index:I
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    iget v2, p0, Lio/reactivex/internal/operators/observable/ObservableCombineLatest$CombinerObserver;->index:I
 
-    invoke-virtual {v0, v2, v1}, Lio/reactivex/internal/operators/observable/ObservableCombineLatest$LatestCoordinator;->combine(Ljava/lang/Object;I)V
+    invoke-virtual {v0, v1, v2}, Lio/reactivex/internal/operators/observable/ObservableCombineLatest$LatestCoordinator;->combine(Ljava/lang/Object;I)V
 
-    .line 328
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
-    .locals 3
-    .param p1, "t"    # Ljava/lang/Throwable;
+    .locals 2
 
     .line 321
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableCombineLatest$CombinerObserver;, "Lio/reactivex/internal/operators/observable/ObservableCombineLatest$CombinerObserver<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableCombineLatest$CombinerObserver;->parent:Lio/reactivex/internal/operators/observable/ObservableCombineLatest$LatestCoordinator;
 
     invoke-virtual {v0, p1}, Lio/reactivex/internal/operators/observable/ObservableCombineLatest$LatestCoordinator;->onError(Ljava/lang/Throwable;)V
 
     .line 322
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableCombineLatest$CombinerObserver;->parent:Lio/reactivex/internal/operators/observable/ObservableCombineLatest$LatestCoordinator;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableCombineLatest$CombinerObserver;->parent:Lio/reactivex/internal/operators/observable/ObservableCombineLatest$LatestCoordinator;
+
+    const/4 v0, 0x0
 
     iget v1, p0, Lio/reactivex/internal/operators/observable/ObservableCombineLatest$CombinerObserver;->index:I
 
-    const/4 v2, 0x0
+    invoke-virtual {p1, v0, v1}, Lio/reactivex/internal/operators/observable/ObservableCombineLatest$LatestCoordinator;->combine(Ljava/lang/Object;I)V
 
-    invoke-virtual {v0, v2, v1}, Lio/reactivex/internal/operators/observable/ObservableCombineLatest$LatestCoordinator;->combine(Ljava/lang/Object;I)V
-
-    .line 323
     return-void
 .end method
 
@@ -151,28 +140,22 @@
     .end annotation
 
     .line 316
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableCombineLatest$CombinerObserver;, "Lio/reactivex/internal/operators/observable/ObservableCombineLatest$CombinerObserver<TT;TR;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableCombineLatest$CombinerObserver;->parent:Lio/reactivex/internal/operators/observable/ObservableCombineLatest$LatestCoordinator;
 
     iget v1, p0, Lio/reactivex/internal/operators/observable/ObservableCombineLatest$CombinerObserver;->index:I
 
     invoke-virtual {v0, p1, v1}, Lio/reactivex/internal/operators/observable/ObservableCombineLatest$LatestCoordinator;->combine(Ljava/lang/Object;I)V
 
-    .line 317
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 311
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableCombineLatest$CombinerObserver;, "Lio/reactivex/internal/operators/observable/ObservableCombineLatest$CombinerObserver<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableCombineLatest$CombinerObserver;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 312
     return-void
 .end method

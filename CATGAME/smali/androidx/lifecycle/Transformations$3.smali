@@ -40,9 +40,9 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 179
     const/4 p1, 0x1
 
+    .line 179
     iput-boolean p1, p0, Landroidx/lifecycle/Transformations$3;->mFirstTime:Z
 
     return-void
@@ -59,7 +59,6 @@
     .end annotation
 
     .line 183
-    .local p1, "currentValue":Ljava/lang/Object;, "TX;"
     iget-object v0, p0, Landroidx/lifecycle/Transformations$3;->val$outputLiveData:Landroidx/lifecycle/MediatorLiveData;
 
     invoke-virtual {v0}, Landroidx/lifecycle/MediatorLiveData;->getValue()Ljava/lang/Object;
@@ -67,7 +66,6 @@
     move-result-object v0
 
     .line 184
-    .local v0, "previousValue":Ljava/lang/Object;, "TX;"
     iget-boolean v1, p0, Landroidx/lifecycle/Transformations$3;->mFirstTime:Z
 
     if-nez v1, :cond_1
@@ -82,22 +80,21 @@
     .line 186
     invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_2
+    if-nez v0, :cond_2
+
+    :cond_1
+    const/4 v0, 0x0
 
     .line 187
-    :cond_1
-    const/4 v1, 0x0
-
-    iput-boolean v1, p0, Landroidx/lifecycle/Transformations$3;->mFirstTime:Z
+    iput-boolean v0, p0, Landroidx/lifecycle/Transformations$3;->mFirstTime:Z
 
     .line 188
-    iget-object v1, p0, Landroidx/lifecycle/Transformations$3;->val$outputLiveData:Landroidx/lifecycle/MediatorLiveData;
+    iget-object v0, p0, Landroidx/lifecycle/Transformations$3;->val$outputLiveData:Landroidx/lifecycle/MediatorLiveData;
 
-    invoke-virtual {v1, p1}, Landroidx/lifecycle/MediatorLiveData;->setValue(Ljava/lang/Object;)V
+    invoke-virtual {v0, p1}, Landroidx/lifecycle/MediatorLiveData;->setValue(Ljava/lang/Object;)V
 
-    .line 190
     :cond_2
     return-void
 .end method

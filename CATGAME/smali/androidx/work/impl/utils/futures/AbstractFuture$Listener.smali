@@ -44,8 +44,6 @@
 
 .method constructor <init>(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
     .locals 0
-    .param p1, "task"    # Ljava/lang/Runnable;
-    .param p2, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -66,6 +64,5 @@
     .line 214
     iput-object p2, p0, Landroidx/work/impl/utils/futures/AbstractFuture$Listener;->executor:Ljava/util/concurrent/Executor;
 
-    .line 215
     return-void
 .end method

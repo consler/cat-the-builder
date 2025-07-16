@@ -23,7 +23,6 @@
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$ByteBufferInitializer;Ljava/nio/ByteBuffer;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$ByteBufferInitializer;
 
     .line 317
     iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$ByteBufferInitializer$1;->this$0:Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$ByteBufferInitializer;
@@ -40,7 +39,6 @@
 .method public close()V
     .locals 0
 
-    .line 335
     return-void
 .end method
 
@@ -61,10 +59,6 @@
 
 .method public readAt(J[BII)I
     .locals 2
-    .param p1, "position"    # J
-    .param p3, "buffer"    # [B
-    .param p4, "offset"    # I
-    .param p5, "size"    # I
 
     .line 320
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$ByteBufferInitializer$1;->val$data:Ljava/nio/ByteBuffer;
@@ -79,36 +73,33 @@
 
     if-ltz v0, :cond_0
 
-    .line 321
-    const/4 v0, -0x1
+    const/4 p1, -0x1
 
-    return v0
+    return p1
 
     .line 323
     :cond_0
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$ByteBufferInitializer$1;->val$data:Ljava/nio/ByteBuffer;
 
-    long-to-int v1, p1
+    long-to-int p1, p1
 
-    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, p1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 324
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$ByteBufferInitializer$1;->val$data:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$ByteBufferInitializer$1;->val$data:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->remaining()I
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
 
-    move-result v0
+    move-result p1
 
-    invoke-static {p5, v0}, Ljava/lang/Math;->min(II)I
+    invoke-static {p5, p1}, Ljava/lang/Math;->min(II)I
 
-    move-result v0
+    move-result p1
 
     .line 325
-    .local v0, "numBytesRead":I
-    iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$ByteBufferInitializer$1;->val$data:Ljava/nio/ByteBuffer;
+    iget-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$ByteBufferInitializer$1;->val$data:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v1, p3, p4, v0}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
+    invoke-virtual {p2, p3, p4, p1}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
 
-    .line 326
-    return v0
+    return p1
 .end method

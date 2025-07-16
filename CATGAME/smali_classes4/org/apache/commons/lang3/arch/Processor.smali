@@ -21,8 +21,6 @@
 # direct methods
 .method public constructor <init>(Lorg/apache/commons/lang3/arch/Processor$Arch;Lorg/apache/commons/lang3/arch/Processor$Type;)V
     .locals 0
-    .param p1, "arch"    # Lorg/apache/commons/lang3/arch/Processor$Arch;
-    .param p2, "type"    # Lorg/apache/commons/lang3/arch/Processor$Type;
 
     .line 98
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +31,6 @@
     .line 100
     iput-object p2, p0, Lorg/apache/commons/lang3/arch/Processor;->type:Lorg/apache/commons/lang3/arch/Processor$Type;
 
-    .line 101
     return-void
 .end method
 

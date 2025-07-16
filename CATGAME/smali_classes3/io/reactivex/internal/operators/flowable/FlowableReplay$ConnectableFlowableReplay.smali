@@ -58,9 +58,6 @@
     .end annotation
 
     .line 1157
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReplay$ConnectableFlowableReplay;, "Lio/reactivex/internal/operators/flowable/FlowableReplay$ConnectableFlowableReplay<TT;>;"
-    .local p1, "co":Lio/reactivex/flowables/ConnectableFlowable;, "Lio/reactivex/flowables/ConnectableFlowable<TT;>;"
-    .local p2, "observable":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-direct {p0}, Lio/reactivex/flowables/ConnectableFlowable;-><init>()V
 
     .line 1158
@@ -69,7 +66,6 @@
     .line 1159
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableReplay$ConnectableFlowableReplay;->observable:Lio/reactivex/Flowable;
 
-    .line 1160
     return-void
 .end method
 
@@ -88,13 +84,10 @@
     .end annotation
 
     .line 1164
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReplay$ConnectableFlowableReplay;, "Lio/reactivex/internal/operators/flowable/FlowableReplay$ConnectableFlowableReplay<TT;>;"
-    .local p1, "connection":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Lio/reactivex/disposables/Disposable;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReplay$ConnectableFlowableReplay;->co:Lio/reactivex/flowables/ConnectableFlowable;
 
     invoke-virtual {v0, p1}, Lio/reactivex/flowables/ConnectableFlowable;->connect(Lio/reactivex/functions/Consumer;)V
 
-    .line 1165
     return-void
 .end method
 
@@ -109,12 +102,9 @@
     .end annotation
 
     .line 1169
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReplay$ConnectableFlowableReplay;, "Lio/reactivex/internal/operators/flowable/FlowableReplay$ConnectableFlowableReplay<TT;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableReplay$ConnectableFlowableReplay;->observable:Lio/reactivex/Flowable;
 
     invoke-virtual {v0, p1}, Lio/reactivex/Flowable;->subscribe(Lorg/reactivestreams/Subscriber;)V
 
-    .line 1170
     return-void
 .end method

@@ -88,11 +88,11 @@
 
     new-instance v1, Ljava/util/concurrent/ExecutionException;
 
-    iget-object v2, p0, Lcom/huawei/hmf/tasks/a/e;->e:Ljava/lang/Exception;
+    const-string v2, "a task failed"
 
-    const-string v3, "a task failed"
+    iget-object v3, p0, Lcom/huawei/hmf/tasks/a/e;->e:Ljava/lang/Exception;
 
-    invoke-direct {v1, v3, v2}, Ljava/util/concurrent/ExecutionException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v1, v2, v3}, Ljava/util/concurrent/ExecutionException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     invoke-virtual {v0, v1}, Lcom/huawei/hmf/tasks/a/i;->a(Ljava/lang/Exception;)V
 

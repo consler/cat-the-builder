@@ -25,8 +25,6 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;Lcom/bumptech/glide/manager/ConnectivityMonitor$ConnectivityListener;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "listener"    # Lcom/bumptech/glide/manager/ConnectivityMonitor$ConnectivityListener;
 
     .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,14 +39,13 @@
     .line 47
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->context:Landroid/content/Context;
+    iput-object p1, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->context:Landroid/content/Context;
 
     .line 48
     iput-object p2, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->listener:Lcom/bumptech/glide/manager/ConnectivityMonitor$ConnectivityListener;
 
-    .line 49
     return-void
 .end method
 
@@ -60,7 +57,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 53
     return-void
 
     .line 57
@@ -87,39 +83,34 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 62
     const/4 v0, 0x1
 
+    .line 62
     iput-boolean v0, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->isRegistered:Z
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 68
     goto :goto_0
 
-    .line 63
     :catch_0
     move-exception v0
 
-    .line 65
-    .local v0, "e":Ljava/lang/SecurityException;
     const/4 v1, 0x5
 
     const-string v2, "ConnectivityMonitor"
 
+    .line 65
     invoke-static {v2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 66
     const-string v1, "Failed to register"
 
+    .line 66
     invoke-static {v2, v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 69
-    .end local v0    # "e":Ljava/lang/SecurityException;
     :cond_1
     :goto_0
     return-void
@@ -133,7 +124,6 @@
 
     if-nez v0, :cond_0
 
-    .line 73
     return-void
 
     .line 76
@@ -144,103 +134,88 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 77
     const/4 v0, 0x0
 
+    .line 77
     iput-boolean v0, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->isRegistered:Z
 
-    .line 78
     return-void
 .end method
 
 
 # virtual methods
 .method isConnected(Landroid/content/Context;)Z
-    .locals 5
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 3
 
-    .line 85
-    nop
-
-    .line 87
     const-string v0, "connectivity"
 
+    .line 87
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/net/ConnectivityManager;
+    check-cast p1, Landroid/net/ConnectivityManager;
 
     .line 86
-    invoke-static {v0}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/net/ConnectivityManager;
+    check-cast p1, Landroid/net/ConnectivityManager;
+
+    const/4 v0, 0x1
 
     .line 90
-    .local v0, "connectivityManager":Landroid/net/ConnectivityManager;
-    const/4 v1, 0x1
-
     :try_start_0
-    invoke-virtual {v0}, Landroid/net/ConnectivityManager;->getActiveNetworkInfo()Landroid/net/NetworkInfo;
+    invoke-virtual {p1}, Landroid/net/ConnectivityManager;->getActiveNetworkInfo()Landroid/net/NetworkInfo;
 
-    move-result-object v2
+    move-result-object p1
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 100
-    .local v2, "networkInfo":Landroid/net/NetworkInfo;
-    nop
+    if-eqz p1, :cond_0
 
     .line 101
-    if-eqz v2, :cond_0
+    invoke-virtual {p1}, Landroid/net/NetworkInfo;->isConnected()Z
 
-    invoke-virtual {v2}, Landroid/net/NetworkInfo;->isConnected()Z
+    move-result p1
 
-    move-result v3
-
-    if-eqz v3, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    return v1
+    return v0
 
-    .line 91
-    .end local v2    # "networkInfo":Landroid/net/NetworkInfo;
     :catch_0
-    move-exception v2
+    move-exception p1
+
+    const/4 v1, 0x5
+
+    const-string v2, "ConnectivityMonitor"
 
     .line 95
-    .local v2, "e":Ljava/lang/RuntimeException;
-    const/4 v3, 0x5
+    invoke-static {v2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
-    const-string v4, "ConnectivityMonitor"
+    move-result v1
 
-    invoke-static {v4, v3}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+    if-eqz v1, :cond_1
 
-    move-result v3
-
-    if-eqz v3, :cond_1
+    const-string v1, "Failed to determine connectivity status when connectivity changed"
 
     .line 96
-    const-string v3, "Failed to determine connectivity status when connectivity changed"
+    invoke-static {v2, v1, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    invoke-static {v4, v3, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 99
     :cond_1
-    return v1
+    return v0
 .end method
 
 .method public onDestroy()V
     .locals 0
 
-    .line 117
     return-void
 .end method
 
@@ -250,7 +225,6 @@
     .line 106
     invoke-direct {p0}, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->register()V
 
-    .line 107
     return-void
 .end method
 
@@ -260,6 +234,5 @@
     .line 111
     invoke-direct {p0}, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->unregister()V
 
-    .line 112
     return-void
 .end method

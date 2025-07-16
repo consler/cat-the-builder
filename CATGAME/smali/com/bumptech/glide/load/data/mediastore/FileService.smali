@@ -16,20 +16,18 @@
 
 # virtual methods
 .method public exists(Ljava/io/File;)Z
-    .locals 1
-    .param p1, "file"    # Ljava/io/File;
+    .locals 0
 
     .line 7
     invoke-virtual {p1}, Ljava/io/File;->exists()Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public get(Ljava/lang/String;)Ljava/io/File;
     .locals 1
-    .param p1, "path"    # Ljava/lang/String;
 
     .line 15
     new-instance v0, Ljava/io/File;
@@ -41,7 +39,6 @@
 
 .method public length(Ljava/io/File;)J
     .locals 2
-    .param p1, "file"    # Ljava/io/File;
 
     .line 11
     invoke-virtual {p1}, Ljava/io/File;->length()J

@@ -31,94 +31,87 @@
 
 # virtual methods
 .method public activateParticles(II)V
-    .locals 5
-    .param p1, "startIndex"    # I
-    .param p2, "count"    # I
+    .locals 3
 
     .line 42
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ColorInfluencer$Random;->colorChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
     iget v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
 
-    mul-int/2addr v0, p1
+    mul-int/2addr p1, v0
 
-    .local v0, "i":I
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ColorInfluencer$Random;->colorChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ColorInfluencer$Random;->colorChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    iget v1, v1, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
+    iget v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
 
-    mul-int/2addr v1, p2
+    mul-int/2addr p2, v0
 
-    add-int/2addr v1, v0
+    add-int/2addr p2, p1
 
-    .local v1, "c":I
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge p1, p2, :cond_0
 
     .line 43
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ColorInfluencer$Random;->colorChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ColorInfluencer$Random;->colorChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    iget-object v2, v2, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
+    iget-object v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v3, v0, 0x0
+    add-int/lit8 v1, p1, 0x0
 
     invoke-static {}, Lcom/badlogic/gdx/math/MathUtils;->random()F
 
-    move-result v4
+    move-result v2
 
-    aput v4, v2, v3
+    aput v2, v0, v1
 
     .line 44
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ColorInfluencer$Random;->colorChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ColorInfluencer$Random;->colorChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    iget-object v2, v2, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
+    iget-object v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v3, v0, 0x1
+    add-int/lit8 v1, p1, 0x1
 
     invoke-static {}, Lcom/badlogic/gdx/math/MathUtils;->random()F
 
-    move-result v4
+    move-result v2
 
-    aput v4, v2, v3
+    aput v2, v0, v1
 
     .line 45
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ColorInfluencer$Random;->colorChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ColorInfluencer$Random;->colorChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    iget-object v2, v2, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
+    iget-object v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v3, v0, 0x2
+    add-int/lit8 v1, p1, 0x2
 
     invoke-static {}, Lcom/badlogic/gdx/math/MathUtils;->random()F
 
-    move-result v4
+    move-result v2
 
-    aput v4, v2, v3
+    aput v2, v0, v1
 
     .line 46
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ColorInfluencer$Random;->colorChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ColorInfluencer$Random;->colorChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    iget-object v2, v2, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
+    iget-object v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v3, v0, 0x3
+    add-int/lit8 v1, p1, 0x3
 
     invoke-static {}, Lcom/badlogic/gdx/math/MathUtils;->random()F
 
-    move-result v4
+    move-result v2
 
-    aput v4, v2, v3
+    aput v2, v0, v1
 
     .line 42
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ColorInfluencer$Random;->colorChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ColorInfluencer$Random;->colorChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    iget v2, v2, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
+    iget v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
 
-    add-int/2addr v0, v2
+    add-int/2addr p1, v0
 
     goto :goto_0
 
-    .line 48
-    .end local v0    # "i":I
-    .end local v1    # "c":I
     :cond_0
     return-void
 .end method
@@ -141,7 +134,6 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ColorInfluencer$Random;->colorChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    .line 38
     return-void
 .end method
 

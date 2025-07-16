@@ -10,15 +10,11 @@
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 35
     return-void
 .end method
 
 .method public static create(Landroid/util/Size;Landroid/util/Size;Landroid/util/Size;)Landroidx/camera/core/impl/SurfaceSizeDefinition;
     .locals 1
-    .param p0, "analysisSize"    # Landroid/util/Size;
-    .param p1, "previewSize"    # Landroid/util/Size;
-    .param p2, "recordSize"    # Landroid/util/Size;
 
     .line 52
     new-instance v0, Landroidx/camera/core/impl/AutoValue_SurfaceSizeDefinition;

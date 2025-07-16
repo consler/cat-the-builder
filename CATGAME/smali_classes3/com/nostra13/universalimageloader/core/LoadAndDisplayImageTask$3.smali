@@ -57,6 +57,5 @@
 
     invoke-interface {v0, v1, v2}, Lcom/nostra13/universalimageloader/core/listener/ImageLoadingListener;->onLoadingCancelled(Ljava/lang/String;Landroid/view/View;)V
 
-    .line 372
     return-void
 .end method

@@ -28,26 +28,23 @@
 # virtual methods
 .method public set(Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;ILcom/badlogic/gdx/graphics/g3d/Renderable;Lcom/badlogic/gdx/graphics/g3d/Attributes;)V
     .locals 2
-    .param p1, "shader"    # Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;
-    .param p2, "inputID"    # I
-    .param p3, "renderable"    # Lcom/badlogic/gdx/graphics/g3d/Renderable;
-    .param p4, "combinedAttributes"    # Lcom/badlogic/gdx/graphics/g3d/Attributes;
 
     .line 226
     sget-wide v0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Diffuse:J
 
     invoke-virtual {p4, v0, v1}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->get(J)Lcom/badlogic/gdx/graphics/g3d/Attribute;
 
-    move-result-object v0
+    move-result-object p3
 
-    check-cast v0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;
+    check-cast p3, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;
 
-    check-cast v0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;
+    move-object p4, p3
 
-    iget-object v0, v0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->color:Lcom/badlogic/gdx/graphics/Color;
+    check-cast p4, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;
 
-    invoke-virtual {p1, p2, v0}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;->set(ILcom/badlogic/gdx/graphics/Color;)Z
+    iget-object p3, p3, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->color:Lcom/badlogic/gdx/graphics/Color;
 
-    .line 227
+    invoke-virtual {p1, p2, p3}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;->set(ILcom/badlogic/gdx/graphics/Color;)Z
+
     return-void
 .end method

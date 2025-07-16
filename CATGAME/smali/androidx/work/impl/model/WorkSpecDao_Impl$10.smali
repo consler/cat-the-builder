@@ -36,7 +36,6 @@
 # direct methods
 .method constructor <init>(Landroidx/work/impl/model/WorkSpecDao_Impl;Landroidx/room/RoomSQLiteQuery;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/work/impl/model/WorkSpecDao_Impl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
@@ -48,7 +47,7 @@
         }
     .end annotation
 
-    .line 683
+    .line 694
     iput-object p1, p0, Landroidx/work/impl/model/WorkSpecDao_Impl$10;->this$0:Landroidx/work/impl/model/WorkSpecDao_Impl;
 
     iput-object p2, p0, Landroidx/work/impl/model/WorkSpecDao_Impl$10;->val$_statement:Landroidx/room/RoomSQLiteQuery;
@@ -68,7 +67,7 @@
         }
     .end annotation
 
-    .line 683
+    .line 694
     invoke-virtual {p0}, Landroidx/work/impl/model/WorkSpecDao_Impl$10;->call()Ljava/util/List;
 
     move-result-object v0
@@ -93,7 +92,7 @@
         }
     .end annotation
 
-    .line 686
+    .line 697
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpecDao_Impl$10;->this$0:Landroidx/work/impl/model/WorkSpecDao_Impl;
 
     invoke-static {v0}, Landroidx/work/impl/model/WorkSpecDao_Impl;->access$000(Landroidx/work/impl/model/WorkSpecDao_Impl;)Landroidx/room/RoomDatabase;
@@ -102,7 +101,7 @@
 
     invoke-virtual {v0}, Landroidx/room/RoomDatabase;->beginTransaction()V
 
-    .line 688
+    .line 699
     :try_start_0
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpecDao_Impl$10;->this$0:Landroidx/work/impl/model/WorkSpecDao_Impl;
 
@@ -122,8 +121,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 690
-    .local v0, "_cursor":Landroid/database/Cursor;
+    .line 701
     :try_start_1
     new-instance v1, Ljava/util/ArrayList;
 
@@ -133,8 +131,7 @@
 
     invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 691
-    .local v1, "_result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
+    .line 702
     :goto_0
     invoke-interface {v0}, Landroid/database/Cursor;->moveToNext()Z
 
@@ -142,22 +139,17 @@
 
     if-eqz v2, :cond_0
 
-    .line 693
+    .line 704
     invoke-interface {v0, v3}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 694
-    .local v2, "_item":Ljava/lang/String;
+    .line 705
     invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 695
-    nop
-
-    .end local v2    # "_item":Ljava/lang/String;
     goto :goto_0
 
-    .line 696
+    .line 707
     :cond_0
     iget-object v2, p0, Landroidx/work/impl/model/WorkSpecDao_Impl$10;->this$0:Landroidx/work/impl/model/WorkSpecDao_Impl;
 
@@ -169,45 +161,39 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 697
-    nop
-
-    .line 699
+    .line 710
     :try_start_2
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    .line 702
-    iget-object v2, p0, Landroidx/work/impl/model/WorkSpecDao_Impl$10;->this$0:Landroidx/work/impl/model/WorkSpecDao_Impl;
+    .line 713
+    iget-object v0, p0, Landroidx/work/impl/model/WorkSpecDao_Impl$10;->this$0:Landroidx/work/impl/model/WorkSpecDao_Impl;
 
-    invoke-static {v2}, Landroidx/work/impl/model/WorkSpecDao_Impl;->access$000(Landroidx/work/impl/model/WorkSpecDao_Impl;)Landroidx/room/RoomDatabase;
+    invoke-static {v0}, Landroidx/work/impl/model/WorkSpecDao_Impl;->access$000(Landroidx/work/impl/model/WorkSpecDao_Impl;)Landroidx/room/RoomDatabase;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2}, Landroidx/room/RoomDatabase;->endTransaction()V
+    invoke-virtual {v0}, Landroidx/room/RoomDatabase;->endTransaction()V
 
-    .line 697
     return-object v1
 
-    .line 699
-    .end local v1    # "_result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     :catchall_0
     move-exception v1
 
+    .line 710
     :try_start_3
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
-    .line 700
+    .line 711
     throw v1
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    .line 702
-    .end local v0    # "_cursor":Landroid/database/Cursor;
     :catchall_1
     move-exception v0
 
+    .line 713
     iget-object v1, p0, Landroidx/work/impl/model/WorkSpecDao_Impl$10;->this$0:Landroidx/work/impl/model/WorkSpecDao_Impl;
 
     invoke-static {v1}, Landroidx/work/impl/model/WorkSpecDao_Impl;->access$000(Landroidx/work/impl/model/WorkSpecDao_Impl;)Landroidx/room/RoomDatabase;
@@ -216,18 +202,17 @@
 
     invoke-virtual {v1}, Landroidx/room/RoomDatabase;->endTransaction()V
 
-    .line 703
+    .line 714
     throw v0
 .end method
 
 .method protected finalize()V
     .locals 1
 
-    .line 708
+    .line 719
     iget-object v0, p0, Landroidx/work/impl/model/WorkSpecDao_Impl$10;->val$_statement:Landroidx/room/RoomSQLiteQuery;
 
     invoke-virtual {v0}, Landroidx/room/RoomSQLiteQuery;->release()V
 
-    .line 709
     return-void
 .end method

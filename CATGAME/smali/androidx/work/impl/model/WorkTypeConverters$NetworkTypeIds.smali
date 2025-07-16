@@ -23,4 +23,6 @@
 
 .field public static final NOT_ROAMING:I = 0x3
 
+.field public static final TEMPORARILY_UNMETERED:I = 0x5
+
 .field public static final UNMETERED:I = 0x2

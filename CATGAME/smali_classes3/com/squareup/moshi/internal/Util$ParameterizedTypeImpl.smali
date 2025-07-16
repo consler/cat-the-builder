@@ -30,13 +30,11 @@
 
 # direct methods
 .method public varargs constructor <init>(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;[Ljava/lang/reflect/Type;)V
-    .locals 4
-    .param p1, "ownerType"    # Ljava/lang/reflect/Type;
+    .locals 3
+    .param p1    # Ljava/lang/reflect/Type;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "rawType"    # Ljava/lang/reflect/Type;
-    .param p3, "typeArguments"    # [Ljava/lang/reflect/Type;
 
     .line 301
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,15 +53,13 @@
 
     move-result-object v0
 
-    .line 305
-    .local v0, "enclosingClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const-string v1, "unexpected owner type for "
 
     if-eqz p1, :cond_1
 
-    .line 306
     if-eqz v0, :cond_0
 
+    .line 306
     invoke-static {p1}, Lcom/squareup/moshi/Types;->getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;
 
     move-result-object v2
@@ -74,31 +70,34 @@
 
     .line 307
     :cond_0
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p3, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    const-string v1, ": "
+    const-string v0, ": "
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v2, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v2
+    move-result-object p1
 
-    .line 310
+    invoke-direct {p3, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p3
+
     :cond_1
     if-nez v0, :cond_2
 
@@ -106,108 +105,97 @@
 
     .line 311
     :cond_2
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p3, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    const-string v1, ": null"
+    const-string p3, ": null"
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p2
 
-    move-result-object v1
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v2, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p2
 
-    throw v2
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    .line 316
-    .end local v0    # "enclosingClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
+    throw p1
+
     :cond_3
     :goto_0
-    const/4 v0, 0x0
-
     if-nez p1, :cond_4
 
-    move-object v1, v0
+    const/4 p1, 0x0
 
     goto :goto_1
 
+    .line 316
     :cond_4
     invoke-static {p1}, Lcom/squareup/moshi/internal/Util;->canonicalize(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
 
-    move-result-object v1
+    move-result-object p1
 
     :goto_1
-    iput-object v1, p0, Lcom/squareup/moshi/internal/Util$ParameterizedTypeImpl;->ownerType:Ljava/lang/reflect/Type;
+    iput-object p1, p0, Lcom/squareup/moshi/internal/Util$ParameterizedTypeImpl;->ownerType:Ljava/lang/reflect/Type;
 
     .line 317
     invoke-static {p2}, Lcom/squareup/moshi/internal/Util;->canonicalize(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
 
-    move-result-object v1
+    move-result-object p1
 
-    iput-object v1, p0, Lcom/squareup/moshi/internal/Util$ParameterizedTypeImpl;->rawType:Ljava/lang/reflect/Type;
+    iput-object p1, p0, Lcom/squareup/moshi/internal/Util$ParameterizedTypeImpl;->rawType:Ljava/lang/reflect/Type;
 
     .line 318
     invoke-virtual {p3}, [Ljava/lang/reflect/Type;->clone()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, [Ljava/lang/reflect/Type;
+    check-cast p1, [Ljava/lang/reflect/Type;
 
-    iput-object v1, p0, Lcom/squareup/moshi/internal/Util$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
+    iput-object p1, p0, Lcom/squareup/moshi/internal/Util$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
+
+    const/4 p1, 0x0
 
     .line 319
-    const/4 v1, 0x0
-
-    .local v1, "t":I
     :goto_2
-    iget-object v2, p0, Lcom/squareup/moshi/internal/Util$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
+    iget-object p2, p0, Lcom/squareup/moshi/internal/Util$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
 
-    array-length v3, v2
+    array-length p3, p2
 
-    if-ge v1, v3, :cond_6
+    if-ge p1, p3, :cond_5
 
     .line 320
-    aget-object v3, v2, v1
+    aget-object p2, p2, p1
 
-    if-eqz v3, :cond_5
+    invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     .line 321
-    aget-object v2, v2, v1
-
-    invoke-static {v2}, Lcom/squareup/moshi/internal/Util;->checkNotPrimitive(Ljava/lang/reflect/Type;)V
+    invoke-static {p2}, Lcom/squareup/moshi/internal/Util;->checkNotPrimitive(Ljava/lang/reflect/Type;)V
 
     .line 322
-    iget-object v2, p0, Lcom/squareup/moshi/internal/Util$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
+    iget-object p2, p0, Lcom/squareup/moshi/internal/Util$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
 
-    aget-object v3, v2, v1
+    aget-object p3, p2, p1
 
-    invoke-static {v3}, Lcom/squareup/moshi/internal/Util;->canonicalize(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
+    invoke-static {p3}, Lcom/squareup/moshi/internal/Util;->canonicalize(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
 
-    move-result-object v3
+    move-result-object p3
 
-    aput-object v3, v2, v1
+    aput-object p3, p2, p1
 
-    .line 319
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p1, p1, 0x1
 
     goto :goto_2
 
-    .line 320
     :cond_5
-    throw v0
-
-    .line 324
-    .end local v1    # "t":I
-    :cond_6
     return-void
 .end method
 
@@ -215,34 +203,30 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "other"    # Ljava/lang/Object;
 
     .line 339
     instance-of v0, p1, Ljava/lang/reflect/ParameterizedType;
 
     if-eqz v0, :cond_0
 
-    move-object v0, p1
-
-    check-cast v0, Ljava/lang/reflect/ParameterizedType;
+    check-cast p1, Ljava/lang/reflect/ParameterizedType;
 
     .line 340
-    invoke-static {p0, v0}, Lcom/squareup/moshi/Types;->equals(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Z
+    invoke-static {p0, p1}, Lcom/squareup/moshi/Types;->equals(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    .line 339
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public getActualTypeArguments()[Ljava/lang/reflect/Type;
@@ -308,12 +292,11 @@
 
     xor-int/2addr v0, v1
 
-    .line 344
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .locals 5
 
     .line 350
     new-instance v0, Ljava/lang/StringBuilder;
@@ -322,14 +305,15 @@
 
     array-length v1, v1
 
-    add-int/lit8 v1, v1, 0x1
+    const/4 v2, 0x1
+
+    add-int/2addr v1, v2
 
     mul-int/lit8 v1, v1, 0x1e
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 351
-    .local v0, "result":Ljava/lang/StringBuilder;
     iget-object v1, p0, Lcom/squareup/moshi/internal/Util$ParameterizedTypeImpl;->rawType:Ljava/lang/reflect/Type;
 
     invoke-static {v1}, Lcom/squareup/moshi/internal/Util;->typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
@@ -348,69 +332,70 @@
     .line 354
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 
-    .line 357
     :cond_0
     const-string v1, "<"
 
+    .line 357
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v1, p0, Lcom/squareup/moshi/internal/Util$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
-
-    const/4 v2, 0x0
-
-    aget-object v1, v1, v2
-
-    invoke-static {v1}, Lcom/squareup/moshi/internal/Util;->typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lcom/squareup/moshi/internal/Util$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
+
+    const/4 v4, 0x0
+
+    aget-object v3, v3, v4
+
+    invoke-static {v3}, Lcom/squareup/moshi/internal/Util;->typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 358
-    const/4 v1, 0x1
-
-    .local v1, "i":I
     :goto_0
-    iget-object v2, p0, Lcom/squareup/moshi/internal/Util$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
+    iget-object v1, p0, Lcom/squareup/moshi/internal/Util$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
 
-    array-length v2, v2
+    array-length v1, v1
 
-    if-ge v1, v2, :cond_1
+    if-ge v2, v1, :cond_1
+
+    const-string v1, ", "
 
     .line 359
-    const-string v2, ", "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    iget-object v2, p0, Lcom/squareup/moshi/internal/Util$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
+    iget-object v3, p0, Lcom/squareup/moshi/internal/Util$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
 
-    aget-object v2, v2, v1
+    aget-object v3, v3, v2
 
-    invoke-static {v2}, Lcom/squareup/moshi/internal/Util;->typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/squareup/moshi/internal/Util;->typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 358
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 361
-    .end local v1    # "i":I
     :cond_1
     const-string v1, ">"
 
+    .line 361
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method

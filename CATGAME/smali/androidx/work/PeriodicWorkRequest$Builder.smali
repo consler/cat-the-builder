@@ -25,9 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;JLjava/util/concurrent/TimeUnit;)V
-    .locals 3
-    .param p2, "repeatInterval"    # J
-    .param p4, "repeatIntervalTimeUnit"    # Ljava/util/concurrent/TimeUnit;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -54,28 +52,22 @@
     .end annotation
 
     .line 96
-    .local p1, "workerClass":Ljava/lang/Class;, "Ljava/lang/Class<+Landroidx/work/ListenableWorker;>;"
     invoke-direct {p0, p1}, Landroidx/work/WorkRequest$Builder;-><init>(Ljava/lang/Class;)V
 
     .line 97
-    iget-object v0, p0, Landroidx/work/PeriodicWorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
+    iget-object p1, p0, Landroidx/work/PeriodicWorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
     invoke-virtual {p4, p2, p3}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
 
-    move-result-wide v1
+    move-result-wide p2
 
-    invoke-virtual {v0, v1, v2}, Landroidx/work/impl/model/WorkSpec;->setPeriodic(J)V
+    invoke-virtual {p1, p2, p3}, Landroidx/work/impl/model/WorkSpec;->setPeriodic(J)V
 
-    .line 98
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;JLjava/util/concurrent/TimeUnit;JLjava/util/concurrent/TimeUnit;)V
-    .locals 5
-    .param p2, "repeatInterval"    # J
-    .param p4, "repeatIntervalTimeUnit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "flexInterval"    # J
-    .param p7, "flexIntervalTimeUnit"    # Ljava/util/concurrent/TimeUnit;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -108,32 +100,29 @@
     .end annotation
 
     .line 149
-    .local p1, "workerClass":Ljava/lang/Class;, "Ljava/lang/Class<+Landroidx/work/ListenableWorker;>;"
     invoke-direct {p0, p1}, Landroidx/work/WorkRequest$Builder;-><init>(Ljava/lang/Class;)V
 
     .line 150
-    iget-object v0, p0, Landroidx/work/PeriodicWorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
+    iget-object p1, p0, Landroidx/work/PeriodicWorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
     .line 151
     invoke-virtual {p4, p2, p3}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
 
-    move-result-wide v1
+    move-result-wide p2
 
     .line 152
     invoke-virtual {p7, p5, p6}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
 
-    move-result-wide v3
+    move-result-wide p4
 
     .line 150
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroidx/work/impl/model/WorkSpec;->setPeriodic(JJ)V
+    invoke-virtual {p1, p2, p3, p4, p5}, Landroidx/work/impl/model/WorkSpec;->setPeriodic(JJ)V
 
-    .line 153
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;Ljava/time/Duration;)V
-    .locals 3
-    .param p2, "repeatInterval"    # Ljava/time/Duration;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -158,26 +147,22 @@
     .end annotation
 
     .line 117
-    .local p1, "workerClass":Ljava/lang/Class;, "Ljava/lang/Class<+Landroidx/work/ListenableWorker;>;"
     invoke-direct {p0, p1}, Landroidx/work/WorkRequest$Builder;-><init>(Ljava/lang/Class;)V
 
     .line 118
-    iget-object v0, p0, Landroidx/work/PeriodicWorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
+    iget-object p1, p0, Landroidx/work/PeriodicWorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
     invoke-virtual {p2}, Ljava/time/Duration;->toMillis()J
 
-    move-result-wide v1
+    move-result-wide v0
 
-    invoke-virtual {v0, v1, v2}, Landroidx/work/impl/model/WorkSpec;->setPeriodic(J)V
+    invoke-virtual {p1, v0, v1}, Landroidx/work/impl/model/WorkSpec;->setPeriodic(J)V
 
-    .line 119
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;Ljava/time/Duration;Ljava/time/Duration;)V
-    .locals 5
-    .param p2, "repeatInterval"    # Ljava/time/Duration;
-    .param p3, "flexInterval"    # Ljava/time/Duration;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -205,23 +190,21 @@
     .end annotation
 
     .line 180
-    .local p1, "workerClass":Ljava/lang/Class;, "Ljava/lang/Class<+Landroidx/work/ListenableWorker;>;"
     invoke-direct {p0, p1}, Landroidx/work/WorkRequest$Builder;-><init>(Ljava/lang/Class;)V
 
     .line 181
-    iget-object v0, p0, Landroidx/work/PeriodicWorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
+    iget-object p1, p0, Landroidx/work/PeriodicWorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
     invoke-virtual {p2}, Ljava/time/Duration;->toMillis()J
 
-    move-result-wide v1
+    move-result-wide v0
 
     invoke-virtual {p3}, Ljava/time/Duration;->toMillis()J
 
-    move-result-wide v3
+    move-result-wide p2
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroidx/work/impl/model/WorkSpec;->setPeriodic(JJ)V
+    invoke-virtual {p1, v0, v1, p2, p3}, Landroidx/work/impl/model/WorkSpec;->setPeriodic(JJ)V
 
-    .line 182
     return-void
 .end method
 
@@ -233,13 +216,7 @@
     .line 186
     iget-boolean v0, p0, Landroidx/work/PeriodicWorkRequest$Builder;->mBackoffCriteriaSet:Z
 
-    const/16 v1, 0x17
-
     if-eqz v0, :cond_1
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt v0, v1, :cond_1
 
     iget-object v0, p0, Landroidx/work/PeriodicWorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
@@ -269,45 +246,26 @@
     :goto_0
     iget-object v0, p0, Landroidx/work/PeriodicWorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
 
-    iget-boolean v0, v0, Landroidx/work/impl/model/WorkSpec;->runInForeground:Z
-
-    if-eqz v0, :cond_3
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-lt v0, v1, :cond_3
-
-    iget-object v0, p0, Landroidx/work/PeriodicWorkRequest$Builder;->mWorkSpec:Landroidx/work/impl/model/WorkSpec;
-
-    iget-object v0, v0, Landroidx/work/impl/model/WorkSpec;->constraints:Landroidx/work/Constraints;
-
-    .line 194
-    invoke-virtual {v0}, Landroidx/work/Constraints;->requiresDeviceIdle()Z
-
-    move-result v0
+    iget-boolean v0, v0, Landroidx/work/impl/model/WorkSpec;->expedited:Z
 
     if-nez v0, :cond_2
 
-    goto :goto_1
-
-    .line 195
-    :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    const-string v1, "Cannot run in foreground with an idle mode constraint"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    .line 198
-    :cond_3
-    :goto_1
+    .line 196
     new-instance v0, Landroidx/work/PeriodicWorkRequest;
 
     invoke-direct {v0, p0}, Landroidx/work/PeriodicWorkRequest;-><init>(Landroidx/work/PeriodicWorkRequest$Builder;)V
 
     return-object v0
+
+    .line 193
+    :cond_2
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "PeriodicWorkRequests cannot be expedited"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
 
 .method bridge synthetic buildInternal()Landroidx/work/WorkRequest;
@@ -324,7 +282,6 @@
 .method getThis()Landroidx/work/PeriodicWorkRequest$Builder;
     .locals 0
 
-    .line 203
     return-object p0
 .end method
 

@@ -59,9 +59,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;Lcom/google/gson/reflect/TypeToken;ZLjava/lang/Class;)V
-    .locals 2
-    .param p1, "typeAdapter"    # Ljava/lang/Object;
-    .param p3, "matchRawType"    # Z
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -73,90 +71,79 @@
         }
     .end annotation
 
-    .line 127
-    .local p2, "exactType":Lcom/google/gson/reflect/TypeToken;, "Lcom/google/gson/reflect/TypeToken<*>;"
-    .local p4, "hierarchyType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
+    .line 128
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 128
+    .line 129
     instance-of v0, p1, Lcom/google/gson/JsonSerializer;
 
     const/4 v1, 0x0
 
     if-eqz v0, :cond_0
 
-    .line 129
+    .line 130
     move-object v0, p1
 
     check-cast v0, Lcom/google/gson/JsonSerializer;
 
     goto :goto_0
 
-    .line 130
     :cond_0
     move-object v0, v1
 
+    .line 131
     :goto_0
     iput-object v0, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$SingleTypeFactory;->serializer:Lcom/google/gson/JsonSerializer;
 
-    .line 131
-    instance-of v0, p1, Lcom/google/gson/JsonDeserializer;
-
-    if-eqz v0, :cond_1
-
     .line 132
+    instance-of v2, p1, Lcom/google/gson/JsonDeserializer;
+
+    if-eqz v2, :cond_1
+
+    .line 133
     move-object v1, p1
 
     check-cast v1, Lcom/google/gson/JsonDeserializer;
 
-    goto :goto_1
-
-    .line 133
-    :cond_1
-    nop
-
-    :goto_1
-    iput-object v1, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$SingleTypeFactory;->deserializer:Lcom/google/gson/JsonDeserializer;
-
     .line 134
-    iget-object v0, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$SingleTypeFactory;->serializer:Lcom/google/gson/JsonSerializer;
+    :cond_1
+    iput-object v1, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$SingleTypeFactory;->deserializer:Lcom/google/gson/JsonDeserializer;
 
     if-nez v0, :cond_3
 
     if-eqz v1, :cond_2
 
-    goto :goto_2
+    goto :goto_1
 
     :cond_2
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    goto :goto_3
+    goto :goto_2
 
     :cond_3
-    :goto_2
-    const/4 v0, 0x1
-
-    :goto_3
-    invoke-static {v0}, Lcom/google/gson/internal/$Gson$Preconditions;->checkArgument(Z)V
+    :goto_1
+    const/4 p1, 0x1
 
     .line 135
-    iput-object p2, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$SingleTypeFactory;->exactType:Lcom/google/gson/reflect/TypeToken;
+    :goto_2
+    invoke-static {p1}, Lcom/google/gson/internal/$Gson$Preconditions;->checkArgument(Z)V
 
     .line 136
-    iput-boolean p3, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$SingleTypeFactory;->matchRawType:Z
+    iput-object p2, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$SingleTypeFactory;->exactType:Lcom/google/gson/reflect/TypeToken;
 
     .line 137
-    iput-object p4, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$SingleTypeFactory;->hierarchyType:Ljava/lang/Class;
+    iput-boolean p3, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$SingleTypeFactory;->matchRawType:Z
 
     .line 138
+    iput-object p4, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$SingleTypeFactory;->hierarchyType:Ljava/lang/Class;
+
     return-void
 .end method
 
 
 # virtual methods
 .method public create(Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
-    .locals 8
-    .param p1, "gson"    # Lcom/google/gson/Gson;
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -170,13 +157,12 @@
         }
     .end annotation
 
-    .line 143
-    .local p2, "type":Lcom/google/gson/reflect/TypeToken;, "Lcom/google/gson/reflect/TypeToken<TT;>;"
+    .line 144
     iget-object v0, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$SingleTypeFactory;->exactType:Lcom/google/gson/reflect/TypeToken;
 
     if-eqz v0, :cond_2
 
-    .line 144
+    .line 145
     invoke-virtual {v0, p2}, Lcom/google/gson/reflect/TypeToken;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -212,7 +198,7 @@
 
     goto :goto_1
 
-    .line 145
+    .line 146
     :cond_2
     iget-object v0, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$SingleTypeFactory;->hierarchyType:Ljava/lang/Class;
 
@@ -225,20 +211,16 @@
     move-result v0
 
     :goto_1
-    nop
-
-    .line 146
-    .local v0, "matches":Z
     if-eqz v0, :cond_3
 
-    .line 147
-    new-instance v7, Lcom/google/gson/internal/bind/TreeTypeAdapter;
+    .line 148
+    new-instance v0, Lcom/google/gson/internal/bind/TreeTypeAdapter;
 
     iget-object v2, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$SingleTypeFactory;->serializer:Lcom/google/gson/JsonSerializer;
 
     iget-object v3, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$SingleTypeFactory;->deserializer:Lcom/google/gson/JsonDeserializer;
 
-    move-object v1, v7
+    move-object v1, v0
 
     move-object v4, p1
 
@@ -250,11 +232,9 @@
 
     goto :goto_2
 
-    .line 149
     :cond_3
-    const/4 v7, 0x0
+    const/4 v0, 0x0
 
-    .line 146
     :goto_2
-    return-object v7
+    return-object v0
 .end method

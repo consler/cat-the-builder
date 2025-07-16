@@ -22,8 +22,6 @@
 
 .method public static awaitForComplete(Ljava/util/concurrent/CountDownLatch;Lio/reactivex/disposables/Disposable;)V
     .locals 4
-    .param p0, "latch"    # Ljava/util/concurrent/CountDownLatch;
-    .param p1, "subscription"    # Lio/reactivex/disposables/Disposable;
 
     .line 32
     invoke-virtual {p0}, Ljava/util/concurrent/CountDownLatch;->getCount()J
@@ -36,7 +34,6 @@
 
     if-nez v0, :cond_0
 
-    .line 35
     return-void
 
     .line 39
@@ -49,35 +46,29 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 48
-    nop
-
-    .line 49
     return-void
 
-    .line 41
     :catch_0
-    move-exception v0
+    move-exception p0
 
     .line 42
-    .local v0, "e":Ljava/lang/InterruptedException;
     invoke-interface {p1}, Lio/reactivex/disposables/Disposable;->dispose()V
 
     .line 45
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1}, Ljava/lang/Thread;->interrupt()V
+    invoke-virtual {p1}, Ljava/lang/Thread;->interrupt()V
 
     .line 47
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v2, "Interrupted while waiting for subscription to complete."
+    const-string v0, "Interrupted while waiting for subscription to complete."
 
-    invoke-direct {v1, v2, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p1, v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v1
+    throw p1
 .end method
 
 .method public static verifyNonBlocking()V
@@ -112,11 +103,9 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Attempt to block on a Scheduler "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
@@ -128,9 +117,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, " that doesn\'t support blocking operators as they may lead to deadlock"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -140,7 +133,6 @@
 
     throw v0
 
-    .line 62
     :cond_1
     :goto_0
     return-void

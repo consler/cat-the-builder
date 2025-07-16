@@ -56,8 +56,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/Flowable;Lio/reactivex/functions/Function;Lio/reactivex/functions/Function;IZ)V
     .locals 0
-    .param p4, "bufferSize"    # I
-    .param p5, "delayError"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,10 +69,6 @@
     .end annotation
 
     .line 40
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableGroupBy;, "Lio/reactivex/internal/operators/flowable/FlowableGroupBy<TT;TK;TV;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p2, "keySelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TK;>;"
-    .local p3, "valueSelector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TV;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
     .line 41
@@ -89,7 +83,6 @@
     .line 44
     iput-boolean p5, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupBy;->delayError:Z
 
-    .line 45
     return-void
 .end method
 
@@ -108,8 +101,6 @@
     .end annotation
 
     .line 49
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableGroupBy;, "Lio/reactivex/internal/operators/flowable/FlowableGroupBy<TT;TK;TV;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-Lio/reactivex/flowables/GroupedFlowable<TK;TV;>;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableGroupBy;->source:Lio/reactivex/Flowable;
 
     new-instance v7, Lio/reactivex/internal/operators/flowable/FlowableGroupBy$GroupBySubscriber;
@@ -130,6 +121,5 @@
 
     invoke-virtual {v0, v7}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 50
     return-void
 .end method

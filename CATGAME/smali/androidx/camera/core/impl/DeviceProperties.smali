@@ -32,9 +32,6 @@
 
 .method public static create(Ljava/lang/String;Ljava/lang/String;I)Landroidx/camera/core/impl/DeviceProperties;
     .locals 1
-    .param p0, "manufacturer"    # Ljava/lang/String;
-    .param p1, "model"    # Ljava/lang/String;
-    .param p2, "sdkVersion"    # I
 
     .line 40
     new-instance v0, Landroidx/camera/core/impl/AutoValue_DeviceProperties;

@@ -28,7 +28,6 @@
 # virtual methods
 .method public onCreate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
     .locals 0
-    .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -38,13 +37,11 @@
         }
     .end annotation
 
-    .line 1472
     return-void
 .end method
 
 .method public onDestructiveMigration(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
     .locals 0
-    .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -54,13 +51,11 @@
         }
     .end annotation
 
-    .line 1488
     return-void
 .end method
 
 .method public onOpen(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
     .locals 0
-    .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -70,6 +65,5 @@
         }
     .end annotation
 
-    .line 1480
     return-void
 .end method

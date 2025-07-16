@@ -1,5 +1,6 @@
 .class public interface abstract annotation Lcom/huawei/hms/framework/network/grs/GrsBaseInfo$CountryCodeSource;
 .super Ljava/lang/Object;
+.source ""
 
 # interfaces
 .implements Ljava/lang/annotation/Annotation;

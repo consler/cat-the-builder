@@ -34,13 +34,11 @@
 # virtual methods
 .method public onComplete(J)V
     .locals 1
-    .param p1, "l"    # J
 
     .line 167
     iget-object v0, p0, Landroidx/webkit/WebViewCompat$1;->val$callback:Landroidx/webkit/WebViewCompat$VisualStateCallback;
 
     invoke-interface {v0, p1, p2}, Landroidx/webkit/WebViewCompat$VisualStateCallback;->onComplete(J)V
 
-    .line 168
     return-void
 .end method

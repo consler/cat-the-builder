@@ -63,7 +63,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/ObservableSource;Lio/reactivex/ObservableSource;Lio/reactivex/functions/BiPredicate;I)V
     .locals 0
-    .param p4, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,10 +76,6 @@
     .end annotation
 
     .line 34
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSequenceEqualSingle;, "Lio/reactivex/internal/operators/observable/ObservableSequenceEqualSingle<TT;>;"
-    .local p1, "first":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<+TT;>;"
-    .local p2, "second":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<+TT;>;"
-    .local p3, "comparer":Lio/reactivex/functions/BiPredicate;, "Lio/reactivex/functions/BiPredicate<-TT;-TT;>;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 35
@@ -95,7 +90,6 @@
     .line 38
     iput p4, p0, Lio/reactivex/internal/operators/observable/ObservableSequenceEqualSingle;->bufferSize:I
 
-    .line 39
     return-void
 .end method
 
@@ -113,7 +107,6 @@
     .end annotation
 
     .line 50
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSequenceEqualSingle;, "Lio/reactivex/internal/operators/observable/ObservableSequenceEqualSingle<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableSequenceEqual;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableSequenceEqualSingle;->first:Lio/reactivex/ObservableSource;
@@ -146,8 +139,6 @@
     .end annotation
 
     .line 43
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSequenceEqualSingle;, "Lio/reactivex/internal/operators/observable/ObservableSequenceEqualSingle<TT;>;"
-    .local p1, "s":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-Ljava/lang/Boolean;>;"
     new-instance v6, Lio/reactivex/internal/operators/observable/ObservableSequenceEqualSingle$EqualCoordinator;
 
     iget v2, p0, Lio/reactivex/internal/operators/observable/ObservableSequenceEqualSingle;->bufferSize:I
@@ -165,12 +156,10 @@
     invoke-direct/range {v0 .. v5}, Lio/reactivex/internal/operators/observable/ObservableSequenceEqualSingle$EqualCoordinator;-><init>(Lio/reactivex/SingleObserver;ILio/reactivex/ObservableSource;Lio/reactivex/ObservableSource;Lio/reactivex/functions/BiPredicate;)V
 
     .line 44
-    .local v0, "ec":Lio/reactivex/internal/operators/observable/ObservableSequenceEqualSingle$EqualCoordinator;, "Lio/reactivex/internal/operators/observable/ObservableSequenceEqualSingle$EqualCoordinator<TT;>;"
-    invoke-interface {p1, v0}, Lio/reactivex/SingleObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, v6}, Lio/reactivex/SingleObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 45
-    invoke-virtual {v0}, Lio/reactivex/internal/operators/observable/ObservableSequenceEqualSingle$EqualCoordinator;->subscribe()V
+    invoke-virtual {v6}, Lio/reactivex/internal/operators/observable/ObservableSequenceEqualSingle$EqualCoordinator;->subscribe()V
 
-    .line 46
     return-void
 .end method

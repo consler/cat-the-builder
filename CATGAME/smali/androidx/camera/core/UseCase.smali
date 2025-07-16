@@ -58,7 +58,6 @@
     .end annotation
 
     .line 86
-    .local p1, "useCaseConfig":Landroidx/camera/core/impl/UseCaseConfig;, "Landroidx/camera/core/impl/UseCaseConfig<*>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 55
@@ -90,40 +89,35 @@
     .line 87
     invoke-virtual {p0, p1}, Landroidx/camera/core/UseCase;->updateUseCaseConfig(Landroidx/camera/core/impl/UseCaseConfig;)V
 
-    .line 88
     return-void
 .end method
 
 .method private addStateChangeCallback(Landroidx/camera/core/UseCase$StateChangeCallback;)V
     .locals 1
-    .param p1, "callback"    # Landroidx/camera/core/UseCase$StateChangeCallback;
 
     .line 197
     iget-object v0, p0, Landroidx/camera/core/UseCase;->mStateChangeCallbacks:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 198
     return-void
 .end method
 
 .method private removeStateChangeCallback(Landroidx/camera/core/UseCase$StateChangeCallback;)V
     .locals 1
-    .param p1, "callback"    # Landroidx/camera/core/UseCase$StateChangeCallback;
 
     .line 207
     iget-object v0, p0, Landroidx/camera/core/UseCase;->mStateChangeCallbacks:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
-    .line 208
     return-void
 .end method
 
 
 # virtual methods
 .method public applyDefaults(Landroidx/camera/core/impl/UseCaseConfig;Landroidx/camera/core/impl/UseCaseConfig$Builder;)Landroidx/camera/core/impl/UseCaseConfig;
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -136,12 +130,8 @@
         }
     .end annotation
 
-    .line 153
-    .local p1, "userConfig":Landroidx/camera/core/impl/UseCaseConfig;, "Landroidx/camera/core/impl/UseCaseConfig<*>;"
-    .local p2, "defaultConfigBuilder":Landroidx/camera/core/impl/UseCaseConfig$Builder;, "Landroidx/camera/core/impl/UseCaseConfig$Builder<***>;"
     if-nez p2, :cond_0
 
-    .line 155
     return-object p1
 
     .line 158
@@ -151,7 +141,6 @@
     move-result-object v0
 
     .line 163
-    .local v0, "defaultMutableConfig":Landroidx/camera/core/impl/MutableConfig;
     sget-object v1, Landroidx/camera/core/impl/ImageOutputConfig;->OPTION_TARGET_ASPECT_RATIO:Landroidx/camera/core/impl/Config$Option;
 
     invoke-interface {p1, v1}, Landroidx/camera/core/impl/UseCaseConfig;->containsOption(Landroidx/camera/core/impl/Config$Option;)Z
@@ -197,44 +186,32 @@
 
     check-cast v2, Landroidx/camera/core/impl/Config$Option;
 
-    .line 173
-    .local v2, "opt":Landroidx/camera/core/impl/Config$Option;, "Landroidx/camera/core/impl/Config$Option<*>;"
-    move-object v3, v2
-
-    .line 175
-    .local v3, "objectOpt":Landroidx/camera/core/impl/Config$Option;, "Landroidx/camera/core/impl/Config$Option<Ljava/lang/Object;>;"
-    nop
-
     .line 176
     invoke-interface {p1, v2}, Landroidx/camera/core/impl/UseCaseConfig;->getOptionPriority(Landroidx/camera/core/impl/Config$Option;)Landroidx/camera/core/impl/Config$OptionPriority;
 
+    move-result-object v3
+
+    invoke-interface {p1, v2}, Landroidx/camera/core/impl/UseCaseConfig;->retrieveOption(Landroidx/camera/core/impl/Config$Option;)Ljava/lang/Object;
+
     move-result-object v4
 
-    invoke-interface {p1, v3}, Landroidx/camera/core/impl/UseCaseConfig;->retrieveOption(Landroidx/camera/core/impl/Config$Option;)Ljava/lang/Object;
-
-    move-result-object v5
-
     .line 175
-    invoke-interface {v0, v3, v4, v5}, Landroidx/camera/core/impl/MutableConfig;->insertOption(Landroidx/camera/core/impl/Config$Option;Landroidx/camera/core/impl/Config$OptionPriority;Ljava/lang/Object;)V
+    invoke-interface {v0, v2, v3, v4}, Landroidx/camera/core/impl/MutableConfig;->insertOption(Landroidx/camera/core/impl/Config$Option;Landroidx/camera/core/impl/Config$OptionPriority;Ljava/lang/Object;)V
 
-    .line 177
-    .end local v2    # "opt":Landroidx/camera/core/impl/Config$Option;, "Landroidx/camera/core/impl/Config$Option<*>;"
-    .end local v3    # "objectOpt":Landroidx/camera/core/impl/Config$Option;, "Landroidx/camera/core/impl/Config$Option<Ljava/lang/Object;>;"
     goto :goto_0
 
     .line 179
     :cond_2
     invoke-interface {p2}, Landroidx/camera/core/impl/UseCaseConfig$Builder;->getUseCaseConfig()Landroidx/camera/core/impl/UseCaseConfig;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public clear()V
     .locals 0
 
-    .line 326
     return-void
 .end method
 
@@ -263,10 +240,10 @@
 
     return-object v1
 
-    .line 371
     :catchall_0
     move-exception v1
 
+    .line 371
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -297,8 +274,6 @@
 
     .line 498
     :cond_0
-    iget-object v1, p0, Landroidx/camera/core/UseCase;->mCamera:Landroidx/camera/core/impl/CameraInternal;
-
     invoke-interface {v1}, Landroidx/camera/core/impl/CameraInternal;->getCameraControlInternal()Landroidx/camera/core/impl/CameraControlInternal;
 
     move-result-object v1
@@ -307,10 +282,10 @@
 
     return-object v1
 
-    .line 499
     :catchall_0
     move-exception v1
 
+    .line 499
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -328,13 +303,13 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "No camera attached to use case: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -355,13 +330,11 @@
 
     move-result-object v0
 
-    .line 302
     return-object v0
 .end method
 
 .method public getDefaultBuilder(Landroidx/camera/core/CameraInfo;)Landroidx/camera/core/impl/UseCaseConfig$Builder;
-    .locals 1
-    .param p1, "cameraInfo"    # Landroidx/camera/core/CameraInfo;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -372,10 +345,9 @@
         }
     .end annotation
 
-    .line 107
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getImageFormat()I
@@ -399,11 +371,9 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "<UnknownUseCase-"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
 
@@ -411,9 +381,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, ">"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -462,7 +436,6 @@
 
 .method protected isCurrentCamera(Ljava/lang/String;)Z
     .locals 1
-    .param p1, "cameraId"    # Ljava/lang/String;
 
     .line 313
     invoke-virtual {p0}, Landroidx/camera/core/UseCase;->getCamera()Landroidx/camera/core/impl/CameraInternal;
@@ -471,10 +444,9 @@
 
     if-nez v0, :cond_0
 
-    .line 314
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 316
     :cond_0
@@ -484,9 +456,9 @@
 
     invoke-static {p1, v0}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method protected final notifyActive()V
@@ -500,7 +472,6 @@
     .line 230
     invoke-virtual {p0}, Landroidx/camera/core/UseCase;->notifyState()V
 
-    .line 231
     return-void
 .end method
 
@@ -515,7 +486,6 @@
     .line 242
     invoke-virtual {p0}, Landroidx/camera/core/UseCase;->notifyState()V
 
-    .line 243
     return-void
 .end method
 
@@ -543,14 +513,10 @@
     check-cast v1, Landroidx/camera/core/UseCase$StateChangeCallback;
 
     .line 267
-    .local v1, "stateChangeCallback":Landroidx/camera/core/UseCase$StateChangeCallback;
     invoke-interface {v1, p0}, Landroidx/camera/core/UseCase$StateChangeCallback;->onUseCaseReset(Landroidx/camera/core/UseCase;)V
 
-    .line 268
-    .end local v1    # "stateChangeCallback":Landroidx/camera/core/UseCase$StateChangeCallback;
     goto :goto_0
 
-    .line 269
     :cond_0
     return-void
 .end method
@@ -592,7 +558,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -601,11 +567,8 @@
     check-cast v1, Landroidx/camera/core/UseCase$StateChangeCallback;
 
     .line 287
-    .local v1, "stateChangeCallback":Landroidx/camera/core/UseCase$StateChangeCallback;
     invoke-interface {v1, p0}, Landroidx/camera/core/UseCase$StateChangeCallback;->onUseCaseActive(Landroidx/camera/core/UseCase;)V
 
-    .line 288
-    .end local v1    # "stateChangeCallback":Landroidx/camera/core/UseCase$StateChangeCallback;
     goto :goto_0
 
     .line 281
@@ -630,19 +593,11 @@
     check-cast v1, Landroidx/camera/core/UseCase$StateChangeCallback;
 
     .line 282
-    .restart local v1    # "stateChangeCallback":Landroidx/camera/core/UseCase$StateChangeCallback;
     invoke-interface {v1, p0}, Landroidx/camera/core/UseCase$StateChangeCallback;->onUseCaseInactive(Landroidx/camera/core/UseCase;)V
 
-    .line 283
-    .end local v1    # "stateChangeCallback":Landroidx/camera/core/UseCase$StateChangeCallback;
     goto :goto_1
 
-    .line 284
     :cond_2
-    nop
-
-    .line 291
-    :cond_3
     :goto_2
     return-void
 .end method
@@ -671,21 +626,16 @@
     check-cast v1, Landroidx/camera/core/UseCase$StateChangeCallback;
 
     .line 254
-    .local v1, "stateChangeCallback":Landroidx/camera/core/UseCase$StateChangeCallback;
     invoke-interface {v1, p0}, Landroidx/camera/core/UseCase$StateChangeCallback;->onUseCaseUpdated(Landroidx/camera/core/UseCase;)V
 
-    .line 255
-    .end local v1    # "stateChangeCallback":Landroidx/camera/core/UseCase$StateChangeCallback;
     goto :goto_0
 
-    .line 256
     :cond_0
     return-void
 .end method
 
 .method public onAttach(Landroidx/camera/core/impl/CameraInternal;)V
     .locals 2
-    .param p1, "camera"    # Landroidx/camera/core/impl/CameraInternal;
 
     .line 432
     iget-object v0, p0, Landroidx/camera/core/UseCase;->mCameraLock:Ljava/lang/Object;
@@ -718,58 +668,51 @@
 
     move-result-object v0
 
-    .line 438
-    .local v0, "eventCallback":Landroidx/camera/core/UseCase$EventCallback;
     if-eqz v0, :cond_0
 
     .line 439
     invoke-interface {p1}, Landroidx/camera/core/impl/CameraInternal;->getCameraInfoInternal()Landroidx/camera/core/impl/CameraInfoInternal;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v1}, Landroidx/camera/core/impl/CameraInfoInternal;->getCameraId()Ljava/lang/String;
+    invoke-interface {p1}, Landroidx/camera/core/impl/CameraInfoInternal;->getCameraId()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Landroidx/camera/core/UseCase$EventCallback;->onBind(Ljava/lang/String;)V
+    invoke-interface {v0, p1}, Landroidx/camera/core/UseCase$EventCallback;->onBind(Ljava/lang/String;)V
 
     .line 441
     :cond_0
     invoke-virtual {p0}, Landroidx/camera/core/UseCase;->onCameraControlReady()V
 
-    .line 442
     return-void
 
-    .line 435
-    .end local v0    # "eventCallback":Landroidx/camera/core/UseCase$EventCallback;
     :catchall_0
-    move-exception v1
+    move-exception p1
 
+    .line 435
     :try_start_1
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method protected onCameraControlReady()V
     .locals 0
 
-    .line 422
     return-void
 .end method
 
 .method public onDestroy()V
     .locals 0
 
-    .line 341
     return-void
 .end method
 
 .method public onDetach(Landroidx/camera/core/impl/CameraInternal;)V
-    .locals 5
-    .param p1, "camera"    # Landroidx/camera/core/impl/CameraInternal;
+    .locals 3
 
     .line 452
     invoke-virtual {p0}, Landroidx/camera/core/UseCase;->clear()V
@@ -783,8 +726,6 @@
 
     move-result-object v0
 
-    .line 456
-    .local v0, "eventCallback":Landroidx/camera/core/UseCase$EventCallback;
     if-eqz v0, :cond_0
 
     .line 457
@@ -792,71 +733,67 @@
 
     .line 460
     :cond_0
-    iget-object v2, p0, Landroidx/camera/core/UseCase;->mCameraLock:Ljava/lang/Object;
+    iget-object v0, p0, Landroidx/camera/core/UseCase;->mCameraLock:Ljava/lang/Object;
 
-    monitor-enter v2
+    monitor-enter v0
 
     .line 461
     :try_start_0
-    iget-object v3, p0, Landroidx/camera/core/UseCase;->mCamera:Landroidx/camera/core/impl/CameraInternal;
+    iget-object v2, p0, Landroidx/camera/core/UseCase;->mCamera:Landroidx/camera/core/impl/CameraInternal;
 
-    if-ne p1, v3, :cond_1
+    if-ne p1, v2, :cond_1
 
-    const/4 v3, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v3, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    invoke-static {v3}, Landroidx/core/util/Preconditions;->checkArgument(Z)V
+    invoke-static {p1}, Landroidx/core/util/Preconditions;->checkArgument(Z)V
 
     .line 462
-    iget-object v3, p0, Landroidx/camera/core/UseCase;->mCamera:Landroidx/camera/core/impl/CameraInternal;
+    iget-object p1, p0, Landroidx/camera/core/UseCase;->mCamera:Landroidx/camera/core/impl/CameraInternal;
 
     invoke-static {p0}, Ljava/util/Collections;->singleton(Ljava/lang/Object;)Ljava/util/Set;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-interface {v3, v4}, Landroidx/camera/core/impl/CameraInternal;->detachUseCases(Ljava/util/Collection;)V
+    invoke-interface {p1, v2}, Landroidx/camera/core/impl/CameraInternal;->detachUseCases(Ljava/util/Collection;)V
 
     .line 463
-    iget-object v3, p0, Landroidx/camera/core/UseCase;->mCamera:Landroidx/camera/core/impl/CameraInternal;
+    iget-object p1, p0, Landroidx/camera/core/UseCase;->mCamera:Landroidx/camera/core/impl/CameraInternal;
 
-    invoke-direct {p0, v3}, Landroidx/camera/core/UseCase;->removeStateChangeCallback(Landroidx/camera/core/UseCase$StateChangeCallback;)V
+    invoke-direct {p0, p1}, Landroidx/camera/core/UseCase;->removeStateChangeCallback(Landroidx/camera/core/UseCase$StateChangeCallback;)V
 
     .line 464
     iput-object v1, p0, Landroidx/camera/core/UseCase;->mCamera:Landroidx/camera/core/impl/CameraInternal;
 
     .line 465
-    monitor-exit v2
+    monitor-exit v0
 
-    .line 466
     return-void
 
-    .line 465
     :catchall_0
-    move-exception v1
+    move-exception p1
 
-    monitor-exit v2
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public onStateAttached()V
     .locals 0
 
-    .line 475
     return-void
 .end method
 
 .method public onStateDetached()V
     .locals 0
 
-    .line 484
     return-void
 .end method
 
@@ -865,43 +802,37 @@
 
 .method public setViewPortCropRect(Landroid/graphics/Rect;)V
     .locals 0
-    .param p1, "viewPortCropRect"    # Landroid/graphics/Rect;
 
     .line 509
     iput-object p1, p0, Landroidx/camera/core/UseCase;->mViewPortCropRect:Landroid/graphics/Rect;
 
-    .line 510
     return-void
 .end method
 
 .method protected updateSessionConfig(Landroidx/camera/core/impl/SessionConfig;)V
     .locals 0
-    .param p1, "sessionConfig"    # Landroidx/camera/core/impl/SessionConfig;
 
     .line 189
     iput-object p1, p0, Landroidx/camera/core/UseCase;->mAttachedSessionConfig:Landroidx/camera/core/impl/SessionConfig;
 
-    .line 190
     return-void
 .end method
 
 .method public updateSuggestedResolution(Landroid/util/Size;)V
-    .locals 1
-    .param p1, "suggestedResolution"    # Landroid/util/Size;
+    .locals 0
 
     .line 393
     invoke-virtual {p0, p1}, Landroidx/camera/core/UseCase;->onSuggestedResolutionUpdated(Landroid/util/Size;)Landroid/util/Size;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/camera/core/UseCase;->mAttachedResolution:Landroid/util/Size;
+    iput-object p1, p0, Landroidx/camera/core/UseCase;->mAttachedResolution:Landroid/util/Size;
 
-    .line 394
     return-void
 .end method
 
 .method protected final updateUseCaseConfig(Landroidx/camera/core/impl/UseCaseConfig;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -909,10 +840,6 @@
             "*>;)V"
         }
     .end annotation
-
-    .line 129
-    .local p1, "useCaseConfig":Landroidx/camera/core/impl/UseCaseConfig;, "Landroidx/camera/core/impl/UseCaseConfig<*>;"
-    nop
 
     .line 130
     invoke-virtual {p0}, Landroidx/camera/core/UseCase;->getCamera()Landroidx/camera/core/impl/CameraInternal;
@@ -940,13 +867,11 @@
     move-result-object v0
 
     .line 133
-    .local v0, "defaultBuilder":Landroidx/camera/core/impl/UseCaseConfig$Builder;, "Landroidx/camera/core/impl/UseCaseConfig$Builder<***>;"
     invoke-virtual {p0, p1, v0}, Landroidx/camera/core/UseCase;->applyDefaults(Landroidx/camera/core/impl/UseCaseConfig;Landroidx/camera/core/impl/UseCaseConfig$Builder;)Landroidx/camera/core/impl/UseCaseConfig;
 
-    move-result-object v1
+    move-result-object p1
 
-    iput-object v1, p0, Landroidx/camera/core/UseCase;->mUseCaseConfig:Landroidx/camera/core/impl/UseCaseConfig;
+    iput-object p1, p0, Landroidx/camera/core/UseCase;->mUseCaseConfig:Landroidx/camera/core/impl/UseCaseConfig;
 
-    .line 134
     return-void
 .end method

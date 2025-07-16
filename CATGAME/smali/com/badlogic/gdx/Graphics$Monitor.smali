@@ -25,9 +25,6 @@
 # direct methods
 .method protected constructor <init>(IILjava/lang/String;)V
     .locals 0
-    .param p1, "virtualX"    # I
-    .param p2, "virtualY"    # I
-    .param p3, "name"    # Ljava/lang/String;
 
     .line 90
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,6 +38,5 @@
     .line 93
     iput-object p3, p0, Lcom/badlogic/gdx/Graphics$Monitor;->name:Ljava/lang/String;
 
-    .line 94
     return-void
 .end method

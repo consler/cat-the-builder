@@ -31,8 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections/DoubleOrderedMap;I)V
-    .locals 1
-    .param p2, "type"    # I
+    .locals 0
 
     .line 1661
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,31 +44,30 @@
     .line 1664
     invoke-static {p1}, Lorg/apache/commons/collections/DoubleOrderedMap;->access$2200(Lorg/apache/commons/collections/DoubleOrderedMap;)I
 
-    move-result v0
+    move-result p2
 
-    iput v0, p0, Lorg/apache/commons/collections/DoubleOrderedMap$DoubleOrderedMapIterator;->expectedModifications:I
+    iput p2, p0, Lorg/apache/commons/collections/DoubleOrderedMap$DoubleOrderedMapIterator;->expectedModifications:I
+
+    const/4 p2, 0x0
 
     .line 1665
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lorg/apache/commons/collections/DoubleOrderedMap$DoubleOrderedMapIterator;->lastReturnedNode:Lorg/apache/commons/collections/DoubleOrderedMap$Node;
+    iput-object p2, p0, Lorg/apache/commons/collections/DoubleOrderedMap$DoubleOrderedMapIterator;->lastReturnedNode:Lorg/apache/commons/collections/DoubleOrderedMap$Node;
 
     .line 1666
     invoke-static {p1}, Lorg/apache/commons/collections/DoubleOrderedMap;->access$2300(Lorg/apache/commons/collections/DoubleOrderedMap;)[Lorg/apache/commons/collections/DoubleOrderedMap$Node;
 
     move-result-object p1
 
-    iget v0, p0, Lorg/apache/commons/collections/DoubleOrderedMap$DoubleOrderedMapIterator;->iteratorType:I
+    iget p2, p0, Lorg/apache/commons/collections/DoubleOrderedMap$DoubleOrderedMapIterator;->iteratorType:I
 
-    aget-object p1, p1, v0
+    aget-object p1, p1, p2
 
-    invoke-static {p1, v0}, Lorg/apache/commons/collections/DoubleOrderedMap;->access$2400(Lorg/apache/commons/collections/DoubleOrderedMap$Node;I)Lorg/apache/commons/collections/DoubleOrderedMap$Node;
+    invoke-static {p1, p2}, Lorg/apache/commons/collections/DoubleOrderedMap;->access$2400(Lorg/apache/commons/collections/DoubleOrderedMap$Node;I)Lorg/apache/commons/collections/DoubleOrderedMap$Node;
 
     move-result-object p1
 
     iput-object p1, p0, Lorg/apache/commons/collections/DoubleOrderedMap$DoubleOrderedMapIterator;->nextNode:Lorg/apache/commons/collections/DoubleOrderedMap$Node;
 
-    .line 1668
     return-void
 .end method
 
@@ -201,12 +199,11 @@
 
     iput v0, p0, Lorg/apache/commons/collections/DoubleOrderedMap$DoubleOrderedMapIterator;->expectedModifications:I
 
-    .line 1749
     const/4 v0, 0x0
 
+    .line 1749
     iput-object v0, p0, Lorg/apache/commons/collections/DoubleOrderedMap$DoubleOrderedMapIterator;->lastReturnedNode:Lorg/apache/commons/collections/DoubleOrderedMap$Node;
 
-    .line 1750
     return-void
 
     .line 1742

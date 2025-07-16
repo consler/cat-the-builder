@@ -19,7 +19,6 @@
 # direct methods
 .method protected constructor <init>(Lcom/thoughtworks/xstream/converters/SingleValueConverter;)V
     .locals 0
-    .param p1, "javaClassConverter"    # Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
     .line 59
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,13 +26,11 @@
     .line 60
     iput-object p1, p0, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;->javaClassConverter:Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
-    .line 61
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/core/ClassLoaderReference;)V
     .locals 1
-    .param p1, "classLoaderReference"    # Lcom/thoughtworks/xstream/core/ClassLoaderReference;
 
     .line 44
     new-instance v0, Lcom/thoughtworks/xstream/converters/extended/JavaClassConverter;
@@ -42,13 +39,11 @@
 
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;-><init>(Lcom/thoughtworks/xstream/converters/SingleValueConverter;)V
 
-    .line 45
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/ClassLoader;)V
     .locals 1
-    .param p1, "classLoader"    # Ljava/lang/ClassLoader;
 
     .line 51
     new-instance v0, Lcom/thoughtworks/xstream/core/ClassLoaderReference;
@@ -57,48 +52,42 @@
 
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;-><init>(Lcom/thoughtworks/xstream/core/ClassLoaderReference;)V
 
-    .line 52
     return-void
 .end method
 
 .method static synthetic class$(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 2
-    .param p0, "x0"    # Ljava/lang/String;
+    .locals 1
 
     .line 64
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/lang/NoClassDefFoundError;
+    new-instance v0, Ljava/lang/NoClassDefFoundError;
 
-    invoke-direct {v1}, Ljava/lang/NoClassDefFoundError;-><init>()V
+    invoke-direct {v0}, Ljava/lang/NoClassDefFoundError;-><init>()V
 
-    invoke-virtual {v1, v0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, p0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 .end method
 
 .method private marshalMethod(Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Class;)V
-    .locals 4
-    .param p1, "writer"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
-    .param p2, "declaringClassName"    # Ljava/lang/String;
-    .param p3, "methodName"    # Ljava/lang/String;
-    .param p4, "parameterTypes"    # [Ljava/lang/Class;
+    .locals 2
 
-    .line 81
     const-string v0, "class"
 
+    .line 81
     invoke-interface {p1, v0}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->startNode(Ljava/lang/String;)V
 
     .line 82
@@ -107,13 +96,12 @@
     .line 83
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->endNode()V
 
-    .line 85
     if-eqz p3, :cond_0
 
-    .line 87
-    const-string v1, "name"
+    const-string p2, "name"
 
-    invoke-interface {p1, v1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->startNode(Ljava/lang/String;)V
+    .line 87
+    invoke-interface {p1, p2}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->startNode(Ljava/lang/String;)V
 
     .line 88
     invoke-interface {p1, p3}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->setValue(Ljava/lang/String;)V
@@ -121,49 +109,45 @@
     .line 89
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->endNode()V
 
-    .line 92
     :cond_0
-    const-string v1, "parameter-types"
+    const-string p2, "parameter-types"
 
-    invoke-interface {p1, v1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->startNode(Ljava/lang/String;)V
+    .line 92
+    invoke-interface {p1, p2}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->startNode(Ljava/lang/String;)V
+
+    const/4 p2, 0x0
 
     .line 93
-    const/4 v1, 0x0
-
-    .local v1, "i":I
     :goto_0
-    array-length v2, p4
+    array-length p3, p4
 
-    if-ge v1, v2, :cond_1
+    if-ge p2, p3, :cond_1
 
     .line 94
     invoke-interface {p1, v0}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->startNode(Ljava/lang/String;)V
 
     .line 95
-    iget-object v2, p0, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;->javaClassConverter:Lcom/thoughtworks/xstream/converters/SingleValueConverter;
+    iget-object p3, p0, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;->javaClassConverter:Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
-    aget-object v3, p4, v1
+    aget-object v1, p4, p2
 
-    invoke-interface {v2, v3}, Lcom/thoughtworks/xstream/converters/SingleValueConverter;->toString(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-interface {p3, v1}, Lcom/thoughtworks/xstream/converters/SingleValueConverter;->toString(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p3
 
-    invoke-interface {p1, v2}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->setValue(Ljava/lang/String;)V
+    invoke-interface {p1, p3}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->setValue(Ljava/lang/String;)V
 
     .line 96
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->endNode()V
 
-    .line 93
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p2, p2, 0x1
 
     goto :goto_0
 
     .line 98
-    .end local v1    # "i":I
     :cond_1
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->endNode()V
 
-    .line 99
     return-void
 .end method
 
@@ -171,7 +155,6 @@
 # virtual methods
 .method public canConvert(Ljava/lang/Class;)Z
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
 
     .line 64
     sget-object v0, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;->class$java$lang$reflect$Method:Ljava/lang/Class;
@@ -207,160 +190,128 @@
     goto :goto_0
 
     :cond_2
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_1
 
     :cond_3
     :goto_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     :goto_1
-    return v0
+    return p1
 .end method
 
 .method public marshal(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
-    .locals 4
-    .param p1, "source"    # Ljava/lang/Object;
-    .param p2, "writer"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
-    .param p3, "context"    # Lcom/thoughtworks/xstream/converters/MarshallingContext;
+    .locals 1
 
     .line 68
-    instance-of v0, p1, Ljava/lang/reflect/Method;
+    instance-of p3, p1, Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_0
+    if-eqz p3, :cond_0
 
     .line 69
-    move-object v0, p1
-
-    check-cast v0, Ljava/lang/reflect/Method;
+    check-cast p1, Ljava/lang/reflect/Method;
 
     .line 70
-    .local v0, "method":Ljava/lang/reflect/Method;
-    iget-object v1, p0, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;->javaClassConverter:Lcom/thoughtworks/xstream/converters/SingleValueConverter;
+    iget-object p3, p0, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;->javaClassConverter:Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
-    invoke-virtual {v0}, Ljava/lang/reflect/Method;->getDeclaringClass()Ljava/lang/Class;
+    invoke-virtual {p1}, Ljava/lang/reflect/Method;->getDeclaringClass()Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {v1, v2}, Lcom/thoughtworks/xstream/converters/SingleValueConverter;->toString(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-interface {p3, v0}, Lcom/thoughtworks/xstream/converters/SingleValueConverter;->toString(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p3
 
     .line 71
-    .local v1, "declaringClassName":Ljava/lang/String;
-    invoke-virtual {v0}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/reflect/Method;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v0}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
+    invoke-virtual {p1}, Ljava/lang/reflect/Method;->getParameterTypes()[Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-direct {p0, p2, v1, v2, v3}, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;->marshalMethod(Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Class;)V
+    invoke-direct {p0, p2, p3, v0, p1}, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;->marshalMethod(Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Class;)V
 
-    .line 72
-    .end local v0    # "method":Ljava/lang/reflect/Method;
-    .end local v1    # "declaringClassName":Ljava/lang/String;
     goto :goto_0
 
     .line 73
     :cond_0
-    move-object v0, p1
-
-    check-cast v0, Ljava/lang/reflect/Constructor;
+    check-cast p1, Ljava/lang/reflect/Constructor;
 
     .line 74
-    .local v0, "method":Ljava/lang/reflect/Constructor;
-    iget-object v1, p0, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;->javaClassConverter:Lcom/thoughtworks/xstream/converters/SingleValueConverter;
+    iget-object p3, p0, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;->javaClassConverter:Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
-    invoke-virtual {v0}, Ljava/lang/reflect/Constructor;->getDeclaringClass()Ljava/lang/Class;
+    invoke-virtual {p1}, Ljava/lang/reflect/Constructor;->getDeclaringClass()Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {v1, v2}, Lcom/thoughtworks/xstream/converters/SingleValueConverter;->toString(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-interface {p3, v0}, Lcom/thoughtworks/xstream/converters/SingleValueConverter;->toString(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p3
+
+    const/4 v0, 0x0
 
     .line 75
-    .restart local v1    # "declaringClassName":Ljava/lang/String;
-    const/4 v2, 0x0
+    invoke-virtual {p1}, Ljava/lang/reflect/Constructor;->getParameterTypes()[Ljava/lang/Class;
 
-    invoke-virtual {v0}, Ljava/lang/reflect/Constructor;->getParameterTypes()[Ljava/lang/Class;
+    move-result-object p1
 
-    move-result-object v3
+    invoke-direct {p0, p2, p3, v0, p1}, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;->marshalMethod(Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Class;)V
 
-    invoke-direct {p0, p2, v1, v2, v3}, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;->marshalMethod(Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Class;)V
-
-    .line 77
-    .end local v0    # "method":Ljava/lang/reflect/Constructor;
-    .end local v1    # "declaringClassName":Ljava/lang/String;
     :goto_0
     return-void
 .end method
 
 .method public unmarshal(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;)Ljava/lang/Object;
-    .locals 7
-    .param p1, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .param p2, "context"    # Lcom/thoughtworks/xstream/converters/UnmarshallingContext;
+    .locals 5
 
     .line 103
     :try_start_0
     invoke-interface {p2}, Lcom/thoughtworks/xstream/converters/UnmarshallingContext;->getRequiredType()Ljava/lang/Class;
 
+    move-result-object p2
+
+    sget-object v0, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;->class$java$lang$reflect$Method:Ljava/lang/Class;
+
+    if-nez v0, :cond_0
+
+    const-string v0, "java.lang.reflect.Method"
+
+    invoke-static {v0}, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;->class$(Ljava/lang/String;)Ljava/lang/Class;
+
     move-result-object v0
 
-    sget-object v1, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;->class$java$lang$reflect$Method:Ljava/lang/Class;
-
-    if-nez v1, :cond_0
-
-    const-string v1, "java.lang.reflect.Method"
-
-    invoke-static {v1}, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;->class$(Ljava/lang/String;)Ljava/lang/Class;
-
-    move-result-object v1
-
-    sput-object v1, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;->class$java$lang$reflect$Method:Ljava/lang/Class;
-
-    goto :goto_0
+    sput-object v0, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;->class$java$lang$reflect$Method:Ljava/lang/Class;
 
     :cond_0
-    sget-object v1, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;->class$java$lang$reflect$Method:Ljava/lang/Class;
+    invoke-virtual {p2, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    :goto_0
-    invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
+    move-result p2
 
     .line 105
-    .local v0, "isMethodNotConstructor":Z
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->moveDown()V
 
     .line 106
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->getValue()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 107
-    .local v1, "declaringClassName":Ljava/lang/String;
-    iget-object v2, p0, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;->javaClassConverter:Lcom/thoughtworks/xstream/converters/SingleValueConverter;
+    iget-object v1, p0, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;->javaClassConverter:Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
-    invoke-interface {v2, v1}, Lcom/thoughtworks/xstream/converters/SingleValueConverter;->fromString(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-interface {v1, v0}, Lcom/thoughtworks/xstream/converters/SingleValueConverter;->fromString(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Ljava/lang/Class;
+    check-cast v0, Ljava/lang/Class;
 
     .line 108
-    .local v2, "declaringClass":Ljava/lang/Class;
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->moveUp()V
 
-    .line 110
-    const/4 v3, 0x0
-
-    .line 111
-    .local v3, "methodName":Ljava/lang/String;
-    if-eqz v0, :cond_1
+    if-eqz p2, :cond_1
 
     .line 112
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->moveDown()V
@@ -368,30 +319,32 @@
     .line 113
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->getValue()Ljava/lang/String;
 
-    move-result-object v4
-
-    move-object v3, v4
+    move-result-object v1
 
     .line 114
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->moveUp()V
 
-    .line 117
+    goto :goto_0
+
     :cond_1
+    const/4 v1, 0x0
+
+    .line 117
+    :goto_0
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->moveDown()V
 
     .line 118
-    new-instance v4, Ljava/util/ArrayList;
+    new-instance v2, Ljava/util/ArrayList;
 
-    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
     .line 119
-    .local v4, "parameterTypeList":Ljava/util/List;
     :goto_1
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->hasMoreChildren()Z
 
-    move-result v5
+    move-result v3
 
-    if-eqz v5, :cond_2
+    if-eqz v3, :cond_2
 
     .line 120
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->moveDown()V
@@ -399,80 +352,67 @@
     .line 121
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->getValue()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v3
 
     .line 122
-    .local v5, "parameterTypeName":Ljava/lang/String;
-    iget-object v6, p0, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;->javaClassConverter:Lcom/thoughtworks/xstream/converters/SingleValueConverter;
+    iget-object v4, p0, Lcom/thoughtworks/xstream/converters/extended/JavaMethodConverter;->javaClassConverter:Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
-    invoke-interface {v6, v5}, Lcom/thoughtworks/xstream/converters/SingleValueConverter;->fromString(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-interface {v4, v3}, Lcom/thoughtworks/xstream/converters/SingleValueConverter;->fromString(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v3
 
-    invoke-interface {v4, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 123
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->moveUp()V
 
-    .line 124
-    .end local v5    # "parameterTypeName":Ljava/lang/String;
     goto :goto_1
 
     .line 125
     :cond_2
-    invoke-interface {v4}, Ljava/util/List;->size()I
+    invoke-interface {v2}, Ljava/util/List;->size()I
 
-    move-result v5
+    move-result v3
 
-    new-array v5, v5, [Ljava/lang/Class;
+    new-array v3, v3, [Ljava/lang/Class;
 
-    invoke-interface {v4, v5}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-interface {v2, v3}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v2
 
-    check-cast v5, [Ljava/lang/Class;
+    check-cast v2, [Ljava/lang/Class;
 
-    check-cast v5, [Ljava/lang/Class;
+    check-cast v2, [Ljava/lang/Class;
 
     .line 126
-    .local v5, "parameterTypes":[Ljava/lang/Class;
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->moveUp()V
 
-    .line 128
-    if-eqz v0, :cond_3
+    if-eqz p2, :cond_3
 
     .line 129
-    invoke-virtual {v2, v3, v5}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    move-result-object v6
+    move-result-object p1
 
-    return-object v6
+    return-object p1
 
     .line 131
     :cond_3
-    invoke-virtual {v2, v5}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+    invoke-virtual {v0, v2}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
-    move-result-object v6
+    move-result-object p1
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v6
+    return-object p1
 
-    .line 133
-    .end local v0    # "isMethodNotConstructor":Z
-    .end local v1    # "declaringClassName":Ljava/lang/String;
-    .end local v2    # "declaringClass":Ljava/lang/Class;
-    .end local v3    # "methodName":Ljava/lang/String;
-    .end local v4    # "parameterTypeList":Ljava/util/List;
-    .end local v5    # "parameterTypes":[Ljava/lang/Class;
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 134
-    .local v0, "e":Ljava/lang/NoSuchMethodException;
-    new-instance v1, Lcom/thoughtworks/xstream/converters/ConversionException;
+    new-instance p2, Lcom/thoughtworks/xstream/converters/ConversionException;
 
-    invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p2, p1}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw p2
 .end method

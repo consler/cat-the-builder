@@ -45,8 +45,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/CompletableObserver;Lio/reactivex/Scheduler;)V
     .locals 0
-    .param p1, "actual"    # Lio/reactivex/CompletableObserver;
-    .param p2, "scheduler"    # Lio/reactivex/Scheduler;
 
     .line 50
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
@@ -57,7 +55,6 @@
     .line 52
     iput-object p2, p0, Lio/reactivex/internal/operators/completable/CompletableObserveOn$ObserveOnCompletableObserver;->scheduler:Lio/reactivex/Scheduler;
 
-    .line 53
     return-void
 .end method
 
@@ -69,7 +66,6 @@
     .line 57
     invoke-static {p0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 58
     return-void
 .end method
 
@@ -102,47 +98,42 @@
 
     invoke-static {p0, v0}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 81
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
-    .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
+    .locals 0
 
     .line 74
     iput-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableObserveOn$ObserveOnCompletableObserver;->error:Ljava/lang/Throwable;
 
     .line 75
-    iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableObserveOn$ObserveOnCompletableObserver;->scheduler:Lio/reactivex/Scheduler;
+    iget-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableObserveOn$ObserveOnCompletableObserver;->scheduler:Lio/reactivex/Scheduler;
 
-    invoke-virtual {v0, p0}, Lio/reactivex/Scheduler;->scheduleDirect(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
+    invoke-virtual {p1, p0}, Lio/reactivex/Scheduler;->scheduleDirect(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {p0, v0}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
+    invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 76
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
-    .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
+    .locals 0
 
     .line 67
     invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 68
-    iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableObserveOn$ObserveOnCompletableObserver;->actual:Lio/reactivex/CompletableObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableObserveOn$ObserveOnCompletableObserver;->actual:Lio/reactivex/CompletableObserver;
 
-    invoke-interface {v0, p0}, Lio/reactivex/CompletableObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/CompletableObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 70
     :cond_0
     return-void
 .end method
@@ -153,13 +144,11 @@
     .line 85
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableObserveOn$ObserveOnCompletableObserver;->error:Ljava/lang/Throwable;
 
-    .line 86
-    .local v0, "ex":Ljava/lang/Throwable;
     if-eqz v0, :cond_0
 
-    .line 87
     const/4 v1, 0x0
 
+    .line 87
     iput-object v1, p0, Lio/reactivex/internal/operators/completable/CompletableObserveOn$ObserveOnCompletableObserver;->error:Ljava/lang/Throwable;
 
     .line 88
@@ -171,11 +160,10 @@
 
     .line 90
     :cond_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/completable/CompletableObserveOn$ObserveOnCompletableObserver;->actual:Lio/reactivex/CompletableObserver;
+    iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableObserveOn$ObserveOnCompletableObserver;->actual:Lio/reactivex/CompletableObserver;
 
-    invoke-interface {v1}, Lio/reactivex/CompletableObserver;->onComplete()V
+    invoke-interface {v0}, Lio/reactivex/CompletableObserver;->onComplete()V
 
-    .line 92
     :goto_0
     return-void
 .end method

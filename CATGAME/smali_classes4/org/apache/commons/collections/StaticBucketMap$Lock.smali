@@ -30,7 +30,6 @@
 
 .method synthetic constructor <init>(Lorg/apache/commons/collections/StaticBucketMap$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/collections/StaticBucketMap$1;
 
     .line 499
     invoke-direct {p0}, Lorg/apache/commons/collections/StaticBucketMap$Lock;-><init>()V

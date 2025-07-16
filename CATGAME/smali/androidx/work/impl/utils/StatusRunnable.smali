@@ -34,7 +34,6 @@
     .locals 1
 
     .line 41
-    .local p0, "this":Landroidx/work/impl/utils/StatusRunnable;, "Landroidx/work/impl/utils/StatusRunnable<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 42
@@ -49,7 +48,6 @@
 
 .method public static forStringIds(Landroidx/work/impl/WorkManagerImpl;Ljava/util/List;)Landroidx/work/impl/utils/StatusRunnable;
     .locals 1
-    .param p0, "workManager"    # Landroidx/work/impl/WorkManagerImpl;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -76,7 +74,6 @@
     .end annotation
 
     .line 75
-    .local p1, "ids":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     new-instance v0, Landroidx/work/impl/utils/StatusRunnable$1;
 
     invoke-direct {v0, p0, p1}, Landroidx/work/impl/utils/StatusRunnable$1;-><init>(Landroidx/work/impl/WorkManagerImpl;Ljava/util/List;)V
@@ -86,8 +83,6 @@
 
 .method public static forTag(Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;)Landroidx/work/impl/utils/StatusRunnable;
     .locals 1
-    .param p0, "workManager"    # Landroidx/work/impl/WorkManagerImpl;
-    .param p1, "tag"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -122,8 +117,6 @@
 
 .method public static forUUID(Landroidx/work/impl/WorkManagerImpl;Ljava/util/UUID;)Landroidx/work/impl/utils/StatusRunnable;
     .locals 1
-    .param p0, "workManager"    # Landroidx/work/impl/WorkManagerImpl;
-    .param p1, "id"    # Ljava/util/UUID;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -157,8 +150,6 @@
 
 .method public static forUniqueWork(Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;)Landroidx/work/impl/utils/StatusRunnable;
     .locals 1
-    .param p0, "workManager"    # Landroidx/work/impl/WorkManagerImpl;
-    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -193,8 +184,6 @@
 
 .method public static forWorkQuerySpec(Landroidx/work/impl/WorkManagerImpl;Landroidx/work/WorkQuery;)Landroidx/work/impl/utils/StatusRunnable;
     .locals 1
-    .param p0, "workManager"    # Landroidx/work/impl/WorkManagerImpl;
-    .param p1, "querySpec"    # Landroidx/work/WorkQuery;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -240,7 +229,6 @@
     .end annotation
 
     .line 59
-    .local p0, "this":Landroidx/work/impl/utils/StatusRunnable;, "Landroidx/work/impl/utils/StatusRunnable<TT;>;"
     iget-object v0, p0, Landroidx/work/impl/utils/StatusRunnable;->mFuture:Landroidx/work/impl/utils/futures/SettableFuture;
 
     return-object v0
@@ -250,38 +238,28 @@
     .locals 2
 
     .line 47
-    .local p0, "this":Landroidx/work/impl/utils/StatusRunnable;, "Landroidx/work/impl/utils/StatusRunnable<TT;>;"
     :try_start_0
     invoke-virtual {p0}, Landroidx/work/impl/utils/StatusRunnable;->runInternal()Ljava/lang/Object;
 
     move-result-object v0
 
     .line 48
-    .local v0, "value":Ljava/lang/Object;, "TT;"
     iget-object v1, p0, Landroidx/work/impl/utils/StatusRunnable;->mFuture:Landroidx/work/impl/utils/futures/SettableFuture;
 
     invoke-virtual {v1, v0}, Landroidx/work/impl/utils/futures/SettableFuture;->set(Ljava/lang/Object;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 51
-    nop
-
-    .end local v0    # "value":Ljava/lang/Object;, "TT;"
     goto :goto_0
 
-    .line 49
     :catchall_0
     move-exception v0
 
     .line 50
-    .local v0, "throwable":Ljava/lang/Throwable;
     iget-object v1, p0, Landroidx/work/impl/utils/StatusRunnable;->mFuture:Landroidx/work/impl/utils/futures/SettableFuture;
 
     invoke-virtual {v1, v0}, Landroidx/work/impl/utils/futures/SettableFuture;->setException(Ljava/lang/Throwable;)Z
 
-    .line 52
-    .end local v0    # "throwable":Ljava/lang/Throwable;
     :goto_0
     return-void
 .end method

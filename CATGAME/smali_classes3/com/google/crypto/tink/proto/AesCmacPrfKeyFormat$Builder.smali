@@ -38,13 +38,11 @@
 
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
-    .line 160
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/proto/AesCmacPrfKeyFormat$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/proto/AesCmacPrfKeyFormat$1;
 
     .line 152
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/AesCmacPrfKeyFormat$Builder;-><init>()V
@@ -67,7 +65,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/AesCmacPrfKeyFormat;->access$400(Lcom/google/crypto/tink/proto/AesCmacPrfKeyFormat;)V
 
-    .line 216
     return-object p0
 .end method
 
@@ -84,7 +81,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/AesCmacPrfKeyFormat;->access$200(Lcom/google/crypto/tink/proto/AesCmacPrfKeyFormat;)V
 
-    .line 188
     return-object p0
 .end method
 
@@ -120,7 +116,6 @@
 
 .method public setKeySize(I)Lcom/google/crypto/tink/proto/AesCmacPrfKeyFormat$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -140,13 +135,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesCmacPrfKeyFormat;->access$300(Lcom/google/crypto/tink/proto/AesCmacPrfKeyFormat;I)V
 
-    .line 207
     return-object p0
 .end method
 
 .method public setVersion(I)Lcom/google/crypto/tink/proto/AesCmacPrfKeyFormat$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -166,6 +159,5 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesCmacPrfKeyFormat;->access$100(Lcom/google/crypto/tink/proto/AesCmacPrfKeyFormat;I)V
 
-    .line 179
     return-object p0
 .end method

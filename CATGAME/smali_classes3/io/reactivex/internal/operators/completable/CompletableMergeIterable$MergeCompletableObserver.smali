@@ -32,9 +32,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/CompletableObserver;Lio/reactivex/disposables/CompositeDisposable;Ljava/util/concurrent/atomic/AtomicInteger;)V
     .locals 0
-    .param p1, "actual"    # Lio/reactivex/CompletableObserver;
-    .param p2, "set"    # Lio/reactivex/disposables/CompositeDisposable;
-    .param p3, "wip"    # Ljava/util/concurrent/atomic/AtomicInteger;
 
     .line 107
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
@@ -48,7 +45,6 @@
     .line 110
     iput-object p3, p0, Lio/reactivex/internal/operators/completable/CompletableMergeIterable$MergeCompletableObserver;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    .line 111
     return-void
 .end method
 
@@ -66,11 +62,11 @@
 
     if-nez v0, :cond_0
 
-    .line 131
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
+    .line 131
     invoke-virtual {p0, v0, v1}, Lio/reactivex/internal/operators/completable/CompletableMergeIterable$MergeCompletableObserver;->compareAndSet(ZZ)Z
 
     move-result v0
@@ -82,25 +78,23 @@
 
     invoke-interface {v0}, Lio/reactivex/CompletableObserver;->onComplete()V
 
-    .line 135
     :cond_0
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 120
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableMergeIterable$MergeCompletableObserver;->set:Lio/reactivex/disposables/CompositeDisposable;
 
     invoke-virtual {v0}, Lio/reactivex/disposables/CompositeDisposable;->dispose()V
 
-    .line 121
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
+    .line 121
     invoke-virtual {p0, v0, v1}, Lio/reactivex/internal/operators/completable/CompletableMergeIterable$MergeCompletableObserver;->compareAndSet(ZZ)Z
 
     move-result v0
@@ -118,20 +112,17 @@
     :cond_0
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 126
     :goto_0
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 115
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableMergeIterable$MergeCompletableObserver;->set:Lio/reactivex/disposables/CompositeDisposable;
 
     invoke-virtual {v0, p1}, Lio/reactivex/disposables/CompositeDisposable;->add(Lio/reactivex/disposables/Disposable;)Z
 
-    .line 116
     return-void
 .end method

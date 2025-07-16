@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/AsyncSocketMiddleware;Lcom/koushikdutta/async/AsyncSocket;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/AsyncSocketMiddleware;
 
     .line 314
     iput-object p1, p0, Lcom/koushikdutta/async/http/AsyncSocketMiddleware$3;->this$0:Lcom/koushikdutta/async/http/AsyncSocketMiddleware;
@@ -41,21 +40,19 @@
 
 # virtual methods
 .method public onCompleted(Ljava/lang/Exception;)V
-    .locals 2
-    .param p1, "ex"    # Ljava/lang/Exception;
+    .locals 1
 
     .line 317
-    iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncSocketMiddleware$3;->val$socket:Lcom/koushikdutta/async/AsyncSocket;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/AsyncSocketMiddleware$3;->val$socket:Lcom/koushikdutta/async/AsyncSocket;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-interface {v0, v1}, Lcom/koushikdutta/async/AsyncSocket;->setClosedCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
+    invoke-interface {p1, v0}, Lcom/koushikdutta/async/AsyncSocket;->setClosedCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
 
     .line 318
-    iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncSocketMiddleware$3;->val$socket:Lcom/koushikdutta/async/AsyncSocket;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/AsyncSocketMiddleware$3;->val$socket:Lcom/koushikdutta/async/AsyncSocket;
 
-    invoke-interface {v0}, Lcom/koushikdutta/async/AsyncSocket;->close()V
+    invoke-interface {p1}, Lcom/koushikdutta/async/AsyncSocket;->close()V
 
-    .line 319
     return-void
 .end method

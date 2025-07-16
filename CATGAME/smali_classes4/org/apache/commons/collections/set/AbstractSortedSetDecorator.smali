@@ -13,18 +13,15 @@
     .line 40
     invoke-direct {p0}, Lorg/apache/commons/collections/set/AbstractSetDecorator;-><init>()V
 
-    .line 41
     return-void
 .end method
 
 .method protected constructor <init>(Ljava/util/Set;)V
     .locals 0
-    .param p1, "set"    # Ljava/util/Set;
 
     .line 50
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/set/AbstractSetDecorator;-><init>(Ljava/util/Set;)V
 
-    .line 51
     return-void
 .end method
 
@@ -75,7 +72,6 @@
 
 .method public headSet(Ljava/lang/Object;)Ljava/util/SortedSet;
     .locals 1
-    .param p1, "toElement"    # Ljava/lang/Object;
 
     .line 68
     invoke-virtual {p0}, Lorg/apache/commons/collections/set/AbstractSortedSetDecorator;->getSortedSet()Ljava/util/SortedSet;
@@ -84,9 +80,9 @@
 
     invoke-interface {v0, p1}, Ljava/util/SortedSet;->headSet(Ljava/lang/Object;)Ljava/util/SortedSet;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public last()Ljava/lang/Object;
@@ -106,8 +102,6 @@
 
 .method public subSet(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;
     .locals 1
-    .param p1, "fromElement"    # Ljava/lang/Object;
-    .param p2, "toElement"    # Ljava/lang/Object;
 
     .line 64
     invoke-virtual {p0}, Lorg/apache/commons/collections/set/AbstractSortedSetDecorator;->getSortedSet()Ljava/util/SortedSet;
@@ -116,14 +110,13 @@
 
     invoke-interface {v0, p1, p2}, Ljava/util/SortedSet;->subSet(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public tailSet(Ljava/lang/Object;)Ljava/util/SortedSet;
     .locals 1
-    .param p1, "fromElement"    # Ljava/lang/Object;
 
     .line 72
     invoke-virtual {p0}, Lorg/apache/commons/collections/set/AbstractSortedSetDecorator;->getSortedSet()Ljava/util/SortedSet;
@@ -132,7 +125,7 @@
 
     invoke-interface {v0, p1}, Ljava/util/SortedSet;->tailSet(Ljava/lang/Object;)Ljava/util/SortedSet;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

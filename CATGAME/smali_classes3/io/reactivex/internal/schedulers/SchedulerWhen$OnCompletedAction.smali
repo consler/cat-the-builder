@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Runnable;Lio/reactivex/CompletableObserver;)V
     .locals 0
-    .param p1, "action"    # Ljava/lang/Runnable;
-    .param p2, "actionCompletable"    # Lio/reactivex/CompletableObserver;
 
     .line 251
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +36,6 @@
     .line 253
     iput-object p2, p0, Lio/reactivex/internal/schedulers/SchedulerWhen$OnCompletedAction;->actionCompletable:Lio/reactivex/CompletableObserver;
 
-    .line 254
     return-void
 .end method
 
@@ -60,13 +57,8 @@
 
     invoke-interface {v0}, Lio/reactivex/CompletableObserver;->onComplete()V
 
-    .line 262
-    nop
-
-    .line 263
     return-void
 
-    .line 261
     :catchall_0
     move-exception v0
 

@@ -15,7 +15,6 @@
 
 .method public static deleteDirectory(Ljava/io/File;)Z
     .locals 3
-    .param p0, "path"    # Ljava/io/File;
 
     .line 10
     invoke-virtual {p0}, Ljava/io/File;->exists()Z
@@ -29,14 +28,11 @@
 
     move-result-object v0
 
-    .line 12
-    .local v0, "files":[Ljava/io/File;
     if-eqz v0, :cond_1
 
-    .line 13
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    .line 13
     :goto_0
     array-length v2, v0
 
@@ -64,19 +60,16 @@
 
     invoke-virtual {v2}, Ljava/io/File;->delete()Z
 
-    .line 13
     :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 23
-    .end local v0    # "files":[Ljava/io/File;
-    .end local v1    # "i":I
     :cond_1
     invoke-virtual {p0}, Ljava/io/File;->delete()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

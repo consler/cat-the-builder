@@ -35,14 +35,13 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/utils/IntIntMap;)V
     .locals 1
-    .param p1, "map"    # Lcom/badlogic/gdx/utils/IntIntMap;
 
     .line 703
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 701
     const/4 v0, 0x1
 
+    .line 701
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/IntIntMap$MapIterator;->valid:Z
 
     .line 704
@@ -51,7 +50,6 @@
     .line 705
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/IntIntMap$MapIterator;->reset()V
 
-    .line 706
     return-void
 .end method
 
@@ -60,9 +58,9 @@
 .method findNextIndex()V
     .locals 4
 
-    .line 718
     const/4 v0, 0x0
 
+    .line 718
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/IntIntMap$MapIterator;->hasNext:Z
 
     .line 719
@@ -71,7 +69,6 @@
     iget-object v0, v0, Lcom/badlogic/gdx/utils/IntIntMap;->keyTable:[I
 
     .line 720
-    .local v0, "keyTable":[I
     iget-object v1, p0, Lcom/badlogic/gdx/utils/IntIntMap$MapIterator;->map:Lcom/badlogic/gdx/utils/IntIntMap;
 
     iget v1, v1, Lcom/badlogic/gdx/utils/IntIntMap;->capacity:I
@@ -82,7 +79,6 @@
 
     add-int/2addr v1, v2
 
-    .local v1, "n":I
     :cond_0
     iget v2, p0, Lcom/badlogic/gdx/utils/IntIntMap$MapIterator;->nextIndex:I
 
@@ -102,8 +98,6 @@
     .line 722
     iput-boolean v3, p0, Lcom/badlogic/gdx/utils/IntIntMap$MapIterator;->hasNext:Z
 
-    .line 726
-    .end local v1    # "n":I
     :cond_1
     return-void
 .end method
@@ -114,11 +108,11 @@
     .line 729
     iget v0, p0, Lcom/badlogic/gdx/utils/IntIntMap$MapIterator;->currentIndex:I
 
-    const/4 v1, 0x0
+    const/4 v1, -0x1
 
-    const/4 v2, -0x1
+    const/4 v2, 0x0
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/badlogic/gdx/utils/IntIntMap$MapIterator;->map:Lcom/badlogic/gdx/utils/IntIntMap;
 
@@ -129,7 +123,7 @@
     .line 730
     iget-object v0, p0, Lcom/badlogic/gdx/utils/IntIntMap$MapIterator;->map:Lcom/badlogic/gdx/utils/IntIntMap;
 
-    iput-boolean v1, v0, Lcom/badlogic/gdx/utils/IntIntMap;->hasZeroValue:Z
+    iput-boolean v2, v0, Lcom/badlogic/gdx/utils/IntIntMap;->hasZeroValue:Z
 
     goto :goto_0
 
@@ -140,11 +134,11 @@
     if-ltz v0, :cond_2
 
     .line 733
-    iget-object v2, p0, Lcom/badlogic/gdx/utils/IntIntMap$MapIterator;->map:Lcom/badlogic/gdx/utils/IntIntMap;
+    iget-object v1, p0, Lcom/badlogic/gdx/utils/IntIntMap$MapIterator;->map:Lcom/badlogic/gdx/utils/IntIntMap;
 
-    iget v2, v2, Lcom/badlogic/gdx/utils/IntIntMap;->capacity:I
+    iget v1, v1, Lcom/badlogic/gdx/utils/IntIntMap;->capacity:I
 
-    if-lt v0, v2, :cond_1
+    if-lt v0, v1, :cond_1
 
     .line 734
     iget-object v0, p0, Lcom/badlogic/gdx/utils/IntIntMap$MapIterator;->map:Lcom/badlogic/gdx/utils/IntIntMap;
@@ -171,14 +165,14 @@
 
     iget-object v0, v0, Lcom/badlogic/gdx/utils/IntIntMap;->keyTable:[I
 
-    iget v2, p0, Lcom/badlogic/gdx/utils/IntIntMap$MapIterator;->currentIndex:I
+    iget v1, p0, Lcom/badlogic/gdx/utils/IntIntMap$MapIterator;->currentIndex:I
 
-    aput v1, v0, v2
+    aput v2, v0, v1
 
-    .line 740
     :goto_0
     const/4 v0, -0x2
 
+    .line 740
     iput v0, p0, Lcom/badlogic/gdx/utils/IntIntMap$MapIterator;->currentIndex:I
 
     .line 741
@@ -190,7 +184,6 @@
 
     iput v1, v0, Lcom/badlogic/gdx/utils/IntIntMap;->size:I
 
-    .line 742
     return-void
 
     .line 732
@@ -207,14 +200,14 @@
 .method public reset()V
     .locals 1
 
-    .line 709
     const/4 v0, -0x2
 
+    .line 709
     iput v0, p0, Lcom/badlogic/gdx/utils/IntIntMap$MapIterator;->currentIndex:I
 
-    .line 710
     const/4 v0, -0x1
 
+    .line 710
     iput v0, p0, Lcom/badlogic/gdx/utils/IntIntMap$MapIterator;->nextIndex:I
 
     .line 711
@@ -224,9 +217,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 712
     const/4 v0, 0x1
 
+    .line 712
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/IntIntMap$MapIterator;->hasNext:Z
 
     goto :goto_0
@@ -235,7 +228,6 @@
     :cond_0
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/IntIntMap$MapIterator;->findNextIndex()V
 
-    .line 715
     :goto_0
     return-void
 .end method

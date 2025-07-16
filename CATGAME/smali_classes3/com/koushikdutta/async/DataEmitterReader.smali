@@ -22,7 +22,6 @@
 .method static constructor <clinit>()V
     .locals 0
 
-    .line 5
     return-void
 .end method
 
@@ -39,13 +38,11 @@
 
     iput-object v0, p0, Lcom/koushikdutta/async/DataEmitterReader;->mPendingData:Lcom/koushikdutta/async/ByteBufferList;
 
-    .line 31
     return-void
 .end method
 
 .method private handlePendingData(Lcom/koushikdutta/async/DataEmitter;)Z
     .locals 2
-    .param p1, "emitter"    # Lcom/koushikdutta/async/DataEmitter;
 
     .line 19
     iget v0, p0, Lcom/koushikdutta/async/DataEmitterReader;->mPendingReadLength:I
@@ -58,19 +55,17 @@
 
     if-le v0, v1, :cond_0
 
-    .line 20
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 22
     :cond_0
     iget-object v0, p0, Lcom/koushikdutta/async/DataEmitterReader;->mPendingRead:Lcom/koushikdutta/async/callback/DataCallback;
 
-    .line 23
-    .local v0, "pendingRead":Lcom/koushikdutta/async/callback/DataCallback;
     const/4 v1, 0x0
 
+    .line 23
     iput-object v1, p0, Lcom/koushikdutta/async/DataEmitterReader;->mPendingRead:Lcom/koushikdutta/async/callback/DataCallback;
 
     .line 24
@@ -78,24 +73,15 @@
 
     invoke-interface {v0, p1, v1}, Lcom/koushikdutta/async/callback/DataCallback;->onDataAvailable(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/ByteBufferList;)V
 
-    .line 25
-    nop
+    const/4 p1, 0x1
 
-    .line 27
-    const/4 v1, 0x1
-
-    return v1
+    return p1
 .end method
 
 
 # virtual methods
 .method public onDataAvailable(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/ByteBufferList;)V
     .locals 3
-    .param p1, "emitter"    # Lcom/koushikdutta/async/DataEmitter;
-    .param p2, "bb"    # Lcom/koushikdutta/async/ByteBufferList;
-
-    .line 35
-    nop
 
     .line 37
     :cond_0
@@ -118,7 +104,6 @@
     move-result v0
 
     .line 38
-    .local v0, "need":I
     iget-object v1, p0, Lcom/koushikdutta/async/DataEmitterReader;->mPendingData:Lcom/koushikdutta/async/ByteBufferList;
 
     invoke-virtual {p2, v1, v0}, Lcom/koushikdutta/async/ByteBufferList;->get(Lcom/koushikdutta/async/ByteBufferList;I)V
@@ -127,7 +112,6 @@
     invoke-virtual {p2}, Lcom/koushikdutta/async/ByteBufferList;->remaining()I
 
     .line 41
-    .end local v0    # "need":I
     invoke-direct {p0, p1}, Lcom/koushikdutta/async/DataEmitterReader;->handlePendingData(Lcom/koushikdutta/async/DataEmitter;)Z
 
     move-result v0
@@ -142,17 +126,11 @@
     :cond_1
     invoke-virtual {p2}, Lcom/koushikdutta/async/ByteBufferList;->remaining()I
 
-    .line 43
     return-void
 .end method
 
 .method public read(ILcom/koushikdutta/async/callback/DataCallback;)V
-    .locals 1
-    .param p1, "count"    # I
-    .param p2, "callback"    # Lcom/koushikdutta/async/callback/DataCallback;
-
-    .line 11
-    nop
+    .locals 0
 
     .line 12
     iput p1, p0, Lcom/koushikdutta/async/DataEmitterReader;->mPendingReadLength:I
@@ -160,14 +138,10 @@
     .line 13
     iput-object p2, p0, Lcom/koushikdutta/async/DataEmitterReader;->mPendingRead:Lcom/koushikdutta/async/callback/DataCallback;
 
-    .line 14
-    nop
-
     .line 15
-    iget-object v0, p0, Lcom/koushikdutta/async/DataEmitterReader;->mPendingData:Lcom/koushikdutta/async/ByteBufferList;
+    iget-object p1, p0, Lcom/koushikdutta/async/DataEmitterReader;->mPendingData:Lcom/koushikdutta/async/ByteBufferList;
 
-    invoke-virtual {v0}, Lcom/koushikdutta/async/ByteBufferList;->recycle()V
+    invoke-virtual {p1}, Lcom/koushikdutta/async/ByteBufferList;->recycle()V
 
-    .line 16
     return-void
 .end method

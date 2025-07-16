@@ -35,14 +35,13 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/utils/IntFloatMap;)V
     .locals 1
-    .param p1, "map"    # Lcom/badlogic/gdx/utils/IntFloatMap;
 
     .line 717
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 715
     const/4 v0, 0x1
 
+    .line 715
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/IntFloatMap$MapIterator;->valid:Z
 
     .line 718
@@ -51,7 +50,6 @@
     .line 719
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/IntFloatMap$MapIterator;->reset()V
 
-    .line 720
     return-void
 .end method
 
@@ -60,9 +58,9 @@
 .method findNextIndex()V
     .locals 4
 
-    .line 732
     const/4 v0, 0x0
 
+    .line 732
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/IntFloatMap$MapIterator;->hasNext:Z
 
     .line 733
@@ -71,7 +69,6 @@
     iget-object v0, v0, Lcom/badlogic/gdx/utils/IntFloatMap;->keyTable:[I
 
     .line 734
-    .local v0, "keyTable":[I
     iget-object v1, p0, Lcom/badlogic/gdx/utils/IntFloatMap$MapIterator;->map:Lcom/badlogic/gdx/utils/IntFloatMap;
 
     iget v1, v1, Lcom/badlogic/gdx/utils/IntFloatMap;->capacity:I
@@ -82,7 +79,6 @@
 
     add-int/2addr v1, v2
 
-    .local v1, "n":I
     :cond_0
     iget v2, p0, Lcom/badlogic/gdx/utils/IntFloatMap$MapIterator;->nextIndex:I
 
@@ -102,8 +98,6 @@
     .line 736
     iput-boolean v3, p0, Lcom/badlogic/gdx/utils/IntFloatMap$MapIterator;->hasNext:Z
 
-    .line 740
-    .end local v1    # "n":I
     :cond_1
     return-void
 .end method
@@ -114,11 +108,11 @@
     .line 743
     iget v0, p0, Lcom/badlogic/gdx/utils/IntFloatMap$MapIterator;->currentIndex:I
 
-    const/4 v1, 0x0
+    const/4 v1, -0x1
 
-    const/4 v2, -0x1
+    const/4 v2, 0x0
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/badlogic/gdx/utils/IntFloatMap$MapIterator;->map:Lcom/badlogic/gdx/utils/IntFloatMap;
 
@@ -129,7 +123,7 @@
     .line 744
     iget-object v0, p0, Lcom/badlogic/gdx/utils/IntFloatMap$MapIterator;->map:Lcom/badlogic/gdx/utils/IntFloatMap;
 
-    iput-boolean v1, v0, Lcom/badlogic/gdx/utils/IntFloatMap;->hasZeroValue:Z
+    iput-boolean v2, v0, Lcom/badlogic/gdx/utils/IntFloatMap;->hasZeroValue:Z
 
     goto :goto_0
 
@@ -140,11 +134,11 @@
     if-ltz v0, :cond_2
 
     .line 747
-    iget-object v2, p0, Lcom/badlogic/gdx/utils/IntFloatMap$MapIterator;->map:Lcom/badlogic/gdx/utils/IntFloatMap;
+    iget-object v1, p0, Lcom/badlogic/gdx/utils/IntFloatMap$MapIterator;->map:Lcom/badlogic/gdx/utils/IntFloatMap;
 
-    iget v2, v2, Lcom/badlogic/gdx/utils/IntFloatMap;->capacity:I
+    iget v1, v1, Lcom/badlogic/gdx/utils/IntFloatMap;->capacity:I
 
-    if-lt v0, v2, :cond_1
+    if-lt v0, v1, :cond_1
 
     .line 748
     iget-object v0, p0, Lcom/badlogic/gdx/utils/IntFloatMap$MapIterator;->map:Lcom/badlogic/gdx/utils/IntFloatMap;
@@ -171,14 +165,14 @@
 
     iget-object v0, v0, Lcom/badlogic/gdx/utils/IntFloatMap;->keyTable:[I
 
-    iget v2, p0, Lcom/badlogic/gdx/utils/IntFloatMap$MapIterator;->currentIndex:I
+    iget v1, p0, Lcom/badlogic/gdx/utils/IntFloatMap$MapIterator;->currentIndex:I
 
-    aput v1, v0, v2
+    aput v2, v0, v1
 
-    .line 754
     :goto_0
     const/4 v0, -0x2
 
+    .line 754
     iput v0, p0, Lcom/badlogic/gdx/utils/IntFloatMap$MapIterator;->currentIndex:I
 
     .line 755
@@ -190,7 +184,6 @@
 
     iput v1, v0, Lcom/badlogic/gdx/utils/IntFloatMap;->size:I
 
-    .line 756
     return-void
 
     .line 746
@@ -207,14 +200,14 @@
 .method public reset()V
     .locals 1
 
-    .line 723
     const/4 v0, -0x2
 
+    .line 723
     iput v0, p0, Lcom/badlogic/gdx/utils/IntFloatMap$MapIterator;->currentIndex:I
 
-    .line 724
     const/4 v0, -0x1
 
+    .line 724
     iput v0, p0, Lcom/badlogic/gdx/utils/IntFloatMap$MapIterator;->nextIndex:I
 
     .line 725
@@ -224,9 +217,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 726
     const/4 v0, 0x1
 
+    .line 726
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/IntFloatMap$MapIterator;->hasNext:Z
 
     goto :goto_0
@@ -235,7 +228,6 @@
     :cond_0
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/IntFloatMap$MapIterator;->findNextIndex()V
 
-    .line 729
     :goto_0
     return-void
 .end method

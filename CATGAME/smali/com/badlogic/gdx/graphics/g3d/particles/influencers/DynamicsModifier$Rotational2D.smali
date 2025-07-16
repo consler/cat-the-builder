@@ -25,18 +25,15 @@
     .line 189
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$Strength;-><init>()V
 
-    .line 190
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$Rotational2D;)V
     .locals 0
-    .param p1, "rotation"    # Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$Rotational2D;
 
     .line 193
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$Strength;-><init>(Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$Strength;)V
 
-    .line 194
     return-void
 .end method
 
@@ -63,7 +60,6 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$Rotational2D;->rotationalVelocity2dChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    .line 200
     return-void
 .end method
 
@@ -93,40 +89,37 @@
     .locals 10
 
     .line 204
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$Rotational2D;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
 
-    .local v0, "i":I
-    const/4 v1, 0x2
+    iget-object v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->particles:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;
 
-    .local v1, "l":I
-    const/4 v2, 0x0
+    iget v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;->size:I
 
-    .local v2, "s":I
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$Rotational2D;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$Rotational2D;->rotationalVelocity2dChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    iget-object v3, v3, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->particles:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;
+    iget v1, v1, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
 
-    iget v3, v3, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;->size:I
+    mul-int/2addr v0, v1
 
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$Rotational2D;->rotationalVelocity2dChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+    const/4 v1, 0x0
 
-    iget v4, v4, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
+    add-int/2addr v0, v1
 
-    mul-int/2addr v3, v4
+    const/4 v2, 0x2
 
-    add-int/2addr v3, v0
+    move v3, v2
 
-    .line 205
-    .local v3, "c":I
+    move v2, v1
+
     :goto_0
-    if-ge v0, v3, :cond_0
+    if-ge v1, v0, :cond_0
 
     .line 206
     iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$Rotational2D;->rotationalVelocity2dChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
     iget-object v4, v4, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    aget v5, v4, v0
+    aget v5, v4, v1
 
     iget-object v6, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$Rotational2D;->strengthChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
@@ -150,7 +143,7 @@
 
     iget-object v9, v9, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    aget v9, v9, v1
+    aget v9, v9, v3
 
     .line 208
     invoke-virtual {v8, v9}, Lcom/badlogic/gdx/graphics/g3d/particles/values/ScaledNumericValue;->getScale(F)F
@@ -163,7 +156,7 @@
 
     add-float/2addr v5, v6
 
-    aput v5, v4, v0
+    aput v5, v4, v1
 
     .line 205
     iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$Rotational2D;->strengthChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
@@ -176,21 +169,16 @@
 
     iget v4, v4, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
 
-    add-int/2addr v0, v4
+    add-int/2addr v1, v4
 
     iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/DynamicsModifier$Rotational2D;->lifeChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
     iget v4, v4, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
 
-    add-int/2addr v1, v4
+    add-int/2addr v3, v4
 
     goto :goto_0
 
-    .line 210
-    .end local v0    # "i":I
-    .end local v1    # "l":I
-    .end local v2    # "s":I
-    .end local v3    # "c":I
     :cond_0
     return-void
 .end method

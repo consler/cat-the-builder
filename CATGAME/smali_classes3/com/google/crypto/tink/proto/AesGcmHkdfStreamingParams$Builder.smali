@@ -38,13 +38,11 @@
 
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
-    .line 214
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams$1;
 
     .line 206
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams$Builder;-><init>()V
@@ -67,7 +65,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;->access$200(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;)V
 
-    .line 242
     return-object p0
 .end method
 
@@ -84,7 +81,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;->access$400(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;)V
 
-    .line 282
     return-object p0
 .end method
 
@@ -101,7 +97,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;->access$700(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;)V
 
-    .line 328
     return-object p0
 .end method
 
@@ -167,7 +162,6 @@
 
 .method public setCiphertextSegmentSize(I)Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -187,13 +181,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;->access$100(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;I)V
 
-    .line 233
     return-object p0
 .end method
 
 .method public setDerivedKeySize(I)Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -213,13 +205,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;->access$300(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;I)V
 
-    .line 269
     return-object p0
 .end method
 
 .method public setHkdfHashType(Lcom/google/crypto/tink/proto/HashType;)Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/HashType;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -239,13 +229,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;->access$600(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;Lcom/google/crypto/tink/proto/HashType;)V
 
-    .line 319
     return-object p0
 .end method
 
 .method public setHkdfHashTypeValue(I)Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -265,6 +253,5 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;->access$500(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;I)V
 
-    .line 301
     return-object p0
 .end method

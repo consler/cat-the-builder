@@ -28,7 +28,6 @@
     .line 300
     invoke-direct {p0, p1}, Landroidx/appcompat/widget/ForwardingListener;-><init>(Landroid/view/View;)V
 
-    .line 301
     return-void
 .end method
 
@@ -55,7 +54,6 @@
 
     return-object v0
 
-    .line 308
     :cond_0
     const/4 v0, 0x0
 
@@ -72,7 +70,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/ActionMenuItemView$ActionMenuItemForwardingListener;->this$0:Landroidx/appcompat/view/menu/ActionMenuItemView;
 
@@ -86,30 +84,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     .line 315
     invoke-virtual {p0}, Landroidx/appcompat/view/menu/ActionMenuItemView$ActionMenuItemForwardingListener;->getPopup()Landroidx/appcompat/view/menu/ShowableListMenu;
 
     move-result-object v0
 
-    .line 316
-    .local v0, "popup":Landroidx/appcompat/view/menu/ShowableListMenu;
     if-eqz v0, :cond_0
 
+    .line 316
     invoke-interface {v0}, Landroidx/appcompat/view/menu/ShowableListMenu;->isShowing()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
     const/4 v1, 0x1
 
     :cond_0
-    return v1
-
-    .line 318
-    .end local v0    # "popup":Landroidx/appcompat/view/menu/ShowableListMenu;
-    :cond_1
     return v1
 .end method

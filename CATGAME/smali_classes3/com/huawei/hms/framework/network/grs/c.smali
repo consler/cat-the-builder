@@ -1,34 +1,35 @@
 .class public Lcom/huawei/hms/framework/network/grs/c;
 .super Ljava/lang/Object;
+.source ""
 
 
 # static fields
-.field private static final a:Ljava/lang/String;
+.field private static final i:Ljava/lang/String; = "c"
 
-.field private static b:Ljava/util/concurrent/ExecutorService;
+.field private static final j:Ljava/util/concurrent/ExecutorService;
+
+.field private static k:Ljava/util/concurrent/atomic/AtomicInteger;
 
 
 # instance fields
-.field private c:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
+.field private a:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
 
-.field private d:Z
+.field private b:Landroid/content/Context;
 
-.field private final e:Ljava/lang/Object;
+.field private c:Lcom/huawei/hms/framework/network/grs/g/h;
 
-.field private f:Landroid/content/Context;
+.field private d:Lcom/huawei/hms/framework/network/grs/e/a;
 
-.field private g:Lcom/huawei/hms/framework/network/grs/b/h;
+.field private e:Lcom/huawei/hms/framework/network/grs/e/c;
 
-.field private h:Lcom/huawei/hms/framework/network/grs/a/a;
+.field private f:Lcom/huawei/hms/framework/network/grs/e/c;
 
-.field private i:Lcom/huawei/hms/framework/network/grs/a/c;
+.field private g:Lcom/huawei/hms/framework/network/grs/a;
 
-.field private j:Lcom/huawei/hms/framework/network/grs/a;
-
-.field private k:Ljava/util/concurrent/Future;
+.field private h:Ljava/util/concurrent/FutureTask;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/concurrent/Future<",
+            "Ljava/util/concurrent/FutureTask<",
             "Ljava/lang/Boolean;",
             ">;"
         }
@@ -38,131 +39,122 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
-
-    const-class v0, Lcom/huawei/hms/framework/network/grs/c;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/huawei/hms/framework/network/grs/c;->a:Ljava/lang/String;
+    .locals 2
 
     const-string v0, "GRS_GrsClient-Init"
 
-    invoke-static {v0}, Lcom/huawei/hms/framework/common/ExecutorsUtils;->newCachedThreadPool(Ljava/lang/String;)Ljava/util/concurrent/ExecutorService;
+    invoke-static {v0}, Lcom/huawei/hms/framework/common/ExecutorsUtils;->newSingleThreadExecutor(Ljava/lang/String;)Ljava/util/concurrent/ExecutorService;
 
     move-result-object v0
 
-    sput-object v0, Lcom/huawei/hms/framework/network/grs/c;->b:Ljava/util/concurrent/ExecutorService;
+    sput-object v0, Lcom/huawei/hms/framework/network/grs/c;->j:Ljava/util/concurrent/ExecutorService;
+
+    new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
+
+    const/4 v1, 0x0
+
+    invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
+
+    sput-object v0, Lcom/huawei/hms/framework/network/grs/c;->k:Ljava/util/concurrent/atomic/AtomicInteger;
 
     return-void
 .end method
 
 .method constructor <init>(Landroid/content/Context;Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;)V
-    .locals 3
+    .locals 4
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/huawei/hms/framework/network/grs/c;->d:Z
+    iput-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->h:Ljava/util/concurrent/FutureTask;
 
-    new-instance v0, Ljava/lang/Object;
+    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+    move-result-object v0
 
-    iput-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->e:Ljava/lang/Object;
+    if-nez v0, :cond_0
 
+    goto :goto_0
+
+    :cond_0
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/huawei/hms/framework/network/grs/c;->f:Landroid/content/Context;
-
-    new-instance p1, Lcom/huawei/hms/framework/network/grs/b/h;
-
-    invoke-direct {p1}, Lcom/huawei/hms/framework/network/grs/b/h;-><init>()V
-
-    iput-object p1, p0, Lcom/huawei/hms/framework/network/grs/c;->g:Lcom/huawei/hms/framework/network/grs/b/h;
-
-    new-instance p1, Lcom/huawei/hms/framework/network/grs/a/c;
-
-    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->f:Landroid/content/Context;
-
-    invoke-direct {p1, v0}, Lcom/huawei/hms/framework/network/grs/a/c;-><init>(Landroid/content/Context;)V
-
-    iput-object p1, p0, Lcom/huawei/hms/framework/network/grs/c;->i:Lcom/huawei/hms/framework/network/grs/a/c;
-
-    new-instance p1, Lcom/huawei/hms/framework/network/grs/a/a;
-
-    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->i:Lcom/huawei/hms/framework/network/grs/a/c;
-
-    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->g:Lcom/huawei/hms/framework/network/grs/b/h;
-
-    invoke-direct {p1, v0, v1}, Lcom/huawei/hms/framework/network/grs/a/a;-><init>(Lcom/huawei/hms/framework/network/grs/a/c;Lcom/huawei/hms/framework/network/grs/b/h;)V
-
-    iput-object p1, p0, Lcom/huawei/hms/framework/network/grs/c;->h:Lcom/huawei/hms/framework/network/grs/a/a;
+    :goto_0
+    iput-object p1, p0, Lcom/huawei/hms/framework/network/grs/c;->b:Landroid/content/Context;
 
     invoke-direct {p0, p2}, Lcom/huawei/hms/framework/network/grs/c;->a(Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;)V
 
-    new-instance p1, Lcom/huawei/hms/framework/network/grs/a;
+    iget-object p1, p0, Lcom/huawei/hms/framework/network/grs/c;->a:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
 
-    iget-object p2, p0, Lcom/huawei/hms/framework/network/grs/c;->c:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
+    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->b:Landroid/content/Context;
 
-    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->h:Lcom/huawei/hms/framework/network/grs/a/a;
+    new-instance v1, Ljava/util/concurrent/FutureTask;
 
-    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->g:Lcom/huawei/hms/framework/network/grs/b/h;
+    new-instance v2, Lcom/huawei/hms/framework/network/grs/c$a;
 
-    invoke-direct {p1, p2, v0, v1}, Lcom/huawei/hms/framework/network/grs/a;-><init>(Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;Lcom/huawei/hms/framework/network/grs/a/a;Lcom/huawei/hms/framework/network/grs/b/h;)V
+    invoke-direct {v2, p0, v0, p1}, Lcom/huawei/hms/framework/network/grs/c$a;-><init>(Lcom/huawei/hms/framework/network/grs/c;Landroid/content/Context;Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;)V
 
-    iput-object p1, p0, Lcom/huawei/hms/framework/network/grs/c;->j:Lcom/huawei/hms/framework/network/grs/a;
+    invoke-direct {v1, v2}, Ljava/util/concurrent/FutureTask;-><init>(Ljava/util/concurrent/Callable;)V
 
-    iget-boolean p1, p0, Lcom/huawei/hms/framework/network/grs/c;->d:Z
+    iput-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->h:Ljava/util/concurrent/FutureTask;
 
-    if-nez p1, :cond_1
+    sget-object v0, Lcom/huawei/hms/framework/network/grs/c;->j:Ljava/util/concurrent/ExecutorService;
 
-    iget-object p1, p0, Lcom/huawei/hms/framework/network/grs/c;->e:Ljava/lang/Object;
+    invoke-interface {v0, v1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 
-    monitor-enter p1
+    sget-object v0, Lcom/huawei/hms/framework/network/grs/c;->i:Ljava/lang/String;
 
-    :try_start_0
-    iget-boolean p2, p0, Lcom/huawei/hms/framework/network/grs/c;->d:Z
+    const/4 v1, 0x5
 
-    if-nez p2, :cond_0
+    new-array v1, v1, [Ljava/lang/Object;
 
-    iget-object p2, p0, Lcom/huawei/hms/framework/network/grs/c;->c:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
+    invoke-static {}, Lcom/huawei/hms/framework/network/grs/h/a;->a()Ljava/lang/String;
 
-    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->f:Landroid/content/Context;
+    move-result-object v2
 
-    sget-object v1, Lcom/huawei/hms/framework/network/grs/c;->b:Ljava/util/concurrent/ExecutorService;
+    const/4 v3, 0x0
 
-    new-instance v2, Lcom/huawei/hms/framework/network/grs/c$1;
+    aput-object v2, v1, v3
 
-    invoke-direct {v2, p0, v0, p2}, Lcom/huawei/hms/framework/network/grs/c$1;-><init>(Lcom/huawei/hms/framework/network/grs/c;Landroid/content/Context;Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;)V
+    invoke-virtual {p1}, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->getAppName()Ljava/lang/String;
 
-    invoke-interface {v1, v2}, Ljava/util/concurrent/ExecutorService;->submit(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;
+    move-result-object p1
 
-    move-result-object p2
+    const/4 v2, 0x1
 
-    iput-object p2, p0, Lcom/huawei/hms/framework/network/grs/c;->k:Ljava/util/concurrent/Future;
+    aput-object p1, v1, v2
 
-    :cond_0
-    monitor-exit p1
+    invoke-virtual {p2}, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->getRegCountry()Ljava/lang/String;
 
-    goto :goto_0
+    move-result-object p1
 
-    :catchall_0
-    move-exception p2
+    const/4 v2, 0x2
 
-    monitor-exit p1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    aput-object p1, v1, v2
 
-    throw p2
+    invoke-virtual {p2}, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->getSerCountry()Ljava/lang/String;
 
-    :cond_1
-    :goto_0
+    move-result-object p1
+
+    const/4 v2, 0x3
+
+    aput-object p1, v1, v2
+
+    invoke-virtual {p2}, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->getIssueCountry()Ljava/lang/String;
+
+    move-result-object p1
+
+    const/4 p2, 0x4
+
+    aput-object p1, v1, p2
+
+    const-string p1, "GrsClient Instance is init, GRS SDK version: %s, GrsBaseInfoParam: app_name=%s, reg_country=%s, ser_country=%s, issue_country=%s"
+
+    invoke-static {v0, p1, v1}, Lcom/huawei/hms/framework/common/Logger;->i(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+
     return-void
 .end method
 
@@ -173,25 +165,51 @@
 
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/huawei/hms/framework/network/grs/c;->d:Z
-
-    new-instance v0, Ljava/lang/Object;
-
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
-
-    iput-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->e:Ljava/lang/Object;
+    iput-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->h:Ljava/util/concurrent/FutureTask;
 
     invoke-direct {p0, p1}, Lcom/huawei/hms/framework/network/grs/c;->a(Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;)V
 
     return-void
 .end method
 
-.method static synthetic a(Lcom/huawei/hms/framework/network/grs/c;)Lcom/huawei/hms/framework/network/grs/a/c;
+.method static synthetic a(Lcom/huawei/hms/framework/network/grs/c;Lcom/huawei/hms/framework/network/grs/a;)Lcom/huawei/hms/framework/network/grs/a;
     .locals 0
 
-    iget-object p0, p0, Lcom/huawei/hms/framework/network/grs/c;->i:Lcom/huawei/hms/framework/network/grs/a/c;
+    iput-object p1, p0, Lcom/huawei/hms/framework/network/grs/c;->g:Lcom/huawei/hms/framework/network/grs/a;
+
+    return-object p1
+.end method
+
+.method static synthetic a(Lcom/huawei/hms/framework/network/grs/c;Lcom/huawei/hms/framework/network/grs/e/a;)Lcom/huawei/hms/framework/network/grs/e/a;
+    .locals 0
+
+    iput-object p1, p0, Lcom/huawei/hms/framework/network/grs/c;->d:Lcom/huawei/hms/framework/network/grs/e/a;
+
+    return-object p1
+.end method
+
+.method static synthetic a(Lcom/huawei/hms/framework/network/grs/c;Lcom/huawei/hms/framework/network/grs/e/c;)Lcom/huawei/hms/framework/network/grs/e/c;
+    .locals 0
+
+    iput-object p1, p0, Lcom/huawei/hms/framework/network/grs/c;->e:Lcom/huawei/hms/framework/network/grs/e/c;
+
+    return-object p1
+.end method
+
+.method static synthetic a(Lcom/huawei/hms/framework/network/grs/c;)Lcom/huawei/hms/framework/network/grs/g/h;
+    .locals 0
+
+    iget-object p0, p0, Lcom/huawei/hms/framework/network/grs/c;->c:Lcom/huawei/hms/framework/network/grs/g/h;
 
     return-object p0
+.end method
+
+.method static synthetic a(Lcom/huawei/hms/framework/network/grs/c;Lcom/huawei/hms/framework/network/grs/g/h;)Lcom/huawei/hms/framework/network/grs/g/h;
+    .locals 0
+
+    iput-object p1, p0, Lcom/huawei/hms/framework/network/grs/c;->c:Lcom/huawei/hms/framework/network/grs/g/h;
+
+    return-object p1
 .end method
 
 .method private a(Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;)V
@@ -202,7 +220,7 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->c:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
+    iput-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->a:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
     :try_end_0
     .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -211,7 +229,7 @@
     :catch_0
     move-exception v0
 
-    sget-object v1, Lcom/huawei/hms/framework/network/grs/c;->a:Ljava/lang/String;
+    sget-object v1, Lcom/huawei/hms/framework/network/grs/c;->i:Ljava/lang/String;
 
     const-string v2, "GrsClient catch CloneNotSupportedException"
 
@@ -221,7 +239,7 @@
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/huawei/hms/framework/network/grs/c;->c:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
+    iput-object p1, p0, Lcom/huawei/hms/framework/network/grs/c;->a:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
 
     :goto_0
     return-void
@@ -236,7 +254,7 @@
 .end method
 
 .method private a(Ljava/util/Map;)V
-    .locals 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -254,7 +272,7 @@
 
     if-eqz v0, :cond_0
 
-    goto :goto_2
+    goto/16 :goto_2
 
     :cond_0
     invoke-interface {p1}, Ljava/util/Map;->keySet()Ljava/util/Set;
@@ -283,89 +301,107 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->e:Lcom/huawei/hms/framework/network/grs/e/c;
+
+    const-string v2, ""
+
+    invoke-virtual {v1, v0, v2}, Lcom/huawei/hms/framework/network/grs/e/c;->a(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
     move-result v2
 
-    if-eqz v2, :cond_1
+    const-wide/16 v3, 0x0
 
-    iget-object v2, p0, Lcom/huawei/hms/framework/network/grs/c;->i:Lcom/huawei/hms/framework/network/grs/a/c;
+    if-nez v2, :cond_2
 
-    const-string v3, ""
+    const-string v2, "\\d+"
 
-    invoke-virtual {v2, v0, v3}, Lcom/huawei/hms/framework/network/grs/a/c;->a(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, v2}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
 
-    move-result-object v2
+    move-result v2
 
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v3
-
-    const-wide/16 v4, 0x0
-
-    if-nez v3, :cond_2
-
-    const-string v3, "\\d+"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_2
 
     :try_start_0
-    invoke-static {v2}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+    invoke-static {v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
-    move-result-wide v4
+    move-result-wide v3
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_1
 
     :catch_0
-    move-exception v2
+    move-exception v1
 
-    sget-object v3, Lcom/huawei/hms/framework/network/grs/c;->a:Ljava/lang/String;
+    sget-object v2, Lcom/huawei/hms/framework/network/grs/c;->i:Ljava/lang/String;
 
-    const-string v6, "convert expire time from String to Long catch NumberFormatException."
+    const-string v5, "convert expire time from String to Long catch NumberFormatException."
 
-    invoke-static {v3, v6, v2}, Lcom/huawei/hms/framework/common/Logger;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v2, v5, v1}, Lcom/huawei/hms/framework/common/Logger;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     :cond_2
     :goto_1
-    invoke-direct {p0, v4, v5}, Lcom/huawei/hms/framework/network/grs/c;->a(J)Z
-
-    move-result v2
-
-    if-nez v2, :cond_1
-
-    sget-object v2, Lcom/huawei/hms/framework/network/grs/c;->a:Ljava/lang/String;
-
-    const-string v3, "init interface auto clear some invalid sp\'s data."
-
-    invoke-static {v2, v3}, Lcom/huawei/hms/framework/common/Logger;->i(Ljava/lang/String;Ljava/lang/Object;)V
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
-
-    move-result v3
-
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-direct {p0, v3, v4}, Lcom/huawei/hms/framework/network/grs/c;->a(J)Z
 
     move-result v1
 
-    sub-int/2addr v3, v1
+    if-nez v1, :cond_1
 
-    invoke-virtual {v0, v2, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    sget-object v1, Lcom/huawei/hms/framework/network/grs/c;->i:Ljava/lang/String;
+
+    const-string v2, "init interface auto clear some invalid sp\'s data."
+
+    invoke-static {v1, v2}, Lcom/huawei/hms/framework/common/Logger;->i(Ljava/lang/String;Ljava/lang/Object;)V
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+
+    move-result v1
+
+    add-int/lit8 v1, v1, -0x4
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v2, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/huawei/hms/framework/network/grs/c;->i:Lcom/huawei/hms/framework/network/grs/a/c;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v1}, Lcom/huawei/hms/framework/network/grs/a/c;->a(Ljava/lang/String;)V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->i:Lcom/huawei/hms/framework/network/grs/a/c;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v0}, Lcom/huawei/hms/framework/network/grs/a/c;->a(Ljava/lang/String;)V
+    move-result-object v2
+
+    const-string v3, "ETag"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/huawei/hms/framework/network/grs/c;->e:Lcom/huawei/hms/framework/network/grs/e/c;
+
+    invoke-virtual {v3, v1}, Lcom/huawei/hms/framework/network/grs/e/c;->a(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->e:Lcom/huawei/hms/framework/network/grs/e/c;
+
+    invoke-virtual {v1, v0}, Lcom/huawei/hms/framework/network/grs/e/c;->a(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->e:Lcom/huawei/hms/framework/network/grs/e/c;
+
+    invoke-virtual {v0, v2}, Lcom/huawei/hms/framework/network/grs/e/c;->a(Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -374,7 +410,7 @@
 
     :cond_4
     :goto_2
-    sget-object p1, Lcom/huawei/hms/framework/network/grs/c;->a:Ljava/lang/String;
+    sget-object p1, Lcom/huawei/hms/framework/network/grs/c;->i:Ljava/lang/String;
 
     const-string v0, "sp\'s content is empty."
 
@@ -409,47 +445,88 @@
     return p1
 .end method
 
-.method static synthetic a(Lcom/huawei/hms/framework/network/grs/c;Z)Z
+.method static synthetic b(Lcom/huawei/hms/framework/network/grs/c;)Lcom/huawei/hms/framework/network/grs/e/c;
     .locals 0
 
-    iput-boolean p1, p0, Lcom/huawei/hms/framework/network/grs/c;->d:Z
-
-    return p1
-.end method
-
-.method static synthetic b(Lcom/huawei/hms/framework/network/grs/c;)Lcom/huawei/hms/framework/network/grs/a/a;
-    .locals 0
-
-    iget-object p0, p0, Lcom/huawei/hms/framework/network/grs/c;->h:Lcom/huawei/hms/framework/network/grs/a/a;
+    iget-object p0, p0, Lcom/huawei/hms/framework/network/grs/c;->e:Lcom/huawei/hms/framework/network/grs/e/c;
 
     return-object p0
 .end method
 
-.method private c()Z
+.method static synthetic b(Lcom/huawei/hms/framework/network/grs/c;Lcom/huawei/hms/framework/network/grs/e/c;)Lcom/huawei/hms/framework/network/grs/e/c;
+    .locals 0
+
+    iput-object p1, p0, Lcom/huawei/hms/framework/network/grs/c;->f:Lcom/huawei/hms/framework/network/grs/e/c;
+
+    return-object p1
+.end method
+
+.method static synthetic c(Lcom/huawei/hms/framework/network/grs/c;)Lcom/huawei/hms/framework/network/grs/e/c;
+    .locals 0
+
+    iget-object p0, p0, Lcom/huawei/hms/framework/network/grs/c;->f:Lcom/huawei/hms/framework/network/grs/e/c;
+
+    return-object p0
+.end method
+
+.method static synthetic c()Ljava/util/concurrent/atomic/AtomicInteger;
+    .locals 1
+
+    sget-object v0, Lcom/huawei/hms/framework/network/grs/c;->k:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    return-object v0
+.end method
+
+.method static synthetic d(Lcom/huawei/hms/framework/network/grs/c;)Lcom/huawei/hms/framework/network/grs/e/a;
+    .locals 0
+
+    iget-object p0, p0, Lcom/huawei/hms/framework/network/grs/c;->d:Lcom/huawei/hms/framework/network/grs/e/a;
+
+    return-object p0
+.end method
+
+.method static synthetic d()Ljava/lang/String;
+    .locals 1
+
+    sget-object v0, Lcom/huawei/hms/framework/network/grs/c;->i:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic e(Lcom/huawei/hms/framework/network/grs/c;)Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
+    .locals 0
+
+    iget-object p0, p0, Lcom/huawei/hms/framework/network/grs/c;->a:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
+
+    return-object p0
+.end method
+
+.method private e()Z
     .locals 5
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->h:Ljava/util/concurrent/FutureTask;
 
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
+
+    return v1
+
+    :cond_0
     :try_start_0
-    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->k:Ljava/util/concurrent/Future;
+    sget-object v2, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
 
-    if-eqz v1, :cond_0
+    const-wide/16 v3, 0x8
 
-    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->k:Ljava/util/concurrent/Future;
+    invoke-virtual {v0, v3, v4, v2}, Ljava/util/concurrent/FutureTask;->get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
 
-    const-wide/16 v2, 0xa
+    move-result-object v0
 
-    sget-object v4, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
+    check-cast v0, Ljava/lang/Boolean;
 
-    invoke-interface {v1, v2, v3, v4}, Ljava/util/concurrent/Future;->get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/Boolean;
-
-    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v0
+    move-result v1
     :try_end_0
     .catch Ljava/util/concurrent/CancellationException; {:try_start_0 .. :try_end_0} :catch_4
     .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_3
@@ -457,63 +534,56 @@
     .catch Ljava/util/concurrent/TimeoutException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_0
-    return v0
+    goto :goto_1
 
     :catch_0
-    move-exception v1
+    move-exception v0
 
-    sget-object v2, Lcom/huawei/hms/framework/network/grs/c;->a:Ljava/lang/String;
+    sget-object v2, Lcom/huawei/hms/framework/network/grs/c;->i:Ljava/lang/String;
 
     const-string v3, "init compute task occur unknown Exception"
 
-    invoke-static {v2, v3, v1}, Lcom/huawei/hms/framework/common/Logger;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    return v0
+    goto :goto_0
 
     :catch_1
-    move-exception v1
-
-    sget-object v1, Lcom/huawei/hms/framework/network/grs/c;->a:Ljava/lang/String;
+    sget-object v0, Lcom/huawei/hms/framework/network/grs/c;->i:Ljava/lang/String;
 
     const-string v2, "init compute task timed out"
 
-    invoke-static {v1, v2}, Lcom/huawei/hms/framework/common/Logger;->w(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-static {v0, v2}, Lcom/huawei/hms/framework/common/Logger;->w(Ljava/lang/String;Ljava/lang/Object;)V
 
-    return v0
+    goto :goto_1
 
     :catch_2
-    move-exception v1
+    move-exception v0
 
-    sget-object v2, Lcom/huawei/hms/framework/network/grs/c;->a:Ljava/lang/String;
+    sget-object v2, Lcom/huawei/hms/framework/network/grs/c;->i:Ljava/lang/String;
 
     const-string v3, "init compute task interrupted."
 
-    invoke-static {v2, v3, v1}, Lcom/huawei/hms/framework/common/Logger;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    return v0
+    goto :goto_0
 
     :catch_3
-    move-exception v1
+    move-exception v0
 
-    sget-object v2, Lcom/huawei/hms/framework/network/grs/c;->a:Ljava/lang/String;
+    sget-object v2, Lcom/huawei/hms/framework/network/grs/c;->i:Ljava/lang/String;
 
     const-string v3, "init compute task failed."
 
-    invoke-static {v2, v3, v1}, Lcom/huawei/hms/framework/common/Logger;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    :goto_0
+    invoke-static {v2, v3, v0}, Lcom/huawei/hms/framework/common/Logger;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    return v0
+    goto :goto_1
 
     :catch_4
-    move-exception v1
-
-    sget-object v1, Lcom/huawei/hms/framework/network/grs/c;->a:Ljava/lang/String;
+    sget-object v0, Lcom/huawei/hms/framework/network/grs/c;->i:Ljava/lang/String;
 
     const-string v2, "init compute task canceled."
 
-    invoke-static {v1, v2}, Lcom/huawei/hms/framework/common/Logger;->i(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-static {v0, v2}, Lcom/huawei/hms/framework/common/Logger;->i(Ljava/lang/String;Ljava/lang/Object;)V
 
-    return v0
+    :goto_1
+    return v1
 .end method
 
 
@@ -521,7 +591,7 @@
 .method a(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 2
 
-    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->c:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
+    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->a:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
 
     const/4 v1, 0x0
 
@@ -534,15 +604,15 @@
     goto :goto_0
 
     :cond_0
-    invoke-direct {p0}, Lcom/huawei/hms/framework/network/grs/c;->c()Z
+    invoke-direct {p0}, Lcom/huawei/hms/framework/network/grs/c;->e()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->j:Lcom/huawei/hms/framework/network/grs/a;
+    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->g:Lcom/huawei/hms/framework/network/grs/a;
 
-    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->f:Landroid/content/Context;
+    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->b:Landroid/content/Context;
 
     invoke-virtual {v0, p1, p2, v1}, Lcom/huawei/hms/framework/network/grs/a;->a(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
 
@@ -555,7 +625,7 @@
 
     :cond_2
     :goto_0
-    sget-object p1, Lcom/huawei/hms/framework/network/grs/c;->a:Ljava/lang/String;
+    sget-object p1, Lcom/huawei/hms/framework/network/grs/c;->i:Ljava/lang/String;
 
     const-string p2, "invalid para!"
 
@@ -578,7 +648,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->c:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
+    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->a:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
 
     if-eqz v0, :cond_2
 
@@ -587,15 +657,15 @@
     goto :goto_0
 
     :cond_0
-    invoke-direct {p0}, Lcom/huawei/hms/framework/network/grs/c;->c()Z
+    invoke-direct {p0}, Lcom/huawei/hms/framework/network/grs/c;->e()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->j:Lcom/huawei/hms/framework/network/grs/a;
+    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->g:Lcom/huawei/hms/framework/network/grs/a;
 
-    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->f:Landroid/content/Context;
+    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->b:Landroid/content/Context;
 
     invoke-virtual {v0, p1, v1}, Lcom/huawei/hms/framework/network/grs/a;->a(Ljava/lang/String;Landroid/content/Context;)Ljava/util/Map;
 
@@ -612,7 +682,7 @@
 
     :cond_2
     :goto_0
-    sget-object p1, Lcom/huawei/hms/framework/network/grs/c;->a:Ljava/lang/String;
+    sget-object p1, Lcom/huawei/hms/framework/network/grs/c;->i:Ljava/lang/String;
 
     const-string v0, "invalid para!"
 
@@ -625,12 +695,89 @@
     return-object p1
 .end method
 
+.method a()V
+    .locals 4
+
+    invoke-direct {p0}, Lcom/huawei/hms/framework/network/grs/c;->e()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->a:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
+
+    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->b:Landroid/content/Context;
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v2, v2, v1}, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->getGrsParasKey(ZZLandroid/content/Context;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->e:Lcom/huawei/hms/framework/network/grs/e/c;
+
+    invoke-virtual {v1, v0}, Lcom/huawei/hms/framework/network/grs/e/c;->a(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->e:Lcom/huawei/hms/framework/network/grs/e/c;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, "time"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Lcom/huawei/hms/framework/network/grs/e/c;->a(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->e:Lcom/huawei/hms/framework/network/grs/e/c;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, "ETag"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Lcom/huawei/hms/framework/network/grs/e/c;->a(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->c:Lcom/huawei/hms/framework/network/grs/g/h;
+
+    invoke-virtual {v1, v0}, Lcom/huawei/hms/framework/network/grs/g/h;->a(Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method a(Ljava/lang/String;Lcom/huawei/hms/framework/network/grs/IQueryUrlsCallBack;)V
     .locals 2
 
     if-nez p2, :cond_0
 
-    sget-object p1, Lcom/huawei/hms/framework/network/grs/c;->a:Ljava/lang/String;
+    sget-object p1, Lcom/huawei/hms/framework/network/grs/c;->i:Ljava/lang/String;
 
     const-string p2, "IQueryUrlsCallBack is must not null for process continue."
 
@@ -639,32 +786,45 @@
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->c:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
+    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->a:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
 
     if-eqz v0, :cond_3
 
     if-nez p1, :cond_1
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_1
-    invoke-direct {p0}, Lcom/huawei/hms/framework/network/grs/c;->c()Z
+    invoke-direct {p0}, Lcom/huawei/hms/framework/network/grs/c;->e()Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
-    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->j:Lcom/huawei/hms/framework/network/grs/a;
+    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->g:Lcom/huawei/hms/framework/network/grs/a;
 
-    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->f:Landroid/content/Context;
+    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->b:Landroid/content/Context;
 
     invoke-virtual {v0, p1, p2, v1}, Lcom/huawei/hms/framework/network/grs/a;->a(Ljava/lang/String;Lcom/huawei/hms/framework/network/grs/IQueryUrlsCallBack;Landroid/content/Context;)V
 
+    goto :goto_0
+
     :cond_2
+    sget-object p1, Lcom/huawei/hms/framework/network/grs/c;->i:Ljava/lang/String;
+
+    const-string v0, "grs init task has not completed."
+
+    invoke-static {p1, v0}, Lcom/huawei/hms/framework/common/Logger;->i(Ljava/lang/String;Ljava/lang/Object;)V
+
+    const/4 p1, -0x7
+
+    invoke-interface {p2, p1}, Lcom/huawei/hms/framework/network/grs/IQueryUrlsCallBack;->onCallBackFail(I)V
+
+    :goto_0
     return-void
 
     :cond_3
-    :goto_0
+    :goto_1
     const/4 p1, -0x6
 
     invoke-interface {p2, p1}, Lcom/huawei/hms/framework/network/grs/IQueryUrlsCallBack;->onCallBackFail(I)V
@@ -677,7 +837,7 @@
 
     if-nez p3, :cond_0
 
-    sget-object p1, Lcom/huawei/hms/framework/network/grs/c;->a:Ljava/lang/String;
+    sget-object p1, Lcom/huawei/hms/framework/network/grs/c;->i:Ljava/lang/String;
 
     const-string p2, "IQueryUrlCallBack is must not null for process continue."
 
@@ -686,7 +846,7 @@
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->c:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
+    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->a:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
 
     if-eqz v0, :cond_3
 
@@ -694,69 +854,44 @@
 
     if-nez p2, :cond_1
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_1
-    invoke-direct {p0}, Lcom/huawei/hms/framework/network/grs/c;->c()Z
+    invoke-direct {p0}, Lcom/huawei/hms/framework/network/grs/c;->e()Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
-    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->j:Lcom/huawei/hms/framework/network/grs/a;
+    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->g:Lcom/huawei/hms/framework/network/grs/a;
 
-    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->f:Landroid/content/Context;
+    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->b:Landroid/content/Context;
 
     invoke-virtual {v0, p1, p2, p3, v1}, Lcom/huawei/hms/framework/network/grs/a;->a(Ljava/lang/String;Ljava/lang/String;Lcom/huawei/hms/framework/network/grs/IQueryUrlCallBack;Landroid/content/Context;)V
 
+    goto :goto_0
+
     :cond_2
+    sget-object p1, Lcom/huawei/hms/framework/network/grs/c;->i:Ljava/lang/String;
+
+    const-string p2, "grs init task has not completed."
+
+    invoke-static {p1, p2}, Lcom/huawei/hms/framework/common/Logger;->i(Ljava/lang/String;Ljava/lang/Object;)V
+
+    const/4 p1, -0x7
+
+    invoke-interface {p3, p1}, Lcom/huawei/hms/framework/network/grs/IQueryUrlCallBack;->onCallBackFail(I)V
+
+    :goto_0
     return-void
 
     :cond_3
-    :goto_0
+    :goto_1
     const/4 p1, -0x6
 
     invoke-interface {p3, p1}, Lcom/huawei/hms/framework/network/grs/IQueryUrlCallBack;->onCallBackFail(I)V
 
     return-void
-.end method
-
-.method a()Z
-    .locals 3
-
-    invoke-direct {p0}, Lcom/huawei/hms/framework/network/grs/c;->c()Z
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    if-nez v0, :cond_0
-
-    return v1
-
-    :cond_0
-    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->c:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
-
-    if-eqz v0, :cond_2
-
-    iget-object v2, p0, Lcom/huawei/hms/framework/network/grs/c;->f:Landroid/content/Context;
-
-    if-nez v2, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->h:Lcom/huawei/hms/framework/network/grs/a/a;
-
-    invoke-virtual {v1, v0, v2}, Lcom/huawei/hms/framework/network/grs/a/a;->b(Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;Landroid/content/Context;)V
-
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_2
-    :goto_0
-    return v1
 .end method
 
 .method a(Ljava/lang/Object;)Z
@@ -773,15 +908,13 @@
 
     if-eqz p1, :cond_2
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
 
-    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    const-class v2, Lcom/huawei/hms/framework/network/grs/c;
 
-    move-result-object v2
-
-    if-eq v1, v2, :cond_1
+    if-eq v2, v1, :cond_1
 
     goto :goto_0
 
@@ -792,9 +925,9 @@
 
     check-cast p1, Lcom/huawei/hms/framework/network/grs/c;
 
-    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->c:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
+    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->a:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
 
-    iget-object p1, p1, Lcom/huawei/hms/framework/network/grs/c;->c:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
+    iget-object p1, p1, Lcom/huawei/hms/framework/network/grs/c;->a:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
 
     invoke-virtual {v0, p1}, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->compare(Ljava/lang/Object;)Z
 
@@ -807,55 +940,40 @@
     return v0
 .end method
 
-.method b()V
-    .locals 4
+.method b()Z
+    .locals 3
 
-    invoke-direct {p0}, Lcom/huawei/hms/framework/network/grs/c;->c()Z
+    invoke-direct {p0}, Lcom/huawei/hms/framework/network/grs/c;->e()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->c:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
-
     const/4 v1, 0x0
 
-    const/4 v2, 0x1
+    if-nez v0, :cond_0
 
-    iget-object v3, p0, Lcom/huawei/hms/framework/network/grs/c;->f:Landroid/content/Context;
+    return v1
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->getGrsParasKey(ZZLandroid/content/Context;)Ljava/lang/String;
+    :cond_0
+    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/c;->a:Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
 
-    move-result-object v0
+    if-eqz v0, :cond_2
 
-    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->i:Lcom/huawei/hms/framework/network/grs/a/c;
+    iget-object v2, p0, Lcom/huawei/hms/framework/network/grs/c;->b:Landroid/content/Context;
 
-    invoke-virtual {v1, v0}, Lcom/huawei/hms/framework/network/grs/a/c;->a(Ljava/lang/String;)V
+    if-nez v2, :cond_1
 
-    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->i:Lcom/huawei/hms/framework/network/grs/a/c;
+    goto :goto_0
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    :cond_1
+    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->d:Lcom/huawei/hms/framework/network/grs/e/a;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v1, v0, v2}, Lcom/huawei/hms/framework/network/grs/e/a;->a(Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;Landroid/content/Context;)V
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/4 v0, 0x1
 
-    const-string v3, "time"
+    return v0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Lcom/huawei/hms/framework/network/grs/a/c;->a(Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/c;->g:Lcom/huawei/hms/framework/network/grs/b/h;
-
-    invoke-virtual {v1, v0}, Lcom/huawei/hms/framework/network/grs/b/h;->a(Ljava/lang/String;)V
-
-    return-void
+    :cond_2
+    :goto_0
+    return v1
 .end method

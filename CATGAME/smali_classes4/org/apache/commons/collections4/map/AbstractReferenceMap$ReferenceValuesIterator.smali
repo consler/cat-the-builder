@@ -42,11 +42,8 @@
     .end annotation
 
     .line 917
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceValuesIterator;, "Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceValuesIterator<TV;>;"
-    .local p1, "parent":Lorg/apache/commons/collections4/map/AbstractReferenceMap;, "Lorg/apache/commons/collections4/map/AbstractReferenceMap<*TV;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceBaseIterator;-><init>(Lorg/apache/commons/collections4/map/AbstractReferenceMap;)V
 
-    .line 918
     return-void
 .end method
 
@@ -61,7 +58,6 @@
     .end annotation
 
     .line 922
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceValuesIterator;, "Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceValuesIterator<TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceValuesIterator;->nextEntry()Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceEntry;
 
     move-result-object v0

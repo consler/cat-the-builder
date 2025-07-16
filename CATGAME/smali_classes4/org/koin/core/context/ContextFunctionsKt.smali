@@ -45,7 +45,6 @@
 # direct methods
 .method public static final loadKoinModules(Ljava/util/List;)V
     .locals 1
-    .param p0, "modules"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -68,13 +67,11 @@
 
     invoke-virtual {v0, p0}, Lorg/koin/core/Koin;->loadModules(Ljava/util/List;)V
 
-    .line 61
     return-void
 .end method
 
 .method public static final loadKoinModules(Lorg/koin/core/module/Module;)V
-    .locals 2
-    .param p0, "module"    # Lorg/koin/core/module/Module;
+    .locals 1
 
     const-string v0, "module"
 
@@ -89,18 +86,15 @@
 
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->listOf(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Lorg/koin/core/Koin;->loadModules(Ljava/util/List;)V
+    invoke-virtual {v0, p0}, Lorg/koin/core/Koin;->loadModules(Ljava/util/List;)V
 
-    .line 54
     return-void
 .end method
 
 .method public static final startKoin(Lorg/koin/core/context/KoinContext;Lkotlin/jvm/functions/Function1;)Lorg/koin/core/KoinApplication;
-    .locals 2
-    .param p0, "koinContext"    # Lorg/koin/core/context/KoinContext;
-    .param p1, "appDeclaration"    # Lkotlin/jvm/functions/Function1;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -128,32 +122,28 @@
     invoke-virtual {v0, p0}, Lorg/koin/core/context/KoinContextHandler;->register(Lorg/koin/core/context/KoinContext;)V
 
     .line 37
-    sget-object v0, Lorg/koin/core/KoinApplication;->Companion:Lorg/koin/core/KoinApplication$Companion;
+    sget-object p0, Lorg/koin/core/KoinApplication;->Companion:Lorg/koin/core/KoinApplication$Companion;
 
-    invoke-virtual {v0}, Lorg/koin/core/KoinApplication$Companion;->init()Lorg/koin/core/KoinApplication;
+    invoke-virtual {p0}, Lorg/koin/core/KoinApplication$Companion;->init()Lorg/koin/core/KoinApplication;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 38
-    .local v0, "koinApplication":Lorg/koin/core/KoinApplication;
-    sget-object v1, Lorg/koin/core/context/KoinContextHandler;->INSTANCE:Lorg/koin/core/context/KoinContextHandler;
+    sget-object v0, Lorg/koin/core/context/KoinContextHandler;->INSTANCE:Lorg/koin/core/context/KoinContextHandler;
 
-    invoke-virtual {v1, v0}, Lorg/koin/core/context/KoinContextHandler;->start(Lorg/koin/core/KoinApplication;)V
+    invoke-virtual {v0, p0}, Lorg/koin/core/context/KoinContextHandler;->start(Lorg/koin/core/KoinApplication;)V
 
     .line 39
-    invoke-interface {p1, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 40
-    invoke-virtual {v0}, Lorg/koin/core/KoinApplication;->createEagerInstances()Lorg/koin/core/KoinApplication;
+    invoke-virtual {p0}, Lorg/koin/core/KoinApplication;->createEagerInstances()Lorg/koin/core/KoinApplication;
 
-    .line 41
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final startKoin(Lorg/koin/core/context/KoinContext;Lorg/koin/core/KoinApplication;)Lorg/koin/core/KoinApplication;
     .locals 1
-    .param p0, "koinContext"    # Lorg/koin/core/context/KoinContext;
-    .param p1, "koinApplication"    # Lorg/koin/core/KoinApplication;
 
     const-string v0, "koinContext"
 
@@ -169,14 +159,13 @@
     invoke-virtual {v0, p0}, Lorg/koin/core/context/KoinContextHandler;->register(Lorg/koin/core/context/KoinContext;)V
 
     .line 27
-    sget-object v0, Lorg/koin/core/context/KoinContextHandler;->INSTANCE:Lorg/koin/core/context/KoinContextHandler;
+    sget-object p0, Lorg/koin/core/context/KoinContextHandler;->INSTANCE:Lorg/koin/core/context/KoinContextHandler;
 
-    invoke-virtual {v0, p1}, Lorg/koin/core/context/KoinContextHandler;->start(Lorg/koin/core/KoinApplication;)V
+    invoke-virtual {p0, p1}, Lorg/koin/core/context/KoinContextHandler;->start(Lorg/koin/core/KoinApplication;)V
 
     .line 28
     invoke-virtual {p1}, Lorg/koin/core/KoinApplication;->createEagerInstances()Lorg/koin/core/KoinApplication;
 
-    .line 29
     return-object p1
 .end method
 
@@ -237,7 +226,6 @@
 
 .method public static final unloadKoinModules(Ljava/util/List;)V
     .locals 1
-    .param p0, "modules"    # Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -260,13 +248,11 @@
 
     invoke-virtual {v0, p0}, Lorg/koin/core/Koin;->unloadModules(Ljava/util/List;)Z
 
-    .line 75
     return-void
 .end method
 
 .method public static final unloadKoinModules(Lorg/koin/core/module/Module;)V
-    .locals 2
-    .param p0, "module"    # Lorg/koin/core/module/Module;
+    .locals 1
 
     const-string v0, "module"
 
@@ -281,10 +267,9 @@
 
     invoke-static {p0}, Lkotlin/collections/CollectionsKt;->listOf(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Lorg/koin/core/Koin;->unloadModules(Ljava/util/List;)Z
+    invoke-virtual {v0, p0}, Lorg/koin/core/Koin;->unloadModules(Ljava/util/List;)Z
 
-    .line 68
     return-void
 .end method

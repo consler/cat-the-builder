@@ -41,14 +41,13 @@
 # virtual methods
 .method public match(Lar/com/hjg/pngj/chunks/PngChunk;)Z
     .locals 1
-    .param p1, "c"    # Lar/com/hjg/pngj/chunks/PngChunk;
 
     .line 76
     iget-object v0, p0, Lar/com/hjg/pngj/chunks/ChunksListForWrite$1;->val$c2:Lar/com/hjg/pngj/chunks/PngChunk;
 
     invoke-static {p1, v0}, Lar/com/hjg/pngj/chunks/ChunkHelper;->equivalent(Lar/com/hjg/pngj/chunks/PngChunk;Lar/com/hjg/pngj/chunks/PngChunk;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

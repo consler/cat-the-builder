@@ -33,7 +33,6 @@
     .line 53
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 54
     return-void
 .end method
 
@@ -50,8 +49,6 @@
 # virtual methods
 .method public execute(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "input"    # Ljava/lang/Object;
 
-    .line 63
     return-void
 .end method

@@ -20,8 +20,7 @@
 
 # direct methods
 .method constructor <init>([C)V
-    .locals 1
-    .param p1, "chars"    # [C
+    .locals 0
 
     .line 288
     invoke-direct {p0}, Lorg/apache/commons/lang3/text/StrMatcher;-><init>()V
@@ -29,46 +28,41 @@
     .line 289
     invoke-virtual {p1}, [C->clone()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, [C
+    check-cast p1, [C
 
-    iput-object v0, p0, Lorg/apache/commons/lang3/text/StrMatcher$CharSetMatcher;->chars:[C
+    iput-object p1, p0, Lorg/apache/commons/lang3/text/StrMatcher$CharSetMatcher;->chars:[C
 
     .line 290
-    invoke-static {v0}, Ljava/util/Arrays;->sort([C)V
+    invoke-static {p1}, Ljava/util/Arrays;->sort([C)V
 
-    .line 291
     return-void
 .end method
 
 
 # virtual methods
 .method public isMatch([CIII)I
-    .locals 2
-    .param p1, "buffer"    # [C
-    .param p2, "pos"    # I
-    .param p3, "bufferStart"    # I
-    .param p4, "bufferEnd"    # I
+    .locals 0
 
     .line 304
-    iget-object v0, p0, Lorg/apache/commons/lang3/text/StrMatcher$CharSetMatcher;->chars:[C
+    iget-object p3, p0, Lorg/apache/commons/lang3/text/StrMatcher$CharSetMatcher;->chars:[C
 
-    aget-char v1, p1, p2
+    aget-char p1, p1, p2
 
-    invoke-static {v0, v1}, Ljava/util/Arrays;->binarySearch([CC)I
+    invoke-static {p3, p1}, Ljava/util/Arrays;->binarySearch([CC)I
 
-    move-result v0
+    move-result p1
 
-    if-ltz v0, :cond_0
+    if-ltz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method

@@ -22,7 +22,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/lifecycle/LifecycleOwner;)V
     .locals 1
-    .param p1, "provider"    # Landroidx/lifecycle/LifecycleOwner;
 
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,19 +34,17 @@
     iput-object v0, p0, Landroidx/lifecycle/ServiceLifecycleDispatcher;->mRegistry:Landroidx/lifecycle/LifecycleRegistry;
 
     .line 40
-    new-instance v0, Landroid/os/Handler;
+    new-instance p1, Landroid/os/Handler;
 
-    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+    invoke-direct {p1}, Landroid/os/Handler;-><init>()V
 
-    iput-object v0, p0, Landroidx/lifecycle/ServiceLifecycleDispatcher;->mHandler:Landroid/os/Handler;
+    iput-object p1, p0, Landroidx/lifecycle/ServiceLifecycleDispatcher;->mHandler:Landroid/os/Handler;
 
-    .line 41
     return-void
 .end method
 
 .method private postDispatchRunnable(Landroidx/lifecycle/Lifecycle$Event;)V
     .locals 2
-    .param p1, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
     .line 44
     iget-object v0, p0, Landroidx/lifecycle/ServiceLifecycleDispatcher;->mLastDispatchRunnable:Landroidx/lifecycle/ServiceLifecycleDispatcher$DispatchRunnable;
@@ -68,11 +65,10 @@
     iput-object v0, p0, Landroidx/lifecycle/ServiceLifecycleDispatcher;->mLastDispatchRunnable:Landroidx/lifecycle/ServiceLifecycleDispatcher$DispatchRunnable;
 
     .line 48
-    iget-object v1, p0, Landroidx/lifecycle/ServiceLifecycleDispatcher;->mHandler:Landroid/os/Handler;
+    iget-object p1, p0, Landroidx/lifecycle/ServiceLifecycleDispatcher;->mHandler:Landroid/os/Handler;
 
-    invoke-virtual {v1, v0}, Landroid/os/Handler;->postAtFrontOfQueue(Ljava/lang/Runnable;)Z
+    invoke-virtual {p1, v0}, Landroid/os/Handler;->postAtFrontOfQueue(Ljava/lang/Runnable;)Z
 
-    .line 49
     return-void
 .end method
 
@@ -95,7 +91,6 @@
 
     invoke-direct {p0, v0}, Landroidx/lifecycle/ServiceLifecycleDispatcher;->postDispatchRunnable(Landroidx/lifecycle/Lifecycle$Event;)V
 
-    .line 64
     return-void
 .end method
 
@@ -107,7 +102,6 @@
 
     invoke-direct {p0, v0}, Landroidx/lifecycle/ServiceLifecycleDispatcher;->postDispatchRunnable(Landroidx/lifecycle/Lifecycle$Event;)V
 
-    .line 56
     return-void
 .end method
 
@@ -124,7 +118,6 @@
 
     invoke-direct {p0, v0}, Landroidx/lifecycle/ServiceLifecycleDispatcher;->postDispatchRunnable(Landroidx/lifecycle/Lifecycle$Event;)V
 
-    .line 82
     return-void
 .end method
 
@@ -136,6 +129,5 @@
 
     invoke-direct {p0, v0}, Landroidx/lifecycle/ServiceLifecycleDispatcher;->postDispatchRunnable(Landroidx/lifecycle/Lifecycle$Event;)V
 
-    .line 73
     return-void
 .end method

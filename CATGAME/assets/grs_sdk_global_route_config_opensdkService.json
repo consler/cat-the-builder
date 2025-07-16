@@ -8,25 +8,29 @@
                 {
                     "countryGroup": "DR1",
                     "addresses": {
-                        "ROOT": "https://metrics1.data.hicloud.com:6447"
+                        "ROOT": "https://metrics1.data.hicloud.com:6447",
+                        "ROOTV2": "https://metrics1.data.hicloud.com:6447"
                     }
                 },
                 {
                     "countryGroup": "DR2",
                     "addresses": {
-                        "ROOT": "https://metrics-dra.dt.hicloud.com:6447"
+                        "ROOT": "https://metrics-dra.dt.hicloud.com:6447",
+                        "ROOTV2": "https://metrics-dra.dt.hicloud.com:6447"
                     }
                 },
                 {
                     "countryGroup": "DR3",
                     "addresses": {
-                        "ROOT": "https://metrics2.data.hicloud.com:6447"
+                        "ROOT": "https://metrics2.data.hicloud.com:6447",
+                        "ROOTV2": "https://metrics2.data.hicloud.com:6447"
                     }
                 },
                 {
                     "countryGroup": "DR4",
                     "addresses": {
-                        "ROOT": "https://metrics5.data.hicloud.com:6447"
+                        "ROOT": "https://metrics5.data.hicloud.com:6447",
+                        "ROOTV2": "https://metrics5.dt.dbankcloud.ru:6447"
                     }
                 }
             ],
@@ -83,7 +87,6 @@
                         "CR",
                         "CU",
                         "CV",
-                        "CW",
                         "CX",
                         "DJ",
                         "DM",
@@ -121,6 +124,8 @@
                         "IQ",
                         "JM",
                         "JO",
+                        "JP",
+                        "KR",
                         "KE",
                         "KG",
                         "KH",
@@ -243,6 +248,7 @@
                         "BQ",
                         "CA",
                         "CH",
+                        "CW",
                         "CY",
                         "CZ",
                         "DE",
@@ -265,8 +271,6 @@
                         "IS",
                         "IT",
                         "JE",
-                        "JP",
-                        "KR",
                         "LI",
                         "LT",
                         "LU",

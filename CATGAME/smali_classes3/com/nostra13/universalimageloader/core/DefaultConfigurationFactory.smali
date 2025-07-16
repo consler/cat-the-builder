@@ -18,7 +18,6 @@
     .line 58
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 160
     return-void
 .end method
 
@@ -34,19 +33,13 @@
 .end method
 
 .method public static createDiskCache(Landroid/content/Context;Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;JI)Lcom/nostra13/universalimageloader/cache/disc/DiskCache;
-    .locals 10
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "diskCacheFileNameGenerator"    # Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;
-    .param p2, "diskCacheSize"    # J
-    .param p4, "diskCacheFileCount"    # I
+    .locals 9
 
     .line 85
     invoke-static {p0}, Lcom/nostra13/universalimageloader/core/DefaultConfigurationFactory;->createReserveDiskCacheDir(Landroid/content/Context;)Ljava/io/File;
 
     move-result-object v7
 
-    .line 86
-    .local v7, "reserveCacheDir":Ljava/io/File;
     const-wide/16 v0, 0x0
 
     cmp-long v0, p2, v0
@@ -59,16 +52,13 @@
     :cond_0
     invoke-static {p0}, Lcom/nostra13/universalimageloader/utils/StorageUtils;->getIndividualCacheDirectory(Landroid/content/Context;)Ljava/io/File;
 
-    move-result-object v8
+    move-result-object v1
 
     .line 89
-    .local v8, "individualCacheDir":Ljava/io/File;
     :try_start_0
-    new-instance v9, Lcom/nostra13/universalimageloader/cache/disc/impl/ext/LruDiskCache;
+    new-instance v8, Lcom/nostra13/universalimageloader/cache/disc/impl/ext/LruDiskCache;
 
-    move-object v0, v9
-
-    move-object v1, v8
+    move-object v0, v8
 
     move-object v2, v7
 
@@ -82,95 +72,85 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v9
+    return-object v8
 
-    .line 91
     :catch_0
-    move-exception v0
+    move-exception p2
 
     .line 92
-    .local v0, "e":Ljava/io/IOException;
-    invoke-static {v0}, Lcom/nostra13/universalimageloader/utils/L;->e(Ljava/lang/Throwable;)V
+    invoke-static {p2}, Lcom/nostra13/universalimageloader/utils/L;->e(Ljava/lang/Throwable;)V
 
     .line 96
-    .end local v0    # "e":Ljava/io/IOException;
-    .end local v8    # "individualCacheDir":Ljava/io/File;
     :cond_1
     invoke-static {p0}, Lcom/nostra13/universalimageloader/utils/StorageUtils;->getCacheDirectory(Landroid/content/Context;)Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 97
-    .local v0, "cacheDir":Ljava/io/File;
-    new-instance v1, Lcom/nostra13/universalimageloader/cache/disc/impl/UnlimitedDiskCache;
+    new-instance p2, Lcom/nostra13/universalimageloader/cache/disc/impl/UnlimitedDiskCache;
 
-    invoke-direct {v1, v0, v7, p1}, Lcom/nostra13/universalimageloader/cache/disc/impl/UnlimitedDiskCache;-><init>(Ljava/io/File;Ljava/io/File;Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;)V
+    invoke-direct {p2, p0, v7, p1}, Lcom/nostra13/universalimageloader/cache/disc/impl/UnlimitedDiskCache;-><init>(Ljava/io/File;Ljava/io/File;Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;)V
 
-    return-object v1
+    return-object p2
 .end method
 
 .method public static createExecutor(IILcom/nostra13/universalimageloader/core/assist/QueueProcessingType;)Ljava/util/concurrent/Executor;
-    .locals 11
-    .param p0, "threadPoolSize"    # I
-    .param p1, "threadPriority"    # I
-    .param p2, "tasksProcessingType"    # Lcom/nostra13/universalimageloader/core/assist/QueueProcessingType;
+    .locals 8
 
     .line 63
     sget-object v0, Lcom/nostra13/universalimageloader/core/assist/QueueProcessingType;->LIFO:Lcom/nostra13/universalimageloader/core/assist/QueueProcessingType;
 
     if-ne p2, v0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p2, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p2, 0x0
+
+    :goto_0
+    if-eqz p2, :cond_1
 
     .line 64
-    .local v0, "lifo":Z
-    :goto_0
-    if-eqz v0, :cond_1
+    new-instance p2, Lcom/nostra13/universalimageloader/core/assist/deque/LIFOLinkedBlockingDeque;
 
-    new-instance v1, Lcom/nostra13/universalimageloader/core/assist/deque/LIFOLinkedBlockingDeque;
-
-    invoke-direct {v1}, Lcom/nostra13/universalimageloader/core/assist/deque/LIFOLinkedBlockingDeque;-><init>()V
+    invoke-direct {p2}, Lcom/nostra13/universalimageloader/core/assist/deque/LIFOLinkedBlockingDeque;-><init>()V
 
     goto :goto_1
 
     :cond_1
-    new-instance v1, Ljava/util/concurrent/LinkedBlockingQueue;
+    new-instance p2, Ljava/util/concurrent/LinkedBlockingQueue;
 
-    invoke-direct {v1}, Ljava/util/concurrent/LinkedBlockingQueue;-><init>()V
+    invoke-direct {p2}, Ljava/util/concurrent/LinkedBlockingQueue;-><init>()V
 
     :goto_1
-    check-cast v1, Ljava/util/concurrent/BlockingQueue;
+    move-object v6, p2
+
+    check-cast v6, Ljava/util/concurrent/BlockingQueue;
 
     .line 66
-    .local v1, "taskQueue":Ljava/util/concurrent/BlockingQueue;, "Ljava/util/concurrent/BlockingQueue<Ljava/lang/Runnable;>;"
-    new-instance v10, Ljava/util/concurrent/ThreadPoolExecutor;
+    new-instance p2, Ljava/util/concurrent/ThreadPoolExecutor;
 
-    const-wide/16 v5, 0x0
+    const-wide/16 v3, 0x0
 
-    sget-object v7, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+    sget-object v5, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    const-string v2, "uil-pool-"
+    const-string v0, "uil-pool-"
 
-    invoke-static {p1, v2}, Lcom/nostra13/universalimageloader/core/DefaultConfigurationFactory;->createThreadFactory(ILjava/lang/String;)Ljava/util/concurrent/ThreadFactory;
+    invoke-static {p1, v0}, Lcom/nostra13/universalimageloader/core/DefaultConfigurationFactory;->createThreadFactory(ILjava/lang/String;)Ljava/util/concurrent/ThreadFactory;
 
-    move-result-object v9
+    move-result-object v7
 
-    move-object v2, v10
+    move-object v0, p2
 
-    move v3, p0
+    move v1, p0
 
-    move v4, p0
+    move v2, p0
 
-    move-object v8, v1
+    invoke-direct/range {v0 .. v7}, Ljava/util/concurrent/ThreadPoolExecutor;-><init>(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/ThreadFactory;)V
 
-    invoke-direct/range {v2 .. v9}, Ljava/util/concurrent/ThreadPoolExecutor;-><init>(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/ThreadFactory;)V
-
-    return-object v10
+    return-object p2
 .end method
 
 .method public static createFileNameGenerator()Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;
@@ -186,7 +166,6 @@
 
 .method public static createImageDecoder(Z)Lcom/nostra13/universalimageloader/core/decode/ImageDecoder;
     .locals 1
-    .param p0, "loggingEnabled"    # Z
 
     .line 147
     new-instance v0, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder;
@@ -198,7 +177,6 @@
 
 .method public static createImageDownloader(Landroid/content/Context;)Lcom/nostra13/universalimageloader/core/download/ImageDownloader;
     .locals 1
-    .param p0, "context"    # Landroid/content/Context;
 
     .line 142
     new-instance v0, Lcom/nostra13/universalimageloader/core/download/BaseImageDownloader;
@@ -209,116 +187,104 @@
 .end method
 
 .method public static createMemoryCache(Landroid/content/Context;I)Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;
-    .locals 3
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "memoryCacheSize"    # I
+    .locals 2
 
-    .line 115
     if-nez p1, :cond_1
 
+    const-string p1, "activity"
+
     .line 116
-    const-string v0, "activity"
+    invoke-virtual {p0, p1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
-
-    check-cast v0, Landroid/app/ActivityManager;
+    check-cast p1, Landroid/app/ActivityManager;
 
     .line 117
-    .local v0, "am":Landroid/app/ActivityManager;
-    invoke-virtual {v0}, Landroid/app/ActivityManager;->getMemoryClass()I
+    invoke-virtual {p1}, Landroid/app/ActivityManager;->getMemoryClass()I
+
+    move-result v0
+
+    .line 118
+    invoke-static {}, Lcom/nostra13/universalimageloader/core/DefaultConfigurationFactory;->hasHoneycomb()Z
 
     move-result v1
 
-    .line 118
-    .local v1, "memoryClass":I
-    invoke-static {}, Lcom/nostra13/universalimageloader/core/DefaultConfigurationFactory;->hasHoneycomb()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
     invoke-static {p0}, Lcom/nostra13/universalimageloader/core/DefaultConfigurationFactory;->isLargeHeap(Landroid/content/Context;)Z
 
-    move-result v2
+    move-result p0
 
-    if-eqz v2, :cond_0
+    if-eqz p0, :cond_0
 
     .line 119
-    invoke-static {v0}, Lcom/nostra13/universalimageloader/core/DefaultConfigurationFactory;->getLargeMemoryClass(Landroid/app/ActivityManager;)I
+    invoke-static {p1}, Lcom/nostra13/universalimageloader/core/DefaultConfigurationFactory;->getLargeMemoryClass(Landroid/app/ActivityManager;)I
 
-    move-result v1
+    move-result v0
+
+    :cond_0
+    const/high16 p0, 0x100000
+
+    mul-int/2addr v0, p0
 
     .line 121
-    :cond_0
-    const/high16 v2, 0x100000
-
-    mul-int/2addr v2, v1
-
-    div-int/lit8 p1, v2, 0x8
+    div-int/lit8 p1, v0, 0x8
 
     .line 123
-    .end local v0    # "am":Landroid/app/ActivityManager;
-    .end local v1    # "memoryClass":I
     :cond_1
-    new-instance v0, Lcom/nostra13/universalimageloader/cache/memory/impl/LruMemoryCache;
+    new-instance p0, Lcom/nostra13/universalimageloader/cache/memory/impl/LruMemoryCache;
 
-    invoke-direct {v0, p1}, Lcom/nostra13/universalimageloader/cache/memory/impl/LruMemoryCache;-><init>(I)V
+    invoke-direct {p0, p1}, Lcom/nostra13/universalimageloader/cache/memory/impl/LruMemoryCache;-><init>(I)V
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private static createReserveDiskCacheDir(Landroid/content/Context;)Ljava/io/File;
-    .locals 3
-    .param p0, "context"    # Landroid/content/Context;
+    .locals 2
 
-    .line 102
     const/4 v0, 0x0
 
+    .line 102
     invoke-static {p0, v0}, Lcom/nostra13/universalimageloader/utils/StorageUtils;->getCacheDirectory(Landroid/content/Context;Z)Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 103
-    .local v0, "cacheDir":Ljava/io/File;
-    new-instance v1, Ljava/io/File;
+    new-instance v0, Ljava/io/File;
 
-    const-string v2, "uil-images"
+    const-string v1, "uil-images"
 
-    invoke-direct {v1, v0, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v0, p0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 104
-    .local v1, "individualDir":Ljava/io/File;
-    invoke-virtual {v1}, Ljava/io/File;->exists()Z
+    invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
-    invoke-virtual {v1}, Ljava/io/File;->mkdir()Z
+    invoke-virtual {v0}, Ljava/io/File;->mkdir()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
-    .line 105
     :cond_0
-    move-object v0, v1
+    move-object p0, v0
 
-    .line 107
     :cond_1
-    return-object v0
+    return-object p0
 .end method
 
 .method public static createTaskDistributor()Ljava/util/concurrent/Executor;
     .locals 2
 
-    .line 72
     const/4 v0, 0x5
 
     const-string v1, "uil-pool-d-"
 
+    .line 72
     invoke-static {v0, v1}, Lcom/nostra13/universalimageloader/core/DefaultConfigurationFactory;->createThreadFactory(ILjava/lang/String;)Ljava/util/concurrent/ThreadFactory;
 
     move-result-object v0
@@ -332,8 +298,6 @@
 
 .method private static createThreadFactory(ILjava/lang/String;)Ljava/util/concurrent/ThreadFactory;
     .locals 1
-    .param p0, "threadPriority"    # I
-    .param p1, "threadNamePrefix"    # Ljava/lang/String;
 
     .line 157
     new-instance v0, Lcom/nostra13/universalimageloader/core/DefaultConfigurationFactory$DefaultThreadFactory;
@@ -344,62 +308,47 @@
 .end method
 
 .method private static getLargeMemoryClass(Landroid/app/ActivityManager;)I
-    .locals 1
-    .param p0, "am"    # Landroid/app/ActivityManager;
+    .locals 0
 
     .line 137
     invoke-virtual {p0}, Landroid/app/ActivityManager;->getLargeMemoryClass()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method private static hasHoneycomb()Z
-    .locals 2
-
-    .line 127
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0xb
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     const/4 v0, 0x1
 
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
     return v0
 .end method
 
 .method private static isLargeHeap(Landroid/content/Context;)Z
-    .locals 2
-    .param p0, "context"    # Landroid/content/Context;
+    .locals 1
 
     .line 132
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
-    move-result-object v0
+    move-result-object p0
 
-    iget v0, v0, Landroid/content/pm/ApplicationInfo;->flags:I
+    iget p0, p0, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    const/high16 v1, 0x100000
+    const/high16 v0, 0x100000
 
-    and-int/2addr v0, v1
+    and-int/2addr p0, v0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method

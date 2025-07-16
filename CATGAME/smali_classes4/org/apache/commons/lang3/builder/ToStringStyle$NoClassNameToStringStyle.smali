@@ -25,15 +25,14 @@
     .line 2332
     invoke-direct {p0}, Lorg/apache/commons/lang3/builder/ToStringStyle;-><init>()V
 
-    .line 2333
     const/4 v0, 0x0
 
+    .line 2333
     invoke-virtual {p0, v0}, Lorg/apache/commons/lang3/builder/ToStringStyle$NoClassNameToStringStyle;->setUseClassName(Z)V
 
     .line 2334
     invoke-virtual {p0, v0}, Lorg/apache/commons/lang3/builder/ToStringStyle$NoClassNameToStringStyle;->setUseIdentityHashCode(Z)V
 
-    .line 2335
     return-void
 .end method
 

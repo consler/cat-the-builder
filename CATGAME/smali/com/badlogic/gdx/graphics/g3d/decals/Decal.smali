@@ -130,11 +130,11 @@
     .line 61
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 47
     const/16 v0, 0x18
 
     new-array v0, v0, [F
 
+    .line 47
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
     .line 48
@@ -167,9 +167,9 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->color:Lcom/badlogic/gdx/graphics/Color;
 
-    .line 55
     const/4 v0, 0x0
 
+    .line 55
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->transformationOffset:Lcom/badlogic/gdx/math/Vector2;
 
     .line 56
@@ -179,9 +179,9 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->dimensions:Lcom/badlogic/gdx/math/Vector2;
 
-    .line 59
     const/4 v0, 0x0
 
+    .line 59
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
     .line 62
@@ -191,22 +191,20 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->material:Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;
 
-    .line 63
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;)V
     .locals 2
-    .param p1, "material"    # Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;
 
     .line 65
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 47
     const/16 v0, 0x18
 
     new-array v0, v0, [F
 
+    .line 47
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
     .line 48
@@ -239,9 +237,9 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->color:Lcom/badlogic/gdx/graphics/Color;
 
-    .line 55
     const/4 v0, 0x0
 
+    .line 55
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->transformationOffset:Lcom/badlogic/gdx/math/Vector2;
 
     .line 56
@@ -251,41 +249,32 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->dimensions:Lcom/badlogic/gdx/math/Vector2;
 
-    .line 59
     const/4 v0, 0x0
 
+    .line 59
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
     .line 66
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->material:Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;
 
-    .line 67
     return-void
 .end method
 
 .method public static newDecal(FFLcom/badlogic/gdx/graphics/g2d/TextureRegion;)Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
     .locals 1
-    .param p0, "width"    # F
-    .param p1, "height"    # F
-    .param p2, "textureRegion"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
-    .line 646
     const/4 v0, -0x1
 
+    .line 646
     invoke-static {p0, p1, p2, v0, v0}, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->newDecal(FFLcom/badlogic/gdx/graphics/g2d/TextureRegion;II)Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static newDecal(FFLcom/badlogic/gdx/graphics/g2d/TextureRegion;II)Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
-    .locals 2
-    .param p0, "width"    # F
-    .param p1, "height"    # F
-    .param p2, "textureRegion"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
-    .param p3, "srcBlendFactor"    # I
-    .param p4, "dstBlendFactor"    # I
+    .locals 1
 
     .line 670
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
@@ -293,39 +282,31 @@
     invoke-direct {v0}, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;-><init>()V
 
     .line 671
-    .local v0, "decal":Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
     invoke-virtual {v0, p2}, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->setTextureRegion(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
 
     .line 672
     invoke-virtual {v0, p3, p4}, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->setBlending(II)V
 
     .line 673
-    iget-object v1, v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->dimensions:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p2, v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->dimensions:Lcom/badlogic/gdx/math/Vector2;
 
-    iput p0, v1, Lcom/badlogic/gdx/math/Vector2;->x:F
+    iput p0, p2, Lcom/badlogic/gdx/math/Vector2;->x:F
 
     .line 674
-    iget-object v1, v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->dimensions:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p0, v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->dimensions:Lcom/badlogic/gdx/math/Vector2;
 
-    iput p1, v1, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iput p1, p0, Lcom/badlogic/gdx/math/Vector2;->y:F
+
+    const/high16 p0, 0x3f800000    # 1.0f
 
     .line 675
-    const/high16 v1, 0x3f800000    # 1.0f
+    invoke-virtual {v0, p0, p0, p0, p0}, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->setColor(FFFF)V
 
-    invoke-virtual {v0, v1, v1, v1, v1}, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->setColor(FFFF)V
-
-    .line 676
     return-object v0
 .end method
 
 .method public static newDecal(FFLcom/badlogic/gdx/graphics/g2d/TextureRegion;IILcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;)Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
-    .locals 2
-    .param p0, "width"    # F
-    .param p1, "height"    # F
-    .param p2, "textureRegion"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
-    .param p3, "srcBlendFactor"    # I
-    .param p4, "dstBlendFactor"    # I
-    .param p5, "material"    # Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;
+    .locals 1
 
     .line 690
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
@@ -333,39 +314,32 @@
     invoke-direct {v0, p5}, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;-><init>(Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;)V
 
     .line 691
-    .local v0, "decal":Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
     invoke-virtual {v0, p2}, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->setTextureRegion(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
 
     .line 692
     invoke-virtual {v0, p3, p4}, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->setBlending(II)V
 
     .line 693
-    iget-object v1, v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->dimensions:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p2, v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->dimensions:Lcom/badlogic/gdx/math/Vector2;
 
-    iput p0, v1, Lcom/badlogic/gdx/math/Vector2;->x:F
+    iput p0, p2, Lcom/badlogic/gdx/math/Vector2;->x:F
 
     .line 694
-    iget-object v1, v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->dimensions:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p0, v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->dimensions:Lcom/badlogic/gdx/math/Vector2;
 
-    iput p1, v1, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iput p1, p0, Lcom/badlogic/gdx/math/Vector2;->y:F
+
+    const/high16 p0, 0x3f800000    # 1.0f
 
     .line 695
-    const/high16 v1, 0x3f800000    # 1.0f
+    invoke-virtual {v0, p0, p0, p0, p0}, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->setColor(FFFF)V
 
-    invoke-virtual {v0, v1, v1, v1, v1}, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->setColor(FFFF)V
-
-    .line 696
     return-object v0
 .end method
 
 .method public static newDecal(FFLcom/badlogic/gdx/graphics/g2d/TextureRegion;Z)Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
     .locals 2
-    .param p0, "width"    # F
-    .param p1, "height"    # F
-    .param p2, "textureRegion"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
-    .param p3, "hasTransparency"    # Z
 
-    .line 657
     const/4 v0, -0x1
 
     if-eqz p3, :cond_0
@@ -382,17 +356,17 @@
 
     const/16 v0, 0x303
 
+    .line 657
     :cond_1
     invoke-static {p0, p1, p2, v1, v0}, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->newDecal(FFLcom/badlogic/gdx/graphics/g2d/TextureRegion;II)Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static newDecal(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
     .locals 3
-    .param p0, "textureRegion"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
     .line 622
     invoke-virtual {p0}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->getRegionWidth()I
@@ -411,15 +385,13 @@
 
     invoke-static {v0, v1, p0, v2, v2}, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->newDecal(FFLcom/badlogic/gdx/graphics/g2d/TextureRegion;II)Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static newDecal(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;Z)Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
     .locals 4
-    .param p0, "textureRegion"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
-    .param p1, "hasTransparency"    # Z
 
     .line 632
     invoke-virtual {p0}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->getRegionWidth()I
@@ -453,9 +425,9 @@
     :cond_1
     invoke-static {v0, v1, p0, v3, v2}, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->newDecal(FFLcom/badlogic/gdx/graphics/g2d/TextureRegion;II)Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 
@@ -595,30 +567,25 @@
 
 .method public lookAt(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)V
     .locals 2
-    .param p1, "position"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "up"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 585
     sget-object v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->dir:Lcom/badlogic/gdx/math/Vector3;
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector3;->sub(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p1, v1}, Lcom/badlogic/gdx/math/Vector3;->sub(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
 
     .line 586
-    sget-object v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->dir:Lcom/badlogic/gdx/math/Vector3;
-
     invoke-virtual {p0, v0, p2}, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->setRotation(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)V
 
-    .line 587
     return-void
 .end method
 
@@ -637,7 +604,6 @@
     div-float/2addr v0, v1
 
     .line 504
-    .local v0, "left":F
     iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->dimensions:Lcom/badlogic/gdx/math/Vector2;
 
     iget v2, v2, Lcom/badlogic/gdx/math/Vector2;->x:F
@@ -645,7 +611,6 @@
     add-float/2addr v2, v0
 
     .line 505
-    .local v2, "right":F
     iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->dimensions:Lcom/badlogic/gdx/math/Vector2;
 
     iget v3, v3, Lcom/badlogic/gdx/math/Vector2;->y:F
@@ -653,7 +618,6 @@
     div-float/2addr v3, v1
 
     .line 506
-    .local v3, "top":F
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->dimensions:Lcom/badlogic/gdx/math/Vector2;
 
     iget v1, v1, Lcom/badlogic/gdx/math/Vector2;->y:F
@@ -661,80 +625,77 @@
     sub-float v1, v3, v1
 
     .line 509
-    .local v1, "bottom":F
     iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
     const/4 v5, 0x0
 
     aput v0, v4, v5
 
-    .line 510
     const/4 v6, 0x1
 
+    .line 510
     aput v3, v4, v6
 
-    .line 511
     const/4 v6, 0x2
 
     const/4 v7, 0x0
 
+    .line 511
     aput v7, v4, v6
 
-    .line 513
     const/4 v6, 0x6
 
+    .line 513
     aput v2, v4, v6
 
-    .line 514
     const/4 v6, 0x7
 
+    .line 514
     aput v3, v4, v6
 
-    .line 515
-    const/16 v6, 0x8
+    const/16 v3, 0x8
 
-    aput v7, v4, v6
+    .line 515
+    aput v7, v4, v3
+
+    const/16 v3, 0xc
 
     .line 517
-    const/16 v6, 0xc
+    aput v0, v4, v3
 
-    aput v0, v4, v6
+    const/16 v0, 0xd
 
     .line 518
-    const/16 v6, 0xd
+    aput v1, v4, v0
 
-    aput v1, v4, v6
+    const/16 v0, 0xe
 
     .line 519
-    const/16 v6, 0xe
+    aput v7, v4, v0
 
-    aput v7, v4, v6
+    const/16 v0, 0x12
 
     .line 521
-    const/16 v6, 0x12
+    aput v2, v4, v0
 
-    aput v2, v4, v6
+    const/16 v0, 0x13
 
     .line 522
-    const/16 v6, 0x13
+    aput v1, v4, v0
 
-    aput v1, v4, v6
+    const/16 v0, 0x14
 
     .line 523
-    const/16 v6, 0x14
-
-    aput v7, v4, v6
+    aput v7, v4, v0
 
     .line 525
     iput-boolean v5, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    .line 526
     return-void
 .end method
 
 .method public rotateX(F)V
     .locals 2
-    .param p1, "angle"    # F
 
     .line 133
     sget-object v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotator:Lcom/badlogic/gdx/math/Quaternion;
@@ -744,24 +705,22 @@
     invoke-virtual {v0, v1, p1}, Lcom/badlogic/gdx/math/Quaternion;->set(Lcom/badlogic/gdx/math/Vector3;F)Lcom/badlogic/gdx/math/Quaternion;
 
     .line 134
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
-    sget-object v1, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotator:Lcom/badlogic/gdx/math/Quaternion;
+    sget-object v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotator:Lcom/badlogic/gdx/math/Quaternion;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Quaternion;->mul(Lcom/badlogic/gdx/math/Quaternion;)Lcom/badlogic/gdx/math/Quaternion;
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/math/Quaternion;->mul(Lcom/badlogic/gdx/math/Quaternion;)Lcom/badlogic/gdx/math/Quaternion;
+
+    const/4 p1, 0x0
 
     .line 135
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 136
     return-void
 .end method
 
 .method public rotateY(F)V
     .locals 2
-    .param p1, "angle"    # F
 
     .line 142
     sget-object v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotator:Lcom/badlogic/gdx/math/Quaternion;
@@ -771,24 +730,22 @@
     invoke-virtual {v0, v1, p1}, Lcom/badlogic/gdx/math/Quaternion;->set(Lcom/badlogic/gdx/math/Vector3;F)Lcom/badlogic/gdx/math/Quaternion;
 
     .line 143
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
-    sget-object v1, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotator:Lcom/badlogic/gdx/math/Quaternion;
+    sget-object v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotator:Lcom/badlogic/gdx/math/Quaternion;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Quaternion;->mul(Lcom/badlogic/gdx/math/Quaternion;)Lcom/badlogic/gdx/math/Quaternion;
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/math/Quaternion;->mul(Lcom/badlogic/gdx/math/Quaternion;)Lcom/badlogic/gdx/math/Quaternion;
+
+    const/4 p1, 0x0
 
     .line 144
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 145
     return-void
 .end method
 
 .method public rotateZ(F)V
     .locals 2
-    .param p1, "angle"    # F
 
     .line 151
     sget-object v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotator:Lcom/badlogic/gdx/math/Quaternion;
@@ -798,25 +755,22 @@
     invoke-virtual {v0, v1, p1}, Lcom/badlogic/gdx/math/Quaternion;->set(Lcom/badlogic/gdx/math/Vector3;F)Lcom/badlogic/gdx/math/Quaternion;
 
     .line 152
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
-    sget-object v1, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotator:Lcom/badlogic/gdx/math/Quaternion;
+    sget-object v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotator:Lcom/badlogic/gdx/math/Quaternion;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Quaternion;->mul(Lcom/badlogic/gdx/math/Quaternion;)Lcom/badlogic/gdx/math/Quaternion;
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/math/Quaternion;->mul(Lcom/badlogic/gdx/math/Quaternion;)Lcom/badlogic/gdx/math/Quaternion;
+
+    const/4 p1, 0x0
 
     .line 153
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 154
     return-void
 .end method
 
 .method public setBlending(II)V
     .locals 1
-    .param p1, "srcBlendFactor"    # I
-    .param p2, "dstBlendFactor"    # I
 
     .line 563
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->material:Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;
@@ -824,93 +778,83 @@
     iput p1, v0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->srcBlendFactor:I
 
     .line 564
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->material:Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->material:Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;
 
-    iput p2, v0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->dstBlendFactor:I
+    iput p2, p1, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->dstBlendFactor:I
 
-    .line 565
     return-void
 .end method
 
 .method public setColor(FFFF)V
-    .locals 4
-    .param p1, "r"    # F
-    .param p2, "g"    # F
-    .param p3, "b"    # F
-    .param p4, "a"    # F
+    .locals 1
 
     .line 76
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->color:Lcom/badlogic/gdx/graphics/Color;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/badlogic/gdx/graphics/Color;->set(FFFF)Lcom/badlogic/gdx/graphics/Color;
 
-    .line 77
     const/high16 v0, 0x437f0000    # 255.0f
 
-    mul-float v1, p4, v0
+    mul-float/2addr p4, v0
 
-    float-to-int v1, v1
+    float-to-int p4, p4
 
-    shl-int/lit8 v1, v1, 0x18
+    shl-int/lit8 p4, p4, 0x18
 
-    mul-float v2, p3, v0
+    mul-float/2addr p3, v0
 
-    float-to-int v2, v2
+    float-to-int p3, p3
 
-    shl-int/lit8 v2, v2, 0x10
+    shl-int/lit8 p3, p3, 0x10
 
-    or-int/2addr v1, v2
+    or-int/2addr p3, p4
 
-    mul-float v2, p2, v0
+    mul-float/2addr p2, v0
 
-    float-to-int v2, v2
+    float-to-int p2, p2
 
-    shl-int/lit8 v2, v2, 0x8
+    shl-int/lit8 p2, p2, 0x8
 
-    or-int/2addr v1, v2
+    or-int/2addr p2, p3
 
-    mul-float/2addr v0, p1
+    mul-float/2addr p1, v0
 
-    float-to-int v0, v0
+    float-to-int p1, p1
 
-    or-int/2addr v0, v1
+    or-int/2addr p1, p2
 
     .line 78
-    .local v0, "intBits":I
-    invoke-static {v0}, Lcom/badlogic/gdx/utils/NumberUtils;->intToFloatColor(I)F
+    invoke-static {p1}, Lcom/badlogic/gdx/utils/NumberUtils;->intToFloatColor(I)F
 
-    move-result v1
+    move-result p1
 
     .line 79
-    .local v1, "color":F
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
-    const/4 v3, 0x3
+    const/4 p3, 0x3
 
-    aput v1, v2, v3
+    aput p1, p2, p3
+
+    const/16 p3, 0x9
 
     .line 80
-    const/16 v3, 0x9
+    aput p1, p2, p3
 
-    aput v1, v2, v3
+    const/16 p3, 0xf
 
     .line 81
-    const/16 v3, 0xf
+    aput p1, p2, p3
 
-    aput v1, v2, v3
+    const/16 p3, 0x15
 
     .line 82
-    const/16 v3, 0x15
+    aput p1, p2, p3
 
-    aput v1, v2, v3
-
-    .line 83
     return-void
 .end method
 
 .method public setColor(Lcom/badlogic/gdx/graphics/Color;)V
-    .locals 3
-    .param p1, "tint"    # Lcom/badlogic/gdx/graphics/Color;
+    .locals 2
 
     .line 87
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->color:Lcom/badlogic/gdx/graphics/Color;
@@ -920,86 +864,76 @@
     .line 88
     invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/Color;->toFloatBits()F
 
-    move-result v0
+    move-result p1
 
     .line 89
-    .local v0, "color":F
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
-    const/4 v2, 0x3
+    const/4 v1, 0x3
 
-    aput v0, v1, v2
+    aput p1, v0, v1
+
+    const/16 v1, 0x9
 
     .line 90
-    const/16 v2, 0x9
+    aput p1, v0, v1
 
-    aput v0, v1, v2
+    const/16 v1, 0xf
 
     .line 91
-    const/16 v2, 0xf
+    aput p1, v0, v1
 
-    aput v0, v1, v2
+    const/16 v1, 0x15
 
     .line 92
-    const/16 v2, 0x15
+    aput p1, v0, v1
 
-    aput v0, v1, v2
-
-    .line 93
     return-void
 .end method
 
 .method public setDimensions(FF)V
     .locals 1
-    .param p1, "width"    # F
-    .param p2, "height"    # F
 
     .line 372
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->dimensions:Lcom/badlogic/gdx/math/Vector2;
 
     invoke-virtual {v0, p1, p2}, Lcom/badlogic/gdx/math/Vector2;->set(FF)Lcom/badlogic/gdx/math/Vector2;
 
+    const/4 p1, 0x0
+
     .line 373
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 374
     return-void
 .end method
 
 .method public setHeight(F)V
     .locals 1
-    .param p1, "height"    # F
 
     .line 358
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->dimensions:Lcom/badlogic/gdx/math/Vector2;
 
     iput p1, v0, Lcom/badlogic/gdx/math/Vector2;->y:F
 
+    const/4 p1, 0x0
+
     .line 359
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 360
     return-void
 .end method
 
 .method public setMaterial(Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;)V
     .locals 0
-    .param p1, "material"    # Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;
 
     .line 576
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->material:Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;
 
-    .line 577
     return-void
 .end method
 
 .method public setPackedColor(F)V
     .locals 2
-    .param p1, "color"    # F
 
     .line 98
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->color:Lcom/badlogic/gdx/graphics/Color;
@@ -1013,181 +947,164 @@
 
     aput p1, v0, v1
 
-    .line 100
     const/16 v1, 0x9
 
+    .line 100
     aput p1, v0, v1
 
-    .line 101
     const/16 v1, 0xf
 
+    .line 101
     aput p1, v0, v1
 
-    .line 102
     const/16 v1, 0x15
 
+    .line 102
     aput p1, v0, v1
 
-    .line 103
     return-void
 .end method
 
 .method public setPosition(FFF)V
     .locals 1
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "z"    # F
 
     .line 274
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
+    const/4 p1, 0x0
+
     .line 275
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 276
     return-void
 .end method
 
 .method public setPosition(Lcom/badlogic/gdx/math/Vector3;)V
     .locals 1
-    .param p1, "pos"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 280
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
+    const/4 p1, 0x0
+
     .line 281
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 282
     return-void
 .end method
 
 .method public setRotation(FFF)V
     .locals 1
-    .param p1, "yaw"    # F
-    .param p2, "pitch"    # F
-    .param p3, "roll"    # F
 
     .line 161
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/badlogic/gdx/math/Quaternion;->setEulerAngles(FFF)Lcom/badlogic/gdx/math/Quaternion;
 
+    const/4 p1, 0x0
+
     .line 162
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 163
     return-void
 .end method
 
 .method public setRotation(Lcom/badlogic/gdx/math/Quaternion;)V
     .locals 1
-    .param p1, "q"    # Lcom/badlogic/gdx/math/Quaternion;
 
     .line 178
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/math/Quaternion;->set(Lcom/badlogic/gdx/math/Quaternion;)Lcom/badlogic/gdx/math/Quaternion;
 
+    const/4 p1, 0x0
+
     .line 179
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 180
     return-void
 .end method
 
 .method public setRotation(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)V
-    .locals 11
-    .param p1, "dir"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "up"    # Lcom/badlogic/gdx/math/Vector3;
+    .locals 10
 
     .line 169
     sget-object v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->tmp:Lcom/badlogic/gdx/math/Vector3;
 
     invoke-virtual {v0, p2}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/math/Vector3;->crs(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p2, p1}, Lcom/badlogic/gdx/math/Vector3;->crs(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p2}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
 
     .line 170
-    sget-object v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->tmp2:Lcom/badlogic/gdx/math/Vector3;
+    sget-object p2, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->tmp2:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p2, p1}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p2
 
-    sget-object v1, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->tmp:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->tmp:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector3;->crs(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p2, v0}, Lcom/badlogic/gdx/math/Vector3;->crs(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p2}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
 
     .line 171
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
-    sget-object v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->tmp:Lcom/badlogic/gdx/math/Vector3;
+    sget-object p2, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->tmp:Lcom/badlogic/gdx/math/Vector3;
 
-    iget v2, v0, Lcom/badlogic/gdx/math/Vector3;->x:F
+    iget v1, p2, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    sget-object v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->tmp2:Lcom/badlogic/gdx/math/Vector3;
+    sget-object p2, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->tmp2:Lcom/badlogic/gdx/math/Vector3;
 
-    iget v3, v0, Lcom/badlogic/gdx/math/Vector3;->x:F
+    iget v2, p2, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    iget v4, p1, Lcom/badlogic/gdx/math/Vector3;->x:F
+    iget v3, p1, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    sget-object v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->tmp:Lcom/badlogic/gdx/math/Vector3;
+    sget-object p2, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->tmp:Lcom/badlogic/gdx/math/Vector3;
 
-    iget v5, v0, Lcom/badlogic/gdx/math/Vector3;->y:F
+    iget v4, p2, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    sget-object v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->tmp2:Lcom/badlogic/gdx/math/Vector3;
+    sget-object p2, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->tmp2:Lcom/badlogic/gdx/math/Vector3;
 
-    iget v6, v0, Lcom/badlogic/gdx/math/Vector3;->y:F
+    iget v5, p2, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    iget v7, p1, Lcom/badlogic/gdx/math/Vector3;->y:F
+    iget v6, p1, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    sget-object v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->tmp:Lcom/badlogic/gdx/math/Vector3;
+    sget-object p2, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->tmp:Lcom/badlogic/gdx/math/Vector3;
 
-    iget v8, v0, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget v7, p2, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    sget-object v0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->tmp2:Lcom/badlogic/gdx/math/Vector3;
+    sget-object p2, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->tmp2:Lcom/badlogic/gdx/math/Vector3;
 
-    iget v9, v0, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget v8, p2, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    iget v10, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget v9, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    invoke-virtual/range {v1 .. v10}, Lcom/badlogic/gdx/math/Quaternion;->setFromAxes(FFFFFFFFF)Lcom/badlogic/gdx/math/Quaternion;
+    invoke-virtual/range {v0 .. v9}, Lcom/badlogic/gdx/math/Quaternion;->setFromAxes(FFFFFFFFF)Lcom/badlogic/gdx/math/Quaternion;
+
+    const/4 p1, 0x0
 
     .line 172
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 173
     return-void
 .end method
 
 .method public setRotationX(F)V
     .locals 2
-    .param p1, "angle"    # F
 
     .line 109
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
@@ -1196,18 +1113,16 @@
 
     invoke-virtual {v0, v1, p1}, Lcom/badlogic/gdx/math/Quaternion;->set(Lcom/badlogic/gdx/math/Vector3;F)Lcom/badlogic/gdx/math/Quaternion;
 
+    const/4 p1, 0x0
+
     .line 110
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 111
     return-void
 .end method
 
 .method public setRotationY(F)V
     .locals 2
-    .param p1, "angle"    # F
 
     .line 117
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
@@ -1216,18 +1131,16 @@
 
     invoke-virtual {v0, v1, p1}, Lcom/badlogic/gdx/math/Quaternion;->set(Lcom/badlogic/gdx/math/Vector3;F)Lcom/badlogic/gdx/math/Quaternion;
 
+    const/4 p1, 0x0
+
     .line 118
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 119
     return-void
 .end method
 
 .method public setRotationZ(F)V
     .locals 2
-    .param p1, "angle"    # F
 
     .line 125
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
@@ -1236,91 +1149,80 @@
 
     invoke-virtual {v0, v1, p1}, Lcom/badlogic/gdx/math/Quaternion;->set(Lcom/badlogic/gdx/math/Vector3;F)Lcom/badlogic/gdx/math/Quaternion;
 
+    const/4 p1, 0x0
+
     .line 126
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 127
     return-void
 .end method
 
 .method public setScale(F)V
     .locals 1
-    .param p1, "scale"    # F
 
     .line 337
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->scale:Lcom/badlogic/gdx/math/Vector2;
 
     invoke-virtual {v0, p1, p1}, Lcom/badlogic/gdx/math/Vector2;->set(FF)Lcom/badlogic/gdx/math/Vector2;
 
+    const/4 p1, 0x0
+
     .line 338
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 339
     return-void
 .end method
 
 .method public setScale(FF)V
     .locals 1
-    .param p1, "scaleX"    # F
-    .param p2, "scaleY"    # F
 
     .line 329
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->scale:Lcom/badlogic/gdx/math/Vector2;
 
     invoke-virtual {v0, p1, p2}, Lcom/badlogic/gdx/math/Vector2;->set(FF)Lcom/badlogic/gdx/math/Vector2;
 
+    const/4 p1, 0x0
+
     .line 330
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 331
     return-void
 .end method
 
 .method public setScaleX(F)V
     .locals 1
-    .param p1, "scale"    # F
 
     .line 302
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->scale:Lcom/badlogic/gdx/math/Vector2;
 
     iput p1, v0, Lcom/badlogic/gdx/math/Vector2;->x:F
 
+    const/4 p1, 0x0
+
     .line 303
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 304
     return-void
 .end method
 
 .method public setScaleY(F)V
     .locals 1
-    .param p1, "scale"    # F
 
     .line 315
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->scale:Lcom/badlogic/gdx/math/Vector2;
 
     iput p1, v0, Lcom/badlogic/gdx/math/Vector2;->y:F
 
+    const/4 p1, 0x0
+
     .line 316
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 317
     return-void
 .end method
 
 .method public setTextureRegion(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
     .locals 1
-    .param p1, "textureRegion"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
     .line 549
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->material:Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;
@@ -1330,79 +1232,70 @@
     .line 550
     invoke-virtual {p0}, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updateUVs()V
 
-    .line 551
     return-void
 .end method
 
 .method public setWidth(F)V
     .locals 1
-    .param p1, "width"    # F
 
     .line 345
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->dimensions:Lcom/badlogic/gdx/math/Vector2;
 
     iput p1, v0, Lcom/badlogic/gdx/math/Vector2;->x:F
 
+    const/4 p1, 0x0
+
     .line 346
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 347
     return-void
 .end method
 
 .method public setX(F)V
     .locals 1
-    .param p1, "x"    # F
 
     .line 201
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
 
     iput p1, v0, Lcom/badlogic/gdx/math/Vector3;->x:F
 
+    const/4 p1, 0x0
+
     .line 202
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 203
     return-void
 .end method
 
 .method public setY(F)V
     .locals 1
-    .param p1, "y"    # F
 
     .line 222
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
 
     iput p1, v0, Lcom/badlogic/gdx/math/Vector3;->y:F
 
+    const/4 p1, 0x0
+
     .line 223
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 224
     return-void
 .end method
 
 .method public setZ(F)V
     .locals 1
-    .param p1, "z"    # F
 
     .line 243
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
 
     iput p1, v0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
+    const/4 p1, 0x0
+
     .line 244
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 245
     return-void
 .end method
 
@@ -1420,27 +1313,20 @@
     neg-float v0, v0
 
     .line 406
-    .local v0, "tx":F
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->transformationOffset:Lcom/badlogic/gdx/math/Vector2;
 
     iget v1, v1, Lcom/badlogic/gdx/math/Vector2;->y:F
 
     neg-float v1, v1
 
-    .local v1, "ty":F
     goto :goto_0
 
-    .line 408
-    .end local v0    # "tx":F
-    .end local v1    # "ty":F
     :cond_0
     const/4 v0, 0x0
 
     move v1, v0
 
     .line 412
-    .restart local v0    # "tx":F
-    .restart local v1    # "ty":F
     :goto_0
     iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
@@ -1457,7 +1343,6 @@
     mul-float/2addr v2, v4
 
     .line 413
-    .local v2, "x":F
     iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
     const/4 v5, 0x1
@@ -1473,7 +1358,6 @@
     mul-float/2addr v4, v6
 
     .line 414
-    .local v4, "y":F
     iget-object v6, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
     const/4 v7, 0x2
@@ -1481,7 +1365,6 @@
     aget v8, v6, v7
 
     .line 416
-    .local v8, "z":F
     iget-object v9, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
     iget v9, v9, Lcom/badlogic/gdx/math/Quaternion;->w:F
@@ -1569,38 +1452,37 @@
 
     mul-float/2addr v6, v2
 
-    iget-object v9, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
-    iget v9, v9, Lcom/badlogic/gdx/math/Quaternion;->y:F
+    iget v2, v2, Lcom/badlogic/gdx/math/Quaternion;->y:F
 
-    mul-float/2addr v9, v4
+    mul-float/2addr v2, v4
 
-    sub-float/2addr v6, v9
+    sub-float/2addr v6, v2
 
-    iget-object v9, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
-    iget v9, v9, Lcom/badlogic/gdx/math/Quaternion;->z:F
+    iget v2, v2, Lcom/badlogic/gdx/math/Quaternion;->z:F
 
-    mul-float/2addr v9, v8
+    mul-float/2addr v2, v8
 
-    sub-float/2addr v6, v9
+    sub-float/2addr v6, v2
 
     .line 420
-    .local v6, "w":F
-    iget-object v9, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
-    invoke-virtual {v9}, Lcom/badlogic/gdx/math/Quaternion;->conjugate()Lcom/badlogic/gdx/math/Quaternion;
+    invoke-virtual {v2}, Lcom/badlogic/gdx/math/Quaternion;->conjugate()Lcom/badlogic/gdx/math/Quaternion;
 
     .line 421
-    iget-object v9, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
-    aget v2, v9, v3
+    aget v4, v2, v3
 
     .line 422
-    aget v4, v9, v5
+    aget v8, v2, v5
 
     .line 423
-    aget v8, v9, v7
+    aget v9, v2, v7
 
     .line 424
     iget-object v10, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
@@ -1613,7 +1495,7 @@
 
     iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->w:F
 
-    mul-float/2addr v11, v2
+    mul-float/2addr v11, v4
 
     add-float/2addr v10, v11
 
@@ -1621,7 +1503,7 @@
 
     iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->z:F
 
-    mul-float/2addr v11, v4
+    mul-float/2addr v11, v8
 
     add-float/2addr v10, v11
 
@@ -1629,14 +1511,14 @@
 
     iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->y:F
 
-    mul-float/2addr v11, v8
+    mul-float/2addr v11, v9
 
     sub-float/2addr v10, v11
 
-    aput v10, v9, v3
+    aput v10, v2, v3
 
     .line 425
-    iget-object v9, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
     iget-object v10, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
@@ -1648,7 +1530,7 @@
 
     iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->w:F
 
-    mul-float/2addr v11, v4
+    mul-float/2addr v11, v8
 
     add-float/2addr v10, v11
 
@@ -1656,7 +1538,7 @@
 
     iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->x:F
 
-    mul-float/2addr v11, v8
+    mul-float/2addr v11, v9
 
     add-float/2addr v10, v11
 
@@ -1664,32 +1546,169 @@
 
     iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->z:F
 
-    mul-float/2addr v11, v2
+    mul-float/2addr v11, v4
 
     sub-float/2addr v10, v11
 
-    aput v10, v9, v5
+    aput v10, v2, v5
 
     .line 426
-    iget-object v9, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
     iget-object v10, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
     iget v10, v10, Lcom/badlogic/gdx/math/Quaternion;->z:F
 
-    mul-float/2addr v10, v6
+    mul-float/2addr v6, v10
+
+    iget-object v10, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v10, v10, Lcom/badlogic/gdx/math/Quaternion;->w:F
+
+    mul-float/2addr v9, v10
+
+    add-float/2addr v6, v9
+
+    iget-object v9, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v9, v9, Lcom/badlogic/gdx/math/Quaternion;->y:F
+
+    mul-float/2addr v4, v9
+
+    add-float/2addr v6, v4
+
+    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v4, v4, Lcom/badlogic/gdx/math/Quaternion;->x:F
+
+    mul-float/2addr v8, v4
+
+    sub-float/2addr v6, v8
+
+    aput v6, v2, v7
+
+    .line 427
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    invoke-virtual {v2}, Lcom/badlogic/gdx/math/Quaternion;->conjugate()Lcom/badlogic/gdx/math/Quaternion;
+
+    .line 429
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+
+    aget v4, v2, v3
+
+    iget-object v6, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
+
+    iget v6, v6, Lcom/badlogic/gdx/math/Vector3;->x:F
+
+    sub-float/2addr v6, v0
+
+    add-float/2addr v4, v6
+
+    aput v4, v2, v3
+
+    .line 430
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+
+    aget v3, v2, v5
+
+    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
+
+    iget v4, v4, Lcom/badlogic/gdx/math/Vector3;->y:F
+
+    sub-float/2addr v4, v1
+
+    add-float/2addr v3, v4
+
+    aput v3, v2, v5
+
+    .line 431
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+
+    aget v3, v2, v7
+
+    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
+
+    iget v4, v4, Lcom/badlogic/gdx/math/Vector3;->z:F
+
+    add-float/2addr v3, v4
+
+    aput v3, v2, v7
+
+    .line 434
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+
+    const/4 v3, 0x6
+
+    aget v2, v2, v3
+
+    add-float/2addr v2, v0
+
+    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->scale:Lcom/badlogic/gdx/math/Vector2;
+
+    iget v4, v4, Lcom/badlogic/gdx/math/Vector2;->x:F
+
+    mul-float/2addr v2, v4
+
+    .line 435
+    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+
+    const/4 v6, 0x7
+
+    aget v4, v4, v6
+
+    add-float/2addr v4, v1
+
+    iget-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->scale:Lcom/badlogic/gdx/math/Vector2;
+
+    iget v7, v7, Lcom/badlogic/gdx/math/Vector2;->y:F
+
+    mul-float/2addr v4, v7
+
+    .line 436
+    iget-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+
+    const/16 v8, 0x8
+
+    aget v9, v7, v8
+
+    .line 438
+    iget-object v10, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v10, v10, Lcom/badlogic/gdx/math/Quaternion;->w:F
+
+    mul-float/2addr v10, v2
 
     iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
-    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->w:F
+    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->y:F
 
-    mul-float/2addr v11, v8
+    mul-float/2addr v11, v9
 
     add-float/2addr v10, v11
 
     iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
-    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->y:F
+    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->z:F
+
+    mul-float/2addr v11, v4
+
+    sub-float/2addr v10, v11
+
+    aput v10, v7, v3
+
+    .line 439
+    iget-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+
+    iget-object v10, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v10, v10, Lcom/badlogic/gdx/math/Quaternion;->w:F
+
+    mul-float/2addr v10, v4
+
+    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->z:F
 
     mul-float/2addr v11, v2
 
@@ -1699,188 +1718,28 @@
 
     iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->x:F
 
-    mul-float/2addr v11, v4
+    mul-float/2addr v11, v9
 
     sub-float/2addr v10, v11
 
-    aput v10, v9, v7
-
-    .line 427
-    iget-object v9, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    invoke-virtual {v9}, Lcom/badlogic/gdx/math/Quaternion;->conjugate()Lcom/badlogic/gdx/math/Quaternion;
-
-    .line 429
-    iget-object v9, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
-
-    aget v10, v9, v3
-
-    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
-
-    iget v11, v11, Lcom/badlogic/gdx/math/Vector3;->x:F
-
-    sub-float/2addr v11, v0
-
-    add-float/2addr v10, v11
-
-    aput v10, v9, v3
-
-    .line 430
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
-
-    aget v9, v3, v5
-
-    iget-object v10, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
-
-    iget v10, v10, Lcom/badlogic/gdx/math/Vector3;->y:F
-
-    sub-float/2addr v10, v1
-
-    add-float/2addr v9, v10
-
-    aput v9, v3, v5
-
-    .line 431
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
-
-    aget v9, v3, v7
-
-    iget-object v10, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
-
-    iget v10, v10, Lcom/badlogic/gdx/math/Vector3;->z:F
-
-    add-float/2addr v9, v10
-
-    aput v9, v3, v7
-
-    .line 434
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
-
-    const/4 v7, 0x6
-
-    aget v3, v3, v7
-
-    add-float/2addr v3, v0
-
-    iget-object v9, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->scale:Lcom/badlogic/gdx/math/Vector2;
-
-    iget v9, v9, Lcom/badlogic/gdx/math/Vector2;->x:F
-
-    mul-float/2addr v3, v9
-
-    .line 435
-    .end local v2    # "x":F
-    .local v3, "x":F
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
-
-    const/4 v9, 0x7
-
-    aget v2, v2, v9
-
-    add-float/2addr v2, v1
-
-    iget-object v10, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->scale:Lcom/badlogic/gdx/math/Vector2;
-
-    iget v10, v10, Lcom/badlogic/gdx/math/Vector2;->y:F
-
-    mul-float/2addr v2, v10
-
-    .line 436
-    .end local v4    # "y":F
-    .local v2, "y":F
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
-
-    const/16 v10, 0x8
-
-    aget v8, v4, v10
-
-    .line 438
-    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->w:F
-
-    mul-float/2addr v11, v3
-
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->y:F
-
-    mul-float/2addr v12, v8
-
-    add-float/2addr v11, v12
-
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->z:F
-
-    mul-float/2addr v12, v2
-
-    sub-float/2addr v11, v12
-
-    aput v11, v4, v7
-
-    .line 439
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
-
-    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->w:F
-
-    mul-float/2addr v11, v2
-
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->z:F
-
-    mul-float/2addr v12, v3
-
-    add-float/2addr v11, v12
-
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->x:F
-
-    mul-float/2addr v12, v8
-
-    sub-float/2addr v11, v12
-
-    aput v11, v4, v9
+    aput v10, v7, v6
 
     .line 440
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+    iget-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+
+    iget-object v10, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v10, v10, Lcom/badlogic/gdx/math/Quaternion;->w:F
+
+    mul-float/2addr v10, v9
 
     iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
-    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->w:F
+    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->x:F
 
-    mul-float/2addr v11, v8
+    mul-float/2addr v11, v4
 
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->x:F
-
-    mul-float/2addr v12, v2
-
-    add-float/2addr v11, v12
-
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->y:F
-
-    mul-float/2addr v12, v3
-
-    sub-float/2addr v11, v12
-
-    aput v11, v4, v10
-
-    .line 441
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v4, v4, Lcom/badlogic/gdx/math/Quaternion;->x:F
-
-    neg-float v4, v4
-
-    mul-float/2addr v4, v3
+    add-float/2addr v10, v11
 
     iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
@@ -1888,46 +1747,63 @@
 
     mul-float/2addr v11, v2
 
-    sub-float/2addr v4, v11
+    sub-float/2addr v10, v11
 
-    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+    aput v10, v7, v8
 
-    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->z:F
+    .line 441
+    iget-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
-    mul-float/2addr v11, v8
+    iget v7, v7, Lcom/badlogic/gdx/math/Quaternion;->x:F
 
-    sub-float/2addr v4, v11
+    neg-float v7, v7
+
+    mul-float/2addr v7, v2
+
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v2, v2, Lcom/badlogic/gdx/math/Quaternion;->y:F
+
+    mul-float/2addr v2, v4
+
+    sub-float/2addr v7, v2
+
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v2, v2, Lcom/badlogic/gdx/math/Quaternion;->z:F
+
+    mul-float/2addr v2, v9
+
+    sub-float/2addr v7, v2
 
     .line 442
-    .end local v6    # "w":F
-    .local v4, "w":F
-    iget-object v6, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
-    invoke-virtual {v6}, Lcom/badlogic/gdx/math/Quaternion;->conjugate()Lcom/badlogic/gdx/math/Quaternion;
+    invoke-virtual {v2}, Lcom/badlogic/gdx/math/Quaternion;->conjugate()Lcom/badlogic/gdx/math/Quaternion;
 
     .line 443
-    iget-object v6, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
-    aget v3, v6, v7
+    aget v4, v2, v3
 
     .line 444
-    aget v2, v6, v9
+    aget v9, v2, v6
 
     .line 445
-    aget v8, v6, v10
+    aget v10, v2, v8
 
     .line 446
     iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
     iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->x:F
 
-    mul-float/2addr v11, v4
+    mul-float/2addr v11, v7
 
     iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
     iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->w:F
 
-    mul-float/2addr v12, v3
+    mul-float/2addr v12, v4
 
     add-float/2addr v11, v12
 
@@ -1935,7 +1811,7 @@
 
     iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->z:F
 
-    mul-float/2addr v12, v2
+    mul-float/2addr v12, v9
 
     add-float/2addr v11, v12
 
@@ -1943,26 +1819,26 @@
 
     iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->y:F
 
-    mul-float/2addr v12, v8
+    mul-float/2addr v12, v10
 
     sub-float/2addr v11, v12
 
-    aput v11, v6, v7
+    aput v11, v2, v3
 
     .line 447
-    iget-object v6, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
     iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
     iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->y:F
 
-    mul-float/2addr v11, v4
+    mul-float/2addr v11, v7
 
     iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
     iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->w:F
 
-    mul-float/2addr v12, v2
+    mul-float/2addr v12, v9
 
     add-float/2addr v11, v12
 
@@ -1970,7 +1846,7 @@
 
     iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->x:F
 
-    mul-float/2addr v12, v8
+    mul-float/2addr v12, v10
 
     add-float/2addr v11, v12
 
@@ -1978,14 +1854,146 @@
 
     iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->z:F
 
-    mul-float/2addr v12, v3
+    mul-float/2addr v12, v4
 
     sub-float/2addr v11, v12
 
-    aput v11, v6, v9
+    aput v11, v2, v6
 
     .line 448
-    iget-object v6, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+
+    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->z:F
+
+    mul-float/2addr v7, v11
+
+    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->w:F
+
+    mul-float/2addr v10, v11
+
+    add-float/2addr v7, v10
+
+    iget-object v10, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v10, v10, Lcom/badlogic/gdx/math/Quaternion;->y:F
+
+    mul-float/2addr v4, v10
+
+    add-float/2addr v7, v4
+
+    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v4, v4, Lcom/badlogic/gdx/math/Quaternion;->x:F
+
+    mul-float/2addr v9, v4
+
+    sub-float/2addr v7, v9
+
+    aput v7, v2, v8
+
+    .line 449
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    invoke-virtual {v2}, Lcom/badlogic/gdx/math/Quaternion;->conjugate()Lcom/badlogic/gdx/math/Quaternion;
+
+    .line 451
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+
+    aget v4, v2, v3
+
+    iget-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
+
+    iget v7, v7, Lcom/badlogic/gdx/math/Vector3;->x:F
+
+    sub-float/2addr v7, v0
+
+    add-float/2addr v4, v7
+
+    aput v4, v2, v3
+
+    .line 452
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+
+    aget v3, v2, v6
+
+    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
+
+    iget v4, v4, Lcom/badlogic/gdx/math/Vector3;->y:F
+
+    sub-float/2addr v4, v1
+
+    add-float/2addr v3, v4
+
+    aput v3, v2, v6
+
+    .line 453
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+
+    aget v3, v2, v8
+
+    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
+
+    iget v4, v4, Lcom/badlogic/gdx/math/Vector3;->z:F
+
+    add-float/2addr v3, v4
+
+    aput v3, v2, v8
+
+    .line 456
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+
+    const/16 v3, 0xc
+
+    aget v2, v2, v3
+
+    add-float/2addr v2, v0
+
+    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->scale:Lcom/badlogic/gdx/math/Vector2;
+
+    iget v4, v4, Lcom/badlogic/gdx/math/Vector2;->x:F
+
+    mul-float/2addr v2, v4
+
+    .line 457
+    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+
+    const/16 v6, 0xd
+
+    aget v4, v4, v6
+
+    add-float/2addr v4, v1
+
+    iget-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->scale:Lcom/badlogic/gdx/math/Vector2;
+
+    iget v7, v7, Lcom/badlogic/gdx/math/Vector2;->y:F
+
+    mul-float/2addr v4, v7
+
+    .line 458
+    iget-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+
+    const/16 v8, 0xe
+
+    aget v9, v7, v8
+
+    .line 460
+    iget-object v10, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v10, v10, Lcom/badlogic/gdx/math/Quaternion;->w:F
+
+    mul-float/2addr v10, v2
+
+    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->y:F
+
+    mul-float/2addr v11, v9
+
+    add-float/2addr v10, v11
 
     iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
@@ -1993,255 +2001,117 @@
 
     mul-float/2addr v11, v4
 
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+    sub-float/2addr v10, v11
 
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->w:F
-
-    mul-float/2addr v12, v8
-
-    add-float/2addr v11, v12
-
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->y:F
-
-    mul-float/2addr v12, v3
-
-    add-float/2addr v11, v12
-
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->x:F
-
-    mul-float/2addr v12, v2
-
-    sub-float/2addr v11, v12
-
-    aput v11, v6, v10
-
-    .line 449
-    iget-object v6, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    invoke-virtual {v6}, Lcom/badlogic/gdx/math/Quaternion;->conjugate()Lcom/badlogic/gdx/math/Quaternion;
-
-    .line 451
-    iget-object v6, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
-
-    aget v11, v6, v7
-
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
-
-    iget v12, v12, Lcom/badlogic/gdx/math/Vector3;->x:F
-
-    sub-float/2addr v12, v0
-
-    add-float/2addr v11, v12
-
-    aput v11, v6, v7
-
-    .line 452
-    iget-object v6, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
-
-    aget v7, v6, v9
-
-    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
-
-    iget v11, v11, Lcom/badlogic/gdx/math/Vector3;->y:F
-
-    sub-float/2addr v11, v1
-
-    add-float/2addr v7, v11
-
-    aput v7, v6, v9
-
-    .line 453
-    iget-object v6, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
-
-    aget v7, v6, v10
-
-    iget-object v9, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
-
-    iget v9, v9, Lcom/badlogic/gdx/math/Vector3;->z:F
-
-    add-float/2addr v7, v9
-
-    aput v7, v6, v10
-
-    .line 456
-    iget-object v6, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
-
-    const/16 v7, 0xc
-
-    aget v6, v6, v7
-
-    add-float/2addr v6, v0
-
-    iget-object v9, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->scale:Lcom/badlogic/gdx/math/Vector2;
-
-    iget v9, v9, Lcom/badlogic/gdx/math/Vector2;->x:F
-
-    mul-float/2addr v6, v9
-
-    .line 457
-    .end local v3    # "x":F
-    .local v6, "x":F
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
-
-    const/16 v9, 0xd
-
-    aget v3, v3, v9
-
-    add-float/2addr v3, v1
-
-    iget-object v10, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->scale:Lcom/badlogic/gdx/math/Vector2;
-
-    iget v10, v10, Lcom/badlogic/gdx/math/Vector2;->y:F
-
-    mul-float/2addr v3, v10
-
-    .line 458
-    .end local v2    # "y":F
-    .local v3, "y":F
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
-
-    const/16 v10, 0xe
-
-    aget v8, v2, v10
-
-    .line 460
-    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->w:F
-
-    mul-float/2addr v11, v6
-
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->y:F
-
-    mul-float/2addr v12, v8
-
-    add-float/2addr v11, v12
-
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->z:F
-
-    mul-float/2addr v12, v3
-
-    sub-float/2addr v11, v12
-
-    aput v11, v2, v7
+    aput v10, v7, v3
 
     .line 461
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+    iget-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
-    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+    iget-object v10, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
-    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->w:F
+    iget v10, v10, Lcom/badlogic/gdx/math/Quaternion;->w:F
 
-    mul-float/2addr v11, v3
-
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->z:F
-
-    mul-float/2addr v12, v6
-
-    add-float/2addr v11, v12
-
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->x:F
-
-    mul-float/2addr v12, v8
-
-    sub-float/2addr v11, v12
-
-    aput v11, v2, v9
-
-    .line 462
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
-
-    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->w:F
-
-    mul-float/2addr v11, v8
-
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->x:F
-
-    mul-float/2addr v12, v3
-
-    add-float/2addr v11, v12
-
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->y:F
-
-    mul-float/2addr v12, v6
-
-    sub-float/2addr v11, v12
-
-    aput v11, v2, v10
-
-    .line 463
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v2, v2, Lcom/badlogic/gdx/math/Quaternion;->x:F
-
-    neg-float v2, v2
-
-    mul-float/2addr v2, v6
-
-    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->y:F
-
-    mul-float/2addr v11, v3
-
-    sub-float/2addr v2, v11
+    mul-float/2addr v10, v4
 
     iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
     iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->z:F
 
-    mul-float/2addr v11, v8
+    mul-float/2addr v11, v2
 
-    sub-float/2addr v2, v11
+    add-float/2addr v10, v11
+
+    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->x:F
+
+    mul-float/2addr v11, v9
+
+    sub-float/2addr v10, v11
+
+    aput v10, v7, v6
+
+    .line 462
+    iget-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+
+    iget-object v10, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v10, v10, Lcom/badlogic/gdx/math/Quaternion;->w:F
+
+    mul-float/2addr v10, v9
+
+    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->x:F
+
+    mul-float/2addr v11, v4
+
+    add-float/2addr v10, v11
+
+    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->y:F
+
+    mul-float/2addr v11, v2
+
+    sub-float/2addr v10, v11
+
+    aput v10, v7, v8
+
+    .line 463
+    iget-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v7, v7, Lcom/badlogic/gdx/math/Quaternion;->x:F
+
+    neg-float v7, v7
+
+    mul-float/2addr v7, v2
+
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v2, v2, Lcom/badlogic/gdx/math/Quaternion;->y:F
+
+    mul-float/2addr v2, v4
+
+    sub-float/2addr v7, v2
+
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v2, v2, Lcom/badlogic/gdx/math/Quaternion;->z:F
+
+    mul-float/2addr v2, v9
+
+    sub-float/2addr v7, v2
 
     .line 464
-    .end local v4    # "w":F
-    .local v2, "w":F
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
-    invoke-virtual {v4}, Lcom/badlogic/gdx/math/Quaternion;->conjugate()Lcom/badlogic/gdx/math/Quaternion;
+    invoke-virtual {v2}, Lcom/badlogic/gdx/math/Quaternion;->conjugate()Lcom/badlogic/gdx/math/Quaternion;
 
     .line 465
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
-    aget v6, v4, v7
+    aget v4, v2, v3
 
     .line 466
-    aget v3, v4, v9
+    aget v9, v2, v6
 
     .line 467
-    aget v8, v4, v10
+    aget v10, v2, v8
 
     .line 468
     iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
     iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->x:F
 
-    mul-float/2addr v11, v2
+    mul-float/2addr v11, v7
 
     iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
     iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->w:F
 
-    mul-float/2addr v12, v6
+    mul-float/2addr v12, v4
 
     add-float/2addr v11, v12
 
@@ -2249,7 +2119,7 @@
 
     iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->z:F
 
-    mul-float/2addr v12, v3
+    mul-float/2addr v12, v9
 
     add-float/2addr v11, v12
 
@@ -2257,26 +2127,26 @@
 
     iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->y:F
 
-    mul-float/2addr v12, v8
+    mul-float/2addr v12, v10
 
     sub-float/2addr v11, v12
 
-    aput v11, v4, v7
+    aput v11, v2, v3
 
     .line 469
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
     iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
     iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->y:F
 
-    mul-float/2addr v11, v2
+    mul-float/2addr v11, v7
 
     iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
     iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->w:F
 
-    mul-float/2addr v12, v3
+    mul-float/2addr v12, v9
 
     add-float/2addr v11, v12
 
@@ -2284,7 +2154,7 @@
 
     iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->x:F
 
-    mul-float/2addr v12, v8
+    mul-float/2addr v12, v10
 
     add-float/2addr v11, v12
 
@@ -2292,243 +2162,237 @@
 
     iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->z:F
 
-    mul-float/2addr v12, v6
+    mul-float/2addr v12, v4
 
     sub-float/2addr v11, v12
 
-    aput v11, v4, v9
+    aput v11, v2, v6
 
     .line 470
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
     iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
     iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->z:F
 
-    mul-float/2addr v11, v2
+    mul-float/2addr v7, v11
 
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->w:F
-
-    mul-float/2addr v12, v8
-
-    add-float/2addr v11, v12
-
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->y:F
-
-    mul-float/2addr v12, v6
-
-    add-float/2addr v11, v12
-
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->x:F
-
-    mul-float/2addr v12, v3
-
-    sub-float/2addr v11, v12
-
-    aput v11, v4, v10
-
-    .line 471
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    invoke-virtual {v4}, Lcom/badlogic/gdx/math/Quaternion;->conjugate()Lcom/badlogic/gdx/math/Quaternion;
-
-    .line 473
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
-
-    aget v11, v4, v7
-
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
-
-    iget v12, v12, Lcom/badlogic/gdx/math/Vector3;->x:F
-
-    sub-float/2addr v12, v0
-
-    add-float/2addr v11, v12
-
-    aput v11, v4, v7
-
-    .line 474
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
-
-    aget v7, v4, v9
-
-    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
-
-    iget v11, v11, Lcom/badlogic/gdx/math/Vector3;->y:F
-
-    sub-float/2addr v11, v1
-
-    add-float/2addr v7, v11
-
-    aput v7, v4, v9
-
-    .line 475
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
-
-    aget v7, v4, v10
-
-    iget-object v9, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
-
-    iget v9, v9, Lcom/badlogic/gdx/math/Vector3;->z:F
-
-    add-float/2addr v7, v9
-
-    aput v7, v4, v10
-
-    .line 478
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
-
-    const/16 v7, 0x12
-
-    aget v4, v4, v7
-
-    add-float/2addr v4, v0
-
-    iget-object v9, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->scale:Lcom/badlogic/gdx/math/Vector2;
-
-    iget v9, v9, Lcom/badlogic/gdx/math/Vector2;->x:F
-
-    mul-float/2addr v4, v9
-
-    .line 479
-    .end local v6    # "x":F
-    .local v4, "x":F
-    iget-object v6, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
-
-    const/16 v9, 0x13
-
-    aget v6, v6, v9
-
-    add-float/2addr v6, v1
-
-    iget-object v10, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->scale:Lcom/badlogic/gdx/math/Vector2;
-
-    iget v10, v10, Lcom/badlogic/gdx/math/Vector2;->y:F
-
-    mul-float/2addr v6, v10
-
-    .line 480
-    .end local v3    # "y":F
-    .local v6, "y":F
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
-
-    const/16 v10, 0x14
-
-    aget v8, v3, v10
-
-    .line 482
     iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
     iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->w:F
+
+    mul-float/2addr v10, v11
+
+    add-float/2addr v7, v10
+
+    iget-object v10, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v10, v10, Lcom/badlogic/gdx/math/Quaternion;->y:F
+
+    mul-float/2addr v4, v10
+
+    add-float/2addr v7, v4
+
+    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v4, v4, Lcom/badlogic/gdx/math/Quaternion;->x:F
+
+    mul-float/2addr v9, v4
+
+    sub-float/2addr v7, v9
+
+    aput v7, v2, v8
+
+    .line 471
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    invoke-virtual {v2}, Lcom/badlogic/gdx/math/Quaternion;->conjugate()Lcom/badlogic/gdx/math/Quaternion;
+
+    .line 473
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+
+    aget v4, v2, v3
+
+    iget-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
+
+    iget v7, v7, Lcom/badlogic/gdx/math/Vector3;->x:F
+
+    sub-float/2addr v7, v0
+
+    add-float/2addr v4, v7
+
+    aput v4, v2, v3
+
+    .line 474
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+
+    aget v3, v2, v6
+
+    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
+
+    iget v4, v4, Lcom/badlogic/gdx/math/Vector3;->y:F
+
+    sub-float/2addr v4, v1
+
+    add-float/2addr v3, v4
+
+    aput v3, v2, v6
+
+    .line 475
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+
+    aget v3, v2, v8
+
+    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
+
+    iget v4, v4, Lcom/badlogic/gdx/math/Vector3;->z:F
+
+    add-float/2addr v3, v4
+
+    aput v3, v2, v8
+
+    .line 478
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+
+    const/16 v3, 0x12
+
+    aget v2, v2, v3
+
+    add-float/2addr v2, v0
+
+    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->scale:Lcom/badlogic/gdx/math/Vector2;
+
+    iget v4, v4, Lcom/badlogic/gdx/math/Vector2;->x:F
+
+    mul-float/2addr v2, v4
+
+    .line 479
+    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+
+    const/16 v6, 0x13
+
+    aget v4, v4, v6
+
+    add-float/2addr v4, v1
+
+    iget-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->scale:Lcom/badlogic/gdx/math/Vector2;
+
+    iget v7, v7, Lcom/badlogic/gdx/math/Vector2;->y:F
+
+    mul-float/2addr v4, v7
+
+    .line 480
+    iget-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+
+    const/16 v8, 0x14
+
+    aget v9, v7, v8
+
+    .line 482
+    iget-object v10, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v10, v10, Lcom/badlogic/gdx/math/Quaternion;->w:F
+
+    mul-float/2addr v10, v2
+
+    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->y:F
+
+    mul-float/2addr v11, v9
+
+    add-float/2addr v10, v11
+
+    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->z:F
 
     mul-float/2addr v11, v4
 
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+    sub-float/2addr v10, v11
 
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->y:F
-
-    mul-float/2addr v12, v8
-
-    add-float/2addr v11, v12
-
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->z:F
-
-    mul-float/2addr v12, v6
-
-    sub-float/2addr v11, v12
-
-    aput v11, v3, v7
+    aput v10, v7, v3
 
     .line 483
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+    iget-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
-    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+    iget-object v10, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
-    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->w:F
+    iget v10, v10, Lcom/badlogic/gdx/math/Quaternion;->w:F
 
-    mul-float/2addr v11, v6
-
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->z:F
-
-    mul-float/2addr v12, v4
-
-    add-float/2addr v11, v12
-
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->x:F
-
-    mul-float/2addr v12, v8
-
-    sub-float/2addr v11, v12
-
-    aput v11, v3, v9
-
-    .line 484
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
-
-    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->w:F
-
-    mul-float/2addr v11, v8
-
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->x:F
-
-    mul-float/2addr v12, v6
-
-    add-float/2addr v11, v12
-
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->y:F
-
-    mul-float/2addr v12, v4
-
-    sub-float/2addr v11, v12
-
-    aput v11, v3, v10
-
-    .line 485
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v3, v3, Lcom/badlogic/gdx/math/Quaternion;->x:F
-
-    neg-float v3, v3
-
-    mul-float/2addr v3, v4
-
-    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
-
-    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->y:F
-
-    mul-float/2addr v11, v6
-
-    sub-float/2addr v3, v11
+    mul-float/2addr v10, v4
 
     iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
     iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->z:F
 
-    mul-float/2addr v11, v8
+    mul-float/2addr v11, v2
 
-    sub-float/2addr v3, v11
+    add-float/2addr v10, v11
+
+    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->x:F
+
+    mul-float/2addr v11, v9
+
+    sub-float/2addr v10, v11
+
+    aput v10, v7, v6
+
+    .line 484
+    iget-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+
+    iget-object v10, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v10, v10, Lcom/badlogic/gdx/math/Quaternion;->w:F
+
+    mul-float/2addr v10, v9
+
+    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->x:F
+
+    mul-float/2addr v11, v4
+
+    add-float/2addr v10, v11
+
+    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->y:F
+
+    mul-float/2addr v11, v2
+
+    sub-float/2addr v10, v11
+
+    aput v10, v7, v8
+
+    .line 485
+    iget-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v7, v7, Lcom/badlogic/gdx/math/Quaternion;->x:F
+
+    neg-float v7, v7
+
+    mul-float/2addr v7, v2
+
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v2, v2, Lcom/badlogic/gdx/math/Quaternion;->y:F
+
+    mul-float/2addr v2, v4
+
+    sub-float/2addr v7, v2
+
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+
+    iget v2, v2, Lcom/badlogic/gdx/math/Quaternion;->z:F
+
+    mul-float/2addr v2, v9
+
+    sub-float/2addr v7, v2
 
     .line 486
-    .end local v2    # "w":F
-    .local v3, "w":F
     iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
     invoke-virtual {v2}, Lcom/badlogic/gdx/math/Quaternion;->conjugate()Lcom/badlogic/gdx/math/Quaternion;
@@ -2536,20 +2400,20 @@
     .line 487
     iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
-    aget v4, v2, v7
+    aget v4, v2, v3
 
     .line 488
-    aget v6, v2, v9
+    aget v9, v2, v6
 
     .line 489
-    aget v8, v2, v10
+    aget v10, v2, v8
 
     .line 490
     iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
     iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->x:F
 
-    mul-float/2addr v11, v3
+    mul-float/2addr v11, v7
 
     iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
@@ -2563,7 +2427,7 @@
 
     iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->z:F
 
-    mul-float/2addr v12, v6
+    mul-float/2addr v12, v9
 
     add-float/2addr v11, v12
 
@@ -2571,11 +2435,11 @@
 
     iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->y:F
 
-    mul-float/2addr v12, v8
+    mul-float/2addr v12, v10
 
     sub-float/2addr v11, v12
 
-    aput v11, v2, v7
+    aput v11, v2, v3
 
     .line 491
     iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
@@ -2584,13 +2448,13 @@
 
     iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->y:F
 
-    mul-float/2addr v11, v3
+    mul-float/2addr v11, v7
 
     iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
     iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->w:F
 
-    mul-float/2addr v12, v6
+    mul-float/2addr v12, v9
 
     add-float/2addr v11, v12
 
@@ -2598,7 +2462,7 @@
 
     iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->x:F
 
-    mul-float/2addr v12, v8
+    mul-float/2addr v12, v10
 
     add-float/2addr v11, v12
 
@@ -2610,7 +2474,7 @@
 
     sub-float/2addr v11, v12
 
-    aput v11, v2, v9
+    aput v11, v2, v6
 
     .line 492
     iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
@@ -2619,33 +2483,33 @@
 
     iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->z:F
 
-    mul-float/2addr v11, v3
+    mul-float/2addr v7, v11
 
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->w:F
+    iget v11, v11, Lcom/badlogic/gdx/math/Quaternion;->w:F
 
-    mul-float/2addr v12, v8
+    mul-float/2addr v10, v11
 
-    add-float/2addr v11, v12
+    add-float/2addr v7, v10
 
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+    iget-object v10, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->y:F
+    iget v10, v10, Lcom/badlogic/gdx/math/Quaternion;->y:F
 
-    mul-float/2addr v12, v4
+    mul-float/2addr v4, v10
 
-    add-float/2addr v11, v12
+    add-float/2addr v7, v4
 
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
+    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
 
-    iget v12, v12, Lcom/badlogic/gdx/math/Quaternion;->x:F
+    iget v4, v4, Lcom/badlogic/gdx/math/Quaternion;->x:F
 
-    mul-float/2addr v12, v6
+    mul-float/2addr v9, v4
 
-    sub-float/2addr v11, v12
+    sub-float/2addr v7, v9
 
-    aput v11, v2, v10
+    aput v7, v2, v8
 
     .line 493
     iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->rotation:Lcom/badlogic/gdx/math/Quaternion;
@@ -2655,94 +2519,86 @@
     .line 495
     iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
-    aget v11, v2, v7
+    aget v4, v2, v3
 
-    iget-object v12, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
 
-    iget v12, v12, Lcom/badlogic/gdx/math/Vector3;->x:F
+    iget v7, v7, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    sub-float/2addr v12, v0
+    sub-float/2addr v7, v0
 
-    add-float/2addr v11, v12
+    add-float/2addr v4, v7
 
-    aput v11, v2, v7
+    aput v4, v2, v3
 
     .line 496
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
-    aget v7, v2, v9
+    aget v2, v0, v6
 
-    iget-object v11, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
 
-    iget v11, v11, Lcom/badlogic/gdx/math/Vector3;->y:F
+    iget v3, v3, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    sub-float/2addr v11, v1
+    sub-float/2addr v3, v1
 
-    add-float/2addr v7, v11
+    add-float/2addr v2, v3
 
-    aput v7, v2, v9
+    aput v2, v0, v6
 
     .line 497
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
-    aget v7, v2, v10
+    aget v1, v0, v8
 
-    iget-object v9, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
 
-    iget v9, v9, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget v2, v2, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    add-float/2addr v7, v9
+    add-float/2addr v1, v2
 
-    aput v7, v2, v10
+    aput v1, v0, v8
 
     .line 498
     iput-boolean v5, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    .line 499
     return-void
 .end method
 
 .method public translate(FFF)V
     .locals 1
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "z"    # F
 
     .line 258
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/badlogic/gdx/math/Vector3;->add(FFF)Lcom/badlogic/gdx/math/Vector3;
 
+    const/4 p1, 0x0
+
     .line 259
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 260
     return-void
 .end method
 
 .method public translate(Lcom/badlogic/gdx/math/Vector3;)V
     .locals 1
-    .param p1, "trans"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 264
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/math/Vector3;->add(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
+    const/4 p1, 0x0
+
     .line 265
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 266
     return-void
 .end method
 
 .method public translateX(F)V
     .locals 2
-    .param p1, "units"    # F
 
     .line 193
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
@@ -2753,18 +2609,16 @@
 
     iput v1, v0, Lcom/badlogic/gdx/math/Vector3;->x:F
 
+    const/4 p1, 0x0
+
     .line 194
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 195
     return-void
 .end method
 
 .method public translateY(F)V
     .locals 2
-    .param p1, "units"    # F
 
     .line 214
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
@@ -2775,18 +2629,16 @@
 
     iput v1, v0, Lcom/badlogic/gdx/math/Vector3;->y:F
 
+    const/4 p1, 0x0
+
     .line 215
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 216
     return-void
 .end method
 
 .method public translateZ(F)V
     .locals 2
-    .param p1, "units"    # F
 
     .line 235
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->position:Lcom/badlogic/gdx/math/Vector3;
@@ -2797,12 +2649,11 @@
 
     iput v1, v0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
+    const/4 p1, 0x0
+
     .line 236
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->updated:Z
-
-    .line 237
     return-void
 .end method
 
@@ -2820,7 +2671,6 @@
     .line 388
     invoke-virtual {p0}, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->transformVertices()V
 
-    .line 390
     :cond_0
     return-void
 .end method
@@ -2834,94 +2684,92 @@
     iget-object v0, v0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->textureRegion:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
     .line 532
-    .local v0, "tr":Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+
+    const/4 v2, 0x4
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->getU()F
 
-    move-result v2
+    move-result v3
 
-    const/4 v3, 0x4
-
-    aput v2, v1, v3
+    aput v3, v1, v2
 
     .line 533
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
+    const/4 v2, 0x5
+
     invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->getV()F
 
-    move-result v2
+    move-result v3
 
-    const/4 v3, 0x5
-
-    aput v2, v1, v3
+    aput v3, v1, v2
 
     .line 535
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
+    const/16 v2, 0xa
+
     invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->getU2()F
 
-    move-result v2
+    move-result v3
 
-    const/16 v3, 0xa
-
-    aput v2, v1, v3
+    aput v3, v1, v2
 
     .line 536
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
+    const/16 v2, 0xb
+
     invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->getV()F
 
-    move-result v2
+    move-result v3
 
-    const/16 v3, 0xb
-
-    aput v2, v1, v3
+    aput v3, v1, v2
 
     .line 538
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
+    const/16 v2, 0x10
+
     invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->getU()F
 
-    move-result v2
+    move-result v3
 
-    const/16 v3, 0x10
-
-    aput v2, v1, v3
+    aput v3, v1, v2
 
     .line 539
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
+    const/16 v2, 0x11
+
     invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->getV2()F
 
-    move-result v2
+    move-result v3
 
-    const/16 v3, 0x11
-
-    aput v2, v1, v3
+    aput v3, v1, v2
 
     .line 541
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
+    const/16 v2, 0x16
+
     invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->getU2()F
 
-    move-result v2
+    move-result v3
 
-    const/16 v3, 0x16
-
-    aput v2, v1, v3
+    aput v3, v1, v2
 
     .line 542
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
+    const/16 v2, 0x17
+
     invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->getV2()F
 
-    move-result v2
+    move-result v0
 
-    const/16 v3, 0x17
+    aput v0, v1, v2
 
-    aput v2, v1, v3
-
-    .line 543
     return-void
 .end method

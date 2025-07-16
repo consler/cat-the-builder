@@ -20,8 +20,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/CompletableSource;Lio/reactivex/functions/Action;)V
     .locals 0
-    .param p1, "source"    # Lio/reactivex/CompletableSource;
-    .param p2, "onFinally"    # Lio/reactivex/functions/Action;
 
     .line 38
     invoke-direct {p0}, Lio/reactivex/Completable;-><init>()V
@@ -32,7 +30,6 @@
     .line 40
     iput-object p2, p0, Lio/reactivex/internal/operators/completable/CompletableDoFinally;->onFinally:Lio/reactivex/functions/Action;
 
-    .line 41
     return-void
 .end method
 
@@ -40,7 +37,6 @@
 # virtual methods
 .method protected subscribeActual(Lio/reactivex/CompletableObserver;)V
     .locals 3
-    .param p1, "s"    # Lio/reactivex/CompletableObserver;
 
     .line 45
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableDoFinally;->source:Lio/reactivex/CompletableSource;
@@ -53,6 +49,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/CompletableSource;->subscribe(Lio/reactivex/CompletableObserver;)V
 
-    .line 46
     return-void
 .end method

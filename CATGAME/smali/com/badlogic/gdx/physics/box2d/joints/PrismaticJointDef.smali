@@ -60,9 +60,9 @@
     .line 54
     iput v2, p0, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJointDef;->referenceAngle:F
 
-    .line 57
     const/4 v0, 0x0
 
+    .line 57
     iput-boolean v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJointDef;->enableLimit:Z
 
     .line 60
@@ -85,7 +85,6 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJointDef;->type:Lcom/badlogic/gdx/physics/box2d/JointDef$JointType;
 
-    .line 31
     return-void
 .end method
 
@@ -93,10 +92,6 @@
 # virtual methods
 .method public initialize(Lcom/badlogic/gdx/physics/box2d/Body;Lcom/badlogic/gdx/physics/box2d/Body;Lcom/badlogic/gdx/math/Vector2;Lcom/badlogic/gdx/math/Vector2;)V
     .locals 2
-    .param p1, "bodyA"    # Lcom/badlogic/gdx/physics/box2d/Body;
-    .param p2, "bodyB"    # Lcom/badlogic/gdx/physics/box2d/Body;
-    .param p3, "anchor"    # Lcom/badlogic/gdx/math/Vector2;
-    .param p4, "axis"    # Lcom/badlogic/gdx/math/Vector2;
 
     .line 35
     iput-object p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJointDef;->bodyA:Lcom/badlogic/gdx/physics/box2d/Body;
@@ -118,32 +113,31 @@
 
     invoke-virtual {p2, p3}, Lcom/badlogic/gdx/physics/box2d/Body;->getLocalPoint(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
 
-    move-result-object v1
+    move-result-object p3
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector2;->set(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
+    invoke-virtual {v0, p3}, Lcom/badlogic/gdx/math/Vector2;->set(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
 
     .line 39
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJointDef;->localAxisA:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p3, p0, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJointDef;->localAxisA:Lcom/badlogic/gdx/math/Vector2;
 
     invoke-virtual {p1, p4}, Lcom/badlogic/gdx/physics/box2d/Body;->getLocalVector(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
 
-    move-result-object v1
+    move-result-object p4
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector2;->set(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
+    invoke-virtual {p3, p4}, Lcom/badlogic/gdx/math/Vector2;->set(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
 
     .line 40
     invoke-virtual {p2}, Lcom/badlogic/gdx/physics/box2d/Body;->getAngle()F
 
-    move-result v0
+    move-result p2
 
     invoke-virtual {p1}, Lcom/badlogic/gdx/physics/box2d/Body;->getAngle()F
 
-    move-result v1
+    move-result p1
 
-    sub-float/2addr v0, v1
+    sub-float/2addr p2, p1
 
-    iput v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJointDef;->referenceAngle:F
+    iput p2, p0, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJointDef;->referenceAngle:F
 
-    .line 42
     return-void
 .end method

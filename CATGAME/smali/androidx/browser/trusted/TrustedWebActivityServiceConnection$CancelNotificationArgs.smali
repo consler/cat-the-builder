@@ -23,8 +23,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .param p1, "platformTag"    # Ljava/lang/String;
-    .param p2, "platformId"    # I
 
     .line 203
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,22 +33,20 @@
     .line 205
     iput p2, p0, Landroidx/browser/trusted/TrustedWebActivityServiceConnection$CancelNotificationArgs;->platformId:I
 
-    .line 206
     return-void
 .end method
 
 .method public static fromBundle(Landroid/os/Bundle;)Landroidx/browser/trusted/TrustedWebActivityServiceConnection$CancelNotificationArgs;
     .locals 3
-    .param p0, "bundle"    # Landroid/os/Bundle;
 
-    .line 209
     const-string v0, "android.support.customtabs.trusted.PLATFORM_TAG"
 
+    .line 209
     invoke-static {p0, v0}, Landroidx/browser/trusted/TrustedWebActivityServiceConnection;->ensureBundleContains(Landroid/os/Bundle;Ljava/lang/String;)V
 
-    .line 210
     const-string v1, "android.support.customtabs.trusted.PLATFORM_ID"
 
+    .line 210
     invoke-static {p0, v1}, Landroidx/browser/trusted/TrustedWebActivityServiceConnection;->ensureBundleContains(Landroid/os/Bundle;Ljava/lang/String;)V
 
     .line 212
@@ -63,11 +59,10 @@
     .line 213
     invoke-virtual {p0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
-    move-result v1
+    move-result p0
 
-    invoke-direct {v2, v0, v1}, Landroidx/browser/trusted/TrustedWebActivityServiceConnection$CancelNotificationArgs;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v2, v0, p0}, Landroidx/browser/trusted/TrustedWebActivityServiceConnection$CancelNotificationArgs;-><init>(Ljava/lang/String;I)V
 
-    .line 212
     return-object v2
 .end method
 
@@ -81,21 +76,19 @@
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
+    const-string v1, "android.support.customtabs.trusted.PLATFORM_TAG"
+
     .line 218
-    .local v0, "args":Landroid/os/Bundle;
-    iget-object v1, p0, Landroidx/browser/trusted/TrustedWebActivityServiceConnection$CancelNotificationArgs;->platformTag:Ljava/lang/String;
+    iget-object v2, p0, Landroidx/browser/trusted/TrustedWebActivityServiceConnection$CancelNotificationArgs;->platformTag:Ljava/lang/String;
 
-    const-string v2, "android.support.customtabs.trusted.PLATFORM_TAG"
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    const-string v1, "android.support.customtabs.trusted.PLATFORM_ID"
 
     .line 219
-    iget v1, p0, Landroidx/browser/trusted/TrustedWebActivityServiceConnection$CancelNotificationArgs;->platformId:I
+    iget v2, p0, Landroidx/browser/trusted/TrustedWebActivityServiceConnection$CancelNotificationArgs;->platformId:I
 
-    const-string v2, "android.support.customtabs.trusted.PLATFORM_ID"
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    .line 220
     return-object v0
 .end method

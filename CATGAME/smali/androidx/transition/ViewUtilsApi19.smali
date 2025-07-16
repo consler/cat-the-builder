@@ -4,17 +4,12 @@
 
 
 # static fields
-.field private static sTryHiddenTransitionAlpha:Z
+.field private static sTryHiddenTransitionAlpha:Z = true
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
-
-    .line 31
-    const/4 v0, 0x1
-
-    sput-boolean v0, Landroidx/transition/ViewUtilsApi19;->sTryHiddenTransitionAlpha:Z
+    .locals 0
 
     return-void
 .end method
@@ -32,15 +27,12 @@
 # virtual methods
 .method public clearNonTransitionAlpha(Landroid/view/View;)V
     .locals 0
-    .param p1, "view"    # Landroid/view/View;
 
-    .line 72
     return-void
 .end method
 
 .method public getTransitionAlpha(Landroid/view/View;)F
-    .locals 2
-    .param p1, "view"    # Landroid/view/View;
+    .locals 1
 
     .line 52
     sget-boolean v0, Landroidx/transition/ViewUtilsApi19;->sTryHiddenTransitionAlpha:Z
@@ -51,44 +43,35 @@
     :try_start_0
     invoke-virtual {p1}, Landroid/view/View;->getTransitionAlpha()F
 
-    move-result v0
+    move-result p1
     :try_end_0
     .catch Ljava/lang/NoSuchMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v0
+    return p1
 
-    .line 57
     :catch_0
-    move-exception v0
+    const/4 v0, 0x0
 
     .line 58
-    .local v0, "e":Ljava/lang/NoSuchMethodError;
-    const/4 v1, 0x0
-
-    sput-boolean v1, Landroidx/transition/ViewUtilsApi19;->sTryHiddenTransitionAlpha:Z
+    sput-boolean v0, Landroidx/transition/ViewUtilsApi19;->sTryHiddenTransitionAlpha:Z
 
     .line 61
-    .end local v0    # "e":Ljava/lang/NoSuchMethodError;
     :cond_0
     invoke-virtual {p1}, Landroid/view/View;->getAlpha()F
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public saveNonTransitionAlpha(Landroid/view/View;)V
     .locals 0
-    .param p1, "view"    # Landroid/view/View;
 
-    .line 67
     return-void
 .end method
 
 .method public setTransitionAlpha(Landroid/view/View;F)V
-    .locals 2
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "alpha"    # F
+    .locals 1
 
     .line 36
     sget-boolean v0, Landroidx/transition/ViewUtilsApi19;->sTryHiddenTransitionAlpha:Z
@@ -101,24 +84,17 @@
     :try_end_0
     .catch Ljava/lang/NoSuchMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 41
     return-void
 
-    .line 42
     :catch_0
-    move-exception v0
+    const/4 v0, 0x0
 
     .line 43
-    .local v0, "e":Ljava/lang/NoSuchMethodError;
-    const/4 v1, 0x0
-
-    sput-boolean v1, Landroidx/transition/ViewUtilsApi19;->sTryHiddenTransitionAlpha:Z
+    sput-boolean v0, Landroidx/transition/ViewUtilsApi19;->sTryHiddenTransitionAlpha:Z
 
     .line 46
-    .end local v0    # "e":Ljava/lang/NoSuchMethodError;
     :cond_0
     invoke-virtual {p1, p2}, Landroid/view/View;->setAlpha(F)V
 
-    .line 47
     return-void
 .end method

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections/map/Flat3Map;)V
     .locals 0
-    .param p1, "parent"    # Lorg/apache/commons/collections/map/Flat3Map;
 
     .line 872
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
@@ -29,7 +28,6 @@
     .line 873
     iput-object p1, p0, Lorg/apache/commons/collections/map/Flat3Map$KeySet;->parent:Lorg/apache/commons/collections/map/Flat3Map;
 
-    .line 874
     return-void
 .end method
 
@@ -43,22 +41,20 @@
 
     invoke-virtual {v0}, Lorg/apache/commons/collections/map/Flat3Map;->clear()V
 
-    .line 882
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 885
     iget-object v0, p0, Lorg/apache/commons/collections/map/Flat3Map$KeySet;->parent:Lorg/apache/commons/collections/map/Flat3Map;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections/map/Flat3Map;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
@@ -118,7 +114,6 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 889
     iget-object v0, p0, Lorg/apache/commons/collections/map/Flat3Map$KeySet;->parent:Lorg/apache/commons/collections/map/Flat3Map;
@@ -128,12 +123,10 @@
     move-result v0
 
     .line 890
-    .local v0, "result":Z
     iget-object v1, p0, Lorg/apache/commons/collections/map/Flat3Map$KeySet;->parent:Lorg/apache/commons/collections/map/Flat3Map;
 
     invoke-virtual {v1, p1}, Lorg/apache/commons/collections/map/Flat3Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 891
     return v0
 .end method
 

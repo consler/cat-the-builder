@@ -44,7 +44,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Object;J)V
     .locals 0
-    .param p2, "time"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;J)V"
@@ -52,8 +51,6 @@
     .end annotation
 
     .line 723
-    .local p0, "this":Lio/reactivex/processors/ReplayProcessor$TimedNode;, "Lio/reactivex/processors/ReplayProcessor$TimedNode<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 724
@@ -62,6 +59,5 @@
     .line 725
     iput-wide p2, p0, Lio/reactivex/processors/ReplayProcessor$TimedNode;->time:J
 
-    .line 726
     return-void
 .end method

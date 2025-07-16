@@ -44,8 +44,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/ObservableSource;Lio/reactivex/functions/Function;IZ)V
     .locals 0
-    .param p3, "bufferSize"    # I
-    .param p4, "delayErrors"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -59,9 +57,6 @@
     .end annotation
 
     .line 37
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSwitchMap;, "Lio/reactivex/internal/operators/observable/ObservableSwitchMap<TT;TR;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
-    .local p2, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lio/reactivex/ObservableSource<+TR;>;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/observable/AbstractObservableWithUpstream;-><init>(Lio/reactivex/ObservableSource;)V
 
     .line 38
@@ -73,7 +68,6 @@
     .line 40
     iput-boolean p4, p0, Lio/reactivex/internal/operators/observable/ObservableSwitchMap;->delayErrors:Z
 
-    .line 41
     return-void
 .end method
 
@@ -90,8 +84,6 @@
     .end annotation
 
     .line 46
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSwitchMap;, "Lio/reactivex/internal/operators/observable/ObservableSwitchMap<TT;TR;>;"
-    .local p1, "t":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSwitchMap;->source:Lio/reactivex/ObservableSource;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableSwitchMap;->mapper:Lio/reactivex/functions/Function;
@@ -102,7 +94,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 47
     return-void
 
     .line 50
@@ -121,6 +112,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 51
     return-void
 .end method

@@ -21,8 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi23;Landroid/content/Context;)V
     .locals 0
-    .param p1, "this$1"    # Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi23;
-    .param p2, "context"    # Landroid/content/Context;
 
     .line 554
     iput-object p1, p0, Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi23$MediaBrowserServiceApi23;->this$1:Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi23;
@@ -30,7 +28,6 @@
     .line 555
     invoke-direct {p0, p1, p2}, Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21$MediaBrowserServiceApi21;-><init>(Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;Landroid/content/Context;)V
 
-    .line 556
     return-void
 .end method
 
@@ -38,7 +35,6 @@
 # virtual methods
 .method public onLoadItem(Ljava/lang/String;Landroid/service/media/MediaBrowserService$Result;)V
     .locals 2
-    .param p1, "itemId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,7 +46,6 @@
     .end annotation
 
     .line 560
-    .local p2, "result":Landroid/service/media/MediaBrowserService$Result;, "Landroid/service/media/MediaBrowserService$Result<Landroid/media/browse/MediaBrowser$MediaItem;>;"
     iget-object v0, p0, Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi23$MediaBrowserServiceApi23;->this$1:Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi23;
 
     new-instance v1, Landroidx/media/MediaBrowserServiceCompat$ResultWrapper;
@@ -59,6 +54,5 @@
 
     invoke-virtual {v0, p1, v1}, Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi23;->onLoadItem(Ljava/lang/String;Landroidx/media/MediaBrowserServiceCompat$ResultWrapper;)V
 
-    .line 562
     return-void
 .end method

@@ -14,18 +14,16 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 17
     const/4 v0, 0x1
 
+    .line 17
     invoke-direct {p0, v0}, Lar/com/hjg/pngj/chunks/ChunkFactory;-><init>(Z)V
 
-    .line 18
     return-void
 .end method
 
 .method public constructor <init>(Z)V
     .locals 0
-    .param p1, "parse"    # Z
 
     .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,16 +31,13 @@
     .line 21
     iput-boolean p1, p0, Lar/com/hjg/pngj/chunks/ChunkFactory;->parse:Z
 
-    .line 22
     return-void
 .end method
 
 
 # virtual methods
 .method public final createChunk(Lar/com/hjg/pngj/chunks/ChunkRaw;Lar/com/hjg/pngj/ImageInfo;)Lar/com/hjg/pngj/chunks/PngChunk;
-    .locals 2
-    .param p1, "chunkRaw"    # Lar/com/hjg/pngj/chunks/ChunkRaw;
-    .param p2, "imgInfo"    # Lar/com/hjg/pngj/ImageInfo;
+    .locals 1
 
     .line 25
     iget-object v0, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->id:Ljava/lang/String;
@@ -51,25 +46,22 @@
 
     move-result-object v0
 
-    .line 26
-    .local v0, "c":Lar/com/hjg/pngj/chunks/PngChunk;
     if-nez v0, :cond_0
 
     .line 27
-    iget-object v1, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->id:Ljava/lang/String;
+    iget-object v0, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->id:Ljava/lang/String;
 
-    invoke-virtual {p0, v1, p2}, Lar/com/hjg/pngj/chunks/ChunkFactory;->createEmptyChunkExtended(Ljava/lang/String;Lar/com/hjg/pngj/ImageInfo;)Lar/com/hjg/pngj/chunks/PngChunk;
+    invoke-virtual {p0, v0, p2}, Lar/com/hjg/pngj/chunks/ChunkFactory;->createEmptyChunkExtended(Ljava/lang/String;Lar/com/hjg/pngj/ImageInfo;)Lar/com/hjg/pngj/chunks/PngChunk;
 
     move-result-object v0
 
-    .line 28
     :cond_0
     if-nez v0, :cond_1
 
     .line 29
-    iget-object v1, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->id:Ljava/lang/String;
+    iget-object v0, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->id:Ljava/lang/String;
 
-    invoke-virtual {p0, v1, p2}, Lar/com/hjg/pngj/chunks/ChunkFactory;->createEmptyChunkUnknown(Ljava/lang/String;Lar/com/hjg/pngj/ImageInfo;)Lar/com/hjg/pngj/chunks/PngChunk;
+    invoke-virtual {p0, v0, p2}, Lar/com/hjg/pngj/chunks/ChunkFactory;->createEmptyChunkUnknown(Ljava/lang/String;Lar/com/hjg/pngj/ImageInfo;)Lar/com/hjg/pngj/chunks/PngChunk;
 
     move-result-object v0
 
@@ -78,30 +70,27 @@
     invoke-virtual {v0, p1}, Lar/com/hjg/pngj/chunks/PngChunk;->setRaw(Lar/com/hjg/pngj/chunks/ChunkRaw;)V
 
     .line 31
-    iget-boolean v1, p0, Lar/com/hjg/pngj/chunks/ChunkFactory;->parse:Z
+    iget-boolean p2, p0, Lar/com/hjg/pngj/chunks/ChunkFactory;->parse:Z
 
-    if-eqz v1, :cond_2
+    if-eqz p2, :cond_2
 
-    iget-object v1, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
+    iget-object p2, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
 
-    if-eqz v1, :cond_2
+    if-eqz p2, :cond_2
 
     .line 32
     invoke-virtual {v0, p1}, Lar/com/hjg/pngj/chunks/PngChunk;->parseFromRaw(Lar/com/hjg/pngj/chunks/ChunkRaw;)V
 
-    .line 33
     :cond_2
     return-object v0
 .end method
 
 .method protected createEmptyChunkExtended(Ljava/lang/String;Lar/com/hjg/pngj/ImageInfo;)Lar/com/hjg/pngj/chunks/PngChunk;
     .locals 1
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "imgInfo"    # Lar/com/hjg/pngj/ImageInfo;
 
-    .line 95
     const-string v0, "oFFs"
 
+    .line 95
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -109,44 +98,41 @@
     if-eqz v0, :cond_0
 
     .line 96
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunkOFFS;
+    new-instance p1, Lar/com/hjg/pngj/chunks/PngChunkOFFS;
 
-    invoke-direct {v0, p2}, Lar/com/hjg/pngj/chunks/PngChunkOFFS;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/chunks/PngChunkOFFS;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
 
-    return-object v0
+    return-object p1
 
-    .line 97
     :cond_0
     const-string v0, "sTER"
 
+    .line 97
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 98
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunkSTER;
+    new-instance p1, Lar/com/hjg/pngj/chunks/PngChunkSTER;
 
-    invoke-direct {v0, p2}, Lar/com/hjg/pngj/chunks/PngChunkSTER;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/chunks/PngChunkSTER;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
 
-    return-object v0
+    return-object p1
 
-    .line 99
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected final createEmptyChunkKnown(Ljava/lang/String;Lar/com/hjg/pngj/ImageInfo;)Lar/com/hjg/pngj/chunks/PngChunk;
     .locals 1
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "imgInfo"    # Lar/com/hjg/pngj/ImageInfo;
 
-    .line 37
     const-string v0, "IDAT"
 
+    .line 37
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -154,16 +140,16 @@
     if-eqz v0, :cond_0
 
     .line 38
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunkIDAT;
+    new-instance p1, Lar/com/hjg/pngj/chunks/PngChunkIDAT;
 
-    invoke-direct {v0, p2}, Lar/com/hjg/pngj/chunks/PngChunkIDAT;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/chunks/PngChunkIDAT;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
 
-    return-object v0
+    return-object p1
 
-    .line 39
     :cond_0
     const-string v0, "IHDR"
 
+    .line 39
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -171,16 +157,16 @@
     if-eqz v0, :cond_1
 
     .line 40
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;
+    new-instance p1, Lar/com/hjg/pngj/chunks/PngChunkIHDR;
 
-    invoke-direct {v0, p2}, Lar/com/hjg/pngj/chunks/PngChunkIHDR;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/chunks/PngChunkIHDR;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
 
-    return-object v0
+    return-object p1
 
-    .line 41
     :cond_1
     const-string v0, "PLTE"
 
+    .line 41
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -188,16 +174,16 @@
     if-eqz v0, :cond_2
 
     .line 42
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunkPLTE;
+    new-instance p1, Lar/com/hjg/pngj/chunks/PngChunkPLTE;
 
-    invoke-direct {v0, p2}, Lar/com/hjg/pngj/chunks/PngChunkPLTE;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/chunks/PngChunkPLTE;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
 
-    return-object v0
+    return-object p1
 
-    .line 43
     :cond_2
     const-string v0, "IEND"
 
+    .line 43
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -205,16 +191,16 @@
     if-eqz v0, :cond_3
 
     .line 44
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunkIEND;
+    new-instance p1, Lar/com/hjg/pngj/chunks/PngChunkIEND;
 
-    invoke-direct {v0, p2}, Lar/com/hjg/pngj/chunks/PngChunkIEND;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/chunks/PngChunkIEND;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
 
-    return-object v0
+    return-object p1
 
-    .line 45
     :cond_3
     const-string v0, "tEXt"
 
+    .line 45
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -222,16 +208,16 @@
     if-eqz v0, :cond_4
 
     .line 46
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunkTEXT;
+    new-instance p1, Lar/com/hjg/pngj/chunks/PngChunkTEXT;
 
-    invoke-direct {v0, p2}, Lar/com/hjg/pngj/chunks/PngChunkTEXT;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/chunks/PngChunkTEXT;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
 
-    return-object v0
+    return-object p1
 
-    .line 47
     :cond_4
     const-string v0, "iTXt"
 
+    .line 47
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -239,16 +225,16 @@
     if-eqz v0, :cond_5
 
     .line 48
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunkITXT;
+    new-instance p1, Lar/com/hjg/pngj/chunks/PngChunkITXT;
 
-    invoke-direct {v0, p2}, Lar/com/hjg/pngj/chunks/PngChunkITXT;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/chunks/PngChunkITXT;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
 
-    return-object v0
+    return-object p1
+
+    :cond_5
+    const-string v0, "zTXt"
 
     .line 49
-    :cond_5
-    const-string/jumbo v0, "zTXt"
-
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -256,16 +242,16 @@
     if-eqz v0, :cond_6
 
     .line 50
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunkZTXT;
+    new-instance p1, Lar/com/hjg/pngj/chunks/PngChunkZTXT;
 
-    invoke-direct {v0, p2}, Lar/com/hjg/pngj/chunks/PngChunkZTXT;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/chunks/PngChunkZTXT;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
 
-    return-object v0
+    return-object p1
 
-    .line 51
     :cond_6
     const-string v0, "bKGD"
 
+    .line 51
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -273,16 +259,16 @@
     if-eqz v0, :cond_7
 
     .line 52
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;
+    new-instance p1, Lar/com/hjg/pngj/chunks/PngChunkBKGD;
 
-    invoke-direct {v0, p2}, Lar/com/hjg/pngj/chunks/PngChunkBKGD;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/chunks/PngChunkBKGD;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
 
-    return-object v0
+    return-object p1
 
-    .line 53
     :cond_7
     const-string v0, "gAMA"
 
+    .line 53
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -290,16 +276,16 @@
     if-eqz v0, :cond_8
 
     .line 54
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunkGAMA;
+    new-instance p1, Lar/com/hjg/pngj/chunks/PngChunkGAMA;
 
-    invoke-direct {v0, p2}, Lar/com/hjg/pngj/chunks/PngChunkGAMA;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/chunks/PngChunkGAMA;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
 
-    return-object v0
+    return-object p1
 
-    .line 55
     :cond_8
     const-string v0, "pHYs"
 
+    .line 55
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -307,16 +293,16 @@
     if-eqz v0, :cond_9
 
     .line 56
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunkPHYS;
+    new-instance p1, Lar/com/hjg/pngj/chunks/PngChunkPHYS;
 
-    invoke-direct {v0, p2}, Lar/com/hjg/pngj/chunks/PngChunkPHYS;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/chunks/PngChunkPHYS;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
 
-    return-object v0
+    return-object p1
 
-    .line 57
     :cond_9
     const-string v0, "iCCP"
 
+    .line 57
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -324,16 +310,16 @@
     if-eqz v0, :cond_a
 
     .line 58
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunkICCP;
+    new-instance p1, Lar/com/hjg/pngj/chunks/PngChunkICCP;
 
-    invoke-direct {v0, p2}, Lar/com/hjg/pngj/chunks/PngChunkICCP;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/chunks/PngChunkICCP;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
 
-    return-object v0
+    return-object p1
 
-    .line 59
     :cond_a
     const-string v0, "tIME"
 
+    .line 59
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -341,16 +327,16 @@
     if-eqz v0, :cond_b
 
     .line 60
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunkTIME;
+    new-instance p1, Lar/com/hjg/pngj/chunks/PngChunkTIME;
 
-    invoke-direct {v0, p2}, Lar/com/hjg/pngj/chunks/PngChunkTIME;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/chunks/PngChunkTIME;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
 
-    return-object v0
+    return-object p1
 
-    .line 61
     :cond_b
     const-string v0, "tRNS"
 
+    .line 61
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -358,16 +344,16 @@
     if-eqz v0, :cond_c
 
     .line 62
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunkTRNS;
+    new-instance p1, Lar/com/hjg/pngj/chunks/PngChunkTRNS;
 
-    invoke-direct {v0, p2}, Lar/com/hjg/pngj/chunks/PngChunkTRNS;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/chunks/PngChunkTRNS;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
 
-    return-object v0
+    return-object p1
 
-    .line 63
     :cond_c
     const-string v0, "cHRM"
 
+    .line 63
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -375,16 +361,16 @@
     if-eqz v0, :cond_d
 
     .line 64
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;
+    new-instance p1, Lar/com/hjg/pngj/chunks/PngChunkCHRM;
 
-    invoke-direct {v0, p2}, Lar/com/hjg/pngj/chunks/PngChunkCHRM;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/chunks/PngChunkCHRM;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
 
-    return-object v0
+    return-object p1
 
-    .line 65
     :cond_d
     const-string v0, "sBIT"
 
+    .line 65
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -392,16 +378,16 @@
     if-eqz v0, :cond_e
 
     .line 66
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunkSBIT;
+    new-instance p1, Lar/com/hjg/pngj/chunks/PngChunkSBIT;
 
-    invoke-direct {v0, p2}, Lar/com/hjg/pngj/chunks/PngChunkSBIT;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/chunks/PngChunkSBIT;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
 
-    return-object v0
+    return-object p1
 
-    .line 67
     :cond_e
     const-string v0, "sRGB"
 
+    .line 67
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -409,16 +395,16 @@
     if-eqz v0, :cond_f
 
     .line 68
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunkSRGB;
+    new-instance p1, Lar/com/hjg/pngj/chunks/PngChunkSRGB;
 
-    invoke-direct {v0, p2}, Lar/com/hjg/pngj/chunks/PngChunkSRGB;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/chunks/PngChunkSRGB;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
 
-    return-object v0
+    return-object p1
 
-    .line 69
     :cond_f
     const-string v0, "hIST"
 
+    .line 69
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -426,40 +412,37 @@
     if-eqz v0, :cond_10
 
     .line 70
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunkHIST;
+    new-instance p1, Lar/com/hjg/pngj/chunks/PngChunkHIST;
 
-    invoke-direct {v0, p2}, Lar/com/hjg/pngj/chunks/PngChunkHIST;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/chunks/PngChunkHIST;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
 
-    return-object v0
+    return-object p1
 
-    .line 71
     :cond_10
     const-string v0, "sPLT"
 
+    .line 71
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_11
+    if-eqz p1, :cond_11
 
     .line 72
-    new-instance v0, Lar/com/hjg/pngj/chunks/PngChunkSPLT;
+    new-instance p1, Lar/com/hjg/pngj/chunks/PngChunkSPLT;
 
-    invoke-direct {v0, p2}, Lar/com/hjg/pngj/chunks/PngChunkSPLT;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/chunks/PngChunkSPLT;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
 
-    return-object v0
+    return-object p1
 
-    .line 74
     :cond_11
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected final createEmptyChunkUnknown(Ljava/lang/String;Lar/com/hjg/pngj/ImageInfo;)Lar/com/hjg/pngj/chunks/PngChunk;
     .locals 1
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "imgInfo"    # Lar/com/hjg/pngj/ImageInfo;
 
     .line 83
     new-instance v0, Lar/com/hjg/pngj/chunks/PngChunkUNKNOWN;

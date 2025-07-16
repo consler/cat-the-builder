@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/pdrogfer/mididroid/util/MidiProcessor;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/pdrogfer/mididroid/util/MidiProcessor;
 
     .line 70
     iput-object p1, p0, Lcom/pdrogfer/mididroid/util/MidiProcessor$1;->this$0:Lcom/pdrogfer/mididroid/util/MidiProcessor;
@@ -44,6 +43,5 @@
 
     invoke-static {v0}, Lcom/pdrogfer/mididroid/util/MidiProcessor;->access$000(Lcom/pdrogfer/mididroid/util/MidiProcessor;)V
 
-    .line 74
     return-void
 .end method

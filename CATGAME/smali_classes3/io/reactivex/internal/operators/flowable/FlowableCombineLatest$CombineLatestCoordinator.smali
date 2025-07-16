@@ -100,10 +100,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/reactivestreams/Subscriber;Lio/reactivex/functions/Function;IIZ)V
-    .locals 3
-    .param p3, "n"    # I
-    .param p4, "bufferSize"    # I
-    .param p5, "delayErrors"    # Z
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -117,9 +114,6 @@
     .end annotation
 
     .line 182
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;, "Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator<TT;TR;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TR;>;"
-    .local p2, "combiner":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-[Ljava/lang/Object;+TR;>;"
     invoke-direct {p0}, Lio/reactivex/internal/subscriptions/BasicIntQueueSubscription;-><init>()V
 
     .line 183
@@ -129,63 +123,57 @@
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->combiner:Lio/reactivex/functions/Function;
 
     .line 186
-    new-array v0, p3, [Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;
+    new-array p1, p3, [Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;
 
-    .line 187
-    .local v0, "a":[Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;, "[Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber<TT;>;"
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    .local v1, "i":I
     :goto_0
-    if-ge v1, p3, :cond_0
+    if-ge p2, p3, :cond_0
 
     .line 188
-    new-instance v2, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;
+    new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;
 
-    invoke-direct {v2, p0, v1, p4}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;-><init>(Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;II)V
+    invoke-direct {v0, p0, p2, p4}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;-><init>(Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;II)V
 
-    aput-object v2, v0, v1
+    aput-object v0, p1, p2
 
-    .line 187
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p2, p2, 0x1
 
     goto :goto_0
 
     .line 190
-    .end local v1    # "i":I
     :cond_0
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->subscribers:[Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->subscribers:[Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;
 
     .line 191
-    new-array v1, p3, [Ljava/lang/Object;
+    new-array p1, p3, [Ljava/lang/Object;
 
-    iput-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->latest:[Ljava/lang/Object;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->latest:[Ljava/lang/Object;
 
     .line 192
-    new-instance v1, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
+    new-instance p1, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
 
-    invoke-direct {v1, p4}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;-><init>(I)V
+    invoke-direct {p1, p4}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;-><init>(I)V
 
-    iput-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
 
     .line 193
-    new-instance v1, Ljava/util/concurrent/atomic/AtomicLong;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicLong;
 
-    invoke-direct {v1}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
 
-    iput-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->requested:Ljava/util/concurrent/atomic/AtomicLong;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
     .line 194
-    new-instance v1, Ljava/util/concurrent/atomic/AtomicReference;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-direct {v1}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
-    iput-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->error:Ljava/util/concurrent/atomic/AtomicReference;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->error:Ljava/util/concurrent/atomic/AtomicReference;
 
     .line 195
     iput-boolean p5, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->delayErrors:Z
 
-    .line 196
     return-void
 .end method
 
@@ -194,16 +182,14 @@
 .method public cancel()V
     .locals 1
 
-    .line 208
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;, "Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator<TT;TR;>;"
     const/4 v0, 0x1
 
+    .line 208
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->cancelled:Z
 
     .line 209
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->cancelAll()V
 
-    .line 210
     return-void
 .end method
 
@@ -211,43 +197,30 @@
     .locals 4
 
     .line 453
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;, "Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->subscribers:[Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;
 
-    .local v0, "arr$":[Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;
     array-length v1, v0
 
-    .local v1, "len$":I
     const/4 v2, 0x0
 
-    .local v2, "i$":I
     :goto_0
     if-ge v2, v1, :cond_0
 
     aget-object v3, v0, v2
 
     .line 454
-    .local v3, "inner":Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber<TT;>;"
     invoke-virtual {v3}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;->cancel()V
 
-    .line 453
-    .end local v3    # "inner":Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber<TT;>;"
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 456
-    .end local v0    # "arr$":[Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;
-    .end local v1    # "len$":I
-    .end local v2    # "i$":I
     :cond_0
     return-void
 .end method
 
 .method checkTerminated(ZZLorg/reactivestreams/Subscriber;Lio/reactivex/internal/queue/SpscLinkedArrayQueue;)Z
-    .locals 3
-    .param p1, "d"    # Z
-    .param p2, "empty"    # Z
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZZ",
@@ -259,9 +232,6 @@
     .end annotation
 
     .line 413
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;, "Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator<TT;TR;>;"
-    .local p3, "a":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<*>;"
-    .local p4, "q":Lio/reactivex/internal/queue/SpscLinkedArrayQueue;, "Lio/reactivex/internal/queue/SpscLinkedArrayQueue<*>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->cancelled:Z
 
     const/4 v1, 0x1
@@ -274,41 +244,37 @@
     .line 415
     invoke-virtual {p4}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->clear()V
 
-    .line 416
     return v1
 
-    .line 419
     :cond_0
     if-eqz p1, :cond_4
 
     .line 420
-    iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->delayErrors:Z
+    iget-boolean p1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->delayErrors:Z
 
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
-    .line 421
     if-eqz p2, :cond_4
 
     .line 422
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->cancelAll()V
 
     .line 423
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->error:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->error:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-static {v0}, Lio/reactivex/internal/util/ExceptionHelper;->terminate(Ljava/util/concurrent/atomic/AtomicReference;)Ljava/lang/Throwable;
+    invoke-static {p1}, Lio/reactivex/internal/util/ExceptionHelper;->terminate(Ljava/util/concurrent/atomic/AtomicReference;)Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p1
+
+    if-eqz p1, :cond_1
 
     .line 425
-    .local v0, "e":Ljava/lang/Throwable;
-    if-eqz v0, :cond_1
+    sget-object p2, Lio/reactivex/internal/util/ExceptionHelper;->TERMINATED:Ljava/lang/Throwable;
 
-    sget-object v2, Lio/reactivex/internal/util/ExceptionHelper;->TERMINATED:Ljava/lang/Throwable;
-
-    if-eq v0, v2, :cond_1
+    if-eq p1, p2, :cond_1
 
     .line 426
-    invoke-interface {p3, v0}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {p3, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
     goto :goto_0
 
@@ -316,26 +282,23 @@
     :cond_1
     invoke-interface {p3}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 430
     :goto_0
     return v1
 
     .line 433
-    .end local v0    # "e":Ljava/lang/Throwable;
     :cond_2
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->error:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->error:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-static {v0}, Lio/reactivex/internal/util/ExceptionHelper;->terminate(Ljava/util/concurrent/atomic/AtomicReference;)Ljava/lang/Throwable;
+    invoke-static {p1}, Lio/reactivex/internal/util/ExceptionHelper;->terminate(Ljava/util/concurrent/atomic/AtomicReference;)Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p1
+
+    if-eqz p1, :cond_3
 
     .line 435
-    .restart local v0    # "e":Ljava/lang/Throwable;
-    if-eqz v0, :cond_3
+    sget-object v0, Lio/reactivex/internal/util/ExceptionHelper;->TERMINATED:Ljava/lang/Throwable;
 
-    sget-object v2, Lio/reactivex/internal/util/ExceptionHelper;->TERMINATED:Ljava/lang/Throwable;
-
-    if-eq v0, v2, :cond_3
+    if-eq p1, v0, :cond_3
 
     .line 436
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->cancelAll()V
@@ -344,12 +307,10 @@
     invoke-virtual {p4}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->clear()V
 
     .line 438
-    invoke-interface {p3, v0}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {p3, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 439
     return v1
 
-    .line 441
     :cond_3
     if-eqz p2, :cond_4
 
@@ -359,27 +320,22 @@
     .line 444
     invoke-interface {p3}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 445
     return v1
 
-    .line 449
-    .end local v0    # "e":Ljava/lang/Throwable;
     :cond_4
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public clear()V
     .locals 1
 
     .line 484
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;, "Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
 
     invoke-virtual {v0}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->clear()V
 
-    .line 485
     return-void
 .end method
 
@@ -387,14 +343,12 @@
     .locals 1
 
     .line 401
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;, "Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator<TT;TR;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->getAndIncrement()I
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 402
     return-void
 
     .line 405
@@ -412,7 +366,6 @@
     :cond_1
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->drainAsync()V
 
-    .line 410
     :goto_0
     return-void
 .end method
@@ -421,270 +374,204 @@
     .locals 14
 
     .line 334
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;, "Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->actual:Lorg/reactivestreams/Subscriber;
 
     .line 335
-    .local v0, "a":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TR;>;"
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
 
-    .line 337
-    .local v1, "q":Lio/reactivex/internal/queue/SpscLinkedArrayQueue;, "Lio/reactivex/internal/queue/SpscLinkedArrayQueue<Ljava/lang/Object;>;"
     const/4 v2, 0x1
 
-    .local v2, "missed":I
-    const/4 v3, 0x0
+    move v3, v2
 
     .line 341
-    :goto_0
+    :cond_0
     iget-object v4, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
     invoke-virtual {v4}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
 
     move-result-wide v4
 
-    .line 342
-    .local v4, "r":J
     const-wide/16 v6, 0x0
 
-    .line 344
-    .local v6, "e":J
-    :goto_1
-    cmp-long v8, v6, v4
+    move-wide v8, v6
 
-    if-eqz v8, :cond_3
+    :goto_0
+    cmp-long v10, v8, v4
+
+    if-eqz v10, :cond_4
 
     .line 345
-    iget-boolean v8, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->done:Z
+    iget-boolean v11, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->done:Z
 
     .line 347
-    .local v8, "d":Z
     invoke-virtual {v1}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->poll()Ljava/lang/Object;
-
-    move-result-object v9
-
-    .line 349
-    .local v9, "v":Ljava/lang/Object;
-    if-nez v9, :cond_0
-
-    const/4 v10, 0x1
-
-    goto :goto_2
-
-    :cond_0
-    const/4 v10, 0x0
-
-    .line 351
-    .local v10, "empty":Z
-    :goto_2
-    invoke-virtual {p0, v8, v10, v0, v1}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->checkTerminated(ZZLorg/reactivestreams/Subscriber;Lio/reactivex/internal/queue/SpscLinkedArrayQueue;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_1
-
-    .line 352
-    return-void
-
-    .line 355
-    :cond_1
-    if-eqz v10, :cond_2
-
-    .line 356
-    goto :goto_3
-
-    .line 359
-    :cond_2
-    invoke-virtual {v1}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->poll()Ljava/lang/Object;
-
-    move-result-object v11
-
-    check-cast v11, [Ljava/lang/Object;
-
-    check-cast v11, [Ljava/lang/Object;
-
-    .line 364
-    .local v11, "va":[Ljava/lang/Object;, "[TT;"
-    :try_start_0
-    iget-object v12, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->combiner:Lio/reactivex/functions/Function;
-
-    invoke-interface {v12, v11}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v12
 
-    const-string v13, "The combiner returned a null value"
+    if-nez v12, :cond_1
 
-    invoke-static {v12, v13}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    move v13, v2
 
-    move-result-object v3
+    goto :goto_1
+
+    :cond_1
+    const/4 v13, 0x0
+
+    .line 351
+    :goto_1
+    invoke-virtual {p0, v11, v13, v0, v1}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->checkTerminated(ZZLorg/reactivestreams/Subscriber;Lio/reactivex/internal/queue/SpscLinkedArrayQueue;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_2
+
+    return-void
+
+    :cond_2
+    if-eqz v13, :cond_3
+
+    goto :goto_2
+
+    .line 359
+    :cond_3
+    invoke-virtual {v1}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->poll()Ljava/lang/Object;
+
+    move-result-object v10
+
+    check-cast v10, [Ljava/lang/Object;
+
+    check-cast v10, [Ljava/lang/Object;
+
+    .line 364
+    :try_start_0
+    iget-object v11, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->combiner:Lio/reactivex/functions/Function;
+
+    invoke-interface {v11, v10}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v10
+
+    const-string v11, "The combiner returned a null value"
+
+    invoke-static {v10, v11}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v10
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 374
-    .local v3, "w":Ljava/lang/Object;, "TR;"
-    nop
-
     .line 376
-    invoke-interface {v0, v3}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
+    invoke-interface {v0, v10}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
     .line 378
-    move-object v12, v9
-
     check-cast v12, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;
 
     invoke-virtual {v12}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;->requestOne()V
 
-    .line 380
-    const-wide/16 v12, 0x1
+    const-wide/16 v10, 0x1
 
-    add-long/2addr v6, v12
+    add-long/2addr v8, v10
 
-    .line 381
-    .end local v3    # "w":Ljava/lang/Object;, "TR;"
-    .end local v8    # "d":Z
-    .end local v9    # "v":Ljava/lang/Object;
-    .end local v10    # "empty":Z
-    .end local v11    # "va":[Ljava/lang/Object;, "[TT;"
-    goto :goto_1
+    goto :goto_0
 
-    .line 365
-    .restart local v8    # "d":Z
-    .restart local v9    # "v":Ljava/lang/Object;
-    .restart local v10    # "empty":Z
-    .restart local v11    # "va":[Ljava/lang/Object;, "[TT;"
     :catchall_0
-    move-exception v12
+    move-exception v1
 
     .line 366
-    .restart local v3    # "w":Ljava/lang/Object;, "TR;"
-    .local v12, "ex":Ljava/lang/Throwable;
-    invoke-static {v12}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {v1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 368
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->cancelAll()V
 
     .line 369
-    iget-object v13, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->error:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->error:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-static {v13, v12}, Lio/reactivex/internal/util/ExceptionHelper;->addThrowable(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Throwable;)Z
+    invoke-static {v2, v1}, Lio/reactivex/internal/util/ExceptionHelper;->addThrowable(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Throwable;)Z
 
     .line 370
-    iget-object v13, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->error:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->error:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-static {v13}, Lio/reactivex/internal/util/ExceptionHelper;->terminate(Ljava/util/concurrent/atomic/AtomicReference;)Ljava/lang/Throwable;
+    invoke-static {v1}, Lio/reactivex/internal/util/ExceptionHelper;->terminate(Ljava/util/concurrent/atomic/AtomicReference;)Ljava/lang/Throwable;
 
-    move-result-object v12
+    move-result-object v1
 
     .line 372
-    invoke-interface {v0, v12}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v0, v1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 373
     return-void
 
-    .line 383
-    .end local v3    # "w":Ljava/lang/Object;, "TR;"
-    .end local v8    # "d":Z
-    .end local v9    # "v":Ljava/lang/Object;
-    .end local v10    # "empty":Z
-    .end local v11    # "va":[Ljava/lang/Object;, "[TT;"
-    .end local v12    # "ex":Ljava/lang/Throwable;
-    :cond_3
-    :goto_3
-    cmp-long v8, v6, v4
-
-    if-nez v8, :cond_4
+    :cond_4
+    :goto_2
+    if-nez v10, :cond_5
 
     .line 384
-    iget-boolean v8, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->done:Z
+    iget-boolean v10, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->done:Z
 
     invoke-virtual {v1}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->isEmpty()Z
 
-    move-result v9
+    move-result v11
 
-    invoke-virtual {p0, v8, v9, v0, v1}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->checkTerminated(ZZLorg/reactivestreams/Subscriber;Lio/reactivex/internal/queue/SpscLinkedArrayQueue;)Z
+    invoke-virtual {p0, v10, v11, v0, v1}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->checkTerminated(ZZLorg/reactivestreams/Subscriber;Lio/reactivex/internal/queue/SpscLinkedArrayQueue;)Z
 
-    move-result v8
+    move-result v10
 
-    if-eqz v8, :cond_4
+    if-eqz v10, :cond_5
 
-    .line 385
     return-void
 
-    .line 389
-    :cond_4
-    const-wide/16 v8, 0x0
+    :cond_5
+    cmp-long v6, v8, v6
 
-    cmp-long v8, v6, v8
+    if-eqz v6, :cond_6
 
-    if-eqz v8, :cond_5
+    const-wide v6, 0x7fffffffffffffffL
 
-    const-wide v8, 0x7fffffffffffffffL
+    cmp-long v4, v4, v6
 
-    cmp-long v8, v4, v8
-
-    if-eqz v8, :cond_5
+    if-eqz v4, :cond_6
 
     .line 390
-    iget-object v8, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->requested:Ljava/util/concurrent/atomic/AtomicLong;
+    iget-object v4, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
-    neg-long v9, v6
+    neg-long v5, v8
 
-    invoke-virtual {v8, v9, v10}, Ljava/util/concurrent/atomic/AtomicLong;->addAndGet(J)J
+    invoke-virtual {v4, v5, v6}, Ljava/util/concurrent/atomic/AtomicLong;->addAndGet(J)J
+
+    :cond_6
+    neg-int v3, v3
 
     .line 393
-    :cond_5
-    neg-int v8, v2
+    invoke-virtual {p0, v3}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->addAndGet(I)I
 
-    invoke-virtual {p0, v8}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->addAndGet(I)I
+    move-result v3
 
-    move-result v2
+    if-nez v3, :cond_0
 
-    .line 394
-    if-nez v2, :cond_6
-
-    .line 395
-    nop
-
-    .line 398
-    .end local v4    # "r":J
-    .end local v6    # "e":J
     return-void
-
-    .line 397
-    :cond_6
-    goto/16 :goto_0
 .end method
 
 .method drainOutput()V
-    .locals 7
+    .locals 6
 
     .line 292
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;, "Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->actual:Lorg/reactivestreams/Subscriber;
 
     .line 293
-    .local v0, "a":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TR;>;"
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
 
-    .line 295
-    .local v1, "q":Lio/reactivex/internal/queue/SpscLinkedArrayQueue;, "Lio/reactivex/internal/queue/SpscLinkedArrayQueue<Ljava/lang/Object;>;"
     const/4 v2, 0x1
 
     .line 299
-    .local v2, "missed":I
-    :goto_0
+    :cond_0
     iget-boolean v3, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->cancelled:Z
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     .line 300
     invoke-virtual {v1}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->clear()V
 
-    .line 301
     return-void
 
     .line 304
-    :cond_0
+    :cond_1
     iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->error:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v3}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -693,9 +580,7 @@
 
     check-cast v3, Ljava/lang/Throwable;
 
-    .line 305
-    .local v3, "ex":Ljava/lang/Throwable;
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2
 
     .line 306
     invoke-virtual {v1}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->clear()V
@@ -703,71 +588,51 @@
     .line 308
     invoke-interface {v0, v3}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 309
     return-void
 
     .line 312
-    :cond_1
-    iget-boolean v4, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->done:Z
+    :cond_2
+    iget-boolean v3, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->done:Z
 
     .line 314
-    .local v4, "d":Z
     invoke-virtual {v1}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->isEmpty()Z
 
-    move-result v5
+    move-result v4
 
-    .line 316
-    .local v5, "empty":Z
-    if-nez v5, :cond_2
+    if-nez v4, :cond_3
+
+    const/4 v5, 0x0
 
     .line 317
-    const/4 v6, 0x0
+    invoke-interface {v0, v5}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
-    invoke-interface {v0, v6}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
+    :cond_3
+    if-eqz v3, :cond_4
 
-    .line 320
-    :cond_2
-    if-eqz v4, :cond_3
-
-    if-eqz v5, :cond_3
+    if-eqz v4, :cond_4
 
     .line 321
     invoke-interface {v0}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 322
     return-void
 
-    .line 325
-    :cond_3
-    neg-int v6, v2
+    :cond_4
+    neg-int v2, v2
 
-    invoke-virtual {p0, v6}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->addAndGet(I)I
+    .line 325
+    invoke-virtual {p0, v2}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->addAndGet(I)I
 
     move-result v2
 
-    .line 326
-    if-nez v2, :cond_4
+    if-nez v2, :cond_0
 
-    .line 327
-    nop
-
-    .line 330
-    .end local v3    # "ex":Ljava/lang/Throwable;
-    .end local v4    # "d":Z
-    .end local v5    # "empty":Z
     return-void
-
-    .line 329
-    :cond_4
-    goto :goto_0
 .end method
 
 .method innerComplete(I)V
-    .locals 4
-    .param p1, "index"    # I
+    .locals 2
 
     .line 257
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;, "Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator<TT;TR;>;"
     monitor-enter p0
 
     .line 258
@@ -775,35 +640,30 @@
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->latest:[Ljava/lang/Object;
 
     .line 260
-    .local v0, "os":[Ljava/lang/Object;
-    aget-object v1, v0, p1
+    aget-object p1, v0, p1
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    if-eqz v1, :cond_1
+    if-eqz p1, :cond_1
 
     .line 261
-    iget v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->completedSources:I
+    iget p1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->completedSources:I
 
-    add-int/2addr v1, v2
+    add-int/2addr p1, v1
 
     .line 263
-    .local v1, "localCompletedSources":I
-    array-length v3, v0
+    array-length v0, v0
 
-    if-ne v1, v3, :cond_0
+    if-ne p1, v0, :cond_0
 
     .line 264
-    iput-boolean v2, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->done:Z
+    iput-boolean v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->done:Z
 
-    .line 269
-    .end local v1    # "localCompletedSources":I
     goto :goto_0
 
     .line 266
-    .restart local v1    # "localCompletedSources":I
     :cond_0
-    iput v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->completedSources:I
+    iput p1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->completedSources:I
 
     .line 267
     monitor-exit p0
@@ -811,12 +671,10 @@
     return-void
 
     .line 270
-    .end local v1    # "localCompletedSources":I
     :cond_1
-    iput-boolean v2, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->done:Z
+    iput-boolean v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->done:Z
 
     .line 272
-    .end local v0    # "os":[Ljava/lang/Object;
     :goto_0
     monitor-exit p0
     :try_end_0
@@ -825,28 +683,24 @@
     .line 273
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->drain()V
 
-    .line 274
     return-void
 
-    .line 272
     :catchall_0
-    move-exception v0
+    move-exception p1
 
+    .line 272
     :try_start_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 .method innerError(ILjava/lang/Throwable;)V
     .locals 1
-    .param p1, "index"    # I
-    .param p2, "e"    # Ljava/lang/Throwable;
 
     .line 278
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;, "Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->error:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0, p2}, Lio/reactivex/internal/util/ExceptionHelper;->addThrowable(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Throwable;)Z
@@ -856,17 +710,17 @@
     if-eqz v0, :cond_1
 
     .line 279
-    iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->delayErrors:Z
+    iget-boolean p2, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->delayErrors:Z
 
-    if-nez v0, :cond_0
+    if-nez p2, :cond_0
 
     .line 280
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->cancelAll()V
 
-    .line 281
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->done:Z
+    .line 281
+    iput-boolean p1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->done:Z
 
     .line 282
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->drain()V
@@ -883,14 +737,12 @@
     :cond_1
     invoke-static {p2}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 289
     :goto_0
     return-void
 .end method
 
 .method innerValue(ILjava/lang/Object;)V
-    .locals 6
-    .param p1, "index"    # I
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITT;)V"
@@ -898,86 +750,68 @@
     .end annotation
 
     .line 227
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;, "Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator<TT;TR;>;"
-    .local p2, "value":Ljava/lang/Object;, "TT;"
     monitor-enter p0
 
     .line 228
-    const/4 v0, 0x0
-
     :try_start_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->latest:[Ljava/lang/Object;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->latest:[Ljava/lang/Object;
 
     .line 230
-    .local v1, "os":[Ljava/lang/Object;
-    iget v2, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->nonEmptySources:I
+    iget v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->nonEmptySources:I
 
     .line 232
-    .local v2, "localNonEmptySources":I
-    aget-object v3, v1, p1
+    aget-object v2, v0, p1
 
-    if-nez v3, :cond_0
+    if-nez v2, :cond_0
 
-    .line 233
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     .line 234
-    iput v2, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->nonEmptySources:I
+    iput v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->nonEmptySources:I
 
     .line 237
     :cond_0
-    aput-object p2, v1, p1
+    aput-object p2, v0, p1
 
     .line 239
-    array-length v3, v1
+    array-length p2, v0
 
-    if-ne v3, v2, :cond_1
+    if-ne p2, v1, :cond_1
 
     .line 241
-    iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
+    iget-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
 
-    iget-object v4, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->subscribers:[Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;
-
-    aget-object v4, v4, p1
-
-    invoke-virtual {v1}, [Ljava/lang/Object;->clone()Ljava/lang/Object;
-
-    move-result-object v5
-
-    invoke-virtual {v3, v4, v5}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->offer(Ljava/lang/Object;Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 243
-    const/4 v0, 0x0
-
-    .local v0, "replenishInsteadOfDrain":Z
-    goto :goto_0
-
-    .line 245
-    .end local v0    # "replenishInsteadOfDrain":Z
-    :cond_1
-    const/4 v0, 0x1
-
-    .line 247
-    .end local v1    # "os":[Ljava/lang/Object;
-    .end local v2    # "localNonEmptySources":I
-    .restart local v0    # "replenishInsteadOfDrain":Z
-    :goto_0
-    :try_start_1
-    monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
-
-    .line 249
-    if-eqz v0, :cond_2
-
-    .line 250
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->subscribers:[Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;
 
     aget-object v1, v1, p1
 
-    invoke-virtual {v1}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;->requestOne()V
+    invoke-virtual {v0}, [Ljava/lang/Object;->clone()Ljava/lang/Object;
+
+    move-result-object v0
+
+    invoke-virtual {p2, v1, v0}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->offer(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    const/4 p2, 0x0
+
+    goto :goto_0
+
+    :cond_1
+    const/4 p2, 0x1
+
+    .line 247
+    :goto_0
+    monitor-exit p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-eqz p2, :cond_2
+
+    .line 250
+    iget-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->subscribers:[Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;
+
+    aget-object p1, p2, p1
+
+    invoke-virtual {p1}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;->requestOne()V
 
     goto :goto_1
 
@@ -985,35 +819,25 @@
     :cond_2
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->drain()V
 
-    .line 254
     :goto_1
     return-void
 
-    .line 247
-    .end local v0    # "replenishInsteadOfDrain":Z
     :catchall_0
-    move-exception v1
+    move-exception p1
 
-    .restart local v0    # "replenishInsteadOfDrain":Z
-    :goto_2
-    :try_start_2
+    .line 247
+    :try_start_1
     monitor-exit p0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
-
-    :catchall_1
-    move-exception v1
-
-    goto :goto_2
+    throw p1
 .end method
 
 .method public isEmpty()Z
     .locals 1
 
     .line 489
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;, "Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
 
     invoke-virtual {v0}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->isEmpty()Z
@@ -1024,7 +848,7 @@
 .end method
 
 .method public poll()Ljava/lang/Object;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TR;"
@@ -1038,21 +862,17 @@
     .end annotation
 
     .line 472
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;, "Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->queue:Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
 
     invoke-virtual {v0}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;->poll()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 473
-    .local v0, "e":Ljava/lang/Object;
     if-nez v0, :cond_0
 
-    .line 474
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    return-object v1
+    return-object v0
 
     .line 476
     :cond_0
@@ -1067,31 +887,24 @@
     check-cast v1, [Ljava/lang/Object;
 
     .line 477
-    .local v1, "a":[Ljava/lang/Object;, "[TT;"
     iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->combiner:Lio/reactivex/functions/Function;
 
     invoke-interface {v2, v1}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
     .line 478
-    .local v2, "r":Ljava/lang/Object;, "TR;"
-    move-object v3, v0
+    check-cast v0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;
 
-    check-cast v3, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;
+    invoke-virtual {v0}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;->requestOne()V
 
-    invoke-virtual {v3}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;->requestOne()V
-
-    .line 479
-    return-object v2
+    return-object v1
 .end method
 
 .method public request(J)V
     .locals 1
-    .param p1, "n"    # J
 
     .line 200
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;, "Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator<TT;TR;>;"
     invoke-static {p1, p2}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(J)Z
 
     move-result v0
@@ -1106,46 +919,37 @@
     .line 202
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->drain()V
 
-    .line 204
     :cond_0
     return-void
 .end method
 
 .method public requestFusion(I)I
     .locals 2
-    .param p1, "requestedMode"    # I
 
-    .line 460
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;, "Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator<TT;TR;>;"
     and-int/lit8 v0, p1, 0x4
 
     const/4 v1, 0x0
 
     if-eqz v0, :cond_0
 
-    .line 461
     return v1
 
-    .line 463
     :cond_0
-    and-int/lit8 v0, p1, 0x2
+    and-int/lit8 p1, p1, 0x2
 
-    .line 464
-    .local v0, "m":I
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     const/4 v1, 0x1
 
+    .line 464
     :cond_1
     iput-boolean v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->outputFused:Z
 
-    .line 465
-    return v0
+    return p1
 .end method
 
 .method subscribe([Lorg/reactivestreams/Publisher;I)V
     .locals 4
-    .param p2, "n"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -1155,17 +959,12 @@
     .end annotation
 
     .line 213
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;, "Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator<TT;TR;>;"
-    .local p1, "sources":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<+TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->subscribers:[Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;
 
-    .line 215
-    .local v0, "a":[Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber;, "[Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestInnerSubscriber<TT;>;"
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
-    if-ge v1, p2, :cond_2
+    if-ge v1, p2, :cond_1
 
     .line 216
     iget-boolean v2, p0, Lio/reactivex/internal/operators/flowable/FlowableCombineLatest$CombineLatestCoordinator;->done:Z
@@ -1186,18 +985,11 @@
 
     invoke-interface {v2, v3}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
 
-    .line 215
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 217
     :cond_1
     :goto_1
-    return-void
-
-    .line 221
-    .end local v1    # "i":I
-    :cond_2
     return-void
 .end method

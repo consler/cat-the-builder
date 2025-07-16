@@ -28,8 +28,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/lifecycle/ViewModelStore;Landroidx/lifecycle/ViewModelProvider$Factory;)V
     .locals 0
-    .param p1, "store"    # Landroidx/lifecycle/ViewModelStore;
-    .param p2, "factory"    # Landroidx/lifecycle/ViewModelProvider$Factory;
 
     .line 125
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,13 +38,11 @@
     .line 127
     iput-object p1, p0, Landroidx/lifecycle/ViewModelProvider;->mViewModelStore:Landroidx/lifecycle/ViewModelStore;
 
-    .line 128
     return-void
 .end method
 
 .method public constructor <init>(Landroidx/lifecycle/ViewModelStoreOwner;)V
     .locals 2
-    .param p1, "owner"    # Landroidx/lifecycle/ViewModelStoreOwner;
 
     .line 99
     invoke-interface {p1}, Landroidx/lifecycle/ViewModelStoreOwner;->getViewModelStore()Landroidx/lifecycle/ViewModelStore;
@@ -57,14 +53,12 @@
 
     if-eqz v1, :cond_0
 
-    move-object v1, p1
-
-    check-cast v1, Landroidx/lifecycle/HasDefaultViewModelProviderFactory;
+    check-cast p1, Landroidx/lifecycle/HasDefaultViewModelProviderFactory;
 
     .line 100
-    invoke-interface {v1}, Landroidx/lifecycle/HasDefaultViewModelProviderFactory;->getDefaultViewModelProviderFactory()Landroidx/lifecycle/ViewModelProvider$Factory;
+    invoke-interface {p1}, Landroidx/lifecycle/HasDefaultViewModelProviderFactory;->getDefaultViewModelProviderFactory()Landroidx/lifecycle/ViewModelProvider$Factory;
 
-    move-result-object v1
+    move-result-object p1
 
     goto :goto_0
 
@@ -72,29 +66,25 @@
     :cond_0
     invoke-static {}, Landroidx/lifecycle/ViewModelProvider$NewInstanceFactory;->getInstance()Landroidx/lifecycle/ViewModelProvider$NewInstanceFactory;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 99
     :goto_0
-    invoke-direct {p0, v0, v1}, Landroidx/lifecycle/ViewModelProvider;-><init>(Landroidx/lifecycle/ViewModelStore;Landroidx/lifecycle/ViewModelProvider$Factory;)V
+    invoke-direct {p0, v0, p1}, Landroidx/lifecycle/ViewModelProvider;-><init>(Landroidx/lifecycle/ViewModelStore;Landroidx/lifecycle/ViewModelProvider$Factory;)V
 
-    .line 102
     return-void
 .end method
 
 .method public constructor <init>(Landroidx/lifecycle/ViewModelStoreOwner;Landroidx/lifecycle/ViewModelProvider$Factory;)V
-    .locals 1
-    .param p1, "owner"    # Landroidx/lifecycle/ViewModelStoreOwner;
-    .param p2, "factory"    # Landroidx/lifecycle/ViewModelProvider$Factory;
+    .locals 0
 
     .line 114
     invoke-interface {p1}, Landroidx/lifecycle/ViewModelStoreOwner;->getViewModelStore()Landroidx/lifecycle/ViewModelStore;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0, p2}, Landroidx/lifecycle/ViewModelProvider;-><init>(Landroidx/lifecycle/ViewModelStore;Landroidx/lifecycle/ViewModelProvider$Factory;)V
+    invoke-direct {p0, p1, p2}, Landroidx/lifecycle/ViewModelProvider;-><init>(Landroidx/lifecycle/ViewModelStore;Landroidx/lifecycle/ViewModelProvider$Factory;)V
 
-    .line 115
     return-void
 .end method
 
@@ -113,50 +103,46 @@
     .end annotation
 
     .line 146
-    .local p1, "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-virtual {p1}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 147
-    .local v0, "canonicalName":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 150
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "androidx.lifecycle.ViewModelProvider.DefaultKey:"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {p0, v1, p1}, Landroidx/lifecycle/ViewModelProvider;->get(Ljava/lang/String;Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-virtual {p0, v0, p1}, Landroidx/lifecycle/ViewModelProvider;->get(Ljava/lang/String;Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
 
-    return-object v1
+    move-result-object p1
+
+    return-object p1
 
     .line 148
     :cond_0
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v2, "Local and anonymous classes can not be ViewModels"
+    const-string v0, "Local and anonymous classes can not be ViewModels"
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 .end method
 
 .method public get(Ljava/lang/String;Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
-    .locals 3
-    .param p1, "key"    # Ljava/lang/String;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -169,7 +155,6 @@
     .end annotation
 
     .line 171
-    .local p2, "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     iget-object v0, p0, Landroidx/lifecycle/ViewModelProvider;->mViewModelStore:Landroidx/lifecycle/ViewModelStore;
 
     invoke-virtual {v0, p1}, Landroidx/lifecycle/ViewModelStore;->get(Ljava/lang/String;)Landroidx/lifecycle/ViewModel;
@@ -177,7 +162,6 @@
     move-result-object v0
 
     .line 173
-    .local v0, "viewModel":Landroidx/lifecycle/ViewModel;
     invoke-virtual {p2, v0}, Ljava/lang/Class;->isInstance(Ljava/lang/Object;)Z
 
     move-result v1
@@ -185,55 +169,52 @@
     if-eqz v1, :cond_1
 
     .line 174
-    iget-object v1, p0, Landroidx/lifecycle/ViewModelProvider;->mFactory:Landroidx/lifecycle/ViewModelProvider$Factory;
+    iget-object p1, p0, Landroidx/lifecycle/ViewModelProvider;->mFactory:Landroidx/lifecycle/ViewModelProvider$Factory;
 
-    instance-of v2, v1, Landroidx/lifecycle/ViewModelProvider$OnRequeryFactory;
+    instance-of p2, p1, Landroidx/lifecycle/ViewModelProvider$OnRequeryFactory;
 
-    if-eqz v2, :cond_0
+    if-eqz p2, :cond_0
 
     .line 175
-    check-cast v1, Landroidx/lifecycle/ViewModelProvider$OnRequeryFactory;
+    check-cast p1, Landroidx/lifecycle/ViewModelProvider$OnRequeryFactory;
 
-    invoke-virtual {v1, v0}, Landroidx/lifecycle/ViewModelProvider$OnRequeryFactory;->onRequery(Landroidx/lifecycle/ViewModel;)V
+    invoke-virtual {p1, v0}, Landroidx/lifecycle/ViewModelProvider$OnRequeryFactory;->onRequery(Landroidx/lifecycle/ViewModel;)V
 
-    .line 177
     :cond_0
     return-object v0
 
-    .line 180
-    :cond_1
-    nop
-
     .line 184
-    iget-object v1, p0, Landroidx/lifecycle/ViewModelProvider;->mFactory:Landroidx/lifecycle/ViewModelProvider$Factory;
+    :cond_1
+    iget-object v0, p0, Landroidx/lifecycle/ViewModelProvider;->mFactory:Landroidx/lifecycle/ViewModelProvider$Factory;
 
-    instance-of v2, v1, Landroidx/lifecycle/ViewModelProvider$KeyedFactory;
+    instance-of v1, v0, Landroidx/lifecycle/ViewModelProvider$KeyedFactory;
 
-    if-eqz v2, :cond_2
+    if-eqz v1, :cond_2
 
     .line 185
-    check-cast v1, Landroidx/lifecycle/ViewModelProvider$KeyedFactory;
+    check-cast v0, Landroidx/lifecycle/ViewModelProvider$KeyedFactory;
+
+    move-object v1, v0
 
     check-cast v1, Landroidx/lifecycle/ViewModelProvider$KeyedFactory;
 
-    invoke-virtual {v1, p1, p2}, Landroidx/lifecycle/ViewModelProvider$KeyedFactory;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
+    invoke-virtual {v0, p1, p2}, Landroidx/lifecycle/ViewModelProvider$KeyedFactory;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
 
-    move-result-object v0
+    move-result-object p2
 
     goto :goto_0
 
     .line 187
     :cond_2
-    invoke-interface {v1, p2}, Landroidx/lifecycle/ViewModelProvider$Factory;->create(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
+    invoke-interface {v0, p2}, Landroidx/lifecycle/ViewModelProvider$Factory;->create(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
 
-    move-result-object v0
+    move-result-object p2
 
     .line 189
     :goto_0
-    iget-object v1, p0, Landroidx/lifecycle/ViewModelProvider;->mViewModelStore:Landroidx/lifecycle/ViewModelStore;
+    iget-object v0, p0, Landroidx/lifecycle/ViewModelProvider;->mViewModelStore:Landroidx/lifecycle/ViewModelStore;
 
-    invoke-virtual {v1, p1, v0}, Landroidx/lifecycle/ViewModelStore;->put(Ljava/lang/String;Landroidx/lifecycle/ViewModel;)V
+    invoke-virtual {v0, p1, p2}, Landroidx/lifecycle/ViewModelStore;->put(Ljava/lang/String;Landroidx/lifecycle/ViewModel;)V
 
-    .line 190
-    return-object v0
+    return-object p2
 .end method

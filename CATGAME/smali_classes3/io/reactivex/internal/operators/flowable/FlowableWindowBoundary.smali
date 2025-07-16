@@ -42,7 +42,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/Flowable;Lorg/reactivestreams/Publisher;I)V
     .locals 0
-    .param p3, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -54,9 +53,6 @@
     .end annotation
 
     .line 38
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary;, "Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary<TT;TB;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p2, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TB;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
     .line 39
@@ -65,14 +61,13 @@
     .line 40
     iput p3, p0, Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary;->bufferSize:I
 
-    .line 41
     return-void
 .end method
 
 
 # virtual methods
 .method protected subscribeActual(Lorg/reactivestreams/Subscriber;)V
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -84,8 +79,6 @@
     .end annotation
 
     .line 45
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary;, "Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary<TT;TB;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-Lio/reactivex/Flowable<TT;>;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary;->source:Lio/reactivex/Flowable;
 
     new-instance v1, Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryMainSubscriber;
@@ -94,14 +87,13 @@
 
     invoke-direct {v2, p1}, Lio/reactivex/subscribers/SerializedSubscriber;-><init>(Lorg/reactivestreams/Subscriber;)V
 
-    iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary;->other:Lorg/reactivestreams/Publisher;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary;->other:Lorg/reactivestreams/Publisher;
 
-    iget v4, p0, Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary;->bufferSize:I
+    iget v3, p0, Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary;->bufferSize:I
 
-    invoke-direct {v1, v2, v3, v4}, Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryMainSubscriber;-><init>(Lorg/reactivestreams/Subscriber;Lorg/reactivestreams/Publisher;I)V
+    invoke-direct {v1, v2, p1, v3}, Lio/reactivex/internal/operators/flowable/FlowableWindowBoundary$WindowBoundaryMainSubscriber;-><init>(Lorg/reactivestreams/Subscriber;Lorg/reactivestreams/Publisher;I)V
 
     invoke-virtual {v0, v1}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 48
     return-void
 .end method

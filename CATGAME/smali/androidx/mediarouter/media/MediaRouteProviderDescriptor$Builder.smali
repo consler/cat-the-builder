@@ -35,28 +35,25 @@
     .line 156
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 151
     const/4 v0, 0x0
 
+    .line 151
     iput-boolean v0, p0, Landroidx/mediarouter/media/MediaRouteProviderDescriptor$Builder;->mSupportsDynamicGroupRoute:Z
 
-    .line 157
     return-void
 .end method
 
 .method public constructor <init>(Landroidx/mediarouter/media/MediaRouteProviderDescriptor;)V
-    .locals 2
-    .param p1, "descriptor"    # Landroidx/mediarouter/media/MediaRouteProviderDescriptor;
+    .locals 1
 
     .line 163
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 151
     const/4 v0, 0x0
 
+    .line 151
     iput-boolean v0, p0, Landroidx/mediarouter/media/MediaRouteProviderDescriptor$Builder;->mSupportsDynamicGroupRoute:Z
 
-    .line 164
     if-eqz p1, :cond_0
 
     .line 167
@@ -65,31 +62,28 @@
     iput-object v0, p0, Landroidx/mediarouter/media/MediaRouteProviderDescriptor$Builder;->mRoutes:Ljava/util/List;
 
     .line 168
-    iget-boolean v0, p1, Landroidx/mediarouter/media/MediaRouteProviderDescriptor;->mSupportsDynamicGroupRoute:Z
+    iget-boolean p1, p1, Landroidx/mediarouter/media/MediaRouteProviderDescriptor;->mSupportsDynamicGroupRoute:Z
 
-    iput-boolean v0, p0, Landroidx/mediarouter/media/MediaRouteProviderDescriptor$Builder;->mSupportsDynamicGroupRoute:Z
+    iput-boolean p1, p0, Landroidx/mediarouter/media/MediaRouteProviderDescriptor$Builder;->mSupportsDynamicGroupRoute:Z
 
-    .line 169
     return-void
 
     .line 165
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "descriptor must not be null"
+    const-string v0, "descriptor must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
 # virtual methods
 .method public addRoute(Landroidx/mediarouter/media/MediaRouteDescriptor;)Landroidx/mediarouter/media/MediaRouteProviderDescriptor$Builder;
-    .locals 2
-    .param p1, "route"    # Landroidx/mediarouter/media/MediaRouteDescriptor;
+    .locals 1
 
-    .line 175
     if-eqz p1, :cond_2
 
     .line 179
@@ -120,32 +114,31 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 185
     return-object p0
 
     .line 182
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "route descriptor already added"
+    const-string v0, "route descriptor already added"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 176
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "route must not be null"
+    const-string v0, "route must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public addRoutes(Ljava/util/Collection;)Landroidx/mediarouter/media/MediaRouteProviderDescriptor$Builder;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -156,8 +149,6 @@
         }
     .end annotation
 
-    .line 192
-    .local p1, "routes":Ljava/util/Collection;, "Ljava/util/Collection<Landroidx/mediarouter/media/MediaRouteDescriptor;>;"
     if-eqz p1, :cond_1
 
     .line 196
@@ -170,42 +161,38 @@
     .line 197
     invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroidx/mediarouter/media/MediaRouteDescriptor;
+    check-cast v0, Landroidx/mediarouter/media/MediaRouteDescriptor;
 
     .line 198
-    .local v1, "route":Landroidx/mediarouter/media/MediaRouteDescriptor;
-    invoke-virtual {p0, v1}, Landroidx/mediarouter/media/MediaRouteProviderDescriptor$Builder;->addRoute(Landroidx/mediarouter/media/MediaRouteDescriptor;)Landroidx/mediarouter/media/MediaRouteProviderDescriptor$Builder;
+    invoke-virtual {p0, v0}, Landroidx/mediarouter/media/MediaRouteProviderDescriptor$Builder;->addRoute(Landroidx/mediarouter/media/MediaRouteDescriptor;)Landroidx/mediarouter/media/MediaRouteProviderDescriptor$Builder;
 
-    .line 199
-    .end local v1    # "route":Landroidx/mediarouter/media/MediaRouteDescriptor;
     goto :goto_0
 
-    .line 201
     :cond_0
     return-object p0
 
     .line 193
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "routes must not be null"
+    const-string v0, "routes must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public build()Landroidx/mediarouter/media/MediaRouteProviderDescriptor;
@@ -235,10 +222,9 @@
         }
     .end annotation
 
-    .line 208
-    .local p1, "routes":Ljava/util/Collection;, "Ljava/util/Collection<Landroidx/mediarouter/media/MediaRouteDescriptor;>;"
     if-eqz p1, :cond_1
 
+    .line 208
     invoke-interface {p1}, Ljava/util/Collection;->isEmpty()Z
 
     move-result v0
@@ -257,25 +243,22 @@
 
     goto :goto_1
 
-    .line 209
     :cond_1
     :goto_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Landroidx/mediarouter/media/MediaRouteProviderDescriptor$Builder;->mRoutes:Ljava/util/List;
+    .line 209
+    iput-object p1, p0, Landroidx/mediarouter/media/MediaRouteProviderDescriptor$Builder;->mRoutes:Ljava/util/List;
 
-    .line 213
     :goto_1
     return-object p0
 .end method
 
 .method public setSupportsDynamicGroupRoute(Z)Landroidx/mediarouter/media/MediaRouteProviderDescriptor$Builder;
     .locals 0
-    .param p1, "value"    # Z
 
     .line 220
     iput-boolean p1, p0, Landroidx/mediarouter/media/MediaRouteProviderDescriptor$Builder;->mSupportsDynamicGroupRoute:Z
 
-    .line 221
     return-object p0
 .end method

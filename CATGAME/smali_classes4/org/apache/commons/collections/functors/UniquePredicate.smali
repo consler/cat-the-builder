@@ -29,7 +29,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/functors/UniquePredicate;->iSet:Ljava/util/Set;
 
-    .line 58
     return-void
 .end method
 
@@ -48,14 +47,13 @@
 # virtual methods
 .method public evaluate(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
 
     .line 68
     iget-object v0, p0, Lorg/apache/commons/collections/functors/UniquePredicate;->iSet:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

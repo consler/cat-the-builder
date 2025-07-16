@@ -61,9 +61,6 @@
     .end annotation
 
     .line 47
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeSubscribeOn$SubscribeTask;, "Lio/reactivex/internal/operators/maybe/MaybeSubscribeOn$SubscribeTask<TT;>;"
-    .local p1, "observer":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
-    .local p2, "source":Lio/reactivex/MaybeSource;, "Lio/reactivex/MaybeSource<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 48
@@ -72,7 +69,6 @@
     .line 49
     iput-object p2, p0, Lio/reactivex/internal/operators/maybe/MaybeSubscribeOn$SubscribeTask;->source:Lio/reactivex/MaybeSource;
 
-    .line 50
     return-void
 .end method
 
@@ -82,13 +78,11 @@
     .locals 2
 
     .line 54
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeSubscribeOn$SubscribeTask;, "Lio/reactivex/internal/operators/maybe/MaybeSubscribeOn$SubscribeTask<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeSubscribeOn$SubscribeTask;->source:Lio/reactivex/MaybeSource;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/maybe/MaybeSubscribeOn$SubscribeTask;->observer:Lio/reactivex/MaybeObserver;
 
     invoke-interface {v0, v1}, Lio/reactivex/MaybeSource;->subscribe(Lio/reactivex/MaybeObserver;)V
 
-    .line 55
     return-void
 .end method

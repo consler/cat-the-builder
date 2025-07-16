@@ -38,7 +38,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/ContentResolver;)V
     .locals 0
-    .param p1, "contentResolver"    # Landroid/content/ContentResolver;
 
     .line 127
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,7 +45,6 @@
     .line 128
     iput-object p1, p0, Lcom/bumptech/glide/load/model/UriLoader$AssetFileDescriptorFactory;->contentResolver:Landroid/content/ContentResolver;
 
-    .line 129
     return-void
 .end method
 
@@ -54,7 +52,6 @@
 # virtual methods
 .method public build(Landroid/net/Uri;)Lcom/bumptech/glide/load/data/DataFetcher;
     .locals 2
-    .param p1, "uri"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,8 +74,7 @@
 .end method
 
 .method public build(Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;)Lcom/bumptech/glide/load/model/ModelLoader;
-    .locals 1
-    .param p1, "multiFactory"    # Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -92,16 +88,15 @@
     .end annotation
 
     .line 133
-    new-instance v0, Lcom/bumptech/glide/load/model/UriLoader;
+    new-instance p1, Lcom/bumptech/glide/load/model/UriLoader;
 
-    invoke-direct {v0, p0}, Lcom/bumptech/glide/load/model/UriLoader;-><init>(Lcom/bumptech/glide/load/model/UriLoader$LocalUriFetcherFactory;)V
+    invoke-direct {p1, p0}, Lcom/bumptech/glide/load/model/UriLoader;-><init>(Lcom/bumptech/glide/load/model/UriLoader$LocalUriFetcherFactory;)V
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public teardown()V
     .locals 0
 
-    .line 139
     return-void
 .end method

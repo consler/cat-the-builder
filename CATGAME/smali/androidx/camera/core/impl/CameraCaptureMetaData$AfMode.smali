@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .locals 9
 
     .line 31
     new-instance v0, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
@@ -50,58 +50,52 @@
     sput-object v0, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;->UNKNOWN:Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
 
     .line 34
-    new-instance v0, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
+    new-instance v1, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
 
-    const-string v1, "OFF"
+    const-string v3, "OFF"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;->OFF:Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
+    sput-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;->OFF:Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
 
     .line 41
-    new-instance v0, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
+    new-instance v3, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
 
-    const-string v1, "ON_MANUAL_AUTO"
+    const-string v5, "ON_MANUAL_AUTO"
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v1, v4}, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;->ON_MANUAL_AUTO:Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
+    sput-object v3, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;->ON_MANUAL_AUTO:Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
 
     .line 49
-    new-instance v0, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
+    new-instance v5, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
 
-    const-string v1, "ON_CONTINUOUS_AUTO"
+    const-string v7, "ON_CONTINUOUS_AUTO"
 
-    const/4 v5, 0x3
+    const/4 v8, 0x3
 
-    invoke-direct {v0, v1, v5}, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v5, v7, v8}, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;->ON_CONTINUOUS_AUTO:Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
+    sput-object v5, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;->ON_CONTINUOUS_AUTO:Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
+
+    const/4 v7, 0x4
+
+    new-array v7, v7, [Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
+
+    aput-object v0, v7, v2
+
+    aput-object v1, v7, v4
+
+    aput-object v3, v7, v6
+
+    aput-object v5, v7, v8
 
     .line 28
-    const/4 v1, 0x4
-
-    new-array v1, v1, [Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
-
-    sget-object v6, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;->UNKNOWN:Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
-
-    aput-object v6, v1, v2
-
-    sget-object v2, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;->OFF:Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;->ON_MANUAL_AUTO:Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
-
-    aput-object v2, v1, v4
-
-    aput-object v0, v1, v5
-
-    sput-object v1, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;->$VALUES:[Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
+    sput-object v7, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;->$VALUES:[Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
 
     return-void
 .end method
@@ -122,18 +116,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 28
     const-class v0, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
+    check-cast p0, Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Landroidx/camera/core/impl/CameraCaptureMetaData$AfMode;

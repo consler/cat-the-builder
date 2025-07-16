@@ -44,11 +44,8 @@
     .end annotation
 
     .line 38
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableMaterialize$MaterializeSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableMaterialize$MaterializeSubscriber<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-Lio/reactivex/Notification<TT;>;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/subscribers/SinglePostCompleteSubscriber;-><init>(Lorg/reactivestreams/Subscriber;)V
 
-    .line 39
     return-void
 .end method
 
@@ -58,14 +55,12 @@
     .locals 1
 
     .line 54
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableMaterialize$MaterializeSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableMaterialize$MaterializeSubscriber<TT;>;"
     invoke-static {}, Lio/reactivex/Notification;->createOnComplete()Lio/reactivex/Notification;
 
     move-result-object v0
 
     invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/flowable/FlowableMaterialize$MaterializeSubscriber;->complete(Ljava/lang/Object;)V
 
-    .line 55
     return-void
 .end method
 
@@ -80,8 +75,6 @@
     .end annotation
 
     .line 59
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableMaterialize$MaterializeSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableMaterialize$MaterializeSubscriber<TT;>;"
-    .local p1, "n":Lio/reactivex/Notification;, "Lio/reactivex/Notification<TT;>;"
     invoke-virtual {p1}, Lio/reactivex/Notification;->isOnError()Z
 
     move-result v0
@@ -91,43 +84,35 @@
     .line 60
     invoke-virtual {p1}, Lio/reactivex/Notification;->getError()Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 62
     :cond_0
     return-void
 .end method
 
 .method protected bridge synthetic onDrop(Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
+    .locals 0
 
     .line 33
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableMaterialize$MaterializeSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableMaterialize$MaterializeSubscriber<TT;>;"
-    move-object v0, p1
+    check-cast p1, Lio/reactivex/Notification;
 
-    check-cast v0, Lio/reactivex/Notification;
-
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/flowable/FlowableMaterialize$MaterializeSubscriber;->onDrop(Lio/reactivex/Notification;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableMaterialize$MaterializeSubscriber;->onDrop(Lio/reactivex/Notification;)V
 
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
-    .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
+    .locals 0
 
     .line 49
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableMaterialize$MaterializeSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableMaterialize$MaterializeSubscriber<TT;>;"
     invoke-static {p1}, Lio/reactivex/Notification;->createOnError(Ljava/lang/Throwable;)Lio/reactivex/Notification;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/flowable/FlowableMaterialize$MaterializeSubscriber;->complete(Ljava/lang/Object;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableMaterialize$MaterializeSubscriber;->complete(Ljava/lang/Object;)V
 
-    .line 50
     return-void
 .end method
 
@@ -140,8 +125,6 @@
     .end annotation
 
     .line 43
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableMaterialize$MaterializeSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableMaterialize$MaterializeSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-wide v0, p0, Lio/reactivex/internal/operators/flowable/FlowableMaterialize$MaterializeSubscriber;->produced:J
 
     const-wide/16 v2, 0x1
@@ -155,10 +138,9 @@
 
     invoke-static {p1}, Lio/reactivex/Notification;->createOnNext(Ljava/lang/Object;)Lio/reactivex/Notification;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
+    invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
-    .line 45
     return-void
 .end method

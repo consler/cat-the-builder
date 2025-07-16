@@ -236,25 +236,37 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    move-result-object v0
+
     const/16 v1, 0x2e
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+
+    move-result-object v0
 
     iget-object v1, p0, Lcom/esotericsoftware/asm/Handle;->c:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    move-result-object v0
+
     iget-object v1, p0, Lcom/esotericsoftware/asm/Handle;->d:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
 
     const-string v1, " ("
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    move-result-object v0
+
     iget v1, p0, Lcom/esotericsoftware/asm/Handle;->a:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+
+    move-result-object v0
 
     iget-boolean v1, p0, Lcom/esotericsoftware/asm/Handle;->e:Z
 
@@ -270,9 +282,13 @@
     :goto_0
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    move-result-object v0
+
     const/16 v1, 0x29
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 

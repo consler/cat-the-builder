@@ -27,7 +27,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/app/MediaRouteControllerDialog;IILandroid/view/View;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
     .line 706
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$7;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
@@ -46,31 +45,27 @@
 
 # virtual methods
 .method protected applyTransformation(FLandroid/view/animation/Transformation;)V
-    .locals 2
-    .param p1, "interpolatedTime"    # F
-    .param p2, "t"    # Landroid/view/animation/Transformation;
+    .locals 1
 
     .line 709
-    iget v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$7;->val$startValue:I
+    iget p2, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$7;->val$startValue:I
 
-    iget v1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$7;->val$endValue:I
+    iget v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$7;->val$endValue:I
 
-    sub-int v1, v0, v1
+    sub-int v0, p2, v0
 
-    int-to-float v1, v1
+    int-to-float v0, v0
 
-    mul-float/2addr v1, p1
+    mul-float/2addr v0, p1
 
-    float-to-int v1, v1
+    float-to-int p1, v0
 
-    sub-int/2addr v0, v1
+    sub-int/2addr p2, p1
 
     .line 710
-    .local v0, "height":I
-    iget-object v1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$7;->val$view:Landroid/view/View;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$7;->val$view:Landroid/view/View;
 
-    invoke-static {v1, v0}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->setLayoutHeight(Landroid/view/View;I)V
+    invoke-static {p1, p2}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->setLayoutHeight(Landroid/view/View;I)V
 
-    .line 711
     return-void
 .end method

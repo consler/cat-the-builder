@@ -28,19 +28,12 @@
 # virtual methods
 .method public onScrollStateChanged(Landroidx/recyclerview/widget/RecyclerView;I)V
     .locals 0
-    .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
-    .param p2, "newState"    # I
 
-    .line 10878
     return-void
 .end method
 
 .method public onScrolled(Landroidx/recyclerview/widget/RecyclerView;II)V
     .locals 0
-    .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
-    .param p2, "dx"    # I
-    .param p3, "dy"    # I
 
-    .line 10891
     return-void
 .end method

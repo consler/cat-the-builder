@@ -55,13 +55,11 @@
     .line 108
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 109
     return-void
 .end method
 
 .method public static arrayIterator(Ljava/lang/Object;)Lorg/apache/commons/collections/ResettableIterator;
     .locals 1
-    .param p0, "array"    # Ljava/lang/Object;
 
     .line 238
     new-instance v0, Lorg/apache/commons/collections/iterators/ArrayIterator;
@@ -73,8 +71,6 @@
 
 .method public static arrayIterator(Ljava/lang/Object;I)Lorg/apache/commons/collections/ResettableIterator;
     .locals 1
-    .param p0, "array"    # Ljava/lang/Object;
-    .param p1, "start"    # I
 
     .line 273
     new-instance v0, Lorg/apache/commons/collections/iterators/ArrayIterator;
@@ -86,9 +82,6 @@
 
 .method public static arrayIterator(Ljava/lang/Object;II)Lorg/apache/commons/collections/ResettableIterator;
     .locals 1
-    .param p0, "array"    # Ljava/lang/Object;
-    .param p1, "start"    # I
-    .param p2, "end"    # I
 
     .line 310
     new-instance v0, Lorg/apache/commons/collections/iterators/ArrayIterator;
@@ -100,7 +93,6 @@
 
 .method public static arrayIterator([Ljava/lang/Object;)Lorg/apache/commons/collections/ResettableIterator;
     .locals 1
-    .param p0, "array"    # [Ljava/lang/Object;
 
     .line 223
     new-instance v0, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;
@@ -112,8 +104,6 @@
 
 .method public static arrayIterator([Ljava/lang/Object;I)Lorg/apache/commons/collections/ResettableIterator;
     .locals 1
-    .param p0, "array"    # [Ljava/lang/Object;
-    .param p1, "start"    # I
 
     .line 255
     new-instance v0, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;
@@ -125,9 +115,6 @@
 
 .method public static arrayIterator([Ljava/lang/Object;II)Lorg/apache/commons/collections/ResettableIterator;
     .locals 1
-    .param p0, "array"    # [Ljava/lang/Object;
-    .param p1, "start"    # I
-    .param p2, "end"    # I
 
     .line 291
     new-instance v0, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;
@@ -139,7 +126,6 @@
 
 .method public static arrayListIterator(Ljava/lang/Object;)Lorg/apache/commons/collections/ResettableListIterator;
     .locals 1
-    .param p0, "array"    # Ljava/lang/Object;
 
     .line 337
     new-instance v0, Lorg/apache/commons/collections/iterators/ArrayListIterator;
@@ -151,8 +137,6 @@
 
 .method public static arrayListIterator(Ljava/lang/Object;I)Lorg/apache/commons/collections/ResettableListIterator;
     .locals 1
-    .param p0, "array"    # Ljava/lang/Object;
-    .param p1, "start"    # I
 
     .line 367
     new-instance v0, Lorg/apache/commons/collections/iterators/ArrayListIterator;
@@ -164,9 +148,6 @@
 
 .method public static arrayListIterator(Ljava/lang/Object;II)Lorg/apache/commons/collections/ResettableListIterator;
     .locals 1
-    .param p0, "array"    # Ljava/lang/Object;
-    .param p1, "start"    # I
-    .param p2, "end"    # I
 
     .line 401
     new-instance v0, Lorg/apache/commons/collections/iterators/ArrayListIterator;
@@ -178,7 +159,6 @@
 
 .method public static arrayListIterator([Ljava/lang/Object;)Lorg/apache/commons/collections/ResettableListIterator;
     .locals 1
-    .param p0, "array"    # [Ljava/lang/Object;
 
     .line 322
     new-instance v0, Lorg/apache/commons/collections/iterators/ObjectArrayListIterator;
@@ -190,8 +170,6 @@
 
 .method public static arrayListIterator([Ljava/lang/Object;I)Lorg/apache/commons/collections/ResettableListIterator;
     .locals 1
-    .param p0, "array"    # [Ljava/lang/Object;
-    .param p1, "start"    # I
 
     .line 350
     new-instance v0, Lorg/apache/commons/collections/iterators/ObjectArrayListIterator;
@@ -203,9 +181,6 @@
 
 .method public static arrayListIterator([Ljava/lang/Object;II)Lorg/apache/commons/collections/ResettableListIterator;
     .locals 1
-    .param p0, "array"    # [Ljava/lang/Object;
-    .param p1, "start"    # I
-    .param p2, "end"    # I
 
     .line 382
     new-instance v0, Lorg/apache/commons/collections/iterators/ObjectArrayListIterator;
@@ -216,10 +191,8 @@
 .end method
 
 .method public static asEnumeration(Ljava/util/Iterator;)Ljava/util/Enumeration;
-    .locals 2
-    .param p0, "iterator"    # Ljava/util/Iterator;
+    .locals 1
 
-    .line 749
     if-eqz p0, :cond_0
 
     .line 752
@@ -231,20 +204,18 @@
 
     .line 750
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Iterator must not be null"
+    const-string v0, "Iterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static asIterator(Ljava/util/Enumeration;)Ljava/util/Iterator;
-    .locals 2
-    .param p0, "enumeration"    # Ljava/util/Enumeration;
+    .locals 1
 
-    .line 717
     if-eqz p0, :cond_0
 
     .line 720
@@ -256,24 +227,20 @@
 
     .line 718
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Enumeration must not be null"
+    const-string v0, "Enumeration must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static asIterator(Ljava/util/Enumeration;Ljava/util/Collection;)Ljava/util/Iterator;
-    .locals 2
-    .param p0, "enumeration"    # Ljava/util/Enumeration;
-    .param p1, "removeCollection"    # Ljava/util/Collection;
+    .locals 1
 
-    .line 732
     if-eqz p0, :cond_1
 
-    .line 735
     if-eqz p1, :cond_0
 
     .line 738
@@ -285,28 +252,27 @@
 
     .line 736
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Collection must not be null"
+    const-string p1, "Collection must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 733
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Enumeration must not be null"
+    const-string p1, "Enumeration must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static chainedIterator(Ljava/util/Collection;)Ljava/util/Iterator;
     .locals 1
-    .param p0, "iterators"    # Ljava/util/Collection;
 
     .line 480
     new-instance v0, Lorg/apache/commons/collections/iterators/IteratorChain;
@@ -318,8 +284,6 @@
 
 .method public static chainedIterator(Ljava/util/Iterator;Ljava/util/Iterator;)Ljava/util/Iterator;
     .locals 1
-    .param p0, "iterator1"    # Ljava/util/Iterator;
-    .param p1, "iterator2"    # Ljava/util/Iterator;
 
     .line 455
     new-instance v0, Lorg/apache/commons/collections/iterators/IteratorChain;
@@ -331,7 +295,6 @@
 
 .method public static chainedIterator([Ljava/util/Iterator;)Ljava/util/Iterator;
     .locals 1
-    .param p0, "iterators"    # [Ljava/util/Iterator;
 
     .line 467
     new-instance v0, Lorg/apache/commons/collections/iterators/IteratorChain;
@@ -342,38 +305,34 @@
 .end method
 
 .method static synthetic class$(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 3
-    .param p0, "x0"    # Ljava/lang/String;
+    .locals 1
 
     .line 901
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    .local v0, "x1":Ljava/lang/ClassNotFoundException;
-    new-instance v1, Ljava/lang/NoClassDefFoundError;
+    new-instance v0, Ljava/lang/NoClassDefFoundError;
 
-    invoke-virtual {v0}, Ljava/lang/ClassNotFoundException;->getMessage()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/ClassNotFoundException;->getMessage()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-direct {v1, v2}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public static collatedIterator(Ljava/util/Comparator;Ljava/util/Collection;)Ljava/util/Iterator;
     .locals 1
-    .param p0, "comparator"    # Ljava/util/Comparator;
-    .param p1, "iterators"    # Ljava/util/Collection;
 
     .line 541
     new-instance v0, Lorg/apache/commons/collections/iterators/CollatingIterator;
@@ -385,9 +344,6 @@
 
 .method public static collatedIterator(Ljava/util/Comparator;Ljava/util/Iterator;Ljava/util/Iterator;)Ljava/util/Iterator;
     .locals 1
-    .param p0, "comparator"    # Ljava/util/Comparator;
-    .param p1, "iterator1"    # Ljava/util/Iterator;
-    .param p2, "iterator2"    # Ljava/util/Iterator;
 
     .line 502
     new-instance v0, Lorg/apache/commons/collections/iterators/CollatingIterator;
@@ -399,8 +355,6 @@
 
 .method public static collatedIterator(Ljava/util/Comparator;[Ljava/util/Iterator;)Ljava/util/Iterator;
     .locals 1
-    .param p0, "comparator"    # Ljava/util/Comparator;
-    .param p1, "iterators"    # [Ljava/util/Iterator;
 
     .line 521
     new-instance v0, Lorg/apache/commons/collections/iterators/CollatingIterator;
@@ -456,14 +410,10 @@
 .end method
 
 .method public static filteredIterator(Ljava/util/Iterator;Lorg/apache/commons/collections/Predicate;)Ljava/util/Iterator;
-    .locals 2
-    .param p0, "iterator"    # Ljava/util/Iterator;
-    .param p1, "predicate"    # Lorg/apache/commons/collections/Predicate;
+    .locals 1
 
-    .line 640
     if-eqz p0, :cond_1
 
-    .line 643
     if-eqz p1, :cond_0
 
     .line 646
@@ -475,34 +425,30 @@
 
     .line 644
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Predicate must not be null"
+    const-string p1, "Predicate must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 641
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Iterator must not be null"
+    const-string p1, "Iterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static filteredListIterator(Ljava/util/ListIterator;Lorg/apache/commons/collections/Predicate;)Ljava/util/ListIterator;
-    .locals 2
-    .param p0, "listIterator"    # Ljava/util/ListIterator;
-    .param p1, "predicate"    # Lorg/apache/commons/collections/Predicate;
+    .locals 1
 
-    .line 661
     if-eqz p0, :cond_1
 
-    .line 664
     if-eqz p1, :cond_0
 
     .line 667
@@ -514,38 +460,36 @@
 
     .line 665
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Predicate must not be null"
+    const-string p1, "Predicate must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 662
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "ListIterator must not be null"
+    const-string p1, "ListIterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static getIterator(Ljava/lang/Object;)Ljava/util/Iterator;
     .locals 4
-    .param p0, "obj"    # Ljava/lang/Object;
 
-    .line 874
     if-nez p0, :cond_0
 
     .line 875
     invoke-static {}, Lorg/apache/commons/collections/IteratorUtils;->emptyIterator()Lorg/apache/commons/collections/ResettableIterator;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 877
     :cond_0
@@ -554,11 +498,9 @@
     if-eqz v0, :cond_1
 
     .line 878
-    move-object v0, p0
+    check-cast p0, Ljava/util/Iterator;
 
-    check-cast v0, Ljava/util/Iterator;
-
-    return-object v0
+    return-object p0
 
     .line 880
     :cond_1
@@ -567,15 +509,13 @@
     if-eqz v0, :cond_2
 
     .line 881
-    move-object v0, p0
+    check-cast p0, Ljava/util/Collection;
 
-    check-cast v0, Ljava/util/Collection;
+    invoke-interface {p0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 
     .line 883
     :cond_2
@@ -586,13 +526,11 @@
     .line 884
     new-instance v0, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;
 
-    move-object v1, p0
+    check-cast p0, [Ljava/lang/Object;
 
-    check-cast v1, [Ljava/lang/Object;
+    check-cast p0, [Ljava/lang/Object;
 
-    check-cast v1, [Ljava/lang/Object;
-
-    invoke-direct {v0, v1}, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;-><init>([Ljava/lang/Object;)V
+    invoke-direct {v0, p0}, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;-><init>([Ljava/lang/Object;)V
 
     return-object v0
 
@@ -605,11 +543,9 @@
     .line 887
     new-instance v0, Lorg/apache/commons/collections/iterators/EnumerationIterator;
 
-    move-object v1, p0
+    check-cast p0, Ljava/util/Enumeration;
 
-    check-cast v1, Ljava/util/Enumeration;
-
-    invoke-direct {v0, v1}, Lorg/apache/commons/collections/iterators/EnumerationIterator;-><init>(Ljava/util/Enumeration;)V
+    invoke-direct {v0, p0}, Lorg/apache/commons/collections/iterators/EnumerationIterator;-><init>(Ljava/util/Enumeration;)V
 
     return-object v0
 
@@ -620,19 +556,17 @@
     if-eqz v0, :cond_5
 
     .line 890
-    move-object v0, p0
+    check-cast p0, Ljava/util/Map;
 
-    check-cast v0, Ljava/util/Map;
+    invoke-interface {p0}, Ljava/util/Map;->values()Ljava/util/Collection;
 
-    invoke-interface {v0}, Ljava/util/Map;->values()Ljava/util/Collection;
+    move-result-object p0
 
-    move-result-object v0
+    invoke-interface {p0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 
     .line 892
     :cond_5
@@ -643,22 +577,20 @@
     .line 893
     new-instance v0, Lorg/apache/commons/collections/iterators/EnumerationIterator;
 
-    move-object v1, p0
+    check-cast p0, Ljava/util/Dictionary;
 
-    check-cast v1, Ljava/util/Dictionary;
+    invoke-virtual {p0}, Ljava/util/Dictionary;->elements()Ljava/util/Enumeration;
 
-    invoke-virtual {v1}, Ljava/util/Dictionary;->elements()Ljava/util/Enumeration;
+    move-result-object p0
 
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Lorg/apache/commons/collections/iterators/EnumerationIterator;-><init>(Ljava/util/Enumeration;)V
+    invoke-direct {v0, p0}, Lorg/apache/commons/collections/iterators/EnumerationIterator;-><init>(Ljava/util/Enumeration;)V
 
     return-object v0
 
-    .line 895
     :cond_6
     if-eqz p0, :cond_7
 
+    .line 895
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -691,12 +623,11 @@
 
     check-cast v3, [Ljava/lang/Class;
 
-    invoke-virtual {v0, v1, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0
 
     .line 901
-    .local v0, "method":Ljava/lang/reflect/Method;
     sget-object v1, Lorg/apache/commons/collections/IteratorUtils;->class$java$util$Iterator:Ljava/lang/Class;
 
     if-nez v1, :cond_8
@@ -709,12 +640,7 @@
 
     sput-object v1, Lorg/apache/commons/collections/IteratorUtils;->class$java$util$Iterator:Ljava/lang/Class;
 
-    goto :goto_0
-
     :cond_8
-    sget-object v1, Lorg/apache/commons/collections/IteratorUtils;->class$java$util$Iterator:Ljava/lang/Class;
-
-    :goto_0
     invoke-virtual {v0}, Ljava/lang/reflect/Method;->getReturnType()Ljava/lang/Class;
 
     move-result-object v3
@@ -726,47 +652,35 @@
     if-eqz v1, :cond_9
 
     .line 902
-    check-cast v2, [Ljava/lang/Object;
+    move-object v1, v2
+
+    check-cast v1, [Ljava/lang/Object;
 
     invoke-virtual {v0, p0, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ljava/util/Iterator;
+    check-cast v0, Ljava/util/Iterator;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 903
-    .local v1, "it":Ljava/util/Iterator;
-    if-eqz v1, :cond_9
-
-    .line 904
-    return-object v1
-
-    .line 909
-    .end local v0    # "method":Ljava/lang/reflect/Method;
-    .end local v1    # "it":Ljava/util/Iterator;
-    :cond_9
-    goto :goto_1
-
-    .line 907
-    :catch_0
-    move-exception v0
-
-    .line 910
-    :goto_1
-    invoke-static {p0}, Lorg/apache/commons/collections/IteratorUtils;->singletonIterator(Ljava/lang/Object;)Lorg/apache/commons/collections/ResettableIterator;
-
-    move-result-object v0
+    if-eqz v0, :cond_9
 
     return-object v0
+
+    .line 910
+    :catch_0
+    :cond_9
+    invoke-static {p0}, Lorg/apache/commons/collections/IteratorUtils;->singletonIterator(Ljava/lang/Object;)Lorg/apache/commons/collections/ResettableIterator;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static loopingIterator(Ljava/util/Collection;)Lorg/apache/commons/collections/ResettableIterator;
-    .locals 2
-    .param p0, "coll"    # Ljava/util/Collection;
+    .locals 1
 
-    .line 684
     if-eqz p0, :cond_0
 
     .line 687
@@ -778,20 +692,18 @@
 
     .line 685
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Collection must not be null"
+    const-string v0, "Collection must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static loopingListIterator(Ljava/util/List;)Lorg/apache/commons/collections/ResettableListIterator;
-    .locals 2
-    .param p0, "list"    # Ljava/util/List;
+    .locals 1
 
-    .line 702
     if-eqz p0, :cond_0
 
     .line 705
@@ -803,19 +715,17 @@
 
     .line 703
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "List must not be null"
+    const-string v0, "List must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static objectGraphIterator(Ljava/lang/Object;Lorg/apache/commons/collections/Transformer;)Ljava/util/Iterator;
     .locals 1
-    .param p0, "root"    # Ljava/lang/Object;
-    .param p1, "transformer"    # Lorg/apache/commons/collections/Transformer;
 
     .line 600
     new-instance v0, Lorg/apache/commons/collections/iterators/ObjectGraphIterator;
@@ -827,7 +737,6 @@
 
 .method public static singletonIterator(Ljava/lang/Object;)Lorg/apache/commons/collections/ResettableIterator;
     .locals 1
-    .param p0, "object"    # Ljava/lang/Object;
 
     .line 194
     new-instance v0, Lorg/apache/commons/collections/iterators/SingletonIterator;
@@ -839,7 +748,6 @@
 
 .method public static singletonListIterator(Ljava/lang/Object;)Ljava/util/ListIterator;
     .locals 1
-    .param p0, "object"    # Ljava/lang/Object;
 
     .line 207
     new-instance v0, Lorg/apache/commons/collections/iterators/SingletonListIterator;
@@ -850,122 +758,107 @@
 .end method
 
 .method public static toArray(Ljava/util/Iterator;)[Ljava/lang/Object;
-    .locals 2
-    .param p0, "iterator"    # Ljava/util/Iterator;
+    .locals 1
 
-    .line 783
     if-eqz p0, :cond_0
 
-    .line 786
     const/16 v0, 0x64
 
+    .line 786
     invoke-static {p0, v0}, Lorg/apache/commons/collections/IteratorUtils;->toList(Ljava/util/Iterator;I)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 787
-    .local v0, "list":Ljava/util/List;
-    invoke-interface {v0}, Ljava/util/List;->toArray()[Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/List;->toArray()[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 
     .line 784
-    .end local v0    # "list":Ljava/util/List;
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Iterator must not be null"
+    const-string v0, "Iterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static toArray(Ljava/util/Iterator;Ljava/lang/Class;)[Ljava/lang/Object;
-    .locals 2
-    .param p0, "iterator"    # Ljava/util/Iterator;
-    .param p1, "arrayClass"    # Ljava/lang/Class;
+    .locals 1
 
-    .line 804
     if-eqz p0, :cond_1
 
-    .line 807
     if-eqz p1, :cond_0
 
-    .line 810
     const/16 v0, 0x64
 
+    .line 810
     invoke-static {p0, v0}, Lorg/apache/commons/collections/IteratorUtils;->toList(Ljava/util/Iterator;I)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 811
-    .local v0, "list":Ljava/util/List;
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-interface {p0}, Ljava/util/List;->size()I
 
-    move-result v1
+    move-result v0
 
-    invoke-static {p1, v1}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
+    invoke-static {p1, v0}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, [Ljava/lang/Object;
+    check-cast p1, [Ljava/lang/Object;
 
-    check-cast v1, [Ljava/lang/Object;
+    check-cast p1, [Ljava/lang/Object;
 
-    invoke-interface {v0, v1}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-interface {p0, p1}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 
     .line 808
-    .end local v0    # "list":Ljava/util/List;
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Array class must not be null"
+    const-string p1, "Array class must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 805
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Iterator must not be null"
+    const-string p1, "Iterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static toList(Ljava/util/Iterator;)Ljava/util/List;
     .locals 1
-    .param p0, "iterator"    # Ljava/util/Iterator;
 
-    .line 825
     const/16 v0, 0xa
 
+    .line 825
     invoke-static {p0, v0}, Lorg/apache/commons/collections/IteratorUtils;->toList(Ljava/util/Iterator;I)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static toList(Ljava/util/Iterator;I)Ljava/util/List;
-    .locals 2
-    .param p0, "iterator"    # Ljava/util/Iterator;
-    .param p1, "estimatedSize"    # I
+    .locals 1
 
-    .line 841
     if-eqz p0, :cond_2
 
-    .line 844
     const/4 v0, 0x1
 
     if-lt p1, v0, :cond_1
@@ -976,54 +869,49 @@
     invoke-direct {v0, p1}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 848
-    .local v0, "list":Ljava/util/List;
     :goto_0
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
     .line 849
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 851
     :cond_0
     return-object v0
 
     .line 845
-    .end local v0    # "list":Ljava/util/List;
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Estimated size must be greater than 0"
+    const-string p1, "Estimated size must be greater than 0"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 842
     :cond_2
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Iterator must not be null"
+    const-string p1, "Iterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static toListIterator(Ljava/util/Iterator;)Ljava/util/ListIterator;
-    .locals 2
-    .param p0, "iterator"    # Ljava/util/Iterator;
+    .locals 1
 
-    .line 766
     if-eqz p0, :cond_0
 
     .line 769
@@ -1035,24 +923,20 @@
 
     .line 767
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Iterator must not be null"
+    const-string v0, "Iterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static transformedIterator(Ljava/util/Iterator;Lorg/apache/commons/collections/Transformer;)Ljava/util/Iterator;
-    .locals 2
-    .param p0, "iterator"    # Ljava/util/Iterator;
-    .param p1, "transform"    # Lorg/apache/commons/collections/Transformer;
+    .locals 1
 
-    .line 617
     if-eqz p0, :cond_1
 
-    .line 620
     if-eqz p1, :cond_0
 
     .line 623
@@ -1064,57 +948,54 @@
 
     .line 621
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Transformer must not be null"
+    const-string p1, "Transformer must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 618
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Iterator must not be null"
+    const-string p1, "Iterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static unmodifiableIterator(Ljava/util/Iterator;)Ljava/util/Iterator;
-    .locals 1
-    .param p0, "iterator"    # Ljava/util/Iterator;
+    .locals 0
 
     .line 415
     invoke-static {p0}, Lorg/apache/commons/collections/iterators/UnmodifiableIterator;->decorate(Ljava/util/Iterator;)Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static unmodifiableListIterator(Ljava/util/ListIterator;)Ljava/util/ListIterator;
-    .locals 1
-    .param p0, "listIterator"    # Ljava/util/ListIterator;
+    .locals 0
 
     .line 428
     invoke-static {p0}, Lorg/apache/commons/collections/iterators/UnmodifiableListIterator;->decorate(Ljava/util/ListIterator;)Ljava/util/ListIterator;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static unmodifiableMapIterator(Lorg/apache/commons/collections/MapIterator;)Lorg/apache/commons/collections/MapIterator;
-    .locals 1
-    .param p0, "mapIterator"    # Lorg/apache/commons/collections/MapIterator;
+    .locals 0
 
     .line 440
     invoke-static {p0}, Lorg/apache/commons/collections/iterators/UnmodifiableMapIterator;->decorate(Lorg/apache/commons/collections/MapIterator;)Lorg/apache/commons/collections/MapIterator;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

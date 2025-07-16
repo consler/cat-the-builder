@@ -36,65 +36,53 @@
 # virtual methods
 .method public extendRangeInto([I[II)V
     .locals 6
-    .param p1, "range"    # [I
-    .param p2, "outRange"    # [I
-    .param p3, "scrollHint"    # I
 
-    .line 577
     const/4 v0, 0x1
 
+    .line 577
     aget v1, p1, v0
 
     const/4 v2, 0x0
 
-    aget v3, p1, v2
+    aget p1, p1, v2
 
-    sub-int/2addr v1, v3
+    sub-int v3, v1, p1
 
-    add-int/2addr v1, v0
+    add-int/2addr v3, v0
 
     .line 578
-    .local v1, "fullRange":I
-    div-int/lit8 v3, v1, 0x2
-
-    .line 579
-    .local v3, "halfRange":I
-    aget v4, p1, v2
+    div-int/lit8 v4, v3, 0x2
 
     if-ne p3, v0, :cond_0
 
-    move v5, v1
+    move v5, v3
 
     goto :goto_0
 
     :cond_0
-    move v5, v3
+    move v5, v4
 
     :goto_0
-    sub-int/2addr v4, v5
+    sub-int/2addr p1, v5
 
-    aput v4, p2, v2
+    .line 579
+    aput p1, p2, v2
 
-    .line 580
-    aget v2, p1, v0
+    const/4 p1, 0x2
 
-    const/4 v4, 0x2
-
-    if-ne p3, v4, :cond_1
-
-    move v4, v1
+    if-ne p3, p1, :cond_1
 
     goto :goto_1
 
     :cond_1
-    move v4, v3
+    move v3, v4
 
     :goto_1
-    add-int/2addr v2, v4
+    add-int/2addr v1, v3
 
-    aput v2, p2, v0
+    .line 580
+    aput v1, p2, v0
 
-    .line 581
     return-void
 .end method
 

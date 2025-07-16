@@ -43,18 +43,16 @@
 
 # virtual methods
 .method protected createEdgeEffect(Landroidx/recyclerview/widget/RecyclerView;I)Landroid/widget/EdgeEffect;
-    .locals 2
-    .param p1, "view"    # Landroidx/recyclerview/widget/RecyclerView;
-    .param p2, "direction"    # I
+    .locals 0
 
     .line 5623
-    new-instance v0, Landroid/widget/EdgeEffect;
+    new-instance p2, Landroid/widget/EdgeEffect;
 
     invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Landroid/widget/EdgeEffect;-><init>(Landroid/content/Context;)V
+    invoke-direct {p2, p1}, Landroid/widget/EdgeEffect;-><init>(Landroid/content/Context;)V
 
-    return-object v0
+    return-object p2
 .end method

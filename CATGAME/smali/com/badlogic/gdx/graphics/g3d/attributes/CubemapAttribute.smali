@@ -27,9 +27,9 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .line 26
     const-string v0, "environmentCubemap"
 
+    .line 26
     invoke-static {v0}, Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;->register(Ljava/lang/String;)J
 
     move-result-wide v0
@@ -43,8 +43,7 @@
 .end method
 
 .method public constructor <init>(J)V
-    .locals 2
-    .param p1, "type"    # J
+    .locals 0
 
     .line 37
     invoke-direct {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/Attribute;-><init>(J)V
@@ -52,51 +51,46 @@
     .line 38
     invoke-static {p1, p2}, Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;->is(J)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 39
-    new-instance v0, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
+    new-instance p1, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
 
-    invoke-direct {v0}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;-><init>()V
+    invoke-direct {p1}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;-><init>()V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
+    iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
 
-    .line 40
     return-void
 
     .line 38
     :cond_0
-    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v1, "Invalid type specified"
+    const-string p2, "Invalid type specified"
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public constructor <init>(JLcom/badlogic/gdx/graphics/Cubemap;)V
-    .locals 1
-    .param p1, "type"    # J
-    .param p3, "texture"    # Lcom/badlogic/gdx/graphics/Cubemap;
+    .locals 0
 
     .line 48
     invoke-direct {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;-><init>(J)V
 
     .line 49
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
 
-    iput-object p3, v0, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;->texture:Lcom/badlogic/gdx/graphics/GLTexture;
+    iput-object p3, p1, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;->texture:Lcom/badlogic/gdx/graphics/GLTexture;
 
-    .line 50
     return-void
 .end method
 
 .method public constructor <init>(JLcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;)V
-    .locals 1
-    .param p1, "type"    # J
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -108,64 +102,58 @@
     .end annotation
 
     .line 43
-    .local p3, "textureDescription":Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;, "Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor<TT;>;"
     invoke-direct {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;-><init>(J)V
 
     .line 44
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
 
-    invoke-virtual {v0, p3}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;->set(Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;)V
+    invoke-virtual {p1, p3}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;->set(Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;)V
 
-    .line 45
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;)V
-    .locals 3
-    .param p1, "copyFrom"    # Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;
+    .locals 2
 
     .line 53
     iget-wide v0, p1, Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;->type:J
 
-    iget-object v2, p1, Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
 
-    invoke-direct {p0, v0, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;-><init>(JLcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;)V
+    invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;-><init>(JLcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;)V
 
-    .line 54
     return-void
 .end method
 
 .method public static final is(J)Z
-    .locals 4
-    .param p0, "mask"    # J
+    .locals 2
 
     .line 31
     sget-wide v0, Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;->Mask:J
 
-    and-long/2addr v0, p0
+    and-long/2addr p0, v0
 
-    const-wide/16 v2, 0x0
+    const-wide/16 v0, 0x0
 
-    cmp-long v0, v0, v2
+    cmp-long p0, p0, v0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 
 # virtual methods
 .method public compareTo(Lcom/badlogic/gdx/graphics/g3d/Attribute;)I
     .locals 4
-    .param p1, "o"    # Lcom/badlogic/gdx/graphics/g3d/Attribute;
 
     .line 70
     iget-wide v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;->type:J
@@ -182,25 +170,23 @@
 
     sub-long/2addr v0, v2
 
-    long-to-int v0, v0
+    long-to-int p1, v0
 
-    return v0
+    return p1
 
     .line 71
     :cond_0
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
 
-    move-object v1, p1
+    check-cast p1, Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;
 
-    check-cast v1, Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
 
-    iget-object v1, v1, Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;->compareTo(Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;)I
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;->compareTo(Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;)I
+    move-result p1
 
-    move-result v0
-
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
@@ -228,27 +214,23 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .locals 2
 
     .line 63
     invoke-super {p0}, Lcom/badlogic/gdx/graphics/g3d/Attribute;->hashCode()I
 
     move-result v0
 
+    mul-int/lit16 v0, v0, 0x3c7
+
     .line 64
-    .local v0, "result":I
-    mul-int/lit16 v1, v0, 0x3c7
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/CubemapAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
+    invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;->hashCode()I
 
-    invoke-virtual {v2}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;->hashCode()I
+    move-result v1
 
-    move-result v2
+    add-int/2addr v0, v1
 
-    add-int/2addr v1, v2
-
-    .line 65
-    .end local v0    # "result":I
-    .local v1, "result":I
-    return v1
+    return v0
 .end method

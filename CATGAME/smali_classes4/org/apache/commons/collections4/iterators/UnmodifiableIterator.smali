@@ -44,19 +44,16 @@
     .end annotation
 
     .line 66
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/UnmodifiableIterator;, "Lorg/apache/commons/collections4/iterators/UnmodifiableIterator<TE;>;"
-    .local p1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 67
     iput-object p1, p0, Lorg/apache/commons/collections4/iterators/UnmodifiableIterator;->iterator:Ljava/util/Iterator;
 
-    .line 68
     return-void
 .end method
 
 .method public static unmodifiableIterator(Ljava/util/Iterator;)Ljava/util/Iterator;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -69,8 +66,6 @@
         }
     .end annotation
 
-    .line 48
-    .local p0, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     if-eqz p0, :cond_1
 
     .line 51
@@ -78,15 +73,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 53
-    move-object v0, p0
-
-    .line 54
-    .local v0, "tmpIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<TE;>;"
-    return-object v0
+    return-object p0
 
     .line 56
-    .end local v0    # "tmpIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<TE;>;"
     :cond_0
     new-instance v0, Lorg/apache/commons/collections4/iterators/UnmodifiableIterator;
 
@@ -96,13 +85,13 @@
 
     .line 49
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Iterator must not be null"
+    const-string v0, "Iterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
@@ -111,7 +100,6 @@
     .locals 1
 
     .line 73
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/UnmodifiableIterator;, "Lorg/apache/commons/collections4/iterators/UnmodifiableIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/UnmodifiableIterator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -130,7 +118,6 @@
     .end annotation
 
     .line 78
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/UnmodifiableIterator;, "Lorg/apache/commons/collections4/iterators/UnmodifiableIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/UnmodifiableIterator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -144,7 +131,6 @@
     .locals 2
 
     .line 83
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/UnmodifiableIterator;, "Lorg/apache/commons/collections4/iterators/UnmodifiableIterator<TE;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "remove() is not supported"

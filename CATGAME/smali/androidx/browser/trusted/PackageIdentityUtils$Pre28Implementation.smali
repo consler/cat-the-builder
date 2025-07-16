@@ -30,9 +30,7 @@
 
 # virtual methods
 .method public getFingerprintsForPackage(Ljava/lang/String;Landroid/content/pm/PackageManager;)Ljava/util/List;
-    .locals 7
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "pm"    # Landroid/content/pm/PackageManager;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,71 +48,59 @@
         }
     .end annotation
 
-    .line 129
     const/16 v0, 0x40
 
+    .line 129
     invoke-virtual {p2, p1, v0}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 131
-    .local v0, "packageInfo":Landroid/content/pm/PackageInfo;
-    new-instance v1, Ljava/util/ArrayList;
+    new-instance p2, Ljava/util/ArrayList;
 
-    iget-object v2, v0, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
+    iget-object v0, p1, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
 
-    array-length v2, v2
+    array-length v0, v0
 
-    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {p2, v0}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 132
-    .local v1, "fingerprints":Ljava/util/List;, "Ljava/util/List<[B>;"
-    iget-object v2, v0, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
+    iget-object p1, p1, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
 
-    array-length v3, v2
+    array-length v0, p1
 
-    const/4 v4, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v4, v3, :cond_1
+    if-ge v1, v0, :cond_1
 
-    aget-object v5, v2, v4
+    aget-object v2, p1, v1
 
     .line 133
-    .local v5, "signature":Landroid/content/pm/Signature;
-    invoke-static {v5}, Landroidx/browser/trusted/PackageIdentityUtils;->getCertificateSHA256Fingerprint(Landroid/content/pm/Signature;)[B
+    invoke-static {v2}, Landroidx/browser/trusted/PackageIdentityUtils;->getCertificateSHA256Fingerprint(Landroid/content/pm/Signature;)[B
 
-    move-result-object v6
+    move-result-object v2
 
-    .line 134
-    .local v6, "fingerprint":[B
-    if-nez v6, :cond_0
+    if-nez v2, :cond_0
 
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
-    return-object v2
+    return-object p1
 
     .line 135
     :cond_0
-    invoke-interface {v1, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p2, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 132
-    .end local v5    # "signature":Landroid/content/pm/Signature;
-    .end local v6    # "fingerprint":[B
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 138
     :cond_1
-    return-object v1
+    return-object p2
 .end method
 
 .method public packageMatchesToken(Ljava/lang/String;Landroid/content/pm/PackageManager;Landroidx/browser/trusted/TokenContents;)Z
-    .locals 3
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "pm"    # Landroid/content/pm/PackageManager;
-    .param p3, "token"    # Landroidx/browser/trusted/TokenContents;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -125,27 +111,24 @@
     .line 146
     invoke-virtual {p0, p1, p2}, Landroidx/browser/trusted/PackageIdentityUtils$Pre28Implementation;->getFingerprintsForPackage(Ljava/lang/String;Landroid/content/pm/PackageManager;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p2
 
-    .line 147
-    .local v0, "fingerprints":Ljava/util/List;, "Ljava/util/List<[B>;"
-    if-nez v0, :cond_0
+    if-nez p2, :cond_0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return v1
+    return p1
 
     .line 149
     :cond_0
-    invoke-static {p1, v0}, Landroidx/browser/trusted/TokenContents;->create(Ljava/lang/String;Ljava/util/List;)Landroidx/browser/trusted/TokenContents;
+    invoke-static {p1, p2}, Landroidx/browser/trusted/TokenContents;->create(Ljava/lang/String;Ljava/util/List;)Landroidx/browser/trusted/TokenContents;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 150
-    .local v1, "contents":Landroidx/browser/trusted/TokenContents;
-    invoke-virtual {p3, v1}, Landroidx/browser/trusted/TokenContents;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p3, p1}, Landroidx/browser/trusted/TokenContents;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p1
 
-    return v2
+    return p1
 .end method

@@ -32,16 +32,15 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections/CursorableLinkedList;I)V
     .locals 3
-    .param p2, "index"    # I
 
     .line 1001
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->this$0:Lorg/apache/commons/collections/CursorableLinkedList;
 
-    .line 996
     const/4 v0, 0x0
 
+    .line 996
     iput-object v0, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->_cur:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
     .line 997
@@ -52,16 +51,15 @@
 
     iput v1, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->_expectedModCount:I
 
-    .line 999
     const/4 v1, 0x0
 
+    .line 999
     iput v1, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->_nextIndex:I
 
-    .line 1002
     if-nez p2, :cond_0
 
     .line 1003
-    new-instance v2, Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+    new-instance p2, Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
     iget-object p1, p1, Lorg/apache/commons/collections/CursorableLinkedList;->_head:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
@@ -69,9 +67,9 @@
 
     move-result-object p1
 
-    invoke-direct {v2, v0, p1, v0}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;-><init>(Lorg/apache/commons/collections/CursorableLinkedList$Listable;Lorg/apache/commons/collections/CursorableLinkedList$Listable;Ljava/lang/Object;)V
+    invoke-direct {p2, v0, p1, v0}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;-><init>(Lorg/apache/commons/collections/CursorableLinkedList$Listable;Lorg/apache/commons/collections/CursorableLinkedList$Listable;Ljava/lang/Object;)V
 
-    iput-object v2, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->_cur:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+    iput-object p2, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->_cur:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
     .line 1004
     iput v1, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->_nextIndex:I
@@ -85,17 +83,17 @@
     if-ne p2, v1, :cond_1
 
     .line 1006
-    new-instance v1, Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+    new-instance p2, Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    iget-object v2, p1, Lorg/apache/commons/collections/CursorableLinkedList;->_head:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+    iget-object v1, p1, Lorg/apache/commons/collections/CursorableLinkedList;->_head:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    invoke-virtual {v2}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->prev()Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+    invoke-virtual {v1}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->prev()Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {v1, v2, v0, v0}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;-><init>(Lorg/apache/commons/collections/CursorableLinkedList$Listable;Lorg/apache/commons/collections/CursorableLinkedList$Listable;Ljava/lang/Object;)V
+    invoke-direct {p2, v1, v0, v0}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;-><init>(Lorg/apache/commons/collections/CursorableLinkedList$Listable;Lorg/apache/commons/collections/CursorableLinkedList$Listable;Ljava/lang/Object;)V
 
-    iput-object v1, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->_cur:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+    iput-object p2, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->_cur:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
     .line 1007
     iget p1, p1, Lorg/apache/commons/collections/CursorableLinkedList;->_size:I
@@ -111,7 +109,6 @@
     move-result-object p1
 
     .line 1010
-    .local p1, "temp":Lorg/apache/commons/collections/CursorableLinkedList$Listable;
     new-instance v1, Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
     invoke-virtual {p1}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->prev()Lorg/apache/commons/collections/CursorableLinkedList$Listable;
@@ -125,8 +122,6 @@
     .line 1011
     iput p2, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->_nextIndex:I
 
-    .line 1013
-    .end local p1    # "temp":Lorg/apache/commons/collections/CursorableLinkedList$Listable;
     :goto_0
     return-void
 .end method
@@ -135,7 +130,6 @@
 # virtual methods
 .method public add(Ljava/lang/Object;)V
     .locals 4
-    .param p1, "o"    # Ljava/lang/Object;
 
     .line 1093
     invoke-virtual {p0}, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->checkForComod()V
@@ -157,30 +151,29 @@
 
     invoke-virtual {v1, v2, v3, p1}, Lorg/apache/commons/collections/CursorableLinkedList;->insertListable(Lorg/apache/commons/collections/CursorableLinkedList$Listable;Lorg/apache/commons/collections/CursorableLinkedList$Listable;Ljava/lang/Object;)Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->setPrev(Lorg/apache/commons/collections/CursorableLinkedList$Listable;)V
+    invoke-virtual {v0, p1}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->setPrev(Lorg/apache/commons/collections/CursorableLinkedList$Listable;)V
+
+    const/4 p1, 0x0
 
     .line 1095
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->_lastReturned:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+    iput-object p1, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->_lastReturned:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
     .line 1096
-    iget v0, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->_nextIndex:I
+    iget p1, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->_nextIndex:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v0, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->_nextIndex:I
+    iput p1, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->_nextIndex:I
 
     .line 1097
-    iget v0, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->_expectedModCount:I
+    iget p1, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->_expectedModCount:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v0, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->_expectedModCount:I
+    iput p1, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->_expectedModCount:I
 
-    .line 1098
     return-void
 .end method
 
@@ -196,7 +189,6 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 1104
     return-void
 
     .line 1102
@@ -317,7 +309,6 @@
     move-result-object v0
 
     .line 1040
-    .local v0, "ret":Ljava/lang/Object;
     iget-object v1, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->_cur:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
     invoke-virtual {v1}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->next()Lorg/apache/commons/collections/CursorableLinkedList$Listable;
@@ -355,11 +346,9 @@
 
     iput v1, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->_nextIndex:I
 
-    .line 1044
     return-object v0
 
     .line 1037
-    .end local v0    # "ret":Ljava/lang/Object;
     :cond_0
     new-instance v0, Ljava/util/NoSuchElementException;
 
@@ -422,7 +411,6 @@
     move-result-object v0
 
     .line 1021
-    .local v0, "ret":Ljava/lang/Object;
     iget-object v1, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->_cur:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
     invoke-virtual {v1}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->prev()Lorg/apache/commons/collections/CursorableLinkedList$Listable;
@@ -460,11 +448,9 @@
 
     iput v1, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->_nextIndex:I
 
-    .line 1025
     return-object v0
 
     .line 1018
-    .end local v0    # "ret":Ljava/lang/Object;
     :cond_0
     new-instance v0, Ljava/util/NoSuchElementException;
 
@@ -486,7 +472,6 @@
 
     if-nez v0, :cond_0
 
-    .line 1051
     const/4 v0, -0x1
 
     return v0
@@ -593,7 +578,6 @@
 
     iput v0, p0, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->_expectedModCount:I
 
-    .line 1090
     return-void
 
     .line 1081
@@ -606,8 +590,7 @@
 .end method
 
 .method public set(Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 1
 
     .line 1062
     invoke-virtual {p0}, Lorg/apache/commons/collections/CursorableLinkedList$ListIter;->checkForComod()V
@@ -620,21 +603,13 @@
     :try_end_0
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1067
-    nop
-
-    .line 1068
     return-void
 
-    .line 1065
-    :catch_0
-    move-exception v0
-
     .line 1066
-    .local v0, "e":Ljava/lang/NullPointerException;
-    new-instance v1, Ljava/lang/IllegalStateException;
+    :catch_0
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    invoke-direct {v1}, Ljava/lang/IllegalStateException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/IllegalStateException;-><init>()V
 
-    throw v1
+    throw p1
 .end method

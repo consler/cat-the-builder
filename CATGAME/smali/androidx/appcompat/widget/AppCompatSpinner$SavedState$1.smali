@@ -40,7 +40,6 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroidx/appcompat/widget/AppCompatSpinner$SavedState;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
     .line 675
     new-instance v0, Landroidx/appcompat/widget/AppCompatSpinner$SavedState;
@@ -62,13 +61,12 @@
 .end method
 
 .method public newArray(I)[Landroidx/appcompat/widget/AppCompatSpinner$SavedState;
-    .locals 1
-    .param p1, "size"    # I
+    .locals 0
 
     .line 680
-    new-array v0, p1, [Landroidx/appcompat/widget/AppCompatSpinner$SavedState;
+    new-array p1, p1, [Landroidx/appcompat/widget/AppCompatSpinner$SavedState;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;

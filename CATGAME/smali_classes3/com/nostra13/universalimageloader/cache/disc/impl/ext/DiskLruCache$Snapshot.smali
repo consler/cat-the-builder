@@ -34,11 +34,6 @@
 # direct methods
 .method private constructor <init>(Lcom/nostra13/universalimageloader/cache/disc/impl/ext/DiskLruCache;Ljava/lang/String;J[Ljava/io/File;[Ljava/io/InputStream;[J)V
     .locals 0
-    .param p2, "key"    # Ljava/lang/String;
-    .param p3, "sequenceNumber"    # J
-    .param p5, "files"    # [Ljava/io/File;
-    .param p6, "ins"    # [Ljava/io/InputStream;
-    .param p7, "lengths"    # [J
 
     .line 713
     iput-object p1, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/ext/DiskLruCache$Snapshot;->this$0:Lcom/nostra13/universalimageloader/cache/disc/impl/ext/DiskLruCache;
@@ -60,19 +55,11 @@
     .line 718
     iput-object p7, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/ext/DiskLruCache$Snapshot;->lengths:[J
 
-    .line 719
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/nostra13/universalimageloader/cache/disc/impl/ext/DiskLruCache;Ljava/lang/String;J[Ljava/io/File;[Ljava/io/InputStream;[JLcom/nostra13/universalimageloader/cache/disc/impl/ext/DiskLruCache$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/nostra13/universalimageloader/cache/disc/impl/ext/DiskLruCache;
-    .param p2, "x1"    # Ljava/lang/String;
-    .param p3, "x2"    # J
-    .param p5, "x3"    # [Ljava/io/File;
-    .param p6, "x4"    # [Ljava/io/InputStream;
-    .param p7, "x5"    # [J
-    .param p8, "x6"    # Lcom/nostra13/universalimageloader/cache/disc/impl/ext/DiskLruCache$1;
 
     .line 706
     invoke-direct/range {p0 .. p7}, Lcom/nostra13/universalimageloader/cache/disc/impl/ext/DiskLruCache$Snapshot;-><init>(Lcom/nostra13/universalimageloader/cache/disc/impl/ext/DiskLruCache;Ljava/lang/String;J[Ljava/io/File;[Ljava/io/InputStream;[J)V
@@ -88,32 +75,22 @@
     .line 751
     iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/ext/DiskLruCache$Snapshot;->ins:[Ljava/io/InputStream;
 
-    .local v0, "arr$":[Ljava/io/InputStream;
     array-length v1, v0
 
-    .local v1, "len$":I
     const/4 v2, 0x0
 
-    .local v2, "i$":I
     :goto_0
     if-ge v2, v1, :cond_0
 
     aget-object v3, v0, v2
 
     .line 752
-    .local v3, "in":Ljava/io/InputStream;
     invoke-static {v3}, Lcom/nostra13/universalimageloader/cache/disc/impl/ext/Util;->closeQuietly(Ljava/io/Closeable;)V
 
-    .line 751
-    .end local v3    # "in":Ljava/io/InputStream;
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 754
-    .end local v0    # "arr$":[Ljava/io/InputStream;
-    .end local v1    # "len$":I
-    .end local v2    # "i$":I
     :cond_0
     return-void
 .end method
@@ -142,43 +119,39 @@
 
 .method public getFile(I)Ljava/io/File;
     .locals 1
-    .param p1, "index"    # I
 
     .line 732
     iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/ext/DiskLruCache$Snapshot;->files:[Ljava/io/File;
 
-    aget-object v0, v0, p1
+    aget-object p1, v0, p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getInputStream(I)Ljava/io/InputStream;
     .locals 1
-    .param p1, "index"    # I
 
     .line 737
     iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/ext/DiskLruCache$Snapshot;->ins:[Ljava/io/InputStream;
 
-    aget-object v0, v0, p1
+    aget-object p1, v0, p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getLength(I)J
-    .locals 3
-    .param p1, "index"    # I
+    .locals 2
 
     .line 747
     iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/ext/DiskLruCache$Snapshot;->lengths:[J
 
-    aget-wide v1, v0, p1
+    aget-wide v0, v0, p1
 
-    return-wide v1
+    return-wide v0
 .end method
 
 .method public getString(I)Ljava/lang/String;
-    .locals 1
-    .param p1, "index"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -188,11 +161,11 @@
     .line 742
     invoke-virtual {p0, p1}, Lcom/nostra13/universalimageloader/cache/disc/impl/ext/DiskLruCache$Snapshot;->getInputStream(I)Ljava/io/InputStream;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Lcom/nostra13/universalimageloader/cache/disc/impl/ext/DiskLruCache;->access$1800(Ljava/io/InputStream;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/nostra13/universalimageloader/cache/disc/impl/ext/DiskLruCache;->access$1800(Ljava/io/InputStream;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

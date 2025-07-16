@@ -23,8 +23,6 @@
 # direct methods
 .method private constructor <init>(Ljava/util/Iterator;Ljava/util/Collection;)V
     .locals 0
-    .param p1, "iterator"    # Ljava/util/Iterator;
-    .param p2, "set"    # Ljava/util/Collection;
 
     .line 297
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/iterators/AbstractIteratorDecorator;-><init>(Ljava/util/Iterator;)V
@@ -32,15 +30,11 @@
     .line 298
     iput-object p2, p0, Lorg/apache/commons/collections/set/ListOrderedSet$OrderedSetIterator;->set:Ljava/util/Collection;
 
-    .line 299
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/util/Iterator;Ljava/util/Collection;Lorg/apache/commons/collections/set/ListOrderedSet$1;)V
     .locals 0
-    .param p1, "x0"    # Ljava/util/Iterator;
-    .param p2, "x1"    # Ljava/util/Collection;
-    .param p3, "x2"    # Lorg/apache/commons/collections/set/ListOrderedSet$1;
 
     .line 289
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections/set/ListOrderedSet$OrderedSetIterator;-><init>(Ljava/util/Iterator;Ljava/util/Collection;)V
@@ -62,7 +56,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/set/ListOrderedSet$OrderedSetIterator;->last:Ljava/lang/Object;
 
-    .line 303
     return-object v0
 .end method
 
@@ -81,11 +74,10 @@
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 309
     const/4 v0, 0x0
 
+    .line 309
     iput-object v0, p0, Lorg/apache/commons/collections/set/ListOrderedSet$OrderedSetIterator;->last:Ljava/lang/Object;
 
-    .line 310
     return-void
 .end method

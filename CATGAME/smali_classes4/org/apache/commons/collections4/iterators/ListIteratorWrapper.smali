@@ -53,7 +53,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Iterator;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -63,8 +63,6 @@
     .end annotation
 
     .line 78
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;, "Lorg/apache/commons/collections4/iterators/ListIteratorWrapper<TE;>;"
-    .local p1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 59
@@ -74,32 +72,30 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->list:Ljava/util/List;
 
-    .line 62
     const/4 v0, 0x0
 
+    .line 62
     iput v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->currentIndex:I
 
     .line 64
     iput v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->wrappedIteratorIndex:I
 
-    .line 79
     if-eqz p1, :cond_0
 
     .line 82
     iput-object p1, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->iterator:Ljava/util/Iterator;
 
-    .line 83
     return-void
 
     .line 80
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "Iterator must not be null"
+    const-string v0, "Iterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -119,8 +115,6 @@
     .end annotation
 
     .line 97
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;, "Lorg/apache/commons/collections4/iterators/ListIteratorWrapper<TE;>;"
-    .local p1, "obj":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->iterator:Ljava/util/Iterator;
 
     instance-of v1, v0, Ljava/util/ListIterator;
@@ -131,29 +125,25 @@
     check-cast v0, Ljava/util/ListIterator;
 
     .line 100
-    .local v0, "li":Ljava/util/ListIterator;, "Ljava/util/ListIterator<TE;>;"
     invoke-interface {v0, p1}, Ljava/util/ListIterator;->add(Ljava/lang/Object;)V
 
-    .line 101
     return-void
 
     .line 103
-    .end local v0    # "li":Ljava/util/ListIterator;, "Ljava/util/ListIterator<TE;>;"
     :cond_0
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "ListIteratorWrapper does not support optional operations of ListIterator."
+    const-string v0, "ListIteratorWrapper does not support optional operations of ListIterator."
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public hasNext()Z
     .locals 2
 
     .line 113
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;, "Lorg/apache/commons/collections4/iterators/ListIteratorWrapper<TE;>;"
     iget v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->currentIndex:I
 
     iget v1, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->wrappedIteratorIndex:I
@@ -168,7 +158,6 @@
 
     goto :goto_0
 
-    .line 116
     :cond_0
     const/4 v0, 0x1
 
@@ -190,7 +179,6 @@
     .locals 2
 
     .line 126
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;, "Lorg/apache/commons/collections4/iterators/ListIteratorWrapper<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->iterator:Ljava/util/Iterator;
 
     instance-of v1, v0, Ljava/util/ListIterator;
@@ -201,15 +189,13 @@
     check-cast v0, Ljava/util/ListIterator;
 
     .line 128
-    .local v0, "li":Ljava/util/ListIterator;, "Ljava/util/ListIterator<*>;"
     invoke-interface {v0}, Ljava/util/ListIterator;->hasPrevious()Z
 
-    move-result v1
+    move-result v0
 
-    return v1
+    return v0
 
     .line 130
-    .end local v0    # "li":Ljava/util/ListIterator;, "Ljava/util/ListIterator<*>;"
     :cond_0
     iget v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->currentIndex:I
 
@@ -241,7 +227,6 @@
     .end annotation
 
     .line 141
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;, "Lorg/apache/commons/collections4/iterators/ListIteratorWrapper<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->iterator:Ljava/util/Iterator;
 
     instance-of v1, v0, Ljava/util/ListIterator;
@@ -265,9 +250,9 @@
 
     if-ge v1, v2, :cond_1
 
-    .line 146
     add-int/2addr v1, v3
 
+    .line 146
     iput v1, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->currentIndex:I
 
     .line 147
@@ -288,7 +273,6 @@
     move-result-object v0
 
     .line 151
-    .local v0, "retval":Ljava/lang/Object;, "TE;"
     iget-object v1, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->list:Ljava/util/List;
 
     invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -310,7 +294,6 @@
     .line 154
     iput-boolean v3, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->removeState:Z
 
-    .line 155
     return-object v0
 .end method
 
@@ -318,7 +301,6 @@
     .locals 2
 
     .line 165
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;, "Lorg/apache/commons/collections4/iterators/ListIteratorWrapper<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->iterator:Ljava/util/Iterator;
 
     instance-of v1, v0, Ljava/util/ListIterator;
@@ -329,15 +311,13 @@
     check-cast v0, Ljava/util/ListIterator;
 
     .line 167
-    .local v0, "li":Ljava/util/ListIterator;, "Ljava/util/ListIterator<*>;"
     invoke-interface {v0}, Ljava/util/ListIterator;->nextIndex()I
 
-    move-result v1
+    move-result v0
 
-    return v1
+    return v0
 
     .line 169
-    .end local v0    # "li":Ljava/util/ListIterator;, "Ljava/util/ListIterator<*>;"
     :cond_0
     iget v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->currentIndex:I
 
@@ -359,7 +339,6 @@
     .end annotation
 
     .line 180
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;, "Lorg/apache/commons/collections4/iterators/ListIteratorWrapper<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->iterator:Ljava/util/Iterator;
 
     instance-of v1, v0, Ljava/util/ListIterator;
@@ -370,15 +349,13 @@
     check-cast v0, Ljava/util/ListIterator;
 
     .line 183
-    .local v0, "li":Ljava/util/ListIterator;, "Ljava/util/ListIterator<TE;>;"
     invoke-interface {v0}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 
     .line 186
-    .end local v0    # "li":Ljava/util/ListIterator;, "Ljava/util/ListIterator<TE;>;"
     :cond_0
     iget v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->currentIndex:I
 
@@ -391,26 +368,24 @@
 
     if-ne v1, v0, :cond_1
 
-    move v0, v2
+    move v1, v2
 
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    iput-boolean v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->removeState:Z
+    iput-boolean v1, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->removeState:Z
 
     .line 190
-    iget-object v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->list:Ljava/util/List;
+    iget-object v1, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->list:Ljava/util/List;
 
-    iget v1, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->currentIndex:I
+    sub-int/2addr v0, v2
 
-    sub-int/2addr v1, v2
+    iput v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->currentIndex:I
 
-    iput v1, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->currentIndex:I
-
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -429,7 +404,6 @@
     .locals 2
 
     .line 200
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;, "Lorg/apache/commons/collections4/iterators/ListIteratorWrapper<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->iterator:Ljava/util/Iterator;
 
     instance-of v1, v0, Ljava/util/ListIterator;
@@ -440,15 +414,13 @@
     check-cast v0, Ljava/util/ListIterator;
 
     .line 202
-    .local v0, "li":Ljava/util/ListIterator;, "Ljava/util/ListIterator<*>;"
     invoke-interface {v0}, Ljava/util/ListIterator;->previousIndex()I
 
-    move-result v1
+    move-result v0
 
-    return v1
+    return v0
 
     .line 204
-    .end local v0    # "li":Ljava/util/ListIterator;, "Ljava/util/ListIterator<*>;"
     :cond_0
     iget v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->currentIndex:I
 
@@ -458,7 +430,7 @@
 .end method
 
 .method public remove()V
-    .locals 5
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/UnsupportedOperationException;
@@ -466,7 +438,6 @@
     .end annotation
 
     .line 214
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;, "Lorg/apache/commons/collections4/iterators/ListIteratorWrapper<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->iterator:Ljava/util/Iterator;
 
     instance-of v1, v0, Ljava/util/ListIterator;
@@ -476,96 +447,88 @@
     .line 215
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 216
     return-void
 
     .line 218
     :cond_0
-    iget v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->currentIndex:I
-
-    .line 219
-    .local v0, "removeIndex":I
     iget v1, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->currentIndex:I
 
+    .line 219
     iget v2, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->wrappedIteratorIndex:I
 
     if-ne v1, v2, :cond_1
 
-    .line 220
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 v3, v1, -0x1
+
+    goto :goto_0
+
+    :cond_1
+    move v3, v1
 
     .line 222
-    :cond_1
-    iget-boolean v1, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->removeState:Z
+    :goto_0
+    iget-boolean v4, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->removeState:Z
 
-    const/4 v2, 0x0
+    const/4 v5, 0x0
 
-    const/4 v3, 0x1
+    const/4 v6, 0x1
 
-    if-eqz v1, :cond_2
+    if-eqz v4, :cond_2
 
-    iget v1, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->wrappedIteratorIndex:I
+    sub-int/2addr v2, v1
 
-    iget v4, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->currentIndex:I
-
-    sub-int/2addr v1, v4
-
-    if-gt v1, v3, :cond_2
+    if-gt v2, v6, :cond_2
 
     .line 225
-    iget-object v1, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->iterator:Ljava/util/Iterator;
-
-    invoke-interface {v1}, Ljava/util/Iterator;->remove()V
+    invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
     .line 226
-    iget-object v1, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->list:Ljava/util/List;
+    iget-object v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->list:Ljava/util/List;
 
-    invoke-interface {v1, v0}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    invoke-interface {v0, v3}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     .line 227
-    iput v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->currentIndex:I
+    iput v3, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->currentIndex:I
 
     .line 228
-    iget v1, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->wrappedIteratorIndex:I
+    iget v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->wrappedIteratorIndex:I
 
-    sub-int/2addr v1, v3
+    sub-int/2addr v0, v6
 
-    iput v1, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->wrappedIteratorIndex:I
+    iput v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->wrappedIteratorIndex:I
 
     .line 229
-    iput-boolean v2, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->removeState:Z
+    iput-boolean v5, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->removeState:Z
 
-    .line 230
     return-void
 
     .line 223
     :cond_2
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    new-array v1, v6, [Ljava/lang/Object;
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    aput-object v4, v3, v2
-
-    const-string v2, "Cannot remove element at index {0}."
-
-    invoke-static {v2, v3}, Ljava/text/MessageFormat;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    aput-object v2, v1, v5
 
-    throw v1
+    const-string v2, "Cannot remove element at index {0}."
+
+    invoke-static {v2, v1}, Ljava/text/MessageFormat;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
 
 .method public reset()V
     .locals 2
 
     .line 261
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;, "Lorg/apache/commons/collections4/iterators/ListIteratorWrapper<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->iterator:Ljava/util/Iterator;
 
     instance-of v1, v0, Ljava/util/ListIterator;
@@ -576,7 +539,6 @@
     check-cast v0, Ljava/util/ListIterator;
 
     .line 263
-    .local v0, "li":Ljava/util/ListIterator;, "Ljava/util/ListIterator<*>;"
     :goto_0
     invoke-interface {v0}, Ljava/util/ListIterator;->previousIndex()I
 
@@ -589,18 +551,15 @@
 
     goto :goto_0
 
-    .line 266
     :cond_0
     return-void
 
-    .line 268
-    .end local v0    # "li":Ljava/util/ListIterator;, "Ljava/util/ListIterator<*>;"
     :cond_1
     const/4 v0, 0x0
 
+    .line 268
     iput v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->currentIndex:I
 
-    .line 269
     return-void
 .end method
 
@@ -619,8 +578,6 @@
     .end annotation
 
     .line 242
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;, "Lorg/apache/commons/collections4/iterators/ListIteratorWrapper<TE;>;"
-    .local p1, "obj":Ljava/lang/Object;, "TE;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;->iterator:Ljava/util/Iterator;
 
     instance-of v1, v0, Ljava/util/ListIterator;
@@ -631,20 +588,17 @@
     check-cast v0, Ljava/util/ListIterator;
 
     .line 245
-    .local v0, "li":Ljava/util/ListIterator;, "Ljava/util/ListIterator<TE;>;"
     invoke-interface {v0, p1}, Ljava/util/ListIterator;->set(Ljava/lang/Object;)V
 
-    .line 246
     return-void
 
     .line 248
-    .end local v0    # "li":Ljava/util/ListIterator;, "Ljava/util/ListIterator<TE;>;"
     :cond_0
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "ListIteratorWrapper does not support optional operations of ListIterator."
+    const-string v0, "ListIteratorWrapper does not support optional operations of ListIterator."
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

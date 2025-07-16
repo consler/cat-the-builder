@@ -35,8 +35,7 @@
 
 # direct methods
 .method public static final koinApplication(Lkotlin/jvm/functions/Function1;)Lorg/koin/core/KoinApplication;
-    .locals 2
-    .param p0, "appDeclaration"    # Lkotlin/jvm/functions/Function1;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -61,16 +60,14 @@
     move-result-object v0
 
     .line 28
-    .local v0, "koinApplication":Lorg/koin/core/KoinApplication;
     invoke-interface {p0, v0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 29
     invoke-virtual {v0}, Lorg/koin/core/KoinApplication;->getKoin()Lorg/koin/core/Koin;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Lorg/koin/core/Koin;->createContextIfNeeded$koin_core()V
+    invoke-virtual {p0}, Lorg/koin/core/Koin;->createContextIfNeeded$koin_core()V
 
-    .line 30
     return-object v0
 .end method

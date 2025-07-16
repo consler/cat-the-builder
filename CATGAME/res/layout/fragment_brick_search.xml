@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:orientation="vertical" android:id="@id/fragment_brick_search" android:background="@color/app_background" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <ListView android:id="@android:id/list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:cacheColorHint="#00000000" android:divider="@android:color/transparent" />
+    <TextView android:textSize="?large" android:textColor="@color/view_holder_item_title" android:id="@id/recent_used_header" android:padding="@dimen/view_holder_padding" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/category_recently_used" />
+    <TextView android:id="@id/no_recently_used" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="" />
+    <ListView android:id="@android:id/list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:cacheColorHint="#00000000" android:divider="@android:color/transparent" android:layout_below="@id/recent_used_header" />
+    <ProgressBar android:id="@id/progress_bar" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:indeterminate="true" android:layout_centerInParent="true" />
 </RelativeLayout>

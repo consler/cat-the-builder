@@ -51,11 +51,11 @@
     .line 57
     new-instance v0, Ljava/text/SimpleDateFormat;
 
-    sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
+    const-string v1, "HH:mm:ss"
 
-    const-string v2, "HH:mm:ss"
+    sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    invoke-direct {v0, v2, v1}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
+    invoke-direct {v0, v1, v2}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
 
     return-object v0
 .end method

@@ -38,25 +38,17 @@
 # direct methods
 .method public constructor <init>(JJLcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;IIIII)V
     .locals 8
-    .param p1, "tick"    # J
-    .param p3, "delta"    # J
-    .param p5, "fps"    # Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
-    .param p6, "hour"    # I
-    .param p7, "min"    # I
-    .param p8, "sec"    # I
-    .param p9, "fr"    # I
-    .param p10, "subfr"    # I
 
-    .line 41
     move-object v7, p0
 
+    const/16 v5, 0x54
+
+    .line 41
     new-instance v6, Lcom/pdrogfer/mididroid/util/VariableLengthInt;
 
     const/4 v0, 0x5
 
     invoke-direct {v6, v0}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;-><init>(I)V
-
-    const/16 v5, 0x54
 
     move-object v0, p0
 
@@ -66,50 +58,46 @@
 
     invoke-direct/range {v0 .. v6}, Lcom/pdrogfer/mididroid/event/meta/MetaEvent;-><init>(JJILcom/pdrogfer/mididroid/util/VariableLengthInt;)V
 
-    .line 43
     move-object v0, p5
 
+    .line 43
     iput-object v0, v7, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;->mFrameRate:Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
 
-    .line 44
-    move v1, p6
+    move v0, p6
 
-    iput v1, v7, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;->mHours:I
+    .line 44
+    iput v0, v7, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;->mHours:I
+
+    move v0, p7
 
     .line 45
-    move v2, p7
+    iput v0, v7, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;->mMinutes:I
 
-    iput v2, v7, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;->mMinutes:I
+    move/from16 v0, p8
 
     .line 46
-    move/from16 v3, p8
+    iput v0, v7, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;->mSeconds:I
 
-    iput v3, v7, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;->mSeconds:I
+    move/from16 v0, p9
 
     .line 47
-    move/from16 v4, p9
+    iput v0, v7, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;->mFrames:I
 
-    iput v4, v7, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;->mFrames:I
+    move/from16 v0, p10
 
     .line 48
-    move/from16 v5, p10
+    iput v0, v7, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;->mSubFrames:I
 
-    iput v5, v7, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;->mSubFrames:I
-
-    .line 49
     return-void
 .end method
 
 .method public static parseSmpteOffset(JJLcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;)Lcom/pdrogfer/mididroid/event/meta/MetaEvent;
-    .locals 21
-    .param p0, "tick"    # J
-    .param p2, "delta"    # J
-    .param p4, "info"    # Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;
+    .locals 13
+
+    move-object/from16 v5, p4
 
     .line 132
-    move-object/from16 v6, p4
-
-    iget-object v0, v6, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->length:Lcom/pdrogfer/mididroid/util/VariableLengthInt;
+    iget-object v0, v5, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->length:Lcom/pdrogfer/mididroid/util/VariableLengthInt;
 
     invoke-virtual {v0}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;->getValue()I
 
@@ -120,106 +108,83 @@
     if-eq v0, v1, :cond_0
 
     .line 134
-    new-instance v7, Lcom/pdrogfer/mididroid/event/meta/GenericMetaEvent;
+    new-instance v6, Lcom/pdrogfer/mididroid/event/meta/GenericMetaEvent;
 
-    move-object v0, v7
+    move-object v0, v6
 
-    move-wide/from16 v1, p0
+    move-wide v1, p0
 
-    move-wide/from16 v3, p2
+    move-wide v3, p2
 
     move-object/from16 v5, p4
 
     invoke-direct/range {v0 .. v5}, Lcom/pdrogfer/mididroid/event/meta/GenericMetaEvent;-><init>(JJLcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;)V
 
-    return-object v7
+    return-object v6
 
     .line 137
     :cond_0
-    iget-object v0, v6, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->data:[B
+    iget-object v0, v5, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->data:[B
 
     const/4 v1, 0x0
 
     aget-byte v0, v0, v1
 
-    .line 139
-    .local v0, "rrHours":I
     shr-int/lit8 v1, v0, 0x5
 
     .line 140
-    .local v1, "rr":I
     invoke-static {v1}, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;->fromInt(I)Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
 
-    move-result-object v2
+    move-result-object v7
 
-    .line 141
-    .local v2, "fps":Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
-    and-int/lit8 v3, v0, 0x1f
+    and-int/lit8 v8, v0, 0x1f
 
     .line 143
-    .local v3, "hour":I
-    iget-object v4, v6, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->data:[B
+    iget-object v0, v5, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->data:[B
 
-    const/4 v5, 0x1
+    const/4 v1, 0x1
 
-    aget-byte v4, v4, v5
+    aget-byte v9, v0, v1
 
     .line 144
-    .local v4, "min":I
-    iget-object v5, v6, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->data:[B
+    iget-object v0, v5, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->data:[B
 
-    const/4 v7, 0x2
+    const/4 v1, 0x2
 
-    aget-byte v5, v5, v7
+    aget-byte v10, v0, v1
 
     .line 145
-    .local v5, "sec":I
-    iget-object v7, v6, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->data:[B
+    iget-object v0, v5, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->data:[B
 
-    const/4 v8, 0x3
+    const/4 v1, 0x3
 
-    aget-byte v18, v7, v8
+    aget-byte v11, v0, v1
 
     .line 146
-    .local v18, "frm":I
-    iget-object v7, v6, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->data:[B
+    iget-object v0, v5, Lcom/pdrogfer/mididroid/event/meta/MetaEvent$MetaEventData;->data:[B
 
-    const/4 v8, 0x4
+    const/4 v1, 0x4
 
-    aget-byte v19, v7, v8
+    aget-byte v12, v0, v1
 
     .line 148
-    .local v19, "sub":I
-    new-instance v20, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;
+    new-instance v0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;
 
-    move-object/from16 v7, v20
+    move-object v2, v0
 
-    move-wide/from16 v8, p0
+    move-wide v3, p0
 
-    move-wide/from16 v10, p2
+    move-wide v5, p2
 
-    move-object v12, v2
+    invoke-direct/range {v2 .. v12}, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;-><init>(JJLcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;IIIII)V
 
-    move v13, v3
-
-    move v14, v4
-
-    move v15, v5
-
-    move/from16 v16, v18
-
-    move/from16 v17, v19
-
-    invoke-direct/range {v7 .. v17}, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;-><init>(JJLcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;IIIII)V
-
-    return-object v20
+    return-object v0
 .end method
 
 
 # virtual methods
 .method public compareTo(Lcom/pdrogfer/mididroid/event/MidiEvent;)I
     .locals 7
-    .param p1, "other"    # Lcom/pdrogfer/mididroid/event/MidiEvent;
 
     .line 182
     iget-wide v0, p0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;->mTick:J
@@ -243,9 +208,9 @@
 
     move-result-wide v5
 
-    cmp-long v0, v3, v5
+    cmp-long p1, v3, v5
 
-    if-gez v0, :cond_0
+    if-gez p1, :cond_0
 
     goto :goto_0
 
@@ -286,9 +251,9 @@
 
     move-result-wide v5
 
-    cmp-long v0, v3, v5
+    cmp-long p1, v3, v5
 
-    if-gez v0, :cond_2
+    if-gez p1, :cond_2
 
     move v1, v2
 
@@ -297,18 +262,16 @@
 
     .line 191
     :cond_3
-    instance-of v0, p1, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;
+    instance-of p1, p1, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;
 
-    if-nez v0, :cond_4
+    if-nez p1, :cond_4
 
-    .line 193
     return v2
 
-    .line 196
     :cond_4
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
@@ -327,7 +290,6 @@
 .method protected getEventSize()I
     .locals 1
 
-    .line 114
     const/16 v0, 0x8
 
     return v0
@@ -389,73 +351,60 @@
 
 .method public setFrameRate(Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;)V
     .locals 0
-    .param p1, "fps"    # Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
 
     .line 53
     iput-object p1, p0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;->mFrameRate:Lcom/pdrogfer/mididroid/event/meta/SmpteOffset$FrameRate;
 
-    .line 54
     return-void
 .end method
 
 .method public setFrames(I)V
     .locals 0
-    .param p1, "f"    # I
 
     .line 93
     iput p1, p0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;->mFrames:I
 
-    .line 94
     return-void
 .end method
 
 .method public setHours(I)V
     .locals 0
-    .param p1, "h"    # I
 
     .line 63
     iput p1, p0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;->mHours:I
 
-    .line 64
     return-void
 .end method
 
 .method public setMinutes(I)V
     .locals 0
-    .param p1, "m"    # I
 
     .line 73
     iput p1, p0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;->mMinutes:I
 
-    .line 74
     return-void
 .end method
 
 .method public setSeconds(I)V
     .locals 0
-    .param p1, "s"    # I
 
     .line 83
     iput p1, p0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;->mSeconds:I
 
-    .line 84
     return-void
 .end method
 
 .method public setSubFrames(I)V
     .locals 0
-    .param p1, "s"    # I
 
     .line 103
     iput p1, p0, Lcom/pdrogfer/mididroid/event/meta/SmpteOffset;->mSubFrames:I
 
-    .line 104
     return-void
 .end method
 
 .method public writeToFile(Ljava/io/OutputStream;)V
     .locals 1
-    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -465,9 +414,9 @@
     .line 120
     invoke-super {p0, p1}, Lcom/pdrogfer/mididroid/event/meta/MetaEvent;->writeToFile(Ljava/io/OutputStream;)V
 
-    .line 122
     const/4 v0, 0x5
 
+    .line 122
     invoke-virtual {p1, v0}, Ljava/io/OutputStream;->write(I)V
 
     .line 123
@@ -495,6 +444,5 @@
 
     invoke-virtual {p1, v0}, Ljava/io/OutputStream;->write(I)V
 
-    .line 128
     return-void
 .end method

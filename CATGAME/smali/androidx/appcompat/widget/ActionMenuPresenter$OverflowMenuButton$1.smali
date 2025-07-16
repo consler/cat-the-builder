@@ -23,8 +23,6 @@
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/ActionMenuPresenter$OverflowMenuButton;Landroid/view/View;Landroidx/appcompat/widget/ActionMenuPresenter;)V
     .locals 0
-    .param p1, "this$1"    # Landroidx/appcompat/widget/ActionMenuPresenter$OverflowMenuButton;
-    .param p2, "src"    # Landroid/view/View;
 
     .line 638
     iput-object p1, p0, Landroidx/appcompat/widget/ActionMenuPresenter$OverflowMenuButton$1;->this$1:Landroidx/appcompat/widget/ActionMenuPresenter$OverflowMenuButton;
@@ -50,7 +48,6 @@
 
     if-nez v0, :cond_0
 
-    .line 642
     const/4 v0, 0x0
 
     return-object v0
@@ -80,7 +77,6 @@
 
     invoke-virtual {v0}, Landroidx/appcompat/widget/ActionMenuPresenter;->showOverflowMenu()Z
 
-    .line 651
     const/4 v0, 0x1
 
     return v0
@@ -98,7 +94,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 660
     const/4 v0, 0x0
 
     return v0
@@ -111,7 +106,6 @@
 
     invoke-virtual {v0}, Landroidx/appcompat/widget/ActionMenuPresenter;->hideOverflowMenu()Z
 
-    .line 664
     const/4 v0, 0x1
 
     return v0

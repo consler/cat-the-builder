@@ -52,9 +52,9 @@
 
     check-cast v0, Lcom/google/crypto/tink/proto/RegistryConfig$Builder;
 
-    .line 49
     const-string v1, "TINK_1_0_0"
 
+    .line 49
     invoke-virtual {v0, v1}, Lcom/google/crypto/tink/proto/RegistryConfig$Builder;->setConfigName(Ljava/lang/String;)Lcom/google/crypto/tink/proto/RegistryConfig$Builder;
 
     move-result-object v0
@@ -109,9 +109,9 @@
 
     check-cast v0, Lcom/google/crypto/tink/proto/RegistryConfig$Builder;
 
-    .line 64
     const-string v1, "TINK_1_1_0"
 
+    .line 64
     invoke-virtual {v0, v1}, Lcom/google/crypto/tink/proto/RegistryConfig$Builder;->setConfigName(Ljava/lang/String;)Lcom/google/crypto/tink/proto/RegistryConfig$Builder;
 
     move-result-object v0
@@ -166,9 +166,9 @@
 
     check-cast v0, Lcom/google/crypto/tink/proto/RegistryConfig$Builder;
 
-    .line 78
     const-string v1, "TINK"
 
+    .line 78
     invoke-virtual {v0, v1}, Lcom/google/crypto/tink/proto/RegistryConfig$Builder;->setConfigName(Ljava/lang/String;)Lcom/google/crypto/tink/proto/RegistryConfig$Builder;
 
     move-result-object v0
@@ -182,7 +182,6 @@
 
     sput-object v0, Lcom/google/crypto/tink/config/TinkConfig;->LATEST:Lcom/google/crypto/tink/proto/RegistryConfig;
 
-    .line 72
     return-void
 .end method
 
@@ -209,7 +208,6 @@
     .line 90
     invoke-static {}, Lcom/google/crypto/tink/config/TinkConfig;->register()V
 
-    .line 91
     return-void
 .end method
 
@@ -236,6 +234,5 @@
     .line 105
     invoke-static {}, Lcom/google/crypto/tink/streamingaead/StreamingAeadConfig;->register()V
 
-    .line 106
     return-void
 .end method

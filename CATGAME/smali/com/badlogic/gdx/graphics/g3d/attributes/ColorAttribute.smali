@@ -41,104 +41,91 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .locals 14
 
-    .line 25
     const-string v0, "diffuseColor"
 
+    .line 25
     invoke-static {v0}, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->register(Ljava/lang/String;)J
 
     move-result-wide v0
 
     sput-wide v0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Diffuse:J
 
+    const-string v2, "specularColor"
+
     .line 27
-    const-string v0, "specularColor"
+    invoke-static {v2}, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->register(Ljava/lang/String;)J
 
-    invoke-static {v0}, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->register(Ljava/lang/String;)J
+    move-result-wide v2
 
-    move-result-wide v0
+    sput-wide v2, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Specular:J
 
-    sput-wide v0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Specular:J
+    const-string v4, "ambientColor"
 
     .line 29
-    const-string v0, "ambientColor"
+    invoke-static {v4}, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->register(Ljava/lang/String;)J
 
-    invoke-static {v0}, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->register(Ljava/lang/String;)J
+    move-result-wide v4
 
-    move-result-wide v0
+    sput-wide v4, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Ambient:J
 
-    sput-wide v0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Ambient:J
+    const-string v6, "emissiveColor"
 
     .line 31
-    const-string v0, "emissiveColor"
+    invoke-static {v6}, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->register(Ljava/lang/String;)J
 
-    invoke-static {v0}, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->register(Ljava/lang/String;)J
+    move-result-wide v6
 
-    move-result-wide v0
+    sput-wide v6, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Emissive:J
 
-    sput-wide v0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Emissive:J
+    const-string v8, "reflectionColor"
 
     .line 33
-    const-string v0, "reflectionColor"
+    invoke-static {v8}, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->register(Ljava/lang/String;)J
 
-    invoke-static {v0}, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->register(Ljava/lang/String;)J
+    move-result-wide v8
 
-    move-result-wide v0
+    sput-wide v8, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Reflection:J
 
-    sput-wide v0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Reflection:J
+    const-string v10, "ambientLightColor"
 
     .line 35
-    const-string v0, "ambientLightColor"
+    invoke-static {v10}, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->register(Ljava/lang/String;)J
 
-    invoke-static {v0}, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->register(Ljava/lang/String;)J
+    move-result-wide v10
 
-    move-result-wide v0
+    sput-wide v10, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->AmbientLight:J
 
-    sput-wide v0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->AmbientLight:J
+    const-string v12, "fogColor"
 
     .line 37
-    const-string v0, "fogColor"
+    invoke-static {v12}, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->register(Ljava/lang/String;)J
 
-    invoke-static {v0}, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->register(Ljava/lang/String;)J
+    move-result-wide v12
 
-    move-result-wide v0
+    sput-wide v12, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Fog:J
 
-    sput-wide v0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Fog:J
-
-    .line 39
-    sget-wide v2, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Ambient:J
-
-    sget-wide v4, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Diffuse:J
-
-    or-long/2addr v2, v4
-
-    sget-wide v4, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Specular:J
-
-    or-long/2addr v2, v4
-
-    sget-wide v4, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Emissive:J
-
-    or-long/2addr v2, v4
-
-    sget-wide v4, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Reflection:J
-
-    or-long/2addr v2, v4
-
-    sget-wide v4, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->AmbientLight:J
-
-    or-long/2addr v2, v4
+    or-long/2addr v0, v4
 
     or-long/2addr v0, v2
 
+    or-long/2addr v0, v6
+
+    or-long/2addr v0, v8
+
+    or-long/2addr v0, v10
+
+    or-long/2addr v0, v12
+
+    .line 39
     sput-wide v0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Mask:J
 
     return-void
 .end method
 
 .method public constructor <init>(J)V
-    .locals 2
-    .param p1, "type"    # J
+    .locals 1
 
     .line 80
     invoke-direct {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/Attribute;-><init>(J)V
@@ -153,85 +140,68 @@
     .line 81
     invoke-static {p1, p2}, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->is(J)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    .line 82
     return-void
 
-    .line 81
     :cond_0
-    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v1, "Invalid type specified"
+    const-string p2, "Invalid type specified"
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public constructor <init>(JFFFF)V
-    .locals 1
-    .param p1, "type"    # J
-    .param p3, "r"    # F
-    .param p4, "g"    # F
-    .param p5, "b"    # F
-    .param p6, "a"    # F
+    .locals 0
 
     .line 90
     invoke-direct {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;-><init>(J)V
 
     .line 91
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->color:Lcom/badlogic/gdx/graphics/Color;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->color:Lcom/badlogic/gdx/graphics/Color;
 
-    invoke-virtual {v0, p3, p4, p5, p6}, Lcom/badlogic/gdx/graphics/Color;->set(FFFF)Lcom/badlogic/gdx/graphics/Color;
+    invoke-virtual {p1, p3, p4, p5, p6}, Lcom/badlogic/gdx/graphics/Color;->set(FFFF)Lcom/badlogic/gdx/graphics/Color;
 
-    .line 92
     return-void
 .end method
 
 .method public constructor <init>(JLcom/badlogic/gdx/graphics/Color;)V
-    .locals 1
-    .param p1, "type"    # J
-    .param p3, "color"    # Lcom/badlogic/gdx/graphics/Color;
+    .locals 0
 
     .line 85
     invoke-direct {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;-><init>(J)V
 
-    .line 86
     if-eqz p3, :cond_0
 
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->color:Lcom/badlogic/gdx/graphics/Color;
+    .line 86
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->color:Lcom/badlogic/gdx/graphics/Color;
 
-    invoke-virtual {v0, p3}, Lcom/badlogic/gdx/graphics/Color;->set(Lcom/badlogic/gdx/graphics/Color;)Lcom/badlogic/gdx/graphics/Color;
+    invoke-virtual {p1, p3}, Lcom/badlogic/gdx/graphics/Color;->set(Lcom/badlogic/gdx/graphics/Color;)Lcom/badlogic/gdx/graphics/Color;
 
-    .line 87
     :cond_0
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;)V
-    .locals 3
-    .param p1, "copyFrom"    # Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;
+    .locals 2
 
     .line 95
     iget-wide v0, p1, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->type:J
 
-    iget-object v2, p1, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->color:Lcom/badlogic/gdx/graphics/Color;
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->color:Lcom/badlogic/gdx/graphics/Color;
 
-    invoke-direct {p0, v0, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;-><init>(JLcom/badlogic/gdx/graphics/Color;)V
+    invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;-><init>(JLcom/badlogic/gdx/graphics/Color;)V
 
-    .line 96
     return-void
 .end method
 
 .method public static final createAmbient(FFFF)Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;
     .locals 8
-    .param p0, "r"    # F
-    .param p1, "g"    # F
-    .param p2, "b"    # F
-    .param p3, "a"    # F
 
     .line 50
     new-instance v7, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;
@@ -255,7 +225,6 @@
 
 .method public static final createAmbient(Lcom/badlogic/gdx/graphics/Color;)Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;
     .locals 3
-    .param p0, "color"    # Lcom/badlogic/gdx/graphics/Color;
 
     .line 46
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;
@@ -269,10 +238,6 @@
 
 .method public static final createDiffuse(FFFF)Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;
     .locals 8
-    .param p0, "r"    # F
-    .param p1, "g"    # F
-    .param p2, "b"    # F
-    .param p3, "a"    # F
 
     .line 58
     new-instance v7, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;
@@ -296,7 +261,6 @@
 
 .method public static final createDiffuse(Lcom/badlogic/gdx/graphics/Color;)Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;
     .locals 3
-    .param p0, "color"    # Lcom/badlogic/gdx/graphics/Color;
 
     .line 54
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;
@@ -310,10 +274,6 @@
 
 .method public static final createReflection(FFFF)Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;
     .locals 8
-    .param p0, "r"    # F
-    .param p1, "g"    # F
-    .param p2, "b"    # F
-    .param p3, "a"    # F
 
     .line 74
     new-instance v7, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;
@@ -337,7 +297,6 @@
 
 .method public static final createReflection(Lcom/badlogic/gdx/graphics/Color;)Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;
     .locals 3
-    .param p0, "color"    # Lcom/badlogic/gdx/graphics/Color;
 
     .line 70
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;
@@ -351,10 +310,6 @@
 
 .method public static final createSpecular(FFFF)Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;
     .locals 8
-    .param p0, "r"    # F
-    .param p1, "g"    # F
-    .param p2, "b"    # F
-    .param p3, "a"    # F
 
     .line 66
     new-instance v7, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;
@@ -378,7 +333,6 @@
 
 .method public static final createSpecular(Lcom/badlogic/gdx/graphics/Color;)Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;
     .locals 3
-    .param p0, "color"    # Lcom/badlogic/gdx/graphics/Color;
 
     .line 62
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;
@@ -391,36 +345,34 @@
 .end method
 
 .method public static final is(J)Z
-    .locals 4
-    .param p0, "mask"    # J
+    .locals 2
 
     .line 42
     sget-wide v0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->Mask:J
 
-    and-long/2addr v0, p0
+    and-long/2addr p0, v0
 
-    const-wide/16 v2, 0x0
+    const-wide/16 v0, 0x0
 
-    cmp-long v0, v0, v2
+    cmp-long p0, p0, v0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 
 # virtual methods
 .method public compareTo(Lcom/badlogic/gdx/graphics/g3d/Attribute;)I
     .locals 4
-    .param p1, "o"    # Lcom/badlogic/gdx/graphics/g3d/Attribute;
 
     .line 112
     iget-wide v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->type:J
@@ -437,31 +389,29 @@
 
     sub-long/2addr v0, v2
 
-    long-to-int v0, v0
+    long-to-int p1, v0
 
-    return v0
+    return p1
 
     .line 113
     :cond_0
-    move-object v0, p1
+    check-cast p1, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;
 
-    check-cast v0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->color:Lcom/badlogic/gdx/graphics/Color;
 
-    iget-object v0, v0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->color:Lcom/badlogic/gdx/graphics/Color;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/Color;->toIntBits()I
+
+    move-result p1
+
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->color:Lcom/badlogic/gdx/graphics/Color;
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/Color;->toIntBits()I
 
     move-result v0
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->color:Lcom/badlogic/gdx/graphics/Color;
+    sub-int/2addr p1, v0
 
-    invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/Color;->toIntBits()I
-
-    move-result v1
-
-    sub-int/2addr v0, v1
-
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
@@ -489,27 +439,23 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .locals 2
 
     .line 105
     invoke-super {p0}, Lcom/badlogic/gdx/graphics/g3d/Attribute;->hashCode()I
 
     move-result v0
 
+    mul-int/lit16 v0, v0, 0x3b9
+
     .line 106
-    .local v0, "result":I
-    mul-int/lit16 v1, v0, 0x3b9
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->color:Lcom/badlogic/gdx/graphics/Color;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/ColorAttribute;->color:Lcom/badlogic/gdx/graphics/Color;
+    invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/Color;->toIntBits()I
 
-    invoke-virtual {v2}, Lcom/badlogic/gdx/graphics/Color;->toIntBits()I
+    move-result v1
 
-    move-result v2
+    add-int/2addr v0, v1
 
-    add-int/2addr v1, v2
-
-    .line 107
-    .end local v0    # "result":I
-    .local v1, "result":I
-    return v1
+    return v0
 .end method

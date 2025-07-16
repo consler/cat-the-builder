@@ -36,7 +36,6 @@
 # direct methods
 .method constructor <init>(Ljava/util/Set;Ljava/lang/Object;)V
     .locals 0
-    .param p2, "lock"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -48,10 +47,7 @@
     .end annotation
 
     .line 161
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/SynchronizedMultiSet$SynchronizedSet;, "Lorg/apache/commons/collections4/multiset/SynchronizedMultiSet$SynchronizedSet<TT;>;"
-    .local p1, "set":Ljava/util/Set;, "Ljava/util/Set<TT;>;"
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections4/collection/SynchronizedCollection;-><init>(Ljava/util/Collection;Ljava/lang/Object;)V
 
-    .line 162
     return-void
 .end method

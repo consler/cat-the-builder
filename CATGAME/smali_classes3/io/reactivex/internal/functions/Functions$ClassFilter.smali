@@ -53,14 +53,11 @@
     .end annotation
 
     .line 355
-    .local p0, "this":Lio/reactivex/internal/functions/Functions$ClassFilter;, "Lio/reactivex/internal/functions/Functions$ClassFilter<TT;TU;>;"
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<TU;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 356
     iput-object p1, p0, Lio/reactivex/internal/functions/Functions$ClassFilter;->clazz:Ljava/lang/Class;
 
-    .line 357
     return-void
 .end method
 
@@ -81,13 +78,11 @@
     .end annotation
 
     .line 361
-    .local p0, "this":Lio/reactivex/internal/functions/Functions$ClassFilter;, "Lio/reactivex/internal/functions/Functions$ClassFilter<TT;TU;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/functions/Functions$ClassFilter;->clazz:Ljava/lang/Class;
 
     invoke-virtual {v0, p1}, Ljava/lang/Class;->isInstance(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

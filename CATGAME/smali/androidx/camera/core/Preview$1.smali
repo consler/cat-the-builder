@@ -23,7 +23,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/Preview;Landroidx/camera/core/impl/ImageInfoProcessor;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/core/Preview;
 
     .line 222
     iput-object p1, p0, Landroidx/camera/core/Preview$1;->this$0:Landroidx/camera/core/Preview;
@@ -39,7 +38,6 @@
 # virtual methods
 .method public onCaptureCompleted(Landroidx/camera/core/impl/CameraCaptureResult;)V
     .locals 2
-    .param p1, "cameraCaptureResult"    # Landroidx/camera/core/impl/CameraCaptureResult;
 
     .line 226
     invoke-super {p0, p1}, Landroidx/camera/core/impl/CameraCaptureCallback;->onCaptureCompleted(Landroidx/camera/core/impl/CameraCaptureResult;)V
@@ -53,16 +51,15 @@
 
     invoke-interface {v0, v1}, Landroidx/camera/core/impl/ImageInfoProcessor;->process(Landroidx/camera/core/ImageInfo;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 229
-    iget-object v0, p0, Landroidx/camera/core/Preview$1;->this$0:Landroidx/camera/core/Preview;
+    iget-object p1, p0, Landroidx/camera/core/Preview$1;->this$0:Landroidx/camera/core/Preview;
 
-    invoke-virtual {v0}, Landroidx/camera/core/Preview;->notifyUpdated()V
+    invoke-virtual {p1}, Landroidx/camera/core/Preview;->notifyUpdated()V
 
-    .line 231
     :cond_0
     return-void
 .end method

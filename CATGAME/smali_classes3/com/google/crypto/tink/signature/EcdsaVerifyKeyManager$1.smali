@@ -36,7 +36,6 @@
     .end annotation
 
     .line 41
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<Lcom/google/crypto/tink/PublicKeyVerify;>;"
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;-><init>(Ljava/lang/Class;)V
 
     return-void
@@ -45,8 +44,7 @@
 
 # virtual methods
 .method public getPrimitive(Lcom/google/crypto/tink/proto/EcdsaPublicKey;)Lcom/google/crypto/tink/PublicKeyVerify;
-    .locals 4
-    .param p1, "keyProto"    # Lcom/google/crypto/tink/proto/EcdsaPublicKey;
+    .locals 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -61,9 +59,6 @@
             Ljava/security/GeneralSecurityException;
         }
     .end annotation
-
-    .line 45
-    nop
 
     .line 47
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/EcdsaPublicKey;->getParams()Lcom/google/crypto/tink/proto/EcdsaParams;
@@ -102,7 +97,6 @@
     move-result-object v0
 
     .line 50
-    .local v0, "publicKey":Ljava/security/interfaces/ECPublicKey;
     new-instance v1, Lcom/google/crypto/tink/subtle/EcdsaVerifyJce;
 
     .line 52
@@ -121,19 +115,18 @@
     .line 53
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/EcdsaPublicKey;->getParams()Lcom/google/crypto/tink/proto/EcdsaParams;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v3}, Lcom/google/crypto/tink/proto/EcdsaParams;->getEncoding()Lcom/google/crypto/tink/proto/EcdsaSignatureEncoding;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/EcdsaParams;->getEncoding()Lcom/google/crypto/tink/proto/EcdsaSignatureEncoding;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-static {v3}, Lcom/google/crypto/tink/signature/SigUtil;->toEcdsaEncoding(Lcom/google/crypto/tink/proto/EcdsaSignatureEncoding;)Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
+    invoke-static {p1}, Lcom/google/crypto/tink/signature/SigUtil;->toEcdsaEncoding(Lcom/google/crypto/tink/proto/EcdsaSignatureEncoding;)Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-direct {v1, v0, v2, v3}, Lcom/google/crypto/tink/subtle/EcdsaVerifyJce;-><init>(Ljava/security/interfaces/ECPublicKey;Lcom/google/crypto/tink/subtle/Enums$HashType;Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;)V
+    invoke-direct {v1, v0, v2, p1}, Lcom/google/crypto/tink/subtle/EcdsaVerifyJce;-><init>(Ljava/security/interfaces/ECPublicKey;Lcom/google/crypto/tink/subtle/Enums$HashType;Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;)V
 
-    .line 50
     return-object v1
 .end method
 

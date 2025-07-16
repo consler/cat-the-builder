@@ -39,8 +39,7 @@
 
 # virtual methods
 .method public findValueByNumber(I)Lcom/google/crypto/tink/proto/OutputPrefixType;
-    .locals 1
-    .param p1, "number"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -53,9 +52,9 @@
     .line 121
     invoke-static {p1}, Lcom/google/crypto/tink/proto/OutputPrefixType;->forNumber(I)Lcom/google/crypto/tink/proto/OutputPrefixType;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic findValueByNumber(I)Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLite;

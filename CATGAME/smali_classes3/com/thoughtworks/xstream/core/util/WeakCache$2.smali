@@ -15,7 +15,6 @@
 # direct methods
 .method constructor <init>(Lcom/thoughtworks/xstream/core/util/WeakCache;[I)V
     .locals 0
-    .param p1, "this$0"    # Lcom/thoughtworks/xstream/core/util/WeakCache;
 
     .line 94
     iput-object p1, p0, Lcom/thoughtworks/xstream/core/util/WeakCache$2;->this$0:Lcom/thoughtworks/xstream/core/util/WeakCache;
@@ -30,22 +29,20 @@
 
 # virtual methods
 .method public visit(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
-    .param p1, "element"    # Ljava/lang/Object;
+    .locals 2
 
     .line 97
-    iget-object v0, p0, Lcom/thoughtworks/xstream/core/util/WeakCache$2;->val$i:[I
+    iget-object p1, p0, Lcom/thoughtworks/xstream/core/util/WeakCache$2;->val$i:[I
 
-    const/4 v1, 0x0
-
-    aget v2, v0, v1
-
-    add-int/lit8 v2, v2, 0x1
-
-    aput v2, v0, v1
-
-    .line 98
     const/4 v0, 0x0
 
-    return-object v0
+    aget v1, p1, v0
+
+    add-int/lit8 v1, v1, 0x1
+
+    aput v1, p1, v0
+
+    const/4 p1, 0x0
+
+    return-object p1
 .end method

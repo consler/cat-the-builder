@@ -71,8 +71,6 @@
 # direct methods
 .method public constructor <init>(Lorg/koin/core/Koin;Lorg/koin/core/definition/BeanDefinition;)V
     .locals 1
-    .param p1, "koin"    # Lorg/koin/core/Koin;
-    .param p2, "beanDefinition"    # Lorg/koin/core/definition/BeanDefinition;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -90,9 +88,6 @@
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 25
-    nop
-
     .line 26
     invoke-direct {p0, p1, p2}, Lorg/koin/core/instance/InstanceFactory;-><init>(Lorg/koin/core/Koin;Lorg/koin/core/definition/BeanDefinition;)V
 
@@ -102,8 +97,7 @@
 
 # virtual methods
 .method public create(Lorg/koin/core/instance/InstanceContext;)Ljava/lang/Object;
-    .locals 3
-    .param p1, "context"    # Lorg/koin/core/instance/InstanceContext;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -119,73 +113,56 @@
     .line 38
     monitor-enter p0
 
-    const/4 v0, 0x0
-
     .line 39
-    .local v0, "$i$a$-synchronized-SingleInstanceFactory$create$1":I
     :try_start_0
-    iget-object v1, p0, Lorg/koin/core/instance/SingleInstanceFactory;->value:Ljava/lang/Object;
+    iget-object v0, p0, Lorg/koin/core/instance/SingleInstanceFactory;->value:Ljava/lang/Object;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     .line 40
     invoke-super {p0, p1}, Lorg/koin/core/instance/InstanceFactory;->create(Lorg/koin/core/instance/InstanceContext;)Ljava/lang/Object;
 
-    move-result-object v1
-
-    goto :goto_0
-
-    .line 41
-    :cond_0
-    iget-object v1, p0, Lorg/koin/core/instance/SingleInstanceFactory;->value:Ljava/lang/Object;
+    move-result-object v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v1, :cond_1
+    goto :goto_0
 
-    .line 39
-    :goto_0
-    nop
-
-    .line 41
-    nop
+    :cond_0
+    if-eqz v0, :cond_1
 
     .line 38
-    .end local v0    # "$i$a$-synchronized-SingleInstanceFactory$create$1":I
+    :goto_0
     monitor-exit p0
 
-    return-object v1
+    return-object v0
 
-    .line 41
-    .restart local v0    # "$i$a$-synchronized-SingleInstanceFactory$create$1":I
     :cond_1
     :try_start_1
-    const-string v1, "Single instance created couldn\'t return value"
+    const-string p1, "Single instance created couldn\'t return value"
 
-    new-instance v2, Ljava/lang/IllegalStateException;
+    .line 41
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v2, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    check-cast v2, Ljava/lang/Throwable;
+    check-cast v0, Ljava/lang/Throwable;
 
-    .end local p1    # "context":Lorg/koin/core/instance/InstanceContext;
-    throw v2
+    throw v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 38
-    .end local v0    # "$i$a$-synchronized-SingleInstanceFactory$create$1":I
-    .restart local p1    # "context":Lorg/koin/core/instance/InstanceContext;
     :catchall_0
-    move-exception v0
+    move-exception p1
 
+    .line 38
     monitor-exit p0
 
-    throw v0
+    throw p1
 .end method
 
 .method public drop()V
@@ -214,19 +191,17 @@
 
     check-cast v0, Lkotlin/Unit;
 
-    .line 34
     :cond_0
     const/4 v0, 0x0
 
+    .line 34
     iput-object v0, p0, Lorg/koin/core/instance/SingleInstanceFactory;->value:Ljava/lang/Object;
 
-    .line 35
     return-void
 .end method
 
 .method public get(Lorg/koin/core/instance/InstanceContext;)Ljava/lang/Object;
-    .locals 2
-    .param p1, "context"    # Lorg/koin/core/instance/InstanceContext;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -249,32 +224,32 @@
     .line 48
     invoke-virtual {p0, p1}, Lorg/koin/core/instance/SingleInstanceFactory;->create(Lorg/koin/core/instance/InstanceContext;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lorg/koin/core/instance/SingleInstanceFactory;->value:Ljava/lang/Object;
+    iput-object p1, p0, Lorg/koin/core/instance/SingleInstanceFactory;->value:Ljava/lang/Object;
 
     .line 50
     :cond_0
-    iget-object v0, p0, Lorg/koin/core/instance/SingleInstanceFactory;->value:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/koin/core/instance/SingleInstanceFactory;->value:Ljava/lang/Object;
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
-    return-object v0
+    return-object p1
 
     :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Single instance created couldn\'t return value"
+    const-string v0, "Single instance created couldn\'t return value"
 
-    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    check-cast v0, Ljava/lang/Throwable;
+    check-cast p1, Ljava/lang/Throwable;
 
-    throw v0
+    throw p1
 .end method
 
 .method public isCreated()Z

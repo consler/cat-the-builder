@@ -38,13 +38,11 @@
 
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
-    .line 300
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams$1;
 
     .line 292
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams$Builder;-><init>()V
@@ -67,7 +65,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams;->access$200(Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams;)V
 
-    .line 328
     return-object p0
 .end method
 
@@ -84,7 +81,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams;->access$400(Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams;)V
 
-    .line 368
     return-object p0
 .end method
 
@@ -101,7 +97,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams;->access$700(Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams;)V
 
-    .line 434
     return-object p0
 .end method
 
@@ -118,7 +113,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams;->access$1000(Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams;)V
 
-    .line 505
     return-object p0
 .end method
 
@@ -214,7 +208,6 @@
 
 .method public mergeHmacParams(Lcom/google/crypto/tink/proto/HmacParams;)Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/HmacParams;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -234,13 +227,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams;->access$900(Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams;Lcom/google/crypto/tink/proto/HmacParams;)V
 
-    .line 494
     return-object p0
 .end method
 
 .method public setCiphertextSegmentSize(I)Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -260,13 +251,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams;->access$100(Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams;I)V
 
-    .line 319
     return-object p0
 .end method
 
 .method public setDerivedKeySize(I)Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -286,13 +275,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams;->access$300(Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams;I)V
 
-    .line 355
     return-object p0
 .end method
 
 .method public setHkdfHashType(Lcom/google/crypto/tink/proto/HashType;)Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/HashType;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -312,13 +299,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams;->access$600(Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams;Lcom/google/crypto/tink/proto/HashType;)V
 
-    .line 421
     return-object p0
 .end method
 
 .method public setHkdfHashTypeValue(I)Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -338,13 +323,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams;->access$500(Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams;I)V
 
-    .line 395
     return-object p0
 .end method
 
 .method public setHmacParams(Lcom/google/crypto/tink/proto/HmacParams$Builder;)Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams$Builder;
-    .locals 2
-    .param p1, "builderForValue"    # Lcom/google/crypto/tink/proto/HmacParams$Builder;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -364,19 +347,17 @@
 
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/HmacParams$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Lcom/google/crypto/tink/proto/HmacParams;
+    check-cast p1, Lcom/google/crypto/tink/proto/HmacParams;
 
-    invoke-static {v0, v1}, Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams;->access$800(Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams;Lcom/google/crypto/tink/proto/HmacParams;)V
+    invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams;->access$800(Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams;Lcom/google/crypto/tink/proto/HmacParams;)V
 
-    .line 482
     return-object p0
 .end method
 
 .method public setHmacParams(Lcom/google/crypto/tink/proto/HmacParams;)Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/HmacParams;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -396,6 +377,5 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams;->access$800(Lcom/google/crypto/tink/proto/AesCtrHmacStreamingParams;Lcom/google/crypto/tink/proto/HmacParams;)V
 
-    .line 469
     return-object p0
 .end method

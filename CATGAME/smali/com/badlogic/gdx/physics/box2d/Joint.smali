@@ -26,17 +26,15 @@
 # direct methods
 .method protected constructor <init>(Lcom/badlogic/gdx/physics/box2d/World;J)V
     .locals 1
-    .param p1, "world"    # Lcom/badlogic/gdx/physics/box2d/World;
-    .param p2, "addr"    # J
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 34
     const/4 v0, 0x2
 
     new-array v0, v0, [F
 
+    .line 34
     iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Joint;->tmp:[F
 
     .line 87
@@ -66,7 +64,6 @@
     .line 49
     iput-wide p2, p0, Lcom/badlogic/gdx/physics/box2d/Joint;->addr:J
 
-    .line 50
     return-void
 .end method
 
@@ -236,7 +233,6 @@
 
 .method public getReactionForce(F)Lcom/badlogic/gdx/math/Vector2;
     .locals 3
-    .param p1, "inv_dt"    # F
 
     .line 133
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/Joint;->addr:J
@@ -246,45 +242,44 @@
     invoke-direct {p0, v0, v1, p1, v2}, Lcom/badlogic/gdx/physics/box2d/Joint;->jniGetReactionForce(JF[F)V
 
     .line 134
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Joint;->reactionForce:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Joint;->reactionForce:Lcom/badlogic/gdx/math/Vector2;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/physics/box2d/Joint;->tmp:[F
+    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Joint;->tmp:[F
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aget v1, v1, v2
+    aget v0, v0, v1
 
-    iput v1, v0, Lcom/badlogic/gdx/math/Vector2;->x:F
+    iput v0, p1, Lcom/badlogic/gdx/math/Vector2;->x:F
 
     .line 135
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Joint;->reactionForce:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Joint;->reactionForce:Lcom/badlogic/gdx/math/Vector2;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/physics/box2d/Joint;->tmp:[F
+    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Joint;->tmp:[F
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    aget v1, v1, v2
+    aget v0, v0, v1
 
-    iput v1, v0, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iput v0, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
 
     .line 136
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Joint;->reactionForce:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Joint;->reactionForce:Lcom/badlogic/gdx/math/Vector2;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getReactionTorque(F)F
     .locals 2
-    .param p1, "inv_dt"    # F
 
     .line 148
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/Joint;->addr:J
 
     invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/Joint;->jniGetReactionTorque(JF)F
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public getType()Lcom/badlogic/gdx/physics/box2d/JointDef$JointType;
@@ -297,10 +292,9 @@
 
     move-result v0
 
-    .line 55
-    .local v0, "type":I
     if-lez v0, :cond_0
 
+    .line 55
     sget-object v1, Lcom/badlogic/gdx/physics/box2d/JointDef$JointType;->valueTypes:[Lcom/badlogic/gdx/physics/box2d/JointDef$JointType;
 
     array-length v1, v1
@@ -310,15 +304,15 @@
     .line 56
     sget-object v1, Lcom/badlogic/gdx/physics/box2d/JointDef$JointType;->valueTypes:[Lcom/badlogic/gdx/physics/box2d/JointDef$JointType;
 
-    aget-object v1, v1, v0
+    aget-object v0, v1, v0
 
-    return-object v1
+    return-object v0
 
     .line 58
     :cond_0
-    sget-object v1, Lcom/badlogic/gdx/physics/box2d/JointDef$JointType;->Unknown:Lcom/badlogic/gdx/physics/box2d/JointDef$JointType;
+    sget-object v0, Lcom/badlogic/gdx/physics/box2d/JointDef$JointType;->Unknown:Lcom/badlogic/gdx/physics/box2d/JointDef$JointType;
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public getUserData()Ljava/lang/Object;
@@ -345,11 +339,9 @@
 
 .method public setUserData(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "userData"    # Ljava/lang/Object;
 
     .line 167
     iput-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Joint;->userData:Ljava/lang/Object;
 
-    .line 168
     return-void
 .end method

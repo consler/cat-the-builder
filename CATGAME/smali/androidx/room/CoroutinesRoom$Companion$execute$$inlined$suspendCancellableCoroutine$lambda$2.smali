@@ -98,31 +98,21 @@
 .end method
 
 .method public final invoke(Ljava/lang/Throwable;)V
-    .locals 3
-    .param p1, "it"    # Ljava/lang/Throwable;
-
-    .line 90
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x10
-
-    if-lt v0, v1, :cond_0
+    .locals 2
 
     .line 91
-    iget-object v0, p0, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$2;->$cancellationSignal$inlined:Landroid/os/CancellationSignal;
+    iget-object p1, p0, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$2;->$cancellationSignal$inlined:Landroid/os/CancellationSignal;
 
-    invoke-virtual {v0}, Landroid/os/CancellationSignal;->cancel()V
+    invoke-virtual {p1}, Landroid/os/CancellationSignal;->cancel()V
 
     .line 93
-    :cond_0
-    iget-object v0, p0, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$2;->$job:Lkotlinx/coroutines/Job;
+    iget-object p1, p0, Landroidx/room/CoroutinesRoom$Companion$execute$$inlined$suspendCancellableCoroutine$lambda$2;->$job:Lkotlinx/coroutines/Job;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {v0, v2, v1, v2}, Lkotlinx/coroutines/Job$DefaultImpls;->cancel$default(Lkotlinx/coroutines/Job;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
+    invoke-static {p1, v1, v0, v1}, Lkotlinx/coroutines/Job$DefaultImpls;->cancel$default(Lkotlinx/coroutines/Job;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
 
-    .line 94
     return-void
 .end method

@@ -25,7 +25,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/Image;)V
     .locals 6
-    .param p1, "image"    # Landroid/media/Image;
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,11 +37,9 @@
 
     move-result-object v0
 
-    .line 48
-    .local v0, "originalPlanes":[Landroid/media/Image$Plane;
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     .line 49
     array-length v2, v0
@@ -51,14 +48,13 @@
 
     iput-object v2, p0, Landroidx/camera/core/AndroidImageProxy;->mPlanes:[Landroidx/camera/core/AndroidImageProxy$PlaneProxy;
 
-    .line 50
-    const/4 v2, 0x0
+    move v2, v1
 
-    .local v2, "i":I
+    .line 50
     :goto_0
     array-length v3, v0
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_1
 
     .line 51
     iget-object v3, p0, Landroidx/camera/core/AndroidImageProxy;->mPlanes:[Landroidx/camera/core/AndroidImageProxy$PlaneProxy;
@@ -71,36 +67,30 @@
 
     aput-object v4, v3, v2
 
-    .line 50
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .end local v2    # "i":I
     :cond_0
-    goto :goto_1
+    new-array v0, v1, [Landroidx/camera/core/AndroidImageProxy$PlaneProxy;
 
     .line 54
-    :cond_1
-    new-array v2, v1, [Landroidx/camera/core/AndroidImageProxy$PlaneProxy;
+    iput-object v0, p0, Landroidx/camera/core/AndroidImageProxy;->mPlanes:[Landroidx/camera/core/AndroidImageProxy$PlaneProxy;
 
-    iput-object v2, p0, Landroidx/camera/core/AndroidImageProxy;->mPlanes:[Landroidx/camera/core/AndroidImageProxy$PlaneProxy;
+    :cond_1
+    const/4 v0, 0x0
 
     .line 57
-    :goto_1
-    const/4 v2, 0x0
-
     invoke-virtual {p1}, Landroid/media/Image;->getTimestamp()J
 
-    move-result-wide v3
+    move-result-wide v2
 
-    invoke-static {v2, v3, v4, v1}, Landroidx/camera/core/ImmutableImageInfo;->create(Ljava/lang/Object;JI)Landroidx/camera/core/ImageInfo;
+    invoke-static {v0, v2, v3, v1}, Landroidx/camera/core/ImmutableImageInfo;->create(Ljava/lang/Object;JI)Landroidx/camera/core/ImageInfo;
 
-    move-result-object v1
+    move-result-object p1
 
-    iput-object v1, p0, Landroidx/camera/core/AndroidImageProxy;->mImageInfo:Landroidx/camera/core/ImageInfo;
+    iput-object p1, p0, Landroidx/camera/core/AndroidImageProxy;->mImageInfo:Landroidx/camera/core/ImageInfo;
 
-    .line 58
     return-void
 .end method
 
@@ -124,8 +114,6 @@
 
     return-void
 
-    .line 61
-    .end local p0    # "this":Landroidx/camera/core/AndroidImageProxy;
     :catchall_0
     move-exception v0
 
@@ -153,8 +141,6 @@
 
     return-object v0
 
-    .line 68
-    .end local p0    # "this":Landroidx/camera/core/AndroidImageProxy;
     :catchall_0
     move-exception v0
 
@@ -182,8 +168,6 @@
 
     return v0
 
-    .line 78
-    .end local p0    # "this":Landroidx/camera/core/AndroidImageProxy;
     :catchall_0
     move-exception v0
 
@@ -211,8 +195,6 @@
 
     return v0
 
-    .line 83
-    .end local p0    # "this":Landroidx/camera/core/AndroidImageProxy;
     :catchall_0
     move-exception v0
 
@@ -236,8 +218,6 @@
 
     return-object v0
 
-    .line 132
-    .end local p0    # "this":Landroidx/camera/core/AndroidImageProxy;
     :catchall_0
     move-exception v0
 
@@ -270,8 +250,6 @@
 
     return-object v0
 
-    .line 94
-    .end local p0    # "this":Landroidx/camera/core/AndroidImageProxy;
     :catchall_0
     move-exception v0
 
@@ -299,8 +277,6 @@
 
     return v0
 
-    .line 88
-    .end local p0    # "this":Landroidx/camera/core/AndroidImageProxy;
     :catchall_0
     move-exception v0
 
@@ -311,7 +287,6 @@
 
 .method public declared-synchronized setCropRect(Landroid/graphics/Rect;)V
     .locals 1
-    .param p1, "rect"    # Landroid/graphics/Rect;
 
     monitor-enter p0
 
@@ -328,9 +303,6 @@
 
     return-void
 
-    .line 72
-    .end local p0    # "this":Landroidx/camera/core/AndroidImageProxy;
-    .end local p1    # "rect":Landroid/graphics/Rect;
     :catchall_0
     move-exception p1
 

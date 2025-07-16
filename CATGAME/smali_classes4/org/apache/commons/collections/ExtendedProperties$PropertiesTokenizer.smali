@@ -21,14 +21,12 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .param p1, "string"    # Ljava/lang/String;
 
-    .line 415
     const-string v0, ","
 
+    .line 415
     invoke-direct {p0, p1, v0}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 416
     return-void
 .end method
 
@@ -54,7 +52,6 @@
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
     .line 435
-    .local v0, "buffer":Ljava/lang/StringBuffer;
     :goto_0
     invoke-virtual {p0}, Lorg/apache/commons/collections/ExtendedProperties$PropertiesTokenizer;->hasMoreTokens()Z
 
@@ -68,7 +65,6 @@
     move-result-object v1
 
     .line 437
-    .local v1, "token":Ljava/lang/String;
     invoke-static {v1}, Lorg/apache/commons/collections/ExtendedProperties;->access$000(Ljava/lang/String;)Z
 
     move-result v2
@@ -76,44 +72,40 @@
     if-eqz v2, :cond_0
 
     .line 438
-    const/4 v2, 0x0
-
     invoke-virtual {v1}, Ljava/lang/String;->length()I
 
-    move-result v3
+    move-result v2
 
-    add-int/lit8 v3, v3, -0x1
+    add-int/lit8 v2, v2, -0x1
 
-    invoke-virtual {v1, v2, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    const/4 v3, 0x0
 
-    move-result-object v2
+    invoke-virtual {v1, v3, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    const-string v1, ","
 
     .line 439
-    const-string v2, ","
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    .line 444
-    .end local v1    # "token":Ljava/lang/String;
     goto :goto_0
 
     .line 441
-    .restart local v1    # "token":Ljava/lang/String;
     :cond_0
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 446
-    .end local v1    # "token":Ljava/lang/String;
     :cond_1
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/String;->trim()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method

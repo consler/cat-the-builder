@@ -63,9 +63,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/MaybeSource;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;Lio/reactivex/functions/Action;Lio/reactivex/functions/Action;)V
     .locals 0
-    .param p5, "onCompleteCall"    # Lio/reactivex/functions/Action;
-    .param p6, "onAfterTerminate"    # Lio/reactivex/functions/Action;
-    .param p7, "onDispose"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -89,11 +86,6 @@
     .end annotation
 
     .line 45
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybePeek;, "Lio/reactivex/internal/operators/maybe/MaybePeek<TT;>;"
-    .local p1, "source":Lio/reactivex/MaybeSource;, "Lio/reactivex/MaybeSource<TT;>;"
-    .local p2, "onSubscribeCall":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Lio/reactivex/disposables/Disposable;>;"
-    .local p3, "onSuccessCall":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
-    .local p4, "onErrorCall":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Ljava/lang/Throwable;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/maybe/AbstractMaybeWithUpstream;-><init>(Lio/reactivex/MaybeSource;)V
 
     .line 46
@@ -114,7 +106,6 @@
     .line 51
     iput-object p7, p0, Lio/reactivex/internal/operators/maybe/MaybePeek;->onDisposeCall:Lio/reactivex/functions/Action;
 
-    .line 52
     return-void
 .end method
 
@@ -131,8 +122,6 @@
     .end annotation
 
     .line 56
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybePeek;, "Lio/reactivex/internal/operators/maybe/MaybePeek<TT;>;"
-    .local p1, "observer":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybePeek;->source:Lio/reactivex/MaybeSource;
 
     new-instance v1, Lio/reactivex/internal/operators/maybe/MaybePeek$MaybePeekObserver;
@@ -141,6 +130,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/MaybeSource;->subscribe(Lio/reactivex/MaybeObserver;)V
 
-    .line 57
     return-void
 .end method

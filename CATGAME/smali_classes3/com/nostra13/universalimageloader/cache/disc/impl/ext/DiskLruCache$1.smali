@@ -126,10 +126,8 @@
     :cond_1
     monitor-exit v0
 
-    .line 178
     return-object v2
 
-    .line 177
     :catchall_0
     move-exception v1
 

@@ -18,7 +18,6 @@
 # direct methods
 .method public constructor <init>(Lorg/apache/commons/collections/Predicate;)V
     .locals 0
-    .param p1, "predicate"    # Lorg/apache/commons/collections/Predicate;
 
     .line 62
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,15 +25,12 @@
     .line 63
     iput-object p1, p0, Lorg/apache/commons/collections/functors/PredicateTransformer;->iPredicate:Lorg/apache/commons/collections/Predicate;
 
-    .line 64
     return-void
 .end method
 
 .method public static getInstance(Lorg/apache/commons/collections/Predicate;)Lorg/apache/commons/collections/Transformer;
-    .locals 2
-    .param p0, "predicate"    # Lorg/apache/commons/collections/Predicate;
+    .locals 1
 
-    .line 49
     if-eqz p0, :cond_0
 
     .line 52
@@ -46,13 +42,13 @@
 
     .line 50
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Predicate must not be null"
+    const-string v0, "Predicate must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
@@ -68,24 +64,23 @@
 
 .method public transform(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "input"    # Ljava/lang/Object;
 
     .line 73
     iget-object v0, p0, Lorg/apache/commons/collections/functors/PredicateTransformer;->iPredicate:Lorg/apache/commons/collections/Predicate;
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections/Predicate;->evaluate(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    sget-object p1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     goto :goto_0
 
     :cond_0
-    sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    sget-object p1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     :goto_0
-    return-object v0
+    return-object p1
 .end method

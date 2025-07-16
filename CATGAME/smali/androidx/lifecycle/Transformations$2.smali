@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public onChanged(Ljava/lang/Object;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TX;)V"
@@ -65,50 +65,44 @@
     .end annotation
 
     .line 143
-    .local p1, "x":Ljava/lang/Object;, "TX;"
     iget-object v0, p0, Landroidx/lifecycle/Transformations$2;->val$switchMapFunction:Landroidx/arch/core/util/Function;
 
     invoke-interface {v0, p1}, Landroidx/arch/core/util/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroidx/lifecycle/LiveData;
+    check-cast p1, Landroidx/lifecycle/LiveData;
 
     .line 144
-    .local v0, "newLiveData":Landroidx/lifecycle/LiveData;, "Landroidx/lifecycle/LiveData<TY;>;"
-    iget-object v1, p0, Landroidx/lifecycle/Transformations$2;->mSource:Landroidx/lifecycle/LiveData;
+    iget-object v0, p0, Landroidx/lifecycle/Transformations$2;->mSource:Landroidx/lifecycle/LiveData;
 
-    if-ne v1, v0, :cond_0
+    if-ne v0, p1, :cond_0
 
-    .line 145
     return-void
 
-    .line 147
     :cond_0
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 148
-    iget-object v2, p0, Landroidx/lifecycle/Transformations$2;->val$result:Landroidx/lifecycle/MediatorLiveData;
+    iget-object v1, p0, Landroidx/lifecycle/Transformations$2;->val$result:Landroidx/lifecycle/MediatorLiveData;
 
-    invoke-virtual {v2, v1}, Landroidx/lifecycle/MediatorLiveData;->removeSource(Landroidx/lifecycle/LiveData;)V
+    invoke-virtual {v1, v0}, Landroidx/lifecycle/MediatorLiveData;->removeSource(Landroidx/lifecycle/LiveData;)V
 
     .line 150
     :cond_1
-    iput-object v0, p0, Landroidx/lifecycle/Transformations$2;->mSource:Landroidx/lifecycle/LiveData;
+    iput-object p1, p0, Landroidx/lifecycle/Transformations$2;->mSource:Landroidx/lifecycle/LiveData;
 
-    .line 151
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
     .line 152
-    iget-object v1, p0, Landroidx/lifecycle/Transformations$2;->val$result:Landroidx/lifecycle/MediatorLiveData;
+    iget-object v0, p0, Landroidx/lifecycle/Transformations$2;->val$result:Landroidx/lifecycle/MediatorLiveData;
 
-    new-instance v2, Landroidx/lifecycle/Transformations$2$1;
+    new-instance v1, Landroidx/lifecycle/Transformations$2$1;
 
-    invoke-direct {v2, p0}, Landroidx/lifecycle/Transformations$2$1;-><init>(Landroidx/lifecycle/Transformations$2;)V
+    invoke-direct {v1, p0}, Landroidx/lifecycle/Transformations$2$1;-><init>(Landroidx/lifecycle/Transformations$2;)V
 
-    invoke-virtual {v1, v0, v2}, Landroidx/lifecycle/MediatorLiveData;->addSource(Landroidx/lifecycle/LiveData;Landroidx/lifecycle/Observer;)V
+    invoke-virtual {v0, p1, v1}, Landroidx/lifecycle/MediatorLiveData;->addSource(Landroidx/lifecycle/LiveData;Landroidx/lifecycle/Observer;)V
 
-    .line 159
     :cond_2
     return-void
 .end method

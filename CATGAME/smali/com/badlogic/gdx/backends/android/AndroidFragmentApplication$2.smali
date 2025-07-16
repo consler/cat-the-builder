@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/backends/android/AndroidFragmentApplication;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/backends/android/AndroidFragmentApplication;
 
     .line 341
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidFragmentApplication$2;->this$0:Lcom/badlogic/gdx/backends/android/AndroidFragmentApplication;
@@ -46,6 +45,5 @@
 
     invoke-interface {v0}, Lcom/badlogic/gdx/backends/android/AndroidFragmentApplication$Callbacks;->exit()V
 
-    .line 345
     return-void
 .end method

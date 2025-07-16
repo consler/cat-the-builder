@@ -146,3 +146,22 @@
         }
     .end annotation
 .end method
+
+.method public abstract setProgress([BLandroidx/work/multiprocess/IWorkManagerImplCallback;)V
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "request",
+            "callback"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method

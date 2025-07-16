@@ -28,9 +28,18 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/os/ResultReceiver;ILandroid/os/Bundle;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v4/os/ResultReceiver;
-    .param p2, "resultCode"    # I
-    .param p3, "resultData"    # Landroid/os/Bundle;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x8010,
+            0x0,
+            0x0
+        }
+        names = {
+            "this$0",
+            "resultCode",
+            "resultData"
+        }
+    .end annotation
 
     .line 56
     iput-object p1, p0, Landroid/support/v4/os/ResultReceiver$MyRunnable;->this$0:Landroid/support/v4/os/ResultReceiver;
@@ -43,7 +52,6 @@
     .line 58
     iput-object p3, p0, Landroid/support/v4/os/ResultReceiver$MyRunnable;->mResultData:Landroid/os/Bundle;
 
-    .line 59
     return-void
 .end method
 
@@ -61,6 +69,5 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/support/v4/os/ResultReceiver;->onReceiveResult(ILandroid/os/Bundle;)V
 
-    .line 64
     return-void
 .end method

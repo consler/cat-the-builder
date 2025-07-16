@@ -23,7 +23,6 @@
 # direct methods
 .method protected constructor <init>(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "rootElement"    # Ljava/lang/Object;
 
     .line 27
     new-instance v0, Lcom/thoughtworks/xstream/io/xml/XmlFriendlyNameCoder;
@@ -32,57 +31,50 @@
 
     invoke-direct {p0, p1, v0}, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader;-><init>(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 28
     return-void
 .end method
 
 .method protected constructor <init>(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
-    .locals 3
-    .param p1, "rootElement"    # Ljava/lang/Object;
-    .param p2, "nameCoder"    # Lcom/thoughtworks/xstream/io/naming/NameCoder;
+    .locals 1
 
     .line 34
     invoke-direct {p0, p2}, Lcom/thoughtworks/xstream/io/xml/AbstractXmlReader;-><init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
     .line 23
-    new-instance v0, Lcom/thoughtworks/xstream/core/util/FastStack;
+    new-instance p2, Lcom/thoughtworks/xstream/core/util/FastStack;
 
-    const/16 v1, 0x10
+    const/16 v0, 0x10
 
-    invoke-direct {v0, v1}, Lcom/thoughtworks/xstream/core/util/FastStack;-><init>(I)V
+    invoke-direct {p2, v0}, Lcom/thoughtworks/xstream/core/util/FastStack;-><init>(I)V
 
-    iput-object v0, p0, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader;->pointers:Lcom/thoughtworks/xstream/core/util/FastStack;
+    iput-object p2, p0, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader;->pointers:Lcom/thoughtworks/xstream/core/util/FastStack;
 
     .line 35
     iput-object p1, p0, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader;->current:Ljava/lang/Object;
 
     .line 36
-    new-instance v1, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader$Pointer;
+    new-instance p1, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader$Pointer;
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    invoke-direct {v1, v2}, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader$Pointer;-><init>(Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader$1;)V
+    invoke-direct {p1, v0}, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader$Pointer;-><init>(Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader$1;)V
 
-    invoke-virtual {v0, v1}, Lcom/thoughtworks/xstream/core/util/FastStack;->push(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p2, p1}, Lcom/thoughtworks/xstream/core/util/FastStack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 37
-    iget-object v0, p0, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader;->current:Ljava/lang/Object;
+    iget-object p1, p0, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader;->current:Ljava/lang/Object;
 
-    invoke-virtual {p0, v0}, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader;->reassignCurrentElement(Ljava/lang/Object;)V
+    invoke-virtual {p0, p1}, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader;->reassignCurrentElement(Ljava/lang/Object;)V
 
-    .line 38
     return-void
 .end method
 
 .method protected constructor <init>(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;)V
     .locals 0
-    .param p1, "rootElement"    # Ljava/lang/Object;
-    .param p2, "replacer"    # Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;
 
     .line 45
     invoke-direct {p0, p1, p2}, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader;-><init>(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 46
     return-void
 .end method
 
@@ -90,16 +82,13 @@
 # virtual methods
 .method public appendErrors(Lcom/thoughtworks/xstream/converters/ErrorWriter;)V
     .locals 0
-    .param p1, "errorWriter"    # Lcom/thoughtworks/xstream/converters/ErrorWriter;
 
-    .line 88
     return-void
 .end method
 
 .method public close()V
     .locals 0
 
-    .line 96
     return-void
 .end method
 
@@ -133,7 +122,7 @@
 .end method
 
 .method public hasMoreChildren()Z
-    .locals 3
+    .locals 2
 
     .line 58
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader;->pointers:Lcom/thoughtworks/xstream/core/util/FastStack;
@@ -145,25 +134,22 @@
     check-cast v0, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader$Pointer;
 
     .line 60
-    .local v0, "pointer":Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader$Pointer;
-    iget v1, v0, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader$Pointer;->v:I
+    iget v0, v0, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader$Pointer;->v:I
 
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader;->getChildCount()I
 
-    move-result v2
+    move-result v1
 
-    if-ge v1, v2, :cond_0
+    if-ge v0, v1, :cond_0
 
-    .line 61
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    return v1
+    return v0
 
-    .line 63
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    return v1
+    return v0
 .end method
 
 .method public moveDown()V
@@ -179,7 +165,6 @@
     check-cast v0, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader$Pointer;
 
     .line 75
-    .local v0, "pointer":Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader$Pointer;
     iget-object v1, p0, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader;->pointers:Lcom/thoughtworks/xstream/core/util/FastStack;
 
     new-instance v2, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader$Pointer;
@@ -207,11 +192,10 @@
     iput v1, v0, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader$Pointer;->v:I
 
     .line 80
-    iget-object v1, p0, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader;->current:Ljava/lang/Object;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader;->current:Ljava/lang/Object;
 
-    invoke-virtual {p0, v1}, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader;->reassignCurrentElement(Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader;->reassignCurrentElement(Ljava/lang/Object;)V
 
-    .line 81
     return-void
 .end method
 
@@ -235,7 +219,6 @@
 
     invoke-virtual {p0, v0}, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentReader;->reassignCurrentElement(Ljava/lang/Object;)V
 
-    .line 71
     return-void
 .end method
 

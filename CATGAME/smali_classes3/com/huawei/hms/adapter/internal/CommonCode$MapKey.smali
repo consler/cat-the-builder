@@ -27,6 +27,10 @@
 
 .field public static final NEW_UPDATE:Ljava/lang/String; = "new_update"
 
+.field public static final PRIVACY_STATEMENT_CONFIRM_RESULT:Ljava/lang/String; = "privacy_statement_confirm_result"
+
+.field public static final RESOLUTION_INSTALL_HMS:Ljava/lang/String; = "installHMS"
+
 .field public static final TRANSACTION_ID:Ljava/lang/String; = "transaction_id"
 
 .field public static final UPDATE_VERSION:Ljava/lang/String; = "update_version"

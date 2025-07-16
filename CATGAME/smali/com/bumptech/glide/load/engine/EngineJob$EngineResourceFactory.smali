@@ -28,9 +28,6 @@
 # virtual methods
 .method public build(Lcom/bumptech/glide/load/engine/Resource;ZLcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/engine/EngineResource$ResourceListener;)Lcom/bumptech/glide/load/engine/EngineResource;
     .locals 7
-    .param p2, "isMemoryCacheable"    # Z
-    .param p3, "key"    # Lcom/bumptech/glide/load/Key;
-    .param p4, "listener"    # Lcom/bumptech/glide/load/engine/EngineResource$ResourceListener;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -47,7 +44,6 @@
     .end annotation
 
     .line 512
-    .local p1, "resource":Lcom/bumptech/glide/load/engine/Resource;, "Lcom/bumptech/glide/load/engine/Resource<TR;>;"
     new-instance v6, Lcom/bumptech/glide/load/engine/EngineResource;
 
     const/4 v3, 0x1

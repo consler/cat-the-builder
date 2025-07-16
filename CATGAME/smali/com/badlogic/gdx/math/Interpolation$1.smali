@@ -28,8 +28,6 @@
 # virtual methods
 .method public apply(F)F
     .locals 0
-    .param p1, "a"    # F
 
-    .line 34
     return p1
 .end method

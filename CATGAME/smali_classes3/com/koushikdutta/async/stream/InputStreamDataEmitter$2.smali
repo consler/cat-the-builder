@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/stream/InputStreamDataEmitter;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/stream/InputStreamDataEmitter;
 
     .line 75
     iput-object p1, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2;->this$0:Lcom/koushikdutta/async/stream/InputStreamDataEmitter;
@@ -75,7 +74,6 @@
 
     if-nez v0, :cond_0
 
-    .line 87
     return-void
 
     .line 91
@@ -101,46 +99,41 @@
     move-result-object v0
 
     .line 93
-    .local v0, "b":Ljava/nio/ByteBuffer;
-    const/4 v1, -0x1
+    iget-object v1, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2;->this$0:Lcom/koushikdutta/async/stream/InputStreamDataEmitter;
 
-    iget-object v2, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2;->this$0:Lcom/koushikdutta/async/stream/InputStreamDataEmitter;
-
-    iget-object v2, v2, Lcom/koushikdutta/async/stream/InputStreamDataEmitter;->inputStream:Ljava/io/InputStream;
+    iget-object v1, v1, Lcom/koushikdutta/async/stream/InputStreamDataEmitter;->inputStream:Ljava/io/InputStream;
 
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->array()[B
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v2, v3}, Ljava/io/InputStream;->read([B)I
+    invoke-virtual {v1, v2}, Ljava/io/InputStream;->read([B)I
 
-    move-result v2
+    move-result v1
 
-    move v3, v2
+    const/4 v2, -0x1
 
-    .local v3, "read":I
-    if-ne v1, v2, :cond_1
+    if-ne v2, v1, :cond_1
 
     .line 94
-    iget-object v1, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2;->this$0:Lcom/koushikdutta/async/stream/InputStreamDataEmitter;
+    iget-object v0, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2;->this$0:Lcom/koushikdutta/async/stream/InputStreamDataEmitter;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {v1, v2}, Lcom/koushikdutta/async/stream/InputStreamDataEmitter;->access$000(Lcom/koushikdutta/async/stream/InputStreamDataEmitter;Ljava/lang/Exception;)V
+    invoke-static {v0, v1}, Lcom/koushikdutta/async/stream/InputStreamDataEmitter;->access$000(Lcom/koushikdutta/async/stream/InputStreamDataEmitter;Ljava/lang/Exception;)V
 
-    .line 95
     return-void
 
     .line 97
     :cond_1
-    iget-object v1, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2;->this$0:Lcom/koushikdutta/async/stream/InputStreamDataEmitter;
+    iget-object v2, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2;->this$0:Lcom/koushikdutta/async/stream/InputStreamDataEmitter;
 
-    mul-int/lit8 v2, v3, 0x2
+    mul-int/lit8 v3, v1, 0x2
 
-    iput v2, v1, Lcom/koushikdutta/async/stream/InputStreamDataEmitter;->mToAlloc:I
+    iput v3, v2, Lcom/koushikdutta/async/stream/InputStreamDataEmitter;->mToAlloc:I
 
     .line 98
-    invoke-virtual {v0, v3}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
     .line 99
     iget-object v1, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2;->this$0:Lcom/koushikdutta/async/stream/InputStreamDataEmitter;
@@ -150,57 +143,50 @@
     invoke-virtual {v1, v0}, Lcom/koushikdutta/async/ByteBufferList;->add(Ljava/nio/ByteBuffer;)Lcom/koushikdutta/async/ByteBufferList;
 
     .line 100
-    iget-object v1, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2;->this$0:Lcom/koushikdutta/async/stream/InputStreamDataEmitter;
+    iget-object v0, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2;->this$0:Lcom/koushikdutta/async/stream/InputStreamDataEmitter;
 
-    invoke-virtual {v1}, Lcom/koushikdutta/async/stream/InputStreamDataEmitter;->getServer()Lcom/koushikdutta/async/AsyncServer;
+    invoke-virtual {v0}, Lcom/koushikdutta/async/stream/InputStreamDataEmitter;->getServer()Lcom/koushikdutta/async/AsyncServer;
 
-    move-result-object v1
+    move-result-object v0
 
-    new-instance v2, Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2$2;
+    new-instance v1, Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2$2;
 
-    invoke-direct {v2, p0}, Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2$2;-><init>(Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2;)V
+    invoke-direct {v1, p0}, Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2$2;-><init>(Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2;)V
 
-    invoke-virtual {v1, v2}, Lcom/koushikdutta/async/AsyncServer;->run(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v1}, Lcom/koushikdutta/async/AsyncServer;->run(Ljava/lang/Runnable;)V
 
     .line 107
-    .end local v3    # "read":I
-    iget-object v1, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2;->this$0:Lcom/koushikdutta/async/stream/InputStreamDataEmitter;
+    iget-object v0, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2;->this$0:Lcom/koushikdutta/async/stream/InputStreamDataEmitter;
 
-    iget-object v1, v1, Lcom/koushikdutta/async/stream/InputStreamDataEmitter;->pending:Lcom/koushikdutta/async/ByteBufferList;
+    iget-object v0, v0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter;->pending:Lcom/koushikdutta/async/ByteBufferList;
 
-    invoke-virtual {v1}, Lcom/koushikdutta/async/ByteBufferList;->remaining()I
+    invoke-virtual {v0}, Lcom/koushikdutta/async/ByteBufferList;->remaining()I
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_2
+    if-nez v0, :cond_2
 
-    iget-object v1, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2;->this$0:Lcom/koushikdutta/async/stream/InputStreamDataEmitter;
+    iget-object v0, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2;->this$0:Lcom/koushikdutta/async/stream/InputStreamDataEmitter;
 
-    invoke-virtual {v1}, Lcom/koushikdutta/async/stream/InputStreamDataEmitter;->isPaused()Z
+    invoke-virtual {v0}, Lcom/koushikdutta/async/stream/InputStreamDataEmitter;->isPaused()Z
 
-    move-result v1
+    move-result v0
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 111
-    .end local v0    # "b":Ljava/nio/ByteBuffer;
-    :cond_2
     goto :goto_0
 
-    .line 109
     :catch_0
     move-exception v0
 
     .line 110
-    .local v0, "e":Ljava/lang/Exception;
     iget-object v1, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2;->this$0:Lcom/koushikdutta/async/stream/InputStreamDataEmitter;
 
     invoke-static {v1, v0}, Lcom/koushikdutta/async/stream/InputStreamDataEmitter;->access$000(Lcom/koushikdutta/async/stream/InputStreamDataEmitter;Ljava/lang/Exception;)V
 
-    .line 112
-    .end local v0    # "e":Ljava/lang/Exception;
+    :cond_2
     :goto_0
     return-void
 .end method

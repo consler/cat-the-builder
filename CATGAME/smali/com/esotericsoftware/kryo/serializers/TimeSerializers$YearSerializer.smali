@@ -46,23 +46,20 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/time/Year;
-    .locals 1
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "in"    # Lcom/esotericsoftware/kryo/io/Input;
-    .param p3, "type"    # Ljava/lang/Class;
+    .locals 0
+
+    const/4 p1, 0x1
 
     .line 279
-    const/4 v0, 0x1
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Input;->readInt(Z)I
 
-    invoke-virtual {p2, v0}, Lcom/esotericsoftware/kryo/io/Input;->readInt(Z)I
+    move-result p1
 
-    move-result v0
+    invoke-static {p1}, Ljava/time/Year;->of(I)Ljava/time/Year;
 
-    invoke-static {v0}, Ljava/time/Year;->of(I)Ljava/time/Year;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
@@ -77,20 +74,16 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/time/Year;)V
-    .locals 2
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "out"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p3, "obj"    # Ljava/time/Year;
+    .locals 0
 
     .line 275
     invoke-virtual {p3}, Ljava/time/Year;->getValue()I
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x1
+    const/4 p3, 0x1
 
-    invoke-virtual {p2, v0, v1}, Lcom/esotericsoftware/kryo/io/Output;->writeVarInt(IZ)I
+    invoke-virtual {p2, p1, p3}, Lcom/esotericsoftware/kryo/io/Output;->writeVarInt(IZ)I
 
-    .line 276
     return-void
 .end method

@@ -63,580 +63,507 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 4994
+    .line 6175
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4989
     const/4 v0, 0x0
 
+    .line 6170
     iput v0, p0, Landroidx/core/app/NotificationCompat$CarExtender;->mColor:I
 
-    .line 4995
     return-void
 .end method
 
 .method public constructor <init>(Landroid/app/Notification;)V
-    .locals 3
-    .param p1, "notification"    # Landroid/app/Notification;
+    .locals 2
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "notification"
+        }
+    .end annotation
 
-    .line 5002
+    .line 6183
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4989
     const/4 v0, 0x0
 
+    .line 6170
     iput v0, p0, Landroidx/core/app/NotificationCompat$CarExtender;->mColor:I
 
-    .line 5003
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x15
-
-    if-ge v1, v2, :cond_0
-
-    .line 5004
-    return-void
-
-    .line 5007
-    :cond_0
+    .line 6188
     invoke-static {p1}, Landroidx/core/app/NotificationCompat;->getExtras(Landroid/app/Notification;)Landroid/os/Bundle;
 
     move-result-object v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
-    .line 5008
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
-    :cond_1
+    .line 6189
+    :cond_0
     invoke-static {p1}, Landroidx/core/app/NotificationCompat;->getExtras(Landroid/app/Notification;)Landroid/os/Bundle;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "android.car.EXTENSIONS"
+    const-string v1, "android.car.EXTENSIONS"
 
-    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
 
-    move-result-object v1
+    move-result-object p1
 
-    .line 5009
-    .local v1, "carBundle":Landroid/os/Bundle;
     :goto_0
-    if-eqz v1, :cond_2
+    if-eqz p1, :cond_1
 
-    .line 5010
-    const-string v2, "large_icon"
+    const-string v1, "large_icon"
 
-    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+    .line 6191
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Landroid/graphics/Bitmap;
+    check-cast v1, Landroid/graphics/Bitmap;
 
-    iput-object v2, p0, Landroidx/core/app/NotificationCompat$CarExtender;->mLargeIcon:Landroid/graphics/Bitmap;
+    iput-object v1, p0, Landroidx/core/app/NotificationCompat$CarExtender;->mLargeIcon:Landroid/graphics/Bitmap;
 
-    .line 5011
-    const-string v2, "app_color"
+    const-string v1, "app_color"
 
-    invoke-virtual {v1, v2, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    .line 6192
+    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
     move-result v0
 
     iput v0, p0, Landroidx/core/app/NotificationCompat$CarExtender;->mColor:I
 
-    .line 5013
     const-string v0, "car_conversation"
 
-    invoke-virtual {v1, v0}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
+    .line 6194
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 5014
-    .local v0, "b":Landroid/os/Bundle;
-    invoke-static {v0}, Landroidx/core/app/NotificationCompat$CarExtender;->getUnreadConversationFromBundle(Landroid/os/Bundle;)Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;
+    .line 6195
+    invoke-static {p1}, Landroidx/core/app/NotificationCompat$CarExtender;->getUnreadConversationFromBundle(Landroid/os/Bundle;)Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;
 
-    move-result-object v2
+    move-result-object p1
 
-    iput-object v2, p0, Landroidx/core/app/NotificationCompat$CarExtender;->mUnreadConversation:Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;
+    iput-object p1, p0, Landroidx/core/app/NotificationCompat$CarExtender;->mUnreadConversation:Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;
 
-    .line 5016
-    .end local v0    # "b":Landroid/os/Bundle;
-    :cond_2
+    :cond_1
     return-void
 .end method
 
 .method private static getBundleForUnreadConversation(Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;)Landroid/os/Bundle;
-    .locals 7
-    .param p0, "uc"    # Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;
+    .locals 8
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "uc"
+        }
+    .end annotation
 
-    .line 5074
+    .line 6255
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 5075
-    .local v0, "b":Landroid/os/Bundle;
-    const/4 v1, 0x0
-
-    .line 5076
-    .local v1, "author":Ljava/lang/String;
+    .line 6257
     invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->getParticipants()[Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    if-eqz v2, :cond_0
+    const/4 v2, 0x0
+
+    if-eqz v1, :cond_0
 
     invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->getParticipants()[Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    array-length v2, v2
+    array-length v1, v1
 
     const/4 v3, 0x1
 
-    if-le v2, v3, :cond_0
+    if-le v1, v3, :cond_0
 
-    .line 5077
+    .line 6258
     invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->getParticipants()[Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    const/4 v3, 0x0
-
-    aget-object v1, v2, v3
-
-    .line 5079
-    :cond_0
-    invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->getMessages()[Ljava/lang/String;
-
-    move-result-object v2
-
-    array-length v2, v2
-
-    new-array v2, v2, [Landroid/os/Parcelable;
-
-    .line 5080
-    .local v2, "messages":[Landroid/os/Parcelable;
-    const/4 v3, 0x0
-
-    .local v3, "i":I
-    :goto_0
-    array-length v4, v2
-
-    if-ge v3, v4, :cond_1
-
-    .line 5081
-    new-instance v4, Landroid/os/Bundle;
-
-    invoke-direct {v4}, Landroid/os/Bundle;-><init>()V
-
-    .line 5082
-    .local v4, "m":Landroid/os/Bundle;
-    invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->getMessages()[Ljava/lang/String;
-
-    move-result-object v5
-
-    aget-object v5, v5, v3
-
-    const-string v6, "text"
-
-    invoke-virtual {v4, v6, v5}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 5083
-    const-string v5, "author"
-
-    invoke-virtual {v4, v5, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 5084
-    aput-object v4, v2, v3
-
-    .line 5080
-    .end local v4    # "m":Landroid/os/Bundle;
-    add-int/lit8 v3, v3, 0x1
+    aget-object v1, v1, v2
 
     goto :goto_0
 
-    .line 5086
-    .end local v3    # "i":I
-    :cond_1
-    const-string v3, "messages"
+    :cond_0
+    const/4 v1, 0x0
 
-    invoke-virtual {v0, v3, v2}, Landroid/os/Bundle;->putParcelableArray(Ljava/lang/String;[Landroid/os/Parcelable;)V
-
-    .line 5087
-    invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->getRemoteInput()Landroidx/core/app/RemoteInput;
+    .line 6260
+    :goto_0
+    invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->getMessages()[Ljava/lang/String;
 
     move-result-object v3
 
-    .line 5088
-    .local v3, "remoteInputCompat":Landroidx/core/app/RemoteInput;
-    if-eqz v3, :cond_2
+    array-length v3, v3
 
-    .line 5089
-    new-instance v4, Landroid/app/RemoteInput$Builder;
+    new-array v4, v3, [Landroid/os/Parcelable;
 
-    .line 5090
-    invoke-virtual {v3}, Landroidx/core/app/RemoteInput;->getResultKey()Ljava/lang/String;
+    :goto_1
+    if-ge v2, v3, :cond_1
 
-    move-result-object v5
+    .line 6262
+    new-instance v5, Landroid/os/Bundle;
 
-    invoke-direct {v4, v5}, Landroid/app/RemoteInput$Builder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v5}, Landroid/os/Bundle;-><init>()V
 
-    .line 5091
-    invoke-virtual {v3}, Landroidx/core/app/RemoteInput;->getLabel()Ljava/lang/CharSequence;
+    .line 6263
+    invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->getMessages()[Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v4, v5}, Landroid/app/RemoteInput$Builder;->setLabel(Ljava/lang/CharSequence;)Landroid/app/RemoteInput$Builder;
+    aget-object v6, v6, v2
 
-    move-result-object v4
+    const-string v7, "text"
 
-    .line 5092
-    invoke-virtual {v3}, Landroidx/core/app/RemoteInput;->getChoices()[Ljava/lang/CharSequence;
+    invoke-virtual {v5, v7, v6}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result-object v5
+    const-string v6, "author"
 
-    invoke-virtual {v4, v5}, Landroid/app/RemoteInput$Builder;->setChoices([Ljava/lang/CharSequence;)Landroid/app/RemoteInput$Builder;
+    .line 6264
+    invoke-virtual {v5, v6, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result-object v4
+    .line 6265
+    aput-object v5, v4, v2
 
-    .line 5093
-    invoke-virtual {v3}, Landroidx/core/app/RemoteInput;->getAllowFreeFormInput()Z
+    add-int/lit8 v2, v2, 0x1
 
-    move-result v5
+    goto :goto_1
 
-    invoke-virtual {v4, v5}, Landroid/app/RemoteInput$Builder;->setAllowFreeFormInput(Z)Landroid/app/RemoteInput$Builder;
+    :cond_1
+    const-string v1, "messages"
 
-    move-result-object v4
+    .line 6267
+    invoke-virtual {v0, v1, v4}, Landroid/os/Bundle;->putParcelableArray(Ljava/lang/String;[Landroid/os/Parcelable;)V
 
-    .line 5094
-    invoke-virtual {v3}, Landroidx/core/app/RemoteInput;->getExtras()Landroid/os/Bundle;
+    .line 6268
+    invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->getRemoteInput()Landroidx/core/app/RemoteInput;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v4, v5}, Landroid/app/RemoteInput$Builder;->addExtras(Landroid/os/Bundle;)Landroid/app/RemoteInput$Builder;
+    if-eqz v1, :cond_2
 
-    move-result-object v4
+    .line 6270
+    new-instance v2, Landroid/app/RemoteInput$Builder;
 
-    .line 5095
-    invoke-virtual {v4}, Landroid/app/RemoteInput$Builder;->build()Landroid/app/RemoteInput;
+    .line 6271
+    invoke-virtual {v1}, Landroidx/core/app/RemoteInput;->getResultKey()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    .line 5096
-    .local v4, "remoteInput":Landroid/app/RemoteInput;
-    const-string v5, "remote_input"
+    invoke-direct {v2, v3}, Landroid/app/RemoteInput$Builder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v5, v4}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+    .line 6272
+    invoke-virtual {v1}, Landroidx/core/app/RemoteInput;->getLabel()Ljava/lang/CharSequence;
 
-    .line 5098
-    .end local v4    # "remoteInput":Landroid/app/RemoteInput;
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/app/RemoteInput$Builder;->setLabel(Ljava/lang/CharSequence;)Landroid/app/RemoteInput$Builder;
+
+    move-result-object v2
+
+    .line 6273
+    invoke-virtual {v1}, Landroidx/core/app/RemoteInput;->getChoices()[Ljava/lang/CharSequence;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/app/RemoteInput$Builder;->setChoices([Ljava/lang/CharSequence;)Landroid/app/RemoteInput$Builder;
+
+    move-result-object v2
+
+    .line 6274
+    invoke-virtual {v1}, Landroidx/core/app/RemoteInput;->getAllowFreeFormInput()Z
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Landroid/app/RemoteInput$Builder;->setAllowFreeFormInput(Z)Landroid/app/RemoteInput$Builder;
+
+    move-result-object v2
+
+    .line 6275
+    invoke-virtual {v1}, Landroidx/core/app/RemoteInput;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v1
+
+    invoke-virtual {v2, v1}, Landroid/app/RemoteInput$Builder;->addExtras(Landroid/os/Bundle;)Landroid/app/RemoteInput$Builder;
+
+    move-result-object v1
+
+    .line 6276
+    invoke-virtual {v1}, Landroid/app/RemoteInput$Builder;->build()Landroid/app/RemoteInput;
+
+    move-result-object v1
+
+    const-string v2, "remote_input"
+
+    .line 6277
+    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+
     :cond_2
+    const-string v1, "on_reply"
+
+    .line 6279
     invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->getReplyPendingIntent()Landroid/app/PendingIntent;
 
-    move-result-object v4
+    move-result-object v2
 
-    const-string v5, "on_reply"
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    invoke-virtual {v0, v5, v4}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+    const-string v1, "on_read"
 
-    .line 5099
+    .line 6280
     invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->getReadPendingIntent()Landroid/app/PendingIntent;
 
-    move-result-object v4
+    move-result-object v2
 
-    const-string v5, "on_read"
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    invoke-virtual {v0, v5, v4}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+    const-string v1, "participants"
 
-    .line 5100
+    .line 6281
     invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->getParticipants()[Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
 
-    const-string v5, "participants"
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
 
-    invoke-virtual {v0, v5, v4}, Landroid/os/Bundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
+    const-string v1, "timestamp"
 
-    .line 5101
+    .line 6282
     invoke-virtual {p0}, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;->getLatestTimestamp()J
 
-    move-result-wide v4
+    move-result-wide v2
 
-    const-string/jumbo v6, "timestamp"
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
 
-    invoke-virtual {v0, v6, v4, v5}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
-
-    .line 5102
     return-object v0
 .end method
 
 .method private static getUnreadConversationFromBundle(Landroid/os/Bundle;)Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;
-    .locals 24
-    .param p0, "b"    # Landroid/os/Bundle;
+    .locals 21
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "b"
+        }
+    .end annotation
 
-    .line 5020
     move-object/from16 v0, p0
 
     const/4 v1, 0x0
 
     if-nez v0, :cond_0
 
-    .line 5021
     return-object v1
 
-    .line 5023
     :cond_0
     const-string v2, "messages"
 
+    .line 6204
     invoke-virtual {v0, v2}, Landroid/os/Bundle;->getParcelableArray(Ljava/lang/String;)[Landroid/os/Parcelable;
 
     move-result-object v2
 
-    .line 5024
-    .local v2, "parcelableMessages":[Landroid/os/Parcelable;
-    const/4 v3, 0x0
+    const/4 v3, 0x1
 
-    .line 5025
-    .local v3, "messages":[Ljava/lang/String;
+    const/4 v4, 0x0
+
     if-eqz v2, :cond_5
 
-    .line 5026
-    array-length v4, v2
+    .line 6207
+    array-length v5, v2
 
-    new-array v4, v4, [Ljava/lang/String;
+    new-array v6, v5, [Ljava/lang/String;
 
-    .line 5027
-    .local v4, "tmp":[Ljava/lang/String;
-    const/4 v5, 0x1
+    move v7, v4
 
-    .line 5028
-    .local v5, "success":Z
-    const/4 v6, 0x0
-
-    .local v6, "i":I
     :goto_0
-    array-length v7, v4
+    if-ge v7, v5, :cond_3
 
-    if-ge v6, v7, :cond_3
+    .line 6210
+    aget-object v8, v2, v7
 
-    .line 5029
-    aget-object v7, v2, v6
+    instance-of v9, v8, Landroid/os/Bundle;
 
-    instance-of v7, v7, Landroid/os/Bundle;
+    if-nez v9, :cond_1
 
-    if-nez v7, :cond_1
-
-    .line 5030
-    const/4 v5, 0x0
-
-    .line 5031
-    goto :goto_1
-
-    .line 5033
-    :cond_1
-    aget-object v7, v2, v6
-
-    check-cast v7, Landroid/os/Bundle;
-
-    const-string v8, "text"
-
-    invoke-virtual {v7, v8}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v7
-
-    aput-object v7, v4, v6
-
-    .line 5034
-    aget-object v7, v4, v6
-
-    if-nez v7, :cond_2
-
-    .line 5035
-    const/4 v5, 0x0
-
-    .line 5036
-    goto :goto_1
-
-    .line 5028
-    :cond_2
-    add-int/lit8 v6, v6, 0x1
-
-    goto :goto_0
-
-    .line 5039
-    .end local v6    # "i":I
-    :cond_3
     :goto_1
-    if-eqz v5, :cond_4
-
-    .line 5040
-    move-object v3, v4
+    move v2, v4
 
     goto :goto_2
 
-    .line 5042
-    :cond_4
-    return-object v1
+    .line 6214
+    :cond_1
+    check-cast v8, Landroid/os/Bundle;
 
-    .line 5046
-    .end local v4    # "tmp":[Ljava/lang/String;
-    .end local v5    # "success":Z
-    :cond_5
+    const-string v9, "text"
+
+    invoke-virtual {v8, v9}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    aput-object v8, v6, v7
+
+    if-nez v8, :cond_2
+
+    goto :goto_1
+
+    :cond_2
+    add-int/lit8 v7, v7, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    move v2, v3
+
     :goto_2
-    const-string v4, "on_read"
+    if-eqz v2, :cond_4
 
-    invoke-virtual {v0, v4}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/app/PendingIntent;
-
-    .line 5047
-    .local v4, "onRead":Landroid/app/PendingIntent;
-    const-string v5, "on_reply"
-
-    invoke-virtual {v0, v5}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/app/PendingIntent;
-
-    .line 5049
-    .local v5, "onReply":Landroid/app/PendingIntent;
-    const-string v6, "remote_input"
-
-    invoke-virtual {v0, v6}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v6
-
-    move-object v14, v6
-
-    check-cast v14, Landroid/app/RemoteInput;
-
-    .line 5051
-    .local v14, "remoteInput":Landroid/app/RemoteInput;
-    const-string v6, "participants"
-
-    invoke-virtual {v0, v6}, Landroid/os/Bundle;->getStringArray(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v15
-
-    .line 5052
-    .local v15, "participants":[Ljava/lang/String;
-    if-eqz v15, :cond_9
-
-    array-length v6, v15
-
-    const/4 v7, 0x1
-
-    if-eq v6, v7, :cond_6
-
-    goto :goto_5
-
-    .line 5056
-    :cond_6
-    if-eqz v14, :cond_8
-
-    .line 5057
-    new-instance v1, Landroidx/core/app/RemoteInput;
-
-    invoke-virtual {v14}, Landroid/app/RemoteInput;->getResultKey()Ljava/lang/String;
-
-    move-result-object v17
-
-    .line 5058
-    invoke-virtual {v14}, Landroid/app/RemoteInput;->getLabel()Ljava/lang/CharSequence;
-
-    move-result-object v18
-
-    .line 5059
-    invoke-virtual {v14}, Landroid/app/RemoteInput;->getChoices()[Ljava/lang/CharSequence;
-
-    move-result-object v19
-
-    .line 5060
-    invoke-virtual {v14}, Landroid/app/RemoteInput;->getAllowFreeFormInput()Z
-
-    move-result v20
-
-    .line 5061
-    sget v6, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v7, 0x1d
-
-    if-lt v6, v7, :cond_7
-
-    .line 5062
-    invoke-virtual {v14}, Landroid/app/RemoteInput;->getEditChoicesBeforeSending()I
-
-    move-result v6
-
-    move/from16 v21, v6
+    move-object v8, v6
 
     goto :goto_3
 
-    .line 5063
-    :cond_7
-    const/4 v6, 0x0
+    :cond_4
+    return-object v1
 
-    move/from16 v21, v6
-
-    .line 5064
-    :goto_3
-    invoke-virtual {v14}, Landroid/app/RemoteInput;->getExtras()Landroid/os/Bundle;
-
-    move-result-object v22
-
-    const/16 v23, 0x0
-
-    move-object/from16 v16, v1
-
-    invoke-direct/range {v16 .. v23}, Landroidx/core/app/RemoteInput;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;[Ljava/lang/CharSequence;ZILandroid/os/Bundle;Ljava/util/Set;)V
-
+    :cond_5
     move-object v8, v1
+
+    :goto_3
+    const-string v2, "on_read"
+
+    .line 6227
+    invoke-virtual {v0, v2}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v2
+
+    move-object v11, v2
+
+    check-cast v11, Landroid/app/PendingIntent;
+
+    const-string v2, "on_reply"
+
+    .line 6228
+    invoke-virtual {v0, v2}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v2
+
+    move-object v10, v2
+
+    check-cast v10, Landroid/app/PendingIntent;
+
+    const-string v2, "remote_input"
+
+    .line 6230
+    invoke-virtual {v0, v2}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/app/RemoteInput;
+
+    const-string v5, "participants"
+
+    .line 6232
+    invoke-virtual {v0, v5}, Landroid/os/Bundle;->getStringArray(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v12
+
+    if-eqz v12, :cond_9
+
+    .line 6233
+    array-length v5, v12
+
+    if-eq v5, v3, :cond_6
 
     goto :goto_4
 
-    .line 5066
+    :cond_6
+    if-eqz v2, :cond_8
+
+    .line 6238
+    new-instance v1, Landroidx/core/app/RemoteInput;
+
+    invoke-virtual {v2}, Landroid/app/RemoteInput;->getResultKey()Ljava/lang/String;
+
+    move-result-object v14
+
+    .line 6239
+    invoke-virtual {v2}, Landroid/app/RemoteInput;->getLabel()Ljava/lang/CharSequence;
+
+    move-result-object v15
+
+    .line 6240
+    invoke-virtual {v2}, Landroid/app/RemoteInput;->getChoices()[Ljava/lang/CharSequence;
+
+    move-result-object v16
+
+    .line 6241
+    invoke-virtual {v2}, Landroid/app/RemoteInput;->getAllowFreeFormInput()Z
+
+    move-result v17
+
+    .line 6242
+    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v5, 0x1d
+
+    if-lt v3, v5, :cond_7
+
+    .line 6243
+    invoke-virtual {v2}, Landroid/app/RemoteInput;->getEditChoicesBeforeSending()I
+
+    move-result v4
+
+    :cond_7
+    move/from16 v18, v4
+
+    .line 6245
+    invoke-virtual {v2}, Landroid/app/RemoteInput;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v19
+
+    const/16 v20, 0x0
+
+    move-object v13, v1
+
+    invoke-direct/range {v13 .. v20}, Landroidx/core/app/RemoteInput;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;[Ljava/lang/CharSequence;ZILandroid/os/Bundle;Ljava/util/Set;)V
+
     :cond_8
-    move-object v8, v1
+    move-object v9, v1
 
-    :goto_4
-    nop
-
-    .line 5068
-    .local v8, "remoteInputCompat":Landroidx/core/app/RemoteInput;
+    .line 6249
     new-instance v1, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;
 
-    .line 5069
-    const-string/jumbo v6, "timestamp"
+    const-string v2, "timestamp"
 
-    invoke-virtual {v0, v6}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
+    .line 6250
+    invoke-virtual {v0, v2}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
-    move-result-wide v12
+    move-result-wide v13
 
-    move-object v6, v1
+    move-object v7, v1
 
-    move-object v7, v3
+    invoke-direct/range {v7 .. v14}, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;-><init>([Ljava/lang/String;Landroidx/core/app/RemoteInput;Landroid/app/PendingIntent;Landroid/app/PendingIntent;[Ljava/lang/String;J)V
 
-    move-object v9, v5
-
-    move-object v10, v4
-
-    move-object v11, v15
-
-    invoke-direct/range {v6 .. v13}, Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;-><init>([Ljava/lang/String;Landroidx/core/app/RemoteInput;Landroid/app/PendingIntent;Landroid/app/PendingIntent;[Ljava/lang/String;J)V
-
-    .line 5068
-    return-object v1
-
-    .line 5053
-    .end local v8    # "remoteInputCompat":Landroidx/core/app/RemoteInput;
     :cond_9
-    :goto_5
+    :goto_4
     return-object v1
 .end method
 
@@ -644,66 +571,59 @@
 # virtual methods
 .method public extend(Landroidx/core/app/NotificationCompat$Builder;)Landroidx/core/app/NotificationCompat$Builder;
     .locals 3
-    .param p1, "builder"    # Landroidx/core/app/NotificationCompat$Builder;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "builder"
+        }
+    .end annotation
 
-    .line 5112
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-ge v0, v1, :cond_0
-
-    .line 5113
-    return-object p1
-
-    .line 5116
-    :cond_0
+    .line 6298
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 5118
-    .local v0, "carExtensions":Landroid/os/Bundle;
+    .line 6300
     iget-object v1, p0, Landroidx/core/app/NotificationCompat$CarExtender;->mLargeIcon:Landroid/graphics/Bitmap;
+
+    if-eqz v1, :cond_0
+
+    const-string v2, "large_icon"
+
+    .line 6301
+    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+
+    .line 6303
+    :cond_0
+    iget v1, p0, Landroidx/core/app/NotificationCompat$CarExtender;->mColor:I
 
     if-eqz v1, :cond_1
 
-    .line 5119
-    const-string v2, "large_icon"
+    const-string v2, "app_color"
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+    .line 6304
+    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 5121
+    .line 6307
     :cond_1
-    iget v1, p0, Landroidx/core/app/NotificationCompat$CarExtender;->mColor:I
+    iget-object v1, p0, Landroidx/core/app/NotificationCompat$CarExtender;->mUnreadConversation:Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;
 
     if-eqz v1, :cond_2
 
-    .line 5122
-    const-string v2, "app_color"
-
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    .line 5125
-    :cond_2
-    iget-object v1, p0, Landroidx/core/app/NotificationCompat$CarExtender;->mUnreadConversation:Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;
-
-    if-eqz v1, :cond_3
-
-    .line 5126
+    .line 6308
     invoke-static {v1}, Landroidx/core/app/NotificationCompat$CarExtender;->getBundleForUnreadConversation(Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;)Landroid/os/Bundle;
 
     move-result-object v1
 
-    .line 5127
-    .local v1, "b":Landroid/os/Bundle;
     const-string v2, "car_conversation"
 
+    .line 6309
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 5130
-    .end local v1    # "b":Landroid/os/Bundle;
-    :cond_3
+    .line 6312
+    :cond_2
     invoke-virtual {p1}, Landroidx/core/app/NotificationCompat$Builder;->getExtras()Landroid/os/Bundle;
 
     move-result-object v1
@@ -712,14 +632,13 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 5131
     return-object p1
 .end method
 
 .method public getColor()I
     .locals 1
 
-    .line 5154
+    .line 6336
     iget v0, p0, Landroidx/core/app/NotificationCompat$CarExtender;->mColor:I
 
     return v0
@@ -728,7 +647,7 @@
 .method public getLargeIcon()Landroid/graphics/Bitmap;
     .locals 1
 
-    .line 5178
+    .line 6360
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CarExtender;->mLargeIcon:Landroid/graphics/Bitmap;
 
     return-object v0
@@ -739,7 +658,7 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 5205
+    .line 6388
     iget-object v0, p0, Landroidx/core/app/NotificationCompat$CarExtender;->mUnreadConversation:Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;
 
     return-object v0
@@ -747,35 +666,54 @@
 
 .method public setColor(I)Landroidx/core/app/NotificationCompat$CarExtender;
     .locals 0
-    .param p1, "color"    # I
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "color"
+        }
+    .end annotation
 
-    .line 5143
+    .line 6325
     iput p1, p0, Landroidx/core/app/NotificationCompat$CarExtender;->mColor:I
 
-    .line 5144
     return-object p0
 .end method
 
 .method public setLargeIcon(Landroid/graphics/Bitmap;)Landroidx/core/app/NotificationCompat$CarExtender;
     .locals 0
-    .param p1, "largeIcon"    # Landroid/graphics/Bitmap;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "largeIcon"
+        }
+    .end annotation
 
-    .line 5167
+    .line 6349
     iput-object p1, p0, Landroidx/core/app/NotificationCompat$CarExtender;->mLargeIcon:Landroid/graphics/Bitmap;
 
-    .line 5168
     return-object p0
 .end method
 
 .method public setUnreadConversation(Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;)Landroidx/core/app/NotificationCompat$CarExtender;
     .locals 0
-    .param p1, "unreadConversation"    # Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "unreadConversation"
+        }
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 5192
+    .line 6375
     iput-object p1, p0, Landroidx/core/app/NotificationCompat$CarExtender;->mUnreadConversation:Landroidx/core/app/NotificationCompat$CarExtender$UnreadConversation;
 
-    .line 5193
     return-object p0
 .end method

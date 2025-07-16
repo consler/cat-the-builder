@@ -65,9 +65,6 @@
     .end annotation
 
     .line 161
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleCache$CacheDisposable;, "Lio/reactivex/internal/operators/single/SingleCache$CacheDisposable<TT;>;"
-    .local p1, "actual":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
-    .local p2, "parent":Lio/reactivex/internal/operators/single/SingleCache;, "Lio/reactivex/internal/operators/single/SingleCache<TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
 
     .line 162
@@ -76,7 +73,6 @@
     .line 163
     iput-object p2, p0, Lio/reactivex/internal/operators/single/SingleCache$CacheDisposable;->parent:Lio/reactivex/internal/operators/single/SingleCache;
 
-    .line 164
     return-void
 .end method
 
@@ -85,12 +81,11 @@
 .method public dispose()V
     .locals 2
 
-    .line 173
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleCache$CacheDisposable;, "Lio/reactivex/internal/operators/single/SingleCache$CacheDisposable<TT;>;"
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
+    .line 173
     invoke-virtual {p0, v0, v1}, Lio/reactivex/internal/operators/single/SingleCache$CacheDisposable;->compareAndSet(ZZ)Z
 
     move-result v0
@@ -102,7 +97,6 @@
 
     invoke-virtual {v0, p0}, Lio/reactivex/internal/operators/single/SingleCache;->remove(Lio/reactivex/internal/operators/single/SingleCache$CacheDisposable;)V
 
-    .line 176
     :cond_0
     return-void
 .end method
@@ -111,7 +105,6 @@
     .locals 1
 
     .line 168
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleCache$CacheDisposable;, "Lio/reactivex/internal/operators/single/SingleCache$CacheDisposable<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/single/SingleCache$CacheDisposable;->get()Z
 
     move-result v0

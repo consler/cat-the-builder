@@ -60,9 +60,7 @@
     .end annotation
 
     .line 98
-    .local p1, "object":Ljava/util/List;, "Ljava/util/List<TT;>;"
     invoke-interface {p1}, Ljava/util/List;->clear()V
 
-    .line 99
     return-void
 .end method

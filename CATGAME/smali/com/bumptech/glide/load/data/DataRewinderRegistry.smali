@@ -80,7 +80,6 @@
         }
     .end annotation
 
-    .local p1, "data":Ljava/lang/Object;, "TT;"
     monitor-enter p0
 
     .line 36
@@ -100,8 +99,6 @@
 
     check-cast v0, Lcom/bumptech/glide/load/data/DataRewinder$Factory;
 
-    .line 38
-    .local v0, "result":Lcom/bumptech/glide/load/data/DataRewinder$Factory;, "Lcom/bumptech/glide/load/data/DataRewinder$Factory<TT;>;"
     if-nez v0, :cond_1
 
     .line 39
@@ -115,7 +112,7 @@
 
     move-result-object v1
 
-    :goto_0
+    :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
@@ -129,7 +126,6 @@
     check-cast v2, Lcom/bumptech/glide/load/data/DataRewinder$Factory;
 
     .line 40
-    .local v2, "registeredFactory":Lcom/bumptech/glide/load/data/DataRewinder$Factory;, "Lcom/bumptech/glide/load/data/DataRewinder$Factory<*>;"
     invoke-interface {v2}, Lcom/bumptech/glide/load/data/DataRewinder$Factory;->getDataClass()Ljava/lang/Class;
 
     move-result-object v3
@@ -144,43 +140,26 @@
 
     if-eqz v3, :cond_0
 
-    .line 41
     move-object v0, v2
 
-    .line 42
-    goto :goto_1
-
-    .line 44
-    .end local v2    # "registeredFactory":Lcom/bumptech/glide/load/data/DataRewinder$Factory;, "Lcom/bumptech/glide/load/data/DataRewinder$Factory<*>;"
-    :cond_0
-    goto :goto_0
-
-    .line 47
-    .end local p0    # "this":Lcom/bumptech/glide/load/data/DataRewinderRegistry;
     :cond_1
-    :goto_1
     if-nez v0, :cond_2
 
     .line 48
-    sget-object v1, Lcom/bumptech/glide/load/data/DataRewinderRegistry;->DEFAULT_FACTORY:Lcom/bumptech/glide/load/data/DataRewinder$Factory;
-
-    move-object v0, v1
+    sget-object v0, Lcom/bumptech/glide/load/data/DataRewinderRegistry;->DEFAULT_FACTORY:Lcom/bumptech/glide/load/data/DataRewinder$Factory;
 
     .line 50
     :cond_2
     invoke-interface {v0, p1}, Lcom/bumptech/glide/load/data/DataRewinder$Factory;->build(Ljava/lang/Object;)Lcom/bumptech/glide/load/data/DataRewinder;
 
-    move-result-object v1
+    move-result-object p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-object v1
+    return-object p1
 
-    .line 35
-    .end local v0    # "result":Lcom/bumptech/glide/load/data/DataRewinder$Factory;, "Lcom/bumptech/glide/load/data/DataRewinder$Factory<TT;>;"
-    .end local p1    # "data":Ljava/lang/Object;, "TT;"
     :catchall_0
     move-exception p1
 
@@ -199,7 +178,6 @@
         }
     .end annotation
 
-    .local p1, "factory":Lcom/bumptech/glide/load/data/DataRewinder$Factory;, "Lcom/bumptech/glide/load/data/DataRewinder$Factory<*>;"
     monitor-enter p0
 
     .line 30
@@ -219,9 +197,6 @@
 
     return-void
 
-    .line 29
-    .end local p0    # "this":Lcom/bumptech/glide/load/data/DataRewinderRegistry;
-    .end local p1    # "factory":Lcom/bumptech/glide/load/data/DataRewinder$Factory;, "Lcom/bumptech/glide/load/data/DataRewinder$Factory<*>;"
     :catchall_0
     move-exception p1
 

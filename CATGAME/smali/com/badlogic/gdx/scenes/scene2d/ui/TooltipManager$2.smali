@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;
 
     .line 65
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;
@@ -34,14 +33,14 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
 
     .line 67
     iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;
 
     iget-object v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->showTooltip:Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;
 
@@ -65,8 +64,6 @@
 
     move-result-object v0
 
-    .line 70
-    .local v0, "stage":Lcom/badlogic/gdx/scenes/scene2d/Stage;
     if-nez v0, :cond_1
 
     return-void
@@ -82,71 +79,65 @@
     invoke-virtual {v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/Stage;->addActor(Lcom/badlogic/gdx/scenes/scene2d/Actor;)V
 
     .line 72
-    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;
+    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;
 
-    iget-object v1, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->showTooltip:Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;
+    iget-object v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->showTooltip:Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;
 
-    iget-object v1, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;->container:Lcom/badlogic/gdx/scenes/scene2d/ui/Container;
+    iget-object v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;->container:Lcom/badlogic/gdx/scenes/scene2d/ui/Container;
 
-    invoke-virtual {v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Container;->toFront()V
+    invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Container;->toFront()V
 
     .line 73
+    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;
+
+    iget-object v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->shown:Lcom/badlogic/gdx/utils/Array;
+
     iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;
 
-    iget-object v1, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->shown:Lcom/badlogic/gdx/utils/Array;
+    iget-object v1, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->showTooltip:Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;
-
-    iget-object v2, v2, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->showTooltip:Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;
-
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
     .line 75
-    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;
+    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;
 
-    iget-object v1, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->showTooltip:Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;
+    iget-object v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->showTooltip:Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;
 
-    iget-object v1, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;->container:Lcom/badlogic/gdx/scenes/scene2d/ui/Container;
+    iget-object v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;->container:Lcom/badlogic/gdx/scenes/scene2d/ui/Container;
 
-    invoke-virtual {v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Container;->clearActions()V
+    invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Container;->clearActions()V
 
     .line 76
-    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;
+    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;
 
-    iget-object v2, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->showTooltip:Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;
+    iget-object v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->showTooltip:Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;
 
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->showAction(Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;)V
+    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->showAction(Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;)V
 
     .line 78
-    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;
+    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;
 
-    iget-object v1, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->showTooltip:Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;
+    iget-object v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->showTooltip:Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;
 
-    iget-boolean v1, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;->instant:Z
+    iget-boolean v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Tooltip;->instant:Z
 
-    if-nez v1, :cond_2
+    if-nez v0, :cond_2
 
     .line 79
-    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;
+    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;
 
-    iget v2, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->subsequentTime:F
+    iget v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->subsequentTime:F
 
-    iput v2, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->time:F
+    iput v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->time:F
 
     .line 80
-    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;
+    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;
 
-    iget-object v1, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->resetTask:Lcom/badlogic/gdx/utils/Timer$Task;
+    iget-object v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->resetTask:Lcom/badlogic/gdx/utils/Timer$Task;
 
-    invoke-virtual {v1}, Lcom/badlogic/gdx/utils/Timer$Task;->cancel()V
+    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Timer$Task;->cancel()V
 
-    .line 82
     :cond_2
-    return-void
-
-    .line 67
-    .end local v0    # "stage":Lcom/badlogic/gdx/scenes/scene2d/Stage;
-    :cond_3
     :goto_0
     return-void
 .end method

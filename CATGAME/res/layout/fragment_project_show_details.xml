@@ -2,7 +2,9 @@
 <LinearLayout android:orientation="vertical" android:id="@id/more_details_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/view_holder_padding" android:paddingEnd="@dimen/view_holder_padding"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/view_holder_height">
-        <ImageView android:id="@id/image" android:background="@drawable/image_contour" android:layout_width="72.0dip" android:layout_height="65.0dip" android:scaleType="centerCrop" android:cropToPadding="true" android:layout_marginEnd="@dimen/img_margin" />
+        <com.google.android.material.card.MaterialCardView android:layout_width="72.0dip" android:layout_height="65.0dip" android:layout_marginEnd="@dimen/img_margin" app:cardCornerRadius="10.0dip" app:cardElevation="10.0dip" app:strokeColor="@color/black" app:strokeWidth="1.0dip" xmlns:app="http://schemas.android.com/apk/res-auto">
+            <ImageView android:id="@id/image" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" android:cropToPadding="true" />
+        </com.google.android.material.card.MaterialCardView>
         <TextView android:textSize="?large" android:id="@id/name" android:layout_width="wrap_content" android:layout_height="wrap_content" />
     </LinearLayout>
     <TextView android:textSize="?large" android:textColor="@color/accent" android:id="@id/description_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/description" />

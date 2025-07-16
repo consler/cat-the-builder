@@ -25,21 +25,18 @@
 .end method
 
 .method protected static getParameterUpperBound(ILjava/lang/reflect/ParameterizedType;)Ljava/lang/reflect/Type;
-    .locals 1
-    .param p0, "index"    # I
-    .param p1, "type"    # Ljava/lang/reflect/ParameterizedType;
+    .locals 0
 
     .line 76
     invoke-static {p0, p1}, Lretrofit2/Utils;->getParameterUpperBound(ILjava/lang/reflect/ParameterizedType;)Ljava/lang/reflect/Type;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method protected static getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;
-    .locals 1
-    .param p0, "type"    # Ljava/lang/reflect/Type;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -53,9 +50,9 @@
     .line 84
     invoke-static {p0}, Lretrofit2/Utils;->getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 

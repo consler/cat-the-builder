@@ -26,7 +26,6 @@
 
 .method synthetic constructor <init>(Landroidx/concurrent/futures/AbstractResolvableFuture$1;)V
     .locals 0
-    .param p1, "x0"    # Landroidx/concurrent/futures/AbstractResolvableFuture$1;
 
     .line 1066
     invoke-direct {p0}, Landroidx/concurrent/futures/AbstractResolvableFuture$AtomicHelper;-><init>()V

@@ -13,7 +13,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/camera/core/impl/CameraCaptureResult;)V
     .locals 0
-    .param p1, "cameraCaptureResult"    # Landroidx/camera/core/impl/CameraCaptureResult;
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -21,7 +20,6 @@
     .line 30
     iput-object p1, p0, Landroidx/camera/core/internal/CameraCaptureResultImageInfo;->mCameraCaptureResult:Landroidx/camera/core/impl/CameraCaptureResult;
 
-    .line 31
     return-void
 .end method
 
@@ -39,7 +37,6 @@
 .method public getRotationDegrees()I
     .locals 1
 
-    .line 46
     const/4 v0, 0x0
 
     return v0

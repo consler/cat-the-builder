@@ -48,66 +48,54 @@
 
 # virtual methods
 .method public onDataAvailable(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/ByteBufferList;)V
-    .locals 3
-    .param p1, "emitter"    # Lcom/koushikdutta/async/DataEmitter;
-    .param p2, "bb"    # Lcom/koushikdutta/async/ByteBufferList;
+    .locals 2
 
     .line 128
     :try_start_0
     invoke-static {p2}, Lcom/koushikdutta/async/dns/DnsResponse;->parse(Lcom/koushikdutta/async/ByteBufferList;)Lcom/koushikdutta/async/dns/DnsResponse;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 130
-    .local v0, "response":Lcom/koushikdutta/async/dns/DnsResponse;
-    iget-object v1, p0, Lcom/koushikdutta/async/dns/Dns$2;->val$dgram:Lcom/koushikdutta/async/AsyncDatagramSocket;
+    iget-object v0, p0, Lcom/koushikdutta/async/dns/Dns$2;->val$dgram:Lcom/koushikdutta/async/AsyncDatagramSocket;
 
-    invoke-virtual {v1}, Lcom/koushikdutta/async/AsyncDatagramSocket;->getRemoteAddress()Ljava/net/InetSocketAddress;
+    invoke-virtual {v0}, Lcom/koushikdutta/async/AsyncDatagramSocket;->getRemoteAddress()Ljava/net/InetSocketAddress;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, v0, Lcom/koushikdutta/async/dns/DnsResponse;->source:Ljava/net/InetSocketAddress;
+    iput-object v0, p1, Lcom/koushikdutta/async/dns/DnsResponse;->source:Ljava/net/InetSocketAddress;
 
     .line 132
-    iget-boolean v1, p0, Lcom/koushikdutta/async/dns/Dns$2;->val$multicast:Z
+    iget-boolean v0, p0, Lcom/koushikdutta/async/dns/Dns$2;->val$multicast:Z
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     .line 133
-    iget-object v1, p0, Lcom/koushikdutta/async/dns/Dns$2;->val$dgram:Lcom/koushikdutta/async/AsyncDatagramSocket;
+    iget-object v0, p0, Lcom/koushikdutta/async/dns/Dns$2;->val$dgram:Lcom/koushikdutta/async/AsyncDatagramSocket;
 
-    invoke-virtual {v1}, Lcom/koushikdutta/async/AsyncDatagramSocket;->close()V
+    invoke-virtual {v0}, Lcom/koushikdutta/async/AsyncDatagramSocket;->close()V
 
     .line 134
-    iget-object v1, p0, Lcom/koushikdutta/async/dns/Dns$2;->val$ret:Lcom/koushikdutta/async/future/SimpleFuture;
+    iget-object v0, p0, Lcom/koushikdutta/async/dns/Dns$2;->val$ret:Lcom/koushikdutta/async/future/SimpleFuture;
 
-    invoke-virtual {v1, v0}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     .line 137
     :cond_0
-    iget-object v1, p0, Lcom/koushikdutta/async/dns/Dns$2;->val$callback:Lcom/koushikdutta/async/future/FutureCallback;
+    iget-object v0, p0, Lcom/koushikdutta/async/dns/Dns$2;->val$callback:Lcom/koushikdutta/async/future/FutureCallback;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-interface {v1, v2, v0}, Lcom/koushikdutta/async/future/FutureCallback;->onCompleted(Ljava/lang/Exception;Ljava/lang/Object;)V
+    invoke-interface {v0, v1, p1}, Lcom/koushikdutta/async/future/FutureCallback;->onCompleted(Ljava/lang/Exception;Ljava/lang/Object;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 141
-    .end local v0    # "response":Lcom/koushikdutta/async/dns/DnsResponse;
-    :goto_0
-    goto :goto_1
-
-    .line 140
-    :catch_0
-    move-exception v0
-
     .line 142
-    :goto_1
+    :catch_0
+    :goto_0
     invoke-virtual {p2}, Lcom/koushikdutta/async/ByteBufferList;->recycle()V
 
-    .line 143
     return-void
 .end method

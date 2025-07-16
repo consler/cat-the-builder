@@ -15,8 +15,6 @@
 
 .method public static create(Ljava/util/concurrent/Executor;Landroid/os/Handler;)Landroidx/camera/core/impl/CameraThreadConfig;
     .locals 1
-    .param p0, "cameraExecutor"    # Ljava/util/concurrent/Executor;
-    .param p1, "schedulerHandler"    # Landroid/os/Handler;
 
     .line 46
     new-instance v0, Landroidx/camera/core/impl/AutoValue_CameraThreadConfig;

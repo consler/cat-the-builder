@@ -58,13 +58,13 @@
 
     sput-object v0, Lio/reactivex/internal/util/EmptyComponent;->INSTANCE:Lio/reactivex/internal/util/EmptyComponent;
 
-    .line 25
     const/4 v1, 0x1
 
     new-array v1, v1, [Lio/reactivex/internal/util/EmptyComponent;
 
     aput-object v0, v1, v2
 
+    .line 25
     sput-object v1, Lio/reactivex/internal/util/EmptyComponent;->$VALUES:[Lio/reactivex/internal/util/EmptyComponent;
 
     return-void
@@ -122,18 +122,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lio/reactivex/internal/util/EmptyComponent;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 25
     const-class v0, Lio/reactivex/internal/util/EmptyComponent;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lio/reactivex/internal/util/EmptyComponent;
+    check-cast p0, Lio/reactivex/internal/util/EmptyComponent;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lio/reactivex/internal/util/EmptyComponent;
@@ -156,21 +155,18 @@
 .method public cancel()V
     .locals 0
 
-    .line 57
     return-void
 .end method
 
 .method public dispose()V
     .locals 0
 
-    .line 42
     return-void
 .end method
 
 .method public isDisposed()Z
     .locals 1
 
-    .line 46
     const/4 v0, 0x1
 
     return v0
@@ -179,63 +175,50 @@
 .method public onComplete()V
     .locals 0
 
-    .line 82
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 0
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 76
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 77
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "t"    # Ljava/lang/Object;
 
-    .line 72
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 0
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 61
     invoke-interface {p1}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 62
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 0
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 66
     invoke-interface {p1}, Lorg/reactivestreams/Subscription;->cancel()V
 
-    .line 67
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "value"    # Ljava/lang/Object;
 
-    .line 87
     return-void
 .end method
 
 .method public request(J)V
     .locals 0
-    .param p1, "n"    # J
 
-    .line 52
     return-void
 .end method

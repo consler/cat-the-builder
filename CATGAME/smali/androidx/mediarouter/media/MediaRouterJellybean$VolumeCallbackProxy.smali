@@ -43,14 +43,11 @@
     .end annotation
 
     .line 446
-    .local p0, "this":Landroidx/mediarouter/media/MediaRouterJellybean$VolumeCallbackProxy;, "Landroidx/mediarouter/media/MediaRouterJellybean$VolumeCallbackProxy<TT;>;"
-    .local p1, "callback":Landroidx/mediarouter/media/MediaRouterJellybean$VolumeCallback;, "TT;"
     invoke-direct {p0}, Landroid/media/MediaRouter$VolumeCallback;-><init>()V
 
     .line 447
     iput-object p1, p0, Landroidx/mediarouter/media/MediaRouterJellybean$VolumeCallbackProxy;->mCallback:Landroidx/mediarouter/media/MediaRouterJellybean$VolumeCallback;
 
-    .line 448
     return-void
 .end method
 
@@ -58,30 +55,22 @@
 # virtual methods
 .method public onVolumeSetRequest(Landroid/media/MediaRouter$RouteInfo;I)V
     .locals 1
-    .param p1, "route"    # Landroid/media/MediaRouter$RouteInfo;
-    .param p2, "volume"    # I
 
     .line 453
-    .local p0, "this":Landroidx/mediarouter/media/MediaRouterJellybean$VolumeCallbackProxy;, "Landroidx/mediarouter/media/MediaRouterJellybean$VolumeCallbackProxy<TT;>;"
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouterJellybean$VolumeCallbackProxy;->mCallback:Landroidx/mediarouter/media/MediaRouterJellybean$VolumeCallback;
 
     invoke-interface {v0, p1, p2}, Landroidx/mediarouter/media/MediaRouterJellybean$VolumeCallback;->onVolumeSetRequest(Ljava/lang/Object;I)V
 
-    .line 454
     return-void
 .end method
 
 .method public onVolumeUpdateRequest(Landroid/media/MediaRouter$RouteInfo;I)V
     .locals 1
-    .param p1, "route"    # Landroid/media/MediaRouter$RouteInfo;
-    .param p2, "direction"    # I
 
     .line 459
-    .local p0, "this":Landroidx/mediarouter/media/MediaRouterJellybean$VolumeCallbackProxy;, "Landroidx/mediarouter/media/MediaRouterJellybean$VolumeCallbackProxy<TT;>;"
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouterJellybean$VolumeCallbackProxy;->mCallback:Landroidx/mediarouter/media/MediaRouterJellybean$VolumeCallback;
 
     invoke-interface {v0, p1, p2}, Landroidx/mediarouter/media/MediaRouterJellybean$VolumeCallback;->onVolumeUpdateRequest(Ljava/lang/Object;I)V
 
-    .line 460
     return-void
 .end method

@@ -67,8 +67,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/lifecycle/LiveData;Landroidx/lifecycle/MediatorLiveData;)V
     .locals 1
-    .param p1, "source"    # Landroidx/lifecycle/LiveData;
-    .param p2, "mediator"    # Landroidx/lifecycle/MediatorLiveData;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -99,7 +97,6 @@
 
 .method public static final synthetic access$removeSource(Landroidx/lifecycle/EmittedSource;)V
     .locals 0
-    .param p0, "$this"    # Landroidx/lifecycle/EmittedSource;
 
     .line 120
     invoke-direct {p0}, Landroidx/lifecycle/EmittedSource;->removeSource()V
@@ -122,12 +119,11 @@
 
     invoke-virtual {v0, v1}, Landroidx/lifecycle/MediatorLiveData;->removeSource(Landroidx/lifecycle/LiveData;)V
 
-    .line 144
     const/4 v0, 0x1
 
+    .line 144
     iput-boolean v0, p0, Landroidx/lifecycle/EmittedSource;->disposed:Z
 
-    .line 146
     :cond_0
     return-void
 .end method
@@ -152,17 +148,19 @@
 
     move-result-object v1
 
-    new-instance v0, Landroidx/lifecycle/EmittedSource$dispose$1;
-
     const/4 v2, 0x0
 
-    invoke-direct {v0, p0, v2}, Landroidx/lifecycle/EmittedSource$dispose$1;-><init>(Landroidx/lifecycle/EmittedSource;Lkotlin/coroutines/Continuation;)V
+    const/4 v3, 0x0
+
+    new-instance v0, Landroidx/lifecycle/EmittedSource$dispose$1;
+
+    const/4 v4, 0x0
+
+    invoke-direct {v0, p0, v4}, Landroidx/lifecycle/EmittedSource$dispose$1;-><init>(Landroidx/lifecycle/EmittedSource;Lkotlin/coroutines/Continuation;)V
 
     move-object v4, v0
 
     check-cast v4, Lkotlin/jvm/functions/Function2;
-
-    const/4 v3, 0x0
 
     const/4 v5, 0x3
 
@@ -170,13 +168,11 @@
 
     invoke-static/range {v1 .. v6}, Lkotlinx/coroutines/BuildersKt;->launch$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
 
-    .line 138
     return-void
 .end method
 
 .method public final disposeNow(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
     .locals 3
-    .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -209,8 +205,7 @@
 
     invoke-static {v0, v1, p1}, Lkotlinx/coroutines/BuildersKt;->withContext(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 132
-    return-object v0
+    return-object p1
 .end method

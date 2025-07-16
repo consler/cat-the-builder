@@ -56,11 +56,11 @@
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 78
     const/16 v0, 0xa
 
     new-array v0, v0, [I
 
+    .line 78
     iput-object v0, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
 
     return-void
@@ -71,9 +71,9 @@
 .method public clear()V
     .locals 2
 
-    .line 81
     const/4 v0, 0x0
 
+    .line 81
     iput v0, p0, Lcom/koushikdutta/async/http/spdy/Settings;->persisted:I
 
     iput v0, p0, Lcom/koushikdutta/async/http/spdy/Settings;->persistValue:I
@@ -85,425 +85,326 @@
 
     invoke-static {v1, v0}, Ljava/util/Arrays;->fill([II)V
 
-    .line 83
     return-void
 .end method
 
 .method flags(I)I
-    .locals 2
-    .param p1, "id"    # I
-
-    .line 120
-    const/4 v0, 0x0
+    .locals 1
 
     .line 121
-    .local v0, "result":I
     invoke-virtual {p0, p1}, Lcom/koushikdutta/async/http/spdy/Settings;->isPersisted(I)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    or-int/lit8 v0, v0, 0x2
+    const/4 v0, 0x2
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
 
     .line 122
-    :cond_0
+    :goto_0
     invoke-virtual {p0, p1}, Lcom/koushikdutta/async/http/spdy/Settings;->persistValue(I)Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_1
+    if-eqz p1, :cond_1
 
     or-int/lit8 v0, v0, 0x1
 
-    .line 123
     :cond_1
     return v0
 .end method
 
 .method get(I)I
     .locals 1
-    .param p1, "id"    # I
 
     .line 115
     iget-object v0, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
 
-    aget v0, v0, p1
+    aget p1, v0, p1
 
-    return v0
+    return p1
 .end method
 
 .method getClientCertificateVectorSize(I)I
-    .locals 3
-    .param p1, "defaultValue"    # I
-
-    .line 187
-    const/16 v0, 0x100
+    .locals 1
 
     .line 188
-    .local v0, "bit":I
-    iget v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
+    iget v0, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
 
-    and-int/2addr v1, v0
+    and-int/lit16 v0, v0, 0x100
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
+    iget-object p1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
 
-    const/16 v2, 0x8
+    const/16 v0, 0x8
 
-    aget v1, v1, v2
-
-    goto :goto_0
+    aget p1, p1, v0
 
     :cond_0
-    move v1, p1
-
-    :goto_0
-    return v1
+    return p1
 .end method
 
 .method getCurrentCwnd(I)I
-    .locals 3
-    .param p1, "defaultValue"    # I
-
-    .line 170
-    const/16 v0, 0x20
+    .locals 1
 
     .line 171
-    .local v0, "bit":I
-    iget v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
+    iget v0, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
 
-    and-int/2addr v1, v0
+    and-int/lit8 v0, v0, 0x20
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
+    iget-object p1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
 
-    const/4 v2, 0x5
+    const/4 v0, 0x5
 
-    aget v1, v1, v2
-
-    goto :goto_0
+    aget p1, p1, v0
 
     :cond_0
-    move v1, p1
-
-    :goto_0
-    return v1
+    return p1
 .end method
 
 .method getDownloadBandwidth(I)I
-    .locals 3
-    .param p1, "defaultValue"    # I
-
-    .line 145
-    const/4 v0, 0x4
+    .locals 1
 
     .line 146
-    .local v0, "bit":I
-    iget v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
+    iget v0, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
 
-    and-int/2addr v1, v0
+    and-int/lit8 v0, v0, 0x4
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
+    iget-object p1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
 
-    const/4 v2, 0x2
+    const/4 v0, 0x2
 
-    aget v1, v1, v2
-
-    goto :goto_0
+    aget p1, p1, v0
 
     :cond_0
-    move v1, p1
-
-    :goto_0
-    return v1
+    return p1
 .end method
 
 .method getDownloadRetransRate(I)I
-    .locals 3
-    .param p1, "defaultValue"    # I
-
-    .line 176
-    const/16 v0, 0x40
+    .locals 1
 
     .line 177
-    .local v0, "bit":I
-    iget v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
+    iget v0, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
 
-    and-int/2addr v1, v0
+    and-int/lit8 v0, v0, 0x40
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
+    iget-object p1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
 
-    const/4 v2, 0x6
+    const/4 v0, 0x6
 
-    aget v1, v1, v2
-
-    goto :goto_0
+    aget p1, p1, v0
 
     :cond_0
-    move v1, p1
-
-    :goto_0
-    return v1
+    return p1
 .end method
 
 .method getEnablePush(Z)Z
-    .locals 5
-    .param p1, "defaultValue"    # Z
-
-    .line 152
-    const/4 v0, 0x4
+    .locals 3
 
     .line 153
-    .local v0, "bit":I
-    iget v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
+    iget v0, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
 
-    and-int/2addr v1, v0
+    and-int/lit8 v0, v0, 0x4
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
+    iget-object p1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
 
-    const/4 v4, 0x2
+    const/4 v0, 0x2
 
-    aget v1, v1, v4
+    aget p1, p1, v0
 
     goto :goto_0
 
     :cond_0
     if-eqz p1, :cond_1
 
-    move v1, v3
+    move p1, v2
 
     goto :goto_0
 
     :cond_1
-    move v1, v2
+    move p1, v1
 
     :goto_0
-    if-ne v1, v3, :cond_2
+    if-ne p1, v2, :cond_2
 
-    move v2, v3
+    move v1, v2
 
     :cond_2
-    return v2
+    return v1
 .end method
 
 .method getHeaderTableSize()I
-    .locals 3
-
-    .line 139
-    const/4 v0, 0x2
+    .locals 2
 
     .line 140
-    .local v0, "bit":I
-    iget v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
+    iget v0, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
 
-    and-int/2addr v1, v0
+    and-int/lit8 v0, v0, 0x2
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
+    iget-object v0, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    aget v1, v1, v2
+    aget v0, v0, v1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, -0x1
+    const/4 v0, -0x1
 
     :goto_0
-    return v1
+    return v0
 .end method
 
 .method public getInitialWindowSize(I)I
-    .locals 3
-    .param p1, "defaultValue"    # I
-
-    .line 181
-    const/16 v0, 0x80
+    .locals 1
 
     .line 182
-    .local v0, "bit":I
-    iget v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
+    iget v0, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
 
-    and-int/2addr v1, v0
+    and-int/lit16 v0, v0, 0x80
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
+    iget-object p1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
 
-    const/4 v2, 0x7
+    const/4 v0, 0x7
 
-    aget v1, v1, v2
-
-    goto :goto_0
+    aget p1, p1, v0
 
     :cond_0
-    move v1, p1
-
-    :goto_0
-    return v1
+    return p1
 .end method
 
 .method getMaxConcurrentStreams(I)I
-    .locals 3
-    .param p1, "defaultValue"    # I
-
-    .line 164
-    const/16 v0, 0x10
+    .locals 1
 
     .line 165
-    .local v0, "bit":I
-    iget v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
+    iget v0, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
 
-    and-int/2addr v1, v0
+    and-int/lit8 v0, v0, 0x10
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
+    iget-object p1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
 
-    const/4 v2, 0x4
+    const/4 v0, 0x4
 
-    aget v1, v1, v2
-
-    goto :goto_0
+    aget p1, p1, v0
 
     :cond_0
-    move v1, p1
-
-    :goto_0
-    return v1
+    return p1
 .end method
 
 .method getRoundTripTime(I)I
-    .locals 3
-    .param p1, "defaultValue"    # I
-
-    .line 158
-    const/16 v0, 0x8
+    .locals 1
 
     .line 159
-    .local v0, "bit":I
-    iget v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
+    iget v0, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
 
-    and-int/2addr v1, v0
+    and-int/lit8 v0, v0, 0x8
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
+    iget-object p1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
 
-    const/4 v2, 0x3
+    const/4 v0, 0x3
 
-    aget v1, v1, v2
-
-    goto :goto_0
+    aget p1, p1, v0
 
     :cond_0
-    move v1, p1
-
-    :goto_0
-    return v1
+    return p1
 .end method
 
 .method getUploadBandwidth(I)I
-    .locals 3
-    .param p1, "defaultValue"    # I
-
-    .line 133
-    const/4 v0, 0x2
+    .locals 1
 
     .line 134
-    .local v0, "bit":I
-    iget v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
+    iget v0, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
 
-    and-int/2addr v1, v0
+    and-int/lit8 v0, v0, 0x2
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
+    iget-object p1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    aget v1, v1, v2
-
-    goto :goto_0
+    aget p1, p1, v0
 
     :cond_0
-    move v1, p1
-
-    :goto_0
-    return v1
+    return p1
 .end method
 
 .method isFlowControlDisabled()Z
-    .locals 4
-
-    .line 193
-    const/16 v0, 0x400
+    .locals 3
 
     .line 194
-    .local v0, "bit":I
-    iget v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
+    iget v0, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
 
-    and-int/2addr v1, v0
+    and-int/lit16 v0, v0, 0x400
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
+    iget-object v0, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
 
-    const/16 v3, 0xa
+    const/16 v2, 0xa
 
-    aget v1, v1, v3
+    aget v0, v0, v2
 
     goto :goto_0
 
     :cond_0
-    move v1, v2
+    move v0, v1
 
-    .line 195
-    .local v1, "value":I
     :goto_0
-    and-int/lit8 v3, v1, 0x1
-
-    if-eqz v3, :cond_1
-
     const/4 v2, 0x1
 
+    and-int/2addr v0, v2
+
+    if-eqz v0, :cond_1
+
+    move v1, v2
+
     :cond_1
-    return v2
+    return v1
 .end method
 
 .method isPersisted(I)Z
-    .locals 3
-    .param p1, "id"    # I
+    .locals 2
 
-    .line 209
     const/4 v0, 0x1
 
-    shl-int v1, v0, p1
+    shl-int p1, v0, p1
 
     .line 210
-    .local v1, "bit":I
-    iget v2, p0, Lcom/koushikdutta/async/http/spdy/Settings;->persisted:I
+    iget v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->persisted:I
 
-    and-int/2addr v2, v1
+    and-int/2addr p1, v1
 
-    if-eqz v2, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
@@ -515,21 +416,18 @@
 .end method
 
 .method isSet(I)Z
-    .locals 3
-    .param p1, "id"    # I
+    .locals 2
 
-    .line 109
     const/4 v0, 0x1
 
-    shl-int v1, v0, p1
+    shl-int p1, v0, p1
 
     .line 110
-    .local v1, "bit":I
-    iget v2, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
+    iget v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
 
-    and-int/2addr v2, v1
+    and-int/2addr p1, v1
 
-    if-eqz v2, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
@@ -542,12 +440,9 @@
 
 .method public merge(Lcom/koushikdutta/async/http/spdy/Settings;)V
     .locals 3
-    .param p1, "other"    # Lcom/koushikdutta/async/http/spdy/Settings;
 
-    .line 218
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     const/16 v1, 0xa
 
@@ -574,34 +469,28 @@
 
     invoke-virtual {p0, v0, v1, v2}, Lcom/koushikdutta/async/http/spdy/Settings;->set(III)Lcom/koushikdutta/async/http/spdy/Settings;
 
-    .line 218
     :goto_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 222
-    .end local v0    # "i":I
     :cond_1
     return-void
 .end method
 
 .method persistValue(I)Z
-    .locals 3
-    .param p1, "id"    # I
+    .locals 2
 
-    .line 203
     const/4 v0, 0x1
 
-    shl-int v1, v0, p1
+    shl-int p1, v0, p1
 
     .line 204
-    .local v1, "bit":I
-    iget v2, p0, Lcom/koushikdutta/async/http/spdy/Settings;->persistValue:I
+    iget v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->persistValue:I
 
-    and-int/2addr v2, v1
+    and-int/2addr p1, v1
 
-    if-eqz v2, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
@@ -613,91 +502,80 @@
 .end method
 
 .method public set(III)Lcom/koushikdutta/async/http/spdy/Settings;
-    .locals 3
-    .param p1, "id"    # I
-    .param p2, "idFlags"    # I
-    .param p3, "value"    # I
+    .locals 4
 
     .line 86
     iget-object v0, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
 
-    array-length v0, v0
+    array-length v1, v0
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v1, :cond_0
 
-    .line 87
     return-object p0
 
-    .line 90
     :cond_0
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    shl-int/2addr v0, p1
+    shl-int/2addr v1, p1
 
     .line 91
-    .local v0, "bit":I
-    iget v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
+    iget v2, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
 
-    or-int/2addr v1, v0
+    or-int/2addr v2, v1
 
-    iput v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
+    iput v2, p0, Lcom/koushikdutta/async/http/spdy/Settings;->set:I
 
-    .line 92
-    and-int/lit8 v1, p2, 0x1
+    and-int/lit8 v2, p2, 0x1
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_1
 
     .line 93
-    iget v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->persistValue:I
+    iget v2, p0, Lcom/koushikdutta/async/http/spdy/Settings;->persistValue:I
 
-    or-int/2addr v1, v0
+    or-int/2addr v2, v1
 
-    iput v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->persistValue:I
+    iput v2, p0, Lcom/koushikdutta/async/http/spdy/Settings;->persistValue:I
 
     goto :goto_0
 
     .line 95
     :cond_1
-    iget v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->persistValue:I
+    iget v2, p0, Lcom/koushikdutta/async/http/spdy/Settings;->persistValue:I
 
-    not-int v2, v0
+    not-int v3, v1
 
-    and-int/2addr v1, v2
+    and-int/2addr v2, v3
 
-    iput v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->persistValue:I
+    iput v2, p0, Lcom/koushikdutta/async/http/spdy/Settings;->persistValue:I
 
-    .line 97
     :goto_0
-    and-int/lit8 v1, p2, 0x2
+    and-int/lit8 p2, p2, 0x2
 
-    if-eqz v1, :cond_2
+    if-eqz p2, :cond_2
 
     .line 98
-    iget v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->persisted:I
+    iget p2, p0, Lcom/koushikdutta/async/http/spdy/Settings;->persisted:I
 
-    or-int/2addr v1, v0
+    or-int/2addr p2, v1
 
-    iput v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->persisted:I
+    iput p2, p0, Lcom/koushikdutta/async/http/spdy/Settings;->persisted:I
 
     goto :goto_1
 
     .line 100
     :cond_2
-    iget v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->persisted:I
+    iget p2, p0, Lcom/koushikdutta/async/http/spdy/Settings;->persisted:I
 
-    not-int v2, v0
+    not-int v1, v1
 
-    and-int/2addr v1, v2
+    and-int/2addr p2, v1
 
-    iput v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->persisted:I
+    iput p2, p0, Lcom/koushikdutta/async/http/spdy/Settings;->persisted:I
 
     .line 103
     :goto_1
-    iget-object v1, p0, Lcom/koushikdutta/async/http/spdy/Settings;->values:[I
+    aput p3, v0, p1
 
-    aput p3, v1, p1
-
-    .line 104
     return-object p0
 .end method
 

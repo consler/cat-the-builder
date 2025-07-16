@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/ProcessLifecycleOwner;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/lifecycle/ProcessLifecycleOwner;
 
     .line 75
     iput-object p1, p0, Landroidx/lifecycle/ProcessLifecycleOwner$2;->this$0:Landroidx/lifecycle/ProcessLifecycleOwner;
@@ -39,7 +38,6 @@
 .method public onCreate()V
     .locals 0
 
-    .line 78
     return-void
 .end method
 
@@ -51,7 +49,6 @@
 
     invoke-virtual {v0}, Landroidx/lifecycle/ProcessLifecycleOwner;->activityResumed()V
 
-    .line 88
     return-void
 .end method
 
@@ -63,6 +60,5 @@
 
     invoke-virtual {v0}, Landroidx/lifecycle/ProcessLifecycleOwner;->activityStarted()V
 
-    .line 83
     return-void
 .end method

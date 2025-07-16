@@ -40,8 +40,6 @@
 # direct methods
 .method constructor <init>(Lretrofit2/RequestFactory;Lokhttp3/Call$Factory;Lretrofit2/Converter;Lretrofit2/CallAdapter;)V
     .locals 0
-    .param p1, "requestFactory"    # Lretrofit2/RequestFactory;
-    .param p2, "callFactory"    # Lokhttp3/Call$Factory;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,23 +54,18 @@
     .end annotation
 
     .line 159
-    .local p0, "this":Lretrofit2/HttpServiceMethod$CallAdapted;, "Lretrofit2/HttpServiceMethod$CallAdapted<TResponseT;TReturnT;>;"
-    .local p3, "responseConverter":Lretrofit2/Converter;, "Lretrofit2/Converter<Lokhttp3/ResponseBody;TResponseT;>;"
-    .local p4, "callAdapter":Lretrofit2/CallAdapter;, "Lretrofit2/CallAdapter<TResponseT;TReturnT;>;"
     invoke-direct {p0, p1, p2, p3}, Lretrofit2/HttpServiceMethod;-><init>(Lretrofit2/RequestFactory;Lokhttp3/Call$Factory;Lretrofit2/Converter;)V
 
     .line 160
     iput-object p4, p0, Lretrofit2/HttpServiceMethod$CallAdapted;->callAdapter:Lretrofit2/CallAdapter;
 
-    .line 161
     return-void
 .end method
 
 
 # virtual methods
 .method protected adapt(Lretrofit2/Call;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p2, "args"    # [Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -84,13 +77,11 @@
     .end annotation
 
     .line 165
-    .local p0, "this":Lretrofit2/HttpServiceMethod$CallAdapted;, "Lretrofit2/HttpServiceMethod$CallAdapted<TResponseT;TReturnT;>;"
-    .local p1, "call":Lretrofit2/Call;, "Lretrofit2/Call<TResponseT;>;"
-    iget-object v0, p0, Lretrofit2/HttpServiceMethod$CallAdapted;->callAdapter:Lretrofit2/CallAdapter;
+    iget-object p2, p0, Lretrofit2/HttpServiceMethod$CallAdapted;->callAdapter:Lretrofit2/CallAdapter;
 
-    invoke-interface {v0, p1}, Lretrofit2/CallAdapter;->adapt(Lretrofit2/Call;)Ljava/lang/Object;
+    invoke-interface {p2, p1}, Lretrofit2/CallAdapter;->adapt(Lretrofit2/Call;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

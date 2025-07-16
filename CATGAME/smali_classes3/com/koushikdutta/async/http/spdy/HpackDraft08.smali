@@ -37,11 +37,11 @@
 .method static constructor <clinit>()V
     .locals 5
 
-    .line 43
     const/16 v0, 0x3d
 
     new-array v0, v0, [Lcom/koushikdutta/async/http/spdy/Header;
 
+    .line 43
     new-instance v1, Lcom/koushikdutta/async/http/spdy/Header;
 
     sget-object v2, Lcom/koushikdutta/async/http/spdy/Header;->TARGET_AUTHORITY:Lcom/koushikdutta/async/http/spdy/ByteString;
@@ -700,7 +700,6 @@
     .line 107
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 108
     return-void
 .end method
 
@@ -714,8 +713,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/koushikdutta/async/http/spdy/ByteString;)Lcom/koushikdutta/async/http/spdy/ByteString;
-    .locals 1
-    .param p0, "x0"    # Lcom/koushikdutta/async/http/spdy/ByteString;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -725,9 +723,9 @@
     .line 38
     invoke-static {p0}, Lcom/koushikdutta/async/http/spdy/HpackDraft08;->checkLowercase(Lcom/koushikdutta/async/http/spdy/ByteString;)Lcom/koushikdutta/async/http/spdy/ByteString;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$200()Ljava/util/Map;
@@ -740,8 +738,7 @@
 .end method
 
 .method private static checkLowercase(Lcom/koushikdutta/async/http/spdy/ByteString;)Lcom/koushikdutta/async/http/spdy/ByteString;
-    .locals 6
-    .param p0, "name"    # Lcom/koushikdutta/async/http/spdy/ByteString;
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -749,24 +746,20 @@
     .end annotation
 
     .line 498
-    const/4 v0, 0x0
-
-    .local v0, "i":I
     invoke-virtual {p0}, Lcom/koushikdutta/async/http/spdy/ByteString;->size()I
 
-    move-result v1
+    move-result v0
 
-    .local v1, "length":I
+    const/4 v1, 0x0
+
     :goto_0
-    if-ge v0, v1, :cond_2
+    if-ge v1, v0, :cond_2
 
     .line 499
-    invoke-virtual {p0, v0}, Lcom/koushikdutta/async/http/spdy/ByteString;->getByte(I)B
+    invoke-virtual {p0, v1}, Lcom/koushikdutta/async/http/spdy/ByteString;->getByte(I)B
 
     move-result v2
 
-    .line 500
-    .local v2, "c":B
     const/16 v3, 0x41
 
     if-lt v2, v3, :cond_1
@@ -779,41 +772,36 @@
 
     .line 501
     :cond_0
-    new-instance v3, Ljava/io/IOException;
+    new-instance v0, Ljava/io/IOException;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "PROTOCOL_ERROR response malformed: mixed case name: "
 
-    const-string v5, "PROTOCOL_ERROR response malformed: mixed case name: "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/koushikdutta/async/http/spdy/ByteString;->utf8()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p0
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v4
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v3, v4}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    move-result-object p0
 
-    throw v3
+    invoke-direct {v0, p0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    .line 498
-    .end local v2    # "c":B
+    throw v0
+
     :cond_1
     :goto_1
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 504
-    .end local v0    # "i":I
-    .end local v1    # "length":I
     :cond_2
     return-object p0
 .end method
@@ -839,11 +827,9 @@
 
     invoke-direct {v0, v1}, Ljava/util/LinkedHashMap;-><init>(I)V
 
-    .line 423
-    .local v0, "result":Ljava/util/Map;, "Ljava/util/Map<Lcom/koushikdutta/async/http/spdy/ByteString;Ljava/lang/Integer;>;"
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    .line 423
     :goto_0
     sget-object v2, Lcom/koushikdutta/async/http/spdy/HpackDraft08;->STATIC_HEADER_TABLE:[Lcom/koushikdutta/async/http/spdy/Header;
 
@@ -852,19 +838,17 @@
     if-ge v1, v3, :cond_1
 
     .line 424
-    aget-object v2, v2, v1
+    aget-object v3, v2, v1
 
-    iget-object v2, v2, Lcom/koushikdutta/async/http/spdy/Header;->name:Lcom/koushikdutta/async/http/spdy/ByteString;
+    iget-object v3, v3, Lcom/koushikdutta/async/http/spdy/Header;->name:Lcom/koushikdutta/async/http/spdy/ByteString;
 
-    invoke-interface {v0, v2}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    invoke-interface {v0, v3}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_0
+    if-nez v3, :cond_0
 
     .line 425
-    sget-object v2, Lcom/koushikdutta/async/http/spdy/HpackDraft08;->STATIC_HEADER_TABLE:[Lcom/koushikdutta/async/http/spdy/Header;
-
     aget-object v2, v2, v1
 
     iget-object v2, v2, Lcom/koushikdutta/async/http/spdy/Header;->name:Lcom/koushikdutta/async/http/spdy/ByteString;
@@ -875,18 +859,16 @@
 
     invoke-interface {v0, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 423
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 428
-    .end local v1    # "i":I
     :cond_1
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method

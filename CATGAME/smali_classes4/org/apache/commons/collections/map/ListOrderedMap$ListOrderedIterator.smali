@@ -22,26 +22,23 @@
 
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections/map/ListOrderedMap;Ljava/util/List;)V
-    .locals 1
-    .param p1, "parent"    # Lorg/apache/commons/collections/map/ListOrderedMap;
-    .param p2, "insertOrder"    # Ljava/util/List;
+    .locals 0
 
     .line 600
     invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-direct {p0, v0}, Lorg/apache/commons/collections/iterators/AbstractIteratorDecorator;-><init>(Ljava/util/Iterator;)V
+    invoke-direct {p0, p2}, Lorg/apache/commons/collections/iterators/AbstractIteratorDecorator;-><init>(Ljava/util/Iterator;)V
+
+    const/4 p2, 0x0
 
     .line 597
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lorg/apache/commons/collections/map/ListOrderedMap$ListOrderedIterator;->last:Ljava/lang/Object;
+    iput-object p2, p0, Lorg/apache/commons/collections/map/ListOrderedMap$ListOrderedIterator;->last:Ljava/lang/Object;
 
     .line 601
     iput-object p1, p0, Lorg/apache/commons/collections/map/ListOrderedMap$ListOrderedIterator;->parent:Lorg/apache/commons/collections/map/ListOrderedMap;
 
-    .line 602
     return-void
 .end method
 
@@ -58,13 +55,15 @@
     iput-object v0, p0, Lorg/apache/commons/collections/map/ListOrderedMap$ListOrderedIterator;->last:Ljava/lang/Object;
 
     .line 606
-    new-instance v1, Lorg/apache/commons/collections/map/ListOrderedMap$ListOrderedMapEntry;
+    new-instance v0, Lorg/apache/commons/collections/map/ListOrderedMap$ListOrderedMapEntry;
 
-    iget-object v2, p0, Lorg/apache/commons/collections/map/ListOrderedMap$ListOrderedIterator;->parent:Lorg/apache/commons/collections/map/ListOrderedMap;
+    iget-object v1, p0, Lorg/apache/commons/collections/map/ListOrderedMap$ListOrderedIterator;->parent:Lorg/apache/commons/collections/map/ListOrderedMap;
 
-    invoke-direct {v1, v2, v0}, Lorg/apache/commons/collections/map/ListOrderedMap$ListOrderedMapEntry;-><init>(Lorg/apache/commons/collections/map/ListOrderedMap;Ljava/lang/Object;)V
+    iget-object v2, p0, Lorg/apache/commons/collections/map/ListOrderedMap$ListOrderedIterator;->last:Ljava/lang/Object;
 
-    return-object v1
+    invoke-direct {v0, v1, v2}, Lorg/apache/commons/collections/map/ListOrderedMap$ListOrderedMapEntry;-><init>(Lorg/apache/commons/collections/map/ListOrderedMap;Ljava/lang/Object;)V
+
+    return-object v0
 .end method
 
 .method public remove()V
@@ -84,6 +83,5 @@
 
     invoke-interface {v0, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 612
     return-void
 .end method

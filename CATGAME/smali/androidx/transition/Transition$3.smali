@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/transition/Transition;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/transition/Transition;
 
     .line 1911
     iput-object p1, p0, Landroidx/transition/Transition$3;->this$0:Landroidx/transition/Transition;
@@ -35,7 +34,6 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
-    .param p1, "animation"    # Landroid/animation/Animator;
 
     .line 1914
     iget-object v0, p0, Landroidx/transition/Transition$3;->this$0:Landroidx/transition/Transition;
@@ -45,6 +43,5 @@
     .line 1915
     invoke-virtual {p1, p0}, Landroid/animation/Animator;->removeListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    .line 1916
     return-void
 .end method

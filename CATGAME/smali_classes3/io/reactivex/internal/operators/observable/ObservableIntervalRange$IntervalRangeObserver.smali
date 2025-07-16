@@ -52,8 +52,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/Observer;JJ)V
     .locals 0
-    .param p2, "start"    # J
-    .param p4, "end"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,7 +63,6 @@
     .end annotation
 
     .line 62
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-Ljava/lang/Long;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 63
@@ -77,7 +74,6 @@
     .line 65
     iput-wide p4, p0, Lio/reactivex/internal/operators/observable/ObservableIntervalRange$IntervalRangeObserver;->end:J
 
-    .line 66
     return-void
 .end method
 
@@ -89,7 +85,6 @@
     .line 70
     invoke-static {p0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 71
     return-void
 .end method
 
@@ -130,7 +125,6 @@
     iget-wide v0, p0, Lio/reactivex/internal/operators/observable/ObservableIntervalRange$IntervalRangeObserver;->count:J
 
     .line 82
-    .local v0, "c":J
     iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableIntervalRange$IntervalRangeObserver;->actual:Lio/reactivex/Observer;
 
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -150,34 +144,29 @@
     invoke-static {p0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
     .line 86
-    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableIntervalRange$IntervalRangeObserver;->actual:Lio/reactivex/Observer;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableIntervalRange$IntervalRangeObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v2}, Lio/reactivex/Observer;->onComplete()V
+    invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 87
     return-void
 
-    .line 90
     :cond_0
     const-wide/16 v2, 0x1
 
-    add-long/2addr v2, v0
+    add-long/2addr v0, v2
 
-    iput-wide v2, p0, Lio/reactivex/internal/operators/observable/ObservableIntervalRange$IntervalRangeObserver;->count:J
+    .line 90
+    iput-wide v0, p0, Lio/reactivex/internal/operators/observable/ObservableIntervalRange$IntervalRangeObserver;->count:J
 
-    .line 93
-    .end local v0    # "c":J
     :cond_1
     return-void
 .end method
 
 .method public setResource(Lio/reactivex/disposables/Disposable;)V
     .locals 0
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 96
     invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 97
     return-void
 .end method

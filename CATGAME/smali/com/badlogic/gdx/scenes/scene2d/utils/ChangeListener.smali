@@ -30,8 +30,7 @@
 .end method
 
 .method public handle(Lcom/badlogic/gdx/scenes/scene2d/Event;)Z
-    .locals 3
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/Event;
+    .locals 2
 
     .line 27
     instance-of v0, p1, Lcom/badlogic/gdx/scenes/scene2d/utils/ChangeListener$ChangeEvent;
@@ -50,10 +49,9 @@
 
     invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/Event;->getTarget()Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {p0, v0, v2}, Lcom/badlogic/gdx/scenes/scene2d/utils/ChangeListener;->changed(Lcom/badlogic/gdx/scenes/scene2d/utils/ChangeListener$ChangeEvent;Lcom/badlogic/gdx/scenes/scene2d/Actor;)V
+    invoke-virtual {p0, v0, p1}, Lcom/badlogic/gdx/scenes/scene2d/utils/ChangeListener;->changed(Lcom/badlogic/gdx/scenes/scene2d/utils/ChangeListener$ChangeEvent;Lcom/badlogic/gdx/scenes/scene2d/Actor;)V
 
-    .line 29
     return v1
 .end method

@@ -59,10 +59,8 @@
     .end annotation
 
     .line 102
-    .local p0, "this":Lcom/bumptech/glide/load/model/UnitModelLoader$Factory;, "Lcom/bumptech/glide/load/model/UnitModelLoader$Factory<TModel;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 104
     return-void
 .end method
 
@@ -87,8 +85,7 @@
 
 # virtual methods
 .method public build(Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;)Lcom/bumptech/glide/load/model/ModelLoader;
-    .locals 1
-    .param p1, "multiFactory"    # Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -100,18 +97,15 @@
     .end annotation
 
     .line 109
-    .local p0, "this":Lcom/bumptech/glide/load/model/UnitModelLoader$Factory;, "Lcom/bumptech/glide/load/model/UnitModelLoader$Factory<TModel;>;"
     invoke-static {}, Lcom/bumptech/glide/load/model/UnitModelLoader;->getInstance()Lcom/bumptech/glide/load/model/UnitModelLoader;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public teardown()V
     .locals 0
 
-    .line 115
-    .local p0, "this":Lcom/bumptech/glide/load/model/UnitModelLoader$Factory;, "Lcom/bumptech/glide/load/model/UnitModelLoader$Factory<TModel;>;"
     return-void
 .end method

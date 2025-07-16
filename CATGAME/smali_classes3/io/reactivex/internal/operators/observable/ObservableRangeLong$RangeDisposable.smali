@@ -48,8 +48,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/Observer;JJ)V
     .locals 0
-    .param p2, "start"    # J
-    .param p4, "end"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -61,7 +59,6 @@
     .end annotation
 
     .line 48
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-Ljava/lang/Long;>;"
     invoke-direct {p0}, Lio/reactivex/internal/observers/BasicIntQueueDisposable;-><init>()V
 
     .line 49
@@ -73,7 +70,6 @@
     .line 51
     iput-wide p4, p0, Lio/reactivex/internal/operators/observable/ObservableRangeLong$RangeDisposable;->end:J
 
-    .line 52
     return-void
 .end method
 
@@ -87,24 +83,22 @@
 
     iput-wide v0, p0, Lio/reactivex/internal/operators/observable/ObservableRangeLong$RangeDisposable;->index:J
 
-    .line 89
     const/4 v0, 0x1
 
+    .line 89
     invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/observable/ObservableRangeLong$RangeDisposable;->lazySet(I)V
 
-    .line 90
     return-void
 .end method
 
 .method public dispose()V
     .locals 1
 
-    .line 94
     const/4 v0, 0x1
 
+    .line 94
     invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/observable/ObservableRangeLong$RangeDisposable;->set(I)V
 
-    .line 95
     return-void
 .end method
 
@@ -164,37 +158,35 @@
     iget-wide v0, p0, Lio/reactivex/internal/operators/observable/ObservableRangeLong$RangeDisposable;->index:J
 
     .line 73
-    .local v0, "i":J
     iget-wide v2, p0, Lio/reactivex/internal/operators/observable/ObservableRangeLong$RangeDisposable;->end:J
 
     cmp-long v2, v0, v2
 
     if-eqz v2, :cond_0
 
-    .line 74
     const-wide/16 v2, 0x1
 
     add-long/2addr v2, v0
 
+    .line 74
     iput-wide v2, p0, Lio/reactivex/internal/operators/observable/ObservableRangeLong$RangeDisposable;->index:J
 
     .line 75
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v2
+    move-result-object v0
 
-    return-object v2
+    return-object v0
+
+    :cond_0
+    const/4 v0, 0x1
 
     .line 77
-    :cond_0
-    const/4 v2, 0x1
+    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/observable/ObservableRangeLong$RangeDisposable;->lazySet(I)V
 
-    invoke-virtual {p0, v2}, Lio/reactivex/internal/operators/observable/ObservableRangeLong$RangeDisposable;->lazySet(I)V
+    const/4 v0, 0x0
 
-    .line 78
-    const/4 v2, 0x0
-
-    return-object v2
+    return-object v0
 .end method
 
 .method public bridge synthetic poll()Ljava/lang/Object;
@@ -215,26 +207,22 @@
 
 .method public requestFusion(I)I
     .locals 1
-    .param p1, "mode"    # I
 
-    .line 104
-    and-int/lit8 v0, p1, 0x1
-
-    if-eqz v0, :cond_0
-
-    .line 105
     const/4 v0, 0x1
 
+    and-int/2addr p1, v0
+
+    if-eqz p1, :cond_0
+
+    .line 105
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableRangeLong$RangeDisposable;->fused:Z
 
-    .line 106
     return v0
 
-    .line 108
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method run()V
@@ -245,7 +233,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 56
     return-void
 
     .line 58
@@ -253,14 +240,11 @@
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableRangeLong$RangeDisposable;->actual:Lio/reactivex/Observer;
 
     .line 59
-    .local v0, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-Ljava/lang/Long;>;"
     iget-wide v1, p0, Lio/reactivex/internal/operators/observable/ObservableRangeLong$RangeDisposable;->end:J
 
     .line 60
-    .local v1, "e":J
     iget-wide v3, p0, Lio/reactivex/internal/operators/observable/ObservableRangeLong$RangeDisposable;->index:J
 
-    .local v3, "i":J
     :goto_0
     cmp-long v5, v3, v1
 
@@ -279,7 +263,6 @@
 
     invoke-interface {v0, v5}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
-    .line 60
     const-wide/16 v5, 0x1
 
     add-long/2addr v3, v5
@@ -287,23 +270,21 @@
     goto :goto_0
 
     .line 63
-    .end local v3    # "i":J
     :cond_1
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableRangeLong$RangeDisposable;->get()I
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_2
+    if-nez v1, :cond_2
+
+    const/4 v1, 0x1
 
     .line 64
-    const/4 v3, 0x1
-
-    invoke-virtual {p0, v3}, Lio/reactivex/internal/operators/observable/ObservableRangeLong$RangeDisposable;->lazySet(I)V
+    invoke-virtual {p0, v1}, Lio/reactivex/internal/operators/observable/ObservableRangeLong$RangeDisposable;->lazySet(I)V
 
     .line 65
     invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 67
     :cond_2
     return-void
 .end method

@@ -20,7 +20,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 15
+    .line 1
     invoke-direct {p0}, Lcom/huawei/hms/support/api/entity/core/JosBaseReq;-><init>()V
 
     return-void
@@ -36,7 +36,6 @@
         }
     .end annotation
 
-    .line 34
     return-object p0
 .end method
 
@@ -45,7 +44,7 @@
 .method public getNoticeType()I
     .locals 1
 
-    .line 38
+    .line 1
     iget v0, p0, Lcom/huawei/hms/support/api/entity/core/JosGetNoticeReq;->noticeType:I
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -68,9 +67,8 @@
 .method public setNoticeType(I)V
     .locals 0
 
-    .line 42
+    .line 1
     iput p1, p0, Lcom/huawei/hms/support/api/entity/core/JosGetNoticeReq;->noticeType:I
 
-    .line 43
     return-void
 .end method

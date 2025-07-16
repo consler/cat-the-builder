@@ -26,10 +26,8 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Class;Ljava/lang/String;)V
     .locals 0
-    .param p2, "x1"    # Ljava/lang/String;
 
     .line 148
-    .local p1, "x0":Ljava/lang/Class;, "Ljava/lang/Class<Landroid/graphics/PointF;>;"
     invoke-direct {p0, p1, p2}, Landroid/util/Property;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
 
     return-void
@@ -38,13 +36,11 @@
 
 # virtual methods
 .method public get(Landroid/view/View;)Landroid/graphics/PointF;
-    .locals 1
-    .param p1, "view"    # Landroid/view/View;
+    .locals 0
 
-    .line 160
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -61,9 +57,7 @@
 .end method
 
 .method public set(Landroid/view/View;Landroid/graphics/PointF;)V
-    .locals 4
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "topLeft"    # Landroid/graphics/PointF;
+    .locals 3
 
     .line 151
     iget v0, p2, Landroid/graphics/PointF;->x:F
@@ -73,34 +67,29 @@
     move-result v0
 
     .line 152
-    .local v0, "left":I
-    iget v1, p2, Landroid/graphics/PointF;->y:F
+    iget p2, p2, Landroid/graphics/PointF;->y:F
 
-    invoke-static {v1}, Ljava/lang/Math;->round(F)I
+    invoke-static {p2}, Ljava/lang/Math;->round(F)I
+
+    move-result p2
+
+    .line 153
+    invoke-virtual {p1}, Landroid/view/View;->getWidth()I
 
     move-result v1
 
-    .line 153
-    .local v1, "top":I
-    invoke-virtual {p1}, Landroid/view/View;->getWidth()I
+    add-int/2addr v1, v0
+
+    .line 154
+    invoke-virtual {p1}, Landroid/view/View;->getHeight()I
 
     move-result v2
 
-    add-int/2addr v2, v0
-
-    .line 154
-    .local v2, "right":I
-    invoke-virtual {p1}, Landroid/view/View;->getHeight()I
-
-    move-result v3
-
-    add-int/2addr v3, v1
+    add-int/2addr v2, p2
 
     .line 155
-    .local v3, "bottom":I
-    invoke-static {p1, v0, v1, v2, v3}, Landroidx/transition/ViewUtils;->setLeftTopRightBottom(Landroid/view/View;IIII)V
+    invoke-static {p1, v0, p2, v1, v2}, Landroidx/transition/ViewUtils;->setLeftTopRightBottom(Landroid/view/View;IIII)V
 
-    .line 156
     return-void
 .end method
 

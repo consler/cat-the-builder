@@ -27,10 +27,6 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;ILjava/lang/Object;I)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;
-    .param p2, "id"    # I
-    .param p3, "data"    # Ljava/lang/Object;
-    .param p4, "strideSize"    # I
 
     .line 51
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$Channel;->this$0:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;
@@ -46,7 +42,6 @@
     .line 54
     iput-object p3, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$Channel;->data:Ljava/lang/Object;
 
-    .line 55
     return-void
 .end method
 

@@ -1,5 +1,6 @@
 .class public Lcom/huawei/hms/framework/network/grs/local/model/d;
 .super Ljava/lang/Object;
+.source ""
 
 
 # instance fields
@@ -28,10 +29,19 @@
 
 
 # virtual methods
-.method public a()Ljava/lang/String;
+.method public a()Ljava/util/Map;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Map<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/local/model/d;->a:Ljava/lang/String;
+    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/local/model/d;->b:Ljava/util/Map;
 
     return-object v0
 .end method
@@ -61,19 +71,10 @@
     return-void
 .end method
 
-.method public b()Ljava/util/Map;
+.method public b()Ljava/lang/String;
     .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/Map<",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
 
-    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/local/model/d;->b:Ljava/util/Map;
+    iget-object v0, p0, Lcom/huawei/hms/framework/network/grs/local/model/d;->a:Ljava/lang/String;
 
     return-object v0
 .end method

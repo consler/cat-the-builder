@@ -35,7 +35,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService;Ljava/lang/Runnable;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService;
 
     .line 95
     iput-object p1, p0, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService$2;->this$0:Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService;
@@ -73,7 +72,6 @@
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    .line 99
     const/4 v0, 0x0
 
     return-object v0

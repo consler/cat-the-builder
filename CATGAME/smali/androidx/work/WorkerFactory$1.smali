@@ -27,10 +27,7 @@
 
 # virtual methods
 .method public createWorker(Landroid/content/Context;Ljava/lang/String;Landroidx/work/WorkerParameters;)Landroidx/work/ListenableWorker;
-    .locals 1
-    .param p1, "appContext"    # Landroid/content/Context;
-    .param p2, "workerClassName"    # Ljava/lang/String;
-    .param p3, "workerParameters"    # Landroidx/work/WorkerParameters;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -44,8 +41,7 @@
         }
     .end annotation
 
-    .line 131
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method

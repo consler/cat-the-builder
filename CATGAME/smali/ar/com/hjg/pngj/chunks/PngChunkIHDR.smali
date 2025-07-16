@@ -26,40 +26,38 @@
 # direct methods
 .method public constructor <init>(Lar/com/hjg/pngj/ImageInfo;)V
     .locals 1
-    .param p1, "info"    # Lar/com/hjg/pngj/ImageInfo;
 
-    .line 31
     const-string v0, "IHDR"
 
+    .line 31
     invoke-direct {p0, v0, p1}, Lar/com/hjg/pngj/chunks/PngChunkSingle;-><init>(Ljava/lang/String;Lar/com/hjg/pngj/ImageInfo;)V
 
-    .line 32
     return-void
 .end method
 
 
 # virtual methods
 .method public check()V
-    .locals 7
+    .locals 8
 
     .line 141
     iget v0, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->cols:I
 
     const/4 v1, 0x1
 
-    if-lt v0, v1, :cond_a
+    if-lt v0, v1, :cond_9
 
     iget v0, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->rows:I
 
-    if-lt v0, v1, :cond_a
+    if-lt v0, v1, :cond_9
 
     iget v0, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->compmeth:I
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_9
 
     iget v0, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->filmeth:I
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_9
 
     .line 143
     iget v0, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->bitspc:I
@@ -97,28 +95,28 @@
     .line 145
     :cond_1
     :goto_0
-    iget v0, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->interlaced:I
+    iget v7, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->interlaced:I
 
-    if-ltz v0, :cond_9
+    if-ltz v7, :cond_8
 
-    if-gt v0, v1, :cond_9
+    if-gt v7, v1, :cond_8
 
     .line 147
-    iget v0, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->colormodel:I
+    iget v1, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->colormodel:I
 
-    if-eqz v0, :cond_7
+    if-eqz v1, :cond_7
 
-    const/4 v1, 0x6
+    const/4 v7, 0x6
 
-    if-eq v0, v1, :cond_5
+    if-eq v1, v7, :cond_5
 
-    if-eq v0, v4, :cond_5
+    if-eq v1, v4, :cond_5
 
-    const/4 v1, 0x3
+    const/4 v4, 0x3
 
-    if-eq v0, v1, :cond_3
+    if-eq v1, v4, :cond_3
 
-    if-ne v0, v3, :cond_2
+    if-ne v1, v3, :cond_2
 
     goto :goto_1
 
@@ -132,10 +130,7 @@
 
     throw v0
 
-    .line 151
     :cond_3
-    iget v0, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->bitspc:I
-
     if-eq v0, v6, :cond_4
 
     goto :goto_2
@@ -148,12 +143,9 @@
 
     throw v0
 
-    .line 157
     :cond_5
     :goto_1
-    iget v0, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->bitspc:I
-
-    if-eq v0, v2, :cond_8
+    if-eq v0, v2, :cond_7
 
     if-ne v0, v6, :cond_6
 
@@ -167,17 +159,12 @@
 
     throw v0
 
-    .line 149
     :cond_7
-    nop
-
-    .line 163
-    :cond_8
     :goto_2
     return-void
 
     .line 146
-    :cond_9
+    :cond_8
     new-instance v0, Lar/com/hjg/pngj/PngjInputException;
 
     const-string v1, "bad IHDR: interlace invalid"
@@ -187,7 +174,7 @@
     throw v0
 
     .line 142
-    :cond_a
+    :cond_9
     new-instance v0, Lar/com/hjg/pngj/PngjInputException;
 
     const-string v1, "bad IHDR: col/row/compmethod/filmethod invalid"
@@ -226,7 +213,6 @@
     move v8, v2
 
     .line 134
-    .local v8, "alpha":Z
     :goto_0
     invoke-virtual {p0}, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->getColormodel()I
 
@@ -244,7 +230,6 @@
     move v10, v2
 
     .line 135
-    .local v10, "palette":Z
     :goto_1
     invoke-virtual {p0}, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->getColormodel()I
 
@@ -270,7 +255,6 @@
     move v9, v3
 
     .line 137
-    .local v9, "grayscale":Z
     :goto_3
     new-instance v0, Lar/com/hjg/pngj/ImageInfo;
 
@@ -294,110 +278,92 @@
 .end method
 
 .method public createRawChunk()Lar/com/hjg/pngj/chunks/ChunkRaw;
-    .locals 5
+    .locals 4
 
     .line 41
     new-instance v0, Lar/com/hjg/pngj/chunks/ChunkRaw;
 
     sget-object v1, Lar/com/hjg/pngj/chunks/ChunkHelper;->b_IHDR:[B
 
-    const/16 v2, 0xd
+    const/4 v2, 0x1
 
-    const/4 v3, 0x1
+    const/16 v3, 0xd
 
-    invoke-direct {v0, v2, v1, v3}, Lar/com/hjg/pngj/chunks/ChunkRaw;-><init>(I[BZ)V
-
-    .line 42
-    .local v0, "c":Lar/com/hjg/pngj/chunks/ChunkRaw;
-    const/4 v1, 0x0
+    invoke-direct {v0, v3, v1, v2}, Lar/com/hjg/pngj/chunks/ChunkRaw;-><init>(I[BZ)V
 
     .line 43
-    .local v1, "offset":I
-    iget v2, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->cols:I
+    iget v1, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->cols:I
 
-    iget-object v3, v0, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
-
-    invoke-static {v2, v3, v1}, Lar/com/hjg/pngj/PngHelperInternal;->writeInt4tobytes(I[BI)V
-
-    .line 44
-    add-int/lit8 v1, v1, 0x4
-
-    .line 45
-    iget v2, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->rows:I
-
-    iget-object v3, v0, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
-
-    invoke-static {v2, v3, v1}, Lar/com/hjg/pngj/PngHelperInternal;->writeInt4tobytes(I[BI)V
-
-    .line 46
-    add-int/lit8 v1, v1, 0x4
-
-    .line 47
     iget-object v2, v0, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
 
-    add-int/lit8 v3, v1, 0x1
+    const/4 v3, 0x0
 
-    .end local v1    # "offset":I
-    .local v3, "offset":I
-    iget v4, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->bitspc:I
+    invoke-static {v1, v2, v3}, Lar/com/hjg/pngj/PngHelperInternal;->writeInt4tobytes(I[BI)V
 
-    int-to-byte v4, v4
+    .line 45
+    iget v1, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->rows:I
 
-    aput-byte v4, v2, v1
+    iget-object v2, v0, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
+
+    const/4 v3, 0x4
+
+    invoke-static {v1, v2, v3}, Lar/com/hjg/pngj/PngHelperInternal;->writeInt4tobytes(I[BI)V
+
+    .line 47
+    iget-object v1, v0, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
+
+    iget v2, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->bitspc:I
+
+    int-to-byte v2, v2
+
+    const/16 v3, 0x8
+
+    aput-byte v2, v1, v3
 
     .line 48
     iget-object v1, v0, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
 
-    add-int/lit8 v2, v3, 0x1
+    iget v2, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->colormodel:I
 
-    .end local v3    # "offset":I
-    .local v2, "offset":I
-    iget v4, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->colormodel:I
+    int-to-byte v2, v2
 
-    int-to-byte v4, v4
+    const/16 v3, 0x9
 
-    aput-byte v4, v1, v3
+    aput-byte v2, v1, v3
 
     .line 49
     iget-object v1, v0, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
 
-    add-int/lit8 v3, v2, 0x1
+    iget v2, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->compmeth:I
 
-    .end local v2    # "offset":I
-    .restart local v3    # "offset":I
-    iget v4, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->compmeth:I
+    int-to-byte v2, v2
 
-    int-to-byte v4, v4
+    const/16 v3, 0xa
 
-    aput-byte v4, v1, v2
+    aput-byte v2, v1, v3
 
     .line 50
     iget-object v1, v0, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
 
-    add-int/lit8 v2, v3, 0x1
+    iget v2, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->filmeth:I
 
-    .end local v3    # "offset":I
-    .restart local v2    # "offset":I
-    iget v4, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->filmeth:I
+    int-to-byte v2, v2
 
-    int-to-byte v4, v4
+    const/16 v3, 0xb
 
-    aput-byte v4, v1, v3
+    aput-byte v2, v1, v3
 
     .line 51
     iget-object v1, v0, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
 
-    add-int/lit8 v3, v2, 0x1
+    iget v2, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->interlaced:I
 
-    .end local v2    # "offset":I
-    .restart local v3    # "offset":I
-    iget v4, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->interlaced:I
+    int-to-byte v2, v2
 
-    int-to-byte v4, v4
+    const/16 v3, 0xc
 
-    aput-byte v4, v1, v2
+    aput-byte v2, v1, v3
 
-    .line 52
     return-object v0
 .end method
 
@@ -496,7 +462,6 @@
 
 .method public parseFromRaw(Lar/com/hjg/pngj/chunks/ChunkRaw;)V
     .locals 3
-    .param p1, "c"    # Lar/com/hjg/pngj/chunks/ChunkRaw;
 
     .line 57
     iget v0, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->len:I
@@ -508,160 +473,143 @@
     .line 59
     invoke-virtual {p1}, Lar/com/hjg/pngj/chunks/ChunkRaw;->getAsByteStream()Ljava/io/ByteArrayInputStream;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 60
-    .local v0, "st":Ljava/io/ByteArrayInputStream;
-    invoke-static {v0}, Lar/com/hjg/pngj/PngHelperInternal;->readInt4(Ljava/io/InputStream;)I
+    invoke-static {p1}, Lar/com/hjg/pngj/PngHelperInternal;->readInt4(Ljava/io/InputStream;)I
 
-    move-result v1
+    move-result v0
 
-    iput v1, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->cols:I
+    iput v0, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->cols:I
 
     .line 61
-    invoke-static {v0}, Lar/com/hjg/pngj/PngHelperInternal;->readInt4(Ljava/io/InputStream;)I
+    invoke-static {p1}, Lar/com/hjg/pngj/PngHelperInternal;->readInt4(Ljava/io/InputStream;)I
 
-    move-result v1
+    move-result v0
 
-    iput v1, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->rows:I
+    iput v0, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->rows:I
 
     .line 63
-    invoke-static {v0}, Lar/com/hjg/pngj/PngHelperInternal;->readByte(Ljava/io/InputStream;)I
+    invoke-static {p1}, Lar/com/hjg/pngj/PngHelperInternal;->readByte(Ljava/io/InputStream;)I
 
-    move-result v1
+    move-result v0
 
-    iput v1, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->bitspc:I
+    iput v0, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->bitspc:I
 
     .line 64
-    invoke-static {v0}, Lar/com/hjg/pngj/PngHelperInternal;->readByte(Ljava/io/InputStream;)I
+    invoke-static {p1}, Lar/com/hjg/pngj/PngHelperInternal;->readByte(Ljava/io/InputStream;)I
 
-    move-result v1
+    move-result v0
 
-    iput v1, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->colormodel:I
+    iput v0, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->colormodel:I
 
     .line 65
-    invoke-static {v0}, Lar/com/hjg/pngj/PngHelperInternal;->readByte(Ljava/io/InputStream;)I
+    invoke-static {p1}, Lar/com/hjg/pngj/PngHelperInternal;->readByte(Ljava/io/InputStream;)I
 
-    move-result v1
+    move-result v0
 
-    iput v1, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->compmeth:I
+    iput v0, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->compmeth:I
 
     .line 66
-    invoke-static {v0}, Lar/com/hjg/pngj/PngHelperInternal;->readByte(Ljava/io/InputStream;)I
+    invoke-static {p1}, Lar/com/hjg/pngj/PngHelperInternal;->readByte(Ljava/io/InputStream;)I
 
-    move-result v1
+    move-result v0
 
-    iput v1, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->filmeth:I
+    iput v0, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->filmeth:I
 
     .line 67
-    invoke-static {v0}, Lar/com/hjg/pngj/PngHelperInternal;->readByte(Ljava/io/InputStream;)I
+    invoke-static {p1}, Lar/com/hjg/pngj/PngHelperInternal;->readByte(Ljava/io/InputStream;)I
 
-    move-result v1
+    move-result p1
 
-    iput v1, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->interlaced:I
+    iput p1, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->interlaced:I
 
-    .line 68
     return-void
 
     .line 58
-    .end local v0    # "st":Ljava/io/ByteArrayInputStream;
     :cond_0
     new-instance v0, Lar/com/hjg/pngj/PngjException;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Bad IDHR len "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget v2, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->len:I
+    iget p1, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->len:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Lar/com/hjg/pngj/PngjException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Lar/com/hjg/pngj/PngjException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public setBitspc(I)V
     .locals 0
-    .param p1, "bitspc"    # I
 
     .line 91
     iput p1, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->bitspc:I
 
-    .line 92
     return-void
 .end method
 
 .method public setColormodel(I)V
     .locals 0
-    .param p1, "colormodel"    # I
 
     .line 99
     iput p1, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->colormodel:I
 
-    .line 100
     return-void
 .end method
 
 .method public setCols(I)V
     .locals 0
-    .param p1, "cols"    # I
 
     .line 75
     iput p1, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->cols:I
 
-    .line 76
     return-void
 .end method
 
 .method public setCompmeth(I)V
     .locals 0
-    .param p1, "compmeth"    # I
 
     .line 107
     iput p1, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->compmeth:I
 
-    .line 108
     return-void
 .end method
 
 .method public setFilmeth(I)V
     .locals 0
-    .param p1, "filmeth"    # I
 
     .line 115
     iput p1, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->filmeth:I
 
-    .line 116
     return-void
 .end method
 
 .method public setInterlaced(I)V
     .locals 0
-    .param p1, "interlaced"    # I
 
     .line 123
     iput p1, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->interlaced:I
 
-    .line 124
     return-void
 .end method
 
 .method public setRows(I)V
     .locals 0
-    .param p1, "rows"    # I
 
     .line 83
     iput p1, p0, Lar/com/hjg/pngj/chunks/PngChunkIHDR;->rows:I
 
-    .line 84
     return-void
 .end method

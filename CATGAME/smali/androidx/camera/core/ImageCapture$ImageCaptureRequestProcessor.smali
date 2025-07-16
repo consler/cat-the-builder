@@ -58,8 +58,6 @@
 # direct methods
 .method constructor <init>(ILandroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor$ImageCaptor;)V
     .locals 1
-    .param p1, "maxImages"    # I
-    .param p2, "imageCaptor"    # Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor$ImageCaptor;
 
     .line 867
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -71,17 +69,17 @@
 
     iput-object v0, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mPendingRequests:Ljava/util/Deque;
 
-    .line 847
     const/4 v0, 0x0
 
+    .line 847
     iput-object v0, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mCurrentRequest:Landroidx/camera/core/ImageCapture$ImageCaptureRequest;
 
     .line 851
     iput-object v0, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mCurrentRequestFuture:Lcom/google/common/util/concurrent/ListenableFuture;
 
-    .line 855
     const/4 v0, 0x0
 
+    .line 855
     iput v0, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mOutstandingImages:I
 
     .line 864
@@ -97,15 +95,13 @@
     .line 869
     iput-object p2, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mImageCaptor:Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor$ImageCaptor;
 
-    .line 870
     return-void
 .end method
 
 
 # virtual methods
 .method public cancelRequests(Ljava/lang/Throwable;)V
-    .locals 7
-    .param p1, "throwable"    # Ljava/lang/Throwable;
+    .locals 5
 
     .line 892
     iget-object v0, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mLock:Ljava/lang/Object;
@@ -116,17 +112,15 @@
     :try_start_0
     iget-object v1, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mCurrentRequest:Landroidx/camera/core/ImageCapture$ImageCaptureRequest;
 
-    .line 894
-    .local v1, "currentRequest":Landroidx/camera/core/ImageCapture$ImageCaptureRequest;
     const/4 v2, 0x0
 
+    .line 894
     iput-object v2, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mCurrentRequest:Landroidx/camera/core/ImageCapture$ImageCaptureRequest;
 
     .line 895
     iget-object v3, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mCurrentRequestFuture:Lcom/google/common/util/concurrent/ListenableFuture;
 
     .line 896
-    .local v3, "currentRequestFuture":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Landroidx/camera/core/ImageProxy;>;"
     iput-object v2, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mCurrentRequestFuture:Lcom/google/common/util/concurrent/ListenableFuture;
 
     .line 897
@@ -137,7 +131,6 @@
     invoke-direct {v2, v4}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     .line 898
-    .local v2, "pendingRequests":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/core/ImageCapture$ImageCaptureRequest;>;"
     iget-object v4, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mPendingRequests:Ljava/util/Deque;
 
     invoke-interface {v4}, Ljava/util/Deque;->clear()V
@@ -147,7 +140,6 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 900
     if-eqz v1, :cond_0
 
     if-eqz v3, :cond_0
@@ -163,9 +155,9 @@
 
     invoke-virtual {v1, v0, v4, p1}, Landroidx/camera/core/ImageCapture$ImageCaptureRequest;->notifyCallbackError(ILjava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 903
     const/4 v0, 0x1
 
+    .line 903
     invoke-interface {v3, v0}, Lcom/google/common/util/concurrent/ListenableFuture;->cancel(Z)Z
 
     .line 905
@@ -177,90 +169,80 @@
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v1
 
-    if-eqz v4, :cond_1
+    if-eqz v1, :cond_1
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v1
 
-    check-cast v4, Landroidx/camera/core/ImageCapture$ImageCaptureRequest;
+    check-cast v1, Landroidx/camera/core/ImageCapture$ImageCaptureRequest;
 
     .line 906
-    .local v4, "request":Landroidx/camera/core/ImageCapture$ImageCaptureRequest;
     invoke-static {p1}, Landroidx/camera/core/ImageCapture;->getError(Ljava/lang/Throwable;)I
 
-    move-result v5
+    move-result v2
 
     invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v3
 
-    invoke-virtual {v4, v5, v6, p1}, Landroidx/camera/core/ImageCapture$ImageCaptureRequest;->notifyCallbackError(ILjava/lang/String;Ljava/lang/Throwable;)V
+    invoke-virtual {v1, v2, v3, p1}, Landroidx/camera/core/ImageCapture$ImageCaptureRequest;->notifyCallbackError(ILjava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 907
-    .end local v4    # "request":Landroidx/camera/core/ImageCapture$ImageCaptureRequest;
     goto :goto_0
 
-    .line 908
     :cond_1
     return-void
 
-    .line 899
-    .end local v1    # "currentRequest":Landroidx/camera/core/ImageCapture$ImageCaptureRequest;
-    .end local v2    # "pendingRequests":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/core/ImageCapture$ImageCaptureRequest;>;"
-    .end local v3    # "currentRequestFuture":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Landroidx/camera/core/ImageProxy;>;"
     :catchall_0
-    move-exception v1
+    move-exception p1
 
+    .line 899
     :try_start_1
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public onImageClose(Landroidx/camera/core/ImageProxy;)V
-    .locals 2
-    .param p1, "image"    # Landroidx/camera/core/ImageProxy;
+    .locals 1
 
     .line 912
-    iget-object v0, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mLock:Ljava/lang/Object;
+    iget-object p1, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mLock:Ljava/lang/Object;
 
-    monitor-enter v0
+    monitor-enter p1
 
     .line 913
     :try_start_0
-    iget v1, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mOutstandingImages:I
+    iget v0, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mOutstandingImages:I
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    iput v1, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mOutstandingImages:I
+    iput v0, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mOutstandingImages:I
 
     .line 914
     invoke-virtual {p0}, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->processNextRequest()V
 
     .line 915
-    monitor-exit v0
+    monitor-exit p1
 
-    .line 916
     return-void
 
-    .line 915
     :catchall_0
-    move-exception v1
+    move-exception v0
 
-    monitor-exit v0
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw v0
 .end method
 
 .method processNextRequest()V
-    .locals 5
+    .locals 4
 
     .line 920
     iget-object v0, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mLock:Ljava/lang/Object;
@@ -286,11 +268,11 @@
 
     if-lt v1, v2, :cond_1
 
-    .line 928
     const-string v1, "ImageCapture"
 
     const-string v2, "Too many acquire images. Close image to be able to process next."
 
+    .line 928
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 929
@@ -308,8 +290,6 @@
 
     check-cast v1, Landroidx/camera/core/ImageCapture$ImageCaptureRequest;
 
-    .line 933
-    .local v1, "imageCaptureRequest":Landroidx/camera/core/ImageCapture$ImageCaptureRequest;
     if-nez v1, :cond_2
 
     .line 934
@@ -338,19 +318,16 @@
     .line 971
     invoke-static {}, Landroidx/camera/core/impl/utils/executor/CameraXExecutors;->directExecutor()Ljava/util/concurrent/Executor;
 
-    move-result-object v4
+    move-result-object v1
 
     .line 939
-    invoke-static {v2, v3, v4}, Landroidx/camera/core/impl/utils/futures/Futures;->addCallback(Lcom/google/common/util/concurrent/ListenableFuture;Landroidx/camera/core/impl/utils/futures/FutureCallback;Ljava/util/concurrent/Executor;)V
+    invoke-static {v2, v3, v1}, Landroidx/camera/core/impl/utils/futures/Futures;->addCallback(Lcom/google/common/util/concurrent/ListenableFuture;Landroidx/camera/core/impl/utils/futures/FutureCallback;Ljava/util/concurrent/Executor;)V
 
     .line 972
-    .end local v1    # "imageCaptureRequest":Landroidx/camera/core/ImageCapture$ImageCaptureRequest;
     monitor-exit v0
 
-    .line 973
     return-void
 
-    .line 972
     :catchall_0
     move-exception v1
 
@@ -362,8 +339,7 @@
 .end method
 
 .method public sendRequest(Landroidx/camera/core/ImageCapture$ImageCaptureRequest;)V
-    .locals 7
-    .param p1, "imageCaptureRequest"    # Landroidx/camera/core/ImageCapture$ImageCaptureRequest;
+    .locals 6
 
     .line 878
     iget-object v0, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mLock:Ljava/lang/Object;
@@ -376,56 +352,55 @@
 
     invoke-interface {v1, p1}, Ljava/util/Deque;->offer(Ljava/lang/Object;)Z
 
-    .line 880
-    const-string v1, "ImageCapture"
+    const-string p1, "ImageCapture"
 
-    const-string v2, "Send image capture request [current, pending] = [%d, %d]"
+    const-string v1, "Send image capture request [current, pending] = [%d, %d]"
 
-    const/4 v3, 0x2
+    const/4 v2, 0x2
 
-    new-array v3, v3, [Ljava/lang/Object;
+    new-array v2, v2, [Ljava/lang/Object;
 
     .line 882
-    iget-object v4, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mCurrentRequest:Landroidx/camera/core/ImageCapture$ImageCaptureRequest;
+    iget-object v3, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mCurrentRequest:Landroidx/camera/core/ImageCapture$ImageCaptureRequest;
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
-    move v4, v5
+    move v3, v4
 
     goto :goto_0
 
     :cond_0
-    move v4, v6
+    move v3, v5
 
     :goto_0
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v3
 
-    aput-object v4, v3, v6
+    aput-object v3, v2, v5
 
-    iget-object v4, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mPendingRequests:Ljava/util/Deque;
+    iget-object v3, p0, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->mPendingRequests:Ljava/util/Deque;
 
-    invoke-interface {v4}, Ljava/util/Deque;->size()I
+    invoke-interface {v3}, Ljava/util/Deque;->size()I
 
-    move-result v4
+    move-result v3
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v3
 
-    aput-object v4, v3, v5
+    aput-object v3, v2, v4
 
     .line 880
-    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 883
     invoke-virtual {p0}, Landroidx/camera/core/ImageCapture$ImageCaptureRequestProcessor;->processNextRequest()V
@@ -433,16 +408,14 @@
     .line 884
     monitor-exit v0
 
-    .line 885
     return-void
 
-    .line 884
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/AsyncNetworkSocket;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/AsyncNetworkSocket;
 
     .line 300
     iput-object p1, p0, Lcom/koushikdutta/async/AsyncNetworkSocket$3;->this$0:Lcom/koushikdutta/async/AsyncNetworkSocket;
@@ -44,6 +43,5 @@
 
     invoke-virtual {v0}, Lcom/koushikdutta/async/AsyncNetworkSocket;->resume()V
 
-    .line 304
     return-void
 .end method

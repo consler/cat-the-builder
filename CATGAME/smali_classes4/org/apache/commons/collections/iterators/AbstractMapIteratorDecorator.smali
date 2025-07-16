@@ -12,30 +12,27 @@
 
 # direct methods
 .method public constructor <init>(Lorg/apache/commons/collections/MapIterator;)V
-    .locals 2
-    .param p1, "iterator"    # Lorg/apache/commons/collections/MapIterator;
+    .locals 1
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 45
     if-eqz p1, :cond_0
 
     .line 48
     iput-object p1, p0, Lorg/apache/commons/collections/iterators/AbstractMapIteratorDecorator;->iterator:Lorg/apache/commons/collections/MapIterator;
 
-    .line 49
     return-void
 
     .line 46
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "MapIterator must not be null"
+    const-string v0, "MapIterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -109,20 +106,18 @@
 
     invoke-interface {v0}, Lorg/apache/commons/collections/MapIterator;->remove()V
 
-    .line 71
     return-void
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 82
     iget-object v0, p0, Lorg/apache/commons/collections/iterators/AbstractMapIteratorDecorator;->iterator:Lorg/apache/commons/collections/MapIterator;
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections/MapIterator;->setValue(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

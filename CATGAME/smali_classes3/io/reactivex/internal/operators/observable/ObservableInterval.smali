@@ -32,10 +32,6 @@
 # direct methods
 .method public constructor <init>(JJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)V
     .locals 0
-    .param p1, "initialDelay"    # J
-    .param p3, "period"    # J
-    .param p5, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p6, "scheduler"    # Lio/reactivex/Scheduler;
 
     .line 29
     invoke-direct {p0}, Lio/reactivex/Observable;-><init>()V
@@ -52,7 +48,6 @@
     .line 33
     iput-object p6, p0, Lio/reactivex/internal/operators/observable/ObservableInterval;->scheduler:Lio/reactivex/Scheduler;
 
-    .line 34
     return-void
 .end method
 
@@ -71,34 +66,30 @@
     .end annotation
 
     .line 38
-    .local p1, "s":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-Ljava/lang/Long;>;"
-    new-instance v0, Lio/reactivex/internal/operators/observable/ObservableInterval$IntervalObserver;
+    new-instance v7, Lio/reactivex/internal/operators/observable/ObservableInterval$IntervalObserver;
 
-    invoke-direct {v0, p1}, Lio/reactivex/internal/operators/observable/ObservableInterval$IntervalObserver;-><init>(Lio/reactivex/Observer;)V
+    invoke-direct {v7, p1}, Lio/reactivex/internal/operators/observable/ObservableInterval$IntervalObserver;-><init>(Lio/reactivex/Observer;)V
 
     .line 39
-    .local v0, "is":Lio/reactivex/internal/operators/observable/ObservableInterval$IntervalObserver;
-    invoke-interface {p1, v0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, v7}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 41
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableInterval;->scheduler:Lio/reactivex/Scheduler;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableInterval;->scheduler:Lio/reactivex/Scheduler;
 
-    iget-wide v3, p0, Lio/reactivex/internal/operators/observable/ObservableInterval;->initialDelay:J
+    iget-wide v2, p0, Lio/reactivex/internal/operators/observable/ObservableInterval;->initialDelay:J
 
-    iget-wide v5, p0, Lio/reactivex/internal/operators/observable/ObservableInterval;->period:J
+    iget-wide v4, p0, Lio/reactivex/internal/operators/observable/ObservableInterval;->period:J
 
-    iget-object v7, p0, Lio/reactivex/internal/operators/observable/ObservableInterval;->unit:Ljava/util/concurrent/TimeUnit;
+    iget-object v6, p0, Lio/reactivex/internal/operators/observable/ObservableInterval;->unit:Ljava/util/concurrent/TimeUnit;
 
-    move-object v2, v0
+    move-object v1, v7
 
-    invoke-virtual/range {v1 .. v7}, Lio/reactivex/Scheduler;->schedulePeriodicallyDirect(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
+    invoke-virtual/range {v0 .. v6}, Lio/reactivex/Scheduler;->schedulePeriodicallyDirect(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 43
-    .local v1, "d":Lio/reactivex/disposables/Disposable;
-    invoke-virtual {v0, v1}, Lio/reactivex/internal/operators/observable/ObservableInterval$IntervalObserver;->setResource(Lio/reactivex/disposables/Disposable;)V
+    invoke-virtual {v7, p1}, Lio/reactivex/internal/operators/observable/ObservableInterval$IntervalObserver;->setResource(Lio/reactivex/disposables/Disposable;)V
 
-    .line 44
     return-void
 .end method

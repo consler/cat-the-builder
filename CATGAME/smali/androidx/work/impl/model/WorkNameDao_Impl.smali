@@ -23,7 +23,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/room/RoomDatabase;)V
     .locals 1
-    .param p1, "__db"    # Landroidx/room/RoomDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -46,15 +45,13 @@
 
     iput-object v0, p0, Landroidx/work/impl/model/WorkNameDao_Impl;->__insertionAdapterOfWorkName:Landroidx/room/EntityInsertionAdapter;
 
-    .line 43
     return-void
 .end method
 
 
 # virtual methods
 .method public getNamesForWorkSpecId(Ljava/lang/String;)Ljava/util/List;
-    .locals 7
-    .param p1, "workSpecId"    # Ljava/lang/String;
+    .locals 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -75,120 +72,97 @@
         }
     .end annotation
 
-    .line 85
     const-string v0, "SELECT name FROM workname WHERE work_spec_id=?"
 
+    const/4 v1, 0x1
+
     .line 86
-    .local v0, "_sql":Ljava/lang/String;
-    const-string v1, "SELECT name FROM workname WHERE work_spec_id=?"
+    invoke-static {v0, v1}, Landroidx/room/RoomSQLiteQuery;->acquire(Ljava/lang/String;I)Landroidx/room/RoomSQLiteQuery;
 
-    const/4 v2, 0x1
+    move-result-object v0
 
-    invoke-static {v1, v2}, Landroidx/room/RoomSQLiteQuery;->acquire(Ljava/lang/String;I)Landroidx/room/RoomSQLiteQuery;
-
-    move-result-object v1
-
-    .line 87
-    .local v1, "_statement":Landroidx/room/RoomSQLiteQuery;
-    const/4 v2, 0x1
-
-    .line 88
-    .local v2, "_argIndex":I
     if-nez p1, :cond_0
 
     .line 89
-    invoke-virtual {v1, v2}, Landroidx/room/RoomSQLiteQuery;->bindNull(I)V
+    invoke-virtual {v0, v1}, Landroidx/room/RoomSQLiteQuery;->bindNull(I)V
 
     goto :goto_0
 
     .line 91
     :cond_0
-    invoke-virtual {v1, v2, p1}, Landroidx/room/RoomSQLiteQuery;->bindString(ILjava/lang/String;)V
+    invoke-virtual {v0, v1, p1}, Landroidx/room/RoomSQLiteQuery;->bindString(ILjava/lang/String;)V
 
     .line 93
     :goto_0
-    iget-object v3, p0, Landroidx/work/impl/model/WorkNameDao_Impl;->__db:Landroidx/room/RoomDatabase;
+    iget-object p1, p0, Landroidx/work/impl/model/WorkNameDao_Impl;->__db:Landroidx/room/RoomDatabase;
 
-    invoke-virtual {v3}, Landroidx/room/RoomDatabase;->assertNotSuspendingTransaction()V
+    invoke-virtual {p1}, Landroidx/room/RoomDatabase;->assertNotSuspendingTransaction()V
 
     .line 94
-    iget-object v3, p0, Landroidx/work/impl/model/WorkNameDao_Impl;->__db:Landroidx/room/RoomDatabase;
+    iget-object p1, p0, Landroidx/work/impl/model/WorkNameDao_Impl;->__db:Landroidx/room/RoomDatabase;
 
-    const/4 v4, 0x0
+    const/4 v1, 0x0
 
-    const/4 v5, 0x0
+    const/4 v2, 0x0
 
-    invoke-static {v3, v1, v5, v4}, Landroidx/room/util/DBUtil;->query(Landroidx/room/RoomDatabase;Landroidx/sqlite/db/SupportSQLiteQuery;ZLandroid/os/CancellationSignal;)Landroid/database/Cursor;
+    invoke-static {p1, v0, v2, v1}, Landroidx/room/util/DBUtil;->query(Landroidx/room/RoomDatabase;Landroidx/sqlite/db/SupportSQLiteQuery;ZLandroid/os/CancellationSignal;)Landroid/database/Cursor;
+
+    move-result-object p1
+
+    .line 96
+    :try_start_0
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-interface {p1}, Landroid/database/Cursor;->getCount()I
+
+    move-result v3
+
+    invoke-direct {v1, v3}, Ljava/util/ArrayList;-><init>(I)V
+
+    .line 97
+    :goto_1
+    invoke-interface {p1}, Landroid/database/Cursor;->moveToNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    .line 99
+    invoke-interface {p1, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 96
-    .local v3, "_cursor":Landroid/database/Cursor;
-    :try_start_0
-    new-instance v4, Ljava/util/ArrayList;
-
-    invoke-interface {v3}, Landroid/database/Cursor;->getCount()I
-
-    move-result v6
-
-    invoke-direct {v4, v6}, Ljava/util/ArrayList;-><init>(I)V
-
-    .line 97
-    .local v4, "_result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    :goto_1
-    invoke-interface {v3}, Landroid/database/Cursor;->moveToNext()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_1
-
-    .line 99
-    invoke-interface {v3, v5}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v6
-
     .line 100
-    .local v6, "_item":Ljava/lang/String;
-    invoke-interface {v4, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 101
-    nop
-
-    .end local v6    # "_item":Ljava/lang/String;
     goto :goto_1
 
-    .line 102
+    .line 104
     :cond_1
-    nop
-
-    .line 104
-    invoke-interface {v3}, Landroid/database/Cursor;->close()V
+    invoke-interface {p1}, Landroid/database/Cursor;->close()V
 
     .line 105
-    invoke-virtual {v1}, Landroidx/room/RoomSQLiteQuery;->release()V
+    invoke-virtual {v0}, Landroidx/room/RoomSQLiteQuery;->release()V
 
-    .line 102
-    return-object v4
+    return-object v1
 
-    .line 104
-    .end local v4    # "_result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     :catchall_0
-    move-exception v4
+    move-exception v1
 
-    invoke-interface {v3}, Landroid/database/Cursor;->close()V
+    .line 104
+    invoke-interface {p1}, Landroid/database/Cursor;->close()V
 
     .line 105
-    invoke-virtual {v1}, Landroidx/room/RoomSQLiteQuery;->release()V
+    invoke-virtual {v0}, Landroidx/room/RoomSQLiteQuery;->release()V
 
     .line 106
-    throw v4
+    throw v1
 .end method
 
 .method public getWorkSpecIdsWithName(Ljava/lang/String;)Ljava/util/List;
-    .locals 7
-    .param p1, "name"    # Ljava/lang/String;
+    .locals 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -209,120 +183,97 @@
         }
     .end annotation
 
-    .line 59
     const-string v0, "SELECT work_spec_id FROM workname WHERE name=?"
 
+    const/4 v1, 0x1
+
     .line 60
-    .local v0, "_sql":Ljava/lang/String;
-    const-string v1, "SELECT work_spec_id FROM workname WHERE name=?"
+    invoke-static {v0, v1}, Landroidx/room/RoomSQLiteQuery;->acquire(Ljava/lang/String;I)Landroidx/room/RoomSQLiteQuery;
 
-    const/4 v2, 0x1
+    move-result-object v0
 
-    invoke-static {v1, v2}, Landroidx/room/RoomSQLiteQuery;->acquire(Ljava/lang/String;I)Landroidx/room/RoomSQLiteQuery;
-
-    move-result-object v1
-
-    .line 61
-    .local v1, "_statement":Landroidx/room/RoomSQLiteQuery;
-    const/4 v2, 0x1
-
-    .line 62
-    .local v2, "_argIndex":I
     if-nez p1, :cond_0
 
     .line 63
-    invoke-virtual {v1, v2}, Landroidx/room/RoomSQLiteQuery;->bindNull(I)V
+    invoke-virtual {v0, v1}, Landroidx/room/RoomSQLiteQuery;->bindNull(I)V
 
     goto :goto_0
 
     .line 65
     :cond_0
-    invoke-virtual {v1, v2, p1}, Landroidx/room/RoomSQLiteQuery;->bindString(ILjava/lang/String;)V
+    invoke-virtual {v0, v1, p1}, Landroidx/room/RoomSQLiteQuery;->bindString(ILjava/lang/String;)V
 
     .line 67
     :goto_0
-    iget-object v3, p0, Landroidx/work/impl/model/WorkNameDao_Impl;->__db:Landroidx/room/RoomDatabase;
+    iget-object p1, p0, Landroidx/work/impl/model/WorkNameDao_Impl;->__db:Landroidx/room/RoomDatabase;
 
-    invoke-virtual {v3}, Landroidx/room/RoomDatabase;->assertNotSuspendingTransaction()V
+    invoke-virtual {p1}, Landroidx/room/RoomDatabase;->assertNotSuspendingTransaction()V
 
     .line 68
-    iget-object v3, p0, Landroidx/work/impl/model/WorkNameDao_Impl;->__db:Landroidx/room/RoomDatabase;
+    iget-object p1, p0, Landroidx/work/impl/model/WorkNameDao_Impl;->__db:Landroidx/room/RoomDatabase;
 
-    const/4 v4, 0x0
+    const/4 v1, 0x0
 
-    const/4 v5, 0x0
+    const/4 v2, 0x0
 
-    invoke-static {v3, v1, v5, v4}, Landroidx/room/util/DBUtil;->query(Landroidx/room/RoomDatabase;Landroidx/sqlite/db/SupportSQLiteQuery;ZLandroid/os/CancellationSignal;)Landroid/database/Cursor;
+    invoke-static {p1, v0, v2, v1}, Landroidx/room/util/DBUtil;->query(Landroidx/room/RoomDatabase;Landroidx/sqlite/db/SupportSQLiteQuery;ZLandroid/os/CancellationSignal;)Landroid/database/Cursor;
+
+    move-result-object p1
+
+    .line 70
+    :try_start_0
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-interface {p1}, Landroid/database/Cursor;->getCount()I
+
+    move-result v3
+
+    invoke-direct {v1, v3}, Ljava/util/ArrayList;-><init>(I)V
+
+    .line 71
+    :goto_1
+    invoke-interface {p1}, Landroid/database/Cursor;->moveToNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    .line 73
+    invoke-interface {p1, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 70
-    .local v3, "_cursor":Landroid/database/Cursor;
-    :try_start_0
-    new-instance v4, Ljava/util/ArrayList;
-
-    invoke-interface {v3}, Landroid/database/Cursor;->getCount()I
-
-    move-result v6
-
-    invoke-direct {v4, v6}, Ljava/util/ArrayList;-><init>(I)V
-
-    .line 71
-    .local v4, "_result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    :goto_1
-    invoke-interface {v3}, Landroid/database/Cursor;->moveToNext()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_1
-
-    .line 73
-    invoke-interface {v3, v5}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v6
-
     .line 74
-    .local v6, "_item":Ljava/lang/String;
-    invoke-interface {v4, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 75
-    nop
-
-    .end local v6    # "_item":Ljava/lang/String;
     goto :goto_1
 
-    .line 76
+    .line 78
     :cond_1
-    nop
-
-    .line 78
-    invoke-interface {v3}, Landroid/database/Cursor;->close()V
+    invoke-interface {p1}, Landroid/database/Cursor;->close()V
 
     .line 79
-    invoke-virtual {v1}, Landroidx/room/RoomSQLiteQuery;->release()V
+    invoke-virtual {v0}, Landroidx/room/RoomSQLiteQuery;->release()V
 
-    .line 76
-    return-object v4
+    return-object v1
 
-    .line 78
-    .end local v4    # "_result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     :catchall_0
-    move-exception v4
+    move-exception v1
 
-    invoke-interface {v3}, Landroid/database/Cursor;->close()V
+    .line 78
+    invoke-interface {p1}, Landroid/database/Cursor;->close()V
 
     .line 79
-    invoke-virtual {v1}, Landroidx/room/RoomSQLiteQuery;->release()V
+    invoke-virtual {v0}, Landroidx/room/RoomSQLiteQuery;->release()V
 
     .line 80
-    throw v4
+    throw v1
 .end method
 
 .method public insert(Landroidx/work/impl/model/WorkName;)V
-    .locals 2
-    .param p1, "workName"    # Landroidx/work/impl/model/WorkName;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -349,31 +300,26 @@
     invoke-virtual {v0, p1}, Landroidx/room/EntityInsertionAdapter;->insert(Ljava/lang/Object;)V
 
     .line 51
-    iget-object v0, p0, Landroidx/work/impl/model/WorkNameDao_Impl;->__db:Landroidx/room/RoomDatabase;
+    iget-object p1, p0, Landroidx/work/impl/model/WorkNameDao_Impl;->__db:Landroidx/room/RoomDatabase;
 
-    invoke-virtual {v0}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
+    invoke-virtual {p1}, Landroidx/room/RoomDatabase;->setTransactionSuccessful()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 53
+    iget-object p1, p0, Landroidx/work/impl/model/WorkNameDao_Impl;->__db:Landroidx/room/RoomDatabase;
+
+    invoke-virtual {p1}, Landroidx/room/RoomDatabase;->endTransaction()V
+
+    return-void
+
+    :catchall_0
+    move-exception p1
+
     iget-object v0, p0, Landroidx/work/impl/model/WorkNameDao_Impl;->__db:Landroidx/room/RoomDatabase;
 
     invoke-virtual {v0}, Landroidx/room/RoomDatabase;->endTransaction()V
 
     .line 54
-    nop
-
-    .line 55
-    return-void
-
-    .line 53
-    :catchall_0
-    move-exception v0
-
-    iget-object v1, p0, Landroidx/work/impl/model/WorkNameDao_Impl;->__db:Landroidx/room/RoomDatabase;
-
-    invoke-virtual {v1}, Landroidx/room/RoomDatabase;->endTransaction()V
-
-    .line 54
-    throw v0
+    throw p1
 .end method

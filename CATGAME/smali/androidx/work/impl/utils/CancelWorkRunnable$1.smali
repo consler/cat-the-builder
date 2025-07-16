@@ -57,7 +57,6 @@
     move-result-object v0
 
     .line 121
-    .local v0, "workDatabase":Landroidx/work/impl/WorkDatabase;
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->beginTransaction()V
 
     .line 123
@@ -80,21 +79,17 @@
     .line 126
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->endTransaction()V
 
-    .line 127
-    nop
-
     .line 128
-    iget-object v1, p0, Landroidx/work/impl/utils/CancelWorkRunnable$1;->val$workManagerImpl:Landroidx/work/impl/WorkManagerImpl;
+    iget-object v0, p0, Landroidx/work/impl/utils/CancelWorkRunnable$1;->val$workManagerImpl:Landroidx/work/impl/WorkManagerImpl;
 
-    invoke-virtual {p0, v1}, Landroidx/work/impl/utils/CancelWorkRunnable$1;->reschedulePendingWorkers(Landroidx/work/impl/WorkManagerImpl;)V
+    invoke-virtual {p0, v0}, Landroidx/work/impl/utils/CancelWorkRunnable$1;->reschedulePendingWorkers(Landroidx/work/impl/WorkManagerImpl;)V
 
-    .line 129
     return-void
 
-    .line 126
     :catchall_0
     move-exception v1
 
+    .line 126
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->endTransaction()V
 
     .line 127

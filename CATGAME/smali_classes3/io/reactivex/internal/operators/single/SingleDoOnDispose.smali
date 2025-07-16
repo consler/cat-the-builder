@@ -37,7 +37,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/SingleSource;Lio/reactivex/functions/Action;)V
     .locals 0
-    .param p2, "onDispose"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -49,8 +48,6 @@
     .end annotation
 
     .line 30
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDoOnDispose;, "Lio/reactivex/internal/operators/single/SingleDoOnDispose<TT;>;"
-    .local p1, "source":Lio/reactivex/SingleSource;, "Lio/reactivex/SingleSource<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 31
@@ -59,7 +56,6 @@
     .line 32
     iput-object p2, p0, Lio/reactivex/internal/operators/single/SingleDoOnDispose;->onDispose:Lio/reactivex/functions/Action;
 
-    .line 33
     return-void
 .end method
 
@@ -76,8 +72,6 @@
     .end annotation
 
     .line 38
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDoOnDispose;, "Lio/reactivex/internal/operators/single/SingleDoOnDispose<TT;>;"
-    .local p1, "s":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleDoOnDispose;->source:Lio/reactivex/SingleSource;
 
     new-instance v1, Lio/reactivex/internal/operators/single/SingleDoOnDispose$DoOnDisposeObserver;
@@ -88,6 +82,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/SingleSource;->subscribe(Lio/reactivex/SingleObserver;)V
 
-    .line 39
     return-void
 .end method

@@ -17,12 +17,10 @@
 # direct methods
 .method protected constructor <init>(Ljava/util/Iterator;)V
     .locals 0
-    .param p1, "iterator"    # Ljava/util/Iterator;
 
     .line 135
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/iterators/AbstractIteratorDecorator;-><init>(Ljava/util/Iterator;)V
 
-    .line 136
     return-void
 .end method
 
@@ -41,7 +39,6 @@
     check-cast v0, Ljava/util/Map$Entry;
 
     .line 140
-    .local v0, "entry":Ljava/util/Map$Entry;
     new-instance v1, Lorg/apache/commons/collections/map/UnmodifiableEntrySet$UnmodifiableEntry;
 
     invoke-direct {v1, v0}, Lorg/apache/commons/collections/map/UnmodifiableEntrySet$UnmodifiableEntry;-><init>(Ljava/util/Map$Entry;)V

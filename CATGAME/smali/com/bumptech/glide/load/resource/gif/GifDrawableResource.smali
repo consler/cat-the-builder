@@ -20,12 +20,10 @@
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/resource/gif/GifDrawable;)V
     .locals 0
-    .param p1, "drawable"    # Lcom/bumptech/glide/load/resource/gif/GifDrawable;
 
     .line 12
     invoke-direct {p0, p1}, Lcom/bumptech/glide/load/resource/drawable/DrawableResource;-><init>(Landroid/graphics/drawable/Drawable;)V
 
-    .line 13
     return-void
 .end method
 
@@ -77,7 +75,6 @@
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->prepareToDraw()V
 
-    .line 35
     return-void
 .end method
 
@@ -98,6 +95,5 @@
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->recycle()V
 
-    .line 30
     return-void
 .end method

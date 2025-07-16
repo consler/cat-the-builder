@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/schedulers/ExecutorScheduler;Lio/reactivex/internal/schedulers/ExecutorScheduler$DelayedRunnable;)V
     .locals 0
-    .param p2, "dr"    # Lio/reactivex/internal/schedulers/ExecutorScheduler$DelayedRunnable;
 
     .line 338
     iput-object p1, p0, Lio/reactivex/internal/schedulers/ExecutorScheduler$DelayedDispose;->this$0:Lio/reactivex/internal/schedulers/ExecutorScheduler;
@@ -36,7 +35,6 @@
     .line 339
     iput-object p2, p0, Lio/reactivex/internal/schedulers/ExecutorScheduler$DelayedDispose;->dr:Lio/reactivex/internal/schedulers/ExecutorScheduler$DelayedRunnable;
 
-    .line 340
     return-void
 .end method
 
@@ -60,6 +58,5 @@
 
     invoke-virtual {v0, v1}, Lio/reactivex/internal/disposables/SequentialDisposable;->replace(Lio/reactivex/disposables/Disposable;)Z
 
-    .line 345
     return-void
 .end method

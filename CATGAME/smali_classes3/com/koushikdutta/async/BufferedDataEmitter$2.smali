@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/BufferedDataEmitter;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/BufferedDataEmitter;
 
     .line 18
     iput-object p1, p0, Lcom/koushikdutta/async/BufferedDataEmitter$2;->this$0:Lcom/koushikdutta/async/BufferedDataEmitter;
@@ -38,7 +37,6 @@
 # virtual methods
 .method public onCompleted(Ljava/lang/Exception;)V
     .locals 2
-    .param p1, "ex"    # Ljava/lang/Exception;
 
     .line 21
     iget-object v0, p0, Lcom/koushikdutta/async/BufferedDataEmitter$2;->this$0:Lcom/koushikdutta/async/BufferedDataEmitter;
@@ -76,7 +74,6 @@
 
     invoke-interface {v0, p1}, Lcom/koushikdutta/async/callback/CompletedCallback;->onCompleted(Ljava/lang/Exception;)V
 
-    .line 25
     :cond_0
     return-void
 .end method

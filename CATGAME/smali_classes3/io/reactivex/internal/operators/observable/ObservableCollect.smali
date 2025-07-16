@@ -59,10 +59,6 @@
     .end annotation
 
     .line 30
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableCollect;, "Lio/reactivex/internal/operators/observable/ObservableCollect<TT;TU;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
-    .local p2, "initialSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<+TU;>;"
-    .local p3, "collector":Lio/reactivex/functions/BiConsumer;, "Lio/reactivex/functions/BiConsumer<-TU;-TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/observable/AbstractObservableWithUpstream;-><init>(Lio/reactivex/ObservableSource;)V
 
     .line 31
@@ -71,7 +67,6 @@
     .line 32
     iput-object p3, p0, Lio/reactivex/internal/operators/observable/ObservableCollect;->collector:Lio/reactivex/functions/BiConsumer;
 
-    .line 33
     return-void
 .end method
 
@@ -88,28 +83,20 @@
     .end annotation
 
     .line 39
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableCollect;, "Lio/reactivex/internal/operators/observable/ObservableCollect<TT;TU;>;"
-    .local p1, "t":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TU;>;"
-    const/4 v0, 0x0
-
     :try_start_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableCollect;->initialSupplier:Ljava/util/concurrent/Callable;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableCollect;->initialSupplier:Ljava/util/concurrent/Callable;
 
-    invoke-interface {v1}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string v2, "The initialSupplier returned a null value"
+    const-string v1, "The initialSupplier returned a null value"
 
-    invoke-static {v1, v2}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v0, v1}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 43
-    .local v0, "u":Ljava/lang/Object;, "TU;"
-    nop
 
     .line 45
     iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableCollect;->source:Lio/reactivex/ObservableSource;
@@ -122,19 +109,13 @@
 
     invoke-interface {v1, v2}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 47
     return-void
 
-    .line 40
-    .end local v0    # "u":Ljava/lang/Object;, "TU;"
     :catchall_0
-    move-exception v1
+    move-exception v0
 
     .line 41
-    .restart local v0    # "u":Ljava/lang/Object;, "TU;"
-    .local v1, "e":Ljava/lang/Throwable;
-    invoke-static {v1, p1}, Lio/reactivex/internal/disposables/EmptyDisposable;->error(Ljava/lang/Throwable;Lio/reactivex/Observer;)V
+    invoke-static {v0, p1}, Lio/reactivex/internal/disposables/EmptyDisposable;->error(Ljava/lang/Throwable;Lio/reactivex/Observer;)V
 
-    .line 42
     return-void
 .end method

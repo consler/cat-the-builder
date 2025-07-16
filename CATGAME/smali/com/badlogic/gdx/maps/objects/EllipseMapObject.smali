@@ -11,23 +11,18 @@
 .method public constructor <init>()V
     .locals 2
 
-    .line 35
     const/4 v0, 0x0
 
     const/high16 v1, 0x3f800000    # 1.0f
 
+    .line 35
     invoke-direct {p0, v0, v0, v1, v1}, Lcom/badlogic/gdx/maps/objects/EllipseMapObject;-><init>(FFFF)V
 
-    .line 36
     return-void
 .end method
 
 .method public constructor <init>(FFFF)V
     .locals 1
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "width"    # F
-    .param p4, "height"    # F
 
     .line 45
     invoke-direct {p0}, Lcom/badlogic/gdx/maps/MapObject;-><init>()V
@@ -39,7 +34,6 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/maps/objects/EllipseMapObject;->ellipse:Lcom/badlogic/gdx/math/Ellipse;
 
-    .line 47
     return-void
 .end method
 

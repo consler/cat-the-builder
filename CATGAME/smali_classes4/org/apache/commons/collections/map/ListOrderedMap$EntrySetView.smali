@@ -25,8 +25,6 @@
 # direct methods
 .method public constructor <init>(Lorg/apache/commons/collections/map/ListOrderedMap;Ljava/util/List;)V
     .locals 0
-    .param p1, "parent"    # Lorg/apache/commons/collections/map/ListOrderedMap;
-    .param p2, "insertOrder"    # Ljava/util/List;
 
     .line 531
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
@@ -37,7 +35,6 @@
     .line 533
     iput-object p2, p0, Lorg/apache/commons/collections/map/ListOrderedMap$EntrySetView;->insertOrder:Ljava/util/List;
 
-    .line 534
     return-void
 .end method
 
@@ -79,13 +76,11 @@
 
     invoke-virtual {v0}, Lorg/apache/commons/collections/map/ListOrderedMap;->clear()V
 
-    .line 572
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 551
     invoke-direct {p0}, Lorg/apache/commons/collections/map/ListOrderedMap$EntrySetView;->getEntrySet()Ljava/util/Set;
@@ -94,14 +89,13 @@
 
     invoke-interface {v0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public containsAll(Ljava/util/Collection;)Z
     .locals 1
-    .param p1, "coll"    # Ljava/util/Collection;
 
     .line 555
     invoke-direct {p0}, Lorg/apache/commons/collections/map/ListOrderedMap$EntrySetView;->getEntrySet()Ljava/util/Set;
@@ -110,22 +104,19 @@
 
     invoke-interface {v0, p1}, Ljava/util/Set;->containsAll(Ljava/util/Collection;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .line 575
     if-ne p1, p0, :cond_0
 
-    .line 576
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
     .line 578
     :cond_0
@@ -135,9 +126,9 @@
 
     invoke-interface {v0, p1}, Ljava/util/Set;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public hashCode()I
@@ -185,7 +176,6 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 559
     instance-of v0, p1, Ljava/util/Map$Entry;
@@ -194,7 +184,6 @@
 
     if-nez v0, :cond_0
 
-    .line 560
     return v1
 
     .line 562
@@ -210,27 +199,21 @@
     if-eqz v0, :cond_1
 
     .line 563
-    move-object v0, p1
+    check-cast p1, Ljava/util/Map$Entry;
 
-    check-cast v0, Ljava/util/Map$Entry;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v0
+    move-result-object p1
 
     .line 564
-    .local v0, "key":Ljava/lang/Object;
-    iget-object v1, p0, Lorg/apache/commons/collections/map/ListOrderedMap$EntrySetView;->parent:Lorg/apache/commons/collections/map/ListOrderedMap;
+    iget-object v0, p0, Lorg/apache/commons/collections/map/ListOrderedMap$EntrySetView;->parent:Lorg/apache/commons/collections/map/ListOrderedMap;
 
-    invoke-virtual {v1, v0}, Lorg/apache/commons/collections/map/ListOrderedMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Lorg/apache/commons/collections/map/ListOrderedMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 565
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    return v1
+    return p1
 
-    .line 567
-    .end local v0    # "key":Ljava/lang/Object;
     :cond_1
     return v1
 .end method

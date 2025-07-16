@@ -115,8 +115,6 @@
 
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .param p1, "$enum_name_or_ordinal$0"    # Ljava/lang/String;
-    .param p2, "$enum_name_or_ordinal$1"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"

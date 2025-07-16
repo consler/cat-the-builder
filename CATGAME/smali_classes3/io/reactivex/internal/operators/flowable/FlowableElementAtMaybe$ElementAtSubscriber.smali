@@ -52,7 +52,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/MaybeObserver;J)V
     .locals 0
-    .param p2, "index"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,8 +61,6 @@
     .end annotation
 
     .line 56
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber<TT;>;"
-    .local p1, "actual":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 57
@@ -72,7 +69,6 @@
     .line 58
     iput-wide p2, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;->index:J
 
-    .line 59
     return-void
 .end method
 
@@ -82,7 +78,6 @@
     .locals 1
 
     .line 108
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
@@ -92,7 +87,6 @@
 
     iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    .line 110
     return-void
 .end method
 
@@ -100,7 +94,6 @@
     .locals 2
 
     .line 114
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     sget-object v1, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
@@ -122,7 +115,6 @@
     .locals 1
 
     .line 99
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber<TT;>;"
     sget-object v0, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
 
     iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;->s:Lorg/reactivestreams/Subscription;
@@ -132,9 +124,9 @@
 
     if-nez v0, :cond_0
 
-    .line 101
     const/4 v0, 0x1
 
+    .line 101
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;->done:Z
 
     .line 102
@@ -142,17 +134,14 @@
 
     invoke-interface {v0}, Lio/reactivex/MaybeObserver;->onComplete()V
 
-    .line 104
     :cond_0
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 88
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;->done:Z
 
     if-eqz v0, :cond_0
@@ -160,13 +149,12 @@
     .line 89
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 90
     return-void
 
-    .line 92
     :cond_0
     const/4 v0, 0x1
 
+    .line 92
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;->done:Z
 
     .line 93
@@ -179,7 +167,6 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/MaybeObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 95
     return-void
 .end method
 
@@ -192,13 +179,10 @@
     .end annotation
 
     .line 72
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 73
     return-void
 
     .line 75
@@ -206,54 +190,49 @@
     iget-wide v0, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;->count:J
 
     .line 76
-    .local v0, "c":J
     iget-wide v2, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;->index:J
 
     cmp-long v2, v0, v2
 
     if-nez v2, :cond_1
 
-    .line 77
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    iput-boolean v2, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;->done:Z
+    .line 77
+    iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;->done:Z
 
     .line 78
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;->s:Lorg/reactivestreams/Subscription;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    invoke-interface {v2}, Lorg/reactivestreams/Subscription;->cancel()V
+    invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
 
     .line 79
-    sget-object v2, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
+    sget-object v0, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
 
-    iput-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;->s:Lorg/reactivestreams/Subscription;
+    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     .line 80
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;->actual:Lio/reactivex/MaybeObserver;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;->actual:Lio/reactivex/MaybeObserver;
 
-    invoke-interface {v2, p1}, Lio/reactivex/MaybeObserver;->onSuccess(Ljava/lang/Object;)V
+    invoke-interface {v0, p1}, Lio/reactivex/MaybeObserver;->onSuccess(Ljava/lang/Object;)V
 
-    .line 81
     return-void
 
-    .line 83
     :cond_1
     const-wide/16 v2, 0x1
 
-    add-long/2addr v2, v0
+    add-long/2addr v0, v2
 
-    iput-wide v2, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;->count:J
+    .line 83
+    iput-wide v0, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;->count:J
 
-    .line 84
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 63
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -270,12 +249,11 @@
 
     invoke-interface {v0, p0}, Lio/reactivex/MaybeObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 66
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 66
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 68
     :cond_0
     return-void
 .end method

@@ -34,11 +34,8 @@
     .end annotation
 
     .line 51
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator;, "Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator<TK;TV;>;"
-    .local p1, "map":Lorg/apache/commons/collections4/OrderedBidiMap;, "Lorg/apache/commons/collections4/OrderedBidiMap<TK;TV;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/bidimap/AbstractBidiMapDecorator;-><init>(Lorg/apache/commons/collections4/BidiMap;)V
 
-    .line 52
     return-void
 .end method
 
@@ -48,7 +45,6 @@
     .locals 1
 
     .line 40
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator;, "Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator;->decorated()Lorg/apache/commons/collections4/OrderedBidiMap;
 
     move-result-object v0
@@ -60,7 +56,6 @@
     .locals 1
 
     .line 40
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator;, "Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator;->decorated()Lorg/apache/commons/collections4/OrderedBidiMap;
 
     move-result-object v0
@@ -79,7 +74,6 @@
     .end annotation
 
     .line 61
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator;, "Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator<TK;TV;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/bidimap/AbstractBidiMapDecorator;->decorated()Lorg/apache/commons/collections4/BidiMap;
 
     move-result-object v0
@@ -98,7 +92,6 @@
     .end annotation
 
     .line 72
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator;, "Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator;->decorated()Lorg/apache/commons/collections4/OrderedBidiMap;
 
     move-result-object v0
@@ -114,7 +107,6 @@
     .locals 1
 
     .line 40
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator;, "Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator;->inverseBidiMap()Lorg/apache/commons/collections4/OrderedBidiMap;
 
     move-result-object v0
@@ -133,7 +125,6 @@
     .end annotation
 
     .line 92
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator;, "Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator;->decorated()Lorg/apache/commons/collections4/OrderedBidiMap;
 
     move-result-object v0
@@ -154,7 +145,6 @@
     .end annotation
 
     .line 77
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator;, "Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator;->decorated()Lorg/apache/commons/collections4/OrderedBidiMap;
 
     move-result-object v0
@@ -170,7 +160,6 @@
     .locals 1
 
     .line 40
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator;, "Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator;->mapIterator()Lorg/apache/commons/collections4/OrderedMapIterator;
 
     move-result-object v0
@@ -189,7 +178,6 @@
     .end annotation
 
     .line 67
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator;, "Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator;->decorated()Lorg/apache/commons/collections4/OrderedBidiMap;
 
     move-result-object v0
@@ -210,17 +198,15 @@
     .end annotation
 
     .line 82
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator;, "Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator;->decorated()Lorg/apache/commons/collections4/OrderedBidiMap;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/OrderedBidiMap;->nextKey(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public previousKey(Ljava/lang/Object;)Ljava/lang/Object;
@@ -232,15 +218,13 @@
     .end annotation
 
     .line 87
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator;, "Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/AbstractOrderedBidiMapDecorator;->decorated()Lorg/apache/commons/collections4/OrderedBidiMap;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/OrderedBidiMap;->previousKey(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

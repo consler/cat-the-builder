@@ -35,25 +35,22 @@
 # direct methods
 .method constructor <init>(Lcom/squareup/picasso/BitmapHunter;)V
     .locals 1
-    .param p1, "hunter"    # Lcom/squareup/picasso/BitmapHunter;
 
-    .line 96
     const/4 v0, 0x0
 
+    .line 96
     invoke-direct {p0, p1, v0}, Ljava/util/concurrent/FutureTask;-><init>(Ljava/lang/Runnable;Ljava/lang/Object;)V
 
     .line 97
     iput-object p1, p0, Lcom/squareup/picasso/PicassoExecutorService$PicassoFutureTask;->hunter:Lcom/squareup/picasso/BitmapHunter;
 
-    .line 98
     return-void
 .end method
 
 
 # virtual methods
 .method public compareTo(Lcom/squareup/picasso/PicassoExecutorService$PicassoFutureTask;)I
-    .locals 4
-    .param p1, "other"    # Lcom/squareup/picasso/PicassoExecutorService$PicassoFutureTask;
+    .locals 2
 
     .line 102
     iget-object v0, p0, Lcom/squareup/picasso/PicassoExecutorService$PicassoFutureTask;->hunter:Lcom/squareup/picasso/BitmapHunter;
@@ -63,40 +60,40 @@
     move-result-object v0
 
     .line 103
-    .local v0, "p1":Lcom/squareup/picasso/Picasso$Priority;
     iget-object v1, p1, Lcom/squareup/picasso/PicassoExecutorService$PicassoFutureTask;->hunter:Lcom/squareup/picasso/BitmapHunter;
 
     invoke-virtual {v1}, Lcom/squareup/picasso/BitmapHunter;->getPriority()Lcom/squareup/picasso/Picasso$Priority;
 
     move-result-object v1
 
-    .line 107
-    .local v1, "p2":Lcom/squareup/picasso/Picasso$Priority;
     if-ne v0, v1, :cond_0
 
-    iget-object v2, p0, Lcom/squareup/picasso/PicassoExecutorService$PicassoFutureTask;->hunter:Lcom/squareup/picasso/BitmapHunter;
+    .line 107
+    iget-object v0, p0, Lcom/squareup/picasso/PicassoExecutorService$PicassoFutureTask;->hunter:Lcom/squareup/picasso/BitmapHunter;
 
-    iget v2, v2, Lcom/squareup/picasso/BitmapHunter;->sequence:I
+    iget v0, v0, Lcom/squareup/picasso/BitmapHunter;->sequence:I
 
-    iget-object v3, p1, Lcom/squareup/picasso/PicassoExecutorService$PicassoFutureTask;->hunter:Lcom/squareup/picasso/BitmapHunter;
+    iget-object p1, p1, Lcom/squareup/picasso/PicassoExecutorService$PicassoFutureTask;->hunter:Lcom/squareup/picasso/BitmapHunter;
 
-    iget v3, v3, Lcom/squareup/picasso/BitmapHunter;->sequence:I
+    iget p1, p1, Lcom/squareup/picasso/BitmapHunter;->sequence:I
+
+    sub-int/2addr v0, p1
 
     goto :goto_0
 
     :cond_0
     invoke-virtual {v1}, Lcom/squareup/picasso/Picasso$Priority;->ordinal()I
 
-    move-result v2
+    move-result p1
 
     invoke-virtual {v0}, Lcom/squareup/picasso/Picasso$Priority;->ordinal()I
 
-    move-result v3
+    move-result v0
+
+    sub-int v0, p1, v0
 
     :goto_0
-    sub-int/2addr v2, v3
-
-    return v2
+    return v0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I

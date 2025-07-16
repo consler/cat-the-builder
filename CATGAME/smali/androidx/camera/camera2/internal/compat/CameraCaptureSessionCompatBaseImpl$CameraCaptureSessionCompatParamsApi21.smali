@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/os/Handler;)V
     .locals 0
-    .param p1, "compatHandler"    # Landroid/os/Handler;
 
     .line 114
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,6 +28,5 @@
     .line 115
     iput-object p1, p0, Landroidx/camera/camera2/internal/compat/CameraCaptureSessionCompatBaseImpl$CameraCaptureSessionCompatParamsApi21;->mCompatHandler:Landroid/os/Handler;
 
-    .line 116
     return-void
 .end method

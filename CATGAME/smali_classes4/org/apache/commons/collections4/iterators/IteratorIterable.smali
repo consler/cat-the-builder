@@ -50,20 +50,16 @@
         }
     .end annotation
 
-    .line 103
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/IteratorIterable;, "Lorg/apache/commons/collections4/iterators/IteratorIterable<TE;>;"
-    .local p1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     const/4 v0, 0x0
 
+    .line 103
     invoke-direct {p0, p1, v0}, Lorg/apache/commons/collections4/iterators/IteratorIterable;-><init>(Ljava/util/Iterator;Z)V
 
-    .line 104
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Iterator;Z)V
-    .locals 1
-    .param p2, "multipleUse"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -73,23 +69,21 @@
     .end annotation
 
     .line 114
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/IteratorIterable;, "Lorg/apache/commons/collections4/iterators/IteratorIterable<TE;>;"
-    .local p1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 115
     if-eqz p2, :cond_0
 
-    instance-of v0, p1, Lorg/apache/commons/collections4/ResettableIterator;
+    .line 115
+    instance-of p2, p1, Lorg/apache/commons/collections4/ResettableIterator;
 
-    if-nez v0, :cond_0
+    if-nez p2, :cond_0
 
     .line 116
-    new-instance v0, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;
+    new-instance p2, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;
 
-    invoke-direct {v0, p1}, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;-><init>(Ljava/util/Iterator;)V
+    invoke-direct {p2, p1}, Lorg/apache/commons/collections4/iterators/ListIteratorWrapper;-><init>(Ljava/util/Iterator;)V
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/iterators/IteratorIterable;->iterator:Ljava/util/Iterator;
+    iput-object p2, p0, Lorg/apache/commons/collections4/iterators/IteratorIterable;->iterator:Ljava/util/Iterator;
 
     goto :goto_0
 
@@ -99,15 +93,14 @@
 
     .line 120
     :goto_0
-    iget-object v0, p0, Lorg/apache/commons/collections4/iterators/IteratorIterable;->iterator:Ljava/util/Iterator;
+    iget-object p1, p0, Lorg/apache/commons/collections4/iterators/IteratorIterable;->iterator:Ljava/util/Iterator;
 
-    invoke-static {v0}, Lorg/apache/commons/collections4/iterators/IteratorIterable;->createTypesafeIterator(Ljava/util/Iterator;)Ljava/util/Iterator;
+    invoke-static {p1}, Lorg/apache/commons/collections4/iterators/IteratorIterable;->createTypesafeIterator(Ljava/util/Iterator;)Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/iterators/IteratorIterable;->typeSafeIterator:Ljava/util/Iterator;
+    iput-object p1, p0, Lorg/apache/commons/collections4/iterators/IteratorIterable;->typeSafeIterator:Ljava/util/Iterator;
 
-    .line 121
     return-void
 .end method
 
@@ -126,7 +119,6 @@
     .end annotation
 
     .line 72
-    .local p0, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     new-instance v0, Lorg/apache/commons/collections4/iterators/IteratorIterable$1;
 
     invoke-direct {v0, p0}, Lorg/apache/commons/collections4/iterators/IteratorIterable$1;-><init>(Ljava/util/Iterator;)V
@@ -147,7 +139,6 @@
     .end annotation
 
     .line 130
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/IteratorIterable;, "Lorg/apache/commons/collections4/iterators/IteratorIterable<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/IteratorIterable;->iterator:Ljava/util/Iterator;
 
     instance-of v1, v0, Lorg/apache/commons/collections4/ResettableIterator;

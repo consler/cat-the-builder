@@ -16,7 +16,6 @@
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 40
     return-void
 .end method
 
@@ -40,9 +39,7 @@
 .end method
 
 .method public static findCacheKeysForImageUri(Ljava/lang/String;Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;)Ljava/util/List;
-    .locals 4
-    .param p0, "imageUri"    # Ljava/lang/String;
-    .param p1, "memoryCache"    # Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -61,55 +58,46 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 85
-    .local v0, "values":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-interface {p1}, Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;->keys()Ljava/util/Collection;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object p1
 
-    .local v1, "i$":Ljava/util/Iterator;
+    :cond_0
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/String;
+
+    .line 86
+    invoke-virtual {v1, p0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/String;
-
-    .line 86
-    .local v2, "key":Ljava/lang/String;
-    invoke-virtual {v2, p0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
     .line 87
-    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 89
-    .end local v2    # "key":Ljava/lang/String;
-    :cond_0
     goto :goto_0
 
-    .line 90
-    .end local v1    # "i$":Ljava/util/Iterator;
     :cond_1
     return-object v0
 .end method
 
 .method public static findCachedBitmapsForImageUri(Ljava/lang/String;Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;)Ljava/util/List;
     .locals 4
-    .param p0, "imageUri"    # Ljava/lang/String;
-    .param p1, "memoryCache"    # Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -128,7 +116,6 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 69
-    .local v0, "values":Ljava/util/List;, "Ljava/util/List<Landroid/graphics/Bitmap;>;"
     invoke-interface {p1}, Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;->keys()Ljava/util/Collection;
 
     move-result-object v1
@@ -137,7 +124,7 @@
 
     move-result-object v1
 
-    .local v1, "i$":Ljava/util/Iterator;
+    :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -152,7 +139,6 @@
     check-cast v2, Ljava/lang/String;
 
     .line 70
-    .local v2, "key":Ljava/lang/String;
     invoke-virtual {v2, p0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v3
@@ -162,62 +148,61 @@
     .line 71
     invoke-interface {p1, v2}, Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;->get(Ljava/lang/String;)Landroid/graphics/Bitmap;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 73
-    .end local v2    # "key":Ljava/lang/String;
-    :cond_0
     goto :goto_0
 
-    .line 74
-    .end local v1    # "i$":Ljava/util/Iterator;
     :cond_1
     return-object v0
 .end method
 
 .method public static generateKey(Ljava/lang/String;Lcom/nostra13/universalimageloader/core/assist/ImageSize;)Ljava/lang/String;
-    .locals 2
-    .param p0, "imageUri"    # Ljava/lang/String;
-    .param p1, "targetSize"    # Lcom/nostra13/universalimageloader/core/assist/ImageSize;
+    .locals 1
 
     .line 47
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0, p0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    const-string v1, "_"
+    const-string p0, "_"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
 
     invoke-virtual {p1}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;->getWidth()I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v1, "x"
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, "x"
+
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
 
     invoke-virtual {p1}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;->getHeight()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v0
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    return-object v0
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static removeFromCache(Ljava/lang/String;Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;)V
     .locals 4
-    .param p0, "imageUri"    # Ljava/lang/String;
-    .param p1, "memoryCache"    # Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;
 
     .line 100
     new-instance v0, Ljava/util/ArrayList;
@@ -225,7 +210,6 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 101
-    .local v0, "keysToRemove":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-interface {p1}, Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;->keys()Ljava/util/Collection;
 
     move-result-object v1
@@ -234,7 +218,7 @@
 
     move-result-object v1
 
-    .local v1, "i$":Ljava/util/Iterator;
+    :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -249,7 +233,6 @@
     check-cast v2, Ljava/lang/String;
 
     .line 102
-    .local v2, "key":Ljava/lang/String;
     invoke-virtual {v2, p0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v3
@@ -259,42 +242,32 @@
     .line 103
     invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 105
-    .end local v2    # "key":Ljava/lang/String;
-    :cond_0
     goto :goto_0
 
     .line 106
-    .end local v1    # "i$":Ljava/util/Iterator;
     :cond_1
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object p0
 
-    .restart local v1    # "i$":Ljava/util/Iterator;
     :goto_1
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_2
+    if-eqz v0, :cond_2
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Ljava/lang/String;
+    check-cast v0, Ljava/lang/String;
 
     .line 107
-    .local v2, "keyToRemove":Ljava/lang/String;
-    invoke-interface {p1, v2}, Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;->remove(Ljava/lang/String;)Landroid/graphics/Bitmap;
+    invoke-interface {p1, v0}, Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;->remove(Ljava/lang/String;)Landroid/graphics/Bitmap;
 
-    .line 108
-    .end local v2    # "keyToRemove":Ljava/lang/String;
     goto :goto_1
 
-    .line 109
-    .end local v1    # "i$":Ljava/util/Iterator;
     :cond_2
     return-void
 .end method

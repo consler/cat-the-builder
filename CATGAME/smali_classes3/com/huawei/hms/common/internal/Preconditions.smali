@@ -4,13 +4,13 @@
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 2
 
-    .line 44
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 45
+    .line 2
     new-instance v0, Ljava/lang/AssertionError;
 
     const-string v1, "Cannot use constructor to make a new instance"
@@ -20,20 +20,19 @@
     throw v0
 .end method
 
-.method private static a()Z
+.method public static a()Z
     .locals 2
 
-    .line 71
+    .line 1
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
     move-result-object v0
 
-    .line 72
+    .line 2
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
     move-result-object v1
 
-    .line 73
     if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
@@ -50,13 +49,11 @@
 .method public static checkArgument(ZLjava/lang/Object;)V
     .locals 0
 
-    .line 39
     if-eqz p0, :cond_0
 
-    .line 42
     return-void
 
-    .line 40
+    .line 1
     :cond_0
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
@@ -72,19 +69,18 @@
 .method public static checkHandlerThread(Landroid/os/Handler;)V
     .locals 1
 
-    .line 61
     const-string v0, "Must be called on the handler thread"
 
+    .line 1
     invoke-static {p0, v0}, Lcom/huawei/hms/common/internal/Preconditions;->checkHandlerThread(Landroid/os/Handler;Ljava/lang/String;)V
 
-    .line 62
     return-void
 .end method
 
 .method public static checkHandlerThread(Landroid/os/Handler;Ljava/lang/String;)V
     .locals 1
 
-    .line 65
+    .line 2
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
     move-result-object v0
@@ -95,10 +91,9 @@
 
     if-ne v0, p0, :cond_0
 
-    .line 68
     return-void
 
-    .line 66
+    .line 3
     :cond_0
     new-instance p0, Ljava/lang/IllegalStateException;
 
@@ -110,17 +105,16 @@
 .method public static checkMainThread(Ljava/lang/String;)V
     .locals 1
 
-    .line 49
+    .line 1
     invoke-static {}, Lcom/huawei/hms/common/internal/Preconditions;->a()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 52
     return-void
 
-    .line 50
+    .line 2
     :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -132,17 +126,16 @@
 .method public static checkNotMainThread()V
     .locals 2
 
-    .line 55
+    .line 1
     invoke-static {}, Lcom/huawei/hms/common/internal/Preconditions;->a()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 58
     return-void
 
-    .line 56
+    .line 2
     :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -163,13 +156,11 @@
         }
     .end annotation
 
-    .line 19
     if-eqz p0, :cond_0
 
-    .line 20
     return-object p0
 
-    .line 22
+    .line 1
     :cond_0
     new-instance p0, Ljava/lang/NullPointerException;
 
@@ -192,13 +183,11 @@
         }
     .end annotation
 
-    .line 26
     if-eqz p0, :cond_0
 
-    .line 27
     return-object p0
 
-    .line 29
+    .line 2
     :cond_0
     new-instance p0, Ljava/lang/NullPointerException;
 
@@ -214,13 +203,11 @@
 .method public static checkState(ZLjava/lang/Object;)V
     .locals 0
 
-    .line 33
     if-eqz p0, :cond_0
 
-    .line 36
     return-void
 
-    .line 34
+    .line 1
     :cond_0
     new-instance p0, Ljava/lang/IllegalStateException;
 

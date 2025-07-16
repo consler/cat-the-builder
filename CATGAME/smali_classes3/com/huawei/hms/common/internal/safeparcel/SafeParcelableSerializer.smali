@@ -7,7 +7,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 26
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -25,35 +25,34 @@
         }
     .end annotation
 
-    .line 36
+    .line 1
     invoke-static {p1}, Lcom/huawei/hms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 37
+    .line 2
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 38
+    .line 3
     array-length v1, p0
 
     const/4 v2, 0x0
 
     invoke-virtual {v0, p0, v2, v1}, Landroid/os/Parcel;->unmarshall([BII)V
 
-    .line 39
+    .line 4
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->setDataPosition(I)V
 
-    .line 40
+    .line 5
     invoke-interface {p1, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object p0
 
     check-cast p0, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelable;
 
-    .line 41
+    .line 6
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 42
     return-object p0
 .end method
 
@@ -71,20 +70,18 @@
         }
     .end annotation
 
-    .line 84
+    .line 1
     invoke-virtual {p0, p1}, Landroid/content/Intent;->getByteArrayExtra(Ljava/lang/String;)[B
 
     move-result-object p0
 
-    .line 85
     if-nez p0, :cond_0
 
-    .line 86
     const/4 p0, 0x0
 
     return-object p0
 
-    .line 88
+    .line 5
     :cond_0
     invoke-static {p0, p2}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelableSerializer;->deserializeFromBytes([BLandroid/os/Parcelable$Creator;)Lcom/huawei/hms/common/internal/safeparcel/SafeParcelable;
 
@@ -106,8 +103,8 @@
         }
     .end annotation
 
-    .line 75
-    invoke-static {p0}, Lcom/huawei/hms/common/util/a;->a(Ljava/lang/String;)[B
+    .line 1
+    invoke-static {p0}, Lcom/huawei/hms/common/util/Base64Utils;->decodeUrlSafe(Ljava/lang/String;)[B
 
     move-result-object p0
 
@@ -134,23 +131,26 @@
         }
     .end annotation
 
-    .line 57
+    const/4 v0, 0x0
+
+    if-nez p0, :cond_0
+
+    return-object v0
+
+    .line 1
+    :cond_0
     invoke-virtual {p0, p1}, Landroid/os/Bundle;->getSerializable(Ljava/lang/String;)Ljava/io/Serializable;
 
     move-result-object p0
 
     check-cast p0, Ljava/util/ArrayList;
 
-    .line 58
-    if-nez p0, :cond_0
+    if-nez p0, :cond_1
 
-    .line 59
-    const/4 p0, 0x0
+    return-object v0
 
-    return-object p0
-
-    .line 61
-    :cond_0
+    .line 5
+    :cond_1
     new-instance p1, Ljava/util/ArrayList;
 
     invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
@@ -159,27 +159,25 @@
 
     invoke-direct {p1, v0}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 62
+    .line 6
     invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object p0
 
-    .line 63
+    .line 7
     :goto_0
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
-    .line 64
+    .line 8
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 65
-    check-cast v0, [B
-
+    .line 9
     check-cast v0, [B
 
     invoke-static {v0, p2}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelableSerializer;->deserializeFromBytes([BLandroid/os/Parcelable$Creator;)Lcom/huawei/hms/common/internal/safeparcel/SafeParcelable;
@@ -188,11 +186,9 @@
 
     invoke-virtual {p1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 66
     goto :goto_0
 
-    .line 67
-    :cond_1
+    :cond_2
     return-object p1
 .end method
 
@@ -212,22 +208,20 @@
         }
     .end annotation
 
-    .line 106
+    .line 1
     invoke-virtual {p0, p1}, Landroid/content/Intent;->getSerializableExtra(Ljava/lang/String;)Ljava/io/Serializable;
 
     move-result-object p0
 
     check-cast p0, Ljava/util/ArrayList;
 
-    .line 107
     if-nez p0, :cond_0
 
-    .line 108
     const/4 p0, 0x0
 
     return-object p0
 
-    .line 110
+    .line 5
     :cond_0
     new-instance p1, Ljava/util/ArrayList;
 
@@ -237,12 +231,12 @@
 
     invoke-direct {p1, v0}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 112
+    .line 7
     invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object p0
 
-    .line 113
+    .line 8
     :goto_0
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -250,14 +244,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 114
+    .line 9
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 115
-    check-cast v0, [B
-
+    .line 10
     check-cast v0, [B
 
     invoke-static {v0, p2}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelableSerializer;->deserializeFromBytes([BLandroid/os/Parcelable$Creator;)Lcom/huawei/hms/common/internal/safeparcel/SafeParcelable;
@@ -266,10 +258,8 @@
 
     invoke-virtual {p1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 116
     goto :goto_0
 
-    .line 118
     :cond_1
     return-object p1
 .end method
@@ -289,17 +279,17 @@
         }
     .end annotation
 
-    .line 47
+    .line 1
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 48
+    .line 2
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object p0
 
-    .line 49
+    .line 3
     :goto_0
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -307,7 +297,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 50
+    .line 4
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -322,13 +312,10 @@
 
     goto :goto_0
 
-    .line 52
+    .line 6
     :cond_0
-    check-cast v0, Ljava/io/Serializable;
-
     invoke-virtual {p1, p2, v0}, Landroid/os/Bundle;->putSerializable(Ljava/lang/String;Ljava/io/Serializable;)V
 
-    .line 53
     return-void
 .end method
 
@@ -347,17 +334,17 @@
         }
     .end annotation
 
-    .line 94
+    .line 1
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 96
+    .line 3
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object p0
 
-    .line 97
+    .line 4
     :goto_0
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -365,7 +352,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 98
+    .line 5
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -380,13 +367,10 @@
 
     goto :goto_0
 
-    .line 101
+    .line 8
     :cond_0
-    check-cast v0, Ljava/io/Serializable;
-
     invoke-virtual {p1, p2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
 
-    .line 102
     return-void
 .end method
 
@@ -400,25 +384,24 @@
         }
     .end annotation
 
-    .line 28
+    .line 1
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 29
     const/4 v1, 0x0
 
-    invoke-interface {p0, v0, v1}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelable;->writeToParcel(Landroid/os/Parcel;I)V
+    .line 2
+    invoke-interface {p0, v0, v1}, Landroid/os/Parcelable;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 30
+    .line 3
     invoke-virtual {v0}, Landroid/os/Parcel;->marshall()[B
 
     move-result-object p0
 
-    .line 31
+    .line 4
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 32
     return-object p0
 .end method
 
@@ -435,14 +418,13 @@
         }
     .end annotation
 
-    .line 79
+    .line 1
     invoke-static {p0}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelableSerializer;->serializeToBytes(Lcom/huawei/hms/common/internal/safeparcel/SafeParcelable;)[B
 
     move-result-object p0
 
     invoke-virtual {p1, p2, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[B)Landroid/content/Intent;
 
-    .line 80
     return-void
 .end method
 
@@ -457,12 +439,12 @@
         }
     .end annotation
 
-    .line 71
+    .line 1
     invoke-static {p0}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelableSerializer;->serializeToBytes(Lcom/huawei/hms/common/internal/safeparcel/SafeParcelable;)[B
 
     move-result-object p0
 
-    invoke-static {p0}, Lcom/huawei/hms/common/util/a;->a([B)Ljava/lang/String;
+    invoke-static {p0}, Lcom/huawei/hms/common/util/Base64Utils;->encodeUrlSafe([B)Ljava/lang/String;
 
     move-result-object p0
 

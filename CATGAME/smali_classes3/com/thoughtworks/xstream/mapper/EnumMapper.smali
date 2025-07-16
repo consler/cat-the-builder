@@ -24,7 +24,6 @@
 # direct methods
 .method public constructor <init>(Lcom/thoughtworks/xstream/mapper/Mapper;)V
     .locals 0
-    .param p1, "wrapped"    # Lcom/thoughtworks/xstream/mapper/Mapper;
 
     .line 47
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;-><init>(Lcom/thoughtworks/xstream/mapper/Mapper;)V
@@ -32,14 +31,11 @@
     .line 48
     invoke-direct {p0}, Lcom/thoughtworks/xstream/mapper/EnumMapper;->readResolve()Ljava/lang/Object;
 
-    .line 49
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/mapper/Mapper;Lcom/thoughtworks/xstream/converters/ConverterLookup;)V
     .locals 0
-    .param p1, "wrapped"    # Lcom/thoughtworks/xstream/mapper/Mapper;
-    .param p2, "lookup"    # Lcom/thoughtworks/xstream/converters/ConverterLookup;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -49,15 +45,11 @@
     .line 43
     invoke-direct {p0}, Lcom/thoughtworks/xstream/mapper/EnumMapper;->readResolve()Ljava/lang/Object;
 
-    .line 44
     return-void
 .end method
 
 .method private getLocalConverter(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;)Lcom/thoughtworks/xstream/converters/SingleValueConverter;
-    .locals 4
-    .param p1, "fieldName"    # Ljava/lang/String;
-    .param p2, "type"    # Ljava/lang/Class;
-    .param p3, "definedIn"    # Ljava/lang/Class;
+    .locals 2
 
     .line 98
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/EnumMapper;->attributeMapper:Lcom/thoughtworks/xstream/mapper/AttributeMapper;
@@ -97,37 +89,27 @@
 
     check-cast v1, Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
-    .line 103
-    .local v1, "singleValueConverter":Lcom/thoughtworks/xstream/converters/SingleValueConverter;
     if-nez v1, :cond_1
 
     .line 104
     invoke-super {p0, p1, p2, p3}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getConverterFromItemType(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;)Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
-    move-result-object v2
+    move-result-object p1
 
-    move-object v1, v2
-
-    .line 105
-    if-nez v1, :cond_0
-
-    .line 107
-    move-object v2, p2
+    if-nez p1, :cond_0
 
     .line 108
-    .local v2, "enumType":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/lang/Enum;>;"
-    new-instance v3, Lcom/thoughtworks/xstream/converters/enums/EnumSingleValueConverter;
+    new-instance p1, Lcom/thoughtworks/xstream/converters/enums/EnumSingleValueConverter;
 
-    invoke-direct {v3, v2}, Lcom/thoughtworks/xstream/converters/enums/EnumSingleValueConverter;-><init>(Ljava/lang/Class;)V
+    invoke-direct {p1, p2}, Lcom/thoughtworks/xstream/converters/enums/EnumSingleValueConverter;-><init>(Ljava/lang/Class;)V
 
-    move-object v1, v3
+    :cond_0
+    move-object v1, p1
 
     .line 110
-    .end local v2    # "enumType":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/lang/Enum;>;"
-    :cond_0
-    iget-object v2, p0, Lcom/thoughtworks/xstream/mapper/EnumMapper;->enumConverterMap:Ljava/util/Map;
+    iget-object p1, p0, Lcom/thoughtworks/xstream/mapper/EnumMapper;->enumConverterMap:Ljava/util/Map;
 
-    invoke-interface {v2, p2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, p2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 112
     :cond_1
@@ -135,22 +117,20 @@
 
     return-object v1
 
-    .line 113
-    .end local v1    # "singleValueConverter":Lcom/thoughtworks/xstream/converters/SingleValueConverter;
     :catchall_0
-    move-exception v1
+    move-exception p1
 
+    .line 113
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 
-    .line 115
     :cond_2
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method private readResolve()Ljava/lang/Object;
@@ -174,7 +154,6 @@
 
     iput-object v0, p0, Lcom/thoughtworks/xstream/mapper/EnumMapper;->attributeMapper:Lcom/thoughtworks/xstream/mapper/AttributeMapper;
 
-    .line 129
     return-object p0
 .end method
 
@@ -217,75 +196,51 @@
 
     throw v1
 
-    .line 124
     :cond_0
     :goto_0
     return-void
 .end method
 
 .method public getConverterFromAttribute(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)Lcom/thoughtworks/xstream/converters/SingleValueConverter;
-    .locals 2
-    .param p1, "definedIn"    # Ljava/lang/Class;
-    .param p2, "attribute"    # Ljava/lang/String;
-    .param p3, "type"    # Ljava/lang/Class;
+    .locals 1
 
     .line 91
     invoke-direct {p0, p2, p3, p1}, Lcom/thoughtworks/xstream/mapper/EnumMapper;->getLocalConverter(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;)Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
     move-result-object v0
 
-    .line 92
-    .local v0, "converter":Lcom/thoughtworks/xstream/converters/SingleValueConverter;
     if-nez v0, :cond_0
 
     .line 93
     invoke-super {p0, p1, p2, p3}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getConverterFromAttribute(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
-    move-result-object v1
-
-    goto :goto_0
+    move-result-object v0
 
     :cond_0
-    move-object v1, v0
-
-    .line 92
-    :goto_0
-    return-object v1
+    return-object v0
 .end method
 
 .method public getConverterFromItemType(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;)Lcom/thoughtworks/xstream/converters/SingleValueConverter;
-    .locals 2
-    .param p1, "fieldName"    # Ljava/lang/String;
-    .param p2, "type"    # Ljava/lang/Class;
-    .param p3, "definedIn"    # Ljava/lang/Class;
+    .locals 1
 
     .line 82
     invoke-direct {p0, p1, p2, p3}, Lcom/thoughtworks/xstream/mapper/EnumMapper;->getLocalConverter(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;)Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
     move-result-object v0
 
-    .line 83
-    .local v0, "converter":Lcom/thoughtworks/xstream/converters/SingleValueConverter;
     if-nez v0, :cond_0
 
     .line 84
     invoke-super {p0, p1, p2, p3}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getConverterFromItemType(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;)Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
-    move-result-object v1
-
-    goto :goto_0
+    move-result-object v0
 
     :cond_0
-    move-object v1, v0
-
-    .line 83
-    :goto_0
-    return-object v1
+    return-object v0
 .end method
 
 .method public isImmutableValueType(Ljava/lang/Class;)Z
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
 
     .line 67
     const-class v0, Ljava/lang/Enum;
@@ -298,32 +253,31 @@
 
     invoke-super {p0, p1}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->isImmutableValueType(Ljava/lang/Class;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     :goto_1
-    return v0
+    return p1
 .end method
 
 .method public isReferenceable(Ljava/lang/Class;)Z
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
 
-    .line 72
     if-eqz p1, :cond_0
 
+    .line 72
     const-class v0, Ljava/lang/Enum;
 
     invoke-virtual {v0, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
@@ -332,33 +286,30 @@
 
     if-eqz v0, :cond_0
 
-    .line 73
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 75
     :cond_0
     invoke-super {p0, p1}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->isReferenceable(Ljava/lang/Class;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public serializedClass(Ljava/lang/Class;)Ljava/lang/String;
     .locals 2
-    .param p1, "type"    # Ljava/lang/Class;
 
-    .line 53
     if-nez p1, :cond_0
 
     .line 54
     invoke-super {p0, p1}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->serializedClass(Ljava/lang/Class;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 56
     :cond_0
@@ -381,13 +332,13 @@
     .line 57
     invoke-virtual {p1}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-super {p0, v0}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->serializedClass(Ljava/lang/Class;)Ljava/lang/String;
+    invoke-super {p0, p1}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->serializedClass(Ljava/lang/Class;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 58
     :cond_1
@@ -400,19 +351,19 @@
     if-eqz v0, :cond_2
 
     .line 59
-    const-class v0, Ljava/util/EnumSet;
+    const-class p1, Ljava/util/EnumSet;
 
-    invoke-super {p0, v0}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->serializedClass(Ljava/lang/Class;)Ljava/lang/String;
+    invoke-super {p0, p1}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->serializedClass(Ljava/lang/Class;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 61
     :cond_2
     invoke-super {p0, p1}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->serializedClass(Ljava/lang/Class;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

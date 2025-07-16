@@ -28,13 +28,11 @@
     .line 37
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
-    .line 39
     return-void
 .end method
 
 .method public constructor <init>(Lio/reactivex/disposables/Disposable;)V
     .locals 0
-    .param p1, "initial"    # Lio/reactivex/disposables/Disposable;
 
     .line 45
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
@@ -42,7 +40,6 @@
     .line 46
     invoke-virtual {p0, p1}, Lio/reactivex/internal/disposables/SequentialDisposable;->lazySet(Ljava/lang/Object;)V
 
-    .line 47
     return-void
 .end method
 
@@ -54,7 +51,6 @@
     .line 73
     invoke-static {p0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 74
     return-void
 .end method
 
@@ -76,25 +72,23 @@
 .end method
 
 .method public replace(Lio/reactivex/disposables/Disposable;)Z
-    .locals 1
-    .param p1, "next"    # Lio/reactivex/disposables/Disposable;
+    .locals 0
 
     .line 68
     invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public update(Lio/reactivex/disposables/Disposable;)Z
-    .locals 1
-    .param p1, "next"    # Lio/reactivex/disposables/Disposable;
+    .locals 0
 
     .line 57
     invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->set(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

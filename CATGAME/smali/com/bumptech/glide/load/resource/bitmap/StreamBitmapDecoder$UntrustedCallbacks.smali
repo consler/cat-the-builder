@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;Lcom/bumptech/glide/util/ExceptionCatchingInputStream;)V
     .locals 0
-    .param p1, "bufferedStream"    # Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;
-    .param p2, "exceptionStream"    # Lcom/bumptech/glide/util/ExceptionCatchingInputStream;
 
     .line 81
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +36,6 @@
     .line 83
     iput-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/StreamBitmapDecoder$UntrustedCallbacks;->exceptionStream:Lcom/bumptech/glide/util/ExceptionCatchingInputStream;
 
-    .line 84
     return-void
 .end method
 
@@ -46,8 +43,6 @@
 # virtual methods
 .method public onDecodeComplete(Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Landroid/graphics/Bitmap;)V
     .locals 1
-    .param p1, "bitmapPool"    # Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
-    .param p2, "downsampled"    # Landroid/graphics/Bitmap;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -61,11 +56,8 @@
 
     move-result-object v0
 
-    .line 101
-    .local v0, "streamException":Ljava/io/IOException;
     if-eqz v0, :cond_1
 
-    .line 102
     if-eqz p2, :cond_0
 
     .line 103
@@ -75,7 +67,6 @@
     :cond_0
     throw v0
 
-    .line 107
     :cond_1
     return-void
 .end method
@@ -88,6 +79,5 @@
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;->fixMarkLimit()V
 
-    .line 92
     return-void
 .end method

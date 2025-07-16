@@ -34,10 +34,8 @@
     .end annotation
 
     .line 724
-    .local p1, "map":Lcom/badlogic/gdx/utils/ObjectIntMap;, "Lcom/badlogic/gdx/utils/ObjectIntMap<*>;"
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/ObjectIntMap$MapIterator;-><init>(Lcom/badlogic/gdx/utils/ObjectIntMap;)V
 
-    .line 725
     return-void
 .end method
 
@@ -90,7 +88,6 @@
     aget v0, v0, v1
 
     .line 736
-    .local v0, "value":I
     iget v1, p0, Lcom/badlogic/gdx/utils/ObjectIntMap$Values;->nextIndex:I
 
     iput v1, p0, Lcom/badlogic/gdx/utils/ObjectIntMap$Values;->currentIndex:I
@@ -98,11 +95,9 @@
     .line 737
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/ObjectIntMap$Values;->findNextIndex()V
 
-    .line 738
     return v0
 
     .line 734
-    .end local v0    # "value":I
     :cond_0
     new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
@@ -154,7 +149,6 @@
     invoke-direct {v0, v2, v1}, Lcom/badlogic/gdx/utils/IntArray;-><init>(ZI)V
 
     .line 744
-    .local v0, "array":Lcom/badlogic/gdx/utils/IntArray;
     :goto_0
     iget-boolean v1, p0, Lcom/badlogic/gdx/utils/ObjectIntMap$Values;->hasNext:Z
 
@@ -169,7 +163,6 @@
 
     goto :goto_0
 
-    .line 746
     :cond_0
     return-object v0
 .end method

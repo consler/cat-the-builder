@@ -40,9 +40,7 @@
 
 # direct methods
 .method public static final indexKey(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;)Ljava/lang/String;
-    .locals 2
-    .param p0, "clazz"    # Lkotlin/reflect/KClass;
-    .param p1, "qualifier"    # Lorg/koin/core/qualifier/Qualifier;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -58,9 +56,9 @@
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 93
     if-eqz p1, :cond_0
 
+    .line 93
     invoke-interface {p1}, Lorg/koin/core/qualifier/Qualifier;->getValue()Ljava/lang/String;
 
     move-result-object v0
@@ -80,23 +78,29 @@
 
     invoke-static {p0}, Lorg/koin/ext/KClassExtKt;->getFullName(Lkotlin/reflect/KClass;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "::"
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, "::"
+
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
 
     invoke-interface {p1}, Lorg/koin/core/qualifier/Qualifier;->getValue()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v0
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
 
     goto :goto_1
 
@@ -104,9 +108,8 @@
     :cond_1
     invoke-static {p0}, Lorg/koin/ext/KClassExtKt;->getFullName(Lkotlin/reflect/KClass;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    .line 93
     :goto_1
-    return-object v0
+    return-object p0
 .end method

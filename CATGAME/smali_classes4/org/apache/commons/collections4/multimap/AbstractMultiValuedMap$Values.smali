@@ -30,7 +30,6 @@
     .locals 0
 
     .line 723
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$Values;, "Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap<TK;TV;>.Values;"
     iput-object p1, p0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$Values;->this$0:Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;
 
     invoke-direct {p0}, Ljava/util/AbstractCollection;-><init>()V
@@ -40,11 +39,8 @@
 
 .method synthetic constructor <init>(Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;
-    .param p2, "x1"    # Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$1;
 
     .line 723
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$Values;, "Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap<TK;TV;>.Values;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$Values;-><init>(Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;)V
 
     return-void
@@ -56,12 +52,10 @@
     .locals 1
 
     .line 740
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$Values;, "Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap<TK;TV;>.Values;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$Values;->this$0:Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;->clear()V
 
-    .line 741
     return-void
 .end method
 
@@ -76,13 +70,11 @@
     .end annotation
 
     .line 726
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$Values;, "Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap<TK;TV;>.Values;"
     new-instance v0, Lorg/apache/commons/collections4/iterators/IteratorChain;
 
     invoke-direct {v0}, Lorg/apache/commons/collections4/iterators/IteratorChain;-><init>()V
 
     .line 727
-    .local v0, "chain":Lorg/apache/commons/collections4/iterators/IteratorChain;, "Lorg/apache/commons/collections4/iterators/IteratorChain<TV;>;"
     iget-object v1, p0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$Values;->this$0:Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;
 
     invoke-virtual {v1}, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;->keySet()Ljava/util/Set;
@@ -105,7 +97,6 @@
     move-result-object v2
 
     .line 728
-    .local v2, "k":Ljava/lang/Object;, "TK;"
     new-instance v3, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$ValuesIterator;
 
     iget-object v4, p0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$Values;->this$0:Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;
@@ -114,11 +105,8 @@
 
     invoke-virtual {v0, v3}, Lorg/apache/commons/collections4/iterators/IteratorChain;->addIterator(Ljava/util/Iterator;)V
 
-    .line 729
-    .end local v2    # "k":Ljava/lang/Object;, "TK;"
     goto :goto_0
 
-    .line 730
     :cond_0
     return-object v0
 .end method
@@ -127,7 +115,6 @@
     .locals 1
 
     .line 735
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$Values;, "Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap<TK;TV;>.Values;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$Values;->this$0:Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;->size()I

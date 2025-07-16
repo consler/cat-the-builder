@@ -31,8 +31,6 @@
 # direct methods
 .method constructor <init>(Landroidx/room/InvalidationTracker;Landroidx/room/InvalidationTracker$Observer;)V
     .locals 1
-    .param p1, "tracker"    # Landroidx/room/InvalidationTracker;
-    .param p2, "delegate"    # Landroidx/room/InvalidationTracker$Observer;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -53,20 +51,19 @@
     iput-object p1, p0, Landroidx/room/InvalidationTracker$WeakObserver;->mTracker:Landroidx/room/InvalidationTracker;
 
     .line 908
-    new-instance v0, Ljava/lang/ref/WeakReference;
+    new-instance p1, Ljava/lang/ref/WeakReference;
 
-    invoke-direct {v0, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p1, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
-    iput-object v0, p0, Landroidx/room/InvalidationTracker$WeakObserver;->mDelegateRef:Ljava/lang/ref/WeakReference;
+    iput-object p1, p0, Landroidx/room/InvalidationTracker$WeakObserver;->mDelegateRef:Ljava/lang/ref/WeakReference;
 
-    .line 909
     return-void
 .end method
 
 
 # virtual methods
 .method public onInvalidated(Ljava/util/Set;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -86,7 +83,6 @@
     .end annotation
 
     .line 913
-    .local p1, "tables":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     iget-object v0, p0, Landroidx/room/InvalidationTracker$WeakObserver;->mDelegateRef:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -95,14 +91,12 @@
 
     check-cast v0, Landroidx/room/InvalidationTracker$Observer;
 
-    .line 914
-    .local v0, "observer":Landroidx/room/InvalidationTracker$Observer;
     if-nez v0, :cond_0
 
     .line 915
-    iget-object v1, p0, Landroidx/room/InvalidationTracker$WeakObserver;->mTracker:Landroidx/room/InvalidationTracker;
+    iget-object p1, p0, Landroidx/room/InvalidationTracker$WeakObserver;->mTracker:Landroidx/room/InvalidationTracker;
 
-    invoke-virtual {v1, p0}, Landroidx/room/InvalidationTracker;->removeObserver(Landroidx/room/InvalidationTracker$Observer;)V
+    invoke-virtual {p1, p0}, Landroidx/room/InvalidationTracker;->removeObserver(Landroidx/room/InvalidationTracker$Observer;)V
 
     goto :goto_0
 
@@ -110,7 +104,6 @@
     :cond_0
     invoke-virtual {v0, p1}, Landroidx/room/InvalidationTracker$Observer;->onInvalidated(Ljava/util/Set;)V
 
-    .line 919
     :goto_0
     return-void
 .end method

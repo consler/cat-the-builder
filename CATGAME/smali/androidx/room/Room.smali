@@ -20,14 +20,11 @@
     .line 110
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 111
     return-void
 .end method
 
 .method public static databaseBuilder(Landroid/content/Context;Ljava/lang/Class;Ljava/lang/String;)Landroidx/room/RoomDatabase$Builder;
-    .locals 2
-    .param p0, "context"    # Landroid/content/Context;
-    .param p2, "name"    # Ljava/lang/String;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -56,10 +53,9 @@
         }
     .end annotation
 
-    .line 51
-    .local p1, "klass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     if-eqz p2, :cond_0
 
+    .line 51
     invoke-virtual {p2}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v0
@@ -79,18 +75,17 @@
 
     .line 52
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Cannot build a database with null or empty name. If you are trying to create an in memory database, use Room.inMemoryDatabaseBuilder"
+    const-string p1, "Cannot build a database with null or empty name. If you are trying to create an in memory database, use Room.inMemoryDatabaseBuilder"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method static getGeneratedImplementation(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Object;
-    .locals 8
-    .param p1, "suffix"    # Ljava/lang/String;
+    .locals 6
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -117,7 +112,6 @@
     .end annotation
 
     .line 79
-    .local p0, "klass":Ljava/lang/Class;, "Ljava/lang/Class<TC;>;"
     invoke-virtual {p0}, Ljava/lang/Class;->getPackage()Ljava/lang/Package;
 
     move-result-object v0
@@ -127,13 +121,11 @@
     move-result-object v0
 
     .line 80
-    .local v0, "fullPackage":Ljava/lang/String;
     invoke-virtual {p0}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
 
     move-result-object v1
 
     .line 81
-    .local v1, "name":Ljava/lang/String;
     invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
 
     move-result v2
@@ -141,9 +133,6 @@
     const/4 v3, 0x1
 
     if-eqz v2, :cond_0
-
-    .line 82
-    move-object v2, v1
 
     goto :goto_0
 
@@ -157,205 +146,192 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v2
-
-    :goto_0
-    nop
+    move-result-object v1
 
     .line 84
-    .local v2, "postPackageName":Ljava/lang/String;
-    new-instance v4, Ljava/lang/StringBuilder;
+    :goto_0
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/16 v5, 0x2e
+    const/16 v4, 0x2e
 
-    const/16 v6, 0x5f
+    const/16 v5, 0x5f
 
-    invoke-virtual {v2, v5, v6}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
+    invoke-virtual {v1, v4, v5}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
 
     .line 88
-    .local v4, "implName":Ljava/lang/String;
     :try_start_0
     invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
 
-    move-result v5
+    move-result v1
 
-    if-eqz v5, :cond_1
+    if-eqz v1, :cond_1
 
-    .line 89
-    move-object v5, v4
+    move-object v0, p1
 
     goto :goto_1
 
     .line 90
     :cond_1
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v6, "."
+    move-result-object v0
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "."
 
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v5
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :goto_1
-    nop
+    move-result-object v0
 
-    .line 92
-    .local v5, "fullClassName":Ljava/lang/String;
-    nop
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
 
     .line 93
+    :goto_1
     invoke-virtual {p0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
-    move-result-object v6
+    move-result-object v1
 
     .line 92
-    invoke-static {v5, v3, v6}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
+    invoke-static {v0, v3, v1}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object v0
 
     .line 94
-    .local v3, "aClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
-    invoke-virtual {v3}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_2
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v6
-
-    .line 101
-    .end local v3    # "aClass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
-    .end local v5    # "fullClassName":Ljava/lang/String;
-    :catch_0
-    move-exception v3
+    return-object p0
 
     .line 102
-    .local v3, "e":Ljava/lang/InstantiationException;
-    new-instance v5, Ljava/lang/RuntimeException;
+    :catch_0
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Failed to create an instance of "
 
-    const-string v7, "Failed to create an instance of "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 103
     invoke-virtual {p0}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object p0
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v6
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v5, v6}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move-result-object p0
 
-    throw v5
+    invoke-direct {p1, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    .line 98
-    .end local v3    # "e":Ljava/lang/InstantiationException;
-    :catch_1
-    move-exception v3
+    throw p1
 
     .line 99
-    .local v3, "e":Ljava/lang/IllegalAccessException;
-    new-instance v5, Ljava/lang/RuntimeException;
+    :catch_1
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Cannot access the constructor"
 
-    const-string v7, "Cannot access the constructor"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 100
     invoke-virtual {p0}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object p0
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v6
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v5, v6}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    move-result-object p0
 
-    throw v5
+    invoke-direct {p1, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    .line 95
-    .end local v3    # "e":Ljava/lang/IllegalAccessException;
-    :catch_2
-    move-exception v3
+    throw p1
 
     .line 96
-    .local v3, "e":Ljava/lang/ClassNotFoundException;
-    new-instance v5, Ljava/lang/RuntimeException;
+    :catch_2
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "cannot find implementation for "
 
-    const-string v7, "cannot find implementation for "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 97
     invoke-virtual {p0}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object p0
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, ". "
+    move-result-object p0
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, ". "
 
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, " does not exist"
+    move-result-object p0
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v6
+    const-string p1, " does not exist"
 
-    invoke-direct {v5, v6}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    throw v5
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
 
 .method public static inMemoryDatabaseBuilder(Landroid/content/Context;Ljava/lang/Class;)Landroidx/room/RoomDatabase$Builder;
     .locals 2
-    .param p0, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -381,7 +357,6 @@
     .end annotation
 
     .line 73
-    .local p1, "klass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     new-instance v0, Landroidx/room/RoomDatabase$Builder;
 
     const/4 v1, 0x0

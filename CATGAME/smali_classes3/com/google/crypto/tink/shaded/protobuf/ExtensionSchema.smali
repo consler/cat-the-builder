@@ -19,7 +19,6 @@
     .locals 0
 
     .line 36
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/ExtensionSchema;, "Lcom/google/crypto/tink/shaded/protobuf/ExtensionSchema<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

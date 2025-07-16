@@ -15,7 +15,13 @@
 .method public abstract connect(I)V
 .end method
 
+.method public abstract connect(IZ)V
+.end method
+
 .method public abstract disconnect()V
+.end method
+
+.method public abstract getRequestHmsVersionCode()I
 .end method
 
 .method public abstract getSessionId()Ljava/lang/String;

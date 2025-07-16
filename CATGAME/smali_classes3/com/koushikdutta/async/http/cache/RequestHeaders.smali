@@ -43,16 +43,14 @@
 
 # direct methods
 .method public constructor <init>(Landroid/net/Uri;Lcom/koushikdutta/async/http/cache/RawHeaders;)V
-    .locals 6
-    .param p1, "uri"    # Landroid/net/Uri;
-    .param p2, "headers"    # Lcom/koushikdutta/async/http/cache/RawHeaders;
+    .locals 5
 
     .line 67
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 36
     const/4 v0, -0x1
 
+    .line 36
     iput v0, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->maxAgeSeconds:I
 
     .line 37
@@ -71,271 +69,253 @@
     iput-object p2, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->headers:Lcom/koushikdutta/async/http/cache/RawHeaders;
 
     .line 71
-    new-instance v0, Lcom/koushikdutta/async/http/cache/RequestHeaders$1;
+    new-instance p1, Lcom/koushikdutta/async/http/cache/RequestHeaders$1;
 
-    invoke-direct {v0, p0}, Lcom/koushikdutta/async/http/cache/RequestHeaders$1;-><init>(Lcom/koushikdutta/async/http/cache/RequestHeaders;)V
+    invoke-direct {p1, p0}, Lcom/koushikdutta/async/http/cache/RequestHeaders$1;-><init>(Lcom/koushikdutta/async/http/cache/RequestHeaders;)V
+
+    const/4 v0, 0x0
 
     .line 87
-    .local v0, "handler":Lcom/koushikdutta/async/http/cache/HeaderParser$CacheControlHandler;
-    const/4 v1, 0x0
-
-    .local v1, "i":I
     :goto_0
     invoke-virtual {p2}, Lcom/koushikdutta/async/http/cache/RawHeaders;->length()I
 
-    move-result v2
+    move-result v1
 
-    if-ge v1, v2, :cond_d
+    if-ge v0, v1, :cond_d
 
     .line 88
-    invoke-virtual {p2, v1}, Lcom/koushikdutta/async/http/cache/RawHeaders;->getFieldName(I)Ljava/lang/String;
+    invoke-virtual {p2, v0}, Lcom/koushikdutta/async/http/cache/RawHeaders;->getFieldName(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 89
+    invoke-virtual {p2, v0}, Lcom/koushikdutta/async/http/cache/RawHeaders;->getValue(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 89
-    .local v2, "fieldName":Ljava/lang/String;
-    invoke-virtual {p2, v1}, Lcom/koushikdutta/async/http/cache/RawHeaders;->getValue(I)Ljava/lang/String;
-
-    move-result-object v3
+    const-string v3, "Cache-Control"
 
     .line 90
-    .local v3, "value":Ljava/lang/String;
-    const-string v4, "Cache-Control"
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v3
 
-    move-result v4
-
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
     .line 91
-    invoke-static {v3, v0}, Lcom/koushikdutta/async/http/cache/HeaderParser;->parseCacheControl(Ljava/lang/String;Lcom/koushikdutta/async/http/cache/HeaderParser$CacheControlHandler;)V
+    invoke-static {v2, p1}, Lcom/koushikdutta/async/http/cache/HeaderParser;->parseCacheControl(Ljava/lang/String;Lcom/koushikdutta/async/http/cache/HeaderParser$CacheControlHandler;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_1
+
+    :cond_0
+    const-string v3, "Pragma"
 
     .line 92
-    :cond_0
-    const-string v4, "Pragma"
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v3
 
-    move-result v4
+    const/4 v4, 0x1
 
-    const/4 v5, 0x1
+    if-eqz v3, :cond_1
 
-    if-eqz v4, :cond_1
+    const-string v1, "no-cache"
 
     .line 93
-    const-string v4, "no-cache"
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v1
 
-    move-result v4
-
-    if-eqz v4, :cond_c
+    if-eqz v1, :cond_c
 
     .line 94
-    iput-boolean v5, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->noCache:Z
+    iput-boolean v4, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->noCache:Z
 
-    goto/16 :goto_2
+    goto/16 :goto_1
+
+    :cond_1
+    const-string v3, "If-None-Match"
 
     .line 96
-    :cond_1
-    const-string v4, "If-None-Match"
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v3
 
-    move-result v4
-
-    if-eqz v4, :cond_2
+    if-eqz v3, :cond_2
 
     .line 97
-    iput-object v3, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->ifNoneMatch:Ljava/lang/String;
+    iput-object v2, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->ifNoneMatch:Ljava/lang/String;
 
-    goto/16 :goto_2
+    goto/16 :goto_1
+
+    :cond_2
+    const-string v3, "If-Modified-Since"
 
     .line 98
-    :cond_2
-    const-string v4, "If-Modified-Since"
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v3
 
-    move-result v4
-
-    if-eqz v4, :cond_3
+    if-eqz v3, :cond_3
 
     .line 99
-    iput-object v3, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->ifModifiedSince:Ljava/lang/String;
+    iput-object v2, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->ifModifiedSince:Ljava/lang/String;
 
-    goto/16 :goto_2
+    goto/16 :goto_1
+
+    :cond_3
+    const-string v3, "Authorization"
 
     .line 100
-    :cond_3
-    const-string v4, "Authorization"
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v3
 
-    move-result v4
-
-    if-eqz v4, :cond_4
+    if-eqz v3, :cond_4
 
     .line 101
-    iput-boolean v5, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->hasAuthorization:Z
+    iput-boolean v4, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->hasAuthorization:Z
 
-    goto :goto_2
+    goto :goto_1
+
+    :cond_4
+    const-string v3, "Content-Length"
 
     .line 102
-    :cond_4
-    const-string v4, "Content-Length"
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v3
 
-    move-result v4
-
-    if-eqz v4, :cond_5
+    if-eqz v3, :cond_5
 
     .line 104
     :try_start_0
-    invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v4
+    move-result v1
 
-    iput v4, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->contentLength:I
+    iput v1, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->contentLength:I
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_1
 
-    .line 105
-    :catch_0
-    move-exception v4
-
-    .line 106
-    :goto_1
-    goto :goto_2
+    :cond_5
+    const-string v3, "Transfer-Encoding"
 
     .line 107
-    :cond_5
-    const-string v4, "Transfer-Encoding"
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v3
 
-    move-result v4
-
-    if-eqz v4, :cond_6
+    if-eqz v3, :cond_6
 
     .line 108
-    iput-object v3, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->transferEncoding:Ljava/lang/String;
+    iput-object v2, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->transferEncoding:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_1
+
+    :cond_6
+    const-string v3, "User-Agent"
 
     .line 109
-    :cond_6
-    const-string v4, "User-Agent"
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v3
 
-    move-result v4
-
-    if-eqz v4, :cond_7
+    if-eqz v3, :cond_7
 
     .line 110
-    iput-object v3, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->userAgent:Ljava/lang/String;
+    iput-object v2, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->userAgent:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_1
+
+    :cond_7
+    const-string v3, "Host"
 
     .line 111
-    :cond_7
-    const-string v4, "Host"
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v3
 
-    move-result v4
-
-    if-eqz v4, :cond_8
+    if-eqz v3, :cond_8
 
     .line 112
-    iput-object v3, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->host:Ljava/lang/String;
+    iput-object v2, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->host:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_1
+
+    :cond_8
+    const-string v3, "Connection"
 
     .line 113
-    :cond_8
-    const-string v4, "Connection"
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v3
 
-    move-result v4
-
-    if-eqz v4, :cond_9
+    if-eqz v3, :cond_9
 
     .line 114
-    iput-object v3, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->connection:Ljava/lang/String;
+    iput-object v2, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->connection:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_1
+
+    :cond_9
+    const-string v3, "Accept-Encoding"
 
     .line 115
-    :cond_9
-    const-string v4, "Accept-Encoding"
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v3
 
-    move-result v4
-
-    if-eqz v4, :cond_a
+    if-eqz v3, :cond_a
 
     .line 116
-    iput-object v3, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->acceptEncoding:Ljava/lang/String;
+    iput-object v2, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->acceptEncoding:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_1
+
+    :cond_a
+    const-string v3, "Content-Type"
 
     .line 117
-    :cond_a
-    const-string v4, "Content-Type"
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v3
 
-    move-result v4
-
-    if-eqz v4, :cond_b
+    if-eqz v3, :cond_b
 
     .line 118
-    iput-object v3, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->contentType:Ljava/lang/String;
+    iput-object v2, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->contentType:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_1
+
+    :cond_b
+    const-string v3, "Proxy-Authorization"
 
     .line 119
-    :cond_b
-    const-string v4, "Proxy-Authorization"
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v1
 
-    move-result v4
-
-    if-eqz v4, :cond_c
+    if-eqz v1, :cond_c
 
     .line 120
-    iput-object v3, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->proxyAuthorization:Ljava/lang/String;
+    iput-object v2, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->proxyAuthorization:Ljava/lang/String;
 
-    .line 87
-    .end local v2    # "fieldName":Ljava/lang/String;
-    .end local v3    # "value":Ljava/lang/String;
+    :catch_0
     :cond_c
-    :goto_2
-    add-int/lit8 v1, v1, 0x1
+    :goto_1
+    add-int/lit8 v0, v0, 0x1
 
     goto/16 :goto_0
 
-    .line 123
-    .end local v1    # "i":I
     :cond_d
     return-void
 .end method
 
 .method static synthetic access$002(Lcom/koushikdutta/async/http/cache/RequestHeaders;Z)Z
     .locals 0
-    .param p0, "x0"    # Lcom/koushikdutta/async/http/cache/RequestHeaders;
-    .param p1, "x1"    # Z
 
     .line 30
     iput-boolean p1, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->noCache:Z
@@ -345,8 +325,6 @@
 
 .method static synthetic access$102(Lcom/koushikdutta/async/http/cache/RequestHeaders;I)I
     .locals 0
-    .param p0, "x0"    # Lcom/koushikdutta/async/http/cache/RequestHeaders;
-    .param p1, "x1"    # I
 
     .line 30
     iput p1, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->maxAgeSeconds:I
@@ -356,8 +334,6 @@
 
 .method static synthetic access$202(Lcom/koushikdutta/async/http/cache/RequestHeaders;I)I
     .locals 0
-    .param p0, "x0"    # Lcom/koushikdutta/async/http/cache/RequestHeaders;
-    .param p1, "x1"    # I
 
     .line 30
     iput p1, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->maxStaleSeconds:I
@@ -367,8 +343,6 @@
 
 .method static synthetic access$302(Lcom/koushikdutta/async/http/cache/RequestHeaders;I)I
     .locals 0
-    .param p0, "x0"    # Lcom/koushikdutta/async/http/cache/RequestHeaders;
-    .param p1, "x1"    # I
 
     .line 30
     iput p1, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->minFreshSeconds:I
@@ -378,8 +352,6 @@
 
 .method static synthetic access$402(Lcom/koushikdutta/async/http/cache/RequestHeaders;Z)Z
     .locals 0
-    .param p0, "x0"    # Lcom/koushikdutta/async/http/cache/RequestHeaders;
-    .param p1, "x1"    # Z
 
     .line 30
     iput-boolean p1, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->onlyIfCached:Z
@@ -390,7 +362,7 @@
 
 # virtual methods
 .method public addCookies(Ljava/util/Map;)V
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -403,73 +375,66 @@
     .end annotation
 
     .line 290
-    .local p1, "allCookieHeaders":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;"
     invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
+    :cond_0
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map$Entry;
+
+    .line 291
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Ljava/util/Map$Entry;
+    check-cast v1, Ljava/lang/String;
 
-    .line 291
-    .local v1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;"
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/String;
+    const-string v2, "Cookie"
 
     .line 292
-    .local v2, "key":Ljava/lang/String;
-    const-string v3, "Cookie"
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v3, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v2
 
-    move-result v3
+    if-nez v2, :cond_1
 
-    if-nez v3, :cond_0
+    const-string v2, "Cookie2"
 
-    const-string v3, "Cookie2"
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v3, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v2
 
-    move-result v3
-
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_0
 
     .line 293
-    :cond_0
-    iget-object v3, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->headers:Lcom/koushikdutta/async/http/cache/RawHeaders;
-
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/util/List;
-
-    invoke-virtual {v3, v2, v4}, Lcom/koushikdutta/async/http/cache/RawHeaders;->addAll(Ljava/lang/String;Ljava/util/List;)V
-
-    .line 295
-    .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;"
-    .end local v2    # "key":Ljava/lang/String;
     :cond_1
+    iget-object v2, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->headers:Lcom/koushikdutta/async/http/cache/RawHeaders;
+
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/List;
+
+    invoke-virtual {v2, v1, v0}, Lcom/koushikdutta/async/http/cache/RawHeaders;->addAll(Ljava/lang/String;Ljava/util/List;)V
+
     goto :goto_0
 
-    .line 296
     :cond_2
     return-void
 .end method
@@ -648,12 +613,12 @@
 .method public hasConnectionClose()Z
     .locals 2
 
+    const-string v0, "close"
+
     .line 130
-    iget-object v0, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->connection:Ljava/lang/String;
+    iget-object v1, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->connection:Ljava/lang/String;
 
-    const-string v1, "close"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
 
@@ -663,12 +628,12 @@
 .method public isChunked()Z
     .locals 2
 
+    const-string v0, "chunked"
+
     .line 126
-    iget-object v0, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->transferEncoding:Ljava/lang/String;
+    iget-object v1, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->transferEncoding:Ljava/lang/String;
 
-    const-string v1, "chunked"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
 
@@ -695,7 +660,6 @@
 
 .method public setAcceptEncoding(Ljava/lang/String;)V
     .locals 2
-    .param p1, "acceptEncoding"    # Ljava/lang/String;
 
     .line 248
     iget-object v0, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->acceptEncoding:Ljava/lang/String;
@@ -718,7 +682,6 @@
     .line 252
     iput-object p1, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->acceptEncoding:Ljava/lang/String;
 
-    .line 253
     return-void
 .end method
 
@@ -748,13 +711,11 @@
     .line 210
     iput-object v2, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->transferEncoding:Ljava/lang/String;
 
-    .line 211
     return-void
 .end method
 
 .method public setConnection(Ljava/lang/String;)V
     .locals 2
-    .param p1, "connection"    # Ljava/lang/String;
 
     .line 240
     iget-object v0, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->connection:Ljava/lang/String;
@@ -777,13 +738,11 @@
     .line 244
     iput-object p1, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->connection:Ljava/lang/String;
 
-    .line 245
     return-void
 .end method
 
 .method public setContentLength(I)V
     .locals 3
-    .param p1, "contentLength"    # I
 
     .line 214
     iget v0, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->contentLength:I
@@ -799,7 +758,6 @@
 
     invoke-virtual {v0, v1}, Lcom/koushikdutta/async/http/cache/RawHeaders;->removeAll(Ljava/lang/String;)V
 
-    .line 217
     :cond_0
     if-eq p1, v2, :cond_1
 
@@ -816,13 +774,11 @@
     :cond_1
     iput p1, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->contentLength:I
 
-    .line 221
     return-void
 .end method
 
 .method public setContentType(Ljava/lang/String;)V
     .locals 2
-    .param p1, "contentType"    # Ljava/lang/String;
 
     .line 256
     iget-object v0, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->contentType:Ljava/lang/String;
@@ -845,13 +801,11 @@
     .line 260
     iput-object p1, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->contentType:Ljava/lang/String;
 
-    .line 261
     return-void
 .end method
 
 .method public setHost(Ljava/lang/String;)V
     .locals 2
-    .param p1, "host"    # Ljava/lang/String;
 
     .line 232
     iget-object v0, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->host:Ljava/lang/String;
@@ -874,13 +828,11 @@
     .line 236
     iput-object p1, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->host:Ljava/lang/String;
 
-    .line 237
     return-void
 .end method
 
 .method public setIfModifiedSince(Ljava/util/Date;)V
-    .locals 3
-    .param p1, "date"    # Ljava/util/Date;
+    .locals 2
 
     .line 264
     iget-object v0, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->ifModifiedSince:Ljava/lang/String;
@@ -898,24 +850,21 @@
     :cond_0
     invoke-static {p1}, Lcom/koushikdutta/async/http/HttpDate;->format(Ljava/util/Date;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 268
-    .local v0, "formattedDate":Ljava/lang/String;
-    iget-object v2, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->headers:Lcom/koushikdutta/async/http/cache/RawHeaders;
+    iget-object v0, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->headers:Lcom/koushikdutta/async/http/cache/RawHeaders;
 
-    invoke-virtual {v2, v1, v0}, Lcom/koushikdutta/async/http/cache/RawHeaders;->add(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, p1}, Lcom/koushikdutta/async/http/cache/RawHeaders;->add(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 269
-    iput-object v0, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->ifModifiedSince:Ljava/lang/String;
+    iput-object p1, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->ifModifiedSince:Ljava/lang/String;
 
-    .line 270
     return-void
 .end method
 
 .method public setIfNoneMatch(Ljava/lang/String;)V
     .locals 2
-    .param p1, "ifNoneMatch"    # Ljava/lang/String;
 
     .line 273
     iget-object v0, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->ifNoneMatch:Ljava/lang/String;
@@ -938,13 +887,11 @@
     .line 277
     iput-object p1, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->ifNoneMatch:Ljava/lang/String;
 
-    .line 278
     return-void
 .end method
 
 .method public setUserAgent(Ljava/lang/String;)V
     .locals 2
-    .param p1, "userAgent"    # Ljava/lang/String;
 
     .line 224
     iget-object v0, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->userAgent:Ljava/lang/String;
@@ -967,6 +914,5 @@
     .line 228
     iput-object p1, p0, Lcom/koushikdutta/async/http/cache/RequestHeaders;->userAgent:Ljava/lang/String;
 
-    .line 229
     return-void
 .end method

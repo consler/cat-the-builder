@@ -72,9 +72,6 @@
     .end annotation
 
     .line 56
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber<TT;>;"
-    .local p1, "actual":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-Ljava/lang/Boolean;>;"
-    .local p2, "predicate":Lio/reactivex/functions/Predicate;, "Lio/reactivex/functions/Predicate<-TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 57
@@ -83,7 +80,6 @@
     .line 58
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->predicate:Lio/reactivex/functions/Predicate;
 
-    .line 59
     return-void
 .end method
 
@@ -93,7 +89,6 @@
     .locals 1
 
     .line 116
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
@@ -103,7 +98,6 @@
 
     iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    .line 118
     return-void
 .end method
 
@@ -111,7 +105,6 @@
     .locals 2
 
     .line 122
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     sget-object v1, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
@@ -133,18 +126,16 @@
     .locals 2
 
     .line 105
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 106
     return-void
 
-    .line 108
     :cond_0
     const/4 v0, 0x1
 
+    .line 108
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->done:Z
 
     .line 109
@@ -161,16 +152,13 @@
 
     invoke-interface {v1, v0}, Lio/reactivex/SingleObserver;->onSuccess(Ljava/lang/Object;)V
 
-    .line 112
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 94
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->done:Z
 
     if-eqz v0, :cond_0
@@ -178,13 +166,12 @@
     .line 95
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 96
     return-void
 
-    .line 98
     :cond_0
     const/4 v0, 0x1
 
+    .line 98
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->done:Z
 
     .line 99
@@ -197,12 +184,11 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/SingleObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 101
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -210,96 +196,80 @@
     .end annotation
 
     .line 71
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 72
     return-void
 
     .line 76
     :cond_0
-    const/4 v0, 0x0
-
     :try_start_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->predicate:Lio/reactivex/functions/Predicate;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->predicate:Lio/reactivex/functions/Predicate;
 
-    invoke-interface {v1, p1}, Lio/reactivex/functions/Predicate;->test(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Lio/reactivex/functions/Predicate;->test(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 83
-    .local v1, "b":Z
-    nop
+    if-nez p1, :cond_1
 
-    .line 84
-    if-nez v1, :cond_1
+    const/4 p1, 0x1
 
     .line 85
-    const/4 v2, 0x1
-
-    iput-boolean v2, p0, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->done:Z
+    iput-boolean p1, p0, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->done:Z
 
     .line 86
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->s:Lorg/reactivestreams/Subscription;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    invoke-interface {v2}, Lorg/reactivestreams/Subscription;->cancel()V
+    invoke-interface {p1}, Lorg/reactivestreams/Subscription;->cancel()V
 
     .line 87
-    sget-object v2, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
+    sget-object p1, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
 
-    iput-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->s:Lorg/reactivestreams/Subscription;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     .line 88
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->actual:Lio/reactivex/SingleObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->actual:Lio/reactivex/SingleObserver;
+
+    const/4 v0, 0x0
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
-    invoke-interface {v2, v0}, Lio/reactivex/SingleObserver;->onSuccess(Ljava/lang/Object;)V
+    invoke-interface {p1, v0}, Lio/reactivex/SingleObserver;->onSuccess(Ljava/lang/Object;)V
 
-    .line 90
     :cond_1
     return-void
 
-    .line 77
-    .end local v1    # "b":Z
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     .line 78
-    .local v0, "b":Z
-    .local v1, "e":Ljava/lang/Throwable;
-    invoke-static {v1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 79
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->s:Lorg/reactivestreams/Subscription;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    invoke-interface {v2}, Lorg/reactivestreams/Subscription;->cancel()V
+    invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
 
     .line 80
-    sget-object v2, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
+    sget-object v0, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
 
-    iput-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->s:Lorg/reactivestreams/Subscription;
+    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     .line 81
-    invoke-virtual {p0, v1}, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 82
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 62
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableAllSingle$AllSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -316,12 +286,11 @@
 
     invoke-interface {v0, p0}, Lio/reactivex/SingleObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 65
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 65
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 67
     :cond_0
     return-void
 .end method

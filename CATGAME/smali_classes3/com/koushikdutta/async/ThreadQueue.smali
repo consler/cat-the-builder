@@ -65,8 +65,7 @@
 .end method
 
 .method static getOrCreateThreadQueue(Ljava/lang/Thread;)Lcom/koushikdutta/async/ThreadQueue;
-    .locals 3
-    .param p0, "thread"    # Ljava/lang/Thread;
+    .locals 2
 
     .line 12
     sget-object v0, Lcom/koushikdutta/async/ThreadQueue;->mThreadQueues:Ljava/util/WeakHashMap;
@@ -75,52 +74,40 @@
 
     .line 13
     :try_start_0
-    sget-object v1, Lcom/koushikdutta/async/ThreadQueue;->mThreadQueues:Ljava/util/WeakHashMap;
-
-    invoke-virtual {v1, p0}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p0}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Lcom/koushikdutta/async/ThreadQueue;
 
-    .line 14
-    .local v1, "queue":Lcom/koushikdutta/async/ThreadQueue;
     if-nez v1, :cond_0
 
     .line 15
-    new-instance v2, Lcom/koushikdutta/async/ThreadQueue;
+    new-instance v1, Lcom/koushikdutta/async/ThreadQueue;
 
-    invoke-direct {v2}, Lcom/koushikdutta/async/ThreadQueue;-><init>()V
-
-    move-object v1, v2
+    invoke-direct {v1}, Lcom/koushikdutta/async/ThreadQueue;-><init>()V
 
     .line 16
-    sget-object v2, Lcom/koushikdutta/async/ThreadQueue;->mThreadQueues:Ljava/util/WeakHashMap;
-
-    invoke-virtual {v2, p0, v1}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p0, v1}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 18
     :cond_0
     monitor-exit v0
 
-    .line 20
     return-object v1
 
-    .line 18
-    .end local v1    # "queue":Lcom/koushikdutta/async/ThreadQueue;
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method static release(Lcom/koushikdutta/async/AsyncSemaphore;)V
     .locals 4
-    .param p0, "semaphore"    # Lcom/koushikdutta/async/AsyncSemaphore;
 
     .line 24
     sget-object v0, Lcom/koushikdutta/async/ThreadQueue;->mThreadQueues:Ljava/util/WeakHashMap;
@@ -129,9 +116,7 @@
 
     .line 25
     :try_start_0
-    sget-object v1, Lcom/koushikdutta/async/ThreadQueue;->mThreadQueues:Ljava/util/WeakHashMap;
-
-    invoke-virtual {v1}, Ljava/util/WeakHashMap;->values()Ljava/util/Collection;
+    invoke-virtual {v0}, Ljava/util/WeakHashMap;->values()Ljava/util/Collection;
 
     move-result-object v1
 
@@ -139,6 +124,7 @@
 
     move-result-object v1
 
+    :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -153,37 +139,31 @@
     check-cast v2, Lcom/koushikdutta/async/ThreadQueue;
 
     .line 26
-    .local v2, "threadQueue":Lcom/koushikdutta/async/ThreadQueue;
     iget-object v3, v2, Lcom/koushikdutta/async/ThreadQueue;->waiter:Lcom/koushikdutta/async/AsyncSemaphore;
 
     if-ne v3, p0, :cond_0
 
     .line 27
-    iget-object v3, v2, Lcom/koushikdutta/async/ThreadQueue;->queueSemaphore:Ljava/util/concurrent/Semaphore;
+    iget-object v2, v2, Lcom/koushikdutta/async/ThreadQueue;->queueSemaphore:Ljava/util/concurrent/Semaphore;
 
-    invoke-virtual {v3}, Ljava/util/concurrent/Semaphore;->release()V
+    invoke-virtual {v2}, Ljava/util/concurrent/Semaphore;->release()V
 
-    .line 28
-    .end local v2    # "threadQueue":Lcom/koushikdutta/async/ThreadQueue;
-    :cond_0
     goto :goto_0
 
     .line 29
     :cond_1
     monitor-exit v0
 
-    .line 30
     return-void
 
-    .line 29
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 
@@ -202,8 +182,7 @@
 .end method
 
 .method public add(Ljava/lang/Runnable;)Z
-    .locals 1
-    .param p1, "object"    # Ljava/lang/Runnable;
+    .locals 0
 
     .line 37
     monitor-enter p0
@@ -212,21 +191,21 @@
     :try_start_0
     invoke-super {p0, p1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
     monitor-exit p0
 
-    return v0
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 39
-    :catchall_0
-    move-exception v0
-
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 .method public bridge synthetic remove()Ljava/lang/Object;
@@ -255,9 +234,9 @@
     if-eqz v0, :cond_0
 
     .line 53
-    const/4 v0, 0x0
-
     monitor-exit p0
+
+    const/4 v0, 0x0
 
     return-object v0
 
@@ -273,10 +252,10 @@
 
     return-object v0
 
-    .line 55
     :catchall_0
     move-exception v0
 
+    .line 55
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -285,8 +264,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
+    .locals 0
 
     .line 44
     monitor-enter p0
@@ -295,19 +273,19 @@
     :try_start_0
     invoke-super {p0, p1}, Ljava/util/LinkedList;->remove(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
     monitor-exit p0
 
-    return v0
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 46
-    :catchall_0
-    move-exception v0
-
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method

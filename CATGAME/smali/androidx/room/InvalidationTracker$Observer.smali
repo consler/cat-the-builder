@@ -20,9 +20,7 @@
 
 # direct methods
 .method protected varargs constructor <init>(Ljava/lang/String;[Ljava/lang/String;)V
-    .locals 2
-    .param p1, "firstTable"    # Ljava/lang/String;
-    .param p2, "rest"    # [Ljava/lang/String;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -51,17 +49,15 @@
     iput-object v0, p0, Landroidx/room/InvalidationTracker$Observer;->mTables:[Ljava/lang/String;
 
     .line 747
-    array-length v1, p2
+    array-length p2, p2
 
-    aput-object p1, v0, v1
+    aput-object p1, v0, p2
 
-    .line 748
     return-void
 .end method
 
 .method public constructor <init>([Ljava/lang/String;)V
     .locals 1
-    .param p1, "tables"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -79,13 +75,12 @@
 
     invoke-static {p1, v0}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, [Ljava/lang/String;
+    check-cast p1, [Ljava/lang/String;
 
-    iput-object v0, p0, Landroidx/room/InvalidationTracker$Observer;->mTables:[Ljava/lang/String;
+    iput-object p1, p0, Landroidx/room/InvalidationTracker$Observer;->mTables:[Ljava/lang/String;
 
-    .line 758
     return-void
 .end method
 
@@ -94,7 +89,6 @@
 .method isRemote()Z
     .locals 1
 
-    .line 770
     const/4 v0, 0x0
 
     return v0

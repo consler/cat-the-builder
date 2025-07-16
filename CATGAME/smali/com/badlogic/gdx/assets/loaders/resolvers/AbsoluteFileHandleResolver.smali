@@ -20,14 +20,13 @@
 # virtual methods
 .method public resolve(Ljava/lang/String;)Lcom/badlogic/gdx/files/FileHandle;
     .locals 1
-    .param p1, "fileName"    # Ljava/lang/String;
 
     .line 11
     sget-object v0, Lcom/badlogic/gdx/Gdx;->files:Lcom/badlogic/gdx/Files;
 
     invoke-interface {v0, p1}, Lcom/badlogic/gdx/Files;->absolute(Ljava/lang/String;)Lcom/badlogic/gdx/files/FileHandle;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

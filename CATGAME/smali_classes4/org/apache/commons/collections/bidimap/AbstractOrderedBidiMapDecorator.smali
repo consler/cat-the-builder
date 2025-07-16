@@ -9,12 +9,10 @@
 # direct methods
 .method protected constructor <init>(Lorg/apache/commons/collections/OrderedBidiMap;)V
     .locals 0
-    .param p1, "map"    # Lorg/apache/commons/collections/OrderedBidiMap;
 
     .line 49
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/bidimap/AbstractBidiMapDecorator;-><init>(Lorg/apache/commons/collections/BidiMap;)V
 
-    .line 50
     return-void
 .end method
 
@@ -78,7 +76,6 @@
 
 .method public nextKey(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 75
     invoke-virtual {p0}, Lorg/apache/commons/collections/bidimap/AbstractOrderedBidiMapDecorator;->getOrderedBidiMap()Lorg/apache/commons/collections/OrderedBidiMap;
@@ -87,9 +84,9 @@
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections/OrderedBidiMap;->nextKey(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public orderedMapIterator()Lorg/apache/commons/collections/OrderedMapIterator;
@@ -109,7 +106,6 @@
 
 .method public previousKey(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 79
     invoke-virtual {p0}, Lorg/apache/commons/collections/bidimap/AbstractOrderedBidiMapDecorator;->getOrderedBidiMap()Lorg/apache/commons/collections/OrderedBidiMap;
@@ -118,7 +114,7 @@
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections/OrderedBidiMap;->previousKey(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

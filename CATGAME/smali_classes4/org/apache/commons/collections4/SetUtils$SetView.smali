@@ -29,7 +29,6 @@
     .locals 0
 
     .line 60
-    .local p0, "this":Lorg/apache/commons/collections4/SetUtils$SetView;, "Lorg/apache/commons/collections4/SetUtils$SetView<TE;>;"
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
 
     return-void
@@ -48,11 +47,8 @@
     .end annotation
 
     .line 69
-    .local p0, "this":Lorg/apache/commons/collections4/SetUtils$SetView;, "Lorg/apache/commons/collections4/SetUtils$SetView<TE;>;"
-    .local p1, "set":Ljava/util/Set;, "TS;"
     invoke-static {p1, p0}, Lorg/apache/commons/collections4/CollectionUtils;->addAll(Ljava/util/Collection;Ljava/lang/Iterable;)Z
 
-    .line 70
     return-void
 .end method
 
@@ -77,7 +73,6 @@
     .end annotation
 
     .line 81
-    .local p0, "this":Lorg/apache/commons/collections4/SetUtils$SetView;, "Lorg/apache/commons/collections4/SetUtils$SetView<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/SetUtils$SetView;->createIterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -93,7 +88,6 @@
     .locals 1
 
     .line 86
-    .local p0, "this":Lorg/apache/commons/collections4/SetUtils$SetView;, "Lorg/apache/commons/collections4/SetUtils$SetView<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/SetUtils$SetView;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -116,7 +110,6 @@
     .end annotation
 
     .line 95
-    .local p0, "this":Lorg/apache/commons/collections4/SetUtils$SetView;, "Lorg/apache/commons/collections4/SetUtils$SetView<TE;>;"
     new-instance v0, Ljava/util/HashSet;
 
     invoke-virtual {p0}, Lorg/apache/commons/collections4/SetUtils$SetView;->size()I
@@ -126,9 +119,7 @@
     invoke-direct {v0, v1}, Ljava/util/HashSet;-><init>(I)V
 
     .line 96
-    .local v0, "set":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
     invoke-virtual {p0, v0}, Lorg/apache/commons/collections4/SetUtils$SetView;->copyInto(Ljava/util/Set;)V
 
-    .line 97
     return-object v0
 .end method

@@ -10,24 +10,22 @@
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 36
     return-void
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 1
 
     .line 63
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "add() not supported for empty Iterator"
+    const-string v0, "add() not supported for empty Iterator"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public getKey()Ljava/lang/Object;
@@ -59,7 +57,6 @@
 .method public hasNext()Z
     .locals 1
 
-    .line 39
     const/4 v0, 0x0
 
     return v0
@@ -68,7 +65,6 @@
 .method public hasPrevious()Z
     .locals 1
 
-    .line 47
     const/4 v0, 0x0
 
     return v0
@@ -90,7 +86,6 @@
 .method public nextIndex()I
     .locals 1
 
-    .line 55
     const/4 v0, 0x0
 
     return v0
@@ -112,7 +107,6 @@
 .method public previousIndex()I
     .locals 1
 
-    .line 59
     const/4 v0, -0x1
 
     return v0
@@ -134,34 +128,31 @@
 .method public reset()V
     .locals 0
 
-    .line 88
     return-void
 .end method
 
 .method public set(Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 1
 
     .line 67
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Iterator contains no elements"
+    const-string v0, "Iterator contains no elements"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
-    .param p1, "value"    # Ljava/lang/Object;
+    .locals 1
 
     .line 83
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Iterator contains no elements"
+    const-string v0, "Iterator contains no elements"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

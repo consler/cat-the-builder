@@ -5,17 +5,12 @@
 
 # annotations
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nSmudgeTool.kt\nKotlin\n*S Kotlin\n*F\n+ 1 SmudgeTool.kt\norg/catrobat/paintroid/tools/implementation/SmudgeTool\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,290:1\n1819#2,2:291\n*E\n*S KotlinDebug\n*F\n+ 1 SmudgeTool.kt\norg/catrobat/paintroid/tools/implementation/SmudgeTool\n*L\n249#1,2:291\n*E\n"
+    value = "SMAP\nSmudgeTool.kt\nKotlin\n*S Kotlin\n*F\n+ 1 SmudgeTool.kt\norg/catrobat/paintroid/tools/implementation/SmudgeTool\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,318:1\n1849#2,2:319\n*S KotlinDebug\n*F\n+ 1 SmudgeTool.kt\norg/catrobat/paintroid/tools/implementation/SmudgeTool\n*L\n281#1:319,2\n*E\n"
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
-        "\u0000x\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\u0008\u0005\n\u0002\u0010\u0007\n\u0002\u0008\u000f\n\u0002\u0010\u0008\n\u0000\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\u0008\t\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0010\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u000b\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u000b\u0018\u00002\u00020\u0001B5\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007\u0012\u0006\u0010\u0008\u001a\u00020\t\u0012\u0006\u0010\n\u001a\u00020\u000b\u0012\u0006\u0010\u000c\u001a\u00020\r\u00a2\u0006\u0002\u0010\u000eJ\u0010\u00108\u001a\u0002092\u0006\u0010:\u001a\u00020(H\u0016J\u0008\u0010;\u001a\u00020<H\u0002J\u0010\u0010=\u001a\u0002092\u0006\u0010>\u001a\u00020?H\u0016J\u0010\u0010@\u001a\u00020\u00102\u0006\u0010A\u001a\u00020\u0010H\u0002J\u0012\u0010B\u001a\u00020<2\u0008\u0010C\u001a\u0004\u0018\u00010+H\u0016J\u0012\u0010D\u001a\u00020<2\u0008\u0010C\u001a\u0004\u0018\u00010+H\u0016J\u0012\u0010E\u001a\u00020<2\u0008\u0010C\u001a\u0004\u0018\u00010+H\u0016J\u000e\u0010F\u001a\u0002092\u0006\u0010G\u001a\u00020(J\u000e\u0010H\u001a\u0002092\u0006\u0010I\u001a\u00020(R\u0010\u0010\u000f\u001a\u0004\u0018\u00010\u0010X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u001a\u0010\u0011\u001a\u00020\u0012X\u0096\u000e\u00a2\u0006\u000e\n\u0000\u001a\u0004\u0008\u0013\u0010\u0014\"\u0004\u0008\u0015\u0010\u0016R$\u0010\u0017\u001a\u00020\u00188\u0006@\u0006X\u0087\u000e\u00a2\u0006\u0014\n\u0000\u0012\u0004\u0008\u0019\u0010\u001a\u001a\u0004\u0008\u001b\u0010\u001c\"\u0004\u0008\u001d\u0010\u001eR$\u0010\u001f\u001a\u00020\u00188\u0006@\u0006X\u0087\u000e\u00a2\u0006\u0014\n\u0000\u0012\u0004\u0008 \u0010\u001a\u001a\u0004\u0008!\u0010\u001c\"\u0004\u0008\"\u0010\u001eR$\u0010#\u001a\u00020\u00188\u0006@\u0006X\u0087\u000e\u00a2\u0006\u0014\n\u0000\u0012\u0004\u0008$\u0010\u001a\u001a\u0004\u0008%\u0010\u001c\"\u0004\u0008&\u0010\u001eR\u000e\u0010\'\u001a\u00020(X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\"\u0010)\u001a\u0008\u0012\u0004\u0012\u00020+0*8\u0006X\u0087\u0004\u00a2\u0006\u000e\n\u0000\u0012\u0004\u0008,\u0010\u001a\u001a\u0004\u0008-\u0010.R$\u0010/\u001a\u00020\u00188\u0006@\u0006X\u0087\u000e\u00a2\u0006\u0014\n\u0000\u0012\u0004\u00080\u0010\u001a\u001a\u0004\u00081\u0010\u001c\"\u0004\u00082\u0010\u001eR\u0010\u00103\u001a\u0004\u0018\u00010+X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u0014\u00104\u001a\u0002058VX\u0096\u0004\u00a2\u0006\u0006\u001a\u0004\u00086\u00107\u00a8\u0006J"
+        "\u0000z\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\u0008\u0005\n\u0002\u0010\u0007\n\u0002\u0008\u000f\n\u0002\u0010\u0008\n\u0000\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\u0008\t\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u000f\u0018\u00002\u00020\u0001B=\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007\u0012\u0006\u0010\u0008\u001a\u00020\t\u0012\u0006\u0010\n\u001a\u00020\u000b\u0012\u0006\u0010\u000c\u001a\u00020\r\u0012\u0006\u0010\u000e\u001a\u00020\u000f\u00a2\u0006\u0002\u0010\u0010J\u0008\u0010:\u001a\u00020;H\u0002J\u0010\u0010<\u001a\u00020=2\u0006\u0010>\u001a\u00020?H\u0016J\u0010\u0010@\u001a\u00020\u00122\u0006\u0010A\u001a\u00020\u0012H\u0002J\u0012\u0010B\u001a\u00020;2\u0008\u0010C\u001a\u0004\u0018\u00010-H\u0016J\u0012\u0010D\u001a\u00020=2\u0008\u0010C\u001a\u0004\u0018\u00010-H\u0016J\u001a\u0010E\u001a\u00020;2\u0008\u0010C\u001a\u0004\u0018\u00010-2\u0006\u0010F\u001a\u00020;H\u0016J\u0012\u0010G\u001a\u00020;2\u0008\u0010C\u001a\u0004\u0018\u00010-H\u0016J\u0012\u0010H\u001a\u00020=2\u0008\u0010C\u001a\u0004\u0018\u00010-H\u0016J\u0010\u0010I\u001a\u00020-2\u0006\u0010C\u001a\u00020-H\u0016J\u000e\u0010J\u001a\u00020=2\u0006\u0010K\u001a\u00020*J\u000e\u0010L\u001a\u00020=2\u0006\u0010M\u001a\u00020*R\u0010\u0010\u0011\u001a\u0004\u0018\u00010\u0012X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u001a\u0010\u0013\u001a\u00020\u0014X\u0096\u000e\u00a2\u0006\u000e\n\u0000\u001a\u0004\u0008\u0015\u0010\u0016\"\u0004\u0008\u0017\u0010\u0018R$\u0010\u0019\u001a\u00020\u001a8\u0006@\u0006X\u0087\u000e\u00a2\u0006\u0014\n\u0000\u0012\u0004\u0008\u001b\u0010\u001c\u001a\u0004\u0008\u001d\u0010\u001e\"\u0004\u0008\u001f\u0010 R$\u0010!\u001a\u00020\u001a8\u0006@\u0006X\u0087\u000e\u00a2\u0006\u0014\n\u0000\u0012\u0004\u0008\"\u0010\u001c\u001a\u0004\u0008#\u0010\u001e\"\u0004\u0008$\u0010 R$\u0010%\u001a\u00020\u001a8\u0006@\u0006X\u0087\u000e\u00a2\u0006\u0014\n\u0000\u0012\u0004\u0008&\u0010\u001c\u001a\u0004\u0008\'\u0010\u001e\"\u0004\u0008(\u0010 R\u000e\u0010)\u001a\u00020*X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\"\u0010+\u001a\u0008\u0012\u0004\u0012\u00020-0,8\u0006X\u0087\u0004\u00a2\u0006\u000e\n\u0000\u0012\u0004\u0008.\u0010\u001c\u001a\u0004\u0008/\u00100R$\u00101\u001a\u00020\u001a8\u0006@\u0006X\u0087\u000e\u00a2\u0006\u0014\n\u0000\u0012\u0004\u00082\u0010\u001c\u001a\u0004\u00083\u0010\u001e\"\u0004\u00084\u0010 R\u0010\u00105\u001a\u0004\u0018\u00010-X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u0014\u00106\u001a\u0002078VX\u0096\u0004\u00a2\u0006\u0006\u001a\u0004\u00088\u00109\u00a8\u0006N"
     }
     d2 = {
         "Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;",
@@ -30,9 +25,11 @@
         "Lorg/catrobat/paintroid/tools/ToolPaint;",
         "workspace",
         "Lorg/catrobat/paintroid/tools/Workspace;",
+        "idlingResource",
+        "Landroidx/test/espresso/idling/CountingIdlingResource;",
         "commandManager",
         "Lorg/catrobat/paintroid/command/CommandManager;",
-        "(Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView;Lorg/catrobat/paintroid/tools/ContextCallback;Lorg/catrobat/paintroid/tools/options/ToolOptionsViewController;Lorg/catrobat/paintroid/tools/ToolPaint;Lorg/catrobat/paintroid/tools/Workspace;Lorg/catrobat/paintroid/command/CommandManager;)V",
+        "(Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView;Lorg/catrobat/paintroid/tools/ContextCallback;Lorg/catrobat/paintroid/tools/options/ToolOptionsViewController;Lorg/catrobat/paintroid/tools/ToolPaint;Lorg/catrobat/paintroid/tools/Workspace;Landroidx/test/espresso/idling/CountingIdlingResource;Lorg/catrobat/paintroid/command/CommandManager;)V",
         "currentBitmap",
         "Landroid/graphics/Bitmap;",
         "drawTime",
@@ -74,32 +71,35 @@
         "Lorg/catrobat/paintroid/tools/ToolType;",
         "getToolType",
         "()Lorg/catrobat/paintroid/tools/ToolType;",
-        "changePaintColor",
-        "",
-        "color",
         "currentBitmapHasColor",
         "",
         "draw",
+        "",
         "canvas",
         "Landroid/graphics/Canvas;",
         "getBitmapClippedCircle",
         "bitmap",
         "handleDown",
         "coordinate",
+        "handleDownAnimations",
         "handleMove",
+        "shouldAnimate",
         "handleUp",
+        "handleUpAnimations",
+        "toolPositionCoordinates",
         "updateDrag",
         "dragInPercent",
         "updatePressure",
         "pressureInPercent",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -132,14 +132,8 @@
 
 
 # direct methods
-.method public constructor <init>(Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView;Lorg/catrobat/paintroid/tools/ContextCallback;Lorg/catrobat/paintroid/tools/options/ToolOptionsViewController;Lorg/catrobat/paintroid/tools/ToolPaint;Lorg/catrobat/paintroid/tools/Workspace;Lorg/catrobat/paintroid/command/CommandManager;)V
-    .locals 6
-    .param p1, "smudgeToolOptionsView"    # Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView;
-    .param p2, "contextCallback"    # Lorg/catrobat/paintroid/tools/ContextCallback;
-    .param p3, "toolOptionsViewController"    # Lorg/catrobat/paintroid/tools/options/ToolOptionsViewController;
-    .param p4, "toolPaint"    # Lorg/catrobat/paintroid/tools/ToolPaint;
-    .param p5, "workspace"    # Lorg/catrobat/paintroid/tools/Workspace;
-    .param p6, "commandManager"    # Lorg/catrobat/paintroid/command/CommandManager;
+.method public constructor <init>(Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView;Lorg/catrobat/paintroid/tools/ContextCallback;Lorg/catrobat/paintroid/tools/options/ToolOptionsViewController;Lorg/catrobat/paintroid/tools/ToolPaint;Lorg/catrobat/paintroid/tools/Workspace;Landroidx/test/espresso/idling/CountingIdlingResource;Lorg/catrobat/paintroid/command/CommandManager;)V
+    .locals 7
 
     const-string v0, "smudgeToolOptionsView"
 
@@ -161,14 +155,14 @@
 
     invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "commandManager"
+    const-string v0, "idlingResource"
 
     invoke-static {p6, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 33
-    nop
+    const-string v0, "commandManager"
 
-    .line 40
+    invoke-static {p7, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
     move-object v0, p0
 
     move-object v1, p2
@@ -181,258 +175,241 @@
 
     move-object v5, p6
 
-    invoke-direct/range {v0 .. v5}, Lorg/catrobat/paintroid/tools/implementation/BaseTool;-><init>(Lorg/catrobat/paintroid/tools/ContextCallback;Lorg/catrobat/paintroid/tools/options/ToolOptionsViewController;Lorg/catrobat/paintroid/tools/ToolPaint;Lorg/catrobat/paintroid/tools/Workspace;Lorg/catrobat/paintroid/command/CommandManager;)V
-
-    .line 45
-    const/4 v0, -0x1
-
-    iput v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->numOfPointsOnPath:I
-
-    .line 51
-    iget v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxPressure:F
-
-    iput v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pressure:F
-
-    .line 54
-    invoke-interface {p4}, Lorg/catrobat/paintroid/tools/ToolPaint;->getStrokeWidth()F
-
-    move-result v0
-
-    iput v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxSmudgeSize:F
+    move-object v6, p7
 
     .line 60
-    new-instance v0, Ljava/util/ArrayList;
+    invoke-direct/range {v0 .. v6}, Lorg/catrobat/paintroid/tools/implementation/BaseTool;-><init>(Lorg/catrobat/paintroid/tools/ContextCallback;Lorg/catrobat/paintroid/tools/options/ToolOptionsViewController;Lorg/catrobat/paintroid/tools/ToolPaint;Lorg/catrobat/paintroid/tools/Workspace;Landroidx/test/espresso/idling/CountingIdlingResource;Lorg/catrobat/paintroid/command/CommandManager;)V
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    check-cast v0, Ljava/util/List;
-
-    iput-object v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pointArray:Ljava/util/List;
-
-    .line 65
-    nop
-
-    .line 66
-    new-instance v0, Lorg/catrobat/paintroid/tools/common/CommonBrushChangedListener;
-
-    move-object v1, p0
-
-    check-cast v1, Lorg/catrobat/paintroid/tools/Tool;
-
-    invoke-direct {v0, v1}, Lorg/catrobat/paintroid/tools/common/CommonBrushChangedListener;-><init>(Lorg/catrobat/paintroid/tools/Tool;)V
-
-    check-cast v0, Lorg/catrobat/paintroid/tools/options/BrushToolOptionsView$OnBrushChangedListener;
-
-    invoke-interface {p1, v0}, Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView;->setBrushChangedListener(Lorg/catrobat/paintroid/tools/options/BrushToolOptionsView$OnBrushChangedListener;)V
-
-    .line 67
-    nop
-
-    .line 68
-    new-instance v0, Lorg/catrobat/paintroid/tools/common/CommonBrushPreviewListener;
-
-    .line 69
-    nop
-
-    .line 70
-    invoke-virtual {p0}, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->getToolType()Lorg/catrobat/paintroid/tools/ToolType;
-
-    move-result-object v1
-
-    .line 68
-    invoke-direct {v0, p4, v1}, Lorg/catrobat/paintroid/tools/common/CommonBrushPreviewListener;-><init>(Lorg/catrobat/paintroid/tools/ToolPaint;Lorg/catrobat/paintroid/tools/ToolType;)V
-
-    check-cast v0, Lorg/catrobat/paintroid/tools/options/BrushToolOptionsView$OnBrushPreviewListener;
-
-    .line 67
-    invoke-interface {p1, v0}, Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView;->setBrushPreviewListener(Lorg/catrobat/paintroid/tools/options/BrushToolOptionsView$OnBrushPreviewListener;)V
+    const/4 p2, -0x1
 
     .line 73
+    iput p2, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->numOfPointsOnPath:I
+
+    .line 79
+    iget p2, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxPressure:F
+
+    iput p2, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pressure:F
+
+    .line 82
+    invoke-interface {p4}, Lorg/catrobat/paintroid/tools/ToolPaint;->getStrokeWidth()F
+
+    move-result p2
+
+    iput p2, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxSmudgeSize:F
+
+    .line 88
+    new-instance p2, Ljava/util/ArrayList;
+
+    invoke-direct {p2}, Ljava/util/ArrayList;-><init>()V
+
+    check-cast p2, Ljava/util/List;
+
+    iput-object p2, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pointArray:Ljava/util/List;
+
+    .line 94
+    new-instance p2, Lorg/catrobat/paintroid/tools/common/CommonBrushChangedListener;
+
+    move-object p3, p0
+
+    check-cast p3, Lorg/catrobat/paintroid/tools/Tool;
+
+    invoke-direct {p2, p3}, Lorg/catrobat/paintroid/tools/common/CommonBrushChangedListener;-><init>(Lorg/catrobat/paintroid/tools/Tool;)V
+
+    check-cast p2, Lorg/catrobat/paintroid/tools/options/BrushToolOptionsView$OnBrushChangedListener;
+
+    invoke-interface {p1, p2}, Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView;->setBrushChangedListener(Lorg/catrobat/paintroid/tools/options/BrushToolOptionsView$OnBrushChangedListener;)V
+
+    .line 96
+    new-instance p2, Lorg/catrobat/paintroid/tools/common/CommonBrushPreviewListener;
+
+    .line 98
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->getToolType()Lorg/catrobat/paintroid/tools/ToolType;
+
+    move-result-object p3
+
+    .line 96
+    invoke-direct {p2, p4, p3}, Lorg/catrobat/paintroid/tools/common/CommonBrushPreviewListener;-><init>(Lorg/catrobat/paintroid/tools/ToolPaint;Lorg/catrobat/paintroid/tools/ToolType;)V
+
+    check-cast p2, Lorg/catrobat/paintroid/tools/options/BrushToolOptionsView$OnBrushPreviewListener;
+
+    .line 95
+    invoke-interface {p1, p2}, Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView;->setBrushPreviewListener(Lorg/catrobat/paintroid/tools/options/BrushToolOptionsView$OnBrushPreviewListener;)V
+
+    .line 101
     invoke-interface {p4}, Lorg/catrobat/paintroid/tools/ToolPaint;->getPaint()Landroid/graphics/Paint;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-interface {p1, v0}, Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView;->setCurrentPaint(Landroid/graphics/Paint;)V
+    invoke-interface {p1, p2}, Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView;->setCurrentPaint(Landroid/graphics/Paint;)V
 
-    .line 75
-    new-instance v0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool$1;
+    .line 102
+    invoke-interface {p4}, Lorg/catrobat/paintroid/tools/ToolPaint;->getStrokeCap()Landroid/graphics/Paint$Cap;
 
-    invoke-direct {v0, p0}, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool$1;-><init>(Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;)V
+    move-result-object p2
 
-    check-cast v0, Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView$Callback;
+    invoke-interface {p1, p2}, Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView;->setStrokeCapButtonChecked(Landroid/graphics/Paint$Cap;)V
 
-    invoke-interface {p1, v0}, Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView;->setCallback(Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView$Callback;)V
+    .line 103
+    new-instance p2, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool$1;
 
-    .line 85
-    const/16 v0, 0x32
+    invoke-direct {p2, p0}, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool$1;-><init>(Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;)V
 
-    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->updatePressure(I)V
+    check-cast p2, Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView$Callback;
 
-    .line 86
-    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->updateDrag(I)V
+    invoke-interface {p1, p2}, Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView;->setCallback(Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView$Callback;)V
 
-    .line 87
+    const/16 p1, 0x32
+
+    .line 113
+    invoke-virtual {p0, p1}, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->updatePressure(I)V
+
+    .line 114
+    invoke-virtual {p0, p1}, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->updateDrag(I)V
+
     return-void
 .end method
 
 .method private final currentBitmapHasColor()Z
     .locals 8
 
-    .line 191
+    .line 220
     iget-object v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->currentBitmap:Landroid/graphics/Bitmap;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_3
+    if-nez v0, :cond_0
 
-    .local v0, "$this$apply":Landroid/graphics/Bitmap;
-    const/4 v2, 0x0
+    goto :goto_3
 
-    .line 192
-    .local v2, "$i$a$-apply-SmudgeTool$currentBitmapHasColor$1":I
+    .line 221
+    :cond_0
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
 
-    move-result v3
+    move-result v2
 
-    move v4, v1
+    if-lez v2, :cond_5
+
+    move v3, v1
 
     :goto_0
-    if-ge v4, v3, :cond_2
+    add-int/lit8 v4, v3, 0x1
 
-    .line 193
-    .local v4, "x":I
+    .line 222
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v5
 
+    if-lez v5, :cond_3
+
     move v6, v1
 
     :goto_1
-    if-ge v6, v5, :cond_1
+    add-int/lit8 v7, v6, 0x1
 
-    .line 194
-    .local v6, "y":I
-    invoke-virtual {v0, v4, v6}, Landroid/graphics/Bitmap;->getPixel(II)I
+    .line 223
+    invoke-virtual {v0, v3, v6}, Landroid/graphics/Bitmap;->getPixel(II)I
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_0
+    if-eqz v6, :cond_1
 
-    .line 195
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    return v1
+    return v0
 
-    .line 193
-    :cond_0
-    nop
+    :cond_1
+    if-lt v7, v5, :cond_2
 
-    .end local v6    # "y":I
-    add-int/lit8 v6, v6, 0x1
+    goto :goto_2
+
+    :cond_2
+    move v6, v7
 
     goto :goto_1
 
-    .line 192
-    :cond_1
-    nop
+    :cond_3
+    :goto_2
+    if-lt v4, v2, :cond_4
 
-    .end local v4    # "x":I
-    add-int/lit8 v4, v4, 0x1
+    goto :goto_3
+
+    :cond_4
+    move v3, v4
 
     goto :goto_0
 
-    .line 199
-    :cond_2
-    nop
-
-    .line 191
-    .end local v0    # "$this$apply":Landroid/graphics/Bitmap;
-    .end local v2    # "$i$a$-apply-SmudgeTool$currentBitmapHasColor$1":I
-    nop
-
-    .line 200
-    :cond_3
+    :cond_5
+    :goto_3
     return v1
 .end method
 
 .method private final getBitmapClippedCircle(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
-    .locals 8
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
+    .locals 6
 
-    .line 174
+    .line 203
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v0
 
-    .line 175
-    .local v0, "width":I
+    .line 204
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v1
 
-    .line 176
-    .local v1, "height":I
+    .line 205
     sget-object v2, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     invoke-static {v0, v1, v2}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
     move-result-object v2
 
-    .line 177
-    .local v2, "outputBitmap":Landroid/graphics/Bitmap;
+    .line 206
     new-instance v3, Landroid/graphics/Path;
 
     invoke-direct {v3}, Landroid/graphics/Path;-><init>()V
 
-    .line 178
-    .local v3, "path":Landroid/graphics/Path;
-    nop
-
-    .line 179
+    .line 208
     div-int/lit8 v4, v0, 0x2
 
     int-to-float v4, v4
 
-    .line 180
-    div-int/lit8 v5, v1, 0x2
+    .line 209
+    div-int/lit8 v1, v1, 0x2
 
-    int-to-float v5, v5
+    int-to-float v5, v1
 
-    .line 181
-    div-int/lit8 v6, v1, 0x2
+    .line 210
+    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
 
-    invoke-static {v0, v6}, Ljava/lang/Math;->min(II)I
+    move-result v0
 
-    move-result v6
+    int-to-float v0, v0
 
-    int-to-float v6, v6
+    .line 211
+    sget-object v1, Landroid/graphics/Path$Direction;->CCW:Landroid/graphics/Path$Direction;
 
-    .line 182
-    sget-object v7, Landroid/graphics/Path$Direction;->CCW:Landroid/graphics/Path$Direction;
+    .line 207
+    invoke-virtual {v3, v4, v5, v0, v1}, Landroid/graphics/Path;->addCircle(FFFLandroid/graphics/Path$Direction;)V
 
-    .line 178
-    invoke-virtual {v3, v4, v5, v6, v7}, Landroid/graphics/Path;->addCircle(FFFLandroid/graphics/Path$Direction;)V
+    .line 213
+    new-instance v0, Landroid/graphics/Canvas;
 
-    .line 184
-    new-instance v4, Landroid/graphics/Canvas;
+    invoke-direct {v0, v2}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
-    invoke-direct {v4, v2}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+    .line 214
+    invoke-virtual {v0, v3}, Landroid/graphics/Canvas;->clipPath(Landroid/graphics/Path;)Z
 
-    .line 185
-    .local v4, "canvas":Landroid/graphics/Canvas;
-    invoke-virtual {v4, v3}, Landroid/graphics/Canvas;->clipPath(Landroid/graphics/Path;)Z
+    const/4 v1, 0x0
 
-    .line 186
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
-    const/4 v6, 0x0
+    .line 215
+    invoke-virtual {v0, p1, v1, v1, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
-    invoke-virtual {v4, p1, v5, v5, v6}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+    const-string p1, "outputBitmap"
 
-    .line 187
-    const-string v5, "outputBitmap"
-
-    invoke-static {v2, v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    .line 216
+    invoke-static {v2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     return-object v2
 .end method
@@ -469,443 +446,273 @@
 
 
 # virtual methods
-.method public changePaintColor(I)V
-    .locals 0
-    .param p1, "color"    # I
-
-    .line 288
-    return-void
-.end method
-
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 21
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
+    .locals 13
 
-    move-object/from16 v0, p0
+    const-string v0, "canvas"
 
-    const-string v1, "canvas"
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    move-object/from16 v2, p1
+    .line 266
+    iget-object v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pointArray:Ljava/util/List;
 
-    invoke-static {v2, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    check-cast v0, Ljava/util/Collection;
 
-    .line 234
-    iget-object v1, v0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pointArray:Ljava/util/List;
+    invoke-interface {v0}, Ljava/util/Collection;->isEmpty()Z
 
-    check-cast v1, Ljava/util/Collection;
+    move-result v0
 
-    invoke-interface {v1}, Ljava/util/Collection;->isEmpty()Z
+    xor-int/lit8 v0, v0, 0x1
 
-    move-result v1
+    if-eqz v0, :cond_7
 
-    xor-int/lit8 v1, v1, 0x1
+    .line 267
+    iget-object v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pointArray:Ljava/util/List;
 
-    if-eqz v1, :cond_6
+    check-cast v0, Ljava/util/Collection;
 
-    .line 235
-    iget-object v1, v0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pointArray:Ljava/util/List;
+    invoke-static {v0}, Lkotlin/collections/CollectionsKt;->toMutableList(Ljava/util/Collection;)Ljava/util/List;
 
-    check-cast v1, Ljava/util/Collection;
+    move-result-object v0
 
-    invoke-static {v1}, Lkotlin/collections/CollectionsKt;->toMutableList(Ljava/util/Collection;)Ljava/util/List;
+    .line 269
+    iget v1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->numOfPointsOnPath:I
 
-    move-result-object v1
+    if-gez v1, :cond_0
 
-    .line 237
-    .local v1, "pointPath":Ljava/util/List;
-    iget v3, v0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->numOfPointsOnPath:I
+    .line 270
+    iget v1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxSmudgeSize:F
 
-    if-gez v3, :cond_0
+    iget v2, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->minSmudgeSize:F
 
-    .line 238
-    iget v3, v0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxSmudgeSize:F
+    sub-float/2addr v1, v2
 
-    iget v4, v0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->minSmudgeSize:F
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    sub-float/2addr v3, v4
+    move-result v2
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    int-to-float v2, v2
 
-    move-result v4
-
-    int-to-float v4, v4
-
-    div-float/2addr v3, v4
+    div-float/2addr v1, v2
 
     goto :goto_0
 
-    .line 240
+    .line 272
     :cond_0
-    iget v4, v0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxSmudgeSize:F
+    iget v2, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxSmudgeSize:F
 
-    iget v5, v0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->minSmudgeSize:F
+    iget v3, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->minSmudgeSize:F
 
-    sub-float/2addr v4, v5
+    sub-float/2addr v2, v3
 
-    int-to-float v3, v3
+    int-to-float v1, v1
 
-    div-float v3, v4, v3
+    div-float v1, v2, v1
 
-    .line 237
+    .line 275
     :goto_0
-    nop
+    iget v2, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxSmudgeSize:F
 
-    .line 243
-    .local v3, "step":F
-    iget v4, v0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxSmudgeSize:F
+    .line 276
+    iget v3, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxPressure:F
 
-    .line 244
-    .local v4, "size":F
-    iget v5, v0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxPressure:F
+    .line 277
+    new-instance v4, Landroid/graphics/ColorMatrix;
 
-    .line 245
-    .local v5, "pressure":F
-    new-instance v6, Landroid/graphics/ColorMatrix;
+    invoke-direct {v4}, Landroid/graphics/ColorMatrix;-><init>()V
 
-    invoke-direct {v6}, Landroid/graphics/ColorMatrix;-><init>()V
+    .line 278
+    new-instance v5, Landroid/graphics/Paint;
 
-    .line 246
-    .local v6, "colorMatrix":Landroid/graphics/ColorMatrix;
-    new-instance v7, Landroid/graphics/Paint;
+    invoke-direct {v5}, Landroid/graphics/Paint;-><init>()V
 
-    invoke-direct {v7}, Landroid/graphics/Paint;-><init>()V
+    .line 279
+    iget-object v6, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->currentBitmap:Landroid/graphics/Bitmap;
 
-    .line 247
-    .local v7, "paint":Landroid/graphics/Paint;
-    iget-object v8, v0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->currentBitmap:Landroid/graphics/Bitmap;
+    const/4 v7, 0x0
 
-    const/4 v10, 0x0
+    const/4 v8, 0x0
 
-    if-eqz v8, :cond_1
+    if-nez v6, :cond_1
 
-    sget-object v11, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
-
-    invoke-virtual {v8, v11, v10}, Landroid/graphics/Bitmap;->copy(Landroid/graphics/Bitmap$Config;Z)Landroid/graphics/Bitmap;
-
-    move-result-object v8
+    move-object v6, v7
 
     goto :goto_1
 
     :cond_1
-    const/4 v8, 0x0
+    sget-object v9, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    .line 249
-    .local v8, "bitmap":Ljava/lang/Object;
+    invoke-virtual {v6, v9, v8}, Landroid/graphics/Bitmap;->copy(Landroid/graphics/Bitmap$Config;Z)Landroid/graphics/Bitmap;
+
+    move-result-object v6
+
+    .line 281
     :goto_1
-    move-object v11, v1
+    check-cast v0, Ljava/lang/Iterable;
 
-    check-cast v11, Ljava/lang/Iterable;
+    .line 319
+    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    .local v11, "$this$forEach$iv":Ljava/lang/Iterable;
-    const/4 v12, 0x0
-
-    .line 291
-    .local v12, "$i$f$forEach":I
-    invoke-interface {v11}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v13
+    move-result-object v0
 
     :goto_2
-    invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v14
-
-    if-eqz v14, :cond_5
-
-    invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v14
-
-    .local v14, "element$iv":Ljava/lang/Object;
-    move-object v15, v14
-
-    check-cast v15, Landroid/graphics/PointF;
-
-    .local v15, "it":Landroid/graphics/PointF;
-    const/16 v16, 0x0
-
-    .line 250
-    .local v16, "$i$a$-forEach-SmudgeTool$draw$1":I
-    const/high16 v9, 0x3f800000    # 1.0f
-
-    invoke-virtual {v6, v9, v9, v9, v5}, Landroid/graphics/ColorMatrix;->setScale(FFFF)V
-
-    .line 251
-    new-instance v9, Landroid/graphics/ColorMatrixColorFilter;
-
-    invoke-direct {v9, v6}, Landroid/graphics/ColorMatrixColorFilter;-><init>(Landroid/graphics/ColorMatrix;)V
-
-    check-cast v9, Landroid/graphics/ColorFilter;
-
-    invoke-virtual {v7, v9}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
-
-    .line 253
-    nop
-
-    .line 254
-    iget v9, v0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxSmudgeSize:F
-
-    float-to-int v10, v9
-
-    .line 255
-    float-to-int v9, v9
-
-    .line 256
-    move-object/from16 v17, v1
-
-    .end local v1    # "pointPath":Ljava/util/List;
-    .local v17, "pointPath":Ljava/util/List;
-    sget-object v1, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
-
-    .line 253
-    invoke-static {v10, v9, v1}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-
-    move-result-object v1
-
-    .line 259
-    .local v1, "newBitmap":Landroid/graphics/Bitmap;
-    new-instance v9, Landroid/graphics/Canvas;
-
-    invoke-direct {v9, v1}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
-
-    .local v9, "$this$apply":Landroid/graphics/Canvas;
-    const/4 v10, 0x0
-
-    .line 260
-    .local v10, "$i$a$-apply-SmudgeTool$draw$1$1":I
-    if-eqz v8, :cond_2
-
-    move-object/from16 v18, v8
-
-    .local v18, "currentBitmap":Landroid/graphics/Bitmap;
-    const/16 v19, 0x0
-
-    .line 261
-    .local v19, "$i$a$-let-SmudgeTool$draw$1$1$1":I
-    const/4 v2, 0x0
-
-    move-object/from16 v20, v6
-
-    move-object/from16 v6, v18
-
-    .end local v18    # "currentBitmap":Landroid/graphics/Bitmap;
-    .local v6, "currentBitmap":Landroid/graphics/Bitmap;
-    .local v20, "colorMatrix":Landroid/graphics/ColorMatrix;
-    invoke-virtual {v9, v6, v2, v2, v7}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
-
-    .line 262
-    nop
-
-    .end local v6    # "currentBitmap":Landroid/graphics/Bitmap;
-    .end local v19    # "$i$a$-let-SmudgeTool$draw$1$1$1":I
-    goto :goto_3
-
-    .line 260
-    .end local v20    # "colorMatrix":Landroid/graphics/ColorMatrix;
-    .local v6, "colorMatrix":Landroid/graphics/ColorMatrix;
-    :cond_2
-    move-object/from16 v20, v6
-
-    .end local v6    # "colorMatrix":Landroid/graphics/ColorMatrix;
-    .restart local v20    # "colorMatrix":Landroid/graphics/ColorMatrix;
-    :goto_3
-    nop
-
-    .line 263
-    nop
-
-    .line 259
-    .end local v9    # "$this$apply":Landroid/graphics/Canvas;
-    .end local v10    # "$i$a$-apply-SmudgeTool$draw$1$1":I
-    nop
-
-    .line 265
-    if-eqz v8, :cond_3
-
-    invoke-virtual {v8}, Landroid/graphics/Bitmap;->recycle()V
-
-    .line 266
-    :cond_3
-    move-object v8, v1
-
-    .line 268
-    new-instance v2, Landroid/graphics/RectF;
-
-    neg-float v6, v4
-
-    const/high16 v9, 0x40000000    # 2.0f
-
-    div-float/2addr v6, v9
-
-    neg-float v10, v4
-
-    div-float/2addr v10, v9
-
-    move-object/from16 v18, v1
-
-    .end local v1    # "newBitmap":Landroid/graphics/Bitmap;
-    .local v18, "newBitmap":Landroid/graphics/Bitmap;
-    div-float v1, v4, v9
-
-    div-float v9, v4, v9
-
-    invoke-direct {v2, v6, v10, v1, v9}, Landroid/graphics/RectF;-><init>(FFFF)V
-
-    move-object v1, v2
-
-    .line 269
-    .local v1, "rect":Landroid/graphics/RectF;
-    move-object/from16 v2, p1
-
-    .local v2, "$this$with":Landroid/graphics/Canvas;
-    const/4 v6, 0x0
-
-    .line 270
-    .local v6, "$i$a$-with-SmudgeTool$draw$1$2":I
-    invoke-virtual {v2}, Landroid/graphics/Canvas;->save()I
-
-    .line 271
-    iget-object v9, v0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
-
-    invoke-interface {v9}, Lorg/catrobat/paintroid/tools/Workspace;->getWidth()I
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v9
 
-    iget-object v10, v0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
+    if-eqz v9, :cond_5
 
-    invoke-interface {v10}, Lorg/catrobat/paintroid/tools/Workspace;->getHeight()I
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v9
+
+    check-cast v9, Landroid/graphics/PointF;
+
+    const/high16 v10, 0x3f800000    # 1.0f
+
+    .line 282
+    invoke-virtual {v4, v10, v10, v10, v3}, Landroid/graphics/ColorMatrix;->setScale(FFFF)V
+
+    .line 283
+    new-instance v10, Landroid/graphics/ColorMatrixColorFilter;
+
+    invoke-direct {v10, v4}, Landroid/graphics/ColorMatrixColorFilter;-><init>(Landroid/graphics/ColorMatrix;)V
+
+    check-cast v10, Landroid/graphics/ColorFilter;
+
+    invoke-virtual {v5, v10}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
+
+    .line 286
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->getMaxSmudgeSize()F
 
     move-result v10
 
-    const/4 v0, 0x0
+    float-to-int v10, v10
 
-    invoke-virtual {v2, v0, v0, v9, v10}, Landroid/graphics/Canvas;->clipRect(IIII)Z
+    .line 287
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->getMaxSmudgeSize()F
 
-    .line 272
-    iget v9, v15, Landroid/graphics/PointF;->x:F
+    move-result v11
 
-    iget v10, v15, Landroid/graphics/PointF;->y:F
+    float-to-int v11, v11
 
-    invoke-virtual {v2, v9, v10}, Landroid/graphics/Canvas;->translate(FF)V
+    .line 288
+    sget-object v12, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    .line 273
-    if-eqz v8, :cond_4
+    .line 285
+    invoke-static {v10, v11, v12}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
-    move-object v9, v8
+    move-result-object v10
 
-    .local v9, "currentBitmap":Landroid/graphics/Bitmap;
-    const/4 v10, 0x0
+    .line 291
+    new-instance v11, Landroid/graphics/Canvas;
 
-    .line 274
-    .local v10, "$i$a$-let-SmudgeTool$draw$1$2$1":I
-    new-instance v0, Landroid/graphics/Paint;
+    invoke-direct {v11, v10}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
-    move/from16 v19, v6
+    if-nez v6, :cond_2
 
-    .end local v6    # "$i$a$-with-SmudgeTool$draw$1$2":I
-    .local v19, "$i$a$-with-SmudgeTool$draw$1$2":I
-    const/4 v6, 0x4
+    goto :goto_3
 
-    invoke-direct {v0, v6}, Landroid/graphics/Paint;-><init>(I)V
+    :cond_2
+    const/4 v12, 0x0
 
-    const/4 v6, 0x0
+    .line 293
+    invoke-virtual {v11, v6, v12, v12, v5}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
-    invoke-virtual {v2, v9, v6, v1, v0}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/RectF;Landroid/graphics/Paint;)V
+    :goto_3
+    if-nez v6, :cond_3
 
-    .line 275
-    nop
-
-    .end local v9    # "currentBitmap":Landroid/graphics/Bitmap;
-    .end local v10    # "$i$a$-let-SmudgeTool$draw$1$2$1":I
     goto :goto_4
 
-    .line 273
-    .end local v19    # "$i$a$-with-SmudgeTool$draw$1$2":I
-    .restart local v6    # "$i$a$-with-SmudgeTool$draw$1$2":I
-    :cond_4
-    move/from16 v19, v6
+    .line 297
+    :cond_3
+    invoke-virtual {v6}, Landroid/graphics/Bitmap;->recycle()V
 
-    const/4 v6, 0x0
-
-    .end local v6    # "$i$a$-with-SmudgeTool$draw$1$2":I
-    .restart local v19    # "$i$a$-with-SmudgeTool$draw$1$2":I
+    .line 300
     :goto_4
-    nop
+    new-instance v6, Landroid/graphics/RectF;
 
-    .line 276
-    invoke-virtual {v2}, Landroid/graphics/Canvas;->restore()V
+    neg-float v11, v2
 
-    .line 277
-    nop
+    const/high16 v12, 0x40000000    # 2.0f
 
-    .line 269
-    .end local v2    # "$this$with":Landroid/graphics/Canvas;
-    .end local v19    # "$i$a$-with-SmudgeTool$draw$1$2":I
-    nop
+    div-float/2addr v11, v12
 
-    .line 278
-    sub-float/2addr v4, v3
+    div-float v12, v2, v12
 
-    .line 279
-    const v0, 0x3b83126f    # 0.004f
+    invoke-direct {v6, v11, v11, v12, v12}, Landroid/graphics/RectF;-><init>(FFFF)V
 
-    sub-float/2addr v5, v0
+    .line 302
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
-    .line 280
-    .end local v1    # "rect":Landroid/graphics/RectF;
-    .end local v18    # "newBitmap":Landroid/graphics/Bitmap;
-    move-object/from16 v0, p0
+    .line 303
+    iget-object v11, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
 
-    move-object/from16 v2, p1
+    invoke-interface {v11}, Lorg/catrobat/paintroid/tools/Workspace;->getWidth()I
 
-    move-object/from16 v1, v17
+    move-result v11
 
-    move-object/from16 v6, v20
+    iget-object v12, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
 
-    const/4 v10, 0x0
+    invoke-interface {v12}, Lorg/catrobat/paintroid/tools/Workspace;->getHeight()I
 
-    .end local v14    # "element$iv":Ljava/lang/Object;
-    .end local v15    # "it":Landroid/graphics/PointF;
-    .end local v16    # "$i$a$-forEach-SmudgeTool$draw$1":I
-    goto/16 :goto_2
+    move-result v12
 
-    .line 292
-    .end local v17    # "pointPath":Ljava/util/List;
-    .end local v20    # "colorMatrix":Landroid/graphics/ColorMatrix;
-    .local v1, "pointPath":Ljava/util/List;
-    .local v6, "colorMatrix":Landroid/graphics/ColorMatrix;
+    invoke-virtual {p1, v8, v8, v11, v12}, Landroid/graphics/Canvas;->clipRect(IIII)Z
+
+    .line 304
+    iget v11, v9, Landroid/graphics/PointF;->x:F
+
+    iget v9, v9, Landroid/graphics/PointF;->y:F
+
+    invoke-virtual {p1, v11, v9}, Landroid/graphics/Canvas;->translate(FF)V
+
+    if-nez v10, :cond_4
+
+    goto :goto_5
+
+    .line 306
+    :cond_4
+    new-instance v9, Landroid/graphics/Paint;
+
+    const/4 v11, 0x4
+
+    invoke-direct {v9, v11}, Landroid/graphics/Paint;-><init>(I)V
+
+    invoke-virtual {p1, v10, v7, v6, v9}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/RectF;Landroid/graphics/Paint;)V
+
+    .line 308
+    :goto_5
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
+
+    sub-float/2addr v2, v1
+
+    const v6, 0x3b83126f    # 0.004f
+
+    sub-float/2addr v3, v6
+
+    move-object v6, v10
+
+    goto :goto_2
+
     :cond_5
-    move-object/from16 v17, v1
+    if-nez v6, :cond_6
 
-    move-object/from16 v20, v6
+    goto :goto_6
 
-    .line 282
-    .end local v1    # "pointPath":Ljava/util/List;
-    .end local v6    # "colorMatrix":Landroid/graphics/ColorMatrix;
-    .end local v11    # "$this$forEach$iv":Ljava/lang/Iterable;
-    .end local v12    # "$i$f$forEach":I
-    .restart local v17    # "pointPath":Ljava/util/List;
-    .restart local v20    # "colorMatrix":Landroid/graphics/ColorMatrix;
-    if-eqz v8, :cond_6
-
-    invoke-virtual {v8}, Landroid/graphics/Bitmap;->recycle()V
-
-    .line 284
-    .end local v3    # "step":F
-    .end local v4    # "size":F
-    .end local v5    # "pressure":F
-    .end local v7    # "paint":Landroid/graphics/Paint;
-    .end local v8    # "bitmap":Ljava/lang/Object;
-    .end local v17    # "pointPath":Ljava/util/List;
-    .end local v20    # "colorMatrix":Landroid/graphics/ColorMatrix;
+    .line 314
     :cond_6
+    invoke-virtual {v6}, Landroid/graphics/Bitmap;->recycle()V
+
+    :cond_7
+    :goto_6
     return-void
 .end method
 
 .method public getDrawTime()J
     .locals 2
 
-    .line 42
+    .line 62
     iget-wide v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->drawTime:J
 
     return-wide v0
@@ -914,7 +721,7 @@
 .method public final getMaxPressure()F
     .locals 1
 
-    .line 48
+    .line 76
     iget v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxPressure:F
 
     return v0
@@ -923,7 +730,7 @@
 .method public final getMaxSmudgeSize()F
     .locals 1
 
-    .line 54
+    .line 82
     iget v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxSmudgeSize:F
 
     return v0
@@ -932,7 +739,7 @@
 .method public final getMinSmudgeSize()F
     .locals 1
 
-    .line 57
+    .line 85
     iget v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->minSmudgeSize:F
 
     return v0
@@ -949,7 +756,7 @@
         }
     .end annotation
 
-    .line 60
+    .line 88
     iget-object v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pointArray:Ljava/util/List;
 
     return-object v0
@@ -958,7 +765,7 @@
 .method public final getPressure()F
     .locals 1
 
-    .line 51
+    .line 79
     iget v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pressure:F
 
     return v0
@@ -967,22 +774,23 @@
 .method public getToolType()Lorg/catrobat/paintroid/tools/ToolType;
     .locals 1
 
-    .line 63
+    .line 91
     sget-object v0, Lorg/catrobat/paintroid/tools/ToolType;->SMUDGE:Lorg/catrobat/paintroid/tools/ToolType;
 
     return-object v0
 .end method
 
 .method public handleDown(Landroid/graphics/PointF;)Z
-    .locals 11
-    .param p1, "coordinate"    # Landroid/graphics/PointF;
+    .locals 10
 
-    .line 101
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_7
+    if-nez p1, :cond_0
 
-    .line 102
+    return v0
+
+    .line 131
+    :cond_0
     iget v1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxSmudgeSize:F
 
     iget-object v2, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->toolPaint:Lorg/catrobat/paintroid/tools/ToolPaint;
@@ -993,216 +801,317 @@
 
     cmpg-float v1, v1, v2
 
-    if-eqz v1, :cond_0
+    const/4 v2, 0x1
 
-    .line 103
+    if-nez v1, :cond_1
+
+    move v1, v2
+
+    goto :goto_0
+
+    :cond_1
+    move v1, v0
+
+    :goto_0
+    if-nez v1, :cond_2
+
+    .line 132
     iget v1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->minSmudgeSize:F
 
-    iget v2, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxSmudgeSize:F
+    iget v3, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxSmudgeSize:F
 
-    div-float/2addr v1, v2
+    div-float/2addr v1, v3
 
-    .line 104
-    .local v1, "ratio":F
-    iget-object v2, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->toolPaint:Lorg/catrobat/paintroid/tools/ToolPaint;
+    .line 133
+    iget-object v3, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->toolPaint:Lorg/catrobat/paintroid/tools/ToolPaint;
 
-    invoke-interface {v2}, Lorg/catrobat/paintroid/tools/ToolPaint;->getStrokeWidth()F
+    invoke-interface {v3}, Lorg/catrobat/paintroid/tools/ToolPaint;->getStrokeWidth()F
 
-    move-result v2
+    move-result v3
 
-    iput v2, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxSmudgeSize:F
+    iput v3, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxSmudgeSize:F
 
-    .line 105
-    mul-float/2addr v2, v1
+    mul-float/2addr v3, v1
 
-    iput v2, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->minSmudgeSize:F
+    .line 134
+    iput v3, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->minSmudgeSize:F
 
-    .line 108
-    .end local v1    # "ratio":F
-    :cond_0
+    .line 137
+    :cond_2
     iget-object v1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
 
     invoke-interface {v1}, Lorg/catrobat/paintroid/tools/Workspace;->getBitmapOfCurrentLayer()Landroid/graphics/Bitmap;
 
     move-result-object v1
 
-    .line 109
-    .local v1, "layerBitmap":Landroid/graphics/Bitmap;
-    nop
+    .line 139
+    iget v3, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxSmudgeSize:F
 
-    .line 110
-    iget v2, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxSmudgeSize:F
+    float-to-int v4, v3
 
-    float-to-int v3, v2
+    float-to-int v3, v3
 
-    .line 111
-    float-to-int v2, v2
+    .line 141
+    sget-object v5, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    .line 112
-    sget-object v4, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+    .line 138
+    invoke-static {v4, v3, v5}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
-    .line 109
-    invoke-static {v3, v2, v4}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->currentBitmap:Landroid/graphics/Bitmap;
-
-    .line 114
-    const/4 v3, 0x0
-
-    if-eqz v2, :cond_3
-
-    .local v2, "it":Landroid/graphics/Bitmap;
-    const/4 v4, 0x0
-
-    .line 115
-    .local v4, "$i$a$-let-SmudgeTool$handleDown$1":I
-    new-instance v5, Landroid/graphics/Canvas;
-
-    invoke-direct {v5, v2}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
-
-    .local v5, "$this$apply":Landroid/graphics/Canvas;
-    const/4 v6, 0x0
-
-    .line 116
-    .local v6, "$i$a$-apply-SmudgeTool$handleDown$1$1":I
-    iget v7, p1, Landroid/graphics/PointF;->x:F
-
-    neg-float v7, v7
-
-    iget v8, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxSmudgeSize:F
-
-    const/high16 v9, 0x40000000    # 2.0f
-
-    div-float/2addr v8, v9
-
-    add-float/2addr v7, v8
-
-    iget v8, p1, Landroid/graphics/PointF;->y:F
-
-    neg-float v8, v8
-
-    iget v10, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxSmudgeSize:F
-
-    div-float/2addr v10, v9
-
-    add-float/2addr v8, v10
-
-    invoke-virtual {v5, v7, v8}, Landroid/graphics/Canvas;->translate(FF)V
-
-    .line 117
-    const/high16 v7, -0x80000000
-
-    iget v8, p1, Landroid/graphics/PointF;->x:F
-
-    iget v9, p1, Landroid/graphics/PointF;->y:F
-
-    invoke-virtual {v5, v7, v8, v9}, Landroid/graphics/Canvas;->rotate(FFF)V
-
-    .line 118
-    if-eqz v1, :cond_1
-
-    move-object v7, v1
-
-    .local v7, "bitmap":Landroid/graphics/Bitmap;
-    const/4 v8, 0x0
-
-    .line 119
-    .local v8, "$i$a$-let-SmudgeTool$handleDown$1$1$1":I
-    const/4 v9, 0x0
-
-    invoke-virtual {v5, v7, v9, v9, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
-
-    .line 120
-    nop
-
-    .line 118
-    .end local v7    # "bitmap":Landroid/graphics/Bitmap;
-    .end local v8    # "$i$a$-let-SmudgeTool$handleDown$1$1$1":I
-    nop
-
-    .line 121
-    :cond_1
-    nop
-
-    .line 115
-    .end local v5    # "$this$apply":Landroid/graphics/Canvas;
-    .end local v6    # "$i$a$-apply-SmudgeTool$handleDown$1$1":I
-    nop
-
-    .line 123
-    iget-object v5, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->toolPaint:Lorg/catrobat/paintroid/tools/ToolPaint;
-
-    invoke-interface {v5}, Lorg/catrobat/paintroid/tools/ToolPaint;->getStrokeCap()Landroid/graphics/Paint$Cap;
-
-    move-result-object v5
-
-    sget-object v6, Landroid/graphics/Paint$Cap;->ROUND:Landroid/graphics/Paint$Cap;
-
-    if-ne v5, v6, :cond_2
-
-    .line 124
-    invoke-direct {p0, v2}, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->getBitmapClippedCircle(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
-
-    move-result-object v5
-
-    iput-object v5, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->currentBitmap:Landroid/graphics/Bitmap;
-
-    .line 126
-    :cond_2
-    nop
-
-    .line 114
-    .end local v2    # "it":Landroid/graphics/Bitmap;
-    .end local v4    # "$i$a$-let-SmudgeTool$handleDown$1":I
-    nop
-
-    .line 128
-    :cond_3
-    invoke-direct {p0}, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->currentBitmapHasColor()Z
-
-    move-result v2
-
-    if-nez v2, :cond_5
-
-    .line 129
-    iget-object v2, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->currentBitmap:Landroid/graphics/Bitmap;
-
-    if-eqz v2, :cond_4
-
-    invoke-virtual {v2}, Landroid/graphics/Bitmap;->recycle()V
-
-    .line 130
-    :cond_4
-    check-cast v3, Landroid/graphics/Bitmap;
+    move-result-object v3
 
     iput-object v3, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->currentBitmap:Landroid/graphics/Bitmap;
 
-    .line 131
+    const/4 v4, 0x0
+
+    if-nez v3, :cond_3
+
+    goto :goto_2
+
+    .line 144
+    :cond_3
+    new-instance v5, Landroid/graphics/Canvas;
+
+    invoke-direct {v5, v3}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+
+    .line 145
+    iget v6, p1, Landroid/graphics/PointF;->x:F
+
+    neg-float v6, v6
+
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->getMaxSmudgeSize()F
+
+    move-result v7
+
+    const/high16 v8, 0x40000000    # 2.0f
+
+    div-float/2addr v7, v8
+
+    add-float/2addr v6, v7
+
+    iget v7, p1, Landroid/graphics/PointF;->y:F
+
+    neg-float v7, v7
+
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->getMaxSmudgeSize()F
+
+    move-result v9
+
+    div-float/2addr v9, v8
+
+    add-float/2addr v7, v9
+
+    invoke-virtual {v5, v6, v7}, Landroid/graphics/Canvas;->translate(FF)V
+
+    .line 146
+    iget v6, p1, Landroid/graphics/PointF;->x:F
+
+    iget v7, p1, Landroid/graphics/PointF;->y:F
+
+    const/high16 v8, -0x80000000
+
+    invoke-virtual {v5, v8, v6, v7}, Landroid/graphics/Canvas;->rotate(FFF)V
+
+    if-nez v1, :cond_4
+
+    goto :goto_1
+
+    :cond_4
+    const/4 v6, 0x0
+
+    .line 148
+    invoke-virtual {v5, v1, v6, v6, v4}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+
+    .line 152
+    :goto_1
+    iget-object v1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->toolPaint:Lorg/catrobat/paintroid/tools/ToolPaint;
+
+    invoke-interface {v1}, Lorg/catrobat/paintroid/tools/ToolPaint;->getStrokeCap()Landroid/graphics/Paint$Cap;
+
+    move-result-object v1
+
+    sget-object v5, Landroid/graphics/Paint$Cap;->ROUND:Landroid/graphics/Paint$Cap;
+
+    if-ne v1, v5, :cond_5
+
+    .line 153
+    invoke-direct {p0, v3}, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->getBitmapClippedCircle(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->currentBitmap:Landroid/graphics/Bitmap;
+
+    .line 157
+    :cond_5
+    :goto_2
+    invoke-direct {p0}, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->currentBitmapHasColor()Z
+
+    move-result v1
+
+    if-nez v1, :cond_7
+
+    .line 158
+    iget-object p1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->currentBitmap:Landroid/graphics/Bitmap;
+
+    if-nez p1, :cond_6
+
+    goto :goto_3
+
+    :cond_6
+    invoke-virtual {p1}, Landroid/graphics/Bitmap;->recycle()V
+
+    .line 159
+    :goto_3
+    iput-object v4, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->currentBitmap:Landroid/graphics/Bitmap;
+
     return v0
 
-    .line 134
-    :cond_5
+    .line 163
+    :cond_7
     new-instance v0, Landroid/graphics/PointF;
 
-    iget v2, p1, Landroid/graphics/PointF;->x:F
+    iget v1, p1, Landroid/graphics/PointF;->x:F
 
-    iget v3, p1, Landroid/graphics/PointF;->y:F
+    iget p1, p1, Landroid/graphics/PointF;->y:F
 
-    invoke-direct {v0, v2, v3}, Landroid/graphics/PointF;-><init>(FF)V
+    invoke-direct {v0, v1, p1}, Landroid/graphics/PointF;-><init>(FF)V
 
     iput-object v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->prevPoint:Landroid/graphics/PointF;
 
-    .line 135
-    if-eqz v0, :cond_6
+    .line 165
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->getPointArray()Ljava/util/List;
 
-    .local v0, "$this$apply":Landroid/graphics/PointF;
-    const/4 v2, 0x0
+    move-result-object p1
 
-    .line 136
-    .local v2, "$i$a$-apply-SmudgeTool$handleDown$2":I
-    iget-object v3, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pointArray:Ljava/util/List;
+    new-instance v1, Landroid/graphics/PointF;
+
+    iget v3, v0, Landroid/graphics/PointF;->x:F
+
+    iget v0, v0, Landroid/graphics/PointF;->y:F
+
+    invoke-direct {v1, v3, v0}, Landroid/graphics/PointF;-><init>(FF)V
+
+    invoke-interface {p1, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    return v2
+.end method
+
+.method public handleDownAnimations(Landroid/graphics/PointF;)V
+    .locals 0
+
+    .line 68
+    invoke-super {p0, p1}, Lorg/catrobat/paintroid/tools/implementation/BaseTool;->handleDown(Landroid/graphics/PointF;)Z
+
+    return-void
+.end method
+
+.method public handleMove(Landroid/graphics/PointF;Z)Z
+    .locals 7
+
+    const/4 p2, 0x0
+
+    if-nez p1, :cond_0
+
+    return p2
+
+    .line 174
+    :cond_0
+    iget-object v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->currentBitmap:Landroid/graphics/Bitmap;
+
+    if-eqz v0, :cond_4
+
+    .line 175
+    iget v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pressure:F
+
+    const v1, 0x3f4ccccd    # 0.8f
+
+    cmpg-float v0, v0, v1
+
+    if-gez v0, :cond_1
+
+    return p2
+
+    .line 179
+    :cond_1
+    iget-object v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->prevPoint:Landroid/graphics/PointF;
+
+    if-nez v0, :cond_2
+
+    goto :goto_1
+
+    .line 180
+    :cond_2
+    iget v1, p1, Landroid/graphics/PointF;->x:F
+
+    iget v2, v0, Landroid/graphics/PointF;->x:F
+
+    sub-float/2addr v1, v2
+
+    .line 181
+    iget p1, p1, Landroid/graphics/PointF;->y:F
+
+    iget v2, v0, Landroid/graphics/PointF;->y:F
+
+    sub-float/2addr p1, v2
+
+    mul-float v2, v1, v1
+
+    mul-float v3, p1, p1
+
+    add-float/2addr v2, v3
+
+    float-to-double v2, v2
+
+    .line 183
+    invoke-static {v2, v3}, Ljava/lang/Math;->sqrt(D)D
+
+    move-result-wide v2
+
+    double-to-float v2, v2
+
+    const/high16 v3, 0x40400000    # 3.0f
+
+    div-float/2addr v2, v3
+
+    float-to-int v2, v2
+
+    int-to-float v3, v2
+
+    div-float/2addr v1, v3
+
+    div-float/2addr p1, v3
+
+    :goto_0
+    if-ge p2, v2, :cond_3
+
+    .line 188
+    iget v3, v0, Landroid/graphics/PointF;->x:F
+
+    add-float/2addr v3, v1
+
+    iput v3, v0, Landroid/graphics/PointF;->x:F
+
+    .line 189
+    iget v3, v0, Landroid/graphics/PointF;->y:F
+
+    add-float/2addr v3, p1
+
+    iput v3, v0, Landroid/graphics/PointF;->y:F
+
+    .line 191
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->getPressure()F
+
+    move-result v3
+
+    const v4, 0x3b83126f    # 0.004f
+
+    sub-float/2addr v3, v4
+
+    invoke-virtual {p0, v3}, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->setPressure(F)V
+
+    .line 193
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->getPointArray()Ljava/util/List;
+
+    move-result-object v3
 
     new-instance v4, Landroid/graphics/PointF;
 
@@ -1214,345 +1123,163 @@
 
     invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 137
-    nop
-
-    .line 135
-    .end local v0    # "$this$apply":Landroid/graphics/PointF;
-    .end local v2    # "$i$a$-apply-SmudgeTool$handleDown$2":I
-    nop
-
-    .line 139
-    :cond_6
-    const/4 v0, 0x1
-
-    return v0
-
-    .line 101
-    .end local v1    # "layerBitmap":Landroid/graphics/Bitmap;
-    :cond_7
-    return v0
-.end method
-
-.method public handleMove(Landroid/graphics/PointF;)Z
-    .locals 14
-    .param p1, "coordinate"    # Landroid/graphics/PointF;
-
-    .line 143
-    const/4 v0, 0x0
-
-    if-eqz p1, :cond_4
-
-    .line 145
-    iget-object v1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->currentBitmap:Landroid/graphics/Bitmap;
-
-    if-eqz v1, :cond_3
-
-    .line 146
-    iget v1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pressure:F
-
-    const v2, 0x3f4ccccd    # 0.8f
-
-    cmpg-float v1, v1, v2
-
-    if-gez v1, :cond_0
-
-    .line 147
-    return v0
-
-    .line 150
-    :cond_0
-    iget-object v1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->prevPoint:Landroid/graphics/PointF;
-
-    if-eqz v1, :cond_2
-
-    .local v1, "$this$apply":Landroid/graphics/PointF;
-    const/4 v2, 0x0
-
-    .line 151
-    .local v2, "$i$a$-apply-SmudgeTool$handleMove$1":I
-    iget v3, p1, Landroid/graphics/PointF;->x:F
-
-    iget v4, v1, Landroid/graphics/PointF;->x:F
-
-    sub-float/2addr v3, v4
-
-    .line 152
-    .local v3, "x1":F
-    iget v4, p1, Landroid/graphics/PointF;->y:F
-
-    iget v5, v1, Landroid/graphics/PointF;->y:F
-
-    sub-float/2addr v4, v5
-
-    .line 154
-    .local v4, "y1":F
-    mul-float v5, v3, v3
-
-    mul-float v6, v4, v4
-
-    add-float/2addr v5, v6
-
-    float-to-double v5, v5
-
-    invoke-static {v5, v6}, Ljava/lang/Math;->sqrt(D)D
-
-    move-result-wide v5
-
-    double-to-float v5, v5
-
-    const/high16 v6, 0x40400000    # 3.0f
-
-    div-float/2addr v5, v6
-
-    float-to-int v5, v5
-
-    .line 155
-    .local v5, "distance":I
-    int-to-float v6, v5
-
-    div-float v6, v3, v6
-
-    .line 156
-    .local v6, "xInterval":F
-    int-to-float v7, v5
-
-    div-float v7, v4, v7
-
-    .line 158
-    .local v7, "yInterval":F
-    nop
-
-    :goto_0
-    if-ge v0, v5, :cond_1
-
-    move v8, v0
-
-    .local v8, "it":I
-    const/4 v9, 0x0
-
-    .line 159
-    .local v9, "$i$a$-repeat-SmudgeTool$handleMove$1$1":I
-    iget v10, v1, Landroid/graphics/PointF;->x:F
-
-    add-float/2addr v10, v6
-
-    iput v10, v1, Landroid/graphics/PointF;->x:F
-
-    .line 160
-    iget v10, v1, Landroid/graphics/PointF;->y:F
-
-    add-float/2addr v10, v7
-
-    iput v10, v1, Landroid/graphics/PointF;->y:F
-
-    .line 162
-    iget v10, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pressure:F
-
-    const v11, 0x3b83126f    # 0.004f
-
-    sub-float/2addr v10, v11
-
-    iput v10, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pressure:F
-
-    .line 164
-    iget-object v10, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pointArray:Ljava/util/List;
-
-    new-instance v11, Landroid/graphics/PointF;
-
-    iget v12, v1, Landroid/graphics/PointF;->x:F
-
-    iget v13, v1, Landroid/graphics/PointF;->y:F
-
-    invoke-direct {v11, v12, v13}, Landroid/graphics/PointF;-><init>(FF)V
-
-    invoke-interface {v10, v11}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 165
-    nop
-
-    .line 158
-    .end local v8    # "it":I
-    .end local v9    # "$i$a$-repeat-SmudgeTool$handleMove$1$1":I
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p2, p2, 0x1
 
     goto :goto_0
 
-    .line 166
-    .end local v3    # "x1":F
-    .end local v4    # "y1":F
-    .end local v5    # "distance":I
-    .end local v6    # "xInterval":F
-    .end local v7    # "yInterval":F
-    :cond_1
-    nop
-
-    .line 150
-    .end local v1    # "$this$apply":Landroid/graphics/PointF;
-    .end local v2    # "$i$a$-apply-SmudgeTool$handleMove$1":I
-    nop
-
-    .line 167
-    :cond_2
-    const/4 v0, 0x1
-
-    return v0
-
-    .line 169
     :cond_3
-    return v0
+    :goto_1
+    const/4 p1, 0x1
 
-    .line 143
+    return p1
+
     :cond_4
-    return v0
+    return p2
 .end method
 
 .method public handleUp(Landroid/graphics/PointF;)Z
-    .locals 9
-    .param p1, "coordinate"    # Landroid/graphics/PointF;
+    .locals 8
 
-    .line 204
     const/4 v0, 0x0
+
+    if-nez p1, :cond_0
+
+    return v0
+
+    .line 235
+    :cond_0
+    iget-object p1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pointArray:Ljava/util/List;
+
+    check-cast p1, Ljava/util/Collection;
+
+    invoke-interface {p1}, Ljava/util/Collection;->isEmpty()Z
+
+    move-result p1
+
+    const/4 v1, 0x1
+
+    xor-int/2addr p1, v1
 
     if-eqz p1, :cond_4
 
-    .line 205
-    iget-object v1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pointArray:Ljava/util/List;
+    iget-object v3, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->currentBitmap:Landroid/graphics/Bitmap;
 
-    check-cast v1, Ljava/util/Collection;
+    if-eqz v3, :cond_4
 
-    invoke-interface {v1}, Ljava/util/Collection;->isEmpty()Z
+    if-nez v3, :cond_1
 
-    move-result v1
+    goto :goto_0
 
-    const/4 v2, 0x1
+    .line 237
+    :cond_1
+    iget-object v2, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->commandFactory:Lorg/catrobat/paintroid/command/CommandFactory;
 
-    xor-int/2addr v1, v2
+    .line 239
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->getPointArray()Ljava/util/List;
 
-    if-eqz v1, :cond_3
+    move-result-object v4
 
-    iget-object v4, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->currentBitmap:Landroid/graphics/Bitmap;
+    .line 240
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->getMaxPressure()F
 
-    if-eqz v4, :cond_3
+    move-result v5
 
-    .line 206
-    if-eqz v4, :cond_0
+    .line 241
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->getMaxSmudgeSize()F
 
-    .local v4, "it":Landroid/graphics/Bitmap;
-    const/4 v0, 0x0
+    move-result v6
 
-    .line 207
-    .local v0, "$i$a$-let-SmudgeTool$handleUp$1":I
-    iget-object v3, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->commandFactory:Lorg/catrobat/paintroid/command/CommandFactory;
+    .line 242
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->getMinSmudgeSize()F
 
-    .line 208
-    nop
+    move-result v7
 
-    .line 209
-    iget-object v5, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pointArray:Ljava/util/List;
+    .line 237
+    invoke-interface/range {v2 .. v7}, Lorg/catrobat/paintroid/command/CommandFactory;->createSmudgePathCommand(Landroid/graphics/Bitmap;Ljava/util/List;FFF)Lorg/catrobat/paintroid/command/Command;
 
-    .line 210
-    iget v6, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxPressure:F
+    move-result-object p1
 
-    .line 211
-    iget v7, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxSmudgeSize:F
+    .line 244
+    iget-object v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
 
-    .line 212
-    iget v8, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->minSmudgeSize:F
+    invoke-interface {v0, p1}, Lorg/catrobat/paintroid/command/CommandManager;->addCommand(Lorg/catrobat/paintroid/command/Command;)V
 
-    .line 207
-    invoke-interface/range {v3 .. v8}, Lorg/catrobat/paintroid/command/CommandFactory;->createSmudgePathCommand(Landroid/graphics/Bitmap;Ljava/util/List;FFF)Lorg/catrobat/paintroid/command/Command;
+    .line 247
+    :goto_0
+    iget p1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->numOfPointsOnPath:I
 
-    move-result-object v1
+    if-gez p1, :cond_2
 
-    .line 214
-    .local v1, "command":Lorg/catrobat/paintroid/command/Command;
-    iget-object v3, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->commandManager:Lorg/catrobat/paintroid/command/CommandManager;
+    .line 248
+    iget-object p1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pointArray:Ljava/util/List;
 
-    invoke-interface {v3, v1}, Lorg/catrobat/paintroid/command/CommandManager;->addCommand(Lorg/catrobat/paintroid/command/Command;)V
+    invoke-interface {p1}, Ljava/util/List;->size()I
 
-    .line 215
-    .end local v1    # "command":Lorg/catrobat/paintroid/command/Command;
-    nop
+    move-result p1
 
-    .line 206
-    .end local v0    # "$i$a$-let-SmudgeTool$handleUp$1":I
-    .end local v4    # "it":Landroid/graphics/Bitmap;
-    nop
+    goto :goto_1
 
-    .line 217
-    :cond_0
-    iget v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->numOfPointsOnPath:I
-
-    if-gez v0, :cond_1
-
-    .line 218
+    .line 250
+    :cond_2
     iget-object v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pointArray:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v0
 
-    goto :goto_0
+    add-int/2addr p1, v0
 
-    .line 220
-    :cond_1
-    iget-object v1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pointArray:Ljava/util/List;
+    div-int/lit8 p1, p1, 0x2
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    .line 247
+    :goto_1
+    iput p1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->numOfPointsOnPath:I
 
-    move-result v1
+    .line 253
+    iget p1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxPressure:F
 
-    add-int/2addr v0, v1
+    iput p1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pressure:F
 
-    div-int/lit8 v0, v0, 0x2
+    .line 254
+    iget-object p1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pointArray:Ljava/util/List;
 
-    .line 217
-    :goto_0
-    iput v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->numOfPointsOnPath:I
+    invoke-interface {p1}, Ljava/util/List;->clear()V
 
-    .line 223
-    iget v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxPressure:F
+    .line 255
+    iget-object p1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->currentBitmap:Landroid/graphics/Bitmap;
 
-    iput v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pressure:F
+    if-nez p1, :cond_3
 
-    .line 224
-    iget-object v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pointArray:Ljava/util/List;
+    goto :goto_2
 
-    invoke-interface {v0}, Ljava/util/List;->clear()V
-
-    .line 225
-    iget-object v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->currentBitmap:Landroid/graphics/Bitmap;
-
-    if-eqz v0, :cond_2
-
-    invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
-
-    .line 226
-    :cond_2
-    const/4 v0, 0x0
-
-    check-cast v0, Landroid/graphics/Bitmap;
-
-    iput-object v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->currentBitmap:Landroid/graphics/Bitmap;
-
-    .line 227
-    return v2
-
-    .line 229
     :cond_3
-    return v0
+    invoke-virtual {p1}, Landroid/graphics/Bitmap;->recycle()V
 
-    .line 204
+    :goto_2
+    const/4 p1, 0x0
+
+    .line 256
+    iput-object p1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->currentBitmap:Landroid/graphics/Bitmap;
+
+    return v1
+
     :cond_4
     return v0
 .end method
 
+.method public handleUpAnimations(Landroid/graphics/PointF;)V
+    .locals 0
+
+    .line 64
+    invoke-super {p0, p1}, Lorg/catrobat/paintroid/tools/implementation/BaseTool;->handleUp(Landroid/graphics/PointF;)Z
+
+    return-void
+.end method
+
 .method public setDrawTime(J)V
     .locals 0
-    .param p1, "<set-?>"    # J
 
-    .line 42
+    .line 62
     iput-wide p1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->drawTime:J
 
     return-void
@@ -1560,9 +1287,8 @@
 
 .method public final setMaxPressure(F)V
     .locals 0
-    .param p1, "<set-?>"    # F
 
-    .line 48
+    .line 76
     iput p1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxPressure:F
 
     return-void
@@ -1570,9 +1296,8 @@
 
 .method public final setMaxSmudgeSize(F)V
     .locals 0
-    .param p1, "<set-?>"    # F
 
-    .line 54
+    .line 82
     iput p1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxSmudgeSize:F
 
     return-void
@@ -1580,9 +1305,8 @@
 
 .method public final setMinSmudgeSize(F)V
     .locals 0
-    .param p1, "<set-?>"    # F
 
-    .line 57
+    .line 85
     iput p1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->minSmudgeSize:F
 
     return-void
@@ -1590,59 +1314,61 @@
 
 .method public final setPressure(F)V
     .locals 0
-    .param p1, "<set-?>"    # F
 
-    .line 51
+    .line 79
     iput p1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pressure:F
 
     return-void
 .end method
 
+.method public toolPositionCoordinates(Landroid/graphics/PointF;)Landroid/graphics/PointF;
+    .locals 1
+
+    const-string v0, "coordinate"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    return-object p1
+.end method
+
 .method public final updateDrag(I)V
     .locals 2
-    .param p1, "dragInPercent"    # I
 
-    .line 96
+    .line 124
     iget v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxSmudgeSize:F
 
     const/high16 v1, 0x42c80000    # 100.0f
 
     div-float/2addr v0, v1
 
-    .line 97
-    .local v0, "onePercent":F
-    int-to-float v1, p1
+    int-to-float p1, p1
 
-    mul-float/2addr v1, v0
+    mul-float/2addr v0, p1
 
-    iput v1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->minSmudgeSize:F
+    .line 125
+    iput v0, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->minSmudgeSize:F
 
-    .line 98
     return-void
 .end method
 
 .method public final updatePressure(I)V
-    .locals 3
-    .param p1, "pressureInPercent"    # I
+    .locals 1
 
-    .line 90
+    int-to-float p1, p1
+
     const v0, 0x3ac49ba4    # 0.0014999998f
 
-    .line 91
-    .local v0, "onePercent":F
-    int-to-float v1, p1
+    mul-float/2addr p1, v0
 
-    mul-float/2addr v1, v0
+    const v0, 0x3f59999a    # 0.85f
 
-    const v2, 0x3f59999a    # 0.85f
+    add-float/2addr p1, v0
 
-    add-float/2addr v1, v2
+    .line 119
+    iput p1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxPressure:F
 
-    iput v1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->maxPressure:F
+    .line 120
+    iput p1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pressure:F
 
-    .line 92
-    iput v1, p0, Lorg/catrobat/paintroid/tools/implementation/SmudgeTool;->pressure:F
-
-    .line 93
     return-void
 .end method

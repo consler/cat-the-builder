@@ -14,8 +14,7 @@
 .end method
 
 .method public static build(Ljava/io/Reader;)Lcom/thoughtworks/xstream/io/xml/xppdom/Xpp3Dom;
-    .locals 2
-    .param p0, "reader"    # Ljava/io/Reader;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -28,31 +27,28 @@
     invoke-direct {v0}, Lorg/xmlpull/mxp1/MXParser;-><init>()V
 
     .line 32
-    .local v0, "parser":Lorg/xmlpull/v1/XmlPullParser;
     invoke-interface {v0, p0}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/Reader;)V
 
     .line 34
     :try_start_0
     invoke-static {v0}, Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;->build(Lorg/xmlpull/v1/XmlPullParser;)Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/thoughtworks/xstream/io/xml/xppdom/Xpp3Dom;
+    check-cast v0, Lcom/thoughtworks/xstream/io/xml/xppdom/Xpp3Dom;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 36
     invoke-virtual {p0}, Ljava/io/Reader;->close()V
 
-    .line 34
-    return-object v1
+    return-object v0
 
-    .line 36
     :catchall_0
-    move-exception v1
+    move-exception v0
 
     invoke-virtual {p0}, Ljava/io/Reader;->close()V
 
     .line 37
-    throw v1
+    throw v0
 .end method

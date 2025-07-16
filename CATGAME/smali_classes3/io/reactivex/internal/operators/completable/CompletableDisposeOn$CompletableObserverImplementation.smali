@@ -32,8 +32,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/CompletableObserver;Lio/reactivex/Scheduler;)V
     .locals 0
-    .param p1, "s"    # Lio/reactivex/CompletableObserver;
-    .param p2, "scheduler"    # Lio/reactivex/Scheduler;
 
     .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +42,6 @@
     .line 48
     iput-object p2, p0, Lio/reactivex/internal/operators/completable/CompletableDisposeOn$CompletableObserverImplementation;->scheduler:Lio/reactivex/Scheduler;
 
-    .line 49
     return-void
 .end method
 
@@ -53,9 +50,9 @@
 .method public dispose()V
     .locals 1
 
-    .line 79
     const/4 v0, 0x1
 
+    .line 79
     iput-boolean v0, p0, Lio/reactivex/internal/operators/completable/CompletableDisposeOn$CompletableObserverImplementation;->disposed:Z
 
     .line 80
@@ -63,7 +60,6 @@
 
     invoke-virtual {v0, p0}, Lio/reactivex/Scheduler;->scheduleDirect(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
 
-    .line 81
     return-void
 .end method
 
@@ -84,7 +80,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 54
     return-void
 
     .line 56
@@ -93,13 +88,11 @@
 
     invoke-interface {v0}, Lio/reactivex/CompletableObserver;->onComplete()V
 
-    .line 57
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 61
     iget-boolean v0, p0, Lio/reactivex/internal/operators/completable/CompletableDisposeOn$CompletableObserverImplementation;->disposed:Z
@@ -109,7 +102,6 @@
     .line 62
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 63
     return-void
 
     .line 65
@@ -118,13 +110,11 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/CompletableObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 66
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 70
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableDisposeOn$CompletableObserverImplementation;->d:Lio/reactivex/disposables/Disposable;
@@ -139,11 +129,10 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableDisposeOn$CompletableObserverImplementation;->d:Lio/reactivex/disposables/Disposable;
 
     .line 73
-    iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableDisposeOn$CompletableObserverImplementation;->s:Lio/reactivex/CompletableObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableDisposeOn$CompletableObserverImplementation;->s:Lio/reactivex/CompletableObserver;
 
-    invoke-interface {v0, p0}, Lio/reactivex/CompletableObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/CompletableObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 75
     :cond_0
     return-void
 .end method
@@ -161,6 +150,5 @@
 
     iput-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableDisposeOn$CompletableObserverImplementation;->d:Lio/reactivex/disposables/Disposable;
 
-    .line 92
     return-void
 .end method

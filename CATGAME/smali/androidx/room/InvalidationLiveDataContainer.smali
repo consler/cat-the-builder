@@ -20,7 +20,6 @@
 # direct methods
 .method constructor <init>(Landroidx/room/RoomDatabase;)V
     .locals 1
-    .param p1, "database"    # Landroidx/room/RoomDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -48,7 +47,6 @@
     .line 43
     iput-object p1, p0, Landroidx/room/InvalidationLiveDataContainer;->mDatabase:Landroidx/room/RoomDatabase;
 
-    .line 44
     return-void
 .end method
 
@@ -56,8 +54,6 @@
 # virtual methods
 .method create([Ljava/lang/String;ZLjava/util/concurrent/Callable;)Landroidx/lifecycle/LiveData;
     .locals 7
-    .param p1, "tableNames"    # [Ljava/lang/String;
-    .param p2, "inTransaction"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -86,7 +82,6 @@
     .end annotation
 
     .line 48
-    .local p3, "computeFunction":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TT;>;"
     new-instance v6, Landroidx/room/RoomTrackingLiveData;
 
     iget-object v1, p0, Landroidx/room/InvalidationLiveDataContainer;->mDatabase:Landroidx/room/RoomDatabase;
@@ -108,7 +103,6 @@
 
 .method onActive(Landroidx/lifecycle/LiveData;)V
     .locals 1
-    .param p1, "liveData"    # Landroidx/lifecycle/LiveData;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -123,13 +117,11 @@
 
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 54
     return-void
 .end method
 
 .method onInactive(Landroidx/lifecycle/LiveData;)V
     .locals 1
-    .param p1, "liveData"    # Landroidx/lifecycle/LiveData;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -144,6 +136,5 @@
 
     invoke-interface {v0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
-    .line 58
     return-void
 .end method

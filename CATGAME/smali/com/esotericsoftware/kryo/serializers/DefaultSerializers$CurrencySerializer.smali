@@ -29,12 +29,11 @@
     .line 417
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/serializers/ImmutableSerializer;-><init>()V
 
-    .line 419
     const/4 v0, 0x1
 
+    .line 419
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/serializers/DefaultSerializers$CurrencySerializer;->setAcceptsNull(Z)V
 
-    .line 420
     return-void
 .end method
 
@@ -52,9 +51,7 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/util/Currency;
-    .locals 2
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,26 +66,23 @@
     .end annotation
 
     .line 427
-    .local p3, "type":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/util/Currency;>;"
     invoke-virtual {p2}, Lcom/esotericsoftware/kryo/io/Input;->readString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 428
-    .local v0, "currencyCode":Ljava/lang/String;
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 
     .line 429
     :cond_0
-    invoke-static {v0}, Ljava/util/Currency;->getInstance(Ljava/lang/String;)Ljava/util/Currency;
+    invoke-static {p1}, Ljava/util/Currency;->getInstance(Ljava/lang/String;)Ljava/util/Currency;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
@@ -103,26 +97,22 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/util/Currency;)V
-    .locals 1
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p3, "object"    # Ljava/util/Currency;
+    .locals 0
 
-    .line 423
     if-nez p3, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
+    .line 423
     :cond_0
     invoke-virtual {p3}, Ljava/util/Currency;->getCurrencyCode()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    invoke-virtual {p2, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeString(Ljava/lang/String;)V
 
-    .line 424
     return-void
 .end method

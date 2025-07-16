@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/Button;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/scenes/scene2d/ui/Button;
 
     .line 91
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Button$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Button;
@@ -34,34 +33,30 @@
 
 # virtual methods
 .method public clicked(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;FF)V
-    .locals 3
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
+    .locals 0
 
     .line 93
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Button$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Button;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Button$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Button;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Button;->isDisabled()Z
+    invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Button;->isDisabled()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     return-void
 
     .line 94
     :cond_0
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Button$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Button;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Button$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Button;
 
-    iget-boolean v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Button;->isChecked:Z
+    iget-boolean p2, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Button;->isChecked:Z
 
-    const/4 v2, 0x1
+    const/4 p3, 0x1
 
-    xor-int/2addr v1, v2
+    xor-int/2addr p2, p3
 
-    invoke-virtual {v0, v1, v2}, Lcom/badlogic/gdx/scenes/scene2d/ui/Button;->setChecked(ZZ)V
+    invoke-virtual {p1, p2, p3}, Lcom/badlogic/gdx/scenes/scene2d/ui/Button;->setChecked(ZZ)V
 
-    .line 95
     return-void
 .end method

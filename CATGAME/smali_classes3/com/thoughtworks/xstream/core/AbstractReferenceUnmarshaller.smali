@@ -28,42 +28,34 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/ConverterLookup;Lcom/thoughtworks/xstream/mapper/Mapper;)V
-    .locals 2
-    .param p1, "root"    # Ljava/lang/Object;
-    .param p2, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .param p3, "converterLookup"    # Lcom/thoughtworks/xstream/converters/ConverterLookup;
-    .param p4, "mapper"    # Lcom/thoughtworks/xstream/mapper/Mapper;
+    .locals 0
 
     .line 39
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/thoughtworks/xstream/core/TreeUnmarshaller;-><init>(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/ConverterLookup;Lcom/thoughtworks/xstream/mapper/Mapper;)V
 
     .line 34
-    new-instance v0, Ljava/util/HashMap;
+    new-instance p1, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {p1}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->values:Ljava/util/Map;
+    iput-object p1, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->values:Ljava/util/Map;
 
     .line 35
-    new-instance v0, Lcom/thoughtworks/xstream/core/util/FastStack;
+    new-instance p1, Lcom/thoughtworks/xstream/core/util/FastStack;
 
-    const/16 v1, 0x10
+    const/16 p2, 0x10
 
-    invoke-direct {v0, v1}, Lcom/thoughtworks/xstream/core/util/FastStack;-><init>(I)V
+    invoke-direct {p1, p2}, Lcom/thoughtworks/xstream/core/util/FastStack;-><init>(I)V
 
-    iput-object v0, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->parentStack:Lcom/thoughtworks/xstream/core/util/FastStack;
+    iput-object p1, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->parentStack:Lcom/thoughtworks/xstream/core/util/FastStack;
 
-    .line 40
     return-void
 .end method
 
 
 # virtual methods
 .method protected convert(Ljava/lang/Object;Ljava/lang/Class;Lcom/thoughtworks/xstream/converters/Converter;)Ljava/lang/Object;
-    .locals 9
-    .param p1, "parent"    # Ljava/lang/Object;
-    .param p2, "type"    # Ljava/lang/Class;
-    .param p3, "converter"    # Lcom/thoughtworks/xstream/converters/Converter;
+    .locals 4
 
     .line 43
     iget-object v0, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->parentStack:Lcom/thoughtworks/xstream/core/util/FastStack;
@@ -81,8 +73,6 @@
 
     move-result-object v0
 
-    .line 45
-    .local v0, "parentReferenceKey":Ljava/lang/Object;
     if-eqz v0, :cond_0
 
     .line 46
@@ -100,7 +90,6 @@
     invoke-interface {v1, v0, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 52
-    .end local v0    # "parentReferenceKey":Ljava/lang/Object;
     :cond_0
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->getMapper()Lcom/thoughtworks/xstream/mapper/Mapper;
 
@@ -112,228 +101,174 @@
 
     move-result-object v0
 
-    .line 53
-    .local v0, "attributeName":Ljava/lang/String;
     const/4 v2, 0x0
 
     if-nez v0, :cond_1
 
-    move-object v3, v2
+    move-object v0, v2
 
     goto :goto_0
 
+    .line 53
     :cond_1
     iget-object v3, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->reader:Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
 
     invoke-interface {v3, v0}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
     .line 54
-    .local v3, "reference":Ljava/lang/String;
     :goto_0
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->getMapper()Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-interface {v4, p2}, Lcom/thoughtworks/xstream/mapper/Mapper;->isReferenceable(Ljava/lang/Class;)Z
+    invoke-interface {v3, p2}, Lcom/thoughtworks/xstream/mapper/Mapper;->isReferenceable(Ljava/lang/Class;)Z
 
-    move-result v4
+    move-result v3
 
-    .line 55
-    .local v4, "isReferenceable":Z
-    if-eqz v3, :cond_5
+    if-eqz v0, :cond_5
+
+    if-eqz v3, :cond_2
 
     .line 56
-    if-eqz v4, :cond_2
+    iget-object p1, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->values:Ljava/util/Map;
 
-    iget-object v5, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->values:Ljava/util/Map;
+    invoke-virtual {p0, v0}, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->getReferenceKey(Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-virtual {p0, v3}, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->getReferenceKey(Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p3
 
-    move-result-object v6
+    invoke-interface {p1, p3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v5, v6}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v5
+    move-result-object p1
 
     goto :goto_1
 
     :cond_2
-    move-object v5, v2
+    move-object p1, v2
 
-    .line 57
-    .local v5, "cache":Ljava/lang/Object;
     :goto_1
-    if-eqz v5, :cond_4
+    if-eqz p1, :cond_4
 
     .line 64
-    sget-object v1, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->NULL:Ljava/lang/Object;
+    sget-object p2, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->NULL:Ljava/lang/Object;
 
-    if-ne v5, v1, :cond_3
+    if-ne p1, p2, :cond_3
 
-    goto :goto_2
+    goto :goto_3
 
     :cond_3
-    move-object v2, v5
+    move-object v2, p1
 
-    :goto_2
-    move-object v1, v2
-
-    .line 65
-    .end local v5    # "cache":Ljava/lang/Object;
-    .local v1, "result":Ljava/lang/Object;
-    goto :goto_4
+    goto :goto_3
 
     .line 58
-    .end local v1    # "result":Ljava/lang/Object;
-    .restart local v5    # "cache":Ljava/lang/Object;
     :cond_4
-    new-instance v2, Lcom/thoughtworks/xstream/converters/ConversionException;
+    new-instance p1, Lcom/thoughtworks/xstream/converters/ConversionException;
 
-    const-string v6, "Invalid reference"
+    const-string p3, "Invalid reference"
 
-    invoke-direct {v2, v6}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p3}, Lcom/thoughtworks/xstream/converters/ConversionException;-><init>(Ljava/lang/String;)V
 
     .line 59
-    .local v2, "ex":Lcom/thoughtworks/xstream/converters/ConversionException;
-    invoke-virtual {v2, v1, v3}, Lcom/thoughtworks/xstream/converters/ConversionException;->add(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p1, v1, v0}, Lcom/thoughtworks/xstream/converters/ConversionException;->add(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string p3, "referenced-type"
 
     .line 60
     invoke-virtual {p2}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    const-string v6, "referenced-type"
+    invoke-virtual {p1, p3, p2}, Lcom/thoughtworks/xstream/converters/ConversionException;->add(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v2, v6, v1}, Lcom/thoughtworks/xstream/converters/ConversionException;->add(Ljava/lang/String;Ljava/lang/String;)V
+    const-string p2, "referenceable"
 
     .line 61
-    invoke-static {v4}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
+    invoke-static {v3}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p3
 
-    const-string v6, "referenceable"
-
-    invoke-virtual {v2, v6, v1}, Lcom/thoughtworks/xstream/converters/ConversionException;->add(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p1, p2, p3}, Lcom/thoughtworks/xstream/converters/ConversionException;->add(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 62
-    throw v2
+    throw p1
 
-    .line 65
-    .end local v2    # "ex":Lcom/thoughtworks/xstream/converters/ConversionException;
-    .end local v5    # "cache":Ljava/lang/Object;
     :cond_5
-    if-nez v4, :cond_6
+    if-nez v3, :cond_6
 
     .line 66
     invoke-super {p0, p1, p2, p3}, Lcom/thoughtworks/xstream/core/TreeUnmarshaller;->convert(Ljava/lang/Object;Ljava/lang/Class;Lcom/thoughtworks/xstream/converters/Converter;)Ljava/lang/Object;
 
-    move-result-object v1
-
-    .restart local v1    # "result":Ljava/lang/Object;
-    goto :goto_4
-
-    .line 68
-    .end local v1    # "result":Ljava/lang/Object;
-    :cond_6
-    invoke-virtual {p0}, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->getCurrentReferenceKey()Ljava/lang/Object;
-
-    move-result-object v1
-
-    .line 69
-    .local v1, "currentReferenceKey":Ljava/lang/Object;
-    iget-object v2, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->parentStack:Lcom/thoughtworks/xstream/core/util/FastStack;
-
-    invoke-virtual {v2, v1}, Lcom/thoughtworks/xstream/core/util/FastStack;->push(Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 70
-    const/4 v2, 0x0
-
-    .line 72
-    .local v2, "localResult":Ljava/lang/Object;
-    :try_start_0
-    invoke-super {p0, p1, p2, p3}, Lcom/thoughtworks/xstream/core/TreeUnmarshaller;->convert(Ljava/lang/Object;Ljava/lang/Class;Lcom/thoughtworks/xstream/converters/Converter;)Ljava/lang/Object;
-
-    move-result-object v5
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-object v2, v5
-
-    .line 74
-    nop
-
-    .line 75
-    .local v5, "result":Ljava/lang/Object;
-    if-eqz v1, :cond_8
-
-    .line 76
-    iget-object v6, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->values:Ljava/util/Map;
-
-    if-nez v5, :cond_7
-
-    sget-object v7, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->NULL:Ljava/lang/Object;
+    move-result-object v2
 
     goto :goto_3
 
-    :cond_7
-    move-object v7, v5
+    .line 68
+    :cond_6
+    invoke-virtual {p0}, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->getCurrentReferenceKey()Ljava/lang/Object;
 
-    :goto_3
-    invoke-interface {v6, v1, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v0
+
+    .line 69
+    iget-object v1, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->parentStack:Lcom/thoughtworks/xstream/core/util/FastStack;
+
+    invoke-virtual {v1, v0}, Lcom/thoughtworks/xstream/core/util/FastStack;->push(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 72
+    :try_start_0
+    invoke-super {p0, p1, p2, p3}, Lcom/thoughtworks/xstream/core/TreeUnmarshaller;->convert(Ljava/lang/Object;Ljava/lang/Class;Lcom/thoughtworks/xstream/converters/Converter;)Ljava/lang/Object;
+
+    move-result-object v2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-eqz v0, :cond_8
+
+    .line 76
+    iget-object p1, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->values:Ljava/util/Map;
+
+    if-nez v2, :cond_7
+
+    sget-object p2, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->NULL:Ljava/lang/Object;
+
+    goto :goto_2
+
+    :cond_7
+    move-object p2, v2
+
+    :goto_2
+    invoke-interface {p1, v0, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 78
     :cond_8
-    iget-object v6, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->parentStack:Lcom/thoughtworks/xstream/core/util/FastStack;
+    iget-object p1, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->parentStack:Lcom/thoughtworks/xstream/core/util/FastStack;
 
-    invoke-virtual {v6}, Lcom/thoughtworks/xstream/core/util/FastStack;->popSilently()V
+    invoke-virtual {p1}, Lcom/thoughtworks/xstream/core/util/FastStack;->popSilently()V
 
-    .line 79
-    move-object v1, v5
+    :goto_3
+    return-object v2
 
-    .line 81
-    .end local v2    # "localResult":Ljava/lang/Object;
-    .end local v5    # "result":Ljava/lang/Object;
-    .local v1, "result":Ljava/lang/Object;
-    :goto_4
-    return-object v1
-
-    .line 74
-    .local v1, "currentReferenceKey":Ljava/lang/Object;
-    .restart local v2    # "localResult":Ljava/lang/Object;
     :catchall_0
-    move-exception v5
+    move-exception p1
 
-    move-object v6, v2
-
-    .line 75
-    .local v6, "result":Ljava/lang/Object;
-    if-eqz v1, :cond_a
+    if-eqz v0, :cond_9
 
     .line 76
-    iget-object v7, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->values:Ljava/util/Map;
+    iget-object p2, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->values:Ljava/util/Map;
 
-    if-nez v6, :cond_9
+    sget-object p3, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->NULL:Ljava/lang/Object;
 
-    sget-object v8, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->NULL:Ljava/lang/Object;
-
-    goto :goto_5
-
-    :cond_9
-    move-object v8, v6
-
-    :goto_5
-    invoke-interface {v7, v1, v8}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p2, v0, p3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 78
-    :cond_a
-    iget-object v7, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->parentStack:Lcom/thoughtworks/xstream/core/util/FastStack;
+    :cond_9
+    iget-object p2, p0, Lcom/thoughtworks/xstream/core/AbstractReferenceUnmarshaller;->parentStack:Lcom/thoughtworks/xstream/core/util/FastStack;
 
-    invoke-virtual {v7}, Lcom/thoughtworks/xstream/core/util/FastStack;->popSilently()V
+    invoke-virtual {p2}, Lcom/thoughtworks/xstream/core/util/FastStack;->popSilently()V
 
     .line 79
-    throw v5
+    throw p1
 .end method
 
 .method protected abstract getCurrentReferenceKey()Ljava/lang/Object;

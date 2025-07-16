@@ -17,16 +17,12 @@
 # virtual methods
 .method public decodeAttribute(Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .param p1, "attributeName"    # Ljava/lang/String;
 
-    .line 27
     return-object p1
 .end method
 
 .method public decodeNode(Ljava/lang/String;)Ljava/lang/String;
     .locals 0
-    .param p1, "elementName"    # Ljava/lang/String;
 
-    .line 35
     return-object p1
 .end method

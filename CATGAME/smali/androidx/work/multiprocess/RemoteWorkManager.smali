@@ -7,16 +7,14 @@
 .method protected constructor <init>()V
     .locals 0
 
-    .line 50
+    .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 52
     return-void
 .end method
 
 .method public static getInstance(Landroid/content/Context;)Landroidx/work/multiprocess/RemoteWorkManager;
-    .locals 4
-    .param p0, "context"    # Landroid/content/Context;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -26,42 +24,35 @@
         }
     .end annotation
 
-    .line 332
+    .line 346
     invoke-static {p0}, Landroidx/work/impl/WorkManagerImpl;->getInstance(Landroid/content/Context;)Landroidx/work/impl/WorkManagerImpl;
 
-    move-result-object v0
+    move-result-object p0
 
-    .line 333
-    .local v0, "workManager":Landroidx/work/impl/WorkManagerImpl;
-    invoke-virtual {v0}, Landroidx/work/impl/WorkManagerImpl;->getRemoteWorkManager()Landroidx/work/multiprocess/RemoteWorkManager;
+    .line 347
+    invoke-virtual {p0}, Landroidx/work/impl/WorkManagerImpl;->getRemoteWorkManager()Landroidx/work/multiprocess/RemoteWorkManager;
 
-    move-result-object v1
+    move-result-object p0
 
-    .line 334
-    .local v1, "remoteWorkManager":Landroidx/work/multiprocess/RemoteWorkManager;
-    if-eqz v1, :cond_0
+    if-eqz p0, :cond_0
 
-    .line 338
-    return-object v1
+    return-object p0
 
-    .line 336
+    .line 350
     :cond_0
-    new-instance v2, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v3, "Unable to initialize RemoteWorkManager"
+    const-string v0, "Unable to initialize RemoteWorkManager"
 
-    invoke-direct {v2, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 .end method
 
 
 # virtual methods
 .method public final beginUniqueWork(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Landroidx/work/OneTimeWorkRequest;)Landroidx/work/multiprocess/RemoteWorkContinuation;
-    .locals 1
-    .param p1, "uniqueWorkName"    # Ljava/lang/String;
-    .param p2, "existingWorkPolicy"    # Landroidx/work/ExistingWorkPolicy;
-    .param p3, "work"    # Landroidx/work/OneTimeWorkRequest;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -75,16 +66,16 @@
         }
     .end annotation
 
-    .line 215
+    .line 216
     invoke-static {p3}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p3
 
-    invoke-virtual {p0, p1, p2, v0}, Landroidx/work/multiprocess/RemoteWorkManager;->beginUniqueWork(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Ljava/util/List;)Landroidx/work/multiprocess/RemoteWorkContinuation;
+    invoke-virtual {p0, p1, p2, p3}, Landroidx/work/multiprocess/RemoteWorkManager;->beginUniqueWork(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Ljava/util/List;)Landroidx/work/multiprocess/RemoteWorkContinuation;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public abstract beginUniqueWork(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Ljava/util/List;)Landroidx/work/multiprocess/RemoteWorkContinuation;
@@ -115,8 +106,7 @@
 .end method
 
 .method public final beginWith(Landroidx/work/OneTimeWorkRequest;)Landroidx/work/multiprocess/RemoteWorkContinuation;
-    .locals 1
-    .param p1, "work"    # Landroidx/work/OneTimeWorkRequest;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -126,16 +116,16 @@
         }
     .end annotation
 
-    .line 166
+    .line 167
     invoke-static {p1}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Landroidx/work/multiprocess/RemoteWorkManager;->beginWith(Ljava/util/List;)Landroidx/work/multiprocess/RemoteWorkContinuation;
+    invoke-virtual {p0, p1}, Landroidx/work/multiprocess/RemoteWorkManager;->beginWith(Ljava/util/List;)Landroidx/work/multiprocess/RemoteWorkContinuation;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public abstract beginWith(Ljava/util/List;)Landroidx/work/multiprocess/RemoteWorkContinuation;
@@ -332,10 +322,7 @@
 .end method
 
 .method public final enqueueUniqueWork(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Landroidx/work/OneTimeWorkRequest;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 1
-    .param p1, "uniqueWorkName"    # Ljava/lang/String;
-    .param p2, "existingWorkPolicy"    # Landroidx/work/ExistingWorkPolicy;
-    .param p3, "work"    # Landroidx/work/OneTimeWorkRequest;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -362,20 +349,17 @@
         }
     .end annotation
 
-    .line 98
-    nop
-
-    .line 101
+    .line 102
     invoke-static {p3}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p3
 
-    .line 98
-    invoke-virtual {p0, p1, p2, v0}, Landroidx/work/multiprocess/RemoteWorkManager;->enqueueUniqueWork(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Ljava/util/List;)Lcom/google/common/util/concurrent/ListenableFuture;
+    .line 99
+    invoke-virtual {p0, p1, p2, p3}, Landroidx/work/multiprocess/RemoteWorkManager;->enqueueUniqueWork(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Ljava/util/List;)Lcom/google/common/util/concurrent/ListenableFuture;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public abstract enqueueUniqueWork(Ljava/lang/String;Landroidx/work/ExistingWorkPolicy;Ljava/util/List;)Lcom/google/common/util/concurrent/ListenableFuture;
@@ -426,6 +410,31 @@
             "Ljava/util/List<",
             "Landroidx/work/WorkInfo;",
             ">;>;"
+        }
+    .end annotation
+.end method
+
+.method public abstract setProgress(Ljava/util/UUID;Landroidx/work/Data;)Lcom/google/common/util/concurrent/ListenableFuture;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "id",
+            "data"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/UUID;",
+            "Landroidx/work/Data;",
+            ")",
+            "Lcom/google/common/util/concurrent/ListenableFuture<",
+            "Ljava/lang/Void;",
+            ">;"
         }
     .end annotation
 .end method

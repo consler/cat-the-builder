@@ -38,8 +38,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/Flowable;JLjava/lang/Object;Z)V
     .locals 0
-    .param p2, "index"    # J
-    .param p5, "errorOnFewer"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -49,9 +47,6 @@
     .end annotation
 
     .line 30
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableElementAt;, "Lio/reactivex/internal/operators/flowable/FlowableElementAt<TT;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p4, "defaultValue":Ljava/lang/Object;, "TT;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
     .line 31
@@ -63,7 +58,6 @@
     .line 33
     iput-boolean p5, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAt;->errorOnFewer:Z
 
-    .line 34
     return-void
 .end method
 
@@ -80,8 +74,6 @@
     .end annotation
 
     .line 38
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableElementAt;, "Lio/reactivex/internal/operators/flowable/FlowableElementAt<TT;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAt;->source:Lio/reactivex/Flowable;
 
     new-instance v7, Lio/reactivex/internal/operators/flowable/FlowableElementAt$ElementAtSubscriber;
@@ -100,6 +92,5 @@
 
     invoke-virtual {v0, v7}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 39
     return-void
 .end method

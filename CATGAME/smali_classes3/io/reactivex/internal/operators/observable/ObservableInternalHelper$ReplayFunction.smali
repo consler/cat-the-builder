@@ -53,7 +53,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/functions/Function;Lio/reactivex/Scheduler;)V
     .locals 0
-    .param p2, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,8 +68,6 @@
     .end annotation
 
     .line 399
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayFunction;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayFunction<TT;TR;>;"
-    .local p1, "selector":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Lio/reactivex/Observable<TT;>;+Lio/reactivex/ObservableSource<TR;>;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 400
@@ -79,14 +76,13 @@
     .line 401
     iput-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayFunction;->scheduler:Lio/reactivex/Scheduler;
 
-    .line 402
     return-void
 .end method
 
 
 # virtual methods
 .method public apply(Lio/reactivex/Observable;)Lio/reactivex/ObservableSource;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -104,32 +100,29 @@
     .end annotation
 
     .line 406
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayFunction;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayFunction<TT;TR;>;"
-    .local p1, "t":Lio/reactivex/Observable;, "Lio/reactivex/Observable<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayFunction;->selector:Lio/reactivex/functions/Function;
 
     invoke-interface {v0, p1}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lio/reactivex/ObservableSource;
+    check-cast p1, Lio/reactivex/ObservableSource;
 
-    invoke-static {v0}, Lio/reactivex/Observable;->wrap(Lio/reactivex/ObservableSource;)Lio/reactivex/Observable;
+    invoke-static {p1}, Lio/reactivex/Observable;->wrap(Lio/reactivex/ObservableSource;)Lio/reactivex/Observable;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayFunction;->scheduler:Lio/reactivex/Scheduler;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayFunction;->scheduler:Lio/reactivex/Scheduler;
 
-    invoke-virtual {v0, v1}, Lio/reactivex/Observable;->observeOn(Lio/reactivex/Scheduler;)Lio/reactivex/Observable;
+    invoke-virtual {p1, v0}, Lio/reactivex/Observable;->observeOn(Lio/reactivex/Scheduler;)Lio/reactivex/Observable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -137,14 +130,11 @@
     .end annotation
 
     .line 395
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayFunction;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayFunction<TT;TR;>;"
-    move-object v0, p1
+    check-cast p1, Lio/reactivex/Observable;
 
-    check-cast v0, Lio/reactivex/Observable;
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayFunction;->apply(Lio/reactivex/Observable;)Lio/reactivex/ObservableSource;
 
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ReplayFunction;->apply(Lio/reactivex/Observable;)Lio/reactivex/ObservableSource;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method

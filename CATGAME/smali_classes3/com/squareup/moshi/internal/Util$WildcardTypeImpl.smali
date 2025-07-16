@@ -28,9 +28,7 @@
 
 # direct methods
 .method public constructor <init>([Ljava/lang/reflect/Type;[Ljava/lang/reflect/Type;)V
-    .locals 4
-    .param p1, "upperBounds"    # [Ljava/lang/reflect/Type;
-    .param p2, "lowerBounds"    # [Ljava/lang/reflect/Type;
+    .locals 3
 
     .line 399
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,147 +38,130 @@
 
     const/4 v1, 0x1
 
-    if-gt v0, v1, :cond_5
+    if-gt v0, v1, :cond_3
 
     .line 401
     array-length v0, p1
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_2
 
     .line 403
     array-length v0, p2
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x0
-
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_1
 
     .line 404
-    aget-object v0, p2, v3
+    aget-object v0, p2, v2
 
-    if-eqz v0, :cond_1
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     .line 405
-    aget-object v0, p2, v3
-
     invoke-static {v0}, Lcom/squareup/moshi/internal/Util;->checkNotPrimitive(Ljava/lang/reflect/Type;)V
 
     .line 406
-    aget-object v0, p1, v3
+    aget-object p1, p1, v2
 
-    const-class v1, Ljava/lang/Object;
-
-    if-ne v0, v1, :cond_0
-
-    .line 407
-    aget-object v0, p2, v3
-
-    invoke-static {v0}, Lcom/squareup/moshi/internal/Util;->canonicalize(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/squareup/moshi/internal/Util$WildcardTypeImpl;->lowerBound:Ljava/lang/reflect/Type;
-
-    .line 408
     const-class v0, Ljava/lang/Object;
 
-    iput-object v0, p0, Lcom/squareup/moshi/internal/Util$WildcardTypeImpl;->upperBound:Ljava/lang/reflect/Type;
+    if-ne p1, v0, :cond_0
+
+    .line 407
+    aget-object p1, p2, v2
+
+    invoke-static {p1}, Lcom/squareup/moshi/internal/Util;->canonicalize(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/squareup/moshi/internal/Util$WildcardTypeImpl;->lowerBound:Ljava/lang/reflect/Type;
+
+    .line 408
+    const-class p1, Ljava/lang/Object;
+
+    iput-object p1, p0, Lcom/squareup/moshi/internal/Util$WildcardTypeImpl;->upperBound:Ljava/lang/reflect/Type;
 
     goto :goto_0
 
     .line 406
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw v0
-
-    .line 404
-    :cond_1
-    throw v2
+    throw p1
 
     .line 411
-    :cond_2
-    aget-object v0, p1, v3
+    :cond_1
+    aget-object p2, p1, v2
 
-    if-eqz v0, :cond_3
+    invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     .line 412
-    aget-object v0, p1, v3
+    invoke-static {p2}, Lcom/squareup/moshi/internal/Util;->checkNotPrimitive(Ljava/lang/reflect/Type;)V
 
-    invoke-static {v0}, Lcom/squareup/moshi/internal/Util;->checkNotPrimitive(Ljava/lang/reflect/Type;)V
+    const/4 p2, 0x0
 
     .line 413
-    iput-object v2, p0, Lcom/squareup/moshi/internal/Util$WildcardTypeImpl;->lowerBound:Ljava/lang/reflect/Type;
+    iput-object p2, p0, Lcom/squareup/moshi/internal/Util$WildcardTypeImpl;->lowerBound:Ljava/lang/reflect/Type;
 
     .line 414
-    aget-object v0, p1, v3
+    aget-object p1, p1, v2
 
-    invoke-static {v0}, Lcom/squareup/moshi/internal/Util;->canonicalize(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
+    invoke-static {p1}, Lcom/squareup/moshi/internal/Util;->canonicalize(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/squareup/moshi/internal/Util$WildcardTypeImpl;->upperBound:Ljava/lang/reflect/Type;
+    iput-object p1, p0, Lcom/squareup/moshi/internal/Util$WildcardTypeImpl;->upperBound:Ljava/lang/reflect/Type;
 
-    .line 416
     :goto_0
     return-void
 
-    .line 411
-    :cond_3
-    throw v2
-
     .line 401
-    :cond_4
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    :cond_2
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw v0
+    throw p1
 
     .line 400
-    :cond_5
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    :cond_3
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "other"    # Ljava/lang/Object;
 
     .line 427
     instance-of v0, p1, Ljava/lang/reflect/WildcardType;
 
     if-eqz v0, :cond_0
 
-    move-object v0, p1
-
-    check-cast v0, Ljava/lang/reflect/WildcardType;
+    check-cast p1, Ljava/lang/reflect/WildcardType;
 
     .line 428
-    invoke-static {p0, v0}, Lcom/squareup/moshi/Types;->equals(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Z
+    invoke-static {p0, p1}, Lcom/squareup/moshi/Types;->equals(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    .line 427
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public getLowerBounds()[Ljava/lang/reflect/Type;
@@ -211,16 +192,16 @@
 .method public getUpperBounds()[Ljava/lang/reflect/Type;
     .locals 3
 
-    .line 419
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/lang/reflect/Type;
 
-    iget-object v1, p0, Lcom/squareup/moshi/internal/Util$WildcardTypeImpl;->upperBound:Ljava/lang/reflect/Type;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    .line 419
+    iget-object v2, p0, Lcom/squareup/moshi/internal/Util$WildcardTypeImpl;->upperBound:Ljava/lang/reflect/Type;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     return-object v0
 .end method
@@ -256,7 +237,6 @@
 
     xor-int/2addr v0, v1
 
-    .line 433
     return v0
 .end method
 
@@ -271,11 +251,9 @@
     .line 439
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "? super "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v1, p0, Lcom/squareup/moshi/internal/Util$WildcardTypeImpl;->lowerBound:Ljava/lang/reflect/Type;
 
@@ -284,6 +262,8 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -299,7 +279,6 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 441
     const-string v0, "?"
 
     return-object v0
@@ -308,11 +287,9 @@
     :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "? extends "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v1, p0, Lcom/squareup/moshi/internal/Util$WildcardTypeImpl;->upperBound:Ljava/lang/reflect/Type;
 
@@ -321,6 +298,8 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

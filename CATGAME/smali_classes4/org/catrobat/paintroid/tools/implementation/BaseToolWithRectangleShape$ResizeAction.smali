@@ -22,11 +22,6 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u0000\u000c\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0002\u0008\u000b\u0008\u0082\u0001\u0018\u00002\u0008\u0012\u0004\u0012\u00020\u00000\u0001B\u0007\u0008\u0002\u00a2\u0006\u0002\u0010\u0002j\u0002\u0008\u0003j\u0002\u0008\u0004j\u0002\u0008\u0005j\u0002\u0008\u0006j\u0002\u0008\u0007j\u0002\u0008\u0008j\u0002\u0008\tj\u0002\u0008\nj\u0002\u0008\u000b\u00a8\u0006\u000c"
     }
@@ -43,14 +38,15 @@
         "TOPRIGHT",
         "BOTTOMLEFT",
         "BOTTOMRIGHT",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -77,120 +73,167 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 4
+.method private static final synthetic $values()[Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+    .locals 3
 
     const/16 v0, 0x9
 
     new-array v0, v0, [Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
 
-    new-instance v1, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+    const/4 v1, 0x0
 
-    const-string v2, "NONE"
+    sget-object v2, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->NONE:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
 
-    const/4 v3, 0x0
+    aput-object v2, v0, v1
 
-    invoke-direct {v1, v2, v3}, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;-><init>(Ljava/lang/String;I)V
+    const/4 v1, 0x1
 
-    sput-object v1, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->NONE:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+    sget-object v2, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->TOP:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
 
-    aput-object v1, v0, v3
+    aput-object v2, v0, v1
 
-    new-instance v1, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+    const/4 v1, 0x2
 
-    const-string v2, "TOP"
+    sget-object v2, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->RIGHT:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
 
-    const/4 v3, 0x1
+    aput-object v2, v0, v1
 
-    invoke-direct {v1, v2, v3}, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;-><init>(Ljava/lang/String;I)V
+    const/4 v1, 0x3
 
-    sput-object v1, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->TOP:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+    sget-object v2, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->BOTTOM:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
 
-    aput-object v1, v0, v3
+    aput-object v2, v0, v1
 
-    new-instance v1, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+    const/4 v1, 0x4
 
-    const-string v2, "RIGHT"
+    sget-object v2, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->LEFT:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
 
-    const/4 v3, 0x2
+    aput-object v2, v0, v1
 
-    invoke-direct {v1, v2, v3}, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;-><init>(Ljava/lang/String;I)V
+    const/4 v1, 0x5
 
-    sput-object v1, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->RIGHT:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+    sget-object v2, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->TOPLEFT:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
 
-    aput-object v1, v0, v3
+    aput-object v2, v0, v1
 
-    new-instance v1, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+    const/4 v1, 0x6
 
-    const-string v2, "BOTTOM"
+    sget-object v2, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->TOPRIGHT:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
 
-    const/4 v3, 0x3
+    aput-object v2, v0, v1
 
-    invoke-direct {v1, v2, v3}, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;-><init>(Ljava/lang/String;I)V
+    const/4 v1, 0x7
 
-    sput-object v1, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->BOTTOM:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+    sget-object v2, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->BOTTOMLEFT:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
 
-    aput-object v1, v0, v3
+    aput-object v2, v0, v1
 
-    new-instance v1, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+    const/16 v1, 0x8
 
-    const-string v2, "LEFT"
+    sget-object v2, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->BOTTOMRIGHT:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
 
-    const/4 v3, 0x4
+    aput-object v2, v0, v1
 
-    invoke-direct {v1, v2, v3}, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;-><init>(Ljava/lang/String;I)V
+    return-object v0
+.end method
 
-    sput-object v1, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->LEFT:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+.method static constructor <clinit>()V
+    .locals 3
 
-    aput-object v1, v0, v3
+    .line 816
+    new-instance v0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
 
-    new-instance v1, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+    const-string v1, "NONE"
 
-    const-string v2, "TOPLEFT"
+    const/4 v2, 0x0
 
-    const/4 v3, 0x5
+    invoke-direct {v0, v1, v2}, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v1, v2, v3}, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;-><init>(Ljava/lang/String;I)V
+    sput-object v0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->NONE:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
 
-    sput-object v1, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->TOPLEFT:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+    new-instance v0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
 
-    aput-object v1, v0, v3
+    const-string v1, "TOP"
 
-    new-instance v1, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+    const/4 v2, 0x1
 
-    const-string v2, "TOPRIGHT"
+    invoke-direct {v0, v1, v2}, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;-><init>(Ljava/lang/String;I)V
 
-    const/4 v3, 0x6
+    sput-object v0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->TOP:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
 
-    invoke-direct {v1, v2, v3}, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;-><init>(Ljava/lang/String;I)V
+    new-instance v0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
 
-    sput-object v1, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->TOPRIGHT:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+    const-string v1, "RIGHT"
 
-    aput-object v1, v0, v3
+    const/4 v2, 0x2
 
-    new-instance v1, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+    invoke-direct {v0, v1, v2}, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;-><init>(Ljava/lang/String;I)V
 
-    const-string v2, "BOTTOMLEFT"
+    sput-object v0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->RIGHT:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
 
-    const/4 v3, 0x7
+    new-instance v0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
 
-    invoke-direct {v1, v2, v3}, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;-><init>(Ljava/lang/String;I)V
+    const-string v1, "BOTTOM"
 
-    sput-object v1, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->BOTTOMLEFT:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+    const/4 v2, 0x3
 
-    aput-object v1, v0, v3
+    invoke-direct {v0, v1, v2}, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;-><init>(Ljava/lang/String;I)V
 
-    new-instance v1, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+    sput-object v0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->BOTTOM:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
 
-    const-string v2, "BOTTOMRIGHT"
+    new-instance v0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
 
-    const/16 v3, 0x8
+    const-string v1, "LEFT"
 
-    invoke-direct {v1, v2, v3}, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;-><init>(Ljava/lang/String;I)V
+    const/4 v2, 0x4
 
-    sput-object v1, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->BOTTOMRIGHT:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+    invoke-direct {v0, v1, v2}, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;-><init>(Ljava/lang/String;I)V
 
-    aput-object v1, v0, v3
+    sput-object v0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->LEFT:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+
+    new-instance v0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+
+    const-string v1, "TOPLEFT"
+
+    const/4 v2, 0x5
+
+    invoke-direct {v0, v1, v2}, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->TOPLEFT:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+
+    new-instance v0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+
+    const-string v1, "TOPRIGHT"
+
+    const/4 v2, 0x6
+
+    invoke-direct {v0, v1, v2}, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->TOPRIGHT:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+
+    new-instance v0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+
+    const-string v1, "BOTTOMLEFT"
+
+    const/4 v2, 0x7
+
+    invoke-direct {v0, v1, v2}, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->BOTTOMLEFT:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+
+    new-instance v0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+
+    const-string v1, "BOTTOMRIGHT"
+
+    const/16 v2, 0x8
+
+    invoke-direct {v0, v1, v2}, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->BOTTOMRIGHT:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+
+    invoke-static {}, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->$values()[Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
+
+    move-result-object v0
 
     sput-object v0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->$VALUES:[Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
 
@@ -199,15 +242,13 @@
 
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .param p1, "$enum$name"    # Ljava/lang/String;
-    .param p2, "$enum$ordinal"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
         }
     .end annotation
 
-    .line 775
+    .line 815
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -232,7 +273,7 @@
 
     sget-object v0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->$VALUES:[Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;
 
-    invoke-virtual {v0}, [Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$ResizeAction;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, [Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

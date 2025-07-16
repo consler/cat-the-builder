@@ -36,8 +36,6 @@
 # direct methods
 .method constructor <init>(Landroidx/work/impl/ExecutionListener;Ljava/lang/String;Lcom/google/common/util/concurrent/ListenableFuture;)V
     .locals 0
-    .param p1, "executionListener"    # Landroidx/work/impl/ExecutionListener;
-    .param p2, "workSpecId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -62,20 +60,18 @@
         }
     .end annotation
 
-    .line 360
-    .local p3, "future":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<Ljava/lang/Boolean;>;"
+    .line 362
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 361
+    .line 363
     iput-object p1, p0, Landroidx/work/impl/Processor$FutureListener;->mExecutionListener:Landroidx/work/impl/ExecutionListener;
 
-    .line 362
+    .line 364
     iput-object p2, p0, Landroidx/work/impl/Processor$FutureListener;->mWorkSpecId:Ljava/lang/String;
 
-    .line 363
+    .line 365
     iput-object p3, p0, Landroidx/work/impl/Processor$FutureListener;->mFuture:Lcom/google/common/util/concurrent/ListenableFuture;
 
-    .line 364
     return-void
 .end method
 
@@ -84,7 +80,7 @@
 .method public run()V
     .locals 3
 
-    .line 370
+    .line 372
     :try_start_0
     iget-object v0, p0, Landroidx/work/impl/Processor$FutureListener;->mFuture:Lcom/google/common/util/concurrent/ListenableFuture;
 
@@ -98,39 +94,21 @@
 
     move-result v0
     :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 374
-    .local v0, "needsReschedule":Z
-    goto :goto_1
-
-    .line 371
-    .end local v0    # "needsReschedule":Z
-    :catch_0
-    move-exception v0
 
     goto :goto_0
 
-    :catch_1
-    move-exception v0
+    :catch_0
+    const/4 v0, 0x1
 
-    .line 373
-    .local v0, "e":Ljava/lang/Exception;
+    .line 377
     :goto_0
-    const/4 v1, 0x1
-
-    move v0, v1
-
-    .line 375
-    .local v0, "needsReschedule":Z
-    :goto_1
     iget-object v1, p0, Landroidx/work/impl/Processor$FutureListener;->mExecutionListener:Landroidx/work/impl/ExecutionListener;
 
     iget-object v2, p0, Landroidx/work/impl/Processor$FutureListener;->mWorkSpecId:Ljava/lang/String;
 
     invoke-interface {v1, v2, v0}, Landroidx/work/impl/ExecutionListener;->onExecuted(Ljava/lang/String;Z)V
 
-    .line 376
     return-void
 .end method

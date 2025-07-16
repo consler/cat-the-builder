@@ -14,125 +14,79 @@
 .end method
 
 .method public static newAndroidInput(Lcom/badlogic/gdx/Application;Landroid/content/Context;Ljava/lang/Object;Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;)Lcom/badlogic/gdx/backends/android/AndroidInput;
-    .locals 10
-    .param p0, "activity"    # Lcom/badlogic/gdx/Application;
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "view"    # Ljava/lang/Object;
-    .param p3, "config"    # Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;
+    .locals 8
 
-    .line 31
-    const/4 v0, 0x0
-
-    .line 32
-    .local v0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    const/4 v1, 0x0
-
-    .line 34
-    .local v1, "input":Lcom/badlogic/gdx/backends/android/AndroidInput;
     :try_start_0
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    .line 35
-    .local v2, "sdkVersion":I
-    const/16 v3, 0xc
-
-    if-lt v2, v3, :cond_0
+    const-string v0, "com.badlogic.gdx.backends.android.AndroidInputThreePlus"
 
     .line 36
-    const-string v3, "com.badlogic.gdx.backends.android.AndroidInputThreePlus"
+    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    invoke-static {v3}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    move-result-object v0
 
-    move-result-object v3
+    const/4 v1, 0x4
 
-    move-object v0, v3
-
-    goto :goto_0
-
-    .line 38
-    :cond_0
-    const-string v3, "com.badlogic.gdx.backends.android.AndroidInput"
-
-    invoke-static {v3}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
-
-    move-result-object v3
-
-    move-object v0, v3
+    new-array v2, v1, [Ljava/lang/Class;
 
     .line 40
-    :goto_0
-    const/4 v3, 0x4
+    const-class v3, Lcom/badlogic/gdx/Application;
 
-    new-array v4, v3, [Ljava/lang/Class;
+    const/4 v4, 0x0
 
-    const-class v5, Lcom/badlogic/gdx/Application;
+    aput-object v3, v2, v4
 
-    const/4 v6, 0x0
+    const-class v3, Landroid/content/Context;
 
-    aput-object v5, v4, v6
+    const/4 v5, 0x1
 
-    const-class v5, Landroid/content/Context;
+    aput-object v3, v2, v5
 
-    const/4 v7, 0x1
+    const-class v3, Ljava/lang/Object;
 
-    aput-object v5, v4, v7
+    const/4 v6, 0x2
 
-    const-class v5, Ljava/lang/Object;
+    aput-object v3, v2, v6
 
-    const/4 v8, 0x2
+    const-class v3, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;
 
-    aput-object v5, v4, v8
+    const/4 v7, 0x3
 
-    const-class v5, Lcom/badlogic/gdx/backends/android/AndroidApplicationConfiguration;
+    aput-object v3, v2, v7
 
-    const/4 v9, 0x3
+    invoke-virtual {v0, v2}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
-    aput-object v5, v4, v9
+    move-result-object v0
 
-    invoke-virtual {v0, v4}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+    new-array v1, v1, [Ljava/lang/Object;
 
-    move-result-object v4
+    aput-object p0, v1, v4
+
+    aput-object p1, v1, v5
+
+    aput-object p2, v1, v6
+
+    aput-object p3, v1, v7
 
     .line 42
-    .local v4, "constructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<*>;"
-    new-array v3, v3, [Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
-    aput-object p0, v3, v6
+    move-result-object p0
 
-    aput-object p1, v3, v7
-
-    aput-object p2, v3, v8
-
-    aput-object p3, v3, v9
-
-    invoke-virtual {v4, v3}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/badlogic/gdx/backends/android/AndroidInput;
+    check-cast p0, Lcom/badlogic/gdx/backends/android/AndroidInput;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-object v1, v3
+    return-object p0
 
-    .line 43
-    return-object v1
-
-    .line 44
-    .end local v0    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .end local v1    # "input":Lcom/badlogic/gdx/backends/android/AndroidInput;
-    .end local v2    # "sdkVersion":I
-    .end local v4    # "constructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<*>;"
     :catch_0
-    move-exception v0
+    move-exception p0
 
     .line 45
-    .local v0, "e":Ljava/lang/Exception;
-    new-instance v1, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    const-string v2, "Couldn\'t construct AndroidInput, this should never happen"
+    const-string p2, "Couldn\'t construct AndroidInput, this should never happen"
 
-    invoke-direct {v1, v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p1, p2, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v1
+    throw p1
 .end method

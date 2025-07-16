@@ -32,7 +32,6 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/maps/tiled/TiledMap;->tilesets:Lcom/badlogic/gdx/maps/tiled/TiledMapTileSets;
 
-    .line 40
     return-void
 .end method
 
@@ -65,14 +64,10 @@
     check-cast v1, Lcom/badlogic/gdx/utils/Disposable;
 
     .line 53
-    .local v1, "resource":Lcom/badlogic/gdx/utils/Disposable;
     invoke-interface {v1}, Lcom/badlogic/gdx/utils/Disposable;->dispose()V
 
-    .line 54
-    .end local v1    # "resource":Lcom/badlogic/gdx/utils/Disposable;
     goto :goto_0
 
-    .line 56
     :cond_0
     return-void
 .end method
@@ -99,9 +94,7 @@
     .end annotation
 
     .line 46
-    .local p1, "resources":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<+Lcom/badlogic/gdx/utils/Disposable;>;"
     iput-object p1, p0, Lcom/badlogic/gdx/maps/tiled/TiledMap;->ownedResources:Lcom/badlogic/gdx/utils/Array;
 
-    .line 47
     return-void
 .end method

@@ -82,13 +82,13 @@
 
     sget v2, Lcom/huawei/hmf/tasks/a/a;->b:I
 
+    const-wide/16 v3, 0x1
+
     sget-object v5, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
 
     new-instance v6, Ljava/util/concurrent/LinkedBlockingQueue;
 
     invoke-direct {v6}, Ljava/util/concurrent/LinkedBlockingQueue;-><init>()V
-
-    const-wide/16 v3, 0x1
 
     move-object v0, v7
 

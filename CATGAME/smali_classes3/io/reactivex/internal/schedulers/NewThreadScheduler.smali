@@ -19,11 +19,11 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .line 38
     const-string v0, "rx2.newthread-priority"
 
     const/4 v1, 0x5
 
+    .line 38
     invoke-static {v0, v1}, Ljava/lang/Integer;->getInteger(Ljava/lang/String;I)Ljava/lang/Integer;
 
     move-result-object v0
@@ -45,7 +45,6 @@
     move-result v0
 
     .line 41
-    .local v0, "priority":I
     new-instance v1, Lio/reactivex/internal/schedulers/RxThreadFactory;
 
     const-string v2, "RxNewThreadScheduler"
@@ -54,8 +53,6 @@
 
     sput-object v1, Lio/reactivex/internal/schedulers/NewThreadScheduler;->THREAD_FACTORY:Lio/reactivex/internal/schedulers/RxThreadFactory;
 
-    .line 42
-    .end local v0    # "priority":I
     return-void
 .end method
 
@@ -67,13 +64,11 @@
 
     invoke-direct {p0, v0}, Lio/reactivex/internal/schedulers/NewThreadScheduler;-><init>(Ljava/util/concurrent/ThreadFactory;)V
 
-    .line 46
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/concurrent/ThreadFactory;)V
     .locals 0
-    .param p1, "threadFactory"    # Ljava/util/concurrent/ThreadFactory;
 
     .line 48
     invoke-direct {p0}, Lio/reactivex/Scheduler;-><init>()V
@@ -81,7 +76,6 @@
     .line 49
     iput-object p1, p0, Lio/reactivex/internal/schedulers/NewThreadScheduler;->threadFactory:Ljava/util/concurrent/ThreadFactory;
 
-    .line 50
     return-void
 .end method
 

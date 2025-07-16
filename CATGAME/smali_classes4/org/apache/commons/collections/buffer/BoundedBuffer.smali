@@ -26,18 +26,14 @@
 
 # direct methods
 .method protected constructor <init>(Lorg/apache/commons/collections/Buffer;IJ)V
-    .locals 1
-    .param p1, "buffer"    # Lorg/apache/commons/collections/Buffer;
-    .param p2, "maximumSize"    # I
-    .param p3, "timeout"    # J
+    .locals 0
 
     .line 101
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/buffer/SynchronizedBuffer;-><init>(Lorg/apache/commons/collections/Buffer;)V
 
-    .line 102
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    if-lt p2, v0, :cond_0
+    if-lt p2, p1, :cond_0
 
     .line 105
     iput p2, p0, Lorg/apache/commons/collections/buffer/BoundedBuffer;->maximumSize:I
@@ -45,42 +41,37 @@
     .line 106
     iput-wide p3, p0, Lorg/apache/commons/collections/buffer/BoundedBuffer;->timeout:J
 
-    .line 107
     return-void
 
     .line 103
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method static synthetic access$000(Lorg/apache/commons/collections/buffer/BoundedBuffer;)Ljava/lang/Object;
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections/buffer/BoundedBuffer;
+    .locals 0
 
     .line 48
-    iget-object v0, p0, Lorg/apache/commons/collections/buffer/BoundedBuffer;->lock:Ljava/lang/Object;
+    iget-object p0, p0, Lorg/apache/commons/collections/buffer/BoundedBuffer;->lock:Ljava/lang/Object;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$100(Lorg/apache/commons/collections/buffer/BoundedBuffer;)Ljava/lang/Object;
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections/buffer/BoundedBuffer;
+    .locals 0
 
     .line 48
-    iget-object v0, p0, Lorg/apache/commons/collections/buffer/BoundedBuffer;->lock:Ljava/lang/Object;
+    iget-object p0, p0, Lorg/apache/commons/collections/buffer/BoundedBuffer;->lock:Ljava/lang/Object;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static decorate(Lorg/apache/commons/collections/Buffer;I)Lorg/apache/commons/collections/buffer/BoundedBuffer;
     .locals 3
-    .param p0, "buffer"    # Lorg/apache/commons/collections/Buffer;
-    .param p1, "maximumSize"    # I
 
     .line 71
     new-instance v0, Lorg/apache/commons/collections/buffer/BoundedBuffer;
@@ -94,9 +85,6 @@
 
 .method public static decorate(Lorg/apache/commons/collections/Buffer;IJ)Lorg/apache/commons/collections/buffer/BoundedBuffer;
     .locals 1
-    .param p0, "buffer"    # Lorg/apache/commons/collections/Buffer;
-    .param p1, "maximumSize"    # I
-    .param p2, "timeout"    # J
 
     .line 86
     new-instance v0, Lorg/apache/commons/collections/buffer/BoundedBuffer;
@@ -107,8 +95,7 @@
 .end method
 
 .method private timeoutWait(I)V
-    .locals 9
-    .param p1, "nAdditions"    # I
+    .locals 8
 
     .line 138
     iget v0, p0, Lorg/apache/commons/collections/buffer/BoundedBuffer;->maximumSize:I
@@ -137,34 +124,33 @@
 
     add-int/2addr v0, p1
 
-    iget v2, p0, Lorg/apache/commons/collections/buffer/BoundedBuffer;->maximumSize:I
+    iget p1, p0, Lorg/apache/commons/collections/buffer/BoundedBuffer;->maximumSize:I
 
-    if-gt v0, v2, :cond_0
+    if-gt v0, p1, :cond_0
 
-    .line 148
     return-void
 
     .line 145
     :cond_0
-    new-instance v0, Lorg/apache/commons/collections/BufferOverflowException;
+    new-instance p1, Lorg/apache/commons/collections/BufferOverflowException;
 
-    new-instance v2, Ljava/lang/StringBuffer;
+    new-instance v0, Ljava/lang/StringBuffer;
 
-    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
     iget v1, p0, Lorg/apache/commons/collections/buffer/BoundedBuffer;->maximumSize:I
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Lorg/apache/commons/collections/BufferOverflowException;-><init>(Ljava/lang/String;)V
+    move-result-object v0
 
-    throw v0
+    invoke-direct {p1, v0}, Lorg/apache/commons/collections/BufferOverflowException;-><init>(Ljava/lang/String;)V
+
+    throw p1
 
     .line 150
     :cond_1
@@ -177,20 +163,18 @@
     add-long/2addr v0, v2
 
     .line 151
-    .local v0, "expiration":J
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
 
+    :goto_0
     sub-long v2, v0, v2
 
-    .line 152
-    .local v2, "timeLeft":J
-    :goto_0
     cmp-long v6, v2, v4
 
     if-lez v6, :cond_2
 
+    .line 152
     invoke-virtual {p0}, Lorg/apache/commons/collections/buffer/BoundedBuffer;->getBuffer()Lorg/apache/commons/collections/Buffer;
 
     move-result-object v6
@@ -214,128 +198,116 @@
     .line 155
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v6
+    move-result-wide v2
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    sub-long v2, v0, v6
-
-    .line 161
     goto :goto_0
 
-    .line 156
     :catch_0
-    move-exception v4
+    move-exception p1
 
     .line 157
-    .local v4, "ex":Ljava/lang/InterruptedException;
-    new-instance v5, Ljava/io/PrintWriter;
+    new-instance v0, Ljava/io/PrintWriter;
 
-    new-instance v6, Ljava/io/StringWriter;
+    new-instance v1, Ljava/io/StringWriter;
 
-    invoke-direct {v6}, Ljava/io/StringWriter;-><init>()V
+    invoke-direct {v1}, Ljava/io/StringWriter;-><init>()V
 
-    invoke-direct {v5, v6}, Ljava/io/PrintWriter;-><init>(Ljava/io/Writer;)V
+    invoke-direct {v0, v1}, Ljava/io/PrintWriter;-><init>(Ljava/io/Writer;)V
 
     .line 158
-    .local v5, "out":Ljava/io/PrintWriter;
-    invoke-virtual {v4, v5}, Ljava/lang/InterruptedException;->printStackTrace(Ljava/io/PrintWriter;)V
+    invoke-virtual {p1, v0}, Ljava/lang/InterruptedException;->printStackTrace(Ljava/io/PrintWriter;)V
 
     .line 159
-    new-instance v6, Lorg/apache/commons/collections/BufferUnderflowException;
+    new-instance p1, Lorg/apache/commons/collections/BufferUnderflowException;
 
-    new-instance v7, Ljava/lang/StringBuffer;
+    new-instance v1, Ljava/lang/StringBuffer;
 
-    invoke-direct {v7}, Ljava/lang/StringBuffer;-><init>()V
+    const-string v2, "Caused by InterruptedException: "
 
-    const-string v8, "Caused by InterruptedException: "
+    invoke-direct {v1, v2}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    invoke-virtual {v5}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v8
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-result-object v0
 
-    invoke-virtual {v7}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v0
 
-    invoke-direct {v6, v7}, Lorg/apache/commons/collections/BufferUnderflowException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lorg/apache/commons/collections/BufferUnderflowException;-><init>(Ljava/lang/String;)V
 
-    throw v6
+    throw p1
 
     .line 163
-    .end local v4    # "ex":Ljava/lang/InterruptedException;
-    .end local v5    # "out":Ljava/io/PrintWriter;
     :cond_2
     invoke-virtual {p0}, Lorg/apache/commons/collections/buffer/BoundedBuffer;->getBuffer()Lorg/apache/commons/collections/Buffer;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-interface {v4}, Lorg/apache/commons/collections/Buffer;->size()I
+    invoke-interface {v0}, Lorg/apache/commons/collections/Buffer;->size()I
 
-    move-result v4
+    move-result v0
 
-    add-int/2addr v4, p1
+    add-int/2addr v0, p1
 
-    iget v5, p0, Lorg/apache/commons/collections/buffer/BoundedBuffer;->maximumSize:I
+    iget p1, p0, Lorg/apache/commons/collections/buffer/BoundedBuffer;->maximumSize:I
 
-    if-gt v4, v5, :cond_3
+    if-gt v0, p1, :cond_3
 
-    .line 166
     return-void
 
     .line 164
     :cond_3
-    new-instance v4, Lorg/apache/commons/collections/BufferOverflowException;
+    new-instance p1, Lorg/apache/commons/collections/BufferOverflowException;
 
-    const-string v5, "Timeout expired"
+    const-string v0, "Timeout expired"
 
-    invoke-direct {v4, v5}, Lorg/apache/commons/collections/BufferOverflowException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lorg/apache/commons/collections/BufferOverflowException;-><init>(Ljava/lang/String;)V
 
-    throw v4
+    throw p1
 
     .line 139
-    .end local v0    # "expiration":J
-    .end local v2    # "timeLeft":J
     :cond_4
-    new-instance v0, Lorg/apache/commons/collections/BufferOverflowException;
+    new-instance p1, Lorg/apache/commons/collections/BufferOverflowException;
 
-    new-instance v2, Ljava/lang/StringBuffer;
+    new-instance v0, Ljava/lang/StringBuffer;
 
-    invoke-direct {v2}, Ljava/lang/StringBuffer;-><init>()V
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
     iget v1, p0, Lorg/apache/commons/collections/buffer/BoundedBuffer;->maximumSize:I
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Lorg/apache/commons/collections/BufferOverflowException;-><init>(Ljava/lang/String;)V
+    move-result-object v0
 
-    throw v0
+    invoke-direct {p1, v0}, Lorg/apache/commons/collections/BufferOverflowException;-><init>(Ljava/lang/String;)V
+
+    throw p1
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "o"    # Ljava/lang/Object;
 
     .line 119
     iget-object v0, p0, Lorg/apache/commons/collections/buffer/BoundedBuffer;->lock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 120
     const/4 v1, 0x1
 
+    .line 120
     :try_start_0
     invoke-direct {p0, v1}, Lorg/apache/commons/collections/buffer/BoundedBuffer;->timeoutWait(I)V
 
@@ -346,26 +318,25 @@
 
     invoke-interface {v1, p1}, Lorg/apache/commons/collections/Buffer;->add(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
     monitor-exit v0
 
-    return v1
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 122
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
     .locals 2
-    .param p1, "c"    # Ljava/util/Collection;
 
     .line 126
     iget-object v0, p0, Lorg/apache/commons/collections/buffer/BoundedBuffer;->lock:Ljava/lang/Object;
@@ -387,21 +358,21 @@
 
     invoke-interface {v1, p1}, Lorg/apache/commons/collections/Buffer;->addAll(Ljava/util/Collection;)Z
 
-    move-result v1
+    move-result p1
 
     monitor-exit v0
 
-    return v1
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 129
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public isFull()Z
@@ -474,7 +445,6 @@
     move-result-object v1
 
     .line 113
-    .local v1, "returnValue":Ljava/lang/Object;
     iget-object v2, p0, Lorg/apache/commons/collections/buffer/BoundedBuffer;->lock:Ljava/lang/Object;
 
     invoke-virtual {v2}, Ljava/lang/Object;->notifyAll()V
@@ -484,11 +454,10 @@
 
     return-object v1
 
-    .line 115
-    .end local v1    # "returnValue":Ljava/lang/Object;
     :catchall_0
     move-exception v1
 
+    .line 115
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0

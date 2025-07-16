@@ -35,7 +35,6 @@
 # direct methods
 .method constructor <init>(Landroidx/transition/ChangeBounds;Landroid/view/View;Landroid/graphics/Rect;IIII)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/transition/ChangeBounds;
 
     .line 370
     iput-object p1, p0, Landroidx/transition/ChangeBounds$8;->this$0:Landroidx/transition/ChangeBounds;
@@ -60,48 +59,44 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 1
-    .param p1, "animation"    # Landroid/animation/Animator;
+    .locals 0
+
+    const/4 p1, 0x1
 
     .line 375
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Landroidx/transition/ChangeBounds$8;->mIsCanceled:Z
 
-    iput-boolean v0, p0, Landroidx/transition/ChangeBounds$8;->mIsCanceled:Z
-
-    .line 376
     return-void
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 5
-    .param p1, "animation"    # Landroid/animation/Animator;
+    .locals 4
 
     .line 380
-    iget-boolean v0, p0, Landroidx/transition/ChangeBounds$8;->mIsCanceled:Z
+    iget-boolean p1, p0, Landroidx/transition/ChangeBounds$8;->mIsCanceled:Z
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 381
-    iget-object v0, p0, Landroidx/transition/ChangeBounds$8;->val$view:Landroid/view/View;
+    iget-object p1, p0, Landroidx/transition/ChangeBounds$8;->val$view:Landroid/view/View;
 
-    iget-object v1, p0, Landroidx/transition/ChangeBounds$8;->val$finalClip:Landroid/graphics/Rect;
+    iget-object v0, p0, Landroidx/transition/ChangeBounds$8;->val$finalClip:Landroid/graphics/Rect;
 
-    invoke-static {v0, v1}, Landroidx/core/view/ViewCompat;->setClipBounds(Landroid/view/View;Landroid/graphics/Rect;)V
+    invoke-static {p1, v0}, Landroidx/core/view/ViewCompat;->setClipBounds(Landroid/view/View;Landroid/graphics/Rect;)V
 
     .line 382
-    iget-object v0, p0, Landroidx/transition/ChangeBounds$8;->val$view:Landroid/view/View;
+    iget-object p1, p0, Landroidx/transition/ChangeBounds$8;->val$view:Landroid/view/View;
 
-    iget v1, p0, Landroidx/transition/ChangeBounds$8;->val$endLeft:I
+    iget v0, p0, Landroidx/transition/ChangeBounds$8;->val$endLeft:I
 
-    iget v2, p0, Landroidx/transition/ChangeBounds$8;->val$endTop:I
+    iget v1, p0, Landroidx/transition/ChangeBounds$8;->val$endTop:I
 
-    iget v3, p0, Landroidx/transition/ChangeBounds$8;->val$endRight:I
+    iget v2, p0, Landroidx/transition/ChangeBounds$8;->val$endRight:I
 
-    iget v4, p0, Landroidx/transition/ChangeBounds$8;->val$endBottom:I
+    iget v3, p0, Landroidx/transition/ChangeBounds$8;->val$endBottom:I
 
-    invoke-static {v0, v1, v2, v3, v4}, Landroidx/transition/ViewUtils;->setLeftTopRightBottom(Landroid/view/View;IIII)V
+    invoke-static {p1, v0, v1, v2, v3}, Landroidx/transition/ViewUtils;->setLeftTopRightBottom(Landroid/view/View;IIII)V
 
-    .line 385
     :cond_0
     return-void
 .end method

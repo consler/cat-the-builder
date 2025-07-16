@@ -16,9 +16,9 @@
     .line 29
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/Camera;-><init>()V
 
-    .line 27
     const/high16 v0, 0x42860000    # 67.0f
 
+    .line 27
     iput v0, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->fieldOfView:F
 
     .line 46
@@ -28,22 +28,18 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->tmp:Lcom/badlogic/gdx/math/Vector3;
 
-    .line 30
     return-void
 .end method
 
 .method public constructor <init>(FFF)V
     .locals 1
-    .param p1, "fieldOfViewY"    # F
-    .param p2, "viewportWidth"    # F
-    .param p3, "viewportHeight"    # F
 
     .line 39
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/Camera;-><init>()V
 
-    .line 27
     const/high16 v0, 0x42860000    # 67.0f
 
+    .line 27
     iput v0, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->fieldOfView:F
 
     .line 46
@@ -65,7 +61,6 @@
     .line 43
     invoke-virtual {p0}, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->update()V
 
-    .line 44
     return-void
 .end method
 
@@ -74,18 +69,16 @@
 .method public update()V
     .locals 1
 
-    .line 50
     const/4 v0, 0x1
 
+    .line 50
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->update(Z)V
 
-    .line 51
     return-void
 .end method
 
 .method public update(Z)V
     .locals 5
-    .param p1, "updateFrustum"    # Z
 
     .line 55
     iget v0, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->viewportWidth:F
@@ -95,7 +88,6 @@
     div-float/2addr v0, v1
 
     .line 56
-    .local v0, "aspect":F
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->projection:Lcom/badlogic/gdx/math/Matrix4;
 
     iget v2, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->near:F
@@ -115,71 +107,69 @@
     invoke-virtual {v1, v2, v3, v4, v0}, Lcom/badlogic/gdx/math/Matrix4;->setToProjection(FFFF)Lcom/badlogic/gdx/math/Matrix4;
 
     .line 57
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->view:Lcom/badlogic/gdx/math/Matrix4;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->view:Lcom/badlogic/gdx/math/Matrix4;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->position:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->position:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->tmp:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->tmp:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->position:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v3, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->position:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v3, v4}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v2, v3}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v3
+    move-result-object v2
 
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->direction:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v3, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->direction:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v3, v4}, Lcom/badlogic/gdx/math/Vector3;->add(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v2, v3}, Lcom/badlogic/gdx/math/Vector3;->add(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v3
+    move-result-object v2
 
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->up:Lcom/badlogic/gdx/math/Vector3;
+    iget-object v3, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->up:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v1, v2, v3, v4}, Lcom/badlogic/gdx/math/Matrix4;->setToLookAt(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Matrix4;
+    invoke-virtual {v0, v1, v2, v3}, Lcom/badlogic/gdx/math/Matrix4;->setToLookAt(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Matrix4;
 
     .line 58
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->combined:Lcom/badlogic/gdx/math/Matrix4;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->combined:Lcom/badlogic/gdx/math/Matrix4;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->projection:Lcom/badlogic/gdx/math/Matrix4;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->projection:Lcom/badlogic/gdx/math/Matrix4;
 
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/math/Matrix4;->set(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Matrix4;
+    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Matrix4;->set(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Matrix4;
 
     .line 59
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->combined:Lcom/badlogic/gdx/math/Matrix4;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->combined:Lcom/badlogic/gdx/math/Matrix4;
+
+    iget-object v0, v0, Lcom/badlogic/gdx/math/Matrix4;->val:[F
+
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->view:Lcom/badlogic/gdx/math/Matrix4;
 
     iget-object v1, v1, Lcom/badlogic/gdx/math/Matrix4;->val:[F
 
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->view:Lcom/badlogic/gdx/math/Matrix4;
+    invoke-static {v0, v1}, Lcom/badlogic/gdx/math/Matrix4;->mul([F[F)V
 
-    iget-object v2, v2, Lcom/badlogic/gdx/math/Matrix4;->val:[F
-
-    invoke-static {v1, v2}, Lcom/badlogic/gdx/math/Matrix4;->mul([F[F)V
-
-    .line 61
     if-eqz p1, :cond_0
 
     .line 62
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->invProjectionView:Lcom/badlogic/gdx/math/Matrix4;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->invProjectionView:Lcom/badlogic/gdx/math/Matrix4;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->combined:Lcom/badlogic/gdx/math/Matrix4;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->combined:Lcom/badlogic/gdx/math/Matrix4;
 
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/math/Matrix4;->set(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Matrix4;
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/math/Matrix4;->set(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Matrix4;
 
     .line 63
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->invProjectionView:Lcom/badlogic/gdx/math/Matrix4;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->invProjectionView:Lcom/badlogic/gdx/math/Matrix4;
 
-    iget-object v1, v1, Lcom/badlogic/gdx/math/Matrix4;->val:[F
+    iget-object p1, p1, Lcom/badlogic/gdx/math/Matrix4;->val:[F
 
-    invoke-static {v1}, Lcom/badlogic/gdx/math/Matrix4;->inv([F)Z
+    invoke-static {p1}, Lcom/badlogic/gdx/math/Matrix4;->inv([F)Z
 
     .line 64
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->frustum:Lcom/badlogic/gdx/math/Frustum;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->frustum:Lcom/badlogic/gdx/math/Frustum;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->invProjectionView:Lcom/badlogic/gdx/math/Matrix4;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/PerspectiveCamera;->invProjectionView:Lcom/badlogic/gdx/math/Matrix4;
 
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/math/Frustum;->update(Lcom/badlogic/gdx/math/Matrix4;)V
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/math/Frustum;->update(Lcom/badlogic/gdx/math/Matrix4;)V
 
-    .line 66
     :cond_0
     return-void
 .end method

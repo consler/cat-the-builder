@@ -39,20 +39,18 @@
 .end method
 
 .method static synthetic access$000(Ljava/lang/Iterable;)Ljava/util/Iterator;
-    .locals 1
-    .param p0, "x0"    # Ljava/lang/Iterable;
+    .locals 0
 
     .line 50
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->emptyIteratorIfNull(Ljava/lang/Iterable;)Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static boundedIterable(Ljava/lang/Iterable;J)Ljava/lang/Iterable;
     .locals 2
-    .param p1, "maxSize"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -66,10 +64,8 @@
     .end annotation
 
     .line 290
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->checkNotNull(Ljava/lang/Iterable;)V
 
-    .line 291
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
@@ -85,13 +81,13 @@
 
     .line 292
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "MaxSize parameter must not be negative."
+    const-string p1, "MaxSize parameter must not be negative."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static chainedIterable(Ljava/lang/Iterable;Ljava/lang/Iterable;)Ljava/lang/Iterable;
@@ -110,9 +106,6 @@
         }
     .end annotation
 
-    .line 101
-    .local p0, "a":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TE;>;"
-    .local p1, "b":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TE;>;"
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Iterable;
@@ -121,15 +114,16 @@
 
     aput-object p0, v0, v1
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v0, v1
+    aput-object p1, v0, p0
 
+    .line 101
     invoke-static {v0}, Lorg/apache/commons/collections4/IterableUtils;->chainedIterable([Ljava/lang/Iterable;)Ljava/lang/Iterable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static chainedIterable(Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;)Ljava/lang/Iterable;
@@ -150,10 +144,6 @@
         }
     .end annotation
 
-    .line 125
-    .local p0, "a":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TE;>;"
-    .local p1, "b":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TE;>;"
-    .local p2, "c":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TE;>;"
     const/4 v0, 0x3
 
     new-array v0, v0, [Ljava/lang/Iterable;
@@ -162,19 +152,20 @@
 
     aput-object p0, v0, v1
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v0, v1
+    aput-object p1, v0, p0
 
-    const/4 v1, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v0, v1
+    aput-object p2, v0, p0
 
+    .line 125
     invoke-static {v0}, Lorg/apache/commons/collections4/IterableUtils;->chainedIterable([Ljava/lang/Iterable;)Ljava/lang/Iterable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static chainedIterable(Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;)Ljava/lang/Iterable;
@@ -197,11 +188,6 @@
         }
     .end annotation
 
-    .line 151
-    .local p0, "a":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TE;>;"
-    .local p1, "b":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TE;>;"
-    .local p2, "c":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TE;>;"
-    .local p3, "d":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TE;>;"
     const/4 v0, 0x4
 
     new-array v0, v0, [Ljava/lang/Iterable;
@@ -210,23 +196,24 @@
 
     aput-object p0, v0, v1
 
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v0, v1
+    aput-object p1, v0, p0
 
-    const/4 v1, 0x2
+    const/4 p0, 0x2
 
-    aput-object p2, v0, v1
+    aput-object p2, v0, p0
 
-    const/4 v1, 0x3
+    const/4 p0, 0x3
 
-    aput-object p3, v0, v1
+    aput-object p3, v0, p0
 
+    .line 151
     invoke-static {v0}, Lorg/apache/commons/collections4/IterableUtils;->chainedIterable([Ljava/lang/Iterable;)Ljava/lang/Iterable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs chainedIterable([Ljava/lang/Iterable;)Ljava/lang/Iterable;
@@ -244,7 +231,6 @@
     .end annotation
 
     .line 170
-    .local p0, "iterables":[Ljava/lang/Iterable;, "[Ljava/lang/Iterable<+TE;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->checkNotNull([Ljava/lang/Iterable;)V
 
     .line 171
@@ -256,7 +242,7 @@
 .end method
 
 .method static checkNotNull(Ljava/lang/Iterable;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -265,22 +251,19 @@
         }
     .end annotation
 
-    .line 1070
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<*>;"
     if-eqz p0, :cond_0
 
-    .line 1073
     return-void
 
     .line 1071
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Iterable must not be null."
+    const-string v0, "Iterable must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method static varargs checkNotNull([Ljava/lang/Iterable;)V
@@ -293,8 +276,6 @@
         }
     .end annotation
 
-    .line 1082
-    .local p0, "iterables":[Ljava/lang/Iterable;, "[Ljava/lang/Iterable<*>;"
     if-eqz p0, :cond_1
 
     .line 1085
@@ -308,28 +289,24 @@
     aget-object v2, p0, v1
 
     .line 1086
-    .local v2, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<*>;"
     invoke-static {v2}, Lorg/apache/commons/collections4/IterableUtils;->checkNotNull(Ljava/lang/Iterable;)V
 
-    .line 1085
-    .end local v2    # "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<*>;"
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 1088
     :cond_0
     return-void
 
     .line 1083
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Iterables must not be null."
+    const-string v0, "Iterables must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static collatedIterable(Ljava/lang/Iterable;Ljava/lang/Iterable;)Ljava/lang/Iterable;
@@ -348,9 +325,6 @@
         }
     .end annotation
 
-    .line 205
-    .local p0, "a":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TE;>;"
-    .local p1, "b":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TE;>;"
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Iterable;
@@ -363,6 +337,7 @@
 
     aput-object p1, v0, v1
 
+    .line 205
     invoke-static {v0}, Lorg/apache/commons/collections4/IterableUtils;->checkNotNull([Ljava/lang/Iterable;)V
 
     .line 206
@@ -391,10 +366,6 @@
         }
     .end annotation
 
-    .line 233
-    .local p0, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TE;>;"
-    .local p1, "a":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TE;>;"
-    .local p2, "b":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TE;>;"
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Iterable;
@@ -407,6 +378,7 @@
 
     aput-object p2, v0, v1
 
+    .line 233
     invoke-static {v0}, Lorg/apache/commons/collections4/IterableUtils;->checkNotNull([Ljava/lang/Iterable;)V
 
     .line 234
@@ -419,7 +391,6 @@
 
 .method public static contains(Ljava/lang/Iterable;Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -433,37 +404,34 @@
     .end annotation
 
     .line 708
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
     instance-of v0, p0, Ljava/util/Collection;
 
     if-eqz v0, :cond_0
 
     .line 709
-    move-object v0, p0
+    check-cast p0, Ljava/util/Collection;
 
-    check-cast v0, Ljava/util/Collection;
+    invoke-interface {p0, p1}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
 
-    invoke-interface {v0, p1}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
+    move-result p0
 
-    move-result v0
-
-    return v0
+    return p0
 
     .line 711
     :cond_0
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->emptyIteratorIfNull(Ljava/lang/Iterable;)Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0, p1}, Lorg/apache/commons/collections4/IteratorUtils;->contains(Ljava/util/Iterator;Ljava/lang/Object;)Z
+    invoke-static {p0, p1}, Lorg/apache/commons/collections4/IteratorUtils;->contains(Ljava/util/Iterator;Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static contains(Ljava/lang/Iterable;Ljava/lang/Object;Lorg/apache/commons/collections4/Equator;)Z
-    .locals 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -476,36 +444,32 @@
         }
     .end annotation
 
-    .line 733
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TE;>;"
-    .local p1, "object":Ljava/lang/Object;, "TE;"
-    .local p2, "equator":Lorg/apache/commons/collections4/Equator;, "Lorg/apache/commons/collections4/Equator<-TE;>;"
     if-eqz p2, :cond_0
 
     .line 736
     invoke-static {p1, p2}, Lorg/apache/commons/collections4/functors/EqualPredicate;->equalPredicate(Ljava/lang/Object;Lorg/apache/commons/collections4/Equator;)Lorg/apache/commons/collections4/Predicate;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {p0, v0}, Lorg/apache/commons/collections4/IterableUtils;->matchesAny(Ljava/lang/Iterable;Lorg/apache/commons/collections4/Predicate;)Z
+    invoke-static {p0, p1}, Lorg/apache/commons/collections4/IterableUtils;->matchesAny(Ljava/lang/Iterable;Lorg/apache/commons/collections4/Predicate;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     .line 734
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Equator must not be null."
+    const-string p1, "Equator must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static countMatches(Ljava/lang/Iterable;Lorg/apache/commons/collections4/Predicate;)J
-    .locals 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -518,41 +482,38 @@
         }
     .end annotation
 
-    .line 676
-    .local p0, "input":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
-    .local p1, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TE;>;"
     if-eqz p1, :cond_0
 
     .line 679
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->emptyIfNull(Ljava/lang/Iterable;)Ljava/lang/Iterable;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0, p1}, Lorg/apache/commons/collections4/IterableUtils;->filteredIterable(Ljava/lang/Iterable;Lorg/apache/commons/collections4/Predicate;)Ljava/lang/Iterable;
+    invoke-static {p0, p1}, Lorg/apache/commons/collections4/IterableUtils;->filteredIterable(Ljava/lang/Iterable;Lorg/apache/commons/collections4/Predicate;)Ljava/lang/Iterable;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lorg/apache/commons/collections4/IterableUtils;->size(Ljava/lang/Iterable;)I
+    invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->size(Ljava/lang/Iterable;)I
 
-    move-result v0
+    move-result p0
 
-    int-to-long v0, v0
+    int-to-long p0, p0
 
-    return-wide v0
+    return-wide p0
 
     .line 677
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Predicate must not be null."
+    const-string p1, "Predicate must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static emptyIfNull(Ljava/lang/Iterable;)Ljava/lang/Iterable;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -565,21 +526,15 @@
         }
     .end annotation
 
-    .line 573
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
     if-nez p0, :cond_0
 
+    .line 573
     invoke-static {}, Lorg/apache/commons/collections4/IterableUtils;->emptyIterable()Ljava/lang/Iterable;
 
-    move-result-object v0
-
-    goto :goto_0
+    move-result-object p0
 
     :cond_0
-    move-object v0, p0
-
-    :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public static emptyIterable()Ljava/lang/Iterable;
@@ -601,7 +556,7 @@
 .end method
 
 .method private static emptyIteratorIfNull(Ljava/lang/Iterable;)Ljava/util/Iterator;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -614,27 +569,26 @@
         }
     .end annotation
 
-    .line 1099
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
     if-eqz p0, :cond_0
 
+    .line 1099
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p0
 
     goto :goto_0
 
     :cond_0
     invoke-static {}, Lorg/apache/commons/collections4/IteratorUtils;->emptyIterator()Lorg/apache/commons/collections4/ResettableIterator;
 
-    move-result-object v0
+    move-result-object p0
 
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public static filteredIterable(Ljava/lang/Iterable;Lorg/apache/commons/collections4/Predicate;)Ljava/lang/Iterable;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -650,11 +604,8 @@
     .end annotation
 
     .line 260
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
-    .local p1, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TE;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->checkNotNull(Ljava/lang/Iterable;)V
 
-    .line 261
     if-eqz p1, :cond_0
 
     .line 264
@@ -666,17 +617,17 @@
 
     .line 262
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Predicate must not be null."
+    const-string p1, "Predicate must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static find(Ljava/lang/Iterable;Lorg/apache/commons/collections4/Predicate;)Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -690,17 +641,15 @@
     .end annotation
 
     .line 614
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
-    .local p1, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TE;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->emptyIteratorIfNull(Ljava/lang/Iterable;)Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0, p1}, Lorg/apache/commons/collections4/IteratorUtils;->find(Ljava/util/Iterator;Lorg/apache/commons/collections4/Predicate;)Ljava/lang/Object;
+    invoke-static {p0, p1}, Lorg/apache/commons/collections4/IteratorUtils;->find(Ljava/util/Iterator;Lorg/apache/commons/collections4/Predicate;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static first(Ljava/lang/Iterable;)Ljava/lang/Object;
@@ -715,19 +664,18 @@
         }
     .end annotation
 
-    .line 795
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TT;>;"
     const/4 v0, 0x0
 
+    .line 795
     invoke-static {p0, v0}, Lorg/apache/commons/collections4/IterableUtils;->get(Ljava/lang/Iterable;I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static forEach(Ljava/lang/Iterable;Lorg/apache/commons/collections4/Closure;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -741,20 +689,17 @@
     .end annotation
 
     .line 585
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
-    .local p1, "closure":Lorg/apache/commons/collections4/Closure;, "Lorg/apache/commons/collections4/Closure<-TE;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->emptyIteratorIfNull(Ljava/lang/Iterable;)Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0, p1}, Lorg/apache/commons/collections4/IteratorUtils;->forEach(Ljava/util/Iterator;Lorg/apache/commons/collections4/Closure;)V
+    invoke-static {p0, p1}, Lorg/apache/commons/collections4/IteratorUtils;->forEach(Ljava/util/Iterator;Lorg/apache/commons/collections4/Closure;)V
 
-    .line 586
     return-void
 .end method
 
 .method public static forEachButLast(Ljava/lang/Iterable;Lorg/apache/commons/collections4/Closure;)Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -768,21 +713,19 @@
     .end annotation
 
     .line 599
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
-    .local p1, "closure":Lorg/apache/commons/collections4/Closure;, "Lorg/apache/commons/collections4/Closure<-TE;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->emptyIteratorIfNull(Ljava/lang/Iterable;)Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0, p1}, Lorg/apache/commons/collections4/IteratorUtils;->forEachButLast(Ljava/util/Iterator;Lorg/apache/commons/collections4/Closure;)Ljava/lang/Object;
+    invoke-static {p0, p1}, Lorg/apache/commons/collections4/IteratorUtils;->forEachButLast(Ljava/util/Iterator;Lorg/apache/commons/collections4/Closure;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static frequency(Ljava/lang/Iterable;Ljava/lang/Object;)I
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -794,22 +737,18 @@
     .end annotation
 
     .line 749
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
-    .local p1, "obj":Ljava/lang/Object;, "TT;"
     instance-of v0, p0, Ljava/util/Set;
 
     if-eqz v0, :cond_0
 
     .line 750
-    move-object v0, p0
+    check-cast p0, Ljava/util/Set;
 
-    check-cast v0, Ljava/util/Set;
+    invoke-interface {p0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    invoke-interface {v0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    move-result p0
 
-    move-result v0
-
-    return v0
+    return p0
 
     .line 752
     :cond_0
@@ -818,40 +757,37 @@
     if-eqz v0, :cond_1
 
     .line 753
-    move-object v0, p0
+    check-cast p0, Lorg/apache/commons/collections4/Bag;
 
-    check-cast v0, Lorg/apache/commons/collections4/Bag;
+    invoke-interface {p0, p1}, Lorg/apache/commons/collections4/Bag;->getCount(Ljava/lang/Object;)I
 
-    invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Bag;->getCount(Ljava/lang/Object;)I
+    move-result p0
 
-    move-result v0
-
-    return v0
+    return p0
 
     .line 755
     :cond_1
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->emptyIfNull(Ljava/lang/Iterable;)Ljava/lang/Iterable;
 
-    move-result-object v0
+    move-result-object p0
 
     invoke-static {p1}, Lorg/apache/commons/collections4/functors/EqualPredicate;->equalPredicate(Ljava/lang/Object;)Lorg/apache/commons/collections4/Predicate;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-static {v0, v1}, Lorg/apache/commons/collections4/IterableUtils;->filteredIterable(Ljava/lang/Iterable;Lorg/apache/commons/collections4/Predicate;)Ljava/lang/Iterable;
+    invoke-static {p0, p1}, Lorg/apache/commons/collections4/IterableUtils;->filteredIterable(Ljava/lang/Iterable;Lorg/apache/commons/collections4/Predicate;)Ljava/lang/Iterable;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lorg/apache/commons/collections4/IterableUtils;->size(Ljava/lang/Iterable;)I
+    invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->size(Ljava/lang/Iterable;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static get(Ljava/lang/Iterable;I)Ljava/lang/Object;
     .locals 1
-    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -863,7 +799,6 @@
     .end annotation
 
     .line 771
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TT;>;"
     invoke-static {p1}, Lorg/apache/commons/collections4/CollectionUtils;->checkIndexBounds(I)V
 
     .line 772
@@ -872,31 +807,29 @@
     if-eqz v0, :cond_0
 
     .line 773
-    move-object v0, p0
+    check-cast p0, Ljava/util/List;
 
-    check-cast v0, Ljava/util/List;
+    invoke-interface {p0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 
     .line 775
     :cond_0
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->emptyIteratorIfNull(Ljava/lang/Iterable;)Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0, p1}, Lorg/apache/commons/collections4/IteratorUtils;->get(Ljava/util/Iterator;I)Ljava/lang/Object;
+    invoke-static {p0, p1}, Lorg/apache/commons/collections4/IteratorUtils;->get(Ljava/util/Iterator;I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static indexOf(Ljava/lang/Iterable;Lorg/apache/commons/collections4/Predicate;)I
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -910,17 +843,15 @@
     .end annotation
 
     .line 630
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
-    .local p1, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TE;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->emptyIteratorIfNull(Ljava/lang/Iterable;)Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0, p1}, Lorg/apache/commons/collections4/IteratorUtils;->indexOf(Ljava/util/Iterator;Lorg/apache/commons/collections4/Predicate;)I
+    invoke-static {p0, p1}, Lorg/apache/commons/collections4/IteratorUtils;->indexOf(Ljava/util/Iterator;Lorg/apache/commons/collections4/Predicate;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static isEmpty(Ljava/lang/Iterable;)Z
@@ -934,33 +865,30 @@
     .end annotation
 
     .line 691
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<*>;"
     instance-of v0, p0, Ljava/util/Collection;
 
     if-eqz v0, :cond_0
 
     .line 692
-    move-object v0, p0
+    check-cast p0, Ljava/util/Collection;
 
-    check-cast v0, Ljava/util/Collection;
+    invoke-interface {p0}, Ljava/util/Collection;->isEmpty()Z
 
-    invoke-interface {v0}, Ljava/util/Collection;->isEmpty()Z
+    move-result p0
 
-    move-result v0
-
-    return v0
+    return p0
 
     .line 694
     :cond_0
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->emptyIteratorIfNull(Ljava/lang/Iterable;)Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lorg/apache/commons/collections4/IteratorUtils;->isEmpty(Ljava/util/Iterator;)Z
+    invoke-static {p0}, Lorg/apache/commons/collections4/IteratorUtils;->isEmpty(Ljava/util/Iterator;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static loopingIterable(Ljava/lang/Iterable;)Ljava/lang/Iterable;
@@ -978,7 +906,6 @@
     .end annotation
 
     .line 322
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->checkNotNull(Ljava/lang/Iterable;)V
 
     .line 323
@@ -990,7 +917,7 @@
 .end method
 
 .method public static matchesAll(Ljava/lang/Iterable;Lorg/apache/commons/collections4/Predicate;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1004,21 +931,19 @@
     .end annotation
 
     .line 646
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
-    .local p1, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TE;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->emptyIteratorIfNull(Ljava/lang/Iterable;)Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0, p1}, Lorg/apache/commons/collections4/IteratorUtils;->matchesAll(Ljava/util/Iterator;Lorg/apache/commons/collections4/Predicate;)Z
+    invoke-static {p0, p1}, Lorg/apache/commons/collections4/IteratorUtils;->matchesAll(Ljava/util/Iterator;Lorg/apache/commons/collections4/Predicate;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static matchesAny(Ljava/lang/Iterable;Lorg/apache/commons/collections4/Predicate;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1032,21 +957,19 @@
     .end annotation
 
     .line 661
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
-    .local p1, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TE;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->emptyIteratorIfNull(Ljava/lang/Iterable;)Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0, p1}, Lorg/apache/commons/collections4/IteratorUtils;->matchesAny(Ljava/util/Iterator;Lorg/apache/commons/collections4/Predicate;)Z
+    invoke-static {p0, p1}, Lorg/apache/commons/collections4/IteratorUtils;->matchesAny(Ljava/util/Iterator;Lorg/apache/commons/collections4/Predicate;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static varargs partition(Ljava/lang/Iterable;Lorg/apache/commons/collections4/Factory;[Lorg/apache/commons/collections4/Predicate;)Ljava/util/List;
-    .locals 8
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<O:",
@@ -1065,27 +988,20 @@
         }
     .end annotation
 
-    .line 931
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TO;>;"
-    .local p1, "partitionFactory":Lorg/apache/commons/collections4/Factory;, "Lorg/apache/commons/collections4/Factory<TR;>;"
-    .local p2, "predicates":[Lorg/apache/commons/collections4/Predicate;, "[Lorg/apache/commons/collections4/Predicate<-TO;>;"
     if-nez p0, :cond_0
 
     .line 932
     invoke-static {}, Lorg/apache/commons/collections4/IterableUtils;->emptyIterable()Ljava/lang/Iterable;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 933
-    .local v0, "empty":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TO;>;"
-    invoke-static {v0, p1, p2}, Lorg/apache/commons/collections4/IterableUtils;->partition(Ljava/lang/Iterable;Lorg/apache/commons/collections4/Factory;[Lorg/apache/commons/collections4/Predicate;)Ljava/util/List;
+    invoke-static {p0, p1, p2}, Lorg/apache/commons/collections4/IterableUtils;->partition(Ljava/lang/Iterable;Lorg/apache/commons/collections4/Factory;[Lorg/apache/commons/collections4/Predicate;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 
-    .line 936
-    .end local v0    # "empty":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TO;>;"
     :cond_0
     if-eqz p2, :cond_9
 
@@ -1094,191 +1010,160 @@
 
     const/4 v1, 0x0
 
+    move v2, v1
+
     :goto_0
-    if-ge v1, v0, :cond_2
+    if-ge v2, v0, :cond_2
 
-    aget-object v2, p2, v1
+    aget-object v3, p2, v2
 
-    .line 941
-    .local v2, "p":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<*>;"
-    if-eqz v2, :cond_1
+    if-eqz v3, :cond_1
 
-    .line 940
-    .end local v2    # "p":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<*>;"
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 942
-    .restart local v2    # "p":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<*>;"
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Predicate must not be null."
+    const-string p1, "Predicate must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 946
-    .end local v2    # "p":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<*>;"
     :cond_2
     array-length v0, p2
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    if-ge v0, v1, :cond_3
+    if-ge v0, v2, :cond_3
 
     .line 948
     invoke-interface {p1}, Lorg/apache/commons/collections4/Factory;->create()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Collection;
+    check-cast p1, Ljava/util/Collection;
 
     .line 949
-    .local v0, "singlePartition":Ljava/util/Collection;, "TR;"
-    invoke-static {v0, p0}, Lorg/apache/commons/collections4/CollectionUtils;->addAll(Ljava/util/Collection;Ljava/lang/Iterable;)Z
+    invoke-static {p1, p0}, Lorg/apache/commons/collections4/CollectionUtils;->addAll(Ljava/util/Collection;Ljava/lang/Iterable;)Z
 
     .line 950
-    invoke-static {v0}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {p1}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 
     .line 954
-    .end local v0    # "singlePartition":Ljava/util/Collection;, "TR;"
     :cond_3
     array-length v0, p2
 
-    .line 955
-    .local v0, "numberOfPredicates":I
-    add-int/lit8 v1, v0, 0x1
+    add-int/lit8 v3, v0, 0x1
 
     .line 956
-    .local v1, "numberOfPartitions":I
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v4, Ljava/util/ArrayList;
 
-    invoke-direct {v2, v1}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {v4, v3}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 957
-    .local v2, "partitions":Ljava/util/List;, "Ljava/util/List<TR;>;"
-    const/4 v3, 0x0
+    move v5, v1
 
-    .local v3, "i":I
     :goto_1
-    if-ge v3, v1, :cond_4
+    if-ge v5, v3, :cond_4
 
     .line 958
     invoke-interface {p1}, Lorg/apache/commons/collections4/Factory;->create()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-interface {v2, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v4, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 957
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_1
 
     .line 965
-    .end local v3    # "i":I
     :cond_4
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object p0
 
+    :cond_5
     :goto_2
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result p1
 
-    if-eqz v4, :cond_8
+    if-eqz p1, :cond_8
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object p1
 
-    .line 966
-    .local v4, "element":Ljava/lang/Object;, "TO;"
-    const/4 v5, 0x0
+    move v3, v1
 
-    .line 967
-    .local v5, "elementAssigned":Z
-    const/4 v6, 0x0
-
-    .local v6, "i":I
     :goto_3
-    if-ge v6, v0, :cond_6
+    if-ge v3, v0, :cond_7
 
     .line 968
-    aget-object v7, p2, v6
+    aget-object v5, p2, v3
 
-    invoke-interface {v7, v4}, Lorg/apache/commons/collections4/Predicate;->evaluate(Ljava/lang/Object;)Z
+    invoke-interface {v5, p1}, Lorg/apache/commons/collections4/Predicate;->evaluate(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v5
 
-    if-eqz v7, :cond_5
+    if-eqz v5, :cond_6
 
     .line 969
-    invoke-interface {v2, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v4, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v3
 
-    check-cast v7, Ljava/util/Collection;
+    check-cast v3, Ljava/util/Collection;
 
-    invoke-interface {v7, v4}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    invoke-interface {v3, p1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    .line 970
-    const/4 v5, 0x1
+    move v3, v2
 
-    .line 971
     goto :goto_4
 
-    .line 967
-    :cond_5
-    add-int/lit8 v6, v6, 0x1
+    :cond_6
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_3
 
-    .line 975
-    .end local v6    # "i":I
-    :cond_6
+    :cond_7
+    move v3, v1
+
     :goto_4
-    if-nez v5, :cond_7
+    if-nez v3, :cond_5
 
     .line 978
-    invoke-interface {v2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v4, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v3
 
-    check-cast v6, Ljava/util/Collection;
+    check-cast v3, Ljava/util/Collection;
 
-    invoke-interface {v6, v4}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    invoke-interface {v3, p1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    .line 980
-    .end local v4    # "element":Ljava/lang/Object;, "TO;"
-    .end local v5    # "elementAssigned":Z
-    :cond_7
     goto :goto_2
 
-    .line 982
     :cond_8
-    return-object v2
+    return-object v4
 
     .line 937
-    .end local v0    # "numberOfPredicates":I
-    .end local v1    # "numberOfPartitions":I
-    .end local v2    # "partitions":Ljava/util/List;, "Ljava/util/List<TR;>;"
     :cond_9
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Predicates must not be null."
+    const-string p1, "Predicates must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static partition(Ljava/lang/Iterable;Lorg/apache/commons/collections4/Predicate;)Ljava/util/List;
@@ -1298,9 +1183,6 @@
         }
     .end annotation
 
-    .line 842
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TO;>;"
-    .local p1, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TO;>;"
     if-eqz p1, :cond_0
 
     .line 846
@@ -1310,8 +1192,6 @@
 
     move-result-object v0
 
-    .line 848
-    .local v0, "factory":Lorg/apache/commons/collections4/Factory;, "Lorg/apache/commons/collections4/Factory<Ljava/util/List<TO;>;>;"
     const/4 v1, 0x1
 
     new-array v1, v1, [Lorg/apache/commons/collections4/Predicate;
@@ -1321,28 +1201,25 @@
     aput-object p1, v1, v2
 
     .line 849
-    .local v1, "predicates":[Lorg/apache/commons/collections4/Predicate;, "[Lorg/apache/commons/collections4/Predicate<-TO;>;"
     invoke-static {p0, v0, v1}, Lorg/apache/commons/collections4/IterableUtils;->partition(Ljava/lang/Iterable;Lorg/apache/commons/collections4/Factory;[Lorg/apache/commons/collections4/Predicate;)Ljava/util/List;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 
     .line 843
-    .end local v0    # "factory":Lorg/apache/commons/collections4/Factory;, "Lorg/apache/commons/collections4/Factory<Ljava/util/List<TO;>;>;"
-    .end local v1    # "predicates":[Lorg/apache/commons/collections4/Predicate;, "[Lorg/apache/commons/collections4/Predicate<-TO;>;"
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Predicate must not be null."
+    const-string p1, "Predicate must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static varargs partition(Ljava/lang/Iterable;[Lorg/apache/commons/collections4/Predicate;)Ljava/util/List;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<O:",
@@ -1359,8 +1236,6 @@
     .end annotation
 
     .line 888
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TO;>;"
-    .local p1, "predicates":[Lorg/apache/commons/collections4/Predicate;, "[Lorg/apache/commons/collections4/Predicate<-TO;>;"
     const-class v0, Ljava/util/ArrayList;
 
     invoke-static {v0}, Lorg/apache/commons/collections4/FactoryUtils;->instantiateFactory(Ljava/lang/Class;)Lorg/apache/commons/collections4/Factory;
@@ -1368,12 +1243,11 @@
     move-result-object v0
 
     .line 889
-    .local v0, "factory":Lorg/apache/commons/collections4/Factory;, "Lorg/apache/commons/collections4/Factory<Ljava/util/List<TO;>;>;"
     invoke-static {p0, v0, p1}, Lorg/apache/commons/collections4/IterableUtils;->partition(Ljava/lang/Iterable;Lorg/apache/commons/collections4/Factory;[Lorg/apache/commons/collections4/Predicate;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static reversedIterable(Ljava/lang/Iterable;)Ljava/lang/Iterable;
@@ -1391,7 +1265,6 @@
     .end annotation
 
     .line 359
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->checkNotNull(Ljava/lang/Iterable;)V
 
     .line 360
@@ -1413,38 +1286,34 @@
     .end annotation
 
     .line 807
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<*>;"
     instance-of v0, p0, Ljava/util/Collection;
 
     if-eqz v0, :cond_0
 
     .line 808
-    move-object v0, p0
+    check-cast p0, Ljava/util/Collection;
 
-    check-cast v0, Ljava/util/Collection;
+    invoke-interface {p0}, Ljava/util/Collection;->size()I
 
-    invoke-interface {v0}, Ljava/util/Collection;->size()I
+    move-result p0
 
-    move-result v0
-
-    return v0
+    return p0
 
     .line 810
     :cond_0
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->emptyIteratorIfNull(Ljava/lang/Iterable;)Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lorg/apache/commons/collections4/IteratorUtils;->size(Ljava/util/Iterator;)I
+    invoke-static {p0}, Lorg/apache/commons/collections4/IteratorUtils;->size(Ljava/util/Iterator;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static skippingIterable(Ljava/lang/Iterable;J)Ljava/lang/Iterable;
     .locals 2
-    .param p1, "elementsToSkip"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1458,10 +1327,8 @@
     .end annotation
 
     .line 388
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->checkNotNull(Ljava/lang/Iterable;)V
 
-    .line 389
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
@@ -1477,17 +1344,17 @@
 
     .line 390
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "ElementsToSkip parameter must not be negative."
+    const-string p1, "ElementsToSkip parameter must not be negative."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static toList(Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1501,20 +1368,19 @@
     .end annotation
 
     .line 993
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->emptyIteratorIfNull(Ljava/lang/Iterable;)Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lorg/apache/commons/collections4/IteratorUtils;->toList(Ljava/util/Iterator;)Ljava/util/List;
+    invoke-static {p0}, Lorg/apache/commons/collections4/IteratorUtils;->toList(Ljava/util/Iterator;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static toString(Ljava/lang/Iterable;)Ljava/lang/String;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1527,20 +1393,19 @@
     .end annotation
 
     .line 1009
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->emptyIteratorIfNull(Ljava/lang/Iterable;)Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lorg/apache/commons/collections4/IteratorUtils;->toString(Ljava/util/Iterator;)Ljava/lang/String;
+    invoke-static {p0}, Lorg/apache/commons/collections4/IteratorUtils;->toString(Ljava/util/Iterator;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static toString(Ljava/lang/Iterable;Lorg/apache/commons/collections4/Transformer;)Ljava/lang/String;
-    .locals 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1556,38 +1421,32 @@
         }
     .end annotation
 
-    .line 1028
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
-    .local p1, "transformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TE;Ljava/lang/String;>;"
     if-eqz p1, :cond_0
 
     .line 1031
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->emptyIteratorIfNull(Ljava/lang/Iterable;)Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0, p1}, Lorg/apache/commons/collections4/IteratorUtils;->toString(Ljava/util/Iterator;Lorg/apache/commons/collections4/Transformer;)Ljava/lang/String;
+    invoke-static {p0, p1}, Lorg/apache/commons/collections4/IteratorUtils;->toString(Ljava/util/Iterator;Lorg/apache/commons/collections4/Transformer;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 1029
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Transformer must not be null."
+    const-string p1, "Transformer must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static toString(Ljava/lang/Iterable;Lorg/apache/commons/collections4/Transformer;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
-    .param p2, "delimiter"    # Ljava/lang/String;
-    .param p3, "prefix"    # Ljava/lang/String;
-    .param p4, "suffix"    # Ljava/lang/String;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -1608,21 +1467,19 @@
     .end annotation
 
     .line 1056
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
-    .local p1, "transformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TE;Ljava/lang/String;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->emptyIteratorIfNull(Ljava/lang/Iterable;)Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0, p1, p2, p3, p4}, Lorg/apache/commons/collections4/IteratorUtils;->toString(Ljava/util/Iterator;Lorg/apache/commons/collections4/Transformer;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p0, p1, p2, p3, p4}, Lorg/apache/commons/collections4/IteratorUtils;->toString(Ljava/util/Iterator;Lorg/apache/commons/collections4/Transformer;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static transformedIterable(Ljava/lang/Iterable;Lorg/apache/commons/collections4/Transformer;)Ljava/lang/Iterable;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<I:",
@@ -1640,11 +1497,8 @@
     .end annotation
 
     .line 420
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TI;>;"
-    .local p1, "transformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TI;+TO;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->checkNotNull(Ljava/lang/Iterable;)V
 
-    .line 421
     if-eqz p1, :cond_0
 
     .line 424
@@ -1656,13 +1510,13 @@
 
     .line 422
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Transformer must not be null."
+    const-string p1, "Transformer must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static uniqueIterable(Ljava/lang/Iterable;)Ljava/lang/Iterable;
@@ -1680,7 +1534,6 @@
     .end annotation
 
     .line 448
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->checkNotNull(Ljava/lang/Iterable;)V
 
     .line 449
@@ -1706,7 +1559,6 @@
     .end annotation
 
     .line 471
-    .local p0, "iterable":Ljava/lang/Iterable;, "Ljava/lang/Iterable<TE;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->checkNotNull(Ljava/lang/Iterable;)V
 
     .line 472
@@ -1714,7 +1566,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 473
     return-object p0
 
     .line 475
@@ -1743,8 +1594,6 @@
     .end annotation
 
     .line 516
-    .local p0, "a":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TE;>;"
-    .local p1, "b":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TE;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->checkNotNull(Ljava/lang/Iterable;)V
 
     .line 517
@@ -1775,8 +1624,6 @@
     .end annotation
 
     .line 544
-    .local p0, "first":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+TE;>;"
-    .local p1, "others":[Ljava/lang/Iterable;, "[Ljava/lang/Iterable<+TE;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/IterableUtils;->checkNotNull(Ljava/lang/Iterable;)V
 
     .line 545

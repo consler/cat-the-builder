@@ -21,7 +21,6 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;Lcom/badlogic/gdx/graphics/g2d/Sprite;)V
     .locals 0
-    .param p2, "sprite"    # Lcom/badlogic/gdx/graphics/g2d/Sprite;
 
     .line 94
     iput-object p1, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->this$0:Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;
@@ -29,18 +28,14 @@
     .line 95
     invoke-direct {p0, p2}, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$Particle;-><init>(Lcom/badlogic/gdx/graphics/g2d/Sprite;)V
 
-    .line 96
     return-void
 .end method
 
 
 # virtual methods
 .method public translate(FF)V
-    .locals 7
-    .param p1, "velocityX"    # F
-    .param p2, "velocityY"    # F
+    .locals 5
 
-    .line 106
     mul-float v0, p1, p1
 
     mul-float v1, p2, p2
@@ -72,7 +67,6 @@
     add-float/2addr v0, v1
 
     .line 110
-    .local v0, "x":F
     invoke-virtual {p0}, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->getY()F
 
     move-result v1
@@ -86,7 +80,6 @@
     add-float/2addr v1, v3
 
     .line 113
-    .local v1, "y":F
     iget-object v3, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->this$0:Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;
 
     const/4 v4, 0x0
@@ -105,94 +98,93 @@
 
     iget-object v3, v3, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;->endPoint:Lcom/badlogic/gdx/math/Vector2;
 
-    add-float v4, v0, p1
+    add-float/2addr v0, p1
 
-    add-float v5, v1, p2
+    add-float/2addr v1, p2
 
-    invoke-virtual {v3, v4, v5}, Lcom/badlogic/gdx/math/Vector2;->set(FF)Lcom/badlogic/gdx/math/Vector2;
+    invoke-virtual {v3, v0, v1}, Lcom/badlogic/gdx/math/Vector2;->set(FF)Lcom/badlogic/gdx/math/Vector2;
 
     .line 116
+    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->this$0:Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;
+
+    iget-object v0, v0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;->world:Lcom/badlogic/gdx/physics/box2d/World;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->this$0:Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;
+
+    iget-object v0, v0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;->world:Lcom/badlogic/gdx/physics/box2d/World;
+
+    iget-object v1, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->this$0:Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;
+
+    iget-object v1, v1, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;->rayCallBack:Lcom/badlogic/gdx/physics/box2d/RayCastCallback;
+
     iget-object v3, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->this$0:Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;
 
-    iget-object v3, v3, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;->world:Lcom/badlogic/gdx/physics/box2d/World;
-
-    if-eqz v3, :cond_1
-
-    iget-object v3, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->this$0:Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;
-
-    iget-object v3, v3, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;->world:Lcom/badlogic/gdx/physics/box2d/World;
+    iget-object v3, v3, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;->startPoint:Lcom/badlogic/gdx/math/Vector2;
 
     iget-object v4, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->this$0:Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;
 
-    iget-object v4, v4, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;->rayCallBack:Lcom/badlogic/gdx/physics/box2d/RayCastCallback;
+    iget-object v4, v4, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;->endPoint:Lcom/badlogic/gdx/math/Vector2;
 
-    iget-object v5, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->this$0:Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;
-
-    iget-object v5, v5, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;->startPoint:Lcom/badlogic/gdx/math/Vector2;
-
-    iget-object v6, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->this$0:Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;
-
-    iget-object v6, v6, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;->endPoint:Lcom/badlogic/gdx/math/Vector2;
-
-    invoke-virtual {v3, v4, v5, v6}, Lcom/badlogic/gdx/physics/box2d/World;->rayCast(Lcom/badlogic/gdx/physics/box2d/RayCastCallback;Lcom/badlogic/gdx/math/Vector2;Lcom/badlogic/gdx/math/Vector2;)V
+    invoke-virtual {v0, v1, v3, v4}, Lcom/badlogic/gdx/physics/box2d/World;->rayCast(Lcom/badlogic/gdx/physics/box2d/RayCastCallback;Lcom/badlogic/gdx/math/Vector2;Lcom/badlogic/gdx/math/Vector2;)V
 
     .line 119
     :cond_1
-    iget-object v3, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->this$0:Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;
+    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->this$0:Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;
 
-    iget-boolean v3, v3, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;->particleCollided:Z
+    iget-boolean v0, v0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;->particleCollided:Z
 
-    if-eqz v3, :cond_2
+    if-eqz v0, :cond_2
 
     .line 121
-    iget-object v3, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->this$0:Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;
+    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->this$0:Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;
 
-    iget v3, v3, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;->normalAngle:F
+    iget v0, v0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D;->normalAngle:F
 
-    mul-float/2addr v3, v2
+    mul-float/2addr v0, v2
 
-    iget v2, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->angle:F
+    iget v1, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->angle:F
 
-    sub-float/2addr v3, v2
+    sub-float/2addr v0, v1
 
-    const/high16 v2, 0x43340000    # 180.0f
+    const/high16 v1, 0x43340000    # 180.0f
 
-    sub-float/2addr v3, v2
+    sub-float/2addr v0, v1
 
-    iput v3, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->angle:F
+    iput v0, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->angle:F
 
     .line 122
-    iget v2, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->angle:F
+    iget v0, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->angle:F
 
-    invoke-static {v2}, Lcom/badlogic/gdx/math/MathUtils;->cosDeg(F)F
+    invoke-static {v0}, Lcom/badlogic/gdx/math/MathUtils;->cosDeg(F)F
 
-    move-result v2
+    move-result v0
 
-    iput v2, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->angleCos:F
+    iput v0, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->angleCos:F
 
     .line 123
-    iget v2, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->angle:F
+    iget v0, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->angle:F
 
-    invoke-static {v2}, Lcom/badlogic/gdx/math/MathUtils;->sinDeg(F)F
+    invoke-static {v0}, Lcom/badlogic/gdx/math/MathUtils;->sinDeg(F)F
 
-    move-result v2
+    move-result v0
 
-    iput v2, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->angleSin:F
+    iput v0, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->angleSin:F
 
     .line 124
-    iget v2, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->angleCos:F
+    iget v0, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->angleCos:F
 
-    mul-float/2addr p1, v2
+    mul-float/2addr p1, v0
 
     .line 125
-    iget v2, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->angleSin:F
+    iget v0, p0, Lcom/badlogic/gdx/physics/box2d/graphics/ParticleEmitterBox2D$ParticleBox2D;->angleSin:F
 
-    mul-float/2addr p2, v2
+    mul-float/2addr p2, v0
 
     .line 128
     :cond_2
     invoke-super {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$Particle;->translate(FF)V
 
-    .line 129
     return-void
 .end method

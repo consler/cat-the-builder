@@ -23,8 +23,6 @@
 # direct methods
 .method private constructor <init>([B[B)V
     .locals 0
-    .param p1, "publicKey"    # [B
-    .param p2, "privateKey"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -45,7 +43,6 @@
     .line 74
     iput-object p2, p0, Lcom/google/crypto/tink/subtle/Ed25519Sign$KeyPair;->privateKey:[B
 
-    .line 75
     return-void
 .end method
 
@@ -57,15 +54,14 @@
         }
     .end annotation
 
-    .line 87
     const/16 v0, 0x20
 
+    .line 87
     invoke-static {v0}, Lcom/google/crypto/tink/subtle/Random;->randBytes(I)[B
 
     move-result-object v0
 
     .line 88
-    .local v0, "privateKey":[B
     invoke-static {v0}, Lcom/google/crypto/tink/subtle/Ed25519;->getHashedScalar([B)[B
 
     move-result-object v1
@@ -75,7 +71,6 @@
     move-result-object v1
 
     .line 89
-    .local v1, "publicKey":[B
     new-instance v2, Lcom/google/crypto/tink/subtle/Ed25519Sign$KeyPair;
 
     invoke-direct {v2, v1, v0}, Lcom/google/crypto/tink/subtle/Ed25519Sign$KeyPair;-><init>([B[B)V

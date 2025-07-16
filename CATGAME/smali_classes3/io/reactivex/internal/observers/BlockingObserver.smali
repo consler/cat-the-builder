@@ -67,14 +67,11 @@
     .end annotation
 
     .line 32
-    .local p0, "this":Lio/reactivex/internal/observers/BlockingObserver;, "Lio/reactivex/internal/observers/BlockingObserver<TT;>;"
-    .local p1, "queue":Ljava/util/Queue;, "Ljava/util/Queue<Ljava/lang/Object;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 33
     iput-object p1, p0, Lio/reactivex/internal/observers/BlockingObserver;->queue:Ljava/util/Queue;
 
-    .line 34
     return-void
 .end method
 
@@ -84,7 +81,6 @@
     .locals 2
 
     .line 58
-    .local p0, "this":Lio/reactivex/internal/observers/BlockingObserver;, "Lio/reactivex/internal/observers/BlockingObserver<TT;>;"
     invoke-static {p0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
     move-result v0
@@ -98,7 +94,6 @@
 
     invoke-interface {v0, v1}, Ljava/util/Queue;->offer(Ljava/lang/Object;)Z
 
-    .line 61
     :cond_0
     return-void
 .end method
@@ -107,7 +102,6 @@
     .locals 2
 
     .line 65
-    .local p0, "this":Lio/reactivex/internal/observers/BlockingObserver;, "Lio/reactivex/internal/observers/BlockingObserver<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/observers/BlockingObserver;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -131,7 +125,6 @@
     .locals 2
 
     .line 53
-    .local p0, "this":Lio/reactivex/internal/observers/BlockingObserver;, "Lio/reactivex/internal/observers/BlockingObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/observers/BlockingObserver;->queue:Ljava/util/Queue;
 
     invoke-static {}, Lio/reactivex/internal/util/NotificationLite;->complete()Ljava/lang/Object;
@@ -140,30 +133,26 @@
 
     invoke-interface {v0, v1}, Ljava/util/Queue;->offer(Ljava/lang/Object;)Z
 
-    .line 54
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
-    .locals 2
-    .param p1, "t"    # Ljava/lang/Throwable;
+    .locals 1
 
     .line 48
-    .local p0, "this":Lio/reactivex/internal/observers/BlockingObserver;, "Lio/reactivex/internal/observers/BlockingObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/observers/BlockingObserver;->queue:Ljava/util/Queue;
 
     invoke-static {p1}, Lio/reactivex/internal/util/NotificationLite;->error(Ljava/lang/Throwable;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Ljava/util/Queue;->offer(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Ljava/util/Queue;->offer(Ljava/lang/Object;)Z
 
-    .line 49
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -171,28 +160,22 @@
     .end annotation
 
     .line 43
-    .local p0, "this":Lio/reactivex/internal/observers/BlockingObserver;, "Lio/reactivex/internal/observers/BlockingObserver<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/observers/BlockingObserver;->queue:Ljava/util/Queue;
 
     invoke-static {p1}, Lio/reactivex/internal/util/NotificationLite;->next(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Ljava/util/Queue;->offer(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Ljava/util/Queue;->offer(Ljava/lang/Object;)Z
 
-    .line 44
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 0
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 38
-    .local p0, "this":Lio/reactivex/internal/observers/BlockingObserver;, "Lio/reactivex/internal/observers/BlockingObserver<TT;>;"
     invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 39
     return-void
 .end method

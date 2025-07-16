@@ -29,10 +29,8 @@
     .locals 0
 
     .line 44
-    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator<TE;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/set/AbstractSetDecorator;-><init>()V
 
-    .line 45
     return-void
 .end method
 
@@ -47,11 +45,8 @@
     .end annotation
 
     .line 54
-    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator<TE;>;"
-    .local p1, "set":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/set/AbstractSetDecorator;-><init>(Ljava/util/Set;)V
 
-    .line 55
     return-void
 .end method
 
@@ -68,7 +63,6 @@
     .end annotation
 
     .line 95
-    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;->decorated()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -84,7 +78,6 @@
     .locals 1
 
     .line 32
-    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;->decorated()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -96,7 +89,6 @@
     .locals 1
 
     .line 32
-    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;->decorated()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -115,7 +107,6 @@
     .end annotation
 
     .line 64
-    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator<TE;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/set/AbstractSetDecorator;->decorated()Ljava/util/Set;
 
     move-result-object v0
@@ -134,7 +125,6 @@
     .end annotation
 
     .line 85
-    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;->decorated()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -157,17 +147,15 @@
     .end annotation
 
     .line 75
-    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator<TE;>;"
-    .local p1, "toElement":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;->decorated()Ljava/util/SortedSet;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/SortedSet;->headSet(Ljava/lang/Object;)Ljava/util/SortedSet;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public last()Ljava/lang/Object;
@@ -179,7 +167,6 @@
     .end annotation
 
     .line 90
-    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;->decorated()Ljava/util/SortedSet;
 
     move-result-object v0
@@ -202,18 +189,15 @@
     .end annotation
 
     .line 70
-    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator<TE;>;"
-    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
-    .local p2, "toElement":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;->decorated()Ljava/util/SortedSet;
 
     move-result-object v0
 
     invoke-interface {v0, p1, p2}, Ljava/util/SortedSet;->subSet(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public tailSet(Ljava/lang/Object;)Ljava/util/SortedSet;
@@ -227,15 +211,13 @@
     .end annotation
 
     .line 80
-    .local p0, "this":Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;, "Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator<TE;>;"
-    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/AbstractSortedSetDecorator;->decorated()Ljava/util/SortedSet;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/SortedSet;->tailSet(Ljava/lang/Object;)Ljava/util/SortedSet;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

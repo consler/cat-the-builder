@@ -20,9 +20,7 @@
 
 # direct methods
 .method constructor <init>([BI)V
-    .locals 2
-    .param p1, "data"    # [B
-    .param p2, "length"    # I
+    .locals 1
 
     .line 395
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,30 +28,27 @@
     .line 396
     invoke-static {p1}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
-    move-result-object v0
+    move-result-object p1
 
-    sget-object v1, Ljava/nio/ByteOrder;->BIG_ENDIAN:Ljava/nio/ByteOrder;
+    sget-object v0, Ljava/nio/ByteOrder;->BIG_ENDIAN:Ljava/nio/ByteOrder;
 
-    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, p2}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/nio/ByteBuffer;
+    check-cast p1, Ljava/nio/ByteBuffer;
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/DefaultImageHeaderParser$RandomAccessReader;->data:Ljava/nio/ByteBuffer;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/DefaultImageHeaderParser$RandomAccessReader;->data:Ljava/nio/ByteBuffer;
 
-    .line 397
     return-void
 .end method
 
 .method private isAvailable(II)Z
     .locals 1
-    .param p1, "offset"    # I
-    .param p2, "byteSize"    # I
 
     .line 416
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/DefaultImageHeaderParser$RandomAccessReader;->data:Ljava/nio/ByteBuffer;
@@ -66,26 +61,25 @@
 
     if-lt v0, p2, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 
 # virtual methods
 .method getInt16(I)S
     .locals 1
-    .param p1, "offset"    # I
 
-    .line 412
     const/4 v0, 0x2
 
+    .line 412
     invoke-direct {p0, p1, v0}, Lcom/bumptech/glide/load/resource/bitmap/DefaultImageHeaderParser$RandomAccessReader;->isAvailable(II)Z
 
     move-result v0
@@ -96,24 +90,23 @@
 
     invoke-virtual {v0, p1}, Ljava/nio/ByteBuffer;->getShort(I)S
 
-    move-result v0
+    move-result p1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, -0x1
+    const/4 p1, -0x1
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method getInt32(I)I
     .locals 1
-    .param p1, "offset"    # I
 
-    .line 408
     const/4 v0, 0x4
 
+    .line 408
     invoke-direct {p0, p1, v0}, Lcom/bumptech/glide/load/resource/bitmap/DefaultImageHeaderParser$RandomAccessReader;->isAvailable(II)Z
 
     move-result v0
@@ -124,15 +117,15 @@
 
     invoke-virtual {v0, p1}, Ljava/nio/ByteBuffer;->getInt(I)I
 
-    move-result v0
+    move-result p1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, -0x1
+    const/4 p1, -0x1
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method length()I
@@ -150,13 +143,11 @@
 
 .method order(Ljava/nio/ByteOrder;)V
     .locals 1
-    .param p1, "byteOrder"    # Ljava/nio/ByteOrder;
 
     .line 400
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/DefaultImageHeaderParser$RandomAccessReader;->data:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v0, p1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    .line 401
     return-void
 .end method

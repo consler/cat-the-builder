@@ -25,26 +25,21 @@
     .line 108
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer;-><init>()V
 
-    .line 109
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/Texture;)V
     .locals 0
-    .param p1, "texture"    # Lcom/badlogic/gdx/graphics/Texture;
 
     .line 120
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer;-><init>(Lcom/badlogic/gdx/graphics/Texture;)V
 
-    .line 121
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
     .locals 2
-    .param p1, "textureRegion"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
-    .line 116
     const/4 v0, 0x1
 
     new-array v0, v0, [Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
@@ -53,20 +48,18 @@
 
     aput-object p1, v0, v1
 
+    .line 116
     invoke-direct {p0, v0}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer;-><init>([Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
 
-    .line 117
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer$Animated;)V
     .locals 0
-    .param p1, "regionInfluencer"    # Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer$Animated;
 
     .line 112
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer;-><init>(Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer;)V
 
-    .line 113
     return-void
 .end method
 
@@ -93,7 +86,6 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer$Animated;->lifeChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    .line 127
     return-void
 .end method
 
@@ -123,27 +115,24 @@
     .locals 7
 
     .line 131
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer$Animated;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
 
-    .local v0, "i":I
-    const/4 v1, 0x2
+    iget-object v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->particles:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;
 
-    .local v1, "l":I
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer$Animated;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
+    iget v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;->size:I
 
-    iget-object v2, v2, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->particles:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer$Animated;->regionChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    iget v2, v2, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;->size:I
+    iget v1, v1, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
 
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer$Animated;->regionChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+    mul-int/2addr v0, v1
 
-    iget v3, v3, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
+    const/4 v1, 0x0
 
-    mul-int/2addr v2, v3
+    const/4 v2, 0x2
 
-    .local v2, "c":I
     :goto_0
-    if-ge v0, v2, :cond_0
+    if-ge v1, v0, :cond_0
 
     .line 132
     iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer$Animated;->regions:Lcom/badlogic/gdx/utils/Array;
@@ -152,7 +141,7 @@
 
     iget-object v4, v4, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    aget v4, v4, v1
+    aget v4, v4, v2
 
     iget-object v5, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer$Animated;->regions:Lcom/badlogic/gdx/utils/Array;
 
@@ -173,12 +162,11 @@
     check-cast v3, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer$AspectTextureRegion;
 
     .line 133
-    .local v3, "region":Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer$AspectTextureRegion;
     iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer$Animated;->regionChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
     iget-object v4, v4, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v5, v0, 0x0
+    add-int/lit8 v5, v1, 0x0
 
     iget v6, v3, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer$AspectTextureRegion;->u:F
 
@@ -189,7 +177,7 @@
 
     iget-object v4, v4, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v5, v0, 0x1
+    add-int/lit8 v5, v1, 0x1
 
     iget v6, v3, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer$AspectTextureRegion;->v:F
 
@@ -200,7 +188,7 @@
 
     iget-object v4, v4, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v5, v0, 0x2
+    add-int/lit8 v5, v1, 0x2
 
     iget v6, v3, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer$AspectTextureRegion;->u2:F
 
@@ -211,7 +199,7 @@
 
     iget-object v4, v4, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v5, v0, 0x3
+    add-int/lit8 v5, v1, 0x3
 
     iget v6, v3, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer$AspectTextureRegion;->v2:F
 
@@ -222,7 +210,7 @@
 
     iget-object v4, v4, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v5, v0, 0x4
+    add-int/lit8 v5, v1, 0x4
 
     const/high16 v6, 0x3f000000    # 0.5f
 
@@ -233,32 +221,27 @@
 
     iget-object v4, v4, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->data:[F
 
-    add-int/lit8 v5, v0, 0x5
+    add-int/lit8 v5, v1, 0x5
 
-    iget v6, v3, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer$AspectTextureRegion;->halfInvAspectRatio:F
+    iget v3, v3, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer$AspectTextureRegion;->halfInvAspectRatio:F
 
-    aput v6, v4, v5
+    aput v3, v4, v5
 
     .line 131
-    .end local v3    # "region":Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer$AspectTextureRegion;
     iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer$Animated;->regionChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
-
-    iget v3, v3, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
-
-    add-int/2addr v0, v3
-
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer$Animated;->lifeChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
     iget v3, v3, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
 
     add-int/2addr v1, v3
 
+    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/RegionInfluencer$Animated;->lifeChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
+
+    iget v3, v3, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;->strideSize:I
+
+    add-int/2addr v2, v3
+
     goto :goto_0
 
-    .line 140
-    .end local v0    # "i":I
-    .end local v1    # "l":I
-    .end local v2    # "c":I
     :cond_0
     return-void
 .end method

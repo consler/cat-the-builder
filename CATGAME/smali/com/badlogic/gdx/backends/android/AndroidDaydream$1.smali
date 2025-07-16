@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/backends/android/AndroidDaydream;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/backends/android/AndroidDaydream;
 
     .line 139
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidDaydream$1;->this$0:Lcom/badlogic/gdx/backends/android/AndroidDaydream;
@@ -53,7 +52,6 @@
 
     iput-object v1, v0, Lcom/badlogic/gdx/backends/android/AndroidDaydream;->audio:Lcom/badlogic/gdx/backends/android/AndroidAudio;
 
-    .line 155
     return-void
 .end method
 
@@ -67,7 +65,6 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/backends/android/AndroidAudio;->pause()V
 
-    .line 149
     return-void
 .end method
 
@@ -81,6 +78,5 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/backends/android/AndroidAudio;->resume()V
 
-    .line 144
     return-void
 .end method

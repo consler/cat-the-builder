@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/drawerlayout/widget/DrawerLayout;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/drawerlayout/widget/DrawerLayout;
 
     .line 343
     iput-object p1, p0, Landroidx/drawerlayout/widget/DrawerLayout$1;->this$0:Landroidx/drawerlayout/widget/DrawerLayout;
@@ -37,37 +36,32 @@
 
 # virtual methods
 .method public onApplyWindowInsets(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
-    .locals 2
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "insets"    # Landroid/view/WindowInsets;
+    .locals 1
 
     .line 346
-    move-object v0, p1
-
-    check-cast v0, Landroidx/drawerlayout/widget/DrawerLayout;
+    check-cast p1, Landroidx/drawerlayout/widget/DrawerLayout;
 
     .line 347
-    .local v0, "drawerLayout":Landroidx/drawerlayout/widget/DrawerLayout;
     invoke-virtual {p2}, Landroid/view/WindowInsets;->getSystemWindowInsetTop()I
 
-    move-result v1
+    move-result v0
 
-    if-lez v1, :cond_0
+    if-lez v0, :cond_0
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    invoke-virtual {v0, p2, v1}, Landroidx/drawerlayout/widget/DrawerLayout;->setChildInsets(Ljava/lang/Object;Z)V
+    invoke-virtual {p1, p2, v0}, Landroidx/drawerlayout/widget/DrawerLayout;->setChildInsets(Ljava/lang/Object;Z)V
 
     .line 348
     invoke-virtual {p2}, Landroid/view/WindowInsets;->consumeSystemWindowInsets()Landroid/view/WindowInsets;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method

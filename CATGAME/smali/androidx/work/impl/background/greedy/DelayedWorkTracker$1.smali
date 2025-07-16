@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroidx/work/impl/background/greedy/DelayedWorkTracker;Landroidx/work/impl/model/WorkSpec;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/work/impl/background/greedy/DelayedWorkTracker;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
@@ -95,6 +94,5 @@
 
     invoke-virtual {v0, v1}, Landroidx/work/impl/background/greedy/GreedyScheduler;->schedule([Landroidx/work/impl/model/WorkSpec;)V
 
-    .line 76
     return-void
 .end method

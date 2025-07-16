@@ -1,169 +1,107 @@
 .class Lcom/huawei/hms/api/HuaweiApiClientImpl$c;
-.super Ljava/lang/Object;
+.super Lcom/huawei/hms/core/aidl/IAIDLCallback$Stub;
 .source "HuaweiApiClientImpl.java"
-
-# interfaces
-.implements Lcom/huawei/hms/support/api/client/ResultCallback;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/huawei/hms/api/HuaweiApiClientImpl;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/huawei/hms/api/HuaweiApiClientImpl;->asyncRequest(Landroid/os/Bundle;Ljava/lang/String;ILcom/huawei/hms/support/api/client/ResultCallback;)I
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
-    name = "c"
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Lcom/huawei/hms/support/api/client/ResultCallback<",
-        "Lcom/huawei/hms/support/api/ResolveResult<",
-        "Lcom/huawei/hms/support/api/entity/core/JosGetNoticeResp;",
-        ">;>;"
-    }
+    accessFlags = 0x0
+    name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic a:Lcom/huawei/hms/api/HuaweiApiClientImpl;
+.field final synthetic a:Lcom/huawei/hms/support/api/client/ResultCallback;
 
 
 # direct methods
-.method private constructor <init>(Lcom/huawei/hms/api/HuaweiApiClientImpl;)V
+.method constructor <init>(Lcom/huawei/hms/api/HuaweiApiClientImpl;Lcom/huawei/hms/support/api/client/ResultCallback;)V
     .locals 0
 
-    .line 1313
-    iput-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl$c;->a:Lcom/huawei/hms/api/HuaweiApiClientImpl;
+    .line 1
+    iput-object p2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl$c;->a:Lcom/huawei/hms/support/api/client/ResultCallback;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Lcom/huawei/hms/api/HuaweiApiClientImpl;Lcom/huawei/hms/api/HuaweiApiClientImpl$1;)V
-    .locals 0
-
-    .line 1313
-    invoke-direct {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl$c;-><init>(Lcom/huawei/hms/api/HuaweiApiClientImpl;)V
+    invoke-direct {p0}, Lcom/huawei/hms/core/aidl/IAIDLCallback$Stub;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Lcom/huawei/hms/support/api/ResolveResult;)V
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/huawei/hms/support/api/ResolveResult<",
-            "Lcom/huawei/hms/support/api/entity/core/JosGetNoticeResp;",
-            ">;)V"
-        }
-    .end annotation
+.method public call(Lcom/huawei/hms/core/aidl/DataBuffer;)V
+    .locals 4
 
-    .line 1316
-    if-eqz p1, :cond_1
+    const-string v0, "HuaweiApiClientImpl"
 
-    invoke-virtual {p1}, Lcom/huawei/hms/support/api/ResolveResult;->getStatus()Lcom/huawei/hms/support/api/client/Status;
+    if-eqz p1, :cond_0
 
-    move-result-object v0
+    .line 1
+    invoke-virtual {p1}, Lcom/huawei/hms/core/aidl/DataBuffer;->getProtocol()I
 
-    invoke-virtual {v0}, Lcom/huawei/hms/support/api/client/Status;->isSuccess()Z
+    move-result v1
 
-    move-result v0
+    invoke-static {v1}, Lcom/huawei/hms/core/aidl/CodecLookup;->find(I)Lcom/huawei/hms/core/aidl/MessageCodec;
 
-    if-eqz v0, :cond_1
+    move-result-object v1
 
-    .line 1317
-    invoke-virtual {p1}, Lcom/huawei/hms/support/api/ResolveResult;->getValue()Ljava/lang/Object;
+    .line 2
+    new-instance v2, Lcom/huawei/hms/core/aidl/ResponseHeader;
+
+    invoke-direct {v2}, Lcom/huawei/hms/core/aidl/ResponseHeader;-><init>()V
+
+    .line 3
+    iget-object v3, p1, Lcom/huawei/hms/core/aidl/DataBuffer;->header:Landroid/os/Bundle;
+
+    invoke-virtual {v1, v3, v2}, Lcom/huawei/hms/core/aidl/MessageCodec;->decode(Landroid/os/Bundle;Lcom/huawei/hms/core/aidl/IMessageEntity;)Lcom/huawei/hms/core/aidl/IMessageEntity;
+
+    .line 4
+    new-instance v1, Lcom/huawei/hms/support/api/client/BundleResult;
+
+    invoke-virtual {v2}, Lcom/huawei/hms/core/aidl/ResponseHeader;->getStatusCode()I
+
+    move-result v2
+
+    invoke-virtual {p1}, Lcom/huawei/hms/core/aidl/DataBuffer;->getBody()Landroid/os/Bundle;
 
     move-result-object p1
 
-    check-cast p1, Lcom/huawei/hms/support/api/entity/core/JosGetNoticeResp;
+    invoke-direct {v1, v2, p1}, Lcom/huawei/hms/support/api/client/BundleResult;-><init>(ILandroid/os/Bundle;)V
 
-    .line 1318
-    invoke-virtual {p1}, Lcom/huawei/hms/support/api/entity/core/JosGetNoticeResp;->getNoticeIntent()Landroid/content/Intent;
+    const-string p1, "Exit asyncRequest onResult"
 
-    move-result-object v0
+    .line 5
+    invoke-static {v0, p1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1319
-    if-eqz v0, :cond_1
+    .line 6
+    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl$c;->a:Lcom/huawei/hms/support/api/client/ResultCallback;
 
-    invoke-virtual {p1}, Lcom/huawei/hms/support/api/entity/core/JosGetNoticeResp;->getStatusCode()I
+    invoke-interface {p1, v1}, Lcom/huawei/hms/support/api/client/ResultCallback;->onResult(Ljava/lang/Object;)V
 
-    move-result p1
+    goto :goto_0
 
-    if-nez p1, :cond_1
-
-    .line 1320
-    const-string p1, "HuaweiApiClientImpl"
-
-    const-string v1, "get notice has intent."
-
-    invoke-static {p1, v1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 1321
-    iget-object v1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl$c;->a:Lcom/huawei/hms/api/HuaweiApiClientImpl;
-
-    .line 1322
-    invoke-static {v1}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->d(Lcom/huawei/hms/api/HuaweiApiClientImpl;)Ljava/lang/ref/WeakReference;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/app/Activity;
-
-    iget-object v2, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl$c;->a:Lcom/huawei/hms/api/HuaweiApiClientImpl;
-
-    invoke-virtual {v2}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->getTopActivity()Landroid/app/Activity;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Lcom/huawei/hms/utils/Util;->getValidActivity(Landroid/app/Activity;Landroid/app/Activity;)Landroid/app/Activity;
-
-    move-result-object v1
-
-    .line 1324
-    if-nez v1, :cond_0
-
-    .line 1325
-    const-string v0, "showNotice no valid activity!"
-
-    invoke-static {p1, v0}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 1326
-    return-void
-
-    .line 1330
     :cond_0
-    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl$c;->a:Lcom/huawei/hms/api/HuaweiApiClientImpl;
+    const-string p1, "Exit asyncRequest onResult -1"
 
-    const/4 v2, 0x1
+    .line 8
+    invoke-static {v0, p1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-static {p1, v2}, Lcom/huawei/hms/api/HuaweiApiClientImpl;->a(Lcom/huawei/hms/api/HuaweiApiClientImpl;Z)Z
+    .line 9
+    iget-object p1, p0, Lcom/huawei/hms/api/HuaweiApiClientImpl$c;->a:Lcom/huawei/hms/support/api/client/ResultCallback;
 
-    .line 1331
-    invoke-virtual {v1, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
+    new-instance v0, Lcom/huawei/hms/support/api/client/BundleResult;
 
-    .line 1334
-    :cond_1
-    return-void
-.end method
+    const/4 v1, -0x1
 
-.method public synthetic onResult(Ljava/lang/Object;)V
-    .locals 0
+    const/4 v2, 0x0
 
-    .line 1313
-    check-cast p1, Lcom/huawei/hms/support/api/ResolveResult;
+    invoke-direct {v0, v1, v2}, Lcom/huawei/hms/support/api/client/BundleResult;-><init>(ILandroid/os/Bundle;)V
 
-    invoke-virtual {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl$c;->a(Lcom/huawei/hms/support/api/ResolveResult;)V
+    invoke-interface {p1, v0}, Lcom/huawei/hms/support/api/client/ResultCallback;->onResult(Ljava/lang/Object;)V
 
+    :goto_0
     return-void
 .end method

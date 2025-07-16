@@ -19,7 +19,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/res/AssetManager;)V
     .locals 2
-    .param p1, "assets"    # Landroid/content/res/AssetManager;
 
     .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,9 +38,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "/"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -49,9 +52,9 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidFiles;->sdcard:Ljava/lang/String;
 
-    .line 39
     const/4 v1, 0x0
 
+    .line 39
     iput-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidFiles;->expansionFile:Lcom/badlogic/gdx/backends/android/ZipResourceFile;
 
     .line 42
@@ -60,14 +63,11 @@
     .line 43
     iput-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidFiles;->localpath:Ljava/lang/String;
 
-    .line 44
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/res/AssetManager;Ljava/lang/String;)V
     .locals 2
-    .param p1, "assets"    # Landroid/content/res/AssetManager;
-    .param p2, "localpath"    # Ljava/lang/String;
 
     .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -87,9 +87,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "/"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -97,9 +101,9 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidFiles;->sdcard:Ljava/lang/String;
 
-    .line 39
     const/4 v0, 0x0
 
+    .line 39
     iput-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidFiles;->expansionFile:Lcom/badlogic/gdx/backends/android/ZipResourceFile;
 
     .line 47
@@ -108,38 +112,37 @@
     .line 48
     invoke-virtual {p2, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
-
-    move-object v0, p2
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p2
 
     :goto_0
-    iput-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidFiles;->localpath:Ljava/lang/String;
+    iput-object p2, p0, Lcom/badlogic/gdx/backends/android/AndroidFiles;->localpath:Ljava/lang/String;
 
-    .line 49
     return-void
 .end method
 
 .method private getZipFileHandleIfExists(Lcom/badlogic/gdx/files/FileHandle;Ljava/lang/String;)Lcom/badlogic/gdx/files/FileHandle;
-    .locals 3
-    .param p1, "handle"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p2, "path"    # Ljava/lang/String;
+    .locals 1
 
     .line 60
     :try_start_0
@@ -153,43 +156,33 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 61
     return-object p1
 
-    .line 62
-    :catch_0
-    move-exception v0
-
     .line 64
-    .local v0, "ex":Ljava/lang/Exception;
-    new-instance v1, Lcom/badlogic/gdx/backends/android/AndroidZipFileHandle;
+    :catch_0
+    new-instance v0, Lcom/badlogic/gdx/backends/android/AndroidZipFileHandle;
 
-    invoke-direct {v1, p2}, Lcom/badlogic/gdx/backends/android/AndroidZipFileHandle;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p2}, Lcom/badlogic/gdx/backends/android/AndroidZipFileHandle;-><init>(Ljava/lang/String;)V
 
     .line 65
-    .local v1, "zipHandle":Lcom/badlogic/gdx/files/FileHandle;
-    invoke-virtual {v1}, Lcom/badlogic/gdx/files/FileHandle;->isDirectory()Z
+    invoke-virtual {v0}, Lcom/badlogic/gdx/files/FileHandle;->isDirectory()Z
 
-    move-result v2
+    move-result p2
 
-    if-nez v2, :cond_0
+    if-nez p2, :cond_0
 
-    .line 66
-    return-object v1
+    return-object v0
 
     .line 67
     :cond_0
-    invoke-virtual {v1}, Lcom/badlogic/gdx/files/FileHandle;->exists()Z
+    invoke-virtual {v0}, Lcom/badlogic/gdx/files/FileHandle;->exists()Z
 
-    move-result v2
+    move-result p2
 
-    if-eqz v2, :cond_1
+    if-eqz p2, :cond_1
 
-    return-object v1
+    return-object v0
 
-    .line 69
-    .end local v0    # "ex":Ljava/lang/Exception;
-    .end local v1    # "zipHandle":Lcom/badlogic/gdx/files/FileHandle;
     :cond_1
     return-object p1
 .end method
@@ -198,48 +191,45 @@
 # virtual methods
 .method public absolute(Ljava/lang/String;)Lcom/badlogic/gdx/files/FileHandle;
     .locals 3
-    .param p1, "path"    # Ljava/lang/String;
 
     .line 91
     new-instance v0, Lcom/badlogic/gdx/backends/android/AndroidFileHandle;
 
-    sget-object v1, Lcom/badlogic/gdx/Files$FileType;->Absolute:Lcom/badlogic/gdx/Files$FileType;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    sget-object v2, Lcom/badlogic/gdx/Files$FileType;->Absolute:Lcom/badlogic/gdx/Files$FileType;
 
-    invoke-direct {v0, v2, p1, v1}, Lcom/badlogic/gdx/backends/android/AndroidFileHandle;-><init>(Landroid/content/res/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/Files$FileType;)V
+    invoke-direct {v0, v1, p1, v2}, Lcom/badlogic/gdx/backends/android/AndroidFileHandle;-><init>(Landroid/content/res/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/Files$FileType;)V
 
     return-object v0
 .end method
 
 .method public classpath(Ljava/lang/String;)Lcom/badlogic/gdx/files/FileHandle;
     .locals 3
-    .param p1, "path"    # Ljava/lang/String;
 
     .line 74
     new-instance v0, Lcom/badlogic/gdx/backends/android/AndroidFileHandle;
 
-    sget-object v1, Lcom/badlogic/gdx/Files$FileType;->Classpath:Lcom/badlogic/gdx/Files$FileType;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    sget-object v2, Lcom/badlogic/gdx/Files$FileType;->Classpath:Lcom/badlogic/gdx/Files$FileType;
 
-    invoke-direct {v0, v2, p1, v1}, Lcom/badlogic/gdx/backends/android/AndroidFileHandle;-><init>(Landroid/content/res/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/Files$FileType;)V
+    invoke-direct {v0, v1, p1, v2}, Lcom/badlogic/gdx/backends/android/AndroidFileHandle;-><init>(Landroid/content/res/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/Files$FileType;)V
 
     return-object v0
 .end method
 
 .method public external(Ljava/lang/String;)Lcom/badlogic/gdx/files/FileHandle;
     .locals 3
-    .param p1, "path"    # Ljava/lang/String;
 
     .line 86
     new-instance v0, Lcom/badlogic/gdx/backends/android/AndroidFileHandle;
 
-    sget-object v1, Lcom/badlogic/gdx/Files$FileType;->External:Lcom/badlogic/gdx/Files$FileType;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    sget-object v2, Lcom/badlogic/gdx/Files$FileType;->External:Lcom/badlogic/gdx/Files$FileType;
 
-    invoke-direct {v0, v2, p1, v1}, Lcom/badlogic/gdx/backends/android/AndroidFileHandle;-><init>(Landroid/content/res/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/Files$FileType;)V
+    invoke-direct {v0, v1, p1, v2}, Lcom/badlogic/gdx/backends/android/AndroidFileHandle;-><init>(Landroid/content/res/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/Files$FileType;)V
 
     return-object v0
 .end method
@@ -264,8 +254,6 @@
 
 .method public getFileHandle(Ljava/lang/String;Lcom/badlogic/gdx/Files$FileType;)Lcom/badlogic/gdx/files/FileHandle;
     .locals 2
-    .param p1, "path"    # Ljava/lang/String;
-    .param p2, "type"    # Lcom/badlogic/gdx/Files$FileType;
 
     .line 53
     new-instance v0, Lcom/badlogic/gdx/backends/android/AndroidFileHandle;
@@ -285,7 +273,6 @@
     invoke-direct {v0, v1, p1, p2}, Lcom/badlogic/gdx/backends/android/AndroidFileHandle;-><init>(Landroid/content/res/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/Files$FileType;)V
 
     .line 54
-    .local v0, "handle":Lcom/badlogic/gdx/files/FileHandle;
     iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidFiles;->expansionFile:Lcom/badlogic/gdx/backends/android/ZipResourceFile;
 
     if-eqz v1, :cond_1
@@ -298,7 +285,6 @@
 
     move-result-object v0
 
-    .line 55
     :cond_1
     return-object v0
 .end method
@@ -314,7 +300,6 @@
 
 .method public internal(Ljava/lang/String;)Lcom/badlogic/gdx/files/FileHandle;
     .locals 3
-    .param p1, "path"    # Ljava/lang/String;
 
     .line 79
     new-instance v0, Lcom/badlogic/gdx/backends/android/AndroidFileHandle;
@@ -326,7 +311,6 @@
     invoke-direct {v0, v1, p1, v2}, Lcom/badlogic/gdx/backends/android/AndroidFileHandle;-><init>(Landroid/content/res/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/Files$FileType;)V
 
     .line 80
-    .local v0, "handle":Lcom/badlogic/gdx/files/FileHandle;
     iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidFiles;->expansionFile:Lcom/badlogic/gdx/backends/android/ZipResourceFile;
 
     if-eqz v1, :cond_0
@@ -335,7 +319,6 @@
 
     move-result-object v0
 
-    .line 81
     :cond_0
     return-object v0
 .end method
@@ -360,7 +343,6 @@
 .method public isLocalStorageAvailable()Z
     .locals 1
 
-    .line 116
     const/4 v0, 0x1
 
     return v0
@@ -368,24 +350,21 @@
 
 .method public local(Ljava/lang/String;)Lcom/badlogic/gdx/files/FileHandle;
     .locals 3
-    .param p1, "path"    # Ljava/lang/String;
 
     .line 96
     new-instance v0, Lcom/badlogic/gdx/backends/android/AndroidFileHandle;
 
-    sget-object v1, Lcom/badlogic/gdx/Files$FileType;->Local:Lcom/badlogic/gdx/Files$FileType;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    sget-object v2, Lcom/badlogic/gdx/Files$FileType;->Local:Lcom/badlogic/gdx/Files$FileType;
 
-    invoke-direct {v0, v2, p1, v1}, Lcom/badlogic/gdx/backends/android/AndroidFileHandle;-><init>(Landroid/content/res/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/Files$FileType;)V
+    invoke-direct {v0, v1, p1, v2}, Lcom/badlogic/gdx/backends/android/AndroidFileHandle;-><init>(Landroid/content/res/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/Files$FileType;)V
 
     return-object v0
 .end method
 
 .method public setAPKExpansion(II)Z
-    .locals 4
-    .param p1, "mainVersion"    # I
-    .param p2, "patchVersion"    # I
+    .locals 3
 
     .line 133
     :try_start_0
@@ -404,11 +383,9 @@
 
     move-result-object v0
 
-    .local v0, "context":Landroid/content/Context;
     goto :goto_0
 
     .line 135
-    .end local v0    # "context":Landroid/content/Context;
     :cond_0
     sget-object v0, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
 
@@ -430,30 +407,24 @@
     move-result-object v0
 
     .line 140
-    .restart local v0    # "context":Landroid/content/Context;
     :goto_0
     invoke-static {v0, p1, p2}, Lcom/badlogic/gdx/backends/android/APKExpansionSupport;->getAPKExpansionZipFile(Landroid/content/Context;II)Lcom/badlogic/gdx/backends/android/ZipResourceFile;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidFiles;->expansionFile:Lcom/badlogic/gdx/backends/android/ZipResourceFile;
+    iput-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidFiles;->expansionFile:Lcom/badlogic/gdx/backends/android/ZipResourceFile;
 
-    .line 145
-    .end local v0    # "context":Landroid/content/Context;
-    nop
+    if-eqz v0, :cond_1
 
-    .line 146
-    if-eqz v1, :cond_1
-
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_1
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_1
-    return v0
+    return p1
 
     .line 138
     :cond_2
@@ -463,47 +434,45 @@
 
     invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    .end local p1    # "mainVersion":I
-    .end local p2    # "patchVersion":I
     throw v0
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 143
-    .restart local p1    # "mainVersion":I
-    .restart local p2    # "patchVersion":I
-    :catch_0
-    move-exception v0
-
     .line 144
-    .local v0, "ex":Ljava/io/IOException;
-    new-instance v1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    :catch_0
+    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "APK expansion main version "
 
-    const-string v3, "APK expansion main version "
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    const-string v3, " or patch version "
+    const-string v1, " or patch version "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    const-string v3, " couldn\'t be opened!"
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string p2, " couldn\'t be opened!"
 
-    move-result-object v2
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v1, v2}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    throw v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method

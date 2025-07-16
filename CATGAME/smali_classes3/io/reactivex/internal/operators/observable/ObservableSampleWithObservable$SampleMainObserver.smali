@@ -81,9 +81,6 @@
     .end annotation
 
     .line 57
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;, "Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
-    .local p2, "other":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<*>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 53
@@ -99,7 +96,6 @@
     .line 59
     iput-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;->sampler:Lio/reactivex/ObservableSource;
 
-    .line 60
     return-void
 .end method
 
@@ -109,7 +105,6 @@
     .locals 1
 
     .line 111
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;, "Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
@@ -117,7 +112,6 @@
     .line 112
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;->completeOther()V
 
-    .line 113
     return-void
 .end method
 
@@ -131,7 +125,6 @@
     .locals 1
 
     .line 96
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;, "Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;->other:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
@@ -141,23 +134,19 @@
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 98
     return-void
 .end method
 
 .method emit()V
     .locals 2
 
-    .line 116
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;, "Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver<TT;>;"
     const/4 v0, 0x0
 
+    .line 116
     invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;->getAndSet(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 117
-    .local v0, "value":Ljava/lang/Object;, "TT;"
     if-eqz v0, :cond_0
 
     .line 118
@@ -165,17 +154,14 @@
 
     invoke-interface {v1, v0}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
-    .line 120
     :cond_0
     return-void
 .end method
 
 .method public error(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 106
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;, "Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
@@ -185,7 +171,6 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 108
     return-void
 .end method
 
@@ -193,7 +178,6 @@
     .locals 2
 
     .line 102
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;, "Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;->other:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -219,7 +203,6 @@
     .locals 1
 
     .line 86
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;, "Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;->other:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
@@ -227,16 +210,13 @@
     .line 87
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;->completeMain()V
 
-    .line 88
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 80
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;, "Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;->other:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
@@ -246,7 +226,6 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 82
     return-void
 .end method
 
@@ -259,20 +238,15 @@
     .end annotation
 
     .line 75
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;, "Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;->lazySet(Ljava/lang/Object;)V
 
-    .line 76
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
-    .locals 2
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
+    .locals 1
 
     .line 64
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;, "Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -285,29 +259,28 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;->s:Lio/reactivex/disposables/Disposable;
 
     .line 66
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v0, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 67
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;->other:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;->other:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 68
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;->sampler:Lio/reactivex/ObservableSource;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;->sampler:Lio/reactivex/ObservableSource;
 
-    new-instance v1, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SamplerObserver;
+    new-instance v0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SamplerObserver;
 
-    invoke-direct {v1, p0}, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SamplerObserver;-><init>(Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;)V
+    invoke-direct {v0, p0}, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SamplerObserver;-><init>(Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;)V
 
-    invoke-interface {v0, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
+    invoke-interface {p1, v0}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 71
     :cond_0
     return-void
 .end method
@@ -317,15 +290,13 @@
 
 .method setOther(Lio/reactivex/disposables/Disposable;)Z
     .locals 1
-    .param p1, "o"    # Lio/reactivex/disposables/Disposable;
 
     .line 91
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;, "Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableSampleWithObservable$SampleMainObserver;->other:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

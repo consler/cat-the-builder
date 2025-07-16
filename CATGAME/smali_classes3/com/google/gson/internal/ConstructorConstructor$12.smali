@@ -32,9 +32,8 @@
 # direct methods
 .method constructor <init>(Lcom/google/gson/internal/ConstructorConstructor;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/google/gson/internal/ConstructorConstructor;
 
-    .line 201
+    .line 235
     iput-object p1, p0, Lcom/google/gson/internal/ConstructorConstructor$12;->this$0:Lcom/google/gson/internal/ConstructorConstructor;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,10 +51,10 @@
         }
     .end annotation
 
-    .line 203
-    new-instance v0, Ljava/util/LinkedHashMap;
+    .line 237
+    new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-direct {v0}, Ljava/util/LinkedHashMap;-><init>()V
+    invoke-direct {v0}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V
 
     return-object v0
 .end method

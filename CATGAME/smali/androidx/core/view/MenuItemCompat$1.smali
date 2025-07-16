@@ -24,6 +24,14 @@
 # direct methods
 .method constructor <init>(Landroidx/core/view/MenuItemCompat$OnActionExpandListener;)V
     .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1010
+        }
+        names = {
+            "val$listener"
+        }
+    .end annotation
 
     .line 302
     iput-object p1, p0, Landroidx/core/view/MenuItemCompat$1;->val$listener:Landroidx/core/view/MenuItemCompat$OnActionExpandListener;
@@ -37,28 +45,42 @@
 # virtual methods
 .method public onMenuItemActionCollapse(Landroid/view/MenuItem;)Z
     .locals 1
-    .param p1, "item"    # Landroid/view/MenuItem;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "item"
+        }
+    .end annotation
 
     .line 310
     iget-object v0, p0, Landroidx/core/view/MenuItemCompat$1;->val$listener:Landroidx/core/view/MenuItemCompat$OnActionExpandListener;
 
     invoke-interface {v0, p1}, Landroidx/core/view/MenuItemCompat$OnActionExpandListener;->onMenuItemActionCollapse(Landroid/view/MenuItem;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public onMenuItemActionExpand(Landroid/view/MenuItem;)Z
     .locals 1
-    .param p1, "item"    # Landroid/view/MenuItem;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "item"
+        }
+    .end annotation
 
     .line 305
     iget-object v0, p0, Landroidx/core/view/MenuItemCompat$1;->val$listener:Landroidx/core/view/MenuItemCompat$OnActionExpandListener;
 
     invoke-interface {v0, p1}, Landroidx/core/view/MenuItemCompat$OnActionExpandListener;->onMenuItemActionExpand(Landroid/view/MenuItem;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

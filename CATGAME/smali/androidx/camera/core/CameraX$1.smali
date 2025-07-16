@@ -50,13 +50,12 @@
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
     .locals 3
-    .param p1, "t"    # Ljava/lang/Throwable;
 
-    .line 313
     const-string v0, "CameraX"
 
     const-string v1, "CameraX initialize() failed"
 
+    .line 313
     invoke-static {v0, v1, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 315
@@ -86,19 +85,18 @@
 
     invoke-virtual {v0, p1}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->setException(Ljava/lang/Throwable;)Z
 
-    .line 323
     return-void
 
-    .line 321
     :catchall_0
-    move-exception v1
+    move-exception p1
 
+    .line 321
     :try_start_1
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public bridge synthetic onSuccess(Ljava/lang/Object;)V
@@ -113,16 +111,14 @@
 .end method
 
 .method public onSuccess(Ljava/lang/Void;)V
-    .locals 2
-    .param p1, "result"    # Ljava/lang/Void;
+    .locals 1
 
     .line 307
-    iget-object v0, p0, Landroidx/camera/core/CameraX$1;->val$completer:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
+    iget-object p1, p0, Landroidx/camera/core/CameraX$1;->val$completer:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v1}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
 
-    .line 308
     return-void
 .end method

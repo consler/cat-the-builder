@@ -22,20 +22,19 @@
 
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LiteralDecoder;)V
-    .locals 1
-    .param p1, "this$1"    # Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LiteralDecoder;
+    .locals 0
 
     .line 60
     iput-object p1, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LiteralDecoder$Decoder2;->this$1:Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LiteralDecoder;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    const/16 p1, 0x300
+
+    new-array p1, p1, [S
+
     .line 61
-    const/16 v0, 0x300
-
-    new-array v0, v0, [S
-
-    iput-object v0, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LiteralDecoder$Decoder2;->m_Decoders:[S
+    iput-object p1, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LiteralDecoder$Decoder2;->m_Decoders:[S
 
     return-void
 .end method
@@ -44,122 +43,100 @@
 # virtual methods
 .method public DecodeNormal(Lcom/badlogic/gdx/utils/compression/rangecoder/Decoder;)B
     .locals 3
-    .param p1, "rangeDecoder"    # Lcom/badlogic/gdx/utils/compression/rangecoder/Decoder;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 68
     const/4 v0, 0x1
 
-    .line 70
-    .local v0, "symbol":I
-    :goto_0
+    :cond_0
     shl-int/lit8 v1, v0, 0x1
 
+    .line 70
     iget-object v2, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LiteralDecoder$Decoder2;->m_Decoders:[S
 
     invoke-virtual {p1, v2, v0}, Lcom/badlogic/gdx/utils/compression/rangecoder/Decoder;->DecodeBit([SI)I
 
-    move-result v2
+    move-result v0
 
-    or-int v0, v1, v2
+    or-int/2addr v0, v1
 
-    .line 71
     const/16 v1, 0x100
 
     if-lt v0, v1, :cond_0
 
-    .line 72
-    int-to-byte v1, v0
+    int-to-byte p1, v0
 
-    return v1
-
-    .line 71
-    :cond_0
-    goto :goto_0
+    return p1
 .end method
 
 .method public DecodeWithMatchByte(Lcom/badlogic/gdx/utils/compression/rangecoder/Decoder;B)B
-    .locals 6
-    .param p1, "rangeDecoder"    # Lcom/badlogic/gdx/utils/compression/rangecoder/Decoder;
-    .param p2, "matchByte"    # B
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 77
     const/4 v0, 0x1
 
-    .line 79
-    .local v0, "symbol":I
+    move v1, v0
+
     :cond_0
-    shr-int/lit8 v1, p2, 0x7
+    shr-int/lit8 v2, p2, 0x7
 
-    and-int/lit8 v1, v1, 0x1
+    and-int/2addr v2, v0
 
-    .line 80
-    .local v1, "matchBit":I
-    shl-int/lit8 v2, p2, 0x1
+    shl-int/2addr p2, v0
 
-    int-to-byte p2, v2
+    int-to-byte p2, p2
 
     .line 81
-    iget-object v2, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LiteralDecoder$Decoder2;->m_Decoders:[S
+    iget-object v3, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LiteralDecoder$Decoder2;->m_Decoders:[S
 
-    add-int/lit8 v3, v1, 0x1
+    add-int/lit8 v4, v2, 0x1
 
-    shl-int/lit8 v3, v3, 0x8
+    shl-int/lit8 v4, v4, 0x8
 
-    add-int/2addr v3, v0
+    add-int/2addr v4, v1
 
-    invoke-virtual {p1, v2, v3}, Lcom/badlogic/gdx/utils/compression/rangecoder/Decoder;->DecodeBit([SI)I
+    invoke-virtual {p1, v3, v4}, Lcom/badlogic/gdx/utils/compression/rangecoder/Decoder;->DecodeBit([SI)I
 
-    move-result v2
+    move-result v3
 
-    .line 82
-    .local v2, "bit":I
-    shl-int/lit8 v3, v0, 0x1
+    shl-int/2addr v1, v0
 
-    or-int v0, v3, v2
+    or-int/2addr v1, v3
 
-    .line 83
-    const/16 v3, 0x100
+    const/16 v4, 0x100
 
-    if-eq v1, v2, :cond_1
+    if-eq v2, v3, :cond_1
 
-    .line 84
     :goto_0
-    if-ge v0, v3, :cond_2
+    if-ge v1, v4, :cond_2
+
+    shl-int/lit8 p2, v1, 0x1
 
     .line 85
-    shl-int/lit8 v4, v0, 0x1
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LiteralDecoder$Decoder2;->m_Decoders:[S
 
-    iget-object v5, p0, Lcom/badlogic/gdx/utils/compression/lzma/Decoder$LiteralDecoder$Decoder2;->m_Decoders:[S
+    invoke-virtual {p1, v0, v1}, Lcom/badlogic/gdx/utils/compression/rangecoder/Decoder;->DecodeBit([SI)I
 
-    invoke-virtual {p1, v5, v0}, Lcom/badlogic/gdx/utils/compression/rangecoder/Decoder;->DecodeBit([SI)I
+    move-result v0
 
-    move-result v5
-
-    or-int v0, v4, v5
+    or-int v1, p2, v0
 
     goto :goto_0
 
-    .line 88
-    .end local v1    # "matchBit":I
-    .end local v2    # "bit":I
     :cond_1
-    if-lt v0, v3, :cond_0
+    if-lt v1, v4, :cond_0
 
-    .line 89
     :cond_2
-    int-to-byte v1, v0
+    int-to-byte p1, v1
 
-    return v1
+    return p1
 .end method
 
 .method public Init()V
@@ -170,6 +147,5 @@
 
     invoke-static {v0}, Lcom/badlogic/gdx/utils/compression/rangecoder/Decoder;->InitBitModels([S)V
 
-    .line 65
     return-void
 .end method

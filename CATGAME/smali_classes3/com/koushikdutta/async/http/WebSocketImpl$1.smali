@@ -21,8 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/WebSocketImpl;Lcom/koushikdutta/async/DataEmitter;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/WebSocketImpl;
-    .param p2, "socket"    # Lcom/koushikdutta/async/DataEmitter;
 
     .line 74
     iput-object p1, p0, Lcom/koushikdutta/async/http/WebSocketImpl$1;->this$0:Lcom/koushikdutta/async/http/WebSocketImpl;
@@ -35,26 +33,22 @@
 
 # virtual methods
 .method protected onDisconnect(ILjava/lang/String;)V
-    .locals 1
-    .param p1, "code"    # I
-    .param p2, "reason"    # Ljava/lang/String;
+    .locals 0
 
     .line 92
-    iget-object v0, p0, Lcom/koushikdutta/async/http/WebSocketImpl$1;->this$0:Lcom/koushikdutta/async/http/WebSocketImpl;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/WebSocketImpl$1;->this$0:Lcom/koushikdutta/async/http/WebSocketImpl;
 
-    invoke-static {v0}, Lcom/koushikdutta/async/http/WebSocketImpl;->access$200(Lcom/koushikdutta/async/http/WebSocketImpl;)Lcom/koushikdutta/async/AsyncSocket;
+    invoke-static {p1}, Lcom/koushikdutta/async/http/WebSocketImpl;->access$200(Lcom/koushikdutta/async/http/WebSocketImpl;)Lcom/koushikdutta/async/AsyncSocket;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Lcom/koushikdutta/async/AsyncSocket;->close()V
+    invoke-interface {p1}, Lcom/koushikdutta/async/AsyncSocket;->close()V
 
-    .line 95
     return-void
 .end method
 
 .method protected onMessage(Ljava/lang/String;)V
     .locals 1
-    .param p1, "payload"    # Ljava/lang/String;
 
     .line 87
     iget-object v0, p0, Lcom/koushikdutta/async/http/WebSocketImpl$1;->this$0:Lcom/koushikdutta/async/http/WebSocketImpl;
@@ -74,14 +68,12 @@
 
     invoke-interface {v0, p1}, Lcom/koushikdutta/async/http/WebSocket$StringCallback;->onStringAvailable(Ljava/lang/String;)V
 
-    .line 89
     :cond_0
     return-void
 .end method
 
 .method protected onMessage([B)V
     .locals 2
-    .param p1, "payload"    # [B
 
     .line 82
     iget-object v0, p0, Lcom/koushikdutta/async/http/WebSocketImpl$1;->this$0:Lcom/koushikdutta/async/http/WebSocketImpl;
@@ -92,13 +84,11 @@
 
     invoke-static {v0, v1}, Lcom/koushikdutta/async/http/WebSocketImpl;->access$000(Lcom/koushikdutta/async/http/WebSocketImpl;Lcom/koushikdutta/async/ByteBufferList;)V
 
-    .line 83
     return-void
 .end method
 
 .method protected onPing(Ljava/lang/String;)V
     .locals 1
-    .param p1, "payload"    # Ljava/lang/String;
 
     .line 103
     iget-object v0, p0, Lcom/koushikdutta/async/http/WebSocketImpl$1;->this$0:Lcom/koushikdutta/async/http/WebSocketImpl;
@@ -118,14 +108,12 @@
 
     invoke-interface {v0, p1}, Lcom/koushikdutta/async/http/WebSocket$PingCallback;->onPingReceived(Ljava/lang/String;)V
 
-    .line 105
     :cond_0
     return-void
 .end method
 
 .method protected onPong(Ljava/lang/String;)V
     .locals 1
-    .param p1, "payload"    # Ljava/lang/String;
 
     .line 109
     iget-object v0, p0, Lcom/koushikdutta/async/http/WebSocketImpl$1;->this$0:Lcom/koushikdutta/async/http/WebSocketImpl;
@@ -145,14 +133,12 @@
 
     invoke-interface {v0, p1}, Lcom/koushikdutta/async/http/WebSocket$PongCallback;->onPongReceived(Ljava/lang/String;)V
 
-    .line 111
     :cond_0
     return-void
 .end method
 
 .method protected report(Ljava/lang/Exception;)V
     .locals 1
-    .param p1, "ex"    # Ljava/lang/Exception;
 
     .line 77
     iget-object v0, p0, Lcom/koushikdutta/async/http/WebSocketImpl$1;->this$0:Lcom/koushikdutta/async/http/WebSocketImpl;
@@ -168,14 +154,12 @@
 
     invoke-interface {v0, p1}, Lcom/koushikdutta/async/callback/CompletedCallback;->onCompleted(Ljava/lang/Exception;)V
 
-    .line 79
     :cond_0
     return-void
 .end method
 
 .method protected sendFrame([B)V
     .locals 2
-    .param p1, "frame"    # [B
 
     .line 98
     iget-object v0, p0, Lcom/koushikdutta/async/http/WebSocketImpl$1;->this$0:Lcom/koushikdutta/async/http/WebSocketImpl;
@@ -188,6 +172,5 @@
 
     invoke-virtual {v0, v1}, Lcom/koushikdutta/async/BufferedDataSink;->write(Lcom/koushikdutta/async/ByteBufferList;)V
 
-    .line 99
     return-void
 .end method

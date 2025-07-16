@@ -40,7 +40,6 @@
     .locals 0
 
     .line 636
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectFloatMap$Entry;, "Lcom/badlogic/gdx/utils/ObjectFloatMap$Entry<TK;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -52,7 +51,6 @@
     .locals 2
 
     .line 641
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectFloatMap$Entry;, "Lcom/badlogic/gdx/utils/ObjectFloatMap$Entry<TK;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -61,13 +59,19 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget v1, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$Entry;->value:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

@@ -31,16 +31,11 @@
     .line 482
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 483
     return-void
 .end method
 
 .method public constructor <init>(IIII)V
     .locals 0
-    .param p1, "oldListStart"    # I
-    .param p2, "oldListEnd"    # I
-    .param p3, "newListStart"    # I
-    .param p4, "newListEnd"    # I
 
     .line 485
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,6 +52,5 @@
     .line 489
     iput p4, p0, Landroidx/recyclerview/widget/DiffUtil$Range;->newListEnd:I
 
-    .line 490
     return-void
 .end method

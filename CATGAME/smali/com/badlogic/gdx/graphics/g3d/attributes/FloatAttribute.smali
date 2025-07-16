@@ -21,18 +21,18 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .line 25
     const-string v0, "shininess"
 
+    .line 25
     invoke-static {v0}, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;->register(Ljava/lang/String;)J
 
     move-result-wide v0
 
     sput-wide v0, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;->Shininess:J
 
-    .line 32
     const-string v0, "alphaTest"
 
+    .line 32
     invoke-static {v0}, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;->register(Ljava/lang/String;)J
 
     move-result-wide v0
@@ -44,19 +44,15 @@
 
 .method public constructor <init>(J)V
     .locals 0
-    .param p1, "type"    # J
 
     .line 41
     invoke-direct {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/Attribute;-><init>(J)V
 
-    .line 42
     return-void
 .end method
 
 .method public constructor <init>(JF)V
     .locals 0
-    .param p1, "type"    # J
-    .param p3, "value"    # F
 
     .line 45
     invoke-direct {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/Attribute;-><init>(J)V
@@ -64,13 +60,11 @@
     .line 46
     iput p3, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;->value:F
 
-    .line 47
     return-void
 .end method
 
 .method public static createAlphaTest(F)Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;
     .locals 3
-    .param p0, "value"    # F
 
     .line 35
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;
@@ -84,7 +78,6 @@
 
 .method public static createShininess(F)Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;
     .locals 3
-    .param p0, "value"    # F
 
     .line 28
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;
@@ -100,7 +93,6 @@
 # virtual methods
 .method public compareTo(Lcom/badlogic/gdx/graphics/g3d/Attribute;)I
     .locals 4
-    .param p1, "o"    # Lcom/badlogic/gdx/graphics/g3d/Attribute;
 
     .line 63
     iget-wide v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;->type:J
@@ -117,48 +109,45 @@
 
     sub-long/2addr v0, v2
 
-    long-to-int v0, v0
+    long-to-int p1, v0
 
-    return v0
+    return p1
 
     .line 64
     :cond_0
-    move-object v0, p1
+    check-cast p1, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;
 
-    check-cast v0, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;
-
-    iget v0, v0, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;->value:F
+    iget p1, p1, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;->value:F
 
     .line 65
-    .local v0, "v":F
-    iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;->value:F
+    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;->value:F
 
-    invoke-static {v1, v0}, Lcom/badlogic/gdx/math/MathUtils;->isEqual(FF)Z
+    invoke-static {v0, p1}, Lcom/badlogic/gdx/math/MathUtils;->isEqual(FF)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
     :cond_1
-    iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;->value:F
+    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;->value:F
 
-    cmpg-float v1, v1, v0
+    cmpg-float p1, v0, p1
 
-    if-gez v1, :cond_2
+    if-gez p1, :cond_2
 
-    const/4 v1, -0x1
+    const/4 p1, -0x1
 
     goto :goto_0
 
     :cond_2
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
     :goto_0
-    return v1
+    return p1
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
@@ -190,27 +179,23 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .locals 2
 
     .line 56
     invoke-super {p0}, Lcom/badlogic/gdx/graphics/g3d/Attribute;->hashCode()I
 
     move-result v0
 
+    mul-int/lit16 v0, v0, 0x3d1
+
     .line 57
-    .local v0, "result":I
-    mul-int/lit16 v1, v0, 0x3d1
+    iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;->value:F
 
-    iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;->value:F
+    invoke-static {v1}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToRawIntBits(F)I
 
-    invoke-static {v2}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToRawIntBits(F)I
+    move-result v1
 
-    move-result v2
+    add-int/2addr v0, v1
 
-    add-int/2addr v1, v2
-
-    .line 58
-    .end local v0    # "result":I
-    .local v1, "result":I
-    return v1
+    return v0
 .end method

@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/server/AsyncHttpServer$6;Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/koushikdutta/async/http/server/AsyncHttpServer$6;
 
     .line 496
     iput-object p1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$6$2;->this$1:Lcom/koushikdutta/async/http/server/AsyncHttpServer$6;
@@ -41,14 +40,12 @@
 
 # virtual methods
 .method public onCompleted(Ljava/lang/Exception;)V
-    .locals 1
-    .param p1, "ex"    # Ljava/lang/Exception;
+    .locals 0
 
     .line 499
-    iget-object v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$6$2;->val$response:Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$6$2;->val$response:Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;
 
-    invoke-interface {v0}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;->end()V
+    invoke-interface {p1}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponse;->end()V
 
-    .line 500
     return-void
 .end method

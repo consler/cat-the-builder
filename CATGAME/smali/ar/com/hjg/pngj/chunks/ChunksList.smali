@@ -38,7 +38,6 @@
 # direct methods
 .method public constructor <init>(Lar/com/hjg/pngj/ImageInfo;)V
     .locals 1
-    .param p1, "imfinfo"    # Lar/com/hjg/pngj/ImageInfo;
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,22 +49,19 @@
 
     iput-object v0, p0, Lar/com/hjg/pngj/chunks/ChunksList;->chunks:Ljava/util/List;
 
-    .line 35
     const/4 v0, 0x0
 
+    .line 35
     iput-boolean v0, p0, Lar/com/hjg/pngj/chunks/ChunksList;->withPlte:Z
 
     .line 38
     iput-object p1, p0, Lar/com/hjg/pngj/chunks/ChunksList;->imageInfo:Lar/com/hjg/pngj/ImageInfo;
 
-    .line 39
     return-void
 .end method
 
 .method protected static getXById(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
     .locals 1
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "innerid"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -81,20 +77,18 @@
         }
     .end annotation
 
-    .line 51
-    .local p0, "list":Ljava/util/List;, "Ljava/util/List<Lar/com/hjg/pngj/chunks/PngChunk;>;"
     if-nez p2, :cond_0
 
     .line 52
-    new-instance v0, Lar/com/hjg/pngj/chunks/ChunksList$1;
+    new-instance p2, Lar/com/hjg/pngj/chunks/ChunksList$1;
 
-    invoke-direct {v0, p1}, Lar/com/hjg/pngj/chunks/ChunksList$1;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Lar/com/hjg/pngj/chunks/ChunksList$1;-><init>(Ljava/lang/String;)V
 
-    invoke-static {p0, v0}, Lar/com/hjg/pngj/chunks/ChunkHelper;->filterList(Ljava/util/List;Lar/com/hjg/pngj/chunks/ChunkPredicate;)Ljava/util/List;
+    invoke-static {p0, p2}, Lar/com/hjg/pngj/chunks/ChunkHelper;->filterList(Ljava/util/List;Lar/com/hjg/pngj/chunks/ChunkPredicate;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 58
     :cond_0
@@ -104,50 +98,46 @@
 
     invoke-static {p0, v0}, Lar/com/hjg/pngj/chunks/ChunkHelper;->filterList(Ljava/util/List;Lar/com/hjg/pngj/chunks/ChunkPredicate;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public appendReadChunk(Lar/com/hjg/pngj/chunks/PngChunk;I)V
-    .locals 2
-    .param p1, "chunk"    # Lar/com/hjg/pngj/chunks/PngChunk;
-    .param p2, "chunkGroup"    # I
+    .locals 0
 
     .line 75
     invoke-virtual {p1, p2}, Lar/com/hjg/pngj/chunks/PngChunk;->setChunkGroup(I)V
 
     .line 76
-    iget-object v0, p0, Lar/com/hjg/pngj/chunks/ChunksList;->chunks:Ljava/util/List;
+    iget-object p2, p0, Lar/com/hjg/pngj/chunks/ChunksList;->chunks:Ljava/util/List;
 
-    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p2, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 77
-    iget-object v0, p1, Lar/com/hjg/pngj/chunks/PngChunk;->id:Ljava/lang/String;
+    iget-object p1, p1, Lar/com/hjg/pngj/chunks/PngChunk;->id:Ljava/lang/String;
 
-    const-string v1, "PLTE"
+    const-string p2, "PLTE"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
+
+    const/4 p1, 0x1
 
     .line 78
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lar/com/hjg/pngj/chunks/ChunksList;->withPlte:Z
 
-    iput-boolean v0, p0, Lar/com/hjg/pngj/chunks/ChunksList;->withPlte:Z
-
-    .line 79
     :cond_0
     return-void
 .end method
 
 .method public getById(Ljava/lang/String;)Ljava/util/List;
     .locals 1
-    .param p1, "id"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -160,20 +150,18 @@
         }
     .end annotation
 
-    .line 88
     const/4 v0, 0x0
 
+    .line 88
     invoke-virtual {p0, p1, v0}, Lar/com/hjg/pngj/chunks/ChunksList;->getById(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getById(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
     .locals 1
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "innerid"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -192,130 +180,122 @@
 
     invoke-static {v0, p1, p2}, Lar/com/hjg/pngj/chunks/ChunksList;->getXById(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getById1(Ljava/lang/String;)Lar/com/hjg/pngj/chunks/PngChunk;
     .locals 1
-    .param p1, "id"    # Ljava/lang/String;
 
-    .line 109
     const/4 v0, 0x0
 
+    .line 109
     invoke-virtual {p0, p1, v0}, Lar/com/hjg/pngj/chunks/ChunksList;->getById1(Ljava/lang/String;Z)Lar/com/hjg/pngj/chunks/PngChunk;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getById1(Ljava/lang/String;Ljava/lang/String;Z)Lar/com/hjg/pngj/chunks/PngChunk;
-    .locals 4
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "innerid"    # Ljava/lang/String;
-    .param p3, "failIfMultiple"    # Z
+    .locals 2
 
     .line 129
     invoke-virtual {p0, p1, p2}, Lar/com/hjg/pngj/chunks/ChunksList;->getById(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p2
 
     .line 130
-    .local v0, "list":Ljava/util/List;, "Ljava/util/List<+Lar/com/hjg/pngj/chunks/PngChunk;>;"
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+    invoke-interface {p2}, Ljava/util/List;->isEmpty()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 131
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 
     .line 132
     :cond_0
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-interface {p2}, Ljava/util/List;->size()I
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    if-le v1, v2, :cond_2
+    if-le v0, v1, :cond_2
 
     if-nez p3, :cond_1
 
-    const/4 v1, 0x0
+    const/4 p3, 0x0
 
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p2, p3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p3
 
-    check-cast v1, Lar/com/hjg/pngj/chunks/PngChunk;
+    check-cast p3, Lar/com/hjg/pngj/chunks/PngChunk;
 
-    invoke-virtual {v1}, Lar/com/hjg/pngj/chunks/PngChunk;->allowsMultiple()Z
+    invoke-virtual {p3}, Lar/com/hjg/pngj/chunks/PngChunk;->allowsMultiple()Z
 
-    move-result v1
+    move-result p3
 
-    if-eqz v1, :cond_1
+    if-eqz p3, :cond_1
 
     goto :goto_0
 
     .line 133
     :cond_1
-    new-instance v1, Lar/com/hjg/pngj/PngjException;
+    new-instance p2, Lar/com/hjg/pngj/PngjException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "unexpected multiple chunks id="
 
-    const-string/jumbo v3, "unexpected multiple chunks id="
+    invoke-direct {p3, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Lar/com/hjg/pngj/PngjException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Lar/com/hjg/pngj/PngjException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p2
 
     .line 134
     :cond_2
     :goto_0
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-interface {p2}, Ljava/util/List;->size()I
 
-    move-result v1
+    move-result p1
 
-    sub-int/2addr v1, v2
+    sub-int/2addr p1, v1
 
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p2, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Lar/com/hjg/pngj/chunks/PngChunk;
+    check-cast p1, Lar/com/hjg/pngj/chunks/PngChunk;
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public getById1(Ljava/lang/String;Z)Lar/com/hjg/pngj/chunks/PngChunk;
     .locals 1
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "failIfMultiple"    # Z
 
-    .line 119
     const/4 v0, 0x0
 
+    .line 119
     invoke-virtual {p0, p1, v0, p2}, Lar/com/hjg/pngj/chunks/ChunksList;->getById1(Ljava/lang/String;Ljava/lang/String;Z)Lar/com/hjg/pngj/chunks/PngChunk;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getChunks()Ljava/util/List;
@@ -337,7 +317,6 @@
 
 .method public getEquivalent(Lar/com/hjg/pngj/chunks/PngChunk;)Ljava/util/List;
     .locals 2
-    .param p1, "c2"    # Lar/com/hjg/pngj/chunks/PngChunk;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -358,9 +337,9 @@
 
     invoke-static {v0, v1}, Lar/com/hjg/pngj/chunks/ChunkHelper;->filterList(Ljava/util/List;Lar/com/hjg/pngj/chunks/ChunkPredicate;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -369,11 +348,9 @@
     .line 152
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "ChunkList: read: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v1, p0, Lar/com/hjg/pngj/chunks/ChunksList;->chunks:Ljava/util/List;
 
@@ -383,6 +360,8 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -391,7 +370,7 @@
 .end method
 
 .method public toStringFull()Ljava/lang/String;
-    .locals 5
+    .locals 6
 
     .line 159
     new-instance v0, Ljava/lang/StringBuilder;
@@ -402,10 +381,9 @@
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 160
-    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "\n Read:\n"
 
+    .line 160
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 161
@@ -415,7 +393,6 @@
 
     move-result-object v1
 
-    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -430,43 +407,43 @@
     check-cast v2, Lar/com/hjg/pngj/chunks/PngChunk;
 
     .line 162
-    .local v2, "chunk":Lar/com/hjg/pngj/chunks/PngChunk;
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, " G="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Lar/com/hjg/pngj/chunks/PngChunk;->getChunkGroup()I
-
-    move-result v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v4, "\n"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    .line 163
-    .end local v2    # "chunk":Lar/com/hjg/pngj/chunks/PngChunk;
+    const-string v5, " G="
+
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2}, Lar/com/hjg/pngj/chunks/PngChunk;->getChunkGroup()I
+
+    move-result v2
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v4, "\n"
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     goto :goto_0
 
     .line 164
-    .end local v1    # "i$":Ljava/util/Iterator;
     :cond_0
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method

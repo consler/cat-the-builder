@@ -19,7 +19,6 @@
 
 .method public static toCurveType(Lcom/google/crypto/tink/proto/EllipticCurveType;)Lcom/google/crypto/tink/subtle/EllipticCurves$CurveType;
     .locals 3
-    .param p0, "type"    # Lcom/google/crypto/tink/proto/EllipticCurveType;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -57,9 +56,9 @@
     if-ne v0, v1, :cond_0
 
     .line 140
-    sget-object v0, Lcom/google/crypto/tink/subtle/EllipticCurves$CurveType;->NIST_P521:Lcom/google/crypto/tink/subtle/EllipticCurves$CurveType;
+    sget-object p0, Lcom/google/crypto/tink/subtle/EllipticCurves$CurveType;->NIST_P521:Lcom/google/crypto/tink/subtle/EllipticCurves$CurveType;
 
-    return-object v0
+    return-object p0
 
     .line 142
     :cond_0
@@ -67,42 +66,41 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "unknown curve type: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/google/crypto/tink/proto/EllipticCurveType;->name()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v1
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 138
     :cond_1
-    sget-object v0, Lcom/google/crypto/tink/subtle/EllipticCurves$CurveType;->NIST_P384:Lcom/google/crypto/tink/subtle/EllipticCurves$CurveType;
+    sget-object p0, Lcom/google/crypto/tink/subtle/EllipticCurves$CurveType;->NIST_P384:Lcom/google/crypto/tink/subtle/EllipticCurves$CurveType;
 
-    return-object v0
+    return-object p0
 
     .line 136
     :cond_2
-    sget-object v0, Lcom/google/crypto/tink/subtle/EllipticCurves$CurveType;->NIST_P256:Lcom/google/crypto/tink/subtle/EllipticCurves$CurveType;
+    sget-object p0, Lcom/google/crypto/tink/subtle/EllipticCurves$CurveType;->NIST_P256:Lcom/google/crypto/tink/subtle/EllipticCurves$CurveType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static toEcdsaEncoding(Lcom/google/crypto/tink/proto/EcdsaSignatureEncoding;)Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
     .locals 3
-    .param p0, "encoding"    # Lcom/google/crypto/tink/proto/EcdsaSignatureEncoding;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -136,9 +134,9 @@
     if-ne v0, v1, :cond_0
 
     .line 154
-    sget-object v0, Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;->IEEE_P1363:Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
+    sget-object p0, Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;->IEEE_P1363:Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
 
-    return-object v0
+    return-object p0
 
     .line 158
     :cond_0
@@ -146,36 +144,35 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "unknown ECDSA encoding: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/google/crypto/tink/proto/EcdsaSignatureEncoding;->name()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v1
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 156
     :cond_1
-    sget-object v0, Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;->DER:Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
+    sget-object p0, Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;->DER:Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static toHashType(Lcom/google/crypto/tink/proto/HashType;)Lcom/google/crypto/tink/subtle/Enums$HashType;
     .locals 3
-    .param p0, "hash"    # Lcom/google/crypto/tink/proto/HashType;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -213,9 +210,9 @@
     if-ne v0, v1, :cond_0
 
     .line 124
-    sget-object v0, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA512:Lcom/google/crypto/tink/subtle/Enums$HashType;
+    sget-object p0, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA512:Lcom/google/crypto/tink/subtle/Enums$HashType;
 
-    return-object v0
+    return-object p0
 
     .line 128
     :cond_0
@@ -223,42 +220,41 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "unsupported hash type: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/google/crypto/tink/proto/HashType;->name()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v1
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 122
     :cond_1
-    sget-object v0, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA384:Lcom/google/crypto/tink/subtle/Enums$HashType;
+    sget-object p0, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA384:Lcom/google/crypto/tink/subtle/Enums$HashType;
 
-    return-object v0
+    return-object p0
 
     .line 120
     :cond_2
-    sget-object v0, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA256:Lcom/google/crypto/tink/subtle/Enums$HashType;
+    sget-object p0, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA256:Lcom/google/crypto/tink/subtle/Enums$HashType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static validateEcdsaParams(Lcom/google/crypto/tink/proto/EcdsaParams;)V
-    .locals 7
-    .param p0, "params"    # Lcom/google/crypto/tink/proto/EcdsaParams;
+    .locals 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -280,137 +276,129 @@
     move-result-object v0
 
     .line 40
-    .local v0, "encoding":Lcom/google/crypto/tink/proto/EcdsaSignatureEncoding;
     invoke-virtual {p0}, Lcom/google/crypto/tink/proto/EcdsaParams;->getHashType()Lcom/google/crypto/tink/proto/HashType;
 
     move-result-object v1
 
     .line 41
-    .local v1, "hash":Lcom/google/crypto/tink/proto/HashType;
     invoke-virtual {p0}, Lcom/google/crypto/tink/proto/EcdsaParams;->getCurve()Lcom/google/crypto/tink/proto/EllipticCurveType;
 
-    move-result-object v2
+    move-result-object p0
 
     .line 42
-    .local v2, "curve":Lcom/google/crypto/tink/proto/EllipticCurveType;
-    sget-object v3, Lcom/google/crypto/tink/signature/SigUtil$1;->$SwitchMap$com$google$crypto$tink$proto$EcdsaSignatureEncoding:[I
+    sget-object v2, Lcom/google/crypto/tink/signature/SigUtil$1;->$SwitchMap$com$google$crypto$tink$proto$EcdsaSignatureEncoding:[I
 
     invoke-virtual {v0}, Lcom/google/crypto/tink/proto/EcdsaSignatureEncoding;->ordinal()I
 
-    move-result v4
+    move-result v0
 
-    aget v3, v3, v4
+    aget v0, v2, v0
 
-    const/4 v4, 0x2
+    const/4 v2, 0x2
 
-    const/4 v5, 0x1
+    const/4 v3, 0x1
 
-    if-eq v3, v5, :cond_1
+    if-eq v0, v3, :cond_1
 
-    if-ne v3, v4, :cond_0
+    if-ne v0, v2, :cond_0
 
     goto :goto_0
 
     .line 47
     :cond_0
-    new-instance v3, Ljava/security/GeneralSecurityException;
+    new-instance p0, Ljava/security/GeneralSecurityException;
 
-    const-string v4, "unsupported signature encoding"
+    const-string v0, "unsupported signature encoding"
 
-    invoke-direct {v3, v4}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v3
-
-    .line 45
-    :cond_1
-    :goto_0
-    nop
+    throw p0
 
     .line 49
-    sget-object v3, Lcom/google/crypto/tink/signature/SigUtil$1;->$SwitchMap$com$google$crypto$tink$proto$EllipticCurveType:[I
+    :cond_1
+    :goto_0
+    sget-object v0, Lcom/google/crypto/tink/signature/SigUtil$1;->$SwitchMap$com$google$crypto$tink$proto$EllipticCurveType:[I
 
-    invoke-virtual {v2}, Lcom/google/crypto/tink/proto/EllipticCurveType;->ordinal()I
+    invoke-virtual {p0}, Lcom/google/crypto/tink/proto/EllipticCurveType;->ordinal()I
 
-    move-result v6
+    move-result p0
 
-    aget v3, v3, v6
+    aget p0, v0, p0
 
-    const-string v6, "Invalid ECDSA parameters"
+    const-string v0, "Invalid ECDSA parameters"
 
-    if-eq v3, v5, :cond_6
+    if-eq p0, v3, :cond_6
 
-    if-eq v3, v4, :cond_4
+    if-eq p0, v2, :cond_4
 
-    const/4 v4, 0x3
+    const/4 v2, 0x3
 
-    if-ne v3, v4, :cond_3
+    if-ne p0, v2, :cond_3
 
     .line 64
-    sget-object v3, Lcom/google/crypto/tink/proto/HashType;->SHA512:Lcom/google/crypto/tink/proto/HashType;
+    sget-object p0, Lcom/google/crypto/tink/proto/HashType;->SHA512:Lcom/google/crypto/tink/proto/HashType;
 
-    if-ne v1, v3, :cond_2
+    if-ne v1, p0, :cond_2
 
     goto :goto_1
 
     .line 65
     :cond_2
-    new-instance v3, Ljava/security/GeneralSecurityException;
+    new-instance p0, Ljava/security/GeneralSecurityException;
 
-    invoke-direct {v3, v6}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw p0
 
     .line 69
     :cond_3
-    new-instance v3, Ljava/security/GeneralSecurityException;
+    new-instance p0, Ljava/security/GeneralSecurityException;
 
-    invoke-direct {v3, v6}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw p0
 
     .line 59
     :cond_4
-    sget-object v3, Lcom/google/crypto/tink/proto/HashType;->SHA384:Lcom/google/crypto/tink/proto/HashType;
+    sget-object p0, Lcom/google/crypto/tink/proto/HashType;->SHA384:Lcom/google/crypto/tink/proto/HashType;
 
-    if-eq v1, v3, :cond_7
+    if-eq v1, p0, :cond_7
 
-    sget-object v3, Lcom/google/crypto/tink/proto/HashType;->SHA512:Lcom/google/crypto/tink/proto/HashType;
+    sget-object p0, Lcom/google/crypto/tink/proto/HashType;->SHA512:Lcom/google/crypto/tink/proto/HashType;
 
-    if-ne v1, v3, :cond_5
+    if-ne v1, p0, :cond_5
 
     goto :goto_1
 
     .line 60
     :cond_5
-    new-instance v3, Ljava/security/GeneralSecurityException;
+    new-instance p0, Ljava/security/GeneralSecurityException;
 
-    invoke-direct {v3, v6}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw p0
 
     .line 54
     :cond_6
-    sget-object v3, Lcom/google/crypto/tink/proto/HashType;->SHA256:Lcom/google/crypto/tink/proto/HashType;
+    sget-object p0, Lcom/google/crypto/tink/proto/HashType;->SHA256:Lcom/google/crypto/tink/proto/HashType;
 
-    if-ne v1, v3, :cond_8
+    if-ne v1, p0, :cond_8
 
-    .line 71
     :cond_7
     :goto_1
     return-void
 
     .line 55
     :cond_8
-    new-instance v3, Ljava/security/GeneralSecurityException;
+    new-instance p0, Ljava/security/GeneralSecurityException;
 
-    invoke-direct {v3, v6}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw p0
 .end method
 
 .method public static validateRsaSsaPkcs1Params(Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params;)V
-    .locals 1
-    .param p0, "params"    # Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -429,17 +417,15 @@
     .line 82
     invoke-virtual {p0}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params;->getHashType()Lcom/google/crypto/tink/proto/HashType;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lcom/google/crypto/tink/signature/SigUtil;->toHashType(Lcom/google/crypto/tink/proto/HashType;)Lcom/google/crypto/tink/subtle/Enums$HashType;
+    invoke-static {p0}, Lcom/google/crypto/tink/signature/SigUtil;->toHashType(Lcom/google/crypto/tink/proto/HashType;)Lcom/google/crypto/tink/subtle/Enums$HashType;
 
-    .line 83
     return-void
 .end method
 
 .method public static validateRsaSsaPssParams(Lcom/google/crypto/tink/proto/RsaSsaPssParams;)V
     .locals 2
-    .param p0, "params"    # Lcom/google/crypto/tink/proto/RsaSsaPssParams;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -476,30 +462,29 @@
     .line 111
     invoke-virtual {p0}, Lcom/google/crypto/tink/proto/RsaSsaPssParams;->getSaltLength()I
 
-    move-result v0
+    move-result p0
 
-    if-ltz v0, :cond_0
+    if-ltz p0, :cond_0
 
-    .line 114
     return-void
 
     .line 112
     :cond_0
-    new-instance v0, Ljava/security/GeneralSecurityException;
+    new-instance p0, Ljava/security/GeneralSecurityException;
 
-    const-string v1, "salt length is negative"
+    const-string v0, "salt length is negative"
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 109
     :cond_1
-    new-instance v0, Ljava/security/GeneralSecurityException;
+    new-instance p0, Ljava/security/GeneralSecurityException;
 
-    const-string v1, "MGF1 hash is different from signature hash"
+    const-string v0, "MGF1 hash is different from signature hash"
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method

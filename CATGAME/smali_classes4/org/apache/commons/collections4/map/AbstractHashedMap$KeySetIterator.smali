@@ -43,11 +43,8 @@
     .end annotation
 
     .line 977
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractHashedMap$KeySetIterator;, "Lorg/apache/commons/collections4/map/AbstractHashedMap$KeySetIterator<TK;>;"
-    .local p1, "parent":Lorg/apache/commons/collections4/map/AbstractHashedMap;, "Lorg/apache/commons/collections4/map/AbstractHashedMap<TK;*>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/map/AbstractHashedMap$HashIterator;-><init>(Lorg/apache/commons/collections4/map/AbstractHashedMap;)V
 
-    .line 978
     return-void
 .end method
 
@@ -62,7 +59,6 @@
     .end annotation
 
     .line 982
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractHashedMap$KeySetIterator;, "Lorg/apache/commons/collections4/map/AbstractHashedMap$KeySetIterator<TK;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/map/AbstractHashedMap$HashIterator;->nextEntry()Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;
 
     move-result-object v0

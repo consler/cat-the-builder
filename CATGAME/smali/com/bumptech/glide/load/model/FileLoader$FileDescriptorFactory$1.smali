@@ -40,7 +40,6 @@
 # virtual methods
 .method public close(Landroid/os/ParcelFileDescriptor;)V
     .locals 0
-    .param p1, "parcelFileDescriptor"    # Landroid/os/ParcelFileDescriptor;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -50,7 +49,6 @@
     .line 171
     invoke-virtual {p1}, Landroid/os/ParcelFileDescriptor;->close()V
 
-    .line 172
     return-void
 .end method
 
@@ -89,21 +87,20 @@
 
 .method public open(Ljava/io/File;)Landroid/os/ParcelFileDescriptor;
     .locals 1
-    .param p1, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
         }
     .end annotation
 
-    .line 166
     const/high16 v0, 0x10000000
 
+    .line 166
     invoke-static {p1, v0}, Landroid/os/ParcelFileDescriptor;->open(Ljava/io/File;I)Landroid/os/ParcelFileDescriptor;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic open(Ljava/io/File;)Ljava/lang/Object;

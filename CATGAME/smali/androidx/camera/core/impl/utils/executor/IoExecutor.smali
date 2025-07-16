@@ -26,16 +26,15 @@
 
     invoke-direct {v0, p0}, Landroidx/camera/core/impl/utils/executor/IoExecutor$1;-><init>(Landroidx/camera/core/impl/utils/executor/IoExecutor;)V
 
-    .line 37
     const/4 v1, 0x2
 
+    .line 37
     invoke-static {v1, v0}, Ljava/util/concurrent/Executors;->newFixedThreadPool(ILjava/util/concurrent/ThreadFactory;)Ljava/util/concurrent/ExecutorService;
 
     move-result-object v0
 
     iput-object v0, p0, Landroidx/camera/core/impl/utils/executor/IoExecutor;->mIoService:Ljava/util/concurrent/ExecutorService;
 
-    .line 36
     return-void
 .end method
 
@@ -82,10 +81,10 @@
 
     return-object v0
 
-    .line 65
     :catchall_0
     move-exception v1
 
+    .line 65
     :try_start_1
     monitor-exit v0
     :try_end_1
@@ -98,13 +97,11 @@
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
     .locals 1
-    .param p1, "command"    # Ljava/lang/Runnable;
 
     .line 72
     iget-object v0, p0, Landroidx/camera/core/impl/utils/executor/IoExecutor;->mIoService:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0, p1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 
-    .line 73
     return-void
 .end method

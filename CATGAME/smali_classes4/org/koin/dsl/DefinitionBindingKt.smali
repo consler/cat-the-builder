@@ -40,8 +40,7 @@
 
 # direct methods
 .method public static final synthetic bind(Lorg/koin/core/definition/BeanDefinition;)Lorg/koin/core/definition/BeanDefinition;
-    .locals 3
-    .param p0, "$this$bind"    # Lorg/koin/core/definition/BeanDefinition;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -54,37 +53,32 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const-string v0, "$this$bind"
 
-    .local v0, "$i$f$bind":I
-    const-string v1, "$this$bind"
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {p0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    const/4 v0, 0x4
+
+    const-string v1, "T"
 
     .line 44
-    const/4 v1, 0x4
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
-    const-string v2, "T"
+    const-class v0, Ljava/lang/Object;
 
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
+    invoke-static {v0}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    const-class v1, Ljava/lang/Object;
+    move-result-object v0
 
-    invoke-static {v1}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+    invoke-static {p0, v0}, Lorg/koin/dsl/DefinitionBindingKt;->bind(Lorg/koin/core/definition/BeanDefinition;Lkotlin/reflect/KClass;)Lorg/koin/core/definition/BeanDefinition;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-static {p0, v1}, Lorg/koin/dsl/DefinitionBindingKt;->bind(Lorg/koin/core/definition/BeanDefinition;Lkotlin/reflect/KClass;)Lorg/koin/core/definition/BeanDefinition;
-
-    move-result-object v1
-
-    return-object v1
+    return-object p0
 .end method
 
 .method public static final bind(Lorg/koin/core/definition/BeanDefinition;Lkotlin/reflect/KClass;)Lorg/koin/core/definition/BeanDefinition;
     .locals 13
-    .param p0, "$this$bind"    # Lorg/koin/core/definition/BeanDefinition;
-    .param p1, "clazz"    # Lkotlin/reflect/KClass;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -107,6 +101,16 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
     .line 34
     invoke-virtual {p0}, Lorg/koin/core/definition/BeanDefinition;->getSecondaryTypes()Ljava/util/List;
 
@@ -117,16 +121,6 @@
     invoke-static {v0, p1}, Lkotlin/collections/CollectionsKt;->plus(Ljava/util/Collection;Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v7
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x0
-
-    const/4 v5, 0x0
-
-    const/4 v6, 0x0
 
     const/4 v8, 0x0
 
@@ -142,35 +136,33 @@
 
     invoke-static/range {v1 .. v12}, Lorg/koin/core/definition/BeanDefinition;->copy$default(Lorg/koin/core/definition/BeanDefinition;Lorg/koin/core/scope/ScopeDefinition;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function2;Lorg/koin/core/definition/Kind;Ljava/util/List;Lorg/koin/core/definition/Options;Lorg/koin/core/definition/Properties;Lorg/koin/core/definition/Callbacks;ILjava/lang/Object;)Lorg/koin/core/definition/BeanDefinition;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 35
-    .local v0, "copy":Lorg/koin/core/definition/BeanDefinition;
     invoke-virtual {p0}, Lorg/koin/core/definition/BeanDefinition;->getScopeDefinition()Lorg/koin/core/scope/ScopeDefinition;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, p0}, Lorg/koin/core/scope/ScopeDefinition;->remove(Lorg/koin/core/definition/BeanDefinition;)V
+    invoke-virtual {v0, p0}, Lorg/koin/core/scope/ScopeDefinition;->remove(Lorg/koin/core/definition/BeanDefinition;)V
 
     .line 36
     invoke-virtual {p0}, Lorg/koin/core/definition/BeanDefinition;->getScopeDefinition()Lorg/koin/core/scope/ScopeDefinition;
 
-    move-result-object v1
+    move-result-object p0
+
+    const/4 v0, 0x2
+
+    const/4 v1, 0x0
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x2
+    invoke-static {p0, p1, v2, v0, v1}, Lorg/koin/core/scope/ScopeDefinition;->save$default(Lorg/koin/core/scope/ScopeDefinition;Lorg/koin/core/definition/BeanDefinition;ZILjava/lang/Object;)V
 
-    invoke-static {v1, v0, v2, v3, v4}, Lorg/koin/core/scope/ScopeDefinition;->save$default(Lorg/koin/core/scope/ScopeDefinition;Lorg/koin/core/definition/BeanDefinition;ZILjava/lang/Object;)V
-
-    .line 37
-    return-object v0
+    return-object p1
 .end method
 
 .method public static final binds(Lorg/koin/core/definition/BeanDefinition;[Lkotlin/reflect/KClass;)Lorg/koin/core/definition/BeanDefinition;
     .locals 13
-    .param p0, "$this$binds"    # Lorg/koin/core/definition/BeanDefinition;
-    .param p1, "classes"    # [Lkotlin/reflect/KClass;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -191,6 +183,16 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
     .line 52
     invoke-virtual {p0}, Lorg/koin/core/definition/BeanDefinition;->getSecondaryTypes()Ljava/util/List;
 
@@ -201,16 +203,6 @@
     invoke-static {v0, p1}, Lkotlin/collections/CollectionsKt;->plus(Ljava/util/Collection;[Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v7
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x0
-
-    const/4 v5, 0x0
-
-    const/4 v6, 0x0
 
     const/4 v8, 0x0
 
@@ -226,35 +218,33 @@
 
     invoke-static/range {v1 .. v12}, Lorg/koin/core/definition/BeanDefinition;->copy$default(Lorg/koin/core/definition/BeanDefinition;Lorg/koin/core/scope/ScopeDefinition;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function2;Lorg/koin/core/definition/Kind;Ljava/util/List;Lorg/koin/core/definition/Options;Lorg/koin/core/definition/Properties;Lorg/koin/core/definition/Callbacks;ILjava/lang/Object;)Lorg/koin/core/definition/BeanDefinition;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 53
-    .local v0, "copy":Lorg/koin/core/definition/BeanDefinition;
     invoke-virtual {p0}, Lorg/koin/core/definition/BeanDefinition;->getScopeDefinition()Lorg/koin/core/scope/ScopeDefinition;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, p0}, Lorg/koin/core/scope/ScopeDefinition;->remove(Lorg/koin/core/definition/BeanDefinition;)V
+    invoke-virtual {v0, p0}, Lorg/koin/core/scope/ScopeDefinition;->remove(Lorg/koin/core/definition/BeanDefinition;)V
 
     .line 54
     invoke-virtual {p0}, Lorg/koin/core/definition/BeanDefinition;->getScopeDefinition()Lorg/koin/core/scope/ScopeDefinition;
 
-    move-result-object v1
+    move-result-object p0
+
+    const/4 v0, 0x2
+
+    const/4 v1, 0x0
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x2
+    invoke-static {p0, p1, v2, v0, v1}, Lorg/koin/core/scope/ScopeDefinition;->save$default(Lorg/koin/core/scope/ScopeDefinition;Lorg/koin/core/definition/BeanDefinition;ZILjava/lang/Object;)V
 
-    invoke-static {v1, v0, v2, v3, v4}, Lorg/koin/core/scope/ScopeDefinition;->save$default(Lorg/koin/core/scope/ScopeDefinition;Lorg/koin/core/definition/BeanDefinition;ZILjava/lang/Object;)V
-
-    .line 55
-    return-object v0
+    return-object p1
 .end method
 
 .method public static final onClose(Lorg/koin/core/definition/BeanDefinition;Lkotlin/jvm/functions/Function1;)Lorg/koin/core/definition/BeanDefinition;
     .locals 13
-    .param p0, "$this$onClose"    # Lorg/koin/core/definition/BeanDefinition;
-    .param p1, "onClose"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -279,11 +269,6 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 62
-    new-instance v10, Lorg/koin/core/definition/Callbacks;
-
-    invoke-direct {v10, p1}, Lorg/koin/core/definition/Callbacks;-><init>(Lkotlin/jvm/functions/Function1;)V
-
     const/4 v2, 0x0
 
     const/4 v3, 0x0
@@ -300,6 +285,11 @@
 
     const/4 v9, 0x0
 
+    .line 62
+    new-instance v10, Lorg/koin/core/definition/Callbacks;
+
+    invoke-direct {v10, p1}, Lorg/koin/core/definition/Callbacks;-><init>(Lkotlin/jvm/functions/Function1;)V
+
     const/16 v11, 0xff
 
     const/4 v12, 0x0
@@ -308,27 +298,27 @@
 
     invoke-static/range {v1 .. v12}, Lorg/koin/core/definition/BeanDefinition;->copy$default(Lorg/koin/core/definition/BeanDefinition;Lorg/koin/core/scope/ScopeDefinition;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function2;Lorg/koin/core/definition/Kind;Ljava/util/List;Lorg/koin/core/definition/Options;Lorg/koin/core/definition/Properties;Lorg/koin/core/definition/Callbacks;ILjava/lang/Object;)Lorg/koin/core/definition/BeanDefinition;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 63
-    .local v0, "copy":Lorg/koin/core/definition/BeanDefinition;
     invoke-virtual {p0}, Lorg/koin/core/definition/BeanDefinition;->getScopeDefinition()Lorg/koin/core/scope/ScopeDefinition;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, p0}, Lorg/koin/core/scope/ScopeDefinition;->remove(Lorg/koin/core/definition/BeanDefinition;)V
+    invoke-virtual {v0, p0}, Lorg/koin/core/scope/ScopeDefinition;->remove(Lorg/koin/core/definition/BeanDefinition;)V
 
     .line 64
     invoke-virtual {p0}, Lorg/koin/core/definition/BeanDefinition;->getScopeDefinition()Lorg/koin/core/scope/ScopeDefinition;
 
-    move-result-object v1
+    move-result-object p0
+
+    const/4 v0, 0x2
+
+    const/4 v1, 0x0
 
     const/4 v2, 0x0
 
-    const/4 v3, 0x2
+    invoke-static {p0, p1, v2, v0, v1}, Lorg/koin/core/scope/ScopeDefinition;->save$default(Lorg/koin/core/scope/ScopeDefinition;Lorg/koin/core/definition/BeanDefinition;ZILjava/lang/Object;)V
 
-    invoke-static {v1, v0, v2, v3, v4}, Lorg/koin/core/scope/ScopeDefinition;->save$default(Lorg/koin/core/scope/ScopeDefinition;Lorg/koin/core/definition/BeanDefinition;ZILjava/lang/Object;)V
-
-    .line 65
-    return-object v0
+    return-object p1
 .end method

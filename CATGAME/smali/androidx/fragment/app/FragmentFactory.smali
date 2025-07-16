@@ -40,44 +40,33 @@
 .end method
 
 .method static isFragmentClass(Ljava/lang/ClassLoader;Ljava/lang/String;)Z
-    .locals 2
-    .param p0, "classLoader"    # Ljava/lang/ClassLoader;
-    .param p1, "className"    # Ljava/lang/String;
+    .locals 0
 
     .line 64
     :try_start_0
     invoke-static {p0, p1}, Landroidx/fragment/app/FragmentFactory;->loadClass(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 65
-    .local v0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    const-class v1, Landroidx/fragment/app/Fragment;
+    const-class p1, Landroidx/fragment/app/Fragment;
 
-    invoke-virtual {v1, v0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    invoke-virtual {p1, p0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    move-result v1
+    move-result p0
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v1
+    return p0
 
-    .line 66
-    .end local v0    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :catch_0
-    move-exception v0
+    const/4 p0, 0x0
 
-    .line 67
-    .local v0, "e":Ljava/lang/ClassNotFoundException;
-    const/4 v1, 0x0
-
-    return v1
+    return p0
 .end method
 
 .method private static loadClass(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;
     .locals 2
-    .param p0, "classLoader"    # Ljava/lang/ClassLoader;
-    .param p1, "className"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -100,35 +89,28 @@
 
     invoke-virtual {v0, p1}, Landroidx/collection/SimpleArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Ljava/lang/Class;
+    check-cast v1, Ljava/lang/Class;
 
-    .line 45
-    .local v0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    .line 47
     const/4 v1, 0x0
 
+    .line 47
     invoke-static {p1, v1, p0}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 48
-    sget-object v1, Landroidx/fragment/app/FragmentFactory;->sClassMap:Landroidx/collection/SimpleArrayMap;
+    invoke-virtual {v0, p1, v1}, Landroidx/collection/SimpleArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v1, p1, v0}, Landroidx/collection/SimpleArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 50
     :cond_0
-    return-object v0
+    return-object v1
 .end method
 
 .method public static loadFragmentClass(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;
-    .locals 4
-    .param p0, "classLoader"    # Ljava/lang/ClassLoader;
-    .param p1, "className"    # Ljava/lang/String;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -142,231 +124,220 @@
         }
     .end annotation
 
-    .line 88
     const-string v0, "Unable to instantiate fragment "
 
+    .line 88
     :try_start_0
     invoke-static {p0, p1}, Landroidx/fragment/app/FragmentFactory;->loadClass(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 89
-    .local v0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    return-object v0
+    return-object p0
 
-    .line 93
-    .end local v0    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :catch_0
-    move-exception v1
+    move-exception p0
 
     .line 94
-    .local v1, "e":Ljava/lang/ClassCastException;
-    new-instance v2, Landroidx/fragment/app/Fragment$InstantiationException;
+    new-instance v1, Landroidx/fragment/app/Fragment$InstantiationException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
     const-string v0, ": make sure class is a valid subclass of Fragment"
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v2, v0, v1}, Landroidx/fragment/app/Fragment$InstantiationException;-><init>(Ljava/lang/String;Ljava/lang/Exception;)V
+    move-result-object p1
 
-    throw v2
+    invoke-direct {v1, p1, p0}, Landroidx/fragment/app/Fragment$InstantiationException;-><init>(Ljava/lang/String;Ljava/lang/Exception;)V
 
-    .line 90
-    .end local v1    # "e":Ljava/lang/ClassCastException;
+    throw v1
+
     :catch_1
-    move-exception v1
+    move-exception p0
 
     .line 91
-    .local v1, "e":Ljava/lang/ClassNotFoundException;
-    new-instance v2, Landroidx/fragment/app/Fragment$InstantiationException;
+    new-instance v1, Landroidx/fragment/app/Fragment$InstantiationException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
     const-string v0, ": make sure class name exists"
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v2, v0, v1}, Landroidx/fragment/app/Fragment$InstantiationException;-><init>(Ljava/lang/String;Ljava/lang/Exception;)V
+    move-result-object p1
 
-    throw v2
+    invoke-direct {v1, p1, p0}, Landroidx/fragment/app/Fragment$InstantiationException;-><init>(Ljava/lang/String;Ljava/lang/Exception;)V
+
+    throw v1
 .end method
 
 
 # virtual methods
 .method public instantiate(Ljava/lang/ClassLoader;Ljava/lang/String;)Landroidx/fragment/app/Fragment;
-    .locals 5
-    .param p1, "classLoader"    # Ljava/lang/ClassLoader;
-    .param p2, "className"    # Ljava/lang/String;
+    .locals 4
 
-    .line 114
     const-string v0, ": make sure class name exists, is public, and has an empty constructor that is public"
 
     const-string v1, "Unable to instantiate fragment "
 
+    .line 114
     :try_start_0
     invoke-static {p1, p2}, Landroidx/fragment/app/FragmentFactory;->loadFragmentClass(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object p1
+
+    const/4 v2, 0x0
+
+    new-array v3, v2, [Ljava/lang/Class;
 
     .line 115
-    .local v2, "cls":Ljava/lang/Class;, "Ljava/lang/Class<+Landroidx/fragment/app/Fragment;>;"
-    const/4 v3, 0x0
+    invoke-virtual {p1, v3}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
-    new-array v4, v3, [Ljava/lang/Class;
+    move-result-object p1
 
-    invoke-virtual {v2, v4}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+    new-array v2, v2, [Ljava/lang/Object;
 
-    move-result-object v4
+    invoke-virtual {p1, v2}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-array v3, v3, [Ljava/lang/Object;
+    move-result-object p1
 
-    invoke-virtual {v4, v3}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroidx/fragment/app/Fragment;
+    check-cast p1, Landroidx/fragment/app/Fragment;
     :try_end_0
     .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_3
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v3
+    return-object p1
 
-    .line 127
-    .end local v2    # "cls":Ljava/lang/Class;, "Ljava/lang/Class<+Landroidx/fragment/app/Fragment;>;"
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 128
-    .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
-    new-instance v2, Landroidx/fragment/app/Fragment$InstantiationException;
+    new-instance v0, Landroidx/fragment/app/Fragment$InstantiationException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
     const-string v1, ": calling Fragment constructor caused an exception"
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p2
 
-    move-result-object v1
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v2, v1, v0}, Landroidx/fragment/app/Fragment$InstantiationException;-><init>(Ljava/lang/String;Ljava/lang/Exception;)V
+    move-result-object p2
 
-    throw v2
+    invoke-direct {v0, p2, p1}, Landroidx/fragment/app/Fragment$InstantiationException;-><init>(Ljava/lang/String;Ljava/lang/Exception;)V
 
-    .line 124
-    .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
+    throw v0
+
     :catch_1
-    move-exception v0
+    move-exception p1
 
     .line 125
-    .local v0, "e":Ljava/lang/NoSuchMethodException;
+    new-instance v0, Landroidx/fragment/app/Fragment$InstantiationException;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    const-string v1, ": could not find Fragment constructor"
+
+    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-direct {v0, p2, p1}, Landroidx/fragment/app/Fragment$InstantiationException;-><init>(Ljava/lang/String;Ljava/lang/Exception;)V
+
+    throw v0
+
+    :catch_2
+    move-exception p1
+
+    .line 121
     new-instance v2, Landroidx/fragment/app/Fragment$InstantiationException;
 
     new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v3, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, ": could not find Fragment constructor"
+    move-result-object p2
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p2
 
-    move-result-object v1
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v2, v1, v0}, Landroidx/fragment/app/Fragment$InstantiationException;-><init>(Ljava/lang/String;Ljava/lang/Exception;)V
+    move-result-object p2
+
+    invoke-direct {v2, p2, p1}, Landroidx/fragment/app/Fragment$InstantiationException;-><init>(Ljava/lang/String;Ljava/lang/Exception;)V
 
     throw v2
 
-    .line 120
-    .end local v0    # "e":Ljava/lang/NoSuchMethodException;
-    :catch_2
-    move-exception v2
-
-    .line 121
-    .local v2, "e":Ljava/lang/IllegalAccessException;
-    new-instance v3, Landroidx/fragment/app/Fragment$InstantiationException;
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v3, v0, v2}, Landroidx/fragment/app/Fragment$InstantiationException;-><init>(Ljava/lang/String;Ljava/lang/Exception;)V
-
-    throw v3
-
-    .line 116
-    .end local v2    # "e":Ljava/lang/IllegalAccessException;
     :catch_3
-    move-exception v2
+    move-exception p1
 
     .line 117
-    .local v2, "e":Ljava/lang/InstantiationException;
-    new-instance v3, Landroidx/fragment/app/Fragment$InstantiationException;
+    new-instance v2, Landroidx/fragment/app/Fragment$InstantiationException;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p2
 
-    move-result-object v0
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v3, v0, v2}, Landroidx/fragment/app/Fragment$InstantiationException;-><init>(Ljava/lang/String;Ljava/lang/Exception;)V
+    move-result-object p2
 
-    throw v3
+    invoke-direct {v2, p2, p1}, Landroidx/fragment/app/Fragment$InstantiationException;-><init>(Ljava/lang/String;Ljava/lang/Exception;)V
+
+    throw v2
 .end method

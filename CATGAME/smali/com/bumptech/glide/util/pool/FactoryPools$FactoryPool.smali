@@ -73,10 +73,6 @@
     .end annotation
 
     .line 153
-    .local p0, "this":Lcom/bumptech/glide/util/pool/FactoryPools$FactoryPool;, "Lcom/bumptech/glide/util/pool/FactoryPools$FactoryPool<TT;>;"
-    .local p1, "pool":Landroidx/core/util/Pools$Pool;, "Landroidx/core/util/Pools$Pool<TT;>;"
-    .local p2, "factory":Lcom/bumptech/glide/util/pool/FactoryPools$Factory;, "Lcom/bumptech/glide/util/pool/FactoryPools$Factory<TT;>;"
-    .local p3, "resetter":Lcom/bumptech/glide/util/pool/FactoryPools$Resetter;, "Lcom/bumptech/glide/util/pool/FactoryPools$Resetter<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 154
@@ -88,7 +84,6 @@
     .line 156
     iput-object p3, p0, Lcom/bumptech/glide/util/pool/FactoryPools$FactoryPool;->resetter:Lcom/bumptech/glide/util/pool/FactoryPools$Resetter;
 
-    .line 157
     return-void
 .end method
 
@@ -103,29 +98,26 @@
     .end annotation
 
     .line 161
-    .local p0, "this":Lcom/bumptech/glide/util/pool/FactoryPools$FactoryPool;, "Lcom/bumptech/glide/util/pool/FactoryPools$FactoryPool<TT;>;"
     iget-object v0, p0, Lcom/bumptech/glide/util/pool/FactoryPools$FactoryPool;->pool:Landroidx/core/util/Pools$Pool;
 
     invoke-interface {v0}, Landroidx/core/util/Pools$Pool;->acquire()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 162
-    .local v0, "result":Ljava/lang/Object;, "TT;"
     if-nez v0, :cond_0
 
     .line 163
-    iget-object v1, p0, Lcom/bumptech/glide/util/pool/FactoryPools$FactoryPool;->factory:Lcom/bumptech/glide/util/pool/FactoryPools$Factory;
+    iget-object v0, p0, Lcom/bumptech/glide/util/pool/FactoryPools$FactoryPool;->factory:Lcom/bumptech/glide/util/pool/FactoryPools$Factory;
 
-    invoke-interface {v1}, Lcom/bumptech/glide/util/pool/FactoryPools$Factory;->create()Ljava/lang/Object;
+    invoke-interface {v0}, Lcom/bumptech/glide/util/pool/FactoryPools$Factory;->create()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 164
     const/4 v1, 0x2
 
     const-string v2, "FactoryPools"
 
+    .line 164
     invoke-static {v2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
     move-result v1
@@ -135,17 +127,17 @@
     .line 165
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v3, "Created new "
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v3
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -172,7 +164,6 @@
 
     invoke-virtual {v1, v2}, Lcom/bumptech/glide/util/pool/StateVerifier;->setRecycled(Z)V
 
-    .line 171
     :cond_1
     return-object v0
 .end method
@@ -186,8 +177,6 @@
     .end annotation
 
     .line 176
-    .local p0, "this":Lcom/bumptech/glide/util/pool/FactoryPools$FactoryPool;, "Lcom/bumptech/glide/util/pool/FactoryPools$FactoryPool<TT;>;"
-    .local p1, "instance":Ljava/lang/Object;, "TT;"
     instance-of v0, p1, Lcom/bumptech/glide/util/pool/FactoryPools$Poolable;
 
     if-eqz v0, :cond_0
@@ -216,7 +205,7 @@
 
     invoke-interface {v0, p1}, Landroidx/core/util/Pools$Pool;->release(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

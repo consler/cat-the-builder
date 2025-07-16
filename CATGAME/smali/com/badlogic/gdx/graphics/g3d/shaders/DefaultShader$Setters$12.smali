@@ -28,26 +28,23 @@
 # virtual methods
 .method public set(Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;ILcom/badlogic/gdx/graphics/g3d/Renderable;Lcom/badlogic/gdx/graphics/g3d/Attributes;)V
     .locals 2
-    .param p1, "shader"    # Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;
-    .param p2, "inputID"    # I
-    .param p3, "renderable"    # Lcom/badlogic/gdx/graphics/g3d/Renderable;
-    .param p4, "combinedAttributes"    # Lcom/badlogic/gdx/graphics/g3d/Attributes;
 
     .line 220
     sget-wide v0, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;->Shininess:J
 
     invoke-virtual {p4, v0, v1}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->get(J)Lcom/badlogic/gdx/graphics/g3d/Attribute;
 
-    move-result-object v0
+    move-result-object p3
 
-    check-cast v0, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;
+    check-cast p3, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;
 
-    check-cast v0, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;
+    move-object p4, p3
 
-    iget v0, v0, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;->value:F
+    check-cast p4, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;
 
-    invoke-virtual {p1, p2, v0}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;->set(IF)Z
+    iget p3, p3, Lcom/badlogic/gdx/graphics/g3d/attributes/FloatAttribute;->value:F
 
-    .line 221
+    invoke-virtual {p1, p2, p3}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;->set(IF)Z
+
     return-void
 .end method

@@ -49,11 +49,8 @@
     .end annotation
 
     .line 56
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeToFlowable$MaybeToFlowableSubscriber;, "Lio/reactivex/internal/operators/maybe/MaybeToFlowable$MaybeToFlowableSubscriber<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/subscriptions/DeferredScalarSubscription;-><init>(Lorg/reactivestreams/Subscriber;)V
 
-    .line 57
     return-void
 .end method
 
@@ -63,7 +60,6 @@
     .locals 1
 
     .line 85
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeToFlowable$MaybeToFlowableSubscriber;, "Lio/reactivex/internal/operators/maybe/MaybeToFlowable$MaybeToFlowableSubscriber<TT;>;"
     invoke-super {p0}, Lio/reactivex/internal/subscriptions/DeferredScalarSubscription;->cancel()V
 
     .line 86
@@ -71,7 +67,6 @@
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 87
     return-void
 .end method
 
@@ -79,35 +74,28 @@
     .locals 1
 
     .line 80
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeToFlowable$MaybeToFlowableSubscriber;, "Lio/reactivex/internal/operators/maybe/MaybeToFlowable$MaybeToFlowableSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeToFlowable$MaybeToFlowableSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 81
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 75
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeToFlowable$MaybeToFlowableSubscriber;, "Lio/reactivex/internal/operators/maybe/MaybeToFlowable$MaybeToFlowableSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeToFlowable$MaybeToFlowableSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 76
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 61
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeToFlowable$MaybeToFlowableSubscriber;, "Lio/reactivex/internal/operators/maybe/MaybeToFlowable$MaybeToFlowableSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeToFlowable$MaybeToFlowableSubscriber;->d:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -120,11 +108,10 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeToFlowable$MaybeToFlowableSubscriber;->d:Lio/reactivex/disposables/Disposable;
 
     .line 64
-    iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeToFlowable$MaybeToFlowableSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeToFlowable$MaybeToFlowableSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v0, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
+    invoke-interface {p1, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
-    .line 66
     :cond_0
     return-void
 .end method
@@ -138,10 +125,7 @@
     .end annotation
 
     .line 70
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeToFlowable$MaybeToFlowableSubscriber;, "Lio/reactivex/internal/operators/maybe/MaybeToFlowable$MaybeToFlowableSubscriber<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/maybe/MaybeToFlowable$MaybeToFlowableSubscriber;->complete(Ljava/lang/Object;)V
 
-    .line 71
     return-void
 .end method

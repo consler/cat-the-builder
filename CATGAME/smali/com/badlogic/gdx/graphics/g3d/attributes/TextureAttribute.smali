@@ -59,178 +59,159 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .locals 14
 
-    .line 29
     const-string v0, "diffuseTexture"
 
+    .line 29
     invoke-static {v0}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->register(Ljava/lang/String;)J
 
     move-result-wide v0
 
     sput-wide v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Diffuse:J
 
+    const-string v2, "specularTexture"
+
     .line 31
-    const-string v0, "specularTexture"
+    invoke-static {v2}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->register(Ljava/lang/String;)J
 
-    invoke-static {v0}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->register(Ljava/lang/String;)J
+    move-result-wide v2
 
-    move-result-wide v0
+    sput-wide v2, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Specular:J
 
-    sput-wide v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Specular:J
+    const-string v4, "bumpTexture"
 
     .line 33
-    const-string v0, "bumpTexture"
+    invoke-static {v4}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->register(Ljava/lang/String;)J
 
-    invoke-static {v0}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->register(Ljava/lang/String;)J
+    move-result-wide v4
 
-    move-result-wide v0
+    sput-wide v4, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Bump:J
 
-    sput-wide v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Bump:J
+    const-string v6, "normalTexture"
 
     .line 35
-    const-string v0, "normalTexture"
+    invoke-static {v6}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->register(Ljava/lang/String;)J
 
-    invoke-static {v0}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->register(Ljava/lang/String;)J
+    move-result-wide v6
 
-    move-result-wide v0
+    sput-wide v6, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Normal:J
 
-    sput-wide v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Normal:J
+    const-string v8, "ambientTexture"
 
     .line 37
-    const-string v0, "ambientTexture"
+    invoke-static {v8}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->register(Ljava/lang/String;)J
 
-    invoke-static {v0}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->register(Ljava/lang/String;)J
+    move-result-wide v8
 
-    move-result-wide v0
+    sput-wide v8, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Ambient:J
 
-    sput-wide v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Ambient:J
+    const-string v10, "emissiveTexture"
 
     .line 39
-    const-string v0, "emissiveTexture"
+    invoke-static {v10}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->register(Ljava/lang/String;)J
 
-    invoke-static {v0}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->register(Ljava/lang/String;)J
+    move-result-wide v10
 
-    move-result-wide v0
+    sput-wide v10, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Emissive:J
 
-    sput-wide v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Emissive:J
+    const-string v12, "reflectionTexture"
 
     .line 41
-    const-string v0, "reflectionTexture"
+    invoke-static {v12}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->register(Ljava/lang/String;)J
 
-    invoke-static {v0}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->register(Ljava/lang/String;)J
+    move-result-wide v12
 
-    move-result-wide v0
-
-    sput-wide v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Reflection:J
-
-    .line 43
-    sget-wide v2, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Diffuse:J
-
-    sget-wide v4, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Specular:J
-
-    or-long/2addr v2, v4
-
-    sget-wide v4, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Bump:J
-
-    or-long/2addr v2, v4
-
-    sget-wide v4, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Normal:J
-
-    or-long/2addr v2, v4
-
-    sget-wide v4, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Ambient:J
-
-    or-long/2addr v2, v4
-
-    sget-wide v4, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Emissive:J
-
-    or-long/2addr v2, v4
+    sput-wide v12, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Reflection:J
 
     or-long/2addr v0, v2
 
+    or-long/2addr v0, v4
+
+    or-long/2addr v0, v6
+
+    or-long/2addr v0, v8
+
+    or-long/2addr v0, v10
+
+    or-long/2addr v0, v12
+
+    .line 43
     sput-wide v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Mask:J
 
     return-void
 .end method
 
 .method public constructor <init>(J)V
-    .locals 2
-    .param p1, "type"    # J
+    .locals 1
 
     .line 116
     invoke-direct {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/Attribute;-><init>(J)V
 
-    .line 106
     const/4 v0, 0x0
 
+    .line 106
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetU:F
 
     .line 107
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetV:F
 
-    .line 108
     const/high16 v0, 0x3f800000    # 1.0f
 
+    .line 108
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleU:F
 
     .line 109
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleV:F
 
-    .line 113
     const/4 v0, 0x0
 
+    .line 113
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->uvIndex:I
 
     .line 117
     invoke-static {p1, p2}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->is(J)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 118
-    new-instance v0, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
+    new-instance p1, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
 
-    invoke-direct {v0}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;-><init>()V
+    invoke-direct {p1}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;-><init>()V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
+    iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
 
-    .line 119
     return-void
 
     .line 117
     :cond_0
-    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v1, "Invalid type specified"
+    const-string p2, "Invalid type specified"
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public constructor <init>(JLcom/badlogic/gdx/graphics/Texture;)V
-    .locals 1
-    .param p1, "type"    # J
-    .param p3, "texture"    # Lcom/badlogic/gdx/graphics/Texture;
+    .locals 0
 
     .line 142
     invoke-direct {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;-><init>(J)V
 
     .line 143
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
 
-    iput-object p3, v0, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;->texture:Lcom/badlogic/gdx/graphics/GLTexture;
+    iput-object p3, p1, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;->texture:Lcom/badlogic/gdx/graphics/GLTexture;
 
-    .line 144
     return-void
 .end method
 
 .method public constructor <init>(JLcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
     .locals 0
-    .param p1, "type"    # J
-    .param p3, "region"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
     .line 147
     invoke-direct {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;-><init>(J)V
@@ -238,13 +219,11 @@
     .line 148
     invoke-virtual {p0, p3}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->set(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
 
-    .line 149
     return-void
 .end method
 
 .method public constructor <init>(JLcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;)V
-    .locals 1
-    .param p1, "type"    # J
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -256,25 +235,18 @@
     .end annotation
 
     .line 122
-    .local p3, "textureDescription":Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;, "Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor<TT;>;"
     invoke-direct {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;-><init>(J)V
 
     .line 123
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
 
-    invoke-virtual {v0, p3}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;->set(Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;)V
+    invoke-virtual {p1, p3}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;->set(Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;)V
 
-    .line 124
     return-void
 .end method
 
 .method public constructor <init>(JLcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;FFFF)V
     .locals 9
-    .param p1, "type"    # J
-    .param p4, "offsetU"    # F
-    .param p5, "offsetV"    # F
-    .param p6, "scaleU"    # F
-    .param p7, "scaleV"    # F
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -285,8 +257,6 @@
         }
     .end annotation
 
-    .line 138
-    .local p3, "textureDescription":Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;, "Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor<TT;>;"
     const/4 v8, 0x0
 
     move-object v0, p0
@@ -303,20 +273,14 @@
 
     move/from16 v7, p7
 
+    .line 138
     invoke-direct/range {v0 .. v8}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;-><init>(JLcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;FFFFI)V
 
-    .line 139
     return-void
 .end method
 
 .method public constructor <init>(JLcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;FFFFI)V
     .locals 0
-    .param p1, "type"    # J
-    .param p4, "offsetU"    # F
-    .param p5, "offsetV"    # F
-    .param p6, "scaleU"    # F
-    .param p7, "scaleV"    # F
-    .param p8, "uvIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -328,7 +292,6 @@
     .end annotation
 
     .line 128
-    .local p3, "textureDescription":Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;, "Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor<TT;>;"
     invoke-direct {p0, p1, p2, p3}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;-><init>(JLcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;)V
 
     .line 129
@@ -346,13 +309,11 @@
     .line 133
     iput p8, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->uvIndex:I
 
-    .line 134
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;)V
     .locals 9
-    .param p1, "copyFrom"    # Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
 
     .line 152
     iget-wide v1, p1, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->type:J
@@ -373,13 +334,11 @@
 
     invoke-direct/range {v0 .. v8}, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;-><init>(JLcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;FFFFI)V
 
-    .line 154
     return-void
 .end method
 
 .method public static createAmbient(Lcom/badlogic/gdx/graphics/Texture;)Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
     .locals 3
-    .param p0, "texture"    # Lcom/badlogic/gdx/graphics/Texture;
 
     .line 82
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
@@ -393,7 +352,6 @@
 
 .method public static createAmbient(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
     .locals 3
-    .param p0, "region"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
     .line 86
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
@@ -407,7 +365,6 @@
 
 .method public static createBump(Lcom/badlogic/gdx/graphics/Texture;)Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
     .locals 3
-    .param p0, "texture"    # Lcom/badlogic/gdx/graphics/Texture;
 
     .line 74
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
@@ -421,7 +378,6 @@
 
 .method public static createBump(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
     .locals 3
-    .param p0, "region"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
     .line 78
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
@@ -435,7 +391,6 @@
 
 .method public static createDiffuse(Lcom/badlogic/gdx/graphics/Texture;)Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
     .locals 3
-    .param p0, "texture"    # Lcom/badlogic/gdx/graphics/Texture;
 
     .line 50
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
@@ -449,7 +404,6 @@
 
 .method public static createDiffuse(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
     .locals 3
-    .param p0, "region"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
     .line 54
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
@@ -463,7 +417,6 @@
 
 .method public static createEmissive(Lcom/badlogic/gdx/graphics/Texture;)Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
     .locals 3
-    .param p0, "texture"    # Lcom/badlogic/gdx/graphics/Texture;
 
     .line 90
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
@@ -477,7 +430,6 @@
 
 .method public static createEmissive(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
     .locals 3
-    .param p0, "region"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
     .line 94
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
@@ -491,7 +443,6 @@
 
 .method public static createNormal(Lcom/badlogic/gdx/graphics/Texture;)Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
     .locals 3
-    .param p0, "texture"    # Lcom/badlogic/gdx/graphics/Texture;
 
     .line 66
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
@@ -505,7 +456,6 @@
 
 .method public static createNormal(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
     .locals 3
-    .param p0, "region"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
     .line 70
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
@@ -519,7 +469,6 @@
 
 .method public static createReflection(Lcom/badlogic/gdx/graphics/Texture;)Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
     .locals 3
-    .param p0, "texture"    # Lcom/badlogic/gdx/graphics/Texture;
 
     .line 98
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
@@ -533,7 +482,6 @@
 
 .method public static createReflection(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
     .locals 3
-    .param p0, "region"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
     .line 102
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
@@ -547,7 +495,6 @@
 
 .method public static createSpecular(Lcom/badlogic/gdx/graphics/Texture;)Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
     .locals 3
-    .param p0, "texture"    # Lcom/badlogic/gdx/graphics/Texture;
 
     .line 58
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
@@ -561,7 +508,6 @@
 
 .method public static createSpecular(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
     .locals 3
-    .param p0, "region"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
     .line 62
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
@@ -574,36 +520,34 @@
 .end method
 
 .method public static final is(J)Z
-    .locals 4
-    .param p0, "mask"    # J
+    .locals 2
 
     .line 46
     sget-wide v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->Mask:J
 
-    and-long/2addr v0, p0
+    and-long/2addr p0, v0
 
-    const-wide/16 v2, 0x0
+    const-wide/16 v0, 0x0
 
-    cmp-long v0, v0, v2
+    cmp-long p0, p0, v0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 
 # virtual methods
 .method public compareTo(Lcom/badlogic/gdx/graphics/g3d/Attribute;)I
     .locals 7
-    .param p1, "o"    # Lcom/badlogic/gdx/graphics/g3d/Attribute;
 
     .line 183
     iget-wide v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->type:J
@@ -622,9 +566,9 @@
 
     iget-wide v5, p1, Lcom/badlogic/gdx/graphics/g3d/Attribute;->type:J
 
-    cmp-long v0, v3, v5
+    cmp-long p1, v3, v5
 
-    if-gez v0, :cond_0
+    if-gez p1, :cond_0
 
     goto :goto_0
 
@@ -636,57 +580,52 @@
 
     .line 184
     :cond_1
-    move-object v0, p1
-
-    check-cast v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
+    check-cast p1, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
 
     .line 185
-    .local v0, "other":Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
 
-    iget-object v4, v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
+    iget-object v3, p1, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
 
-    invoke-virtual {v3, v4}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;->compareTo(Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;)I
+    invoke-virtual {v0, v3}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;->compareTo(Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;)I
 
-    move-result v3
+    move-result v0
 
-    .line 186
-    .local v3, "c":I
-    if-eqz v3, :cond_2
+    if-eqz v0, :cond_2
 
-    return v3
+    return v0
 
     .line 187
     :cond_2
-    iget v4, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->uvIndex:I
+    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->uvIndex:I
 
-    iget v5, v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->uvIndex:I
+    iget v3, p1, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->uvIndex:I
 
-    if-eq v4, v5, :cond_3
+    if-eq v0, v3, :cond_3
 
-    sub-int/2addr v4, v5
+    sub-int/2addr v0, v3
 
-    return v4
+    return v0
 
     .line 188
     :cond_3
-    iget v4, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleU:F
+    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleU:F
 
-    iget v5, v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleU:F
+    iget v3, p1, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleU:F
 
-    invoke-static {v4, v5}, Lcom/badlogic/gdx/math/MathUtils;->isEqual(FF)Z
+    invoke-static {v0, v3}, Lcom/badlogic/gdx/math/MathUtils;->isEqual(FF)Z
 
-    move-result v4
+    move-result v0
 
-    if-nez v4, :cond_5
+    if-nez v0, :cond_5
 
-    iget v4, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleU:F
+    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleU:F
 
-    iget v5, v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleU:F
+    iget p1, p1, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleU:F
 
-    cmpl-float v4, v4, v5
+    cmpl-float p1, v0, p1
 
-    if-lez v4, :cond_4
+    if-lez p1, :cond_4
 
     move v1, v2
 
@@ -695,23 +634,23 @@
 
     .line 189
     :cond_5
-    iget v4, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleV:F
+    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleV:F
 
-    iget v5, v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleV:F
+    iget v3, p1, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleV:F
 
-    invoke-static {v4, v5}, Lcom/badlogic/gdx/math/MathUtils;->isEqual(FF)Z
+    invoke-static {v0, v3}, Lcom/badlogic/gdx/math/MathUtils;->isEqual(FF)Z
 
-    move-result v4
+    move-result v0
 
-    if-nez v4, :cond_7
+    if-nez v0, :cond_7
 
-    iget v4, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleV:F
+    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleV:F
 
-    iget v5, v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleV:F
+    iget p1, p1, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleV:F
 
-    cmpl-float v4, v4, v5
+    cmpl-float p1, v0, p1
 
-    if-lez v4, :cond_6
+    if-lez p1, :cond_6
 
     move v1, v2
 
@@ -720,23 +659,23 @@
 
     .line 190
     :cond_7
-    iget v4, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetU:F
+    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetU:F
 
-    iget v5, v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetU:F
+    iget v3, p1, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetU:F
 
-    invoke-static {v4, v5}, Lcom/badlogic/gdx/math/MathUtils;->isEqual(FF)Z
+    invoke-static {v0, v3}, Lcom/badlogic/gdx/math/MathUtils;->isEqual(FF)Z
 
-    move-result v4
+    move-result v0
 
-    if-nez v4, :cond_9
+    if-nez v0, :cond_9
 
-    iget v4, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetU:F
+    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetU:F
 
-    iget v5, v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetU:F
+    iget p1, p1, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetU:F
 
-    cmpl-float v4, v4, v5
+    cmpl-float p1, v0, p1
 
-    if-lez v4, :cond_8
+    if-lez p1, :cond_8
 
     move v1, v2
 
@@ -745,34 +684,33 @@
 
     .line 191
     :cond_9
-    iget v4, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetV:F
+    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetV:F
 
-    iget v5, v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetV:F
+    iget v3, p1, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetV:F
 
-    invoke-static {v4, v5}, Lcom/badlogic/gdx/math/MathUtils;->isEqual(FF)Z
+    invoke-static {v0, v3}, Lcom/badlogic/gdx/math/MathUtils;->isEqual(FF)Z
 
-    move-result v4
+    move-result v0
 
-    if-nez v4, :cond_b
+    if-nez v0, :cond_b
 
-    iget v4, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetV:F
+    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetV:F
 
-    iget v5, v0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetV:F
+    iget p1, p1, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetV:F
 
-    cmpl-float v4, v4, v5
+    cmpl-float p1, v0, p1
 
-    if-lez v4, :cond_a
+    if-lez p1, :cond_a
 
     move v1, v2
 
     :cond_a
     return v1
 
-    .line 192
     :cond_b
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return v1
+    return p1
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
@@ -800,95 +738,80 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .locals 2
 
     .line 171
     invoke-super {p0}, Lcom/badlogic/gdx/graphics/g3d/Attribute;->hashCode()I
 
     move-result v0
 
+    mul-int/lit16 v0, v0, 0x3df
+
     .line 172
-    .local v0, "result":I
-    mul-int/lit16 v1, v0, 0x3df
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
+    invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;->hashCode()I
 
-    invoke-virtual {v2}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;->hashCode()I
+    move-result v1
 
-    move-result v2
+    add-int/2addr v0, v1
 
-    add-int/2addr v1, v2
+    mul-int/lit16 v0, v0, 0x3df
 
     .line 173
-    .end local v0    # "result":I
-    .local v1, "result":I
-    mul-int/lit16 v0, v1, 0x3df
+    iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetU:F
 
-    iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetU:F
+    invoke-static {v1}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToRawIntBits(F)I
 
-    invoke-static {v2}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToRawIntBits(F)I
+    move-result v1
 
-    move-result v2
+    add-int/2addr v0, v1
 
-    add-int/2addr v0, v2
+    mul-int/lit16 v0, v0, 0x3df
 
     .line 174
-    .end local v1    # "result":I
-    .restart local v0    # "result":I
-    mul-int/lit16 v1, v0, 0x3df
+    iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetV:F
 
-    iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetV:F
+    invoke-static {v1}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToRawIntBits(F)I
 
-    invoke-static {v2}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToRawIntBits(F)I
+    move-result v1
 
-    move-result v2
+    add-int/2addr v0, v1
 
-    add-int/2addr v1, v2
+    mul-int/lit16 v0, v0, 0x3df
 
     .line 175
-    .end local v0    # "result":I
-    .restart local v1    # "result":I
-    mul-int/lit16 v0, v1, 0x3df
+    iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleU:F
 
-    iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleU:F
+    invoke-static {v1}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToRawIntBits(F)I
 
-    invoke-static {v2}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToRawIntBits(F)I
+    move-result v1
 
-    move-result v2
+    add-int/2addr v0, v1
 
-    add-int/2addr v0, v2
+    mul-int/lit16 v0, v0, 0x3df
 
     .line 176
-    .end local v1    # "result":I
-    .restart local v0    # "result":I
-    mul-int/lit16 v1, v0, 0x3df
+    iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleV:F
 
-    iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleV:F
+    invoke-static {v1}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToRawIntBits(F)I
 
-    invoke-static {v2}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToRawIntBits(F)I
+    move-result v1
 
-    move-result v2
+    add-int/2addr v0, v1
 
-    add-int/2addr v1, v2
+    mul-int/lit16 v0, v0, 0x3df
 
     .line 177
-    .end local v0    # "result":I
-    .restart local v1    # "result":I
-    mul-int/lit16 v0, v1, 0x3df
+    iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->uvIndex:I
 
-    iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->uvIndex:I
+    add-int/2addr v0, v1
 
-    add-int/2addr v0, v2
-
-    .line 178
-    .end local v1    # "result":I
-    .restart local v0    # "result":I
     return v0
 .end method
 
 .method public set(Lcom/badlogic/gdx/graphics/g2d/TextureRegion;)V
     .locals 2
-    .param p1, "region"    # Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
     .line 157
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->textureDescription:Lcom/badlogic/gdx/graphics/g3d/utils/TextureDescriptor;
@@ -927,14 +850,13 @@
     .line 161
     invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->getV2()F
 
-    move-result v0
+    move-result p1
 
-    iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetV:F
+    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->offsetV:F
 
-    sub-float/2addr v0, v1
+    sub-float/2addr p1, v0
 
-    iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleV:F
+    iput p1, p0, Lcom/badlogic/gdx/graphics/g3d/attributes/TextureAttribute;->scaleV:F
 
-    .line 162
     return-void
 .end method

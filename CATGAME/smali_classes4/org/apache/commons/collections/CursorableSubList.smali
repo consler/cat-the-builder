@@ -17,16 +17,13 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections/CursorableLinkedList;II)V
     .locals 3
-    .param p1, "list"    # Lorg/apache/commons/collections/CursorableLinkedList;
-    .param p2, "from"    # I
-    .param p3, "to"    # I
 
     .line 1206
     invoke-direct {p0}, Lorg/apache/commons/collections/CursorableLinkedList;-><init>()V
 
-    .line 1460
     const/4 v0, 0x0
 
+    .line 1460
     iput-object v0, p0, Lorg/apache/commons/collections/CursorableSubList;->_list:Lorg/apache/commons/collections/CursorableLinkedList;
 
     .line 1463
@@ -35,16 +32,15 @@
     .line 1466
     iput-object v0, p0, Lorg/apache/commons/collections/CursorableSubList;->_post:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    .line 1207
     if-ltz p2, :cond_5
 
+    .line 1207
     invoke-virtual {p1}, Lorg/apache/commons/collections/CursorableLinkedList;->size()I
 
     move-result v1
 
     if-lt v1, p3, :cond_5
 
-    .line 1209
     if-gt p2, p3, :cond_4
 
     .line 1212
@@ -109,7 +105,6 @@
 
     iput-object v1, p0, Lorg/apache/commons/collections/CursorableSubList;->_pre:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    .line 1219
     :goto_1
     if-ne p2, p3, :cond_3
 
@@ -126,18 +121,18 @@
     .line 1222
     invoke-virtual {p1}, Lorg/apache/commons/collections/CursorableLinkedList;->size()I
 
-    move-result v1
+    move-result p1
 
-    if-ge p3, v1, :cond_2
+    if-ge p3, p1, :cond_2
 
     .line 1223
-    iget-object v0, p0, Lorg/apache/commons/collections/CursorableSubList;->_list:Lorg/apache/commons/collections/CursorableLinkedList;
+    iget-object p1, p0, Lorg/apache/commons/collections/CursorableSubList;->_list:Lorg/apache/commons/collections/CursorableLinkedList;
 
-    invoke-virtual {v0, p3}, Lorg/apache/commons/collections/CursorableLinkedList;->getListableAt(I)Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+    invoke-virtual {p1, p3}, Lorg/apache/commons/collections/CursorableLinkedList;->getListableAt(I)Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lorg/apache/commons/collections/CursorableSubList;->_post:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+    iput-object p1, p0, Lorg/apache/commons/collections/CursorableSubList;->_post:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
     goto :goto_2
 
@@ -149,70 +144,67 @@
 
     .line 1228
     :cond_3
-    iget-object v0, p0, Lorg/apache/commons/collections/CursorableSubList;->_head:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+    iget-object p1, p0, Lorg/apache/commons/collections/CursorableSubList;->_head:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    iget-object v1, p0, Lorg/apache/commons/collections/CursorableSubList;->_list:Lorg/apache/commons/collections/CursorableLinkedList;
-
-    add-int/lit8 v2, p3, -0x1
-
-    invoke-virtual {v1, v2}, Lorg/apache/commons/collections/CursorableLinkedList;->getListableAt(I)Lorg/apache/commons/collections/CursorableLinkedList$Listable;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->setPrev(Lorg/apache/commons/collections/CursorableLinkedList$Listable;)V
-
-    .line 1229
-    iget-object v0, p0, Lorg/apache/commons/collections/CursorableSubList;->_head:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
-
-    invoke-virtual {v0}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->prev()Lorg/apache/commons/collections/CursorableLinkedList$Listable;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->next()Lorg/apache/commons/collections/CursorableLinkedList$Listable;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lorg/apache/commons/collections/CursorableSubList;->_post:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
-
-    .line 1231
-    :goto_2
-    sub-int v0, p3, p2
-
-    iput v0, p0, Lorg/apache/commons/collections/CursorableSubList;->_size:I
-
-    .line 1232
     iget-object v0, p0, Lorg/apache/commons/collections/CursorableSubList;->_list:Lorg/apache/commons/collections/CursorableLinkedList;
 
-    iget v0, v0, Lorg/apache/commons/collections/CursorableLinkedList;->_modCount:I
+    add-int/lit8 v1, p3, -0x1
 
-    iput v0, p0, Lorg/apache/commons/collections/CursorableSubList;->_modCount:I
+    invoke-virtual {v0, v1}, Lorg/apache/commons/collections/CursorableLinkedList;->getListableAt(I)Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    .line 1233
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->setPrev(Lorg/apache/commons/collections/CursorableLinkedList$Listable;)V
+
+    .line 1229
+    iget-object p1, p0, Lorg/apache/commons/collections/CursorableSubList;->_head:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+
+    invoke-virtual {p1}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->prev()Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->next()Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lorg/apache/commons/collections/CursorableSubList;->_post:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+
+    :goto_2
+    sub-int/2addr p3, p2
+
+    .line 1231
+    iput p3, p0, Lorg/apache/commons/collections/CursorableSubList;->_size:I
+
+    .line 1232
+    iget-object p1, p0, Lorg/apache/commons/collections/CursorableSubList;->_list:Lorg/apache/commons/collections/CursorableLinkedList;
+
+    iget p1, p1, Lorg/apache/commons/collections/CursorableLinkedList;->_modCount:I
+
+    iput p1, p0, Lorg/apache/commons/collections/CursorableSubList;->_modCount:I
+
     return-void
 
     .line 1210
     :cond_4
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw v0
+    throw p1
 
     .line 1208
     :cond_5
-    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
+    new-instance p1, Ljava/lang/IndexOutOfBoundsException;
 
-    invoke-direct {v0}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 
 # virtual methods
 .method public add(ILjava/lang/Object;)V
     .locals 0
-    .param p1, "index"    # I
-    .param p2, "element"    # Ljava/lang/Object;
 
     .line 1362
     invoke-virtual {p0}, Lorg/apache/commons/collections/CursorableSubList;->checkForComod()V
@@ -220,13 +212,11 @@
     .line 1363
     invoke-super {p0, p1, p2}, Lorg/apache/commons/collections/CursorableLinkedList;->add(ILjava/lang/Object;)V
 
-    .line 1364
     return-void
 .end method
 
 .method public add(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 0
 
     .line 1297
     invoke-virtual {p0}, Lorg/apache/commons/collections/CursorableSubList;->checkForComod()V
@@ -234,15 +224,13 @@
     .line 1298
     invoke-super {p0, p1}, Lorg/apache/commons/collections/CursorableLinkedList;->add(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public addAll(ILjava/util/Collection;)Z
-    .locals 1
-    .param p1, "index"    # I
-    .param p2, "c"    # Ljava/util/Collection;
+    .locals 0
 
     .line 1322
     invoke-virtual {p0}, Lorg/apache/commons/collections/CursorableSubList;->checkForComod()V
@@ -250,14 +238,13 @@
     .line 1323
     invoke-super {p0, p1, p2}, Lorg/apache/commons/collections/CursorableLinkedList;->addAll(ILjava/util/Collection;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .locals 1
-    .param p1, "c"    # Ljava/util/Collection;
+    .locals 0
 
     .line 1292
     invoke-virtual {p0}, Lorg/apache/commons/collections/CursorableSubList;->checkForComod()V
@@ -265,14 +252,13 @@
     .line 1293
     invoke-super {p0, p1}, Lorg/apache/commons/collections/CursorableLinkedList;->addAll(Ljava/util/Collection;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public addFirst(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 0
 
     .line 1302
     invoke-virtual {p0}, Lorg/apache/commons/collections/CursorableSubList;->checkForComod()V
@@ -280,14 +266,13 @@
     .line 1303
     invoke-super {p0, p1}, Lorg/apache/commons/collections/CursorableLinkedList;->addFirst(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public addLast(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 0
 
     .line 1307
     invoke-virtual {p0}, Lorg/apache/commons/collections/CursorableSubList;->checkForComod()V
@@ -295,9 +280,9 @@
     .line 1308
     invoke-super {p0, p1}, Lorg/apache/commons/collections/CursorableLinkedList;->addLast(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method protected checkForComod()V
@@ -317,7 +302,6 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 1455
     return-void
 
     .line 1453
@@ -341,7 +325,6 @@
     move-result-object v0
 
     .line 1240
-    .local v0, "it":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -357,14 +340,12 @@
 
     goto :goto_0
 
-    .line 1244
     :cond_0
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 0
 
     .line 1272
     invoke-virtual {p0}, Lorg/apache/commons/collections/CursorableSubList;->checkForComod()V
@@ -372,14 +353,13 @@
     .line 1273
     invoke-super {p0, p1}, Lorg/apache/commons/collections/CursorableLinkedList;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public containsAll(Ljava/util/Collection;)Z
-    .locals 1
-    .param p1, "c"    # Ljava/util/Collection;
+    .locals 0
 
     .line 1317
     invoke-virtual {p0}, Lorg/apache/commons/collections/CursorableSubList;->checkForComod()V
@@ -387,14 +367,13 @@
     .line 1318
     invoke-super {p0, p1}, Lorg/apache/commons/collections/CursorableLinkedList;->containsAll(Ljava/util/Collection;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 0
 
     .line 1342
     invoke-virtual {p0}, Lorg/apache/commons/collections/CursorableSubList;->checkForComod()V
@@ -402,14 +381,13 @@
     .line 1343
     invoke-super {p0, p1}, Lorg/apache/commons/collections/CursorableLinkedList;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public get(I)Ljava/lang/Object;
-    .locals 1
-    .param p1, "index"    # I
+    .locals 0
 
     .line 1347
     invoke-virtual {p0}, Lorg/apache/commons/collections/CursorableSubList;->checkForComod()V
@@ -417,9 +395,9 @@
     .line 1348
     invoke-super {p0, p1}, Lorg/apache/commons/collections/CursorableLinkedList;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getFirst()Ljava/lang/Object;
@@ -465,8 +443,7 @@
 .end method
 
 .method public indexOf(Ljava/lang/Object;)I
-    .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 0
 
     .line 1377
     invoke-virtual {p0}, Lorg/apache/commons/collections/CursorableSubList;->checkForComod()V
@@ -474,16 +451,13 @@
     .line 1378
     invoke-super {p0, p1}, Lorg/apache/commons/collections/CursorableLinkedList;->indexOf(Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method protected insertListable(Lorg/apache/commons/collections/CursorableLinkedList$Listable;Lorg/apache/commons/collections/CursorableLinkedList$Listable;Ljava/lang/Object;)Lorg/apache/commons/collections/CursorableLinkedList$Listable;
     .locals 3
-    .param p1, "before"    # Lorg/apache/commons/collections/CursorableLinkedList$Listable;
-    .param p2, "after"    # Lorg/apache/commons/collections/CursorableLinkedList$Listable;
-    .param p3, "value"    # Ljava/lang/Object;
 
     .line 1406
     iget v0, p0, Lorg/apache/commons/collections/CursorableSubList;->_modCount:I
@@ -524,64 +498,62 @@
     :goto_1
     invoke-virtual {v0, v1, v2, p3}, Lorg/apache/commons/collections/CursorableLinkedList;->insertListable(Lorg/apache/commons/collections/CursorableLinkedList$Listable;Lorg/apache/commons/collections/CursorableLinkedList$Listable;Ljava/lang/Object;)Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    move-result-object v0
+    move-result-object p3
 
     .line 1409
-    .local v0, "elt":Lorg/apache/commons/collections/CursorableLinkedList$Listable;
-    iget-object v1, p0, Lorg/apache/commons/collections/CursorableSubList;->_head:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+    iget-object v0, p0, Lorg/apache/commons/collections/CursorableSubList;->_head:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    invoke-virtual {v1}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->next()Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+    invoke-virtual {v0}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->next()Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-nez v1, :cond_2
+    if-nez v0, :cond_2
 
     .line 1410
-    iget-object v1, p0, Lorg/apache/commons/collections/CursorableSubList;->_head:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+    iget-object v0, p0, Lorg/apache/commons/collections/CursorableSubList;->_head:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    invoke-virtual {v1, v0}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->setNext(Lorg/apache/commons/collections/CursorableLinkedList$Listable;)V
+    invoke-virtual {v0, p3}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->setNext(Lorg/apache/commons/collections/CursorableLinkedList$Listable;)V
 
     .line 1411
-    iget-object v1, p0, Lorg/apache/commons/collections/CursorableSubList;->_head:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+    iget-object v0, p0, Lorg/apache/commons/collections/CursorableSubList;->_head:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    invoke-virtual {v1, v0}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->setPrev(Lorg/apache/commons/collections/CursorableLinkedList$Listable;)V
+    invoke-virtual {v0, p3}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->setPrev(Lorg/apache/commons/collections/CursorableLinkedList$Listable;)V
 
     .line 1413
     :cond_2
-    iget-object v1, p0, Lorg/apache/commons/collections/CursorableSubList;->_head:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+    iget-object v0, p0, Lorg/apache/commons/collections/CursorableSubList;->_head:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    invoke-virtual {v1}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->prev()Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+    invoke-virtual {v0}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->prev()Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-ne p1, v1, :cond_3
+    if-ne p1, v0, :cond_3
 
     .line 1414
-    iget-object v1, p0, Lorg/apache/commons/collections/CursorableSubList;->_head:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+    iget-object p1, p0, Lorg/apache/commons/collections/CursorableSubList;->_head:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    invoke-virtual {v1, v0}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->setPrev(Lorg/apache/commons/collections/CursorableLinkedList$Listable;)V
+    invoke-virtual {p1, p3}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->setPrev(Lorg/apache/commons/collections/CursorableLinkedList$Listable;)V
 
     .line 1416
     :cond_3
-    iget-object v1, p0, Lorg/apache/commons/collections/CursorableSubList;->_head:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+    iget-object p1, p0, Lorg/apache/commons/collections/CursorableSubList;->_head:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    invoke-virtual {v1}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->next()Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+    invoke-virtual {p1}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->next()Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    move-result-object v1
+    move-result-object p1
 
-    if-ne p2, v1, :cond_4
+    if-ne p2, p1, :cond_4
 
     .line 1417
-    iget-object v1, p0, Lorg/apache/commons/collections/CursorableSubList;->_head:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
+    iget-object p1, p0, Lorg/apache/commons/collections/CursorableSubList;->_head:Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
-    invoke-virtual {v1, v0}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->setNext(Lorg/apache/commons/collections/CursorableLinkedList$Listable;)V
+    invoke-virtual {p1, p3}, Lorg/apache/commons/collections/CursorableLinkedList$Listable;->setNext(Lorg/apache/commons/collections/CursorableLinkedList$Listable;)V
 
     .line 1419
     :cond_4
-    invoke-virtual {p0, v0}, Lorg/apache/commons/collections/CursorableSubList;->broadcastListableInserted(Lorg/apache/commons/collections/CursorableLinkedList$Listable;)V
+    invoke-virtual {p0, p3}, Lorg/apache/commons/collections/CursorableSubList;->broadcastListableInserted(Lorg/apache/commons/collections/CursorableLinkedList$Listable;)V
 
-    .line 1420
-    return-object v0
+    return-object p3
 .end method
 
 .method public isEmpty()Z
@@ -613,8 +585,7 @@
 .end method
 
 .method public lastIndexOf(Ljava/lang/Object;)I
-    .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 0
 
     .line 1382
     invoke-virtual {p0}, Lorg/apache/commons/collections/CursorableSubList;->checkForComod()V
@@ -622,9 +593,9 @@
     .line 1383
     invoke-super {p0, p1}, Lorg/apache/commons/collections/CursorableLinkedList;->lastIndexOf(Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public listIterator()Ljava/util/ListIterator;
@@ -642,8 +613,7 @@
 .end method
 
 .method public listIterator(I)Ljava/util/ListIterator;
-    .locals 1
-    .param p1, "index"    # I
+    .locals 0
 
     .line 1367
     invoke-virtual {p0}, Lorg/apache/commons/collections/CursorableSubList;->checkForComod()V
@@ -651,14 +621,13 @@
     .line 1368
     invoke-super {p0, p1}, Lorg/apache/commons/collections/CursorableLinkedList;->listIterator(I)Ljava/util/ListIterator;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public remove(I)Ljava/lang/Object;
-    .locals 1
-    .param p1, "index"    # I
+    .locals 0
 
     .line 1372
     invoke-virtual {p0}, Lorg/apache/commons/collections/CursorableSubList;->checkForComod()V
@@ -666,14 +635,13 @@
     .line 1373
     invoke-super {p0, p1}, Lorg/apache/commons/collections/CursorableLinkedList;->remove(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 0
 
     .line 1277
     invoke-virtual {p0}, Lorg/apache/commons/collections/CursorableSubList;->checkForComod()V
@@ -681,14 +649,13 @@
     .line 1278
     invoke-super {p0, p1}, Lorg/apache/commons/collections/CursorableLinkedList;->remove(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 1
-    .param p1, "c"    # Ljava/util/Collection;
+    .locals 0
 
     .line 1312
     invoke-virtual {p0}, Lorg/apache/commons/collections/CursorableSubList;->checkForComod()V
@@ -696,9 +663,9 @@
     .line 1313
     invoke-super {p0, p1}, Lorg/apache/commons/collections/CursorableLinkedList;->removeAll(Ljava/util/Collection;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public removeFirst()Ljava/lang/Object;
@@ -731,7 +698,6 @@
 
 .method protected removeListable(Lorg/apache/commons/collections/CursorableLinkedList$Listable;)V
     .locals 2
-    .param p1, "elt"    # Lorg/apache/commons/collections/CursorableLinkedList$Listable;
 
     .line 1427
     iget v0, p0, Lorg/apache/commons/collections/CursorableSubList;->_modCount:I
@@ -823,13 +789,11 @@
     .line 1440
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections/CursorableSubList;->broadcastListableRemoved(Lorg/apache/commons/collections/CursorableLinkedList$Listable;)V
 
-    .line 1441
     return-void
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 1
-    .param p1, "c"    # Ljava/util/Collection;
+    .locals 0
 
     .line 1332
     invoke-virtual {p0}, Lorg/apache/commons/collections/CursorableSubList;->checkForComod()V
@@ -837,15 +801,13 @@
     .line 1333
     invoke-super {p0, p1}, Lorg/apache/commons/collections/CursorableLinkedList;->retainAll(Ljava/util/Collection;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public set(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "index"    # I
-    .param p2, "element"    # Ljava/lang/Object;
+    .locals 0
 
     .line 1337
     invoke-virtual {p0}, Lorg/apache/commons/collections/CursorableSubList;->checkForComod()V
@@ -853,9 +815,9 @@
     .line 1338
     invoke-super {p0, p1, p2}, Lorg/apache/commons/collections/CursorableLinkedList;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public size()I
@@ -873,9 +835,7 @@
 .end method
 
 .method public subList(II)Ljava/util/List;
-    .locals 1
-    .param p1, "fromIndex"    # I
-    .param p2, "toIndex"    # I
+    .locals 0
 
     .line 1392
     invoke-virtual {p0}, Lorg/apache/commons/collections/CursorableSubList;->checkForComod()V
@@ -883,9 +843,9 @@
     .line 1393
     invoke-super {p0, p1, p2}, Lorg/apache/commons/collections/CursorableLinkedList;->subList(II)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public toArray()[Ljava/lang/Object;
@@ -903,8 +863,7 @@
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 1
-    .param p1, "a"    # [Ljava/lang/Object;
+    .locals 0
 
     .line 1267
     invoke-virtual {p0}, Lorg/apache/commons/collections/CursorableSubList;->checkForComod()V
@@ -912,7 +871,7 @@
     .line 1268
     invoke-super {p0, p1}, Lorg/apache/commons/collections/CursorableLinkedList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

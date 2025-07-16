@@ -18,9 +18,9 @@
 .method constructor <init>(Ljava/lang/String;I)V
     .locals 1
 
-    .line 124
     const/4 v0, 0x0
 
+    .line 124
     invoke-direct {p0, p1, p2, v0}, Lorg/apache/commons/lang3/time/StopWatch$State;-><init>(Ljava/lang/String;ILorg/apache/commons/lang3/time/StopWatch$1;)V
 
     return-void
@@ -31,7 +31,6 @@
 .method isStarted()Z
     .locals 1
 
-    .line 127
     const/4 v0, 0x1
 
     return v0
@@ -40,7 +39,6 @@
 .method isStopped()Z
     .locals 1
 
-    .line 131
     const/4 v0, 0x0
 
     return v0
@@ -49,7 +47,6 @@
 .method isSuspended()Z
     .locals 1
 
-    .line 135
     const/4 v0, 0x1
 
     return v0

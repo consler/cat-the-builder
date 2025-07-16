@@ -55,7 +55,7 @@
 
 # virtual methods
 .method runInternal()Landroidx/work/WorkInfo;
-    .locals 3
+    .locals 2
 
     .line 103
     iget-object v0, p0, Landroidx/work/impl/utils/StatusRunnable$2;->val$workManager:Landroidx/work/impl/WorkManagerImpl;
@@ -64,40 +64,35 @@
 
     move-result-object v0
 
-    .line 104
-    .local v0, "workDatabase":Landroidx/work/impl/WorkDatabase;
-    nop
-
     .line 105
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->workSpecDao()Landroidx/work/impl/model/WorkSpecDao;
 
-    move-result-object v1
+    move-result-object v0
 
-    iget-object v2, p0, Landroidx/work/impl/utils/StatusRunnable$2;->val$id:Ljava/util/UUID;
+    iget-object v1, p0, Landroidx/work/impl/utils/StatusRunnable$2;->val$id:Ljava/util/UUID;
 
-    invoke-virtual {v2}, Ljava/util/UUID;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-interface {v1, v2}, Landroidx/work/impl/model/WorkSpecDao;->getWorkStatusPojoForId(Ljava/lang/String;)Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;
+    invoke-virtual {v1}, Ljava/util/UUID;->toString()Ljava/lang/String;
 
     move-result-object v1
+
+    invoke-interface {v0, v1}, Landroidx/work/impl/model/WorkSpecDao;->getWorkStatusPojoForId(Ljava/lang/String;)Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
 
     .line 107
-    .local v1, "workInfoPojo":Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;
-    if-eqz v1, :cond_0
+    invoke-virtual {v0}, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->toWorkInfo()Landroidx/work/WorkInfo;
 
-    invoke-virtual {v1}, Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;->toWorkInfo()Landroidx/work/WorkInfo;
-
-    move-result-object v2
+    move-result-object v0
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    return-object v2
+    return-object v0
 .end method
 
 .method bridge synthetic runInternal()Ljava/lang/Object;

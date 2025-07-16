@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/completable/CompletableCache;Lio/reactivex/CompletableObserver;)V
     .locals 0
-    .param p2, "actual"    # Lio/reactivex/CompletableObserver;
 
     .line 156
     iput-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableCache$InnerCompletableCache;->this$0:Lio/reactivex/internal/operators/completable/CompletableCache;
@@ -40,7 +39,6 @@
     .line 157
     iput-object p2, p0, Lio/reactivex/internal/operators/completable/CompletableCache$InnerCompletableCache;->actual:Lio/reactivex/CompletableObserver;
 
-    .line 158
     return-void
 .end method
 
@@ -49,11 +47,11 @@
 .method public dispose()V
     .locals 2
 
-    .line 167
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
+    .line 167
     invoke-virtual {p0, v0, v1}, Lio/reactivex/internal/operators/completable/CompletableCache$InnerCompletableCache;->compareAndSet(ZZ)Z
 
     move-result v0
@@ -65,7 +63,6 @@
 
     invoke-virtual {v0, p0}, Lio/reactivex/internal/operators/completable/CompletableCache;->remove(Lio/reactivex/internal/operators/completable/CompletableCache$InnerCompletableCache;)V
 
-    .line 170
     :cond_0
     return-void
 .end method

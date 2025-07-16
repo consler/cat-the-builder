@@ -26,10 +26,8 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;Landroidx/camera/core/impl/LiveDataObservable$Result;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;
 
     .line 240
-    .local p0, "this":Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter$1;, "Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter$1;"
     iput-object p1, p0, Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter$1;->this$0:Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;
 
     iput-object p2, p0, Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter$1;->val$result:Landroidx/camera/core/impl/LiveDataObservable$Result;
@@ -45,7 +43,6 @@
     .locals 2
 
     .line 243
-    .local p0, "this":Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter$1;, "Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter$1;"
     iget-object v0, p0, Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter$1;->this$0:Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;
 
     iget-object v0, v0, Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;->mActive:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -56,7 +53,6 @@
 
     if-nez v0, :cond_0
 
-    .line 245
     return-void
 
     .line 248
@@ -107,7 +103,6 @@
 
     invoke-interface {v0, v1}, Landroidx/camera/core/impl/Observable$Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 254
     :goto_0
     return-void
 .end method

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/app/MediaRouteControllerDialog;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
     .line 881
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$11;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
@@ -55,6 +54,5 @@
 
     invoke-virtual {v0}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->startGroupListFadeInAnimationInternal()V
 
-    .line 886
     return-void
 .end method

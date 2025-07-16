@@ -89,67 +89,63 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .line 130
     const/4 v0, 0x0
 
     new-array v1, v0, [Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
 
+    .line 130
     sput-object v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->EMPTY:[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
 
-    .line 133
     new-array v0, v0, [Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
 
+    .line 133
     sput-object v0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->TERMINATED:[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
 
     return-void
 .end method
 
 .method constructor <init>(IZ)V
-    .locals 2
-    .param p1, "prefetch"    # I
-    .param p2, "delayError"    # Z
+    .locals 1
 
     .line 157
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;, "Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Flowable;-><init>()V
 
     .line 158
     iput p1, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->prefetch:I
 
-    .line 159
     shr-int/lit8 v0, p1, 0x2
 
-    sub-int v0, p1, v0
+    sub-int/2addr p1, v0
 
-    iput v0, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->limit:I
+    .line 159
+    iput p1, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->limit:I
 
     .line 160
     iput-boolean p2, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->delayError:Z
 
     .line 161
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
     .line 162
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicReference;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->s:Ljava/util/concurrent/atomic/AtomicReference;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     .line 163
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicReference;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicReference;
 
-    sget-object v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->EMPTY:[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
+    sget-object p2, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->EMPTY:[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
 
-    invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicReference;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p1, p2}, Ljava/util/concurrent/atomic/AtomicReference;-><init>(Ljava/lang/Object;)V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
 
-    .line 164
     return-void
 .end method
 
@@ -166,9 +162,7 @@
     .end annotation
 
     .line 245
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;, "Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor<TT;>;"
-    .local p1, "s":Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;, "Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription<TT;>;"
-    :goto_0
+    :cond_0
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -178,60 +172,47 @@
     check-cast v0, [Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
 
     .line 246
-    .local v0, "current":[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;, "[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription<TT;>;"
     sget-object v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->TERMINATED:[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1
 
-    .line 247
     return v2
 
     .line 249
-    :cond_0
+    :cond_1
     array-length v1, v0
 
-    .line 251
-    .local v1, "n":I
     add-int/lit8 v3, v1, 0x1
 
+    .line 251
     new-array v3, v3, [Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
 
     .line 252
-    .local v3, "next":[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;, "[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription<TT;>;"
     invoke-static {v0, v2, v3, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 253
     aput-object p1, v3, v1
 
     .line 254
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v2, v0, v3}, Ljava/util/concurrent/atomic/AtomicReference;->compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v1, v0, v3}, Lcom/google/android/gms/common/api/internal/zap$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_0
 
-    .line 255
-    const/4 v2, 0x1
+    const/4 p1, 0x1
 
-    return v2
-
-    .line 257
-    .end local v0    # "current":[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;, "[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription<TT;>;"
-    .end local v1    # "n":I
-    .end local v3    # "next":[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;, "[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription<TT;>;"
-    :cond_1
-    goto :goto_0
+    return p1
 .end method
 
 .method completeAll()V
     .locals 8
 
     .line 456
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;, "Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
 
     sget-object v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->TERMINATED:[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
@@ -242,20 +223,16 @@
 
     check-cast v0, [Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
 
-    .local v0, "arr$":[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
     array-length v1, v0
 
-    .local v1, "len$":I
     const/4 v2, 0x0
 
-    .local v2, "i$":I
     :goto_0
     if-ge v2, v1, :cond_1
 
     aget-object v3, v0, v2
 
     .line 457
-    .local v3, "ms":Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;, "Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription<TT;>;"
     invoke-virtual {v3}, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;->get()J
 
     move-result-wide v4
@@ -267,21 +244,15 @@
     if-eqz v4, :cond_0
 
     .line 458
-    iget-object v4, v3, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object v3, v3, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v4}, Lorg/reactivestreams/Subscriber;->onComplete()V
+    invoke-interface {v3}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 456
-    .end local v3    # "ms":Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;, "Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription<TT;>;"
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 461
-    .end local v0    # "arr$":[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
-    .end local v1    # "len$":I
-    .end local v2    # "i$":I
     :cond_1
     return-void
 .end method
@@ -290,7 +261,6 @@
     .locals 1
 
     .line 197
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;, "Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->cancel(Ljava/util/concurrent/atomic/AtomicReference;)Z
@@ -307,25 +277,21 @@
     .line 199
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
-    .line 200
-    .local v0, "q":Lio/reactivex/internal/fuseable/SimpleQueue;, "Lio/reactivex/internal/fuseable/SimpleQueue<TT;>;"
     if-eqz v0, :cond_0
 
     .line 201
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->clear()V
 
-    .line 204
-    .end local v0    # "q":Lio/reactivex/internal/fuseable/SimpleQueue;, "Lio/reactivex/internal/fuseable/SimpleQueue<TT;>;"
     :cond_0
     return-void
 .end method
 
 .method drain()V
-    .locals 21
+    .locals 20
 
-    .line 315
     move-object/from16 v1, p0
 
+    .line 315
     iget-object v0, v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
@@ -334,14 +300,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 316
     return-void
 
-    .line 319
-    :cond_0
-    nop
-
     .line 321
+    :cond_0
     iget-object v0, v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
     .line 323
@@ -380,23 +342,21 @@
     .line 330
     array-length v9, v8
 
-    .line 332
     if-eqz v0, :cond_12
 
     if-eqz v9, :cond_12
 
-    .line 333
-    const-wide v9, 0x7fffffffffffffffL
-
     .line 335
-    array-length v11, v8
+    array-length v9, v8
+
+    const-wide v10, 0x7fffffffffffffffL
 
     const/4 v12, 0x0
 
     :goto_2
     const-wide/high16 v13, -0x8000000000000000L
 
-    if-ge v12, v11, :cond_3
+    if-ge v12, v9, :cond_3
 
     aget-object v15, v8, v12
 
@@ -405,32 +365,28 @@
 
     move-result-wide v15
 
-    .line 337
     cmp-long v13, v15, v13
 
     if-eqz v13, :cond_2
 
-    .line 338
-    cmp-long v13, v9, v15
+    cmp-long v13, v10, v15
 
     if-lez v13, :cond_2
 
-    .line 339
-    move-wide v9, v15
+    move-wide v10, v15
 
-    .line 335
     :cond_2
     add-int/lit8 v12, v12, 0x1
 
     goto :goto_2
 
-    .line 344
     :cond_3
-    const-wide/16 v11, 0x0
+    const-wide/16 v15, 0x0
 
-    .line 345
+    move-wide v5, v15
+
     :goto_3
-    cmp-long v15, v11, v9
+    cmp-long v15, v5, v10
 
     if-eqz v15, :cond_d
 
@@ -444,30 +400,27 @@
     .line 347
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->clear()V
 
-    .line 348
     return-void
 
     .line 351
     :cond_4
-    iget-boolean v5, v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->done:Z
+    iget-boolean v9, v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->done:Z
+
+    if-eqz v9, :cond_5
 
     .line 353
-    if-eqz v5, :cond_5
+    iget-boolean v12, v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->delayError:Z
 
-    iget-boolean v6, v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->delayError:Z
-
-    if-nez v6, :cond_5
+    if-nez v12, :cond_5
 
     .line 354
-    iget-object v6, v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->error:Ljava/lang/Throwable;
+    iget-object v12, v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->error:Ljava/lang/Throwable;
 
-    .line 355
-    if-eqz v6, :cond_5
+    if-eqz v12, :cond_5
 
     .line 356
-    invoke-virtual {v1, v6}, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->errorAll(Ljava/lang/Throwable;)V
+    invoke-virtual {v1, v12}, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->errorAll(Ljava/lang/Throwable;)V
 
-    .line 357
     return-void
 
     .line 364
@@ -475,15 +428,11 @@
     :try_start_0
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->poll()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v12
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 370
-    nop
-
-    .line 372
-    if-nez v6, :cond_6
+    if-nez v12, :cond_6
 
     const/16 v17, 0x1
 
@@ -492,16 +441,14 @@
     :cond_6
     const/16 v17, 0x0
 
-    .line 374
     :goto_4
-    if-eqz v5, :cond_8
+    if-eqz v9, :cond_8
 
     if-eqz v17, :cond_8
 
     .line 375
     iget-object v0, v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->error:Ljava/lang/Throwable;
 
-    .line 376
     if-eqz v0, :cond_7
 
     .line 377
@@ -513,69 +460,58 @@
     :cond_7
     invoke-virtual/range {p0 .. p0}, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->completeAll()V
 
-    .line 381
     :goto_5
     return-void
 
-    .line 384
     :cond_8
     if-eqz v17, :cond_9
 
-    .line 385
     goto :goto_7
 
     .line 388
     :cond_9
-    array-length v5, v8
+    array-length v9, v8
 
     const/4 v15, 0x0
 
     :goto_6
-    if-ge v15, v5, :cond_b
+    if-ge v15, v9, :cond_b
 
-    aget-object v13, v8, v15
+    move/from16 v17, v9
+
+    aget-object v9, v8, v15
 
     .line 389
-    invoke-virtual {v13}, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;->get()J
+    invoke-virtual {v9}, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;->get()J
 
-    move-result-wide v19
+    move-result-wide v18
 
-    const-wide/high16 v17, -0x8000000000000000L
+    cmp-long v18, v18, v13
 
-    cmp-long v14, v19, v17
-
-    if-eqz v14, :cond_a
+    if-eqz v18, :cond_a
 
     .line 390
-    iget-object v13, v13, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object v9, v9, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v13, v6}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
+    invoke-interface {v9, v12}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
-    .line 388
     :cond_a
     add-int/lit8 v15, v15, 0x1
 
-    move-wide/from16 v13, v17
+    move/from16 v9, v17
 
     goto :goto_6
 
-    .line 394
     :cond_b
-    move-wide/from16 v17, v13
+    const-wide/16 v17, 0x1
 
-    const-wide/16 v5, 0x1
+    add-long v5, v5, v17
 
-    add-long/2addr v11, v5
-
-    .line 396
     if-eqz v4, :cond_c
 
     add-int/lit8 v2, v2, 0x1
 
     if-ne v2, v3, :cond_c
-
-    .line 397
-    nop
 
     .line 398
     iget-object v2, v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->s:Ljava/util/concurrent/atomic/AtomicReference;
@@ -586,21 +522,17 @@
 
     check-cast v2, Lorg/reactivestreams/Subscription;
 
-    int-to-long v5, v3
+    int-to-long v13, v3
 
-    invoke-interface {v2, v5, v6}, Lorg/reactivestreams/Subscription;->request(J)V
+    invoke-interface {v2, v13, v14}, Lorg/reactivestreams/Subscription;->request(J)V
 
     const/4 v2, 0x0
 
-    .line 400
     :cond_c
-    move-wide/from16 v13, v17
-
-    const/4 v6, 0x1
+    const-wide/high16 v13, -0x8000000000000000L
 
     goto :goto_3
 
-    .line 365
     :catchall_0
     move-exception v0
 
@@ -617,10 +549,8 @@
     .line 368
     invoke-virtual {v1, v2}, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->errorAll(Ljava/lang/Throwable;)V
 
-    .line 369
     return-void
 
-    .line 402
     :cond_d
     :goto_7
     if-nez v15, :cond_11
@@ -628,53 +558,49 @@
     .line 403
     invoke-virtual/range {p0 .. p0}, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->isDisposed()Z
 
-    move-result v5
+    move-result v9
 
-    if-eqz v5, :cond_e
+    if-eqz v9, :cond_e
 
     .line 404
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->clear()V
 
-    .line 405
     return-void
 
     .line 408
     :cond_e
-    iget-boolean v5, v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->done:Z
+    iget-boolean v9, v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->done:Z
+
+    if-eqz v9, :cond_f
 
     .line 410
-    if-eqz v5, :cond_f
+    iget-boolean v10, v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->delayError:Z
 
-    iget-boolean v6, v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->delayError:Z
-
-    if-nez v6, :cond_f
+    if-nez v10, :cond_f
 
     .line 411
-    iget-object v6, v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->error:Ljava/lang/Throwable;
+    iget-object v10, v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->error:Ljava/lang/Throwable;
 
-    .line 412
-    if-eqz v6, :cond_f
+    if-eqz v10, :cond_f
 
     .line 413
-    invoke-virtual {v1, v6}, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->errorAll(Ljava/lang/Throwable;)V
+    invoke-virtual {v1, v10}, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->errorAll(Ljava/lang/Throwable;)V
 
-    .line 414
     return-void
 
-    .line 418
     :cond_f
-    if-eqz v5, :cond_11
+    if-eqz v9, :cond_11
 
+    .line 418
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->isEmpty()Z
 
-    move-result v5
+    move-result v9
 
-    if-eqz v5, :cond_11
+    if-eqz v9, :cond_11
 
     .line 419
     iget-object v0, v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->error:Ljava/lang/Throwable;
 
-    .line 420
     if-eqz v0, :cond_10
 
     .line 421
@@ -686,26 +612,24 @@
     :cond_10
     invoke-virtual/range {p0 .. p0}, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->completeAll()V
 
-    .line 425
     :goto_8
     return-void
 
     .line 429
     :cond_11
-    array-length v5, v8
+    array-length v9, v8
 
-    const/4 v6, 0x0
+    const/4 v10, 0x0
 
     :goto_9
-    if-ge v6, v5, :cond_12
+    if-ge v10, v9, :cond_12
 
-    aget-object v9, v8, v6
+    aget-object v11, v8, v10
 
     .line 430
-    invoke-static {v9, v11, v12}, Lio/reactivex/internal/util/BackpressureHelper;->produced(Ljava/util/concurrent/atomic/AtomicLong;J)J
+    invoke-static {v11, v5, v6}, Lio/reactivex/internal/util/BackpressureHelper;->produced(Ljava/util/concurrent/atomic/AtomicLong;J)J
 
-    .line 429
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v10, v10, 0x1
 
     goto :goto_9
 
@@ -722,23 +646,16 @@
 
     move-result v7
 
-    .line 436
     if-nez v7, :cond_13
 
-    .line 437
-    nop
-
-    .line 443
     return-void
 
-    .line 439
     :cond_13
     if-nez v0, :cond_14
 
     .line 440
     iget-object v0, v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
-    .line 442
     :cond_14
     const/4 v6, 0x1
 
@@ -747,10 +664,8 @@
 
 .method errorAll(Ljava/lang/Throwable;)V
     .locals 8
-    .param p1, "ex"    # Ljava/lang/Throwable;
 
     .line 447
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;, "Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
 
     sget-object v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->TERMINATED:[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
@@ -761,20 +676,16 @@
 
     check-cast v0, [Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
 
-    .local v0, "arr$":[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
     array-length v1, v0
 
-    .local v1, "len$":I
     const/4 v2, 0x0
 
-    .local v2, "i$":I
     :goto_0
     if-ge v2, v1, :cond_1
 
     aget-object v3, v0, v2
 
     .line 448
-    .local v3, "ms":Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;, "Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription<TT;>;"
     invoke-virtual {v3}, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;->get()J
 
     move-result-wide v4
@@ -786,21 +697,15 @@
     if-eqz v4, :cond_0
 
     .line 449
-    iget-object v4, v3, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object v3, v3, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v4, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v3, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 447
-    .end local v3    # "ms":Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;, "Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription<TT;>;"
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 452
-    .end local v0    # "arr$":[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
-    .end local v1    # "len$":I
-    .end local v2    # "i$":I
     :cond_1
     return-void
 .end method
@@ -809,7 +714,6 @@
     .locals 1
 
     .line 208
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;, "Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -829,30 +733,26 @@
     .locals 1
 
     .line 237
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;, "Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->done:Z
 
     if-nez v0, :cond_0
 
-    .line 238
     const/4 v0, 0x1
 
+    .line 238
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->done:Z
 
     .line 239
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->drain()V
 
-    .line 241
     :cond_0
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 226
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;, "Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->done:Z
 
     if-eqz v0, :cond_0
@@ -860,22 +760,20 @@
     .line 227
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 228
     return-void
 
     .line 230
     :cond_0
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->error:Ljava/lang/Throwable;
 
-    .line 231
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->done:Z
+    .line 231
+    iput-boolean p1, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->done:Z
 
     .line 232
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->drain()V
 
-    .line 233
     return-void
 .end method
 
@@ -888,13 +786,10 @@
     .end annotation
 
     .line 213
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;, "Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 214
     return-void
 
     .line 216
@@ -907,45 +802,41 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/internal/fuseable/SimpleQueue;->offer(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_1
+    if-nez p1, :cond_1
 
     .line 217
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->s:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lorg/reactivestreams/Subscription;
+    check-cast p1, Lorg/reactivestreams/Subscription;
 
-    invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
+    invoke-interface {p1}, Lorg/reactivestreams/Subscription;->cancel()V
 
     .line 218
-    new-instance v0, Lio/reactivex/exceptions/MissingBackpressureException;
+    new-instance p1, Lio/reactivex/exceptions/MissingBackpressureException;
 
-    invoke-direct {v0}, Lio/reactivex/exceptions/MissingBackpressureException;-><init>()V
+    invoke-direct {p1}, Lio/reactivex/exceptions/MissingBackpressureException;-><init>()V
 
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->onError(Ljava/lang/Throwable;)V
 
-    .line 219
     return-void
 
     .line 221
     :cond_1
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->drain()V
 
-    .line 222
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 3
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 168
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;, "Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lorg/reactivestreams/Subscription;)Z
@@ -964,16 +855,13 @@
 
     check-cast v0, Lio/reactivex/internal/fuseable/QueueSubscription;
 
-    .line 173
-    .local v0, "qs":Lio/reactivex/internal/fuseable/QueueSubscription;, "Lio/reactivex/internal/fuseable/QueueSubscription<TT;>;"
     const/4 v1, 0x3
 
+    .line 173
     invoke-interface {v0, v1}, Lio/reactivex/internal/fuseable/QueueSubscription;->requestFusion(I)I
 
     move-result v1
 
-    .line 174
-    .local v1, "m":I
     const/4 v2, 0x1
 
     if-ne v1, v2, :cond_0
@@ -990,10 +878,8 @@
     .line 178
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->drain()V
 
-    .line 179
     return-void
 
-    .line 181
     :cond_0
     const/4 v2, 0x2
 
@@ -1006,16 +892,13 @@
     iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
     .line 184
-    iget v2, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->prefetch:I
+    iget v0, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->prefetch:I
 
-    invoke-static {p1, v2}, Lio/reactivex/internal/util/QueueDrainHelper;->request(Lorg/reactivestreams/Subscription;I)V
+    invoke-static {p1, v0}, Lio/reactivex/internal/util/QueueDrainHelper;->request(Lorg/reactivestreams/Subscription;I)V
 
-    .line 185
     return-void
 
     .line 189
-    .end local v0    # "qs":Lio/reactivex/internal/fuseable/QueueSubscription;, "Lio/reactivex/internal/fuseable/QueueSubscription<TT;>;"
-    .end local v1    # "m":I
     :cond_1
     iget v0, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->prefetch:I
 
@@ -1030,13 +913,12 @@
 
     invoke-static {p1, v0}, Lio/reactivex/internal/util/QueueDrainHelper;->request(Lorg/reactivestreams/Subscription;I)V
 
-    .line 193
     :cond_2
     return-void
 .end method
 
 .method remove(Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;)V
-    .locals 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1046,9 +928,7 @@
     .end annotation
 
     .line 263
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;, "Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor<TT;>;"
-    .local p1, "s":Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;, "Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription<TT;>;"
-    :goto_0
+    :cond_0
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -1058,122 +938,89 @@
     check-cast v0, [Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
 
     .line 264
-    .local v0, "current":[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;, "[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription<TT;>;"
     sget-object v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->TERMINATED:[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
 
     if-eq v0, v1, :cond_6
 
     sget-object v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->EMPTY:[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1
 
-    goto :goto_4
+    goto :goto_3
 
     .line 267
-    :cond_0
+    :cond_1
     array-length v1, v0
 
-    .line 268
-    .local v1, "n":I
-    const/4 v2, -0x1
+    const/4 v2, 0x0
 
-    .line 270
-    .local v2, "j":I
-    const/4 v3, 0x0
+    move v3, v2
 
-    .local v3, "i":I
-    :goto_1
-    if-ge v3, v1, :cond_2
+    :goto_0
+    if-ge v3, v1, :cond_3
 
     .line 271
     aget-object v4, v0, v3
 
-    if-ne v4, p1, :cond_1
-
-    .line 272
-    move v2, v3
-
-    .line 273
-    goto :goto_2
-
-    .line 270
-    :cond_1
-    add-int/lit8 v3, v3, 0x1
+    if-ne v4, p1, :cond_2
 
     goto :goto_1
 
-    .line 277
-    .end local v3    # "i":I
     :cond_2
-    :goto_2
-    if-gez v2, :cond_3
+    add-int/lit8 v3, v3, 0x1
 
-    .line 278
-    return-void
-
-    .line 281
-    :cond_3
-    const/4 v3, 0x1
-
-    if-ne v1, v3, :cond_4
-
-    .line 282
-    sget-object v3, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->EMPTY:[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
-
-    .local v3, "next":[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;, "[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription<TT;>;"
-    goto :goto_3
-
-    .line 284
-    .end local v3    # "next":[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;, "[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription<TT;>;"
-    :cond_4
-    add-int/lit8 v4, v1, -0x1
-
-    new-array v4, v4, [Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
-
-    .line 285
-    .local v4, "next":[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;, "[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription<TT;>;"
-    const/4 v5, 0x0
-
-    invoke-static {v0, v5, v4, v5, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    .line 286
-    add-int/lit8 v5, v2, 0x1
-
-    sub-int v6, v1, v2
-
-    sub-int/2addr v6, v3
-
-    invoke-static {v0, v5, v4, v2, v6}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    move-object v3, v4
-
-    .line 288
-    .end local v4    # "next":[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;, "[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription<TT;>;"
-    .restart local v3    # "next":[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;, "[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription<TT;>;"
-    :goto_3
-    iget-object v4, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
-
-    invoke-virtual {v4, v0, v3}, Ljava/util/concurrent/atomic/AtomicReference;->compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_5
-
-    .line 289
-    return-void
-
-    .line 291
-    .end local v0    # "current":[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;, "[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription<TT;>;"
-    .end local v1    # "n":I
-    .end local v2    # "j":I
-    .end local v3    # "next":[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;, "[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription<TT;>;"
-    :cond_5
     goto :goto_0
 
-    .line 265
-    .restart local v0    # "current":[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;, "[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription<TT;>;"
+    :cond_3
+    const/4 v3, -0x1
+
+    :goto_1
+    if-gez v3, :cond_4
+
+    return-void
+
+    :cond_4
+    const/4 v4, 0x1
+
+    if-ne v1, v4, :cond_5
+
+    .line 282
+    sget-object v1, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->EMPTY:[Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
+
+    goto :goto_2
+
+    :cond_5
+    add-int/lit8 v5, v1, -0x1
+
+    .line 284
+    new-array v5, v5, [Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
+
+    .line 285
+    invoke-static {v0, v2, v5, v2, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+
+    add-int/lit8 v2, v3, 0x1
+
+    sub-int/2addr v1, v3
+
+    sub-int/2addr v1, v4
+
+    .line 286
+    invoke-static {v0, v2, v5, v3, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+
+    move-object v1, v5
+
+    .line 288
+    :goto_2
+    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->subscribers:Ljava/util/concurrent/atomic/AtomicReference;
+
+    invoke-static {v2, v0, v1}, Lcom/google/android/gms/common/api/internal/zap$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
     :cond_6
-    :goto_4
+    :goto_3
     return-void
 .end method
 
@@ -1188,14 +1035,11 @@
     .end annotation
 
     .line 296
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;, "Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor<TT;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;
 
     invoke-direct {v0, p1, p0}, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;-><init>(Lorg/reactivestreams/Subscriber;Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;)V
 
     .line 297
-    .local v0, "ms":Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;, "Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription<TT;>;"
     invoke-interface {p1, v0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
     .line 298
@@ -1208,14 +1052,13 @@
     .line 299
     invoke-virtual {v0}, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;->isCancelled()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
     .line 300
     invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->remove(Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastSubscription;)V
 
-    .line 301
     return-void
 
     .line 303
@@ -1226,14 +1069,12 @@
 
     .line 305
     :cond_1
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->error:Ljava/lang/Throwable;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowablePublishMulticast$MulticastProcessor;->error:Ljava/lang/Throwable;
 
-    .line 306
-    .local v1, "ex":Ljava/lang/Throwable;
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
     .line 307
-    invoke-interface {p1, v1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {p1, v0}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
     goto :goto_0
 
@@ -1241,8 +1082,6 @@
     :cond_2
     invoke-interface {p1}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 312
-    .end local v1    # "ex":Ljava/lang/Throwable;
     :goto_0
     return-void
 .end method

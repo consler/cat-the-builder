@@ -35,14 +35,13 @@
 # virtual methods
 .method public charAt(I)C
     .locals 1
-    .param p1, "i"    # I
 
     .line 112
     iget-object v0, p0, Lcom/google/gson/internal/Streams$AppendableWriter$CurrentWrite;->chars:[C
 
-    aget-char v0, v0, p1
+    aget-char p1, v0, p1
 
-    return v0
+    return p1
 .end method
 
 .method public length()I
@@ -57,18 +56,16 @@
 .end method
 
 .method public subSequence(II)Ljava/lang/CharSequence;
-    .locals 3
-    .param p1, "start"    # I
-    .param p2, "end"    # I
+    .locals 2
 
     .line 115
     new-instance v0, Ljava/lang/String;
 
     iget-object v1, p0, Lcom/google/gson/internal/Streams$AppendableWriter$CurrentWrite;->chars:[C
 
-    sub-int v2, p2, p1
+    sub-int/2addr p2, p1
 
-    invoke-direct {v0, v1, p1, v2}, Ljava/lang/String;-><init>([CII)V
+    invoke-direct {v0, v1, p1, p2}, Ljava/lang/String;-><init>([CII)V
 
     return-object v0
 .end method

@@ -55,9 +55,6 @@
     .end annotation
 
     .line 27
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDoOnSuccess;, "Lio/reactivex/internal/operators/single/SingleDoOnSuccess<TT;>;"
-    .local p1, "source":Lio/reactivex/SingleSource;, "Lio/reactivex/SingleSource<TT;>;"
-    .local p2, "onSuccess":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 28
@@ -66,7 +63,6 @@
     .line 29
     iput-object p2, p0, Lio/reactivex/internal/operators/single/SingleDoOnSuccess;->onSuccess:Lio/reactivex/functions/Consumer;
 
-    .line 30
     return-void
 .end method
 
@@ -83,8 +79,6 @@
     .end annotation
 
     .line 35
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDoOnSuccess;, "Lio/reactivex/internal/operators/single/SingleDoOnSuccess<TT;>;"
-    .local p1, "s":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleDoOnSuccess;->source:Lio/reactivex/SingleSource;
 
     new-instance v1, Lio/reactivex/internal/operators/single/SingleDoOnSuccess$DoOnSuccess;
@@ -93,6 +87,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/SingleSource;->subscribe(Lio/reactivex/SingleObserver;)V
 
-    .line 36
     return-void
 .end method

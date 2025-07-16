@@ -35,8 +35,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Exception;)V
     .locals 1
-    .param p1, "msg"    # Ljava/lang/String;
-    .param p2, "parent"    # Ljava/lang/Exception;
 
     const-string v0, "msg"
 
@@ -47,11 +45,9 @@
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 23
-    move-object v0, p2
+    check-cast p2, Ljava/lang/Throwable;
 
-    check-cast v0, Ljava/lang/Throwable;
-
-    invoke-direct {p0, p1, v0}, Ljava/lang/Exception;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p0, p1, p2}, Ljava/lang/Exception;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     return-void
 .end method

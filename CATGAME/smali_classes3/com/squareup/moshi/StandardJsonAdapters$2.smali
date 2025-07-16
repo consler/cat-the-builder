@@ -35,8 +35,7 @@
 
 # virtual methods
 .method public fromJson(Lcom/squareup/moshi/JsonReader;)Ljava/lang/Boolean;
-    .locals 1
-    .param p1, "reader"    # Lcom/squareup/moshi/JsonReader;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -46,13 +45,13 @@
     .line 87
     invoke-virtual {p1}, Lcom/squareup/moshi/JsonReader;->nextBoolean()Z
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic fromJson(Lcom/squareup/moshi/JsonReader;)Ljava/lang/Object;
@@ -72,9 +71,7 @@
 .end method
 
 .method public toJson(Lcom/squareup/moshi/JsonWriter;Ljava/lang/Boolean;)V
-    .locals 1
-    .param p1, "writer"    # Lcom/squareup/moshi/JsonWriter;
-    .param p2, "value"    # Ljava/lang/Boolean;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -84,11 +81,10 @@
     .line 91
     invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v0
+    move-result p2
 
-    invoke-virtual {p1, v0}, Lcom/squareup/moshi/JsonWriter;->value(Z)Lcom/squareup/moshi/JsonWriter;
+    invoke-virtual {p1, p2}, Lcom/squareup/moshi/JsonWriter;->value(Z)Lcom/squareup/moshi/JsonWriter;
 
-    .line 92
     return-void
 .end method
 
@@ -111,7 +107,6 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .line 95
     const-string v0, "JsonAdapter(Boolean)"
 
     return-object v0

@@ -38,12 +38,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/Executor;Ljava/util/concurrent/ScheduledExecutorService;Landroid/os/Handler;Landroidx/camera/camera2/internal/CaptureSessionRepository;I)V
-    .locals 3
-    .param p1, "executor"    # Ljava/util/concurrent/Executor;
-    .param p2, "scheduledExecutorService"    # Ljava/util/concurrent/ScheduledExecutorService;
-    .param p3, "compatHandler"    # Landroid/os/Handler;
-    .param p4, "captureSessionRepository"    # Landroidx/camera/camera2/internal/CaptureSessionRepository;
-    .param p5, "supportedHardwareLevel"    # I
+    .locals 1
 
     .line 229
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -70,55 +65,27 @@
     .line 234
     iput p5, p0, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener$Builder;->mSupportedHardwareLevel:I
 
-    .line 236
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    const/4 p1, 0x2
 
-    const/16 v1, 0x17
+    if-eq p5, p1, :cond_0
 
-    if-ge v0, v1, :cond_0
+    goto :goto_0
 
-    .line 237
-    iget-object v0, p0, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener$Builder;->mEnableFeature:Ljava/util/Set;
-
-    const-string v2, "force_close"
-
-    invoke-interface {v0, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    .line 240
     :cond_0
-    iget v0, p0, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener$Builder;->mSupportedHardwareLevel:I
-
-    const/4 v2, 0x2
-
-    if-eq v0, v2, :cond_1
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-gt v0, v1, :cond_2
+    const-string p2, "deferrableSurface_close"
 
     .line 243
-    :cond_1
-    iget-object v0, p0, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener$Builder;->mEnableFeature:Ljava/util/Set;
+    invoke-interface {v0, p2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string v1, "deferrableSurface_close"
+    :goto_0
+    if-ne p5, p1, :cond_1
 
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    .line 246
-    :cond_2
-    iget v0, p0, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener$Builder;->mSupportedHardwareLevel:I
-
-    if-ne v0, v2, :cond_3
+    const-string p1, "wait_for_request"
 
     .line 248
-    iget-object v0, p0, Landroidx/camera/camera2/internal/SynchronizedCaptureSessionOpener$Builder;->mEnableFeature:Ljava/util/Set;
+    invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    const-string/jumbo v1, "wait_for_request"
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    .line 250
-    :cond_3
+    :cond_1
     return-void
 .end method
 

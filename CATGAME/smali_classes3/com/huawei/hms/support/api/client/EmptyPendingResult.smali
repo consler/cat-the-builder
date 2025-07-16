@@ -16,7 +16,7 @@
 
 
 # instance fields
-.field private a:Lcom/huawei/hms/support/api/client/Result;
+.field private result:Lcom/huawei/hms/support/api/client/Result;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TR;"
@@ -29,7 +29,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 17
+    .line 1
     invoke-direct {p0}, Lcom/huawei/hms/support/api/client/PendingResult;-><init>()V
 
     return-void
@@ -45,8 +45,8 @@
         }
     .end annotation
 
-    .line 30
-    iget-object v0, p0, Lcom/huawei/hms/support/api/client/EmptyPendingResult;->a:Lcom/huawei/hms/support/api/client/Result;
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/support/api/client/EmptyPendingResult;->result:Lcom/huawei/hms/support/api/client/Result;
 
     return-object v0
 .end method
@@ -61,8 +61,8 @@
         }
     .end annotation
 
-    .line 35
-    iget-object p1, p0, Lcom/huawei/hms/support/api/client/EmptyPendingResult;->a:Lcom/huawei/hms/support/api/client/Result;
+    .line 2
+    iget-object p1, p0, Lcom/huawei/hms/support/api/client/EmptyPendingResult;->result:Lcom/huawei/hms/support/api/client/Result;
 
     return-object p1
 .end method
@@ -70,7 +70,6 @@
 .method public cancel()V
     .locals 0
 
-    .line 56
     return-void
 .end method
 
@@ -82,8 +81,8 @@
         }
     .end annotation
 
-    .line 21
-    iget-object v0, p0, Lcom/huawei/hms/support/api/client/EmptyPendingResult;->a:Lcom/huawei/hms/support/api/client/Result;
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/support/api/client/EmptyPendingResult;->result:Lcom/huawei/hms/support/api/client/Result;
 
     return-object v0
 .end method
@@ -91,7 +90,6 @@
 .method public isCanceled()Z
     .locals 1
 
-    .line 60
     const/4 v0, 0x0
 
     return v0
@@ -105,10 +103,9 @@
         }
     .end annotation
 
-    .line 25
-    iput-object p1, p0, Lcom/huawei/hms/support/api/client/EmptyPendingResult;->a:Lcom/huawei/hms/support/api/client/Result;
+    .line 1
+    iput-object p1, p0, Lcom/huawei/hms/support/api/client/EmptyPendingResult;->result:Lcom/huawei/hms/support/api/client/Result;
 
-    .line 26
     return-void
 .end method
 
@@ -123,7 +120,6 @@
         }
     .end annotation
 
-    .line 46
     return-void
 .end method
 
@@ -137,7 +133,6 @@
         }
     .end annotation
 
-    .line 41
     return-void
 .end method
 
@@ -153,6 +148,5 @@
         }
     .end annotation
 
-    .line 51
     return-void
 .end method

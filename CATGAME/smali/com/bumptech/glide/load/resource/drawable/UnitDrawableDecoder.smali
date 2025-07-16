@@ -31,11 +31,7 @@
 
 # virtual methods
 .method public decode(Landroid/graphics/drawable/Drawable;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 1
-    .param p1, "source"    # Landroid/graphics/drawable/Drawable;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
-    .param p4, "options"    # Lcom/bumptech/glide/load/Options;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -52,9 +48,9 @@
     .line 21
     invoke-static {p1}, Lcom/bumptech/glide/load/resource/drawable/NonOwnedDrawableResource;->newInstance(Landroid/graphics/drawable/Drawable;)Lcom/bumptech/glide/load/engine/Resource;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic decode(Ljava/lang/Object;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/engine/Resource;
@@ -76,14 +72,11 @@
 .end method
 
 .method public handles(Landroid/graphics/drawable/Drawable;Lcom/bumptech/glide/load/Options;)Z
-    .locals 1
-    .param p1, "source"    # Landroid/graphics/drawable/Drawable;
-    .param p2, "options"    # Lcom/bumptech/glide/load/Options;
+    .locals 0
 
-    .line 14
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic handles(Ljava/lang/Object;Lcom/bumptech/glide/load/Options;)Z

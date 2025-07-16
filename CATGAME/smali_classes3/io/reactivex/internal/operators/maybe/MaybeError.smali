@@ -22,16 +22,13 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Throwable;)V
     .locals 0
-    .param p1, "error"    # Ljava/lang/Throwable;
 
     .line 28
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeError;, "Lio/reactivex/internal/operators/maybe/MaybeError<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Maybe;-><init>()V
 
     .line 29
     iput-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeError;->error:Ljava/lang/Throwable;
 
-    .line 30
     return-void
 .end method
 
@@ -48,8 +45,6 @@
     .end annotation
 
     .line 34
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeError;, "Lio/reactivex/internal/operators/maybe/MaybeError<TT;>;"
-    .local p1, "observer":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
     invoke-static {}, Lio/reactivex/disposables/Disposables;->disposed()Lio/reactivex/disposables/Disposable;
 
     move-result-object v0
@@ -61,6 +56,5 @@
 
     invoke-interface {p1, v0}, Lio/reactivex/MaybeObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 36
     return-void
 .end method

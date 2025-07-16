@@ -45,9 +45,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/ObservableSource;Lio/reactivex/functions/Function;Lio/reactivex/internal/util/ErrorMode;II)V
     .locals 0
-    .param p3, "errorMode"    # Lio/reactivex/internal/util/ErrorMode;
-    .param p4, "maxConcurrency"    # I
-    .param p5, "prefetch"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -63,9 +60,6 @@
     .end annotation
 
     .line 44
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableConcatMapEager;, "Lio/reactivex/internal/operators/observable/ObservableConcatMapEager<TT;TR;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
-    .local p2, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lio/reactivex/ObservableSource<+TR;>;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/observable/AbstractObservableWithUpstream;-><init>(Lio/reactivex/ObservableSource;)V
 
     .line 45
@@ -80,7 +74,6 @@
     .line 48
     iput p5, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager;->prefetch:I
 
-    .line 49
     return-void
 .end method
 
@@ -97,8 +90,6 @@
     .end annotation
 
     .line 53
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableConcatMapEager;, "Lio/reactivex/internal/operators/observable/ObservableConcatMapEager<TT;TR;>;"
-    .local p1, "observer":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager;->source:Lio/reactivex/ObservableSource;
 
     new-instance v7, Lio/reactivex/internal/operators/observable/ObservableConcatMapEager$ConcatMapEagerMainObserver;
@@ -119,6 +110,5 @@
 
     invoke-interface {v0, v7}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 54
     return-void
 .end method

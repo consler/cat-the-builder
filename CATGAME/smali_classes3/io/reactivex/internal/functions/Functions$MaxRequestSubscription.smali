@@ -39,8 +39,7 @@
 
 # virtual methods
 .method public bridge synthetic accept(Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -48,29 +47,25 @@
     .end annotation
 
     .line 742
-    move-object v0, p1
+    check-cast p1, Lorg/reactivestreams/Subscription;
 
-    check-cast v0, Lorg/reactivestreams/Subscription;
-
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/functions/Functions$MaxRequestSubscription;->accept(Lorg/reactivestreams/Subscription;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/functions/Functions$MaxRequestSubscription;->accept(Lorg/reactivestreams/Subscription;)V
 
     return-void
 .end method
 
 .method public accept(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "t"    # Lorg/reactivestreams/Subscription;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    .line 745
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 745
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 746
     return-void
 .end method

@@ -62,16 +62,16 @@
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 121
     const/16 v0, 0x100
 
     new-array v0, v0, [B
 
+    .line 121
     iput-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->block:[B
 
-    .line 125
     const/4 v0, 0x0
 
+    .line 125
     iput v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->blockSize:I
 
     return-void
@@ -99,41 +99,32 @@
 .end method
 
 .method private read()I
-    .locals 4
-
-    .line 495
-    const/4 v0, 0x0
+    .locals 2
 
     .line 497
-    .local v0, "currByte":I
     :try_start_0
-    iget-object v1, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->rawData:Ljava/nio/ByteBuffer;
+    iget-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->rawData:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->get()B
+    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->get()B
 
-    move-result v1
+    move-result v0
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    and-int/lit16 v0, v1, 0xff
+    and-int/lit16 v0, v0, 0xff
 
-    .line 500
     goto :goto_0
 
-    .line 498
-    :catch_0
-    move-exception v1
-
     .line 499
-    .local v1, "e":Ljava/lang/Exception;
-    iget-object v2, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
+    :catch_0
+    iget-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
 
-    const/4 v3, 0x1
+    const/4 v1, 0x1
 
-    iput v3, v2, Lcom/bumptech/glide/gifdecoder/GifHeader;->status:I
+    iput v1, v0, Lcom/bumptech/glide/gifdecoder/GifHeader;->status:I
 
-    .line 501
-    .end local v1    # "e":Ljava/lang/Exception;
+    const/4 v0, 0x0
+
     :goto_0
     return v0
 .end method
@@ -190,8 +181,6 @@
 
     move-result v0
 
-    .line 321
-    .local v0, "packed":I
     and-int/lit16 v1, v0, 0x80
 
     const/4 v2, 0x0
@@ -207,77 +196,74 @@
     :cond_0
     move v1, v2
 
-    .line 322
-    .local v1, "lctFlag":Z
     :goto_0
-    const-wide/high16 v4, 0x4000000000000000L    # 2.0
+    and-int/lit8 v4, v0, 0x7
 
-    and-int/lit8 v6, v0, 0x7
+    add-int/2addr v4, v3
 
-    add-int/2addr v6, v3
+    int-to-double v4, v4
 
-    int-to-double v6, v6
+    const-wide/high16 v6, 0x4000000000000000L    # 2.0
 
-    invoke-static {v4, v5, v6, v7}, Ljava/lang/Math;->pow(DD)D
+    .line 322
+    invoke-static {v6, v7, v4, v5}, Ljava/lang/Math;->pow(DD)D
 
     move-result-wide v4
 
     double-to-int v4, v4
 
     .line 323
-    .local v4, "lctSize":I
     iget-object v5, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
 
     iget-object v5, v5, Lcom/bumptech/glide/gifdecoder/GifHeader;->currentFrame:Lcom/bumptech/glide/gifdecoder/GifFrame;
 
-    and-int/lit8 v6, v0, 0x40
+    and-int/lit8 v0, v0, 0x40
 
-    if-eqz v6, :cond_1
+    if-eqz v0, :cond_1
 
     move v2, v3
 
     :cond_1
     iput-boolean v2, v5, Lcom/bumptech/glide/gifdecoder/GifFrame;->interlace:Z
 
-    .line 324
     if-eqz v1, :cond_2
 
     .line 325
-    iget-object v2, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
+    iget-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
 
-    iget-object v2, v2, Lcom/bumptech/glide/gifdecoder/GifHeader;->currentFrame:Lcom/bumptech/glide/gifdecoder/GifFrame;
+    iget-object v0, v0, Lcom/bumptech/glide/gifdecoder/GifHeader;->currentFrame:Lcom/bumptech/glide/gifdecoder/GifFrame;
 
     invoke-direct {p0, v4}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->readColorTable(I)[I
 
-    move-result-object v5
+    move-result-object v1
 
-    iput-object v5, v2, Lcom/bumptech/glide/gifdecoder/GifFrame;->lct:[I
+    iput-object v1, v0, Lcom/bumptech/glide/gifdecoder/GifFrame;->lct:[I
 
     goto :goto_1
 
     .line 328
     :cond_2
-    iget-object v2, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
+    iget-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
 
-    iget-object v2, v2, Lcom/bumptech/glide/gifdecoder/GifHeader;->currentFrame:Lcom/bumptech/glide/gifdecoder/GifFrame;
+    iget-object v0, v0, Lcom/bumptech/glide/gifdecoder/GifHeader;->currentFrame:Lcom/bumptech/glide/gifdecoder/GifFrame;
 
-    const/4 v5, 0x0
+    const/4 v1, 0x0
 
-    iput-object v5, v2, Lcom/bumptech/glide/gifdecoder/GifFrame;->lct:[I
+    iput-object v1, v0, Lcom/bumptech/glide/gifdecoder/GifFrame;->lct:[I
 
     .line 332
     :goto_1
-    iget-object v2, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
+    iget-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
 
-    iget-object v2, v2, Lcom/bumptech/glide/gifdecoder/GifHeader;->currentFrame:Lcom/bumptech/glide/gifdecoder/GifFrame;
+    iget-object v0, v0, Lcom/bumptech/glide/gifdecoder/GifHeader;->currentFrame:Lcom/bumptech/glide/gifdecoder/GifFrame;
 
-    iget-object v5, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->rawData:Ljava/nio/ByteBuffer;
+    iget-object v1, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->rawData:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v5}, Ljava/nio/ByteBuffer;->position()I
+    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->position()I
 
-    move-result v5
+    move-result v1
 
-    iput v5, v2, Lcom/bumptech/glide/gifdecoder/GifFrame;->bufferFrameStart:I
+    iput v1, v0, Lcom/bumptech/glide/gifdecoder/GifFrame;->bufferFrameStart:I
 
     .line 335
     invoke-direct {p0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->skipImageData()V
@@ -285,35 +271,33 @@
     .line 337
     invoke-direct {p0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->err()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_3
+    if-eqz v0, :cond_3
 
-    .line 338
     return-void
 
     .line 341
     :cond_3
-    iget-object v2, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
+    iget-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
 
-    iget v5, v2, Lcom/bumptech/glide/gifdecoder/GifHeader;->frameCount:I
+    iget v1, v0, Lcom/bumptech/glide/gifdecoder/GifHeader;->frameCount:I
 
-    add-int/2addr v5, v3
+    add-int/2addr v1, v3
 
-    iput v5, v2, Lcom/bumptech/glide/gifdecoder/GifHeader;->frameCount:I
+    iput v1, v0, Lcom/bumptech/glide/gifdecoder/GifHeader;->frameCount:I
 
     .line 343
-    iget-object v2, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
+    iget-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
 
-    iget-object v2, v2, Lcom/bumptech/glide/gifdecoder/GifHeader;->frames:Ljava/util/List;
+    iget-object v0, v0, Lcom/bumptech/glide/gifdecoder/GifHeader;->frames:Ljava/util/List;
 
-    iget-object v3, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
+    iget-object v1, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
 
-    iget-object v3, v3, Lcom/bumptech/glide/gifdecoder/GifHeader;->currentFrame:Lcom/bumptech/glide/gifdecoder/GifFrame;
+    iget-object v1, v1, Lcom/bumptech/glide/gifdecoder/GifHeader;->currentFrame:Lcom/bumptech/glide/gifdecoder/GifFrame;
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 344
     return-void
 .end method
 
@@ -327,323 +311,267 @@
 
     iput v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->blockSize:I
 
-    .line 471
-    const/4 v1, 0x0
+    if-lez v0, :cond_1
 
-    .line 472
-    .local v1, "n":I
-    if-lez v0, :cond_2
-
-    .line 473
     const/4 v0, 0x0
 
+    move v1, v0
+
     .line 475
-    .local v0, "count":I
     :goto_0
     :try_start_0
-    iget v2, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->blockSize:I
+    iget v1, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->blockSize:I
 
-    if-ge v1, v2, :cond_0
+    if-ge v0, v1, :cond_1
 
-    .line 476
-    iget v2, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->blockSize:I
-
-    sub-int v0, v2, v1
+    sub-int/2addr v1, v0
 
     .line 477
     iget-object v2, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->rawData:Ljava/nio/ByteBuffer;
 
     iget-object v3, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->block:[B
 
-    invoke-virtual {v2, v3, v1, v0}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
+    invoke-virtual {v2, v3, v0, v1}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 479
-    add-int/2addr v1, v0
+    add-int/2addr v0, v1
 
     goto :goto_0
 
-    .line 487
-    :cond_0
-    goto :goto_1
-
-    .line 481
     :catch_0
     move-exception v2
 
-    .line 482
-    .local v2, "e":Ljava/lang/Exception;
     const/4 v3, 0x3
 
     const-string v4, "GifHeaderParser"
 
+    .line 482
     invoke-static {v4, v3}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_0
 
     .line 483
     new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v5, "Error Reading Block n: "
 
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v5, " count: "
-
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v3, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v5, " blockSize: "
+    move-result-object v0
 
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v3, " count: "
 
-    iget v5, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->blockSize:I
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-static {v4, v3, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    const-string v1, " blockSize: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->blockSize:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v4, v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 486
+    :cond_0
+    iget-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
+
+    const/4 v1, 0x1
+
+    iput v1, v0, Lcom/bumptech/glide/gifdecoder/GifHeader;->status:I
+
     :cond_1
-    iget-object v3, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
-
-    const/4 v4, 0x1
-
-    iput v4, v3, Lcom/bumptech/glide/gifdecoder/GifHeader;->status:I
-
-    .line 489
-    .end local v0    # "count":I
-    .end local v2    # "e":Ljava/lang/Exception;
-    :cond_2
-    :goto_1
     return-void
 .end method
 
 .method private readColorTable(I)[I
-    .locals 11
-    .param p1, "nColors"    # I
+    .locals 9
 
-    .line 416
     mul-int/lit8 v0, p1, 0x3
 
-    .line 417
-    .local v0, "nBytes":I
+    .line 418
+    new-array v0, v0, [B
+
     const/4 v1, 0x0
 
-    .line 418
-    .local v1, "tab":[I
-    new-array v2, v0, [B
-
     .line 421
-    .local v2, "c":[B
     :try_start_0
-    iget-object v3, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->rawData:Ljava/nio/ByteBuffer;
+    iget-object v2, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->rawData:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v3, v2}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
+    invoke-virtual {v2, v0}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
 
-    .line 425
-    const/16 v3, 0x100
+    const/16 v2, 0x100
 
-    new-array v3, v3, [I
+    new-array v1, v2, [I
 
-    move-object v1, v3
+    const/4 v2, 0x0
 
-    .line 426
-    const/4 v3, 0x0
+    move v3, v2
 
-    .line 427
-    .local v3, "i":I
-    const/4 v4, 0x0
-
-    .line 428
-    .local v4, "j":I
     :goto_0
-    if-ge v3, p1, :cond_0
+    if-ge v2, p1, :cond_1
+
+    add-int/lit8 v4, v3, 0x1
 
     .line 429
+    aget-byte v3, v0, v3
+
+    and-int/lit16 v3, v3, 0xff
+
     add-int/lit8 v5, v4, 0x1
 
-    .end local v4    # "j":I
-    .local v5, "j":I
-    aget-byte v4, v2, v4
+    .line 430
+    aget-byte v4, v0, v4
 
     and-int/lit16 v4, v4, 0xff
 
-    .line 430
-    .local v4, "r":I
     add-int/lit8 v6, v5, 0x1
 
-    .end local v5    # "j":I
-    .local v6, "j":I
-    aget-byte v5, v2, v5
+    .line 431
+    aget-byte v5, v0, v5
 
     and-int/lit16 v5, v5, 0xff
 
-    .line 431
-    .local v5, "g":I
-    add-int/lit8 v7, v6, 0x1
+    add-int/lit8 v7, v2, 0x1
 
-    .end local v6    # "j":I
-    .local v7, "j":I
-    aget-byte v6, v2, v6
+    shl-int/lit8 v3, v3, 0x10
 
-    and-int/lit16 v6, v6, 0xff
+    const/high16 v8, -0x1000000
+
+    or-int/2addr v3, v8
+
+    shl-int/lit8 v4, v4, 0x8
+
+    or-int/2addr v3, v4
+
+    or-int/2addr v3, v5
 
     .line 432
-    .local v6, "b":I
-    add-int/lit8 v8, v3, 0x1
-
-    .end local v3    # "i":I
-    .local v8, "i":I
-    const/high16 v9, -0x1000000
-
-    shl-int/lit8 v10, v4, 0x10
-
-    or-int/2addr v9, v10
-
-    shl-int/lit8 v10, v5, 0x8
-
-    or-int/2addr v9, v10
-
-    or-int/2addr v9, v6
-
-    aput v9, v1, v3
+    aput v3, v1, v2
     :try_end_0
     .catch Ljava/nio/BufferUnderflowException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 433
-    .end local v4    # "r":I
-    .end local v5    # "g":I
-    .end local v6    # "b":I
-    move v4, v7
+    move v3, v6
 
-    move v3, v8
+    move v2, v7
 
     goto :goto_0
 
-    .line 439
-    .end local v7    # "j":I
-    .end local v8    # "i":I
-    :cond_0
-    goto :goto_1
-
-    .line 434
     :catch_0
-    move-exception v3
+    move-exception p1
+
+    const-string v0, "GifHeaderParser"
+
+    const/4 v2, 0x3
 
     .line 435
-    .local v3, "e":Ljava/nio/BufferUnderflowException;
-    const-string v4, "GifHeaderParser"
+    invoke-static {v0, v2}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
-    const/4 v5, 0x3
+    move-result v2
 
-    invoke-static {v4, v5}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+    if-eqz v2, :cond_0
 
-    move-result v5
-
-    if-eqz v5, :cond_1
+    const-string v2, "Format Error Reading Color Table"
 
     .line 436
-    const-string v5, "Format Error Reading Color Table"
-
-    invoke-static {v4, v5, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v2, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 438
+    :cond_0
+    iget-object p1, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
+
+    const/4 v0, 0x1
+
+    iput v0, p1, Lcom/bumptech/glide/gifdecoder/GifHeader;->status:I
+
     :cond_1
-    iget-object v4, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
-
-    const/4 v5, 0x1
-
-    iput v5, v4, Lcom/bumptech/glide/gifdecoder/GifHeader;->status:I
-
-    .line 441
-    .end local v3    # "e":Ljava/nio/BufferUnderflowException;
-    :goto_1
     return-object v1
 .end method
 
 .method private readContents()V
     .locals 1
 
-    .line 193
     const v0, 0x7fffffff
 
+    .line 193
     invoke-direct {p0, v0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->readContents(I)V
 
-    .line 194
     return-void
 .end method
 
 .method private readContents(I)V
-    .locals 6
-    .param p1, "maxFrames"    # I
+    .locals 5
 
-    .line 201
     const/4 v0, 0x0
 
-    .line 202
-    .local v0, "done":Z
+    move v1, v0
+
     :goto_0
-    if-nez v0, :cond_a
-
-    invoke-direct {p0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->err()Z
-
-    move-result v1
-
     if-nez v1, :cond_a
 
-    iget-object v1, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
+    .line 202
+    invoke-direct {p0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->err()Z
 
-    iget v1, v1, Lcom/bumptech/glide/gifdecoder/GifHeader;->frameCount:I
+    move-result v2
 
-    if-gt v1, p1, :cond_a
+    if-nez v2, :cond_a
+
+    iget-object v2, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
+
+    iget v2, v2, Lcom/bumptech/glide/gifdecoder/GifHeader;->frameCount:I
+
+    if-gt v2, p1, :cond_a
 
     .line 203
     invoke-direct {p0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->read()I
 
-    move-result v1
+    move-result v2
 
-    .line 204
-    .local v1, "code":I
-    const/16 v2, 0x21
+    const/16 v3, 0x21
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    if-eq v1, v2, :cond_3
+    if-eq v2, v3, :cond_3
 
-    const/16 v2, 0x2c
+    const/16 v3, 0x2c
 
-    if-eq v1, v2, :cond_1
+    if-eq v2, v3, :cond_1
 
-    const/16 v2, 0x3b
+    const/16 v3, 0x3b
 
-    if-eq v1, v2, :cond_0
+    if-eq v2, v3, :cond_0
 
     .line 254
     iget-object v2, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
 
-    iput v3, v2, Lcom/bumptech/glide/gifdecoder/GifHeader;->status:I
+    iput v4, v2, Lcom/bumptech/glide/gifdecoder/GifHeader;->status:I
 
-    goto/16 :goto_2
+    goto :goto_0
 
-    .line 249
     :cond_0
-    const/4 v0, 0x1
+    move v1, v4
 
-    .line 250
-    goto/16 :goto_2
+    goto :goto_0
 
     .line 210
     :cond_1
@@ -666,8 +594,7 @@
     :cond_2
     invoke-direct {p0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->readBitmap()V
 
-    .line 214
-    goto :goto_2
+    goto :goto_0
 
     .line 216
     :cond_3
@@ -675,9 +602,7 @@
 
     move-result v2
 
-    .line 217
-    .local v2, "extensionLabel":I
-    if-eq v2, v3, :cond_9
+    if-eq v2, v4, :cond_9
 
     const/16 v3, 0xf9
 
@@ -694,113 +619,95 @@
     .line 244
     invoke-direct {p0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->skip()V
 
-    .line 246
-    goto :goto_2
+    goto :goto_0
 
     .line 224
     :cond_4
     invoke-direct {p0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->readBlock()V
 
     .line 225
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 226
-    .local v3, "app":Ljava/lang/StringBuilder;
-    const/4 v4, 0x0
+    move v3, v0
 
-    .local v4, "i":I
     :goto_1
-    const/16 v5, 0xb
+    const/16 v4, 0xb
 
-    if-ge v4, v5, :cond_5
+    if-ge v3, v4, :cond_5
 
     .line 227
-    iget-object v5, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->block:[B
+    iget-object v4, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->block:[B
 
-    aget-byte v5, v5, v4
+    aget-byte v4, v4, v3
 
-    int-to-char v5, v5
+    int-to-char v4, v4
 
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 226
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
     .line 229
-    .end local v4    # "i":I
     :cond_5
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
 
-    const-string v5, "NETSCAPE2.0"
+    const-string v3, "NETSCAPE2.0"
 
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_6
+    if-eqz v2, :cond_6
 
     .line 230
     invoke-direct {p0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->readNetscapeExt()V
 
-    goto :goto_2
+    goto :goto_0
 
     .line 233
     :cond_6
     invoke-direct {p0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->skip()V
 
-    .line 235
-    goto :goto_2
+    goto :goto_0
 
     .line 237
-    .end local v3    # "app":Ljava/lang/StringBuilder;
     :cond_7
     invoke-direct {p0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->skip()V
 
-    .line 238
-    goto :goto_2
+    goto :goto_0
 
     .line 220
     :cond_8
-    iget-object v3, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
+    iget-object v2, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
 
-    new-instance v4, Lcom/bumptech/glide/gifdecoder/GifFrame;
+    new-instance v3, Lcom/bumptech/glide/gifdecoder/GifFrame;
 
-    invoke-direct {v4}, Lcom/bumptech/glide/gifdecoder/GifFrame;-><init>()V
+    invoke-direct {v3}, Lcom/bumptech/glide/gifdecoder/GifFrame;-><init>()V
 
-    iput-object v4, v3, Lcom/bumptech/glide/gifdecoder/GifHeader;->currentFrame:Lcom/bumptech/glide/gifdecoder/GifFrame;
+    iput-object v3, v2, Lcom/bumptech/glide/gifdecoder/GifHeader;->currentFrame:Lcom/bumptech/glide/gifdecoder/GifFrame;
 
     .line 221
     invoke-direct {p0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->readGraphicControlExt()V
 
-    .line 222
-    goto :goto_2
+    goto/16 :goto_0
 
     .line 240
     :cond_9
     invoke-direct {p0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->skip()V
 
-    .line 241
-    nop
-
-    .line 256
-    .end local v1    # "code":I
-    .end local v2    # "extensionLabel":I
-    :goto_2
     goto/16 :goto_0
 
-    .line 257
     :cond_a
     return-void
 .end method
 
 .method private readGraphicControlExt()V
-    .locals 5
+    .locals 4
 
     .line 264
     invoke-direct {p0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->read()I
@@ -811,7 +718,6 @@
     move-result v0
 
     .line 279
-    .local v0, "packed":I
     iget-object v1, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
 
     iget-object v1, v1, Lcom/bumptech/glide/gifdecoder/GifHeader;->currentFrame:Lcom/bumptech/glide/gifdecoder/GifFrame;
@@ -848,9 +754,9 @@
 
     iget-object v1, v1, Lcom/bumptech/glide/gifdecoder/GifHeader;->currentFrame:Lcom/bumptech/glide/gifdecoder/GifFrame;
 
-    and-int/lit8 v4, v0, 0x1
+    and-int/2addr v0, v2
 
-    if-eqz v4, :cond_1
+    if-eqz v0, :cond_1
 
     goto :goto_0
 
@@ -863,14 +769,13 @@
     .line 286
     invoke-direct {p0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->readShort()I
 
-    move-result v1
+    move-result v0
 
-    .line 288
-    .local v1, "delayInHundredthsOfASecond":I
-    if-ge v1, v3, :cond_2
-
-    .line 289
     const/16 v1, 0xa
+
+    if-ge v0, v3, :cond_2
+
+    move v0, v1
 
     .line 291
     :cond_2
@@ -878,41 +783,37 @@
 
     iget-object v2, v2, Lcom/bumptech/glide/gifdecoder/GifHeader;->currentFrame:Lcom/bumptech/glide/gifdecoder/GifFrame;
 
-    mul-int/lit8 v3, v1, 0xa
+    mul-int/2addr v0, v1
 
-    iput v3, v2, Lcom/bumptech/glide/gifdecoder/GifFrame;->delay:I
+    iput v0, v2, Lcom/bumptech/glide/gifdecoder/GifFrame;->delay:I
 
     .line 293
-    iget-object v2, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
+    iget-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
 
-    iget-object v2, v2, Lcom/bumptech/glide/gifdecoder/GifHeader;->currentFrame:Lcom/bumptech/glide/gifdecoder/GifFrame;
+    iget-object v0, v0, Lcom/bumptech/glide/gifdecoder/GifHeader;->currentFrame:Lcom/bumptech/glide/gifdecoder/GifFrame;
 
     invoke-direct {p0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->read()I
 
-    move-result v3
+    move-result v1
 
-    iput v3, v2, Lcom/bumptech/glide/gifdecoder/GifFrame;->transIndex:I
+    iput v1, v0, Lcom/bumptech/glide/gifdecoder/GifFrame;->transIndex:I
 
     .line 295
     invoke-direct {p0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->read()I
 
-    .line 296
     return-void
 .end method
 
 .method private readHeader()V
-    .locals 4
+    .locals 3
 
     .line 366
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 367
-    .local v0, "id":Ljava/lang/StringBuilder;
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     const/4 v2, 0x6
 
@@ -927,34 +828,31 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 367
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 370
-    .end local v1    # "i":I
     :cond_0
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string v2, "GIF"
+    const-string v1, "GIF"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
 
     .line 371
-    iget-object v1, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
+    iget-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    iput v2, v1, Lcom/bumptech/glide/gifdecoder/GifHeader;->status:I
+    iput v1, v0, Lcom/bumptech/glide/gifdecoder/GifHeader;->status:I
 
-    .line 372
     return-void
 
     .line 374
@@ -962,43 +860,42 @@
     invoke-direct {p0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->readLSD()V
 
     .line 375
-    iget-object v1, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
+    iget-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
 
-    iget-boolean v1, v1, Lcom/bumptech/glide/gifdecoder/GifHeader;->gctFlag:Z
+    iget-boolean v0, v0, Lcom/bumptech/glide/gifdecoder/GifHeader;->gctFlag:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
     invoke-direct {p0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->err()Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_2
+    if-nez v0, :cond_2
 
     .line 376
-    iget-object v1, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
+    iget-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
 
-    iget v2, v1, Lcom/bumptech/glide/gifdecoder/GifHeader;->gctSize:I
+    iget v1, v0, Lcom/bumptech/glide/gifdecoder/GifHeader;->gctSize:I
 
-    invoke-direct {p0, v2}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->readColorTable(I)[I
+    invoke-direct {p0, v1}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->readColorTable(I)[I
 
-    move-result-object v2
+    move-result-object v1
 
-    iput-object v2, v1, Lcom/bumptech/glide/gifdecoder/GifHeader;->gct:[I
+    iput-object v1, v0, Lcom/bumptech/glide/gifdecoder/GifHeader;->gct:[I
 
     .line 377
-    iget-object v1, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
+    iget-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
 
-    iget-object v2, v1, Lcom/bumptech/glide/gifdecoder/GifHeader;->gct:[I
+    iget-object v1, v0, Lcom/bumptech/glide/gifdecoder/GifHeader;->gct:[I
 
-    iget-object v3, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
+    iget-object v2, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
 
-    iget v3, v3, Lcom/bumptech/glide/gifdecoder/GifHeader;->bgIndex:I
+    iget v2, v2, Lcom/bumptech/glide/gifdecoder/GifHeader;->bgIndex:I
 
-    aget v2, v2, v3
+    aget v1, v1, v2
 
-    iput v2, v1, Lcom/bumptech/glide/gifdecoder/GifHeader;->bgColor:I
+    iput v1, v0, Lcom/bumptech/glide/gifdecoder/GifHeader;->bgColor:I
 
-    .line 379
     :cond_2
     return-void
 .end method
@@ -1030,7 +927,6 @@
     move-result v0
 
     .line 400
-    .local v0, "packed":I
     iget-object v1, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
 
     and-int/lit16 v2, v0, 0x80
@@ -1052,46 +948,45 @@
     .line 401
     iget-object v1, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
 
+    and-int/lit8 v0, v0, 0x7
+
+    add-int/2addr v0, v3
+
+    int-to-double v2, v0
+
     const-wide/high16 v4, 0x4000000000000000L    # 2.0
-
-    and-int/lit8 v2, v0, 0x7
-
-    add-int/2addr v2, v3
-
-    int-to-double v2, v2
 
     invoke-static {v4, v5, v2, v3}, Ljava/lang/Math;->pow(DD)D
 
     move-result-wide v2
 
-    double-to-int v2, v2
+    double-to-int v0, v2
 
-    iput v2, v1, Lcom/bumptech/glide/gifdecoder/GifHeader;->gctSize:I
+    iput v0, v1, Lcom/bumptech/glide/gifdecoder/GifHeader;->gctSize:I
 
     .line 403
-    iget-object v1, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
+    iget-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
 
     invoke-direct {p0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->read()I
 
-    move-result v2
+    move-result v1
 
-    iput v2, v1, Lcom/bumptech/glide/gifdecoder/GifHeader;->bgIndex:I
+    iput v1, v0, Lcom/bumptech/glide/gifdecoder/GifHeader;->bgIndex:I
 
     .line 405
-    iget-object v1, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
+    iget-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
 
     invoke-direct {p0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->read()I
 
-    move-result v2
+    move-result v1
 
-    iput v2, v1, Lcom/bumptech/glide/gifdecoder/GifHeader;->pixelAspect:I
+    iput v1, v0, Lcom/bumptech/glide/gifdecoder/GifHeader;->pixelAspect:I
 
-    .line 406
     return-void
 .end method
 
 .method private readNetscapeExt()V
-    .locals 4
+    .locals 3
 
     .line 351
     :cond_0
@@ -1113,27 +1008,23 @@
 
     and-int/lit16 v1, v1, 0xff
 
-    .line 355
-    .local v1, "b1":I
     const/4 v2, 0x2
 
+    .line 355
     aget-byte v0, v0, v2
 
     and-int/lit16 v0, v0, 0xff
 
     .line 356
-    .local v0, "b2":I
     iget-object v2, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
 
-    shl-int/lit8 v3, v0, 0x8
+    shl-int/lit8 v0, v0, 0x8
 
-    or-int/2addr v3, v1
+    or-int/2addr v0, v1
 
-    iput v3, v2, Lcom/bumptech/glide/gifdecoder/GifHeader;->loopCount:I
+    iput v0, v2, Lcom/bumptech/glide/gifdecoder/GifHeader;->loopCount:I
 
     .line 358
-    .end local v0    # "b2":I
-    .end local v1    # "b1":I
     :cond_1
     iget v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->blockSize:I
 
@@ -1145,7 +1036,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 359
     :cond_2
     return-void
 .end method
@@ -1166,9 +1056,9 @@
 .method private reset()V
     .locals 2
 
-    .line 151
     const/4 v0, 0x0
 
+    .line 151
     iput-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->rawData:Ljava/nio/ByteBuffer;
 
     .line 152
@@ -1188,7 +1078,6 @@
     .line 154
     iput v1, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->blockSize:I
 
-    .line 155
     return-void
 .end method
 
@@ -1196,13 +1085,12 @@
     .locals 3
 
     .line 460
-    :goto_0
+    :cond_0
     invoke-direct {p0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->read()I
 
     move-result v0
 
     .line 461
-    .local v0, "blockSize":I
     iget-object v1, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->rawData:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->position()I
@@ -1222,21 +1110,13 @@
     move-result v1
 
     .line 462
-    .local v1, "newPosition":I
     iget-object v2, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->rawData:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v2, v1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
-    .line 463
-    .end local v1    # "newPosition":I
     if-gtz v0, :cond_0
 
-    .line 464
     return-void
-
-    .line 463
-    :cond_0
-    goto :goto_0
 .end method
 
 .method private skipImageData()V
@@ -1248,7 +1128,6 @@
     .line 451
     invoke-direct {p0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->skip()V
 
-    .line 452
     return-void
 .end method
 
@@ -1257,15 +1136,14 @@
 .method public clear()V
     .locals 1
 
-    .line 146
     const/4 v0, 0x0
 
+    .line 146
     iput-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->rawData:Ljava/nio/ByteBuffer;
 
     .line 147
     iput-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
 
-    .line 148
     return-void
 .end method
 
@@ -1282,9 +1160,9 @@
 
     if-nez v0, :cond_0
 
-    .line 184
     const/4 v0, 0x2
 
+    .line 184
     invoke-direct {p0, v0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->readContents(I)V
 
     .line 186
@@ -1372,8 +1250,7 @@
 .end method
 
 .method public setData(Ljava/nio/ByteBuffer;)Lcom/bumptech/glide/gifdecoder/GifHeaderParser;
-    .locals 2
-    .param p1, "data"    # Ljava/nio/ByteBuffer;
+    .locals 1
 
     .line 128
     invoke-direct {p0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->reset()V
@@ -1381,56 +1258,52 @@
     .line 129
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->asReadOnlyBuffer()Ljava/nio/ByteBuffer;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->rawData:Ljava/nio/ByteBuffer;
+    iput-object p1, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->rawData:Ljava/nio/ByteBuffer;
+
+    const/4 v0, 0x0
 
     .line 130
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 131
-    iget-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->rawData:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->rawData:Ljava/nio/ByteBuffer;
 
-    sget-object v1, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
+    sget-object v0, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
-    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    .line 132
     return-object p0
 .end method
 
 .method public setData([B)Lcom/bumptech/glide/gifdecoder/GifHeaderParser;
-    .locals 2
-    .param p1, "data"    # [B
+    .locals 1
 
-    .line 136
     if-eqz p1, :cond_0
 
     .line 137
     invoke-static {p1}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->setData(Ljava/nio/ByteBuffer;)Lcom/bumptech/glide/gifdecoder/GifHeaderParser;
+    invoke-virtual {p0, p1}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->setData(Ljava/nio/ByteBuffer;)Lcom/bumptech/glide/gifdecoder/GifHeaderParser;
 
     goto :goto_0
 
-    .line 139
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->rawData:Ljava/nio/ByteBuffer;
+    .line 139
+    iput-object p1, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->rawData:Ljava/nio/ByteBuffer;
 
     .line 140
-    iget-object v0, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
+    iget-object p1, p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->header:Lcom/bumptech/glide/gifdecoder/GifHeader;
 
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
-    iput v1, v0, Lcom/bumptech/glide/gifdecoder/GifHeader;->status:I
+    iput v0, p1, Lcom/bumptech/glide/gifdecoder/GifHeader;->status:I
 
-    .line 142
     :goto_0
     return-object p0
 .end method

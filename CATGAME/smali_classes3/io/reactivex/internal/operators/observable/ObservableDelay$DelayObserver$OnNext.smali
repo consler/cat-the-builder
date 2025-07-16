@@ -39,8 +39,6 @@
     .end annotation
 
     .line 108
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver$OnNext;, "Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver<TT;>.OnNext;"
-    .local p2, "t":Ljava/lang/Object;, "TT;"
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver$OnNext;->this$0:Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +46,6 @@
     .line 109
     iput-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver$OnNext;->t:Ljava/lang/Object;
 
-    .line 110
     return-void
 .end method
 
@@ -58,7 +55,6 @@
     .locals 2
 
     .line 114
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver$OnNext;, "Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver<TT;>.OnNext;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver$OnNext;->this$0:Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;
 
     iget-object v0, v0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;->actual:Lio/reactivex/Observer;
@@ -67,6 +63,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
-    .line 115
     return-void
 .end method

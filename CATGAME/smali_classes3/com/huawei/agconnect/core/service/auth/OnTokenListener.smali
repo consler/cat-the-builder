@@ -1,6 +1,5 @@
 .class public interface abstract Lcom/huawei/agconnect/core/service/auth/OnTokenListener;
 .super Ljava/lang/Object;
-.source "OnTokenListener.java"
 
 
 # virtual methods

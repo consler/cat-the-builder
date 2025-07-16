@@ -22,15 +22,14 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 34
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 22
     const/4 v0, 0x0
 
+    .line 2
     iput v0, p0, Lcom/huawei/hms/support/api/entity/auth/AbstractResp;->rtnCode:I
 
-    .line 35
     return-void
 .end method
 
@@ -39,7 +38,7 @@
 .method public getErrorReason()Ljava/lang/String;
     .locals 1
 
-    .line 61
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/support/api/entity/auth/AbstractResp;->errorReason:Ljava/lang/String;
 
     return-object v0
@@ -48,7 +47,7 @@
 .method public getRtnCode()I
     .locals 1
 
-    .line 43
+    .line 1
     iget v0, p0, Lcom/huawei/hms/support/api/entity/auth/AbstractResp;->rtnCode:I
 
     return v0
@@ -57,19 +56,17 @@
 .method public setErrorReason(Ljava/lang/String;)V
     .locals 0
 
-    .line 70
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/support/api/entity/auth/AbstractResp;->errorReason:Ljava/lang/String;
 
-    .line 71
     return-void
 .end method
 
 .method public setRtnCode(I)V
     .locals 0
 
-    .line 52
+    .line 1
     iput p1, p0, Lcom/huawei/hms/support/api/entity/auth/AbstractResp;->rtnCode:I
 
-    .line 53
     return-void
 .end method

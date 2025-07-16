@@ -40,8 +40,7 @@
 
 # virtual methods
 .method public onCompleted(Ljava/lang/Exception;)V
-    .locals 2
-    .param p1, "ex"    # Ljava/lang/Exception;
+    .locals 1
 
     .line 182
     :try_start_0
@@ -56,21 +55,16 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 187
     goto :goto_0
 
-    .line 185
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 186
-    .local v0, "e":Ljava/io/IOException;
-    iget-object v1, p0, Lcom/koushikdutta/async/Util$7;->val$callback:Lcom/koushikdutta/async/callback/CompletedCallback;
+    iget-object v0, p0, Lcom/koushikdutta/async/Util$7;->val$callback:Lcom/koushikdutta/async/callback/CompletedCallback;
 
-    invoke-interface {v1, v0}, Lcom/koushikdutta/async/callback/CompletedCallback;->onCompleted(Ljava/lang/Exception;)V
+    invoke-interface {v0, p1}, Lcom/koushikdutta/async/callback/CompletedCallback;->onCompleted(Ljava/lang/Exception;)V
 
-    .line 188
-    .end local v0    # "e":Ljava/io/IOException;
     :goto_0
     return-void
 .end method

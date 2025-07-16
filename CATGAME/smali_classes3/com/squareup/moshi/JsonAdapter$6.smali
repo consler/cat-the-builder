@@ -32,10 +32,8 @@
 # direct methods
 .method constructor <init>(Lcom/squareup/moshi/JsonAdapter;Lcom/squareup/moshi/JsonAdapter;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/squareup/moshi/JsonAdapter;
 
     .line 263
-    .local p0, "this":Lcom/squareup/moshi/JsonAdapter$6;, "Lcom/squareup/moshi/JsonAdapter$6;"
     iput-object p1, p0, Lcom/squareup/moshi/JsonAdapter$6;->this$0:Lcom/squareup/moshi/JsonAdapter;
 
     iput-object p2, p0, Lcom/squareup/moshi/JsonAdapter$6;->val$delegate:Lcom/squareup/moshi/JsonAdapter;
@@ -51,7 +49,6 @@
 # virtual methods
 .method public fromJson(Lcom/squareup/moshi/JsonReader;)Ljava/lang/Object;
     .locals 1
-    .param p1, "reader"    # Lcom/squareup/moshi/JsonReader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -70,21 +67,19 @@
     .end annotation
 
     .line 265
-    .local p0, "this":Lcom/squareup/moshi/JsonAdapter$6;, "Lcom/squareup/moshi/JsonAdapter$6;"
     iget-object v0, p0, Lcom/squareup/moshi/JsonAdapter$6;->val$delegate:Lcom/squareup/moshi/JsonAdapter;
 
     invoke-virtual {v0, p1}, Lcom/squareup/moshi/JsonAdapter;->fromJson(Lcom/squareup/moshi/JsonReader;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method isLenient()Z
     .locals 1
 
     .line 277
-    .local p0, "this":Lcom/squareup/moshi/JsonAdapter$6;, "Lcom/squareup/moshi/JsonAdapter$6;"
     iget-object v0, p0, Lcom/squareup/moshi/JsonAdapter$6;->val$delegate:Lcom/squareup/moshi/JsonAdapter;
 
     invoke-virtual {v0}, Lcom/squareup/moshi/JsonAdapter;->isLenient()Z
@@ -96,7 +91,6 @@
 
 .method public toJson(Lcom/squareup/moshi/JsonWriter;Ljava/lang/Object;)V
     .locals 2
-    .param p1, "writer"    # Lcom/squareup/moshi/JsonWriter;
     .param p2    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
@@ -116,14 +110,11 @@
     .end annotation
 
     .line 268
-    .local p0, "this":Lcom/squareup/moshi/JsonAdapter$6;, "Lcom/squareup/moshi/JsonAdapter$6;"
-    .local p2, "value":Ljava/lang/Object;, "TT;"
     invoke-virtual {p1}, Lcom/squareup/moshi/JsonWriter;->getIndent()Ljava/lang/String;
 
     move-result-object v0
 
     .line 269
-    .local v0, "originalIndent":Ljava/lang/String;
     iget-object v1, p0, Lcom/squareup/moshi/JsonAdapter$6;->val$indent:Ljava/lang/String;
 
     invoke-virtual {p1, v1}, Lcom/squareup/moshi/JsonWriter;->setIndent(Ljava/lang/String;)V
@@ -139,26 +130,20 @@
     .line 273
     invoke-virtual {p1, v0}, Lcom/squareup/moshi/JsonWriter;->setIndent(Ljava/lang/String;)V
 
-    .line 274
-    nop
-
-    .line 275
     return-void
 
-    .line 273
     :catchall_0
-    move-exception v1
+    move-exception p2
 
     invoke-virtual {p1, v0}, Lcom/squareup/moshi/JsonWriter;->setIndent(Ljava/lang/String;)V
 
-    throw v1
+    throw p2
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 2
 
     .line 280
-    .local p0, "this":Lcom/squareup/moshi/JsonAdapter$6;, "Lcom/squareup/moshi/JsonAdapter$6;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -167,17 +152,25 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ".indent(\""
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Lcom/squareup/moshi/JsonAdapter$6;->val$indent:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "\")"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

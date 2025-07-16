@@ -17,7 +17,6 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 0
-    .param p1, "field"    # I
 
     .line 988
     invoke-direct {p0, p1}, Lorg/apache/commons/lang3/time/FastDateParser$NumberStrategy;-><init>(I)V
@@ -28,22 +27,14 @@
 
 # virtual methods
 .method modify(Lorg/apache/commons/lang3/time/FastDateParser;I)I
-    .locals 1
-    .param p1, "parser"    # Lorg/apache/commons/lang3/time/FastDateParser;
-    .param p2, "iValue"    # I
+    .locals 0
 
-    .line 991
-    const/16 v0, 0xc
+    const/16 p1, 0xc
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, p1, :cond_0
 
-    const/4 v0, 0x0
-
-    goto :goto_0
+    const/4 p2, 0x0
 
     :cond_0
-    move v0, p2
-
-    :goto_0
-    return v0
+    return p2
 .end method

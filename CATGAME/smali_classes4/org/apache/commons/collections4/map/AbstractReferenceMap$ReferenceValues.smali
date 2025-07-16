@@ -36,11 +36,8 @@
     .end annotation
 
     .line 578
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceValues;, "Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceValues<TV;>;"
-    .local p1, "parent":Lorg/apache/commons/collections4/map/AbstractHashedMap;, "Lorg/apache/commons/collections4/map/AbstractHashedMap<*TV;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/map/AbstractHashedMap$Values;-><init>(Lorg/apache/commons/collections4/map/AbstractHashedMap;)V
 
-    .line 579
     return-void
 .end method
 
@@ -50,7 +47,6 @@
     .locals 1
 
     .line 583
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceValues;, "Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceValues<TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceValues;->size()I
 
     move-result v0
@@ -75,8 +71,6 @@
     .end annotation
 
     .line 589
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceValues;, "Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceValues<TV;>;"
-    .local p1, "arr":[Ljava/lang/Object;, "[TT;"
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceValues;->size()I
@@ -86,7 +80,6 @@
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 590
-    .local v0, "list":Ljava/util/List;, "Ljava/util/List<TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractReferenceMap$ReferenceValues;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
@@ -103,18 +96,15 @@
     move-result-object v2
 
     .line 591
-    .local v2, "value":Ljava/lang/Object;, "TV;"
     invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 592
-    .end local v2    # "value":Ljava/lang/Object;, "TV;"
     goto :goto_0
 
     .line 593
     :cond_0
     invoke-interface {v0, p1}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method

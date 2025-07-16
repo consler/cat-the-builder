@@ -30,28 +30,23 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
-        "\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\u000c\u0010\u0002\u001a\u0008\u0012\u0004\u0012\u00020\u00040\u0003H\n\u00a2\u0006\u0002\u0008\u0005"
+        "\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u00012\u000c\u0010\u0002\u001a\u0008\u0012\u0004\u0012\u00020\u00040\u0003H\n"
     }
     d2 = {
         "<anonymous>",
         "",
         "<name for destructuring parameter 0>",
         "",
-        "Landroid/graphics/PointF;",
-        "invoke"
+        "Landroid/graphics/PointF;"
     }
     k = 0x3
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -77,7 +72,7 @@
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    .line 88
+    .line 317
     check-cast p1, Ljava/util/List;
 
     invoke-virtual {p0, p1}, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$handleUp$1;->invoke(Ljava/util/List;)V
@@ -88,8 +83,7 @@
 .end method
 
 .method public final invoke(Ljava/util/List;)V
-    .locals 6
-    .param p1, "$dstr$coordinate$previousEventCoordinate"    # Ljava/util/List;
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -100,70 +94,68 @@
         }
     .end annotation
 
-    const-string v0, "<name for destructuring parameter 0>"
+    const-string v0, "$dstr$coordinate$previousEventCoordinate"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     const/4 v0, 0x0
 
+    .line 317
     invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/graphics/PointF;
 
-    .local v0, "coordinate":Landroid/graphics/PointF;
     const/4 v1, 0x1
 
     invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Landroid/graphics/PointF;
+    check-cast p1, Landroid/graphics/PointF;
 
-    .line 285
-    .local v1, "previousEventCoordinate":Landroid/graphics/PointF;
-    iget-object v2, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$handleUp$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape;
+    .line 318
+    iget-object v1, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$handleUp$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape;
 
-    iget-object v2, v2, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape;->movedDistance:Landroid/graphics/PointF;
+    iget-object v1, v1, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape;->movedDistance:Landroid/graphics/PointF;
 
-    iget v3, v2, Landroid/graphics/PointF;->x:F
+    iget v2, v1, Landroid/graphics/PointF;->x:F
 
-    iget v4, v0, Landroid/graphics/PointF;->x:F
+    iget v3, v0, Landroid/graphics/PointF;->x:F
 
-    iget v5, v1, Landroid/graphics/PointF;->x:F
+    iget v4, p1, Landroid/graphics/PointF;->x:F
 
-    sub-float/2addr v4, v5
+    sub-float/2addr v3, v4
 
-    invoke-static {v4}, Ljava/lang/Math;->abs(F)F
+    invoke-static {v3}, Ljava/lang/Math;->abs(F)F
 
-    move-result v4
+    move-result v3
 
-    add-float/2addr v3, v4
+    add-float/2addr v2, v3
 
-    iput v3, v2, Landroid/graphics/PointF;->x:F
+    iput v2, v1, Landroid/graphics/PointF;->x:F
 
-    .line 286
-    iget-object v2, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$handleUp$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape;
+    .line 319
+    iget-object v1, p0, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape$handleUp$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape;
 
-    iget-object v2, v2, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape;->movedDistance:Landroid/graphics/PointF;
+    iget-object v1, v1, Lorg/catrobat/paintroid/tools/implementation/BaseToolWithRectangleShape;->movedDistance:Landroid/graphics/PointF;
 
-    iget v3, v2, Landroid/graphics/PointF;->y:F
+    iget v2, v1, Landroid/graphics/PointF;->y:F
 
-    iget v4, v0, Landroid/graphics/PointF;->y:F
+    iget v0, v0, Landroid/graphics/PointF;->y:F
 
-    iget v5, v1, Landroid/graphics/PointF;->y:F
+    iget p1, p1, Landroid/graphics/PointF;->y:F
 
-    sub-float/2addr v4, v5
+    sub-float/2addr v0, p1
 
-    invoke-static {v4}, Ljava/lang/Math;->abs(F)F
+    invoke-static {v0}, Ljava/lang/Math;->abs(F)F
 
-    move-result v4
+    move-result p1
 
-    add-float/2addr v3, v4
+    add-float/2addr v2, p1
 
-    iput v3, v2, Landroid/graphics/PointF;->y:F
+    iput v2, v1, Landroid/graphics/PointF;->y:F
 
-    .line 287
     return-void
 .end method

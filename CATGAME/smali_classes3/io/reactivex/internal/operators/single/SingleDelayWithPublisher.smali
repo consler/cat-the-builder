@@ -57,9 +57,6 @@
     .end annotation
 
     .line 33
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDelayWithPublisher;, "Lio/reactivex/internal/operators/single/SingleDelayWithPublisher<TT;TU;>;"
-    .local p1, "source":Lio/reactivex/SingleSource;, "Lio/reactivex/SingleSource<TT;>;"
-    .local p2, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TU;>;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 34
@@ -68,7 +65,6 @@
     .line 35
     iput-object p2, p0, Lio/reactivex/internal/operators/single/SingleDelayWithPublisher;->other:Lorg/reactivestreams/Publisher;
 
-    .line 36
     return-void
 .end method
 
@@ -85,8 +81,6 @@
     .end annotation
 
     .line 40
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDelayWithPublisher;, "Lio/reactivex/internal/operators/single/SingleDelayWithPublisher<TT;TU;>;"
-    .local p1, "subscriber":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleDelayWithPublisher;->other:Lorg/reactivestreams/Publisher;
 
     new-instance v1, Lio/reactivex/internal/operators/single/SingleDelayWithPublisher$OtherSubscriber;
@@ -97,6 +91,5 @@
 
     invoke-interface {v0, v1}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
 
-    .line 41
     return-void
 .end method

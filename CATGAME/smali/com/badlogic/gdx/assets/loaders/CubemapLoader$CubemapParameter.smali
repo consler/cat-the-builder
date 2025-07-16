@@ -45,9 +45,9 @@
     .line 95
     invoke-direct {p0}, Lcom/badlogic/gdx/assets/AssetLoaderParameters;-><init>()V
 
-    .line 97
     const/4 v0, 0x0
 
+    .line 97
     iput-object v0, p0, Lcom/badlogic/gdx/assets/loaders/CubemapLoader$CubemapParameter;->format:Lcom/badlogic/gdx/graphics/Pixmap$Format;
 
     .line 99

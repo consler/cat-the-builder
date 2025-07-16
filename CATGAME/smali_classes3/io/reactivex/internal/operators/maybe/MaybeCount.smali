@@ -50,14 +50,11 @@
     .end annotation
 
     .line 30
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeCount;, "Lio/reactivex/internal/operators/maybe/MaybeCount<TT;>;"
-    .local p1, "source":Lio/reactivex/MaybeSource;, "Lio/reactivex/MaybeSource<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 31
     iput-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeCount;->source:Lio/reactivex/MaybeSource;
 
-    .line 32
     return-void
 .end method
 
@@ -74,7 +71,6 @@
     .end annotation
 
     .line 36
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeCount;, "Lio/reactivex/internal/operators/maybe/MaybeCount<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeCount;->source:Lio/reactivex/MaybeSource;
 
     return-object v0
@@ -93,8 +89,6 @@
     .end annotation
 
     .line 41
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeCount;, "Lio/reactivex/internal/operators/maybe/MaybeCount<TT;>;"
-    .local p1, "observer":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-Ljava/lang/Long;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeCount;->source:Lio/reactivex/MaybeSource;
 
     new-instance v1, Lio/reactivex/internal/operators/maybe/MaybeCount$CountMaybeObserver;
@@ -103,6 +97,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/MaybeSource;->subscribe(Lio/reactivex/MaybeObserver;)V
 
-    .line 42
     return-void
 .end method

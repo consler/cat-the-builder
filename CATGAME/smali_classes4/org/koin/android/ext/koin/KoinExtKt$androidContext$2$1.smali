@@ -74,23 +74,21 @@
 # virtual methods
 .method public final invoke(Lorg/koin/core/scope/Scope;Lorg/koin/core/parameter/DefinitionParameters;)Landroid/content/Context;
     .locals 1
-    .param p1, "$this$single"    # Lorg/koin/core/scope/Scope;
-    .param p2, "it"    # Lorg/koin/core/parameter/DefinitionParameters;
 
     const-string v0, "$receiver"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "it"
+    const-string p1, "it"
 
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 59
-    iget-object v0, p0, Lorg/koin/android/ext/koin/KoinExtKt$androidContext$2$1;->this$0:Lorg/koin/android/ext/koin/KoinExtKt$androidContext$2;
+    iget-object p1, p0, Lorg/koin/android/ext/koin/KoinExtKt$androidContext$2$1;->this$0:Lorg/koin/android/ext/koin/KoinExtKt$androidContext$2;
 
-    iget-object v0, v0, Lorg/koin/android/ext/koin/KoinExtKt$androidContext$2;->$androidContext:Landroid/content/Context;
+    iget-object p1, p1, Lorg/koin/android/ext/koin/KoinExtKt$androidContext$2;->$androidContext:Landroid/content/Context;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;

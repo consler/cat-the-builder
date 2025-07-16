@@ -25,29 +25,13 @@
     .line 126
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 127
     return-void
 .end method
 
 .method static createGlueProviderFactory()Landroidx/webkit/internal/WebViewProviderFactory;
     .locals 3
 
-    .line 76
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-ge v0, v1, :cond_0
-
-    .line 77
-    new-instance v0, Landroidx/webkit/internal/IncompatibleApkWebViewProviderFactory;
-
-    invoke-direct {v0}, Landroidx/webkit/internal/IncompatibleApkWebViewProviderFactory;-><init>()V
-
-    return-object v0
-
     .line 81
-    :cond_0
     :try_start_0
     invoke-static {}, Landroidx/webkit/internal/WebViewGlueCommunicator;->fetchGlueProviderFactoryImpl()Ljava/lang/reflect/InvocationHandler;
 
@@ -58,10 +42,6 @@
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 95
-    .local v0, "invocationHandler":Ljava/lang/reflect/InvocationHandler;
-    nop
-
     .line 96
     new-instance v1, Landroidx/webkit/internal/WebViewProviderFactoryAdapter;
 
@@ -69,60 +49,46 @@
 
     invoke-static {v2, v0}, Lorg/chromium/support_lib_boundary/util/BoundaryInterfaceReflectionUtil;->castToSuppLibClass(Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Lorg/chromium/support_lib_boundary/WebViewProviderFactoryBoundaryInterface;
+    check-cast v0, Lorg/chromium/support_lib_boundary/WebViewProviderFactoryBoundaryInterface;
 
-    invoke-direct {v1, v2}, Landroidx/webkit/internal/WebViewProviderFactoryAdapter;-><init>(Lorg/chromium/support_lib_boundary/WebViewProviderFactoryBoundaryInterface;)V
+    invoke-direct {v1, v0}, Landroidx/webkit/internal/WebViewProviderFactoryAdapter;-><init>(Lorg/chromium/support_lib_boundary/WebViewProviderFactoryBoundaryInterface;)V
 
     return-object v1
 
-    .line 93
-    .end local v0    # "invocationHandler":Ljava/lang/reflect/InvocationHandler;
     :catch_0
     move-exception v0
 
     .line 94
-    .local v0, "e":Ljava/lang/NoSuchMethodException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 
-    .line 89
-    .end local v0    # "e":Ljava/lang/NoSuchMethodException;
-    :catch_1
-    move-exception v0
-
     .line 92
-    .local v0, "e":Ljava/lang/ClassNotFoundException;
-    new-instance v1, Landroidx/webkit/internal/IncompatibleApkWebViewProviderFactory;
+    :catch_1
+    new-instance v0, Landroidx/webkit/internal/IncompatibleApkWebViewProviderFactory;
 
-    invoke-direct {v1}, Landroidx/webkit/internal/IncompatibleApkWebViewProviderFactory;-><init>()V
+    invoke-direct {v0}, Landroidx/webkit/internal/IncompatibleApkWebViewProviderFactory;-><init>()V
 
-    return-object v1
+    return-object v0
 
-    .line 87
-    .end local v0    # "e":Ljava/lang/ClassNotFoundException;
     :catch_2
     move-exception v0
 
     .line 88
-    .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 
-    .line 85
-    .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
     :catch_3
     move-exception v0
 
     .line 86
-    .local v0, "e":Ljava/lang/IllegalAccessException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -141,46 +107,41 @@
         }
     .end annotation
 
-    .line 65
-    nop
-
     .line 66
     invoke-static {}, Landroidx/webkit/internal/WebViewGlueCommunicator;->getWebViewClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v0
 
-    .line 65
     const-string v1, "org.chromium.support_lib_glue.SupportLibReflectionUtil"
 
     const/4 v2, 0x0
 
+    .line 65
     invoke-static {v1, v2, v0}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
     move-result-object v0
 
+    const-string v1, "createWebViewProviderFactory"
+
+    new-array v3, v2, [Ljava/lang/Class;
+
     .line 67
-    .local v0, "glueFactoryProviderFetcherClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    new-array v1, v2, [Ljava/lang/Class;
+    invoke-virtual {v0, v1, v3}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    const-string v3, "createWebViewProviderFactory"
+    move-result-object v0
 
-    invoke-virtual {v0, v3, v1}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    const/4 v1, 0x0
 
-    move-result-object v1
-
-    .line 69
-    .local v1, "createProviderFactoryMethod":Ljava/lang/reflect/Method;
     new-array v2, v2, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    .line 69
+    invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v1, v3, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object v2
+    check-cast v0, Ljava/lang/reflect/InvocationHandler;
 
-    check-cast v2, Ljava/lang/reflect/InvocationHandler;
-
-    return-object v2
+    return-object v0
 .end method
 
 .method public static getCompatConverter()Landroidx/webkit/internal/WebkitToCompatConverter;
@@ -202,33 +163,10 @@
 .end method
 
 .method public static getWebViewClassLoader()Ljava/lang/ClassLoader;
-    .locals 2
-
-    .line 104
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1c
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     .line 105
     invoke-static {}, Landroid/webkit/WebView;->getWebViewClassLoader()Ljava/lang/ClassLoader;
-
-    move-result-object v0
-
-    return-object v0
-
-    .line 107
-    :cond_0
-    invoke-static {}, Landroidx/webkit/internal/WebViewGlueCommunicator;->getWebViewProviderFactory()Ljava/lang/Object;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v0
 
@@ -252,60 +190,50 @@
 
     move-result-object v0
 
-    .line 115
-    .local v0, "getFactoryMethod":Ljava/lang/reflect/Method;
     const/4 v1, 0x1
 
+    .line 115
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
 
+    new-array v1, v2, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
     .line 116
-    const/4 v1, 0x0
+    invoke-virtual {v0, v2, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
-
-    invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
+    move-result-object v0
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_2
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v1
+    return-object v0
 
-    .line 121
-    .end local v0    # "getFactoryMethod":Ljava/lang/reflect/Method;
     :catch_0
     move-exception v0
 
     .line 122
-    .local v0, "e":Ljava/lang/IllegalAccessException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 
-    .line 119
-    .end local v0    # "e":Ljava/lang/IllegalAccessException;
     :catch_1
     move-exception v0
 
     .line 120
-    .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 
-    .line 117
-    .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
     :catch_2
     move-exception v0
 
     .line 118
-    .local v0, "e":Ljava/lang/NoSuchMethodException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V

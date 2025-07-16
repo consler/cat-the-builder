@@ -47,10 +47,8 @@
     .locals 0
 
     .line 53
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/EmptyMapIterator;, "Lorg/apache/commons/collections4/iterators/EmptyMapIterator<TK;TV;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/iterators/AbstractEmptyMapIterator;-><init>()V
 
-    .line 54
     return-void
 .end method
 

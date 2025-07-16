@@ -290,11 +290,11 @@
 
     if-eqz v1, :cond_0
 
-    const/4 v1, 0x0
-
     monitor-exit v0
 
-    return v1
+    const/4 v0, 0x0
+
+    return v0
 
     :cond_0
     const/4 v1, 0x1

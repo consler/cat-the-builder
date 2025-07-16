@@ -30,7 +30,6 @@
     .locals 0
 
     .line 627
-    .local p0, "this":Lorg/apache/commons/collections4/map/StaticBucketMap$KeySet;, "Lorg/apache/commons/collections4/map/StaticBucketMap<TK;TV;>.KeySet;"
     iput-object p1, p0, Lorg/apache/commons/collections4/map/StaticBucketMap$KeySet;->this$0:Lorg/apache/commons/collections4/map/StaticBucketMap;
 
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
@@ -40,11 +39,8 @@
 
 .method synthetic constructor <init>(Lorg/apache/commons/collections4/map/StaticBucketMap;Lorg/apache/commons/collections4/map/StaticBucketMap$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/collections4/map/StaticBucketMap;
-    .param p2, "x1"    # Lorg/apache/commons/collections4/map/StaticBucketMap$1;
 
     .line 627
-    .local p0, "this":Lorg/apache/commons/collections4/map/StaticBucketMap$KeySet;, "Lorg/apache/commons/collections4/map/StaticBucketMap<TK;TV;>.KeySet;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/map/StaticBucketMap$KeySet;-><init>(Lorg/apache/commons/collections4/map/StaticBucketMap;)V
 
     return-void
@@ -56,28 +52,24 @@
     .locals 1
 
     .line 636
-    .local p0, "this":Lorg/apache/commons/collections4/map/StaticBucketMap$KeySet;, "Lorg/apache/commons/collections4/map/StaticBucketMap<TK;TV;>.KeySet;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/StaticBucketMap$KeySet;->this$0:Lorg/apache/commons/collections4/map/StaticBucketMap;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/map/StaticBucketMap;->clear()V
 
-    .line 637
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 646
-    .local p0, "this":Lorg/apache/commons/collections4/map/StaticBucketMap$KeySet;, "Lorg/apache/commons/collections4/map/StaticBucketMap<TK;TV;>.KeySet;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/StaticBucketMap$KeySet;->this$0:Lorg/apache/commons/collections4/map/StaticBucketMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/map/StaticBucketMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
@@ -91,7 +83,6 @@
     .end annotation
 
     .line 641
-    .local p0, "this":Lorg/apache/commons/collections4/map/StaticBucketMap$KeySet;, "Lorg/apache/commons/collections4/map/StaticBucketMap<TK;TV;>.KeySet;"
     new-instance v0, Lorg/apache/commons/collections4/map/StaticBucketMap$KeyIterator;
 
     iget-object v1, p0, Lorg/apache/commons/collections4/map/StaticBucketMap$KeySet;->this$0:Lorg/apache/commons/collections4/map/StaticBucketMap;
@@ -104,11 +95,9 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 4
 
     .line 651
-    .local p0, "this":Lorg/apache/commons/collections4/map/StaticBucketMap$KeySet;, "Lorg/apache/commons/collections4/map/StaticBucketMap<TK;TV;>.KeySet;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/StaticBucketMap$KeySet;->this$0:Lorg/apache/commons/collections4/map/StaticBucketMap;
 
     invoke-static {v0, p1}, Lorg/apache/commons/collections4/map/StaticBucketMap;->access$900(Lorg/apache/commons/collections4/map/StaticBucketMap;Ljava/lang/Object;)I
@@ -116,7 +105,6 @@
     move-result v0
 
     .line 652
-    .local v0, "hash":I
     iget-object v1, p0, Lorg/apache/commons/collections4/map/StaticBucketMap$KeySet;->this$0:Lorg/apache/commons/collections4/map/StaticBucketMap;
 
     invoke-static {v1}, Lorg/apache/commons/collections4/map/StaticBucketMap;->access$600(Lorg/apache/commons/collections4/map/StaticBucketMap;)[Lorg/apache/commons/collections4/map/StaticBucketMap$Lock;
@@ -135,82 +123,71 @@
 
     move-result-object v2
 
-    aget-object v2, v2, v0
+    aget-object v0, v2, v0
 
-    .local v2, "n":Lorg/apache/commons/collections4/map/StaticBucketMap$Node;, "Lorg/apache/commons/collections4/map/StaticBucketMap$Node<TK;TV;>;"
     :goto_0
-    if-eqz v2, :cond_2
+    if-eqz v0, :cond_2
 
     .line 654
-    invoke-virtual {v2}, Lorg/apache/commons/collections4/map/StaticBucketMap$Node;->getKey()Ljava/lang/Object;
+    invoke-virtual {v0}, Lorg/apache/commons/collections4/map/StaticBucketMap$Node;->getKey()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
+
+    if-eq v2, p1, :cond_1
+
+    if-eqz v2, :cond_0
 
     .line 655
-    .local v3, "k":Ljava/lang/Object;
-    if-eq v3, p1, :cond_1
+    invoke-virtual {v2, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
 
     if-eqz v3, :cond_0
-
-    invoke-virtual {v3, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
 
     goto :goto_1
 
     .line 653
-    .end local v3    # "k":Ljava/lang/Object;
     :cond_0
-    iget-object v3, v2, Lorg/apache/commons/collections4/map/StaticBucketMap$Node;->next:Lorg/apache/commons/collections4/map/StaticBucketMap$Node;
-
-    move-object v2, v3
+    iget-object v0, v0, Lorg/apache/commons/collections4/map/StaticBucketMap$Node;->next:Lorg/apache/commons/collections4/map/StaticBucketMap$Node;
 
     goto :goto_0
 
     .line 656
-    .restart local v3    # "k":Ljava/lang/Object;
     :cond_1
     :goto_1
-    iget-object v4, p0, Lorg/apache/commons/collections4/map/StaticBucketMap$KeySet;->this$0:Lorg/apache/commons/collections4/map/StaticBucketMap;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/StaticBucketMap$KeySet;->this$0:Lorg/apache/commons/collections4/map/StaticBucketMap;
 
-    invoke-virtual {v4, v3}, Lorg/apache/commons/collections4/map/StaticBucketMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1, v2}, Lorg/apache/commons/collections4/map/StaticBucketMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 657
-    const/4 v4, 0x1
-
     monitor-exit v1
 
-    return v4
+    const/4 p1, 0x1
+
+    return p1
 
     .line 660
-    .end local v2    # "n":Lorg/apache/commons/collections4/map/StaticBucketMap$Node;, "Lorg/apache/commons/collections4/map/StaticBucketMap$Node<TK;TV;>;"
-    .end local v3    # "k":Ljava/lang/Object;
     :cond_2
     monitor-exit v1
 
-    .line 661
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return v1
+    return p1
 
-    .line 660
     :catchall_0
-    move-exception v2
+    move-exception p1
 
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v2
+    throw p1
 .end method
 
 .method public size()I
     .locals 1
 
     .line 631
-    .local p0, "this":Lorg/apache/commons/collections4/map/StaticBucketMap$KeySet;, "Lorg/apache/commons/collections4/map/StaticBucketMap<TK;TV;>.KeySet;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/StaticBucketMap$KeySet;->this$0:Lorg/apache/commons/collections4/map/StaticBucketMap;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/map/StaticBucketMap;->size()I

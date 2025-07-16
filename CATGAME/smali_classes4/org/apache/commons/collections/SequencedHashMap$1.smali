@@ -29,22 +29,20 @@
 
     invoke-virtual {v0}, Lorg/apache/commons/collections/SequencedHashMap;->clear()V
 
-    .line 573
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
     .line 581
     iget-object v0, p0, Lorg/apache/commons/collections/SequencedHashMap$1;->this$0:Lorg/apache/commons/collections/SequencedHashMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections/SequencedHashMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public isEmpty()Z
@@ -76,29 +74,26 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 2
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 1
 
     .line 566
     iget-object v0, p0, Lorg/apache/commons/collections/SequencedHashMap$1;->this$0:Lorg/apache/commons/collections/SequencedHashMap;
 
     invoke-static {v0, p1}, Lorg/apache/commons/collections/SequencedHashMap;->access$000(Lorg/apache/commons/collections/SequencedHashMap;Ljava/lang/Object;)Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 567
-    .local v0, "e":Lorg/apache/commons/collections/SequencedHashMap$Entry;
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v1
+    return p1
 .end method
 
 .method public size()I

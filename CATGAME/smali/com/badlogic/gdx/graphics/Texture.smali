@@ -47,10 +47,7 @@
 .end method
 
 .method public constructor <init>(IILcom/badlogic/gdx/graphics/Pixmap$Format;)V
-    .locals 5
-    .param p1, "width"    # I
-    .param p2, "height"    # I
-    .param p3, "format"    # Lcom/badlogic/gdx/graphics/Pixmap$Format;
+    .locals 2
 
     .line 138
     new-instance v0, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;
@@ -59,25 +56,21 @@
 
     invoke-direct {v1, p1, p2, p3}, Lcom/badlogic/gdx/graphics/Pixmap;-><init>(IILcom/badlogic/gdx/graphics/Pixmap$Format;)V
 
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
-    const/4 v3, 0x0
+    const/4 p2, 0x1
 
-    const/4 v4, 0x1
+    const/4 p3, 0x0
 
-    invoke-direct {v0, v1, v2, v3, v4}, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;-><init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap$Format;ZZ)V
+    invoke-direct {v0, v1, p3, p1, p2}, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;-><init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap$Format;ZZ)V
 
     invoke-direct {p0, v0}, Lcom/badlogic/gdx/graphics/Texture;-><init>(Lcom/badlogic/gdx/graphics/TextureData;)V
 
-    .line 139
     return-void
 .end method
 
 .method protected constructor <init>(IILcom/badlogic/gdx/graphics/TextureData;)V
-    .locals 1
-    .param p1, "glTarget"    # I
-    .param p2, "glHandle"    # I
-    .param p3, "data"    # Lcom/badlogic/gdx/graphics/TextureData;
+    .locals 0
 
     .line 146
     invoke-direct {p0, p1, p2}, Lcom/badlogic/gdx/graphics/GLTexture;-><init>(II)V
@@ -88,68 +81,57 @@
     .line 148
     invoke-interface {p3}, Lcom/badlogic/gdx/graphics/TextureData;->isManaged()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    sget-object v0, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
+    sget-object p1, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
 
-    invoke-static {v0, p0}, Lcom/badlogic/gdx/graphics/Texture;->addManagedTexture(Lcom/badlogic/gdx/Application;Lcom/badlogic/gdx/graphics/Texture;)V
+    invoke-static {p1, p0}, Lcom/badlogic/gdx/graphics/Texture;->addManagedTexture(Lcom/badlogic/gdx/Application;Lcom/badlogic/gdx/graphics/Texture;)V
 
-    .line 149
     :cond_0
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/files/FileHandle;)V
     .locals 2
-    .param p1, "file"    # Lcom/badlogic/gdx/files/FileHandle;
 
-    .line 114
     const/4 v0, 0x0
 
     const/4 v1, 0x0
 
+    .line 114
     invoke-direct {p0, p1, v0, v1}, Lcom/badlogic/gdx/graphics/Texture;-><init>(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/graphics/Pixmap$Format;Z)V
 
-    .line 115
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/graphics/Pixmap$Format;Z)V
-    .locals 1
-    .param p1, "file"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p2, "format"    # Lcom/badlogic/gdx/graphics/Pixmap$Format;
-    .param p3, "useMipMaps"    # Z
+    .locals 0
 
     .line 122
     invoke-static {p1, p2, p3}, Lcom/badlogic/gdx/graphics/TextureData$Factory;->loadFromFile(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/graphics/Pixmap$Format;Z)Lcom/badlogic/gdx/graphics/TextureData;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0}, Lcom/badlogic/gdx/graphics/Texture;-><init>(Lcom/badlogic/gdx/graphics/TextureData;)V
+    invoke-direct {p0, p1}, Lcom/badlogic/gdx/graphics/Texture;-><init>(Lcom/badlogic/gdx/graphics/TextureData;)V
 
-    .line 123
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/files/FileHandle;Z)V
     .locals 1
-    .param p1, "file"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p2, "useMipMaps"    # Z
 
-    .line 118
     const/4 v0, 0x0
 
+    .line 118
     invoke-direct {p0, p1, v0, p2}, Lcom/badlogic/gdx/graphics/Texture;-><init>(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/graphics/Pixmap$Format;Z)V
 
-    .line 119
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/Pixmap;)V
     .locals 3
-    .param p1, "pixmap"    # Lcom/badlogic/gdx/graphics/Pixmap;
 
     .line 126
     new-instance v0, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;
@@ -162,15 +144,11 @@
 
     invoke-direct {p0, v0}, Lcom/badlogic/gdx/graphics/Texture;-><init>(Lcom/badlogic/gdx/graphics/TextureData;)V
 
-    .line 127
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/Pixmap;Lcom/badlogic/gdx/graphics/Pixmap$Format;Z)V
     .locals 2
-    .param p1, "pixmap"    # Lcom/badlogic/gdx/graphics/Pixmap;
-    .param p2, "format"    # Lcom/badlogic/gdx/graphics/Pixmap$Format;
-    .param p3, "useMipMaps"    # Z
 
     .line 134
     new-instance v0, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;
@@ -181,14 +159,11 @@
 
     invoke-direct {p0, v0}, Lcom/badlogic/gdx/graphics/Texture;-><init>(Lcom/badlogic/gdx/graphics/TextureData;)V
 
-    .line 135
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/Pixmap;Z)V
     .locals 3
-    .param p1, "pixmap"    # Lcom/badlogic/gdx/graphics/Pixmap;
-    .param p2, "useMipMaps"    # Z
 
     .line 130
     new-instance v0, Lcom/badlogic/gdx/graphics/glutils/PixmapTextureData;
@@ -201,13 +176,11 @@
 
     invoke-direct {p0, v0}, Lcom/badlogic/gdx/graphics/Texture;-><init>(Lcom/badlogic/gdx/graphics/TextureData;)V
 
-    .line 131
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/TextureData;)V
     .locals 2
-    .param p1, "data"    # Lcom/badlogic/gdx/graphics/TextureData;
 
     .line 142
     sget-object v0, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
@@ -220,74 +193,61 @@
 
     invoke-direct {p0, v1, v0, p1}, Lcom/badlogic/gdx/graphics/Texture;-><init>(IILcom/badlogic/gdx/graphics/TextureData;)V
 
-    .line 143
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .param p1, "internalPath"    # Ljava/lang/String;
 
     .line 110
     sget-object v0, Lcom/badlogic/gdx/Gdx;->files:Lcom/badlogic/gdx/Files;
 
     invoke-interface {v0, p1}, Lcom/badlogic/gdx/Files;->internal(Ljava/lang/String;)Lcom/badlogic/gdx/files/FileHandle;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0}, Lcom/badlogic/gdx/graphics/Texture;-><init>(Lcom/badlogic/gdx/files/FileHandle;)V
+    invoke-direct {p0, p1}, Lcom/badlogic/gdx/graphics/Texture;-><init>(Lcom/badlogic/gdx/files/FileHandle;)V
 
-    .line 111
     return-void
 .end method
 
 .method private static addManagedTexture(Lcom/badlogic/gdx/Application;Lcom/badlogic/gdx/graphics/Texture;)V
     .locals 2
-    .param p0, "app"    # Lcom/badlogic/gdx/Application;
-    .param p1, "texture"    # Lcom/badlogic/gdx/graphics/Texture;
 
     .line 230
     sget-object v0, Lcom/badlogic/gdx/graphics/Texture;->managedTextures:Ljava/util/Map;
 
     invoke-interface {v0, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lcom/badlogic/gdx/utils/Array;
+    check-cast v1, Lcom/badlogic/gdx/utils/Array;
+
+    if-nez v1, :cond_0
 
     .line 231
-    .local v0, "managedTextureArray":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/Texture;>;"
-    if-nez v0, :cond_0
-
     new-instance v1, Lcom/badlogic/gdx/utils/Array;
 
     invoke-direct {v1}, Lcom/badlogic/gdx/utils/Array;-><init>()V
 
-    move-object v0, v1
-
     .line 232
     :cond_0
-    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v1, p1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
     .line 233
-    sget-object v1, Lcom/badlogic/gdx/graphics/Texture;->managedTextures:Ljava/util/Map;
+    invoke-interface {v0, p0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v1, p0, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 234
     return-void
 .end method
 
 .method public static clearAllTextures(Lcom/badlogic/gdx/Application;)V
     .locals 1
-    .param p0, "app"    # Lcom/badlogic/gdx/Application;
 
     .line 238
     sget-object v0, Lcom/badlogic/gdx/graphics/Texture;->managedTextures:Ljava/util/Map;
 
     invoke-interface {v0, p0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 239
     return-void
 .end method
 
@@ -297,13 +257,9 @@
     .line 310
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    .line 311
-    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v1, "Managed textures/app: { "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 312
     sget-object v1, Lcom/badlogic/gdx/graphics/Texture;->managedTextures:Ljava/util/Map;
@@ -330,40 +286,37 @@
     check-cast v2, Lcom/badlogic/gdx/Application;
 
     .line 313
-    .local v2, "app":Lcom/badlogic/gdx/Application;
     sget-object v3, Lcom/badlogic/gdx/graphics/Texture;->managedTextures:Ljava/util/Map;
 
     invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Lcom/badlogic/gdx/utils/Array;
+    check-cast v2, Lcom/badlogic/gdx/utils/Array;
 
-    iget v3, v3, Lcom/badlogic/gdx/utils/Array;->size:I
+    iget v2, v2, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v2, " "
 
     .line 314
-    const-string v3, " "
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 315
-    .end local v2    # "app":Lcom/badlogic/gdx/Application;
     goto :goto_0
 
-    .line 316
     :cond_0
-    const-string/jumbo v1, "}"
+    const-string v1, "}"
 
+    .line 316
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 317
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public static getNumManagedTextures()I
@@ -386,72 +339,60 @@
 .end method
 
 .method public static invalidateAllTextures(Lcom/badlogic/gdx/Application;)V
-    .locals 9
-    .param p0, "app"    # Lcom/badlogic/gdx/Application;
+    .locals 8
 
     .line 243
     sget-object v0, Lcom/badlogic/gdx/graphics/Texture;->managedTextures:Ljava/util/Map;
 
     invoke-interface {v0, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/badlogic/gdx/utils/Array;
+    check-cast p0, Lcom/badlogic/gdx/utils/Array;
 
-    .line 244
-    .local v0, "managedTextureArray":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/Texture;>;"
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     return-void
 
     .line 246
     :cond_0
-    sget-object v1, Lcom/badlogic/gdx/graphics/Texture;->assetManager:Lcom/badlogic/gdx/assets/AssetManager;
+    sget-object v0, Lcom/badlogic/gdx/graphics/Texture;->assetManager:Lcom/badlogic/gdx/assets/AssetManager;
 
-    if-nez v1, :cond_2
-
-    .line 247
     const/4 v1, 0x0
 
-    .local v1, "i":I
-    :goto_0
-    iget v2, v0, Lcom/badlogic/gdx/utils/Array;->size:I
-
-    if-ge v1, v2, :cond_1
-
-    .line 248
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/badlogic/gdx/graphics/Texture;
-
-    .line 249
-    .local v2, "texture":Lcom/badlogic/gdx/graphics/Texture;
-    invoke-virtual {v2}, Lcom/badlogic/gdx/graphics/Texture;->reload()V
+    if-nez v0, :cond_1
 
     .line 247
-    .end local v2    # "texture":Lcom/badlogic/gdx/graphics/Texture;
+    :goto_0
+    iget v0, p0, Lcom/badlogic/gdx/utils/Array;->size:I
+
+    if-ge v1, v0, :cond_4
+
+    .line 248
+    invoke-virtual {p0, v1}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/badlogic/gdx/graphics/Texture;
+
+    .line 249
+    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/Texture;->reload()V
+
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .end local v1    # "i":I
-    :cond_1
-    goto/16 :goto_3
-
     .line 255
-    :cond_2
-    invoke-virtual {v1}, Lcom/badlogic/gdx/assets/AssetManager;->finishLoading()V
+    :cond_1
+    invoke-virtual {v0}, Lcom/badlogic/gdx/assets/AssetManager;->finishLoading()V
 
     .line 259
-    new-instance v1, Lcom/badlogic/gdx/utils/Array;
+    new-instance v0, Lcom/badlogic/gdx/utils/Array;
 
-    invoke-direct {v1, v0}, Lcom/badlogic/gdx/utils/Array;-><init>(Lcom/badlogic/gdx/utils/Array;)V
+    invoke-direct {v0, p0}, Lcom/badlogic/gdx/utils/Array;-><init>(Lcom/badlogic/gdx/utils/Array;)V
 
     .line 260
-    .local v1, "textures":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/Texture;>;"
-    invoke-virtual {v1}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
@@ -460,7 +401,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_3
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -469,24 +410,21 @@
     check-cast v3, Lcom/badlogic/gdx/graphics/Texture;
 
     .line 261
-    .local v3, "texture":Lcom/badlogic/gdx/graphics/Texture;
     sget-object v4, Lcom/badlogic/gdx/graphics/Texture;->assetManager:Lcom/badlogic/gdx/assets/AssetManager;
 
     invoke-virtual {v4, v3}, Lcom/badlogic/gdx/assets/AssetManager;->getAssetFileName(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 262
-    .local v4, "fileName":Ljava/lang/String;
-    if-nez v4, :cond_3
+    if-nez v4, :cond_2
 
     .line 263
     invoke-virtual {v3}, Lcom/badlogic/gdx/graphics/Texture;->reload()V
 
-    goto :goto_2
+    goto :goto_1
 
     .line 269
-    :cond_3
+    :cond_2
     sget-object v5, Lcom/badlogic/gdx/graphics/Texture;->assetManager:Lcom/badlogic/gdx/assets/AssetManager;
 
     invoke-virtual {v5, v4}, Lcom/badlogic/gdx/assets/AssetManager;->getReferenceCount(Ljava/lang/String;)I
@@ -494,15 +432,12 @@
     move-result v5
 
     .line 270
-    .local v5, "refCount":I
     sget-object v6, Lcom/badlogic/gdx/graphics/Texture;->assetManager:Lcom/badlogic/gdx/assets/AssetManager;
 
-    const/4 v7, 0x0
-
-    invoke-virtual {v6, v4, v7}, Lcom/badlogic/gdx/assets/AssetManager;->setReferenceCount(Ljava/lang/String;I)V
+    invoke-virtual {v6, v4, v1}, Lcom/badlogic/gdx/assets/AssetManager;->setReferenceCount(Ljava/lang/String;I)V
 
     .line 271
-    iput v7, v3, Lcom/badlogic/gdx/graphics/Texture;->glHandle:I
+    iput v1, v3, Lcom/badlogic/gdx/graphics/Texture;->glHandle:I
 
     .line 275
     new-instance v6, Lcom/badlogic/gdx/assets/loaders/TextureLoader$TextureParameter;
@@ -510,7 +445,6 @@
     invoke-direct {v6}, Lcom/badlogic/gdx/assets/loaders/TextureLoader$TextureParameter;-><init>()V
 
     .line 276
-    .local v6, "params":Lcom/badlogic/gdx/assets/loaders/TextureLoader$TextureParameter;
     invoke-virtual {v3}, Lcom/badlogic/gdx/graphics/Texture;->getTextureData()Lcom/badlogic/gdx/graphics/TextureData;
 
     move-result-object v7
@@ -565,55 +499,45 @@
     iput-object v7, v6, Lcom/badlogic/gdx/assets/loaders/TextureLoader$TextureParameter;->loadedCallback:Lcom/badlogic/gdx/assets/AssetLoaderParameters$LoadedCallback;
 
     .line 291
-    sget-object v7, Lcom/badlogic/gdx/graphics/Texture;->assetManager:Lcom/badlogic/gdx/assets/AssetManager;
+    sget-object v5, Lcom/badlogic/gdx/graphics/Texture;->assetManager:Lcom/badlogic/gdx/assets/AssetManager;
 
-    invoke-virtual {v7, v4}, Lcom/badlogic/gdx/assets/AssetManager;->unload(Ljava/lang/String;)V
+    invoke-virtual {v5, v4}, Lcom/badlogic/gdx/assets/AssetManager;->unload(Ljava/lang/String;)V
 
     .line 292
-    sget-object v7, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
+    sget-object v5, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
 
-    invoke-interface {v7}, Lcom/badlogic/gdx/graphics/GL20;->glGenTexture()I
+    invoke-interface {v5}, Lcom/badlogic/gdx/graphics/GL20;->glGenTexture()I
 
-    move-result v7
+    move-result v5
 
-    iput v7, v3, Lcom/badlogic/gdx/graphics/Texture;->glHandle:I
+    iput v5, v3, Lcom/badlogic/gdx/graphics/Texture;->glHandle:I
 
     .line 293
-    sget-object v7, Lcom/badlogic/gdx/graphics/Texture;->assetManager:Lcom/badlogic/gdx/assets/AssetManager;
+    sget-object v3, Lcom/badlogic/gdx/graphics/Texture;->assetManager:Lcom/badlogic/gdx/assets/AssetManager;
 
-    const-class v8, Lcom/badlogic/gdx/graphics/Texture;
+    const-class v5, Lcom/badlogic/gdx/graphics/Texture;
 
-    invoke-virtual {v7, v4, v8, v6}, Lcom/badlogic/gdx/assets/AssetManager;->load(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/assets/AssetLoaderParameters;)V
+    invoke-virtual {v3, v4, v5, v6}, Lcom/badlogic/gdx/assets/AssetManager;->load(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/assets/AssetLoaderParameters;)V
 
-    .line 295
-    .end local v3    # "texture":Lcom/badlogic/gdx/graphics/Texture;
-    .end local v4    # "fileName":Ljava/lang/String;
-    .end local v5    # "refCount":I
-    .end local v6    # "params":Lcom/badlogic/gdx/assets/loaders/TextureLoader$TextureParameter;
-    :goto_2
     goto :goto_1
 
     .line 296
-    :cond_4
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->clear()V
+    :cond_3
+    invoke-virtual {p0}, Lcom/badlogic/gdx/utils/Array;->clear()V
 
     .line 297
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/utils/Array;->addAll(Lcom/badlogic/gdx/utils/Array;)V
+    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/utils/Array;->addAll(Lcom/badlogic/gdx/utils/Array;)V
 
-    .line 299
-    .end local v1    # "textures":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/Texture;>;"
-    :goto_3
+    :cond_4
     return-void
 .end method
 
 .method public static setAssetManager(Lcom/badlogic/gdx/assets/AssetManager;)V
     .locals 0
-    .param p0, "manager"    # Lcom/badlogic/gdx/assets/AssetManager;
 
     .line 306
     sput-object p0, Lcom/badlogic/gdx/graphics/Texture;->assetManager:Lcom/badlogic/gdx/assets/AssetManager;
 
-    .line 307
     return-void
 .end method
 
@@ -648,11 +572,9 @@
 
     invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_1
-
-    sget-object v0, Lcom/badlogic/gdx/graphics/Texture;->managedTextures:Ljava/util/Map;
+    if-eqz v1, :cond_1
 
     sget-object v1, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
 
@@ -666,16 +588,12 @@
 
     invoke-virtual {v0, p0, v1}, Lcom/badlogic/gdx/utils/Array;->removeValue(Ljava/lang/Object;Z)Z
 
-    .line 222
     :cond_1
     return-void
 .end method
 
 .method public draw(Lcom/badlogic/gdx/graphics/Pixmap;II)V
     .locals 11
-    .param p1, "pixmap"    # Lcom/badlogic/gdx/graphics/Pixmap;
-    .param p2, "x"    # I
-    .param p3, "y"    # I
 
     .line 182
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/Texture;->data:Lcom/badlogic/gdx/graphics/TextureData;
@@ -717,31 +635,29 @@
 
     move-result-object v10
 
-    .line 185
     move v4, p2
 
     move v5, p3
 
+    .line 185
     invoke-interface/range {v1 .. v10}, Lcom/badlogic/gdx/graphics/GL20;->glTexSubImage2D(IIIIIIIILjava/nio/Buffer;)V
 
-    .line 187
     return-void
 
     .line 182
     :cond_0
-    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v1, "can\'t draw to a managed texture"
+    const-string p2, "can\'t draw to a managed texture"
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public getDepth()I
     .locals 1
 
-    .line 201
     const/4 v0, 0x0
 
     return v0
@@ -796,8 +712,7 @@
 .end method
 
 .method public load(Lcom/badlogic/gdx/graphics/TextureData;)V
-    .locals 3
-    .param p1, "data"    # Lcom/badlogic/gdx/graphics/TextureData;
+    .locals 2
 
     .line 152
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/Texture;->data:Lcom/badlogic/gdx/graphics/TextureData;
@@ -820,13 +735,13 @@
 
     .line 153
     :cond_0
-    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v1, "New data must have the same managed status as the old data"
+    const-string v0, "New data must have the same managed status as the old data"
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 154
     :cond_1
@@ -846,37 +761,36 @@
     :cond_2
     invoke-virtual {p0}, Lcom/badlogic/gdx/graphics/Texture;->bind()V
 
-    .line 159
     const/16 v0, 0xde1
 
+    .line 159
     invoke-static {v0, p1}, Lcom/badlogic/gdx/graphics/Texture;->uploadImageData(ILcom/badlogic/gdx/graphics/TextureData;)V
 
     .line 161
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/Texture;->minFilter:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/Texture;->minFilter:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/Texture;->magFilter:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/Texture;->magFilter:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/badlogic/gdx/graphics/Texture;->unsafeSetFilter(Lcom/badlogic/gdx/graphics/Texture$TextureFilter;Lcom/badlogic/gdx/graphics/Texture$TextureFilter;Z)V
+    invoke-virtual {p0, p1, v0, v1}, Lcom/badlogic/gdx/graphics/Texture;->unsafeSetFilter(Lcom/badlogic/gdx/graphics/Texture$TextureFilter;Lcom/badlogic/gdx/graphics/Texture$TextureFilter;Z)V
 
     .line 162
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/Texture;->uWrap:Lcom/badlogic/gdx/graphics/Texture$TextureWrap;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/Texture;->uWrap:Lcom/badlogic/gdx/graphics/Texture$TextureWrap;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/Texture;->vWrap:Lcom/badlogic/gdx/graphics/Texture$TextureWrap;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/Texture;->vWrap:Lcom/badlogic/gdx/graphics/Texture$TextureWrap;
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/badlogic/gdx/graphics/Texture;->unsafeSetWrap(Lcom/badlogic/gdx/graphics/Texture$TextureWrap;Lcom/badlogic/gdx/graphics/Texture$TextureWrap;Z)V
+    invoke-virtual {p0, p1, v0, v1}, Lcom/badlogic/gdx/graphics/Texture;->unsafeSetWrap(Lcom/badlogic/gdx/graphics/Texture$TextureWrap;Lcom/badlogic/gdx/graphics/Texture$TextureWrap;Z)V
 
     .line 163
-    sget-object v0, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
+    sget-object p1, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
 
-    iget v1, p0, Lcom/badlogic/gdx/graphics/Texture;->glTarget:I
+    iget v0, p0, Lcom/badlogic/gdx/graphics/Texture;->glTarget:I
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-interface {v0, v1, v2}, Lcom/badlogic/gdx/graphics/GL20;->glBindTexture(II)V
+    invoke-interface {p1, v0, v1}, Lcom/badlogic/gdx/graphics/GL20;->glBindTexture(II)V
 
-    .line 164
     return-void
 .end method
 
@@ -904,7 +818,6 @@
 
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/Texture;->load(Lcom/badlogic/gdx/graphics/TextureData;)V
 
-    .line 173
     return-void
 
     .line 170

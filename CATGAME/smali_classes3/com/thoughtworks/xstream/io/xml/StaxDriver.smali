@@ -22,13 +22,11 @@
 
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/io/xml/StaxDriver;-><init>(Lcom/thoughtworks/xstream/io/xml/QNameMap;)V
 
-    .line 53
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
     .locals 1
-    .param p1, "nameCoder"    # Lcom/thoughtworks/xstream/io/naming/NameCoder;
 
     .line 71
     new-instance v0, Lcom/thoughtworks/xstream/io/xml/QNameMap;
@@ -37,13 +35,11 @@
 
     invoke-direct {p0, v0, p1}, Lcom/thoughtworks/xstream/io/xml/StaxDriver;-><init>(Lcom/thoughtworks/xstream/io/xml/QNameMap;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 72
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/xml/QNameMap;)V
     .locals 1
-    .param p1, "qnameMap"    # Lcom/thoughtworks/xstream/io/xml/QNameMap;
 
     .line 56
     new-instance v0, Lcom/thoughtworks/xstream/io/xml/XmlFriendlyNameCoder;
@@ -52,14 +48,11 @@
 
     invoke-direct {p0, p1, v0}, Lcom/thoughtworks/xstream/io/xml/StaxDriver;-><init>(Lcom/thoughtworks/xstream/io/xml/QNameMap;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 57
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/xml/QNameMap;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
     .locals 0
-    .param p1, "qnameMap"    # Lcom/thoughtworks/xstream/io/xml/QNameMap;
-    .param p2, "nameCoder"    # Lcom/thoughtworks/xstream/io/naming/NameCoder;
 
     .line 63
     invoke-direct {p0, p2}, Lcom/thoughtworks/xstream/io/xml/AbstractXmlDriver;-><init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
@@ -67,25 +60,20 @@
     .line 64
     iput-object p1, p0, Lcom/thoughtworks/xstream/io/xml/StaxDriver;->qnameMap:Lcom/thoughtworks/xstream/io/xml/QNameMap;
 
-    .line 65
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/xml/QNameMap;Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;)V
     .locals 0
-    .param p1, "qnameMap"    # Lcom/thoughtworks/xstream/io/xml/QNameMap;
-    .param p2, "replacer"    # Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;
 
     .line 79
     invoke-direct {p0, p1, p2}, Lcom/thoughtworks/xstream/io/xml/StaxDriver;-><init>(Lcom/thoughtworks/xstream/io/xml/QNameMap;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 80
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;)V
     .locals 1
-    .param p1, "replacer"    # Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;
 
     .line 87
     new-instance v0, Lcom/thoughtworks/xstream/io/xml/QNameMap;
@@ -94,7 +82,6 @@
 
     invoke-direct {p0, v0, p1}, Lcom/thoughtworks/xstream/io/xml/StaxDriver;-><init>(Lcom/thoughtworks/xstream/io/xml/QNameMap;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 88
     return-void
 .end method
 
@@ -108,15 +95,13 @@
 
     move-result-object v0
 
+    const-string v1, "javax.xml.stream.isSupportingExternalEntities"
+
     .line 242
-    .local v0, "instance":Ljavax/xml/stream/XMLInputFactory;
-    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    sget-object v2, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
-    const-string v2, "javax.xml.stream.isSupportingExternalEntities"
+    invoke-virtual {v0, v1, v2}, Ljavax/xml/stream/XMLInputFactory;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
-    invoke-virtual {v0, v2, v1}, Ljavax/xml/stream/XMLInputFactory;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
-
-    .line 243
     return-object v0
 .end method
 
@@ -133,7 +118,6 @@
 
 .method protected createParser(Ljava/io/InputStream;)Ljavax/xml/stream/XMLStreamReader;
     .locals 1
-    .param p1, "xml"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljavax/xml/stream/XMLStreamException;
@@ -147,14 +131,13 @@
 
     invoke-virtual {v0, p1}, Ljavax/xml/stream/XMLInputFactory;->createXMLStreamReader(Ljava/io/InputStream;)Ljavax/xml/stream/XMLStreamReader;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected createParser(Ljava/io/Reader;)Ljavax/xml/stream/XMLStreamReader;
     .locals 1
-    .param p1, "xml"    # Ljava/io/Reader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljavax/xml/stream/XMLStreamException;
@@ -168,14 +151,13 @@
 
     invoke-virtual {v0, p1}, Ljavax/xml/stream/XMLInputFactory;->createXMLStreamReader(Ljava/io/Reader;)Ljavax/xml/stream/XMLStreamReader;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected createParser(Ljavax/xml/transform/Source;)Ljavax/xml/stream/XMLStreamReader;
     .locals 1
-    .param p1, "source"    # Ljavax/xml/transform/Source;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljavax/xml/stream/XMLStreamException;
@@ -189,14 +171,13 @@
 
     invoke-virtual {v0, p1}, Ljavax/xml/stream/XMLInputFactory;->createXMLStreamReader(Ljavax/xml/transform/Source;)Ljavax/xml/stream/XMLStreamReader;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public createReader(Ljava/io/File;)Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .locals 3
-    .param p1, "in"    # Ljava/io/File;
+    .locals 2
 
     .line 133
     :try_start_0
@@ -205,133 +186,117 @@
     invoke-direct {v0, p1}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
 
     .line 134
-    .local v0, "stream":Ljava/io/InputStream;
     new-instance v1, Ljavax/xml/transform/stream/StreamSource;
 
     .line 135
     invoke-virtual {p1}, Ljava/io/File;->toURI()Ljava/net/URI;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v2}, Ljava/net/URI;->toASCIIString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/net/URI;->toASCIIString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v0, v2}, Ljavax/xml/transform/stream/StreamSource;-><init>(Ljava/io/InputStream;Ljava/lang/String;)V
+    invoke-direct {v1, v0, p1}, Ljavax/xml/transform/stream/StreamSource;-><init>(Ljava/io/InputStream;Ljava/lang/String;)V
 
     .line 134
     invoke-virtual {p0, v1}, Lcom/thoughtworks/xstream/io/xml/StaxDriver;->createParser(Ljavax/xml/transform/Source;)Ljavax/xml/stream/XMLStreamReader;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {p0, v1}, Lcom/thoughtworks/xstream/io/xml/StaxDriver;->createStaxReader(Ljavax/xml/stream/XMLStreamReader;)Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;
+    invoke-virtual {p0, p1}, Lcom/thoughtworks/xstream/io/xml/StaxDriver;->createStaxReader(Ljavax/xml/stream/XMLStreamReader;)Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 136
-    .local v1, "reader":Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    new-instance v2, Lcom/thoughtworks/xstream/io/xml/StaxDriver$2;
+    new-instance v1, Lcom/thoughtworks/xstream/io/xml/StaxDriver$2;
 
-    invoke-direct {v2, p0, v1, v0}, Lcom/thoughtworks/xstream/io/xml/StaxDriver$2;-><init>(Lcom/thoughtworks/xstream/io/xml/StaxDriver;Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Ljava/io/InputStream;)V
+    invoke-direct {v1, p0, p1, v0}, Lcom/thoughtworks/xstream/io/xml/StaxDriver$2;-><init>(Lcom/thoughtworks/xstream/io/xml/StaxDriver;Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Ljava/io/InputStream;)V
     :try_end_0
     .catch Ljavax/xml/stream/XMLStreamException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v2
+    return-object v1
 
-    .line 149
-    .end local v0    # "stream":Ljava/io/InputStream;
-    .end local v1    # "reader":Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 150
-    .local v0, "e":Ljava/io/FileNotFoundException;
-    new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
+    new-instance v0, Lcom/thoughtworks/xstream/io/StreamException;
 
-    invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 
-    .line 147
-    .end local v0    # "e":Ljava/io/FileNotFoundException;
     :catch_1
-    move-exception v0
+    move-exception p1
 
     .line 148
-    .local v0, "e":Ljavax/xml/stream/XMLStreamException;
-    new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
+    new-instance v0, Lcom/thoughtworks/xstream/io/StreamException;
 
-    invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public createReader(Ljava/io/InputStream;)Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .locals 2
-    .param p1, "in"    # Ljava/io/InputStream;
+    .locals 1
 
     .line 100
     :try_start_0
     invoke-virtual {p0, p1}, Lcom/thoughtworks/xstream/io/xml/StaxDriver;->createParser(Ljava/io/InputStream;)Ljavax/xml/stream/XMLStreamReader;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/thoughtworks/xstream/io/xml/StaxDriver;->createStaxReader(Ljavax/xml/stream/XMLStreamReader;)Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;
+    invoke-virtual {p0, p1}, Lcom/thoughtworks/xstream/io/xml/StaxDriver;->createStaxReader(Ljavax/xml/stream/XMLStreamReader;)Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;
 
-    move-result-object v0
+    move-result-object p1
     :try_end_0
     .catch Ljavax/xml/stream/XMLStreamException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p1
 
-    .line 101
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 102
-    .local v0, "e":Ljavax/xml/stream/XMLStreamException;
-    new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
+    new-instance v0, Lcom/thoughtworks/xstream/io/StreamException;
 
-    invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public createReader(Ljava/io/Reader;)Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .locals 2
-    .param p1, "xml"    # Ljava/io/Reader;
+    .locals 1
 
     .line 92
     :try_start_0
     invoke-virtual {p0, p1}, Lcom/thoughtworks/xstream/io/xml/StaxDriver;->createParser(Ljava/io/Reader;)Ljavax/xml/stream/XMLStreamReader;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/thoughtworks/xstream/io/xml/StaxDriver;->createStaxReader(Ljavax/xml/stream/XMLStreamReader;)Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;
+    invoke-virtual {p0, p1}, Lcom/thoughtworks/xstream/io/xml/StaxDriver;->createStaxReader(Ljavax/xml/stream/XMLStreamReader;)Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;
 
-    move-result-object v0
+    move-result-object p1
     :try_end_0
     .catch Ljavax/xml/stream/XMLStreamException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p1
 
-    .line 93
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 94
-    .local v0, "e":Ljavax/xml/stream/XMLStreamException;
-    new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
+    new-instance v0, Lcom/thoughtworks/xstream/io/StreamException;
 
-    invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public createReader(Ljava/net/URL;)Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .locals 3
-    .param p1, "in"    # Ljava/net/URL;
+    .locals 2
 
     .line 109
     :try_start_0
@@ -340,67 +305,57 @@
     move-result-object v0
 
     .line 110
-    .local v0, "stream":Ljava/io/InputStream;
     new-instance v1, Ljavax/xml/transform/stream/StreamSource;
 
     .line 111
     invoke-virtual {p1}, Ljava/net/URL;->toExternalForm()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v0, v2}, Ljavax/xml/transform/stream/StreamSource;-><init>(Ljava/io/InputStream;Ljava/lang/String;)V
+    invoke-direct {v1, v0, p1}, Ljavax/xml/transform/stream/StreamSource;-><init>(Ljava/io/InputStream;Ljava/lang/String;)V
 
     .line 110
     invoke-virtual {p0, v1}, Lcom/thoughtworks/xstream/io/xml/StaxDriver;->createParser(Ljavax/xml/transform/Source;)Ljavax/xml/stream/XMLStreamReader;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {p0, v1}, Lcom/thoughtworks/xstream/io/xml/StaxDriver;->createStaxReader(Ljavax/xml/stream/XMLStreamReader;)Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;
+    invoke-virtual {p0, p1}, Lcom/thoughtworks/xstream/io/xml/StaxDriver;->createStaxReader(Ljavax/xml/stream/XMLStreamReader;)Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 112
-    .local v1, "reader":Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    new-instance v2, Lcom/thoughtworks/xstream/io/xml/StaxDriver$1;
+    new-instance v1, Lcom/thoughtworks/xstream/io/xml/StaxDriver$1;
 
-    invoke-direct {v2, p0, v1, v0}, Lcom/thoughtworks/xstream/io/xml/StaxDriver$1;-><init>(Lcom/thoughtworks/xstream/io/xml/StaxDriver;Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Ljava/io/InputStream;)V
+    invoke-direct {v1, p0, p1, v0}, Lcom/thoughtworks/xstream/io/xml/StaxDriver$1;-><init>(Lcom/thoughtworks/xstream/io/xml/StaxDriver;Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Ljava/io/InputStream;)V
     :try_end_0
     .catch Ljavax/xml/stream/XMLStreamException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v2
+    return-object v1
 
-    .line 125
-    .end local v0    # "stream":Ljava/io/InputStream;
-    .end local v1    # "reader":Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 126
-    .local v0, "e":Ljava/io/IOException;
-    new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
+    new-instance v0, Lcom/thoughtworks/xstream/io/StreamException;
 
-    invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 
-    .line 123
-    .end local v0    # "e":Ljava/io/IOException;
     :catch_1
-    move-exception v0
+    move-exception p1
 
     .line 124
-    .local v0, "e":Ljavax/xml/stream/XMLStreamException;
-    new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
+    new-instance v0, Lcom/thoughtworks/xstream/io/StreamException;
 
-    invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public createStaxReader(Ljavax/xml/stream/XMLStreamReader;)Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;
     .locals 3
-    .param p1, "in"    # Ljavax/xml/stream/XMLStreamReader;
 
     .line 173
     new-instance v0, Lcom/thoughtworks/xstream/io/xml/StaxReader;
@@ -418,27 +373,24 @@
 
 .method public createStaxWriter(Ljavax/xml/stream/XMLStreamWriter;)Lcom/thoughtworks/xstream/io/xml/StaxWriter;
     .locals 1
-    .param p1, "out"    # Ljavax/xml/stream/XMLStreamWriter;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljavax/xml/stream/XMLStreamException;
         }
     .end annotation
 
-    .line 181
     const/4 v0, 0x1
 
+    .line 181
     invoke-virtual {p0, p1, v0}, Lcom/thoughtworks/xstream/io/xml/StaxDriver;->createStaxWriter(Ljavax/xml/stream/XMLStreamWriter;Z)Lcom/thoughtworks/xstream/io/xml/StaxWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public createStaxWriter(Ljavax/xml/stream/XMLStreamWriter;Z)Lcom/thoughtworks/xstream/io/xml/StaxWriter;
     .locals 7
-    .param p1, "out"    # Ljavax/xml/stream/XMLStreamWriter;
-    .param p2, "writeStartEndDocument"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljavax/xml/stream/XMLStreamException;
@@ -470,8 +422,7 @@
 .end method
 
 .method public createWriter(Ljava/io/OutputStream;)Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
-    .locals 2
-    .param p1, "out"    # Ljava/io/OutputStream;
+    .locals 1
 
     .line 165
     :try_start_0
@@ -481,32 +432,29 @@
 
     invoke-virtual {v0, p1}, Ljavax/xml/stream/XMLOutputFactory;->createXMLStreamWriter(Ljava/io/OutputStream;)Ljavax/xml/stream/XMLStreamWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/thoughtworks/xstream/io/xml/StaxDriver;->createStaxWriter(Ljavax/xml/stream/XMLStreamWriter;)Lcom/thoughtworks/xstream/io/xml/StaxWriter;
+    invoke-virtual {p0, p1}, Lcom/thoughtworks/xstream/io/xml/StaxDriver;->createStaxWriter(Ljavax/xml/stream/XMLStreamWriter;)Lcom/thoughtworks/xstream/io/xml/StaxWriter;
 
-    move-result-object v0
+    move-result-object p1
     :try_end_0
     .catch Ljavax/xml/stream/XMLStreamException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p1
 
-    .line 167
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 168
-    .local v0, "e":Ljavax/xml/stream/XMLStreamException;
-    new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
+    new-instance v0, Lcom/thoughtworks/xstream/io/StreamException;
 
-    invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public createWriter(Ljava/io/Writer;)Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
-    .locals 2
-    .param p1, "out"    # Ljava/io/Writer;
+    .locals 1
 
     .line 156
     :try_start_0
@@ -516,27 +464,25 @@
 
     invoke-virtual {v0, p1}, Ljavax/xml/stream/XMLOutputFactory;->createXMLStreamWriter(Ljava/io/Writer;)Ljavax/xml/stream/XMLStreamWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/thoughtworks/xstream/io/xml/StaxDriver;->createStaxWriter(Ljavax/xml/stream/XMLStreamWriter;)Lcom/thoughtworks/xstream/io/xml/StaxWriter;
+    invoke-virtual {p0, p1}, Lcom/thoughtworks/xstream/io/xml/StaxDriver;->createStaxWriter(Ljavax/xml/stream/XMLStreamWriter;)Lcom/thoughtworks/xstream/io/xml/StaxWriter;
 
-    move-result-object v0
+    move-result-object p1
     :try_end_0
     .catch Ljavax/xml/stream/XMLStreamException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p1
 
-    .line 158
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 159
-    .local v0, "e":Ljavax/xml/stream/XMLStreamException;
-    new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
+    new-instance v0, Lcom/thoughtworks/xstream/io/StreamException;
 
-    invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public getInputFactory()Ljavax/xml/stream/XMLInputFactory;
@@ -617,18 +563,15 @@
 
 .method public setQnameMap(Lcom/thoughtworks/xstream/io/xml/QNameMap;)V
     .locals 0
-    .param p1, "qnameMap"    # Lcom/thoughtworks/xstream/io/xml/QNameMap;
 
     .line 192
     iput-object p1, p0, Lcom/thoughtworks/xstream/io/xml/StaxDriver;->qnameMap:Lcom/thoughtworks/xstream/io/xml/QNameMap;
 
-    .line 193
     return-void
 .end method
 
 .method public setRepairingNamespace(Z)V
-    .locals 3
-    .param p1, "repairing"    # Z
+    .locals 2
 
     .line 218
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/io/xml/StaxDriver;->getOutputFactory()Ljavax/xml/stream/XMLOutputFactory;
@@ -637,18 +580,17 @@
 
     if-eqz p1, :cond_0
 
-    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    sget-object p1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     goto :goto_0
 
     :cond_0
-    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    sget-object p1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     :goto_0
-    const-string v2, "javax.xml.stream.isRepairingNamespaces"
+    const-string v1, "javax.xml.stream.isRepairingNamespaces"
 
-    invoke-virtual {v0, v2, v1}, Ljavax/xml/stream/XMLOutputFactory;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {v0, v1, p1}, Ljavax/xml/stream/XMLOutputFactory;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 220
     return-void
 .end method

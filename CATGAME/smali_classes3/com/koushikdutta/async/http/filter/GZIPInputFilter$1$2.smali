@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;
 
     .line 92
     iput-object p1, p0, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$2;->this$1:Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;
@@ -37,63 +36,58 @@
 
 # virtual methods
 .method public onDataAvailable(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/ByteBufferList;)V
-    .locals 5
-    .param p1, "emitter"    # Lcom/koushikdutta/async/DataEmitter;
-    .param p2, "bb"    # Lcom/koushikdutta/async/ByteBufferList;
+    .locals 4
 
     .line 95
-    iget-object v0, p0, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$2;->this$1:Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$2;->this$1:Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;
 
-    iget-boolean v0, v0, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;->hcrc:Z
+    iget-boolean p1, p1, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;->hcrc:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 96
     :goto_0
     invoke-virtual {p2}, Lcom/koushikdutta/async/ByteBufferList;->size()I
 
-    move-result v0
+    move-result p1
 
-    if-lez v0, :cond_0
+    if-lez p1, :cond_0
 
     .line 97
     invoke-virtual {p2}, Lcom/koushikdutta/async/ByteBufferList;->remove()Ljava/nio/ByteBuffer;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 98
-    .local v0, "b":Ljava/nio/ByteBuffer;
-    iget-object v1, p0, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$2;->this$1:Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;
+    iget-object v0, p0, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$2;->this$1:Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;
 
-    iget-object v1, v1, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;->this$0:Lcom/koushikdutta/async/http/filter/GZIPInputFilter;
+    iget-object v0, v0, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;->this$0:Lcom/koushikdutta/async/http/filter/GZIPInputFilter;
 
-    iget-object v1, v1, Lcom/koushikdutta/async/http/filter/GZIPInputFilter;->crc:Ljava/util/zip/CRC32;
+    iget-object v0, v0, Lcom/koushikdutta/async/http/filter/GZIPInputFilter;->crc:Ljava/util/zip/CRC32;
 
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->array()[B
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->array()[B
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->arrayOffset()I
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->arrayOffset()I
+
+    move-result v2
+
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->position()I
 
     move-result v3
 
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->position()I
+    add-int/2addr v2, v3
 
-    move-result v4
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
 
-    add-int/2addr v3, v4
+    move-result v3
 
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->remaining()I
-
-    move-result v4
-
-    invoke-virtual {v1, v2, v3, v4}, Ljava/util/zip/CRC32;->update([BII)V
+    invoke-virtual {v0, v1, v2, v3}, Ljava/util/zip/CRC32;->update([BII)V
 
     .line 99
-    invoke-static {v0}, Lcom/koushikdutta/async/ByteBufferList;->reclaim(Ljava/nio/ByteBuffer;)V
+    invoke-static {p1}, Lcom/koushikdutta/async/ByteBufferList;->reclaim(Ljava/nio/ByteBuffer;)V
 
-    .line 100
-    .end local v0    # "b":Ljava/nio/ByteBuffer;
     goto :goto_0
 
     .line 102
@@ -101,10 +95,9 @@
     invoke-virtual {p2}, Lcom/koushikdutta/async/ByteBufferList;->recycle()V
 
     .line 103
-    iget-object v0, p0, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$2;->this$1:Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1$2;->this$1:Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;
 
-    invoke-static {v0}, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;->access$100(Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;)V
+    invoke-static {p1}, Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;->access$100(Lcom/koushikdutta/async/http/filter/GZIPInputFilter$1;)V
 
-    .line 104
     return-void
 .end method

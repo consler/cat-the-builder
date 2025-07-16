@@ -109,8 +109,8 @@
         <item quantity="one">%d hora</item>
     </plurals>
     <plurals name="imported_projects">
-        <item quantity="other">Projetos %d importados.</item>
-        <item quantity="one">Projeto %d importado.</item>
+        <item quantity="other">%d projetos importados.</item>
+        <item quantity="one">%d projeto importado.</item>
     </plurals>
     <plurals name="list_selection_plural">
         <item quantity="other">%d listas selecionadas</item>

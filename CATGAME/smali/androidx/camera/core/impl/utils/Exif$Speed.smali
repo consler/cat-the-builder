@@ -32,55 +32,51 @@
 
 .method static fromKilometersPerHour(D)Landroidx/camera/core/impl/utils/Exif$Speed$Converter;
     .locals 3
-    .param p0, "kph"    # D
 
     .line 629
     new-instance v0, Landroidx/camera/core/impl/utils/Exif$Speed$Converter;
 
     const-wide v1, 0x3fe3e2456f75d9a1L    # 0.621371
 
-    mul-double/2addr v1, p0
+    mul-double/2addr p0, v1
 
-    invoke-direct {v0, v1, v2}, Landroidx/camera/core/impl/utils/Exif$Speed$Converter;-><init>(D)V
+    invoke-direct {v0, p0, p1}, Landroidx/camera/core/impl/utils/Exif$Speed$Converter;-><init>(D)V
 
     return-object v0
 .end method
 
 .method static fromKnots(D)Landroidx/camera/core/impl/utils/Exif$Speed$Converter;
     .locals 3
-    .param p0, "knots"    # D
 
     .line 641
     new-instance v0, Landroidx/camera/core/impl/utils/Exif$Speed$Converter;
 
     const-wide v1, 0x3ff269984a0e410bL    # 1.15078
 
-    mul-double/2addr v1, p0
+    mul-double/2addr p0, v1
 
-    invoke-direct {v0, v1, v2}, Landroidx/camera/core/impl/utils/Exif$Speed$Converter;-><init>(D)V
+    invoke-direct {v0, p0, p1}, Landroidx/camera/core/impl/utils/Exif$Speed$Converter;-><init>(D)V
 
     return-object v0
 .end method
 
 .method static fromMetersPerSecond(D)Landroidx/camera/core/impl/utils/Exif$Speed$Converter;
     .locals 3
-    .param p0, "mps"    # D
 
     .line 633
     new-instance v0, Landroidx/camera/core/impl/utils/Exif$Speed$Converter;
 
     const-wide v1, 0x4001e540cc78e9f7L    # 2.23694
 
-    mul-double/2addr v1, p0
+    mul-double/2addr p0, v1
 
-    invoke-direct {v0, v1, v2}, Landroidx/camera/core/impl/utils/Exif$Speed$Converter;-><init>(D)V
+    invoke-direct {v0, p0, p1}, Landroidx/camera/core/impl/utils/Exif$Speed$Converter;-><init>(D)V
 
     return-object v0
 .end method
 
 .method static fromMilesPerHour(D)Landroidx/camera/core/impl/utils/Exif$Speed$Converter;
     .locals 1
-    .param p0, "mph"    # D
 
     .line 637
     new-instance v0, Landroidx/camera/core/impl/utils/Exif$Speed$Converter;

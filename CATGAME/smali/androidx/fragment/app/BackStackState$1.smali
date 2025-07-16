@@ -40,7 +40,6 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroidx/fragment/app/BackStackState;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
     .line 173
     new-instance v0, Landroidx/fragment/app/BackStackState;
@@ -62,13 +61,12 @@
 .end method
 
 .method public newArray(I)[Landroidx/fragment/app/BackStackState;
-    .locals 1
-    .param p1, "size"    # I
+    .locals 0
 
     .line 178
-    new-array v0, p1, [Landroidx/fragment/app/BackStackState;
+    new-array p1, p1, [Landroidx/fragment/app/BackStackState;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;

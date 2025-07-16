@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nComponentCallbackExt.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ComponentCallbackExt.kt\norg/koin/android/ext/android/ComponentCallbackExtKt\n+ 2 Koin.kt\norg/koin/core/Koin\n+ 3 Scope.kt\norg/koin/core/scope/Scope\n*L\n1#1,48:1\n27#1:49\n38#1:52\n48#1:59\n84#2:50\n84#2:53\n164#2:55\n164#2:60\n118#3:51\n118#3:54\n317#3,3:56\n317#3,3:61\n*E\n*S KotlinDebug\n*F\n+ 1 ComponentCallbackExt.kt\norg/koin/android/ext/android/ComponentCallbackExtKt\n*L\n38#1:50\n48#1:55\n38#1:51\n48#1,3:56\n*E\n"
+    value = "SMAP\nComponentCallbackExt.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ComponentCallbackExt.kt\norg/koin/android/ext/android/ComponentCallbackExtKt\n+ 2 Koin.kt\norg/koin/core/Koin\n+ 3 Scope.kt\norg/koin/core/scope/Scope\n*L\n1#1,48:1\n27#1:49\n38#1:52\n48#1:59\n84#2:50\n84#2:53\n164#2:55\n164#2:60\n118#3:51\n118#3:54\n316#3,3:56\n316#3,3:61\n*E\n*S KotlinDebug\n*F\n+ 1 ComponentCallbackExt.kt\norg/koin/android/ext/android/ComponentCallbackExtKt\n*L\n38#1:50\n48#1:55\n38#1:51\n48#1,3:56\n*E\n"
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
@@ -50,9 +50,7 @@
 
 # direct methods
 .method public static final synthetic bind(Landroid/content/ComponentCallbacks;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 8
-    .param p0, "$this$bind"    # Landroid/content/ComponentCallbacks;
-    .param p1, "parameters"    # Lkotlin/jvm/functions/Function0;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:",
@@ -67,174 +65,123 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const-string v0, "$this$bind"
 
-    .local v0, "$i$f$bind":I
-    const-string v1, "$this$bind"
-
-    invoke-static {p0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 48
     invoke-static {p0}, Lorg/koin/android/ext/android/ComponentCallbackExtKt;->getKoin(Landroid/content/ComponentCallbacks;)Lorg/koin/core/Koin;
 
-    move-result-object v1
-
-    .local v1, "this_$iv":Lorg/koin/core/Koin;
-    const/4 v2, 0x0
+    move-result-object p0
 
     .line 55
-    .local v2, "$i$f$bind":I
-    invoke-virtual {v1}, Lorg/koin/core/Koin;->get_scopeRegistry()Lorg/koin/core/registry/ScopeRegistry;
+    invoke-virtual {p0}, Lorg/koin/core/Koin;->get_scopeRegistry()Lorg/koin/core/registry/ScopeRegistry;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-virtual {v3}, Lorg/koin/core/registry/ScopeRegistry;->getRootScope()Lorg/koin/core/scope/Scope;
+    invoke-virtual {p0}, Lorg/koin/core/registry/ScopeRegistry;->getRootScope()Lorg/koin/core/scope/Scope;
 
-    move-result-object v3
+    move-result-object p0
 
-    .local v3, "this_$iv$iv":Lorg/koin/core/scope/Scope;
-    const/4 v4, 0x0
+    const-string v0, "S"
+
+    const/4 v1, 0x4
 
     .line 56
-    .local v4, "$i$f$bind":I
-    const/4 v5, 0x4
+    invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
-    const-string v6, "S"
+    const-class v0, Ljava/lang/Object;
 
-    invoke-static {v5, v6}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
+    invoke-static {v0}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    const-class v6, Ljava/lang/Object;
+    move-result-object v0
 
-    invoke-static {v6}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
-
-    move-result-object v6
+    const-string v2, "P"
 
     .line 57
-    .local v6, "secondaryType$iv$iv":Lkotlin/reflect/KClass;
-    const-string v7, "P"
+    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
-    invoke-static {v5, v7}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
+    const-class v1, Ljava/lang/Object;
 
-    const-class v5, Ljava/lang/Object;
+    invoke-static {v1}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    invoke-static {v5}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
-
-    move-result-object v5
+    move-result-object v1
 
     .line 58
-    .local v5, "primaryType$iv$iv":Lkotlin/reflect/KClass;
-    invoke-virtual {v3, v5, v6, p1}, Lorg/koin/core/scope/Scope;->bind(Lkotlin/reflect/KClass;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+    invoke-virtual {p0, v1, v0, p1}, Lorg/koin/core/scope/Scope;->bind(Lkotlin/reflect/KClass;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p0
 
-    .line 55
-    .end local v3    # "this_$iv$iv":Lorg/koin/core/scope/Scope;
-    .end local v4    # "$i$f$bind":I
-    .end local v5    # "primaryType$iv$iv":Lkotlin/reflect/KClass;
-    .end local v6    # "secondaryType$iv$iv":Lkotlin/reflect/KClass;
-    nop
-
-    .line 48
-    .end local v1    # "this_$iv":Lorg/koin/core/Koin;
-    .end local v2    # "$i$f$bind":I
-    return-object v3
+    return-object p0
 .end method
 
 .method public static synthetic bind$default(Landroid/content/ComponentCallbacks;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 6
-    .param p0, "$this$bind"    # Landroid/content/ComponentCallbacks;
-    .param p1, "parameters"    # Lkotlin/jvm/functions/Function0;
+    .locals 1
 
     and-int/lit8 p2, p2, 0x1
 
     if-eqz p2, :cond_0
 
+    const/4 p1, 0x0
+
     .line 47
-    const/4 p2, 0x0
+    move-object p2, p1
 
-    move-object p1, p2
-
-    check-cast p1, Lkotlin/jvm/functions/Function0;
+    check-cast p2, Lkotlin/jvm/functions/Function0;
 
     :cond_0
-    const/4 p2, 0x0
+    const-string p2, "$this$bind"
 
-    .local p2, "$i$f$bind":I
-    const-string p3, "$this$bind"
-
-    invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 59
     invoke-static {p0}, Lorg/koin/android/ext/android/ComponentCallbackExtKt;->getKoin(Landroid/content/ComponentCallbacks;)Lorg/koin/core/Koin;
 
-    move-result-object p3
-
-    .local p3, "this_$iv":Lorg/koin/core/Koin;
-    const/4 v0, 0x0
+    move-result-object p0
 
     .line 60
-    .local v0, "$i$f$bind":I
-    invoke-virtual {p3}, Lorg/koin/core/Koin;->get_scopeRegistry()Lorg/koin/core/registry/ScopeRegistry;
+    invoke-virtual {p0}, Lorg/koin/core/Koin;->get_scopeRegistry()Lorg/koin/core/registry/ScopeRegistry;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Lorg/koin/core/registry/ScopeRegistry;->getRootScope()Lorg/koin/core/scope/Scope;
+    invoke-virtual {p0}, Lorg/koin/core/registry/ScopeRegistry;->getRootScope()Lorg/koin/core/scope/Scope;
 
-    move-result-object v1
+    move-result-object p0
 
-    .local v1, "this_$iv$iv":Lorg/koin/core/scope/Scope;
-    const/4 v2, 0x0
+    const-string p2, "S"
+
+    const/4 p3, 0x4
 
     .line 61
-    .local v2, "$i$f$bind":I
-    const/4 v3, 0x4
+    invoke-static {p3, p2}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
-    const-string v4, "S"
+    const-class p2, Ljava/lang/Object;
 
-    invoke-static {v3, v4}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
+    invoke-static {p2}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    const-class v4, Ljava/lang/Object;
+    move-result-object p2
 
-    invoke-static {v4}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
-
-    move-result-object v4
+    const-string v0, "P"
 
     .line 62
-    .local v4, "secondaryType$iv$iv":Lkotlin/reflect/KClass;
-    const-string v5, "P"
+    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
-    invoke-static {v3, v5}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
+    const-class p3, Ljava/lang/Object;
 
-    const-class v3, Ljava/lang/Object;
+    invoke-static {p3}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    invoke-static {v3}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
-
-    move-result-object v3
+    move-result-object p3
 
     .line 63
-    .local v3, "primaryType$iv$iv":Lkotlin/reflect/KClass;
-    invoke-virtual {v1, v3, v4, p1}, Lorg/koin/core/scope/Scope;->bind(Lkotlin/reflect/KClass;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+    invoke-virtual {p0, p3, p2, p1}, Lorg/koin/core/scope/Scope;->bind(Lkotlin/reflect/KClass;Lkotlin/reflect/KClass;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    .line 60
-    .end local v1    # "this_$iv$iv":Lorg/koin/core/scope/Scope;
-    .end local v2    # "$i$f$bind":I
-    .end local v3    # "primaryType$iv$iv":Lkotlin/reflect/KClass;
-    .end local v4    # "secondaryType$iv$iv":Lkotlin/reflect/KClass;
-    nop
-
-    .line 59
-    .end local v0    # "$i$f$bind":I
-    .end local p3    # "this_$iv":Lorg/koin/core/Koin;
-    return-object v1
+    return-object p0
 .end method
 
 .method public static final synthetic get(Landroid/content/ComponentCallbacks;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-    .locals 7
-    .param p0, "$this$get"    # Landroid/content/ComponentCallbacks;
-    .param p1, "qualifier"    # Lorg/koin/core/qualifier/Qualifier;
-    .param p2, "parameters"    # Lkotlin/jvm/functions/Function0;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -248,68 +195,46 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const-string v0, "$this$get"
 
-    .local v0, "$i$f$get":I
-    const-string v1, "$this$get"
-
-    invoke-static {p0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 38
     invoke-static {p0}, Lorg/koin/android/ext/android/ComponentCallbackExtKt;->getKoin(Landroid/content/ComponentCallbacks;)Lorg/koin/core/Koin;
 
-    move-result-object v1
-
-    .local v1, "this_$iv":Lorg/koin/core/Koin;
-    const/4 v2, 0x0
+    move-result-object p0
 
     .line 50
-    .local v2, "$i$f$get":I
-    invoke-virtual {v1}, Lorg/koin/core/Koin;->get_scopeRegistry()Lorg/koin/core/registry/ScopeRegistry;
+    invoke-virtual {p0}, Lorg/koin/core/Koin;->get_scopeRegistry()Lorg/koin/core/registry/ScopeRegistry;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-virtual {v3}, Lorg/koin/core/registry/ScopeRegistry;->getRootScope()Lorg/koin/core/scope/Scope;
+    invoke-virtual {p0}, Lorg/koin/core/registry/ScopeRegistry;->getRootScope()Lorg/koin/core/scope/Scope;
 
-    move-result-object v3
+    move-result-object p0
 
-    .local v3, "this_$iv$iv":Lorg/koin/core/scope/Scope;
-    const/4 v4, 0x0
+    const/4 v0, 0x4
+
+    const-string v1, "T"
 
     .line 51
-    .local v4, "$i$f$get":I
-    const/4 v5, 0x4
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
-    const-string v6, "T"
+    const-class v0, Ljava/lang/Object;
 
-    invoke-static {v5, v6}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
+    invoke-static {v0}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    const-class v5, Ljava/lang/Object;
+    move-result-object v0
 
-    invoke-static {v5}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+    invoke-virtual {p0, v0, p1, p2}, Lorg/koin/core/scope/Scope;->get(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object p0
 
-    invoke-virtual {v3, v5, p1, p2}, Lorg/koin/core/scope/Scope;->get(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    .line 50
-    .end local v3    # "this_$iv$iv":Lorg/koin/core/scope/Scope;
-    .end local v4    # "$i$f$get":I
-    nop
-
-    .line 38
-    .end local v1    # "this_$iv":Lorg/koin/core/Koin;
-    .end local v2    # "$i$f$get":I
-    return-object v3
+    return-object p0
 .end method
 
 .method public static synthetic get$default(Landroid/content/ComponentCallbacks;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 5
-    .param p0, "$this$get"    # Landroid/content/ComponentCallbacks;
-    .param p1, "qualifier"    # Lorg/koin/core/qualifier/Qualifier;
-    .param p2, "parameters"    # Lkotlin/jvm/functions/Function0;
+    .locals 1
 
     and-int/lit8 p4, p3, 0x1
 
@@ -322,6 +247,8 @@
 
     check-cast p1, Lorg/koin/core/qualifier/Qualifier;
 
+    move-object p1, v0
+
     :cond_0
     and-int/lit8 p3, p3, 0x2
 
@@ -332,111 +259,81 @@
 
     check-cast p2, Lkotlin/jvm/functions/Function0;
 
+    move-object p2, v0
+
     :cond_1
-    const/4 p3, 0x0
+    const-string p3, "$this$get"
 
-    .local p3, "$i$f$get":I
-    const-string p4, "$this$get"
-
-    invoke-static {p0, p4}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 52
     invoke-static {p0}, Lorg/koin/android/ext/android/ComponentCallbackExtKt;->getKoin(Landroid/content/ComponentCallbacks;)Lorg/koin/core/Koin;
 
-    move-result-object p4
-
-    .local p4, "this_$iv":Lorg/koin/core/Koin;
-    const/4 v0, 0x0
+    move-result-object p0
 
     .line 53
-    .local v0, "$i$f$get":I
-    invoke-virtual {p4}, Lorg/koin/core/Koin;->get_scopeRegistry()Lorg/koin/core/registry/ScopeRegistry;
+    invoke-virtual {p0}, Lorg/koin/core/Koin;->get_scopeRegistry()Lorg/koin/core/registry/ScopeRegistry;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Lorg/koin/core/registry/ScopeRegistry;->getRootScope()Lorg/koin/core/scope/Scope;
+    invoke-virtual {p0}, Lorg/koin/core/registry/ScopeRegistry;->getRootScope()Lorg/koin/core/scope/Scope;
 
-    move-result-object v1
+    move-result-object p0
 
-    .local v1, "this_$iv$iv":Lorg/koin/core/scope/Scope;
-    const/4 v2, 0x0
+    const/4 p3, 0x4
+
+    const-string p4, "T"
 
     .line 54
-    .local v2, "$i$f$get":I
-    const/4 v3, 0x4
+    invoke-static {p3, p4}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
-    const-string v4, "T"
+    const-class p3, Ljava/lang/Object;
 
-    invoke-static {v3, v4}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
+    invoke-static {p3}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    const-class v3, Ljava/lang/Object;
+    move-result-object p3
 
-    invoke-static {v3}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+    invoke-virtual {p0, p3, p1, p2}, Lorg/koin/core/scope/Scope;->get(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-virtual {v1, v3, p1, p2}, Lorg/koin/core/scope/Scope;->get(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    .line 53
-    .end local v1    # "this_$iv$iv":Lorg/koin/core/scope/Scope;
-    .end local v2    # "$i$f$get":I
-    nop
-
-    .line 52
-    .end local v0    # "$i$f$get":I
-    .end local p4    # "this_$iv":Lorg/koin/core/Koin;
-    return-object v1
+    return-object p0
 .end method
 
 .method public static final getKoin(Landroid/content/ComponentCallbacks;)Lorg/koin/core/Koin;
     .locals 1
-    .param p0, "$this$getKoin"    # Landroid/content/ComponentCallbacks;
 
     const-string v0, "$this$getKoin"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 13
-    nop
 
     .line 14
     instance-of v0, p0, Lorg/koin/core/KoinComponent;
 
     if-eqz v0, :cond_0
 
-    move-object v0, p0
+    check-cast p0, Lorg/koin/core/KoinComponent;
 
-    check-cast v0, Lorg/koin/core/KoinComponent;
+    invoke-interface {p0}, Lorg/koin/core/KoinComponent;->getKoin()Lorg/koin/core/Koin;
 
-    invoke-interface {v0}, Lorg/koin/core/KoinComponent;->getKoin()Lorg/koin/core/Koin;
-
-    move-result-object v0
+    move-result-object p0
 
     goto :goto_0
 
     .line 15
     :cond_0
-    sget-object v0, Lorg/koin/core/context/KoinContextHandler;->INSTANCE:Lorg/koin/core/context/KoinContextHandler;
+    sget-object p0, Lorg/koin/core/context/KoinContextHandler;->INSTANCE:Lorg/koin/core/context/KoinContextHandler;
 
-    invoke-virtual {v0}, Lorg/koin/core/context/KoinContextHandler;->get()Lorg/koin/core/Koin;
+    invoke-virtual {p0}, Lorg/koin/core/context/KoinContextHandler;->get()Lorg/koin/core/Koin;
 
-    move-result-object v0
+    move-result-object p0
 
-    .line 13
     :goto_0
-    nop
-
-    .line 16
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final synthetic inject(Landroid/content/ComponentCallbacks;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
-    .locals 3
-    .param p0, "$this$inject"    # Landroid/content/ComponentCallbacks;
-    .param p1, "qualifier"    # Lorg/koin/core/qualifier/Qualifier;
-    .param p2, "parameters"    # Lkotlin/jvm/functions/Function0;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -452,36 +349,30 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const-string v0, "$this$inject"
 
-    .local v0, "$i$f$inject":I
-    const-string v1, "$this$inject"
-
-    invoke-static {p0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 27
-    sget-object v1, Lkotlin/LazyThreadSafetyMode;->NONE:Lkotlin/LazyThreadSafetyMode;
+    sget-object v0, Lkotlin/LazyThreadSafetyMode;->NONE:Lkotlin/LazyThreadSafetyMode;
 
     invoke-static {}, Lkotlin/jvm/internal/Intrinsics;->needClassReification()V
 
-    new-instance v2, Lorg/koin/android/ext/android/ComponentCallbackExtKt$inject$1;
+    new-instance v1, Lorg/koin/android/ext/android/ComponentCallbackExtKt$inject$1;
 
-    invoke-direct {v2, p0, p1, p2}, Lorg/koin/android/ext/android/ComponentCallbackExtKt$inject$1;-><init>(Landroid/content/ComponentCallbacks;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)V
+    invoke-direct {v1, p0, p1, p2}, Lorg/koin/android/ext/android/ComponentCallbackExtKt$inject$1;-><init>(Landroid/content/ComponentCallbacks;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)V
 
-    check-cast v2, Lkotlin/jvm/functions/Function0;
+    check-cast v1, Lkotlin/jvm/functions/Function0;
 
-    invoke-static {v1, v2}, Lkotlin/LazyKt;->lazy(Lkotlin/LazyThreadSafetyMode;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+    invoke-static {v0, v1}, Lkotlin/LazyKt;->lazy(Lkotlin/LazyThreadSafetyMode;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static synthetic inject$default(Landroid/content/ComponentCallbacks;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lkotlin/Lazy;
     .locals 1
-    .param p0, "$this$inject"    # Landroid/content/ComponentCallbacks;
-    .param p1, "qualifier"    # Lorg/koin/core/qualifier/Qualifier;
-    .param p2, "parameters"    # Lkotlin/jvm/functions/Function0;
 
     and-int/lit8 p4, p3, 0x1
 
@@ -494,6 +385,8 @@
 
     check-cast p1, Lorg/koin/core/qualifier/Qualifier;
 
+    move-object p1, v0
+
     :cond_0
     and-int/lit8 p3, p3, 0x2
 
@@ -504,28 +397,27 @@
 
     check-cast p2, Lkotlin/jvm/functions/Function0;
 
+    move-object p2, v0
+
     :cond_1
-    const/4 p3, 0x0
+    const-string p3, "$this$inject"
 
-    .local p3, "$i$f$inject":I
-    const-string p4, "$this$inject"
-
-    invoke-static {p0, p4}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 49
-    sget-object p4, Lkotlin/LazyThreadSafetyMode;->NONE:Lkotlin/LazyThreadSafetyMode;
+    sget-object p3, Lkotlin/LazyThreadSafetyMode;->NONE:Lkotlin/LazyThreadSafetyMode;
 
     invoke-static {}, Lkotlin/jvm/internal/Intrinsics;->needClassReification()V
 
-    new-instance v0, Lorg/koin/android/ext/android/ComponentCallbackExtKt$inject$1;
+    new-instance p4, Lorg/koin/android/ext/android/ComponentCallbackExtKt$inject$1;
 
-    invoke-direct {v0, p0, p1, p2}, Lorg/koin/android/ext/android/ComponentCallbackExtKt$inject$1;-><init>(Landroid/content/ComponentCallbacks;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)V
+    invoke-direct {p4, p0, p1, p2}, Lorg/koin/android/ext/android/ComponentCallbackExtKt$inject$1;-><init>(Landroid/content/ComponentCallbacks;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)V
 
-    check-cast v0, Lkotlin/jvm/functions/Function0;
+    check-cast p4, Lkotlin/jvm/functions/Function0;
 
-    invoke-static {p4, v0}, Lkotlin/LazyKt;->lazy(Lkotlin/LazyThreadSafetyMode;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+    invoke-static {p3, p4}, Lkotlin/LazyKt;->lazy(Lkotlin/LazyThreadSafetyMode;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
-    move-result-object p4
+    move-result-object p0
 
-    return-object p4
+    return-object p0
 .end method

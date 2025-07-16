@@ -32,56 +32,46 @@
 
     sput-object v0, Lcom/squareup/picasso/ContactsPhotoRequestHandler;->matcher:Landroid/content/UriMatcher;
 
-    .line 48
     const-string v1, "com.android.contacts"
 
     const-string v2, "contacts/lookup/*/#"
 
     const/4 v3, 0x1
 
+    .line 48
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
-
-    .line 49
-    sget-object v0, Lcom/squareup/picasso/ContactsPhotoRequestHandler;->matcher:Landroid/content/UriMatcher;
 
     const-string v2, "contacts/lookup/*"
 
+    .line 49
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
-
-    .line 50
-    sget-object v0, Lcom/squareup/picasso/ContactsPhotoRequestHandler;->matcher:Landroid/content/UriMatcher;
 
     const-string v2, "contacts/#/photo"
 
     const/4 v3, 0x2
 
+    .line 50
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
-
-    .line 51
-    sget-object v0, Lcom/squareup/picasso/ContactsPhotoRequestHandler;->matcher:Landroid/content/UriMatcher;
 
     const-string v2, "contacts/#"
 
     const/4 v3, 0x3
 
+    .line 51
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
-
-    .line 52
-    sget-object v0, Lcom/squareup/picasso/ContactsPhotoRequestHandler;->matcher:Landroid/content/UriMatcher;
 
     const-string v2, "display_photo/#"
 
     const/4 v3, 0x4
 
+    .line 52
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
-    .line 53
     return-void
 .end method
 
 .method constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
 
     .line 57
     invoke-direct {p0}, Lcom/squareup/picasso/RequestHandler;-><init>()V
@@ -89,13 +79,11 @@
     .line 58
     iput-object p1, p0, Lcom/squareup/picasso/ContactsPhotoRequestHandler;->context:Landroid/content/Context;
 
-    .line 59
     return-void
 .end method
 
 .method private getInputStream(Lcom/squareup/picasso/Request;)Ljava/io/InputStream;
-    .locals 5
-    .param p1, "data"    # Lcom/squareup/picasso/Request;
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -110,107 +98,101 @@
     move-result-object v0
 
     .line 78
-    .local v0, "contentResolver":Landroid/content/ContentResolver;
-    iget-object v1, p1, Lcom/squareup/picasso/Request;->uri:Landroid/net/Uri;
+    iget-object p1, p1, Lcom/squareup/picasso/Request;->uri:Landroid/net/Uri;
 
     .line 79
-    .local v1, "uri":Landroid/net/Uri;
-    sget-object v2, Lcom/squareup/picasso/ContactsPhotoRequestHandler;->matcher:Landroid/content/UriMatcher;
+    sget-object v1, Lcom/squareup/picasso/ContactsPhotoRequestHandler;->matcher:Landroid/content/UriMatcher;
 
-    invoke-virtual {v2, v1}, Landroid/content/UriMatcher;->match(Landroid/net/Uri;)I
+    invoke-virtual {v1, p1}, Landroid/content/UriMatcher;->match(Landroid/net/Uri;)I
 
-    move-result v2
+    move-result v1
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    if-eq v2, v3, :cond_2
+    if-eq v1, v2, :cond_2
 
-    const/4 v4, 0x2
+    const/4 v3, 0x2
 
-    if-eq v2, v4, :cond_1
+    if-eq v1, v3, :cond_1
 
-    const/4 v4, 0x3
+    const/4 v3, 0x3
 
-    if-eq v2, v4, :cond_3
+    if-eq v1, v3, :cond_3
 
-    const/4 v3, 0x4
+    const/4 v2, 0x4
 
-    if-ne v2, v3, :cond_0
+    if-ne v1, v2, :cond_0
 
     goto :goto_0
 
     .line 92
     :cond_0
-    new-instance v2, Ljava/lang/IllegalStateException;
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "Invalid uri: "
 
-    const-string v4, "Invalid uri: "
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-direct {v2, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw v0
 
     .line 90
     :cond_1
     :goto_0
-    invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->openInputStream(Landroid/net/Uri;)Ljava/io/InputStream;
+    invoke-virtual {v0, p1}, Landroid/content/ContentResolver;->openInputStream(Landroid/net/Uri;)Ljava/io/InputStream;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 
     .line 81
     :cond_2
-    invoke-static {v0, v1}, Landroid/provider/ContactsContract$Contacts;->lookupContact(Landroid/content/ContentResolver;Landroid/net/Uri;)Landroid/net/Uri;
+    invoke-static {v0, p1}, Landroid/provider/ContactsContract$Contacts;->lookupContact(Landroid/content/ContentResolver;Landroid/net/Uri;)Landroid/net/Uri;
 
-    move-result-object v1
+    move-result-object p1
 
-    .line 82
-    if-nez v1, :cond_3
+    if-nez p1, :cond_3
 
-    .line 83
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
-    return-object v2
+    return-object p1
 
     .line 87
     :cond_3
-    invoke-static {v0, v1, v3}, Landroid/provider/ContactsContract$Contacts;->openContactPhotoInputStream(Landroid/content/ContentResolver;Landroid/net/Uri;Z)Ljava/io/InputStream;
+    invoke-static {v0, p1, v2}, Landroid/provider/ContactsContract$Contacts;->openContactPhotoInputStream(Landroid/content/ContentResolver;Landroid/net/Uri;Z)Ljava/io/InputStream;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 .end method
 
 
 # virtual methods
 .method public canHandleRequest(Lcom/squareup/picasso/Request;)Z
     .locals 3
-    .param p1, "data"    # Lcom/squareup/picasso/Request;
 
     .line 62
     iget-object v0, p1, Lcom/squareup/picasso/Request;->uri:Landroid/net/Uri;
 
+    const-string v1, "content"
+
     .line 63
-    .local v0, "uri":Landroid/net/Uri;
     invoke-virtual {v0}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string v2, "content"
-
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
@@ -225,43 +207,40 @@
 
     invoke-virtual {v0}, Landroid/net/Uri;->getHost()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    sget-object v1, Lcom/squareup/picasso/ContactsPhotoRequestHandler;->matcher:Landroid/content/UriMatcher;
+    sget-object v0, Lcom/squareup/picasso/ContactsPhotoRequestHandler;->matcher:Landroid/content/UriMatcher;
 
-    iget-object v2, p1, Lcom/squareup/picasso/Request;->uri:Landroid/net/Uri;
+    iget-object p1, p1, Lcom/squareup/picasso/Request;->uri:Landroid/net/Uri;
 
     .line 65
-    invoke-virtual {v1, v2}, Landroid/content/UriMatcher;->match(Landroid/net/Uri;)I
+    invoke-virtual {v0, p1}, Landroid/content/UriMatcher;->match(Landroid/net/Uri;)I
 
-    move-result v1
+    move-result p1
 
-    const/4 v2, -0x1
+    const/4 v0, -0x1
 
-    if-eq v1, v2, :cond_0
+    if-eq p1, v0, :cond_0
 
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    .line 63
     :goto_0
-    return v1
+    return p1
 .end method
 
 .method public load(Lcom/squareup/picasso/Request;I)Lcom/squareup/picasso/RequestHandler$Result;
-    .locals 4
-    .param p1, "request"    # Lcom/squareup/picasso/Request;
-    .param p2, "networkPolicy"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -271,28 +250,25 @@
     .line 69
     invoke-direct {p0, p1}, Lcom/squareup/picasso/ContactsPhotoRequestHandler;->getInputStream(Lcom/squareup/picasso/Request;)Ljava/io/InputStream;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 70
-    .local v0, "is":Ljava/io/InputStream;
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    .line 71
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 
     .line 73
     :cond_0
-    new-instance v1, Lcom/squareup/picasso/RequestHandler$Result;
+    new-instance p2, Lcom/squareup/picasso/RequestHandler$Result;
 
-    invoke-static {v0}, Lokio/Okio;->source(Ljava/io/InputStream;)Lokio/Source;
+    invoke-static {p1}, Lokio/Okio;->source(Ljava/io/InputStream;)Lokio/Source;
 
-    move-result-object v2
+    move-result-object p1
 
-    sget-object v3, Lcom/squareup/picasso/Picasso$LoadedFrom;->DISK:Lcom/squareup/picasso/Picasso$LoadedFrom;
+    sget-object v0, Lcom/squareup/picasso/Picasso$LoadedFrom;->DISK:Lcom/squareup/picasso/Picasso$LoadedFrom;
 
-    invoke-direct {v1, v2, v3}, Lcom/squareup/picasso/RequestHandler$Result;-><init>(Lokio/Source;Lcom/squareup/picasso/Picasso$LoadedFrom;)V
+    invoke-direct {p2, p1, v0}, Lcom/squareup/picasso/RequestHandler$Result;-><init>(Lokio/Source;Lcom/squareup/picasso/Picasso$LoadedFrom;)V
 
-    return-object v1
+    return-object p2
 .end method

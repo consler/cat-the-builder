@@ -36,9 +36,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 52
     const-string v0, "Data"
 
+    .line 52
     invoke-static {v0}, Landroidx/work/Logger;->tagWithPrefix(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -65,13 +65,11 @@
     .line 69
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 70
     return-void
 .end method
 
 .method public constructor <init>(Landroidx/work/Data;)V
-    .locals 2
-    .param p1, "other"    # Landroidx/work/Data;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -87,17 +85,16 @@
     .line 73
     new-instance v0, Ljava/util/HashMap;
 
-    iget-object v1, p1, Landroidx/work/Data;->mValues:Ljava/util/Map;
+    iget-object p1, p1, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
-    invoke-direct {v0, v1}, Ljava/util/HashMap;-><init>(Ljava/util/Map;)V
+    invoke-direct {v0, p1}, Ljava/util/HashMap;-><init>(Ljava/util/Map;)V
 
     iput-object v0, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
-    .line 74
     return-void
 .end method
 
-.method constructor <init>(Ljava/util/Map;)V
+.method public constructor <init>(Ljava/util/Map;)V
     .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
@@ -117,24 +114,21 @@
         }
     .end annotation
 
-    .line 76
-    .local p1, "values":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;*>;"
+    .line 80
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 77
+    .line 81
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0, p1}, Ljava/util/HashMap;-><init>(Ljava/util/Map;)V
 
     iput-object v0, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
-    .line 78
     return-void
 .end method
 
-.method static convertPrimitiveBooleanArray([Z)[Ljava/lang/Boolean;
+.method public static convertPrimitiveBooleanArray([Z)[Ljava/lang/Boolean;
     .locals 3
-    .param p0, "value"    # [Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -144,22 +138,20 @@
         }
     .end annotation
 
-    .line 526
+    .line 521
     array-length v0, p0
 
     new-array v0, v0, [Ljava/lang/Boolean;
 
-    .line 527
-    .local v0, "returnValue":[Ljava/lang/Boolean;
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    .line 522
     :goto_0
     array-length v2, p0
 
     if-ge v1, v2, :cond_0
 
-    .line 528
+    .line 523
     aget-boolean v2, p0, v1
 
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -168,20 +160,16 @@
 
     aput-object v2, v0, v1
 
-    .line 527
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 530
-    .end local v1    # "i":I
     :cond_0
     return-object v0
 .end method
 
-.method static convertPrimitiveByteArray([B)[Ljava/lang/Byte;
+.method public static convertPrimitiveByteArray([B)[Ljava/lang/Byte;
     .locals 3
-    .param p0, "value"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -191,22 +179,20 @@
         }
     .end annotation
 
-    .line 535
+    .line 534
     array-length v0, p0
 
     new-array v0, v0, [Ljava/lang/Byte;
 
-    .line 536
-    .local v0, "returnValue":[Ljava/lang/Byte;
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    .line 535
     :goto_0
     array-length v2, p0
 
     if-ge v1, v2, :cond_0
 
-    .line 537
+    .line 536
     aget-byte v2, p0, v1
 
     invoke-static {v2}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
@@ -215,20 +201,16 @@
 
     aput-object v2, v0, v1
 
-    .line 536
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 539
-    .end local v1    # "i":I
     :cond_0
     return-object v0
 .end method
 
-.method static convertPrimitiveDoubleArray([D)[Ljava/lang/Double;
+.method public static convertPrimitiveDoubleArray([D)[Ljava/lang/Double;
     .locals 4
-    .param p0, "value"    # [D
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -238,22 +220,20 @@
         }
     .end annotation
 
-    .line 571
+    .line 586
     array-length v0, p0
 
     new-array v0, v0, [Ljava/lang/Double;
 
-    .line 572
-    .local v0, "returnValue":[Ljava/lang/Double;
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    .line 587
     :goto_0
     array-length v2, p0
 
     if-ge v1, v2, :cond_0
 
-    .line 573
+    .line 588
     aget-wide v2, p0, v1
 
     invoke-static {v2, v3}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
@@ -262,20 +242,16 @@
 
     aput-object v2, v0, v1
 
-    .line 572
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 575
-    .end local v1    # "i":I
     :cond_0
     return-object v0
 .end method
 
-.method static convertPrimitiveFloatArray([F)[Ljava/lang/Float;
+.method public static convertPrimitiveFloatArray([F)[Ljava/lang/Float;
     .locals 3
-    .param p0, "value"    # [F
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -285,22 +261,20 @@
         }
     .end annotation
 
-    .line 562
+    .line 573
     array-length v0, p0
 
     new-array v0, v0, [Ljava/lang/Float;
 
-    .line 563
-    .local v0, "returnValue":[Ljava/lang/Float;
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    .line 574
     :goto_0
     array-length v2, p0
 
     if-ge v1, v2, :cond_0
 
-    .line 564
+    .line 575
     aget v2, p0, v1
 
     invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
@@ -309,20 +283,16 @@
 
     aput-object v2, v0, v1
 
-    .line 563
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 566
-    .end local v1    # "i":I
     :cond_0
     return-object v0
 .end method
 
-.method static convertPrimitiveIntArray([I)[Ljava/lang/Integer;
+.method public static convertPrimitiveIntArray([I)[Ljava/lang/Integer;
     .locals 3
-    .param p0, "value"    # [I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -332,22 +302,20 @@
         }
     .end annotation
 
-    .line 544
+    .line 547
     array-length v0, p0
 
     new-array v0, v0, [Ljava/lang/Integer;
 
-    .line 545
-    .local v0, "returnValue":[Ljava/lang/Integer;
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    .line 548
     :goto_0
     array-length v2, p0
 
     if-ge v1, v2, :cond_0
 
-    .line 546
+    .line 549
     aget v2, p0, v1
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -356,20 +324,16 @@
 
     aput-object v2, v0, v1
 
-    .line 545
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 548
-    .end local v1    # "i":I
     :cond_0
     return-object v0
 .end method
 
-.method static convertPrimitiveLongArray([J)[Ljava/lang/Long;
+.method public static convertPrimitiveLongArray([J)[Ljava/lang/Long;
     .locals 4
-    .param p0, "value"    # [J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -379,22 +343,20 @@
         }
     .end annotation
 
-    .line 553
+    .line 560
     array-length v0, p0
 
     new-array v0, v0, [Ljava/lang/Long;
 
-    .line 554
-    .local v0, "returnValue":[Ljava/lang/Long;
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    .line 561
     :goto_0
     array-length v2, p0
 
     if-ge v1, v2, :cond_0
 
-    .line 555
+    .line 562
     aget-wide v2, p0, v1
 
     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -403,20 +365,262 @@
 
     aput-object v2, v0, v1
 
-    .line 554
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 557
-    .end local v1    # "i":I
+    :cond_0
+    return-object v0
+.end method
+
+.method public static convertToPrimitiveArray([Ljava/lang/Byte;)[B
+    .locals 3
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "array"
+        }
+    .end annotation
+
+    .line 612
+    array-length v0, p0
+
+    new-array v0, v0, [B
+
+    const/4 v1, 0x0
+
+    .line 613
+    :goto_0
+    array-length v2, p0
+
+    if-ge v1, v2, :cond_0
+
+    .line 614
+    aget-object v2, p0, v1
+
+    invoke-virtual {v2}, Ljava/lang/Byte;->byteValue()B
+
+    move-result v2
+
+    aput-byte v2, v0, v1
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    return-object v0
+.end method
+
+.method public static convertToPrimitiveArray([Ljava/lang/Double;)[D
+    .locals 4
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "array"
+        }
+    .end annotation
+
+    .line 664
+    array-length v0, p0
+
+    new-array v0, v0, [D
+
+    const/4 v1, 0x0
+
+    .line 665
+    :goto_0
+    array-length v2, p0
+
+    if-ge v1, v2, :cond_0
+
+    .line 666
+    aget-object v2, p0, v1
+
+    invoke-virtual {v2}, Ljava/lang/Double;->doubleValue()D
+
+    move-result-wide v2
+
+    aput-wide v2, v0, v1
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    return-object v0
+.end method
+
+.method public static convertToPrimitiveArray([Ljava/lang/Float;)[F
+    .locals 3
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "array"
+        }
+    .end annotation
+
+    .line 651
+    array-length v0, p0
+
+    new-array v0, v0, [F
+
+    const/4 v1, 0x0
+
+    .line 652
+    :goto_0
+    array-length v2, p0
+
+    if-ge v1, v2, :cond_0
+
+    .line 653
+    aget-object v2, p0, v1
+
+    invoke-virtual {v2}, Ljava/lang/Float;->floatValue()F
+
+    move-result v2
+
+    aput v2, v0, v1
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    return-object v0
+.end method
+
+.method public static convertToPrimitiveArray([Ljava/lang/Integer;)[I
+    .locals 3
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "array"
+        }
+    .end annotation
+
+    .line 625
+    array-length v0, p0
+
+    new-array v0, v0, [I
+
+    const/4 v1, 0x0
+
+    .line 626
+    :goto_0
+    array-length v2, p0
+
+    if-ge v1, v2, :cond_0
+
+    .line 627
+    aget-object v2, p0, v1
+
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v2
+
+    aput v2, v0, v1
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    return-object v0
+.end method
+
+.method public static convertToPrimitiveArray([Ljava/lang/Long;)[J
+    .locals 4
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "array"
+        }
+    .end annotation
+
+    .line 638
+    array-length v0, p0
+
+    new-array v0, v0, [J
+
+    const/4 v1, 0x0
+
+    .line 639
+    :goto_0
+    array-length v2, p0
+
+    if-ge v1, v2, :cond_0
+
+    .line 640
+    aget-object v2, p0, v1
+
+    invoke-virtual {v2}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v2
+
+    aput-wide v2, v0, v1
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    return-object v0
+.end method
+
+.method public static convertToPrimitiveArray([Ljava/lang/Boolean;)[Z
+    .locals 3
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "array"
+        }
+    .end annotation
+
+    .line 599
+    array-length v0, p0
+
+    new-array v0, v0, [Z
+
+    const/4 v1, 0x0
+
+    .line 600
+    :goto_0
+    array-length v2, p0
+
+    if-ge v1, v2, :cond_0
+
+    .line 601
+    aget-object v2, p0, v1
+
+    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v2
+
+    aput-boolean v2, v0, v1
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
     :cond_0
     return-object v0
 .end method
 
 .method public static fromByteArray([B)Landroidx/work/Data;
     .locals 7
-    .param p0, "bytes"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -426,254 +630,235 @@
         }
     .end annotation
 
-    .line 433
     const-string v0, "Error in Data#fromByteArray: "
 
+    .line 424
     array-length v1, p0
 
     const/16 v2, 0x2800
 
     if-gt v1, v2, :cond_3
 
-    .line 438
+    .line 429
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
-    .line 439
-    .local v1, "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
+    .line 430
     new-instance v2, Ljava/io/ByteArrayInputStream;
 
     invoke-direct {v2, p0}, Ljava/io/ByteArrayInputStream;-><init>([B)V
 
-    .line 440
-    .local v2, "inputStream":Ljava/io/ByteArrayInputStream;
-    const/4 v3, 0x0
+    const/4 p0, 0x0
 
-    .line 442
-    .local v3, "objectInputStream":Ljava/io/ObjectInputStream;
+    .line 433
     :try_start_0
-    new-instance v4, Ljava/io/ObjectInputStream;
+    new-instance v3, Ljava/io/ObjectInputStream;
 
-    invoke-direct {v4, v2}, Ljava/io/ObjectInputStream;-><init>(Ljava/io/InputStream;)V
+    invoke-direct {v3, v2}, Ljava/io/ObjectInputStream;-><init>(Ljava/io/InputStream;)V
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_4
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_3
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-object v3, v4
-
-    .line 443
+    .line 434
+    :try_start_1
     invoke-virtual {v3}, Ljava/io/ObjectInputStream;->readInt()I
 
-    move-result v4
+    move-result p0
 
-    .local v4, "i":I
     :goto_0
-    if-lez v4, :cond_0
+    if-lez p0, :cond_0
 
-    .line 444
+    .line 435
     invoke-virtual {v3}, Ljava/io/ObjectInputStream;->readUTF()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
     invoke-virtual {v3}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-interface {v1, v5, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_2
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-interface {v1, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    .line 443
-    add-int/lit8 v4, v4, -0x1
+    add-int/lit8 p0, p0, -0x1
 
     goto :goto_0
 
-    .line 449
-    .end local v4    # "i":I
+    .line 442
     :cond_0
-    nop
-
-    .line 451
-    :try_start_1
+    :try_start_2
     invoke-virtual {v3}, Ljava/io/ObjectInputStream;->close()V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 454
     goto :goto_1
 
-    .line 452
     :catch_0
-    move-exception v4
+    move-exception p0
 
-    .line 453
-    .local v4, "e":Ljava/io/IOException;
-    sget-object v5, Landroidx/work/Data;->TAG:Ljava/lang/String;
+    .line 444
+    sget-object v3, Landroidx/work/Data;->TAG:Ljava/lang/String;
 
-    invoke-static {v5, v0, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v3, v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 457
-    .end local v4    # "e":Ljava/io/IOException;
+    .line 448
     :goto_1
-    :try_start_2
+    :try_start_3
     invoke-virtual {v2}, Ljava/io/ByteArrayInputStream;->close()V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_6
 
-    .line 460
-    :goto_2
     goto :goto_5
 
-    .line 458
     :catch_1
-    move-exception v4
-
-    .line 459
-    .restart local v4    # "e":Ljava/io/IOException;
-    sget-object v5, Landroidx/work/Data;->TAG:Ljava/lang/String;
-
-    invoke-static {v5, v0, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 461
-    .end local v4    # "e":Ljava/io/IOException;
-    goto :goto_5
-
-    .line 449
-    :catchall_0
-    move-exception v4
-
-    goto :goto_6
-
-    .line 446
-    :catch_2
-    move-exception v4
+    move-exception p0
 
     goto :goto_3
 
+    :catch_2
+    move-exception p0
+
+    goto :goto_3
+
+    :catchall_0
+    move-exception v1
+
+    move-object v3, p0
+
+    move-object p0, v1
+
+    goto :goto_6
+
     :catch_3
-    move-exception v4
-
-    .line 447
-    .local v4, "e":Ljava/lang/Exception;
-    :goto_3
-    :try_start_3
-    sget-object v5, Landroidx/work/Data;->TAG:Ljava/lang/String;
-
-    invoke-static {v5, v0, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    .line 449
-    nop
-
-    .end local v4    # "e":Ljava/lang/Exception;
-    if-eqz v3, :cond_1
-
-    .line 451
-    :try_start_4
-    invoke-virtual {v3}, Ljava/io/ObjectInputStream;->close()V
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_4
-
-    .line 454
-    goto :goto_4
-
-    .line 452
-    :catch_4
-    move-exception v4
-
-    .line 453
-    .local v4, "e":Ljava/io/IOException;
-    sget-object v5, Landroidx/work/Data;->TAG:Ljava/lang/String;
-
-    invoke-static {v5, v0, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 457
-    .end local v4    # "e":Ljava/io/IOException;
-    :cond_1
-    :goto_4
-    :try_start_5
-    invoke-virtual {v2}, Ljava/io/ByteArrayInputStream;->close()V
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_1
+    move-exception v3
 
     goto :goto_2
 
-    .line 462
+    :catch_4
+    move-exception v3
+
+    :goto_2
+    move-object v6, v3
+
+    move-object v3, p0
+
+    move-object p0, v6
+
+    .line 438
+    :goto_3
+    :try_start_4
+    sget-object v4, Landroidx/work/Data;->TAG:Ljava/lang/String;
+
+    invoke-static {v4, v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+
+    if-eqz v3, :cond_1
+
+    .line 442
+    :try_start_5
+    invoke-virtual {v3}, Ljava/io/ObjectInputStream;->close()V
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_5
+
+    goto :goto_4
+
+    :catch_5
+    move-exception p0
+
+    .line 444
+    sget-object v3, Landroidx/work/Data;->TAG:Ljava/lang/String;
+
+    invoke-static {v3, v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    .line 448
+    :cond_1
+    :goto_4
+    :try_start_6
+    invoke-virtual {v2}, Ljava/io/ByteArrayInputStream;->close()V
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_6
+
+    goto :goto_5
+
+    :catch_6
+    move-exception p0
+
+    .line 450
+    sget-object v2, Landroidx/work/Data;->TAG:Ljava/lang/String;
+
+    invoke-static {v2, v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    .line 453
     :goto_5
-    new-instance v0, Landroidx/work/Data;
+    new-instance p0, Landroidx/work/Data;
 
-    invoke-direct {v0, v1}, Landroidx/work/Data;-><init>(Ljava/util/Map;)V
+    invoke-direct {p0, v1}, Landroidx/work/Data;-><init>(Ljava/util/Map;)V
 
-    return-object v0
+    return-object p0
 
-    .line 449
+    :catchall_1
+    move-exception p0
+
     :goto_6
     if-eqz v3, :cond_2
 
-    .line 451
-    :try_start_6
+    .line 442
+    :try_start_7
     invoke-virtual {v3}, Ljava/io/ObjectInputStream;->close()V
-    :try_end_6
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_5
+    :try_end_7
+    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_7
 
-    .line 454
     goto :goto_7
 
-    .line 452
-    :catch_5
-    move-exception v5
+    :catch_7
+    move-exception v1
 
-    .line 453
-    .local v5, "e":Ljava/io/IOException;
-    sget-object v6, Landroidx/work/Data;->TAG:Ljava/lang/String;
+    .line 444
+    sget-object v3, Landroidx/work/Data;->TAG:Ljava/lang/String;
 
-    invoke-static {v6, v0, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v3, v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 457
-    .end local v5    # "e":Ljava/io/IOException;
+    .line 448
     :cond_2
     :goto_7
-    :try_start_7
+    :try_start_8
     invoke-virtual {v2}, Ljava/io/ByteArrayInputStream;->close()V
-    :try_end_7
-    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_6
+    :try_end_8
+    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_8
 
-    .line 460
     goto :goto_8
 
-    .line 458
-    :catch_6
-    move-exception v5
+    :catch_8
+    move-exception v1
 
-    .line 459
-    .restart local v5    # "e":Ljava/io/IOException;
-    sget-object v6, Landroidx/work/Data;->TAG:Ljava/lang/String;
+    .line 450
+    sget-object v2, Landroidx/work/Data;->TAG:Ljava/lang/String;
 
-    invoke-static {v6, v0, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 461
-    .end local v5    # "e":Ljava/io/IOException;
+    .line 452
     :goto_8
-    throw v4
+    throw p0
 
-    .line 434
-    .end local v1    # "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
-    .end local v2    # "inputStream":Ljava/io/ByteArrayInputStream;
-    .end local v3    # "objectInputStream":Ljava/io/ObjectInputStream;
+    .line 425
     :cond_3
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Data cannot occupy more than 10240 bytes when serialized"
+    const-string v0, "Data cannot occupy more than 10240 bytes when serialized"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static toByteArrayInternal(Landroidx/work/Data;)[B
-    .locals 7
-    .param p0, "data"    # Landroidx/work/Data;
+    .locals 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -683,286 +868,259 @@
         }
     .end annotation
 
-    .line 387
     const-string v0, "Error in Data#toByteArray: "
 
+    .line 377
     new-instance v1, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v1}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
-    .line 388
-    .local v1, "outputStream":Ljava/io/ByteArrayOutputStream;
     const/4 v2, 0x0
 
-    .line 390
-    .local v2, "objectOutputStream":Ljava/io/ObjectOutputStream;
+    .line 380
     :try_start_0
     new-instance v3, Ljava/io/ObjectOutputStream;
 
     invoke-direct {v3, v1}, Ljava/io/ObjectOutputStream;-><init>(Ljava/io/OutputStream;)V
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_3
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    move-object v2, v3
-
-    .line 391
+    .line 381
+    :try_start_1
     invoke-virtual {p0}, Landroidx/work/Data;->size()I
 
-    move-result v3
+    move-result v2
 
-    invoke-virtual {v2, v3}, Ljava/io/ObjectOutputStream;->writeInt(I)V
+    invoke-virtual {v3, v2}, Ljava/io/ObjectOutputStream;->writeInt(I)V
 
-    .line 392
-    iget-object v3, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
+    .line 382
+    iget-object p0, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
-    invoke-interface {v3}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+    invoke-interface {p0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-interface {v3}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object p0
 
     :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_0
+    if-eqz v2, :cond_0
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/util/Map$Entry;
+
+    .line 383
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v4
 
-    check-cast v4, Ljava/util/Map$Entry;
+    check-cast v4, Ljava/lang/String;
 
-    .line 393
-    .local v4, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
-    invoke-interface {v4}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-virtual {v3, v4}, Ljava/io/ObjectOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    move-result-object v5
+    .line 384
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    check-cast v5, Ljava/lang/String;
+    move-result-object v2
 
-    invoke-virtual {v2, v5}, Ljava/io/ObjectOutputStream;->writeUTF(Ljava/lang/String;)V
+    invoke-virtual {v3, v2}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 394
-    invoke-interface {v4}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v5
-
-    invoke-virtual {v2, v5}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_2
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 395
-    .end local v4    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
     goto :goto_0
 
-    .line 400
+    .line 394
     :cond_0
-    nop
+    :try_start_2
+    invoke-virtual {v3}, Ljava/io/ObjectOutputStream;->close()V
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 404
-    :try_start_1
-    invoke-virtual {v2}, Ljava/io/ObjectOutputStream;->close()V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
-
-    .line 407
     goto :goto_1
 
-    .line 405
     :catch_0
-    move-exception v3
+    move-exception p0
 
-    .line 406
-    .local v3, "e":Ljava/io/IOException;
-    sget-object v4, Landroidx/work/Data;->TAG:Ljava/lang/String;
+    .line 396
+    sget-object v2, Landroidx/work/Data;->TAG:Ljava/lang/String;
 
-    invoke-static {v4, v0, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 410
-    .end local v3    # "e":Ljava/io/IOException;
+    .line 400
     :goto_1
-    :try_start_2
+    :try_start_3
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->close()V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
 
-    .line 413
     goto :goto_2
 
-    .line 411
     :catch_1
-    move-exception v3
+    move-exception p0
 
-    .line 412
-    .restart local v3    # "e":Ljava/io/IOException;
-    sget-object v4, Landroidx/work/Data;->TAG:Ljava/lang/String;
+    .line 402
+    sget-object v2, Landroidx/work/Data;->TAG:Ljava/lang/String;
 
-    invoke-static {v4, v0, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 414
-    .end local v3    # "e":Ljava/io/IOException;
-    nop
-
-    .line 416
+    .line 406
     :goto_2
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->size()I
 
-    move-result v0
+    move-result p0
 
-    const/16 v3, 0x2800
+    const/16 v0, 0x2800
 
-    if-gt v0, v3, :cond_1
+    if-gt p0, v0, :cond_1
 
-    .line 421
+    .line 411
     invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
-
-    .line 417
-    :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string v3, "Data cannot occupy more than 10240 bytes when serialized"
-
-    invoke-direct {v0, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    .line 400
-    :catchall_0
-    move-exception v3
-
-    goto :goto_5
-
-    .line 396
-    :catch_2
-    move-exception v3
-
-    .line 397
-    .restart local v3    # "e":Ljava/io/IOException;
-    :try_start_3
-    sget-object v4, Landroidx/work/Data;->TAG:Ljava/lang/String;
-
-    invoke-static {v4, v0, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 398
-    invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
-
-    move-result-object v4
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    .line 400
-    if-eqz v2, :cond_2
-
-    .line 404
-    :try_start_4
-    invoke-virtual {v2}, Ljava/io/ObjectOutputStream;->close()V
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
+    return-object p0
 
     .line 407
+    :cond_1
+    new-instance p0, Ljava/lang/IllegalStateException;
+
+    const-string v0, "Data cannot occupy more than 10240 bytes when serialized"
+
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :catchall_0
+    move-exception p0
+
+    move-object v2, v3
+
+    goto :goto_6
+
+    :catch_2
+    move-exception p0
+
+    move-object v2, v3
+
     goto :goto_3
 
-    .line 405
+    :catchall_1
+    move-exception p0
+
+    goto :goto_6
+
     :catch_3
-    move-exception v5
+    move-exception p0
 
-    .line 406
-    .local v5, "e":Ljava/io/IOException;
-    sget-object v6, Landroidx/work/Data;->TAG:Ljava/lang/String;
-
-    invoke-static {v6, v0, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 410
-    .end local v5    # "e":Ljava/io/IOException;
-    :cond_2
+    .line 387
     :goto_3
+    :try_start_4
+    sget-object v3, Landroidx/work/Data;->TAG:Ljava/lang/String;
+
+    invoke-static {v3, v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    .line 388
+    invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
+
+    move-result-object p0
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+
+    if-eqz v2, :cond_2
+
+    .line 394
     :try_start_5
-    invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->close()V
+    invoke-virtual {v2}, Ljava/io/ObjectOutputStream;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_4
 
-    .line 413
     goto :goto_4
 
-    .line 411
     :catch_4
-    move-exception v5
+    move-exception v2
 
-    .line 412
-    .restart local v5    # "e":Ljava/io/IOException;
-    sget-object v6, Landroidx/work/Data;->TAG:Ljava/lang/String;
+    .line 396
+    sget-object v3, Landroidx/work/Data;->TAG:Ljava/lang/String;
 
-    invoke-static {v6, v0, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 398
-    .end local v5    # "e":Ljava/io/IOException;
-    :goto_4
-    return-object v4
+    invoke-static {v3, v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 400
-    .end local v3    # "e":Ljava/io/IOException;
-    :goto_5
-    if-eqz v2, :cond_3
-
-    .line 404
+    :cond_2
+    :goto_4
     :try_start_6
-    invoke-virtual {v2}, Ljava/io/ObjectOutputStream;->close()V
+    invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->close()V
     :try_end_6
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_5
 
-    .line 407
-    goto :goto_6
+    goto :goto_5
 
-    .line 405
     :catch_5
-    move-exception v4
+    move-exception v1
 
-    .line 406
-    .local v4, "e":Ljava/io/IOException;
-    sget-object v5, Landroidx/work/Data;->TAG:Ljava/lang/String;
+    .line 402
+    sget-object v2, Landroidx/work/Data;->TAG:Ljava/lang/String;
 
-    invoke-static {v5, v0, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 410
-    .end local v4    # "e":Ljava/io/IOException;
-    :cond_3
+    :goto_5
+    return-object p0
+
     :goto_6
+    if-eqz v2, :cond_3
+
+    .line 394
     :try_start_7
-    invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->close()V
+    invoke-virtual {v2}, Ljava/io/ObjectOutputStream;->close()V
     :try_end_7
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_6
 
-    .line 413
     goto :goto_7
 
-    .line 411
     :catch_6
-    move-exception v4
+    move-exception v2
 
-    .line 412
-    .restart local v4    # "e":Ljava/io/IOException;
-    sget-object v5, Landroidx/work/Data;->TAG:Ljava/lang/String;
+    .line 396
+    sget-object v3, Landroidx/work/Data;->TAG:Ljava/lang/String;
 
-    invoke-static {v5, v0, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v3, v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 414
-    .end local v4    # "e":Ljava/io/IOException;
+    .line 400
+    :cond_3
     :goto_7
-    throw v3
+    :try_start_8
+    invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->close()V
+    :try_end_8
+    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_7
+
+    goto :goto_8
+
+    :catch_7
+    move-exception v1
+
+    .line 402
+    sget-object v2, Landroidx/work/Data;->TAG:Ljava/lang/String;
+
+    invoke-static {v2, v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    .line 404
+    :goto_8
+    throw p0
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 10
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 6
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -972,20 +1130,18 @@
         }
     .end annotation
 
-    .line 467
     const/4 v0, 0x1
 
     if-ne p0, p1, :cond_0
 
-    .line 468
     return v0
 
-    .line 470
     :cond_0
     const/4 v1, 0x0
 
     if-eqz p1, :cond_9
 
+    .line 461
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -996,163 +1152,128 @@
 
     if-eq v2, v3, :cond_1
 
-    goto :goto_3
+    goto :goto_2
 
-    .line 474
+    .line 465
     :cond_1
-    move-object v2, p1
+    check-cast p1, Landroidx/work/Data;
 
-    check-cast v2, Landroidx/work/Data;
+    .line 466
+    iget-object v2, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
-    .line 475
-    .local v2, "other":Landroidx/work/Data;
-    iget-object v3, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
+    invoke-interface {v2}, Ljava/util/Map;->keySet()Ljava/util/Set;
+
+    move-result-object v2
+
+    .line 467
+    iget-object v3, p1, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
     invoke-interface {v3}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
     move-result-object v3
 
-    .line 476
-    .local v3, "keys":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    iget-object v4, v2, Landroidx/work/Data;->mValues:Ljava/util/Map;
+    invoke-interface {v2, v3}, Ljava/util/Set;->equals(Ljava/lang/Object;)Z
 
-    invoke-interface {v4}, Ljava/util/Map;->keySet()Ljava/util/Set;
+    move-result v3
 
-    move-result-object v4
+    if-nez v3, :cond_2
 
-    invoke-interface {v3, v4}, Ljava/util/Set;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_2
-
-    .line 477
     return v1
 
-    .line 480
+    .line 471
     :cond_2
-    invoke-interface {v3}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :cond_3
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_8
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/String;
+
+    .line 472
+    iget-object v4, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
+
+    invoke-interface {v4, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v4
 
-    :goto_0
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    .line 473
+    iget-object v5, p1, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
-    move-result v5
+    invoke-interface {v5, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    if-eqz v5, :cond_8
+    move-result-object v3
 
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    if-eqz v4, :cond_6
 
-    move-result-object v5
+    if-nez v3, :cond_4
 
-    check-cast v5, Ljava/lang/String;
+    goto :goto_0
 
-    .line 481
-    .local v5, "key":Ljava/lang/String;
-    iget-object v6, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
+    .line 477
+    :cond_4
+    instance-of v5, v4, [Ljava/lang/Object;
 
-    invoke-interface {v6, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    if-eqz v5, :cond_5
 
-    move-result-object v6
+    instance-of v5, v3, [Ljava/lang/Object;
 
-    .line 482
-    .local v6, "value":Ljava/lang/Object;
-    iget-object v7, v2, Landroidx/work/Data;->mValues:Ljava/util/Map;
+    if-eqz v5, :cond_5
 
-    invoke-interface {v7, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    .line 478
+    check-cast v4, [Ljava/lang/Object;
 
-    move-result-object v7
+    check-cast v3, [Ljava/lang/Object;
 
-    .line 484
-    .local v7, "otherValue":Ljava/lang/Object;
-    if-eqz v6, :cond_5
+    invoke-static {v4, v3}, Ljava/util/Arrays;->deepEquals([Ljava/lang/Object;[Ljava/lang/Object;)Z
 
-    if-nez v7, :cond_3
+    move-result v3
 
     goto :goto_1
 
-    .line 486
-    :cond_3
-    instance-of v8, v6, [Ljava/lang/Object;
-
-    if-eqz v8, :cond_4
-
-    instance-of v8, v7, [Ljava/lang/Object;
-
-    if-eqz v8, :cond_4
-
-    .line 487
-    move-object v8, v6
-
-    check-cast v8, [Ljava/lang/Object;
-
-    move-object v9, v7
-
-    check-cast v9, [Ljava/lang/Object;
-
-    invoke-static {v8, v9}, Ljava/util/Arrays;->deepEquals([Ljava/lang/Object;[Ljava/lang/Object;)Z
-
-    move-result v8
-
-    .local v8, "equal":Z
-    goto :goto_2
-
-    .line 489
-    .end local v8    # "equal":Z
-    :cond_4
-    invoke-virtual {v6, v7}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    .restart local v8    # "equal":Z
-    goto :goto_2
-
-    .line 485
-    .end local v8    # "equal":Z
+    .line 480
     :cond_5
-    :goto_1
-    if-ne v6, v7, :cond_6
+    invoke-virtual {v4, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move v8, v0
+    move-result v3
 
-    goto :goto_2
+    goto :goto_1
 
     :cond_6
-    move v8, v1
+    :goto_0
+    if-ne v4, v3, :cond_7
 
-    .line 492
-    .restart local v8    # "equal":Z
-    :goto_2
-    if-nez v8, :cond_7
+    move v3, v0
 
-    .line 493
+    goto :goto_1
+
+    :cond_7
+    move v3, v1
+
+    :goto_1
+    if-nez v3, :cond_3
+
     return v1
 
-    .line 495
-    .end local v5    # "key":Ljava/lang/String;
-    .end local v6    # "value":Ljava/lang/Object;
-    .end local v7    # "otherValue":Ljava/lang/Object;
-    .end local v8    # "equal":Z
-    :cond_7
-    goto :goto_0
-
-    .line 496
     :cond_8
     return v0
 
-    .line 471
-    .end local v2    # "other":Landroidx/work/Data;
-    .end local v3    # "keys":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     :cond_9
-    :goto_3
+    :goto_2
     return v1
 .end method
 
 .method public getBoolean(Ljava/lang/String;Z)Z
-    .locals 2
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "defaultValue"    # Z
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -1164,38 +1285,33 @@
         }
     .end annotation
 
-    .line 88
+    .line 92
     iget-object v0, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 89
-    .local v0, "value":Ljava/lang/Object;
-    instance-of v1, v0, Ljava/lang/Boolean;
+    .line 93
+    instance-of v0, p1, Ljava/lang/Boolean;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 90
-    move-object v1, v0
+    .line 94
+    check-cast p1, Ljava/lang/Boolean;
 
-    check-cast v1, Ljava/lang/Boolean;
+    invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
-    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
+    move-result p1
 
-    move-result v1
+    return p1
 
-    return v1
-
-    .line 92
     :cond_0
     return p2
 .end method
 
 .method public getBooleanArray(Ljava/lang/String;)[Z
-    .locals 5
-    .param p1, "key"    # Ljava/lang/String;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1205,72 +1321,36 @@
         }
     .end annotation
 
-    .line 103
+    .line 108
     iget-object v0, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 104
-    .local v0, "value":Ljava/lang/Object;
-    instance-of v1, v0, [Ljava/lang/Boolean;
+    .line 109
+    instance-of v0, p1, [Ljava/lang/Boolean;
 
-    if-eqz v1, :cond_1
-
-    .line 105
-    move-object v1, v0
-
-    check-cast v1, [Ljava/lang/Boolean;
-
-    .line 106
-    .local v1, "array":[Ljava/lang/Boolean;
-    array-length v2, v1
-
-    new-array v2, v2, [Z
-
-    .line 107
-    .local v2, "returnArray":[Z
-    const/4 v3, 0x0
-
-    .local v3, "i":I
-    :goto_0
-    array-length v4, v1
-
-    if-ge v3, v4, :cond_0
-
-    .line 108
-    aget-object v4, v1, v3
-
-    invoke-virtual {v4}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v4
-
-    aput-boolean v4, v2, v3
-
-    .line 107
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_0
+    if-eqz v0, :cond_0
 
     .line 110
-    .end local v3    # "i":I
+    check-cast p1, [Ljava/lang/Boolean;
+
+    .line 111
+    invoke-static {p1}, Landroidx/work/Data;->convertToPrimitiveArray([Ljava/lang/Boolean;)[Z
+
+    move-result-object p1
+
+    return-object p1
+
     :cond_0
-    return-object v2
+    const/4 p1, 0x0
 
-    .line 112
-    .end local v1    # "array":[Ljava/lang/Boolean;
-    .end local v2    # "returnArray":[Z
-    :cond_1
-    const/4 v1, 0x0
-
-    return-object v1
+    return-object p1
 .end method
 
 .method public getByte(Ljava/lang/String;B)B
-    .locals 2
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "defaultValue"    # B
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -1282,38 +1362,33 @@
         }
     .end annotation
 
-    .line 124
+    .line 125
     iget-object v0, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
-
-    .line 125
-    .local v0, "value":Ljava/lang/Object;
-    instance-of v1, v0, Ljava/lang/Byte;
-
-    if-eqz v1, :cond_0
+    move-result-object p1
 
     .line 126
-    move-object v1, v0
+    instance-of v0, p1, Ljava/lang/Byte;
 
-    check-cast v1, Ljava/lang/Byte;
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v1}, Ljava/lang/Byte;->byteValue()B
+    .line 127
+    check-cast p1, Ljava/lang/Byte;
 
-    move-result v1
+    invoke-virtual {p1}, Ljava/lang/Byte;->byteValue()B
 
-    return v1
+    move-result p1
 
-    .line 128
+    return p1
+
     :cond_0
     return p2
 .end method
 
 .method public getByteArray(Ljava/lang/String;)[B
-    .locals 5
-    .param p1, "key"    # Ljava/lang/String;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1323,72 +1398,36 @@
         }
     .end annotation
 
-    .line 139
+    .line 141
     iget-object v0, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
-
-    .line 140
-    .local v0, "value":Ljava/lang/Object;
-    instance-of v1, v0, [Ljava/lang/Byte;
-
-    if-eqz v1, :cond_1
-
-    .line 141
-    move-object v1, v0
-
-    check-cast v1, [Ljava/lang/Byte;
+    move-result-object p1
 
     .line 142
-    .local v1, "array":[Ljava/lang/Byte;
-    array-length v2, v1
+    instance-of v0, p1, [Ljava/lang/Byte;
 
-    new-array v2, v2, [B
+    if-eqz v0, :cond_0
 
     .line 143
-    .local v2, "returnArray":[B
-    const/4 v3, 0x0
-
-    .local v3, "i":I
-    :goto_0
-    array-length v4, v1
-
-    if-ge v3, v4, :cond_0
+    check-cast p1, [Ljava/lang/Byte;
 
     .line 144
-    aget-object v4, v1, v3
+    invoke-static {p1}, Landroidx/work/Data;->convertToPrimitiveArray([Ljava/lang/Byte;)[B
 
-    invoke-virtual {v4}, Ljava/lang/Byte;->byteValue()B
+    move-result-object p1
 
-    move-result v4
+    return-object p1
 
-    aput-byte v4, v2, v3
-
-    .line 143
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_0
-
-    .line 146
-    .end local v3    # "i":I
     :cond_0
-    return-object v2
+    const/4 p1, 0x0
 
-    .line 148
-    .end local v1    # "array":[Ljava/lang/Byte;
-    .end local v2    # "returnArray":[B
-    :cond_1
-    const/4 v1, 0x0
-
-    return-object v1
+    return-object p1
 .end method
 
 .method public getDouble(Ljava/lang/String;D)D
-    .locals 3
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "defaultValue"    # D
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -1400,38 +1439,33 @@
         }
     .end annotation
 
-    .line 268
+    .line 257
     iget-object v0, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 269
-    .local v0, "value":Ljava/lang/Object;
-    instance-of v1, v0, Ljava/lang/Double;
+    .line 258
+    instance-of v0, p1, Ljava/lang/Double;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 270
-    move-object v1, v0
+    .line 259
+    check-cast p1, Ljava/lang/Double;
 
-    check-cast v1, Ljava/lang/Double;
+    invoke-virtual {p1}, Ljava/lang/Double;->doubleValue()D
 
-    invoke-virtual {v1}, Ljava/lang/Double;->doubleValue()D
+    move-result-wide p1
 
-    move-result-wide v1
+    return-wide p1
 
-    return-wide v1
-
-    .line 272
     :cond_0
     return-wide p2
 .end method
 
 .method public getDoubleArray(Ljava/lang/String;)[D
-    .locals 6
-    .param p1, "key"    # Ljava/lang/String;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1441,72 +1475,36 @@
         }
     .end annotation
 
-    .line 283
+    .line 273
     iget-object v0, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 284
-    .local v0, "value":Ljava/lang/Object;
-    instance-of v1, v0, [Ljava/lang/Double;
+    .line 274
+    instance-of v0, p1, [Ljava/lang/Double;
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_0
 
-    .line 285
-    move-object v1, v0
+    .line 275
+    check-cast p1, [Ljava/lang/Double;
 
-    check-cast v1, [Ljava/lang/Double;
+    .line 276
+    invoke-static {p1}, Landroidx/work/Data;->convertToPrimitiveArray([Ljava/lang/Double;)[D
 
-    .line 286
-    .local v1, "array":[Ljava/lang/Double;
-    array-length v2, v1
+    move-result-object p1
 
-    new-array v2, v2, [D
+    return-object p1
 
-    .line 287
-    .local v2, "returnArray":[D
-    const/4 v3, 0x0
-
-    .local v3, "i":I
-    :goto_0
-    array-length v4, v1
-
-    if-ge v3, v4, :cond_0
-
-    .line 288
-    aget-object v4, v1, v3
-
-    invoke-virtual {v4}, Ljava/lang/Double;->doubleValue()D
-
-    move-result-wide v4
-
-    aput-wide v4, v2, v3
-
-    .line 287
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_0
-
-    .line 290
-    .end local v3    # "i":I
     :cond_0
-    return-object v2
+    const/4 p1, 0x0
 
-    .line 292
-    .end local v1    # "array":[Ljava/lang/Double;
-    .end local v2    # "returnArray":[D
-    :cond_1
-    const/4 v1, 0x0
-
-    return-object v1
+    return-object p1
 .end method
 
 .method public getFloat(Ljava/lang/String;F)F
-    .locals 2
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "defaultValue"    # F
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -1518,38 +1516,33 @@
         }
     .end annotation
 
-    .line 232
+    .line 224
     iget-object v0, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 233
-    .local v0, "value":Ljava/lang/Object;
-    instance-of v1, v0, Ljava/lang/Float;
+    .line 225
+    instance-of v0, p1, Ljava/lang/Float;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 234
-    move-object v1, v0
+    .line 226
+    check-cast p1, Ljava/lang/Float;
 
-    check-cast v1, Ljava/lang/Float;
+    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
 
-    invoke-virtual {v1}, Ljava/lang/Float;->floatValue()F
+    move-result p1
 
-    move-result v1
+    return p1
 
-    return v1
-
-    .line 236
     :cond_0
     return p2
 .end method
 
 .method public getFloatArray(Ljava/lang/String;)[F
-    .locals 5
-    .param p1, "key"    # Ljava/lang/String;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1559,72 +1552,36 @@
         }
     .end annotation
 
-    .line 247
+    .line 240
     iget-object v0, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 248
-    .local v0, "value":Ljava/lang/Object;
-    instance-of v1, v0, [Ljava/lang/Float;
+    .line 241
+    instance-of v0, p1, [Ljava/lang/Float;
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_0
 
-    .line 249
-    move-object v1, v0
+    .line 242
+    check-cast p1, [Ljava/lang/Float;
 
-    check-cast v1, [Ljava/lang/Float;
+    .line 243
+    invoke-static {p1}, Landroidx/work/Data;->convertToPrimitiveArray([Ljava/lang/Float;)[F
 
-    .line 250
-    .local v1, "array":[Ljava/lang/Float;
-    array-length v2, v1
+    move-result-object p1
 
-    new-array v2, v2, [F
+    return-object p1
 
-    .line 251
-    .local v2, "returnArray":[F
-    const/4 v3, 0x0
-
-    .local v3, "i":I
-    :goto_0
-    array-length v4, v1
-
-    if-ge v3, v4, :cond_0
-
-    .line 252
-    aget-object v4, v1, v3
-
-    invoke-virtual {v4}, Ljava/lang/Float;->floatValue()F
-
-    move-result v4
-
-    aput v4, v2, v3
-
-    .line 251
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_0
-
-    .line 254
-    .end local v3    # "i":I
     :cond_0
-    return-object v2
+    const/4 p1, 0x0
 
-    .line 256
-    .end local v1    # "array":[Ljava/lang/Float;
-    .end local v2    # "returnArray":[F
-    :cond_1
-    const/4 v1, 0x0
-
-    return-object v1
+    return-object p1
 .end method
 
 .method public getInt(Ljava/lang/String;I)I
-    .locals 2
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "defaultValue"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -1636,38 +1593,33 @@
         }
     .end annotation
 
-    .line 160
+    .line 158
     iget-object v0, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 161
-    .local v0, "value":Ljava/lang/Object;
-    instance-of v1, v0, Ljava/lang/Integer;
+    .line 159
+    instance-of v0, p1, Ljava/lang/Integer;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 162
-    move-object v1, v0
+    .line 160
+    check-cast p1, Ljava/lang/Integer;
 
-    check-cast v1, Ljava/lang/Integer;
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+    move-result p1
 
-    move-result v1
+    return p1
 
-    return v1
-
-    .line 164
     :cond_0
     return p2
 .end method
 
 .method public getIntArray(Ljava/lang/String;)[I
-    .locals 5
-    .param p1, "key"    # Ljava/lang/String;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1677,66 +1629,32 @@
         }
     .end annotation
 
-    .line 175
+    .line 174
     iget-object v0, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
+
+    .line 175
+    instance-of v0, p1, [Ljava/lang/Integer;
+
+    if-eqz v0, :cond_0
 
     .line 176
-    .local v0, "value":Ljava/lang/Object;
-    instance-of v1, v0, [Ljava/lang/Integer;
-
-    if-eqz v1, :cond_1
+    check-cast p1, [Ljava/lang/Integer;
 
     .line 177
-    move-object v1, v0
+    invoke-static {p1}, Landroidx/work/Data;->convertToPrimitiveArray([Ljava/lang/Integer;)[I
 
-    check-cast v1, [Ljava/lang/Integer;
+    move-result-object p1
 
-    .line 178
-    .local v1, "array":[Ljava/lang/Integer;
-    array-length v2, v1
+    return-object p1
 
-    new-array v2, v2, [I
-
-    .line 179
-    .local v2, "returnArray":[I
-    const/4 v3, 0x0
-
-    .local v3, "i":I
-    :goto_0
-    array-length v4, v1
-
-    if-ge v3, v4, :cond_0
-
-    .line 180
-    aget-object v4, v1, v3
-
-    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
-
-    move-result v4
-
-    aput v4, v2, v3
-
-    .line 179
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_0
-
-    .line 182
-    .end local v3    # "i":I
     :cond_0
-    return-object v2
+    const/4 p1, 0x0
 
-    .line 184
-    .end local v1    # "array":[Ljava/lang/Integer;
-    .end local v2    # "returnArray":[I
-    :cond_1
-    const/4 v1, 0x0
-
-    return-object v1
+    return-object p1
 .end method
 
 .method public getKeyValueMap()Ljava/util/Map;
@@ -1751,7 +1669,7 @@
         }
     .end annotation
 
-    .line 333
+    .line 322
     iget-object v0, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
@@ -1762,9 +1680,7 @@
 .end method
 
 .method public getLong(Ljava/lang/String;J)J
-    .locals 3
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "defaultValue"    # J
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -1776,38 +1692,33 @@
         }
     .end annotation
 
-    .line 196
+    .line 191
     iget-object v0, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 197
-    .local v0, "value":Ljava/lang/Object;
-    instance-of v1, v0, Ljava/lang/Long;
+    .line 192
+    instance-of v0, p1, Ljava/lang/Long;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 198
-    move-object v1, v0
+    .line 193
+    check-cast p1, Ljava/lang/Long;
 
-    check-cast v1, Ljava/lang/Long;
+    invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
 
-    invoke-virtual {v1}, Ljava/lang/Long;->longValue()J
+    move-result-wide p1
 
-    move-result-wide v1
+    return-wide p1
 
-    return-wide v1
-
-    .line 200
     :cond_0
     return-wide p2
 .end method
 
 .method public getLongArray(Ljava/lang/String;)[J
-    .locals 6
-    .param p1, "key"    # Ljava/lang/String;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1817,71 +1728,36 @@
         }
     .end annotation
 
-    .line 211
+    .line 207
     iget-object v0, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 212
-    .local v0, "value":Ljava/lang/Object;
-    instance-of v1, v0, [Ljava/lang/Long;
+    .line 208
+    instance-of v0, p1, [Ljava/lang/Long;
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_0
 
-    .line 213
-    move-object v1, v0
+    .line 209
+    check-cast p1, [Ljava/lang/Long;
 
-    check-cast v1, [Ljava/lang/Long;
+    .line 210
+    invoke-static {p1}, Landroidx/work/Data;->convertToPrimitiveArray([Ljava/lang/Long;)[J
 
-    .line 214
-    .local v1, "array":[Ljava/lang/Long;
-    array-length v2, v1
+    move-result-object p1
 
-    new-array v2, v2, [J
+    return-object p1
 
-    .line 215
-    .local v2, "returnArray":[J
-    const/4 v3, 0x0
-
-    .local v3, "i":I
-    :goto_0
-    array-length v4, v1
-
-    if-ge v3, v4, :cond_0
-
-    .line 216
-    aget-object v4, v1, v3
-
-    invoke-virtual {v4}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v4
-
-    aput-wide v4, v2, v3
-
-    .line 215
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_0
-
-    .line 218
-    .end local v3    # "i":I
     :cond_0
-    return-object v2
+    const/4 p1, 0x0
 
-    .line 220
-    .end local v1    # "array":[Ljava/lang/Long;
-    .end local v2    # "returnArray":[J
-    :cond_1
-    const/4 v1, 0x0
-
-    return-object v1
+    return-object p1
 .end method
 
 .method public getString(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
-    .param p1, "key"    # Ljava/lang/String;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1891,36 +1767,31 @@
         }
     .end annotation
 
-    .line 303
+    .line 290
     iget-object v0, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 304
-    .local v0, "value":Ljava/lang/Object;
-    instance-of v1, v0, Ljava/lang/String;
+    .line 291
+    instance-of v0, p1, Ljava/lang/String;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 305
-    move-object v1, v0
+    .line 292
+    check-cast p1, Ljava/lang/String;
 
-    check-cast v1, Ljava/lang/String;
+    return-object p1
 
-    return-object v1
-
-    .line 307
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public getStringArray(Ljava/lang/String;)[Ljava/lang/String;
-    .locals 2
-    .param p1, "key"    # Ljava/lang/String;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1930,36 +1801,31 @@
         }
     .end annotation
 
-    .line 318
+    .line 306
     iget-object v0, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 319
-    .local v0, "value":Ljava/lang/Object;
-    instance-of v1, v0, [Ljava/lang/String;
+    .line 307
+    instance-of v0, p1, [Ljava/lang/String;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 320
-    move-object v1, v0
+    .line 308
+    check-cast p1, [Ljava/lang/String;
 
-    check-cast v1, [Ljava/lang/String;
+    return-object p1
 
-    return-object v1
-
-    .line 322
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public hasKeyWithValueOfType(Ljava/lang/String;Ljava/lang/Class;)Z
-    .locals 2
-    .param p1, "key"    # Ljava/lang/String;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -1982,43 +1848,41 @@
         }
     .end annotation
 
-    .line 361
-    .local p2, "klass":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
+    .line 350
     iget-object v0, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 362
-    .local v0, "value":Ljava/lang/Object;
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    .line 351
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {p2, v1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    invoke-virtual {p2, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v1
+    return p1
 .end method
 
 .method public hashCode()I
     .locals 1
 
-    .line 501
+    .line 492
     iget-object v0, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->hashCode()I
@@ -2033,7 +1897,7 @@
 .method public size()I
     .locals 1
 
-    .line 372
+    .line 361
     iget-object v0, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->size()I
@@ -2046,7 +1910,7 @@
 .method public toByteArray()[B
     .locals 1
 
-    .line 347
+    .line 336
     invoke-static {p0}, Landroidx/work/Data;->toByteArrayInternal(Landroidx/work/Data;)[B
 
     move-result-object v0
@@ -2057,15 +1921,14 @@
 .method public toString()Ljava/lang/String;
     .locals 5
 
-    .line 507
+    .line 498
     new-instance v0, Ljava/lang/StringBuilder;
 
     const-string v1, "Data {"
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 508
-    .local v0, "sb":Ljava/lang/StringBuilder;
+    .line 499
     iget-object v1, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
     invoke-interface {v1}, Ljava/util/Map;->isEmpty()Z
@@ -2074,7 +1937,7 @@
 
     if-nez v1, :cond_1
 
-    .line 509
+    .line 500
     iget-object v1, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
     invoke-interface {v1}, Ljava/util/Map;->keySet()Ljava/util/Set;
@@ -2098,65 +1961,60 @@
 
     check-cast v2, Ljava/lang/String;
 
-    .line 510
-    .local v2, "key":Ljava/lang/String;
+    .line 501
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, " : "
+    move-result-object v3
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v4, " : "
 
-    .line 511
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 502
     iget-object v3, p0, Landroidx/work/Data;->mValues:Ljava/util/Map;
 
     invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    .line 512
-    .local v3, "value":Ljava/lang/Object;
-    instance-of v4, v3, [Ljava/lang/Object;
+    .line 503
+    instance-of v3, v2, [Ljava/lang/Object;
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
-    .line 513
-    move-object v4, v3
+    .line 504
+    check-cast v2, [Ljava/lang/Object;
 
-    check-cast v4, [Ljava/lang/Object;
+    invoke-static {v2}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v4}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v4
-
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_1
 
-    .line 515
+    .line 506
     :cond_0
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 517
     :goto_1
-    const-string v4, ", "
+    const-string v2, ", "
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 508
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 518
-    .end local v2    # "key":Ljava/lang/String;
-    .end local v3    # "value":Ljava/lang/Object;
     goto :goto_0
 
-    .line 520
     :cond_1
-    const-string/jumbo v1, "}"
+    const-string v1, "}"
 
+    .line 511
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 521
+    .line 512
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method

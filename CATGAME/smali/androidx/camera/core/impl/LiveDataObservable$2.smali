@@ -28,10 +28,8 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/impl/LiveDataObservable;Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/core/impl/LiveDataObservable;
 
     .line 121
-    .local p0, "this":Landroidx/camera/core/impl/LiveDataObservable$2;, "Landroidx/camera/core/impl/LiveDataObservable$2;"
     iput-object p1, p0, Landroidx/camera/core/impl/LiveDataObservable$2;->this$0:Landroidx/camera/core/impl/LiveDataObservable;
 
     iput-object p2, p0, Landroidx/camera/core/impl/LiveDataObservable$2;->val$oldAdapter:Landroidx/camera/core/impl/LiveDataObservable$LiveDataObserverAdapter;
@@ -49,7 +47,6 @@
     .locals 2
 
     .line 124
-    .local p0, "this":Landroidx/camera/core/impl/LiveDataObservable$2;, "Landroidx/camera/core/impl/LiveDataObservable$2;"
     iget-object v0, p0, Landroidx/camera/core/impl/LiveDataObservable$2;->this$0:Landroidx/camera/core/impl/LiveDataObservable;
 
     iget-object v0, v0, Landroidx/camera/core/impl/LiveDataObservable;->mLiveData:Landroidx/lifecycle/MutableLiveData;
@@ -67,6 +64,5 @@
 
     invoke-virtual {v0, v1}, Landroidx/lifecycle/MutableLiveData;->observeForever(Landroidx/lifecycle/Observer;)V
 
-    .line 126
     return-void
 .end method

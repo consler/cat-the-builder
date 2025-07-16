@@ -68,9 +68,6 @@
     .end annotation
 
     .line 98
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;, "Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
-    .local p2, "parent":Lio/reactivex/internal/operators/parallel/ParallelPeek;, "Lio/reactivex/internal/operators/parallel/ParallelPeek<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 99
@@ -79,7 +76,6 @@
     .line 100
     iput-object p2, p0, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->parent:Lio/reactivex/internal/operators/parallel/ParallelPeek;
 
-    .line 101
     return-void
 .end method
 
@@ -89,7 +85,6 @@
     .locals 1
 
     .line 117
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;, "Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber<TT;>;"
     :try_start_0
     iget-object v0, p0, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->parent:Lio/reactivex/internal/operators/parallel/ParallelPeek;
 
@@ -99,28 +94,23 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 121
     goto :goto_0
 
-    .line 118
     :catchall_0
     move-exception v0
 
     .line 119
-    .local v0, "ex":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 120
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
     .line 122
-    .end local v0    # "ex":Ljava/lang/Throwable;
     :goto_0
     iget-object v0, p0, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
 
-    .line 123
     return-void
 .end method
 
@@ -128,14 +118,13 @@
     .locals 2
 
     .line 192
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;, "Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->done:Z
 
     if-nez v0, :cond_0
 
-    .line 193
     const/4 v0, 0x1
 
+    .line 193
     iput-boolean v0, p0, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->done:Z
 
     .line 195
@@ -147,9 +136,6 @@
     invoke-interface {v0}, Lio/reactivex/functions/Action;->run()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
-
-    .line 200
-    nop
 
     .line 201
     iget-object v0, p0, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->actual:Lorg/reactivestreams/Subscriber;
@@ -166,15 +152,12 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 208
     goto :goto_0
 
-    .line 205
     :catchall_0
     move-exception v0
 
     .line 206
-    .local v0, "ex":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 207
@@ -182,13 +165,10 @@
 
     goto :goto_0
 
-    .line 196
-    .end local v0    # "ex":Ljava/lang/Throwable;
     :catchall_1
     move-exception v0
 
     .line 197
-    .restart local v0    # "ex":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 198
@@ -196,11 +176,6 @@
 
     invoke-interface {v1, v0}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 199
-    return-void
-
-    .line 210
-    .end local v0    # "ex":Ljava/lang/Throwable;
     :cond_0
     :goto_0
     return-void
@@ -208,10 +183,8 @@
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 5
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 168
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;, "Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->done:Z
 
     if-eqz v0, :cond_0
@@ -219,13 +192,12 @@
     .line 169
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 170
     return-void
 
-    .line 172
     :cond_0
     const/4 v0, 0x1
 
+    .line 172
     iput-boolean v0, p0, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->done:Z
 
     .line 175
@@ -238,15 +210,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 179
     goto :goto_0
 
-    .line 176
     :catchall_0
     move-exception v1
 
     .line 177
-    .local v1, "ex":Ljava/lang/Throwable;
     invoke-static {v1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 178
@@ -267,7 +236,6 @@
     move-object p1, v2
 
     .line 180
-    .end local v1    # "ex":Ljava/lang/Throwable;
     :goto_0
     iget-object v0, p0, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
@@ -275,30 +243,25 @@
 
     .line 183
     :try_start_1
-    iget-object v0, p0, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->parent:Lio/reactivex/internal/operators/parallel/ParallelPeek;
+    iget-object p1, p0, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->parent:Lio/reactivex/internal/operators/parallel/ParallelPeek;
 
-    iget-object v0, v0, Lio/reactivex/internal/operators/parallel/ParallelPeek;->onAfterTerminated:Lio/reactivex/functions/Action;
+    iget-object p1, p1, Lio/reactivex/internal/operators/parallel/ParallelPeek;->onAfterTerminated:Lio/reactivex/functions/Action;
 
-    invoke-interface {v0}, Lio/reactivex/functions/Action;->run()V
+    invoke-interface {p1}, Lio/reactivex/functions/Action;->run()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    .line 187
     goto :goto_1
 
-    .line 184
     :catchall_1
-    move-exception v0
+    move-exception p1
 
     .line 185
-    .local v0, "ex":Ljava/lang/Throwable;
-    invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 186
-    invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 188
-    .end local v0    # "ex":Ljava/lang/Throwable;
     :goto_1
     return-void
 .end method
@@ -312,8 +275,6 @@
     .end annotation
 
     .line 146
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;, "Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->done:Z
 
     if-nez v0, :cond_0
@@ -327,9 +288,6 @@
     invoke-interface {v0, p1}, Lio/reactivex/functions/Consumer;->accept(Ljava/lang/Object;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
-
-    .line 153
-    nop
 
     .line 155
     iget-object v0, p0, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->actual:Lorg/reactivestreams/Subscriber;
@@ -346,50 +304,37 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 162
     goto :goto_0
 
-    .line 159
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     .line 160
-    .local v0, "ex":Ljava/lang/Throwable;
-    invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 161
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->onError(Ljava/lang/Throwable;)V
 
     goto :goto_0
 
-    .line 149
-    .end local v0    # "ex":Ljava/lang/Throwable;
     :catchall_1
-    move-exception v0
+    move-exception p1
 
     .line 150
-    .restart local v0    # "ex":Ljava/lang/Throwable;
-    invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 151
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 152
-    return-void
-
-    .line 164
-    .end local v0    # "ex":Ljava/lang/Throwable;
     :cond_0
     :goto_0
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
-    .locals 3
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
+    .locals 2
 
     .line 127
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;, "Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -411,42 +356,32 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 138
-    nop
-
     .line 140
-    iget-object v0, p0, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object p1, p0, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v0, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
+    invoke-interface {p1, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
     goto :goto_0
 
-    .line 132
     :catchall_0
     move-exception v0
 
     .line 133
-    .local v0, "ex":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 134
     invoke-interface {p1}, Lorg/reactivestreams/Subscription;->cancel()V
 
     .line 135
-    iget-object v1, p0, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object p1, p0, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    sget-object v2, Lio/reactivex/internal/subscriptions/EmptySubscription;->INSTANCE:Lio/reactivex/internal/subscriptions/EmptySubscription;
+    sget-object v1, Lio/reactivex/internal/subscriptions/EmptySubscription;->INSTANCE:Lio/reactivex/internal/subscriptions/EmptySubscription;
 
-    invoke-interface {v1, v2}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
+    invoke-interface {p1, v1}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
     .line 136
     invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 137
-    return-void
-
-    .line 142
-    .end local v0    # "ex":Ljava/lang/Throwable;
     :cond_0
     :goto_0
     return-void
@@ -454,10 +389,8 @@
 
 .method public request(J)V
     .locals 1
-    .param p1, "n"    # J
 
     .line 106
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;, "Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber<TT;>;"
     :try_start_0
     iget-object v0, p0, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->parent:Lio/reactivex/internal/operators/parallel/ParallelPeek;
 
@@ -467,27 +400,22 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 110
     goto :goto_0
 
-    .line 107
     :catchall_0
     move-exception v0
 
     .line 108
-    .local v0, "ex":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 109
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
     .line 111
-    .end local v0    # "ex":Ljava/lang/Throwable;
     :goto_0
     iget-object v0, p0, Lio/reactivex/internal/operators/parallel/ParallelPeek$ParallelPeekSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-interface {v0, p1, p2}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 112
     return-void
 .end method

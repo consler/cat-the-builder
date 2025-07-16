@@ -85,9 +85,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/reactivestreams/Subscriber;IILjava/util/concurrent/Callable;)V
-    .locals 1
-    .param p2, "size"    # I
-    .param p3, "skip"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -99,9 +97,6 @@
     .end annotation
 
     .line 319
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber<TT;TC;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TC;>;"
-    .local p4, "bufferSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TC;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
 
     .line 320
@@ -117,20 +112,19 @@
     iput-object p4, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->bufferSupplier:Ljava/util/concurrent/Callable;
 
     .line 324
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     .line 325
-    new-instance v0, Ljava/util/ArrayDeque;
+    new-instance p1, Ljava/util/ArrayDeque;
 
-    invoke-direct {v0}, Ljava/util/ArrayDeque;-><init>()V
+    invoke-direct {p1}, Ljava/util/ArrayDeque;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->buffers:Ljava/util/ArrayDeque;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->buffers:Ljava/util/ArrayDeque;
 
-    .line 326
     return-void
 .end method
 
@@ -139,10 +133,9 @@
 .method public cancel()V
     .locals 1
 
-    .line 357
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber<TT;TC;>;"
     const/4 v0, 0x1
 
+    .line 357
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->cancelled:Z
 
     .line 358
@@ -150,7 +143,6 @@
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
 
-    .line 359
     return-void
 .end method
 
@@ -158,7 +150,6 @@
     .locals 1
 
     .line 330
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber<TT;TC;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->cancelled:Z
 
     return v0
@@ -168,25 +159,21 @@
     .locals 4
 
     .line 432
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber<TT;TC;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 433
     return-void
 
-    .line 436
     :cond_0
     const/4 v0, 0x1
 
+    .line 436
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->done:Z
 
     .line 438
     iget-wide v0, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->produced:J
 
-    .line 439
-    .local v0, "p":J
     const-wide/16 v2, 0x0
 
     cmp-long v2, v0, v2
@@ -198,22 +185,19 @@
 
     .line 442
     :cond_1
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->buffers:Ljava/util/ArrayDeque;
+    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->buffers:Ljava/util/ArrayDeque;
 
-    invoke-static {v2, v3, p0, p0}, Lio/reactivex/internal/util/QueueDrainHelper;->postComplete(Lorg/reactivestreams/Subscriber;Ljava/util/Queue;Ljava/util/concurrent/atomic/AtomicLong;Lio/reactivex/functions/BooleanSupplier;)V
+    invoke-static {v0, v1, p0, p0}, Lio/reactivex/internal/util/QueueDrainHelper;->postComplete(Lorg/reactivestreams/Subscriber;Ljava/util/Queue;Ljava/util/concurrent/atomic/AtomicLong;Lio/reactivex/functions/BooleanSupplier;)V
 
-    .line 443
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 419
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber<TT;TC;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->done:Z
 
     if-eqz v0, :cond_0
@@ -221,13 +205,12 @@
     .line 420
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 421
     return-void
 
-    .line 424
     :cond_0
     const/4 v0, 0x1
 
+    .line 424
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->done:Z
 
     .line 425
@@ -240,7 +223,6 @@
 
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 428
     return-void
 .end method
 
@@ -253,13 +235,10 @@
     .end annotation
 
     .line 372
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber<TT;TC;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 373
     return-void
 
     .line 376
@@ -267,70 +246,50 @@
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->buffers:Ljava/util/ArrayDeque;
 
     .line 378
-    .local v0, "bs":Ljava/util/ArrayDeque;, "Ljava/util/ArrayDeque<TC;>;"
     iget v1, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->index:I
 
-    .line 380
-    .local v1, "i":I
     add-int/lit8 v2, v1, 0x1
 
-    .end local v1    # "i":I
-    .local v2, "i":I
     if-nez v1, :cond_1
 
     .line 384
-    const/4 v1, 0x0
-
     :try_start_0
-    iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->bufferSupplier:Ljava/util/concurrent/Callable;
+    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->bufferSupplier:Ljava/util/concurrent/Callable;
 
-    invoke-interface {v3}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    const-string v4, "The bufferSupplier returned a null buffer"
+    const-string v3, "The bufferSupplier returned a null buffer"
 
-    invoke-static {v3, v4}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v1, v3}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    check-cast v3, Ljava/util/Collection;
+    check-cast v1, Ljava/util/Collection;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-object v1, v3
-
-    .line 390
-    .local v1, "b":Ljava/util/Collection;, "TC;"
-    nop
 
     .line 392
     invoke-virtual {v0, v1}, Ljava/util/ArrayDeque;->offer(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 385
-    .end local v1    # "b":Ljava/util/Collection;, "TC;"
     :catchall_0
-    move-exception v3
+    move-exception p1
 
     .line 386
-    .restart local v1    # "b":Ljava/util/Collection;, "TC;"
-    .local v3, "e":Ljava/lang/Throwable;
-    invoke-static {v3}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 387
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->cancel()V
 
     .line 388
-    invoke-virtual {p0, v3}, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 389
     return-void
 
     .line 395
-    .end local v1    # "b":Ljava/util/Collection;, "TC;"
-    .end local v3    # "e":Ljava/lang/Throwable;
     :cond_1
     :goto_0
     invoke-virtual {v0}, Ljava/util/ArrayDeque;->peek()Ljava/lang/Object;
@@ -339,10 +298,9 @@
 
     check-cast v1, Ljava/util/Collection;
 
-    .line 397
-    .restart local v1    # "b":Ljava/util/Collection;, "TC;"
     if-eqz v1, :cond_2
 
+    .line 397
     invoke-interface {v1}, Ljava/util/Collection;->size()I
 
     move-result v3
@@ -377,54 +335,45 @@
     :cond_2
     invoke-virtual {v0}, Ljava/util/ArrayDeque;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object v0
 
-    .local v3, "i$":Ljava/util/Iterator;
     :goto_1
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v1
 
-    if-eqz v4, :cond_3
+    if-eqz v1, :cond_3
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v1
 
-    check-cast v4, Ljava/util/Collection;
+    check-cast v1, Ljava/util/Collection;
 
     .line 408
-    .local v4, "b0":Ljava/util/Collection;, "TC;"
-    invoke-interface {v4, p1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, p1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    .line 409
-    .end local v4    # "b0":Ljava/util/Collection;, "TC;"
     goto :goto_1
 
     .line 411
-    .end local v3    # "i$":Ljava/util/Iterator;
     :cond_3
-    iget v3, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->skip:I
+    iget p1, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->skip:I
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, p1, :cond_4
 
-    .line 412
     const/4 v2, 0x0
 
     .line 414
     :cond_4
     iput v2, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->index:I
 
-    .line 415
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 1
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 363
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber<TT;TC;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -437,21 +386,18 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     .line 366
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v0, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
+    invoke-interface {p1, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
-    .line 368
     :cond_0
     return-void
 .end method
 
 .method public request(J)V
     .locals 7
-    .param p1, "n"    # J
 
     .line 335
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber<TT;TC;>;"
     invoke-static {p1, p2}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(J)Z
 
     move-result v0
@@ -475,7 +421,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 337
     return-void
 
     .line 340
@@ -507,31 +452,26 @@
 
     const-wide/16 v2, 0x1
 
-    sub-long v2, p1, v2
+    sub-long/2addr p1, v2
 
-    invoke-static {v0, v1, v2, v3}, Lio/reactivex/internal/util/BackpressureHelper;->multiplyCap(JJ)J
+    invoke-static {v0, v1, p1, p2}, Lio/reactivex/internal/util/BackpressureHelper;->multiplyCap(JJ)J
 
-    move-result-wide v0
+    move-result-wide p1
 
     .line 345
-    .local v0, "u":J
-    iget v2, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->size:I
+    iget v0, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->size:I
 
-    int-to-long v2, v2
+    int-to-long v0, v0
 
-    invoke-static {v2, v3, v0, v1}, Lio/reactivex/internal/util/BackpressureHelper;->addCap(JJ)J
+    invoke-static {v0, v1, p1, p2}, Lio/reactivex/internal/util/BackpressureHelper;->addCap(JJ)J
 
-    move-result-wide v2
+    move-result-wide p1
 
     .line 346
-    .local v2, "r":J
-    iget-object v4, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->s:Lorg/reactivestreams/Subscription;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    invoke-interface {v4, v2, v3}, Lorg/reactivestreams/Subscription;->request(J)V
+    invoke-interface {v0, p1, p2}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 347
-    .end local v0    # "u":J
-    .end local v2    # "r":J
     goto :goto_0
 
     .line 349
@@ -542,16 +482,13 @@
 
     invoke-static {v0, v1, p1, p2}, Lio/reactivex/internal/util/BackpressureHelper;->multiplyCap(JJ)J
 
-    move-result-wide v0
+    move-result-wide p1
 
     .line 350
-    .local v0, "r":J
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->s:Lorg/reactivestreams/Subscription;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableBuffer$PublisherBufferOverlappingSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    invoke-interface {v2, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
+    invoke-interface {v0, p1, p2}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 353
-    .end local v0    # "r":J
     :cond_2
     :goto_0
     return-void

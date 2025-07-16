@@ -40,7 +40,6 @@
     .locals 0
 
     .line 464
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/IntMap$Entry;, "Lcom/esotericsoftware/kryo/util/IntMap$Entry<TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -52,7 +51,6 @@
     .locals 2
 
     .line 469
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/IntMap$Entry;, "Lcom/esotericsoftware/kryo/util/IntMap$Entry<TV;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -61,13 +59,19 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Lcom/esotericsoftware/kryo/util/IntMap$Entry;->value:Ljava/lang/Object;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

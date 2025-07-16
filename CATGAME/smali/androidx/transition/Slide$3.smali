@@ -18,9 +18,9 @@
 .method constructor <init>()V
     .locals 1
 
-    .line 115
     const/4 v0, 0x0
 
+    .line 115
     invoke-direct {p0, v0}, Landroidx/transition/Slide$CalculateSlideVertical;-><init>(Landroidx/transition/Slide$1;)V
 
     return-void
@@ -29,22 +29,20 @@
 
 # virtual methods
 .method public getGoneY(Landroid/view/ViewGroup;Landroid/view/View;)F
-    .locals 2
-    .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
-    .param p2, "view"    # Landroid/view/View;
+    .locals 0
 
     .line 118
     invoke-virtual {p2}, Landroid/view/View;->getTranslationY()F
 
-    move-result v0
+    move-result p2
 
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getHeight()I
 
-    move-result v1
+    move-result p1
 
-    int-to-float v1, v1
+    int-to-float p1, p1
 
-    sub-float/2addr v0, v1
+    sub-float/2addr p2, p1
 
-    return v0
+    return p2
 .end method

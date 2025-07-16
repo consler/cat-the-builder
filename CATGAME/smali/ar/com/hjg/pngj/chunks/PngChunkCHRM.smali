@@ -28,14 +28,12 @@
 # direct methods
 .method public constructor <init>(Lar/com/hjg/pngj/ImageInfo;)V
     .locals 1
-    .param p1, "info"    # Lar/com/hjg/pngj/ImageInfo;
 
-    .line 22
     const-string v0, "cHRM"
 
+    .line 22
     invoke-direct {p0, v0, p1}, Lar/com/hjg/pngj/chunks/PngChunkSingle;-><init>(Ljava/lang/String;Lar/com/hjg/pngj/ImageInfo;)V
 
-    .line 23
     return-void
 .end method
 
@@ -44,16 +42,12 @@
 .method public createRawChunk()Lar/com/hjg/pngj/chunks/ChunkRaw;
     .locals 4
 
-    .line 32
-    const/4 v0, 0x0
+    const/16 v0, 0x20
+
+    const/4 v1, 0x1
 
     .line 33
-    .local v0, "c":Lar/com/hjg/pngj/chunks/ChunkRaw;
-    const/16 v1, 0x20
-
-    const/4 v2, 0x1
-
-    invoke-virtual {p0, v1, v2}, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->createEmptyChunk(IZ)Lar/com/hjg/pngj/chunks/ChunkRaw;
+    invoke-virtual {p0, v0, v1}, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->createEmptyChunk(IZ)Lar/com/hjg/pngj/chunks/ChunkRaw;
 
     move-result-object v0
 
@@ -161,65 +155,64 @@
 
     invoke-static {v1, v2, v3}, Lar/com/hjg/pngj/PngHelperInternal;->writeInt4tobytes(I[BI)V
 
-    .line 42
     return-object v0
 .end method
 
 .method public getChromaticities()[D
     .locals 4
 
-    .line 72
     const/16 v0, 0x8
 
     new-array v0, v0, [D
 
-    iget-wide v1, p0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->whitex:D
+    const/4 v1, 0x0
 
-    const/4 v3, 0x0
+    .line 72
+    iget-wide v2, p0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->whitex:D
 
-    aput-wide v1, v0, v3
+    aput-wide v2, v0, v1
 
-    iget-wide v1, p0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->whitey:D
+    const/4 v1, 0x1
 
-    const/4 v3, 0x1
+    iget-wide v2, p0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->whitey:D
 
-    aput-wide v1, v0, v3
+    aput-wide v2, v0, v1
 
-    iget-wide v1, p0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->redx:D
+    const/4 v1, 0x2
 
-    const/4 v3, 0x2
+    iget-wide v2, p0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->redx:D
 
-    aput-wide v1, v0, v3
+    aput-wide v2, v0, v1
 
-    iget-wide v1, p0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->redy:D
+    const/4 v1, 0x3
 
-    const/4 v3, 0x3
+    iget-wide v2, p0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->redy:D
 
-    aput-wide v1, v0, v3
+    aput-wide v2, v0, v1
 
-    iget-wide v1, p0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->greenx:D
+    const/4 v1, 0x4
 
-    const/4 v3, 0x4
+    iget-wide v2, p0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->greenx:D
 
-    aput-wide v1, v0, v3
+    aput-wide v2, v0, v1
 
-    iget-wide v1, p0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->greeny:D
+    const/4 v1, 0x5
 
-    const/4 v3, 0x5
+    iget-wide v2, p0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->greeny:D
 
-    aput-wide v1, v0, v3
+    aput-wide v2, v0, v1
 
-    iget-wide v1, p0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->bluex:D
+    const/4 v1, 0x6
 
-    const/4 v3, 0x6
+    iget-wide v2, p0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->bluex:D
 
-    aput-wide v1, v0, v3
+    aput-wide v2, v0, v1
 
-    iget-wide v1, p0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->bluey:D
+    const/4 v1, 0x7
 
-    const/4 v3, 0x7
+    iget-wide v2, p0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->bluey:D
 
-    aput-wide v1, v0, v3
+    aput-wide v2, v0, v1
 
     return-object v0
 .end method
@@ -235,7 +228,6 @@
 
 .method public parseFromRaw(Lar/com/hjg/pngj/chunks/ChunkRaw;)V
     .locals 3
-    .param p1, "c"    # Lar/com/hjg/pngj/chunks/ChunkRaw;
 
     .line 47
     iget v0, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->len:I
@@ -350,21 +342,20 @@
     iput-wide v0, p0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->bluex:D
 
     .line 56
-    iget-object v0, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
+    iget-object p1, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
 
-    const/16 v1, 0x1c
+    const/16 v0, 0x1c
 
-    invoke-static {v0, v1}, Lar/com/hjg/pngj/PngHelperInternal;->readInt4fromBytes([BI)I
+    invoke-static {p1, v0}, Lar/com/hjg/pngj/PngHelperInternal;->readInt4fromBytes([BI)I
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0}, Lar/com/hjg/pngj/PngHelperInternal;->intToDouble100000(I)D
+    invoke-static {p1}, Lar/com/hjg/pngj/PngHelperInternal;->intToDouble100000(I)D
 
     move-result-wide v0
 
     iput-wide v0, p0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->bluey:D
 
-    .line 57
     return-void
 
     .line 48
@@ -373,76 +364,67 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "bad chunk "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Lar/com/hjg/pngj/PngjException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Lar/com/hjg/pngj/PngjException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public setChromaticities(DDDDDDDD)V
-    .locals 15
-    .param p1, "whitex"    # D
-    .param p3, "whitey"    # D
-    .param p5, "redx"    # D
-    .param p7, "redy"    # D
-    .param p9, "greenx"    # D
-    .param p11, "greeny"    # D
-    .param p13, "bluex"    # D
-    .param p15, "bluey"    # D
+    .locals 3
 
-    .line 61
     move-object v0, p0
 
-    move-wide/from16 v1, p1
+    move-wide v1, p1
 
+    .line 61
     iput-wide v1, v0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->whitex:D
 
-    .line 62
-    move-wide/from16 v3, p5
+    move-wide v1, p5
 
-    iput-wide v3, v0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->redx:D
+    .line 62
+    iput-wide v1, v0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->redx:D
+
+    move-wide v1, p9
 
     .line 63
-    move-wide/from16 v5, p9
+    iput-wide v1, v0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->greenx:D
 
-    iput-wide v5, v0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->greenx:D
+    move-wide/from16 v1, p13
 
     .line 64
-    move-wide/from16 v7, p13
+    iput-wide v1, v0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->bluex:D
 
-    iput-wide v7, v0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->bluex:D
+    move-wide v1, p3
 
     .line 65
-    move-wide/from16 v9, p3
+    iput-wide v1, v0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->whitey:D
 
-    iput-wide v9, v0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->whitey:D
+    move-wide v1, p7
 
     .line 66
-    move-wide/from16 v11, p7
+    iput-wide v1, v0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->redy:D
 
-    iput-wide v11, v0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->redy:D
+    move-wide v1, p11
 
     .line 67
-    move-wide/from16 v13, p11
+    iput-wide v1, v0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->greeny:D
 
-    iput-wide v13, v0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->greeny:D
-
-    .line 68
     move-wide/from16 v1, p15
 
+    .line 68
     iput-wide v1, v0, Lar/com/hjg/pngj/chunks/PngChunkCHRM;->bluey:D
 
-    .line 69
     return-void
 .end method

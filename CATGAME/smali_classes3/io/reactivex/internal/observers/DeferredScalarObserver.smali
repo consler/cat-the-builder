@@ -42,11 +42,8 @@
     .end annotation
 
     .line 39
-    .local p0, "this":Lio/reactivex/internal/observers/DeferredScalarObserver;, "Lio/reactivex/internal/observers/DeferredScalarObserver<TT;TR;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TR;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/observers/DeferredScalarDisposable;-><init>(Lio/reactivex/Observer;)V
 
-    .line 40
     return-void
 .end method
 
@@ -56,7 +53,6 @@
     .locals 1
 
     .line 70
-    .local p0, "this":Lio/reactivex/internal/observers/DeferredScalarObserver;, "Lio/reactivex/internal/observers/DeferredScalarObserver<TT;TR;>;"
     invoke-super {p0}, Lio/reactivex/internal/observers/DeferredScalarDisposable;->dispose()V
 
     .line 71
@@ -64,7 +60,6 @@
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 72
     return-void
 .end method
 
@@ -72,16 +67,13 @@
     .locals 2
 
     .line 59
-    .local p0, "this":Lio/reactivex/internal/observers/DeferredScalarObserver;, "Lio/reactivex/internal/observers/DeferredScalarObserver<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/observers/DeferredScalarObserver;->value:Ljava/lang/Object;
 
-    .line 60
-    .local v0, "v":Ljava/lang/Object;, "TR;"
     if-eqz v0, :cond_0
 
-    .line 61
     const/4 v1, 0x0
 
+    .line 61
     iput-object v1, p0, Lio/reactivex/internal/observers/DeferredScalarObserver;->value:Ljava/lang/Object;
 
     .line 62
@@ -93,34 +85,28 @@
     :cond_0
     invoke-virtual {p0}, Lio/reactivex/internal/observers/DeferredScalarObserver;->complete()V
 
-    .line 66
     :goto_0
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
-    .line 53
-    .local p0, "this":Lio/reactivex/internal/observers/DeferredScalarObserver;, "Lio/reactivex/internal/observers/DeferredScalarObserver<TT;TR;>;"
     const/4 v0, 0x0
 
+    .line 53
     iput-object v0, p0, Lio/reactivex/internal/observers/DeferredScalarObserver;->value:Ljava/lang/Object;
 
     .line 54
     invoke-virtual {p0, p1}, Lio/reactivex/internal/observers/DeferredScalarObserver;->error(Ljava/lang/Throwable;)V
 
-    .line 55
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 44
-    .local p0, "this":Lio/reactivex/internal/observers/DeferredScalarObserver;, "Lio/reactivex/internal/observers/DeferredScalarObserver<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/observers/DeferredScalarObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -133,11 +119,10 @@
     iput-object p1, p0, Lio/reactivex/internal/observers/DeferredScalarObserver;->s:Lio/reactivex/disposables/Disposable;
 
     .line 47
-    iget-object v0, p0, Lio/reactivex/internal/observers/DeferredScalarObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/observers/DeferredScalarObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v0, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 49
     :cond_0
     return-void
 .end method

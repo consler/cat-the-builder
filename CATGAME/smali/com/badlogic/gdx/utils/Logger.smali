@@ -22,21 +22,17 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .param p1, "tag"    # Ljava/lang/String;
 
-    .line 36
     const/4 v0, 0x1
 
+    .line 36
     invoke-direct {p0, p1, v0}, Lcom/badlogic/gdx/utils/Logger;-><init>(Ljava/lang/String;I)V
 
-    .line 37
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .param p1, "tag"    # Ljava/lang/String;
-    .param p2, "level"    # I
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,7 +43,6 @@
     .line 41
     iput p2, p0, Lcom/badlogic/gdx/utils/Logger;->level:I
 
-    .line 42
     return-void
 .end method
 
@@ -55,7 +50,6 @@
 # virtual methods
 .method public debug(Ljava/lang/String;)V
     .locals 2
-    .param p1, "message"    # Ljava/lang/String;
 
     .line 45
     iget v0, p0, Lcom/badlogic/gdx/utils/Logger;->level:I
@@ -70,15 +64,12 @@
 
     invoke-interface {v0, v1, p1}, Lcom/badlogic/gdx/Application;->debug(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 46
     :cond_0
     return-void
 .end method
 
 .method public debug(Ljava/lang/String;Ljava/lang/Exception;)V
     .locals 2
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "exception"    # Ljava/lang/Exception;
 
     .line 49
     iget v0, p0, Lcom/badlogic/gdx/utils/Logger;->level:I
@@ -93,14 +84,12 @@
 
     invoke-interface {v0, v1, p1, p2}, Lcom/badlogic/gdx/Application;->debug(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 50
     :cond_0
     return-void
 .end method
 
 .method public error(Ljava/lang/String;)V
     .locals 2
-    .param p1, "message"    # Ljava/lang/String;
 
     .line 61
     iget v0, p0, Lcom/badlogic/gdx/utils/Logger;->level:I
@@ -115,15 +104,12 @@
 
     invoke-interface {v0, v1, p1}, Lcom/badlogic/gdx/Application;->error(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 62
     :cond_0
     return-void
 .end method
 
 .method public error(Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "exception"    # Ljava/lang/Throwable;
 
     .line 65
     iget v0, p0, Lcom/badlogic/gdx/utils/Logger;->level:I
@@ -138,7 +124,6 @@
 
     invoke-interface {v0, v1, p1, p2}, Lcom/badlogic/gdx/Application;->error(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 66
     :cond_0
     return-void
 .end method
@@ -154,7 +139,6 @@
 
 .method public info(Ljava/lang/String;)V
     .locals 2
-    .param p1, "message"    # Ljava/lang/String;
 
     .line 53
     iget v0, p0, Lcom/badlogic/gdx/utils/Logger;->level:I
@@ -169,15 +153,12 @@
 
     invoke-interface {v0, v1, p1}, Lcom/badlogic/gdx/Application;->log(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 54
     :cond_0
     return-void
 .end method
 
 .method public info(Ljava/lang/String;Ljava/lang/Exception;)V
     .locals 2
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "exception"    # Ljava/lang/Exception;
 
     .line 57
     iget v0, p0, Lcom/badlogic/gdx/utils/Logger;->level:I
@@ -192,18 +173,15 @@
 
     invoke-interface {v0, v1, p1, p2}, Lcom/badlogic/gdx/Application;->log(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 58
     :cond_0
     return-void
 .end method
 
 .method public setLevel(I)V
     .locals 0
-    .param p1, "level"    # I
 
     .line 72
     iput p1, p0, Lcom/badlogic/gdx/utils/Logger;->level:I
 
-    .line 73
     return-void
 .end method

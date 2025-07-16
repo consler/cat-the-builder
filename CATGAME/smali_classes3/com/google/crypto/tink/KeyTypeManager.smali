@@ -55,7 +55,7 @@
 
 # direct methods
 .method protected varargs constructor <init>(Ljava/lang/Class;[Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;)V
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -81,122 +81,112 @@
     .end annotation
 
     .line 88
-    .local p0, "this":Lcom/google/crypto/tink/KeyTypeManager;, "Lcom/google/crypto/tink/KeyTypeManager<TKeyProtoT;>;"
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<TKeyProtoT;>;"
-    .local p2, "factories":[Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;, "[Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory<*TKeyProtoT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 89
     iput-object p1, p0, Lcom/google/crypto/tink/KeyTypeManager;->clazz:Ljava/lang/Class;
 
     .line 90
-    new-instance v0, Ljava/util/HashMap;
+    new-instance p1, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {p1}, Ljava/util/HashMap;-><init>()V
 
     .line 91
-    .local v0, "factoriesMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Class<*>;Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory<*TKeyProtoT;>;>;"
-    array-length v1, p2
+    array-length v0, p2
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    move v3, v2
+    move v2, v1
 
     :goto_0
-    if-ge v3, v1, :cond_1
+    if-ge v2, v0, :cond_1
 
-    aget-object v4, p2, v3
+    aget-object v3, p2, v2
 
     .line 92
-    .local v4, "factory":Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;, "Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory<*TKeyProtoT;>;"
-    invoke-virtual {v4}, Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;->getPrimitiveClass()Ljava/lang/Class;
+    invoke-virtual {v3}, Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;->getPrimitiveClass()Ljava/lang/Class;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-interface {v0, v5}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    invoke-interface {p1, v4}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v4
 
-    if-nez v5, :cond_0
+    if-nez v4, :cond_0
 
     .line 97
-    invoke-virtual {v4}, Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;->getPrimitiveClass()Ljava/lang/Class;
+    invoke-virtual {v3}, Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;->getPrimitiveClass()Ljava/lang/Class;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-interface {v0, v5, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, v4, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 91
-    .end local v4    # "factory":Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;, "Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory<*TKeyProtoT;>;"
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 93
-    .restart local v4    # "factory":Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;, "Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory<*TKeyProtoT;>;"
     :cond_0
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "KeyTypeManager constructed with duplicate factories for primitive "
 
-    const-string v3, "KeyTypeManager constructed with duplicate factories for primitive "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {p2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 95
-    invoke-virtual {v4}, Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;->getPrimitiveClass()Ljava/lang/Class;
+    invoke-virtual {v3}, Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;->getPrimitiveClass()Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v3}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p2
 
-    move-result-object v2
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p2
 
-    throw v1
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p1
 
     .line 99
-    .end local v4    # "factory":Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;, "Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory<*TKeyProtoT;>;"
     :cond_1
-    array-length v1, p2
+    array-length v0, p2
 
-    if-lez v1, :cond_2
+    if-lez v0, :cond_2
 
     .line 100
-    aget-object v1, p2, v2
+    aget-object p2, p2, v1
 
-    invoke-virtual {v1}, Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;->getPrimitiveClass()Ljava/lang/Class;
+    invoke-virtual {p2}, Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;->getPrimitiveClass()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object p2
 
-    iput-object v1, p0, Lcom/google/crypto/tink/KeyTypeManager;->firstPrimitiveClass:Ljava/lang/Class;
+    iput-object p2, p0, Lcom/google/crypto/tink/KeyTypeManager;->firstPrimitiveClass:Ljava/lang/Class;
 
     goto :goto_1
 
     .line 102
     :cond_2
-    const-class v1, Ljava/lang/Void;
+    const-class p2, Ljava/lang/Void;
 
-    iput-object v1, p0, Lcom/google/crypto/tink/KeyTypeManager;->firstPrimitiveClass:Ljava/lang/Class;
+    iput-object p2, p0, Lcom/google/crypto/tink/KeyTypeManager;->firstPrimitiveClass:Ljava/lang/Class;
 
     .line 104
     :goto_1
-    invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
+    invoke-static {p1}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
 
-    move-result-object v1
+    move-result-object p1
 
-    iput-object v1, p0, Lcom/google/crypto/tink/KeyTypeManager;->factories:Ljava/util/Map;
+    iput-object p1, p0, Lcom/google/crypto/tink/KeyTypeManager;->factories:Ljava/util/Map;
 
-    .line 105
     return-void
 .end method
 
@@ -213,7 +203,6 @@
     .end annotation
 
     .line 167
-    .local p0, "this":Lcom/google/crypto/tink/KeyTypeManager;, "Lcom/google/crypto/tink/KeyTypeManager<TKeyProtoT;>;"
     iget-object v0, p0, Lcom/google/crypto/tink/KeyTypeManager;->firstPrimitiveClass:Ljava/lang/Class;
 
     return-object v0
@@ -230,7 +219,6 @@
     .end annotation
 
     .line 109
-    .local p0, "this":Lcom/google/crypto/tink/KeyTypeManager;, "Lcom/google/crypto/tink/KeyTypeManager<TKeyProtoT;>;"
     iget-object v0, p0, Lcom/google/crypto/tink/KeyTypeManager;->clazz:Ljava/lang/Class;
 
     return-object v0
@@ -240,7 +228,7 @@
 .end method
 
 .method public final getPrimitive(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -269,9 +257,6 @@
     .end annotation
 
     .line 146
-    .local p0, "this":Lcom/google/crypto/tink/KeyTypeManager;, "Lcom/google/crypto/tink/KeyTypeManager<TKeyProtoT;>;"
-    .local p1, "key":Lcom/google/crypto/tink/shaded/protobuf/MessageLite;, "TKeyProtoT;"
-    .local p2, "primitiveClass":Ljava/lang/Class;, "Ljava/lang/Class<TP;>;"
     iget-object v0, p0, Lcom/google/crypto/tink/KeyTypeManager;->factories:Ljava/util/Map;
 
     .line 147
@@ -281,47 +266,47 @@
 
     check-cast v0, Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;
 
-    .line 148
-    .local v0, "factory":Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;, "Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory<TP;TKeyProtoT;>;"
     if-eqz v0, :cond_0
 
     .line 152
     invoke-virtual {v0, p1}, Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;->getPrimitive(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 149
     :cond_0
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Requested primitive class "
 
-    const-string v3, "Requested primitive class "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 150
     invoke-virtual {p2}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p2
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, " not supported."
+    move-result-object p2
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " not supported."
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v1
+    move-result-object p2
+
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p1
 .end method
 
 .method public abstract getVersion()I
@@ -338,7 +323,6 @@
     .end annotation
 
     .line 240
-    .local p0, "this":Lcom/google/crypto/tink/KeyTypeManager;, "Lcom/google/crypto/tink/KeyTypeManager<TKeyProtoT;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Creating keys is not supported."
@@ -388,7 +372,6 @@
     .end annotation
 
     .line 159
-    .local p0, "this":Lcom/google/crypto/tink/KeyTypeManager;, "Lcom/google/crypto/tink/KeyTypeManager<TKeyProtoT;>;"
     iget-object v0, p0, Lcom/google/crypto/tink/KeyTypeManager;->factories:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->keySet()Ljava/util/Set;

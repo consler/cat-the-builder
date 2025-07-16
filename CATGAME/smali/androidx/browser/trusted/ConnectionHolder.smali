@@ -50,7 +50,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Runnable;)V
     .locals 1
-    .param p1, "closeRunnable"    # Ljava/lang/Runnable;
 
     .line 69
     new-instance v0, Landroidx/browser/trusted/ConnectionHolder$WrapperFactory;
@@ -59,21 +58,18 @@
 
     invoke-direct {p0, p1, v0}, Landroidx/browser/trusted/ConnectionHolder;-><init>(Ljava/lang/Runnable;Landroidx/browser/trusted/ConnectionHolder$WrapperFactory;)V
 
-    .line 70
     return-void
 .end method
 
 .method constructor <init>(Ljava/lang/Runnable;Landroidx/browser/trusted/ConnectionHolder$WrapperFactory;)V
     .locals 1
-    .param p1, "closeRunnable"    # Ljava/lang/Runnable;
-    .param p2, "factory"    # Landroidx/browser/trusted/ConnectionHolder$WrapperFactory;
 
     .line 74
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 48
     const/4 v0, 0x0
 
+    .line 48
     iput v0, p0, Landroidx/browser/trusted/ConnectionHolder;->mState:I
 
     .line 50
@@ -89,7 +85,6 @@
     .line 76
     iput-object p2, p0, Landroidx/browser/trusted/ConnectionHolder;->mWrapperFactory:Landroidx/browser/trusted/ConnectionHolder$WrapperFactory;
 
-    .line 77
     return-void
 .end method
 
@@ -97,7 +92,6 @@
 # virtual methods
 .method public cancel(Ljava/lang/Exception;)V
     .locals 2
-    .param p1, "exception"    # Ljava/lang/Exception;
 
     .line 108
     iget-object v0, p0, Landroidx/browser/trusted/ConnectionHolder;->mCompleters:Ljava/util/List;
@@ -120,11 +114,8 @@
     check-cast v1, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
     .line 109
-    .local v1, "completer":Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;, "Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer<Landroidx/browser/trusted/TrustedWebActivityServiceConnection;>;"
     invoke-virtual {v1, p1}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->setException(Ljava/lang/Throwable;)Z
 
-    .line 110
-    .end local v1    # "completer":Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;, "Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer<Landroidx/browser/trusted/TrustedWebActivityServiceConnection;>;"
     goto :goto_0
 
     .line 111
@@ -138,15 +129,14 @@
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    .line 113
     const/4 v0, 0x3
 
+    .line 113
     iput v0, p0, Landroidx/browser/trusted/ConnectionHolder;->mState:I
 
     .line 114
     iput-object p1, p0, Landroidx/browser/trusted/ConnectionHolder;->mCancellationException:Ljava/lang/Exception;
 
-    .line 115
     return-void
 .end method
 
@@ -162,9 +152,9 @@
     .end annotation
 
     .line 129
-    new-instance v0, Landroidx/browser/trusted/-$$Lambda$ConnectionHolder$AU_vyFTWietXr1KAI5OuiE799PQ;
+    new-instance v0, Landroidx/browser/trusted/ConnectionHolder$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0}, Landroidx/browser/trusted/-$$Lambda$ConnectionHolder$AU_vyFTWietXr1KAI5OuiE799PQ;-><init>(Landroidx/browser/trusted/ConnectionHolder;)V
+    invoke-direct {v0, p0}, Landroidx/browser/trusted/ConnectionHolder$$ExternalSyntheticLambda0;-><init>(Landroidx/browser/trusted/ConnectionHolder;)V
 
     invoke-static {v0}, Landroidx/concurrent/futures/CallbackToFutureAdapter;->getFuture(Landroidx/concurrent/futures/CallbackToFutureAdapter$Resolver;)Lcom/google/common/util/concurrent/ListenableFuture;
 
@@ -173,9 +163,8 @@
     return-object v0
 .end method
 
-.method public synthetic lambda$getServiceWrapper$0$ConnectionHolder(Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)Ljava/lang/Object;
+.method synthetic lambda$getServiceWrapper$0$androidx-browser-trusted-ConnectionHolder(Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)Ljava/lang/Object;
     .locals 2
-    .param p1, "completer"    # Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -191,38 +180,38 @@
 
     if-eq v0, v1, :cond_2
 
-    const/4 v1, 0x2
+    const/4 p1, 0x2
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, p1, :cond_1
 
-    const/4 v1, 0x3
+    const/4 p1, 0x3
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, p1, :cond_0
 
     .line 145
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Connection state is invalid"
+    const-string v0, "Connection state is invalid"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 143
     :cond_0
-    iget-object v0, p0, Landroidx/browser/trusted/ConnectionHolder;->mCancellationException:Ljava/lang/Exception;
+    iget-object p1, p0, Landroidx/browser/trusted/ConnectionHolder;->mCancellationException:Ljava/lang/Exception;
 
-    throw v0
+    throw p1
 
     .line 141
     :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Service has been disconnected."
+    const-string v0, "Service has been disconnected."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 135
     :cond_2
@@ -233,18 +222,17 @@
     .line 138
     invoke-virtual {p1, v0}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
 
-    .line 139
     goto :goto_0
 
     .line 136
     :cond_3
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "ConnectionHolder state is incorrect."
+    const-string v0, "ConnectionHolder state is incorrect."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 132
     :cond_4
@@ -252,108 +240,97 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 133
-    nop
-
     .line 148
     :goto_0
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "ConnectionHolder, state = "
 
-    const-string v1, "ConnectionHolder, state = "
+    invoke-direct {p1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v0, p0, Landroidx/browser/trusted/ConnectionHolder;->mState:I
 
-    iget v1, p0, Landroidx/browser/trusted/ConnectionHolder;->mState:I
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .locals 3
-    .param p1, "componentName"    # Landroid/content/ComponentName;
-    .param p2, "iBinder"    # Landroid/os/IBinder;
+    .locals 1
 
     .line 83
     iget-object v0, p0, Landroidx/browser/trusted/ConnectionHolder;->mWrapperFactory:Landroidx/browser/trusted/ConnectionHolder$WrapperFactory;
 
     invoke-virtual {v0, p1, p2}, Landroidx/browser/trusted/ConnectionHolder$WrapperFactory;->create(Landroid/content/ComponentName;Landroid/os/IBinder;)Landroidx/browser/trusted/TrustedWebActivityServiceConnection;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/browser/trusted/ConnectionHolder;->mService:Landroidx/browser/trusted/TrustedWebActivityServiceConnection;
+    iput-object p1, p0, Landroidx/browser/trusted/ConnectionHolder;->mService:Landroidx/browser/trusted/TrustedWebActivityServiceConnection;
 
     .line 84
-    iget-object v0, p0, Landroidx/browser/trusted/ConnectionHolder;->mCompleters:Ljava/util/List;
+    iget-object p1, p0, Landroidx/browser/trusted/ConnectionHolder;->mCompleters:Ljava/util/List;
 
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result p2
 
-    if-eqz v1, :cond_0
+    if-eqz p2, :cond_0
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p2
 
-    check-cast v1, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
+    check-cast p2, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
     .line 85
-    .local v1, "completer":Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;, "Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer<Landroidx/browser/trusted/TrustedWebActivityServiceConnection;>;"
-    iget-object v2, p0, Landroidx/browser/trusted/ConnectionHolder;->mService:Landroidx/browser/trusted/TrustedWebActivityServiceConnection;
+    iget-object v0, p0, Landroidx/browser/trusted/ConnectionHolder;->mService:Landroidx/browser/trusted/TrustedWebActivityServiceConnection;
 
-    invoke-virtual {v1, v2}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v0}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
 
-    .line 86
-    .end local v1    # "completer":Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;, "Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer<Landroidx/browser/trusted/TrustedWebActivityServiceConnection;>;"
     goto :goto_0
 
     .line 87
     :cond_0
-    iget-object v0, p0, Landroidx/browser/trusted/ConnectionHolder;->mCompleters:Ljava/util/List;
+    iget-object p1, p0, Landroidx/browser/trusted/ConnectionHolder;->mCompleters:Ljava/util/List;
 
-    invoke-interface {v0}, Ljava/util/List;->clear()V
+    invoke-interface {p1}, Ljava/util/List;->clear()V
+
+    const/4 p1, 0x1
 
     .line 89
-    const/4 v0, 0x1
+    iput p1, p0, Landroidx/browser/trusted/ConnectionHolder;->mState:I
 
-    iput v0, p0, Landroidx/browser/trusted/ConnectionHolder;->mState:I
-
-    .line 90
     return-void
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .locals 1
-    .param p1, "componentName"    # Landroid/content/ComponentName;
+    .locals 0
+
+    const/4 p1, 0x0
 
     .line 96
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Landroidx/browser/trusted/ConnectionHolder;->mService:Landroidx/browser/trusted/TrustedWebActivityServiceConnection;
+    iput-object p1, p0, Landroidx/browser/trusted/ConnectionHolder;->mService:Landroidx/browser/trusted/TrustedWebActivityServiceConnection;
 
     .line 97
-    iget-object v0, p0, Landroidx/browser/trusted/ConnectionHolder;->mCloseRunnable:Ljava/lang/Runnable;
+    iget-object p1, p0, Landroidx/browser/trusted/ConnectionHolder;->mCloseRunnable:Ljava/lang/Runnable;
 
-    invoke-interface {v0}, Ljava/lang/Runnable;->run()V
+    invoke-interface {p1}, Ljava/lang/Runnable;->run()V
+
+    const/4 p1, 0x2
 
     .line 98
-    const/4 v0, 0x2
+    iput p1, p0, Landroidx/browser/trusted/ConnectionHolder;->mState:I
 
-    iput v0, p0, Landroidx/browser/trusted/ConnectionHolder;->mState:I
-
-    .line 99
     return-void
 .end method

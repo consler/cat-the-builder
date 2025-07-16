@@ -16,39 +16,33 @@
 
     invoke-direct {p0, v1, v0}, Lcom/thoughtworks/xstream/io/xml/XppDomWriter;-><init>(Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 21
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
     .locals 1
-    .param p1, "nameCoder"    # Lcom/thoughtworks/xstream/io/naming/NameCoder;
 
-    .line 34
     const/4 v0, 0x0
 
+    .line 34
     invoke-direct {p0, v0, p1}, Lcom/thoughtworks/xstream/io/xml/XppDomWriter;-><init>(Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 35
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;)V
     .locals 1
-    .param p1, "replacer"    # Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;
 
-    .line 49
     const/4 v0, 0x0
 
+    .line 49
     invoke-direct {p0, v0, p1}, Lcom/thoughtworks/xstream/io/xml/XppDomWriter;-><init>(Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;)V
 
-    .line 50
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;)V
     .locals 1
-    .param p1, "parent"    # Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
 
     .line 27
     new-instance v0, Lcom/thoughtworks/xstream/io/xml/XmlFriendlyNameCoder;
@@ -57,31 +51,24 @@
 
     invoke-direct {p0, p1, v0}, Lcom/thoughtworks/xstream/io/xml/XppDomWriter;-><init>(Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 28
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
     .locals 0
-    .param p1, "parent"    # Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
-    .param p2, "nameCoder"    # Lcom/thoughtworks/xstream/io/naming/NameCoder;
 
     .line 41
     invoke-direct {p0, p1, p2}, Lcom/thoughtworks/xstream/io/xml/AbstractDocumentWriter;-><init>(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 42
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;)V
     .locals 0
-    .param p1, "parent"    # Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
-    .param p2, "replacer"    # Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;
 
     .line 57
     invoke-direct {p0, p1, p2}, Lcom/thoughtworks/xstream/io/xml/XppDomWriter;-><init>(Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 58
     return-void
 .end method
 
@@ -101,9 +88,7 @@
 
 # virtual methods
 .method public addAttribute(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/String;
+    .locals 1
 
     .line 78
     invoke-direct {p0}, Lcom/thoughtworks/xstream/io/xml/XppDomWriter;->top()Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
@@ -112,45 +97,39 @@
 
     invoke-virtual {p0, p1}, Lcom/thoughtworks/xstream/io/xml/XppDomWriter;->encodeAttribute(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1, p2}, Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, p1, p2}, Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 79
     return-void
 .end method
 
 .method protected createNode(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 3
-    .param p1, "name"    # Ljava/lang/String;
+    .locals 1
 
     .line 65
     new-instance v0, Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
 
     invoke-virtual {p0, p1}, Lcom/thoughtworks/xstream/io/xml/XppDomWriter;->encodeNode(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;-><init>(Ljava/lang/String;)V
 
     .line 66
-    .local v0, "newNode":Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
     invoke-direct {p0}, Lcom/thoughtworks/xstream/io/xml/XppDomWriter;->top()Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
 
-    move-result-object v1
+    move-result-object p1
 
-    .line 67
-    .local v1, "top":Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
     .line 68
     invoke-direct {p0}, Lcom/thoughtworks/xstream/io/xml/XppDomWriter;->top()Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v2, v0}, Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;->addChild(Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;)V
+    invoke-virtual {p1, v0}, Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;->addChild(Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;)V
 
-    .line 70
     :cond_0
     return-object v0
 .end method
@@ -176,7 +155,6 @@
 
 .method public setValue(Ljava/lang/String;)V
     .locals 1
-    .param p1, "text"    # Ljava/lang/String;
 
     .line 74
     invoke-direct {p0}, Lcom/thoughtworks/xstream/io/xml/XppDomWriter;->top()Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;
@@ -185,6 +163,5 @@
 
     invoke-virtual {v0, p1}, Lcom/thoughtworks/xstream/io/xml/xppdom/XppDom;->setValue(Ljava/lang/String;)V
 
-    .line 75
     return-void
 .end method

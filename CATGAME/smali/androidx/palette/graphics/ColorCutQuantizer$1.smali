@@ -39,22 +39,20 @@
 
 # virtual methods
 .method public compare(Landroidx/palette/graphics/ColorCutQuantizer$Vbox;Landroidx/palette/graphics/ColorCutQuantizer$Vbox;)I
-    .locals 2
-    .param p1, "lhs"    # Landroidx/palette/graphics/ColorCutQuantizer$Vbox;
-    .param p2, "rhs"    # Landroidx/palette/graphics/ColorCutQuantizer$Vbox;
+    .locals 0
 
     .line 460
     invoke-virtual {p2}, Landroidx/palette/graphics/ColorCutQuantizer$Vbox;->getVolume()I
 
-    move-result v0
+    move-result p2
 
     invoke-virtual {p1}, Landroidx/palette/graphics/ColorCutQuantizer$Vbox;->getVolume()I
 
-    move-result v1
+    move-result p1
 
-    sub-int/2addr v0, v1
+    sub-int/2addr p2, p1
 
-    return v0
+    return p2
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I

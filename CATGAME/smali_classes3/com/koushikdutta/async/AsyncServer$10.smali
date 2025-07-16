@@ -31,7 +31,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/AsyncServer;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/AsyncServer;
 
     .line 474
     iput-object p1, p0, Lcom/koushikdutta/async/AsyncServer$10;->this$0:Lcom/koushikdutta/async/AsyncServer;
@@ -61,20 +60,18 @@
 
 .method protected transform([Ljava/net/InetAddress;)V
     .locals 1
-    .param p1, "result"    # [Ljava/net/InetAddress;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    .line 477
     const/4 v0, 0x0
 
-    aget-object v0, p1, v0
+    .line 477
+    aget-object p1, p1, v0
 
-    invoke-virtual {p0, v0}, Lcom/koushikdutta/async/AsyncServer$10;->setComplete(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Lcom/koushikdutta/async/AsyncServer$10;->setComplete(Ljava/lang/Object;)Z
 
-    .line 478
     return-void
 .end method

@@ -50,7 +50,6 @@
 
 .method public static add(Lcom/google/crypto/tink/KmsClient;)V
     .locals 1
-    .param p0, "client"    # Lcom/google/crypto/tink/KmsClient;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -65,13 +64,11 @@
 
     invoke-virtual {v0, p0}, Ljava/util/concurrent/CopyOnWriteArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 46
     return-void
 .end method
 
 .method public static get(Ljava/lang/String;)Lcom/google/crypto/tink/KmsClient;
     .locals 3
-    .param p0, "keyUri"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -94,7 +91,7 @@
 
     move-result-object v0
 
-    :goto_0
+    :cond_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
@@ -108,20 +105,13 @@
     check-cast v1, Lcom/google/crypto/tink/KmsClient;
 
     .line 56
-    .local v1, "client":Lcom/google/crypto/tink/KmsClient;
     invoke-interface {v1, p0}, Lcom/google/crypto/tink/KmsClient;->doesSupport(Ljava/lang/String;)Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 57
     return-object v1
-
-    .line 59
-    .end local v1    # "client":Lcom/google/crypto/tink/KmsClient;
-    :cond_0
-    goto :goto_0
 
     .line 60
     :cond_1
@@ -129,26 +119,25 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "No KMS client does support: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v1
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public static declared-synchronized getAutoLoaded(Ljava/lang/String;)Lcom/google/crypto/tink/KmsClient;
     .locals 4
-    .param p0, "keyUri"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -189,7 +178,7 @@
 
     move-result-object v1
 
-    :goto_0
+    :cond_1
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
@@ -203,7 +192,6 @@
     check-cast v2, Lcom/google/crypto/tink/KmsClient;
 
     .line 82
-    .local v2, "client":Lcom/google/crypto/tink/KmsClient;
     invoke-interface {v2, p0}, Lcom/google/crypto/tink/KmsClient;->doesSupport(Ljava/lang/String;)Z
 
     move-result v3
@@ -216,11 +204,6 @@
     monitor-exit v0
 
     return-object v2
-
-    .line 85
-    .end local v2    # "client":Lcom/google/crypto/tink/KmsClient;
-    :cond_1
-    goto :goto_0
 
     .line 86
     :cond_2
@@ -235,20 +218,22 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v2
 
-    invoke-direct {v1, v2}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v1, p0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
     throw v1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 77
-    .end local p0    # "keyUri":Ljava/lang/String;
     :catchall_0
     move-exception p0
 
@@ -258,7 +243,7 @@
 .end method
 
 .method private static loadAutoKmsClients()Ljava/util/List;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -274,7 +259,6 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 91
-    .local v0, "clients":Ljava/util/List;, "Ljava/util/List<Lcom/google/crypto/tink/KmsClient;>;"
     const-class v1, Lcom/google/crypto/tink/KmsClient;
 
     invoke-static {v1}, Ljava/util/ServiceLoader;->load(Ljava/lang/Class;)Ljava/util/ServiceLoader;
@@ -282,28 +266,26 @@
     move-result-object v1
 
     .line 92
-    .local v1, "clientLoader":Ljava/util/ServiceLoader;, "Ljava/util/ServiceLoader<Lcom/google/crypto/tink/KmsClient;>;"
     invoke-virtual {v1}, Ljava/util/ServiceLoader;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    .line 93
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 94
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
-    .line 93
-    .local v2, "i":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/google/crypto/tink/KmsClient;>;"
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v2, Lcom/google/crypto/tink/KmsClient;
 
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    .line 94
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/google/crypto/tink/KmsClient;
-
-    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
@@ -311,7 +293,7 @@
     :cond_0
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object v3
+    move-result-object v0
 
-    return-object v3
+    return-object v0
 .end method

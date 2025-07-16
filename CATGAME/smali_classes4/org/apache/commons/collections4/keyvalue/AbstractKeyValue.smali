@@ -49,9 +49,6 @@
     .end annotation
 
     .line 43
-    .local p0, "this":Lorg/apache/commons/collections4/keyvalue/AbstractKeyValue;, "Lorg/apache/commons/collections4/keyvalue/AbstractKeyValue<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 44
@@ -60,7 +57,6 @@
     .line 45
     iput-object p2, p0, Lorg/apache/commons/collections4/keyvalue/AbstractKeyValue;->value:Ljava/lang/Object;
 
-    .line 46
     return-void
 .end method
 
@@ -75,7 +71,6 @@
     .end annotation
 
     .line 55
-    .local p0, "this":Lorg/apache/commons/collections4/keyvalue/AbstractKeyValue;, "Lorg/apache/commons/collections4/keyvalue/AbstractKeyValue<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/keyvalue/AbstractKeyValue;->key:Ljava/lang/Object;
 
     return-object v0
@@ -90,7 +85,6 @@
     .end annotation
 
     .line 71
-    .local p0, "this":Lorg/apache/commons/collections4/keyvalue/AbstractKeyValue;, "Lorg/apache/commons/collections4/keyvalue/AbstractKeyValue<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/keyvalue/AbstractKeyValue;->value:Ljava/lang/Object;
 
     return-object v0
@@ -105,15 +99,11 @@
     .end annotation
 
     .line 59
-    .local p0, "this":Lorg/apache/commons/collections4/keyvalue/AbstractKeyValue;, "Lorg/apache/commons/collections4/keyvalue/AbstractKeyValue<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     iget-object v0, p0, Lorg/apache/commons/collections4/keyvalue/AbstractKeyValue;->key:Ljava/lang/Object;
 
     .line 60
-    .local v0, "old":Ljava/lang/Object;, "TK;"
     iput-object p1, p0, Lorg/apache/commons/collections4/keyvalue/AbstractKeyValue;->key:Ljava/lang/Object;
 
-    .line 61
     return-object v0
 .end method
 
@@ -126,15 +116,11 @@
     .end annotation
 
     .line 75
-    .local p0, "this":Lorg/apache/commons/collections4/keyvalue/AbstractKeyValue;, "Lorg/apache/commons/collections4/keyvalue/AbstractKeyValue<TK;TV;>;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lorg/apache/commons/collections4/keyvalue/AbstractKeyValue;->value:Ljava/lang/Object;
 
     .line 76
-    .local v0, "old":Ljava/lang/Object;, "TV;"
     iput-object p1, p0, Lorg/apache/commons/collections4/keyvalue/AbstractKeyValue;->value:Ljava/lang/Object;
 
-    .line 77
     return-object v0
 .end method
 
@@ -142,7 +128,6 @@
     .locals 2
 
     .line 87
-    .local p0, "this":Lorg/apache/commons/collections4/keyvalue/AbstractKeyValue;, "Lorg/apache/commons/collections4/keyvalue/AbstractKeyValue<TK;TV;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -154,10 +139,14 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 89
+    move-result-object v0
+
     const/16 v1, 0x3d
 
+    .line 89
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     .line 90
     invoke-virtual {p0}, Lorg/apache/commons/collections4/keyvalue/AbstractKeyValue;->getValue()Ljava/lang/Object;
@@ -166,11 +155,12 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     .line 91
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 87
     return-object v0
 .end method

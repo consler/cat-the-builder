@@ -28,20 +28,16 @@
 # virtual methods
 .method computeAndSetTextDirection(Landroid/text/StaticLayout$Builder;Landroid/widget/TextView;)V
     .locals 0
-    .param p1, "layoutBuilder"    # Landroid/text/StaticLayout$Builder;
-    .param p2, "textView"    # Landroid/widget/TextView;
 
-    .line 117
     return-void
 .end method
 
 .method isHorizontallyScrollable(Landroid/widget/TextView;)Z
     .locals 2
-    .param p1, "textView"    # Landroid/widget/TextView;
 
-    .line 113
     const/4 v0, 0x0
 
+    .line 113
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -50,13 +46,13 @@
 
     invoke-static {p1, v1, v0}, Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;->invokeAndReturnWithDefault(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/lang/Boolean;
+    check-cast p1, Ljava/lang/Boolean;
 
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

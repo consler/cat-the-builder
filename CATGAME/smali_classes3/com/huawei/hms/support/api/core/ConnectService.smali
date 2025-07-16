@@ -7,10 +7,9 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 37
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 38
     return-void
 .end method
 
@@ -29,12 +28,12 @@
         }
     .end annotation
 
-    .line 108
-    const-class v0, Lcom/huawei/hms/support/api/entity/core/CheckConnectResp;
+    const-string v0, "core.checkconnect"
 
-    const-string v1, "core.checkconnect"
+    .line 1
+    const-class v1, Lcom/huawei/hms/support/api/entity/core/CheckConnectResp;
 
-    invoke-static {p0, v1, p1, v0}, Lcom/huawei/hms/support/api/ResolvePendingResult;->build(Lcom/huawei/hms/support/api/client/ApiClient;Ljava/lang/String;Lcom/huawei/hms/core/aidl/IMessageEntity;Ljava/lang/Class;)Lcom/huawei/hms/support/api/ResolvePendingResult;
+    invoke-static {p0, v0, p1, v1}, Lcom/huawei/hms/support/api/ResolvePendingResult;->build(Lcom/huawei/hms/support/api/client/ApiClient;Ljava/lang/String;Lcom/huawei/hms/core/aidl/IMessageEntity;Ljava/lang/Class;)Lcom/huawei/hms/support/api/ResolvePendingResult;
 
     move-result-object p0
 
@@ -56,12 +55,12 @@
         }
     .end annotation
 
-    .line 48
-    new-instance v0, Lcom/huawei/hms/support/api/core/ConnectService$1;
+    .line 1
+    new-instance v0, Lcom/huawei/hms/support/api/core/ConnectService$a;
 
     const-string v1, "core.connect"
 
-    invoke-direct {v0, p0, v1, p1}, Lcom/huawei/hms/support/api/core/ConnectService$1;-><init>(Lcom/huawei/hms/support/api/client/ApiClient;Ljava/lang/String;Lcom/huawei/hms/core/aidl/IMessageEntity;)V
+    invoke-direct {v0, p0, v1, p1}, Lcom/huawei/hms/support/api/core/ConnectService$a;-><init>(Lcom/huawei/hms/support/api/client/ApiClient;Ljava/lang/String;Lcom/huawei/hms/core/aidl/IMessageEntity;)V
 
     return-object v0
 .end method
@@ -80,12 +79,12 @@
         }
     .end annotation
 
-    .line 96
-    const-class v0, Lcom/huawei/hms/support/api/entity/core/DisconnectResp;
+    const-string v0, "core.disconnect"
 
-    const-string v1, "core.disconnect"
+    .line 1
+    const-class v1, Lcom/huawei/hms/support/api/entity/core/DisconnectResp;
 
-    invoke-static {p0, v1, p1, v0}, Lcom/huawei/hms/support/api/ResolvePendingResult;->build(Lcom/huawei/hms/support/api/client/ApiClient;Ljava/lang/String;Lcom/huawei/hms/core/aidl/IMessageEntity;Ljava/lang/Class;)Lcom/huawei/hms/support/api/ResolvePendingResult;
+    invoke-static {p0, v0, p1, v1}, Lcom/huawei/hms/support/api/ResolvePendingResult;->build(Lcom/huawei/hms/support/api/client/ApiClient;Ljava/lang/String;Lcom/huawei/hms/core/aidl/IMessageEntity;Ljava/lang/Class;)Lcom/huawei/hms/support/api/ResolvePendingResult;
 
     move-result-object p0
 
@@ -107,12 +106,12 @@
         }
     .end annotation
 
-    .line 72
-    new-instance v0, Lcom/huawei/hms/support/api/core/ConnectService$2;
+    .line 1
+    new-instance v0, Lcom/huawei/hms/support/api/core/ConnectService$b;
 
     const-string v1, "core.foreconnect"
 
-    invoke-direct {v0, p0, v1, p1}, Lcom/huawei/hms/support/api/core/ConnectService$2;-><init>(Lcom/huawei/hms/support/api/client/ApiClient;Ljava/lang/String;Lcom/huawei/hms/core/aidl/IMessageEntity;)V
+    invoke-direct {v0, p0, v1, p1}, Lcom/huawei/hms/support/api/core/ConnectService$b;-><init>(Lcom/huawei/hms/support/api/client/ApiClient;Ljava/lang/String;Lcom/huawei/hms/core/aidl/IMessageEntity;)V
 
     return-object v0
 .end method
@@ -133,18 +132,18 @@
         }
     .end annotation
 
-    .line 120
+    .line 1
     new-instance v0, Lcom/huawei/hms/support/api/entity/core/JosGetNoticeReq;
 
     invoke-direct {v0}, Lcom/huawei/hms/support/api/entity/core/JosGetNoticeReq;-><init>()V
 
-    .line 121
+    .line 2
     invoke-virtual {v0, p1}, Lcom/huawei/hms/support/api/entity/core/JosGetNoticeReq;->setNoticeType(I)V
 
-    .line 122
+    .line 3
     invoke-virtual {v0, p2}, Lcom/huawei/hms/support/api/entity/core/JosGetNoticeReq;->setHmsSdkVersionName(Ljava/lang/String;)V
 
-    .line 123
+    .line 4
     invoke-interface {p0}, Lcom/huawei/hms/support/api/client/ApiClient;->getCpID()Ljava/lang/String;
 
     move-result-object p1
@@ -155,20 +154,20 @@
 
     if-nez p1, :cond_0
 
-    .line 124
+    .line 5
     invoke-interface {p0}, Lcom/huawei/hms/support/api/client/ApiClient;->getCpID()Ljava/lang/String;
 
     move-result-object p1
 
     invoke-virtual {v0, p1}, Lcom/huawei/hms/support/api/entity/core/JosGetNoticeReq;->setCpID(Ljava/lang/String;)V
 
-    .line 127
+    .line 8
     :cond_0
-    new-instance p1, Lcom/huawei/hms/support/api/core/ConnectService$3;
+    new-instance p1, Lcom/huawei/hms/support/api/core/ConnectService$c;
 
     const-string p2, "core.getNoticeIntent"
 
-    invoke-direct {p1, p0, p2, v0}, Lcom/huawei/hms/support/api/core/ConnectService$3;-><init>(Lcom/huawei/hms/support/api/client/ApiClient;Ljava/lang/String;Lcom/huawei/hms/core/aidl/IMessageEntity;)V
+    invoke-direct {p1, p0, p2, v0}, Lcom/huawei/hms/support/api/core/ConnectService$c;-><init>(Lcom/huawei/hms/support/api/client/ApiClient;Ljava/lang/String;Lcom/huawei/hms/core/aidl/IMessageEntity;)V
 
     return-object p1
 .end method

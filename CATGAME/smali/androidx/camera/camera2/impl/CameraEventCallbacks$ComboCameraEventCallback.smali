@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -39,7 +39,6 @@
     .end annotation
 
     .line 64
-    .local p1, "callbacks":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/camera2/impl/CameraEventCallback;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 62
@@ -52,32 +51,28 @@
     .line 65
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroidx/camera/camera2/impl/CameraEventCallback;
+    check-cast v0, Landroidx/camera/camera2/impl/CameraEventCallback;
 
     .line 66
-    .local v1, "callback":Landroidx/camera/camera2/impl/CameraEventCallback;
-    iget-object v2, p0, Landroidx/camera/camera2/impl/CameraEventCallbacks$ComboCameraEventCallback;->mCallbacks:Ljava/util/List;
+    iget-object v1, p0, Landroidx/camera/camera2/impl/CameraEventCallbacks$ComboCameraEventCallback;->mCallbacks:Ljava/util/List;
 
-    invoke-interface {v2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 67
-    .end local v1    # "callback":Landroidx/camera/camera2/impl/CameraEventCallback;
     goto :goto_0
 
-    .line 68
     :cond_0
     return-void
 .end method
@@ -102,7 +97,7 @@
 .end method
 
 .method public onDisableSession()Ljava/util/List;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -118,13 +113,13 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 133
-    .local v0, "ret":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/core/impl/CaptureConfig;>;"
     iget-object v1, p0, Landroidx/camera/camera2/impl/CameraEventCallbacks$ComboCameraEventCallback;->mCallbacks:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
+    :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -139,31 +134,23 @@
     check-cast v2, Landroidx/camera/camera2/impl/CameraEventCallback;
 
     .line 134
-    .local v2, "callback":Landroidx/camera/camera2/impl/CameraEventCallback;
     invoke-virtual {v2}, Landroidx/camera/camera2/impl/CameraEventCallback;->onDisableSession()Landroidx/camera/core/impl/CaptureConfig;
 
-    move-result-object v3
+    move-result-object v2
 
-    .line 135
-    .local v3, "disableCaptureStage":Landroidx/camera/core/impl/CaptureConfig;
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
     .line 136
-    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 138
-    .end local v2    # "callback":Landroidx/camera/camera2/impl/CameraEventCallback;
-    .end local v3    # "disableCaptureStage":Landroidx/camera/core/impl/CaptureConfig;
-    :cond_0
     goto :goto_0
 
-    .line 139
     :cond_1
     return-object v0
 .end method
 
 .method public onEnableSession()Ljava/util/List;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -179,13 +166,13 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 97
-    .local v0, "ret":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/core/impl/CaptureConfig;>;"
     iget-object v1, p0, Landroidx/camera/camera2/impl/CameraEventCallbacks$ComboCameraEventCallback;->mCallbacks:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
+    :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -200,31 +187,23 @@
     check-cast v2, Landroidx/camera/camera2/impl/CameraEventCallback;
 
     .line 98
-    .local v2, "callback":Landroidx/camera/camera2/impl/CameraEventCallback;
     invoke-virtual {v2}, Landroidx/camera/camera2/impl/CameraEventCallback;->onEnableSession()Landroidx/camera/core/impl/CaptureConfig;
 
-    move-result-object v3
+    move-result-object v2
 
-    .line 99
-    .local v3, "enableCaptureStage":Landroidx/camera/core/impl/CaptureConfig;
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
     .line 100
-    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 102
-    .end local v2    # "callback":Landroidx/camera/camera2/impl/CameraEventCallback;
-    .end local v3    # "enableCaptureStage":Landroidx/camera/core/impl/CaptureConfig;
-    :cond_0
     goto :goto_0
 
-    .line 103
     :cond_1
     return-object v0
 .end method
 
 .method public onPresetSession()Ljava/util/List;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -240,13 +219,13 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 79
-    .local v0, "ret":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/core/impl/CaptureConfig;>;"
     iget-object v1, p0, Landroidx/camera/camera2/impl/CameraEventCallbacks$ComboCameraEventCallback;->mCallbacks:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
+    :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -261,31 +240,23 @@
     check-cast v2, Landroidx/camera/camera2/impl/CameraEventCallback;
 
     .line 80
-    .local v2, "callback":Landroidx/camera/camera2/impl/CameraEventCallback;
     invoke-virtual {v2}, Landroidx/camera/camera2/impl/CameraEventCallback;->onPresetSession()Landroidx/camera/core/impl/CaptureConfig;
 
-    move-result-object v3
+    move-result-object v2
 
-    .line 81
-    .local v3, "presetCaptureStage":Landroidx/camera/core/impl/CaptureConfig;
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
     .line 82
-    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 84
-    .end local v2    # "callback":Landroidx/camera/camera2/impl/CameraEventCallback;
-    .end local v3    # "presetCaptureStage":Landroidx/camera/core/impl/CaptureConfig;
-    :cond_0
     goto :goto_0
 
-    .line 85
     :cond_1
     return-object v0
 .end method
 
 .method public onRepeating()Ljava/util/List;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -301,13 +272,13 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 115
-    .local v0, "ret":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/core/impl/CaptureConfig;>;"
     iget-object v1, p0, Landroidx/camera/camera2/impl/CameraEventCallbacks$ComboCameraEventCallback;->mCallbacks:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
+    :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -322,25 +293,17 @@
     check-cast v2, Landroidx/camera/camera2/impl/CameraEventCallback;
 
     .line 116
-    .local v2, "callback":Landroidx/camera/camera2/impl/CameraEventCallback;
     invoke-virtual {v2}, Landroidx/camera/camera2/impl/CameraEventCallback;->onRepeating()Landroidx/camera/core/impl/CaptureConfig;
 
-    move-result-object v3
+    move-result-object v2
 
-    .line 117
-    .local v3, "repeatingCaptureStage":Landroidx/camera/core/impl/CaptureConfig;
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
     .line 118
-    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 120
-    .end local v2    # "callback":Landroidx/camera/camera2/impl/CameraEventCallback;
-    .end local v3    # "repeatingCaptureStage":Landroidx/camera/core/impl/CaptureConfig;
-    :cond_0
     goto :goto_0
 
-    .line 121
     :cond_1
     return-object v0
 .end method

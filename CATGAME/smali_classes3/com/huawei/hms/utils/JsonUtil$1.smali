@@ -27,7 +27,7 @@
 .method constructor <init>(Ljava/lang/reflect/Field;Z)V
     .locals 0
 
-    .line 105
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/utils/JsonUtil$1;->a:Ljava/lang/reflect/Field;
 
     iput-boolean p2, p0, Lcom/huawei/hms/utils/JsonUtil$1;->b:Z
@@ -42,14 +42,13 @@
 .method public run()Ljava/lang/Object;
     .locals 2
 
-    .line 108
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/utils/JsonUtil$1;->a:Ljava/lang/reflect/Field;
 
     iget-boolean v1, p0, Lcom/huawei/hms/utils/JsonUtil$1;->b:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Field;->setAccessible(Z)V
 
-    .line 109
     const/4 v0, 0x0
 
     return-object v0

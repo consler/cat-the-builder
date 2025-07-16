@@ -19,14 +19,14 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
-    .line 121
     const-string v0, "ro.build.hw_emui_api_level"
 
     const/4 v1, 0x0
 
+    .line 1
     invoke-static {v0, v1}, Lcom/huawei/hms/android/HwBuildEx;->getSystemPropertiesInt(Ljava/lang/String;I)I
 
     move-result v0
@@ -39,7 +39,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 120
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

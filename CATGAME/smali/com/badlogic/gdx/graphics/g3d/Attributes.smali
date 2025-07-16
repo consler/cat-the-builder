@@ -55,43 +55,39 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->attributes:Lcom/badlogic/gdx/utils/Array;
 
-    .line 28
     const/4 v0, 0x1
 
+    .line 28
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->sorted:Z
 
     return-void
 .end method
 
 .method private final disable(J)V
-    .locals 4
-    .param p1, "mask"    # J
+    .locals 2
 
     .line 81
     iget-wide v0, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->mask:J
 
-    not-long v2, p1
+    not-long p1, p1
 
-    and-long/2addr v0, v2
+    and-long/2addr p1, v0
 
-    iput-wide v0, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->mask:J
+    iput-wide p1, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->mask:J
 
-    .line 82
     return-void
 .end method
 
 .method private final enable(J)V
     .locals 2
-    .param p1, "mask"    # J
 
     .line 77
     iget-wide v0, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->mask:J
 
-    or-long/2addr v0, p1
+    or-long/2addr p1, v0
 
-    iput-wide v0, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->mask:J
+    iput-wide p1, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->mask:J
 
-    .line 78
     return-void
 .end method
 
@@ -108,32 +104,26 @@
 
     iget v0, v0, Lcom/badlogic/gdx/utils/Array;->size:I
 
+    const-wide/16 v1, 0x47
+
     .line 199
-    .local v0, "n":I
-    iget-wide v1, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->mask:J
+    iget-wide v3, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->mask:J
 
-    const-wide/16 v3, 0x47
+    add-long/2addr v3, v1
 
-    add-long/2addr v1, v3
+    const/4 v1, 0x1
 
-    .line 200
-    .local v1, "result":J
-    const/4 v3, 0x1
+    const/4 v2, 0x0
 
-    .line 201
-    .local v3, "m":I
-    const/4 v4, 0x0
-
-    .local v4, "i":I
     :goto_0
-    if-ge v4, v0, :cond_0
+    if-ge v2, v0, :cond_0
 
     .line 202
     iget-wide v5, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->mask:J
 
     iget-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->attributes:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v7, v4}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
+    invoke-virtual {v7, v2}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
     move-result-object v7
 
@@ -147,45 +137,40 @@
 
     mul-long/2addr v5, v7
 
-    mul-int/lit8 v7, v3, 0x7
+    mul-int/lit8 v1, v1, 0x7
 
-    const v8, 0xffff
+    const v7, 0xffff
 
-    and-int/2addr v7, v8
+    and-int/2addr v1, v7
 
-    move v3, v7
-
-    int-to-long v7, v7
+    int-to-long v7, v1
 
     mul-long/2addr v5, v7
 
-    add-long/2addr v1, v5
+    add-long/2addr v3, v5
 
-    .line 201
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 203
-    .end local v4    # "i":I
     :cond_0
-    const/16 v4, 0x20
+    const/16 v0, 0x20
 
-    shr-long v4, v1, v4
+    shr-long v0, v3, v0
 
-    xor-long/2addr v4, v1
+    xor-long/2addr v0, v3
 
-    long-to-int v4, v4
+    long-to-int v0, v0
 
-    return v4
+    return v0
 .end method
 
 .method public clear()V
     .locals 2
 
-    .line 67
     const-wide/16 v0, 0x0
 
+    .line 67
     iput-wide v0, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->mask:J
 
     .line 68
@@ -193,25 +178,22 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->clear()V
 
-    .line 69
     return-void
 .end method
 
 .method public final compare(Lcom/badlogic/gdx/graphics/g3d/Attribute;Lcom/badlogic/gdx/graphics/g3d/Attribute;)I
-    .locals 4
-    .param p1, "arg0"    # Lcom/badlogic/gdx/graphics/g3d/Attribute;
-    .param p2, "arg1"    # Lcom/badlogic/gdx/graphics/g3d/Attribute;
+    .locals 2
 
     .line 185
     iget-wide v0, p1, Lcom/badlogic/gdx/graphics/g3d/Attribute;->type:J
 
-    iget-wide v2, p2, Lcom/badlogic/gdx/graphics/g3d/Attribute;->type:J
+    iget-wide p1, p2, Lcom/badlogic/gdx/graphics/g3d/Attribute;->type:J
 
-    sub-long/2addr v0, v2
+    sub-long/2addr v0, p1
 
-    long-to-int v0, v0
+    long-to-int p1, v0
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
@@ -231,14 +213,11 @@
 
 .method public compareTo(Lcom/badlogic/gdx/graphics/g3d/Attributes;)I
     .locals 8
-    .param p1, "other"    # Lcom/badlogic/gdx/graphics/g3d/Attributes;
 
-    .line 220
     const/4 v0, 0x0
 
     if-ne p1, p0, :cond_0
 
-    .line 221
     return v0
 
     .line 222
@@ -255,10 +234,9 @@
 
     if-eqz v5, :cond_2
 
-    .line 223
-    cmp-long v0, v1, v3
+    cmp-long p1, v1, v3
 
-    if-gez v0, :cond_1
+    if-gez p1, :cond_1
 
     goto :goto_0
 
@@ -275,10 +253,9 @@
     .line 225
     invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->sort()V
 
-    .line 226
-    const/4 v1, 0x0
+    move v1, v0
 
-    .local v1, "i":I
+    .line 226
     :goto_1
     iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->attributes:Lcom/badlogic/gdx/utils/Array;
 
@@ -305,11 +282,8 @@
 
     move-result v2
 
-    .line 228
-    .local v2, "c":I
     if-eqz v2, :cond_5
 
-    .line 229
     if-gez v2, :cond_3
 
     move v0, v6
@@ -325,15 +299,11 @@
     :goto_2
     return v0
 
-    .line 226
-    .end local v2    # "c":I
     :cond_5
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 231
-    .end local v1    # "i":I
     :cond_6
     return v0
 .end method
@@ -352,19 +322,17 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
-    .param p1, "other"    # Ljava/lang/Object;
+    .locals 1
 
     .line 213
     instance-of v0, p1, Lcom/badlogic/gdx/graphics/g3d/Attributes;
 
     if-nez v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
-    .line 214
     :cond_0
     const/4 v0, 0x1
 
@@ -374,20 +342,17 @@
 
     .line 215
     :cond_1
-    move-object v1, p1
+    check-cast p1, Lcom/badlogic/gdx/graphics/g3d/Attributes;
 
-    check-cast v1, Lcom/badlogic/gdx/graphics/g3d/Attributes;
+    invoke-virtual {p0, p1, v0}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->same(Lcom/badlogic/gdx/graphics/g3d/Attributes;Z)Z
 
-    invoke-virtual {p0, v1, v0}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->same(Lcom/badlogic/gdx/graphics/g3d/Attributes;Z)Z
+    move-result p1
 
-    move-result v0
-
-    return v0
+    return p1
 .end method
 
 .method public final get(J)Lcom/badlogic/gdx/graphics/g3d/Attribute;
     .locals 3
-    .param p1, "type"    # J
 
     .line 46
     invoke-virtual {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->has(J)Z
@@ -398,7 +363,6 @@
 
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->attributes:Lcom/badlogic/gdx/utils/Array;
 
@@ -421,33 +385,29 @@
 
     if-nez v1, :cond_0
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->attributes:Lcom/badlogic/gdx/utils/Array;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->attributes:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v1, v0}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Lcom/badlogic/gdx/graphics/g3d/Attribute;
+    check-cast p1, Lcom/badlogic/gdx/graphics/g3d/Attribute;
 
-    return-object v1
+    return-object p1
 
-    .line 46
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 48
-    .end local v0    # "i":I
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final get(Ljava/lang/Class;J)Lcom/badlogic/gdx/graphics/g3d/Attribute;
-    .locals 1
-    .param p2, "type"    # J
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -459,17 +419,15 @@
     .end annotation
 
     .line 54
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-virtual {p0, p2, p3}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->get(J)Lcom/badlogic/gdx/graphics/g3d/Attribute;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final get(Lcom/badlogic/gdx/utils/Array;J)Lcom/badlogic/gdx/utils/Array;
     .locals 5
-    .param p2, "type"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -482,11 +440,9 @@
         }
     .end annotation
 
-    .line 60
-    .local p1, "out":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/g3d/Attribute;>;"
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 60
     :goto_0
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->attributes:Lcom/badlogic/gdx/utils/Array;
 
@@ -521,14 +477,11 @@
 
     invoke-virtual {p1, v1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 60
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 62
-    .end local v0    # "i":I
     :cond_1
     return-object p1
 .end method
@@ -544,32 +497,31 @@
 
 .method public final has(J)Z
     .locals 2
-    .param p1, "type"    # J
 
-    .line 151
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
 
     if-eqz v0, :cond_0
 
+    .line 151
     iget-wide v0, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->mask:J
 
     and-long/2addr v0, p1
 
-    cmp-long v0, v0, p1
+    cmp-long p1, v0, p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public hashCode()I
@@ -585,7 +537,6 @@
 
 .method protected indexOf(J)I
     .locals 3
-    .param p1, "type"    # J
 
     .line 156
     invoke-virtual {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->has(J)Z
@@ -596,7 +547,6 @@
 
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->attributes:Lcom/badlogic/gdx/utils/Array;
 
@@ -621,18 +571,15 @@
 
     return v0
 
-    .line 156
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 158
-    .end local v0    # "i":I
     :cond_1
-    const/4 v0, -0x1
+    const/4 p1, -0x1
 
-    return v0
+    return p1
 .end method
 
 .method public final iterator()Ljava/util/Iterator;
@@ -658,7 +605,6 @@
 
 .method public final remove(J)V
     .locals 5
-    .param p1, "mask"    # J
 
     .line 136
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->attributes:Lcom/badlogic/gdx/utils/Array;
@@ -667,7 +613,6 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_1
 
@@ -682,8 +627,6 @@
 
     iget-wide v1, v1, Lcom/badlogic/gdx/graphics/g3d/Attribute;->type:J
 
-    .line 138
-    .local v1, "type":J
     and-long v3, p1, v1
 
     cmp-long v3, v3, v1
@@ -698,59 +641,51 @@
     .line 140
     invoke-direct {p0, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->disable(J)V
 
+    const/4 v1, 0x0
+
     .line 141
-    const/4 v3, 0x0
+    iput-boolean v1, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->sorted:Z
 
-    iput-boolean v3, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->sorted:Z
-
-    .line 136
-    .end local v1    # "type":J
     :cond_0
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
     .line 144
-    .end local v0    # "i":I
     :cond_1
     invoke-virtual {p0}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->sort()V
 
-    .line 145
     return-void
 .end method
 
 .method public final same(Lcom/badlogic/gdx/graphics/g3d/Attributes;)Z
     .locals 1
-    .param p1, "other"    # Lcom/badlogic/gdx/graphics/g3d/Attributes;
 
-    .line 179
     const/4 v0, 0x0
 
+    .line 179
     invoke-virtual {p0, p1, v0}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->same(Lcom/badlogic/gdx/graphics/g3d/Attributes;Z)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public final same(Lcom/badlogic/gdx/graphics/g3d/Attributes;Z)Z
     .locals 6
-    .param p1, "other"    # Lcom/badlogic/gdx/graphics/g3d/Attributes;
-    .param p2, "compareValues"    # Z
 
-    .line 166
     const/4 v0, 0x1
 
     if-ne p1, p0, :cond_0
 
     return v0
 
-    .line 167
     :cond_0
     const/4 v1, 0x0
 
     if-eqz p1, :cond_5
 
+    .line 167
     iget-wide v2, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->mask:J
 
     iget-wide v4, p1, Lcom/badlogic/gdx/graphics/g3d/Attributes;->mask:J
@@ -761,7 +696,6 @@
 
     goto :goto_1
 
-    .line 168
     :cond_1
     if-nez p2, :cond_2
 
@@ -774,62 +708,56 @@
     .line 170
     invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->sort()V
 
+    move p2, v1
+
     .line 171
-    const/4 v2, 0x0
-
-    .local v2, "i":I
     :goto_0
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->attributes:Lcom/badlogic/gdx/utils/Array;
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->attributes:Lcom/badlogic/gdx/utils/Array;
 
-    iget v3, v3, Lcom/badlogic/gdx/utils/Array;->size:I
+    iget v2, v2, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    if-ge v2, v3, :cond_4
+    if-ge p2, v2, :cond_4
 
     .line 172
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->attributes:Lcom/badlogic/gdx/utils/Array;
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->attributes:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v3, v2}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, p2}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/badlogic/gdx/graphics/g3d/Attribute;
+
+    iget-object v3, p1, Lcom/badlogic/gdx/graphics/g3d/Attributes;->attributes:Lcom/badlogic/gdx/utils/Array;
+
+    invoke-virtual {v3, p2}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Lcom/badlogic/gdx/graphics/g3d/Attribute;
 
-    iget-object v4, p1, Lcom/badlogic/gdx/graphics/g3d/Attributes;->attributes:Lcom/badlogic/gdx/utils/Array;
+    invoke-virtual {v2, v3}, Lcom/badlogic/gdx/graphics/g3d/Attribute;->equals(Lcom/badlogic/gdx/graphics/g3d/Attribute;)Z
 
-    invoke-virtual {v4, v2}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
+    move-result v2
 
-    move-result-object v4
-
-    check-cast v4, Lcom/badlogic/gdx/graphics/g3d/Attribute;
-
-    invoke-virtual {v3, v4}, Lcom/badlogic/gdx/graphics/g3d/Attribute;->equals(Lcom/badlogic/gdx/graphics/g3d/Attribute;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_3
+    if-nez v2, :cond_3
 
     return v1
 
-    .line 171
     :cond_3
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 p2, p2, 0x1
 
     goto :goto_0
 
-    .line 173
-    .end local v2    # "i":I
     :cond_4
     return v0
 
-    .line 167
     :cond_5
     :goto_1
     return v1
 .end method
 
 .method public final set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
-    .locals 3
-    .param p1, "attribute"    # Lcom/badlogic/gdx/graphics/g3d/Attribute;
+    .locals 2
 
     .line 86
     iget-wide v0, p1, Lcom/badlogic/gdx/graphics/g3d/Attribute;->type:J
@@ -838,24 +766,22 @@
 
     move-result v0
 
-    .line 87
-    .local v0, "idx":I
     if-gez v0, :cond_0
 
     .line 88
-    iget-wide v1, p1, Lcom/badlogic/gdx/graphics/g3d/Attribute;->type:J
+    iget-wide v0, p1, Lcom/badlogic/gdx/graphics/g3d/Attribute;->type:J
 
-    invoke-direct {p0, v1, v2}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->enable(J)V
+    invoke-direct {p0, v0, v1}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->enable(J)V
 
     .line 89
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->attributes:Lcom/badlogic/gdx/utils/Array;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->attributes:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v1, p1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+
+    const/4 p1, 0x0
 
     .line 90
-    const/4 v1, 0x0
-
-    iput-boolean v1, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->sorted:Z
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->sorted:Z
 
     goto :goto_0
 
@@ -869,14 +795,11 @@
     :goto_0
     invoke-virtual {p0}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->sort()V
 
-    .line 95
     return-void
 .end method
 
 .method public final set(Lcom/badlogic/gdx/graphics/g3d/Attribute;Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
     .locals 0
-    .param p1, "attribute1"    # Lcom/badlogic/gdx/graphics/g3d/Attribute;
-    .param p2, "attribute2"    # Lcom/badlogic/gdx/graphics/g3d/Attribute;
 
     .line 99
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
@@ -884,15 +807,11 @@
     .line 100
     invoke-virtual {p0, p2}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
 
-    .line 101
     return-void
 .end method
 
 .method public final set(Lcom/badlogic/gdx/graphics/g3d/Attribute;Lcom/badlogic/gdx/graphics/g3d/Attribute;Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
     .locals 0
-    .param p1, "attribute1"    # Lcom/badlogic/gdx/graphics/g3d/Attribute;
-    .param p2, "attribute2"    # Lcom/badlogic/gdx/graphics/g3d/Attribute;
-    .param p3, "attribute3"    # Lcom/badlogic/gdx/graphics/g3d/Attribute;
 
     .line 105
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
@@ -903,16 +822,11 @@
     .line 107
     invoke-virtual {p0, p3}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
 
-    .line 108
     return-void
 .end method
 
 .method public final set(Lcom/badlogic/gdx/graphics/g3d/Attribute;Lcom/badlogic/gdx/graphics/g3d/Attribute;Lcom/badlogic/gdx/graphics/g3d/Attribute;Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
     .locals 0
-    .param p1, "attribute1"    # Lcom/badlogic/gdx/graphics/g3d/Attribute;
-    .param p2, "attribute2"    # Lcom/badlogic/gdx/graphics/g3d/Attribute;
-    .param p3, "attribute3"    # Lcom/badlogic/gdx/graphics/g3d/Attribute;
-    .param p4, "attribute4"    # Lcom/badlogic/gdx/graphics/g3d/Attribute;
 
     .line 113
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
@@ -926,12 +840,11 @@
     .line 116
     invoke-virtual {p0, p4}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
 
-    .line 117
     return-void
 .end method
 
 .method public final set(Ljava/lang/Iterable;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -942,39 +855,34 @@
     .end annotation
 
     .line 129
-    .local p1, "attributes":Ljava/lang/Iterable;, "Ljava/lang/Iterable<Lcom/badlogic/gdx/graphics/g3d/Attribute;>;"
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/badlogic/gdx/graphics/g3d/Attribute;
+    check-cast v0, Lcom/badlogic/gdx/graphics/g3d/Attribute;
 
     .line 130
-    .local v1, "attr":Lcom/badlogic/gdx/graphics/g3d/Attribute;
-    invoke-virtual {p0, v1}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
+    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
 
-    .end local v1    # "attr":Lcom/badlogic/gdx/graphics/g3d/Attribute;
     goto :goto_0
 
-    .line 131
     :cond_0
     return-void
 .end method
 
 .method public final varargs set([Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
     .locals 3
-    .param p1, "attributes"    # [Lcom/badlogic/gdx/graphics/g3d/Attribute;
 
     .line 122
     array-length v0, p1
@@ -987,16 +895,12 @@
     aget-object v2, p1, v1
 
     .line 123
-    .local v2, "attr":Lcom/badlogic/gdx/graphics/g3d/Attribute;
     invoke-virtual {p0, v2}, Lcom/badlogic/gdx/graphics/g3d/Attributes;->set(Lcom/badlogic/gdx/graphics/g3d/Attribute;)V
 
-    .line 122
-    .end local v2    # "attr":Lcom/badlogic/gdx/graphics/g3d/Attribute;
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 124
     :cond_0
     return-void
 .end method
@@ -1025,12 +929,11 @@
 
     invoke-virtual {v0, p0}, Lcom/badlogic/gdx/utils/Array;->sort(Ljava/util/Comparator;)V
 
-    .line 34
     const/4 v0, 0x1
 
+    .line 34
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/Attributes;->sorted:Z
 
-    .line 36
     :cond_0
     return-void
 .end method

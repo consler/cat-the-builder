@@ -20,19 +20,18 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 36
     const/4 v0, 0x1
 
+    .line 36
     iput-boolean v0, p0, Lorg/apache/commons/collections/iterators/SingletonListIterator;->beforeFirst:Z
 
-    .line 37
     const/4 v0, 0x0
 
+    .line 37
     iput-boolean v0, p0, Lorg/apache/commons/collections/iterators/SingletonListIterator;->nextCalled:Z
 
     .line 38
@@ -41,24 +40,22 @@
     .line 48
     iput-object p1, p0, Lorg/apache/commons/collections/iterators/SingletonListIterator;->object:Ljava/lang/Object;
 
-    .line 49
     return-void
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 1
 
     .line 151
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "add() is not supported by this iterator"
+    const-string v0, "add() is not supported by this iterator"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public hasNext()Z
@@ -119,14 +116,14 @@
 
     if-nez v0, :cond_0
 
-    .line 107
     const/4 v0, 0x0
 
+    .line 107
     iput-boolean v0, p0, Lorg/apache/commons/collections/iterators/SingletonListIterator;->beforeFirst:Z
 
-    .line 108
     const/4 v0, 0x1
 
+    .line 108
     iput-boolean v0, p0, Lorg/apache/commons/collections/iterators/SingletonListIterator;->nextCalled:Z
 
     .line 109
@@ -166,9 +163,9 @@
 
     if-nez v0, :cond_0
 
-    .line 125
     const/4 v0, 0x1
 
+    .line 125
     iput-boolean v0, p0, Lorg/apache/commons/collections/iterators/SingletonListIterator;->beforeFirst:Z
 
     .line 126
@@ -216,17 +213,16 @@
 
     if-nez v0, :cond_0
 
-    .line 140
     const/4 v0, 0x0
 
+    .line 140
     iput-object v0, p0, Lorg/apache/commons/collections/iterators/SingletonListIterator;->object:Ljava/lang/Object;
 
-    .line 141
     const/4 v0, 0x1
 
+    .line 141
     iput-boolean v0, p0, Lorg/apache/commons/collections/iterators/SingletonListIterator;->removed:Z
 
-    .line 143
     return-void
 
     .line 138
@@ -241,23 +237,21 @@
 .method public reset()V
     .locals 1
 
-    .line 172
     const/4 v0, 0x1
 
+    .line 172
     iput-boolean v0, p0, Lorg/apache/commons/collections/iterators/SingletonListIterator;->beforeFirst:Z
 
-    .line 173
     const/4 v0, 0x0
 
+    .line 173
     iput-boolean v0, p0, Lorg/apache/commons/collections/iterators/SingletonListIterator;->nextCalled:Z
 
-    .line 174
     return-void
 .end method
 
 .method public set(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 162
     iget-boolean v0, p0, Lorg/apache/commons/collections/iterators/SingletonListIterator;->nextCalled:Z
@@ -271,14 +265,13 @@
     .line 165
     iput-object p1, p0, Lorg/apache/commons/collections/iterators/SingletonListIterator;->object:Ljava/lang/Object;
 
-    .line 166
     return-void
 
     .line 163
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/IllegalStateException;-><init>()V
 
-    throw v0
+    throw p1
 .end method

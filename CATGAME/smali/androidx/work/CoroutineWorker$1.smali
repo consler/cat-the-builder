@@ -17,25 +17,20 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
-        "\u0000\u0008\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n\u00a2\u0006\u0002\u0008\u0002"
+        "\u0000\u0006\n\u0000\n\u0002\u0010\u0002\u0010\u0000\u001a\u00020\u0001H\n"
     }
     d2 = {
         "<anonymous>",
-        "",
-        "run"
+        ""
     }
     k = 0x3
     mv = {
         0x1,
-        0x4,
+        0x5,
         0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -87,7 +82,6 @@
 
     invoke-static {v0, v2, v1, v2}, Lkotlinx/coroutines/Job$DefaultImpls;->cancel$default(Lkotlinx/coroutines/Job;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
 
-    .line 52
     :cond_0
     return-void
 .end method

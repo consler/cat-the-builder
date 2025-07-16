@@ -35,8 +35,7 @@
 
 # direct methods
 .method public static final distinctUntilChanged(Landroidx/lifecycle/LiveData;)Landroidx/lifecycle/LiveData;
-    .locals 3
-    .param p0, "$this$distinctUntilChanged"    # Landroidx/lifecycle/LiveData;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<X:",
@@ -49,29 +48,24 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const-string v0, "$this$distinctUntilChanged"
 
-    .local v0, "$i$f$distinctUntilChanged":I
-    const-string v1, "$this$distinctUntilChanged"
-
-    invoke-static {p0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 87
     invoke-static {p0}, Landroidx/lifecycle/Transformations;->distinctUntilChanged(Landroidx/lifecycle/LiveData;)Landroidx/lifecycle/LiveData;
 
-    move-result-object v1
+    move-result-object p0
 
-    const-string v2, "Transformations.distinctUntilChanged(this)"
+    const-string v0, "Transformations.distinctUntilChanged(this)"
 
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static final map(Landroidx/lifecycle/LiveData;Lkotlin/jvm/functions/Function1;)Landroidx/lifecycle/LiveData;
-    .locals 3
-    .param p0, "$this$map"    # Landroidx/lifecycle/LiveData;
-    .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<X:",
@@ -88,39 +82,34 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const-string v0, "$this$map"
 
-    .local v0, "$i$f$map":I
-    const-string v1, "$this$map"
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {p0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v0, "transform"
 
-    const-string/jumbo v1, "transform"
-
-    invoke-static {p1, v1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 36
-    new-instance v1, Landroidx/lifecycle/TransformationsKt$map$1;
+    new-instance v0, Landroidx/lifecycle/TransformationsKt$map$1;
 
-    invoke-direct {v1, p1}, Landroidx/lifecycle/TransformationsKt$map$1;-><init>(Lkotlin/jvm/functions/Function1;)V
+    invoke-direct {v0, p1}, Landroidx/lifecycle/TransformationsKt$map$1;-><init>(Lkotlin/jvm/functions/Function1;)V
 
-    check-cast v1, Landroidx/arch/core/util/Function;
+    check-cast v0, Landroidx/arch/core/util/Function;
 
-    invoke-static {p0, v1}, Landroidx/lifecycle/Transformations;->map(Landroidx/lifecycle/LiveData;Landroidx/arch/core/util/Function;)Landroidx/lifecycle/LiveData;
+    invoke-static {p0, v0}, Landroidx/lifecycle/Transformations;->map(Landroidx/lifecycle/LiveData;Landroidx/arch/core/util/Function;)Landroidx/lifecycle/LiveData;
 
-    move-result-object v1
+    move-result-object p0
 
-    const-string v2, "Transformations.map(this) { transform(it) }"
+    const-string p1, "Transformations.map(this) { transform(it) }"
 
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static final switchMap(Landroidx/lifecycle/LiveData;Lkotlin/jvm/functions/Function1;)Landroidx/lifecycle/LiveData;
-    .locals 3
-    .param p0, "$this$switchMap"    # Landroidx/lifecycle/LiveData;
-    .param p1, "transform"    # Lkotlin/jvm/functions/Function1;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<X:",
@@ -139,31 +128,28 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const-string v0, "$this$switchMap"
 
-    .local v0, "$i$f$switchMap":I
-    const-string v1, "$this$switchMap"
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {p0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v0, "transform"
 
-    const-string/jumbo v1, "transform"
-
-    invoke-static {p1, v1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 79
-    new-instance v1, Landroidx/lifecycle/TransformationsKt$switchMap$1;
+    new-instance v0, Landroidx/lifecycle/TransformationsKt$switchMap$1;
 
-    invoke-direct {v1, p1}, Landroidx/lifecycle/TransformationsKt$switchMap$1;-><init>(Lkotlin/jvm/functions/Function1;)V
+    invoke-direct {v0, p1}, Landroidx/lifecycle/TransformationsKt$switchMap$1;-><init>(Lkotlin/jvm/functions/Function1;)V
 
-    check-cast v1, Landroidx/arch/core/util/Function;
+    check-cast v0, Landroidx/arch/core/util/Function;
 
-    invoke-static {p0, v1}, Landroidx/lifecycle/Transformations;->switchMap(Landroidx/lifecycle/LiveData;Landroidx/arch/core/util/Function;)Landroidx/lifecycle/LiveData;
+    invoke-static {p0, v0}, Landroidx/lifecycle/Transformations;->switchMap(Landroidx/lifecycle/LiveData;Landroidx/arch/core/util/Function;)Landroidx/lifecycle/LiveData;
 
-    move-result-object v1
+    move-result-object p0
 
-    const-string v2, "Transformations.switchMap(this) { transform(it) }"
+    const-string p1, "Transformations.switchMap(this) { transform(it) }"
 
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    return-object v1
+    return-object p0
 .end method

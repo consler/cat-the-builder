@@ -22,18 +22,16 @@
 .method protected begin()V
     .locals 1
 
-    .line 25
     const/4 v0, 0x0
 
+    .line 25
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RelativeTemporalAction;->lastPercent:F
 
-    .line 26
     return-void
 .end method
 
 .method protected update(F)V
     .locals 1
-    .param p1, "percent"    # F
 
     .line 29
     iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RelativeTemporalAction;->lastPercent:F
@@ -45,7 +43,6 @@
     .line 30
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RelativeTemporalAction;->lastPercent:F
 
-    .line 31
     return-void
 .end method
 

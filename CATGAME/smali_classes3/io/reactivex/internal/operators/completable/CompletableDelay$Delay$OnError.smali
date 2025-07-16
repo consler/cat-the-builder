@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/completable/CompletableDelay$Delay;Ljava/lang/Throwable;)V
     .locals 0
-    .param p2, "e"    # Ljava/lang/Throwable;
 
     .line 84
     iput-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableDelay$Delay$OnError;->this$1:Lio/reactivex/internal/operators/completable/CompletableDelay$Delay;
@@ -36,7 +35,6 @@
     .line 85
     iput-object p2, p0, Lio/reactivex/internal/operators/completable/CompletableDelay$Delay$OnError;->e:Ljava/lang/Throwable;
 
-    .line 86
     return-void
 .end method
 
@@ -54,6 +52,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/CompletableObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 91
     return-void
 .end method

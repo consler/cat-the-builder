@@ -46,12 +46,7 @@
 
 # direct methods
 .method public constructor <init>(FFFZLcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;)V
-    .locals 3
-    .param p1, "min"    # F
-    .param p2, "max"    # F
-    .param p3, "stepSize"    # F
-    .param p4, "vertical"    # Z
-    .param p5, "style"    # Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;
+    .locals 1
 
     .line 74
     invoke-direct {p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Widget;-><init>()V
@@ -66,17 +61,15 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->visualInterpolation:Lcom/badlogic/gdx/math/Interpolation;
 
-    .line 54
     const/4 v0, 0x1
 
+    .line 54
     iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->round:Z
 
-    .line 75
     cmpl-float v0, p1, p2
 
     if-gtz v0, :cond_1
 
-    .line 76
     const/4 v0, 0x0
 
     cmpg-float v0, p3, v0
@@ -104,98 +97,88 @@
     .line 83
     invoke-virtual {p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->getPrefWidth()F
 
-    move-result v0
+    move-result p1
 
     invoke-virtual {p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->getPrefHeight()F
 
-    move-result v1
+    move-result p2
 
-    invoke-virtual {p0, v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->setSize(FF)V
+    invoke-virtual {p0, p1, p2}, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->setSize(FF)V
 
-    .line 84
     return-void
 
     .line 76
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string p4, "stepSize must be > 0: "
 
-    const-string v2, "stepSize must be > 0: "
+    invoke-direct {p2, p4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 75
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p3, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string p5, "max must be > min. min,max: "
 
-    const-string v2, "max must be > min. min,max: "
+    invoke-direct {p4, p5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p4, p1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    const-string v2, ", "
+    const-string p4, ", "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v0
+    move-result-object p1
+
+    invoke-direct {p3, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p3
 .end method
 
 .method public constructor <init>(FFFZLcom/badlogic/gdx/scenes/scene2d/ui/Skin;)V
-    .locals 7
-    .param p1, "min"    # F
-    .param p2, "max"    # F
-    .param p3, "stepSize"    # F
-    .param p4, "vertical"    # Z
-    .param p5, "skin"    # Lcom/badlogic/gdx/scenes/scene2d/ui/Skin;
-
-    .line 57
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "default-"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .locals 6
 
     if-eqz p4, :cond_0
 
-    const-string/jumbo v1, "vertical"
+    const-string v0, "vertical"
 
     goto :goto_0
 
     :cond_0
-    const-string v1, "horizontal"
+    const-string v0, "horizontal"
 
     :goto_0
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "default-"
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    .line 57
+    invoke-virtual {v1, v0}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -203,61 +186,53 @@
 
     invoke-virtual {p5, v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Skin;->get(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p5
 
-    move-object v6, v0
+    move-object v5, p5
 
-    check-cast v6, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;
+    check-cast v5, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;
 
-    move-object v1, p0
+    move-object v0, p0
 
-    move v2, p1
+    move v1, p1
 
-    move v3, p2
+    move v2, p2
 
-    move v4, p3
+    move v3, p3
 
-    move v5, p4
+    move v4, p4
 
-    invoke-direct/range {v1 .. v6}, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;-><init>(FFFZLcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;)V
+    invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;-><init>(FFFZLcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;)V
 
-    .line 58
     return-void
 .end method
 
 .method public constructor <init>(FFFZLcom/badlogic/gdx/scenes/scene2d/ui/Skin;Ljava/lang/String;)V
-    .locals 7
-    .param p1, "min"    # F
-    .param p2, "max"    # F
-    .param p3, "stepSize"    # F
-    .param p4, "vertical"    # Z
-    .param p5, "skin"    # Lcom/badlogic/gdx/scenes/scene2d/ui/Skin;
-    .param p6, "styleName"    # Ljava/lang/String;
+    .locals 6
 
     .line 61
     const-class v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;
 
     invoke-virtual {p5, p6, v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Skin;->get(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p5
 
-    move-object v6, v0
+    move-object v5, p5
 
-    check-cast v6, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;
+    check-cast v5, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;
 
-    move-object v1, p0
+    move-object v0, p0
 
-    move v2, p1
+    move v1, p1
 
-    move v3, p2
+    move v2, p2
 
-    move v4, p3
+    move v3, p3
 
-    move v5, p4
+    move v4, p4
 
-    invoke-direct/range {v1 .. v6}, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;-><init>(FFFZLcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;)V
+    invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;-><init>(FFFZLcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;)V
 
-    .line 62
     return-void
 .end method
 
@@ -265,7 +240,6 @@
 # virtual methods
 .method public act(F)V
     .locals 2
-    .param p1, "delta"    # F
 
     .line 100
     invoke-super {p0, p1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Widget;->act(F)V
@@ -279,39 +253,35 @@
 
     if-lez v1, :cond_0
 
-    .line 102
     sub-float/2addr v0, p1
 
+    .line 102
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->animateTime:F
 
     .line 103
     invoke-virtual {p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->getStage()Lcom/badlogic/gdx/scenes/scene2d/Stage;
 
-    move-result-object v0
+    move-result-object p1
+
+    if-eqz p1, :cond_0
 
     .line 104
-    .local v0, "stage":Lcom/badlogic/gdx/scenes/scene2d/Stage;
-    if-eqz v0, :cond_0
+    invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/Stage;->getActionsRequestRendering()Z
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/Stage;->getActionsRequestRendering()Z
+    move-result p1
 
-    move-result v1
+    if-eqz p1, :cond_0
 
-    if-eqz v1, :cond_0
+    sget-object p1, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
 
-    sget-object v1, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
+    invoke-interface {p1}, Lcom/badlogic/gdx/Graphics;->requestRendering()V
 
-    invoke-interface {v1}, Lcom/badlogic/gdx/Graphics;->requestRendering()V
-
-    .line 106
-    .end local v0    # "stage":Lcom/badlogic/gdx/scenes/scene2d/Stage;
     :cond_0
     return-void
 .end method
 
 .method protected clamp(F)F
     .locals 2
-    .param p1, "value"    # F
 
     .line 289
     iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->min:F
@@ -320,1229 +290,1053 @@
 
     invoke-static {p1, v0, v1}, Lcom/badlogic/gdx/math/MathUtils;->clamp(FFF)F
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public draw(Lcom/badlogic/gdx/graphics/g2d/Batch;F)V
-    .locals 30
-    .param p1, "batch"    # Lcom/badlogic/gdx/graphics/g2d/Batch;
-    .param p2, "parentAlpha"    # F
+    .locals 21
 
-    .line 110
     move-object/from16 v0, p0
 
+    .line 110
     iget-object v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->style:Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;
 
     .line 111
-    .local v1, "style":Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;
     iget-boolean v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->disabled:Z
 
     .line 112
-    .local v2, "disabled":Z
     invoke-virtual/range {p0 .. p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->getKnobDrawable()Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
-    move-result-object v9
+    move-result-object v3
 
-    .line 113
-    .local v9, "knob":Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
     if-eqz v2, :cond_0
 
-    iget-object v3, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->disabledBackground:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
+    .line 113
+    iget-object v4, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->disabledBackground:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
-    if-eqz v3, :cond_0
+    if-eqz v4, :cond_0
 
-    iget-object v3, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->disabledBackground:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
+    iget-object v4, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->disabledBackground:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
     goto :goto_0
 
     :cond_0
-    iget-object v3, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->background:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
+    iget-object v4, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->background:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
     :goto_0
-    move-object/from16 v16, v3
-
-    .line 114
-    .local v16, "bg":Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
     if-eqz v2, :cond_1
 
-    iget-object v3, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->disabledKnobBefore:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
+    .line 114
+    iget-object v5, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->disabledKnobBefore:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
-    if-eqz v3, :cond_1
+    if-eqz v5, :cond_1
 
-    iget-object v3, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->disabledKnobBefore:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
+    iget-object v5, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->disabledKnobBefore:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
     goto :goto_1
 
     :cond_1
-    iget-object v3, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->knobBefore:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
+    iget-object v5, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->knobBefore:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
     :goto_1
-    move-object/from16 v17, v3
+    move-object v11, v5
 
-    .line 115
-    .local v17, "knobBefore":Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
     if-eqz v2, :cond_2
 
-    iget-object v3, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->disabledKnobAfter:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
+    .line 115
+    iget-object v2, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->disabledKnobAfter:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_2
 
-    iget-object v3, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->disabledKnobAfter:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
+    iget-object v1, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->disabledKnobAfter:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
     goto :goto_2
 
     :cond_2
-    iget-object v3, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->knobAfter:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
-
-    :goto_2
-    move-object/from16 v18, v3
+    iget-object v1, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->knobAfter:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
     .line 117
-    .local v18, "knobAfter":Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
+    :goto_2
     invoke-virtual/range {p0 .. p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->getColor()Lcom/badlogic/gdx/graphics/Color;
 
-    move-result-object v8
+    move-result-object v2
 
     .line 118
-    .local v8, "color":Lcom/badlogic/gdx/graphics/Color;
     invoke-virtual/range {p0 .. p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->getX()F
 
-    move-result v19
+    move-result v12
 
     .line 119
-    .local v19, "x":F
     invoke-virtual/range {p0 .. p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->getY()F
 
-    move-result v20
+    move-result v13
 
     .line 120
-    .local v20, "y":F
     invoke-virtual/range {p0 .. p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->getWidth()F
-
-    move-result v21
-
-    .line 121
-    .local v21, "width":F
-    invoke-virtual/range {p0 .. p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->getHeight()F
-
-    move-result v22
-
-    .line 122
-    .local v22, "height":F
-    const/4 v3, 0x0
-
-    if-nez v9, :cond_3
-
-    move v4, v3
-
-    goto :goto_3
-
-    :cond_3
-    invoke-interface {v9}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
-
-    move-result v4
-
-    :goto_3
-    move/from16 v23, v4
-
-    .line 123
-    .local v23, "knobHeight":F
-    if-nez v9, :cond_4
-
-    move v4, v3
-
-    goto :goto_4
-
-    :cond_4
-    invoke-interface {v9}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
-
-    move-result v4
-
-    :goto_4
-    move/from16 v24, v4
-
-    .line 124
-    .local v24, "knobWidth":F
-    invoke-virtual/range {p0 .. p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->getVisualPercent()F
-
-    move-result v25
-
-    .line 126
-    .local v25, "percent":F
-    iget v4, v8, Lcom/badlogic/gdx/graphics/Color;->r:F
-
-    iget v5, v8, Lcom/badlogic/gdx/graphics/Color;->g:F
-
-    iget v6, v8, Lcom/badlogic/gdx/graphics/Color;->b:F
-
-    iget v7, v8, Lcom/badlogic/gdx/graphics/Color;->a:F
-
-    mul-float v7, v7, p2
-
-    move-object/from16 v15, p1
-
-    invoke-interface {v15, v4, v5, v6, v7}, Lcom/badlogic/gdx/graphics/g2d/Batch;->setColor(FFFF)V
-
-    .line 128
-    iget-boolean v4, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->vertical:Z
-
-    const/high16 v5, 0x3f000000    # 0.5f
-
-    if-eqz v4, :cond_f
-
-    .line 129
-    move/from16 v4, v22
-
-    .line 131
-    .local v4, "positionHeight":F
-    const/4 v6, 0x0
-
-    .local v6, "bgTopHeight":F
-    const/4 v7, 0x0
-
-    .line 132
-    .local v7, "bgBottomHeight":F
-    if-eqz v16, :cond_6
-
-    .line 133
-    iget-boolean v10, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->round:Z
-
-    if-eqz v10, :cond_5
-
-    .line 134
-    invoke-interface/range {v16 .. v16}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
-
-    move-result v10
-
-    sub-float v10, v21, v10
-
-    mul-float/2addr v10, v5
-
-    add-float v10, v19, v10
-
-    invoke-static {v10}, Ljava/lang/Math;->round(F)I
-
-    move-result v10
-
-    int-to-float v12, v10
-
-    invoke-interface/range {v16 .. v16}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
-
-    move-result v10
-
-    invoke-static {v10}, Ljava/lang/Math;->round(F)I
-
-    move-result v10
-
-    int-to-float v14, v10
-
-    move-object/from16 v10, v16
-
-    move-object/from16 v11, p1
-
-    move/from16 v13, v20
-
-    move/from16 v15, v22
-
-    invoke-interface/range {v10 .. v15}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
-
-    goto :goto_5
-
-    .line 136
-    :cond_5
-    add-float v10, v19, v21
-
-    invoke-interface/range {v16 .. v16}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
-
-    move-result v11
-
-    mul-float/2addr v11, v5
-
-    sub-float v12, v10, v11
-
-    invoke-interface/range {v16 .. v16}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
 
     move-result v14
 
-    move-object/from16 v10, v16
+    .line 121
+    invoke-virtual/range {p0 .. p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->getHeight()F
 
-    move-object/from16 v11, p1
+    move-result v15
 
-    move/from16 v13, v20
+    const/4 v10, 0x0
 
-    move/from16 v15, v22
+    if-nez v3, :cond_3
 
-    invoke-interface/range {v10 .. v15}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
+    move/from16 v16, v10
+
+    goto :goto_3
+
+    .line 122
+    :cond_3
+    invoke-interface {v3}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
+
+    move-result v5
+
+    move/from16 v16, v5
+
+    :goto_3
+    if-nez v3, :cond_4
+
+    move/from16 v17, v10
+
+    goto :goto_4
+
+    .line 123
+    :cond_4
+    invoke-interface {v3}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
+
+    move-result v5
+
+    move/from16 v17, v5
+
+    .line 124
+    :goto_4
+    invoke-virtual/range {p0 .. p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->getVisualPercent()F
+
+    move-result v18
+
+    .line 126
+    iget v5, v2, Lcom/badlogic/gdx/graphics/Color;->r:F
+
+    iget v6, v2, Lcom/badlogic/gdx/graphics/Color;->g:F
+
+    iget v7, v2, Lcom/badlogic/gdx/graphics/Color;->b:F
+
+    iget v2, v2, Lcom/badlogic/gdx/graphics/Color;->a:F
+
+    mul-float v2, v2, p2
+
+    move-object/from16 v9, p1
+
+    invoke-interface {v9, v5, v6, v7, v2}, Lcom/badlogic/gdx/graphics/g2d/Batch;->setColor(FFFF)V
+
+    .line 128
+    iget-boolean v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->vertical:Z
+
+    const/high16 v19, 0x3f000000    # 0.5f
+
+    if-eqz v2, :cond_e
+
+    if-eqz v4, :cond_6
+
+    .line 133
+    iget-boolean v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->round:Z
+
+    if-eqz v2, :cond_5
+
+    .line 134
+    invoke-interface {v4}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
+
+    move-result v2
+
+    sub-float v2, v14, v2
+
+    mul-float v2, v2, v19
+
+    add-float/2addr v2, v12
+
+    invoke-static {v2}, Ljava/lang/Math;->round(F)I
+
+    move-result v2
+
+    int-to-float v7, v2
+
+    invoke-interface {v4}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Math;->round(F)I
+
+    move-result v2
+
+    int-to-float v2, v2
+
+    move-object v5, v4
+
+    move-object/from16 v6, p1
+
+    move v8, v13
+
+    move v9, v2
+
+    move v2, v10
+
+    move v10, v15
+
+    invoke-interface/range {v5 .. v10}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
+
+    goto :goto_5
+
+    :cond_5
+    move v2, v10
+
+    add-float v5, v12, v14
+
+    .line 136
+    invoke-interface {v4}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
+
+    move-result v6
+
+    mul-float v6, v6, v19
+
+    sub-float v7, v5, v6
+
+    invoke-interface {v4}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
+
+    move-result v9
+
+    move-object v5, v4
+
+    move-object/from16 v6, p1
+
+    move v8, v13
+
+    move v10, v15
+
+    invoke-interface/range {v5 .. v10}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
 
     .line 137
     :goto_5
-    invoke-interface/range {v16 .. v16}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getTopHeight()F
+    invoke-interface {v4}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getTopHeight()F
 
-    move-result v6
+    move-result v10
 
     .line 138
-    invoke-interface/range {v16 .. v16}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getBottomHeight()F
+    invoke-interface {v4}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getBottomHeight()F
 
-    move-result v7
+    move-result v4
 
-    .line 139
-    add-float v10, v6, v7
+    add-float v5, v10, v4
 
-    sub-float/2addr v4, v10
+    sub-float v5, v15, v5
 
-    move/from16 v26, v4
+    move/from16 v20, v10
 
-    move/from16 v27, v6
+    move v10, v4
+
+    move/from16 v4, v20
 
     goto :goto_6
 
-    .line 132
     :cond_6
-    move/from16 v26, v4
+    move v2, v10
 
-    move/from16 v27, v6
+    move v4, v2
 
-    .line 142
-    .end local v4    # "positionHeight":F
-    .end local v6    # "bgTopHeight":F
-    .local v26, "positionHeight":F
-    .local v27, "bgTopHeight":F
+    move v10, v4
+
+    move v5, v15
+
     :goto_6
-    const/4 v4, 0x0
+    if-nez v3, :cond_8
 
-    .line 143
-    .local v4, "knobHeightHalf":F
-    if-nez v9, :cond_8
+    if-nez v11, :cond_7
 
-    .line 144
-    if-nez v17, :cond_7
-
-    move v6, v3
+    move v6, v2
 
     goto :goto_7
 
+    .line 144
     :cond_7
-    invoke-interface/range {v17 .. v17}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
+    invoke-interface {v11}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
 
     move-result v6
 
-    mul-float/2addr v6, v5
+    mul-float v6, v6, v19
 
     :goto_7
-    move v4, v6
+    sub-float/2addr v5, v6
+
+    mul-float v7, v5, v18
 
     .line 145
-    sub-float v6, v26, v4
-
-    mul-float v6, v6, v25
-
-    iput v6, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
+    iput v7, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
 
     .line 146
-    sub-float v10, v26, v4
+    invoke-static {v5, v7}, Ljava/lang/Math;->min(FF)F
 
-    invoke-static {v10, v6}, Ljava/lang/Math;->min(FF)F
+    move-result v5
 
-    move-result v6
-
-    iput v6, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
-
-    move/from16 v28, v4
+    iput v5, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
 
     goto :goto_8
 
-    .line 148
     :cond_8
-    mul-float v4, v23, v5
+    mul-float v6, v16, v19
+
+    sub-float v5, v5, v16
+
+    mul-float v7, v5, v18
 
     .line 149
-    sub-float v6, v26, v23
-
-    mul-float v6, v6, v25
-
-    iput v6, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
+    iput v7, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
 
     .line 150
-    sub-float v10, v26, v23
+    invoke-static {v5, v7}, Ljava/lang/Math;->min(FF)F
 
-    invoke-static {v10, v6}, Ljava/lang/Math;->min(FF)F
+    move-result v5
 
-    move-result v6
+    add-float/2addr v5, v10
 
-    add-float/2addr v6, v7
+    iput v5, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
 
-    iput v6, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
-
-    move/from16 v28, v4
+    :goto_8
+    move v5, v6
 
     .line 152
-    .end local v4    # "knobHeightHalf":F
-    .local v28, "knobHeightHalf":F
-    :goto_8
-    invoke-static {v3, v7}, Ljava/lang/Math;->min(FF)F
+    invoke-static {v2, v10}, Ljava/lang/Math;->min(FF)F
 
-    move-result v3
+    move-result v2
 
-    iget v4, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
+    iget v6, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
 
-    invoke-static {v3, v4}, Ljava/lang/Math;->max(FF)F
+    invoke-static {v2, v6}, Ljava/lang/Math;->max(FF)F
 
-    move-result v3
+    move-result v2
 
-    iput v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
+    iput v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
 
-    .line 154
-    if-eqz v17, :cond_a
+    if-eqz v11, :cond_a
 
     .line 155
-    iget-boolean v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->round:Z
+    iget-boolean v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->round:Z
 
-    if-eqz v3, :cond_9
+    if-eqz v2, :cond_9
 
     .line 156
-    invoke-interface/range {v17 .. v17}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
+    invoke-interface {v11}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
 
-    move-result v3
+    move-result v2
 
-    sub-float v3, v21, v3
+    sub-float v2, v14, v2
 
-    mul-float/2addr v3, v5
+    mul-float v2, v2, v19
 
-    add-float v3, v19, v3
+    add-float/2addr v2, v12
 
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
+    invoke-static {v2}, Ljava/lang/Math;->round(F)I
 
-    move-result v3
+    move-result v2
 
-    int-to-float v12, v3
+    int-to-float v8, v2
 
-    add-float v3, v20, v27
+    add-float/2addr v4, v13
 
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
+    invoke-static {v4}, Ljava/lang/Math;->round(F)I
 
-    move-result v3
+    move-result v2
 
-    int-to-float v13, v3
+    int-to-float v9, v2
 
     .line 157
-    invoke-interface/range {v17 .. v17}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
+    invoke-interface {v11}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
 
-    move-result v3
+    move-result v2
 
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
+    invoke-static {v2}, Ljava/lang/Math;->round(F)I
 
-    move-result v3
+    move-result v2
 
-    int-to-float v14, v3
+    int-to-float v10, v2
 
-    iget v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
+    iget v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
 
-    add-float v3, v3, v28
+    add-float/2addr v2, v5
 
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
+    invoke-static {v2}, Ljava/lang/Math;->round(F)I
 
-    move-result v3
+    move-result v2
 
-    int-to-float v15, v3
+    int-to-float v2, v2
+
+    move-object v6, v11
+
+    move-object/from16 v7, p1
+
+    move v11, v2
 
     .line 156
-    move-object/from16 v10, v17
-
-    move-object/from16 v11, p1
-
-    invoke-interface/range {v10 .. v15}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
+    invoke-interface/range {v6 .. v11}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
 
     goto :goto_9
 
     .line 159
     :cond_9
-    invoke-interface/range {v17 .. v17}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
+    invoke-interface {v11}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
 
-    move-result v3
+    move-result v2
 
-    sub-float v3, v21, v3
+    sub-float v2, v14, v2
 
-    mul-float/2addr v3, v5
+    mul-float v2, v2, v19
 
-    add-float v12, v19, v3
+    add-float v8, v12, v2
 
-    add-float v13, v20, v27
+    add-float v9, v13, v4
 
-    invoke-interface/range {v17 .. v17}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
+    invoke-interface {v11}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
 
-    move-result v14
+    move-result v10
 
-    iget v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
+    iget v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
 
-    add-float v15, v3, v28
+    add-float/2addr v2, v5
 
-    move-object/from16 v10, v17
+    move-object v6, v11
 
-    move-object/from16 v11, p1
+    move-object/from16 v7, p1
 
-    invoke-interface/range {v10 .. v15}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
+    move v11, v2
 
-    .line 163
+    invoke-interface/range {v6 .. v11}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
+
     :cond_a
     :goto_9
-    if-eqz v18, :cond_c
+    if-eqz v1, :cond_c
 
     .line 164
-    iget-boolean v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->round:Z
+    iget-boolean v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->round:Z
 
-    if-eqz v3, :cond_b
+    if-eqz v2, :cond_b
 
     .line 165
-    invoke-interface/range {v18 .. v18}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
+    invoke-interface {v1}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
 
-    move-result v3
+    move-result v2
 
-    sub-float v3, v21, v3
+    sub-float v2, v14, v2
 
-    mul-float/2addr v3, v5
+    mul-float v2, v2, v19
 
-    add-float v3, v19, v3
+    add-float/2addr v2, v12
 
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
+    invoke-static {v2}, Ljava/lang/Math;->round(F)I
 
-    move-result v3
+    move-result v2
 
-    int-to-float v12, v3
+    int-to-float v7, v2
 
-    iget v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
+    iget v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
 
-    add-float v3, v20, v3
+    add-float/2addr v2, v13
 
-    add-float v3, v3, v28
+    add-float/2addr v2, v5
 
     .line 166
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
+    invoke-static {v2}, Ljava/lang/Math;->round(F)I
 
-    move-result v3
+    move-result v2
 
-    int-to-float v13, v3
+    int-to-float v8, v2
 
-    invoke-interface/range {v18 .. v18}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
+    invoke-interface {v1}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
 
-    move-result v3
+    move-result v2
 
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
+    invoke-static {v2}, Ljava/lang/Math;->round(F)I
 
-    move-result v3
+    move-result v2
 
-    int-to-float v14, v3
+    int-to-float v9, v2
 
-    iget v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
+    iget v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
 
-    sub-float v3, v22, v3
+    sub-float/2addr v15, v2
 
-    sub-float v3, v3, v28
+    sub-float/2addr v15, v5
 
     .line 167
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
+    invoke-static {v15}, Ljava/lang/Math;->round(F)I
 
-    move-result v3
+    move-result v2
 
-    int-to-float v15, v3
+    int-to-float v10, v2
+
+    move-object v5, v1
+
+    move-object/from16 v6, p1
 
     .line 165
-    move-object/from16 v10, v18
-
-    move-object/from16 v11, p1
-
-    invoke-interface/range {v10 .. v15}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
+    invoke-interface/range {v5 .. v10}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
 
     goto :goto_a
 
     .line 169
     :cond_b
-    invoke-interface/range {v18 .. v18}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
+    invoke-interface {v1}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
 
-    move-result v3
+    move-result v2
 
-    sub-float v3, v21, v3
+    sub-float v2, v14, v2
 
-    mul-float/2addr v3, v5
+    mul-float v2, v2, v19
 
-    add-float v12, v19, v3
+    add-float v7, v12, v2
 
-    iget v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
+    iget v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
 
-    add-float v3, v20, v3
+    add-float/2addr v2, v13
 
-    add-float v13, v3, v28
+    add-float v8, v2, v5
 
     .line 170
-    invoke-interface/range {v18 .. v18}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
+    invoke-interface {v1}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
 
-    move-result v14
+    move-result v9
 
-    iget v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
+    iget v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
 
-    sub-float v3, v22, v3
+    sub-float/2addr v15, v2
 
-    sub-float v15, v3, v28
+    sub-float v10, v15, v5
+
+    move-object v5, v1
+
+    move-object/from16 v6, p1
 
     .line 169
-    move-object/from16 v10, v18
+    invoke-interface/range {v5 .. v10}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
 
-    move-object/from16 v11, p1
-
-    invoke-interface/range {v10 .. v15}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
-
-    .line 173
     :cond_c
     :goto_a
-    if-eqz v9, :cond_e
+    if-eqz v3, :cond_18
 
     .line 174
-    iget-boolean v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->round:Z
+    iget-boolean v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->round:Z
 
-    if-eqz v3, :cond_d
+    if-eqz v1, :cond_d
+
+    sub-float v14, v14, v17
+
+    mul-float v14, v14, v19
+
+    add-float/2addr v12, v14
 
     .line 175
-    sub-float v3, v21, v24
+    invoke-static {v12}, Ljava/lang/Math;->round(F)I
 
-    mul-float/2addr v3, v5
+    move-result v1
 
-    add-float v3, v19, v3
+    int-to-float v5, v1
 
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
+    iget v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
 
-    move-result v3
+    add-float/2addr v13, v1
 
-    int-to-float v5, v3
+    invoke-static {v13}, Ljava/lang/Math;->round(F)I
 
-    iget v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
+    move-result v1
 
-    add-float v3, v20, v3
+    int-to-float v6, v1
 
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
+    invoke-static/range {v17 .. v17}, Ljava/lang/Math;->round(F)I
 
-    move-result v3
+    move-result v1
 
-    int-to-float v6, v3
-
-    invoke-static/range {v24 .. v24}, Ljava/lang/Math;->round(F)I
-
-    move-result v3
-
-    int-to-float v10, v3
+    int-to-float v7, v1
 
     .line 176
-    invoke-static/range {v23 .. v23}, Ljava/lang/Math;->round(F)I
+    invoke-static/range {v16 .. v16}, Ljava/lang/Math;->round(F)I
 
-    move-result v3
+    move-result v1
 
-    int-to-float v11, v3
+    int-to-float v8, v1
+
+    move-object/from16 v4, p1
 
     .line 175
-    move-object v3, v9
-
-    move-object/from16 v4, p1
-
-    move v12, v7
-
-    .end local v7    # "bgBottomHeight":F
-    .local v12, "bgBottomHeight":F
-    move v7, v10
-
-    move-object/from16 v29, v8
-
-    .end local v8    # "color":Lcom/badlogic/gdx/graphics/Color;
-    .local v29, "color":Lcom/badlogic/gdx/graphics/Color;
-    move v8, v11
-
     invoke-interface/range {v3 .. v8}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
 
-    goto :goto_b
+    goto/16 :goto_11
+
+    :cond_d
+    sub-float v14, v14, v17
+
+    mul-float v14, v14, v19
+
+    add-float v5, v12, v14
 
     .line 178
-    .end local v12    # "bgBottomHeight":F
-    .end local v29    # "color":Lcom/badlogic/gdx/graphics/Color;
-    .restart local v7    # "bgBottomHeight":F
-    .restart local v8    # "color":Lcom/badlogic/gdx/graphics/Color;
-    :cond_d
-    move v12, v7
+    iget v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
 
-    move-object/from16 v29, v8
-
-    .end local v7    # "bgBottomHeight":F
-    .end local v8    # "color":Lcom/badlogic/gdx/graphics/Color;
-    .restart local v12    # "bgBottomHeight":F
-    .restart local v29    # "color":Lcom/badlogic/gdx/graphics/Color;
-    sub-float v3, v21, v24
-
-    mul-float/2addr v3, v5
-
-    add-float v5, v19, v3
-
-    iget v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
-
-    add-float v6, v20, v3
-
-    move-object v3, v9
+    add-float v6, v13, v1
 
     move-object/from16 v4, p1
 
-    move/from16 v7, v24
+    move/from16 v7, v17
 
-    move/from16 v8, v23
+    move/from16 v8, v16
 
     invoke-interface/range {v3 .. v8}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
 
-    goto :goto_b
+    goto/16 :goto_11
 
-    .line 173
-    .end local v12    # "bgBottomHeight":F
-    .end local v29    # "color":Lcom/badlogic/gdx/graphics/Color;
-    .restart local v7    # "bgBottomHeight":F
-    .restart local v8    # "color":Lcom/badlogic/gdx/graphics/Color;
     :cond_e
-    move v12, v7
+    move v2, v10
 
-    move-object/from16 v29, v8
-
-    .line 180
-    .end local v7    # "bgBottomHeight":F
-    .end local v8    # "color":Lcom/badlogic/gdx/graphics/Color;
-    .end local v26    # "positionHeight":F
-    .end local v27    # "bgTopHeight":F
-    .end local v28    # "knobHeightHalf":F
-    .restart local v29    # "color":Lcom/badlogic/gdx/graphics/Color;
-    :goto_b
-    goto/16 :goto_12
-
-    .line 181
-    .end local v29    # "color":Lcom/badlogic/gdx/graphics/Color;
-    .restart local v8    # "color":Lcom/badlogic/gdx/graphics/Color;
-    :cond_f
-    move-object/from16 v29, v8
-
-    .end local v8    # "color":Lcom/badlogic/gdx/graphics/Color;
-    .restart local v29    # "color":Lcom/badlogic/gdx/graphics/Color;
-    move/from16 v4, v21
-
-    .line 183
-    .local v4, "positionWidth":F
-    const/4 v6, 0x0
-
-    .local v6, "bgLeftWidth":F
-    const/4 v7, 0x0
-
-    .line 184
-    .local v7, "bgRightWidth":F
-    if-eqz v16, :cond_11
+    if-eqz v4, :cond_10
 
     .line 185
-    iget-boolean v8, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->round:Z
+    iget-boolean v5, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->round:Z
 
-    if-eqz v8, :cond_10
+    if-eqz v5, :cond_f
 
     .line 186
-    invoke-interface/range {v16 .. v16}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
+    invoke-interface {v4}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
 
-    move-result v8
+    move-result v5
 
-    sub-float v8, v22, v8
+    sub-float v5, v15, v5
 
-    mul-float/2addr v8, v5
+    mul-float v5, v5, v19
 
-    add-float v8, v20, v8
+    add-float/2addr v5, v13
 
-    invoke-static {v8}, Ljava/lang/Math;->round(F)I
+    invoke-static {v5}, Ljava/lang/Math;->round(F)I
 
-    move-result v8
+    move-result v5
 
-    int-to-float v13, v8
+    int-to-float v8, v5
 
-    invoke-interface/range {v16 .. v16}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
+    invoke-interface {v4}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
 
-    move-result v8
+    move-result v5
 
-    invoke-static {v8}, Ljava/lang/Math;->round(F)I
+    invoke-static {v5}, Ljava/lang/Math;->round(F)I
 
-    move-result v8
+    move-result v5
 
-    int-to-float v15, v8
+    int-to-float v10, v5
 
-    move-object/from16 v10, v16
+    move-object v5, v4
 
-    move-object/from16 v11, p1
+    move-object/from16 v6, p1
 
-    move/from16 v12, v19
+    move v7, v12
 
-    move/from16 v14, v21
+    move v9, v14
 
-    invoke-interface/range {v10 .. v15}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
+    invoke-interface/range {v5 .. v10}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
+
+    goto :goto_b
+
+    .line 188
+    :cond_f
+    invoke-interface {v4}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
+
+    move-result v5
+
+    sub-float v5, v15, v5
+
+    mul-float v5, v5, v19
+
+    add-float v8, v13, v5
+
+    invoke-interface {v4}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
+
+    move-result v10
+
+    move-object v5, v4
+
+    move-object/from16 v6, p1
+
+    move v7, v12
+
+    move v9, v14
+
+    invoke-interface/range {v5 .. v10}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
+
+    .line 189
+    :goto_b
+    invoke-interface {v4}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getLeftWidth()F
+
+    move-result v10
+
+    .line 190
+    invoke-interface {v4}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getRightWidth()F
+
+    move-result v4
+
+    add-float/2addr v4, v10
+
+    sub-float v4, v14, v4
 
     goto :goto_c
 
-    .line 188
     :cond_10
-    invoke-interface/range {v16 .. v16}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
+    move v10, v2
 
-    move-result v8
+    move v4, v14
 
-    sub-float v8, v22, v8
-
-    mul-float/2addr v8, v5
-
-    add-float v13, v20, v8
-
-    invoke-interface/range {v16 .. v16}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
-
-    move-result v15
-
-    move-object/from16 v10, v16
-
-    move-object/from16 v11, p1
-
-    move/from16 v12, v19
-
-    move/from16 v14, v21
-
-    invoke-interface/range {v10 .. v15}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
-
-    .line 189
     :goto_c
-    invoke-interface/range {v16 .. v16}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getLeftWidth()F
+    if-nez v3, :cond_12
 
-    move-result v6
+    if-nez v11, :cond_11
 
-    .line 190
-    invoke-interface/range {v16 .. v16}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getRightWidth()F
-
-    move-result v7
-
-    .line 191
-    add-float v8, v6, v7
-
-    sub-float/2addr v4, v8
-
-    move/from16 v26, v4
-
-    move v8, v6
-
-    move/from16 v27, v7
+    move v5, v2
 
     goto :goto_d
 
-    .line 184
-    :cond_11
-    move/from16 v26, v4
-
-    move v8, v6
-
-    move/from16 v27, v7
-
-    .line 194
-    .end local v4    # "positionWidth":F
-    .end local v6    # "bgLeftWidth":F
-    .end local v7    # "bgRightWidth":F
-    .local v8, "bgLeftWidth":F
-    .local v26, "positionWidth":F
-    .local v27, "bgRightWidth":F
-    :goto_d
-    const/4 v4, 0x0
-
-    .line 195
-    .local v4, "knobWidthHalf":F
-    if-nez v9, :cond_13
-
     .line 196
-    if-nez v17, :cond_12
+    :cond_11
+    invoke-interface {v11}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
 
-    move v6, v3
+    move-result v5
+
+    mul-float v5, v5, v19
+
+    :goto_d
+    sub-float/2addr v4, v5
+
+    mul-float v6, v4, v18
+
+    .line 197
+    iput v6, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
+
+    .line 198
+    invoke-static {v4, v6}, Ljava/lang/Math;->min(FF)F
+
+    move-result v4
+
+    iput v4, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
 
     goto :goto_e
 
     :cond_12
-    invoke-interface/range {v17 .. v17}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
+    mul-float v5, v17, v19
 
-    move-result v6
+    sub-float v4, v4, v17
 
-    mul-float/2addr v6, v5
-
-    :goto_e
-    move v4, v6
-
-    .line 197
-    sub-float v6, v26, v4
-
-    mul-float v6, v6, v25
-
-    iput v6, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
-
-    .line 198
-    sub-float v7, v26, v4
-
-    invoke-static {v7, v6}, Ljava/lang/Math;->min(FF)F
-
-    move-result v6
-
-    iput v6, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
-
-    move/from16 v28, v4
-
-    goto :goto_f
-
-    .line 200
-    :cond_13
-    mul-float v4, v24, v5
+    mul-float v6, v4, v18
 
     .line 201
-    sub-float v6, v26, v24
-
-    mul-float v6, v6, v25
-
     iput v6, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
 
     .line 202
-    sub-float v7, v26, v24
+    invoke-static {v4, v6}, Ljava/lang/Math;->min(FF)F
 
-    invoke-static {v7, v6}, Ljava/lang/Math;->min(FF)F
+    move-result v4
 
-    move-result v6
+    add-float/2addr v4, v10
 
-    add-float/2addr v6, v8
-
-    iput v6, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
-
-    move/from16 v28, v4
+    iput v4, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
 
     .line 204
-    .end local v4    # "knobWidthHalf":F
-    .local v28, "knobWidthHalf":F
-    :goto_f
-    invoke-static {v3, v8}, Ljava/lang/Math;->min(FF)F
+    :goto_e
+    invoke-static {v2, v10}, Ljava/lang/Math;->min(FF)F
 
-    move-result v3
+    move-result v2
 
     iget v4, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
 
-    invoke-static {v3, v4}, Ljava/lang/Math;->max(FF)F
+    invoke-static {v2, v4}, Ljava/lang/Math;->max(FF)F
 
-    move-result v3
+    move-result v2
 
-    iput v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
+    iput v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
 
-    .line 206
-    if-eqz v17, :cond_15
+    if-eqz v11, :cond_14
 
     .line 207
-    iget-boolean v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->round:Z
+    iget-boolean v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->round:Z
 
-    if-eqz v3, :cond_14
+    if-eqz v2, :cond_13
+
+    add-float/2addr v10, v12
 
     .line 208
-    add-float v3, v19, v8
+    invoke-static {v10}, Ljava/lang/Math;->round(F)I
 
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
+    move-result v2
 
-    move-result v3
+    int-to-float v8, v2
 
-    int-to-float v12, v3
+    invoke-interface {v11}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
 
-    invoke-interface/range {v17 .. v17}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
+    move-result v2
 
-    move-result v3
+    sub-float v2, v15, v2
 
-    sub-float v3, v22, v3
+    mul-float v2, v2, v19
 
-    mul-float/2addr v3, v5
+    add-float/2addr v2, v13
 
-    add-float v3, v20, v3
+    invoke-static {v2}, Ljava/lang/Math;->round(F)I
 
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
+    move-result v2
 
-    move-result v3
+    int-to-float v9, v2
 
-    int-to-float v13, v3
+    iget v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
 
-    iget v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
-
-    add-float v3, v3, v28
+    add-float/2addr v2, v5
 
     .line 209
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
+    invoke-static {v2}, Ljava/lang/Math;->round(F)I
 
-    move-result v3
+    move-result v2
 
-    int-to-float v14, v3
+    int-to-float v10, v2
 
-    invoke-interface/range {v17 .. v17}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
+    invoke-interface {v11}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
 
-    move-result v3
+    move-result v2
 
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
+    invoke-static {v2}, Ljava/lang/Math;->round(F)I
 
-    move-result v3
+    move-result v2
 
-    int-to-float v15, v3
+    int-to-float v2, v2
+
+    move-object v6, v11
+
+    move-object/from16 v7, p1
+
+    move v11, v2
 
     .line 208
-    move-object/from16 v10, v17
+    invoke-interface/range {v6 .. v11}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
 
-    move-object/from16 v11, p1
+    goto :goto_f
 
-    invoke-interface/range {v10 .. v15}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
+    :cond_13
+    add-float v8, v12, v10
+
+    .line 211
+    invoke-interface {v11}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
+
+    move-result v2
+
+    sub-float v2, v15, v2
+
+    mul-float v2, v2, v19
+
+    add-float v9, v13, v2
+
+    iget v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
+
+    add-float v10, v2, v5
+
+    .line 212
+    invoke-interface {v11}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
+
+    move-result v2
+
+    move-object v6, v11
+
+    move-object/from16 v7, p1
+
+    move v11, v2
+
+    .line 211
+    invoke-interface/range {v6 .. v11}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
+
+    :cond_14
+    :goto_f
+    if-eqz v1, :cond_16
+
+    .line 216
+    iget-boolean v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->round:Z
+
+    if-eqz v2, :cond_15
+
+    .line 217
+    iget v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
+
+    add-float/2addr v2, v12
+
+    add-float/2addr v2, v5
+
+    invoke-static {v2}, Ljava/lang/Math;->round(F)I
+
+    move-result v2
+
+    int-to-float v7, v2
+
+    .line 218
+    invoke-interface {v1}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
+
+    move-result v2
+
+    sub-float v2, v15, v2
+
+    mul-float v2, v2, v19
+
+    add-float/2addr v2, v13
+
+    invoke-static {v2}, Ljava/lang/Math;->round(F)I
+
+    move-result v2
+
+    int-to-float v8, v2
+
+    iget v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
+
+    sub-float/2addr v14, v2
+
+    sub-float/2addr v14, v5
+
+    invoke-static {v14}, Ljava/lang/Math;->round(F)I
+
+    move-result v2
+
+    int-to-float v9, v2
+
+    .line 219
+    invoke-interface {v1}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Math;->round(F)I
+
+    move-result v2
+
+    int-to-float v10, v2
+
+    move-object v5, v1
+
+    move-object/from16 v6, p1
+
+    .line 217
+    invoke-interface/range {v5 .. v10}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
 
     goto :goto_10
 
-    .line 211
-    :cond_14
-    add-float v12, v19, v8
-
-    invoke-interface/range {v17 .. v17}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
-
-    move-result v3
-
-    sub-float v3, v22, v3
-
-    mul-float/2addr v3, v5
-
-    add-float v13, v20, v3
-
-    iget v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
-
-    add-float v14, v3, v28
-
-    .line 212
-    invoke-interface/range {v17 .. v17}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
-
-    move-result v15
-
-    .line 211
-    move-object/from16 v10, v17
-
-    move-object/from16 v11, p1
-
-    invoke-interface/range {v10 .. v15}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
-
-    .line 215
+    .line 221
     :cond_15
+    iget v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
+
+    add-float/2addr v2, v12
+
+    add-float v7, v2, v5
+
+    invoke-interface {v1}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
+
+    move-result v2
+
+    sub-float v2, v15, v2
+
+    mul-float v2, v2, v19
+
+    add-float v8, v13, v2
+
+    iget v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
+
+    sub-float/2addr v14, v2
+
+    sub-float v9, v14, v5
+
+    .line 222
+    invoke-interface {v1}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
+
+    move-result v10
+
+    move-object v5, v1
+
+    move-object/from16 v6, p1
+
+    .line 221
+    invoke-interface/range {v5 .. v10}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
+
+    :cond_16
     :goto_10
-    if-eqz v18, :cond_17
+    if-eqz v3, :cond_18
 
-    .line 216
-    iget-boolean v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->round:Z
+    .line 226
+    iget-boolean v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->round:Z
 
-    if-eqz v3, :cond_16
+    if-eqz v1, :cond_17
 
-    .line 217
-    iget v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
+    .line 227
+    iget v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
 
-    add-float v3, v19, v3
+    add-float/2addr v12, v1
 
-    add-float v3, v3, v28
+    invoke-static {v12}, Ljava/lang/Math;->round(F)I
 
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
+    move-result v1
 
-    move-result v3
+    int-to-float v5, v1
 
-    int-to-float v12, v3
+    sub-float v15, v15, v16
 
-    .line 218
-    invoke-interface/range {v18 .. v18}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
+    mul-float v15, v15, v19
 
-    move-result v3
+    add-float/2addr v13, v15
 
-    sub-float v3, v22, v3
+    invoke-static {v13}, Ljava/lang/Math;->round(F)I
 
-    mul-float/2addr v3, v5
+    move-result v1
 
-    add-float v3, v20, v3
+    int-to-float v6, v1
 
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
+    invoke-static/range {v17 .. v17}, Ljava/lang/Math;->round(F)I
 
-    move-result v3
+    move-result v1
 
-    int-to-float v13, v3
+    int-to-float v7, v1
 
-    iget v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
+    .line 228
+    invoke-static/range {v16 .. v16}, Ljava/lang/Math;->round(F)I
 
-    sub-float v3, v21, v3
+    move-result v1
 
-    sub-float v3, v3, v28
+    int-to-float v8, v1
 
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
+    move-object/from16 v4, p1
 
-    move-result v3
-
-    int-to-float v14, v3
-
-    .line 219
-    invoke-interface/range {v18 .. v18}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
-
-    move-result v3
-
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
-
-    move-result v3
-
-    int-to-float v15, v3
-
-    .line 217
-    move-object/from16 v10, v18
-
-    move-object/from16 v11, p1
-
-    invoke-interface/range {v10 .. v15}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
+    .line 227
+    invoke-interface/range {v3 .. v8}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
 
     goto :goto_11
 
-    .line 221
-    :cond_16
-    iget v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
-
-    add-float v3, v19, v3
-
-    add-float v12, v3, v28
-
-    invoke-interface/range {v18 .. v18}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
-
-    move-result v3
-
-    sub-float v3, v22, v3
-
-    mul-float/2addr v3, v5
-
-    add-float v13, v20, v3
-
-    iget v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
-
-    sub-float v3, v21, v3
-
-    sub-float v14, v3, v28
-
-    .line 222
-    invoke-interface/range {v18 .. v18}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
-
-    move-result v15
-
-    .line 221
-    move-object/from16 v10, v18
-
-    move-object/from16 v11, p1
-
-    invoke-interface/range {v10 .. v15}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
-
-    .line 225
-    :cond_17
-    :goto_11
-    if-eqz v9, :cond_19
-
-    .line 226
-    iget-boolean v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->round:Z
-
-    if-eqz v3, :cond_18
-
-    .line 227
-    iget v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
-
-    add-float v3, v19, v3
-
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
-
-    move-result v3
-
-    int-to-float v6, v3
-
-    sub-float v3, v22, v23
-
-    mul-float/2addr v3, v5
-
-    add-float v3, v20, v3
-
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
-
-    move-result v3
-
-    int-to-float v7, v3
-
-    invoke-static/range {v24 .. v24}, Ljava/lang/Math;->round(F)I
-
-    move-result v3
-
-    int-to-float v10, v3
-
-    .line 228
-    invoke-static/range {v23 .. v23}, Ljava/lang/Math;->round(F)I
-
-    move-result v3
-
-    int-to-float v11, v3
-
-    .line 227
-    move-object v3, v9
-
-    move-object/from16 v4, p1
-
-    move v5, v6
-
-    move v6, v7
-
-    move v7, v10
-
-    move v10, v8
-
-    .end local v8    # "bgLeftWidth":F
-    .local v10, "bgLeftWidth":F
-    move v8, v11
-
-    invoke-interface/range {v3 .. v8}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
-
-    goto :goto_12
-
     .line 230
-    .end local v10    # "bgLeftWidth":F
-    .restart local v8    # "bgLeftWidth":F
-    :cond_18
-    move v10, v8
+    :cond_17
+    iget v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
 
-    .end local v8    # "bgLeftWidth":F
-    .restart local v10    # "bgLeftWidth":F
-    iget v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->position:F
+    add-float v5, v12, v1
 
-    add-float v6, v19, v3
+    sub-float v15, v15, v16
 
-    sub-float v3, v22, v23
+    mul-float v15, v15, v19
 
-    mul-float/2addr v3, v5
-
-    add-float v7, v20, v3
-
-    move-object v3, v9
+    add-float v6, v13, v15
 
     move-object/from16 v4, p1
 
-    move v5, v6
+    move/from16 v7, v17
 
-    move v6, v7
-
-    move/from16 v7, v24
-
-    move/from16 v8, v23
+    move/from16 v8, v16
 
     invoke-interface/range {v3 .. v8}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->draw(Lcom/badlogic/gdx/graphics/g2d/Batch;FFFF)V
 
-    goto :goto_12
-
-    .line 225
-    .end local v10    # "bgLeftWidth":F
-    .restart local v8    # "bgLeftWidth":F
-    :cond_19
-    move v10, v8
-
-    .line 233
-    .end local v8    # "bgLeftWidth":F
-    .end local v26    # "positionWidth":F
-    .end local v27    # "bgRightWidth":F
-    .end local v28    # "knobWidthHalf":F
-    :goto_12
+    :cond_18
+    :goto_11
     return-void
 .end method
 
@@ -1632,14 +1426,13 @@
 .end method
 
 .method public getPrefHeight()F
-    .locals 4
+    .locals 3
 
     .line 317
     iget-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->vertical:Z
 
     if-eqz v0, :cond_0
 
-    .line 318
     const/high16 v0, 0x430c0000    # 140.0f
 
     return v0
@@ -1651,7 +1444,6 @@
     move-result-object v0
 
     .line 321
-    .local v0, "knob":Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
     iget-boolean v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->disabled:Z
 
     if-eqz v1, :cond_1
@@ -1673,21 +1465,20 @@
 
     iget-object v1, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->background:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
-    .line 322
-    .local v1, "bg":Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
     :goto_0
     const/4 v2, 0x0
 
     if-nez v0, :cond_2
 
-    move v3, v2
+    move v0, v2
 
     goto :goto_1
 
+    .line 322
     :cond_2
     invoke-interface {v0}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinHeight()F
 
-    move-result v3
+    move-result v0
 
     :goto_1
     if-nez v1, :cond_3
@@ -1700,15 +1491,15 @@
     move-result v2
 
     :goto_2
-    invoke-static {v3, v2}, Ljava/lang/Math;->max(FF)F
+    invoke-static {v0, v2}, Ljava/lang/Math;->max(FF)F
 
-    move-result v2
+    move-result v0
 
-    return v2
+    return v0
 .end method
 
 .method public getPrefWidth()F
-    .locals 4
+    .locals 3
 
     .line 308
     iget-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->vertical:Z
@@ -1721,7 +1512,6 @@
     move-result-object v0
 
     .line 310
-    .local v0, "knob":Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
     iget-boolean v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->disabled:Z
 
     if-eqz v1, :cond_0
@@ -1743,21 +1533,20 @@
 
     iget-object v1, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->background:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
-    .line 311
-    .local v1, "bg":Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
     :goto_0
     const/4 v2, 0x0
 
     if-nez v0, :cond_1
 
-    move v3, v2
+    move v0, v2
 
     goto :goto_1
 
+    .line 311
     :cond_1
     invoke-interface {v0}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getMinWidth()F
 
-    move-result v3
+    move-result v0
 
     :goto_1
     if-nez v1, :cond_2
@@ -1770,15 +1559,12 @@
     move-result v2
 
     :goto_2
-    invoke-static {v3, v2}, Ljava/lang/Math;->max(FF)F
+    invoke-static {v0, v2}, Ljava/lang/Math;->max(FF)F
 
-    move-result v2
+    move-result v0
 
-    return v2
+    return v0
 
-    .line 313
-    .end local v0    # "knob":Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
-    .end local v1    # "bg":Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
     :cond_3
     const/high16 v0, 0x430c0000    # 140.0f
 
@@ -1854,7 +1640,7 @@
 .end method
 
 .method public getVisualValue()F
-    .locals 6
+    .locals 5
 
     .line 241
     iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->animateTime:F
@@ -1871,11 +1657,11 @@
 
     iget v3, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->value:F
 
+    iget v4, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->animateDuration:F
+
+    div-float/2addr v0, v4
+
     const/high16 v4, 0x3f800000    # 1.0f
-
-    iget v5, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->animateDuration:F
-
-    div-float/2addr v0, v5
 
     sub-float/2addr v4, v0
 
@@ -1912,56 +1698,46 @@
 
 .method public setAnimateDuration(F)V
     .locals 0
-    .param p1, "duration"    # F
 
     .line 340
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->animateDuration:F
 
-    .line 341
     return-void
 .end method
 
 .method public setAnimateInterpolation(Lcom/badlogic/gdx/math/Interpolation;)V
-    .locals 2
-    .param p1, "animateInterpolation"    # Lcom/badlogic/gdx/math/Interpolation;
+    .locals 1
 
-    .line 345
     if-eqz p1, :cond_0
 
     .line 346
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->animateInterpolation:Lcom/badlogic/gdx/math/Interpolation;
 
-    .line 347
     return-void
 
     .line 345
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "animateInterpolation cannot be null."
+    const-string v0, "animateInterpolation cannot be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setDisabled(Z)V
     .locals 0
-    .param p1, "disabled"    # Z
 
     .line 360
     iput-boolean p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->disabled:Z
 
-    .line 361
     return-void
 .end method
 
 .method public setRange(FF)V
     .locals 3
-    .param p1, "min"    # F
-    .param p2, "max"    # F
 
-    .line 294
     cmpl-float v0, p1, p2
 
     if-gtz v0, :cond_2
@@ -1984,15 +1760,14 @@
 
     goto :goto_0
 
-    .line 299
     :cond_0
-    cmpl-float v0, v0, p2
+    cmpl-float p1, v0, p2
 
-    if-lez v0, :cond_1
+    if-lez p1, :cond_1
 
+    .line 299
     invoke-virtual {p0, p2}, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->setValue(F)Z
 
-    .line 300
     :cond_1
     :goto_0
     return-void
@@ -2003,45 +1778,45 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "min must be <= max: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    const-string v2, " <= "
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " <= "
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public setRound(Z)V
     .locals 0
-    .param p1, "round"    # Z
 
     .line 356
     iput-boolean p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->round:Z
 
-    .line 357
     return-void
 .end method
 
 .method public setStepSize(F)V
     .locals 3
-    .param p1, "stepSize"    # F
 
-    .line 303
     const/4 v0, 0x0
 
     cmpg-float v0, p1, v0
@@ -2051,7 +1826,6 @@
     .line 304
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->stepSize:F
 
-    .line 305
     return-void
 
     .line 303
@@ -2060,28 +1834,26 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "steps must be > 0: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public setStyle(Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;)V
-    .locals 2
-    .param p1, "style"    # Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;
+    .locals 1
 
-    .line 87
     if-eqz p1, :cond_0
 
     .line 88
@@ -2090,55 +1862,51 @@
     .line 89
     invoke-virtual {p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->invalidateHierarchy()V
 
-    .line 90
     return-void
 
     .line 87
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "style cannot be null."
+    const-string v0, "style cannot be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setValue(F)Z
-    .locals 6
-    .param p1, "value"    # F
+    .locals 4
 
     .line 269
     iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->stepSize:F
 
-    div-float v0, p1, v0
+    div-float/2addr p1, v0
 
-    invoke-static {v0}, Ljava/lang/Math;->round(F)I
+    invoke-static {p1}, Ljava/lang/Math;->round(F)I
 
-    move-result v0
+    move-result p1
 
-    int-to-float v0, v0
+    int-to-float p1, p1
 
-    iget v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->stepSize:F
+    iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->stepSize:F
 
-    mul-float/2addr v0, v1
+    mul-float/2addr p1, v0
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->clamp(F)F
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->clamp(F)F
 
     move-result p1
 
     .line 270
     iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->value:F
 
-    .line 271
-    .local v0, "oldValue":F
     cmpl-float v1, p1, v0
 
     if-nez v1, :cond_0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return v1
+    return p1
 
     .line 272
     :cond_0
@@ -2147,27 +1915,23 @@
     move-result v1
 
     .line 273
-    .local v1, "oldVisualValue":F
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->value:F
 
     .line 274
-    const-class v2, Lcom/badlogic/gdx/scenes/scene2d/utils/ChangeListener$ChangeEvent;
+    const-class p1, Lcom/badlogic/gdx/scenes/scene2d/utils/ChangeListener$ChangeEvent;
 
-    invoke-static {v2}, Lcom/badlogic/gdx/utils/Pools;->obtain(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/badlogic/gdx/utils/Pools;->obtain(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    check-cast v2, Lcom/badlogic/gdx/scenes/scene2d/utils/ChangeListener$ChangeEvent;
+    check-cast p1, Lcom/badlogic/gdx/scenes/scene2d/utils/ChangeListener$ChangeEvent;
 
     .line 275
-    .local v2, "changeEvent":Lcom/badlogic/gdx/scenes/scene2d/utils/ChangeListener$ChangeEvent;
-    invoke-virtual {p0, v2}, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->fire(Lcom/badlogic/gdx/scenes/scene2d/Event;)Z
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->fire(Lcom/badlogic/gdx/scenes/scene2d/Event;)Z
 
-    move-result v3
+    move-result v2
 
-    .line 276
-    .local v3, "cancelled":Z
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
     .line 277
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->value:F
@@ -2176,38 +1940,35 @@
 
     .line 278
     :cond_1
-    iget v4, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->animateDuration:F
+    iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->animateDuration:F
 
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
-    cmpl-float v5, v4, v5
+    cmpl-float v3, v0, v3
 
-    if-lez v5, :cond_2
+    if-lez v3, :cond_2
 
     .line 279
     iput v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->animateFromValue:F
 
     .line 280
-    iput v4, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->animateTime:F
+    iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->animateTime:F
 
     .line 282
     :cond_2
     :goto_0
-    invoke-static {v2}, Lcom/badlogic/gdx/utils/Pools;->free(Ljava/lang/Object;)V
+    invoke-static {p1}, Lcom/badlogic/gdx/utils/Pools;->free(Ljava/lang/Object;)V
 
-    .line 283
-    xor-int/lit8 v4, v3, 0x1
+    xor-int/lit8 p1, v2, 0x1
 
-    return v4
+    return p1
 .end method
 
 .method public setVisualInterpolation(Lcom/badlogic/gdx/math/Interpolation;)V
     .locals 0
-    .param p1, "interpolation"    # Lcom/badlogic/gdx/math/Interpolation;
 
     .line 351
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar;->visualInterpolation:Lcom/badlogic/gdx/math/Interpolation;
 
-    .line 352
     return-void
 .end method

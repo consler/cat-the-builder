@@ -40,11 +40,8 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/observable/ObservableTimeout$OnTimeout;J)V
     .locals 0
-    .param p1, "parent"    # Lio/reactivex/internal/operators/observable/ObservableTimeout$OnTimeout;
-    .param p2, "index"    # J
 
     .line 181
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;, "Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver<TT;TU;TV;>;"
     invoke-direct {p0}, Lio/reactivex/observers/DisposableObserver;-><init>()V
 
     .line 182
@@ -53,7 +50,6 @@
     .line 183
     iput-wide p2, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;->index:J
 
-    .line 184
     return-void
 .end method
 
@@ -63,18 +59,16 @@
     .locals 3
 
     .line 208
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;, "Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver<TT;TU;TV;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 209
     return-void
 
-    .line 211
     :cond_0
     const/4 v0, 0x1
 
+    .line 211
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;->done:Z
 
     .line 212
@@ -84,16 +78,13 @@
 
     invoke-interface {v0, v1, v2}, Lio/reactivex/internal/operators/observable/ObservableTimeout$OnTimeout;->timeout(J)V
 
-    .line 213
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 198
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;, "Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver<TT;TU;TV;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;->done:Z
 
     if-eqz v0, :cond_0
@@ -101,13 +92,12 @@
     .line 199
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 200
     return-void
 
-    .line 202
     :cond_0
     const/4 v0, 0x1
 
+    .line 202
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;->done:Z
 
     .line 203
@@ -115,39 +105,34 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/internal/operators/observable/ObservableTimeout$OnTimeout;->innerError(Ljava/lang/Throwable;)V
 
-    .line 204
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 3
-    .param p1, "t"    # Ljava/lang/Object;
+    .locals 2
 
     .line 188
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;, "Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver<TT;TU;TV;>;"
-    iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;->done:Z
+    iget-boolean p1, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;->done:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    .line 189
     return-void
 
-    .line 191
     :cond_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;->done:Z
+    .line 191
+    iput-boolean p1, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;->done:Z
 
     .line 192
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;->dispose()V
 
     .line 193
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;->parent:Lio/reactivex/internal/operators/observable/ObservableTimeout$OnTimeout;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;->parent:Lio/reactivex/internal/operators/observable/ObservableTimeout$OnTimeout;
 
-    iget-wide v1, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;->index:J
+    iget-wide v0, p0, Lio/reactivex/internal/operators/observable/ObservableTimeout$TimeoutInnerObserver;->index:J
 
-    invoke-interface {v0, v1, v2}, Lio/reactivex/internal/operators/observable/ObservableTimeout$OnTimeout;->timeout(J)V
+    invoke-interface {p1, v0, v1}, Lio/reactivex/internal/operators/observable/ObservableTimeout$OnTimeout;->timeout(J)V
 
-    .line 194
     return-void
 .end method

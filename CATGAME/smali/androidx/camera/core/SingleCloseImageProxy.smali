@@ -9,18 +9,16 @@
 
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ImageProxy;)V
-    .locals 1
-    .param p1, "image"    # Landroidx/camera/core/ImageProxy;
+    .locals 0
 
     .line 33
     invoke-direct {p0, p1}, Landroidx/camera/core/ForwardingImageProxy;-><init>(Landroidx/camera/core/ImageProxy;)V
 
+    const/4 p1, 0x0
+
     .line 23
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Landroidx/camera/core/SingleCloseImageProxy;->mClosed:Z
 
-    iput-boolean v0, p0, Landroidx/camera/core/SingleCloseImageProxy;->mClosed:Z
-
-    .line 34
     return-void
 .end method
 
@@ -37,9 +35,9 @@
 
     if-nez v0, :cond_0
 
-    .line 39
     const/4 v0, 0x1
 
+    .line 39
     iput-boolean v0, p0, Landroidx/camera/core/SingleCloseImageProxy;->mClosed:Z
 
     .line 40
@@ -48,13 +46,11 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 42
-    .end local p0    # "this":Landroidx/camera/core/SingleCloseImageProxy;
     :cond_0
     monitor-exit p0
 
     return-void
 
-    .line 37
     :catchall_0
     move-exception v0
 

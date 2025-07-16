@@ -31,132 +31,121 @@
 .method public constructor <init>(I)V
     .locals 1
 
-    .line 34
+    .line 1
     invoke-direct {p0}, Lcom/huawei/hms/support/api/client/PendingResult;-><init>()V
 
-    .line 31
     const/4 v0, 0x0
 
+    .line 2
     iput-object v0, p0, Lcom/huawei/hms/support/api/ErrorResultImpl;->a:Lcom/huawei/hms/support/api/client/Result;
 
-    .line 35
+    .line 6
     iput p1, p0, Lcom/huawei/hms/support/api/ErrorResultImpl;->b:I
 
-    .line 36
     return-void
 .end method
 
 .method static synthetic a(Lcom/huawei/hms/support/api/ErrorResultImpl;)I
     .locals 0
 
-    .line 27
+    .line 1
     iget p0, p0, Lcom/huawei/hms/support/api/ErrorResultImpl;->b:I
 
     return p0
 .end method
 
-.method private a(I)Lcom/huawei/hms/support/api/client/Result;
-    .locals 3
+.method private a(ILcom/huawei/hms/support/api/ErrorResultImpl;)Lcom/huawei/hms/support/api/client/Result;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(I)TR;"
+            "(I",
+            "Lcom/huawei/hms/support/api/ErrorResultImpl;",
+            ")TR;"
         }
     .end annotation
 
-    .line 91
     const-string v0, "ErrorResultImpl"
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    .line 3
+    invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getGenericSuperclass()Ljava/lang/reflect/Type;
+    invoke-virtual {p2}, Ljava/lang/Class;->getGenericSuperclass()Ljava/lang/reflect/Type;
 
-    move-result-object v1
+    move-result-object p2
 
-    .line 92
-    if-eqz v1, :cond_0
+    if-eqz p2, :cond_0
 
-    .line 93
-    check-cast v1, Ljava/lang/reflect/ParameterizedType;
+    .line 5
+    check-cast p2, Ljava/lang/reflect/ParameterizedType;
 
-    invoke-interface {v1}, Ljava/lang/reflect/ParameterizedType;->getActualTypeArguments()[Ljava/lang/reflect/Type;
+    invoke-interface {p2}, Ljava/lang/reflect/ParameterizedType;->getActualTypeArguments()[Ljava/lang/reflect/Type;
 
-    move-result-object v1
+    move-result-object p2
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aget-object v1, v1, v2
+    aget-object p2, p2, v1
 
-    .line 95
-    invoke-static {v1}, Lcom/huawei/hms/support/gentyref/GenericTypeReflector;->getType(Ljava/lang/reflect/Type;)Ljava/lang/Class;
+    .line 6
+    invoke-static {p2}, Lcom/huawei/hms/support/gentyref/GenericTypeReflector;->getType(Ljava/lang/reflect/Type;)Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object p2
 
-    .line 98
+    .line 8
     :try_start_0
-    invoke-virtual {v1}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
+    invoke-virtual {p2}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p2
 
-    check-cast v1, Lcom/huawei/hms/support/api/client/Result;
+    check-cast p2, Lcom/huawei/hms/support/api/client/Result;
 
-    iput-object v1, p0, Lcom/huawei/hms/support/api/ErrorResultImpl;->a:Lcom/huawei/hms/support/api/client/Result;
+    iput-object p2, p0, Lcom/huawei/hms/support/api/ErrorResultImpl;->a:Lcom/huawei/hms/support/api/client/Result;
 
-    .line 99
-    new-instance v2, Lcom/huawei/hms/support/api/client/Status;
+    .line 9
+    new-instance v1, Lcom/huawei/hms/support/api/client/Status;
 
-    invoke-direct {v2, p1}, Lcom/huawei/hms/support/api/client/Status;-><init>(I)V
+    invoke-direct {v1, p1}, Lcom/huawei/hms/support/api/client/Status;-><init>(I)V
 
-    invoke-virtual {v1, v2}, Lcom/huawei/hms/support/api/client/Result;->setStatus(Lcom/huawei/hms/support/api/client/Status;)V
+    invoke-virtual {p2, v1}, Lcom/huawei/hms/support/api/client/Result;->setStatus(Lcom/huawei/hms/support/api/client/Status;)V
     :try_end_0
     .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    .line 102
     :catch_0
-    move-exception p1
-
-    .line 103
     const-string p1, "IllegalAccessException"
 
+    .line 13
     invoke-static {v0, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_0
 
-    .line 100
     :catch_1
-    move-exception p1
-
-    .line 101
     const-string p1, "InstantiationException"
 
+    .line 14
     invoke-static {v0, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 104
+    .line 18
     :goto_0
-    nop
-
-    .line 106
-    :goto_1
     iget-object p1, p0, Lcom/huawei/hms/support/api/ErrorResultImpl;->a:Lcom/huawei/hms/support/api/client/Result;
 
     return-object p1
 
-    .line 108
     :cond_0
     const/4 p1, 0x0
 
     return-object p1
 .end method
 
-.method static synthetic a(Lcom/huawei/hms/support/api/ErrorResultImpl;I)Lcom/huawei/hms/support/api/client/Result;
+.method static synthetic a(Lcom/huawei/hms/support/api/ErrorResultImpl;ILcom/huawei/hms/support/api/ErrorResultImpl;)Lcom/huawei/hms/support/api/client/Result;
     .locals 0
 
-    .line 27
-    invoke-direct {p0, p1}, Lcom/huawei/hms/support/api/ErrorResultImpl;->a(I)Lcom/huawei/hms/support/api/client/Result;
+    .line 2
+    invoke-direct {p0, p1, p2}, Lcom/huawei/hms/support/api/ErrorResultImpl;->a(ILcom/huawei/hms/support/api/ErrorResultImpl;)Lcom/huawei/hms/support/api/client/Result;
 
     move-result-object p0
 
@@ -173,11 +162,11 @@
         }
     .end annotation
 
-    .line 40
     const-wide/16 v0, 0x0
 
     const/4 v2, 0x0
 
+    .line 1
     invoke-virtual {p0, v0, v1, v2}, Lcom/huawei/hms/support/api/ErrorResultImpl;->await(JLjava/util/concurrent/TimeUnit;)Lcom/huawei/hms/support/api/client/Result;
 
     move-result-object v0
@@ -195,7 +184,7 @@
         }
     .end annotation
 
-    .line 45
+    .line 2
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
     move-result-object p1
@@ -206,16 +195,16 @@
 
     if-eq p1, p2, :cond_0
 
-    .line 48
+    .line 5
     iget p1, p0, Lcom/huawei/hms/support/api/ErrorResultImpl;->b:I
 
-    invoke-direct {p0, p1}, Lcom/huawei/hms/support/api/ErrorResultImpl;->a(I)Lcom/huawei/hms/support/api/client/Result;
+    invoke-direct {p0, p1, p0}, Lcom/huawei/hms/support/api/ErrorResultImpl;->a(ILcom/huawei/hms/support/api/ErrorResultImpl;)Lcom/huawei/hms/support/api/client/Result;
 
     move-result-object p1
 
     return-object p1
 
-    .line 46
+    .line 6
     :cond_0
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -231,7 +220,6 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 59
     return-void
 .end method
 
@@ -240,24 +228,25 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 65
     const/4 v0, 0x0
 
     return v0
 .end method
 
-.method public final setResultCallback(Landroid/os/Looper;Lcom/huawei/hms/support/api/client/ResultCallback;)V
+.method protected postRunnable(Landroid/os/Looper;Lcom/huawei/hms/support/api/client/ResultCallback;Lcom/huawei/hms/support/api/ErrorResultImpl;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/os/Looper;",
             "Lcom/huawei/hms/support/api/client/ResultCallback<",
-            "TR;>;)V"
+            "TR;>;",
+            "Lcom/huawei/hms/support/api/ErrorResultImpl;",
+            ")V"
         }
     .end annotation
 
-    .line 77
+    .line 1
     new-instance v0, Landroid/os/Handler;
 
     if-nez p1, :cond_0
@@ -269,14 +258,30 @@
     :cond_0
     invoke-direct {v0, p1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 79
-    new-instance p1, Lcom/huawei/hms/support/api/ErrorResultImpl$1;
+    .line 2
+    new-instance p1, Lcom/huawei/hms/support/api/ErrorResultImpl$a;
 
-    invoke-direct {p1, p0, p2}, Lcom/huawei/hms/support/api/ErrorResultImpl$1;-><init>(Lcom/huawei/hms/support/api/ErrorResultImpl;Lcom/huawei/hms/support/api/client/ResultCallback;)V
+    invoke-direct {p1, p0, p2, p3}, Lcom/huawei/hms/support/api/ErrorResultImpl$a;-><init>(Lcom/huawei/hms/support/api/ErrorResultImpl;Lcom/huawei/hms/support/api/client/ResultCallback;Lcom/huawei/hms/support/api/ErrorResultImpl;)V
 
     invoke-virtual {v0, p1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 87
+    return-void
+.end method
+
+.method public final setResultCallback(Landroid/os/Looper;Lcom/huawei/hms/support/api/client/ResultCallback;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/os/Looper;",
+            "Lcom/huawei/hms/support/api/client/ResultCallback<",
+            "TR;>;)V"
+        }
+    .end annotation
+
+    .line 4
+    invoke-virtual {p0, p1, p2, p0}, Lcom/huawei/hms/support/api/ErrorResultImpl;->postRunnable(Landroid/os/Looper;Lcom/huawei/hms/support/api/client/ResultCallback;Lcom/huawei/hms/support/api/ErrorResultImpl;)V
+
     return-void
 .end method
 
@@ -290,15 +295,14 @@
         }
     .end annotation
 
-    .line 53
+    .line 1
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
     move-result-object v0
 
-    .line 54
+    .line 2
     invoke-virtual {p0, v0, p1}, Lcom/huawei/hms/support/api/ErrorResultImpl;->setResultCallback(Landroid/os/Looper;Lcom/huawei/hms/support/api/client/ResultCallback;)V
 
-    .line 55
     return-void
 .end method
 
@@ -317,9 +321,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 72
+    .line 3
     invoke-virtual {p0, p1}, Lcom/huawei/hms/support/api/ErrorResultImpl;->setResultCallback(Lcom/huawei/hms/support/api/client/ResultCallback;)V
 
-    .line 73
     return-void
 .end method

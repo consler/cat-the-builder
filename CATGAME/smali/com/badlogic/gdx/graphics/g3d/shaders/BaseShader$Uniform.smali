@@ -30,9 +30,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 6
-    .param p1, "alias"    # Ljava/lang/String;
 
-    .line 91
     const-wide/16 v2, 0x0
 
     const-wide/16 v4, 0x0
@@ -41,18 +39,15 @@
 
     move-object v1, p1
 
+    .line 91
     invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;JJ)V
 
-    .line 92
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;J)V
     .locals 8
-    .param p1, "alias"    # Ljava/lang/String;
-    .param p2, "overallMask"    # J
 
-    .line 87
     const-wide/16 v2, 0x0
 
     const-wide/16 v4, 0x0
@@ -63,19 +58,15 @@
 
     move-wide v6, p2
 
+    .line 87
     invoke-direct/range {v0 .. v7}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;JJJ)V
 
-    .line 88
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;JJ)V
     .locals 8
-    .param p1, "alias"    # Ljava/lang/String;
-    .param p2, "materialMask"    # J
-    .param p4, "environmentMask"    # J
 
-    .line 83
     const-wide/16 v6, 0x0
 
     move-object v0, p0
@@ -86,18 +77,14 @@
 
     move-wide v4, p4
 
+    .line 83
     invoke-direct/range {v0 .. v7}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;-><init>(Ljava/lang/String;JJJ)V
 
-    .line 84
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;JJJ)V
     .locals 0
-    .param p1, "alias"    # Ljava/lang/String;
-    .param p2, "materialMask"    # J
-    .param p4, "environmentMask"    # J
-    .param p6, "overallMask"    # J
 
     .line 75
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -114,89 +101,83 @@
     .line 79
     iput-wide p6, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;->overallMask:J
 
-    .line 80
     return-void
 .end method
 
 
 # virtual methods
 .method public validate(Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;ILcom/badlogic/gdx/graphics/g3d/Renderable;)Z
-    .locals 8
-    .param p1, "shader"    # Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;
-    .param p2, "inputID"    # I
-    .param p3, "renderable"    # Lcom/badlogic/gdx/graphics/g3d/Renderable;
+    .locals 6
 
-    .line 95
-    const-wide/16 v0, 0x0
+    const-wide/16 p1, 0x0
 
     if-eqz p3, :cond_0
 
-    iget-object v2, p3, Lcom/badlogic/gdx/graphics/g3d/Renderable;->material:Lcom/badlogic/gdx/graphics/g3d/Material;
+    .line 95
+    iget-object v0, p3, Lcom/badlogic/gdx/graphics/g3d/Renderable;->material:Lcom/badlogic/gdx/graphics/g3d/Material;
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v2, p3, Lcom/badlogic/gdx/graphics/g3d/Renderable;->material:Lcom/badlogic/gdx/graphics/g3d/Material;
+    iget-object v0, p3, Lcom/badlogic/gdx/graphics/g3d/Renderable;->material:Lcom/badlogic/gdx/graphics/g3d/Material;
 
-    invoke-virtual {v2}, Lcom/badlogic/gdx/graphics/g3d/Material;->getMask()J
+    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g3d/Material;->getMask()J
 
-    move-result-wide v2
+    move-result-wide v0
 
     goto :goto_0
 
     :cond_0
-    move-wide v2, v0
+    move-wide v0, p1
 
-    .line 96
-    .local v2, "matFlags":J
     :goto_0
     if-eqz p3, :cond_1
 
-    iget-object v4, p3, Lcom/badlogic/gdx/graphics/g3d/Renderable;->environment:Lcom/badlogic/gdx/graphics/g3d/Environment;
+    .line 96
+    iget-object v2, p3, Lcom/badlogic/gdx/graphics/g3d/Renderable;->environment:Lcom/badlogic/gdx/graphics/g3d/Environment;
 
-    if-eqz v4, :cond_1
+    if-eqz v2, :cond_1
 
-    iget-object v0, p3, Lcom/badlogic/gdx/graphics/g3d/Renderable;->environment:Lcom/badlogic/gdx/graphics/g3d/Environment;
+    iget-object p1, p3, Lcom/badlogic/gdx/graphics/g3d/Renderable;->environment:Lcom/badlogic/gdx/graphics/g3d/Environment;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g3d/Environment;->getMask()J
+    invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/g3d/Environment;->getMask()J
 
-    move-result-wide v0
+    move-result-wide p1
 
     .line 97
-    .local v0, "envFlags":J
     :cond_1
-    iget-wide v4, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;->materialMask:J
+    iget-wide v2, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;->materialMask:J
 
-    and-long v6, v2, v4
+    and-long v4, v0, v2
 
-    cmp-long v4, v6, v4
+    cmp-long p3, v4, v2
 
-    if-nez v4, :cond_2
+    if-nez p3, :cond_2
 
-    iget-wide v4, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;->environmentMask:J
+    iget-wide v2, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;->environmentMask:J
 
-    and-long v6, v0, v4
+    and-long v4, p1, v2
 
-    cmp-long v4, v6, v4
+    cmp-long p3, v4, v2
 
-    if-nez v4, :cond_2
+    if-nez p3, :cond_2
 
-    or-long v4, v2, v0
+    or-long/2addr p1, v0
 
-    iget-wide v6, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;->overallMask:J
+    iget-wide v0, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader$Uniform;->overallMask:J
 
-    and-long/2addr v4, v6
+    and-long/2addr p1, v0
 
-    cmp-long v4, v4, v6
+    cmp-long p1, p1, v0
 
-    if-nez v4, :cond_2
+    if-nez p1, :cond_2
 
-    const/4 v4, 0x1
+    const/4 p1, 0x1
 
     goto :goto_1
 
     :cond_2
-    const/4 v4, 0x0
+    const/4 p1, 0x0
 
     :goto_1
-    return v4
+    return p1
 .end method

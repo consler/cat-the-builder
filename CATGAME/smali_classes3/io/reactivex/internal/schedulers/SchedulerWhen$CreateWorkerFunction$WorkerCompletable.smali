@@ -23,7 +23,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/schedulers/SchedulerWhen$CreateWorkerFunction;Lio/reactivex/internal/schedulers/SchedulerWhen$ScheduledAction;)V
     .locals 0
-    .param p2, "action"    # Lio/reactivex/internal/schedulers/SchedulerWhen$ScheduledAction;
 
     .line 281
     iput-object p1, p0, Lio/reactivex/internal/schedulers/SchedulerWhen$CreateWorkerFunction$WorkerCompletable;->this$0:Lio/reactivex/internal/schedulers/SchedulerWhen$CreateWorkerFunction;
@@ -33,7 +32,6 @@
     .line 282
     iput-object p2, p0, Lio/reactivex/internal/schedulers/SchedulerWhen$CreateWorkerFunction$WorkerCompletable;->action:Lio/reactivex/internal/schedulers/SchedulerWhen$ScheduledAction;
 
-    .line 283
     return-void
 .end method
 
@@ -41,7 +39,6 @@
 # virtual methods
 .method protected subscribeActual(Lio/reactivex/CompletableObserver;)V
     .locals 2
-    .param p1, "actionCompletable"    # Lio/reactivex/CompletableObserver;
 
     .line 287
     iget-object v0, p0, Lio/reactivex/internal/schedulers/SchedulerWhen$CreateWorkerFunction$WorkerCompletable;->action:Lio/reactivex/internal/schedulers/SchedulerWhen$ScheduledAction;
@@ -57,6 +54,5 @@
 
     invoke-virtual {v0, v1, p1}, Lio/reactivex/internal/schedulers/SchedulerWhen$ScheduledAction;->call(Lio/reactivex/Scheduler$Worker;Lio/reactivex/CompletableObserver;)V
 
-    .line 289
     return-void
 .end method

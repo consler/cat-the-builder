@@ -21,7 +21,6 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g2d/PixmapPacker;)V
     .locals 3
-    .param p1, "packer"    # Lcom/badlogic/gdx/graphics/g2d/PixmapPacker;
 
     .line 626
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$Page;-><init>(Lcom/badlogic/gdx/graphics/g2d/PixmapPacker;)V
@@ -77,16 +76,15 @@
 
     iget v1, p1, Lcom/badlogic/gdx/graphics/g2d/PixmapPacker;->pageHeight:I
 
-    iget v2, p1, Lcom/badlogic/gdx/graphics/g2d/PixmapPacker;->padding:I
+    iget p1, p1, Lcom/badlogic/gdx/graphics/g2d/PixmapPacker;->padding:I
 
-    mul-int/lit8 v2, v2, 0x2
+    mul-int/lit8 p1, p1, 0x2
 
-    sub-int/2addr v1, v2
+    sub-int/2addr v1, p1
 
-    int-to-float v1, v1
+    int-to-float p1, v1
 
-    iput v1, v0, Lcom/badlogic/gdx/math/Rectangle;->height:F
+    iput p1, v0, Lcom/badlogic/gdx/math/Rectangle;->height:F
 
-    .line 632
     return-void
 .end method

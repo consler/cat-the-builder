@@ -55,13 +55,11 @@
     .end annotation
 
     .line 136
-    .local p1, "parent":Lio/reactivex/internal/operators/single/SingleTakeUntil$TakeUntilMainObserver;, "Lio/reactivex/internal/operators/single/SingleTakeUntil$TakeUntilMainObserver<*>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 137
     iput-object p1, p0, Lio/reactivex/internal/operators/single/SingleTakeUntil$TakeUntilOtherSubscriber;->parent:Lio/reactivex/internal/operators/single/SingleTakeUntil$TakeUntilMainObserver;
 
-    .line 138
     return-void
 .end method
 
@@ -73,7 +71,6 @@
     .line 168
     invoke-static {p0}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->cancel(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 169
     return-void
 .end method
 
@@ -103,52 +100,46 @@
 
     invoke-virtual {v0, v1}, Lio/reactivex/internal/operators/single/SingleTakeUntil$TakeUntilMainObserver;->otherError(Ljava/lang/Throwable;)V
 
-    .line 165
     :cond_0
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 156
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleTakeUntil$TakeUntilOtherSubscriber;->parent:Lio/reactivex/internal/operators/single/SingleTakeUntil$TakeUntilMainObserver;
 
     invoke-virtual {v0, p1}, Lio/reactivex/internal/operators/single/SingleTakeUntil$TakeUntilMainObserver;->otherError(Ljava/lang/Throwable;)V
 
-    .line 157
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "t"    # Ljava/lang/Object;
+    .locals 1
 
     .line 149
     invoke-static {p0}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->cancel(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 150
-    iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleTakeUntil$TakeUntilOtherSubscriber;->parent:Lio/reactivex/internal/operators/single/SingleTakeUntil$TakeUntilMainObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/single/SingleTakeUntil$TakeUntilOtherSubscriber;->parent:Lio/reactivex/internal/operators/single/SingleTakeUntil$TakeUntilMainObserver;
 
-    new-instance v1, Ljava/util/concurrent/CancellationException;
+    new-instance v0, Ljava/util/concurrent/CancellationException;
 
-    invoke-direct {v1}, Ljava/util/concurrent/CancellationException;-><init>()V
+    invoke-direct {v0}, Ljava/util/concurrent/CancellationException;-><init>()V
 
-    invoke-virtual {v0, v1}, Lio/reactivex/internal/operators/single/SingleTakeUntil$TakeUntilMainObserver;->otherError(Ljava/lang/Throwable;)V
+    invoke-virtual {p1, v0}, Lio/reactivex/internal/operators/single/SingleTakeUntil$TakeUntilMainObserver;->otherError(Ljava/lang/Throwable;)V
 
-    .line 152
     :cond_0
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 142
     invoke-static {p0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lorg/reactivestreams/Subscription;)Z
@@ -157,12 +148,11 @@
 
     if-eqz v0, :cond_0
 
-    .line 143
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 143
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 145
     :cond_0
     return-void
 .end method

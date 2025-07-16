@@ -35,22 +35,18 @@
     .end annotation
 
     .line 654
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$MultiValuedMapEntry;, "Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap<TK;TV;>.MultiValuedMapEntry;"
-    .local p2, "key":Ljava/lang/Object;, "TK;"
-    .local p3, "value":Ljava/lang/Object;, "TV;"
     iput-object p1, p0, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$MultiValuedMapEntry;->this$0:Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;
 
     .line 655
     invoke-direct {p0, p2, p3}, Lorg/apache/commons/collections4/keyvalue/AbstractMapEntry;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    .line 656
     return-void
 .end method
 
 
 # virtual methods
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)TV;"
@@ -58,11 +54,9 @@
     .end annotation
 
     .line 660
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap$MultiValuedMapEntry;, "Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap<TK;TV;>.MultiValuedMapEntry;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method

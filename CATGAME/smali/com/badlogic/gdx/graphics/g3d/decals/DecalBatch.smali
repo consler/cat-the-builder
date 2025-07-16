@@ -54,8 +54,6 @@
 # direct methods
 .method public constructor <init>(ILcom/badlogic/gdx/graphics/g3d/decals/GroupStrategy;)V
     .locals 2
-    .param p1, "size"    # I
-    .param p2, "groupStrategy"    # Lcom/badlogic/gdx/graphics/g3d/decals/GroupStrategy;
 
     .line 74
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -89,26 +87,22 @@
     .line 76
     invoke-virtual {p0, p2}, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->setGroupStrategy(Lcom/badlogic/gdx/graphics/g3d/decals/GroupStrategy;)V
 
-    .line 77
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/decals/GroupStrategy;)V
     .locals 1
-    .param p1, "groupStrategy"    # Lcom/badlogic/gdx/graphics/g3d/decals/GroupStrategy;
 
-    .line 71
     const/16 v0, 0x3e8
 
+    .line 71
     invoke-direct {p0, v0, p1}, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;-><init>(ILcom/badlogic/gdx/graphics/g3d/decals/GroupStrategy;)V
 
-    .line 72
     return-void
 .end method
 
 .method private render(Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;Lcom/badlogic/gdx/utils/Array;)V
-    .locals 8
-    .param p1, "shader"    # Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -119,37 +113,34 @@
         }
     .end annotation
 
-    .line 156
-    .local p2, "decals":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/g3d/decals/Decal;>;"
-    const/4 v0, 0x0
-
-    .line 157
-    .local v0, "lastMaterial":Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;
-    const/4 v1, 0x0
-
     .line 158
-    .local v1, "idx":I
     invoke-virtual {p2}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object p2
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x0
 
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    move v2, v1
+
+    :cond_0
+    invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
     if-eqz v3, :cond_4
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
 
-    .line 159
-    .local v3, "decal":Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
+    .line 159
     invoke-virtual {v3}, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->getMaterial()Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;
 
     move-result-object v4
@@ -158,77 +149,65 @@
 
     move-result v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_3
 
-    .line 160
-    :cond_0
-    if-lez v1, :cond_1
+    :cond_1
+    if-lez v2, :cond_2
 
     .line 161
-    invoke-virtual {p0, p1, v1}, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->flush(Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;I)V
+    invoke-virtual {p0, p1, v2}, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->flush(Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;I)V
 
-    .line 162
-    const/4 v1, 0x0
+    move v2, v1
 
     .line 164
-    :cond_1
-    iget-object v4, v3, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->material:Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;
+    :cond_2
+    iget-object v0, v3, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->material:Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;
 
-    invoke-virtual {v4}, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->set()V
+    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->set()V
 
     .line 165
     iget-object v0, v3, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->material:Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;
 
     .line 167
-    :cond_2
+    :cond_3
     invoke-virtual {v3}, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->update()V
 
     .line 168
     iget-object v4, v3, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
-    const/4 v5, 0x0
+    iget-object v5, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->vertices:[F
 
-    iget-object v6, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->vertices:[F
+    iget-object v6, v3, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
-    iget-object v7, v3, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+    array-length v6, v6
 
-    array-length v7, v7
-
-    invoke-static {v4, v5, v6, v1, v7}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v4, v1, v5, v2, v6}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 169
-    iget-object v4, v3, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
+    iget-object v3, v3, Lcom/badlogic/gdx/graphics/g3d/decals/Decal;->vertices:[F
 
-    array-length v4, v4
+    array-length v3, v3
 
-    add-int/2addr v1, v4
+    add-int/2addr v2, v3
 
     .line 171
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->vertices:[F
+    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->vertices:[F
 
-    array-length v4, v4
+    array-length v3, v3
 
-    if-ne v1, v4, :cond_3
+    if-ne v2, v3, :cond_0
 
     .line 172
-    invoke-virtual {p0, p1, v1}, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->flush(Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;I)V
+    invoke-virtual {p0, p1, v2}, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->flush(Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;I)V
 
-    .line 173
-    const/4 v1, 0x0
-
-    .line 175
-    .end local v3    # "decal":Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
-    :cond_3
     goto :goto_0
 
-    .line 177
     :cond_4
-    if-lez v1, :cond_5
+    if-lez v2, :cond_5
 
     .line 178
-    invoke-virtual {p0, p1, v1}, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->flush(Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;I)V
+    invoke-virtual {p0, p1, v2}, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->flush(Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;I)V
 
-    .line 180
     :cond_5
     return-void
 .end method
@@ -237,7 +216,6 @@
 # virtual methods
 .method public add(Lcom/badlogic/gdx/graphics/g3d/decals/Decal;)V
     .locals 3
-    .param p1, "decal"    # Lcom/badlogic/gdx/graphics/g3d/decals/Decal;
 
     .line 122
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->groupStrategy:Lcom/badlogic/gdx/graphics/g3d/decals/GroupStrategy;
@@ -247,7 +225,6 @@
     move-result v0
 
     .line 123
-    .local v0, "groupIndex":I
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->groupList:Lcom/badlogic/gdx/utils/SortedIntList;
 
     invoke-virtual {v1, v0}, Lcom/badlogic/gdx/utils/SortedIntList;->get(I)Ljava/lang/Object;
@@ -256,18 +233,14 @@
 
     check-cast v1, Lcom/badlogic/gdx/utils/Array;
 
-    .line 124
-    .local v1, "targetGroup":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/g3d/decals/Decal;>;"
     if-nez v1, :cond_0
 
     .line 125
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->groupPool:Lcom/badlogic/gdx/utils/Pool;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->groupPool:Lcom/badlogic/gdx/utils/Pool;
 
-    invoke-virtual {v2}, Lcom/badlogic/gdx/utils/Pool;->obtain()Ljava/lang/Object;
+    invoke-virtual {v1}, Lcom/badlogic/gdx/utils/Pool;->obtain()Ljava/lang/Object;
 
-    move-result-object v2
-
-    move-object v1, v2
+    move-result-object v1
 
     check-cast v1, Lcom/badlogic/gdx/utils/Array;
 
@@ -288,7 +261,6 @@
     :cond_0
     invoke-virtual {v1, p1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 131
     return-void
 .end method
 
@@ -312,7 +284,6 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->clear()V
 
-    .line 195
     return-void
 .end method
 
@@ -322,9 +293,9 @@
     .line 200
     invoke-virtual {p0}, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->clear()V
 
-    .line 201
     const/4 v0, 0x0
 
+    .line 201
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->vertices:[F
 
     .line 202
@@ -332,7 +303,6 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/Mesh;->dispose()V
 
-    .line 203
     return-void
 .end method
 
@@ -345,14 +315,11 @@
     .line 136
     invoke-virtual {p0}, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->clear()V
 
-    .line 137
     return-void
 .end method
 
 .method protected flush(Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;I)V
-    .locals 4
-    .param p1, "shader"    # Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
-    .param p2, "verticesPosition"    # I
+    .locals 3
 
     .line 186
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->mesh:Lcom/badlogic/gdx/graphics/Mesh;
@@ -366,13 +333,12 @@
     .line 187
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->mesh:Lcom/badlogic/gdx/graphics/Mesh;
 
-    div-int/lit8 v1, p2, 0x4
+    const/4 v1, 0x4
 
-    const/4 v3, 0x4
+    div-int/2addr p2, v1
 
-    invoke-virtual {v0, p1, v3, v2, v1}, Lcom/badlogic/gdx/graphics/Mesh;->render(Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;III)V
+    invoke-virtual {v0, p1, v1, v2, p2}, Lcom/badlogic/gdx/graphics/Mesh;->render(Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;III)V
 
-    .line 188
     return-void
 .end method
 
@@ -391,11 +357,10 @@
 
 .method public initialize(I)V
     .locals 11
-    .param p1, "size"    # I
 
-    .line 89
     mul-int/lit8 v0, p1, 0x18
 
+    .line 89
     new-array v0, v0, [F
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->vertices:[F
@@ -404,7 +369,6 @@
     sget-object v0, Lcom/badlogic/gdx/graphics/Mesh$VertexDataType;->VertexArray:Lcom/badlogic/gdx/graphics/Mesh$VertexDataType;
 
     .line 92
-    .local v0, "vertexDataType":Lcom/badlogic/gdx/graphics/Mesh$VertexDataType;
     sget-object v1, Lcom/badlogic/gdx/Gdx;->gl30:Lcom/badlogic/gdx/graphics/GL30;
 
     if-eqz v1, :cond_0
@@ -412,146 +376,126 @@
     .line 93
     sget-object v0, Lcom/badlogic/gdx/graphics/Mesh$VertexDataType;->VertexBufferObjectWithVAO:Lcom/badlogic/gdx/graphics/Mesh$VertexDataType;
 
-    .line 95
     :cond_0
-    new-instance v7, Lcom/badlogic/gdx/graphics/Mesh;
+    move-object v2, v0
+
+    .line 95
+    new-instance v0, Lcom/badlogic/gdx/graphics/Mesh;
 
     const/4 v3, 0x0
 
     mul-int/lit8 v4, p1, 0x4
 
-    mul-int/lit8 v5, p1, 0x6
+    mul-int/lit8 p1, p1, 0x6
 
     const/4 v1, 0x3
 
     new-array v6, v1, [Lcom/badlogic/gdx/graphics/VertexAttribute;
 
-    const/4 v2, 0x0
+    new-instance v5, Lcom/badlogic/gdx/graphics/VertexAttribute;
 
-    new-instance v8, Lcom/badlogic/gdx/graphics/VertexAttribute;
+    const-string v7, "a_position"
 
-    const/4 v9, 0x1
+    const/4 v8, 0x1
 
-    const-string v10, "a_position"
+    invoke-direct {v5, v8, v1, v7}, Lcom/badlogic/gdx/graphics/VertexAttribute;-><init>(IILjava/lang/String;)V
 
-    invoke-direct {v8, v9, v1, v10}, Lcom/badlogic/gdx/graphics/VertexAttribute;-><init>(IILjava/lang/String;)V
+    const/4 v7, 0x0
 
-    aput-object v8, v6, v2
-
-    new-instance v1, Lcom/badlogic/gdx/graphics/VertexAttribute;
-
-    const/4 v2, 0x4
-
-    const-string v8, "a_color"
-
-    invoke-direct {v1, v2, v2, v8}, Lcom/badlogic/gdx/graphics/VertexAttribute;-><init>(IILjava/lang/String;)V
-
-    aput-object v1, v6, v9
+    aput-object v5, v6, v7
 
     new-instance v1, Lcom/badlogic/gdx/graphics/VertexAttribute;
 
-    const/16 v2, 0x10
+    const-string v5, "a_color"
 
-    const/4 v8, 0x2
+    const/4 v9, 0x4
 
-    const-string v9, "a_texCoord0"
-
-    invoke-direct {v1, v2, v8, v9}, Lcom/badlogic/gdx/graphics/VertexAttribute;-><init>(IILjava/lang/String;)V
+    invoke-direct {v1, v9, v9, v5}, Lcom/badlogic/gdx/graphics/VertexAttribute;-><init>(IILjava/lang/String;)V
 
     aput-object v1, v6, v8
 
-    move-object v1, v7
+    new-instance v1, Lcom/badlogic/gdx/graphics/VertexAttribute;
 
-    move-object v2, v0
+    const/16 v5, 0x10
+
+    const-string v8, "a_texCoord0"
+
+    const/4 v10, 0x2
+
+    invoke-direct {v1, v5, v10, v8}, Lcom/badlogic/gdx/graphics/VertexAttribute;-><init>(IILjava/lang/String;)V
+
+    aput-object v1, v6, v10
+
+    move-object v1, v0
+
+    move v5, p1
 
     invoke-direct/range {v1 .. v6}, Lcom/badlogic/gdx/graphics/Mesh;-><init>(Lcom/badlogic/gdx/graphics/Mesh$VertexDataType;ZII[Lcom/badlogic/gdx/graphics/VertexAttribute;)V
 
-    iput-object v7, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->mesh:Lcom/badlogic/gdx/graphics/Mesh;
+    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->mesh:Lcom/badlogic/gdx/graphics/Mesh;
 
     .line 100
-    mul-int/lit8 v1, p1, 0x6
+    new-array v0, p1, [S
 
-    new-array v1, v1, [S
+    move v1, v7
 
-    .line 101
-    .local v1, "indices":[S
-    const/4 v2, 0x0
-
-    .line 102
-    .local v2, "v":I
-    const/4 v3, 0x0
-
-    .local v3, "i":I
     :goto_0
-    array-length v4, v1
+    if-ge v7, p1, :cond_1
 
-    if-ge v3, v4, :cond_1
+    int-to-short v2, v1
 
     .line 103
-    int-to-short v4, v2
+    aput-short v2, v0, v7
 
-    aput-short v4, v1, v3
+    add-int/lit8 v2, v7, 0x1
+
+    add-int/lit8 v3, v1, 0x2
+
+    int-to-short v3, v3
 
     .line 104
-    add-int/lit8 v4, v3, 0x1
+    aput-short v3, v0, v2
 
-    add-int/lit8 v5, v2, 0x2
+    add-int/lit8 v2, v7, 0x2
 
-    int-to-short v5, v5
+    add-int/lit8 v4, v1, 0x1
 
-    aput-short v5, v1, v4
+    int-to-short v4, v4
 
     .line 105
-    add-int/lit8 v4, v3, 0x2
+    aput-short v4, v0, v2
 
-    add-int/lit8 v5, v2, 0x1
-
-    int-to-short v5, v5
-
-    aput-short v5, v1, v4
+    add-int/lit8 v2, v7, 0x3
 
     .line 106
-    add-int/lit8 v4, v3, 0x3
+    aput-short v4, v0, v2
 
-    add-int/lit8 v5, v2, 0x1
-
-    int-to-short v5, v5
-
-    aput-short v5, v1, v4
+    add-int/lit8 v2, v7, 0x4
 
     .line 107
-    add-int/lit8 v4, v3, 0x4
+    aput-short v3, v0, v2
 
-    add-int/lit8 v5, v2, 0x2
+    add-int/lit8 v2, v7, 0x5
 
-    int-to-short v5, v5
+    add-int/lit8 v3, v1, 0x3
 
-    aput-short v5, v1, v4
+    int-to-short v3, v3
 
     .line 108
-    add-int/lit8 v4, v3, 0x5
+    aput-short v3, v0, v2
 
-    add-int/lit8 v5, v2, 0x3
+    add-int/lit8 v7, v7, 0x6
 
-    int-to-short v5, v5
-
-    aput-short v5, v1, v4
-
-    .line 102
-    add-int/lit8 v3, v3, 0x6
-
-    add-int/lit8 v2, v2, 0x4
+    add-int/2addr v1, v9
 
     goto :goto_0
 
     .line 110
-    .end local v3    # "i":I
     :cond_1
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->mesh:Lcom/badlogic/gdx/graphics/Mesh;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->mesh:Lcom/badlogic/gdx/graphics/Mesh;
 
-    invoke-virtual {v3, v1}, Lcom/badlogic/gdx/graphics/Mesh;->setIndices([S)Lcom/badlogic/gdx/graphics/Mesh;
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/graphics/Mesh;->setIndices([S)Lcom/badlogic/gdx/graphics/Mesh;
 
-    .line 111
     return-void
 .end method
 
@@ -584,7 +528,6 @@
     check-cast v1, Lcom/badlogic/gdx/utils/SortedIntList$Node;
 
     .line 143
-    .local v1, "group":Lcom/badlogic/gdx/utils/SortedIntList$Node;, "Lcom/badlogic/gdx/utils/SortedIntList$Node<Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/g3d/decals/Decal;>;>;"
     iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->groupStrategy:Lcom/badlogic/gdx/graphics/g3d/decals/GroupStrategy;
 
     iget v3, v1, Lcom/badlogic/gdx/utils/SortedIntList$Node;->index:I
@@ -605,7 +548,6 @@
     move-result-object v2
 
     .line 145
-    .local v2, "shader":Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
     iget-object v3, v1, Lcom/badlogic/gdx/utils/SortedIntList$Node;->value:Ljava/lang/Object;
 
     check-cast v3, Lcom/badlogic/gdx/utils/Array;
@@ -613,15 +555,12 @@
     invoke-direct {p0, v2, v3}, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->render(Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;Lcom/badlogic/gdx/utils/Array;)V
 
     .line 146
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->groupStrategy:Lcom/badlogic/gdx/graphics/g3d/decals/GroupStrategy;
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->groupStrategy:Lcom/badlogic/gdx/graphics/g3d/decals/GroupStrategy;
 
-    iget v4, v1, Lcom/badlogic/gdx/utils/SortedIntList$Node;->index:I
+    iget v1, v1, Lcom/badlogic/gdx/utils/SortedIntList$Node;->index:I
 
-    invoke-interface {v3, v4}, Lcom/badlogic/gdx/graphics/g3d/decals/GroupStrategy;->afterGroup(I)V
+    invoke-interface {v2, v1}, Lcom/badlogic/gdx/graphics/g3d/decals/GroupStrategy;->afterGroup(I)V
 
-    .line 147
-    .end local v1    # "group":Lcom/badlogic/gdx/utils/SortedIntList$Node;, "Lcom/badlogic/gdx/utils/SortedIntList$Node<Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/g3d/decals/Decal;>;>;"
-    .end local v2    # "shader":Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
     goto :goto_0
 
     .line 148
@@ -630,17 +569,14 @@
 
     invoke-interface {v0}, Lcom/badlogic/gdx/graphics/g3d/decals/GroupStrategy;->afterGroups()V
 
-    .line 149
     return-void
 .end method
 
 .method public setGroupStrategy(Lcom/badlogic/gdx/graphics/g3d/decals/GroupStrategy;)V
     .locals 0
-    .param p1, "groupStrategy"    # Lcom/badlogic/gdx/graphics/g3d/decals/GroupStrategy;
 
     .line 82
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;->groupStrategy:Lcom/badlogic/gdx/graphics/g3d/decals/GroupStrategy;
 
-    .line 83
     return-void
 .end method

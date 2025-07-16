@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .locals 7
 
     .line 166
     new-instance v0, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
@@ -54,65 +54,61 @@
     sput-object v0, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;->json:Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
 
     .line 168
-    new-instance v0, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
+    new-instance v1, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
 
-    const-string v1, "javascript"
+    const-string v3, "javascript"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;->javascript:Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
+    sput-object v1, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;->javascript:Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
 
     .line 179
-    new-instance v0, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
+    new-instance v3, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
 
-    const-string v1, "minimal"
+    const-string v5, "minimal"
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v1, v4}, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;->minimal:Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
+    sput-object v3, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;->minimal:Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
+
+    const/4 v5, 0x3
+
+    new-array v5, v5, [Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
+
+    aput-object v0, v5, v2
+
+    aput-object v1, v5, v4
+
+    aput-object v3, v5, v6
 
     .line 164
-    const/4 v1, 0x3
+    sput-object v5, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;->$VALUES:[Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
 
-    new-array v1, v1, [Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
-
-    sget-object v5, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;->json:Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
-
-    aput-object v5, v1, v2
-
-    sget-object v2, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;->javascript:Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
-
-    aput-object v2, v1, v3
-
-    aput-object v0, v1, v4
-
-    sput-object v1, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;->$VALUES:[Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
-
-    .line 181
     const-string v0, "^[a-zA-Z_$][a-zA-Z_$0-9]*$"
 
+    .line 181
     invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v0
 
     sput-object v0, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;->javascriptPattern:Ljava/util/regex/Pattern;
 
-    .line 182
     const-string v0, "^[^\":,}/ ][^:]*$"
 
+    .line 182
     invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v0
 
     sput-object v0, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;->minimalNamePattern:Ljava/util/regex/Pattern;
 
-    .line 183
     const-string v0, "^[^\":,{\\[\\]/ ][^}\\],]*$"
 
+    .line 183
     invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
     move-result-object v0
@@ -138,18 +134,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 164
     const-class v0, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
+    check-cast p0, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
@@ -171,19 +166,17 @@
 # virtual methods
 .method public quoteName(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
-    .param p1, "value"    # Ljava/lang/String;
 
     .line 201
     new-instance v0, Lcom/badlogic/gdx/utils/StringBuilder;
 
     invoke-direct {v0, p1}, Lcom/badlogic/gdx/utils/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 202
-    .local v0, "buffer":Lcom/badlogic/gdx/utils/StringBuilder;
     const/16 v1, 0x5c
 
     const-string v2, "\\\\"
 
+    .line 202
     invoke-virtual {v0, v1, v2}, Lcom/badlogic/gdx/utils/StringBuilder;->replace(CLjava/lang/String;)Lcom/badlogic/gdx/utils/StringBuilder;
 
     move-result-object v1
@@ -223,16 +216,16 @@
 
     if-eq v1, v2, :cond_0
 
-    const/4 v2, 0x2
+    const/4 p1, 0x2
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, p1, :cond_1
 
     goto :goto_0
 
-    .line 205
     :cond_0
     const-string v1, "//"
 
+    .line 205
     invoke-virtual {p1, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v1
@@ -243,86 +236,88 @@
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result p1
 
-    if-nez v1, :cond_1
+    if-nez p1, :cond_1
 
-    sget-object v1, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;->minimalNamePattern:Ljava/util/regex/Pattern;
+    sget-object p1, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;->minimalNamePattern:Ljava/util/regex/Pattern;
 
-    invoke-virtual {v1, v0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+    invoke-virtual {p1, v0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1}, Ljava/util/regex/Matcher;->matches()Z
+    invoke-virtual {p1}, Ljava/util/regex/Matcher;->matches()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_1
+    if-eqz p1, :cond_1
 
     .line 206
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 208
     :cond_1
-    sget-object v1, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;->javascriptPattern:Ljava/util/regex/Pattern;
+    sget-object p1, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;->javascriptPattern:Ljava/util/regex/Pattern;
 
-    invoke-virtual {v1, v0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+    invoke-virtual {p1, v0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1}, Ljava/util/regex/Matcher;->matches()Z
+    invoke-virtual {p1}, Ljava/util/regex/Matcher;->matches()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_2
+    if-eqz p1, :cond_2
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 210
     :cond_2
     :goto_0
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "\""
+
+    invoke-direct {p1, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string v1, "\\\""
 
     const/16 v2, 0x22
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2, v1}, Lcom/badlogic/gdx/utils/StringBuilder;->replace(CLjava/lang/String;)Lcom/badlogic/gdx/utils/StringBuilder;
 
-    const-string v3, "\\\""
+    move-result-object v0
 
-    invoke-virtual {v0, v2, v3}, Lcom/badlogic/gdx/utils/StringBuilder;->replace(CLjava/lang/String;)Lcom/badlogic/gdx/utils/StringBuilder;
+    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v3}, Lcom/badlogic/gdx/utils/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public quoteValue(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 6
-    .param p1, "value"    # Ljava/lang/Object;
+    .locals 5
 
-    .line 186
     const-string v0, "null"
 
     if-nez p1, :cond_0
@@ -336,75 +331,73 @@
     move-result-object v1
 
     .line 188
-    .local v1, "string":Ljava/lang/String;
     instance-of v2, p1, Ljava/lang/Number;
 
     if-nez v2, :cond_3
 
-    instance-of v2, p1, Ljava/lang/Boolean;
+    instance-of p1, p1, Ljava/lang/Boolean;
 
-    if-eqz v2, :cond_1
+    if-eqz p1, :cond_1
 
     goto/16 :goto_0
 
     .line 189
     :cond_1
-    new-instance v2, Lcom/badlogic/gdx/utils/StringBuilder;
+    new-instance p1, Lcom/badlogic/gdx/utils/StringBuilder;
 
-    invoke-direct {v2, v1}, Lcom/badlogic/gdx/utils/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v1}, Lcom/badlogic/gdx/utils/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const/16 v2, 0x5c
+
+    const-string v3, "\\\\"
 
     .line 190
-    .local v2, "buffer":Lcom/badlogic/gdx/utils/StringBuilder;
-    const/16 v3, 0x5c
+    invoke-virtual {p1, v2, v3}, Lcom/badlogic/gdx/utils/StringBuilder;->replace(CLjava/lang/String;)Lcom/badlogic/gdx/utils/StringBuilder;
 
-    const-string v4, "\\\\"
+    move-result-object v2
+
+    const/16 v3, 0xd
+
+    const-string v4, "\\r"
 
     invoke-virtual {v2, v3, v4}, Lcom/badlogic/gdx/utils/StringBuilder;->replace(CLjava/lang/String;)Lcom/badlogic/gdx/utils/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
-    const/16 v4, 0xd
+    const/16 v3, 0xa
 
-    const-string v5, "\\r"
+    const-string v4, "\\n"
 
-    invoke-virtual {v3, v4, v5}, Lcom/badlogic/gdx/utils/StringBuilder;->replace(CLjava/lang/String;)Lcom/badlogic/gdx/utils/StringBuilder;
+    invoke-virtual {v2, v3, v4}, Lcom/badlogic/gdx/utils/StringBuilder;->replace(CLjava/lang/String;)Lcom/badlogic/gdx/utils/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
-    const/16 v4, 0xa
+    const/16 v3, 0x9
 
-    const-string v5, "\\n"
+    const-string v4, "\\t"
 
-    invoke-virtual {v3, v4, v5}, Lcom/badlogic/gdx/utils/StringBuilder;->replace(CLjava/lang/String;)Lcom/badlogic/gdx/utils/StringBuilder;
-
-    move-result-object v3
-
-    const/16 v4, 0x9
-
-    const-string v5, "\\t"
-
-    invoke-virtual {v3, v4, v5}, Lcom/badlogic/gdx/utils/StringBuilder;->replace(CLjava/lang/String;)Lcom/badlogic/gdx/utils/StringBuilder;
+    invoke-virtual {v2, v3, v4}, Lcom/badlogic/gdx/utils/StringBuilder;->replace(CLjava/lang/String;)Lcom/badlogic/gdx/utils/StringBuilder;
 
     .line 191
-    sget-object v3, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;->minimal:Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
+    sget-object v2, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;->minimal:Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
 
-    if-ne p0, v3, :cond_2
+    if-ne p0, v2, :cond_2
 
-    const-string/jumbo v3, "true"
+    const-string v2, "true"
 
-    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_2
+    if-nez v2, :cond_2
 
-    const-string v3, "false"
+    const-string v2, "false"
 
-    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_2
+    if-nez v2, :cond_2
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -412,9 +405,9 @@
 
     if-nez v0, :cond_2
 
-    .line 192
     const-string v0, "//"
 
+    .line 192
     invoke-virtual {v1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v0
@@ -430,76 +423,76 @@
     if-nez v0, :cond_2
 
     .line 193
-    invoke-virtual {v2}, Lcom/badlogic/gdx/utils/StringBuilder;->length()I
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/StringBuilder;->length()I
 
     move-result v0
 
-    .line 194
-    .local v0, "length":I
     if-lez v0, :cond_2
 
-    add-int/lit8 v3, v0, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    invoke-virtual {v2, v3}, Lcom/badlogic/gdx/utils/StringBuilder;->charAt(I)C
+    .line 194
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/utils/StringBuilder;->charAt(I)C
 
-    move-result v3
+    move-result v0
 
-    const/16 v4, 0x20
+    const/16 v1, 0x20
 
-    if-eq v3, v4, :cond_2
+    if-eq v0, v1, :cond_2
 
-    sget-object v3, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;->minimalValuePattern:Ljava/util/regex/Pattern;
+    sget-object v0, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;->minimalValuePattern:Ljava/util/regex/Pattern;
 
-    invoke-virtual {v3, v2}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/util/regex/Matcher;->matches()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
-
-    .line 195
-    invoke-virtual {v2}, Lcom/badlogic/gdx/utils/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    return-object v3
-
-    .line 197
-    .end local v0    # "length":I
-    :cond_2
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const/16 v3, 0x22
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    const-string v4, "\\\""
-
-    invoke-virtual {v2, v3, v4}, Lcom/badlogic/gdx/utils/StringBuilder;->replace(CLjava/lang/String;)Lcom/badlogic/gdx/utils/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Lcom/badlogic/gdx/utils/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, p1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
     move-result-object v0
 
-    return-object v0
+    invoke-virtual {v0}, Ljava/util/regex/Matcher;->matches()Z
 
-    .line 188
-    .end local v2    # "buffer":Lcom/badlogic/gdx/utils/StringBuilder;
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 195
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    return-object p1
+
+    .line 197
+    :cond_2
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "\""
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-string v1, "\\\""
+
+    const/16 v2, 0x22
+
+    invoke-virtual {p1, v2, v1}, Lcom/badlogic/gdx/utils/StringBuilder;->replace(CLjava/lang/String;)Lcom/badlogic/gdx/utils/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    return-object p1
+
     :cond_3
     :goto_0
     return-object v1

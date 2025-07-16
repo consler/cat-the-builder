@@ -16,9 +16,17 @@
 
 # direct methods
 .method constructor <init>(Ljava/net/DatagramSocket;Ljava/io/FileDescriptor;)V
-    .locals 1
-    .param p1, "socket"    # Ljava/net/DatagramSocket;
-    .param p2, "fd"    # Ljava/io/FileDescriptor;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "socket",
+            "fd"
+        }
+    .end annotation
 
     .line 40
     invoke-direct {p0}, Ljava/net/SocketImpl;-><init>()V
@@ -26,22 +34,29 @@
     .line 41
     invoke-virtual {p1}, Ljava/net/DatagramSocket;->getLocalPort()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Landroidx/core/net/DatagramSocketWrapper$DatagramSocketImplWrapper;->localport:I
+    iput p1, p0, Landroidx/core/net/DatagramSocketWrapper$DatagramSocketImplWrapper;->localport:I
 
     .line 42
     iput-object p2, p0, Landroidx/core/net/DatagramSocketWrapper$DatagramSocketImplWrapper;->fd:Ljava/io/FileDescriptor;
 
-    .line 43
     return-void
 .end method
 
 
 # virtual methods
 .method protected accept(Ljava/net/SocketImpl;)V
-    .locals 1
-    .param p1, "newSocket"    # Ljava/net/SocketImpl;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "newSocket"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -49,11 +64,11 @@
     .end annotation
 
     .line 47
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method protected available()I
@@ -73,9 +88,18 @@
 .end method
 
 .method protected bind(Ljava/net/InetAddress;I)V
-    .locals 1
-    .param p1, "address"    # Ljava/net/InetAddress;
-    .param p2, "port"    # I
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "address",
+            "port"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -83,11 +107,11 @@
     .end annotation
 
     .line 57
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method protected close()V
@@ -107,9 +131,18 @@
 .end method
 
 .method protected connect(Ljava/lang/String;I)V
-    .locals 1
-    .param p1, "host"    # Ljava/lang/String;
-    .param p2, "port"    # I
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "host",
+            "port"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -117,17 +150,26 @@
     .end annotation
 
     .line 67
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method protected connect(Ljava/net/InetAddress;I)V
-    .locals 1
-    .param p1, "address"    # Ljava/net/InetAddress;
-    .param p2, "port"    # I
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "address",
+            "port"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -135,17 +177,26 @@
     .end annotation
 
     .line 72
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method protected connect(Ljava/net/SocketAddress;I)V
-    .locals 1
-    .param p1, "remoteAddr"    # Ljava/net/SocketAddress;
-    .param p2, "timeout"    # I
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "remoteAddr",
+            "timeout"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -153,16 +204,24 @@
     .end annotation
 
     .line 97
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method protected create(Z)V
-    .locals 1
-    .param p1, "isStreaming"    # Z
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "isStreaming"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -170,11 +229,11 @@
     .end annotation
 
     .line 77
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method protected getInputStream()Ljava/io/InputStream;
@@ -194,8 +253,16 @@
 .end method
 
 .method public getOption(I)Ljava/lang/Object;
-    .locals 1
-    .param p1, "optID"    # I
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "optID"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;
@@ -203,11 +270,11 @@
     .end annotation
 
     .line 107
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method protected getOutputStream()Ljava/io/OutputStream;
@@ -227,8 +294,16 @@
 .end method
 
 .method protected listen(I)V
-    .locals 1
-    .param p1, "backlog"    # I
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "backlog"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -236,16 +311,24 @@
     .end annotation
 
     .line 92
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method protected sendUrgentData(I)V
-    .locals 1
-    .param p1, "value"    # I
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "value"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -253,17 +336,26 @@
     .end annotation
 
     .line 102
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setOption(ILjava/lang/Object;)V
-    .locals 1
-    .param p1, "optID"    # I
-    .param p2, "val"    # Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "optID",
+            "val"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;
@@ -271,9 +363,9 @@
     .end annotation
 
     .line 112
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method

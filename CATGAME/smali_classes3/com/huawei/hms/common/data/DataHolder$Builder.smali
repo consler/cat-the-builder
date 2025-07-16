@@ -47,63 +47,61 @@
 .method private constructor <init>([Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
 
-    .line 79
+    .line 2
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 80
     const-string v0, "builderColumnsP cannot be null"
 
+    .line 3
     invoke-static {p1, v0}, Lcom/huawei/hms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 81
+    .line 4
     iput-object p1, p0, Lcom/huawei/hms/common/data/DataHolder$Builder;->a:[Ljava/lang/String;
 
-    .line 82
+    .line 5
     new-instance p1, Ljava/util/ArrayList;
 
     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
     iput-object p1, p0, Lcom/huawei/hms/common/data/DataHolder$Builder;->b:Ljava/util/ArrayList;
 
-    .line 83
+    .line 6
     iput-object p2, p0, Lcom/huawei/hms/common/data/DataHolder$Builder;->c:Ljava/lang/String;
 
-    .line 84
+    .line 7
     new-instance p1, Ljava/util/HashMap;
 
     invoke-direct {p1}, Ljava/util/HashMap;-><init>()V
 
     iput-object p1, p0, Lcom/huawei/hms/common/data/DataHolder$Builder;->d:Ljava/util/HashMap;
 
-    .line 86
     return-void
 .end method
 
 .method synthetic constructor <init>([Ljava/lang/String;Ljava/lang/String;Lcom/huawei/hms/common/data/DataHolder$1;)V
     .locals 0
 
-    .line 70
+    .line 1
     invoke-direct {p0, p1, p2}, Lcom/huawei/hms/common/data/DataHolder$Builder;-><init>([Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method constructor <init>([Ljava/lang/String;Ljava/lang/String;Lcom/huawei/hms/common/data/a;)V
+.method constructor <init>([Ljava/lang/String;Ljava/lang/String;Lcom/huawei/hms/common/data/DataHolderBuilderCreator;)V
     .locals 0
 
-    .line 89
     const/4 p2, 0x0
 
+    .line 8
     invoke-direct {p0, p1, p2}, Lcom/huawei/hms/common/data/DataHolder$Builder;-><init>([Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 90
     return-void
 .end method
 
 .method static synthetic a(Lcom/huawei/hms/common/data/DataHolder$Builder;)[Ljava/lang/String;
     .locals 0
 
-    .line 70
+    .line 1
     iget-object p0, p0, Lcom/huawei/hms/common/data/DataHolder$Builder;->a:[Ljava/lang/String;
 
     return-object p0
@@ -112,7 +110,7 @@
 .method static synthetic b(Lcom/huawei/hms/common/data/DataHolder$Builder;)Ljava/util/ArrayList;
     .locals 0
 
-    .line 70
+    .line 1
     iget-object p0, p0, Lcom/huawei/hms/common/data/DataHolder$Builder;->b:Ljava/util/ArrayList;
 
     return-object p0
@@ -123,7 +121,7 @@
 .method public build(I)Lcom/huawei/hms/common/data/DataHolder;
     .locals 2
 
-    .line 132
+    .line 1
     new-instance v0, Lcom/huawei/hms/common/data/DataHolder;
 
     const/4 v1, 0x0
@@ -136,7 +134,7 @@
 .method public build(ILandroid/os/Bundle;)Lcom/huawei/hms/common/data/DataHolder;
     .locals 7
 
-    .line 136
+    .line 2
     new-instance v6, Lcom/huawei/hms/common/data/DataHolder;
 
     const/4 v4, -0x1
@@ -157,7 +155,7 @@
 .end method
 
 .method public setDataForContentValuesHashMap(Ljava/util/HashMap;)Lcom/huawei/hms/common/data/DataHolder$Builder;
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -169,102 +167,85 @@
         }
     .end annotation
 
-    .line 93
     const-string v0, "contentValuesHashMap cannot be null"
 
+    .line 1
     invoke-static {p1, v0}, Lcom/huawei/hms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 94
-    nop
-
-    .line 95
-    nop
-
-    .line 97
+    .line 5
     iget-object v0, p0, Lcom/huawei/hms/common/data/DataHolder$Builder;->c:Ljava/lang/String;
-
-    const/4 v1, 0x0
 
     if-eqz v0, :cond_1
 
-    .line 98
+    .line 6
     invoke-virtual {p1, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 99
     if-eqz v0, :cond_1
 
-    .line 100
-    iget-object v2, p0, Lcom/huawei/hms/common/data/DataHolder$Builder;->d:Ljava/util/HashMap;
+    .line 8
+    iget-object v1, p0, Lcom/huawei/hms/common/data/DataHolder$Builder;->d:Ljava/util/HashMap;
 
-    invoke-virtual {v2, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Ljava/lang/Integer;
+    check-cast v1, Ljava/lang/Integer;
 
-    .line 101
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    .line 103
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    .line 11
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
-    move-result v1
+    move-result v0
 
-    .line 104
-    const/4 v0, 0x1
-
-    move v4, v1
-
-    move v1, v0
-
-    move v0, v4
+    const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 106
+    .line 14
     :cond_0
-    iget-object v2, p0, Lcom/huawei/hms/common/data/DataHolder$Builder;->d:Ljava/util/HashMap;
+    iget-object v1, p0, Lcom/huawei/hms/common/data/DataHolder$Builder;->d:Ljava/util/HashMap;
 
-    iget-object v3, p0, Lcom/huawei/hms/common/data/DataHolder$Builder;->b:Ljava/util/ArrayList;
+    iget-object v2, p0, Lcom/huawei/hms/common/data/DataHolder$Builder;->b:Ljava/util/ArrayList;
 
-    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
-    move-result v3
+    move-result v2
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v2, v0, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v0, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 111
     :cond_1
-    move v0, v1
+    const/4 v0, 0x0
+
+    move v1, v0
 
     :goto_0
     if-eqz v1, :cond_2
 
-    .line 112
+    .line 20
     iget-object v1, p0, Lcom/huawei/hms/common/data/DataHolder$Builder;->b:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    .line 113
+    .line 21
     iget-object v1, p0, Lcom/huawei/hms/common/data/DataHolder$Builder;->b:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0, p1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
     goto :goto_1
 
-    .line 115
+    .line 23
     :cond_2
     iget-object v0, p0, Lcom/huawei/hms/common/data/DataHolder$Builder;->b:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 117
     :goto_1
     return-object p0
 .end method
@@ -272,12 +253,12 @@
 .method public withRow(Landroid/content/ContentValues;)Lcom/huawei/hms/common/data/DataHolder$Builder;
     .locals 3
 
-    .line 121
     const-string v0, "contentValues cannot be null"
 
+    .line 1
     invoke-static {p1, v0}, Lcom/huawei/hms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 122
+    .line 2
     new-instance v0, Ljava/util/HashMap;
 
     invoke-virtual {p1}, Landroid/content/ContentValues;->size()I
@@ -286,7 +267,7 @@
 
     invoke-direct {v0, v1}, Ljava/util/HashMap;-><init>(I)V
 
-    .line 123
+    .line 3
     invoke-virtual {p1}, Landroid/content/ContentValues;->valueSet()Ljava/util/Set;
 
     move-result-object p1
@@ -295,7 +276,7 @@
 
     move-result-object p1
 
-    .line 124
+    .line 4
     :goto_0
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -303,14 +284,14 @@
 
     if-eqz v1, :cond_0
 
-    .line 125
+    .line 5
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/util/Map$Entry;
 
-    .line 126
+    .line 6
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v2
@@ -321,10 +302,9 @@
 
     invoke-virtual {v0, v2, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 127
     goto :goto_0
 
-    .line 128
+    .line 8
     :cond_0
     invoke-virtual {p0, v0}, Lcom/huawei/hms/common/data/DataHolder$Builder;->setDataForContentValuesHashMap(Ljava/util/HashMap;)Lcom/huawei/hms/common/data/DataHolder$Builder;
 

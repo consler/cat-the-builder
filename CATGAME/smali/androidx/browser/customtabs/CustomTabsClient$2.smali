@@ -24,8 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroidx/browser/customtabs/CustomTabsClient;Landroidx/browser/customtabs/CustomTabsCallback;)V
-    .locals 1
-    .param p1, "this$0"    # Landroidx/browser/customtabs/CustomTabsClient;
+    .locals 0
 
     .line 279
     iput-object p1, p0, Landroidx/browser/customtabs/CustomTabsClient$2;->this$0:Landroidx/browser/customtabs/CustomTabsClient;
@@ -35,15 +34,15 @@
     invoke-direct {p0}, Landroid/support/customtabs/ICustomTabsCallback$Stub;-><init>()V
 
     .line 280
-    new-instance p2, Landroid/os/Handler;
+    new-instance p1, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-direct {p2, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    invoke-direct {p1, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    iput-object p2, p0, Landroidx/browser/customtabs/CustomTabsClient$2;->mHandler:Landroid/os/Handler;
+    iput-object p1, p0, Landroidx/browser/customtabs/CustomTabsClient$2;->mHandler:Landroid/os/Handler;
 
     return-void
 .end method
@@ -52,8 +51,6 @@
 # virtual methods
 .method public extraCallback(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 2
-    .param p1, "callbackName"    # Ljava/lang/String;
-    .param p2, "args"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -77,14 +74,11 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 303
     return-void
 .end method
 
 .method public extraCallbackWithResult(Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
     .locals 1
-    .param p1, "callbackName"    # Ljava/lang/String;
-    .param p2, "args"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -96,22 +90,21 @@
 
     if-nez v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 
     .line 311
     :cond_0
     invoke-virtual {v0, p1, p2}, Landroidx/browser/customtabs/CustomTabsCallback;->extraCallbackWithResult(Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public onMessageChannelReady(Landroid/os/Bundle;)V
     .locals 2
-    .param p1, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -135,14 +128,11 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 324
     return-void
 .end method
 
 .method public onNavigationEvent(ILandroid/os/Bundle;)V
     .locals 2
-    .param p1, "navigationEvent"    # I
-    .param p2, "extras"    # Landroid/os/Bundle;
 
     .line 284
     iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsClient$2;->val$callback:Landroidx/browser/customtabs/CustomTabsCallback;
@@ -161,14 +151,11 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 291
     return-void
 .end method
 
 .method public onPostMessage(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 2
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -192,16 +179,11 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 336
     return-void
 .end method
 
 .method public onRelationshipValidationResult(ILandroid/net/Uri;ZLandroid/os/Bundle;)V
     .locals 8
-    .param p1, "relation"    # I
-    .param p2, "requestedOrigin"    # Landroid/net/Uri;
-    .param p3, "result"    # Z
-    .param p4, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -237,6 +219,5 @@
 
     invoke-virtual {v0, v7}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 350
     return-void
 .end method

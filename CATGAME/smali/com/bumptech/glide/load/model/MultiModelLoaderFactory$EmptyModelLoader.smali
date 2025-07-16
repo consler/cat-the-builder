@@ -40,11 +40,7 @@
 
 # virtual methods
 .method public buildLoadData(Ljava/lang/Object;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
-    .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
-    .param p4, "options"    # Lcom/bumptech/glide/load/Options;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -58,18 +54,15 @@
         }
     .end annotation
 
-    .line 227
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public handles(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 0
 
-    .line 232
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

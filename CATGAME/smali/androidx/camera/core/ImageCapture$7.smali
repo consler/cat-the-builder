@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ImageCapture;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/core/ImageCapture;
 
     .line 1124
     iput-object p1, p0, Landroidx/camera/core/ImageCapture$7;->this$0:Landroidx/camera/core/ImageCapture;
@@ -47,7 +46,6 @@
 # virtual methods
 .method public check(Landroidx/camera/core/impl/CameraCaptureResult;)Ljava/lang/Boolean;
     .locals 2
-    .param p1, "captureResult"    # Landroidx/camera/core/impl/CameraCaptureResult;
 
     .line 1127
     sget-boolean v0, Landroidx/camera/core/ImageCapture;->DEBUG:Z
@@ -57,11 +55,9 @@
     .line 1128
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "checkCaptureResult, AE="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-interface {p1}, Landroidx/camera/core/impl/CameraCaptureResult;->getAeState()Landroidx/camera/core/impl/CameraCaptureMetaData$AeState;
 
@@ -69,9 +65,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " AF ="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     .line 1129
     invoke-interface {p1}, Landroidx/camera/core/impl/CameraCaptureResult;->getAfState()Landroidx/camera/core/impl/CameraCaptureMetaData$AfState;
@@ -80,9 +80,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " AWB="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     .line 1130
     invoke-interface {p1}, Landroidx/camera/core/impl/CameraCaptureResult;->getAwbState()Landroidx/camera/core/impl/CameraCaptureMetaData$AwbState;
@@ -91,13 +95,15 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1128
     const-string v1, "ImageCapture"
 
+    .line 1128
     invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1133
@@ -106,24 +112,23 @@
 
     invoke-virtual {v0, p1}, Landroidx/camera/core/ImageCapture;->is3AConverged(Landroidx/camera/core/impl/CameraCaptureResult;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
+
+    const/4 p1, 0x1
 
     .line 1134
-    const/4 v0, 0x1
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    move-result-object p1
 
-    move-result-object v0
+    return-object p1
 
-    return-object v0
-
-    .line 1137
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic check(Landroidx/camera/core/impl/CameraCaptureResult;)Ljava/lang/Object;

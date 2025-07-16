@@ -28,10 +28,8 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 3
 
-    .line 52
     const/4 v0, 0x0
 
     if-nez p1, :cond_0
@@ -40,48 +38,39 @@
 
     .line 54
     :cond_0
-    move-object v1, p1
-
-    check-cast v1, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;
+    check-cast p1, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;
 
     .line 56
-    .local v1, "material":Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;
-    iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->dstBlendFactor:I
+    iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->dstBlendFactor:I
 
-    iget v3, v1, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->dstBlendFactor:I
+    iget v2, p1, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->dstBlendFactor:I
 
-    if-ne v2, v3, :cond_1
+    if-ne v1, v2, :cond_1
 
-    iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->srcBlendFactor:I
+    iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->srcBlendFactor:I
 
-    iget v3, v1, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->srcBlendFactor:I
+    iget v2, p1, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->srcBlendFactor:I
 
-    if-ne v2, v3, :cond_1
+    if-ne v1, v2, :cond_1
 
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->textureRegion:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->textureRegion:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
     .line 57
-    invoke-virtual {v2}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->getTexture()Lcom/badlogic/gdx/graphics/Texture;
+    invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->getTexture()Lcom/badlogic/gdx/graphics/Texture;
 
-    move-result-object v2
+    move-result-object v1
 
-    iget-object v3, v1, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->textureRegion:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->textureRegion:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
-    invoke-virtual {v3}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->getTexture()Lcom/badlogic/gdx/graphics/Texture;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->getTexture()Lcom/badlogic/gdx/graphics/Texture;
 
-    move-result-object v3
+    move-result-object p1
 
-    if-ne v2, v3, :cond_1
+    if-ne v1, p1, :cond_1
 
     const/4 v0, 0x1
 
-    goto :goto_0
-
     :cond_1
-    nop
-
-    .line 56
-    :goto_0
     return v0
 .end method
 
@@ -104,7 +93,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .locals 2
 
     .line 63
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->textureRegion:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
@@ -130,27 +119,21 @@
     :cond_0
     const/4 v0, 0x0
 
-    .line 64
-    .local v0, "result":I
     :goto_0
-    mul-int/lit8 v1, v0, 0x1f
+    mul-int/lit8 v0, v0, 0x1f
 
-    iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->srcBlendFactor:I
+    .line 64
+    iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->srcBlendFactor:I
 
-    add-int/2addr v1, v2
+    add-int/2addr v0, v1
+
+    mul-int/lit8 v0, v0, 0x1f
 
     .line 65
-    .end local v0    # "result":I
-    .local v1, "result":I
-    mul-int/lit8 v0, v1, 0x1f
+    iget v1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->dstBlendFactor:I
 
-    iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalMaterial;->dstBlendFactor:I
+    add-int/2addr v0, v1
 
-    add-int/2addr v0, v2
-
-    .line 66
-    .end local v1    # "result":I
-    .restart local v0    # "result":I
     return v0
 .end method
 
@@ -205,7 +188,6 @@
 
     invoke-interface {v0, v1, v2}, Lcom/badlogic/gdx/graphics/GL20;->glBlendFunc(II)V
 
-    .line 35
     :cond_0
     return-void
 .end method

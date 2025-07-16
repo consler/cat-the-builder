@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/RecyclerView;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/recyclerview/widget/RecyclerView;
 
     .line 398
     iput-object p1, p0, Landroidx/recyclerview/widget/RecyclerView$1;->this$0:Landroidx/recyclerview/widget/RecyclerView;
@@ -69,7 +68,6 @@
 
     invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView;->requestLayout()V
 
-    .line 408
     return-void
 
     .line 410
@@ -87,7 +85,6 @@
 
     iput-boolean v1, v0, Landroidx/recyclerview/widget/RecyclerView;->mLayoutWasDefered:Z
 
-    .line 412
     return-void
 
     .line 414
@@ -96,10 +93,6 @@
 
     invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView;->consumePendingUpdateOperations()V
 
-    .line 415
-    return-void
-
-    .line 403
     :cond_3
     :goto_0
     return-void

@@ -35,16 +35,13 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 0
-    .param p1, "bufferSize"    # I
 
     .line 929
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayBufferSupplier;, "Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayBufferSupplier<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 930
     iput p1, p0, Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayBufferSupplier;->bufferSize:I
 
-    .line 931
     return-void
 .end method
 
@@ -61,7 +58,6 @@
     .end annotation
 
     .line 935
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayBufferSupplier;, "Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayBufferSupplier<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableReplay$SizeBoundReplayBuffer;
 
     iget v1, p0, Lio/reactivex/internal/operators/observable/ObservableReplay$ReplayBufferSupplier;->bufferSize:I

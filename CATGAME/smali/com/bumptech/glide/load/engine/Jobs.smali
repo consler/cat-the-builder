@@ -52,8 +52,7 @@
 .end method
 
 .method private getJobMap(Z)Ljava/util/Map;
-    .locals 1
-    .param p1, "onlyRetrieveFromCache"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)",
@@ -64,26 +63,24 @@
         }
     .end annotation
 
-    .line 34
     if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Jobs;->onlyCacheJobs:Ljava/util/Map;
+    .line 34
+    iget-object p1, p0, Lcom/bumptech/glide/load/engine/Jobs;->onlyCacheJobs:Ljava/util/Map;
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Jobs;->jobs:Ljava/util/Map;
+    iget-object p1, p0, Lcom/bumptech/glide/load/engine/Jobs;->jobs:Ljava/util/Map;
 
     :goto_0
-    return-object v0
+    return-object p1
 .end method
 
 
 # virtual methods
 .method get(Lcom/bumptech/glide/load/Key;Z)Lcom/bumptech/glide/load/engine/EngineJob;
-    .locals 1
-    .param p1, "key"    # Lcom/bumptech/glide/load/Key;
-    .param p2, "onlyRetrieveFromCache"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -97,15 +94,15 @@
     .line 19
     invoke-direct {p0, p2}, Lcom/bumptech/glide/load/engine/Jobs;->getJobMap(Z)Ljava/util/Map;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p2, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/bumptech/glide/load/engine/EngineJob;
+    check-cast p1, Lcom/bumptech/glide/load/engine/EngineJob;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method getAll()Ljava/util/Map;
@@ -132,7 +129,6 @@
 
 .method put(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/engine/EngineJob;)V
     .locals 1
-    .param p1, "key"    # Lcom/bumptech/glide/load/Key;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -143,7 +139,6 @@
     .end annotation
 
     .line 23
-    .local p2, "job":Lcom/bumptech/glide/load/engine/EngineJob;, "Lcom/bumptech/glide/load/engine/EngineJob<*>;"
     invoke-virtual {p2}, Lcom/bumptech/glide/load/engine/EngineJob;->onlyRetrieveFromCache()Z
 
     move-result v0
@@ -154,13 +149,11 @@
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 24
     return-void
 .end method
 
 .method removeIfCurrent(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/engine/EngineJob;)V
     .locals 2
-    .param p1, "key"    # Lcom/bumptech/glide/load/Key;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -171,7 +164,6 @@
     .end annotation
 
     .line 27
-    .local p2, "expected":Lcom/bumptech/glide/load/engine/EngineJob;, "Lcom/bumptech/glide/load/engine/EngineJob<*>;"
     invoke-virtual {p2}, Lcom/bumptech/glide/load/engine/EngineJob;->onlyRetrieveFromCache()Z
 
     move-result v0
@@ -181,21 +173,19 @@
     move-result-object v0
 
     .line 28
-    .local v0, "jobMap":Ljava/util/Map;, "Ljava/util/Map<Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/engine/EngineJob<*>;>;"
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     invoke-virtual {p2, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p2
 
-    if-eqz v1, :cond_0
+    if-eqz p2, :cond_0
 
     .line 29
     invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 31
     :cond_0
     return-void
 .end method

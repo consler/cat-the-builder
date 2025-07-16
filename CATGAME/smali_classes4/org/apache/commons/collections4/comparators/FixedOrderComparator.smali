@@ -55,7 +55,6 @@
     .locals 1
 
     .line 83
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/FixedOrderComparator;, "Lorg/apache/commons/collections4/comparators/FixedOrderComparator<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 66
@@ -65,9 +64,9 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->map:Ljava/util/Map;
 
-    .line 69
     const/4 v0, 0x0
 
+    .line 69
     iput v0, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->counter:I
 
     .line 72
@@ -78,12 +77,11 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->unknownObjectBehavior:Lorg/apache/commons/collections4/comparators/FixedOrderComparator$UnknownObjectBehavior;
 
-    .line 84
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/List;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -93,8 +91,6 @@
     .end annotation
 
     .line 115
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/FixedOrderComparator;, "Lorg/apache/commons/collections4/comparators/FixedOrderComparator<TT;>;"
-    .local p1, "items":Ljava/util/List;, "Ljava/util/List<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 66
@@ -104,9 +100,9 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->map:Ljava/util/Map;
 
-    .line 69
     const/4 v0, 0x0
 
+    .line 69
     iput v0, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->counter:I
 
     .line 72
@@ -117,46 +113,41 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->unknownObjectBehavior:Lorg/apache/commons/collections4/comparators/FixedOrderComparator$UnknownObjectBehavior;
 
-    .line 116
     if-eqz p1, :cond_1
 
     .line 119
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 120
-    .local v1, "t":Ljava/lang/Object;, "TT;"
-    invoke-virtual {p0, v1}, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v0}, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->add(Ljava/lang/Object;)Z
 
-    .line 121
-    .end local v1    # "t":Ljava/lang/Object;, "TT;"
     goto :goto_0
 
-    .line 122
     :cond_0
     return-void
 
     .line 117
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "The list of items must not be null"
+    const-string v0, "The list of items must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public varargs constructor <init>([Ljava/lang/Object;)V
@@ -168,8 +159,6 @@
     .end annotation
 
     .line 96
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/FixedOrderComparator;, "Lorg/apache/commons/collections4/comparators/FixedOrderComparator<TT;>;"
-    .local p1, "items":[Ljava/lang/Object;, "[TT;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 66
@@ -179,9 +168,9 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->map:Ljava/util/Map;
 
-    .line 69
     const/4 v0, 0x0
 
+    .line 69
     iput v0, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->counter:I
 
     .line 72
@@ -192,7 +181,6 @@
 
     iput-object v1, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->unknownObjectBehavior:Lorg/apache/commons/collections4/comparators/FixedOrderComparator$UnknownObjectBehavior;
 
-    .line 97
     if-eqz p1, :cond_1
 
     .line 100
@@ -204,28 +192,24 @@
     aget-object v2, p1, v0
 
     .line 101
-    .local v2, "item":Ljava/lang/Object;, "TT;"
     invoke-virtual {p0, v2}, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->add(Ljava/lang/Object;)Z
 
-    .line 100
-    .end local v2    # "item":Ljava/lang/Object;, "TT;"
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 103
     :cond_0
     return-void
 
     .line 98
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "The list of items must not be null"
+    const-string v0, "The list of items must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -239,8 +223,6 @@
     .end annotation
 
     .line 186
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/FixedOrderComparator;, "Lorg/apache/commons/collections4/comparators/FixedOrderComparator<TT;>;"
-    .local p1, "obj":Ljava/lang/Object;, "TT;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->checkLocked()V
 
     .line 187
@@ -258,27 +240,25 @@
 
     invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/lang/Integer;
+    check-cast p1, Ljava/lang/Integer;
 
-    .line 188
-    .local v0, "position":Ljava/lang/Integer;
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v1
+    return p1
 .end method
 
 .method public addAsEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 4
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;TT;)Z"
@@ -286,9 +266,6 @@
     .end annotation
 
     .line 205
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/FixedOrderComparator;, "Lorg/apache/commons/collections4/comparators/FixedOrderComparator<TT;>;"
-    .local p1, "existingObj":Ljava/lang/Object;, "TT;"
-    .local p2, "newObj":Ljava/lang/Object;, "TT;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->checkLocked()V
 
     .line 206
@@ -300,71 +277,70 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    .line 207
-    .local v0, "position":Ljava/lang/Integer;
     if-eqz v0, :cond_1
 
     .line 210
-    iget-object v1, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->map:Ljava/util/Map;
+    iget-object p1, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->map:Ljava/util/Map;
 
-    invoke-interface {v1, p2, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, p2, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Ljava/lang/Integer;
+    check-cast p1, Ljava/lang/Integer;
 
-    .line 211
-    .local v1, "result":Ljava/lang/Integer;
-    if-nez v1, :cond_0
+    if-nez p1, :cond_0
 
-    const/4 v2, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v2
+    return p1
 
     .line 208
-    .end local v1    # "result":Ljava/lang/Integer;
     :cond_1
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p2, Ljava/lang/IllegalArgumentException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v3, " not known to "
+    move-result-object p1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " not known to "
 
-    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v2
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    throw v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p2
 .end method
 
 .method protected checkLocked()V
     .locals 2
 
     .line 143
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/FixedOrderComparator;, "Lorg/apache/commons/collections4/comparators/FixedOrderComparator<TT;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->isLocked()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 146
     return-void
 
     .line 144
@@ -386,12 +362,9 @@
         }
     .end annotation
 
-    .line 232
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/FixedOrderComparator;, "Lorg/apache/commons/collections4/comparators/FixedOrderComparator<TT;>;"
-    .local p1, "obj1":Ljava/lang/Object;, "TT;"
-    .local p2, "obj2":Ljava/lang/Object;, "TT;"
     const/4 v0, 0x1
 
+    .line 232
     iput-boolean v0, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->isLocked:Z
 
     .line 233
@@ -404,7 +377,6 @@
     check-cast v1, Ljava/lang/Integer;
 
     .line 234
-    .local v1, "position1":Ljava/lang/Integer;
     iget-object v2, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->map:Ljava/util/Map;
 
     invoke-interface {v2, p2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -413,8 +385,6 @@
 
     check-cast v2, Ljava/lang/Integer;
 
-    .line 235
-    .local v2, "position2":Ljava/lang/Integer;
     if-eqz v1, :cond_1
 
     if-nez v2, :cond_0
@@ -425,9 +395,9 @@
     :cond_0
     invoke-virtual {v1, v2}, Ljava/lang/Integer;->compareTo(Ljava/lang/Integer;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
     .line 236
     :cond_1
@@ -456,65 +426,59 @@
 
     if-ne v3, v0, :cond_3
 
-    .line 242
     if-nez v1, :cond_2
-
-    move-object v0, p1
 
     goto :goto_1
 
     :cond_2
-    move-object v0, p2
+    move-object p1, p2
 
     .line 243
-    .local v0, "unknownObj":Ljava/lang/Object;
     :goto_1
-    new-instance v3, Ljava/lang/IllegalArgumentException;
+    new-instance p2, Ljava/lang/IllegalArgumentException;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Attempting to compare unknown object "
 
-    const-string v5, "Attempting to compare unknown object "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw p2
 
     .line 246
-    .end local v0    # "unknownObj":Ljava/lang/Object;
     :cond_3
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "Unknown unknownObjectBehavior: "
 
-    const-string v4, "Unknown unknownObjectBehavior: "
+    invoke-direct {p2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v0, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->unknownObjectBehavior:Lorg/apache/commons/collections4/comparators/FixedOrderComparator$UnknownObjectBehavior;
 
-    iget-object v4, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->unknownObjectBehavior:Lorg/apache/commons/collections4/comparators/FixedOrderComparator$UnknownObjectBehavior;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p2
 
-    invoke-direct {v0, v3}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 240
     :cond_4
     if-nez v1, :cond_5
 
@@ -531,7 +495,6 @@
     :goto_2
     return v0
 
-    .line 238
     :cond_7
     if-nez v1, :cond_9
 
@@ -550,25 +513,19 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 7
-    .param p1, "object"    # Ljava/lang/Object;
+    .locals 6
 
-    .line 284
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/FixedOrderComparator;, "Lorg/apache/commons/collections4/comparators/FixedOrderComparator<TT;>;"
     const/4 v0, 0x1
 
     if-ne p0, p1, :cond_0
 
-    .line 285
     return v0
 
-    .line 287
     :cond_0
     const/4 v1, 0x0
 
     if-nez p1, :cond_1
 
-    .line 288
     return v1
 
     .line 290
@@ -588,72 +545,66 @@
     if-eqz v2, :cond_5
 
     .line 291
-    move-object v2, p1
-
-    check-cast v2, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;
+    check-cast p1, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;
 
     .line 292
-    .local v2, "comp":Lorg/apache/commons/collections4/comparators/FixedOrderComparator;, "Lorg/apache/commons/collections4/comparators/FixedOrderComparator<*>;"
-    iget-object v3, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->map:Ljava/util/Map;
+    iget-object v2, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->map:Ljava/util/Map;
 
-    if-nez v3, :cond_2
+    if-nez v2, :cond_2
 
-    iget-object v3, v2, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->map:Ljava/util/Map;
+    iget-object v2, p1, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->map:Ljava/util/Map;
 
-    if-nez v3, :cond_4
+    if-nez v2, :cond_4
 
     goto :goto_0
 
     :cond_2
-    iget-object v4, v2, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->map:Ljava/util/Map;
+    iget-object v3, p1, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->map:Ljava/util/Map;
 
-    invoke-interface {v3, v4}, Ljava/util/Map;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v2, v3}, Ljava/util/Map;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_4
+    if-eqz v2, :cond_4
 
     :goto_0
-    iget-object v3, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->unknownObjectBehavior:Lorg/apache/commons/collections4/comparators/FixedOrderComparator$UnknownObjectBehavior;
+    iget-object v2, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->unknownObjectBehavior:Lorg/apache/commons/collections4/comparators/FixedOrderComparator$UnknownObjectBehavior;
 
-    if-nez v3, :cond_3
+    if-nez v2, :cond_3
 
-    iget-object v3, v2, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->unknownObjectBehavior:Lorg/apache/commons/collections4/comparators/FixedOrderComparator$UnknownObjectBehavior;
+    iget-object p1, p1, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->unknownObjectBehavior:Lorg/apache/commons/collections4/comparators/FixedOrderComparator$UnknownObjectBehavior;
 
-    if-nez v3, :cond_4
+    if-nez p1, :cond_4
 
-    :goto_1
-    goto :goto_2
+    goto :goto_1
 
     :cond_3
-    iget-object v4, v2, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->unknownObjectBehavior:Lorg/apache/commons/collections4/comparators/FixedOrderComparator$UnknownObjectBehavior;
+    iget-object v3, p1, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->unknownObjectBehavior:Lorg/apache/commons/collections4/comparators/FixedOrderComparator$UnknownObjectBehavior;
 
-    if-ne v3, v4, :cond_4
+    if-ne v2, v3, :cond_4
 
-    iget v5, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->counter:I
+    iget v4, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->counter:I
 
-    iget v6, v2, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->counter:I
+    iget v5, p1, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->counter:I
 
-    if-ne v5, v6, :cond_4
+    if-ne v4, v5, :cond_4
 
-    iget-boolean v5, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->isLocked:Z
+    iget-boolean v4, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->isLocked:Z
 
-    iget-boolean v6, v2, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->isLocked:Z
+    iget-boolean p1, p1, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->isLocked:Z
 
-    if-ne v5, v6, :cond_4
+    if-ne v4, p1, :cond_4
 
-    if-ne v3, v4, :cond_4
+    if-ne v2, v3, :cond_4
 
     goto :goto_1
 
     :cond_4
     move v0, v1
 
-    :goto_2
+    :goto_1
     return v0
 
-    .line 299
-    .end local v2    # "comp":Lorg/apache/commons/collections4/comparators/FixedOrderComparator;, "Lorg/apache/commons/collections4/comparators/FixedOrderComparator<*>;"
     :cond_5
     return v1
 .end method
@@ -662,112 +613,92 @@
     .locals 1
 
     .line 154
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/FixedOrderComparator;, "Lorg/apache/commons/collections4/comparators/FixedOrderComparator<TT;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->unknownObjectBehavior:Lorg/apache/commons/collections4/comparators/FixedOrderComparator$UnknownObjectBehavior;
 
     return-object v0
 .end method
 
 .method public hashCode()I
-    .locals 3
-
-    .line 262
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/FixedOrderComparator;, "Lorg/apache/commons/collections4/comparators/FixedOrderComparator<TT;>;"
-    const/16 v0, 0x11
+    .locals 2
 
     .line 263
-    .local v0, "total":I
-    mul-int/lit8 v1, v0, 0x25
+    iget-object v0, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->map:Ljava/util/Map;
 
-    iget-object v2, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->map:Ljava/util/Map;
+    invoke-interface {v0}, Ljava/util/Map;->hashCode()I
 
-    invoke-interface {v2}, Ljava/util/Map;->hashCode()I
+    move-result v0
 
-    move-result v2
+    const/16 v1, 0x275
 
-    add-int/2addr v1, v2
+    add-int/2addr v1, v0
+
+    mul-int/lit8 v1, v1, 0x25
 
     .line 264
-    .end local v0    # "total":I
-    .local v1, "total":I
-    mul-int/lit8 v0, v1, 0x25
+    iget-object v0, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->unknownObjectBehavior:Lorg/apache/commons/collections4/comparators/FixedOrderComparator$UnknownObjectBehavior;
 
-    iget-object v2, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->unknownObjectBehavior:Lorg/apache/commons/collections4/comparators/FixedOrderComparator$UnknownObjectBehavior;
+    if-nez v0, :cond_0
 
-    if-nez v2, :cond_0
-
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v2}, Lorg/apache/commons/collections4/comparators/FixedOrderComparator$UnknownObjectBehavior;->hashCode()I
+    invoke-virtual {v0}, Lorg/apache/commons/collections4/comparators/FixedOrderComparator$UnknownObjectBehavior;->hashCode()I
 
-    move-result v2
+    move-result v0
 
     :goto_0
-    add-int/2addr v0, v2
+    add-int/2addr v1, v0
+
+    mul-int/lit8 v1, v1, 0x25
 
     .line 265
-    .end local v1    # "total":I
-    .restart local v0    # "total":I
-    mul-int/lit8 v1, v0, 0x25
+    iget v0, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->counter:I
 
-    iget v2, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->counter:I
+    add-int/2addr v1, v0
 
-    add-int/2addr v1, v2
+    mul-int/lit8 v1, v1, 0x25
 
     .line 266
-    .end local v0    # "total":I
-    .restart local v1    # "total":I
-    mul-int/lit8 v0, v1, 0x25
+    iget-boolean v0, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->isLocked:Z
 
-    iget-boolean v2, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->isLocked:Z
+    xor-int/lit8 v0, v0, 0x1
 
-    xor-int/lit8 v2, v2, 0x1
+    add-int/2addr v1, v0
 
-    add-int/2addr v0, v2
-
-    .line 267
-    .end local v1    # "total":I
-    .restart local v0    # "total":I
-    return v0
+    return v1
 .end method
 
 .method public isLocked()Z
     .locals 1
 
     .line 134
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/FixedOrderComparator;, "Lorg/apache/commons/collections4/comparators/FixedOrderComparator<TT;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->isLocked:Z
 
     return v0
 .end method
 
 .method public setUnknownObjectBehavior(Lorg/apache/commons/collections4/comparators/FixedOrderComparator$UnknownObjectBehavior;)V
-    .locals 2
-    .param p1, "unknownObjectBehavior"    # Lorg/apache/commons/collections4/comparators/FixedOrderComparator$UnknownObjectBehavior;
+    .locals 1
 
     .line 166
-    .local p0, "this":Lorg/apache/commons/collections4/comparators/FixedOrderComparator;, "Lorg/apache/commons/collections4/comparators/FixedOrderComparator<TT;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->checkLocked()V
 
-    .line 167
     if-eqz p1, :cond_0
 
     .line 170
     iput-object p1, p0, Lorg/apache/commons/collections4/comparators/FixedOrderComparator;->unknownObjectBehavior:Lorg/apache/commons/collections4/comparators/FixedOrderComparator$UnknownObjectBehavior;
 
-    .line 171
     return-void
 
     .line 168
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "Unknown object behavior must not be null"
+    const-string v0, "Unknown object behavior must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

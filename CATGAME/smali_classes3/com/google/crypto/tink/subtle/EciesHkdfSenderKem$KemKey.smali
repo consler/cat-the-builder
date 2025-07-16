@@ -22,9 +22,7 @@
 
 # direct methods
 .method public constructor <init>([B[B)V
-    .locals 1
-    .param p1, "kemBytes"    # [B
-    .param p2, "symmetricKey"    # [B
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -42,18 +40,17 @@
     .line 38
     invoke-static {p1}, Lcom/google/crypto/tink/subtle/ImmutableByteArray;->of([B)Lcom/google/crypto/tink/subtle/ImmutableByteArray;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/google/crypto/tink/subtle/EciesHkdfSenderKem$KemKey;->kemBytes:Lcom/google/crypto/tink/subtle/ImmutableByteArray;
+    iput-object p1, p0, Lcom/google/crypto/tink/subtle/EciesHkdfSenderKem$KemKey;->kemBytes:Lcom/google/crypto/tink/subtle/ImmutableByteArray;
 
     .line 39
     invoke-static {p2}, Lcom/google/crypto/tink/subtle/ImmutableByteArray;->of([B)Lcom/google/crypto/tink/subtle/ImmutableByteArray;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/google/crypto/tink/subtle/EciesHkdfSenderKem$KemKey;->symmetricKey:Lcom/google/crypto/tink/subtle/ImmutableByteArray;
+    iput-object p1, p0, Lcom/google/crypto/tink/subtle/EciesHkdfSenderKem$KemKey;->symmetricKey:Lcom/google/crypto/tink/subtle/ImmutableByteArray;
 
-    .line 40
     return-void
 .end method
 
@@ -67,7 +64,6 @@
 
     if-nez v0, :cond_0
 
-    .line 44
     const/4 v0, 0x0
 
     return-object v0
@@ -89,7 +85,6 @@
 
     if-nez v0, :cond_0
 
-    .line 52
     const/4 v0, 0x0
 
     return-object v0

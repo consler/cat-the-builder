@@ -27,7 +27,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/CompletableObserver;)V
     .locals 0
-    .param p1, "actual"    # Lio/reactivex/CompletableObserver;
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,7 +34,6 @@
     .line 45
     iput-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableHide$HideCompletableObserver;->actual:Lio/reactivex/CompletableObserver;
 
-    .line 46
     return-void
 .end method
 
@@ -54,7 +52,6 @@
 
     iput-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableHide$HideCompletableObserver;->d:Lio/reactivex/disposables/Disposable;
 
-    .line 52
     return-void
 .end method
 
@@ -79,26 +76,22 @@
 
     invoke-interface {v0}, Lio/reactivex/CompletableObserver;->onComplete()V
 
-    .line 76
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 70
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableHide$HideCompletableObserver;->actual:Lio/reactivex/CompletableObserver;
 
     invoke-interface {v0, p1}, Lio/reactivex/CompletableObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 71
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 61
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableHide$HideCompletableObserver;->d:Lio/reactivex/disposables/Disposable;
@@ -113,11 +106,10 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableHide$HideCompletableObserver;->d:Lio/reactivex/disposables/Disposable;
 
     .line 64
-    iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableHide$HideCompletableObserver;->actual:Lio/reactivex/CompletableObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableHide$HideCompletableObserver;->actual:Lio/reactivex/CompletableObserver;
 
-    invoke-interface {v0, p0}, Lio/reactivex/CompletableObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/CompletableObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 66
     :cond_0
     return-void
 .end method

@@ -31,59 +31,56 @@
 
 # direct methods
 .method public constructor <init>(Lcom/thoughtworks/xstream/mapper/Mapper;)V
-    .locals 1
-    .param p1, "wrapped"    # Lcom/thoughtworks/xstream/mapper/Mapper;
+    .locals 0
 
     .line 34
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;-><init>(Lcom/thoughtworks/xstream/mapper/Mapper;)V
 
     .line 30
-    new-instance v0, Ljava/util/HashMap;
+    new-instance p1, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {p1}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lcom/thoughtworks/xstream/mapper/DefaultImplementationsMapper;->typeToImpl:Ljava/util/Map;
+    iput-object p1, p0, Lcom/thoughtworks/xstream/mapper/DefaultImplementationsMapper;->typeToImpl:Ljava/util/Map;
 
     .line 31
-    new-instance v0, Ljava/util/HashMap;
+    new-instance p1, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {p1}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lcom/thoughtworks/xstream/mapper/DefaultImplementationsMapper;->implToType:Ljava/util/Map;
+    iput-object p1, p0, Lcom/thoughtworks/xstream/mapper/DefaultImplementationsMapper;->implToType:Ljava/util/Map;
 
     .line 35
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/mapper/DefaultImplementationsMapper;->addDefaults()V
 
-    .line 36
     return-void
 .end method
 
 .method static synthetic class$(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 2
-    .param p0, "x0"    # Ljava/lang/String;
+    .locals 1
 
     .line 40
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/lang/NoClassDefFoundError;
+    new-instance v0, Ljava/lang/NoClassDefFoundError;
 
-    invoke-direct {v1}, Ljava/lang/NoClassDefFoundError;-><init>()V
+    invoke-direct {v0}, Ljava/lang/NoClassDefFoundError;-><init>()V
 
-    invoke-virtual {v1, v0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, p0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 .end method
 
 .method private readResolve()Ljava/lang/Object;
@@ -107,7 +104,6 @@
 
     move-result-object v0
 
-    .local v0, "iter":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -121,7 +117,6 @@
     move-result-object v1
 
     .line 79
-    .local v1, "type":Ljava/lang/Object;
     iget-object v2, p0, Lcom/thoughtworks/xstream/mapper/DefaultImplementationsMapper;->implToType:Ljava/util/Map;
 
     iget-object v3, p0, Lcom/thoughtworks/xstream/mapper/DefaultImplementationsMapper;->typeToImpl:Ljava/util/Map;
@@ -132,12 +127,8 @@
 
     invoke-interface {v2, v3, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 80
-    .end local v1    # "type":Ljava/lang/Object;
     goto :goto_0
 
-    .line 81
-    .end local v0    # "iter":Ljava/util/Iterator;
     :cond_0
     return-object p0
 .end method
@@ -145,13 +136,11 @@
 
 # virtual methods
 .method public addDefaultImplementation(Ljava/lang/Class;Ljava/lang/Class;)V
-    .locals 3
-    .param p1, "defaultImplementation"    # Ljava/lang/Class;
-    .param p2, "ofType"    # Ljava/lang/Class;
+    .locals 2
 
-    .line 53
     if-eqz p1, :cond_1
 
+    .line 53
     invoke-virtual {p1}, Ljava/lang/Class;->isInterface()Z
 
     move-result v0
@@ -162,30 +151,30 @@
 
     .line 54
     :cond_0
-    new-instance v0, Lcom/thoughtworks/xstream/InitializationException;
+    new-instance p2, Lcom/thoughtworks/xstream/InitializationException;
 
-    new-instance v1, Ljava/lang/StringBuffer;
+    new-instance v0, Ljava/lang/StringBuffer;
 
-    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
+    const-string v1, "Default implementation is not a concrete class: "
 
-    const-string v2, "Default implementation is not a concrete class: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
     .line 56
     invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Lcom/thoughtworks/xstream/InitializationException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    throw v0
+    invoke-direct {p2, p1}, Lcom/thoughtworks/xstream/InitializationException;-><init>(Ljava/lang/String;)V
+
+    throw p2
 
     .line 58
     :cond_1
@@ -199,7 +188,6 @@
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 60
     return-void
 .end method
 
@@ -368,13 +356,11 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/thoughtworks/xstream/mapper/DefaultImplementationsMapper;->addDefaultImplementation(Ljava/lang/Class;Ljava/lang/Class;)V
 
-    .line 50
     return-void
 .end method
 
 .method public defaultImplementationOf(Ljava/lang/Class;)Ljava/lang/Class;
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
 
     .line 68
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/DefaultImplementationsMapper;->typeToImpl:Ljava/util/Map;
@@ -390,24 +376,23 @@
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/lang/Class;
+    check-cast p1, Ljava/lang/Class;
 
-    return-object v0
+    return-object p1
 
     .line 71
     :cond_0
     invoke-super {p0, p1}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->defaultImplementationOf(Ljava/lang/Class;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public serializedClass(Ljava/lang/Class;)Ljava/lang/String;
-    .locals 2
-    .param p1, "type"    # Ljava/lang/Class;
+    .locals 1
 
     .line 63
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/DefaultImplementationsMapper;->implToType:Ljava/util/Map;
@@ -418,21 +403,20 @@
 
     check-cast v0, Ljava/lang/Class;
 
-    .line 64
-    .local v0, "baseType":Ljava/lang/Class;
     if-nez v0, :cond_0
 
+    .line 64
     invoke-super {p0, p1}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->serializedClass(Ljava/lang/Class;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
     goto :goto_0
 
     :cond_0
     invoke-super {p0, v0}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->serializedClass(Ljava/lang/Class;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
     :goto_0
-    return-object v1
+    return-object p1
 .end method

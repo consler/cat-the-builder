@@ -13,9 +13,9 @@
 
 
 # static fields
-.field private static final DEBUG:Z
+.field private static final DEBUG:Z = false
 
-.field static TAG:Ljava/lang/String;
+.field static TAG:Ljava/lang/String; = "GL2JNIView"
 
 .field static targetGLESVersion:I
 
@@ -26,35 +26,24 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
-
-    .line 44
-    const-string v0, "GL2JNIView"
-
-    sput-object v0, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceView20;->TAG:Ljava/lang/String;
+    .locals 0
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lcom/badlogic/gdx/backends/android/surfaceview/ResolutionStrategy;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "resolutionStrategy"    # Lcom/badlogic/gdx/backends/android/surfaceview/ResolutionStrategy;
 
-    .line 58
     const/4 v0, 0x2
 
+    .line 58
     invoke-direct {p0, p1, p2, v0}, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceView20;-><init>(Landroid/content/Context;Lcom/badlogic/gdx/backends/android/surfaceview/ResolutionStrategy;I)V
 
-    .line 59
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lcom/badlogic/gdx/backends/android/surfaceview/ResolutionStrategy;I)V
-    .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "resolutionStrategy"    # Lcom/badlogic/gdx/backends/android/surfaceview/ResolutionStrategy;
-    .param p3, "targetGLESVersion"    # I
+    .locals 0
 
     .line 51
     invoke-direct {p0, p1}, Landroid/opengl/GLSurfaceView;-><init>(Landroid/content/Context;)V
@@ -65,24 +54,18 @@
     .line 53
     iput-object p2, p0, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceView20;->resolutionStrategy:Lcom/badlogic/gdx/backends/android/surfaceview/ResolutionStrategy;
 
+    const/4 p1, 0x0
+
+    const/16 p2, 0x10
+
     .line 54
-    const/4 v0, 0x0
+    invoke-direct {p0, p1, p2, p1}, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceView20;->init(ZII)V
 
-    const/16 v1, 0x10
-
-    invoke-direct {p0, v0, v1, v0}, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceView20;->init(ZII)V
-
-    .line 55
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;ZIILcom/badlogic/gdx/backends/android/surfaceview/ResolutionStrategy;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "translucent"    # Z
-    .param p3, "depth"    # I
-    .param p4, "stencil"    # I
-    .param p5, "resolutionStrategy"    # Lcom/badlogic/gdx/backends/android/surfaceview/ResolutionStrategy;
 
     .line 62
     invoke-direct {p0, p1}, Landroid/opengl/GLSurfaceView;-><init>(Landroid/content/Context;)V
@@ -93,34 +76,25 @@
     .line 64
     invoke-direct {p0, p2, p3, p4}, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceView20;->init(ZII)V
 
-    .line 66
     return-void
 .end method
 
 .method static checkEglError(Ljava/lang/String;Ljavax/microedition/khronos/egl/EGL10;)Z
-    .locals 6
-    .param p0, "prompt"    # Ljava/lang/String;
-    .param p1, "egl"    # Ljavax/microedition/khronos/egl/EGL10;
+    .locals 5
 
-    .line 163
     const/4 v0, 0x1
 
+    move v1, v0
+
     .line 164
-    .local v0, "result":Z
     :goto_0
     invoke-interface {p1}, Ljavax/microedition/khronos/egl/EGL10;->eglGetError()I
 
-    move-result v1
+    move-result v2
 
-    move v2, v1
-
-    .local v2, "error":I
     const/16 v3, 0x3000
 
-    if-eq v1, v3, :cond_0
-
-    .line 165
-    const/4 v0, 0x0
+    if-eq v2, v3, :cond_0
 
     .line 166
     sget-object v1, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceView20;->TAG:Ljava/lang/String;
@@ -133,36 +107,31 @@
 
     aput-object p0, v3, v4
 
-    const/4 v4, 0x1
-
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v5
+    move-result-object v2
 
-    aput-object v5, v3, v4
+    aput-object v2, v3, v0
 
-    const-string v4, "%s: EGL error: 0x%x"
+    const-string v2, "%s: EGL error: 0x%x"
 
-    invoke-static {v4, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-static {v1, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    move v1, v4
 
     goto :goto_0
 
-    .line 168
     :cond_0
-    return v0
+    return v1
 .end method
 
 .method private init(ZII)V
     .locals 14
-    .param p1, "translucent"    # Z
-    .param p2, "depth"    # I
-    .param p3, "stencil"    # I
 
-    .line 118
     move-object v0, p0
 
     if-eqz p1, :cond_0
@@ -227,7 +196,6 @@
     :goto_0
     invoke-virtual {p0, v1}, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceView20;->setEGLConfigChooser(Landroid/opengl/GLSurfaceView$EGLConfigChooser;)V
 
-    .line 135
     return-void
 .end method
 
@@ -235,9 +203,7 @@
 # virtual methods
 .method public onCreateInputConnection(Landroid/view/inputmethod/EditorInfo;)Landroid/view/inputmethod/InputConnection;
     .locals 2
-    .param p1, "outAttrs"    # Landroid/view/inputmethod/EditorInfo;
 
-    .line 78
     if-eqz p1, :cond_0
 
     .line 79
@@ -251,37 +217,31 @@
 
     .line 82
     :cond_0
-    new-instance v0, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceView20$1;
+    new-instance p1, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceView20$1;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-direct {v0, p0, p0, v1}, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceView20$1;-><init>(Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceView20;Landroid/view/View;Z)V
+    invoke-direct {p1, p0, p0, v0}, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceView20$1;-><init>(Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceView20;Landroid/view/View;Z)V
 
-    .line 108
-    .local v0, "connection":Landroid/view/inputmethod/BaseInputConnection;
-    return-object v0
+    return-object p1
 .end method
 
 .method protected onMeasure(II)V
-    .locals 3
-    .param p1, "widthMeasureSpec"    # I
-    .param p2, "heightMeasureSpec"    # I
+    .locals 1
 
     .line 70
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceView20;->resolutionStrategy:Lcom/badlogic/gdx/backends/android/surfaceview/ResolutionStrategy;
 
     invoke-interface {v0, p1, p2}, Lcom/badlogic/gdx/backends/android/surfaceview/ResolutionStrategy;->calcMeasures(II)Lcom/badlogic/gdx/backends/android/surfaceview/ResolutionStrategy$MeasuredDimension;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 71
-    .local v0, "measures":Lcom/badlogic/gdx/backends/android/surfaceview/ResolutionStrategy$MeasuredDimension;
-    iget v1, v0, Lcom/badlogic/gdx/backends/android/surfaceview/ResolutionStrategy$MeasuredDimension;->width:I
+    iget p2, p1, Lcom/badlogic/gdx/backends/android/surfaceview/ResolutionStrategy$MeasuredDimension;->width:I
 
-    iget v2, v0, Lcom/badlogic/gdx/backends/android/surfaceview/ResolutionStrategy$MeasuredDimension;->height:I
+    iget p1, p1, Lcom/badlogic/gdx/backends/android/surfaceview/ResolutionStrategy$MeasuredDimension;->height:I
 
-    invoke-virtual {p0, v1, v2}, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceView20;->setMeasuredDimension(II)V
+    invoke-virtual {p0, p2, p1}, Lcom/badlogic/gdx/backends/android/surfaceview/GLSurfaceView20;->setMeasuredDimension(II)V
 
-    .line 72
     return-void
 .end method

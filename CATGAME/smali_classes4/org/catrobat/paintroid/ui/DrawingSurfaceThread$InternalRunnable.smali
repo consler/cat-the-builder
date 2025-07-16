@@ -17,11 +17,6 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u0002\n\u0000\u0008\u0082\u0004\u0018\u00002\u00020\u0001B\u0005\u00a2\u0006\u0002\u0010\u0002J\u0008\u0010\u0003\u001a\u00020\u0004H\u0016\u00a8\u0006\u0005"
     }
@@ -31,14 +26,15 @@
         "(Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;)V",
         "run",
         "",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -48,13 +44,16 @@
 
 # direct methods
 .method public constructor <init>(Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;)V
-    .locals 0
-    .param p1, "this$0"    # Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
         }
     .end annotation
+
+    const-string v0, "this$0"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 76
     iput-object p1, p0, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread$InternalRunnable;->this$0:Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;
@@ -77,6 +76,5 @@
 
     invoke-static {v0}, Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;->access$internalRun(Lorg/catrobat/paintroid/ui/DrawingSurfaceThread;)V
 
-    .line 80
     return-void
 .end method

@@ -17,7 +17,6 @@
 # direct methods
 .method constructor <init>(Lcom/thoughtworks/xstream/converters/reflection/ExternalizableConverter;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/thoughtworks/xstream/converters/reflection/ExternalizableConverter;
 
     .line 96
     iput-object p1, p0, Lcom/thoughtworks/xstream/converters/reflection/ExternalizableConverter$1;->this$0:Lcom/thoughtworks/xstream/converters/reflection/ExternalizableConverter;
@@ -65,40 +64,36 @@
 
     invoke-interface {v0}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->flush()V
 
-    .line 118
     return-void
 .end method
 
 .method public writeFieldsToStream(Ljava/util/Map;)V
-    .locals 1
-    .param p1, "fields"    # Ljava/util/Map;
+    .locals 0
 
     .line 109
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public writeToStream(Ljava/lang/Object;)V
     .locals 3
-    .param p1, "object"    # Ljava/lang/Object;
 
-    .line 98
     if-nez p1, :cond_0
 
     .line 99
-    iget-object v0, p0, Lcom/thoughtworks/xstream/converters/reflection/ExternalizableConverter$1;->val$writer:Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
+    iget-object p1, p0, Lcom/thoughtworks/xstream/converters/reflection/ExternalizableConverter$1;->val$writer:Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
 
-    const-string v1, "null"
+    const-string v0, "null"
 
-    invoke-interface {v0, v1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->startNode(Ljava/lang/String;)V
+    invoke-interface {p1, v0}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->startNode(Ljava/lang/String;)V
 
     .line 100
-    iget-object v0, p0, Lcom/thoughtworks/xstream/converters/reflection/ExternalizableConverter$1;->val$writer:Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
+    iget-object p1, p0, Lcom/thoughtworks/xstream/converters/reflection/ExternalizableConverter$1;->val$writer:Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
 
-    invoke-interface {v0}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->endNode()V
+    invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->endNode()V
 
     goto :goto_0
 
@@ -132,11 +127,10 @@
     invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/converters/MarshallingContext;->convertAnother(Ljava/lang/Object;)V
 
     .line 104
-    iget-object v0, p0, Lcom/thoughtworks/xstream/converters/reflection/ExternalizableConverter$1;->val$writer:Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
+    iget-object p1, p0, Lcom/thoughtworks/xstream/converters/reflection/ExternalizableConverter$1;->val$writer:Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
 
-    invoke-interface {v0}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->endNode()V
+    invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->endNode()V
 
-    .line 106
     :goto_0
     return-void
 .end method

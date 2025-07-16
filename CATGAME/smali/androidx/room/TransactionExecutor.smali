@@ -25,7 +25,6 @@
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/Executor;)V
     .locals 1
-    .param p1, "executor"    # Ljava/util/concurrent/Executor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -48,7 +47,6 @@
     .line 38
     iput-object p1, p0, Landroidx/room/TransactionExecutor;->mExecutor:Ljava/util/concurrent/Executor;
 
-    .line 39
     return-void
 .end method
 
@@ -56,7 +54,6 @@
 # virtual methods
 .method public declared-synchronized execute(Ljava/lang/Runnable;)V
     .locals 2
-    .param p1, "command"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -79,9 +76,9 @@
     invoke-virtual {v0, v1}, Ljava/util/ArrayDeque;->offer(Ljava/lang/Object;)Z
 
     .line 53
-    iget-object v0, p0, Landroidx/room/TransactionExecutor;->mActive:Ljava/lang/Runnable;
+    iget-object p1, p0, Landroidx/room/TransactionExecutor;->mActive:Ljava/lang/Runnable;
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 54
     invoke-virtual {p0}, Landroidx/room/TransactionExecutor;->scheduleNext()V
@@ -89,14 +86,11 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 56
-    .end local p0    # "this":Landroidx/room/TransactionExecutor;
     :cond_0
     monitor-exit p0
 
     return-void
 
-    .line 42
-    .end local p1    # "command":Ljava/lang/Runnable;
     :catchall_0
     move-exception p1
 
@@ -132,13 +126,11 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 63
-    .end local p0    # "this":Landroidx/room/TransactionExecutor;
     :cond_0
     monitor-exit p0
 
     return-void
 
-    .line 59
     :catchall_0
     move-exception v0
 

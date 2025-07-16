@@ -18,28 +18,21 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/ImageView;)V
     .locals 0
-    .param p1, "view"    # Landroid/widget/ImageView;
 
     .line 27
-    .local p0, "this":Lcom/bumptech/glide/request/target/ThumbnailImageViewTarget;, "Lcom/bumptech/glide/request/target/ThumbnailImageViewTarget<TT;>;"
     invoke-direct {p0, p1}, Lcom/bumptech/glide/request/target/ImageViewTarget;-><init>(Landroid/widget/ImageView;)V
 
-    .line 28
     return-void
 .end method
 
 .method public constructor <init>(Landroid/widget/ImageView;Z)V
     .locals 0
-    .param p1, "view"    # Landroid/widget/ImageView;
-    .param p2, "waitForLayout"    # Z
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 34
-    .local p0, "this":Lcom/bumptech/glide/request/target/ThumbnailImageViewTarget;, "Lcom/bumptech/glide/request/target/ThumbnailImageViewTarget<TT;>;"
     invoke-direct {p0, p1, p2}, Lcom/bumptech/glide/request/target/ImageViewTarget;-><init>(Landroid/widget/ImageView;Z)V
 
-    .line 35
     return-void
 .end method
 
@@ -55,7 +48,7 @@
 .end method
 
 .method protected setResource(Ljava/lang/Object;)V
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -63,8 +56,6 @@
     .end annotation
 
     .line 39
-    .local p0, "this":Lcom/bumptech/glide/request/target/ThumbnailImageViewTarget;, "Lcom/bumptech/glide/request/target/ThumbnailImageViewTarget<TT;>;"
-    .local p1, "resource":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lcom/bumptech/glide/request/target/ThumbnailImageViewTarget;->view:Landroid/view/View;
 
     check-cast v0, Landroid/widget/ImageView;
@@ -74,42 +65,39 @@
     move-result-object v0
 
     .line 40
-    .local v0, "layoutParams":Landroid/view/ViewGroup$LayoutParams;
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/request/target/ThumbnailImageViewTarget;->getDrawable(Ljava/lang/Object;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v1
+    move-result-object p1
+
+    if-eqz v0, :cond_0
 
     .line 41
-    .local v1, "result":Landroid/graphics/drawable/Drawable;
-    if-eqz v0, :cond_0
+    iget v1, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
+
+    if-lez v1, :cond_0
+
+    iget v1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    if-lez v1, :cond_0
+
+    .line 42
+    new-instance v1, Lcom/bumptech/glide/request/target/FixedSizeDrawable;
 
     iget v2, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    if-lez v2, :cond_0
+    iget v0, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    iget v2, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    invoke-direct {v1, p1, v2, v0}, Lcom/bumptech/glide/request/target/FixedSizeDrawable;-><init>(Landroid/graphics/drawable/Drawable;II)V
 
-    if-lez v2, :cond_0
-
-    .line 42
-    new-instance v2, Lcom/bumptech/glide/request/target/FixedSizeDrawable;
-
-    iget v3, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
-
-    iget v4, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
-
-    invoke-direct {v2, v1, v3, v4}, Lcom/bumptech/glide/request/target/FixedSizeDrawable;-><init>(Landroid/graphics/drawable/Drawable;II)V
-
-    move-object v1, v2
+    move-object p1, v1
 
     .line 45
     :cond_0
-    iget-object v2, p0, Lcom/bumptech/glide/request/target/ThumbnailImageViewTarget;->view:Landroid/view/View;
+    iget-object v0, p0, Lcom/bumptech/glide/request/target/ThumbnailImageViewTarget;->view:Landroid/view/View;
 
-    check-cast v2, Landroid/widget/ImageView;
+    check-cast v0, Landroid/widget/ImageView;
 
-    invoke-virtual {v2, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 46
     return-void
 .end method

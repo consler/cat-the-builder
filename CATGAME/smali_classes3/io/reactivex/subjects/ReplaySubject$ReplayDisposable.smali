@@ -69,9 +69,6 @@
     .end annotation
 
     .line 498
-    .local p0, "this":Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;, "Lio/reactivex/subjects/ReplaySubject$ReplayDisposable<TT;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
-    .local p2, "state":Lio/reactivex/subjects/ReplaySubject;, "Lio/reactivex/subjects/ReplaySubject<TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
 
     .line 499
@@ -80,7 +77,6 @@
     .line 500
     iput-object p2, p0, Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;->state:Lio/reactivex/subjects/ReplaySubject;
 
-    .line 501
     return-void
 .end method
 
@@ -90,14 +86,13 @@
     .locals 1
 
     .line 505
-    .local p0, "this":Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;, "Lio/reactivex/subjects/ReplaySubject$ReplayDisposable<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;->cancelled:Z
 
     if-nez v0, :cond_0
 
-    .line 506
     const/4 v0, 0x1
 
+    .line 506
     iput-boolean v0, p0, Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;->cancelled:Z
 
     .line 507
@@ -105,7 +100,6 @@
 
     invoke-virtual {v0, p0}, Lio/reactivex/subjects/ReplaySubject;->remove(Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;)V
 
-    .line 509
     :cond_0
     return-void
 .end method
@@ -114,7 +108,6 @@
     .locals 1
 
     .line 513
-    .local p0, "this":Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;, "Lio/reactivex/subjects/ReplaySubject$ReplayDisposable<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;->cancelled:Z
 
     return v0

@@ -36,7 +36,6 @@
 # virtual methods
 .method public fromJson(Lcom/squareup/moshi/JsonReader;)Ljava/lang/Double;
     .locals 2
-    .param p1, "reader"    # Lcom/squareup/moshi/JsonReader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -50,9 +49,9 @@
 
     invoke-static {v0, v1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic fromJson(Lcom/squareup/moshi/JsonReader;)Ljava/lang/Object;
@@ -73,8 +72,6 @@
 
 .method public toJson(Lcom/squareup/moshi/JsonWriter;Ljava/lang/Double;)V
     .locals 2
-    .param p1, "writer"    # Lcom/squareup/moshi/JsonWriter;
-    .param p2, "value"    # Ljava/lang/Double;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -88,7 +85,6 @@
 
     invoke-virtual {p1, v0, v1}, Lcom/squareup/moshi/JsonWriter;->value(D)Lcom/squareup/moshi/JsonWriter;
 
-    .line 139
     return-void
 .end method
 
@@ -111,7 +107,6 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .line 142
     const-string v0, "JsonAdapter(Double)"
 
     return-object v0

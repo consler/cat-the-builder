@@ -44,7 +44,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/FlowableOnSubscribe;Lio/reactivex/BackpressureStrategy;)V
     .locals 0
-    .param p2, "backpressure"    # Lio/reactivex/BackpressureStrategy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,8 +55,6 @@
     .end annotation
 
     .line 38
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCreate;, "Lio/reactivex/internal/operators/flowable/FlowableCreate<TT;>;"
-    .local p1, "source":Lio/reactivex/FlowableOnSubscribe;, "Lio/reactivex/FlowableOnSubscribe<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Flowable;-><init>()V
 
     .line 39
@@ -66,14 +63,13 @@
     .line 40
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableCreate;->backpressure:Lio/reactivex/BackpressureStrategy;
 
-    .line 41
     return-void
 .end method
 
 
 # virtual methods
 .method public subscribeActual(Lorg/reactivestreams/Subscriber;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -83,8 +79,6 @@
     .end annotation
 
     .line 47
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableCreate;, "Lio/reactivex/internal/operators/flowable/FlowableCreate<TT;>;"
-    .local p1, "t":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     sget-object v0, Lio/reactivex/internal/operators/flowable/FlowableCreate$1;->$SwitchMap$io$reactivex$BackpressureStrategy:[I
 
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCreate;->backpressure:Lio/reactivex/BackpressureStrategy;
@@ -101,8 +95,6 @@
 
     const/4 v1, 0x2
 
-    const/4 v2, 0x0
-
     if-eq v0, v1, :cond_2
 
     const/4 v1, 0x3
@@ -113,80 +105,46 @@
 
     if-eq v0, v1, :cond_0
 
-    move-object v0, v2
-
     .line 65
-    .local v0, "emitter":Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter<TT;>;"
-    new-instance v1, Lio/reactivex/internal/operators/flowable/FlowableCreate$BufferAsyncEmitter;
+    new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableCreate$BufferAsyncEmitter;
 
     invoke-static {}, Lio/reactivex/internal/operators/flowable/FlowableCreate;->bufferSize()I
 
-    move-result v2
+    move-result v1
 
-    invoke-direct {v1, p1, v2}, Lio/reactivex/internal/operators/flowable/FlowableCreate$BufferAsyncEmitter;-><init>(Lorg/reactivestreams/Subscriber;I)V
-
-    move-object v0, v1
+    invoke-direct {v0, p1, v1}, Lio/reactivex/internal/operators/flowable/FlowableCreate$BufferAsyncEmitter;-><init>(Lorg/reactivestreams/Subscriber;I)V
 
     goto :goto_0
-
-    .line 47
-    .end local v0    # "emitter":Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter<TT;>;"
-    :cond_0
-    move-object v0, v2
 
     .line 61
-    .restart local v0    # "emitter":Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter<TT;>;"
-    new-instance v1, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;
+    :cond_0
+    new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;
 
-    invoke-direct {v1, p1}, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;-><init>(Lorg/reactivestreams/Subscriber;)V
+    invoke-direct {v0, p1}, Lio/reactivex/internal/operators/flowable/FlowableCreate$LatestAsyncEmitter;-><init>(Lorg/reactivestreams/Subscriber;)V
 
-    move-object v0, v1
-
-    .line 62
     goto :goto_0
-
-    .line 47
-    .end local v0    # "emitter":Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter<TT;>;"
-    :cond_1
-    move-object v0, v2
 
     .line 57
-    .restart local v0    # "emitter":Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter<TT;>;"
-    new-instance v1, Lio/reactivex/internal/operators/flowable/FlowableCreate$DropAsyncEmitter;
+    :cond_1
+    new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableCreate$DropAsyncEmitter;
 
-    invoke-direct {v1, p1}, Lio/reactivex/internal/operators/flowable/FlowableCreate$DropAsyncEmitter;-><init>(Lorg/reactivestreams/Subscriber;)V
+    invoke-direct {v0, p1}, Lio/reactivex/internal/operators/flowable/FlowableCreate$DropAsyncEmitter;-><init>(Lorg/reactivestreams/Subscriber;)V
 
-    move-object v0, v1
-
-    .line 58
     goto :goto_0
 
-    .line 47
-    .end local v0    # "emitter":Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter<TT;>;"
-    :cond_2
-    move-object v0, v2
-
     .line 53
-    .restart local v0    # "emitter":Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter<TT;>;"
-    new-instance v1, Lio/reactivex/internal/operators/flowable/FlowableCreate$ErrorAsyncEmitter;
+    :cond_2
+    new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableCreate$ErrorAsyncEmitter;
 
-    invoke-direct {v1, p1}, Lio/reactivex/internal/operators/flowable/FlowableCreate$ErrorAsyncEmitter;-><init>(Lorg/reactivestreams/Subscriber;)V
+    invoke-direct {v0, p1}, Lio/reactivex/internal/operators/flowable/FlowableCreate$ErrorAsyncEmitter;-><init>(Lorg/reactivestreams/Subscriber;)V
 
-    move-object v0, v1
-
-    .line 54
     goto :goto_0
 
     .line 49
-    .end local v0    # "emitter":Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter<TT;>;"
     :cond_3
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableCreate$MissingEmitter;
 
     invoke-direct {v0, p1}, Lio/reactivex/internal/operators/flowable/FlowableCreate$MissingEmitter;-><init>(Lorg/reactivestreams/Subscriber;)V
-
-    .line 50
-    .restart local v0    # "emitter":Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter;, "Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter<TT;>;"
-    nop
 
     .line 70
     :goto_0
@@ -194,28 +152,23 @@
 
     .line 72
     :try_start_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableCreate;->source:Lio/reactivex/FlowableOnSubscribe;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableCreate;->source:Lio/reactivex/FlowableOnSubscribe;
 
-    invoke-interface {v1, v0}, Lio/reactivex/FlowableOnSubscribe;->subscribe(Lio/reactivex/FlowableEmitter;)V
+    invoke-interface {p1, v0}, Lio/reactivex/FlowableOnSubscribe;->subscribe(Lio/reactivex/FlowableEmitter;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 76
     goto :goto_1
 
-    .line 73
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     .line 74
-    .local v1, "ex":Ljava/lang/Throwable;
-    invoke-static {v1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 75
-    invoke-virtual {v0, v1}, Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {v0, p1}, Lio/reactivex/internal/operators/flowable/FlowableCreate$BaseEmitter;->onError(Ljava/lang/Throwable;)V
 
-    .line 77
-    .end local v1    # "ex":Ljava/lang/Throwable;
     :goto_1
     return-void
 .end method

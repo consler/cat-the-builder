@@ -46,28 +46,26 @@
     sput-object v0, Landroidx/camera/core/impl/SessionConfig$SessionError;->SESSION_ERROR_SURFACE_NEEDS_RESET:Landroidx/camera/core/impl/SessionConfig$SessionError;
 
     .line 152
-    new-instance v0, Landroidx/camera/core/impl/SessionConfig$SessionError;
+    new-instance v1, Landroidx/camera/core/impl/SessionConfig$SessionError;
 
-    const-string v1, "SESSION_ERROR_UNKNOWN"
+    const-string v3, "SESSION_ERROR_UNKNOWN"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Landroidx/camera/core/impl/SessionConfig$SessionError;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Landroidx/camera/core/impl/SessionConfig$SessionError;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/camera/core/impl/SessionConfig$SessionError;->SESSION_ERROR_UNKNOWN:Landroidx/camera/core/impl/SessionConfig$SessionError;
+    sput-object v1, Landroidx/camera/core/impl/SessionConfig$SessionError;->SESSION_ERROR_UNKNOWN:Landroidx/camera/core/impl/SessionConfig$SessionError;
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Landroidx/camera/core/impl/SessionConfig$SessionError;
+
+    aput-object v0, v3, v2
+
+    aput-object v1, v3, v4
 
     .line 144
-    const/4 v1, 0x2
-
-    new-array v1, v1, [Landroidx/camera/core/impl/SessionConfig$SessionError;
-
-    sget-object v4, Landroidx/camera/core/impl/SessionConfig$SessionError;->SESSION_ERROR_SURFACE_NEEDS_RESET:Landroidx/camera/core/impl/SessionConfig$SessionError;
-
-    aput-object v4, v1, v2
-
-    aput-object v0, v1, v3
-
-    sput-object v1, Landroidx/camera/core/impl/SessionConfig$SessionError;->$VALUES:[Landroidx/camera/core/impl/SessionConfig$SessionError;
+    sput-object v3, Landroidx/camera/core/impl/SessionConfig$SessionError;->$VALUES:[Landroidx/camera/core/impl/SessionConfig$SessionError;
 
     return-void
 .end method
@@ -88,18 +86,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/camera/core/impl/SessionConfig$SessionError;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 144
     const-class v0, Landroidx/camera/core/impl/SessionConfig$SessionError;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroidx/camera/core/impl/SessionConfig$SessionError;
+    check-cast p0, Landroidx/camera/core/impl/SessionConfig$SessionError;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Landroidx/camera/core/impl/SessionConfig$SessionError;

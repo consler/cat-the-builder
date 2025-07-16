@@ -62,8 +62,7 @@
 
 # virtual methods
 .method public build(Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;)Lcom/bumptech/glide/load/model/ModelLoader;
-    .locals 2
-    .param p1, "multiFactory"    # Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,18 +76,17 @@
     .end annotation
 
     .line 70
-    new-instance v0, Lcom/bumptech/glide/load/model/stream/HttpGlideUrlLoader;
+    new-instance p1, Lcom/bumptech/glide/load/model/stream/HttpGlideUrlLoader;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/model/stream/HttpGlideUrlLoader$Factory;->modelCache:Lcom/bumptech/glide/load/model/ModelCache;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/stream/HttpGlideUrlLoader$Factory;->modelCache:Lcom/bumptech/glide/load/model/ModelCache;
 
-    invoke-direct {v0, v1}, Lcom/bumptech/glide/load/model/stream/HttpGlideUrlLoader;-><init>(Lcom/bumptech/glide/load/model/ModelCache;)V
+    invoke-direct {p1, v0}, Lcom/bumptech/glide/load/model/stream/HttpGlideUrlLoader;-><init>(Lcom/bumptech/glide/load/model/ModelCache;)V
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public teardown()V
     .locals 0
 
-    .line 76
     return-void
 .end method

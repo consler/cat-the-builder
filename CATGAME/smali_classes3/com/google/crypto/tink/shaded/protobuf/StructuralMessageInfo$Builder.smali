@@ -43,9 +43,9 @@
     .line 119
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 116
     const/4 v0, 0x0
 
+    .line 116
     iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/StructuralMessageInfo$Builder;->checkInitialized:[I
 
     .line 120
@@ -55,20 +55,18 @@
 
     iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/StructuralMessageInfo$Builder;->fields:Ljava/util/List;
 
-    .line 121
     return-void
 .end method
 
 .method public constructor <init>(I)V
     .locals 1
-    .param p1, "numFields"    # I
 
     .line 123
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 116
     const/4 v0, 0x0
 
+    .line 116
     iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/StructuralMessageInfo$Builder;->checkInitialized:[I
 
     .line 124
@@ -78,7 +76,6 @@
 
     iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/StructuralMessageInfo$Builder;->fields:Ljava/util/List;
 
-    .line 125
     return-void
 .end method
 
@@ -97,9 +94,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 157
     const/4 v0, 0x1
 
+    .line 157
     iput-boolean v0, p0, Lcom/google/crypto/tink/shaded/protobuf/StructuralMessageInfo$Builder;->wasBuilt:Z
 
     .line 158
@@ -137,7 +134,6 @@
 
     invoke-direct/range {v1 .. v6}, Lcom/google/crypto/tink/shaded/protobuf/StructuralMessageInfo;-><init>(Lcom/google/crypto/tink/shaded/protobuf/ProtoSyntax;Z[I[Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;Ljava/lang/Object;)V
 
-    .line 159
     return-object v0
 
     .line 155
@@ -163,29 +159,24 @@
 
 .method public withCheckInitialized([I)V
     .locals 0
-    .param p1, "checkInitialized"    # [I
 
     .line 140
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/StructuralMessageInfo$Builder;->checkInitialized:[I
 
-    .line 141
     return-void
 .end method
 
 .method public withDefaultInstance(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "defaultInstance"    # Ljava/lang/Object;
 
     .line 128
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/StructuralMessageInfo$Builder;->defaultInstance:Ljava/lang/Object;
 
-    .line 129
     return-void
 .end method
 
 .method public withField(Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;)V
-    .locals 2
-    .param p1, "field"    # Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
+    .locals 1
 
     .line 144
     iget-boolean v0, p0, Lcom/google/crypto/tink/shaded/protobuf/StructuralMessageInfo$Builder;->wasBuilt:Z
@@ -197,46 +188,41 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 148
     return-void
 
     .line 145
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Builder can only build once"
+    const-string v0, "Builder can only build once"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public withMessageSetWireFormat(Z)V
     .locals 0
-    .param p1, "messageSetWireFormat"    # Z
 
     .line 136
     iput-boolean p1, p0, Lcom/google/crypto/tink/shaded/protobuf/StructuralMessageInfo$Builder;->messageSetWireFormat:Z
 
-    .line 137
     return-void
 .end method
 
 .method public withSyntax(Lcom/google/crypto/tink/shaded/protobuf/ProtoSyntax;)V
     .locals 1
-    .param p1, "syntax"    # Lcom/google/crypto/tink/shaded/protobuf/ProtoSyntax;
 
-    .line 132
     const-string v0, "syntax"
 
+    .line 132
     invoke-static {p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/ProtoSyntax;
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/ProtoSyntax;
 
-    iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/StructuralMessageInfo$Builder;->syntax:Lcom/google/crypto/tink/shaded/protobuf/ProtoSyntax;
+    iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/StructuralMessageInfo$Builder;->syntax:Lcom/google/crypto/tink/shaded/protobuf/ProtoSyntax;
 
-    .line 133
     return-void
 .end method

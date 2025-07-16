@@ -16,39 +16,33 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 0
 
     .line 40
     invoke-static {p1}, Lcom/squareup/picasso/Utils;->createDefaultCacheDir(Landroid/content/Context;)Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0}, Lcom/squareup/picasso/OkHttp3Downloader;-><init>(Ljava/io/File;)V
+    invoke-direct {p0, p1}, Lcom/squareup/picasso/OkHttp3Downloader;-><init>(Ljava/io/File;)V
 
-    .line 41
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;J)V
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "maxSize"    # J
+    .locals 0
 
     .line 60
     invoke-static {p1}, Lcom/squareup/picasso/Utils;->createDefaultCacheDir(Landroid/content/Context;)Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0, p2, p3}, Lcom/squareup/picasso/OkHttp3Downloader;-><init>(Ljava/io/File;J)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/squareup/picasso/OkHttp3Downloader;-><init>(Ljava/io/File;J)V
 
-    .line 61
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/File;)V
     .locals 2
-    .param p1, "cacheDir"    # Ljava/io/File;
 
     .line 50
     invoke-static {p1}, Lcom/squareup/picasso/Utils;->calculateDiskCacheSize(Ljava/io/File;)J
@@ -57,14 +51,11 @@
 
     invoke-direct {p0, p1, v0, v1}, Lcom/squareup/picasso/OkHttp3Downloader;-><init>(Ljava/io/File;J)V
 
-    .line 51
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/File;J)V
     .locals 2
-    .param p1, "cacheDir"    # Ljava/io/File;
-    .param p2, "maxSize"    # J
 
     .line 71
     new-instance v0, Lokhttp3/OkHttpClient$Builder;
@@ -77,57 +68,53 @@
 
     invoke-virtual {v0, v1}, Lokhttp3/OkHttpClient$Builder;->cache(Lokhttp3/Cache;)Lokhttp3/OkHttpClient$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lokhttp3/OkHttpClient$Builder;->build()Lokhttp3/OkHttpClient;
+    invoke-virtual {p1}, Lokhttp3/OkHttpClient$Builder;->build()Lokhttp3/OkHttpClient;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0}, Lcom/squareup/picasso/OkHttp3Downloader;-><init>(Lokhttp3/OkHttpClient;)V
+    invoke-direct {p0, p1}, Lcom/squareup/picasso/OkHttp3Downloader;-><init>(Lokhttp3/OkHttpClient;)V
+
+    const/4 p1, 0x0
 
     .line 72
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/squareup/picasso/OkHttp3Downloader;->sharedClient:Z
 
-    iput-boolean v0, p0, Lcom/squareup/picasso/OkHttp3Downloader;->sharedClient:Z
-
-    .line 73
     return-void
 .end method
 
 .method public constructor <init>(Lokhttp3/Call$Factory;)V
     .locals 1
-    .param p1, "client"    # Lokhttp3/Call$Factory;
 
     .line 85
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 33
     const/4 v0, 0x1
 
+    .line 33
     iput-boolean v0, p0, Lcom/squareup/picasso/OkHttp3Downloader;->sharedClient:Z
 
     .line 86
     iput-object p1, p0, Lcom/squareup/picasso/OkHttp3Downloader;->client:Lokhttp3/Call$Factory;
 
+    const/4 p1, 0x0
+
     .line 87
-    const/4 v0, 0x0
+    iput-object p1, p0, Lcom/squareup/picasso/OkHttp3Downloader;->cache:Lokhttp3/Cache;
 
-    iput-object v0, p0, Lcom/squareup/picasso/OkHttp3Downloader;->cache:Lokhttp3/Cache;
-
-    .line 88
     return-void
 .end method
 
 .method public constructor <init>(Lokhttp3/OkHttpClient;)V
     .locals 1
-    .param p1, "client"    # Lokhttp3/OkHttpClient;
 
     .line 79
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 33
     const/4 v0, 0x1
 
+    .line 33
     iput-boolean v0, p0, Lcom/squareup/picasso/OkHttp3Downloader;->sharedClient:Z
 
     .line 80
@@ -136,11 +123,10 @@
     .line 81
     invoke-virtual {p1}, Lokhttp3/OkHttpClient;->cache()Lokhttp3/Cache;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/squareup/picasso/OkHttp3Downloader;->cache:Lokhttp3/Cache;
+    iput-object p1, p0, Lcom/squareup/picasso/OkHttp3Downloader;->cache:Lokhttp3/Cache;
 
-    .line 82
     return-void
 .end method
 
@@ -148,7 +134,6 @@
 # virtual methods
 .method public load(Lokhttp3/Request;)Lokhttp3/Response;
     .locals 1
-    .param p1, "request"    # Lokhttp3/Request;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -160,13 +145,13 @@
 
     invoke-interface {v0, p1}, Lokhttp3/Call$Factory;->newCall(Lokhttp3/Request;)Lokhttp3/Call;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Lokhttp3/Call;->execute()Lokhttp3/Response;
+    invoke-interface {p1}, Lokhttp3/Call;->execute()Lokhttp3/Response;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public shutdown()V
@@ -187,15 +172,7 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 99
-    goto :goto_0
-
-    .line 98
     :catch_0
-    move-exception v0
-
-    .line 101
     :cond_0
-    :goto_0
     return-void
 .end method

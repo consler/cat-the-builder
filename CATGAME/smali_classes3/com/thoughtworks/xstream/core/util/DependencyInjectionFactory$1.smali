@@ -19,34 +19,27 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 2
-    .param p1, "o1"    # Ljava/lang/Object;
-    .param p2, "o2"    # Ljava/lang/Object;
+    .locals 0
 
     .line 81
-    move-object v0, p2
+    check-cast p2, Ljava/lang/reflect/Constructor;
 
-    check-cast v0, Ljava/lang/reflect/Constructor;
+    invoke-virtual {p2}, Ljava/lang/reflect/Constructor;->getParameterTypes()[Ljava/lang/Class;
 
-    invoke-virtual {v0}, Ljava/lang/reflect/Constructor;->getParameterTypes()[Ljava/lang/Class;
+    move-result-object p2
 
-    move-result-object v0
+    array-length p2, p2
 
-    array-length v0, v0
-
-    move-object v1, p1
-
-    check-cast v1, Ljava/lang/reflect/Constructor;
+    check-cast p1, Ljava/lang/reflect/Constructor;
 
     .line 82
-    invoke-virtual {v1}, Ljava/lang/reflect/Constructor;->getParameterTypes()[Ljava/lang/Class;
+    invoke-virtual {p1}, Ljava/lang/reflect/Constructor;->getParameterTypes()[Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object p1
 
-    array-length v1, v1
+    array-length p1, p1
 
-    sub-int/2addr v0, v1
+    sub-int/2addr p2, p1
 
-    .line 81
-    return v0
+    return p2
 .end method

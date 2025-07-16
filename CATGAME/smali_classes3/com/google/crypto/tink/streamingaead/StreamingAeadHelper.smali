@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/crypto/tink/PrimitiveSet;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -46,7 +46,6 @@
     .end annotation
 
     .line 42
-    .local p1, "primitives":Lcom/google/crypto/tink/PrimitiveSet;, "Lcom/google/crypto/tink/PrimitiveSet<Lcom/google/crypto/tink/StreamingAead;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 43
@@ -59,26 +58,23 @@
     .line 46
     iput-object p1, p0, Lcom/google/crypto/tink/streamingaead/StreamingAeadHelper;->primitives:Lcom/google/crypto/tink/PrimitiveSet;
 
-    .line 47
     return-void
 
     .line 44
     :cond_0
-    new-instance v0, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    const-string v1, "Missing primary primitive."
+    const-string v0, "Missing primary primitive."
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
 # virtual methods
 .method public newDecryptingChannel(Ljava/nio/channels/ReadableByteChannel;[B)Ljava/nio/channels/ReadableByteChannel;
     .locals 2
-    .param p1, "ciphertextChannel"    # Ljava/nio/channels/ReadableByteChannel;
-    .param p2, "associatedData"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -109,8 +105,6 @@
 
 .method public newDecryptingStream(Ljava/io/InputStream;[B)Ljava/io/InputStream;
     .locals 2
-    .param p1, "ciphertextStream"    # Ljava/io/InputStream;
-    .param p2, "associatedData"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -141,8 +135,6 @@
 
 .method public newEncryptingChannel(Ljava/nio/channels/WritableByteChannel;[B)Ljava/nio/channels/WritableByteChannel;
     .locals 1
-    .param p1, "ciphertextDestination"    # Ljava/nio/channels/WritableByteChannel;
-    .param p2, "associatedData"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -177,16 +169,13 @@
     .line 54
     invoke-interface {v0, p1, p2}, Lcom/google/crypto/tink/StreamingAead;->newEncryptingChannel(Ljava/nio/channels/WritableByteChannel;[B)Ljava/nio/channels/WritableByteChannel;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 53
-    return-object v0
+    return-object p1
 .end method
 
 .method public newEncryptingStream(Ljava/io/OutputStream;[B)Ljava/io/OutputStream;
     .locals 1
-    .param p1, "ciphertext"    # Ljava/io/OutputStream;
-    .param p2, "associatedData"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -221,16 +210,13 @@
     .line 84
     invoke-interface {v0, p1, p2}, Lcom/google/crypto/tink/StreamingAead;->newEncryptingStream(Ljava/io/OutputStream;[B)Ljava/io/OutputStream;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 83
-    return-object v0
+    return-object p1
 .end method
 
 .method public newSeekableDecryptingChannel(Ljava/nio/channels/SeekableByteChannel;[B)Ljava/nio/channels/SeekableByteChannel;
     .locals 2
-    .param p1, "ciphertextChannel"    # Ljava/nio/channels/SeekableByteChannel;
-    .param p2, "associatedData"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,

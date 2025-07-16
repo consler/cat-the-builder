@@ -19,22 +19,16 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 2
-    .param p1, "o1"    # Ljava/lang/Object;
-    .param p2, "o2"    # Ljava/lang/Object;
+    .locals 0
 
     .line 34
-    move-object v0, p2
+    check-cast p2, Ljava/lang/String;
 
-    check-cast v0, Ljava/lang/String;
+    check-cast p1, Ljava/lang/String;
 
-    move-object v1, p1
+    invoke-virtual {p2, p1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
-    check-cast v1, Ljava/lang/String;
+    move-result p1
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
-
-    move-result v0
-
-    return v0
+    return p1
 .end method

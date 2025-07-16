@@ -17,9 +17,9 @@
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 25
     const/4 v0, 0x0
 
+    .line 25
     iput-object v0, p0, Landroidx/fragment/app/FragmentViewLifecycleOwner;->mLifecycleRegistry:Landroidx/lifecycle/LifecycleRegistry;
 
     return-void
@@ -41,14 +41,12 @@
 
 .method handleLifecycleEvent(Landroidx/lifecycle/Lifecycle$Event;)V
     .locals 1
-    .param p1, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
     .line 51
     iget-object v0, p0, Landroidx/fragment/app/FragmentViewLifecycleOwner;->mLifecycleRegistry:Landroidx/lifecycle/LifecycleRegistry;
 
     invoke-virtual {v0, p1}, Landroidx/lifecycle/LifecycleRegistry;->handleLifecycleEvent(Landroidx/lifecycle/Lifecycle$Event;)V
 
-    .line 52
     return-void
 .end method
 
@@ -67,7 +65,6 @@
 
     iput-object v0, p0, Landroidx/fragment/app/FragmentViewLifecycleOwner;->mLifecycleRegistry:Landroidx/lifecycle/LifecycleRegistry;
 
-    .line 34
     :cond_0
     return-void
 .end method

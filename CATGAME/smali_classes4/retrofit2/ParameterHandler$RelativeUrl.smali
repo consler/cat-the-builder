@@ -31,8 +31,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/reflect/Method;I)V
     .locals 0
-    .param p1, "method"    # Ljava/lang/reflect/Method;
-    .param p2, "p"    # I
 
     .line 61
     invoke-direct {p0}, Lretrofit2/ParameterHandler;-><init>()V
@@ -43,44 +41,40 @@
     .line 63
     iput p2, p0, Lretrofit2/ParameterHandler$RelativeUrl;->p:I
 
-    .line 64
     return-void
 .end method
 
 
 # virtual methods
 .method apply(Lretrofit2/RequestBuilder;Ljava/lang/Object;)V
-    .locals 4
-    .param p1, "builder"    # Lretrofit2/RequestBuilder;
-    .param p2, "value"    # Ljava/lang/Object;
+    .locals 2
+    .param p2    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .line 68
     if-eqz p2, :cond_0
 
     .line 71
     invoke-virtual {p1, p2}, Lretrofit2/RequestBuilder;->setRelativeUrl(Ljava/lang/Object;)V
 
-    .line 72
     return-void
 
     .line 69
     :cond_0
-    iget-object v0, p0, Lretrofit2/ParameterHandler$RelativeUrl;->method:Ljava/lang/reflect/Method;
+    iget-object p1, p0, Lretrofit2/ParameterHandler$RelativeUrl;->method:Ljava/lang/reflect/Method;
 
-    iget v1, p0, Lretrofit2/ParameterHandler$RelativeUrl;->p:I
+    iget p2, p0, Lretrofit2/ParameterHandler$RelativeUrl;->p:I
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    const-string v3, "@Url parameter is null."
+    const-string v1, "@Url parameter is null."
 
-    invoke-static {v0, v1, v3, v2}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
+    invoke-static {p1, p2, v1, v0}, Lretrofit2/Utils;->parameterError(Ljava/lang/reflect/Method;ILjava/lang/String;[Ljava/lang/Object;)Ljava/lang/RuntimeException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 .end method

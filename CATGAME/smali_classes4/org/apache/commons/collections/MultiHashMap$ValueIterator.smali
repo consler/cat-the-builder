@@ -41,14 +41,11 @@
 
     iput-object p1, p0, Lorg/apache/commons/collections/MultiHashMap$ValueIterator;->backedIterator:Ljava/util/Iterator;
 
-    .line 424
     return-void
 .end method
 
 .method synthetic constructor <init>(Lorg/apache/commons/collections/MultiHashMap;Lorg/apache/commons/collections/MultiHashMap$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/collections/MultiHashMap;
-    .param p2, "x1"    # Lorg/apache/commons/collections/MultiHashMap$1;
 
     .line 418
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/MultiHashMap$ValueIterator;-><init>(Lorg/apache/commons/collections/MultiHashMap;)V
@@ -73,7 +70,6 @@
 
     goto :goto_1
 
-    .line 433
     :cond_0
     const/4 v0, 0x1
 
@@ -90,7 +86,6 @@
 
     if-nez v0, :cond_2
 
-    .line 429
     const/4 v0, 0x0
 
     return v0
@@ -166,7 +161,6 @@
     .line 451
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 452
     return-void
 
     .line 449

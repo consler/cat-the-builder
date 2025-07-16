@@ -13,7 +13,6 @@
 # direct methods
 .method constructor <init>(Landroid/database/sqlite/SQLiteStatement;)V
     .locals 0
-    .param p1, "delegate"    # Landroid/database/sqlite/SQLiteStatement;
 
     .line 35
     invoke-direct {p0, p1}, Landroidx/sqlite/db/framework/FrameworkSQLiteProgram;-><init>(Landroid/database/sqlite/SQLiteProgram;)V
@@ -21,7 +20,6 @@
     .line 36
     iput-object p1, p0, Landroidx/sqlite/db/framework/FrameworkSQLiteStatement;->mDelegate:Landroid/database/sqlite/SQLiteStatement;
 
-    .line 37
     return-void
 .end method
 
@@ -35,7 +33,6 @@
 
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteStatement;->execute()V
 
-    .line 42
     return-void
 .end method
 

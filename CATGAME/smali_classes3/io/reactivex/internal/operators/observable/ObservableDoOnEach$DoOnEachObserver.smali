@@ -72,8 +72,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/Observer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;Lio/reactivex/functions/Action;)V
     .locals 0
-    .param p4, "onComplete"    # Lio/reactivex/functions/Action;
-    .param p5, "onAfterTerminate"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -92,10 +90,6 @@
     .end annotation
 
     .line 61
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;, "Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
-    .local p2, "onNext":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
-    .local p3, "onError":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Ljava/lang/Throwable;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 62
@@ -113,7 +107,6 @@
     .line 66
     iput-object p5, p0, Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;->onAfterTerminate:Lio/reactivex/functions/Action;
 
-    .line 67
     return-void
 .end method
 
@@ -123,12 +116,10 @@
     .locals 1
 
     .line 80
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;, "Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 81
     return-void
 .end method
 
@@ -136,7 +127,6 @@
     .locals 1
 
     .line 85
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;, "Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->isDisposed()Z
@@ -150,12 +140,10 @@
     .locals 1
 
     .line 131
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;, "Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 132
     return-void
 
     .line 135
@@ -167,12 +155,9 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 140
-    nop
-
-    .line 142
     const/4 v0, 0x1
 
+    .line 142
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;->done:Z
 
     .line 143
@@ -188,46 +173,36 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 150
     goto :goto_0
 
-    .line 147
     :catchall_0
     move-exception v0
 
     .line 148
-    .local v0, "e":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 149
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 151
-    .end local v0    # "e":Ljava/lang/Throwable;
     :goto_0
     return-void
 
-    .line 136
     :catchall_1
     move-exception v0
 
     .line 137
-    .restart local v0    # "e":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 138
     invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 139
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 5
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 108
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;, "Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;->done:Z
 
     if-eqz v0, :cond_0
@@ -235,13 +210,12 @@
     .line 109
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 110
     return-void
 
-    .line 112
     :cond_0
     const/4 v0, 0x1
 
+    .line 112
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;->done:Z
 
     .line 114
@@ -252,15 +226,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 118
     goto :goto_0
 
-    .line 115
     :catchall_0
     move-exception v1
 
     .line 116
-    .local v1, "e":Ljava/lang/Throwable;
     invoke-static {v1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 117
@@ -281,7 +252,6 @@
     move-object p1, v2
 
     .line 119
-    .end local v1    # "e":Ljava/lang/Throwable;
     :goto_0
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;->actual:Lio/reactivex/Observer;
 
@@ -289,34 +259,29 @@
 
     .line 122
     :try_start_1
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;->onAfterTerminate:Lio/reactivex/functions/Action;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;->onAfterTerminate:Lio/reactivex/functions/Action;
 
-    invoke-interface {v0}, Lio/reactivex/functions/Action;->run()V
+    invoke-interface {p1}, Lio/reactivex/functions/Action;->run()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    .line 126
     goto :goto_1
 
-    .line 123
     :catchall_1
-    move-exception v0
+    move-exception p1
 
     .line 124
-    .local v0, "e":Ljava/lang/Throwable;
-    invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 125
-    invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 127
-    .end local v0    # "e":Ljava/lang/Throwable;
     :goto_1
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -324,13 +289,10 @@
     .end annotation
 
     .line 91
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;, "Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 92
     return-void
 
     .line 95
@@ -342,43 +304,34 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 101
-    nop
-
     .line 103
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;->actual:Lio/reactivex/Observer;
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
-    .line 104
     return-void
 
-    .line 96
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     .line 97
-    .local v0, "e":Ljava/lang/Throwable;
-    invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 98
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;->s:Lio/reactivex/disposables/Disposable;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;->s:Lio/reactivex/disposables/Disposable;
 
-    invoke-interface {v1}, Lio/reactivex/disposables/Disposable;->dispose()V
+    invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
     .line 99
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 100
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 71
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;, "Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -391,11 +344,10 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;->s:Lio/reactivex/disposables/Disposable;
 
     .line 73
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableDoOnEach$DoOnEachObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v0, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 75
     :cond_0
     return-void
 .end method

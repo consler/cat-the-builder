@@ -22,9 +22,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 310
     const-string v0, "ForceStopRunnable$Rcvr"
 
+    .line 372
     invoke-static {v0}, Landroidx/work/Logger;->tagWithPrefix(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -37,7 +37,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 309
+    .line 371
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
@@ -46,9 +46,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 5
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
+    .locals 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -60,44 +58,40 @@
         }
     .end annotation
 
-    .line 316
     if-eqz p2, :cond_0
 
-    .line 317
+    .line 379
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p2
 
-    .line 318
-    .local v0, "action":Ljava/lang/String;
-    const-string v1, "ACTION_FORCE_STOP_RESCHEDULE"
+    const-string v0, "ACTION_FORCE_STOP_RESCHEDULE"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .line 380
+    invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p2
 
-    if-eqz v1, :cond_0
+    if-eqz p2, :cond_0
 
-    .line 319
+    .line 381
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
-    move-result-object v1
+    move-result-object p2
 
-    sget-object v2, Landroidx/work/impl/utils/ForceStopRunnable$BroadcastReceiver;->TAG:Ljava/lang/String;
+    sget-object v0, Landroidx/work/impl/utils/ForceStopRunnable$BroadcastReceiver;->TAG:Ljava/lang/String;
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
-    new-array v3, v3, [Ljava/lang/Throwable;
+    new-array v1, v1, [Ljava/lang/Throwable;
 
-    const-string v4, "Rescheduling alarm that keeps track of force-stops."
+    const-string v2, "Rescheduling alarm that keeps track of force-stops."
 
-    invoke-virtual {v1, v2, v4, v3}, Landroidx/work/Logger;->verbose(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {p2, v0, v2, v1}, Landroidx/work/Logger;->verbose(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
-    .line 322
+    .line 384
     invoke-static {p1}, Landroidx/work/impl/utils/ForceStopRunnable;->setAlarm(Landroid/content/Context;)V
 
-    .line 325
-    .end local v0    # "action":Ljava/lang/String;
     :cond_0
     return-void
 .end method

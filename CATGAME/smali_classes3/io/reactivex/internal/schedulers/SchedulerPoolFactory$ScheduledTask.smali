@@ -48,7 +48,6 @@
 
     move-result-object v0
 
-    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -63,7 +62,6 @@
     check-cast v1, Ljava/util/concurrent/ScheduledThreadPoolExecutor;
 
     .line 124
-    .local v1, "e":Ljava/util/concurrent/ScheduledThreadPoolExecutor;
     invoke-virtual {v1}, Ljava/util/concurrent/ScheduledThreadPoolExecutor;->isShutdown()Z
 
     move-result v2
@@ -75,7 +73,7 @@
 
     invoke-interface {v2, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_0
 
     .line 127
     :cond_0
@@ -83,26 +81,14 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 129
-    .end local v1    # "e":Ljava/util/concurrent/ScheduledThreadPoolExecutor;
-    :goto_1
     goto :goto_0
 
-    .line 133
-    .end local v0    # "i$":Ljava/util/Iterator;
-    :cond_1
-    goto :goto_2
-
-    .line 130
     :catchall_0
     move-exception v0
 
     .line 132
-    .local v0, "e":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 134
-    .end local v0    # "e":Ljava/lang/Throwable;
-    :goto_2
+    :cond_1
     return-void
 .end method

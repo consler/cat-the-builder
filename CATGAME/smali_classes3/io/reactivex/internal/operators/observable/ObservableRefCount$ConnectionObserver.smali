@@ -53,8 +53,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/observable/ObservableRefCount;Lio/reactivex/Observer;Lio/reactivex/disposables/CompositeDisposable;Lio/reactivex/disposables/Disposable;)V
     .locals 0
-    .param p3, "currentBase"    # Lio/reactivex/disposables/CompositeDisposable;
-    .param p4, "resource"    # Lio/reactivex/disposables/Disposable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,8 +65,6 @@
     .end annotation
 
     .line 120
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRefCount$ConnectionObserver;, "Lio/reactivex/internal/operators/observable/ObservableRefCount<TT;>.ConnectionObserver;"
-    .local p2, "subscriber":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableRefCount$ConnectionObserver;->this$0:Lio/reactivex/internal/operators/observable/ObservableRefCount;
 
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
@@ -82,7 +78,6 @@
     .line 123
     iput-object p4, p0, Lio/reactivex/internal/operators/observable/ObservableRefCount$ConnectionObserver;->resource:Lio/reactivex/disposables/Disposable;
 
-    .line 124
     return-void
 .end method
 
@@ -92,7 +87,6 @@
     .locals 2
 
     .line 162
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRefCount$ConnectionObserver;, "Lio/reactivex/internal/operators/observable/ObservableRefCount<TT;>.ConnectionObserver;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableRefCount$ConnectionObserver;->this$0:Lio/reactivex/internal/operators/observable/ObservableRefCount;
 
     iget-object v0, v0, Lio/reactivex/internal/operators/observable/ObservableRefCount;->lock:Ljava/util/concurrent/locks/ReentrantLock;
@@ -163,13 +157,8 @@
 
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 175
-    nop
-
-    .line 176
     return-void
 
-    .line 174
     :catchall_0
     move-exception v0
 
@@ -186,7 +175,6 @@
     .locals 1
 
     .line 150
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRefCount$ConnectionObserver;, "Lio/reactivex/internal/operators/observable/ObservableRefCount<TT;>.ConnectionObserver;"
     invoke-static {p0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
     .line 151
@@ -194,7 +182,6 @@
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 152
     return-void
 .end method
 
@@ -202,7 +189,6 @@
     .locals 1
 
     .line 156
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRefCount$ConnectionObserver;, "Lio/reactivex/internal/operators/observable/ObservableRefCount<TT;>.ConnectionObserver;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableRefCount$ConnectionObserver;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -220,7 +206,6 @@
     .locals 1
 
     .line 144
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRefCount$ConnectionObserver;, "Lio/reactivex/internal/operators/observable/ObservableRefCount<TT;>.ConnectionObserver;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableRefCount$ConnectionObserver;->cleanup()V
 
     .line 145
@@ -228,16 +213,13 @@
 
     invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 146
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 133
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRefCount$ConnectionObserver;, "Lio/reactivex/internal/operators/observable/ObservableRefCount<TT;>.ConnectionObserver;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableRefCount$ConnectionObserver;->cleanup()V
 
     .line 134
@@ -245,7 +227,6 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 135
     return-void
 .end method
 
@@ -258,24 +239,18 @@
     .end annotation
 
     .line 139
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRefCount$ConnectionObserver;, "Lio/reactivex/internal/operators/observable/ObservableRefCount<TT;>.ConnectionObserver;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableRefCount$ConnectionObserver;->subscriber:Lio/reactivex/Observer;
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
-    .line 140
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 0
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 128
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRefCount$ConnectionObserver;, "Lio/reactivex/internal/operators/observable/ObservableRefCount<TT;>.ConnectionObserver;"
     invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 129
     return-void
 .end method

@@ -50,8 +50,6 @@
 # direct methods
 .method public constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;Ljava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "keyType"    # Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;
-    .param p3, "valueType"    # Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -63,9 +61,6 @@
     .end annotation
 
     .line 57
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;, "Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata<TK;TV;>;"
-    .local p2, "defaultKey":Ljava/lang/Object;, "TK;"
-    .local p4, "defaultValue":Ljava/lang/Object;, "TV;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 58
@@ -80,6 +75,5 @@
     .line 61
     iput-object p4, p0, Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;->defaultValue:Ljava/lang/Object;
 
-    .line 62
     return-void
 .end method

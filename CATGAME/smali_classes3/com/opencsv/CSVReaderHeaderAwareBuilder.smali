@@ -6,12 +6,10 @@
 # direct methods
 .method public constructor <init>(Ljava/io/Reader;)V
     .locals 0
-    .param p1, "reader"    # Ljava/io/Reader;
 
     .line 20
     invoke-direct {p0, p1}, Lcom/opencsv/CSVReaderBuilder;-><init>(Ljava/io/Reader;)V
 
-    .line 21
     return-void
 .end method
 
@@ -29,7 +27,7 @@
 .end method
 
 .method public build()Lcom/opencsv/CSVReaderHeaderAware;
-    .locals 12
+    .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/RuntimeException;
@@ -39,12 +37,11 @@
     .line 25
     invoke-virtual {p0}, Lcom/opencsv/CSVReaderHeaderAwareBuilder;->getOrCreateCsvParser()Lcom/opencsv/ICSVParser;
 
-    move-result-object v10
+    move-result-object v3
 
     .line 27
-    .local v10, "parser":Lcom/opencsv/ICSVParser;
     :try_start_0
-    new-instance v11, Lcom/opencsv/CSVReaderHeaderAware;
+    new-instance v10, Lcom/opencsv/CSVReaderHeaderAware;
 
     invoke-virtual {p0}, Lcom/opencsv/CSVReaderHeaderAwareBuilder;->getReader()Ljava/io/Reader;
 
@@ -79,23 +76,18 @@
 
     move-result-object v9
 
-    move-object v0, v11
-
-    move-object v3, v10
+    move-object v0, v10
 
     invoke-direct/range {v0 .. v9}, Lcom/opencsv/CSVReaderHeaderAware;-><init>(Ljava/io/Reader;ILcom/opencsv/ICSVParser;ZZILjava/util/Locale;Lcom/opencsv/validators/LineValidatorAggregator;Lcom/opencsv/validators/RowValidatorAggregator;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 27
-    return-object v11
+    return-object v10
 
-    .line 29
     :catch_0
     move-exception v0
 
     .line 30
-    .local v0, "e":Ljava/io/IOException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "Failed to initialize CSVReaderHeaderAware"

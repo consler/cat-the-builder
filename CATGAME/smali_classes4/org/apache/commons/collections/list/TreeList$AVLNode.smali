@@ -32,11 +32,7 @@
 
 # direct methods
 .method private constructor <init>(ILjava/lang/Object;Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;)V
-    .locals 1
-    .param p1, "relativePosition"    # I
-    .param p2, "obj"    # Ljava/lang/Object;
-    .param p3, "rightFollower"    # Lorg/apache/commons/collections/list/TreeList$AVLNode;
-    .param p4, "leftFollower"    # Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    .locals 0
 
     .line 290
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,13 +43,13 @@
     .line 292
     iput-object p2, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->value:Ljava/lang/Object;
 
-    .line 293
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->rightIsNext:Z
+    .line 293
+    iput-boolean p1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->rightIsNext:Z
 
     .line 294
-    iput-boolean v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->leftIsPrevious:Z
+    iput-boolean p1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->leftIsPrevious:Z
 
     .line 295
     iput-object p3, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->right:Lorg/apache/commons/collections/list/TreeList$AVLNode;
@@ -61,17 +57,11 @@
     .line 296
     iput-object p4, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    .line 297
     return-void
 .end method
 
 .method synthetic constructor <init>(ILjava/lang/Object;Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$1;)V
     .locals 0
-    .param p1, "x0"    # I
-    .param p2, "x1"    # Ljava/lang/Object;
-    .param p3, "x2"    # Lorg/apache/commons/collections/list/TreeList$AVLNode;
-    .param p4, "x3"    # Lorg/apache/commons/collections/list/TreeList$AVLNode;
-    .param p5, "x4"    # Lorg/apache/commons/collections/list/TreeList$1;
 
     .line 266
     invoke-direct {p0, p1, p2, p3, p4}, Lorg/apache/commons/collections/list/TreeList$AVLNode;-><init>(ILjava/lang/Object;Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;)V
@@ -80,23 +70,21 @@
 .end method
 
 .method static synthetic access$000(Lorg/apache/commons/collections/list/TreeList$AVLNode;)I
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    .locals 0
 
     .line 266
-    iget v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
+    iget p0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$200(Lorg/apache/commons/collections/list/TreeList$AVLNode;)Ljava/lang/Object;
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    .locals 0
 
     .line 266
-    iget-object v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->value:Ljava/lang/Object;
+    iget-object p0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->value:Ljava/lang/Object;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private balance()Lorg/apache/commons/collections/list/TreeList$AVLNode;
@@ -163,7 +151,6 @@
 
     throw v0
 
-    .line 593
     :cond_2
     return-object p0
 
@@ -196,21 +183,20 @@
 .end method
 
 .method private getHeight(Lorg/apache/commons/collections/list/TreeList$AVLNode;)I
-    .locals 1
-    .param p1, "node"    # Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    .locals 0
 
-    .line 644
     if-nez p1, :cond_0
 
-    const/4 v0, -0x1
+    const/4 p1, -0x1
 
     goto :goto_0
 
+    .line 644
     :cond_0
-    iget v0, p1, Lorg/apache/commons/collections/list/TreeList$AVLNode;->height:I
+    iget p1, p1, Lorg/apache/commons/collections/list/TreeList$AVLNode;->height:I
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method private getLeftSubTree()Lorg/apache/commons/collections/list/TreeList$AVLNode;
@@ -233,22 +219,19 @@
 .end method
 
 .method private getOffset(Lorg/apache/commons/collections/list/TreeList$AVLNode;)I
-    .locals 1
-    .param p1, "node"    # Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    .locals 0
 
-    .line 613
     if-nez p1, :cond_0
 
-    .line 614
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 616
     :cond_0
-    iget v0, p1, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
+    iget p1, p1, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
-    return v0
+    return p1
 .end method
 
 .method private getRightSubTree()Lorg/apache/commons/collections/list/TreeList$AVLNode;
@@ -296,133 +279,119 @@
 .end method
 
 .method private insertOnLeft(ILjava/lang/Object;)Lorg/apache/commons/collections/list/TreeList$AVLNode;
-    .locals 5
-    .param p1, "indexRelativeToMe"    # I
-    .param p2, "obj"    # Ljava/lang/Object;
-
-    .line 412
-    move-object v0, p0
+    .locals 3
 
     .line 414
-    .local v0, "ret":Lorg/apache/commons/collections/list/TreeList$AVLNode;
     invoke-direct {p0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->getLeftSubTree()Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    move-result-object v1
+    move-result-object v0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     .line 415
-    new-instance v1, Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    new-instance p1, Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    const/4 v3, -0x1
+    const/4 v0, -0x1
 
-    iget-object v4, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iget-object v2, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    invoke-direct {v1, v3, p2, p0, v4}, Lorg/apache/commons/collections/list/TreeList$AVLNode;-><init>(ILjava/lang/Object;Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;)V
+    invoke-direct {p1, v0, p2, p0, v2}, Lorg/apache/commons/collections/list/TreeList$AVLNode;-><init>(ILjava/lang/Object;Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;)V
 
-    invoke-direct {p0, v1, v2}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->setLeft(Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;)V
+    invoke-direct {p0, p1, v1}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->setLeft(Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;)V
 
     goto :goto_0
 
     .line 417
     :cond_0
-    iget-object v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iget-object v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    invoke-virtual {v1, p1, p2}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->insert(ILjava/lang/Object;)Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    invoke-virtual {v0, p1, p2}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->insert(ILjava/lang/Object;)Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {p0, v1, v2}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->setLeft(Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;)V
+    invoke-direct {p0, p1, v1}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->setLeft(Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;)V
 
     .line 420
     :goto_0
-    iget v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
+    iget p1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
-    if-ltz v1, :cond_1
+    if-ltz p1, :cond_1
+
+    add-int/lit8 p1, p1, 0x1
 
     .line 421
-    add-int/lit8 v1, v1, 0x1
-
-    iput v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
+    iput p1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
     .line 423
     :cond_1
     invoke-direct {p0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->balance()Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 424
     invoke-direct {p0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->recalcHeight()V
 
-    .line 425
-    return-object v0
+    return-object p1
 .end method
 
 .method private insertOnRight(ILjava/lang/Object;)Lorg/apache/commons/collections/list/TreeList$AVLNode;
-    .locals 5
-    .param p1, "indexRelativeToMe"    # I
-    .param p2, "obj"    # Ljava/lang/Object;
-
-    .line 429
-    move-object v0, p0
+    .locals 3
 
     .line 431
-    .local v0, "ret":Lorg/apache/commons/collections/list/TreeList$AVLNode;
     invoke-direct {p0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->getRightSubTree()Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    move-result-object v1
+    move-result-object v0
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     .line 432
-    new-instance v1, Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    new-instance p1, Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    iget-object v4, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->right:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iget-object v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->right:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    invoke-direct {v1, v2, p2, v4, p0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;-><init>(ILjava/lang/Object;Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;)V
+    invoke-direct {p1, v1, p2, v0, p0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;-><init>(ILjava/lang/Object;Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;)V
 
-    invoke-direct {p0, v1, v3}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->setRight(Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;)V
+    invoke-direct {p0, p1, v2}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->setRight(Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;)V
 
     goto :goto_0
 
     .line 434
     :cond_0
-    iget-object v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->right:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iget-object v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->right:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    invoke-virtual {v1, p1, p2}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->insert(ILjava/lang/Object;)Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    invoke-virtual {v0, p1, p2}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->insert(ILjava/lang/Object;)Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {p0, v1, v3}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->setRight(Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;)V
+    invoke-direct {p0, p1, v2}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->setRight(Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;)V
 
     .line 436
     :goto_0
-    iget v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
+    iget p1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
-    if-gez v1, :cond_1
+    if-gez p1, :cond_1
+
+    sub-int/2addr p1, v1
 
     .line 437
-    sub-int/2addr v1, v2
-
-    iput v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
+    iput p1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
     .line 439
     :cond_1
     invoke-direct {p0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->balance()Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 440
     invoke-direct {p0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->recalcHeight()V
 
-    .line 441
-    return-object v0
+    return-object p1
 .end method
 
 .method private max()Lorg/apache/commons/collections/list/TreeList$AVLNode;
@@ -523,7 +492,6 @@
 
     iput v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->height:I
 
-    .line 638
     return-void
 .end method
 
@@ -563,9 +531,9 @@
 
     if-gez v0, :cond_1
 
-    .line 510
     add-int/lit8 v0, v0, 0x1
 
+    .line 510
     iput v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
     .line 512
@@ -616,9 +584,9 @@
 
     if-lez v0, :cond_1
 
-    .line 522
     add-int/lit8 v0, v0, -0x1
 
+    .line 522
     iput v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
     .line 524
@@ -651,7 +619,6 @@
 
     if-nez v0, :cond_0
 
-    .line 535
     return-object v1
 
     .line 537
@@ -737,8 +704,6 @@
     iput v4, v0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
     .line 546
-    iget-object v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->right:Lorg/apache/commons/collections/list/TreeList$AVLNode;
-
     invoke-direct {v0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->min()Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
     move-result-object v0
@@ -758,7 +723,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_8
+    if-lez v0, :cond_7
 
     .line 552
     iget-object v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->right:Lorg/apache/commons/collections/list/TreeList$AVLNode;
@@ -768,7 +733,6 @@
     move-result-object v0
 
     .line 553
-    .local v0, "rightMin":Lorg/apache/commons/collections/list/TreeList$AVLNode;
     iget-object v1, v0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->value:Ljava/lang/Object;
 
     iput-object v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->value:Ljava/lang/Object;
@@ -779,37 +743,34 @@
     if-eqz v1, :cond_6
 
     .line 555
-    iget-object v1, v0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iget-object v0, v0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    iput-object v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iput-object v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
     .line 557
     :cond_6
-    iget-object v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->right:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iget-object v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->right:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    invoke-direct {v1}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->removeMin()Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    invoke-direct {v0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->removeMin()Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->right:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iput-object v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->right:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
     .line 558
-    iget v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
+    iget v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
-    if-gez v1, :cond_7
+    if-gez v0, :cond_a
+
+    add-int/2addr v0, v3
 
     .line 559
-    add-int/2addr v1, v3
+    iput v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
-    iput v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
-
-    .line 561
-    .end local v0    # "rightMin":Lorg/apache/commons/collections/list/TreeList$AVLNode;
-    :cond_7
     goto :goto_2
 
     .line 563
-    :cond_8
+    :cond_7
     iget-object v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
     invoke-direct {v0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->max()Lorg/apache/commons/collections/list/TreeList$AVLNode;
@@ -817,7 +778,6 @@
     move-result-object v0
 
     .line 564
-    .local v0, "leftMax":Lorg/apache/commons/collections/list/TreeList$AVLNode;
     iget-object v1, v0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->value:Ljava/lang/Object;
 
     iput-object v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->value:Ljava/lang/Object;
@@ -825,55 +785,50 @@
     .line 565
     iget-boolean v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->rightIsNext:Z
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_8
 
     .line 566
-    iget-object v1, v0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->right:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iget-object v0, v0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->right:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    iput-object v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->right:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iput-object v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->right:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
     .line 568
-    :cond_9
-    iget-object v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    :cond_8
+    iget-object v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    iget-object v2, v1, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iget-object v1, v0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
     .line 569
-    .local v2, "leftPrevious":Lorg/apache/commons/collections/list/TreeList$AVLNode;
-    invoke-direct {v1}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->removeMax()Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    invoke-direct {v0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->removeMax()Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iput-object v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    .line 570
-    if-nez v1, :cond_a
+    if-nez v0, :cond_9
 
     .line 573
-    iput-object v2, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iput-object v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
     .line 574
     iput-boolean v3, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->leftIsPrevious:Z
 
     .line 576
-    :cond_a
-    iget v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
+    :cond_9
+    iget v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
-    if-lez v1, :cond_b
+    if-lez v0, :cond_a
+
+    sub-int/2addr v0, v3
 
     .line 577
-    sub-int/2addr v1, v3
-
-    iput v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
+    iput v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
     .line 580
-    .end local v0    # "leftMax":Lorg/apache/commons/collections/list/TreeList$AVLNode;
-    .end local v2    # "leftPrevious":Lorg/apache/commons/collections/list/TreeList$AVLNode;
-    :cond_b
+    :cond_a
     :goto_2
     invoke-direct {p0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->recalcHeight()V
 
-    .line 581
     return-object p0
 .end method
 
@@ -884,7 +839,6 @@
     iget-object v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->right:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
     .line 656
-    .local v0, "newTop":Lorg/apache/commons/collections/list/TreeList$AVLNode;
     invoke-direct {p0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->getRightSubTree()Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
     move-result-object v1
@@ -894,7 +848,6 @@
     move-result-object v1
 
     .line 658
-    .local v1, "movedNode":Lorg/apache/commons/collections/list/TreeList$AVLNode;
     iget v2, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
     invoke-direct {p0, v0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->getOffset(Lorg/apache/commons/collections/list/TreeList$AVLNode;)I
@@ -904,13 +857,11 @@
     add-int/2addr v2, v3
 
     .line 659
-    .local v2, "newTopPosition":I
     iget v3, v0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
     neg-int v3, v3
 
     .line 660
-    .local v3, "myNewPosition":I
     invoke-direct {p0, v0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->getOffset(Lorg/apache/commons/collections/list/TreeList$AVLNode;)I
 
     move-result v4
@@ -922,12 +873,11 @@
     add-int/2addr v4, v5
 
     .line 662
-    .local v4, "movedPosition":I
     invoke-direct {p0, v1, v0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->setRight(Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;)V
 
-    .line 663
     const/4 v5, 0x0
 
+    .line 663
     invoke-direct {v0, p0, v5}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->setLeft(Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;)V
 
     .line 665
@@ -939,7 +889,6 @@
     .line 667
     invoke-direct {p0, v1, v4}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->setOffset(Lorg/apache/commons/collections/list/TreeList$AVLNode;I)I
 
-    .line 668
     return-object v0
 .end method
 
@@ -950,7 +899,6 @@
     iget-object v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
     .line 673
-    .local v0, "newTop":Lorg/apache/commons/collections/list/TreeList$AVLNode;
     invoke-direct {p0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->getLeftSubTree()Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
     move-result-object v1
@@ -960,7 +908,6 @@
     move-result-object v1
 
     .line 675
-    .local v1, "movedNode":Lorg/apache/commons/collections/list/TreeList$AVLNode;
     iget v2, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
     invoke-direct {p0, v0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->getOffset(Lorg/apache/commons/collections/list/TreeList$AVLNode;)I
@@ -970,13 +917,11 @@
     add-int/2addr v2, v3
 
     .line 676
-    .local v2, "newTopPosition":I
     iget v3, v0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
     neg-int v3, v3
 
     .line 677
-    .local v3, "myNewPosition":I
     invoke-direct {p0, v0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->getOffset(Lorg/apache/commons/collections/list/TreeList$AVLNode;)I
 
     move-result v4
@@ -988,12 +933,11 @@
     add-int/2addr v4, v5
 
     .line 679
-    .local v4, "movedPosition":I
     invoke-direct {p0, v1, v0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->setLeft(Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;)V
 
-    .line 680
     const/4 v5, 0x0
 
+    .line 680
     invoke-direct {v0, p0, v5}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->setRight(Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;)V
 
     .line 682
@@ -1005,16 +949,12 @@
     .line 684
     invoke-direct {p0, v1, v4}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->setOffset(Lorg/apache/commons/collections/list/TreeList$AVLNode;I)I
 
-    .line 685
     return-object v0
 .end method
 
 .method private setLeft(Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;)V
     .locals 1
-    .param p1, "node"    # Lorg/apache/commons/collections/list/TreeList$AVLNode;
-    .param p2, "previous"    # Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    .line 695
     if-nez p1, :cond_0
 
     const/4 v0, 0x1
@@ -1024,41 +964,32 @@
     :cond_0
     const/4 v0, 0x0
 
+    .line 695
     :goto_0
     iput-boolean v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->leftIsPrevious:Z
 
-    .line 696
     if-eqz v0, :cond_1
 
-    move-object v0, p2
+    move-object p1, p2
 
-    goto :goto_1
-
+    .line 696
     :cond_1
-    move-object v0, p1
-
-    :goto_1
-    iput-object v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iput-object p1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
     .line 697
     invoke-direct {p0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->recalcHeight()V
 
-    .line 698
     return-void
 .end method
 
 .method private setOffset(Lorg/apache/commons/collections/list/TreeList$AVLNode;I)I
     .locals 1
-    .param p1, "node"    # Lorg/apache/commons/collections/list/TreeList$AVLNode;
-    .param p2, "newOffest"    # I
 
-    .line 623
     if-nez p1, :cond_0
 
-    .line 624
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 626
     :cond_0
@@ -1067,19 +998,14 @@
     move-result v0
 
     .line 627
-    .local v0, "oldOffset":I
     iput p2, p1, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
-    .line 628
     return v0
 .end method
 
 .method private setRight(Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;)V
     .locals 1
-    .param p1, "node"    # Lorg/apache/commons/collections/list/TreeList$AVLNode;
-    .param p2, "next"    # Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    .line 707
     if-nez p1, :cond_0
 
     const/4 v0, 0x1
@@ -1089,79 +1015,67 @@
     :cond_0
     const/4 v0, 0x0
 
+    .line 707
     :goto_0
     iput-boolean v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->rightIsNext:Z
 
-    .line 708
     if-eqz v0, :cond_1
 
-    move-object v0, p2
+    move-object p1, p2
 
-    goto :goto_1
-
+    .line 708
     :cond_1
-    move-object v0, p1
-
-    :goto_1
-    iput-object v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->right:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iput-object p1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->right:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
     .line 709
     invoke-direct {p0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->recalcHeight()V
 
-    .line 710
     return-void
 .end method
 
 
 # virtual methods
 .method get(I)Lorg/apache/commons/collections/list/TreeList$AVLNode;
-    .locals 3
-    .param p1, "index"    # I
+    .locals 1
 
     .line 322
     iget v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
-    sub-int v0, p1, v0
+    sub-int/2addr p1, v0
 
-    .line 324
-    .local v0, "indexRelativeToMe":I
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    .line 325
     return-object p0
 
-    .line 328
     :cond_0
-    if-gez v0, :cond_1
+    if-gez p1, :cond_1
 
+    .line 328
     invoke-direct {p0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->getLeftSubTree()Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_0
 
     :cond_1
     invoke-direct {p0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->getRightSubTree()Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    move-result-object v1
+    move-result-object v0
 
-    .line 329
-    .local v1, "nextNode":Lorg/apache/commons/collections/list/TreeList$AVLNode;
     :goto_0
-    if-nez v1, :cond_2
+    if-nez v0, :cond_2
 
-    .line 330
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
-    return-object v2
+    return-object p1
 
     .line 332
     :cond_2
-    invoke-virtual {v1, v0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->get(I)Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    invoke-virtual {v0, p1}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->get(I)Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 .end method
 
 .method getValue()Ljava/lang/Object;
@@ -1175,8 +1089,6 @@
 
 .method indexOf(Ljava/lang/Object;I)I
     .locals 3
-    .param p1, "object"    # Ljava/lang/Object;
-    .param p2, "index"    # I
 
     .line 339
     invoke-direct {p0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->getLeftSubTree()Lorg/apache/commons/collections/list/TreeList$AVLNode;
@@ -1198,15 +1110,11 @@
 
     move-result v0
 
-    .line 341
-    .local v0, "result":I
     if-eq v0, v1, :cond_0
 
-    .line 342
     return v0
 
     .line 345
-    .end local v0    # "result":I
     :cond_0
     iget-object v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->value:Ljava/lang/Object;
 
@@ -1223,7 +1131,6 @@
 
     if-eqz v0, :cond_2
 
-    .line 346
     :goto_0
     return p2
 
@@ -1240,47 +1147,42 @@
 
     iget v1, v0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
-    add-int/2addr v1, p2
+    add-int/2addr p2, v1
 
-    invoke-virtual {v0, p1, v1}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->indexOf(Ljava/lang/Object;I)I
+    invoke-virtual {v0, p1, p2}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->indexOf(Ljava/lang/Object;I)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
-    .line 351
     :cond_3
     return v1
 .end method
 
 .method insert(ILjava/lang/Object;)Lorg/apache/commons/collections/list/TreeList$AVLNode;
-    .locals 2
-    .param p1, "index"    # I
-    .param p2, "obj"    # Ljava/lang/Object;
+    .locals 1
 
     .line 402
     iget v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
-    sub-int v0, p1, v0
+    sub-int/2addr p1, v0
 
-    .line 404
-    .local v0, "indexRelativeToMe":I
-    if-gtz v0, :cond_0
+    if-gtz p1, :cond_0
 
     .line 405
-    invoke-direct {p0, v0, p2}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->insertOnLeft(ILjava/lang/Object;)Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->insertOnLeft(ILjava/lang/Object;)Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 407
     :cond_0
-    invoke-direct {p0, v0, p2}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->insertOnRight(ILjava/lang/Object;)Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->insertOnRight(ILjava/lang/Object;)Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method next()Lorg/apache/commons/collections/list/TreeList$AVLNode;
@@ -1344,77 +1246,73 @@
 .end method
 
 .method remove(I)Lorg/apache/commons/collections/list/TreeList$AVLNode;
-    .locals 3
-    .param p1, "index"    # I
+    .locals 1
 
     .line 484
     iget v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
-    sub-int v0, p1, v0
+    sub-int/2addr p1, v0
 
-    .line 486
-    .local v0, "indexRelativeToMe":I
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 487
     invoke-direct {p0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->removeSelf()Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
-    .line 489
     :cond_0
-    if-lez v0, :cond_1
+    if-lez p1, :cond_1
 
     .line 490
-    iget-object v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->right:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iget-object v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->right:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    invoke-virtual {v1, v0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->remove(I)Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    invoke-virtual {v0, p1}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->remove(I)Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    move-result-object v1
+    move-result-object p1
 
-    iget-object v2, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->right:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iget-object v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->right:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    iget-object v2, v2, Lorg/apache/commons/collections/list/TreeList$AVLNode;->right:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iget-object v0, v0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->right:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    invoke-direct {p0, v1, v2}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->setRight(Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;)V
+    invoke-direct {p0, p1, v0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->setRight(Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;)V
 
     .line 491
-    iget v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
+    iget p1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
-    if-gez v1, :cond_2
+    if-gez p1, :cond_2
+
+    add-int/lit8 p1, p1, 0x1
 
     .line 492
-    add-int/lit8 v1, v1, 0x1
-
-    iput v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
+    iput p1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
     goto :goto_0
 
     .line 495
     :cond_1
-    iget-object v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iget-object v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    invoke-virtual {v1, v0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->remove(I)Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    invoke-virtual {v0, p1}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->remove(I)Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    move-result-object v1
+    move-result-object p1
 
-    iget-object v2, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iget-object v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    iget-object v2, v2, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iget-object v0, v0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    invoke-direct {p0, v1, v2}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->setLeft(Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;)V
+    invoke-direct {p0, p1, v0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->setLeft(Lorg/apache/commons/collections/list/TreeList$AVLNode;Lorg/apache/commons/collections/list/TreeList$AVLNode;)V
 
     .line 496
-    iget v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
+    iget p1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
-    if-lez v1, :cond_2
+    if-lez p1, :cond_2
+
+    add-int/lit8 p1, p1, -0x1
 
     .line 497
-    add-int/lit8 v1, v1, -0x1
-
-    iput v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
+    iput p1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
     .line 500
     :cond_2
@@ -1424,26 +1322,22 @@
     .line 501
     invoke-direct {p0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->balance()Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method setValue(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 314
     iput-object p1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->value:Ljava/lang/Object;
 
-    .line 315
     return-void
 .end method
 
 .method toArray([Ljava/lang/Object;I)V
     .locals 2
-    .param p1, "array"    # [Ljava/lang/Object;
-    .param p2, "index"    # I
 
     .line 361
     iget-object v0, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->value:Ljava/lang/Object;
@@ -1479,11 +1373,10 @@
 
     iget v1, v0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
-    add-int/2addr v1, p2
+    add-int/2addr p2, v1
 
-    invoke-virtual {v0, p1, v1}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->toArray([Ljava/lang/Object;I)V
+    invoke-virtual {v0, p1, p2}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->toArray([Ljava/lang/Object;I)V
 
-    .line 368
     :cond_1
     return-void
 .end method
@@ -1494,19 +1387,21 @@
     .line 768
     new-instance v0, Ljava/lang/StringBuffer;
 
-    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
-
     const-string v1, "AVLNode("
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
     iget v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->relativePosition:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
+    move-result-object v0
+
     const-string v1, ","
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
 
     iget-object v2, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->left:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
@@ -1526,13 +1421,21 @@
     :goto_0
     invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Z)Ljava/lang/StringBuffer;
 
+    move-result-object v0
+
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
 
     iget-object v2, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->value:Ljava/lang/Object;
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
+    move-result-object v0
+
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
 
     invoke-direct {p0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->getRightSubTree()Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
@@ -1548,17 +1451,25 @@
     :goto_1
     invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(Z)Ljava/lang/StringBuffer;
 
+    move-result-object v0
+
     const-string v1, ", faedelung "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
 
     iget-boolean v1, p0, Lorg/apache/commons/collections/list/TreeList$AVLNode;->rightIsNext:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Z)Ljava/lang/StringBuffer;
 
+    move-result-object v0
+
     const-string v1, " )"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 

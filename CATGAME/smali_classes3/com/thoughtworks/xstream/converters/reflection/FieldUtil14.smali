@@ -19,11 +19,9 @@
 
 # virtual methods
 .method public isSynthetic(Ljava/lang/reflect/Field;)Z
-    .locals 1
-    .param p1, "field"    # Ljava/lang/reflect/Field;
+    .locals 0
 
-    .line 19
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

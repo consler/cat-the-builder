@@ -17,11 +17,10 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
     .locals 1
-    .param p3, "protocol"    # Ljava/lang/String;
 
-    .line 63
     const/4 v0, 0x0
 
+    .line 63
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/koushikdutta/async/http/Protocol;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/koushikdutta/async/http/Protocol$1;)V
 
     return-void
@@ -32,7 +31,6 @@
 .method public needsSpdyConnection()Z
     .locals 1
 
-    .line 66
     const/4 v0, 0x1
 
     return v0

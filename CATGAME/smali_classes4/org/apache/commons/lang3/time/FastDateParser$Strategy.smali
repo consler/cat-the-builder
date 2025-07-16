@@ -26,7 +26,6 @@
 
 .method synthetic constructor <init>(Lorg/apache/commons/lang3/time/FastDateParser$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/lang3/time/FastDateParser$1;
 
     .line 496
     invoke-direct {p0}, Lorg/apache/commons/lang3/time/FastDateParser$Strategy;-><init>()V
@@ -39,7 +38,6 @@
 .method isNumber()Z
     .locals 1
 
-    .line 504
     const/4 v0, 0x0
 
     return v0

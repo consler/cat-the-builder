@@ -45,28 +45,26 @@
 
     sput-object v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;->Screen:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;
 
-    new-instance v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;
+    new-instance v1, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;
 
-    const-string v1, "ViewPoint"
+    const-string v3, "ViewPoint"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;->ViewPoint:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;
+    sput-object v1, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;->ViewPoint:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;
+
+    aput-object v0, v3, v2
+
+    aput-object v1, v3, v4
 
     .line 48
-    const/4 v1, 0x2
-
-    new-array v1, v1, [Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;
-
-    sget-object v4, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;->Screen:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;
-
-    aput-object v4, v1, v2
-
-    aput-object v0, v1, v3
-
-    sput-object v1, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;->$VALUES:[Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;
+    sput-object v3, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;->$VALUES:[Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;
 
     return-void
 .end method
@@ -87,18 +85,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 48
     const-class v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;
+    check-cast p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;

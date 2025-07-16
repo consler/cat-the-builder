@@ -17,11 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/Display;Landroidx/camera/core/CameraSelector;FF)V
-    .locals 3
-    .param p1, "display"    # Landroid/view/Display;
-    .param p2, "cameraSelector"    # Landroidx/camera/core/CameraSelector;
-    .param p3, "width"    # F
-    .param p4, "height"    # F
+    .locals 0
 
     .line 87
     invoke-direct {p0}, Landroidx/camera/core/MeteringPointFactory;-><init>()V
@@ -42,38 +38,30 @@
     :try_start_0
     invoke-static {p2}, Landroidx/camera/core/CameraX;->getCameraWithCameraSelector(Landroidx/camera/core/CameraSelector;)Landroidx/camera/core/impl/CameraInternal;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 94
-    .local v0, "camera":Landroidx/camera/core/impl/CameraInternal;
-    invoke-interface {v0}, Landroidx/camera/core/impl/CameraInternal;->getCameraInfoInternal()Landroidx/camera/core/impl/CameraInfoInternal;
+    invoke-interface {p1}, Landroidx/camera/core/impl/CameraInternal;->getCameraInfoInternal()Landroidx/camera/core/impl/CameraInfoInternal;
 
-    move-result-object v1
+    move-result-object p1
 
-    iput-object v1, p0, Landroidx/camera/core/DisplayOrientedMeteringPointFactory;->mCameraInfo:Landroidx/camera/core/impl/CameraInfoInternal;
+    iput-object p1, p0, Landroidx/camera/core/DisplayOrientedMeteringPointFactory;->mCameraInfo:Landroidx/camera/core/impl/CameraInfoInternal;
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 98
-    .end local v0    # "camera":Landroidx/camera/core/impl/CameraInternal;
-    nop
-
-    .line 99
     return-void
 
-    .line 95
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 96
-    .local v0, "e":Ljava/lang/IllegalArgumentException;
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p2, Ljava/lang/IllegalArgumentException;
 
-    const-string v2, "Unable to get camera id for the CameraSelector."
+    const-string p3, "Unable to get camera id for the CameraSelector."
 
-    invoke-direct {v1, v2, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p2, p3, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v1
+    throw p2
 .end method
 
 .method private getLensFacing()Ljava/lang/Integer;
@@ -90,8 +78,7 @@
 .end method
 
 .method private getRelativeCameraOrientation(Z)I
-    .locals 3
-    .param p1, "compensateForMirroring"    # Z
+    .locals 2
 
     .line 166
     :try_start_0
@@ -102,185 +89,129 @@
     move-result v0
 
     .line 167
-    .local v0, "displayRotation":I
     iget-object v1, p0, Landroidx/camera/core/DisplayOrientedMeteringPointFactory;->mCameraInfo:Landroidx/camera/core/impl/CameraInfoInternal;
 
     invoke-interface {v1, v0}, Landroidx/camera/core/impl/CameraInfoInternal;->getSensorRotationDegrees(I)I
 
-    move-result v1
+    move-result v0
 
-    .line 168
-    .local v1, "rotationDegrees":I
     if-eqz p1, :cond_0
 
-    .line 169
-    rsub-int v2, v1, 0x168
+    rsub-int p1, v0, 0x168
 
-    rem-int/lit16 v2, v2, 0x168
+    .line 169
+    rem-int/lit16 v0, p1, 0x168
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move v1, v2
-
-    .line 173
-    .end local v0    # "displayRotation":I
-    :cond_0
     goto :goto_0
 
-    .line 171
-    .end local v1    # "rotationDegrees":I
     :catch_0
-    move-exception v0
+    const/4 v0, 0x0
 
-    .line 172
-    .local v0, "e":Ljava/lang/Exception;
-    const/4 v1, 0x0
-
-    .line 174
-    .end local v0    # "e":Ljava/lang/Exception;
-    .restart local v1    # "rotationDegrees":I
+    :cond_0
     :goto_0
-    return v1
+    return v0
 .end method
 
 
 # virtual methods
 .method protected convertPoint(FF)Landroid/graphics/PointF;
-    .locals 11
-    .param p1, "x"    # F
-    .param p2, "y"    # F
+    .locals 8
 
     .line 115
     iget v0, p0, Landroidx/camera/core/DisplayOrientedMeteringPointFactory;->mWidth:F
 
     .line 116
-    .local v0, "width":F
     iget v1, p0, Landroidx/camera/core/DisplayOrientedMeteringPointFactory;->mHeight:F
 
     .line 118
-    .local v1, "height":F
     invoke-direct {p0}, Landroidx/camera/core/DisplayOrientedMeteringPointFactory;->getLensFacing()Ljava/lang/Integer;
 
     move-result-object v2
 
-    .line 119
-    .local v2, "lensFacing":Ljava/lang/Integer;
     if-eqz v2, :cond_0
 
     .line 120
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_0
+    if-nez v2, :cond_0
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     .line 121
-    .local v3, "compensateForMirroring":Z
     :goto_0
-    invoke-direct {p0, v3}, Landroidx/camera/core/DisplayOrientedMeteringPointFactory;->getRelativeCameraOrientation(Z)I
+    invoke-direct {p0, v2}, Landroidx/camera/core/DisplayOrientedMeteringPointFactory;->getRelativeCameraOrientation(Z)I
 
-    move-result v4
+    move-result v3
 
-    .line 122
-    .local v4, "relativeCameraOrientation":I
-    move v5, p1
+    const/16 v4, 0x10e
 
-    .line 123
-    .local v5, "outputX":F
+    const/16 v5, 0x5a
+
+    if-eq v3, v5, :cond_2
+
+    if-ne v3, v4, :cond_1
+
+    goto :goto_1
+
+    :cond_1
     move v6, p2
 
-    .line 124
-    .local v6, "outputY":F
-    move v7, v0
+    move p2, p1
 
-    .line 125
-    .local v7, "outputWidth":F
-    move v8, v1
+    move p1, v6
 
-    .line 127
-    .local v8, "outputHeight":F
-    const/16 v9, 0x10e
-
-    const/16 v10, 0x5a
-
-    if-eq v4, v10, :cond_1
-
-    if-ne v4, v9, :cond_2
-
-    .line 129
-    :cond_1
-    move v5, p2
-
-    .line 130
-    move v6, p1
-
-    .line 131
     move v7, v1
 
-    .line 132
-    move v8, v0
+    move v1, v0
 
-    .line 135
+    move v0, v7
+
     :cond_2
-    if-eq v4, v10, :cond_5
-
-    const/16 v10, 0xb4
-
-    if-eq v4, v10, :cond_4
-
-    if-eq v4, v9, :cond_3
-
-    goto :goto_1
-
-    .line 145
-    :cond_3
-    sub-float v5, v7, v5
-
-    .line 146
-    goto :goto_1
-
-    .line 141
-    :cond_4
-    sub-float v5, v7, v5
-
-    .line 142
-    sub-float v6, v8, v6
-
-    .line 143
-    goto :goto_1
-
-    .line 138
-    :cond_5
-    sub-float v6, v8, v6
-
-    .line 139
-    nop
-
-    .line 152
     :goto_1
-    if-eqz v3, :cond_6
+    if-eq v3, v5, :cond_5
 
-    .line 153
-    sub-float v5, v7, v5
+    const/16 v5, 0xb4
 
-    .line 157
+    if-eq v3, v5, :cond_4
+
+    if-eq v3, v4, :cond_3
+
+    goto :goto_2
+
+    :cond_3
+    sub-float p2, v1, p2
+
+    goto :goto_2
+
+    :cond_4
+    sub-float p2, v1, p2
+
+    :cond_5
+    sub-float p1, v0, p1
+
+    :goto_2
+    if-eqz v2, :cond_6
+
+    sub-float p2, v1, p2
+
     :cond_6
-    div-float/2addr v5, v7
+    div-float/2addr p2, v1
 
-    .line 158
-    div-float/2addr v6, v8
+    div-float/2addr p1, v0
 
     .line 160
-    new-instance v9, Landroid/graphics/PointF;
+    new-instance v0, Landroid/graphics/PointF;
 
-    invoke-direct {v9, v5, v6}, Landroid/graphics/PointF;-><init>(FF)V
+    invoke-direct {v0, p2, p1}, Landroid/graphics/PointF;-><init>(FF)V
 
-    return-object v9
+    return-object v0
 .end method

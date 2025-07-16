@@ -21,8 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/FragmentManager;Z)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/fragment/app/FragmentManager;
-    .param p2, "x0"    # Z
 
     .line 347
     iput-object p1, p0, Landroidx/fragment/app/FragmentManager$1;->this$0:Landroidx/fragment/app/FragmentManager;
@@ -42,6 +40,5 @@
 
     invoke-virtual {v0}, Landroidx/fragment/app/FragmentManager;->handleOnBackPressed()V
 
-    .line 351
     return-void
 .end method

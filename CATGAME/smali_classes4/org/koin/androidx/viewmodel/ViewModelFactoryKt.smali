@@ -42,8 +42,6 @@
 # direct methods
 .method public static final defaultViewModelFactory(Lorg/koin/core/scope/Scope;Lorg/koin/androidx/viewmodel/ViewModelParameter;)Landroidx/lifecycle/ViewModelProvider$Factory;
     .locals 1
-    .param p0, "$this$defaultViewModelFactory"    # Lorg/koin/core/scope/Scope;
-    .param p1, "parameters"    # Lorg/koin/androidx/viewmodel/ViewModelParameter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -76,8 +74,6 @@
 
 .method public static final stateViewModelFactory(Lorg/koin/core/scope/Scope;Lorg/koin/androidx/viewmodel/ViewModelParameter;)Landroidx/lifecycle/AbstractSavedStateViewModelFactory;
     .locals 7
-    .param p0, "$this$stateViewModelFactory"    # Lorg/koin/core/scope/Scope;
-    .param p1, "vmParams"    # Lorg/koin/androidx/viewmodel/ViewModelParameter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -101,12 +97,11 @@
     .line 19
     invoke-virtual {p1}, Lorg/koin/androidx/viewmodel/ViewModelParameter;->getStateRegistryOwner()Landroidx/savedstate/SavedStateRegistryOwner;
 
-    move-result-object v4
+    move-result-object v5
 
-    if-eqz v4, :cond_0
+    if-eqz v5, :cond_0
 
     .line 21
-    .local v4, "registryOwner":Landroidx/savedstate/SavedStateRegistryOwner;
     new-instance v0, Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$stateViewModelFactory$1;
 
     invoke-virtual {p1}, Lorg/koin/androidx/viewmodel/ViewModelParameter;->getBundle()Landroid/os/Bundle;
@@ -119,7 +114,7 @@
 
     move-object v3, p1
 
-    move-object v5, v4
+    move-object v4, v5
 
     invoke-direct/range {v1 .. v6}, Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$stateViewModelFactory$1;-><init>(Lorg/koin/core/scope/Scope;Lorg/koin/androidx/viewmodel/ViewModelParameter;Landroidx/savedstate/SavedStateRegistryOwner;Landroidx/savedstate/SavedStateRegistryOwner;Landroid/os/Bundle;)V
 
@@ -128,19 +123,18 @@
     return-object v0
 
     .line 20
-    .end local v4    # "registryOwner":Landroidx/savedstate/SavedStateRegistryOwner;
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Can\'t create SavedStateViewModelFactory without a proper stateRegistryOwner"
+    const-string p1, "Can\'t create SavedStateViewModelFactory without a proper stateRegistryOwner"
 
-    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    check-cast v0, Ljava/lang/Throwable;
+    check-cast p0, Ljava/lang/Throwable;
 
-    throw v0
+    throw p0
 .end method

@@ -4,27 +4,27 @@
 
 
 # static fields
-.field private static final a:[C
+.field public static final a:[C
 
-.field private static final b:[C
+.field public static final b:[C
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
-    .line 18
     const/16 v0, 0x10
 
     new-array v1, v0, [C
 
+    .line 1
     fill-array-data v1, :array_0
 
     sput-object v1, Lcom/huawei/hms/utils/HEX;->a:[C
 
-    .line 25
     new-array v0, v0, [C
 
+    .line 8
     fill-array-data v0, :array_1
 
     sput-object v0, Lcom/huawei/hms/utils/HEX;->b:[C
@@ -74,28 +74,26 @@
     .end array-data
 .end method
 
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
-    .line 32
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 33
     return-void
 .end method
 
-.method private static a([B[C)[C
-    .locals 6
+.method public static a([B[C)[C
+    .locals 7
 
-    .line 66
+    .line 1
     array-length v0, p0
 
-    .line 67
     shl-int/lit8 v1, v0, 0x1
 
+    .line 2
     new-array v1, v1, [C
 
-    .line 69
     const/4 v2, 0x0
 
     move v3, v2
@@ -103,36 +101,32 @@
     :goto_0
     if-ge v2, v0, :cond_0
 
-    .line 70
     add-int/lit8 v4, v3, 0x1
 
+    .line 5
     aget-byte v5, p0, v2
 
-    and-int/lit16 v5, v5, 0xf0
+    and-int/lit16 v6, v5, 0xf0
 
-    ushr-int/lit8 v5, v5, 0x4
+    ushr-int/lit8 v6, v6, 0x4
 
-    aget-char v5, p1, v5
+    aget-char v6, p1, v6
 
-    aput-char v5, v1, v3
+    aput-char v6, v1, v3
 
-    .line 71
     add-int/lit8 v3, v4, 0x1
-
-    aget-byte v5, p0, v2
 
     and-int/lit8 v5, v5, 0xf
 
+    .line 6
     aget-char v5, p1, v5
 
     aput-char v5, v1, v4
 
-    .line 69
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 73
     :cond_0
     return-object v1
 .end method
@@ -140,9 +134,9 @@
 .method public static encodeHex([B)[C
     .locals 1
 
-    .line 44
     const/4 v0, 0x0
 
+    .line 1
     invoke-static {p0, v0}, Lcom/huawei/hms/utils/HEX;->encodeHex([BZ)[C
 
     move-result-object p0
@@ -153,9 +147,9 @@
 .method public static encodeHex([BZ)[C
     .locals 0
 
-    .line 55
     if-eqz p1, :cond_0
 
+    .line 2
     sget-object p1, Lcom/huawei/hms/utils/HEX;->b:[C
 
     goto :goto_0
@@ -174,7 +168,7 @@
 .method public static encodeHexString([BZ)Ljava/lang/String;
     .locals 1
 
-    .line 86
+    .line 1
     new-instance v0, Ljava/lang/String;
 
     invoke-static {p0, p1}, Lcom/huawei/hms/utils/HEX;->encodeHex([BZ)[C

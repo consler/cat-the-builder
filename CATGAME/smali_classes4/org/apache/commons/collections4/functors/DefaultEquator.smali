@@ -47,10 +47,8 @@
     .locals 0
 
     .line 57
-    .local p0, "this":Lorg/apache/commons/collections4/functors/DefaultEquator;, "Lorg/apache/commons/collections4/functors/DefaultEquator<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 58
     return-void
 .end method
 
@@ -76,7 +74,6 @@
     .locals 1
 
     .line 80
-    .local p0, "this":Lorg/apache/commons/collections4/functors/DefaultEquator;, "Lorg/apache/commons/collections4/functors/DefaultEquator<TT;>;"
     sget-object v0, Lorg/apache/commons/collections4/functors/DefaultEquator;->INSTANCE:Lorg/apache/commons/collections4/functors/DefaultEquator;
 
     return-object v0
@@ -85,64 +82,59 @@
 
 # virtual methods
 .method public equate(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;TT;)Z"
         }
     .end annotation
 
-    .line 65
-    .local p0, "this":Lorg/apache/commons/collections4/functors/DefaultEquator;, "Lorg/apache/commons/collections4/functors/DefaultEquator<TT;>;"
-    .local p1, "o1":Ljava/lang/Object;, "TT;"
-    .local p2, "o2":Ljava/lang/Object;, "TT;"
     if-eq p1, p2, :cond_1
 
     if-eqz p1, :cond_0
 
+    .line 65
     invoke-virtual {p1, p2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     :goto_1
-    return v0
+    return p1
 .end method
 
 .method public hash(Ljava/lang/Object;)I
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)I"
         }
     .end annotation
 
-    .line 76
-    .local p0, "this":Lorg/apache/commons/collections4/functors/DefaultEquator;, "Lorg/apache/commons/collections4/functors/DefaultEquator<TT;>;"
-    .local p1, "o":Ljava/lang/Object;, "TT;"
     if-nez p1, :cond_0
 
-    const/4 v0, -0x1
+    const/4 p1, -0x1
 
     goto :goto_0
 
+    .line 76
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
 
-    move-result v0
+    move-result p1
 
     :goto_0
-    return v0
+    return p1
 .end method

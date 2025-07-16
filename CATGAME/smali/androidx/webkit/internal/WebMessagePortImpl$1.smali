@@ -23,7 +23,6 @@
 # direct methods
 .method constructor <init>(Landroidx/webkit/internal/WebMessagePortImpl;Landroidx/webkit/WebMessagePortCompat$WebMessageCallbackCompat;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/webkit/internal/WebMessagePortImpl;
 
     .line 110
     iput-object p1, p0, Landroidx/webkit/internal/WebMessagePortImpl$1;->this$0:Landroidx/webkit/internal/WebMessagePortImpl;
@@ -38,9 +37,7 @@
 
 # virtual methods
 .method public onMessage(Landroid/webkit/WebMessagePort;Landroid/webkit/WebMessage;)V
-    .locals 3
-    .param p1, "port"    # Landroid/webkit/WebMessagePort;
-    .param p2, "message"    # Landroid/webkit/WebMessage;
+    .locals 2
 
     .line 114
     iget-object v0, p0, Landroidx/webkit/internal/WebMessagePortImpl$1;->val$callback:Landroidx/webkit/WebMessagePortCompat$WebMessageCallbackCompat;
@@ -52,11 +49,10 @@
     .line 115
     invoke-static {p2}, Landroidx/webkit/internal/WebMessagePortImpl;->frameworkMessageToCompat(Landroid/webkit/WebMessage;)Landroidx/webkit/WebMessageCompat;
 
-    move-result-object v2
+    move-result-object p1
 
     .line 114
-    invoke-virtual {v0, v1, v2}, Landroidx/webkit/WebMessagePortCompat$WebMessageCallbackCompat;->onMessage(Landroidx/webkit/WebMessagePortCompat;Landroidx/webkit/WebMessageCompat;)V
+    invoke-virtual {v0, v1, p1}, Landroidx/webkit/WebMessagePortCompat$WebMessageCallbackCompat;->onMessage(Landroidx/webkit/WebMessagePortCompat;Landroidx/webkit/WebMessageCompat;)V
 
-    .line 116
     return-void
 .end method

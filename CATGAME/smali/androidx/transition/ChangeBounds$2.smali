@@ -26,10 +26,8 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Class;Ljava/lang/String;)V
     .locals 0
-    .param p2, "x1"    # Ljava/lang/String;
 
     .line 88
-    .local p1, "x0":Ljava/lang/Class;, "Ljava/lang/Class<Landroid/graphics/PointF;>;"
     invoke-direct {p0, p1, p2}, Landroid/util/Property;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
 
     return-void
@@ -38,13 +36,11 @@
 
 # virtual methods
 .method public get(Landroidx/transition/ChangeBounds$ViewBounds;)Landroid/graphics/PointF;
-    .locals 1
-    .param p1, "viewBounds"    # Landroidx/transition/ChangeBounds$ViewBounds;
+    .locals 0
 
-    .line 96
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -62,13 +58,10 @@
 
 .method public set(Landroidx/transition/ChangeBounds$ViewBounds;Landroid/graphics/PointF;)V
     .locals 0
-    .param p1, "viewBounds"    # Landroidx/transition/ChangeBounds$ViewBounds;
-    .param p2, "topLeft"    # Landroid/graphics/PointF;
 
     .line 91
     invoke-virtual {p1, p2}, Landroidx/transition/ChangeBounds$ViewBounds;->setTopLeft(Landroid/graphics/PointF;)V
 
-    .line 92
     return-void
 .end method
 

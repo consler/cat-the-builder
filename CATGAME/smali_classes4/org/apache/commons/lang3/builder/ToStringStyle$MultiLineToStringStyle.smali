@@ -25,9 +25,9 @@
     .line 2295
     invoke-direct {p0}, Lorg/apache/commons/lang3/builder/ToStringStyle;-><init>()V
 
-    .line 2296
     const-string v0, "["
 
+    .line 2296
     invoke-virtual {p0, v0}, Lorg/apache/commons/lang3/builder/ToStringStyle$MultiLineToStringStyle;->setContentStart(Ljava/lang/String;)V
 
     .line 2297
@@ -41,9 +41,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "  "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -51,9 +55,9 @@
 
     invoke-virtual {p0, v0}, Lorg/apache/commons/lang3/builder/ToStringStyle$MultiLineToStringStyle;->setFieldSeparator(Ljava/lang/String;)V
 
-    .line 2298
     const/4 v0, 0x1
 
+    .line 2298
     invoke-virtual {p0, v0}, Lorg/apache/commons/lang3/builder/ToStringStyle$MultiLineToStringStyle;->setFieldSeparatorAtStart(Z)V
 
     .line 2299
@@ -67,9 +71,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -77,7 +85,6 @@
 
     invoke-virtual {p0, v0}, Lorg/apache/commons/lang3/builder/ToStringStyle$MultiLineToStringStyle;->setContentEnd(Ljava/lang/String;)V
 
-    .line 2300
     return-void
 .end method
 

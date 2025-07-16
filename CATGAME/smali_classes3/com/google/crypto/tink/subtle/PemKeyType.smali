@@ -61,12 +61,10 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 15
+    .locals 24
 
     .line 34
     new-instance v7, Lcom/google/crypto/tink/subtle/PemKeyType;
-
-    sget-object v6, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA256:Lcom/google/crypto/tink/subtle/Enums$HashType;
 
     const-string v1, "RSA_PSS_2048_SHA256"
 
@@ -78,6 +76,8 @@
 
     const/16 v5, 0x800
 
+    sget-object v6, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA256:Lcom/google/crypto/tink/subtle/Enums$HashType;
+
     move-object v0, v7
 
     invoke-direct/range {v0 .. v6}, Lcom/google/crypto/tink/subtle/PemKeyType;-><init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ILcom/google/crypto/tink/subtle/Enums$HashType;)V
@@ -86,8 +86,6 @@
 
     .line 36
     new-instance v0, Lcom/google/crypto/tink/subtle/PemKeyType;
-
-    sget-object v14, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA256:Lcom/google/crypto/tink/subtle/Enums$HashType;
 
     const-string v9, "RSA_PSS_3072_SHA256"
 
@@ -99,6 +97,8 @@
 
     const/16 v13, 0xc00
 
+    sget-object v14, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA256:Lcom/google/crypto/tink/subtle/Enums$HashType;
+
     move-object v8, v0
 
     invoke-direct/range {v8 .. v14}, Lcom/google/crypto/tink/subtle/PemKeyType;-><init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ILcom/google/crypto/tink/subtle/Enums$HashType;)V
@@ -106,30 +106,28 @@
     sput-object v0, Lcom/google/crypto/tink/subtle/PemKeyType;->RSA_PSS_3072_SHA256:Lcom/google/crypto/tink/subtle/PemKeyType;
 
     .line 38
-    new-instance v0, Lcom/google/crypto/tink/subtle/PemKeyType;
+    new-instance v1, Lcom/google/crypto/tink/subtle/PemKeyType;
 
-    sget-object v7, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA256:Lcom/google/crypto/tink/subtle/Enums$HashType;
+    const-string v16, "RSA_PSS_4096_SHA256"
 
-    const-string v2, "RSA_PSS_4096_SHA256"
+    const/16 v17, 0x2
 
-    const/4 v3, 0x2
+    const-string v18, "RSA"
 
-    const-string v4, "RSA"
+    const-string v19, "RSASSA-PSS"
 
-    const-string v5, "RSASSA-PSS"
+    const/16 v20, 0x1000
 
-    const/16 v6, 0x1000
+    sget-object v21, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA256:Lcom/google/crypto/tink/subtle/Enums$HashType;
 
-    move-object v1, v0
+    move-object v15, v1
 
-    invoke-direct/range {v1 .. v7}, Lcom/google/crypto/tink/subtle/PemKeyType;-><init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ILcom/google/crypto/tink/subtle/Enums$HashType;)V
+    invoke-direct/range {v15 .. v21}, Lcom/google/crypto/tink/subtle/PemKeyType;-><init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ILcom/google/crypto/tink/subtle/Enums$HashType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/subtle/PemKeyType;->RSA_PSS_4096_SHA256:Lcom/google/crypto/tink/subtle/PemKeyType;
+    sput-object v1, Lcom/google/crypto/tink/subtle/PemKeyType;->RSA_PSS_4096_SHA256:Lcom/google/crypto/tink/subtle/PemKeyType;
 
     .line 40
-    new-instance v0, Lcom/google/crypto/tink/subtle/PemKeyType;
-
-    sget-object v14, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA512:Lcom/google/crypto/tink/subtle/Enums$HashType;
+    new-instance v2, Lcom/google/crypto/tink/subtle/PemKeyType;
 
     const-string v9, "RSA_PSS_4096_SHA512"
 
@@ -141,37 +139,37 @@
 
     const/16 v13, 0x1000
 
-    move-object v8, v0
+    sget-object v14, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA512:Lcom/google/crypto/tink/subtle/Enums$HashType;
+
+    move-object v8, v2
 
     invoke-direct/range {v8 .. v14}, Lcom/google/crypto/tink/subtle/PemKeyType;-><init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ILcom/google/crypto/tink/subtle/Enums$HashType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/subtle/PemKeyType;->RSA_PSS_4096_SHA512:Lcom/google/crypto/tink/subtle/PemKeyType;
+    sput-object v2, Lcom/google/crypto/tink/subtle/PemKeyType;->RSA_PSS_4096_SHA512:Lcom/google/crypto/tink/subtle/PemKeyType;
 
     .line 43
-    new-instance v0, Lcom/google/crypto/tink/subtle/PemKeyType;
+    new-instance v3, Lcom/google/crypto/tink/subtle/PemKeyType;
 
-    sget-object v7, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA256:Lcom/google/crypto/tink/subtle/Enums$HashType;
+    const-string v16, "RSA_SIGN_PKCS1_2048_SHA256"
 
-    const-string v2, "RSA_SIGN_PKCS1_2048_SHA256"
+    const/16 v17, 0x4
 
-    const/4 v3, 0x4
+    const-string v18, "RSA"
 
-    const-string v4, "RSA"
+    const-string v19, "RSASSA-PKCS1-v1_5"
 
-    const-string v5, "RSASSA-PKCS1-v1_5"
+    const/16 v20, 0x800
 
-    const/16 v6, 0x800
+    sget-object v21, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA256:Lcom/google/crypto/tink/subtle/Enums$HashType;
 
-    move-object v1, v0
+    move-object v15, v3
 
-    invoke-direct/range {v1 .. v7}, Lcom/google/crypto/tink/subtle/PemKeyType;-><init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ILcom/google/crypto/tink/subtle/Enums$HashType;)V
+    invoke-direct/range {v15 .. v21}, Lcom/google/crypto/tink/subtle/PemKeyType;-><init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ILcom/google/crypto/tink/subtle/Enums$HashType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/subtle/PemKeyType;->RSA_SIGN_PKCS1_2048_SHA256:Lcom/google/crypto/tink/subtle/PemKeyType;
+    sput-object v3, Lcom/google/crypto/tink/subtle/PemKeyType;->RSA_SIGN_PKCS1_2048_SHA256:Lcom/google/crypto/tink/subtle/PemKeyType;
 
     .line 45
-    new-instance v0, Lcom/google/crypto/tink/subtle/PemKeyType;
-
-    sget-object v14, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA256:Lcom/google/crypto/tink/subtle/Enums$HashType;
+    new-instance v4, Lcom/google/crypto/tink/subtle/PemKeyType;
 
     const-string v9, "RSA_SIGN_PKCS1_3072_SHA256"
 
@@ -183,37 +181,37 @@
 
     const/16 v13, 0xc00
 
-    move-object v8, v0
+    sget-object v14, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA256:Lcom/google/crypto/tink/subtle/Enums$HashType;
+
+    move-object v8, v4
 
     invoke-direct/range {v8 .. v14}, Lcom/google/crypto/tink/subtle/PemKeyType;-><init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ILcom/google/crypto/tink/subtle/Enums$HashType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/subtle/PemKeyType;->RSA_SIGN_PKCS1_3072_SHA256:Lcom/google/crypto/tink/subtle/PemKeyType;
+    sput-object v4, Lcom/google/crypto/tink/subtle/PemKeyType;->RSA_SIGN_PKCS1_3072_SHA256:Lcom/google/crypto/tink/subtle/PemKeyType;
 
     .line 47
-    new-instance v0, Lcom/google/crypto/tink/subtle/PemKeyType;
+    new-instance v5, Lcom/google/crypto/tink/subtle/PemKeyType;
 
-    sget-object v7, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA256:Lcom/google/crypto/tink/subtle/Enums$HashType;
+    const-string v16, "RSA_SIGN_PKCS1_4096_SHA256"
 
-    const-string v2, "RSA_SIGN_PKCS1_4096_SHA256"
+    const/16 v17, 0x6
 
-    const/4 v3, 0x6
+    const-string v18, "RSA"
 
-    const-string v4, "RSA"
+    const-string v19, "RSASSA-PKCS1-v1_5"
 
-    const-string v5, "RSASSA-PKCS1-v1_5"
+    const/16 v20, 0x1000
 
-    const/16 v6, 0x1000
+    sget-object v21, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA256:Lcom/google/crypto/tink/subtle/Enums$HashType;
 
-    move-object v1, v0
+    move-object v15, v5
 
-    invoke-direct/range {v1 .. v7}, Lcom/google/crypto/tink/subtle/PemKeyType;-><init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ILcom/google/crypto/tink/subtle/Enums$HashType;)V
+    invoke-direct/range {v15 .. v21}, Lcom/google/crypto/tink/subtle/PemKeyType;-><init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ILcom/google/crypto/tink/subtle/Enums$HashType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/subtle/PemKeyType;->RSA_SIGN_PKCS1_4096_SHA256:Lcom/google/crypto/tink/subtle/PemKeyType;
+    sput-object v5, Lcom/google/crypto/tink/subtle/PemKeyType;->RSA_SIGN_PKCS1_4096_SHA256:Lcom/google/crypto/tink/subtle/PemKeyType;
 
     .line 49
-    new-instance v0, Lcom/google/crypto/tink/subtle/PemKeyType;
-
-    sget-object v14, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA512:Lcom/google/crypto/tink/subtle/Enums$HashType;
+    new-instance v6, Lcom/google/crypto/tink/subtle/PemKeyType;
 
     const-string v9, "RSA_SIGN_PKCS1_4096_SHA512"
 
@@ -225,155 +223,133 @@
 
     const/16 v13, 0x1000
 
-    move-object v8, v0
+    sget-object v14, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA512:Lcom/google/crypto/tink/subtle/Enums$HashType;
+
+    move-object v8, v6
 
     invoke-direct/range {v8 .. v14}, Lcom/google/crypto/tink/subtle/PemKeyType;-><init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ILcom/google/crypto/tink/subtle/Enums$HashType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/subtle/PemKeyType;->RSA_SIGN_PKCS1_4096_SHA512:Lcom/google/crypto/tink/subtle/PemKeyType;
+    sput-object v6, Lcom/google/crypto/tink/subtle/PemKeyType;->RSA_SIGN_PKCS1_4096_SHA512:Lcom/google/crypto/tink/subtle/PemKeyType;
 
     .line 52
-    new-instance v0, Lcom/google/crypto/tink/subtle/PemKeyType;
+    new-instance v8, Lcom/google/crypto/tink/subtle/PemKeyType;
 
-    sget-object v7, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA256:Lcom/google/crypto/tink/subtle/Enums$HashType;
+    const-string v16, "ECDSA_P256_SHA256"
 
-    const-string v2, "ECDSA_P256_SHA256"
+    const/16 v17, 0x8
 
-    const/16 v3, 0x8
+    const-string v18, "EC"
 
-    const-string v4, "EC"
+    const-string v19, "ECDSA"
 
-    const-string v5, "ECDSA"
+    const/16 v20, 0x100
 
-    const/16 v6, 0x100
+    sget-object v21, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA256:Lcom/google/crypto/tink/subtle/Enums$HashType;
 
-    move-object v1, v0
+    move-object v15, v8
 
-    invoke-direct/range {v1 .. v7}, Lcom/google/crypto/tink/subtle/PemKeyType;-><init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ILcom/google/crypto/tink/subtle/Enums$HashType;)V
+    invoke-direct/range {v15 .. v21}, Lcom/google/crypto/tink/subtle/PemKeyType;-><init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ILcom/google/crypto/tink/subtle/Enums$HashType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/subtle/PemKeyType;->ECDSA_P256_SHA256:Lcom/google/crypto/tink/subtle/PemKeyType;
+    sput-object v8, Lcom/google/crypto/tink/subtle/PemKeyType;->ECDSA_P256_SHA256:Lcom/google/crypto/tink/subtle/PemKeyType;
 
     .line 54
-    new-instance v0, Lcom/google/crypto/tink/subtle/PemKeyType;
+    new-instance v16, Lcom/google/crypto/tink/subtle/PemKeyType;
 
-    sget-object v14, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA384:Lcom/google/crypto/tink/subtle/Enums$HashType;
+    const-string v10, "ECDSA_P384_SHA384"
 
-    const-string v9, "ECDSA_P384_SHA384"
+    const/16 v11, 0x9
 
-    const/16 v10, 0x9
+    const-string v12, "EC"
 
-    const-string v11, "EC"
+    const-string v13, "ECDSA"
 
-    const-string v12, "ECDSA"
+    const/16 v14, 0x180
 
-    const/16 v13, 0x180
+    sget-object v15, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA384:Lcom/google/crypto/tink/subtle/Enums$HashType;
 
-    move-object v8, v0
+    move-object/from16 v9, v16
 
-    invoke-direct/range {v8 .. v14}, Lcom/google/crypto/tink/subtle/PemKeyType;-><init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ILcom/google/crypto/tink/subtle/Enums$HashType;)V
+    invoke-direct/range {v9 .. v15}, Lcom/google/crypto/tink/subtle/PemKeyType;-><init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ILcom/google/crypto/tink/subtle/Enums$HashType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/subtle/PemKeyType;->ECDSA_P384_SHA384:Lcom/google/crypto/tink/subtle/PemKeyType;
+    sput-object v16, Lcom/google/crypto/tink/subtle/PemKeyType;->ECDSA_P384_SHA384:Lcom/google/crypto/tink/subtle/PemKeyType;
 
     .line 56
-    new-instance v0, Lcom/google/crypto/tink/subtle/PemKeyType;
+    new-instance v9, Lcom/google/crypto/tink/subtle/PemKeyType;
 
-    sget-object v7, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA512:Lcom/google/crypto/tink/subtle/Enums$HashType;
+    const-string v18, "ECDSA_P521_SHA512"
 
-    const-string v2, "ECDSA_P521_SHA512"
+    const/16 v19, 0xa
 
-    const/16 v3, 0xa
+    const-string v20, "EC"
 
-    const-string v4, "EC"
+    const-string v21, "ECDSA"
 
-    const-string v5, "ECDSA"
+    const/16 v22, 0x209
 
-    const/16 v6, 0x209
+    sget-object v23, Lcom/google/crypto/tink/subtle/Enums$HashType;->SHA512:Lcom/google/crypto/tink/subtle/Enums$HashType;
 
-    move-object v1, v0
+    move-object/from16 v17, v9
 
-    invoke-direct/range {v1 .. v7}, Lcom/google/crypto/tink/subtle/PemKeyType;-><init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ILcom/google/crypto/tink/subtle/Enums$HashType;)V
+    invoke-direct/range {v17 .. v23}, Lcom/google/crypto/tink/subtle/PemKeyType;-><init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ILcom/google/crypto/tink/subtle/Enums$HashType;)V
 
-    sput-object v0, Lcom/google/crypto/tink/subtle/PemKeyType;->ECDSA_P521_SHA512:Lcom/google/crypto/tink/subtle/PemKeyType;
+    sput-object v9, Lcom/google/crypto/tink/subtle/PemKeyType;->ECDSA_P521_SHA512:Lcom/google/crypto/tink/subtle/PemKeyType;
+
+    const/16 v10, 0xb
+
+    new-array v10, v10, [Lcom/google/crypto/tink/subtle/PemKeyType;
+
+    const/4 v11, 0x0
+
+    aput-object v7, v10, v11
+
+    const/4 v7, 0x1
+
+    aput-object v0, v10, v7
+
+    const/4 v0, 0x2
+
+    aput-object v1, v10, v0
+
+    const/4 v0, 0x3
+
+    aput-object v2, v10, v0
+
+    const/4 v0, 0x4
+
+    aput-object v3, v10, v0
+
+    const/4 v0, 0x5
+
+    aput-object v4, v10, v0
+
+    const/4 v0, 0x6
+
+    aput-object v5, v10, v0
+
+    const/4 v0, 0x7
+
+    aput-object v6, v10, v0
+
+    const/16 v0, 0x8
+
+    aput-object v8, v10, v0
+
+    const/16 v0, 0x9
+
+    aput-object v16, v10, v0
+
+    const/16 v0, 0xa
+
+    aput-object v9, v10, v0
 
     .line 32
-    const/16 v1, 0xb
-
-    new-array v1, v1, [Lcom/google/crypto/tink/subtle/PemKeyType;
-
-    sget-object v2, Lcom/google/crypto/tink/subtle/PemKeyType;->RSA_PSS_2048_SHA256:Lcom/google/crypto/tink/subtle/PemKeyType;
-
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/google/crypto/tink/subtle/PemKeyType;->RSA_PSS_3072_SHA256:Lcom/google/crypto/tink/subtle/PemKeyType;
-
-    const/4 v3, 0x1
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/google/crypto/tink/subtle/PemKeyType;->RSA_PSS_4096_SHA256:Lcom/google/crypto/tink/subtle/PemKeyType;
-
-    const/4 v3, 0x2
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/google/crypto/tink/subtle/PemKeyType;->RSA_PSS_4096_SHA512:Lcom/google/crypto/tink/subtle/PemKeyType;
-
-    const/4 v3, 0x3
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/google/crypto/tink/subtle/PemKeyType;->RSA_SIGN_PKCS1_2048_SHA256:Lcom/google/crypto/tink/subtle/PemKeyType;
-
-    const/4 v3, 0x4
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/google/crypto/tink/subtle/PemKeyType;->RSA_SIGN_PKCS1_3072_SHA256:Lcom/google/crypto/tink/subtle/PemKeyType;
-
-    const/4 v3, 0x5
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/google/crypto/tink/subtle/PemKeyType;->RSA_SIGN_PKCS1_4096_SHA256:Lcom/google/crypto/tink/subtle/PemKeyType;
-
-    const/4 v3, 0x6
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/google/crypto/tink/subtle/PemKeyType;->RSA_SIGN_PKCS1_4096_SHA512:Lcom/google/crypto/tink/subtle/PemKeyType;
-
-    const/4 v3, 0x7
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/google/crypto/tink/subtle/PemKeyType;->ECDSA_P256_SHA256:Lcom/google/crypto/tink/subtle/PemKeyType;
-
-    const/16 v3, 0x8
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/google/crypto/tink/subtle/PemKeyType;->ECDSA_P384_SHA384:Lcom/google/crypto/tink/subtle/PemKeyType;
-
-    const/16 v3, 0x9
-
-    aput-object v2, v1, v3
-
-    const/16 v2, 0xa
-
-    aput-object v0, v1, v2
-
-    sput-object v1, Lcom/google/crypto/tink/subtle/PemKeyType;->$VALUES:[Lcom/google/crypto/tink/subtle/PemKeyType;
+    sput-object v10, Lcom/google/crypto/tink/subtle/PemKeyType;->$VALUES:[Lcom/google/crypto/tink/subtle/PemKeyType;
 
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;ILcom/google/crypto/tink/subtle/Enums$HashType;)V
     .locals 0
-    .param p3, "keyType"    # Ljava/lang/String;
-    .param p4, "algorithm"    # Ljava/lang/String;
-    .param p5, "keySizeInBits"    # I
-    .param p6, "hash"    # Lcom/google/crypto/tink/subtle/Enums$HashType;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x1000,
@@ -419,13 +395,11 @@
     .line 67
     iput-object p6, p0, Lcom/google/crypto/tink/subtle/PemKeyType;->hash:Lcom/google/crypto/tink/subtle/Enums$HashType;
 
-    .line 68
     return-void
 .end method
 
 .method private getPrivateKey([B)Ljava/security/Key;
     .locals 2
-    .param p1, "key"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -453,25 +427,23 @@
     check-cast v0, Ljava/security/KeyFactory;
 
     .line 129
-    .local v0, "keyFactory":Ljava/security/KeyFactory;
     new-instance v1, Ljava/security/spec/PKCS8EncodedKeySpec;
 
     invoke-direct {v1, p1}, Ljava/security/spec/PKCS8EncodedKeySpec;-><init>([B)V
 
     invoke-virtual {v0, v1}, Ljava/security/KeyFactory;->generatePrivate(Ljava/security/spec/KeySpec;)Ljava/security/PrivateKey;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {p0, v1}, Lcom/google/crypto/tink/subtle/PemKeyType;->validate(Ljava/security/Key;)Ljava/security/Key;
+    invoke-direct {p0, p1}, Lcom/google/crypto/tink/subtle/PemKeyType;->validate(Ljava/security/Key;)Ljava/security/Key;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method private getPublicKey([B)Ljava/security/Key;
     .locals 2
-    .param p1, "key"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -499,25 +471,23 @@
     check-cast v0, Ljava/security/KeyFactory;
 
     .line 124
-    .local v0, "keyFactory":Ljava/security/KeyFactory;
     new-instance v1, Ljava/security/spec/X509EncodedKeySpec;
 
     invoke-direct {v1, p1}, Ljava/security/spec/X509EncodedKeySpec;-><init>([B)V
 
     invoke-virtual {v0, v1}, Ljava/security/KeyFactory;->generatePublic(Ljava/security/spec/KeySpec;)Ljava/security/PublicKey;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {p0, v1}, Lcom/google/crypto/tink/subtle/PemKeyType;->validate(Ljava/security/Key;)Ljava/security/Key;
+    invoke-direct {p0, p1}, Lcom/google/crypto/tink/subtle/PemKeyType;->validate(Ljava/security/Key;)Ljava/security/Key;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method private validate(Ljava/security/Key;)Ljava/security/Key;
-    .locals 8
-    .param p1, "key"    # Ljava/security/Key;
+    .locals 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -556,170 +526,149 @@
     check-cast v0, Ljava/security/interfaces/RSAKey;
 
     .line 135
-    .local v0, "rsaKey":Ljava/security/interfaces/RSAKey;
     invoke-interface {v0}, Ljava/security/interfaces/RSAKey;->getModulus()Ljava/math/BigInteger;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Ljava/math/BigInteger;->bitLength()I
+    invoke-virtual {v0}, Ljava/math/BigInteger;->bitLength()I
 
-    move-result v4
+    move-result v0
 
     .line 136
-    .local v4, "foundKeySizeInBits":I
-    iget v5, p0, Lcom/google/crypto/tink/subtle/PemKeyType;->keySizeInBits:I
+    iget v4, p0, Lcom/google/crypto/tink/subtle/PemKeyType;->keySizeInBits:I
 
-    if-ne v4, v5, :cond_0
+    if-ne v0, v4, :cond_0
 
-    .line 141
-    .end local v0    # "rsaKey":Ljava/security/interfaces/RSAKey;
-    .end local v4    # "foundKeySizeInBits":I
     goto :goto_0
 
     .line 137
-    .restart local v0    # "rsaKey":Ljava/security/interfaces/RSAKey;
-    .restart local v4    # "foundKeySizeInBits":I
     :cond_0
-    new-instance v5, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
     new-array v3, v3, [Ljava/lang/Object;
 
-    iget v6, p0, Lcom/google/crypto/tink/subtle/PemKeyType;->keySizeInBits:I
+    iget v4, p0, Lcom/google/crypto/tink/subtle/PemKeyType;->keySizeInBits:I
 
     .line 139
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v6
-
-    aput-object v6, v3, v2
-
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v4
 
-    aput-object v2, v3, v1
+    aput-object v4, v3, v2
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    aput-object v0, v3, v1
+
+    const-string v0, "invalid RSA key size, want %d got %d"
 
     .line 138
-    const-string v1, "invalid RSA key size, want %d got %d"
+    invoke-static {v0, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v1, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-direct {p1, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v5, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
-
-    throw v5
+    throw p1
 
     .line 142
-    .end local v0    # "rsaKey":Ljava/security/interfaces/RSAKey;
-    .end local v4    # "foundKeySizeInBits":I
     :cond_1
     move-object v0, p1
 
     check-cast v0, Ljava/security/interfaces/ECKey;
 
     .line 143
-    .local v0, "ecKey":Ljava/security/interfaces/ECKey;
     invoke-interface {v0}, Ljava/security/interfaces/ECKey;->getParams()Ljava/security/spec/ECParameterSpec;
 
-    move-result-object v4
+    move-result-object v0
 
     .line 144
-    .local v4, "ecParams":Ljava/security/spec/ECParameterSpec;
-    invoke-static {v4}, Lcom/google/crypto/tink/subtle/EllipticCurves;->isNistEcParameterSpec(Ljava/security/spec/ECParameterSpec;)Z
+    invoke-static {v0}, Lcom/google/crypto/tink/subtle/EllipticCurves;->isNistEcParameterSpec(Ljava/security/spec/ECParameterSpec;)Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_3
+    if-eqz v4, :cond_3
 
     .line 148
-    invoke-virtual {v4}, Ljava/security/spec/ECParameterSpec;->getCurve()Ljava/security/spec/EllipticCurve;
+    invoke-virtual {v0}, Ljava/security/spec/ECParameterSpec;->getCurve()Ljava/security/spec/EllipticCurve;
 
-    move-result-object v5
+    move-result-object v0
 
-    invoke-static {v5}, Lcom/google/crypto/tink/subtle/EllipticCurves;->fieldSizeInBits(Ljava/security/spec/EllipticCurve;)I
+    invoke-static {v0}, Lcom/google/crypto/tink/subtle/EllipticCurves;->fieldSizeInBits(Ljava/security/spec/EllipticCurve;)I
 
-    move-result v5
+    move-result v0
 
     .line 149
-    .local v5, "foundKeySizeInBits":I
-    iget v6, p0, Lcom/google/crypto/tink/subtle/PemKeyType;->keySizeInBits:I
+    iget v4, p0, Lcom/google/crypto/tink/subtle/PemKeyType;->keySizeInBits:I
 
-    if-ne v5, v6, :cond_2
+    if-ne v0, v4, :cond_2
 
-    .line 155
-    .end local v0    # "ecKey":Ljava/security/interfaces/ECKey;
-    .end local v4    # "ecParams":Ljava/security/spec/ECParameterSpec;
-    .end local v5    # "foundKeySizeInBits":I
     :goto_0
     return-object p1
 
     .line 150
-    .restart local v0    # "ecKey":Ljava/security/interfaces/ECKey;
-    .restart local v4    # "ecParams":Ljava/security/spec/ECParameterSpec;
-    .restart local v5    # "foundKeySizeInBits":I
     :cond_2
-    new-instance v6, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
     new-array v3, v3, [Ljava/lang/Object;
 
-    iget v7, p0, Lcom/google/crypto/tink/subtle/PemKeyType;->keySizeInBits:I
+    iget v4, p0, Lcom/google/crypto/tink/subtle/PemKeyType;->keySizeInBits:I
 
     .line 152
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v7
+    move-result-object v4
 
-    aput-object v7, v3, v2
+    aput-object v4, v3, v2
 
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v0
 
-    aput-object v2, v3, v1
+    aput-object v0, v3, v1
+
+    const-string v0, "invalid EC key size, want %d got %d"
 
     .line 151
-    const-string v1, "invalid EC key size, want %d got %d"
+    invoke-static {v0, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v1, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-direct {p1, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v6, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
-
-    throw v6
+    throw p1
 
     .line 145
-    .end local v5    # "foundKeySizeInBits":I
     :cond_3
-    new-instance v1, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "unsupport EC spec: "
 
-    const-string v3, "unsupport EC spec: "
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    invoke-virtual {v4}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v3
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-direct {v1, v2}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/crypto/tink/subtle/PemKeyType;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8000
@@ -734,11 +683,11 @@
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/subtle/PemKeyType;
+    check-cast p0, Lcom/google/crypto/tink/subtle/PemKeyType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/google/crypto/tink/subtle/PemKeyType;
@@ -759,8 +708,7 @@
 
 # virtual methods
 .method public readKey(Ljava/io/BufferedReader;)Ljava/security/Key;
-    .locals 8
-    .param p1, "reader"    # Ljava/io/BufferedReader;
+    .locals 7
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -781,18 +729,17 @@
 
     move-result-object v0
 
-    .line 83
-    .local v0, "line":Ljava/lang/String;
     :goto_0
-    const-string v1, "-----BEGIN "
-
     if-eqz v0, :cond_0
 
+    const-string v1, "-----BEGIN "
+
+    .line 83
     invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
     .line 84
     invoke-virtual {p1}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
@@ -801,112 +748,100 @@
 
     goto :goto_0
 
-    .line 86
     :cond_0
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     if-nez v0, :cond_1
 
-    .line 87
-    return-object v2
+    return-object v1
 
     .line 90
     :cond_1
     invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    const/16 v2, 0xb
 
-    move-result v1
-
-    invoke-virtual {v3, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v0, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 91
-    const-string v1, "-----"
+    const-string v2, "-----"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+    .line 91
+    invoke-virtual {v0, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v3
 
-    .line 92
-    .local v3, "index":I
     if-gez v3, :cond_2
 
-    .line 93
-    return-object v2
+    return-object v1
 
-    .line 95
     :cond_2
     const/4 v4, 0x0
 
+    .line 95
     invoke-virtual {v0, v4, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v0
 
     .line 96
-    .local v5, "type":Ljava/lang/String;
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v5, "-----END "
 
-    const-string v7, "-----END "
+    invoke-direct {v3, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v1
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
 
     .line 97
-    .local v1, "endMarker":Ljava/lang/String;
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 99
-    .local v6, "base64key":Ljava/lang/StringBuilder;
     :goto_1
     invoke-virtual {p1}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v5
 
-    move-object v0, v7
+    if-eqz v5, :cond_5
 
-    if-eqz v7, :cond_5
+    const-string v6, ":"
 
     .line 100
-    const-string v7, ":"
+    invoke-virtual {v5, v6}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
-    invoke-virtual {v0, v7}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+    move-result v6
 
-    move-result v7
+    if-lez v6, :cond_3
 
-    if-lez v7, :cond_3
-
-    .line 102
     goto :goto_1
 
     .line 104
     :cond_3
-    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v5, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_4
+    if-eqz v6, :cond_4
 
-    .line 105
     goto :goto_2
 
     .line 107
     :cond_4
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_1
 
@@ -914,70 +849,51 @@
     :cond_5
     :goto_2
     :try_start_0
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object p1
 
-    invoke-static {v7, v4}, Lcom/google/crypto/tink/subtle/Base64;->decode(Ljava/lang/String;I)[B
+    invoke-static {p1, v4}, Lcom/google/crypto/tink/subtle/Base64;->decode(Ljava/lang/String;I)[B
 
-    move-result-object v4
+    move-result-object p1
+
+    const-string v2, "PUBLIC KEY"
 
     .line 111
-    .local v4, "key":[B
-    const-string v7, "PUBLIC KEY"
+    invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    invoke-virtual {v5, v7}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v2
 
-    move-result v7
-
-    if-eqz v7, :cond_6
+    if-eqz v2, :cond_6
 
     .line 112
-    invoke-direct {p0, v4}, Lcom/google/crypto/tink/subtle/PemKeyType;->getPublicKey([B)Ljava/security/Key;
+    invoke-direct {p0, p1}, Lcom/google/crypto/tink/subtle/PemKeyType;->getPublicKey([B)Ljava/security/Key;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
+
+    :cond_6
+    const-string v2, "PRIVATE KEY"
 
     .line 113
-    :cond_6
-    const-string v7, "PRIVATE KEY"
+    invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    invoke-virtual {v5, v7}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v0
 
-    move-result v7
-
-    if-eqz v7, :cond_7
+    if-eqz v0, :cond_7
 
     .line 114
-    invoke-direct {p0, v4}, Lcom/google/crypto/tink/subtle/PemKeyType;->getPrivateKey([B)Ljava/security/Key;
+    invoke-direct {p0, p1}, Lcom/google/crypto/tink/subtle/PemKeyType;->getPrivateKey([B)Ljava/security/Key;
 
-    move-result-object v2
+    move-result-object p1
     :try_end_0
-    .catch Ljava/security/GeneralSecurityException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/security/GeneralSecurityException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v2
+    return-object p1
 
-    .line 118
-    .end local v4    # "key":[B
-    :cond_7
-    nop
-
-    .line 119
-    return-object v2
-
-    .line 116
     :catch_0
-    move-exception v4
-
-    goto :goto_3
-
-    :catch_1
-    move-exception v4
-
-    .line 117
-    .local v4, "ex":Ljava/lang/Exception;
-    :goto_3
-    return-object v2
+    :cond_7
+    return-object v1
 .end method

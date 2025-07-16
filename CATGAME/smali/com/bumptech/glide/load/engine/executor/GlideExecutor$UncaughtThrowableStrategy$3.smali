@@ -31,12 +31,9 @@
 # virtual methods
 .method public handle(Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "t"    # Ljava/lang/Throwable;
 
-    .line 344
     if-nez p1, :cond_0
 
-    .line 347
     return-void
 
     .line 345

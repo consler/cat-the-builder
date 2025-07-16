@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/AsyncDatagramSocket;Ljava/net/InetSocketAddress;Ljava/nio/ByteBuffer;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/AsyncDatagramSocket;
 
     .line 48
     iput-object p1, p0, Lcom/koushikdutta/async/AsyncDatagramSocket$2;->this$0:Lcom/koushikdutta/async/AsyncDatagramSocket;
@@ -56,6 +55,5 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/koushikdutta/async/AsyncDatagramSocket;->send(Ljava/net/InetSocketAddress;Ljava/nio/ByteBuffer;)V
 
-    .line 52
     return-void
 .end method

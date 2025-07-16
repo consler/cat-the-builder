@@ -1,5 +1,6 @@
 .class public Lcom/huawei/hms/framework/common/ContainerUtils;
 .super Ljava/lang/Object;
+.source "ContainerUtils.java"
 
 
 # static fields
@@ -12,6 +13,7 @@
 .method public constructor <init>()V
     .locals 0
 
+    .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -46,6 +48,7 @@
 
     if-eqz p1, :cond_3
 
+    .line 41
     invoke-interface {p0}, Ljava/util/Map;->size()I
 
     move-result v2
@@ -56,6 +59,7 @@
 
     if-ne v2, v3, :cond_3
 
+    .line 43
     invoke-interface {p0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object p0
@@ -77,6 +81,7 @@
 
     check-cast v2, Ljava/util/Map$Entry;
 
+    .line 44
     invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v3
@@ -116,6 +121,7 @@
         }
     .end annotation
 
+    .line 64
     invoke-static {p0}, Lcom/huawei/hms/framework/common/ContainerUtils;->toString(Ljava/util/Map;)Ljava/lang/String;
 
     move-result-object p0
@@ -146,16 +152,18 @@
 
     return-object p0
 
+    .line 123
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/4 v1, 0x0
-
+    .line 125
     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object p0
+
+    const/4 v1, 0x0
 
     :goto_0
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
@@ -174,8 +182,10 @@
 
     const-string v1, "&"
 
+    .line 127
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 129
     :cond_1
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
@@ -187,6 +197,7 @@
 
     goto :goto_0
 
+    .line 131
     :cond_2
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -196,7 +207,7 @@
 .end method
 
 .method public static toString(Ljava/util/Map;)Ljava/lang/String;
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -216,13 +227,13 @@
 
     return-object p0
 
+    .line 79
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/4 v1, 0x0
-
+    .line 81
     invoke-interface {p0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object p0
@@ -230,6 +241,8 @@
     invoke-interface {p0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object p0
+
+    const/4 v1, 0x0
 
     :goto_0
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
@@ -250,8 +263,10 @@
 
     const-string v1, "&"
 
+    .line 83
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 85
     :cond_1
     invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -263,24 +278,29 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "="
+    move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v4, "="
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move v1, v3
 
     goto :goto_0
 
+    .line 87
     :cond_2
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -308,16 +328,18 @@
 
     return-object p0
 
+    .line 101
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/4 v1, 0x0
-
+    .line 103
     invoke-interface {p0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object p0
+
+    const/4 v1, 0x0
 
     :goto_0
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
@@ -336,8 +358,10 @@
 
     const-string v1, "&"
 
+    .line 105
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 107
     :cond_1
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
@@ -349,6 +373,7 @@
 
     goto :goto_0
 
+    .line 109
     :cond_2
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

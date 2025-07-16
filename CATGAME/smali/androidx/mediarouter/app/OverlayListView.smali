@@ -25,59 +25,50 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 0
 
     .line 39
     invoke-direct {p0, p1}, Landroid/widget/ListView;-><init>(Landroid/content/Context;)V
 
     .line 36
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance p1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Landroidx/mediarouter/app/OverlayListView;->mOverlayObjects:Ljava/util/List;
+    iput-object p1, p0, Landroidx/mediarouter/app/OverlayListView;->mOverlayObjects:Ljava/util/List;
 
-    .line 40
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .locals 0
 
     .line 43
     invoke-direct {p0, p1, p2}, Landroid/widget/ListView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     .line 36
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance p1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Landroidx/mediarouter/app/OverlayListView;->mOverlayObjects:Ljava/util/List;
+    iput-object p1, p0, Landroidx/mediarouter/app/OverlayListView;->mOverlayObjects:Ljava/util/List;
 
-    .line 44
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
-    .param p3, "defStyleAttr"    # I
+    .locals 0
 
     .line 47
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/ListView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 36
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance p1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Landroidx/mediarouter/app/OverlayListView;->mOverlayObjects:Ljava/util/List;
+    iput-object p1, p0, Landroidx/mediarouter/app/OverlayListView;->mOverlayObjects:Ljava/util/List;
 
-    .line 48
     return-void
 .end method
 
@@ -85,20 +76,17 @@
 # virtual methods
 .method public addOverlayObject(Landroidx/mediarouter/app/OverlayListView$OverlayObject;)V
     .locals 1
-    .param p1, "object"    # Landroidx/mediarouter/app/OverlayListView$OverlayObject;
 
     .line 56
     iget-object v0, p0, Landroidx/mediarouter/app/OverlayListView;->mOverlayObjects:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 57
     return-void
 .end method
 
 .method public onDraw(Landroid/graphics/Canvas;)V
-    .locals 5
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
+    .locals 4
 
     .line 81
     invoke-super {p0, p1}, Landroid/widget/ListView;->onDraw(Landroid/graphics/Canvas;)V
@@ -120,7 +108,7 @@
     move-result-object v0
 
     .line 84
-    .local v0, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroidx/mediarouter/app/OverlayListView$OverlayObject;>;"
+    :cond_0
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -136,41 +124,32 @@
     check-cast v1, Landroidx/mediarouter/app/OverlayListView$OverlayObject;
 
     .line 86
-    .local v1, "object":Landroidx/mediarouter/app/OverlayListView$OverlayObject;
     invoke-virtual {v1}, Landroidx/mediarouter/app/OverlayListView$OverlayObject;->getBitmapDrawable()Landroid/graphics/drawable/BitmapDrawable;
 
     move-result-object v2
 
-    .line 87
-    .local v2, "bitmap":Landroid/graphics/drawable/BitmapDrawable;
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     .line 88
     invoke-virtual {v2, p1}, Landroid/graphics/drawable/BitmapDrawable;->draw(Landroid/graphics/Canvas;)V
 
     .line 90
-    :cond_0
+    :cond_1
     invoke-virtual {p0}, Landroidx/mediarouter/app/OverlayListView;->getDrawingTime()J
 
-    move-result-wide v3
+    move-result-wide v2
 
-    invoke-virtual {v1, v3, v4}, Landroidx/mediarouter/app/OverlayListView$OverlayObject;->update(J)Z
+    invoke-virtual {v1, v2, v3}, Landroidx/mediarouter/app/OverlayListView$OverlayObject;->update(J)Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_1
+    if-nez v1, :cond_0
 
     .line 91
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 93
-    .end local v1    # "object":Landroidx/mediarouter/app/OverlayListView$OverlayObject;
-    .end local v2    # "bitmap":Landroid/graphics/drawable/BitmapDrawable;
-    :cond_1
     goto :goto_0
 
-    .line 95
-    .end local v0    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Landroidx/mediarouter/app/OverlayListView$OverlayObject;>;"
     :cond_2
     return-void
 .end method
@@ -185,6 +164,7 @@
 
     move-result-object v0
 
+    :cond_0
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -199,7 +179,6 @@
     check-cast v1, Landroidx/mediarouter/app/OverlayListView$OverlayObject;
 
     .line 64
-    .local v1, "object":Landroidx/mediarouter/app/OverlayListView$OverlayObject;
     invoke-virtual {v1}, Landroidx/mediarouter/app/OverlayListView$OverlayObject;->isAnimationStarted()Z
 
     move-result v2
@@ -213,12 +192,8 @@
 
     invoke-virtual {v1, v2, v3}, Landroidx/mediarouter/app/OverlayListView$OverlayObject;->startAnimation(J)V
 
-    .line 67
-    .end local v1    # "object":Landroidx/mediarouter/app/OverlayListView$OverlayObject;
-    :cond_0
     goto :goto_0
 
-    .line 68
     :cond_1
     return-void
 .end method
@@ -247,14 +222,10 @@
     check-cast v1, Landroidx/mediarouter/app/OverlayListView$OverlayObject;
 
     .line 75
-    .local v1, "object":Landroidx/mediarouter/app/OverlayListView$OverlayObject;
     invoke-virtual {v1}, Landroidx/mediarouter/app/OverlayListView$OverlayObject;->stopAnimation()V
 
-    .line 76
-    .end local v1    # "object":Landroidx/mediarouter/app/OverlayListView$OverlayObject;
     goto :goto_0
 
-    .line 77
     :cond_0
     return-void
 .end method

@@ -37,15 +37,8 @@
 # direct methods
 .method constructor <init>(Ljava/lang/reflect/Type;Ljava/util/Set;Ljava/lang/Object;Ljava/lang/reflect/Method;IIZ[Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;Ljava/util/Set;Ljava/util/Set;)V
     .locals 0
-    .param p1, "type"    # Ljava/lang/reflect/Type;
-    .param p3, "adapter"    # Ljava/lang/Object;
-    .param p4, "method"    # Ljava/lang/reflect/Method;
-    .param p5, "parameterCount"    # I
-    .param p6, "adaptersOffset"    # I
-    .param p7, "nullable"    # Z
 
     .line 175
-    .local p2, "annotations":Ljava/util/Set;, "Ljava/util/Set<+Ljava/lang/annotation/Annotation;>;"
     iput-object p8, p0, Lcom/squareup/moshi/AdapterMethodsFactory$3;->val$parameterTypes:[Ljava/lang/reflect/Type;
 
     iput-object p9, p0, Lcom/squareup/moshi/AdapterMethodsFactory$3;->val$returnType:Ljava/lang/reflect/Type;
@@ -63,14 +56,9 @@
 # virtual methods
 .method public bind(Lcom/squareup/moshi/Moshi;Lcom/squareup/moshi/JsonAdapter$Factory;)V
     .locals 2
-    .param p1, "moshi"    # Lcom/squareup/moshi/Moshi;
-    .param p2, "factory"    # Lcom/squareup/moshi/JsonAdapter$Factory;
 
     .line 179
     invoke-super {p0, p1, p2}, Lcom/squareup/moshi/AdapterMethodsFactory$AdapterMethod;->bind(Lcom/squareup/moshi/Moshi;Lcom/squareup/moshi/JsonAdapter$Factory;)V
-
-    .line 180
-    nop
 
     .line 181
     iget-object v0, p0, Lcom/squareup/moshi/AdapterMethodsFactory$3;->val$parameterTypes:[Ljava/lang/reflect/Type;
@@ -106,32 +94,29 @@
 
     invoke-virtual {p1, p2, v0, v1}, Lcom/squareup/moshi/Moshi;->nextAdapter(Lcom/squareup/moshi/JsonAdapter$Factory;Ljava/lang/reflect/Type;Ljava/util/Set;)Lcom/squareup/moshi/JsonAdapter;
 
-    move-result-object v0
+    move-result-object p1
 
     goto :goto_0
 
     .line 183
     :cond_0
-    iget-object v0, p0, Lcom/squareup/moshi/AdapterMethodsFactory$3;->val$returnType:Ljava/lang/reflect/Type;
+    iget-object p2, p0, Lcom/squareup/moshi/AdapterMethodsFactory$3;->val$returnType:Ljava/lang/reflect/Type;
 
-    iget-object v1, p0, Lcom/squareup/moshi/AdapterMethodsFactory$3;->val$returnTypeAnnotations:Ljava/util/Set;
+    iget-object v0, p0, Lcom/squareup/moshi/AdapterMethodsFactory$3;->val$returnTypeAnnotations:Ljava/util/Set;
 
-    invoke-virtual {p1, v0, v1}, Lcom/squareup/moshi/Moshi;->adapter(Ljava/lang/reflect/Type;Ljava/util/Set;)Lcom/squareup/moshi/JsonAdapter;
+    invoke-virtual {p1, p2, v0}, Lcom/squareup/moshi/Moshi;->adapter(Ljava/lang/reflect/Type;Ljava/util/Set;)Lcom/squareup/moshi/JsonAdapter;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    iput-object v0, p0, Lcom/squareup/moshi/AdapterMethodsFactory$3;->delegate:Lcom/squareup/moshi/JsonAdapter;
+    iput-object p1, p0, Lcom/squareup/moshi/AdapterMethodsFactory$3;->delegate:Lcom/squareup/moshi/JsonAdapter;
 
-    .line 184
     return-void
 .end method
 
 .method public toJson(Lcom/squareup/moshi/Moshi;Lcom/squareup/moshi/JsonWriter;Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "moshi"    # Lcom/squareup/moshi/Moshi;
-    .param p2, "writer"    # Lcom/squareup/moshi/JsonWriter;
-    .param p3, "value"    # Ljava/lang/Object;
+    .locals 0
+    .param p3    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -145,14 +130,12 @@
     .line 188
     invoke-virtual {p0, p3}, Lcom/squareup/moshi/AdapterMethodsFactory$3;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 189
-    .local v0, "intermediate":Ljava/lang/Object;
-    iget-object v1, p0, Lcom/squareup/moshi/AdapterMethodsFactory$3;->delegate:Lcom/squareup/moshi/JsonAdapter;
+    iget-object p3, p0, Lcom/squareup/moshi/AdapterMethodsFactory$3;->delegate:Lcom/squareup/moshi/JsonAdapter;
 
-    invoke-virtual {v1, p2, v0}, Lcom/squareup/moshi/JsonAdapter;->toJson(Lcom/squareup/moshi/JsonWriter;Ljava/lang/Object;)V
+    invoke-virtual {p3, p2, p1}, Lcom/squareup/moshi/JsonAdapter;->toJson(Lcom/squareup/moshi/JsonWriter;Ljava/lang/Object;)V
 
-    .line 190
     return-void
 .end method

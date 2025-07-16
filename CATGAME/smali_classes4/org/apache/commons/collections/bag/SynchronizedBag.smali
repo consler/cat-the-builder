@@ -21,30 +21,24 @@
 # direct methods
 .method protected constructor <init>(Lorg/apache/commons/collections/Bag;)V
     .locals 0
-    .param p1, "bag"    # Lorg/apache/commons/collections/Bag;
 
     .line 64
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/collection/SynchronizedCollection;-><init>(Ljava/util/Collection;)V
 
-    .line 65
     return-void
 .end method
 
 .method protected constructor <init>(Lorg/apache/commons/collections/Bag;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "bag"    # Lorg/apache/commons/collections/Bag;
-    .param p2, "lock"    # Ljava/lang/Object;
 
     .line 75
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections/collection/SynchronizedCollection;-><init>(Ljava/util/Collection;Ljava/lang/Object;)V
 
-    .line 76
     return-void
 .end method
 
 .method public static decorate(Lorg/apache/commons/collections/Bag;)Lorg/apache/commons/collections/Bag;
     .locals 1
-    .param p0, "bag"    # Lorg/apache/commons/collections/Bag;
 
     .line 53
     new-instance v0, Lorg/apache/commons/collections/bag/SynchronizedBag;
@@ -58,8 +52,6 @@
 # virtual methods
 .method public add(Ljava/lang/Object;I)Z
     .locals 2
-    .param p1, "object"    # Ljava/lang/Object;
-    .param p2, "count"    # I
 
     .line 89
     iget-object v0, p0, Lorg/apache/commons/collections/bag/SynchronizedBag;->lock:Ljava/lang/Object;
@@ -74,21 +66,21 @@
 
     invoke-interface {v1, p1, p2}, Lorg/apache/commons/collections/Bag;->add(Ljava/lang/Object;I)Z
 
-    move-result v1
+    move-result p1
 
     monitor-exit v0
 
-    return v1
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 91
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method protected getBag()Lorg/apache/commons/collections/Bag;
@@ -104,7 +96,6 @@
 
 .method public getCount(Ljava/lang/Object;)I
     .locals 2
-    .param p1, "object"    # Ljava/lang/Object;
 
     .line 108
     iget-object v0, p0, Lorg/apache/commons/collections/bag/SynchronizedBag;->lock:Ljava/lang/Object;
@@ -119,27 +110,25 @@
 
     invoke-interface {v1, p1}, Lorg/apache/commons/collections/Bag;->getCount(Ljava/lang/Object;)I
 
-    move-result v1
+    move-result p1
 
     monitor-exit v0
 
-    return v1
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 110
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public remove(Ljava/lang/Object;I)Z
     .locals 2
-    .param p1, "object"    # Ljava/lang/Object;
-    .param p2, "count"    # I
 
     .line 95
     iget-object v0, p0, Lorg/apache/commons/collections/bag/SynchronizedBag;->lock:Ljava/lang/Object;
@@ -154,21 +143,21 @@
 
     invoke-interface {v1, p1, p2}, Lorg/apache/commons/collections/Bag;->remove(Ljava/lang/Object;I)Z
 
-    move-result v1
+    move-result p1
 
     monitor-exit v0
 
-    return v1
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 97
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public uniqueSet()Ljava/util/Set;
@@ -190,7 +179,6 @@
     move-result-object v1
 
     .line 103
-    .local v1, "set":Ljava/util/Set;
     new-instance v2, Lorg/apache/commons/collections/bag/SynchronizedBag$SynchronizedBagSet;
 
     iget-object v3, p0, Lorg/apache/commons/collections/bag/SynchronizedBag;->lock:Ljava/lang/Object;
@@ -201,11 +189,10 @@
 
     return-object v2
 
-    .line 104
-    .end local v1    # "set":Ljava/util/Set;
     :catchall_0
     move-exception v1
 
+    .line 104
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0

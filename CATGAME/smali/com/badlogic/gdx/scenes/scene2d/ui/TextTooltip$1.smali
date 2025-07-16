@@ -23,7 +23,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/TextTooltip;Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/scenes/scene2d/ui/TextTooltip;
 
     .line 53
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TextTooltip$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/TextTooltip;
@@ -38,33 +37,32 @@
 
 # virtual methods
 .method public get(Lcom/badlogic/gdx/scenes/scene2d/Actor;)F
-    .locals 2
-    .param p1, "context"    # Lcom/badlogic/gdx/scenes/scene2d/Actor;
+    .locals 1
 
     .line 55
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TextTooltip$1;->val$manager:Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TextTooltip$1;->val$manager:Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;
 
-    iget v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->maxWidth:F
+    iget p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->maxWidth:F
 
-    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TextTooltip$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/TextTooltip;
+    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TextTooltip$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/TextTooltip;
 
-    iget-object v1, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/TextTooltip;->container:Lcom/badlogic/gdx/scenes/scene2d/ui/Container;
+    iget-object v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/TextTooltip;->container:Lcom/badlogic/gdx/scenes/scene2d/ui/Container;
 
-    invoke-virtual {v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Container;->getActor()Lcom/badlogic/gdx/scenes/scene2d/Actor;
+    invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Container;->getActor()Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/badlogic/gdx/scenes/scene2d/ui/Label;
+    check-cast v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Label;
 
-    invoke-virtual {v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Label;->getGlyphLayout()Lcom/badlogic/gdx/graphics/g2d/GlyphLayout;
+    invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Label;->getGlyphLayout()Lcom/badlogic/gdx/graphics/g2d/GlyphLayout;
 
-    move-result-object v1
+    move-result-object v0
 
-    iget v1, v1, Lcom/badlogic/gdx/graphics/g2d/GlyphLayout;->width:F
+    iget v0, v0, Lcom/badlogic/gdx/graphics/g2d/GlyphLayout;->width:F
 
-    invoke-static {v0, v1}, Ljava/lang/Math;->min(FF)F
+    invoke-static {p1, v0}, Ljava/lang/Math;->min(FF)F
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

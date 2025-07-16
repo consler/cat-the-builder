@@ -62,9 +62,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/reactivestreams/Subscriber;II)V
-    .locals 3
-    .param p2, "n"    # I
-    .param p3, "prefetch"    # I
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -74,8 +72,6 @@
     .end annotation
 
     .line 78
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionBase;, "Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionBase<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
 
     .line 70
@@ -103,39 +99,33 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionBase;->actual:Lorg/reactivestreams/Subscriber;
 
     .line 81
-    new-array v0, p2, [Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;
+    new-array p1, p2, [Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;
 
-    .line 83
-    .local v0, "a":[Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;, "[Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber<TT;>;"
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    .local v1, "i":I
     :goto_0
-    if-ge v1, p2, :cond_0
+    if-ge v0, p2, :cond_0
 
     .line 84
-    new-instance v2, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;
+    new-instance v1, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;
 
-    invoke-direct {v2, p0, p3}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;-><init>(Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionBase;I)V
+    invoke-direct {v1, p0, p3}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;-><init>(Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionBase;I)V
 
-    aput-object v2, v0, v1
+    aput-object v1, p1, v0
 
-    .line 83
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 87
-    .end local v1    # "i":I
     :cond_0
-    iput-object v0, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionBase;->subscribers:[Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;
+    iput-object p1, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionBase;->subscribers:[Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;
 
     .line 88
-    iget-object v1, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionBase;->done:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object p1, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionBase;->done:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {v1, p2}, Ljava/util/concurrent/atomic/AtomicInteger;->lazySet(I)V
+    invoke-virtual {p1, p2}, Ljava/util/concurrent/atomic/AtomicInteger;->lazySet(I)V
 
-    .line 89
     return-void
 .end method
 
@@ -145,14 +135,13 @@
     .locals 1
 
     .line 101
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionBase;, "Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionBase<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionBase;->cancelled:Z
 
     if-nez v0, :cond_0
 
-    .line 102
     const/4 v0, 0x1
 
+    .line 102
     iput-boolean v0, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionBase;->cancelled:Z
 
     .line 104
@@ -168,7 +157,6 @@
     .line 107
     invoke-virtual {p0}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionBase;->cleanup()V
 
-    .line 110
     :cond_0
     return-void
 .end method
@@ -176,11 +164,9 @@
 .method cancelAll()V
     .locals 3
 
-    .line 113
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionBase;, "Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionBase<TT;>;"
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 113
     :goto_0
     iget-object v1, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionBase;->subscribers:[Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;
 
@@ -192,17 +178,12 @@
     aget-object v1, v1, v0
 
     .line 115
-    .local v1, "s":Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;, "Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber<TT;>;"
     invoke-virtual {v1}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;->cancel()Z
 
-    .line 113
-    .end local v1    # "s":Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;, "Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber<TT;>;"
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 117
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
@@ -210,11 +191,9 @@
 .method cleanup()V
     .locals 3
 
-    .line 120
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionBase;, "Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionBase<TT;>;"
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 120
     :goto_0
     iget-object v1, p0, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionBase;->subscribers:[Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;
 
@@ -225,20 +204,15 @@
     .line 121
     aget-object v1, v1, v0
 
-    .line 122
-    .local v1, "s":Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;, "Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber<TT;>;"
     const/4 v2, 0x0
 
+    .line 122
     iput-object v2, v1, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;->queue:Lio/reactivex/internal/fuseable/SimplePlainQueue;
 
-    .line 120
-    .end local v1    # "s":Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber;, "Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinInnerSubscriber<TT;>;"
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 124
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
@@ -264,10 +238,8 @@
 
 .method public request(J)V
     .locals 1
-    .param p1, "n"    # J
 
     .line 93
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionBase;, "Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionBase<TT;>;"
     invoke-static {p1, p2}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(J)Z
 
     move-result v0
@@ -282,7 +254,6 @@
     .line 95
     invoke-virtual {p0}, Lio/reactivex/internal/operators/parallel/ParallelJoin$JoinSubscriptionBase;->drain()V
 
-    .line 97
     :cond_0
     return-void
 .end method

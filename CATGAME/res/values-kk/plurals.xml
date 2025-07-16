@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="brick_go_back_layer_plural">
-        <item quantity="other">layers</item>
-        <item quantity="one">layer</item>
+        <item quantity="other">қабаттар</item>
+        <item quantity="one">қабат</item>
     </plurals>
     <plurals name="brick_move_n_step_plural">
-        <item quantity="other">steps</item>
-        <item quantity="one">step</item>
+        <item quantity="other">қадамдар</item>
+        <item quantity="one">қадам</item>
     </plurals>
     <plurals name="brick_parameterized_foreach_plural">
-        <item quantity="other">For each tuple of items of</item>
-        <item quantity="one">For each item of</item>
+        <item quantity="other">Әр заттардың</item>
+        <item quantity="one">Әр затқа</item>
     </plurals>
     <plurals name="brick_parameterized_stored_plural">
-        <item quantity="other">stored in variables with the same names</item>
-        <item quantity="one">stored in variable with the same name</item>
+        <item quantity="other">бірдей атаулары бар айнымалыларда сақталады</item>
+        <item quantity="one">бірдей атпен айнымалыда сақталады</item>
     </plurals>
     <plurals name="copied_looks">
         <item quantity="other">%d сурет көшірілді.</item>
@@ -109,12 +109,12 @@
         <item quantity="one">%d сағат</item>
     </plurals>
     <plurals name="imported_projects">
-        <item quantity="other">Imported %d projects.</item>
-        <item quantity="one">Imported %d project.</item>
+        <item quantity="other">жоба/жобалар</item>
+        <item quantity="one">Импортталған %d</item>
     </plurals>
     <plurals name="list_selection_plural">
-        <item quantity="other">%d lists selected</item>
-        <item quantity="one">%d list selected</item>
+        <item quantity="other">%d тізімдер таңдалды</item>
+        <item quantity="one">%d тізім таңдалды</item>
     </plurals>
     <plurals name="minutes">
         <item quantity="other">%d минут</item>
@@ -141,8 +141,8 @@
         <item quantity="one">%d Scratch жобасы кезекке қосылды…</item>
     </plurals>
     <plurals name="second_plural">
-        <item quantity="other">seconds</item>
-        <item quantity="one">second</item>
+        <item quantity="other">секундтар</item>
+        <item quantity="one">секунд</item>
     </plurals>
     <plurals name="status_completed_x_jobs">
         <item quantity="other">Орындалды: %d операциялар</item>
@@ -153,8 +153,8 @@
         <item quantity="one">Орындалуда: %d операция</item>
     </plurals>
     <plurals name="time_plural">
-        <item quantity="other">times</item>
-        <item quantity="one">time</item>
+        <item quantity="other">реттер</item>
+        <item quantity="one">рет</item>
     </plurals>
     <plurals name="unpacked_looks">
         <item quantity="other">%d сурет шығарылды.</item>
@@ -177,7 +177,7 @@
         <item quantity="one">%d актер немесе объект шығарылды.</item>
     </plurals>
     <plurals name="user_defined_brick_input_headline">
-        <item quantity="other">Inputs for this brick</item>
-        <item quantity="one">Input for this brick</item>
+        <item quantity="other">Бұл блокқа енгізулер</item>
+        <item quantity="one">Бұл блокқа енгізу</item>
     </plurals>
 </resources>

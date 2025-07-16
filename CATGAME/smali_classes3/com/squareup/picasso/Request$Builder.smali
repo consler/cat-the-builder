@@ -61,7 +61,6 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .param p1, "resourceId"    # I
 
     .line 231
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -69,13 +68,11 @@
     .line 232
     invoke-virtual {p0, p1}, Lcom/squareup/picasso/Request$Builder;->setResourceId(I)Lcom/squareup/picasso/Request$Builder;
 
-    .line 233
     return-void
 .end method
 
 .method public constructor <init>(Landroid/net/Uri;)V
     .locals 0
-    .param p1, "uri"    # Landroid/net/Uri;
 
     .line 226
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -83,15 +80,11 @@
     .line 227
     invoke-virtual {p0, p1}, Lcom/squareup/picasso/Request$Builder;->setUri(Landroid/net/Uri;)Lcom/squareup/picasso/Request$Builder;
 
-    .line 228
     return-void
 .end method
 
 .method constructor <init>(Landroid/net/Uri;ILandroid/graphics/Bitmap$Config;)V
     .locals 0
-    .param p1, "uri"    # Landroid/net/Uri;
-    .param p2, "resourceId"    # I
-    .param p3, "bitmapConfig"    # Landroid/graphics/Bitmap$Config;
 
     .line 235
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -105,13 +98,11 @@
     .line 238
     iput-object p3, p0, Lcom/squareup/picasso/Request$Builder;->config:Landroid/graphics/Bitmap$Config;
 
-    .line 239
     return-void
 .end method
 
 .method private constructor <init>(Lcom/squareup/picasso/Request;)V
     .locals 2
-    .param p1, "request"    # Lcom/squareup/picasso/Request;
 
     .line 241
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -207,18 +198,15 @@
     iput-object v0, p0, Lcom/squareup/picasso/Request$Builder;->config:Landroid/graphics/Bitmap$Config;
 
     .line 260
-    iget-object v0, p1, Lcom/squareup/picasso/Request;->priority:Lcom/squareup/picasso/Picasso$Priority;
+    iget-object p1, p1, Lcom/squareup/picasso/Request;->priority:Lcom/squareup/picasso/Picasso$Priority;
 
-    iput-object v0, p0, Lcom/squareup/picasso/Request$Builder;->priority:Lcom/squareup/picasso/Picasso$Priority;
+    iput-object p1, p0, Lcom/squareup/picasso/Request$Builder;->priority:Lcom/squareup/picasso/Picasso$Priority;
 
-    .line 261
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/squareup/picasso/Request;Lcom/squareup/picasso/Request$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/squareup/picasso/Request;
-    .param p2, "x1"    # Lcom/squareup/picasso/Request$1;
 
     .line 206
     invoke-direct {p0, p1}, Lcom/squareup/picasso/Request$Builder;-><init>(Lcom/squareup/picasso/Request;)V
@@ -231,16 +219,16 @@
 .method public build()Lcom/squareup/picasso/Request;
     .locals 22
 
-    .line 492
     move-object/from16 v0, p0
 
+    .line 492
     iget-boolean v1, v0, Lcom/squareup/picasso/Request$Builder;->centerInside:Z
 
     if-eqz v1, :cond_1
 
-    iget-boolean v1, v0, Lcom/squareup/picasso/Request$Builder;->centerCrop:Z
+    iget-boolean v2, v0, Lcom/squareup/picasso/Request$Builder;->centerCrop:Z
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
     goto :goto_0
 
@@ -257,17 +245,17 @@
     .line 495
     :cond_1
     :goto_0
-    iget-boolean v1, v0, Lcom/squareup/picasso/Request$Builder;->centerCrop:Z
+    iget-boolean v2, v0, Lcom/squareup/picasso/Request$Builder;->centerCrop:Z
 
-    if-eqz v1, :cond_3
+    if-eqz v2, :cond_3
 
-    iget v1, v0, Lcom/squareup/picasso/Request$Builder;->targetWidth:I
+    iget v2, v0, Lcom/squareup/picasso/Request$Builder;->targetWidth:I
 
-    if-nez v1, :cond_3
+    if-nez v2, :cond_3
 
-    iget v1, v0, Lcom/squareup/picasso/Request$Builder;->targetHeight:I
+    iget v2, v0, Lcom/squareup/picasso/Request$Builder;->targetHeight:I
 
-    if-eqz v1, :cond_2
+    if-eqz v2, :cond_2
 
     goto :goto_1
 
@@ -281,13 +269,11 @@
 
     throw v1
 
-    .line 499
     :cond_3
     :goto_1
-    iget-boolean v1, v0, Lcom/squareup/picasso/Request$Builder;->centerInside:Z
-
     if-eqz v1, :cond_5
 
+    .line 499
     iget v1, v0, Lcom/squareup/picasso/Request$Builder;->targetWidth:I
 
     if-nez v1, :cond_5
@@ -380,9 +366,9 @@
 .method public centerCrop()Lcom/squareup/picasso/Request$Builder;
     .locals 1
 
-    .line 346
     const/16 v0, 0x11
 
+    .line 346
     invoke-virtual {p0, v0}, Lcom/squareup/picasso/Request$Builder;->centerCrop(I)Lcom/squareup/picasso/Request$Builder;
 
     move-result-object v0
@@ -391,34 +377,32 @@
 .end method
 
 .method public centerCrop(I)Lcom/squareup/picasso/Request$Builder;
-    .locals 2
-    .param p1, "alignGravity"    # I
+    .locals 1
 
     .line 355
     iget-boolean v0, p0, Lcom/squareup/picasso/Request$Builder;->centerInside:Z
 
     if-nez v0, :cond_0
 
-    .line 358
     const/4 v0, 0x1
 
+    .line 358
     iput-boolean v0, p0, Lcom/squareup/picasso/Request$Builder;->centerCrop:Z
 
     .line 359
     iput p1, p0, Lcom/squareup/picasso/Request$Builder;->centerCropGravity:I
 
-    .line 360
     return-object p0
 
     .line 356
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Center crop can not be used after calling centerInside"
+    const-string v0, "Center crop can not be used after calling centerInside"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public centerInside()Lcom/squareup/picasso/Request$Builder;
@@ -429,12 +413,11 @@
 
     if-nez v0, :cond_0
 
-    .line 378
     const/4 v0, 0x1
 
+    .line 378
     iput-boolean v0, p0, Lcom/squareup/picasso/Request$Builder;->centerInside:Z
 
-    .line 379
     return-object p0
 
     .line 376
@@ -451,50 +434,47 @@
 .method public clearCenterCrop()Lcom/squareup/picasso/Request$Builder;
     .locals 1
 
-    .line 365
     const/4 v0, 0x0
 
+    .line 365
     iput-boolean v0, p0, Lcom/squareup/picasso/Request$Builder;->centerCrop:Z
 
-    .line 366
     const/16 v0, 0x11
 
+    .line 366
     iput v0, p0, Lcom/squareup/picasso/Request$Builder;->centerCropGravity:I
 
-    .line 367
     return-object p0
 .end method
 
 .method public clearCenterInside()Lcom/squareup/picasso/Request$Builder;
     .locals 1
 
-    .line 384
     const/4 v0, 0x0
 
+    .line 384
     iput-boolean v0, p0, Lcom/squareup/picasso/Request$Builder;->centerInside:Z
 
-    .line 385
     return-object p0
 .end method
 
 .method public clearOnlyScaleDown()Lcom/squareup/picasso/Request$Builder;
     .locals 1
 
-    .line 402
     const/4 v0, 0x0
 
+    .line 402
     iput-boolean v0, p0, Lcom/squareup/picasso/Request$Builder;->onlyScaleDown:Z
 
-    .line 403
     return-object p0
 .end method
 
 .method public clearResize()Lcom/squareup/picasso/Request$Builder;
     .locals 1
 
-    .line 333
     const/4 v0, 0x0
 
+    .line 333
     iput v0, p0, Lcom/squareup/picasso/Request$Builder;->targetWidth:I
 
     .line 334
@@ -506,16 +486,15 @@
     .line 336
     iput-boolean v0, p0, Lcom/squareup/picasso/Request$Builder;->centerInside:Z
 
-    .line 337
     return-object p0
 .end method
 
 .method public clearRotation()Lcom/squareup/picasso/Request$Builder;
     .locals 1
 
-    .line 423
     const/4 v0, 0x0
 
+    .line 423
     iput v0, p0, Lcom/squareup/picasso/Request$Builder;->rotationDegrees:F
 
     .line 424
@@ -524,37 +503,33 @@
     .line 425
     iput v0, p0, Lcom/squareup/picasso/Request$Builder;->rotationPivotY:F
 
-    .line 426
     const/4 v0, 0x0
 
+    .line 426
     iput-boolean v0, p0, Lcom/squareup/picasso/Request$Builder;->hasRotationPivot:Z
 
-    .line 427
     return-object p0
 .end method
 
 .method public config(Landroid/graphics/Bitmap$Config;)Lcom/squareup/picasso/Request$Builder;
-    .locals 2
-    .param p1, "config"    # Landroid/graphics/Bitmap$Config;
+    .locals 1
 
-    .line 437
     if-eqz p1, :cond_0
 
     .line 440
     iput-object p1, p0, Lcom/squareup/picasso/Request$Builder;->config:Landroid/graphics/Bitmap$Config;
 
-    .line 441
     return-object p0
 
     .line 438
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "config == null"
+    const-string v0, "config == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method hasImage()Z
@@ -654,22 +629,19 @@
 
     throw v0
 
-    .line 396
     :cond_1
     :goto_0
     const/4 v0, 0x1
 
+    .line 396
     iput-boolean v0, p0, Lcom/squareup/picasso/Request$Builder;->onlyScaleDown:Z
 
-    .line 397
     return-object p0
 .end method
 
 .method public priority(Lcom/squareup/picasso/Picasso$Priority;)Lcom/squareup/picasso/Request$Builder;
-    .locals 2
-    .param p1, "priority"    # Lcom/squareup/picasso/Picasso$Priority;
+    .locals 1
 
-    .line 446
     if-eqz p1, :cond_1
 
     .line 449
@@ -680,54 +652,47 @@
     .line 452
     iput-object p1, p0, Lcom/squareup/picasso/Request$Builder;->priority:Lcom/squareup/picasso/Picasso$Priority;
 
-    .line 453
     return-object p0
 
     .line 450
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Priority already set."
+    const-string v0, "Priority already set."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 447
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Priority invalid."
+    const-string v0, "Priority invalid."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public purgeable()Lcom/squareup/picasso/Request$Builder;
     .locals 1
 
-    .line 431
     const/4 v0, 0x1
 
+    .line 431
     iput-boolean v0, p0, Lcom/squareup/picasso/Request$Builder;->purgeable:Z
 
-    .line 432
     return-object p0
 .end method
 
 .method public resize(II)Lcom/squareup/picasso/Request$Builder;
-    .locals 2
-    .param p1, "targetWidth"    # I
-    .param p2, "targetHeight"    # I
+    .locals 0
 
-    .line 317
     if-ltz p1, :cond_3
 
-    .line 320
     if-ltz p2, :cond_2
 
-    .line 323
     if-nez p2, :cond_1
 
     if-eqz p1, :cond_0
@@ -736,13 +701,13 @@
 
     .line 324
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "At least one dimension has to be positive number."
+    const-string p2, "At least one dimension has to be positive number."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 326
     :cond_1
@@ -752,46 +717,40 @@
     .line 327
     iput p2, p0, Lcom/squareup/picasso/Request$Builder;->targetHeight:I
 
-    .line 328
     return-object p0
 
     .line 321
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Height must be positive number or 0."
+    const-string p2, "Height must be positive number or 0."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 318
     :cond_3
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Width must be positive number or 0."
+    const-string p2, "Width must be positive number or 0."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public rotate(F)Lcom/squareup/picasso/Request$Builder;
     .locals 0
-    .param p1, "degrees"    # F
 
     .line 408
     iput p1, p0, Lcom/squareup/picasso/Request$Builder;->rotationDegrees:F
 
-    .line 409
     return-object p0
 .end method
 
 .method public rotate(FFF)Lcom/squareup/picasso/Request$Builder;
-    .locals 1
-    .param p1, "degrees"    # F
-    .param p2, "pivotX"    # F
-    .param p3, "pivotY"    # F
+    .locals 0
 
     .line 414
     iput p1, p0, Lcom/squareup/picasso/Request$Builder;->rotationDegrees:F
@@ -802,89 +761,78 @@
     .line 416
     iput p3, p0, Lcom/squareup/picasso/Request$Builder;->rotationPivotY:F
 
+    const/4 p1, 0x1
+
     .line 417
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/squareup/picasso/Request$Builder;->hasRotationPivot:Z
 
-    iput-boolean v0, p0, Lcom/squareup/picasso/Request$Builder;->hasRotationPivot:Z
-
-    .line 418
     return-object p0
 .end method
 
 .method public setResourceId(I)Lcom/squareup/picasso/Request$Builder;
-    .locals 2
-    .param p1, "resourceId"    # I
+    .locals 1
 
-    .line 295
     if-eqz p1, :cond_0
 
     .line 298
     iput p1, p0, Lcom/squareup/picasso/Request$Builder;->resourceId:I
 
+    const/4 p1, 0x0
+
     .line 299
-    const/4 v0, 0x0
+    iput-object p1, p0, Lcom/squareup/picasso/Request$Builder;->uri:Landroid/net/Uri;
 
-    iput-object v0, p0, Lcom/squareup/picasso/Request$Builder;->uri:Landroid/net/Uri;
-
-    .line 300
     return-object p0
 
     .line 296
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Image resource ID may not be 0."
+    const-string v0, "Image resource ID may not be 0."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setUri(Landroid/net/Uri;)Lcom/squareup/picasso/Request$Builder;
-    .locals 2
-    .param p1, "uri"    # Landroid/net/Uri;
+    .locals 1
 
-    .line 281
     if-eqz p1, :cond_0
 
     .line 284
     iput-object p1, p0, Lcom/squareup/picasso/Request$Builder;->uri:Landroid/net/Uri;
 
+    const/4 p1, 0x0
+
     .line 285
-    const/4 v0, 0x0
+    iput p1, p0, Lcom/squareup/picasso/Request$Builder;->resourceId:I
 
-    iput v0, p0, Lcom/squareup/picasso/Request$Builder;->resourceId:I
-
-    .line 286
     return-object p0
 
     .line 282
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Image URI may not be null."
+    const-string v0, "Image URI may not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public stableKey(Ljava/lang/String;)Lcom/squareup/picasso/Request$Builder;
     .locals 0
-    .param p1, "stableKey"    # Ljava/lang/String;
 
     .line 308
     iput-object p1, p0, Lcom/squareup/picasso/Request$Builder;->stableKey:Ljava/lang/String;
 
-    .line 309
     return-object p0
 .end method
 
 .method public transform(Lcom/squareup/picasso/Transformation;)Lcom/squareup/picasso/Request$Builder;
     .locals 2
-    .param p1, "transformation"    # Lcom/squareup/picasso/Transformation;
 
-    .line 462
     if-eqz p1, :cond_2
 
     .line 465
@@ -914,28 +862,27 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 472
     return-object p0
 
     .line 466
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Transformation key must not be null."
+    const-string v0, "Transformation key must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 463
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Transformation must not be null."
+    const-string v0, "Transformation must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public transform(Ljava/util/List;)Lcom/squareup/picasso/Request$Builder;
@@ -951,24 +898,20 @@
         }
     .end annotation
 
-    .line 481
-    .local p1, "transformations":Ljava/util/List;, "Ljava/util/List<+Lcom/squareup/picasso/Transformation;>;"
     if-eqz p1, :cond_1
 
     .line 484
-    const/4 v0, 0x0
-
-    .local v0, "i":I
     invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v1
+    move-result v0
 
-    .local v1, "size":I
+    const/4 v1, 0x0
+
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge v1, v0, :cond_0
 
     .line 485
-    invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -976,24 +919,20 @@
 
     invoke-virtual {p0, v2}, Lcom/squareup/picasso/Request$Builder;->transform(Lcom/squareup/picasso/Transformation;)Lcom/squareup/picasso/Request$Builder;
 
-    .line 484
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 487
-    .end local v0    # "i":I
-    .end local v1    # "size":I
     :cond_0
     return-object p0
 
     .line 482
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Transformation list must not be null."
+    const-string v0, "Transformation list must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

@@ -37,7 +37,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/camera2/internal/MeteringRepeatingSession;Landroid/view/Surface;Landroid/graphics/SurfaceTexture;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/camera2/internal/MeteringRepeatingSession;
 
     .line 67
     iput-object p1, p0, Landroidx/camera/camera2/internal/MeteringRepeatingSession$1;->this$0:Landroidx/camera/camera2/internal/MeteringRepeatingSession;
@@ -55,7 +54,6 @@
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 76
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -79,19 +77,17 @@
 .end method
 
 .method public onSuccess(Ljava/lang/Void;)V
-    .locals 1
-    .param p1, "result"    # Ljava/lang/Void;
+    .locals 0
 
     .line 70
-    iget-object v0, p0, Landroidx/camera/camera2/internal/MeteringRepeatingSession$1;->val$surface:Landroid/view/Surface;
+    iget-object p1, p0, Landroidx/camera/camera2/internal/MeteringRepeatingSession$1;->val$surface:Landroid/view/Surface;
 
-    invoke-virtual {v0}, Landroid/view/Surface;->release()V
+    invoke-virtual {p1}, Landroid/view/Surface;->release()V
 
     .line 71
-    iget-object v0, p0, Landroidx/camera/camera2/internal/MeteringRepeatingSession$1;->val$surfaceTexture:Landroid/graphics/SurfaceTexture;
+    iget-object p1, p0, Landroidx/camera/camera2/internal/MeteringRepeatingSession$1;->val$surfaceTexture:Landroid/graphics/SurfaceTexture;
 
-    invoke-virtual {v0}, Landroid/graphics/SurfaceTexture;->release()V
+    invoke-virtual {p1}, Landroid/graphics/SurfaceTexture;->release()V
 
-    .line 72
     return-void
 .end method

@@ -25,9 +25,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/util/Map;)V
-    .locals 1
-    .param p1, "index"    # I
-    .param p2, "indexMap"    # Ljava/util/Map;
+    .locals 0
 
     .line 465
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,23 +34,19 @@
     iput-object p2, p0, Lcom/thoughtworks/xstream/converters/reflection/CGLIBEnhancedConverter$ReverseEngineeringInvocationHandler;->indexMap:Ljava/util/Map;
 
     .line 467
-    new-instance v0, Ljava/lang/Integer;
+    new-instance p2, Ljava/lang/Integer;
 
-    invoke-direct {v0, p1}, Ljava/lang/Integer;-><init>(I)V
+    invoke-direct {p2, p1}, Ljava/lang/Integer;-><init>(I)V
 
-    iput-object v0, p0, Lcom/thoughtworks/xstream/converters/reflection/CGLIBEnhancedConverter$ReverseEngineeringInvocationHandler;->index:Ljava/lang/Integer;
+    iput-object p2, p0, Lcom/thoughtworks/xstream/converters/reflection/CGLIBEnhancedConverter$ReverseEngineeringInvocationHandler;->index:Ljava/lang/Integer;
 
-    .line 468
     return-void
 .end method
 
 
 # virtual methods
 .method public invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
-    .param p1, "proxy"    # Ljava/lang/Object;
-    .param p2, "method"    # Ljava/lang/reflect/Method;
-    .param p3, "args"    # [Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -60,18 +54,17 @@
     .end annotation
 
     .line 471
-    iget-object v0, p0, Lcom/thoughtworks/xstream/converters/reflection/CGLIBEnhancedConverter$ReverseEngineeringInvocationHandler;->indexMap:Ljava/util/Map;
+    iget-object p1, p0, Lcom/thoughtworks/xstream/converters/reflection/CGLIBEnhancedConverter$ReverseEngineeringInvocationHandler;->indexMap:Ljava/util/Map;
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, p2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p3
 
-    iget-object v3, p0, Lcom/thoughtworks/xstream/converters/reflection/CGLIBEnhancedConverter$ReverseEngineeringInvocationHandler;->index:Ljava/lang/Integer;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/converters/reflection/CGLIBEnhancedConverter$ReverseEngineeringInvocationHandler;->index:Ljava/lang/Integer;
 
-    invoke-interface {v0, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, p3, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 472
-    return-object v1
+    return-object p2
 .end method

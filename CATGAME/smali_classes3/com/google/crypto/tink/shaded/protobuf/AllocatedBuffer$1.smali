@@ -74,7 +74,6 @@
 .method public hasNioBuffer()Z
     .locals 1
 
-    .line 160
     const/4 v0, 0x1
 
     return v0
@@ -117,14 +116,12 @@
 
 .method public position(I)Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
     .locals 1
-    .param p1, "position"    # I
 
     .line 190
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer$1;->val$buffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v0, p1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
-    .line 191
     return-object p0
 .end method
 

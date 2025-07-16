@@ -37,11 +37,8 @@
     .end annotation
 
     .line 777
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectMap$Values;, "Lcom/badlogic/gdx/utils/ObjectMap$Values<TV;>;"
-    .local p1, "map":Lcom/badlogic/gdx/utils/ObjectMap;, "Lcom/badlogic/gdx/utils/ObjectMap<*TV;>;"
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/ObjectMap$MapIterator;-><init>(Lcom/badlogic/gdx/utils/ObjectMap;)V
 
-    .line 778
     return-void
 .end method
 
@@ -51,7 +48,6 @@
     .locals 2
 
     .line 781
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectMap$Values;, "Lcom/badlogic/gdx/utils/ObjectMap$Values<TV;>;"
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/ObjectMap$Values;->valid:Z
 
     if-eqz v0, :cond_0
@@ -82,8 +78,6 @@
         }
     .end annotation
 
-    .line 795
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectMap$Values;, "Lcom/badlogic/gdx/utils/ObjectMap$Values<TV;>;"
     return-object p0
 .end method
 
@@ -91,7 +85,6 @@
     .locals 1
 
     .line 775
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectMap$Values;, "Lcom/badlogic/gdx/utils/ObjectMap$Values<TV;>;"
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/ObjectMap$Values;->iterator()Lcom/badlogic/gdx/utils/ObjectMap$Values;
 
     move-result-object v0
@@ -108,7 +101,6 @@
     .end annotation
 
     .line 786
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectMap$Values;, "Lcom/badlogic/gdx/utils/ObjectMap$Values<TV;>;"
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/ObjectMap$Values;->hasNext:Z
 
     if-eqz v0, :cond_1
@@ -128,7 +120,6 @@
     aget-object v0, v0, v1
 
     .line 789
-    .local v0, "value":Ljava/lang/Object;, "TV;"
     iget v1, p0, Lcom/badlogic/gdx/utils/ObjectMap$Values;->nextIndex:I
 
     iput v1, p0, Lcom/badlogic/gdx/utils/ObjectMap$Values;->currentIndex:I
@@ -136,11 +127,9 @@
     .line 790
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/ObjectMap$Values;->findNextIndex()V
 
-    .line 791
     return-object v0
 
     .line 787
-    .end local v0    # "value":Ljava/lang/Object;, "TV;"
     :cond_0
     new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
@@ -163,7 +152,6 @@
     .locals 0
 
     .line 775
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectMap$Values;, "Lcom/badlogic/gdx/utils/ObjectMap$Values<TV;>;"
     invoke-super {p0}, Lcom/badlogic/gdx/utils/ObjectMap$MapIterator;->remove()V
 
     return-void
@@ -173,7 +161,6 @@
     .locals 0
 
     .line 775
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectMap$Values;, "Lcom/badlogic/gdx/utils/ObjectMap$Values<TV;>;"
     invoke-super {p0}, Lcom/badlogic/gdx/utils/ObjectMap$MapIterator;->reset()V
 
     return-void
@@ -190,7 +177,6 @@
     .end annotation
 
     .line 800
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectMap$Values;, "Lcom/badlogic/gdx/utils/ObjectMap$Values<TV;>;"
     new-instance v0, Lcom/badlogic/gdx/utils/Array;
 
     iget-object v1, p0, Lcom/badlogic/gdx/utils/ObjectMap$Values;->map:Lcom/badlogic/gdx/utils/ObjectMap;
@@ -221,8 +207,6 @@
     .end annotation
 
     .line 805
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectMap$Values;, "Lcom/badlogic/gdx/utils/ObjectMap$Values<TV;>;"
-    .local p1, "array":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<TV;>;"
     :goto_0
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/ObjectMap$Values;->hasNext:Z
 
@@ -237,7 +221,6 @@
 
     goto :goto_0
 
-    .line 807
     :cond_0
     return-object p1
 .end method

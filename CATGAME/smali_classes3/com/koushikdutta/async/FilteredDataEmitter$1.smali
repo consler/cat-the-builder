@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/FilteredDataEmitter;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/FilteredDataEmitter;
 
     .line 21
     iput-object p1, p0, Lcom/koushikdutta/async/FilteredDataEmitter$1;->this$0:Lcom/koushikdutta/async/FilteredDataEmitter;
@@ -38,13 +37,11 @@
 # virtual methods
 .method public onCompleted(Ljava/lang/Exception;)V
     .locals 1
-    .param p1, "ex"    # Ljava/lang/Exception;
 
     .line 24
     iget-object v0, p0, Lcom/koushikdutta/async/FilteredDataEmitter$1;->this$0:Lcom/koushikdutta/async/FilteredDataEmitter;
 
     invoke-virtual {v0, p1}, Lcom/koushikdutta/async/FilteredDataEmitter;->report(Ljava/lang/Exception;)V
 
-    .line 25
     return-void
 .end method

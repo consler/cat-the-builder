@@ -23,8 +23,6 @@
 # direct methods
 .method protected constructor <init>(Lcom/nostra13/universalimageloader/core/assist/ImageSize;Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ExifInfo;)V
     .locals 0
-    .param p1, "imageSize"    # Lcom/nostra13/universalimageloader/core/assist/ImageSize;
-    .param p2, "exif"    # Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ExifInfo;
 
     .line 247
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,6 +33,5 @@
     .line 249
     iput-object p2, p0, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ImageFileInfo;->exif:Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ExifInfo;
 
-    .line 250
     return-void
 .end method

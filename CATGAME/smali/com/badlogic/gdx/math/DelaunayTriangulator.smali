@@ -77,11 +77,11 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/math/DelaunayTriangulator;->complete:Lcom/badlogic/gdx/utils/BooleanArray;
 
-    .line 38
     const/4 v0, 0x6
 
     new-array v0, v0, [F
 
+    .line 38
     iput-object v0, p0, Lcom/badlogic/gdx/math/DelaunayTriangulator;->superTriangle:[F
 
     .line 39
@@ -95,430 +95,312 @@
 .end method
 
 .method private circumCircle(FFFFFFFF)I
-    .locals 12
-    .param p1, "xp"    # F
-    .param p2, "yp"    # F
-    .param p3, "x1"    # F
-    .param p4, "y1"    # F
-    .param p5, "x2"    # F
-    .param p6, "y2"    # F
-    .param p7, "x3"    # F
-    .param p8, "y3"    # F
+    .locals 6
 
-    .line 223
     sub-float v0, p4, p6
 
+    .line 223
     invoke-static {v0}, Ljava/lang/Math;->abs(F)F
 
     move-result v0
 
-    .line 224
-    .local v0, "y1y2":F
     sub-float v1, p6, p8
 
+    .line 224
     invoke-static {v1}, Ljava/lang/Math;->abs(F)F
 
     move-result v1
 
-    .line 225
-    .local v1, "y2y3":F
     const v2, 0x358637bd    # 1.0E-6f
 
-    cmpg-float v3, v0, v2
+    cmpg-float v0, v0, v2
 
-    const/4 v4, 0x2
+    const/4 v3, 0x2
 
-    const/high16 v5, 0x40000000    # 2.0f
+    const/high16 v4, 0x40000000    # 2.0f
 
-    if-gez v3, :cond_1
+    if-gez v0, :cond_1
 
-    .line 226
-    cmpg-float v3, v1, v2
+    cmpg-float p4, v1, v2
 
-    if-gez v3, :cond_0
+    if-gez p4, :cond_0
 
-    return v4
+    return v3
 
-    .line 227
     :cond_0
-    sub-float v3, p7, p5
+    sub-float p4, p7, p5
 
-    neg-float v3, v3
+    neg-float p4, p4
 
-    sub-float v6, p8, p6
+    sub-float v0, p8, p6
 
-    div-float/2addr v3, v6
+    div-float/2addr p4, v0
 
-    .line 228
-    .local v3, "m2":F
-    add-float v6, p5, p7
+    add-float/2addr p7, p5
 
-    div-float/2addr v6, v5
+    div-float/2addr p7, v4
 
-    .line 229
-    .local v6, "mx2":F
-    add-float v7, p6, p8
+    add-float/2addr p8, p6
 
-    div-float/2addr v7, v5
+    div-float/2addr p8, v4
 
-    .line 230
-    .local v7, "my2":F
-    add-float v8, p5, p3
+    add-float/2addr p3, p5
 
-    div-float/2addr v8, v5
+    div-float/2addr p3, v4
 
-    .line 231
-    .local v8, "xc":F
-    sub-float v5, v8, v6
+    sub-float p7, p3, p7
 
-    mul-float/2addr v5, v3
+    mul-float/2addr p4, p7
 
-    add-float/2addr v5, v7
+    add-float/2addr p4, p8
 
-    .line 232
-    .end local v3    # "m2":F
-    .end local v6    # "mx2":F
-    .end local v7    # "my2":F
-    .local v5, "yc":F
-    goto :goto_0
+    goto :goto_1
 
-    .line 233
-    .end local v5    # "yc":F
-    .end local v8    # "xc":F
     :cond_1
-    sub-float v3, p5, p3
+    sub-float v0, p5, p3
 
-    neg-float v3, v3
+    neg-float v0, v0
 
-    sub-float v6, p6, p4
+    sub-float v5, p6, p4
 
-    div-float/2addr v3, v6
+    div-float/2addr v0, v5
 
-    .line 234
-    .local v3, "m1":F
-    add-float v6, p3, p5
+    add-float/2addr p3, p5
 
-    div-float/2addr v6, v5
+    div-float/2addr p3, v4
 
-    .line 235
-    .local v6, "mx1":F
-    add-float v7, p4, p6
+    add-float/2addr p4, p6
 
-    div-float/2addr v7, v5
+    div-float/2addr p4, v4
 
-    .line 236
-    .local v7, "my1":F
-    cmpg-float v8, v1, v2
+    cmpg-float v1, v1, v2
 
-    if-gez v8, :cond_2
+    if-gez v1, :cond_2
 
-    .line 237
-    add-float v8, p7, p5
+    add-float/2addr p7, p5
 
-    div-float/2addr v8, v5
+    div-float/2addr p7, v4
 
-    .line 238
-    .restart local v8    # "xc":F
-    sub-float v5, v8, v6
-
-    mul-float/2addr v5, v3
-
-    add-float/2addr v5, v7
-
-    .restart local v5    # "yc":F
     goto :goto_0
 
-    .line 240
-    .end local v5    # "yc":F
-    .end local v8    # "xc":F
     :cond_2
-    sub-float v8, p7, p5
+    sub-float v1, p7, p5
 
-    neg-float v8, v8
+    neg-float v1, v1
 
-    sub-float v9, p8, p6
+    sub-float v5, p8, p6
 
-    div-float/2addr v8, v9
+    div-float/2addr v1, v5
 
-    .line 241
-    .local v8, "m2":F
-    add-float v9, p5, p7
+    add-float/2addr p7, p5
 
-    div-float/2addr v9, v5
+    div-float/2addr p7, v4
 
-    .line 242
-    .local v9, "mx2":F
-    add-float v10, p6, p8
+    add-float/2addr p8, p6
 
-    div-float/2addr v10, v5
+    div-float/2addr p8, v4
 
-    .line 243
-    .local v10, "my2":F
-    mul-float v5, v3, v6
+    mul-float v4, v0, p3
 
-    mul-float v11, v8, v9
+    mul-float/2addr p7, v1
 
-    sub-float/2addr v5, v11
+    sub-float/2addr v4, p7
 
-    add-float/2addr v5, v10
+    add-float/2addr v4, p8
 
-    sub-float/2addr v5, v7
+    sub-float/2addr v4, p4
 
-    sub-float v11, v3, v8
+    sub-float p7, v0, v1
 
-    div-float/2addr v5, v11
+    div-float p7, v4, p7
 
-    .line 244
-    .local v5, "xc":F
-    sub-float v11, v5, v6
-
-    mul-float/2addr v11, v3
-
-    add-float/2addr v11, v7
-
-    move v8, v5
-
-    move v5, v11
-
-    .line 248
-    .end local v3    # "m1":F
-    .end local v6    # "mx1":F
-    .end local v7    # "my1":F
-    .end local v9    # "mx2":F
-    .end local v10    # "my2":F
-    .local v5, "yc":F
-    .local v8, "xc":F
     :goto_0
-    sub-float v3, p5, v8
+    sub-float p3, p7, p3
 
-    .line 249
-    .local v3, "dx":F
-    sub-float v6, p6, v5
+    mul-float/2addr v0, p3
 
-    .line 250
-    .local v6, "dy":F
-    mul-float v7, v3, v3
+    add-float/2addr p4, v0
 
-    mul-float v9, v6, v6
+    move p3, p7
 
-    add-float/2addr v7, v9
+    :goto_1
+    sub-float/2addr p5, p3
 
-    .line 252
-    .local v7, "rsqr":F
-    sub-float v3, p1, v8
+    sub-float/2addr p6, p4
 
-    .line 253
-    mul-float/2addr v3, v3
+    mul-float/2addr p5, p5
 
-    .line 254
-    sub-float v6, p2, v5
+    mul-float/2addr p6, p6
 
-    .line 255
-    mul-float v9, v6, v6
+    add-float/2addr p5, p6
 
-    add-float/2addr v9, v3
+    sub-float p6, p1, p3
 
-    sub-float/2addr v9, v7
+    mul-float/2addr p6, p6
 
-    cmpg-float v2, v9, v2
+    sub-float/2addr p2, p4
 
-    if-gtz v2, :cond_3
+    mul-float/2addr p2, p2
 
-    const/4 v2, 0x0
+    add-float/2addr p2, p6
 
-    return v2
+    sub-float/2addr p2, p5
 
-    .line 256
+    cmpg-float p2, p2, v2
+
+    if-gtz p2, :cond_3
+
+    const/4 p1, 0x0
+
+    return p1
+
     :cond_3
-    cmpl-float v2, p1, v8
+    cmpl-float p1, p1, p3
 
-    if-lez v2, :cond_4
+    if-lez p1, :cond_4
 
-    cmpl-float v2, v3, v7
+    cmpl-float p1, p6, p5
 
-    if-lez v2, :cond_4
+    if-lez p1, :cond_4
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
     :cond_4
-    return v4
+    return v3
 .end method
 
 .method private quicksortPartition([FII[S)I
-    .locals 7
-    .param p1, "values"    # [F
-    .param p2, "lower"    # I
-    .param p3, "upper"    # I
-    .param p4, "originalIndices"    # [S
+    .locals 6
 
     .line 293
     aget v0, p1, p2
 
-    .line 294
-    .local v0, "value":F
-    move v1, p3
+    add-int/lit8 v1, p2, 0x2
 
-    .line 295
-    .local v1, "up":I
-    add-int/lit8 v2, p2, 0x2
-
-    .line 298
-    .local v2, "down":I
     :cond_0
     :goto_0
-    if-ge v2, v1, :cond_3
+    if-ge v1, p3, :cond_3
+
+    :goto_1
+    if-ge v1, p3, :cond_1
 
     .line 299
-    :goto_1
-    if-ge v2, v1, :cond_1
+    aget v2, p1, v1
 
-    aget v3, p1, v2
+    cmpg-float v2, v2, v0
 
-    cmpg-float v3, v3, v0
+    if-gtz v2, :cond_1
 
-    if-gtz v3, :cond_1
-
-    .line 300
-    add-int/lit8 v2, v2, 0x2
+    add-int/lit8 v1, v1, 0x2
 
     goto :goto_1
 
     .line 301
     :cond_1
     :goto_2
-    aget v3, p1, v1
+    aget v2, p1, p3
 
-    cmpl-float v3, v3, v0
+    cmpl-float v3, v2, v0
 
     if-lez v3, :cond_2
 
-    .line 302
-    add-int/lit8 v1, v1, -0x2
+    add-int/lit8 p3, p3, -0x2
 
     goto :goto_2
 
-    .line 303
     :cond_2
-    if-ge v2, v1, :cond_0
+    if-ge v1, p3, :cond_0
 
     .line 304
-    aget v3, p1, v2
+    aget v3, p1, v1
 
     .line 305
-    .local v3, "tempValue":F
-    aget v4, p1, v1
-
-    aput v4, p1, v2
+    aput v2, p1, v1
 
     .line 306
-    aput v3, p1, v1
+    aput v3, p1, p3
+
+    add-int/lit8 v2, v1, 0x1
 
     .line 308
-    add-int/lit8 v4, v2, 0x1
+    aget v3, p1, v2
 
-    aget v3, p1, v4
+    add-int/lit8 v4, p3, 0x1
 
     .line 309
-    add-int/lit8 v4, v2, 0x1
+    aget v5, p1, v4
 
-    add-int/lit8 v5, v1, 0x1
-
-    aget v5, p1, v5
-
-    aput v5, p1, v4
+    aput v5, p1, v2
 
     .line 310
-    add-int/lit8 v4, v1, 0x1
-
     aput v3, p1, v4
 
     .line 312
-    div-int/lit8 v4, v2, 0x2
+    div-int/lit8 v2, v1, 0x2
 
-    aget-short v4, p4, v4
+    aget-short v3, p4, v2
 
     .line 313
-    .local v4, "tempIndex":S
-    div-int/lit8 v5, v2, 0x2
+    div-int/lit8 v4, p3, 0x2
 
-    div-int/lit8 v6, v1, 0x2
+    aget-short v5, p4, v4
 
-    aget-short v6, p4, v6
-
-    aput-short v6, p4, v5
+    aput-short v5, p4, v2
 
     .line 314
-    div-int/lit8 v5, v1, 0x2
-
-    aput-short v4, p4, v5
+    aput-short v3, p4, v4
 
     goto :goto_0
 
     .line 317
-    .end local v3    # "tempValue":F
-    .end local v4    # "tempIndex":S
     :cond_3
-    aget v3, p1, v1
+    aget v1, p1, p3
 
-    aput v3, p1, p2
+    aput v1, p1, p2
 
     .line 318
-    aput v0, p1, v1
+    aput v0, p1, p3
+
+    add-int/lit8 v0, p2, 0x1
 
     .line 320
-    add-int/lit8 v3, p2, 0x1
+    aget v1, p1, v0
 
-    aget v3, p1, v3
+    add-int/lit8 v2, p3, 0x1
 
     .line 321
-    .restart local v3    # "tempValue":F
-    add-int/lit8 v4, p2, 0x1
+    aget v3, p1, v2
 
-    add-int/lit8 v5, v1, 0x1
-
-    aget v5, p1, v5
-
-    aput v5, p1, v4
+    aput v3, p1, v0
 
     .line 322
-    add-int/lit8 v4, v1, 0x1
-
-    aput v3, p1, v4
+    aput v1, p1, v2
 
     .line 324
-    div-int/lit8 v4, p2, 0x2
+    div-int/lit8 p2, p2, 0x2
 
-    aget-short v4, p4, v4
+    aget-short p1, p4, p2
 
     .line 325
-    .restart local v4    # "tempIndex":S
-    div-int/lit8 v5, p2, 0x2
+    div-int/lit8 v0, p3, 0x2
 
-    div-int/lit8 v6, v1, 0x2
+    aget-short v1, p4, v0
 
-    aget-short v6, p4, v6
-
-    aput-short v6, p4, v5
+    aput-short v1, p4, p2
 
     .line 326
-    div-int/lit8 v5, v1, 0x2
+    aput-short p1, p4, v0
 
-    aput-short v4, p4, v5
-
-    .line 327
-    return v1
+    return p3
 .end method
 
 .method private sort([FI)V
-    .locals 8
-    .param p1, "values"    # [F
-    .param p2, "count"    # I
+    .locals 7
 
     .line 262
     div-int/lit8 v0, p2, 0x2
 
     .line 263
-    .local v0, "pointCount":I
     iget-object v1, p0, Lcom/badlogic/gdx/math/DelaunayTriangulator;->originalIndices:Lcom/badlogic/gdx/utils/ShortArray;
 
     invoke-virtual {v1}, Lcom/badlogic/gdx/utils/ShortArray;->clear()V
@@ -533,119 +415,98 @@
 
     iget-object v1, v1, Lcom/badlogic/gdx/utils/ShortArray;->items:[S
 
-    .line 266
-    .local v1, "originalIndicesArray":[S
     const/4 v2, 0x0
 
-    .local v2, "i":S
+    move v3, v2
+
     :goto_0
-    if-ge v2, v0, :cond_0
+    if-ge v3, v0, :cond_0
 
     .line 267
-    aput-short v2, v1, v2
+    aput-short v3, v1, v3
 
-    .line 266
-    add-int/lit8 v3, v2, 0x1
+    add-int/lit8 v3, v3, 0x1
 
-    int-to-short v2, v3
+    int-to-short v3, v3
 
     goto :goto_0
 
-    .line 269
-    .end local v2    # "i":S
     :cond_0
-    const/4 v2, 0x0
-
-    .line 270
-    .local v2, "lower":I
-    add-int/lit8 v3, p2, -0x1
+    add-int/lit8 p2, p2, -0x1
 
     .line 271
-    .local v3, "upper":I
-    iget-object v4, p0, Lcom/badlogic/gdx/math/DelaunayTriangulator;->quicksortStack:Lcom/badlogic/gdx/utils/IntArray;
+    iget-object v0, p0, Lcom/badlogic/gdx/math/DelaunayTriangulator;->quicksortStack:Lcom/badlogic/gdx/utils/IntArray;
 
     .line 272
-    .local v4, "stack":Lcom/badlogic/gdx/utils/IntArray;
-    invoke-virtual {v4, v2}, Lcom/badlogic/gdx/utils/IntArray;->add(I)V
+    invoke-virtual {v0, v2}, Lcom/badlogic/gdx/utils/IntArray;->add(I)V
+
+    add-int/lit8 p2, p2, -0x1
 
     .line 273
-    add-int/lit8 v5, v3, -0x1
-
-    invoke-virtual {v4, v5}, Lcom/badlogic/gdx/utils/IntArray;->add(I)V
+    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/utils/IntArray;->add(I)V
 
     .line 274
+    :cond_1
     :goto_1
-    iget v5, v4, Lcom/badlogic/gdx/utils/IntArray;->size:I
+    iget p2, v0, Lcom/badlogic/gdx/utils/IntArray;->size:I
 
-    if-lez v5, :cond_4
+    if-lez p2, :cond_4
 
     .line 275
-    invoke-virtual {v4}, Lcom/badlogic/gdx/utils/IntArray;->pop()I
+    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/IntArray;->pop()I
 
-    move-result v3
+    move-result p2
 
     .line 276
-    invoke-virtual {v4}, Lcom/badlogic/gdx/utils/IntArray;->pop()I
+    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/IntArray;->pop()I
 
     move-result v2
 
-    .line 277
-    if-gt v3, v2, :cond_1
+    if-gt p2, v2, :cond_2
 
     goto :goto_1
 
     .line 278
-    :cond_1
-    invoke-direct {p0, p1, v2, v3, v1}, Lcom/badlogic/gdx/math/DelaunayTriangulator;->quicksortPartition([FII[S)I
+    :cond_2
+    invoke-direct {p0, p1, v2, p2, v1}, Lcom/badlogic/gdx/math/DelaunayTriangulator;->quicksortPartition([FII[S)I
 
-    move-result v5
+    move-result v3
 
-    .line 279
-    .local v5, "i":I
-    sub-int v6, v5, v2
+    sub-int v4, v3, v2
 
-    sub-int v7, v3, v5
+    sub-int v5, p2, v3
 
-    if-le v6, v7, :cond_2
+    if-le v4, v5, :cond_3
 
     .line 280
-    invoke-virtual {v4, v2}, Lcom/badlogic/gdx/utils/IntArray;->add(I)V
+    invoke-virtual {v0, v2}, Lcom/badlogic/gdx/utils/IntArray;->add(I)V
+
+    add-int/lit8 v6, v3, -0x2
 
     .line 281
-    add-int/lit8 v6, v5, -0x2
+    invoke-virtual {v0, v6}, Lcom/badlogic/gdx/utils/IntArray;->add(I)V
 
-    invoke-virtual {v4, v6}, Lcom/badlogic/gdx/utils/IntArray;->add(I)V
+    :cond_3
+    add-int/lit8 v6, v3, 0x2
 
     .line 283
-    :cond_2
-    add-int/lit8 v6, v5, 0x2
-
-    invoke-virtual {v4, v6}, Lcom/badlogic/gdx/utils/IntArray;->add(I)V
+    invoke-virtual {v0, v6}, Lcom/badlogic/gdx/utils/IntArray;->add(I)V
 
     .line 284
-    invoke-virtual {v4, v3}, Lcom/badlogic/gdx/utils/IntArray;->add(I)V
+    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/utils/IntArray;->add(I)V
 
-    .line 285
-    sub-int v6, v3, v5
-
-    sub-int v7, v5, v2
-
-    if-lt v6, v7, :cond_3
+    if-lt v5, v4, :cond_1
 
     .line 286
-    invoke-virtual {v4, v2}, Lcom/badlogic/gdx/utils/IntArray;->add(I)V
+    invoke-virtual {v0, v2}, Lcom/badlogic/gdx/utils/IntArray;->add(I)V
+
+    add-int/lit8 v3, v3, -0x2
 
     .line 287
-    add-int/lit8 v6, v5, -0x2
+    invoke-virtual {v0, v3}, Lcom/badlogic/gdx/utils/IntArray;->add(I)V
 
-    invoke-virtual {v4, v6}, Lcom/badlogic/gdx/utils/IntArray;->add(I)V
-
-    .line 289
-    .end local v5    # "i":I
-    :cond_3
     goto :goto_1
 
-    .line 290
     :cond_4
     return-void
 .end method
@@ -653,840 +514,620 @@
 
 # virtual methods
 .method public computeTriangles(Lcom/badlogic/gdx/utils/FloatArray;Z)Lcom/badlogic/gdx/utils/ShortArray;
-    .locals 3
-    .param p1, "points"    # Lcom/badlogic/gdx/utils/FloatArray;
-    .param p2, "sorted"    # Z
+    .locals 2
 
     .line 43
     iget-object v0, p1, Lcom/badlogic/gdx/utils/FloatArray;->items:[F
 
-    iget v1, p1, Lcom/badlogic/gdx/utils/FloatArray;->size:I
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    iget p1, p1, Lcom/badlogic/gdx/utils/FloatArray;->size:I
 
-    invoke-virtual {p0, v0, v2, v1, p2}, Lcom/badlogic/gdx/math/DelaunayTriangulator;->computeTriangles([FIIZ)Lcom/badlogic/gdx/utils/ShortArray;
+    invoke-virtual {p0, v0, v1, p1, p2}, Lcom/badlogic/gdx/math/DelaunayTriangulator;->computeTriangles([FIIZ)Lcom/badlogic/gdx/utils/ShortArray;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public computeTriangles([FIIZ)Lcom/badlogic/gdx/utils/ShortArray;
-    .locals 41
-    .param p1, "points"    # [F
-    .param p2, "offset"    # I
-    .param p3, "count"    # I
-    .param p4, "sorted"    # Z
+    .locals 31
 
-    .line 59
     move-object/from16 v9, p0
 
-    move/from16 v10, p3
+    move/from16 v0, p3
 
-    const/16 v0, 0x7fff
+    const/16 v1, 0x7fff
 
-    if-gt v10, v0, :cond_1f
+    if-gt v0, v1, :cond_1d
 
     .line 60
-    iget-object v11, v9, Lcom/badlogic/gdx/math/DelaunayTriangulator;->triangles:Lcom/badlogic/gdx/utils/ShortArray;
+    iget-object v10, v9, Lcom/badlogic/gdx/math/DelaunayTriangulator;->triangles:Lcom/badlogic/gdx/utils/ShortArray;
 
     .line 61
-    .local v11, "triangles":Lcom/badlogic/gdx/utils/ShortArray;
-    invoke-virtual {v11}, Lcom/badlogic/gdx/utils/ShortArray;->clear()V
+    invoke-virtual {v10}, Lcom/badlogic/gdx/utils/ShortArray;->clear()V
 
-    .line 62
-    const/4 v0, 0x6
+    const/4 v1, 0x6
 
-    if-ge v10, v0, :cond_0
+    if-ge v0, v1, :cond_0
 
-    return-object v11
+    return-object v10
 
     .line 63
     :cond_0
-    invoke-virtual {v11, v10}, Lcom/badlogic/gdx/utils/ShortArray;->ensureCapacity(I)[S
+    invoke-virtual {v10, v0}, Lcom/badlogic/gdx/utils/ShortArray;->ensureCapacity(I)[S
 
-    .line 65
-    const/4 v12, 0x0
+    const/4 v11, 0x0
 
     if-nez p4, :cond_3
 
     .line 66
-    iget-object v0, v9, Lcom/badlogic/gdx/math/DelaunayTriangulator;->sortedPoints:[F
+    iget-object v1, v9, Lcom/badlogic/gdx/math/DelaunayTriangulator;->sortedPoints:[F
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
-    array-length v0, v0
+    array-length v1, v1
 
-    if-ge v0, v10, :cond_2
+    if-ge v1, v0, :cond_2
 
     :cond_1
-    new-array v0, v10, [F
+    new-array v1, v0, [F
 
-    iput-object v0, v9, Lcom/badlogic/gdx/math/DelaunayTriangulator;->sortedPoints:[F
+    iput-object v1, v9, Lcom/badlogic/gdx/math/DelaunayTriangulator;->sortedPoints:[F
 
     .line 67
     :cond_2
-    iget-object v0, v9, Lcom/badlogic/gdx/math/DelaunayTriangulator;->sortedPoints:[F
+    iget-object v1, v9, Lcom/badlogic/gdx/math/DelaunayTriangulator;->sortedPoints:[F
 
-    move-object/from16 v1, p1
+    move-object/from16 v2, p1
 
-    move/from16 v2, p2
+    move/from16 v3, p2
 
-    invoke-static {v1, v2, v0, v12, v10}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v2, v3, v1, v11, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 68
-    iget-object v0, v9, Lcom/badlogic/gdx/math/DelaunayTriangulator;->sortedPoints:[F
-
-    .line 69
-    .end local p1    # "points":[F
-    .local v0, "points":[F
-    const/4 v1, 0x0
+    iget-object v1, v9, Lcom/badlogic/gdx/math/DelaunayTriangulator;->sortedPoints:[F
 
     .line 70
-    .end local p2    # "offset":I
-    .local v1, "offset":I
-    invoke-direct {v9, v0, v10}, Lcom/badlogic/gdx/math/DelaunayTriangulator;->sort([FI)V
+    invoke-direct {v9, v1, v0}, Lcom/badlogic/gdx/math/DelaunayTriangulator;->sort([FI)V
 
-    move-object v13, v0
+    move-object v12, v1
 
-    move v14, v1
+    move v13, v11
 
     goto :goto_0
 
-    .line 65
-    .end local v0    # "points":[F
-    .end local v1    # "offset":I
-    .restart local p1    # "points":[F
-    .restart local p2    # "offset":I
     :cond_3
-    move-object/from16 v1, p1
+    move-object/from16 v2, p1
 
-    move/from16 v2, p2
+    move/from16 v3, p2
 
-    move-object v13, v1
+    move-object v12, v2
 
-    move v14, v2
+    move v13, v3
 
-    .line 73
-    .end local p1    # "points":[F
-    .end local p2    # "offset":I
-    .local v13, "points":[F
-    .local v14, "offset":I
     :goto_0
-    add-int v15, v14, v10
+    add-int v14, v13, v0
 
     .line 76
-    .local v15, "end":I
-    aget v0, v13, v12
+    aget v1, v12, v11
 
-    .local v0, "xmin":F
-    const/4 v8, 0x1
+    const/4 v15, 0x1
 
-    aget v1, v13, v8
+    aget v2, v12, v15
 
-    .line 77
-    .local v1, "ymin":F
-    move v2, v0
+    add-int/lit8 v3, v13, 0x2
 
-    .local v2, "xmax":F
-    move v3, v1
+    move v4, v2
 
-    .line 78
-    .local v3, "ymax":F
-    add-int/lit8 v4, v14, 0x2
+    move v5, v3
 
-    move/from16 v16, v0
+    move v2, v1
 
-    move/from16 v17, v1
+    move v3, v4
 
-    move/from16 v18, v2
-
-    move/from16 v19, v3
-
-    .end local v0    # "xmin":F
-    .end local v1    # "ymin":F
-    .end local v2    # "xmax":F
-    .end local v3    # "ymax":F
-    .local v4, "i":I
-    .local v16, "xmin":F
-    .local v17, "ymin":F
-    .local v18, "xmax":F
-    .local v19, "ymax":F
     :goto_1
-    if-ge v4, v15, :cond_8
+    if-ge v5, v14, :cond_8
 
     .line 79
-    aget v0, v13, v4
+    aget v6, v12, v5
 
-    .line 80
-    .local v0, "value":F
-    cmpg-float v1, v0, v16
+    cmpg-float v7, v6, v2
 
-    if-gez v1, :cond_4
+    if-gez v7, :cond_4
 
-    move v1, v0
+    move v2, v6
 
-    move/from16 v16, v1
-
-    .line 81
     :cond_4
-    cmpl-float v1, v0, v18
+    cmpl-float v7, v6, v1
 
-    if-lez v1, :cond_5
+    if-lez v7, :cond_5
 
-    move v1, v0
+    move v1, v6
 
-    move/from16 v18, v1
-
-    .line 82
     :cond_5
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     .line 83
-    aget v0, v13, v4
+    aget v6, v12, v5
 
-    .line 84
-    cmpg-float v1, v0, v17
+    cmpg-float v7, v6, v4
 
-    if-gez v1, :cond_6
+    if-gez v7, :cond_6
 
-    move v1, v0
+    move v4, v6
 
-    move/from16 v17, v1
-
-    .line 85
     :cond_6
-    cmpl-float v1, v0, v19
+    cmpl-float v7, v6, v3
 
-    if-lez v1, :cond_7
+    if-lez v7, :cond_7
 
-    move v1, v0
+    move v3, v6
 
-    move/from16 v19, v1
-
-    .line 78
-    .end local v0    # "value":F
     :cond_7
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_1
 
-    .line 87
-    .end local v4    # "i":I
     :cond_8
-    sub-float v20, v18, v16
+    sub-float v5, v1, v2
 
-    .local v20, "dx":F
-    sub-float v21, v19, v17
+    sub-float v6, v3, v4
 
-    .line 88
-    .local v21, "dy":F
-    cmpl-float v0, v20, v21
+    cmpl-float v7, v5, v6
 
-    if-lez v0, :cond_9
-
-    move/from16 v0, v20
+    if-lez v7, :cond_9
 
     goto :goto_2
 
     :cond_9
-    move/from16 v0, v21
+    move v5, v6
 
     :goto_2
-    const/high16 v1, 0x41a00000    # 20.0f
+    const/high16 v6, 0x41a00000    # 20.0f
 
-    mul-float v22, v0, v1
+    mul-float/2addr v5, v6
 
-    .line 89
-    .local v22, "dmax":F
-    add-float v0, v18, v16
+    add-float/2addr v1, v2
 
-    const/high16 v1, 0x40000000    # 2.0f
+    const/high16 v2, 0x40000000    # 2.0f
 
-    div-float v23, v0, v1
+    div-float/2addr v1, v2
 
-    .local v23, "xmid":F
-    add-float v0, v19, v17
+    add-float/2addr v3, v4
 
-    div-float v24, v0, v1
+    div-float/2addr v3, v2
 
     .line 92
-    .local v24, "ymid":F
-    iget-object v7, v9, Lcom/badlogic/gdx/math/DelaunayTriangulator;->superTriangle:[F
+    iget-object v8, v9, Lcom/badlogic/gdx/math/DelaunayTriangulator;->superTriangle:[F
+
+    sub-float v2, v1, v5
 
     .line 93
-    .local v7, "superTriangle":[F
-    sub-float v0, v23, v22
+    aput v2, v8, v11
 
-    aput v0, v7, v12
+    sub-float v2, v3, v5
 
     .line 94
-    sub-float v0, v24, v22
+    aput v2, v8, v15
 
-    aput v0, v7, v8
+    const/16 v16, 0x2
 
     .line 95
-    const/16 v25, 0x2
+    aput v1, v8, v16
 
-    aput v23, v7, v25
+    add-float/2addr v3, v5
+
+    const/4 v4, 0x3
 
     .line 96
-    add-float v0, v24, v22
+    aput v3, v8, v4
 
-    const/4 v1, 0x3
+    add-float/2addr v1, v5
 
-    aput v0, v7, v1
+    const/4 v3, 0x4
 
     .line 97
-    add-float v0, v23, v22
+    aput v1, v8, v3
 
-    const/4 v1, 0x4
-
-    aput v0, v7, v1
+    const/4 v1, 0x5
 
     .line 98
-    const/4 v0, 0x5
-
-    sub-float v1, v24, v22
-
-    aput v1, v7, v0
+    aput v2, v8, v1
 
     .line 100
-    iget-object v6, v9, Lcom/badlogic/gdx/math/DelaunayTriangulator;->edges:Lcom/badlogic/gdx/utils/IntArray;
+    iget-object v7, v9, Lcom/badlogic/gdx/math/DelaunayTriangulator;->edges:Lcom/badlogic/gdx/utils/IntArray;
 
     .line 101
-    .local v6, "edges":Lcom/badlogic/gdx/utils/IntArray;
-    div-int/lit8 v0, v10, 0x2
+    div-int/lit8 v1, v0, 0x2
 
-    invoke-virtual {v6, v0}, Lcom/badlogic/gdx/utils/IntArray;->ensureCapacity(I)[I
+    invoke-virtual {v7, v1}, Lcom/badlogic/gdx/utils/IntArray;->ensureCapacity(I)[I
 
     .line 103
-    iget-object v5, v9, Lcom/badlogic/gdx/math/DelaunayTriangulator;->complete:Lcom/badlogic/gdx/utils/BooleanArray;
+    iget-object v6, v9, Lcom/badlogic/gdx/math/DelaunayTriangulator;->complete:Lcom/badlogic/gdx/utils/BooleanArray;
 
     .line 104
-    .local v5, "complete":Lcom/badlogic/gdx/utils/BooleanArray;
-    invoke-virtual {v5}, Lcom/badlogic/gdx/utils/BooleanArray;->clear()V
+    invoke-virtual {v6}, Lcom/badlogic/gdx/utils/BooleanArray;->clear()V
 
     .line 105
-    invoke-virtual {v5, v10}, Lcom/badlogic/gdx/utils/BooleanArray;->ensureCapacity(I)[Z
+    invoke-virtual {v6, v0}, Lcom/badlogic/gdx/utils/BooleanArray;->ensureCapacity(I)[Z
 
     .line 108
-    invoke-virtual {v11, v15}, Lcom/badlogic/gdx/utils/ShortArray;->add(I)V
+    invoke-virtual {v10, v14}, Lcom/badlogic/gdx/utils/ShortArray;->add(I)V
+
+    add-int/lit8 v0, v14, 0x2
 
     .line 109
-    add-int/lit8 v0, v15, 0x2
+    invoke-virtual {v10, v0}, Lcom/badlogic/gdx/utils/ShortArray;->add(I)V
 
-    invoke-virtual {v11, v0}, Lcom/badlogic/gdx/utils/ShortArray;->add(I)V
+    add-int/lit8 v0, v14, 0x4
 
     .line 110
-    add-int/lit8 v0, v15, 0x4
-
-    invoke-virtual {v11, v0}, Lcom/badlogic/gdx/utils/ShortArray;->add(I)V
+    invoke-virtual {v10, v0}, Lcom/badlogic/gdx/utils/ShortArray;->add(I)V
 
     .line 111
-    invoke-virtual {v5, v12}, Lcom/badlogic/gdx/utils/BooleanArray;->add(Z)V
+    invoke-virtual {v6, v11}, Lcom/badlogic/gdx/utils/BooleanArray;->add(Z)V
 
-    .line 114
-    move v0, v14
+    move v5, v13
 
-    move v4, v0
-
-    .local v4, "pointIndex":I
     :goto_3
-    if-ge v4, v15, :cond_16
+    if-ge v5, v14, :cond_16
 
     .line 115
-    aget v26, v13, v4
+    aget v17, v12, v5
 
-    .local v26, "x":F
-    add-int/lit8 v0, v4, 0x1
+    add-int/lit8 v0, v5, 0x1
 
-    aget v27, v13, v0
+    aget v18, v12, v0
 
     .line 118
-    .local v27, "y":F
-    iget-object v3, v11, Lcom/badlogic/gdx/utils/ShortArray;->items:[S
+    iget-object v4, v10, Lcom/badlogic/gdx/utils/ShortArray;->items:[S
 
     .line 119
-    .local v3, "trianglesArray":[S
-    iget-object v2, v5, Lcom/badlogic/gdx/utils/BooleanArray;->items:[Z
+    iget-object v3, v6, Lcom/badlogic/gdx/utils/BooleanArray;->items:[Z
 
     .line 120
-    .local v2, "completeArray":[Z
-    iget v0, v11, Lcom/badlogic/gdx/utils/ShortArray;->size:I
+    iget v0, v10, Lcom/badlogic/gdx/utils/ShortArray;->size:I
 
-    sub-int/2addr v0, v8
+    sub-int/2addr v0, v15
 
-    move v1, v0
+    move v2, v0
 
-    .local v1, "triangleIndex":I
     :goto_4
-    if-ltz v1, :cond_10
+    if-ltz v2, :cond_10
 
     .line 121
-    div-int/lit8 v0, v1, 0x3
+    div-int/lit8 v1, v2, 0x3
 
     .line 122
-    .local v0, "completeIndex":I
-    aget-boolean v28, v2, v0
+    aget-boolean v0, v3, v1
 
-    if-eqz v28, :cond_a
+    if-eqz v0, :cond_a
 
-    move v9, v1
+    move-object/from16 v27, v3
 
-    move-object/from16 v34, v2
+    move-object/from16 v19, v4
 
-    move-object/from16 v35, v3
+    move/from16 v28, v5
 
-    move/from16 v37, v4
+    move-object v1, v6
 
-    move-object v1, v5
+    move-object/from16 v21, v8
 
-    move-object/from16 v39, v7
+    move-object v0, v10
 
-    move-object v0, v11
+    move-object/from16 v25, v12
 
-    move-object/from16 p2, v13
+    move/from16 p2, v13
 
-    move/from16 p1, v14
+    move/from16 v26, v14
 
-    move/from16 v36, v15
+    move v14, v2
 
-    move-object v15, v6
+    move-object v10, v7
 
-    move v11, v8
+    goto/16 :goto_9
 
-    goto/16 :goto_8
+    :cond_a
+    add-int/lit8 v0, v2, -0x2
 
     .line 123
-    :cond_a
-    add-int/lit8 v28, v1, -0x2
+    aget-short v11, v4, v0
 
-    aget-short v12, v3, v28
+    add-int/lit8 v19, v2, -0x1
 
     .line 124
-    .local v12, "p1":I
-    add-int/lit8 v28, v1, -0x1
+    aget-short v15, v4, v19
 
-    aget-short v10, v3, v28
+    move/from16 p2, v13
 
     .line 125
-    .local v10, "p2":I
-    move/from16 p1, v14
+    aget-short v13, v4, v2
 
-    .end local v14    # "offset":I
-    .local p1, "offset":I
-    aget-short v14, v3, v1
+    if-lt v11, v14, :cond_b
 
-    .line 127
-    .local v14, "p3":I
-    if-lt v12, v15, :cond_b
-
-    .line 128
-    sub-int v28, v12, v15
+    sub-int v19, v11, v14
 
     .line 129
-    .local v28, "i":I
-    aget v29, v7, v28
+    aget v20, v8, v19
+
+    const/16 v21, 0x1
+
+    add-int/lit8 v19, v19, 0x1
 
     .line 130
-    .local v29, "x1":F
-    add-int/lit8 v30, v28, 0x1
+    aget v19, v8, v19
 
-    aget v28, v7, v30
+    move/from16 v30, v20
 
-    .line 131
-    .local v28, "y1":F
+    move/from16 v20, v19
+
+    move/from16 v19, v30
+
     goto :goto_5
 
-    .line 132
-    .end local v28    # "y1":F
-    .end local v29    # "x1":F
     :cond_b
-    aget v29, v13, v12
+    const/16 v21, 0x1
+
+    .line 132
+    aget v19, v12, v11
+
+    add-int/lit8 v20, v11, 0x1
 
     .line 133
-    .restart local v29    # "x1":F
-    add-int/lit8 v28, v12, 0x1
+    aget v20, v12, v20
 
-    aget v28, v13, v28
-
-    .line 135
-    .restart local v28    # "y1":F
     :goto_5
-    if-lt v10, v15, :cond_c
+    if-lt v15, v14, :cond_c
 
-    .line 136
-    sub-int v30, v10, v15
+    sub-int v22, v15, v14
 
     .line 137
-    .local v30, "i":I
-    aget v31, v7, v30
+    aget v23, v8, v22
+
+    add-int/lit8 v22, v22, 0x1
 
     .line 138
-    .local v31, "x2":F
-    add-int/lit8 v32, v30, 0x1
+    aget v22, v8, v22
 
-    aget v30, v7, v32
+    move/from16 v30, v23
 
-    .line 139
-    .local v30, "y2":F
+    move/from16 v23, v22
+
+    move/from16 v22, v30
+
     goto :goto_6
 
     .line 140
-    .end local v30    # "y2":F
-    .end local v31    # "x2":F
     :cond_c
-    aget v31, v13, v10
+    aget v22, v12, v15
+
+    add-int/lit8 v23, v15, 0x1
 
     .line 141
-    .restart local v31    # "x2":F
-    add-int/lit8 v30, v10, 0x1
+    aget v23, v12, v23
 
-    aget v30, v13, v30
-
-    .line 143
-    .restart local v30    # "y2":F
     :goto_6
-    if-lt v14, v15, :cond_d
+    if-lt v13, v14, :cond_d
 
-    .line 144
-    sub-int v32, v14, v15
+    sub-int v24, v13, v14
 
     .line 145
-    .local v32, "i":I
-    aget v33, v7, v32
+    aget v25, v8, v24
+
+    add-int/lit8 v24, v24, 0x1
 
     .line 146
-    .local v33, "x3":F
-    add-int/lit8 v34, v32, 0x1
+    aget v21, v8, v24
 
-    aget v32, v7, v34
+    move/from16 v24, v21
 
-    .line 147
-    .local v32, "y3":F
+    move/from16 v21, v25
+
     goto :goto_7
 
     .line 148
-    .end local v32    # "y3":F
-    .end local v33    # "x3":F
     :cond_d
-    aget v33, v13, v14
+    aget v21, v12, v13
+
+    add-int/lit8 v24, v13, 0x1
 
     .line 149
-    .restart local v33    # "x3":F
-    add-int/lit8 v32, v14, 0x1
+    aget v24, v12, v24
 
-    aget v32, v13, v32
-
-    .line 151
-    .restart local v32    # "y3":F
     :goto_7
-    move-object/from16 p2, v13
+    move-object/from16 v25, v12
 
-    move v13, v0
+    move v12, v0
 
-    .end local v0    # "completeIndex":I
-    .local v13, "completeIndex":I
-    .local p2, "points":[F
     move-object/from16 v0, p0
 
     move v9, v1
 
-    .end local v1    # "triangleIndex":I
-    .local v9, "triangleIndex":I
-    move/from16 v1, v26
+    move/from16 v1, v17
 
-    move-object/from16 v34, v2
+    move/from16 v26, v14
 
-    .end local v2    # "completeArray":[Z
-    .local v34, "completeArray":[Z
-    move/from16 v2, v27
+    move v14, v2
 
-    move-object/from16 v35, v3
+    move/from16 v2, v18
 
-    .end local v3    # "trianglesArray":[S
-    .local v35, "trianglesArray":[S
-    move/from16 v3, v29
+    move-object/from16 v27, v3
 
-    move/from16 v36, v15
+    move/from16 v3, v19
 
-    move v15, v4
+    move-object/from16 v19, v4
 
-    .end local v4    # "pointIndex":I
-    .local v15, "pointIndex":I
-    .local v36, "end":I
-    move/from16 v4, v28
+    move/from16 v4, v20
 
-    move/from16 v37, v15
+    move/from16 v28, v5
 
-    move-object v15, v5
+    move/from16 v5, v22
 
-    .end local v5    # "complete":Lcom/badlogic/gdx/utils/BooleanArray;
-    .local v15, "complete":Lcom/badlogic/gdx/utils/BooleanArray;
-    .local v37, "pointIndex":I
-    move/from16 v5, v31
+    move-object/from16 v29, v6
 
-    move-object/from16 v38, v15
+    move/from16 v6, v23
 
-    move-object v15, v6
+    move-object/from16 v20, v10
 
-    .end local v6    # "edges":Lcom/badlogic/gdx/utils/IntArray;
-    .local v15, "edges":Lcom/badlogic/gdx/utils/IntArray;
-    .local v38, "complete":Lcom/badlogic/gdx/utils/BooleanArray;
-    move/from16 v6, v30
+    move-object v10, v7
 
-    move-object/from16 v39, v7
+    move/from16 v7, v21
 
-    .end local v7    # "superTriangle":[F
-    .local v39, "superTriangle":[F
-    move/from16 v7, v33
+    move-object/from16 v21, v8
 
-    move-object/from16 v40, v11
+    move/from16 v8, v24
 
-    move v11, v8
-
-    .end local v11    # "triangles":Lcom/badlogic/gdx/utils/ShortArray;
-    .local v40, "triangles":Lcom/badlogic/gdx/utils/ShortArray;
-    move/from16 v8, v32
-
+    .line 151
     invoke-direct/range {v0 .. v8}, Lcom/badlogic/gdx/math/DelaunayTriangulator;->circumCircle(FFFFFFFF)I
 
     move-result v0
 
     if-eqz v0, :cond_f
 
-    if-eq v0, v11, :cond_e
+    const/4 v1, 0x1
 
-    move-object/from16 v1, v38
+    if-eq v0, v1, :cond_e
 
-    move-object/from16 v0, v40
+    :goto_8
+    move-object/from16 v0, v20
 
-    goto :goto_8
+    move-object/from16 v1, v29
+
+    goto :goto_9
 
     .line 153
     :cond_e
-    aput-boolean v11, v34, v13
-
-    .line 154
-    move-object/from16 v1, v38
-
-    move-object/from16 v0, v40
+    aput-boolean v1, v27, v9
 
     goto :goto_8
 
     .line 156
     :cond_f
-    invoke-virtual {v15, v12, v10, v10, v14}, Lcom/badlogic/gdx/utils/IntArray;->add(IIII)V
+    invoke-virtual {v10, v11, v15, v15, v13}, Lcom/badlogic/gdx/utils/IntArray;->add(IIII)V
 
     .line 157
-    invoke-virtual {v15, v14, v12}, Lcom/badlogic/gdx/utils/IntArray;->add(II)V
+    invoke-virtual {v10, v13, v11}, Lcom/badlogic/gdx/utils/IntArray;->add(II)V
+
+    move-object/from16 v0, v20
 
     .line 159
-    add-int/lit8 v1, v9, -0x2
+    invoke-virtual {v0, v12, v14}, Lcom/badlogic/gdx/utils/ShortArray;->removeRange(II)V
 
-    move-object/from16 v0, v40
-
-    .end local v40    # "triangles":Lcom/badlogic/gdx/utils/ShortArray;
-    .local v0, "triangles":Lcom/badlogic/gdx/utils/ShortArray;
-    invoke-virtual {v0, v1, v9}, Lcom/badlogic/gdx/utils/ShortArray;->removeRange(II)V
+    move-object/from16 v1, v29
 
     .line 160
-    move-object/from16 v1, v38
+    invoke-virtual {v1, v9}, Lcom/badlogic/gdx/utils/BooleanArray;->removeIndex(I)Z
 
-    .end local v38    # "complete":Lcom/badlogic/gdx/utils/BooleanArray;
-    .local v1, "complete":Lcom/badlogic/gdx/utils/BooleanArray;
-    invoke-virtual {v1, v13}, Lcom/badlogic/gdx/utils/BooleanArray;->removeIndex(I)Z
-
-    .line 120
-    .end local v10    # "p2":I
-    .end local v12    # "p1":I
-    .end local v13    # "completeIndex":I
-    .end local v14    # "p3":I
-    .end local v28    # "y1":F
-    .end local v29    # "x1":F
-    .end local v30    # "y2":F
-    .end local v31    # "x2":F
-    .end local v32    # "y3":F
-    .end local v33    # "x3":F
-    :goto_8
-    add-int/lit8 v2, v9, -0x3
+    :goto_9
+    add-int/lit8 v2, v14, -0x3
 
     move-object/from16 v9, p0
 
-    move/from16 v14, p1
+    move/from16 v13, p2
 
-    move-object/from16 v13, p2
+    move-object v6, v1
 
-    move/from16 v10, p3
+    move-object v7, v10
 
-    move-object v5, v1
+    move-object/from16 v4, v19
 
-    move v1, v2
+    move-object/from16 v8, v21
 
-    move v8, v11
+    move-object/from16 v12, v25
 
-    move-object v6, v15
+    move/from16 v14, v26
 
-    move-object/from16 v2, v34
+    move-object/from16 v3, v27
 
-    move-object/from16 v3, v35
+    move/from16 v5, v28
 
-    move/from16 v15, v36
+    const/4 v11, 0x0
 
-    move/from16 v4, v37
+    const/4 v15, 0x1
 
-    move-object/from16 v7, v39
+    move-object v10, v0
 
-    const/4 v12, 0x0
-
-    move-object v11, v0
-
-    .end local v9    # "triangleIndex":I
-    .local v2, "triangleIndex":I
     goto/16 :goto_4
 
-    .end local v0    # "triangles":Lcom/badlogic/gdx/utils/ShortArray;
-    .end local v34    # "completeArray":[Z
-    .end local v35    # "trianglesArray":[S
-    .end local v36    # "end":I
-    .end local v37    # "pointIndex":I
-    .end local v39    # "superTriangle":[F
-    .end local p1    # "offset":I
-    .end local p2    # "points":[F
-    .local v1, "triangleIndex":I
-    .local v2, "completeArray":[Z
-    .restart local v3    # "trianglesArray":[S
-    .restart local v4    # "pointIndex":I
-    .restart local v5    # "complete":Lcom/badlogic/gdx/utils/BooleanArray;
-    .restart local v6    # "edges":Lcom/badlogic/gdx/utils/IntArray;
-    .restart local v7    # "superTriangle":[F
-    .restart local v11    # "triangles":Lcom/badlogic/gdx/utils/ShortArray;
-    .local v13, "points":[F
-    .local v14, "offset":I
-    .local v15, "end":I
     :cond_10
-    move v9, v1
+    move/from16 v28, v5
 
-    move-object/from16 v34, v2
+    move-object v1, v6
 
-    move-object/from16 v35, v3
+    move-object/from16 v21, v8
 
-    move/from16 v37, v4
+    move-object v0, v10
 
-    move-object v1, v5
+    move-object/from16 v25, v12
 
-    move-object/from16 v39, v7
+    move/from16 p2, v13
 
-    move-object v0, v11
+    move/from16 v26, v14
 
-    move-object/from16 p2, v13
-
-    move/from16 p1, v14
-
-    move/from16 v36, v15
-
-    move-object v15, v6
-
-    move v11, v8
+    move-object v10, v7
 
     .line 165
-    .end local v2    # "completeArray":[Z
-    .end local v3    # "trianglesArray":[S
-    .end local v4    # "pointIndex":I
-    .end local v5    # "complete":Lcom/badlogic/gdx/utils/BooleanArray;
-    .end local v6    # "edges":Lcom/badlogic/gdx/utils/IntArray;
-    .end local v7    # "superTriangle":[F
-    .end local v11    # "triangles":Lcom/badlogic/gdx/utils/ShortArray;
-    .end local v13    # "points":[F
-    .end local v14    # "offset":I
-    .restart local v0    # "triangles":Lcom/badlogic/gdx/utils/ShortArray;
-    .local v1, "complete":Lcom/badlogic/gdx/utils/BooleanArray;
-    .local v15, "edges":Lcom/badlogic/gdx/utils/IntArray;
-    .restart local v34    # "completeArray":[Z
-    .restart local v35    # "trianglesArray":[S
-    .restart local v36    # "end":I
-    .restart local v37    # "pointIndex":I
-    .restart local v39    # "superTriangle":[F
-    .restart local p1    # "offset":I
-    .restart local p2    # "points":[F
-    iget-object v2, v15, Lcom/badlogic/gdx/utils/IntArray;->items:[I
+    iget-object v2, v10, Lcom/badlogic/gdx/utils/IntArray;->items:[I
 
     .line 166
-    .local v2, "edgesArray":[I
-    const/4 v3, 0x0
+    iget v3, v10, Lcom/badlogic/gdx/utils/IntArray;->size:I
 
-    .local v3, "i":I
-    iget v4, v15, Lcom/badlogic/gdx/utils/IntArray;->size:I
+    const/4 v4, 0x0
 
-    .local v4, "n":I
-    :goto_9
-    if-ge v3, v4, :cond_15
+    :goto_a
+    if-ge v4, v3, :cond_15
 
     .line 168
-    aget v5, v2, v3
+    aget v5, v2, v4
 
-    .line 169
-    .local v5, "p1":I
     const/4 v6, -0x1
 
     if-ne v5, v6, :cond_11
 
-    move/from16 v6, v37
+    :goto_b
+    move/from16 v13, v28
 
-    const/4 v9, 0x0
+    const/4 v5, 0x0
 
-    goto :goto_b
+    goto :goto_d
+
+    :cond_11
+    add-int/lit8 v7, v4, 0x1
 
     .line 170
-    :cond_11
-    add-int/lit8 v7, v3, 0x1
+    aget v8, v2, v7
 
-    aget v7, v2, v7
+    add-int/lit8 v9, v4, 0x2
 
-    .line 171
-    .local v7, "p2":I
-    const/4 v8, 0x0
+    const/4 v11, 0x0
 
-    .line 172
-    .local v8, "skip":Z
-    add-int/lit8 v9, v3, 0x2
+    :goto_c
+    if-ge v9, v3, :cond_13
 
-    .local v9, "ii":I
-    :goto_a
-    if-ge v9, v4, :cond_13
+    add-int/lit8 v12, v9, 0x1
 
     .line 173
-    add-int/lit8 v10, v9, 0x1
+    aget v12, v2, v12
 
-    aget v10, v2, v10
+    if-ne v5, v12, :cond_12
 
-    if-ne v5, v10, :cond_12
+    aget v12, v2, v9
 
-    aget v10, v2, v9
-
-    if-ne v7, v10, :cond_12
-
-    .line 174
-    const/4 v8, 0x1
+    if-ne v8, v12, :cond_12
 
     .line 175
     aput v6, v2, v9
 
-    .line 172
+    const/4 v11, 0x1
+
     :cond_12
     add-int/lit8 v9, v9, 0x2
 
-    goto :goto_a
+    goto :goto_c
 
-    .line 178
-    .end local v9    # "ii":I
     :cond_13
-    if-eqz v8, :cond_14
-
-    move/from16 v6, v37
-
-    const/4 v9, 0x0
+    if-eqz v11, :cond_14
 
     goto :goto_b
 
@@ -1495,478 +1136,332 @@
     invoke-virtual {v0, v5}, Lcom/badlogic/gdx/utils/ShortArray;->add(I)V
 
     .line 182
-    add-int/lit8 v6, v3, 0x1
+    aget v5, v2, v7
 
-    aget v6, v2, v6
+    invoke-virtual {v0, v5}, Lcom/badlogic/gdx/utils/ShortArray;->add(I)V
 
-    invoke-virtual {v0, v6}, Lcom/badlogic/gdx/utils/ShortArray;->add(I)V
+    move/from16 v13, v28
 
     .line 183
-    move/from16 v6, v37
+    invoke-virtual {v0, v13}, Lcom/badlogic/gdx/utils/ShortArray;->add(I)V
 
-    .end local v37    # "pointIndex":I
-    .local v6, "pointIndex":I
-    invoke-virtual {v0, v6}, Lcom/badlogic/gdx/utils/ShortArray;->add(I)V
+    const/4 v5, 0x0
 
     .line 184
-    const/4 v9, 0x0
+    invoke-virtual {v1, v5}, Lcom/badlogic/gdx/utils/BooleanArray;->add(Z)V
 
-    invoke-virtual {v1, v9}, Lcom/badlogic/gdx/utils/BooleanArray;->add(Z)V
+    :goto_d
+    add-int/lit8 v4, v4, 0x2
 
-    .line 166
-    .end local v5    # "p1":I
-    .end local v7    # "p2":I
-    .end local v8    # "skip":Z
-    :goto_b
-    add-int/lit8 v3, v3, 0x2
+    move/from16 v28, v13
 
-    move/from16 v37, v6
+    goto :goto_a
 
-    goto :goto_9
-
-    .end local v6    # "pointIndex":I
-    .restart local v37    # "pointIndex":I
     :cond_15
-    move/from16 v6, v37
+    move/from16 v13, v28
 
-    const/4 v9, 0x0
+    const/4 v5, 0x0
 
     .line 186
-    .end local v3    # "i":I
-    .end local v4    # "n":I
-    .end local v37    # "pointIndex":I
-    .restart local v6    # "pointIndex":I
-    invoke-virtual {v15}, Lcom/badlogic/gdx/utils/IntArray;->clear()V
+    invoke-virtual {v10}, Lcom/badlogic/gdx/utils/IntArray;->clear()V
 
-    .line 114
-    .end local v2    # "edgesArray":[I
-    .end local v26    # "x":F
-    .end local v27    # "y":F
-    .end local v34    # "completeArray":[Z
-    .end local v35    # "trianglesArray":[S
-    add-int/lit8 v4, v6, 0x2
-
-    move/from16 v14, p1
-
-    move-object/from16 v13, p2
-
-    move/from16 v10, p3
-
-    move-object v5, v1
-
-    move v12, v9
-
-    move v8, v11
-
-    move-object v6, v15
-
-    move/from16 v15, v36
-
-    move-object/from16 v7, v39
+    add-int/lit8 v2, v13, 0x2
 
     move-object/from16 v9, p0
 
-    move-object v11, v0
+    move/from16 v13, p2
 
-    .end local v6    # "pointIndex":I
-    .local v4, "pointIndex":I
+    move-object v6, v1
+
+    move v11, v5
+
+    move-object v7, v10
+
+    move-object/from16 v8, v21
+
+    move-object/from16 v12, v25
+
+    move/from16 v14, v26
+
+    const/4 v15, 0x1
+
+    move-object v10, v0
+
+    move v5, v2
+
     goto/16 :goto_3
 
-    .end local v0    # "triangles":Lcom/badlogic/gdx/utils/ShortArray;
-    .end local v1    # "complete":Lcom/badlogic/gdx/utils/BooleanArray;
-    .end local v36    # "end":I
-    .end local v39    # "superTriangle":[F
-    .end local p1    # "offset":I
-    .end local p2    # "points":[F
-    .local v5, "complete":Lcom/badlogic/gdx/utils/BooleanArray;
-    .local v6, "edges":Lcom/badlogic/gdx/utils/IntArray;
-    .local v7, "superTriangle":[F
-    .restart local v11    # "triangles":Lcom/badlogic/gdx/utils/ShortArray;
-    .restart local v13    # "points":[F
-    .restart local v14    # "offset":I
-    .local v15, "end":I
     :cond_16
-    move-object v1, v5
+    move-object v0, v10
 
-    move-object/from16 v39, v7
+    move v5, v11
 
-    move-object v0, v11
+    move/from16 p2, v13
 
-    move-object/from16 p2, v13
-
-    move/from16 p1, v14
-
-    move/from16 v36, v15
-
-    move-object v15, v6
-
-    move v11, v8
-
-    move v6, v4
+    move/from16 v26, v14
 
     .line 190
-    .end local v4    # "pointIndex":I
-    .end local v5    # "complete":Lcom/badlogic/gdx/utils/BooleanArray;
-    .end local v6    # "edges":Lcom/badlogic/gdx/utils/IntArray;
-    .end local v7    # "superTriangle":[F
-    .end local v11    # "triangles":Lcom/badlogic/gdx/utils/ShortArray;
-    .end local v13    # "points":[F
-    .end local v14    # "offset":I
-    .restart local v0    # "triangles":Lcom/badlogic/gdx/utils/ShortArray;
-    .restart local v1    # "complete":Lcom/badlogic/gdx/utils/BooleanArray;
-    .local v15, "edges":Lcom/badlogic/gdx/utils/IntArray;
-    .restart local v36    # "end":I
-    .restart local v39    # "superTriangle":[F
-    .restart local p1    # "offset":I
-    .restart local p2    # "points":[F
-    iget-object v2, v0, Lcom/badlogic/gdx/utils/ShortArray;->items:[S
+    iget-object v1, v0, Lcom/badlogic/gdx/utils/ShortArray;->items:[S
 
     .line 191
-    .local v2, "trianglesArray":[S
-    iget v3, v0, Lcom/badlogic/gdx/utils/ShortArray;->size:I
+    iget v2, v0, Lcom/badlogic/gdx/utils/ShortArray;->size:I
 
-    sub-int/2addr v3, v11
+    const/4 v3, 0x1
 
-    .restart local v3    # "i":I
-    :goto_c
-    if-ltz v3, :cond_19
+    sub-int/2addr v2, v3
+
+    :goto_e
+    if-ltz v2, :cond_19
 
     .line 192
-    aget-short v4, v2, v3
+    aget-short v3, v1, v2
 
-    move/from16 v14, v36
+    move/from16 v13, v26
 
-    .end local v36    # "end":I
-    .local v14, "end":I
-    if-ge v4, v14, :cond_17
+    if-ge v3, v13, :cond_17
 
-    add-int/lit8 v4, v3, -0x1
+    add-int/lit8 v3, v2, -0x1
 
-    aget-short v4, v2, v4
+    aget-short v3, v1, v3
 
-    if-ge v4, v14, :cond_17
+    if-ge v3, v13, :cond_17
 
-    add-int/lit8 v4, v3, -0x2
+    add-int/lit8 v3, v2, -0x2
 
-    aget-short v4, v2, v4
+    aget-short v3, v1, v3
 
-    if-lt v4, v14, :cond_18
+    if-lt v3, v13, :cond_18
 
     .line 193
     :cond_17
-    invoke-virtual {v0, v3}, Lcom/badlogic/gdx/utils/ShortArray;->removeIndex(I)S
+    invoke-virtual {v0, v2}, Lcom/badlogic/gdx/utils/ShortArray;->removeIndex(I)S
+
+    add-int/lit8 v3, v2, -0x1
 
     .line 194
-    add-int/lit8 v4, v3, -0x1
+    invoke-virtual {v0, v3}, Lcom/badlogic/gdx/utils/ShortArray;->removeIndex(I)S
 
-    invoke-virtual {v0, v4}, Lcom/badlogic/gdx/utils/ShortArray;->removeIndex(I)S
+    add-int/lit8 v3, v2, -0x2
 
     .line 195
-    add-int/lit8 v4, v3, -0x2
+    invoke-virtual {v0, v3}, Lcom/badlogic/gdx/utils/ShortArray;->removeIndex(I)S
 
-    invoke-virtual {v0, v4}, Lcom/badlogic/gdx/utils/ShortArray;->removeIndex(I)S
-
-    .line 191
     :cond_18
-    add-int/lit8 v3, v3, -0x3
+    add-int/lit8 v2, v2, -0x3
 
-    move/from16 v36, v14
+    move/from16 v26, v13
 
-    goto :goto_c
+    goto :goto_e
 
-    .end local v14    # "end":I
-    .restart local v36    # "end":I
     :cond_19
-    move/from16 v14, v36
+    move-object/from16 v2, p0
 
-    .line 200
-    .end local v3    # "i":I
-    .end local v36    # "end":I
-    .restart local v14    # "end":I
     if-nez p4, :cond_1a
 
     .line 201
-    move-object/from16 v3, p0
+    iget-object v3, v2, Lcom/badlogic/gdx/math/DelaunayTriangulator;->originalIndices:Lcom/badlogic/gdx/utils/ShortArray;
 
-    iget-object v4, v3, Lcom/badlogic/gdx/math/DelaunayTriangulator;->originalIndices:Lcom/badlogic/gdx/utils/ShortArray;
-
-    iget-object v4, v4, Lcom/badlogic/gdx/utils/ShortArray;->items:[S
+    iget-object v3, v3, Lcom/badlogic/gdx/utils/ShortArray;->items:[S
 
     .line 202
-    .local v4, "originalIndicesArray":[S
-    const/4 v5, 0x0
+    iget v4, v0, Lcom/badlogic/gdx/utils/ShortArray;->size:I
 
-    .local v5, "i":I
-    iget v6, v0, Lcom/badlogic/gdx/utils/ShortArray;->size:I
+    move v6, v5
 
-    .local v6, "n":I
-    :goto_d
-    if-ge v5, v6, :cond_1b
+    :goto_f
+    if-ge v6, v4, :cond_1a
 
     .line 203
-    aget-short v7, v2, v5
+    aget-short v7, v1, v6
 
     div-int/lit8 v7, v7, 0x2
 
-    aget-short v7, v4, v7
+    aget-short v7, v3, v7
 
     mul-int/lit8 v7, v7, 0x2
 
     int-to-short v7, v7
 
-    aput-short v7, v2, v5
+    aput-short v7, v1, v6
 
-    .line 202
-    add-int/lit8 v5, v5, 0x1
-
-    goto :goto_d
-
-    .line 200
-    .end local v4    # "originalIndicesArray":[S
-    .end local v5    # "i":I
-    .end local v6    # "n":I
-    :cond_1a
-    move-object/from16 v3, p0
-
-    .line 207
-    :cond_1b
-    if-nez p1, :cond_1d
-
-    .line 208
-    const/4 v4, 0x0
-
-    .local v4, "i":I
-    iget v5, v0, Lcom/badlogic/gdx/utils/ShortArray;->size:I
-
-    .local v5, "n":I
-    :goto_e
-    if-ge v4, v5, :cond_1c
-
-    .line 209
-    aget-short v6, v2, v4
-
-    div-int/lit8 v6, v6, 0x2
-
-    int-to-short v6, v6
-
-    aput-short v6, v2, v4
-
-    .line 208
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_e
-
-    .end local v4    # "i":I
-    .end local v5    # "n":I
-    :cond_1c
-    goto :goto_10
-
-    .line 211
-    :cond_1d
-    const/4 v4, 0x0
-
-    .restart local v4    # "i":I
-    iget v5, v0, Lcom/badlogic/gdx/utils/ShortArray;->size:I
-
-    .restart local v5    # "n":I
-    :goto_f
-    if-ge v4, v5, :cond_1e
-
-    .line 212
-    aget-short v6, v2, v4
-
-    sub-int v6, v6, p1
-
-    div-int/lit8 v6, v6, 0x2
-
-    int-to-short v6, v6
-
-    aput-short v6, v2, v4
-
-    .line 211
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_f
 
-    .line 215
-    .end local v4    # "i":I
-    .end local v5    # "n":I
-    :cond_1e
+    :cond_1a
+    if-nez p2, :cond_1b
+
+    .line 208
+    iget v3, v0, Lcom/badlogic/gdx/utils/ShortArray;->size:I
+
+    move v11, v5
+
     :goto_10
+    if-ge v11, v3, :cond_1c
+
+    .line 209
+    aget-short v4, v1, v11
+
+    div-int/lit8 v4, v4, 0x2
+
+    int-to-short v4, v4
+
+    aput-short v4, v1, v11
+
+    add-int/lit8 v11, v11, 0x1
+
+    goto :goto_10
+
+    .line 211
+    :cond_1b
+    iget v3, v0, Lcom/badlogic/gdx/utils/ShortArray;->size:I
+
+    move v11, v5
+
+    :goto_11
+    if-ge v11, v3, :cond_1c
+
+    .line 212
+    aget-short v4, v1, v11
+
+    sub-int v4, v4, p2
+
+    div-int/lit8 v4, v4, 0x2
+
+    int-to-short v4, v4
+
+    aput-short v4, v1, v11
+
+    add-int/lit8 v11, v11, 0x1
+
+    goto :goto_11
+
+    :cond_1c
     return-object v0
 
+    :cond_1d
+    move-object v2, v9
+
     .line 59
-    .end local v0    # "triangles":Lcom/badlogic/gdx/utils/ShortArray;
-    .end local v1    # "complete":Lcom/badlogic/gdx/utils/BooleanArray;
-    .end local v2    # "trianglesArray":[S
-    .end local v14    # "end":I
-    .end local v15    # "edges":Lcom/badlogic/gdx/utils/IntArray;
-    .end local v16    # "xmin":F
-    .end local v17    # "ymin":F
-    .end local v18    # "xmax":F
-    .end local v19    # "ymax":F
-    .end local v20    # "dx":F
-    .end local v21    # "dy":F
-    .end local v22    # "dmax":F
-    .end local v23    # "xmid":F
-    .end local v24    # "ymid":F
-    .end local v39    # "superTriangle":[F
-    .local p1, "points":[F
-    .local p2, "offset":I
-    :cond_1f
-    move-object/from16 v1, p1
-
-    move/from16 v2, p2
-
-    move-object v3, v9
-
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v4, "count must be <= 32767"
+    const-string v1, "count must be <= 32767"
 
-    invoke-direct {v0, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public computeTriangles([FZ)Lcom/badlogic/gdx/utils/ShortArray;
     .locals 2
-    .param p1, "polygon"    # [F
-    .param p2, "sorted"    # Z
+
+    const/4 v0, 0x0
 
     .line 48
-    array-length v0, p1
+    array-length v1, p1
 
-    const/4 v1, 0x0
+    invoke-virtual {p0, p1, v0, v1, p2}, Lcom/badlogic/gdx/math/DelaunayTriangulator;->computeTriangles([FIIZ)Lcom/badlogic/gdx/utils/ShortArray;
 
-    invoke-virtual {p0, p1, v1, v0, p2}, Lcom/badlogic/gdx/math/DelaunayTriangulator;->computeTriangles([FIIZ)Lcom/badlogic/gdx/utils/ShortArray;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public trim(Lcom/badlogic/gdx/utils/ShortArray;[F[FII)V
-    .locals 14
-    .param p1, "triangles"    # Lcom/badlogic/gdx/utils/ShortArray;
-    .param p2, "points"    # [F
-    .param p3, "hull"    # [F
-    .param p4, "offset"    # I
-    .param p5, "count"    # I
+    .locals 16
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
 
     .line 333
-    move-object v0, p0
-
-    move-object v1, p1
-
     iget-object v2, v1, Lcom/badlogic/gdx/utils/ShortArray;->items:[S
 
     .line 334
-    .local v2, "trianglesArray":[S
     iget v3, v1, Lcom/badlogic/gdx/utils/ShortArray;->size:I
 
     add-int/lit8 v3, v3, -0x1
 
-    .local v3, "i":I
     :goto_0
     if-ltz v3, :cond_1
 
-    .line 335
     add-int/lit8 v4, v3, -0x2
 
-    aget-short v4, v2, v4
-
-    mul-int/lit8 v4, v4, 0x2
-
-    .line 336
-    .local v4, "p1":I
-    add-int/lit8 v5, v3, -0x1
-
-    aget-short v5, v2, v5
+    .line 335
+    aget-short v5, v2, v4
 
     mul-int/lit8 v5, v5, 0x2
 
-    .line 337
-    .local v5, "p2":I
-    aget-short v6, v2, v3
+    add-int/lit8 v6, v3, -0x1
 
-    mul-int/lit8 v6, v6, 0x2
+    .line 336
+    aget-short v7, v2, v6
+
+    mul-int/lit8 v7, v7, 0x2
+
+    .line 337
+    aget-short v8, v2, v3
+
+    mul-int/lit8 v8, v8, 0x2
 
     .line 338
-    .local v6, "p3":I
-    aget v7, p2, v4
-
-    add-int/lit8 v8, v4, 0x1
-
-    aget v8, p2, v8
-
     aget v9, p2, v5
 
-    add-int/lit8 v10, v5, 0x1
+    add-int/lit8 v5, v5, 0x1
 
-    aget v10, p2, v10
+    aget v10, p2, v5
 
-    aget v11, p2, v6
+    aget v11, p2, v7
 
-    add-int/lit8 v12, v6, 0x1
+    add-int/lit8 v7, v7, 0x1
 
-    aget v12, p2, v12
+    aget v12, p2, v7
 
-    iget-object v13, v0, Lcom/badlogic/gdx/math/DelaunayTriangulator;->centroid:Lcom/badlogic/gdx/math/Vector2;
+    aget v13, p2, v8
 
-    invoke-static/range {v7 .. v13}, Lcom/badlogic/gdx/math/GeometryUtils;->triangleCentroid(FFFFFFLcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
+    add-int/lit8 v8, v8, 0x1
+
+    aget v14, p2, v8
+
+    iget-object v15, v0, Lcom/badlogic/gdx/math/DelaunayTriangulator;->centroid:Lcom/badlogic/gdx/math/Vector2;
+
+    invoke-static/range {v9 .. v15}, Lcom/badlogic/gdx/math/GeometryUtils;->triangleCentroid(FFFFFFLcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
 
     .line 340
+    iget-object v5, v0, Lcom/badlogic/gdx/math/DelaunayTriangulator;->centroid:Lcom/badlogic/gdx/math/Vector2;
+
+    iget v5, v5, Lcom/badlogic/gdx/math/Vector2;->x:F
+
     iget-object v7, v0, Lcom/badlogic/gdx/math/DelaunayTriangulator;->centroid:Lcom/badlogic/gdx/math/Vector2;
 
-    iget v7, v7, Lcom/badlogic/gdx/math/Vector2;->x:F
+    iget v7, v7, Lcom/badlogic/gdx/math/Vector2;->y:F
 
-    iget-object v8, v0, Lcom/badlogic/gdx/math/DelaunayTriangulator;->centroid:Lcom/badlogic/gdx/math/Vector2;
+    move-object/from16 v8, p3
 
-    iget v8, v8, Lcom/badlogic/gdx/math/Vector2;->y:F
+    move/from16 v9, p4
 
-    move-object/from16 v9, p3
+    move/from16 v10, p5
 
-    move/from16 v10, p4
+    invoke-static {v8, v9, v10, v5, v7}, Lcom/badlogic/gdx/math/Intersector;->isPointInPolygon([FIIFF)Z
 
-    move/from16 v11, p5
+    move-result v5
 
-    invoke-static {v9, v10, v11, v7, v8}, Lcom/badlogic/gdx/math/Intersector;->isPointInPolygon([FIIFF)Z
-
-    move-result v7
-
-    if-nez v7, :cond_0
+    if-nez v5, :cond_0
 
     .line 341
-    invoke-virtual {p1, v3}, Lcom/badlogic/gdx/utils/ShortArray;->removeIndex(I)S
+    invoke-virtual {v1, v3}, Lcom/badlogic/gdx/utils/ShortArray;->removeIndex(I)S
 
     .line 342
-    add-int/lit8 v7, v3, -0x1
-
-    invoke-virtual {p1, v7}, Lcom/badlogic/gdx/utils/ShortArray;->removeIndex(I)S
+    invoke-virtual {v1, v6}, Lcom/badlogic/gdx/utils/ShortArray;->removeIndex(I)S
 
     .line 343
-    add-int/lit8 v7, v3, -0x2
+    invoke-virtual {v1, v4}, Lcom/badlogic/gdx/utils/ShortArray;->removeIndex(I)S
 
-    invoke-virtual {p1, v7}, Lcom/badlogic/gdx/utils/ShortArray;->removeIndex(I)S
-
-    .line 334
-    .end local v4    # "p1":I
-    .end local v5    # "p2":I
-    .end local v6    # "p3":I
     :cond_0
     add-int/lit8 v3, v3, -0x3
 
     goto :goto_0
 
     :cond_1
-    move-object/from16 v9, p3
-
-    move/from16 v10, p4
-
-    move/from16 v11, p5
-
-    .line 346
-    .end local v3    # "i":I
     return-void
 .end method

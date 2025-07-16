@@ -50,22 +50,16 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider$FileTextureProvider;->uWrap:Lcom/badlogic/gdx/graphics/Texture$TextureWrap;
 
-    .line 38
     const/4 v0, 0x0
 
+    .line 38
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider$FileTextureProvider;->useMipMaps:Z
 
-    .line 39
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/Texture$TextureFilter;Lcom/badlogic/gdx/graphics/Texture$TextureFilter;Lcom/badlogic/gdx/graphics/Texture$TextureWrap;Lcom/badlogic/gdx/graphics/Texture$TextureWrap;Z)V
     .locals 0
-    .param p1, "minFilter"    # Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
-    .param p2, "magFilter"    # Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
-    .param p3, "uWrap"    # Lcom/badlogic/gdx/graphics/Texture$TextureWrap;
-    .param p4, "vWrap"    # Lcom/badlogic/gdx/graphics/Texture$TextureWrap;
-    .param p5, "useMipMaps"    # Z
 
     .line 42
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -85,15 +79,13 @@
     .line 47
     iput-boolean p5, p0, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider$FileTextureProvider;->useMipMaps:Z
 
-    .line 48
     return-void
 .end method
 
 
 # virtual methods
 .method public load(Ljava/lang/String;)Lcom/badlogic/gdx/graphics/Texture;
-    .locals 3
-    .param p1, "fileName"    # Ljava/lang/String;
+    .locals 2
 
     .line 52
     new-instance v0, Lcom/badlogic/gdx/graphics/Texture;
@@ -102,27 +94,25 @@
 
     invoke-interface {v1, p1}, Lcom/badlogic/gdx/Files;->internal(Ljava/lang/String;)Lcom/badlogic/gdx/files/FileHandle;
 
-    move-result-object v1
+    move-result-object p1
 
-    iget-boolean v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider$FileTextureProvider;->useMipMaps:Z
+    iget-boolean v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider$FileTextureProvider;->useMipMaps:Z
 
-    invoke-direct {v0, v1, v2}, Lcom/badlogic/gdx/graphics/Texture;-><init>(Lcom/badlogic/gdx/files/FileHandle;Z)V
+    invoke-direct {v0, p1, v1}, Lcom/badlogic/gdx/graphics/Texture;-><init>(Lcom/badlogic/gdx/files/FileHandle;Z)V
 
     .line 53
-    .local v0, "result":Lcom/badlogic/gdx/graphics/Texture;
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider$FileTextureProvider;->minFilter:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider$FileTextureProvider;->minFilter:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider$FileTextureProvider;->magFilter:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider$FileTextureProvider;->magFilter:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
-    invoke-virtual {v0, v1, v2}, Lcom/badlogic/gdx/graphics/Texture;->setFilter(Lcom/badlogic/gdx/graphics/Texture$TextureFilter;Lcom/badlogic/gdx/graphics/Texture$TextureFilter;)V
+    invoke-virtual {v0, p1, v1}, Lcom/badlogic/gdx/graphics/Texture;->setFilter(Lcom/badlogic/gdx/graphics/Texture$TextureFilter;Lcom/badlogic/gdx/graphics/Texture$TextureFilter;)V
 
     .line 54
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider$FileTextureProvider;->uWrap:Lcom/badlogic/gdx/graphics/Texture$TextureWrap;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider$FileTextureProvider;->uWrap:Lcom/badlogic/gdx/graphics/Texture$TextureWrap;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider$FileTextureProvider;->vWrap:Lcom/badlogic/gdx/graphics/Texture$TextureWrap;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider$FileTextureProvider;->vWrap:Lcom/badlogic/gdx/graphics/Texture$TextureWrap;
 
-    invoke-virtual {v0, v1, v2}, Lcom/badlogic/gdx/graphics/Texture;->setWrap(Lcom/badlogic/gdx/graphics/Texture$TextureWrap;Lcom/badlogic/gdx/graphics/Texture$TextureWrap;)V
+    invoke-virtual {v0, p1, v1}, Lcom/badlogic/gdx/graphics/Texture;->setWrap(Lcom/badlogic/gdx/graphics/Texture$TextureWrap;Lcom/badlogic/gdx/graphics/Texture$TextureWrap;)V
 
-    .line 55
     return-object v0
 .end method

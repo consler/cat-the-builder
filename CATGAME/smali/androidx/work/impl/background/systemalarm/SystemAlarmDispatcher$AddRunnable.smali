@@ -28,9 +28,6 @@
 # direct methods
 .method constructor <init>(Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;Landroid/content/Intent;I)V
     .locals 0
-    .param p1, "dispatcher"    # Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;
-    .param p2, "intent"    # Landroid/content/Intent;
-    .param p3, "startId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -56,7 +53,6 @@
     .line 352
     iput p3, p0, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher$AddRunnable;->mStartId:I
 
-    .line 353
     return-void
 .end method
 
@@ -74,6 +70,5 @@
 
     invoke-virtual {v0, v1, v2}, Landroidx/work/impl/background/systemalarm/SystemAlarmDispatcher;->add(Landroid/content/Intent;I)Z
 
-    .line 358
     return-void
 .end method

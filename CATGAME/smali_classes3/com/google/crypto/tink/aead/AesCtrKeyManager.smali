@@ -40,14 +40,11 @@
 
     invoke-direct {p0, v0, v1}, Lcom/google/crypto/tink/KeyTypeManager;-><init>(Ljava/lang/Class;[Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;)V
 
-    .line 49
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/google/crypto/tink/aead/AesCtrKeyManager;Lcom/google/crypto/tink/proto/AesCtrParams;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/aead/AesCtrKeyManager;
-    .param p1, "x1"    # Lcom/google/crypto/tink/proto/AesCtrParams;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/GeneralSecurityException;
@@ -62,7 +59,6 @@
 
 .method public static register(Z)V
     .locals 1
-    .param p0, "newKeyAllowed"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -85,13 +81,11 @@
 
     invoke-static {v0, p0}, Lcom/google/crypto/tink/Registry;->registerKeyManager(Lcom/google/crypto/tink/KeyTypeManager;Z)V
 
-    .line 121
     return-void
 .end method
 
 .method private validateParams(Lcom/google/crypto/tink/proto/AesCtrParams;)V
     .locals 2
-    .param p1, "params"    # Lcom/google/crypto/tink/proto/AesCtrParams;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -118,24 +112,23 @@
 
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/AesCtrParams;->getIvSize()I
 
-    move-result v0
+    move-result p1
 
-    const/16 v1, 0x10
+    const/16 v0, 0x10
 
-    if-gt v0, v1, :cond_0
+    if-gt p1, v0, :cond_0
 
-    .line 117
     return-void
 
     .line 115
     :cond_0
-    new-instance v0, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    const-string v1, "invalid IV size"
+    const-string v0, "invalid IV size"
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -143,7 +136,6 @@
 .method public getKeyType()Ljava/lang/String;
     .locals 1
 
-    .line 62
     const-string v0, "type.googleapis.com/google.crypto.tink.AesCtrKey"
 
     return-object v0
@@ -152,7 +144,6 @@
 .method public getVersion()I
     .locals 1
 
-    .line 67
     const/4 v0, 0x0
 
     return v0
@@ -191,7 +182,6 @@
 
 .method public parseKey(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/AesCtrKey;
     .locals 1
-    .param p1, "byteString"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -214,9 +204,9 @@
 
     invoke-static {p1, v0}, Lcom/google/crypto/tink/proto/AesCtrKey;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/AesCtrKey;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic parseKey(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
@@ -246,7 +236,6 @@
 
 .method public validateKey(Lcom/google/crypto/tink/proto/AesCtrKey;)V
     .locals 2
-    .param p1, "key"    # Lcom/google/crypto/tink/proto/AesCtrKey;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -287,11 +276,10 @@
     .line 79
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/AesCtrKey;->getParams()Lcom/google/crypto/tink/proto/AesCtrParams;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0}, Lcom/google/crypto/tink/aead/AesCtrKeyManager;->validateParams(Lcom/google/crypto/tink/proto/AesCtrParams;)V
+    invoke-direct {p0, p1}, Lcom/google/crypto/tink/aead/AesCtrKeyManager;->validateParams(Lcom/google/crypto/tink/proto/AesCtrParams;)V
 
-    .line 80
     return-void
 .end method
 

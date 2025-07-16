@@ -51,14 +51,11 @@
     .end annotation
 
     .line 91
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$SubscriberOnNext;, "Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$SubscriberOnNext<TT;>;"
-    .local p1, "subscriber":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 92
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$SubscriberOnNext;->subscriber:Lorg/reactivestreams/Subscriber;
 
-    .line 93
     return-void
 .end method
 
@@ -79,12 +76,9 @@
     .end annotation
 
     .line 97
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$SubscriberOnNext;, "Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$SubscriberOnNext<TT;>;"
-    .local p1, "v":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$SubscriberOnNext;->subscriber:Lorg/reactivestreams/Subscriber;
 
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
-    .line 98
     return-void
 .end method

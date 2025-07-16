@@ -19,17 +19,16 @@
 
 # virtual methods
 .method public generate(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
-    .param p1, "imageUri"    # Ljava/lang/String;
+    .locals 0
 
     .line 27
     invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

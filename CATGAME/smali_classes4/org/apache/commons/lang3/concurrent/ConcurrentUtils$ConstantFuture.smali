@@ -48,28 +48,22 @@
     .end annotation
 
     .line 342
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/ConcurrentUtils$ConstantFuture;, "Lorg/apache/commons/lang3/concurrent/ConcurrentUtils$ConstantFuture<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 343
     iput-object p1, p0, Lorg/apache/commons/lang3/concurrent/ConcurrentUtils$ConstantFuture;->value:Ljava/lang/Object;
 
-    .line 344
     return-void
 .end method
 
 
 # virtual methods
 .method public cancel(Z)Z
-    .locals 1
-    .param p1, "mayInterruptIfRunning"    # Z
+    .locals 0
 
-    .line 388
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/ConcurrentUtils$ConstantFuture;, "Lorg/apache/commons/lang3/concurrent/ConcurrentUtils$ConstantFuture<TT;>;"
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public get()Ljava/lang/Object;
@@ -81,16 +75,13 @@
     .end annotation
 
     .line 361
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/ConcurrentUtils$ConstantFuture;, "Lorg/apache/commons/lang3/concurrent/ConcurrentUtils$ConstantFuture<TT;>;"
     iget-object v0, p0, Lorg/apache/commons/lang3/concurrent/ConcurrentUtils$ConstantFuture;->value:Ljava/lang/Object;
 
     return-object v0
 .end method
 
 .method public get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "timeout"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -100,17 +91,14 @@
     .end annotation
 
     .line 370
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/ConcurrentUtils$ConstantFuture;, "Lorg/apache/commons/lang3/concurrent/ConcurrentUtils$ConstantFuture<TT;>;"
-    iget-object v0, p0, Lorg/apache/commons/lang3/concurrent/ConcurrentUtils$ConstantFuture;->value:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/lang3/concurrent/ConcurrentUtils$ConstantFuture;->value:Ljava/lang/Object;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public isCancelled()Z
     .locals 1
 
-    .line 379
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/ConcurrentUtils$ConstantFuture;, "Lorg/apache/commons/lang3/concurrent/ConcurrentUtils$ConstantFuture<TT;>;"
     const/4 v0, 0x0
 
     return v0
@@ -119,8 +107,6 @@
 .method public isDone()Z
     .locals 1
 
-    .line 353
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/ConcurrentUtils$ConstantFuture;, "Lorg/apache/commons/lang3/concurrent/ConcurrentUtils$ConstantFuture<TT;>;"
     const/4 v0, 0x1
 
     return v0

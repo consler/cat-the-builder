@@ -17,6 +17,9 @@
     }
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # static fields
 .field static final DEBUG:Z = false
@@ -65,14 +68,14 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 105
+    .line 109
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Landroidx/core/app/JobIntentService;->sLock:Ljava/lang/Object;
 
-    .line 106
+    .line 110
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
@@ -83,112 +86,110 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
-
-    .line 416
-    invoke-direct {p0}, Landroid/app/Service;-><init>()V
-
-    .line 99
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroidx/core/app/JobIntentService;->mInterruptIfStopped:Z
-
-    .line 100
-    iput-boolean v0, p0, Landroidx/core/app/JobIntentService;->mStopped:Z
-
-    .line 101
-    iput-boolean v0, p0, Landroidx/core/app/JobIntentService;->mDestroyed:Z
-
-    .line 417
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1a
-
-    if-lt v0, v1, :cond_0
-
-    .line 418
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Landroidx/core/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
-
-    goto :goto_0
+    .locals 1
 
     .line 420
-    :cond_0
-    new-instance v0, Ljava/util/ArrayList;
+    invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    const/4 v0, 0x0
 
-    iput-object v0, p0, Landroidx/core/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
+    .line 103
+    iput-boolean v0, p0, Landroidx/core/app/JobIntentService;->mInterruptIfStopped:Z
+
+    .line 104
+    iput-boolean v0, p0, Landroidx/core/app/JobIntentService;->mStopped:Z
+
+    .line 105
+    iput-boolean v0, p0, Landroidx/core/app/JobIntentService;->mDestroyed:Z
+
+    const/4 v0, 0x0
 
     .line 422
-    :goto_0
+    iput-object v0, p0, Landroidx/core/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
+
     return-void
 .end method
 
 .method public static enqueueWork(Landroid/content/Context;Landroid/content/ComponentName;ILandroid/content/Intent;)V
     .locals 2
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "component"    # Landroid/content/ComponentName;
-    .param p2, "jobId"    # I
-    .param p3, "work"    # Landroid/content/Intent;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "context",
+            "component",
+            "jobId",
+            "work"
+        }
+    .end annotation
 
-    .line 517
     if-eqz p3, :cond_0
 
-    .line 520
+    .line 524
     sget-object v0, Landroidx/core/app/JobIntentService;->sLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 521
     const/4 v1, 0x1
 
+    .line 525
     :try_start_0
     invoke-static {p0, p1, v1, p2}, Landroidx/core/app/JobIntentService;->getWorkEnqueuer(Landroid/content/Context;Landroid/content/ComponentName;ZI)Landroidx/core/app/JobIntentService$WorkEnqueuer;
 
-    move-result-object v1
+    move-result-object p0
 
-    .line 522
-    .local v1, "we":Landroidx/core/app/JobIntentService$WorkEnqueuer;
-    invoke-virtual {v1, p2}, Landroidx/core/app/JobIntentService$WorkEnqueuer;->ensureJobId(I)V
+    .line 526
+    invoke-virtual {p0, p2}, Landroidx/core/app/JobIntentService$WorkEnqueuer;->ensureJobId(I)V
 
-    .line 523
-    invoke-virtual {v1, p3}, Landroidx/core/app/JobIntentService$WorkEnqueuer;->enqueueWork(Landroid/content/Intent;)V
+    .line 527
+    invoke-virtual {p0, p3}, Landroidx/core/app/JobIntentService$WorkEnqueuer;->enqueueWork(Landroid/content/Intent;)V
 
-    .line 524
-    .end local v1    # "we":Landroidx/core/app/JobIntentService$WorkEnqueuer;
+    .line 528
     monitor-exit v0
 
-    .line 525
     return-void
 
-    .line 524
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 
-    .line 518
+    .line 522
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v1, "work must not be null"
+    const-string p1, "work must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static enqueueWork(Landroid/content/Context;Ljava/lang/Class;ILandroid/content/Intent;)V
     .locals 1
-    .param p0, "context"    # Landroid/content/Context;
-    .param p2, "jobId"    # I
-    .param p3, "work"    # Landroid/content/Intent;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "context",
+            "cls",
+            "jobId",
+            "work"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -200,84 +201,69 @@
         }
     .end annotation
 
-    .line 501
-    .local p1, "cls":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
+    .line 505
     new-instance v0, Landroid/content/ComponentName;
 
     invoke-direct {v0, p0, p1}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
     invoke-static {p0, v0, p2, p3}, Landroidx/core/app/JobIntentService;->enqueueWork(Landroid/content/Context;Landroid/content/ComponentName;ILandroid/content/Intent;)V
 
-    .line 502
     return-void
 .end method
 
 .method static getWorkEnqueuer(Landroid/content/Context;Landroid/content/ComponentName;ZI)Landroidx/core/app/JobIntentService$WorkEnqueuer;
-    .locals 3
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "cn"    # Landroid/content/ComponentName;
-    .param p2, "hasJobId"    # Z
-    .param p3, "jobId"    # I
+    .locals 2
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "context",
+            "cn",
+            "hasJobId",
+            "jobId"
+        }
+    .end annotation
 
-    .line 529
+    .line 533
     sget-object v0, Landroidx/core/app/JobIntentService;->sClassWorkEnqueuer:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroidx/core/app/JobIntentService$WorkEnqueuer;
+    check-cast v1, Landroidx/core/app/JobIntentService$WorkEnqueuer;
 
-    .line 530
-    .local v0, "we":Landroidx/core/app/JobIntentService$WorkEnqueuer;
-    if-nez v0, :cond_2
+    if-nez v1, :cond_1
 
-    .line 531
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x1a
-
-    if-lt v1, v2, :cond_1
-
-    .line 532
     if-eqz p2, :cond_0
 
-    .line 535
+    .line 539
     new-instance v1, Landroidx/core/app/JobIntentService$JobWorkEnqueuer;
 
     invoke-direct {v1, p0, p1, p3}, Landroidx/core/app/JobIntentService$JobWorkEnqueuer;-><init>(Landroid/content/Context;Landroid/content/ComponentName;I)V
 
-    move-object v0, v1
+    .line 543
+    invoke-virtual {v0, p1, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
-    .line 533
-    :cond_0
-    new-instance v1, Ljava/lang/IllegalArgumentException;
-
-    const-string v2, "Can\'t be here without a job id"
-
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v1
-
     .line 537
+    :cond_0
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    const-string p1, "Can\'t be here without a job id"
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
     :cond_1
-    new-instance v1, Landroidx/core/app/JobIntentService$CompatWorkEnqueuer;
-
-    invoke-direct {v1, p0, p1}, Landroidx/core/app/JobIntentService$CompatWorkEnqueuer;-><init>(Landroid/content/Context;Landroid/content/ComponentName;)V
-
-    move-object v0, v1
-
-    .line 539
     :goto_0
-    sget-object v1, Landroidx/core/app/JobIntentService;->sClassWorkEnqueuer:Ljava/util/HashMap;
-
-    invoke-virtual {v1, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 541
-    :cond_2
-    return-object v0
+    return-object v1
 .end method
 
 
@@ -285,25 +271,25 @@
 .method dequeueWork()Landroidx/core/app/JobIntentService$GenericWorkItem;
     .locals 3
 
-    .line 639
+    .line 644
     iget-object v0, p0, Landroidx/core/app/JobIntentService;->mJobImpl:Landroidx/core/app/JobIntentService$CompatJobEngine;
 
     if-eqz v0, :cond_0
 
-    .line 640
+    .line 645
     invoke-interface {v0}, Landroidx/core/app/JobIntentService$CompatJobEngine;->dequeueWork()Landroidx/core/app/JobIntentService$GenericWorkItem;
 
     move-result-object v0
 
     return-object v0
 
-    .line 642
+    .line 647
     :cond_0
     iget-object v0, p0, Landroidx/core/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
 
     monitor-enter v0
 
-    .line 643
+    .line 648
     :try_start_0
     iget-object v1, p0, Landroidx/core/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
 
@@ -313,7 +299,7 @@
 
     if-lez v1, :cond_1
 
-    .line 644
+    .line 649
     iget-object v1, p0, Landroidx/core/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
 
     const/4 v2, 0x0
@@ -328,18 +314,18 @@
 
     return-object v1
 
-    .line 646
+    .line 651
     :cond_1
-    const/4 v1, 0x0
-
     monitor-exit v0
 
-    return-object v1
+    const/4 v0, 0x0
 
-    .line 648
+    return-object v0
+
     :catchall_0
     move-exception v1
 
+    .line 653
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -350,23 +336,23 @@
 .method doStopCurrentWork()Z
     .locals 2
 
-    .line 599
+    .line 603
     iget-object v0, p0, Landroidx/core/app/JobIntentService;->mCurProcessor:Landroidx/core/app/JobIntentService$CommandProcessor;
 
     if-eqz v0, :cond_0
 
-    .line 600
+    .line 604
     iget-boolean v1, p0, Landroidx/core/app/JobIntentService;->mInterruptIfStopped:Z
 
     invoke-virtual {v0, v1}, Landroidx/core/app/JobIntentService$CommandProcessor;->cancel(Z)Z
 
-    .line 602
     :cond_0
     const/4 v0, 0x1
 
+    .line 606
     iput-boolean v0, p0, Landroidx/core/app/JobIntentService;->mStopped:Z
 
-    .line 603
+    .line 607
     invoke-virtual {p0}, Landroidx/core/app/JobIntentService;->onStopCurrentWork()Z
 
     move-result v0
@@ -375,44 +361,50 @@
 .end method
 
 .method ensureProcessorRunningLocked(Z)V
-    .locals 3
-    .param p1, "reportStarted"    # Z
+    .locals 2
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "reportStarted"
+        }
+    .end annotation
 
-    .line 607
+    .line 612
     iget-object v0, p0, Landroidx/core/app/JobIntentService;->mCurProcessor:Landroidx/core/app/JobIntentService$CommandProcessor;
 
     if-nez v0, :cond_1
 
-    .line 608
+    .line 613
     new-instance v0, Landroidx/core/app/JobIntentService$CommandProcessor;
 
     invoke-direct {v0, p0}, Landroidx/core/app/JobIntentService$CommandProcessor;-><init>(Landroidx/core/app/JobIntentService;)V
 
     iput-object v0, p0, Landroidx/core/app/JobIntentService;->mCurProcessor:Landroidx/core/app/JobIntentService$CommandProcessor;
 
-    .line 609
+    .line 614
     iget-object v0, p0, Landroidx/core/app/JobIntentService;->mCompatWorkEnqueuer:Landroidx/core/app/JobIntentService$WorkEnqueuer;
 
     if-eqz v0, :cond_0
 
     if-eqz p1, :cond_0
 
-    .line 610
+    .line 615
     invoke-virtual {v0}, Landroidx/core/app/JobIntentService$WorkEnqueuer;->serviceProcessingStarted()V
 
-    .line 613
+    .line 618
     :cond_0
-    iget-object v0, p0, Landroidx/core/app/JobIntentService;->mCurProcessor:Landroidx/core/app/JobIntentService$CommandProcessor;
+    iget-object p1, p0, Landroidx/core/app/JobIntentService;->mCurProcessor:Landroidx/core/app/JobIntentService$CommandProcessor;
 
-    sget-object v1, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
+    sget-object v0, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    new-array v2, v2, [Ljava/lang/Void;
+    new-array v1, v1, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1, v2}, Landroidx/core/app/JobIntentService$CommandProcessor;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-virtual {p1, v0, v1}, Landroidx/core/app/JobIntentService$CommandProcessor;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 615
     :cond_1
     return-void
 .end method
@@ -420,120 +412,88 @@
 .method public isStopped()Z
     .locals 1
 
-    .line 580
+    .line 584
     iget-boolean v0, p0, Landroidx/core/app/JobIntentService;->mStopped:Z
 
     return v0
 .end method
 
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .locals 1
-    .param p1, "intent"    # Landroid/content/Intent;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "intent"
+        }
+    .end annotation
 
-    .line 465
-    iget-object v0, p0, Landroidx/core/app/JobIntentService;->mJobImpl:Landroidx/core/app/JobIntentService$CompatJobEngine;
+    .line 469
+    iget-object p1, p0, Landroidx/core/app/JobIntentService;->mJobImpl:Landroidx/core/app/JobIntentService$CompatJobEngine;
 
-    if-eqz v0, :cond_0
-
-    .line 466
-    invoke-interface {v0}, Landroidx/core/app/JobIntentService$CompatJobEngine;->compatGetBinder()Landroid/os/IBinder;
-
-    move-result-object v0
-
-    .line 468
-    .local v0, "engine":Landroid/os/IBinder;
-    return-object v0
+    if-eqz p1, :cond_0
 
     .line 470
-    .end local v0    # "engine":Landroid/os/IBinder;
-    :cond_0
-    const/4 v0, 0x0
+    invoke-interface {p1}, Landroidx/core/app/JobIntentService$CompatJobEngine;->compatGetBinder()Landroid/os/IBinder;
 
-    return-object v0
+    move-result-object p1
+
+    return-object p1
+
+    :cond_0
+    const/4 p1, 0x0
+
+    return-object p1
 .end method
 
 .method public onCreate()V
-    .locals 3
+    .locals 1
 
-    .line 426
+    .line 430
     invoke-super {p0}, Landroid/app/Service;->onCreate()V
 
-    .line 428
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/4 v1, 0x0
-
-    const/16 v2, 0x1a
-
-    if-lt v0, v2, :cond_0
-
-    .line 429
+    .line 433
     new-instance v0, Landroidx/core/app/JobIntentService$JobServiceEngineImpl;
 
     invoke-direct {v0, p0}, Landroidx/core/app/JobIntentService$JobServiceEngineImpl;-><init>(Landroidx/core/app/JobIntentService;)V
 
     iput-object v0, p0, Landroidx/core/app/JobIntentService;->mJobImpl:Landroidx/core/app/JobIntentService$CompatJobEngine;
 
-    .line 430
-    iput-object v1, p0, Landroidx/core/app/JobIntentService;->mCompatWorkEnqueuer:Landroidx/core/app/JobIntentService$WorkEnqueuer;
-
-    goto :goto_0
-
-    .line 432
-    :cond_0
-    iput-object v1, p0, Landroidx/core/app/JobIntentService;->mJobImpl:Landroidx/core/app/JobIntentService$CompatJobEngine;
-
-    .line 433
-    new-instance v0, Landroid/content/ComponentName;
-
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v1
-
-    invoke-direct {v0, p0, v1}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    const/4 v0, 0x0
 
     .line 434
-    .local v0, "cn":Landroid/content/ComponentName;
-    const/4 v1, 0x0
+    iput-object v0, p0, Landroidx/core/app/JobIntentService;->mCompatWorkEnqueuer:Landroidx/core/app/JobIntentService$WorkEnqueuer;
 
-    invoke-static {p0, v0, v1, v1}, Landroidx/core/app/JobIntentService;->getWorkEnqueuer(Landroid/content/Context;Landroid/content/ComponentName;ZI)Landroidx/core/app/JobIntentService$WorkEnqueuer;
-
-    move-result-object v1
-
-    iput-object v1, p0, Landroidx/core/app/JobIntentService;->mCompatWorkEnqueuer:Landroidx/core/app/JobIntentService$WorkEnqueuer;
-
-    .line 436
-    .end local v0    # "cn":Landroid/content/ComponentName;
-    :goto_0
     return-void
 .end method
 
 .method public onDestroy()V
     .locals 2
 
-    .line 476
+    .line 480
     invoke-super {p0}, Landroid/app/Service;->onDestroy()V
 
-    .line 477
+    .line 481
     iget-object v0, p0, Landroidx/core/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
 
     if-eqz v0, :cond_0
 
-    .line 478
+    .line 482
     monitor-enter v0
 
-    .line 479
     const/4 v1, 0x1
 
+    .line 483
     :try_start_0
     iput-boolean v1, p0, Landroidx/core/app/JobIntentService;->mDestroyed:Z
 
-    .line 480
+    .line 484
     iget-object v1, p0, Landroidx/core/app/JobIntentService;->mCompatWorkEnqueuer:Landroidx/core/app/JobIntentService$WorkEnqueuer;
 
     invoke-virtual {v1}, Landroidx/core/app/JobIntentService$WorkEnqueuer;->serviceProcessingFinished()V
 
-    .line 481
+    .line 485
     monitor-exit v0
 
     goto :goto_0
@@ -547,92 +507,102 @@
 
     throw v1
 
-    .line 483
     :cond_0
     :goto_0
     return-void
 .end method
 
 .method protected abstract onHandleWork(Landroid/content/Intent;)V
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "intent"
+        }
+    .end annotation
 .end method
 
 .method public onStartCommand(Landroid/content/Intent;II)I
-    .locals 4
-    .param p1, "intent"    # Landroid/content/Intent;
-    .param p2, "flags"    # I
-    .param p3, "startId"    # I
-
-    .line 444
-    iget-object v0, p0, Landroidx/core/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
-
-    if-eqz v0, :cond_1
-
-    .line 445
-    iget-object v0, p0, Landroidx/core/app/JobIntentService;->mCompatWorkEnqueuer:Landroidx/core/app/JobIntentService$WorkEnqueuer;
-
-    invoke-virtual {v0}, Landroidx/core/app/JobIntentService$WorkEnqueuer;->serviceStartReceived()V
-
-    .line 447
-    iget-object v0, p0, Landroidx/core/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
-
-    monitor-enter v0
+    .locals 2
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "intent",
+            "flags",
+            "startId"
+        }
+    .end annotation
 
     .line 448
-    :try_start_0
-    iget-object v1, p0, Landroidx/core/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
+    iget-object p2, p0, Landroidx/core/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
 
-    new-instance v2, Landroidx/core/app/JobIntentService$CompatWorkItem;
+    if-eqz p2, :cond_1
+
+    .line 449
+    iget-object p2, p0, Landroidx/core/app/JobIntentService;->mCompatWorkEnqueuer:Landroidx/core/app/JobIntentService$WorkEnqueuer;
+
+    invoke-virtual {p2}, Landroidx/core/app/JobIntentService$WorkEnqueuer;->serviceStartReceived()V
+
+    .line 451
+    iget-object p2, p0, Landroidx/core/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
+
+    monitor-enter p2
+
+    .line 452
+    :try_start_0
+    iget-object v0, p0, Landroidx/core/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
+
+    new-instance v1, Landroidx/core/app/JobIntentService$CompatWorkItem;
 
     if-eqz p1, :cond_0
-
-    move-object v3, p1
 
     goto :goto_0
 
     :cond_0
-    new-instance v3, Landroid/content/Intent;
+    new-instance p1, Landroid/content/Intent;
 
-    invoke-direct {v3}, Landroid/content/Intent;-><init>()V
+    invoke-direct {p1}, Landroid/content/Intent;-><init>()V
 
     :goto_0
-    invoke-direct {v2, p0, v3, p3}, Landroidx/core/app/JobIntentService$CompatWorkItem;-><init>(Landroidx/core/app/JobIntentService;Landroid/content/Intent;I)V
+    invoke-direct {v1, p0, p1, p3}, Landroidx/core/app/JobIntentService$CompatWorkItem;-><init>(Landroidx/core/app/JobIntentService;Landroid/content/Intent;I)V
 
-    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 450
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    invoke-virtual {p0, v1}, Landroidx/core/app/JobIntentService;->ensureProcessorRunningLocked(Z)V
+    .line 454
+    invoke-virtual {p0, p1}, Landroidx/core/app/JobIntentService;->ensureProcessorRunningLocked(Z)V
 
-    .line 451
-    monitor-exit v0
+    .line 455
+    monitor-exit p2
 
-    .line 452
-    const/4 v0, 0x3
+    const/4 p1, 0x3
 
-    return v0
+    return p1
 
-    .line 451
     :catchall_0
-    move-exception v1
+    move-exception p1
 
-    monitor-exit v0
+    monitor-exit p2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 
-    .line 455
     :cond_1
-    const/4 v0, 0x2
+    const/4 p1, 0x2
 
-    return v0
+    return p1
 .end method
 
 .method public onStopCurrentWork()Z
     .locals 1
 
-    .line 595
     const/4 v0, 0x1
 
     return v0
@@ -641,26 +611,24 @@
 .method processorFinished()V
     .locals 2
 
-    .line 618
+    .line 623
     iget-object v0, p0, Landroidx/core/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
 
     if-eqz v0, :cond_2
 
-    .line 619
+    .line 624
     monitor-enter v0
 
-    .line 620
     const/4 v1, 0x0
 
+    .line 625
     :try_start_0
     iput-object v1, p0, Landroidx/core/app/JobIntentService;->mCurProcessor:Landroidx/core/app/JobIntentService$CommandProcessor;
 
-    .line 629
+    .line 634
     iget-object v1, p0, Landroidx/core/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
 
     if-eqz v1, :cond_0
-
-    iget-object v1, p0, Landroidx/core/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
@@ -668,25 +636,25 @@
 
     if-lez v1, :cond_0
 
-    .line 630
     const/4 v1, 0x0
 
+    .line 635
     invoke-virtual {p0, v1}, Landroidx/core/app/JobIntentService;->ensureProcessorRunningLocked(Z)V
 
     goto :goto_0
 
-    .line 631
+    .line 636
     :cond_0
     iget-boolean v1, p0, Landroidx/core/app/JobIntentService;->mDestroyed:Z
 
     if-nez v1, :cond_1
 
-    .line 632
+    .line 637
     iget-object v1, p0, Landroidx/core/app/JobIntentService;->mCompatWorkEnqueuer:Landroidx/core/app/JobIntentService$WorkEnqueuer;
 
     invoke-virtual {v1}, Landroidx/core/app/JobIntentService$WorkEnqueuer;->serviceProcessingFinished()V
 
-    .line 634
+    .line 639
     :cond_1
     :goto_0
     monitor-exit v0
@@ -702,7 +670,6 @@
 
     throw v1
 
-    .line 636
     :cond_2
     :goto_1
     return-void
@@ -710,11 +677,17 @@
 
 .method public setInterruptIfStopped(Z)V
     .locals 0
-    .param p1, "interruptIfStopped"    # Z
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "interruptIfStopped"
+        }
+    .end annotation
 
-    .line 572
+    .line 576
     iput-boolean p1, p0, Landroidx/core/app/JobIntentService;->mInterruptIfStopped:Z
 
-    .line 573
     return-void
 .end method

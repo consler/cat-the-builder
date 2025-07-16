@@ -38,7 +38,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/res/AssetManager;)V
     .locals 0
-    .param p1, "assetManager"    # Landroid/content/res/AssetManager;
 
     .line 65
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,15 +45,13 @@
     .line 66
     iput-object p1, p0, Lcom/bumptech/glide/load/model/AssetUriLoader$StreamFactory;->assetManager:Landroid/content/res/AssetManager;
 
-    .line 67
     return-void
 .end method
 
 
 # virtual methods
 .method public build(Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;)Lcom/bumptech/glide/load/model/ModelLoader;
-    .locals 2
-    .param p1, "multiFactory"    # Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -68,19 +65,17 @@
     .end annotation
 
     .line 72
-    new-instance v0, Lcom/bumptech/glide/load/model/AssetUriLoader;
+    new-instance p1, Lcom/bumptech/glide/load/model/AssetUriLoader;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/model/AssetUriLoader$StreamFactory;->assetManager:Landroid/content/res/AssetManager;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/AssetUriLoader$StreamFactory;->assetManager:Landroid/content/res/AssetManager;
 
-    invoke-direct {v0, v1, p0}, Lcom/bumptech/glide/load/model/AssetUriLoader;-><init>(Landroid/content/res/AssetManager;Lcom/bumptech/glide/load/model/AssetUriLoader$AssetFetcherFactory;)V
+    invoke-direct {p1, v0, p0}, Lcom/bumptech/glide/load/model/AssetUriLoader;-><init>(Landroid/content/res/AssetManager;Lcom/bumptech/glide/load/model/AssetUriLoader$AssetFetcherFactory;)V
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public buildFetcher(Landroid/content/res/AssetManager;Ljava/lang/String;)Lcom/bumptech/glide/load/data/DataFetcher;
     .locals 1
-    .param p1, "assetManager"    # Landroid/content/res/AssetManager;
-    .param p2, "assetPath"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -104,6 +99,5 @@
 .method public teardown()V
     .locals 0
 
-    .line 78
     return-void
 .end method

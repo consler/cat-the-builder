@@ -13,20 +13,15 @@
 # direct methods
 .method protected constructor <init>(Ljava/util/Set;Lorg/apache/commons/collections/Predicate;)V
     .locals 0
-    .param p1, "set"    # Ljava/util/Set;
-    .param p2, "predicate"    # Lorg/apache/commons/collections/Predicate;
 
     .line 76
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections/collection/PredicatedCollection;-><init>(Ljava/util/Collection;Lorg/apache/commons/collections/Predicate;)V
 
-    .line 77
     return-void
 .end method
 
 .method public static decorate(Ljava/util/Set;Lorg/apache/commons/collections/Predicate;)Ljava/util/Set;
     .locals 1
-    .param p0, "set"    # Ljava/util/Set;
-    .param p1, "predicate"    # Lorg/apache/commons/collections/Predicate;
 
     .line 60
     new-instance v0, Lorg/apache/commons/collections/set/PredicatedSet;

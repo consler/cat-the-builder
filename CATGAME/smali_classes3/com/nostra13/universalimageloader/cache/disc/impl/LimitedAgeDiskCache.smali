@@ -21,15 +21,13 @@
 # direct methods
 .method public constructor <init>(Ljava/io/File;J)V
     .locals 6
-    .param p1, "cacheDir"    # Ljava/io/File;
-    .param p2, "maxAge"    # J
+
+    const/4 v2, 0x0
 
     .line 48
     invoke-static {}, Lcom/nostra13/universalimageloader/core/DefaultConfigurationFactory;->createFileNameGenerator()Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;
 
     move-result-object v3
-
-    const/4 v2, 0x0
 
     move-object v0, p0
 
@@ -39,15 +37,11 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/nostra13/universalimageloader/cache/disc/impl/LimitedAgeDiskCache;-><init>(Ljava/io/File;Ljava/io/File;Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;J)V
 
-    .line 49
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/File;Ljava/io/File;J)V
     .locals 6
-    .param p1, "cacheDir"    # Ljava/io/File;
-    .param p2, "reserveCacheDir"    # Ljava/io/File;
-    .param p3, "maxAge"    # J
 
     .line 57
     invoke-static {}, Lcom/nostra13/universalimageloader/core/DefaultConfigurationFactory;->createFileNameGenerator()Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;
@@ -64,71 +58,61 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/nostra13/universalimageloader/cache/disc/impl/LimitedAgeDiskCache;-><init>(Ljava/io/File;Ljava/io/File;Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;J)V
 
-    .line 58
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/File;Ljava/io/File;Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;J)V
-    .locals 2
-    .param p1, "cacheDir"    # Ljava/io/File;
-    .param p2, "reserveCacheDir"    # Ljava/io/File;
-    .param p3, "fileNameGenerator"    # Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;
-    .param p4, "maxAge"    # J
+    .locals 0
 
     .line 68
     invoke-direct {p0, p1, p2, p3}, Lcom/nostra13/universalimageloader/cache/disc/impl/BaseDiskCache;-><init>(Ljava/io/File;Ljava/io/File;Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;)V
 
     .line 40
-    new-instance v0, Ljava/util/HashMap;
+    new-instance p1, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {p1}, Ljava/util/HashMap;-><init>()V
 
-    invoke-static {v0}, Ljava/util/Collections;->synchronizedMap(Ljava/util/Map;)Ljava/util/Map;
+    invoke-static {p1}, Ljava/util/Collections;->synchronizedMap(Ljava/util/Map;)Ljava/util/Map;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/LimitedAgeDiskCache;->loadingDates:Ljava/util/Map;
+    iput-object p1, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/LimitedAgeDiskCache;->loadingDates:Ljava/util/Map;
+
+    const-wide/16 p1, 0x3e8
+
+    mul-long/2addr p4, p1
 
     .line 69
-    const-wide/16 v0, 0x3e8
+    iput-wide p4, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/LimitedAgeDiskCache;->maxFileAge:J
 
-    mul-long/2addr v0, p4
-
-    iput-wide v0, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/LimitedAgeDiskCache;->maxFileAge:J
-
-    .line 70
     return-void
 .end method
 
 .method private rememberUsage(Ljava/lang/String;)V
-    .locals 5
-    .param p1, "imageUri"    # Ljava/lang/String;
+    .locals 3
 
     .line 122
     invoke-virtual {p0, p1}, Lcom/nostra13/universalimageloader/cache/disc/impl/LimitedAgeDiskCache;->getFile(Ljava/lang/String;)Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 123
-    .local v0, "file":Ljava/io/File;
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v1
+    move-result-wide v0
 
     .line 124
-    .local v1, "currentTime":J
-    invoke-virtual {v0, v1, v2}, Ljava/io/File;->setLastModified(J)Z
+    invoke-virtual {p1, v0, v1}, Ljava/io/File;->setLastModified(J)Z
 
     .line 125
-    iget-object v3, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/LimitedAgeDiskCache;->loadingDates:Ljava/util/Map;
+    iget-object v2, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/LimitedAgeDiskCache;->loadingDates:Ljava/util/Map;
 
-    invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-interface {v3, v0, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 126
     return-void
 .end method
 
@@ -145,111 +129,96 @@
 
     invoke-interface {v0}, Ljava/util/Map;->clear()V
 
-    .line 119
     return-void
 .end method
 
 .method public get(Ljava/lang/String;)Ljava/io/File;
-    .locals 7
-    .param p1, "imageUri"    # Ljava/lang/String;
+    .locals 6
 
     .line 74
     invoke-super {p0, p1}, Lcom/nostra13/universalimageloader/cache/disc/impl/BaseDiskCache;->get(Ljava/lang/String;)Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p1
+
+    if-eqz p1, :cond_2
 
     .line 75
-    .local v0, "file":Ljava/io/File;
+    invoke-virtual {p1}, Ljava/io/File;->exists()Z
+
+    move-result v0
+
     if-eqz v0, :cond_2
 
-    invoke-virtual {v0}, Ljava/io/File;->exists()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
     .line 77
-    iget-object v1, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/LimitedAgeDiskCache;->loadingDates:Ljava/util/Map;
+    iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/LimitedAgeDiskCache;->loadingDates:Ljava/util/Map;
 
-    invoke-interface {v1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ljava/lang/Long;
+    check-cast v0, Ljava/lang/Long;
 
-    .line 78
-    .local v1, "loadingDate":Ljava/lang/Long;
-    if-nez v1, :cond_0
-
-    .line 79
-    const/4 v2, 0x0
+    if-nez v0, :cond_0
 
     .line 80
-    .local v2, "cached":Z
-    invoke-virtual {v0}, Ljava/io/File;->lastModified()J
+    invoke-virtual {p1}, Ljava/io/File;->lastModified()J
 
-    move-result-wide v3
+    move-result-wide v0
 
-    invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v1
+    move-result-object v0
+
+    const/4 v1, 0x0
 
     goto :goto_0
 
-    .line 82
-    .end local v2    # "cached":Z
     :cond_0
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
     .line 85
-    .restart local v2    # "cached":Z
     :goto_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v3
+    move-result-wide v2
 
-    invoke-virtual {v1}, Ljava/lang/Long;->longValue()J
+    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v5
+    move-result-wide v4
 
-    sub-long/2addr v3, v5
+    sub-long/2addr v2, v4
 
-    iget-wide v5, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/LimitedAgeDiskCache;->maxFileAge:J
+    iget-wide v4, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/LimitedAgeDiskCache;->maxFileAge:J
 
-    cmp-long v3, v3, v5
+    cmp-long v2, v2, v4
 
-    if-lez v3, :cond_1
+    if-lez v2, :cond_1
 
     .line 86
-    invoke-virtual {v0}, Ljava/io/File;->delete()Z
+    invoke-virtual {p1}, Ljava/io/File;->delete()Z
 
     .line 87
-    iget-object v3, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/LimitedAgeDiskCache;->loadingDates:Ljava/util/Map;
+    iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/LimitedAgeDiskCache;->loadingDates:Ljava/util/Map;
 
-    invoke-interface {v3, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_1
 
-    .line 88
     :cond_1
-    if-nez v2, :cond_2
+    if-nez v1, :cond_2
 
     .line 89
-    iget-object v3, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/LimitedAgeDiskCache;->loadingDates:Ljava/util/Map;
+    iget-object v1, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/LimitedAgeDiskCache;->loadingDates:Ljava/util/Map;
 
-    invoke-interface {v3, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 92
-    .end local v1    # "loadingDate":Ljava/lang/Long;
-    .end local v2    # "cached":Z
     :cond_2
     :goto_1
-    return-object v0
+    return-object p1
 .end method
 
 .method public remove(Ljava/lang/String;)Z
     .locals 2
-    .param p1, "imageUri"    # Ljava/lang/String;
 
     .line 111
     iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/disc/impl/LimitedAgeDiskCache;->loadingDates:Ljava/util/Map;
@@ -263,15 +232,13 @@
     .line 112
     invoke-super {p0, p1}, Lcom/nostra13/universalimageloader/cache/disc/impl/BaseDiskCache;->remove(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public save(Ljava/lang/String;Landroid/graphics/Bitmap;)Z
-    .locals 1
-    .param p1, "imageUri"    # Ljava/lang/String;
-    .param p2, "bitmap"    # Landroid/graphics/Bitmap;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -281,21 +248,16 @@
     .line 104
     invoke-super {p0, p1, p2}, Lcom/nostra13/universalimageloader/cache/disc/impl/BaseDiskCache;->save(Ljava/lang/String;Landroid/graphics/Bitmap;)Z
 
-    move-result v0
+    move-result p2
 
     .line 105
-    .local v0, "saved":Z
     invoke-direct {p0, p1}, Lcom/nostra13/universalimageloader/cache/disc/impl/LimitedAgeDiskCache;->rememberUsage(Ljava/lang/String;)V
 
-    .line 106
-    return v0
+    return p2
 .end method
 
 .method public save(Ljava/lang/String;Ljava/io/InputStream;Lcom/nostra13/universalimageloader/utils/IoUtils$CopyListener;)Z
-    .locals 1
-    .param p1, "imageUri"    # Ljava/lang/String;
-    .param p2, "imageStream"    # Ljava/io/InputStream;
-    .param p3, "listener"    # Lcom/nostra13/universalimageloader/utils/IoUtils$CopyListener;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -305,12 +267,10 @@
     .line 97
     invoke-super {p0, p1, p2, p3}, Lcom/nostra13/universalimageloader/cache/disc/impl/BaseDiskCache;->save(Ljava/lang/String;Ljava/io/InputStream;Lcom/nostra13/universalimageloader/utils/IoUtils$CopyListener;)Z
 
-    move-result v0
+    move-result p2
 
     .line 98
-    .local v0, "saved":Z
     invoke-direct {p0, p1}, Lcom/nostra13/universalimageloader/cache/disc/impl/LimitedAgeDiskCache;->rememberUsage(Ljava/lang/String;)V
 
-    .line 99
-    return v0
+    return p2
 .end method

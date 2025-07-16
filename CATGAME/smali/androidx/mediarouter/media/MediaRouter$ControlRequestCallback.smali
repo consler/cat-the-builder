@@ -28,17 +28,12 @@
 # virtual methods
 .method public onError(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "error"    # Ljava/lang/String;
-    .param p2, "data"    # Landroid/os/Bundle;
 
-    .line 2080
     return-void
 .end method
 
 .method public onResult(Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "data"    # Landroid/os/Bundle;
 
-    .line 2069
     return-void
 .end method

@@ -14,7 +14,6 @@
 # direct methods
 .method private constructor <init>(Lorg/apache/commons/collections/MapIterator;)V
     .locals 0
-    .param p1, "iterator"    # Lorg/apache/commons/collections/MapIterator;
 
     .line 59
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -22,15 +21,12 @@
     .line 60
     iput-object p1, p0, Lorg/apache/commons/collections/iterators/UnmodifiableMapIterator;->iterator:Lorg/apache/commons/collections/MapIterator;
 
-    .line 61
     return-void
 .end method
 
 .method public static decorate(Lorg/apache/commons/collections/MapIterator;)Lorg/apache/commons/collections/MapIterator;
-    .locals 2
-    .param p0, "iterator"    # Lorg/apache/commons/collections/MapIterator;
+    .locals 1
 
-    .line 43
     if-eqz p0, :cond_1
 
     .line 46
@@ -38,7 +34,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 47
     return-object p0
 
     .line 49
@@ -51,13 +46,13 @@
 
     .line 44
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "MapIterator must not be null"
+    const-string v0, "MapIterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
@@ -128,15 +123,14 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
-    .param p1, "value"    # Ljava/lang/Object;
+    .locals 1
 
     .line 81
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "setValue() is not supported"
+    const-string v0, "setValue() is not supported"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

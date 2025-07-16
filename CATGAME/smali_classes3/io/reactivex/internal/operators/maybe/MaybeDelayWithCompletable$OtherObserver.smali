@@ -69,9 +69,6 @@
     .end annotation
 
     .line 50
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable$OtherObserver;, "Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable$OtherObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
-    .local p2, "source":Lio/reactivex/MaybeSource;, "Lio/reactivex/MaybeSource<TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 51
@@ -80,7 +77,6 @@
     .line 52
     iput-object p2, p0, Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable$OtherObserver;->source:Lio/reactivex/MaybeSource;
 
-    .line 53
     return-void
 .end method
 
@@ -90,10 +86,8 @@
     .locals 0
 
     .line 75
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable$OtherObserver;, "Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable$OtherObserver<TT;>;"
     invoke-static {p0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 76
     return-void
 .end method
 
@@ -101,7 +95,6 @@
     .locals 1
 
     .line 80
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable$OtherObserver;, "Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable$OtherObserver<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable$OtherObserver;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -119,7 +112,6 @@
     .locals 3
 
     .line 70
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable$OtherObserver;, "Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable$OtherObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable$OtherObserver;->source:Lio/reactivex/MaybeSource;
 
     new-instance v1, Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable$DelayWithMainObserver;
@@ -130,42 +122,35 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/MaybeSource;->subscribe(Lio/reactivex/MaybeObserver;)V
 
-    .line 71
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 65
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable$OtherObserver;, "Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable$OtherObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable$OtherObserver;->actual:Lio/reactivex/MaybeObserver;
 
     invoke-interface {v0, p1}, Lio/reactivex/MaybeObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 66
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
-    .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
+    .locals 0
 
     .line 57
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable$OtherObserver;, "Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable$OtherObserver<TT;>;"
     invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 59
-    iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable$OtherObserver;->actual:Lio/reactivex/MaybeObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeDelayWithCompletable$OtherObserver;->actual:Lio/reactivex/MaybeObserver;
 
-    invoke-interface {v0, p0}, Lio/reactivex/MaybeObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/MaybeObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 61
     :cond_0
     return-void
 .end method

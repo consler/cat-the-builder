@@ -31,7 +31,6 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
     .locals 0
-    .param p1, "hash"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITT;",
@@ -41,15 +40,11 @@
     .end annotation
 
     .line 999
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractReferenceMap$WeakRef;, "Lorg/apache/commons/collections4/map/AbstractReferenceMap$WeakRef<TT;>;"
-    .local p2, "r":Ljava/lang/Object;, "TT;"
-    .local p3, "q":Ljava/lang/ref/ReferenceQueue;, "Ljava/lang/ref/ReferenceQueue<-TT;>;"
     invoke-direct {p0, p2, p3}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
 
     .line 1000
     iput p1, p0, Lorg/apache/commons/collections4/map/AbstractReferenceMap$WeakRef;->hash:I
 
-    .line 1001
     return-void
 .end method
 
@@ -59,7 +54,6 @@
     .locals 1
 
     .line 1005
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractReferenceMap$WeakRef;, "Lorg/apache/commons/collections4/map/AbstractReferenceMap$WeakRef<TT;>;"
     iget v0, p0, Lorg/apache/commons/collections4/map/AbstractReferenceMap$WeakRef;->hash:I
 
     return v0

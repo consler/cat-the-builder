@@ -46,7 +46,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 12
+    .locals 16
 
     .line 560
     new-instance v0, Lcom/badlogic/gdx/Input$Peripheral;
@@ -59,126 +59,116 @@
 
     sput-object v0, Lcom/badlogic/gdx/Input$Peripheral;->HardwareKeyboard:Lcom/badlogic/gdx/Input$Peripheral;
 
-    new-instance v0, Lcom/badlogic/gdx/Input$Peripheral;
+    new-instance v1, Lcom/badlogic/gdx/Input$Peripheral;
 
-    const-string v1, "OnscreenKeyboard"
+    const-string v3, "OnscreenKeyboard"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Lcom/badlogic/gdx/Input$Peripheral;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Lcom/badlogic/gdx/Input$Peripheral;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/badlogic/gdx/Input$Peripheral;->OnscreenKeyboard:Lcom/badlogic/gdx/Input$Peripheral;
+    sput-object v1, Lcom/badlogic/gdx/Input$Peripheral;->OnscreenKeyboard:Lcom/badlogic/gdx/Input$Peripheral;
 
-    new-instance v0, Lcom/badlogic/gdx/Input$Peripheral;
+    new-instance v3, Lcom/badlogic/gdx/Input$Peripheral;
 
-    const-string v1, "MultitouchScreen"
+    const-string v5, "MultitouchScreen"
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v1, v4}, Lcom/badlogic/gdx/Input$Peripheral;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Lcom/badlogic/gdx/Input$Peripheral;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/badlogic/gdx/Input$Peripheral;->MultitouchScreen:Lcom/badlogic/gdx/Input$Peripheral;
+    sput-object v3, Lcom/badlogic/gdx/Input$Peripheral;->MultitouchScreen:Lcom/badlogic/gdx/Input$Peripheral;
 
-    new-instance v0, Lcom/badlogic/gdx/Input$Peripheral;
+    new-instance v5, Lcom/badlogic/gdx/Input$Peripheral;
 
-    const-string v1, "Accelerometer"
+    const-string v7, "Accelerometer"
 
-    const/4 v5, 0x3
+    const/4 v8, 0x3
 
-    invoke-direct {v0, v1, v5}, Lcom/badlogic/gdx/Input$Peripheral;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v5, v7, v8}, Lcom/badlogic/gdx/Input$Peripheral;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/badlogic/gdx/Input$Peripheral;->Accelerometer:Lcom/badlogic/gdx/Input$Peripheral;
+    sput-object v5, Lcom/badlogic/gdx/Input$Peripheral;->Accelerometer:Lcom/badlogic/gdx/Input$Peripheral;
 
-    new-instance v0, Lcom/badlogic/gdx/Input$Peripheral;
+    new-instance v7, Lcom/badlogic/gdx/Input$Peripheral;
 
-    const-string v1, "Compass"
+    const-string v9, "Compass"
 
-    const/4 v6, 0x4
+    const/4 v10, 0x4
 
-    invoke-direct {v0, v1, v6}, Lcom/badlogic/gdx/Input$Peripheral;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v7, v9, v10}, Lcom/badlogic/gdx/Input$Peripheral;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/badlogic/gdx/Input$Peripheral;->Compass:Lcom/badlogic/gdx/Input$Peripheral;
+    sput-object v7, Lcom/badlogic/gdx/Input$Peripheral;->Compass:Lcom/badlogic/gdx/Input$Peripheral;
 
-    new-instance v0, Lcom/badlogic/gdx/Input$Peripheral;
+    new-instance v9, Lcom/badlogic/gdx/Input$Peripheral;
 
-    const-string v1, "Vibrator"
+    const-string v11, "Vibrator"
 
-    const/4 v7, 0x5
+    const/4 v12, 0x5
 
-    invoke-direct {v0, v1, v7}, Lcom/badlogic/gdx/Input$Peripheral;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v9, v11, v12}, Lcom/badlogic/gdx/Input$Peripheral;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/badlogic/gdx/Input$Peripheral;->Vibrator:Lcom/badlogic/gdx/Input$Peripheral;
+    sput-object v9, Lcom/badlogic/gdx/Input$Peripheral;->Vibrator:Lcom/badlogic/gdx/Input$Peripheral;
 
-    new-instance v0, Lcom/badlogic/gdx/Input$Peripheral;
+    new-instance v11, Lcom/badlogic/gdx/Input$Peripheral;
 
-    const-string v1, "Gyroscope"
+    const-string v13, "Gyroscope"
 
-    const/4 v8, 0x6
+    const/4 v14, 0x6
 
-    invoke-direct {v0, v1, v8}, Lcom/badlogic/gdx/Input$Peripheral;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v11, v13, v14}, Lcom/badlogic/gdx/Input$Peripheral;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/badlogic/gdx/Input$Peripheral;->Gyroscope:Lcom/badlogic/gdx/Input$Peripheral;
+    sput-object v11, Lcom/badlogic/gdx/Input$Peripheral;->Gyroscope:Lcom/badlogic/gdx/Input$Peripheral;
 
-    new-instance v0, Lcom/badlogic/gdx/Input$Peripheral;
+    new-instance v13, Lcom/badlogic/gdx/Input$Peripheral;
 
-    const-string v1, "RotationVector"
+    const-string v15, "RotationVector"
 
-    const/4 v9, 0x7
+    const/4 v14, 0x7
 
-    invoke-direct {v0, v1, v9}, Lcom/badlogic/gdx/Input$Peripheral;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v13, v15, v14}, Lcom/badlogic/gdx/Input$Peripheral;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/badlogic/gdx/Input$Peripheral;->RotationVector:Lcom/badlogic/gdx/Input$Peripheral;
+    sput-object v13, Lcom/badlogic/gdx/Input$Peripheral;->RotationVector:Lcom/badlogic/gdx/Input$Peripheral;
 
-    new-instance v0, Lcom/badlogic/gdx/Input$Peripheral;
+    new-instance v15, Lcom/badlogic/gdx/Input$Peripheral;
 
-    const-string v1, "Pressure"
+    const-string v14, "Pressure"
 
-    const/16 v10, 0x8
+    const/16 v12, 0x8
 
-    invoke-direct {v0, v1, v10}, Lcom/badlogic/gdx/Input$Peripheral;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v15, v14, v12}, Lcom/badlogic/gdx/Input$Peripheral;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/badlogic/gdx/Input$Peripheral;->Pressure:Lcom/badlogic/gdx/Input$Peripheral;
+    sput-object v15, Lcom/badlogic/gdx/Input$Peripheral;->Pressure:Lcom/badlogic/gdx/Input$Peripheral;
+
+    const/16 v14, 0x9
+
+    new-array v14, v14, [Lcom/badlogic/gdx/Input$Peripheral;
+
+    aput-object v0, v14, v2
+
+    aput-object v1, v14, v4
+
+    aput-object v3, v14, v6
+
+    aput-object v5, v14, v8
+
+    aput-object v7, v14, v10
+
+    const/4 v0, 0x5
+
+    aput-object v9, v14, v0
+
+    const/4 v0, 0x6
+
+    aput-object v11, v14, v0
+
+    const/4 v0, 0x7
+
+    aput-object v13, v14, v0
+
+    aput-object v15, v14, v12
 
     .line 559
-    const/16 v1, 0x9
-
-    new-array v1, v1, [Lcom/badlogic/gdx/Input$Peripheral;
-
-    sget-object v11, Lcom/badlogic/gdx/Input$Peripheral;->HardwareKeyboard:Lcom/badlogic/gdx/Input$Peripheral;
-
-    aput-object v11, v1, v2
-
-    sget-object v2, Lcom/badlogic/gdx/Input$Peripheral;->OnscreenKeyboard:Lcom/badlogic/gdx/Input$Peripheral;
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/badlogic/gdx/Input$Peripheral;->MultitouchScreen:Lcom/badlogic/gdx/Input$Peripheral;
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/badlogic/gdx/Input$Peripheral;->Accelerometer:Lcom/badlogic/gdx/Input$Peripheral;
-
-    aput-object v2, v1, v5
-
-    sget-object v2, Lcom/badlogic/gdx/Input$Peripheral;->Compass:Lcom/badlogic/gdx/Input$Peripheral;
-
-    aput-object v2, v1, v6
-
-    sget-object v2, Lcom/badlogic/gdx/Input$Peripheral;->Vibrator:Lcom/badlogic/gdx/Input$Peripheral;
-
-    aput-object v2, v1, v7
-
-    sget-object v2, Lcom/badlogic/gdx/Input$Peripheral;->Gyroscope:Lcom/badlogic/gdx/Input$Peripheral;
-
-    aput-object v2, v1, v8
-
-    sget-object v2, Lcom/badlogic/gdx/Input$Peripheral;->RotationVector:Lcom/badlogic/gdx/Input$Peripheral;
-
-    aput-object v2, v1, v9
-
-    aput-object v0, v1, v10
-
-    sput-object v1, Lcom/badlogic/gdx/Input$Peripheral;->$VALUES:[Lcom/badlogic/gdx/Input$Peripheral;
+    sput-object v14, Lcom/badlogic/gdx/Input$Peripheral;->$VALUES:[Lcom/badlogic/gdx/Input$Peripheral;
 
     return-void
 .end method
@@ -199,18 +189,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/badlogic/gdx/Input$Peripheral;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 559
     const-class v0, Lcom/badlogic/gdx/Input$Peripheral;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/badlogic/gdx/Input$Peripheral;
+    check-cast p0, Lcom/badlogic/gdx/Input$Peripheral;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/badlogic/gdx/Input$Peripheral;

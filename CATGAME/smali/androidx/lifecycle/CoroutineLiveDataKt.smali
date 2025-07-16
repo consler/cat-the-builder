@@ -57,9 +57,6 @@
 # direct methods
 .method public static final addDisposableSource(Landroidx/lifecycle/MediatorLiveData;Landroidx/lifecycle/LiveData;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
     .locals 3
-    .param p0, "$this$addDisposableSource"    # Landroidx/lifecycle/MediatorLiveData;
-    .param p1, "source"    # Landroidx/lifecycle/LiveData;
-    .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -98,17 +95,13 @@
 
     invoke-static {v0, v1, p2}, Lkotlinx/coroutines/BuildersKt;->withContext(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    .line 113
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final liveData(Lkotlin/coroutines/CoroutineContext;JLkotlin/jvm/functions/Function2;)Landroidx/lifecycle/LiveData;
     .locals 1
-    .param p0, "context"    # Lkotlin/coroutines/CoroutineContext;
-    .param p1, "timeoutInMs"    # J
-    .param p3, "block"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -151,9 +144,6 @@
 
 .method public static final liveData(Lkotlin/coroutines/CoroutineContext;Ljava/time/Duration;Lkotlin/jvm/functions/Function2;)Landroidx/lifecycle/LiveData;
     .locals 3
-    .param p0, "context"    # Lkotlin/coroutines/CoroutineContext;
-    .param p1, "timeout"    # Ljava/time/Duration;
-    .param p2, "block"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -180,7 +170,7 @@
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string/jumbo v0, "timeout"
+    const-string v0, "timeout"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -219,9 +209,9 @@
 
     if-eqz p4, :cond_1
 
-    .line 350
     const-wide/16 p1, 0x1388
 
+    .line 350
     :cond_1
     invoke-static {p0, p1, p2, p3}, Landroidx/lifecycle/CoroutineLiveDataKt;->liveData(Lkotlin/coroutines/CoroutineContext;JLkotlin/jvm/functions/Function2;)Landroidx/lifecycle/LiveData;
 

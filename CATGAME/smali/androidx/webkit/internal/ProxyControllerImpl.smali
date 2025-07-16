@@ -46,185 +46,160 @@
 
 # virtual methods
 .method public clearProxyOverride(Ljava/util/concurrent/Executor;Ljava/lang/Runnable;)V
-    .locals 2
-    .param p1, "executor"    # Ljava/util/concurrent/Executor;
-    .param p2, "listener"    # Ljava/lang/Runnable;
+    .locals 1
 
-    .line 59
-    nop
-
-    .line 60
     const-string v0, "PROXY_OVERRIDE"
 
+    .line 60
     invoke-static {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->getFeature(Ljava/lang/String;)Landroidx/webkit/internal/WebViewFeatureInternal;
 
     move-result-object v0
 
     .line 61
-    .local v0, "webViewFeature":Landroidx/webkit/internal/WebViewFeatureInternal;
     invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByWebView()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 62
     invoke-direct {p0}, Landroidx/webkit/internal/ProxyControllerImpl;->getBoundaryInterface()Lorg/chromium/support_lib_boundary/ProxyControllerBoundaryInterface;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1, p2, p1}, Lorg/chromium/support_lib_boundary/ProxyControllerBoundaryInterface;->clearProxyOverride(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
+    invoke-interface {v0, p2, p1}, Lorg/chromium/support_lib_boundary/ProxyControllerBoundaryInterface;->clearProxyOverride(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
 
-    .line 66
     return-void
 
     .line 64
     :cond_0
     invoke-static {}, Landroidx/webkit/internal/WebViewFeatureInternal;->getUnsupportedOperationException()Ljava/lang/UnsupportedOperationException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 .end method
 
 .method public setProxyOverride(Landroidx/webkit/ProxyConfig;Ljava/util/concurrent/Executor;Ljava/lang/Runnable;)V
-    .locals 8
-    .param p1, "proxyConfig"    # Landroidx/webkit/ProxyConfig;
-    .param p2, "executor"    # Ljava/util/concurrent/Executor;
-    .param p3, "listener"    # Ljava/lang/Runnable;
+    .locals 7
 
-    .line 38
-    nop
-
-    .line 39
     const-string v0, "PROXY_OVERRIDE"
 
+    .line 39
     invoke-static {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->getFeature(Ljava/lang/String;)Landroidx/webkit/internal/WebViewFeatureInternal;
 
     move-result-object v0
 
     .line 40
-    .local v0, "webViewFeature":Landroidx/webkit/internal/WebViewFeatureInternal;
     invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByWebView()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 41
     invoke-virtual {p1}, Landroidx/webkit/ProxyConfig;->getProxyRules()Ljava/util/List;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 44
-    .local v1, "proxyRulesList":Ljava/util/List;, "Ljava/util/List<Landroidx/webkit/ProxyConfig$ProxyRule;>;"
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result v1
 
-    const/4 v3, 0x2
+    const/4 v2, 0x2
 
-    new-array v4, v3, [I
+    new-array v3, v2, [I
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
-    aput v3, v4, v5
+    aput v2, v3, v4
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    aput v2, v4, v3
+    aput v1, v3, v2
 
-    const-class v2, Ljava/lang/String;
+    const-class v1, Ljava/lang/String;
 
-    invoke-static {v2, v4}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
+    invoke-static {v1, v3}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, [[Ljava/lang/String;
+    check-cast v1, [[Ljava/lang/String;
+
+    move v3, v2
 
     .line 45
-    .local v2, "proxyRulesArray":[[Ljava/lang/String;
-    const/4 v4, 0x0
-
-    .local v4, "i":I
     :goto_0
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result v6
+    move-result v5
 
-    if-ge v4, v6, :cond_0
+    if-ge v3, v5, :cond_0
 
     .line 46
-    aget-object v6, v2, v4
+    aget-object v5, v1, v3
 
-    invoke-interface {v1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v6
 
-    check-cast v7, Landroidx/webkit/ProxyConfig$ProxyRule;
+    check-cast v6, Landroidx/webkit/ProxyConfig$ProxyRule;
 
-    invoke-virtual {v7}, Landroidx/webkit/ProxyConfig$ProxyRule;->getSchemeFilter()Ljava/lang/String;
+    invoke-virtual {v6}, Landroidx/webkit/ProxyConfig$ProxyRule;->getSchemeFilter()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    aput-object v7, v6, v3
+    aput-object v6, v5, v2
 
     .line 47
-    aget-object v6, v2, v4
+    aget-object v5, v1, v3
 
-    invoke-interface {v1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v6
 
-    check-cast v7, Landroidx/webkit/ProxyConfig$ProxyRule;
+    check-cast v6, Landroidx/webkit/ProxyConfig$ProxyRule;
 
-    invoke-virtual {v7}, Landroidx/webkit/ProxyConfig$ProxyRule;->getUrl()Ljava/lang/String;
+    invoke-virtual {v6}, Landroidx/webkit/ProxyConfig$ProxyRule;->getUrl()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    aput-object v7, v6, v5
+    aput-object v6, v5, v4
 
-    .line 45
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     .line 50
-    .end local v4    # "i":I
     :cond_0
     invoke-direct {p0}, Landroidx/webkit/internal/ProxyControllerImpl;->getBoundaryInterface()Lorg/chromium/support_lib_boundary/ProxyControllerBoundaryInterface;
 
-    move-result-object v4
+    move-result-object v0
 
     .line 51
     invoke-virtual {p1}, Landroidx/webkit/ProxyConfig;->getBypassRules()Ljava/util/List;
 
-    move-result-object v5
+    move-result-object p1
 
-    new-array v3, v3, [Ljava/lang/String;
+    new-array v2, v2, [Ljava/lang/String;
 
-    invoke-interface {v5, v3}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-interface {p1, v2}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p1
 
-    check-cast v3, [Ljava/lang/String;
+    check-cast p1, [Ljava/lang/String;
 
     .line 50
-    invoke-interface {v4, v2, v3, p3, p2}, Lorg/chromium/support_lib_boundary/ProxyControllerBoundaryInterface;->setProxyOverride([[Ljava/lang/String;[Ljava/lang/String;Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
+    invoke-interface {v0, v1, p1, p3, p2}, Lorg/chromium/support_lib_boundary/ProxyControllerBoundaryInterface;->setProxyOverride([[Ljava/lang/String;[Ljava/lang/String;Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
 
-    .line 52
-    .end local v1    # "proxyRulesList":Ljava/util/List;, "Ljava/util/List<Landroidx/webkit/ProxyConfig$ProxyRule;>;"
-    .end local v2    # "proxyRulesArray":[[Ljava/lang/String;
-    nop
-
-    .line 55
     return-void
 
     .line 53
     :cond_1
     invoke-static {}, Landroidx/webkit/internal/WebViewFeatureInternal;->getUnsupportedOperationException()Ljava/lang/UnsupportedOperationException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 .end method

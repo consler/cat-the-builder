@@ -26,10 +26,8 @@
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/AsyncListDiffer$1;Landroidx/recyclerview/widget/DiffUtil$DiffResult;)V
     .locals 0
-    .param p1, "this$1"    # Landroidx/recyclerview/widget/AsyncListDiffer$1;
 
     .line 347
-    .local p0, "this":Landroidx/recyclerview/widget/AsyncListDiffer$1$2;, "Landroidx/recyclerview/widget/AsyncListDiffer$1$2;"
     iput-object p1, p0, Landroidx/recyclerview/widget/AsyncListDiffer$1$2;->this$1:Landroidx/recyclerview/widget/AsyncListDiffer$1;
 
     iput-object p2, p0, Landroidx/recyclerview/widget/AsyncListDiffer$1$2;->val$result:Landroidx/recyclerview/widget/DiffUtil$DiffResult;
@@ -45,7 +43,6 @@
     .locals 4
 
     .line 350
-    .local p0, "this":Landroidx/recyclerview/widget/AsyncListDiffer$1$2;, "Landroidx/recyclerview/widget/AsyncListDiffer$1$2;"
     iget-object v0, p0, Landroidx/recyclerview/widget/AsyncListDiffer$1$2;->this$1:Landroidx/recyclerview/widget/AsyncListDiffer$1;
 
     iget-object v0, v0, Landroidx/recyclerview/widget/AsyncListDiffer$1;->this$0:Landroidx/recyclerview/widget/AsyncListDiffer;
@@ -75,7 +72,6 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroidx/recyclerview/widget/AsyncListDiffer;->latchList(Ljava/util/List;Landroidx/recyclerview/widget/DiffUtil$DiffResult;Ljava/lang/Runnable;)V
 
-    .line 353
     :cond_0
     return-void
 .end method

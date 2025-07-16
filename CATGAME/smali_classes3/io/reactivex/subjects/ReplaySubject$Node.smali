@@ -49,13 +49,10 @@
     .end annotation
 
     .line 692
-    .local p0, "this":Lio/reactivex/subjects/ReplaySubject$Node;, "Lio/reactivex/subjects/ReplaySubject$Node<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 693
     iput-object p1, p0, Lio/reactivex/subjects/ReplaySubject$Node;->value:Ljava/lang/Object;
 
-    .line 694
     return-void
 .end method

@@ -31,7 +31,6 @@
 # direct methods
 .method private constructor <init>(Lorg/apache/commons/lang3/concurrent/BasicThreadFactory$Builder;)V
     .locals 1
-    .param p1, "builder"    # Lorg/apache/commons/lang3/concurrent/BasicThreadFactory$Builder;
 
     .line 116
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -85,25 +84,22 @@
     .line 126
     invoke-static {p1}, Lorg/apache/commons/lang3/concurrent/BasicThreadFactory$Builder;->access$400(Lorg/apache/commons/lang3/concurrent/BasicThreadFactory$Builder;)Ljava/lang/Thread$UncaughtExceptionHandler;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lorg/apache/commons/lang3/concurrent/BasicThreadFactory;->uncaughtExceptionHandler:Ljava/lang/Thread$UncaughtExceptionHandler;
+    iput-object p1, p0, Lorg/apache/commons/lang3/concurrent/BasicThreadFactory;->uncaughtExceptionHandler:Ljava/lang/Thread$UncaughtExceptionHandler;
 
     .line 128
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicLong;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicLong;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
 
-    iput-object v0, p0, Lorg/apache/commons/lang3/concurrent/BasicThreadFactory;->threadCounter:Ljava/util/concurrent/atomic/AtomicLong;
+    iput-object p1, p0, Lorg/apache/commons/lang3/concurrent/BasicThreadFactory;->threadCounter:Ljava/util/concurrent/atomic/AtomicLong;
 
-    .line 129
     return-void
 .end method
 
 .method synthetic constructor <init>(Lorg/apache/commons/lang3/concurrent/BasicThreadFactory$Builder;Lorg/apache/commons/lang3/concurrent/BasicThreadFactory$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/lang3/concurrent/BasicThreadFactory$Builder;
-    .param p2, "x1"    # Lorg/apache/commons/lang3/concurrent/BasicThreadFactory$1;
 
     .line 91
     invoke-direct {p0, p1}, Lorg/apache/commons/lang3/concurrent/BasicThreadFactory;-><init>(Lorg/apache/commons/lang3/concurrent/BasicThreadFactory$Builder;)V
@@ -113,7 +109,6 @@
 
 .method private initializeThread(Ljava/lang/Thread;)V
     .locals 4
-    .param p1, "thread"    # Ljava/lang/Thread;
 
     .line 222
     invoke-virtual {p0}, Lorg/apache/commons/lang3/concurrent/BasicThreadFactory;->getNamingPattern()Ljava/lang/String;
@@ -134,7 +129,6 @@
     move-result-object v0
 
     .line 224
-    .local v0, "count":Ljava/lang/Long;
     invoke-virtual {p0}, Lorg/apache/commons/lang3/concurrent/BasicThreadFactory;->getNamingPattern()Ljava/lang/String;
 
     move-result-object v1
@@ -149,12 +143,11 @@
 
     invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {p1, v1}, Ljava/lang/Thread;->setName(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Ljava/lang/Thread;->setName(Ljava/lang/String;)V
 
     .line 227
-    .end local v0    # "count":Ljava/lang/Long;
     :cond_0
     invoke-virtual {p0}, Lorg/apache/commons/lang3/concurrent/BasicThreadFactory;->getUncaughtExceptionHandler()Ljava/lang/Thread$UncaughtExceptionHandler;
 
@@ -207,7 +200,6 @@
 
     invoke-virtual {p1, v0}, Ljava/lang/Thread;->setDaemon(Z)V
 
-    .line 238
     :cond_3
     return-void
 .end method
@@ -274,7 +266,6 @@
 
 .method public newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
     .locals 1
-    .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 206
     invoke-virtual {p0}, Lorg/apache/commons/lang3/concurrent/BasicThreadFactory;->getWrappedFactory()Ljava/util/concurrent/ThreadFactory;
@@ -283,12 +274,10 @@
 
     invoke-interface {v0, p1}, Ljava/util/concurrent/ThreadFactory;->newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 207
-    .local v0, "thread":Ljava/lang/Thread;
-    invoke-direct {p0, v0}, Lorg/apache/commons/lang3/concurrent/BasicThreadFactory;->initializeThread(Ljava/lang/Thread;)V
+    invoke-direct {p0, p1}, Lorg/apache/commons/lang3/concurrent/BasicThreadFactory;->initializeThread(Ljava/lang/Thread;)V
 
-    .line 209
-    return-object v0
+    return-object p1
 .end method

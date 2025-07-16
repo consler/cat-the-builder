@@ -41,8 +41,6 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 194
-    iget-object p1, p0, Landroidx/camera/core/ImageProxyDownsampler$1;->val$data:[B
-
     invoke-static {p1}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object p1

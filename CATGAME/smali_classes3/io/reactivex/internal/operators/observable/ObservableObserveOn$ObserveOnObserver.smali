@@ -76,9 +76,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/Observer;Lio/reactivex/Scheduler$Worker;ZI)V
     .locals 0
-    .param p2, "worker"    # Lio/reactivex/Scheduler$Worker;
-    .param p3, "delayError"    # Z
-    .param p4, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -90,8 +87,6 @@
     .end annotation
 
     .line 71
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;, "Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     invoke-direct {p0}, Lio/reactivex/internal/observers/BasicIntQueueDisposable;-><init>()V
 
     .line 72
@@ -106,16 +101,13 @@
     .line 75
     iput p4, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->bufferSize:I
 
-    .line 76
     return-void
 .end method
 
 
 # virtual methods
 .method checkTerminated(ZZLio/reactivex/Observer;)Z
-    .locals 3
-    .param p1, "d"    # Z
-    .param p2, "empty"    # Z
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZZ",
@@ -125,8 +117,6 @@
     .end annotation
 
     .line 257
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;, "Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver<TT;>;"
-    .local p3, "a":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->cancelled:Z
 
     const/4 v1, 0x1
@@ -134,34 +124,29 @@
     if-eqz v0, :cond_0
 
     .line 258
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
-    invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->clear()V
+    invoke-interface {p1}, Lio/reactivex/internal/fuseable/SimpleQueue;->clear()V
 
-    .line 259
     return v1
 
-    .line 261
     :cond_0
     if-eqz p1, :cond_4
 
     .line 262
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->error:Ljava/lang/Throwable;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->error:Ljava/lang/Throwable;
 
     .line 263
-    .local v0, "e":Ljava/lang/Throwable;
-    iget-boolean v2, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->delayError:Z
+    iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->delayError:Z
 
-    if-eqz v2, :cond_2
+    if-eqz v0, :cond_2
 
-    .line 264
     if-eqz p2, :cond_4
 
-    .line 265
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 266
-    invoke-interface {p3, v0}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {p3, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
     goto :goto_0
 
@@ -171,34 +156,30 @@
 
     .line 270
     :goto_0
-    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->worker:Lio/reactivex/Scheduler$Worker;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->worker:Lio/reactivex/Scheduler$Worker;
 
-    invoke-virtual {v2}, Lio/reactivex/Scheduler$Worker;->dispose()V
+    invoke-virtual {p1}, Lio/reactivex/Scheduler$Worker;->dispose()V
 
-    .line 271
     return v1
 
-    .line 274
     :cond_2
-    if-eqz v0, :cond_3
+    if-eqz p1, :cond_3
 
     .line 275
-    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
+    iget-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
-    invoke-interface {v2}, Lio/reactivex/internal/fuseable/SimpleQueue;->clear()V
+    invoke-interface {p2}, Lio/reactivex/internal/fuseable/SimpleQueue;->clear()V
 
     .line 276
-    invoke-interface {p3, v0}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {p3, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
     .line 277
-    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->worker:Lio/reactivex/Scheduler$Worker;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->worker:Lio/reactivex/Scheduler$Worker;
 
-    invoke-virtual {v2}, Lio/reactivex/Scheduler$Worker;->dispose()V
+    invoke-virtual {p1}, Lio/reactivex/Scheduler$Worker;->dispose()V
 
-    .line 278
     return v1
 
-    .line 280
     :cond_3
     if-eqz p2, :cond_4
 
@@ -206,31 +187,26 @@
     invoke-interface {p3}, Lio/reactivex/Observer;->onComplete()V
 
     .line 282
-    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->worker:Lio/reactivex/Scheduler$Worker;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->worker:Lio/reactivex/Scheduler$Worker;
 
-    invoke-virtual {v2}, Lio/reactivex/Scheduler$Worker;->dispose()V
+    invoke-virtual {p1}, Lio/reactivex/Scheduler$Worker;->dispose()V
 
-    .line 283
     return v1
 
-    .line 287
-    .end local v0    # "e":Ljava/lang/Throwable;
     :cond_4
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public clear()V
     .locals 1
 
     .line 307
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;, "Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->clear()V
 
-    .line 308
     return-void
 .end method
 
@@ -238,14 +214,13 @@
     .locals 1
 
     .line 144
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;, "Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->cancelled:Z
 
     if-nez v0, :cond_0
 
-    .line 145
     const/4 v0, 0x1
 
+    .line 145
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->cancelled:Z
 
     .line 146
@@ -270,157 +245,127 @@
 
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->clear()V
 
-    .line 152
     :cond_0
     return-void
 .end method
 
 .method drainFused()V
-    .locals 5
+    .locals 4
 
-    .line 211
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;, "Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver<TT;>;"
     const/4 v0, 0x1
 
     .line 214
-    .local v0, "missed":I
-    :goto_0
-    iget-boolean v1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->cancelled:Z
-
-    if-eqz v1, :cond_0
-
-    .line 215
-    return-void
-
-    .line 218
     :cond_0
-    iget-boolean v1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->done:Z
-
-    .line 219
-    .local v1, "d":Z
-    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->error:Ljava/lang/Throwable;
-
-    .line 221
-    .local v2, "ex":Ljava/lang/Throwable;
-    iget-boolean v3, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->delayError:Z
-
-    if-nez v3, :cond_1
+    iget-boolean v1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->cancelled:Z
 
     if-eqz v1, :cond_1
 
-    if-eqz v2, :cond_1
+    return-void
+
+    .line 218
+    :cond_1
+    iget-boolean v1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->done:Z
+
+    .line 219
+    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->error:Ljava/lang/Throwable;
+
+    .line 221
+    iget-boolean v3, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->delayError:Z
+
+    if-nez v3, :cond_2
+
+    if-eqz v1, :cond_2
+
+    if-eqz v2, :cond_2
 
     .line 222
-    iget-object v3, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->actual:Lio/reactivex/Observer;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->actual:Lio/reactivex/Observer;
 
-    iget-object v4, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->error:Ljava/lang/Throwable;
-
-    invoke-interface {v3, v4}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v0, v2}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
     .line 223
-    iget-object v3, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->worker:Lio/reactivex/Scheduler$Worker;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->worker:Lio/reactivex/Scheduler$Worker;
 
-    invoke-virtual {v3}, Lio/reactivex/Scheduler$Worker;->dispose()V
+    invoke-virtual {v0}, Lio/reactivex/Scheduler$Worker;->dispose()V
 
-    .line 224
     return-void
 
     .line 227
-    :cond_1
-    iget-object v3, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->actual:Lio/reactivex/Observer;
+    :cond_2
+    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->actual:Lio/reactivex/Observer;
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    invoke-interface {v3, v4}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
+    invoke-interface {v2, v3}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
-    .line 229
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
     .line 230
-    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->error:Ljava/lang/Throwable;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->error:Ljava/lang/Throwable;
 
-    .line 231
-    if-eqz v2, :cond_2
+    if-eqz v0, :cond_3
 
     .line 232
-    iget-object v3, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->actual:Lio/reactivex/Observer;
+    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v3, v2}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v1, v0}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    goto :goto_1
+    goto :goto_0
 
     .line 234
-    :cond_2
-    iget-object v3, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->actual:Lio/reactivex/Observer;
+    :cond_3
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v3}, Lio/reactivex/Observer;->onComplete()V
+    invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
     .line 236
-    :goto_1
-    iget-object v3, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->worker:Lio/reactivex/Scheduler$Worker;
+    :goto_0
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->worker:Lio/reactivex/Scheduler$Worker;
 
-    invoke-virtual {v3}, Lio/reactivex/Scheduler$Worker;->dispose()V
+    invoke-virtual {v0}, Lio/reactivex/Scheduler$Worker;->dispose()V
 
-    .line 237
     return-void
 
-    .line 240
-    :cond_3
-    neg-int v3, v0
+    :cond_4
+    neg-int v0, v0
 
-    invoke-virtual {p0, v3}, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->addAndGet(I)I
+    .line 240
+    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->addAndGet(I)I
 
     move-result v0
 
-    .line 241
-    if-nez v0, :cond_4
+    if-nez v0, :cond_0
 
-    .line 242
-    nop
-
-    .line 245
-    .end local v1    # "d":Z
-    .end local v2    # "ex":Ljava/lang/Throwable;
     return-void
-
-    .line 244
-    :cond_4
-    goto :goto_0
 .end method
 
 .method drainNormal()V
     .locals 7
 
-    .line 166
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;, "Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver<TT;>;"
-    const/4 v0, 0x1
-
     .line 168
-    .local v0, "missed":I
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
     .line 169
-    .local v1, "q":Lio/reactivex/internal/fuseable/SimpleQueue;, "Lio/reactivex/internal/fuseable/SimpleQueue<TT;>;"
-    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->actual:Lio/reactivex/Observer;
+    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->actual:Lio/reactivex/Observer;
 
-    .local v2, "a":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
-    const/4 v3, 0x0
+    const/4 v2, 0x1
+
+    move v3, v2
 
     .line 172
     :cond_0
     iget-boolean v4, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->done:Z
 
-    invoke-interface {v1}, Lio/reactivex/internal/fuseable/SimpleQueue;->isEmpty()Z
+    invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->isEmpty()Z
 
     move-result v5
 
-    invoke-virtual {p0, v4, v5, v2}, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->checkTerminated(ZZLio/reactivex/Observer;)Z
+    invoke-virtual {p0, v4, v5, v1}, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->checkTerminated(ZZLio/reactivex/Observer;)Z
 
     move-result v4
 
     if-eqz v4, :cond_1
 
-    .line 173
     return-void
 
     .line 177
@@ -429,104 +374,74 @@
     iget-boolean v4, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->done:Z
 
     .line 181
-    .local v4, "d":Z
     :try_start_0
-    invoke-interface {v1}, Lio/reactivex/internal/fuseable/SimpleQueue;->poll()Ljava/lang/Object;
+    invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->poll()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v5
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 189
-    .local v3, "v":Ljava/lang/Object;, "TT;"
-    nop
+    if-nez v5, :cond_2
 
-    .line 190
-    if-nez v3, :cond_2
-
-    const/4 v5, 0x1
+    move v6, v2
 
     goto :goto_1
 
     :cond_2
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     .line 192
-    .local v5, "empty":Z
     :goto_1
-    invoke-virtual {p0, v4, v5, v2}, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->checkTerminated(ZZLio/reactivex/Observer;)Z
+    invoke-virtual {p0, v4, v6, v1}, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->checkTerminated(ZZLio/reactivex/Observer;)Z
 
-    move-result v6
+    move-result v4
 
-    if-eqz v6, :cond_3
+    if-eqz v4, :cond_3
 
-    .line 193
     return-void
 
-    .line 196
     :cond_3
-    if-eqz v5, :cond_4
+    if-eqz v6, :cond_4
 
-    .line 197
-    nop
+    neg-int v3, v3
 
     .line 203
-    .end local v3    # "v":Ljava/lang/Object;, "TT;"
-    .end local v4    # "d":Z
-    .end local v5    # "empty":Z
-    neg-int v4, v0
+    invoke-virtual {p0, v3}, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->addAndGet(I)I
 
-    invoke-virtual {p0, v4}, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->addAndGet(I)I
+    move-result v3
 
-    move-result v0
+    if-nez v3, :cond_0
 
-    .line 204
-    if-nez v0, :cond_0
-
-    .line 205
-    nop
-
-    .line 208
     return-void
 
     .line 200
-    .restart local v4    # "d":Z
-    .restart local v5    # "empty":Z
     :cond_4
-    invoke-interface {v2, v3}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
+    invoke-interface {v1, v5}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
-    .line 201
-    .end local v4    # "d":Z
-    .end local v5    # "empty":Z
     goto :goto_0
 
-    .line 182
-    .restart local v4    # "d":Z
     :catchall_0
-    move-exception v5
+    move-exception v2
 
     .line 183
-    .restart local v3    # "v":Ljava/lang/Object;, "TT;"
-    .local v5, "ex":Ljava/lang/Throwable;
-    invoke-static {v5}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {v2}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 184
-    iget-object v6, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->s:Lio/reactivex/disposables/Disposable;
+    iget-object v3, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->s:Lio/reactivex/disposables/Disposable;
 
-    invoke-interface {v6}, Lio/reactivex/disposables/Disposable;->dispose()V
+    invoke-interface {v3}, Lio/reactivex/disposables/Disposable;->dispose()V
 
     .line 185
-    invoke-interface {v1}, Lio/reactivex/internal/fuseable/SimpleQueue;->clear()V
+    invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->clear()V
 
     .line 186
-    invoke-interface {v2, v5}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v1, v2}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
     .line 187
-    iget-object v6, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->worker:Lio/reactivex/Scheduler$Worker;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->worker:Lio/reactivex/Scheduler$Worker;
 
-    invoke-virtual {v6}, Lio/reactivex/Scheduler$Worker;->dispose()V
+    invoke-virtual {v0}, Lio/reactivex/Scheduler$Worker;->dispose()V
 
-    .line 188
     return-void
 .end method
 
@@ -534,7 +449,6 @@
     .locals 1
 
     .line 156
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;, "Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->cancelled:Z
 
     return v0
@@ -544,7 +458,6 @@
     .locals 1
 
     .line 312
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;, "Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->isEmpty()Z
@@ -558,33 +471,28 @@
     .locals 1
 
     .line 135
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;, "Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 136
     return-void
 
-    .line 138
     :cond_0
     const/4 v0, 0x1
 
+    .line 138
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->done:Z
 
     .line 139
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->schedule()V
 
-    .line 140
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 124
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;, "Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->done:Z
 
     if-eqz v0, :cond_0
@@ -592,22 +500,20 @@
     .line 125
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 126
     return-void
 
     .line 128
     :cond_0
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->error:Ljava/lang/Throwable;
 
-    .line 129
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->done:Z
+    .line 129
+    iput-boolean p1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->done:Z
 
     .line 130
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->schedule()V
 
-    .line 131
     return-void
 .end method
 
@@ -620,13 +526,10 @@
     .end annotation
 
     .line 112
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;, "Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 113
     return-void
 
     .line 116
@@ -646,16 +549,13 @@
     :cond_1
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->schedule()V
 
-    .line 120
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
-    .locals 3
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
+    .locals 2
 
     .line 80
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;, "Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -673,82 +573,71 @@
     if-eqz v0, :cond_1
 
     .line 84
-    move-object v0, p1
+    check-cast p1, Lio/reactivex/internal/fuseable/QueueDisposable;
 
-    check-cast v0, Lio/reactivex/internal/fuseable/QueueDisposable;
+    const/4 v0, 0x7
 
     .line 86
-    .local v0, "qd":Lio/reactivex/internal/fuseable/QueueDisposable;, "Lio/reactivex/internal/fuseable/QueueDisposable<TT;>;"
-    const/4 v1, 0x7
+    invoke-interface {p1, v0}, Lio/reactivex/internal/fuseable/QueueDisposable;->requestFusion(I)I
 
-    invoke-interface {v0, v1}, Lio/reactivex/internal/fuseable/QueueDisposable;->requestFusion(I)I
+    move-result v0
 
-    move-result v1
+    const/4 v1, 0x1
 
-    .line 88
-    .local v1, "m":I
-    const/4 v2, 0x1
-
-    if-ne v1, v2, :cond_0
+    if-ne v0, v1, :cond_0
 
     .line 89
-    iput v1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->sourceMode:I
+    iput v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->sourceMode:I
 
     .line 90
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
     .line 91
-    iput-boolean v2, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->done:Z
+    iput-boolean v1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->done:Z
 
     .line 92
-    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v2, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 93
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->schedule()V
 
-    .line 94
     return-void
 
-    .line 96
     :cond_0
-    const/4 v2, 0x2
+    const/4 v1, 0x2
 
-    if-ne v1, v2, :cond_1
+    if-ne v0, v1, :cond_1
 
     .line 97
-    iput v1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->sourceMode:I
+    iput v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->sourceMode:I
 
     .line 98
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
     .line 99
-    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v2, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 100
     return-void
 
     .line 104
-    .end local v0    # "qd":Lio/reactivex/internal/fuseable/QueueDisposable;, "Lio/reactivex/internal/fuseable/QueueDisposable<TT;>;"
-    .end local v1    # "m":I
     :cond_1
-    new-instance v0, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
+    new-instance p1, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;
 
-    iget v1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->bufferSize:I
+    iget v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->bufferSize:I
 
-    invoke-direct {v0, v1}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;-><init>(I)V
+    invoke-direct {p1, v0}, Lio/reactivex/internal/queue/SpscLinkedArrayQueue;-><init>(I)V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
     .line 106
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v0, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 108
     :cond_2
     return-void
 .end method
@@ -768,7 +657,6 @@
     .end annotation
 
     .line 302
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;, "Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->poll()Ljava/lang/Object;
@@ -780,36 +668,30 @@
 
 .method public requestFusion(I)I
     .locals 1
-    .param p1, "mode"    # I
 
-    .line 292
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;, "Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver<TT;>;"
-    and-int/lit8 v0, p1, 0x2
-
-    if-eqz v0, :cond_0
-
-    .line 293
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->outputFused:Z
-
-    .line 294
     const/4 v0, 0x2
 
+    and-int/2addr p1, v0
+
+    if-eqz p1, :cond_0
+
+    const/4 p1, 0x1
+
+    .line 293
+    iput-boolean p1, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->outputFused:Z
+
     return v0
 
-    .line 296
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public run()V
     .locals 1
 
     .line 249
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;, "Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->outputFused:Z
 
     if-eqz v0, :cond_0
@@ -823,7 +705,6 @@
     :cond_0
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->drainNormal()V
 
-    .line 254
     :goto_0
     return-void
 .end method
@@ -832,7 +713,6 @@
     .locals 1
 
     .line 160
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;, "Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableObserveOn$ObserveOnObserver;->getAndIncrement()I
 
     move-result v0
@@ -844,7 +724,6 @@
 
     invoke-virtual {v0, p0}, Lio/reactivex/Scheduler$Worker;->schedule(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
 
-    .line 163
     :cond_0
     return-void
 .end method

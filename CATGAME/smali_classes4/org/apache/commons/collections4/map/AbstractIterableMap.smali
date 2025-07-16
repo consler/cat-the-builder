@@ -26,7 +26,6 @@
     .locals 0
 
     .line 29
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractIterableMap;, "Lorg/apache/commons/collections4/map/AbstractIterableMap<TK;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -45,7 +44,6 @@
     .end annotation
 
     .line 36
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractIterableMap;, "Lorg/apache/commons/collections4/map/AbstractIterableMap<TK;TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/map/EntrySetToMapIteratorAdapter;
 
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractIterableMap;->entrySet()Ljava/util/Set;

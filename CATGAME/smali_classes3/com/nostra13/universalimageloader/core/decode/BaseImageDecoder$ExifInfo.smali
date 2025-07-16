@@ -27,22 +27,19 @@
     .line 231
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 232
     const/4 v0, 0x0
 
+    .line 232
     iput v0, p0, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ExifInfo;->rotation:I
 
     .line 233
     iput-boolean v0, p0, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ExifInfo;->flipHorizontal:Z
 
-    .line 234
     return-void
 .end method
 
 .method protected constructor <init>(IZ)V
     .locals 0
-    .param p1, "rotation"    # I
-    .param p2, "flipHorizontal"    # Z
 
     .line 236
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,6 +50,5 @@
     .line 238
     iput-boolean p2, p0, Lcom/nostra13/universalimageloader/core/decode/BaseImageDecoder$ExifInfo;->flipHorizontal:Z
 
-    .line 239
     return-void
 .end method

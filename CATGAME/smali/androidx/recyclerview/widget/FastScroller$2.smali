@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/FastScroller;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/recyclerview/widget/FastScroller;
 
     .line 130
     iput-object p1, p0, Landroidx/recyclerview/widget/FastScroller$2;->this$0:Landroidx/recyclerview/widget/FastScroller;
@@ -34,26 +33,22 @@
 
 # virtual methods
 .method public onScrolled(Landroidx/recyclerview/widget/RecyclerView;II)V
-    .locals 3
-    .param p1, "recyclerView"    # Landroidx/recyclerview/widget/RecyclerView;
-    .param p2, "dx"    # I
-    .param p3, "dy"    # I
+    .locals 0
 
     .line 133
-    iget-object v0, p0, Landroidx/recyclerview/widget/FastScroller$2;->this$0:Landroidx/recyclerview/widget/FastScroller;
+    iget-object p2, p0, Landroidx/recyclerview/widget/FastScroller$2;->this$0:Landroidx/recyclerview/widget/FastScroller;
 
     invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView;->computeHorizontalScrollOffset()I
 
-    move-result v1
+    move-result p3
 
     .line 134
     invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView;->computeVerticalScrollOffset()I
 
-    move-result v2
+    move-result p1
 
     .line 133
-    invoke-virtual {v0, v1, v2}, Landroidx/recyclerview/widget/FastScroller;->updateScrollPosition(II)V
+    invoke-virtual {p2, p3, p1}, Landroidx/recyclerview/widget/FastScroller;->updateScrollPosition(II)V
 
-    .line 135
     return-void
 .end method

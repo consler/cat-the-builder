@@ -55,7 +55,6 @@
     .end annotation
 
     .line 49
-    .local p1, "c":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-static {p1}, Lcom/google/gson/internal/UnsafeAllocator$1;->assertInstantiable(Ljava/lang/Class;)V
 
     .line 50
@@ -73,7 +72,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

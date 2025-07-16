@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .locals 1
 
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,14 +34,12 @@
     invoke-direct {v0}, Landroidx/camera/core/impl/CaptureConfig$Builder;-><init>()V
 
     .line 40
-    .local v0, "builder":Landroidx/camera/core/impl/CaptureConfig$Builder;
     invoke-virtual {v0}, Landroidx/camera/core/impl/CaptureConfig$Builder;->build()Landroidx/camera/core/impl/CaptureConfig;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Landroidx/camera/core/impl/CaptureStage$DefaultCaptureStage;->mCaptureConfig:Landroidx/camera/core/impl/CaptureConfig;
+    iput-object v0, p0, Landroidx/camera/core/impl/CaptureStage$DefaultCaptureStage;->mCaptureConfig:Landroidx/camera/core/impl/CaptureConfig;
 
-    .line 41
     return-void
 .end method
 
@@ -59,7 +57,6 @@
 .method public getId()I
     .locals 1
 
-    .line 45
     const/4 v0, 0x0
 
     return v0

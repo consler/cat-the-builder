@@ -68,8 +68,6 @@
 # direct methods
 .method constructor <init>(ILio/reactivex/internal/queue/SpscArrayQueue;Lio/reactivex/Scheduler$Worker;)V
     .locals 1
-    .param p1, "prefetch"    # I
-    .param p3, "worker"    # Lio/reactivex/Scheduler$Worker;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -81,8 +79,6 @@
     .end annotation
 
     .line 109
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;, "Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber<TT;>;"
-    .local p2, "queue":Lio/reactivex/internal/queue/SpscArrayQueue;, "Lio/reactivex/internal/queue/SpscArrayQueue<TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
 
     .line 103
@@ -98,17 +94,16 @@
     .line 111
     iput-object p2, p0, Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;->queue:Lio/reactivex/internal/queue/SpscArrayQueue;
 
+    shr-int/lit8 p2, p1, 0x2
+
+    sub-int/2addr p1, p2
+
     .line 112
-    shr-int/lit8 v0, p1, 0x2
-
-    sub-int v0, p1, v0
-
-    iput v0, p0, Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;->limit:I
+    iput p1, p0, Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;->limit:I
 
     .line 113
     iput-object p3, p0, Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;->worker:Lio/reactivex/Scheduler$Worker;
 
-    .line 114
     return-void
 .end method
 
@@ -118,14 +113,13 @@
     .locals 1
 
     .line 159
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;, "Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;->cancelled:Z
 
     if-nez v0, :cond_0
 
-    .line 160
     const/4 v0, 0x1
 
+    .line 160
     iput-boolean v0, p0, Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;->cancelled:Z
 
     .line 161
@@ -150,7 +144,6 @@
 
     invoke-virtual {v0}, Lio/reactivex/internal/queue/SpscArrayQueue;->clear()V
 
-    .line 168
     :cond_0
     return-void
 .end method
@@ -159,33 +152,28 @@
     .locals 1
 
     .line 142
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;, "Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 143
     return-void
 
-    .line 145
     :cond_0
     const/4 v0, 0x1
 
+    .line 145
     iput-boolean v0, p0, Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;->done:Z
 
     .line 146
     invoke-virtual {p0}, Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;->schedule()V
 
-    .line 147
     return-void
 .end method
 
 .method public final onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 131
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;, "Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;->done:Z
 
     if-eqz v0, :cond_0
@@ -193,27 +181,25 @@
     .line 132
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 133
     return-void
 
     .line 135
     :cond_0
     iput-object p1, p0, Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;->error:Ljava/lang/Throwable;
 
-    .line 136
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;->done:Z
+    .line 136
+    iput-boolean p1, p0, Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;->done:Z
 
     .line 137
     invoke-virtual {p0}, Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;->schedule()V
 
-    .line 138
     return-void
 .end method
 
 .method public final onNext(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -221,13 +207,10 @@
     .end annotation
 
     .line 118
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;, "Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 119
     return-void
 
     .line 121
@@ -236,41 +219,37 @@
 
     invoke-virtual {v0, p1}, Lio/reactivex/internal/queue/SpscArrayQueue;->offer(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_1
+    if-nez p1, :cond_1
 
     .line 122
-    iget-object v0, p0, Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;->s:Lorg/reactivestreams/Subscription;
+    iget-object p1, p0, Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
+    invoke-interface {p1}, Lorg/reactivestreams/Subscription;->cancel()V
 
     .line 123
-    new-instance v0, Lio/reactivex/exceptions/MissingBackpressureException;
+    new-instance p1, Lio/reactivex/exceptions/MissingBackpressureException;
 
-    const-string v1, "Queue is full?!"
+    const-string v0, "Queue is full?!"
 
-    invoke-direct {v0, v1}, Lio/reactivex/exceptions/MissingBackpressureException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lio/reactivex/exceptions/MissingBackpressureException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 124
     return-void
 
     .line 126
     :cond_1
     invoke-virtual {p0}, Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;->schedule()V
 
-    .line 127
     return-void
 .end method
 
 .method public final request(J)V
     .locals 1
-    .param p1, "n"    # J
 
     .line 151
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;, "Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber<TT;>;"
     invoke-static {p1, p2}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(J)Z
 
     move-result v0
@@ -285,7 +264,6 @@
     .line 153
     invoke-virtual {p0}, Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;->schedule()V
 
-    .line 155
     :cond_0
     return-void
 .end method
@@ -294,7 +272,6 @@
     .locals 1
 
     .line 171
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;, "Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/parallel/ParallelRunOn$BaseRunOnSubscriber;->getAndIncrement()I
 
     move-result v0
@@ -306,7 +283,6 @@
 
     invoke-virtual {v0, p0}, Lio/reactivex/Scheduler$Worker;->schedule(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
 
-    .line 174
     :cond_0
     return-void
 .end method

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/Image$Plane;)V
     .locals 0
-    .param p1, "plane"    # Landroid/media/Image$Plane;
 
     .line 102
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +31,6 @@
     .line 103
     iput-object p1, p0, Landroidx/camera/core/AndroidImageProxy$PlaneProxy;->mPlane:Landroid/media/Image$Plane;
 
-    .line 104
     return-void
 .end method
 
@@ -57,8 +55,6 @@
 
     return-object v0
 
-    .line 119
-    .end local p0    # "this":Landroidx/camera/core/AndroidImageProxy$PlaneProxy;
     :catchall_0
     move-exception v0
 
@@ -86,8 +82,6 @@
 
     return v0
 
-    .line 113
-    .end local p0    # "this":Landroidx/camera/core/AndroidImageProxy$PlaneProxy;
     :catchall_0
     move-exception v0
 
@@ -115,8 +109,6 @@
 
     return v0
 
-    .line 108
-    .end local p0    # "this":Landroidx/camera/core/AndroidImageProxy$PlaneProxy;
     :catchall_0
     move-exception v0
 

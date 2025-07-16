@@ -30,7 +30,6 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 330
     return-void
 .end method
 
@@ -44,6 +43,5 @@
 
     invoke-virtual {v0}, Landroidx/appcompat/widget/ForwardingListener;->onLongPress()V
 
-    .line 335
     return-void
 .end method

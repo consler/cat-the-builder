@@ -28,9 +28,9 @@
 
     sput-object v0, Lcom/badlogic/gdx/utils/BufferUtils;->unsafeBuffers:Lcom/badlogic/gdx/utils/Array;
 
-    .line 37
     const/4 v0, 0x0
 
+    .line 37
     sput v0, Lcom/badlogic/gdx/utils/BufferUtils;->allocatedUnsafe:I
 
     return-void
@@ -46,16 +46,13 @@
 .end method
 
 .method private static bytesToElements(Ljava/nio/Buffer;I)I
-    .locals 3
-    .param p0, "dst"    # Ljava/nio/Buffer;
-    .param p1, "bytes"    # I
+    .locals 2
 
     .line 417
     instance-of v0, p0, Ljava/nio/ByteBuffer;
 
     if-eqz v0, :cond_0
 
-    .line 418
     return p1
 
     .line 419
@@ -64,10 +61,9 @@
 
     if-eqz v0, :cond_1
 
-    .line 420
-    ushr-int/lit8 v0, p1, 0x1
+    ushr-int/lit8 p0, p1, 0x1
 
-    return v0
+    return p0
 
     .line 421
     :cond_1
@@ -75,10 +71,9 @@
 
     if-eqz v0, :cond_2
 
-    .line 422
-    ushr-int/lit8 v0, p1, 0x1
+    ushr-int/lit8 p0, p1, 0x1
 
-    return v0
+    return p0
 
     .line 423
     :cond_2
@@ -86,10 +81,9 @@
 
     if-eqz v0, :cond_3
 
-    .line 424
-    ushr-int/lit8 v0, p1, 0x2
+    ushr-int/lit8 p0, p1, 0x2
 
-    return v0
+    return p0
 
     .line 425
     :cond_3
@@ -97,10 +91,9 @@
 
     if-eqz v0, :cond_4
 
-    .line 426
-    ushr-int/lit8 v0, p1, 0x3
+    ushr-int/lit8 p0, p1, 0x3
 
-    return v0
+    return p0
 
     .line 427
     :cond_4
@@ -108,10 +101,9 @@
 
     if-eqz v0, :cond_5
 
-    .line 428
-    ushr-int/lit8 v0, p1, 0x2
+    ushr-int/lit8 p0, p1, 0x2
 
-    return v0
+    return p0
 
     .line 429
     :cond_5
@@ -119,95 +111,87 @@
 
     if-eqz v0, :cond_6
 
-    .line 430
-    ushr-int/lit8 v0, p1, 0x3
+    ushr-int/lit8 p0, p1, 0x3
 
-    return v0
+    return p0
 
     .line 432
     :cond_6
-    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Can\'t copy to a "
 
-    const-string v2, "Can\'t copy to a "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, " instance"
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " instance"
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v0
+    move-result-object p0
+
+    invoke-direct {p1, p0}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw p1
 .end method
 
 .method public static native clear(Ljava/nio/ByteBuffer;I)V
 .end method
 
 .method public static copy(Ljava/nio/Buffer;Ljava/nio/Buffer;I)V
-    .locals 3
-    .param p0, "src"    # Ljava/nio/Buffer;
-    .param p1, "dst"    # Ljava/nio/Buffer;
-    .param p2, "numElements"    # I
+    .locals 2
 
     .line 226
     invoke-static {p0, p2}, Lcom/badlogic/gdx/utils/BufferUtils;->elementsToBytes(Ljava/nio/Buffer;I)I
 
-    move-result v0
+    move-result p2
 
     .line 227
-    .local v0, "numBytes":I
     invoke-virtual {p1}, Ljava/nio/Buffer;->position()I
+
+    move-result v0
+
+    invoke-static {p1, p2}, Lcom/badlogic/gdx/utils/BufferUtils;->bytesToElements(Ljava/nio/Buffer;I)I
 
     move-result v1
 
-    invoke-static {p1, v0}, Lcom/badlogic/gdx/utils/BufferUtils;->bytesToElements(Ljava/nio/Buffer;I)I
+    add-int/2addr v0, v1
 
-    move-result v2
-
-    add-int/2addr v1, v2
-
-    invoke-virtual {p1, v1}, Ljava/nio/Buffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, v0}, Ljava/nio/Buffer;->limit(I)Ljava/nio/Buffer;
 
     .line 228
     invoke-static {p0}, Lcom/badlogic/gdx/utils/BufferUtils;->positionInBytes(Ljava/nio/Buffer;)I
 
-    move-result v1
+    move-result v0
 
     invoke-static {p1}, Lcom/badlogic/gdx/utils/BufferUtils;->positionInBytes(Ljava/nio/Buffer;)I
 
-    move-result v2
+    move-result v1
 
-    invoke-static {p0, v1, p1, v2, v0}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni(Ljava/nio/Buffer;ILjava/nio/Buffer;II)V
+    invoke-static {p0, v0, p1, v1, p2}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni(Ljava/nio/Buffer;ILjava/nio/Buffer;II)V
 
-    .line 229
     return-void
 .end method
 
 .method public static copy([BILjava/nio/Buffer;I)V
     .locals 2
-    .param p0, "src"    # [B
-    .param p1, "srcOffset"    # I
-    .param p2, "dst"    # Ljava/nio/Buffer;
-    .param p3, "numElements"    # I
 
     .line 68
     invoke-virtual {p2}, Ljava/nio/Buffer;->position()I
@@ -229,45 +213,35 @@
 
     invoke-static {p0, p1, p2, v0, p3}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni([BILjava/nio/Buffer;II)V
 
-    .line 70
     return-void
 .end method
 
 .method public static copy([CIILjava/nio/Buffer;)V
-    .locals 2
-    .param p0, "src"    # [C
-    .param p1, "srcOffset"    # I
-    .param p2, "numElements"    # I
-    .param p3, "dst"    # Ljava/nio/Buffer;
+    .locals 1
 
     .line 95
     invoke-static {p3}, Lcom/badlogic/gdx/utils/BufferUtils;->positionInBytes(Ljava/nio/Buffer;)I
 
     move-result v0
 
-    shl-int/lit8 v1, p2, 0x1
+    shl-int/lit8 p2, p2, 0x1
 
-    invoke-static {p0, p1, p3, v0, v1}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni([CILjava/nio/Buffer;II)V
+    invoke-static {p0, p1, p3, v0, p2}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni([CILjava/nio/Buffer;II)V
 
-    .line 96
     return-void
 .end method
 
 .method public static copy([CILjava/nio/Buffer;I)V
     .locals 2
-    .param p0, "src"    # [C
-    .param p1, "srcOffset"    # I
-    .param p2, "dst"    # Ljava/nio/Buffer;
-    .param p3, "numElements"    # I
 
     .line 156
     invoke-virtual {p2}, Ljava/nio/Buffer;->position()I
 
     move-result v0
 
-    shl-int/lit8 v1, p3, 0x1
+    shl-int/lit8 p3, p3, 0x1
 
-    invoke-static {p2, v1}, Lcom/badlogic/gdx/utils/BufferUtils;->bytesToElements(Ljava/nio/Buffer;I)I
+    invoke-static {p2, p3}, Lcom/badlogic/gdx/utils/BufferUtils;->bytesToElements(Ljava/nio/Buffer;I)I
 
     move-result v1
 
@@ -280,49 +254,37 @@
 
     move-result v0
 
-    shl-int/lit8 v1, p3, 0x1
+    invoke-static {p0, p1, p2, v0, p3}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni([CILjava/nio/Buffer;II)V
 
-    invoke-static {p0, p1, p2, v0, v1}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni([CILjava/nio/Buffer;II)V
-
-    .line 158
     return-void
 .end method
 
 .method public static copy([DIILjava/nio/Buffer;)V
-    .locals 2
-    .param p0, "src"    # [D
-    .param p1, "srcOffset"    # I
-    .param p2, "numElements"    # I
-    .param p3, "dst"    # Ljava/nio/Buffer;
+    .locals 1
 
     .line 143
     invoke-static {p3}, Lcom/badlogic/gdx/utils/BufferUtils;->positionInBytes(Ljava/nio/Buffer;)I
 
     move-result v0
 
-    shl-int/lit8 v1, p2, 0x3
+    shl-int/lit8 p2, p2, 0x3
 
-    invoke-static {p0, p1, p3, v0, v1}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni([DILjava/nio/Buffer;II)V
+    invoke-static {p0, p1, p3, v0, p2}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni([DILjava/nio/Buffer;II)V
 
-    .line 144
     return-void
 .end method
 
 .method public static copy([DILjava/nio/Buffer;I)V
     .locals 2
-    .param p0, "src"    # [D
-    .param p1, "srcOffset"    # I
-    .param p2, "dst"    # Ljava/nio/Buffer;
-    .param p3, "numElements"    # I
 
     .line 212
     invoke-virtual {p2}, Ljava/nio/Buffer;->position()I
 
     move-result v0
 
-    shl-int/lit8 v1, p3, 0x3
+    shl-int/lit8 p3, p3, 0x3
 
-    invoke-static {p2, v1}, Lcom/badlogic/gdx/utils/BufferUtils;->bytesToElements(Ljava/nio/Buffer;I)I
+    invoke-static {p2, p3}, Lcom/badlogic/gdx/utils/BufferUtils;->bytesToElements(Ljava/nio/Buffer;I)I
 
     move-result v1
 
@@ -335,49 +297,37 @@
 
     move-result v0
 
-    shl-int/lit8 v1, p3, 0x3
+    invoke-static {p0, p1, p2, v0, p3}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni([DILjava/nio/Buffer;II)V
 
-    invoke-static {p0, p1, p2, v0, v1}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni([DILjava/nio/Buffer;II)V
-
-    .line 214
     return-void
 .end method
 
 .method public static copy([FIILjava/nio/Buffer;)V
-    .locals 2
-    .param p0, "src"    # [F
-    .param p1, "srcOffset"    # I
-    .param p2, "numElements"    # I
-    .param p3, "dst"    # Ljava/nio/Buffer;
+    .locals 1
 
     .line 131
     invoke-static {p3}, Lcom/badlogic/gdx/utils/BufferUtils;->positionInBytes(Ljava/nio/Buffer;)I
 
     move-result v0
 
-    shl-int/lit8 v1, p2, 0x2
+    shl-int/lit8 p2, p2, 0x2
 
-    invoke-static {p0, p1, p3, v0, v1}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni([FILjava/nio/Buffer;II)V
+    invoke-static {p0, p1, p3, v0, p2}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni([FILjava/nio/Buffer;II)V
 
-    .line 132
     return-void
 .end method
 
 .method public static copy([FILjava/nio/Buffer;I)V
     .locals 2
-    .param p0, "src"    # [F
-    .param p1, "srcOffset"    # I
-    .param p2, "dst"    # Ljava/nio/Buffer;
-    .param p3, "numElements"    # I
 
     .line 198
     invoke-virtual {p2}, Ljava/nio/Buffer;->position()I
 
     move-result v0
 
-    shl-int/lit8 v1, p3, 0x2
+    shl-int/lit8 p3, p3, 0x2
 
-    invoke-static {p2, v1}, Lcom/badlogic/gdx/utils/BufferUtils;->bytesToElements(Ljava/nio/Buffer;I)I
+    invoke-static {p2, p3}, Lcom/badlogic/gdx/utils/BufferUtils;->bytesToElements(Ljava/nio/Buffer;I)I
 
     move-result v1
 
@@ -390,29 +340,22 @@
 
     move-result v0
 
-    shl-int/lit8 v1, p3, 0x2
+    invoke-static {p0, p1, p2, v0, p3}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni([FILjava/nio/Buffer;II)V
 
-    invoke-static {p0, p1, p2, v0, v1}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni([FILjava/nio/Buffer;II)V
-
-    .line 200
     return-void
 .end method
 
 .method public static copy([FLjava/nio/Buffer;II)V
     .locals 1
-    .param p0, "src"    # [F
-    .param p1, "dst"    # Ljava/nio/Buffer;
-    .param p2, "numFloats"    # I
-    .param p3, "offset"    # I
 
     .line 50
     instance-of v0, p1, Ljava/nio/ByteBuffer;
 
     if-eqz v0, :cond_0
 
-    .line 51
     shl-int/lit8 v0, p2, 0x2
 
+    .line 51
     invoke-virtual {p1, v0}, Ljava/nio/Buffer;->limit(I)Ljava/nio/Buffer;
 
     goto :goto_0
@@ -430,50 +373,40 @@
     :goto_0
     invoke-static {p0, p1, p2, p3}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni([FLjava/nio/Buffer;II)V
 
+    const/4 p0, 0x0
+
     .line 55
-    const/4 v0, 0x0
+    invoke-virtual {p1, p0}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
 
-    invoke-virtual {p1, v0}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
-
-    .line 56
     return-void
 .end method
 
 .method public static copy([IIILjava/nio/Buffer;)V
-    .locals 2
-    .param p0, "src"    # [I
-    .param p1, "srcOffset"    # I
-    .param p2, "numElements"    # I
-    .param p3, "dst"    # Ljava/nio/Buffer;
+    .locals 1
 
     .line 107
     invoke-static {p3}, Lcom/badlogic/gdx/utils/BufferUtils;->positionInBytes(Ljava/nio/Buffer;)I
 
     move-result v0
 
-    shl-int/lit8 v1, p2, 0x2
+    shl-int/lit8 p2, p2, 0x2
 
-    invoke-static {p0, p1, p3, v0, v1}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni([IILjava/nio/Buffer;II)V
+    invoke-static {p0, p1, p3, v0, p2}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni([IILjava/nio/Buffer;II)V
 
-    .line 108
     return-void
 .end method
 
 .method public static copy([IILjava/nio/Buffer;I)V
     .locals 2
-    .param p0, "src"    # [I
-    .param p1, "srcOffset"    # I
-    .param p2, "dst"    # Ljava/nio/Buffer;
-    .param p3, "numElements"    # I
 
     .line 170
     invoke-virtual {p2}, Ljava/nio/Buffer;->position()I
 
     move-result v0
 
-    shl-int/lit8 v1, p3, 0x2
+    shl-int/lit8 p3, p3, 0x2
 
-    invoke-static {p2, v1}, Lcom/badlogic/gdx/utils/BufferUtils;->bytesToElements(Ljava/nio/Buffer;I)I
+    invoke-static {p2, p3}, Lcom/badlogic/gdx/utils/BufferUtils;->bytesToElements(Ljava/nio/Buffer;I)I
 
     move-result v1
 
@@ -486,49 +419,37 @@
 
     move-result v0
 
-    shl-int/lit8 v1, p3, 0x2
+    invoke-static {p0, p1, p2, v0, p3}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni([IILjava/nio/Buffer;II)V
 
-    invoke-static {p0, p1, p2, v0, v1}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni([IILjava/nio/Buffer;II)V
-
-    .line 172
     return-void
 .end method
 
 .method public static copy([JIILjava/nio/Buffer;)V
-    .locals 2
-    .param p0, "src"    # [J
-    .param p1, "srcOffset"    # I
-    .param p2, "numElements"    # I
-    .param p3, "dst"    # Ljava/nio/Buffer;
+    .locals 1
 
     .line 119
     invoke-static {p3}, Lcom/badlogic/gdx/utils/BufferUtils;->positionInBytes(Ljava/nio/Buffer;)I
 
     move-result v0
 
-    shl-int/lit8 v1, p2, 0x3
+    shl-int/lit8 p2, p2, 0x3
 
-    invoke-static {p0, p1, p3, v0, v1}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni([JILjava/nio/Buffer;II)V
+    invoke-static {p0, p1, p3, v0, p2}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni([JILjava/nio/Buffer;II)V
 
-    .line 120
     return-void
 .end method
 
 .method public static copy([JILjava/nio/Buffer;I)V
     .locals 2
-    .param p0, "src"    # [J
-    .param p1, "srcOffset"    # I
-    .param p2, "dst"    # Ljava/nio/Buffer;
-    .param p3, "numElements"    # I
 
     .line 184
     invoke-virtual {p2}, Ljava/nio/Buffer;->position()I
 
     move-result v0
 
-    shl-int/lit8 v1, p3, 0x3
+    shl-int/lit8 p3, p3, 0x3
 
-    invoke-static {p2, v1}, Lcom/badlogic/gdx/utils/BufferUtils;->bytesToElements(Ljava/nio/Buffer;I)I
+    invoke-static {p2, p3}, Lcom/badlogic/gdx/utils/BufferUtils;->bytesToElements(Ljava/nio/Buffer;I)I
 
     move-result v1
 
@@ -541,29 +462,22 @@
 
     move-result v0
 
-    shl-int/lit8 v1, p3, 0x3
+    invoke-static {p0, p1, p2, v0, p3}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni([JILjava/nio/Buffer;II)V
 
-    invoke-static {p0, p1, p2, v0, v1}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni([JILjava/nio/Buffer;II)V
-
-    .line 186
     return-void
 .end method
 
 .method public static copy([SILjava/nio/Buffer;I)V
     .locals 2
-    .param p0, "src"    # [S
-    .param p1, "srcOffset"    # I
-    .param p2, "dst"    # Ljava/nio/Buffer;
-    .param p3, "numElements"    # I
 
     .line 82
     invoke-virtual {p2}, Ljava/nio/Buffer;->position()I
 
     move-result v0
 
-    shl-int/lit8 v1, p3, 0x1
+    shl-int/lit8 p3, p3, 0x1
 
-    invoke-static {p2, v1}, Lcom/badlogic/gdx/utils/BufferUtils;->bytesToElements(Ljava/nio/Buffer;I)I
+    invoke-static {p2, p3}, Lcom/badlogic/gdx/utils/BufferUtils;->bytesToElements(Ljava/nio/Buffer;I)I
 
     move-result v1
 
@@ -576,11 +490,8 @@
 
     move-result v0
 
-    shl-int/lit8 v1, p3, 0x1
+    invoke-static {p0, p1, p2, v0, p3}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni([SILjava/nio/Buffer;II)V
 
-    invoke-static {p0, p1, p2, v0, v1}, Lcom/badlogic/gdx/utils/BufferUtils;->copyJni([SILjava/nio/Buffer;II)V
-
-    .line 84
     return-void
 .end method
 
@@ -613,7 +524,6 @@
 
 .method public static disposeUnsafeByteBuffer(Ljava/nio/ByteBuffer;)V
     .locals 4
-    .param p0, "buffer"    # Ljava/nio/ByteBuffer;
 
     .line 497
     invoke-virtual {p0}, Ljava/nio/ByteBuffer;->capacity()I
@@ -621,7 +531,6 @@
     move-result v0
 
     .line 498
-    .local v0, "size":I
     sget-object v1, Lcom/badlogic/gdx/utils/BufferUtils;->unsafeBuffers:Lcom/badlogic/gdx/utils/Array;
 
     monitor-enter v1
@@ -653,46 +562,38 @@
     .line 503
     invoke-static {p0}, Lcom/badlogic/gdx/utils/BufferUtils;->freeMemory(Ljava/nio/ByteBuffer;)V
 
-    .line 504
     return-void
 
     .line 500
     :cond_0
     :try_start_1
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v3, "buffer not allocated with newUnsafeByteBuffer or already disposed"
+    const-string v0, "buffer not allocated with newUnsafeByteBuffer or already disposed"
 
-    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    .end local v0    # "size":I
-    .end local p0    # "buffer":Ljava/nio/ByteBuffer;
-    throw v2
+    throw p0
+
+    :catchall_0
+    move-exception p0
 
     .line 501
-    .restart local v0    # "size":I
-    .restart local p0    # "buffer":Ljava/nio/ByteBuffer;
-    :catchall_0
-    move-exception v2
-
     monitor-exit v1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v2
+    throw p0
 .end method
 
 .method private static elementsToBytes(Ljava/nio/Buffer;I)I
-    .locals 3
-    .param p0, "dst"    # Ljava/nio/Buffer;
-    .param p1, "elements"    # I
+    .locals 2
 
     .line 436
     instance-of v0, p0, Ljava/nio/ByteBuffer;
 
     if-eqz v0, :cond_0
 
-    .line 437
     return p1
 
     .line 438
@@ -701,10 +602,9 @@
 
     if-eqz v0, :cond_1
 
-    .line 439
-    shl-int/lit8 v0, p1, 0x1
+    shl-int/lit8 p0, p1, 0x1
 
-    return v0
+    return p0
 
     .line 440
     :cond_1
@@ -712,10 +612,9 @@
 
     if-eqz v0, :cond_2
 
-    .line 441
-    shl-int/lit8 v0, p1, 0x1
+    shl-int/lit8 p0, p1, 0x1
 
-    return v0
+    return p0
 
     .line 442
     :cond_2
@@ -723,10 +622,9 @@
 
     if-eqz v0, :cond_3
 
-    .line 443
-    shl-int/lit8 v0, p1, 0x2
+    shl-int/lit8 p0, p1, 0x2
 
-    return v0
+    return p0
 
     .line 444
     :cond_3
@@ -734,10 +632,9 @@
 
     if-eqz v0, :cond_4
 
-    .line 445
-    shl-int/lit8 v0, p1, 0x3
+    shl-int/lit8 p0, p1, 0x3
 
-    return v0
+    return p0
 
     .line 446
     :cond_4
@@ -745,10 +642,9 @@
 
     if-eqz v0, :cond_5
 
-    .line 447
-    shl-int/lit8 v0, p1, 0x2
+    shl-int/lit8 p0, p1, 0x2
 
-    return v0
+    return p0
 
     .line 448
     :cond_5
@@ -756,44 +652,45 @@
 
     if-eqz v0, :cond_6
 
-    .line 449
-    shl-int/lit8 v0, p1, 0x3
+    shl-int/lit8 p0, p1, 0x3
 
-    return v0
+    return p0
 
     .line 451
     :cond_6
-    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Can\'t copy to a "
 
-    const-string v2, "Can\'t copy to a "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, " instance"
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " instance"
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v0
+    move-result-object p0
+
+    invoke-direct {p1, p0}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw p1
 .end method
 
 .method private static native find(Ljava/nio/Buffer;IILjava/nio/Buffer;II)J
@@ -822,10 +719,6 @@
 
 .method public static findFloats(Ljava/nio/Buffer;ILjava/nio/Buffer;I)J
     .locals 6
-    .param p0, "vertex"    # Ljava/nio/Buffer;
-    .param p1, "strideInBytes"    # I
-    .param p2, "vertices"    # Ljava/nio/Buffer;
-    .param p3, "numVertices"    # I
 
     .line 366
     invoke-static {p0}, Lcom/badlogic/gdx/utils/BufferUtils;->positionInBytes(Ljava/nio/Buffer;)I
@@ -846,18 +739,13 @@
 
     invoke-static/range {v0 .. v5}, Lcom/badlogic/gdx/utils/BufferUtils;->find(Ljava/nio/Buffer;IILjava/nio/Buffer;II)J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    return-wide v0
+    return-wide p0
 .end method
 
 .method public static findFloats(Ljava/nio/Buffer;ILjava/nio/Buffer;IF)J
     .locals 7
-    .param p0, "vertex"    # Ljava/nio/Buffer;
-    .param p1, "strideInBytes"    # I
-    .param p2, "vertices"    # Ljava/nio/Buffer;
-    .param p3, "numVertices"    # I
-    .param p4, "epsilon"    # F
 
     .line 382
     invoke-static {p0}, Lcom/badlogic/gdx/utils/BufferUtils;->positionInBytes(Ljava/nio/Buffer;)I
@@ -880,17 +768,13 @@
 
     invoke-static/range {v0 .. v6}, Lcom/badlogic/gdx/utils/BufferUtils;->find(Ljava/nio/Buffer;IILjava/nio/Buffer;IIF)J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    return-wide v0
+    return-wide p0
 .end method
 
 .method public static findFloats(Ljava/nio/Buffer;I[FI)J
     .locals 6
-    .param p0, "vertex"    # Ljava/nio/Buffer;
-    .param p1, "strideInBytes"    # I
-    .param p2, "vertices"    # [F
-    .param p3, "numVertices"    # I
 
     .line 374
     invoke-static {p0}, Lcom/badlogic/gdx/utils/BufferUtils;->positionInBytes(Ljava/nio/Buffer;)I
@@ -909,18 +793,13 @@
 
     invoke-static/range {v0 .. v5}, Lcom/badlogic/gdx/utils/BufferUtils;->find(Ljava/nio/Buffer;II[FII)J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    return-wide v0
+    return-wide p0
 .end method
 
 .method public static findFloats(Ljava/nio/Buffer;I[FIF)J
     .locals 7
-    .param p0, "vertex"    # Ljava/nio/Buffer;
-    .param p1, "strideInBytes"    # I
-    .param p2, "vertices"    # [F
-    .param p3, "numVertices"    # I
-    .param p4, "epsilon"    # F
 
     .line 390
     invoke-static {p0}, Lcom/badlogic/gdx/utils/BufferUtils;->positionInBytes(Ljava/nio/Buffer;)I
@@ -941,24 +820,20 @@
 
     invoke-static/range {v0 .. v6}, Lcom/badlogic/gdx/utils/BufferUtils;->find(Ljava/nio/Buffer;II[FIIF)J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    return-wide v0
+    return-wide p0
 .end method
 
 .method public static findFloats([FILjava/nio/Buffer;I)J
     .locals 6
-    .param p0, "vertex"    # [F
-    .param p1, "strideInBytes"    # I
-    .param p2, "vertices"    # Ljava/nio/Buffer;
-    .param p3, "numVertices"    # I
+
+    const/4 v1, 0x0
 
     .line 370
     invoke-static {p2}, Lcom/badlogic/gdx/utils/BufferUtils;->positionInBytes(Ljava/nio/Buffer;)I
 
     move-result v4
-
-    const/4 v1, 0x0
 
     move-object v0, p0
 
@@ -970,25 +845,20 @@
 
     invoke-static/range {v0 .. v5}, Lcom/badlogic/gdx/utils/BufferUtils;->find([FIILjava/nio/Buffer;II)J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    return-wide v0
+    return-wide p0
 .end method
 
 .method public static findFloats([FILjava/nio/Buffer;IF)J
     .locals 7
-    .param p0, "vertex"    # [F
-    .param p1, "strideInBytes"    # I
-    .param p2, "vertices"    # Ljava/nio/Buffer;
-    .param p3, "numVertices"    # I
-    .param p4, "epsilon"    # F
+
+    const/4 v1, 0x0
 
     .line 386
     invoke-static {p2}, Lcom/badlogic/gdx/utils/BufferUtils;->positionInBytes(Ljava/nio/Buffer;)I
 
     move-result v4
-
-    const/4 v1, 0x0
 
     move-object v0, p0
 
@@ -1002,19 +872,14 @@
 
     invoke-static/range {v0 .. v6}, Lcom/badlogic/gdx/utils/BufferUtils;->find([FIILjava/nio/Buffer;IIF)J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    return-wide v0
+    return-wide p0
 .end method
 
 .method public static findFloats([FI[FI)J
     .locals 6
-    .param p0, "vertex"    # [F
-    .param p1, "strideInBytes"    # I
-    .param p2, "vertices"    # [F
-    .param p3, "numVertices"    # I
 
-    .line 378
     const/4 v1, 0x0
 
     const/4 v4, 0x0
@@ -1027,22 +892,17 @@
 
     move v5, p3
 
+    .line 378
     invoke-static/range {v0 .. v5}, Lcom/badlogic/gdx/utils/BufferUtils;->find([FII[FII)J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    return-wide v0
+    return-wide p0
 .end method
 
 .method public static findFloats([FI[FIF)J
     .locals 7
-    .param p0, "vertex"    # [F
-    .param p1, "strideInBytes"    # I
-    .param p2, "vertices"    # [F
-    .param p3, "numVertices"    # I
-    .param p4, "epsilon"    # F
 
-    .line 394
     const/4 v1, 0x0
 
     const/4 v4, 0x0
@@ -1057,11 +917,12 @@
 
     move v6, p4
 
+    .line 394
     invoke-static/range {v0 .. v6}, Lcom/badlogic/gdx/utils/BufferUtils;->find([FII[FIIF)J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    return-wide v0
+    return-wide p0
 .end method
 
 .method private static native freeMemory(Ljava/nio/ByteBuffer;)V
@@ -1081,7 +942,6 @@
 
 .method public static getUnsafeBufferAddress(Ljava/nio/Buffer;)J
     .locals 4
-    .param p0, "buffer"    # Ljava/nio/Buffer;
 
     .line 528
     invoke-static {p0}, Lcom/badlogic/gdx/utils/BufferUtils;->getBufferAddress(Ljava/nio/Buffer;)J
@@ -1090,9 +950,9 @@
 
     invoke-virtual {p0}, Ljava/nio/Buffer;->position()I
 
-    move-result v2
+    move-result p0
 
-    int-to-long v2, v2
+    int-to-long v2, p0
 
     add-long/2addr v0, v2
 
@@ -1101,7 +961,6 @@
 
 .method public static isUnsafeByteBuffer(Ljava/nio/ByteBuffer;)Z
     .locals 3
-    .param p0, "buffer"    # Ljava/nio/ByteBuffer;
 
     .line 507
     sget-object v0, Lcom/badlogic/gdx/utils/BufferUtils;->unsafeBuffers:Lcom/badlogic/gdx/utils/Array;
@@ -1116,212 +975,196 @@
 
     invoke-virtual {v1, p0, v2}, Lcom/badlogic/gdx/utils/Array;->contains(Ljava/lang/Object;Z)Z
 
-    move-result v1
+    move-result p0
 
     monitor-exit v0
 
-    return v1
+    return p0
+
+    :catchall_0
+    move-exception p0
 
     .line 509
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public static newByteBuffer(I)Ljava/nio/ByteBuffer;
-    .locals 2
-    .param p0, "numBytes"    # I
+    .locals 1
 
     .line 467
     invoke-static {p0}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 468
-    .local v0, "buffer":Ljava/nio/ByteBuffer;
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {p0, v0}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    .line 469
-    return-object v0
+    return-object p0
 .end method
 
 .method public static newCharBuffer(I)Ljava/nio/CharBuffer;
-    .locals 2
-    .param p0, "numChars"    # I
+    .locals 1
+
+    mul-int/lit8 p0, p0, 0x2
 
     .line 479
-    mul-int/lit8 v0, p0, 0x2
+    invoke-static {p0}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
 
-    invoke-static {v0}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
+    move-result-object p0
+
+    .line 480
+    invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
     move-result-object v0
 
-    .line 480
-    .local v0, "buffer":Ljava/nio/ByteBuffer;
-    invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {p0, v0}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
     .line 481
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->asCharBuffer()Ljava/nio/CharBuffer;
+    invoke-virtual {p0}, Ljava/nio/ByteBuffer;->asCharBuffer()Ljava/nio/CharBuffer;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method private static native newDisposableByteBuffer(I)Ljava/nio/ByteBuffer;
 .end method
 
 .method public static newDoubleBuffer(I)Ljava/nio/DoubleBuffer;
-    .locals 2
-    .param p0, "numDoubles"    # I
+    .locals 1
+
+    mul-int/lit8 p0, p0, 0x8
 
     .line 461
-    mul-int/lit8 v0, p0, 0x8
+    invoke-static {p0}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
 
-    invoke-static {v0}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
+    move-result-object p0
+
+    .line 462
+    invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
     move-result-object v0
 
-    .line 462
-    .local v0, "buffer":Ljava/nio/ByteBuffer;
-    invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {p0, v0}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
     .line 463
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->asDoubleBuffer()Ljava/nio/DoubleBuffer;
+    invoke-virtual {p0}, Ljava/nio/ByteBuffer;->asDoubleBuffer()Ljava/nio/DoubleBuffer;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static newFloatBuffer(I)Ljava/nio/FloatBuffer;
-    .locals 2
-    .param p0, "numFloats"    # I
+    .locals 1
+
+    mul-int/lit8 p0, p0, 0x4
 
     .line 455
-    mul-int/lit8 v0, p0, 0x4
+    invoke-static {p0}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
 
-    invoke-static {v0}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
+    move-result-object p0
+
+    .line 456
+    invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
     move-result-object v0
 
-    .line 456
-    .local v0, "buffer":Ljava/nio/ByteBuffer;
-    invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {p0, v0}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
     .line 457
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->asFloatBuffer()Ljava/nio/FloatBuffer;
+    invoke-virtual {p0}, Ljava/nio/ByteBuffer;->asFloatBuffer()Ljava/nio/FloatBuffer;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static newIntBuffer(I)Ljava/nio/IntBuffer;
-    .locals 2
-    .param p0, "numInts"    # I
+    .locals 1
+
+    mul-int/lit8 p0, p0, 0x4
 
     .line 485
-    mul-int/lit8 v0, p0, 0x4
+    invoke-static {p0}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
 
-    invoke-static {v0}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
+    move-result-object p0
+
+    .line 486
+    invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
     move-result-object v0
 
-    .line 486
-    .local v0, "buffer":Ljava/nio/ByteBuffer;
-    invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {p0, v0}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
     .line 487
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->asIntBuffer()Ljava/nio/IntBuffer;
+    invoke-virtual {p0}, Ljava/nio/ByteBuffer;->asIntBuffer()Ljava/nio/IntBuffer;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static newLongBuffer(I)Ljava/nio/LongBuffer;
-    .locals 2
-    .param p0, "numLongs"    # I
+    .locals 1
+
+    mul-int/lit8 p0, p0, 0x8
 
     .line 491
-    mul-int/lit8 v0, p0, 0x8
+    invoke-static {p0}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
 
-    invoke-static {v0}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
+    move-result-object p0
+
+    .line 492
+    invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
     move-result-object v0
 
-    .line 492
-    .local v0, "buffer":Ljava/nio/ByteBuffer;
-    invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {p0, v0}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
     .line 493
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->asLongBuffer()Ljava/nio/LongBuffer;
+    invoke-virtual {p0}, Ljava/nio/ByteBuffer;->asLongBuffer()Ljava/nio/LongBuffer;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static newShortBuffer(I)Ljava/nio/ShortBuffer;
-    .locals 2
-    .param p0, "numShorts"    # I
+    .locals 1
+
+    mul-int/lit8 p0, p0, 0x2
 
     .line 473
-    mul-int/lit8 v0, p0, 0x2
+    invoke-static {p0}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
 
-    invoke-static {v0}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
+    move-result-object p0
+
+    .line 474
+    invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
     move-result-object v0
 
-    .line 474
-    .local v0, "buffer":Ljava/nio/ByteBuffer;
-    invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    invoke-virtual {p0, v0}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
     .line 475
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->asShortBuffer()Ljava/nio/ShortBuffer;
+    invoke-virtual {p0}, Ljava/nio/ByteBuffer;->asShortBuffer()Ljava/nio/ShortBuffer;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static newUnsafeByteBuffer(I)Ljava/nio/ByteBuffer;
-    .locals 3
-    .param p0, "numBytes"    # I
+    .locals 2
 
     .line 515
     invoke-static {p0}, Lcom/badlogic/gdx/utils/BufferUtils;->newDisposableByteBuffer(I)Ljava/nio/ByteBuffer;
@@ -1329,7 +1172,6 @@
     move-result-object v0
 
     .line 516
-    .local v0, "buffer":Ljava/nio/ByteBuffer;
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
 
     move-result-object v1
@@ -1344,36 +1186,33 @@
     sput v1, Lcom/badlogic/gdx/utils/BufferUtils;->allocatedUnsafe:I
 
     .line 518
-    sget-object v1, Lcom/badlogic/gdx/utils/BufferUtils;->unsafeBuffers:Lcom/badlogic/gdx/utils/Array;
+    sget-object p0, Lcom/badlogic/gdx/utils/BufferUtils;->unsafeBuffers:Lcom/badlogic/gdx/utils/Array;
 
-    monitor-enter v1
+    monitor-enter p0
 
     .line 519
     :try_start_0
-    sget-object v2, Lcom/badlogic/gdx/utils/BufferUtils;->unsafeBuffers:Lcom/badlogic/gdx/utils/Array;
+    sget-object v1, Lcom/badlogic/gdx/utils/BufferUtils;->unsafeBuffers:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v2, v0}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v1, v0}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
     .line 520
-    monitor-exit v1
+    monitor-exit p0
 
-    .line 521
     return-object v0
 
-    .line 520
     :catchall_0
-    move-exception v2
+    move-exception v0
 
-    monitor-exit v1
+    monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v2
+    throw v0
 .end method
 
 .method public static newUnsafeByteBuffer(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;
     .locals 2
-    .param p0, "buffer"    # Ljava/nio/ByteBuffer;
 
     .line 536
     sget v0, Lcom/badlogic/gdx/utils/BufferUtils;->allocatedUnsafe:I
@@ -1400,23 +1239,20 @@
     .line 539
     monitor-exit v0
 
-    .line 540
     return-object p0
 
-    .line 539
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method private static positionInBytes(Ljava/nio/Buffer;)I
     .locals 3
-    .param p0, "dst"    # Ljava/nio/Buffer;
 
     .line 398
     instance-of v0, p0, Ljava/nio/ByteBuffer;
@@ -1426,9 +1262,9 @@
     .line 399
     invoke-virtual {p0}, Ljava/nio/Buffer;->position()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     .line 400
     :cond_0
@@ -1439,11 +1275,11 @@
     .line 401
     invoke-virtual {p0}, Ljava/nio/Buffer;->position()I
 
-    move-result v0
+    move-result p0
 
-    shl-int/lit8 v0, v0, 0x1
+    shl-int/lit8 p0, p0, 0x1
 
-    return v0
+    return p0
 
     .line 402
     :cond_1
@@ -1454,11 +1290,11 @@
     .line 403
     invoke-virtual {p0}, Ljava/nio/Buffer;->position()I
 
-    move-result v0
+    move-result p0
 
-    shl-int/lit8 v0, v0, 0x1
+    shl-int/lit8 p0, p0, 0x1
 
-    return v0
+    return p0
 
     .line 404
     :cond_2
@@ -1469,11 +1305,11 @@
     .line 405
     invoke-virtual {p0}, Ljava/nio/Buffer;->position()I
 
-    move-result v0
+    move-result p0
 
-    shl-int/lit8 v0, v0, 0x2
+    shl-int/lit8 p0, p0, 0x2
 
-    return v0
+    return p0
 
     .line 406
     :cond_3
@@ -1484,11 +1320,11 @@
     .line 407
     invoke-virtual {p0}, Ljava/nio/Buffer;->position()I
 
-    move-result v0
+    move-result p0
 
-    shl-int/lit8 v0, v0, 0x3
+    shl-int/lit8 p0, p0, 0x3
 
-    return v0
+    return p0
 
     .line 408
     :cond_4
@@ -1499,11 +1335,11 @@
     .line 409
     invoke-virtual {p0}, Ljava/nio/Buffer;->position()I
 
-    move-result v0
+    move-result p0
 
-    shl-int/lit8 v0, v0, 0x2
+    shl-int/lit8 p0, p0, 0x2
 
-    return v0
+    return p0
 
     .line 410
     :cond_5
@@ -1514,11 +1350,11 @@
     .line 411
     invoke-virtual {p0}, Ljava/nio/Buffer;->position()I
 
-    move-result v0
+    move-result p0
 
-    shl-int/lit8 v0, v0, 0x3
+    shl-int/lit8 p0, p0, 0x3
 
-    return v0
+    return p0
 
     .line 413
     :cond_6
@@ -1526,44 +1362,40 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Can\'t copy to a "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, " instance"
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " instance"
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public static transform(Ljava/nio/Buffer;IIILcom/badlogic/gdx/math/Matrix3;)V
     .locals 6
-    .param p0, "data"    # Ljava/nio/Buffer;
-    .param p1, "dimensions"    # I
-    .param p2, "strideInBytes"    # I
-    .param p3, "count"    # I
-    .param p4, "matrix"    # Lcom/badlogic/gdx/math/Matrix3;
 
-    .line 309
     const/4 v5, 0x0
 
     move-object v0, p0
@@ -1576,22 +1408,15 @@
 
     move-object v4, p4
 
+    .line 309
     invoke-static/range {v0 .. v5}, Lcom/badlogic/gdx/utils/BufferUtils;->transform(Ljava/nio/Buffer;IIILcom/badlogic/gdx/math/Matrix3;I)V
 
-    .line 310
     return-void
 .end method
 
 .method public static transform(Ljava/nio/Buffer;IIILcom/badlogic/gdx/math/Matrix3;I)V
-    .locals 2
-    .param p0, "data"    # Ljava/nio/Buffer;
-    .param p1, "dimensions"    # I
-    .param p2, "strideInBytes"    # I
-    .param p3, "count"    # I
-    .param p4, "matrix"    # Lcom/badlogic/gdx/math/Matrix3;
-    .param p5, "offset"    # I
+    .locals 1
 
-    .line 332
     const/4 v0, 0x2
 
     if-eq p1, v0, :cond_1
@@ -1601,56 +1426,45 @@
     if-ne p1, v0, :cond_0
 
     .line 334
-    iget-object v0, p4, Lcom/badlogic/gdx/math/Matrix3;->val:[F
+    iget-object p1, p4, Lcom/badlogic/gdx/math/Matrix3;->val:[F
 
     invoke-static {p0}, Lcom/badlogic/gdx/utils/BufferUtils;->positionInBytes(Ljava/nio/Buffer;)I
 
-    move-result v1
+    move-result p4
 
-    add-int/2addr v1, p5
+    add-int/2addr p4, p5
 
-    invoke-static {p0, p2, p3, v0, v1}, Lcom/badlogic/gdx/utils/BufferUtils;->transformV3M3Jni(Ljava/nio/Buffer;II[FI)V
+    invoke-static {p0, p2, p3, p1, p4}, Lcom/badlogic/gdx/utils/BufferUtils;->transformV3M3Jni(Ljava/nio/Buffer;II[FI)V
 
-    .line 335
     goto :goto_0
 
     .line 340
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw v0
+    throw p0
 
     .line 337
     :cond_1
-    iget-object v0, p4, Lcom/badlogic/gdx/math/Matrix3;->val:[F
+    iget-object p1, p4, Lcom/badlogic/gdx/math/Matrix3;->val:[F
 
     invoke-static {p0}, Lcom/badlogic/gdx/utils/BufferUtils;->positionInBytes(Ljava/nio/Buffer;)I
 
-    move-result v1
+    move-result p4
 
-    add-int/2addr v1, p5
+    add-int/2addr p4, p5
 
-    invoke-static {p0, p2, p3, v0, v1}, Lcom/badlogic/gdx/utils/BufferUtils;->transformV2M3Jni(Ljava/nio/Buffer;II[FI)V
+    invoke-static {p0, p2, p3, p1, p4}, Lcom/badlogic/gdx/utils/BufferUtils;->transformV2M3Jni(Ljava/nio/Buffer;II[FI)V
 
-    .line 338
-    nop
-
-    .line 342
     :goto_0
     return-void
 .end method
 
 .method public static transform(Ljava/nio/Buffer;IIILcom/badlogic/gdx/math/Matrix4;)V
     .locals 6
-    .param p0, "data"    # Ljava/nio/Buffer;
-    .param p1, "dimensions"    # I
-    .param p2, "strideInBytes"    # I
-    .param p3, "count"    # I
-    .param p4, "matrix"    # Lcom/badlogic/gdx/math/Matrix4;
 
-    .line 239
     const/4 v5, 0x0
 
     move-object v0, p0
@@ -1663,22 +1477,15 @@
 
     move-object v4, p4
 
+    .line 239
     invoke-static/range {v0 .. v5}, Lcom/badlogic/gdx/utils/BufferUtils;->transform(Ljava/nio/Buffer;IIILcom/badlogic/gdx/math/Matrix4;I)V
 
-    .line 240
     return-void
 .end method
 
 .method public static transform(Ljava/nio/Buffer;IIILcom/badlogic/gdx/math/Matrix4;I)V
-    .locals 2
-    .param p0, "data"    # Ljava/nio/Buffer;
-    .param p1, "dimensions"    # I
-    .param p2, "strideInBytes"    # I
-    .param p3, "count"    # I
-    .param p4, "matrix"    # Lcom/badlogic/gdx/math/Matrix4;
-    .param p5, "offset"    # I
+    .locals 1
 
-    .line 262
     const/4 v0, 0x2
 
     if-eq p1, v0, :cond_2
@@ -1692,71 +1499,59 @@
     if-ne p1, v0, :cond_0
 
     .line 264
-    iget-object v0, p4, Lcom/badlogic/gdx/math/Matrix4;->val:[F
+    iget-object p1, p4, Lcom/badlogic/gdx/math/Matrix4;->val:[F
 
     invoke-static {p0}, Lcom/badlogic/gdx/utils/BufferUtils;->positionInBytes(Ljava/nio/Buffer;)I
 
-    move-result v1
+    move-result p4
 
-    add-int/2addr v1, p5
+    add-int/2addr p4, p5
 
-    invoke-static {p0, p2, p3, v0, v1}, Lcom/badlogic/gdx/utils/BufferUtils;->transformV4M4Jni(Ljava/nio/Buffer;II[FI)V
+    invoke-static {p0, p2, p3, p1, p4}, Lcom/badlogic/gdx/utils/BufferUtils;->transformV4M4Jni(Ljava/nio/Buffer;II[FI)V
 
-    .line 265
     goto :goto_0
 
     .line 273
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw v0
+    throw p0
 
     .line 267
     :cond_1
-    iget-object v0, p4, Lcom/badlogic/gdx/math/Matrix4;->val:[F
+    iget-object p1, p4, Lcom/badlogic/gdx/math/Matrix4;->val:[F
 
     invoke-static {p0}, Lcom/badlogic/gdx/utils/BufferUtils;->positionInBytes(Ljava/nio/Buffer;)I
 
-    move-result v1
+    move-result p4
 
-    add-int/2addr v1, p5
+    add-int/2addr p4, p5
 
-    invoke-static {p0, p2, p3, v0, v1}, Lcom/badlogic/gdx/utils/BufferUtils;->transformV3M4Jni(Ljava/nio/Buffer;II[FI)V
+    invoke-static {p0, p2, p3, p1, p4}, Lcom/badlogic/gdx/utils/BufferUtils;->transformV3M4Jni(Ljava/nio/Buffer;II[FI)V
 
-    .line 268
     goto :goto_0
 
     .line 270
     :cond_2
-    iget-object v0, p4, Lcom/badlogic/gdx/math/Matrix4;->val:[F
+    iget-object p1, p4, Lcom/badlogic/gdx/math/Matrix4;->val:[F
 
     invoke-static {p0}, Lcom/badlogic/gdx/utils/BufferUtils;->positionInBytes(Ljava/nio/Buffer;)I
 
-    move-result v1
+    move-result p4
 
-    add-int/2addr v1, p5
+    add-int/2addr p4, p5
 
-    invoke-static {p0, p2, p3, v0, v1}, Lcom/badlogic/gdx/utils/BufferUtils;->transformV2M4Jni(Ljava/nio/Buffer;II[FI)V
+    invoke-static {p0, p2, p3, p1, p4}, Lcom/badlogic/gdx/utils/BufferUtils;->transformV2M4Jni(Ljava/nio/Buffer;II[FI)V
 
-    .line 271
-    nop
-
-    .line 275
     :goto_0
     return-void
 .end method
 
 .method public static transform([FIIILcom/badlogic/gdx/math/Matrix3;)V
     .locals 6
-    .param p0, "data"    # [F
-    .param p1, "dimensions"    # I
-    .param p2, "strideInBytes"    # I
-    .param p3, "count"    # I
-    .param p4, "matrix"    # Lcom/badlogic/gdx/math/Matrix3;
 
-    .line 320
     const/4 v5, 0x0
 
     move-object v0, p0
@@ -1769,22 +1564,15 @@
 
     move-object v4, p4
 
+    .line 320
     invoke-static/range {v0 .. v5}, Lcom/badlogic/gdx/utils/BufferUtils;->transform([FIIILcom/badlogic/gdx/math/Matrix3;I)V
 
-    .line 321
     return-void
 .end method
 
 .method public static transform([FIIILcom/badlogic/gdx/math/Matrix3;I)V
     .locals 1
-    .param p0, "data"    # [F
-    .param p1, "dimensions"    # I
-    .param p2, "strideInBytes"    # I
-    .param p3, "count"    # I
-    .param p4, "matrix"    # Lcom/badlogic/gdx/math/Matrix3;
-    .param p5, "offset"    # I
 
-    .line 353
     const/4 v0, 0x2
 
     if-eq p1, v0, :cond_1
@@ -1794,44 +1582,33 @@
     if-ne p1, v0, :cond_0
 
     .line 355
-    iget-object v0, p4, Lcom/badlogic/gdx/math/Matrix3;->val:[F
+    iget-object p1, p4, Lcom/badlogic/gdx/math/Matrix3;->val:[F
 
-    invoke-static {p0, p2, p3, v0, p5}, Lcom/badlogic/gdx/utils/BufferUtils;->transformV3M3Jni([FII[FI)V
+    invoke-static {p0, p2, p3, p1, p5}, Lcom/badlogic/gdx/utils/BufferUtils;->transformV3M3Jni([FII[FI)V
 
-    .line 356
     goto :goto_0
 
     .line 361
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw v0
+    throw p0
 
     .line 358
     :cond_1
-    iget-object v0, p4, Lcom/badlogic/gdx/math/Matrix3;->val:[F
+    iget-object p1, p4, Lcom/badlogic/gdx/math/Matrix3;->val:[F
 
-    invoke-static {p0, p2, p3, v0, p5}, Lcom/badlogic/gdx/utils/BufferUtils;->transformV2M3Jni([FII[FI)V
+    invoke-static {p0, p2, p3, p1, p5}, Lcom/badlogic/gdx/utils/BufferUtils;->transformV2M3Jni([FII[FI)V
 
-    .line 359
-    nop
-
-    .line 363
     :goto_0
     return-void
 .end method
 
 .method public static transform([FIIILcom/badlogic/gdx/math/Matrix4;)V
     .locals 6
-    .param p0, "data"    # [F
-    .param p1, "dimensions"    # I
-    .param p2, "strideInBytes"    # I
-    .param p3, "count"    # I
-    .param p4, "matrix"    # Lcom/badlogic/gdx/math/Matrix4;
 
-    .line 250
     const/4 v5, 0x0
 
     move-object v0, p0
@@ -1844,22 +1621,15 @@
 
     move-object v4, p4
 
+    .line 250
     invoke-static/range {v0 .. v5}, Lcom/badlogic/gdx/utils/BufferUtils;->transform([FIIILcom/badlogic/gdx/math/Matrix4;I)V
 
-    .line 251
     return-void
 .end method
 
 .method public static transform([FIIILcom/badlogic/gdx/math/Matrix4;I)V
     .locals 1
-    .param p0, "data"    # [F
-    .param p1, "dimensions"    # I
-    .param p2, "strideInBytes"    # I
-    .param p3, "count"    # I
-    .param p4, "matrix"    # Lcom/badlogic/gdx/math/Matrix4;
-    .param p5, "offset"    # I
 
-    .line 286
     const/4 v0, 0x2
 
     if-eq p1, v0, :cond_2
@@ -1873,40 +1643,34 @@
     if-ne p1, v0, :cond_0
 
     .line 288
-    iget-object v0, p4, Lcom/badlogic/gdx/math/Matrix4;->val:[F
+    iget-object p1, p4, Lcom/badlogic/gdx/math/Matrix4;->val:[F
 
-    invoke-static {p0, p2, p3, v0, p5}, Lcom/badlogic/gdx/utils/BufferUtils;->transformV4M4Jni([FII[FI)V
+    invoke-static {p0, p2, p3, p1, p5}, Lcom/badlogic/gdx/utils/BufferUtils;->transformV4M4Jni([FII[FI)V
 
-    .line 289
     goto :goto_0
 
     .line 297
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw v0
+    throw p0
 
     .line 291
     :cond_1
-    iget-object v0, p4, Lcom/badlogic/gdx/math/Matrix4;->val:[F
+    iget-object p1, p4, Lcom/badlogic/gdx/math/Matrix4;->val:[F
 
-    invoke-static {p0, p2, p3, v0, p5}, Lcom/badlogic/gdx/utils/BufferUtils;->transformV3M4Jni([FII[FI)V
+    invoke-static {p0, p2, p3, p1, p5}, Lcom/badlogic/gdx/utils/BufferUtils;->transformV3M4Jni([FII[FI)V
 
-    .line 292
     goto :goto_0
 
     .line 294
     :cond_2
-    iget-object v0, p4, Lcom/badlogic/gdx/math/Matrix4;->val:[F
+    iget-object p1, p4, Lcom/badlogic/gdx/math/Matrix4;->val:[F
 
-    invoke-static {p0, p2, p3, v0, p5}, Lcom/badlogic/gdx/utils/BufferUtils;->transformV2M4Jni([FII[FI)V
+    invoke-static {p0, p2, p3, p1, p5}, Lcom/badlogic/gdx/utils/BufferUtils;->transformV2M4Jni([FII[FI)V
 
-    .line 295
-    nop
-
-    .line 299
     :goto_0
     return-void
 .end method

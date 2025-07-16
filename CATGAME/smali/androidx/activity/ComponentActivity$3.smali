@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/activity/ComponentActivity;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/activity/ComponentActivity;
 
     .line 113
     iput-object p1, p0, Landroidx/activity/ComponentActivity$3;->this$0:Landroidx/activity/ComponentActivity;
@@ -37,34 +36,31 @@
 
 # virtual methods
 .method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 1
-    .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
-    .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
+    .locals 0
 
     .line 117
-    sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_DESTROY:Landroidx/lifecycle/Lifecycle$Event;
+    sget-object p1, Landroidx/lifecycle/Lifecycle$Event;->ON_DESTROY:Landroidx/lifecycle/Lifecycle$Event;
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, p1, :cond_0
 
     .line 118
-    iget-object v0, p0, Landroidx/activity/ComponentActivity$3;->this$0:Landroidx/activity/ComponentActivity;
+    iget-object p1, p0, Landroidx/activity/ComponentActivity$3;->this$0:Landroidx/activity/ComponentActivity;
 
-    invoke-virtual {v0}, Landroidx/activity/ComponentActivity;->isChangingConfigurations()Z
+    invoke-virtual {p1}, Landroidx/activity/ComponentActivity;->isChangingConfigurations()Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 119
-    iget-object v0, p0, Landroidx/activity/ComponentActivity$3;->this$0:Landroidx/activity/ComponentActivity;
+    iget-object p1, p0, Landroidx/activity/ComponentActivity$3;->this$0:Landroidx/activity/ComponentActivity;
 
-    invoke-virtual {v0}, Landroidx/activity/ComponentActivity;->getViewModelStore()Landroidx/lifecycle/ViewModelStore;
+    invoke-virtual {p1}, Landroidx/activity/ComponentActivity;->getViewModelStore()Landroidx/lifecycle/ViewModelStore;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroidx/lifecycle/ViewModelStore;->clear()V
+    invoke-virtual {p1}, Landroidx/lifecycle/ViewModelStore;->clear()V
 
-    .line 122
     :cond_0
     return-void
 .end method

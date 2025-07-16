@@ -15,7 +15,6 @@
 
 .method public static toHmacAlgo(Lcom/google/crypto/tink/proto/HashType;)Ljava/lang/String;
     .locals 3
-    .param p0, "hash"    # Lcom/google/crypto/tink/proto/HashType;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -52,10 +51,9 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 36
-    const-string v0, "HmacSha512"
+    const-string p0, "HmacSha512"
 
-    return-object v0
+    return-object p0
 
     .line 38
     :cond_0
@@ -63,31 +61,29 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "hash unsupported for HMAC: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v1
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/security/NoSuchAlgorithmException;-><init>(Ljava/lang/String;)V
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/security/NoSuchAlgorithmException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 34
     :cond_1
-    const-string v0, "HmacSha256"
+    const-string p0, "HmacSha256"
 
-    return-object v0
+    return-object p0
 
-    .line 32
     :cond_2
-    const-string v0, "HmacSha1"
+    const-string p0, "HmacSha1"
 
-    return-object v0
+    return-object p0
 .end method

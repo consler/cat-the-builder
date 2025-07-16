@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/parser/JSONObjectParser;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/parser/JSONObjectParser;
 
     .line 19
     iput-object p1, p0, Lcom/koushikdutta/async/parser/JSONObjectParser$1;->this$0:Lcom/koushikdutta/async/parser/JSONObjectParser;
@@ -60,7 +59,6 @@
 
 .method protected transform(Ljava/lang/String;)V
     .locals 1
-    .param p1, "result"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -74,6 +72,5 @@
 
     invoke-virtual {p0, v0}, Lcom/koushikdutta/async/parser/JSONObjectParser$1;->setComplete(Ljava/lang/Object;)Z
 
-    .line 23
     return-void
 .end method

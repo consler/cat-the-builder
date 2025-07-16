@@ -58,7 +58,6 @@
     .locals 2
 
     .line 49
-    .local p0, "this":Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator;, "Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator<TT;>;"
     invoke-direct {p0}, Lio/reactivex/observers/DisposableObserver;-><init>()V
 
     .line 53
@@ -86,7 +85,6 @@
     .locals 2
 
     .line 77
-    .local p0, "this":Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator;, "Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator;->iteratorNotification:Lio/reactivex/Notification;
 
     if-eqz v0, :cond_1
@@ -131,9 +129,6 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 88
-    nop
-
     .line 90
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator;->value:Ljava/util/concurrent/atomic/AtomicReference;
 
@@ -146,7 +141,6 @@
     check-cast v0, Lio/reactivex/Notification;
 
     .line 91
-    .local v0, "n":Lio/reactivex/Notification;, "Lio/reactivex/Notification<TT;>;"
     iput-object v0, p0, Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator;->iteratorNotification:Lio/reactivex/Notification;
 
     .line 92
@@ -162,21 +156,18 @@
     :cond_2
     invoke-virtual {v0}, Lio/reactivex/Notification;->getError()Ljava/lang/Throwable;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v1}, Lio/reactivex/internal/util/ExceptionHelper;->wrapOrThrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
+    invoke-static {v0}, Lio/reactivex/internal/util/ExceptionHelper;->wrapOrThrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 
-    .line 84
-    .end local v0    # "n":Lio/reactivex/Notification;, "Lio/reactivex/Notification<TT;>;"
     :catch_0
     move-exception v0
 
     .line 85
-    .local v0, "ex":Ljava/lang/InterruptedException;
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator;->dispose()V
 
     .line 86
@@ -189,12 +180,11 @@
     .line 87
     invoke-static {v0}, Lio/reactivex/internal/util/ExceptionHelper;->wrapOrThrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 
     .line 96
-    .end local v0    # "ex":Ljava/lang/InterruptedException;
     :cond_3
     :goto_1
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator;->iteratorNotification:Lio/reactivex/Notification;
@@ -215,7 +205,6 @@
     .end annotation
 
     .line 101
-    .local p0, "this":Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator;, "Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator;->hasNext()Z
 
     move-result v0
@@ -229,17 +218,14 @@
 
     move-result-object v0
 
-    .line 103
-    .local v0, "v":Ljava/lang/Object;, "TT;"
     const/4 v1, 0x0
 
+    .line 103
     iput-object v1, p0, Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator;->iteratorNotification:Lio/reactivex/Notification;
 
-    .line 104
     return-object v0
 
     .line 106
-    .end local v0    # "v":Ljava/lang/Object;, "TT;"
     :cond_0
     new-instance v0, Ljava/util/NoSuchElementException;
 
@@ -251,25 +237,20 @@
 .method public onComplete()V
     .locals 0
 
-    .line 73
-    .local p0, "this":Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator;, "Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator<TT;>;"
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 0
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 67
-    .local p0, "this":Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator;, "Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator<TT;>;"
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 68
     return-void
 .end method
 
 .method public onNext(Lio/reactivex/Notification;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -279,49 +260,40 @@
     .end annotation
 
     .line 59
-    .local p0, "this":Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator;, "Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator<TT;>;"
-    .local p1, "args":Lio/reactivex/Notification;, "Lio/reactivex/Notification<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator;->value:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/atomic/AtomicReference;->getAndSet(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    .line 60
-    .local v0, "wasNotAvailable":Z
     :goto_0
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 61
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator;->notify:Ljava/util/concurrent/Semaphore;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator;->notify:Ljava/util/concurrent/Semaphore;
 
-    invoke-virtual {v1}, Ljava/util/concurrent/Semaphore;->release()V
+    invoke-virtual {p1}, Ljava/util/concurrent/Semaphore;->release()V
 
-    .line 63
     :cond_1
     return-void
 .end method
 
 .method public bridge synthetic onNext(Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
+    .locals 0
 
     .line 49
-    .local p0, "this":Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator;, "Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator<TT;>;"
-    move-object v0, p1
+    check-cast p1, Lio/reactivex/Notification;
 
-    check-cast v0, Lio/reactivex/Notification;
-
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator;->onNext(Lio/reactivex/Notification;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator;->onNext(Lio/reactivex/Notification;)V
 
     return-void
 .end method
@@ -330,7 +302,6 @@
     .locals 2
 
     .line 111
-    .local p0, "this":Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator;, "Lio/reactivex/internal/operators/observable/BlockingObservableLatest$BlockingObservableLatestIterator<TT;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Read-only iterator."

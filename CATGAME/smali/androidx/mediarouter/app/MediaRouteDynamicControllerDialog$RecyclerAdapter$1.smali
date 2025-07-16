@@ -27,7 +27,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter;IILandroid/view/View;)V
     .locals 0
-    .param p1, "this$1"    # Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter;
 
     .line 807
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter$1;->this$1:Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter;
@@ -46,31 +45,27 @@
 
 # virtual methods
 .method protected applyTransformation(FLandroid/view/animation/Transformation;)V
-    .locals 3
-    .param p1, "interpolatedTime"    # F
-    .param p2, "t"    # Landroid/view/animation/Transformation;
+    .locals 1
 
     .line 810
-    iget v0, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter$1;->val$endValue:I
+    iget p2, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter$1;->val$endValue:I
 
-    iget v1, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter$1;->val$startValue:I
+    iget v0, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter$1;->val$startValue:I
 
-    sub-int/2addr v0, v1
+    sub-int/2addr p2, v0
 
-    int-to-float v0, v0
+    int-to-float p2, p2
 
-    mul-float/2addr v0, p1
+    mul-float/2addr p2, p1
 
-    float-to-int v0, v0
+    float-to-int p1, p2
 
     .line 811
-    .local v0, "deltaHeight":I
-    iget-object v2, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter$1;->val$view:Landroid/view/View;
+    iget-object p2, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter$1;->val$view:Landroid/view/View;
 
-    add-int/2addr v1, v0
+    add-int/2addr v0, p1
 
-    invoke-static {v2, v1}, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->setLayoutHeight(Landroid/view/View;I)V
+    invoke-static {p2, v0}, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->setLayoutHeight(Landroid/view/View;I)V
 
-    .line 812
     return-void
 .end method

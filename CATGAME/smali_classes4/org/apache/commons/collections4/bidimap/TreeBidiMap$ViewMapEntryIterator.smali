@@ -34,10 +34,8 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections4/bidimap/TreeBidiMap;)V
     .locals 1
-    .param p1, "this$0"    # Lorg/apache/commons/collections4/bidimap/TreeBidiMap;
 
     .line 1842
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$ViewMapEntryIterator;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.ViewMapEntryIterator;"
     iput-object p1, p0, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$ViewMapEntryIterator;->this$0:Lorg/apache/commons/collections4/bidimap/TreeBidiMap;
 
     .line 1843
@@ -45,7 +43,6 @@
 
     invoke-direct {p0, p1, v0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$ViewIterator;-><init>(Lorg/apache/commons/collections4/bidimap/TreeBidiMap;Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;)V
 
-    .line 1844
     return-void
 .end method
 
@@ -55,7 +52,6 @@
     .locals 1
 
     .line 1837
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$ViewMapEntryIterator;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.ViewMapEntryIterator;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$ViewMapEntryIterator;->next()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -74,7 +70,6 @@
     .end annotation
 
     .line 1848
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$ViewMapEntryIterator;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.ViewMapEntryIterator;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$ViewMapEntryIterator;->navigateNext()Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Node;
 
     move-result-object v0
@@ -86,7 +81,6 @@
     .locals 1
 
     .line 1837
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$ViewMapEntryIterator;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.ViewMapEntryIterator;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$ViewMapEntryIterator;->previous()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -105,7 +99,6 @@
     .end annotation
 
     .line 1853
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$ViewMapEntryIterator;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.ViewMapEntryIterator;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$ViewMapEntryIterator;->navigatePrevious()Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Node;
 
     move-result-object v0

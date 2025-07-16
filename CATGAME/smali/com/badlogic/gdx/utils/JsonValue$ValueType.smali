@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 10
+    .locals 15
 
     .line 1180
     new-instance v0, Lcom/badlogic/gdx/utils/JsonValue$ValueType;
@@ -55,98 +55,86 @@
 
     sput-object v0, Lcom/badlogic/gdx/utils/JsonValue$ValueType;->object:Lcom/badlogic/gdx/utils/JsonValue$ValueType;
 
-    new-instance v0, Lcom/badlogic/gdx/utils/JsonValue$ValueType;
+    new-instance v1, Lcom/badlogic/gdx/utils/JsonValue$ValueType;
 
-    const-string v1, "array"
+    const-string v3, "array"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Lcom/badlogic/gdx/utils/JsonValue$ValueType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Lcom/badlogic/gdx/utils/JsonValue$ValueType;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/badlogic/gdx/utils/JsonValue$ValueType;->array:Lcom/badlogic/gdx/utils/JsonValue$ValueType;
+    sput-object v1, Lcom/badlogic/gdx/utils/JsonValue$ValueType;->array:Lcom/badlogic/gdx/utils/JsonValue$ValueType;
 
-    new-instance v0, Lcom/badlogic/gdx/utils/JsonValue$ValueType;
+    new-instance v3, Lcom/badlogic/gdx/utils/JsonValue$ValueType;
 
-    const-string v1, "stringValue"
+    const-string v5, "stringValue"
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v1, v4}, Lcom/badlogic/gdx/utils/JsonValue$ValueType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Lcom/badlogic/gdx/utils/JsonValue$ValueType;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/badlogic/gdx/utils/JsonValue$ValueType;->stringValue:Lcom/badlogic/gdx/utils/JsonValue$ValueType;
+    sput-object v3, Lcom/badlogic/gdx/utils/JsonValue$ValueType;->stringValue:Lcom/badlogic/gdx/utils/JsonValue$ValueType;
 
-    new-instance v0, Lcom/badlogic/gdx/utils/JsonValue$ValueType;
+    new-instance v5, Lcom/badlogic/gdx/utils/JsonValue$ValueType;
 
-    const-string v1, "doubleValue"
+    const-string v7, "doubleValue"
 
-    const/4 v5, 0x3
+    const/4 v8, 0x3
 
-    invoke-direct {v0, v1, v5}, Lcom/badlogic/gdx/utils/JsonValue$ValueType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v5, v7, v8}, Lcom/badlogic/gdx/utils/JsonValue$ValueType;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/badlogic/gdx/utils/JsonValue$ValueType;->doubleValue:Lcom/badlogic/gdx/utils/JsonValue$ValueType;
+    sput-object v5, Lcom/badlogic/gdx/utils/JsonValue$ValueType;->doubleValue:Lcom/badlogic/gdx/utils/JsonValue$ValueType;
 
-    new-instance v0, Lcom/badlogic/gdx/utils/JsonValue$ValueType;
+    new-instance v7, Lcom/badlogic/gdx/utils/JsonValue$ValueType;
 
-    const-string v1, "longValue"
+    const-string v9, "longValue"
 
-    const/4 v6, 0x4
+    const/4 v10, 0x4
 
-    invoke-direct {v0, v1, v6}, Lcom/badlogic/gdx/utils/JsonValue$ValueType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v7, v9, v10}, Lcom/badlogic/gdx/utils/JsonValue$ValueType;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/badlogic/gdx/utils/JsonValue$ValueType;->longValue:Lcom/badlogic/gdx/utils/JsonValue$ValueType;
+    sput-object v7, Lcom/badlogic/gdx/utils/JsonValue$ValueType;->longValue:Lcom/badlogic/gdx/utils/JsonValue$ValueType;
 
-    new-instance v0, Lcom/badlogic/gdx/utils/JsonValue$ValueType;
+    new-instance v9, Lcom/badlogic/gdx/utils/JsonValue$ValueType;
 
-    const-string v1, "booleanValue"
+    const-string v11, "booleanValue"
 
-    const/4 v7, 0x5
+    const/4 v12, 0x5
 
-    invoke-direct {v0, v1, v7}, Lcom/badlogic/gdx/utils/JsonValue$ValueType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v9, v11, v12}, Lcom/badlogic/gdx/utils/JsonValue$ValueType;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/badlogic/gdx/utils/JsonValue$ValueType;->booleanValue:Lcom/badlogic/gdx/utils/JsonValue$ValueType;
+    sput-object v9, Lcom/badlogic/gdx/utils/JsonValue$ValueType;->booleanValue:Lcom/badlogic/gdx/utils/JsonValue$ValueType;
 
-    new-instance v0, Lcom/badlogic/gdx/utils/JsonValue$ValueType;
+    new-instance v11, Lcom/badlogic/gdx/utils/JsonValue$ValueType;
 
-    const-string v1, "nullValue"
+    const-string v13, "nullValue"
 
-    const/4 v8, 0x6
+    const/4 v14, 0x6
 
-    invoke-direct {v0, v1, v8}, Lcom/badlogic/gdx/utils/JsonValue$ValueType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v11, v13, v14}, Lcom/badlogic/gdx/utils/JsonValue$ValueType;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/badlogic/gdx/utils/JsonValue$ValueType;->nullValue:Lcom/badlogic/gdx/utils/JsonValue$ValueType;
+    sput-object v11, Lcom/badlogic/gdx/utils/JsonValue$ValueType;->nullValue:Lcom/badlogic/gdx/utils/JsonValue$ValueType;
+
+    const/4 v13, 0x7
+
+    new-array v13, v13, [Lcom/badlogic/gdx/utils/JsonValue$ValueType;
+
+    aput-object v0, v13, v2
+
+    aput-object v1, v13, v4
+
+    aput-object v3, v13, v6
+
+    aput-object v5, v13, v8
+
+    aput-object v7, v13, v10
+
+    aput-object v9, v13, v12
+
+    aput-object v11, v13, v14
 
     .line 1179
-    const/4 v1, 0x7
-
-    new-array v1, v1, [Lcom/badlogic/gdx/utils/JsonValue$ValueType;
-
-    sget-object v9, Lcom/badlogic/gdx/utils/JsonValue$ValueType;->object:Lcom/badlogic/gdx/utils/JsonValue$ValueType;
-
-    aput-object v9, v1, v2
-
-    sget-object v2, Lcom/badlogic/gdx/utils/JsonValue$ValueType;->array:Lcom/badlogic/gdx/utils/JsonValue$ValueType;
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/badlogic/gdx/utils/JsonValue$ValueType;->stringValue:Lcom/badlogic/gdx/utils/JsonValue$ValueType;
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/badlogic/gdx/utils/JsonValue$ValueType;->doubleValue:Lcom/badlogic/gdx/utils/JsonValue$ValueType;
-
-    aput-object v2, v1, v5
-
-    sget-object v2, Lcom/badlogic/gdx/utils/JsonValue$ValueType;->longValue:Lcom/badlogic/gdx/utils/JsonValue$ValueType;
-
-    aput-object v2, v1, v6
-
-    sget-object v2, Lcom/badlogic/gdx/utils/JsonValue$ValueType;->booleanValue:Lcom/badlogic/gdx/utils/JsonValue$ValueType;
-
-    aput-object v2, v1, v7
-
-    aput-object v0, v1, v8
-
-    sput-object v1, Lcom/badlogic/gdx/utils/JsonValue$ValueType;->$VALUES:[Lcom/badlogic/gdx/utils/JsonValue$ValueType;
+    sput-object v13, Lcom/badlogic/gdx/utils/JsonValue$ValueType;->$VALUES:[Lcom/badlogic/gdx/utils/JsonValue$ValueType;
 
     return-void
 .end method
@@ -167,18 +155,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/badlogic/gdx/utils/JsonValue$ValueType;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 1179
     const-class v0, Lcom/badlogic/gdx/utils/JsonValue$ValueType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/badlogic/gdx/utils/JsonValue$ValueType;
+    check-cast p0, Lcom/badlogic/gdx/utils/JsonValue$ValueType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/badlogic/gdx/utils/JsonValue$ValueType;

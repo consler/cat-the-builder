@@ -51,8 +51,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/Flowable;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Action;Lio/reactivex/functions/Action;)V
     .locals 0
-    .param p4, "onComplete"    # Lio/reactivex/functions/Action;
-    .param p5, "onAfterTerminate"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,10 +69,6 @@
     .end annotation
 
     .line 36
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDoOnEach;, "Lio/reactivex/internal/operators/flowable/FlowableDoOnEach<TT;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p2, "onNext":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
-    .local p3, "onError":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Ljava/lang/Throwable;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
     .line 37
@@ -89,7 +83,6 @@
     .line 40
     iput-object p5, p0, Lio/reactivex/internal/operators/flowable/FlowableDoOnEach;->onAfterTerminate:Lio/reactivex/functions/Action;
 
-    .line 41
     return-void
 .end method
 
@@ -106,8 +99,6 @@
     .end annotation
 
     .line 45
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDoOnEach;, "Lio/reactivex/internal/operators/flowable/FlowableDoOnEach<TT;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     instance-of v0, p1, Lio/reactivex/internal/fuseable/ConditionalSubscriber;
 
     if-eqz v0, :cond_0
@@ -159,7 +150,6 @@
 
     invoke-virtual {v0, v7}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 52
     :goto_0
     return-void
 .end method

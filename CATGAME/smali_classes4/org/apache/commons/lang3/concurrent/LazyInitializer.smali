@@ -51,7 +51,6 @@
     .locals 1
 
     .line 80
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/LazyInitializer;, "Lorg/apache/commons/lang3/concurrent/LazyInitializer<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 84
@@ -79,11 +78,9 @@
     .end annotation
 
     .line 100
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/LazyInitializer;, "Lorg/apache/commons/lang3/concurrent/LazyInitializer<TT;>;"
     iget-object v0, p0, Lorg/apache/commons/lang3/concurrent/LazyInitializer;->object:Ljava/lang/Object;
 
     .line 102
-    .local v0, "result":Ljava/lang/Object;, "TT;"
     sget-object v1, Lorg/apache/commons/lang3/concurrent/LazyInitializer;->NO_INIT:Ljava/lang/Object;
 
     if-ne v0, v1, :cond_1
@@ -93,23 +90,16 @@
 
     .line 104
     :try_start_0
-    iget-object v1, p0, Lorg/apache/commons/lang3/concurrent/LazyInitializer;->object:Ljava/lang/Object;
-
-    move-object v0, v1
-
-    .line 105
-    sget-object v1, Lorg/apache/commons/lang3/concurrent/LazyInitializer;->NO_INIT:Ljava/lang/Object;
+    iget-object v0, p0, Lorg/apache/commons/lang3/concurrent/LazyInitializer;->object:Ljava/lang/Object;
 
     if-ne v0, v1, :cond_0
 
     .line 106
     invoke-virtual {p0}, Lorg/apache/commons/lang3/concurrent/LazyInitializer;->initialize()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    move-object v0, v1
-
-    iput-object v1, p0, Lorg/apache/commons/lang3/concurrent/LazyInitializer;->object:Ljava/lang/Object;
+    iput-object v0, p0, Lorg/apache/commons/lang3/concurrent/LazyInitializer;->object:Ljava/lang/Object;
 
     .line 108
     :cond_0
@@ -118,15 +108,14 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v1
+    move-exception v0
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw v0
 
-    .line 111
     :cond_1
     :goto_0
     return-object v0

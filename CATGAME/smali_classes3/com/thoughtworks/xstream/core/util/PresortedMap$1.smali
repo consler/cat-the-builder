@@ -17,7 +17,6 @@
 # direct methods
 .method constructor <init>(Lcom/thoughtworks/xstream/core/util/PresortedMap;Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/thoughtworks/xstream/core/util/PresortedMap;
 
     .line 108
     iput-object p1, p0, Lcom/thoughtworks/xstream/core/util/PresortedMap$1;->this$0:Lcom/thoughtworks/xstream/core/util/PresortedMap;
@@ -52,13 +51,12 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "value"    # Ljava/lang/Object;
+    .locals 0
 
     .line 119
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method

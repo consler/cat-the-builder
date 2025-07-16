@@ -64,12 +64,10 @@
 
     return-object v0
 
-    .line 57
     :catch_0
     move-exception v0
 
     .line 58
-    .local v0, "ex":Ljava/security/GeneralSecurityException;
     new-instance v1, Ljava/lang/IllegalStateException;
 
     invoke-direct {v1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/Throwable;)V

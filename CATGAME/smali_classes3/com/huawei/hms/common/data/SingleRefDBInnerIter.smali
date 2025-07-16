@@ -26,10 +26,9 @@
         }
     .end annotation
 
-    .line 17
+    .line 1
     invoke-direct {p0, p1}, Lcom/huawei/hms/common/data/DBInnerIter;-><init>(Lcom/huawei/hms/common/data/DataBuffer;)V
 
-    .line 18
     return-void
 .end method
 
@@ -43,32 +42,31 @@
         }
     .end annotation
 
-    .line 21
-    invoke-virtual {p0}, Lcom/huawei/hms/common/data/SingleRefDBInnerIter;->hasNext()Z
+    .line 1
+    invoke-virtual {p0}, Lcom/huawei/hms/common/data/DBInnerIter;->hasNext()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 22
     const/4 v0, 0x0
 
     return-object v0
 
-    .line 24
+    .line 4
     :cond_0
-    iget v0, p0, Lcom/huawei/hms/common/data/SingleRefDBInnerIter;->index:I
+    iget v0, p0, Lcom/huawei/hms/common/data/DBInnerIter;->index:I
 
     add-int/lit8 v0, v0, 0x1
 
-    iput v0, p0, Lcom/huawei/hms/common/data/SingleRefDBInnerIter;->index:I
+    iput v0, p0, Lcom/huawei/hms/common/data/DBInnerIter;->index:I
 
     const/4 v1, 0x0
 
     if-nez v0, :cond_1
 
-    .line 25
-    iget-object v0, p0, Lcom/huawei/hms/common/data/SingleRefDBInnerIter;->dataBuffer:Lcom/huawei/hms/common/data/DataBuffer;
+    .line 5
+    iget-object v0, p0, Lcom/huawei/hms/common/data/DBInnerIter;->dataBuffer:Lcom/huawei/hms/common/data/DataBuffer;
 
     invoke-interface {v0, v1}, Lcom/huawei/hms/common/data/DataBuffer;->get(I)Ljava/lang/Object;
 
@@ -78,15 +76,13 @@
 
     new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v3, "DataBuffer reference of type "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    iget-object v3, p0, Lcom/huawei/hms/common/data/SingleRefDBInnerIter;->dataBuffer:Lcom/huawei/hms/common/data/DataBuffer;
+    iget-object v3, p0, Lcom/huawei/hms/common/data/DBInnerIter;->dataBuffer:Lcom/huawei/hms/common/data/DataBuffer;
 
-    .line 26
+    .line 6
     invoke-interface {v3, v1}, Lcom/huawei/hms/common/data/DataBuffer;->get(I)Ljava/lang/Object;
 
     move-result-object v3
@@ -97,19 +93,23 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v2
+
     const-string v3, " is not movable"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 25
+    .line 7
     invoke-static {v0, v2}, Lcom/huawei/hms/common/internal/Preconditions;->checkState(ZLjava/lang/Object;)V
 
-    .line 27
-    iget-object v0, p0, Lcom/huawei/hms/common/data/SingleRefDBInnerIter;->dataBuffer:Lcom/huawei/hms/common/data/DataBuffer;
+    .line 9
+    iget-object v0, p0, Lcom/huawei/hms/common/data/DBInnerIter;->dataBuffer:Lcom/huawei/hms/common/data/DataBuffer;
 
     invoke-interface {v0, v1}, Lcom/huawei/hms/common/data/DataBuffer;->get(I)Ljava/lang/Object;
 
@@ -117,13 +117,13 @@
 
     check-cast v0, Lcom/huawei/hms/common/data/DataBufferRef;
 
-    iget v2, p0, Lcom/huawei/hms/common/data/SingleRefDBInnerIter;->index:I
+    iget v2, p0, Lcom/huawei/hms/common/data/DBInnerIter;->index:I
 
     invoke-virtual {v0, v2}, Lcom/huawei/hms/common/data/DataBufferRef;->getWindowIndex(I)V
 
-    .line 29
+    .line 11
     :cond_1
-    iget-object v0, p0, Lcom/huawei/hms/common/data/SingleRefDBInnerIter;->dataBuffer:Lcom/huawei/hms/common/data/DataBuffer;
+    iget-object v0, p0, Lcom/huawei/hms/common/data/DBInnerIter;->dataBuffer:Lcom/huawei/hms/common/data/DataBuffer;
 
     invoke-interface {v0, v1}, Lcom/huawei/hms/common/data/DataBuffer;->get(I)Ljava/lang/Object;
 

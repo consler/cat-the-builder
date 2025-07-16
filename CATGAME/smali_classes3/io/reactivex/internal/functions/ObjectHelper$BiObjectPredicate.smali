@@ -40,14 +40,12 @@
 
 # virtual methods
 .method public test(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "o1"    # Ljava/lang/Object;
-    .param p2, "o2"    # Ljava/lang/Object;
+    .locals 0
 
     .line 128
     invoke-static {p1, p2}, Lio/reactivex/internal/functions/ObjectHelper;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

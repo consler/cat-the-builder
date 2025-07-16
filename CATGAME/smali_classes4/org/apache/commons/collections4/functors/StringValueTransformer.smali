@@ -56,10 +56,8 @@
     .locals 0
 
     .line 53
-    .local p0, "this":Lorg/apache/commons/collections4/functors/StringValueTransformer;, "Lorg/apache/commons/collections4/functors/StringValueTransformer<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 54
     return-void
 .end method
 
@@ -67,7 +65,6 @@
     .locals 1
 
     .line 68
-    .local p0, "this":Lorg/apache/commons/collections4/functors/StringValueTransformer;, "Lorg/apache/commons/collections4/functors/StringValueTransformer<TT;>;"
     sget-object v0, Lorg/apache/commons/collections4/functors/StringValueTransformer;->INSTANCE:Lorg/apache/commons/collections4/Transformer;
 
     return-object v0
@@ -99,7 +96,6 @@
     .locals 0
 
     .line 29
-    .local p0, "this":Lorg/apache/commons/collections4/functors/StringValueTransformer;, "Lorg/apache/commons/collections4/functors/StringValueTransformer<TT;>;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/functors/StringValueTransformer;->transform(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p1
@@ -108,7 +104,7 @@
 .end method
 
 .method public transform(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)",
@@ -117,11 +113,9 @@
     .end annotation
 
     .line 64
-    .local p0, "this":Lorg/apache/commons/collections4/functors/StringValueTransformer;, "Lorg/apache/commons/collections4/functors/StringValueTransformer<TT;>;"
-    .local p1, "input":Ljava/lang/Object;, "TT;"
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

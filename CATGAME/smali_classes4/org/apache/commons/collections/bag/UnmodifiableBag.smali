@@ -14,25 +14,21 @@
 # direct methods
 .method private constructor <init>(Lorg/apache/commons/collections/Bag;)V
     .locals 0
-    .param p1, "bag"    # Lorg/apache/commons/collections/Bag;
 
     .line 72
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/bag/AbstractBagDecorator;-><init>(Lorg/apache/commons/collections/Bag;)V
 
-    .line 73
     return-void
 .end method
 
 .method public static decorate(Lorg/apache/commons/collections/Bag;)Lorg/apache/commons/collections/Bag;
     .locals 1
-    .param p0, "bag"    # Lorg/apache/commons/collections/Bag;
 
     .line 58
     instance-of v0, p0, Lorg/apache/commons/collections/Unmodifiable;
 
     if-eqz v0, :cond_0
 
-    .line 59
     return-object p0
 
     .line 61
@@ -45,8 +41,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 1
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -60,19 +55,17 @@
     .line 96
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Collection;
+    check-cast p1, Ljava/util/Collection;
 
-    iput-object v0, p0, Lorg/apache/commons/collections/bag/UnmodifiableBag;->collection:Ljava/util/Collection;
+    iput-object p1, p0, Lorg/apache/commons/collections/bag/UnmodifiableBag;->collection:Ljava/util/Collection;
 
-    .line 97
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -87,47 +80,42 @@
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    .line 85
     return-void
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
+    .locals 0
 
     .line 105
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public add(Ljava/lang/Object;I)Z
-    .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
-    .param p2, "count"    # I
+    .locals 0
 
     .line 130
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .locals 1
-    .param p1, "coll"    # Ljava/util/Collection;
+    .locals 0
 
     .line 109
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public clear()V
@@ -161,56 +149,51 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
+    .locals 0
 
     .line 117
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public remove(Ljava/lang/Object;I)Z
-    .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
-    .param p2, "count"    # I
+    .locals 0
 
     .line 134
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 1
-    .param p1, "coll"    # Ljava/util/Collection;
+    .locals 0
 
     .line 121
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 1
-    .param p1, "coll"    # Ljava/util/Collection;
+    .locals 0
 
     .line 125
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public uniqueSet()Ljava/util/Set;
-    .locals 2
+    .locals 1
 
     .line 138
     invoke-virtual {p0}, Lorg/apache/commons/collections/bag/UnmodifiableBag;->getBag()Lorg/apache/commons/collections/Bag;
@@ -222,10 +205,9 @@
     move-result-object v0
 
     .line 139
-    .local v0, "set":Ljava/util/Set;
     invoke-static {v0}, Lorg/apache/commons/collections/set/UnmodifiableSet;->decorate(Ljava/util/Set;)Ljava/util/Set;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method

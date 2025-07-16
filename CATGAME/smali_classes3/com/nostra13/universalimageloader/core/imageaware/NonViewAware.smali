@@ -17,31 +17,23 @@
 # direct methods
 .method public constructor <init>(Lcom/nostra13/universalimageloader/core/assist/ImageSize;Lcom/nostra13/universalimageloader/core/assist/ViewScaleType;)V
     .locals 1
-    .param p1, "imageSize"    # Lcom/nostra13/universalimageloader/core/assist/ImageSize;
-    .param p2, "scaleType"    # Lcom/nostra13/universalimageloader/core/assist/ViewScaleType;
 
-    .line 41
     const/4 v0, 0x0
 
+    .line 41
     invoke-direct {p0, v0, p1, p2}, Lcom/nostra13/universalimageloader/core/imageaware/NonViewAware;-><init>(Ljava/lang/String;Lcom/nostra13/universalimageloader/core/assist/ImageSize;Lcom/nostra13/universalimageloader/core/assist/ViewScaleType;)V
 
-    .line 42
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Lcom/nostra13/universalimageloader/core/assist/ImageSize;Lcom/nostra13/universalimageloader/core/assist/ViewScaleType;)V
-    .locals 2
-    .param p1, "imageUri"    # Ljava/lang/String;
-    .param p2, "imageSize"    # Lcom/nostra13/universalimageloader/core/assist/ImageSize;
-    .param p3, "scaleType"    # Lcom/nostra13/universalimageloader/core/assist/ViewScaleType;
+    .locals 0
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 45
     if-eqz p2, :cond_1
 
-    .line 46
     if-eqz p3, :cond_0
 
     .line 48
@@ -53,28 +45,27 @@
     .line 50
     iput-object p3, p0, Lcom/nostra13/universalimageloader/core/imageaware/NonViewAware;->scaleType:Lcom/nostra13/universalimageloader/core/assist/ViewScaleType;
 
-    .line 51
     return-void
 
     .line 46
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "scaleType must not be null"
+    const-string p2, "scaleType must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 45
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "imageSize must not be null"
+    const-string p2, "imageSize must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -146,7 +137,6 @@
 .method public getWrappedView()Landroid/view/View;
     .locals 1
 
-    .line 70
     const/4 v0, 0x0
 
     return-object v0
@@ -155,28 +145,23 @@
 .method public isCollected()Z
     .locals 1
 
-    .line 75
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public setImageBitmap(Landroid/graphics/Bitmap;)Z
-    .locals 1
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
+    .locals 0
 
-    .line 90
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public setImageDrawable(Landroid/graphics/drawable/Drawable;)Z
-    .locals 1
-    .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
+    .locals 0
 
-    .line 85
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method

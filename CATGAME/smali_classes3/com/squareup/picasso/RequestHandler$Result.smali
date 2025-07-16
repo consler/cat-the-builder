@@ -26,40 +26,32 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/Bitmap;Lcom/squareup/picasso/Picasso$LoadedFrom;)V
-    .locals 3
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
-    .param p2, "loadedFrom"    # Lcom/squareup/picasso/Picasso$LoadedFrom;
+    .locals 2
 
-    .line 60
     const-string v0, "bitmap == null"
 
+    .line 60
     invoke-static {p1, v0}, Lcom/squareup/picasso/Utils;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/graphics/Bitmap;
+    check-cast p1, Landroid/graphics/Bitmap;
+
+    const/4 v0, 0x0
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    invoke-direct {p0, p1, v0, p2, v1}, Lcom/squareup/picasso/RequestHandler$Result;-><init>(Landroid/graphics/Bitmap;Lokio/Source;Lcom/squareup/picasso/Picasso$LoadedFrom;I)V
 
-    invoke-direct {p0, v0, v1, p2, v2}, Lcom/squareup/picasso/RequestHandler$Result;-><init>(Landroid/graphics/Bitmap;Lokio/Source;Lcom/squareup/picasso/Picasso$LoadedFrom;I)V
-
-    .line 61
     return-void
 .end method
 
 .method constructor <init>(Landroid/graphics/Bitmap;Lokio/Source;Lcom/squareup/picasso/Picasso$LoadedFrom;I)V
     .locals 3
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
-    .param p2, "source"    # Lokio/Source;
-    .param p3, "loadedFrom"    # Lcom/squareup/picasso/Picasso$LoadedFrom;
-    .param p4, "exifOrientation"    # I
 
     .line 71
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 72
     const/4 v0, 0x1
 
     const/4 v1, 0x0
@@ -90,53 +82,49 @@
     .line 76
     iput-object p2, p0, Lcom/squareup/picasso/RequestHandler$Result;->source:Lokio/Source;
 
+    const-string p1, "loadedFrom == null"
+
     .line 77
-    const-string v0, "loadedFrom == null"
+    invoke-static {p3, p1}, Lcom/squareup/picasso/Utils;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-static {p3, v0}, Lcom/squareup/picasso/Utils;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
+    check-cast p1, Lcom/squareup/picasso/Picasso$LoadedFrom;
 
-    check-cast v0, Lcom/squareup/picasso/Picasso$LoadedFrom;
-
-    iput-object v0, p0, Lcom/squareup/picasso/RequestHandler$Result;->loadedFrom:Lcom/squareup/picasso/Picasso$LoadedFrom;
+    iput-object p1, p0, Lcom/squareup/picasso/RequestHandler$Result;->loadedFrom:Lcom/squareup/picasso/Picasso$LoadedFrom;
 
     .line 78
     iput p4, p0, Lcom/squareup/picasso/RequestHandler$Result;->exifOrientation:I
 
-    .line 79
     return-void
 
     .line 73
     :cond_2
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public constructor <init>(Lokio/Source;Lcom/squareup/picasso/Picasso$LoadedFrom;)V
-    .locals 3
-    .param p1, "source"    # Lokio/Source;
-    .param p2, "loadedFrom"    # Lcom/squareup/picasso/Picasso$LoadedFrom;
+    .locals 2
 
-    .line 64
     const-string v0, "source == null"
 
+    .line 64
     invoke-static {p1, v0}, Lcom/squareup/picasso/Utils;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lokio/Source;
+    check-cast p1, Lokio/Source;
+
+    const/4 v0, 0x0
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    invoke-direct {p0, v1, p1, p2, v0}, Lcom/squareup/picasso/RequestHandler$Result;-><init>(Landroid/graphics/Bitmap;Lokio/Source;Lcom/squareup/picasso/Picasso$LoadedFrom;I)V
 
-    invoke-direct {p0, v1, v0, p2, v2}, Lcom/squareup/picasso/RequestHandler$Result;-><init>(Landroid/graphics/Bitmap;Lokio/Source;Lcom/squareup/picasso/Picasso$LoadedFrom;I)V
-
-    .line 65
     return-void
 .end method
 

@@ -22,7 +22,6 @@
 # direct methods
 .method public constructor <init>(Ljava/io/IOException;)V
     .locals 1
-    .param p1, "e"    # Ljava/io/IOException;
 
     .line 50
     invoke-virtual {p1}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
@@ -31,45 +30,39 @@
 
     invoke-direct {p0, v0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
+    const/4 p1, 0x0
+
     .line 43
-    const/4 v0, 0x0
+    iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->unfinishedMessage:Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
 
-    iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->unfinishedMessage:Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
-
-    .line 51
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "description"    # Ljava/lang/String;
+    .locals 0
 
     .line 46
     invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
+    const/4 p1, 0x0
+
     .line 43
-    const/4 v0, 0x0
+    iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->unfinishedMessage:Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
 
-    iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->unfinishedMessage:Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
-
-    .line 47
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/io/IOException;)V
-    .locals 1
-    .param p1, "description"    # Ljava/lang/String;
-    .param p2, "e"    # Ljava/io/IOException;
+    .locals 0
 
     .line 54
     invoke-direct {p0, p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
+    const/4 p1, 0x0
+
     .line 43
-    const/4 v0, 0x0
+    iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->unfinishedMessage:Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
 
-    iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->unfinishedMessage:Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
-
-    .line 55
     return-void
 .end method
 
@@ -216,12 +209,10 @@
 
 .method public setUnfinishedMessage(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
     .locals 0
-    .param p1, "unfinishedMessage"    # Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
 
     .line 64
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->unfinishedMessage:Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
 
-    .line 65
     return-object p0
 .end method
 

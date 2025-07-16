@@ -40,8 +40,7 @@
 
 # virtual methods
 .method public build(Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;)Lcom/bumptech/glide/load/model/ModelLoader;
-    .locals 1
-    .param p1, "multiFactory"    # Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -55,16 +54,15 @@
     .end annotation
 
     .line 37
-    new-instance v0, Lcom/bumptech/glide/load/model/ByteBufferFileLoader;
+    new-instance p1, Lcom/bumptech/glide/load/model/ByteBufferFileLoader;
 
-    invoke-direct {v0}, Lcom/bumptech/glide/load/model/ByteBufferFileLoader;-><init>()V
+    invoke-direct {p1}, Lcom/bumptech/glide/load/model/ByteBufferFileLoader;-><init>()V
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public teardown()V
     .locals 0
 
-    .line 43
     return-void
 .end method

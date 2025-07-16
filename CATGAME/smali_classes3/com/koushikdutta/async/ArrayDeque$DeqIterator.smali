@@ -37,35 +37,30 @@
 
 # direct methods
 .method private constructor <init>(Lcom/koushikdutta/async/ArrayDeque;)V
-    .locals 0
+    .locals 1
 
     .line 586
-    .local p0, "this":Lcom/koushikdutta/async/ArrayDeque$DeqIterator;, "Lcom/koushikdutta/async/ArrayDeque<TE;>.DeqIterator;"
     iput-object p1, p0, Lcom/koushikdutta/async/ArrayDeque$DeqIterator;->this$0:Lcom/koushikdutta/async/ArrayDeque;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 590
-    iget-object p1, p0, Lcom/koushikdutta/async/ArrayDeque$DeqIterator;->this$0:Lcom/koushikdutta/async/ArrayDeque;
-
     invoke-static {p1}, Lcom/koushikdutta/async/ArrayDeque;->access$200(Lcom/koushikdutta/async/ArrayDeque;)I
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Lcom/koushikdutta/async/ArrayDeque$DeqIterator;->cursor:I
+    iput v0, p0, Lcom/koushikdutta/async/ArrayDeque$DeqIterator;->cursor:I
 
     .line 596
-    iget-object p1, p0, Lcom/koushikdutta/async/ArrayDeque$DeqIterator;->this$0:Lcom/koushikdutta/async/ArrayDeque;
-
     invoke-static {p1}, Lcom/koushikdutta/async/ArrayDeque;->access$300(Lcom/koushikdutta/async/ArrayDeque;)I
 
     move-result p1
 
     iput p1, p0, Lcom/koushikdutta/async/ArrayDeque$DeqIterator;->fence:I
 
-    .line 602
     const/4 p1, -0x1
 
+    .line 602
     iput p1, p0, Lcom/koushikdutta/async/ArrayDeque$DeqIterator;->lastRet:I
 
     return-void
@@ -73,11 +68,8 @@
 
 .method synthetic constructor <init>(Lcom/koushikdutta/async/ArrayDeque;Lcom/koushikdutta/async/ArrayDeque$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/koushikdutta/async/ArrayDeque;
-    .param p2, "x1"    # Lcom/koushikdutta/async/ArrayDeque$1;
 
     .line 586
-    .local p0, "this":Lcom/koushikdutta/async/ArrayDeque$DeqIterator;, "Lcom/koushikdutta/async/ArrayDeque<TE;>.DeqIterator;"
     invoke-direct {p0, p1}, Lcom/koushikdutta/async/ArrayDeque$DeqIterator;-><init>(Lcom/koushikdutta/async/ArrayDeque;)V
 
     return-void
@@ -89,7 +81,6 @@
     .locals 2
 
     .line 605
-    .local p0, "this":Lcom/koushikdutta/async/ArrayDeque$DeqIterator;, "Lcom/koushikdutta/async/ArrayDeque<TE;>.DeqIterator;"
     iget v0, p0, Lcom/koushikdutta/async/ArrayDeque$DeqIterator;->cursor:I
 
     iget v1, p0, Lcom/koushikdutta/async/ArrayDeque$DeqIterator;->fence:I
@@ -116,7 +107,6 @@
     .end annotation
 
     .line 609
-    .local p0, "this":Lcom/koushikdutta/async/ArrayDeque$DeqIterator;, "Lcom/koushikdutta/async/ArrayDeque<TE;>.DeqIterator;"
     iget v0, p0, Lcom/koushikdutta/async/ArrayDeque$DeqIterator;->cursor:I
 
     iget v1, p0, Lcom/koushikdutta/async/ArrayDeque$DeqIterator;->fence:I
@@ -135,7 +125,6 @@
     aget-object v0, v0, v1
 
     .line 614
-    .local v0, "result":Ljava/lang/Object;, "TE;"
     iget-object v1, p0, Lcom/koushikdutta/async/ArrayDeque$DeqIterator;->this$0:Lcom/koushikdutta/async/ArrayDeque;
 
     invoke-static {v1}, Lcom/koushikdutta/async/ArrayDeque;->access$300(Lcom/koushikdutta/async/ArrayDeque;)I
@@ -153,9 +142,9 @@
 
     iput v1, p0, Lcom/koushikdutta/async/ArrayDeque$DeqIterator;->lastRet:I
 
-    .line 617
     add-int/lit8 v1, v1, 0x1
 
+    .line 617
     iget-object v2, p0, Lcom/koushikdutta/async/ArrayDeque$DeqIterator;->this$0:Lcom/koushikdutta/async/ArrayDeque;
 
     invoke-static {v2}, Lcom/koushikdutta/async/ArrayDeque;->access$400(Lcom/koushikdutta/async/ArrayDeque;)[Ljava/lang/Object;
@@ -170,19 +159,17 @@
 
     iput v1, p0, Lcom/koushikdutta/async/ArrayDeque$DeqIterator;->cursor:I
 
-    .line 618
     return-object v0
 
     .line 615
     :cond_0
-    new-instance v1, Ljava/util/ConcurrentModificationException;
+    new-instance v0, Ljava/util/ConcurrentModificationException;
 
-    invoke-direct {v1}, Ljava/util/ConcurrentModificationException;-><init>()V
+    invoke-direct {v0}, Ljava/util/ConcurrentModificationException;-><init>()V
 
-    throw v1
+    throw v0
 
     .line 610
-    .end local v0    # "result":Ljava/lang/Object;, "TE;"
     :cond_1
     new-instance v0, Ljava/util/NoSuchElementException;
 
@@ -195,7 +182,6 @@
     .locals 2
 
     .line 622
-    .local p0, "this":Lcom/koushikdutta/async/ArrayDeque$DeqIterator;, "Lcom/koushikdutta/async/ArrayDeque<TE;>.DeqIterator;"
     iget v0, p0, Lcom/koushikdutta/async/ArrayDeque$DeqIterator;->lastRet:I
 
     if-ltz v0, :cond_1
@@ -237,13 +223,12 @@
 
     iput v0, p0, Lcom/koushikdutta/async/ArrayDeque$DeqIterator;->fence:I
 
-    .line 628
     :cond_0
     const/4 v0, -0x1
 
+    .line 628
     iput v0, p0, Lcom/koushikdutta/async/ArrayDeque$DeqIterator;->lastRet:I
 
-    .line 629
     return-void
 
     .line 623

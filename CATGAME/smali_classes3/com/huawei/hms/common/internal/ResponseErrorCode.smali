@@ -21,3 +21,6 @@
 
 .method public abstract getTransactionId()Ljava/lang/String;
 .end method
+
+.method public abstract hasResolution()Z
+.end method

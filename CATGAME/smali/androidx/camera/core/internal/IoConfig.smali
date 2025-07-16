@@ -30,26 +30,49 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    const-string v0, "camerax.core.io.ioExecutor"
+
     .line 36
-    const-class v0, Ljava/util/concurrent/Executor;
+    const-class v1, Ljava/util/concurrent/Executor;
 
     .line 37
-    const-string v1, "camerax.core.io.ioExecutor"
-
-    invoke-static {v1, v0}, Landroidx/camera/core/impl/Config$Option;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
+    invoke-static {v0, v1}, Landroidx/camera/core/impl/Config$Option;->create(Ljava/lang/String;Ljava/lang/Class;)Landroidx/camera/core/impl/Config$Option;
 
     move-result-object v0
 
     sput-object v0, Landroidx/camera/core/internal/IoConfig;->OPTION_IO_EXECUTOR:Landroidx/camera/core/impl/Config$Option;
 
-    .line 36
     return-void
 .end method
 
 
 # virtual methods
-.method public abstract getIoExecutor()Ljava/util/concurrent/Executor;
+.method public getIoExecutor()Ljava/util/concurrent/Executor;
+    .locals 1
+
+    .line 62
+    sget-object v0, Landroidx/camera/core/internal/IoConfig;->OPTION_IO_EXECUTOR:Landroidx/camera/core/impl/Config$Option;
+
+    invoke-interface {p0, v0}, Landroidx/camera/core/internal/IoConfig;->retrieveOption(Landroidx/camera/core/impl/Config$Option;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/concurrent/Executor;
+
+    return-object v0
 .end method
 
-.method public abstract getIoExecutor(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/Executor;
+.method public getIoExecutor(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/Executor;
+    .locals 1
+
+    .line 50
+    sget-object v0, Landroidx/camera/core/internal/IoConfig;->OPTION_IO_EXECUTOR:Landroidx/camera/core/impl/Config$Option;
+
+    invoke-interface {p0, v0, p1}, Landroidx/camera/core/internal/IoConfig;->retrieveOption(Landroidx/camera/core/impl/Config$Option;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/util/concurrent/Executor;
+
+    return-object p1
 .end method

@@ -32,7 +32,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/net/NetJavaImpl;ZLcom/badlogic/gdx/Net$HttpRequest;Ljava/net/HttpURLConnection;Lcom/badlogic/gdx/Net$HttpResponseListener;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/net/NetJavaImpl;
 
     .line 189
     iput-object p1, p0, Lcom/badlogic/gdx/net/NetJavaImpl$2;->this$0:Lcom/badlogic/gdx/net/NetJavaImpl;
@@ -68,8 +67,6 @@
 
     move-result-object v0
 
-    .line 197
-    .local v0, "contentAsString":Ljava/lang/String;
     if-eqz v0, :cond_0
 
     .line 198
@@ -88,7 +85,6 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 200
-    .local v1, "writer":Ljava/io/OutputStreamWriter;
     :try_start_1
     invoke-virtual {v1, v0}, Ljava/io/OutputStreamWriter;->write(Ljava/lang/String;)V
     :try_end_1
@@ -98,70 +94,54 @@
     :try_start_2
     invoke-static {v1}, Lcom/badlogic/gdx/utils/StreamUtils;->closeQuietly(Ljava/io/Closeable;)V
 
-    .line 203
-    nop
-
-    .line 204
-    .end local v1    # "writer":Ljava/io/OutputStreamWriter;
     goto :goto_0
 
-    .line 202
-    .restart local v1    # "writer":Ljava/io/OutputStreamWriter;
     :catchall_0
-    move-exception v2
+    move-exception v0
 
     invoke-static {v1}, Lcom/badlogic/gdx/utils/StreamUtils;->closeQuietly(Ljava/io/Closeable;)V
 
-    throw v2
+    throw v0
 
     .line 205
-    .end local v1    # "writer":Ljava/io/OutputStreamWriter;
     :cond_0
-    iget-object v1, p0, Lcom/badlogic/gdx/net/NetJavaImpl$2;->val$httpRequest:Lcom/badlogic/gdx/Net$HttpRequest;
+    iget-object v0, p0, Lcom/badlogic/gdx/net/NetJavaImpl$2;->val$httpRequest:Lcom/badlogic/gdx/Net$HttpRequest;
 
-    invoke-virtual {v1}, Lcom/badlogic/gdx/Net$HttpRequest;->getContentStream()Ljava/io/InputStream;
+    invoke-virtual {v0}, Lcom/badlogic/gdx/Net$HttpRequest;->getContentStream()Ljava/io/InputStream;
 
-    move-result-object v1
+    move-result-object v0
 
-    .line 206
-    .local v1, "contentAsStream":Ljava/io/InputStream;
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 207
-    iget-object v2, p0, Lcom/badlogic/gdx/net/NetJavaImpl$2;->val$connection:Ljava/net/HttpURLConnection;
+    iget-object v1, p0, Lcom/badlogic/gdx/net/NetJavaImpl$2;->val$connection:Ljava/net/HttpURLConnection;
 
-    invoke-virtual {v2}, Ljava/net/HttpURLConnection;->getOutputStream()Ljava/io/OutputStream;
+    invoke-virtual {v1}, Ljava/net/HttpURLConnection;->getOutputStream()Ljava/io/OutputStream;
 
-    move-result-object v2
+    move-result-object v1
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
     .line 209
-    .local v2, "os":Ljava/io/OutputStream;
     :try_start_3
-    invoke-static {v1, v2}, Lcom/badlogic/gdx/utils/StreamUtils;->copyStream(Ljava/io/InputStream;Ljava/io/OutputStream;)V
+    invoke-static {v0, v1}, Lcom/badlogic/gdx/utils/StreamUtils;->copyStream(Ljava/io/InputStream;Ljava/io/OutputStream;)V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     .line 211
     :try_start_4
-    invoke-static {v2}, Lcom/badlogic/gdx/utils/StreamUtils;->closeQuietly(Ljava/io/Closeable;)V
+    invoke-static {v1}, Lcom/badlogic/gdx/utils/StreamUtils;->closeQuietly(Ljava/io/Closeable;)V
 
-    .line 212
     goto :goto_0
 
-    .line 211
     :catchall_1
-    move-exception v3
+    move-exception v0
 
-    invoke-static {v2}, Lcom/badlogic/gdx/utils/StreamUtils;->closeQuietly(Ljava/io/Closeable;)V
+    invoke-static {v1}, Lcom/badlogic/gdx/utils/StreamUtils;->closeQuietly(Ljava/io/Closeable;)V
 
-    throw v3
+    throw v0
 
     .line 217
-    .end local v0    # "contentAsString":Ljava/lang/String;
-    .end local v1    # "contentAsStream":Ljava/io/InputStream;
-    .end local v2    # "os":Ljava/io/OutputStream;
     :cond_1
     :goto_0
     iget-object v0, p0, Lcom/badlogic/gdx/net/NetJavaImpl$2;->val$connection:Ljava/net/HttpURLConnection;
@@ -178,7 +158,6 @@
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
 
     .line 221
-    .local v0, "clientResponse":Lcom/badlogic/gdx/net/NetJavaImpl$HttpClientResponse;
     :try_start_5
     iget-object v1, p0, Lcom/badlogic/gdx/net/NetJavaImpl$2;->this$0:Lcom/badlogic/gdx/net/NetJavaImpl;
 
@@ -188,8 +167,6 @@
 
     move-result-object v1
 
-    .line 223
-    .local v1, "listener":Lcom/badlogic/gdx/Net$HttpResponseListener;
     if-eqz v1, :cond_2
 
     .line 224
@@ -197,48 +174,37 @@
 
     .line 226
     :cond_2
-    iget-object v2, p0, Lcom/badlogic/gdx/net/NetJavaImpl$2;->this$0:Lcom/badlogic/gdx/net/NetJavaImpl;
+    iget-object v0, p0, Lcom/badlogic/gdx/net/NetJavaImpl$2;->this$0:Lcom/badlogic/gdx/net/NetJavaImpl;
 
-    iget-object v3, p0, Lcom/badlogic/gdx/net/NetJavaImpl$2;->val$httpRequest:Lcom/badlogic/gdx/Net$HttpRequest;
+    iget-object v1, p0, Lcom/badlogic/gdx/net/NetJavaImpl$2;->val$httpRequest:Lcom/badlogic/gdx/Net$HttpRequest;
 
-    invoke-virtual {v2, v3}, Lcom/badlogic/gdx/net/NetJavaImpl;->removeFromConnectionsAndListeners(Lcom/badlogic/gdx/Net$HttpRequest;)V
+    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/net/NetJavaImpl;->removeFromConnectionsAndListeners(Lcom/badlogic/gdx/Net$HttpRequest;)V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
     .line 228
-    .end local v1    # "listener":Lcom/badlogic/gdx/Net$HttpResponseListener;
     :try_start_6
+    iget-object v0, p0, Lcom/badlogic/gdx/net/NetJavaImpl$2;->val$connection:Ljava/net/HttpURLConnection;
+
+    invoke-virtual {v0}, Ljava/net/HttpURLConnection;->disconnect()V
+
+    goto :goto_1
+
+    :catchall_2
+    move-exception v0
+
     iget-object v1, p0, Lcom/badlogic/gdx/net/NetJavaImpl$2;->val$connection:Ljava/net/HttpURLConnection;
 
     invoke-virtual {v1}, Ljava/net/HttpURLConnection;->disconnect()V
 
-    .line 229
-    nop
-
-    .line 237
-    .end local v0    # "clientResponse":Lcom/badlogic/gdx/net/NetJavaImpl$HttpClientResponse;
-    goto :goto_1
-
-    .line 228
-    .restart local v0    # "clientResponse":Lcom/badlogic/gdx/net/NetJavaImpl$HttpClientResponse;
-    :catchall_2
-    move-exception v1
-
-    iget-object v2, p0, Lcom/badlogic/gdx/net/NetJavaImpl$2;->val$connection:Ljava/net/HttpURLConnection;
-
-    invoke-virtual {v2}, Ljava/net/HttpURLConnection;->disconnect()V
-
-    throw v1
+    throw v0
     :try_end_6
     .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_0
 
-    .line 230
-    .end local v0    # "clientResponse":Lcom/badlogic/gdx/net/NetJavaImpl$HttpClientResponse;
     :catch_0
     move-exception v0
 
     .line 231
-    .local v0, "e":Ljava/lang/Exception;
     iget-object v1, p0, Lcom/badlogic/gdx/net/NetJavaImpl$2;->val$connection:Ljava/net/HttpURLConnection;
 
     invoke-virtual {v1}, Ljava/net/HttpURLConnection;->disconnect()V
@@ -252,30 +218,23 @@
     .catchall {:try_start_7 .. :try_end_7} :catchall_3
 
     .line 235
+    iget-object v0, p0, Lcom/badlogic/gdx/net/NetJavaImpl$2;->this$0:Lcom/badlogic/gdx/net/NetJavaImpl;
+
+    iget-object v1, p0, Lcom/badlogic/gdx/net/NetJavaImpl$2;->val$httpRequest:Lcom/badlogic/gdx/Net$HttpRequest;
+
+    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/net/NetJavaImpl;->removeFromConnectionsAndListeners(Lcom/badlogic/gdx/Net$HttpRequest;)V
+
+    :goto_1
+    return-void
+
+    :catchall_3
+    move-exception v0
+
     iget-object v1, p0, Lcom/badlogic/gdx/net/NetJavaImpl$2;->this$0:Lcom/badlogic/gdx/net/NetJavaImpl;
 
     iget-object v2, p0, Lcom/badlogic/gdx/net/NetJavaImpl$2;->val$httpRequest:Lcom/badlogic/gdx/Net$HttpRequest;
 
     invoke-virtual {v1, v2}, Lcom/badlogic/gdx/net/NetJavaImpl;->removeFromConnectionsAndListeners(Lcom/badlogic/gdx/Net$HttpRequest;)V
 
-    .line 236
-    nop
-
-    .line 238
-    .end local v0    # "e":Ljava/lang/Exception;
-    :goto_1
-    return-void
-
-    .line 235
-    .restart local v0    # "e":Ljava/lang/Exception;
-    :catchall_3
-    move-exception v1
-
-    iget-object v2, p0, Lcom/badlogic/gdx/net/NetJavaImpl$2;->this$0:Lcom/badlogic/gdx/net/NetJavaImpl;
-
-    iget-object v3, p0, Lcom/badlogic/gdx/net/NetJavaImpl$2;->val$httpRequest:Lcom/badlogic/gdx/Net$HttpRequest;
-
-    invoke-virtual {v2, v3}, Lcom/badlogic/gdx/net/NetJavaImpl;->removeFromConnectionsAndListeners(Lcom/badlogic/gdx/Net$HttpRequest;)V
-
-    throw v1
+    throw v0
 .end method

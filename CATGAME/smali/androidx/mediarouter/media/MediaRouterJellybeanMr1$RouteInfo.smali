@@ -21,59 +21,48 @@
     .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 57
     return-void
 .end method
 
 .method public static getPresentationDisplay(Ljava/lang/Object;)Landroid/view/Display;
-    .locals 3
-    .param p0, "routeObj"    # Ljava/lang/Object;
+    .locals 2
 
     .line 49
     :try_start_0
-    move-object v0, p0
+    check-cast p0, Landroid/media/MediaRouter$RouteInfo;
 
-    check-cast v0, Landroid/media/MediaRouter$RouteInfo;
+    invoke-virtual {p0}, Landroid/media/MediaRouter$RouteInfo;->getPresentationDisplay()Landroid/view/Display;
 
-    invoke-virtual {v0}, Landroid/media/MediaRouter$RouteInfo;->getPresentationDisplay()Landroid/view/Display;
-
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/NoSuchMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
-    .line 50
     :catch_0
-    move-exception v0
+    move-exception p0
+
+    const-string v0, "MediaRouterJellybeanMr1"
+
+    const-string v1, "Cannot get presentation display for the route."
 
     .line 51
-    .local v0, "ex":Ljava/lang/NoSuchMethodError;
-    const-string v1, "MediaRouterJellybeanMr1"
+    invoke-static {v0, v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    const-string v2, "Cannot get presentation display for the route."
+    const/4 p0, 0x0
 
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 53
-    .end local v0    # "ex":Ljava/lang/NoSuchMethodError;
-    const/4 v0, 0x0
-
-    return-object v0
+    return-object p0
 .end method
 
 .method public static isEnabled(Ljava/lang/Object;)Z
-    .locals 1
-    .param p0, "routeObj"    # Ljava/lang/Object;
+    .locals 0
 
     .line 42
-    move-object v0, p0
+    check-cast p0, Landroid/media/MediaRouter$RouteInfo;
 
-    check-cast v0, Landroid/media/MediaRouter$RouteInfo;
+    invoke-virtual {p0}, Landroid/media/MediaRouter$RouteInfo;->isEnabled()Z
 
-    invoke-virtual {v0}, Landroid/media/MediaRouter$RouteInfo;->isEnabled()Z
+    move-result p0
 
-    move-result v0
-
-    return v0
+    return p0
 .end method

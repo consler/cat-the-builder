@@ -35,105 +35,90 @@
 
 # direct methods
 .method public constructor <init>(IIJJJJJJJJIIIJ)V
-    .locals 16
-    .param p1, "maxSize"    # I
-    .param p2, "size"    # I
-    .param p3, "cacheHits"    # J
-    .param p5, "cacheMisses"    # J
-    .param p7, "totalDownloadSize"    # J
-    .param p9, "totalOriginalBitmapSize"    # J
-    .param p11, "totalTransformedBitmapSize"    # J
-    .param p13, "averageDownloadSize"    # J
-    .param p15, "averageOriginalBitmapSize"    # J
-    .param p17, "averageTransformedBitmapSize"    # J
-    .param p19, "downloadCount"    # I
-    .param p20, "originalBitmapCount"    # I
-    .param p21, "transformedBitmapCount"    # I
-    .param p22, "timeStamp"    # J
+    .locals 3
+
+    move-object v0, p0
 
     .line 45
-    move-object/from16 v0, p0
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    move v1, p1
 
     .line 46
-    move/from16 v1, p1
-
     iput v1, v0, Lcom/squareup/picasso/StatsSnapshot;->maxSize:I
 
-    .line 47
-    move/from16 v2, p2
+    move v1, p2
 
-    iput v2, v0, Lcom/squareup/picasso/StatsSnapshot;->size:I
+    .line 47
+    iput v1, v0, Lcom/squareup/picasso/StatsSnapshot;->size:I
+
+    move-wide v1, p3
 
     .line 48
-    move-wide/from16 v3, p3
+    iput-wide v1, v0, Lcom/squareup/picasso/StatsSnapshot;->cacheHits:J
 
-    iput-wide v3, v0, Lcom/squareup/picasso/StatsSnapshot;->cacheHits:J
+    move-wide v1, p5
 
     .line 49
-    move-wide/from16 v5, p5
+    iput-wide v1, v0, Lcom/squareup/picasso/StatsSnapshot;->cacheMisses:J
 
-    iput-wide v5, v0, Lcom/squareup/picasso/StatsSnapshot;->cacheMisses:J
+    move-wide v1, p7
 
     .line 50
-    move-wide/from16 v7, p7
+    iput-wide v1, v0, Lcom/squareup/picasso/StatsSnapshot;->totalDownloadSize:J
 
-    iput-wide v7, v0, Lcom/squareup/picasso/StatsSnapshot;->totalDownloadSize:J
+    move-wide v1, p9
 
     .line 51
-    move-wide/from16 v9, p9
+    iput-wide v1, v0, Lcom/squareup/picasso/StatsSnapshot;->totalOriginalBitmapSize:J
 
-    iput-wide v9, v0, Lcom/squareup/picasso/StatsSnapshot;->totalOriginalBitmapSize:J
+    move-wide v1, p11
 
     .line 52
-    move-wide/from16 v11, p11
+    iput-wide v1, v0, Lcom/squareup/picasso/StatsSnapshot;->totalTransformedBitmapSize:J
 
-    iput-wide v11, v0, Lcom/squareup/picasso/StatsSnapshot;->totalTransformedBitmapSize:J
+    move-wide/from16 v1, p13
 
     .line 53
-    move-wide/from16 v13, p13
+    iput-wide v1, v0, Lcom/squareup/picasso/StatsSnapshot;->averageDownloadSize:J
 
-    iput-wide v13, v0, Lcom/squareup/picasso/StatsSnapshot;->averageDownloadSize:J
-
-    .line 54
     move-wide/from16 v1, p15
 
+    .line 54
     iput-wide v1, v0, Lcom/squareup/picasso/StatsSnapshot;->averageOriginalBitmapSize:J
 
-    .line 55
     move-wide/from16 v1, p17
 
+    .line 55
     iput-wide v1, v0, Lcom/squareup/picasso/StatsSnapshot;->averageTransformedBitmapSize:J
 
+    move/from16 v1, p19
+
     .line 56
-    move/from16 v15, p19
+    iput v1, v0, Lcom/squareup/picasso/StatsSnapshot;->downloadCount:I
 
-    iput v15, v0, Lcom/squareup/picasso/StatsSnapshot;->downloadCount:I
-
-    .line 57
     move/from16 v1, p20
 
+    .line 57
     iput v1, v0, Lcom/squareup/picasso/StatsSnapshot;->originalBitmapCount:I
 
+    move/from16 v1, p21
+
     .line 58
-    move/from16 v2, p21
+    iput v1, v0, Lcom/squareup/picasso/StatsSnapshot;->transformedBitmapCount:I
 
-    iput v2, v0, Lcom/squareup/picasso/StatsSnapshot;->transformedBitmapCount:I
-
-    .line 59
     move-wide/from16 v1, p22
 
+    .line 59
     iput-wide v1, v0, Lcom/squareup/picasso/StatsSnapshot;->timeStamp:J
 
-    .line 60
     return-void
 .end method
 
 
 # virtual methods
 .method public dump()V
-    .locals 3
+    .locals 2
 
     .line 64
     new-instance v0, Ljava/io/StringWriter;
@@ -141,43 +126,40 @@
     invoke-direct {v0}, Ljava/io/StringWriter;-><init>()V
 
     .line 65
-    .local v0, "logWriter":Ljava/io/StringWriter;
     new-instance v1, Ljava/io/PrintWriter;
 
     invoke-direct {v1, v0}, Ljava/io/PrintWriter;-><init>(Ljava/io/Writer;)V
 
     invoke-virtual {p0, v1}, Lcom/squareup/picasso/StatsSnapshot;->dump(Ljava/io/PrintWriter;)V
 
+    const-string v1, "Picasso"
+
     .line 66
     invoke-virtual {v0}, Ljava/io/StringWriter;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string v2, "Picasso"
+    invoke-static {v1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v2, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 67
     return-void
 .end method
 
 .method public dump(Ljava/io/PrintWriter;)V
     .locals 2
-    .param p1, "writer"    # Ljava/io/PrintWriter;
 
-    .line 71
     const-string v0, "===============BEGIN PICASSO STATS ==============="
 
+    .line 71
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 72
     const-string v0, "Memory Cache Stats"
 
+    .line 72
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 73
     const-string v0, "  Max Cache Size: "
 
+    .line 73
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 74
@@ -185,9 +167,9 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(I)V
 
-    .line 75
     const-string v0, "  Cache Size: "
 
+    .line 75
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 76
@@ -195,9 +177,9 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(I)V
 
-    .line 77
     const-string v0, "  Cache % Full: "
 
+    .line 77
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 78
@@ -225,9 +207,9 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(I)V
 
-    .line 79
     const-string v0, "  Cache Hits: "
 
+    .line 79
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 80
@@ -235,9 +217,9 @@
 
     invoke-virtual {p1, v0, v1}, Ljava/io/PrintWriter;->println(J)V
 
-    .line 81
     const-string v0, "  Cache Misses: "
 
+    .line 81
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 82
@@ -245,14 +227,14 @@
 
     invoke-virtual {p1, v0, v1}, Ljava/io/PrintWriter;->println(J)V
 
-    .line 83
     const-string v0, "Network Stats"
 
+    .line 83
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 84
     const-string v0, "  Download Count: "
 
+    .line 84
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 85
@@ -260,9 +242,9 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(I)V
 
-    .line 86
     const-string v0, "  Total Download Size: "
 
+    .line 86
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 87
@@ -270,9 +252,9 @@
 
     invoke-virtual {p1, v0, v1}, Ljava/io/PrintWriter;->println(J)V
 
-    .line 88
     const-string v0, "  Average Download Size: "
 
+    .line 88
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 89
@@ -280,14 +262,14 @@
 
     invoke-virtual {p1, v0, v1}, Ljava/io/PrintWriter;->println(J)V
 
-    .line 90
     const-string v0, "Bitmap Stats"
 
+    .line 90
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 91
     const-string v0, "  Total Bitmaps Decoded: "
 
+    .line 91
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 92
@@ -295,9 +277,9 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(I)V
 
-    .line 93
     const-string v0, "  Total Bitmap Size: "
 
+    .line 93
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 94
@@ -305,9 +287,9 @@
 
     invoke-virtual {p1, v0, v1}, Ljava/io/PrintWriter;->println(J)V
 
-    .line 95
     const-string v0, "  Total Transformed Bitmaps: "
 
+    .line 95
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 96
@@ -315,9 +297,9 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(I)V
 
-    .line 97
     const-string v0, "  Total Transformed Bitmap Size: "
 
+    .line 97
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 98
@@ -325,9 +307,9 @@
 
     invoke-virtual {p1, v0, v1}, Ljava/io/PrintWriter;->println(J)V
 
-    .line 99
     const-string v0, "  Average Bitmap Size: "
 
+    .line 99
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 100
@@ -335,9 +317,9 @@
 
     invoke-virtual {p1, v0, v1}, Ljava/io/PrintWriter;->println(J)V
 
-    .line 101
     const-string v0, "  Average Transformed Bitmap Size: "
 
+    .line 101
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 102
@@ -345,15 +327,14 @@
 
     invoke-virtual {p1, v0, v1}, Ljava/io/PrintWriter;->println(J)V
 
-    .line 103
     const-string v0, "===============END PICASSO STATS ==============="
 
+    .line 103
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 104
     invoke-virtual {p1}, Ljava/io/PrintWriter;->flush()V
 
-    .line 105
     return-void
 .end method
 
@@ -363,123 +344,177 @@
     .line 108
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "StatsSnapshot{maxSize="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget v1, p0, Lcom/squareup/picasso/StatsSnapshot;->maxSize:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", size="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Lcom/squareup/picasso/StatsSnapshot;->size:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", cacheHits="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-wide v1, p0, Lcom/squareup/picasso/StatsSnapshot;->cacheHits:J
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", cacheMisses="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-wide v1, p0, Lcom/squareup/picasso/StatsSnapshot;->cacheMisses:J
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", downloadCount="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Lcom/squareup/picasso/StatsSnapshot;->downloadCount:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", totalDownloadSize="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-wide v1, p0, Lcom/squareup/picasso/StatsSnapshot;->totalDownloadSize:J
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", averageDownloadSize="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-wide v1, p0, Lcom/squareup/picasso/StatsSnapshot;->averageDownloadSize:J
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", totalOriginalBitmapSize="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-wide v1, p0, Lcom/squareup/picasso/StatsSnapshot;->totalOriginalBitmapSize:J
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", totalTransformedBitmapSize="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-wide v1, p0, Lcom/squareup/picasso/StatsSnapshot;->totalTransformedBitmapSize:J
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", averageOriginalBitmapSize="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-wide v1, p0, Lcom/squareup/picasso/StatsSnapshot;->averageOriginalBitmapSize:J
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", averageTransformedBitmapSize="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-wide v1, p0, Lcom/squareup/picasso/StatsSnapshot;->averageTransformedBitmapSize:J
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", originalBitmapCount="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Lcom/squareup/picasso/StatsSnapshot;->originalBitmapCount:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", transformedBitmapCount="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Lcom/squareup/picasso/StatsSnapshot;->transformedBitmapCount:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", timeStamp="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-wide v1, p0, Lcom/squareup/picasso/StatsSnapshot;->timeStamp:J
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const/16 v1, 0x7d
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

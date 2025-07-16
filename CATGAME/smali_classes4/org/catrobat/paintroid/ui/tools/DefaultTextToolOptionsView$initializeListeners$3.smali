@@ -27,27 +27,22 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
-        "\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n\u00a2\u0006\u0002\u0008\u0004"
+        "\u0000\u000c\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n"
     }
     d2 = {
         "<anonymous>",
         "",
         "font",
-        "Lorg/catrobat/paintroid/tools/FontType;",
-        "invoke"
+        "Lorg/catrobat/paintroid/tools/FontType;"
     }
     k = 0x3
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -73,7 +68,7 @@
 .method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    .line 43
+    .line 93
     check-cast p1, Lorg/catrobat/paintroid/tools/FontType;
 
     invoke-virtual {p0, p1}, Lorg/catrobat/paintroid/ui/tools/DefaultTextToolOptionsView$initializeListeners$3;->invoke(Lorg/catrobat/paintroid/tools/FontType;)V
@@ -85,22 +80,20 @@
 
 .method public final invoke(Lorg/catrobat/paintroid/tools/FontType;)V
     .locals 1
-    .param p1, "font"    # Lorg/catrobat/paintroid/tools/FontType;
 
     const-string v0, "font"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 89
+    .line 94
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTextToolOptionsView$initializeListeners$3;->this$0:Lorg/catrobat/paintroid/ui/tools/DefaultTextToolOptionsView;
 
     invoke-static {v0, p1}, Lorg/catrobat/paintroid/ui/tools/DefaultTextToolOptionsView;->access$notifyFontChanged(Lorg/catrobat/paintroid/ui/tools/DefaultTextToolOptionsView;Lorg/catrobat/paintroid/tools/FontType;)V
 
-    .line 90
-    iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTextToolOptionsView$initializeListeners$3;->this$0:Lorg/catrobat/paintroid/ui/tools/DefaultTextToolOptionsView;
+    .line 95
+    iget-object p1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTextToolOptionsView$initializeListeners$3;->this$0:Lorg/catrobat/paintroid/ui/tools/DefaultTextToolOptionsView;
 
-    invoke-static {v0}, Lorg/catrobat/paintroid/ui/tools/DefaultTextToolOptionsView;->access$hideKeyboard(Lorg/catrobat/paintroid/ui/tools/DefaultTextToolOptionsView;)V
+    invoke-virtual {p1}, Lorg/catrobat/paintroid/ui/tools/DefaultTextToolOptionsView;->hideKeyboard()V
 
-    .line 91
     return-void
 .end method

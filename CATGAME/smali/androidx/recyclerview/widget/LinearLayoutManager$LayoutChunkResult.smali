@@ -39,9 +39,9 @@
 .method resetInternal()V
     .locals 1
 
-    .line 2556
     const/4 v0, 0x0
 
+    .line 2556
     iput v0, p0, Landroidx/recyclerview/widget/LinearLayoutManager$LayoutChunkResult;->mConsumed:I
 
     .line 2557
@@ -53,6 +53,5 @@
     .line 2559
     iput-boolean v0, p0, Landroidx/recyclerview/widget/LinearLayoutManager$LayoutChunkResult;->mFocusable:Z
 
-    .line 2560
     return-void
 .end method

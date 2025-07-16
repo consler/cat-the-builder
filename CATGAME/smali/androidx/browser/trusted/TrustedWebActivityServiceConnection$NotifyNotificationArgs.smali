@@ -27,10 +27,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;ILandroid/app/Notification;Ljava/lang/String;)V
     .locals 0
-    .param p1, "platformTag"    # Ljava/lang/String;
-    .param p2, "platformId"    # I
-    .param p3, "notification"    # Landroid/app/Notification;
-    .param p4, "channelName"    # Ljava/lang/String;
 
     .line 170
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,32 +43,30 @@
     .line 174
     iput-object p4, p0, Landroidx/browser/trusted/TrustedWebActivityServiceConnection$NotifyNotificationArgs;->channelName:Ljava/lang/String;
 
-    .line 175
     return-void
 .end method
 
 .method public static fromBundle(Landroid/os/Bundle;)Landroidx/browser/trusted/TrustedWebActivityServiceConnection$NotifyNotificationArgs;
     .locals 5
-    .param p0, "bundle"    # Landroid/os/Bundle;
 
-    .line 178
     const-string v0, "android.support.customtabs.trusted.PLATFORM_TAG"
 
+    .line 178
     invoke-static {p0, v0}, Landroidx/browser/trusted/TrustedWebActivityServiceConnection;->ensureBundleContains(Landroid/os/Bundle;Ljava/lang/String;)V
 
-    .line 179
     const-string v1, "android.support.customtabs.trusted.PLATFORM_ID"
 
+    .line 179
     invoke-static {p0, v1}, Landroidx/browser/trusted/TrustedWebActivityServiceConnection;->ensureBundleContains(Landroid/os/Bundle;Ljava/lang/String;)V
 
-    .line 180
     const-string v2, "android.support.customtabs.trusted.NOTIFICATION"
 
+    .line 180
     invoke-static {p0, v2}, Landroidx/browser/trusted/TrustedWebActivityServiceConnection;->ensureBundleContains(Landroid/os/Bundle;Ljava/lang/String;)V
 
-    .line 181
     const-string v3, "android.support.customtabs.trusted.CHANNEL_NAME"
 
+    .line 181
     invoke-static {p0, v3}, Landroidx/browser/trusted/TrustedWebActivityServiceConnection;->ensureBundleContains(Landroid/os/Bundle;Ljava/lang/String;)V
 
     .line 183
@@ -97,11 +91,10 @@
     .line 186
     invoke-virtual {p0, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-direct {v4, v0, v1, v2, v3}, Landroidx/browser/trusted/TrustedWebActivityServiceConnection$NotifyNotificationArgs;-><init>(Ljava/lang/String;ILandroid/app/Notification;Ljava/lang/String;)V
+    invoke-direct {v4, v0, v1, v2, p0}, Landroidx/browser/trusted/TrustedWebActivityServiceConnection$NotifyNotificationArgs;-><init>(Ljava/lang/String;ILandroid/app/Notification;Ljava/lang/String;)V
 
-    .line 183
     return-object v4
 .end method
 
@@ -115,35 +108,33 @@
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
+    const-string v1, "android.support.customtabs.trusted.PLATFORM_TAG"
+
     .line 191
-    .local v0, "args":Landroid/os/Bundle;
-    iget-object v1, p0, Landroidx/browser/trusted/TrustedWebActivityServiceConnection$NotifyNotificationArgs;->platformTag:Ljava/lang/String;
+    iget-object v2, p0, Landroidx/browser/trusted/TrustedWebActivityServiceConnection$NotifyNotificationArgs;->platformTag:Ljava/lang/String;
 
-    const-string v2, "android.support.customtabs.trusted.PLATFORM_TAG"
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    const-string v1, "android.support.customtabs.trusted.PLATFORM_ID"
 
     .line 192
-    iget v1, p0, Landroidx/browser/trusted/TrustedWebActivityServiceConnection$NotifyNotificationArgs;->platformId:I
+    iget v2, p0, Landroidx/browser/trusted/TrustedWebActivityServiceConnection$NotifyNotificationArgs;->platformId:I
 
-    const-string v2, "android.support.customtabs.trusted.PLATFORM_ID"
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+    const-string v1, "android.support.customtabs.trusted.NOTIFICATION"
 
     .line 193
-    iget-object v1, p0, Landroidx/browser/trusted/TrustedWebActivityServiceConnection$NotifyNotificationArgs;->notification:Landroid/app/Notification;
+    iget-object v2, p0, Landroidx/browser/trusted/TrustedWebActivityServiceConnection$NotifyNotificationArgs;->notification:Landroid/app/Notification;
 
-    const-string v2, "android.support.customtabs.trusted.NOTIFICATION"
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+    const-string v1, "android.support.customtabs.trusted.CHANNEL_NAME"
 
     .line 194
-    iget-object v1, p0, Landroidx/browser/trusted/TrustedWebActivityServiceConnection$NotifyNotificationArgs;->channelName:Ljava/lang/String;
+    iget-object v2, p0, Landroidx/browser/trusted/TrustedWebActivityServiceConnection$NotifyNotificationArgs;->channelName:Ljava/lang/String;
 
-    const-string v2, "android.support.customtabs.trusted.CHANNEL_NAME"
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 195
     return-object v0
 .end method

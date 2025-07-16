@@ -35,14 +35,11 @@
     .end annotation
 
     .line 23
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleJust;, "Lio/reactivex/internal/operators/single/SingleJust<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 24
     iput-object p1, p0, Lio/reactivex/internal/operators/single/SingleJust;->value:Ljava/lang/Object;
 
-    .line 25
     return-void
 .end method
 
@@ -59,8 +56,6 @@
     .end annotation
 
     .line 29
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleJust;, "Lio/reactivex/internal/operators/single/SingleJust<TT;>;"
-    .local p1, "s":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
     invoke-static {}, Lio/reactivex/disposables/Disposables;->disposed()Lio/reactivex/disposables/Disposable;
 
     move-result-object v0
@@ -72,6 +67,5 @@
 
     invoke-interface {p1, v0}, Lio/reactivex/SingleObserver;->onSuccess(Ljava/lang/Object;)V
 
-    .line 31
     return-void
 .end method

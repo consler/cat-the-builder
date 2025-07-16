@@ -20,24 +20,42 @@
 # virtual methods
 .method public onAnimationCancel(Landroid/view/View;)V
     .locals 0
-    .param p1, "view"    # Landroid/view/View;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "view"
+        }
+    .end annotation
 
-    .line 48
     return-void
 .end method
 
 .method public onAnimationEnd(Landroid/view/View;)V
     .locals 0
-    .param p1, "view"    # Landroid/view/View;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "view"
+        }
+    .end annotation
 
-    .line 41
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/view/View;)V
     .locals 0
-    .param p1, "view"    # Landroid/view/View;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "view"
+        }
+    .end annotation
 
-    .line 34
     return-void
 .end method

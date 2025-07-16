@@ -28,53 +28,45 @@
 # direct methods
 .method constructor <init>(Ljava/io/InputStream;)V
     .locals 1
-    .param p1, "in"    # Ljava/io/InputStream;
 
-    .line 40
     const/16 v0, 0x1000
 
+    .line 40
     invoke-direct {p0, p1, v0}, Lcom/squareup/picasso/MarkableInputStream;-><init>(Ljava/io/InputStream;I)V
 
-    .line 41
     return-void
 .end method
 
 .method constructor <init>(Ljava/io/InputStream;I)V
     .locals 1
-    .param p1, "in"    # Ljava/io/InputStream;
-    .param p2, "size"    # I
 
-    .line 44
     const/16 v0, 0x400
 
+    .line 44
     invoke-direct {p0, p1, p2, v0}, Lcom/squareup/picasso/MarkableInputStream;-><init>(Ljava/io/InputStream;II)V
 
-    .line 45
     return-void
 .end method
 
 .method private constructor <init>(Ljava/io/InputStream;II)V
     .locals 2
-    .param p1, "in"    # Ljava/io/InputStream;
-    .param p2, "size"    # I
-    .param p3, "limitIncrement"    # I
 
     .line 47
     invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
 
-    .line 35
     const-wide/16 v0, -0x1
 
+    .line 35
     iput-wide v0, p0, Lcom/squareup/picasso/MarkableInputStream;->defaultMark:J
 
-    .line 36
     const/4 v0, 0x1
 
+    .line 36
     iput-boolean v0, p0, Lcom/squareup/picasso/MarkableInputStream;->allowExpire:Z
 
-    .line 37
     const/4 v0, -0x1
 
+    .line 37
     iput v0, p0, Lcom/squareup/picasso/MarkableInputStream;->limitIncrement:I
 
     .line 48
@@ -98,13 +90,11 @@
     .line 52
     iput p3, p0, Lcom/squareup/picasso/MarkableInputStream;->limitIncrement:I
 
-    .line 53
     return-void
 .end method
 
 .method private setLimit(J)V
     .locals 4
-    .param p1, "limit"    # J
 
     .line 87
     :try_start_0
@@ -116,11 +106,9 @@
 
     if-gez v0, :cond_0
 
-    iget-wide v0, p0, Lcom/squareup/picasso/MarkableInputStream;->offset:J
+    iget-wide v0, p0, Lcom/squareup/picasso/MarkableInputStream;->limit:J
 
-    iget-wide v2, p0, Lcom/squareup/picasso/MarkableInputStream;->limit:J
-
-    cmp-long v0, v0, v2
+    cmp-long v0, v2, v0
 
     if-gtz v0, :cond_0
 
@@ -151,16 +139,12 @@
 
     .line 92
     :cond_0
-    iget-wide v0, p0, Lcom/squareup/picasso/MarkableInputStream;->offset:J
-
-    iput-wide v0, p0, Lcom/squareup/picasso/MarkableInputStream;->reset:J
+    iput-wide v2, p0, Lcom/squareup/picasso/MarkableInputStream;->reset:J
 
     .line 93
     iget-object v0, p0, Lcom/squareup/picasso/MarkableInputStream;->in:Ljava/io/InputStream;
 
-    iget-wide v1, p0, Lcom/squareup/picasso/MarkableInputStream;->offset:J
-
-    sub-long v1, p1, v1
+    sub-long v1, p1, v2
 
     long-to-int v1, v1
 
@@ -172,50 +156,41 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 98
-    nop
-
-    .line 99
     return-void
 
-    .line 96
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 97
-    .local v0, "e":Ljava/io/IOException;
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance p2, Ljava/lang/IllegalStateException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Unable to mark: "
 
-    const-string v3, "Unable to mark: "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p2
 .end method
 
 .method private skip(JJ)V
     .locals 4
-    .param p1, "current"    # J
-    .param p3, "target"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 118
     :goto_0
     cmp-long v0, p1, p3
 
@@ -230,8 +205,6 @@
 
     move-result-wide v0
 
-    .line 120
-    .local v0, "skipped":J
     const-wide/16 v2, 0x0
 
     cmp-long v2, v0, v2
@@ -241,28 +214,22 @@
     .line 121
     invoke-virtual {p0}, Lcom/squareup/picasso/MarkableInputStream;->read()I
 
-    move-result v2
+    move-result v0
 
-    const/4 v3, -0x1
+    const/4 v1, -0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v0, v1, :cond_0
 
-    .line 122
     goto :goto_1
 
-    .line 124
     :cond_0
     const-wide/16 v0, 0x1
 
-    .line 127
     :cond_1
     add-long/2addr p1, v0
 
-    .line 128
-    .end local v0    # "skipped":J
     goto :goto_0
 
-    .line 129
     :cond_2
     :goto_1
     return-void
@@ -272,12 +239,10 @@
 # virtual methods
 .method public allowMarksToExpire(Z)V
     .locals 0
-    .param p1, "allowExpire"    # Z
 
     .line 75
     iput-boolean p1, p0, Lcom/squareup/picasso/MarkableInputStream;->allowExpire:Z
 
-    .line 76
     return-void
 .end method
 
@@ -312,13 +277,11 @@
 
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
 
-    .line 179
     return-void
 .end method
 
 .method public mark(I)V
     .locals 2
-    .param p1, "readLimit"    # I
 
     .line 57
     invoke-virtual {p0, p1}, Lcom/squareup/picasso/MarkableInputStream;->savePosition(I)J
@@ -327,7 +290,6 @@
 
     iput-wide v0, p0, Lcom/squareup/picasso/MarkableInputStream;->defaultMark:J
 
-    .line 58
     return-void
 .end method
 
@@ -386,8 +348,6 @@
 
     move-result v0
 
-    .line 136
-    .local v0, "result":I
     const/4 v3, -0x1
 
     if-eq v0, v3, :cond_1
@@ -399,14 +359,12 @@
 
     iput-wide v3, p0, Lcom/squareup/picasso/MarkableInputStream;->offset:J
 
-    .line 139
     :cond_1
     return v0
 .end method
 
 .method public read([B)I
     .locals 6
-    .param p1, "buffer"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -453,33 +411,27 @@
 
     invoke-virtual {v0, p1}, Ljava/io/InputStream;->read([B)I
 
-    move-result v0
+    move-result p1
 
-    .line 147
-    .local v0, "count":I
-    const/4 v1, -0x1
+    const/4 v0, -0x1
 
-    if-eq v0, v1, :cond_1
+    if-eq p1, v0, :cond_1
 
     .line 148
-    iget-wide v1, p0, Lcom/squareup/picasso/MarkableInputStream;->offset:J
+    iget-wide v0, p0, Lcom/squareup/picasso/MarkableInputStream;->offset:J
 
-    int-to-long v3, v0
+    int-to-long v2, p1
 
-    add-long/2addr v1, v3
+    add-long/2addr v0, v2
 
-    iput-wide v1, p0, Lcom/squareup/picasso/MarkableInputStream;->offset:J
+    iput-wide v0, p0, Lcom/squareup/picasso/MarkableInputStream;->offset:J
 
-    .line 150
     :cond_1
-    return v0
+    return p1
 .end method
 
 .method public read([BII)I
-    .locals 6
-    .param p1, "buffer"    # [B
-    .param p2, "offset"    # I
-    .param p3, "length"    # I
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -495,19 +447,17 @@
 
     int-to-long v2, p3
 
-    add-long/2addr v2, v0
+    add-long v4, v0, v2
 
-    iget-wide v4, p0, Lcom/squareup/picasso/MarkableInputStream;->limit:J
+    iget-wide v6, p0, Lcom/squareup/picasso/MarkableInputStream;->limit:J
 
-    cmp-long v2, v2, v4
+    cmp-long v4, v4, v6
 
-    if-lez v2, :cond_0
-
-    .line 155
-    int-to-long v2, p3
+    if-lez v4, :cond_0
 
     add-long/2addr v0, v2
 
+    .line 155
     iget v2, p0, Lcom/squareup/picasso/MarkableInputStream;->limitIncrement:I
 
     int-to-long v2, v2
@@ -522,26 +472,23 @@
 
     invoke-virtual {v0, p1, p2, p3}, Ljava/io/InputStream;->read([BII)I
 
-    move-result v0
+    move-result p1
 
-    .line 158
-    .local v0, "count":I
-    const/4 v1, -0x1
+    const/4 p2, -0x1
 
-    if-eq v0, v1, :cond_1
+    if-eq p1, p2, :cond_1
 
     .line 159
-    iget-wide v1, p0, Lcom/squareup/picasso/MarkableInputStream;->offset:J
+    iget-wide p2, p0, Lcom/squareup/picasso/MarkableInputStream;->offset:J
 
-    int-to-long v3, v0
+    int-to-long v0, p1
 
-    add-long/2addr v1, v3
+    add-long/2addr p2, v0
 
-    iput-wide v1, p0, Lcom/squareup/picasso/MarkableInputStream;->offset:J
+    iput-wide p2, p0, Lcom/squareup/picasso/MarkableInputStream;->offset:J
 
-    .line 161
     :cond_1
-    return v0
+    return p1
 .end method
 
 .method public reset()V
@@ -557,13 +504,11 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/squareup/picasso/MarkableInputStream;->reset(J)V
 
-    .line 104
     return-void
 .end method
 
 .method public reset(J)V
     .locals 4
-    .param p1, "token"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -598,23 +543,21 @@
     .line 113
     iput-wide p1, p0, Lcom/squareup/picasso/MarkableInputStream;->offset:J
 
-    .line 114
     return-void
 
     .line 109
     :cond_0
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "Cannot reset"
+    const-string p2, "Cannot reset"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public savePosition(I)J
     .locals 4
-    .param p1, "readLimit"    # I
 
     .line 67
     iget-wide v0, p0, Lcom/squareup/picasso/MarkableInputStream;->offset:J
@@ -624,26 +567,24 @@
     add-long/2addr v0, v2
 
     .line 68
-    .local v0, "offsetLimit":J
     iget-wide v2, p0, Lcom/squareup/picasso/MarkableInputStream;->limit:J
 
-    cmp-long v2, v2, v0
+    cmp-long p1, v2, v0
 
-    if-gez v2, :cond_0
+    if-gez p1, :cond_0
 
     .line 69
     invoke-direct {p0, v0, v1}, Lcom/squareup/picasso/MarkableInputStream;->setLimit(J)V
 
     .line 71
     :cond_0
-    iget-wide v2, p0, Lcom/squareup/picasso/MarkableInputStream;->offset:J
+    iget-wide v0, p0, Lcom/squareup/picasso/MarkableInputStream;->offset:J
 
-    return-wide v2
+    return-wide v0
 .end method
 
 .method public skip(J)J
     .locals 6
-    .param p1, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -665,9 +606,9 @@
 
     if-lez v2, :cond_0
 
-    .line 166
     add-long/2addr v0, p1
 
+    .line 166
     iget v2, p0, Lcom/squareup/picasso/MarkableInputStream;->limitIncrement:I
 
     int-to-long v2, v2
@@ -682,16 +623,14 @@
 
     invoke-virtual {v0, p1, p2}, Ljava/io/InputStream;->skip(J)J
 
-    move-result-wide v0
+    move-result-wide p1
 
     .line 169
-    .local v0, "skipped":J
-    iget-wide v2, p0, Lcom/squareup/picasso/MarkableInputStream;->offset:J
+    iget-wide v0, p0, Lcom/squareup/picasso/MarkableInputStream;->offset:J
 
-    add-long/2addr v2, v0
+    add-long/2addr v0, p1
 
-    iput-wide v2, p0, Lcom/squareup/picasso/MarkableInputStream;->offset:J
+    iput-wide v0, p0, Lcom/squareup/picasso/MarkableInputStream;->offset:J
 
-    .line 170
-    return-wide v0
+    return-wide p1
 .end method

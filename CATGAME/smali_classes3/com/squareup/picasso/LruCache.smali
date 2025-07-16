@@ -30,7 +30,6 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 1
-    .param p1, "maxByteCount"    # I
 
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,22 +41,19 @@
 
     iput-object v0, p0, Lcom/squareup/picasso/LruCache;->cache:Landroid/util/LruCache;
 
-    .line 41
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 0
 
     .line 31
     invoke-static {p1}, Lcom/squareup/picasso/Utils;->calculateMemoryCacheSize(Landroid/content/Context;)I
 
-    move-result v0
+    move-result p1
 
-    invoke-direct {p0, v0}, Lcom/squareup/picasso/LruCache;-><init>(I)V
+    invoke-direct {p0, p1}, Lcom/squareup/picasso/LruCache;-><init>(I)V
 
-    .line 32
     return-void
 .end method
 
@@ -71,13 +67,11 @@
 
     invoke-virtual {v0}, Landroid/util/LruCache;->evictAll()V
 
-    .line 76
     return-void
 .end method
 
 .method public clearKeyUri(Ljava/lang/String;)V
     .locals 4
-    .param p1, "uri"    # Ljava/lang/String;
 
     .line 80
     iget-object v0, p0, Lcom/squareup/picasso/LruCache;->cache:Landroid/util/LruCache;
@@ -94,6 +88,7 @@
 
     move-result-object v0
 
+    :cond_0
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -108,7 +103,6 @@
     check-cast v1, Ljava/lang/String;
 
     .line 81
-    .local v1, "key":Ljava/lang/String;
     invoke-virtual {v1, p1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v2
@@ -144,12 +138,8 @@
 
     invoke-virtual {v2, v1}, Landroid/util/LruCache;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 86
-    .end local v1    # "key":Ljava/lang/String;
-    :cond_0
     goto :goto_0
 
-    .line 87
     :cond_1
     return-void
 .end method
@@ -168,31 +158,29 @@
 .end method
 
 .method public get(Ljava/lang/String;)Landroid/graphics/Bitmap;
-    .locals 2
-    .param p1, "key"    # Ljava/lang/String;
+    .locals 1
 
     .line 44
     iget-object v0, p0, Lcom/squareup/picasso/LruCache;->cache:Landroid/util/LruCache;
 
     invoke-virtual {v0, p1}, Landroid/util/LruCache;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/squareup/picasso/LruCache$BitmapAndSize;
+    check-cast p1, Lcom/squareup/picasso/LruCache$BitmapAndSize;
+
+    if-eqz p1, :cond_0
 
     .line 45
-    .local v0, "bitmapAndSize":Lcom/squareup/picasso/LruCache$BitmapAndSize;
-    if-eqz v0, :cond_0
-
-    iget-object v1, v0, Lcom/squareup/picasso/LruCache$BitmapAndSize;->bitmap:Landroid/graphics/Bitmap;
+    iget-object p1, p1, Lcom/squareup/picasso/LruCache$BitmapAndSize;->bitmap:Landroid/graphics/Bitmap;
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return-object v1
+    return-object p1
 .end method
 
 .method public hitCount()I
@@ -249,10 +237,7 @@
 
 .method public set(Ljava/lang/String;Landroid/graphics/Bitmap;)V
     .locals 3
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "bitmap"    # Landroid/graphics/Bitmap;
 
-    .line 49
     if-eqz p1, :cond_1
 
     if-eqz p2, :cond_1
@@ -263,7 +248,6 @@
     move-result v0
 
     .line 58
-    .local v0, "byteCount":I
     invoke-virtual {p0}, Lcom/squareup/picasso/LruCache;->maxSize()I
 
     move-result v1
@@ -271,11 +255,10 @@
     if-le v0, v1, :cond_0
 
     .line 59
-    iget-object v1, p0, Lcom/squareup/picasso/LruCache;->cache:Landroid/util/LruCache;
+    iget-object p2, p0, Lcom/squareup/picasso/LruCache;->cache:Landroid/util/LruCache;
 
-    invoke-virtual {v1, p1}, Landroid/util/LruCache;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p2, p1}, Landroid/util/LruCache;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 60
     return-void
 
     .line 63
@@ -288,19 +271,17 @@
 
     invoke-virtual {v1, p1, v2}, Landroid/util/LruCache;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 64
     return-void
 
     .line 50
-    .end local v0    # "byteCount":I
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "key == null || bitmap == null"
+    const-string p2, "key == null || bitmap == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public size()I

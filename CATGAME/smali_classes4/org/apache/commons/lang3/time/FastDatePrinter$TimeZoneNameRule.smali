@@ -30,9 +30,6 @@
 # direct methods
 .method constructor <init>(Ljava/util/TimeZone;Ljava/util/Locale;I)V
     .locals 1
-    .param p1, "timeZone"    # Ljava/util/TimeZone;
-    .param p2, "locale"    # Ljava/util/Locale;
-    .param p3, "style"    # I
 
     .line 1347
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,34 +40,31 @@
     .line 1349
     iput p3, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneNameRule;->mStyle:I
 
-    .line 1351
     const/4 v0, 0x0
 
+    .line 1351
     invoke-static {p1, v0, p3, p2}, Lorg/apache/commons/lang3/time/FastDatePrinter;->getTimeZoneDisplay(Ljava/util/TimeZone;ZILjava/util/Locale;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneNameRule;->mStandard:Ljava/lang/String;
 
-    .line 1352
     const/4 v0, 0x1
 
+    .line 1352
     invoke-static {p1, v0, p3, p2}, Lorg/apache/commons/lang3/time/FastDatePrinter;->getTimeZoneDisplay(Ljava/util/TimeZone;ZILjava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneNameRule;->mDaylight:Ljava/lang/String;
+    iput-object p1, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneNameRule;->mDaylight:Ljava/lang/String;
 
-    .line 1353
     return-void
 .end method
 
 
 # virtual methods
 .method public appendTo(Ljava/lang/Appendable;Ljava/util/Calendar;)V
-    .locals 4
-    .param p1, "buffer"    # Ljava/lang/Appendable;
-    .param p2, "calendar"    # Ljava/util/Calendar;
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -82,46 +76,44 @@
 
     move-result-object v0
 
-    .line 1372
-    .local v0, "zone":Ljava/util/TimeZone;
     const/16 v1, 0x10
 
+    .line 1372
     invoke-virtual {p2, v1}, Ljava/util/Calendar;->get(I)I
 
-    move-result v1
+    move-result p2
 
-    if-nez v1, :cond_0
+    if-nez p2, :cond_0
 
     .line 1373
-    const/4 v1, 0x0
+    iget p2, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneNameRule;->mStyle:I
 
-    iget v2, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneNameRule;->mStyle:I
+    iget-object v1, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneNameRule;->mLocale:Ljava/util/Locale;
 
-    iget-object v3, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneNameRule;->mLocale:Ljava/util/Locale;
+    const/4 v2, 0x0
 
-    invoke-static {v0, v1, v2, v3}, Lorg/apache/commons/lang3/time/FastDatePrinter;->getTimeZoneDisplay(Ljava/util/TimeZone;ZILjava/util/Locale;)Ljava/lang/String;
+    invoke-static {v0, v2, p2, v1}, Lorg/apache/commons/lang3/time/FastDatePrinter;->getTimeZoneDisplay(Ljava/util/TimeZone;ZILjava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-interface {p1, v1}, Ljava/lang/Appendable;->append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
+    invoke-interface {p1, p2}, Ljava/lang/Appendable;->append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
 
     goto :goto_0
 
     .line 1375
     :cond_0
-    const/4 v1, 0x1
+    iget p2, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneNameRule;->mStyle:I
 
-    iget v2, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneNameRule;->mStyle:I
+    iget-object v1, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneNameRule;->mLocale:Ljava/util/Locale;
 
-    iget-object v3, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneNameRule;->mLocale:Ljava/util/Locale;
+    const/4 v2, 0x1
 
-    invoke-static {v0, v1, v2, v3}, Lorg/apache/commons/lang3/time/FastDatePrinter;->getTimeZoneDisplay(Ljava/util/TimeZone;ZILjava/util/Locale;)Ljava/lang/String;
+    invoke-static {v0, v2, p2, v1}, Lorg/apache/commons/lang3/time/FastDatePrinter;->getTimeZoneDisplay(Ljava/util/TimeZone;ZILjava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-interface {p1, v1}, Ljava/lang/Appendable;->append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
+    invoke-interface {p1, p2}, Ljava/lang/Appendable;->append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
 
-    .line 1377
     :goto_0
     return-void
 .end method

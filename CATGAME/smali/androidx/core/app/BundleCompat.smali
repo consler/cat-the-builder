@@ -22,56 +22,43 @@
 .end method
 
 .method public static getBinder(Landroid/os/Bundle;Ljava/lang/String;)Landroid/os/IBinder;
-    .locals 2
-    .param p0, "bundle"    # Landroid/os/Bundle;
-    .param p1, "key"    # Ljava/lang/String;
-
-    .line 105
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x12
-
-    if-lt v0, v1, :cond_0
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "bundle",
+            "key"
+        }
+    .end annotation
 
     .line 106
     invoke-virtual {p0, p1}, Landroid/os/Bundle;->getBinder(Ljava/lang/String;)Landroid/os/IBinder;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
-
-    .line 108
-    :cond_0
-    invoke-static {p0, p1}, Landroidx/core/app/BundleCompat$BundleCompatBaseImpl;->getBinder(Landroid/os/Bundle;Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method
 
 .method public static putBinder(Landroid/os/Bundle;Ljava/lang/String;Landroid/os/IBinder;)V
-    .locals 2
-    .param p0, "bundle"    # Landroid/os/Bundle;
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "binder"    # Landroid/os/IBinder;
-
-    .line 121
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x12
-
-    if-lt v0, v1, :cond_0
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "bundle",
+            "key",
+            "binder"
+        }
+    .end annotation
 
     .line 122
     invoke-virtual {p0, p1, p2}, Landroid/os/Bundle;->putBinder(Ljava/lang/String;Landroid/os/IBinder;)V
 
-    goto :goto_0
-
-    .line 124
-    :cond_0
-    invoke-static {p0, p1, p2}, Landroidx/core/app/BundleCompat$BundleCompatBaseImpl;->putBinder(Landroid/os/Bundle;Ljava/lang/String;Landroid/os/IBinder;)V
-
-    .line 126
-    :goto_0
     return-void
 .end method

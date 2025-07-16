@@ -18,9 +18,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 42
     const-string v0, "UTF-8"
 
+    .line 42
     invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
 
     move-result-object v0
@@ -32,7 +32,6 @@
 
 .method private constructor <init>(Ljava/io/OutputStream;)V
     .locals 0
-    .param p1, "stream"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -48,13 +47,11 @@
     .line 47
     iput-object p1, p0, Lcom/google/crypto/tink/JsonKeysetWriter;->outputStream:Ljava/io/OutputStream;
 
-    .line 48
     return-void
 .end method
 
 .method private toJson(Lcom/google/crypto/tink/proto/EncryptedKeyset;)Lorg/json/JSONObject;
     .locals 3
-    .param p1, "keyset"    # Lcom/google/crypto/tink/proto/EncryptedKeyset;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -97,25 +94,23 @@
     .line 135
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/EncryptedKeyset;->getKeysetInfo()Lcom/google/crypto/tink/proto/KeysetInfo;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {p0, v1}, Lcom/google/crypto/tink/JsonKeysetWriter;->toJson(Lcom/google/crypto/tink/proto/KeysetInfo;)Lorg/json/JSONObject;
+    invoke-direct {p0, p1}, Lcom/google/crypto/tink/JsonKeysetWriter;->toJson(Lcom/google/crypto/tink/proto/KeysetInfo;)Lorg/json/JSONObject;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "keysetInfo"
+    const-string v1, "keysetInfo"
 
-    invoke-virtual {v0, v2, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, p1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 133
-    return-object v0
+    return-object p1
 .end method
 
 .method private toJson(Lcom/google/crypto/tink/proto/KeyData;)Lorg/json/JSONObject;
     .locals 3
-    .param p1, "keyData"    # Lcom/google/crypto/tink/proto/KeyData;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -136,14 +131,14 @@
 
     invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
+    const-string v1, "typeUrl"
+
     .line 127
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/KeyData;->getTypeUrl()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string v2, "typeUrl"
-
-    invoke-virtual {v0, v2, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     move-result-object v0
 
@@ -169,25 +164,23 @@
     .line 129
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/KeyData;->getKeyMaterialType()Lcom/google/crypto/tink/proto/KeyData$KeyMaterialType;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1}, Lcom/google/crypto/tink/proto/KeyData$KeyMaterialType;->name()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/KeyData$KeyMaterialType;->name()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "keyMaterialType"
+    const-string v1, "keyMaterialType"
 
-    invoke-virtual {v0, v2, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, p1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 126
-    return-object v0
+    return-object p1
 .end method
 
 .method private toJson(Lcom/google/crypto/tink/proto/Keyset$Key;)Lorg/json/JSONObject;
     .locals 4
-    .param p1, "key"    # Lcom/google/crypto/tink/proto/Keyset$Key;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -256,25 +249,23 @@
     .line 122
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/Keyset$Key;->getOutputPrefixType()Lcom/google/crypto/tink/proto/OutputPrefixType;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1}, Lcom/google/crypto/tink/proto/OutputPrefixType;->name()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/OutputPrefixType;->name()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "outputPrefixType"
+    const-string v1, "outputPrefixType"
 
-    invoke-virtual {v0, v2, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, p1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 118
-    return-object v0
+    return-object p1
 .end method
 
 .method private toJson(Lcom/google/crypto/tink/proto/Keyset;)Lorg/json/JSONObject;
-    .locals 5
-    .param p1, "keyset"    # Lcom/google/crypto/tink/proto/Keyset;
+    .locals 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -296,7 +287,6 @@
     invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
     .line 108
-    .local v0, "json":Lorg/json/JSONObject;
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/Keyset;->getPrimaryKeyId()I
 
     move-result v1
@@ -315,53 +305,47 @@
     invoke-direct {v1}, Lorg/json/JSONArray;-><init>()V
 
     .line 110
-    .local v1, "keys":Lorg/json/JSONArray;
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/Keyset;->getKeyList()Ljava/util/List;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Lcom/google/crypto/tink/proto/Keyset$Key;
+    check-cast v2, Lcom/google/crypto/tink/proto/Keyset$Key;
 
     .line 111
-    .local v3, "key":Lcom/google/crypto/tink/proto/Keyset$Key;
-    invoke-direct {p0, v3}, Lcom/google/crypto/tink/JsonKeysetWriter;->toJson(Lcom/google/crypto/tink/proto/Keyset$Key;)Lorg/json/JSONObject;
+    invoke-direct {p0, v2}, Lcom/google/crypto/tink/JsonKeysetWriter;->toJson(Lcom/google/crypto/tink/proto/Keyset$Key;)Lorg/json/JSONObject;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v1, v4}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
+    invoke-virtual {v1, v2}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
 
-    .line 112
-    .end local v3    # "key":Lcom/google/crypto/tink/proto/Keyset$Key;
     goto :goto_0
 
-    .line 113
     :cond_0
-    const-string v2, "key"
+    const-string p1, "key"
 
-    invoke-virtual {v0, v2, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    .line 113
+    invoke-virtual {v0, p1, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 114
     return-object v0
 .end method
 
 .method private toJson(Lcom/google/crypto/tink/proto/KeysetInfo$KeyInfo;)Lorg/json/JSONObject;
     .locals 3
-    .param p1, "keyInfo"    # Lcom/google/crypto/tink/proto/KeysetInfo$KeyInfo;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -382,14 +366,14 @@
 
     invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
+    const-string v1, "typeUrl"
+
     .line 151
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/KeysetInfo$KeyInfo;->getTypeUrl()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string v2, "typeUrl"
-
-    invoke-virtual {v0, v2, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     move-result-object v0
 
@@ -408,39 +392,37 @@
 
     move-result-object v0
 
+    const-string v1, "keyId"
+
     .line 153
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/KeysetInfo$KeyInfo;->getKeyId()I
 
-    move-result v1
+    move-result v2
 
-    const-string v2, "keyId"
-
-    invoke-virtual {v0, v2, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
     move-result-object v0
 
     .line 154
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/KeysetInfo$KeyInfo;->getOutputPrefixType()Lcom/google/crypto/tink/proto/OutputPrefixType;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1}, Lcom/google/crypto/tink/proto/OutputPrefixType;->name()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/OutputPrefixType;->name()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "outputPrefixType"
+    const-string v1, "outputPrefixType"
 
-    invoke-virtual {v0, v2, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, p1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 150
-    return-object v0
+    return-object p1
 .end method
 
 .method private toJson(Lcom/google/crypto/tink/proto/KeysetInfo;)Lorg/json/JSONObject;
-    .locals 5
-    .param p1, "keysetInfo"    # Lcom/google/crypto/tink/proto/KeysetInfo;
+    .locals 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -462,7 +444,6 @@
     invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
     .line 140
-    .local v0, "json":Lorg/json/JSONObject;
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/KeysetInfo;->getPrimaryKeyId()I
 
     move-result v1
@@ -481,53 +462,47 @@
     invoke-direct {v1}, Lorg/json/JSONArray;-><init>()V
 
     .line 142
-    .local v1, "keyInfos":Lorg/json/JSONArray;
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/KeysetInfo;->getKeyInfoList()Ljava/util/List;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Lcom/google/crypto/tink/proto/KeysetInfo$KeyInfo;
+    check-cast v2, Lcom/google/crypto/tink/proto/KeysetInfo$KeyInfo;
 
     .line 143
-    .local v3, "keyInfo":Lcom/google/crypto/tink/proto/KeysetInfo$KeyInfo;
-    invoke-direct {p0, v3}, Lcom/google/crypto/tink/JsonKeysetWriter;->toJson(Lcom/google/crypto/tink/proto/KeysetInfo$KeyInfo;)Lorg/json/JSONObject;
+    invoke-direct {p0, v2}, Lcom/google/crypto/tink/JsonKeysetWriter;->toJson(Lcom/google/crypto/tink/proto/KeysetInfo$KeyInfo;)Lorg/json/JSONObject;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v1, v4}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
+    invoke-virtual {v1, v2}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
 
-    .line 144
-    .end local v3    # "keyInfo":Lcom/google/crypto/tink/proto/KeysetInfo$KeyInfo;
     goto :goto_0
 
-    .line 145
     :cond_0
-    const-string v2, "keyInfo"
+    const-string p1, "keyInfo"
 
-    invoke-virtual {v0, v2, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    .line 145
+    invoke-virtual {v0, p1, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 146
     return-object v0
 .end method
 
 .method private toUnsignedLong(I)J
     .locals 4
-    .param p1, "x"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -537,7 +512,6 @@
         }
     .end annotation
 
-    .line 103
     int-to-long v0, p1
 
     const-wide v2, 0xffffffffL
@@ -549,7 +523,6 @@
 
 .method public static withFile(Ljava/io/File;)Lcom/google/crypto/tink/KeysetWriter;
     .locals 2
-    .param p0, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -579,7 +552,6 @@
 
 .method public static withOutputStream(Ljava/io/OutputStream;)Lcom/google/crypto/tink/KeysetWriter;
     .locals 1
-    .param p0, "stream"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -599,7 +571,6 @@
 
 .method public static withPath(Ljava/lang/String;)Lcom/google/crypto/tink/KeysetWriter;
     .locals 1
-    .param p0, "path"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -622,14 +593,13 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/JsonKeysetWriter;->withFile(Ljava/io/File;)Lcom/google/crypto/tink/KeysetWriter;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static withPath(Ljava/nio/file/Path;)Lcom/google/crypto/tink/KeysetWriter;
-    .locals 1
-    .param p0, "path"    # Ljava/nio/file/Path;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -648,20 +618,19 @@
     .line 75
     invoke-interface {p0}, Ljava/nio/file/Path;->toFile()Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lcom/google/crypto/tink/JsonKeysetWriter;->withFile(Ljava/io/File;)Lcom/google/crypto/tink/KeysetWriter;
+    invoke-static {p0}, Lcom/google/crypto/tink/JsonKeysetWriter;->withFile(Ljava/io/File;)Lcom/google/crypto/tink/KeysetWriter;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public write(Lcom/google/crypto/tink/proto/EncryptedKeyset;)V
-    .locals 3
-    .param p1, "keyset"    # Lcom/google/crypto/tink/proto/EncryptedKeyset;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -683,88 +652,75 @@
 
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/JsonKeysetWriter;->toJson(Lcom/google/crypto/tink/proto/EncryptedKeyset;)Lorg/json/JSONObject;
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v2, 0x4
+    const/4 v1, 0x4
 
-    invoke-virtual {v1, v2}, Lorg/json/JSONObject;->toString(I)Ljava/lang/String;
+    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->toString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    sget-object v2, Lcom/google/crypto/tink/JsonKeysetWriter;->UTF_8:Ljava/nio/charset/Charset;
+    sget-object v1, Lcom/google/crypto/tink/JsonKeysetWriter;->UTF_8:Ljava/nio/charset/Charset;
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
+    invoke-virtual {p1, v1}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Ljava/io/OutputStream;->write([B)V
+    invoke-virtual {v0, p1}, Ljava/io/OutputStream;->write([B)V
 
     .line 94
-    iget-object v0, p0, Lcom/google/crypto/tink/JsonKeysetWriter;->outputStream:Ljava/io/OutputStream;
+    iget-object p1, p0, Lcom/google/crypto/tink/JsonKeysetWriter;->outputStream:Ljava/io/OutputStream;
 
     invoke-static {}, Ljava/lang/System;->lineSeparator()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    sget-object v2, Lcom/google/crypto/tink/JsonKeysetWriter;->UTF_8:Ljava/nio/charset/Charset;
+    invoke-virtual {v0, v1}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
+    move-result-object v0
 
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/io/OutputStream;->write([B)V
+    invoke-virtual {p1, v0}, Ljava/io/OutputStream;->write([B)V
     :try_end_0
     .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 98
+    iget-object p1, p0, Lcom/google/crypto/tink/JsonKeysetWriter;->outputStream:Ljava/io/OutputStream;
+
+    invoke-virtual {p1}, Ljava/io/OutputStream;->close()V
+
+    return-void
+
+    :catchall_0
+    move-exception p1
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p1
+
+    .line 96
+    :try_start_1
+    new-instance v0, Ljava/io/IOException;
+
+    invoke-direct {v0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    .line 98
+    :goto_0
     iget-object v0, p0, Lcom/google/crypto/tink/JsonKeysetWriter;->outputStream:Ljava/io/OutputStream;
 
     invoke-virtual {v0}, Ljava/io/OutputStream;->close()V
 
     .line 99
-    nop
-
-    .line 100
-    return-void
-
-    .line 98
-    :catchall_0
-    move-exception v0
-
-    goto :goto_0
-
-    .line 95
-    :catch_0
-    move-exception v0
-
-    .line 96
-    .local v0, "e":Lorg/json/JSONException;
-    :try_start_1
-    new-instance v1, Ljava/io/IOException;
-
-    invoke-direct {v1, v0}, Ljava/io/IOException;-><init>(Ljava/lang/Throwable;)V
-
-    .end local p1    # "keyset":Lcom/google/crypto/tink/proto/EncryptedKeyset;
-    throw v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    .line 98
-    .end local v0    # "e":Lorg/json/JSONException;
-    .restart local p1    # "keyset":Lcom/google/crypto/tink/proto/EncryptedKeyset;
-    :goto_0
-    iget-object v1, p0, Lcom/google/crypto/tink/JsonKeysetWriter;->outputStream:Ljava/io/OutputStream;
-
-    invoke-virtual {v1}, Ljava/io/OutputStream;->close()V
-
-    .line 99
-    throw v0
+    throw p1
 .end method
 
 .method public write(Lcom/google/crypto/tink/proto/Keyset;)V
-    .locals 3
-    .param p1, "keyset"    # Lcom/google/crypto/tink/proto/Keyset;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -786,81 +742,69 @@
 
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/JsonKeysetWriter;->toJson(Lcom/google/crypto/tink/proto/Keyset;)Lorg/json/JSONObject;
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v2, 0x4
+    const/4 v1, 0x4
 
-    invoke-virtual {v1, v2}, Lorg/json/JSONObject;->toString(I)Ljava/lang/String;
+    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->toString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    sget-object v2, Lcom/google/crypto/tink/JsonKeysetWriter;->UTF_8:Ljava/nio/charset/Charset;
+    sget-object v1, Lcom/google/crypto/tink/JsonKeysetWriter;->UTF_8:Ljava/nio/charset/Charset;
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
+    invoke-virtual {p1, v1}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Ljava/io/OutputStream;->write([B)V
+    invoke-virtual {v0, p1}, Ljava/io/OutputStream;->write([B)V
 
     .line 82
-    iget-object v0, p0, Lcom/google/crypto/tink/JsonKeysetWriter;->outputStream:Ljava/io/OutputStream;
+    iget-object p1, p0, Lcom/google/crypto/tink/JsonKeysetWriter;->outputStream:Ljava/io/OutputStream;
 
     invoke-static {}, Ljava/lang/System;->lineSeparator()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    sget-object v2, Lcom/google/crypto/tink/JsonKeysetWriter;->UTF_8:Ljava/nio/charset/Charset;
+    invoke-virtual {v0, v1}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
+    move-result-object v0
 
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/io/OutputStream;->write([B)V
+    invoke-virtual {p1, v0}, Ljava/io/OutputStream;->write([B)V
     :try_end_0
     .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 86
+    iget-object p1, p0, Lcom/google/crypto/tink/JsonKeysetWriter;->outputStream:Ljava/io/OutputStream;
+
+    invoke-virtual {p1}, Ljava/io/OutputStream;->close()V
+
+    return-void
+
+    :catchall_0
+    move-exception p1
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p1
+
+    .line 84
+    :try_start_1
+    new-instance v0, Ljava/io/IOException;
+
+    invoke-direct {v0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    .line 86
+    :goto_0
     iget-object v0, p0, Lcom/google/crypto/tink/JsonKeysetWriter;->outputStream:Ljava/io/OutputStream;
 
     invoke-virtual {v0}, Ljava/io/OutputStream;->close()V
 
     .line 87
-    nop
-
-    .line 88
-    return-void
-
-    .line 86
-    :catchall_0
-    move-exception v0
-
-    goto :goto_0
-
-    .line 83
-    :catch_0
-    move-exception v0
-
-    .line 84
-    .local v0, "e":Lorg/json/JSONException;
-    :try_start_1
-    new-instance v1, Ljava/io/IOException;
-
-    invoke-direct {v1, v0}, Ljava/io/IOException;-><init>(Ljava/lang/Throwable;)V
-
-    .end local p1    # "keyset":Lcom/google/crypto/tink/proto/Keyset;
-    throw v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    .line 86
-    .end local v0    # "e":Lorg/json/JSONException;
-    .restart local p1    # "keyset":Lcom/google/crypto/tink/proto/Keyset;
-    :goto_0
-    iget-object v1, p0, Lcom/google/crypto/tink/JsonKeysetWriter;->outputStream:Ljava/io/OutputStream;
-
-    invoke-virtual {v1}, Ljava/io/OutputStream;->close()V
-
-    .line 87
-    throw v0
+    throw p1
 .end method

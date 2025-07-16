@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;
 
     .line 58
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;
@@ -43,6 +42,5 @@
 
     iput v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/TooltipManager;->time:F
 
-    .line 61
     return-void
 .end method

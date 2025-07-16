@@ -24,50 +24,42 @@
 
 # direct methods
 .method protected constructor <init>(Lorg/apache/commons/collections/list/CursorableLinkedList;I)V
-    .locals 2
-    .param p1, "parent"    # Lorg/apache/commons/collections/list/CursorableLinkedList;
-    .param p2, "index"    # I
+    .locals 0
 
     .line 410
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedListIterator;-><init>(Lorg/apache/commons/collections/list/AbstractLinkedList;I)V
 
-    .line 398
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->valid:Z
+    const/4 p1, 0x1
 
     .line 400
-    iput-boolean v0, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->nextIndexValid:Z
+    iput-boolean p1, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->nextIndexValid:Z
+
+    const/4 p2, 0x0
 
     .line 402
-    const/4 v1, 0x0
-
-    iput-boolean v1, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->currentRemovedByAnother:Z
+    iput-boolean p2, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->currentRemovedByAnother:Z
 
     .line 411
-    iput-boolean v0, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->valid:Z
+    iput-boolean p1, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->valid:Z
 
-    .line 412
     return-void
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 0
 
     .line 448
     invoke-super {p0, p1}, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedListIterator;->add(Ljava/lang/Object;)V
 
     .line 451
-    iget-object v0, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    iget-object p1, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    iget-object v0, v0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    iget-object p1, p1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    iput-object v0, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    iput-object p1, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    .line 452
     return-void
 .end method
 
@@ -79,7 +71,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 541
     return-void
 
     .line 539
@@ -108,12 +99,11 @@
 
     invoke-virtual {v0, p0}, Lorg/apache/commons/collections/list/CursorableLinkedList;->unregisterCursor(Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;)V
 
-    .line 554
     const/4 v0, 0x0
 
+    .line 554
     iput-boolean v0, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->valid:Z
 
-    .line 556
     :cond_0
     return-void
 .end method
@@ -146,43 +136,37 @@
 
     goto :goto_1
 
-    .line 469
-    :cond_0
-    const/4 v0, 0x0
-
     .line 470
-    .local v0, "pos":I
-    iget-object v1, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->parent:Lorg/apache/commons/collections/list/AbstractLinkedList;
+    :cond_0
+    iget-object v0, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->parent:Lorg/apache/commons/collections/list/AbstractLinkedList;
 
-    iget-object v1, v1, Lorg/apache/commons/collections/list/AbstractLinkedList;->header:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    iget-object v0, v0, Lorg/apache/commons/collections/list/AbstractLinkedList;->header:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    iget-object v1, v1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    iget-object v0, v0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+
+    const/4 v1, 0x0
 
     .line 471
-    .local v1, "temp":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
     :goto_0
     iget-object v2, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    if-eq v1, v2, :cond_1
+    if-eq v0, v2, :cond_1
 
-    .line 472
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     .line 473
-    iget-object v1, v1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    iget-object v0, v0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     goto :goto_0
 
     .line 475
     :cond_1
-    iput v0, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->nextIndex:I
+    iput v1, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->nextIndex:I
 
-    .line 477
-    .end local v0    # "pos":I
-    .end local v1    # "temp":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
     :goto_1
     const/4 v0, 0x1
 
+    .line 477
     iput-boolean v0, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->nextIndexValid:Z
 
     .line 479
@@ -194,15 +178,12 @@
 
 .method protected nodeChanged(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;)V
     .locals 0
-    .param p1, "node"    # Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    .line 489
     return-void
 .end method
 
 .method protected nodeInserted(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;)V
     .locals 2
-    .param p1, "node"    # Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     .line 525
     iget-object v0, p1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->previous:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
@@ -229,20 +210,18 @@
 
     goto :goto_0
 
-    .line 530
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-boolean v0, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->nextIndexValid:Z
+    .line 530
+    iput-boolean p1, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->nextIndexValid:Z
 
-    .line 532
     :goto_0
     return-void
 .end method
 
 .method protected nodeRemoved(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;)V
     .locals 4
-    .param p1, "node"    # Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     .line 497
     iget-object v0, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
@@ -258,9 +237,9 @@
     if-ne p1, v0, :cond_0
 
     .line 499
-    iget-object v0, p1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    iget-object p1, p1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    iput-object v0, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    iput-object p1, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     .line 500
     iput-object v1, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->current:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
@@ -279,9 +258,9 @@
     if-ne p1, v0, :cond_1
 
     .line 505
-    iget-object v0, p1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    iget-object p1, p1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    iput-object v0, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    iput-object p1, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     .line 506
     iput-boolean v3, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->currentRemovedByAnother:Z
@@ -301,11 +280,11 @@
     iput-boolean v2, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->currentRemovedByAnother:Z
 
     .line 512
-    iget v0, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->nextIndex:I
+    iget p1, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->nextIndex:I
 
-    sub-int/2addr v0, v2
+    sub-int/2addr p1, v2
 
-    iput v0, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->nextIndex:I
+    iput p1, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->nextIndex:I
 
     goto :goto_0
 
@@ -316,7 +295,6 @@
     .line 515
     iput-boolean v3, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->currentRemovedByAnother:Z
 
-    .line 517
     :goto_0
     return-void
 .end method
@@ -348,12 +326,11 @@
 
     invoke-virtual {v0, v1}, Lorg/apache/commons/collections/list/AbstractLinkedList;->removeNode(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;)V
 
-    .line 437
     :goto_0
     const/4 v0, 0x0
 
+    .line 437
     iput-boolean v0, p0, Lorg/apache/commons/collections/list/CursorableLinkedList$Cursor;->currentRemovedByAnother:Z
 
-    .line 438
     return-void
 .end method

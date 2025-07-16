@@ -18,8 +18,6 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 0
-    .param p1, "width"    # I
-    .param p2, "height"    # I
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,23 +28,19 @@
     .line 34
     iput p2, p0, Lcom/nostra13/universalimageloader/core/assist/ImageSize;->height:I
 
-    .line 35
     return-void
 .end method
 
 .method public constructor <init>(III)V
-    .locals 1
-    .param p1, "width"    # I
-    .param p2, "height"    # I
-    .param p3, "rotation"    # I
+    .locals 0
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 38
-    rem-int/lit16 v0, p3, 0xb4
+    rem-int/lit16 p3, p3, 0xb4
 
-    if-nez v0, :cond_0
+    if-nez p3, :cond_0
 
     .line 39
     iput p1, p0, Lcom/nostra13/universalimageloader/core/assist/ImageSize;->width:I
@@ -63,7 +57,6 @@
     .line 43
     iput p1, p0, Lcom/nostra13/universalimageloader/core/assist/ImageSize;->height:I
 
-    .line 45
     :goto_0
     return-void
 .end method
@@ -90,7 +83,6 @@
 
 .method public scale(F)Lcom/nostra13/universalimageloader/core/assist/ImageSize;
     .locals 3
-    .param p1, "scale"    # F
 
     .line 62
     new-instance v0, Lcom/nostra13/universalimageloader/core/assist/ImageSize;
@@ -109,16 +101,15 @@
 
     mul-float/2addr v2, p1
 
-    float-to-int v2, v2
+    float-to-int p1, v2
 
-    invoke-direct {v0, v1, v2}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;-><init>(II)V
+    invoke-direct {v0, v1, p1}, Lcom/nostra13/universalimageloader/core/assist/ImageSize;-><init>(II)V
 
     return-object v0
 .end method
 
 .method public scaleDown(I)Lcom/nostra13/universalimageloader/core/assist/ImageSize;
     .locals 3
-    .param p1, "sampleSize"    # I
 
     .line 57
     new-instance v0, Lcom/nostra13/universalimageloader/core/assist/ImageSize;
@@ -150,13 +141,19 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "x"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget v1, p0, Lcom/nostra13/universalimageloader/core/assist/ImageSize;->height:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

@@ -26,8 +26,6 @@
 
 .method static create(II)Landroidx/camera/core/ImageReaderFormatRecommender$FormatCombo;
     .locals 1
-    .param p0, "imageCaptureFormat"    # I
-    .param p1, "imageAnalysisFormat"    # I
 
     .line 41
     new-instance v0, Landroidx/camera/core/AutoValue_ImageReaderFormatRecommender_FormatCombo;

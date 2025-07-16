@@ -21,7 +21,14 @@
 # direct methods
 .method constructor <init>(Landroidx/core/view/AccessibilityDelegateCompat;)V
     .locals 0
-    .param p1, "compat"    # Landroidx/core/view/AccessibilityDelegateCompat;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "compat"
+        }
+    .end annotation
 
     .line 64
     invoke-direct {p0}, Landroid/view/View$AccessibilityDelegate;-><init>()V
@@ -29,7 +36,6 @@
     .line 65
     iput-object p1, p0, Landroidx/core/view/AccessibilityDelegateCompat$AccessibilityDelegateAdapter;->mCompat:Landroidx/core/view/AccessibilityDelegateCompat;
 
-    .line 66
     return-void
 .end method
 
@@ -37,70 +43,97 @@
 # virtual methods
 .method public dispatchPopulateAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
     .locals 1
-    .param p1, "host"    # Landroid/view/View;
-    .param p2, "event"    # Landroid/view/accessibility/AccessibilityEvent;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "host",
+            "event"
+        }
+    .end annotation
 
     .line 71
     iget-object v0, p0, Landroidx/core/view/AccessibilityDelegateCompat$AccessibilityDelegateAdapter;->mCompat:Landroidx/core/view/AccessibilityDelegateCompat;
 
     invoke-virtual {v0, p1, p2}, Landroidx/core/view/AccessibilityDelegateCompat;->dispatchPopulateAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public getAccessibilityNodeProvider(Landroid/view/View;)Landroid/view/accessibility/AccessibilityNodeProvider;
-    .locals 2
-    .param p1, "host"    # Landroid/view/View;
-
-    .line 118
-    iget-object v0, p0, Landroidx/core/view/AccessibilityDelegateCompat$AccessibilityDelegateAdapter;->mCompat:Landroidx/core/view/AccessibilityDelegateCompat;
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "host"
+        }
+    .end annotation
 
     .line 119
-    invoke-virtual {v0, p1}, Landroidx/core/view/AccessibilityDelegateCompat;->getAccessibilityNodeProvider(Landroid/view/View;)Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat;
-
-    move-result-object v0
+    iget-object v0, p0, Landroidx/core/view/AccessibilityDelegateCompat$AccessibilityDelegateAdapter;->mCompat:Landroidx/core/view/AccessibilityDelegateCompat;
 
     .line 120
-    .local v0, "provider":Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat;
-    if-eqz v0, :cond_0
+    invoke-virtual {v0, p1}, Landroidx/core/view/AccessibilityDelegateCompat;->getAccessibilityNodeProvider(Landroid/view/View;)Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat;
 
-    .line 121
-    invoke-virtual {v0}, Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat;->getProvider()Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v1
+    if-eqz p1, :cond_0
 
-    check-cast v1, Landroid/view/accessibility/AccessibilityNodeProvider;
+    .line 122
+    invoke-virtual {p1}, Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat;->getProvider()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/view/accessibility/AccessibilityNodeProvider;
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    .line 120
     :goto_0
-    return-object v1
+    return-object p1
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
-    .param p1, "host"    # Landroid/view/View;
-    .param p2, "event"    # Landroid/view/accessibility/AccessibilityEvent;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "host",
+            "event"
+        }
+    .end annotation
 
     .line 76
     iget-object v0, p0, Landroidx/core/view/AccessibilityDelegateCompat$AccessibilityDelegateAdapter;->mCompat:Landroidx/core/view/AccessibilityDelegateCompat;
 
     invoke-virtual {v0, p1, p2}, Landroidx/core/view/AccessibilityDelegateCompat;->onInitializeAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
 
-    .line 77
     return-void
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .locals 4
-    .param p1, "host"    # Landroid/view/View;
-    .param p2, "info"    # Landroid/view/accessibility/AccessibilityNodeInfo;
+    .locals 2
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "host",
+            "info"
+        }
+    .end annotation
 
     .line 82
     invoke-static {p2}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->wrap(Landroid/view/accessibility/AccessibilityNodeInfo;)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
@@ -108,7 +141,6 @@
     move-result-object v0
 
     .line 83
-    .local v0, "nodeInfoCompat":Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;
     invoke-static {p1}, Landroidx/core/view/ViewCompat;->isScreenReaderFocusable(Landroid/view/View;)Z
 
     move-result v1
@@ -130,124 +162,165 @@
     invoke-virtual {v0, v1}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->setPaneTitle(Ljava/lang/CharSequence;)V
 
     .line 86
+    invoke-static {p1}, Landroidx/core/view/ViewCompat;->getStateDescription(Landroid/view/View;)Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->setStateDescription(Ljava/lang/CharSequence;)V
+
+    .line 87
     iget-object v1, p0, Landroidx/core/view/AccessibilityDelegateCompat$AccessibilityDelegateAdapter;->mCompat:Landroidx/core/view/AccessibilityDelegateCompat;
 
     invoke-virtual {v1, p1, v0}, Landroidx/core/view/AccessibilityDelegateCompat;->onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
 
-    .line 87
+    .line 88
     invoke-virtual {p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->getText()Ljava/lang/CharSequence;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v0, v1, p1}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->addSpansToExtras(Ljava/lang/CharSequence;Landroid/view/View;)V
+    invoke-virtual {v0, p2, p1}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->addSpansToExtras(Ljava/lang/CharSequence;Landroid/view/View;)V
 
-    .line 88
+    .line 89
     invoke-static {p1}, Landroidx/core/view/AccessibilityDelegateCompat;->getActionList(Landroid/view/View;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p1
 
-    .line 89
-    .local v1, "actions":Ljava/util/List;, "Ljava/util/List<Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;>;"
-    const/4 v2, 0x0
-
-    .local v2, "i":I
-    :goto_0
-    invoke-interface {v1}, Ljava/util/List;->size()I
-
-    move-result v3
-
-    if-ge v2, v3, :cond_0
+    const/4 p2, 0x0
 
     .line 90
-    invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    :goto_0
+    invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result-object v3
+    move-result v1
 
-    check-cast v3, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
+    if-ge p2, v1, :cond_0
 
-    invoke-virtual {v0, v3}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->addAction(Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;)V
+    .line 91
+    invoke-interface {p1, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    .line 89
-    add-int/lit8 v2, v2, 0x1
+    move-result-object v1
+
+    check-cast v1, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
+
+    invoke-virtual {v0, v1}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->addAction(Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;)V
+
+    add-int/lit8 p2, p2, 0x1
 
     goto :goto_0
 
-    .line 92
-    .end local v2    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public onPopulateAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
-    .param p1, "host"    # Landroid/view/View;
-    .param p2, "event"    # Landroid/view/accessibility/AccessibilityEvent;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "host",
+            "event"
+        }
+    .end annotation
 
-    .line 96
+    .line 97
     iget-object v0, p0, Landroidx/core/view/AccessibilityDelegateCompat$AccessibilityDelegateAdapter;->mCompat:Landroidx/core/view/AccessibilityDelegateCompat;
 
     invoke-virtual {v0, p1, p2}, Landroidx/core/view/AccessibilityDelegateCompat;->onPopulateAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
 
-    .line 97
     return-void
 .end method
 
 .method public onRequestSendAccessibilityEvent(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
     .locals 1
-    .param p1, "host"    # Landroid/view/ViewGroup;
-    .param p2, "child"    # Landroid/view/View;
-    .param p3, "event"    # Landroid/view/accessibility/AccessibilityEvent;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "host",
+            "child",
+            "event"
+        }
+    .end annotation
 
-    .line 102
+    .line 103
     iget-object v0, p0, Landroidx/core/view/AccessibilityDelegateCompat$AccessibilityDelegateAdapter;->mCompat:Landroidx/core/view/AccessibilityDelegateCompat;
 
     invoke-virtual {v0, p1, p2, p3}, Landroidx/core/view/AccessibilityDelegateCompat;->onRequestSendAccessibilityEvent(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
     .locals 1
-    .param p1, "host"    # Landroid/view/View;
-    .param p2, "action"    # I
-    .param p3, "args"    # Landroid/os/Bundle;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "host",
+            "action",
+            "args"
+        }
+    .end annotation
 
-    .line 126
+    .line 127
     iget-object v0, p0, Landroidx/core/view/AccessibilityDelegateCompat$AccessibilityDelegateAdapter;->mCompat:Landroidx/core/view/AccessibilityDelegateCompat;
 
     invoke-virtual {v0, p1, p2, p3}, Landroidx/core/view/AccessibilityDelegateCompat;->performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public sendAccessibilityEvent(Landroid/view/View;I)V
     .locals 1
-    .param p1, "host"    # Landroid/view/View;
-    .param p2, "eventType"    # I
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "host",
+            "eventType"
+        }
+    .end annotation
 
-    .line 107
+    .line 108
     iget-object v0, p0, Landroidx/core/view/AccessibilityDelegateCompat$AccessibilityDelegateAdapter;->mCompat:Landroidx/core/view/AccessibilityDelegateCompat;
 
     invoke-virtual {v0, p1, p2}, Landroidx/core/view/AccessibilityDelegateCompat;->sendAccessibilityEvent(Landroid/view/View;I)V
 
-    .line 108
     return-void
 .end method
 
 .method public sendAccessibilityEventUnchecked(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
-    .param p1, "host"    # Landroid/view/View;
-    .param p2, "event"    # Landroid/view/accessibility/AccessibilityEvent;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "host",
+            "event"
+        }
+    .end annotation
 
-    .line 112
+    .line 113
     iget-object v0, p0, Landroidx/core/view/AccessibilityDelegateCompat$AccessibilityDelegateAdapter;->mCompat:Landroidx/core/view/AccessibilityDelegateCompat;
 
     invoke-virtual {v0, p1, p2}, Landroidx/core/view/AccessibilityDelegateCompat;->sendAccessibilityEventUnchecked(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
 
-    .line 113
     return-void
 .end method

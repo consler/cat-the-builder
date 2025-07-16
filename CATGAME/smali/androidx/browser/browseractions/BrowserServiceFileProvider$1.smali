@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 6
+    .locals 3
 
     .line 279
     :try_start_0
@@ -58,20 +58,17 @@
 
     move-result-object v0
 
-    .line 281
-    .local v0, "descriptor":Landroid/os/ParcelFileDescriptor;
     if-nez v0, :cond_0
 
     .line 282
-    iget-object v1, p0, Landroidx/browser/browseractions/BrowserServiceFileProvider$1;->val$result:Landroidx/concurrent/futures/ResolvableFuture;
+    iget-object v0, p0, Landroidx/browser/browseractions/BrowserServiceFileProvider$1;->val$result:Landroidx/concurrent/futures/ResolvableFuture;
 
-    new-instance v2, Ljava/io/FileNotFoundException;
+    new-instance v1, Ljava/io/FileNotFoundException;
 
-    invoke-direct {v2}, Ljava/io/FileNotFoundException;-><init>()V
+    invoke-direct {v1}, Ljava/io/FileNotFoundException;-><init>()V
 
-    invoke-virtual {v1, v2}, Landroidx/concurrent/futures/ResolvableFuture;->setException(Ljava/lang/Throwable;)Z
+    invoke-virtual {v0, v1}, Landroidx/concurrent/futures/ResolvableFuture;->setException(Ljava/lang/Throwable;)Z
 
-    .line 283
     return-void
 
     .line 286
@@ -81,60 +78,46 @@
     move-result-object v1
 
     .line 287
-    .local v1, "fileDescriptor":Ljava/io/FileDescriptor;
     invoke-static {v1}, Landroid/graphics/BitmapFactory;->decodeFileDescriptor(Ljava/io/FileDescriptor;)Landroid/graphics/Bitmap;
 
-    move-result-object v2
+    move-result-object v1
 
     .line 288
-    .local v2, "bitmap":Landroid/graphics/Bitmap;
     invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->close()V
 
-    .line 290
-    if-nez v2, :cond_1
+    if-nez v1, :cond_1
 
     .line 291
-    iget-object v3, p0, Landroidx/browser/browseractions/BrowserServiceFileProvider$1;->val$result:Landroidx/concurrent/futures/ResolvableFuture;
+    iget-object v0, p0, Landroidx/browser/browseractions/BrowserServiceFileProvider$1;->val$result:Landroidx/concurrent/futures/ResolvableFuture;
 
-    new-instance v4, Ljava/io/IOException;
+    new-instance v1, Ljava/io/IOException;
 
-    const-string v5, "File could not be decoded."
+    const-string v2, "File could not be decoded."
 
-    invoke-direct {v4, v5}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v4}, Landroidx/concurrent/futures/ResolvableFuture;->setException(Ljava/lang/Throwable;)Z
+    invoke-virtual {v0, v1}, Landroidx/concurrent/futures/ResolvableFuture;->setException(Ljava/lang/Throwable;)Z
 
-    .line 292
     return-void
 
     .line 295
     :cond_1
-    iget-object v3, p0, Landroidx/browser/browseractions/BrowserServiceFileProvider$1;->val$result:Landroidx/concurrent/futures/ResolvableFuture;
+    iget-object v0, p0, Landroidx/browser/browseractions/BrowserServiceFileProvider$1;->val$result:Landroidx/concurrent/futures/ResolvableFuture;
 
-    invoke-virtual {v3, v2}, Landroidx/concurrent/futures/ResolvableFuture;->set(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Landroidx/concurrent/futures/ResolvableFuture;->set(Ljava/lang/Object;)Z
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 298
-    nop
-
-    .end local v0    # "descriptor":Landroid/os/ParcelFileDescriptor;
-    .end local v1    # "fileDescriptor":Ljava/io/FileDescriptor;
-    .end local v2    # "bitmap":Landroid/graphics/Bitmap;
     goto :goto_0
 
-    .line 296
     :catch_0
     move-exception v0
 
     .line 297
-    .local v0, "e":Ljava/io/IOException;
     iget-object v1, p0, Landroidx/browser/browseractions/BrowserServiceFileProvider$1;->val$result:Landroidx/concurrent/futures/ResolvableFuture;
 
     invoke-virtual {v1, v0}, Landroidx/concurrent/futures/ResolvableFuture;->setException(Ljava/lang/Throwable;)Z
 
-    .line 299
-    .end local v0    # "e":Ljava/io/IOException;
     :goto_0
     return-void
 .end method

@@ -19,7 +19,6 @@
     .locals 0
 
     .line 42
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,7 +42,6 @@
     .end annotation
 
     .line 88
-    .local p0, "source":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
     move-result-object v0
@@ -58,14 +56,13 @@
 
     invoke-static {p0, v0, v1}, Lio/reactivex/parallel/ParallelFlowable;->from(Lorg/reactivestreams/Publisher;II)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static from(Lorg/reactivestreams/Publisher;I)Lio/reactivex/parallel/ParallelFlowable;
     .locals 1
-    .param p1, "parallelism"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -82,22 +79,19 @@
     .end annotation
 
     .line 100
-    .local p0, "source":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
 
     invoke-static {p0, p1, v0}, Lio/reactivex/parallel/ParallelFlowable;->from(Lorg/reactivestreams/Publisher;II)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static from(Lorg/reactivestreams/Publisher;II)Lio/reactivex/parallel/ParallelFlowable;
     .locals 1
-    .param p1, "parallelism"    # I
-    .param p2, "prefetch"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -113,20 +107,19 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 118
-    .local p0, "source":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     const-string v0, "source"
 
+    .line 118
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 119
     const-string v0, "parallelism"
 
+    .line 119
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
-    .line 120
     const-string v0, "prefetch"
 
+    .line 120
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 122
@@ -136,13 +129,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs fromArray([Lorg/reactivestreams/Publisher;)Lio/reactivex/parallel/ParallelFlowable;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -159,7 +152,6 @@
     .end annotation
 
     .line 745
-    .local p0, "publishers":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<TT;>;"
     array-length v0, p0
 
     if-eqz v0, :cond_0
@@ -171,19 +163,19 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 746
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Zero publishers not supported"
+    const-string v0, "Zero publishers not supported"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
@@ -207,17 +199,14 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 729
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "collectionSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<+TC;>;"
-    .local p2, "collector":Lio/reactivex/functions/BiConsumer;, "Lio/reactivex/functions/BiConsumer<-TC;-TT;>;"
     const-string v0, "collectionSupplier is null"
 
+    .line 729
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 730
     const-string v0, "collector is null"
 
+    .line 730
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 731
@@ -227,9 +216,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final compose(Lio/reactivex/parallel/ParallelTransformer;)Lio/reactivex/parallel/ParallelFlowable;
@@ -249,26 +238,24 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 781
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "composer":Lio/reactivex/parallel/ParallelTransformer;, "Lio/reactivex/parallel/ParallelTransformer<TT;TU;>;"
     const-string v0, "composer is null"
 
+    .line 781
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lio/reactivex/parallel/ParallelTransformer;
+    check-cast p1, Lio/reactivex/parallel/ParallelTransformer;
 
-    invoke-interface {v0, p0}, Lio/reactivex/parallel/ParallelTransformer;->apply(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
+    invoke-interface {p1, p0}, Lio/reactivex/parallel/ParallelTransformer;->apply(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
+    invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final concatMap(Lio/reactivex/functions/Function;)Lio/reactivex/parallel/ParallelFlowable;
@@ -290,21 +277,18 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 871
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     const/4 v0, 0x2
 
+    .line 871
     invoke-virtual {p0, p1, v0}, Lio/reactivex/parallel/ParallelFlowable;->concatMap(Lio/reactivex/functions/Function;I)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final concatMap(Lio/reactivex/functions/Function;I)Lio/reactivex/parallel/ParallelFlowable;
     .locals 2
-    .param p2, "prefetch"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -322,16 +306,14 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 889
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     const-string v0, "mapper is null"
 
+    .line 889
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 890
     const-string v0, "prefetch"
 
+    .line 890
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 891
@@ -343,15 +325,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final concatMapDelayError(Lio/reactivex/functions/Function;IZ)Lio/reactivex/parallel/ParallelFlowable;
-    .locals 2
-    .param p2, "prefetch"    # I
-    .param p3, "tillTheEnd"    # Z
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -369,16 +349,14 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 929
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     const-string v0, "mapper is null"
 
+    .line 929
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 930
     const-string v0, "prefetch"
 
+    .line 930
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 931
@@ -386,26 +364,25 @@
 
     if-eqz p3, :cond_0
 
-    sget-object v1, Lio/reactivex/internal/util/ErrorMode;->END:Lio/reactivex/internal/util/ErrorMode;
+    sget-object p3, Lio/reactivex/internal/util/ErrorMode;->END:Lio/reactivex/internal/util/ErrorMode;
 
     goto :goto_0
 
     :cond_0
-    sget-object v1, Lio/reactivex/internal/util/ErrorMode;->BOUNDARY:Lio/reactivex/internal/util/ErrorMode;
+    sget-object p3, Lio/reactivex/internal/util/ErrorMode;->BOUNDARY:Lio/reactivex/internal/util/ErrorMode;
 
     :goto_0
-    invoke-direct {v0, p0, p1, p2, v1}, Lio/reactivex/internal/operators/parallel/ParallelConcatMap;-><init>(Lio/reactivex/parallel/ParallelFlowable;Lio/reactivex/functions/Function;ILio/reactivex/internal/util/ErrorMode;)V
+    invoke-direct {v0, p0, p1, p2, p3}, Lio/reactivex/internal/operators/parallel/ParallelConcatMap;-><init>(Lio/reactivex/parallel/ParallelFlowable;Lio/reactivex/functions/Function;ILio/reactivex/internal/util/ErrorMode;)V
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final concatMapDelayError(Lio/reactivex/functions/Function;Z)Lio/reactivex/parallel/ParallelFlowable;
     .locals 1
-    .param p2, "tillTheEnd"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -423,16 +400,14 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 910
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     const/4 v0, 0x2
 
+    .line 910
     invoke-virtual {p0, p1, v0, p2}, Lio/reactivex/parallel/ParallelFlowable;->concatMapDelayError(Lio/reactivex/functions/Function;IZ)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final doAfterNext(Lio/reactivex/functions/Consumer;)Lio/reactivex/parallel/ParallelFlowable;
@@ -450,11 +425,9 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 572
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "onAfterNext":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
     const-string v0, "onAfterNext is null"
 
+    .line 572
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 573
@@ -490,14 +463,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final doAfterTerminated(Lio/reactivex/functions/Action;)Lio/reactivex/parallel/ParallelFlowable;
     .locals 11
-    .param p1, "onAfterTerminate"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -511,10 +483,9 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 638
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
     const-string v0, "onAfterTerminate is null"
 
+    .line 638
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 639
@@ -552,14 +523,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final doOnCancel(Lio/reactivex/functions/Action;)Lio/reactivex/parallel/ParallelFlowable;
     .locals 11
-    .param p1, "onCancel"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -573,10 +543,9 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 704
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
     const-string v0, "onCancel is null"
 
+    .line 704
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 705
@@ -614,14 +583,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final doOnComplete(Lio/reactivex/functions/Action;)Lio/reactivex/parallel/ParallelFlowable;
     .locals 11
-    .param p1, "onComplete"    # Lio/reactivex/functions/Action;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -635,10 +603,9 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 616
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
     const-string v0, "onComplete is null"
 
+    .line 616
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 617
@@ -676,9 +643,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final doOnError(Lio/reactivex/functions/Consumer;)Lio/reactivex/parallel/ParallelFlowable;
@@ -697,11 +664,9 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 594
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "onError":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<Ljava/lang/Throwable;>;"
     const-string v0, "onError is null"
 
+    .line 594
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 595
@@ -737,9 +702,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final doOnNext(Lio/reactivex/functions/Consumer;)Lio/reactivex/parallel/ParallelFlowable;
@@ -757,11 +722,9 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 509
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "onNext":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
     const-string v0, "onNext is null"
 
+    .line 509
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 510
@@ -797,9 +760,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final doOnNext(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/BiFunction;)Lio/reactivex/parallel/ParallelFlowable;
@@ -824,17 +787,14 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 557
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "onNext":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
-    .local p2, "errorHandler":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-Ljava/lang/Long;-Ljava/lang/Throwable;Lio/reactivex/parallel/ParallelFailureHandling;>;"
     const-string v0, "onNext is null"
 
+    .line 557
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 558
     const-string v0, "errorHandler is null"
 
+    .line 558
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 559
@@ -844,14 +804,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final doOnNext(Lio/reactivex/functions/Consumer;Lio/reactivex/parallel/ParallelFailureHandling;)Lio/reactivex/parallel/ParallelFlowable;
     .locals 1
-    .param p2, "errorHandler"    # Lio/reactivex/parallel/ParallelFailureHandling;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -867,16 +826,14 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 537
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "onNext":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
     const-string v0, "onNext is null"
 
+    .line 537
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 538
     const-string v0, "errorHandler is null"
 
+    .line 538
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 539
@@ -886,14 +843,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final doOnRequest(Lio/reactivex/functions/LongConsumer;)Lio/reactivex/parallel/ParallelFlowable;
     .locals 11
-    .param p1, "onRequest"    # Lio/reactivex/functions/LongConsumer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -907,10 +863,9 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 682
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
     const-string v0, "onRequest is null"
 
+    .line 682
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 683
@@ -948,9 +903,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final doOnSubscribe(Lio/reactivex/functions/Consumer;)Lio/reactivex/parallel/ParallelFlowable;
@@ -970,11 +925,9 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 660
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "onSubscribe":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Lorg/reactivestreams/Subscription;>;"
     const-string v0, "onSubscribe is null"
 
+    .line 660
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 661
@@ -1010,9 +963,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final filter(Lio/reactivex/functions/Predicate;)Lio/reactivex/parallel/ParallelFlowable;
@@ -1030,11 +983,9 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 192
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "predicate":Lio/reactivex/functions/Predicate;, "Lio/reactivex/functions/Predicate<-TT;>;"
     const-string v0, "predicate"
 
+    .line 192
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 193
@@ -1044,9 +995,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final filter(Lio/reactivex/functions/Predicate;Lio/reactivex/functions/BiFunction;)Lio/reactivex/parallel/ParallelFlowable;
@@ -1071,17 +1022,14 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 231
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "predicate":Lio/reactivex/functions/Predicate;, "Lio/reactivex/functions/Predicate<-TT;>;"
-    .local p2, "errorHandler":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-Ljava/lang/Long;-Ljava/lang/Throwable;Lio/reactivex/parallel/ParallelFailureHandling;>;"
     const-string v0, "predicate"
 
+    .line 231
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 232
     const-string v0, "errorHandler is null"
 
+    .line 232
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 233
@@ -1091,14 +1039,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final filter(Lio/reactivex/functions/Predicate;Lio/reactivex/parallel/ParallelFailureHandling;)Lio/reactivex/parallel/ParallelFlowable;
     .locals 1
-    .param p2, "errorHandler"    # Lio/reactivex/parallel/ParallelFailureHandling;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1114,16 +1061,14 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 210
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "predicate":Lio/reactivex/functions/Predicate;, "Lio/reactivex/functions/Predicate<-TT;>;"
     const-string v0, "predicate"
 
+    .line 210
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 211
     const-string v0, "errorHandler is null"
 
+    .line 211
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 212
@@ -1133,9 +1078,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMap(Lio/reactivex/functions/Function;)Lio/reactivex/parallel/ParallelFlowable;
@@ -1157,27 +1102,24 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
+    const v0, 0x7fffffff
+
     .line 796
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    const v2, 0x7fffffff
+    invoke-virtual {p0, p1, v2, v0, v1}, Lio/reactivex/parallel/ParallelFlowable;->flatMap(Lio/reactivex/functions/Function;ZII)Lio/reactivex/parallel/ParallelFlowable;
 
-    invoke-virtual {p0, p1, v1, v2, v0}, Lio/reactivex/parallel/ParallelFlowable;->flatMap(Lio/reactivex/functions/Function;ZII)Lio/reactivex/parallel/ParallelFlowable;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMap(Lio/reactivex/functions/Function;Z)Lio/reactivex/parallel/ParallelFlowable;
     .locals 2
-    .param p2, "delayError"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -1195,26 +1137,22 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
+    const v0, 0x7fffffff
+
     .line 813
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
-    move-result v0
+    move-result v1
 
-    const v1, 0x7fffffff
+    invoke-virtual {p0, p1, p2, v0, v1}, Lio/reactivex/parallel/ParallelFlowable;->flatMap(Lio/reactivex/functions/Function;ZII)Lio/reactivex/parallel/ParallelFlowable;
 
-    invoke-virtual {p0, p1, p2, v1, v0}, Lio/reactivex/parallel/ParallelFlowable;->flatMap(Lio/reactivex/functions/Function;ZII)Lio/reactivex/parallel/ParallelFlowable;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMap(Lio/reactivex/functions/Function;ZI)Lio/reactivex/parallel/ParallelFlowable;
     .locals 1
-    .param p2, "delayError"    # Z
-    .param p3, "maxConcurrency"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -1233,24 +1171,19 @@
     .end annotation
 
     .line 832
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
 
     invoke-virtual {p0, p1, p2, p3, v0}, Lio/reactivex/parallel/ParallelFlowable;->flatMap(Lio/reactivex/functions/Function;ZII)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final flatMap(Lio/reactivex/functions/Function;ZII)Lio/reactivex/parallel/ParallelFlowable;
     .locals 7
-    .param p2, "delayError"    # Z
-    .param p3, "maxConcurrency"    # I
-    .param p4, "prefetch"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -1268,21 +1201,19 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 852
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lorg/reactivestreams/Publisher<+TR;>;>;"
     const-string v0, "mapper is null"
 
+    .line 852
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 853
     const-string v0, "maxConcurrency"
 
+    .line 853
     invoke-static {p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
-    .line 854
     const-string v0, "prefetch"
 
+    .line 854
     invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 855
@@ -1304,9 +1235,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final map(Lio/reactivex/functions/Function;)Lio/reactivex/parallel/ParallelFlowable;
@@ -1326,11 +1257,9 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 136
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TR;>;"
     const-string v0, "mapper"
 
+    .line 136
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 137
@@ -1340,9 +1269,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final map(Lio/reactivex/functions/Function;Lio/reactivex/functions/BiFunction;)Lio/reactivex/parallel/ParallelFlowable;
@@ -1369,17 +1298,14 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 178
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TR;>;"
-    .local p2, "errorHandler":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-Ljava/lang/Long;-Ljava/lang/Throwable;Lio/reactivex/parallel/ParallelFailureHandling;>;"
     const-string v0, "mapper"
 
+    .line 178
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 179
     const-string v0, "errorHandler is null"
 
+    .line 179
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 180
@@ -1389,14 +1315,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final map(Lio/reactivex/functions/Function;Lio/reactivex/parallel/ParallelFailureHandling;)Lio/reactivex/parallel/ParallelFlowable;
     .locals 1
-    .param p2, "errorHandler"    # Lio/reactivex/parallel/ParallelFailureHandling;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -1414,16 +1339,14 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 156
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TR;>;"
     const-string v0, "mapper"
 
+    .line 156
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 157
     const-string v0, "errorHandler is null"
 
+    .line 157
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 158
@@ -1433,9 +1356,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public abstract parallelism()I
@@ -1456,11 +1379,9 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 301
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "reducer":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<TT;TT;TT;>;"
     const-string v0, "reducer"
 
+    .line 301
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 302
@@ -1470,9 +1391,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final reduce(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiFunction;)Lio/reactivex/parallel/ParallelFlowable;
@@ -1494,17 +1415,14 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 319
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "initialSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TR;>;"
-    .local p2, "reducer":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<TR;-TT;TR;>;"
     const-string v0, "initialSupplier"
 
+    .line 319
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 320
     const-string v0, "reducer"
 
+    .line 320
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 321
@@ -1514,14 +1432,13 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final runOn(Lio/reactivex/Scheduler;)Lio/reactivex/parallel/ParallelFlowable;
     .locals 1
-    .param p1, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1536,22 +1453,19 @@
     .end annotation
 
     .line 258
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
 
     invoke-virtual {p0, p1, v0}, Lio/reactivex/parallel/ParallelFlowable;->runOn(Lio/reactivex/Scheduler;I)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final runOn(Lio/reactivex/Scheduler;I)Lio/reactivex/parallel/ParallelFlowable;
     .locals 1
-    .param p1, "scheduler"    # Lio/reactivex/Scheduler;
-    .param p2, "prefetch"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1565,15 +1479,14 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 285
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
     const-string v0, "scheduler"
 
+    .line 285
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 286
     const-string v0, "prefetch"
 
+    .line 286
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 287
@@ -1583,9 +1496,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/parallel/ParallelFlowable;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final sequential()Lio/reactivex/Flowable;
@@ -1610,7 +1523,6 @@
     .end annotation
 
     .line 345
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
@@ -1624,7 +1536,6 @@
 
 .method public final sequential(I)Lio/reactivex/Flowable;
     .locals 2
-    .param p1, "prefetch"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -1644,10 +1555,9 @@
         value = "none"
     .end annotation
 
-    .line 369
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
     const-string v0, "prefetch"
 
+    .line 369
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 370
@@ -1659,9 +1569,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final sequentialDelayError()Lio/reactivex/Flowable;
@@ -1686,7 +1596,6 @@
     .end annotation
 
     .line 397
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
     invoke-static {}, Lio/reactivex/Flowable;->bufferSize()I
 
     move-result v0
@@ -1700,7 +1609,6 @@
 
 .method public final sequentialDelayError(I)Lio/reactivex/Flowable;
     .locals 2
-    .param p1, "prefetch"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -1720,10 +1628,9 @@
         value = "none"
     .end annotation
 
-    .line 422
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
     const-string v0, "prefetch"
 
+    .line 422
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 423
@@ -1735,9 +1642,9 @@
 
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final sorted(Ljava/util/Comparator;)Lio/reactivex/Flowable;
@@ -1755,21 +1662,18 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 438
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TT;>;"
     const/16 v0, 0x10
 
+    .line 438
     invoke-virtual {p0, p1, v0}, Lio/reactivex/parallel/ParallelFlowable;->sorted(Ljava/util/Comparator;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final sorted(Ljava/util/Comparator;I)Lio/reactivex/Flowable;
-    .locals 4
-    .param p2, "capacityHint"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1783,16 +1687,14 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 454
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TT;>;"
     const-string v0, "comparator is null"
 
+    .line 454
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 455
     const-string v0, "capacityHint"
 
+    .line 455
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 456
@@ -1800,45 +1702,42 @@
 
     move-result v0
 
-    div-int v0, p2, v0
+    div-int/2addr p2, v0
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p2, p2, 0x1
 
     .line 457
-    .local v0, "ch":I
-    invoke-static {v0}, Lio/reactivex/internal/functions/Functions;->createArrayList(I)Ljava/util/concurrent/Callable;
+    invoke-static {p2}, Lio/reactivex/internal/functions/Functions;->createArrayList(I)Ljava/util/concurrent/Callable;
 
-    move-result-object v1
+    move-result-object p2
 
     invoke-static {}, Lio/reactivex/internal/util/ListAddBiConsumer;->instance()Lio/reactivex/functions/BiFunction;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {p0, v1, v2}, Lio/reactivex/parallel/ParallelFlowable;->reduce(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiFunction;)Lio/reactivex/parallel/ParallelFlowable;
+    invoke-virtual {p0, p2, v0}, Lio/reactivex/parallel/ParallelFlowable;->reduce(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiFunction;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v1
+    move-result-object p2
 
     .line 458
-    .local v1, "railReduced":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<Ljava/util/List<TT;>;>;"
-    new-instance v2, Lio/reactivex/internal/util/SorterFunction;
+    new-instance v0, Lio/reactivex/internal/util/SorterFunction;
 
-    invoke-direct {v2, p1}, Lio/reactivex/internal/util/SorterFunction;-><init>(Ljava/util/Comparator;)V
+    invoke-direct {v0, p1}, Lio/reactivex/internal/util/SorterFunction;-><init>(Ljava/util/Comparator;)V
 
-    invoke-virtual {v1, v2}, Lio/reactivex/parallel/ParallelFlowable;->map(Lio/reactivex/functions/Function;)Lio/reactivex/parallel/ParallelFlowable;
+    invoke-virtual {p2, v0}, Lio/reactivex/parallel/ParallelFlowable;->map(Lio/reactivex/functions/Function;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v2
+    move-result-object p2
 
     .line 460
-    .local v2, "railSorted":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<Ljava/util/List<TT;>;>;"
-    new-instance v3, Lio/reactivex/internal/operators/parallel/ParallelSortedJoin;
+    new-instance v0, Lio/reactivex/internal/operators/parallel/ParallelSortedJoin;
 
-    invoke-direct {v3, v2, p1}, Lio/reactivex/internal/operators/parallel/ParallelSortedJoin;-><init>(Lio/reactivex/parallel/ParallelFlowable;Ljava/util/Comparator;)V
+    invoke-direct {v0, p2, p1}, Lio/reactivex/internal/operators/parallel/ParallelSortedJoin;-><init>(Lio/reactivex/parallel/ParallelFlowable;Ljava/util/Comparator;)V
 
-    invoke-static {v3}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
+    invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v3
+    move-result-object p1
 
-    return-object v3
+    return-object p1
 .end method
 
 .method public abstract subscribe([Lorg/reactivestreams/Subscriber;)V
@@ -1852,7 +1751,7 @@
 .end method
 
 .method public final to(Lio/reactivex/functions/Function;)Ljava/lang/Object;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<U:",
@@ -1868,40 +1767,36 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 763
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "converter":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-Lio/reactivex/parallel/ParallelFlowable<TT;>;TU;>;"
     :try_start_0
     const-string v0, "converter is null"
 
+    .line 763
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lio/reactivex/functions/Function;
+    check-cast p1, Lio/reactivex/functions/Function;
 
-    invoke-interface {v0, p0}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, p0}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    return-object v0
+    return-object p1
 
-    .line 764
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     .line 765
-    .local v0, "ex":Ljava/lang/Throwable;
-    invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 766
-    invoke-static {v0}, Lio/reactivex/internal/util/ExceptionHelper;->wrapOrThrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
+    invoke-static {p1}, Lio/reactivex/internal/util/ExceptionHelper;->wrapOrThrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 .end method
 
 .method public final toSortedList(Ljava/util/Comparator;)Lio/reactivex/Flowable;
@@ -1920,21 +1815,18 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 474
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TT;>;"
     const/16 v0, 0x10
 
+    .line 474
     invoke-virtual {p0, p1, v0}, Lio/reactivex/parallel/ParallelFlowable;->toSortedList(Ljava/util/Comparator;I)Lio/reactivex/Flowable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final toSortedList(Ljava/util/Comparator;I)Lio/reactivex/Flowable;
-    .locals 5
-    .param p2, "capacityHint"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1949,16 +1841,14 @@
     .annotation runtime Lio/reactivex/annotations/CheckReturnValue;
     .end annotation
 
-    .line 488
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "comparator":Ljava/util/Comparator;, "Ljava/util/Comparator<-TT;>;"
     const-string v0, "comparator is null"
 
+    .line 488
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 489
     const-string v0, "capacityHint"
 
+    .line 489
     invoke-static {p2, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 491
@@ -1966,55 +1856,51 @@
 
     move-result v0
 
-    div-int v0, p2, v0
+    div-int/2addr p2, v0
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p2, p2, 0x1
 
     .line 492
-    .local v0, "ch":I
-    invoke-static {v0}, Lio/reactivex/internal/functions/Functions;->createArrayList(I)Ljava/util/concurrent/Callable;
+    invoke-static {p2}, Lio/reactivex/internal/functions/Functions;->createArrayList(I)Ljava/util/concurrent/Callable;
 
-    move-result-object v1
+    move-result-object p2
 
     invoke-static {}, Lio/reactivex/internal/util/ListAddBiConsumer;->instance()Lio/reactivex/functions/BiFunction;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {p0, v1, v2}, Lio/reactivex/parallel/ParallelFlowable;->reduce(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiFunction;)Lio/reactivex/parallel/ParallelFlowable;
+    invoke-virtual {p0, p2, v0}, Lio/reactivex/parallel/ParallelFlowable;->reduce(Ljava/util/concurrent/Callable;Lio/reactivex/functions/BiFunction;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v1
+    move-result-object p2
 
     .line 493
-    .local v1, "railReduced":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<Ljava/util/List<TT;>;>;"
-    new-instance v2, Lio/reactivex/internal/util/SorterFunction;
+    new-instance v0, Lio/reactivex/internal/util/SorterFunction;
 
-    invoke-direct {v2, p1}, Lio/reactivex/internal/util/SorterFunction;-><init>(Ljava/util/Comparator;)V
+    invoke-direct {v0, p1}, Lio/reactivex/internal/util/SorterFunction;-><init>(Ljava/util/Comparator;)V
 
-    invoke-virtual {v1, v2}, Lio/reactivex/parallel/ParallelFlowable;->map(Lio/reactivex/functions/Function;)Lio/reactivex/parallel/ParallelFlowable;
+    invoke-virtual {p2, v0}, Lio/reactivex/parallel/ParallelFlowable;->map(Lio/reactivex/functions/Function;)Lio/reactivex/parallel/ParallelFlowable;
 
-    move-result-object v2
+    move-result-object p2
 
     .line 495
-    .local v2, "railSorted":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<Ljava/util/List<TT;>;>;"
-    new-instance v3, Lio/reactivex/internal/util/MergerBiFunction;
+    new-instance v0, Lio/reactivex/internal/util/MergerBiFunction;
 
-    invoke-direct {v3, p1}, Lio/reactivex/internal/util/MergerBiFunction;-><init>(Ljava/util/Comparator;)V
+    invoke-direct {v0, p1}, Lio/reactivex/internal/util/MergerBiFunction;-><init>(Ljava/util/Comparator;)V
 
-    invoke-virtual {v2, v3}, Lio/reactivex/parallel/ParallelFlowable;->reduce(Lio/reactivex/functions/BiFunction;)Lio/reactivex/Flowable;
+    invoke-virtual {p2, v0}, Lio/reactivex/parallel/ParallelFlowable;->reduce(Lio/reactivex/functions/BiFunction;)Lio/reactivex/Flowable;
 
-    move-result-object v3
+    move-result-object p1
 
     .line 497
-    .local v3, "merged":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<Ljava/util/List<TT;>;>;"
-    invoke-static {v3}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
+    invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Flowable;)Lio/reactivex/Flowable;
 
-    move-result-object v4
+    move-result-object p1
 
-    return-object v4
+    return-object p1
 .end method
 
 .method protected final validate([Lorg/reactivestreams/Subscriber;)Z
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -2024,14 +1910,11 @@
     .end annotation
 
     .line 68
-    .local p0, "this":Lio/reactivex/parallel/ParallelFlowable;, "Lio/reactivex/parallel/ParallelFlowable<TT;>;"
-    .local p1, "subscribers":[Lorg/reactivestreams/Subscriber;, "[Lorg/reactivestreams/Subscriber<*>;"
     invoke-virtual {p0}, Lio/reactivex/parallel/ParallelFlowable;->parallelism()I
 
     move-result v0
 
     .line 69
-    .local v0, "p":I
     array-length v1, p1
 
     if-eq v1, v0, :cond_1
@@ -2041,67 +1924,56 @@
 
     new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v3, "parallelism = "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v3, ", subscribers = "
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, ", subscribers = "
 
-    array-length v3, p1
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    array-length v2, p1
 
-    move-result-object v2
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     .line 71
-    .local v1, "iae":Ljava/lang/Throwable;
-    move-object v2, p1
+    array-length v0, p1
 
-    .local v2, "arr$":[Lorg/reactivestreams/Subscriber;
-    array-length v3, v2
+    const/4 v2, 0x0
 
-    .local v3, "len$":I
-    const/4 v4, 0x0
+    move v3, v2
 
-    .local v4, "i$":I
     :goto_0
-    if-ge v4, v3, :cond_0
+    if-ge v3, v0, :cond_0
 
-    aget-object v5, v2, v4
+    aget-object v4, p1, v3
 
     .line 72
-    .local v5, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<*>;"
-    invoke-static {v1, v5}, Lio/reactivex/internal/subscriptions/EmptySubscription;->error(Ljava/lang/Throwable;Lorg/reactivestreams/Subscriber;)V
+    invoke-static {v1, v4}, Lio/reactivex/internal/subscriptions/EmptySubscription;->error(Ljava/lang/Throwable;Lorg/reactivestreams/Subscriber;)V
 
-    .line 71
-    .end local v5    # "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<*>;"
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 74
-    .end local v2    # "arr$":[Lorg/reactivestreams/Subscriber;
-    .end local v3    # "len$":I
-    .end local v4    # "i$":I
     :cond_0
-    const/4 v2, 0x0
-
     return v2
 
-    .line 76
-    .end local v1    # "iae":Ljava/lang/Throwable;
     :cond_1
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    return v1
+    return p1
 .end method

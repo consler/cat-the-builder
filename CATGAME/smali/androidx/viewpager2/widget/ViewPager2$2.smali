@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/viewpager2/widget/ViewPager2;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/viewpager2/widget/ViewPager2;
 
     .line 212
     iput-object p1, p0, Landroidx/viewpager2/widget/ViewPager2$2;->this$0:Landroidx/viewpager2/widget/ViewPager2;
@@ -34,25 +33,21 @@
 
 # virtual methods
 .method public onPageScrollStateChanged(I)V
-    .locals 1
-    .param p1, "newState"    # I
+    .locals 0
 
-    .line 223
     if-nez p1, :cond_0
 
     .line 224
-    iget-object v0, p0, Landroidx/viewpager2/widget/ViewPager2$2;->this$0:Landroidx/viewpager2/widget/ViewPager2;
+    iget-object p1, p0, Landroidx/viewpager2/widget/ViewPager2$2;->this$0:Landroidx/viewpager2/widget/ViewPager2;
 
-    invoke-virtual {v0}, Landroidx/viewpager2/widget/ViewPager2;->updateCurrentItem()V
+    invoke-virtual {p1}, Landroidx/viewpager2/widget/ViewPager2;->updateCurrentItem()V
 
-    .line 226
     :cond_0
     return-void
 .end method
 
 .method public onPageSelected(I)V
     .locals 1
-    .param p1, "position"    # I
 
     .line 215
     iget-object v0, p0, Landroidx/viewpager2/widget/ViewPager2$2;->this$0:Landroidx/viewpager2/widget/ViewPager2;
@@ -67,13 +62,12 @@
     iput p1, v0, Landroidx/viewpager2/widget/ViewPager2;->mCurrentItem:I
 
     .line 217
-    iget-object v0, p0, Landroidx/viewpager2/widget/ViewPager2$2;->this$0:Landroidx/viewpager2/widget/ViewPager2;
+    iget-object p1, p0, Landroidx/viewpager2/widget/ViewPager2$2;->this$0:Landroidx/viewpager2/widget/ViewPager2;
 
-    iget-object v0, v0, Landroidx/viewpager2/widget/ViewPager2;->mAccessibilityProvider:Landroidx/viewpager2/widget/ViewPager2$AccessibilityProvider;
+    iget-object p1, p1, Landroidx/viewpager2/widget/ViewPager2;->mAccessibilityProvider:Landroidx/viewpager2/widget/ViewPager2$AccessibilityProvider;
 
-    invoke-virtual {v0}, Landroidx/viewpager2/widget/ViewPager2$AccessibilityProvider;->onSetNewCurrentItem()V
+    invoke-virtual {p1}, Landroidx/viewpager2/widget/ViewPager2$AccessibilityProvider;->onSetNewCurrentItem()V
 
-    .line 219
     :cond_0
     return-void
 .end method

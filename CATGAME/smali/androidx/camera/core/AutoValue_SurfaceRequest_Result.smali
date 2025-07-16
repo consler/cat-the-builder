@@ -11,9 +11,7 @@
 
 # direct methods
 .method constructor <init>(ILandroid/view/Surface;)V
-    .locals 2
-    .param p1, "resultCode"    # I
-    .param p2, "surface"    # Landroid/view/Surface;
+    .locals 0
 
     .line 17
     invoke-direct {p0}, Landroidx/camera/core/SurfaceRequest$Result;-><init>()V
@@ -21,38 +19,33 @@
     .line 18
     iput p1, p0, Landroidx/camera/core/AutoValue_SurfaceRequest_Result;->resultCode:I
 
-    .line 19
     if-eqz p2, :cond_0
 
     .line 22
     iput-object p2, p0, Landroidx/camera/core/AutoValue_SurfaceRequest_Result;->surface:Landroid/view/Surface;
 
-    .line 23
     return-void
 
     .line 20
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "Null surface"
+    const-string p2, "Null surface"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 4
 
-    .line 47
     const/4 v0, 0x1
 
     if-ne p1, p0, :cond_0
 
-    .line 48
     return v0
 
     .line 50
@@ -64,44 +57,38 @@
     if-eqz v1, :cond_2
 
     .line 51
-    move-object v1, p1
-
-    check-cast v1, Landroidx/camera/core/SurfaceRequest$Result;
+    check-cast p1, Landroidx/camera/core/SurfaceRequest$Result;
 
     .line 52
-    .local v1, "that":Landroidx/camera/core/SurfaceRequest$Result;
-    iget v3, p0, Landroidx/camera/core/AutoValue_SurfaceRequest_Result;->resultCode:I
+    iget v1, p0, Landroidx/camera/core/AutoValue_SurfaceRequest_Result;->resultCode:I
 
-    invoke-virtual {v1}, Landroidx/camera/core/SurfaceRequest$Result;->getResultCode()I
-
-    move-result v4
-
-    if-ne v3, v4, :cond_1
-
-    iget-object v3, p0, Landroidx/camera/core/AutoValue_SurfaceRequest_Result;->surface:Landroid/view/Surface;
-
-    .line 53
-    invoke-virtual {v1}, Landroidx/camera/core/SurfaceRequest$Result;->getSurface()Landroid/view/Surface;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1}, Landroidx/camera/core/SurfaceRequest$Result;->getResultCode()I
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-ne v1, v3, :cond_1
+
+    iget-object v1, p0, Landroidx/camera/core/AutoValue_SurfaceRequest_Result;->surface:Landroid/view/Surface;
+
+    .line 53
+    invoke-virtual {p1}, Landroidx/camera/core/SurfaceRequest$Result;->getSurface()Landroid/view/Surface;
+
+    move-result-object p1
+
+    invoke-virtual {v1, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
 
     goto :goto_0
 
     :cond_1
     move v0, v2
 
-    .line 52
     :goto_0
     return v0
 
-    .line 55
-    .end local v1    # "that":Landroidx/camera/core/SurfaceRequest$Result;
     :cond_2
     return v2
 .end method
@@ -125,23 +112,15 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
-
-    .line 60
-    const/4 v0, 0x1
-
-    .line 61
-    .local v0, "h$":I
-    const v1, 0xf4243
-
-    mul-int/2addr v0, v1
+    .locals 2
 
     .line 62
-    iget v2, p0, Landroidx/camera/core/AutoValue_SurfaceRequest_Result;->resultCode:I
+    iget v0, p0, Landroidx/camera/core/AutoValue_SurfaceRequest_Result;->resultCode:I
 
-    xor-int/2addr v0, v2
+    const v1, 0xf4243
 
-    .line 63
+    xor-int/2addr v0, v1
+
     mul-int/2addr v0, v1
 
     .line 64
@@ -153,7 +132,6 @@
 
     xor-int/2addr v0, v1
 
-    .line 65
     return v0
 .end method
 
@@ -163,27 +141,33 @@
     .line 39
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "Result{resultCode="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget v1, p0, Landroidx/camera/core/AutoValue_SurfaceRequest_Result;->resultCode:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", surface="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Landroidx/camera/core/AutoValue_SurfaceRequest_Result;->surface:Landroid/view/Surface;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "}"
+    move-result-object v0
+
+    const-string v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

@@ -52,9 +52,7 @@
 .end method
 
 .method public forConstantValue(Ljavax/annotation/MatchesPattern;Ljava/lang/Object;)Ljavax/annotation/meta/When;
-    .locals 2
-    .param p1, "annotation"    # Ljavax/annotation/MatchesPattern;
-    .param p2, "value"    # Ljava/lang/Object;
+    .locals 1
 
     .line 28
     invoke-interface {p1}, Ljavax/annotation/MatchesPattern;->value()Ljava/lang/String;
@@ -63,36 +61,33 @@
 
     invoke-interface {p1}, Ljavax/annotation/MatchesPattern;->flags()I
 
-    move-result v1
+    move-result p1
 
-    invoke-static {v0, v1}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;I)Ljava/util/regex/Pattern;
+    invoke-static {v0, p1}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;I)Ljava/util/regex/Pattern;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 29
-    .local v0, "p":Ljava/util/regex/Pattern;
-    move-object v1, p2
+    check-cast p2, Ljava/lang/String;
 
-    check-cast v1, Ljava/lang/String;
+    invoke-virtual {p1, p2}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
-    invoke-virtual {v0, v1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/util/regex/Matcher;->matches()Z
 
-    invoke-virtual {v1}, Ljava/util/regex/Matcher;->matches()Z
+    move-result p1
 
-    move-result v1
-
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
     .line 30
-    sget-object v1, Ljavax/annotation/meta/When;->ALWAYS:Ljavax/annotation/meta/When;
+    sget-object p1, Ljavax/annotation/meta/When;->ALWAYS:Ljavax/annotation/meta/When;
 
-    return-object v1
+    return-object p1
 
     .line 31
     :cond_0
-    sget-object v1, Ljavax/annotation/meta/When;->NEVER:Ljavax/annotation/meta/When;
+    sget-object p1, Ljavax/annotation/meta/When;->NEVER:Ljavax/annotation/meta/When;
 
-    return-object v1
+    return-object p1
 .end method

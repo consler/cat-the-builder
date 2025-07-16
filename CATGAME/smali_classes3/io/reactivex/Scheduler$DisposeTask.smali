@@ -29,8 +29,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Runnable;Lio/reactivex/Scheduler$Worker;)V
     .locals 0
-    .param p1, "decoratedRun"    # Ljava/lang/Runnable;
-    .param p2, "w"    # Lio/reactivex/Scheduler$Worker;
 
     .line 443
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +39,6 @@
     .line 445
     iput-object p2, p0, Lio/reactivex/Scheduler$DisposeTask;->w:Lio/reactivex/Scheduler$Worker;
 
-    .line 446
     return-void
 .end method
 
@@ -78,7 +75,6 @@
 
     invoke-virtual {v0}, Lio/reactivex/Scheduler$Worker;->dispose()V
 
-    .line 466
     :goto_0
     return-void
 .end method
@@ -106,9 +102,9 @@
 
     iput-object v0, p0, Lio/reactivex/Scheduler$DisposeTask;->runner:Ljava/lang/Thread;
 
-    .line 452
     const/4 v0, 0x0
 
+    .line 452
     :try_start_0
     iget-object v1, p0, Lio/reactivex/Scheduler$DisposeTask;->decoratedRun:Ljava/lang/Runnable;
 
@@ -122,16 +118,12 @@
     .line 455
     iput-object v0, p0, Lio/reactivex/Scheduler$DisposeTask;->runner:Ljava/lang/Thread;
 
-    .line 456
-    nop
-
-    .line 457
     return-void
 
-    .line 454
     :catchall_0
     move-exception v1
 
+    .line 454
     invoke-virtual {p0}, Lio/reactivex/Scheduler$DisposeTask;->dispose()V
 
     .line 455

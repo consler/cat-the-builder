@@ -61,7 +61,6 @@
 
 .method public constructor <init>(Lorg/koin/core/scope/Scope;)V
     .locals 0
-    .param p1, "scope"    # Lorg/koin/core/scope/Scope;
 
     .line 11
     invoke-direct {p0}, Landroidx/fragment/app/FragmentFactory;-><init>()V
@@ -78,10 +77,12 @@
 
     if-eqz p2, :cond_0
 
-    .line 11
     const/4 p1, 0x0
 
-    check-cast p1, Lorg/koin/core/scope/Scope;
+    .line 11
+    move-object p2, p1
+
+    check-cast p2, Lorg/koin/core/scope/Scope;
 
     :cond_0
     invoke-direct {p0, p1}, Lorg/koin/androidx/fragment/android/KoinFragmentFactory;-><init>(Lorg/koin/core/scope/Scope;)V
@@ -113,8 +114,6 @@
 
 .method public instantiate(Ljava/lang/ClassLoader;Ljava/lang/String;)Landroidx/fragment/app/Fragment;
     .locals 8
-    .param p1, "classLoader"    # Ljava/lang/ClassLoader;
-    .param p2, "className"    # Ljava/lang/String;
 
     const-string v0, "classLoader"
 
@@ -135,15 +134,13 @@
 
     invoke-static {v0}, Lkotlin/jvm/JvmClassMappingKt;->getKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    move-result-object v0
+    move-result-object v3
 
     .line 15
-    .local v0, "clazz":Lkotlin/reflect/KClass;
     iget-object v2, p0, Lorg/koin/androidx/fragment/android/KoinFragmentFactory;->scope:Lorg/koin/core/scope/Scope;
 
     if-eqz v2, :cond_0
 
-    .line 16
     const/4 v4, 0x0
 
     const/4 v5, 0x0
@@ -152,13 +149,12 @@
 
     const/4 v7, 0x0
 
-    move-object v3, v0
-
+    .line 16
     invoke-static/range {v2 .. v7}, Lorg/koin/core/scope/Scope;->getOrNull$default(Lorg/koin/core/scope/Scope;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroidx/fragment/app/Fragment;
+    check-cast v0, Landroidx/fragment/app/Fragment;
 
     goto :goto_0
 
@@ -176,35 +172,27 @@
 
     const/4 v7, 0x0
 
-    move-object v3, v0
-
     invoke-static/range {v2 .. v7}, Lorg/koin/core/Koin;->getOrNull$default(Lorg/koin/core/Koin;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroidx/fragment/app/Fragment;
+    check-cast v0, Landroidx/fragment/app/Fragment;
 
-    .line 15
     :goto_0
-    nop
-
-    .line 20
-    .local v1, "instance":Landroidx/fragment/app/Fragment;
-    if-eqz v1, :cond_1
-
-    move-object v2, v1
+    if-eqz v0, :cond_1
 
     goto :goto_1
 
+    .line 20
     :cond_1
     invoke-super {p0, p1, p2}, Landroidx/fragment/app/FragmentFactory;->instantiate(Ljava/lang/ClassLoader;Ljava/lang/String;)Landroidx/fragment/app/Fragment;
 
-    move-result-object v2
+    move-result-object v0
 
-    const-string v3, "super.instantiate(classLoader, className)"
+    const-string p1, "super.instantiate(classLoader, className)"
 
-    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     :goto_1
-    return-object v2
+    return-object v0
 .end method

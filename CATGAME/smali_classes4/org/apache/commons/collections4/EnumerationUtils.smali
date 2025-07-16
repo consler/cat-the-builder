@@ -14,8 +14,7 @@
 .end method
 
 .method public static get(Ljava/util/Enumeration;I)Ljava/lang/Object;
-    .locals 4
-    .param p1, "index"    # I
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -26,36 +25,29 @@
         }
     .end annotation
 
-    .line 54
-    .local p0, "e":Ljava/util/Enumeration;, "Ljava/util/Enumeration<TT;>;"
-    move v0, p1
-
     .line 55
-    .local v0, "i":I
-    invoke-static {v0}, Lorg/apache/commons/collections4/CollectionUtils;->checkIndexBounds(I)V
+    invoke-static {p1}, Lorg/apache/commons/collections4/CollectionUtils;->checkIndexBounds(I)V
 
     .line 56
     :goto_0
     invoke-interface {p0}, Ljava/util/Enumeration;->hasMoreElements()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    .line 57
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p1, p1, -0x1
 
-    .line 58
-    const/4 v1, -0x1
+    const/4 v0, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne p1, v0, :cond_0
 
     .line 59
     invoke-interface {p0}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 
     .line 61
     :cond_0
@@ -65,25 +57,25 @@
 
     .line 63
     :cond_1
-    new-instance v1, Ljava/lang/IndexOutOfBoundsException;
+    new-instance p0, Ljava/lang/IndexOutOfBoundsException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Entry does not exist: "
 
-    const-string v3, "Entry does not exist: "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 .end method
 
 .method public static toList(Ljava/util/Enumeration;)Ljava/util/List;
@@ -101,21 +93,19 @@
     .end annotation
 
     .line 78
-    .local p0, "enumeration":Ljava/util/Enumeration;, "Ljava/util/Enumeration<+TE;>;"
     new-instance v0, Lorg/apache/commons/collections4/iterators/EnumerationIterator;
 
     invoke-direct {v0, p0}, Lorg/apache/commons/collections4/iterators/EnumerationIterator;-><init>(Ljava/util/Enumeration;)V
 
     invoke-static {v0}, Lorg/apache/commons/collections4/IteratorUtils;->toList(Ljava/util/Iterator;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static toList(Ljava/util/StringTokenizer;)Ljava/util/List;
     .locals 2
-    .param p0, "stringTokenizer"    # Ljava/util/StringTokenizer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -137,7 +127,6 @@
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 90
-    .local v0, "result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     :goto_0
     invoke-virtual {p0}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
 
@@ -154,7 +143,6 @@
 
     goto :goto_0
 
-    .line 93
     :cond_0
     return-object v0
 .end method

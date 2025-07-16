@@ -41,7 +41,6 @@
 
     iput-object v0, p0, Lcom/bumptech/glide/manager/ActivityFragmentLifecycle;->lifecycleListeners:Ljava/util/Set;
 
-    .line 14
     return-void
 .end method
 
@@ -49,7 +48,6 @@
 # virtual methods
 .method public addListener(Lcom/bumptech/glide/manager/LifecycleListener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/bumptech/glide/manager/LifecycleListener;
 
     .line 32
     iget-object v0, p0, Lcom/bumptech/glide/manager/ActivityFragmentLifecycle;->lifecycleListeners:Ljava/util/Set;
@@ -81,7 +79,6 @@
     :cond_1
     invoke-interface {p1}, Lcom/bumptech/glide/manager/LifecycleListener;->onStop()V
 
-    .line 41
     :goto_0
     return-void
 .end method
@@ -89,9 +86,9 @@
 .method onDestroy()V
     .locals 2
 
-    .line 63
     const/4 v0, 0x1
 
+    .line 63
     iput-boolean v0, p0, Lcom/bumptech/glide/manager/ActivityFragmentLifecycle;->isDestroyed:Z
 
     .line 64
@@ -119,14 +116,10 @@
     check-cast v1, Lcom/bumptech/glide/manager/LifecycleListener;
 
     .line 65
-    .local v1, "lifecycleListener":Lcom/bumptech/glide/manager/LifecycleListener;
     invoke-interface {v1}, Lcom/bumptech/glide/manager/LifecycleListener;->onDestroy()V
 
-    .line 66
-    .end local v1    # "lifecycleListener":Lcom/bumptech/glide/manager/LifecycleListener;
     goto :goto_0
 
-    .line 67
     :cond_0
     return-void
 .end method
@@ -134,9 +127,9 @@
 .method onStart()V
     .locals 2
 
-    .line 49
     const/4 v0, 0x1
 
+    .line 49
     iput-boolean v0, p0, Lcom/bumptech/glide/manager/ActivityFragmentLifecycle;->isStarted:Z
 
     .line 50
@@ -164,14 +157,10 @@
     check-cast v1, Lcom/bumptech/glide/manager/LifecycleListener;
 
     .line 51
-    .local v1, "lifecycleListener":Lcom/bumptech/glide/manager/LifecycleListener;
     invoke-interface {v1}, Lcom/bumptech/glide/manager/LifecycleListener;->onStart()V
 
-    .line 52
-    .end local v1    # "lifecycleListener":Lcom/bumptech/glide/manager/LifecycleListener;
     goto :goto_0
 
-    .line 53
     :cond_0
     return-void
 .end method
@@ -179,9 +168,9 @@
 .method onStop()V
     .locals 2
 
-    .line 56
     const/4 v0, 0x0
 
+    .line 56
     iput-boolean v0, p0, Lcom/bumptech/glide/manager/ActivityFragmentLifecycle;->isStarted:Z
 
     .line 57
@@ -209,27 +198,21 @@
     check-cast v1, Lcom/bumptech/glide/manager/LifecycleListener;
 
     .line 58
-    .local v1, "lifecycleListener":Lcom/bumptech/glide/manager/LifecycleListener;
     invoke-interface {v1}, Lcom/bumptech/glide/manager/LifecycleListener;->onStop()V
 
-    .line 59
-    .end local v1    # "lifecycleListener":Lcom/bumptech/glide/manager/LifecycleListener;
     goto :goto_0
 
-    .line 60
     :cond_0
     return-void
 .end method
 
 .method public removeListener(Lcom/bumptech/glide/manager/LifecycleListener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/bumptech/glide/manager/LifecycleListener;
 
     .line 45
     iget-object v0, p0, Lcom/bumptech/glide/manager/ActivityFragmentLifecycle;->lifecycleListeners:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
-    .line 46
     return-void
 .end method

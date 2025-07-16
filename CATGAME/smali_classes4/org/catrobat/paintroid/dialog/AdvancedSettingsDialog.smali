@@ -5,11 +5,6 @@
 
 # annotations
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u00004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u000b\n\u0002\u0008\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u0001B\u0005\u00a2\u0006\u0002\u0010\u0002J\u0010\u0010\u0006\u001a\u00020\u00072\u0006\u0010\u0008\u001a\u00020\tH\u0016J\u0012\u0010\n\u001a\u00020\u000b2\u0008\u0010\u000c\u001a\u0004\u0018\u00010\rH\u0016J\u001a\u0010\u000e\u001a\u00020\u00072\u0006\u0010\u000f\u001a\u00020\u00102\u0008\u0010\u000c\u001a\u0004\u0018\u00010\rH\u0017R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0082\u000e\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u0011"
     }
@@ -31,14 +26,15 @@
         "onViewCreated",
         "view",
         "Landroid/view/View;",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -49,6 +45,38 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$3fxjh6ME_fLYXyNqHBdm1WW1rB8(Landroid/widget/CompoundButton;Z)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;->onViewCreated$lambda-1(Landroid/widget/CompoundButton;Z)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$7TFzegc8TR-BJUEQHWxiKTVmQxA(Landroid/widget/CompoundButton;Z)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;->onViewCreated$lambda-0(Landroid/widget/CompoundButton;Z)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$cMzQrauZgq3_nsOnlChQjELA9HA(Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;Landroid/content/DialogInterface;I)V
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;->onCreateDialog$lambda-3(Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;Landroid/content/DialogInterface;I)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$cYNG4bHBhmq6tkRIOkcNBTZzRnQ(Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;Landroid/content/DialogInterface;I)V
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;->onCreateDialog$lambda-2(Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;Landroid/content/DialogInterface;I)V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -72,44 +100,67 @@
     return-void
 .end method
 
-.method public static final synthetic access$getInitValueAntialiasing$p(Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;)Z
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;
-
-    .line 14
-    iget-boolean v0, p0, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;->initValueAntialiasing:Z
-
-    return v0
-.end method
-
-.method public static final synthetic access$getInitValueSmoothing$p(Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;)Z
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;
-
-    .line 14
-    iget-boolean v0, p0, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;->initValueSmoothing:Z
-
-    return v0
-.end method
-
-.method public static final synthetic access$setInitValueAntialiasing$p(Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;Z)V
+.method private static final onCreateDialog$lambda-2(Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;Landroid/content/DialogInterface;I)V
     .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;
-    .param p1, "<set-?>"    # Z
 
-    .line 14
-    iput-boolean p1, p0, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;->initValueAntialiasing:Z
+    const-string p1, "this$0"
+
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 46
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;->getPresenter()Lorg/catrobat/paintroid/contract/MainActivityContracts$Presenter;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Presenter;->setAntialiasingOnOkClicked()V
+
+    .line 47
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;->dismiss()V
 
     return-void
 .end method
 
-.method public static final synthetic access$setInitValueSmoothing$p(Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;Z)V
+.method private static final onCreateDialog$lambda-3(Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;Landroid/content/DialogInterface;I)V
     .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;
-    .param p1, "<set-?>"    # Z
 
-    .line 14
-    iput-boolean p1, p0, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;->initValueSmoothing:Z
+    const-string p1, "this$0"
+
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 50
+    sget-object p1, Lorg/catrobat/paintroid/tools/implementation/DefaultToolPaint;->Companion:Lorg/catrobat/paintroid/tools/implementation/DefaultToolPaint$Companion;
+
+    iget-boolean p2, p0, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;->initValueAntialiasing:Z
+
+    invoke-virtual {p1, p2}, Lorg/catrobat/paintroid/tools/implementation/DefaultToolPaint$Companion;->setAntialiasing(Z)V
+
+    .line 51
+    iget-boolean p1, p0, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;->initValueSmoothing:Z
+
+    sput-boolean p1, Lorg/catrobat/paintroid/tools/helper/AdvancedSettingsAlgorithms;->smoothing:Z
+
+    .line 52
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;->dismiss()V
+
+    return-void
+.end method
+
+.method private static final onViewCreated$lambda-0(Landroid/widget/CompoundButton;Z)V
+    .locals 0
+
+    .line 28
+    sget-object p0, Lorg/catrobat/paintroid/tools/implementation/DefaultToolPaint;->Companion:Lorg/catrobat/paintroid/tools/implementation/DefaultToolPaint$Companion;
+
+    invoke-virtual {p0, p1}, Lorg/catrobat/paintroid/tools/implementation/DefaultToolPaint$Companion;->setAntialiasing(Z)V
+
+    return-void
+.end method
+
+.method private static final onViewCreated$lambda-1(Landroid/widget/CompoundButton;Z)V
+    .locals 0
+
+    .line 32
+    sput-boolean p1, Lorg/catrobat/paintroid/tools/helper/AdvancedSettingsAlgorithms;->smoothing:Z
 
     return-void
 .end method
@@ -118,7 +169,6 @@
 # virtual methods
 .method public onCancel(Landroid/content/DialogInterface;)V
     .locals 2
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
 
     const-string v0, "dialog"
 
@@ -139,22 +189,16 @@
     .line 60
     invoke-super {p0, p1}, Lorg/catrobat/paintroid/dialog/MainActivityDialogFragment;->onCancel(Landroid/content/DialogInterface;)V
 
-    .line 61
     return-void
 .end method
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 5
-    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
+    .locals 3
 
     .line 38
     invoke-virtual {p0}, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;->requireActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object v0
-
-    const-string v1, "requireActivity()"
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-virtual {v0}, Landroidx/fragment/app/FragmentActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
@@ -165,121 +209,82 @@
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 39
-    .local v0, "inflater":Landroid/view/LayoutInflater;
     sget v1, Lorg/catrobat/paintroid/R$layout;->dialog_pocketpaint_advanced_settings:I
 
     const/4 v2, 0x0
 
     invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
+
+    const-string v1, "layout"
 
     .line 40
-    .local v1, "layout":Landroid/view/View;
-    const-string v2, "layout"
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {p0, v1, p1}, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
+    invoke-virtual {p0, v0, p1}, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
     .line 42
-    nop
-
-    .line 54
-    nop
-
-    .line 42
-    nop
-
-    .line 49
-    nop
-
-    .line 42
-    nop
-
-    .line 45
-    nop
-
-    .line 42
-    nop
-
-    .line 44
-    nop
-
-    .line 42
-    nop
-
-    .line 43
-    nop
-
-    .line 42
-    new-instance v2, Landroidx/appcompat/app/AlertDialog$Builder;
+    new-instance p1, Landroidx/appcompat/app/AlertDialog$Builder;
 
     invoke-virtual {p0}, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;->requireContext()Landroid/content/Context;
 
-    move-result-object v3
+    move-result-object v1
 
-    sget v4, Lorg/catrobat/paintroid/R$style;->PocketPaintAlertDialog:I
+    sget v2, Lorg/catrobat/paintroid/R$style;->PocketPaintAlertDialog:I
 
-    invoke-direct {v2, v3, v4}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
+    invoke-direct {p1, v1, v2}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
     .line 43
-    sget v3, Lorg/catrobat/paintroid/R$string;->menu_advanced:I
+    sget v1, Lorg/catrobat/paintroid/R$string;->menu_advanced:I
 
-    invoke-virtual {v2, v3}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
+    invoke-virtual {p1, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
-    move-result-object v2
+    move-result-object p1
 
     .line 44
-    invoke-virtual {v2, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroidx/appcompat/app/AlertDialog$Builder;
+    invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroidx/appcompat/app/AlertDialog$Builder;
 
-    move-result-object v2
+    move-result-object p1
 
     .line 45
-    sget v3, Lorg/catrobat/paintroid/R$string;->pocketpaint_ok:I
+    sget v0, Lorg/catrobat/paintroid/R$string;->pocketpaint_ok:I
 
-    new-instance v4, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog$onCreateDialog$1;
+    new-instance v1, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog$$ExternalSyntheticLambda0;
 
-    invoke-direct {v4, p0}, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog$onCreateDialog$1;-><init>(Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;)V
+    invoke-direct {v1, p0}, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog$$ExternalSyntheticLambda0;-><init>(Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;)V
 
-    check-cast v4, Landroid/content/DialogInterface$OnClickListener;
+    invoke-virtual {p1, v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
-    invoke-virtual {v2, v3, v4}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-
-    move-result-object v2
+    move-result-object p1
 
     .line 49
-    sget v3, Lorg/catrobat/paintroid/R$string;->cancel_button_text:I
+    sget v0, Lorg/catrobat/paintroid/R$string;->cancel_button_text:I
 
-    new-instance v4, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog$onCreateDialog$2;
+    new-instance v1, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog$$ExternalSyntheticLambda1;
 
-    invoke-direct {v4, p0}, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog$onCreateDialog$2;-><init>(Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;)V
+    invoke-direct {v1, p0}, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog$$ExternalSyntheticLambda1;-><init>(Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog;)V
 
-    check-cast v4, Landroid/content/DialogInterface$OnClickListener;
+    invoke-virtual {p1, v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
-    invoke-virtual {v2, v3, v4}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-
-    move-result-object v2
+    move-result-object p1
 
     .line 54
-    invoke-virtual {v2}, Landroidx/appcompat/app/AlertDialog$Builder;->create()Landroidx/appcompat/app/AlertDialog;
+    invoke-virtual {p1}, Landroidx/appcompat/app/AlertDialog$Builder;->create()Landroidx/appcompat/app/AlertDialog;
 
-    move-result-object v2
+    move-result-object p1
 
-    const-string v3, "AlertDialog.Builder(requ\u2026  }\n            .create()"
+    const-string v0, "Builder(requireContext()\u2026  }\n            .create()"
 
-    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v2, Landroid/app/Dialog;
+    check-cast p1, Landroid/app/Dialog;
 
-    .line 42
-    return-object v2
+    return-object p1
 .end method
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 3
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "savedInstanceState"    # Landroid/os/Bundle;
+    .locals 1
 
     const-string v0, "view"
 
@@ -289,61 +294,56 @@
     invoke-super {p0, p1, p2}, Lorg/catrobat/paintroid/dialog/MainActivityDialogFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
     .line 21
-    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_antialiasing:I
+    sget p2, Lorg/catrobat/paintroid/R$id;->pocketpaint_antialiasing:I
+
+    invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object p2
+
+    check-cast p2, Landroidx/appcompat/widget/SwitchCompat;
+
+    .line 22
+    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_smoothing:I
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroidx/appcompat/widget/SwitchCompat;
-
-    .line 22
-    .local v0, "antialiasingSwitch":Landroidx/appcompat/widget/SwitchCompat;
-    sget v1, Lorg/catrobat/paintroid/R$id;->pocketpaint_smoothing:I
-
-    invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroidx/appcompat/widget/SwitchCompat;
+    check-cast p1, Landroidx/appcompat/widget/SwitchCompat;
 
     .line 24
-    .local v1, "smoothSwitch":Landroidx/appcompat/widget/SwitchCompat;
-    const-string v2, "antialiasingSwitch"
+    sget-object v0, Lorg/catrobat/paintroid/tools/implementation/DefaultToolPaint;->Companion:Lorg/catrobat/paintroid/tools/implementation/DefaultToolPaint$Companion;
 
-    invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/tools/implementation/DefaultToolPaint$Companion;->getAntialiasing()Z
 
-    sget-object v2, Lorg/catrobat/paintroid/tools/implementation/DefaultToolPaint;->Companion:Lorg/catrobat/paintroid/tools/implementation/DefaultToolPaint$Companion;
+    move-result v0
 
-    invoke-virtual {v2}, Lorg/catrobat/paintroid/tools/implementation/DefaultToolPaint$Companion;->getAntialiasing()Z
-
-    move-result v2
-
-    invoke-virtual {v0, v2}, Landroidx/appcompat/widget/SwitchCompat;->setChecked(Z)V
+    invoke-virtual {p2, v0}, Landroidx/appcompat/widget/SwitchCompat;->setChecked(Z)V
 
     .line 25
-    const-string v2, "smoothSwitch"
+    sget-boolean v0, Lorg/catrobat/paintroid/tools/helper/AdvancedSettingsAlgorithms;->smoothing:Z
 
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    sget-boolean v2, Lorg/catrobat/paintroid/tools/helper/AdvancedSettingsAlgorithms;->smoothing:Z
-
-    invoke-virtual {v1, v2}, Landroidx/appcompat/widget/SwitchCompat;->setChecked(Z)V
+    invoke-virtual {p1, v0}, Landroidx/appcompat/widget/SwitchCompat;->setChecked(Z)V
 
     .line 27
-    sget-object v2, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog$onViewCreated$1;->INSTANCE:Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog$onViewCreated$1;
+    new-instance v0, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog$$ExternalSyntheticLambda2;
 
-    check-cast v2, Landroid/widget/CompoundButton$OnCheckedChangeListener;
+    invoke-direct {v0}, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog$$ExternalSyntheticLambda2;-><init>()V
 
-    invoke-virtual {v0, v2}, Landroidx/appcompat/widget/SwitchCompat;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {p2, v0}, Landroidx/appcompat/widget/SwitchCompat;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+
+    if-nez p1, :cond_0
+
+    goto :goto_0
 
     .line 31
-    sget-object v2, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog$onViewCreated$2;->INSTANCE:Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog$onViewCreated$2;
+    :cond_0
+    new-instance p2, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog$$ExternalSyntheticLambda3;
 
-    check-cast v2, Landroid/widget/CompoundButton$OnCheckedChangeListener;
+    invoke-direct {p2}, Lorg/catrobat/paintroid/dialog/AdvancedSettingsDialog$$ExternalSyntheticLambda3;-><init>()V
 
-    invoke-virtual {v1, v2}, Landroidx/appcompat/widget/SwitchCompat;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {p1, p2}, Landroidx/appcompat/widget/SwitchCompat;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 34
+    :goto_0
     return-void
 .end method

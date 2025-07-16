@@ -15,14 +15,11 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/String;
+    .locals 0
 
     .line 116
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 117
     if-eqz p1, :cond_0
 
     .line 120
@@ -31,18 +28,17 @@
     .line 121
     iput-object p2, p0, Lcom/koushikdutta/async/http/BasicNameValuePair;->value:Ljava/lang/String;
 
-    .line 122
     return-void
 
     .line 118
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Name may not be null"
+    const-string p2, "Name may not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -64,17 +60,14 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "object"    # Ljava/lang/Object;
+    .locals 4
 
-    .line 153
     const/4 v0, 0x0
 
     if-nez p1, :cond_0
 
     return v0
 
-    .line 154
     :cond_0
     const/4 v1, 0x1
 
@@ -86,50 +79,36 @@
     :cond_1
     instance-of v2, p1, Lcom/koushikdutta/async/http/NameValuePair;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2
 
     .line 156
-    move-object v2, p1
-
-    check-cast v2, Lcom/koushikdutta/async/http/BasicNameValuePair;
+    check-cast p1, Lcom/koushikdutta/async/http/BasicNameValuePair;
 
     .line 157
-    .local v2, "that":Lcom/koushikdutta/async/http/BasicNameValuePair;
-    iget-object v3, p0, Lcom/koushikdutta/async/http/BasicNameValuePair;->name:Ljava/lang/String;
+    iget-object v2, p0, Lcom/koushikdutta/async/http/BasicNameValuePair;->name:Ljava/lang/String;
 
-    iget-object v4, v2, Lcom/koushikdutta/async/http/BasicNameValuePair;->name:Ljava/lang/String;
+    iget-object v3, p1, Lcom/koushikdutta/async/http/BasicNameValuePair;->name:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_2
 
-    iget-object v3, p0, Lcom/koushikdutta/async/http/BasicNameValuePair;->value:Ljava/lang/String;
+    iget-object v2, p0, Lcom/koushikdutta/async/http/BasicNameValuePair;->value:Ljava/lang/String;
 
-    iget-object v4, v2, Lcom/koushikdutta/async/http/BasicNameValuePair;->value:Ljava/lang/String;
+    iget-object p1, p1, Lcom/koushikdutta/async/http/BasicNameValuePair;->value:Ljava/lang/String;
 
     .line 158
-    invoke-static {v3, v4}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+    invoke-static {v2, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
-    move-result v3
+    move-result p1
 
-    if-eqz v3, :cond_2
+    if-eqz p1, :cond_2
 
     move v0, v1
 
-    goto :goto_0
-
     :cond_2
-    nop
-
-    .line 157
-    :goto_0
-    return v0
-
-    .line 160
-    .end local v2    # "that":Lcom/koushikdutta/async/http/BasicNameValuePair;
-    :cond_3
     return v0
 .end method
 
@@ -184,13 +163,19 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Lcom/koushikdutta/async/http/BasicNameValuePair;->value:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

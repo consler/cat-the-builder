@@ -59,7 +59,6 @@
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$1;
 
     .line 450
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;-><init>()V
@@ -239,40 +238,33 @@
 
 .method public withCachedSizeField(Ljava/lang/reflect/Field;)Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;
     .locals 0
-    .param p1, "cachedSizeField"    # Ljava/lang/reflect/Field;
 
     .line 536
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;->cachedSizeField:Ljava/lang/reflect/Field;
 
-    .line 537
     return-object p0
 .end method
 
 .method public withEnforceUtf8(Z)Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;
     .locals 0
-    .param p1, "enforceUtf8"    # Z
 
     .line 526
     iput-boolean p1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;->enforceUtf8:Z
 
-    .line 527
     return-object p0
 .end method
 
 .method public withEnumVerifier(Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumVerifier;)Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;
     .locals 0
-    .param p1, "enumVerifier"    # Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumVerifier;
 
     .line 531
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;->enumVerifier:Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumVerifier;
 
-    .line 532
     return-object p0
 .end method
 
 .method public withField(Ljava/lang/reflect/Field;)Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;
-    .locals 2
-    .param p1, "field"    # Ljava/lang/reflect/Field;
+    .locals 1
 
     .line 471
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;->oneof:Lcom/google/crypto/tink/shaded/protobuf/OneofInfo;
@@ -282,45 +274,39 @@
     .line 474
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;->field:Ljava/lang/reflect/Field;
 
-    .line 475
     return-object p0
 
     .line 472
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Cannot set field when building a oneof."
+    const-string v0, "Cannot set field when building a oneof."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public withFieldNumber(I)Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;
     .locals 0
-    .param p1, "fieldNumber"    # I
 
     .line 486
     iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;->fieldNumber:I
 
-    .line 487
     return-object p0
 .end method
 
 .method public withMapDefaultEntry(Ljava/lang/Object;)Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;
     .locals 0
-    .param p1, "mapDefaultEntry"    # Ljava/lang/Object;
 
     .line 521
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;->mapDefaultEntry:Ljava/lang/Object;
 
-    .line 522
     return-object p0
 .end method
 
 .method public withOneof(Lcom/google/crypto/tink/shaded/protobuf/OneofInfo;Ljava/lang/Class;)Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;
-    .locals 2
-    .param p1, "oneof"    # Lcom/google/crypto/tink/shaded/protobuf/OneofInfo;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -332,7 +318,6 @@
     .end annotation
 
     .line 506
-    .local p2, "oneofStoredType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;->field:Ljava/lang/reflect/Field;
 
     if-nez v0, :cond_0
@@ -347,61 +332,53 @@
     .line 511
     iput-object p2, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;->oneofStoredType:Ljava/lang/Class;
 
-    .line 512
     return-object p0
 
     .line 507
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Cannot set oneof when field or presenceField have been provided"
+    const-string p2, "Cannot set oneof when field or presenceField have been provided"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public withPresence(Ljava/lang/reflect/Field;I)Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;
     .locals 1
-    .param p1, "presenceField"    # Ljava/lang/reflect/Field;
-    .param p2, "presenceMask"    # I
 
-    .line 492
     const-string v0, "presenceField"
 
+    .line 492
     invoke-static {p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/lang/reflect/Field;
+    check-cast p1, Ljava/lang/reflect/Field;
 
-    iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;->presenceField:Ljava/lang/reflect/Field;
+    iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;->presenceField:Ljava/lang/reflect/Field;
 
     .line 493
     iput p2, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;->presenceMask:I
 
-    .line 494
     return-object p0
 .end method
 
 .method public withRequired(Z)Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;
     .locals 0
-    .param p1, "required"    # Z
 
     .line 516
     iput-boolean p1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;->required:Z
 
-    .line 517
     return-object p0
 .end method
 
 .method public withType(Lcom/google/crypto/tink/shaded/protobuf/FieldType;)Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;
     .locals 0
-    .param p1, "type"    # Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
     .line 480
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldInfo$Builder;->type:Lcom/google/crypto/tink/shaded/protobuf/FieldType;
 
-    .line 481
     return-object p0
 .end method

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/spdy/SpdyMiddleware;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/spdy/SpdyMiddleware;
 
     .line 43
     iput-object p1, p0, Lcom/koushikdutta/async/http/spdy/SpdyMiddleware$1;->this$0:Lcom/koushikdutta/async/http/spdy/SpdyMiddleware;
@@ -38,28 +37,19 @@
 # virtual methods
 .method public configureEngine(Ljavax/net/ssl/SSLEngine;Lcom/koushikdutta/async/http/AsyncHttpClientMiddleware$GetSocketData;Ljava/lang/String;I)V
     .locals 1
-    .param p1, "engine"    # Ljavax/net/ssl/SSLEngine;
-    .param p2, "data"    # Lcom/koushikdutta/async/http/AsyncHttpClientMiddleware$GetSocketData;
-    .param p3, "host"    # Ljava/lang/String;
-    .param p4, "port"    # I
 
     .line 51
     iget-object v0, p0, Lcom/koushikdutta/async/http/spdy/SpdyMiddleware$1;->this$0:Lcom/koushikdutta/async/http/spdy/SpdyMiddleware;
 
     invoke-static {v0, p1, p2, p3, p4}, Lcom/koushikdutta/async/http/spdy/SpdyMiddleware;->access$000(Lcom/koushikdutta/async/http/spdy/SpdyMiddleware;Ljavax/net/ssl/SSLEngine;Lcom/koushikdutta/async/http/AsyncHttpClientMiddleware$GetSocketData;Ljava/lang/String;I)V
 
-    .line 52
     return-void
 .end method
 
 .method public createEngine(Ljavax/net/ssl/SSLContext;Ljava/lang/String;I)Ljavax/net/ssl/SSLEngine;
-    .locals 1
-    .param p1, "sslContext"    # Ljavax/net/ssl/SSLContext;
-    .param p2, "peerHost"    # Ljava/lang/String;
-    .param p3, "peerPort"    # I
+    .locals 0
 
-    .line 46
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method

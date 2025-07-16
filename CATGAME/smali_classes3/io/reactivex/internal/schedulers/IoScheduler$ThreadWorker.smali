@@ -21,17 +21,15 @@
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/ThreadFactory;)V
     .locals 2
-    .param p1, "threadFactory"    # Ljava/util/concurrent/ThreadFactory;
 
     .line 238
     invoke-direct {p0, p1}, Lio/reactivex/internal/schedulers/NewThreadWorker;-><init>(Ljava/util/concurrent/ThreadFactory;)V
 
-    .line 239
     const-wide/16 v0, 0x0
 
+    .line 239
     iput-wide v0, p0, Lio/reactivex/internal/schedulers/IoScheduler$ThreadWorker;->expirationTime:J
 
-    .line 240
     return-void
 .end method
 
@@ -48,11 +46,9 @@
 
 .method public setExpirationTime(J)V
     .locals 0
-    .param p1, "expirationTime"    # J
 
     .line 247
     iput-wide p1, p0, Lio/reactivex/internal/schedulers/IoScheduler$ThreadWorker;->expirationTime:J
 
-    .line 248
     return-void
 .end method

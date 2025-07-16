@@ -15,21 +15,20 @@
 .method public constructor <init>(Lcom/huawei/hms/common/data/DataHolder;I)V
     .locals 1
 
-    .line 26
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 27
     const-string v0, "dataHolder cannot be null"
 
+    .line 2
     invoke-static {p1, v0}, Lcom/huawei/hms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 28
+    .line 3
     iput-object p1, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataHolder:Lcom/huawei/hms/common/data/DataHolder;
 
-    .line 29
+    .line 4
     invoke-virtual {p0, p2}, Lcom/huawei/hms/common/data/DataBufferRef;->getWindowIndex(I)V
 
-    .line 30
     return-void
 .end method
 
@@ -38,7 +37,7 @@
 .method protected copyToBuffer(Ljava/lang/String;Landroid/database/CharArrayBuffer;)V
     .locals 3
 
-    .line 115
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataHolder:Lcom/huawei/hms/common/data/DataHolder;
 
     iget v1, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataRow:I
@@ -47,24 +46,23 @@
 
     invoke-virtual {v0, p1, v1, v2, p2}, Lcom/huawei/hms/common/data/DataHolder;->copyToBuffer(Ljava/lang/String;IILandroid/database/CharArrayBuffer;)V
 
-    .line 116
     return-void
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
 
-    .line 127
+    .line 1
     instance-of v0, p1, Lcom/huawei/hms/common/data/DataBufferRef;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
-    .line 128
+    .line 2
     check-cast p1, Lcom/huawei/hms/common/data/DataBufferRef;
 
-    .line 129
+    .line 3
     iget v0, p1, Lcom/huawei/hms/common/data/DataBufferRef;->mDataRow:I
 
     iget v2, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataRow:I
@@ -87,16 +85,12 @@
 
     :cond_0
     return v1
-
-    .line 132
-    :cond_1
-    return v1
 .end method
 
 .method protected getBoolean(Ljava/lang/String;)Z
     .locals 4
 
-    .line 67
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataHolder:Lcom/huawei/hms/common/data/DataHolder;
 
     iget v1, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataRow:I
@@ -109,10 +103,9 @@
 
     move-result-object p1
 
-    .line 68
     if-eqz p1, :cond_0
 
-    .line 69
+    .line 3
     check-cast p1, Ljava/lang/Boolean;
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
@@ -121,7 +114,6 @@
 
     return p1
 
-    .line 71
     :cond_0
     const/4 p1, 0x0
 
@@ -131,7 +123,7 @@
 .method protected getByteArray(Ljava/lang/String;)[B
     .locals 4
 
-    .line 99
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataHolder:Lcom/huawei/hms/common/data/DataHolder;
 
     iget v1, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataRow:I
@@ -144,17 +136,13 @@
 
     move-result-object p1
 
-    .line 100
     if-eqz p1, :cond_0
 
-    .line 101
-    check-cast p1, [B
-
+    .line 3
     check-cast p1, [B
 
     return-object p1
 
-    .line 103
     :cond_0
     const/4 p1, 0x0
 
@@ -164,7 +152,7 @@
 .method protected getDataRow()I
     .locals 1
 
-    .line 33
+    .line 1
     iget v0, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataRow:I
 
     return v0
@@ -173,7 +161,7 @@
 .method protected getDouble(Ljava/lang/String;)D
     .locals 4
 
-    .line 91
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataHolder:Lcom/huawei/hms/common/data/DataHolder;
 
     iget v1, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataRow:I
@@ -186,10 +174,9 @@
 
     move-result-object p1
 
-    .line 92
     if-eqz p1, :cond_0
 
-    .line 93
+    .line 3
     check-cast p1, Ljava/lang/Double;
 
     invoke-virtual {p1}, Ljava/lang/Double;->doubleValue()D
@@ -198,7 +185,6 @@
 
     return-wide v0
 
-    .line 95
     :cond_0
     const-wide/high16 v0, -0x4010000000000000L    # -1.0
 
@@ -208,7 +194,7 @@
 .method protected getFloat(Ljava/lang/String;)F
     .locals 4
 
-    .line 83
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataHolder:Lcom/huawei/hms/common/data/DataHolder;
 
     iget v1, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataRow:I
@@ -221,10 +207,9 @@
 
     move-result-object p1
 
-    .line 84
     if-eqz p1, :cond_0
 
-    .line 85
+    .line 3
     check-cast p1, Ljava/lang/Float;
 
     invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
@@ -233,7 +218,6 @@
 
     return p1
 
-    .line 87
     :cond_0
     const/high16 p1, -0x40800000    # -1.0f
 
@@ -243,7 +227,7 @@
 .method protected getInteger(Ljava/lang/String;)I
     .locals 4
 
-    .line 59
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataHolder:Lcom/huawei/hms/common/data/DataHolder;
 
     iget v1, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataRow:I
@@ -256,10 +240,9 @@
 
     move-result-object p1
 
-    .line 60
     if-eqz p1, :cond_0
 
-    .line 61
+    .line 3
     check-cast p1, Ljava/lang/Integer;
 
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
@@ -268,7 +251,6 @@
 
     return p1
 
-    .line 63
     :cond_0
     const/4 p1, -0x1
 
@@ -278,7 +260,7 @@
 .method protected getLong(Ljava/lang/String;)J
     .locals 4
 
-    .line 51
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataHolder:Lcom/huawei/hms/common/data/DataHolder;
 
     iget v1, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataRow:I
@@ -291,10 +273,9 @@
 
     move-result-object p1
 
-    .line 52
     if-eqz p1, :cond_0
 
-    .line 53
+    .line 3
     check-cast p1, Ljava/lang/Long;
 
     invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
@@ -303,7 +284,6 @@
 
     return-wide v0
 
-    .line 55
     :cond_0
     const-wide/16 v0, -0x1
 
@@ -313,7 +293,7 @@
 .method protected getString(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
 
-    .line 75
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataHolder:Lcom/huawei/hms/common/data/DataHolder;
 
     iget v1, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataRow:I
@@ -326,15 +306,13 @@
 
     move-result-object p1
 
-    .line 76
     if-eqz p1, :cond_0
 
-    .line 77
+    .line 3
     check-cast p1, Ljava/lang/String;
 
     return-object p1
 
-    .line 79
     :cond_0
     const-string p1, ""
 
@@ -344,9 +322,9 @@
 .method protected final getWindowIndex(I)V
     .locals 2
 
-    .line 37
     if-ltz p1, :cond_0
 
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataHolder:Lcom/huawei/hms/common/data/DataHolder;
 
     invoke-virtual {v0}, Lcom/huawei/hms/common/data/DataHolder;->getCount()I
@@ -367,10 +345,10 @@
 
     invoke-static {v0, v1}, Lcom/huawei/hms/common/internal/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
-    .line 38
+    .line 2
     iput p1, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataRow:I
 
-    .line 39
+    .line 3
     iget-object v0, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataHolder:Lcom/huawei/hms/common/data/DataHolder;
 
     invoke-virtual {v0, p1}, Lcom/huawei/hms/common/data/DataHolder;->getWindowIndex(I)I
@@ -379,14 +357,13 @@
 
     iput p1, p0, Lcom/huawei/hms/common/data/DataBufferRef;->a:I
 
-    .line 40
     return-void
 .end method
 
 .method public hasColumn(Ljava/lang/String;)Z
     .locals 1
 
-    .line 47
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataHolder:Lcom/huawei/hms/common/data/DataHolder;
 
     invoke-virtual {v0, p1}, Lcom/huawei/hms/common/data/DataHolder;->hasColumn(Ljava/lang/String;)Z
@@ -399,7 +376,7 @@
 .method protected hasNull(Ljava/lang/String;)Z
     .locals 3
 
-    .line 119
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataHolder:Lcom/huawei/hms/common/data/DataHolder;
 
     iget v1, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataRow:I
@@ -416,11 +393,11 @@
 .method public hashCode()I
     .locals 3
 
-    .line 123
     const/4 v0, 0x3
 
     new-array v0, v0, [Ljava/lang/Object;
 
+    .line 1
     iget v1, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataRow:I
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -457,7 +434,7 @@
 .method public isDataValid()Z
     .locals 1
 
-    .line 43
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataHolder:Lcom/huawei/hms/common/data/DataHolder;
 
     invoke-virtual {v0}, Lcom/huawei/hms/common/data/DataHolder;->isClosed()Z
@@ -472,7 +449,7 @@
 .method protected parseUri(Ljava/lang/String;)Landroid/net/Uri;
     .locals 4
 
-    .line 107
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataHolder:Lcom/huawei/hms/common/data/DataHolder;
 
     iget v1, p0, Lcom/huawei/hms/common/data/DataBufferRef;->mDataRow:I
@@ -487,15 +464,13 @@
 
     check-cast p1, Ljava/lang/String;
 
-    .line 108
     if-nez p1, :cond_0
 
-    .line 109
     const/4 p1, 0x0
 
     return-object p1
 
-    .line 111
+    .line 5
     :cond_0
     invoke-static {p1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 

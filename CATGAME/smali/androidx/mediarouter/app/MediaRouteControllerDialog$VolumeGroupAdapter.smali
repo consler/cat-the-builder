@@ -31,7 +31,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/mediarouter/app/MediaRouteControllerDialog;Landroid/content/Context;Ljava/util/List;)V
     .locals 0
-    .param p2, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -43,12 +42,11 @@
     .end annotation
 
     .line 1275
-    .local p3, "objects":Ljava/util/List;, "Ljava/util/List<Landroidx/mediarouter/media/MediaRouter$RouteInfo;>;"
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeGroupAdapter;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
-    .line 1276
     const/4 p1, 0x0
 
+    .line 1276
     invoke-direct {p0, p2, p1, p3}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;ILjava/util/List;)V
 
     .line 1277
@@ -58,298 +56,268 @@
 
     iput p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeGroupAdapter;->mDisabledAlpha:F
 
-    .line 1278
     return-void
 .end method
 
 
 # virtual methods
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 10
-    .param p1, "position"    # I
-    .param p2, "convertView"    # Landroid/view/View;
-    .param p3, "parent"    # Landroid/view/ViewGroup;
+    .locals 4
 
-    .line 1287
-    move-object v0, p2
+    const/4 v0, 0x0
 
-    .line 1288
-    .local v0, "v":Landroid/view/View;
-    const/4 v1, 0x0
-
-    if-nez v0, :cond_0
+    if-nez p2, :cond_0
 
     .line 1289
     invoke-virtual {p3}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-static {v2}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+    invoke-static {p2}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
-    move-result-object v2
+    move-result-object p2
 
-    sget v3, Landroidx/mediarouter/R$layout;->mr_controller_volume_item:I
+    sget v1, Landroidx/mediarouter/R$layout;->mr_controller_volume_item:I
 
-    invoke-virtual {v2, v3, p3, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {p2, v1, p3, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p2
 
     goto :goto_0
 
     .line 1292
     :cond_0
-    iget-object v2, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeGroupAdapter;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
+    iget-object v1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeGroupAdapter;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
-    invoke-virtual {v2, v0}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->updateVolumeGroupItemHeight(Landroid/view/View;)V
+    invoke-virtual {v1, p2}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->updateVolumeGroupItemHeight(Landroid/view/View;)V
 
     .line 1295
     :goto_0
     invoke-virtual {p0, p1}, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeGroupAdapter;->getItem(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    check-cast v2, Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+    check-cast p1, Landroidx/mediarouter/media/MediaRouter$RouteInfo;
 
-    .line 1296
-    .local v2, "route":Landroidx/mediarouter/media/MediaRouter$RouteInfo;
-    if-eqz v2, :cond_5
+    if-eqz p1, :cond_5
 
     .line 1297
-    invoke-virtual {v2}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->isEnabled()Z
+    invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->isEnabled()Z
 
-    move-result v3
+    move-result v1
 
     .line 1299
-    .local v3, "isEnabled":Z
-    sget v4, Landroidx/mediarouter/R$id;->mr_name:I
+    sget v2, Landroidx/mediarouter/R$id;->mr_name:I
 
-    invoke-virtual {v0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object v2
 
-    check-cast v4, Landroid/widget/TextView;
+    check-cast v2, Landroid/widget/TextView;
 
     .line 1300
-    .local v4, "routeName":Landroid/widget/TextView;
-    invoke-virtual {v4, v3}, Landroid/widget/TextView;->setEnabled(Z)V
+    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setEnabled(Z)V
 
     .line 1301
-    invoke-virtual {v2}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getName()Ljava/lang/String;
+    invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 1303
-    sget v5, Landroidx/mediarouter/R$id;->mr_volume_slider:I
+    sget v2, Landroidx/mediarouter/R$id;->mr_volume_slider:I
 
     .line 1304
-    invoke-virtual {v0, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v2
 
-    check-cast v5, Landroidx/mediarouter/app/MediaRouteVolumeSlider;
-
-    .line 1305
-    .local v5, "volumeSlider":Landroidx/mediarouter/app/MediaRouteVolumeSlider;
-    nop
+    check-cast v2, Landroidx/mediarouter/app/MediaRouteVolumeSlider;
 
     .line 1306
     invoke-virtual {p3}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
-    move-result-object v6
+    move-result-object p3
 
-    iget-object v7, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeGroupAdapter;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
+    iget-object v3, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeGroupAdapter;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
-    iget-object v7, v7, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mVolumeGroupList:Landroidx/mediarouter/app/OverlayListView;
+    iget-object v3, v3, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mVolumeGroupList:Landroidx/mediarouter/app/OverlayListView;
 
     .line 1305
-    invoke-static {v6, v5, v7}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->setVolumeSliderColor(Landroid/content/Context;Landroidx/mediarouter/app/MediaRouteVolumeSlider;Landroid/view/View;)V
+    invoke-static {p3, v2, v3}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->setVolumeSliderColor(Landroid/content/Context;Landroidx/mediarouter/app/MediaRouteVolumeSlider;Landroid/view/View;)V
 
     .line 1307
-    invoke-virtual {v5, v2}, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->setTag(Ljava/lang/Object;)V
+    invoke-virtual {v2, p1}, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->setTag(Ljava/lang/Object;)V
 
     .line 1308
-    iget-object v6, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeGroupAdapter;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
+    iget-object p3, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeGroupAdapter;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
-    iget-object v6, v6, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mVolumeSliderMap:Ljava/util/Map;
+    iget-object p3, p3, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mVolumeSliderMap:Ljava/util/Map;
 
-    invoke-interface {v6, v2, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p3, p1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    xor-int/lit8 p3, v1, 0x1
 
     .line 1309
-    xor-int/lit8 v6, v3, 0x1
-
-    invoke-virtual {v5, v6}, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->setHideThumb(Z)V
+    invoke-virtual {v2, p3}, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->setHideThumb(Z)V
 
     .line 1310
-    invoke-virtual {v5, v3}, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->setEnabled(Z)V
+    invoke-virtual {v2, v1}, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->setEnabled(Z)V
 
-    .line 1311
-    if-eqz v3, :cond_2
+    if-eqz v1, :cond_2
 
     .line 1312
-    iget-object v6, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeGroupAdapter;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
+    iget-object p3, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeGroupAdapter;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
-    invoke-virtual {v6, v2}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->isVolumeControlAvailable(Landroidx/mediarouter/media/MediaRouter$RouteInfo;)Z
+    invoke-virtual {p3, p1}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->isVolumeControlAvailable(Landroidx/mediarouter/media/MediaRouter$RouteInfo;)Z
 
-    move-result v6
+    move-result p3
 
-    if-eqz v6, :cond_1
+    if-eqz p3, :cond_1
 
     .line 1313
-    invoke-virtual {v2}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getVolumeMax()I
+    invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getVolumeMax()I
 
-    move-result v6
+    move-result p3
 
-    invoke-virtual {v5, v6}, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->setMax(I)V
+    invoke-virtual {v2, p3}, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->setMax(I)V
 
     .line 1314
-    invoke-virtual {v2}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getVolume()I
+    invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getVolume()I
 
-    move-result v6
+    move-result p3
 
-    invoke-virtual {v5, v6}, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->setProgress(I)V
+    invoke-virtual {v2, p3}, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->setProgress(I)V
 
     .line 1315
-    iget-object v6, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeGroupAdapter;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
+    iget-object p3, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeGroupAdapter;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
-    iget-object v6, v6, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mVolumeChangeListener:Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener;
+    iget-object p3, p3, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mVolumeChangeListener:Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener;
 
-    invoke-virtual {v5, v6}, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
+    invoke-virtual {v2, p3}, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
 
     goto :goto_1
 
-    .line 1317
     :cond_1
-    const/16 v6, 0x64
+    const/16 p3, 0x64
 
-    invoke-virtual {v5, v6}, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->setMax(I)V
+    .line 1317
+    invoke-virtual {v2, p3}, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->setMax(I)V
 
     .line 1318
-    invoke-virtual {v5, v6}, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->setProgress(I)V
+    invoke-virtual {v2, p3}, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->setProgress(I)V
 
     .line 1319
-    invoke-virtual {v5, v1}, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->setEnabled(Z)V
+    invoke-virtual {v2, v0}, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->setEnabled(Z)V
 
     .line 1323
     :cond_2
     :goto_1
-    sget v6, Landroidx/mediarouter/R$id;->mr_volume_item_icon:I
+    sget p3, Landroidx/mediarouter/R$id;->mr_volume_item_icon:I
 
     .line 1324
-    invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p2, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v6
+    move-result-object p3
 
-    check-cast v6, Landroid/widget/ImageView;
+    check-cast p3, Landroid/widget/ImageView;
 
-    .line 1325
-    .local v6, "volumeItemIcon":Landroid/widget/ImageView;
-    if-eqz v3, :cond_3
+    if-eqz v1, :cond_3
 
-    const/16 v7, 0xff
+    const/16 v1, 0xff
 
     goto :goto_2
 
     :cond_3
-    const/high16 v7, 0x437f0000    # 255.0f
+    const/high16 v1, 0x437f0000    # 255.0f
 
-    iget v8, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeGroupAdapter;->mDisabledAlpha:F
+    .line 1325
+    iget v2, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeGroupAdapter;->mDisabledAlpha:F
 
-    mul-float/2addr v8, v7
+    mul-float/2addr v2, v1
 
-    float-to-int v7, v8
+    float-to-int v1, v2
 
     :goto_2
-    invoke-virtual {v6, v7}, Landroid/widget/ImageView;->setAlpha(I)V
+    invoke-virtual {p3, v1}, Landroid/widget/ImageView;->setAlpha(I)V
 
     .line 1329
-    sget v7, Landroidx/mediarouter/R$id;->volume_item_container:I
+    sget p3, Landroidx/mediarouter/R$id;->volume_item_container:I
 
-    invoke-virtual {v0, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p2, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v7
+    move-result-object p3
 
-    check-cast v7, Landroid/widget/LinearLayout;
+    check-cast p3, Landroid/widget/LinearLayout;
 
     .line 1330
-    .local v7, "container":Landroid/widget/LinearLayout;
-    iget-object v8, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeGroupAdapter;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
-
-    iget-object v8, v8, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mGroupMemberRoutesAnimatingWithBitmap:Ljava/util/Set;
-
-    invoke-interface {v8, v2}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_4
-
-    const/4 v1, 0x4
-
-    :cond_4
-    invoke-virtual {v7, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
-
-    .line 1334
     iget-object v1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeGroupAdapter;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
-    iget-object v1, v1, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mGroupMemberRoutesAdded:Ljava/util/Set;
+    iget-object v1, v1, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mGroupMemberRoutesAnimatingWithBitmap:Ljava/util/Set;
 
-    if-eqz v1, :cond_5
-
-    iget-object v1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeGroupAdapter;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
-
-    iget-object v1, v1, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mGroupMemberRoutesAdded:Ljava/util/Set;
-
-    invoke-interface {v1, v2}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    invoke-interface {v1, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_4
+
+    const/4 v0, 0x4
+
+    :cond_4
+    invoke-virtual {p3, v0}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    .line 1334
+    iget-object p3, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeGroupAdapter;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
+
+    iget-object p3, p3, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mGroupMemberRoutesAdded:Ljava/util/Set;
+
+    if-eqz p3, :cond_5
+
+    iget-object p3, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeGroupAdapter;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
+
+    iget-object p3, p3, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mGroupMemberRoutesAdded:Ljava/util/Set;
+
+    invoke-interface {p3, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_5
 
     .line 1335
-    new-instance v1, Landroid/view/animation/AlphaAnimation;
+    new-instance p1, Landroid/view/animation/AlphaAnimation;
 
-    const/4 v8, 0x0
+    const/4 p3, 0x0
 
-    invoke-direct {v1, v8, v8}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V
+    invoke-direct {p1, p3, p3}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V
+
+    const-wide/16 v0, 0x0
 
     .line 1336
-    .local v1, "alphaAnim":Landroid/view/animation/Animation;
-    const-wide/16 v8, 0x0
+    invoke-virtual {p1, v0, v1}, Landroid/view/animation/Animation;->setDuration(J)V
 
-    invoke-virtual {v1, v8, v9}, Landroid/view/animation/Animation;->setDuration(J)V
+    const/4 p3, 0x1
 
     .line 1337
-    const/4 v8, 0x1
-
-    invoke-virtual {v1, v8}, Landroid/view/animation/Animation;->setFillEnabled(Z)V
+    invoke-virtual {p1, p3}, Landroid/view/animation/Animation;->setFillEnabled(Z)V
 
     .line 1338
-    invoke-virtual {v1, v8}, Landroid/view/animation/Animation;->setFillAfter(Z)V
+    invoke-virtual {p1, p3}, Landroid/view/animation/Animation;->setFillAfter(Z)V
 
     .line 1339
-    invoke-virtual {v0}, Landroid/view/View;->clearAnimation()V
+    invoke-virtual {p2}, Landroid/view/View;->clearAnimation()V
 
     .line 1340
-    invoke-virtual {v0, v1}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
+    invoke-virtual {p2, p1}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 1343
-    .end local v1    # "alphaAnim":Landroid/view/animation/Animation;
-    .end local v3    # "isEnabled":Z
-    .end local v4    # "routeName":Landroid/widget/TextView;
-    .end local v5    # "volumeSlider":Landroidx/mediarouter/app/MediaRouteVolumeSlider;
-    .end local v6    # "volumeItemIcon":Landroid/widget/ImageView;
-    .end local v7    # "container":Landroid/widget/LinearLayout;
     :cond_5
-    return-object v0
+    return-object p2
 .end method
 
 .method public isEnabled(I)Z
-    .locals 1
-    .param p1, "position"    # I
+    .locals 0
 
-    .line 1282
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

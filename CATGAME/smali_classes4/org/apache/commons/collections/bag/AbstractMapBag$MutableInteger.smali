@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 0
-    .param p1, "value"    # I
 
     .line 412
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,15 +28,13 @@
     .line 413
     iput p1, p0, Lorg/apache/commons/collections/bag/AbstractMapBag$MutableInteger;->value:I
 
-    .line 414
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 2
 
     .line 417
     instance-of v0, p1, Lorg/apache/commons/collections/bag/AbstractMapBag$MutableInteger;
@@ -46,20 +43,17 @@
 
     if-nez v0, :cond_0
 
-    .line 418
     return v1
 
     .line 420
     :cond_0
-    move-object v0, p1
+    check-cast p1, Lorg/apache/commons/collections/bag/AbstractMapBag$MutableInteger;
 
-    check-cast v0, Lorg/apache/commons/collections/bag/AbstractMapBag$MutableInteger;
+    iget p1, p1, Lorg/apache/commons/collections/bag/AbstractMapBag$MutableInteger;->value:I
 
-    iget v0, v0, Lorg/apache/commons/collections/bag/AbstractMapBag$MutableInteger;->value:I
+    iget v0, p0, Lorg/apache/commons/collections/bag/AbstractMapBag$MutableInteger;->value:I
 
-    iget v2, p0, Lorg/apache/commons/collections/bag/AbstractMapBag$MutableInteger;->value:I
-
-    if-ne v0, v2, :cond_1
+    if-ne p1, v0, :cond_1
 
     const/4 v1, 0x1
 

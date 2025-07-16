@@ -70,8 +70,6 @@
 # direct methods
 .method constructor <init>(Lorg/reactivestreams/Subscriber;JLio/reactivex/functions/Predicate;Lio/reactivex/internal/subscriptions/SubscriptionArbiter;Lorg/reactivestreams/Publisher;)V
     .locals 0
-    .param p2, "count"    # J
-    .param p5, "sa"    # Lio/reactivex/internal/subscriptions/SubscriptionArbiter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -88,10 +86,6 @@
     .end annotation
 
     .line 56
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
-    .local p4, "predicate":Lio/reactivex/functions/Predicate;, "Lio/reactivex/functions/Predicate<-Ljava/lang/Throwable;>;"
-    .local p6, "source":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
 
     .line 57
@@ -109,7 +103,6 @@
     .line 61
     iput-wide p2, p0, Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;->remaining:J
 
-    .line 62
     return-void
 .end method
 
@@ -119,126 +112,105 @@
     .locals 1
 
     .line 101
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 102
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
-    .locals 8
-    .param p1, "t"    # Ljava/lang/Throwable;
+    .locals 5
 
     .line 76
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber<TT;>;"
     iget-wide v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;->remaining:J
 
-    .line 77
-    .local v0, "r":J
     const-wide v2, 0x7fffffffffffffffL
 
     cmp-long v2, v0, v2
 
     if-eqz v2, :cond_0
 
-    .line 78
     const-wide/16 v2, 0x1
 
     sub-long v2, v0, v2
 
+    .line 78
     iput-wide v2, p0, Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;->remaining:J
 
-    .line 80
     :cond_0
     const-wide/16 v2, 0x0
 
-    cmp-long v2, v0, v2
+    cmp-long v0, v0, v2
 
-    if-nez v2, :cond_1
+    if-nez v0, :cond_1
 
     .line 81
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v2, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
     goto :goto_0
 
     .line 85
     :cond_1
-    const/4 v2, 0x0
-
     :try_start_0
-    iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;->predicate:Lio/reactivex/functions/Predicate;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;->predicate:Lio/reactivex/functions/Predicate;
 
-    invoke-interface {v3, p1}, Lio/reactivex/functions/Predicate;->test(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Lio/reactivex/functions/Predicate;->test(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 90
-    .local v2, "b":Z
-    nop
-
-    .line 91
-    if-nez v2, :cond_2
+    if-nez v0, :cond_2
 
     .line 92
-    iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v3, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 93
     return-void
 
     .line 95
     :cond_2
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;->subscribeNext()V
 
-    .line 97
-    .end local v2    # "b":Z
     :goto_0
     return-void
 
-    .line 86
     :catchall_0
-    move-exception v3
-
-    move v4, v2
+    move-exception v0
 
     .line 87
-    .local v3, "e":Ljava/lang/Throwable;
-    .local v4, "b":Z
-    invoke-static {v3}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 88
-    iget-object v5, p0, Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    new-instance v6, Lio/reactivex/exceptions/CompositeException;
+    new-instance v2, Lio/reactivex/exceptions/CompositeException;
 
-    const/4 v7, 0x2
+    const/4 v3, 0x2
 
-    new-array v7, v7, [Ljava/lang/Throwable;
+    new-array v3, v3, [Ljava/lang/Throwable;
 
-    aput-object p1, v7, v2
+    const/4 v4, 0x0
 
-    const/4 v2, 0x1
+    aput-object p1, v3, v4
 
-    aput-object v3, v7, v2
+    const/4 p1, 0x1
 
-    invoke-direct {v6, v7}, Lio/reactivex/exceptions/CompositeException;-><init>([Ljava/lang/Throwable;)V
+    aput-object v0, v3, p1
 
-    invoke-interface {v5, v6}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-direct {v2, v3}, Lio/reactivex/exceptions/CompositeException;-><init>([Ljava/lang/Throwable;)V
 
-    .line 89
+    invoke-interface {v1, v2}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -246,34 +218,28 @@
     .end annotation
 
     .line 71
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
     .line 72
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;->sa:Lio/reactivex/internal/subscriptions/SubscriptionArbiter;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;->sa:Lio/reactivex/internal/subscriptions/SubscriptionArbiter;
 
-    const-wide/16 v1, 0x1
+    const-wide/16 v0, 0x1
 
-    invoke-virtual {v0, v1, v2}, Lio/reactivex/internal/subscriptions/SubscriptionArbiter;->produced(J)V
+    invoke-virtual {p1, v0, v1}, Lio/reactivex/internal/subscriptions/SubscriptionArbiter;->produced(J)V
 
-    .line 73
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 1
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 66
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;->sa:Lio/reactivex/internal/subscriptions/SubscriptionArbiter;
 
     invoke-virtual {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionArbiter;->setSubscription(Lorg/reactivestreams/Subscription;)V
 
-    .line 67
     return-void
 .end method
 
@@ -281,18 +247,15 @@
     .locals 2
 
     .line 108
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;->getAndIncrement()I
 
     move-result v0
 
     if-nez v0, :cond_2
 
-    .line 109
     const/4 v0, 0x1
 
     .line 111
-    .local v0, "missed":I
     :cond_0
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;->sa:Lio/reactivex/internal/subscriptions/SubscriptionArbiter;
 
@@ -302,7 +265,6 @@
 
     if-eqz v1, :cond_1
 
-    .line 112
     return-void
 
     .line 114
@@ -311,18 +273,15 @@
 
     invoke-interface {v1, p0}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
 
-    .line 116
-    neg-int v1, v0
+    neg-int v0, v0
 
-    invoke-virtual {p0, v1}, Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;->addAndGet(I)I
+    .line 116
+    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/flowable/FlowableRetryPredicate$RepeatSubscriber;->addAndGet(I)I
 
     move-result v0
 
-    .line 117
     if-nez v0, :cond_0
 
-    .line 122
-    .end local v0    # "missed":I
     :cond_2
     return-void
 .end method

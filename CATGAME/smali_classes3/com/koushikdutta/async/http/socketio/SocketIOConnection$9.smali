@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/socketio/SocketIOConnection;Ljava/lang/String;Lorg/json/JSONArray;Lcom/koushikdutta/async/http/socketio/Acknowledge;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/socketio/SocketIOConnection;
 
     .line 322
     iput-object p1, p0, Lcom/koushikdutta/async/http/socketio/SocketIOConnection$9;->this$0:Lcom/koushikdutta/async/http/socketio/SocketIOConnection;
@@ -50,7 +49,6 @@
 # virtual methods
 .method public onSelect(Lcom/koushikdutta/async/http/socketio/SocketIOClient;)V
     .locals 3
-    .param p1, "client"    # Lcom/koushikdutta/async/http/socketio/SocketIOClient;
 
     .line 325
     iget-object v0, p0, Lcom/koushikdutta/async/http/socketio/SocketIOConnection$9;->val$event:Ljava/lang/String;
@@ -61,6 +59,5 @@
 
     invoke-virtual {p1, v0, v1, v2}, Lcom/koushikdutta/async/http/socketio/SocketIOClient;->onEvent(Ljava/lang/String;Lorg/json/JSONArray;Lcom/koushikdutta/async/http/socketio/Acknowledge;)V
 
-    .line 326
     return-void
 .end method

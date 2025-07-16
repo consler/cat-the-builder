@@ -24,10 +24,8 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/impl/utils/futures/ListFuture;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/core/impl/utils/futures/ListFuture;
 
     .line 96
-    .local p0, "this":Landroidx/camera/core/impl/utils/futures/ListFuture$2;, "Landroidx/camera/core/impl/utils/futures/ListFuture$2;"
     iput-object p1, p0, Landroidx/camera/core/impl/utils/futures/ListFuture$2;->this$0:Landroidx/camera/core/impl/utils/futures/ListFuture;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +39,6 @@
     .locals 2
 
     .line 101
-    .local p0, "this":Landroidx/camera/core/impl/utils/futures/ListFuture$2;, "Landroidx/camera/core/impl/utils/futures/ListFuture$2;"
     iget-object v0, p0, Landroidx/camera/core/impl/utils/futures/ListFuture$2;->this$0:Landroidx/camera/core/impl/utils/futures/ListFuture;
 
     const/4 v1, 0x0
@@ -53,6 +50,5 @@
 
     iput-object v1, v0, Landroidx/camera/core/impl/utils/futures/ListFuture;->mFutures:Ljava/util/List;
 
-    .line 105
     return-void
 .end method

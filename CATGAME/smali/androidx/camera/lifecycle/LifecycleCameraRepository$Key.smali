@@ -26,8 +26,6 @@
 
 .method static create(Landroidx/lifecycle/LifecycleOwner;Landroidx/camera/core/internal/CameraUseCaseAdapter$CameraId;)Landroidx/camera/lifecycle/LifecycleCameraRepository$Key;
     .locals 1
-    .param p0, "lifecycleOwner"    # Landroidx/lifecycle/LifecycleOwner;
-    .param p1, "cameraId"    # Landroidx/camera/core/internal/CameraUseCaseAdapter$CameraId;
 
     .line 449
     new-instance v0, Landroidx/camera/lifecycle/AutoValue_LifecycleCameraRepository_Key;

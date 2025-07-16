@@ -43,11 +43,7 @@
 # direct methods
 .method public constructor <init>(JLjava/util/concurrent/TimeUnit;I)V
     .locals 6
-    .param p1, "timePeriod"    # J
-    .param p3, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "limit"    # I
 
-    .line 197
     const/4 v1, 0x0
 
     move-object v0, p0
@@ -58,23 +54,18 @@
 
     move v5, p4
 
+    .line 197
     invoke-direct/range {v0 .. v5}, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;-><init>(Ljava/util/concurrent/ScheduledExecutorService;JLjava/util/concurrent/TimeUnit;I)V
 
-    .line 198
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/concurrent/ScheduledExecutorService;JLjava/util/concurrent/TimeUnit;I)V
     .locals 7
-    .param p1, "service"    # Ljava/util/concurrent/ScheduledExecutorService;
-    .param p2, "timePeriod"    # J
-    .param p4, "timeUnit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "limit"    # I
 
     .line 213
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 214
     const-wide/16 v0, 0x1
 
     const-wide v2, 0x7fffffffffffffffL
@@ -83,6 +74,7 @@
 
     move-wide v4, p2
 
+    .line 214
     invoke-static/range {v0 .. v6}, Lorg/apache/commons/lang3/Validate;->inclusiveBetween(JJJLjava/lang/String;)V
 
     .line 216
@@ -91,8 +83,7 @@
     .line 217
     iput-object p4, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->unit:Ljava/util/concurrent/TimeUnit;
 
-    .line 219
-    const/4 v0, 0x0
+    const/4 p2, 0x0
 
     if-eqz p1, :cond_0
 
@@ -100,37 +91,34 @@
     iput-object p1, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->executorService:Ljava/util/concurrent/ScheduledExecutorService;
 
     .line 221
-    iput-boolean v0, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->ownExecutor:Z
+    iput-boolean p2, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->ownExecutor:Z
 
     goto :goto_0
 
     .line 223
     :cond_0
-    new-instance v1, Ljava/util/concurrent/ScheduledThreadPoolExecutor;
+    new-instance p1, Ljava/util/concurrent/ScheduledThreadPoolExecutor;
 
-    const/4 v2, 0x1
+    const/4 p3, 0x1
 
-    invoke-direct {v1, v2}, Ljava/util/concurrent/ScheduledThreadPoolExecutor;-><init>(I)V
+    invoke-direct {p1, p3}, Ljava/util/concurrent/ScheduledThreadPoolExecutor;-><init>(I)V
 
     .line 225
-    .local v1, "s":Ljava/util/concurrent/ScheduledThreadPoolExecutor;
-    invoke-virtual {v1, v0}, Ljava/util/concurrent/ScheduledThreadPoolExecutor;->setContinueExistingPeriodicTasksAfterShutdownPolicy(Z)V
+    invoke-virtual {p1, p2}, Ljava/util/concurrent/ScheduledThreadPoolExecutor;->setContinueExistingPeriodicTasksAfterShutdownPolicy(Z)V
 
     .line 226
-    invoke-virtual {v1, v0}, Ljava/util/concurrent/ScheduledThreadPoolExecutor;->setExecuteExistingDelayedTasksAfterShutdownPolicy(Z)V
+    invoke-virtual {p1, p2}, Ljava/util/concurrent/ScheduledThreadPoolExecutor;->setExecuteExistingDelayedTasksAfterShutdownPolicy(Z)V
 
     .line 227
-    iput-object v1, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->executorService:Ljava/util/concurrent/ScheduledExecutorService;
+    iput-object p1, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->executorService:Ljava/util/concurrent/ScheduledExecutorService;
 
     .line 228
-    iput-boolean v2, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->ownExecutor:Z
+    iput-boolean p3, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->ownExecutor:Z
 
     .line 231
-    .end local v1    # "s":Ljava/util/concurrent/ScheduledThreadPoolExecutor;
     :goto_0
     invoke-virtual {p0, p5}, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->setLimit(I)V
 
-    .line 232
     return-void
 .end method
 
@@ -154,7 +142,6 @@
 
     goto :goto_0
 
-    .line 468
     :cond_0
     const/4 v0, 0x0
 
@@ -171,7 +158,6 @@
 
     iput v0, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->acquireCount:I
 
-    .line 466
     return v1
 .end method
 
@@ -197,7 +183,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->task:Ljava/util/concurrent/ScheduledFuture;
 
-    .line 453
     :cond_0
     return-void
 
@@ -234,8 +219,6 @@
 
     move-result v0
 
-    .line 308
-    .local v0, "canPass":Z
     if-nez v0, :cond_1
 
     .line 309
@@ -243,8 +226,6 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 311
-    .end local p0    # "this":Lorg/apache/commons/lang3/concurrent/TimedSemaphore;
     :cond_1
     if-eqz v0, :cond_0
 
@@ -253,8 +234,6 @@
 
     return-void
 
-    .line 302
-    .end local v0    # "canPass":Z
     :catchall_0
     move-exception v0
 
@@ -264,7 +243,7 @@
 .end method
 
 .method declared-synchronized endOfPeriod()V
-    .locals 4
+    .locals 5
 
     monitor-enter p0
 
@@ -275,15 +254,13 @@
     iput v0, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->lastCallsPerPeriod:I
 
     .line 435
-    iget-wide v0, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->totalAcquireCount:J
+    iget-wide v1, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->totalAcquireCount:J
 
-    iget v2, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->acquireCount:I
+    int-to-long v3, v0
 
-    int-to-long v2, v2
+    add-long/2addr v1, v3
 
-    add-long/2addr v0, v2
-
-    iput-wide v0, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->totalAcquireCount:J
+    iput-wide v1, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->totalAcquireCount:J
 
     .line 436
     iget-wide v0, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->periodCount:J
@@ -294,9 +271,9 @@
 
     iput-wide v0, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->periodCount:J
 
-    .line 437
     const/4 v0, 0x0
 
+    .line 437
     iput v0, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->acquireCount:I
 
     .line 438
@@ -309,8 +286,6 @@
 
     return-void
 
-    .line 433
-    .end local p0    # "this":Lorg/apache/commons/lang3/concurrent/TimedSemaphore;
     :catchall_0
     move-exception v0
 
@@ -334,8 +309,6 @@
 
     return v0
 
-    .line 351
-    .end local p0    # "this":Lorg/apache/commons/lang3/concurrent/TimedSemaphore;
     :catchall_0
     move-exception v0
 
@@ -367,8 +340,6 @@
 
     return v0
 
-    .line 366
-    .end local p0    # "this":Lorg/apache/commons/lang3/concurrent/TimedSemaphore;
     :catchall_0
     move-exception v0
 
@@ -388,9 +359,9 @@
 
     const-wide/16 v2, 0x0
 
-    cmp-long v0, v0, v2
+    cmp-long v2, v0, v2
 
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
     const-wide/16 v0, 0x0
 
@@ -398,17 +369,15 @@
 
     .line 380
     :cond_0
-    iget-wide v0, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->totalAcquireCount:J
-
-    long-to-double v0, v0
-
-    iget-wide v2, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->periodCount:J
+    iget-wide v2, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->totalAcquireCount:J
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     long-to-double v2, v2
 
-    div-double/2addr v0, v2
+    long-to-double v0, v0
+
+    div-double v0, v2, v0
 
     .line 379
     :goto_0
@@ -416,8 +385,6 @@
 
     return-wide v0
 
-    .line 378
-    .end local p0    # "this":Lorg/apache/commons/lang3/concurrent/TimedSemaphore;
     :catchall_0
     move-exception v0
 
@@ -450,8 +417,6 @@
 
     return v0
 
-    .line 341
-    .end local p0    # "this":Lorg/apache/commons/lang3/concurrent/TimedSemaphore;
     :catchall_0
     move-exception v0
 
@@ -475,8 +440,6 @@
 
     return v0
 
-    .line 242
-    .end local p0    # "this":Lorg/apache/commons/lang3/concurrent/TimedSemaphore;
     :catchall_0
     move-exception v0
 
@@ -518,8 +481,6 @@
 
     return v0
 
-    .line 288
-    .end local p0    # "this":Lorg/apache/commons/lang3/concurrent/TimedSemaphore;
     :catchall_0
     move-exception v0
 
@@ -530,7 +491,6 @@
 
 .method public final declared-synchronized setLimit(I)V
     .locals 0
-    .param p1, "limit"    # I
 
     monitor-enter p0
 
@@ -545,9 +505,6 @@
 
     return-void
 
-    .line 255
-    .end local p0    # "this":Lorg/apache/commons/lang3/concurrent/TimedSemaphore;
-    .end local p1    # "limit":I
     :catchall_0
     move-exception p1
 
@@ -580,23 +537,20 @@
     invoke-interface {v0}, Ljava/util/concurrent/ScheduledExecutorService;->shutdownNow()Ljava/util/List;
 
     .line 272
-    .end local p0    # "this":Lorg/apache/commons/lang3/concurrent/TimedSemaphore;
     :cond_0
     iget-object v0, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->task:Ljava/util/concurrent/ScheduledFuture;
 
     if-eqz v0, :cond_1
 
-    .line 273
-    iget-object v0, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->task:Ljava/util/concurrent/ScheduledFuture;
-
     const/4 v1, 0x0
 
+    .line 273
     invoke-interface {v0, v1}, Ljava/util/concurrent/ScheduledFuture;->cancel(Z)Z
 
-    .line 276
     :cond_1
     const/4 v0, 0x1
 
+    .line 276
     iput-boolean v0, p0, Lorg/apache/commons/lang3/concurrent/TimedSemaphore;->shutdown:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -607,7 +561,6 @@
 
     return-void
 
-    .line 264
     :catchall_0
     move-exception v0
 
@@ -676,8 +629,6 @@
 
     return v0
 
-    .line 325
-    .end local p0    # "this":Lorg/apache/commons/lang3/concurrent/TimedSemaphore;
     :catchall_0
     move-exception v0
 

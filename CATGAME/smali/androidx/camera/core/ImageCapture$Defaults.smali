@@ -45,37 +45,34 @@
 
     invoke-direct {v0}, Landroidx/camera/core/ImageCapture$Builder;-><init>()V
 
-    .line 1472
     const/4 v1, 0x1
 
+    .line 1472
     invoke-virtual {v0, v1}, Landroidx/camera/core/ImageCapture$Builder;->setCaptureMode(I)Landroidx/camera/core/ImageCapture$Builder;
 
     move-result-object v0
 
-    .line 1473
     const/4 v1, 0x2
 
+    .line 1473
     invoke-virtual {v0, v1}, Landroidx/camera/core/ImageCapture$Builder;->setFlashMode(I)Landroidx/camera/core/ImageCapture$Builder;
 
     move-result-object v0
 
-    .line 1474
     const/4 v1, 0x4
 
+    .line 1474
     invoke-virtual {v0, v1}, Landroidx/camera/core/ImageCapture$Builder;->setSurfaceOccupancyPriority(I)Landroidx/camera/core/ImageCapture$Builder;
 
     move-result-object v0
 
     .line 1476
-    .local v0, "builder":Landroidx/camera/core/ImageCapture$Builder;
     invoke-virtual {v0}, Landroidx/camera/core/ImageCapture$Builder;->getUseCaseConfig()Landroidx/camera/core/impl/ImageCaptureConfig;
 
-    move-result-object v1
+    move-result-object v0
 
-    sput-object v1, Landroidx/camera/core/ImageCapture$Defaults;->DEFAULT_CONFIG:Landroidx/camera/core/impl/ImageCaptureConfig;
+    sput-object v0, Landroidx/camera/core/ImageCapture$Defaults;->DEFAULT_CONFIG:Landroidx/camera/core/impl/ImageCaptureConfig;
 
-    .line 1477
-    .end local v0    # "builder":Landroidx/camera/core/ImageCapture$Builder;
     return-void
 .end method
 
@@ -102,11 +99,10 @@
 .end method
 
 .method public getConfig(Landroidx/camera/core/CameraInfo;)Landroidx/camera/core/impl/ImageCaptureConfig;
-    .locals 1
-    .param p1, "cameraInfo"    # Landroidx/camera/core/CameraInfo;
+    .locals 0
 
     .line 1482
-    sget-object v0, Landroidx/camera/core/ImageCapture$Defaults;->DEFAULT_CONFIG:Landroidx/camera/core/impl/ImageCaptureConfig;
+    sget-object p1, Landroidx/camera/core/ImageCapture$Defaults;->DEFAULT_CONFIG:Landroidx/camera/core/impl/ImageCaptureConfig;
 
-    return-object v0
+    return-object p1
 .end method

@@ -19,9 +19,6 @@
 # direct methods
 .method constructor <init>(Landroid/media/SoundPool;Landroid/media/AudioManager;I)V
     .locals 2
-    .param p1, "pool"    # Landroid/media/SoundPool;
-    .param p2, "manager"    # Landroid/media/AudioManager;
-    .param p3, "soundId"    # I
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +41,6 @@
     .line 34
     iput p3, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->soundId:I
 
-    .line 35
     return-void
 .end method
 
@@ -60,16 +56,15 @@
 
     invoke-virtual {v0, v1}, Landroid/media/SoundPool;->unload(I)Z
 
-    .line 40
     return-void
 .end method
 
 .method public loop()J
     .locals 2
 
-    .line 99
     const/high16 v0, 0x3f800000    # 1.0f
 
+    .line 99
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/backends/android/AndroidSound;->loop(F)J
 
     move-result-wide v0
@@ -79,7 +74,6 @@
 
 .method public loop(F)J
     .locals 8
-    .param p1, "volume"    # F
 
     .line 104
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->streamIds:Lcom/badlogic/gdx/utils/IntArray;
@@ -112,35 +106,29 @@
 
     invoke-virtual/range {v1 .. v7}, Landroid/media/SoundPool;->play(IFFIIF)I
 
-    move-result v0
+    move-result p1
 
-    .line 107
-    .local v0, "streamId":I
-    if-nez v0, :cond_1
+    if-nez p1, :cond_1
 
-    const-wide/16 v1, -0x1
+    const-wide/16 v0, -0x1
 
-    return-wide v1
+    return-wide v0
 
     .line 108
     :cond_1
-    iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->streamIds:Lcom/badlogic/gdx/utils/IntArray;
+    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->streamIds:Lcom/badlogic/gdx/utils/IntArray;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1, v2, v0}, Lcom/badlogic/gdx/utils/IntArray;->insert(II)V
+    invoke-virtual {v0, v1, p1}, Lcom/badlogic/gdx/utils/IntArray;->insert(II)V
 
-    .line 109
-    int-to-long v1, v0
+    int-to-long v0, p1
 
-    return-wide v1
+    return-wide v0
 .end method
 
 .method public loop(FFF)J
-    .locals 9
-    .param p1, "volume"    # F
-    .param p2, "pitch"    # F
-    .param p3, "pan"    # F
+    .locals 10
 
     .line 150
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->streamIds:Lcom/badlogic/gdx/utils/IntArray;
@@ -155,91 +143,88 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/IntArray;->pop()I
 
-    .line 151
     :cond_0
-    move v0, p1
+    const/4 v0, 0x0
 
-    .line 152
-    .local v0, "leftVolume":F
-    move v1, p1
+    cmpg-float v1, p3, v0
 
-    .line 153
-    .local v1, "rightVolume":F
-    const/4 v2, 0x0
+    const/high16 v2, 0x3f800000    # 1.0f
 
-    cmpg-float v3, p3, v2
-
-    const/high16 v4, 0x3f800000    # 1.0f
-
-    if-gez v3, :cond_1
+    if-gez v1, :cond_1
 
     .line 154
     invoke-static {p3}, Ljava/lang/Math;->abs(F)F
 
-    move-result v2
+    move-result p3
 
-    sub-float/2addr v4, v2
+    sub-float/2addr v2, p3
 
-    mul-float/2addr v1, v4
+    mul-float/2addr v2, p1
+
+    move v5, p1
+
+    move v6, v2
 
     goto :goto_0
 
-    .line 155
     :cond_1
-    cmpl-float v2, p3, v2
+    cmpl-float v0, p3, v0
 
-    if-lez v2, :cond_2
+    if-lez v0, :cond_2
 
     .line 156
     invoke-static {p3}, Ljava/lang/Math;->abs(F)F
 
-    move-result v2
+    move-result p3
 
-    sub-float/2addr v4, v2
+    sub-float/2addr v2, p3
 
-    mul-float/2addr v0, v4
+    mul-float/2addr v2, p1
+
+    move v6, p1
+
+    move v5, v2
+
+    goto :goto_0
+
+    :cond_2
+    move v5, p1
+
+    move v6, v5
 
     .line 158
-    :cond_2
     :goto_0
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->soundPool:Landroid/media/SoundPool;
+    iget-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->soundPool:Landroid/media/SoundPool;
 
-    iget v3, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->soundId:I
+    iget v4, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->soundId:I
 
-    const/4 v6, 0x1
+    const/4 v7, 0x1
 
-    const/4 v7, -0x1
+    const/4 v8, -0x1
 
-    move v4, v0
+    move v9, p2
 
-    move v5, v1
+    invoke-virtual/range {v3 .. v9}, Landroid/media/SoundPool;->play(IFFIIF)I
 
-    move v8, p2
+    move-result p1
 
-    invoke-virtual/range {v2 .. v8}, Landroid/media/SoundPool;->play(IFFIIF)I
+    if-nez p1, :cond_3
 
-    move-result v2
+    const-wide/16 p1, -0x1
 
-    .line 160
-    .local v2, "streamId":I
-    if-nez v2, :cond_3
-
-    const-wide/16 v3, -0x1
-
-    return-wide v3
+    return-wide p1
 
     .line 161
     :cond_3
-    iget-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->streamIds:Lcom/badlogic/gdx/utils/IntArray;
+    iget-object p2, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->streamIds:Lcom/badlogic/gdx/utils/IntArray;
 
-    const/4 v4, 0x0
+    const/4 p3, 0x0
 
-    invoke-virtual {v3, v4, v2}, Lcom/badlogic/gdx/utils/IntArray;->insert(II)V
+    invoke-virtual {p2, p3, p1}, Lcom/badlogic/gdx/utils/IntArray;->insert(II)V
 
-    .line 162
-    int-to-long v3, v2
+    int-to-long p1, p1
 
-    return-wide v3
+    return-wide p1
 .end method
 
 .method public pause()V
@@ -250,31 +235,28 @@
 
     invoke-virtual {v0}, Landroid/media/SoundPool;->autoPause()V
 
-    .line 70
     return-void
 .end method
 
 .method public pause(J)V
-    .locals 2
-    .param p1, "soundId"    # J
+    .locals 1
 
     .line 74
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->soundPool:Landroid/media/SoundPool;
 
-    long-to-int v1, p1
+    long-to-int p1, p1
 
-    invoke-virtual {v0, v1}, Landroid/media/SoundPool;->pause(I)V
+    invoke-virtual {v0, p1}, Landroid/media/SoundPool;->pause(I)V
 
-    .line 75
     return-void
 .end method
 
 .method public play()J
     .locals 2
 
-    .line 44
     const/high16 v0, 0x3f800000    # 1.0f
 
+    .line 44
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/backends/android/AndroidSound;->play(F)J
 
     move-result-wide v0
@@ -284,7 +266,6 @@
 
 .method public play(F)J
     .locals 8
-    .param p1, "volume"    # F
 
     .line 49
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->streamIds:Lcom/badlogic/gdx/utils/IntArray;
@@ -317,35 +298,29 @@
 
     invoke-virtual/range {v1 .. v7}, Landroid/media/SoundPool;->play(IFFIIF)I
 
-    move-result v0
+    move-result p1
 
-    .line 52
-    .local v0, "streamId":I
-    if-nez v0, :cond_1
+    if-nez p1, :cond_1
 
-    const-wide/16 v1, -0x1
+    const-wide/16 v0, -0x1
 
-    return-wide v1
+    return-wide v0
 
     .line 53
     :cond_1
-    iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->streamIds:Lcom/badlogic/gdx/utils/IntArray;
+    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->streamIds:Lcom/badlogic/gdx/utils/IntArray;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1, v2, v0}, Lcom/badlogic/gdx/utils/IntArray;->insert(II)V
+    invoke-virtual {v0, v1, p1}, Lcom/badlogic/gdx/utils/IntArray;->insert(II)V
 
-    .line 54
-    int-to-long v1, v0
+    int-to-long v0, p1
 
-    return-wide v1
+    return-wide v0
 .end method
 
 .method public play(FFF)J
-    .locals 9
-    .param p1, "volume"    # F
-    .param p2, "pitch"    # F
-    .param p3, "pan"    # F
+    .locals 10
 
     .line 133
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->streamIds:Lcom/badlogic/gdx/utils/IntArray;
@@ -360,91 +335,88 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/IntArray;->pop()I
 
-    .line 134
     :cond_0
-    move v0, p1
+    const/4 v0, 0x0
 
-    .line 135
-    .local v0, "leftVolume":F
-    move v1, p1
+    cmpg-float v1, p3, v0
 
-    .line 136
-    .local v1, "rightVolume":F
-    const/4 v2, 0x0
+    const/high16 v2, 0x3f800000    # 1.0f
 
-    cmpg-float v3, p3, v2
-
-    const/high16 v4, 0x3f800000    # 1.0f
-
-    if-gez v3, :cond_1
+    if-gez v1, :cond_1
 
     .line 137
     invoke-static {p3}, Ljava/lang/Math;->abs(F)F
 
-    move-result v2
+    move-result p3
 
-    sub-float/2addr v4, v2
+    sub-float/2addr v2, p3
 
-    mul-float/2addr v1, v4
+    mul-float/2addr v2, p1
+
+    move v5, p1
+
+    move v6, v2
 
     goto :goto_0
 
-    .line 138
     :cond_1
-    cmpl-float v2, p3, v2
+    cmpl-float v0, p3, v0
 
-    if-lez v2, :cond_2
+    if-lez v0, :cond_2
 
     .line 139
     invoke-static {p3}, Ljava/lang/Math;->abs(F)F
 
-    move-result v2
+    move-result p3
 
-    sub-float/2addr v4, v2
+    sub-float/2addr v2, p3
 
-    mul-float/2addr v0, v4
+    mul-float/2addr v2, p1
+
+    move v6, p1
+
+    move v5, v2
+
+    goto :goto_0
+
+    :cond_2
+    move v5, p1
+
+    move v6, v5
 
     .line 141
-    :cond_2
     :goto_0
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->soundPool:Landroid/media/SoundPool;
+    iget-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->soundPool:Landroid/media/SoundPool;
 
-    iget v3, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->soundId:I
+    iget v4, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->soundId:I
 
-    const/4 v6, 0x1
+    const/4 v7, 0x1
 
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
-    move v4, v0
+    move v9, p2
 
-    move v5, v1
+    invoke-virtual/range {v3 .. v9}, Landroid/media/SoundPool;->play(IFFIIF)I
 
-    move v8, p2
+    move-result p1
 
-    invoke-virtual/range {v2 .. v8}, Landroid/media/SoundPool;->play(IFFIIF)I
+    if-nez p1, :cond_3
 
-    move-result v2
+    const-wide/16 p1, -0x1
 
-    .line 143
-    .local v2, "streamId":I
-    if-nez v2, :cond_3
-
-    const-wide/16 v3, -0x1
-
-    return-wide v3
+    return-wide p1
 
     .line 144
     :cond_3
-    iget-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->streamIds:Lcom/badlogic/gdx/utils/IntArray;
+    iget-object p2, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->streamIds:Lcom/badlogic/gdx/utils/IntArray;
 
-    const/4 v4, 0x0
+    const/4 p3, 0x0
 
-    invoke-virtual {v3, v4, v2}, Lcom/badlogic/gdx/utils/IntArray;->insert(II)V
+    invoke-virtual {p2, p3, p1}, Lcom/badlogic/gdx/utils/IntArray;->insert(II)V
 
-    .line 145
-    int-to-long v3, v2
+    int-to-long p1, p1
 
-    return-wide v3
+    return-wide p1
 .end method
 
 .method public resume()V
@@ -455,142 +427,126 @@
 
     invoke-virtual {v0}, Landroid/media/SoundPool;->autoResume()V
 
-    .line 80
     return-void
 .end method
 
 .method public resume(J)V
-    .locals 2
-    .param p1, "soundId"    # J
+    .locals 1
 
     .line 84
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->soundPool:Landroid/media/SoundPool;
 
-    long-to-int v1, p1
+    long-to-int p1, p1
 
-    invoke-virtual {v0, v1}, Landroid/media/SoundPool;->resume(I)V
+    invoke-virtual {v0, p1}, Landroid/media/SoundPool;->resume(I)V
 
-    .line 85
     return-void
 .end method
 
 .method public setLooping(JZ)V
-    .locals 3
-    .param p1, "soundId"    # J
-    .param p3, "looping"    # Z
+    .locals 1
 
     .line 114
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->soundPool:Landroid/media/SoundPool;
 
-    long-to-int v1, p1
+    long-to-int p1, p1
 
     if-eqz p3, :cond_0
 
-    const/4 v2, -0x1
+    const/4 p2, -0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 p2, 0x0
 
     :goto_0
-    invoke-virtual {v0, v1, v2}, Landroid/media/SoundPool;->setLoop(II)V
+    invoke-virtual {v0, p1, p2}, Landroid/media/SoundPool;->setLoop(II)V
 
-    .line 115
     return-void
 .end method
 
 .method public setPan(JFF)V
-    .locals 5
-    .param p1, "soundId"    # J
-    .param p3, "pan"    # F
-    .param p4, "volume"    # F
+    .locals 4
 
-    .line 119
-    move v0, p4
+    const/4 v0, 0x0
 
-    .line 120
-    .local v0, "leftVolume":F
-    move v1, p4
+    cmpg-float v1, p3, v0
 
-    .line 122
-    .local v1, "rightVolume":F
-    const/4 v2, 0x0
+    const/high16 v2, 0x3f800000    # 1.0f
 
-    cmpg-float v3, p3, v2
-
-    const/high16 v4, 0x3f800000    # 1.0f
-
-    if-gez v3, :cond_0
+    if-gez v1, :cond_0
 
     .line 123
     invoke-static {p3}, Ljava/lang/Math;->abs(F)F
 
-    move-result v2
+    move-result p3
 
-    sub-float/2addr v4, v2
+    sub-float/2addr v2, p3
 
-    mul-float/2addr v1, v4
+    mul-float/2addr v2, p4
 
     goto :goto_0
 
-    .line 124
     :cond_0
-    cmpl-float v2, p3, v2
+    cmpl-float v0, p3, v0
 
-    if-lez v2, :cond_1
+    if-lez v0, :cond_1
 
     .line 125
     invoke-static {p3}, Ljava/lang/Math;->abs(F)F
 
-    move-result v2
+    move-result p3
 
-    sub-float/2addr v4, v2
+    sub-float/2addr v2, p3
 
-    mul-float/2addr v0, v4
+    mul-float/2addr v2, p4
+
+    move v3, v2
+
+    move v2, p4
+
+    move p4, v3
+
+    goto :goto_0
+
+    :cond_1
+    move v2, p4
 
     .line 128
-    :cond_1
     :goto_0
-    iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->soundPool:Landroid/media/SoundPool;
+    iget-object p3, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->soundPool:Landroid/media/SoundPool;
 
-    long-to-int v3, p1
+    long-to-int p1, p1
 
-    invoke-virtual {v2, v3, v0, v1}, Landroid/media/SoundPool;->setVolume(IFF)V
+    invoke-virtual {p3, p1, p4, v2}, Landroid/media/SoundPool;->setVolume(IFF)V
 
-    .line 129
     return-void
 .end method
 
 .method public setPitch(JF)V
-    .locals 2
-    .param p1, "soundId"    # J
-    .param p3, "pitch"    # F
+    .locals 1
 
     .line 89
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->soundPool:Landroid/media/SoundPool;
 
-    long-to-int v1, p1
+    long-to-int p1, p1
 
-    invoke-virtual {v0, v1, p3}, Landroid/media/SoundPool;->setRate(IF)V
+    invoke-virtual {v0, p1, p3}, Landroid/media/SoundPool;->setRate(IF)V
 
-    .line 90
     return-void
 .end method
 
 .method public setVolume(JF)V
-    .locals 2
-    .param p1, "soundId"    # J
-    .param p3, "volume"    # F
+    .locals 1
 
     .line 94
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->soundPool:Landroid/media/SoundPool;
 
-    long-to-int v1, p1
+    long-to-int p1, p1
 
-    invoke-virtual {v0, v1, p3, p3}, Landroid/media/SoundPool;->setVolume(IFF)V
+    invoke-virtual {v0, p1, p3, p3}, Landroid/media/SoundPool;->setVolume(IFF)V
 
-    .line 95
     return-void
 .end method
 
@@ -598,51 +554,43 @@
     .locals 4
 
     .line 58
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->streamIds:Lcom/badlogic/gdx/utils/IntArray;
 
-    .local v0, "i":I
-    iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->streamIds:Lcom/badlogic/gdx/utils/IntArray;
+    iget v0, v0, Lcom/badlogic/gdx/utils/IntArray;->size:I
 
-    iget v1, v1, Lcom/badlogic/gdx/utils/IntArray;->size:I
+    const/4 v1, 0x0
 
-    .local v1, "n":I
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge v1, v0, :cond_0
 
     .line 59
     iget-object v2, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->soundPool:Landroid/media/SoundPool;
 
     iget-object v3, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->streamIds:Lcom/badlogic/gdx/utils/IntArray;
 
-    invoke-virtual {v3, v0}, Lcom/badlogic/gdx/utils/IntArray;->get(I)I
+    invoke-virtual {v3, v1}, Lcom/badlogic/gdx/utils/IntArray;->get(I)I
 
     move-result v3
 
     invoke-virtual {v2, v3}, Landroid/media/SoundPool;->stop(I)V
 
-    .line 58
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 60
-    .end local v0    # "i":I
-    .end local v1    # "n":I
     :cond_0
     return-void
 .end method
 
 .method public stop(J)V
-    .locals 2
-    .param p1, "soundId"    # J
+    .locals 1
 
     .line 64
     iget-object v0, p0, Lcom/badlogic/gdx/backends/android/AndroidSound;->soundPool:Landroid/media/SoundPool;
 
-    long-to-int v1, p1
+    long-to-int p1, p1
 
-    invoke-virtual {v0, v1}, Landroid/media/SoundPool;->stop(I)V
+    invoke-virtual {v0, p1}, Landroid/media/SoundPool;->stop(I)V
 
-    .line 65
     return-void
 .end method

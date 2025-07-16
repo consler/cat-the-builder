@@ -51,14 +51,11 @@
     .end annotation
 
     .line 427
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MultiSetEntry;, "Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MultiSetEntry<TE;>;"
-    .local p1, "parentEntry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TE;Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MutableInteger;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$AbstractEntry;-><init>()V
 
     .line 428
     iput-object p1, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MultiSetEntry;->parentEntry:Ljava/util/Map$Entry;
 
-    .line 429
     return-void
 .end method
 
@@ -68,7 +65,6 @@
     .locals 1
 
     .line 438
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MultiSetEntry;, "Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MultiSetEntry<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MultiSetEntry;->parentEntry:Ljava/util/Map$Entry;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -91,7 +87,6 @@
     .end annotation
 
     .line 433
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MultiSetEntry;, "Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MultiSetEntry<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MultiSetEntry;->parentEntry:Ljava/util/Map$Entry;
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;

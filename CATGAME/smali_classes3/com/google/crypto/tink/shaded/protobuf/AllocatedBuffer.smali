@@ -15,11 +15,10 @@
 
 .method public static wrap(Ljava/nio/ByteBuffer;)Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
     .locals 1
-    .param p0, "buffer"    # Ljava/nio/ByteBuffer;
 
-    .line 154
     const-string v0, "buffer"
 
+    .line 154
     invoke-static {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 156
@@ -32,33 +31,29 @@
 
 .method public static wrap([B)Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
     .locals 2
-    .param p0, "bytes"    # [B
+
+    const/4 v0, 0x0
 
     .line 132
-    array-length v0, p0
+    array-length v1, p0
 
-    const/4 v1, 0x0
+    invoke-static {p0, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;->wrapNoCheck([BII)Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
 
-    invoke-static {p0, v1, v0}, Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;->wrapNoCheck([BII)Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method
 
 .method public static wrap([BII)Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
-    .locals 4
-    .param p0, "bytes"    # [B
-    .param p1, "offset"    # I
-    .param p2, "length"    # I
+    .locals 3
 
-    .line 141
     if-ltz p1, :cond_0
 
     if-ltz p2, :cond_0
 
     add-int v0, p1, p2
 
+    .line 141
     array-length v1, p0
 
     if-gt v0, v1, :cond_0
@@ -66,9 +61,9 @@
     .line 146
     invoke-static {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;->wrapNoCheck([BII)Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 142
     :cond_0
@@ -78,49 +73,46 @@
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    const/4 v2, 0x0
-
-    array-length v3, p0
+    array-length p0, p0
 
     .line 143
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object p0
 
-    aput-object v3, v1, v2
+    const/4 v2, 0x0
 
-    const/4 v2, 0x1
+    aput-object p0, v1, v2
+
+    const/4 p0, 0x1
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object p1
 
-    aput-object v3, v1, v2
+    aput-object p1, v1, p0
 
-    const/4 v2, 0x2
+    const/4 p0, 0x2
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object p1
 
-    aput-object v3, v1, v2
+    aput-object p1, v1, p0
 
-    const-string v2, "bytes.length=%d, offset=%d, length=%d"
+    const-string p0, "bytes.length=%d, offset=%d, length=%d"
 
-    invoke-static {v2, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method private static wrapNoCheck([BII)Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer;
     .locals 1
-    .param p0, "bytes"    # [B
-    .param p1, "offset"    # I
-    .param p2, "length"    # I
 
     .line 208
     new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/AllocatedBuffer$2;

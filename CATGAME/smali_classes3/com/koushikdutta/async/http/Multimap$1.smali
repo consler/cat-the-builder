@@ -30,13 +30,12 @@
 
 # virtual methods
 .method public decode(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
-    .param p1, "s"    # Ljava/lang/String;
+    .locals 0
 
     .line 90
     invoke-static {p1}, Landroid/net/Uri;->decode(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

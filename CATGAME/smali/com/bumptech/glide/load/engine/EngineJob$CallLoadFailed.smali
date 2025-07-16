@@ -26,10 +26,8 @@
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/engine/EngineJob;Lcom/bumptech/glide/request/ResourceCallback;)V
     .locals 0
-    .param p2, "cb"    # Lcom/bumptech/glide/request/ResourceCallback;
 
     .line 387
-    .local p0, "this":Lcom/bumptech/glide/load/engine/EngineJob$CallLoadFailed;, "Lcom/bumptech/glide/load/engine/EngineJob<TR;>.CallLoadFailed;"
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/EngineJob$CallLoadFailed;->this$0:Lcom/bumptech/glide/load/engine/EngineJob;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +35,6 @@
     .line 388
     iput-object p2, p0, Lcom/bumptech/glide/load/engine/EngineJob$CallLoadFailed;->cb:Lcom/bumptech/glide/request/ResourceCallback;
 
-    .line 389
     return-void
 .end method
 
@@ -47,7 +44,6 @@
     .locals 4
 
     .line 395
-    .local p0, "this":Lcom/bumptech/glide/load/engine/EngineJob$CallLoadFailed;, "Lcom/bumptech/glide/load/engine/EngineJob<TR;>.CallLoadFailed;"
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineJob$CallLoadFailed;->cb:Lcom/bumptech/glide/request/ResourceCallback;
 
     invoke-interface {v0}, Lcom/bumptech/glide/request/ResourceCallback;->getLock()Ljava/lang/Object;
@@ -102,13 +98,12 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    .line 404
     return-void
 
-    .line 402
     :catchall_0
     move-exception v2
 
+    .line 402
     :try_start_3
     monitor-exit v1
     :try_end_3
@@ -117,10 +112,10 @@
     :try_start_4
     throw v2
 
-    .line 403
     :catchall_1
     move-exception v1
 
+    .line 403
     monitor-exit v0
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1

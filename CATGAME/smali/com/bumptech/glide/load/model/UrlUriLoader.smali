@@ -78,7 +78,6 @@
 
     sput-object v0, Lcom/bumptech/glide/load/model/UrlUriLoader;->SCHEMES:Ljava/util/Set;
 
-    .line 19
     return-void
 .end method
 
@@ -94,25 +93,18 @@
     .end annotation
 
     .line 25
-    .local p0, "this":Lcom/bumptech/glide/load/model/UrlUriLoader;, "Lcom/bumptech/glide/load/model/UrlUriLoader<TData;>;"
-    .local p1, "urlLoader":Lcom/bumptech/glide/load/model/ModelLoader;, "Lcom/bumptech/glide/load/model/ModelLoader<Lcom/bumptech/glide/load/model/GlideUrl;TData;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 26
     iput-object p1, p0, Lcom/bumptech/glide/load/model/UrlUriLoader;->urlLoader:Lcom/bumptech/glide/load/model/ModelLoader;
 
-    .line 27
     return-void
 .end method
 
 
 # virtual methods
 .method public buildLoadData(Landroid/net/Uri;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
-    .locals 2
-    .param p1, "uri"    # Landroid/net/Uri;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
-    .param p4, "options"    # Lcom/bumptech/glide/load/Options;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -126,31 +118,28 @@
     .end annotation
 
     .line 32
-    .local p0, "this":Lcom/bumptech/glide/load/model/UrlUriLoader;, "Lcom/bumptech/glide/load/model/UrlUriLoader<TData;>;"
     new-instance v0, Lcom/bumptech/glide/load/model/GlideUrl;
 
     invoke-virtual {p1}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Lcom/bumptech/glide/load/model/GlideUrl;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Lcom/bumptech/glide/load/model/GlideUrl;-><init>(Ljava/lang/String;)V
 
     .line 33
-    .local v0, "glideUrl":Lcom/bumptech/glide/load/model/GlideUrl;
-    iget-object v1, p0, Lcom/bumptech/glide/load/model/UrlUriLoader;->urlLoader:Lcom/bumptech/glide/load/model/ModelLoader;
+    iget-object p1, p0, Lcom/bumptech/glide/load/model/UrlUriLoader;->urlLoader:Lcom/bumptech/glide/load/model/ModelLoader;
 
-    invoke-interface {v1, v0, p2, p3, p4}, Lcom/bumptech/glide/load/model/ModelLoader;->buildLoadData(Ljava/lang/Object;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
+    invoke-interface {p1, v0, p2, p3, p4}, Lcom/bumptech/glide/load/model/ModelLoader;->buildLoadData(Ljava/lang/Object;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public bridge synthetic buildLoadData(Ljava/lang/Object;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
     .locals 0
 
     .line 18
-    .local p0, "this":Lcom/bumptech/glide/load/model/UrlUriLoader;, "Lcom/bumptech/glide/load/model/UrlUriLoader<TData;>;"
     check-cast p1, Landroid/net/Uri;
 
     invoke-virtual {p0, p1, p2, p3, p4}, Lcom/bumptech/glide/load/model/UrlUriLoader;->buildLoadData(Landroid/net/Uri;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
@@ -161,29 +150,26 @@
 .end method
 
 .method public handles(Landroid/net/Uri;)Z
-    .locals 2
-    .param p1, "uri"    # Landroid/net/Uri;
+    .locals 1
 
     .line 38
-    .local p0, "this":Lcom/bumptech/glide/load/model/UrlUriLoader;, "Lcom/bumptech/glide/load/model/UrlUriLoader<TData;>;"
     sget-object v0, Lcom/bumptech/glide/load/model/UrlUriLoader;->SCHEMES:Ljava/util/Set;
 
     invoke-virtual {p1}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic handles(Ljava/lang/Object;)Z
     .locals 0
 
     .line 18
-    .local p0, "this":Lcom/bumptech/glide/load/model/UrlUriLoader;, "Lcom/bumptech/glide/load/model/UrlUriLoader<TData;>;"
     check-cast p1, Landroid/net/Uri;
 
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/load/model/UrlUriLoader;->handles(Landroid/net/Uri;)Z

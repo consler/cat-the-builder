@@ -26,33 +26,29 @@
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;)V
     .locals 1
-    .param p1, "is"    # Ljava/io/InputStream;
 
-    .line 25
     const/16 v0, 0x2000
 
+    .line 25
     invoke-direct {p0, p1, v0}, Lar/com/hjg/pngj/BufferedStreamFeeder;-><init>(Ljava/io/InputStream;I)V
 
-    .line 26
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;I)V
     .locals 2
-    .param p1, "is"    # Ljava/io/InputStream;
-    .param p2, "bufsize"    # I
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 17
     const/4 v0, 0x0
 
+    .line 17
     iput-boolean v0, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->eof:Z
 
-    .line 18
     const/4 v1, 0x1
 
+    .line 18
     iput-boolean v1, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->closeStream:Z
 
     .line 19
@@ -61,22 +57,16 @@
     .line 29
     iput-object p1, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->stream:Ljava/io/InputStream;
 
-    .line 30
     if-ge p2, v1, :cond_0
 
-    const/16 v0, 0x2000
+    const/16 p2, 0x2000
 
-    goto :goto_0
-
+    .line 30
     :cond_0
-    move v0, p2
+    new-array p1, p2, [B
 
-    :goto_0
-    new-array v0, v0, [B
+    iput-object p1, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->buf:[B
 
-    iput-object v0, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->buf:[B
-
-    .line 31
     return-void
 .end method
 
@@ -85,19 +75,19 @@
 .method public close()V
     .locals 3
 
-    .line 139
     const/4 v0, 0x1
 
+    .line 139
     iput-boolean v0, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->eof:Z
 
-    .line 140
     const/4 v0, 0x0
 
+    .line 140
     iput-object v0, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->buf:[B
 
-    .line 141
     const/4 v1, 0x0
 
+    .line 141
     iput v1, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->pendinglen:I
 
     .line 142
@@ -118,167 +108,138 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 148
-    goto :goto_0
-
-    .line 146
-    :catch_0
-    move-exception v1
-
     .line 150
+    :catch_0
     :cond_0
-    :goto_0
     iput-object v0, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->stream:Ljava/io/InputStream;
 
-    .line 151
     return-void
 .end method
 
 .method public feed(Lar/com/hjg/pngj/IBytesConsumer;)I
     .locals 1
-    .param p1, "consumer"    # Lar/com/hjg/pngj/IBytesConsumer;
 
-    .line 48
     const/4 v0, -0x1
 
+    .line 48
     invoke-virtual {p0, p1, v0}, Lar/com/hjg/pngj/BufferedStreamFeeder;->feed(Lar/com/hjg/pngj/IBytesConsumer;I)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public feed(Lar/com/hjg/pngj/IBytesConsumer;I)I
-    .locals 4
-    .param p1, "consumer"    # Lar/com/hjg/pngj/IBytesConsumer;
-    .param p2, "maxbytes"    # I
-
-    .line 56
-    const/4 v0, 0x0
+    .locals 2
 
     .line 57
-    .local v0, "n":I
-    iget v1, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->pendinglen:I
+    iget v0, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->pendinglen:I
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     .line 58
     invoke-virtual {p0}, Lar/com/hjg/pngj/BufferedStreamFeeder;->refillBuffer()V
 
-    .line 60
     :cond_0
     if-lez p2, :cond_1
 
-    iget v1, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->pendinglen:I
+    .line 60
+    iget v0, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->pendinglen:I
 
-    if-ge p2, v1, :cond_1
-
-    move v1, p2
+    if-ge p2, v0, :cond_1
 
     goto :goto_0
 
     :cond_1
-    iget v1, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->pendinglen:I
+    iget p2, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->pendinglen:I
 
-    .line 61
-    .local v1, "tofeed":I
     :goto_0
-    if-lez v1, :cond_2
+    if-lez p2, :cond_2
 
     .line 62
-    iget-object v2, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->buf:[B
+    iget-object v0, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->buf:[B
 
-    iget v3, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->offset:I
+    iget v1, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->offset:I
 
-    invoke-interface {p1, v2, v3, v1}, Lar/com/hjg/pngj/IBytesConsumer;->consume([BII)I
+    invoke-interface {p1, v0, v1, p2}, Lar/com/hjg/pngj/IBytesConsumer;->consume([BII)I
 
-    move-result v0
+    move-result p1
 
-    .line 63
-    if-lez v0, :cond_2
+    if-lez p1, :cond_3
 
     .line 64
-    iget v2, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->offset:I
+    iget p2, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->offset:I
 
-    add-int/2addr v2, v0
+    add-int/2addr p2, p1
 
-    iput v2, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->offset:I
+    iput p2, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->offset:I
 
     .line 65
-    iget v2, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->pendinglen:I
+    iget p2, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->pendinglen:I
 
-    sub-int/2addr v2, v0
+    sub-int/2addr p2, p1
 
-    iput v2, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->pendinglen:I
-
-    .line 68
-    :cond_2
-    const/4 v2, 0x1
-
-    if-ge v0, v2, :cond_4
-
-    iget-boolean v2, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->failIfNoFeed:Z
-
-    if-nez v2, :cond_3
+    iput p2, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->pendinglen:I
 
     goto :goto_1
 
-    .line 69
+    :cond_2
+    const/4 p1, 0x0
+
     :cond_3
-    new-instance v2, Lar/com/hjg/pngj/PngjInputException;
-
-    const-string v3, "failed feed bytes"
-
-    invoke-direct {v2, v3}, Lar/com/hjg/pngj/PngjInputException;-><init>(Ljava/lang/String;)V
-
-    throw v2
-
-    .line 70
-    :cond_4
     :goto_1
-    return v0
+    const/4 p2, 0x1
+
+    if-ge p1, p2, :cond_5
+
+    .line 68
+    iget-boolean p2, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->failIfNoFeed:Z
+
+    if-nez p2, :cond_4
+
+    goto :goto_2
+
+    .line 69
+    :cond_4
+    new-instance p1, Lar/com/hjg/pngj/PngjInputException;
+
+    const-string p2, "failed feed bytes"
+
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/PngjInputException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
+    :cond_5
+    :goto_2
+    return p1
 .end method
 
 .method public feedFixed(Lar/com/hjg/pngj/IBytesConsumer;I)Z
-    .locals 3
-    .param p1, "consumer"    # Lar/com/hjg/pngj/IBytesConsumer;
-    .param p2, "nbytes"    # I
+    .locals 2
 
-    .line 81
-    move v0, p2
-
-    .line 82
-    .local v0, "remain":I
     :goto_0
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    if-lez v0, :cond_1
+    if-lez p2, :cond_1
 
     .line 83
-    invoke-virtual {p0, p1, v0}, Lar/com/hjg/pngj/BufferedStreamFeeder;->feed(Lar/com/hjg/pngj/IBytesConsumer;I)I
+    invoke-virtual {p0, p1, p2}, Lar/com/hjg/pngj/BufferedStreamFeeder;->feed(Lar/com/hjg/pngj/IBytesConsumer;I)I
 
-    move-result v2
+    move-result v1
 
-    .line 84
-    .local v2, "n":I
-    if-ge v2, v1, :cond_0
+    if-ge v1, v0, :cond_0
 
-    .line 85
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return v1
+    return p1
 
-    .line 86
     :cond_0
-    sub-int/2addr v0, v2
+    sub-int/2addr p2, v1
 
-    .line 87
-    .end local v2    # "n":I
     goto :goto_0
 
-    .line 88
     :cond_1
-    return v1
+    return v0
 .end method
 
 .method public getStream()Ljava/io/InputStream;
@@ -356,10 +317,10 @@
 
     goto :goto_0
 
-    .line 99
     :cond_0
     const/4 v0, 0x0
 
+    .line 99
     :try_start_0
     iput v0, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->offset:I
 
@@ -374,7 +335,6 @@
 
     iput v0, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->pendinglen:I
 
-    .line 101
     if-gez v0, :cond_1
 
     .line 102
@@ -382,27 +342,19 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 103
-    return-void
-
-    .line 105
     :cond_1
     return-void
 
-    .line 106
     :catch_0
     move-exception v0
 
     .line 107
-    .local v0, "e":Ljava/io/IOException;
     new-instance v1, Lar/com/hjg/pngj/PngjInputException;
 
     invoke-direct {v1, v0}, Lar/com/hjg/pngj/PngjInputException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
 
-    .line 96
-    .end local v0    # "e":Ljava/io/IOException;
     :cond_2
     :goto_0
     return-void
@@ -410,38 +362,32 @@
 
 .method public setCloseStream(Z)V
     .locals 0
-    .param p1, "closeStream"    # Z
 
     .line 126
     iput-boolean p1, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->closeStream:Z
 
-    .line 127
     return-void
 .end method
 
 .method public setFailIfNoFeed(Z)V
     .locals 0
-    .param p1, "failIfNoFeed"    # Z
 
     .line 178
     iput-boolean p1, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->failIfNoFeed:Z
 
-    .line 179
     return-void
 .end method
 
 .method public setInputStream(Ljava/io/InputStream;)V
-    .locals 1
-    .param p1, "is"    # Ljava/io/InputStream;
+    .locals 0
 
     .line 160
     iput-object p1, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->stream:Ljava/io/InputStream;
 
+    const/4 p1, 0x0
+
     .line 161
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->eof:Z
 
-    iput-boolean v0, p0, Lar/com/hjg/pngj/BufferedStreamFeeder;->eof:Z
-
-    .line 162
     return-void
 .end method

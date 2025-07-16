@@ -14,15 +14,15 @@
 
 
 # static fields
-.field public static final cast_ic_notification_0:I = 0x7f0800d8
+.field public static final cast_ic_notification_0:I = 0x7f0800e1
 
-.field public static final cast_ic_notification_1:I = 0x7f0800d9
+.field public static final cast_ic_notification_1:I = 0x7f0800e2
 
-.field public static final cast_ic_notification_2:I = 0x7f0800da
+.field public static final cast_ic_notification_2:I = 0x7f0800e3
 
-.field public static final cast_ic_notification_connecting:I = 0x7f0800db
+.field public static final cast_ic_notification_connecting:I = 0x7f0800e4
 
-.field public static final cast_ic_notification_on:I = 0x7f0800dc
+.field public static final cast_ic_notification_on:I = 0x7f0800e5
 
 
 # direct methods

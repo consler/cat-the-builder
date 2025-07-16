@@ -54,7 +54,6 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/maps/tiled/TiledMapTileSet;->properties:Lcom/badlogic/gdx/maps/MapProperties;
 
-    .line 51
     return-void
 .end method
 
@@ -80,18 +79,17 @@
 
 .method public getTile(I)Lcom/badlogic/gdx/maps/tiled/TiledMapTile;
     .locals 1
-    .param p1, "id"    # I
 
     .line 58
     iget-object v0, p0, Lcom/badlogic/gdx/maps/tiled/TiledMapTileSet;->tiles:Lcom/badlogic/gdx/utils/IntMap;
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/IntMap;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/badlogic/gdx/maps/tiled/TiledMapTile;
+    check-cast p1, Lcom/badlogic/gdx/maps/tiled/TiledMapTile;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
@@ -121,39 +119,32 @@
 
 .method public putTile(ILcom/badlogic/gdx/maps/tiled/TiledMapTile;)V
     .locals 1
-    .param p1, "id"    # I
-    .param p2, "tile"    # Lcom/badlogic/gdx/maps/tiled/TiledMapTile;
 
     .line 72
     iget-object v0, p0, Lcom/badlogic/gdx/maps/tiled/TiledMapTileSet;->tiles:Lcom/badlogic/gdx/utils/IntMap;
 
     invoke-virtual {v0, p1, p2}, Lcom/badlogic/gdx/utils/IntMap;->put(ILjava/lang/Object;)Ljava/lang/Object;
 
-    .line 73
     return-void
 .end method
 
 .method public removeTile(I)V
     .locals 1
-    .param p1, "id"    # I
 
     .line 77
     iget-object v0, p0, Lcom/badlogic/gdx/maps/tiled/TiledMapTileSet;->tiles:Lcom/badlogic/gdx/utils/IntMap;
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/IntMap;->remove(I)Ljava/lang/Object;
 
-    .line 78
     return-void
 .end method
 
 .method public setName(Ljava/lang/String;)V
     .locals 0
-    .param p1, "name"    # Ljava/lang/String;
 
     .line 39
     iput-object p1, p0, Lcom/badlogic/gdx/maps/tiled/TiledMapTileSet;->name:Ljava/lang/String;
 
-    .line 40
     return-void
 .end method
 

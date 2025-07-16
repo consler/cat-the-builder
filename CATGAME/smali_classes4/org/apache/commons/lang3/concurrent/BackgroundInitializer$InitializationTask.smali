@@ -34,10 +34,8 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/lang3/concurrent/BackgroundInitializer;Ljava/util/concurrent/ExecutorService;)V
     .locals 0
-    .param p2, "exec"    # Ljava/util/concurrent/ExecutorService;
 
     .line 313
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/BackgroundInitializer$InitializationTask;, "Lorg/apache/commons/lang3/concurrent/BackgroundInitializer<TT;>.InitializationTask;"
     iput-object p1, p0, Lorg/apache/commons/lang3/concurrent/BackgroundInitializer$InitializationTask;->this$0:Lorg/apache/commons/lang3/concurrent/BackgroundInitializer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +43,6 @@
     .line 314
     iput-object p2, p0, Lorg/apache/commons/lang3/concurrent/BackgroundInitializer$InitializationTask;->execFinally:Ljava/util/concurrent/ExecutorService;
 
-    .line 315
     return-void
 .end method
 
@@ -66,7 +63,6 @@
     .end annotation
 
     .line 326
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/BackgroundInitializer$InitializationTask;, "Lorg/apache/commons/lang3/concurrent/BackgroundInitializer<TT;>.InitializationTask;"
     :try_start_0
     iget-object v0, p0, Lorg/apache/commons/lang3/concurrent/BackgroundInitializer$InitializationTask;->this$0:Lorg/apache/commons/lang3/concurrent/BackgroundInitializer;
 
@@ -84,14 +80,13 @@
     .line 329
     invoke-interface {v1}, Ljava/util/concurrent/ExecutorService;->shutdown()V
 
-    .line 326
     :cond_0
     return-object v0
 
-    .line 328
     :catchall_0
     move-exception v0
 
+    .line 328
     iget-object v1, p0, Lorg/apache/commons/lang3/concurrent/BackgroundInitializer$InitializationTask;->execFinally:Ljava/util/concurrent/ExecutorService;
 
     if-eqz v1, :cond_1

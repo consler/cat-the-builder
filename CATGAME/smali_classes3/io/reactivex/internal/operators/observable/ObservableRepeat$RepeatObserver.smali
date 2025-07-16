@@ -59,8 +59,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/Observer;JLio/reactivex/internal/disposables/SequentialDisposable;Lio/reactivex/ObservableSource;)V
     .locals 0
-    .param p2, "count"    # J
-    .param p4, "sd"    # Lio/reactivex/internal/disposables/SequentialDisposable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -73,9 +71,6 @@
     .end annotation
 
     .line 46
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver;, "Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
-    .local p5, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<+TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
 
     .line 47
@@ -90,7 +85,6 @@
     .line 50
     iput-wide p2, p0, Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver;->remaining:J
 
-    .line 51
     return-void
 .end method
 
@@ -100,31 +94,27 @@
     .locals 4
 
     .line 69
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver;, "Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver<TT;>;"
     iget-wide v0, p0, Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver;->remaining:J
 
-    .line 70
-    .local v0, "r":J
     const-wide v2, 0x7fffffffffffffffL
 
     cmp-long v2, v0, v2
 
     if-eqz v2, :cond_0
 
-    .line 71
     const-wide/16 v2, 0x1
 
     sub-long v2, v0, v2
 
+    .line 71
     iput-wide v2, p0, Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver;->remaining:J
 
-    .line 73
     :cond_0
     const-wide/16 v2, 0x0
 
-    cmp-long v2, v0, v2
+    cmp-long v0, v0, v2
 
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_1
 
     .line 74
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver;->subscribeNext()V
@@ -133,26 +123,22 @@
 
     .line 76
     :cond_1
-    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver;->actual:Lio/reactivex/Observer;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v2}, Lio/reactivex/Observer;->onComplete()V
+    invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 78
     :goto_0
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 64
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver;, "Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver;->actual:Lio/reactivex/Observer;
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 65
     return-void
 .end method
 
@@ -165,27 +151,21 @@
     .end annotation
 
     .line 60
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver;, "Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver;->actual:Lio/reactivex/Observer;
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
-    .line 61
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 55
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver;, "Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver;->sd:Lio/reactivex/internal/disposables/SequentialDisposable;
 
     invoke-virtual {v0, p1}, Lio/reactivex/internal/disposables/SequentialDisposable;->replace(Lio/reactivex/disposables/Disposable;)Z
 
-    .line 56
     return-void
 .end method
 
@@ -193,18 +173,15 @@
     .locals 2
 
     .line 84
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver;, "Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver;->getAndIncrement()I
 
     move-result v0
 
     if-nez v0, :cond_2
 
-    .line 85
     const/4 v0, 0x1
 
     .line 87
-    .local v0, "missed":I
     :cond_0
     iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver;->sd:Lio/reactivex/internal/disposables/SequentialDisposable;
 
@@ -214,7 +191,6 @@
 
     if-eqz v1, :cond_1
 
-    .line 88
     return-void
 
     .line 90
@@ -223,18 +199,15 @@
 
     invoke-interface {v1, p0}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 92
-    neg-int v1, v0
+    neg-int v0, v0
 
-    invoke-virtual {p0, v1}, Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver;->addAndGet(I)I
+    .line 92
+    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/observable/ObservableRepeat$RepeatObserver;->addAndGet(I)I
 
     move-result v0
 
-    .line 93
     if-nez v0, :cond_0
 
-    .line 98
-    .end local v0    # "missed":I
     :cond_2
     return-void
 .end method

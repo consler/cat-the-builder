@@ -44,9 +44,9 @@
     .line 168
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 162
     const-wide/16 v0, 0x0
 
+    .line 162
     iput-wide v0, p0, Lorg/apache/commons/collections/SequencedHashMap;->modCount:J
 
     .line 169
@@ -63,20 +63,18 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/SequencedHashMap;->entries:Ljava/util/HashMap;
 
-    .line 171
     return-void
 .end method
 
 .method public constructor <init>(I)V
     .locals 2
-    .param p1, "initialSize"    # I
 
     .line 181
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 162
     const-wide/16 v0, 0x0
 
+    .line 162
     iput-wide v0, p0, Lorg/apache/commons/collections/SequencedHashMap;->modCount:J
 
     .line 182
@@ -93,21 +91,18 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/SequencedHashMap;->entries:Ljava/util/HashMap;
 
-    .line 184
     return-void
 .end method
 
 .method public constructor <init>(IF)V
     .locals 2
-    .param p1, "initialSize"    # I
-    .param p2, "loadFactor"    # F
 
     .line 196
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 162
     const-wide/16 v0, 0x0
 
+    .line 162
     iput-wide v0, p0, Lorg/apache/commons/collections/SequencedHashMap;->modCount:J
 
     .line 197
@@ -124,13 +119,11 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/SequencedHashMap;->entries:Ljava/util/HashMap;
 
-    .line 199
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Map;)V
     .locals 0
-    .param p1, "m"    # Ljava/util/Map;
 
     .line 207
     invoke-direct {p0}, Lorg/apache/commons/collections/SequencedHashMap;-><init>()V
@@ -138,46 +131,40 @@
     .line 208
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections/SequencedHashMap;->putAll(Ljava/util/Map;)V
 
-    .line 209
     return-void
 .end method
 
 .method static synthetic access$000(Lorg/apache/commons/collections/SequencedHashMap;Ljava/lang/Object;)Lorg/apache/commons/collections/SequencedHashMap$Entry;
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections/SequencedHashMap;
-    .param p1, "x1"    # Ljava/lang/Object;
+    .locals 0
 
     .line 62
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/SequencedHashMap;->removeImpl(Ljava/lang/Object;)Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$100(Lorg/apache/commons/collections/SequencedHashMap;)Lorg/apache/commons/collections/SequencedHashMap$Entry;
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections/SequencedHashMap;
+    .locals 0
 
     .line 62
-    iget-object v0, p0, Lorg/apache/commons/collections/SequencedHashMap;->sentinel:Lorg/apache/commons/collections/SequencedHashMap$Entry;
+    iget-object p0, p0, Lorg/apache/commons/collections/SequencedHashMap;->sentinel:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$200(Lorg/apache/commons/collections/SequencedHashMap;)Ljava/util/HashMap;
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections/SequencedHashMap;
+    .locals 0
 
     .line 62
-    iget-object v0, p0, Lorg/apache/commons/collections/SequencedHashMap;->entries:Ljava/util/HashMap;
+    iget-object p0, p0, Lorg/apache/commons/collections/SequencedHashMap;->entries:Ljava/util/HashMap;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$300(Lorg/apache/commons/collections/SequencedHashMap;)J
     .locals 2
-    .param p0, "x0"    # Lorg/apache/commons/collections/SequencedHashMap;
 
     .line 62
     iget-wide v0, p0, Lorg/apache/commons/collections/SequencedHashMap;->modCount:J
@@ -196,44 +183,36 @@
     invoke-direct {v0, v1, v1}, Lorg/apache/commons/collections/SequencedHashMap$Entry;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
     .line 141
-    .local v0, "s":Lorg/apache/commons/collections/SequencedHashMap$Entry;
     iput-object v0, v0, Lorg/apache/commons/collections/SequencedHashMap$Entry;->prev:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
     .line 142
     iput-object v0, v0, Lorg/apache/commons/collections/SequencedHashMap$Entry;->next:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
-    .line 143
     return-object v0
 .end method
 
 .method private getEntry(I)Ljava/util/Map$Entry;
-    .locals 5
-    .param p1, "index"    # I
+    .locals 4
 
     .line 859
     iget-object v0, p0, Lorg/apache/commons/collections/SequencedHashMap;->sentinel:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
-    .line 861
-    .local v0, "pos":Lorg/apache/commons/collections/SequencedHashMap$Entry;
     if-ltz p1, :cond_2
 
-    .line 866
     const/4 v1, -0x1
 
-    .line 867
-    .local v1, "i":I
     :goto_0
     add-int/lit8 v2, p1, -0x1
 
     if-ge v1, v2, :cond_0
 
+    .line 867
     iget-object v2, v0, Lorg/apache/commons/collections/SequencedHashMap$Entry;->next:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
     iget-object v3, p0, Lorg/apache/commons/collections/SequencedHashMap;->sentinel:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
     if-eq v2, v3, :cond_0
 
-    .line 868
     add-int/lit8 v1, v1, 0x1
 
     .line 869
@@ -250,40 +229,13 @@
     if-eq v2, v3, :cond_1
 
     .line 878
-    iget-object v2, v0, Lorg/apache/commons/collections/SequencedHashMap$Entry;->next:Lorg/apache/commons/collections/SequencedHashMap$Entry;
+    iget-object p1, v0, Lorg/apache/commons/collections/SequencedHashMap$Entry;->next:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
-    return-object v2
+    return-object p1
 
     .line 875
     :cond_1
-    new-instance v2, Ljava/lang/ArrayIndexOutOfBoundsException;
-
-    new-instance v3, Ljava/lang/StringBuffer;
-
-    invoke-direct {v3}, Ljava/lang/StringBuffer;-><init>()V
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
-
-    const-string v4, " >= "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    add-int/lit8 v4, v1, 0x1
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {v2, v3}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
-
-    throw v2
-
-    .line 862
-    .end local v1    # "i":I
-    :cond_2
-    new-instance v1, Ljava/lang/ArrayIndexOutOfBoundsException;
+    new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
 
     new-instance v2, Ljava/lang/StringBuffer;
 
@@ -291,22 +243,57 @@
 
     invoke-virtual {v2, p1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    const-string v3, " < 0"
+    move-result-object p1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    const-string v2, " >= "
 
-    invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    add-int/lit8 v1, v1, 0x1
 
-    throw v1
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 862
+    :cond_2
+    new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
+
+    new-instance v1, Ljava/lang/StringBuffer;
+
+    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+
+    move-result-object p1
+
+    const-string v1, " < 0"
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
 
 .method private insertEntry(Lorg/apache/commons/collections/SequencedHashMap$Entry;)V
     .locals 1
-    .param p1, "entry"    # Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
     .line 225
     iget-object v0, p0, Lorg/apache/commons/collections/SequencedHashMap;->sentinel:Lorg/apache/commons/collections/SequencedHashMap$Entry;
@@ -332,13 +319,11 @@
 
     iput-object p1, v0, Lorg/apache/commons/collections/SequencedHashMap$Entry;->prev:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
-    .line 229
     return-void
 .end method
 
 .method private removeEntry(Lorg/apache/commons/collections/SequencedHashMap$Entry;)V
     .locals 2
-    .param p1, "entry"    # Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
     .line 216
     iget-object v0, p1, Lorg/apache/commons/collections/SequencedHashMap$Entry;->next:Lorg/apache/commons/collections/SequencedHashMap$Entry;
@@ -350,51 +335,45 @@
     .line 217
     iget-object v0, p1, Lorg/apache/commons/collections/SequencedHashMap$Entry;->prev:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
-    iget-object v1, p1, Lorg/apache/commons/collections/SequencedHashMap$Entry;->next:Lorg/apache/commons/collections/SequencedHashMap$Entry;
+    iget-object p1, p1, Lorg/apache/commons/collections/SequencedHashMap$Entry;->next:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
-    iput-object v1, v0, Lorg/apache/commons/collections/SequencedHashMap$Entry;->next:Lorg/apache/commons/collections/SequencedHashMap$Entry;
+    iput-object p1, v0, Lorg/apache/commons/collections/SequencedHashMap$Entry;->next:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
-    .line 218
     return-void
 .end method
 
 .method private removeImpl(Ljava/lang/Object;)Lorg/apache/commons/collections/SequencedHashMap$Entry;
-    .locals 5
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 4
 
     .line 470
     iget-object v0, p0, Lorg/apache/commons/collections/SequencedHashMap;->entries:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lorg/apache/commons/collections/SequencedHashMap$Entry;
+    check-cast p1, Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
-    .line 471
-    .local v0, "e":Lorg/apache/commons/collections/SequencedHashMap$Entry;
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    .line 472
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 
     .line 473
     :cond_0
-    iget-wide v1, p0, Lorg/apache/commons/collections/SequencedHashMap;->modCount:J
+    iget-wide v0, p0, Lorg/apache/commons/collections/SequencedHashMap;->modCount:J
 
-    const-wide/16 v3, 0x1
+    const-wide/16 v2, 0x1
 
-    add-long/2addr v1, v3
+    add-long/2addr v0, v2
 
-    iput-wide v1, p0, Lorg/apache/commons/collections/SequencedHashMap;->modCount:J
+    iput-wide v0, p0, Lorg/apache/commons/collections/SequencedHashMap;->modCount:J
 
     .line 474
-    invoke-direct {p0, v0}, Lorg/apache/commons/collections/SequencedHashMap;->removeEntry(Lorg/apache/commons/collections/SequencedHashMap$Entry;)V
+    invoke-direct {p0, p1}, Lorg/apache/commons/collections/SequencedHashMap;->removeEntry(Lorg/apache/commons/collections/SequencedHashMap$Entry;)V
 
-    .line 475
-    return-object v0
+    return-object p1
 .end method
 
 
@@ -426,7 +405,6 @@
 
     iput-object v0, v0, Lorg/apache/commons/collections/SequencedHashMap$Entry;->prev:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
-    .line 508
     return-void
 .end method
 
@@ -446,7 +424,6 @@
     check-cast v0, Lorg/apache/commons/collections/SequencedHashMap;
 
     .line 832
-    .local v0, "map":Lorg/apache/commons/collections/SequencedHashMap;
     invoke-static {}, Lorg/apache/commons/collections/SequencedHashMap;->createSentinel()Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
     move-result-object v1
@@ -463,75 +440,58 @@
     .line 839
     invoke-virtual {v0, p0}, Lorg/apache/commons/collections/SequencedHashMap;->putAll(Ljava/util/Map;)V
 
-    .line 849
     return-object v0
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 255
     iget-object v0, p0, Lorg/apache/commons/collections/SequencedHashMap;->entries:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
     .locals 3
-    .param p1, "value"    # Ljava/lang/Object;
 
-    .line 270
     const/4 v0, 0x1
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_1
 
     .line 271
+    iget-object p1, p0, Lorg/apache/commons/collections/SequencedHashMap;->sentinel:Lorg/apache/commons/collections/SequencedHashMap$Entry;
+
+    :cond_0
+    iget-object p1, p1, Lorg/apache/commons/collections/SequencedHashMap$Entry;->next:Lorg/apache/commons/collections/SequencedHashMap$Entry;
+
     iget-object v1, p0, Lorg/apache/commons/collections/SequencedHashMap;->sentinel:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
-    iget-object v1, v1, Lorg/apache/commons/collections/SequencedHashMap$Entry;->next:Lorg/apache/commons/collections/SequencedHashMap$Entry;
-
-    .local v1, "pos":Lorg/apache/commons/collections/SequencedHashMap$Entry;
-    :goto_0
-    iget-object v2, p0, Lorg/apache/commons/collections/SequencedHashMap;->sentinel:Lorg/apache/commons/collections/SequencedHashMap$Entry;
-
-    if-eq v1, v2, :cond_1
+    if-eq p1, v1, :cond_3
 
     .line 272
-    invoke-virtual {v1}, Lorg/apache/commons/collections/SequencedHashMap$Entry;->getValue()Ljava/lang/Object;
+    invoke-virtual {p1}, Lorg/apache/commons/collections/SequencedHashMap$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
-    .line 273
     return v0
 
-    .line 271
-    :cond_0
-    iget-object v1, v1, Lorg/apache/commons/collections/SequencedHashMap$Entry;->next:Lorg/apache/commons/collections/SequencedHashMap$Entry;
-
-    goto :goto_0
-
-    .end local v1    # "pos":Lorg/apache/commons/collections/SequencedHashMap$Entry;
-    :cond_1
-    goto :goto_2
-
     .line 276
-    :cond_2
+    :cond_1
     iget-object v1, p0, Lorg/apache/commons/collections/SequencedHashMap;->sentinel:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
+    :cond_2
     iget-object v1, v1, Lorg/apache/commons/collections/SequencedHashMap$Entry;->next:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
-    .restart local v1    # "pos":Lorg/apache/commons/collections/SequencedHashMap$Entry;
-    :goto_1
     iget-object v2, p0, Lorg/apache/commons/collections/SequencedHashMap;->sentinel:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
-    if-eq v1, v2, :cond_4
+    if-eq v1, v2, :cond_3
 
     .line 277
     invoke-virtual {v1}, Lorg/apache/commons/collections/SequencedHashMap$Entry;->getValue()Ljava/lang/Object;
@@ -542,24 +502,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2
 
-    .line 278
     return v0
 
-    .line 276
     :cond_3
-    iget-object v1, v1, Lorg/apache/commons/collections/SequencedHashMap$Entry;->next:Lorg/apache/commons/collections/SequencedHashMap$Entry;
+    const/4 p1, 0x0
 
-    goto :goto_1
-
-    .line 281
-    .end local v1    # "pos":Lorg/apache/commons/collections/SequencedHashMap$Entry;
-    :cond_4
-    :goto_2
-    const/4 v0, 0x0
-
-    return v0
+    return p1
 .end method
 
 .method public entrySet()Ljava/util/Set;
@@ -575,24 +525,19 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .line 514
     const/4 v0, 0x0
 
     if-nez p1, :cond_0
 
-    .line 515
     return v0
 
-    .line 516
     :cond_0
     if-ne p1, p0, :cond_1
 
-    .line 517
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
     .line 519
     :cond_1
@@ -600,7 +545,6 @@
 
     if-nez v1, :cond_2
 
-    .line 520
     return v0
 
     .line 522
@@ -609,66 +553,59 @@
 
     move-result-object v0
 
-    move-object v1, p1
+    check-cast p1, Ljava/util/Map;
 
-    check-cast v1, Ljava/util/Map;
+    invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    invoke-interface {v1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-interface {v0, p1}, Ljava/util/Set;->equals(Ljava/lang/Object;)Z
 
-    invoke-interface {v0, v1}, Ljava/util/Set;->equals(Ljava/lang/Object;)Z
+    move-result p1
 
-    move-result v0
-
-    return v0
+    return p1
 .end method
 
 .method public get(I)Ljava/lang/Object;
-    .locals 1
-    .param p1, "index"    # I
+    .locals 0
 
     .line 890
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/SequencedHashMap;->getEntry(I)Ljava/util/Map$Entry;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 1
 
     .line 289
     iget-object v0, p0, Lorg/apache/commons/collections/SequencedHashMap;->entries:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lorg/apache/commons/collections/SequencedHashMap$Entry;
+    check-cast p1, Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
-    .line 290
-    .local v0, "entry":Lorg/apache/commons/collections/SequencedHashMap$Entry;
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    .line 291
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 
     .line 293
     :cond_0
-    invoke-virtual {v0}, Lorg/apache/commons/collections/SequencedHashMap$Entry;->getValue()Ljava/lang/Object;
+    invoke-virtual {p1}, Lorg/apache/commons/collections/SequencedHashMap$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public getFirst()Ljava/util/Map$Entry;
@@ -778,19 +715,18 @@
 .end method
 
 .method public getValue(I)Ljava/lang/Object;
-    .locals 1
-    .param p1, "index"    # I
+    .locals 0
 
     .line 902
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/SequencedHashMap;->getEntry(I)Ljava/util/Map$Entry;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public hashCode()I
@@ -809,51 +745,43 @@
 .end method
 
 .method public indexOf(Ljava/lang/Object;)I
-    .locals 4
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 3
 
     .line 912
     iget-object v0, p0, Lorg/apache/commons/collections/SequencedHashMap;->entries:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lorg/apache/commons/collections/SequencedHashMap$Entry;
+    check-cast p1, Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
-    .line 913
-    .local v0, "e":Lorg/apache/commons/collections/SequencedHashMap$Entry;
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    .line 914
-    const/4 v1, -0x1
+    const/4 p1, -0x1
 
-    return v1
+    return p1
 
-    .line 916
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     .line 917
-    .local v1, "pos":I
     :goto_0
-    iget-object v2, v0, Lorg/apache/commons/collections/SequencedHashMap$Entry;->prev:Lorg/apache/commons/collections/SequencedHashMap$Entry;
+    iget-object v1, p1, Lorg/apache/commons/collections/SequencedHashMap$Entry;->prev:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
-    iget-object v3, p0, Lorg/apache/commons/collections/SequencedHashMap;->sentinel:Lorg/apache/commons/collections/SequencedHashMap$Entry;
+    iget-object v2, p0, Lorg/apache/commons/collections/SequencedHashMap;->sentinel:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
-    if-eq v2, v3, :cond_1
+    if-eq v1, v2, :cond_1
 
-    .line 918
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     .line 919
-    iget-object v0, v0, Lorg/apache/commons/collections/SequencedHashMap$Entry;->prev:Lorg/apache/commons/collections/SequencedHashMap$Entry;
+    iget-object p1, p1, Lorg/apache/commons/collections/SequencedHashMap$Entry;->prev:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
     goto :goto_0
 
-    .line 921
     :cond_1
-    return v1
+    return v0
 .end method
 
 .method public isEmpty()Z
@@ -906,21 +834,18 @@
 .end method
 
 .method public lastIndexOf(Ljava/lang/Object;)I
-    .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 0
 
     .line 941
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections/SequencedHashMap;->indexOf(Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 4
-    .param p1, "key"    # Ljava/lang/Object;
-    .param p2, "value"    # Ljava/lang/Object;
 
     .line 424
     iget-wide v0, p0, Lorg/apache/commons/collections/SequencedHashMap;->modCount:J
@@ -931,107 +856,93 @@
 
     iput-wide v0, p0, Lorg/apache/commons/collections/SequencedHashMap;->modCount:J
 
-    .line 426
-    const/4 v0, 0x0
-
     .line 429
-    .local v0, "oldValue":Ljava/lang/Object;
-    iget-object v1, p0, Lorg/apache/commons/collections/SequencedHashMap;->entries:Ljava/util/HashMap;
+    iget-object v0, p0, Lorg/apache/commons/collections/SequencedHashMap;->entries:Ljava/util/HashMap;
 
-    invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lorg/apache/commons/collections/SequencedHashMap$Entry;
-
-    .line 432
-    .local v1, "e":Lorg/apache/commons/collections/SequencedHashMap$Entry;
-    if-eqz v1, :cond_0
-
-    .line 434
-    invoke-direct {p0, v1}, Lorg/apache/commons/collections/SequencedHashMap;->removeEntry(Lorg/apache/commons/collections/SequencedHashMap$Entry;)V
-
-    .line 437
-    invoke-virtual {v1, p2}, Lorg/apache/commons/collections/SequencedHashMap$Entry;->setValue(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
+
+    check-cast v0, Lorg/apache/commons/collections/SequencedHashMap$Entry;
+
+    if-eqz v0, :cond_0
+
+    .line 434
+    invoke-direct {p0, v0}, Lorg/apache/commons/collections/SequencedHashMap;->removeEntry(Lorg/apache/commons/collections/SequencedHashMap$Entry;)V
+
+    .line 437
+    invoke-virtual {v0, p2}, Lorg/apache/commons/collections/SequencedHashMap$Entry;->setValue(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
 
     goto :goto_0
 
     .line 446
     :cond_0
-    new-instance v2, Lorg/apache/commons/collections/SequencedHashMap$Entry;
+    new-instance v0, Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
-    invoke-direct {v2, p1, p2}, Lorg/apache/commons/collections/SequencedHashMap$Entry;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    move-object v1, v2
+    invoke-direct {v0, p1, p2}, Lorg/apache/commons/collections/SequencedHashMap$Entry;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
     .line 447
-    iget-object v2, p0, Lorg/apache/commons/collections/SequencedHashMap;->entries:Ljava/util/HashMap;
+    iget-object p2, p0, Lorg/apache/commons/collections/SequencedHashMap;->entries:Ljava/util/HashMap;
 
-    invoke-virtual {v2, p1, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p2, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const/4 p1, 0x0
 
     .line 452
     :goto_0
-    invoke-direct {p0, v1}, Lorg/apache/commons/collections/SequencedHashMap;->insertEntry(Lorg/apache/commons/collections/SequencedHashMap$Entry;)V
+    invoke-direct {p0, v0}, Lorg/apache/commons/collections/SequencedHashMap;->insertEntry(Lorg/apache/commons/collections/SequencedHashMap$Entry;)V
 
-    .line 454
-    return-object v0
+    return-object p1
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 4
-    .param p1, "t"    # Ljava/util/Map;
+    .locals 2
 
     .line 489
     invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 490
-    .local v0, "iter":Ljava/util/Iterator;
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 491
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map$Entry;
+
+    .line 492
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Ljava/util/Map$Entry;
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    .line 492
-    .local v1, "entry":Ljava/util/Map$Entry;
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object v2
+    invoke-virtual {p0, v1, v0}, Lorg/apache/commons/collections/SequencedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v3
-
-    invoke-virtual {p0, v2, v3}, Lorg/apache/commons/collections/SequencedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 493
-    .end local v1    # "entry":Ljava/util/Map$Entry;
     goto :goto_0
 
-    .line 494
     :cond_0
     return-void
 .end method
 
 .method public readExternal(Ljava/io/ObjectInput;)V
     .locals 4
-    .param p1, "in"    # Ljava/io/ObjectInput;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -1044,11 +955,8 @@
 
     move-result v0
 
-    .line 993
-    .local v0, "size":I
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -1058,68 +966,58 @@
     move-result-object v2
 
     .line 995
-    .local v2, "key":Ljava/lang/Object;
     invoke-interface {p1}, Ljava/io/ObjectInput;->readObject()Ljava/lang/Object;
 
     move-result-object v3
 
     .line 996
-    .local v3, "value":Ljava/lang/Object;
     invoke-virtual {p0, v2, v3}, Lorg/apache/commons/collections/SequencedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 993
-    .end local v2    # "key":Ljava/lang/Object;
-    .end local v3    # "value":Ljava/lang/Object;
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 998
-    .end local v1    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public remove(I)Ljava/lang/Object;
-    .locals 1
-    .param p1, "index"    # I
+    .locals 0
 
     .line 979
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections/SequencedHashMap;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lorg/apache/commons/collections/SequencedHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Lorg/apache/commons/collections/SequencedHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 0
 
     .line 461
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/SequencedHashMap;->removeImpl(Ljava/lang/Object;)Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 462
-    .local v0, "e":Lorg/apache/commons/collections/SequencedHashMap$Entry;
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
+    .line 462
     :cond_0
-    invoke-virtual {v0}, Lorg/apache/commons/collections/SequencedHashMap$Entry;->getValue()Ljava/lang/Object;
+    invoke-virtual {p1}, Lorg/apache/commons/collections/SequencedHashMap$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
     :goto_0
-    return-object v1
+    return-object p1
 .end method
 
 .method public sequence()Ljava/util/List;
@@ -1135,7 +1033,6 @@
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 960
-    .local v0, "l":Ljava/util/List;
     invoke-virtual {p0}, Lorg/apache/commons/collections/SequencedHashMap;->keySet()Ljava/util/Set;
 
     move-result-object v1
@@ -1145,7 +1042,6 @@
     move-result-object v1
 
     .line 961
-    .local v1, "iter":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1166,9 +1062,9 @@
     :cond_0
     invoke-static {v0}, Lorg/apache/commons/collections/list/UnmodifiableList;->decorate(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object v2
+    move-result-object v0
 
-    return-object v2
+    return-object v0
 .end method
 
 .method public size()I
@@ -1190,21 +1086,17 @@
     .line 540
     new-instance v0, Ljava/lang/StringBuffer;
 
-    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
+    const-string v1, "["
 
-    .line 541
-    .local v0, "buf":Ljava/lang/StringBuffer;
-    const/16 v1, 0x5b
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
     .line 542
     iget-object v1, p0, Lorg/apache/commons/collections/SequencedHashMap;->sentinel:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
+    :cond_0
+    :goto_0
     iget-object v1, v1, Lorg/apache/commons/collections/SequencedHashMap$Entry;->next:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
-    .local v1, "pos":Lorg/apache/commons/collections/SequencedHashMap$Entry;
-    :goto_0
     iget-object v2, p0, Lorg/apache/commons/collections/SequencedHashMap;->sentinel:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
     if-eq v1, v2, :cond_1
@@ -1216,9 +1108,9 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/Object;)Ljava/lang/StringBuffer;
 
-    .line 544
     const/16 v2, 0x3d
 
+    .line 544
     invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     .line 545
@@ -1235,30 +1127,25 @@
 
     if-eq v2, v3, :cond_0
 
-    .line 547
     const/16 v2, 0x2c
 
+    .line 547
     invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
-
-    .line 542
-    :cond_0
-    iget-object v1, v1, Lorg/apache/commons/collections/SequencedHashMap$Entry;->next:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
     goto :goto_0
 
-    .line 550
-    .end local v1    # "pos":Lorg/apache/commons/collections/SequencedHashMap$Entry;
     :cond_1
     const/16 v1, 0x5d
 
+    .line 550
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     .line 552
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public values()Ljava/util/Collection;
@@ -1274,7 +1161,6 @@
 
 .method public writeExternal(Ljava/io/ObjectOutput;)V
     .locals 2
-    .param p1, "out"    # Ljava/io/ObjectOutput;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1291,10 +1177,9 @@
     .line 1008
     iget-object v0, p0, Lorg/apache/commons/collections/SequencedHashMap;->sentinel:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
+    :goto_0
     iget-object v0, v0, Lorg/apache/commons/collections/SequencedHashMap$Entry;->next:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
-    .local v0, "pos":Lorg/apache/commons/collections/SequencedHashMap$Entry;
-    :goto_0
     iget-object v1, p0, Lorg/apache/commons/collections/SequencedHashMap;->sentinel:Lorg/apache/commons/collections/SequencedHashMap$Entry;
 
     if-eq v0, v1, :cond_0
@@ -1313,13 +1198,8 @@
 
     invoke-interface {p1, v1}, Ljava/io/ObjectOutput;->writeObject(Ljava/lang/Object;)V
 
-    .line 1008
-    iget-object v0, v0, Lorg/apache/commons/collections/SequencedHashMap$Entry;->next:Lorg/apache/commons/collections/SequencedHashMap$Entry;
-
     goto :goto_0
 
-    .line 1012
-    .end local v0    # "pos":Lorg/apache/commons/collections/SequencedHashMap$Entry;
     :cond_0
     return-void
 .end method

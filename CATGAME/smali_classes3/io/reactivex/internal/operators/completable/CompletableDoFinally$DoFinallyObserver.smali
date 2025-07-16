@@ -33,8 +33,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/CompletableObserver;Lio/reactivex/functions/Action;)V
     .locals 0
-    .param p1, "actual"    # Lio/reactivex/CompletableObserver;
-    .param p2, "onFinally"    # Lio/reactivex/functions/Action;
 
     .line 58
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
@@ -45,7 +43,6 @@
     .line 60
     iput-object p2, p0, Lio/reactivex/internal/operators/completable/CompletableDoFinally$DoFinallyObserver;->onFinally:Lio/reactivex/functions/Action;
 
-    .line 61
     return-void
 .end method
 
@@ -62,7 +59,6 @@
     .line 87
     invoke-virtual {p0}, Lio/reactivex/internal/operators/completable/CompletableDoFinally$DoFinallyObserver;->runFinally()V
 
-    .line 88
     return-void
 .end method
 
@@ -90,13 +86,11 @@
     .line 81
     invoke-virtual {p0}, Lio/reactivex/internal/operators/completable/CompletableDoFinally$DoFinallyObserver;->runFinally()V
 
-    .line 82
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 74
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableDoFinally$DoFinallyObserver;->actual:Lio/reactivex/CompletableObserver;
@@ -106,13 +100,11 @@
     .line 75
     invoke-virtual {p0}, Lio/reactivex/internal/operators/completable/CompletableDoFinally$DoFinallyObserver;->runFinally()V
 
-    .line 76
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 65
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableDoFinally$DoFinallyObserver;->d:Lio/reactivex/disposables/Disposable;
@@ -127,11 +119,10 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableDoFinally$DoFinallyObserver;->d:Lio/reactivex/disposables/Disposable;
 
     .line 68
-    iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableDoFinally$DoFinallyObserver;->actual:Lio/reactivex/CompletableObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableDoFinally$DoFinallyObserver;->actual:Lio/reactivex/CompletableObserver;
 
-    invoke-interface {v0, p0}, Lio/reactivex/CompletableObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/CompletableObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 70
     :cond_0
     return-void
 .end method
@@ -139,11 +130,11 @@
 .method runFinally()V
     .locals 2
 
-    .line 96
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
+    .line 96
     invoke-virtual {p0, v0, v1}, Lio/reactivex/internal/operators/completable/CompletableDoFinally$DoFinallyObserver;->compareAndSet(II)Z
 
     move-result v0
@@ -158,22 +149,17 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 102
     goto :goto_0
 
-    .line 99
     :catchall_0
     move-exception v0
 
     .line 100
-    .local v0, "ex":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 101
     invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 104
-    .end local v0    # "ex":Ljava/lang/Throwable;
     :cond_0
     :goto_0
     return-void

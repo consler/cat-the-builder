@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/body/MultipartFormDataBody;Lcom/koushikdutta/async/callback/CompletedCallback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/body/MultipartFormDataBody;
 
     .line 131
     iput-object p1, p0, Lcom/koushikdutta/async/http/body/MultipartFormDataBody$2;->this$0:Lcom/koushikdutta/async/http/body/MultipartFormDataBody;
@@ -42,13 +41,11 @@
 # virtual methods
 .method public onCompleted(Ljava/lang/Exception;)V
     .locals 1
-    .param p1, "ex"    # Ljava/lang/Exception;
 
     .line 134
     iget-object v0, p0, Lcom/koushikdutta/async/http/body/MultipartFormDataBody$2;->val$completed:Lcom/koushikdutta/async/callback/CompletedCallback;
 
     invoke-interface {v0, p1}, Lcom/koushikdutta/async/callback/CompletedCallback;->onCompleted(Ljava/lang/Exception;)V
 
-    .line 139
     return-void
 .end method

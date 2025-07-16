@@ -29,7 +29,6 @@
 # virtual methods
 .method protected delegate(F)Z
     .locals 3
-    .param p1, "delta"    # F
 
     .line 28
     iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RepeatAction;->executedCount:I
@@ -48,22 +47,22 @@
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/scenes/scene2d/Action;->act(F)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_4
+    if-eqz p1, :cond_4
 
     .line 30
-    iget-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RepeatAction;->finished:Z
+    iget-boolean p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RepeatAction;->finished:Z
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     return v2
 
     .line 31
     :cond_1
-    iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RepeatAction;->repeatCount:I
+    iget p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RepeatAction;->repeatCount:I
 
-    if-lez v0, :cond_2
+    if-lez p1, :cond_2
 
     iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RepeatAction;->executedCount:I
 
@@ -75,38 +74,34 @@
     :cond_2
     iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RepeatAction;->executedCount:I
 
-    iget v1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RepeatAction;->repeatCount:I
-
-    if-ne v0, v1, :cond_3
+    if-ne v0, p1, :cond_3
 
     return v2
 
     .line 33
     :cond_3
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RepeatAction;->action:Lcom/badlogic/gdx/scenes/scene2d/Action;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RepeatAction;->action:Lcom/badlogic/gdx/scenes/scene2d/Action;
 
-    if-eqz v0, :cond_4
+    if-eqz p1, :cond_4
 
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RepeatAction;->action:Lcom/badlogic/gdx/scenes/scene2d/Action;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RepeatAction;->action:Lcom/badlogic/gdx/scenes/scene2d/Action;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/Action;->restart()V
+    invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/Action;->restart()V
 
-    .line 35
     :cond_4
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public finish()V
     .locals 1
 
-    .line 40
     const/4 v0, 0x1
 
+    .line 40
     iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RepeatAction;->finished:Z
 
-    .line 41
     return-void
 .end method
 
@@ -125,25 +120,22 @@
     .line 44
     invoke-super {p0}, Lcom/badlogic/gdx/scenes/scene2d/actions/DelegateAction;->restart()V
 
-    .line 45
     const/4 v0, 0x0
 
+    .line 45
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RepeatAction;->executedCount:I
 
     .line 46
     iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RepeatAction;->finished:Z
 
-    .line 47
     return-void
 .end method
 
 .method public setCount(I)V
     .locals 0
-    .param p1, "count"    # I
 
     .line 51
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/RepeatAction;->repeatCount:I
 
-    .line 52
     return-void
 .end method

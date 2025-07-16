@@ -25,7 +25,6 @@
     .line 2158
     invoke-direct {p0}, Lorg/apache/commons/lang3/builder/ToStringStyle;-><init>()V
 
-    .line 2159
     return-void
 .end method
 

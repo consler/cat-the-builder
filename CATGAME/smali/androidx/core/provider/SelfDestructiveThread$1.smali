@@ -24,9 +24,16 @@
 # direct methods
 .method constructor <init>(Landroidx/core/provider/SelfDestructiveThread;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/core/provider/SelfDestructiveThread;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x8010
+        }
+        names = {
+            "this$0"
+        }
+    .end annotation
 
-    .line 58
+    .line 62
     iput-object p1, p0, Landroidx/core/provider/SelfDestructiveThread$1;->this$0:Landroidx/core/provider/SelfDestructiveThread;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,10 +44,17 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)Z
-    .locals 3
-    .param p1, "msg"    # Landroid/os/Message;
+    .locals 2
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "msg"
+        }
+    .end annotation
 
-    .line 61
+    .line 65
     iget v0, p1, Landroid/os/Message;->what:I
 
     const/4 v1, 0x1
@@ -49,28 +63,25 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 69
     return v1
 
-    .line 63
+    .line 67
     :cond_0
     iget-object v0, p0, Landroidx/core/provider/SelfDestructiveThread$1;->this$0:Landroidx/core/provider/SelfDestructiveThread;
 
-    iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v2, Ljava/lang/Runnable;
+    check-cast p1, Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v2}, Landroidx/core/provider/SelfDestructiveThread;->onInvokeRunnable(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, p1}, Landroidx/core/provider/SelfDestructiveThread;->onInvokeRunnable(Ljava/lang/Runnable;)V
 
-    .line 64
     return v1
 
-    .line 66
+    .line 70
     :cond_1
-    iget-object v0, p0, Landroidx/core/provider/SelfDestructiveThread$1;->this$0:Landroidx/core/provider/SelfDestructiveThread;
+    iget-object p1, p0, Landroidx/core/provider/SelfDestructiveThread$1;->this$0:Landroidx/core/provider/SelfDestructiveThread;
 
-    invoke-virtual {v0}, Landroidx/core/provider/SelfDestructiveThread;->onDestruction()V
+    invoke-virtual {p1}, Landroidx/core/provider/SelfDestructiveThread;->onDestruction()V
 
-    .line 67
     return v1
 .end method

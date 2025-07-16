@@ -35,9 +35,6 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/Bitmap;Ljava/lang/Integer;F)V
     .locals 4
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
-    .param p2, "strokeColor"    # Ljava/lang/Integer;
-    .param p3, "strokeWidth"    # F
 
     .line 84
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
@@ -80,113 +77,97 @@
     iput-object v0, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->bitmapShader:Landroid/graphics/BitmapShader;
 
     .line 88
-    new-instance v0, Landroid/graphics/RectF;
+    new-instance v1, Landroid/graphics/RectF;
 
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
-
-    move-result v1
-
-    int-to-float v1, v1
-
-    invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v2
 
     int-to-float v2, v2
 
+    invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result p1
+
+    int-to-float p1, p1
+
     const/4 v3, 0x0
 
-    invoke-direct {v0, v3, v3, v1, v2}, Landroid/graphics/RectF;-><init>(FFFF)V
+    invoke-direct {v1, v3, v3, v2, p1}, Landroid/graphics/RectF;-><init>(FFFF)V
 
-    iput-object v0, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->mBitmapRect:Landroid/graphics/RectF;
+    iput-object v1, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->mBitmapRect:Landroid/graphics/RectF;
 
     .line 90
-    new-instance v0, Landroid/graphics/Paint;
+    new-instance p1, Landroid/graphics/Paint;
 
-    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
+    invoke-direct {p1}, Landroid/graphics/Paint;-><init>()V
 
-    iput-object v0, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->paint:Landroid/graphics/Paint;
+    iput-object p1, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->paint:Landroid/graphics/Paint;
 
-    .line 91
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    .line 91
+    invoke-virtual {p1, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     .line 92
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->paint:Landroid/graphics/Paint;
-
-    iget-object v2, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->bitmapShader:Landroid/graphics/BitmapShader;
-
-    invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
+    invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
 
     .line 93
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->paint:Landroid/graphics/Paint;
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setFilterBitmap(Z)V
+    invoke-virtual {p1, v1}, Landroid/graphics/Paint;->setFilterBitmap(Z)V
 
     .line 94
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->paint:Landroid/graphics/Paint;
+    invoke-virtual {p1, v1}, Landroid/graphics/Paint;->setDither(Z)V
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setDither(Z)V
-
-    .line 96
     if-nez p2, :cond_0
 
-    .line 97
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->strokePaint:Landroid/graphics/Paint;
+    .line 97
+    iput-object p1, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->strokePaint:Landroid/graphics/Paint;
 
     goto :goto_0
 
     .line 99
     :cond_0
-    new-instance v0, Landroid/graphics/Paint;
+    new-instance p1, Landroid/graphics/Paint;
 
-    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
+    invoke-direct {p1}, Landroid/graphics/Paint;-><init>()V
 
-    iput-object v0, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->strokePaint:Landroid/graphics/Paint;
+    iput-object p1, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->strokePaint:Landroid/graphics/Paint;
 
     .line 100
-    sget-object v2, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
+    sget-object v0, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
 
-    invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+    invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
     .line 101
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->strokePaint:Landroid/graphics/Paint;
-
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
-    move-result v2
+    move-result p2
 
-    invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-virtual {p1, p2}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 102
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->strokePaint:Landroid/graphics/Paint;
-
-    invoke-virtual {v0, p3}, Landroid/graphics/Paint;->setStrokeWidth(F)V
+    invoke-virtual {p1, p3}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
     .line 103
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->strokePaint:Landroid/graphics/Paint;
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    invoke-virtual {p1, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     .line 105
     :goto_0
     iput p3, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->strokeWidth:F
 
     .line 106
-    iget v0, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->radius:F
+    iget p1, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->radius:F
 
-    const/high16 v1, 0x40000000    # 2.0f
+    const/high16 p2, 0x40000000    # 2.0f
 
-    div-float v1, p3, v1
+    div-float/2addr p3, p2
 
-    sub-float/2addr v0, v1
+    sub-float/2addr p1, p3
 
-    iput v0, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->strokeRadius:F
+    iput p1, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->strokeRadius:F
 
-    .line 107
     return-void
 .end method
 
@@ -194,7 +175,6 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 3
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 124
     iget v0, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->radius:F
@@ -215,7 +195,6 @@
 
     invoke-virtual {p1, v1, v1, v2, v0}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
-    .line 128
     :cond_0
     return-void
 .end method
@@ -223,7 +202,6 @@
 .method public getOpacity()I
     .locals 1
 
-    .line 132
     const/4 v0, -0x3
 
     return v0
@@ -231,7 +209,6 @@
 
 .method protected onBoundsChange(Landroid/graphics/Rect;)V
     .locals 4
-    .param p1, "bounds"    # Landroid/graphics/Rect;
 
     .line 111
     invoke-super {p0, p1}, Landroid/graphics/drawable/Drawable;->onBoundsChange(Landroid/graphics/Rect;)V
@@ -262,75 +239,69 @@
 
     invoke-virtual {p1}, Landroid/graphics/Rect;->height()I
 
-    move-result v1
+    move-result p1
 
-    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
+    invoke-static {v0, p1}, Ljava/lang/Math;->min(II)I
 
-    move-result v0
+    move-result p1
 
-    div-int/lit8 v0, v0, 0x2
+    div-int/lit8 p1, p1, 0x2
 
-    int-to-float v0, v0
+    int-to-float p1, p1
 
-    iput v0, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->radius:F
+    iput p1, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->radius:F
 
     .line 114
-    iget v1, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->strokeWidth:F
+    iget v0, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->strokeWidth:F
 
-    const/high16 v2, 0x40000000    # 2.0f
+    const/high16 v1, 0x40000000    # 2.0f
 
-    div-float/2addr v1, v2
+    div-float/2addr v0, v1
 
-    sub-float/2addr v0, v1
+    sub-float/2addr p1, v0
 
-    iput v0, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->strokeRadius:F
+    iput p1, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->strokeRadius:F
 
     .line 117
-    new-instance v0, Landroid/graphics/Matrix;
+    new-instance p1, Landroid/graphics/Matrix;
 
-    invoke-direct {v0}, Landroid/graphics/Matrix;-><init>()V
+    invoke-direct {p1}, Landroid/graphics/Matrix;-><init>()V
 
     .line 118
-    .local v0, "shaderMatrix":Landroid/graphics/Matrix;
-    iget-object v1, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->mBitmapRect:Landroid/graphics/RectF;
+    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->mBitmapRect:Landroid/graphics/RectF;
 
-    iget-object v2, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->mRect:Landroid/graphics/RectF;
+    iget-object v1, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->mRect:Landroid/graphics/RectF;
 
-    sget-object v3, Landroid/graphics/Matrix$ScaleToFit;->FILL:Landroid/graphics/Matrix$ScaleToFit;
+    sget-object v2, Landroid/graphics/Matrix$ScaleToFit;->FILL:Landroid/graphics/Matrix$ScaleToFit;
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/graphics/Matrix;->setRectToRect(Landroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/Matrix$ScaleToFit;)Z
+    invoke-virtual {p1, v0, v1, v2}, Landroid/graphics/Matrix;->setRectToRect(Landroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/Matrix$ScaleToFit;)Z
 
     .line 119
-    iget-object v1, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->bitmapShader:Landroid/graphics/BitmapShader;
+    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->bitmapShader:Landroid/graphics/BitmapShader;
 
-    invoke-virtual {v1, v0}, Landroid/graphics/BitmapShader;->setLocalMatrix(Landroid/graphics/Matrix;)V
+    invoke-virtual {v0, p1}, Landroid/graphics/BitmapShader;->setLocalMatrix(Landroid/graphics/Matrix;)V
 
-    .line 120
     return-void
 .end method
 
 .method public setAlpha(I)V
     .locals 1
-    .param p1, "alpha"    # I
 
     .line 137
     iget-object v0, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->paint:Landroid/graphics/Paint;
 
     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setAlpha(I)V
 
-    .line 138
     return-void
 .end method
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 1
-    .param p1, "cf"    # Landroid/graphics/ColorFilter;
 
     .line 142
     iget-object v0, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;->paint:Landroid/graphics/Paint;
 
     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
 
-    .line 143
     return-void
 .end method

@@ -41,95 +41,84 @@
     .line 72
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 54
     const/4 v0, 0x0
 
+    .line 54
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Config;->vertexShader:Ljava/lang/String;
 
     .line 56
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Config;->fragmentShader:Ljava/lang/String;
 
-    .line 58
     const/4 v0, 0x2
 
+    .line 58
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Config;->numDirectionalLights:I
 
-    .line 60
     const/4 v0, 0x5
 
+    .line 60
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Config;->numPointLights:I
 
-    .line 62
     const/4 v0, 0x0
 
+    .line 62
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Config;->numSpotLights:I
 
-    .line 64
     const/16 v0, 0xc
 
+    .line 64
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Config;->numBones:I
 
-    .line 66
     const/4 v0, 0x1
 
+    .line 66
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Config;->ignoreUnimplemented:Z
 
-    .line 68
     const/4 v0, -0x1
 
+    .line 68
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Config;->defaultCullFace:I
 
     .line 70
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Config;->defaultDepthFunc:I
 
-    .line 73
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .param p1, "vertexShader"    # Ljava/lang/String;
-    .param p2, "fragmentShader"    # Ljava/lang/String;
 
     .line 75
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 54
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Config;->vertexShader:Ljava/lang/String;
-
-    .line 56
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Config;->fragmentShader:Ljava/lang/String;
-
-    .line 58
     const/4 v0, 0x2
 
+    .line 58
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Config;->numDirectionalLights:I
 
-    .line 60
     const/4 v0, 0x5
 
+    .line 60
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Config;->numPointLights:I
 
-    .line 62
     const/4 v0, 0x0
 
+    .line 62
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Config;->numSpotLights:I
 
-    .line 64
     const/16 v0, 0xc
 
+    .line 64
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Config;->numBones:I
 
-    .line 66
     const/4 v0, 0x1
 
+    .line 66
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Config;->ignoreUnimplemented:Z
 
-    .line 68
     const/4 v0, -0x1
 
+    .line 68
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Config;->defaultCullFace:I
 
     .line 70
@@ -141,6 +130,5 @@
     .line 77
     iput-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/shaders/DefaultShader$Config;->fragmentShader:Ljava/lang/String;
 
-    .line 78
     return-void
 .end method

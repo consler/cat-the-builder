@@ -50,7 +50,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/Observer;Lio/reactivex/internal/disposables/ArrayCompositeDisposable;)V
     .locals 0
-    .param p2, "frc"    # Lio/reactivex/internal/disposables/ArrayCompositeDisposable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,8 +61,6 @@
     .end annotation
 
     .line 52
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTakeUntil$TakeUntilObserver;, "Lio/reactivex/internal/operators/observable/ObservableTakeUntil$TakeUntilObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
 
     .line 53
@@ -72,7 +69,6 @@
     .line 54
     iput-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableTakeUntil$TakeUntilObserver;->frc:Lio/reactivex/internal/disposables/ArrayCompositeDisposable;
 
-    .line 55
     return-void
 .end method
 
@@ -82,7 +78,6 @@
     .locals 1
 
     .line 78
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTakeUntil$TakeUntilObserver;, "Lio/reactivex/internal/operators/observable/ObservableTakeUntil$TakeUntilObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTakeUntil$TakeUntilObserver;->frc:Lio/reactivex/internal/disposables/ArrayCompositeDisposable;
 
     invoke-virtual {v0}, Lio/reactivex/internal/disposables/ArrayCompositeDisposable;->dispose()V
@@ -92,16 +87,13 @@
 
     invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 80
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 72
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTakeUntil$TakeUntilObserver;, "Lio/reactivex/internal/operators/observable/ObservableTakeUntil$TakeUntilObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTakeUntil$TakeUntilObserver;->frc:Lio/reactivex/internal/disposables/ArrayCompositeDisposable;
 
     invoke-virtual {v0}, Lio/reactivex/internal/disposables/ArrayCompositeDisposable;->dispose()V
@@ -111,7 +103,6 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 74
     return-void
 .end method
 
@@ -124,22 +115,17 @@
     .end annotation
 
     .line 67
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTakeUntil$TakeUntilObserver;, "Lio/reactivex/internal/operators/observable/ObservableTakeUntil$TakeUntilObserver<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTakeUntil$TakeUntilObserver;->actual:Lio/reactivex/Observer;
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
-    .line 68
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 2
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 59
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTakeUntil$TakeUntilObserver;, "Lio/reactivex/internal/operators/observable/ObservableTakeUntil$TakeUntilObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTakeUntil$TakeUntilObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -158,7 +144,6 @@
 
     invoke-virtual {v0, v1, p1}, Lio/reactivex/internal/disposables/ArrayCompositeDisposable;->setResource(ILio/reactivex/disposables/Disposable;)Z
 
-    .line 63
     :cond_0
     return-void
 .end method

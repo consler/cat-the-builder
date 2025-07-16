@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -39,7 +39,6 @@
     .end annotation
 
     .line 74
-    .local p1, "callbacks":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/core/impl/CameraCaptureCallback;>;"
     invoke-direct {p0}, Landroidx/camera/core/impl/CameraCaptureCallback;-><init>()V
 
     .line 72
@@ -52,38 +51,34 @@
     .line 75
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
+    move-result-object p1
+
+    :cond_0
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
     move-result-object v0
 
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroidx/camera/core/impl/CameraCaptureCallback;
+    check-cast v0, Landroidx/camera/core/impl/CameraCaptureCallback;
 
     .line 77
-    .local v1, "callback":Landroidx/camera/core/impl/CameraCaptureCallback;
-    instance-of v2, v1, Landroidx/camera/core/impl/CameraCaptureCallbacks$NoOpCameraCaptureCallback;
+    instance-of v1, v0, Landroidx/camera/core/impl/CameraCaptureCallbacks$NoOpCameraCaptureCallback;
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
     .line 78
-    iget-object v2, p0, Landroidx/camera/core/impl/CameraCaptureCallbacks$ComboCameraCaptureCallback;->mCallbacks:Ljava/util/List;
+    iget-object v1, p0, Landroidx/camera/core/impl/CameraCaptureCallbacks$ComboCameraCaptureCallback;->mCallbacks:Ljava/util/List;
 
-    invoke-interface {v2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 80
-    .end local v1    # "callback":Landroidx/camera/core/impl/CameraCaptureCallback;
-    :cond_0
     goto :goto_0
 
-    .line 81
     :cond_1
     return-void
 .end method
@@ -131,21 +126,16 @@
     check-cast v1, Landroidx/camera/core/impl/CameraCaptureCallback;
 
     .line 100
-    .local v1, "callback":Landroidx/camera/core/impl/CameraCaptureCallback;
     invoke-virtual {v1}, Landroidx/camera/core/impl/CameraCaptureCallback;->onCaptureCancelled()V
 
-    .line 101
-    .end local v1    # "callback":Landroidx/camera/core/impl/CameraCaptureCallback;
     goto :goto_0
 
-    .line 102
     :cond_0
     return-void
 .end method
 
 .method public onCaptureCompleted(Landroidx/camera/core/impl/CameraCaptureResult;)V
     .locals 2
-    .param p1, "result"    # Landroidx/camera/core/impl/CameraCaptureResult;
 
     .line 85
     iget-object v0, p0, Landroidx/camera/core/impl/CameraCaptureCallbacks$ComboCameraCaptureCallback;->mCallbacks:Ljava/util/List;
@@ -168,21 +158,16 @@
     check-cast v1, Landroidx/camera/core/impl/CameraCaptureCallback;
 
     .line 86
-    .local v1, "callback":Landroidx/camera/core/impl/CameraCaptureCallback;
     invoke-virtual {v1, p1}, Landroidx/camera/core/impl/CameraCaptureCallback;->onCaptureCompleted(Landroidx/camera/core/impl/CameraCaptureResult;)V
 
-    .line 87
-    .end local v1    # "callback":Landroidx/camera/core/impl/CameraCaptureCallback;
     goto :goto_0
 
-    .line 88
     :cond_0
     return-void
 .end method
 
 .method public onCaptureFailed(Landroidx/camera/core/impl/CameraCaptureFailure;)V
     .locals 2
-    .param p1, "failure"    # Landroidx/camera/core/impl/CameraCaptureFailure;
 
     .line 92
     iget-object v0, p0, Landroidx/camera/core/impl/CameraCaptureCallbacks$ComboCameraCaptureCallback;->mCallbacks:Ljava/util/List;
@@ -205,14 +190,10 @@
     check-cast v1, Landroidx/camera/core/impl/CameraCaptureCallback;
 
     .line 93
-    .local v1, "callback":Landroidx/camera/core/impl/CameraCaptureCallback;
     invoke-virtual {v1, p1}, Landroidx/camera/core/impl/CameraCaptureCallback;->onCaptureFailed(Landroidx/camera/core/impl/CameraCaptureFailure;)V
 
-    .line 94
-    .end local v1    # "callback":Landroidx/camera/core/impl/CameraCaptureCallback;
     goto :goto_0
 
-    .line 95
     :cond_0
     return-void
 .end method

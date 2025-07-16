@@ -14,8 +14,7 @@
 .end method
 
 .method public static decode(Ljava/lang/String;)[B
-    .locals 7
-    .param p0, "hex"    # Ljava/lang/String;
+    .locals 6
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -42,103 +41,82 @@
     div-int/lit8 v0, v0, 0x2
 
     .line 44
-    .local v0, "size":I
     new-array v1, v0, [B
 
-    .line 45
-    .local v1, "result":[B
     const/4 v2, 0x0
 
-    .local v2, "i":I
     :goto_0
     if-ge v2, v0, :cond_1
 
-    .line 46
     mul-int/lit8 v3, v2, 0x2
 
+    .line 46
+    invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
+
+    move-result v4
+
+    const/16 v5, 0x10
+
+    invoke-static {v4, v5}, Ljava/lang/Character;->digit(CI)I
+
+    move-result v4
+
+    add-int/lit8 v3, v3, 0x1
+
+    .line 47
     invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
 
     move-result v3
 
-    const/16 v4, 0x10
-
-    invoke-static {v3, v4}, Ljava/lang/Character;->digit(CI)I
+    invoke-static {v3, v5}, Ljava/lang/Character;->digit(CI)I
 
     move-result v3
 
-    .line 47
-    .local v3, "hi":I
-    mul-int/lit8 v5, v2, 0x2
-
-    add-int/lit8 v5, v5, 0x1
-
-    invoke-virtual {p0, v5}, Ljava/lang/String;->charAt(I)C
-
-    move-result v5
-
-    invoke-static {v5, v4}, Ljava/lang/Character;->digit(CI)I
-
-    move-result v4
-
-    .line 48
-    .local v4, "lo":I
     const/4 v5, -0x1
-
-    if-eq v3, v5, :cond_0
 
     if-eq v4, v5, :cond_0
 
+    if-eq v3, v5, :cond_0
+
+    mul-int/lit8 v4, v4, 0x10
+
+    add-int/2addr v4, v3
+
+    int-to-byte v3, v4
+
     .line 51
-    mul-int/lit8 v5, v3, 0x10
+    aput-byte v3, v1, v2
 
-    add-int/2addr v5, v4
-
-    int-to-byte v5, v5
-
-    aput-byte v5, v1, v2
-
-    .line 45
-    .end local v3    # "hi":I
-    .end local v4    # "lo":I
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 49
-    .restart local v3    # "hi":I
-    .restart local v4    # "lo":I
     :cond_0
-    new-instance v5, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v6, "input is not hexadecimal"
+    const-string v0, "input is not hexadecimal"
 
-    invoke-direct {v5, v6}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v5
+    throw p0
 
-    .line 53
-    .end local v2    # "i":I
-    .end local v3    # "hi":I
-    .end local v4    # "lo":I
     :cond_1
     return-object v1
 
     .line 41
-    .end local v0    # "size":I
-    .end local v1    # "result":[B
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Expected a string of even length"
+    const-string v0, "Expected a string of even length"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static encode([B)Ljava/lang/String;
-    .locals 7
-    .param p0, "bytes"    # [B
+    .locals 6
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -148,65 +126,56 @@
         }
     .end annotation
 
-    .line 27
-    const-string v0, "0123456789abcdef"
-
     .line 28
-    .local v0, "chars":Ljava/lang/String;
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    array-length v2, p0
+    array-length v1, p0
 
-    mul-int/lit8 v2, v2, 0x2
+    mul-int/lit8 v1, v1, 0x2
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(I)V
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 29
-    .local v1, "result":Ljava/lang/StringBuilder;
-    array-length v2, p0
+    array-length v1, p0
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v3, v2, :cond_0
+    if-ge v2, v1, :cond_0
 
-    aget-byte v4, p0, v3
+    aget-byte v3, p0, v2
 
-    .line 31
-    .local v4, "b":B
-    and-int/lit16 v5, v4, 0xff
+    and-int/lit16 v3, v3, 0xff
 
     .line 32
-    .local v5, "val":I
-    div-int/lit8 v6, v5, 0x10
+    div-int/lit8 v4, v3, 0x10
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->charAt(I)C
+    const-string v5, "0123456789abcdef"
 
-    move-result v6
+    invoke-virtual {v5, v4}, Ljava/lang/String;->charAt(I)C
 
-    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    move-result v4
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 33
-    rem-int/lit8 v6, v5, 0x10
+    rem-int/lit8 v3, v3, 0x10
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v5, v3}, Ljava/lang/String;->charAt(I)C
 
-    move-result v6
+    move-result v3
 
-    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 29
-    .end local v4    # "b":B
-    .end local v5    # "val":I
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 35
     :cond_0
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 .end method

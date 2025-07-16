@@ -71,8 +71,6 @@
 # direct methods
 .method constructor <init>(Lorg/reactivestreams/Subscriber;JI)V
     .locals 1
-    .param p2, "size"    # J
-    .param p4, "bufferSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -83,11 +81,9 @@
         }
     .end annotation
 
-    .line 76
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-Lio/reactivex/Flowable<TT;>;>;"
     const/4 v0, 0x1
 
+    .line 76
     invoke-direct {p0, v0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
 
     .line 77
@@ -97,16 +93,15 @@
     iput-wide p2, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->size:J
 
     .line 79
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     .line 80
     iput p4, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->bufferSize:I
 
-    .line 81
     return-void
 .end method
 
@@ -116,7 +111,6 @@
     .locals 3
 
     .line 150
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     const/4 v1, 0x0
@@ -132,7 +126,6 @@
     .line 151
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->run()V
 
-    .line 153
     :cond_0
     return-void
 .end method
@@ -141,16 +134,13 @@
     .locals 2
 
     .line 131
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->window:Lio/reactivex/processors/UnicastProcessor;
 
-    .line 132
-    .local v0, "w":Lorg/reactivestreams/Processor;, "Lorg/reactivestreams/Processor<TT;TT;>;"
     if-eqz v0, :cond_0
 
-    .line 133
     const/4 v1, 0x0
 
+    .line 133
     iput-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->window:Lio/reactivex/processors/UnicastProcessor;
 
     .line 134
@@ -158,29 +148,24 @@
 
     .line 137
     :cond_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v1}, Lorg/reactivestreams/Subscriber;->onComplete()V
+    invoke-interface {v0}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 138
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 120
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->window:Lio/reactivex/processors/UnicastProcessor;
 
-    .line 121
-    .local v0, "w":Lorg/reactivestreams/Processor;, "Lorg/reactivestreams/Processor<TT;TT;>;"
     if-eqz v0, :cond_0
 
-    .line 122
     const/4 v1, 0x0
 
+    .line 122
     iput-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->window:Lio/reactivex/processors/UnicastProcessor;
 
     .line 123
@@ -188,11 +173,10 @@
 
     .line 126
     :cond_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v1, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 127
     return-void
 .end method
 
@@ -205,16 +189,11 @@
     .end annotation
 
     .line 93
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-wide v0, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->index:J
 
     .line 95
-    .local v0, "i":J
     iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->window:Lio/reactivex/processors/UnicastProcessor;
 
-    .line 96
-    .local v2, "w":Lio/reactivex/processors/UnicastProcessor;, "Lio/reactivex/processors/UnicastProcessor<TT;>;"
     const-wide/16 v3, 0x0
 
     cmp-long v5, v0, v3
@@ -225,9 +204,9 @@
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->getAndIncrement()I
 
     .line 99
-    iget v5, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->bufferSize:I
+    iget v2, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->bufferSize:I
 
-    invoke-static {v5, p0}, Lio/reactivex/processors/UnicastProcessor;->create(ILjava/lang/Runnable;)Lio/reactivex/processors/UnicastProcessor;
+    invoke-static {v2, p0}, Lio/reactivex/processors/UnicastProcessor;->create(ILjava/lang/Runnable;)Lio/reactivex/processors/UnicastProcessor;
 
     move-result-object v2
 
@@ -239,7 +218,6 @@
 
     invoke-interface {v5, v2}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
-    .line 105
     :cond_0
     const-wide/16 v5, 0x1
 
@@ -251,17 +229,17 @@
     .line 109
     iget-wide v5, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->size:J
 
-    cmp-long v5, v0, v5
+    cmp-long p1, v0, v5
 
-    if-nez v5, :cond_1
+    if-nez p1, :cond_1
 
     .line 110
     iput-wide v3, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->index:J
 
-    .line 111
-    const/4 v3, 0x0
+    const/4 p1, 0x0
 
-    iput-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->window:Lio/reactivex/processors/UnicastProcessor;
+    .line 111
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->window:Lio/reactivex/processors/UnicastProcessor;
 
     .line 112
     invoke-virtual {v2}, Lio/reactivex/processors/UnicastProcessor;->onComplete()V
@@ -272,17 +250,14 @@
     :cond_1
     iput-wide v0, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->index:J
 
-    .line 116
     :goto_0
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 1
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 85
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -295,21 +270,18 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     .line 87
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v0, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
+    invoke-interface {p1, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
-    .line 89
     :cond_0
     return-void
 .end method
 
 .method public request(J)V
-    .locals 3
-    .param p1, "n"    # J
+    .locals 2
 
     .line 142
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber<TT;>;"
     invoke-static {p1, p2}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(J)Z
 
     move-result v0
@@ -321,16 +293,13 @@
 
     invoke-static {v0, v1, p1, p2}, Lio/reactivex/internal/util/BackpressureHelper;->multiplyCap(JJ)J
 
-    move-result-wide v0
+    move-result-wide p1
 
     .line 144
-    .local v0, "u":J
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->s:Lorg/reactivestreams/Subscription;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->s:Lorg/reactivestreams/Subscription;
 
-    invoke-interface {v2, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
+    invoke-interface {v0, p1, p2}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 146
-    .end local v0    # "u":J
     :cond_0
     return-void
 .end method
@@ -339,7 +308,6 @@
     .locals 1
 
     .line 157
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableWindow$WindowExactSubscriber;->decrementAndGet()I
 
     move-result v0
@@ -351,7 +319,6 @@
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
 
-    .line 160
     :cond_0
     return-void
 .end method

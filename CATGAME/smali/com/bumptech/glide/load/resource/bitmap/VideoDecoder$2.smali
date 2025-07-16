@@ -37,9 +37,9 @@
     .line 90
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 91
     const/4 v0, 0x4
 
+    .line 91
     invoke-static {v0}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
 
     move-result-object v0
@@ -52,15 +52,10 @@
 
 # virtual methods
 .method public update([BLjava/lang/Integer;Ljava/security/MessageDigest;)V
-    .locals 3
-    .param p1, "keyBytes"    # [B
-    .param p2, "value"    # Ljava/lang/Integer;
-    .param p3, "messageDigest"    # Ljava/security/MessageDigest;
+    .locals 2
 
-    .line 99
     if-nez p2, :cond_0
 
-    .line 100
     return-void
 
     .line 102
@@ -68,50 +63,48 @@
     invoke-virtual {p3, p1}, Ljava/security/MessageDigest;->update([B)V
 
     .line 103
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$2;->buffer:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$2;->buffer:Ljava/nio/ByteBuffer;
 
-    monitor-enter v0
+    monitor-enter p1
 
     .line 104
     :try_start_0
-    iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$2;->buffer:Ljava/nio/ByteBuffer;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$2;->buffer:Ljava/nio/ByteBuffer;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 105
-    iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$2;->buffer:Ljava/nio/ByteBuffer;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$2;->buffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
-    move-result v2
+    move-result p2
 
-    invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
+    invoke-virtual {v0, p2}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->array()[B
+    invoke-virtual {p2}, Ljava/nio/ByteBuffer;->array()[B
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {p3, v1}, Ljava/security/MessageDigest;->update([B)V
+    invoke-virtual {p3, p2}, Ljava/security/MessageDigest;->update([B)V
 
     .line 106
-    monitor-exit v0
+    monitor-exit p1
 
-    .line 107
     return-void
 
-    .line 106
     :catchall_0
-    move-exception v1
+    move-exception p2
 
-    monitor-exit v0
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p2
 .end method
 
 .method public bridge synthetic update([BLjava/lang/Object;Ljava/security/MessageDigest;)V

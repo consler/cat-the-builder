@@ -54,13 +54,11 @@
     .end annotation
 
     .line 76
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/PeekingIterator;, "Lorg/apache/commons/collections4/iterators/PeekingIterator<TE;>;"
-    .local p1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 38
     const/4 v0, 0x0
 
+    .line 38
     iput-boolean v0, p0, Lorg/apache/commons/collections4/iterators/PeekingIterator;->exhausted:Z
 
     .line 41
@@ -69,7 +67,6 @@
     .line 77
     iput-object p1, p0, Lorg/apache/commons/collections4/iterators/PeekingIterator;->iterator:Ljava/util/Iterator;
 
-    .line 78
     return-void
 .end method
 
@@ -77,7 +74,6 @@
     .locals 2
 
     .line 81
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/PeekingIterator;, "Lorg/apache/commons/collections4/iterators/PeekingIterator<TE;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/iterators/PeekingIterator;->exhausted:Z
 
     if-nez v0, :cond_2
@@ -86,7 +82,7 @@
 
     if-eqz v0, :cond_0
 
-    goto :goto_1
+    goto :goto_0
 
     .line 84
     :cond_0
@@ -118,28 +114,23 @@
     :cond_1
     iput-boolean v1, p0, Lorg/apache/commons/collections4/iterators/PeekingIterator;->exhausted:Z
 
-    .line 89
     const/4 v0, 0x0
 
+    .line 89
     iput-object v0, p0, Lorg/apache/commons/collections4/iterators/PeekingIterator;->slot:Ljava/lang/Object;
 
-    .line 90
     const/4 v0, 0x0
 
+    .line 90
     iput-boolean v0, p0, Lorg/apache/commons/collections4/iterators/PeekingIterator;->slotFilled:Z
 
-    .line 92
-    :goto_0
-    return-void
-
-    .line 82
     :cond_2
-    :goto_1
+    :goto_0
     return-void
 .end method
 
 .method public static peekingIterator(Ljava/util/Iterator;)Lorg/apache/commons/collections4/iterators/PeekingIterator;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -152,8 +143,6 @@
         }
     .end annotation
 
-    .line 58
-    .local p0, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     if-eqz p0, :cond_1
 
     .line 61
@@ -162,16 +151,11 @@
     if-eqz v0, :cond_0
 
     .line 63
-    move-object v0, p0
+    check-cast p0, Lorg/apache/commons/collections4/iterators/PeekingIterator;
 
-    check-cast v0, Lorg/apache/commons/collections4/iterators/PeekingIterator;
-
-    .line 64
-    .local v0, "it":Lorg/apache/commons/collections4/iterators/PeekingIterator;, "Lorg/apache/commons/collections4/iterators/PeekingIterator<TE;>;"
-    return-object v0
+    return-object p0
 
     .line 66
-    .end local v0    # "it":Lorg/apache/commons/collections4/iterators/PeekingIterator;, "Lorg/apache/commons/collections4/iterators/PeekingIterator<TE;>;"
     :cond_0
     new-instance v0, Lorg/apache/commons/collections4/iterators/PeekingIterator;
 
@@ -181,13 +165,13 @@
 
     .line 59
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Iterator must not be null"
+    const-string v0, "Iterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
@@ -201,7 +185,6 @@
     .end annotation
 
     .line 128
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/PeekingIterator;, "Lorg/apache/commons/collections4/iterators/PeekingIterator<TE;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/iterators/PeekingIterator;->fill()V
 
     .line 129
@@ -227,14 +210,12 @@
     .locals 2
 
     .line 97
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/PeekingIterator;, "Lorg/apache/commons/collections4/iterators/PeekingIterator<TE;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/iterators/PeekingIterator;->exhausted:Z
 
     const/4 v1, 0x0
 
     if-eqz v0, :cond_0
 
-    .line 98
     return v1
 
     .line 100
@@ -267,7 +248,6 @@
     .end annotation
 
     .line 137
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/PeekingIterator;, "Lorg/apache/commons/collections4/iterators/PeekingIterator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/iterators/PeekingIterator;->hasNext()Z
 
     move-result v0
@@ -290,23 +270,20 @@
 
     move-result-object v0
 
-    .line 142
-    .local v0, "x":Ljava/lang/Object;, "TE;"
     :goto_0
     const/4 v1, 0x0
 
+    .line 142
     iput-object v1, p0, Lorg/apache/commons/collections4/iterators/PeekingIterator;->slot:Ljava/lang/Object;
 
-    .line 143
     const/4 v1, 0x0
 
+    .line 143
     iput-boolean v1, p0, Lorg/apache/commons/collections4/iterators/PeekingIterator;->slotFilled:Z
 
-    .line 144
     return-object v0
 
     .line 138
-    .end local v0    # "x":Ljava/lang/Object;, "TE;"
     :cond_1
     new-instance v0, Ljava/util/NoSuchElementException;
 
@@ -324,7 +301,6 @@
     .end annotation
 
     .line 116
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/PeekingIterator;, "Lorg/apache/commons/collections4/iterators/PeekingIterator<TE;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/iterators/PeekingIterator;->fill()V
 
     .line 117
@@ -347,7 +323,6 @@
     .locals 2
 
     .line 155
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/PeekingIterator;, "Lorg/apache/commons/collections4/iterators/PeekingIterator<TE;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/iterators/PeekingIterator;->slotFilled:Z
 
     if-nez v0, :cond_0
@@ -357,7 +332,6 @@
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 159
     return-void
 
     .line 156

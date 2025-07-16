@@ -39,13 +39,11 @@
     .line 57
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 58
     return-void
 .end method
 
 .method synthetic constructor <init>(Lorg/apache/commons/lang3/reflect/TypeUtils$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/lang3/reflect/TypeUtils$1;
 
     .line 53
     invoke-direct {p0}, Lorg/apache/commons/lang3/reflect/TypeUtils$WildcardTypeBuilder;-><init>()V
@@ -85,22 +83,18 @@
 
 .method public varargs withLowerBounds([Ljava/lang/reflect/Type;)Lorg/apache/commons/lang3/reflect/TypeUtils$WildcardTypeBuilder;
     .locals 0
-    .param p1, "bounds"    # [Ljava/lang/reflect/Type;
 
     .line 79
     iput-object p1, p0, Lorg/apache/commons/lang3/reflect/TypeUtils$WildcardTypeBuilder;->lowerBounds:[Ljava/lang/reflect/Type;
 
-    .line 80
     return-object p0
 .end method
 
 .method public varargs withUpperBounds([Ljava/lang/reflect/Type;)Lorg/apache/commons/lang3/reflect/TypeUtils$WildcardTypeBuilder;
     .locals 0
-    .param p1, "bounds"    # [Ljava/lang/reflect/Type;
 
     .line 69
     iput-object p1, p0, Lorg/apache/commons/lang3/reflect/TypeUtils$WildcardTypeBuilder;->upperBounds:[Ljava/lang/reflect/Type;
 
-    .line 70
     return-object p0
 .end method

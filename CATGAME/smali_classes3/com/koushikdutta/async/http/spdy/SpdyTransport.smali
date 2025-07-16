@@ -29,18 +29,18 @@
 .method static constructor <clinit>()V
     .locals 9
 
+    const-string v0, "proxy-connection"
+
+    const-string v1, "transfer-encoding"
+
+    const-string v2, "connection"
+
+    const-string v3, "host"
+
+    const-string v4, "keep-alive"
+
     .line 28
-    const-string v0, "connection"
-
-    const-string v1, "host"
-
-    const-string v2, "keep-alive"
-
-    const-string v3, "proxy-connection"
-
-    const-string v4, "transfer-encoding"
-
-    filled-new-array {v0, v1, v2, v3, v4}, [Ljava/lang/String;
+    filled-new-array {v2, v3, v4, v0, v1}, [Ljava/lang/String;
 
     move-result-object v0
 
@@ -50,7 +50,6 @@
 
     sput-object v0, Lcom/koushikdutta/async/http/spdy/SpdyTransport;->SPDY_3_PROHIBITED_HEADERS:Ljava/util/List;
 
-    .line 36
     const-string v1, "connection"
 
     const-string v2, "host"
@@ -67,6 +66,7 @@
 
     const-string v8, "upgrade"
 
+    .line 36
     filled-new-array/range {v1 .. v8}, [Ljava/lang/String;
 
     move-result-object v0
@@ -90,9 +90,7 @@
 .end method
 
 .method static isProhibitedHeader(Lcom/koushikdutta/async/http/Protocol;Ljava/lang/String;)Z
-    .locals 2
-    .param p0, "protocol"    # Lcom/koushikdutta/async/http/Protocol;
-    .param p1, "name"    # Ljava/lang/String;
+    .locals 1
 
     .line 48
     sget-object v0, Lcom/koushikdutta/async/http/Protocol;->SPDY_3:Lcom/koushikdutta/async/http/Protocol;
@@ -100,19 +98,19 @@
     if-ne p0, v0, :cond_0
 
     .line 49
-    sget-object v0, Lcom/koushikdutta/async/http/spdy/SpdyTransport;->SPDY_3_PROHIBITED_HEADERS:Ljava/util/List;
+    sget-object p0, Lcom/koushikdutta/async/http/spdy/SpdyTransport;->SPDY_3_PROHIBITED_HEADERS:Ljava/util/List;
 
-    sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
+    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+    invoke-interface {p0, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     .line 50
     :cond_0
@@ -121,25 +119,25 @@
     if-ne p0, v0, :cond_1
 
     .line 51
-    sget-object v0, Lcom/koushikdutta/async/http/spdy/SpdyTransport;->HTTP_2_PROHIBITED_HEADERS:Ljava/util/List;
+    sget-object p0, Lcom/koushikdutta/async/http/spdy/SpdyTransport;->HTTP_2_PROHIBITED_HEADERS:Ljava/util/List;
 
-    sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
+    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+    invoke-interface {p0, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     .line 53
     :cond_1
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0, p0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p1, p0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
-    throw v0
+    throw p1
 .end method

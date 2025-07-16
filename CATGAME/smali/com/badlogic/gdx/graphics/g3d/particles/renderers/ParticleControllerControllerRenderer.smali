@@ -56,10 +56,8 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerControllerRenderer;->controllerChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$ObjectChannel;
 
-    .line 37
     if-eqz v0, :cond_0
 
-    .line 40
     return-void
 
     .line 38
@@ -74,31 +72,27 @@
 .end method
 
 .method public isCompatible(Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch;)Z
-    .locals 1
-    .param p1, "batch"    # Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch;
+    .locals 0
 
-    .line 56
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public update()V
     .locals 3
 
     .line 44
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerControllerRenderer;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
 
-    .local v0, "i":I
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerControllerRenderer;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
+    iget-object v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->particles:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;
 
-    iget-object v1, v1, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->particles:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;
+    iget v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;->size:I
 
-    iget v1, v1, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray;->size:I
+    const/4 v1, 0x0
 
-    .local v1, "c":I
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge v1, v0, :cond_0
 
     .line 45
     iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerControllerRenderer;->controllerChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$ObjectChannel;
@@ -107,18 +101,14 @@
 
     check-cast v2, [Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
 
-    aget-object v2, v2, v0
+    aget-object v2, v2, v1
 
     invoke-virtual {v2}, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->draw()V
 
-    .line 44
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 47
-    .end local v0    # "i":I
-    .end local v1    # "c":I
     :cond_0
     return-void
 .end method

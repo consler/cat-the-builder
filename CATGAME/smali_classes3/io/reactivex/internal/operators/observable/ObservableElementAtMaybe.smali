@@ -42,7 +42,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/ObservableSource;J)V
     .locals 0
-    .param p2, "index"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -52,8 +51,6 @@
     .end annotation
 
     .line 25
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe;, "Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe<TT;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Maybe;-><init>()V
 
     .line 26
@@ -62,7 +59,6 @@
     .line 27
     iput-wide p2, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe;->index:J
 
-    .line 28
     return-void
 .end method
 
@@ -79,7 +75,6 @@
     .end annotation
 
     .line 36
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe;, "Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe<TT;>;"
     new-instance v6, Lio/reactivex/internal/operators/observable/ObservableElementAt;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe;->source:Lio/reactivex/ObservableSource;
@@ -112,8 +107,6 @@
     .end annotation
 
     .line 31
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe;, "Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe<TT;>;"
-    .local p1, "t":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe;->source:Lio/reactivex/ObservableSource;
 
     new-instance v1, Lio/reactivex/internal/operators/observable/ObservableElementAtMaybe$ElementAtObserver;
@@ -124,6 +117,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 32
     return-void
 .end method

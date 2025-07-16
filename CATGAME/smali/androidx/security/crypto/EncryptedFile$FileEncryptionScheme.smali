@@ -51,13 +51,13 @@
 
     sput-object v0, Landroidx/security/crypto/EncryptedFile$FileEncryptionScheme;->AES256_GCM_HKDF_4KB:Landroidx/security/crypto/EncryptedFile$FileEncryptionScheme;
 
-    .line 93
     const/4 v1, 0x1
 
     new-array v1, v1, [Landroidx/security/crypto/EncryptedFile$FileEncryptionScheme;
 
     aput-object v0, v1, v3
 
+    .line 93
     sput-object v1, Landroidx/security/crypto/EncryptedFile$FileEncryptionScheme;->$VALUES:[Landroidx/security/crypto/EncryptedFile$FileEncryptionScheme;
 
     return-void
@@ -65,7 +65,6 @@
 
 .method private constructor <init>(Ljava/lang/String;ILcom/google/crypto/tink/KeyTemplate;)V
     .locals 0
-    .param p3, "keyTemplate"    # Lcom/google/crypto/tink/KeyTemplate;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -80,24 +79,22 @@
     .line 108
     iput-object p3, p0, Landroidx/security/crypto/EncryptedFile$FileEncryptionScheme;->mStreamingAeadKeyTemplate:Lcom/google/crypto/tink/KeyTemplate;
 
-    .line 109
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/security/crypto/EncryptedFile$FileEncryptionScheme;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 93
     const-class v0, Landroidx/security/crypto/EncryptedFile$FileEncryptionScheme;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroidx/security/crypto/EncryptedFile$FileEncryptionScheme;
+    check-cast p0, Landroidx/security/crypto/EncryptedFile$FileEncryptionScheme;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Landroidx/security/crypto/EncryptedFile$FileEncryptionScheme;

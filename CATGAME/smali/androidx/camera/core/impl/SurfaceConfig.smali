@@ -19,14 +19,11 @@
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 40
     return-void
 .end method
 
 .method public static create(Landroidx/camera/core/impl/SurfaceConfig$ConfigType;Landroidx/camera/core/impl/SurfaceConfig$ConfigSize;)Landroidx/camera/core/impl/SurfaceConfig;
     .locals 1
-    .param p0, "type"    # Landroidx/camera/core/impl/SurfaceConfig$ConfigType;
-    .param p1, "size"    # Landroidx/camera/core/impl/SurfaceConfig$ConfigSize;
 
     .line 47
     new-instance v0, Landroidx/camera/core/impl/AutoValue_SurfaceConfig;
@@ -45,50 +42,46 @@
 .end method
 
 .method public final isSupported(Landroidx/camera/core/impl/SurfaceConfig;)Z
-    .locals 5
-    .param p1, "surfaceConfig"    # Landroidx/camera/core/impl/SurfaceConfig;
-
-    .line 66
-    const/4 v0, 0x0
+    .locals 2
 
     .line 67
-    .local v0, "isSupported":Z
     invoke-virtual {p1}, Landroidx/camera/core/impl/SurfaceConfig;->getConfigType()Landroidx/camera/core/impl/SurfaceConfig$ConfigType;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 68
-    .local v1, "configType":Landroidx/camera/core/impl/SurfaceConfig$ConfigType;
     invoke-virtual {p1}, Landroidx/camera/core/impl/SurfaceConfig;->getConfigSize()Landroidx/camera/core/impl/SurfaceConfig$ConfigSize;
 
-    move-result-object v2
+    move-result-object p1
 
     .line 71
-    .local v2, "configSize":Landroidx/camera/core/impl/SurfaceConfig$ConfigSize;
-    invoke-virtual {v2}, Landroidx/camera/core/impl/SurfaceConfig$ConfigSize;->getId()I
+    invoke-virtual {p1}, Landroidx/camera/core/impl/SurfaceConfig$ConfigSize;->getId()I
 
-    move-result v3
+    move-result p1
 
     invoke-virtual {p0}, Landroidx/camera/core/impl/SurfaceConfig;->getConfigSize()Landroidx/camera/core/impl/SurfaceConfig$ConfigSize;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-virtual {v4}, Landroidx/camera/core/impl/SurfaceConfig$ConfigSize;->getId()I
+    invoke-virtual {v1}, Landroidx/camera/core/impl/SurfaceConfig$ConfigSize;->getId()I
 
-    move-result v4
+    move-result v1
 
-    if-gt v3, v4, :cond_0
+    if-gt p1, v1, :cond_0
 
     invoke-virtual {p0}, Landroidx/camera/core/impl/SurfaceConfig;->getConfigType()Landroidx/camera/core/impl/SurfaceConfig$ConfigType;
 
-    move-result-object v3
+    move-result-object p1
 
-    if-ne v1, v3, :cond_0
+    if-ne v0, p1, :cond_0
 
-    .line 72
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    .line 74
+    goto :goto_0
+
     :cond_0
-    return v0
+    const/4 p1, 0x0
+
+    :goto_0
+    return p1
 .end method

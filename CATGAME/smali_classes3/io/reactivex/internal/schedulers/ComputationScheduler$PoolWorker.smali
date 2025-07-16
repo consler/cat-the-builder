@@ -17,11 +17,9 @@
 # direct methods
 .method constructor <init>(Ljava/util/concurrent/ThreadFactory;)V
     .locals 0
-    .param p1, "threadFactory"    # Ljava/util/concurrent/ThreadFactory;
 
     .line 217
     invoke-direct {p0, p1}, Lio/reactivex/internal/schedulers/NewThreadWorker;-><init>(Ljava/util/concurrent/ThreadFactory;)V
 
-    .line 218
     return-void
 .end method

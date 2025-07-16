@@ -55,21 +55,19 @@
 .method public constructor <init>()V
     .locals 3
 
-    const/4 v0, 0x0
+    const/4 v0, 0x3
 
-    const/4 v1, 0x3
+    const/4 v1, 0x0
 
     const/4 v2, 0x0
 
-    invoke-direct {p0, v0, v0, v1, v2}, Lorg/koin/core/definition/Options;-><init>(ZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+    invoke-direct {p0, v2, v2, v0, v1}, Lorg/koin/core/definition/Options;-><init>(ZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 
     return-void
 .end method
 
 .method public constructor <init>(ZZ)V
     .locals 0
-    .param p1, "isCreatedAtStart"    # Z
-    .param p2, "override"    # Z
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -90,7 +88,6 @@
 
     if-eqz p4, :cond_0
 
-    .line 23
     move p1, v0
 
     :cond_0
@@ -100,6 +97,7 @@
 
     move p2, v0
 
+    .line 23
     :cond_1
     invoke-direct {p0, p1, p2}, Lorg/koin/core/definition/Options;-><init>(ZZ)V
 
@@ -244,7 +242,6 @@
 
 .method public final setCreatedAtStart(Z)V
     .locals 0
-    .param p1, "<set-?>"    # Z
 
     .line 23
     iput-boolean p1, p0, Lorg/koin/core/definition/Options;->isCreatedAtStart:Z
@@ -254,7 +251,6 @@
 
 .method public final setOverride(Z)V
     .locals 0
-    .param p1, "<set-?>"    # Z
 
     .line 23
     iput-boolean p1, p0, Lorg/koin/core/definition/Options;->override:Z
@@ -267,27 +263,33 @@
 
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "Options(isCreatedAtStart="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-boolean v1, p0, Lorg/koin/core/definition/Options;->isCreatedAtStart:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", override="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-boolean v1, p0, Lorg/koin/core/definition/Options;->override:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ")"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

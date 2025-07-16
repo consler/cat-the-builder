@@ -73,10 +73,8 @@
     .locals 0
 
     .line 96
-    .local p0, "this":Lorg/apache/commons/lang3/text/StrLookup;, "Lorg/apache/commons/lang3/text/StrLookup<TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 97
     return-void
 .end method
 
@@ -96,7 +94,6 @@
     .end annotation
 
     .line 88
-    .local p0, "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;TV;>;"
     new-instance v0, Lorg/apache/commons/lang3/text/StrLookup$MapStrLookup;
 
     invoke-direct {v0, p0}, Lorg/apache/commons/lang3/text/StrLookup$MapStrLookup;-><init>(Ljava/util/Map;)V

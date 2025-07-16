@@ -26,10 +26,8 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Class;Ljava/lang/String;)V
     .locals 0
-    .param p2, "x1"    # Ljava/lang/String;
 
     .line 86
-    .local p1, "x0":Ljava/lang/Class;, "Ljava/lang/Class<Landroid/graphics/PointF;>;"
     invoke-direct {p0, p1, p2}, Landroid/util/Property;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
 
     return-void
@@ -38,13 +36,11 @@
 
 # virtual methods
 .method public get(Landroidx/transition/ChangeTransform$PathAnimatorMatrix;)Landroid/graphics/PointF;
-    .locals 1
-    .param p1, "object"    # Landroidx/transition/ChangeTransform$PathAnimatorMatrix;
+    .locals 0
 
-    .line 89
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -62,13 +58,10 @@
 
 .method public set(Landroidx/transition/ChangeTransform$PathAnimatorMatrix;Landroid/graphics/PointF;)V
     .locals 0
-    .param p1, "object"    # Landroidx/transition/ChangeTransform$PathAnimatorMatrix;
-    .param p2, "value"    # Landroid/graphics/PointF;
 
     .line 94
     invoke-virtual {p1, p2}, Landroidx/transition/ChangeTransform$PathAnimatorMatrix;->setTranslation(Landroid/graphics/PointF;)V
 
-    .line 95
     return-void
 .end method
 

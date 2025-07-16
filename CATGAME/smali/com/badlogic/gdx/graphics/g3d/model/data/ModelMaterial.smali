@@ -48,9 +48,9 @@
     .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 38
     const/high16 v0, 0x3f800000    # 1.0f
 
+    .line 38
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMaterial;->opacity:F
 
     return-void

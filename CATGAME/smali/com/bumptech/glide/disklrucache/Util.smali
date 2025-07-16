@@ -13,18 +13,18 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 28
     const-string v0, "US-ASCII"
 
+    .line 28
     invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
 
     move-result-object v0
 
     sput-object v0, Lcom/bumptech/glide/disklrucache/Util;->US_ASCII:Ljava/nio/charset/Charset;
 
-    .line 29
     const-string v0, "UTF-8"
 
+    .line 29
     invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
 
     move-result-object v0
@@ -40,51 +40,37 @@
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 32
     return-void
 .end method
 
 .method static closeQuietly(Ljava/io/Closeable;)V
-    .locals 1
-    .param p0, "closeable"    # Ljava/io/Closeable;
+    .locals 0
 
-    .line 68
     if-eqz p0, :cond_0
 
     .line 70
     :try_start_0
     invoke-interface {p0}, Ljava/io/Closeable;->close()V
     :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 74
     goto :goto_0
 
-    .line 73
     :catch_0
-    move-exception v0
-
-    goto :goto_0
-
-    .line 71
-    :catch_1
-    move-exception v0
+    move-exception p0
 
     .line 72
-    .local v0, "rethrown":Ljava/lang/RuntimeException;
-    throw v0
+    throw p0
 
-    .line 76
-    .end local v0    # "rethrown":Ljava/lang/RuntimeException;
+    :catch_1
     :cond_0
     :goto_0
     return-void
 .end method
 
 .method static deleteContents(Ljava/io/File;)V
-    .locals 5
-    .param p0, "dir"    # Ljava/io/File;
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -96,99 +82,90 @@
 
     move-result-object v0
 
-    .line 54
-    .local v0, "files":[Ljava/io/File;
     if-eqz v0, :cond_3
 
     .line 57
-    array-length v1, v0
+    array-length p0, v0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v2, v1, :cond_2
+    if-ge v1, p0, :cond_2
 
-    aget-object v3, v0, v2
+    aget-object v2, v0, v1
 
     .line 58
-    .local v3, "file":Ljava/io/File;
-    invoke-virtual {v3}, Ljava/io/File;->isDirectory()Z
+    invoke-virtual {v2}, Ljava/io/File;->isDirectory()Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
     .line 59
-    invoke-static {v3}, Lcom/bumptech/glide/disklrucache/Util;->deleteContents(Ljava/io/File;)V
+    invoke-static {v2}, Lcom/bumptech/glide/disklrucache/Util;->deleteContents(Ljava/io/File;)V
 
     .line 61
     :cond_0
-    invoke-virtual {v3}, Ljava/io/File;->delete()Z
+    invoke-virtual {v2}, Ljava/io/File;->delete()Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_1
+    if-eqz v3, :cond_1
 
-    .line 57
-    .end local v3    # "file":Ljava/io/File;
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 62
-    .restart local v3    # "file":Ljava/io/File;
     :cond_1
-    new-instance v1, Ljava/io/IOException;
+    new-instance p0, Ljava/io/IOException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "failed to delete file: "
 
-    const-string v4, "failed to delete file: "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-direct {v1, v2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 
-    .line 65
-    .end local v3    # "file":Ljava/io/File;
     :cond_2
     return-void
 
     .line 55
     :cond_3
-    new-instance v1, Ljava/io/IOException;
+    new-instance v0, Ljava/io/IOException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "not a readable directory: "
 
-    const-string v3, "not a readable directory: "
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p0
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-direct {v1, v2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method static readFully(Ljava/io/Reader;)Ljava/lang/String;
-    .locals 5
-    .param p0, "reader"    # Ljava/io/Reader;
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -201,30 +178,24 @@
 
     invoke-direct {v0}, Ljava/io/StringWriter;-><init>()V
 
-    .line 37
-    .local v0, "writer":Ljava/io/StringWriter;
     const/16 v1, 0x400
 
     new-array v1, v1, [C
 
     .line 39
-    .local v1, "buffer":[C
     :goto_0
     invoke-virtual {p0, v1}, Ljava/io/Reader;->read([C)I
 
     move-result v2
 
-    move v3, v2
+    const/4 v3, -0x1
 
-    .local v3, "count":I
-    const/4 v4, -0x1
+    if-eq v2, v3, :cond_0
 
-    if-eq v2, v4, :cond_0
+    const/4 v3, 0x0
 
     .line 40
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2, v3}, Ljava/io/StringWriter;->write([CII)V
+    invoke-virtual {v0, v1, v3, v2}, Ljava/io/StringWriter;->write([CII)V
 
     goto :goto_0
 
@@ -232,20 +203,15 @@
     :cond_0
     invoke-virtual {v0}, Ljava/io/StringWriter;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 44
     invoke-virtual {p0}, Ljava/io/Reader;->close()V
 
-    .line 42
-    return-object v2
+    return-object v0
 
-    .line 44
-    .end local v0    # "writer":Ljava/io/StringWriter;
-    .end local v1    # "buffer":[C
-    .end local v3    # "count":I
     :catchall_0
     move-exception v0
 

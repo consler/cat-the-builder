@@ -8,7 +8,7 @@
     value = {
         Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;,
         Lcom/huawei/hms/adapter/BaseAdapter$BaseRequestResultCallback;,
-        Lcom/huawei/hms/adapter/BaseAdapter$a;
+        Lcom/huawei/hms/adapter/BaseAdapter$MPendingResultImpl;
     }
 .end annotation
 
@@ -59,125 +59,153 @@
 .method public constructor <init>(Lcom/huawei/hms/support/api/client/ApiClient;)V
     .locals 1
 
-    .line 87
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 80
+    .line 2
     new-instance v0, Lcom/huawei/hms/common/internal/RequestHeader;
 
     invoke-direct {v0}, Lcom/huawei/hms/common/internal/RequestHeader;-><init>()V
 
     iput-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->j:Lcom/huawei/hms/common/internal/RequestHeader;
 
-    .line 85
+    .line 7
     new-instance v0, Lcom/huawei/hms/common/internal/ResponseHeader;
 
     invoke-direct {v0}, Lcom/huawei/hms/common/internal/ResponseHeader;-><init>()V
 
     iput-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
 
-    .line 88
+    .line 10
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->a:Ljava/lang/ref/WeakReference;
 
-    .line 89
+    .line 11
+    invoke-interface {p1}, Lcom/huawei/hms/support/api/client/ApiClient;->getContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->i:Landroid/content/Context;
+
+    .line 12
+    new-instance p1, Ljava/lang/StringBuilder;
+
+    const-string v0, "In constructor, WeakReference is "
+
+    invoke-direct {p1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->a:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v0, "BaseAdapter"
+
+    invoke-static {v0, p1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
     return-void
 .end method
 
 .method public constructor <init>(Lcom/huawei/hms/support/api/client/ApiClient;Landroid/app/Activity;)V
     .locals 1
 
-    .line 91
+    .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 80
+    .line 14
     new-instance v0, Lcom/huawei/hms/common/internal/RequestHeader;
 
     invoke-direct {v0}, Lcom/huawei/hms/common/internal/RequestHeader;-><init>()V
 
     iput-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->j:Lcom/huawei/hms/common/internal/RequestHeader;
 
-    .line 85
+    .line 19
     new-instance v0, Lcom/huawei/hms/common/internal/ResponseHeader;
 
     invoke-direct {v0}, Lcom/huawei/hms/common/internal/ResponseHeader;-><init>()V
 
     iput-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
 
-    .line 92
+    .line 28
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->a:Ljava/lang/ref/WeakReference;
 
-    .line 93
+    .line 29
     new-instance p1, Ljava/lang/ref/WeakReference;
 
     invoke-direct {p1, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     iput-object p1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->b:Ljava/lang/ref/WeakReference;
 
-    .line 94
+    .line 30
     invoke-virtual {p2}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
 
     move-result-object p1
 
     iput-object p1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->i:Landroid/content/Context;
 
-    .line 95
+    .line 31
+    new-instance p1, Ljava/lang/StringBuilder;
+
+    const-string p2, "In constructor, activityWeakReference is "
+
+    invoke-direct {p1, p2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    iget-object p2, p0, Lcom/huawei/hms/adapter/BaseAdapter;->b:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    const-string p2, ", activity is "
+
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    iget-object p2, p0, Lcom/huawei/hms/adapter/BaseAdapter;->b:Ljava/lang/ref/WeakReference;
+
+    .line 32
+    invoke-virtual {p2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object p2
+
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string p2, "BaseAdapter"
+
+    .line 33
+    invoke-static {p2, p1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
     return-void
 .end method
 
-.method private a()Landroid/app/Activity;
-    .locals 2
+.method private a()Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;
+    .locals 1
 
-    .line 164
-    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->b:Ljava/lang/ref/WeakReference;
-
-    const/4 v1, 0x0
-
-    if-nez v0, :cond_0
-
-    .line 165
-    return-object v1
-
-    .line 168
-    :cond_0
-    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->a:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/huawei/hms/support/api/client/ApiClient;
-
-    .line 169
-    if-nez v0, :cond_1
-
-    .line 170
-    return-object v1
-
-    .line 172
-    :cond_1
-    iget-object v1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->b:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/app/Activity;
-
-    invoke-interface {v0}, Lcom/huawei/hms/support/api/client/ApiClient;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-static {v1, v0}, Lcom/huawei/hms/utils/Util;->getActiveActivity(Landroid/app/Activity;Landroid/content/Context;)Landroid/app/Activity;
-
-    move-result-object v0
+    .line 63
+    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->g:Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;
 
     return-object v0
 .end method
@@ -185,8 +213,38 @@
 .method static synthetic a(Lcom/huawei/hms/adapter/BaseAdapter;)Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;
     .locals 0
 
-    .line 46
+    .line 1
     invoke-direct {p0}, Lcom/huawei/hms/adapter/BaseAdapter;->b()Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private a(ILjava/lang/String;)Lcom/huawei/hms/common/internal/ResponseWrap;
+    .locals 1
+
+    .line 51
+    invoke-direct {p0, p1}, Lcom/huawei/hms/adapter/BaseAdapter;->c(I)V
+
+    .line 52
+    new-instance p1, Lcom/huawei/hms/common/internal/ResponseWrap;
+
+    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
+
+    invoke-direct {p1, v0}, Lcom/huawei/hms/common/internal/ResponseWrap;-><init>(Lcom/huawei/hms/common/internal/ResponseHeader;)V
+
+    .line 53
+    invoke-virtual {p1, p2}, Lcom/huawei/hms/common/internal/ResponseWrap;->setBody(Ljava/lang/String;)V
+
+    return-object p1
+.end method
+
+.method static synthetic a(Lcom/huawei/hms/adapter/BaseAdapter;ILjava/lang/String;)Lcom/huawei/hms/common/internal/ResponseWrap;
+    .locals 0
+
+    .line 7
+    invoke-direct {p0, p1, p2}, Lcom/huawei/hms/adapter/BaseAdapter;->a(ILjava/lang/String;)Lcom/huawei/hms/common/internal/ResponseWrap;
 
     move-result-object p0
 
@@ -209,95 +267,61 @@
         }
     .end annotation
 
-    .line 144
-    new-instance v0, Lcom/huawei/hms/adapter/BaseAdapter$a;
+    .line 8
+    new-instance v0, Lcom/huawei/hms/adapter/BaseAdapter$MPendingResultImpl;
 
-    invoke-direct {v0, p1, p2, p3}, Lcom/huawei/hms/adapter/BaseAdapter$a;-><init>(Lcom/huawei/hms/support/api/client/ApiClient;Ljava/lang/String;Lcom/huawei/hms/core/aidl/IMessageEntity;)V
+    invoke-direct {v0, p1, p2, p3}, Lcom/huawei/hms/adapter/BaseAdapter$MPendingResultImpl;-><init>(Lcom/huawei/hms/support/api/client/ApiClient;Ljava/lang/String;Lcom/huawei/hms/core/aidl/IMessageEntity;)V
 
     return-object v0
 .end method
 
 .method private a(I)Ljava/lang/String;
-    .locals 2
+    .locals 3
 
-    .line 369
-    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
+    .line 54
+    new-instance v0, Lorg/json/JSONObject;
 
-    iget-object v1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->j:Lcom/huawei/hms/common/internal/RequestHeader;
+    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
-    invoke-virtual {v1}, Lcom/huawei/hms/common/internal/RequestHeader;->getTransactionId()Ljava/lang/String;
+    :try_start_0
+    const-string v1, "errorCode"
 
-    move-result-object v1
+    .line 56
+    invoke-virtual {v0, v1, p1}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    :try_end_0
+    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
 
-    invoke-virtual {v0, v1}, Lcom/huawei/hms/common/internal/ResponseHeader;->setTransactionId(Ljava/lang/String;)V
+    goto :goto_0
 
-    .line 370
-    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
+    :catch_0
+    move-exception p1
 
-    iget-object v1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->j:Lcom/huawei/hms/common/internal/RequestHeader;
+    .line 58
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Lcom/huawei/hms/common/internal/RequestHeader;->getAppID()Ljava/lang/String;
+    const-string v2, "buildBodyStr failed: "
 
-    move-result-object v1
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Lcom/huawei/hms/common/internal/ResponseHeader;->setAppID(Ljava/lang/String;)V
+    invoke-virtual {p1}, Lorg/json/JSONException;->getMessage()Ljava/lang/String;
 
-    .line 371
-    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
+    move-result-object p1
 
-    iget-object v1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->j:Lcom/huawei/hms/common/internal/RequestHeader;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Lcom/huawei/hms/common/internal/RequestHeader;->getApiName()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lcom/huawei/hms/common/internal/ResponseHeader;->setApiName(Ljava/lang/String;)V
+    move-result-object p1
 
-    .line 372
-    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
+    const-string v1, "BaseAdapter"
 
-    iget-object v1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->j:Lcom/huawei/hms/common/internal/RequestHeader;
+    invoke-static {v1, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v1}, Lcom/huawei/hms/common/internal/RequestHeader;->getSrvName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/huawei/hms/common/internal/ResponseHeader;->setSrvName(Ljava/lang/String;)V
-
-    .line 373
-    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
-
-    iget-object v1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->j:Lcom/huawei/hms/common/internal/RequestHeader;
-
-    invoke-virtual {v1}, Lcom/huawei/hms/common/internal/RequestHeader;->getPkgName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/huawei/hms/common/internal/ResponseHeader;->setPkgName(Ljava/lang/String;)V
-
-    .line 374
-    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Lcom/huawei/hms/common/internal/ResponseHeader;->setStatusCode(I)V
-
-    .line 375
-    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
-
-    invoke-virtual {v0, p1}, Lcom/huawei/hms/common/internal/ResponseHeader;->setErrorCode(I)V
-
-    .line 376
-    iget-object p1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
-
-    const-string v0, "Core error"
-
-    invoke-virtual {p1, v0}, Lcom/huawei/hms/common/internal/ResponseHeader;->setErrorReason(Ljava/lang/String;)V
-
-    .line 378
-    iget-object p1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
-
-    invoke-virtual {p1}, Lcom/huawei/hms/common/internal/ResponseHeader;->toJson()Ljava/lang/String;
+    .line 60
+    :goto_0
+    invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -307,8 +331,8 @@
 .method static synthetic a(Lcom/huawei/hms/adapter/BaseAdapter;I)Ljava/lang/String;
     .locals 0
 
-    .line 46
-    invoke-direct {p0, p1}, Lcom/huawei/hms/adapter/BaseAdapter;->a(I)Ljava/lang/String;
+    .line 2
+    invoke-direct {p0, p1}, Lcom/huawei/hms/adapter/BaseAdapter;->b(I)Ljava/lang/String;
 
     move-result-object p0
 
@@ -318,33 +342,33 @@
 .method private a(Landroid/app/Activity;Landroid/os/Parcelable;)V
     .locals 3
 
-    .line 285
     const-string v0, "BaseAdapter"
 
     const-string v1, "startResolution"
 
+    .line 9
     invoke-static {v0, v1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 287
+    .line 11
     iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->j:Lcom/huawei/hms/common/internal/RequestHeader;
 
     if-eqz v0, :cond_0
 
-    .line 288
+    .line 12
     iget-object v1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->i:Landroid/content/Context;
 
     invoke-direct {p0, v1, v0}, Lcom/huawei/hms/adapter/BaseAdapter;->b(Landroid/content/Context;Lcom/huawei/hms/common/internal/RequestHeader;)V
 
-    .line 291
+    .line 15
     :cond_0
     iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->l:Lcom/huawei/hms/adapter/sysobs/SystemObserver;
 
     if-nez v0, :cond_1
 
-    .line 292
-    invoke-direct {p0}, Lcom/huawei/hms/adapter/BaseAdapter;->i()V
+    .line 16
+    invoke-direct {p0}, Lcom/huawei/hms/adapter/BaseAdapter;->g()V
 
-    .line 294
+    .line 18
     :cond_1
     invoke-static {}, Lcom/huawei/hms/adapter/sysobs/SystemManager;->getSystemNotifier()Lcom/huawei/hms/adapter/sysobs/SystemNotifier;
 
@@ -354,7 +378,7 @@
 
     invoke-interface {v0, v1}, Lcom/huawei/hms/adapter/sysobs/SystemNotifier;->registerObserver(Lcom/huawei/hms/adapter/sysobs/SystemObserver;)V
 
-    .line 296
+    .line 20
     const-class v0, Lcom/huawei/hms/adapter/ui/BaseResolutionAdapter;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -365,37 +389,36 @@
 
     move-result-object v0
 
-    .line 297
+    .line 21
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
-    .line 298
     const-string v2, "resolution"
 
+    .line 22
     invoke-virtual {v1, v2, p2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 299
+    .line 23
     invoke-virtual {v0, v1}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
 
-    .line 300
+    .line 24
     iget-object p2, p0, Lcom/huawei/hms/adapter/BaseAdapter;->h:Ljava/lang/String;
 
     const-string v1, "transaction_id"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 301
+    .line 25
     invoke-virtual {p1, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    .line 302
     return-void
 .end method
 
 .method private a(Landroid/content/Context;Lcom/huawei/hms/common/internal/RequestHeader;)V
     .locals 3
 
-    .line 320
+    .line 26
     invoke-static {}, Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;->getInstance()Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;
 
     move-result-object v0
@@ -404,17 +427,14 @@
 
     move-result-object v0
 
-    .line 321
     const-string v1, "direction"
 
     const-string v2, "req"
 
+    .line 27
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 322
-    nop
-
-    .line 323
+    .line 29
     invoke-virtual {p2}, Lcom/huawei/hms/common/internal/RequestHeader;->getKitSdkVersion()I
 
     move-result p2
@@ -427,12 +447,25 @@
 
     move-result-object p2
 
-    .line 322
     const-string v1, "version"
+
+    .line 30
+    invoke-interface {v0, v1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string p2, "ro.logsystem.usertype"
+
+    const-string v1, ""
+
+    .line 32
+    invoke-static {p2, v1}, Lcom/huawei/hms/utils/Util;->getSystemProperties(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p2
+
+    const-string v1, "phoneType"
 
     invoke-interface {v0, v1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 325
+    .line 33
     invoke-static {}, Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;->getInstance()Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;
 
     move-result-object p2
@@ -441,31 +474,30 @@
 
     invoke-virtual {p2, p1, v1, v0}, Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;->onNewEvent(Landroid/content/Context;Ljava/lang/String;Ljava/util/Map;)V
 
-    .line 326
     return-void
 .end method
 
 .method private a(Landroid/content/Context;Lcom/huawei/hms/common/internal/ResponseHeader;)V
     .locals 2
 
-    .line 346
+    .line 34
     invoke-static {}, Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;->getInstance()Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;
 
     invoke-static {p2}, Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;->getMapFromRequestHeader(Lcom/huawei/hms/common/internal/ResponseHeader;)Ljava/util/Map;
 
     move-result-object p2
 
-    .line 347
     const-string v0, "direction"
 
     const-string v1, "rsp"
 
+    .line 35
     invoke-interface {p2, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 348
+    .line 36
     iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->j:Lcom/huawei/hms/common/internal/RequestHeader;
 
-    .line 349
+    .line 37
     invoke-virtual {v0}, Lcom/huawei/hms/common/internal/RequestHeader;->getKitSdkVersion()I
 
     move-result v0
@@ -478,12 +510,25 @@
 
     move-result-object v0
 
-    .line 348
     const-string v1, "version"
+
+    .line 38
+    invoke-interface {p2, v1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v0, "ro.logsystem.usertype"
+
+    const-string v1, ""
+
+    .line 40
+    invoke-static {v0, v1}, Lcom/huawei/hms/utils/Util;->getSystemProperties(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "phoneType"
 
     invoke-interface {p2, v1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 351
+    .line 41
     invoke-static {}, Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;->getInstance()Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;
 
     move-result-object v0
@@ -492,28 +537,27 @@
 
     invoke-virtual {v0, p1, v1, p2}, Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;->onNewEvent(Landroid/content/Context;Ljava/lang/String;Ljava/util/Map;)V
 
-    .line 352
     return-void
 .end method
 
 .method private a(Landroid/content/Context;Lcom/huawei/hms/common/internal/ResponseHeader;J)V
     .locals 2
 
-    .line 359
+    .line 42
     invoke-static {}, Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;->getInstance()Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;
 
     invoke-static {p2}, Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;->getMapFromRequestHeader(Lcom/huawei/hms/common/internal/ResponseHeader;)Ljava/util/Map;
 
     move-result-object p2
 
-    .line 360
     const-string v0, "direction"
 
     const-string v1, "rsp"
 
+    .line 43
     invoke-interface {p2, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 361
+    .line 44
     invoke-static {p3, p4}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
     move-result-object p3
@@ -522,10 +566,10 @@
 
     invoke-interface {p2, p4, p3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 362
+    .line 45
     iget-object p3, p0, Lcom/huawei/hms/adapter/BaseAdapter;->j:Lcom/huawei/hms/common/internal/RequestHeader;
 
-    .line 363
+    .line 46
     invoke-virtual {p3}, Lcom/huawei/hms/common/internal/RequestHeader;->getKitSdkVersion()I
 
     move-result p3
@@ -538,12 +582,25 @@
 
     move-result-object p3
 
-    .line 362
     const-string p4, "version"
+
+    .line 47
+    invoke-interface {p2, p4, p3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string p3, "ro.logsystem.usertype"
+
+    const-string p4, ""
+
+    .line 49
+    invoke-static {p3, p4}, Lcom/huawei/hms/utils/Util;->getSystemProperties(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p3
+
+    const-string p4, "phoneType"
 
     invoke-interface {p2, p4, p3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 365
+    .line 50
     invoke-static {}, Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;->getInstance()Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;
 
     move-result-object p3
@@ -552,34 +609,31 @@
 
     invoke-virtual {p3, p1, p4, p2}, Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;->onNewEvent(Landroid/content/Context;Ljava/lang/String;Ljava/util/Map;)V
 
-    .line 366
     return-void
 .end method
 
 .method private a(Landroid/os/Parcelable;)V
     .locals 0
 
-    .line 417
+    .line 62
     iput-object p1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->f:Landroid/os/Parcelable;
 
-    .line 418
     return-void
 .end method
 
 .method private a(Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;)V
     .locals 0
 
-    .line 425
+    .line 64
     iput-object p1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->g:Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;
 
-    .line 426
     return-void
 .end method
 
 .method static synthetic a(Lcom/huawei/hms/adapter/BaseAdapter;Landroid/app/Activity;Landroid/os/Parcelable;)V
     .locals 0
 
-    .line 46
+    .line 6
     invoke-direct {p0, p1, p2}, Lcom/huawei/hms/adapter/BaseAdapter;->a(Landroid/app/Activity;Landroid/os/Parcelable;)V
 
     return-void
@@ -588,7 +642,7 @@
 .method static synthetic a(Lcom/huawei/hms/adapter/BaseAdapter;Landroid/content/Context;Lcom/huawei/hms/common/internal/ResponseHeader;)V
     .locals 0
 
-    .line 46
+    .line 5
     invoke-direct {p0, p1, p2}, Lcom/huawei/hms/adapter/BaseAdapter;->a(Landroid/content/Context;Lcom/huawei/hms/common/internal/ResponseHeader;)V
 
     return-void
@@ -597,7 +651,7 @@
 .method static synthetic a(Lcom/huawei/hms/adapter/BaseAdapter;Landroid/content/Context;Lcom/huawei/hms/common/internal/ResponseHeader;J)V
     .locals 0
 
-    .line 46
+    .line 3
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/huawei/hms/adapter/BaseAdapter;->a(Landroid/content/Context;Lcom/huawei/hms/common/internal/ResponseHeader;J)V
 
     return-void
@@ -606,61 +660,171 @@
 .method private a(Ljava/lang/String;)V
     .locals 0
 
-    .line 401
+    .line 61
     iput-object p1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->d:Ljava/lang/String;
 
-    .line 402
     return-void
 .end method
 
 .method private a(Ljava/lang/String;Ljava/lang/String;Landroid/os/Parcelable;Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;)V
     .locals 0
 
-    .line 429
+    .line 65
     invoke-direct {p0, p1}, Lcom/huawei/hms/adapter/BaseAdapter;->a(Ljava/lang/String;)V
 
-    .line 430
+    .line 66
     invoke-direct {p0, p2}, Lcom/huawei/hms/adapter/BaseAdapter;->b(Ljava/lang/String;)V
 
-    .line 431
+    .line 67
     invoke-direct {p0, p3}, Lcom/huawei/hms/adapter/BaseAdapter;->a(Landroid/os/Parcelable;)V
 
-    .line 432
+    .line 68
     invoke-direct {p0, p4}, Lcom/huawei/hms/adapter/BaseAdapter;->a(Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;)V
 
-    .line 433
     return-void
+.end method
+
+.method private a(Landroid/content/Intent;Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;)Z
+    .locals 2
+
+    const-string v0, "privacy_statement_confirm_result"
+
+    .line 69
+    invoke-virtual {p1, v0}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    const/16 v1, 0x3e9
+
+    .line 70
+    invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result p1
+
+    const-string v0, "BaseAdapter"
+
+    if-ne p1, v1, :cond_0
+
+    const-string p1, "privacy_statement_confirm_result agreed, replay request"
+
+    .line 72
+    invoke-static {v0, p1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 73
+    invoke-direct {p0}, Lcom/huawei/hms/adapter/BaseAdapter;->h()V
+
+    goto :goto_0
+
+    :cond_0
+    const-string p1, "privacy_statement_confirm_result rejected"
+
+    .line 75
+    invoke-static {v0, p1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    const p1, 0x3611cad9
+
+    .line 77
+    invoke-direct {p0, p1}, Lcom/huawei/hms/adapter/BaseAdapter;->a(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 78
+    invoke-direct {p0, p1, v0}, Lcom/huawei/hms/adapter/BaseAdapter;->a(ILjava/lang/String;)Lcom/huawei/hms/common/internal/ResponseWrap;
+
+    move-result-object p1
+
+    .line 80
+    invoke-virtual {p1}, Lcom/huawei/hms/common/internal/ResponseWrap;->toJson()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-interface {p2, p1}, Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;->onError(Ljava/lang/String;)V
+
+    :goto_0
+    const/4 p1, 0x1
+
+    return p1
+
+    :cond_1
+    const/4 p1, 0x0
+
+    return p1
+.end method
+
+.method static synthetic a(Lcom/huawei/hms/adapter/BaseAdapter;Landroid/content/Intent;Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;)Z
+    .locals 0
+
+    .line 4
+    invoke-direct {p0, p1, p2}, Lcom/huawei/hms/adapter/BaseAdapter;->b(Landroid/content/Intent;Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;)Z
+
+    move-result p0
+
+    return p0
 .end method
 
 .method private b()Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;
     .locals 2
 
-    .line 307
+    .line 4
     iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->c:Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;
 
     if-nez v0, :cond_0
 
-    .line 308
     const-string v0, "BaseAdapter"
 
     const-string v1, "callback null"
 
+    .line 5
     invoke-static {v0, v1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 309
     const/4 v0, 0x0
 
-    return-object v0
-
-    .line 312
     :cond_0
     return-object v0
+.end method
+
+.method private b(I)Ljava/lang/String;
+    .locals 0
+
+    .line 14
+    invoke-direct {p0, p1}, Lcom/huawei/hms/adapter/BaseAdapter;->c(I)V
+
+    .line 15
+    iget-object p1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
+
+    invoke-virtual {p1}, Lcom/huawei/hms/common/internal/ResponseHeader;->toJson()Ljava/lang/String;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method static synthetic b(Lcom/huawei/hms/adapter/BaseAdapter;)Ljava/lang/String;
+    .locals 0
+
+    .line 1
+    iget-object p0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->h:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static synthetic b(Lcom/huawei/hms/adapter/BaseAdapter;I)Ljava/lang/String;
+    .locals 0
+
+    .line 3
+    invoke-direct {p0, p1}, Lcom/huawei/hms/adapter/BaseAdapter;->a(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method private b(Landroid/content/Context;Lcom/huawei/hms/common/internal/RequestHeader;)V
     .locals 3
 
-    .line 333
+    .line 6
     invoke-static {}, Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;->getInstance()Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;
 
     move-result-object v0
@@ -669,17 +833,14 @@
 
     move-result-object v0
 
-    .line 334
     const-string v1, "direction"
 
     const-string v2, "req"
 
+    .line 7
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 335
-    nop
-
-    .line 336
+    .line 9
     invoke-virtual {p2}, Lcom/huawei/hms/common/internal/RequestHeader;->getKitSdkVersion()I
 
     move-result p2
@@ -692,12 +853,25 @@
 
     move-result-object p2
 
-    .line 335
     const-string v1, "version"
+
+    .line 10
+    invoke-interface {v0, v1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string p2, "ro.logsystem.usertype"
+
+    const-string v1, ""
+
+    .line 12
+    invoke-static {p2, v1}, Lcom/huawei/hms/utils/Util;->getSystemProperties(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p2
+
+    const-string v1, "phoneType"
 
     invoke-interface {v0, v1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 338
+    .line 13
     invoke-static {}, Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;->getInstance()Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;
 
     move-result-object p2
@@ -706,51 +880,442 @@
 
     invoke-virtual {p2, p1, v1, v0}, Lcom/huawei/hms/support/hianalytics/HiAnalyticsUtil;->onNewEvent(Landroid/content/Context;Ljava/lang/String;Ljava/util/Map;)V
 
-    .line 339
-    return-void
-.end method
-
-.method static synthetic b(Lcom/huawei/hms/adapter/BaseAdapter;)V
-    .locals 0
-
-    .line 46
-    invoke-direct {p0}, Lcom/huawei/hms/adapter/BaseAdapter;->h()V
-
     return-void
 .end method
 
 .method private b(Ljava/lang/String;)V
     .locals 0
 
-    .line 409
+    .line 16
     iput-object p1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->e:Ljava/lang/String;
 
-    .line 410
     return-void
+.end method
+
+.method private b(Landroid/content/Intent;Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;)Z
+    .locals 3
+
+    const-string v0, "kit_update_result"
+
+    .line 17
+    invoke-virtual {p1, v0}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
+
+    move-result v1
+
+    const/4 v2, 0x0
+
+    if-eqz v1, :cond_1
+
+    .line 18
+    invoke-virtual {p1, v0, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result p1
+
+    .line 19
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "kit_update_result is "
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "BaseAdapter"
+
+    invoke-static {v1, v0}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v0, 0x1
+
+    if-ne p1, v0, :cond_0
+
+    const-string p1, "kit update success,replay request"
+
+    .line 21
+    invoke-static {v1, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 22
+    invoke-direct {p0}, Lcom/huawei/hms/adapter/BaseAdapter;->h()V
+
+    goto :goto_0
+
+    :cond_0
+    const-string v2, "kit update failed"
+
+    .line 24
+    invoke-static {v1, v2}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 25
+    invoke-direct {p0, p1}, Lcom/huawei/hms/adapter/BaseAdapter;->a(I)Ljava/lang/String;
+
+    move-result-object p1
+
+    const/16 v1, -0xa
+
+    invoke-direct {p0, v1, p1}, Lcom/huawei/hms/adapter/BaseAdapter;->a(ILjava/lang/String;)Lcom/huawei/hms/common/internal/ResponseWrap;
+
+    move-result-object p1
+
+    .line 26
+    invoke-virtual {p1}, Lcom/huawei/hms/common/internal/ResponseWrap;->toJson()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-interface {p2, p1}, Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;->onError(Ljava/lang/String;)V
+
+    :goto_0
+    return v0
+
+    :cond_1
+    return v2
+.end method
+
+.method static synthetic b(Lcom/huawei/hms/adapter/BaseAdapter;Landroid/content/Intent;Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;)Z
+    .locals 0
+
+    .line 2
+    invoke-direct {p0, p1, p2}, Lcom/huawei/hms/adapter/BaseAdapter;->a(Landroid/content/Intent;Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method private c()Landroid/app/Activity;
+    .locals 4
+
+    .line 3
+    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->b:Ljava/lang/ref/WeakReference;
+
+    const/4 v1, 0x0
+
+    const-string v2, "BaseAdapter"
+
+    if-nez v0, :cond_0
+
+    .line 4
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v3, "activityWeakReference is "
+
+    invoke-direct {v0, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    iget-object v3, p0, Lcom/huawei/hms/adapter/BaseAdapter;->b:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v2, v0}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-object v1
+
+    .line 8
+    :cond_0
+    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->a:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/huawei/hms/support/api/client/ApiClient;
+
+    if-nez v0, :cond_1
+
+    const-string v0, "tmpApi is null"
+
+    .line 10
+    invoke-static {v2, v0}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-object v1
+
+    .line 13
+    :cond_1
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    const-string v3, "activityWeakReference has "
+
+    invoke-direct {v1, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    iget-object v3, p0, Lcom/huawei/hms/adapter/BaseAdapter;->b:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v3}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v2, v1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 14
+    iget-object v1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->b:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/app/Activity;
+
+    invoke-interface {v0}, Lcom/huawei/hms/support/api/client/ApiClient;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v1, v0}, Lcom/huawei/hms/utils/Util;->getActiveActivity(Landroid/app/Activity;Landroid/content/Context;)Landroid/app/Activity;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method static synthetic c(Lcom/huawei/hms/adapter/BaseAdapter;)Lcom/huawei/hms/common/internal/ResponseHeader;
     .locals 0
 
-    .line 46
+    .line 2
     iget-object p0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
 
     return-object p0
 .end method
 
-.method private c()Ljava/lang/String;
-    .locals 1
+.method private c(I)V
+    .locals 2
 
-    .line 397
-    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->d:Ljava/lang/String;
+    .line 15
+    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
 
-    return-object v0
+    iget-object v1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->j:Lcom/huawei/hms/common/internal/RequestHeader;
+
+    invoke-virtual {v1}, Lcom/huawei/hms/common/internal/RequestHeader;->getTransactionId()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/huawei/hms/common/internal/ResponseHeader;->setTransactionId(Ljava/lang/String;)V
+
+    .line 16
+    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
+
+    iget-object v1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->j:Lcom/huawei/hms/common/internal/RequestHeader;
+
+    invoke-virtual {v1}, Lcom/huawei/hms/common/internal/RequestHeader;->getAppID()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/huawei/hms/common/internal/ResponseHeader;->setAppID(Ljava/lang/String;)V
+
+    .line 17
+    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
+
+    iget-object v1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->j:Lcom/huawei/hms/common/internal/RequestHeader;
+
+    invoke-virtual {v1}, Lcom/huawei/hms/common/internal/RequestHeader;->getApiName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/huawei/hms/common/internal/ResponseHeader;->setApiName(Ljava/lang/String;)V
+
+    .line 18
+    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
+
+    iget-object v1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->j:Lcom/huawei/hms/common/internal/RequestHeader;
+
+    invoke-virtual {v1}, Lcom/huawei/hms/common/internal/RequestHeader;->getSrvName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/huawei/hms/common/internal/ResponseHeader;->setSrvName(Ljava/lang/String;)V
+
+    .line 19
+    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
+
+    iget-object v1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->j:Lcom/huawei/hms/common/internal/RequestHeader;
+
+    invoke-virtual {v1}, Lcom/huawei/hms/common/internal/RequestHeader;->getPkgName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/huawei/hms/common/internal/ResponseHeader;->setPkgName(Ljava/lang/String;)V
+
+    .line 20
+    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/huawei/hms/common/internal/ResponseHeader;->setStatusCode(I)V
+
+    .line 21
+    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
+
+    invoke-virtual {v0, p1}, Lcom/huawei/hms/common/internal/ResponseHeader;->setErrorCode(I)V
+
+    .line 22
+    iget-object p1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
+
+    const-string v0, "Core error"
+
+    invoke-virtual {p1, v0}, Lcom/huawei/hms/common/internal/ResponseHeader;->setErrorReason(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method private c(Landroid/content/Intent;Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;)V
+    .locals 6
+
+    const-string v0, "json_header"
+
+    .line 23
+    invoke-virtual {p1, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "json_body"
+
+    .line 24
+    invoke-virtual {p1, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "status_code"
+
+    .line 25
+    invoke-static {v0, v2}, Lcom/huawei/hms/utils/JsonUtil;->getInfoFromJsonobject(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    const-string v3, "error_code"
+
+    .line 26
+    invoke-static {v0, v3}, Lcom/huawei/hms/utils/JsonUtil;->getInfoFromJsonobject(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    const-string v4, "HMS_FOREGROUND_RES_UI"
+
+    .line 28
+    invoke-virtual {p1, v4}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    .line 29
+    invoke-virtual {p1, v4}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v4, "uiDuration"
+
+    .line 30
+    invoke-static {p1, v4}, Lcom/huawei/hms/utils/JsonUtil;->getInfoFromJsonobject(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    .line 31
+    instance-of v4, p1, Ljava/lang/Long;
+
+    if-eqz v4, :cond_0
+
+    .line 32
+    check-cast p1, Ljava/lang/Long;
+
+    invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v4
+
+    goto :goto_0
+
+    :cond_0
+    const-wide/16 v4, 0x0
+
+    .line 35
+    :goto_0
+    instance-of p1, v2, Ljava/lang/Integer;
+
+    if-eqz p1, :cond_1
+
+    instance-of p1, v3, Ljava/lang/Integer;
+
+    if-eqz p1, :cond_1
+
+    .line 36
+    check-cast v2, Ljava/lang/Integer;
+
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result p1
+
+    .line 37
+    check-cast v3, Ljava/lang/Integer;
+
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+
+    move-result v2
+
+    .line 38
+    invoke-direct {p0, v2}, Lcom/huawei/hms/adapter/BaseAdapter;->b(I)Ljava/lang/String;
+
+    .line 39
+    iget-object v2, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
+
+    invoke-virtual {v2, p1}, Lcom/huawei/hms/common/internal/ResponseHeader;->setStatusCode(I)V
+
+    .line 40
+    iget-object p1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->i:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
+
+    invoke-direct {p0, p1, v2, v4, v5}, Lcom/huawei/hms/adapter/BaseAdapter;->a(Landroid/content/Context;Lcom/huawei/hms/common/internal/ResponseHeader;J)V
+
+    goto :goto_1
+
+    :cond_1
+    const/4 p1, -0x8
+
+    .line 42
+    invoke-direct {p0, p1}, Lcom/huawei/hms/adapter/BaseAdapter;->b(I)Ljava/lang/String;
+
+    .line 43
+    iget-object p1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->i:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
+
+    invoke-direct {p0, p1, v2, v4, v5}, Lcom/huawei/hms/adapter/BaseAdapter;->a(Landroid/content/Context;Lcom/huawei/hms/common/internal/ResponseHeader;J)V
+
+    :goto_1
+    const/4 p1, 0x0
+
+    .line 45
+    invoke-interface {p2, v0, v1, p1}, Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;->onComplete(Ljava/lang/String;Ljava/lang/String;Landroid/os/Parcelable;)V
+
+    return-void
+.end method
+
+.method static synthetic c(Lcom/huawei/hms/adapter/BaseAdapter;Landroid/content/Intent;Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0, p1, p2}, Lcom/huawei/hms/adapter/BaseAdapter;->c(Landroid/content/Intent;Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;)V
+
+    return-void
 .end method
 
 .method static synthetic d(Lcom/huawei/hms/adapter/BaseAdapter;)Landroid/content/Context;
     .locals 0
 
-    .line 46
+    .line 1
     iget-object p0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->i:Landroid/content/Context;
 
     return-object p0
@@ -759,8 +1324,8 @@
 .method private d()Ljava/lang/String;
     .locals 1
 
-    .line 405
-    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->e:Ljava/lang/String;
+    .line 2
+    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->d:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -768,226 +1333,232 @@
 .method static synthetic e(Lcom/huawei/hms/adapter/BaseAdapter;)Landroid/app/Activity;
     .locals 0
 
-    .line 46
-    invoke-direct {p0}, Lcom/huawei/hms/adapter/BaseAdapter;->a()Landroid/app/Activity;
+    .line 1
+    invoke-direct {p0}, Lcom/huawei/hms/adapter/BaseAdapter;->c()Landroid/app/Activity;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method private e()Landroid/os/Parcelable;
+.method private e()Ljava/lang/String;
     .locals 1
 
-    .line 413
+    .line 2
+    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->e:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method private f()Landroid/os/Parcelable;
+    .locals 1
+
+    .line 2
     iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->f:Landroid/os/Parcelable;
 
     return-object v0
 .end method
 
-.method private f()Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;
-    .locals 1
-
-    .line 421
-    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->g:Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;
-
-    return-object v0
-.end method
-
-.method static synthetic f(Lcom/huawei/hms/adapter/BaseAdapter;)Ljava/lang/String;
+.method static synthetic f(Lcom/huawei/hms/adapter/BaseAdapter;)V
     .locals 0
 
-    .line 46
-    iget-object p0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->h:Ljava/lang/String;
+    .line 1
+    invoke-direct {p0}, Lcom/huawei/hms/adapter/BaseAdapter;->i()V
 
-    return-object p0
+    return-void
 .end method
 
 .method private g()V
-    .locals 4
-
-    .line 436
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
-
-    .line 437
-    new-instance v0, Lcom/huawei/hms/common/internal/ResponseHeader;
-
-    invoke-direct {v0}, Lcom/huawei/hms/common/internal/ResponseHeader;-><init>()V
-
-    iput-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
-
-    .line 438
-    invoke-direct {p0}, Lcom/huawei/hms/adapter/BaseAdapter;->c()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p0}, Lcom/huawei/hms/adapter/BaseAdapter;->d()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {p0}, Lcom/huawei/hms/adapter/BaseAdapter;->e()Landroid/os/Parcelable;
-
-    move-result-object v2
-
-    invoke-direct {p0}, Lcom/huawei/hms/adapter/BaseAdapter;->f()Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;
-
-    move-result-object v3
-
-    invoke-virtual {p0, v0, v1, v2, v3}, Lcom/huawei/hms/adapter/BaseAdapter;->baseRequest(Ljava/lang/String;Ljava/lang/String;Landroid/os/Parcelable;Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;)V
-
-    .line 439
-    invoke-direct {p0}, Lcom/huawei/hms/adapter/BaseAdapter;->h()V
-
-    .line 440
-    return-void
-.end method
-
-.method static synthetic g(Lcom/huawei/hms/adapter/BaseAdapter;)V
-    .locals 0
-
-    .line 46
-    invoke-direct {p0}, Lcom/huawei/hms/adapter/BaseAdapter;->g()V
-
-    return-void
-.end method
-
-.method private h()V
     .locals 1
 
-    .line 443
-    const/4 v0, 0x0
-
-    invoke-direct {p0, v0}, Lcom/huawei/hms/adapter/BaseAdapter;->a(Ljava/lang/String;)V
-
-    .line 444
-    invoke-direct {p0, v0}, Lcom/huawei/hms/adapter/BaseAdapter;->b(Ljava/lang/String;)V
-
-    .line 445
-    invoke-direct {p0, v0}, Lcom/huawei/hms/adapter/BaseAdapter;->a(Landroid/os/Parcelable;)V
-
-    .line 446
-    invoke-direct {p0, v0}, Lcom/huawei/hms/adapter/BaseAdapter;->a(Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;)V
-
-    .line 447
-    return-void
-.end method
-
-.method private i()V
-    .locals 1
-
-    .line 450
+    .line 1
     new-instance v0, Lcom/huawei/hms/adapter/BaseAdapter$1;
 
     invoke-direct {v0, p0}, Lcom/huawei/hms/adapter/BaseAdapter$1;-><init>(Lcom/huawei/hms/adapter/BaseAdapter;)V
 
     iput-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->l:Lcom/huawei/hms/adapter/sysobs/SystemObserver;
 
-    .line 537
+    return-void
+.end method
+
+.method private h()V
+    .locals 4
+
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->d:Ljava/lang/String;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->g:Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    .line 4
+    iput-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
+
+    .line 5
+    new-instance v0, Lcom/huawei/hms/common/internal/ResponseHeader;
+
+    invoke-direct {v0}, Lcom/huawei/hms/common/internal/ResponseHeader;-><init>()V
+
+    iput-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->k:Lcom/huawei/hms/common/internal/ResponseHeader;
+
+    .line 6
+    invoke-direct {p0}, Lcom/huawei/hms/adapter/BaseAdapter;->d()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0}, Lcom/huawei/hms/adapter/BaseAdapter;->e()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {p0}, Lcom/huawei/hms/adapter/BaseAdapter;->f()Landroid/os/Parcelable;
+
+    move-result-object v2
+
+    invoke-direct {p0}, Lcom/huawei/hms/adapter/BaseAdapter;->a()Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;
+
+    move-result-object v3
+
+    invoke-virtual {p0, v0, v1, v2, v3}, Lcom/huawei/hms/adapter/BaseAdapter;->baseRequest(Ljava/lang/String;Ljava/lang/String;Landroid/os/Parcelable;Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;)V
+
+    :cond_1
+    :goto_0
+    return-void
+.end method
+
+.method private i()V
+    .locals 2
+
+    .line 1
+    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->i:Landroid/content/Context;
+
+    if-nez v0, :cond_0
+
+    const-string v0, "BaseAdapter"
+
+    const-string v1, "sendBroadcastAfterResolutionHms, context is null"
+
+    .line 2
+    invoke-static {v0, v1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+
+    .line 5
+    :cond_0
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "com.huawei.hms.core.action.SESSION_INVALID"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 6
+    iget-object v1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->i:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 7
+    iget-object v1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->i:Landroid/content/Context;
+
+    invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
     return-void
 .end method
 
 
 # virtual methods
 .method public baseRequest(Ljava/lang/String;Ljava/lang/String;Landroid/os/Parcelable;Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;)V
-    .locals 3
+    .locals 2
 
-    .line 99
+    .line 1
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/huawei/hms/adapter/BaseAdapter;->a(Ljava/lang/String;Ljava/lang/String;Landroid/os/Parcelable;Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;)V
 
-    .line 101
+    .line 3
     iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->a:Ljava/lang/ref/WeakReference;
 
     const-string v1, "BaseAdapter"
 
     if-nez v0, :cond_0
 
-    .line 102
     const-string p1, "client is null"
 
+    .line 4
     invoke-static {v1, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 103
-    invoke-direct {p0}, Lcom/huawei/hms/adapter/BaseAdapter;->h()V
-
-    .line 104
     const/4 p1, -0x2
 
-    invoke-direct {p0, p1}, Lcom/huawei/hms/adapter/BaseAdapter;->a(I)Ljava/lang/String;
+    .line 5
+    invoke-direct {p0, p1}, Lcom/huawei/hms/adapter/BaseAdapter;->b(I)Ljava/lang/String;
 
     move-result-object p1
 
     invoke-interface {p4, p1}, Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;->onError(Ljava/lang/String;)V
 
-    .line 105
     return-void
 
-    .line 108
+    .line 9
     :cond_0
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/huawei/hms/support/api/client/ApiClient;
-
-    .line 110
     iput-object p4, p0, Lcom/huawei/hms/adapter/BaseAdapter;->c:Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;
 
-    .line 112
-    iget-object v2, p0, Lcom/huawei/hms/adapter/BaseAdapter;->j:Lcom/huawei/hms/common/internal/RequestHeader;
+    .line 11
+    iget-object v0, p0, Lcom/huawei/hms/adapter/BaseAdapter;->j:Lcom/huawei/hms/common/internal/RequestHeader;
 
-    invoke-static {p1, v2}, Lcom/huawei/hms/utils/JsonUtil;->jsonToEntity(Ljava/lang/String;Lcom/huawei/hms/core/aidl/IMessageEntity;)Lcom/huawei/hms/core/aidl/IMessageEntity;
+    invoke-static {p1, v0}, Lcom/huawei/hms/utils/JsonUtil;->jsonToEntity(Ljava/lang/String;Lcom/huawei/hms/core/aidl/IMessageEntity;)Lcom/huawei/hms/core/aidl/IMessageEntity;
 
-    .line 114
-    new-instance v2, Lcom/huawei/hms/adapter/CoreBaseRequest;
+    .line 13
+    new-instance v0, Lcom/huawei/hms/adapter/CoreBaseRequest;
 
-    invoke-direct {v2}, Lcom/huawei/hms/adapter/CoreBaseRequest;-><init>()V
+    invoke-direct {v0}, Lcom/huawei/hms/adapter/CoreBaseRequest;-><init>()V
 
-    .line 115
-    invoke-virtual {v2, p2}, Lcom/huawei/hms/adapter/CoreBaseRequest;->setJsonObject(Ljava/lang/String;)V
+    .line 14
+    invoke-virtual {v0, p2}, Lcom/huawei/hms/adapter/CoreBaseRequest;->setJsonObject(Ljava/lang/String;)V
 
-    .line 116
-    invoke-virtual {v2, p1}, Lcom/huawei/hms/adapter/CoreBaseRequest;->setJsonHeader(Ljava/lang/String;)V
+    .line 15
+    invoke-virtual {v0, p1}, Lcom/huawei/hms/adapter/CoreBaseRequest;->setJsonHeader(Ljava/lang/String;)V
 
-    .line 117
-    invoke-virtual {v2, p3}, Lcom/huawei/hms/adapter/CoreBaseRequest;->setParcelable(Landroid/os/Parcelable;)V
+    .line 16
+    invoke-virtual {v0, p3}, Lcom/huawei/hms/adapter/CoreBaseRequest;->setParcelable(Landroid/os/Parcelable;)V
 
-    .line 119
+    .line 18
     iget-object p1, p0, Lcom/huawei/hms/adapter/BaseAdapter;->j:Lcom/huawei/hms/common/internal/RequestHeader;
 
     invoke-virtual {p1}, Lcom/huawei/hms/common/internal/RequestHeader;->getApiName()Ljava/lang/String;
 
     move-result-object p1
 
-    .line 120
+    .line 19
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result p2
 
     if-eqz p2, :cond_1
 
-    .line 121
     const-string p1, "get uri null"
 
+    .line 20
     invoke-static {v1, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 122
-    invoke-direct {p0}, Lcom/huawei/hms/adapter/BaseAdapter;->h()V
-
-    .line 123
     const/4 p1, -0x5
 
-    invoke-direct {p0, p1}, Lcom/huawei/hms/adapter/BaseAdapter;->a(I)Ljava/lang/String;
+    .line 21
+    invoke-direct {p0, p1}, Lcom/huawei/hms/adapter/BaseAdapter;->b(I)Ljava/lang/String;
 
     move-result-object p1
 
     invoke-interface {p4, p1}, Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;->onError(Ljava/lang/String;)V
 
-    .line 124
     return-void
 
-    .line 127
+    .line 25
     :cond_1
     iget-object p2, p0, Lcom/huawei/hms/adapter/BaseAdapter;->j:Lcom/huawei/hms/common/internal/RequestHeader;
 
@@ -997,52 +1568,52 @@
 
     iput-object p2, p0, Lcom/huawei/hms/adapter/BaseAdapter;->h:Ljava/lang/String;
 
-    .line 128
+    .line 26
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result p2
 
     if-eqz p2, :cond_2
 
-    .line 129
     const-string p1, "get transactionId null"
 
+    .line 27
     invoke-static {v1, p1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 130
-    invoke-direct {p0}, Lcom/huawei/hms/adapter/BaseAdapter;->h()V
-
-    .line 131
     const/4 p1, -0x6
 
-    invoke-direct {p0, p1}, Lcom/huawei/hms/adapter/BaseAdapter;->a(I)Ljava/lang/String;
+    .line 28
+    invoke-direct {p0, p1}, Lcom/huawei/hms/adapter/BaseAdapter;->b(I)Ljava/lang/String;
 
     move-result-object p1
 
     invoke-interface {p4, p1}, Lcom/huawei/hms/adapter/BaseAdapter$BaseCallBack;->onError(Ljava/lang/String;)V
 
-    .line 132
     return-void
 
-    .line 135
+    .line 32
     :cond_2
     new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string p3, "in baseRequest + uri is :"
 
-    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {p2, p3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
 
     const-string p3, ", transactionId is : "
 
     invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object p2
+
     iget-object p3, p0, Lcom/huawei/hms/adapter/BaseAdapter;->h:Ljava/lang/String;
 
     invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
 
     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1050,15 +1621,24 @@
 
     invoke-static {v1, p2}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 137
+    .line 34
     iget-object p2, p0, Lcom/huawei/hms/adapter/BaseAdapter;->i:Landroid/content/Context;
 
     iget-object p3, p0, Lcom/huawei/hms/adapter/BaseAdapter;->j:Lcom/huawei/hms/common/internal/RequestHeader;
 
     invoke-direct {p0, p2, p3}, Lcom/huawei/hms/adapter/BaseAdapter;->a(Landroid/content/Context;Lcom/huawei/hms/common/internal/RequestHeader;)V
 
-    .line 139
-    invoke-direct {p0, v0, p1, v2}, Lcom/huawei/hms/adapter/BaseAdapter;->a(Lcom/huawei/hms/support/api/client/ApiClient;Ljava/lang/String;Lcom/huawei/hms/adapter/CoreBaseRequest;)Lcom/huawei/hms/support/api/client/PendingResult;
+    .line 36
+    iget-object p2, p0, Lcom/huawei/hms/adapter/BaseAdapter;->a:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {p2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object p2
+
+    check-cast p2, Lcom/huawei/hms/support/api/client/ApiClient;
+
+    .line 37
+    invoke-direct {p0, p2, p1, v0}, Lcom/huawei/hms/adapter/BaseAdapter;->a(Lcom/huawei/hms/support/api/client/ApiClient;Ljava/lang/String;Lcom/huawei/hms/adapter/CoreBaseRequest;)Lcom/huawei/hms/support/api/client/PendingResult;
 
     move-result-object p1
 
@@ -1068,6 +1648,5 @@
 
     invoke-virtual {p1, p2}, Lcom/huawei/hms/support/api/client/PendingResult;->setResultCallback(Lcom/huawei/hms/support/api/client/ResultCallback;)V
 
-    .line 140
     return-void
 .end method

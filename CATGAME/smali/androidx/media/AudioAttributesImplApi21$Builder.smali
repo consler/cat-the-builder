@@ -35,13 +35,11 @@
 
     iput-object v0, p0, Landroidx/media/AudioAttributesImplApi21$Builder;->mFwkBuilder:Landroid/media/AudioAttributes$Builder;
 
-    .line 126
     return-void
 .end method
 
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "aa"    # Ljava/lang/Object;
+    .locals 1
 
     .line 128
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,15 +47,12 @@
     .line 129
     new-instance v0, Landroid/media/AudioAttributes$Builder;
 
-    move-object v1, p1
+    check-cast p1, Landroid/media/AudioAttributes;
 
-    check-cast v1, Landroid/media/AudioAttributes;
-
-    invoke-direct {v0, v1}, Landroid/media/AudioAttributes$Builder;-><init>(Landroid/media/AudioAttributes;)V
+    invoke-direct {v0, p1}, Landroid/media/AudioAttributes$Builder;-><init>(Landroid/media/AudioAttributes;)V
 
     iput-object v0, p0, Landroidx/media/AudioAttributesImplApi21$Builder;->mFwkBuilder:Landroid/media/AudioAttributes$Builder;
 
-    .line 130
     return-void
 .end method
 
@@ -93,14 +88,12 @@
 
 .method public setContentType(I)Landroidx/media/AudioAttributesImplApi21$Builder;
     .locals 1
-    .param p1, "contentType"    # I
 
     .line 149
     iget-object v0, p0, Landroidx/media/AudioAttributesImplApi21$Builder;->mFwkBuilder:Landroid/media/AudioAttributes$Builder;
 
     invoke-virtual {v0, p1}, Landroid/media/AudioAttributes$Builder;->setContentType(I)Landroid/media/AudioAttributes$Builder;
 
-    .line 150
     return-object p0
 .end method
 
@@ -117,14 +110,12 @@
 
 .method public setFlags(I)Landroidx/media/AudioAttributesImplApi21$Builder;
     .locals 1
-    .param p1, "flags"    # I
 
     .line 155
     iget-object v0, p0, Landroidx/media/AudioAttributesImplApi21$Builder;->mFwkBuilder:Landroid/media/AudioAttributes$Builder;
 
     invoke-virtual {v0, p1}, Landroid/media/AudioAttributes$Builder;->setFlags(I)Landroid/media/AudioAttributes$Builder;
 
-    .line 156
     return-object p0
 .end method
 
@@ -141,14 +132,12 @@
 
 .method public setLegacyStreamType(I)Landroidx/media/AudioAttributesImplApi21$Builder;
     .locals 1
-    .param p1, "streamType"    # I
 
     .line 161
     iget-object v0, p0, Landroidx/media/AudioAttributesImplApi21$Builder;->mFwkBuilder:Landroid/media/AudioAttributes$Builder;
 
     invoke-virtual {v0, p1}, Landroid/media/AudioAttributes$Builder;->setLegacyStreamType(I)Landroid/media/AudioAttributes$Builder;
 
-    .line 162
     return-object p0
 .end method
 
@@ -165,14 +154,11 @@
 
 .method public setUsage(I)Landroidx/media/AudioAttributesImplApi21$Builder;
     .locals 1
-    .param p1, "usage"    # I
 
-    .line 139
     const/16 v0, 0x10
 
     if-ne p1, v0, :cond_0
 
-    .line 141
     const/16 p1, 0xc
 
     .line 143
@@ -181,6 +167,5 @@
 
     invoke-virtual {v0, p1}, Landroid/media/AudioAttributes$Builder;->setUsage(I)Landroid/media/AudioAttributes$Builder;
 
-    .line 144
     return-object p0
 .end method

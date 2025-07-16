@@ -106,9 +106,15 @@
 
 .method static isRtlText(I)I
     .locals 1
-    .param p0, "directionality"    # I
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "directionality"
+        }
+    .end annotation
 
-    .line 79
     const/4 v0, 0x1
 
     if-eqz p0, :cond_1
@@ -119,25 +125,28 @@
 
     if-eq p0, v0, :cond_0
 
-    .line 86
     return v0
 
-    .line 84
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
-    .line 81
     :cond_1
     return v0
 .end method
 
 .method static isRtlTextOrFormat(I)I
     .locals 2
-    .param p0, "directionality"    # I
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "directionality"
+        }
+    .end annotation
 
-    .line 91
     const/4 v0, 0x1
 
     if-eqz p0, :cond_1
@@ -150,17 +159,14 @@
 
     packed-switch p0, :pswitch_data_0
 
-    .line 102
     return v1
 
-    .line 100
     :cond_0
     :pswitch_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
-    .line 95
     :cond_1
     :pswitch_1
     return v0

@@ -20,7 +20,6 @@
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
     .locals 0
-    .param p1, "command"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -33,6 +32,5 @@
     .line 34
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
 
-    .line 35
     return-void
 .end method

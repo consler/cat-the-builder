@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware;Lcom/koushikdutta/async/http/AsyncHttpClientMiddleware$GetSocketData;Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$CachedSocket;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware;
 
     .line 174
     iput-object p1, p0, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$1;->this$0:Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware;
@@ -52,17 +51,16 @@
 
     iget-object v0, v0, Lcom/koushikdutta/async/http/AsyncHttpClientMiddleware$GetSocketData;->connectCallback:Lcom/koushikdutta/async/callback/ConnectCallback;
 
-    iget-object v1, p0, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$1;->val$socket:Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$CachedSocket;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    iget-object v2, p0, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$1;->val$socket:Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$CachedSocket;
 
-    invoke-interface {v0, v2, v1}, Lcom/koushikdutta/async/callback/ConnectCallback;->onConnectCompleted(Ljava/lang/Exception;Lcom/koushikdutta/async/AsyncSocket;)V
+    invoke-interface {v0, v1, v2}, Lcom/koushikdutta/async/callback/ConnectCallback;->onConnectCompleted(Ljava/lang/Exception;Lcom/koushikdutta/async/AsyncSocket;)V
 
     .line 178
     iget-object v0, p0, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$1;->val$socket:Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$CachedSocket;
 
     invoke-virtual {v0}, Lcom/koushikdutta/async/http/cache/ResponseCacheMiddleware$CachedSocket;->sendCachedDataOnNetworkThread()V
 
-    .line 179
     return-void
 .end method

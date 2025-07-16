@@ -44,10 +44,8 @@
     .locals 0
 
     .line 156
-    .local p0, "this":Lio/reactivex/internal/queue/MpscLinkedQueue$LinkedQueueNode;, "Lio/reactivex/internal/queue/MpscLinkedQueue$LinkedQueueNode<TE;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
-    .line 157
     return-void
 .end method
 
@@ -60,14 +58,11 @@
     .end annotation
 
     .line 159
-    .local p0, "this":Lio/reactivex/internal/queue/MpscLinkedQueue$LinkedQueueNode;, "Lio/reactivex/internal/queue/MpscLinkedQueue$LinkedQueueNode<TE;>;"
-    .local p1, "val":Ljava/lang/Object;, "TE;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 160
     invoke-virtual {p0, p1}, Lio/reactivex/internal/queue/MpscLinkedQueue$LinkedQueueNode;->spValue(Ljava/lang/Object;)V
 
-    .line 161
     return-void
 .end method
 
@@ -82,18 +77,15 @@
     .end annotation
 
     .line 168
-    .local p0, "this":Lio/reactivex/internal/queue/MpscLinkedQueue$LinkedQueueNode;, "Lio/reactivex/internal/queue/MpscLinkedQueue$LinkedQueueNode<TE;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/queue/MpscLinkedQueue$LinkedQueueNode;->lpValue()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 169
-    .local v0, "temp":Ljava/lang/Object;, "TE;"
     const/4 v1, 0x0
 
+    .line 169
     invoke-virtual {p0, v1}, Lio/reactivex/internal/queue/MpscLinkedQueue$LinkedQueueNode;->spValue(Ljava/lang/Object;)V
 
-    .line 170
     return-object v0
 .end method
 
@@ -106,7 +98,6 @@
     .end annotation
 
     .line 174
-    .local p0, "this":Lio/reactivex/internal/queue/MpscLinkedQueue$LinkedQueueNode;, "Lio/reactivex/internal/queue/MpscLinkedQueue$LinkedQueueNode<TE;>;"
     iget-object v0, p0, Lio/reactivex/internal/queue/MpscLinkedQueue$LinkedQueueNode;->value:Ljava/lang/Object;
 
     return-object v0
@@ -123,7 +114,6 @@
     .end annotation
 
     .line 186
-    .local p0, "this":Lio/reactivex/internal/queue/MpscLinkedQueue$LinkedQueueNode;, "Lio/reactivex/internal/queue/MpscLinkedQueue$LinkedQueueNode<TE;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/queue/MpscLinkedQueue$LinkedQueueNode;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -144,11 +134,8 @@
     .end annotation
 
     .line 182
-    .local p0, "this":Lio/reactivex/internal/queue/MpscLinkedQueue$LinkedQueueNode;, "Lio/reactivex/internal/queue/MpscLinkedQueue$LinkedQueueNode<TE;>;"
-    .local p1, "n":Lio/reactivex/internal/queue/MpscLinkedQueue$LinkedQueueNode;, "Lio/reactivex/internal/queue/MpscLinkedQueue$LinkedQueueNode<TE;>;"
     invoke-virtual {p0, p1}, Lio/reactivex/internal/queue/MpscLinkedQueue$LinkedQueueNode;->lazySet(Ljava/lang/Object;)V
 
-    .line 183
     return-void
 .end method
 
@@ -161,10 +148,7 @@
     .end annotation
 
     .line 178
-    .local p0, "this":Lio/reactivex/internal/queue/MpscLinkedQueue$LinkedQueueNode;, "Lio/reactivex/internal/queue/MpscLinkedQueue$LinkedQueueNode<TE;>;"
-    .local p1, "newValue":Ljava/lang/Object;, "TE;"
     iput-object p1, p0, Lio/reactivex/internal/queue/MpscLinkedQueue$LinkedQueueNode;->value:Ljava/lang/Object;
 
-    .line 179
     return-void
 .end method

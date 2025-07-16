@@ -13,7 +13,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/appcompat/app/ActionBar$OnNavigationListener;)V
     .locals 0
-    .param p1, "listener"    # Landroidx/appcompat/app/ActionBar$OnNavigationListener;
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -21,17 +20,13 @@
     .line 31
     iput-object p1, p0, Landroidx/appcompat/app/NavItemSelectedListener;->mListener:Landroidx/appcompat/app/ActionBar$OnNavigationListener;
 
-    .line 32
     return-void
 .end method
 
 
 # virtual methods
 .method public onItemSelected(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 1
-    .param p2, "view"    # Landroid/view/View;
-    .param p3, "position"    # I
-    .param p4, "id"    # J
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -43,15 +38,13 @@
     .end annotation
 
     .line 36
-    .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
-    iget-object v0, p0, Landroidx/appcompat/app/NavItemSelectedListener;->mListener:Landroidx/appcompat/app/ActionBar$OnNavigationListener;
+    iget-object p1, p0, Landroidx/appcompat/app/NavItemSelectedListener;->mListener:Landroidx/appcompat/app/ActionBar$OnNavigationListener;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 37
-    invoke-interface {v0, p3, p4, p5}, Landroidx/appcompat/app/ActionBar$OnNavigationListener;->onNavigationItemSelected(IJ)Z
+    invoke-interface {p1, p3, p4, p5}, Landroidx/appcompat/app/ActionBar$OnNavigationListener;->onNavigationItemSelected(IJ)Z
 
-    .line 39
     :cond_0
     return-void
 .end method
@@ -66,7 +59,5 @@
         }
     .end annotation
 
-    .line 44
-    .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     return-void
 .end method

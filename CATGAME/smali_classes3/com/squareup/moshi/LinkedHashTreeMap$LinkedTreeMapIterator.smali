@@ -55,34 +55,28 @@
 # direct methods
 .method constructor <init>(Lcom/squareup/moshi/LinkedHashTreeMap;)V
     .locals 1
-    .param p1, "this$0"    # Lcom/squareup/moshi/LinkedHashTreeMap;
 
     .line 760
-    .local p0, "this":Lcom/squareup/moshi/LinkedHashTreeMap$LinkedTreeMapIterator;, "Lcom/squareup/moshi/LinkedHashTreeMap<TK;TV;>.LinkedTreeMapIterator<TT;>;"
     iput-object p1, p0, Lcom/squareup/moshi/LinkedHashTreeMap$LinkedTreeMapIterator;->this$0:Lcom/squareup/moshi/LinkedHashTreeMap;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 761
-    iget-object v0, p0, Lcom/squareup/moshi/LinkedHashTreeMap$LinkedTreeMapIterator;->this$0:Lcom/squareup/moshi/LinkedHashTreeMap;
-
-    iget-object v0, v0, Lcom/squareup/moshi/LinkedHashTreeMap;->header:Lcom/squareup/moshi/LinkedHashTreeMap$Node;
+    iget-object v0, p1, Lcom/squareup/moshi/LinkedHashTreeMap;->header:Lcom/squareup/moshi/LinkedHashTreeMap$Node;
 
     iget-object v0, v0, Lcom/squareup/moshi/LinkedHashTreeMap$Node;->next:Lcom/squareup/moshi/LinkedHashTreeMap$Node;
 
     iput-object v0, p0, Lcom/squareup/moshi/LinkedHashTreeMap$LinkedTreeMapIterator;->next:Lcom/squareup/moshi/LinkedHashTreeMap$Node;
 
-    .line 762
     const/4 v0, 0x0
 
+    .line 762
     iput-object v0, p0, Lcom/squareup/moshi/LinkedHashTreeMap$LinkedTreeMapIterator;->lastReturned:Lcom/squareup/moshi/LinkedHashTreeMap$Node;
 
     .line 763
-    iget-object v0, p0, Lcom/squareup/moshi/LinkedHashTreeMap$LinkedTreeMapIterator;->this$0:Lcom/squareup/moshi/LinkedHashTreeMap;
+    iget p1, p1, Lcom/squareup/moshi/LinkedHashTreeMap;->modCount:I
 
-    iget v0, v0, Lcom/squareup/moshi/LinkedHashTreeMap;->modCount:I
-
-    iput v0, p0, Lcom/squareup/moshi/LinkedHashTreeMap$LinkedTreeMapIterator;->expectedModCount:I
+    iput p1, p0, Lcom/squareup/moshi/LinkedHashTreeMap$LinkedTreeMapIterator;->expectedModCount:I
 
     return-void
 .end method
@@ -93,7 +87,6 @@
     .locals 2
 
     .line 766
-    .local p0, "this":Lcom/squareup/moshi/LinkedHashTreeMap$LinkedTreeMapIterator;, "Lcom/squareup/moshi/LinkedHashTreeMap<TK;TV;>.LinkedTreeMapIterator<TT;>;"
     iget-object v0, p0, Lcom/squareup/moshi/LinkedHashTreeMap$LinkedTreeMapIterator;->next:Lcom/squareup/moshi/LinkedHashTreeMap$Node;
 
     iget-object v1, p0, Lcom/squareup/moshi/LinkedHashTreeMap$LinkedTreeMapIterator;->this$0:Lcom/squareup/moshi/LinkedHashTreeMap;
@@ -124,11 +117,9 @@
     .end annotation
 
     .line 770
-    .local p0, "this":Lcom/squareup/moshi/LinkedHashTreeMap$LinkedTreeMapIterator;, "Lcom/squareup/moshi/LinkedHashTreeMap<TK;TV;>.LinkedTreeMapIterator<TT;>;"
     iget-object v0, p0, Lcom/squareup/moshi/LinkedHashTreeMap$LinkedTreeMapIterator;->next:Lcom/squareup/moshi/LinkedHashTreeMap$Node;
 
     .line 771
-    .local v0, "e":Lcom/squareup/moshi/LinkedHashTreeMap$Node;, "Lcom/squareup/moshi/LinkedHashTreeMap$Node<TK;TV;>;"
     iget-object v1, p0, Lcom/squareup/moshi/LinkedHashTreeMap$LinkedTreeMapIterator;->this$0:Lcom/squareup/moshi/LinkedHashTreeMap;
 
     iget-object v1, v1, Lcom/squareup/moshi/LinkedHashTreeMap;->header:Lcom/squareup/moshi/LinkedHashTreeMap$Node;
@@ -156,26 +147,25 @@
 
     .line 775
     :cond_0
-    new-instance v1, Ljava/util/ConcurrentModificationException;
+    new-instance v0, Ljava/util/ConcurrentModificationException;
 
-    invoke-direct {v1}, Ljava/util/ConcurrentModificationException;-><init>()V
+    invoke-direct {v0}, Ljava/util/ConcurrentModificationException;-><init>()V
 
-    throw v1
+    throw v0
 
     .line 772
     :cond_1
-    new-instance v1, Ljava/util/NoSuchElementException;
+    new-instance v0, Ljava/util/NoSuchElementException;
 
-    invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
+    invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
 
-    throw v1
+    throw v0
 .end method
 
 .method public final remove()V
     .locals 3
 
     .line 782
-    .local p0, "this":Lcom/squareup/moshi/LinkedHashTreeMap$LinkedTreeMapIterator;, "Lcom/squareup/moshi/LinkedHashTreeMap<TK;TV;>.LinkedTreeMapIterator<TT;>;"
     iget-object v0, p0, Lcom/squareup/moshi/LinkedHashTreeMap$LinkedTreeMapIterator;->lastReturned:Lcom/squareup/moshi/LinkedHashTreeMap$Node;
 
     if-eqz v0, :cond_0
@@ -187,9 +177,9 @@
 
     invoke-virtual {v1, v0, v2}, Lcom/squareup/moshi/LinkedHashTreeMap;->removeInternal(Lcom/squareup/moshi/LinkedHashTreeMap$Node;Z)V
 
-    .line 786
     const/4 v0, 0x0
 
+    .line 786
     iput-object v0, p0, Lcom/squareup/moshi/LinkedHashTreeMap$LinkedTreeMapIterator;->lastReturned:Lcom/squareup/moshi/LinkedHashTreeMap$Node;
 
     .line 787
@@ -199,7 +189,6 @@
 
     iput v0, p0, Lcom/squareup/moshi/LinkedHashTreeMap$LinkedTreeMapIterator;->expectedModCount:I
 
-    .line 788
     return-void
 
     .line 783

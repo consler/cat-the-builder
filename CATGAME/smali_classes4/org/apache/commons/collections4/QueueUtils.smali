@@ -53,7 +53,7 @@
 .end method
 
 .method public static predicatedQueue(Ljava/util/Queue;Lorg/apache/commons/collections4/Predicate;)Ljava/util/Queue;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -69,17 +69,15 @@
     .end annotation
 
     .line 105
-    .local p0, "queue":Ljava/util/Queue;, "Ljava/util/Queue<TE;>;"
-    .local p1, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TE;>;"
     invoke-static {p0, p1}, Lorg/apache/commons/collections4/queue/PredicatedQueue;->predicatedQueue(Ljava/util/Queue;Lorg/apache/commons/collections4/Predicate;)Lorg/apache/commons/collections4/queue/PredicatedQueue;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static synchronizedQueue(Ljava/util/Queue;)Ljava/util/Queue;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -93,16 +91,15 @@
     .end annotation
 
     .line 75
-    .local p0, "queue":Ljava/util/Queue;, "Ljava/util/Queue<TE;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/queue/SynchronizedQueue;->synchronizedQueue(Ljava/util/Queue;)Lorg/apache/commons/collections4/queue/SynchronizedQueue;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static transformingQueue(Ljava/util/Queue;Lorg/apache/commons/collections4/Transformer;)Ljava/util/Queue;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -118,17 +115,15 @@
     .end annotation
 
     .line 126
-    .local p0, "queue":Ljava/util/Queue;, "Ljava/util/Queue<TE;>;"
-    .local p1, "transformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TE;+TE;>;"
     invoke-static {p0, p1}, Lorg/apache/commons/collections4/queue/TransformedQueue;->transformingQueue(Ljava/util/Queue;Lorg/apache/commons/collections4/Transformer;)Lorg/apache/commons/collections4/queue/TransformedQueue;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static unmodifiableQueue(Ljava/util/Queue;)Ljava/util/Queue;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -142,10 +137,9 @@
     .end annotation
 
     .line 87
-    .local p0, "queue":Ljava/util/Queue;, "Ljava/util/Queue<+TE;>;"
     invoke-static {p0}, Lorg/apache/commons/collections4/queue/UnmodifiableQueue;->unmodifiableQueue(Ljava/util/Queue;)Ljava/util/Queue;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

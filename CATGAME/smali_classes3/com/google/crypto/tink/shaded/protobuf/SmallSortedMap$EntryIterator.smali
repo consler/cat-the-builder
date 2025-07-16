@@ -49,14 +49,13 @@
     .locals 0
 
     .line 534
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$EntryIterator;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TK;TV;>.EntryIterator;"
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$EntryIterator;->this$0:Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 536
     const/4 p1, -0x1
 
+    .line 536
     iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$EntryIterator;->pos:I
 
     return-void
@@ -64,11 +63,8 @@
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;
-    .param p2, "x1"    # Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$1;
 
     .line 534
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$EntryIterator;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TK;TV;>.EntryIterator;"
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$EntryIterator;-><init>(Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap;)V
 
     return-void
@@ -86,7 +82,6 @@
     .end annotation
 
     .line 578
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$EntryIterator;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TK;TV;>.EntryIterator;"
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$EntryIterator;->lazyOverflowIterator:Ljava/util/Iterator;
 
     if-nez v0, :cond_0
@@ -121,7 +116,6 @@
     .locals 3
 
     .line 542
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$EntryIterator;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TK;TV;>.EntryIterator;"
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$EntryIterator;->pos:I
 
     const/4 v1, 0x1
@@ -168,14 +162,8 @@
     :cond_0
     const/4 v1, 0x0
 
-    goto :goto_1
-
     :cond_1
     :goto_0
-    nop
-
-    .line 542
-    :goto_1
     return v1
 .end method
 
@@ -183,7 +171,6 @@
     .locals 1
 
     .line 534
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$EntryIterator;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TK;TV;>.EntryIterator;"
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$EntryIterator;->next()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -201,10 +188,9 @@
         }
     .end annotation
 
-    .line 548
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$EntryIterator;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TK;TV;>.EntryIterator;"
     const/4 v0, 0x1
 
+    .line 548
     iput-boolean v0, p0, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$EntryIterator;->nextCalledBeforeRemove:Z
 
     .line 551
@@ -262,14 +248,13 @@
     .locals 3
 
     .line 559
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$EntryIterator;, "Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap<TK;TV;>.EntryIterator;"
     iget-boolean v0, p0, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$EntryIterator;->nextCalledBeforeRemove:Z
 
     if-eqz v0, :cond_1
 
-    .line 562
     const/4 v0, 0x0
 
+    .line 562
     iput-boolean v0, p0, Lcom/google/crypto/tink/shaded/protobuf/SmallSortedMap$EntryIterator;->nextCalledBeforeRemove:Z
 
     .line 563
@@ -313,7 +298,6 @@
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 570
     :goto_0
     return-void
 

@@ -27,25 +27,24 @@
 
 # virtual methods
 .method public apply(F)F
-    .locals 4
-    .param p1, "a"    # F
+    .locals 3
+
+    mul-float/2addr p1, p1
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    sub-float p1, v0, p1
+
+    float-to-double v1, p1
 
     .line 143
-    mul-float v0, p1, p1
+    invoke-static {v1, v2}, Ljava/lang/Math;->sqrt(D)D
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    move-result-wide v1
 
-    sub-float v0, v1, v0
+    double-to-float p1, v1
 
-    float-to-double v2, v0
+    sub-float/2addr v0, p1
 
-    invoke-static {v2, v3}, Ljava/lang/Math;->sqrt(D)D
-
-    move-result-wide v2
-
-    double-to-float v0, v2
-
-    sub-float/2addr v1, v0
-
-    return v1
+    return v0
 .end method

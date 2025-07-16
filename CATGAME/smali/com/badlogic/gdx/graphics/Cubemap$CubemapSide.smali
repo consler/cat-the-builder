@@ -50,7 +50,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 23
+    .locals 34
 
     .line 47
     new-instance v11, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
@@ -111,30 +111,36 @@
     sput-object v0, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;->NegativeX:Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
 
     .line 51
-    new-instance v0, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
+    new-instance v1, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
 
-    const-string v2, "PositiveY"
+    const-string v24, "PositiveY"
 
-    const/4 v3, 0x2
+    const/16 v25, 0x2
 
-    const/4 v4, 0x2
+    const/16 v26, 0x2
 
-    const v5, 0x8517
+    const v27, 0x8517
 
-    const/4 v6, 0x0
+    const/16 v28, 0x0
 
-    const/high16 v10, 0x3f800000    # 1.0f
+    const/16 v29, 0x0
 
-    const/4 v11, 0x0
+    const/high16 v30, 0x3f800000    # 1.0f
 
-    move-object v1, v0
+    const/16 v31, 0x0
 
-    invoke-direct/range {v1 .. v11}, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;-><init>(Ljava/lang/String;IIIFFFFFF)V
+    const/high16 v32, 0x3f800000    # 1.0f
 
-    sput-object v0, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;->PositiveY:Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
+    const/16 v33, 0x0
+
+    move-object/from16 v23, v1
+
+    invoke-direct/range {v23 .. v33}, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;-><init>(Ljava/lang/String;IIIFFFFFF)V
+
+    sput-object v1, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;->PositiveY:Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
 
     .line 53
-    new-instance v0, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
+    new-instance v2, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
 
     const-string v13, "NegativeY"
 
@@ -152,39 +158,39 @@
 
     const/high16 v21, -0x40800000    # -1.0f
 
-    move-object v12, v0
+    move-object v12, v2
 
     invoke-direct/range {v12 .. v22}, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;-><init>(Ljava/lang/String;IIIFFFFFF)V
 
-    sput-object v0, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;->NegativeY:Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
+    sput-object v2, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;->NegativeY:Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
 
     .line 55
-    new-instance v0, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
+    new-instance v3, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
 
-    const-string v2, "PositiveZ"
+    const-string v24, "PositiveZ"
 
-    const/4 v3, 0x4
+    const/16 v25, 0x4
 
-    const/4 v4, 0x4
+    const/16 v26, 0x4
 
-    const v5, 0x8519
+    const v27, 0x8519
 
-    const/high16 v7, -0x40800000    # -1.0f
+    const/high16 v29, -0x40800000    # -1.0f
 
-    const/4 v8, 0x0
+    const/16 v30, 0x0
 
-    const/4 v10, 0x0
+    const/16 v32, 0x0
 
-    const/high16 v11, 0x3f800000    # 1.0f
+    const/high16 v33, 0x3f800000    # 1.0f
 
-    move-object v1, v0
+    move-object/from16 v23, v3
 
-    invoke-direct/range {v1 .. v11}, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;-><init>(Ljava/lang/String;IIIFFFFFF)V
+    invoke-direct/range {v23 .. v33}, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;-><init>(Ljava/lang/String;IIIFFFFFF)V
 
-    sput-object v0, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;->PositiveZ:Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
+    sput-object v3, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;->PositiveZ:Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
 
     .line 57
-    new-instance v0, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
+    new-instance v4, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
 
     const-string v13, "NegativeZ"
 
@@ -202,66 +208,48 @@
 
     const/high16 v22, -0x40800000    # -1.0f
 
-    move-object v12, v0
+    move-object v12, v4
 
     invoke-direct/range {v12 .. v22}, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;-><init>(Ljava/lang/String;IIIFFFFFF)V
 
-    sput-object v0, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;->NegativeZ:Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
+    sput-object v4, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;->NegativeZ:Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
+
+    const/4 v5, 0x6
+
+    new-array v5, v5, [Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
+
+    const/4 v6, 0x0
+
+    aput-object v11, v5, v6
+
+    const/4 v6, 0x1
+
+    aput-object v0, v5, v6
+
+    const/4 v0, 0x2
+
+    aput-object v1, v5, v0
+
+    const/4 v0, 0x3
+
+    aput-object v2, v5, v0
+
+    const/4 v0, 0x4
+
+    aput-object v3, v5, v0
+
+    const/4 v0, 0x5
+
+    aput-object v4, v5, v0
 
     .line 45
-    const/4 v1, 0x6
-
-    new-array v1, v1, [Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
-
-    sget-object v2, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;->PositiveX:Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
-
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;->NegativeX:Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
-
-    const/4 v3, 0x1
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;->PositiveY:Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
-
-    const/4 v3, 0x2
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;->NegativeY:Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
-
-    const/4 v3, 0x3
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;->PositiveZ:Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
-
-    const/4 v3, 0x4
-
-    aput-object v2, v1, v3
-
-    const/4 v2, 0x5
-
-    aput-object v0, v1, v2
-
-    sput-object v1, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;->$VALUES:[Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
+    sput-object v5, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;->$VALUES:[Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
 
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IIIFFFFFF)V
     .locals 0
-    .param p3, "index"    # I
-    .param p4, "glEnum"    # I
-    .param p5, "upX"    # F
-    .param p6, "upY"    # F
-    .param p7, "upZ"    # F
-    .param p8, "directionX"    # F
-    .param p9, "directionY"    # F
-    .param p10, "directionZ"    # F
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(IIFFFFFF)V"
@@ -291,24 +279,22 @@
 
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;->direction:Lcom/badlogic/gdx/math/Vector3;
 
-    .line 73
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 45
     const-class v0, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
+    check-cast p0, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;
@@ -330,16 +316,15 @@
 # virtual methods
 .method public getDirection(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
     .locals 1
-    .param p1, "out"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 87
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;->direction:Lcom/badlogic/gdx/math/Vector3;
 
     invoke-virtual {p1, v0}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getGLEnum()I
@@ -353,14 +338,13 @@
 
 .method public getUp(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
     .locals 1
-    .param p1, "out"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 82
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/Cubemap$CubemapSide;->up:Lcom/badlogic/gdx/math/Vector3;
 
     invoke-virtual {p1, v0}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

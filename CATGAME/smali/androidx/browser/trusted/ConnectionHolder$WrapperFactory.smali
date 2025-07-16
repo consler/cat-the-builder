@@ -27,9 +27,7 @@
 
 # virtual methods
 .method create(Landroid/content/ComponentName;Landroid/os/IBinder;)Landroidx/browser/trusted/TrustedWebActivityServiceConnection;
-    .locals 2
-    .param p1, "name"    # Landroid/content/ComponentName;
-    .param p2, "iBinder"    # Landroid/os/IBinder;
+    .locals 1
 
     .line 58
     new-instance v0, Landroidx/browser/trusted/TrustedWebActivityServiceConnection;
@@ -37,10 +35,9 @@
     .line 59
     invoke-static {p2}, Landroid/support/customtabs/trusted/ITrustedWebActivityService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/support/customtabs/trusted/ITrustedWebActivityService;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1, p1}, Landroidx/browser/trusted/TrustedWebActivityServiceConnection;-><init>(Landroid/support/customtabs/trusted/ITrustedWebActivityService;Landroid/content/ComponentName;)V
+    invoke-direct {v0, p2, p1}, Landroidx/browser/trusted/TrustedWebActivityServiceConnection;-><init>(Landroid/support/customtabs/trusted/ITrustedWebActivityService;Landroid/content/ComponentName;)V
 
-    .line 58
     return-object v0
 .end method

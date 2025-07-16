@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/google/crypto/tink/streamingaead/AesGcmHkdfStreamingKeyManager;Ljava/lang/Class;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/google/crypto/tink/streamingaead/AesGcmHkdfStreamingKeyManager;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
@@ -43,7 +42,6 @@
     .end annotation
 
     .line 93
-    .local p2, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;>;"
     iput-object p1, p0, Lcom/google/crypto/tink/streamingaead/AesGcmHkdfStreamingKeyManager$2;->this$0:Lcom/google/crypto/tink/streamingaead/AesGcmHkdfStreamingKeyManager;
 
     invoke-direct {p0, p2}, Lcom/google/crypto/tink/KeyTypeManager$KeyFactory;-><init>(Ljava/lang/Class;)V
@@ -55,7 +53,6 @@
 # virtual methods
 .method public createKey(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;)Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey;
     .locals 2
-    .param p1, "format"    # Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -96,32 +93,31 @@
     .line 115
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;->getParams()Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;->setParams(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;)Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;
+    invoke-virtual {v0, p1}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;->setParams(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;)Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Lcom/google/crypto/tink/streamingaead/AesGcmHkdfStreamingKeyManager$2;->this$0:Lcom/google/crypto/tink/streamingaead/AesGcmHkdfStreamingKeyManager;
+    iget-object v0, p0, Lcom/google/crypto/tink/streamingaead/AesGcmHkdfStreamingKeyManager$2;->this$0:Lcom/google/crypto/tink/streamingaead/AesGcmHkdfStreamingKeyManager;
 
     .line 116
-    invoke-virtual {v1}, Lcom/google/crypto/tink/streamingaead/AesGcmHkdfStreamingKeyManager;->getVersion()I
+    invoke-virtual {v0}, Lcom/google/crypto/tink/streamingaead/AesGcmHkdfStreamingKeyManager;->getVersion()I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;->setVersion(I)Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;
+    invoke-virtual {p1, v0}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;->setVersion(I)Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 117
-    invoke-virtual {v0}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey;
+    check-cast p1, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey;
 
-    .line 113
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic createKey(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)Ljava/lang/Object;
@@ -152,9 +148,7 @@
 .end method
 
 .method public deriveKey(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;Ljava/io/InputStream;)Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey;
-    .locals 4
-    .param p1, "format"    # Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;
-    .param p2, "inputStream"    # Ljava/io/InputStream;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -193,96 +187,84 @@
     new-array v0, v0, [B
 
     .line 127
-    .local v0, "pseudorandomness":[B
     :try_start_0
     invoke-virtual {p2, v0}, Ljava/io/InputStream;->read([B)I
 
-    move-result v1
+    move-result p2
 
     .line 128
-    .local v1, "read":I
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;->getKeySize()I
 
-    move-result v2
+    move-result v1
 
-    if-ne v1, v2, :cond_0
+    if-ne p2, v1, :cond_0
 
     .line 131
     invoke-static {}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey;->newBuilder()Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;
 
-    move-result-object v2
+    move-result-object p2
 
     .line 132
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->copyFrom([B)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;->setKeyValue(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;
+    invoke-virtual {p2, v0}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;->setKeyValue(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;
 
-    move-result-object v2
+    move-result-object p2
 
     .line 133
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;->getParams()Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v2, v3}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;->setParams(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;)Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;
+    invoke-virtual {p2, p1}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;->setParams(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;)Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;
 
-    move-result-object v2
+    move-result-object p1
 
-    iget-object v3, p0, Lcom/google/crypto/tink/streamingaead/AesGcmHkdfStreamingKeyManager$2;->this$0:Lcom/google/crypto/tink/streamingaead/AesGcmHkdfStreamingKeyManager;
+    iget-object p2, p0, Lcom/google/crypto/tink/streamingaead/AesGcmHkdfStreamingKeyManager$2;->this$0:Lcom/google/crypto/tink/streamingaead/AesGcmHkdfStreamingKeyManager;
 
     .line 134
-    invoke-virtual {v3}, Lcom/google/crypto/tink/streamingaead/AesGcmHkdfStreamingKeyManager;->getVersion()I
+    invoke-virtual {p2}, Lcom/google/crypto/tink/streamingaead/AesGcmHkdfStreamingKeyManager;->getVersion()I
 
-    move-result v3
+    move-result p2
 
-    invoke-virtual {v2, v3}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;->setVersion(I)Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;
+    invoke-virtual {p1, p2}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;->setVersion(I)Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;
 
-    move-result-object v2
+    move-result-object p1
 
     .line 135
-    invoke-virtual {v2}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v2
+    move-result-object p1
 
-    check-cast v2, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey;
+    check-cast p1, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKey;
 
-    .line 131
-    return-object v2
+    return-object p1
 
     .line 129
     :cond_0
-    new-instance v2, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    const-string v3, "Not enough pseudorandomness given"
+    const-string p2, "Not enough pseudorandomness given"
 
-    invoke-direct {v2, v3}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    .end local v0    # "pseudorandomness":[B
-    .end local p1    # "format":Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;
-    .end local p2    # "inputStream":Ljava/io/InputStream;
-    throw v2
+    throw p1
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 136
-    .end local v1    # "read":I
-    .restart local v0    # "pseudorandomness":[B
-    .restart local p1    # "format":Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;
-    .restart local p2    # "inputStream":Ljava/io/InputStream;
     :catch_0
-    move-exception v1
+    move-exception p1
 
     .line 137
-    .local v1, "e":Ljava/io/IOException;
-    new-instance v2, Ljava/security/GeneralSecurityException;
+    new-instance p2, Ljava/security/GeneralSecurityException;
 
-    const-string v3, "Reading pseudorandomness failed"
+    const-string v0, "Reading pseudorandomness failed"
 
-    invoke-direct {v2, v3, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p2, v0, p1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v2
+    throw p2
 .end method
 
 .method public bridge synthetic deriveKey(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;Ljava/io/InputStream;)Ljava/lang/Object;
@@ -316,7 +298,6 @@
 
 .method public parseKeyFormat(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;
     .locals 1
-    .param p1, "byteString"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -332,9 +313,6 @@
         }
     .end annotation
 
-    .line 106
-    nop
-
     .line 107
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;->getEmptyRegistry()Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
 
@@ -343,9 +321,9 @@
     .line 106
     invoke-static {p1, v0}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic parseKeyFormat(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
@@ -375,7 +353,6 @@
 
 .method public validateKeyFormat(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;)V
     .locals 2
-    .param p1, "format"    # Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -403,22 +380,21 @@
     .line 100
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingKeyFormat;->getParams()Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Lcom/google/crypto/tink/streamingaead/AesGcmHkdfStreamingKeyManager;->access$000(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;)V
+    invoke-static {p1}, Lcom/google/crypto/tink/streamingaead/AesGcmHkdfStreamingKeyManager;->access$000(Lcom/google/crypto/tink/proto/AesGcmHkdfStreamingParams;)V
 
-    .line 101
     return-void
 
     .line 98
     :cond_0
-    new-instance v0, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    const-string v1, "key_size must be at least 16 bytes"
+    const-string v0, "key_size must be at least 16 bytes"
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public bridge synthetic validateKeyFormat(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)V

@@ -10,9 +10,8 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 21
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 22
     return-void
 .end method

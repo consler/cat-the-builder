@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/model/ByteArrayLoader$ByteBufferFactory;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/bumptech/glide/load/model/ByteArrayLoader$ByteBufferFactory;
 
     .line 104
     iput-object p1, p0, Lcom/bumptech/glide/load/model/ByteArrayLoader$ByteBufferFactory$1;->this$0:Lcom/bumptech/glide/load/model/ByteArrayLoader$ByteBufferFactory;
@@ -57,15 +56,14 @@
 .end method
 
 .method public convert([B)Ljava/nio/ByteBuffer;
-    .locals 1
-    .param p1, "model"    # [B
+    .locals 0
 
     .line 107
     invoke-static {p1}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getDataClass()Ljava/lang/Class;

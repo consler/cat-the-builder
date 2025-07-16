@@ -26,14 +26,13 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
     .locals 1
-    .param p1, "classToInstantiate"    # Ljava/lang/Class;
 
     .line 95
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 59
     const/4 v0, 0x0
 
+    .line 59
     iput-object v0, p0, Lorg/apache/commons/collections/functors/InstantiateFactory;->iConstructor:Ljava/lang/reflect/Constructor;
 
     .line 96
@@ -48,22 +47,18 @@
     .line 99
     invoke-direct {p0}, Lorg/apache/commons/collections/functors/InstantiateFactory;->findConstructor()V
 
-    .line 100
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;[Ljava/lang/Class;[Ljava/lang/Object;)V
     .locals 1
-    .param p1, "classToInstantiate"    # Ljava/lang/Class;
-    .param p2, "paramTypes"    # [Ljava/lang/Class;
-    .param p3, "args"    # [Ljava/lang/Object;
 
     .line 111
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 59
     const/4 v0, 0x0
 
+    .line 59
     iput-object v0, p0, Lorg/apache/commons/collections/functors/InstantiateFactory;->iConstructor:Ljava/lang/reflect/Constructor;
 
     .line 112
@@ -78,41 +73,38 @@
     .line 115
     invoke-direct {p0}, Lorg/apache/commons/collections/functors/InstantiateFactory;->findConstructor()V
 
-    .line 116
     return-void
 .end method
 
 .method static synthetic class$(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 3
-    .param p0, "x0"    # Ljava/lang/String;
+    .locals 1
 
     .line 158
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    .local v0, "x1":Ljava/lang/ClassNotFoundException;
-    new-instance v1, Ljava/lang/NoClassDefFoundError;
+    new-instance v0, Ljava/lang/NoClassDefFoundError;
 
-    invoke-virtual {v0}, Ljava/lang/ClassNotFoundException;->getMessage()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/ClassNotFoundException;->getMessage()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-direct {v1, v2}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/NoClassDefFoundError;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method private findConstructor()V
-    .locals 3
+    .locals 2
 
     .line 123
     :try_start_0
@@ -128,37 +120,24 @@
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 127
-    nop
-
-    .line 128
     return-void
 
-    .line 125
-    :catch_0
-    move-exception v0
-
     .line 126
-    .local v0, "ex":Ljava/lang/NoSuchMethodException;
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    :catch_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v2, "InstantiateFactory: The constructor must exist and be public "
+    const-string v1, "InstantiateFactory: The constructor must exist and be public "
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public static getInstance(Ljava/lang/Class;[Ljava/lang/Class;[Ljava/lang/Object;)Lorg/apache/commons/collections/Factory;
     .locals 2
-    .param p0, "classToInstantiate"    # Ljava/lang/Class;
-    .param p1, "paramTypes"    # [Ljava/lang/Class;
-    .param p2, "args"    # [Ljava/lang/Object;
 
-    .line 70
     if-eqz p0, :cond_6
 
-    .line 73
     if-nez p1, :cond_0
 
     if-nez p2, :cond_2
@@ -173,6 +152,7 @@
 
     if-eqz p2, :cond_3
 
+    .line 73
     array-length v0, p1
 
     array-length v1, p2
@@ -183,19 +163,19 @@
 
     .line 76
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Parameter types must match the arguments"
+    const-string p1, "Parameter types must match the arguments"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
-    .line 79
     :cond_3
     :goto_0
     if-eqz p1, :cond_5
 
+    .line 79
     array-length v0, p1
 
     if-nez v0, :cond_4
@@ -206,22 +186,18 @@
     :cond_4
     invoke-virtual {p1}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, [Ljava/lang/Class;
-
-    move-object p1, v0
+    check-cast p1, [Ljava/lang/Class;
 
     check-cast p1, [Ljava/lang/Class;
 
     .line 83
     invoke-virtual {p2}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p2
 
-    check-cast v0, [Ljava/lang/Object;
-
-    move-object p2, v0
+    check-cast p2, [Ljava/lang/Object;
 
     check-cast p2, [Ljava/lang/Object;
 
@@ -235,26 +211,25 @@
     .line 80
     :cond_5
     :goto_1
-    new-instance v0, Lorg/apache/commons/collections/functors/InstantiateFactory;
+    new-instance p1, Lorg/apache/commons/collections/functors/InstantiateFactory;
 
-    invoke-direct {v0, p0}, Lorg/apache/commons/collections/functors/InstantiateFactory;-><init>(Ljava/lang/Class;)V
+    invoke-direct {p1, p0}, Lorg/apache/commons/collections/functors/InstantiateFactory;-><init>(Ljava/lang/Class;)V
 
-    return-object v0
+    return-object p1
 
     .line 71
     :cond_6
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Class to instantiate must not be null"
+    const-string p1, "Class to instantiate must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 1
-    .param p1, "is"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/ClassNotFoundException;,
@@ -281,13 +256,11 @@
     .line 168
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
-    .line 169
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .param p1, "os"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -313,7 +286,6 @@
     .line 159
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
-    .line 160
     return-void
 .end method
 
@@ -347,12 +319,10 @@
 
     return-object v0
 
-    .line 148
     :catch_0
     move-exception v0
 
     .line 149
-    .local v0, "ex":Ljava/lang/reflect/InvocationTargetException;
     new-instance v1, Lorg/apache/commons/collections/FunctorException;
 
     const-string v2, "InstantiateFactory: Constructor threw an exception"
@@ -361,13 +331,10 @@
 
     throw v1
 
-    .line 146
-    .end local v0    # "ex":Ljava/lang/reflect/InvocationTargetException;
     :catch_1
     move-exception v0
 
     .line 147
-    .local v0, "ex":Ljava/lang/IllegalAccessException;
     new-instance v1, Lorg/apache/commons/collections/FunctorException;
 
     const-string v2, "InstantiateFactory: Constructor must be public"
@@ -376,13 +343,10 @@
 
     throw v1
 
-    .line 144
-    .end local v0    # "ex":Ljava/lang/IllegalAccessException;
     :catch_2
     move-exception v0
 
     .line 145
-    .local v0, "ex":Ljava/lang/InstantiationException;
     new-instance v1, Lorg/apache/commons/collections/FunctorException;
 
     const-string v2, "InstantiateFactory: InstantiationException"

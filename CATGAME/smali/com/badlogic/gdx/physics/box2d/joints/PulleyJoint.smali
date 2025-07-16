@@ -13,35 +13,32 @@
 
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/physics/box2d/World;J)V
-    .locals 1
-    .param p1, "world"    # Lcom/badlogic/gdx/physics/box2d/World;
-    .param p2, "addr"    # J
+    .locals 0
 
     .line 33
     invoke-direct {p0, p1, p2, p3}, Lcom/badlogic/gdx/physics/box2d/Joint;-><init>(Lcom/badlogic/gdx/physics/box2d/World;J)V
 
+    const/4 p1, 0x2
+
+    new-array p1, p1, [F
+
     .line 37
-    const/4 v0, 0x2
-
-    new-array v0, v0, [F
-
-    iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/PulleyJoint;->tmp:[F
+    iput-object p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/PulleyJoint;->tmp:[F
 
     .line 38
-    new-instance v0, Lcom/badlogic/gdx/math/Vector2;
+    new-instance p1, Lcom/badlogic/gdx/math/Vector2;
 
-    invoke-direct {v0}, Lcom/badlogic/gdx/math/Vector2;-><init>()V
+    invoke-direct {p1}, Lcom/badlogic/gdx/math/Vector2;-><init>()V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/PulleyJoint;->groundAnchorA:Lcom/badlogic/gdx/math/Vector2;
+    iput-object p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/PulleyJoint;->groundAnchorA:Lcom/badlogic/gdx/math/Vector2;
 
     .line 53
-    new-instance v0, Lcom/badlogic/gdx/math/Vector2;
+    new-instance p1, Lcom/badlogic/gdx/math/Vector2;
 
-    invoke-direct {v0}, Lcom/badlogic/gdx/math/Vector2;-><init>()V
+    invoke-direct {p1}, Lcom/badlogic/gdx/math/Vector2;-><init>()V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/PulleyJoint;->groundAnchorB:Lcom/badlogic/gdx/math/Vector2;
+    iput-object p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/PulleyJoint;->groundAnchorB:Lcom/badlogic/gdx/math/Vector2;
 
-    .line 34
     return-void
 .end method
 

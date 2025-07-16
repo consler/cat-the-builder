@@ -1,6 +1,5 @@
 .class public Lcom/huawei/agconnect/core/Service;
 .super Ljava/lang/Object;
-.source "Service.java"
 
 
 # annotations
@@ -12,7 +11,7 @@
 
 
 # instance fields
-.field private mClass:Ljava/lang/Class;
+.field private final a:Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/Class<",
@@ -21,7 +20,7 @@
     .end annotation
 .end field
 
-.field private mInterface:Ljava/lang/Class;
+.field private final b:Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/Class<",
@@ -30,7 +29,13 @@
     .end annotation
 .end field
 
-.field private mIsSingleton:Z
+.field private final c:Ljava/lang/Object;
+
+.field private d:Z
+
+.field private e:Z
+
+.field private f:Z
 
 
 # direct methods
@@ -46,40 +51,72 @@
         }
     .end annotation
 
-    .line 16
-    .local p1, "anInterface":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p2, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 17
-    iput-object p1, p0, Lcom/huawei/agconnect/core/Service;->mInterface:Ljava/lang/Class;
+    iput-object p1, p0, Lcom/huawei/agconnect/core/Service;->a:Ljava/lang/Class;
 
-    .line 18
-    iput-object p2, p0, Lcom/huawei/agconnect/core/Service;->mClass:Ljava/lang/Class;
+    iput-object p2, p0, Lcom/huawei/agconnect/core/Service;->b:Ljava/lang/Class;
 
-    .line 19
+    const/4 p1, 0x0
+
+    iput-object p1, p0, Lcom/huawei/agconnect/core/Service;->c:Ljava/lang/Object;
+
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/Class;Ljava/lang/Class;Lcom/huawei/agconnect/core/Service$1;)V
     .locals 0
-    .param p1, "x0"    # Ljava/lang/Class;
-    .param p2, "x1"    # Ljava/lang/Class;
-    .param p3, "x2"    # Lcom/huawei/agconnect/core/Service$1;
 
-    .line 11
     invoke-direct {p0, p1, p2}, Lcom/huawei/agconnect/core/Service;-><init>(Ljava/lang/Class;Ljava/lang/Class;)V
 
     return-void
 .end method
 
-.method static synthetic access$202(Lcom/huawei/agconnect/core/Service;Z)Z
+.method private constructor <init>(Ljava/lang/Class;Ljava/lang/Object;)V
     .locals 0
-    .param p0, "x0"    # Lcom/huawei/agconnect/core/Service;
-    .param p1, "x1"    # Z
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/Class<",
+            "*>;",
+            "Ljava/lang/Object;",
+            ")V"
+        }
+    .end annotation
 
-    .line 11
-    iput-boolean p1, p0, Lcom/huawei/agconnect/core/Service;->mIsSingleton:Z
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/huawei/agconnect/core/Service;->a:Ljava/lang/Class;
+
+    const/4 p1, 0x0
+
+    iput-object p1, p0, Lcom/huawei/agconnect/core/Service;->b:Ljava/lang/Class;
+
+    iput-object p2, p0, Lcom/huawei/agconnect/core/Service;->c:Ljava/lang/Object;
+
+    return-void
+.end method
+
+.method synthetic constructor <init>(Ljava/lang/Class;Ljava/lang/Object;Lcom/huawei/agconnect/core/Service$1;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/huawei/agconnect/core/Service;-><init>(Ljava/lang/Class;Ljava/lang/Object;)V
+
+    return-void
+.end method
+
+.method static synthetic a(Lcom/huawei/agconnect/core/Service;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/huawei/agconnect/core/Service;->d:Z
+
+    return p1
+.end method
+
+.method static synthetic b(Lcom/huawei/agconnect/core/Service;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/huawei/agconnect/core/Service;->e:Z
 
     return p1
 .end method
@@ -95,19 +132,53 @@
         }
     .end annotation
 
-    .line 38
-    .local p0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     new-instance v0, Lcom/huawei/agconnect/core/Service$Builder;
 
-    const/4 v1, 0x0
+    invoke-direct {v0}, Lcom/huawei/agconnect/core/Service$Builder;-><init>()V
 
-    invoke-direct {v0, p0, p0, v1}, Lcom/huawei/agconnect/core/Service$Builder;-><init>(Ljava/lang/Class;Ljava/lang/Class;Lcom/huawei/agconnect/core/Service$1;)V
+    invoke-virtual {v0, p0}, Lcom/huawei/agconnect/core/Service$Builder;->setInterface(Ljava/lang/Class;)Lcom/huawei/agconnect/core/Service$Builder;
 
-    return-object v0
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Lcom/huawei/agconnect/core/Service$Builder;->setClass(Ljava/lang/Class;)Lcom/huawei/agconnect/core/Service$Builder;
+
+    move-result-object v0
+
+    const-class v1, Lcom/huawei/agconnect/annotation/Singleton;
+
+    invoke-virtual {p0, v1}, Ljava/lang/Class;->isAnnotationPresent(Ljava/lang/Class;)Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/huawei/agconnect/core/Service$Builder;->isSingleton(Z)Lcom/huawei/agconnect/core/Service$Builder;
+
+    move-result-object v0
+
+    const-class v1, Lcom/huawei/agconnect/annotation/SharedInstance;
+
+    invoke-virtual {p0, v1}, Ljava/lang/Class;->isAnnotationPresent(Ljava/lang/Class;)Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/huawei/agconnect/core/Service$Builder;->isSharedInstance(Z)Lcom/huawei/agconnect/core/Service$Builder;
+
+    move-result-object v0
+
+    const-class v1, Lcom/huawei/agconnect/annotation/AutoCreated;
+
+    invoke-virtual {p0, v1}, Ljava/lang/Class;->isAnnotationPresent(Ljava/lang/Class;)Z
+
+    move-result p0
+
+    invoke-virtual {v0, p0}, Lcom/huawei/agconnect/core/Service$Builder;->isAutoCreated(Z)Lcom/huawei/agconnect/core/Service$Builder;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static builder(Ljava/lang/Class;Ljava/lang/Class;)Lcom/huawei/agconnect/core/Service$Builder;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -119,20 +190,123 @@
         }
     .end annotation
 
-    .line 34
-    .local p0, "anInterface":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     new-instance v0, Lcom/huawei/agconnect/core/Service$Builder;
 
-    const/4 v1, 0x0
+    invoke-direct {v0}, Lcom/huawei/agconnect/core/Service$Builder;-><init>()V
 
-    invoke-direct {v0, p0, p1, v1}, Lcom/huawei/agconnect/core/Service$Builder;-><init>(Ljava/lang/Class;Ljava/lang/Class;Lcom/huawei/agconnect/core/Service$1;)V
+    invoke-virtual {v0, p0}, Lcom/huawei/agconnect/core/Service$Builder;->setInterface(Ljava/lang/Class;)Lcom/huawei/agconnect/core/Service$Builder;
 
-    return-object v0
+    move-result-object p0
+
+    invoke-virtual {p0, p1}, Lcom/huawei/agconnect/core/Service$Builder;->setClass(Ljava/lang/Class;)Lcom/huawei/agconnect/core/Service$Builder;
+
+    move-result-object p0
+
+    const-class v0, Lcom/huawei/agconnect/annotation/Singleton;
+
+    invoke-virtual {p1, v0}, Ljava/lang/Class;->isAnnotationPresent(Ljava/lang/Class;)Z
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/huawei/agconnect/core/Service$Builder;->isSingleton(Z)Lcom/huawei/agconnect/core/Service$Builder;
+
+    move-result-object p0
+
+    const-class v0, Lcom/huawei/agconnect/annotation/SharedInstance;
+
+    invoke-virtual {p1, v0}, Ljava/lang/Class;->isAnnotationPresent(Ljava/lang/Class;)Z
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/huawei/agconnect/core/Service$Builder;->isSharedInstance(Z)Lcom/huawei/agconnect/core/Service$Builder;
+
+    move-result-object p0
+
+    const-class v0, Lcom/huawei/agconnect/annotation/AutoCreated;
+
+    invoke-virtual {p1, v0}, Ljava/lang/Class;->isAnnotationPresent(Ljava/lang/Class;)Z
+
+    move-result p1
+
+    invoke-virtual {p0, p1}, Lcom/huawei/agconnect/core/Service$Builder;->isAutoCreated(Z)Lcom/huawei/agconnect/core/Service$Builder;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static builder(Ljava/lang/Class;Ljava/lang/Object;)Lcom/huawei/agconnect/core/Service$Builder;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/Class<",
+            "*>;",
+            "Ljava/lang/Object;",
+            ")",
+            "Lcom/huawei/agconnect/core/Service$Builder;"
+        }
+    .end annotation
+
+    new-instance v0, Lcom/huawei/agconnect/core/Service$Builder;
+
+    invoke-direct {v0}, Lcom/huawei/agconnect/core/Service$Builder;-><init>()V
+
+    invoke-virtual {v0, p0}, Lcom/huawei/agconnect/core/Service$Builder;->setInterface(Ljava/lang/Class;)Lcom/huawei/agconnect/core/Service$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Lcom/huawei/agconnect/core/Service$Builder;->setObject(Ljava/lang/Object;)Lcom/huawei/agconnect/core/Service$Builder;
+
+    move-result-object p1
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p1, v0}, Lcom/huawei/agconnect/core/Service$Builder;->isSingleton(Z)Lcom/huawei/agconnect/core/Service$Builder;
+
+    move-result-object p1
+
+    const-class v0, Lcom/huawei/agconnect/annotation/SharedInstance;
+
+    invoke-virtual {p0, v0}, Ljava/lang/Class;->isAnnotationPresent(Ljava/lang/Class;)Z
+
+    move-result v0
+
+    invoke-virtual {p1, v0}, Lcom/huawei/agconnect/core/Service$Builder;->isSharedInstance(Z)Lcom/huawei/agconnect/core/Service$Builder;
+
+    move-result-object p1
+
+    const-class v0, Lcom/huawei/agconnect/annotation/AutoCreated;
+
+    invoke-virtual {p0, v0}, Ljava/lang/Class;->isAnnotationPresent(Ljava/lang/Class;)Z
+
+    move-result p0
+
+    invoke-virtual {p1, p0}, Lcom/huawei/agconnect/core/Service$Builder;->isAutoCreated(Z)Lcom/huawei/agconnect/core/Service$Builder;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static synthetic c(Lcom/huawei/agconnect/core/Service;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/huawei/agconnect/core/Service;->f:Z
+
+    return p1
 .end method
 
 
 # virtual methods
+.method public getInstance()Ljava/lang/Object;
+    .locals 1
+
+    iget-object v0, p0, Lcom/huawei/agconnect/core/Service;->c:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
 .method public getInterface()Ljava/lang/Class;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -143,8 +317,7 @@
         }
     .end annotation
 
-    .line 22
-    iget-object v0, p0, Lcom/huawei/agconnect/core/Service;->mInterface:Ljava/lang/Class;
+    iget-object v0, p0, Lcom/huawei/agconnect/core/Service;->a:Ljava/lang/Class;
 
     return-object v0
 .end method
@@ -159,17 +332,31 @@
         }
     .end annotation
 
-    .line 26
-    iget-object v0, p0, Lcom/huawei/agconnect/core/Service;->mClass:Ljava/lang/Class;
+    iget-object v0, p0, Lcom/huawei/agconnect/core/Service;->b:Ljava/lang/Class;
 
     return-object v0
+.end method
+
+.method public isAutoCreated()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/huawei/agconnect/core/Service;->f:Z
+
+    return v0
+.end method
+
+.method public isSharedInstance()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/huawei/agconnect/core/Service;->e:Z
+
+    return v0
 .end method
 
 .method public isSingleton()Z
     .locals 1
 
-    .line 30
-    iget-boolean v0, p0, Lcom/huawei/agconnect/core/Service;->mIsSingleton:Z
+    iget-boolean v0, p0, Lcom/huawei/agconnect/core/Service;->d:Z
 
     return v0
 .end method

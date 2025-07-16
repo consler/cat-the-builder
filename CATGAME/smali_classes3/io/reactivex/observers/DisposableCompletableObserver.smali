@@ -46,7 +46,6 @@
 
     invoke-static {v0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 78
     return-void
 .end method
 
@@ -78,13 +77,11 @@
 .method protected onStart()V
     .locals 0
 
-    .line 68
     return-void
 .end method
 
 .method public final onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 2
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 59
     iget-object v0, p0, Lio/reactivex/observers/DisposableCompletableObserver;->s:Ljava/util/concurrent/atomic/AtomicReference;
@@ -95,14 +92,13 @@
 
     invoke-static {v0, p1, v1}, Lio/reactivex/internal/util/EndConsumerHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;Ljava/lang/Class;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 60
     invoke-virtual {p0}, Lio/reactivex/observers/DisposableCompletableObserver;->onStart()V
 
-    .line 62
     :cond_0
     return-void
 .end method

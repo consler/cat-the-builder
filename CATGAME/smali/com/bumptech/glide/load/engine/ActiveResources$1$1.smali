@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/engine/ActiveResources$1;Ljava/lang/Runnable;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/bumptech/glide/load/engine/ActiveResources$1;
 
     .line 39
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/ActiveResources$1$1;->this$1:Lcom/bumptech/glide/load/engine/ActiveResources$1;
@@ -43,9 +42,9 @@
 .method public run()V
     .locals 1
 
-    .line 42
     const/16 v0, 0xa
 
+    .line 42
     invoke-static {v0}, Landroid/os/Process;->setThreadPriority(I)V
 
     .line 43
@@ -53,6 +52,5 @@
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    .line 44
     return-void
 .end method

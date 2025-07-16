@@ -48,19 +48,16 @@
     .end annotation
 
     .line 60
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ClosureTransformer;, "Lorg/apache/commons/collections4/functors/ClosureTransformer<TT;>;"
-    .local p1, "closure":Lorg/apache/commons/collections4/Closure;, "Lorg/apache/commons/collections4/Closure<-TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 61
     iput-object p1, p0, Lorg/apache/commons/collections4/functors/ClosureTransformer;->iClosure:Lorg/apache/commons/collections4/Closure;
 
-    .line 62
     return-void
 .end method
 
 .method public static closureTransformer(Lorg/apache/commons/collections4/Closure;)Lorg/apache/commons/collections4/Transformer;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -73,8 +70,6 @@
         }
     .end annotation
 
-    .line 47
-    .local p0, "closure":Lorg/apache/commons/collections4/Closure;, "Lorg/apache/commons/collections4/Closure<-TT;>;"
     if-eqz p0, :cond_0
 
     .line 50
@@ -86,13 +81,13 @@
 
     .line 48
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "Closure must not be null"
+    const-string v0, "Closure must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
@@ -108,7 +103,6 @@
     .end annotation
 
     .line 83
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ClosureTransformer;, "Lorg/apache/commons/collections4/functors/ClosureTransformer<TT;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/ClosureTransformer;->iClosure:Lorg/apache/commons/collections4/Closure;
 
     return-object v0
@@ -123,12 +117,9 @@
     .end annotation
 
     .line 72
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ClosureTransformer;, "Lorg/apache/commons/collections4/functors/ClosureTransformer<TT;>;"
-    .local p1, "input":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/ClosureTransformer;->iClosure:Lorg/apache/commons/collections4/Closure;
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Closure;->execute(Ljava/lang/Object;)V
 
-    .line 73
     return-object p1
 .end method

@@ -27,10 +27,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 33
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 34
     return-void
 .end method
 
@@ -39,7 +38,7 @@
 .method public getJsonHeader()Ljava/lang/String;
     .locals 1
 
-    .line 37
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/adapter/CoreBaseRequest;->jsonHeader:Ljava/lang/String;
 
     return-object v0
@@ -48,7 +47,7 @@
 .method public getJsonObject()Ljava/lang/String;
     .locals 1
 
-    .line 45
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/adapter/CoreBaseRequest;->jsonObject:Ljava/lang/String;
 
     return-object v0
@@ -57,7 +56,7 @@
 .method public getParcelable()Landroid/os/Parcelable;
     .locals 1
 
-    .line 49
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/adapter/CoreBaseRequest;->parcelable:Landroid/os/Parcelable;
 
     return-object v0
@@ -66,29 +65,26 @@
 .method public setJsonHeader(Ljava/lang/String;)V
     .locals 0
 
-    .line 41
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/adapter/CoreBaseRequest;->jsonHeader:Ljava/lang/String;
 
-    .line 42
     return-void
 .end method
 
 .method public setJsonObject(Ljava/lang/String;)V
     .locals 0
 
-    .line 57
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/adapter/CoreBaseRequest;->jsonObject:Ljava/lang/String;
 
-    .line 58
     return-void
 .end method
 
 .method public setParcelable(Landroid/os/Parcelable;)V
     .locals 0
 
-    .line 53
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/adapter/CoreBaseRequest;->parcelable:Landroid/os/Parcelable;
 
-    .line 54
     return-void
 .end method

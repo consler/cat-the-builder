@@ -30,7 +30,6 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1362
     return-void
 .end method
 
@@ -44,6 +43,5 @@
 
     invoke-virtual {v0}, Landroidx/appcompat/widget/ListPopupWindow;->clearListSelection()V
 
-    .line 1367
     return-void
 .end method

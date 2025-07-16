@@ -33,10 +33,8 @@
     .locals 0
 
     .line 45
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap;, "Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap<TK;TV;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;-><init>()V
 
-    .line 46
     return-void
 .end method
 
@@ -53,11 +51,8 @@
     .end annotation
 
     .line 55
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap;, "Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<TK;+Ljava/util/Set<TV;>;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;-><init>(Ljava/util/Map;)V
 
-    .line 56
     return-void
 .end method
 
@@ -67,7 +62,6 @@
     .locals 1
 
     .line 38
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap;, "Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap;->createCollection()Ljava/util/Set;
 
     move-result-object v0
@@ -89,7 +83,6 @@
     .locals 0
 
     .line 38
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap;, "Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap<TK;TV;>;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap;->get(Ljava/lang/Object;)Ljava/util/Set;
 
     move-result-object p1
@@ -98,7 +91,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/util/Set;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",
@@ -108,13 +101,11 @@
     .end annotation
 
     .line 83
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap;, "Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap;->wrappedCollection(Ljava/lang/Object;)Ljava/util/Set;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected getMap()Ljava/util/Map;
@@ -130,7 +121,6 @@
     .end annotation
 
     .line 62
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap;, "Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap<TK;TV;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/multimap/AbstractMultiValuedMap;->getMap()Ljava/util/Map;
 
     move-result-object v0
@@ -142,7 +132,6 @@
     .locals 0
 
     .line 38
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap;, "Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap<TK;TV;>;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap;->remove(Ljava/lang/Object;)Ljava/util/Set;
 
     move-result-object p1
@@ -152,7 +141,6 @@
 
 .method public remove(Ljava/lang/Object;)Ljava/util/Set;
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -164,29 +152,27 @@
     .end annotation
 
     .line 102
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap;, "Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap;->getMap()Ljava/util/Map;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Set;
+    check-cast p1, Ljava/util/Set;
 
-    invoke-static {v0}, Lorg/apache/commons/collections4/SetUtils;->emptyIfNull(Ljava/util/Set;)Ljava/util/Set;
+    invoke-static {p1}, Lorg/apache/commons/collections4/SetUtils;->emptyIfNull(Ljava/util/Set;)Ljava/util/Set;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method bridge synthetic wrappedCollection(Ljava/lang/Object;)Ljava/util/Collection;
     .locals 0
 
     .line 38
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap;, "Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap<TK;TV;>;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap;->wrappedCollection(Ljava/lang/Object;)Ljava/util/Set;
 
     move-result-object p1
@@ -205,8 +191,6 @@
     .end annotation
 
     .line 88
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap;, "Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     new-instance v0, Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap$WrappedSet;
 
     invoke-direct {v0, p0, p1}, Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap$WrappedSet;-><init>(Lorg/apache/commons/collections4/multimap/AbstractSetValuedMap;Ljava/lang/Object;)V

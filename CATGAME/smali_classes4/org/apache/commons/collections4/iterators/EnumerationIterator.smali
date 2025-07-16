@@ -51,13 +51,11 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 45
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/EnumerationIterator;, "Lorg/apache/commons/collections4/iterators/EnumerationIterator<TE;>;"
     const/4 v0, 0x0
 
+    .line 45
     invoke-direct {p0, v0, v0}, Lorg/apache/commons/collections4/iterators/EnumerationIterator;-><init>(Ljava/util/Enumeration;Ljava/util/Collection;)V
 
-    .line 46
     return-void
 .end method
 
@@ -71,19 +69,16 @@
         }
     .end annotation
 
-    .line 55
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/EnumerationIterator;, "Lorg/apache/commons/collections4/iterators/EnumerationIterator<TE;>;"
-    .local p1, "enumeration":Ljava/util/Enumeration;, "Ljava/util/Enumeration<+TE;>;"
     const/4 v0, 0x0
 
+    .line 55
     invoke-direct {p0, p1, v0}, Lorg/apache/commons/collections4/iterators/EnumerationIterator;-><init>(Ljava/util/Enumeration;Ljava/util/Collection;)V
 
-    .line 56
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Enumeration;Ljava/util/Collection;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -95,9 +90,6 @@
     .end annotation
 
     .line 66
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/EnumerationIterator;, "Lorg/apache/commons/collections4/iterators/EnumerationIterator<TE;>;"
-    .local p1, "enumeration":Ljava/util/Enumeration;, "Ljava/util/Enumeration<+TE;>;"
-    .local p2, "collection":Ljava/util/Collection;, "Ljava/util/Collection<-TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 67
@@ -106,12 +98,11 @@
     .line 68
     iput-object p2, p0, Lorg/apache/commons/collections4/iterators/EnumerationIterator;->collection:Ljava/util/Collection;
 
+    const/4 p1, 0x0
+
     .line 69
-    const/4 v0, 0x0
+    iput-object p1, p0, Lorg/apache/commons/collections4/iterators/EnumerationIterator;->last:Ljava/lang/Object;
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/iterators/EnumerationIterator;->last:Ljava/lang/Object;
-
-    .line 70
     return-void
 .end method
 
@@ -128,7 +119,6 @@
     .end annotation
 
     .line 128
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/EnumerationIterator;, "Lorg/apache/commons/collections4/iterators/EnumerationIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/EnumerationIterator;->enumeration:Ljava/util/Enumeration;
 
     return-object v0
@@ -138,7 +128,6 @@
     .locals 1
 
     .line 82
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/EnumerationIterator;, "Lorg/apache/commons/collections4/iterators/EnumerationIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/EnumerationIterator;->enumeration:Ljava/util/Enumeration;
 
     invoke-interface {v0}, Ljava/util/Enumeration;->hasMoreElements()Z
@@ -157,7 +146,6 @@
     .end annotation
 
     .line 93
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/EnumerationIterator;, "Lorg/apache/commons/collections4/iterators/EnumerationIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/EnumerationIterator;->enumeration:Ljava/util/Enumeration;
 
     invoke-interface {v0}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
@@ -166,7 +154,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections4/iterators/EnumerationIterator;->last:Ljava/lang/Object;
 
-    .line 94
     return-object v0
 .end method
 
@@ -174,7 +161,6 @@
     .locals 2
 
     .line 109
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/EnumerationIterator;, "Lorg/apache/commons/collections4/iterators/EnumerationIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/EnumerationIterator;->collection:Ljava/util/Collection;
 
     if-eqz v0, :cond_1
@@ -187,7 +173,6 @@
     .line 111
     invoke-interface {v0, v1}, Ljava/util/Collection;->remove(Ljava/lang/Object;)Z
 
-    .line 118
     return-void
 
     .line 113
@@ -222,10 +207,7 @@
     .end annotation
 
     .line 137
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/EnumerationIterator;, "Lorg/apache/commons/collections4/iterators/EnumerationIterator<TE;>;"
-    .local p1, "enumeration":Ljava/util/Enumeration;, "Ljava/util/Enumeration<+TE;>;"
     iput-object p1, p0, Lorg/apache/commons/collections4/iterators/EnumerationIterator;->enumeration:Ljava/util/Enumeration;
 
-    .line 138
     return-void
 .end method

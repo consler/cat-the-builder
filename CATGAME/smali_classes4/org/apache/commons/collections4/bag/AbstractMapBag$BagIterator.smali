@@ -80,8 +80,6 @@
     .end annotation
 
     .line 194
-    .local p0, "this":Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator;, "Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator<TE;>;"
-    .local p1, "parent":Lorg/apache/commons/collections4/bag/AbstractMapBag;, "Lorg/apache/commons/collections4/bag/AbstractMapBag<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 195
@@ -102,24 +100,23 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator;->entryIterator:Ljava/util/Iterator;
 
-    .line 197
     const/4 v0, 0x0
 
+    .line 197
     iput-object v0, p0, Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator;->current:Ljava/util/Map$Entry;
 
     .line 198
     invoke-static {p1}, Lorg/apache/commons/collections4/bag/AbstractMapBag;->access$100(Lorg/apache/commons/collections4/bag/AbstractMapBag;)I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator;->mods:I
+    iput p1, p0, Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator;->mods:I
+
+    const/4 p1, 0x0
 
     .line 199
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator;->canRemove:Z
 
-    iput-boolean v0, p0, Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator;->canRemove:Z
-
-    .line 200
     return-void
 .end method
 
@@ -129,7 +126,6 @@
     .locals 1
 
     .line 205
-    .local p0, "this":Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator;, "Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator<TE;>;"
     iget v0, p0, Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator;->itemCount:I
 
     if-gtz v0, :cond_1
@@ -166,7 +162,6 @@
     .end annotation
 
     .line 211
-    .local p0, "this":Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator;, "Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator;->parent:Lorg/apache/commons/collections4/bag/AbstractMapBag;
 
     invoke-static {v0}, Lorg/apache/commons/collections4/bag/AbstractMapBag;->access$100(Lorg/apache/commons/collections4/bag/AbstractMapBag;)I
@@ -204,10 +199,10 @@
 
     iput v0, p0, Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator;->itemCount:I
 
-    .line 218
     :cond_0
     const/4 v0, 0x1
 
+    .line 218
     iput-boolean v0, p0, Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator;->canRemove:Z
 
     .line 219
@@ -239,7 +234,6 @@
     .locals 3
 
     .line 226
-    .local p0, "this":Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator;, "Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator;->parent:Lorg/apache/commons/collections4/bag/AbstractMapBag;
 
     invoke-static {v0}, Lorg/apache/commons/collections4/bag/AbstractMapBag;->access$100(Lorg/apache/commons/collections4/bag/AbstractMapBag;)I
@@ -265,7 +259,6 @@
     check-cast v0, Lorg/apache/commons/collections4/bag/AbstractMapBag$MutableInteger;
 
     .line 233
-    .local v0, "mut":Lorg/apache/commons/collections4/bag/AbstractMapBag$MutableInteger;
     iget v1, v0, Lorg/apache/commons/collections4/bag/AbstractMapBag$MutableInteger;->value:I
 
     const/4 v2, 0x1
@@ -283,26 +276,24 @@
 
     .line 236
     :cond_0
-    iget-object v1, p0, Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator;->entryIterator:Ljava/util/Iterator;
+    iget-object v0, p0, Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator;->entryIterator:Ljava/util/Iterator;
 
-    invoke-interface {v1}, Ljava/util/Iterator;->remove()V
+    invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
     .line 238
     :goto_0
-    iget-object v1, p0, Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator;->parent:Lorg/apache/commons/collections4/bag/AbstractMapBag;
+    iget-object v0, p0, Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator;->parent:Lorg/apache/commons/collections4/bag/AbstractMapBag;
 
-    invoke-static {v1}, Lorg/apache/commons/collections4/bag/AbstractMapBag;->access$210(Lorg/apache/commons/collections4/bag/AbstractMapBag;)I
+    invoke-static {v0}, Lorg/apache/commons/collections4/bag/AbstractMapBag;->access$210(Lorg/apache/commons/collections4/bag/AbstractMapBag;)I
+
+    const/4 v0, 0x0
 
     .line 239
-    const/4 v1, 0x0
+    iput-boolean v0, p0, Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator;->canRemove:Z
 
-    iput-boolean v1, p0, Lorg/apache/commons/collections4/bag/AbstractMapBag$BagIterator;->canRemove:Z
-
-    .line 240
     return-void
 
     .line 230
-    .end local v0    # "mut":Lorg/apache/commons/collections4/bag/AbstractMapBag$MutableInteger;
     :cond_1
     new-instance v0, Ljava/lang/IllegalStateException;
 

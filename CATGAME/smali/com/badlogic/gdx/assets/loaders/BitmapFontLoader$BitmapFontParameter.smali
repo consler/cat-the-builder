@@ -43,9 +43,9 @@
     .line 105
     invoke-direct {p0}, Lcom/badlogic/gdx/assets/AssetLoaderParameters;-><init>()V
 
-    .line 107
     const/4 v0, 0x0
 
+    .line 107
     iput-boolean v0, p0, Lcom/badlogic/gdx/assets/loaders/BitmapFontLoader$BitmapFontParameter;->flip:Z
 
     .line 110
@@ -61,9 +61,9 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/assets/loaders/BitmapFontLoader$BitmapFontParameter;->magFilter:Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
 
-    .line 120
     const/4 v0, 0x0
 
+    .line 120
     iput-object v0, p0, Lcom/badlogic/gdx/assets/loaders/BitmapFontLoader$BitmapFontParameter;->bitmapFontData:Lcom/badlogic/gdx/graphics/g2d/BitmapFont$BitmapFontData;
 
     .line 124

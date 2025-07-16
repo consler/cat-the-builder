@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/SearchView;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/appcompat/widget/SearchView;
 
     .line 183
     iput-object p1, p0, Landroidx/appcompat/widget/SearchView$1;->this$0:Landroidx/appcompat/widget/SearchView;
@@ -44,6 +43,5 @@
 
     invoke-virtual {v0}, Landroidx/appcompat/widget/SearchView;->updateFocusedState()V
 
-    .line 187
     return-void
 .end method

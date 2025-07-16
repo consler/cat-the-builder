@@ -57,33 +57,25 @@
     .end annotation
 
     .line 46
-    .local p0, "this":Lcom/squareup/moshi/CollectionJsonAdapter;, "Lcom/squareup/moshi/CollectionJsonAdapter<TC;TT;>;"
-    .local p1, "elementAdapter":Lcom/squareup/moshi/JsonAdapter;, "Lcom/squareup/moshi/JsonAdapter<TT;>;"
     invoke-direct {p0}, Lcom/squareup/moshi/JsonAdapter;-><init>()V
 
     .line 47
     iput-object p1, p0, Lcom/squareup/moshi/CollectionJsonAdapter;->elementAdapter:Lcom/squareup/moshi/JsonAdapter;
 
-    .line 48
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/squareup/moshi/JsonAdapter;Lcom/squareup/moshi/CollectionJsonAdapter$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/squareup/moshi/JsonAdapter;
-    .param p2, "x1"    # Lcom/squareup/moshi/CollectionJsonAdapter$1;
 
     .line 29
-    .local p0, "this":Lcom/squareup/moshi/CollectionJsonAdapter;, "Lcom/squareup/moshi/CollectionJsonAdapter<TC;TT;>;"
     invoke-direct {p0, p1}, Lcom/squareup/moshi/CollectionJsonAdapter;-><init>(Lcom/squareup/moshi/JsonAdapter;)V
 
     return-void
 .end method
 
 .method static newArrayListAdapter(Ljava/lang/reflect/Type;Lcom/squareup/moshi/Moshi;)Lcom/squareup/moshi/JsonAdapter;
-    .locals 3
-    .param p0, "type"    # Ljava/lang/reflect/Type;
-    .param p1, "moshi"    # Lcom/squareup/moshi/Moshi;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -103,27 +95,23 @@
 
     invoke-static {p0, v0}, Lcom/squareup/moshi/Types;->collectionElementType(Ljava/lang/reflect/Type;Ljava/lang/Class;)Ljava/lang/reflect/Type;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 52
-    .local v0, "elementType":Ljava/lang/reflect/Type;
-    invoke-virtual {p1, v0}, Lcom/squareup/moshi/Moshi;->adapter(Ljava/lang/reflect/Type;)Lcom/squareup/moshi/JsonAdapter;
+    invoke-virtual {p1, p0}, Lcom/squareup/moshi/Moshi;->adapter(Ljava/lang/reflect/Type;)Lcom/squareup/moshi/JsonAdapter;
 
-    move-result-object v1
+    move-result-object p0
 
     .line 53
-    .local v1, "elementAdapter":Lcom/squareup/moshi/JsonAdapter;, "Lcom/squareup/moshi/JsonAdapter<TT;>;"
-    new-instance v2, Lcom/squareup/moshi/CollectionJsonAdapter$2;
+    new-instance p1, Lcom/squareup/moshi/CollectionJsonAdapter$2;
 
-    invoke-direct {v2, v1}, Lcom/squareup/moshi/CollectionJsonAdapter$2;-><init>(Lcom/squareup/moshi/JsonAdapter;)V
+    invoke-direct {p1, p0}, Lcom/squareup/moshi/CollectionJsonAdapter$2;-><init>(Lcom/squareup/moshi/JsonAdapter;)V
 
-    return-object v2
+    return-object p1
 .end method
 
 .method static newLinkedHashSetAdapter(Ljava/lang/reflect/Type;Lcom/squareup/moshi/Moshi;)Lcom/squareup/moshi/JsonAdapter;
-    .locals 3
-    .param p0, "type"    # Ljava/lang/reflect/Type;
-    .param p1, "moshi"    # Lcom/squareup/moshi/Moshi;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -143,21 +131,19 @@
 
     invoke-static {p0, v0}, Lcom/squareup/moshi/Types;->collectionElementType(Ljava/lang/reflect/Type;Ljava/lang/Class;)Ljava/lang/reflect/Type;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 62
-    .local v0, "elementType":Ljava/lang/reflect/Type;
-    invoke-virtual {p1, v0}, Lcom/squareup/moshi/Moshi;->adapter(Ljava/lang/reflect/Type;)Lcom/squareup/moshi/JsonAdapter;
+    invoke-virtual {p1, p0}, Lcom/squareup/moshi/Moshi;->adapter(Ljava/lang/reflect/Type;)Lcom/squareup/moshi/JsonAdapter;
 
-    move-result-object v1
+    move-result-object p0
 
     .line 63
-    .local v1, "elementAdapter":Lcom/squareup/moshi/JsonAdapter;, "Lcom/squareup/moshi/JsonAdapter<TT;>;"
-    new-instance v2, Lcom/squareup/moshi/CollectionJsonAdapter$3;
+    new-instance p1, Lcom/squareup/moshi/CollectionJsonAdapter$3;
 
-    invoke-direct {v2, v1}, Lcom/squareup/moshi/CollectionJsonAdapter$3;-><init>(Lcom/squareup/moshi/JsonAdapter;)V
+    invoke-direct {p1, p0}, Lcom/squareup/moshi/CollectionJsonAdapter$3;-><init>(Lcom/squareup/moshi/JsonAdapter;)V
 
-    return-object v2
+    return-object p1
 .end method
 
 
@@ -171,7 +157,6 @@
     .end annotation
 
     .line 29
-    .local p0, "this":Lcom/squareup/moshi/CollectionJsonAdapter;, "Lcom/squareup/moshi/CollectionJsonAdapter<TC;TT;>;"
     invoke-virtual {p0, p1}, Lcom/squareup/moshi/CollectionJsonAdapter;->fromJson(Lcom/squareup/moshi/JsonReader;)Ljava/util/Collection;
 
     move-result-object p1
@@ -181,7 +166,6 @@
 
 .method public fromJson(Lcom/squareup/moshi/JsonReader;)Ljava/util/Collection;
     .locals 2
-    .param p1, "reader"    # Lcom/squareup/moshi/JsonReader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -197,13 +181,11 @@
     .end annotation
 
     .line 73
-    .local p0, "this":Lcom/squareup/moshi/CollectionJsonAdapter;, "Lcom/squareup/moshi/CollectionJsonAdapter<TC;TT;>;"
     invoke-virtual {p0}, Lcom/squareup/moshi/CollectionJsonAdapter;->newCollection()Ljava/util/Collection;
 
     move-result-object v0
 
     .line 74
-    .local v0, "result":Ljava/util/Collection;, "TC;"
     invoke-virtual {p1}, Lcom/squareup/moshi/JsonReader;->beginArray()V
 
     .line 75
@@ -229,7 +211,6 @@
     :cond_0
     invoke-virtual {p1}, Lcom/squareup/moshi/JsonReader;->endArray()V
 
-    .line 79
     return-object v0
 .end method
 
@@ -250,7 +231,6 @@
     .end annotation
 
     .line 29
-    .local p0, "this":Lcom/squareup/moshi/CollectionJsonAdapter;, "Lcom/squareup/moshi/CollectionJsonAdapter<TC;TT;>;"
     check-cast p2, Ljava/util/Collection;
 
     invoke-virtual {p0, p1, p2}, Lcom/squareup/moshi/CollectionJsonAdapter;->toJson(Lcom/squareup/moshi/JsonWriter;Ljava/util/Collection;)V
@@ -259,8 +239,7 @@
 .end method
 
 .method public toJson(Lcom/squareup/moshi/JsonWriter;Ljava/util/Collection;)V
-    .locals 3
-    .param p1, "writer"    # Lcom/squareup/moshi/JsonWriter;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -276,41 +255,35 @@
     .end annotation
 
     .line 83
-    .local p0, "this":Lcom/squareup/moshi/CollectionJsonAdapter;, "Lcom/squareup/moshi/CollectionJsonAdapter<TC;TT;>;"
-    .local p2, "value":Ljava/util/Collection;, "TC;"
     invoke-virtual {p1}, Lcom/squareup/moshi/JsonWriter;->beginArray()Lcom/squareup/moshi/JsonWriter;
 
     .line 84
     invoke-interface {p2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p2
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 85
-    .local v1, "element":Ljava/lang/Object;, "TT;"
-    iget-object v2, p0, Lcom/squareup/moshi/CollectionJsonAdapter;->elementAdapter:Lcom/squareup/moshi/JsonAdapter;
+    iget-object v1, p0, Lcom/squareup/moshi/CollectionJsonAdapter;->elementAdapter:Lcom/squareup/moshi/JsonAdapter;
 
-    invoke-virtual {v2, p1, v1}, Lcom/squareup/moshi/JsonAdapter;->toJson(Lcom/squareup/moshi/JsonWriter;Ljava/lang/Object;)V
+    invoke-virtual {v1, p1, v0}, Lcom/squareup/moshi/JsonAdapter;->toJson(Lcom/squareup/moshi/JsonWriter;Ljava/lang/Object;)V
 
-    .line 86
-    .end local v1    # "element":Ljava/lang/Object;, "TT;"
     goto :goto_0
 
     .line 87
     :cond_0
     invoke-virtual {p1}, Lcom/squareup/moshi/JsonWriter;->endArray()Lcom/squareup/moshi/JsonWriter;
 
-    .line 88
     return-void
 .end method
 
@@ -318,7 +291,6 @@
     .locals 2
 
     .line 91
-    .local p0, "this":Lcom/squareup/moshi/CollectionJsonAdapter;, "Lcom/squareup/moshi/CollectionJsonAdapter<TC;TT;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -327,9 +299,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ".collection()"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

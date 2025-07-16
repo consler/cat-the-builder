@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;Ljava/io/InputStream;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;
 
     .line 293
     iput-object p1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$3;->this$0:Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;
@@ -41,27 +40,25 @@
 
 # virtual methods
 .method public onCompleted(Ljava/lang/Exception;)V
-    .locals 3
-    .param p1, "ex"    # Ljava/lang/Exception;
+    .locals 2
+
+    const/4 p1, 0x1
+
+    new-array p1, p1, [Ljava/io/Closeable;
+
+    const/4 v0, 0x0
 
     .line 296
-    const/4 v0, 0x1
-
-    new-array v0, v0, [Ljava/io/Closeable;
-
     iget-object v1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$3;->val$inputStream:Ljava/io/InputStream;
 
-    const/4 v2, 0x0
+    aput-object v1, p1, v0
 
-    aput-object v1, v0, v2
-
-    invoke-static {v0}, Lcom/koushikdutta/async/util/StreamUtility;->closeQuietly([Ljava/io/Closeable;)V
+    invoke-static {p1}, Lcom/koushikdutta/async/util/StreamUtility;->closeQuietly([Ljava/io/Closeable;)V
 
     .line 297
-    iget-object v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$3;->this$0:Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$3;->this$0:Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;
 
-    invoke-virtual {v0}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->onEnd()V
+    invoke-virtual {p1}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->onEnd()V
 
-    .line 298
     return-void
 .end method

@@ -33,7 +33,6 @@
     .locals 0
 
     .line 24
-    .local p0, "this":Lcom/bumptech/glide/request/transition/NoTransition$NoAnimationFactory;, "Lcom/bumptech/glide/request/transition/NoTransition$NoAnimationFactory<TR;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,9 +41,7 @@
 
 # virtual methods
 .method public build(Lcom/bumptech/glide/load/DataSource;Z)Lcom/bumptech/glide/request/transition/Transition;
-    .locals 1
-    .param p1, "dataSource"    # Lcom/bumptech/glide/load/DataSource;
-    .param p2, "isFirstResource"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,8 +53,7 @@
     .end annotation
 
     .line 28
-    .local p0, "this":Lcom/bumptech/glide/request/transition/NoTransition$NoAnimationFactory;, "Lcom/bumptech/glide/request/transition/NoTransition$NoAnimationFactory<TR;>;"
-    sget-object v0, Lcom/bumptech/glide/request/transition/NoTransition;->NO_ANIMATION:Lcom/bumptech/glide/request/transition/NoTransition;
+    sget-object p1, Lcom/bumptech/glide/request/transition/NoTransition;->NO_ANIMATION:Lcom/bumptech/glide/request/transition/NoTransition;
 
-    return-object v0
+    return-object p1
 .end method

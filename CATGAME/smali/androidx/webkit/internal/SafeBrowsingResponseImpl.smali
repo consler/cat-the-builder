@@ -12,7 +12,6 @@
 # direct methods
 .method public constructor <init>(Landroid/webkit/SafeBrowsingResponse;)V
     .locals 0
-    .param p1, "response"    # Landroid/webkit/SafeBrowsingResponse;
 
     .line 57
     invoke-direct {p0}, Landroidx/webkit/SafeBrowsingResponseCompat;-><init>()V
@@ -20,13 +19,11 @@
     .line 58
     iput-object p1, p0, Landroidx/webkit/internal/SafeBrowsingResponseImpl;->mFrameworksImpl:Landroid/webkit/SafeBrowsingResponse;
 
-    .line 59
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/reflect/InvocationHandler;)V
     .locals 1
-    .param p1, "invocationHandler"    # Ljava/lang/reflect/InvocationHandler;
 
     .line 52
     invoke-direct {p0}, Landroidx/webkit/SafeBrowsingResponseCompat;-><init>()V
@@ -36,13 +33,12 @@
 
     invoke-static {v0, p1}, Lorg/chromium/support_lib_boundary/util/BoundaryInterfaceReflectionUtil;->castToSuppLibClass(Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lorg/chromium/support_lib_boundary/SafeBrowsingResponseBoundaryInterface;
+    check-cast p1, Lorg/chromium/support_lib_boundary/SafeBrowsingResponseBoundaryInterface;
 
-    iput-object v0, p0, Landroidx/webkit/internal/SafeBrowsingResponseImpl;->mBoundaryInterface:Lorg/chromium/support_lib_boundary/SafeBrowsingResponseBoundaryInterface;
+    iput-object p1, p0, Landroidx/webkit/internal/SafeBrowsingResponseImpl;->mBoundaryInterface:Lorg/chromium/support_lib_boundary/SafeBrowsingResponseBoundaryInterface;
 
-    .line 55
     return-void
 .end method
 
@@ -92,9 +88,6 @@
 
     if-nez v0, :cond_0
 
-    .line 64
-    nop
-
     .line 65
     invoke-static {}, Landroidx/webkit/internal/WebViewGlueCommunicator;->getCompatConverter()Landroidx/webkit/internal/WebkitToCompatConverter;
 
@@ -125,20 +118,15 @@
 # virtual methods
 .method public backToSafety(Z)V
     .locals 2
-    .param p1, "report"    # Z
 
-    .line 114
-    nop
-
-    .line 115
     const-string v0, "SAFE_BROWSING_RESPONSE_BACK_TO_SAFETY"
 
+    .line 115
     invoke-static {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->getFeature(Ljava/lang/String;)Landroidx/webkit/internal/WebViewFeatureInternal;
 
     move-result-object v0
 
     .line 117
-    .local v0, "feature":Landroidx/webkit/internal/WebViewFeatureInternal;
     invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByFramework()Z
 
     move-result v1
@@ -148,9 +136,9 @@
     .line 118
     invoke-direct {p0}, Landroidx/webkit/internal/SafeBrowsingResponseImpl;->getFrameworksImpl()Landroid/webkit/SafeBrowsingResponse;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, p1}, Landroid/webkit/SafeBrowsingResponse;->backToSafety(Z)V
+    invoke-virtual {v0, p1}, Landroid/webkit/SafeBrowsingResponse;->backToSafety(Z)V
 
     goto :goto_0
 
@@ -158,18 +146,17 @@
     :cond_0
     invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByWebView()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 120
     invoke-direct {p0}, Landroidx/webkit/internal/SafeBrowsingResponseImpl;->getBoundaryInterface()Lorg/chromium/support_lib_boundary/SafeBrowsingResponseBoundaryInterface;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1, p1}, Lorg/chromium/support_lib_boundary/SafeBrowsingResponseBoundaryInterface;->backToSafety(Z)V
+    invoke-interface {v0, p1}, Lorg/chromium/support_lib_boundary/SafeBrowsingResponseBoundaryInterface;->backToSafety(Z)V
 
-    .line 124
     :goto_0
     return-void
 
@@ -177,27 +164,22 @@
     :cond_1
     invoke-static {}, Landroidx/webkit/internal/WebViewFeatureInternal;->getUnsupportedOperationException()Ljava/lang/UnsupportedOperationException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 .end method
 
 .method public proceed(Z)V
     .locals 2
-    .param p1, "report"    # Z
 
-    .line 99
-    nop
-
-    .line 100
     const-string v0, "SAFE_BROWSING_RESPONSE_PROCEED"
 
+    .line 100
     invoke-static {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->getFeature(Ljava/lang/String;)Landroidx/webkit/internal/WebViewFeatureInternal;
 
     move-result-object v0
 
     .line 102
-    .local v0, "feature":Landroidx/webkit/internal/WebViewFeatureInternal;
     invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByFramework()Z
 
     move-result v1
@@ -207,9 +189,9 @@
     .line 103
     invoke-direct {p0}, Landroidx/webkit/internal/SafeBrowsingResponseImpl;->getFrameworksImpl()Landroid/webkit/SafeBrowsingResponse;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, p1}, Landroid/webkit/SafeBrowsingResponse;->proceed(Z)V
+    invoke-virtual {v0, p1}, Landroid/webkit/SafeBrowsingResponse;->proceed(Z)V
 
     goto :goto_0
 
@@ -217,18 +199,17 @@
     :cond_0
     invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByWebView()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 105
     invoke-direct {p0}, Landroidx/webkit/internal/SafeBrowsingResponseImpl;->getBoundaryInterface()Lorg/chromium/support_lib_boundary/SafeBrowsingResponseBoundaryInterface;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1, p1}, Lorg/chromium/support_lib_boundary/SafeBrowsingResponseBoundaryInterface;->proceed(Z)V
+    invoke-interface {v0, p1}, Lorg/chromium/support_lib_boundary/SafeBrowsingResponseBoundaryInterface;->proceed(Z)V
 
-    .line 109
     :goto_0
     return-void
 
@@ -236,27 +217,22 @@
     :cond_1
     invoke-static {}, Landroidx/webkit/internal/WebViewFeatureInternal;->getUnsupportedOperationException()Ljava/lang/UnsupportedOperationException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 .end method
 
 .method public showInterstitial(Z)V
     .locals 2
-    .param p1, "allowReporting"    # Z
 
-    .line 84
-    nop
-
-    .line 85
     const-string v0, "SAFE_BROWSING_RESPONSE_SHOW_INTERSTITIAL"
 
+    .line 85
     invoke-static {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->getFeature(Ljava/lang/String;)Landroidx/webkit/internal/WebViewFeatureInternal;
 
     move-result-object v0
 
     .line 87
-    .local v0, "feature":Landroidx/webkit/internal/WebViewFeatureInternal;
     invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByFramework()Z
 
     move-result v1
@@ -266,9 +242,9 @@
     .line 88
     invoke-direct {p0}, Landroidx/webkit/internal/SafeBrowsingResponseImpl;->getFrameworksImpl()Landroid/webkit/SafeBrowsingResponse;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, p1}, Landroid/webkit/SafeBrowsingResponse;->showInterstitial(Z)V
+    invoke-virtual {v0, p1}, Landroid/webkit/SafeBrowsingResponse;->showInterstitial(Z)V
 
     goto :goto_0
 
@@ -276,18 +252,17 @@
     :cond_0
     invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByWebView()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 90
     invoke-direct {p0}, Landroidx/webkit/internal/SafeBrowsingResponseImpl;->getBoundaryInterface()Lorg/chromium/support_lib_boundary/SafeBrowsingResponseBoundaryInterface;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1, p1}, Lorg/chromium/support_lib_boundary/SafeBrowsingResponseBoundaryInterface;->showInterstitial(Z)V
+    invoke-interface {v0, p1}, Lorg/chromium/support_lib_boundary/SafeBrowsingResponseBoundaryInterface;->showInterstitial(Z)V
 
-    .line 94
     :goto_0
     return-void
 
@@ -295,7 +270,7 @@
     :cond_1
     invoke-static {}, Landroidx/webkit/internal/WebViewFeatureInternal;->getUnsupportedOperationException()Ljava/lang/UnsupportedOperationException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 .end method

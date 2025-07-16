@@ -13,18 +13,15 @@
     .line 39
     invoke-direct {p0}, Lorg/apache/commons/collections/collection/AbstractCollectionDecorator;-><init>()V
 
-    .line 40
     return-void
 .end method
 
 .method protected constructor <init>(Lorg/apache/commons/collections/Buffer;)V
     .locals 0
-    .param p1, "buffer"    # Lorg/apache/commons/collections/Buffer;
 
     .line 49
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/collection/AbstractCollectionDecorator;-><init>(Ljava/util/Collection;)V
 
-    .line 50
     return-void
 .end method
 

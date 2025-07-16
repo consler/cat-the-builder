@@ -35,7 +35,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/SettableImageProxyBundle;I)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/core/SettableImageProxyBundle;
 
     .line 157
     iput-object p1, p0, Landroidx/camera/core/SettableImageProxyBundle$1;->this$0:Landroidx/camera/core/SettableImageProxyBundle;
@@ -62,7 +61,6 @@
     .end annotation
 
     .line 162
-    .local p1, "completer":Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;, "Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer<Landroidx/camera/core/ImageProxy;>;"
     iget-object v0, p0, Landroidx/camera/core/SettableImageProxyBundle$1;->this$0:Landroidx/camera/core/SettableImageProxyBundle;
 
     iget-object v0, v0, Landroidx/camera/core/SettableImageProxyBundle;->mLock:Ljava/lang/Object;
@@ -85,36 +83,38 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 167
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "getImageProxy(id: "
 
-    const-string v1, "getImageProxy(id: "
+    invoke-direct {p1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v0, p0, Landroidx/camera/core/SettableImageProxyBundle$1;->val$captureId:I
 
-    iget v1, p0, Landroidx/camera/core/SettableImageProxyBundle$1;->val$captureId:I
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    const-string v1, ")"
+    const-string v0, ")"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    return-object v0
+    move-result-object p1
+
+    return-object p1
+
+    :catchall_0
+    move-exception p1
 
     .line 166
-    :catchall_0
-    move-exception v1
-
     :try_start_1
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p1
 .end method

@@ -21,9 +21,6 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
     .locals 0
-    .param p1, "hash"    # I
-    .param p2, "r"    # Ljava/lang/Object;
-    .param p3, "q"    # Ljava/lang/ref/ReferenceQueue;
 
     .line 885
     invoke-direct {p0, p2, p3}, Ljava/lang/ref/SoftReference;-><init>(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
@@ -31,7 +28,6 @@
     .line 886
     iput p1, p0, Lorg/apache/commons/collections/map/AbstractReferenceMap$SoftRef;->hash:I
 
-    .line 887
     return-void
 .end method
 

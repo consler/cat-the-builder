@@ -33,41 +33,35 @@
 .end method
 
 .method static read(Lcom/esotericsoftware/kryo/io/Input;)Ljava/time/LocalDate;
-    .locals 4
-    .param p0, "in"    # Lcom/esotericsoftware/kryo/io/Input;
+    .locals 2
 
-    .line 112
     const/4 v0, 0x1
 
+    .line 112
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/io/Input;->readInt(Z)I
 
     move-result v0
 
     .line 113
-    .local v0, "year":I
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/Input;->readByte()B
 
     move-result v1
 
     .line 114
-    .local v1, "month":I
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/io/Input;->readByte()B
 
-    move-result v2
+    move-result p0
 
     .line 115
-    .local v2, "dayOfMonth":I
-    invoke-static {v0, v1, v2}, Ljava/time/LocalDate;->of(III)Ljava/time/LocalDate;
+    invoke-static {v0, v1, p0}, Ljava/time/LocalDate;->of(III)Ljava/time/LocalDate;
 
-    move-result-object v3
+    move-result-object p0
 
-    return-object v3
+    return-object p0
 .end method
 
 .method static write(Lcom/esotericsoftware/kryo/io/Output;Ljava/time/LocalDate;)V
     .locals 2
-    .param p0, "out"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p1, "date"    # Ljava/time/LocalDate;
 
     .line 102
     invoke-virtual {p1}, Ljava/time/LocalDate;->getYear()I
@@ -88,11 +82,10 @@
     .line 104
     invoke-virtual {p1}, Ljava/time/LocalDate;->getDayOfMonth()I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(I)V
+    invoke-virtual {p0, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(I)V
 
-    .line 105
     return-void
 .end method
 
@@ -110,17 +103,14 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/time/LocalDate;
-    .locals 1
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "in"    # Lcom/esotericsoftware/kryo/io/Input;
-    .param p3, "type"    # Ljava/lang/Class;
+    .locals 0
 
     .line 108
     invoke-static {p2}, Lcom/esotericsoftware/kryo/serializers/TimeSerializers$LocalDateSerializer;->read(Lcom/esotericsoftware/kryo/io/Input;)Ljava/time/LocalDate;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
@@ -136,13 +126,9 @@
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/time/LocalDate;)V
     .locals 0
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "out"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p3, "date"    # Ljava/time/LocalDate;
 
     .line 98
     invoke-static {p2, p3}, Lcom/esotericsoftware/kryo/serializers/TimeSerializers$LocalDateSerializer;->write(Lcom/esotericsoftware/kryo/io/Output;Ljava/time/LocalDate;)V
 
-    .line 99
     return-void
 .end method

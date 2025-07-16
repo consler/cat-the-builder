@@ -47,20 +47,16 @@
 # virtual methods
 .method public ensureCapacity(I)V
     .locals 0
-    .param p1, "capacity"    # I
 
-    .line 160
     return-void
 .end method
 
 .method public setCamera(Lcom/badlogic/gdx/graphics/Camera;)V
     .locals 0
-    .param p1, "camera"    # Lcom/badlogic/gdx/graphics/Camera;
 
     .line 154
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleSorter;->camera:Lcom/badlogic/gdx/graphics/Camera;
 
-    .line 155
     return-void
 .end method
 

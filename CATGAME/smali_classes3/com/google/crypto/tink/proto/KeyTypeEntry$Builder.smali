@@ -38,13 +38,11 @@
 
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
-    .line 400
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/proto/KeyTypeEntry$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/proto/KeyTypeEntry$1;
 
     .line 392
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/KeyTypeEntry$Builder;-><init>()V
@@ -67,7 +65,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/KeyTypeEntry;->access$1200(Lcom/google/crypto/tink/proto/KeyTypeEntry;)V
 
-    .line 672
     return-object p0
 .end method
 
@@ -84,7 +81,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/KeyTypeEntry;->access$800(Lcom/google/crypto/tink/proto/KeyTypeEntry;)V
 
-    .line 578
     return-object p0
 .end method
 
@@ -101,7 +97,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/KeyTypeEntry;->access$1000(Lcom/google/crypto/tink/proto/KeyTypeEntry;)V
 
-    .line 618
     return-object p0
 .end method
 
@@ -118,7 +113,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/KeyTypeEntry;->access$200(Lcom/google/crypto/tink/proto/KeyTypeEntry;)V
 
-    .line 454
     return-object p0
 .end method
 
@@ -135,7 +129,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/KeyTypeEntry;->access$500(Lcom/google/crypto/tink/proto/KeyTypeEntry;)V
 
-    .line 523
     return-object p0
 .end method
 
@@ -261,7 +254,6 @@
 
 .method public setCatalogueName(Ljava/lang/String;)Lcom/google/crypto/tink/proto/KeyTypeEntry$Builder;
     .locals 1
-    .param p1, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -281,13 +273,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/KeyTypeEntry;->access$1100(Lcom/google/crypto/tink/proto/KeyTypeEntry;Ljava/lang/String;)V
 
-    .line 659
     return-object p0
 .end method
 
 .method public setCatalogueNameBytes(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/KeyTypeEntry$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -307,13 +297,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/KeyTypeEntry;->access$1300(Lcom/google/crypto/tink/proto/KeyTypeEntry;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    .line 687
     return-object p0
 .end method
 
 .method public setKeyManagerVersion(I)Lcom/google/crypto/tink/proto/KeyTypeEntry$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -333,13 +321,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/KeyTypeEntry;->access$700(Lcom/google/crypto/tink/proto/KeyTypeEntry;I)V
 
-    .line 565
     return-object p0
 .end method
 
 .method public setNewKeyAllowed(Z)Lcom/google/crypto/tink/proto/KeyTypeEntry$Builder;
     .locals 1
-    .param p1, "value"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -359,13 +345,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/KeyTypeEntry;->access$900(Lcom/google/crypto/tink/proto/KeyTypeEntry;Z)V
 
-    .line 605
     return-object p0
 .end method
 
 .method public setPrimitiveName(Ljava/lang/String;)Lcom/google/crypto/tink/proto/KeyTypeEntry$Builder;
     .locals 1
-    .param p1, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -385,13 +369,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/KeyTypeEntry;->access$100(Lcom/google/crypto/tink/proto/KeyTypeEntry;Ljava/lang/String;)V
 
-    .line 441
     return-object p0
 .end method
 
 .method public setPrimitiveNameBytes(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/KeyTypeEntry$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -411,13 +393,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/KeyTypeEntry;->access$300(Lcom/google/crypto/tink/proto/KeyTypeEntry;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    .line 469
     return-object p0
 .end method
 
 .method public setTypeUrl(Ljava/lang/String;)Lcom/google/crypto/tink/proto/KeyTypeEntry$Builder;
     .locals 1
-    .param p1, "value"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -437,13 +417,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/KeyTypeEntry;->access$400(Lcom/google/crypto/tink/proto/KeyTypeEntry;Ljava/lang/String;)V
 
-    .line 510
     return-object p0
 .end method
 
 .method public setTypeUrlBytes(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/KeyTypeEntry$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -463,6 +441,5 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/KeyTypeEntry;->access$600(Lcom/google/crypto/tink/proto/KeyTypeEntry;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    .line 538
     return-object p0
 .end method

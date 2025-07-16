@@ -38,7 +38,6 @@
     .locals 1
 
     .line 76
-    .local p0, "this":Lio/reactivex/subscribers/DisposableSubscriber;, "Lio/reactivex/subscribers/DisposableSubscriber<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 77
@@ -57,10 +56,8 @@
     .locals 0
 
     .line 111
-    .local p0, "this":Lio/reactivex/subscribers/DisposableSubscriber;, "Lio/reactivex/subscribers/DisposableSubscriber<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/subscribers/DisposableSubscriber;->dispose()V
 
-    .line 112
     return-void
 .end method
 
@@ -68,12 +65,10 @@
     .locals 1
 
     .line 121
-    .local p0, "this":Lio/reactivex/subscribers/DisposableSubscriber;, "Lio/reactivex/subscribers/DisposableSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/subscribers/DisposableSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->cancel(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 122
     return-void
 .end method
 
@@ -81,7 +76,6 @@
     .locals 2
 
     .line 116
-    .local p0, "this":Lio/reactivex/subscribers/DisposableSubscriber;, "Lio/reactivex/subscribers/DisposableSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/subscribers/DisposableSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -107,7 +101,6 @@
     .locals 3
 
     .line 90
-    .local p0, "this":Lio/reactivex/subscribers/DisposableSubscriber;, "Lio/reactivex/subscribers/DisposableSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/subscribers/DisposableSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -120,16 +113,13 @@
 
     invoke-interface {v0, v1, v2}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 91
     return-void
 .end method
 
 .method public final onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 81
-    .local p0, "this":Lio/reactivex/subscribers/DisposableSubscriber;, "Lio/reactivex/subscribers/DisposableSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/subscribers/DisposableSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -138,24 +128,21 @@
 
     invoke-static {v0, p1, v1}, Lio/reactivex/internal/util/EndConsumerHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lorg/reactivestreams/Subscription;Ljava/lang/Class;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 82
     invoke-virtual {p0}, Lio/reactivex/subscribers/DisposableSubscriber;->onStart()V
 
-    .line 84
     :cond_0
     return-void
 .end method
 
 .method protected final request(J)V
     .locals 1
-    .param p1, "n"    # J
 
     .line 102
-    .local p0, "this":Lio/reactivex/subscribers/DisposableSubscriber;, "Lio/reactivex/subscribers/DisposableSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/subscribers/DisposableSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -166,6 +153,5 @@
 
     invoke-interface {v0, p1, p2}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 103
     return-void
 .end method

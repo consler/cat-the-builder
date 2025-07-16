@@ -11,18 +11,16 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 12
     const/16 v0, 0x20
 
+    .line 12
     invoke-direct {p0, v0}, Lcom/badlogic/gdx/utils/DataBuffer;-><init>(I)V
 
-    .line 13
     return-void
 .end method
 
 .method public constructor <init>(I)V
     .locals 1
-    .param p1, "initialSize"    # I
 
     .line 16
     new-instance v0, Lcom/badlogic/gdx/utils/StreamUtils$OptimizedByteArrayOutputStream;
@@ -32,13 +30,12 @@
     invoke-direct {p0, v0}, Lcom/badlogic/gdx/utils/DataOutput;-><init>(Ljava/io/OutputStream;)V
 
     .line 17
-    iget-object v0, p0, Lcom/badlogic/gdx/utils/DataBuffer;->out:Ljava/io/OutputStream;
+    iget-object p1, p0, Lcom/badlogic/gdx/utils/DataBuffer;->out:Ljava/io/OutputStream;
 
-    check-cast v0, Lcom/badlogic/gdx/utils/StreamUtils$OptimizedByteArrayOutputStream;
+    check-cast p1, Lcom/badlogic/gdx/utils/StreamUtils$OptimizedByteArrayOutputStream;
 
-    iput-object v0, p0, Lcom/badlogic/gdx/utils/DataBuffer;->outStream:Lcom/badlogic/gdx/utils/StreamUtils$OptimizedByteArrayOutputStream;
+    iput-object p1, p0, Lcom/badlogic/gdx/utils/DataBuffer;->outStream:Lcom/badlogic/gdx/utils/StreamUtils$OptimizedByteArrayOutputStream;
 
-    .line 18
     return-void
 .end method
 

@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Lcom/thoughtworks/xstream/mapper/AnnotationMapper;Ljava/util/Set;Ljava/util/Set;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/thoughtworks/xstream/mapper/AnnotationMapper;
 
     .line 234
     iput-object p1, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper$1;->this$0:Lcom/thoughtworks/xstream/mapper/AnnotationMapper;
@@ -63,8 +62,7 @@
 .end method
 
 .method public add(Ljava/lang/reflect/Type;)Z
-    .locals 2
-    .param p1, "o"    # Ljava/lang/reflect/Type;
+    .locals 1
 
     .line 238
     instance-of v0, p1, Ljava/lang/Class;
@@ -74,20 +72,18 @@
     .line 239
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper$1;->val$types:Ljava/util/Set;
 
-    move-object v1, p1
+    check-cast p1, Ljava/lang/Class;
 
-    check-cast v1, Ljava/lang/Class;
+    invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    move-result p1
 
-    move-result v0
+    return p1
 
-    return v0
-
-    .line 241
     :cond_0
     if-eqz p1, :cond_2
 
+    .line 241
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper$1;->val$processedTypes:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
@@ -101,14 +97,14 @@
     :cond_1
     invoke-super {p0, p1}, Ljava/util/LinkedHashSet;->add(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
     goto :goto_1
 
     :cond_2
     :goto_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_1
-    return v0
+    return p1
 .end method

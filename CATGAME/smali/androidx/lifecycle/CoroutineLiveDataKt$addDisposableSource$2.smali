@@ -119,15 +119,9 @@
 
     invoke-direct {v0, v1, v2, p2}, Landroidx/lifecycle/CoroutineLiveDataKt$addDisposableSource$2;-><init>(Landroidx/lifecycle/MediatorLiveData;Landroidx/lifecycle/LiveData;Lkotlin/coroutines/Continuation;)V
 
-    move-object v1, p1
+    check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
-    check-cast v1, Lkotlinx/coroutines/CoroutineScope;
-
-    move-object v1, p1
-
-    check-cast v1, Lkotlinx/coroutines/CoroutineScope;
-
-    iput-object v1, v0, Landroidx/lifecycle/CoroutineLiveDataKt$addDisposableSource$2;->p$:Lkotlinx/coroutines/CoroutineScope;
+    iput-object p1, v0, Landroidx/lifecycle/CoroutineLiveDataKt$addDisposableSource$2;->p$:Lkotlinx/coroutines/CoroutineScope;
 
     return-object v0
 .end method
@@ -153,8 +147,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
-    .param p1, "$result"    # Ljava/lang/Object;
+    .locals 2
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -165,44 +158,40 @@
 
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    iget-object v0, p0, Landroidx/lifecycle/CoroutineLiveDataKt$addDisposableSource$2;->p$:Lkotlinx/coroutines/CoroutineScope;
-
     .line 106
-    .local v0, "$this$withContext":Lkotlinx/coroutines/CoroutineScope;
-    iget-object v1, p0, Landroidx/lifecycle/CoroutineLiveDataKt$addDisposableSource$2;->$this_addDisposableSource:Landroidx/lifecycle/MediatorLiveData;
+    iget-object p1, p0, Landroidx/lifecycle/CoroutineLiveDataKt$addDisposableSource$2;->$this_addDisposableSource:Landroidx/lifecycle/MediatorLiveData;
 
-    iget-object v2, p0, Landroidx/lifecycle/CoroutineLiveDataKt$addDisposableSource$2;->$source:Landroidx/lifecycle/LiveData;
+    iget-object v0, p0, Landroidx/lifecycle/CoroutineLiveDataKt$addDisposableSource$2;->$source:Landroidx/lifecycle/LiveData;
 
-    new-instance v3, Landroidx/lifecycle/CoroutineLiveDataKt$addDisposableSource$2$1;
+    new-instance v1, Landroidx/lifecycle/CoroutineLiveDataKt$addDisposableSource$2$1;
 
-    invoke-direct {v3, p0}, Landroidx/lifecycle/CoroutineLiveDataKt$addDisposableSource$2$1;-><init>(Landroidx/lifecycle/CoroutineLiveDataKt$addDisposableSource$2;)V
+    invoke-direct {v1, p0}, Landroidx/lifecycle/CoroutineLiveDataKt$addDisposableSource$2$1;-><init>(Landroidx/lifecycle/CoroutineLiveDataKt$addDisposableSource$2;)V
 
-    check-cast v3, Landroidx/lifecycle/Observer;
+    check-cast v1, Landroidx/lifecycle/Observer;
 
-    invoke-virtual {v1, v2, v3}, Landroidx/lifecycle/MediatorLiveData;->addSource(Landroidx/lifecycle/LiveData;Landroidx/lifecycle/Observer;)V
+    invoke-virtual {p1, v0, v1}, Landroidx/lifecycle/MediatorLiveData;->addSource(Landroidx/lifecycle/LiveData;Landroidx/lifecycle/Observer;)V
 
     .line 109
-    new-instance v1, Landroidx/lifecycle/EmittedSource;
+    new-instance p1, Landroidx/lifecycle/EmittedSource;
 
     .line 110
-    iget-object v2, p0, Landroidx/lifecycle/CoroutineLiveDataKt$addDisposableSource$2;->$source:Landroidx/lifecycle/LiveData;
+    iget-object v0, p0, Landroidx/lifecycle/CoroutineLiveDataKt$addDisposableSource$2;->$source:Landroidx/lifecycle/LiveData;
 
     .line 111
-    iget-object v3, p0, Landroidx/lifecycle/CoroutineLiveDataKt$addDisposableSource$2;->$this_addDisposableSource:Landroidx/lifecycle/MediatorLiveData;
+    iget-object v1, p0, Landroidx/lifecycle/CoroutineLiveDataKt$addDisposableSource$2;->$this_addDisposableSource:Landroidx/lifecycle/MediatorLiveData;
 
     .line 109
-    invoke-direct {v1, v2, v3}, Landroidx/lifecycle/EmittedSource;-><init>(Landroidx/lifecycle/LiveData;Landroidx/lifecycle/MediatorLiveData;)V
+    invoke-direct {p1, v0, v1}, Landroidx/lifecycle/EmittedSource;-><init>(Landroidx/lifecycle/LiveData;Landroidx/lifecycle/MediatorLiveData;)V
+
+    return-object p1
 
     .line 112
-    return-object v1
-
-    .end local v0    # "$this$withContext":Lkotlinx/coroutines/CoroutineScope;
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "call to \'resume\' before \'invoke\' with coroutine"
+    const-string v0, "call to \'resume\' before \'invoke\' with coroutine"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

@@ -30,13 +30,10 @@
         }
     .end annotation
 
-    .line 31
-    .local p0, "this":Lorg/objenesis/instantiator/sun/MagicInstantiator;, "Lorg/objenesis/instantiator/sun/MagicInstantiator<TT;>;"
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     const-string v0, "org.objenesis.instantiator.exotic.MagicInstantiator"
 
+    .line 31
     invoke-direct {p0, v0, p1}, Lorg/objenesis/instantiator/basic/DelegatingToExoticInstantiator;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 32
     return-void
 .end method

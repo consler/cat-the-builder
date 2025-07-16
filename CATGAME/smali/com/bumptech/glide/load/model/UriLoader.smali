@@ -59,13 +59,13 @@
     .line 29
     new-instance v0, Ljava/util/HashSet;
 
-    const-string v1, "file"
+    const-string v1, "android.resource"
 
-    const-string v2, "android.resource"
+    const-string v2, "content"
 
-    const-string v3, "content"
+    const-string v3, "file"
 
-    filled-new-array {v1, v2, v3}, [Ljava/lang/String;
+    filled-new-array {v3, v1, v2}, [Ljava/lang/String;
 
     move-result-object v1
 
@@ -83,7 +83,6 @@
 
     sput-object v0, Lcom/bumptech/glide/load/model/UriLoader;->SCHEMES:Ljava/util/Set;
 
-    .line 29
     return-void
 .end method
 
@@ -98,25 +97,18 @@
     .end annotation
 
     .line 41
-    .local p0, "this":Lcom/bumptech/glide/load/model/UriLoader;, "Lcom/bumptech/glide/load/model/UriLoader<TData;>;"
-    .local p1, "factory":Lcom/bumptech/glide/load/model/UriLoader$LocalUriFetcherFactory;, "Lcom/bumptech/glide/load/model/UriLoader$LocalUriFetcherFactory<TData;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 42
     iput-object p1, p0, Lcom/bumptech/glide/load/model/UriLoader;->factory:Lcom/bumptech/glide/load/model/UriLoader$LocalUriFetcherFactory;
 
-    .line 43
     return-void
 .end method
 
 
 # virtual methods
 .method public buildLoadData(Landroid/net/Uri;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
-    .locals 3
-    .param p1, "model"    # Landroid/net/Uri;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
-    .param p4, "options"    # Lcom/bumptech/glide/load/Options;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -130,29 +122,27 @@
     .end annotation
 
     .line 48
-    .local p0, "this":Lcom/bumptech/glide/load/model/UriLoader;, "Lcom/bumptech/glide/load/model/UriLoader<TData;>;"
-    new-instance v0, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
+    new-instance p2, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
 
-    new-instance v1, Lcom/bumptech/glide/signature/ObjectKey;
+    new-instance p3, Lcom/bumptech/glide/signature/ObjectKey;
 
-    invoke-direct {v1, p1}, Lcom/bumptech/glide/signature/ObjectKey;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p3, p1}, Lcom/bumptech/glide/signature/ObjectKey;-><init>(Ljava/lang/Object;)V
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/model/UriLoader;->factory:Lcom/bumptech/glide/load/model/UriLoader$LocalUriFetcherFactory;
+    iget-object p4, p0, Lcom/bumptech/glide/load/model/UriLoader;->factory:Lcom/bumptech/glide/load/model/UriLoader$LocalUriFetcherFactory;
 
-    invoke-interface {v2, p1}, Lcom/bumptech/glide/load/model/UriLoader$LocalUriFetcherFactory;->build(Landroid/net/Uri;)Lcom/bumptech/glide/load/data/DataFetcher;
+    invoke-interface {p4, p1}, Lcom/bumptech/glide/load/model/UriLoader$LocalUriFetcherFactory;->build(Landroid/net/Uri;)Lcom/bumptech/glide/load/data/DataFetcher;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v0, v1, v2}, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;-><init>(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/data/DataFetcher;)V
+    invoke-direct {p2, p3, p1}, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;-><init>(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/data/DataFetcher;)V
 
-    return-object v0
+    return-object p2
 .end method
 
 .method public bridge synthetic buildLoadData(Ljava/lang/Object;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
     .locals 0
 
     .line 28
-    .local p0, "this":Lcom/bumptech/glide/load/model/UriLoader;, "Lcom/bumptech/glide/load/model/UriLoader<TData;>;"
     check-cast p1, Landroid/net/Uri;
 
     invoke-virtual {p0, p1, p2, p3, p4}, Lcom/bumptech/glide/load/model/UriLoader;->buildLoadData(Landroid/net/Uri;IILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
@@ -163,29 +153,26 @@
 .end method
 
 .method public handles(Landroid/net/Uri;)Z
-    .locals 2
-    .param p1, "model"    # Landroid/net/Uri;
+    .locals 1
 
     .line 53
-    .local p0, "this":Lcom/bumptech/glide/load/model/UriLoader;, "Lcom/bumptech/glide/load/model/UriLoader<TData;>;"
     sget-object v0, Lcom/bumptech/glide/load/model/UriLoader;->SCHEMES:Ljava/util/Set;
 
     invoke-virtual {p1}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic handles(Ljava/lang/Object;)Z
     .locals 0
 
     .line 28
-    .local p0, "this":Lcom/bumptech/glide/load/model/UriLoader;, "Lcom/bumptech/glide/load/model/UriLoader<TData;>;"
     check-cast p1, Landroid/net/Uri;
 
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/load/model/UriLoader;->handles(Landroid/net/Uri;)Z

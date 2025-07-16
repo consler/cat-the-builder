@@ -12,8 +12,6 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 0
-    .param p1, "startVersion"    # I
-    .param p2, "endVersion"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -34,7 +32,6 @@
     .line 49
     iput p2, p0, Landroidx/room/migration/Migration;->endVersion:I
 
-    .line 50
     return-void
 .end method
 

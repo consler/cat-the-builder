@@ -55,19 +55,17 @@
     .locals 1
 
     .line 118
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     invoke-direct {p0, v0}, Lorg/apache/commons/collections4/map/ListOrderedMap;-><init>(Ljava/util/Map;)V
 
-    .line 119
     return-void
 .end method
 
 .method protected constructor <init>(Ljava/util/Map;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,40 +75,36 @@
     .end annotation
 
     .line 128
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/map/AbstractMapDecorator;-><init>(Ljava/util/Map;)V
 
     .line 92
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance p1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
+    iput-object p1, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
 
     .line 129
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/ListOrderedMap;->decorated()Ljava/util/Map;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1}, Ljava/util/Map;->keySet()Ljava/util/Set;
+    invoke-interface {v0}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v0, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 130
     return-void
 .end method
 
 .method static synthetic access$000(Lorg/apache/commons/collections4/map/ListOrderedMap;)Ljava/util/List;
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections4/map/ListOrderedMap;
+    .locals 0
 
     .line 84
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
+    iget-object p0, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static listOrderedMap(Ljava/util/Map;)Lorg/apache/commons/collections4/map/ListOrderedMap;
@@ -130,7 +124,6 @@
     .end annotation
 
     .line 107
-    .local p0, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/map/ListOrderedMap;
 
     invoke-direct {v0, p0}, Lorg/apache/commons/collections4/map/ListOrderedMap;-><init>(Ljava/util/Map;)V
@@ -139,8 +132,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 1
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -149,25 +141,22 @@
     .end annotation
 
     .line 155
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
     .line 156
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Map;
+    check-cast p1, Ljava/util/Map;
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->map:Ljava/util/Map;
+    iput-object p1, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->map:Ljava/util/Map;
 
-    .line 157
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -175,7 +164,6 @@
     .end annotation
 
     .line 141
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
     .line 142
@@ -183,7 +171,6 @@
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    .line 143
     return-void
 .end method
 
@@ -200,7 +187,6 @@
     .end annotation
 
     .line 507
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/ListOrderedMap;->keyList()Ljava/util/List;
 
     move-result-object v0
@@ -212,7 +198,6 @@
     .locals 1
 
     .line 286
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/ListOrderedMap;->decorated()Ljava/util/Map;
 
     move-result-object v0
@@ -224,7 +209,6 @@
 
     invoke-interface {v0}, Ljava/util/List;->clear()V
 
-    .line 288
     return-void
 .end method
 
@@ -240,7 +224,6 @@
     .end annotation
 
     .line 357
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/map/ListOrderedMap$EntrySetView;
 
     iget-object v1, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
@@ -259,7 +242,6 @@
     .end annotation
 
     .line 174
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/ListOrderedMap;->size()I
 
     move-result v0
@@ -290,7 +272,6 @@
 
 .method public get(I)Ljava/lang/Object;
     .locals 1
-    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TK;"
@@ -298,19 +279,17 @@
     .end annotation
 
     .line 399
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getValue(I)Ljava/lang/Object;
     .locals 1
-    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TV;"
@@ -318,33 +297,30 @@
     .end annotation
 
     .line 410
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lorg/apache/commons/collections4/map/ListOrderedMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/map/ListOrderedMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public indexOf(Ljava/lang/Object;)I
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 420
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->indexOf(Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public keyList()Ljava/util/List;
@@ -358,7 +334,6 @@
     .end annotation
 
     .line 315
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
 
     invoke-static {v0}, Lorg/apache/commons/collections4/list/UnmodifiableList;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
@@ -379,7 +354,6 @@
     .end annotation
 
     .line 301
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView;
 
     invoke-direct {v0, p0}, Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView;-><init>(Lorg/apache/commons/collections4/map/ListOrderedMap;)V
@@ -396,7 +370,6 @@
     .end annotation
 
     .line 188
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/ListOrderedMap;->size()I
 
     move-result v0
@@ -433,7 +406,6 @@
     .locals 1
 
     .line 84
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/ListOrderedMap;->mapIterator()Lorg/apache/commons/collections4/OrderedMapIterator;
 
     move-result-object v0
@@ -452,7 +424,6 @@
     .end annotation
 
     .line 163
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/map/ListOrderedMap$ListOrderedMapIterator;
 
     invoke-direct {v0, p0}, Lorg/apache/commons/collections4/map/ListOrderedMap$ListOrderedMapIterator;-><init>(Lorg/apache/commons/collections4/map/ListOrderedMap;)V
@@ -461,8 +432,7 @@
 .end method
 
 .method public nextKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -472,46 +442,42 @@
     .end annotation
 
     .line 203
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->indexOf(Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p1
+
+    if-ltz p1, :cond_0
 
     .line 204
-    .local v0, "index":I
-    if-ltz v0, :cond_0
-
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/ListOrderedMap;->size()I
 
-    move-result v1
+    move-result v0
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    if-ge v0, v1, :cond_0
+    if-ge p1, v0, :cond_0
 
     .line 205
-    iget-object v1, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
 
-    add-int/lit8 v2, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
-    .line 207
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public previousKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -521,50 +487,42 @@
     .end annotation
 
     .line 219
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->indexOf(Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p1
 
-    .line 220
-    .local v0, "index":I
-    if-lez v0, :cond_0
+    if-lez p1, :cond_0
 
     .line 221
-    iget-object v1, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
 
-    add-int/lit8 v2, v0, -0x1
+    add-int/lit8 p1, p1, -0x1
 
-    invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
-    .line 223
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public put(ILjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 4
-    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITK;TV;)TV;"
         }
     .end annotation
 
-    .line 457
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
-    .local p2, "key":Ljava/lang/Object;, "TK;"
-    .local p3, "value":Ljava/lang/Object;, "TV;"
     if-ltz p1, :cond_2
 
+    .line 457
     iget-object v0, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -579,7 +537,6 @@
     move-result-object v0
 
     .line 462
-    .local v0, "m":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     invoke-interface {v0, p2}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v1
@@ -592,7 +549,6 @@
     move-result-object v1
 
     .line 464
-    .local v1, "result":Ljava/lang/Object;, "TV;"
     iget-object v2, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
 
     invoke-interface {v2, p2}, Ljava/util/List;->indexOf(Ljava/lang/Object;)I
@@ -600,32 +556,26 @@
     move-result v2
 
     .line 465
-    .local v2, "pos":I
     iget-object v3, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
 
     invoke-interface {v3, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    .line 466
     if-ge v2, p1, :cond_0
 
-    .line 467
     add-int/lit8 p1, p1, -0x1
 
     .line 469
     :cond_0
-    iget-object v3, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
+    iget-object v2, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
 
-    invoke-interface {v3, p1, p2}, Ljava/util/List;->add(ILjava/lang/Object;)V
+    invoke-interface {v2, p1, p2}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
     .line 470
     invoke-interface {v0, p2, p3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 471
     return-object v1
 
     .line 473
-    .end local v1    # "result":Ljava/lang/Object;, "TV;"
-    .end local v2    # "pos":I
     :cond_1
     iget-object v1, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
 
@@ -634,49 +584,51 @@
     .line 474
     invoke-interface {v0, p2, p3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 475
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 
     .line 458
-    .end local v0    # "m":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     :cond_2
-    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
+    new-instance p2, Ljava/lang/IndexOutOfBoundsException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "Index: "
 
-    const-string v2, "Index: "
+    invoke-direct {p3, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    const-string v2, ", Size: "
+    const-string p3, ", Size: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
+    move-result-object p1
 
-    invoke-interface {v2}, Ljava/util/List;->size()I
+    iget-object p3, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
 
-    move-result v2
+    invoke-interface {p3}, Ljava/util/List;->size()I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result p3
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v0
+    move-result-object p1
+
+    invoke-direct {p2, p1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+
+    throw p2
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -684,9 +636,6 @@
     .end annotation
 
     .line 229
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/ListOrderedMap;->decorated()Ljava/util/Map;
 
     move-result-object v0
@@ -704,9 +653,9 @@
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 234
     :cond_0
@@ -716,21 +665,18 @@
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p2
 
     .line 235
-    .local v0, "result":Ljava/lang/Object;, "TV;"
-    iget-object v1, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
 
-    invoke-interface {v1, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 236
-    return-object v0
+    return-object p2
 .end method
 
 .method public putAll(ILjava/util/Map;)V
-    .locals 6
-    .param p1, "index"    # I
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -739,11 +685,9 @@
         }
     .end annotation
 
-    .line 255
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
-    .local p2, "map":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     if-ltz p1, :cond_2
 
+    .line 255
     iget-object v0, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -755,119 +699,109 @@
     .line 258
     invoke-interface {p2}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p2
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map$Entry;
+
+    .line 259
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Ljava/util/Map$Entry;
+    .line 260
+    invoke-virtual {p0, v1}, Lorg/apache/commons/collections4/map/ListOrderedMap;->containsKey(Ljava/lang/Object;)Z
 
-    .line 259
-    .local v1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+TV;>;"
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    move-result v1
+
+    .line 263
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v2
 
-    .line 260
-    .local v2, "key":Ljava/lang/Object;, "TK;"
-    invoke-virtual {p0, v2}, Lorg/apache/commons/collections4/map/ListOrderedMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result v3
+    move-result-object v3
 
-    .line 263
-    .local v3, "contains":Z
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-virtual {p0, p1, v2, v3}, Lorg/apache/commons/collections4/map/ListOrderedMap;->put(ILjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v4
-
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v5
-
-    invoke-virtual {p0, p1, v4, v5}, Lorg/apache/commons/collections4/map/ListOrderedMap;->put(ILjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 264
-    if-nez v3, :cond_0
-
-    .line 266
-    add-int/lit8 p1, p1, 0x1
+    if-nez v1, :cond_0
 
     goto :goto_1
 
     .line 269
     :cond_0
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-virtual {p0, v4}, Lorg/apache/commons/collections4/map/ListOrderedMap;->indexOf(Ljava/lang/Object;)I
+    invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/map/ListOrderedMap;->indexOf(Ljava/lang/Object;)I
 
-    move-result v4
+    move-result p1
 
-    add-int/lit8 v4, v4, 0x1
-
-    move p1, v4
-
-    .line 271
-    .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+TV;>;"
-    .end local v2    # "key":Ljava/lang/Object;, "TK;"
-    .end local v3    # "contains":Z
     :goto_1
+    add-int/lit8 p1, p1, 0x1
+
     goto :goto_0
 
-    .line 272
     :cond_1
     return-void
 
     .line 256
     :cond_2
-    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
+    new-instance p2, Ljava/lang/IndexOutOfBoundsException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Index: "
 
-    const-string v2, "Index: "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    const-string v2, ", Size: "
+    const-string v0, ", Size: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
+    move-result-object p1
 
-    invoke-interface {v2}, Ljava/util/List;->size()I
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
 
-    move-result v2
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v0
+    move-result-object p1
+
+    invoke-direct {p2, p1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+
+    throw p2
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -877,53 +811,46 @@
     .end annotation
 
     .line 241
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map$Entry;
+
+    .line 242
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Ljava/util/Map$Entry;
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    .line 242
-    .local v1, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+TV;>;"
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object v2
+    invoke-virtual {p0, v1, v0}, Lorg/apache/commons/collections4/map/ListOrderedMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v3
-
-    invoke-virtual {p0, v2, v3}, Lorg/apache/commons/collections4/map/ListOrderedMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 243
-    .end local v1    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+TV;>;"
     goto :goto_0
 
-    .line 244
     :cond_0
     return-void
 .end method
 
 .method public remove(I)Ljava/lang/Object;
-    .locals 1
-    .param p1, "index"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TV;"
@@ -931,21 +858,19 @@
     .end annotation
 
     .line 486
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/map/ListOrderedMap;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lorg/apache/commons/collections4/map/ListOrderedMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/map/ListOrderedMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
-    .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -954,28 +879,23 @@
         }
     .end annotation
 
-    .line 276
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
-    const/4 v0, 0x0
-
     .line 277
-    .local v0, "result":Ljava/lang/Object;, "TV;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/ListOrderedMap;->decorated()Ljava/util/Map;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 278
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/ListOrderedMap;->decorated()Ljava/util/Map;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -984,14 +904,17 @@
 
     invoke-interface {v1, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    .line 281
+    goto :goto_0
+
     :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
     return-object v0
 .end method
 
 .method public setValue(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 2
-    .param p1, "index"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITV;)TV;"
@@ -999,35 +922,30 @@
     .end annotation
 
     .line 433
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/ListOrderedMap;->insertOrder:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 434
-    .local v0, "key":Ljava/lang/Object;, "TK;"
-    invoke-virtual {p0, v0, p2}, Lorg/apache/commons/collections4/map/ListOrderedMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1, p2}, Lorg/apache/commons/collections4/map/ListOrderedMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 8
+    .locals 6
 
     .line 368
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/ListOrderedMap;->isEmpty()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 369
     const-string v0, "{}"
 
     return-object v0
@@ -1036,117 +954,94 @@
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "{"
 
-    .line 372
-    .local v0, "buf":Ljava/lang/StringBuilder;
-    const/16 v1, 0x7b
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    .line 373
-    const/4 v1, 0x1
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 374
-    .local v1, "first":Z
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/ListOrderedMap;->entrySet()Ljava/util/Set;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v1
+
+    const/4 v2, 0x1
 
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
     if-eqz v3, :cond_4
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Ljava/util/Map$Entry;
 
     .line 375
-    .local v3, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     invoke-interface {v3}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v4
 
     .line 376
-    .local v4, "key":Ljava/lang/Object;, "TK;"
     invoke-interface {v3}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v3
 
-    .line 377
-    .local v5, "value":Ljava/lang/Object;, "TV;"
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_1
 
-    .line 378
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     goto :goto_1
 
-    .line 380
     :cond_1
-    const-string v6, ", "
+    const-string v5, ", "
 
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 380
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 382
     :goto_1
-    const-string v6, "(this Map)"
+    const-string v5, "(this Map)"
 
     if-ne v4, p0, :cond_2
 
-    move-object v7, v6
+    move-object v4, v5
 
-    goto :goto_2
-
+    .line 382
     :cond_2
-    move-object v7, v4
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    :goto_2
-    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    const/16 v4, 0x3d
 
     .line 383
-    const/16 v7, 0x3d
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    if-ne v3, p0, :cond_3
+
+    move-object v3, v5
 
     .line 384
-    if-ne v5, p0, :cond_3
-
-    goto :goto_3
-
     :cond_3
-    move-object v6, v5
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    :goto_3
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    .line 385
-    .end local v3    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    .end local v4    # "key":Ljava/lang/Object;, "TK;"
-    .end local v5    # "value":Ljava/lang/Object;, "TV;"
     goto :goto_0
 
-    .line 386
     :cond_4
-    const/16 v2, 0x7d
+    const/16 v1, 0x7d
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    .line 386
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 387
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    return-object v2
+    return-object v0
 .end method
 
 .method public valueList()Ljava/util/List;
@@ -1160,7 +1055,6 @@
     .end annotation
 
     .line 345
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/map/ListOrderedMap$ValuesView;
 
     invoke-direct {v0, p0}, Lorg/apache/commons/collections4/map/ListOrderedMap$ValuesView;-><init>(Lorg/apache/commons/collections4/map/ListOrderedMap;)V
@@ -1179,7 +1073,6 @@
     .end annotation
 
     .line 331
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/map/ListOrderedMap$ValuesView;
 
     invoke-direct {v0, p0}, Lorg/apache/commons/collections4/map/ListOrderedMap$ValuesView;-><init>(Lorg/apache/commons/collections4/map/ListOrderedMap;)V

@@ -29,7 +29,6 @@
 .method public decodeCachedData()Z
     .locals 1
 
-    .line 59
     const/4 v0, 0x0
 
     return v0
@@ -38,30 +37,23 @@
 .method public decodeCachedResource()Z
     .locals 1
 
-    .line 54
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public isDataCacheable(Lcom/bumptech/glide/load/DataSource;)Z
-    .locals 1
-    .param p1, "dataSource"    # Lcom/bumptech/glide/load/DataSource;
+    .locals 0
 
-    .line 43
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public isResourceCacheable(ZLcom/bumptech/glide/load/DataSource;Lcom/bumptech/glide/load/EncodeStrategy;)Z
-    .locals 1
-    .param p1, "isFromAlternateCacheKey"    # Z
-    .param p2, "dataSource"    # Lcom/bumptech/glide/load/DataSource;
-    .param p3, "encodeStrategy"    # Lcom/bumptech/glide/load/EncodeStrategy;
+    .locals 0
 
-    .line 49
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

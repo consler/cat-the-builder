@@ -17,42 +17,36 @@
 
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/io/xml/AbstractXmlWriter;-><init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 30
     return-void
 .end method
 
 .method protected constructor <init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
     .locals 0
-    .param p1, "nameCoder"    # Lcom/thoughtworks/xstream/io/naming/NameCoder;
 
     .line 40
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/io/AbstractWriter;-><init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 41
     return-void
 .end method
 
 .method protected constructor <init>(Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;)V
     .locals 0
-    .param p1, "replacer"    # Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;
 
     .line 36
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/io/xml/AbstractXmlWriter;-><init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 37
     return-void
 .end method
 
 
 # virtual methods
 .method public escapeXmlName(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
+    .locals 0
 
     .line 51
     invoke-super {p0, p1}, Lcom/thoughtworks/xstream/io/AbstractWriter;->encodeNode(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

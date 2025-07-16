@@ -97,18 +97,15 @@
     .end annotation
 
     .line 32
-    .local p1, "throwableListPool":Landroidx/core/util/Pools$Pool;, "Landroidx/core/util/Pools$Pool<Ljava/util/List<Ljava/lang/Throwable;>;>;"
     sget-object v0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->DEFAULT_FACTORY:Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Factory;
 
     invoke-direct {p0, p1, v0}, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;-><init>(Landroidx/core/util/Pools$Pool;Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Factory;)V
 
-    .line 33
     return-void
 .end method
 
 .method constructor <init>(Landroidx/core/util/Pools$Pool;Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Factory;)V
     .locals 1
-    .param p2, "factory"    # Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Factory;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -122,7 +119,6 @@
     .end annotation
 
     .line 37
-    .local p1, "throwableListPool":Landroidx/core/util/Pools$Pool;, "Landroidx/core/util/Pools$Pool<Ljava/util/List<Ljava/lang/Throwable;>;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 26
@@ -145,13 +141,11 @@
     .line 39
     iput-object p2, p0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->factory:Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Factory;
 
-    .line 40
     return-void
 .end method
 
 .method private add(Ljava/lang/Class;Ljava/lang/Class;Lcom/bumptech/glide/load/model/ModelLoaderFactory;Z)V
-    .locals 3
-    .param p4, "append"    # Z
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<Model:",
@@ -169,37 +163,32 @@
     .end annotation
 
     .line 61
-    .local p1, "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<TModel;>;"
-    .local p2, "dataClass":Ljava/lang/Class;, "Ljava/lang/Class<TData;>;"
-    .local p3, "factory":Lcom/bumptech/glide/load/model/ModelLoaderFactory;, "Lcom/bumptech/glide/load/model/ModelLoaderFactory<+TModel;+TData;>;"
     new-instance v0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;
 
     invoke-direct {v0, p1, p2, p3}, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;-><init>(Ljava/lang/Class;Ljava/lang/Class;Lcom/bumptech/glide/load/model/ModelLoaderFactory;)V
 
     .line 62
-    .local v0, "entry":Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;, "Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry<TModel;TData;>;"
-    iget-object v1, p0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->entries:Ljava/util/List;
+    iget-object p1, p0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->entries:Ljava/util/List;
 
     if-eqz p4, :cond_0
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result p2
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 p2, 0x0
 
     :goto_0
-    invoke-interface {v1, v2, v0}, Ljava/util/List;->add(ILjava/lang/Object;)V
+    invoke-interface {p1, p2, v0}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
-    .line 63
     return-void
 .end method
 
 .method private build(Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;)Lcom/bumptech/glide/load/model/ModelLoader;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<Model:",
@@ -215,20 +204,19 @@
     .end annotation
 
     .line 178
-    .local p1, "entry":Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;, "Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry<**>;"
-    iget-object v0, p1, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;->factory:Lcom/bumptech/glide/load/model/ModelLoaderFactory;
+    iget-object p1, p1, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;->factory:Lcom/bumptech/glide/load/model/ModelLoaderFactory;
 
-    invoke-interface {v0, p0}, Lcom/bumptech/glide/load/model/ModelLoaderFactory;->build(Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;)Lcom/bumptech/glide/load/model/ModelLoader;
+    invoke-interface {p1, p0}, Lcom/bumptech/glide/load/model/ModelLoaderFactory;->build(Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;)Lcom/bumptech/glide/load/model/ModelLoader;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/bumptech/glide/load/model/ModelLoader;
+    check-cast p1, Lcom/bumptech/glide/load/model/ModelLoader;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method private static emptyModelLoader()Lcom/bumptech/glide/load/model/ModelLoader;
@@ -252,7 +240,7 @@
 .end method
 
 .method private getFactory(Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;)Lcom/bumptech/glide/load/model/ModelLoaderFactory;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<Model:",
@@ -268,10 +256,9 @@
     .end annotation
 
     .line 172
-    .local p1, "entry":Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;, "Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry<**>;"
-    iget-object v0, p1, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;->factory:Lcom/bumptech/glide/load/model/ModelLoaderFactory;
+    iget-object p1, p1, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;->factory:Lcom/bumptech/glide/load/model/ModelLoaderFactory;
 
-    return-object v0
+    return-object p1
 .end method
 
 
@@ -294,14 +281,11 @@
         }
     .end annotation
 
-    .local p1, "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<TModel;>;"
-    .local p2, "dataClass":Ljava/lang/Class;, "Ljava/lang/Class<TData;>;"
-    .local p3, "factory":Lcom/bumptech/glide/load/model/ModelLoaderFactory;, "Lcom/bumptech/glide/load/model/ModelLoaderFactory<+TModel;+TData;>;"
     monitor-enter p0
 
-    .line 46
     const/4 v0, 0x1
 
+    .line 46
     :try_start_0
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->add(Ljava/lang/Class;Ljava/lang/Class;Lcom/bumptech/glide/load/model/ModelLoaderFactory;Z)V
     :try_end_0
@@ -312,11 +296,6 @@
 
     return-void
 
-    .line 45
-    .end local p0    # "this":Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;
-    .end local p1    # "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<TModel;>;"
-    .end local p2    # "dataClass":Ljava/lang/Class;, "Ljava/lang/Class<TData;>;"
-    .end local p3    # "factory":Lcom/bumptech/glide/load/model/ModelLoaderFactory;, "Lcom/bumptech/glide/load/model/ModelLoaderFactory<+TModel;+TData;>;"
     :catchall_0
     move-exception p1
 
@@ -326,7 +305,7 @@
 .end method
 
 .method public declared-synchronized build(Ljava/lang/Class;Ljava/lang/Class;)Lcom/bumptech/glide/load/model/ModelLoader;
-    .locals 5
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<Model:",
@@ -343,8 +322,6 @@
         }
     .end annotation
 
-    .local p1, "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<TModel;>;"
-    .local p2, "dataClass":Ljava/lang/Class;, "Ljava/lang/Class<TData;>;"
     monitor-enter p0
 
     .line 131
@@ -353,180 +330,158 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 132
-    .local v0, "loaders":Ljava/util/List;, "Ljava/util/List<Lcom/bumptech/glide/load/model/ModelLoader<TModel;TData;>;>;"
-    const/4 v1, 0x0
-
     .line 133
-    .local v1, "ignoredAnyEntries":Z
-    iget-object v2, p0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->entries:Ljava/util/List;
+    iget-object v1, p0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->entries:Ljava/util/List;
 
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v1
 
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    const/4 v2, 0x0
 
-    move-result v3
+    move v3, v2
 
-    if-eqz v3, :cond_2
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;
-
-    .line 139
-    .local v3, "entry":Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;, "Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry<**>;"
-    iget-object v4, p0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->alreadyUsedEntries:Ljava/util/Set;
-
-    invoke-interface {v4, v3}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    .line 140
-    const/4 v1, 0x1
-
-    .line 141
-    goto :goto_0
-
-    .line 143
     :cond_0
-    invoke-virtual {v3, p1, p2}, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;->handles(Ljava/lang/Class;Ljava/lang/Class;)Z
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    const/4 v5, 0x1
 
-    .line 144
-    iget-object v4, p0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->alreadyUsedEntries:Ljava/util/Set;
+    if-eqz v4, :cond_2
 
-    invoke-interface {v4, v3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    .line 145
-    invoke-direct {p0, v3}, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->build(Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;)Lcom/bumptech/glide/load/model/ModelLoader;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
 
-    invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    check-cast v4, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;
+
+    .line 139
+    iget-object v6, p0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->alreadyUsedEntries:Ljava/util/Set;
+
+    invoke-interface {v6, v4}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    move v3, v5
+
+    goto :goto_0
+
+    .line 143
+    :cond_1
+    invoke-virtual {v4, p1, p2}, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;->handles(Ljava/lang/Class;Ljava/lang/Class;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    .line 144
+    iget-object v5, p0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->alreadyUsedEntries:Ljava/util/Set;
+
+    invoke-interface {v5, v4}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    .line 145
+    invoke-direct {p0, v4}, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->build(Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;)Lcom/bumptech/glide/load/model/ModelLoader;
+
+    move-result-object v5
+
+    invoke-interface {v0, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 146
-    iget-object v4, p0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->alreadyUsedEntries:Ljava/util/Set;
+    iget-object v5, p0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->alreadyUsedEntries:Ljava/util/Set;
 
-    invoke-interface {v4, v3}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
+    invoke-interface {v5, v4}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
-    .line 148
-    .end local v3    # "entry":Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;, "Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry<**>;"
-    :cond_1
     goto :goto_0
 
     .line 149
     :cond_2
     invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result v1
 
-    const/4 v3, 0x1
-
-    if-le v2, v3, :cond_3
+    if-le v1, v5, :cond_3
 
     .line 150
-    iget-object v2, p0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->factory:Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Factory;
+    iget-object p1, p0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->factory:Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Factory;
 
-    iget-object v3, p0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->throwableListPool:Landroidx/core/util/Pools$Pool;
+    iget-object p2, p0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->throwableListPool:Landroidx/core/util/Pools$Pool;
 
-    invoke-virtual {v2, v0, v3}, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Factory;->build(Ljava/util/List;Landroidx/core/util/Pools$Pool;)Lcom/bumptech/glide/load/model/MultiModelLoader;
+    invoke-virtual {p1, v0, p2}, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Factory;->build(Ljava/util/List;Landroidx/core/util/Pools$Pool;)Lcom/bumptech/glide/load/model/MultiModelLoader;
 
-    move-result-object v2
+    move-result-object p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-object v2
+    return-object p1
 
     .line 151
     :cond_3
     :try_start_1
     invoke-interface {v0}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result v1
 
-    if-ne v2, v3, :cond_4
+    if-ne v1, v5, :cond_4
 
     .line 152
-    const/4 v2, 0x0
-
     invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    check-cast v2, Lcom/bumptech/glide/load/model/ModelLoader;
+    check-cast p1, Lcom/bumptech/glide/load/model/ModelLoader;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     monitor-exit p0
 
-    return-object v2
+    return-object p1
 
-    .line 157
     :cond_4
-    if-eqz v1, :cond_5
+    if-eqz v3, :cond_5
 
     .line 158
     :try_start_2
     invoke-static {}, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->emptyModelLoader()Lcom/bumptech/glide/load/model/ModelLoader;
 
-    move-result-object v2
+    move-result-object p1
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     monitor-exit p0
 
-    return-object v2
+    return-object p1
 
     .line 160
     :cond_5
     :try_start_3
-    new-instance v2, Lcom/bumptech/glide/Registry$NoModelLoaderAvailableException;
+    new-instance v0, Lcom/bumptech/glide/Registry$NoModelLoaderAvailableException;
 
-    invoke-direct {v2, p1, p2}, Lcom/bumptech/glide/Registry$NoModelLoaderAvailableException;-><init>(Ljava/lang/Class;Ljava/lang/Class;)V
+    invoke-direct {v0, p1, p2}, Lcom/bumptech/glide/Registry$NoModelLoaderAvailableException;-><init>(Ljava/lang/Class;Ljava/lang/Class;)V
 
-    .end local p1    # "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<TModel;>;"
-    .end local p2    # "dataClass":Ljava/lang/Class;, "Ljava/lang/Class<TData;>;"
-    throw v2
+    throw v0
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 163
-    .end local v0    # "loaders":Ljava/util/List;, "Ljava/util/List<Lcom/bumptech/glide/load/model/ModelLoader<TModel;TData;>;>;"
-    .end local v1    # "ignoredAnyEntries":Z
-    .restart local p1    # "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<TModel;>;"
-    .restart local p2    # "dataClass":Ljava/lang/Class;, "Ljava/lang/Class<TData;>;"
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     .line 164
-    .local v0, "t":Ljava/lang/Throwable;
     :try_start_4
-    iget-object v1, p0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->alreadyUsedEntries:Ljava/util/Set;
+    iget-object p2, p0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->alreadyUsedEntries:Ljava/util/Set;
 
-    invoke-interface {v1}, Ljava/util/Set;->clear()V
+    invoke-interface {p2}, Ljava/util/Set;->clear()V
 
     .line 165
-    throw v0
+    throw p1
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    .line 130
-    .end local v0    # "t":Ljava/lang/Throwable;
-    .end local p0    # "this":Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;
-    .end local p1    # "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<TModel;>;"
-    .end local p2    # "dataClass":Ljava/lang/Class;, "Ljava/lang/Class<TData;>;"
     :catchall_1
     move-exception p1
 
@@ -550,7 +505,6 @@
         }
     .end annotation
 
-    .local p1, "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<TModel;>;"
     monitor-enter p0
 
     .line 93
@@ -560,13 +514,13 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 94
-    .local v0, "loaders":Ljava/util/List;, "Ljava/util/List<Lcom/bumptech/glide/load/model/ModelLoader<TModel;*>;>;"
     iget-object v1, p0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->entries:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
+    :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -581,25 +535,23 @@
     check-cast v2, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;
 
     .line 100
-    .local v2, "entry":Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;, "Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry<**>;"
     iget-object v3, p0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->alreadyUsedEntries:Ljava/util/Set;
 
     invoke-interface {v3, v2}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
-    .line 101
     goto :goto_0
 
     .line 103
-    :cond_0
+    :cond_1
     invoke-virtual {v2, p1}, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;->handles(Ljava/lang/Class;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_0
 
     .line 104
     iget-object v3, p0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->alreadyUsedEntries:Ljava/util/Set;
@@ -620,9 +572,6 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 108
-    .end local v2    # "entry":Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;, "Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry<**>;"
-    :cond_1
     goto :goto_0
 
     .line 109
@@ -631,27 +580,20 @@
 
     return-object v0
 
-    .line 110
-    .end local v0    # "loaders":Ljava/util/List;, "Ljava/util/List<Lcom/bumptech/glide/load/model/ModelLoader<TModel;*>;>;"
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     .line 111
-    .local v0, "t":Ljava/lang/Throwable;
     :try_start_1
-    iget-object v1, p0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->alreadyUsedEntries:Ljava/util/Set;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->alreadyUsedEntries:Ljava/util/Set;
 
-    invoke-interface {v1}, Ljava/util/Set;->clear()V
+    invoke-interface {v0}, Ljava/util/Set;->clear()V
 
     .line 112
-    throw v0
+    throw p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    .line 92
-    .end local v0    # "t":Ljava/lang/Throwable;
-    .end local p0    # "this":Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;
-    .end local p1    # "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<TModel;>;"
     :catchall_1
     move-exception p1
 
@@ -673,7 +615,6 @@
         }
     .end annotation
 
-    .local p1, "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     monitor-enter p0
 
     .line 118
@@ -683,13 +624,13 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 119
-    .local v0, "result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Class<*>;>;"
     iget-object v1, p0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->entries:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
+    :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -704,7 +645,6 @@
     check-cast v2, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;
 
     .line 120
-    .local v2, "entry":Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;, "Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry<**>;"
     iget-object v3, v2, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;->dataClass:Ljava/lang/Class;
 
     invoke-interface {v0, v3}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
@@ -720,16 +660,12 @@
     if-eqz v3, :cond_0
 
     .line 121
-    iget-object v3, v2, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;->dataClass:Ljava/lang/Class;
+    iget-object v2, v2, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;->dataClass:Ljava/lang/Class;
 
-    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 123
-    .end local v2    # "entry":Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;, "Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry<**>;"
-    .end local p0    # "this":Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;
-    :cond_0
     goto :goto_0
 
     .line 124
@@ -738,9 +674,6 @@
 
     return-object v0
 
-    .line 117
-    .end local v0    # "result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Class<*>;>;"
-    .end local p1    # "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :catchall_0
     move-exception p1
 
@@ -767,14 +700,11 @@
         }
     .end annotation
 
-    .local p1, "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<TModel;>;"
-    .local p2, "dataClass":Ljava/lang/Class;, "Ljava/lang/Class<TData;>;"
-    .local p3, "factory":Lcom/bumptech/glide/load/model/ModelLoaderFactory;, "Lcom/bumptech/glide/load/model/ModelLoaderFactory<+TModel;+TData;>;"
     monitor-enter p0
 
-    .line 53
     const/4 v0, 0x0
 
+    .line 53
     :try_start_0
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->add(Ljava/lang/Class;Ljava/lang/Class;Lcom/bumptech/glide/load/model/ModelLoaderFactory;Z)V
     :try_end_0
@@ -785,11 +715,6 @@
 
     return-void
 
-    .line 52
-    .end local p0    # "this":Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;
-    .end local p1    # "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<TModel;>;"
-    .end local p2    # "dataClass":Ljava/lang/Class;, "Ljava/lang/Class<TData;>;"
-    .end local p3    # "factory":Lcom/bumptech/glide/load/model/ModelLoaderFactory;, "Lcom/bumptech/glide/load/model/ModelLoaderFactory<+TModel;+TData;>;"
     :catchall_0
     move-exception p1
 
@@ -817,8 +742,6 @@
         }
     .end annotation
 
-    .local p1, "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<TModel;>;"
-    .local p2, "dataClass":Ljava/lang/Class;, "Ljava/lang/Class<TData;>;"
     monitor-enter p0
 
     .line 79
@@ -828,14 +751,13 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 80
-    .local v0, "factories":Ljava/util/List;, "Ljava/util/List<Lcom/bumptech/glide/load/model/ModelLoaderFactory<+TModel;+TData;>;>;"
     iget-object v1, p0, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->entries:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    .local v1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry<**>;>;"
+    :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -851,7 +773,6 @@
     check-cast v2, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;
 
     .line 82
-    .local v2, "entry":Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;, "Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry<**>;"
     invoke-virtual {v2, p1, p2}, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;->handles(Ljava/lang/Class;Ljava/lang/Class;)Z
 
     move-result v3
@@ -864,29 +785,20 @@
     .line 84
     invoke-direct {p0, v2}, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->getFactory(Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;)Lcom/bumptech/glide/load/model/ModelLoaderFactory;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 86
-    .end local v2    # "entry":Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry;, "Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry<**>;"
-    .end local p0    # "this":Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;
-    :cond_0
     goto :goto_0
 
     .line 87
-    .end local v1    # "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/bumptech/glide/load/model/MultiModelLoaderFactory$Entry<**>;>;"
     :cond_1
     monitor-exit p0
 
     return-object v0
 
-    .line 78
-    .end local v0    # "factories":Ljava/util/List;, "Ljava/util/List<Lcom/bumptech/glide/load/model/ModelLoaderFactory<+TModel;+TData;>;>;"
-    .end local p1    # "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<TModel;>;"
-    .end local p2    # "dataClass":Ljava/lang/Class;, "Ljava/lang/Class<TData;>;"
     :catchall_0
     move-exception p1
 
@@ -916,13 +828,7 @@
         }
     .end annotation
 
-    .local p1, "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<TModel;>;"
-    .local p2, "dataClass":Ljava/lang/Class;, "Ljava/lang/Class<TData;>;"
-    .local p3, "factory":Lcom/bumptech/glide/load/model/ModelLoaderFactory;, "Lcom/bumptech/glide/load/model/ModelLoaderFactory<+TModel;+TData;>;"
     monitor-enter p0
-
-    .line 70
-    nop
 
     .line 71
     :try_start_0
@@ -931,7 +837,6 @@
     move-result-object v0
 
     .line 72
-    .local v0, "removed":Ljava/util/List;, "Ljava/util/List<Lcom/bumptech/glide/load/model/ModelLoaderFactory<+TModel;+TData;>;>;"
     invoke-virtual {p0, p1, p2, p3}, Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;->append(Ljava/lang/Class;Ljava/lang/Class;Lcom/bumptech/glide/load/model/ModelLoaderFactory;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -941,12 +846,6 @@
 
     return-object v0
 
-    .line 69
-    .end local v0    # "removed":Ljava/util/List;, "Ljava/util/List<Lcom/bumptech/glide/load/model/ModelLoaderFactory<+TModel;+TData;>;>;"
-    .end local p0    # "this":Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;
-    .end local p1    # "modelClass":Ljava/lang/Class;, "Ljava/lang/Class<TModel;>;"
-    .end local p2    # "dataClass":Ljava/lang/Class;, "Ljava/lang/Class<TData;>;"
-    .end local p3    # "factory":Lcom/bumptech/glide/load/model/ModelLoaderFactory;, "Lcom/bumptech/glide/load/model/ModelLoaderFactory<+TModel;+TData;>;"
     :catchall_0
     move-exception p1
 

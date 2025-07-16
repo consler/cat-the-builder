@@ -15,9 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "taskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -29,18 +27,17 @@
         }
     .end annotation
 
-    .line 37
+    .line 39
     invoke-static {p1, p2}, Landroidx/work/impl/constraints/trackers/Trackers;->getInstance(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)Landroidx/work/impl/constraints/trackers/Trackers;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroidx/work/impl/constraints/trackers/Trackers;->getNetworkStateTracker()Landroidx/work/impl/constraints/trackers/NetworkStateTracker;
+    invoke-virtual {p1}, Landroidx/work/impl/constraints/trackers/Trackers;->getNetworkStateTracker()Landroidx/work/impl/constraints/trackers/NetworkStateTracker;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0}, Landroidx/work/impl/constraints/controllers/ConstraintController;-><init>(Landroidx/work/impl/constraints/trackers/ConstraintTracker;)V
+    invoke-direct {p0, p1}, Landroidx/work/impl/constraints/controllers/ConstraintController;-><init>(Landroidx/work/impl/constraints/trackers/ConstraintTracker;)V
 
-    .line 38
     return-void
 .end method
 
@@ -48,7 +45,6 @@
 # virtual methods
 .method hasConstraint(Landroidx/work/impl/model/WorkSpec;)Z
     .locals 2
-    .param p1, "workSpec"    # Landroidx/work/impl/model/WorkSpec;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -58,7 +54,7 @@
         }
     .end annotation
 
-    .line 42
+    .line 44
     iget-object v0, p1, Landroidx/work/impl/model/WorkSpec;->constraints:Landroidx/work/Constraints;
 
     invoke-virtual {v0}, Landroidx/work/Constraints;->getRequiredNetworkType()Landroidx/work/NetworkType;
@@ -67,22 +63,42 @@
 
     sget-object v1, Landroidx/work/NetworkType;->UNMETERED:Landroidx/work/NetworkType;
 
-    if-ne v0, v1, :cond_0
+    if-eq v0, v1, :cond_1
 
-    const/4 v0, 0x1
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0x1e
+
+    if-lt v0, v1, :cond_0
+
+    iget-object p1, p1, Landroidx/work/impl/model/WorkSpec;->constraints:Landroidx/work/Constraints;
+
+    .line 46
+    invoke-virtual {p1}, Landroidx/work/Constraints;->getRequiredNetworkType()Landroidx/work/NetworkType;
+
+    move-result-object p1
+
+    sget-object v0, Landroidx/work/NetworkType;->TEMPORARILY_UNMETERED:Landroidx/work/NetworkType;
+
+    if-ne p1, v0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
+    goto :goto_1
+
+    :cond_1
     :goto_0
-    return v0
+    const/4 p1, 0x1
+
+    :goto_1
+    return p1
 .end method
 
 .method isConstrained(Landroidx/work/impl/constraints/NetworkState;)Z
     .locals 1
-    .param p1, "state"    # Landroidx/work/impl/constraints/NetworkState;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -92,7 +108,7 @@
         }
     .end annotation
 
-    .line 47
+    .line 51
     invoke-virtual {p1}, Landroidx/work/impl/constraints/NetworkState;->isConnected()Z
 
     move-result v0
@@ -101,23 +117,23 @@
 
     invoke-virtual {p1}, Landroidx/work/impl/constraints/NetworkState;->isMetered()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     :goto_1
-    return v0
+    return p1
 .end method
 
 .method bridge synthetic isConstrained(Ljava/lang/Object;)Z
@@ -131,7 +147,7 @@
         }
     .end annotation
 
-    .line 33
+    .line 35
     check-cast p1, Landroidx/work/impl/constraints/NetworkState;
 
     invoke-virtual {p0, p1}, Landroidx/work/impl/constraints/controllers/NetworkUnmeteredController;->isConstrained(Landroidx/work/impl/constraints/NetworkState;)Z

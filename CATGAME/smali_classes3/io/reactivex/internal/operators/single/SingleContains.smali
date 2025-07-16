@@ -49,7 +49,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/SingleSource;Ljava/lang/Object;Lio/reactivex/functions/BiPredicate;)V
     .locals 0
-    .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -64,9 +63,6 @@
     .end annotation
 
     .line 29
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleContains;, "Lio/reactivex/internal/operators/single/SingleContains<TT;>;"
-    .local p1, "source":Lio/reactivex/SingleSource;, "Lio/reactivex/SingleSource<TT;>;"
-    .local p3, "comparer":Lio/reactivex/functions/BiPredicate;, "Lio/reactivex/functions/BiPredicate<Ljava/lang/Object;Ljava/lang/Object;>;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 30
@@ -78,7 +74,6 @@
     .line 32
     iput-object p3, p0, Lio/reactivex/internal/operators/single/SingleContains;->comparer:Lio/reactivex/functions/BiPredicate;
 
-    .line 33
     return-void
 .end method
 
@@ -97,8 +92,6 @@
     .end annotation
 
     .line 38
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleContains;, "Lio/reactivex/internal/operators/single/SingleContains<TT;>;"
-    .local p1, "s":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-Ljava/lang/Boolean;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleContains;->source:Lio/reactivex/SingleSource;
 
     new-instance v1, Lio/reactivex/internal/operators/single/SingleContains$Single;
@@ -107,6 +100,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/SingleSource;->subscribe(Lio/reactivex/SingleObserver;)V
 
-    .line 39
     return-void
 .end method

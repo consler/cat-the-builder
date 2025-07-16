@@ -52,18 +52,12 @@
     :try_end_0
     .catch Ljava/security/GeneralSecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 55
-    nop
-
-    .line 56
     return-void
 
-    .line 53
     :catch_0
     move-exception v0
 
     .line 54
-    .local v0, "e":Ljava/security/GeneralSecurityException;
     new-instance v1, Ljava/lang/ExceptionInInitializerError;
 
     invoke-direct {v1, v0}, Ljava/lang/ExceptionInInitializerError;-><init>(Ljava/lang/Throwable;)V
@@ -94,7 +88,6 @@
     .line 70
     invoke-static {}, Lcom/google/crypto/tink/daead/DeterministicAeadConfig;->register()V
 
-    .line 71
     return-void
 .end method
 
@@ -106,14 +99,13 @@
         }
     .end annotation
 
-    .line 81
     const/4 v0, 0x1
 
+    .line 81
     invoke-static {v0}, Lcom/google/crypto/tink/daead/AesSivKeyManager;->register(Z)V
 
     .line 82
     invoke-static {}, Lcom/google/crypto/tink/daead/DeterministicAeadWrapper;->register()V
 
-    .line 83
     return-void
 .end method

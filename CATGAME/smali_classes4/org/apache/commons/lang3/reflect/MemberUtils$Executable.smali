@@ -40,7 +40,6 @@
     .end annotation
 
     .line 302
-    .local p1, "constructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<*>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 303
@@ -53,17 +52,15 @@
     .line 304
     invoke-virtual {p1}, Ljava/lang/reflect/Constructor;->isVarArgs()Z
 
-    move-result v0
+    move-result p1
 
-    iput-boolean v0, p0, Lorg/apache/commons/lang3/reflect/MemberUtils$Executable;->isVarArgs:Z
+    iput-boolean p1, p0, Lorg/apache/commons/lang3/reflect/MemberUtils$Executable;->isVarArgs:Z
 
-    .line 305
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/reflect/Method;)V
     .locals 1
-    .param p1, "method"    # Ljava/lang/reflect/Method;
 
     .line 297
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -78,36 +75,33 @@
     .line 299
     invoke-virtual {p1}, Ljava/lang/reflect/Method;->isVarArgs()Z
 
-    move-result v0
+    move-result p1
 
-    iput-boolean v0, p0, Lorg/apache/commons/lang3/reflect/MemberUtils$Executable;->isVarArgs:Z
+    iput-boolean p1, p0, Lorg/apache/commons/lang3/reflect/MemberUtils$Executable;->isVarArgs:Z
 
-    .line 300
     return-void
 .end method
 
 .method static synthetic access$000(Ljava/lang/reflect/Constructor;)Lorg/apache/commons/lang3/reflect/MemberUtils$Executable;
-    .locals 1
-    .param p0, "x0"    # Ljava/lang/reflect/Constructor;
+    .locals 0
 
     .line 285
     invoke-static {p0}, Lorg/apache/commons/lang3/reflect/MemberUtils$Executable;->of(Ljava/lang/reflect/Constructor;)Lorg/apache/commons/lang3/reflect/MemberUtils$Executable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$100(Ljava/lang/reflect/Method;)Lorg/apache/commons/lang3/reflect/MemberUtils$Executable;
-    .locals 1
-    .param p0, "x0"    # Ljava/lang/reflect/Method;
+    .locals 0
 
     .line 285
     invoke-static {p0}, Lorg/apache/commons/lang3/reflect/MemberUtils$Executable;->of(Ljava/lang/reflect/Method;)Lorg/apache/commons/lang3/reflect/MemberUtils$Executable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private static of(Ljava/lang/reflect/Constructor;)Lorg/apache/commons/lang3/reflect/MemberUtils$Executable;
@@ -122,7 +116,6 @@
     .end annotation
 
     .line 294
-    .local p0, "constructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<*>;"
     new-instance v0, Lorg/apache/commons/lang3/reflect/MemberUtils$Executable;
 
     invoke-direct {v0, p0}, Lorg/apache/commons/lang3/reflect/MemberUtils$Executable;-><init>(Ljava/lang/reflect/Constructor;)V
@@ -132,7 +125,6 @@
 
 .method private static of(Ljava/lang/reflect/Method;)Lorg/apache/commons/lang3/reflect/MemberUtils$Executable;
     .locals 1
-    .param p0, "method"    # Ljava/lang/reflect/Method;
 
     .line 290
     new-instance v0, Lorg/apache/commons/lang3/reflect/MemberUtils$Executable;

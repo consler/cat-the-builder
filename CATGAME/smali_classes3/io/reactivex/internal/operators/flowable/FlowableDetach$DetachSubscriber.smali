@@ -55,14 +55,11 @@
     .end annotation
 
     .line 39
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 40
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    .line 41
     return-void
 .end method
 
@@ -72,11 +69,9 @@
     .locals 2
 
     .line 50
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     .line 51
-    .local v0, "s":Lorg/reactivestreams/Subscription;
     sget-object v1, Lio/reactivex/internal/util/EmptyComponent;->INSTANCE:Lio/reactivex/internal/util/EmptyComponent;
 
     iput-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber;->s:Lorg/reactivestreams/Subscription;
@@ -91,7 +86,6 @@
     .line 53
     invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
 
-    .line 54
     return-void
 .end method
 
@@ -99,11 +93,9 @@
     .locals 2
 
     .line 80
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
     .line 81
-    .local v0, "a":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     sget-object v1, Lio/reactivex/internal/util/EmptyComponent;->INSTANCE:Lio/reactivex/internal/util/EmptyComponent;
 
     iput-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber;->s:Lorg/reactivestreams/Subscription;
@@ -118,20 +110,16 @@
     .line 83
     invoke-interface {v0}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 84
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 72
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
     .line 73
-    .local v0, "a":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     sget-object v1, Lio/reactivex/internal/util/EmptyComponent;->INSTANCE:Lio/reactivex/internal/util/EmptyComponent;
 
     iput-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber;->s:Lorg/reactivestreams/Subscription;
@@ -146,7 +134,6 @@
     .line 75
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 76
     return-void
 .end method
 
@@ -159,22 +146,17 @@
     .end annotation
 
     .line 67
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
-    .line 68
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 1
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 58
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -187,25 +169,21 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     .line 61
-    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber;->actual:Lorg/reactivestreams/Subscriber;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
-    invoke-interface {v0, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
+    invoke-interface {p1, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
-    .line 63
     :cond_0
     return-void
 .end method
 
 .method public request(J)V
     .locals 1
-    .param p1, "n"    # J
 
     .line 45
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDetach$DetachSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-interface {v0, p1, p2}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 46
     return-void
 .end method

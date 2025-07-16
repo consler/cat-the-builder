@@ -23,10 +23,6 @@
 # direct methods
 .method constructor <init>(Ljava/nio/ByteBuffer;)V
     .locals 3
-    .param p1, "byteBuffer"    # Ljava/nio/ByteBuffer;
-
-    .line 1535
-    nop
 
     .line 1536
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->array()[B
@@ -58,11 +54,10 @@
     .line 1540
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->position()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$HeapNioEncoder;->initialPosition:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$HeapNioEncoder;->initialPosition:I
 
-    .line 1541
     return-void
 .end method
 
@@ -84,6 +79,5 @@
 
     invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
-    .line 1547
     return-void
 .end method

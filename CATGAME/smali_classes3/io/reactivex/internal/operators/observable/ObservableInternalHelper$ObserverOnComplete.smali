@@ -50,14 +50,11 @@
     .end annotation
 
     .line 118
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ObserverOnComplete;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ObserverOnComplete<TT;>;"
-    .local p1, "observer":Lio/reactivex/Observer;, "Lio/reactivex/Observer<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 119
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ObserverOnComplete;->observer:Lio/reactivex/Observer;
 
-    .line 120
     return-void
 .end method
 
@@ -72,11 +69,9 @@
     .end annotation
 
     .line 124
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ObserverOnComplete;, "Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ObserverOnComplete<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableInternalHelper$ObserverOnComplete;->observer:Lio/reactivex/Observer;
 
     invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 125
     return-void
 .end method

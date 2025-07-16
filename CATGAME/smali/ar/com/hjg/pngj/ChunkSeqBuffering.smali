@@ -14,45 +14,38 @@
     .line 12
     invoke-direct {p0}, Lar/com/hjg/pngj/ChunkSeqReader;-><init>()V
 
-    .line 9
     const/4 v0, 0x1
 
+    .line 9
     iput-boolean v0, p0, Lar/com/hjg/pngj/ChunkSeqBuffering;->checkCrc:Z
 
-    .line 13
     return-void
 .end method
 
 
 # virtual methods
 .method protected isIdatKind(Ljava/lang/String;)Z
-    .locals 1
-    .param p1, "id"    # Ljava/lang/String;
+    .locals 0
 
-    .line 17
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public setCheckCrc(Z)V
     .locals 0
-    .param p1, "checkCrc"    # Z
 
     .line 26
     iput-boolean p1, p0, Lar/com/hjg/pngj/ChunkSeqBuffering;->checkCrc:Z
 
-    .line 27
     return-void
 .end method
 
 .method protected shouldCheckCrc(ILjava/lang/String;)Z
-    .locals 1
-    .param p1, "len"    # I
-    .param p2, "id"    # Ljava/lang/String;
+    .locals 0
 
     .line 22
-    iget-boolean v0, p0, Lar/com/hjg/pngj/ChunkSeqBuffering;->checkCrc:Z
+    iget-boolean p1, p0, Lar/com/hjg/pngj/ChunkSeqBuffering;->checkCrc:Z
 
-    return v0
+    return p1
 .end method

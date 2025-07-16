@@ -28,12 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/ProtoSyntax;Z[I[Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "syntax"    # Lcom/google/crypto/tink/shaded/protobuf/ProtoSyntax;
-    .param p2, "messageSetWireFormat"    # Z
-    .param p3, "checkInitialized"    # [I
-    .param p4, "fields"    # [Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
-    .param p5, "defaultInstance"    # Ljava/lang/Object;
+    .locals 0
 
     .line 62
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,18 +45,17 @@
     .line 66
     iput-object p4, p0, Lcom/google/crypto/tink/shaded/protobuf/StructuralMessageInfo;->fields:[Lcom/google/crypto/tink/shaded/protobuf/FieldInfo;
 
+    const-string p1, "defaultInstance"
+
     .line 67
-    const-string v0, "defaultInstance"
+    invoke-static {p5, p1}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-static {p5, v0}, Lcom/google/crypto/tink/shaded/protobuf/Internal;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
+    iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/StructuralMessageInfo;->defaultInstance:Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
 
-    iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/StructuralMessageInfo;->defaultInstance:Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
-
-    .line 68
     return-void
 .end method
 
@@ -78,7 +72,6 @@
 
 .method public static newBuilder(I)Lcom/google/crypto/tink/shaded/protobuf/StructuralMessageInfo$Builder;
     .locals 1
-    .param p0, "numFields"    # I
 
     .line 107
     new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/StructuralMessageInfo$Builder;

@@ -84,9 +84,6 @@
     .end annotation
 
     .line 59
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver<TT;TR;>;"
-    .local p1, "actual":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TR;>;"
-    .local p2, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lio/reactivex/MaybeSource<+TR;>;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 60
@@ -95,7 +92,6 @@
     .line 61
     iput-object p2, p0, Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver;->mapper:Lio/reactivex/functions/Function;
 
-    .line 62
     return-void
 .end method
 
@@ -105,7 +101,6 @@
     .locals 1
 
     .line 66
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver<TT;TR;>;"
     invoke-static {p0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
     .line 67
@@ -113,7 +108,6 @@
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 68
     return-void
 .end method
 
@@ -121,7 +115,6 @@
     .locals 1
 
     .line 72
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver<TT;TR;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -139,35 +132,28 @@
     .locals 1
 
     .line 108
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
 
     invoke-interface {v0}, Lio/reactivex/MaybeObserver;->onComplete()V
 
-    .line 109
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 103
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
 
     invoke-interface {v0, p1}, Lio/reactivex/MaybeObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 104
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 77
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver;->d:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -180,17 +166,16 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver;->d:Lio/reactivex/disposables/Disposable;
 
     .line 80
-    iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
 
-    invoke-interface {v0, p0}, Lio/reactivex/MaybeObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/MaybeObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 82
     :cond_0
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/Object;)V
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -198,66 +183,50 @@
     .end annotation
 
     .line 89
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver;, "Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver<TT;TR;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
-    const/4 v0, 0x0
-
     :try_start_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver;->mapper:Lio/reactivex/functions/Function;
+    iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver;->mapper:Lio/reactivex/functions/Function;
 
-    invoke-interface {v1, p1}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "The mapper returned a null MaybeSource"
+    const-string v0, "The mapper returned a null MaybeSource"
 
-    invoke-static {v1, v2}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Lio/reactivex/MaybeSource;
+    check-cast p1, Lio/reactivex/MaybeSource;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-object v0, v1
-
-    .line 94
-    .local v0, "source":Lio/reactivex/MaybeSource;, "Lio/reactivex/MaybeSource<+TR;>;"
-    nop
 
     .line 96
     invoke-virtual {p0}, Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver;->isDisposed()Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     .line 97
-    new-instance v1, Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver$InnerObserver;
+    new-instance v0, Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver$InnerObserver;
 
-    invoke-direct {v1, p0}, Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver$InnerObserver;-><init>(Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver;)V
+    invoke-direct {v0, p0}, Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver$InnerObserver;-><init>(Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver;)V
 
-    invoke-interface {v0, v1}, Lio/reactivex/MaybeSource;->subscribe(Lio/reactivex/MaybeObserver;)V
+    invoke-interface {p1, v0}, Lio/reactivex/MaybeSource;->subscribe(Lio/reactivex/MaybeObserver;)V
 
-    .line 99
     :cond_0
     return-void
 
-    .line 90
-    .end local v0    # "source":Lio/reactivex/MaybeSource;, "Lio/reactivex/MaybeSource<+TR;>;"
     :catch_0
-    move-exception v1
+    move-exception p1
 
     .line 91
-    .restart local v0    # "source":Lio/reactivex/MaybeSource;, "Lio/reactivex/MaybeSource<+TR;>;"
-    .local v1, "ex":Ljava/lang/Exception;
-    invoke-static {v1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 92
-    iget-object v2, p0, Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
+    iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeFlatten$FlatMapMaybeObserver;->actual:Lio/reactivex/MaybeObserver;
 
-    invoke-interface {v2, v1}, Lio/reactivex/MaybeObserver;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v0, p1}, Lio/reactivex/MaybeObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 93
     return-void
 .end method

@@ -35,8 +35,7 @@
 
 # virtual methods
 .method public fromJson(Lcom/squareup/moshi/JsonReader;)Ljava/lang/Integer;
-    .locals 1
-    .param p1, "reader"    # Lcom/squareup/moshi/JsonReader;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -46,13 +45,13 @@
     .line 173
     invoke-virtual {p1}, Lcom/squareup/moshi/JsonReader;->nextInt()I
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic fromJson(Lcom/squareup/moshi/JsonReader;)Ljava/lang/Object;
@@ -73,8 +72,6 @@
 
 .method public toJson(Lcom/squareup/moshi/JsonWriter;Ljava/lang/Integer;)V
     .locals 2
-    .param p1, "writer"    # Lcom/squareup/moshi/JsonWriter;
-    .param p2, "value"    # Ljava/lang/Integer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -84,13 +81,12 @@
     .line 177
     invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
-    move-result v0
+    move-result p2
 
-    int-to-long v0, v0
+    int-to-long v0, p2
 
     invoke-virtual {p1, v0, v1}, Lcom/squareup/moshi/JsonWriter;->value(J)Lcom/squareup/moshi/JsonWriter;
 
-    .line 178
     return-void
 .end method
 
@@ -113,7 +109,6 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .line 181
     const-string v0, "JsonAdapter(Integer)"
 
     return-object v0

@@ -38,17 +38,15 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/media/RegisteredMediaRouteProvider;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .param p2, "routeId"    # Ljava/lang/String;
-    .param p3, "routeGroupId"    # Ljava/lang/String;
 
     .line 603
     iput-object p1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredRouteController;->this$0:Landroidx/mediarouter/media/RegisteredMediaRouteProvider;
 
     invoke-direct {p0}, Landroidx/mediarouter/media/MediaRouteProvider$RouteController;-><init>()V
 
-    .line 597
     const/4 p1, -0x1
 
+    .line 597
     iput p1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredRouteController;->mPendingSetVolume:I
 
     .line 604
@@ -57,7 +55,6 @@
     .line 605
     iput-object p3, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredRouteController;->mRouteGroupId:Ljava/lang/String;
 
-    .line 606
     return-void
 .end method
 
@@ -65,7 +62,6 @@
 # virtual methods
 .method public attachConnection(Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;)V
     .locals 2
-    .param p1, "connection"    # Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;
 
     .line 615
     iput-object p1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredRouteController;->mConnection:Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;
@@ -99,9 +95,9 @@
 
     invoke-virtual {p1, v1, v0}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->setVolume(II)V
 
-    .line 621
     const/4 v0, -0x1
 
+    .line 621
     iput v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredRouteController;->mPendingSetVolume:I
 
     .line 623
@@ -115,12 +111,11 @@
 
     invoke-virtual {p1, v1, v0}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->updateVolume(II)V
 
+    const/4 p1, 0x0
+
     .line 625
-    const/4 v0, 0x0
+    iput p1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredRouteController;->mPendingUpdateVolumeDelta:I
 
-    iput v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredRouteController;->mPendingUpdateVolumeDelta:I
-
-    .line 628
     :cond_1
     return-void
 .end method
@@ -138,17 +133,16 @@
 
     invoke-virtual {v0, v1}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->releaseRouteController(I)V
 
-    .line 634
     const/4 v0, 0x0
 
+    .line 634
     iput-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredRouteController;->mConnection:Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;
 
-    .line 635
     const/4 v0, 0x0
 
+    .line 635
     iput v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredRouteController;->mControllerId:I
 
-    .line 637
     :cond_0
     return-void
 .end method
@@ -164,8 +158,6 @@
 
 .method public onControlRequest(Landroid/content/Intent;Landroidx/mediarouter/media/MediaRouter$ControlRequestCallback;)Z
     .locals 2
-    .param p1, "intent"    # Landroid/content/Intent;
-    .param p2, "callback"    # Landroidx/mediarouter/media/MediaRouter$ControlRequestCallback;
 
     .line 686
     iget-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredRouteController;->mConnection:Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;
@@ -177,15 +169,14 @@
 
     invoke-virtual {v0, v1, p1, p2}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->sendControlRequest(ILandroid/content/Intent;Landroidx/mediarouter/media/MediaRouter$ControlRequestCallback;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
-    .line 689
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public onRelease()V
@@ -196,16 +187,15 @@
 
     invoke-virtual {v0, p0}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider;->onControllerReleased(Landroidx/mediarouter/media/RegisteredMediaRouteProvider$ControllerConnection;)V
 
-    .line 642
     return-void
 .end method
 
 .method public onSelect()V
     .locals 2
 
-    .line 646
     const/4 v0, 0x1
 
+    .line 646
     iput-boolean v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredRouteController;->mSelected:Z
 
     .line 647
@@ -218,14 +208,12 @@
 
     invoke-virtual {v0, v1}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->selectRoute(I)V
 
-    .line 650
     :cond_0
     return-void
 .end method
 
 .method public onSetVolume(I)V
     .locals 2
-    .param p1, "volume"    # I
 
     .line 667
     iget-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredRouteController;->mConnection:Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;
@@ -243,12 +231,11 @@
     :cond_0
     iput p1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredRouteController;->mPendingSetVolume:I
 
+    const/4 p1, 0x0
+
     .line 671
-    const/4 v0, 0x0
+    iput p1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredRouteController;->mPendingUpdateVolumeDelta:I
 
-    iput v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredRouteController;->mPendingUpdateVolumeDelta:I
-
-    .line 673
     :goto_0
     return-void
 .end method
@@ -256,22 +243,20 @@
 .method public onUnselect()V
     .locals 1
 
-    .line 654
     const/4 v0, 0x0
 
+    .line 654
     invoke-virtual {p0, v0}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredRouteController;->onUnselect(I)V
 
-    .line 655
     return-void
 .end method
 
 .method public onUnselect(I)V
     .locals 2
-    .param p1, "reason"    # I
 
-    .line 659
     const/4 v0, 0x0
 
+    .line 659
     iput-boolean v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredRouteController;->mSelected:Z
 
     .line 660
@@ -284,14 +269,12 @@
 
     invoke-virtual {v0, v1, p1}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->unselectRoute(II)V
 
-    .line 663
     :cond_0
     return-void
 .end method
 
 .method public onUpdateVolume(I)V
     .locals 2
-    .param p1, "delta"    # I
 
     .line 677
     iget-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredRouteController;->mConnection:Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;
@@ -313,7 +296,6 @@
 
     iput v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredRouteController;->mPendingUpdateVolumeDelta:I
 
-    .line 682
     :goto_0
     return-void
 .end method

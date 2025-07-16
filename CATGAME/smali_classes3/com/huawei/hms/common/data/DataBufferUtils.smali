@@ -23,25 +23,22 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 37
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 38
     return-void
 .end method
 
 .method private static a(Landroid/os/Bundle;Ljava/lang/String;)Z
     .locals 1
 
-    .line 67
     const/4 v0, 0x0
 
     if-nez p0, :cond_0
 
-    .line 68
     return v0
 
-    .line 70
+    .line 1
     :cond_0
     invoke-virtual {p0, p1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -71,7 +68,7 @@
         }
     .end annotation
 
-    .line 41
+    .line 1
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-interface {p0}, Lcom/huawei/hms/common/data/DataBuffer;->getCount()I
@@ -80,12 +77,12 @@
 
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 42
+    .line 2
     invoke-interface {p0}, Lcom/huawei/hms/common/data/DataBuffer;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    .line 43
+    .line 3
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -93,7 +90,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 44
+    .line 4
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
@@ -108,11 +105,10 @@
 
     goto :goto_0
 
-    .line 46
+    .line 6
     :cond_0
     invoke-interface {p0}, Lcom/huawei/hms/common/data/DataBuffer;->release()V
 
-    .line 47
     return-object v0
 .end method
 
@@ -126,15 +122,13 @@
         }
     .end annotation
 
-    .line 60
     const/4 v0, 0x0
 
     if-nez p0, :cond_0
 
-    .line 61
     return v0
 
-    .line 63
+    .line 1
     :cond_0
     invoke-interface {p0}, Lcom/huawei/hms/common/data/DataBuffer;->getCount()I
 
@@ -158,7 +152,7 @@
         }
     .end annotation
 
-    .line 52
+    .line 1
     invoke-interface {p0}, Lcom/huawei/hms/common/data/DataBuffer;->getMetadata()Landroid/os/Bundle;
 
     move-result-object p0
@@ -182,7 +176,7 @@
         }
     .end annotation
 
-    .line 56
+    .line 1
     invoke-interface {p0}, Lcom/huawei/hms/common/data/DataBuffer;->getMetadata()Landroid/os/Bundle;
 
     move-result-object p0

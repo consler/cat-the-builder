@@ -20,10 +20,6 @@
 # virtual methods
 .method public registerComponents(Landroid/content/Context;Lcom/bumptech/glide/Glide;Lcom/bumptech/glide/Registry;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "glide"    # Lcom/bumptech/glide/Glide;
-    .param p3, "registry"    # Lcom/bumptech/glide/Registry;
 
-    .line 25
     return-void
 .end method

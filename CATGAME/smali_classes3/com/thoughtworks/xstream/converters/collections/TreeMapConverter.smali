@@ -74,7 +74,6 @@
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/mapper/Mapper;)V
     .locals 1
-    .param p1, "mapper"    # Lcom/thoughtworks/xstream/mapper/Mapper;
 
     .line 53
     sget-object v0, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->class$java$util$TreeMap:Ljava/lang/Class;
@@ -92,45 +91,40 @@
     :cond_0
     invoke-direct {p0, p1, v0}, Lcom/thoughtworks/xstream/converters/collections/MapConverter;-><init>(Lcom/thoughtworks/xstream/mapper/Mapper;Ljava/lang/Class;)V
 
-    .line 54
     return-void
 .end method
 
 .method static synthetic class$(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 2
-    .param p0, "x0"    # Ljava/lang/String;
+    .locals 1
 
     .line 50
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/lang/NoClassDefFoundError;
+    new-instance v0, Ljava/lang/NoClassDefFoundError;
 
-    invoke-direct {v1}, Ljava/lang/NoClassDefFoundError;-><init>()V
+    invoke-direct {v0}, Ljava/lang/NoClassDefFoundError;-><init>()V
 
-    invoke-virtual {v1, v0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, p0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 .end method
 
 
 # virtual methods
 .method public marshal(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
-    .locals 2
-    .param p1, "source"    # Ljava/lang/Object;
-    .param p2, "writer"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
-    .param p3, "context"    # Lcom/thoughtworks/xstream/converters/MarshallingContext;
+    .locals 1
 
     .line 57
     move-object v0, p1
@@ -138,32 +132,26 @@
     check-cast v0, Ljava/util/SortedMap;
 
     .line 58
-    .local v0, "sortedMap":Ljava/util/SortedMap;
     invoke-interface {v0}, Ljava/util/SortedMap;->comparator()Ljava/util/Comparator;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {p0, v1, p2, p3}, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->marshalComparator(Ljava/util/Comparator;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
+    invoke-virtual {p0, v0, p2, p3}, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->marshalComparator(Ljava/util/Comparator;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
 
     .line 59
     invoke-super {p0, p1, p2, p3}, Lcom/thoughtworks/xstream/converters/collections/MapConverter;->marshal(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
 
-    .line 60
     return-void
 .end method
 
 .method protected marshalComparator(Ljava/util/Comparator;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
     .locals 3
-    .param p1, "comparator"    # Ljava/util/Comparator;
-    .param p2, "writer"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
-    .param p3, "context"    # Lcom/thoughtworks/xstream/converters/MarshallingContext;
 
-    .line 64
     if-eqz p1, :cond_0
 
-    .line 65
     const-string v0, "comparator"
 
+    .line 65
     invoke-interface {p2, v0}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->startNode(Ljava/lang/String;)V
 
     .line 66
@@ -199,17 +187,12 @@
     .line 69
     invoke-interface {p2}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->endNode()V
 
-    .line 71
     :cond_0
     return-void
 .end method
 
 .method protected populateTreeMap(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;Ljava/util/TreeMap;Ljava/util/Comparator;)V
-    .locals 5
-    .param p1, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .param p2, "context"    # Lcom/thoughtworks/xstream/converters/UnmarshallingContext;
-    .param p3, "result"    # Ljava/util/TreeMap;
-    .param p4, "comparator"    # Ljava/util/Comparator;
+    .locals 4
 
     .line 106
     sget-object v0, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->NULL_MARKER:Ljava/util/Comparator;
@@ -223,133 +206,111 @@
     :cond_0
     const/4 v0, 0x0
 
-    .line 107
-    .local v0, "inFirstElement":Z
     :goto_0
+    const/4 v1, 0x0
+
     if-eqz v0, :cond_1
 
-    .line 108
-    const/4 p4, 0x0
+    move-object p4, v1
 
     .line 110
     :cond_1
-    new-instance v1, Lcom/thoughtworks/xstream/core/util/PresortedMap;
+    new-instance v2, Lcom/thoughtworks/xstream/core/util/PresortedMap;
 
     if-eqz p4, :cond_2
 
     invoke-static {}, Lcom/thoughtworks/xstream/core/JVM;->hasOptimizedTreeMapPutAll()Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_2
+    if-eqz v3, :cond_2
 
-    move-object v2, p4
-
-    goto :goto_1
+    move-object v1, p4
 
     :cond_2
-    const/4 v2, 0x0
+    invoke-direct {v2, v1}, Lcom/thoughtworks/xstream/core/util/PresortedMap;-><init>(Ljava/util/Comparator;)V
 
-    :goto_1
-    invoke-direct {v1, v2}, Lcom/thoughtworks/xstream/core/util/PresortedMap;-><init>(Ljava/util/Comparator;)V
-
-    .line 111
-    .local v1, "sortedMap":Ljava/util/SortedMap;
     if-eqz v0, :cond_3
 
     .line 113
-    invoke-virtual {p0, p1, p2, p3, v1}, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->putCurrentEntryIntoMap(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;Ljava/util/Map;Ljava/util/Map;)V
+    invoke-virtual {p0, p1, p2, p3, v2}, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->putCurrentEntryIntoMap(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;Ljava/util/Map;Ljava/util/Map;)V
 
     .line 114
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->moveUp()V
 
     .line 116
     :cond_3
-    invoke-virtual {p0, p1, p2, p3, v1}, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->populateMap(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;Ljava/util/Map;Ljava/util/Map;)V
+    invoke-virtual {p0, p1, p2, p3, v2}, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->populateMap(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;Ljava/util/Map;Ljava/util/Map;)V
 
     .line 118
     :try_start_0
     invoke-static {}, Lcom/thoughtworks/xstream/core/JVM;->hasOptimizedTreeMapPutAll()Z
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_5
+    if-eqz p1, :cond_5
 
-    .line 119
     if-eqz p4, :cond_4
 
-    sget-object v2, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->comparatorField:Ljava/lang/reflect/Field;
+    .line 119
+    sget-object p1, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->comparatorField:Ljava/lang/reflect/Field;
 
-    if-eqz v2, :cond_4
+    if-eqz p1, :cond_4
 
     .line 120
-    sget-object v2, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->comparatorField:Ljava/lang/reflect/Field;
-
-    invoke-virtual {v2, p3, p4}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-virtual {p1, p3, p4}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
 
     .line 122
     :cond_4
-    invoke-virtual {p3, v1}, Ljava/util/TreeMap;->putAll(Ljava/util/Map;)V
+    invoke-virtual {p3, v2}, Ljava/util/TreeMap;->putAll(Ljava/util/Map;)V
 
-    goto :goto_2
+    goto :goto_1
 
     .line 123
     :cond_5
-    sget-object v2, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->comparatorField:Ljava/lang/reflect/Field;
+    sget-object p1, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->comparatorField:Ljava/lang/reflect/Field;
 
-    if-eqz v2, :cond_6
+    if-eqz p1, :cond_6
 
     .line 124
-    sget-object v2, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->comparatorField:Ljava/lang/reflect/Field;
+    invoke-interface {v2}, Ljava/util/SortedMap;->comparator()Ljava/util/Comparator;
 
-    invoke-interface {v1}, Ljava/util/SortedMap;->comparator()Ljava/util/Comparator;
+    move-result-object p2
 
-    move-result-object v3
-
-    invoke-virtual {v2, p3, v3}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-virtual {p1, p3, p2}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
 
     .line 125
-    invoke-virtual {p3, v1}, Ljava/util/TreeMap;->putAll(Ljava/util/Map;)V
+    invoke-virtual {p3, v2}, Ljava/util/TreeMap;->putAll(Ljava/util/Map;)V
 
     .line 126
-    sget-object v2, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->comparatorField:Ljava/lang/reflect/Field;
+    invoke-virtual {p1, p3, p4}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-virtual {v2, p3, p4}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    goto :goto_2
+    goto :goto_1
 
     .line 128
     :cond_6
-    invoke-virtual {p3, v1}, Ljava/util/TreeMap;->putAll(Ljava/util/Map;)V
+    invoke-virtual {p3, v2}, Ljava/util/TreeMap;->putAll(Ljava/util/Map;)V
     :try_end_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 132
-    :goto_2
-    nop
-
-    .line 133
+    :goto_1
     return-void
 
-    .line 130
     :catch_0
-    move-exception v2
+    move-exception p1
 
     .line 131
-    .local v2, "e":Ljava/lang/IllegalAccessException;
-    new-instance v3, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
+    new-instance p2, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
 
-    const-string v4, "Cannot set comparator of TreeMap"
+    const-string p3, "Cannot set comparator of TreeMap"
 
-    invoke-direct {v3, v4, v2}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p2, p3, p1}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v3
+    throw p2
 .end method
 
 .method public unmarshal(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;)Ljava/lang/Object;
-    .locals 3
-    .param p1, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .param p2, "context"    # Lcom/thoughtworks/xstream/converters/UnmarshallingContext;
+    .locals 2
 
     .line 74
     sget-object v0, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->comparatorField:Ljava/lang/reflect/Field;
@@ -366,59 +327,52 @@
     const/4 v0, 0x0
 
     .line 75
-    .local v0, "result":Ljava/util/TreeMap;
     :goto_0
     invoke-virtual {p0, p1, p2, v0}, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->unmarshalComparator(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;Ljava/util/TreeMap;)Ljava/util/Comparator;
 
     move-result-object v1
 
-    .line 76
-    .local v1, "comparator":Ljava/util/Comparator;
     if-nez v0, :cond_3
 
-    .line 77
     if-eqz v1, :cond_2
 
-    sget-object v2, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->NULL_MARKER:Ljava/util/Comparator;
+    .line 77
+    sget-object v0, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->NULL_MARKER:Ljava/util/Comparator;
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v0, :cond_1
 
     goto :goto_1
 
     :cond_1
-    new-instance v2, Ljava/util/TreeMap;
+    new-instance v0, Ljava/util/TreeMap;
 
-    invoke-direct {v2, v1}, Ljava/util/TreeMap;-><init>(Ljava/util/Comparator;)V
+    invoke-direct {v0, v1}, Ljava/util/TreeMap;-><init>(Ljava/util/Comparator;)V
 
     goto :goto_2
 
     :cond_2
     :goto_1
-    new-instance v2, Ljava/util/TreeMap;
+    new-instance v0, Ljava/util/TreeMap;
 
-    invoke-direct {v2}, Ljava/util/TreeMap;-><init>()V
-
-    :goto_2
-    move-object v0, v2
+    invoke-direct {v0}, Ljava/util/TreeMap;-><init>()V
 
     .line 79
     :cond_3
+    :goto_2
     invoke-virtual {p0, p1, p2, v0, v1}, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->populateTreeMap(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;Ljava/util/TreeMap;Ljava/util/Comparator;)V
 
-    .line 80
     return-object v0
 .end method
 
 .method protected unmarshalComparator(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;Ljava/util/TreeMap;)Ljava/util/Comparator;
-    .locals 2
-    .param p1, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .param p2, "context"    # Lcom/thoughtworks/xstream/converters/UnmarshallingContext;
-    .param p3, "result"    # Ljava/util/TreeMap;
+    .locals 3
 
     .line 86
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->hasMoreChildren()Z
 
     move-result v0
+
+    const/4 v1, 0x0
 
     if-eqz v0, :cond_2
 
@@ -430,9 +384,9 @@
 
     move-result-object v0
 
-    const-string v1, "comparator"
+    const-string v2, "comparator"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -448,56 +402,43 @@
     move-result-object v0
 
     .line 90
-    .local v0, "comparatorClass":Ljava/lang/Class;
     invoke-interface {p2, p3, v0}, Lcom/thoughtworks/xstream/converters/UnmarshallingContext;->convertAnother(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p2
 
-    move-object v0, v1
+    check-cast p2, Ljava/util/Comparator;
 
-    check-cast v0, Ljava/util/Comparator;
+    move-object v1, p2
 
-    .line 91
-    .local v0, "comparator":Ljava/util/Comparator;
     goto :goto_0
 
-    .end local v0    # "comparator":Ljava/util/Comparator;
+    .line 91
     :cond_0
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->getNodeName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p2
 
-    const-string v1, "no-comparator"
+    const-string p3, "no-comparator"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p2
 
-    if-eqz v0, :cond_1
-
-    .line 92
-    const/4 v0, 0x0
+    if-eqz p2, :cond_1
 
     .line 97
-    .restart local v0    # "comparator":Ljava/util/Comparator;
     :goto_0
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->moveUp()V
 
     goto :goto_1
 
     .line 95
-    .end local v0    # "comparator":Ljava/util/Comparator;
     :cond_1
-    sget-object v0, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->NULL_MARKER:Ljava/util/Comparator;
+    sget-object p1, Lcom/thoughtworks/xstream/converters/collections/TreeMapConverter;->NULL_MARKER:Ljava/util/Comparator;
 
-    return-object v0
+    return-object p1
 
-    .line 99
     :cond_2
-    const/4 v0, 0x0
-
-    .line 101
-    .restart local v0    # "comparator":Ljava/util/Comparator;
     :goto_1
-    return-object v0
+    return-object v1
 .end method

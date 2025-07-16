@@ -27,16 +27,13 @@
 # direct methods
 .method public constructor <init>(ZILcom/badlogic/gdx/graphics/VertexAttributes;)V
     .locals 2
-    .param p1, "isStatic"    # Z
-    .param p2, "numVertices"    # I
-    .param p3, "instanceAttributes"    # Lcom/badlogic/gdx/graphics/VertexAttributes;
 
     .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 44
     const/4 v0, 0x0
 
+    .line 44
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->isDirty:Z
 
     .line 45
@@ -63,50 +60,44 @@
 
     invoke-static {v1}, Lcom/badlogic/gdx/utils/BufferUtils;->newUnsafeByteBuffer(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v1
+    move-result-object p2
 
     .line 58
-    .local v1, "data":Ljava/nio/ByteBuffer;
-    invoke-virtual {v1, v0}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {p2, v0}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
-    .line 59
     const/4 v0, 0x1
 
-    invoke-virtual {p0, v1, v0, p3}, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->setBuffer(Ljava/nio/Buffer;ZLcom/badlogic/gdx/graphics/VertexAttributes;)V
+    .line 59
+    invoke-virtual {p0, p2, v0, p3}, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->setBuffer(Ljava/nio/Buffer;ZLcom/badlogic/gdx/graphics/VertexAttributes;)V
 
-    .line 60
     if-eqz p1, :cond_0
 
-    const v0, 0x88e4
+    const p1, 0x88e4
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x88e8
+    const p1, 0x88e8
 
+    .line 60
     :goto_0
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->setUsage(I)V
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->setUsage(I)V
 
-    .line 61
     return-void
 
     .line 53
-    .end local v1    # "data":Ljava/nio/ByteBuffer;
     :cond_1
-    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v1, "InstanceBufferObject requires a device running with GLES 3.0 compatibilty"
+    const-string p2, "InstanceBufferObject requires a device running with GLES 3.0 compatibilty"
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public varargs constructor <init>(ZI[Lcom/badlogic/gdx/graphics/VertexAttribute;)V
     .locals 1
-    .param p1, "isStatic"    # Z
-    .param p2, "numVertices"    # I
-    .param p3, "attributes"    # [Lcom/badlogic/gdx/graphics/VertexAttribute;
 
     .line 48
     new-instance v0, Lcom/badlogic/gdx/graphics/VertexAttributes;
@@ -115,7 +106,6 @@
 
     invoke-direct {p0, p1, p2, v0}, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;-><init>(ZILcom/badlogic/gdx/graphics/VertexAttributes;)V
 
-    .line 49
     return-void
 .end method
 
@@ -159,12 +149,11 @@
 
     invoke-interface {v0, v4, v1, v2, v3}, Lcom/badlogic/gdx/graphics/GL20;->glBufferData(IILjava/nio/Buffer;I)V
 
-    .line 114
     const/4 v0, 0x0
 
+    .line 114
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->isDirty:Z
 
-    .line 116
     :cond_0
     return-void
 .end method
@@ -173,247 +162,195 @@
 # virtual methods
 .method public bind(Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;)V
     .locals 1
-    .param p1, "shader"    # Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
 
-    .line 184
     const/4 v0, 0x0
 
+    .line 184
     invoke-virtual {p0, p1, v0}, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->bind(Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;[I)V
 
-    .line 185
     return-void
 .end method
 
 .method public bind(Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;[I)V
-    .locals 16
-    .param p1, "shader"    # Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
-    .param p2, "locations"    # [I
+    .locals 13
 
     .line 189
-    move-object/from16 v0, p0
-
-    move-object/from16 v8, p1
-
-    sget-object v9, Lcom/badlogic/gdx/Gdx;->gl20:Lcom/badlogic/gdx/graphics/GL20;
+    sget-object v0, Lcom/badlogic/gdx/Gdx;->gl20:Lcom/badlogic/gdx/graphics/GL20;
 
     .line 191
-    .local v9, "gl":Lcom/badlogic/gdx/graphics/GL20;
-    iget v1, v0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->bufferHandle:I
+    iget v1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->bufferHandle:I
 
     const v2, 0x8892
 
-    invoke-interface {v9, v2, v1}, Lcom/badlogic/gdx/graphics/GL20;->glBindBuffer(II)V
+    invoke-interface {v0, v2, v1}, Lcom/badlogic/gdx/graphics/GL20;->glBindBuffer(II)V
 
     .line 192
-    iget-boolean v1, v0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->isDirty:Z
+    iget-boolean v1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->isDirty:Z
+
+    const/4 v3, 0x0
 
     if-eqz v1, :cond_0
 
     .line 193
-    iget-object v1, v0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    iget-object v3, v0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->buffer:Ljava/nio/FloatBuffer;
+    iget-object v4, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->buffer:Ljava/nio/FloatBuffer;
 
-    invoke-virtual {v3}, Ljava/nio/FloatBuffer;->limit()I
+    invoke-virtual {v4}, Ljava/nio/FloatBuffer;->limit()I
 
-    move-result v3
+    move-result v4
 
-    mul-int/lit8 v3, v3, 0x4
+    mul-int/lit8 v4, v4, 0x4
 
-    invoke-virtual {v1, v3}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {v1, v4}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
     .line 194
-    iget-object v1, v0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->limit()I
 
     move-result v1
 
-    iget-object v3, v0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object v4, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    iget v4, v0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->usage:I
+    iget v5, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->usage:I
 
-    invoke-interface {v9, v2, v1, v3, v4}, Lcom/badlogic/gdx/graphics/GL20;->glBufferData(IILjava/nio/Buffer;I)V
+    invoke-interface {v0, v2, v1, v4, v5}, Lcom/badlogic/gdx/graphics/GL20;->glBufferData(IILjava/nio/Buffer;I)V
 
     .line 195
-    const/4 v1, 0x0
-
-    iput-boolean v1, v0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->isDirty:Z
+    iput-boolean v3, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->isDirty:Z
 
     .line 198
     :cond_0
-    iget-object v1, v0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->attributes:Lcom/badlogic/gdx/graphics/VertexAttributes;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->attributes:Lcom/badlogic/gdx/graphics/VertexAttributes;
 
-    invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/VertexAttributes;->size()I
+    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/VertexAttributes;->size()I
 
-    move-result v10
+    move-result v0
 
-    .line 199
-    .local v10, "numAttributes":I
-    const/4 v11, 0x1
+    const/4 v1, 0x1
 
-    if-nez p2, :cond_3
+    if-nez p2, :cond_2
 
-    .line 200
-    const/4 v1, 0x0
-
-    move v12, v1
-
-    .local v12, "i":I
     :goto_0
-    if-ge v12, v10, :cond_2
+    if-ge v3, v0, :cond_4
 
     .line 201
-    iget-object v1, v0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->attributes:Lcom/badlogic/gdx/graphics/VertexAttributes;
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->attributes:Lcom/badlogic/gdx/graphics/VertexAttributes;
 
-    invoke-virtual {v1, v12}, Lcom/badlogic/gdx/graphics/VertexAttributes;->get(I)Lcom/badlogic/gdx/graphics/VertexAttribute;
+    invoke-virtual {p2, v3}, Lcom/badlogic/gdx/graphics/VertexAttributes;->get(I)Lcom/badlogic/gdx/graphics/VertexAttribute;
 
-    move-result-object v13
+    move-result-object p2
 
     .line 202
-    .local v13, "attribute":Lcom/badlogic/gdx/graphics/VertexAttribute;
-    iget-object v1, v13, Lcom/badlogic/gdx/graphics/VertexAttribute;->alias:Ljava/lang/String;
+    iget-object v2, p2, Lcom/badlogic/gdx/graphics/VertexAttribute;->alias:Ljava/lang/String;
 
-    invoke-virtual {v8, v1}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;->getAttributeLocation(Ljava/lang/String;)I
+    invoke-virtual {p1, v2}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;->getAttributeLocation(Ljava/lang/String;)I
 
-    move-result v14
+    move-result v2
 
-    .line 203
-    .local v14, "location":I
-    if-gez v14, :cond_1
+    if-gez v2, :cond_1
 
-    .line 204
     goto :goto_1
 
     .line 205
     :cond_1
-    iget v15, v13, Lcom/badlogic/gdx/graphics/VertexAttribute;->unit:I
+    iget v4, p2, Lcom/badlogic/gdx/graphics/VertexAttribute;->unit:I
+
+    add-int/2addr v2, v4
 
     .line 206
-    .local v15, "unitOffset":I
-    add-int v1, v14, v15
-
-    invoke-virtual {v8, v1}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;->enableVertexAttribute(I)V
+    invoke-virtual {p1, v2}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;->enableVertexAttribute(I)V
 
     .line 208
-    add-int v2, v14, v15
+    iget v7, p2, Lcom/badlogic/gdx/graphics/VertexAttribute;->numComponents:I
 
-    iget v3, v13, Lcom/badlogic/gdx/graphics/VertexAttribute;->numComponents:I
+    iget v8, p2, Lcom/badlogic/gdx/graphics/VertexAttribute;->type:I
 
-    iget v4, v13, Lcom/badlogic/gdx/graphics/VertexAttribute;->type:I
+    iget-boolean v9, p2, Lcom/badlogic/gdx/graphics/VertexAttribute;->normalized:Z
 
-    iget-boolean v5, v13, Lcom/badlogic/gdx/graphics/VertexAttribute;->normalized:Z
+    iget-object v4, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->attributes:Lcom/badlogic/gdx/graphics/VertexAttributes;
 
-    iget-object v1, v0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->attributes:Lcom/badlogic/gdx/graphics/VertexAttributes;
+    iget v10, v4, Lcom/badlogic/gdx/graphics/VertexAttributes;->vertexSize:I
 
-    iget v6, v1, Lcom/badlogic/gdx/graphics/VertexAttributes;->vertexSize:I
+    iget v11, p2, Lcom/badlogic/gdx/graphics/VertexAttribute;->offset:I
 
-    iget v7, v13, Lcom/badlogic/gdx/graphics/VertexAttribute;->offset:I
+    move-object v5, p1
 
-    move-object/from16 v1, p1
+    move v6, v2
 
-    invoke-virtual/range {v1 .. v7}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;->setVertexAttribute(IIIZII)V
+    invoke-virtual/range {v5 .. v11}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;->setVertexAttribute(IIIZII)V
 
     .line 209
-    sget-object v1, Lcom/badlogic/gdx/Gdx;->gl30:Lcom/badlogic/gdx/graphics/GL30;
+    sget-object p2, Lcom/badlogic/gdx/Gdx;->gl30:Lcom/badlogic/gdx/graphics/GL30;
 
-    add-int v2, v14, v15
+    invoke-interface {p2, v2, v1}, Lcom/badlogic/gdx/graphics/GL30;->glVertexAttribDivisor(II)V
 
-    invoke-interface {v1, v2, v11}, Lcom/badlogic/gdx/graphics/GL30;->glVertexAttribDivisor(II)V
-
-    .line 200
-    .end local v13    # "attribute":Lcom/badlogic/gdx/graphics/VertexAttribute;
-    .end local v14    # "location":I
-    .end local v15    # "unitOffset":I
     :goto_1
-    add-int/lit8 v12, v12, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .end local v12    # "i":I
     :cond_2
-    goto :goto_4
-
-    .line 213
-    :cond_3
-    const/4 v1, 0x0
-
-    move v12, v1
-
-    .restart local v12    # "i":I
     :goto_2
-    if-ge v12, v10, :cond_5
+    if-ge v3, v0, :cond_4
 
     .line 214
-    iget-object v1, v0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->attributes:Lcom/badlogic/gdx/graphics/VertexAttributes;
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->attributes:Lcom/badlogic/gdx/graphics/VertexAttributes;
 
-    invoke-virtual {v1, v12}, Lcom/badlogic/gdx/graphics/VertexAttributes;->get(I)Lcom/badlogic/gdx/graphics/VertexAttribute;
+    invoke-virtual {v2, v3}, Lcom/badlogic/gdx/graphics/VertexAttributes;->get(I)Lcom/badlogic/gdx/graphics/VertexAttribute;
 
-    move-result-object v13
+    move-result-object v2
 
     .line 215
-    .restart local v13    # "attribute":Lcom/badlogic/gdx/graphics/VertexAttribute;
-    aget v14, p2, v12
+    aget v4, p2, v3
 
-    .line 216
-    .restart local v14    # "location":I
-    if-gez v14, :cond_4
+    if-gez v4, :cond_3
 
-    .line 217
     goto :goto_3
 
     .line 218
-    :cond_4
-    iget v15, v13, Lcom/badlogic/gdx/graphics/VertexAttribute;->unit:I
+    :cond_3
+    iget v5, v2, Lcom/badlogic/gdx/graphics/VertexAttribute;->unit:I
+
+    add-int/2addr v4, v5
 
     .line 219
-    .restart local v15    # "unitOffset":I
-    add-int v1, v14, v15
-
-    invoke-virtual {v8, v1}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;->enableVertexAttribute(I)V
+    invoke-virtual {p1, v4}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;->enableVertexAttribute(I)V
 
     .line 221
-    add-int v2, v14, v15
+    iget v8, v2, Lcom/badlogic/gdx/graphics/VertexAttribute;->numComponents:I
 
-    iget v3, v13, Lcom/badlogic/gdx/graphics/VertexAttribute;->numComponents:I
+    iget v9, v2, Lcom/badlogic/gdx/graphics/VertexAttribute;->type:I
 
-    iget v4, v13, Lcom/badlogic/gdx/graphics/VertexAttribute;->type:I
+    iget-boolean v10, v2, Lcom/badlogic/gdx/graphics/VertexAttribute;->normalized:Z
 
-    iget-boolean v5, v13, Lcom/badlogic/gdx/graphics/VertexAttribute;->normalized:Z
+    iget-object v5, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->attributes:Lcom/badlogic/gdx/graphics/VertexAttributes;
 
-    iget-object v1, v0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->attributes:Lcom/badlogic/gdx/graphics/VertexAttributes;
+    iget v11, v5, Lcom/badlogic/gdx/graphics/VertexAttributes;->vertexSize:I
 
-    iget v6, v1, Lcom/badlogic/gdx/graphics/VertexAttributes;->vertexSize:I
+    iget v12, v2, Lcom/badlogic/gdx/graphics/VertexAttribute;->offset:I
 
-    iget v7, v13, Lcom/badlogic/gdx/graphics/VertexAttribute;->offset:I
+    move-object v6, p1
 
-    move-object/from16 v1, p1
+    move v7, v4
 
-    invoke-virtual/range {v1 .. v7}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;->setVertexAttribute(IIIZII)V
+    invoke-virtual/range {v6 .. v12}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;->setVertexAttribute(IIIZII)V
 
     .line 222
-    sget-object v1, Lcom/badlogic/gdx/Gdx;->gl30:Lcom/badlogic/gdx/graphics/GL30;
+    sget-object v2, Lcom/badlogic/gdx/Gdx;->gl30:Lcom/badlogic/gdx/graphics/GL30;
 
-    add-int v2, v14, v15
+    invoke-interface {v2, v4, v1}, Lcom/badlogic/gdx/graphics/GL30;->glVertexAttribDivisor(II)V
 
-    invoke-interface {v1, v2, v11}, Lcom/badlogic/gdx/graphics/GL30;->glVertexAttribDivisor(II)V
-
-    .line 213
-    .end local v13    # "attribute":Lcom/badlogic/gdx/graphics/VertexAttribute;
-    .end local v14    # "location":I
-    .end local v15    # "unitOffset":I
     :goto_3
-    add-int/lit8 v12, v12, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
     .line 225
-    .end local v12    # "i":I
-    :cond_5
-    :goto_4
-    iput-boolean v11, v0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->isBound:Z
+    :cond_4
+    iput-boolean v1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->isBound:Z
 
-    .line 226
     return-void
 .end method
 
@@ -423,12 +360,11 @@
     .line 279
     sget-object v0, Lcom/badlogic/gdx/Gdx;->gl20:Lcom/badlogic/gdx/graphics/GL20;
 
-    .line 280
-    .local v0, "gl":Lcom/badlogic/gdx/graphics/GL20;
     const v1, 0x8892
 
     const/4 v2, 0x0
 
+    .line 280
     invoke-interface {v0, v1, v2}, Lcom/badlogic/gdx/graphics/GL20;->glBindBuffer(II)V
 
     .line 281
@@ -440,16 +376,15 @@
     iput v2, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->bufferHandle:I
 
     .line 283
-    iget-boolean v1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->ownsBuffer:Z
+    iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->ownsBuffer:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 284
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-static {v1}, Lcom/badlogic/gdx/utils/BufferUtils;->disposeUnsafeByteBuffer(Ljava/nio/ByteBuffer;)V
+    invoke-static {v0}, Lcom/badlogic/gdx/utils/BufferUtils;->disposeUnsafeByteBuffer(Ljava/nio/ByteBuffer;)V
 
-    .line 285
     :cond_0
     return-void
 .end method
@@ -466,9 +401,9 @@
 .method public getBuffer()Ljava/nio/FloatBuffer;
     .locals 1
 
-    .line 80
     const/4 v0, 0x1
 
+    .line 80
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->isDirty:Z
 
     .line 81
@@ -538,20 +473,16 @@
 
     iput v0, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->bufferHandle:I
 
-    .line 271
     const/4 v0, 0x1
 
+    .line 271
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->isDirty:Z
 
-    .line 272
     return-void
 .end method
 
 .method protected setBuffer(Ljava/nio/Buffer;ZLcom/badlogic/gdx/graphics/VertexAttributes;)V
-    .locals 3
-    .param p1, "data"    # Ljava/nio/Buffer;
-    .param p2, "ownsBuffer"    # Z
-    .param p3, "value"    # Lcom/badlogic/gdx/graphics/VertexAttributes;
+    .locals 1
 
     .line 92
     iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->isBound:Z
@@ -575,89 +506,82 @@
     iput-object p3, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->attributes:Lcom/badlogic/gdx/graphics/VertexAttributes;
 
     .line 97
-    instance-of v0, p1, Ljava/nio/ByteBuffer;
+    instance-of p3, p1, Ljava/nio/ByteBuffer;
 
-    if-eqz v0, :cond_1
+    if-eqz p3, :cond_1
 
     .line 98
-    move-object v0, p1
+    check-cast p1, Ljava/nio/ByteBuffer;
 
-    check-cast v0, Ljava/nio/ByteBuffer;
-
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+    iput-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
     .line 101
     iput-boolean p2, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->ownsBuffer:Z
 
     .line 103
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->limit()I
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->limit()I
 
-    move-result v0
+    move-result p1
 
     .line 104
-    .local v0, "l":I
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->capacity()I
+    invoke-virtual {p2}, Ljava/nio/ByteBuffer;->capacity()I
 
-    move-result v2
+    move-result p3
 
-    invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {p2, p3}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
     .line 105
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->asFloatBuffer()Ljava/nio/FloatBuffer;
+    invoke-virtual {p2}, Ljava/nio/ByteBuffer;->asFloatBuffer()Ljava/nio/FloatBuffer;
 
-    move-result-object v1
+    move-result-object p2
 
-    iput-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->buffer:Ljava/nio/FloatBuffer;
+    iput-object p2, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->buffer:Ljava/nio/FloatBuffer;
 
     .line 106
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v1, v0}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {p2, p1}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
     .line 107
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->buffer:Ljava/nio/FloatBuffer;
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->buffer:Ljava/nio/FloatBuffer;
 
-    div-int/lit8 v2, v0, 0x4
+    div-int/lit8 p1, p1, 0x4
 
-    invoke-virtual {v1, v2}, Ljava/nio/FloatBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {p2, p1}, Ljava/nio/FloatBuffer;->limit(I)Ljava/nio/Buffer;
 
-    .line 108
     return-void
 
     .line 100
-    .end local v0    # "l":I
     :cond_1
-    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v1, "Only ByteBuffer is currently supported"
+    const-string p2, "Only ByteBuffer is currently supported"
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 93
     :cond_2
-    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v1, "Cannot change attributes while VBO is bound"
+    const-string p2, "Cannot change attributes while VBO is bound"
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setInstanceData(Ljava/nio/FloatBuffer;I)V
-    .locals 2
-    .param p1, "data"    # Ljava/nio/FloatBuffer;
-    .param p2, "count"    # I
+    .locals 1
 
-    .line 129
     const/4 v0, 0x1
 
+    .line 129
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->isDirty:Z
 
     .line 130
@@ -666,33 +590,29 @@
     invoke-static {p1, v0, p2}, Lcom/badlogic/gdx/utils/BufferUtils;->copy(Ljava/nio/Buffer;Ljava/nio/Buffer;I)V
 
     .line 131
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->buffer:Ljava/nio/FloatBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->buffer:Ljava/nio/FloatBuffer;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v1}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, v0}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 132
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->buffer:Ljava/nio/FloatBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->buffer:Ljava/nio/FloatBuffer;
 
-    invoke-virtual {v0, p2}, Ljava/nio/FloatBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, p2}, Ljava/nio/FloatBuffer;->limit(I)Ljava/nio/Buffer;
 
     .line 133
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->bufferChanged()V
 
-    .line 134
     return-void
 .end method
 
 .method public setInstanceData([FII)V
-    .locals 2
-    .param p1, "data"    # [F
-    .param p2, "offset"    # I
-    .param p3, "count"    # I
+    .locals 1
 
-    .line 120
     const/4 v0, 0x1
 
+    .line 120
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->isDirty:Z
 
     .line 121
@@ -701,27 +621,25 @@
     invoke-static {p1, v0, p3, p2}, Lcom/badlogic/gdx/utils/BufferUtils;->copy([FLjava/nio/Buffer;II)V
 
     .line 122
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->buffer:Ljava/nio/FloatBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->buffer:Ljava/nio/FloatBuffer;
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    invoke-virtual {v0, v1}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, p2}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 123
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->buffer:Ljava/nio/FloatBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->buffer:Ljava/nio/FloatBuffer;
 
-    invoke-virtual {v0, p3}, Ljava/nio/FloatBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, p3}, Ljava/nio/FloatBuffer;->limit(I)Ljava/nio/Buffer;
 
     .line 124
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->bufferChanged()V
 
-    .line 125
     return-void
 .end method
 
 .method protected setUsage(I)V
-    .locals 2
-    .param p1, "value"    # I
+    .locals 1
 
     .line 172
     iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->isBound:Z
@@ -731,177 +649,136 @@
     .line 174
     iput p1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->usage:I
 
-    .line 175
     return-void
 
     .line 173
     :cond_0
-    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    const-string v1, "Cannot change usage while VBO is bound"
+    const-string v0, "Cannot change usage while VBO is bound"
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public unbind(Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;)V
     .locals 1
-    .param p1, "shader"    # Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
 
-    .line 235
     const/4 v0, 0x0
 
+    .line 235
     invoke-virtual {p0, p1, v0}, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->unbind(Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;[I)V
 
-    .line 236
     return-void
 .end method
 
 .method public unbind(Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;[I)V
-    .locals 7
-    .param p1, "shader"    # Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;
-    .param p2, "locations"    # [I
+    .locals 6
 
     .line 240
     sget-object v0, Lcom/badlogic/gdx/Gdx;->gl20:Lcom/badlogic/gdx/graphics/GL20;
 
     .line 241
-    .local v0, "gl":Lcom/badlogic/gdx/graphics/GL20;
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->attributes:Lcom/badlogic/gdx/graphics/VertexAttributes;
 
     invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/VertexAttributes;->size()I
 
     move-result v1
 
-    .line 242
-    .local v1, "numAttributes":I
-    if-nez p2, :cond_2
-
-    .line 243
     const/4 v2, 0x0
 
-    .local v2, "i":I
+    if-nez p2, :cond_1
+
+    move p2, v2
+
     :goto_0
-    if-ge v2, v1, :cond_1
+    if-ge p2, v1, :cond_3
 
     .line 244
     iget-object v3, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->attributes:Lcom/badlogic/gdx/graphics/VertexAttributes;
 
-    invoke-virtual {v3, v2}, Lcom/badlogic/gdx/graphics/VertexAttributes;->get(I)Lcom/badlogic/gdx/graphics/VertexAttribute;
+    invoke-virtual {v3, p2}, Lcom/badlogic/gdx/graphics/VertexAttributes;->get(I)Lcom/badlogic/gdx/graphics/VertexAttribute;
 
     move-result-object v3
 
     .line 245
-    .local v3, "attribute":Lcom/badlogic/gdx/graphics/VertexAttribute;
     iget-object v4, v3, Lcom/badlogic/gdx/graphics/VertexAttribute;->alias:Ljava/lang/String;
 
     invoke-virtual {p1, v4}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;->getAttributeLocation(Ljava/lang/String;)I
 
     move-result v4
 
-    .line 246
-    .local v4, "location":I
     if-gez v4, :cond_0
 
-    .line 247
     goto :goto_1
 
     .line 248
     :cond_0
-    iget v5, v3, Lcom/badlogic/gdx/graphics/VertexAttribute;->unit:I
+    iget v3, v3, Lcom/badlogic/gdx/graphics/VertexAttribute;->unit:I
+
+    add-int/2addr v4, v3
 
     .line 249
-    .local v5, "unitOffset":I
-    add-int v6, v4, v5
+    invoke-virtual {p1, v4}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;->disableVertexAttribute(I)V
 
-    invoke-virtual {p1, v6}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;->disableVertexAttribute(I)V
-
-    .line 243
-    .end local v3    # "attribute":Lcom/badlogic/gdx/graphics/VertexAttribute;
-    .end local v4    # "location":I
-    .end local v5    # "unitOffset":I
     :goto_1
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 p2, p2, 0x1
 
     goto :goto_0
 
-    .end local v2    # "i":I
     :cond_1
-    goto :goto_4
+    move v3, v2
 
-    .line 252
-    :cond_2
-    const/4 v2, 0x0
-
-    .restart local v2    # "i":I
     :goto_2
-    if-ge v2, v1, :cond_4
+    if-ge v3, v1, :cond_3
 
     .line 253
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->attributes:Lcom/badlogic/gdx/graphics/VertexAttributes;
+    iget-object v4, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->attributes:Lcom/badlogic/gdx/graphics/VertexAttributes;
 
-    invoke-virtual {v3, v2}, Lcom/badlogic/gdx/graphics/VertexAttributes;->get(I)Lcom/badlogic/gdx/graphics/VertexAttribute;
+    invoke-virtual {v4, v3}, Lcom/badlogic/gdx/graphics/VertexAttributes;->get(I)Lcom/badlogic/gdx/graphics/VertexAttribute;
 
-    move-result-object v3
+    move-result-object v4
 
     .line 254
-    .restart local v3    # "attribute":Lcom/badlogic/gdx/graphics/VertexAttribute;
-    aget v4, p2, v2
+    aget v5, p2, v3
 
-    .line 255
-    .restart local v4    # "location":I
-    if-gez v4, :cond_3
+    if-gez v5, :cond_2
 
-    .line 256
     goto :goto_3
 
     .line 257
-    :cond_3
-    iget v5, v3, Lcom/badlogic/gdx/graphics/VertexAttribute;->unit:I
+    :cond_2
+    iget v4, v4, Lcom/badlogic/gdx/graphics/VertexAttribute;->unit:I
+
+    add-int/2addr v5, v4
 
     .line 258
-    .restart local v5    # "unitOffset":I
-    add-int v6, v4, v5
+    invoke-virtual {p1, v5}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;->enableVertexAttribute(I)V
 
-    invoke-virtual {p1, v6}, Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;->enableVertexAttribute(I)V
-
-    .line 252
-    .end local v3    # "attribute":Lcom/badlogic/gdx/graphics/VertexAttribute;
-    .end local v4    # "location":I
-    .end local v5    # "unitOffset":I
     :goto_3
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
+    :cond_3
+    const p1, 0x8892
+
     .line 261
-    .end local v2    # "i":I
-    :cond_4
-    :goto_4
-    const v2, 0x8892
-
-    const/4 v3, 0x0
-
-    invoke-interface {v0, v2, v3}, Lcom/badlogic/gdx/graphics/GL20;->glBindBuffer(II)V
+    invoke-interface {v0, p1, v2}, Lcom/badlogic/gdx/graphics/GL20;->glBindBuffer(II)V
 
     .line 262
-    iput-boolean v3, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->isBound:Z
+    iput-boolean v2, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->isBound:Z
 
-    .line 263
     return-void
 .end method
 
 .method public updateInstanceData(ILjava/nio/FloatBuffer;II)V
-    .locals 3
-    .param p1, "targetOffset"    # I
-    .param p2, "data"    # Ljava/nio/FloatBuffer;
-    .param p3, "sourceOffset"    # I
-    .param p4, "count"    # I
+    .locals 2
 
-    .line 149
     const/4 v0, 0x1
 
+    .line 149
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->isDirty:Z
 
     .line 150
@@ -912,52 +789,46 @@
     move-result v0
 
     .line 151
-    .local v0, "pos":I
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    mul-int/lit8 v2, p1, 0x4
+    mul-int/lit8 p1, p1, 0x4
 
-    invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v1, p1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+
+    mul-int/lit8 p3, p3, 0x4
 
     .line 152
-    mul-int/lit8 v1, p3, 0x4
-
-    invoke-virtual {p2, v1}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p2, p3}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 153
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-static {p2, v1, p4}, Lcom/badlogic/gdx/utils/BufferUtils;->copy(Ljava/nio/Buffer;Ljava/nio/Buffer;I)V
+    invoke-static {p2, p1, p4}, Lcom/badlogic/gdx/utils/BufferUtils;->copy(Ljava/nio/Buffer;Ljava/nio/Buffer;I)V
 
     .line 154
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v1, v0}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 155
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->buffer:Ljava/nio/FloatBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->buffer:Ljava/nio/FloatBuffer;
 
-    const/4 v2, 0x0
+    const/4 p2, 0x0
 
-    invoke-virtual {v1, v2}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, p2}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 156
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->bufferChanged()V
 
-    .line 157
     return-void
 .end method
 
 .method public updateInstanceData(I[FII)V
-    .locals 3
-    .param p1, "targetOffset"    # I
-    .param p2, "data"    # [F
-    .param p3, "sourceOffset"    # I
-    .param p4, "count"    # I
+    .locals 2
 
-    .line 138
     const/4 v0, 0x1
 
+    .line 138
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->isDirty:Z
 
     .line 139
@@ -968,33 +839,31 @@
     move-result v0
 
     .line 140
-    .local v0, "pos":I
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    mul-int/lit8 v2, p1, 0x4
+    mul-int/lit8 p1, p1, 0x4
 
-    invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v1, p1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 141
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-static {p2, p3, p4, v1}, Lcom/badlogic/gdx/utils/BufferUtils;->copy([FIILjava/nio/Buffer;)V
+    invoke-static {p2, p3, p4, p1}, Lcom/badlogic/gdx/utils/BufferUtils;->copy([FIILjava/nio/Buffer;)V
 
     .line 142
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v1, v0}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 143
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->buffer:Ljava/nio/FloatBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->buffer:Ljava/nio/FloatBuffer;
 
-    const/4 v2, 0x0
+    const/4 p2, 0x0
 
-    invoke-virtual {v1, v2}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, p2}, Ljava/nio/FloatBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 144
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/glutils/InstanceBufferObject;->bufferChanged()V
 
-    .line 145
     return-void
 .end method

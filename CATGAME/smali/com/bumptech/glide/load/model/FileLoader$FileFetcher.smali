@@ -52,7 +52,6 @@
 # direct methods
 .method constructor <init>(Ljava/io/File;Lcom/bumptech/glide/load/model/FileLoader$FileOpener;)V
     .locals 0
-    .param p1, "file"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -63,8 +62,6 @@
     .end annotation
 
     .line 63
-    .local p0, "this":Lcom/bumptech/glide/load/model/FileLoader$FileFetcher;, "Lcom/bumptech/glide/load/model/FileLoader$FileFetcher<TData;>;"
-    .local p2, "opener":Lcom/bumptech/glide/load/model/FileLoader$FileOpener;, "Lcom/bumptech/glide/load/model/FileLoader$FileOpener<TData;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 64
@@ -73,7 +70,6 @@
     .line 65
     iput-object p2, p0, Lcom/bumptech/glide/load/model/FileLoader$FileFetcher;->opener:Lcom/bumptech/glide/load/model/FileLoader$FileOpener;
 
-    .line 66
     return-void
 .end method
 
@@ -82,8 +78,6 @@
 .method public cancel()V
     .locals 0
 
-    .line 96
-    .local p0, "this":Lcom/bumptech/glide/load/model/FileLoader$FileFetcher;, "Lcom/bumptech/glide/load/model/FileLoader$FileFetcher<TData;>;"
     return-void
 .end method
 
@@ -91,7 +85,6 @@
     .locals 2
 
     .line 84
-    .local p0, "this":Lcom/bumptech/glide/load/model/FileLoader$FileFetcher;, "Lcom/bumptech/glide/load/model/FileLoader$FileFetcher<TData;>;"
     iget-object v0, p0, Lcom/bumptech/glide/load/model/FileLoader$FileFetcher;->data:Ljava/lang/Object;
 
     if-eqz v0, :cond_0
@@ -104,16 +97,8 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 89
-    goto :goto_0
-
-    .line 87
     :catch_0
-    move-exception v0
-
-    .line 91
     :cond_0
-    :goto_0
     return-void
 .end method
 
@@ -128,7 +113,6 @@
     .end annotation
 
     .line 101
-    .local p0, "this":Lcom/bumptech/glide/load/model/FileLoader$FileFetcher;, "Lcom/bumptech/glide/load/model/FileLoader$FileFetcher<TData;>;"
     iget-object v0, p0, Lcom/bumptech/glide/load/model/FileLoader$FileFetcher;->opener:Lcom/bumptech/glide/load/model/FileLoader$FileOpener;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/model/FileLoader$FileOpener;->getDataClass()Ljava/lang/Class;
@@ -142,15 +126,13 @@
     .locals 1
 
     .line 107
-    .local p0, "this":Lcom/bumptech/glide/load/model/FileLoader$FileFetcher;, "Lcom/bumptech/glide/load/model/FileLoader$FileFetcher<TData;>;"
     sget-object v0, Lcom/bumptech/glide/load/DataSource;->LOCAL:Lcom/bumptech/glide/load/DataSource;
 
     return-object v0
 .end method
 
 .method public loadData(Lcom/bumptech/glide/Priority;Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;)V
-    .locals 3
-    .param p1, "priority"    # Lcom/bumptech/glide/Priority;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -161,55 +143,46 @@
     .end annotation
 
     .line 71
-    .local p0, "this":Lcom/bumptech/glide/load/model/FileLoader$FileFetcher;, "Lcom/bumptech/glide/load/model/FileLoader$FileFetcher<TData;>;"
-    .local p2, "callback":Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;, "Lcom/bumptech/glide/load/data/DataFetcher$DataCallback<-TData;>;"
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/FileLoader$FileFetcher;->opener:Lcom/bumptech/glide/load/model/FileLoader$FileOpener;
+    iget-object p1, p0, Lcom/bumptech/glide/load/model/FileLoader$FileFetcher;->opener:Lcom/bumptech/glide/load/model/FileLoader$FileOpener;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/model/FileLoader$FileFetcher;->file:Ljava/io/File;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/FileLoader$FileFetcher;->file:Ljava/io/File;
 
-    invoke-interface {v0, v1}, Lcom/bumptech/glide/load/model/FileLoader$FileOpener;->open(Ljava/io/File;)Ljava/lang/Object;
+    invoke-interface {p1, v0}, Lcom/bumptech/glide/load/model/FileLoader$FileOpener;->open(Ljava/io/File;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/model/FileLoader$FileFetcher;->data:Ljava/lang/Object;
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/FileLoader$FileFetcher;->data:Ljava/lang/Object;
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 78
-    nop
-
     .line 79
-    invoke-interface {p2, v0}, Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;->onDataReady(Ljava/lang/Object;)V
+    invoke-interface {p2, p1}, Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;->onDataReady(Ljava/lang/Object;)V
 
-    .line 80
     return-void
 
-    .line 72
     :catch_0
-    move-exception v0
+    move-exception p1
+
+    const/4 v0, 0x3
+
+    const-string v1, "FileLoader"
 
     .line 73
-    .local v0, "e":Ljava/io/FileNotFoundException;
-    const/4 v1, 0x3
+    invoke-static {v1, v0}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
-    const-string v2, "FileLoader"
+    move-result v0
 
-    invoke-static {v2, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+    if-eqz v0, :cond_0
 
-    move-result v1
-
-    if-eqz v1, :cond_0
+    const-string v0, "Failed to open file"
 
     .line 74
-    const-string v1, "Failed to open file"
-
-    invoke-static {v2, v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 76
     :cond_0
-    invoke-interface {p2, v0}, Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;->onLoadFailed(Ljava/lang/Exception;)V
+    invoke-interface {p2, p1}, Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;->onLoadFailed(Ljava/lang/Exception;)V
 
-    .line 77
     return-void
 .end method

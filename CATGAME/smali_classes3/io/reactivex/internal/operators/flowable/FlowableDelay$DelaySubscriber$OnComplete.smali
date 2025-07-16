@@ -26,7 +26,6 @@
     .locals 0
 
     .line 135
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDelay$DelaySubscriber$OnComplete;, "Lio/reactivex/internal/operators/flowable/FlowableDelay$DelaySubscriber<TT;>.OnComplete;"
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableDelay$DelaySubscriber$OnComplete;->this$0:Lio/reactivex/internal/operators/flowable/FlowableDelay$DelaySubscriber;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +39,6 @@
     .locals 2
 
     .line 139
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableDelay$DelaySubscriber$OnComplete;, "Lio/reactivex/internal/operators/flowable/FlowableDelay$DelaySubscriber<TT;>.OnComplete;"
     :try_start_0
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableDelay$DelaySubscriber$OnComplete;->this$0:Lio/reactivex/internal/operators/flowable/FlowableDelay$DelaySubscriber;
 
@@ -57,13 +55,8 @@
 
     invoke-virtual {v0}, Lio/reactivex/Scheduler$Worker;->dispose()V
 
-    .line 142
-    nop
-
-    .line 143
     return-void
 
-    .line 141
     :catchall_0
     move-exception v0
 

@@ -21,7 +21,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 14
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,24 +30,9 @@
 
 # virtual methods
 .method public final createFromParcel(Landroid/os/Parcel;)Lcom/huawei/hms/common/data/DataHolder;
-    .locals 9
+    .locals 10
 
-    .line 22
-    nop
-
-    .line 23
-    nop
-
-    .line 24
-    nop
-
-    .line 25
-    nop
-
-    .line 26
-    nop
-
-    .line 28
+    .line 2
     invoke-static {p1}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelReader;->validateObjectHeader(Landroid/os/Parcel;)I
 
     move-result v0
@@ -56,130 +41,119 @@
 
     const/4 v2, 0x0
 
-    move v4, v1
+    move v3, v1
 
-    move v7, v4
+    move v6, v3
 
-    move-object v5, v2
+    move-object v4, v2
 
-    move-object v6, v5
+    move-object v5, v4
 
-    move-object v8, v6
+    move-object v7, v5
 
-    .line 30
     :goto_0
+    if-gt v1, v0, :cond_5
+
+    .line 4
     invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
-
-    move-result v1
-
-    if-ge v1, v0, :cond_5
-
-    .line 31
-    invoke-static {p1}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelReader;->readHeader(Landroid/os/Parcel;)I
-
-    move-result v1
-
-    .line 32
-    invoke-static {v1}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelReader;->getFieldId(I)I
 
     move-result v2
 
-    const/4 v3, 0x1
+    if-ge v2, v0, :cond_5
 
-    if-eq v2, v3, :cond_4
+    add-int/lit8 v1, v1, 0x1
 
-    const/4 v3, 0x2
+    .line 6
+    invoke-static {p1}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelReader;->readHeader(Landroid/os/Parcel;)I
 
-    if-eq v2, v3, :cond_3
+    move-result v2
 
-    const/4 v3, 0x3
+    .line 7
+    invoke-static {v2}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelReader;->getFieldId(I)I
 
-    if-eq v2, v3, :cond_2
+    move-result v8
 
-    const/4 v3, 0x4
+    const/16 v9, 0x3e8
 
-    if-eq v2, v3, :cond_1
+    if-eq v8, v9, :cond_4
 
-    const/16 v3, 0x3e8
+    const/4 v9, 0x1
 
-    if-eq v2, v3, :cond_0
+    if-eq v8, v9, :cond_3
 
-    .line 49
-    invoke-static {p1, v1}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelReader;->skipUnknownField(Landroid/os/Parcel;I)V
+    const/4 v9, 0x2
 
-    goto :goto_1
+    if-eq v8, v9, :cond_2
 
-    .line 46
-    :cond_0
-    invoke-static {p1, v1}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelReader;->readInt(Landroid/os/Parcel;I)I
+    const/4 v9, 0x3
 
-    move-result v1
+    if-eq v8, v9, :cond_1
 
-    .line 47
-    move v4, v1
+    const/4 v9, 0x4
 
-    goto :goto_1
+    if-eq v8, v9, :cond_0
 
-    .line 43
-    :cond_1
-    invoke-static {p1, v1}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelReader;->createBundle(Landroid/os/Parcel;I)Landroid/os/Bundle;
+    .line 24
+    invoke-static {p1, v2}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelReader;->skipUnknownField(Landroid/os/Parcel;I)V
 
-    move-result-object v1
-
-    .line 44
-    move-object v8, v1
-
-    goto :goto_1
-
-    .line 40
-    :cond_2
-    invoke-static {p1, v1}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelReader;->readInt(Landroid/os/Parcel;I)I
-
-    move-result v1
-
-    .line 41
-    move v7, v1
-
-    goto :goto_1
-
-    .line 37
-    :cond_3
-    sget-object v2, Landroid/database/CursorWindow;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-static {p1, v1, v2}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelReader;->createTypedArray(Landroid/os/Parcel;ILandroid/os/Parcelable$Creator;)[Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, [Landroid/database/CursorWindow;
-
-    .line 38
-    move-object v6, v1
-
-    goto :goto_1
-
-    .line 34
-    :cond_4
-    invoke-static {p1, v1}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelReader;->createStringArray(Landroid/os/Parcel;I)[Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 35
-    move-object v5, v1
-
-    .line 52
-    :goto_1
     goto :goto_0
 
-    .line 53
+    .line 25
+    :cond_0
+    invoke-static {p1, v2}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelReader;->createBundle(Landroid/os/Parcel;I)Landroid/os/Bundle;
+
+    move-result-object v7
+
+    goto :goto_0
+
+    .line 26
+    :cond_1
+    invoke-static {p1, v2}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelReader;->readInt(Landroid/os/Parcel;I)I
+
+    move-result v6
+
+    goto :goto_0
+
+    .line 27
+    :cond_2
+    sget-object v5, Landroid/database/CursorWindow;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-static {p1, v2, v5}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelReader;->createTypedArray(Landroid/os/Parcel;ILandroid/os/Parcelable$Creator;)[Ljava/lang/Object;
+
+    move-result-object v2
+
+    move-object v5, v2
+
+    check-cast v5, [Landroid/database/CursorWindow;
+
+    goto :goto_0
+
+    .line 28
+    :cond_3
+    invoke-static {p1, v2}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelReader;->createStringArray(Landroid/os/Parcel;I)[Ljava/lang/String;
+
+    move-result-object v4
+
+    goto :goto_0
+
+    .line 40
+    :cond_4
+    invoke-static {p1, v2}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelReader;->readInt(Landroid/os/Parcel;I)I
+
+    move-result v3
+
+    goto :goto_0
+
+    .line 47
     :cond_5
     invoke-static {p1, v0}, Lcom/huawei/hms/common/internal/safeparcel/SafeParcelReader;->ensureAtEnd(Landroid/os/Parcel;I)V
 
-    .line 54
+    .line 48
     new-instance p1, Lcom/huawei/hms/common/data/DataHolder;
 
-    move-object v3, p1
+    move-object v2, p1
 
-    invoke-direct/range {v3 .. v8}, Lcom/huawei/hms/common/data/DataHolder;-><init>(I[Ljava/lang/String;[Landroid/database/CursorWindow;ILandroid/os/Bundle;)V
+    invoke-direct/range {v2 .. v7}, Lcom/huawei/hms/common/data/DataHolder;-><init>(I[Ljava/lang/String;[Landroid/database/CursorWindow;ILandroid/os/Bundle;)V
 
     return-object p1
 .end method
@@ -187,7 +161,7 @@
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 0
 
-    .line 14
+    .line 1
     invoke-virtual {p0, p1}, Lcom/huawei/hms/common/data/DataHolderCreator;->createFromParcel(Landroid/os/Parcel;)Lcom/huawei/hms/common/data/DataHolder;
 
     move-result-object p1
@@ -198,7 +172,7 @@
 .method public final newArray(I)[Lcom/huawei/hms/common/data/DataHolder;
     .locals 0
 
-    .line 17
+    .line 2
     new-array p1, p1, [Lcom/huawei/hms/common/data/DataHolder;
 
     return-object p1
@@ -207,7 +181,7 @@
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 0
 
-    .line 14
+    .line 1
     invoke-virtual {p0, p1}, Lcom/huawei/hms/common/data/DataHolderCreator;->newArray(I)[Lcom/huawei/hms/common/data/DataHolder;
 
     move-result-object p1

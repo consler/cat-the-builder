@@ -25,11 +25,8 @@
     .end annotation
 
     .line 42
-    .local p0, "this":Lorg/apache/commons/collections4/sequence/DeleteCommand;, "Lorg/apache/commons/collections4/sequence/DeleteCommand<TT;>;"
-    .local p1, "object":Ljava/lang/Object;, "TT;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/sequence/EditCommand;-><init>(Ljava/lang/Object;)V
 
-    .line 43
     return-void
 .end method
 
@@ -46,14 +43,11 @@
     .end annotation
 
     .line 53
-    .local p0, "this":Lorg/apache/commons/collections4/sequence/DeleteCommand;, "Lorg/apache/commons/collections4/sequence/DeleteCommand<TT;>;"
-    .local p1, "visitor":Lorg/apache/commons/collections4/sequence/CommandVisitor;, "Lorg/apache/commons/collections4/sequence/CommandVisitor<TT;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/sequence/DeleteCommand;->getObject()Ljava/lang/Object;
 
     move-result-object v0
 
     invoke-interface {p1, v0}, Lorg/apache/commons/collections4/sequence/CommandVisitor;->visitDeleteCommand(Ljava/lang/Object;)V
 
-    .line 54
     return-void
 .end method

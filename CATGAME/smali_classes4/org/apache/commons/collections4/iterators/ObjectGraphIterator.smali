@@ -88,9 +88,6 @@
     .end annotation
 
     .line 106
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;, "Lorg/apache/commons/collections4/iterators/ObjectGraphIterator<TE;>;"
-    .local p1, "root":Ljava/lang/Object;, "TE;"
-    .local p2, "transformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TE;+TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 79
@@ -102,9 +99,9 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->stack:Ljava/util/Deque;
 
-    .line 86
     const/4 v0, 0x0
 
+    .line 86
     iput-boolean v0, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->hasNext:Z
 
     .line 107
@@ -113,11 +110,9 @@
     if-eqz v0, :cond_0
 
     .line 108
-    move-object v0, p1
+    check-cast p1, Ljava/util/Iterator;
 
-    check-cast v0, Ljava/util/Iterator;
-
-    iput-object v0, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->currentIterator:Ljava/util/Iterator;
+    iput-object p1, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->currentIterator:Ljava/util/Iterator;
 
     goto :goto_0
 
@@ -129,7 +124,6 @@
     :goto_0
     iput-object p2, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->transformer:Lorg/apache/commons/collections4/Transformer;
 
-    .line 113
     return-void
 .end method
 
@@ -144,8 +138,6 @@
     .end annotation
 
     .line 126
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;, "Lorg/apache/commons/collections4/iterators/ObjectGraphIterator<TE;>;"
-    .local p1, "rootIterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 79
@@ -157,20 +149,19 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->stack:Ljava/util/Deque;
 
-    .line 86
     const/4 v0, 0x0
 
+    .line 86
     iput-boolean v0, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->hasNext:Z
 
     .line 127
     iput-object p1, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->currentIterator:Ljava/util/Iterator;
 
+    const/4 p1, 0x0
+
     .line 128
-    const/4 v0, 0x0
+    iput-object p1, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->transformer:Lorg/apache/commons/collections4/Transformer;
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->transformer:Lorg/apache/commons/collections4/Transformer;
-
-    .line 129
     return-void
 .end method
 
@@ -185,18 +176,14 @@
     .end annotation
 
     .line 162
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;, "Lorg/apache/commons/collections4/iterators/ObjectGraphIterator<TE;>;"
-    .local p1, "value":Ljava/lang/Object;, "TE;"
     instance-of v0, p1, Ljava/util/Iterator;
 
     if-eqz v0, :cond_0
 
     .line 164
-    move-object v0, p1
+    check-cast p1, Ljava/util/Iterator;
 
-    check-cast v0, Ljava/util/Iterator;
-
-    invoke-virtual {p0, v0}, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->findNextByIterator(Ljava/util/Iterator;)V
+    invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->findNextByIterator(Ljava/util/Iterator;)V
 
     goto :goto_0
 
@@ -204,12 +191,11 @@
     :cond_0
     iput-object p1, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->currentValue:Ljava/lang/Object;
 
+    const/4 p1, 0x1
+
     .line 168
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->hasNext:Z
 
-    iput-boolean v0, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->hasNext:Z
-
-    .line 170
     :goto_0
     return-void
 .end method
@@ -225,13 +211,10 @@
     .end annotation
 
     .line 178
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;, "Lorg/apache/commons/collections4/iterators/ObjectGraphIterator<TE;>;"
-    .local p1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->currentIterator:Ljava/util/Iterator;
 
     if-eq p1, v0, :cond_1
 
-    .line 180
     if-eqz v0, :cond_0
 
     .line 181
@@ -246,73 +229,69 @@
     .line 186
     :cond_1
     :goto_0
-    iget-object v0, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->currentIterator:Ljava/util/Iterator;
+    iget-object p1, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->currentIterator:Ljava/util/Iterator;
 
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_3
+    if-eqz p1, :cond_3
 
-    iget-boolean v0, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->hasNext:Z
+    iget-boolean p1, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->hasNext:Z
 
-    if-nez v0, :cond_3
+    if-nez p1, :cond_3
 
     .line 187
-    iget-object v0, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->currentIterator:Ljava/util/Iterator;
+    iget-object p1, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->currentIterator:Ljava/util/Iterator;
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 188
-    .local v0, "next":Ljava/lang/Object;, "TE;"
-    iget-object v1, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->transformer:Lorg/apache/commons/collections4/Transformer;
+    iget-object v0, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->transformer:Lorg/apache/commons/collections4/Transformer;
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
     .line 189
-    invoke-interface {v1, v0}, Lorg/apache/commons/collections4/Transformer;->transform(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Lorg/apache/commons/collections4/Transformer;->transform(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 191
     :cond_2
-    invoke-virtual {p0, v0}, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->findNext(Ljava/lang/Object;)V
+    invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->findNext(Ljava/lang/Object;)V
 
-    .line 192
-    .end local v0    # "next":Ljava/lang/Object;, "TE;"
     goto :goto_0
 
     .line 194
     :cond_3
-    iget-boolean v0, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->hasNext:Z
+    iget-boolean p1, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->hasNext:Z
 
-    if-nez v0, :cond_4
+    if-nez p1, :cond_4
 
-    iget-object v0, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->stack:Ljava/util/Deque;
+    iget-object p1, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->stack:Ljava/util/Deque;
 
-    invoke-interface {v0}, Ljava/util/Deque;->isEmpty()Z
+    invoke-interface {p1}, Ljava/util/Deque;->isEmpty()Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_4
+    if-nez p1, :cond_4
 
     .line 196
-    iget-object v0, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->stack:Ljava/util/Deque;
+    iget-object p1, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->stack:Ljava/util/Deque;
 
-    invoke-interface {v0}, Ljava/util/Deque;->pop()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Deque;->pop()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Iterator;
+    check-cast p1, Ljava/util/Iterator;
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->currentIterator:Ljava/util/Iterator;
+    iput-object p1, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->currentIterator:Ljava/util/Iterator;
 
     .line 197
-    invoke-virtual {p0, v0}, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->findNextByIterator(Ljava/util/Iterator;)V
+    invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->findNextByIterator(Ljava/util/Iterator;)V
 
-    .line 199
     :cond_4
     return-void
 .end method
@@ -321,7 +300,6 @@
     .locals 1
 
     .line 209
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;, "Lorg/apache/commons/collections4/iterators/ObjectGraphIterator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->updateCurrentIterator()V
 
     .line 210
@@ -339,7 +317,6 @@
     .end annotation
 
     .line 221
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;, "Lorg/apache/commons/collections4/iterators/ObjectGraphIterator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->updateCurrentIterator()V
 
     .line 222
@@ -355,22 +332,19 @@
     .line 226
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->currentValue:Ljava/lang/Object;
 
-    .line 227
-    .local v0, "result":Ljava/lang/Object;, "TE;"
     const/4 v1, 0x0
 
+    .line 227
     iput-object v1, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->currentValue:Ljava/lang/Object;
 
-    .line 228
     const/4 v1, 0x0
 
+    .line 228
     iput-boolean v1, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->hasNext:Z
 
-    .line 229
     return-object v0
 
     .line 223
-    .end local v0    # "result":Ljava/lang/Object;, "TE;"
     :cond_0
     new-instance v0, Ljava/util/NoSuchElementException;
 
@@ -385,7 +359,6 @@
     .locals 2
 
     .line 247
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;, "Lorg/apache/commons/collections4/iterators/ObjectGraphIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->lastUsedIterator:Ljava/util/Iterator;
 
     if-eqz v0, :cond_0
@@ -393,12 +366,11 @@
     .line 250
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 251
     const/4 v0, 0x0
 
+    .line 251
     iput-object v0, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->lastUsedIterator:Ljava/util/Iterator;
 
-    .line 252
     return-void
 
     .line 248
@@ -416,12 +388,10 @@
     .locals 2
 
     .line 136
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;, "Lorg/apache/commons/collections4/iterators/ObjectGraphIterator<TE;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->hasNext:Z
 
     if-eqz v0, :cond_0
 
-    .line 137
     return-void
 
     .line 139
@@ -456,10 +426,10 @@
 
     invoke-virtual {p0, v0}, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->findNext(Ljava/lang/Object;)V
 
-    .line 148
     :goto_0
     const/4 v0, 0x0
 
+    .line 148
     iput-object v0, p0, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->root:Ljava/lang/Object;
 
     goto :goto_1
@@ -468,7 +438,6 @@
     :cond_3
     invoke-virtual {p0, v0}, Lorg/apache/commons/collections4/iterators/ObjectGraphIterator;->findNextByIterator(Ljava/util/Iterator;)V
 
-    .line 153
     :goto_1
     return-void
 .end method

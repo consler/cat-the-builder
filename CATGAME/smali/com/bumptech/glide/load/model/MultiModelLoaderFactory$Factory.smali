@@ -48,8 +48,6 @@
     .end annotation
 
     .line 215
-    .local p1, "modelLoaders":Ljava/util/List;, "Ljava/util/List<Lcom/bumptech/glide/load/model/ModelLoader<TModel;TData;>;>;"
-    .local p2, "throwableListPool":Landroidx/core/util/Pools$Pool;, "Landroidx/core/util/Pools$Pool<Ljava/util/List<Ljava/lang/Throwable;>;>;"
     new-instance v0, Lcom/bumptech/glide/load/model/MultiModelLoader;
 
     invoke-direct {v0, p1, p2}, Lcom/bumptech/glide/load/model/MultiModelLoader;-><init>(Ljava/util/List;Landroidx/core/util/Pools$Pool;)V

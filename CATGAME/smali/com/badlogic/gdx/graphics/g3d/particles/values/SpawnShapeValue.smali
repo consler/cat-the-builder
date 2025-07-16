@@ -43,18 +43,15 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->zOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
 
-    .line 35
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;)V
     .locals 0
-    .param p1, "spawnShapeValue"    # Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;
 
     .line 38
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;-><init>()V
 
-    .line 39
     return-void
 .end method
 
@@ -66,71 +63,60 @@
 .method public init()V
     .locals 0
 
-    .line 52
     return-void
 .end method
 
 .method public load(Lcom/badlogic/gdx/assets/AssetManager;Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;)V
     .locals 0
-    .param p1, "manager"    # Lcom/badlogic/gdx/assets/AssetManager;
-    .param p2, "data"    # Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;
 
-    .line 90
     return-void
 .end method
 
 .method public load(Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;)V
-    .locals 3
-    .param p1, "value"    # Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;
+    .locals 2
 
     .line 59
     invoke-super {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;->load(Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;)V
 
     .line 60
-    move-object v0, p1
-
-    check-cast v0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;
+    check-cast p1, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;
 
     .line 61
-    .local v0, "shape":Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->xOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->xOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
 
-    iget-object v2, v0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->xOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
+    iget-object v1, p1, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->xOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
 
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->load(Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;)V
+    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->load(Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;)V
 
     .line 62
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->yOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->yOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
 
-    iget-object v2, v0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->yOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
+    iget-object v1, p1, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->yOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
 
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->load(Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;)V
+    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->load(Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;)V
 
     .line 63
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->zOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->zOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
 
-    iget-object v2, v0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->zOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->zOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
 
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->load(Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;)V
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->load(Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;)V
 
-    .line 64
     return-void
 .end method
 
 .method public read(Lcom/badlogic/gdx/utils/Json;Lcom/badlogic/gdx/utils/JsonValue;)V
     .locals 2
-    .param p1, "json"    # Lcom/badlogic/gdx/utils/Json;
-    .param p2, "jsonData"    # Lcom/badlogic/gdx/utils/JsonValue;
 
     .line 78
     invoke-super {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;->read(Lcom/badlogic/gdx/utils/Json;Lcom/badlogic/gdx/utils/JsonValue;)V
 
+    const-string v0, "xOffsetValue"
+
     .line 79
-    const-class v0, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
+    const-class v1, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
 
-    const-string/jumbo v1, "xOffsetValue"
-
-    invoke-virtual {p1, v1, v0, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
+    invoke-virtual {p1, v0, v1, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -138,12 +124,12 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->xOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
 
+    const-string v0, "yOffsetValue"
+
     .line 80
-    const-class v0, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
+    const-class v1, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
 
-    const-string/jumbo v1, "yOffsetValue"
-
-    invoke-virtual {p1, v1, v0, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
+    invoke-virtual {p1, v0, v1, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -151,100 +137,93 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->yOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
 
+    const-string v0, "zOffsetValue"
+
     .line 81
-    const-class v0, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
+    const-class v1, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
 
-    const-string/jumbo v1, "zOffsetValue"
+    invoke-virtual {p1, v0, v1, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
 
-    invoke-virtual {p1, v1, v0, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
+    check-cast p1, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
 
-    check-cast v0, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
+    iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->zOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
 
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->zOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
-
-    .line 82
     return-void
 .end method
 
 .method public save(Lcom/badlogic/gdx/assets/AssetManager;Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;)V
     .locals 0
-    .param p1, "manager"    # Lcom/badlogic/gdx/assets/AssetManager;
-    .param p2, "data"    # Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;
 
-    .line 86
     return-void
 .end method
 
 .method public final spawn(Lcom/badlogic/gdx/math/Vector3;F)Lcom/badlogic/gdx/math/Vector3;
-    .locals 2
-    .param p1, "vector"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "percent"    # F
+    .locals 1
 
     .line 44
     invoke-virtual {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->spawnAux(Lcom/badlogic/gdx/math/Vector3;F)V
 
     .line 45
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->xOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
+
+    iget-boolean p2, p2, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->active:Z
+
+    if-eqz p2, :cond_0
+
+    iget p2, p1, Lcom/badlogic/gdx/math/Vector3;->x:F
+
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->xOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
 
-    iget-boolean v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->active:Z
+    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->newLowValue()F
 
-    if-eqz v0, :cond_0
+    move-result v0
 
-    iget v0, p1, Lcom/badlogic/gdx/math/Vector3;->x:F
+    add-float/2addr p2, v0
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->xOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
-
-    invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->newLowValue()F
-
-    move-result v1
-
-    add-float/2addr v0, v1
-
-    iput v0, p1, Lcom/badlogic/gdx/math/Vector3;->x:F
+    iput p2, p1, Lcom/badlogic/gdx/math/Vector3;->x:F
 
     .line 46
     :cond_0
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->yOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
+
+    iget-boolean p2, p2, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->active:Z
+
+    if-eqz p2, :cond_1
+
+    iget p2, p1, Lcom/badlogic/gdx/math/Vector3;->y:F
+
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->yOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
 
-    iget-boolean v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->active:Z
+    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->newLowValue()F
 
-    if-eqz v0, :cond_1
+    move-result v0
 
-    iget v0, p1, Lcom/badlogic/gdx/math/Vector3;->y:F
+    add-float/2addr p2, v0
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->yOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
-
-    invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->newLowValue()F
-
-    move-result v1
-
-    add-float/2addr v0, v1
-
-    iput v0, p1, Lcom/badlogic/gdx/math/Vector3;->y:F
+    iput p2, p1, Lcom/badlogic/gdx/math/Vector3;->y:F
 
     .line 47
     :cond_1
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->zOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
+
+    iget-boolean p2, p2, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->active:Z
+
+    if-eqz p2, :cond_2
+
+    iget p2, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
+
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->zOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
 
-    iget-boolean v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->active:Z
+    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->newLowValue()F
 
-    if-eqz v0, :cond_2
+    move-result v0
 
-    iget v0, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
+    add-float/2addr p2, v0
 
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->zOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
+    iput p2, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;->newLowValue()F
-
-    move-result v1
-
-    add-float/2addr v0, v1
-
-    iput v0, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
-
-    .line 48
     :cond_2
     return-object p1
 .end method
@@ -255,38 +234,35 @@
 .method public start()V
     .locals 0
 
-    .line 55
     return-void
 .end method
 
 .method public write(Lcom/badlogic/gdx/utils/Json;)V
     .locals 2
-    .param p1, "json"    # Lcom/badlogic/gdx/utils/Json;
 
     .line 70
     invoke-super {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;->write(Lcom/badlogic/gdx/utils/Json;)V
 
+    const-string v0, "xOffsetValue"
+
     .line 71
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->xOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->xOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
 
-    const-string/jumbo v1, "xOffsetValue"
+    invoke-virtual {p1, v0, v1}, Lcom/badlogic/gdx/utils/Json;->writeValue(Ljava/lang/String;Ljava/lang/Object;)V
 
-    invoke-virtual {p1, v1, v0}, Lcom/badlogic/gdx/utils/Json;->writeValue(Ljava/lang/String;Ljava/lang/Object;)V
+    const-string v0, "yOffsetValue"
 
     .line 72
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->yOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->yOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
 
-    const-string/jumbo v1, "yOffsetValue"
+    invoke-virtual {p1, v0, v1}, Lcom/badlogic/gdx/utils/Json;->writeValue(Ljava/lang/String;Ljava/lang/Object;)V
 
-    invoke-virtual {p1, v1, v0}, Lcom/badlogic/gdx/utils/Json;->writeValue(Ljava/lang/String;Ljava/lang/Object;)V
+    const-string v0, "zOffsetValue"
 
     .line 73
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->zOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/SpawnShapeValue;->zOffsetValue:Lcom/badlogic/gdx/graphics/g3d/particles/values/RangedNumericValue;
 
-    const-string/jumbo v1, "zOffsetValue"
+    invoke-virtual {p1, v0, v1}, Lcom/badlogic/gdx/utils/Json;->writeValue(Ljava/lang/String;Ljava/lang/Object;)V
 
-    invoke-virtual {p1, v1, v0}, Lcom/badlogic/gdx/utils/Json;->writeValue(Ljava/lang/String;Ljava/lang/Object;)V
-
-    .line 74
     return-void
 .end method

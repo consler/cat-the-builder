@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/AsyncHttpClient;Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/AsyncHttpClient;
 
     .line 451
     iput-object p1, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$5;->this$0:Lcom/koushikdutta/async/http/AsyncHttpClient;
@@ -42,9 +41,7 @@
 # virtual methods
 .method public onCompleted(Ljava/lang/Exception;)V
     .locals 1
-    .param p1, "ex"    # Ljava/lang/Exception;
 
-    .line 454
     if-eqz p1, :cond_0
 
     .line 455
@@ -56,11 +53,10 @@
 
     .line 457
     :cond_0
-    iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$5;->val$ret:Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$5;->val$ret:Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;
 
-    invoke-virtual {v0}, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->onHeadersSent()V
+    invoke-virtual {p1}, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->onHeadersSent()V
 
-    .line 458
     :goto_0
     return-void
 .end method

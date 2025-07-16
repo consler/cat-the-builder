@@ -27,7 +27,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 17
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,7 +43,6 @@
         }
     .end annotation
 
-    .line 38
     return-object p0
 .end method
 
@@ -52,7 +51,7 @@
 .method public getChannelId()Ljava/lang/String;
     .locals 1
 
-    .line 58
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/support/api/entity/core/JosBaseReq;->channelId:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/huawei/hms/support/api/entity/core/JosBaseReq;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -67,7 +66,7 @@
 .method public getCpID()Ljava/lang/String;
     .locals 1
 
-    .line 50
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/support/api/entity/core/JosBaseReq;->cpId:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/huawei/hms/support/api/entity/core/JosBaseReq;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -82,7 +81,7 @@
 .method public getHmsSdkVersionName()Ljava/lang/String;
     .locals 1
 
-    .line 42
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/support/api/entity/core/JosBaseReq;->hmsSdkVersionName:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/huawei/hms/support/api/entity/core/JosBaseReq;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -97,29 +96,26 @@
 .method public setChannelId(Ljava/lang/String;)V
     .locals 0
 
-    .line 62
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/support/api/entity/core/JosBaseReq;->channelId:Ljava/lang/String;
 
-    .line 63
     return-void
 .end method
 
 .method public setCpID(Ljava/lang/String;)V
     .locals 0
 
-    .line 54
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/support/api/entity/core/JosBaseReq;->cpId:Ljava/lang/String;
 
-    .line 55
     return-void
 .end method
 
 .method public setHmsSdkVersionName(Ljava/lang/String;)V
     .locals 0
 
-    .line 46
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/support/api/entity/core/JosBaseReq;->hmsSdkVersionName:Ljava/lang/String;
 
-    .line 47
     return-void
 .end method

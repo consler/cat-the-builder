@@ -51,14 +51,11 @@
     .end annotation
 
     .line 24
-    .local p0, "this":Lcom/bumptech/glide/load/model/ByteArrayLoader;, "Lcom/bumptech/glide/load/model/ByteArrayLoader<TData;>;"
-    .local p1, "converter":Lcom/bumptech/glide/load/model/ByteArrayLoader$Converter;, "Lcom/bumptech/glide/load/model/ByteArrayLoader$Converter<TData;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 25
     iput-object p1, p0, Lcom/bumptech/glide/load/model/ByteArrayLoader;->converter:Lcom/bumptech/glide/load/model/ByteArrayLoader$Converter;
 
-    .line 26
     return-void
 .end method
 
@@ -68,7 +65,6 @@
     .locals 0
 
     .line 20
-    .local p0, "this":Lcom/bumptech/glide/load/model/ByteArrayLoader;, "Lcom/bumptech/glide/load/model/ByteArrayLoader<TData;>;"
     check-cast p1, [B
 
     invoke-virtual {p0, p1, p2, p3, p4}, Lcom/bumptech/glide/load/model/ByteArrayLoader;->buildLoadData([BIILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
@@ -79,11 +75,7 @@
 .end method
 
 .method public buildLoadData([BIILcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
-    .locals 4
-    .param p1, "model"    # [B
-    .param p2, "width"    # I
-    .param p3, "height"    # I
-    .param p4, "options"    # Lcom/bumptech/glide/load/Options;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([BII",
@@ -95,29 +87,27 @@
     .end annotation
 
     .line 31
-    .local p0, "this":Lcom/bumptech/glide/load/model/ByteArrayLoader;, "Lcom/bumptech/glide/load/model/ByteArrayLoader<TData;>;"
-    new-instance v0, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
+    new-instance p2, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;
 
-    new-instance v1, Lcom/bumptech/glide/signature/ObjectKey;
+    new-instance p3, Lcom/bumptech/glide/signature/ObjectKey;
 
-    invoke-direct {v1, p1}, Lcom/bumptech/glide/signature/ObjectKey;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p3, p1}, Lcom/bumptech/glide/signature/ObjectKey;-><init>(Ljava/lang/Object;)V
 
-    new-instance v2, Lcom/bumptech/glide/load/model/ByteArrayLoader$Fetcher;
+    new-instance p4, Lcom/bumptech/glide/load/model/ByteArrayLoader$Fetcher;
 
-    iget-object v3, p0, Lcom/bumptech/glide/load/model/ByteArrayLoader;->converter:Lcom/bumptech/glide/load/model/ByteArrayLoader$Converter;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/ByteArrayLoader;->converter:Lcom/bumptech/glide/load/model/ByteArrayLoader$Converter;
 
-    invoke-direct {v2, p1, v3}, Lcom/bumptech/glide/load/model/ByteArrayLoader$Fetcher;-><init>([BLcom/bumptech/glide/load/model/ByteArrayLoader$Converter;)V
+    invoke-direct {p4, p1, v0}, Lcom/bumptech/glide/load/model/ByteArrayLoader$Fetcher;-><init>([BLcom/bumptech/glide/load/model/ByteArrayLoader$Converter;)V
 
-    invoke-direct {v0, v1, v2}, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;-><init>(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/data/DataFetcher;)V
+    invoke-direct {p2, p3, p4}, Lcom/bumptech/glide/load/model/ModelLoader$LoadData;-><init>(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/data/DataFetcher;)V
 
-    return-object v0
+    return-object p2
 .end method
 
 .method public bridge synthetic handles(Ljava/lang/Object;)Z
     .locals 0
 
     .line 20
-    .local p0, "this":Lcom/bumptech/glide/load/model/ByteArrayLoader;, "Lcom/bumptech/glide/load/model/ByteArrayLoader<TData;>;"
     check-cast p1, [B
 
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/load/model/ByteArrayLoader;->handles([B)Z
@@ -128,12 +118,9 @@
 .end method
 
 .method public handles([B)Z
-    .locals 1
-    .param p1, "model"    # [B
+    .locals 0
 
-    .line 36
-    .local p0, "this":Lcom/bumptech/glide/load/model/ByteArrayLoader;, "Lcom/bumptech/glide/load/model/ByteArrayLoader<TData;>;"
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method

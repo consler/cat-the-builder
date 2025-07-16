@@ -81,15 +81,13 @@
 .end method
 
 .method public constructor <init>(Lkotlinx/coroutines/Job;Lkotlin/coroutines/ContinuationInterceptor;)V
-    .locals 2
-    .param p1, "transactionThreadControlJob"    # Lkotlinx/coroutines/Job;
-    .param p2, "transactionDispatcher"    # Lkotlin/coroutines/ContinuationInterceptor;
+    .locals 1
 
-    const-string/jumbo v0, "transactionThreadControlJob"
+    const-string v0, "transactionThreadControlJob"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string/jumbo v0, "transactionDispatcher"
+    const-string v0, "transactionDispatcher"
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -101,13 +99,13 @@
     iput-object p2, p0, Landroidx/room/TransactionElement;->transactionDispatcher:Lkotlin/coroutines/ContinuationInterceptor;
 
     .line 159
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicInteger;
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
+    invoke-direct {p1, p2}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>(I)V
 
-    iput-object v0, p0, Landroidx/room/TransactionElement;->referenceCount:Ljava/util/concurrent/atomic/AtomicInteger;
+    iput-object p1, p0, Landroidx/room/TransactionElement;->referenceCount:Ljava/util/concurrent/atomic/AtomicInteger;
 
     return-void
 .end method
@@ -122,14 +120,11 @@
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->incrementAndGet()I
 
-    .line 163
     return-void
 .end method
 
 .method public fold(Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
     .locals 1
-    .param p1, "initial"    # Ljava/lang/Object;
-    .param p2, "operation"    # Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -149,14 +144,13 @@
     .line 143
     invoke-static {p0, p1, p2}, Lkotlin/coroutines/CoroutineContext$Element$DefaultImpls;->fold(Lkotlin/coroutines/CoroutineContext$Element;Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public get(Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext$Element;
     .locals 1
-    .param p1, "key"    # Lkotlin/coroutines/CoroutineContext$Key;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
@@ -174,9 +168,9 @@
     .line 143
     invoke-static {p0, p1}, Lkotlin/coroutines/CoroutineContext$Element$DefaultImpls;->get(Lkotlin/coroutines/CoroutineContext$Element;Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext$Element;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getKey()Lkotlin/coroutines/CoroutineContext$Key;
@@ -209,7 +203,6 @@
 
 .method public minusKey(Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext;
     .locals 1
-    .param p1, "key"    # Lkotlin/coroutines/CoroutineContext$Key;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -226,14 +219,13 @@
     .line 143
     invoke-static {p0, p1}, Lkotlin/coroutines/CoroutineContext$Element$DefaultImpls;->minusKey(Lkotlin/coroutines/CoroutineContext$Element;Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public plus(Lkotlin/coroutines/CoroutineContext;)Lkotlin/coroutines/CoroutineContext;
     .locals 1
-    .param p1, "context"    # Lkotlin/coroutines/CoroutineContext;
 
     const-string v0, "context"
 
@@ -242,13 +234,13 @@
     .line 143
     invoke-static {p0, p1}, Lkotlin/coroutines/CoroutineContext$Element$DefaultImpls;->plus(Lkotlin/coroutines/CoroutineContext$Element;Lkotlin/coroutines/CoroutineContext;)Lkotlin/coroutines/CoroutineContext;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final release()V
-    .locals 4
+    .locals 3
 
     .line 166
     iget-object v0, p0, Landroidx/room/TransactionElement;->referenceCount:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -257,38 +249,31 @@
 
     move-result v0
 
-    .line 167
-    .local v0, "count":I
     if-ltz v0, :cond_1
 
-    .line 169
     if-nez v0, :cond_0
 
     .line 171
-    iget-object v1, p0, Landroidx/room/TransactionElement;->transactionThreadControlJob:Lkotlinx/coroutines/Job;
+    iget-object v0, p0, Landroidx/room/TransactionElement;->transactionThreadControlJob:Lkotlinx/coroutines/Job;
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-static {v1, v3, v2, v3}, Lkotlinx/coroutines/Job$DefaultImpls;->cancel$default(Lkotlinx/coroutines/Job;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
+    invoke-static {v0, v2, v1, v2}, Lkotlinx/coroutines/Job$DefaultImpls;->cancel$default(Lkotlinx/coroutines/Job;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
 
-    .line 172
     :cond_0
-    nop
-
-    .line 173
     return-void
 
     .line 168
     :cond_1
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    const-string v2, "Transaction was never started or was already released."
+    const-string v1, "Transaction was never started or was already released."
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    check-cast v1, Ljava/lang/Throwable;
+    check-cast v0, Ljava/lang/Throwable;
 
-    throw v1
+    throw v0
 .end method

@@ -81,7 +81,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/Registry;->registerPrimitiveWrapper(Lcom/google/crypto/tink/PrimitiveWrapper;)V
 
-    .line 123
     return-void
 .end method
 
@@ -149,7 +148,6 @@
     .end annotation
 
     .line 108
-    .local p1, "primitives":Lcom/google/crypto/tink/PrimitiveSet;, "Lcom/google/crypto/tink/PrimitiveSet<Lcom/google/crypto/tink/Mac;>;"
     new-instance v0, Lcom/google/crypto/tink/mac/MacWrapper$WrappedMac;
 
     const/4 v1, 0x0

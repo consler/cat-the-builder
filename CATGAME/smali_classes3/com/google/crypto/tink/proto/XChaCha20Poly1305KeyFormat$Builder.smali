@@ -38,13 +38,11 @@
 
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
-    .line 108
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/proto/XChaCha20Poly1305KeyFormat$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/proto/XChaCha20Poly1305KeyFormat$1;
 
     .line 100
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/XChaCha20Poly1305KeyFormat$Builder;-><init>()V

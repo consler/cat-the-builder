@@ -28,13 +28,11 @@
 
     iput-object v0, p0, Landroidx/work/impl/DefaultRunnableScheduler;->mHandler:Landroid/os/Handler;
 
-    .line 41
     return-void
 .end method
 
 .method public constructor <init>(Landroid/os/Handler;)V
     .locals 0
-    .param p1, "handler"    # Landroid/os/Handler;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -50,7 +48,6 @@
     .line 45
     iput-object p1, p0, Landroidx/work/impl/DefaultRunnableScheduler;->mHandler:Landroid/os/Handler;
 
-    .line 46
     return-void
 .end method
 
@@ -58,7 +55,6 @@
 # virtual methods
 .method public cancel(Ljava/lang/Runnable;)V
     .locals 1
-    .param p1, "runnable"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -73,7 +69,6 @@
 
     invoke-virtual {v0, p1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 61
     return-void
 .end method
 
@@ -88,8 +83,6 @@
 
 .method public scheduleWithDelay(JLjava/lang/Runnable;)V
     .locals 1
-    .param p1, "delayInMillis"    # J
-    .param p3, "runnable"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -106,6 +99,5 @@
 
     invoke-virtual {v0, p3, p1, p2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 56
     return-void
 .end method

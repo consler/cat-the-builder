@@ -27,21 +27,19 @@
     .line 35
     invoke-direct {p0}, Lcom/opencsv/exceptions/CsvException;-><init>()V
 
-    .line 36
     const/4 v0, 0x0
 
+    .line 36
     iput-object v0, p0, Lcom/opencsv/exceptions/CsvDataTypeMismatchException;->sourceObject:Ljava/lang/Object;
 
     .line 37
     iput-object v0, p0, Lcom/opencsv/exceptions/CsvDataTypeMismatchException;->destinationClass:Ljava/lang/Class;
 
-    .line 38
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/Class;)V
     .locals 0
-    .param p1, "sourceObject"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -52,7 +50,6 @@
     .end annotation
 
     .line 49
-    .local p2, "destinationClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-direct {p0}, Lcom/opencsv/exceptions/CsvException;-><init>()V
 
     .line 50
@@ -61,14 +58,11 @@
     .line 51
     iput-object p2, p0, Lcom/opencsv/exceptions/CsvDataTypeMismatchException;->destinationClass:Ljava/lang/Class;
 
-    .line 52
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/Class;Ljava/lang/String;)V
     .locals 0
-    .param p1, "sourceObject"    # Ljava/lang/Object;
-    .param p3, "message"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -81,7 +75,6 @@
     .end annotation
 
     .line 76
-    .local p2, "destinationClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-direct {p0, p3}, Lcom/opencsv/exceptions/CsvException;-><init>(Ljava/lang/String;)V
 
     .line 77
@@ -90,26 +83,23 @@
     .line 78
     iput-object p2, p0, Lcom/opencsv/exceptions/CsvDataTypeMismatchException;->destinationClass:Ljava/lang/Class;
 
-    .line 79
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "message"    # Ljava/lang/String;
+    .locals 0
 
     .line 60
     invoke-direct {p0, p1}, Lcom/opencsv/exceptions/CsvException;-><init>(Ljava/lang/String;)V
 
-    .line 61
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lcom/opencsv/exceptions/CsvDataTypeMismatchException;->sourceObject:Ljava/lang/Object;
+    .line 61
+    iput-object p1, p0, Lcom/opencsv/exceptions/CsvDataTypeMismatchException;->sourceObject:Ljava/lang/Object;
 
     .line 62
-    iput-object v0, p0, Lcom/opencsv/exceptions/CsvDataTypeMismatchException;->destinationClass:Ljava/lang/Class;
+    iput-object p1, p0, Lcom/opencsv/exceptions/CsvDataTypeMismatchException;->destinationClass:Ljava/lang/Class;
 
-    .line 63
     return-void
 .end method
 

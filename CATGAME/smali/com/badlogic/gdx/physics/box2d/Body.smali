@@ -60,17 +60,15 @@
 # direct methods
 .method protected constructor <init>(Lcom/badlogic/gdx/physics/box2d/World;J)V
     .locals 2
-    .param p1, "world"    # Lcom/badlogic/gdx/physics/box2d/World;
-    .param p2, "addr"    # J
 
     .line 52
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 35
     const/4 v0, 0x4
 
     new-array v0, v0, [F
 
+    .line 35
     iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
 
     .line 41
@@ -179,7 +177,6 @@
     .line 54
     iput-wide p2, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
 
-    .line 55
     return-void
 .end method
 
@@ -325,25 +322,17 @@
 # virtual methods
 .method public applyAngularImpulse(FZ)V
     .locals 2
-    .param p1, "impulse"    # F
-    .param p2, "wake"    # Z
 
     .line 376
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
 
     invoke-direct {p0, v0, v1, p1, p2}, Lcom/badlogic/gdx/physics/box2d/Body;->jniApplyAngularImpulse(JFZ)V
 
-    .line 377
     return-void
 .end method
 
 .method public applyForce(FFFFZ)V
     .locals 8
-    .param p1, "forceX"    # F
-    .param p2, "forceY"    # F
-    .param p3, "pointX"    # F
-    .param p4, "pointY"    # F
-    .param p5, "wake"    # Z
 
     .line 309
     iget-wide v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
@@ -362,15 +351,11 @@
 
     invoke-direct/range {v0 .. v7}, Lcom/badlogic/gdx/physics/box2d/Body;->jniApplyForce(JFFFFZ)V
 
-    .line 310
     return-void
 .end method
 
 .method public applyForce(Lcom/badlogic/gdx/math/Vector2;Lcom/badlogic/gdx/math/Vector2;Z)V
     .locals 8
-    .param p1, "force"    # Lcom/badlogic/gdx/math/Vector2;
-    .param p2, "point"    # Lcom/badlogic/gdx/math/Vector2;
-    .param p3, "wake"    # Z
 
     .line 298
     iget-wide v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
@@ -389,15 +374,11 @@
 
     invoke-direct/range {v0 .. v7}, Lcom/badlogic/gdx/physics/box2d/Body;->jniApplyForce(JFFFFZ)V
 
-    .line 299
     return-void
 .end method
 
 .method public applyForceToCenter(FFZ)V
     .locals 6
-    .param p1, "forceX"    # F
-    .param p2, "forceY"    # F
-    .param p3, "wake"    # Z
 
     .line 327
     iget-wide v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
@@ -412,14 +393,11 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/physics/box2d/Body;->jniApplyForceToCenter(JFFZ)V
 
-    .line 328
     return-void
 .end method
 
 .method public applyForceToCenter(Lcom/badlogic/gdx/math/Vector2;Z)V
     .locals 6
-    .param p1, "force"    # Lcom/badlogic/gdx/math/Vector2;
-    .param p2, "wake"    # Z
 
     .line 320
     iget-wide v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
@@ -434,17 +412,11 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/physics/box2d/Body;->jniApplyForceToCenter(JFFZ)V
 
-    .line 321
     return-void
 .end method
 
 .method public applyLinearImpulse(FFFFZ)V
     .locals 8
-    .param p1, "impulseX"    # F
-    .param p2, "impulseY"    # F
-    .param p3, "pointX"    # F
-    .param p4, "pointY"    # F
-    .param p5, "wake"    # Z
 
     .line 365
     iget-wide v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
@@ -463,15 +435,11 @@
 
     invoke-direct/range {v0 .. v7}, Lcom/badlogic/gdx/physics/box2d/Body;->jniApplyLinearImpulse(JFFFFZ)V
 
-    .line 366
     return-void
 .end method
 
 .method public applyLinearImpulse(Lcom/badlogic/gdx/math/Vector2;Lcom/badlogic/gdx/math/Vector2;Z)V
     .locals 8
-    .param p1, "impulse"    # Lcom/badlogic/gdx/math/Vector2;
-    .param p2, "point"    # Lcom/badlogic/gdx/math/Vector2;
-    .param p3, "wake"    # Z
 
     .line 354
     iget-wide v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
@@ -490,27 +458,22 @@
 
     invoke-direct/range {v0 .. v7}, Lcom/badlogic/gdx/physics/box2d/Body;->jniApplyLinearImpulse(JFFFFZ)V
 
-    .line 355
     return-void
 .end method
 
 .method public applyTorque(FZ)V
     .locals 2
-    .param p1, "torque"    # F
-    .param p2, "wake"    # Z
 
     .line 340
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
 
     invoke-direct {p0, v0, v1, p1, p2}, Lcom/badlogic/gdx/physics/box2d/Body;->jniApplyTorque(JFZ)V
 
-    .line 341
     return-void
 .end method
 
 .method public createFixture(Lcom/badlogic/gdx/physics/box2d/FixtureDef;)Lcom/badlogic/gdx/physics/box2d/Fixture;
     .locals 12
-    .param p1, "def"    # Lcom/badlogic/gdx/physics/box2d/FixtureDef;
 
     .line 73
     iget-wide v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
@@ -535,9 +498,9 @@
 
     iget-short v10, v0, Lcom/badlogic/gdx/physics/box2d/Filter;->maskBits:S
 
-    iget-object v0, p1, Lcom/badlogic/gdx/physics/box2d/FixtureDef;->filter:Lcom/badlogic/gdx/physics/box2d/Filter;
+    iget-object p1, p1, Lcom/badlogic/gdx/physics/box2d/FixtureDef;->filter:Lcom/badlogic/gdx/physics/box2d/Filter;
 
-    iget-short v11, v0, Lcom/badlogic/gdx/physics/box2d/Filter;->groupIndex:S
+    iget-short v11, p1, Lcom/badlogic/gdx/physics/box2d/Filter;->groupIndex:S
 
     move-object v0, p0
 
@@ -546,43 +509,38 @@
     move-result-wide v0
 
     .line 75
-    .local v0, "fixtureAddr":J
-    iget-object v2, p0, Lcom/badlogic/gdx/physics/box2d/Body;->world:Lcom/badlogic/gdx/physics/box2d/World;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->world:Lcom/badlogic/gdx/physics/box2d/World;
 
-    iget-object v2, v2, Lcom/badlogic/gdx/physics/box2d/World;->freeFixtures:Lcom/badlogic/gdx/utils/Pool;
+    iget-object p1, p1, Lcom/badlogic/gdx/physics/box2d/World;->freeFixtures:Lcom/badlogic/gdx/utils/Pool;
 
-    invoke-virtual {v2}, Lcom/badlogic/gdx/utils/Pool;->obtain()Ljava/lang/Object;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/Pool;->obtain()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    check-cast v2, Lcom/badlogic/gdx/physics/box2d/Fixture;
+    check-cast p1, Lcom/badlogic/gdx/physics/box2d/Fixture;
 
     .line 76
-    .local v2, "fixture":Lcom/badlogic/gdx/physics/box2d/Fixture;
-    invoke-virtual {v2, p0, v0, v1}, Lcom/badlogic/gdx/physics/box2d/Fixture;->reset(Lcom/badlogic/gdx/physics/box2d/Body;J)V
+    invoke-virtual {p1, p0, v0, v1}, Lcom/badlogic/gdx/physics/box2d/Fixture;->reset(Lcom/badlogic/gdx/physics/box2d/Body;J)V
 
     .line 77
-    iget-object v3, p0, Lcom/badlogic/gdx/physics/box2d/Body;->world:Lcom/badlogic/gdx/physics/box2d/World;
+    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->world:Lcom/badlogic/gdx/physics/box2d/World;
 
-    iget-object v3, v3, Lcom/badlogic/gdx/physics/box2d/World;->fixtures:Lcom/badlogic/gdx/utils/LongMap;
+    iget-object v0, v0, Lcom/badlogic/gdx/physics/box2d/World;->fixtures:Lcom/badlogic/gdx/utils/LongMap;
 
-    iget-wide v4, v2, Lcom/badlogic/gdx/physics/box2d/Fixture;->addr:J
+    iget-wide v1, p1, Lcom/badlogic/gdx/physics/box2d/Fixture;->addr:J
 
-    invoke-virtual {v3, v4, v5, v2}, Lcom/badlogic/gdx/utils/LongMap;->put(JLjava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1, v2, p1}, Lcom/badlogic/gdx/utils/LongMap;->put(JLjava/lang/Object;)Ljava/lang/Object;
 
     .line 78
-    iget-object v3, p0, Lcom/badlogic/gdx/physics/box2d/Body;->fixtures:Lcom/badlogic/gdx/utils/Array;
+    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->fixtures:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v3, v2}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 79
-    return-object v2
+    return-object p1
 .end method
 
 .method public createFixture(Lcom/badlogic/gdx/physics/box2d/Shape;F)Lcom/badlogic/gdx/physics/box2d/Fixture;
     .locals 6
-    .param p1, "shape"    # Lcom/badlogic/gdx/physics/box2d/Shape;
-    .param p2, "density"    # F
 
     .line 107
     iget-wide v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
@@ -595,54 +553,50 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/physics/box2d/Body;->jniCreateFixture(JJF)J
 
-    move-result-wide v0
+    move-result-wide p1
 
     .line 108
-    .local v0, "fixtureAddr":J
-    iget-object v2, p0, Lcom/badlogic/gdx/physics/box2d/Body;->world:Lcom/badlogic/gdx/physics/box2d/World;
+    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->world:Lcom/badlogic/gdx/physics/box2d/World;
 
-    iget-object v2, v2, Lcom/badlogic/gdx/physics/box2d/World;->freeFixtures:Lcom/badlogic/gdx/utils/Pool;
+    iget-object v0, v0, Lcom/badlogic/gdx/physics/box2d/World;->freeFixtures:Lcom/badlogic/gdx/utils/Pool;
 
-    invoke-virtual {v2}, Lcom/badlogic/gdx/utils/Pool;->obtain()Ljava/lang/Object;
+    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Pool;->obtain()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Lcom/badlogic/gdx/physics/box2d/Fixture;
+    check-cast v0, Lcom/badlogic/gdx/physics/box2d/Fixture;
 
     .line 109
-    .local v2, "fixture":Lcom/badlogic/gdx/physics/box2d/Fixture;
-    invoke-virtual {v2, p0, v0, v1}, Lcom/badlogic/gdx/physics/box2d/Fixture;->reset(Lcom/badlogic/gdx/physics/box2d/Body;J)V
+    invoke-virtual {v0, p0, p1, p2}, Lcom/badlogic/gdx/physics/box2d/Fixture;->reset(Lcom/badlogic/gdx/physics/box2d/Body;J)V
 
     .line 110
-    iget-object v3, p0, Lcom/badlogic/gdx/physics/box2d/Body;->world:Lcom/badlogic/gdx/physics/box2d/World;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->world:Lcom/badlogic/gdx/physics/box2d/World;
 
-    iget-object v3, v3, Lcom/badlogic/gdx/physics/box2d/World;->fixtures:Lcom/badlogic/gdx/utils/LongMap;
+    iget-object p1, p1, Lcom/badlogic/gdx/physics/box2d/World;->fixtures:Lcom/badlogic/gdx/utils/LongMap;
 
-    iget-wide v4, v2, Lcom/badlogic/gdx/physics/box2d/Fixture;->addr:J
+    iget-wide v1, v0, Lcom/badlogic/gdx/physics/box2d/Fixture;->addr:J
 
-    invoke-virtual {v3, v4, v5, v2}, Lcom/badlogic/gdx/utils/LongMap;->put(JLjava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1, v1, v2, v0}, Lcom/badlogic/gdx/utils/LongMap;->put(JLjava/lang/Object;)Ljava/lang/Object;
 
     .line 111
-    iget-object v3, p0, Lcom/badlogic/gdx/physics/box2d/Body;->fixtures:Lcom/badlogic/gdx/utils/Array;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->fixtures:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v3, v2}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 112
-    return-object v2
+    return-object v0
 .end method
 
 .method public destroyFixture(Lcom/badlogic/gdx/physics/box2d/Fixture;)V
     .locals 3
-    .param p1, "fixture"    # Lcom/badlogic/gdx/physics/box2d/Fixture;
 
     .line 127
     iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->world:Lcom/badlogic/gdx/physics/box2d/World;
 
     invoke-virtual {v0, p0, p1}, Lcom/badlogic/gdx/physics/box2d/World;->destroyFixture(Lcom/badlogic/gdx/physics/box2d/Body;Lcom/badlogic/gdx/physics/box2d/Fixture;)V
 
-    .line 128
     const/4 v0, 0x0
 
+    .line 128
     invoke-virtual {p1, v0}, Lcom/badlogic/gdx/physics/box2d/Fixture;->setUserData(Ljava/lang/Object;)V
 
     .line 129
@@ -668,7 +622,6 @@
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/Pool;->free(Ljava/lang/Object;)V
 
-    .line 132
     return-void
 .end method
 
@@ -824,7 +777,6 @@
 
 .method public getLinearVelocityFromLocalPoint(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
     .locals 6
-    .param p1, "localPoint"    # Lcom/badlogic/gdx/math/Vector2;
 
     .line 564
     iget-wide v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
@@ -840,36 +792,35 @@
     invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/physics/box2d/Body;->jniGetLinearVelocityFromLocalPoint(JFF[F)V
 
     .line 565
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->linVelLoc:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->linVelLoc:Lcom/badlogic/gdx/math/Vector2;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
+    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aget v1, v1, v2
+    aget v0, v0, v1
 
-    iput v1, v0, Lcom/badlogic/gdx/math/Vector2;->x:F
+    iput v0, p1, Lcom/badlogic/gdx/math/Vector2;->x:F
 
     .line 566
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->linVelLoc:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->linVelLoc:Lcom/badlogic/gdx/math/Vector2;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
+    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    aget v1, v1, v2
+    aget v0, v0, v1
 
-    iput v1, v0, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iput v0, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
 
     .line 567
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->linVelLoc:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->linVelLoc:Lcom/badlogic/gdx/math/Vector2;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getLinearVelocityFromWorldPoint(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
     .locals 6
-    .param p1, "worldPoint"    # Lcom/badlogic/gdx/math/Vector2;
 
     .line 544
     iget-wide v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
@@ -885,31 +836,31 @@
     invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/physics/box2d/Body;->jniGetLinearVelocityFromWorldPoint(JFF[F)V
 
     .line 545
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->linVelWorld:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->linVelWorld:Lcom/badlogic/gdx/math/Vector2;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
+    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aget v1, v1, v2
+    aget v0, v0, v1
 
-    iput v1, v0, Lcom/badlogic/gdx/math/Vector2;->x:F
+    iput v0, p1, Lcom/badlogic/gdx/math/Vector2;->x:F
 
     .line 546
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->linVelWorld:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->linVelWorld:Lcom/badlogic/gdx/math/Vector2;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
+    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    aget v1, v1, v2
+    aget v0, v0, v1
 
-    iput v1, v0, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iput v0, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
 
     .line 547
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->linVelWorld:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->linVelWorld:Lcom/badlogic/gdx/math/Vector2;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getLocalCenter()Lcom/badlogic/gdx/math/Vector2;
@@ -952,7 +903,6 @@
 
 .method public getLocalPoint(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
     .locals 6
-    .param p1, "worldPoint"    # Lcom/badlogic/gdx/math/Vector2;
 
     .line 504
     iget-wide v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
@@ -968,36 +918,35 @@
     invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/physics/box2d/Body;->jniGetLocalPoint(JFF[F)V
 
     .line 505
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->localPoint2:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->localPoint2:Lcom/badlogic/gdx/math/Vector2;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
+    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aget v1, v1, v2
+    aget v0, v0, v1
 
-    iput v1, v0, Lcom/badlogic/gdx/math/Vector2;->x:F
+    iput v0, p1, Lcom/badlogic/gdx/math/Vector2;->x:F
 
     .line 506
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->localPoint2:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->localPoint2:Lcom/badlogic/gdx/math/Vector2;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
+    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    aget v1, v1, v2
+    aget v0, v0, v1
 
-    iput v1, v0, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iput v0, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
 
     .line 507
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->localPoint2:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->localPoint2:Lcom/badlogic/gdx/math/Vector2;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getLocalVector(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
     .locals 6
-    .param p1, "worldVector"    # Lcom/badlogic/gdx/math/Vector2;
 
     .line 524
     iget-wide v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
@@ -1013,31 +962,31 @@
     invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/physics/box2d/Body;->jniGetLocalVector(JFF[F)V
 
     .line 525
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->localVector:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->localVector:Lcom/badlogic/gdx/math/Vector2;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
+    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aget v1, v1, v2
+    aget v0, v0, v1
 
-    iput v1, v0, Lcom/badlogic/gdx/math/Vector2;->x:F
+    iput v0, p1, Lcom/badlogic/gdx/math/Vector2;->x:F
 
     .line 526
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->localVector:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->localVector:Lcom/badlogic/gdx/math/Vector2;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
+    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    aget v1, v1, v2
+    aget v0, v0, v1
 
-    iput v1, v0, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iput v0, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
 
     .line 527
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->localVector:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->localVector:Lcom/badlogic/gdx/math/Vector2;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getMass()F
@@ -1183,39 +1132,38 @@
 
     move-result v0
 
-    .line 645
-    .local v0, "type":I
     if-nez v0, :cond_0
 
-    sget-object v1, Lcom/badlogic/gdx/physics/box2d/BodyDef$BodyType;->StaticBody:Lcom/badlogic/gdx/physics/box2d/BodyDef$BodyType;
+    .line 645
+    sget-object v0, Lcom/badlogic/gdx/physics/box2d/BodyDef$BodyType;->StaticBody:Lcom/badlogic/gdx/physics/box2d/BodyDef$BodyType;
 
-    return-object v1
+    return-object v0
 
-    .line 646
     :cond_0
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_1
 
-    sget-object v1, Lcom/badlogic/gdx/physics/box2d/BodyDef$BodyType;->KinematicBody:Lcom/badlogic/gdx/physics/box2d/BodyDef$BodyType;
+    .line 646
+    sget-object v0, Lcom/badlogic/gdx/physics/box2d/BodyDef$BodyType;->KinematicBody:Lcom/badlogic/gdx/physics/box2d/BodyDef$BodyType;
 
-    return-object v1
+    return-object v0
 
-    .line 647
     :cond_1
     const/4 v1, 0x2
 
     if-ne v0, v1, :cond_2
 
-    sget-object v1, Lcom/badlogic/gdx/physics/box2d/BodyDef$BodyType;->DynamicBody:Lcom/badlogic/gdx/physics/box2d/BodyDef$BodyType;
+    .line 647
+    sget-object v0, Lcom/badlogic/gdx/physics/box2d/BodyDef$BodyType;->DynamicBody:Lcom/badlogic/gdx/physics/box2d/BodyDef$BodyType;
 
-    return-object v1
+    return-object v0
 
     .line 648
     :cond_2
-    sget-object v1, Lcom/badlogic/gdx/physics/box2d/BodyDef$BodyType;->StaticBody:Lcom/badlogic/gdx/physics/box2d/BodyDef$BodyType;
+    sget-object v0, Lcom/badlogic/gdx/physics/box2d/BodyDef$BodyType;->StaticBody:Lcom/badlogic/gdx/physics/box2d/BodyDef$BodyType;
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public getUserData()Ljava/lang/Object;
@@ -1276,7 +1224,6 @@
 
 .method public getWorldPoint(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
     .locals 6
-    .param p1, "localPoint"    # Lcom/badlogic/gdx/math/Vector2;
 
     .line 464
     iget-wide v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
@@ -1292,36 +1239,35 @@
     invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/physics/box2d/Body;->jniGetWorldPoint(JFF[F)V
 
     .line 465
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->localPoint:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->localPoint:Lcom/badlogic/gdx/math/Vector2;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
+    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aget v1, v1, v2
+    aget v0, v0, v1
 
-    iput v1, v0, Lcom/badlogic/gdx/math/Vector2;->x:F
+    iput v0, p1, Lcom/badlogic/gdx/math/Vector2;->x:F
 
     .line 466
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->localPoint:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->localPoint:Lcom/badlogic/gdx/math/Vector2;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
+    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    aget v1, v1, v2
+    aget v0, v0, v1
 
-    iput v1, v0, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iput v0, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
 
     .line 467
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->localPoint:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->localPoint:Lcom/badlogic/gdx/math/Vector2;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getWorldVector(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
     .locals 6
-    .param p1, "localVector"    # Lcom/badlogic/gdx/math/Vector2;
 
     .line 484
     iget-wide v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
@@ -1337,31 +1283,31 @@
     invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/physics/box2d/Body;->jniGetWorldVector(JFF[F)V
 
     .line 485
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->worldVector:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->worldVector:Lcom/badlogic/gdx/math/Vector2;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
+    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aget v1, v1, v2
+    aget v0, v0, v1
 
-    iput v1, v0, Lcom/badlogic/gdx/math/Vector2;->x:F
+    iput v0, p1, Lcom/badlogic/gdx/math/Vector2;->x:F
 
     .line 486
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->worldVector:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->worldVector:Lcom/badlogic/gdx/math/Vector2;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
+    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->tmp:[F
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    aget v1, v1, v2
+    aget v0, v0, v1
 
-    iput v1, v0, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iput v0, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
 
     .line 487
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->worldVector:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->worldVector:Lcom/badlogic/gdx/math/Vector2;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public isActive()Z
@@ -1430,59 +1376,54 @@
 .end method
 
 .method protected reset(J)V
-    .locals 3
-    .param p1, "addr"    # J
+    .locals 1
 
     .line 59
     iput-wide p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
 
-    .line 60
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->userData:Ljava/lang/Object;
+    .line 60
+    iput-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->userData:Ljava/lang/Object;
+
+    const/4 p1, 0x0
 
     .line 61
-    const/4 v0, 0x0
-
-    .local v0, "i":I
     :goto_0
-    iget-object v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->fixtures:Lcom/badlogic/gdx/utils/Array;
+    iget-object p2, p0, Lcom/badlogic/gdx/physics/box2d/Body;->fixtures:Lcom/badlogic/gdx/utils/Array;
 
-    iget v1, v1, Lcom/badlogic/gdx/utils/Array;->size:I
+    iget p2, p2, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    if-ge v0, v1, :cond_0
+    if-ge p1, p2, :cond_0
 
     .line 62
-    iget-object v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->world:Lcom/badlogic/gdx/physics/box2d/World;
+    iget-object p2, p0, Lcom/badlogic/gdx/physics/box2d/Body;->world:Lcom/badlogic/gdx/physics/box2d/World;
 
-    iget-object v1, v1, Lcom/badlogic/gdx/physics/box2d/World;->freeFixtures:Lcom/badlogic/gdx/utils/Pool;
+    iget-object p2, p2, Lcom/badlogic/gdx/physics/box2d/World;->freeFixtures:Lcom/badlogic/gdx/utils/Pool;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/physics/box2d/Body;->fixtures:Lcom/badlogic/gdx/utils/Array;
+    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->fixtures:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v2, v0}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/utils/Pool;->free(Ljava/lang/Object;)V
+    invoke-virtual {p2, v0}, Lcom/badlogic/gdx/utils/Pool;->free(Ljava/lang/Object;)V
 
-    .line 61
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
     goto :goto_0
 
     .line 63
-    .end local v0    # "i":I
     :cond_0
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->fixtures:Lcom/badlogic/gdx/utils/Array;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->fixtures:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->clear()V
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/Array;->clear()V
 
     .line 64
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->joints:Lcom/badlogic/gdx/utils/Array;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->joints:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->clear()V
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/Array;->clear()V
 
-    .line 65
     return-void
 .end method
 
@@ -1494,15 +1435,12 @@
 
     invoke-direct {p0, v0, v1}, Lcom/badlogic/gdx/physics/box2d/Body;->jniResetMassData(J)V
 
-    .line 450
     return-void
 .end method
 
 .method public setActive(Z)V
     .locals 2
-    .param p1, "flag"    # Z
 
-    .line 725
     if-eqz p1, :cond_0
 
     .line 726
@@ -1514,140 +1452,119 @@
 
     .line 728
     :cond_0
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->world:Lcom/badlogic/gdx/physics/box2d/World;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->world:Lcom/badlogic/gdx/physics/box2d/World;
 
-    invoke-virtual {v0, p0}, Lcom/badlogic/gdx/physics/box2d/World;->deactivateBody(Lcom/badlogic/gdx/physics/box2d/Body;)V
+    invoke-virtual {p1, p0}, Lcom/badlogic/gdx/physics/box2d/World;->deactivateBody(Lcom/badlogic/gdx/physics/box2d/Body;)V
 
-    .line 730
     :goto_0
     return-void
 .end method
 
 .method public setAngularDamping(F)V
     .locals 2
-    .param p1, "angularDamping"    # F
 
     .line 609
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
 
     invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/Body;->jniSetAngularDamping(JF)V
 
-    .line 610
     return-void
 .end method
 
 .method public setAngularVelocity(F)V
     .locals 2
-    .param p1, "omega"    # F
 
     .line 274
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
 
     invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/Body;->jniSetAngularVelocity(JF)V
 
-    .line 275
     return-void
 .end method
 
 .method public setAwake(Z)V
     .locals 2
-    .param p1, "flag"    # Z
 
     .line 699
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
 
     invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/Body;->jniSetAwake(JZ)V
 
-    .line 700
     return-void
 .end method
 
 .method public setBullet(Z)V
     .locals 2
-    .param p1, "flag"    # Z
 
     .line 658
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
 
     invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/Body;->jniSetBullet(JZ)V
 
-    .line 659
     return-void
 .end method
 
 .method public setFixedRotation(Z)V
     .locals 2
-    .param p1, "flag"    # Z
 
     .line 749
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
 
     invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/Body;->jniSetFixedRotation(JZ)V
 
-    .line 750
     return-void
 .end method
 
 .method public setGravityScale(F)V
     .locals 2
-    .param p1, "scale"    # F
 
     .line 797
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
 
     invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/Body;->jniSetGravityScale(JF)V
 
-    .line 798
     return-void
 .end method
 
 .method public setLinearDamping(F)V
     .locals 2
-    .param p1, "linearDamping"    # F
 
     .line 589
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
 
     invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/Body;->jniSetLinearDamping(JF)V
 
-    .line 590
     return-void
 .end method
 
 .method public setLinearVelocity(FF)V
     .locals 2
-    .param p1, "vX"    # F
-    .param p2, "vY"    # F
 
     .line 246
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
 
     invoke-direct {p0, v0, v1, p1, p2}, Lcom/badlogic/gdx/physics/box2d/Body;->jniSetLinearVelocity(JFF)V
 
-    .line 247
     return-void
 .end method
 
 .method public setLinearVelocity(Lcom/badlogic/gdx/math/Vector2;)V
-    .locals 4
-    .param p1, "v"    # Lcom/badlogic/gdx/math/Vector2;
+    .locals 3
 
     .line 241
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
 
     iget v2, p1, Lcom/badlogic/gdx/math/Vector2;->x:F
 
-    iget v3, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
 
-    invoke-direct {p0, v0, v1, v2, v3}, Lcom/badlogic/gdx/physics/box2d/Body;->jniSetLinearVelocity(JFF)V
+    invoke-direct {p0, v0, v1, v2, p1}, Lcom/badlogic/gdx/physics/box2d/Body;->jniSetLinearVelocity(JFF)V
 
-    .line 242
     return-void
 .end method
 
 .method public setMassData(Lcom/badlogic/gdx/physics/box2d/MassData;)V
     .locals 7
-    .param p1, "data"    # Lcom/badlogic/gdx/physics/box2d/MassData;
 
     .line 433
     iget-wide v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
@@ -1668,28 +1585,22 @@
 
     invoke-direct/range {v0 .. v6}, Lcom/badlogic/gdx/physics/box2d/Body;->jniSetMassData(JFFFF)V
 
-    .line 434
     return-void
 .end method
 
 .method public setSleepingAllowed(Z)V
     .locals 2
-    .param p1, "flag"    # Z
 
     .line 678
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
 
     invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/Body;->jniSetSleepingAllowed(JZ)V
 
-    .line 679
     return-void
 .end method
 
 .method public setTransform(FFF)V
     .locals 6
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "angle"    # F
 
     .line 148
     iget-wide v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
@@ -1704,14 +1615,11 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/physics/box2d/Body;->jniSetTransform(JFFF)V
 
-    .line 149
     return-void
 .end method
 
 .method public setTransform(Lcom/badlogic/gdx/math/Vector2;F)V
     .locals 6
-    .param p1, "position"    # Lcom/badlogic/gdx/math/Vector2;
-    .param p2, "angle"    # F
 
     .line 139
     iget-wide v1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
@@ -1726,34 +1634,29 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/physics/box2d/Body;->jniSetTransform(JFFF)V
 
-    .line 140
     return-void
 .end method
 
 .method public setType(Lcom/badlogic/gdx/physics/box2d/BodyDef$BodyType;)V
-    .locals 3
-    .param p1, "type"    # Lcom/badlogic/gdx/physics/box2d/BodyDef$BodyType;
+    .locals 2
 
     .line 619
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/Body;->addr:J
 
     invoke-virtual {p1}, Lcom/badlogic/gdx/physics/box2d/BodyDef$BodyType;->getValue()I
 
-    move-result v2
+    move-result p1
 
-    invoke-direct {p0, v0, v1, v2}, Lcom/badlogic/gdx/physics/box2d/Body;->jniSetType(JI)V
+    invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/Body;->jniSetType(JI)V
 
-    .line 620
     return-void
 .end method
 
 .method public setUserData(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "userData"    # Ljava/lang/Object;
 
     .line 817
     iput-object p1, p0, Lcom/badlogic/gdx/physics/box2d/Body;->userData:Ljava/lang/Object;
 
-    .line 818
     return-void
 .end method

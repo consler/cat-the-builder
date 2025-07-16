@@ -96,12 +96,6 @@
 # direct methods
 .method public constructor <init>(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;Landroid/os/Bundle;Landroidx/lifecycle/ViewModelStore;Landroidx/savedstate/SavedStateRegistryOwner;)V
     .locals 1
-    .param p1, "clazz"    # Lkotlin/reflect/KClass;
-    .param p2, "qualifier"    # Lorg/koin/core/qualifier/Qualifier;
-    .param p3, "parameters"    # Lkotlin/jvm/functions/Function0;
-    .param p4, "bundle"    # Landroid/os/Bundle;
-    .param p5, "viewModelStore"    # Landroidx/lifecycle/ViewModelStore;
-    .param p6, "stateRegistryOwner"    # Landroidx/savedstate/SavedStateRegistryOwner;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -158,15 +152,13 @@
 
     check-cast v0, Lorg/koin/core/qualifier/Qualifier;
 
-    move-object v4, v0
+    move-object v4, v1
 
     goto :goto_0
 
-    .line 0
     :cond_0
     move-object v4, p2
 
-    .line 12
     :goto_0
     and-int/lit8 v0, p7, 0x4
 
@@ -177,15 +169,13 @@
 
     check-cast v0, Lkotlin/jvm/functions/Function0;
 
-    move-object v5, v0
+    move-object v5, v1
 
     goto :goto_1
 
-    .line 12
     :cond_1
     move-object v5, p3
 
-    .line 13
     :goto_1
     and-int/lit8 v0, p7, 0x8
 
@@ -196,15 +186,13 @@
 
     check-cast v0, Landroid/os/Bundle;
 
-    move-object v6, v0
+    move-object v6, v1
 
     goto :goto_2
 
-    .line 13
     :cond_2
     move-object v6, p4
 
-    .line 14
     :goto_2
     and-int/lit8 v0, p7, 0x20
 
@@ -215,15 +203,13 @@
 
     check-cast v0, Landroidx/savedstate/SavedStateRegistryOwner;
 
-    move-object v8, v0
+    move-object v8, v1
 
     goto :goto_3
 
-    .line 14
     :cond_3
     move-object v8, p6
 
-    .line 16
     :goto_3
     move-object v2, p0
 

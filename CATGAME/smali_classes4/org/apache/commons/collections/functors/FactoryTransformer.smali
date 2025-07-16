@@ -18,7 +18,6 @@
 # direct methods
 .method public constructor <init>(Lorg/apache/commons/collections/Factory;)V
     .locals 0
-    .param p1, "factory"    # Lorg/apache/commons/collections/Factory;
 
     .line 61
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,15 +25,12 @@
     .line 62
     iput-object p1, p0, Lorg/apache/commons/collections/functors/FactoryTransformer;->iFactory:Lorg/apache/commons/collections/Factory;
 
-    .line 63
     return-void
 .end method
 
 .method public static getInstance(Lorg/apache/commons/collections/Factory;)Lorg/apache/commons/collections/Transformer;
-    .locals 2
-    .param p0, "factory"    # Lorg/apache/commons/collections/Factory;
+    .locals 1
 
-    .line 48
     if-eqz p0, :cond_0
 
     .line 51
@@ -46,13 +42,13 @@
 
     .line 49
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Factory must not be null"
+    const-string v0, "Factory must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
@@ -67,15 +63,14 @@
 .end method
 
 .method public transform(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "input"    # Ljava/lang/Object;
+    .locals 0
 
     .line 73
-    iget-object v0, p0, Lorg/apache/commons/collections/functors/FactoryTransformer;->iFactory:Lorg/apache/commons/collections/Factory;
+    iget-object p1, p0, Lorg/apache/commons/collections/functors/FactoryTransformer;->iFactory:Lorg/apache/commons/collections/Factory;
 
-    invoke-interface {v0}, Lorg/apache/commons/collections/Factory;->create()Ljava/lang/Object;
+    invoke-interface {p1}, Lorg/apache/commons/collections/Factory;->create()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

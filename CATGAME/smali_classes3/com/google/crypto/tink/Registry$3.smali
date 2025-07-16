@@ -99,7 +99,6 @@
     .end annotation
 
     .line 234
-    .local p1, "primitiveClass":Ljava/lang/Class;, "Ljava/lang/Class<TQ;>;"
     :try_start_0
     new-instance v0, Lcom/google/crypto/tink/PrivateKeyManagerImpl;
 
@@ -113,19 +112,17 @@
 
     return-object v0
 
-    .line 236
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 237
-    .local v0, "e":Ljava/lang/IllegalArgumentException;
-    new-instance v1, Ljava/security/GeneralSecurityException;
+    new-instance v0, Ljava/security/GeneralSecurityException;
 
-    const-string v2, "Primitive type not supported"
+    const-string v1, "Primitive type not supported"
 
-    invoke-direct {v1, v2, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v0, v1, p1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public getUntypedKeyManager()Lcom/google/crypto/tink/KeyManager;
@@ -152,13 +149,11 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/google/crypto/tink/PrivateKeyManagerImpl;-><init>(Lcom/google/crypto/tink/PrivateKeyTypeManager;Lcom/google/crypto/tink/KeyTypeManager;Ljava/lang/Class;)V
 
-    .line 243
     return-object v0
 .end method
 
 .method public parseKey(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
-    .locals 2
-    .param p1, "serializedKey"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -180,16 +175,14 @@
 
     invoke-virtual {v0, p1}, Lcom/google/crypto/tink/PrivateKeyTypeManager;->parseKey(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 268
-    .local v0, "result":Lcom/google/crypto/tink/shaded/protobuf/MessageLite;, "TKeyProtoT;"
-    iget-object v1, p0, Lcom/google/crypto/tink/Registry$3;->val$localPrivateKeyManager:Lcom/google/crypto/tink/PrivateKeyTypeManager;
+    iget-object v0, p0, Lcom/google/crypto/tink/Registry$3;->val$localPrivateKeyManager:Lcom/google/crypto/tink/PrivateKeyTypeManager;
 
-    invoke-virtual {v1, v0}, Lcom/google/crypto/tink/PrivateKeyTypeManager;->validateKey(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)V
+    invoke-virtual {v0, p1}, Lcom/google/crypto/tink/PrivateKeyTypeManager;->validateKey(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)V
 
-    .line 269
-    return-object v0
+    return-object p1
 .end method
 
 .method public publicKeyManagerClassOrNull()Ljava/lang/Class;

@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lorg/koin/androidx/viewmodel/ext/android/SavedStateRegistryOwnerExtKt;->stateViewModel(Landroidx/savedstate/SavedStateRegistryOwner;Lorg/koin/core/qualifier/Qualifier;Landroid/os/Bundle;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+    value = Lorg/koin/androidx/viewmodel/ext/android/SavedStateRegistryOwnerExtKt;->stateViewModel(Landroidx/savedstate/SavedStateRegistryOwner;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -25,7 +25,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nSavedStateRegistryOwnerExt.kt\nKotlin\n*S Kotlin\n*F\n+ 1 SavedStateRegistryOwnerExt.kt\norg/koin/androidx/viewmodel/ext/android/SavedStateRegistryOwnerExtKt$stateViewModel$2\n*L\n1#1,70:1\n*E\n"
+    value = "SMAP\nSavedStateRegistryOwnerExt.kt\nKotlin\n*S Kotlin\n*F\n+ 1 SavedStateRegistryOwnerExt.kt\norg/koin/androidx/viewmodel/ext/android/SavedStateRegistryOwnerExtKt$stateViewModel$2\n*L\n1#1,71:1\n*E\n"
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
@@ -54,7 +54,7 @@
 
 
 # instance fields
-.field final synthetic $bundle:Landroid/os/Bundle;
+.field final synthetic $bundle:Lkotlin/jvm/functions/Function0;
 
 .field final synthetic $parameters:Lkotlin/jvm/functions/Function0;
 
@@ -64,14 +64,14 @@
 
 
 # direct methods
-.method public constructor <init>(Landroidx/savedstate/SavedStateRegistryOwner;Lorg/koin/core/qualifier/Qualifier;Landroid/os/Bundle;Lkotlin/jvm/functions/Function0;)V
+.method public constructor <init>(Landroidx/savedstate/SavedStateRegistryOwner;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)V
     .locals 0
 
     iput-object p1, p0, Lorg/koin/androidx/viewmodel/ext/android/SavedStateRegistryOwnerExtKt$stateViewModel$2;->$this_stateViewModel:Landroidx/savedstate/SavedStateRegistryOwner;
 
     iput-object p2, p0, Lorg/koin/androidx/viewmodel/ext/android/SavedStateRegistryOwnerExtKt$stateViewModel$2;->$qualifier:Lorg/koin/core/qualifier/Qualifier;
 
-    iput-object p3, p0, Lorg/koin/androidx/viewmodel/ext/android/SavedStateRegistryOwnerExtKt$stateViewModel$2;->$bundle:Landroid/os/Bundle;
+    iput-object p3, p0, Lorg/koin/androidx/viewmodel/ext/android/SavedStateRegistryOwnerExtKt$stateViewModel$2;->$bundle:Lkotlin/jvm/functions/Function0;
 
     iput-object p4, p0, Lorg/koin/androidx/viewmodel/ext/android/SavedStateRegistryOwnerExtKt$stateViewModel$2;->$parameters:Lkotlin/jvm/functions/Function0;
 
@@ -92,7 +92,7 @@
         }
     .end annotation
 
-    .line 49
+    .line 50
     iget-object v0, p0, Lorg/koin/androidx/viewmodel/ext/android/SavedStateRegistryOwnerExtKt$stateViewModel$2;->$this_stateViewModel:Landroidx/savedstate/SavedStateRegistryOwner;
 
     const/4 v1, 0x4
@@ -109,8 +109,22 @@
 
     iget-object v2, p0, Lorg/koin/androidx/viewmodel/ext/android/SavedStateRegistryOwnerExtKt$stateViewModel$2;->$qualifier:Lorg/koin/core/qualifier/Qualifier;
 
-    iget-object v3, p0, Lorg/koin/androidx/viewmodel/ext/android/SavedStateRegistryOwnerExtKt$stateViewModel$2;->$bundle:Landroid/os/Bundle;
+    iget-object v3, p0, Lorg/koin/androidx/viewmodel/ext/android/SavedStateRegistryOwnerExtKt$stateViewModel$2;->$bundle:Lkotlin/jvm/functions/Function0;
 
+    if-eqz v3, :cond_0
+
+    invoke-interface {v3}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/os/Bundle;
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v3, 0x0
+
+    :goto_0
     iget-object v4, p0, Lorg/koin/androidx/viewmodel/ext/android/SavedStateRegistryOwnerExtKt$stateViewModel$2;->$parameters:Lkotlin/jvm/functions/Function0;
 
     invoke-static {v0, v1, v2, v3, v4}, Lorg/koin/androidx/viewmodel/ext/android/SavedStateRegistryOwnerExtKt;->getStateViewModel(Landroidx/savedstate/SavedStateRegistryOwner;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Landroid/os/Bundle;Lkotlin/jvm/functions/Function0;)Landroidx/lifecycle/ViewModel;

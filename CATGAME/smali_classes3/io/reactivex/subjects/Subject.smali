@@ -25,7 +25,6 @@
     .locals 0
 
     .line 27
-    .local p0, "this":Lio/reactivex/subjects/Subject;, "Lio/reactivex/subjects/Subject<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Observable;-><init>()V
 
     return-void
@@ -56,12 +55,10 @@
     .end annotation
 
     .line 70
-    .local p0, "this":Lio/reactivex/subjects/Subject;, "Lio/reactivex/subjects/Subject<TT;>;"
     instance-of v0, p0, Lio/reactivex/subjects/SerializedSubject;
 
     if-eqz v0, :cond_0
 
-    .line 71
     return-object p0
 
     .line 73

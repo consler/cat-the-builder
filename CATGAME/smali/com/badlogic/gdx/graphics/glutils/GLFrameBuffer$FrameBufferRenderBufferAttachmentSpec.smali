@@ -21,7 +21,6 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .param p1, "internalFormat"    # I
 
     .line 437
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,6 +28,5 @@
     .line 438
     iput p1, p0, Lcom/badlogic/gdx/graphics/glutils/GLFrameBuffer$FrameBufferRenderBufferAttachmentSpec;->internalFormat:I
 
-    .line 439
     return-void
 .end method

@@ -18,9 +18,9 @@
 .method constructor <init>(Ljava/lang/String;I)V
     .locals 1
 
-    .line 817
     const/4 v0, 0x0
 
+    .line 817
     invoke-direct {p0, p1, p2, v0}, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy;-><init>(Ljava/lang/String;ILio/reactivex/observers/BaseTestConsumer$1;)V
 
     return-void
@@ -31,11 +31,10 @@
 .method public run()V
     .locals 1
 
-    .line 820
     const/4 v0, 0x1
 
+    .line 820
     invoke-static {v0}, Lio/reactivex/observers/BaseTestConsumer$TestWaitStrategy$3;->sleep(I)V
 
-    .line 821
     return-void
 .end method

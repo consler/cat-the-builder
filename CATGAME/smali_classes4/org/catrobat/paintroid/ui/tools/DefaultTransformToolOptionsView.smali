@@ -9,19 +9,14 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$TransformToolSizeTextWatcher;,
-        Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$Companion;
+        Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$Companion;,
+        Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$TransformToolSizeTextWatcher;
     }
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
-        "\u0000J\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0010\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u0008\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0006\u0018\u0000 \u001c2\u00020\u0001:\u0002\u001c\u001dB\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0002\u0010\u0004J\u0010\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J\u0010\u0010\u0013\u001a\u00020\u00122\u0006\u0010\u0014\u001a\u00020\u0015H\u0016J\u0010\u0010\u0016\u001a\u00020\u00122\u0006\u0010\u0017\u001a\u00020\u0018H\u0016J\u0010\u0010\u0019\u001a\u00020\u00122\u0006\u0010\u001a\u001a\u00020\u0015H\u0016J\u0010\u0010\u001b\u001a\u00020\u00122\u0006\u0010\u0017\u001a\u00020\u0018H\u0016R\u0010\u0010\u0005\u001a\u0004\u0018\u00010\u0006X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0008X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\u000cX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0008X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\nX\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u001e"
+        "\u0000F\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0004\n\u0002\u0010\u0002\n\u0002\u0008\u0003\n\u0002\u0010\u0008\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0006\u0018\u0000 \u001d2\u00020\u0001:\u0002\u001d\u001eB\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0002\u0010\u0004J\u0008\u0010\u0011\u001a\u00020\u0012H\u0002J\u0010\u0010\u0013\u001a\u00020\u00122\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J\u0010\u0010\u0014\u001a\u00020\u00122\u0006\u0010\u0015\u001a\u00020\u0016H\u0016J\u0010\u0010\u0017\u001a\u00020\u00122\u0006\u0010\u0018\u001a\u00020\u0019H\u0016J\u0010\u0010\u001a\u001a\u00020\u00122\u0006\u0010\u001b\u001a\u00020\u0016H\u0016J\u0010\u0010\u001c\u001a\u00020\u00122\u0006\u0010\u0018\u001a\u00020\u0019H\u0016R\u0010\u0010\u0005\u001a\u0004\u0018\u00010\u0006X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0008X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\u0008X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000c\u001a\u00020\rX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u0003X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0008X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\nX\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u001f"
     }
     d2 = {
         "Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;",
@@ -36,13 +31,14 @@
         "heightTextWatcher",
         "Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$TransformToolSizeTextWatcher;",
         "percentageText",
-        "Landroidx/appcompat/widget/AppCompatTextView;",
         "resizeSeekBar",
         "Landroidx/appcompat/widget/AppCompatSeekBar;",
+        "root",
         "widthEditText",
         "widthTextWatcher",
-        "setCallback",
+        "hideKeyboard",
         "",
+        "setCallback",
         "setHeight",
         "height",
         "",
@@ -54,14 +50,15 @@
         "setWidthFilter",
         "Companion",
         "TransformToolSizeTextWatcher",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -78,9 +75,11 @@
 
 .field private final heightTextWatcher:Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$TransformToolSizeTextWatcher;
 
-.field private final percentageText:Landroidx/appcompat/widget/AppCompatTextView;
+.field private final percentageText:Landroidx/appcompat/widget/AppCompatEditText;
 
 .field private final resizeSeekBar:Landroidx/appcompat/widget/AppCompatSeekBar;
+
+.field private final root:Landroid/view/ViewGroup;
 
 .field private final widthEditText:Landroidx/appcompat/widget/AppCompatEditText;
 
@@ -88,6 +87,62 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$2BUJ4mGbbZruyWjvxvJgzsHB2u8(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;Landroid/view/View;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->_init_$lambda-0(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$BtoTF_BEA0RF9dw5QXv0gDWQW-U(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;Landroid/view/View;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->_init_$lambda-2(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$VTNInfK41oPX_W80L1NHfcfMxiI(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;Landroid/view/View;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->_init_$lambda-4(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$XMW0DaReEb16U5XuVZ2EoFngUTM(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;Landroid/view/View;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->_init_$lambda-3(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$e6sTt3wqS7-VBt3w8dtUMhugUFI(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;Landroid/view/View;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->_init_$lambda-5(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$jPaOtQkfMS2Enf52oICI8BApxDE(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;Landroid/view/View;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->_init_$lambda-6(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$wgO7sDkanKFOcGfbyHJvwV-QXKU(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;Landroid/view/View;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->_init_$lambda-1(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;Landroid/view/View;)V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
@@ -99,33 +154,28 @@
 
     sput-object v0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->Companion:Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$Companion;
 
-    .line 51
-    const-class v0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;
+    const-string v0, "DefaultTransformToolOptionsView"
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v0
-
+    .line 56
     sput-object v0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->TAG:Ljava/lang/String;
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup;)V
-    .locals 4
-    .param p1, "rootView"    # Landroid/view/ViewGroup;
+    .locals 7
 
     const-string v0, "rootView"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 41
+    .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 54
-    nop
+    .line 46
+    iput-object p1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->root:Landroid/view/ViewGroup;
 
-    .line 55
+    .line 60
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -134,49 +184,47 @@
 
     move-result-object v0
 
-    .line 56
-    .local v0, "inflater":Landroid/view/LayoutInflater;
+    .line 61
     sget v1, Lorg/catrobat/paintroid/R$layout;->dialog_pocketpaint_transform_tool:I
 
     invoke-virtual {v0, v1, p1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
+    move-result-object p1
+
+    .line 62
+    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_transform_width_value:I
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    const-string v1, "optionsView.findViewById\u2026nt_transform_width_value)"
+
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    check-cast v0, Landroidx/appcompat/widget/AppCompatEditText;
+
+    iput-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->widthEditText:Landroidx/appcompat/widget/AppCompatEditText;
+
+    .line 63
+    sget v1, Lorg/catrobat/paintroid/R$id;->pocketpaint_transform_height_value:I
+
+    invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
     move-result-object v1
 
-    .line 57
-    .local v1, "optionsView":Landroid/view/View;
-    sget v2, Lorg/catrobat/paintroid/R$id;->pocketpaint_transform_width_value:I
+    const-string v2, "optionsView.findViewById\u2026t_transform_height_value)"
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    move-result-object v2
+    check-cast v1, Landroidx/appcompat/widget/AppCompatEditText;
 
-    const-string v3, "optionsView.findViewById\u2026nt_transform_width_value)"
+    iput-object v1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->heightEditText:Landroidx/appcompat/widget/AppCompatEditText;
 
-    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    check-cast v2, Landroidx/appcompat/widget/AppCompatEditText;
-
-    iput-object v2, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->widthEditText:Landroidx/appcompat/widget/AppCompatEditText;
-
-    .line 58
-    sget v2, Lorg/catrobat/paintroid/R$id;->pocketpaint_transform_height_value:I
-
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v2
-
-    const-string v3, "optionsView.findViewById\u2026t_transform_height_value)"
-
-    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    check-cast v2, Landroidx/appcompat/widget/AppCompatEditText;
-
-    iput-object v2, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->heightEditText:Landroidx/appcompat/widget/AppCompatEditText;
-
-    .line 59
+    .line 64
     sget v2, Lorg/catrobat/paintroid/R$id;->pocketpaint_transform_resize_seekbar:I
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
@@ -188,441 +236,603 @@
 
     iput-object v2, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->resizeSeekBar:Landroidx/appcompat/widget/AppCompatSeekBar;
 
-    .line 60
-    sget v2, Lorg/catrobat/paintroid/R$id;->pocketpaint_transform_resize_percentage_text:I
+    .line 65
+    sget v3, Lorg/catrobat/paintroid/R$id;->pocketpaint_transform_resize_percentage_text:I
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v3, "optionsView.findViewById\u2026m_resize_percentage_text)"
+    const-string v4, "optionsView.findViewById\u2026m_resize_percentage_text)"
 
-    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v3, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v2, Landroidx/appcompat/widget/AppCompatTextView;
+    check-cast v3, Landroidx/appcompat/widget/AppCompatEditText;
 
-    iput-object v2, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->percentageText:Landroidx/appcompat/widget/AppCompatTextView;
-
-    .line 61
-    new-instance v2, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$1;
-
-    invoke-direct {v2, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$1;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)V
-
-    check-cast v2, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$TransformToolSizeTextWatcher;
-
-    iput-object v2, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->widthTextWatcher:Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$TransformToolSizeTextWatcher;
+    iput-object v3, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->percentageText:Landroidx/appcompat/widget/AppCompatEditText;
 
     .line 66
-    new-instance v2, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$2;
+    new-instance v4, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$1;
 
-    invoke-direct {v2, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$2;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)V
+    invoke-direct {v4, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$1;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)V
 
-    check-cast v2, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$TransformToolSizeTextWatcher;
+    check-cast v4, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$TransformToolSizeTextWatcher;
 
-    iput-object v2, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->heightTextWatcher:Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$TransformToolSizeTextWatcher;
+    iput-object v4, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->widthTextWatcher:Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$TransformToolSizeTextWatcher;
 
     .line 71
-    iget-object v2, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->widthEditText:Landroidx/appcompat/widget/AppCompatEditText;
+    new-instance v5, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$2;
 
-    iget-object v3, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->widthTextWatcher:Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$TransformToolSizeTextWatcher;
+    invoke-direct {v5, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$2;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)V
 
-    check-cast v3, Landroid/text/TextWatcher;
+    check-cast v5, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$TransformToolSizeTextWatcher;
 
-    invoke-virtual {v2, v3}, Landroidx/appcompat/widget/AppCompatEditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
-
-    .line 72
-    iget-object v2, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->heightEditText:Landroidx/appcompat/widget/AppCompatEditText;
-
-    iget-object v3, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->heightTextWatcher:Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$TransformToolSizeTextWatcher;
-
-    check-cast v3, Landroid/text/TextWatcher;
-
-    invoke-virtual {v2, v3}, Landroidx/appcompat/widget/AppCompatEditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
-
-    .line 73
-    nop
-
-    .line 74
-    nop
-
-    .line 73
-    sget v2, Lorg/catrobat/paintroid/R$id;->pocketpaint_transform_auto_crop_btn:I
-
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v2
-
-    .line 74
-    new-instance v3, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$3;
-
-    invoke-direct {v3, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$3;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)V
-
-    check-cast v3, Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v2, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    iput-object v5, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->heightTextWatcher:Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$TransformToolSizeTextWatcher;
 
     .line 77
-    nop
+    check-cast v4, Landroid/text/TextWatcher;
+
+    invoke-virtual {v0, v4}, Landroidx/appcompat/widget/AppCompatEditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
     .line 78
-    nop
+    check-cast v5, Landroid/text/TextWatcher;
 
-    .line 77
-    sget v2, Lorg/catrobat/paintroid/R$id;->pocketpaint_transform_set_center_btn:I
+    invoke-virtual {v1, v5}, Landroidx/appcompat/widget/AppCompatEditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    const/4 v0, 0x1
 
-    move-result-object v2
+    new-array v1, v0, [Landroid/text/InputFilter;
 
-    .line 78
-    new-instance v3, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$4;
+    .line 80
+    new-instance v4, Lorg/catrobat/paintroid/tools/helper/DefaultNumberRangeFilter;
 
-    invoke-direct {v3, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$4;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)V
+    const/16 v5, 0x64
 
-    check-cast v3, Landroid/view/View$OnClickListener;
+    invoke-direct {v4, v0, v5}, Lorg/catrobat/paintroid/tools/helper/DefaultNumberRangeFilter;-><init>(II)V
 
-    invoke-virtual {v2, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    check-cast v4, Landroid/text/InputFilter;
+
+    const/4 v5, 0x0
+
+    aput-object v4, v1, v5
+
+    invoke-virtual {v3, v1}, Landroidx/appcompat/widget/AppCompatEditText;->setFilters([Landroid/text/InputFilter;)V
 
     .line 81
-    nop
+    sget-object v1, Lkotlin/jvm/internal/StringCompanionObject;->INSTANCE:Lkotlin/jvm/internal/StringCompanionObject;
+
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+
+    move-result-object v1
+
+    new-array v4, v0, [Ljava/lang/Object;
+
+    invoke-virtual {v2}, Landroidx/appcompat/widget/AppCompatSeekBar;->getProgress()I
+
+    move-result v6
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    aput-object v6, v4, v5
+
+    invoke-static {v4, v0}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+
+    move-result-object v0
+
+    const-string v4, "%d"
+
+    invoke-static {v1, v4, v0}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "java.lang.String.format(locale, format, *args)"
+
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    check-cast v0, Ljava/lang/CharSequence;
+
+    invoke-virtual {v3, v0}, Landroidx/appcompat/widget/AppCompatEditText;->setText(Ljava/lang/CharSequence;)V
 
     .line 82
-    nop
+    new-instance v0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$3;
 
-    .line 81
-    sget v2, Lorg/catrobat/paintroid/R$id;->pocketpaint_transform_rotate_left_btn:I
+    invoke-direct {v0, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$3;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)V
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    check-cast v0, Landroid/text/TextWatcher;
 
-    move-result-object v2
-
-    .line 82
-    new-instance v3, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$5;
-
-    invoke-direct {v3, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$5;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)V
-
-    check-cast v3, Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v2, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 85
-    nop
-
-    .line 86
-    nop
-
-    .line 85
-    sget v2, Lorg/catrobat/paintroid/R$id;->pocketpaint_transform_rotate_right_btn:I
-
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v2
-
-    .line 86
-    new-instance v3, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$6;
-
-    invoke-direct {v3, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$6;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)V
-
-    check-cast v3, Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v2, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 89
-    nop
-
-    .line 90
-    nop
-
-    .line 89
-    sget v2, Lorg/catrobat/paintroid/R$id;->pocketpaint_transform_flip_horizontal_btn:I
-
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v2
-
-    .line 90
-    new-instance v3, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$7;
-
-    invoke-direct {v3, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$7;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)V
-
-    check-cast v3, Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v2, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 93
-    nop
-
-    .line 94
-    nop
-
-    .line 93
-    sget v2, Lorg/catrobat/paintroid/R$id;->pocketpaint_transform_flip_vertical_btn:I
-
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v2
-
-    .line 94
-    new-instance v3, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$8;
-
-    invoke-direct {v3, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$8;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)V
-
-    check-cast v3, Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v2, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 97
-    nop
-
-    .line 98
-    nop
-
-    .line 97
-    sget v2, Lorg/catrobat/paintroid/R$id;->pocketpaint_transform_apply_resize_btn:I
-
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v2
-
-    .line 98
-    new-instance v3, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$9;
-
-    invoke-direct {v3, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$9;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)V
-
-    check-cast v3, Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v2, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v3, v0}, Landroidx/appcompat/widget/AppCompatEditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
     .line 103
-    iget-object v2, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->resizeSeekBar:Landroidx/appcompat/widget/AppCompatSeekBar;
+    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_transform_auto_crop_btn:I
 
-    new-instance v3, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$10;
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-direct {v3, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$10;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)V
+    move-result-object v0
 
-    check-cast v3, Landroid/widget/SeekBar$OnSeekBarChangeListener;
+    .line 104
+    new-instance v1, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$$ExternalSyntheticLambda0;
 
-    invoke-virtual {v2, v3}, Landroidx/appcompat/widget/AppCompatSeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
+    invoke-direct {v1, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$$ExternalSyntheticLambda0;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)V
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 107
+    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_transform_set_center_btn:I
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    .line 108
+    new-instance v1, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$$ExternalSyntheticLambda1;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)V
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 111
+    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_transform_rotate_left_btn:I
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    .line 112
+    new-instance v1, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$$ExternalSyntheticLambda2;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)V
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 115
+    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_transform_rotate_right_btn:I
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
 
     .line 116
-    .end local v0    # "inflater":Landroid/view/LayoutInflater;
-    .end local v1    # "optionsView":Landroid/view/View;
+    new-instance v1, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$$ExternalSyntheticLambda3;
+
+    invoke-direct {v1, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$$ExternalSyntheticLambda3;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)V
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 119
+    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_transform_flip_horizontal_btn:I
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    .line 120
+    new-instance v1, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$$ExternalSyntheticLambda4;
+
+    invoke-direct {v1, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$$ExternalSyntheticLambda4;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)V
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 123
+    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_transform_flip_vertical_btn:I
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    .line 124
+    new-instance v1, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$$ExternalSyntheticLambda5;
+
+    invoke-direct {v1, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$$ExternalSyntheticLambda5;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)V
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 127
+    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_transform_apply_resize_btn:I
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object p1
+
+    .line 128
+    new-instance v0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$$ExternalSyntheticLambda6;
+
+    invoke-direct {v0, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$$ExternalSyntheticLambda6;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)V
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 135
+    new-instance p1, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$11;
+
+    invoke-direct {p1, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$11;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)V
+
+    check-cast p1, Landroid/widget/SeekBar$OnSeekBarChangeListener;
+
+    invoke-virtual {v2, p1}, Landroidx/appcompat/widget/AppCompatSeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
+
+    return-void
+.end method
+
+.method private static final _init_$lambda-0(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;Landroid/view/View;)V
+    .locals 0
+
+    const-string p1, "this$0"
+
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 105
+    iget-object p0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->callback:Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;
+
+    if-nez p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-interface {p0}, Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;->autoCropClicked()V
+
+    :goto_0
+    return-void
+.end method
+
+.method private static final _init_$lambda-1(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;Landroid/view/View;)V
+    .locals 0
+
+    const-string p1, "this$0"
+
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 109
+    iget-object p0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->callback:Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;
+
+    if-nez p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-interface {p0}, Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;->setCenterClicked()V
+
+    :goto_0
+    return-void
+.end method
+
+.method private static final _init_$lambda-2(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;Landroid/view/View;)V
+    .locals 0
+
+    const-string p1, "this$0"
+
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 113
+    iget-object p0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->callback:Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;
+
+    if-nez p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-interface {p0}, Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;->rotateCounterClockwiseClicked()V
+
+    :goto_0
+    return-void
+.end method
+
+.method private static final _init_$lambda-3(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;Landroid/view/View;)V
+    .locals 0
+
+    const-string p1, "this$0"
+
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 117
+    iget-object p0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->callback:Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;
+
+    if-nez p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-interface {p0}, Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;->rotateClockwiseClicked()V
+
+    :goto_0
+    return-void
+.end method
+
+.method private static final _init_$lambda-4(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;Landroid/view/View;)V
+    .locals 0
+
+    const-string p1, "this$0"
+
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 121
+    iget-object p0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->callback:Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;
+
+    if-nez p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-interface {p0}, Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;->flipHorizontalClicked()V
+
+    :goto_0
+    return-void
+.end method
+
+.method private static final _init_$lambda-5(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;Landroid/view/View;)V
+    .locals 0
+
+    const-string p1, "this$0"
+
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 125
+    iget-object p0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->callback:Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;
+
+    if-nez p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-interface {p0}, Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;->flipVerticalClicked()V
+
+    :goto_0
+    return-void
+.end method
+
+.method private static final _init_$lambda-6(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;Landroid/view/View;)V
+    .locals 1
+
+    const-string p1, "this$0"
+
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 129
+    invoke-direct {p0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->hideKeyboard()V
+
+    .line 131
+    iget-object p1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->callback:Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;
+
+    if-nez p1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->resizeSeekBar:Landroidx/appcompat/widget/AppCompatSeekBar;
+
+    invoke-virtual {v0}, Landroidx/appcompat/widget/AppCompatSeekBar;->getProgress()I
+
+    move-result v0
+
+    invoke-interface {p1, v0}, Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;->applyResizeClicked(I)V
+
+    .line 132
+    :goto_0
+    iget-object p1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->callback:Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;
+
+    if-nez p1, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    invoke-interface {p1}, Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;->hideToolOptions()V
+
+    .line 133
+    :goto_1
+    iget-object p0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->resizeSeekBar:Landroidx/appcompat/widget/AppCompatSeekBar;
+
+    const/16 p1, 0x64
+
+    invoke-virtual {p0, p1}, Landroidx/appcompat/widget/AppCompatSeekBar;->setProgress(I)V
+
     return-void
 .end method
 
 .method public static final synthetic access$getCallback$p(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;
+    .locals 0
 
-    .line 41
-    iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->callback:Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;
+    .line 45
+    iget-object p0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->callback:Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method public static final synthetic access$getPercentageText$p(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)Landroidx/appcompat/widget/AppCompatTextView;
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;
+.method public static final synthetic access$getPercentageText$p(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)Landroidx/appcompat/widget/AppCompatEditText;
+    .locals 0
 
-    .line 41
-    iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->percentageText:Landroidx/appcompat/widget/AppCompatTextView;
+    .line 45
+    iget-object p0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->percentageText:Landroidx/appcompat/widget/AppCompatEditText;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final synthetic access$getResizeSeekBar$p(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)Landroidx/appcompat/widget/AppCompatSeekBar;
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;
+    .locals 0
 
-    .line 41
-    iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->resizeSeekBar:Landroidx/appcompat/widget/AppCompatSeekBar;
+    .line 45
+    iget-object p0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->resizeSeekBar:Landroidx/appcompat/widget/AppCompatSeekBar;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final synthetic access$getTAG$cp()Ljava/lang/String;
     .locals 1
 
-    .line 41
+    .line 45
     sget-object v0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->TAG:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method public static final synthetic access$setCallback$p(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;)V
-    .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;
-    .param p1, "<set-?>"    # Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;
+.method private final hideKeyboard()V
+    .locals 3
 
-    .line 41
-    iput-object p1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->callback:Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;
+    .line 202
+    iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->root:Landroid/view/ViewGroup;
+
+    invoke-virtual {v0}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const-string v1, "input_method"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    check-cast v0, Landroid/view/inputmethod/InputMethodManager;
+
+    .line 203
+    iget-object v1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->root:Landroid/view/ViewGroup;
+
+    invoke-virtual {v1}, Landroid/view/ViewGroup;->getWindowToken()Landroid/os/IBinder;
+
+    move-result-object v1
+
+    const/4 v2, 0x2
+
+    invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
     return-void
+
+    .line 202
+    :cond_0
+    new-instance v0, Ljava/lang/NullPointerException;
+
+    const-string v1, "null cannot be cast to non-null type android.view.inputmethod.InputMethodManager"
+
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
 
 
 # virtual methods
 .method public setCallback(Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;)V
     .locals 1
-    .param p1, "callback"    # Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;
 
     const-string v0, "callback"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 127
+    .line 161
     iput-object p1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->callback:Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;
 
-    .line 128
     return-void
 .end method
 
 .method public setHeight(I)V
-    .locals 3
-    .param p1, "height"    # I
+    .locals 2
 
-    .line 139
+    .line 173
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->heightEditText:Landroidx/appcompat/widget/AppCompatEditText;
 
-    .local v0, "$this$apply":Landroidx/appcompat/widget/AppCompatEditText;
-    const/4 v1, 0x0
+    .line 174
+    iget-object v1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->heightTextWatcher:Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$TransformToolSizeTextWatcher;
 
-    .line 140
-    .local v1, "$i$a$-apply-DefaultTransformToolOptionsView$setHeight$1":I
-    iget-object v2, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->heightTextWatcher:Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$TransformToolSizeTextWatcher;
+    check-cast v1, Landroid/text/TextWatcher;
 
-    check-cast v2, Landroid/text/TextWatcher;
+    invoke-virtual {v0, v1}, Landroidx/appcompat/widget/AppCompatEditText;->removeTextChangedListener(Landroid/text/TextWatcher;)V
 
-    invoke-virtual {v0, v2}, Landroidx/appcompat/widget/AppCompatEditText;->removeTextChangedListener(Landroid/text/TextWatcher;)V
-
-    .line 141
+    .line 175
     invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    check-cast v2, Ljava/lang/CharSequence;
+    check-cast p1, Ljava/lang/CharSequence;
 
-    invoke-virtual {v0, v2}, Landroidx/appcompat/widget/AppCompatEditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatEditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 142
-    iget-object v2, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->heightTextWatcher:Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$TransformToolSizeTextWatcher;
+    .line 176
+    iget-object p1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->heightTextWatcher:Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$TransformToolSizeTextWatcher;
 
-    check-cast v2, Landroid/text/TextWatcher;
+    check-cast p1, Landroid/text/TextWatcher;
 
-    invoke-virtual {v0, v2}, Landroidx/appcompat/widget/AppCompatEditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatEditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
-    .line 143
-    nop
-
-    .line 139
-    .end local v0    # "$this$apply":Landroidx/appcompat/widget/AppCompatEditText;
-    .end local v1    # "$i$a$-apply-DefaultTransformToolOptionsView$setHeight$1":I
-    nop
-
-    .line 144
     return-void
 .end method
 
 .method public setHeightFilter(Lorg/catrobat/paintroid/ui/tools/NumberRangeFilter;)V
-    .locals 4
-    .param p1, "numberRangeFilter"    # Lorg/catrobat/paintroid/ui/tools/NumberRangeFilter;
+    .locals 3
 
     const-string v0, "numberRangeFilter"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 123
+    .line 157
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->heightEditText:Landroidx/appcompat/widget/AppCompatEditText;
 
     const/4 v1, 0x1
 
     new-array v1, v1, [Landroid/text/InputFilter;
 
-    move-object v2, p1
+    const/4 v2, 0x0
 
-    check-cast v2, Landroid/text/InputFilter;
+    check-cast p1, Landroid/text/InputFilter;
 
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
+    aput-object p1, v1, v2
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/widget/AppCompatEditText;->setFilters([Landroid/text/InputFilter;)V
 
-    .line 124
     return-void
 .end method
 
 .method public setWidth(I)V
-    .locals 3
-    .param p1, "width"    # I
+    .locals 2
 
-    .line 131
+    .line 165
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->widthEditText:Landroidx/appcompat/widget/AppCompatEditText;
 
-    .local v0, "$this$apply":Landroidx/appcompat/widget/AppCompatEditText;
-    const/4 v1, 0x0
+    .line 166
+    iget-object v1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->widthTextWatcher:Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$TransformToolSizeTextWatcher;
 
-    .line 132
-    .local v1, "$i$a$-apply-DefaultTransformToolOptionsView$setWidth$1":I
-    iget-object v2, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->widthTextWatcher:Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$TransformToolSizeTextWatcher;
+    check-cast v1, Landroid/text/TextWatcher;
 
-    check-cast v2, Landroid/text/TextWatcher;
+    invoke-virtual {v0, v1}, Landroidx/appcompat/widget/AppCompatEditText;->removeTextChangedListener(Landroid/text/TextWatcher;)V
 
-    invoke-virtual {v0, v2}, Landroidx/appcompat/widget/AppCompatEditText;->removeTextChangedListener(Landroid/text/TextWatcher;)V
-
-    .line 133
+    .line 167
     invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    check-cast v2, Ljava/lang/CharSequence;
+    check-cast p1, Ljava/lang/CharSequence;
 
-    invoke-virtual {v0, v2}, Landroidx/appcompat/widget/AppCompatEditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatEditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 134
-    iget-object v2, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->widthTextWatcher:Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$TransformToolSizeTextWatcher;
+    .line 168
+    iget-object p1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->widthTextWatcher:Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$TransformToolSizeTextWatcher;
 
-    check-cast v2, Landroid/text/TextWatcher;
+    check-cast p1, Landroid/text/TextWatcher;
 
-    invoke-virtual {v0, v2}, Landroidx/appcompat/widget/AppCompatEditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatEditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
-    .line 135
-    nop
-
-    .line 131
-    .end local v0    # "$this$apply":Landroidx/appcompat/widget/AppCompatEditText;
-    .end local v1    # "$i$a$-apply-DefaultTransformToolOptionsView$setWidth$1":I
-    nop
-
-    .line 136
     return-void
 .end method
 
 .method public setWidthFilter(Lorg/catrobat/paintroid/ui/tools/NumberRangeFilter;)V
-    .locals 4
-    .param p1, "numberRangeFilter"    # Lorg/catrobat/paintroid/ui/tools/NumberRangeFilter;
+    .locals 3
 
     const-string v0, "numberRangeFilter"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 119
+    .line 153
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->widthEditText:Landroidx/appcompat/widget/AppCompatEditText;
 
     const/4 v1, 0x1
 
     new-array v1, v1, [Landroid/text/InputFilter;
 
-    move-object v2, p1
+    const/4 v2, 0x0
 
-    check-cast v2, Landroid/text/InputFilter;
+    check-cast p1, Landroid/text/InputFilter;
 
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
+    aput-object p1, v1, v2
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/widget/AppCompatEditText;->setFilters([Landroid/text/InputFilter;)V
 
-    .line 120
     return-void
 .end method

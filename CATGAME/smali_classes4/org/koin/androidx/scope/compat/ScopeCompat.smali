@@ -61,7 +61,6 @@
 
 .method public static final lifecycleScope(Landroidx/lifecycle/LifecycleOwner;)Lorg/koin/core/scope/Scope;
     .locals 1
-    .param p0, "owner"    # Landroidx/lifecycle/LifecycleOwner;
     .annotation runtime Lkotlin/jvm/JvmStatic;
     .end annotation
 
@@ -72,7 +71,7 @@
     .line 31
     invoke-static {p0}, Lorg/koin/androidx/scope/LifecycleOwnerExtKt;->getLifecycleScope(Landroidx/lifecycle/LifecycleOwner;)Lorg/koin/core/scope/Scope;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

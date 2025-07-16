@@ -15,8 +15,6 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/assets/loaders/FileHandleResolver;Ljava/lang/String;)V
     .locals 0
-    .param p1, "baseResolver"    # Lcom/badlogic/gdx/assets/loaders/FileHandleResolver;
-    .param p2, "prefix"    # Ljava/lang/String;
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +25,6 @@
     .line 31
     iput-object p2, p0, Lcom/badlogic/gdx/assets/loaders/resolvers/PrefixFileHandleResolver;->prefix:Ljava/lang/String;
 
-    .line 32
     return-void
 .end method
 
@@ -53,7 +50,6 @@
 
 .method public resolve(Ljava/lang/String;)Lcom/badlogic/gdx/files/FileHandle;
     .locals 3
-    .param p1, "fileName"    # Ljava/lang/String;
 
     .line 52
     iget-object v0, p0, Lcom/badlogic/gdx/assets/loaders/resolvers/PrefixFileHandleResolver;->baseResolver:Lcom/badlogic/gdx/assets/loaders/FileHandleResolver;
@@ -66,37 +62,37 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-interface {v0, v1}, Lcom/badlogic/gdx/assets/loaders/FileHandleResolver;->resolve(Ljava/lang/String;)Lcom/badlogic/gdx/files/FileHandle;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-interface {v0, p1}, Lcom/badlogic/gdx/assets/loaders/FileHandleResolver;->resolve(Ljava/lang/String;)Lcom/badlogic/gdx/files/FileHandle;
+
+    move-result-object p1
+
+    return-object p1
 .end method
 
 .method public setBaseResolver(Lcom/badlogic/gdx/assets/loaders/FileHandleResolver;)V
     .locals 0
-    .param p1, "baseResolver"    # Lcom/badlogic/gdx/assets/loaders/FileHandleResolver;
 
     .line 35
     iput-object p1, p0, Lcom/badlogic/gdx/assets/loaders/resolvers/PrefixFileHandleResolver;->baseResolver:Lcom/badlogic/gdx/assets/loaders/FileHandleResolver;
 
-    .line 36
     return-void
 .end method
 
 .method public setPrefix(Ljava/lang/String;)V
     .locals 0
-    .param p1, "prefix"    # Ljava/lang/String;
 
     .line 43
     iput-object p1, p0, Lcom/badlogic/gdx/assets/loaders/resolvers/PrefixFileHandleResolver;->prefix:Ljava/lang/String;
 
-    .line 44
     return-void
 .end method

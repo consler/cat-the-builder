@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/Fragment;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/fragment/app/Fragment;
 
     .line 496
     iput-object p1, p0, Landroidx/fragment/app/Fragment$2;->this$0:Landroidx/fragment/app/Fragment;
@@ -37,30 +36,27 @@
 
 # virtual methods
 .method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 1
-    .param p1, "source"    # Landroidx/lifecycle/LifecycleOwner;
-    .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
+    .locals 0
 
     .line 500
-    sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_STOP:Landroidx/lifecycle/Lifecycle$Event;
+    sget-object p1, Landroidx/lifecycle/Lifecycle$Event;->ON_STOP:Landroidx/lifecycle/Lifecycle$Event;
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, p1, :cond_0
 
     .line 501
-    iget-object v0, p0, Landroidx/fragment/app/Fragment$2;->this$0:Landroidx/fragment/app/Fragment;
+    iget-object p1, p0, Landroidx/fragment/app/Fragment$2;->this$0:Landroidx/fragment/app/Fragment;
 
-    iget-object v0, v0, Landroidx/fragment/app/Fragment;->mView:Landroid/view/View;
+    iget-object p1, p1, Landroidx/fragment/app/Fragment;->mView:Landroid/view/View;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 502
-    iget-object v0, p0, Landroidx/fragment/app/Fragment$2;->this$0:Landroidx/fragment/app/Fragment;
+    iget-object p1, p0, Landroidx/fragment/app/Fragment$2;->this$0:Landroidx/fragment/app/Fragment;
 
-    iget-object v0, v0, Landroidx/fragment/app/Fragment;->mView:Landroid/view/View;
+    iget-object p1, p1, Landroidx/fragment/app/Fragment;->mView:Landroid/view/View;
 
-    invoke-virtual {v0}, Landroid/view/View;->cancelPendingInputEvents()V
+    invoke-virtual {p1}, Landroid/view/View;->cancelPendingInputEvents()V
 
-    .line 505
     :cond_0
     return-void
 .end method

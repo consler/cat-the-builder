@@ -26,8 +26,6 @@
 # direct methods
 .method public constructor <init>(Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;J)V
     .locals 2
-    .param p1, "cache"    # Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;
-    .param p2, "maxAge"    # J
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,14 +44,13 @@
     .line 48
     iput-object p1, p0, Lcom/nostra13/universalimageloader/cache/memory/impl/LimitedAgeMemoryCache;->cache:Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;
 
-    .line 49
     const-wide/16 v0, 0x3e8
 
-    mul-long/2addr v0, p2
+    mul-long/2addr p2, v0
 
-    iput-wide v0, p0, Lcom/nostra13/universalimageloader/cache/memory/impl/LimitedAgeMemoryCache;->maxAge:J
+    .line 49
+    iput-wide p2, p0, Lcom/nostra13/universalimageloader/cache/memory/impl/LimitedAgeMemoryCache;->maxAge:J
 
-    .line 50
     return-void
 .end method
 
@@ -72,13 +69,11 @@
 
     invoke-interface {v0}, Ljava/util/Map;->clear()V
 
-    .line 87
     return-void
 .end method
 
 .method public get(Ljava/lang/String;)Landroid/graphics/Bitmap;
     .locals 5
-    .param p1, "key"    # Ljava/lang/String;
 
     .line 63
     iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/memory/impl/LimitedAgeMemoryCache;->loadingDates:Ljava/util/Map;
@@ -89,10 +84,9 @@
 
     check-cast v0, Ljava/lang/Long;
 
-    .line 64
-    .local v0, "loadingDate":Ljava/lang/Long;
     if-eqz v0, :cond_0
 
+    .line 64
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v1
@@ -105,29 +99,29 @@
 
     iget-wide v3, p0, Lcom/nostra13/universalimageloader/cache/memory/impl/LimitedAgeMemoryCache;->maxAge:J
 
-    cmp-long v1, v1, v3
+    cmp-long v0, v1, v3
 
-    if-lez v1, :cond_0
+    if-lez v0, :cond_0
 
     .line 65
-    iget-object v1, p0, Lcom/nostra13/universalimageloader/cache/memory/impl/LimitedAgeMemoryCache;->cache:Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;
+    iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/memory/impl/LimitedAgeMemoryCache;->cache:Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;
 
-    invoke-interface {v1, p1}, Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;->remove(Ljava/lang/String;)Landroid/graphics/Bitmap;
+    invoke-interface {v0, p1}, Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;->remove(Ljava/lang/String;)Landroid/graphics/Bitmap;
 
     .line 66
-    iget-object v1, p0, Lcom/nostra13/universalimageloader/cache/memory/impl/LimitedAgeMemoryCache;->loadingDates:Ljava/util/Map;
+    iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/memory/impl/LimitedAgeMemoryCache;->loadingDates:Ljava/util/Map;
 
-    invoke-interface {v1, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 69
     :cond_0
-    iget-object v1, p0, Lcom/nostra13/universalimageloader/cache/memory/impl/LimitedAgeMemoryCache;->cache:Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;
+    iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/memory/impl/LimitedAgeMemoryCache;->cache:Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;
 
-    invoke-interface {v1, p1}, Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;->get(Ljava/lang/String;)Landroid/graphics/Bitmap;
+    invoke-interface {v0, p1}, Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;->get(Ljava/lang/String;)Landroid/graphics/Bitmap;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public keys()Ljava/util/Collection;
@@ -152,42 +146,36 @@
 .end method
 
 .method public put(Ljava/lang/String;Landroid/graphics/Bitmap;)Z
-    .locals 4
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "value"    # Landroid/graphics/Bitmap;
+    .locals 3
 
     .line 54
     iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/memory/impl/LimitedAgeMemoryCache;->cache:Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;
 
     invoke-interface {v0, p1, p2}, Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;->put(Ljava/lang/String;Landroid/graphics/Bitmap;)Z
 
-    move-result v0
+    move-result p2
 
-    .line 55
-    .local v0, "putSuccesfully":Z
-    if-eqz v0, :cond_0
+    if-eqz p2, :cond_0
 
     .line 56
-    iget-object v1, p0, Lcom/nostra13/universalimageloader/cache/memory/impl/LimitedAgeMemoryCache;->loadingDates:Ljava/util/Map;
+    iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/memory/impl/LimitedAgeMemoryCache;->loadingDates:Ljava/util/Map;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v2
+    move-result-wide v1
 
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v1, p1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 58
     :cond_0
-    return v0
+    return p2
 .end method
 
 .method public remove(Ljava/lang/String;)Landroid/graphics/Bitmap;
     .locals 1
-    .param p1, "key"    # Ljava/lang/String;
 
     .line 74
     iget-object v0, p0, Lcom/nostra13/universalimageloader/cache/memory/impl/LimitedAgeMemoryCache;->loadingDates:Ljava/util/Map;
@@ -199,7 +187,7 @@
 
     invoke-interface {v0, p1}, Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;->remove(Ljava/lang/String;)Landroid/graphics/Bitmap;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public doBackward(Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLite;)Ljava/lang/Integer;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)",
@@ -58,16 +58,15 @@
     .end annotation
 
     .line 440
-    .local p1, "value":Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLite;, "TT;"
     invoke-interface {p1}, Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLite;->getNumber()I
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic doBackward(Ljava/lang/Object;)Ljava/lang/Object;
@@ -84,8 +83,7 @@
 .end method
 
 .method public doForward(Ljava/lang/Integer;)Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLite;
-    .locals 2
-    .param p1, "value"    # Ljava/lang/Integer;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -99,25 +97,19 @@
 
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    move-result v1
+    move-result p1
 
-    invoke-interface {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLiteMap;->findValueByNumber(I)Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLite;
+    invoke-interface {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLiteMap;->findValueByNumber(I)Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLite;
 
-    move-result-object v0
+    move-result-object p1
+
+    if-nez p1, :cond_0
 
     .line 435
-    .local v0, "result":Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLite;, "TT;"
-    if-nez v0, :cond_0
-
-    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$1;->val$unrecognizedValue:Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLite;
-
-    goto :goto_0
+    iget-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/Internal$MapAdapter$1;->val$unrecognizedValue:Lcom/google/crypto/tink/shaded/protobuf/Internal$EnumLite;
 
     :cond_0
-    move-object v1, v0
-
-    :goto_0
-    return-object v1
+    return-object p1
 .end method
 
 .method public bridge synthetic doForward(Ljava/lang/Object;)Ljava/lang/Object;

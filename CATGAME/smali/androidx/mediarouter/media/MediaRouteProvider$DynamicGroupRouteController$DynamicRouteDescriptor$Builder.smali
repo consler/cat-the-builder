@@ -29,19 +29,18 @@
 # direct methods
 .method public constructor <init>(Landroidx/mediarouter/media/MediaRouteDescriptor;)V
     .locals 1
-    .param p1, "descriptor"    # Landroidx/mediarouter/media/MediaRouteDescriptor;
 
     .line 754
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 746
     const/4 v0, 0x1
 
+    .line 746
     iput v0, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$DynamicRouteDescriptor$Builder;->mSelectionState:I
 
-    .line 747
     const/4 v0, 0x0
 
+    .line 747
     iput-boolean v0, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$DynamicRouteDescriptor$Builder;->mIsUnselectable:Z
 
     .line 748
@@ -53,25 +52,23 @@
     .line 755
     iput-object p1, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$DynamicRouteDescriptor$Builder;->mRouteDescriptor:Landroidx/mediarouter/media/MediaRouteDescriptor;
 
-    .line 756
     return-void
 .end method
 
 .method public constructor <init>(Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$DynamicRouteDescriptor;)V
     .locals 1
-    .param p1, "dynamicRouteDescriptor"    # Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$DynamicRouteDescriptor;
 
     .line 761
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 746
     const/4 v0, 0x1
 
+    .line 746
     iput v0, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$DynamicRouteDescriptor$Builder;->mSelectionState:I
 
-    .line 747
     const/4 v0, 0x0
 
+    .line 747
     iput-boolean v0, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$DynamicRouteDescriptor$Builder;->mIsUnselectable:Z
 
     .line 748
@@ -111,11 +108,10 @@
     .line 766
     invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$DynamicRouteDescriptor;->isTransferable()Z
 
-    move-result v0
+    move-result p1
 
-    iput-boolean v0, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$DynamicRouteDescriptor$Builder;->mIsTransferable:Z
+    iput-boolean p1, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$DynamicRouteDescriptor$Builder;->mIsTransferable:Z
 
-    .line 767
     return-void
 .end method
 
@@ -146,44 +142,36 @@
 
 .method public setIsGroupable(Z)Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$DynamicRouteDescriptor$Builder;
     .locals 0
-    .param p1, "value"    # Z
 
     .line 790
     iput-boolean p1, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$DynamicRouteDescriptor$Builder;->mIsGroupable:Z
 
-    .line 791
     return-object p0
 .end method
 
 .method public setIsTransferable(Z)Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$DynamicRouteDescriptor$Builder;
     .locals 0
-    .param p1, "value"    # Z
 
     .line 798
     iput-boolean p1, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$DynamicRouteDescriptor$Builder;->mIsTransferable:Z
 
-    .line 799
     return-object p0
 .end method
 
 .method public setIsUnselectable(Z)Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$DynamicRouteDescriptor$Builder;
     .locals 0
-    .param p1, "value"    # Z
 
     .line 781
     iput-boolean p1, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$DynamicRouteDescriptor$Builder;->mIsUnselectable:Z
 
-    .line 782
     return-object p0
 .end method
 
 .method public setSelectionState(I)Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$DynamicRouteDescriptor$Builder;
     .locals 0
-    .param p1, "state"    # I
 
     .line 773
     iput p1, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$DynamicRouteDescriptor$Builder;->mSelectionState:I
 
-    .line 774
     return-object p0
 .end method

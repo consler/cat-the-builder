@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections/map/ListOrderedMap;)V
     .locals 0
-    .param p1, "parent"    # Lorg/apache/commons/collections/map/ListOrderedMap;
 
     .line 499
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
@@ -29,7 +28,6 @@
     .line 500
     iput-object p1, p0, Lorg/apache/commons/collections/map/ListOrderedMap$KeySetView;->parent:Lorg/apache/commons/collections/map/ListOrderedMap;
 
-    .line 501
     return-void
 .end method
 
@@ -43,22 +41,20 @@
 
     invoke-virtual {v0}, Lorg/apache/commons/collections/map/ListOrderedMap;->clear()V
 
-    .line 513
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "value"    # Ljava/lang/Object;
 
     .line 508
     iget-object v0, p0, Lorg/apache/commons/collections/map/ListOrderedMap$KeySetView;->parent:Lorg/apache/commons/collections/map/ListOrderedMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections/map/ListOrderedMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public iterator()Ljava/util/Iterator;

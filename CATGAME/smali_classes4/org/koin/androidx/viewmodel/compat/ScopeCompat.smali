@@ -106,9 +106,9 @@
 
     invoke-static/range {v0 .. v6}, Lorg/koin/androidx/viewmodel/compat/ScopeCompat;->getViewModel$default(Lorg/koin/core/scope/Scope;Landroidx/lifecycle/ViewModelStoreOwner;Ljava/lang/Class;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Landroidx/lifecycle/ViewModel;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final getViewModel(Lorg/koin/core/scope/Scope;Landroidx/lifecycle/ViewModelStoreOwner;Ljava/lang/Class;Lorg/koin/core/qualifier/Qualifier;)Landroidx/lifecycle/ViewModel;
@@ -146,18 +146,13 @@
 
     invoke-static/range {v0 .. v6}, Lorg/koin/androidx/viewmodel/compat/ScopeCompat;->getViewModel$default(Lorg/koin/core/scope/Scope;Landroidx/lifecycle/ViewModelStoreOwner;Ljava/lang/Class;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Landroidx/lifecycle/ViewModel;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final getViewModel(Lorg/koin/core/scope/Scope;Landroidx/lifecycle/ViewModelStoreOwner;Ljava/lang/Class;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Landroidx/lifecycle/ViewModel;
     .locals 1
-    .param p0, "scope"    # Lorg/koin/core/scope/Scope;
-    .param p1, "owner"    # Landroidx/lifecycle/ViewModelStoreOwner;
-    .param p2, "clazz"    # Ljava/lang/Class;
-    .param p3, "qualifier"    # Lorg/koin/core/qualifier/Qualifier;
-    .param p4, "parameters"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -192,13 +187,13 @@
     .line 68
     invoke-static {p2}, Lkotlin/jvm/JvmClassMappingKt;->getKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-static {p0, p1, v0, p3, p4}, Lorg/koin/androidx/viewmodel/scope/ScopeExtKt;->getViewModel(Lorg/koin/core/scope/Scope;Landroidx/lifecycle/ViewModelStoreOwner;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Landroidx/lifecycle/ViewModel;
+    invoke-static {p0, p1, p2, p3, p4}, Lorg/koin/androidx/viewmodel/scope/ScopeExtKt;->getViewModel(Lorg/koin/core/scope/Scope;Landroidx/lifecycle/ViewModelStoreOwner;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Landroidx/lifecycle/ViewModel;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static synthetic getViewModel$default(Lorg/koin/core/scope/Scope;Landroidx/lifecycle/ViewModelStoreOwner;Ljava/lang/Class;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Landroidx/lifecycle/ViewModel;
@@ -215,6 +210,8 @@
 
     check-cast p3, Lorg/koin/core/qualifier/Qualifier;
 
+    move-object p3, v0
+
     :cond_0
     and-int/lit8 p5, p5, 0x10
 
@@ -224,6 +221,8 @@
     move-object p4, v0
 
     check-cast p4, Lkotlin/jvm/functions/Function0;
+
+    move-object p4, v0
 
     :cond_1
     invoke-static {p0, p1, p2, p3, p4}, Lorg/koin/androidx/viewmodel/compat/ScopeCompat;->getViewModel(Lorg/koin/core/scope/Scope;Landroidx/lifecycle/ViewModelStoreOwner;Ljava/lang/Class;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Landroidx/lifecycle/ViewModel;
@@ -268,9 +267,9 @@
 
     invoke-static/range {v0 .. v6}, Lorg/koin/androidx/viewmodel/compat/ScopeCompat;->viewModel$default(Lorg/koin/core/scope/Scope;Landroidx/lifecycle/ViewModelStoreOwner;Ljava/lang/Class;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lkotlin/Lazy;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final viewModel(Lorg/koin/core/scope/Scope;Landroidx/lifecycle/ViewModelStoreOwner;Ljava/lang/Class;Lorg/koin/core/qualifier/Qualifier;)Lkotlin/Lazy;
@@ -310,18 +309,13 @@
 
     invoke-static/range {v0 .. v6}, Lorg/koin/androidx/viewmodel/compat/ScopeCompat;->viewModel$default(Lorg/koin/core/scope/Scope;Landroidx/lifecycle/ViewModelStoreOwner;Ljava/lang/Class;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lkotlin/Lazy;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final viewModel(Lorg/koin/core/scope/Scope;Landroidx/lifecycle/ViewModelStoreOwner;Ljava/lang/Class;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
     .locals 8
-    .param p0, "scope"    # Lorg/koin/core/scope/Scope;
-    .param p1, "owner"    # Landroidx/lifecycle/ViewModelStoreOwner;
-    .param p2, "clazz"    # Ljava/lang/Class;
-    .param p3, "qualifier"    # Lorg/koin/core/qualifier/Qualifier;
-    .param p4, "parameters"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -378,9 +372,9 @@
 
     invoke-static {v0, v7}, Lkotlin/LazyKt;->lazy(Lkotlin/LazyThreadSafetyMode;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static synthetic viewModel$default(Lorg/koin/core/scope/Scope;Landroidx/lifecycle/ViewModelStoreOwner;Ljava/lang/Class;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lkotlin/Lazy;
@@ -397,6 +391,8 @@
 
     check-cast p3, Lorg/koin/core/qualifier/Qualifier;
 
+    move-object p3, v0
+
     :cond_0
     and-int/lit8 p5, p5, 0x10
 
@@ -406,6 +402,8 @@
     move-object p4, v0
 
     check-cast p4, Lkotlin/jvm/functions/Function0;
+
+    move-object p4, v0
 
     :cond_1
     invoke-static {p0, p1, p2, p3, p4}, Lorg/koin/androidx/viewmodel/compat/ScopeCompat;->viewModel(Lorg/koin/core/scope/Scope;Landroidx/lifecycle/ViewModelStoreOwner;Ljava/lang/Class;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;

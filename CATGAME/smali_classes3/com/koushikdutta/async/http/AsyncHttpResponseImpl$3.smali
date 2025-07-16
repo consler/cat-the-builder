@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;
 
     .line 81
     iput-object p1, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl$3;->this$0:Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;
@@ -34,22 +33,19 @@
 
 # virtual methods
 .method public onDataAvailable(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/ByteBufferList;)V
-    .locals 1
-    .param p1, "emitter"    # Lcom/koushikdutta/async/DataEmitter;
-    .param p2, "bb"    # Lcom/koushikdutta/async/ByteBufferList;
+    .locals 0
 
     .line 84
     invoke-super {p0, p1, p2}, Lcom/koushikdutta/async/callback/DataCallback$NullDataCallback;->onDataAvailable(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/ByteBufferList;)V
 
     .line 85
-    iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl$3;->this$0:Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl$3;->this$0:Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;
 
-    invoke-static {v0}, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->access$000(Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;)Lcom/koushikdutta/async/AsyncSocket;
+    invoke-static {p1}, Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;->access$000(Lcom/koushikdutta/async/http/AsyncHttpResponseImpl;)Lcom/koushikdutta/async/AsyncSocket;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Lcom/koushikdutta/async/AsyncSocket;->close()V
+    invoke-interface {p1}, Lcom/koushikdutta/async/AsyncSocket;->close()V
 
-    .line 86
     return-void
 .end method

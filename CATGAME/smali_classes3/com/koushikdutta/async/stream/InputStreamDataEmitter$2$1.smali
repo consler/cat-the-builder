@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2;
 
     .line 80
     iput-object p1, p0, Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2$1;->this$1:Lcom/koushikdutta/async/stream/InputStreamDataEmitter$2;
@@ -52,6 +51,5 @@
 
     invoke-static {v0, v1}, Lcom/koushikdutta/async/Util;->emitAllData(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/ByteBufferList;)V
 
-    .line 84
     return-void
 .end method

@@ -35,8 +35,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/app/MediaRouteButton;ILandroid/content/Context;)V
     .locals 0
-    .param p2, "resId"    # I
-    .param p3, "context"    # Landroid/content/Context;
 
     .line 721
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
@@ -49,15 +47,12 @@
     .line 723
     iput-object p3, p0, Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;->mContext:Landroid/content/Context;
 
-    .line 724
     return-void
 .end method
 
 .method private cacheAndReset(Landroid/graphics/drawable/Drawable;)V
-    .locals 3
-    .param p1, "remoteIndicator"    # Landroid/graphics/drawable/Drawable;
+    .locals 2
 
-    .line 757
     if-eqz p1, :cond_0
 
     .line 758
@@ -67,63 +62,58 @@
 
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v0, v1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v0, v1, p1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 760
     :cond_0
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    iput-object v1, v0, Landroidx/mediarouter/app/MediaRouteButton;->mRemoteIndicatorLoader:Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;
+    iput-object v0, p1, Landroidx/mediarouter/app/MediaRouteButton;->mRemoteIndicatorLoader:Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;
 
-    .line 761
     return-void
 .end method
 
 
 # virtual methods
 .method protected varargs doInBackground([Ljava/lang/Void;)Landroid/graphics/drawable/Drawable;
-    .locals 3
-    .param p1, "params"    # [Ljava/lang/Void;
+    .locals 1
 
     .line 728
-    sget-object v0, Landroidx/mediarouter/app/MediaRouteButton;->sRemoteIndicatorCache:Landroid/util/SparseArray;
+    sget-object p1, Landroidx/mediarouter/app/MediaRouteButton;->sRemoteIndicatorCache:Landroid/util/SparseArray;
 
-    iget v1, p0, Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;->mResId:I
+    iget v0, p0, Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;->mResId:I
 
-    invoke-virtual {v0, v1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {p1, v0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/graphics/drawable/Drawable$ConstantState;
+    check-cast p1, Landroid/graphics/drawable/Drawable$ConstantState;
 
-    .line 729
-    .local v0, "remoteIndicatorState":Landroid/graphics/drawable/Drawable$ConstantState;
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 730
-    iget-object v1, p0, Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;->mContext:Landroid/content/Context;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v1
+    move-result-object p1
 
-    iget v2, p0, Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;->mResId:I
+    iget v0, p0, Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;->mResId:I
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
-    .line 732
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 .end method
 
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
@@ -141,12 +131,10 @@
 
 .method protected onCancelled(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .param p1, "remoteIndicator"    # Landroid/graphics/drawable/Drawable;
 
     .line 753
     invoke-direct {p0, p1}, Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;->cacheAndReset(Landroid/graphics/drawable/Drawable;)V
 
-    .line 754
     return-void
 .end method
 
@@ -162,10 +150,8 @@
 .end method
 
 .method protected onPostExecute(Landroid/graphics/drawable/Drawable;)V
-    .locals 3
-    .param p1, "remoteIndicator"    # Landroid/graphics/drawable/Drawable;
+    .locals 2
 
-    .line 738
     if-eqz p1, :cond_0
 
     .line 739
@@ -185,8 +171,6 @@
 
     check-cast v0, Landroid/graphics/drawable/Drawable$ConstantState;
 
-    .line 742
-    .local v0, "remoteIndicatorState":Landroid/graphics/drawable/Drawable$ConstantState;
     if-eqz v0, :cond_1
 
     .line 743
@@ -196,20 +180,18 @@
 
     .line 745
     :cond_1
-    iget-object v1, p0, Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
+    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    iput-object v2, v1, Landroidx/mediarouter/app/MediaRouteButton;->mRemoteIndicatorLoader:Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;
+    iput-object v1, v0, Landroidx/mediarouter/app/MediaRouteButton;->mRemoteIndicatorLoader:Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;
 
     .line 748
-    .end local v0    # "remoteIndicatorState":Landroid/graphics/drawable/Drawable$ConstantState;
     :goto_0
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteButton$RemoteIndicatorLoader;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
 
     invoke-virtual {v0, p1}, Landroidx/mediarouter/app/MediaRouteButton;->setRemoteIndicatorDrawableInternal(Landroid/graphics/drawable/Drawable;)V
 
-    .line 749
     return-void
 .end method
 

@@ -44,11 +44,10 @@
 
 .method public static fromAction(Lio/reactivex/functions/Action;)Lio/reactivex/disposables/Disposable;
     .locals 1
-    .param p0, "run"    # Lio/reactivex/functions/Action;
 
-    .line 55
     const-string v0, "run is null"
 
+    .line 55
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 56
@@ -70,25 +69,23 @@
         }
     .end annotation
 
-    .line 67
-    .local p0, "future":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<*>;"
     const-string v0, "future is null"
 
+    .line 67
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 68
     const/4 v0, 0x1
 
+    .line 68
     invoke-static {p0, v0}, Lio/reactivex/disposables/Disposables;->fromFuture(Ljava/util/concurrent/Future;Z)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static fromFuture(Ljava/util/concurrent/Future;Z)Lio/reactivex/disposables/Disposable;
     .locals 1
-    .param p1, "allowInterrupt"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -98,10 +95,9 @@
         }
     .end annotation
 
-    .line 80
-    .local p0, "future":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<*>;"
     const-string v0, "future is null"
 
+    .line 80
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 81
@@ -114,11 +110,10 @@
 
 .method public static fromRunnable(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
     .locals 1
-    .param p0, "run"    # Ljava/lang/Runnable;
 
-    .line 43
     const-string v0, "run is null"
 
+    .line 43
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 44
@@ -131,11 +126,10 @@
 
 .method public static fromSubscription(Lorg/reactivestreams/Subscription;)Lio/reactivex/disposables/Disposable;
     .locals 1
-    .param p0, "subscription"    # Lorg/reactivestreams/Subscription;
 
-    .line 92
     const-string v0, "subscription is null"
 
+    .line 92
     invoke-static {p0, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 93

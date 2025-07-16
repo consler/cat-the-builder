@@ -25,10 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/squareup/picasso/RequestCreator;Landroid/widget/ImageView;Lcom/squareup/picasso/Callback;)V
-    .locals 1
-    .param p1, "creator"    # Lcom/squareup/picasso/RequestCreator;
-    .param p2, "target"    # Landroid/widget/ImageView;
-    .param p3, "callback"    # Lcom/squareup/picasso/Callback;
+    .locals 0
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,11 +34,11 @@
     iput-object p1, p0, Lcom/squareup/picasso/DeferredRequestCreator;->creator:Lcom/squareup/picasso/RequestCreator;
 
     .line 33
-    new-instance v0, Ljava/lang/ref/WeakReference;
+    new-instance p1, Ljava/lang/ref/WeakReference;
 
-    invoke-direct {v0, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p1, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
-    iput-object v0, p0, Lcom/squareup/picasso/DeferredRequestCreator;->target:Ljava/lang/ref/WeakReference;
+    iput-object p1, p0, Lcom/squareup/picasso/DeferredRequestCreator;->target:Ljava/lang/ref/WeakReference;
 
     .line 34
     iput-object p3, p0, Lcom/squareup/picasso/DeferredRequestCreator;->callback:Lcom/squareup/picasso/Callback;
@@ -52,14 +49,13 @@
     .line 40
     invoke-virtual {p2}, Landroid/widget/ImageView;->getWindowToken()Landroid/os/IBinder;
 
-    move-result-object v0
+    move-result-object p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 41
     invoke-virtual {p0, p2}, Lcom/squareup/picasso/DeferredRequestCreator;->onViewAttachedToWindow(Landroid/view/View;)V
 
-    .line 43
     :cond_0
     return-void
 .end method
@@ -67,16 +63,16 @@
 
 # virtual methods
 .method cancel()V
-    .locals 3
+    .locals 2
 
     .line 80
     iget-object v0, p0, Lcom/squareup/picasso/DeferredRequestCreator;->creator:Lcom/squareup/picasso/RequestCreator;
 
     invoke-virtual {v0}, Lcom/squareup/picasso/RequestCreator;->clearTag()Lcom/squareup/picasso/RequestCreator;
 
-    .line 81
     const/4 v0, 0x0
 
+    .line 81
     iput-object v0, p0, Lcom/squareup/picasso/DeferredRequestCreator;->callback:Lcom/squareup/picasso/Callback;
 
     .line 83
@@ -88,11 +84,8 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    .line 84
-    .local v0, "target":Landroid/widget/ImageView;
     if-nez v0, :cond_0
 
-    .line 85
     return-void
 
     .line 87
@@ -107,20 +100,18 @@
     .line 91
     invoke-virtual {v0}, Landroid/widget/ImageView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 92
-    .local v1, "vto":Landroid/view/ViewTreeObserver;
-    invoke-virtual {v1}, Landroid/view/ViewTreeObserver;->isAlive()Z
+    invoke-virtual {v0}, Landroid/view/ViewTreeObserver;->isAlive()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
     .line 93
-    invoke-virtual {v1, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
+    invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
-    .line 95
     :cond_1
     return-void
 .end method
@@ -139,7 +130,7 @@
 .end method
 
 .method public onPreDraw()Z
-    .locals 7
+    .locals 5
 
     .line 54
     iget-object v0, p0, Lcom/squareup/picasso/DeferredRequestCreator;->target:Ljava/lang/ref/WeakReference;
@@ -150,13 +141,10 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    .line 55
-    .local v0, "target":Landroid/widget/ImageView;
     const/4 v1, 0x1
 
     if-nez v0, :cond_0
 
-    .line 56
     return v1
 
     .line 59
@@ -166,14 +154,12 @@
     move-result-object v2
 
     .line 60
-    .local v2, "vto":Landroid/view/ViewTreeObserver;
     invoke-virtual {v2}, Landroid/view/ViewTreeObserver;->isAlive()Z
 
     move-result v3
 
     if-nez v3, :cond_1
 
-    .line 61
     return v1
 
     .line 64
@@ -183,13 +169,10 @@
     move-result v3
 
     .line 65
-    .local v3, "width":I
     invoke-virtual {v0}, Landroid/widget/ImageView;->getHeight()I
 
     move-result v4
 
-    .line 67
-    .local v4, "height":I
     if-lez v3, :cond_3
 
     if-gtz v4, :cond_2
@@ -204,60 +187,52 @@
     invoke-virtual {v2, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
     .line 73
-    iget-object v5, p0, Lcom/squareup/picasso/DeferredRequestCreator;->target:Ljava/lang/ref/WeakReference;
+    iget-object v2, p0, Lcom/squareup/picasso/DeferredRequestCreator;->target:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v5}, Ljava/lang/ref/WeakReference;->clear()V
+    invoke-virtual {v2}, Ljava/lang/ref/WeakReference;->clear()V
 
     .line 75
-    iget-object v5, p0, Lcom/squareup/picasso/DeferredRequestCreator;->creator:Lcom/squareup/picasso/RequestCreator;
+    iget-object v2, p0, Lcom/squareup/picasso/DeferredRequestCreator;->creator:Lcom/squareup/picasso/RequestCreator;
 
-    invoke-virtual {v5}, Lcom/squareup/picasso/RequestCreator;->unfit()Lcom/squareup/picasso/RequestCreator;
+    invoke-virtual {v2}, Lcom/squareup/picasso/RequestCreator;->unfit()Lcom/squareup/picasso/RequestCreator;
 
-    move-result-object v5
+    move-result-object v2
 
-    invoke-virtual {v5, v3, v4}, Lcom/squareup/picasso/RequestCreator;->resize(II)Lcom/squareup/picasso/RequestCreator;
+    invoke-virtual {v2, v3, v4}, Lcom/squareup/picasso/RequestCreator;->resize(II)Lcom/squareup/picasso/RequestCreator;
 
-    move-result-object v5
+    move-result-object v2
 
-    iget-object v6, p0, Lcom/squareup/picasso/DeferredRequestCreator;->callback:Lcom/squareup/picasso/Callback;
+    iget-object v3, p0, Lcom/squareup/picasso/DeferredRequestCreator;->callback:Lcom/squareup/picasso/Callback;
 
-    invoke-virtual {v5, v0, v6}, Lcom/squareup/picasso/RequestCreator;->into(Landroid/widget/ImageView;Lcom/squareup/picasso/Callback;)V
+    invoke-virtual {v2, v0, v3}, Lcom/squareup/picasso/RequestCreator;->into(Landroid/widget/ImageView;Lcom/squareup/picasso/Callback;)V
 
-    .line 76
-    return v1
-
-    .line 68
     :cond_3
     :goto_0
     return v1
 .end method
 
 .method public onViewAttachedToWindow(Landroid/view/View;)V
-    .locals 1
-    .param p1, "view"    # Landroid/view/View;
+    .locals 0
 
     .line 46
     invoke-virtual {p1}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->addOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
+    invoke-virtual {p1, p0}, Landroid/view/ViewTreeObserver;->addOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
-    .line 47
     return-void
 .end method
 
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
-    .locals 1
-    .param p1, "view"    # Landroid/view/View;
+    .locals 0
 
     .line 50
     invoke-virtual {p1}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
+    invoke-virtual {p1, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
-    .line 51
     return-void
 .end method

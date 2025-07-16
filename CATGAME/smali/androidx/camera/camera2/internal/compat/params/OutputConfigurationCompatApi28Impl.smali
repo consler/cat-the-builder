@@ -6,7 +6,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/Surface;)V
     .locals 1
-    .param p1, "surface"    # Landroid/view/Surface;
 
     .line 34
     new-instance v0, Landroid/hardware/camera2/params/OutputConfiguration;
@@ -15,24 +14,20 @@
 
     invoke-direct {p0, v0}, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl;-><init>(Ljava/lang/Object;)V
 
-    .line 35
     return-void
 .end method
 
 .method constructor <init>(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "outputConfiguration"    # Ljava/lang/Object;
 
     .line 38
     invoke-direct {p0, p1}, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi26Impl;-><init>(Ljava/lang/Object;)V
 
-    .line 39
     return-void
 .end method
 
 .method static wrap(Landroid/hardware/camera2/params/OutputConfiguration;)Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi28Impl;
     .locals 1
-    .param p0, "outputConfiguration"    # Landroid/hardware/camera2/params/OutputConfiguration;
 
     .line 44
     new-instance v0, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi28Impl;
@@ -80,7 +75,6 @@
 .method public getPhysicalCameraId()Ljava/lang/String;
     .locals 1
 
-    .line 75
     const/4 v0, 0x0
 
     return-object v0
@@ -88,7 +82,6 @@
 
 .method public removeSurface(Landroid/view/Surface;)V
     .locals 1
-    .param p1, "surface"    # Landroid/view/Surface;
 
     .line 52
     invoke-virtual {p0}, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi28Impl;->getOutputConfiguration()Ljava/lang/Object;
@@ -99,13 +92,11 @@
 
     invoke-virtual {v0, p1}, Landroid/hardware/camera2/params/OutputConfiguration;->removeSurface(Landroid/view/Surface;)V
 
-    .line 53
     return-void
 .end method
 
 .method public setPhysicalCameraId(Ljava/lang/String;)V
     .locals 1
-    .param p1, "physicalCameraId"    # Ljava/lang/String;
 
     .line 68
     invoke-virtual {p0}, Landroidx/camera/camera2/internal/compat/params/OutputConfigurationCompatApi28Impl;->getOutputConfiguration()Ljava/lang/Object;
@@ -116,6 +107,5 @@
 
     invoke-virtual {v0, p1}, Landroid/hardware/camera2/params/OutputConfiguration;->setPhysicalCameraId(Ljava/lang/String;)V
 
-    .line 69
     return-void
 .end method

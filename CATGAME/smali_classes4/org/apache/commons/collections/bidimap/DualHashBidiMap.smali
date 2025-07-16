@@ -25,13 +25,11 @@
 
     invoke-direct {p0, v0, v1}, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;-><init>(Ljava/util/Map;Ljava/util/Map;)V
 
-    .line 56
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Map;)V
     .locals 2
-    .param p1, "map"    # Ljava/util/Map;
 
     .line 65
     new-instance v0, Ljava/util/HashMap;
@@ -47,26 +45,20 @@
     .line 66
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections/bidimap/DualHashBidiMap;->putAll(Ljava/util/Map;)V
 
-    .line 67
     return-void
 .end method
 
 .method protected constructor <init>(Ljava/util/Map;Ljava/util/Map;Lorg/apache/commons/collections/BidiMap;)V
     .locals 0
-    .param p1, "normalMap"    # Ljava/util/Map;
-    .param p2, "reverseMap"    # Ljava/util/Map;
-    .param p3, "inverseBidiMap"    # Lorg/apache/commons/collections/BidiMap;
 
     .line 77
     invoke-direct {p0, p1, p2, p3}, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;-><init>(Ljava/util/Map;Ljava/util/Map;Lorg/apache/commons/collections/BidiMap;)V
 
-    .line 78
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 3
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -102,21 +94,18 @@
     .line 103
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Map;
+    check-cast p1, Ljava/util/Map;
 
     .line 104
-    .local v0, "map":Ljava/util/Map;
-    invoke-virtual {p0, v0}, Lorg/apache/commons/collections/bidimap/DualHashBidiMap;->putAll(Ljava/util/Map;)V
+    invoke-virtual {p0, p1}, Lorg/apache/commons/collections/bidimap/DualHashBidiMap;->putAll(Ljava/util/Map;)V
 
-    .line 105
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 2
-    .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -135,7 +124,6 @@
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    .line 97
     return-void
 .end method
 
@@ -143,9 +131,6 @@
 # virtual methods
 .method protected createBidiMap(Ljava/util/Map;Ljava/util/Map;Lorg/apache/commons/collections/BidiMap;)Lorg/apache/commons/collections/BidiMap;
     .locals 1
-    .param p1, "normalMap"    # Ljava/util/Map;
-    .param p2, "reverseMap"    # Ljava/util/Map;
-    .param p3, "inverseBidiMap"    # Lorg/apache/commons/collections/BidiMap;
 
     .line 89
     new-instance v0, Lorg/apache/commons/collections/bidimap/DualHashBidiMap;

@@ -47,14 +47,11 @@
     .end annotation
 
     .line 227
-    .local p0, "this":Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;, "Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList<TK;>;"
-    .local p1, "parent":Lorg/apache/commons/collections4/map/LinkedMap;, "Lorg/apache/commons/collections4/map/LinkedMap<TK;*>;"
     invoke-direct {p0}, Ljava/util/AbstractList;-><init>()V
 
     .line 228
     iput-object p1, p0, Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;->parent:Lorg/apache/commons/collections4/map/LinkedMap;
 
-    .line 229
     return-void
 .end method
 
@@ -64,7 +61,6 @@
     .locals 1
 
     .line 291
-    .local p0, "this":Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;, "Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList<TK;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -74,17 +70,15 @@
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 243
-    .local p0, "this":Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;, "Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList<TK;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;->parent:Lorg/apache/commons/collections4/map/LinkedMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/map/LinkedMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public containsAll(Ljava/util/Collection;)Z
@@ -98,8 +92,6 @@
     .end annotation
 
     .line 258
-    .local p0, "this":Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;, "Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList<TK;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;->parent:Lorg/apache/commons/collections4/map/LinkedMap;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/map/LinkedMap;->keySet()Ljava/util/Set;
@@ -108,14 +100,13 @@
 
     invoke-interface {v0, p1}, Ljava/util/Set;->containsAll(Ljava/util/Collection;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public get(I)Ljava/lang/Object;
     .locals 1
-    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TK;"
@@ -123,29 +114,26 @@
     .end annotation
 
     .line 238
-    .local p0, "this":Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;, "Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList<TK;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;->parent:Lorg/apache/commons/collections4/map/LinkedMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/map/LinkedMap;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public indexOf(Ljava/lang/Object;)I
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 248
-    .local p0, "this":Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;, "Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList<TK;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;->parent:Lorg/apache/commons/collections4/map/LinkedMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/map/LinkedMap;->indexOf(Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
@@ -159,7 +147,6 @@
     .end annotation
 
     .line 306
-    .local p0, "this":Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;, "Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList<TK;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;->parent:Lorg/apache/commons/collections4/map/LinkedMap;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/map/LinkedMap;->keySet()Ljava/util/Set;
@@ -179,17 +166,15 @@
 
 .method public lastIndexOf(Ljava/lang/Object;)I
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 253
-    .local p0, "this":Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;, "Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList<TK;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;->parent:Lorg/apache/commons/collections4/map/LinkedMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/map/LinkedMap;->indexOf(Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public listIterator()Ljava/util/ListIterator;
@@ -203,7 +188,6 @@
     .end annotation
 
     .line 311
-    .local p0, "this":Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;, "Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList<TK;>;"
     invoke-super {p0}, Ljava/util/AbstractList;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v0
@@ -216,8 +200,7 @@
 .end method
 
 .method public listIterator(I)Ljava/util/ListIterator;
-    .locals 1
-    .param p1, "fromIndex"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -227,21 +210,19 @@
     .end annotation
 
     .line 316
-    .local p0, "this":Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;, "Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList<TK;>;"
     invoke-super {p0, p1}, Ljava/util/AbstractList;->listIterator(I)Ljava/util/ListIterator;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Lorg/apache/commons/collections4/iterators/UnmodifiableListIterator;->umodifiableListIterator(Ljava/util/ListIterator;)Ljava/util/ListIterator;
+    invoke-static {p1}, Lorg/apache/commons/collections4/iterators/UnmodifiableListIterator;->umodifiableListIterator(Ljava/util/ListIterator;)Ljava/util/ListIterator;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public remove(I)Ljava/lang/Object;
-    .locals 1
-    .param p1, "index"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TK;"
@@ -249,29 +230,26 @@
     .end annotation
 
     .line 263
-    .local p0, "this":Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;, "Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList<TK;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 0
 
     .line 268
-    .local p0, "this":Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;, "Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList<TK;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -281,17 +259,15 @@
     .end annotation
 
     .line 281
-    .local p0, "this":Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;, "Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList<TK;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public removeIf(Ljava/util/function/Predicate;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -301,17 +277,15 @@
     .end annotation
 
     .line 276
-    .local p0, "this":Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;, "Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList<TK;>;"
-    .local p1, "filter":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<-TK;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -321,20 +295,17 @@
     .end annotation
 
     .line 286
-    .local p0, "this":Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;, "Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList<TK;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public size()I
     .locals 1
 
     .line 233
-    .local p0, "this":Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;, "Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList<TK;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;->parent:Lorg/apache/commons/collections4/map/LinkedMap;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/map/LinkedMap;->size()I
@@ -345,9 +316,7 @@
 .end method
 
 .method public subList(II)Ljava/util/List;
-    .locals 1
-    .param p1, "fromIndexInclusive"    # I
-    .param p2, "toIndexExclusive"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)",
@@ -357,23 +326,21 @@
     .end annotation
 
     .line 321
-    .local p0, "this":Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;, "Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList<TK;>;"
     invoke-super {p0, p1, p2}, Ljava/util/AbstractList;->subList(II)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Lorg/apache/commons/collections4/list/UnmodifiableList;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
+    invoke-static {p1}, Lorg/apache/commons/collections4/list/UnmodifiableList;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public toArray()[Ljava/lang/Object;
     .locals 1
 
     .line 296
-    .local p0, "this":Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;, "Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList<TK;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;->parent:Lorg/apache/commons/collections4/map/LinkedMap;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/map/LinkedMap;->keySet()Ljava/util/Set;
@@ -398,8 +365,6 @@
     .end annotation
 
     .line 301
-    .local p0, "this":Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;, "Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList<TK;>;"
-    .local p1, "array":[Ljava/lang/Object;, "[TT;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/LinkedMap$LinkedMapList;->parent:Lorg/apache/commons/collections4/map/LinkedMap;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/map/LinkedMap;->keySet()Ljava/util/Set;
@@ -408,7 +373,7 @@
 
     invoke-interface {v0, p1}, Ljava/util/Set;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

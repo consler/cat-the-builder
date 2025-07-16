@@ -40,233 +40,179 @@
 .end method
 
 .method public postConcat(Landroid/graphics/Matrix;)Z
-    .locals 1
-    .param p1, "other"    # Landroid/graphics/Matrix;
+    .locals 0
 
     .line 183
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 184
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public postRotate(F)Z
-    .locals 1
-    .param p1, "degrees"    # F
+    .locals 0
 
     .line 165
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 166
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public postRotate(FFF)Z
-    .locals 1
-    .param p1, "degrees"    # F
-    .param p2, "px"    # F
-    .param p3, "py"    # F
+    .locals 0
 
     .line 159
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 160
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public postScale(FF)Z
-    .locals 1
-    .param p1, "sx"    # F
-    .param p2, "sy"    # F
+    .locals 0
 
     .line 153
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 154
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public postScale(FFFF)Z
-    .locals 1
-    .param p1, "sx"    # F
-    .param p2, "sy"    # F
-    .param p3, "px"    # F
-    .param p4, "py"    # F
+    .locals 0
 
     .line 147
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 148
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public postSkew(FF)Z
-    .locals 1
-    .param p1, "kx"    # F
-    .param p2, "ky"    # F
+    .locals 0
 
     .line 177
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 178
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public postSkew(FFFF)Z
-    .locals 1
-    .param p1, "kx"    # F
-    .param p2, "ky"    # F
-    .param p3, "px"    # F
-    .param p4, "py"    # F
+    .locals 0
 
     .line 171
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 172
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public postTranslate(FF)Z
-    .locals 1
-    .param p1, "dx"    # F
-    .param p2, "dy"    # F
+    .locals 0
 
     .line 141
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 142
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public preConcat(Landroid/graphics/Matrix;)Z
-    .locals 1
-    .param p1, "other"    # Landroid/graphics/Matrix;
+    .locals 0
 
     .line 135
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 136
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public preRotate(F)Z
-    .locals 1
-    .param p1, "degrees"    # F
+    .locals 0
 
     .line 117
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 118
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public preRotate(FFF)Z
-    .locals 1
-    .param p1, "degrees"    # F
-    .param p2, "px"    # F
-    .param p3, "py"    # F
+    .locals 0
 
     .line 111
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 112
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public preScale(FF)Z
-    .locals 1
-    .param p1, "sx"    # F
-    .param p2, "sy"    # F
+    .locals 0
 
     .line 105
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 106
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public preScale(FFFF)Z
-    .locals 1
-    .param p1, "sx"    # F
-    .param p2, "sy"    # F
-    .param p3, "px"    # F
-    .param p4, "py"    # F
+    .locals 0
 
     .line 99
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 100
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public preSkew(FF)Z
-    .locals 1
-    .param p1, "kx"    # F
-    .param p2, "ky"    # F
+    .locals 0
 
     .line 129
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 130
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public preSkew(FFFF)Z
-    .locals 1
-    .param p1, "kx"    # F
-    .param p2, "ky"    # F
-    .param p3, "px"    # F
-    .param p4, "py"    # F
+    .locals 0
 
     .line 123
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 124
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public preTranslate(FF)Z
-    .locals 1
-    .param p1, "dx"    # F
-    .param p2, "dy"    # F
+    .locals 0
 
     .line 93
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 94
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public reset()V
@@ -275,188 +221,137 @@
     .line 37
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 38
     return-void
 .end method
 
 .method public set(Landroid/graphics/Matrix;)V
     .locals 0
-    .param p1, "src"    # Landroid/graphics/Matrix;
 
     .line 32
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 33
     return-void
 .end method
 
 .method public setConcat(Landroid/graphics/Matrix;Landroid/graphics/Matrix;)Z
-    .locals 1
-    .param p1, "a"    # Landroid/graphics/Matrix;
-    .param p2, "b"    # Landroid/graphics/Matrix;
+    .locals 0
 
     .line 87
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 88
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public setPolyToPoly([FI[FII)Z
-    .locals 1
-    .param p1, "src"    # [F
-    .param p2, "srcIndex"    # I
-    .param p3, "dst"    # [F
-    .param p4, "dstIndex"    # I
-    .param p5, "pointCount"    # I
+    .locals 0
 
     .line 196
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 197
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public setRectToRect(Landroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/Matrix$ScaleToFit;)Z
-    .locals 1
-    .param p1, "src"    # Landroid/graphics/RectF;
-    .param p2, "dst"    # Landroid/graphics/RectF;
-    .param p3, "stf"    # Landroid/graphics/Matrix$ScaleToFit;
+    .locals 0
 
     .line 189
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 190
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public setRotate(F)V
     .locals 0
-    .param p1, "degrees"    # F
 
     .line 62
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 63
     return-void
 .end method
 
 .method public setRotate(FFF)V
     .locals 0
-    .param p1, "degrees"    # F
-    .param p2, "px"    # F
-    .param p3, "py"    # F
 
     .line 57
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 58
     return-void
 .end method
 
 .method public setScale(FF)V
     .locals 0
-    .param p1, "sx"    # F
-    .param p2, "sy"    # F
 
     .line 52
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 53
     return-void
 .end method
 
 .method public setScale(FFFF)V
     .locals 0
-    .param p1, "sx"    # F
-    .param p2, "sy"    # F
-    .param p3, "px"    # F
-    .param p4, "py"    # F
 
     .line 47
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 48
     return-void
 .end method
 
 .method public setSinCos(FF)V
     .locals 0
-    .param p1, "sinValue"    # F
-    .param p2, "cosValue"    # F
 
     .line 72
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 73
     return-void
 .end method
 
 .method public setSinCos(FFFF)V
     .locals 0
-    .param p1, "sinValue"    # F
-    .param p2, "cosValue"    # F
-    .param p3, "px"    # F
-    .param p4, "py"    # F
 
     .line 67
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 68
     return-void
 .end method
 
 .method public setSkew(FF)V
     .locals 0
-    .param p1, "kx"    # F
-    .param p2, "ky"    # F
 
     .line 82
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 83
     return-void
 .end method
 
 .method public setSkew(FFFF)V
     .locals 0
-    .param p1, "kx"    # F
-    .param p2, "ky"    # F
-    .param p3, "px"    # F
-    .param p4, "py"    # F
 
     .line 77
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 78
     return-void
 .end method
 
 .method public setTranslate(FF)V
     .locals 0
-    .param p1, "dx"    # F
-    .param p2, "dy"    # F
 
     .line 42
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 43
     return-void
 .end method
 
 .method public setValues([F)V
     .locals 0
-    .param p1, "values"    # [F
 
     .line 202
     invoke-virtual {p0}, Landroidx/transition/MatrixUtils$1;->oops()V
 
-    .line 203
     return-void
 .end method

@@ -10,14 +10,12 @@
 # direct methods
 .method public constructor <init>(Lar/com/hjg/pngj/ImageInfo;)V
     .locals 1
-    .param p1, "i"    # Lar/com/hjg/pngj/ImageInfo;
 
-    .line 17
     const-string v0, "IDAT"
 
+    .line 17
     invoke-direct {p0, v0, p1}, Lar/com/hjg/pngj/chunks/PngChunkMultiple;-><init>(Ljava/lang/String;Lar/com/hjg/pngj/ImageInfo;)V
 
-    .line 18
     return-void
 .end method
 
@@ -26,7 +24,6 @@
 .method public createRawChunk()Lar/com/hjg/pngj/chunks/ChunkRaw;
     .locals 1
 
-    .line 27
     const/4 v0, 0x0
 
     return-object v0
@@ -43,8 +40,6 @@
 
 .method public parseFromRaw(Lar/com/hjg/pngj/chunks/ChunkRaw;)V
     .locals 0
-    .param p1, "c"    # Lar/com/hjg/pngj/chunks/ChunkRaw;
 
-    .line 32
     return-void
 .end method

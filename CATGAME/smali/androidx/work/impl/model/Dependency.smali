@@ -12,8 +12,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .param p1, "workSpecId"    # Ljava/lang/String;
-    .param p2, "prerequisiteId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -34,6 +32,5 @@
     .line 61
     iput-object p2, p0, Landroidx/work/impl/model/Dependency;->prerequisiteId:Ljava/lang/String;
 
-    .line 62
     return-void
 .end method

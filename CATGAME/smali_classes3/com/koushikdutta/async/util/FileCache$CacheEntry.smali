@@ -22,9 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/koushikdutta/async/util/FileCache;Ljava/io/File;)V
-    .locals 2
-    .param p1, "this$0"    # Lcom/koushikdutta/async/util/FileCache;
-    .param p2, "file"    # Ljava/io/File;
+    .locals 0
 
     .line 24
     iput-object p1, p0, Lcom/koushikdutta/async/util/FileCache$CacheEntry;->this$0:Lcom/koushikdutta/async/util/FileCache;
@@ -34,10 +32,9 @@
     .line 25
     invoke-virtual {p2}, Ljava/io/File;->length()J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    iput-wide v0, p0, Lcom/koushikdutta/async/util/FileCache$CacheEntry;->size:J
+    iput-wide p1, p0, Lcom/koushikdutta/async/util/FileCache$CacheEntry;->size:J
 
-    .line 26
     return-void
 .end method

@@ -71,29 +71,24 @@
 
 .method public static final GetLenToPosState(I)I
     .locals 1
-    .param p0, "len"    # I
 
-    .line 46
     add-int/lit8 p0, p0, -0x2
 
-    .line 47
     const/4 v0, 0x4
 
     if-ge p0, v0, :cond_0
 
     return p0
 
-    .line 48
     :cond_0
-    const/4 v0, 0x3
+    const/4 p0, 0x3
 
-    return v0
+    return p0
 .end method
 
 .method public static final StateInit()I
     .locals 1
 
-    .line 10
     const/4 v0, 0x0
 
     return v0
@@ -101,59 +96,51 @@
 
 .method public static final StateIsCharState(I)Z
     .locals 1
-    .param p0, "index"    # I
 
-    .line 32
     const/4 v0, 0x7
 
     if-ge p0, v0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public static final StateUpdateChar(I)I
     .locals 1
-    .param p0, "index"    # I
 
-    .line 14
     const/4 v0, 0x4
 
     if-ge p0, v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
-    .line 15
     :cond_0
     const/16 v0, 0xa
 
     if-ge p0, v0, :cond_1
 
-    add-int/lit8 v0, p0, -0x3
+    add-int/lit8 p0, p0, -0x3
 
-    return v0
+    return p0
 
-    .line 16
     :cond_1
-    add-int/lit8 v0, p0, -0x6
+    add-int/lit8 p0, p0, -0x6
 
-    return v0
+    return p0
 .end method
 
 .method public static final StateUpdateMatch(I)I
     .locals 1
-    .param p0, "index"    # I
 
-    .line 20
     const/4 v0, 0x7
 
     if-ge p0, v0, :cond_0
@@ -169,40 +156,36 @@
 
 .method public static final StateUpdateRep(I)I
     .locals 1
-    .param p0, "index"    # I
 
-    .line 24
     const/4 v0, 0x7
 
     if-ge p0, v0, :cond_0
 
-    const/16 v0, 0x8
+    const/16 p0, 0x8
 
     goto :goto_0
 
     :cond_0
-    const/16 v0, 0xb
+    const/16 p0, 0xb
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public static final StateUpdateShortRep(I)I
     .locals 1
-    .param p0, "index"    # I
 
-    .line 28
     const/4 v0, 0x7
 
     if-ge p0, v0, :cond_0
 
-    const/16 v0, 0x9
+    const/16 p0, 0x9
 
     goto :goto_0
 
     :cond_0
-    const/16 v0, 0xb
+    const/16 p0, 0xb
 
     :goto_0
-    return v0
+    return p0
 .end method

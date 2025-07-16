@@ -33,19 +33,19 @@
     .line 74
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 77
     const/4 v0, 0x0
 
+    .line 77
     iput v0, p0, Landroidx/mediarouter/media/RemoteControlClientCompat$PlaybackInfo;->volumeHandling:I
 
-    .line 78
     const/4 v0, 0x3
 
+    .line 78
     iput v0, p0, Landroidx/mediarouter/media/RemoteControlClientCompat$PlaybackInfo;->playbackStream:I
 
-    .line 79
     const/4 v0, 0x1
 
+    .line 79
     iput v0, p0, Landroidx/mediarouter/media/RemoteControlClientCompat$PlaybackInfo;->playbackType:I
 
     return-void

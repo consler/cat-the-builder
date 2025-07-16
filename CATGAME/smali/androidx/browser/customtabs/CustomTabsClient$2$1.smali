@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Landroidx/browser/customtabs/CustomTabsClient$2;ILandroid/os/Bundle;)V
     .locals 0
-    .param p1, "this$1"    # Landroidx/browser/customtabs/CustomTabsClient$2;
 
     .line 285
     iput-object p1, p0, Landroidx/browser/customtabs/CustomTabsClient$2$1;->this$1:Landroidx/browser/customtabs/CustomTabsClient$2;
@@ -58,6 +57,5 @@
 
     invoke-virtual {v0, v1, v2}, Landroidx/browser/customtabs/CustomTabsCallback;->onNavigationEvent(ILandroid/os/Bundle;)V
 
-    .line 289
     return-void
 .end method

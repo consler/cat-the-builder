@@ -22,7 +22,6 @@
 .method constructor <init>()V
     .locals 4
 
-    .line 341
     const/16 v0, 0xa
 
     new-array v1, v0, [J
@@ -33,15 +32,14 @@
 
     new-array v0, v0, [J
 
+    .line 341
     invoke-direct {p0, v1, v2, v3, v0}, Lcom/google/crypto/tink/subtle/Ed25519$CachedXYZT;-><init>([J[J[J[J)V
 
-    .line 342
     return-void
 .end method
 
 .method constructor <init>(Lcom/google/crypto/tink/subtle/Ed25519$XYZT;)V
     .locals 4
-    .param p1, "xyzt"    # Lcom/google/crypto/tink/subtle/Ed25519$XYZT;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -87,31 +85,26 @@
 
     iget-object v1, p0, Lcom/google/crypto/tink/subtle/Ed25519$CachedXYZT;->z:[J
 
-    const/4 v2, 0x0
+    const/16 v2, 0xa
 
-    const/16 v3, 0xa
+    const/4 v3, 0x0
 
-    invoke-static {v0, v2, v1, v2, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v0, v3, v1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 352
     iget-object v0, p0, Lcom/google/crypto/tink/subtle/Ed25519$CachedXYZT;->t2d:[J
 
-    iget-object v1, p1, Lcom/google/crypto/tink/subtle/Ed25519$XYZT;->t:[J
+    iget-object p1, p1, Lcom/google/crypto/tink/subtle/Ed25519$XYZT;->t:[J
 
-    sget-object v2, Lcom/google/crypto/tink/subtle/Ed25519Constants;->D2:[J
+    sget-object v1, Lcom/google/crypto/tink/subtle/Ed25519Constants;->D2:[J
 
-    invoke-static {v0, v1, v2}, Lcom/google/crypto/tink/subtle/Field25519;->mult([J[J[J)V
+    invoke-static {v0, p1, v1}, Lcom/google/crypto/tink/subtle/Field25519;->mult([J[J[J)V
 
-    .line 353
     return-void
 .end method
 
 .method constructor <init>([J[J[J[J)V
     .locals 0
-    .param p1, "yPlusX"    # [J
-    .param p2, "yMinusX"    # [J
-    .param p3, "z"    # [J
-    .param p4, "t2d"    # [J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -133,7 +126,6 @@
     .line 365
     iput-object p3, p0, Lcom/google/crypto/tink/subtle/Ed25519$CachedXYZT;->z:[J
 
-    .line 366
     return-void
 .end method
 
@@ -141,8 +133,6 @@
 # virtual methods
 .method public multByZ([J[J)V
     .locals 1
-    .param p1, "output"    # [J
-    .param p2, "in"    # [J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -159,6 +149,5 @@
 
     invoke-static {p1, p2, v0}, Lcom/google/crypto/tink/subtle/Field25519;->mult([J[J[J)V
 
-    .line 371
     return-void
 .end method

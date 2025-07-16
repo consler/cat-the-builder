@@ -71,8 +71,6 @@
     .end annotation
 
     .line 561
-    .local p0, "this":Lcom/badlogic/gdx/utils/ArrayMap$Entries;, "Lcom/badlogic/gdx/utils/ArrayMap$Entries<TK;TV;>;"
-    .local p1, "map":Lcom/badlogic/gdx/utils/ArrayMap;, "Lcom/badlogic/gdx/utils/ArrayMap<TK;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 557
@@ -82,15 +80,14 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/utils/ArrayMap$Entries;->entry:Lcom/badlogic/gdx/utils/ObjectMap$Entry;
 
-    .line 559
     const/4 v0, 0x1
 
+    .line 559
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/ArrayMap$Entries;->valid:Z
 
     .line 562
     iput-object p1, p0, Lcom/badlogic/gdx/utils/ArrayMap$Entries;->map:Lcom/badlogic/gdx/utils/ArrayMap;
 
-    .line 563
     return-void
 .end method
 
@@ -100,7 +97,6 @@
     .locals 2
 
     .line 566
-    .local p0, "this":Lcom/badlogic/gdx/utils/ArrayMap$Entries;, "Lcom/badlogic/gdx/utils/ArrayMap$Entries<TK;TV;>;"
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/ArrayMap$Entries;->valid:Z
 
     if-eqz v0, :cond_1
@@ -146,8 +142,6 @@
         }
     .end annotation
 
-    .line 571
-    .local p0, "this":Lcom/badlogic/gdx/utils/ArrayMap$Entries;, "Lcom/badlogic/gdx/utils/ArrayMap$Entries<TK;TV;>;"
     return-object p0
 .end method
 
@@ -162,7 +156,6 @@
     .end annotation
 
     .line 576
-    .local p0, "this":Lcom/badlogic/gdx/utils/ArrayMap$Entries;, "Lcom/badlogic/gdx/utils/ArrayMap$Entries<TK;TV;>;"
     iget v0, p0, Lcom/badlogic/gdx/utils/ArrayMap$Entries;->index:I
 
     iget-object v1, p0, Lcom/badlogic/gdx/utils/ArrayMap$Entries;->map:Lcom/badlogic/gdx/utils/ArrayMap;
@@ -240,7 +233,6 @@
     .locals 1
 
     .line 555
-    .local p0, "this":Lcom/badlogic/gdx/utils/ArrayMap$Entries;, "Lcom/badlogic/gdx/utils/ArrayMap$Entries<TK;TV;>;"
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/ArrayMap$Entries;->next()Lcom/badlogic/gdx/utils/ObjectMap$Entry;
 
     move-result-object v0
@@ -252,7 +244,6 @@
     .locals 2
 
     .line 584
-    .local p0, "this":Lcom/badlogic/gdx/utils/ArrayMap$Entries;, "Lcom/badlogic/gdx/utils/ArrayMap$Entries<TK;TV;>;"
     iget v0, p0, Lcom/badlogic/gdx/utils/ArrayMap$Entries;->index:I
 
     add-int/lit8 v0, v0, -0x1
@@ -264,19 +255,16 @@
 
     invoke-virtual {v1, v0}, Lcom/badlogic/gdx/utils/ArrayMap;->removeIndex(I)V
 
-    .line 586
     return-void
 .end method
 
 .method public reset()V
     .locals 1
 
-    .line 589
-    .local p0, "this":Lcom/badlogic/gdx/utils/ArrayMap$Entries;, "Lcom/badlogic/gdx/utils/ArrayMap$Entries<TK;TV;>;"
     const/4 v0, 0x0
 
+    .line 589
     iput v0, p0, Lcom/badlogic/gdx/utils/ArrayMap$Entries;->index:I
 
-    .line 590
     return-void
 .end method

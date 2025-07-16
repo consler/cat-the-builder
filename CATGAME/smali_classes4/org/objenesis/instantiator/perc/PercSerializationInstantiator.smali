@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 13
+    .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -41,15 +41,11 @@
     .end annotation
 
     .line 45
-    .local p0, "this":Lorg/objenesis/instantiator/perc/PercSerializationInstantiator;, "Lorg/objenesis/instantiator/perc/PercSerializationInstantiator<TT;>;"
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 48
     move-object v0, p1
 
     .line 50
-    .local v0, "unserializableType":Ljava/lang/Class;, "Ljava/lang/Class<-TT;>;"
     :goto_0
     const-class v1, Ljava/io/Serializable;
 
@@ -66,17 +62,16 @@
 
     goto :goto_0
 
-    .line 56
     :cond_0
     :try_start_0
     const-string v1, "COM.newmonics.PercClassLoader.Method"
 
+    .line 56
     invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v1
 
     .line 58
-    .local v1, "percMethodClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const-class v2, Ljava/io/ObjectInputStream;
 
     const-string v3, "noArgConstruct"
@@ -103,132 +98,115 @@
 
     invoke-virtual {v2, v3, v5}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    move-result-object v2
+    move-result-object v1
 
-    iput-object v2, p0, Lorg/objenesis/instantiator/perc/PercSerializationInstantiator;->newInstanceMethod:Ljava/lang/reflect/Method;
+    iput-object v1, p0, Lorg/objenesis/instantiator/perc/PercSerializationInstantiator;->newInstanceMethod:Ljava/lang/reflect/Method;
 
     .line 60
-    invoke-virtual {v2, v8}, Ljava/lang/reflect/Method;->setAccessible(Z)V
+    invoke-virtual {v1, v8}, Ljava/lang/reflect/Method;->setAccessible(Z)V
+
+    const-string v1, "COM.newmonics.PercClassLoader.PercClass"
 
     .line 63
-    const-string v2, "COM.newmonics.PercClassLoader.PercClass"
+    invoke-static {v1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    invoke-static {v2}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    move-result-object v1
+
+    const-string v2, "getPercClass"
+
+    new-array v3, v8, [Ljava/lang/Class;
+
+    .line 64
+    const-class v5, Ljava/lang/Class;
+
+    aput-object v5, v3, v7
+
+    invoke-virtual {v1, v2, v3}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v1
+
+    new-array v2, v8, [Ljava/lang/Object;
+
+    aput-object v0, v2, v7
+
+    const/4 v3, 0x0
+
+    .line 65
+    invoke-virtual {v1, v3, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    .line 66
+    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
 
-    .line 64
-    .local v2, "percClassClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    const-string v3, "getPercClass"
+    const-string v3, "findMethod"
 
     new-array v5, v8, [Ljava/lang/Class;
 
-    const-class v9, Ljava/lang/Class;
+    const-class v9, Ljava/lang/String;
 
     aput-object v9, v5, v7
 
     invoke-virtual {v2, v3, v5}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    move-result-object v3
+    move-result-object v2
 
-    .line 65
-    .local v3, "getPercClassMethod":Ljava/lang/reflect/Method;
-    const/4 v5, 0x0
+    new-array v3, v8, [Ljava/lang/Object;
 
-    new-array v9, v8, [Ljava/lang/Object;
+    const-string v5, "<init>()V"
 
-    aput-object v0, v9, v7
-
-    invoke-virtual {v3, v5, v9}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    .line 66
-    .local v5, "someObject":Ljava/lang/Object;
-    invoke-virtual {v5}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v9
-
-    const-string v10, "findMethod"
-
-    new-array v11, v8, [Ljava/lang/Class;
-
-    const-class v12, Ljava/lang/String;
-
-    aput-object v12, v11, v7
-
-    invoke-virtual {v9, v10, v11}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v9
+    aput-object v5, v3, v7
 
     .line 68
-    .local v9, "findMethodMethod":Ljava/lang/reflect/Method;
-    new-array v10, v8, [Ljava/lang/Object;
+    invoke-virtual {v2, v1, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v11, "<init>()V"
+    move-result-object v1
 
-    aput-object v11, v10, v7
+    new-array v2, v4, [Ljava/lang/Object;
 
-    invoke-virtual {v9, v5, v10}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    aput-object v0, v2, v7
 
-    move-result-object v10
+    aput-object p1, v2, v8
+
+    aput-object v1, v2, v6
 
     .line 70
-    .local v10, "percMethod":Ljava/lang/Object;
-    new-array v4, v4, [Ljava/lang/Object;
-
-    aput-object v0, v4, v7
-
-    aput-object p1, v4, v8
-
-    aput-object v10, v4, v6
-
-    iput-object v4, p0, Lorg/objenesis/instantiator/perc/PercSerializationInstantiator;->typeArgs:[Ljava/lang/Object;
+    iput-object v2, p0, Lorg/objenesis/instantiator/perc/PercSerializationInstantiator;->typeArgs:[Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_3
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_2
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 75
-    .end local v1    # "percMethodClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .end local v2    # "percClassClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .end local v3    # "getPercClassMethod":Ljava/lang/reflect/Method;
-    .end local v5    # "someObject":Ljava/lang/Object;
-    .end local v9    # "findMethodMethod":Ljava/lang/reflect/Method;
-    .end local v10    # "percMethod":Ljava/lang/Object;
-    nop
-
-    .line 76
     return-void
 
-    .line 73
     :catch_0
-    move-exception v1
+    move-exception p1
 
     goto :goto_1
 
     :catch_1
-    move-exception v1
+    move-exception p1
 
     goto :goto_1
 
     :catch_2
-    move-exception v1
+    move-exception p1
 
     goto :goto_1
 
     :catch_3
-    move-exception v1
+    move-exception p1
 
     .line 74
-    .local v1, "e":Ljava/lang/ReflectiveOperationException;
     :goto_1
-    new-instance v2, Lorg/objenesis/ObjenesisException;
+    new-instance v0, Lorg/objenesis/ObjenesisException;
 
-    invoke-direct {v2, v1}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v2
+    throw v0
 .end method
 
 
@@ -242,15 +220,14 @@
     .end annotation
 
     .line 81
-    .local p0, "this":Lorg/objenesis/instantiator/perc/PercSerializationInstantiator;, "Lorg/objenesis/instantiator/perc/PercSerializationInstantiator<TT;>;"
     :try_start_0
     iget-object v0, p0, Lorg/objenesis/instantiator/perc/PercSerializationInstantiator;->newInstanceMethod:Ljava/lang/reflect/Method;
 
-    const/4 v1, 0x0
+    iget-object v1, p0, Lorg/objenesis/instantiator/perc/PercSerializationInstantiator;->typeArgs:[Ljava/lang/Object;
 
-    iget-object v2, p0, Lorg/objenesis/instantiator/perc/PercSerializationInstantiator;->typeArgs:[Ljava/lang/Object;
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v2, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
     :try_end_0
@@ -259,7 +236,6 @@
 
     return-object v0
 
-    .line 83
     :catch_0
     move-exception v0
 
@@ -269,7 +245,6 @@
     move-exception v0
 
     .line 84
-    .local v0, "e":Ljava/lang/ReflectiveOperationException;
     :goto_0
     new-instance v1, Lorg/objenesis/ObjenesisException;
 

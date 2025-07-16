@@ -38,13 +38,11 @@
 
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
-    .line 182
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/proto/EciesAeadDemParams$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/proto/EciesAeadDemParams$1;
 
     .line 174
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/EciesAeadDemParams$Builder;-><init>()V
@@ -67,7 +65,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/EciesAeadDemParams;->access$300(Lcom/google/crypto/tink/proto/EciesAeadDemParams;)V
 
-    .line 253
     return-object p0
 .end method
 
@@ -103,7 +100,6 @@
 
 .method public mergeAeadDem(Lcom/google/crypto/tink/proto/KeyTemplate;)Lcom/google/crypto/tink/proto/EciesAeadDemParams$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/KeyTemplate;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -123,13 +119,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EciesAeadDemParams;->access$200(Lcom/google/crypto/tink/proto/EciesAeadDemParams;Lcom/google/crypto/tink/proto/KeyTemplate;)V
 
-    .line 242
     return-object p0
 .end method
 
 .method public setAeadDem(Lcom/google/crypto/tink/proto/KeyTemplate$Builder;)Lcom/google/crypto/tink/proto/EciesAeadDemParams$Builder;
-    .locals 2
-    .param p1, "builderForValue"    # Lcom/google/crypto/tink/proto/KeyTemplate$Builder;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -149,19 +143,17 @@
 
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/KeyTemplate$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Lcom/google/crypto/tink/proto/KeyTemplate;
+    check-cast p1, Lcom/google/crypto/tink/proto/KeyTemplate;
 
-    invoke-static {v0, v1}, Lcom/google/crypto/tink/proto/EciesAeadDemParams;->access$100(Lcom/google/crypto/tink/proto/EciesAeadDemParams;Lcom/google/crypto/tink/proto/KeyTemplate;)V
+    invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EciesAeadDemParams;->access$100(Lcom/google/crypto/tink/proto/EciesAeadDemParams;Lcom/google/crypto/tink/proto/KeyTemplate;)V
 
-    .line 230
     return-object p0
 .end method
 
 .method public setAeadDem(Lcom/google/crypto/tink/proto/KeyTemplate;)Lcom/google/crypto/tink/proto/EciesAeadDemParams$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/KeyTemplate;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -181,6 +173,5 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EciesAeadDemParams;->access$100(Lcom/google/crypto/tink/proto/EciesAeadDemParams;Lcom/google/crypto/tink/proto/KeyTemplate;)V
 
-    .line 217
     return-object p0
 .end method

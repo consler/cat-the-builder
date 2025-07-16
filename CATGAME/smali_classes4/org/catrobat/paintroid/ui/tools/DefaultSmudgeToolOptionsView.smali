@@ -9,21 +9,17 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$Companion;,
         Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$OnBrushChangedWidthSeekBarListener;,
         Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$OnPressureChangedSeekBarListener;,
         Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$OnDragChangedSeekBarListener;,
-        Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$Companion;
+        Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$WhenMappings;
     }
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
-        "\u0000b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0005\n\u0002\u0010\u0002\n\u0002\u0008\u0006\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u0008\n\u0002\u0008\u0008\n\u0002\u0018\u0002\n\u0002\u0008\u0007\u0018\u0000 12\u00020\u0001:\u00041234B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0002\u0010\u0004J\u0008\u0010\u0016\u001a\u00020\u0017H\u0016J\u0008\u0010\u0018\u001a\u00020\u0017H\u0002J\u0008\u0010\u0019\u001a\u00020\u0017H\u0002J\u0010\u0010\u001a\u001a\u00020\u00172\u0006\u0010\u001b\u001a\u00020\u0006H\u0016J\u0010\u0010\u001c\u001a\u00020\u00172\u0006\u0010\u001d\u001a\u00020\u001eH\u0016J\u0010\u0010\u001f\u001a\u00020\u00172\u0006\u0010\u0010\u001a\u00020\u0011H\u0016J\u0010\u0010 \u001a\u00020\u00172\u0006\u0010!\u001a\u00020\"H\u0016J\u0010\u0010#\u001a\u00020\u00172\u0006\u0010$\u001a\u00020%H\u0002J\u0010\u0010&\u001a\u00020\u00172\u0006\u0010\'\u001a\u00020%H\u0002J\u0010\u0010(\u001a\u00020\u00172\u0006\u0010)\u001a\u00020%H\u0002J\u0010\u0010*\u001a\u00020\u00172\u0006\u0010+\u001a\u00020%H\u0002J\u0010\u0010,\u001a\u00020\u00172\u0006\u0010-\u001a\u00020.H\u0002J\u0010\u0010/\u001a\u00020\u00172\u0006\u00100\u001a\u00020%H\u0002R\u0010\u0010\u0005\u001a\u0004\u0018\u00010\u0006X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0008X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\u000cX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u000eX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0010\u0010\u0010\u001a\u0004\u0018\u00010\u0011X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u000cX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0008X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u000cX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0008X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u00065"
+        "\u0000p\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0005\n\u0002\u0018\u0002\n\u0002\u0008\u0004\n\u0002\u0010\u0002\n\u0002\u0008\u0007\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u0008\n\u0002\u0008\u0004\n\u0002\u0018\u0002\n\u0002\u0008\r\u0018\u0000 ;2\u00020\u0001:\u0004;<=>B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0002\u0010\u0004J\u0008\u0010\u001b\u001a\u00020\u0006H\u0016J\u0008\u0010\u001c\u001a\u00020\u0006H\u0016J\u0008\u0010\u001d\u001a\u00020\u001eH\u0016J\u0008\u0010\u001f\u001a\u00020\u001eH\u0016J\u0008\u0010 \u001a\u00020\u001eH\u0002J\u0008\u0010!\u001a\u00020\u001eH\u0002J\u0010\u0010\"\u001a\u00020\u001e2\u0006\u0010#\u001a\u00020\u0008H\u0016J\u0010\u0010$\u001a\u00020\u001e2\u0006\u0010%\u001a\u00020&H\u0016J\u0010\u0010\'\u001a\u00020\u001e2\u0006\u0010\u0012\u001a\u00020\u0013H\u0016J\u0010\u0010(\u001a\u00020\u001e2\u0006\u0010)\u001a\u00020*H\u0016J\u0010\u0010+\u001a\u00020\u001e2\u0006\u0010,\u001a\u00020-H\u0002J\u0010\u0010.\u001a\u00020\u001e2\u0006\u0010/\u001a\u00020-H\u0002J\u0010\u00100\u001a\u00020\u001e2\u0006\u00101\u001a\u000202H\u0016J\u0010\u00103\u001a\u00020\u001e2\u0006\u00104\u001a\u00020-H\u0002J\u0010\u00105\u001a\u00020\u001e2\u0006\u00106\u001a\u00020-H\u0002J\u0010\u00107\u001a\u00020\u001e2\u0006\u00108\u001a\u000202H\u0002J\u0010\u00109\u001a\u00020\u001e2\u0006\u0010:\u001a\u00020-H\u0002R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0010\u0010\u0007\u001a\u0004\u0018\u00010\u0008X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\u000cX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0010X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0010\u0010\u0012\u001a\u0004\u0018\u00010\u0013X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u000eX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\nX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u000eX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\nX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0019X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u0006X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006?"
     }
     d2 = {
         "Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;",
@@ -31,6 +27,8 @@
         "rootView",
         "Landroid/view/ViewGroup;",
         "(Landroid/view/ViewGroup;)V",
+        "bottomLayout",
+        "Landroid/view/View;",
         "brushChangedListener",
         "Lorg/catrobat/paintroid/tools/options/BrushToolOptionsView$OnBrushChangedListener;",
         "brushSizeText",
@@ -48,8 +46,14 @@
         "dragText",
         "pressureSeekBar",
         "pressureText",
-        "invalidate",
+        "strokeButtonsGroup",
+        "Lcom/google/android/material/chip/ChipGroup;",
+        "topLayout",
+        "getBottomToolOptions",
+        "getTopToolOptions",
+        "hideCaps",
         "",
+        "invalidate",
         "onCircleButtonClicked",
         "onRectButtonClicked",
         "setBrushChangedListener",
@@ -66,27 +70,30 @@
         "",
         "setPressureText",
         "pressureInPercent",
+        "setStrokeCapButtonChecked",
+        "strokeCap",
+        "Landroid/graphics/Paint$Cap;",
         "updateDrag",
         "drag",
         "updatePressure",
         "pressure",
         "updateStrokeCap",
         "cap",
-        "Landroid/graphics/Paint$Cap;",
         "updateStrokeWidthChange",
         "strokeWidth",
         "Companion",
         "OnBrushChangedWidthSeekBarListener",
         "OnDragChangedSeekBarListener",
         "OnPressureChangedSeekBarListener",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -97,6 +104,8 @@
 
 
 # instance fields
+.field private final bottomLayout:Landroid/view/View;
+
 .field private brushChangedListener:Lorg/catrobat/paintroid/tools/options/BrushToolOptionsView$OnBrushChangedListener;
 
 .field private final brushSizeText:Landroid/widget/EditText;
@@ -119,8 +128,28 @@
 
 .field private final pressureText:Landroid/widget/EditText;
 
+.field private strokeButtonsGroup:Lcom/google/android/material/chip/ChipGroup;
+
+.field private final topLayout:Landroid/view/View;
+
 
 # direct methods
+.method public static synthetic $r8$lambda$DqnNjkssrYu5jUuWNdfx8lndUes(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;Landroid/view/View;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->_init_$lambda-2(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$hMr1-C5hcO-EStRPYkbbEVLFO8g(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;Landroid/view/View;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->_init_$lambda-1(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;Landroid/view/View;)V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
@@ -132,33 +161,25 @@
 
     sput-object v0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->Companion:Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$Companion;
 
-    .line 64
-    const-class v0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;
+    const-string v0, "DefaultSmudgeToolOptionsView"
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v0
-
+    .line 69
     sput-object v0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->TAG:Ljava/lang/String;
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup;)V
-    .locals 8
-    .param p1, "rootView"    # Landroid/view/ViewGroup;
+    .locals 9
 
     const-string v0, "rootView"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 48
+    .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 67
-    nop
-
-    .line 68
+    .line 73
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -167,127 +188,133 @@
 
     move-result-object v0
 
-    .line 69
-    .local v0, "inflater":Landroid/view/LayoutInflater;
+    .line 74
     sget v1, Lorg/catrobat/paintroid/R$layout;->dialog_pocketpaint_smudge_tool:I
 
     const/4 v2, 0x1
 
     invoke-virtual {v0, v1, p1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    move-result-object v1
-
-    .line 70
-    .local v1, "brushPickerView":Landroid/view/View;
-    move-object v3, v1
-
-    .local v3, "$this$apply":Landroid/view/View;
-    const/4 v4, 0x0
-
-    .line 71
-    .local v4, "$i$a$-apply-DefaultSmudgeToolOptionsView$1":I
-    sget v5, Lorg/catrobat/paintroid/R$id;->pocketpaint_stroke_ibtn_circle:I
-
-    invoke-virtual {v3, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v5
-
-    const-string v6, "findViewById(R.id.pocketpaint_stroke_ibtn_circle)"
-
-    invoke-static {v5, v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    check-cast v5, Lcom/google/android/material/chip/Chip;
-
-    iput-object v5, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->buttonCircle:Lcom/google/android/material/chip/Chip;
-
-    .line 72
-    sget v5, Lorg/catrobat/paintroid/R$id;->pocketpaint_stroke_ibtn_rect:I
-
-    invoke-virtual {v3, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v5
-
-    const-string v6, "findViewById(R.id.pocketpaint_stroke_ibtn_rect)"
-
-    invoke-static {v5, v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    check-cast v5, Lcom/google/android/material/chip/Chip;
-
-    iput-object v5, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->buttonRect:Lcom/google/android/material/chip/Chip;
-
-    .line 73
-    sget v5, Lorg/catrobat/paintroid/R$id;->pocketpaint_stroke_width_seek_bar:I
-
-    invoke-virtual {v3, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v5
-
-    const-string v6, "findViewById(R.id.pocket\u2026nt_stroke_width_seek_bar)"
-
-    invoke-static {v5, v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    check-cast v5, Landroid/widget/SeekBar;
-
-    iput-object v5, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->brushWidthSeekBar:Landroid/widget/SeekBar;
-
-    .line 74
-    new-instance v6, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$OnBrushChangedWidthSeekBarListener;
-
-    invoke-direct {v6, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$OnBrushChangedWidthSeekBarListener;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)V
-
-    check-cast v6, Landroid/widget/SeekBar$OnSeekBarChangeListener;
-
-    invoke-virtual {v5, v6}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
-
-    .line 75
-    sget v5, Lorg/catrobat/paintroid/R$id;->pocketpaint_stroke_width_width_text:I
-
-    invoke-virtual {v3, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v5
-
-    const-string v6, "findViewById(R.id.pocket\u2026_stroke_width_width_text)"
-
-    invoke-static {v5, v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    check-cast v5, Landroid/widget/EditText;
-
-    iput-object v5, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->brushSizeText:Landroid/widget/EditText;
+    move-result-object p1
 
     .line 76
-    sget v5, Lorg/catrobat/paintroid/R$id;->pocketpaint_brush_tool_preview:I
+    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_stroke_types:I
 
-    invoke-virtual {v3, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v0
 
-    const-string v6, "findViewById(R.id.pocketpaint_brush_tool_preview)"
+    const-string v1, "findViewById(R.id.pocketpaint_stroke_types)"
 
-    invoke-static {v5, v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v5, Lorg/catrobat/paintroid/tools/options/BrushToolPreview;
+    check-cast v0, Lcom/google/android/material/chip/ChipGroup;
 
-    iput-object v5, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->brushToolPreview:Lorg/catrobat/paintroid/tools/options/BrushToolPreview;
+    iput-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->strokeButtonsGroup:Lcom/google/android/material/chip/ChipGroup;
 
     .line 77
-    sget v5, Lorg/catrobat/paintroid/R$id;->pocketpaint_smudge_tool_dialog_pressure_input:I
+    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_stroke_ibtn_circle:I
 
-    invoke-virtual {v3, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v0
 
-    const-string v6, "findViewById(R.id.pocket\u2026ol_dialog_pressure_input)"
+    const-string v1, "findViewById(R.id.pocketpaint_stroke_ibtn_circle)"
 
-    invoke-static {v5, v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v5, Landroid/widget/EditText;
+    check-cast v0, Lcom/google/android/material/chip/Chip;
 
-    iput-object v5, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->pressureText:Landroid/widget/EditText;
+    iput-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->buttonCircle:Lcom/google/android/material/chip/Chip;
 
     .line 78
+    sget v1, Lorg/catrobat/paintroid/R$id;->pocketpaint_stroke_ibtn_rect:I
+
+    invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    const-string v3, "findViewById(R.id.pocketpaint_stroke_ibtn_rect)"
+
+    invoke-static {v1, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    check-cast v1, Lcom/google/android/material/chip/Chip;
+
+    iput-object v1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->buttonRect:Lcom/google/android/material/chip/Chip;
+
+    .line 79
+    sget v3, Lorg/catrobat/paintroid/R$id;->pocketpaint_stroke_width_seek_bar:I
+
+    invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    const-string v4, "findViewById(R.id.pocket\u2026nt_stroke_width_seek_bar)"
+
+    invoke-static {v3, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    check-cast v3, Landroid/widget/SeekBar;
+
+    iput-object v3, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->brushWidthSeekBar:Landroid/widget/SeekBar;
+
+    .line 80
+    new-instance v4, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$OnBrushChangedWidthSeekBarListener;
+
+    invoke-direct {v4, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$OnBrushChangedWidthSeekBarListener;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)V
+
+    check-cast v4, Landroid/widget/SeekBar$OnSeekBarChangeListener;
+
+    invoke-virtual {v3, v4}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
+
+    .line 81
+    sget v3, Lorg/catrobat/paintroid/R$id;->pocketpaint_stroke_width_width_text:I
+
+    invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    const-string v4, "findViewById(R.id.pocket\u2026_stroke_width_width_text)"
+
+    invoke-static {v3, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    check-cast v3, Landroid/widget/EditText;
+
+    iput-object v3, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->brushSizeText:Landroid/widget/EditText;
+
+    .line 82
+    sget v4, Lorg/catrobat/paintroid/R$id;->pocketpaint_brush_tool_preview:I
+
+    invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    const-string v5, "findViewById(R.id.pocketpaint_brush_tool_preview)"
+
+    invoke-static {v4, v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    check-cast v4, Lorg/catrobat/paintroid/tools/options/BrushToolPreview;
+
+    iput-object v4, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->brushToolPreview:Lorg/catrobat/paintroid/tools/options/BrushToolPreview;
+
+    .line 83
+    sget v4, Lorg/catrobat/paintroid/R$id;->pocketpaint_smudge_tool_dialog_pressure_input:I
+
+    invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    const-string v5, "findViewById(R.id.pocket\u2026ol_dialog_pressure_input)"
+
+    invoke-static {v4, v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    check-cast v4, Landroid/widget/EditText;
+
+    iput-object v4, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->pressureText:Landroid/widget/EditText;
+
+    .line 84
     sget v5, Lorg/catrobat/paintroid/R$id;->pocketpaint_pressure_seek_bar:I
 
-    invoke-virtual {v3, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v5
 
@@ -299,7 +326,7 @@
 
     iput-object v5, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->pressureSeekBar:Landroid/widget/SeekBar;
 
-    .line 79
+    .line 85
     new-instance v6, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$OnPressureChangedSeekBarListener;
 
     invoke-direct {v6, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$OnPressureChangedSeekBarListener;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)V
@@ -308,10 +335,10 @@
 
     invoke-virtual {v5, v6}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
 
-    .line 80
+    .line 86
     sget v5, Lorg/catrobat/paintroid/R$id;->pocketpaint_smudge_tool_dialog_drag_input:I
 
-    invoke-virtual {v3, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v5
 
@@ -323,261 +350,253 @@
 
     iput-object v5, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->dragText:Landroid/widget/EditText;
 
-    .line 81
-    sget v5, Lorg/catrobat/paintroid/R$id;->pocketpaint_drag_seek_bar:I
-
-    invoke-virtual {v3, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v5
-
-    const-string v6, "findViewById(R.id.pocketpaint_drag_seek_bar)"
-
-    invoke-static {v5, v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    check-cast v5, Landroid/widget/SeekBar;
-
-    iput-object v5, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->dragSeekBar:Landroid/widget/SeekBar;
-
-    .line 82
-    new-instance v6, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$OnDragChangedSeekBarListener;
-
-    invoke-direct {v6, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$OnDragChangedSeekBarListener;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)V
-
-    check-cast v6, Landroid/widget/SeekBar$OnSeekBarChangeListener;
-
-    invoke-virtual {v5, v6}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
-
-    .line 83
-    nop
-
-    .line 70
-    .end local v3    # "$this$apply":Landroid/view/View;
-    .end local v4    # "$i$a$-apply-DefaultSmudgeToolOptionsView$1":I
-    nop
-
-    .line 84
-    iget-object v3, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->brushSizeText:Landroid/widget/EditText;
-
-    new-array v4, v2, [Landroid/text/InputFilter;
-
-    new-instance v5, Lorg/catrobat/paintroid/tools/helper/DefaultNumberRangeFilter;
-
-    const/16 v6, 0x64
-
-    invoke-direct {v5, v2, v6}, Lorg/catrobat/paintroid/tools/helper/DefaultNumberRangeFilter;-><init>(II)V
-
-    check-cast v5, Landroid/text/InputFilter;
-
-    const/4 v7, 0x0
-
-    aput-object v5, v4, v7
-
-    invoke-virtual {v3, v4}, Landroid/widget/EditText;->setFilters([Landroid/text/InputFilter;)V
-
-    .line 85
-    iget-object v3, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->pressureText:Landroid/widget/EditText;
-
-    new-array v4, v2, [Landroid/text/InputFilter;
-
-    new-instance v5, Lorg/catrobat/paintroid/tools/helper/DefaultNumberRangeFilter;
-
-    invoke-direct {v5, v2, v6}, Lorg/catrobat/paintroid/tools/helper/DefaultNumberRangeFilter;-><init>(II)V
-
-    check-cast v5, Landroid/text/InputFilter;
-
-    aput-object v5, v4, v7
-
-    invoke-virtual {v3, v4}, Landroid/widget/EditText;->setFilters([Landroid/text/InputFilter;)V
-
-    .line 86
-    iget-object v3, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->dragText:Landroid/widget/EditText;
-
-    new-array v4, v2, [Landroid/text/InputFilter;
-
-    new-instance v5, Lorg/catrobat/paintroid/tools/helper/DefaultNumberRangeFilter;
-
-    invoke-direct {v5, v2, v6}, Lorg/catrobat/paintroid/tools/helper/DefaultNumberRangeFilter;-><init>(II)V
-
-    check-cast v5, Landroid/text/InputFilter;
-
-    aput-object v5, v4, v7
-
-    invoke-virtual {v3, v4}, Landroid/widget/EditText;->setFilters([Landroid/text/InputFilter;)V
-
     .line 87
-    iget-object v2, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->buttonCircle:Lcom/google/android/material/chip/Chip;
+    sget v6, Lorg/catrobat/paintroid/R$id;->pocketpaint_drag_seek_bar:I
 
-    new-instance v3, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$2;
+    invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-direct {v3, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$2;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)V
+    move-result-object v6
 
-    check-cast v3, Landroid/view/View$OnClickListener;
+    const-string v7, "findViewById(R.id.pocketpaint_drag_seek_bar)"
 
-    invoke-virtual {v2, v3}, Lcom/google/android/material/chip/Chip;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-static {v6, v7}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    check-cast v6, Landroid/widget/SeekBar;
+
+    iput-object v6, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->dragSeekBar:Landroid/widget/SeekBar;
 
     .line 88
-    iget-object v2, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->buttonRect:Lcom/google/android/material/chip/Chip;
+    new-instance v7, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$OnDragChangedSeekBarListener;
 
-    new-instance v3, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$3;
+    invoke-direct {v7, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$OnDragChangedSeekBarListener;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)V
 
-    invoke-direct {v3, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$3;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)V
+    check-cast v7, Landroid/widget/SeekBar$OnSeekBarChangeListener;
 
-    check-cast v3, Landroid/view/View$OnClickListener;
+    invoke-virtual {v6, v7}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
 
-    invoke-virtual {v2, v3}, Lcom/google/android/material/chip/Chip;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    .line 89
+    sget v6, Lorg/catrobat/paintroid/R$id;->pocketpaint_smudge_top_layout:I
+
+    invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    const-string v7, "findViewById(R.id.pocketpaint_smudge_top_layout)"
+
+    invoke-static {v6, v7}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    iput-object v6, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->topLayout:Landroid/view/View;
 
     .line 90
-    iget-object v2, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->brushSizeText:Landroid/widget/EditText;
+    sget v6, Lorg/catrobat/paintroid/R$id;->pocketpaint_smudge_bottom_layout:I
 
-    new-instance v3, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$4;
+    invoke-virtual {p1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-direct {v3, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$4;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)V
+    move-result-object p1
 
-    check-cast v3, Landroid/text/TextWatcher;
+    const-string v6, "findViewById(R.id.pocket\u2026int_smudge_bottom_layout)"
 
-    invoke-virtual {v2, v3}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+    invoke-static {p1, v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 108
-    iget-object v2, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->pressureText:Landroid/widget/EditText;
+    iput-object p1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->bottomLayout:Landroid/view/View;
 
-    new-instance v3, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$5;
+    new-array p1, v2, [Landroid/text/InputFilter;
 
-    invoke-direct {v3, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$5;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)V
+    .line 92
+    new-instance v6, Lorg/catrobat/paintroid/tools/helper/DefaultNumberRangeFilter;
 
-    check-cast v3, Landroid/text/TextWatcher;
+    const/16 v7, 0x64
 
-    invoke-virtual {v2, v3}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+    invoke-direct {v6, v2, v7}, Lorg/catrobat/paintroid/tools/helper/DefaultNumberRangeFilter;-><init>(II)V
 
-    .line 126
-    iget-object v2, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->dragText:Landroid/widget/EditText;
+    check-cast v6, Landroid/text/InputFilter;
 
-    new-instance v3, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$6;
+    const/4 v8, 0x0
 
-    invoke-direct {v3, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$6;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)V
+    aput-object v6, p1, v8
 
-    check-cast v3, Landroid/text/TextWatcher;
+    invoke-virtual {v3, p1}, Landroid/widget/EditText;->setFilters([Landroid/text/InputFilter;)V
 
-    invoke-virtual {v2, v3}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+    new-array p1, v2, [Landroid/text/InputFilter;
 
-    .line 145
-    const/16 v2, 0x32
+    .line 93
+    new-instance v6, Lorg/catrobat/paintroid/tools/helper/DefaultNumberRangeFilter;
 
-    invoke-direct {p0, v2}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->setPressureText(I)V
+    invoke-direct {v6, v2, v7}, Lorg/catrobat/paintroid/tools/helper/DefaultNumberRangeFilter;-><init>(II)V
 
-    .line 146
-    invoke-direct {p0, v2}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->setDragText(I)V
+    check-cast v6, Landroid/text/InputFilter;
 
-    .line 147
-    .end local v0    # "inflater":Landroid/view/LayoutInflater;
-    .end local v1    # "brushPickerView":Landroid/view/View;
+    aput-object v6, p1, v8
+
+    invoke-virtual {v4, p1}, Landroid/widget/EditText;->setFilters([Landroid/text/InputFilter;)V
+
+    new-array p1, v2, [Landroid/text/InputFilter;
+
+    .line 94
+    new-instance v6, Lorg/catrobat/paintroid/tools/helper/DefaultNumberRangeFilter;
+
+    invoke-direct {v6, v2, v7}, Lorg/catrobat/paintroid/tools/helper/DefaultNumberRangeFilter;-><init>(II)V
+
+    check-cast v6, Landroid/text/InputFilter;
+
+    aput-object v6, p1, v8
+
+    invoke-virtual {v5, p1}, Landroid/widget/EditText;->setFilters([Landroid/text/InputFilter;)V
+
+    .line 95
+    new-instance p1, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$$ExternalSyntheticLambda0;
+
+    invoke-direct {p1, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$$ExternalSyntheticLambda0;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)V
+
+    invoke-virtual {v0, p1}, Lcom/google/android/material/chip/Chip;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 96
+    new-instance p1, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$$ExternalSyntheticLambda1;
+
+    invoke-direct {p1, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$$ExternalSyntheticLambda1;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)V
+
+    invoke-virtual {v1, p1}, Lcom/google/android/material/chip/Chip;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 98
+    new-instance p1, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$4;
+
+    invoke-direct {p1, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$4;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)V
+
+    check-cast p1, Landroid/text/TextWatcher;
+
+    invoke-virtual {v3, p1}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+
+    .line 116
+    new-instance p1, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$5;
+
+    invoke-direct {p1, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$5;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)V
+
+    check-cast p1, Landroid/text/TextWatcher;
+
+    invoke-virtual {v4, p1}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+
+    .line 134
+    new-instance p1, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$6;
+
+    invoke-direct {p1, p0}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$6;-><init>(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)V
+
+    check-cast p1, Landroid/text/TextWatcher;
+
+    invoke-virtual {v5, p1}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+
+    const/16 p1, 0x32
+
+    .line 153
+    invoke-direct {p0, p1}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->setPressureText(I)V
+
+    .line 154
+    invoke-direct {p0, p1}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->setDragText(I)V
+
     return-void
 .end method
 
-.method public static final synthetic access$getBrushSizeText$p(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)Landroid/widget/EditText;
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;
-
-    .line 48
-    iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->brushSizeText:Landroid/widget/EditText;
-
-    return-object v0
-.end method
-
-.method public static final synthetic access$getBrushToolPreview$p(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)Lorg/catrobat/paintroid/tools/options/BrushToolPreview;
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;
-
-    .line 48
-    iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->brushToolPreview:Lorg/catrobat/paintroid/tools/options/BrushToolPreview;
-
-    return-object v0
-.end method
-
-.method public static final synthetic access$getBrushWidthSeekBar$p(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)Landroid/widget/SeekBar;
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;
-
-    .line 48
-    iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->brushWidthSeekBar:Landroid/widget/SeekBar;
-
-    return-object v0
-.end method
-
-.method public static final synthetic access$getDragSeekBar$p(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)Landroid/widget/SeekBar;
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;
-
-    .line 48
-    iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->dragSeekBar:Landroid/widget/SeekBar;
-
-    return-object v0
-.end method
-
-.method public static final synthetic access$getDragText$p(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)Landroid/widget/EditText;
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;
-
-    .line 48
-    iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->dragText:Landroid/widget/EditText;
-
-    return-object v0
-.end method
-
-.method public static final synthetic access$getPressureSeekBar$p(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)Landroid/widget/SeekBar;
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;
-
-    .line 48
-    iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->pressureSeekBar:Landroid/widget/SeekBar;
-
-    return-object v0
-.end method
-
-.method public static final synthetic access$getPressureText$p(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)Landroid/widget/EditText;
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;
-
-    .line 48
-    iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->pressureText:Landroid/widget/EditText;
-
-    return-object v0
-.end method
-
-.method public static final synthetic access$getTAG$cp()Ljava/lang/String;
-    .locals 1
-
-    .line 48
-    sget-object v0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->TAG:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public static final synthetic access$onCircleButtonClicked(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)V
+.method private static final _init_$lambda-1(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;Landroid/view/View;)V
     .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;
 
-    .line 48
+    const-string p1, "this$0"
+
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 95
     invoke-direct {p0}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->onCircleButtonClicked()V
 
     return-void
 .end method
 
-.method public static final synthetic access$onRectButtonClicked(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)V
+.method private static final _init_$lambda-2(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;Landroid/view/View;)V
     .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;
 
-    .line 48
+    const-string p1, "this$0"
+
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 96
     invoke-direct {p0}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->onRectButtonClicked()V
 
     return-void
 .end method
 
+.method public static final synthetic access$getBrushSizeText$p(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)Landroid/widget/EditText;
+    .locals 0
+
+    .line 50
+    iget-object p0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->brushSizeText:Landroid/widget/EditText;
+
+    return-object p0
+.end method
+
+.method public static final synthetic access$getBrushToolPreview$p(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)Lorg/catrobat/paintroid/tools/options/BrushToolPreview;
+    .locals 0
+
+    .line 50
+    iget-object p0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->brushToolPreview:Lorg/catrobat/paintroid/tools/options/BrushToolPreview;
+
+    return-object p0
+.end method
+
+.method public static final synthetic access$getBrushWidthSeekBar$p(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)Landroid/widget/SeekBar;
+    .locals 0
+
+    .line 50
+    iget-object p0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->brushWidthSeekBar:Landroid/widget/SeekBar;
+
+    return-object p0
+.end method
+
+.method public static final synthetic access$getDragSeekBar$p(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)Landroid/widget/SeekBar;
+    .locals 0
+
+    .line 50
+    iget-object p0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->dragSeekBar:Landroid/widget/SeekBar;
+
+    return-object p0
+.end method
+
+.method public static final synthetic access$getDragText$p(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)Landroid/widget/EditText;
+    .locals 0
+
+    .line 50
+    iget-object p0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->dragText:Landroid/widget/EditText;
+
+    return-object p0
+.end method
+
+.method public static final synthetic access$getPressureSeekBar$p(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)Landroid/widget/SeekBar;
+    .locals 0
+
+    .line 50
+    iget-object p0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->pressureSeekBar:Landroid/widget/SeekBar;
+
+    return-object p0
+.end method
+
+.method public static final synthetic access$getPressureText$p(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;)Landroid/widget/EditText;
+    .locals 0
+
+    .line 50
+    iget-object p0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->pressureText:Landroid/widget/EditText;
+
+    return-object p0
+.end method
+
+.method public static final synthetic access$getTAG$cp()Ljava/lang/String;
+    .locals 1
+
+    .line 50
+    sget-object v0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->TAG:Ljava/lang/String;
+
+    return-object v0
+.end method
+
 .method public static final synthetic access$setDragText(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;I)V
     .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;
-    .param p1, "dragInPercent"    # I
 
-    .line 48
+    .line 50
     invoke-direct {p0, p1}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->setDragText(I)V
 
     return-void
@@ -585,10 +604,8 @@
 
 .method public static final synthetic access$setPressureText(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;I)V
     .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;
-    .param p1, "pressureInPercent"    # I
 
-    .line 48
+    .line 50
     invoke-direct {p0, p1}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->setPressureText(I)V
 
     return-void
@@ -596,10 +613,8 @@
 
 .method public static final synthetic access$updateDrag(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;I)V
     .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;
-    .param p1, "drag"    # I
 
-    .line 48
+    .line 50
     invoke-direct {p0, p1}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->updateDrag(I)V
 
     return-void
@@ -607,10 +622,8 @@
 
 .method public static final synthetic access$updatePressure(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;I)V
     .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;
-    .param p1, "pressure"    # I
 
-    .line 48
+    .line 50
     invoke-direct {p0, p1}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->updatePressure(I)V
 
     return-void
@@ -618,10 +631,8 @@
 
 .method public static final synthetic access$updateStrokeWidthChange(Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;I)V
     .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;
-    .param p1, "strokeWidth"    # I
 
-    .line 48
+    .line 50
     invoke-direct {p0, p1}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->updateStrokeWidthChange(I)V
 
     return-void
@@ -630,66 +641,63 @@
 .method private final onCircleButtonClicked()V
     .locals 2
 
-    .line 157
+    .line 165
     sget-object v0, Landroid/graphics/Paint$Cap;->ROUND:Landroid/graphics/Paint$Cap;
 
     invoke-direct {p0, v0}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->updateStrokeCap(Landroid/graphics/Paint$Cap;)V
 
-    .line 158
+    .line 166
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->buttonCircle:Lcom/google/android/material/chip/Chip;
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/google/android/material/chip/Chip;->setSelected(Z)V
+    invoke-virtual {v0, v1}, Lcom/google/android/material/chip/Chip;->setChecked(Z)V
 
-    .line 159
+    .line 167
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->buttonRect:Lcom/google/android/material/chip/Chip;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/google/android/material/chip/Chip;->setSelected(Z)V
+    invoke-virtual {v0, v1}, Lcom/google/android/material/chip/Chip;->setChecked(Z)V
 
-    .line 160
+    .line 168
     invoke-virtual {p0}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->invalidate()V
 
-    .line 161
     return-void
 .end method
 
 .method private final onRectButtonClicked()V
     .locals 2
 
-    .line 150
+    .line 158
     sget-object v0, Landroid/graphics/Paint$Cap;->SQUARE:Landroid/graphics/Paint$Cap;
 
     invoke-direct {p0, v0}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->updateStrokeCap(Landroid/graphics/Paint$Cap;)V
 
-    .line 151
+    .line 159
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->buttonRect:Lcom/google/android/material/chip/Chip;
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/google/android/material/chip/Chip;->setSelected(Z)V
+    invoke-virtual {v0, v1}, Lcom/google/android/material/chip/Chip;->setChecked(Z)V
 
-    .line 152
+    .line 160
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->buttonCircle:Lcom/google/android/material/chip/Chip;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/google/android/material/chip/Chip;->setSelected(Z)V
+    invoke-virtual {v0, v1}, Lcom/google/android/material/chip/Chip;->setChecked(Z)V
 
-    .line 153
+    .line 161
     invoke-virtual {p0}, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->invalidate()V
 
-    .line 154
     return-void
 .end method
 
 .method private final setDragText(I)V
-    .locals 6
-    .param p1, "dragInPercent"    # I
+    .locals 5
 
-    .line 218
+    .line 237
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->dragText:Landroid/widget/EditText;
 
     sget-object v1, Lkotlin/jvm/internal/StringCompanionObject;->INSTANCE:Lkotlin/jvm/internal/StringCompanionObject;
@@ -702,41 +710,39 @@
 
     new-array v3, v2, [Ljava/lang/Object;
 
+    const/4 v4, 0x0
+
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object p1
 
-    const/4 v5, 0x0
-
-    aput-object v4, v3, v5
+    aput-object p1, v3, v4
 
     invoke-static {v3, v2}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    const-string v3, "%d"
+    const-string v2, "%d"
 
-    invoke-static {v1, v3, v2}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, p1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "java.lang.String.format(locale, format, *args)"
+    const-string v1, "java.lang.String.format(locale, format, *args)"
 
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v1, Ljava/lang/CharSequence;
+    check-cast p1, Ljava/lang/CharSequence;
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, p1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 219
     return-void
 .end method
 
 .method private final setPressureText(I)V
-    .locals 6
-    .param p1, "pressureInPercent"    # I
+    .locals 5
 
-    .line 214
+    .line 233
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->pressureText:Landroid/widget/EditText;
 
     sget-object v1, Lkotlin/jvm/internal/StringCompanionObject;->INSTANCE:Lkotlin/jvm/internal/StringCompanionObject;
@@ -749,175 +755,194 @@
 
     new-array v3, v2, [Ljava/lang/Object;
 
+    const/4 v4, 0x0
+
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object p1
 
-    const/4 v5, 0x0
-
-    aput-object v4, v3, v5
+    aput-object p1, v3, v4
 
     invoke-static {v3, v2}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    const-string v3, "%d"
+    const-string v2, "%d"
 
-    invoke-static {v1, v3, v2}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, p1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "java.lang.String.format(locale, format, *args)"
+    const-string v1, "java.lang.String.format(locale, format, *args)"
 
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v1, Ljava/lang/CharSequence;
+    check-cast p1, Ljava/lang/CharSequence;
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, p1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 215
     return-void
 .end method
 
 .method private final updateDrag(I)V
     .locals 1
-    .param p1, "drag"    # I
 
-    .line 210
+    .line 229
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->callback:Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView$Callback;
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
+    goto :goto_0
+
+    :cond_0
     invoke-interface {v0, p1}, Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView$Callback;->onDragChanged(I)V
 
-    .line 211
-    :cond_0
+    :goto_0
     return-void
 .end method
 
 .method private final updatePressure(I)V
     .locals 1
-    .param p1, "pressure"    # I
 
-    .line 206
+    .line 225
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->callback:Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView$Callback;
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
+    goto :goto_0
+
+    :cond_0
     invoke-interface {v0, p1}, Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView$Callback;->onPressureChanged(I)V
 
-    .line 207
-    :cond_0
+    :goto_0
     return-void
 .end method
 
 .method private final updateStrokeCap(Landroid/graphics/Paint$Cap;)V
     .locals 1
-    .param p1, "cap"    # Landroid/graphics/Paint$Cap;
 
-    .line 194
+    .line 213
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->brushChangedListener:Lorg/catrobat/paintroid/tools/options/BrushToolOptionsView$OnBrushChangedListener;
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
+    goto :goto_0
+
+    :cond_0
     invoke-interface {v0, p1}, Lorg/catrobat/paintroid/tools/options/BrushToolOptionsView$OnBrushChangedListener;->setCap(Landroid/graphics/Paint$Cap;)V
 
-    .line 195
-    :cond_0
+    :goto_0
     return-void
 .end method
 
 .method private final updateStrokeWidthChange(I)V
     .locals 1
-    .param p1, "strokeWidth"    # I
 
-    .line 190
+    .line 209
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->brushChangedListener:Lorg/catrobat/paintroid/tools/options/BrushToolOptionsView$OnBrushChangedListener;
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
+    goto :goto_0
+
+    :cond_0
     invoke-interface {v0, p1}, Lorg/catrobat/paintroid/tools/options/BrushToolOptionsView$OnBrushChangedListener;->setStrokeWidth(I)V
 
-    .line 191
-    :cond_0
+    :goto_0
     return-void
 .end method
 
 
 # virtual methods
+.method public getBottomToolOptions()Landroid/view/View;
+    .locals 1
+
+    .line 301
+    iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->bottomLayout:Landroid/view/View;
+
+    return-object v0
+.end method
+
+.method public getTopToolOptions()Landroid/view/View;
+    .locals 1
+
+    .line 303
+    iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->topLayout:Landroid/view/View;
+
+    return-object v0
+.end method
+
+.method public hideCaps()V
+    .locals 0
+
+    return-void
+.end method
+
 .method public invalidate()V
     .locals 1
 
-    .line 198
+    .line 217
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->brushToolPreview:Lorg/catrobat/paintroid/tools/options/BrushToolPreview;
 
     invoke-interface {v0}, Lorg/catrobat/paintroid/tools/options/BrushToolPreview;->invalidate()V
 
-    .line 199
     return-void
 .end method
 
 .method public setBrushChangedListener(Lorg/catrobat/paintroid/tools/options/BrushToolOptionsView$OnBrushChangedListener;)V
     .locals 1
-    .param p1, "onBrushChangedListener"    # Lorg/catrobat/paintroid/tools/options/BrushToolOptionsView$OnBrushChangedListener;
 
     const-string v0, "onBrushChangedListener"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 181
+    .line 196
     iput-object p1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->brushChangedListener:Lorg/catrobat/paintroid/tools/options/BrushToolOptionsView$OnBrushChangedListener;
 
-    .line 182
     return-void
 .end method
 
 .method public setBrushPreviewListener(Lorg/catrobat/paintroid/tools/options/BrushToolOptionsView$OnBrushPreviewListener;)V
     .locals 1
-    .param p1, "onBrushPreviewListener"    # Lorg/catrobat/paintroid/tools/options/BrushToolOptionsView$OnBrushPreviewListener;
 
     const-string v0, "onBrushPreviewListener"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 185
+    .line 200
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->brushToolPreview:Lorg/catrobat/paintroid/tools/options/BrushToolPreview;
 
     invoke-interface {v0, p1}, Lorg/catrobat/paintroid/tools/options/BrushToolPreview;->setListener(Lorg/catrobat/paintroid/tools/options/BrushToolOptionsView$OnBrushPreviewListener;)V
 
-    .line 186
-    iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->brushToolPreview:Lorg/catrobat/paintroid/tools/options/BrushToolPreview;
+    .line 201
+    iget-object p1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->brushToolPreview:Lorg/catrobat/paintroid/tools/options/BrushToolPreview;
 
-    invoke-interface {v0}, Lorg/catrobat/paintroid/tools/options/BrushToolPreview;->invalidate()V
+    invoke-interface {p1}, Lorg/catrobat/paintroid/tools/options/BrushToolPreview;->invalidate()V
 
-    .line 187
     return-void
 .end method
 
 .method public setCallback(Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView$Callback;)V
     .locals 1
-    .param p1, "callback"    # Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView$Callback;
 
     const-string v0, "callback"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 202
+    .line 221
     iput-object p1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->callback:Lorg/catrobat/paintroid/tools/options/SmudgeToolOptionsView$Callback;
 
-    .line 203
     return-void
 .end method
 
 .method public setCurrentPaint(Landroid/graphics/Paint;)V
-    .locals 6
-    .param p1, "paint"    # Landroid/graphics/Paint;
+    .locals 5
 
     const-string v0, "paint"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 164
+    .line 172
     invoke-virtual {p1}, Landroid/graphics/Paint;->getStrokeCap()Landroid/graphics/Paint$Cap;
 
     move-result-object v0
@@ -930,34 +955,31 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 165
+    .line 173
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->buttonCircle:Lcom/google/android/material/chip/Chip;
 
     invoke-virtual {v0, v2}, Lcom/google/android/material/chip/Chip;->setSelected(Z)V
 
-    .line 166
+    .line 174
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->buttonRect:Lcom/google/android/material/chip/Chip;
 
     invoke-virtual {v0, v3}, Lcom/google/android/material/chip/Chip;->setSelected(Z)V
 
     goto :goto_0
 
-    .line 168
+    .line 176
     :cond_0
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->buttonCircle:Lcom/google/android/material/chip/Chip;
 
     invoke-virtual {v0, v3}, Lcom/google/android/material/chip/Chip;->setSelected(Z)V
 
-    .line 169
+    .line 177
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->buttonRect:Lcom/google/android/material/chip/Chip;
 
     invoke-virtual {v0, v2}, Lcom/google/android/material/chip/Chip;->setSelected(Z)V
 
-    .line 170
+    .line 179
     :goto_0
-    nop
-
-    .line 171
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->brushWidthSeekBar:Landroid/widget/SeekBar;
 
     invoke-virtual {p1}, Landroid/graphics/Paint;->getStrokeWidth()F
@@ -968,52 +990,107 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setProgress(I)V
 
-    .line 172
+    .line 180
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->brushSizeText:Landroid/widget/EditText;
 
-    .line 173
+    .line 181
     sget-object v1, Lkotlin/jvm/internal/StringCompanionObject;->INSTANCE:Lkotlin/jvm/internal/StringCompanionObject;
 
-    .line 174
+    .line 182
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v1
 
     new-array v4, v2, [Ljava/lang/Object;
 
-    .line 175
+    .line 183
     invoke-virtual {p1}, Landroid/graphics/Paint;->getStrokeWidth()F
 
-    move-result v5
+    move-result p1
 
-    float-to-int v5, v5
+    float-to-int p1, p1
 
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v5
+    move-result-object p1
 
-    aput-object v5, v4, v3
+    aput-object p1, v4, v3
 
-    .line 173
+    .line 181
     invoke-static {v4, v2}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    const-string v3, "%d"
+    const-string v2, "%d"
 
-    invoke-static {v1, v3, v2}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, p1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "java.lang.String.format(locale, format, *args)"
+    const-string v1, "java.lang.String.format(locale, format, *args)"
 
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v1, Ljava/lang/CharSequence;
+    check-cast p1, Ljava/lang/CharSequence;
 
-    .line 172
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    .line 180
+    invoke-virtual {v0, p1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 178
+    return-void
+.end method
+
+.method public setStrokeCapButtonChecked(Landroid/graphics/Paint$Cap;)V
+    .locals 1
+
+    const-string v0, "strokeCap"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 189
+    sget-object v0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView$WhenMappings;->$EnumSwitchMapping$0:[I
+
+    invoke-virtual {p1}, Landroid/graphics/Paint$Cap;->ordinal()I
+
+    move-result p1
+
+    aget p1, v0, p1
+
+    const/4 v0, 0x1
+
+    if-eq p1, v0, :cond_1
+
+    const/4 v0, 0x2
+
+    if-eq p1, v0, :cond_0
+
+    goto :goto_0
+
+    .line 191
+    :cond_0
+    iget-object p1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->strokeButtonsGroup:Lcom/google/android/material/chip/ChipGroup;
+
+    iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->buttonRect:Lcom/google/android/material/chip/Chip;
+
+    invoke-virtual {v0}, Lcom/google/android/material/chip/Chip;->getId()I
+
+    move-result v0
+
+    invoke-virtual {p1, v0}, Lcom/google/android/material/chip/ChipGroup;->check(I)V
+
+    goto :goto_0
+
+    .line 190
+    :cond_1
+    iget-object p1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->strokeButtonsGroup:Lcom/google/android/material/chip/ChipGroup;
+
+    iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultSmudgeToolOptionsView;->buttonCircle:Lcom/google/android/material/chip/Chip;
+
+    invoke-virtual {v0}, Lcom/google/android/material/chip/Chip;->getId()I
+
+    move-result v0
+
+    invoke-virtual {p1, v0}, Lcom/google/android/material/chip/ChipGroup;->check(I)V
+
+    :goto_0
     return-void
 .end method

@@ -62,528 +62,421 @@
 .end method
 
 .method public static buildNormals(Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;Lcom/badlogic/gdx/graphics/g3d/Renderable;FLcom/badlogic/gdx/graphics/Color;Lcom/badlogic/gdx/graphics/Color;Lcom/badlogic/gdx/graphics/Color;)V
-    .locals 19
-    .param p0, "builder"    # Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;
-    .param p1, "renderable"    # Lcom/badlogic/gdx/graphics/g3d/Renderable;
-    .param p2, "vectorSize"    # F
-    .param p3, "normalColor"    # Lcom/badlogic/gdx/graphics/Color;
-    .param p4, "tangentColor"    # Lcom/badlogic/gdx/graphics/Color;
-    .param p5, "binormalColor"    # Lcom/badlogic/gdx/graphics/Color;
+    .locals 17
 
-    .line 98
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
     move/from16 v2, p2
 
+    .line 98
     iget-object v3, v1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->meshPart:Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
 
     iget-object v3, v3, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->mesh:Lcom/badlogic/gdx/graphics/Mesh;
 
-    .line 101
-    .local v3, "mesh":Lcom/badlogic/gdx/graphics/Mesh;
-    const/4 v4, -0x1
+    const/4 v4, 0x1
 
     .line 102
-    .local v4, "positionOffset":I
-    const/4 v5, 0x1
+    invoke-virtual {v3, v4}, Lcom/badlogic/gdx/graphics/Mesh;->getVertexAttribute(I)Lcom/badlogic/gdx/graphics/VertexAttribute;
 
-    invoke-virtual {v3, v5}, Lcom/badlogic/gdx/graphics/Mesh;->getVertexAttribute(I)Lcom/badlogic/gdx/graphics/VertexAttribute;
+    move-result-object v5
 
-    move-result-object v6
-
-    if-eqz v6, :cond_0
+    if-eqz v5, :cond_0
 
     .line 103
-    invoke-virtual {v3, v5}, Lcom/badlogic/gdx/graphics/Mesh;->getVertexAttribute(I)Lcom/badlogic/gdx/graphics/VertexAttribute;
+    invoke-virtual {v3, v4}, Lcom/badlogic/gdx/graphics/Mesh;->getVertexAttribute(I)Lcom/badlogic/gdx/graphics/VertexAttribute;
 
-    move-result-object v6
+    move-result-object v4
 
-    iget v6, v6, Lcom/badlogic/gdx/graphics/VertexAttribute;->offset:I
+    iget v4, v4, Lcom/badlogic/gdx/graphics/VertexAttribute;->offset:I
 
-    div-int/lit8 v4, v6, 0x4
+    div-int/lit8 v4, v4, 0x4
 
-    .line 106
+    goto :goto_0
+
     :cond_0
-    const/4 v6, -0x1
+    const/4 v4, -0x1
+
+    :goto_0
+    const/16 v5, 0x8
 
     .line 107
-    .local v6, "normalOffset":I
-    const/16 v7, 0x8
+    invoke-virtual {v3, v5}, Lcom/badlogic/gdx/graphics/Mesh;->getVertexAttribute(I)Lcom/badlogic/gdx/graphics/VertexAttribute;
 
+    move-result-object v7
+
+    if-eqz v7, :cond_1
+
+    .line 108
+    invoke-virtual {v3, v5}, Lcom/badlogic/gdx/graphics/Mesh;->getVertexAttribute(I)Lcom/badlogic/gdx/graphics/VertexAttribute;
+
+    move-result-object v5
+
+    iget v5, v5, Lcom/badlogic/gdx/graphics/VertexAttribute;->offset:I
+
+    div-int/lit8 v5, v5, 0x4
+
+    goto :goto_1
+
+    :cond_1
+    const/4 v5, -0x1
+
+    :goto_1
+    const/16 v7, 0x80
+
+    .line 112
     invoke-virtual {v3, v7}, Lcom/badlogic/gdx/graphics/Mesh;->getVertexAttribute(I)Lcom/badlogic/gdx/graphics/VertexAttribute;
 
     move-result-object v8
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_2
 
-    .line 108
+    .line 113
     invoke-virtual {v3, v7}, Lcom/badlogic/gdx/graphics/Mesh;->getVertexAttribute(I)Lcom/badlogic/gdx/graphics/VertexAttribute;
 
     move-result-object v7
 
     iget v7, v7, Lcom/badlogic/gdx/graphics/VertexAttribute;->offset:I
 
-    div-int/lit8 v6, v7, 0x4
+    div-int/lit8 v7, v7, 0x4
 
-    .line 111
-    :cond_1
+    goto :goto_2
+
+    :cond_2
     const/4 v7, -0x1
 
-    .line 112
-    .local v7, "tangentOffset":I
-    const/16 v8, 0x80
+    :goto_2
+    const/16 v8, 0x100
 
+    .line 117
     invoke-virtual {v3, v8}, Lcom/badlogic/gdx/graphics/Mesh;->getVertexAttribute(I)Lcom/badlogic/gdx/graphics/VertexAttribute;
 
     move-result-object v9
 
-    if-eqz v9, :cond_2
+    if-eqz v9, :cond_3
 
-    .line 113
+    .line 118
     invoke-virtual {v3, v8}, Lcom/badlogic/gdx/graphics/Mesh;->getVertexAttribute(I)Lcom/badlogic/gdx/graphics/VertexAttribute;
 
     move-result-object v8
 
     iget v8, v8, Lcom/badlogic/gdx/graphics/VertexAttribute;->offset:I
 
-    div-int/lit8 v7, v8, 0x4
+    div-int/lit8 v8, v8, 0x4
 
-    .line 116
-    :cond_2
+    goto :goto_3
+
+    :cond_3
     const/4 v8, -0x1
 
-    .line 117
-    .local v8, "binormalOffset":I
-    const/16 v9, 0x100
-
-    invoke-virtual {v3, v9}, Lcom/badlogic/gdx/graphics/Mesh;->getVertexAttribute(I)Lcom/badlogic/gdx/graphics/VertexAttribute;
-
-    move-result-object v10
-
-    if-eqz v10, :cond_3
-
-    .line 118
-    invoke-virtual {v3, v9}, Lcom/badlogic/gdx/graphics/Mesh;->getVertexAttribute(I)Lcom/badlogic/gdx/graphics/VertexAttribute;
-
-    move-result-object v9
-
-    iget v9, v9, Lcom/badlogic/gdx/graphics/VertexAttribute;->offset:I
-
-    div-int/lit8 v8, v9, 0x4
-
     .line 120
-    :cond_3
+    :goto_3
     invoke-virtual {v3}, Lcom/badlogic/gdx/graphics/Mesh;->getVertexSize()I
 
     move-result v9
 
     div-int/lit8 v9, v9, 0x4
 
-    .line 121
-    .local v9, "attributesSize":I
-    const/4 v10, 0x0
-
-    .line 122
-    .local v10, "verticesOffset":I
-    const/4 v11, 0x0
-
     .line 124
-    .local v11, "verticesQuantity":I
     invoke-virtual {v3}, Lcom/badlogic/gdx/graphics/Mesh;->getNumIndices()I
 
-    move-result v12
+    move-result v10
 
-    const/4 v13, 0x0
+    const/4 v11, 0x0
 
-    if-lez v12, :cond_4
+    if-lez v10, :cond_4
 
     .line 126
     invoke-virtual {v3}, Lcom/badlogic/gdx/graphics/Mesh;->getNumIndices()I
 
-    move-result v12
+    move-result v10
 
-    invoke-static {v12}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->ensureIndicesCapacity(I)V
+    invoke-static {v10}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->ensureIndicesCapacity(I)V
 
     .line 127
+    iget-object v10, v1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->meshPart:Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
+
+    iget v10, v10, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->offset:I
+
     iget-object v12, v1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->meshPart:Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
 
-    iget v12, v12, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->offset:I
+    iget v12, v12, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->size:I
 
-    iget-object v14, v1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->meshPart:Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
+    sget-object v13, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->indices:[S
 
-    iget v14, v14, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->size:I
-
-    sget-object v15, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->indices:[S
-
-    invoke-virtual {v3, v12, v14, v15, v13}, Lcom/badlogic/gdx/graphics/Mesh;->getIndices(II[SI)V
+    invoke-virtual {v3, v10, v12, v13, v11}, Lcom/badlogic/gdx/graphics/Mesh;->getIndices(II[SI)V
 
     .line 129
     invoke-static {}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->minVerticeInIndices()S
 
-    move-result v12
+    move-result v10
 
     .line 130
-    .local v12, "minVertice":S
     invoke-static {}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->maxVerticeInIndices()S
 
-    move-result v14
+    move-result v12
 
-    .line 132
-    .local v14, "maxVertice":S
-    move v10, v12
+    sub-int/2addr v12, v10
 
-    .line 133
-    sub-int/2addr v14, v12
-
-    .line 134
-    .end local v11    # "verticesQuantity":I
-    .end local v12    # "minVertice":S
-    .local v14, "verticesQuantity":I
-    goto :goto_0
+    goto :goto_4
 
     .line 135
-    .end local v14    # "verticesQuantity":I
-    .restart local v11    # "verticesQuantity":I
     :cond_4
-    iget-object v12, v1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->meshPart:Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
+    iget-object v10, v1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->meshPart:Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
 
-    iget v10, v12, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->offset:I
+    iget v10, v10, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->offset:I
 
     .line 136
     iget-object v12, v1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->meshPart:Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;
 
-    iget v14, v12, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->size:I
+    iget v12, v12, Lcom/badlogic/gdx/graphics/g3d/model/MeshPart;->size:I
+
+    :goto_4
+    mul-int v13, v12, v9
 
     .line 139
-    .end local v11    # "verticesQuantity":I
-    .restart local v14    # "verticesQuantity":I
-    :goto_0
-    mul-int v11, v14, v9
+    invoke-static {v13}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->ensureVerticesCapacity(I)V
 
-    invoke-static {v11}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->ensureVerticesCapacity(I)V
+    mul-int v14, v10, v9
 
     .line 140
-    mul-int v11, v10, v9
-
-    mul-int v12, v14, v9
-
     sget-object v15, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->vertices:[F
 
-    invoke-virtual {v3, v11, v12, v15, v13}, Lcom/badlogic/gdx/graphics/Mesh;->getVertices(II[FI)[F
+    invoke-virtual {v3, v14, v13, v15, v11}, Lcom/badlogic/gdx/graphics/Mesh;->getVertices(II[FI)[F
 
-    .line 142
-    move v11, v10
+    :goto_5
+    if-ge v10, v12, :cond_b
 
-    .local v11, "i":I
-    :goto_1
-    if-ge v11, v14, :cond_b
-
-    .line 143
-    mul-int v12, v11, v9
+    mul-int v3, v10, v9
 
     .line 146
-    .local v12, "id":I
-    sget-object v13, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV0:Lcom/badlogic/gdx/math/Vector3;
-
-    sget-object v15, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->vertices:[F
-
-    add-int v16, v12, v4
-
-    move-object/from16 v17, v3
-
-    .end local v3    # "mesh":Lcom/badlogic/gdx/graphics/Mesh;
-    .local v17, "mesh":Lcom/badlogic/gdx/graphics/Mesh;
-    aget v3, v15, v16
-
-    add-int v16, v12, v4
-
-    add-int/lit8 v16, v16, 0x1
-
-    aget v5, v15, v16
-
-    add-int v16, v12, v4
-
-    add-int/lit8 v16, v16, 0x2
-
-    aget v15, v15, v16
-
-    invoke-virtual {v13, v3, v5, v15}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
-
-    .line 149
-    const/4 v3, -0x1
-
-    if-eq v6, v3, :cond_5
-
-    .line 150
-    sget-object v5, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV1:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v11, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV0:Lcom/badlogic/gdx/math/Vector3;
 
     sget-object v13, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->vertices:[F
 
-    add-int v15, v12, v6
+    add-int v14, v3, v4
 
-    aget v15, v13, v15
+    aget v15, v13, v14
 
-    add-int v16, v12, v6
+    add-int/lit8 v16, v14, 0x1
 
-    const/16 v18, 0x1
+    aget v6, v13, v16
 
-    add-int/lit8 v16, v16, 0x1
+    add-int/lit8 v14, v14, 0x2
 
-    aget v3, v13, v16
+    aget v13, v13, v14
 
-    add-int v16, v12, v6
+    invoke-virtual {v11, v15, v6, v13}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    add-int/lit8 v16, v16, 0x2
+    const/4 v6, -0x1
 
-    aget v13, v13, v16
+    if-eq v5, v6, :cond_5
 
-    invoke-virtual {v5, v15, v3, v13}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    .line 150
+    sget-object v6, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV1:Lcom/badlogic/gdx/math/Vector3;
+
+    sget-object v11, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->vertices:[F
+
+    add-int v13, v3, v5
+
+    aget v14, v11, v13
+
+    add-int/lit8 v15, v13, 0x1
+
+    aget v15, v11, v15
+
+    add-int/lit8 v13, v13, 0x2
+
+    aget v11, v11, v13
+
+    invoke-virtual {v6, v14, v15, v11}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
     .line 151
-    sget-object v3, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV2:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v6, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV2:Lcom/badlogic/gdx/math/Vector3;
 
-    sget-object v5, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV0:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v11, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV0:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v3, v5}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v6, v11}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v3
+    move-result-object v6
 
-    sget-object v5, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV1:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v11, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV1:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v5, v2}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v11, v2}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v5
+    move-result-object v11
 
-    invoke-virtual {v3, v5}, Lcom/badlogic/gdx/math/Vector3;->add(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v6, v11}, Lcom/badlogic/gdx/math/Vector3;->add(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    .line 154
+    const/4 v6, -0x1
+
     :cond_5
-    const/4 v3, -0x1
-
-    if-eq v7, v3, :cond_6
+    if-eq v7, v6, :cond_6
 
     .line 155
-    sget-object v3, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV3:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v6, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV3:Lcom/badlogic/gdx/math/Vector3;
 
-    sget-object v5, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->vertices:[F
+    sget-object v11, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->vertices:[F
 
-    add-int v13, v12, v7
+    add-int v13, v3, v7
 
-    aget v13, v5, v13
+    aget v14, v11, v13
 
-    add-int v15, v12, v7
+    add-int/lit8 v15, v13, 0x1
 
-    const/16 v16, 0x1
+    aget v15, v11, v15
 
-    add-int/lit8 v15, v15, 0x1
+    add-int/lit8 v13, v13, 0x2
 
-    aget v15, v5, v15
+    aget v11, v11, v13
 
-    add-int v16, v12, v7
-
-    add-int/lit8 v16, v16, 0x2
-
-    aget v5, v5, v16
-
-    invoke-virtual {v3, v13, v15, v5}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v6, v14, v15, v11}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
     .line 156
-    sget-object v3, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV4:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v6, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV4:Lcom/badlogic/gdx/math/Vector3;
 
-    sget-object v5, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV0:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v11, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV0:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v3, v5}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v6, v11}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v3
+    move-result-object v6
 
-    sget-object v5, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV3:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v11, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV3:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v5, v2}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v11, v2}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v5
+    move-result-object v11
 
-    invoke-virtual {v3, v5}, Lcom/badlogic/gdx/math/Vector3;->add(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v6, v11}, Lcom/badlogic/gdx/math/Vector3;->add(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    .line 159
+    const/4 v6, -0x1
+
     :cond_6
-    const/4 v3, -0x1
-
-    if-eq v8, v3, :cond_7
+    if-eq v8, v6, :cond_7
 
     .line 160
-    sget-object v3, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV5:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v6, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV5:Lcom/badlogic/gdx/math/Vector3;
 
-    sget-object v5, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->vertices:[F
+    sget-object v11, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->vertices:[F
 
-    add-int v13, v12, v8
+    add-int/2addr v3, v8
 
-    aget v13, v5, v13
+    aget v13, v11, v3
 
-    add-int v15, v12, v8
+    add-int/lit8 v14, v3, 0x1
 
-    const/16 v16, 0x1
+    aget v14, v11, v14
 
-    add-int/lit8 v15, v15, 0x1
+    add-int/lit8 v3, v3, 0x2
 
-    aget v15, v5, v15
+    aget v3, v11, v3
 
-    add-int v18, v12, v8
-
-    add-int/lit8 v18, v18, 0x2
-
-    aget v5, v5, v18
-
-    invoke-virtual {v3, v13, v15, v5}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v6, v13, v14, v3}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
     .line 161
     sget-object v3, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV6:Lcom/badlogic/gdx/math/Vector3;
 
-    sget-object v5, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV0:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v6, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV0:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v3, v5}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v3, v6}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
     move-result-object v3
 
-    sget-object v5, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV5:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v6, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV5:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v5, v2}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v6, v2}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v3, v5}, Lcom/badlogic/gdx/math/Vector3;->add(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
-
-    goto :goto_2
-
-    .line 159
-    :cond_7
-    const/16 v16, 0x1
+    invoke-virtual {v3, v6}, Lcom/badlogic/gdx/math/Vector3;->add(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
     .line 165
-    :goto_2
+    :cond_7
     sget-object v3, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV0:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v5, v1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->worldTransform:Lcom/badlogic/gdx/math/Matrix4;
+    iget-object v6, v1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->worldTransform:Lcom/badlogic/gdx/math/Matrix4;
 
-    invoke-virtual {v3, v5}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v3, v6}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
     .line 166
     sget-object v3, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV2:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v5, v1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->worldTransform:Lcom/badlogic/gdx/math/Matrix4;
+    iget-object v6, v1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->worldTransform:Lcom/badlogic/gdx/math/Matrix4;
 
-    invoke-virtual {v3, v5}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v3, v6}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
     .line 167
     sget-object v3, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV4:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v5, v1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->worldTransform:Lcom/badlogic/gdx/math/Matrix4;
+    iget-object v6, v1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->worldTransform:Lcom/badlogic/gdx/math/Matrix4;
 
-    invoke-virtual {v3, v5}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v3, v6}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
     .line 168
     sget-object v3, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV6:Lcom/badlogic/gdx/math/Vector3;
 
-    iget-object v5, v1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->worldTransform:Lcom/badlogic/gdx/math/Matrix4;
+    iget-object v6, v1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->worldTransform:Lcom/badlogic/gdx/math/Matrix4;
 
-    invoke-virtual {v3, v5}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {v3, v6}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
-    .line 171
     const/4 v3, -0x1
 
-    if-eq v6, v3, :cond_8
+    move-object/from16 v6, p3
+
+    if-eq v5, v3, :cond_8
 
     .line 172
-    move-object/from16 v5, p3
-
-    invoke-interface {v0, v5}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->setColor(Lcom/badlogic/gdx/graphics/Color;)V
+    invoke-interface {v0, v6}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->setColor(Lcom/badlogic/gdx/graphics/Color;)V
 
     .line 173
-    sget-object v13, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV0:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v11, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV0:Lcom/badlogic/gdx/math/Vector3;
 
-    sget-object v15, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV2:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v13, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV2:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-interface {v0, v13, v15}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->line(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)V
+    invoke-interface {v0, v11, v13}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->line(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)V
 
-    goto :goto_3
-
-    .line 171
     :cond_8
-    move-object/from16 v5, p3
+    move-object/from16 v11, p4
 
-    .line 176
-    :goto_3
     if-eq v7, v3, :cond_9
 
     .line 177
-    move-object/from16 v13, p4
-
-    invoke-interface {v0, v13}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->setColor(Lcom/badlogic/gdx/graphics/Color;)V
+    invoke-interface {v0, v11}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->setColor(Lcom/badlogic/gdx/graphics/Color;)V
 
     .line 178
-    sget-object v15, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV0:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v13, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV0:Lcom/badlogic/gdx/math/Vector3;
 
-    sget-object v3, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV4:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v14, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV4:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-interface {v0, v15, v3}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->line(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)V
+    invoke-interface {v0, v13, v14}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->line(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)V
 
-    goto :goto_4
-
-    .line 176
     :cond_9
-    move-object/from16 v13, p4
-
-    .line 181
-    :goto_4
-    const/4 v3, -0x1
+    move-object/from16 v13, p5
 
     if-eq v8, v3, :cond_a
 
     .line 182
-    move-object/from16 v3, p5
-
-    invoke-interface {v0, v3}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->setColor(Lcom/badlogic/gdx/graphics/Color;)V
+    invoke-interface {v0, v13}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->setColor(Lcom/badlogic/gdx/graphics/Color;)V
 
     .line 183
-    sget-object v15, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV0:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v14, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV0:Lcom/badlogic/gdx/math/Vector3;
 
-    sget-object v1, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV6:Lcom/badlogic/gdx/math/Vector3;
+    sget-object v15, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpV6:Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-interface {v0, v15, v1}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->line(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)V
+    invoke-interface {v0, v14, v15}, Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;->line(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)V
 
-    goto :goto_5
-
-    .line 181
     :cond_a
-    move-object/from16 v3, p5
+    add-int/lit8 v10, v10, 0x1
 
-    .line 142
-    .end local v12    # "id":I
-    :goto_5
-    add-int/lit8 v11, v11, 0x1
+    goto/16 :goto_5
 
-    move-object/from16 v1, p1
-
-    move/from16 v5, v16
-
-    move-object/from16 v3, v17
-
-    goto/16 :goto_1
-
-    .line 186
-    .end local v11    # "i":I
-    .end local v17    # "mesh":Lcom/badlogic/gdx/graphics/Mesh;
-    .restart local v3    # "mesh":Lcom/badlogic/gdx/graphics/Mesh;
     :cond_b
     return-void
 .end method
 
 .method public static buildNormals(Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;Lcom/badlogic/gdx/graphics/g3d/RenderableProvider;F)V
     .locals 9
-    .param p0, "builder"    # Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;
-    .param p1, "renderableProvider"    # Lcom/badlogic/gdx/graphics/g3d/RenderableProvider;
-    .param p2, "vectorSize"    # F
 
     .line 65
     sget-object v0, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->tmpColor0:Lcom/badlogic/gdx/graphics/Color;
@@ -609,27 +502,20 @@
 
     move-result-object v8
 
-    .line 65
     move-object v3, p0
 
     move-object v4, p1
 
     move v5, p2
 
+    .line 65
     invoke-static/range {v3 .. v8}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->buildNormals(Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;Lcom/badlogic/gdx/graphics/g3d/RenderableProvider;FLcom/badlogic/gdx/graphics/Color;Lcom/badlogic/gdx/graphics/Color;Lcom/badlogic/gdx/graphics/Color;)V
 
-    .line 67
     return-void
 .end method
 
 .method public static buildNormals(Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;Lcom/badlogic/gdx/graphics/g3d/RenderableProvider;FLcom/badlogic/gdx/graphics/Color;Lcom/badlogic/gdx/graphics/Color;Lcom/badlogic/gdx/graphics/Color;)V
-    .locals 8
-    .param p0, "builder"    # Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;
-    .param p1, "renderableProvider"    # Lcom/badlogic/gdx/graphics/g3d/RenderableProvider;
-    .param p2, "vectorSize"    # F
-    .param p3, "normalColor"    # Lcom/badlogic/gdx/graphics/Color;
-    .param p4, "tangentColor"    # Lcom/badlogic/gdx/graphics/Color;
-    .param p5, "binormalColor"    # Lcom/badlogic/gdx/graphics/Color;
+    .locals 7
 
     .line 79
     sget-object v0, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->renderables:Lcom/badlogic/gdx/utils/Array;
@@ -639,63 +525,56 @@
     invoke-interface {p1, v0, v1}, Lcom/badlogic/gdx/graphics/g3d/RenderableProvider;->getRenderables(Lcom/badlogic/gdx/utils/Array;Lcom/badlogic/gdx/utils/Pool;)V
 
     .line 81
-    sget-object v0, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->renderables:Lcom/badlogic/gdx/utils/Array;
-
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    move-object v2, v0
 
-    move-result v1
+    check-cast v2, Lcom/badlogic/gdx/graphics/g3d/Renderable;
 
-    if-eqz v1, :cond_0
+    move-object v1, p0
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    move v3, p2
 
-    move-result-object v1
+    move-object v4, p3
 
-    check-cast v1, Lcom/badlogic/gdx/graphics/g3d/Renderable;
+    move-object v5, p4
+
+    move-object v6, p5
 
     .line 82
-    .local v1, "renderable":Lcom/badlogic/gdx/graphics/g3d/Renderable;
-    move-object v2, p0
+    invoke-static/range {v1 .. v6}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->buildNormals(Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;Lcom/badlogic/gdx/graphics/g3d/Renderable;FLcom/badlogic/gdx/graphics/Color;Lcom/badlogic/gdx/graphics/Color;Lcom/badlogic/gdx/graphics/Color;)V
 
-    move-object v3, v1
-
-    move v4, p2
-
-    move-object v5, p3
-
-    move-object v6, p4
-
-    move-object v7, p5
-
-    invoke-static/range {v2 .. v7}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->buildNormals(Lcom/badlogic/gdx/graphics/g3d/utils/MeshPartBuilder;Lcom/badlogic/gdx/graphics/g3d/Renderable;FLcom/badlogic/gdx/graphics/Color;Lcom/badlogic/gdx/graphics/Color;Lcom/badlogic/gdx/graphics/Color;)V
-
-    .line 83
-    .end local v1    # "renderable":Lcom/badlogic/gdx/graphics/g3d/Renderable;
     goto :goto_0
 
     .line 85
     :cond_0
-    sget-object v0, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->renderablesPool:Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder$RenderablePool;
+    sget-object p0, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->renderablesPool:Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder$RenderablePool;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder$RenderablePool;->flush()V
+    invoke-virtual {p0}, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder$RenderablePool;->flush()V
 
     .line 86
-    sget-object v0, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->renderables:Lcom/badlogic/gdx/utils/Array;
+    sget-object p0, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->renderables:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->clear()V
+    invoke-virtual {p0}, Lcom/badlogic/gdx/utils/Array;->clear()V
 
-    .line 87
     return-void
 .end method
 
 .method private static ensureIndicesCapacity(I)V
     .locals 1
-    .param p0, "capacity"    # I
 
     .line 193
     sget-object v0, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->indices:[S
@@ -707,18 +586,16 @@
     if-ge v0, p0, :cond_1
 
     :cond_0
-    new-array v0, p0, [S
+    new-array p0, p0, [S
 
-    sput-object v0, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->indices:[S
+    sput-object p0, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->indices:[S
 
-    .line 194
     :cond_1
     return-void
 .end method
 
 .method private static ensureVerticesCapacity(I)V
     .locals 1
-    .param p0, "capacity"    # I
 
     .line 189
     sget-object v0, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->vertices:[F
@@ -730,11 +607,10 @@
     if-ge v0, p0, :cond_1
 
     :cond_0
-    new-array v0, p0, [F
+    new-array p0, p0, [F
 
-    sput-object v0, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->vertices:[F
+    sput-object p0, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->vertices:[F
 
-    .line 190
     :cond_1
     return-void
 .end method
@@ -742,14 +618,11 @@
 .method private static maxVerticeInIndices()S
     .locals 4
 
-    .line 204
     const/16 v0, -0x8000
 
-    .line 205
-    .local v0, "max":S
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    .line 205
     :goto_0
     sget-object v2, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->indices:[S
 
@@ -758,20 +631,17 @@
     if-ge v1, v3, :cond_1
 
     .line 206
-    aget-short v3, v2, v1
+    aget-short v2, v2, v1
 
-    if-le v3, v0, :cond_0
+    if-le v2, v0, :cond_0
 
-    aget-short v0, v2, v1
+    move v0, v2
 
-    .line 205
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 207
-    .end local v1    # "i":I
     :cond_1
     return v0
 .end method
@@ -779,14 +649,11 @@
 .method private static minVerticeInIndices()S
     .locals 4
 
-    .line 197
     const/16 v0, 0x7fff
 
-    .line 198
-    .local v0, "min":S
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    .line 198
     :goto_0
     sget-object v2, Lcom/badlogic/gdx/graphics/g3d/utils/shapebuilders/RenderableShapeBuilder;->indices:[S
 
@@ -795,20 +662,17 @@
     if-ge v1, v3, :cond_1
 
     .line 199
-    aget-short v3, v2, v1
+    aget-short v2, v2, v1
 
-    if-ge v3, v0, :cond_0
+    if-ge v2, v0, :cond_0
 
-    aget-short v0, v2, v1
+    move v0, v2
 
-    .line 198
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 200
-    .end local v1    # "i":I
     :cond_1
     return v0
 .end method

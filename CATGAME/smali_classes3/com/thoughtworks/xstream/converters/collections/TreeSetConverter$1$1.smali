@@ -12,7 +12,6 @@
 # direct methods
 .method constructor <init>(Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter$1;Ljava/util/Map;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter$1;
 
     .line 136
     iput-object p1, p0, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter$1$1;->this$1:Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter$1;
@@ -28,7 +27,6 @@
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "object"    # Ljava/lang/Object;
 
     .line 138
     iget-object v0, p0, Lcom/thoughtworks/xstream/converters/collections/TreeSetConverter$1$1;->val$target:Ljava/util/Map;
@@ -51,29 +49,27 @@
     :goto_0
     invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_1
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_1
-    return v0
+    return p1
 .end method
 
 .method public get(I)Ljava/lang/Object;
-    .locals 1
-    .param p1, "location"    # I
+    .locals 0
 
-    .line 142
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public size()I

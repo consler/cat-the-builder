@@ -13,18 +13,15 @@
     .line 41
     invoke-direct {p0}, Lorg/apache/commons/collections/bag/AbstractBagDecorator;-><init>()V
 
-    .line 42
     return-void
 .end method
 
 .method protected constructor <init>(Lorg/apache/commons/collections/SortedBag;)V
     .locals 0
-    .param p1, "bag"    # Lorg/apache/commons/collections/SortedBag;
 
     .line 51
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/bag/AbstractBagDecorator;-><init>(Lorg/apache/commons/collections/Bag;)V
 
-    .line 52
     return-void
 .end method
 

@@ -40,28 +40,25 @@
 
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/assets/loaders/FileHandleResolver;)V
-    .locals 1
-    .param p1, "resolver"    # Lcom/badlogic/gdx/assets/loaders/FileHandleResolver;
+    .locals 0
 
     .line 37
-    .local p0, "this":Lcom/badlogic/gdx/assets/loaders/ModelLoader;, "Lcom/badlogic/gdx/assets/loaders/ModelLoader<TP;>;"
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/assets/loaders/AsynchronousAssetLoader;-><init>(Lcom/badlogic/gdx/assets/loaders/FileHandleResolver;)V
 
     .line 40
-    new-instance v0, Lcom/badlogic/gdx/utils/Array;
+    new-instance p1, Lcom/badlogic/gdx/utils/Array;
 
-    invoke-direct {v0}, Lcom/badlogic/gdx/utils/Array;-><init>()V
+    invoke-direct {p1}, Lcom/badlogic/gdx/utils/Array;-><init>()V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->items:Lcom/badlogic/gdx/utils/Array;
+    iput-object p1, p0, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->items:Lcom/badlogic/gdx/utils/Array;
 
     .line 41
-    new-instance v0, Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;
+    new-instance p1, Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;
 
-    invoke-direct {v0}, Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;-><init>()V
+    invoke-direct {p1}, Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;-><init>()V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->defaultParameters:Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;
+    iput-object p1, p0, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->defaultParameters:Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;
 
-    .line 38
     return-void
 .end method
 
@@ -71,7 +68,6 @@
     .locals 0
 
     .line 35
-    .local p0, "this":Lcom/badlogic/gdx/assets/loaders/ModelLoader;, "Lcom/badlogic/gdx/assets/loaders/ModelLoader<TP;>;"
     check-cast p3, Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;
 
     invoke-virtual {p0, p1, p2, p3}, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->getDependencies(Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;)Lcom/badlogic/gdx/utils/Array;
@@ -82,9 +78,7 @@
 .end method
 
 .method public getDependencies(Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;)Lcom/badlogic/gdx/utils/Array;
-    .locals 11
-    .param p1, "fileName"    # Ljava/lang/String;
-    .param p2, "file"    # Lcom/badlogic/gdx/files/FileHandle;
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -98,155 +92,137 @@
     .end annotation
 
     .line 74
-    .local p0, "this":Lcom/badlogic/gdx/assets/loaders/ModelLoader;, "Lcom/badlogic/gdx/assets/loaders/ModelLoader<TP;>;"
-    .local p3, "parameters":Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;, "TP;"
     new-instance v0, Lcom/badlogic/gdx/utils/Array;
 
     invoke-direct {v0}, Lcom/badlogic/gdx/utils/Array;-><init>()V
 
     .line 75
-    .local v0, "deps":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/assets/AssetDescriptor;>;"
     invoke-virtual {p0, p2, p3}, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->loadModelData(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;)Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;
 
-    move-result-object v1
+    move-result-object p2
 
-    .line 76
-    .local v1, "data":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;
-    if-nez v1, :cond_0
+    if-nez p2, :cond_0
 
     return-object v0
 
     .line 78
     :cond_0
-    new-instance v2, Lcom/badlogic/gdx/utils/ObjectMap$Entry;
+    new-instance v1, Lcom/badlogic/gdx/utils/ObjectMap$Entry;
 
-    invoke-direct {v2}, Lcom/badlogic/gdx/utils/ObjectMap$Entry;-><init>()V
+    invoke-direct {v1}, Lcom/badlogic/gdx/utils/ObjectMap$Entry;-><init>()V
 
     .line 79
-    .local v2, "item":Lcom/badlogic/gdx/utils/ObjectMap$Entry;, "Lcom/badlogic/gdx/utils/ObjectMap$Entry<Ljava/lang/String;Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;>;"
-    iput-object p1, v2, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->key:Ljava/lang/Object;
+    iput-object p1, v1, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->key:Ljava/lang/Object;
 
     .line 80
-    iput-object v1, v2, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->value:Ljava/lang/Object;
+    iput-object p2, v1, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->value:Ljava/lang/Object;
 
     .line 81
-    iget-object v3, p0, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->items:Lcom/badlogic/gdx/utils/Array;
+    iget-object p1, p0, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->items:Lcom/badlogic/gdx/utils/Array;
 
-    monitor-enter v3
+    monitor-enter p1
 
     .line 82
     :try_start_0
-    iget-object v4, p0, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->items:Lcom/badlogic/gdx/utils/Array;
+    iget-object v2, p0, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->items:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v4, v2}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v2, v1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
     .line 83
-    monitor-exit v3
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 85
     if-eqz p3, :cond_1
 
-    iget-object v3, p3, Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;->textureParameter:Lcom/badlogic/gdx/assets/loaders/TextureLoader$TextureParameter;
+    .line 85
+    iget-object p1, p3, Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;->textureParameter:Lcom/badlogic/gdx/assets/loaders/TextureLoader$TextureParameter;
 
     goto :goto_0
 
     :cond_1
-    iget-object v3, p0, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->defaultParameters:Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;
+    iget-object p1, p0, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->defaultParameters:Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;
 
-    iget-object v3, v3, Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;->textureParameter:Lcom/badlogic/gdx/assets/loaders/TextureLoader$TextureParameter;
+    iget-object p1, p1, Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;->textureParameter:Lcom/badlogic/gdx/assets/loaders/TextureLoader$TextureParameter;
 
     .line 89
-    .local v3, "textureParameter":Lcom/badlogic/gdx/assets/loaders/TextureLoader$TextureParameter;
     :goto_0
-    iget-object v4, v1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;->materials:Lcom/badlogic/gdx/utils/Array;
+    iget-object p2, p2, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;->materials:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v4}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p2}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
 
-    move-result-object v4
+    move-result-object p2
 
-    :goto_1
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    :cond_2
+    invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v5
+    move-result p3
 
-    if-eqz v5, :cond_3
+    if-eqz p3, :cond_3
 
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object p3
 
-    check-cast v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMaterial;
+    check-cast p3, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMaterial;
 
     .line 90
-    .local v5, "modelMaterial":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMaterial;
-    iget-object v6, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMaterial;->textures:Lcom/badlogic/gdx/utils/Array;
+    iget-object v1, p3, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMaterial;->textures:Lcom/badlogic/gdx/utils/Array;
 
-    if-eqz v6, :cond_2
+    if-eqz v1, :cond_2
 
     .line 91
-    iget-object v6, v5, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMaterial;->textures:Lcom/badlogic/gdx/utils/Array;
+    iget-object p3, p3, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMaterial;->textures:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v6}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p3}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
 
-    move-result-object v6
+    move-result-object p3
 
-    :goto_2
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+    :goto_1
+    invoke-interface {p3}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v7
+    move-result v1
 
-    if-eqz v7, :cond_2
+    if-eqz v1, :cond_2
 
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v1
 
-    check-cast v7, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;
+    check-cast v1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;
 
     .line 92
-    .local v7, "modelTexture":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;
-    new-instance v8, Lcom/badlogic/gdx/assets/AssetDescriptor;
+    new-instance v2, Lcom/badlogic/gdx/assets/AssetDescriptor;
 
-    iget-object v9, v7, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->fileName:Ljava/lang/String;
+    iget-object v1, v1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;->fileName:Ljava/lang/String;
 
-    const-class v10, Lcom/badlogic/gdx/graphics/Texture;
+    const-class v3, Lcom/badlogic/gdx/graphics/Texture;
 
-    invoke-direct {v8, v9, v10, v3}, Lcom/badlogic/gdx/assets/AssetDescriptor;-><init>(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/assets/AssetLoaderParameters;)V
+    invoke-direct {v2, v1, v3, p1}, Lcom/badlogic/gdx/assets/AssetDescriptor;-><init>(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/assets/AssetLoaderParameters;)V
 
-    invoke-virtual {v0, v8}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v0, v2}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .end local v7    # "modelTexture":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelTexture;
-    goto :goto_2
-
-    .line 94
-    .end local v5    # "modelMaterial":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelMaterial;
-    :cond_2
     goto :goto_1
 
-    .line 95
     :cond_3
     return-object v0
 
-    .line 83
-    .end local v3    # "textureParameter":Lcom/badlogic/gdx/assets/loaders/TextureLoader$TextureParameter;
     :catchall_0
-    move-exception v4
+    move-exception p2
 
+    .line 83
     :try_start_1
-    monitor-exit v3
+    monitor-exit p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v4
+    throw p2
 .end method
 
 .method public bridge synthetic loadAsync(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/AssetLoaderParameters;)V
     .locals 0
 
     .line 35
-    .local p0, "this":Lcom/badlogic/gdx/assets/loaders/ModelLoader;, "Lcom/badlogic/gdx/assets/loaders/ModelLoader<TP;>;"
     check-cast p4, Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;
 
     invoke-virtual {p0, p1, p2, p3, p4}, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->loadAsync(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;)V
@@ -256,9 +232,6 @@
 
 .method public loadAsync(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;)V
     .locals 0
-    .param p1, "manager"    # Lcom/badlogic/gdx/assets/AssetManager;
-    .param p2, "fileName"    # Ljava/lang/String;
-    .param p3, "file"    # Lcom/badlogic/gdx/files/FileHandle;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -269,18 +242,13 @@
         }
     .end annotation
 
-    .line 100
-    .local p0, "this":Lcom/badlogic/gdx/assets/loaders/ModelLoader;, "Lcom/badlogic/gdx/assets/loaders/ModelLoader<TP;>;"
-    .local p4, "parameters":Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;, "TP;"
     return-void
 .end method
 
 .method public loadModel(Lcom/badlogic/gdx/files/FileHandle;)Lcom/badlogic/gdx/graphics/g3d/Model;
     .locals 2
-    .param p1, "fileHandle"    # Lcom/badlogic/gdx/files/FileHandle;
 
     .line 69
-    .local p0, "this":Lcom/badlogic/gdx/assets/loaders/ModelLoader;, "Lcom/badlogic/gdx/assets/loaders/ModelLoader<TP;>;"
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider$FileTextureProvider;
 
     invoke-direct {v0}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider$FileTextureProvider;-><init>()V
@@ -289,14 +257,13 @@
 
     invoke-virtual {p0, p1, v0, v1}, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->loadModel(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;)Lcom/badlogic/gdx/graphics/g3d/Model;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public loadModel(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;)Lcom/badlogic/gdx/graphics/g3d/Model;
     .locals 1
-    .param p1, "fileHandle"    # Lcom/badlogic/gdx/files/FileHandle;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -307,39 +274,32 @@
     .end annotation
 
     .line 59
-    .local p0, "this":Lcom/badlogic/gdx/assets/loaders/ModelLoader;, "Lcom/badlogic/gdx/assets/loaders/ModelLoader<TP;>;"
-    .local p2, "parameters":Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;, "TP;"
     new-instance v0, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider$FileTextureProvider;
 
     invoke-direct {v0}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider$FileTextureProvider;-><init>()V
 
     invoke-virtual {p0, p1, v0, p2}, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->loadModel(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;)Lcom/badlogic/gdx/graphics/g3d/Model;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public loadModel(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;)Lcom/badlogic/gdx/graphics/g3d/Model;
     .locals 1
-    .param p1, "fileHandle"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p2, "textureProvider"    # Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;
 
-    .line 64
-    .local p0, "this":Lcom/badlogic/gdx/assets/loaders/ModelLoader;, "Lcom/badlogic/gdx/assets/loaders/ModelLoader<TP;>;"
     const/4 v0, 0x0
 
+    .line 64
     invoke-virtual {p0, p1, p2, v0}, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->loadModel(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;)Lcom/badlogic/gdx/graphics/g3d/Model;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public loadModel(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;)Lcom/badlogic/gdx/graphics/g3d/Model;
-    .locals 2
-    .param p1, "fileHandle"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p2, "textureProvider"    # Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -351,42 +311,39 @@
     .end annotation
 
     .line 53
-    .local p0, "this":Lcom/badlogic/gdx/assets/loaders/ModelLoader;, "Lcom/badlogic/gdx/assets/loaders/ModelLoader<TP;>;"
-    .local p3, "parameters":Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;, "TP;"
     invoke-virtual {p0, p1, p3}, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->loadModelData(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;)Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 54
-    .local v0, "data":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
+    .line 54
     :cond_0
-    new-instance v1, Lcom/badlogic/gdx/graphics/g3d/Model;
+    new-instance p3, Lcom/badlogic/gdx/graphics/g3d/Model;
 
-    invoke-direct {v1, v0, p2}, Lcom/badlogic/gdx/graphics/g3d/Model;-><init>(Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;)V
+    invoke-direct {p3, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/Model;-><init>(Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;)V
+
+    move-object p1, p3
 
     :goto_0
-    return-object v1
+    return-object p1
 .end method
 
 .method public loadModelData(Lcom/badlogic/gdx/files/FileHandle;)Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;
     .locals 1
-    .param p1, "fileHandle"    # Lcom/badlogic/gdx/files/FileHandle;
 
-    .line 48
-    .local p0, "this":Lcom/badlogic/gdx/assets/loaders/ModelLoader;, "Lcom/badlogic/gdx/assets/loaders/ModelLoader<TP;>;"
     const/4 v0, 0x0
 
+    .line 48
     invoke-virtual {p0, p1, v0}, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->loadModelData(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;)Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public abstract loadModelData(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;)Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;
@@ -401,10 +358,7 @@
 .end method
 
 .method public loadSync(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;)Lcom/badlogic/gdx/graphics/g3d/Model;
-    .locals 5
-    .param p1, "manager"    # Lcom/badlogic/gdx/assets/AssetManager;
-    .param p2, "fileName"    # Ljava/lang/String;
-    .param p3, "file"    # Lcom/badlogic/gdx/files/FileHandle;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -416,164 +370,142 @@
         }
     .end annotation
 
-    .line 104
-    .local p0, "this":Lcom/badlogic/gdx/assets/loaders/ModelLoader;, "Lcom/badlogic/gdx/assets/loaders/ModelLoader<TP;>;"
-    .local p4, "parameters":Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;, "TP;"
+    .line 105
+    iget-object p3, p0, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->items:Lcom/badlogic/gdx/utils/Array;
+
+    monitor-enter p3
+
+    const/4 p4, 0x0
+
     const/4 v0, 0x0
 
-    .line 105
-    .local v0, "data":Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;
-    iget-object v1, p0, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->items:Lcom/badlogic/gdx/utils/Array;
-
-    monitor-enter v1
+    move-object v1, p4
 
     .line 106
-    const/4 v2, 0x0
-
-    .local v2, "i":I
     :goto_0
     :try_start_0
-    iget-object v3, p0, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->items:Lcom/badlogic/gdx/utils/Array;
+    iget-object v2, p0, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->items:Lcom/badlogic/gdx/utils/Array;
 
-    iget v3, v3, Lcom/badlogic/gdx/utils/Array;->size:I
+    iget v2, v2, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    if-ge v2, v3, :cond_1
+    if-ge v0, v2, :cond_1
 
     .line 107
-    iget-object v3, p0, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->items:Lcom/badlogic/gdx/utils/Array;
+    iget-object v2, p0, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->items:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v3, v2}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, v0}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Lcom/badlogic/gdx/utils/ObjectMap$Entry;
+    check-cast v2, Lcom/badlogic/gdx/utils/ObjectMap$Entry;
 
-    iget-object v3, v3, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->key:Ljava/lang/Object;
+    iget-object v2, v2, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->key:Ljava/lang/Object;
 
-    check-cast v3, Ljava/lang/String;
+    check-cast v2, Ljava/lang/String;
 
-    invoke-virtual {v3, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
     .line 108
-    iget-object v3, p0, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->items:Lcom/badlogic/gdx/utils/Array;
+    iget-object v1, p0, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->items:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v3, v2}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, v0}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    check-cast v3, Lcom/badlogic/gdx/utils/ObjectMap$Entry;
+    check-cast v1, Lcom/badlogic/gdx/utils/ObjectMap$Entry;
 
-    iget-object v3, v3, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->value:Ljava/lang/Object;
+    iget-object v1, v1, Lcom/badlogic/gdx/utils/ObjectMap$Entry;->value:Ljava/lang/Object;
 
-    check-cast v3, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;
-
-    move-object v0, v3
+    check-cast v1, Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;
 
     .line 109
-    iget-object v3, p0, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->items:Lcom/badlogic/gdx/utils/Array;
+    iget-object v2, p0, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->items:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v3, v2}, Lcom/badlogic/gdx/utils/Array;->removeIndex(I)Ljava/lang/Object;
+    invoke-virtual {v2, v0}, Lcom/badlogic/gdx/utils/Array;->removeIndex(I)Ljava/lang/Object;
 
-    .line 106
     :cond_0
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 112
-    .end local v2    # "i":I
     :cond_1
-    monitor-exit v1
+    monitor-exit p3
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 113
-    if-nez v0, :cond_2
+    if-nez v1, :cond_2
 
-    const/4 v1, 0x0
-
-    return-object v1
+    return-object p4
 
     .line 114
     :cond_2
-    new-instance v1, Lcom/badlogic/gdx/graphics/g3d/Model;
+    new-instance p2, Lcom/badlogic/gdx/graphics/g3d/Model;
 
-    new-instance v2, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider$AssetTextureProvider;
+    new-instance p3, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider$AssetTextureProvider;
 
-    invoke-direct {v2, p1}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider$AssetTextureProvider;-><init>(Lcom/badlogic/gdx/assets/AssetManager;)V
+    invoke-direct {p3, p1}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider$AssetTextureProvider;-><init>(Lcom/badlogic/gdx/assets/AssetManager;)V
 
-    invoke-direct {v1, v0, v2}, Lcom/badlogic/gdx/graphics/g3d/Model;-><init>(Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;)V
+    invoke-direct {p2, v1, p3}, Lcom/badlogic/gdx/graphics/g3d/Model;-><init>(Lcom/badlogic/gdx/graphics/g3d/model/data/ModelData;Lcom/badlogic/gdx/graphics/g3d/utils/TextureProvider;)V
 
     .line 117
-    .local v1, "result":Lcom/badlogic/gdx/graphics/g3d/Model;
-    invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/g3d/Model;->getManagedDisposables()Ljava/lang/Iterable;
+    invoke-virtual {p2}, Lcom/badlogic/gdx/graphics/g3d/Model;->getManagedDisposables()Ljava/lang/Iterable;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object p1
 
     .line 118
-    .local v2, "disposables":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/badlogic/gdx/utils/Disposable;>;"
+    :cond_3
     :goto_1
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result p3
 
-    if-eqz v3, :cond_4
+    if-eqz p3, :cond_4
 
     .line 119
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p3
 
-    check-cast v3, Lcom/badlogic/gdx/utils/Disposable;
+    check-cast p3, Lcom/badlogic/gdx/utils/Disposable;
 
     .line 120
-    .local v3, "disposable":Lcom/badlogic/gdx/utils/Disposable;
-    instance-of v4, v3, Lcom/badlogic/gdx/graphics/Texture;
+    instance-of p3, p3, Lcom/badlogic/gdx/graphics/Texture;
 
-    if-eqz v4, :cond_3
+    if-eqz p3, :cond_3
 
     .line 121
-    invoke-interface {v2}, Ljava/util/Iterator;->remove()V
+    invoke-interface {p1}, Ljava/util/Iterator;->remove()V
 
-    .line 123
-    .end local v3    # "disposable":Lcom/badlogic/gdx/utils/Disposable;
-    :cond_3
     goto :goto_1
 
-    .line 124
     :cond_4
-    const/4 v0, 0x0
+    return-object p2
 
-    .line 125
-    return-object v1
+    :catchall_0
+    move-exception p1
 
     .line 112
-    .end local v1    # "result":Lcom/badlogic/gdx/graphics/g3d/Model;
-    .end local v2    # "disposables":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/badlogic/gdx/utils/Disposable;>;"
-    :catchall_0
-    move-exception v2
-
     :try_start_1
-    monitor-exit v1
+    monitor-exit p3
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v2
+    throw p1
 .end method
 
 .method public bridge synthetic loadSync(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/AssetLoaderParameters;)Ljava/lang/Object;
     .locals 0
 
     .line 35
-    .local p0, "this":Lcom/badlogic/gdx/assets/loaders/ModelLoader;, "Lcom/badlogic/gdx/assets/loaders/ModelLoader<TP;>;"
     check-cast p4, Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;
 
     invoke-virtual {p0, p1, p2, p3, p4}, Lcom/badlogic/gdx/assets/loaders/ModelLoader;->loadSync(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;)Lcom/badlogic/gdx/graphics/g3d/Model;

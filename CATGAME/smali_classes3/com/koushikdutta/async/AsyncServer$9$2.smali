@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/AsyncServer$9;Ljava/lang/Exception;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/koushikdutta/async/AsyncServer$9;
 
     .line 460
     iput-object p1, p0, Lcom/koushikdutta/async/AsyncServer$9$2;->this$1:Lcom/koushikdutta/async/AsyncServer$9;
@@ -54,6 +53,5 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Exception;Ljava/lang/Object;)Z
 
-    .line 464
     return-void
 .end method

@@ -33,14 +33,11 @@
 .end method
 
 .method public getChangePayload(II)Ljava/lang/Object;
-    .locals 1
-    .param p1, "oldItemPosition"    # I
-    .param p2, "newItemPosition"    # I
+    .locals 0
 
-    .line 360
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public abstract getNewListSize()I

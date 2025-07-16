@@ -42,7 +42,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/Flowable;J)V
     .locals 0
-    .param p2, "index"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -52,8 +51,6 @@
     .end annotation
 
     .line 29
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe;, "Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe<TT;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Maybe;-><init>()V
 
     .line 30
@@ -62,7 +59,6 @@
     .line 31
     iput-wide p2, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe;->index:J
 
-    .line 32
     return-void
 .end method
 
@@ -79,7 +75,6 @@
     .end annotation
 
     .line 41
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe;, "Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe<TT;>;"
     new-instance v6, Lio/reactivex/internal/operators/flowable/FlowableElementAt;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe;->source:Lio/reactivex/Flowable;
@@ -112,8 +107,6 @@
     .end annotation
 
     .line 36
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe;, "Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe<TT;>;"
-    .local p1, "s":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe;->source:Lio/reactivex/Flowable;
 
     new-instance v1, Lio/reactivex/internal/operators/flowable/FlowableElementAtMaybe$ElementAtSubscriber;
@@ -124,6 +117,5 @@
 
     invoke-virtual {v0, v1}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 37
     return-void
 .end method

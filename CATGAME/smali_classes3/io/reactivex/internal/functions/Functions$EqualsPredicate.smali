@@ -48,14 +48,11 @@
     .end annotation
 
     .line 257
-    .local p0, "this":Lio/reactivex/internal/functions/Functions$EqualsPredicate;, "Lio/reactivex/internal/functions/Functions$EqualsPredicate<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 258
     iput-object p1, p0, Lio/reactivex/internal/functions/Functions$EqualsPredicate;->value:Ljava/lang/Object;
 
-    .line 259
     return-void
 .end method
 
@@ -76,13 +73,11 @@
     .end annotation
 
     .line 263
-    .local p0, "this":Lio/reactivex/internal/functions/Functions$EqualsPredicate;, "Lio/reactivex/internal/functions/Functions$EqualsPredicate<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/functions/Functions$EqualsPredicate;->value:Ljava/lang/Object;
 
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

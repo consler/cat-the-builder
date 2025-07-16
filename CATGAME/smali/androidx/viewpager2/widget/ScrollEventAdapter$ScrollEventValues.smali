@@ -29,7 +29,6 @@
     .line 452
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 453
     return-void
 .end method
 
@@ -38,21 +37,20 @@
 .method reset()V
     .locals 1
 
-    .line 456
     const/4 v0, -0x1
 
+    .line 456
     iput v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;->mPosition:I
 
-    .line 457
     const/4 v0, 0x0
 
+    .line 457
     iput v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;->mOffset:F
 
-    .line 458
     const/4 v0, 0x0
 
+    .line 458
     iput v0, p0, Landroidx/viewpager2/widget/ScrollEventAdapter$ScrollEventValues;->mOffsetPx:I
 
-    .line 459
     return-void
 .end method

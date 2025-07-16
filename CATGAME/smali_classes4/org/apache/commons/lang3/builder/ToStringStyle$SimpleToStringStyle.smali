@@ -25,9 +25,9 @@
     .line 2259
     invoke-direct {p0}, Lorg/apache/commons/lang3/builder/ToStringStyle;-><init>()V
 
-    .line 2260
     const/4 v0, 0x0
 
+    .line 2260
     invoke-virtual {p0, v0}, Lorg/apache/commons/lang3/builder/ToStringStyle$SimpleToStringStyle;->setUseClassName(Z)V
 
     .line 2261
@@ -36,15 +36,14 @@
     .line 2262
     invoke-virtual {p0, v0}, Lorg/apache/commons/lang3/builder/ToStringStyle$SimpleToStringStyle;->setUseFieldNames(Z)V
 
-    .line 2263
     const-string v0, ""
 
+    .line 2263
     invoke-virtual {p0, v0}, Lorg/apache/commons/lang3/builder/ToStringStyle$SimpleToStringStyle;->setContentStart(Ljava/lang/String;)V
 
     .line 2264
     invoke-virtual {p0, v0}, Lorg/apache/commons/lang3/builder/ToStringStyle$SimpleToStringStyle;->setContentEnd(Ljava/lang/String;)V
 
-    .line 2265
     return-void
 .end method
 

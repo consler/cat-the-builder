@@ -10,14 +10,12 @@
 # direct methods
 .method public constructor <init>(Lar/com/hjg/pngj/ImageInfo;)V
     .locals 1
-    .param p1, "info"    # Lar/com/hjg/pngj/ImageInfo;
 
-    .line 15
     const-string v0, "tEXt"
 
+    .line 15
     invoke-direct {p0, v0, p1}, Lar/com/hjg/pngj/chunks/PngChunkTextVar;-><init>(Ljava/lang/String;Lar/com/hjg/pngj/ImageInfo;)V
 
-    .line 16
     return-void
 .end method
 
@@ -52,13 +50,19 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "\u0000"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Lar/com/hjg/pngj/chunks/PngChunkTEXT;->val:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -69,7 +73,6 @@
     move-result-object v0
 
     .line 23
-    .local v0, "b":[B
     array-length v1, v0
 
     const/4 v2, 0x0
@@ -79,15 +82,11 @@
     move-result-object v1
 
     .line 24
-    .local v1, "chunk":Lar/com/hjg/pngj/chunks/ChunkRaw;
     iput-object v0, v1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
 
-    .line 25
     return-object v1
 
     .line 21
-    .end local v0    # "b":[B
-    .end local v1    # "chunk":Lar/com/hjg/pngj/chunks/ChunkRaw;
     :cond_0
     new-instance v0, Lar/com/hjg/pngj/PngjException;
 
@@ -100,78 +99,72 @@
 
 .method public parseFromRaw(Lar/com/hjg/pngj/chunks/ChunkRaw;)V
     .locals 3
-    .param p1, "c"    # Lar/com/hjg/pngj/chunks/ChunkRaw;
 
-    .line 31
     const/4 v0, 0x0
 
-    .local v0, "i":I
-    :goto_0
-    iget-object v1, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
-
-    array-length v1, v1
-
-    if-ge v0, v1, :cond_1
-
-    .line 32
-    iget-object v1, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
-
-    aget-byte v1, v1, v0
-
-    if-nez v1, :cond_0
-
-    .line 33
-    goto :goto_1
+    move v1, v0
 
     .line 31
+    :goto_0
+    iget-object v2, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
+
+    array-length v2, v2
+
+    if-ge v1, v2, :cond_1
+
+    .line 32
+    iget-object v2, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
+
+    aget-byte v2, v2, v1
+
+    if-nez v2, :cond_0
+
+    goto :goto_1
+
     :cond_0
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 34
     :cond_1
     :goto_1
-    iget-object v1, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
-
-    const/4 v2, 0x0
-
-    invoke-static {v1, v2, v0}, Lar/com/hjg/pngj/chunks/ChunkHelper;->toString([BII)Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lar/com/hjg/pngj/chunks/PngChunkTEXT;->key:Ljava/lang/String;
-
-    .line 35
-    add-int/lit8 v0, v0, 0x1
-
-    .line 36
-    iget-object v1, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
-
-    array-length v1, v1
-
-    if-ge v0, v1, :cond_2
-
-    iget-object v1, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
-
     iget-object v2, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
 
-    array-length v2, v2
+    invoke-static {v2, v0, v1}, Lar/com/hjg/pngj/chunks/ChunkHelper;->toString([BII)Ljava/lang/String;
 
-    sub-int/2addr v2, v0
+    move-result-object v0
 
-    invoke-static {v1, v0, v2}, Lar/com/hjg/pngj/chunks/ChunkHelper;->toString([BII)Ljava/lang/String;
+    iput-object v0, p0, Lar/com/hjg/pngj/chunks/PngChunkTEXT;->key:Ljava/lang/String;
 
-    move-result-object v1
+    add-int/lit8 v1, v1, 0x1
+
+    .line 36
+    iget-object v0, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
+
+    array-length v0, v0
+
+    if-ge v1, v0, :cond_2
+
+    iget-object v0, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
+
+    iget-object p1, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
+
+    array-length p1, p1
+
+    sub-int/2addr p1, v1
+
+    invoke-static {v0, v1, p1}, Lar/com/hjg/pngj/chunks/ChunkHelper;->toString([BII)Ljava/lang/String;
+
+    move-result-object p1
 
     goto :goto_2
 
     :cond_2
-    const-string v1, ""
+    const-string p1, ""
 
     :goto_2
-    iput-object v1, p0, Lar/com/hjg/pngj/chunks/PngChunkTEXT;->val:Ljava/lang/String;
+    iput-object p1, p0, Lar/com/hjg/pngj/chunks/PngChunkTEXT;->val:Ljava/lang/String;
 
-    .line 37
     return-void
 .end method

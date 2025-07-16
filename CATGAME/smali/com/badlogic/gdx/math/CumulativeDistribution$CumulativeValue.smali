@@ -33,9 +33,6 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/math/CumulativeDistribution;Ljava/lang/Object;FF)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/math/CumulativeDistribution;
-    .param p3, "frequency"    # F
-    .param p4, "interval"    # F
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;FF)V"
@@ -43,8 +40,6 @@
     .end annotation
 
     .line 19
-    .local p0, "this":Lcom/badlogic/gdx/math/CumulativeDistribution$CumulativeValue;, "Lcom/badlogic/gdx/math/CumulativeDistribution<TT;>.CumulativeValue;"
-    .local p2, "value":Ljava/lang/Object;, "TT;"
     iput-object p1, p0, Lcom/badlogic/gdx/math/CumulativeDistribution$CumulativeValue;->this$0:Lcom/badlogic/gdx/math/CumulativeDistribution;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,6 +53,5 @@
     .line 22
     iput p4, p0, Lcom/badlogic/gdx/math/CumulativeDistribution$CumulativeValue;->interval:F
 
-    .line 23
     return-void
 .end method

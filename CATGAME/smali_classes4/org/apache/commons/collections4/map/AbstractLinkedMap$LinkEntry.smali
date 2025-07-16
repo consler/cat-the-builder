@@ -49,8 +49,6 @@
 # direct methods
 .method protected constructor <init>(Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;ILjava/lang/Object;Ljava/lang/Object;)V
     .locals 0
-    .param p2, "hashCode"    # I
-    .param p3, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,11 +60,7 @@
     .end annotation
 
     .line 539
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;, "Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry<TK;TV;>;"
-    .local p1, "next":Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;, "Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry<TK;TV;>;"
-    .local p4, "value":Ljava/lang/Object;, "TV;"
     invoke-direct {p0, p1, p2, p3, p4}, Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;-><init>(Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;ILjava/lang/Object;Ljava/lang/Object;)V
 
-    .line 540
     return-void
 .end method

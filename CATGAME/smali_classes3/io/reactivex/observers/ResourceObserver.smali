@@ -40,7 +40,6 @@
     .locals 1
 
     .line 83
-    .local p0, "this":Lio/reactivex/observers/ResourceObserver;, "Lio/reactivex/observers/ResourceObserver<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 85
@@ -64,12 +63,10 @@
 # virtual methods
 .method public final add(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "resource"    # Lio/reactivex/disposables/Disposable;
 
-    .line 98
-    .local p0, "this":Lio/reactivex/observers/ResourceObserver;, "Lio/reactivex/observers/ResourceObserver<TT;>;"
     const-string v0, "resource is null"
 
+    .line 98
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 99
@@ -77,7 +74,6 @@
 
     invoke-virtual {v0, p1}, Lio/reactivex/internal/disposables/ListCompositeDisposable;->add(Lio/reactivex/disposables/Disposable;)Z
 
-    .line 100
     return-void
 .end method
 
@@ -85,7 +81,6 @@
     .locals 1
 
     .line 127
-    .local p0, "this":Lio/reactivex/observers/ResourceObserver;, "Lio/reactivex/observers/ResourceObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/observers/ResourceObserver;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
@@ -99,7 +94,6 @@
 
     invoke-virtual {v0}, Lio/reactivex/internal/disposables/ListCompositeDisposable;->dispose()V
 
-    .line 130
     :cond_0
     return-void
 .end method
@@ -108,7 +102,6 @@
     .locals 1
 
     .line 138
-    .local p0, "this":Lio/reactivex/observers/ResourceObserver;, "Lio/reactivex/observers/ResourceObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/observers/ResourceObserver;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -127,17 +120,13 @@
 .method protected onStart()V
     .locals 0
 
-    .line 116
-    .local p0, "this":Lio/reactivex/observers/ResourceObserver;, "Lio/reactivex/observers/ResourceObserver<TT;>;"
     return-void
 .end method
 
 .method public final onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 2
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 104
-    .local p0, "this":Lio/reactivex/observers/ResourceObserver;, "Lio/reactivex/observers/ResourceObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/observers/ResourceObserver;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -146,14 +135,13 @@
 
     invoke-static {v0, p1, v1}, Lio/reactivex/internal/util/EndConsumerHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;Ljava/lang/Class;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 105
     invoke-virtual {p0}, Lio/reactivex/observers/ResourceObserver;->onStart()V
 
-    .line 107
     :cond_0
     return-void
 .end method

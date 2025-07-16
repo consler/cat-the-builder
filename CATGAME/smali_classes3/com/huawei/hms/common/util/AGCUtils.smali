@@ -7,155 +7,390 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 27
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method private static a(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+.method public static a(Landroid/content/Context;)Ljava/lang/String;
     .locals 5
 
-    .line 88
-    const-string v0, "AGCUtils"
+    const-string v0, "In getMetaDataAppId, Failed to read meta data for the AppID."
 
-    const-string v1, ""
+    .line 26
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    invoke-static {p0}, Lcom/huawei/agconnect/config/AGConnectServicesConfig;->fromContext(Landroid/content/Context;)Lcom/huawei/agconnect/config/AGConnectServicesConfig;
+    move-result-object v1
 
-    move-result-object v2
+    const-string v2, ""
 
-    .line 89
-    nop
+    const-string v3, "AGCUtils"
 
-    .line 90
-    nop
+    if-nez v1, :cond_0
 
-    .line 92
-    const/4 v3, 0x0
+    const-string p0, "In getMetaDataAppId, Failed to get \'PackageManager\' instance."
 
+    .line 28
+    invoke-static {v3, p0}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-object v2
+
+    .line 33
+    :cond_0
     :try_start_0
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Landroid/content/res/Resources;->getAssets()Landroid/content/res/AssetManager;
+    const/16 v4, 0x80
+
+    invoke-virtual {v1, p0, v4}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
 
     move-result-object p0
 
-    const-string v4, "agconnect-services.json"
+    iget-object p0, p0, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    invoke-virtual {p0, v4}, Landroid/content/res/AssetManager;->open(Ljava/lang/String;)Ljava/io/InputStream;
+    if-eqz p0, :cond_2
 
-    move-result-object v3
+    .line 35
+    iget-object v1, p0, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
 
-    .line 93
-    invoke-virtual {v2, v3}, Lcom/huawei/agconnect/config/AGConnectServicesConfig;->overlayWith(Ljava/io/InputStream;)V
+    if-eqz v1, :cond_2
 
-    .line 94
-    invoke-virtual {v2, p1}, Lcom/huawei/agconnect/config/AGConnectServicesConfig;->getString(Ljava/lang/String;)Ljava/lang/String;
+    .line 36
+    iget-object p0, p0, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+
+    const-string v1, "com.huawei.hms.client.appid"
+
+    invoke-virtual {p0, v1}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object p0
+
+    if-eqz p0, :cond_2
+
+    .line 38
+    invoke-static {p0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string v1, "appid="
+
+    .line 39
+    invoke-virtual {p0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    const/4 v1, 0x6
+
+    .line 40
+    invoke-virtual {p0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    :cond_1
+    return-object p0
+
+    .line 46
+    :cond_2
+    invoke-static {v3, v0}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 98
-    invoke-static {v3}, Lcom/huawei/hms/utils/IOUtils;->closeQuietly(Ljava/io/InputStream;)V
+    return-object v2
 
-    .line 99
-    goto :goto_0
-
-    .line 98
-    :catchall_0
-    move-exception p0
-
-    goto :goto_1
-
-    .line 95
     :catch_0
     move-exception p0
 
-    .line 96
-    :try_start_1
-    new-instance v2, Ljava/lang/StringBuilder;
+    .line 53
+    invoke-static {v3, v0, p0}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    return-object v2
 
-    const-string v4, "Get "
+    .line 54
+    :catch_1
+    invoke-static {v3, v0}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    return-object v2
+.end method
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+.method public static a(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+    .locals 7
 
-    const-string v4, " failed: "
+    const-string v0, "AGCUtils"
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "Get "
 
-    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    const-string v2, ""
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const/4 v3, 0x0
+
+    .line 1
+    :try_start_0
+    new-instance v4, Lcom/huawei/agconnect/AGConnectOptionsBuilder;
+
+    invoke-direct {v4}, Lcom/huawei/agconnect/AGConnectOptionsBuilder;-><init>()V
+
+    .line 2
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/content/res/Resources;->getAssets()Landroid/content/res/AssetManager;
+
+    move-result-object v5
+
+    const-string v6, "agconnect-services.json"
+
+    invoke-virtual {v5, v6}, Landroid/content/res/AssetManager;->open(Ljava/lang/String;)Ljava/io/InputStream;
+
+    move-result-object v3
+
+    .line 3
+    invoke-virtual {v4, v3}, Lcom/huawei/agconnect/AGConnectOptionsBuilder;->setInputStream(Ljava/io/InputStream;)Lcom/huawei/agconnect/AGConnectOptionsBuilder;
+
+    .line 4
+    invoke-virtual {v4, p0}, Lcom/huawei/agconnect/AGConnectOptionsBuilder;->build(Landroid/content/Context;)Lcom/huawei/agconnect/AGConnectOptions;
 
     move-result-object p0
 
-    invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    invoke-interface {p0, p1}, Lcom/huawei/agconnect/AGConnectOptions;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    .line 98
-    invoke-static {v3}, Lcom/huawei/hms/utils/IOUtils;->closeQuietly(Ljava/io/InputStream;)V
+    move-result-object p0
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 99
-    move-object p0, v1
+    goto :goto_1
 
-    .line 101
-    :goto_0
-    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    :catchall_0
+    move-exception p0
 
-    move-result v2
+    goto :goto_2
 
-    if-nez v2, :cond_0
+    :catch_0
+    move-exception p0
 
-    .line 102
-    return-object p0
+    .line 11
+    :try_start_1
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    .line 105
-    :cond_0
-    new-instance p0, Ljava/lang/StringBuilder;
+    invoke-direct {v4, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "The "
+    move-result-object v1
 
-    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v4, " with AGConnectServicesConfig failed: "
 
-    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, " is null."
+    move-result-object v1
 
-    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
 
     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p0}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 106
-    return-object v1
+    goto :goto_0
 
-    .line 98
+    :catch_1
+    move-exception p0
+
+    .line 12
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v4, " failed: "
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {v0, p0}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :goto_0
+    move-object p0, v2
+
+    .line 10
     :goto_1
     invoke-static {v3}, Lcom/huawei/hms/utils/IOUtils;->closeQuietly(Ljava/io/InputStream;)V
 
-    .line 99
+    .line 19
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    return-object p0
+
+    .line 23
+    :cond_0
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    const-string v1, "The "
+
+    invoke-direct {p0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    const-string p1, " is null."
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {v0, p0}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-object v2
+
+    .line 24
+    :goto_2
+    invoke-static {v3}, Lcom/huawei/hms/utils/IOUtils;->closeQuietly(Ljava/io/InputStream;)V
+
+    .line 25
     throw p0
 .end method
 
-.method private static a(Landroid/content/Context;)Z
+.method public static b(Landroid/content/Context;)Ljava/lang/String;
+    .locals 5
+
+    const-string v0, "In getMetaDataCpId, Failed to read meta data for the CpId."
+
+    .line 1
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    const-string v2, ""
+
+    const-string v3, "AGCUtils"
+
+    if-nez v1, :cond_0
+
+    const-string p0, "In getMetaDataCpId, Failed to get \'PackageManager\' instance."
+
+    .line 3
+    invoke-static {v3, p0}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-object v2
+
+    .line 8
+    :cond_0
+    :try_start_0
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object p0
+
+    const/16 v4, 0x80
+
+    invoke-virtual {v1, p0, v4}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+
+    move-result-object p0
+
+    iget-object p0, p0, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    if-eqz p0, :cond_2
+
+    .line 9
+    iget-object v1, p0, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+
+    if-eqz v1, :cond_2
+
+    .line 10
+    iget-object p0, p0, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+
+    const-string v1, "com.huawei.hms.client.cpid"
+
+    invoke-virtual {p0, v1}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_2
+
+    .line 12
+    invoke-static {p0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string v1, "cpid="
+
+    .line 13
+    invoke-virtual {p0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    const/4 v1, 0x5
+
+    .line 14
+    invoke-virtual {p0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    :cond_1
+    return-object p0
+
+    .line 20
+    :cond_2
+    invoke-static {v3, v0}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object v2
+
+    :catch_0
+    move-exception p0
+
+    .line 27
+    invoke-static {v3, v0, p0}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    return-object v2
+
+    .line 28
+    :catch_1
+    invoke-static {v3, v0}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-object v2
+.end method
+
+.method public static c(Landroid/content/Context;)Z
     .locals 1
 
-    .line 84
+    .line 1
     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v0
@@ -164,7 +399,7 @@
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lcom/huawei/hms/utils/HMSPackageManager;->getHMSPackageName()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/huawei/hms/utils/HMSPackageManager;->getHMSPackageNameForMultiService()Ljava/lang/String;
 
     move-result-object p0
 
@@ -175,223 +410,11 @@
     return p0
 .end method
 
-.method private static b(Landroid/content/Context;)Ljava/lang/String;
-    .locals 6
-
-    .line 117
-    const-string v0, "appid="
-
-    const-string v1, "In getMetaDataAppId, Failed to read meta data for the AppID."
-
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v2
-
-    .line 118
-    const-string v3, ""
-
-    const-string v4, "AGCUtils"
-
-    if-nez v2, :cond_0
-
-    .line 119
-    const-string p0, "In getMetaDataAppId, Failed to get \'PackageManager\' instance."
-
-    invoke-static {v4, p0}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 120
-    return-object v3
-
-    .line 124
-    :cond_0
-    :try_start_0
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
-
-    move-result-object p0
-
-    const/16 v5, 0x80
-
-    invoke-virtual {v2, p0, v5}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
-
-    move-result-object p0
-
-    .line 125
-    if-eqz p0, :cond_2
-
-    iget-object v2, p0, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
-
-    if-eqz v2, :cond_2
-
-    .line 126
-    iget-object p0, p0, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
-
-    const-string v2, "com.huawei.hms.client.appid"
-
-    invoke-virtual {p0, v2}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    .line 127
-    if-eqz p0, :cond_2
-
-    .line 128
-    invoke-static {p0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p0
-
-    .line 129
-    invoke-virtual {p0, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    .line 130
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
-
-    move-result v0
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
-    .line 132
-    :cond_1
-    return-object p0
-
-    .line 136
-    :cond_2
-    invoke-static {v4, v1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 137
-    return-object v3
-
-    .line 138
-    :catch_0
-    move-exception p0
-
-    .line 140
-    invoke-static {v4, v1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 141
-    return-object v3
-.end method
-
-.method private static c(Landroid/content/Context;)Ljava/lang/String;
-    .locals 6
-
-    .line 153
-    const-string v0, "cpid="
-
-    const-string v1, "In getMetaDataCpId, Failed to read meta data for the CpId."
-
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v2
-
-    .line 154
-    const-string v3, ""
-
-    const-string v4, "AGCUtils"
-
-    if-nez v2, :cond_0
-
-    .line 155
-    const-string p0, "In getMetaDataCpId, Failed to get \'PackageManager\' instance."
-
-    invoke-static {v4, p0}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 156
-    return-object v3
-
-    .line 160
-    :cond_0
-    :try_start_0
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
-
-    move-result-object p0
-
-    const/16 v5, 0x80
-
-    invoke-virtual {v2, p0, v5}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
-
-    move-result-object p0
-
-    .line 161
-    if-eqz p0, :cond_2
-
-    iget-object v2, p0, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
-
-    if-eqz v2, :cond_2
-
-    .line 162
-    iget-object p0, p0, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
-
-    const-string v2, "com.huawei.hms.client.cpid"
-
-    invoke-virtual {p0, v2}, Landroid/os/Bundle;->get(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    .line 163
-    if-eqz p0, :cond_2
-
-    .line 164
-    invoke-static {p0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p0
-
-    .line 165
-    invoke-virtual {p0, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    .line 166
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
-
-    move-result v0
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
-    .line 168
-    :cond_1
-    return-object p0
-
-    .line 172
-    :cond_2
-    invoke-static {v4, v1}, Lcom/huawei/hms/support/log/HMSLog;->i(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 173
-    return-object v3
-
-    .line 174
-    :catch_0
-    move-exception p0
-
-    .line 176
-    invoke-static {v4, v1}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 177
-    return-object v3
-.end method
-
 .method public static getAppId(Landroid/content/Context;)Ljava/lang/String;
-    .locals 2
+    .locals 4
 
-    .line 50
-    invoke-static {p0}, Lcom/huawei/hms/common/util/AGCUtils;->a(Landroid/content/Context;)Z
+    .line 1
+    invoke-static {p0}, Lcom/huawei/hms/common/util/AGCUtils;->c(Landroid/content/Context;)Z
 
     move-result v0
 
@@ -399,37 +422,101 @@
 
     if-eqz v0, :cond_0
 
-    .line 51
+    .line 3
     invoke-static {p0, v1}, Lcom/huawei/hms/common/util/AGCUtils;->a(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p0
-
-    return-object p0
-
-    .line 53
-    :cond_0
-    invoke-static {p0}, Lcom/huawei/agconnect/config/AGConnectServicesConfig;->fromContext(Landroid/content/Context;)Lcom/huawei/agconnect/config/AGConnectServicesConfig;
-
     move-result-object v0
 
-    .line 54
-    invoke-virtual {v0, v1}, Lcom/huawei/agconnect/config/AGConnectServicesConfig;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 55
+    .line 4
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_1
+    if-nez v2, :cond_1
 
-    .line 56
     return-object v0
 
-    .line 58
+    :cond_0
+    const/4 v0, 0x0
+
+    .line 11
     :cond_1
-    invoke-static {p0}, Lcom/huawei/hms/common/util/AGCUtils;->b(Landroid/content/Context;)Ljava/lang/String;
+    :try_start_0
+    invoke-static {}, Lcom/huawei/agconnect/AGConnectInstance;->getInstance()Lcom/huawei/agconnect/AGConnectInstance;
+
+    move-result-object v2
+
+    .line 12
+    invoke-virtual {v2}, Lcom/huawei/agconnect/AGConnectInstance;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    if-eq v3, p0, :cond_2
+
+    .line 13
+    new-instance v2, Lcom/huawei/agconnect/AGConnectOptionsBuilder;
+
+    invoke-direct {v2}, Lcom/huawei/agconnect/AGConnectOptionsBuilder;-><init>()V
+
+    invoke-virtual {v2, p0}, Lcom/huawei/agconnect/AGConnectOptionsBuilder;->build(Landroid/content/Context;)Lcom/huawei/agconnect/AGConnectOptions;
+
+    move-result-object v2
+
+    .line 14
+    invoke-static {v2}, Lcom/huawei/agconnect/AGConnectInstance;->buildInstance(Lcom/huawei/agconnect/AGConnectOptions;)Lcom/huawei/agconnect/AGConnectInstance;
+
+    move-result-object v2
+
+    .line 16
+    :cond_2
+    invoke-virtual {v2}, Lcom/huawei/agconnect/AGConnectInstance;->getOptions()Lcom/huawei/agconnect/AGConnectOptions;
+
+    move-result-object v2
+
+    invoke-interface {v2, v1}, Lcom/huawei/agconnect/AGConnectOptions;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+    :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    const-string v2, "AGCUtils"
+
+    const-string v3, "Get appId with AGConnectServicesConfig failed"
+
+    .line 18
+    invoke-static {v2, v3}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 20
+    :goto_0
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    return-object v0
+
+    .line 23
+    :cond_3
+    invoke-static {p0}, Lcom/huawei/hms/common/util/AGCUtils;->a(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 24
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_4
+
+    return-object v0
+
+    .line 28
+    :cond_4
+    invoke-static {p0, v1}, Lcom/huawei/hms/common/util/AGCUtils;->a(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -437,10 +524,10 @@
 .end method
 
 .method public static getCpId(Landroid/content/Context;)Ljava/lang/String;
-    .locals 2
+    .locals 3
 
-    .line 71
-    invoke-static {p0}, Lcom/huawei/hms/common/util/AGCUtils;->a(Landroid/content/Context;)Z
+    .line 1
+    invoke-static {p0}, Lcom/huawei/hms/common/util/AGCUtils;->c(Landroid/content/Context;)Z
 
     move-result v0
 
@@ -448,37 +535,93 @@
 
     if-eqz v0, :cond_0
 
-    .line 72
+    .line 3
     invoke-static {p0, v1}, Lcom/huawei/hms/common/util/AGCUtils;->a(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 
     return-object p0
 
-    .line 74
+    .line 8
     :cond_0
-    invoke-static {p0}, Lcom/huawei/agconnect/config/AGConnectServicesConfig;->fromContext(Landroid/content/Context;)Lcom/huawei/agconnect/config/AGConnectServicesConfig;
+    :try_start_0
+    invoke-static {}, Lcom/huawei/agconnect/AGConnectInstance;->getInstance()Lcom/huawei/agconnect/AGConnectInstance;
 
     move-result-object v0
 
-    .line 75
-    invoke-virtual {v0, v1}, Lcom/huawei/agconnect/config/AGConnectServicesConfig;->getString(Ljava/lang/String;)Ljava/lang/String;
+    .line 9
+    invoke-virtual {v0}, Lcom/huawei/agconnect/AGConnectInstance;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    if-eq v2, p0, :cond_1
+
+    .line 10
+    new-instance v0, Lcom/huawei/agconnect/AGConnectOptionsBuilder;
+
+    invoke-direct {v0}, Lcom/huawei/agconnect/AGConnectOptionsBuilder;-><init>()V
+
+    invoke-virtual {v0, p0}, Lcom/huawei/agconnect/AGConnectOptionsBuilder;->build(Landroid/content/Context;)Lcom/huawei/agconnect/AGConnectOptions;
 
     move-result-object v0
 
-    .line 76
+    .line 11
+    invoke-static {v0}, Lcom/huawei/agconnect/AGConnectInstance;->buildInstance(Lcom/huawei/agconnect/AGConnectOptions;)Lcom/huawei/agconnect/AGConnectInstance;
+
+    move-result-object v0
+
+    .line 13
+    :cond_1
+    invoke-virtual {v0}, Lcom/huawei/agconnect/AGConnectInstance;->getOptions()Lcom/huawei/agconnect/AGConnectOptions;
+
+    move-result-object v0
+
+    invoke-interface {v0, v1}, Lcom/huawei/agconnect/AGConnectOptions;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+    :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    const-string v0, "AGCUtils"
+
+    const-string v2, "Get cpid with AGConnectServicesConfig failed"
+
+    .line 15
+    invoke-static {v0, v2}, Lcom/huawei/hms/support/log/HMSLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v0, 0x0
+
+    .line 17
+    :goto_0
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_1
+    if-nez v2, :cond_2
 
-    .line 77
     return-object v0
 
-    .line 79
-    :cond_1
-    invoke-static {p0}, Lcom/huawei/hms/common/util/AGCUtils;->c(Landroid/content/Context;)Ljava/lang/String;
+    .line 20
+    :cond_2
+    invoke-static {p0}, Lcom/huawei/hms/common/util/AGCUtils;->b(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 21
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    return-object v0
+
+    .line 25
+    :cond_3
+    invoke-static {p0, v1}, Lcom/huawei/hms/common/util/AGCUtils;->a(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 

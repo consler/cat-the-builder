@@ -40,8 +40,7 @@
 
 # virtual methods
 .method public build(Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;)Lcom/bumptech/glide/load/model/ModelLoader;
-    .locals 2
-    .param p1, "multiFactory"    # Lcom/bumptech/glide/load/model/MultiModelLoaderFactory;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -55,20 +54,19 @@
     .end annotation
 
     .line 129
-    new-instance v0, Lcom/bumptech/glide/load/model/ByteArrayLoader;
+    new-instance p1, Lcom/bumptech/glide/load/model/ByteArrayLoader;
 
-    new-instance v1, Lcom/bumptech/glide/load/model/ByteArrayLoader$StreamFactory$1;
+    new-instance v0, Lcom/bumptech/glide/load/model/ByteArrayLoader$StreamFactory$1;
 
-    invoke-direct {v1, p0}, Lcom/bumptech/glide/load/model/ByteArrayLoader$StreamFactory$1;-><init>(Lcom/bumptech/glide/load/model/ByteArrayLoader$StreamFactory;)V
+    invoke-direct {v0, p0}, Lcom/bumptech/glide/load/model/ByteArrayLoader$StreamFactory$1;-><init>(Lcom/bumptech/glide/load/model/ByteArrayLoader$StreamFactory;)V
 
-    invoke-direct {v0, v1}, Lcom/bumptech/glide/load/model/ByteArrayLoader;-><init>(Lcom/bumptech/glide/load/model/ByteArrayLoader$Converter;)V
+    invoke-direct {p1, v0}, Lcom/bumptech/glide/load/model/ByteArrayLoader;-><init>(Lcom/bumptech/glide/load/model/ByteArrayLoader$Converter;)V
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public teardown()V
     .locals 0
 
-    .line 146
     return-void
 .end method

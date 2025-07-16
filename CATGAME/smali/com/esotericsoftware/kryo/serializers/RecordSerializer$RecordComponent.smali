@@ -32,8 +32,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/Class;I)V
     .locals 0
-    .param p1, "name"    # Ljava/lang/String;
-    .param p3, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -44,7 +42,6 @@
     .end annotation
 
     .line 146
-    .local p2, "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 147
@@ -56,7 +53,6 @@
     .line 149
     iput p3, p0, Lcom/esotericsoftware/kryo/serializers/RecordSerializer$RecordComponent;->index:I
 
-    .line 150
     return-void
 .end method
 

@@ -16,19 +16,16 @@
 
 # virtual methods
 .method public instantiate(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;)Landroidx/fragment/app/Fragment;
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "className"    # Ljava/lang/String;
-    .param p3, "arguments"    # Landroid/os/Bundle;
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 57
     invoke-static {p1, p2, p3}, Landroidx/fragment/app/Fragment;->instantiate(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;)Landroidx/fragment/app/Fragment;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public abstract onFindViewById(I)Landroid/view/View;

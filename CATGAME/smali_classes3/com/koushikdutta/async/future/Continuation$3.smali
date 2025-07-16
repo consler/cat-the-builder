@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/future/Continuation;Lcom/koushikdutta/async/future/DependentFuture;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/future/Continuation;
 
     .line 99
     iput-object p1, p0, Lcom/koushikdutta/async/future/Continuation$3;->this$0:Lcom/koushikdutta/async/future/Continuation;
@@ -41,9 +40,7 @@
 
 # virtual methods
 .method public onContinue(Lcom/koushikdutta/async/future/Continuation;Lcom/koushikdutta/async/callback/CompletedCallback;)V
-    .locals 1
-    .param p1, "continuation"    # Lcom/koushikdutta/async/future/Continuation;
-    .param p2, "next"    # Lcom/koushikdutta/async/callback/CompletedCallback;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -51,15 +48,14 @@
     .end annotation
 
     .line 102
-    iget-object v0, p0, Lcom/koushikdutta/async/future/Continuation$3;->val$future:Lcom/koushikdutta/async/future/DependentFuture;
+    iget-object p1, p0, Lcom/koushikdutta/async/future/Continuation$3;->val$future:Lcom/koushikdutta/async/future/DependentFuture;
 
-    invoke-interface {v0}, Lcom/koushikdutta/async/future/DependentFuture;->get()Ljava/lang/Object;
+    invoke-interface {p1}, Lcom/koushikdutta/async/future/DependentFuture;->get()Ljava/lang/Object;
+
+    const/4 p1, 0x0
 
     .line 103
-    const/4 v0, 0x0
+    invoke-interface {p2, p1}, Lcom/koushikdutta/async/callback/CompletedCallback;->onCompleted(Ljava/lang/Exception;)V
 
-    invoke-interface {p2, v0}, Lcom/koushikdutta/async/callback/CompletedCallback;->onCompleted(Ljava/lang/Exception;)V
-
-    .line 104
     return-void
 .end method

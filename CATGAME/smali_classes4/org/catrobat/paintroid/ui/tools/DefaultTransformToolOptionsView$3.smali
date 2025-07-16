@@ -1,9 +1,9 @@
-.class final Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$3;
+.class public final Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$3;
 .super Ljava/lang/Object;
 .source "DefaultTransformToolOptionsView.kt"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/text/TextWatcher;
 
 
 # annotations
@@ -12,33 +12,38 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
-        "\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\u0010\u0000\u001a\u00020\u00012\u000e\u0010\u0002\u001a\n \u0004*\u0004\u0018\u00010\u00030\u0003H\n\u00a2\u0006\u0002\u0008\u0005"
+        "\u0000\'\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\r\n\u0000\n\u0002\u0010\u0008\n\u0002\u0008\u0004*\u0001\u0000\u0008\n\u0018\u00002\u00020\u0001J\u0010\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u0005H\u0016J(\u0010\u0006\u001a\u00020\u00032\u0006\u0010\u0007\u001a\u00020\u00082\u0006\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\u000c\u001a\u00020\nH\u0016J(\u0010\r\u001a\u00020\u00032\u0006\u0010\u0007\u001a\u00020\u00082\u0006\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\u000c\u001a\u00020\nH\u0016\u00a8\u0006\u000e"
     }
     d2 = {
-        "<anonymous>",
+        "org/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$3",
+        "Landroid/text/TextWatcher;",
+        "afterTextChanged",
         "",
-        "it",
-        "Landroid/view/View;",
-        "kotlin.jvm.PlatformType",
-        "onClick"
+        "editable",
+        "Landroid/text/Editable;",
+        "beforeTextChanged",
+        "charSequence",
+        "",
+        "i",
+        "",
+        "i1",
+        "i2",
+        "onTextChanged",
+        "Paintroid_signedRelease"
     }
-    k = 0x3
+    k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -52,6 +57,7 @@
 
     iput-object p1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$3;->this$0:Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;
 
+    .line 82
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -59,22 +65,109 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
+.method public afterTextChanged(Landroid/text/Editable;)V
     .locals 1
-    .param p1, "it"    # Landroid/view/View;
 
-    .line 75
-    iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$3;->this$0:Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;
+    const-string v0, "editable"
 
-    invoke-static {v0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->access$getCallback$p(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 90
+    iget-object p1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$3;->this$0:Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;
+
+    invoke-static {p1}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->access$getPercentageText$p(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)Landroidx/appcompat/widget/AppCompatEditText;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroidx/appcompat/widget/AppCompatEditText;->getText()Landroid/text/Editable;
+
+    move-result-object p1
+
+    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p1
+
+    .line 92
+    :try_start_0
+    invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result p1
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception p1
+
+    .line 94
+    invoke-virtual {p1}, Ljava/lang/NumberFormatException;->getLocalizedMessage()Ljava/lang/String;
+
+    move-result-object p1
+
+    if-nez p1, :cond_0
+
+    goto :goto_0
+
+    .line 95
+    :cond_0
+    invoke-static {}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->access$getTAG$cp()Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-interface {v0}, Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;->autoCropClicked()V
+    :goto_0
+    const/4 p1, 0x1
 
-    .line 76
-    :cond_0
+    .line 99
+    :goto_1
+    iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$3;->this$0:Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;
+
+    invoke-static {v0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->access$getResizeSeekBar$p(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)Landroidx/appcompat/widget/AppCompatSeekBar;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatSeekBar;->setProgress(I)V
+
+    .line 100
+    iget-object p1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$3;->this$0:Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;
+
+    invoke-static {p1}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->access$getPercentageText$p(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)Landroidx/appcompat/widget/AppCompatEditText;
+
+    move-result-object p1
+
+    iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$3;->this$0:Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;
+
+    invoke-static {v0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->access$getPercentageText$p(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)Landroidx/appcompat/widget/AppCompatEditText;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroidx/appcompat/widget/AppCompatEditText;->length()I
+
+    move-result v0
+
+    invoke-virtual {p1, v0}, Landroidx/appcompat/widget/AppCompatEditText;->setSelection(I)V
+
+    return-void
+.end method
+
+.method public beforeTextChanged(Ljava/lang/CharSequence;III)V
+    .locals 0
+
+    const-string p2, "charSequence"
+
+    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public onTextChanged(Ljava/lang/CharSequence;III)V
+    .locals 0
+
+    const-string p2, "charSequence"
+
+    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
     return-void
 .end method

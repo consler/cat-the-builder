@@ -28,12 +28,11 @@
     .line 90
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/Serializer;-><init>()V
 
-    .line 92
     const/4 v0, 0x1
 
+    .line 92
     invoke-virtual {p0, v0}, Lcom/esotericsoftware/kryo/serializers/DefaultArraySerializers$FloatArraySerializer;->setAcceptsNull(Z)V
 
-    .line 93
     return-void
 .end method
 
@@ -53,24 +52,18 @@
 .end method
 
 .method public copy(Lcom/esotericsoftware/kryo/Kryo;[F)[F
-    .locals 3
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "original"    # [F
+    .locals 2
 
     .line 111
-    array-length v0, p2
+    array-length p1, p2
 
-    new-array v0, v0, [F
+    new-array v0, p1, [F
+
+    const/4 v1, 0x0
 
     .line 112
-    .local v0, "copy":[F
-    array-length v1, v0
+    invoke-static {p2, v1, v0, v1, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    const/4 v2, 0x0
-
-    invoke-static {p2, v2, v0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    .line 113
     return-object v0
 .end method
 
@@ -86,35 +79,30 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)[F
-    .locals 2
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
-    .param p3, "type"    # Ljava/lang/Class;
+    .locals 0
+
+    const/4 p1, 0x1
 
     .line 105
-    const/4 v0, 0x1
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Input;->readVarInt(Z)I
 
-    invoke-virtual {p2, v0}, Lcom/esotericsoftware/kryo/io/Input;->readVarInt(Z)I
+    move-result p3
 
-    move-result v0
+    if-nez p3, :cond_0
 
-    .line 106
-    .local v0, "length":I
-    if-nez v0, :cond_0
+    const/4 p1, 0x0
 
-    const/4 v1, 0x0
+    return-object p1
 
-    return-object v1
+    :cond_0
+    sub-int/2addr p3, p1
 
     .line 107
-    :cond_0
-    add-int/lit8 v1, v0, -0x1
+    invoke-virtual {p2, p3}, Lcom/esotericsoftware/kryo/io/Input;->readFloats(I)[F
 
-    invoke-virtual {p2, v1}, Lcom/esotericsoftware/kryo/io/Input;->readFloats(I)[F
+    move-result-object p1
 
-    move-result-object v1
-
-    return-object v1
+    return-object p1
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
@@ -129,37 +117,31 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;[F)V
-    .locals 3
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p3, "object"    # [F
+    .locals 2
 
-    .line 96
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     if-nez p3, :cond_0
 
     .line 97
-    invoke-virtual {p2, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(B)V
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeByte(B)V
 
-    .line 98
     return-void
 
     .line 100
     :cond_0
-    array-length v1, p3
+    array-length v0, p3
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    add-int/2addr v1, v2
+    add-int/2addr v0, v1
 
-    invoke-virtual {p2, v1, v2}, Lcom/esotericsoftware/kryo/io/Output;->writeVarInt(IZ)I
+    invoke-virtual {p2, v0, v1}, Lcom/esotericsoftware/kryo/io/Output;->writeVarInt(IZ)I
 
     .line 101
-    array-length v1, p3
+    array-length v0, p3
 
-    invoke-virtual {p2, p3, v0, v1}, Lcom/esotericsoftware/kryo/io/Output;->writeFloats([FII)V
+    invoke-virtual {p2, p3, p1, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeFloats([FII)V
 
-    .line 102
     return-void
 .end method

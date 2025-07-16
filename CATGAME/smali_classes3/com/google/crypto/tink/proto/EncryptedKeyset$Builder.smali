@@ -38,13 +38,11 @@
 
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
-    .line 222
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/proto/EncryptedKeyset$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/proto/EncryptedKeyset$1;
 
     .line 214
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/EncryptedKeyset$Builder;-><init>()V
@@ -67,7 +65,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/EncryptedKeyset;->access$200(Lcom/google/crypto/tink/proto/EncryptedKeyset;)V
 
-    .line 262
     return-object p0
 .end method
 
@@ -84,7 +81,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/EncryptedKeyset;->access$500(Lcom/google/crypto/tink/proto/EncryptedKeyset;)V
 
-    .line 333
     return-object p0
 .end method
 
@@ -135,7 +131,6 @@
 
 .method public mergeKeysetInfo(Lcom/google/crypto/tink/proto/KeysetInfo;)Lcom/google/crypto/tink/proto/EncryptedKeyset$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/KeysetInfo;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -155,13 +150,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EncryptedKeyset;->access$400(Lcom/google/crypto/tink/proto/EncryptedKeyset;Lcom/google/crypto/tink/proto/KeysetInfo;)V
 
-    .line 322
     return-object p0
 .end method
 
 .method public setEncryptedKeyset(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/EncryptedKeyset$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -181,13 +174,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EncryptedKeyset;->access$100(Lcom/google/crypto/tink/proto/EncryptedKeyset;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    .line 249
     return-object p0
 .end method
 
 .method public setKeysetInfo(Lcom/google/crypto/tink/proto/KeysetInfo$Builder;)Lcom/google/crypto/tink/proto/EncryptedKeyset$Builder;
-    .locals 2
-    .param p1, "builderForValue"    # Lcom/google/crypto/tink/proto/KeysetInfo$Builder;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -207,19 +198,17 @@
 
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/KeysetInfo$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Lcom/google/crypto/tink/proto/KeysetInfo;
+    check-cast p1, Lcom/google/crypto/tink/proto/KeysetInfo;
 
-    invoke-static {v0, v1}, Lcom/google/crypto/tink/proto/EncryptedKeyset;->access$300(Lcom/google/crypto/tink/proto/EncryptedKeyset;Lcom/google/crypto/tink/proto/KeysetInfo;)V
+    invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EncryptedKeyset;->access$300(Lcom/google/crypto/tink/proto/EncryptedKeyset;Lcom/google/crypto/tink/proto/KeysetInfo;)V
 
-    .line 310
     return-object p0
 .end method
 
 .method public setKeysetInfo(Lcom/google/crypto/tink/proto/KeysetInfo;)Lcom/google/crypto/tink/proto/EncryptedKeyset$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/KeysetInfo;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -239,6 +228,5 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EncryptedKeyset;->access$300(Lcom/google/crypto/tink/proto/EncryptedKeyset;Lcom/google/crypto/tink/proto/KeysetInfo;)V
 
-    .line 297
     return-object p0
 .end method

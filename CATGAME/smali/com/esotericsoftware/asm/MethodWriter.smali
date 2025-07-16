@@ -370,8 +370,6 @@
 
     if-ge p2, v2, :cond_0
 
-    aget v2, p0, v1
-
     if-gt v2, p3, :cond_0
 
     aget v2, p1, v1
@@ -381,11 +379,7 @@
     goto :goto_1
 
     :cond_0
-    aget v2, p0, v1
-
     if-ge p3, v2, :cond_1
-
-    aget v2, p0, v1
 
     if-gt v2, p2, :cond_1
 
@@ -1103,19 +1097,19 @@
 
     and-int/2addr v4, v5
 
-    const/4 v5, 0x0
+    const/16 v5, 0x32
 
-    const/4 v6, 0x3
+    const/4 v6, 0x0
 
-    const/16 v7, 0x32
+    const/4 v7, 0x3
 
-    if-ge v4, v7, :cond_0
+    if-ge v4, v5, :cond_0
 
     iget-object v2, v0, Lcom/esotericsoftware/asm/MethodWriter;->v:Lcom/esotericsoftware/asm/ByteVector;
 
     iget-object v4, v0, Lcom/esotericsoftware/asm/MethodWriter;->z:[I
 
-    aget v4, v4, v5
+    aget v4, v4, v6
 
     invoke-virtual {v2, v4}, Lcom/esotericsoftware/asm/ByteVector;->putShort(I)Lcom/esotericsoftware/asm/ByteVector;
 
@@ -1123,9 +1117,9 @@
 
     invoke-virtual {v2, v3}, Lcom/esotericsoftware/asm/ByteVector;->putShort(I)Lcom/esotericsoftware/asm/ByteVector;
 
-    add-int/2addr v3, v6
+    add-int/2addr v3, v7
 
-    invoke-direct {v0, v6, v3}, Lcom/esotericsoftware/asm/MethodWriter;->a(II)V
+    invoke-direct {v0, v7, v3}, Lcom/esotericsoftware/asm/MethodWriter;->a(II)V
 
     iget-object v2, v0, Lcom/esotericsoftware/asm/MethodWriter;->v:Lcom/esotericsoftware/asm/ByteVector;
 
@@ -1140,7 +1134,7 @@
     :cond_0
     iget-object v4, v0, Lcom/esotericsoftware/asm/MethodWriter;->x:[I
 
-    aget v7, v4, v2
+    aget v5, v4, v2
 
     iget v8, v0, Lcom/esotericsoftware/asm/MethodWriter;->u:I
 
@@ -1148,16 +1142,16 @@
 
     iget-object v4, v0, Lcom/esotericsoftware/asm/MethodWriter;->z:[I
 
-    aget v4, v4, v5
+    aget v4, v4, v6
 
     goto :goto_0
 
     :cond_1
     iget-object v8, v0, Lcom/esotericsoftware/asm/MethodWriter;->z:[I
 
-    aget v8, v8, v5
+    aget v8, v8, v6
 
-    aget v4, v4, v5
+    aget v4, v4, v6
 
     sub-int/2addr v8, v4
 
@@ -1178,7 +1172,7 @@
 
     if-nez v1, :cond_3
 
-    sub-int v2, v3, v7
+    sub-int v2, v3, v5
 
     packed-switch v2, :pswitch_data_0
 
@@ -1192,7 +1186,7 @@
     :pswitch_1
     if-ge v4, v11, :cond_2
 
-    move v14, v5
+    move v14, v6
 
     goto :goto_3
 
@@ -1202,14 +1196,14 @@
     goto :goto_3
 
     :pswitch_2
-    move v7, v3
+    move v5, v3
 
     move v14, v9
 
     goto :goto_3
 
     :cond_3
-    if-ne v3, v7, :cond_5
+    if-ne v3, v5, :cond_5
 
     if-ne v1, v2, :cond_5
 
@@ -1225,12 +1219,12 @@
     move v14, v10
 
     :goto_1
-    move v2, v5
+    move v2, v6
 
     goto :goto_3
 
     :cond_5
-    move v2, v5
+    move v2, v6
 
     :goto_2
     move v14, v12
@@ -1238,20 +1232,20 @@
     :goto_3
     if-eq v14, v12, :cond_7
 
-    move v15, v6
+    move v15, v7
 
     :goto_4
-    if-ge v5, v7, :cond_7
+    if-ge v6, v5, :cond_7
 
-    iget-object v6, v0, Lcom/esotericsoftware/asm/MethodWriter;->z:[I
+    iget-object v7, v0, Lcom/esotericsoftware/asm/MethodWriter;->z:[I
 
-    aget v6, v6, v15
+    aget v7, v7, v15
 
     iget-object v12, v0, Lcom/esotericsoftware/asm/MethodWriter;->x:[I
 
     aget v12, v12, v15
 
-    if-eq v6, v12, :cond_6
+    if-eq v7, v12, :cond_6
 
     const/16 v14, 0xff
 
@@ -1260,9 +1254,9 @@
     :cond_6
     add-int/lit8 v15, v15, 0x1
 
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v6, v6, 0x1
 
-    const/4 v6, 0x3
+    const/4 v7, 0x3
 
     const/16 v12, 0xff
 
@@ -1296,11 +1290,11 @@
 
     invoke-virtual {v2, v3}, Lcom/esotericsoftware/asm/ByteVector;->putShort(I)Lcom/esotericsoftware/asm/ByteVector;
 
-    const/4 v5, 0x3
+    const/4 v6, 0x3
 
-    add-int/2addr v3, v5
+    add-int/2addr v3, v6
 
-    invoke-direct {v0, v5, v3}, Lcom/esotericsoftware/asm/MethodWriter;->a(II)V
+    invoke-direct {v0, v6, v3}, Lcom/esotericsoftware/asm/MethodWriter;->a(II)V
 
     iget-object v2, v0, Lcom/esotericsoftware/asm/MethodWriter;->v:Lcom/esotericsoftware/asm/ByteVector;
 
@@ -1313,7 +1307,7 @@
     goto :goto_8
 
     :cond_8
-    const/4 v5, 0x3
+    const/4 v6, 0x3
 
     iget-object v1, v0, Lcom/esotericsoftware/asm/MethodWriter;->v:Lcom/esotericsoftware/asm/ByteVector;
 
@@ -1325,11 +1319,11 @@
 
     invoke-virtual {v1, v4}, Lcom/esotericsoftware/asm/ByteVector;->putShort(I)Lcom/esotericsoftware/asm/ByteVector;
 
-    add-int/2addr v7, v5
+    add-int/2addr v5, v6
 
-    add-int/2addr v3, v5
+    add-int/2addr v3, v6
 
-    invoke-direct {v0, v7, v3}, Lcom/esotericsoftware/asm/MethodWriter;->a(II)V
+    invoke-direct {v0, v5, v3}, Lcom/esotericsoftware/asm/MethodWriter;->a(II)V
 
     goto :goto_8
 
@@ -3250,17 +3244,15 @@
 
     iget-object v2, p0, Lcom/esotericsoftware/asm/MethodWriter;->o:[Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    aget-object v5, v2, v1
+    aget-object v2, v2, v1
 
-    if-nez v5, :cond_17
+    if-nez v2, :cond_17
 
     move v2, v4
 
     goto :goto_4
 
     :cond_17
-    aget-object v2, v2, v1
-
     invoke-virtual {v2}, Lcom/esotericsoftware/asm/AnnotationWriter;->a()I
 
     move-result v2
@@ -3308,17 +3300,15 @@
 
     iget-object v2, p0, Lcom/esotericsoftware/asm/MethodWriter;->p:[Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    aget-object v3, v2, v1
+    aget-object v2, v2, v1
 
-    if-nez v3, :cond_19
+    if-nez v2, :cond_19
 
     move v2, v4
 
     goto :goto_6
 
     :cond_19
-    aget-object v2, v2, v1
-
     invoke-virtual {v2}, Lcom/esotericsoftware/asm/AnnotationWriter;->a()I
 
     move-result v2
@@ -4483,27 +4473,29 @@
 .method public visitAnnotationDefault()Lcom/esotericsoftware/asm/AnnotationVisitor;
     .locals 7
 
-    new-instance v3, Lcom/esotericsoftware/asm/ByteVector;
+    new-instance v0, Lcom/esotericsoftware/asm/ByteVector;
 
-    invoke-direct {v3}, Lcom/esotericsoftware/asm/ByteVector;-><init>()V
+    invoke-direct {v0}, Lcom/esotericsoftware/asm/ByteVector;-><init>()V
 
-    iput-object v3, p0, Lcom/esotericsoftware/asm/MethodWriter;->l:Lcom/esotericsoftware/asm/ByteVector;
+    iput-object v0, p0, Lcom/esotericsoftware/asm/MethodWriter;->l:Lcom/esotericsoftware/asm/ByteVector;
 
-    new-instance v6, Lcom/esotericsoftware/asm/AnnotationWriter;
+    new-instance v0, Lcom/esotericsoftware/asm/AnnotationWriter;
 
-    iget-object v1, p0, Lcom/esotericsoftware/asm/MethodWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
+    iget-object v2, p0, Lcom/esotericsoftware/asm/MethodWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    iget-object v4, p0, Lcom/esotericsoftware/asm/MethodWriter;->l:Lcom/esotericsoftware/asm/ByteVector;
 
     const/4 v5, 0x0
 
-    move-object v0, v6
+    const/4 v6, 0x0
 
-    invoke-direct/range {v0 .. v5}, Lcom/esotericsoftware/asm/AnnotationWriter;-><init>(Lcom/esotericsoftware/asm/ClassWriter;ZLcom/esotericsoftware/asm/ByteVector;Lcom/esotericsoftware/asm/ByteVector;I)V
+    move-object v1, v0
 
-    return-object v6
+    invoke-direct/range {v1 .. v6}, Lcom/esotericsoftware/asm/AnnotationWriter;-><init>(Lcom/esotericsoftware/asm/ClassWriter;ZLcom/esotericsoftware/asm/ByteVector;Lcom/esotericsoftware/asm/ByteVector;I)V
+
+    return-object v0
 .end method
 
 .method public visitAttribute(Lcom/esotericsoftware/asm/Attribute;)V
@@ -4732,21 +4724,19 @@
 
     aget-object v5, p3, v0
 
-    instance-of v5, v5, Ljava/lang/String;
+    instance-of v6, v5, Ljava/lang/String;
 
-    if-eqz v5, :cond_2
+    if-eqz v6, :cond_2
 
     iget-object v2, p0, Lcom/esotericsoftware/asm/MethodWriter;->z:[I
 
     add-int/lit8 v3, p1, 0x1
 
-    iget-object v5, p0, Lcom/esotericsoftware/asm/MethodWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
+    iget-object v6, p0, Lcom/esotericsoftware/asm/MethodWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
-    aget-object v6, p3, v0
+    check-cast v5, Ljava/lang/String;
 
-    check-cast v6, Ljava/lang/String;
-
-    invoke-virtual {v5, v6}, Lcom/esotericsoftware/asm/ClassWriter;->c(Ljava/lang/String;)I
+    invoke-virtual {v6, v5}, Lcom/esotericsoftware/asm/ClassWriter;->c(Ljava/lang/String;)I
 
     move-result v5
 
@@ -4760,9 +4750,7 @@
     goto :goto_2
 
     :cond_2
-    aget-object v4, p3, v0
-
-    instance-of v4, v4, Ljava/lang/Integer;
+    instance-of v4, v5, Ljava/lang/Integer;
 
     if-eqz v4, :cond_3
 
@@ -4770,11 +4758,9 @@
 
     add-int/lit8 v3, p1, 0x1
 
-    aget-object v4, p3, v0
+    check-cast v5, Ljava/lang/Integer;
 
-    check-cast v4, Ljava/lang/Integer;
-
-    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
 
     move-result v4
 
@@ -4785,17 +4771,15 @@
     :cond_3
     iget-object v4, p0, Lcom/esotericsoftware/asm/MethodWriter;->z:[I
 
-    add-int/lit8 v5, p1, 0x1
+    add-int/lit8 v6, p1, 0x1
 
-    iget-object v6, p0, Lcom/esotericsoftware/asm/MethodWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
+    iget-object v7, p0, Lcom/esotericsoftware/asm/MethodWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
-    aget-object v7, p3, v0
+    check-cast v5, Lcom/esotericsoftware/asm/Label;
 
-    check-cast v7, Lcom/esotericsoftware/asm/Label;
+    iget v5, v5, Lcom/esotericsoftware/asm/Label;->c:I
 
-    iget v7, v7, Lcom/esotericsoftware/asm/Label;->c:I
-
-    invoke-virtual {v6, v2, v7}, Lcom/esotericsoftware/asm/ClassWriter;->a(Ljava/lang/String;I)I
+    invoke-virtual {v7, v2, v5}, Lcom/esotericsoftware/asm/ClassWriter;->a(Ljava/lang/String;I)I
 
     move-result v2
 
@@ -4803,7 +4787,7 @@
 
     aput v2, v4, p1
 
-    move p1, v5
+    move p1, v6
 
     :goto_2
     add-int/lit8 v0, v0, 0x1
@@ -4816,76 +4800,68 @@
 
     aget-object p2, p5, v1
 
-    instance-of p2, p2, Ljava/lang/String;
+    instance-of p3, p2, Ljava/lang/String;
 
-    if-eqz p2, :cond_5
+    if-eqz p3, :cond_5
 
-    iget-object p2, p0, Lcom/esotericsoftware/asm/MethodWriter;->z:[I
+    iget-object p3, p0, Lcom/esotericsoftware/asm/MethodWriter;->z:[I
 
-    add-int/lit8 p3, p1, 0x1
+    add-int/lit8 v0, p1, 0x1
 
-    iget-object v0, p0, Lcom/esotericsoftware/asm/MethodWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
+    iget-object v5, p0, Lcom/esotericsoftware/asm/MethodWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
-    aget-object v5, p5, v1
+    check-cast p2, Ljava/lang/String;
 
-    check-cast v5, Ljava/lang/String;
+    invoke-virtual {v5, p2}, Lcom/esotericsoftware/asm/ClassWriter;->c(Ljava/lang/String;)I
 
-    invoke-virtual {v0, v5}, Lcom/esotericsoftware/asm/ClassWriter;->c(Ljava/lang/String;)I
+    move-result p2
 
-    move-result v0
+    or-int/2addr p2, v4
 
-    or-int/2addr v0, v4
-
-    aput v0, p2, p1
+    aput p2, p3, p1
 
     :goto_4
-    move p1, p3
+    move p1, v0
 
     goto :goto_5
 
     :cond_5
-    aget-object p2, p5, v1
+    instance-of p3, p2, Ljava/lang/Integer;
 
-    instance-of p2, p2, Ljava/lang/Integer;
+    if-eqz p3, :cond_6
 
-    if-eqz p2, :cond_6
+    iget-object p3, p0, Lcom/esotericsoftware/asm/MethodWriter;->z:[I
 
-    iget-object p2, p0, Lcom/esotericsoftware/asm/MethodWriter;->z:[I
+    add-int/lit8 v0, p1, 0x1
 
-    add-int/lit8 p3, p1, 0x1
+    check-cast p2, Ljava/lang/Integer;
 
-    aget-object v0, p5, v1
+    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
-    check-cast v0, Ljava/lang/Integer;
+    move-result p2
 
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    aput v0, p2, p1
+    aput p2, p3, p1
 
     goto :goto_4
 
     :cond_6
-    iget-object p2, p0, Lcom/esotericsoftware/asm/MethodWriter;->z:[I
+    iget-object p3, p0, Lcom/esotericsoftware/asm/MethodWriter;->z:[I
 
-    add-int/lit8 p3, p1, 0x1
+    add-int/lit8 v0, p1, 0x1
 
-    iget-object v0, p0, Lcom/esotericsoftware/asm/MethodWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
+    iget-object v5, p0, Lcom/esotericsoftware/asm/MethodWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
-    aget-object v5, p5, v1
+    check-cast p2, Lcom/esotericsoftware/asm/Label;
 
-    check-cast v5, Lcom/esotericsoftware/asm/Label;
+    iget p2, p2, Lcom/esotericsoftware/asm/Label;->c:I
 
-    iget v5, v5, Lcom/esotericsoftware/asm/Label;->c:I
+    invoke-virtual {v5, v2, p2}, Lcom/esotericsoftware/asm/ClassWriter;->a(Ljava/lang/String;I)I
 
-    invoke-virtual {v0, v2, v5}, Lcom/esotericsoftware/asm/ClassWriter;->a(Ljava/lang/String;I)I
+    move-result p2
 
-    move-result v0
+    or-int/2addr p2, v3
 
-    or-int/2addr v0, v3
-
-    aput v0, p2, p1
+    aput p2, p3, p1
 
     goto :goto_4
 
@@ -5325,11 +5301,11 @@
 
     iget-object v1, p0, Lcom/esotericsoftware/asm/MethodWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
+    const/4 v2, 0x1
+
     iget p2, v4, Lcom/esotericsoftware/asm/ByteVector;->b:I
 
     add-int/lit8 v5, p2, -0x2
-
-    const/4 v2, 0x1
 
     move-object v0, p1
 
@@ -5522,9 +5498,9 @@
 
     const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    const/4 v4, 0x1
 
-    const/4 v5, 0x1
+    const/4 v5, 0x0
 
     if-eqz v0, :cond_3
 
@@ -5534,7 +5510,7 @@
 
     iget-object v0, v0, Lcom/esotericsoftware/asm/Label;->h:Lcom/esotericsoftware/asm/Frame;
 
-    invoke-virtual {v0, p1, v3, v4, v4}, Lcom/esotericsoftware/asm/Frame;->a(IILcom/esotericsoftware/asm/ClassWriter;Lcom/esotericsoftware/asm/Item;)V
+    invoke-virtual {v0, p1, v3, v5, v5}, Lcom/esotericsoftware/asm/Frame;->a(IILcom/esotericsoftware/asm/ClassWriter;Lcom/esotericsoftware/asm/Item;)V
 
     invoke-virtual {p2}, Lcom/esotericsoftware/asm/Label;->a()Lcom/esotericsoftware/asm/Label;
 
@@ -5550,9 +5526,9 @@
 
     if-eq p1, v2, :cond_3
 
-    new-instance v4, Lcom/esotericsoftware/asm/Label;
+    new-instance v5, Lcom/esotericsoftware/asm/Label;
 
-    invoke-direct {v4}, Lcom/esotericsoftware/asm/Label;-><init>()V
+    invoke-direct {v5}, Lcom/esotericsoftware/asm/Label;-><init>()V
 
     goto :goto_0
 
@@ -5573,28 +5549,28 @@
 
     iget v0, p0, Lcom/esotericsoftware/asm/MethodWriter;->L:I
 
-    add-int/2addr v0, v5
+    add-int/2addr v0, v4
 
     iput v0, p0, Lcom/esotericsoftware/asm/MethodWriter;->L:I
 
     :cond_1
     iget-object v0, p0, Lcom/esotericsoftware/asm/MethodWriter;->P:Lcom/esotericsoftware/asm/Label;
 
-    iget v4, v0, Lcom/esotericsoftware/asm/Label;->a:I
+    iget v5, v0, Lcom/esotericsoftware/asm/Label;->a:I
 
-    or-int/lit16 v4, v4, 0x80
+    or-int/lit16 v5, v5, 0x80
 
-    iput v4, v0, Lcom/esotericsoftware/asm/Label;->a:I
+    iput v5, v0, Lcom/esotericsoftware/asm/Label;->a:I
 
     iget v0, p0, Lcom/esotericsoftware/asm/MethodWriter;->Q:I
 
-    add-int/2addr v0, v5
+    add-int/2addr v0, v4
 
     invoke-direct {p0, v0, p2}, Lcom/esotericsoftware/asm/MethodWriter;->a(ILcom/esotericsoftware/asm/Label;)V
 
-    new-instance v4, Lcom/esotericsoftware/asm/Label;
+    new-instance v5, Lcom/esotericsoftware/asm/Label;
 
-    invoke-direct {v4}, Lcom/esotericsoftware/asm/Label;-><init>()V
+    invoke-direct {v5}, Lcom/esotericsoftware/asm/Label;-><init>()V
 
     goto :goto_0
 
@@ -5654,13 +5630,13 @@
     goto :goto_3
 
     :cond_5
-    if-eqz v4, :cond_6
+    if-eqz v5, :cond_6
 
-    iget v1, v4, Lcom/esotericsoftware/asm/Label;->a:I
+    iget v1, v5, Lcom/esotericsoftware/asm/Label;->a:I
 
     or-int/lit8 v1, v1, 0x10
 
-    iput v1, v4, Lcom/esotericsoftware/asm/Label;->a:I
+    iput v1, v5, Lcom/esotericsoftware/asm/Label;->a:I
 
     :cond_6
     iget-object v1, p0, Lcom/esotericsoftware/asm/MethodWriter;->r:Lcom/esotericsoftware/asm/ByteVector;
@@ -5671,9 +5647,9 @@
 
     add-int/lit8 v3, p1, 0x1
 
-    xor-int/2addr v3, v5
+    xor-int/2addr v3, v4
 
-    sub-int/2addr v3, v5
+    sub-int/2addr v3, v4
 
     goto :goto_2
 
@@ -5696,9 +5672,9 @@
 
     iget v1, v0, Lcom/esotericsoftware/asm/ByteVector;->b:I
 
-    sub-int/2addr v1, v5
+    sub-int/2addr v1, v4
 
-    invoke-virtual {p2, p0, v0, v1, v5}, Lcom/esotericsoftware/asm/Label;->a(Lcom/esotericsoftware/asm/MethodWriter;Lcom/esotericsoftware/asm/ByteVector;IZ)V
+    invoke-virtual {p2, p0, v0, v1, v4}, Lcom/esotericsoftware/asm/Label;->a(Lcom/esotericsoftware/asm/MethodWriter;Lcom/esotericsoftware/asm/ByteVector;IZ)V
 
     goto :goto_4
 
@@ -5711,7 +5687,7 @@
 
     iget v1, v0, Lcom/esotericsoftware/asm/ByteVector;->b:I
 
-    sub-int/2addr v1, v5
+    sub-int/2addr v1, v4
 
     invoke-virtual {p2, p0, v0, v1, v3}, Lcom/esotericsoftware/asm/Label;->a(Lcom/esotericsoftware/asm/MethodWriter;Lcom/esotericsoftware/asm/ByteVector;IZ)V
 
@@ -5720,9 +5696,9 @@
 
     if-eqz p2, :cond_a
 
-    if-eqz v4, :cond_9
+    if-eqz v5, :cond_9
 
-    invoke-virtual {p0, v4}, Lcom/esotericsoftware/asm/MethodWriter;->visitLabel(Lcom/esotericsoftware/asm/Label;)V
+    invoke-virtual {p0, v5}, Lcom/esotericsoftware/asm/MethodWriter;->visitLabel(Lcom/esotericsoftware/asm/Label;)V
 
     :cond_9
     if-ne p1, v2, :cond_a
@@ -7471,11 +7447,11 @@
 
     iget-object v1, p0, Lcom/esotericsoftware/asm/MethodWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
+    const/4 v2, 0x1
+
     iget p2, v4, Lcom/esotericsoftware/asm/ByteVector;->b:I
 
     add-int/lit8 v5, p2, -0x2
-
-    const/4 v2, 0x1
 
     move-object v0, p1
 
@@ -7585,11 +7561,11 @@
 
     iget-object v1, p0, Lcom/esotericsoftware/asm/MethodWriter;->b:Lcom/esotericsoftware/asm/ClassWriter;
 
+    const/4 v2, 0x1
+
     iget p2, v4, Lcom/esotericsoftware/asm/ByteVector;->b:I
 
     add-int/lit8 v5, p2, -0x2
-
-    const/4 v2, 0x1
 
     move-object v0, p1
 

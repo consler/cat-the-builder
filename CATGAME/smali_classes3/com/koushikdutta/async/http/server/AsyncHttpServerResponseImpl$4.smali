@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;Lcom/koushikdutta/async/http/AsyncHttpResponse;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;
 
     .line 330
     iput-object p1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$4;->this$0:Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;
@@ -41,32 +40,30 @@
 
 # virtual methods
 .method public onCompleted(Ljava/lang/Exception;)V
-    .locals 2
-    .param p1, "ex"    # Ljava/lang/Exception;
+    .locals 1
 
     .line 333
-    iget-object v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$4;->val$remoteResponse:Lcom/koushikdutta/async/http/AsyncHttpResponse;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$4;->val$remoteResponse:Lcom/koushikdutta/async/http/AsyncHttpResponse;
 
-    new-instance v1, Lcom/koushikdutta/async/callback/CompletedCallback$NullCompletedCallback;
+    new-instance v0, Lcom/koushikdutta/async/callback/CompletedCallback$NullCompletedCallback;
 
-    invoke-direct {v1}, Lcom/koushikdutta/async/callback/CompletedCallback$NullCompletedCallback;-><init>()V
+    invoke-direct {v0}, Lcom/koushikdutta/async/callback/CompletedCallback$NullCompletedCallback;-><init>()V
 
-    invoke-interface {v0, v1}, Lcom/koushikdutta/async/http/AsyncHttpResponse;->setEndCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
+    invoke-interface {p1, v0}, Lcom/koushikdutta/async/http/AsyncHttpResponse;->setEndCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
 
     .line 334
-    iget-object v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$4;->val$remoteResponse:Lcom/koushikdutta/async/http/AsyncHttpResponse;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$4;->val$remoteResponse:Lcom/koushikdutta/async/http/AsyncHttpResponse;
 
-    new-instance v1, Lcom/koushikdutta/async/callback/DataCallback$NullDataCallback;
+    new-instance v0, Lcom/koushikdutta/async/callback/DataCallback$NullDataCallback;
 
-    invoke-direct {v1}, Lcom/koushikdutta/async/callback/DataCallback$NullDataCallback;-><init>()V
+    invoke-direct {v0}, Lcom/koushikdutta/async/callback/DataCallback$NullDataCallback;-><init>()V
 
-    invoke-interface {v0, v1}, Lcom/koushikdutta/async/http/AsyncHttpResponse;->setDataCallback(Lcom/koushikdutta/async/callback/DataCallback;)V
+    invoke-interface {p1, v0}, Lcom/koushikdutta/async/http/AsyncHttpResponse;->setDataCallback(Lcom/koushikdutta/async/callback/DataCallback;)V
 
     .line 335
-    iget-object v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$4;->this$0:Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl$4;->this$0:Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;
 
-    invoke-virtual {v0}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->end()V
+    invoke-virtual {p1}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->end()V
 
-    .line 336
     return-void
 .end method

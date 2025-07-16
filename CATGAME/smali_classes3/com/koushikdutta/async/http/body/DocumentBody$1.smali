@@ -35,7 +35,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/body/DocumentBody;Lcom/koushikdutta/async/callback/CompletedCallback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/body/DocumentBody;
 
     .line 62
     iput-object p1, p0, Lcom/koushikdutta/async/http/body/DocumentBody$1;->this$0:Lcom/koushikdutta/async/http/body/DocumentBody;
@@ -62,8 +61,6 @@
 
 .method public onCompleted(Ljava/lang/Exception;Lorg/w3c/dom/Document;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Exception;
-    .param p2, "result"    # Lorg/w3c/dom/Document;
 
     .line 65
     iget-object v0, p0, Lcom/koushikdutta/async/http/body/DocumentBody$1;->this$0:Lcom/koushikdutta/async/http/body/DocumentBody;
@@ -71,10 +68,9 @@
     iput-object p2, v0, Lcom/koushikdutta/async/http/body/DocumentBody;->document:Lorg/w3c/dom/Document;
 
     .line 66
-    iget-object v0, p0, Lcom/koushikdutta/async/http/body/DocumentBody$1;->val$completed:Lcom/koushikdutta/async/callback/CompletedCallback;
+    iget-object p2, p0, Lcom/koushikdutta/async/http/body/DocumentBody$1;->val$completed:Lcom/koushikdutta/async/callback/CompletedCallback;
 
-    invoke-interface {v0, p1}, Lcom/koushikdutta/async/callback/CompletedCallback;->onCompleted(Ljava/lang/Exception;)V
+    invoke-interface {p2, p1}, Lcom/koushikdutta/async/callback/CompletedCallback;->onCompleted(Ljava/lang/Exception;)V
 
-    .line 67
     return-void
 .end method

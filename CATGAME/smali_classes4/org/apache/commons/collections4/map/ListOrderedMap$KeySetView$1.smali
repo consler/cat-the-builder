@@ -31,11 +31,8 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView;Ljava/util/Iterator;)V
     .locals 0
-    .param p1, "this$0"    # Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView;
 
     .line 588
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView$1;, "Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView$1;"
-    .local p2, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<TK;Ljava/lang/Object;>;>;"
     iput-object p1, p0, Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView$1;->this$0:Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView;
 
     invoke-direct {p0, p2}, Lorg/apache/commons/collections4/iterators/AbstractUntypedIteratorDecorator;-><init>(Ljava/util/Iterator;)V
@@ -54,7 +51,6 @@
     .end annotation
 
     .line 591
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView$1;, "Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView$1;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView$1;->getIterator()Ljava/util/Iterator;
 
     move-result-object v0

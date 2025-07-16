@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Landroidx/work/impl/background/systemalarm/ConstraintProxyUpdateReceiver;Landroid/content/Intent;Landroid/content/Context;Landroid/content/BroadcastReceiver$PendingResult;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/work/impl/background/systemalarm/ConstraintProxyUpdateReceiver;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
@@ -78,7 +77,6 @@
     move-result v0
 
     .line 99
-    .local v0, "batteryNotLowProxyEnabled":Z
     iget-object v1, p0, Landroidx/work/impl/background/systemalarm/ConstraintProxyUpdateReceiver$1;->val$intent:Landroid/content/Intent;
 
     const-string v3, "KEY_BATTERY_CHARGING_PROXY_ENABLED"
@@ -88,7 +86,6 @@
     move-result v1
 
     .line 101
-    .local v1, "batteryChargingProxyEnabled":Z
     iget-object v3, p0, Landroidx/work/impl/background/systemalarm/ConstraintProxyUpdateReceiver$1;->val$intent:Landroid/content/Intent;
 
     const-string v4, "KEY_STORAGE_NOT_LOW_PROXY_ENABLED"
@@ -98,7 +95,6 @@
     move-result v3
 
     .line 103
-    .local v3, "storageNotLowProxyEnabled":Z
     iget-object v4, p0, Landroidx/work/impl/background/systemalarm/ConstraintProxyUpdateReceiver$1;->val$intent:Landroid/content/Intent;
 
     const-string v5, "KEY_NETWORK_STATE_PROXY_ENABLED"
@@ -108,7 +104,6 @@
     move-result v4
 
     .line 106
-    .local v4, "networkStateProxyEnabled":Z
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v5
@@ -128,32 +123,32 @@
 
     aput-object v9, v8, v2
 
-    const/4 v9, 0x1
-
     .line 113
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v10
+    move-result-object v9
 
-    aput-object v10, v8, v9
+    const/4 v10, 0x1
 
-    const/4 v9, 0x2
+    aput-object v9, v8, v10
 
     .line 114
     invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v10
+    move-result-object v9
 
-    aput-object v10, v8, v9
+    const/4 v10, 0x2
 
-    const/4 v9, 0x3
+    aput-object v9, v8, v10
 
     .line 115
     invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v10
+    move-result-object v9
 
-    aput-object v10, v8, v9
+    const/4 v10, 0x3
+
+    aput-object v9, v8, v10
 
     .line 108
     invoke-static {v7, v8}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
@@ -173,44 +168,35 @@
     invoke-static {v2, v5, v0}, Landroidx/work/impl/utils/PackageManagerHelper;->setComponentEnabled(Landroid/content/Context;Ljava/lang/Class;Z)V
 
     .line 119
-    iget-object v2, p0, Landroidx/work/impl/background/systemalarm/ConstraintProxyUpdateReceiver$1;->val$context:Landroid/content/Context;
+    iget-object v0, p0, Landroidx/work/impl/background/systemalarm/ConstraintProxyUpdateReceiver$1;->val$context:Landroid/content/Context;
 
-    const-class v5, Landroidx/work/impl/background/systemalarm/ConstraintProxy$BatteryChargingProxy;
+    const-class v2, Landroidx/work/impl/background/systemalarm/ConstraintProxy$BatteryChargingProxy;
 
-    invoke-static {v2, v5, v1}, Landroidx/work/impl/utils/PackageManagerHelper;->setComponentEnabled(Landroid/content/Context;Ljava/lang/Class;Z)V
+    invoke-static {v0, v2, v1}, Landroidx/work/impl/utils/PackageManagerHelper;->setComponentEnabled(Landroid/content/Context;Ljava/lang/Class;Z)V
 
     .line 122
-    iget-object v2, p0, Landroidx/work/impl/background/systemalarm/ConstraintProxyUpdateReceiver$1;->val$context:Landroid/content/Context;
+    iget-object v0, p0, Landroidx/work/impl/background/systemalarm/ConstraintProxyUpdateReceiver$1;->val$context:Landroid/content/Context;
 
-    const-class v5, Landroidx/work/impl/background/systemalarm/ConstraintProxy$StorageNotLowProxy;
+    const-class v1, Landroidx/work/impl/background/systemalarm/ConstraintProxy$StorageNotLowProxy;
 
-    invoke-static {v2, v5, v3}, Landroidx/work/impl/utils/PackageManagerHelper;->setComponentEnabled(Landroid/content/Context;Ljava/lang/Class;Z)V
+    invoke-static {v0, v1, v3}, Landroidx/work/impl/utils/PackageManagerHelper;->setComponentEnabled(Landroid/content/Context;Ljava/lang/Class;Z)V
 
     .line 124
-    iget-object v2, p0, Landroidx/work/impl/background/systemalarm/ConstraintProxyUpdateReceiver$1;->val$context:Landroid/content/Context;
+    iget-object v0, p0, Landroidx/work/impl/background/systemalarm/ConstraintProxyUpdateReceiver$1;->val$context:Landroid/content/Context;
 
-    const-class v5, Landroidx/work/impl/background/systemalarm/ConstraintProxy$NetworkStateProxy;
+    const-class v1, Landroidx/work/impl/background/systemalarm/ConstraintProxy$NetworkStateProxy;
 
-    invoke-static {v2, v5, v4}, Landroidx/work/impl/utils/PackageManagerHelper;->setComponentEnabled(Landroid/content/Context;Ljava/lang/Class;Z)V
+    invoke-static {v0, v1, v4}, Landroidx/work/impl/utils/PackageManagerHelper;->setComponentEnabled(Landroid/content/Context;Ljava/lang/Class;Z)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 127
-    .end local v0    # "batteryNotLowProxyEnabled":Z
-    .end local v1    # "batteryChargingProxyEnabled":Z
-    .end local v3    # "storageNotLowProxyEnabled":Z
-    .end local v4    # "networkStateProxyEnabled":Z
     iget-object v0, p0, Landroidx/work/impl/background/systemalarm/ConstraintProxyUpdateReceiver$1;->val$pendingResult:Landroid/content/BroadcastReceiver$PendingResult;
 
     invoke-virtual {v0}, Landroid/content/BroadcastReceiver$PendingResult;->finish()V
 
-    .line 128
-    nop
-
-    .line 129
     return-void
 
-    .line 127
     :catchall_0
     move-exception v0
 

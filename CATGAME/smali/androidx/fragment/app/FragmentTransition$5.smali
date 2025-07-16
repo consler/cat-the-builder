@@ -87,7 +87,6 @@
 
     invoke-virtual {v1, v0, v2}, Landroidx/fragment/app/FragmentTransitionImpl;->getBoundsOnScreen(Landroid/view/View;Landroid/graphics/Rect;)V
 
-    .line 688
     :cond_0
     return-void
 .end method

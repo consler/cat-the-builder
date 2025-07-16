@@ -22,22 +22,19 @@
 
 # direct methods
 .method protected constructor <init>(Ljava/util/Iterator;Ljava/util/Set;)V
-    .locals 1
-    .param p1, "it"    # Ljava/util/Iterator;
-    .param p2, "set"    # Ljava/util/Set;
+    .locals 0
 
     .line 323
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/iterators/AbstractIteratorDecorator;-><init>(Ljava/util/Iterator;)V
 
-    .line 320
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lorg/apache/commons/collections/list/SetUniqueList$SetListIterator;->last:Ljava/lang/Object;
+    .line 320
+    iput-object p1, p0, Lorg/apache/commons/collections/list/SetUniqueList$SetListIterator;->last:Ljava/lang/Object;
 
     .line 324
     iput-object p2, p0, Lorg/apache/commons/collections/list/SetUniqueList$SetListIterator;->set:Ljava/util/Set;
 
-    .line 325
     return-void
 .end method
 
@@ -53,7 +50,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/list/SetUniqueList$SetListIterator;->last:Ljava/lang/Object;
 
-    .line 329
     return-object v0
 .end method
 
@@ -70,11 +66,10 @@
 
     invoke-interface {v0, v1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
-    .line 335
     const/4 v0, 0x0
 
+    .line 335
     iput-object v0, p0, Lorg/apache/commons/collections/list/SetUniqueList$SetListIterator;->last:Ljava/lang/Object;
 
-    .line 336
     return-void
 .end method

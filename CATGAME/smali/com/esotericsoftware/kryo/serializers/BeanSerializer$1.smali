@@ -33,10 +33,8 @@
 # direct methods
 .method constructor <init>(Lcom/esotericsoftware/kryo/serializers/BeanSerializer;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/esotericsoftware/kryo/serializers/BeanSerializer;
 
     .line 64
-    .local p0, "this":Lcom/esotericsoftware/kryo/serializers/BeanSerializer$1;, "Lcom/esotericsoftware/kryo/serializers/BeanSerializer$1;"
     iput-object p1, p0, Lcom/esotericsoftware/kryo/serializers/BeanSerializer$1;->this$0:Lcom/esotericsoftware/kryo/serializers/BeanSerializer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,32 +45,28 @@
 
 # virtual methods
 .method public compare(Ljava/beans/PropertyDescriptor;Ljava/beans/PropertyDescriptor;)I
-    .locals 2
-    .param p1, "o1"    # Ljava/beans/PropertyDescriptor;
-    .param p2, "o2"    # Ljava/beans/PropertyDescriptor;
+    .locals 0
 
     .line 66
-    .local p0, "this":Lcom/esotericsoftware/kryo/serializers/BeanSerializer$1;, "Lcom/esotericsoftware/kryo/serializers/BeanSerializer$1;"
     invoke-virtual {p1}, Ljava/beans/PropertyDescriptor;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
     invoke-virtual {p2}, Ljava/beans/PropertyDescriptor;->getName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
+    invoke-virtual {p1, p2}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 0
 
     .line 64
-    .local p0, "this":Lcom/esotericsoftware/kryo/serializers/BeanSerializer$1;, "Lcom/esotericsoftware/kryo/serializers/BeanSerializer$1;"
     check-cast p1, Ljava/beans/PropertyDescriptor;
 
     check-cast p2, Ljava/beans/PropertyDescriptor;

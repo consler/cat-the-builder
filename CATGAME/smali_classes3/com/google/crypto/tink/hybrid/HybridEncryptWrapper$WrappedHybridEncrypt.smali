@@ -51,13 +51,11 @@
     .end annotation
 
     .line 36
-    .local p1, "primitives":Lcom/google/crypto/tink/PrimitiveSet;, "Lcom/google/crypto/tink/PrimitiveSet<Lcom/google/crypto/tink/HybridEncrypt;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 37
     iput-object p1, p0, Lcom/google/crypto/tink/hybrid/HybridEncryptWrapper$WrappedHybridEncrypt;->primitives:Lcom/google/crypto/tink/PrimitiveSet;
 
-    .line 38
     return-void
 .end method
 
@@ -65,8 +63,6 @@
 # virtual methods
 .method public encrypt([B[B)[B
     .locals 3
-    .param p1, "plaintext"    # [B
-    .param p2, "contextInfo"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -84,11 +80,11 @@
         }
     .end annotation
 
-    .line 43
     const/4 v0, 0x2
 
     new-array v0, v0, [[B
 
+    .line 43
     iget-object v1, p0, Lcom/google/crypto/tink/hybrid/HybridEncryptWrapper$WrappedHybridEncrypt;->primitives:Lcom/google/crypto/tink/PrimitiveSet;
 
     .line 44
@@ -119,16 +115,16 @@
 
     invoke-interface {v1, p1, p2}, Lcom/google/crypto/tink/HybridEncrypt;->encrypt([B[B)[B
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v2, 0x1
+    const/4 p2, 0x1
 
-    aput-object v1, v0, v2
+    aput-object p1, v0, p2
 
     .line 43
     invoke-static {v0}, Lcom/google/crypto/tink/subtle/Bytes;->concat([[B)[B
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

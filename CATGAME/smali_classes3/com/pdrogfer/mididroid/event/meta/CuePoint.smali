@@ -6,11 +6,7 @@
 # direct methods
 .method public constructor <init>(JJLjava/lang/String;)V
     .locals 7
-    .param p1, "tick"    # J
-    .param p3, "delta"    # J
-    .param p5, "marker"    # Ljava/lang/String;
 
-    .line 23
     const/4 v5, 0x7
 
     move-object v0, p0
@@ -21,9 +17,9 @@
 
     move-object v6, p5
 
+    .line 23
     invoke-direct/range {v0 .. v6}, Lcom/pdrogfer/mididroid/event/meta/TextualMetaEvent;-><init>(JJILjava/lang/String;)V
 
-    .line 24
     return-void
 .end method
 
@@ -42,11 +38,9 @@
 
 .method public setCue(Ljava/lang/String;)V
     .locals 0
-    .param p1, "name"    # Ljava/lang/String;
 
     .line 28
     invoke-virtual {p0, p1}, Lcom/pdrogfer/mididroid/event/meta/CuePoint;->setText(Ljava/lang/String;)V
 
-    .line 29
     return-void
 .end method

@@ -50,7 +50,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/ObservableSource;JLjava/lang/Object;)V
     .locals 0
-    .param p2, "index"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -60,9 +59,6 @@
     .end annotation
 
     .line 29
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableElementAtSingle;, "Lio/reactivex/internal/operators/observable/ObservableElementAtSingle<TT;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
-    .local p4, "defaultValue":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 30
@@ -74,7 +70,6 @@
     .line 32
     iput-object p4, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtSingle;->defaultValue:Ljava/lang/Object;
 
-    .line 33
     return-void
 .end method
 
@@ -91,7 +86,6 @@
     .end annotation
 
     .line 42
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableElementAtSingle;, "Lio/reactivex/internal/operators/observable/ObservableElementAtSingle<TT;>;"
     new-instance v6, Lio/reactivex/internal/operators/observable/ObservableElementAt;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtSingle;->source:Lio/reactivex/ObservableSource;
@@ -124,8 +118,6 @@
     .end annotation
 
     .line 37
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableElementAtSingle;, "Lio/reactivex/internal/operators/observable/ObservableElementAtSingle<TT;>;"
-    .local p1, "t":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableElementAtSingle;->source:Lio/reactivex/ObservableSource;
 
     new-instance v1, Lio/reactivex/internal/operators/observable/ObservableElementAtSingle$ElementAtObserver;
@@ -138,6 +130,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 38
     return-void
 .end method

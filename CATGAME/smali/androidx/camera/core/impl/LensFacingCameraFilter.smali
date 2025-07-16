@@ -13,7 +13,6 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .param p1, "lensFacing"    # I
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -21,14 +20,13 @@
     .line 38
     iput p1, p0, Landroidx/camera/core/impl/LensFacingCameraFilter;->mLensFacing:I
 
-    .line 39
     return-void
 .end method
 
 
 # virtual methods
 .method public filter(Ljava/util/LinkedHashSet;)Ljava/util/LinkedHashSet;
-    .locals 6
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -42,73 +40,65 @@
     .end annotation
 
     .line 44
-    .local p1, "cameras":Ljava/util/LinkedHashSet;, "Ljava/util/LinkedHashSet<Landroidx/camera/core/Camera;>;"
     new-instance v0, Ljava/util/LinkedHashSet;
 
     invoke-direct {v0}, Ljava/util/LinkedHashSet;-><init>()V
 
     .line 45
-    .local v0, "resultCameras":Ljava/util/LinkedHashSet;, "Ljava/util/LinkedHashSet<Landroidx/camera/core/Camera;>;"
     invoke-virtual {p1}, Ljava/util/LinkedHashSet;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :cond_0
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v1, Landroidx/camera/core/Camera;
 
-    move-result v2
+    .line 46
+    instance-of v2, v1, Landroidx/camera/core/impl/CameraInternal;
 
-    if-eqz v2, :cond_1
+    const-string v3, "The camera doesn\'t contain internal implementation."
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-static {v2, v3}, Landroidx/core/util/Preconditions;->checkState(ZLjava/lang/String;)V
+
+    .line 48
+    move-object v2, v1
+
+    check-cast v2, Landroidx/camera/core/impl/CameraInternal;
+
+    invoke-interface {v2}, Landroidx/camera/core/impl/CameraInternal;->getCameraInfoInternal()Landroidx/camera/core/impl/CameraInfoInternal;
 
     move-result-object v2
 
-    check-cast v2, Landroidx/camera/core/Camera;
+    invoke-interface {v2}, Landroidx/camera/core/impl/CameraInfoInternal;->getLensFacing()Ljava/lang/Integer;
 
-    .line 46
-    .local v2, "camera":Landroidx/camera/core/Camera;
-    instance-of v3, v2, Landroidx/camera/core/impl/CameraInternal;
+    move-result-object v2
 
-    const-string v4, "The camera doesn\'t contain internal implementation."
-
-    invoke-static {v3, v4}, Landroidx/core/util/Preconditions;->checkState(ZLjava/lang/String;)V
-
-    .line 48
-    move-object v3, v2
-
-    check-cast v3, Landroidx/camera/core/impl/CameraInternal;
-
-    invoke-interface {v3}, Landroidx/camera/core/impl/CameraInternal;->getCameraInfoInternal()Landroidx/camera/core/impl/CameraInfoInternal;
-
-    move-result-object v3
-
-    invoke-interface {v3}, Landroidx/camera/core/impl/CameraInfoInternal;->getLensFacing()Ljava/lang/Integer;
-
-    move-result-object v3
+    if-eqz v2, :cond_0
 
     .line 49
-    .local v3, "lensFacing":Ljava/lang/Integer;
-    if-eqz v3, :cond_0
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
-    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+    move-result v2
 
-    move-result v4
+    iget v3, p0, Landroidx/camera/core/impl/LensFacingCameraFilter;->mLensFacing:I
 
-    iget v5, p0, Landroidx/camera/core/impl/LensFacingCameraFilter;->mLensFacing:I
-
-    if-ne v4, v5, :cond_0
+    if-ne v2, v3, :cond_0
 
     .line 50
-    invoke-virtual {v0, v2}, Ljava/util/LinkedHashSet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/LinkedHashSet;->add(Ljava/lang/Object;)Z
 
-    .line 52
-    .end local v2    # "camera":Landroidx/camera/core/Camera;
-    .end local v3    # "lensFacing":Ljava/lang/Integer;
-    :cond_0
     goto :goto_0
 
-    .line 54
     :cond_1
     return-object v0
 .end method

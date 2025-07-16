@@ -20,13 +20,12 @@
 .end method
 
 .method static synthetic access$000(Lorg/apache/commons/collections/DoubleOrderedMap$1;)Lorg/apache/commons/collections/DoubleOrderedMap;
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections/DoubleOrderedMap$1;
+    .locals 0
 
     .line 205
-    iget-object v0, p0, Lorg/apache/commons/collections/DoubleOrderedMap$1;->this$0:Lorg/apache/commons/collections/DoubleOrderedMap;
+    iget-object p0, p0, Lorg/apache/commons/collections/DoubleOrderedMap$1;->this$0:Lorg/apache/commons/collections/DoubleOrderedMap;
 
-    return-object v0
+    return-object p0
 .end method
 
 
@@ -39,13 +38,11 @@
 
     invoke-virtual {v0}, Lorg/apache/commons/collections/DoubleOrderedMap;->clear()V
 
-    .line 257
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 6
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 4
 
     .line 219
     instance-of v0, p1, Ljava/util/Map$Entry;
@@ -54,52 +51,46 @@
 
     if-nez v0, :cond_0
 
-    .line 220
     return v1
 
     .line 223
     :cond_0
-    move-object v0, p1
-
-    check-cast v0, Ljava/util/Map$Entry;
+    check-cast p1, Ljava/util/Map$Entry;
 
     .line 224
-    .local v0, "entry":Ljava/util/Map$Entry;
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 225
-    .local v2, "key":Ljava/lang/Object;
-    iget-object v3, p0, Lorg/apache/commons/collections/DoubleOrderedMap$1;->this$0:Lorg/apache/commons/collections/DoubleOrderedMap;
+    iget-object v2, p0, Lorg/apache/commons/collections/DoubleOrderedMap$1;->this$0:Lorg/apache/commons/collections/DoubleOrderedMap;
 
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object p1
 
-    check-cast v4, Ljava/lang/Comparable;
+    check-cast p1, Ljava/lang/Comparable;
 
-    const/4 v5, 0x1
+    const/4 v3, 0x1
 
-    invoke-static {v3, v4, v5}, Lorg/apache/commons/collections/DoubleOrderedMap;->access$100(Lorg/apache/commons/collections/DoubleOrderedMap;Ljava/lang/Comparable;I)Lorg/apache/commons/collections/DoubleOrderedMap$Node;
+    invoke-static {v2, p1, v3}, Lorg/apache/commons/collections/DoubleOrderedMap;->access$100(Lorg/apache/commons/collections/DoubleOrderedMap;Ljava/lang/Comparable;I)Lorg/apache/commons/collections/DoubleOrderedMap$Node;
 
-    move-result-object v3
+    move-result-object p1
+
+    if-eqz p1, :cond_1
 
     .line 228
-    .local v3, "node":Lorg/apache/commons/collections/DoubleOrderedMap$Node;
-    if-eqz v3, :cond_1
+    invoke-static {p1, v1}, Lorg/apache/commons/collections/DoubleOrderedMap$Node;->access$200(Lorg/apache/commons/collections/DoubleOrderedMap$Node;I)Ljava/lang/Comparable;
 
-    invoke-static {v3, v1}, Lorg/apache/commons/collections/DoubleOrderedMap$Node;->access$200(Lorg/apache/commons/collections/DoubleOrderedMap$Node;I)Ljava/lang/Comparable;
+    move-result-object p1
 
-    move-result-object v4
+    invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v4, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    move-result p1
 
-    move-result v4
+    if-eqz p1, :cond_1
 
-    if-eqz v4, :cond_1
-
-    move v1, v5
+    move v1, v3
 
     :cond_1
     return v1
@@ -119,8 +110,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 6
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 4
 
     .line 233
     instance-of v0, p1, Ljava/util/Map$Entry;
@@ -129,60 +119,52 @@
 
     if-nez v0, :cond_0
 
-    .line 234
     return v1
 
     .line 237
     :cond_0
-    move-object v0, p1
-
-    check-cast v0, Ljava/util/Map$Entry;
+    check-cast p1, Ljava/util/Map$Entry;
 
     .line 238
-    .local v0, "entry":Ljava/util/Map$Entry;
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v0
+
+    .line 239
+    iget-object v2, p0, Lorg/apache/commons/collections/DoubleOrderedMap$1;->this$0:Lorg/apache/commons/collections/DoubleOrderedMap;
+
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/Comparable;
+
+    const/4 v3, 0x1
+
+    invoke-static {v2, p1, v3}, Lorg/apache/commons/collections/DoubleOrderedMap;->access$100(Lorg/apache/commons/collections/DoubleOrderedMap;Ljava/lang/Comparable;I)Lorg/apache/commons/collections/DoubleOrderedMap$Node;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_1
+
+    .line 242
+    invoke-static {p1, v1}, Lorg/apache/commons/collections/DoubleOrderedMap$Node;->access$200(Lorg/apache/commons/collections/DoubleOrderedMap$Node;I)Ljava/lang/Comparable;
 
     move-result-object v2
 
-    .line 239
-    .local v2, "key":Ljava/lang/Object;
-    iget-object v3, p0, Lorg/apache/commons/collections/DoubleOrderedMap$1;->this$0:Lorg/apache/commons/collections/DoubleOrderedMap;
+    invoke-virtual {v2, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    move-result v0
 
-    move-result-object v4
-
-    check-cast v4, Ljava/lang/Comparable;
-
-    const/4 v5, 0x1
-
-    invoke-static {v3, v4, v5}, Lorg/apache/commons/collections/DoubleOrderedMap;->access$100(Lorg/apache/commons/collections/DoubleOrderedMap;Ljava/lang/Comparable;I)Lorg/apache/commons/collections/DoubleOrderedMap$Node;
-
-    move-result-object v3
-
-    .line 242
-    .local v3, "node":Lorg/apache/commons/collections/DoubleOrderedMap$Node;
-    if-eqz v3, :cond_1
-
-    invoke-static {v3, v1}, Lorg/apache/commons/collections/DoubleOrderedMap$Node;->access$200(Lorg/apache/commons/collections/DoubleOrderedMap$Node;I)Ljava/lang/Comparable;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
+    if-eqz v0, :cond_1
 
     .line 243
-    iget-object v1, p0, Lorg/apache/commons/collections/DoubleOrderedMap$1;->this$0:Lorg/apache/commons/collections/DoubleOrderedMap;
+    iget-object v0, p0, Lorg/apache/commons/collections/DoubleOrderedMap$1;->this$0:Lorg/apache/commons/collections/DoubleOrderedMap;
 
-    invoke-static {v1, v3}, Lorg/apache/commons/collections/DoubleOrderedMap;->access$300(Lorg/apache/commons/collections/DoubleOrderedMap;Lorg/apache/commons/collections/DoubleOrderedMap$Node;)V
+    invoke-static {v0, p1}, Lorg/apache/commons/collections/DoubleOrderedMap;->access$300(Lorg/apache/commons/collections/DoubleOrderedMap;Lorg/apache/commons/collections/DoubleOrderedMap$Node;)V
 
-    .line 245
-    return v5
+    return v3
 
-    .line 248
     :cond_1
     return v1
 .end method

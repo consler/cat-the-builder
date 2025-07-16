@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
 
     .line 2139
     iput-object p1, p0, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter$1;->this$0:Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
@@ -82,7 +81,6 @@
 
     invoke-virtual {v0, v1}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->removeRemoteControlClient(Ljava/lang/Object;)V
 
-    .line 2149
     :cond_1
     :goto_0
     return-void

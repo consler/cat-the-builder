@@ -25,13 +25,11 @@
     .line 76
     invoke-direct {p0}, Ljava/util/AbstractList;-><init>()V
 
-    .line 77
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Collection;)V
     .locals 0
-    .param p1, "coll"    # Ljava/util/Collection;
 
     .line 86
     invoke-direct {p0}, Ljava/util/AbstractList;-><init>()V
@@ -39,93 +37,86 @@
     .line 87
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections/list/TreeList;->addAll(Ljava/util/Collection;)Z
 
-    .line 88
     return-void
 .end method
 
 .method static synthetic access$300(Lorg/apache/commons/collections/list/TreeList;)I
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections/list/TreeList;
+    .locals 0
 
     .line 59
-    iget v0, p0, Lorg/apache/commons/collections/list/TreeList;->modCount:I
+    iget p0, p0, Lorg/apache/commons/collections/list/TreeList;->modCount:I
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$400(Lorg/apache/commons/collections/list/TreeList;)Lorg/apache/commons/collections/list/TreeList$AVLNode;
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections/list/TreeList;
+    .locals 0
 
     .line 59
-    iget-object v0, p0, Lorg/apache/commons/collections/list/TreeList;->root:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iget-object p0, p0, Lorg/apache/commons/collections/list/TreeList;->root:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$500(Lorg/apache/commons/collections/list/TreeList;)I
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/collections/list/TreeList;
+    .locals 0
 
     .line 59
-    iget v0, p0, Lorg/apache/commons/collections/list/TreeList;->modCount:I
+    iget p0, p0, Lorg/apache/commons/collections/list/TreeList;->modCount:I
 
-    return v0
+    return p0
 .end method
 
 .method private checkInterval(III)V
-    .locals 3
-    .param p1, "index"    # I
-    .param p2, "startIndex"    # I
-    .param p3, "endIndex"    # I
+    .locals 1
 
-    .line 248
     if-lt p1, p2, :cond_0
 
     if-gt p1, p3, :cond_0
 
-    .line 251
     return-void
 
     .line 249
     :cond_0
-    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
+    new-instance p2, Ljava/lang/IndexOutOfBoundsException;
 
-    new-instance v1, Ljava/lang/StringBuffer;
+    new-instance p3, Ljava/lang/StringBuffer;
 
-    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
+    const-string v0, "Invalid index:"
 
-    const-string v2, "Invalid index:"
+    invoke-direct {p3, v0}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    move-result-object p1
 
-    const-string v2, ", size="
+    const-string p3, ", size="
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object p1
 
     invoke-virtual {p0}, Lorg/apache/commons/collections/list/TreeList;->size()I
 
-    move-result v2
+    move-result p3
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    throw v0
+    invoke-direct {p2, p1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+
+    throw p2
 .end method
 
 
 # virtual methods
 .method public add(ILjava/lang/Object;)V
     .locals 7
-    .param p1, "index"    # I
-    .param p2, "obj"    # Ljava/lang/Object;
 
     .line 188
     iget v0, p0, Lorg/apache/commons/collections/list/TreeList;->modCount:I
@@ -134,14 +125,14 @@
 
     iput v0, p0, Lorg/apache/commons/collections/list/TreeList;->modCount:I
 
+    const/4 v0, 0x0
+
     .line 189
     invoke-virtual {p0}, Lorg/apache/commons/collections/list/TreeList;->size()I
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x0
-
-    invoke-direct {p0, p1, v1, v0}, Lorg/apache/commons/collections/list/TreeList;->checkInterval(III)V
+    invoke-direct {p0, p1, v0, v1}, Lorg/apache/commons/collections/list/TreeList;->checkInterval(III)V
 
     .line 190
     iget-object v0, p0, Lorg/apache/commons/collections/list/TreeList;->root:Lorg/apache/commons/collections/list/TreeList$AVLNode;
@@ -173,19 +164,18 @@
     :cond_0
     invoke-virtual {v0, p1, p2}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->insert(ILjava/lang/Object;)Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lorg/apache/commons/collections/list/TreeList;->root:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iput-object p1, p0, Lorg/apache/commons/collections/list/TreeList;->root:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
     .line 195
     :goto_0
-    iget v0, p0, Lorg/apache/commons/collections/list/TreeList;->size:I
+    iget p1, p0, Lorg/apache/commons/collections/list/TreeList;->size:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v0, p0, Lorg/apache/commons/collections/list/TreeList;->size:I
+    iput p1, p0, Lorg/apache/commons/collections/list/TreeList;->size:I
 
-    .line 196
     return-void
 .end method
 
@@ -199,45 +189,42 @@
 
     iput v0, p0, Lorg/apache/commons/collections/list/TreeList;->modCount:I
 
-    .line 234
     const/4 v0, 0x0
 
+    .line 234
     iput-object v0, p0, Lorg/apache/commons/collections/list/TreeList;->root:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    .line 235
     const/4 v0, 0x0
 
+    .line 235
     iput v0, p0, Lorg/apache/commons/collections/list/TreeList;->size:I
 
-    .line 236
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
+    .locals 0
 
     .line 163
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections/list/TreeList;->indexOf(Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p1
 
-    if-ltz v0, :cond_0
+    if-ltz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public get(I)Ljava/lang/Object;
     .locals 2
-    .param p1, "index"    # I
 
     .line 98
     invoke-virtual {p0}, Lorg/apache/commons/collections/list/TreeList;->size()I
@@ -255,28 +242,26 @@
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->get(I)Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->getValue()Ljava/lang/Object;
+    invoke-virtual {p1}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->getValue()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public indexOf(Ljava/lang/Object;)I
     .locals 2
-    .param p1, "object"    # Ljava/lang/Object;
 
     .line 151
     iget-object v0, p0, Lorg/apache/commons/collections/list/TreeList;->root:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
     if-nez v0, :cond_0
 
-    .line 152
-    const/4 v0, -0x1
+    const/4 p1, -0x1
 
-    return v0
+    return p1
 
     .line 154
     :cond_0
@@ -286,17 +271,17 @@
 
     invoke-virtual {v0, p1, v1}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->indexOf(Ljava/lang/Object;I)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
     .locals 1
 
-    .line 118
     const/4 v0, 0x0
 
+    .line 118
     invoke-virtual {p0, v0}, Lorg/apache/commons/collections/list/TreeList;->listIterator(I)Ljava/util/ListIterator;
 
     move-result-object v0
@@ -307,9 +292,9 @@
 .method public listIterator()Ljava/util/ListIterator;
     .locals 1
 
-    .line 128
     const/4 v0, 0x0
 
+    .line 128
     invoke-virtual {p0, v0}, Lorg/apache/commons/collections/list/TreeList;->listIterator(I)Ljava/util/ListIterator;
 
     move-result-object v0
@@ -319,16 +304,15 @@
 
 .method public listIterator(I)Ljava/util/ListIterator;
     .locals 2
-    .param p1, "fromIndex"    # I
+
+    const/4 v0, 0x0
 
     .line 140
     invoke-virtual {p0}, Lorg/apache/commons/collections/list/TreeList;->size()I
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x0
-
-    invoke-direct {p0, p1, v1, v0}, Lorg/apache/commons/collections/list/TreeList;->checkInterval(III)V
+    invoke-direct {p0, p1, v0, v1}, Lorg/apache/commons/collections/list/TreeList;->checkInterval(III)V
 
     .line 141
     new-instance v0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;
@@ -340,7 +324,6 @@
 
 .method public remove(I)Ljava/lang/Object;
     .locals 2
-    .param p1, "index"    # I
 
     .line 221
     iget v0, p0, Lorg/apache/commons/collections/list/TreeList;->modCount:I
@@ -366,30 +349,26 @@
     move-result-object v0
 
     .line 224
-    .local v0, "result":Ljava/lang/Object;
     iget-object v1, p0, Lorg/apache/commons/collections/list/TreeList;->root:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
     invoke-virtual {v1, p1}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->remove(I)Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    move-result-object v1
+    move-result-object p1
 
-    iput-object v1, p0, Lorg/apache/commons/collections/list/TreeList;->root:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iput-object p1, p0, Lorg/apache/commons/collections/list/TreeList;->root:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
     .line 225
-    iget v1, p0, Lorg/apache/commons/collections/list/TreeList;->size:I
+    iget p1, p0, Lorg/apache/commons/collections/list/TreeList;->size:I
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 p1, p1, -0x1
 
-    iput v1, p0, Lorg/apache/commons/collections/list/TreeList;->size:I
+    iput p1, p0, Lorg/apache/commons/collections/list/TreeList;->size:I
 
-    .line 226
     return-object v0
 .end method
 
 .method public set(ILjava/lang/Object;)Ljava/lang/Object;
     .locals 2
-    .param p1, "index"    # I
-    .param p2, "obj"    # Ljava/lang/Object;
 
     .line 207
     invoke-virtual {p0}, Lorg/apache/commons/collections/list/TreeList;->size()I
@@ -407,20 +386,17 @@
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->get(I)Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 209
-    .local v0, "node":Lorg/apache/commons/collections/list/TreeList$AVLNode;
-    invoke-static {v0}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->access$200(Lorg/apache/commons/collections/list/TreeList$AVLNode;)Ljava/lang/Object;
+    invoke-static {p1}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->access$200(Lorg/apache/commons/collections/list/TreeList$AVLNode;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 210
-    .local v1, "result":Ljava/lang/Object;
-    invoke-virtual {v0, p2}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->setValue(Ljava/lang/Object;)V
+    invoke-virtual {p1, p2}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->setValue(Ljava/lang/Object;)V
 
-    .line 211
-    return-object v1
+    return-object v0
 .end method
 
 .method public size()I
@@ -443,7 +419,6 @@
     new-array v0, v0, [Ljava/lang/Object;
 
     .line 174
-    .local v0, "array":[Ljava/lang/Object;
     iget-object v1, p0, Lorg/apache/commons/collections/list/TreeList;->root:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
     if-eqz v1, :cond_0
@@ -455,7 +430,6 @@
 
     invoke-virtual {v1, v0, v2}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->toArray([Ljava/lang/Object;I)V
 
-    .line 177
     :cond_0
     return-object v0
 .end method

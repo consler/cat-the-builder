@@ -62,9 +62,6 @@
     .end annotation
 
     .line 27
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableAllSingle;, "Lio/reactivex/internal/operators/observable/ObservableAllSingle<TT;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
-    .local p2, "predicate":Lio/reactivex/functions/Predicate;, "Lio/reactivex/functions/Predicate<-TT;>;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 28
@@ -73,7 +70,6 @@
     .line 29
     iput-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableAllSingle;->predicate:Lio/reactivex/functions/Predicate;
 
-    .line 30
     return-void
 .end method
 
@@ -91,7 +87,6 @@
     .end annotation
 
     .line 39
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableAllSingle;, "Lio/reactivex/internal/operators/observable/ObservableAllSingle<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableAll;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableAllSingle;->source:Lio/reactivex/ObservableSource;
@@ -120,8 +115,6 @@
     .end annotation
 
     .line 34
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableAllSingle;, "Lio/reactivex/internal/operators/observable/ObservableAllSingle<TT;>;"
-    .local p1, "t":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-Ljava/lang/Boolean;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableAllSingle;->source:Lio/reactivex/ObservableSource;
 
     new-instance v1, Lio/reactivex/internal/operators/observable/ObservableAllSingle$AllObserver;
@@ -132,6 +125,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 35
     return-void
 .end method

@@ -42,12 +42,8 @@
     .end annotation
 
     .line 179
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainNoLast;, "Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainNoLast<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
-    .local p2, "other":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<*>;"
     invoke-direct {p0, p1, p2}, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SamplePublisherSubscriber;-><init>(Lorg/reactivestreams/Subscriber;Lorg/reactivestreams/Publisher;)V
 
-    .line 180
     return-void
 .end method
 
@@ -57,12 +53,10 @@
     .locals 1
 
     .line 184
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainNoLast;, "Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainNoLast<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainNoLast;->actual:Lorg/reactivestreams/Subscriber;
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 185
     return-void
 .end method
 
@@ -70,12 +64,10 @@
     .locals 1
 
     .line 189
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainNoLast;, "Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainNoLast<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainNoLast;->actual:Lorg/reactivestreams/Subscriber;
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 190
     return-void
 .end method
 
@@ -83,9 +75,7 @@
     .locals 0
 
     .line 194
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainNoLast;, "Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainNoLast<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableSamplePublisher$SampleMainNoLast;->emit()V
 
-    .line 195
     return-void
 .end method

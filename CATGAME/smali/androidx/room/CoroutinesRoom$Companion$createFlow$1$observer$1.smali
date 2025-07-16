@@ -50,9 +50,6 @@
 # direct methods
 .method constructor <init>(Landroidx/room/CoroutinesRoom$Companion$createFlow$1;Lkotlinx/coroutines/channels/Channel;[Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/room/CoroutinesRoom$Companion$createFlow$1;
-    .param p2, "$captured_local_variable$1"    # Lkotlinx/coroutines/channels/Channel;
-    .param p3, "$super_call_param$2"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -76,8 +73,7 @@
 
 # virtual methods
 .method public onInvalidated(Ljava/util/Set;)V
-    .locals 2
-    .param p1, "tables"    # Ljava/util/Set;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -92,12 +88,11 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 109
-    iget-object v0, p0, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$observer$1;->$observerChannel:Lkotlinx/coroutines/channels/Channel;
+    iget-object p1, p0, Landroidx/room/CoroutinesRoom$Companion$createFlow$1$observer$1;->$observerChannel:Lkotlinx/coroutines/channels/Channel;
 
-    sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    invoke-interface {v0, v1}, Lkotlinx/coroutines/channels/Channel;->offer(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Lkotlinx/coroutines/channels/Channel;->offer(Ljava/lang/Object;)Z
 
-    .line 110
     return-void
 .end method

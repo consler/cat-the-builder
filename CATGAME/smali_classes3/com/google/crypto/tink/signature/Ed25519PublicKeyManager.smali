@@ -36,7 +36,6 @@
 
     invoke-direct {p0, v0, v1}, Lcom/google/crypto/tink/KeyTypeManager;-><init>(Ljava/lang/Class;[Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;)V
 
-    .line 45
     return-void
 .end method
 
@@ -45,7 +44,6 @@
 .method public getKeyType()Ljava/lang/String;
     .locals 1
 
-    .line 49
     const-string v0, "type.googleapis.com/google.crypto.tink.Ed25519PublicKey"
 
     return-object v0
@@ -54,7 +52,6 @@
 .method public getVersion()I
     .locals 1
 
-    .line 54
     const/4 v0, 0x0
 
     return v0
@@ -71,7 +68,6 @@
 
 .method public parseKey(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/Ed25519PublicKey;
     .locals 1
-    .param p1, "byteString"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -94,9 +90,9 @@
 
     invoke-static {p1, v0}, Lcom/google/crypto/tink/proto/Ed25519PublicKey;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/Ed25519PublicKey;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic parseKey(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
@@ -126,7 +122,6 @@
 
 .method public validateKey(Lcom/google/crypto/tink/proto/Ed25519PublicKey;)V
     .locals 2
-    .param p1, "keyProto"    # Lcom/google/crypto/tink/proto/Ed25519PublicKey;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -156,28 +151,27 @@
     .line 70
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/Ed25519PublicKey;->getKeyValue()Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->size()I
+    invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->size()I
 
-    move-result v0
+    move-result p1
 
-    const/16 v1, 0x20
+    const/16 v0, 0x20
 
-    if-ne v0, v1, :cond_0
+    if-ne p1, v0, :cond_0
 
-    .line 73
     return-void
 
     .line 71
     :cond_0
-    new-instance v0, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    const-string v1, "invalid Ed25519 public key: incorrect key length"
+    const-string v0, "invalid Ed25519 public key: incorrect key length"
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public bridge synthetic validateKey(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)V

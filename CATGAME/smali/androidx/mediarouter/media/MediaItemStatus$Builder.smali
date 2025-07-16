@@ -21,7 +21,6 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 2
-    .param p1, "playbackState"    # I
 
     .line 323
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,41 +42,37 @@
     .line 326
     invoke-virtual {p0, p1}, Landroidx/mediarouter/media/MediaItemStatus$Builder;->setPlaybackState(I)Landroidx/mediarouter/media/MediaItemStatus$Builder;
 
-    .line 327
     return-void
 .end method
 
 .method public constructor <init>(Landroidx/mediarouter/media/MediaItemStatus;)V
-    .locals 2
-    .param p1, "status"    # Landroidx/mediarouter/media/MediaItemStatus;
+    .locals 1
 
     .line 333
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 334
     if-eqz p1, :cond_0
 
     .line 338
     new-instance v0, Landroid/os/Bundle;
 
-    iget-object v1, p1, Landroidx/mediarouter/media/MediaItemStatus;->mBundle:Landroid/os/Bundle;
+    iget-object p1, p1, Landroidx/mediarouter/media/MediaItemStatus;->mBundle:Landroid/os/Bundle;
 
-    invoke-direct {v0, v1}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
+    invoke-direct {v0, p1}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
 
     iput-object v0, p0, Landroidx/mediarouter/media/MediaItemStatus$Builder;->mBundle:Landroid/os/Bundle;
 
-    .line 339
     return-void
 
     .line 335
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "status must not be null"
+    const-string v0, "status must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -97,7 +92,6 @@
 
 .method public setContentDuration(J)Landroidx/mediarouter/media/MediaItemStatus$Builder;
     .locals 2
-    .param p1, "durationMilliseconds"    # J
 
     .line 372
     iget-object v0, p0, Landroidx/mediarouter/media/MediaItemStatus$Builder;->mBundle:Landroid/os/Bundle;
@@ -106,13 +100,11 @@
 
     invoke-virtual {v0, v1, p1, p2}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
 
-    .line 373
     return-object p0
 .end method
 
 .method public setContentPosition(J)Landroidx/mediarouter/media/MediaItemStatus$Builder;
     .locals 2
-    .param p1, "positionMilliseconds"    # J
 
     .line 363
     iget-object v0, p0, Landroidx/mediarouter/media/MediaItemStatus$Builder;->mBundle:Landroid/os/Bundle;
@@ -121,13 +113,11 @@
 
     invoke-virtual {v0, v1, p1, p2}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
 
-    .line 364
     return-object p0
 .end method
 
 .method public setExtras(Landroid/os/Bundle;)Landroidx/mediarouter/media/MediaItemStatus$Builder;
     .locals 2
-    .param p1, "extras"    # Landroid/os/Bundle;
 
     .line 382
     iget-object v0, p0, Landroidx/mediarouter/media/MediaItemStatus$Builder;->mBundle:Landroid/os/Bundle;
@@ -136,13 +126,11 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 383
     return-object p0
 .end method
 
 .method public setPlaybackState(I)Landroidx/mediarouter/media/MediaItemStatus$Builder;
     .locals 2
-    .param p1, "playbackState"    # I
 
     .line 354
     iget-object v0, p0, Landroidx/mediarouter/media/MediaItemStatus$Builder;->mBundle:Landroid/os/Bundle;
@@ -151,21 +139,18 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 355
     return-object p0
 .end method
 
 .method public setTimestamp(J)Landroidx/mediarouter/media/MediaItemStatus$Builder;
     .locals 2
-    .param p1, "elapsedRealtimeTimestamp"    # J
 
     .line 346
     iget-object v0, p0, Landroidx/mediarouter/media/MediaItemStatus$Builder;->mBundle:Landroid/os/Bundle;
 
-    const-string/jumbo v1, "timestamp"
+    const-string v1, "timestamp"
 
     invoke-virtual {v0, v1, p1, p2}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
 
-    .line 347
     return-object p0
 .end method

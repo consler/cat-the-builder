@@ -33,8 +33,6 @@
 # direct methods
 .method constructor <init>(Lcom/google/gson/Gson;Lcom/google/gson/TypeAdapter;Ljava/lang/reflect/Type;)V
     .locals 0
-    .param p1, "context"    # Lcom/google/gson/Gson;
-    .param p3, "type"    # Ljava/lang/reflect/Type;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -47,8 +45,6 @@
     .end annotation
 
     .line 33
-    .local p0, "this":Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper;, "Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper<TT;>;"
-    .local p2, "delegate":Lcom/google/gson/TypeAdapter;, "Lcom/google/gson/TypeAdapter<TT;>;"
     invoke-direct {p0}, Lcom/google/gson/TypeAdapter;-><init>()V
 
     .line 34
@@ -60,19 +56,15 @@
     .line 36
     iput-object p3, p0, Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper;->type:Ljava/lang/reflect/Type;
 
-    .line 37
     return-void
 .end method
 
 .method private getRuntimeTypeIfMoreSpecific(Ljava/lang/reflect/Type;Ljava/lang/Object;)Ljava/lang/reflect/Type;
     .locals 1
-    .param p1, "type"    # Ljava/lang/reflect/Type;
-    .param p2, "value"    # Ljava/lang/Object;
 
-    .line 76
-    .local p0, "this":Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper;, "Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper<TT;>;"
     if-eqz p2, :cond_1
 
+    .line 76
     const-class v0, Ljava/lang/Object;
 
     if-eq p1, v0, :cond_0
@@ -91,7 +83,6 @@
 
     move-result-object p1
 
-    .line 80
     :cond_1
     return-object p1
 .end method
@@ -100,7 +91,6 @@
 # virtual methods
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
     .locals 1
-    .param p1, "in"    # Lcom/google/gson/stream/JsonReader;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -116,19 +106,17 @@
     .end annotation
 
     .line 41
-    .local p0, "this":Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper;, "Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper<TT;>;"
     iget-object v0, p0, Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper;->delegate:Lcom/google/gson/TypeAdapter;
 
     invoke-virtual {v0, p1}, Lcom/google/gson/TypeAdapter;->read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
-    .locals 4
-    .param p1, "out"    # Lcom/google/gson/stream/JsonWriter;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -144,12 +132,9 @@
     .end annotation
 
     .line 53
-    .local p0, "this":Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper;, "Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper<TT;>;"
-    .local p2, "value":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper;->delegate:Lcom/google/gson/TypeAdapter;
 
     .line 54
-    .local v0, "chosen":Lcom/google/gson/TypeAdapter;
     iget-object v1, p0, Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper;->type:Ljava/lang/reflect/Type;
 
     invoke-direct {p0, v1, p2}, Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper;->getRuntimeTypeIfMoreSpecific(Ljava/lang/reflect/Type;Ljava/lang/Object;)Ljava/lang/reflect/Type;
@@ -157,56 +142,42 @@
     move-result-object v1
 
     .line 55
-    .local v1, "runtimeType":Ljava/lang/reflect/Type;
     iget-object v2, p0, Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper;->type:Ljava/lang/reflect/Type;
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_1
 
     .line 56
-    iget-object v2, p0, Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper;->context:Lcom/google/gson/Gson;
+    iget-object v0, p0, Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper;->context:Lcom/google/gson/Gson;
 
     invoke-static {v1}, Lcom/google/gson/reflect/TypeToken;->get(Ljava/lang/reflect/Type;)Lcom/google/gson/reflect/TypeToken;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Lcom/google/gson/Gson;->getAdapter(Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
+    invoke-virtual {v0, v1}, Lcom/google/gson/Gson;->getAdapter(Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 57
-    .local v2, "runtimeTypeAdapter":Lcom/google/gson/TypeAdapter;
-    instance-of v3, v2, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$Adapter;
+    instance-of v1, v0, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$Adapter;
 
-    if-nez v3, :cond_0
-
-    .line 59
-    move-object v0, v2
+    if-nez v1, :cond_0
 
     goto :goto_0
 
     .line 60
     :cond_0
-    iget-object v3, p0, Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper;->delegate:Lcom/google/gson/TypeAdapter;
+    iget-object v1, p0, Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper;->delegate:Lcom/google/gson/TypeAdapter;
 
-    instance-of v3, v3, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$Adapter;
+    instance-of v2, v1, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$Adapter;
 
-    if-nez v3, :cond_1
+    if-nez v2, :cond_1
 
-    .line 63
-    iget-object v0, p0, Lcom/google/gson/internal/bind/TypeAdapterRuntimeTypeWrapper;->delegate:Lcom/google/gson/TypeAdapter;
-
-    goto :goto_0
-
-    .line 66
-    :cond_1
-    move-object v0, v2
+    move-object v0, v1
 
     .line 69
-    .end local v2    # "runtimeTypeAdapter":Lcom/google/gson/TypeAdapter;
-    :cond_2
+    :cond_1
     :goto_0
     invoke-virtual {v0, p1, p2}, Lcom/google/gson/TypeAdapter;->write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
 
-    .line 70
     return-void
 .end method

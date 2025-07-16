@@ -22,20 +22,19 @@
 
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder;)V
-    .locals 1
-    .param p1, "this$1"    # Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder;
+    .locals 0
 
     .line 71
     iput-object p1, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder$Encoder2;->this$1:Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    const/16 p1, 0x300
+
+    new-array p1, p1, [S
+
     .line 72
-    const/16 v0, 0x300
-
-    new-array v0, v0, [S
-
-    iput-object v0, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder$Encoder2;->m_Encoders:[S
+    iput-object p1, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder$Encoder2;->m_Encoders:[S
 
     return-void
 .end method
@@ -43,189 +42,142 @@
 
 # virtual methods
 .method public Encode(Lcom/badlogic/gdx/utils/compression/rangecoder/Encoder;B)V
-    .locals 4
-    .param p1, "rangeEncoder"    # Lcom/badlogic/gdx/utils/compression/rangecoder/Encoder;
-    .param p2, "symbol"    # B
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 79
     const/4 v0, 0x1
 
-    .line 80
-    .local v0, "context":I
     const/4 v1, 0x7
 
-    .local v1, "i":I
+    move v2, v0
+
     :goto_0
     if-ltz v1, :cond_0
 
-    .line 81
-    shr-int v2, p2, v1
+    shr-int v3, p2, v1
 
-    and-int/lit8 v2, v2, 0x1
+    and-int/2addr v3, v0
 
     .line 82
-    .local v2, "bit":I
-    iget-object v3, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder$Encoder2;->m_Encoders:[S
+    iget-object v4, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder$Encoder2;->m_Encoders:[S
 
-    invoke-virtual {p1, v3, v0, v2}, Lcom/badlogic/gdx/utils/compression/rangecoder/Encoder;->Encode([SII)V
+    invoke-virtual {p1, v4, v2, v3}, Lcom/badlogic/gdx/utils/compression/rangecoder/Encoder;->Encode([SII)V
 
-    .line 83
-    shl-int/lit8 v3, v0, 0x1
+    shl-int/2addr v2, v0
 
-    or-int v0, v3, v2
+    or-int/2addr v2, v3
 
-    .line 80
-    .end local v2    # "bit":I
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
-    .line 85
-    .end local v1    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public EncodeMatched(Lcom/badlogic/gdx/utils/compression/rangecoder/Encoder;BB)V
-    .locals 8
-    .param p1, "rangeEncoder"    # Lcom/badlogic/gdx/utils/compression/rangecoder/Encoder;
-    .param p2, "matchByte"    # B
-    .param p3, "symbol"    # B
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 89
     const/4 v0, 0x1
 
-    .line 90
-    .local v0, "context":I
-    const/4 v1, 0x1
+    const/4 v1, 0x7
 
-    .line 91
-    .local v1, "same":Z
-    const/4 v2, 0x7
+    move v2, v0
 
-    .local v2, "i":I
+    move v3, v2
+
     :goto_0
-    if-ltz v2, :cond_2
+    if-ltz v1, :cond_2
 
-    .line 92
-    shr-int v3, p3, v2
+    shr-int v4, p3, v1
 
-    const/4 v4, 0x1
+    and-int/2addr v4, v0
 
-    and-int/2addr v3, v4
+    if-eqz v3, :cond_1
 
-    .line 93
-    .local v3, "bit":I
-    move v5, v0
+    shr-int v3, p2, v1
 
-    .line 94
-    .local v5, "state":I
-    if-eqz v1, :cond_1
+    and-int/2addr v3, v0
 
-    .line 95
-    shr-int v6, p2, v2
+    add-int/lit8 v5, v3, 0x1
 
-    and-int/2addr v6, v4
+    shl-int/lit8 v5, v5, 0x8
 
-    .line 96
-    .local v6, "matchBit":I
-    add-int/lit8 v7, v6, 0x1
+    add-int/2addr v5, v2
 
-    shl-int/lit8 v7, v7, 0x8
+    if-ne v3, v4, :cond_0
 
-    add-int/2addr v5, v7
-
-    .line 97
-    if-ne v6, v3, :cond_0
+    move v3, v0
 
     goto :goto_1
 
     :cond_0
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    :goto_1
-    move v1, v4
+    goto :goto_1
+
+    :cond_1
+    move v5, v2
 
     .line 99
-    .end local v6    # "matchBit":I
-    :cond_1
-    iget-object v4, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder$Encoder2;->m_Encoders:[S
+    :goto_1
+    iget-object v6, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder$Encoder2;->m_Encoders:[S
 
-    invoke-virtual {p1, v4, v5, v3}, Lcom/badlogic/gdx/utils/compression/rangecoder/Encoder;->Encode([SII)V
+    invoke-virtual {p1, v6, v5, v4}, Lcom/badlogic/gdx/utils/compression/rangecoder/Encoder;->Encode([SII)V
 
-    .line 100
-    shl-int/lit8 v4, v0, 0x1
+    shl-int/lit8 v2, v2, 0x1
 
-    or-int v0, v4, v3
+    or-int/2addr v2, v4
 
-    .line 91
-    .end local v3    # "bit":I
-    .end local v5    # "state":I
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
-    .line 102
-    .end local v2    # "i":I
     :cond_2
     return-void
 .end method
 
 .method public GetPrice(ZBB)I
     .locals 7
-    .param p1, "matchMode"    # Z
-    .param p2, "matchByte"    # B
-    .param p3, "symbol"    # B
 
-    .line 105
     const/4 v0, 0x0
 
-    .line 106
-    .local v0, "price":I
     const/4 v1, 0x1
 
-    .line 107
-    .local v1, "context":I
     const/4 v2, 0x7
 
-    .line 108
-    .local v2, "i":I
     if-eqz p1, :cond_1
 
-    .line 109
-    :goto_0
-    if-ltz v2, :cond_1
+    move p1, v1
 
-    .line 110
+    :goto_0
+    if-ltz v2, :cond_2
+
     shr-int v3, p2, v2
 
-    and-int/lit8 v3, v3, 0x1
+    and-int/2addr v3, v1
 
-    .line 111
-    .local v3, "matchBit":I
     shr-int v4, p3, v2
 
-    and-int/lit8 v4, v4, 0x1
+    and-int/2addr v4, v1
 
     .line 112
-    .local v4, "bit":I
     iget-object v5, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder$Encoder2;->m_Encoders:[S
 
     add-int/lit8 v6, v3, 0x1
 
     shl-int/lit8 v6, v6, 0x8
 
-    add-int/2addr v6, v1
+    add-int/2addr v6, p1
 
     aget-short v5, v5, v6
 
@@ -235,63 +187,51 @@
 
     add-int/2addr v0, v5
 
-    .line 114
-    shl-int/lit8 v5, v1, 0x1
+    shl-int/lit8 p1, p1, 0x1
 
-    or-int v1, v5, v4
+    or-int/2addr p1, v4
 
-    .line 115
     if-eq v3, v4, :cond_0
 
-    .line 116
-    add-int/lit8 v2, v2, -0x1
+    goto :goto_2
 
-    .line 117
-    goto :goto_1
-
-    .line 109
-    .end local v3    # "matchBit":I
-    .end local v4    # "bit":I
     :cond_0
     add-int/lit8 v2, v2, -0x1
 
     goto :goto_0
 
-    .line 121
     :cond_1
+    move p1, v1
+
+    :cond_2
     :goto_1
-    if-ltz v2, :cond_2
+    if-ltz v2, :cond_3
 
-    .line 122
-    shr-int v3, p3, v2
+    shr-int p2, p3, v2
 
-    and-int/lit8 v3, v3, 0x1
+    and-int/2addr p2, v1
 
     .line 123
-    .local v3, "bit":I
-    iget-object v4, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder$Encoder2;->m_Encoders:[S
+    iget-object v3, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder$Encoder2;->m_Encoders:[S
 
-    aget-short v4, v4, v1
+    aget-short v3, v3, p1
 
-    invoke-static {v4, v3}, Lcom/badlogic/gdx/utils/compression/rangecoder/Encoder;->GetPrice(II)I
+    invoke-static {v3, p2}, Lcom/badlogic/gdx/utils/compression/rangecoder/Encoder;->GetPrice(II)I
 
-    move-result v4
+    move-result v3
 
-    add-int/2addr v0, v4
+    add-int/2addr v0, v3
 
-    .line 124
-    shl-int/lit8 v4, v1, 0x1
+    shl-int/2addr p1, v1
 
-    or-int v1, v4, v3
+    or-int/2addr p1, p2
 
-    .line 121
-    .end local v3    # "bit":I
+    :goto_2
     add-int/lit8 v2, v2, -0x1
 
     goto :goto_1
 
-    .line 126
-    :cond_2
+    :cond_3
     return v0
 .end method
 
@@ -303,6 +243,5 @@
 
     invoke-static {v0}, Lcom/badlogic/gdx/utils/compression/rangecoder/Encoder;->InitBitModels([S)V
 
-    .line 76
     return-void
 .end method

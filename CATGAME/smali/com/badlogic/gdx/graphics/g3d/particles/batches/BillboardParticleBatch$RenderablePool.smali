@@ -35,7 +35,6 @@
 
     invoke-direct {p0}, Lcom/badlogic/gdx/utils/Pool;-><init>()V
 
-    .line 95
     return-void
 .end method
 

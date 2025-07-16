@@ -26,15 +26,11 @@
 
 # direct methods
 .method protected constructor <init>(Lorg/apache/commons/collections/list/AbstractLinkedList;II)V
-    .locals 3
-    .param p1, "parent"    # Lorg/apache/commons/collections/list/AbstractLinkedList;
-    .param p2, "fromIndex"    # I
-    .param p3, "toIndex"    # I
+    .locals 2
 
     .line 904
     invoke-direct {p0}, Ljava/util/AbstractList;-><init>()V
 
-    .line 905
     if-ltz p2, :cond_2
 
     .line 908
@@ -44,7 +40,6 @@
 
     if-gt p3, v0, :cond_1
 
-    .line 911
     if-gt p2, p3, :cond_0
 
     .line 914
@@ -53,102 +48,105 @@
     .line 915
     iput p2, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->offset:I
 
-    .line 916
-    sub-int v0, p3, p2
+    sub-int/2addr p3, p2
 
-    iput v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
+    .line 916
+    iput p3, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
 
     .line 917
-    iget v0, p1, Lorg/apache/commons/collections/list/AbstractLinkedList;->modCount:I
+    iget p1, p1, Lorg/apache/commons/collections/list/AbstractLinkedList;->modCount:I
 
-    iput v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->expectedModCount:I
+    iput p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->expectedModCount:I
 
-    .line 918
     return-void
 
     .line 912
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuffer;
+    new-instance v0, Ljava/lang/StringBuffer;
 
-    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
+    const-string v1, "fromIndex("
 
-    const-string v2, "fromIndex("
+    invoke-direct {v0, v1}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    move-result-object p2
 
-    const-string v2, ") > toIndex("
+    const-string v0, ") > toIndex("
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    move-result-object p2
 
-    const-string v2, ")"
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-result-object p2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    const-string p3, ")"
 
-    move-result-object v1
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p2
 
-    throw v0
+    invoke-virtual {p2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p1
 
     .line 909
     :cond_1
-    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
+    new-instance p1, Ljava/lang/IndexOutOfBoundsException;
 
-    new-instance v1, Ljava/lang/StringBuffer;
+    new-instance p2, Ljava/lang/StringBuffer;
 
-    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
+    const-string v0, "toIndex = "
 
-    const-string v2, "toIndex = "
+    invoke-direct {p2, v0}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    move-result-object p2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 906
     :cond_2
-    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
+    new-instance p1, Ljava/lang/IndexOutOfBoundsException;
 
-    new-instance v1, Ljava/lang/StringBuffer;
+    new-instance p3, Ljava/lang/StringBuffer;
 
-    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
+    const-string v0, "fromIndex = "
 
-    const-string v2, "fromIndex = "
+    invoke-direct {p3, v0}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p3, p2}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    move-result-object p2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
 # virtual methods
 .method public add(ILjava/lang/Object;)V
     .locals 2
-    .param p1, "index"    # I
-    .param p2, "obj"    # Ljava/lang/Object;
 
     .line 932
     iget v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
@@ -165,39 +163,36 @@
 
     iget v1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->offset:I
 
-    add-int/2addr v1, p1
+    add-int/2addr p1, v1
 
-    invoke-virtual {v0, v1, p2}, Lorg/apache/commons/collections/list/AbstractLinkedList;->add(ILjava/lang/Object;)V
+    invoke-virtual {v0, p1, p2}, Lorg/apache/commons/collections/list/AbstractLinkedList;->add(ILjava/lang/Object;)V
 
     .line 935
-    iget-object v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->parent:Lorg/apache/commons/collections/list/AbstractLinkedList;
+    iget-object p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->parent:Lorg/apache/commons/collections/list/AbstractLinkedList;
 
-    iget v0, v0, Lorg/apache/commons/collections/list/AbstractLinkedList;->modCount:I
+    iget p1, p1, Lorg/apache/commons/collections/list/AbstractLinkedList;->modCount:I
 
-    iput v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->expectedModCount:I
+    iput p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->expectedModCount:I
 
     .line 936
-    iget v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
+    iget p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
+    iput p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
 
     .line 937
-    iget v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->modCount:I
+    iget p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->modCount:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->modCount:I
+    iput p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->modCount:I
 
-    .line 938
     return-void
 .end method
 
 .method public addAll(ILjava/util/Collection;)Z
     .locals 4
-    .param p1, "index"    # I
-    .param p2, "coll"    # Ljava/util/Collection;
 
     .line 955
     iget v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
@@ -213,14 +208,11 @@
 
     move-result v0
 
-    .line 957
-    .local v0, "cSize":I
     if-nez v0, :cond_0
 
-    .line 958
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return v1
+    return p1
 
     .line 961
     :cond_0
@@ -236,42 +228,40 @@
     invoke-virtual {v2, v3, p2}, Lorg/apache/commons/collections/list/AbstractLinkedList;->addAll(ILjava/util/Collection;)Z
 
     .line 963
-    iget-object v2, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->parent:Lorg/apache/commons/collections/list/AbstractLinkedList;
+    iget-object p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->parent:Lorg/apache/commons/collections/list/AbstractLinkedList;
 
-    iget v2, v2, Lorg/apache/commons/collections/list/AbstractLinkedList;->modCount:I
+    iget p1, p1, Lorg/apache/commons/collections/list/AbstractLinkedList;->modCount:I
 
-    iput v2, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->expectedModCount:I
+    iput p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->expectedModCount:I
 
     .line 964
-    iget v2, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
+    iget p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
 
-    add-int/2addr v2, v0
+    add-int/2addr p1, v0
 
-    iput v2, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
+    iput p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
 
     .line 965
-    iget v2, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->modCount:I
+    iget p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->modCount:I
 
-    add-int/2addr v2, v1
+    add-int/2addr p1, v1
 
-    iput v2, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->modCount:I
+    iput p1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->modCount:I
 
-    .line 966
     return v1
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
     .locals 1
-    .param p1, "coll"    # Ljava/util/Collection;
 
     .line 951
     iget v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
 
     invoke-virtual {p0, v0, p1}, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->addAll(ILjava/util/Collection;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method protected checkModCount()V
@@ -286,7 +276,6 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 1009
     return-void
 
     .line 1007
@@ -310,7 +299,6 @@
     move-result-object v0
 
     .line 978
-    .local v0, "it":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -326,14 +314,12 @@
 
     goto :goto_0
 
-    .line 982
     :cond_0
     return-void
 .end method
 
 .method public get(I)Ljava/lang/Object;
     .locals 2
-    .param p1, "index"    # I
 
     .line 926
     iget v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
@@ -348,13 +334,13 @@
 
     iget v1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->offset:I
 
-    add-int/2addr v1, p1
+    add-int/2addr p1, v1
 
-    invoke-virtual {v0, v1}, Lorg/apache/commons/collections/list/AbstractLinkedList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Lorg/apache/commons/collections/list/AbstractLinkedList;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
@@ -375,7 +361,6 @@
 
 .method public listIterator(I)Ljava/util/ListIterator;
     .locals 1
-    .param p1, "index"    # I
 
     .line 990
     iget v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
@@ -392,62 +377,63 @@
 
     invoke-virtual {v0, p0, p1}, Lorg/apache/commons/collections/list/AbstractLinkedList;->createSubListListIterator(Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;I)Ljava/util/ListIterator;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected rangeCheck(II)V
-    .locals 3
-    .param p1, "index"    # I
-    .param p2, "beyond"    # I
+    .locals 2
 
-    .line 1000
     if-ltz p1, :cond_0
 
     if-ge p1, p2, :cond_0
 
-    .line 1003
     return-void
 
     .line 1001
     :cond_0
-    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
+    new-instance p2, Ljava/lang/IndexOutOfBoundsException;
 
-    new-instance v1, Ljava/lang/StringBuffer;
+    new-instance v0, Ljava/lang/StringBuffer;
 
-    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
+    const-string v1, "Index \'"
 
-    const-string v2, "Index \'"
+    invoke-direct {v0, v1}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    move-result-object p1
 
-    const-string v2, "\' out of bounds for size \'"
+    const-string v0, "\' out of bounds for size \'"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    iget v2, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
+    iget v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
 
-    const-string v2, "\'"
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-result-object p1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    const-string v0, "\'"
 
-    move-result-object v1
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    throw v0
+    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p2, p1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+
+    throw p2
 .end method
 
 .method public remove(I)Ljava/lang/Object;
     .locals 2
-    .param p1, "index"    # I
 
     .line 941
     iget v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
@@ -462,42 +448,38 @@
 
     iget v1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->offset:I
 
-    add-int/2addr v1, p1
+    add-int/2addr p1, v1
 
-    invoke-virtual {v0, v1}, Lorg/apache/commons/collections/list/AbstractLinkedList;->remove(I)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Lorg/apache/commons/collections/list/AbstractLinkedList;->remove(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 944
-    .local v0, "result":Ljava/lang/Object;
-    iget-object v1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->parent:Lorg/apache/commons/collections/list/AbstractLinkedList;
+    iget-object v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->parent:Lorg/apache/commons/collections/list/AbstractLinkedList;
 
-    iget v1, v1, Lorg/apache/commons/collections/list/AbstractLinkedList;->modCount:I
+    iget v0, v0, Lorg/apache/commons/collections/list/AbstractLinkedList;->modCount:I
 
-    iput v1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->expectedModCount:I
+    iput v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->expectedModCount:I
 
     .line 945
-    iget v1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
+    iget v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    iput v1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
+    iput v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
 
     .line 946
-    iget v1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->modCount:I
+    iget v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->modCount:I
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    iput v1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->modCount:I
+    iput v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->modCount:I
 
-    .line 947
-    return-object v0
+    return-object p1
 .end method
 
 .method public set(ILjava/lang/Object;)Ljava/lang/Object;
     .locals 2
-    .param p1, "index"    # I
-    .param p2, "obj"    # Ljava/lang/Object;
 
     .line 970
     iget v0, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->size:I
@@ -512,13 +494,13 @@
 
     iget v1, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->offset:I
 
-    add-int/2addr v1, p1
+    add-int/2addr p1, v1
 
-    invoke-virtual {v0, v1, p2}, Lorg/apache/commons/collections/list/AbstractLinkedList;->set(ILjava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1, p2}, Lorg/apache/commons/collections/list/AbstractLinkedList;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public size()I
@@ -534,9 +516,7 @@
 .end method
 
 .method public subList(II)Ljava/util/List;
-    .locals 4
-    .param p1, "fromIndexInclusive"    # I
-    .param p2, "toIndexExclusive"    # I
+    .locals 3
 
     .line 996
     new-instance v0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;
@@ -545,11 +525,11 @@
 
     iget v2, p0, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;->offset:I
 
-    add-int v3, p1, v2
+    add-int/2addr p1, v2
 
-    add-int/2addr v2, p2
+    add-int/2addr p2, v2
 
-    invoke-direct {v0, v1, v3, v2}, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;-><init>(Lorg/apache/commons/collections/list/AbstractLinkedList;II)V
+    invoke-direct {v0, v1, p1, p2}, Lorg/apache/commons/collections/list/AbstractLinkedList$LinkedSubList;-><init>(Lorg/apache/commons/collections/list/AbstractLinkedList;II)V
 
     return-object v0
 .end method

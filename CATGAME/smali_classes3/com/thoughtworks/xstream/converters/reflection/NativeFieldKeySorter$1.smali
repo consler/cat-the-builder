@@ -13,7 +13,6 @@
 # direct methods
 .method constructor <init>(Lcom/thoughtworks/xstream/converters/reflection/NativeFieldKeySorter;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/thoughtworks/xstream/converters/reflection/NativeFieldKeySorter;
 
     .line 28
     iput-object p1, p0, Lcom/thoughtworks/xstream/converters/reflection/NativeFieldKeySorter$1;->this$0:Lcom/thoughtworks/xstream/converters/reflection/NativeFieldKeySorter;
@@ -26,49 +25,38 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 5
-    .param p1, "o1"    # Ljava/lang/Object;
-    .param p2, "o2"    # Ljava/lang/Object;
+    .locals 2
 
     .line 31
-    move-object v0, p1
-
-    check-cast v0, Lcom/thoughtworks/xstream/converters/reflection/FieldKey;
+    check-cast p1, Lcom/thoughtworks/xstream/converters/reflection/FieldKey;
 
     .line 32
-    .local v0, "fieldKey1":Lcom/thoughtworks/xstream/converters/reflection/FieldKey;
-    move-object v1, p2
-
-    check-cast v1, Lcom/thoughtworks/xstream/converters/reflection/FieldKey;
+    check-cast p2, Lcom/thoughtworks/xstream/converters/reflection/FieldKey;
 
     .line 33
-    .local v1, "fieldKey2":Lcom/thoughtworks/xstream/converters/reflection/FieldKey;
-    invoke-virtual {v0}, Lcom/thoughtworks/xstream/converters/reflection/FieldKey;->getDepth()I
+    invoke-virtual {p1}, Lcom/thoughtworks/xstream/converters/reflection/FieldKey;->getDepth()I
 
-    move-result v2
+    move-result v0
 
-    invoke-virtual {v1}, Lcom/thoughtworks/xstream/converters/reflection/FieldKey;->getDepth()I
+    invoke-virtual {p2}, Lcom/thoughtworks/xstream/converters/reflection/FieldKey;->getDepth()I
 
-    move-result v3
+    move-result v1
 
-    sub-int/2addr v2, v3
+    sub-int/2addr v0, v1
 
-    .line 34
-    .local v2, "i":I
-    if-nez v2, :cond_0
+    if-nez v0, :cond_0
 
     .line 35
-    invoke-virtual {v0}, Lcom/thoughtworks/xstream/converters/reflection/FieldKey;->getOrder()I
+    invoke-virtual {p1}, Lcom/thoughtworks/xstream/converters/reflection/FieldKey;->getOrder()I
 
-    move-result v3
+    move-result p1
 
-    invoke-virtual {v1}, Lcom/thoughtworks/xstream/converters/reflection/FieldKey;->getOrder()I
+    invoke-virtual {p2}, Lcom/thoughtworks/xstream/converters/reflection/FieldKey;->getOrder()I
 
-    move-result v4
+    move-result p2
 
-    sub-int v2, v3, v4
+    sub-int v0, p1, p2
 
-    .line 37
     :cond_0
-    return v2
+    return v0
 .end method

@@ -26,9 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouter$Callback;)V
-    .locals 1
-    .param p1, "router"    # Landroidx/mediarouter/media/MediaRouter;
-    .param p2, "callback"    # Landroidx/mediarouter/media/MediaRouter$Callback;
+    .locals 0
 
     .line 2089
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,11 +38,10 @@
     iput-object p2, p0, Landroidx/mediarouter/media/MediaRouter$CallbackRecord;->mCallback:Landroidx/mediarouter/media/MediaRouter$Callback;
 
     .line 2092
-    sget-object v0, Landroidx/mediarouter/media/MediaRouteSelector;->EMPTY:Landroidx/mediarouter/media/MediaRouteSelector;
+    sget-object p1, Landroidx/mediarouter/media/MediaRouteSelector;->EMPTY:Landroidx/mediarouter/media/MediaRouteSelector;
 
-    iput-object v0, p0, Landroidx/mediarouter/media/MediaRouter$CallbackRecord;->mSelector:Landroidx/mediarouter/media/MediaRouteSelector;
+    iput-object p1, p0, Landroidx/mediarouter/media/MediaRouter$CallbackRecord;->mSelector:Landroidx/mediarouter/media/MediaRouteSelector;
 
-    .line 2093
     return-void
 .end method
 
@@ -52,7 +49,6 @@
 # virtual methods
 .method public filterRouteEvent(Landroidx/mediarouter/media/MediaRouter$RouteInfo;)Z
     .locals 1
-    .param p1, "route"    # Landroidx/mediarouter/media/MediaRouter$RouteInfo;
 
     .line 2096
     iget v0, p0, Landroidx/mediarouter/media/MediaRouter$CallbackRecord;->mFlags:I
@@ -66,22 +62,21 @@
     .line 2097
     invoke-virtual {p1, v0}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->matchesSelector(Landroidx/mediarouter/media/MediaRouteSelector;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    .line 2096
     :goto_1
-    return v0
+    return p1
 .end method

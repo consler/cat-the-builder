@@ -14,14 +14,13 @@
     .line 66
     invoke-direct {p0}, Lorg/apache/commons/lang3/builder/ToStringStyle;-><init>()V
 
-    .line 67
     return-void
 .end method
 
 
 # virtual methods
 .method protected accept(Ljava/lang/Class;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -30,18 +29,13 @@
         }
     .end annotation
 
-    .line 97
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public appendDetail(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/lang/Object;)V
     .locals 2
-    .param p1, "buffer"    # Ljava/lang/StringBuffer;
-    .param p2, "fieldName"    # Ljava/lang/String;
-    .param p3, "value"    # Ljava/lang/Object;
 
     .line 71
     invoke-virtual {p3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -81,9 +75,9 @@
     .line 74
     invoke-static {p3, p0}, Lorg/apache/commons/lang3/builder/ReflectionToStringBuilder;->toString(Ljava/lang/Object;Lorg/apache/commons/lang3/builder/ToStringStyle;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto :goto_0
 
@@ -91,15 +85,12 @@
     :cond_0
     invoke-super {p0, p1, p2, p3}, Lorg/apache/commons/lang3/builder/ToStringStyle;->appendDetail(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 78
     :goto_0
     return-void
 .end method
 
 .method protected appendDetail(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/util/Collection;)V
-    .locals 1
-    .param p1, "buffer"    # Ljava/lang/StringBuffer;
-    .param p2, "fieldName"    # Ljava/lang/String;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -111,7 +102,6 @@
     .end annotation
 
     .line 82
-    .local p3, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     invoke-virtual {p0, p1, p3}, Lorg/apache/commons/lang3/builder/RecursiveToStringStyle;->appendClassName(Ljava/lang/StringBuffer;Ljava/lang/Object;)V
 
     .line 83
@@ -120,10 +110,9 @@
     .line 84
     invoke-interface {p3}, Ljava/util/Collection;->toArray()[Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p3
 
-    invoke-virtual {p0, p1, p2, v0}, Lorg/apache/commons/lang3/builder/RecursiveToStringStyle;->appendDetail(Ljava/lang/StringBuffer;Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-virtual {p0, p1, p2, p3}, Lorg/apache/commons/lang3/builder/RecursiveToStringStyle;->appendDetail(Ljava/lang/StringBuffer;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 85
     return-void
 .end method

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/cardview/widget/CardViewApi17Impl;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/cardview/widget/CardViewApi17Impl;
 
     .line 30
     iput-object p1, p0, Landroidx/cardview/widget/CardViewApi17Impl$1;->this$0:Landroidx/cardview/widget/CardViewApi17Impl;
@@ -38,14 +37,9 @@
 # virtual methods
 .method public drawRoundRect(Landroid/graphics/Canvas;Landroid/graphics/RectF;FLandroid/graphics/Paint;)V
     .locals 0
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
-    .param p2, "bounds"    # Landroid/graphics/RectF;
-    .param p3, "cornerRadius"    # F
-    .param p4, "paint"    # Landroid/graphics/Paint;
 
     .line 34
     invoke-virtual {p1, p2, p3, p3, p4}, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V
 
-    .line 35
     return-void
 .end method

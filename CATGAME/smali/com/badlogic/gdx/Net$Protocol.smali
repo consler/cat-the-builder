@@ -43,13 +43,13 @@
 
     sput-object v0, Lcom/badlogic/gdx/Net$Protocol;->TCP:Lcom/badlogic/gdx/Net$Protocol;
 
-    .line 335
     const/4 v1, 0x1
 
     new-array v1, v1, [Lcom/badlogic/gdx/Net$Protocol;
 
     aput-object v0, v1, v2
 
+    .line 335
     sput-object v1, Lcom/badlogic/gdx/Net$Protocol;->$VALUES:[Lcom/badlogic/gdx/Net$Protocol;
 
     return-void
@@ -71,18 +71,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/badlogic/gdx/Net$Protocol;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 335
     const-class v0, Lcom/badlogic/gdx/Net$Protocol;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/badlogic/gdx/Net$Protocol;
+    check-cast p0, Lcom/badlogic/gdx/Net$Protocol;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/badlogic/gdx/Net$Protocol;

@@ -31,13 +31,11 @@
 
     iput-object v0, p0, Landroidx/camera/camera2/internal/CameraBurstCaptureCallback;->mCallbackMap:Ljava/util/Map;
 
-    .line 48
     return-void
 .end method
 
 .method private getCallbacks(Landroid/hardware/camera2/CaptureRequest;)Ljava/util/List;
-    .locals 2
-    .param p1, "request"    # Landroid/hardware/camera2/CaptureRequest;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -54,34 +52,28 @@
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/List;
+    check-cast p1, Ljava/util/List;
 
-    .line 112
-    .local v0, "callbacks":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;>;"
-    if-eqz v0, :cond_0
-
-    .line 113
-    move-object v1, v0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
+    .line 113
     :cond_0
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p1
 
-    .line 112
     :goto_0
-    return-object v1
+    return-object p1
 .end method
 
 
 # virtual methods
 .method addCamera2Callbacks(Landroid/hardware/camera2/CaptureRequest;Ljava/util/List;)V
     .locals 4
-    .param p1, "captureRequest"    # Landroid/hardware/camera2/CaptureRequest;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -93,7 +85,6 @@
     .end annotation
 
     .line 121
-    .local p2, "captureCallbacks":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;>;"
     iget-object v0, p0, Landroidx/camera/camera2/internal/CameraBurstCaptureCallback;->mCallbackMap:Ljava/util/Map;
 
     .line 122
@@ -103,8 +94,6 @@
 
     check-cast v0, Ljava/util/List;
 
-    .line 123
-    .local v0, "existingCallbacks":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;>;"
     if-eqz v0, :cond_0
 
     .line 124
@@ -124,38 +113,30 @@
     invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 126
-    .local v1, "totalCallbacks":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;>;"
     invoke-interface {v1, p2}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
     .line 127
     invoke-interface {v1, v0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
     .line 128
-    iget-object v2, p0, Landroidx/camera/camera2/internal/CameraBurstCaptureCallback;->mCallbackMap:Ljava/util/Map;
+    iget-object p2, p0, Landroidx/camera/camera2/internal/CameraBurstCaptureCallback;->mCallbackMap:Ljava/util/Map;
 
-    invoke-interface {v2, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p2, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 129
-    .end local v1    # "totalCallbacks":Ljava/util/List;, "Ljava/util/List<Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;>;"
     goto :goto_0
 
     .line 130
     :cond_0
-    iget-object v1, p0, Landroidx/camera/camera2/internal/CameraBurstCaptureCallback;->mCallbackMap:Ljava/util/Map;
+    iget-object v0, p0, Landroidx/camera/camera2/internal/CameraBurstCaptureCallback;->mCallbackMap:Ljava/util/Map;
 
-    invoke-interface {v1, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 132
     :goto_0
     return-void
 .end method
 
 .method public onCaptureBufferLost(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/view/Surface;J)V
     .locals 8
-    .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
-    .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
-    .param p3, "surface"    # Landroid/view/Surface;
-    .param p4, "frame"    # J
 
     .line 56
     invoke-direct {p0, p2}, Landroidx/camera/camera2/internal/CameraBurstCaptureCallback;->getCallbacks(Landroid/hardware/camera2/CaptureRequest;)Ljava/util/List;
@@ -177,11 +158,9 @@
 
     move-result-object v1
 
-    check-cast v1, Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
-
-    .line 57
-    .local v1, "callback":Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
     move-object v2, v1
+
+    check-cast v2, Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
 
     move-object v3, p1
 
@@ -191,22 +170,17 @@
 
     move-wide v6, p4
 
+    .line 57
     invoke-virtual/range {v2 .. v7}, Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;->onCaptureBufferLost(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/view/Surface;J)V
 
-    .line 58
-    .end local v1    # "callback":Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
     goto :goto_0
 
-    .line 59
     :cond_0
     return-void
 .end method
 
 .method public onCaptureCompleted(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/TotalCaptureResult;)V
     .locals 2
-    .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
-    .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
-    .param p3, "result"    # Landroid/hardware/camera2/TotalCaptureResult;
 
     .line 64
     invoke-direct {p0, p2}, Landroidx/camera/camera2/internal/CameraBurstCaptureCallback;->getCallbacks(Landroid/hardware/camera2/CaptureRequest;)Ljava/util/List;
@@ -231,23 +205,16 @@
     check-cast v1, Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
 
     .line 65
-    .local v1, "callback":Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
     invoke-virtual {v1, p1, p2, p3}, Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;->onCaptureCompleted(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/TotalCaptureResult;)V
 
-    .line 66
-    .end local v1    # "callback":Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
     goto :goto_0
 
-    .line 67
     :cond_0
     return-void
 .end method
 
 .method public onCaptureFailed(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CaptureFailure;)V
     .locals 2
-    .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
-    .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
-    .param p3, "failure"    # Landroid/hardware/camera2/CaptureFailure;
 
     .line 72
     invoke-direct {p0, p2}, Landroidx/camera/camera2/internal/CameraBurstCaptureCallback;->getCallbacks(Landroid/hardware/camera2/CaptureRequest;)Ljava/util/List;
@@ -272,23 +239,16 @@
     check-cast v1, Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
 
     .line 73
-    .local v1, "callback":Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
     invoke-virtual {v1, p1, p2, p3}, Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;->onCaptureFailed(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CaptureFailure;)V
 
-    .line 74
-    .end local v1    # "callback":Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
     goto :goto_0
 
-    .line 75
     :cond_0
     return-void
 .end method
 
 .method public onCaptureProgressed(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CaptureResult;)V
     .locals 2
-    .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
-    .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
-    .param p3, "partialResult"    # Landroid/hardware/camera2/CaptureResult;
 
     .line 82
     invoke-direct {p0, p2}, Landroidx/camera/camera2/internal/CameraBurstCaptureCallback;->getCallbacks(Landroid/hardware/camera2/CaptureRequest;)Ljava/util/List;
@@ -313,43 +273,28 @@
     check-cast v1, Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
 
     .line 83
-    .local v1, "callback":Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
     invoke-virtual {v1, p1, p2, p3}, Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;->onCaptureProgressed(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CaptureResult;)V
 
-    .line 84
-    .end local v1    # "callback":Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
     goto :goto_0
 
-    .line 85
     :cond_0
     return-void
 .end method
 
 .method public onCaptureSequenceAborted(Landroid/hardware/camera2/CameraCaptureSession;I)V
     .locals 0
-    .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
-    .param p2, "sequenceId"    # I
 
-    .line 102
     return-void
 .end method
 
 .method public onCaptureSequenceCompleted(Landroid/hardware/camera2/CameraCaptureSession;IJ)V
     .locals 0
-    .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
-    .param p2, "sequenceId"    # I
-    .param p3, "frameNumber"    # J
 
-    .line 108
     return-void
 .end method
 
 .method public onCaptureStarted(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;JJ)V
     .locals 9
-    .param p1, "session"    # Landroid/hardware/camera2/CameraCaptureSession;
-    .param p2, "request"    # Landroid/hardware/camera2/CaptureRequest;
-    .param p3, "timestamp"    # J
-    .param p5, "frameNumber"    # J
 
     .line 93
     invoke-direct {p0, p2}, Landroidx/camera/camera2/internal/CameraBurstCaptureCallback;->getCallbacks(Landroid/hardware/camera2/CaptureRequest;)Ljava/util/List;
@@ -371,11 +316,9 @@
 
     move-result-object v1
 
-    check-cast v1, Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
-
-    .line 94
-    .local v1, "callback":Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
     move-object v2, v1
+
+    check-cast v2, Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
 
     move-object v3, p1
 
@@ -385,13 +328,11 @@
 
     move-wide v7, p5
 
+    .line 94
     invoke-virtual/range {v2 .. v8}, Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;->onCaptureStarted(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;JJ)V
 
-    .line 95
-    .end local v1    # "callback":Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;
     goto :goto_0
 
-    .line 96
     :cond_0
     return-void
 .end method

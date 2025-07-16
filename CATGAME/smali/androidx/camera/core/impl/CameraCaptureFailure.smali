@@ -18,7 +18,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/camera/core/impl/CameraCaptureFailure$Reason;)V
     .locals 0
-    .param p1, "reason"    # Landroidx/camera/core/impl/CameraCaptureFailure$Reason;
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +25,6 @@
     .line 30
     iput-object p1, p0, Landroidx/camera/core/impl/CameraCaptureFailure;->mReason:Landroidx/camera/core/impl/CameraCaptureFailure$Reason;
 
-    .line 31
     return-void
 .end method
 

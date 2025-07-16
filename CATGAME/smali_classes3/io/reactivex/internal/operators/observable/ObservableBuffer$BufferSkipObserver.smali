@@ -75,9 +75,7 @@
 
 # direct methods
 .method constructor <init>(Lio/reactivex/Observer;IILjava/util/concurrent/Callable;)V
-    .locals 1
-    .param p2, "count"    # I
-    .param p3, "skip"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -89,9 +87,6 @@
     .end annotation
 
     .line 153
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;, "Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver<TT;TU;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TU;>;"
-    .local p4, "bufferSupplier":Ljava/util/concurrent/Callable;, "Ljava/util/concurrent/Callable<TU;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
 
     .line 154
@@ -107,13 +102,12 @@
     iput-object p4, p0, Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;->bufferSupplier:Ljava/util/concurrent/Callable;
 
     .line 158
-    new-instance v0, Ljava/util/ArrayDeque;
+    new-instance p1, Ljava/util/ArrayDeque;
 
-    invoke-direct {v0}, Ljava/util/ArrayDeque;-><init>()V
+    invoke-direct {p1}, Ljava/util/ArrayDeque;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;->buffers:Ljava/util/ArrayDeque;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;->buffers:Ljava/util/ArrayDeque;
 
-    .line 159
     return-void
 .end method
 
@@ -123,12 +117,10 @@
     .locals 1
 
     .line 172
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;, "Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver<TT;TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 173
     return-void
 .end method
 
@@ -136,7 +128,6 @@
     .locals 1
 
     .line 177
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;, "Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver<TT;TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->isDisposed()Z
@@ -150,7 +141,6 @@
     .locals 2
 
     .line 217
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;, "Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver<TT;TU;>;"
     :goto_0
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;->buffers:Ljava/util/ArrayDeque;
 
@@ -179,16 +169,13 @@
 
     invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 221
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 211
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;, "Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver<TT;TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;->buffers:Ljava/util/ArrayDeque;
 
     invoke-virtual {v0}, Ljava/util/ArrayDeque;->clear()V
@@ -198,7 +185,6 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 213
     return-void
 .end method
 
@@ -211,8 +197,6 @@
     .end annotation
 
     .line 182
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;, "Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver<TT;TU;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-wide v0, p0, Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;->index:J
 
     const-wide/16 v2, 0x1
@@ -234,30 +218,22 @@
     if-nez v0, :cond_0
 
     .line 186
-    const/4 v0, 0x0
-
     :try_start_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;->bufferSupplier:Ljava/util/concurrent/Callable;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;->bufferSupplier:Ljava/util/concurrent/Callable;
 
-    invoke-interface {v1}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string v2, "The bufferSupplier returned a null collection. Null values are generally not allowed in 2.x operators and sources."
+    const-string v1, "The bufferSupplier returned a null collection. Null values are generally not allowed in 2.x operators and sources."
 
-    invoke-static {v1, v2}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v0, v1}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ljava/util/Collection;
+    check-cast v0, Ljava/util/Collection;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-object v0, v1
-
-    .line 192
-    .local v0, "b":Ljava/util/Collection;, "TU;"
-    nop
 
     .line 194
     iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;->buffers:Ljava/util/ArrayDeque;
@@ -266,34 +242,27 @@
 
     goto :goto_0
 
-    .line 187
-    .end local v0    # "b":Ljava/util/Collection;, "TU;"
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     .line 188
-    .restart local v0    # "b":Ljava/util/Collection;, "TU;"
-    .local v1, "e":Ljava/lang/Throwable;
-    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;->buffers:Ljava/util/ArrayDeque;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;->buffers:Ljava/util/ArrayDeque;
 
-    invoke-virtual {v2}, Ljava/util/ArrayDeque;->clear()V
+    invoke-virtual {v0}, Ljava/util/ArrayDeque;->clear()V
 
     .line 189
-    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;->s:Lio/reactivex/disposables/Disposable;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;->s:Lio/reactivex/disposables/Disposable;
 
-    invoke-interface {v2}, Lio/reactivex/disposables/Disposable;->dispose()V
+    invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
     .line 190
-    iget-object v2, p0, Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;->actual:Lio/reactivex/Observer;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v2, v1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v0, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 191
     return-void
 
     .line 197
-    .end local v0    # "b":Ljava/util/Collection;, "TU;"
-    .end local v1    # "e":Ljava/lang/Throwable;
     :cond_0
     :goto_0
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;->buffers:Ljava/util/ArrayDeque;
@@ -303,7 +272,7 @@
     move-result-object v0
 
     .line 198
-    .local v0, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<TU;>;"
+    :cond_1
     :goto_1
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -319,7 +288,6 @@
     check-cast v1, Ljava/util/Collection;
 
     .line 200
-    .local v1, "b":Ljava/util/Collection;, "TU;"
     invoke-interface {v1, p1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     .line 201
@@ -339,22 +307,16 @@
 
     invoke-interface {v2, v1}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
-    .line 206
-    .end local v1    # "b":Ljava/util/Collection;, "TU;"
-    :cond_1
     goto :goto_1
 
-    .line 207
     :cond_2
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 163
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;, "Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver<TT;TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -367,11 +329,10 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;->s:Lio/reactivex/disposables/Disposable;
 
     .line 165
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableBuffer$BufferSkipObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v0, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 167
     :cond_0
     return-void
 .end method

@@ -26,66 +26,60 @@
 .end method
 
 .method static synthetic class$(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 2
-    .param p0, "x0"    # Ljava/lang/String;
+    .locals 1
 
     .line 93
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/lang/NoClassDefFoundError;
+    new-instance v0, Ljava/lang/NoClassDefFoundError;
 
-    invoke-direct {v1}, Ljava/lang/NoClassDefFoundError;-><init>()V
+    invoke-direct {v0}, Ljava/lang/NoClassDefFoundError;-><init>()V
 
-    invoke-virtual {v1, v0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, p0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 .end method
 
 .method public static newInstance(Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p0, "type"    # Ljava/lang/Class;
-    .param p1, "dependencies"    # [Ljava/lang/Object;
 
-    .line 47
     const/4 v0, 0x0
 
+    .line 47
     invoke-static {p0, p1, v0}, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory;->newInstance(Ljava/lang/Class;[Ljava/lang/Object;Ljava/util/BitSet;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static newInstance(Ljava/lang/Class;[Ljava/lang/Object;Ljava/util/BitSet;)Ljava/lang/Object;
-    .locals 27
-    .param p0, "type"    # Ljava/lang/Class;
-    .param p1, "dependencies"    # [Ljava/lang/Object;
-    .param p2, "usedDependencies"    # Ljava/util/BitSet;
+    .locals 26
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, p2
+
+    if-eqz v0, :cond_1
 
     .line 66
-    move-object/from16 v1, p1
-
-    move-object/from16 v2, p2
-
-    if-eqz v1, :cond_1
-
-    array-length v0, v1
+    array-length v2, v0
 
     const/16 v3, 0x3f
 
-    if-gt v0, v3, :cond_0
+    if-gt v2, v3, :cond_0
 
     goto :goto_0
 
@@ -93,46 +87,29 @@
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v3, "More than 63 arguments are not supported"
+    const-string v1, "More than 63 arguments are not supported"
 
-    invoke-direct {v0, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 69
+    .line 70
     :cond_1
     :goto_0
-    const/4 v0, 0x0
+    new-instance v2, Ljava/util/ArrayList;
 
-    .line 70
-    .local v0, "bestMatchingCtor":Ljava/lang/reflect/Constructor;
-    new-instance v3, Ljava/util/ArrayList;
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
-
-    .line 71
-    .local v3, "matchingDependencies":Ljava/util/ArrayList;
-    const/4 v4, 0x0
-
-    .line 72
-    .local v4, "possibleMatchingDependencies":Ljava/util/List;
-    const-wide/16 v5, 0x0
-
-    .line 73
-    .local v5, "usedDeps":J
-    const-wide/16 v7, 0x0
-
-    .line 75
-    .local v7, "possibleUsedDeps":J
-    const-string v9, "construction-type"
+    const-string v3, "construction-type"
 
     const/4 v10, 0x1
 
-    if-eqz v1, :cond_1e
+    if-eqz v0, :cond_1b
 
-    array-length v11, v1
+    .line 75
+    array-length v11, v0
 
-    if-lez v11, :cond_1e
+    if-lez v11, :cond_1b
 
     .line 77
     invoke-virtual/range {p0 .. p0}, Ljava/lang/Class;->getConstructors()[Ljava/lang/reflect/Constructor;
@@ -140,7 +117,6 @@
     move-result-object v11
 
     .line 78
-    .local v11, "ctors":[Ljava/lang/reflect/Constructor;
     array-length v12, v11
 
     if-le v12, v10, :cond_2
@@ -154,41 +130,37 @@
 
     .line 87
     :cond_2
-    array-length v12, v1
+    array-length v12, v0
 
-    new-array v12, v12, [Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;
+    new-array v13, v12, [Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;
+
+    const/4 v14, 0x0
 
     .line 88
-    .local v12, "typedDependencies":[Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;
-    const/4 v13, 0x0
-
-    .local v13, "i":I
     :goto_1
-    array-length v14, v1
+    array-length v15, v0
 
-    if-ge v13, v14, :cond_6
+    if-ge v14, v15, :cond_6
 
     .line 89
-    aget-object v14, v1, v13
+    aget-object v15, v0, v14
 
     .line 90
-    .local v14, "dependency":Ljava/lang/Object;
-    invoke-virtual {v14}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v15}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v15
+    move-result-object v10
 
     .line 91
-    .local v15, "depType":Ljava/lang/Class;
-    invoke-virtual {v15}, Ljava/lang/Class;->isPrimitive()Z
+    invoke-virtual {v10}, Ljava/lang/Class;->isPrimitive()Z
 
     move-result v16
 
     if-eqz v16, :cond_3
 
     .line 92
-    invoke-static {v15}, Lcom/thoughtworks/xstream/core/util/Primitives;->box(Ljava/lang/Class;)Ljava/lang/Class;
+    invoke-static {v10}, Lcom/thoughtworks/xstream/core/util/Primitives;->box(Ljava/lang/Class;)Ljava/lang/Class;
 
-    move-result-object v15
+    move-result-object v10
 
     goto :goto_2
 
@@ -207,722 +179,478 @@
     sput-object v16, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory;->class$com$thoughtworks$xstream$core$util$TypedNull:Ljava/lang/Class;
 
     :cond_4
-    move-object/from16 v10, v16
+    move-object/from16 v6, v16
 
-    if-ne v15, v10, :cond_5
+    if-ne v10, v6, :cond_5
 
     .line 94
-    move-object v10, v14
+    check-cast v15, Lcom/thoughtworks/xstream/core/util/TypedNull;
 
-    check-cast v10, Lcom/thoughtworks/xstream/core/util/TypedNull;
+    invoke-virtual {v15}, Lcom/thoughtworks/xstream/core/util/TypedNull;->getType()Ljava/lang/Class;
 
-    invoke-virtual {v10}, Lcom/thoughtworks/xstream/core/util/TypedNull;->getType()Ljava/lang/Class;
+    move-result-object v10
 
-    move-result-object v15
-
-    .line 95
-    const/4 v14, 0x0
+    const/4 v15, 0x0
 
     .line 98
     :cond_5
     :goto_2
-    new-instance v10, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;
+    new-instance v6, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;
 
-    invoke-direct {v10, v15, v14}, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;-><init>(Ljava/lang/Class;Ljava/lang/Object;)V
+    invoke-direct {v6, v10, v15}, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;-><init>(Ljava/lang/Class;Ljava/lang/Object;)V
 
-    aput-object v10, v12, v13
+    aput-object v6, v13, v14
 
-    .line 88
-    .end local v14    # "dependency":Ljava/lang/Object;
-    .end local v15    # "depType":Ljava/lang/Class;
-    add-int/lit8 v13, v13, 0x1
+    add-int/lit8 v14, v14, 0x1
 
     const/4 v10, 0x1
 
     goto :goto_1
 
-    .line 101
-    .end local v13    # "i":I
     :cond_6
+    const v6, 0x7fffffff
+
+    const/4 v7, 0x0
+
     const/4 v10, 0x0
 
-    .line 102
-    .local v10, "possibleCtor":Ljava/lang/reflect/Constructor;
-    const v13, 0x7fffffff
-
-    .line 103
-    .local v13, "arity":I
     const/4 v14, 0x0
 
-    .local v14, "i":I
+    const/4 v15, 0x0
+
+    const-wide/16 v17, 0x0
+
+    const-wide/16 v19, 0x0
+
     :goto_3
-    if-nez v0, :cond_1b
+    if-nez v7, :cond_19
 
-    array-length v15, v11
+    .line 103
+    array-length v8, v11
 
-    if-ge v14, v15, :cond_1b
+    if-ge v10, v8, :cond_19
 
     .line 104
-    aget-object v15, v11, v14
+    aget-object v8, v11, v10
 
     .line 105
-    .local v15, "constructor":Ljava/lang/reflect/Constructor;
-    move-object/from16 v16, v0
+    invoke-virtual {v8}, Ljava/lang/reflect/Constructor;->getParameterTypes()[Ljava/lang/Class;
 
-    .end local v0    # "bestMatchingCtor":Ljava/lang/reflect/Constructor;
-    .local v16, "bestMatchingCtor":Ljava/lang/reflect/Constructor;
-    invoke-virtual {v15}, Ljava/lang/reflect/Constructor;->getParameterTypes()[Ljava/lang/Class;
-
-    move-result-object v0
+    move-result-object v9
 
     .line 106
-    .local v0, "parameterTypes":[Ljava/lang/Class;
-    move-wide/from16 v17, v5
+    array-length v4, v9
 
-    .end local v5    # "usedDeps":J
-    .local v17, "usedDeps":J
     array-length v5, v0
 
-    array-length v6, v1
+    if-le v4, v5, :cond_7
 
-    if-le v5, v6, :cond_7
-
-    .line 107
     goto :goto_4
 
     .line 108
     :cond_7
-    array-length v5, v0
+    array-length v4, v9
 
-    if-nez v5, :cond_9
+    if-nez v4, :cond_8
 
-    .line 109
-    if-nez v10, :cond_8
+    if-nez v14, :cond_19
 
-    .line 110
-    move-object v5, v15
-
-    move-object v0, v5
-
-    move-object/from16 v24, v9
-
-    move-object/from16 v19, v11
-
-    move-object/from16 v23, v12
-
-    .end local v16    # "bestMatchingCtor":Ljava/lang/reflect/Constructor;
-    .local v5, "bestMatchingCtor":Ljava/lang/reflect/Constructor;
-    goto/16 :goto_10
-
-    .line 109
-    .end local v5    # "bestMatchingCtor":Ljava/lang/reflect/Constructor;
-    .restart local v16    # "bestMatchingCtor":Ljava/lang/reflect/Constructor;
-    :cond_8
-    move-object/from16 v24, v9
-
-    move-object/from16 v19, v11
-
-    move-object/from16 v23, v12
+    const-wide/16 v21, 0x1
 
     goto/16 :goto_f
 
     .line 114
-    :cond_9
-    array-length v5, v0
+    :cond_8
+    array-length v4, v9
 
-    if-le v13, v5, :cond_b
+    if-le v6, v4, :cond_a
 
-    .line 115
-    if-eqz v10, :cond_a
+    if-eqz v14, :cond_9
 
-    .line 116
-    nop
-
-    .line 103
-    .end local v0    # "parameterTypes":[Ljava/lang/Class;
-    .end local v15    # "constructor":Ljava/lang/reflect/Constructor;
     :goto_4
-    move-object/from16 v24, v9
+    const/4 v4, 0x0
 
-    move-object/from16 v19, v11
-
-    move-object/from16 v23, v12
-
-    move-object/from16 v0, v16
-
-    move-wide/from16 v5, v17
+    const-wide/16 v21, 0x1
 
     goto/16 :goto_e
 
     .line 118
-    .restart local v0    # "parameterTypes":[Ljava/lang/Class;
-    .restart local v15    # "constructor":Ljava/lang/reflect/Constructor;
+    :cond_9
+    array-length v6, v9
+
     :cond_a
-    array-length v13, v0
+    const/4 v4, 0x0
 
     .line 121
-    :cond_b
-    const/4 v5, 0x0
-
-    .local v5, "j":I
     :goto_5
-    array-length v6, v0
+    array-length v5, v9
 
-    if-ge v5, v6, :cond_d
+    if-ge v4, v5, :cond_c
 
     .line 122
-    aget-object v6, v0, v5
+    aget-object v5, v9, v4
 
-    invoke-virtual {v6}, Ljava/lang/Class;->isPrimitive()Z
+    invoke-virtual {v5}, Ljava/lang/Class;->isPrimitive()Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_c
+    if-eqz v5, :cond_b
 
     .line 123
-    aget-object v6, v0, v5
+    aget-object v5, v9, v4
 
-    invoke-static {v6}, Lcom/thoughtworks/xstream/core/util/Primitives;->box(Ljava/lang/Class;)Ljava/lang/Class;
+    invoke-static {v5}, Lcom/thoughtworks/xstream/core/util/Primitives;->box(Ljava/lang/Class;)Ljava/lang/Class;
 
-    move-result-object v6
+    move-result-object v5
 
-    aput-object v6, v0, v5
+    aput-object v5, v9, v4
 
-    .line 121
-    :cond_c
-    add-int/lit8 v5, v5, 0x1
+    :cond_b
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_5
 
     .line 129
-    .end local v5    # "j":I
-    :cond_d
-    invoke-virtual {v3}, Ljava/util/ArrayList;->clear()V
+    :cond_c
+    invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
 
-    .line 130
-    const-wide/16 v5, 0x0
+    const/4 v4, 0x0
 
-    .line 131
-    .end local v17    # "usedDeps":J
-    .local v5, "usedDeps":J
-    const/16 v17, 0x0
+    const/4 v5, 0x0
 
-    .local v17, "j":I
-    const/16 v18, 0x0
-
-    move/from16 v1, v17
+    const-wide/16 v17, 0x0
 
     .line 132
-    .end local v17    # "j":I
-    .local v1, "j":I
-    .local v18, "k":I
     :goto_6
-    move-object/from16 v19, v11
+    array-length v0, v9
 
-    .end local v11    # "ctors":[Ljava/lang/reflect/Constructor;
-    .local v19, "ctors":[Ljava/lang/reflect/Constructor;
-    array-length v11, v0
+    if-ge v4, v0, :cond_e
 
-    const-wide/16 v20, 0x1
+    array-length v0, v9
 
-    if-ge v1, v11, :cond_f
+    add-int/2addr v0, v5
 
-    array-length v11, v0
+    sub-int/2addr v0, v4
 
-    add-int v11, v11, v18
-
-    sub-int/2addr v11, v1
-
-    move/from16 v22, v13
-
-    .end local v13    # "arity":I
-    .local v22, "arity":I
-    array-length v13, v12
-
-    if-gt v11, v13, :cond_10
+    if-gt v0, v12, :cond_e
 
     .line 133
-    aget-object v11, v0, v1
+    aget-object v0, v9, v4
 
-    aget-object v13, v12, v18
+    move/from16 v23, v6
 
-    iget-object v13, v13, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;->type:Ljava/lang/Class;
+    aget-object v6, v13, v5
 
-    invoke-virtual {v11, v13}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    iget-object v6, v6, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;->type:Ljava/lang/Class;
 
-    move-result v11
+    invoke-virtual {v0, v6}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    if-eqz v11, :cond_e
+    move-result v0
+
+    if-eqz v0, :cond_d
 
     .line 134
-    aget-object v11, v12, v18
+    aget-object v0, v13, v5
 
-    iget-object v11, v11, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;->value:Ljava/lang/Object;
+    iget-object v0, v0, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;->value:Ljava/lang/Object;
 
-    invoke-virtual {v3, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 135
-    shl-long v23, v20, v18
+    const-wide/16 v21, 0x1
 
-    or-long v5, v5, v23
+    shl-long v24, v21, v5
+
+    or-long v17, v17, v24
+
+    add-int/lit8 v4, v4, 0x1
 
     .line 136
-    add-int/lit8 v1, v1, 0x1
+    array-length v0, v9
 
-    array-length v11, v0
+    if-ne v4, v0, :cond_d
 
-    if-ne v1, v11, :cond_e
-
-    .line 137
-    move-object v11, v15
-
-    .line 138
-    .end local v16    # "bestMatchingCtor":Ljava/lang/reflect/Constructor;
-    .local v11, "bestMatchingCtor":Ljava/lang/reflect/Constructor;
-    move-object/from16 v16, v11
+    move-object v7, v8
 
     goto :goto_7
 
-    .line 132
-    .end local v11    # "bestMatchingCtor":Ljava/lang/reflect/Constructor;
-    .restart local v16    # "bestMatchingCtor":Ljava/lang/reflect/Constructor;
-    :cond_e
-    add-int/lit8 v18, v18, 0x1
+    :cond_d
+    add-int/lit8 v5, v5, 0x1
 
-    move-object/from16 v11, v19
-
-    move/from16 v13, v22
+    move/from16 v6, v23
 
     goto :goto_6
 
-    .end local v22    # "arity":I
-    .restart local v13    # "arity":I
-    :cond_f
-    move/from16 v22, v13
+    :cond_e
+    move/from16 v23, v6
 
-    .line 143
-    .end local v1    # "j":I
-    .end local v13    # "arity":I
-    .end local v18    # "k":I
-    .restart local v22    # "arity":I
-    :cond_10
     :goto_7
-    if-nez v16, :cond_1a
-
-    .line 144
-    const/4 v1, 0x1
+    if-nez v7, :cond_18
 
     .line 148
-    .local v1, "possible":Z
-    array-length v11, v12
+    new-array v0, v12, [Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;
 
-    new-array v11, v11, [Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;
+    const/4 v4, 0x0
 
     .line 149
-    .local v11, "deps":[Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;
-    array-length v13, v11
-
-    move/from16 v17, v1
-
-    .end local v1    # "possible":Z
-    .local v17, "possible":Z
-    const/4 v1, 0x0
-
-    invoke-static {v12, v1, v11, v1, v13}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v13, v4, v0, v4, v12}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 150
-    invoke-virtual {v3}, Ljava/util/ArrayList;->clear()V
+    invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
 
-    .line 151
-    const-wide/16 v5, 0x0
+    move v5, v4
+
+    const-wide/16 v17, 0x0
 
     .line 152
-    const/4 v1, 0x0
-
-    .local v1, "j":I
     :goto_8
-    array-length v13, v0
+    array-length v6, v9
 
-    if-ge v1, v13, :cond_17
+    if-ge v5, v6, :cond_15
 
-    .line 153
-    const/4 v13, -0x1
+    const/4 v6, -0x1
 
-    .line 154
-    .local v13, "assignable":I
-    const/16 v18, 0x0
-
-    move-object/from16 v23, v12
-
-    move/from16 v12, v18
-
-    .local v12, "k":I
-    .local v23, "typedDependencies":[Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;
     :goto_9
-    array-length v2, v11
+    move-object/from16 v24, v7
 
-    if-ge v12, v2, :cond_15
+    if-ge v4, v12, :cond_13
 
     .line 155
-    aget-object v2, v11, v12
+    aget-object v7, v0, v4
 
-    if-nez v2, :cond_11
+    if-nez v7, :cond_f
 
-    .line 156
-    move-object/from16 v24, v9
+    move-object/from16 v25, v8
 
     goto :goto_a
 
     .line 158
-    :cond_11
-    aget-object v2, v11, v12
+    :cond_f
+    iget-object v7, v7, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;->type:Ljava/lang/Class;
 
-    iget-object v2, v2, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;->type:Ljava/lang/Class;
+    move-object/from16 v25, v8
 
-    move-object/from16 v24, v9
+    aget-object v8, v9, v5
 
-    aget-object v9, v0, v1
+    if-ne v7, v8, :cond_10
 
-    if-ne v2, v9, :cond_12
+    move v6, v4
 
-    .line 159
-    move v13, v12
-
-    .line 161
     goto :goto_b
 
     .line 162
-    :cond_12
-    aget-object v2, v0, v1
+    :cond_10
+    aget-object v7, v0, v4
 
-    aget-object v9, v11, v12
+    iget-object v7, v7, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;->type:Ljava/lang/Class;
 
-    iget-object v9, v9, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;->type:Ljava/lang/Class;
+    invoke-virtual {v8, v7}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    invoke-virtual {v2, v9}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    move-result v7
 
-    move-result v2
+    if-eqz v7, :cond_12
 
-    if-eqz v2, :cond_14
+    if-ltz v6, :cond_11
 
     .line 164
-    if-ltz v13, :cond_13
+    aget-object v7, v0, v6
 
-    aget-object v2, v11, v13
+    iget-object v7, v7, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;->type:Ljava/lang/Class;
 
-    iget-object v2, v2, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;->type:Ljava/lang/Class;
+    aget-object v8, v0, v4
 
-    aget-object v9, v11, v12
+    iget-object v8, v8, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;->type:Ljava/lang/Class;
 
-    iget-object v9, v9, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;->type:Ljava/lang/Class;
+    if-eq v7, v8, :cond_12
 
-    if-eq v2, v9, :cond_14
+    aget-object v7, v0, v6
 
-    aget-object v2, v11, v13
+    iget-object v7, v7, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;->type:Ljava/lang/Class;
 
-    iget-object v2, v2, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;->type:Ljava/lang/Class;
+    aget-object v8, v0, v4
 
-    aget-object v9, v11, v12
-
-    iget-object v9, v9, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;->type:Ljava/lang/Class;
+    iget-object v8, v8, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;->type:Ljava/lang/Class;
 
     .line 166
-    invoke-virtual {v2, v9}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    invoke-virtual {v7, v8}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    move-result v2
+    move-result v7
 
-    if-eqz v2, :cond_14
+    if-eqz v7, :cond_12
 
-    .line 167
-    :cond_13
-    move v2, v12
+    :cond_11
+    move v6, v4
 
-    move v13, v2
-
-    .line 154
-    :cond_14
+    :cond_12
     :goto_a
-    add-int/lit8 v12, v12, 0x1
+    add-int/lit8 v4, v4, 0x1
 
-    move-object/from16 v2, p2
+    move-object/from16 v7, v24
 
-    move-object/from16 v9, v24
+    move-object/from16 v8, v25
 
     goto :goto_9
 
-    :cond_15
-    move-object/from16 v24, v9
+    :cond_13
+    move-object/from16 v25, v8
 
-    .line 172
-    .end local v12    # "k":I
     :goto_b
-    if-ltz v13, :cond_16
+    if-ltz v6, :cond_14
 
     .line 173
-    aget-object v2, v11, v13
+    aget-object v4, v0, v6
 
-    iget-object v2, v2, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;->value:Ljava/lang/Object;
+    iget-object v4, v4, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;->value:Ljava/lang/Object;
 
-    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 174
-    shl-long v25, v20, v13
+    const-wide/16 v21, 0x1
 
-    or-long v5, v5, v25
+    shl-long v7, v21, v6
+
+    or-long v17, v17, v7
+
+    const/4 v4, 0x0
 
     .line 175
-    const/4 v2, 0x0
+    aput-object v4, v0, v6
 
-    aput-object v2, v11, v13
+    add-int/lit8 v5, v5, 0x1
 
-    .line 152
-    .end local v13    # "assignable":I
-    add-int/lit8 v1, v1, 0x1
+    move-object/from16 v7, v24
 
-    move-object/from16 v2, p2
+    move-object/from16 v8, v25
 
-    move-object/from16 v12, v23
-
-    move-object/from16 v9, v24
+    const/4 v4, 0x0
 
     goto :goto_8
 
-    .line 177
-    .restart local v13    # "assignable":I
-    :cond_16
-    const/4 v2, 0x0
+    :cond_14
+    const/4 v4, 0x0
 
-    .line 178
-    .end local v17    # "possible":Z
-    .local v2, "possible":Z
-    move v1, v2
+    const-wide/16 v21, 0x1
+
+    const/4 v0, 0x0
 
     goto :goto_c
 
-    .line 152
-    .end local v2    # "possible":Z
-    .end local v13    # "assignable":I
-    .end local v23    # "typedDependencies":[Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;
-    .local v12, "typedDependencies":[Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;
-    .restart local v17    # "possible":Z
-    :cond_17
-    move-object/from16 v24, v9
+    :cond_15
+    move-object/from16 v24, v7
 
-    move-object/from16 v23, v12
+    move-object/from16 v25, v8
 
-    .end local v12    # "typedDependencies":[Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;
-    .restart local v23    # "typedDependencies":[Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;
-    move/from16 v1, v17
+    const/4 v4, 0x0
 
-    .line 182
-    .end local v17    # "possible":Z
-    .local v1, "possible":Z
+    const-wide/16 v21, 0x1
+
+    const/4 v0, 0x1
+
     :goto_c
-    if-eqz v1, :cond_19
+    if-eqz v0, :cond_17
 
-    .line 184
-    if-eqz v10, :cond_18
+    if-eqz v14, :cond_16
 
-    cmp-long v2, v5, v7
+    cmp-long v0, v17, v19
 
-    if-ltz v2, :cond_18
+    if-ltz v0, :cond_16
 
-    .line 185
     goto :goto_d
 
-    .line 187
-    :cond_18
-    move-object v2, v15
-
     .line 188
-    .end local v10    # "possibleCtor":Ljava/lang/reflect/Constructor;
-    .local v2, "possibleCtor":Ljava/lang/reflect/Constructor;
-    invoke-virtual {v3}, Ljava/util/ArrayList;->clone()Ljava/lang/Object;
+    :cond_16
+    invoke-virtual {v2}, Ljava/util/ArrayList;->clone()Ljava/lang/Object;
 
-    move-result-object v9
+    move-result-object v0
 
-    move-object v4, v9
+    move-object v15, v0
 
-    check-cast v4, Ljava/util/List;
+    check-cast v15, Ljava/util/List;
 
-    .line 189
-    move-wide v7, v5
+    move-wide/from16 v19, v17
 
-    move-object v10, v2
+    move/from16 v6, v23
 
-    move-object/from16 v0, v16
+    move-object/from16 v7, v24
 
-    move/from16 v13, v22
+    move-object/from16 v14, v25
 
     goto :goto_e
 
-    .line 103
-    .end local v0    # "parameterTypes":[Ljava/lang/Class;
-    .end local v1    # "possible":Z
-    .end local v2    # "possibleCtor":Ljava/lang/reflect/Constructor;
-    .end local v11    # "deps":[Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;
-    .end local v15    # "constructor":Ljava/lang/reflect/Constructor;
-    .restart local v10    # "possibleCtor":Ljava/lang/reflect/Constructor;
-    :cond_19
+    :cond_17
     :goto_d
-    move-object/from16 v0, v16
+    move/from16 v6, v23
 
-    move/from16 v13, v22
+    move-object/from16 v7, v24
 
     goto :goto_e
 
-    .line 143
-    .end local v23    # "typedDependencies":[Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;
-    .restart local v0    # "parameterTypes":[Ljava/lang/Class;
-    .restart local v12    # "typedDependencies":[Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;
-    .restart local v15    # "constructor":Ljava/lang/reflect/Constructor;
-    :cond_1a
-    move-object/from16 v24, v9
+    :cond_18
+    move-object/from16 v24, v7
 
-    move-object/from16 v23, v12
+    const/4 v4, 0x0
 
-    .end local v12    # "typedDependencies":[Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;
-    .restart local v23    # "typedDependencies":[Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;
-    move-object/from16 v0, v16
+    const-wide/16 v21, 0x1
 
-    move/from16 v13, v22
+    move/from16 v6, v23
 
-    .line 103
-    .end local v15    # "constructor":Ljava/lang/reflect/Constructor;
-    .end local v16    # "bestMatchingCtor":Ljava/lang/reflect/Constructor;
-    .end local v22    # "arity":I
-    .local v0, "bestMatchingCtor":Ljava/lang/reflect/Constructor;
-    .local v13, "arity":I
     :goto_e
-    add-int/lit8 v14, v14, 0x1
+    add-int/lit8 v10, v10, 0x1
 
-    move-object/from16 v1, p1
-
-    move-object/from16 v2, p2
-
-    move-object/from16 v11, v19
-
-    move-object/from16 v12, v23
-
-    move-object/from16 v9, v24
+    move-object/from16 v0, p1
 
     goto/16 :goto_3
 
-    .end local v19    # "ctors":[Ljava/lang/reflect/Constructor;
-    .end local v23    # "typedDependencies":[Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;
-    .local v11, "ctors":[Ljava/lang/reflect/Constructor;
-    .restart local v12    # "typedDependencies":[Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;
-    :cond_1b
-    move-object/from16 v16, v0
+    :cond_19
+    const-wide/16 v21, 0x1
 
-    move-wide/from16 v17, v5
+    move-object v8, v7
 
-    move-object/from16 v24, v9
-
-    move-object/from16 v19, v11
-
-    move-object/from16 v23, v12
-
-    .line 194
-    .end local v0    # "bestMatchingCtor":Ljava/lang/reflect/Constructor;
-    .end local v5    # "usedDeps":J
-    .end local v11    # "ctors":[Ljava/lang/reflect/Constructor;
-    .end local v12    # "typedDependencies":[Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;
-    .end local v14    # "i":I
-    .restart local v16    # "bestMatchingCtor":Ljava/lang/reflect/Constructor;
-    .local v17, "usedDeps":J
-    .restart local v19    # "ctors":[Ljava/lang/reflect/Constructor;
-    .restart local v23    # "typedDependencies":[Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;
     :goto_f
-    move-object/from16 v0, v16
+    if-nez v8, :cond_1c
 
-    .end local v16    # "bestMatchingCtor":Ljava/lang/reflect/Constructor;
-    .restart local v0    # "bestMatchingCtor":Ljava/lang/reflect/Constructor;
-    :goto_10
-    if-nez v0, :cond_1d
-
-    .line 195
-    if-eqz v10, :cond_1c
-
-    .line 202
-    move-object v0, v10
+    if-eqz v14, :cond_1a
 
     .line 203
-    invoke-virtual {v3}, Ljava/util/ArrayList;->clear()V
+    invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
 
     .line 204
-    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+    invoke-virtual {v2, v15}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    .line 205
-    move-wide v5, v7
+    move-object v8, v14
 
-    move-object v1, v0
+    move-wide/from16 v17, v19
 
-    move-object/from16 v9, v24
-
-    .end local v17    # "usedDeps":J
-    .restart local v5    # "usedDeps":J
-    goto :goto_11
-
-    .line 196
-    .end local v5    # "usedDeps":J
-    .restart local v17    # "usedDeps":J
-    :cond_1c
-    const-wide/16 v1, 0x0
+    goto :goto_10
 
     .line 197
-    .end local v17    # "usedDeps":J
-    .local v1, "usedDeps":J
-    new-instance v5, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
+    :cond_1a
+    new-instance v0, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
 
-    const-string v6, "Cannot construct type, none of the arguments match any constructor\'s parameters"
+    const-string v1, "Cannot construct type, none of the arguments match any constructor\'s parameters"
 
-    invoke-direct {v5, v6}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;-><init>(Ljava/lang/String;)V
 
     .line 199
-    .local v5, "ex":Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
     invoke-virtual/range {p0 .. p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v1
 
-    move-object/from16 v9, v24
-
-    invoke-virtual {v5, v9, v6}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;->add(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v3, v1}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;->add(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 200
-    throw v5
+    throw v0
 
-    .line 194
-    .end local v1    # "usedDeps":J
-    .end local v5    # "ex":Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
-    .restart local v17    # "usedDeps":J
-    :cond_1d
-    move-object/from16 v9, v24
+    :cond_1b
+    const/4 v4, 0x0
 
-    move-object v1, v0
+    const-wide/16 v21, 0x1
 
-    move-wide/from16 v5, v17
+    move-object v8, v4
 
-    goto :goto_11
+    const-wide/16 v17, 0x0
 
-    .line 210
-    .end local v10    # "possibleCtor":Ljava/lang/reflect/Constructor;
-    .end local v13    # "arity":I
-    .end local v17    # "usedDeps":J
-    .end local v19    # "ctors":[Ljava/lang/reflect/Constructor;
-    .end local v23    # "typedDependencies":[Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory$TypedValue;
-    .local v5, "usedDeps":J
-    :cond_1e
-    move-object v1, v0
-
-    .end local v0    # "bestMatchingCtor":Ljava/lang/reflect/Constructor;
-    .local v1, "bestMatchingCtor":Ljava/lang/reflect/Constructor;
-    :goto_11
-    const/4 v2, 0x0
-
-    .line 213
-    .local v2, "th":Ljava/lang/Throwable;
-    if-nez v1, :cond_1f
+    :cond_1c
+    :goto_10
+    if-nez v8, :cond_1d
 
     .line 214
     :try_start_0
@@ -930,207 +658,105 @@
 
     move-result-object v0
 
-    .local v0, "instance":Ljava/lang/Object;
-    goto :goto_12
+    goto :goto_11
 
     .line 216
-    .end local v0    # "instance":Ljava/lang/Object;
-    :cond_1f
-    invoke-virtual {v3}, Ljava/util/ArrayList;->toArray()[Ljava/lang/Object;
+    :cond_1d
+    invoke-virtual {v2}, Ljava/util/ArrayList;->toArray()[Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v8, v0}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_9
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_8
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_7
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_6
-    .catch Ljava/lang/ExceptionInInitializerError; {:try_start_0 .. :try_end_0} :catch_5
 
-    .line 218
-    .restart local v0    # "instance":Ljava/lang/Object;
-    :goto_12
-    move-object/from16 v10, p2
-
-    if-eqz v10, :cond_21
+    :goto_11
+    if-eqz v1, :cond_1f
 
     .line 219
-    :try_start_1
     invoke-virtual/range {p2 .. p2}, Ljava/util/BitSet;->clear()V
 
-    .line 220
-    const/4 v11, 0x0
+    move-wide/from16 v4, v21
 
-    .line 221
-    .local v11, "i":I
-    const-wide/16 v12, 0x1
+    const/4 v9, 0x0
 
-    .local v12, "l":J
-    :goto_13
-    cmp-long v14, v12, v5
+    :goto_12
+    cmp-long v2, v4, v17
 
-    if-gez v14, :cond_21
+    if-gez v2, :cond_1f
 
-    .line 222
-    and-long v14, v5, v12
+    and-long v6, v17, v4
 
-    const-wide/16 v17, 0x0
+    const-wide/16 v10, 0x0
 
-    cmp-long v14, v14, v17
+    cmp-long v2, v6, v10
 
-    if-lez v14, :cond_20
+    if-lez v2, :cond_1e
 
     .line 223
-    invoke-virtual {v10, v11}, Ljava/util/BitSet;->set(I)V
-    :try_end_1
-    .catch Ljava/lang/InstantiationException; {:try_start_1 .. :try_end_1} :catch_4
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_3
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_1} :catch_2
-    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_1
-    .catch Ljava/lang/ExceptionInInitializerError; {:try_start_1 .. :try_end_1} :catch_0
+    invoke-virtual {v1, v9}, Ljava/util/BitSet;->set(I)V
+    :try_end_0
+    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_4
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_3
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_2
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/ExceptionInInitializerError; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 221
-    :cond_20
-    const/4 v14, 0x1
+    :cond_1e
+    const/4 v2, 0x1
 
-    shl-long/2addr v12, v14
+    shl-long/2addr v4, v2
 
-    add-int/lit8 v11, v11, 0x1
+    add-int/lit8 v9, v9, 0x1
 
-    goto :goto_13
+    goto :goto_12
 
-    .line 236
-    .end local v0    # "instance":Ljava/lang/Object;
-    .end local v11    # "i":I
-    .end local v12    # "l":J
+    :cond_1f
+    return-object v0
+
     :catch_0
     move-exception v0
 
-    goto :goto_14
+    goto :goto_13
 
-    .line 234
     :catch_1
     move-exception v0
 
-    goto :goto_15
+    goto :goto_13
 
-    .line 232
     :catch_2
     move-exception v0
 
-    goto :goto_16
+    .line 233
+    invoke-virtual {v0}, Ljava/lang/reflect/InvocationTargetException;->getCause()Ljava/lang/Throwable;
 
-    .line 230
+    move-result-object v0
+
+    goto :goto_13
+
     :catch_3
     move-exception v0
 
-    goto :goto_17
+    goto :goto_13
 
-    .line 228
     :catch_4
     move-exception v0
 
-    goto :goto_18
-
-    .line 227
-    .restart local v0    # "instance":Ljava/lang/Object;
-    :cond_21
-    return-object v0
-
-    .line 236
-    .end local v0    # "instance":Ljava/lang/Object;
-    :catch_5
-    move-exception v0
-
-    move-object/from16 v10, p2
-
-    .line 237
-    .local v0, "e":Ljava/lang/ExceptionInInitializerError;
-    :goto_14
-    move-object v2, v0
-
-    goto :goto_1a
-
-    .line 234
-    .end local v0    # "e":Ljava/lang/ExceptionInInitializerError;
-    :catch_6
-    move-exception v0
-
-    move-object/from16 v10, p2
-
-    .line 235
-    .local v0, "e":Ljava/lang/SecurityException;
-    :goto_15
-    move-object v2, v0
-
-    .end local v0    # "e":Ljava/lang/SecurityException;
-    goto :goto_19
-
-    .line 232
-    :catch_7
-    move-exception v0
-
-    move-object/from16 v10, p2
-
-    .line 233
-    .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
-    :goto_16
-    invoke-virtual {v0}, Ljava/lang/reflect/InvocationTargetException;->getCause()Ljava/lang/Throwable;
-
-    move-result-object v2
-
-    .end local v0    # "e":Ljava/lang/reflect/InvocationTargetException;
-    goto :goto_19
-
-    .line 230
-    :catch_8
-    move-exception v0
-
-    move-object/from16 v10, p2
-
-    .line 231
-    .local v0, "e":Ljava/lang/IllegalAccessException;
-    :goto_17
-    move-object v2, v0
-
-    .end local v0    # "e":Ljava/lang/IllegalAccessException;
-    goto :goto_19
-
-    .line 228
-    :catch_9
-    move-exception v0
-
-    move-object/from16 v10, p2
-
-    .line 229
-    .local v0, "e":Ljava/lang/InstantiationException;
-    :goto_18
-    move-object v2, v0
-
-    .line 238
-    .end local v0    # "e":Ljava/lang/InstantiationException;
-    :goto_19
-    nop
-
     .line 239
-    :goto_1a
-    new-instance v0, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
+    :goto_13
+    new-instance v1, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
 
-    const-string v11, "Cannot construct type"
+    const-string v2, "Cannot construct type"
 
-    invoke-direct {v0, v11, v2}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v1, v2, v0}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 240
-    .local v0, "ex":Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;
     invoke-virtual/range {p0 .. p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v0
 
-    invoke-virtual {v0, v9, v11}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;->add(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v1, v3, v0}, Lcom/thoughtworks/xstream/converters/reflection/ObjectAccessException;->add(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 241
-    throw v0
+    throw v1
 .end method

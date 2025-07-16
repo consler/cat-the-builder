@@ -53,14 +53,14 @@
     .line 159
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 149
     const/4 v0, 0x0
 
+    .line 149
     iput v0, p0, Lcom/badlogic/gdx/Net$HttpRequest;->timeOut:I
 
-    .line 155
     const/4 v1, 0x1
 
+    .line 155
     iput-boolean v1, p0, Lcom/badlogic/gdx/Net$HttpRequest;->followRedirects:Z
 
     .line 157
@@ -73,13 +73,11 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/Net$HttpRequest;->headers:Ljava/util/Map;
 
-    .line 161
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .param p1, "httpMethod"    # Ljava/lang/String;
 
     .line 166
     invoke-direct {p0}, Lcom/badlogic/gdx/Net$HttpRequest;-><init>()V
@@ -87,7 +85,6 @@
     .line 167
     iput-object p1, p0, Lcom/badlogic/gdx/Net$HttpRequest;->httpMethod:Ljava/lang/String;
 
-    .line 168
     return-void
 .end method
 
@@ -186,9 +183,9 @@
 .method public reset()V
     .locals 2
 
-    .line 276
     const/4 v0, 0x0
 
+    .line 276
     iput-object v0, p0, Lcom/badlogic/gdx/Net$HttpRequest;->httpMethod:Ljava/lang/String;
 
     .line 277
@@ -199,9 +196,9 @@
 
     invoke-interface {v1}, Ljava/util/Map;->clear()V
 
-    .line 279
     const/4 v1, 0x0
 
+    .line 279
     iput v1, p0, Lcom/badlogic/gdx/Net$HttpRequest;->timeOut:I
 
     .line 281
@@ -210,24 +207,21 @@
     .line 282
     iput-object v0, p0, Lcom/badlogic/gdx/Net$HttpRequest;->contentStream:Ljava/io/InputStream;
 
-    .line 283
     const-wide/16 v0, 0x0
 
+    .line 283
     iput-wide v0, p0, Lcom/badlogic/gdx/Net$HttpRequest;->contentLength:J
 
-    .line 285
     const/4 v0, 0x1
 
+    .line 285
     iput-boolean v0, p0, Lcom/badlogic/gdx/Net$HttpRequest;->followRedirects:Z
 
-    .line 286
     return-void
 .end method
 
 .method public setContent(Ljava/io/InputStream;J)V
     .locals 0
-    .param p1, "contentStream"    # Ljava/io/InputStream;
-    .param p2, "contentLength"    # J
 
     .line 194
     iput-object p1, p0, Lcom/badlogic/gdx/Net$HttpRequest;->contentStream:Ljava/io/InputStream;
@@ -235,33 +229,29 @@
     .line 195
     iput-wide p2, p0, Lcom/badlogic/gdx/Net$HttpRequest;->contentLength:J
 
-    .line 196
     return-void
 .end method
 
 .method public setContent(Ljava/lang/String;)V
     .locals 0
-    .param p1, "content"    # Ljava/lang/String;
 
     .line 188
     iput-object p1, p0, Lcom/badlogic/gdx/Net$HttpRequest;->content:Ljava/lang/String;
 
-    .line 189
     return-void
 .end method
 
 .method public setFollowRedirects(Z)V
     .locals 2
-    .param p1, "followRedirects"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
         }
     .end annotation
 
-    .line 210
     if-nez p1, :cond_1
 
+    .line 210
     sget-object v0, Lcom/badlogic/gdx/Gdx;->app:Lcom/badlogic/gdx/Application;
 
     invoke-interface {v0}, Lcom/badlogic/gdx/Application;->getType()Lcom/badlogic/gdx/Application$ApplicationType;
@@ -276,77 +266,65 @@
 
     .line 213
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Following redirects can\'t be disabled using the GWT/WebGL backend!"
+    const-string v0, "Following redirects can\'t be disabled using the GWT/WebGL backend!"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 211
     :cond_1
     :goto_0
     iput-boolean p1, p0, Lcom/badlogic/gdx/Net$HttpRequest;->followRedirects:Z
 
-    .line 215
     return-void
 .end method
 
 .method public setHeader(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/String;
 
     .line 180
     iget-object v0, p0, Lcom/badlogic/gdx/Net$HttpRequest;->headers:Ljava/util/Map;
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 181
     return-void
 .end method
 
 .method public setIncludeCredentials(Z)V
     .locals 0
-    .param p1, "includeCredentials"    # Z
 
     .line 220
     iput-boolean p1, p0, Lcom/badlogic/gdx/Net$HttpRequest;->includeCredentials:Z
 
-    .line 221
     return-void
 .end method
 
 .method public setMethod(Ljava/lang/String;)V
     .locals 0
-    .param p1, "httpMethod"    # Ljava/lang/String;
 
     .line 225
     iput-object p1, p0, Lcom/badlogic/gdx/Net$HttpRequest;->httpMethod:Ljava/lang/String;
 
-    .line 226
     return-void
 .end method
 
 .method public setTimeOut(I)V
     .locals 0
-    .param p1, "timeOut"    # I
 
     .line 202
     iput p1, p0, Lcom/badlogic/gdx/Net$HttpRequest;->timeOut:I
 
-    .line 203
     return-void
 .end method
 
 .method public setUrl(Ljava/lang/String;)V
     .locals 0
-    .param p1, "url"    # Ljava/lang/String;
 
     .line 173
     iput-object p1, p0, Lcom/badlogic/gdx/Net$HttpRequest;->url:Ljava/lang/String;
 
-    .line 174
     return-void
 .end method

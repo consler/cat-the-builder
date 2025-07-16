@@ -31,10 +31,6 @@
 # virtual methods
 .method public build(Lcom/bumptech/glide/Glide;Lcom/bumptech/glide/manager/Lifecycle;Lcom/bumptech/glide/manager/RequestManagerTreeNode;Landroid/content/Context;)Lcom/bumptech/glide/RequestManager;
     .locals 1
-    .param p1, "glide"    # Lcom/bumptech/glide/Glide;
-    .param p2, "lifecycle"    # Lcom/bumptech/glide/manager/Lifecycle;
-    .param p3, "requestManagerTreeNode"    # Lcom/bumptech/glide/manager/RequestManagerTreeNode;
-    .param p4, "context"    # Landroid/content/Context;
 
     .line 490
     new-instance v0, Lcom/bumptech/glide/RequestManager;

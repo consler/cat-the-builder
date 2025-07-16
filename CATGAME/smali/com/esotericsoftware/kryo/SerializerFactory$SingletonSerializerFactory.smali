@@ -44,23 +44,18 @@
     .end annotation
 
     .line 97
-    .local p0, "this":Lcom/esotericsoftware/kryo/SerializerFactory$SingletonSerializerFactory;, "Lcom/esotericsoftware/kryo/SerializerFactory$SingletonSerializerFactory<TT;>;"
-    .local p1, "serializer":Lcom/esotericsoftware/kryo/Serializer;, "TT;"
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/SerializerFactory$BaseSerializerFactory;-><init>()V
 
     .line 98
     iput-object p1, p0, Lcom/esotericsoftware/kryo/SerializerFactory$SingletonSerializerFactory;->serializer:Lcom/esotericsoftware/kryo/Serializer;
 
-    .line 99
     return-void
 .end method
 
 
 # virtual methods
 .method public newSerializer(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Serializer;
-    .locals 1
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "type"    # Ljava/lang/Class;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,8 +66,7 @@
     .end annotation
 
     .line 102
-    .local p0, "this":Lcom/esotericsoftware/kryo/SerializerFactory$SingletonSerializerFactory;, "Lcom/esotericsoftware/kryo/SerializerFactory$SingletonSerializerFactory<TT;>;"
-    iget-object v0, p0, Lcom/esotericsoftware/kryo/SerializerFactory$SingletonSerializerFactory;->serializer:Lcom/esotericsoftware/kryo/Serializer;
+    iget-object p1, p0, Lcom/esotericsoftware/kryo/SerializerFactory$SingletonSerializerFactory;->serializer:Lcom/esotericsoftware/kryo/Serializer;
 
-    return-object v0
+    return-object p1
 .end method

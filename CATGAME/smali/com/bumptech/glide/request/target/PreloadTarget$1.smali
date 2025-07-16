@@ -31,7 +31,6 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)Z
     .locals 2
-    .param p1, "message"    # Landroid/os/Message;
 
     .line 28
     iget v0, p1, Landroid/os/Message;->what:I
@@ -41,18 +40,16 @@
     if-ne v0, v1, :cond_0
 
     .line 29
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v0, Lcom/bumptech/glide/request/target/PreloadTarget;
+    check-cast p1, Lcom/bumptech/glide/request/target/PreloadTarget;
 
-    invoke-virtual {v0}, Lcom/bumptech/glide/request/target/PreloadTarget;->clear()V
+    invoke-virtual {p1}, Lcom/bumptech/glide/request/target/PreloadTarget;->clear()V
 
-    .line 30
     return v1
 
-    .line 32
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

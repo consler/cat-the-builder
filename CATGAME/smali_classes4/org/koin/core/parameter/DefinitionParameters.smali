@@ -91,7 +91,6 @@
 
 .method public varargs constructor <init>([Ljava/lang/Object;)V
     .locals 1
-    .param p1, "values"    # [Ljava/lang/Object;
 
     const-string v0, "values"
 
@@ -107,7 +106,6 @@
 
 .method private final elementAt(I)Ljava/lang/Object;
     .locals 3
-    .param p1, "i"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -123,34 +121,38 @@
 
     if-le v1, p1, :cond_0
 
-    aget-object v0, v0, p1
+    aget-object p1, v0, p1
 
-    return-object v0
+    return-object p1
 
     :cond_0
     new-instance v0, Lorg/koin/core/error/NoParameterFoundException;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Can\'t get parameter value #"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v2, " from "
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " from "
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v0, v1}, Lorg/koin/core/error/NoParameterFoundException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Lorg/koin/core/error/NoParameterFoundException;-><init>(Ljava/lang/String;)V
 
     check-cast v0, Ljava/lang/Throwable;
 
@@ -169,9 +171,9 @@
         }
     .end annotation
 
-    .line 34
     const/4 v0, 0x0
 
+    .line 34
     invoke-direct {p0, v0}, Lorg/koin/core/parameter/DefinitionParameters;->elementAt(I)Ljava/lang/Object;
 
     move-result-object v0
@@ -189,9 +191,9 @@
         }
     .end annotation
 
-    .line 35
     const/4 v0, 0x1
 
+    .line 35
     invoke-direct {p0, v0}, Lorg/koin/core/parameter/DefinitionParameters;->elementAt(I)Ljava/lang/Object;
 
     move-result-object v0
@@ -209,9 +211,9 @@
         }
     .end annotation
 
-    .line 36
     const/4 v0, 0x2
 
+    .line 36
     invoke-direct {p0, v0}, Lorg/koin/core/parameter/DefinitionParameters;->elementAt(I)Ljava/lang/Object;
 
     move-result-object v0
@@ -229,9 +231,9 @@
         }
     .end annotation
 
-    .line 37
     const/4 v0, 0x3
 
+    .line 37
     invoke-direct {p0, v0}, Lorg/koin/core/parameter/DefinitionParameters;->elementAt(I)Ljava/lang/Object;
 
     move-result-object v0
@@ -249,9 +251,9 @@
         }
     .end annotation
 
-    .line 38
     const/4 v0, 0x4
 
+    .line 38
     invoke-direct {p0, v0}, Lorg/koin/core/parameter/DefinitionParameters;->elementAt(I)Ljava/lang/Object;
 
     move-result-object v0
@@ -260,7 +262,7 @@
 .end method
 
 .method public final synthetic get()Ljava/lang/Object;
-    .locals 10
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -270,76 +272,54 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
-
     .line 69
-    .local v0, "$i$f$get":I
     invoke-virtual {p0}, Lorg/koin/core/parameter/DefinitionParameters;->getValues()[Ljava/lang/Object;
 
-    move-result-object v1
-
-    .local v1, "$this$first$iv":[Ljava/lang/Object;
-    const/4 v2, 0x0
+    move-result-object v0
 
     .line 94
-    .local v2, "$i$f$first":I
-    array-length v3, v1
+    array-length v1, v0
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v4, v3, :cond_1
+    if-ge v2, v1, :cond_1
 
-    aget-object v5, v1, v4
+    aget-object v3, v0, v2
 
-    .local v5, "element$iv":Ljava/lang/Object;
-    move-object v6, v5
+    const/4 v4, 0x3
 
-    .local v6, "it":Ljava/lang/Object;
-    const/4 v7, 0x0
+    const-string v5, "T"
 
     .line 69
-    .local v7, "$i$a$-first-DefinitionParameters$get$1":I
-    const/4 v8, 0x3
+    invoke-static {v4, v5}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
-    const-string v9, "T"
+    instance-of v4, v3, Ljava/lang/Object;
 
-    invoke-static {v8, v9}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
+    if-eqz v4, :cond_0
 
-    instance-of v6, v6, Ljava/lang/Object;
+    return-object v3
 
-    .end local v6    # "it":Ljava/lang/Object;
-    .end local v7    # "$i$a$-first-DefinitionParameters$get$1":I
-    if-eqz v6, :cond_0
-
-    .end local v1    # "$this$first$iv":[Ljava/lang/Object;
-    .end local v2    # "$i$f$first":I
-    .end local v5    # "element$iv":Ljava/lang/Object;
-    return-object v5
-
-    .restart local v1    # "$this$first$iv":[Ljava/lang/Object;
-    .restart local v2    # "$i$f$first":I
     :cond_0
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 95
     :cond_1
-    new-instance v3, Ljava/util/NoSuchElementException;
+    new-instance v0, Ljava/util/NoSuchElementException;
 
-    const-string v4, "Array contains no element matching the predicate."
+    const-string v1, "Array contains no element matching the predicate."
 
-    invoke-direct {v3, v4}, Ljava/util/NoSuchElementException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/util/NoSuchElementException;-><init>(Ljava/lang/String;)V
 
-    check-cast v3, Ljava/lang/Throwable;
+    check-cast v0, Ljava/lang/Throwable;
 
-    throw v3
+    throw v0
 .end method
 
 .method public final get(I)Ljava/lang/Object;
     .locals 1
-    .param p1, "i"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -351,9 +331,9 @@
     .line 44
     iget-object v0, p0, Lorg/koin/core/parameter/DefinitionParameters;->values:[Ljava/lang/Object;
 
-    aget-object v0, v0, p1
+    aget-object p1, v0, p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public final getValues()[Ljava/lang/Object;
@@ -401,8 +381,6 @@
 
 .method public final set(ILjava/lang/Object;)V
     .locals 1
-    .param p1, "i"    # I
-    .param p2, "t"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -420,7 +398,6 @@
 
     invoke-interface {v0, p1, p2}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    .line 48
     return-void
 .end method
 

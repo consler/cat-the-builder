@@ -40,7 +40,6 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroidx/versionedparcelable/ParcelImpl;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
     .line 63
     new-instance v0, Landroidx/versionedparcelable/ParcelImpl;
@@ -62,13 +61,12 @@
 .end method
 
 .method public newArray(I)[Landroidx/versionedparcelable/ParcelImpl;
-    .locals 1
-    .param p1, "size"    # I
+    .locals 0
 
     .line 68
-    new-array v0, p1, [Landroidx/versionedparcelable/ParcelImpl;
+    new-array p1, p1, [Landroidx/versionedparcelable/ParcelImpl;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;

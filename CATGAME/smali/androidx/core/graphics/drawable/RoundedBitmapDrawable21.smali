@@ -6,13 +6,20 @@
 # direct methods
 .method protected constructor <init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
     .locals 0
-    .param p1, "res"    # Landroid/content/res/Resources;
-    .param p2, "bitmap"    # Landroid/graphics/Bitmap;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "res",
+            "bitmap"
+        }
+    .end annotation
 
     .line 32
     invoke-direct {p0, p1, p2}, Landroidx/core/graphics/drawable/RoundedBitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
 
-    .line 33
     return-void
 .end method
 
@@ -20,7 +27,14 @@
 # virtual methods
 .method public getOutline(Landroid/graphics/Outline;)V
     .locals 2
-    .param p1, "outline"    # Landroid/graphics/Outline;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "outline"
+        }
+    .end annotation
 
     .line 37
     invoke-virtual {p0}, Landroidx/core/graphics/drawable/RoundedBitmapDrawable21;->updateDstRect()V
@@ -34,19 +48,28 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/graphics/Outline;->setRoundRect(Landroid/graphics/Rect;F)V
 
-    .line 39
     return-void
 .end method
 
 .method gravityCompatApply(IIILandroid/graphics/Rect;Landroid/graphics/Rect;)V
     .locals 6
-    .param p1, "gravity"    # I
-    .param p2, "bitmapWidth"    # I
-    .param p3, "bitmapHeight"    # I
-    .param p4, "bounds"    # Landroid/graphics/Rect;
-    .param p5, "outRect"    # Landroid/graphics/Rect;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "gravity",
+            "bitmapWidth",
+            "bitmapHeight",
+            "bounds",
+            "outRect"
+        }
+    .end annotation
 
-    .line 57
     const/4 v5, 0x0
 
     move v0, p1
@@ -59,9 +82,9 @@
 
     move-object v4, p5
 
+    .line 57
     invoke-static/range {v0 .. v5}, Landroid/view/Gravity;->apply(IIILandroid/graphics/Rect;Landroid/graphics/Rect;I)V
 
-    .line 59
     return-void
 .end method
 
@@ -94,7 +117,14 @@
 
 .method public setMipMap(Z)V
     .locals 1
-    .param p1, "mipMap"    # Z
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "mipMap"
+        }
+    .end annotation
 
     .line 43
     iget-object v0, p0, Landroidx/core/graphics/drawable/RoundedBitmapDrawable21;->mBitmap:Landroid/graphics/Bitmap;
@@ -109,7 +139,6 @@
     .line 45
     invoke-virtual {p0}, Landroidx/core/graphics/drawable/RoundedBitmapDrawable21;->invalidateSelf()V
 
-    .line 47
     :cond_0
     return-void
 .end method

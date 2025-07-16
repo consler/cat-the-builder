@@ -15,9 +15,9 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .line 9
     const-string v0, "os.name"
 
+    .line 9
     invoke-static {v0}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -109,9 +109,7 @@
 
 .method public static alt(I)Z
     .locals 1
-    .param p0, "keycode"    # I
 
-    .line 64
     const/16 v0, 0x39
 
     if-eq p0, v0, :cond_1
@@ -123,16 +121,16 @@
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     :goto_1
-    return v0
+    return p0
 .end method
 
 .method public static ctrl()Z
@@ -193,7 +191,6 @@
 
 .method public static ctrl(I)Z
     .locals 3
-    .param p0, "keycode"    # I
 
     .line 53
     sget-boolean v0, Lcom/badlogic/gdx/scenes/scene2d/utils/UIUtils;->isMac:Z
@@ -204,7 +201,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 54
     const/16 v0, 0x3f
 
     if-ne p0, v0, :cond_0
@@ -214,7 +210,6 @@
     :cond_0
     return v1
 
-    .line 56
     :cond_1
     const/16 v0, 0x81
 
@@ -247,21 +242,19 @@
 .end method
 
 .method public static left(I)Z
-    .locals 1
-    .param p0, "button"    # I
+    .locals 0
 
-    .line 18
     if-nez p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public static middle()Z
@@ -281,22 +274,20 @@
 
 .method public static middle(I)Z
     .locals 1
-    .param p0, "button"    # I
 
-    .line 34
     const/4 v0, 0x2
 
     if-ne p0, v0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public static right()Z
@@ -316,9 +307,7 @@
 
 .method public static right(I)Z
     .locals 1
-    .param p0, "button"    # I
 
-    .line 26
     const/4 v0, 0x1
 
     if-ne p0, v0, :cond_0
@@ -373,9 +362,7 @@
 
 .method public static shift(I)Z
     .locals 1
-    .param p0, "keycode"    # I
 
-    .line 42
     const/16 v0, 0x3b
 
     if-eq p0, v0, :cond_1
@@ -387,14 +374,14 @@
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     :goto_1
-    return v0
+    return p0
 .end method

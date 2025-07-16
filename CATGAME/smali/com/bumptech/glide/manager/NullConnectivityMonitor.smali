@@ -21,20 +21,17 @@
 .method public onDestroy()V
     .locals 0
 
-    .line 19
     return-void
 .end method
 
 .method public onStart()V
     .locals 0
 
-    .line 9
     return-void
 .end method
 
 .method public onStop()V
     .locals 0
 
-    .line 14
     return-void
 .end method

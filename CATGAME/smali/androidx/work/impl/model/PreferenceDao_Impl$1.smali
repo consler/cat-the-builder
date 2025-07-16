@@ -29,8 +29,6 @@
 # direct methods
 .method constructor <init>(Landroidx/work/impl/model/PreferenceDao_Impl;Landroidx/room/RoomDatabase;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/work/impl/model/PreferenceDao_Impl;
-    .param p2, "database"    # Landroidx/room/RoomDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
@@ -54,8 +52,6 @@
 # virtual methods
 .method public bind(Landroidx/sqlite/db/SupportSQLiteStatement;Landroidx/work/impl/model/Preference;)V
     .locals 4
-    .param p1, "stmt"    # Landroidx/sqlite/db/SupportSQLiteStatement;
-    .param p2, "value"    # Landroidx/work/impl/model/Preference;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -100,15 +96,14 @@
 
     .line 41
     :cond_1
-    iget-object v0, p2, Landroidx/work/impl/model/Preference;->mValue:Ljava/lang/Long;
+    iget-object p2, p2, Landroidx/work/impl/model/Preference;->mValue:Ljava/lang/Long;
 
-    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
+    invoke-virtual {p2}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v2
 
     invoke-interface {p1, v1, v2, v3}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindLong(IJ)V
 
-    .line 43
     :goto_1
     return-void
 .end method
@@ -137,7 +132,6 @@
 .method public createQuery()Ljava/lang/String;
     .locals 1
 
-    .line 28
     const-string v0, "INSERT OR REPLACE INTO `Preference` (`key`,`long_value`) VALUES (?,?)"
 
     return-object v0

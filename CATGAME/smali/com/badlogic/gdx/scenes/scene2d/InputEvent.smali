@@ -163,123 +163,102 @@
     .line 32
     invoke-super {p0}, Lcom/badlogic/gdx/scenes/scene2d/Event;->reset()V
 
-    .line 33
     const/4 v0, 0x0
 
+    .line 33
     iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/InputEvent;->relatedActor:Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    .line 34
     const/4 v0, -0x1
 
+    .line 34
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/InputEvent;->button:I
 
-    .line 35
     return-void
 .end method
 
 .method public setButton(I)V
     .locals 0
-    .param p1, "button"    # I
 
     .line 81
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/InputEvent;->button:I
 
-    .line 82
     return-void
 .end method
 
 .method public setCharacter(C)V
     .locals 0
-    .param p1, "character"    # C
 
     .line 99
     iput-char p1, p0, Lcom/badlogic/gdx/scenes/scene2d/InputEvent;->character:C
 
-    .line 100
     return-void
 .end method
 
 .method public setKeyCode(I)V
     .locals 0
-    .param p1, "keyCode"    # I
 
     .line 90
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/InputEvent;->keyCode:I
 
-    .line 91
     return-void
 .end method
 
 .method public setPointer(I)V
     .locals 0
-    .param p1, "pointer"    # I
 
     .line 71
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/InputEvent;->pointer:I
 
-    .line 72
     return-void
 .end method
 
 .method public setRelatedActor(Lcom/badlogic/gdx/scenes/scene2d/Actor;)V
     .locals 0
-    .param p1, "relatedActor"    # Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
     .line 119
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/InputEvent;->relatedActor:Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    .line 120
     return-void
 .end method
 
 .method public setScrollAmount(I)V
     .locals 0
-    .param p1, "scrollAmount"    # I
 
     .line 108
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/InputEvent;->scrollAmount:I
 
-    .line 109
     return-void
 .end method
 
 .method public setStageX(F)V
     .locals 0
-    .param p1, "stageX"    # F
 
     .line 43
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/InputEvent;->stageX:F
 
-    .line 44
     return-void
 .end method
 
 .method public setStageY(F)V
     .locals 0
-    .param p1, "stageY"    # F
 
     .line 52
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/InputEvent;->stageY:F
 
-    .line 53
     return-void
 .end method
 
 .method public setType(Lcom/badlogic/gdx/scenes/scene2d/InputEvent$Type;)V
     .locals 0
-    .param p1, "type"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent$Type;
 
     .line 61
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/InputEvent;->type:Lcom/badlogic/gdx/scenes/scene2d/InputEvent$Type;
 
-    .line 62
     return-void
 .end method
 
 .method public toCoordinates(Lcom/badlogic/gdx/scenes/scene2d/Actor;Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
     .locals 2
-    .param p1, "actor"    # Lcom/badlogic/gdx/scenes/scene2d/Actor;
-    .param p2, "actorCoords"    # Lcom/badlogic/gdx/math/Vector2;
 
     .line 125
     iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/InputEvent;->stageX:F
@@ -291,7 +270,6 @@
     .line 126
     invoke-virtual {p1, p2}, Lcom/badlogic/gdx/scenes/scene2d/Actor;->stageToLocalCoordinates(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
 
-    .line 127
     return-object p2
 .end method
 

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/viewpager/widget/ViewPager;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/viewpager/widget/ViewPager;
 
     .line 269
     iput-object p1, p0, Landroidx/viewpager/widget/ViewPager$3;->this$0:Landroidx/viewpager/widget/ViewPager;
@@ -51,6 +50,5 @@
 
     invoke-virtual {v0}, Landroidx/viewpager/widget/ViewPager;->populate()V
 
-    .line 274
     return-void
 .end method

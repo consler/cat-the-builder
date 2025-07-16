@@ -88,18 +88,16 @@
 .end method
 
 .method public final invoke(Ljava/lang/Throwable;)V
-    .locals 3
-    .param p1, "it"    # Ljava/lang/Throwable;
+    .locals 2
 
     .line 117
-    iget-object v0, p0, Landroidx/room/RoomDatabaseKt$acquireTransactionThread$$inlined$suspendCancellableCoroutine$lambda$1;->$controlJob$inlined:Lkotlinx/coroutines/Job;
+    iget-object p1, p0, Landroidx/room/RoomDatabaseKt$acquireTransactionThread$$inlined$suspendCancellableCoroutine$lambda$1;->$controlJob$inlined:Lkotlinx/coroutines/Job;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    invoke-static {v0, v1, v2, v1}, Lkotlinx/coroutines/Job$DefaultImpls;->cancel$default(Lkotlinx/coroutines/Job;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
+    invoke-static {p1, v0, v1, v0}, Lkotlinx/coroutines/Job$DefaultImpls;->cancel$default(Lkotlinx/coroutines/Job;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
 
-    .line 118
     return-void
 .end method

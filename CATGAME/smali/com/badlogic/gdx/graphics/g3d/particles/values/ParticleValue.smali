@@ -17,23 +17,20 @@
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 29
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;)V
-    .locals 1
-    .param p1, "value"    # Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;
+    .locals 0
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 32
-    iget-boolean v0, p1, Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;->active:Z
+    iget-boolean p1, p1, Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;->active:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;->active:Z
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;->active:Z
 
-    .line 33
     return-void
 .end method
 
@@ -49,58 +46,50 @@
 .end method
 
 .method public load(Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;)V
-    .locals 1
-    .param p1, "value"    # Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;
+    .locals 0
 
     .line 44
-    iget-boolean v0, p1, Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;->active:Z
+    iget-boolean p1, p1, Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;->active:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;->active:Z
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;->active:Z
 
-    .line 45
     return-void
 .end method
 
 .method public read(Lcom/badlogic/gdx/utils/Json;Lcom/badlogic/gdx/utils/JsonValue;)V
     .locals 2
-    .param p1, "json"    # Lcom/badlogic/gdx/utils/Json;
-    .param p2, "jsonData"    # Lcom/badlogic/gdx/utils/JsonValue;
+
+    const-string v0, "active"
 
     .line 54
-    const-class v0, Ljava/lang/Boolean;
+    const-class v1, Ljava/lang/Boolean;
 
-    const-string v1, "active"
+    invoke-virtual {p1, v0, v1, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
 
-    invoke-virtual {p1, v1, v0, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
+    check-cast p1, Ljava/lang/Boolean;
 
-    check-cast v0, Ljava/lang/Boolean;
+    invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+    move-result p1
 
-    move-result v0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;->active:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;->active:Z
-
-    .line 55
     return-void
 .end method
 
 .method public setActive(Z)V
     .locals 0
-    .param p1, "active"    # Z
 
     .line 40
     iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;->active:Z
 
-    .line 41
     return-void
 .end method
 
 .method public write(Lcom/badlogic/gdx/utils/Json;)V
     .locals 2
-    .param p1, "json"    # Lcom/badlogic/gdx/utils/Json;
 
     .line 49
     iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;->active:Z
@@ -113,6 +102,5 @@
 
     invoke-virtual {p1, v1, v0}, Lcom/badlogic/gdx/utils/Json;->writeValue(Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 50
     return-void
 .end method

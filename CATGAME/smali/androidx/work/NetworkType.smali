@@ -24,14 +24,16 @@
 
 .field public static final enum NOT_ROAMING:Landroidx/work/NetworkType;
 
+.field public static final enum TEMPORARILY_UNMETERED:Landroidx/work/NetworkType;
+
 .field public static final enum UNMETERED:Landroidx/work/NetworkType;
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 8
+    .locals 13
 
-    .line 28
+    .line 30
     new-instance v0, Landroidx/work/NetworkType;
 
     const-string v1, "NOT_REQUIRED"
@@ -42,74 +44,79 @@
 
     sput-object v0, Landroidx/work/NetworkType;->NOT_REQUIRED:Landroidx/work/NetworkType;
 
-    .line 33
-    new-instance v0, Landroidx/work/NetworkType;
+    .line 35
+    new-instance v1, Landroidx/work/NetworkType;
 
-    const-string v1, "CONNECTED"
+    const-string v3, "CONNECTED"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Landroidx/work/NetworkType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Landroidx/work/NetworkType;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/work/NetworkType;->CONNECTED:Landroidx/work/NetworkType;
+    sput-object v1, Landroidx/work/NetworkType;->CONNECTED:Landroidx/work/NetworkType;
 
-    .line 38
-    new-instance v0, Landroidx/work/NetworkType;
+    .line 40
+    new-instance v3, Landroidx/work/NetworkType;
 
-    const-string v1, "UNMETERED"
+    const-string v5, "UNMETERED"
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v1, v4}, Landroidx/work/NetworkType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Landroidx/work/NetworkType;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/work/NetworkType;->UNMETERED:Landroidx/work/NetworkType;
+    sput-object v3, Landroidx/work/NetworkType;->UNMETERED:Landroidx/work/NetworkType;
 
-    .line 43
-    new-instance v0, Landroidx/work/NetworkType;
+    .line 45
+    new-instance v5, Landroidx/work/NetworkType;
 
-    const-string v1, "NOT_ROAMING"
+    const-string v7, "NOT_ROAMING"
 
-    const/4 v5, 0x3
+    const/4 v8, 0x3
 
-    invoke-direct {v0, v1, v5}, Landroidx/work/NetworkType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v5, v7, v8}, Landroidx/work/NetworkType;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/work/NetworkType;->NOT_ROAMING:Landroidx/work/NetworkType;
+    sput-object v5, Landroidx/work/NetworkType;->NOT_ROAMING:Landroidx/work/NetworkType;
 
-    .line 48
-    new-instance v0, Landroidx/work/NetworkType;
+    .line 50
+    new-instance v7, Landroidx/work/NetworkType;
 
-    const-string v1, "METERED"
+    const-string v9, "METERED"
 
-    const/4 v6, 0x4
+    const/4 v10, 0x4
 
-    invoke-direct {v0, v1, v6}, Landroidx/work/NetworkType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v7, v9, v10}, Landroidx/work/NetworkType;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroidx/work/NetworkType;->METERED:Landroidx/work/NetworkType;
+    sput-object v7, Landroidx/work/NetworkType;->METERED:Landroidx/work/NetworkType;
 
-    .line 23
-    const/4 v1, 0x5
+    .line 60
+    new-instance v9, Landroidx/work/NetworkType;
 
-    new-array v1, v1, [Landroidx/work/NetworkType;
+    const-string v11, "TEMPORARILY_UNMETERED"
 
-    sget-object v7, Landroidx/work/NetworkType;->NOT_REQUIRED:Landroidx/work/NetworkType;
+    const/4 v12, 0x5
 
-    aput-object v7, v1, v2
+    invoke-direct {v9, v11, v12}, Landroidx/work/NetworkType;-><init>(Ljava/lang/String;I)V
 
-    sget-object v2, Landroidx/work/NetworkType;->CONNECTED:Landroidx/work/NetworkType;
+    sput-object v9, Landroidx/work/NetworkType;->TEMPORARILY_UNMETERED:Landroidx/work/NetworkType;
 
-    aput-object v2, v1, v3
+    const/4 v11, 0x6
 
-    sget-object v2, Landroidx/work/NetworkType;->UNMETERED:Landroidx/work/NetworkType;
+    new-array v11, v11, [Landroidx/work/NetworkType;
 
-    aput-object v2, v1, v4
+    aput-object v0, v11, v2
 
-    sget-object v2, Landroidx/work/NetworkType;->NOT_ROAMING:Landroidx/work/NetworkType;
+    aput-object v1, v11, v4
 
-    aput-object v2, v1, v5
+    aput-object v3, v11, v6
 
-    aput-object v0, v1, v6
+    aput-object v5, v11, v8
 
-    sput-object v1, Landroidx/work/NetworkType;->$VALUES:[Landroidx/work/NetworkType;
+    aput-object v7, v11, v10
+
+    aput-object v9, v11, v12
+
+    .line 25
+    sput-object v11, Landroidx/work/NetworkType;->$VALUES:[Landroidx/work/NetworkType;
 
     return-void
 .end method
@@ -133,7 +140,7 @@
         }
     .end annotation
 
-    .line 23
+    .line 25
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -141,7 +148,6 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/work/NetworkType;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8000
@@ -151,22 +157,22 @@
         }
     .end annotation
 
-    .line 23
+    .line 25
     const-class v0, Landroidx/work/NetworkType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroidx/work/NetworkType;
+    check-cast p0, Landroidx/work/NetworkType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Landroidx/work/NetworkType;
     .locals 1
 
-    .line 23
+    .line 25
     sget-object v0, Landroidx/work/NetworkType;->$VALUES:[Landroidx/work/NetworkType;
 
     invoke-virtual {v0}, [Landroidx/work/NetworkType;->clone()Ljava/lang/Object;

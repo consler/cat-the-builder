@@ -81,7 +81,6 @@
 
 .method public constructor <init>(Lkotlin/jvm/functions/Function1;)V
     .locals 0
-    .param p1, "onClose"    # Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -107,10 +106,12 @@
 
     if-eqz p2, :cond_0
 
-    .line 3
     const/4 p1, 0x0
 
-    check-cast p1, Lkotlin/jvm/functions/Function1;
+    .line 3
+    move-object p2, p1
+
+    check-cast p2, Lkotlin/jvm/functions/Function1;
 
     :cond_0
     invoke-direct {p0, p1}, Lorg/koin/core/definition/Callbacks;-><init>(Lkotlin/jvm/functions/Function1;)V
@@ -253,19 +254,21 @@
 
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "Callbacks(onClose="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v1, p0, Lorg/koin/core/definition/Callbacks;->onClose:Lkotlin/jvm/functions/Function1;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ")"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

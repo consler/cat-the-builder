@@ -27,7 +27,6 @@
 
     invoke-direct {p0}, Landroid/database/DataSetObserver;-><init>()V
 
-    .line 493
     return-void
 .end method
 
@@ -48,7 +47,6 @@
 
     invoke-virtual {v0}, Landroidx/cursoradapter/widget/CursorAdapter;->notifyDataSetChanged()V
 
-    .line 499
     return-void
 .end method
 
@@ -67,6 +65,5 @@
 
     invoke-virtual {v0}, Landroidx/cursoradapter/widget/CursorAdapter;->notifyDataSetInvalidated()V
 
-    .line 505
     return-void
 .end method

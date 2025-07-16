@@ -25,10 +25,8 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/List;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/scenes/scene2d/ui/List;
 
     .line 73
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;, "Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;"
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
 
     invoke-direct {p0}, Lcom/badlogic/gdx/scenes/scene2d/InputListener;-><init>()V
@@ -39,350 +37,331 @@
 
 # virtual methods
 .method public keyDown(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;I)Z
-    .locals 4
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "keycode"    # I
+    .locals 2
 
     .line 78
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;, "Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;"
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
 
-    iget-object v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->items:Lcom/badlogic/gdx/utils/Array;
+    iget-object p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->items:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->isEmpty()Z
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/Array;->isEmpty()Z
 
-    move-result v0
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    return v1
-
-    .line 80
-    :cond_0
-    const/4 v0, 0x3
-
-    const/4 v2, 0x1
-
-    if-eq p2, v0, :cond_a
-
-    const/16 v0, 0x1d
-
-    if-eq p2, v0, :cond_8
-
-    const/16 v0, 0x13
-
-    if-eq p2, v0, :cond_6
-
-    const/16 v0, 0x14
-
-    if-eq p2, v0, :cond_4
-
-    const/16 v0, 0x83
-
-    if-eq p2, v0, :cond_2
-
-    const/16 v0, 0x84
-
-    if-eq p2, v0, :cond_1
-
-    goto/16 :goto_0
-
-    .line 92
-    :cond_1
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
-
-    iget-object v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->items:Lcom/badlogic/gdx/utils/Array;
-
-    iget v1, v1, Lcom/badlogic/gdx/utils/Array;->size:I
-
-    sub-int/2addr v1, v2
-
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->setSelectedIndex(I)V
-
-    .line 93
-    return v2
-
-    .line 105
-    :cond_2
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
-
-    invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->getStage()Lcom/badlogic/gdx/scenes/scene2d/Stage;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_3
-
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
-
-    invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->getStage()Lcom/badlogic/gdx/scenes/scene2d/Stage;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/Stage;->setKeyboardFocus(Lcom/badlogic/gdx/scenes/scene2d/Actor;)Z
-
-    .line 106
-    :cond_3
-    return v2
-
-    .line 95
-    :cond_4
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
-
-    iget-object v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->items:Lcom/badlogic/gdx/utils/Array;
-
-    iget-object v3, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
-
-    invoke-virtual {v3}, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->getSelected()Ljava/lang/Object;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v3, v1}, Lcom/badlogic/gdx/utils/Array;->indexOf(Ljava/lang/Object;Z)I
-
-    move-result v0
-
-    add-int/2addr v0, v2
-
-    .line 96
-    .local v0, "index":I
-    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
-
-    iget-object v1, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->items:Lcom/badlogic/gdx/utils/Array;
-
-    iget v1, v1, Lcom/badlogic/gdx/utils/Array;->size:I
-
-    if-lt v0, v1, :cond_5
+    move-result p1
 
     const/4 v0, 0x0
 
-    .line 97
+    if-eqz p1, :cond_0
+
+    return v0
+
+    :cond_0
+    const/4 p1, 0x3
+
+    const/4 v1, 0x1
+
+    if-eq p2, p1, :cond_a
+
+    const/16 p1, 0x1d
+
+    if-eq p2, p1, :cond_8
+
+    const/16 p1, 0x13
+
+    if-eq p2, p1, :cond_6
+
+    const/16 p1, 0x14
+
+    if-eq p2, p1, :cond_4
+
+    const/16 p1, 0x83
+
+    if-eq p2, p1, :cond_2
+
+    const/16 p1, 0x84
+
+    if-eq p2, p1, :cond_1
+
+    goto/16 :goto_1
+
+    .line 92
+    :cond_1
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
+
+    iget-object p2, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->items:Lcom/badlogic/gdx/utils/Array;
+
+    iget p2, p2, Lcom/badlogic/gdx/utils/Array;->size:I
+
+    sub-int/2addr p2, v1
+
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->setSelectedIndex(I)V
+
+    return v1
+
+    .line 105
+    :cond_2
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
+
+    invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->getStage()Lcom/badlogic/gdx/scenes/scene2d/Stage;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_3
+
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
+
+    invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->getStage()Lcom/badlogic/gdx/scenes/scene2d/Stage;
+
+    move-result-object p1
+
+    const/4 p2, 0x0
+
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/scenes/scene2d/Stage;->setKeyboardFocus(Lcom/badlogic/gdx/scenes/scene2d/Actor;)Z
+
+    :cond_3
+    return v1
+
+    .line 95
+    :cond_4
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
+
+    iget-object p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->items:Lcom/badlogic/gdx/utils/Array;
+
+    iget-object p2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
+
+    invoke-virtual {p2}, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->getSelected()Ljava/lang/Object;
+
+    move-result-object p2
+
+    invoke-virtual {p1, p2, v0}, Lcom/badlogic/gdx/utils/Array;->indexOf(Ljava/lang/Object;Z)I
+
+    move-result p1
+
+    add-int/2addr p1, v1
+
+    .line 96
+    iget-object p2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
+
+    iget-object p2, p2, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->items:Lcom/badlogic/gdx/utils/Array;
+
+    iget p2, p2, Lcom/badlogic/gdx/utils/Array;->size:I
+
+    if-lt p1, p2, :cond_5
+
+    goto :goto_0
+
     :cond_5
-    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
+    move v0, p1
 
-    invoke-virtual {v1, v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->setSelectedIndex(I)V
+    .line 97
+    :goto_0
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
 
-    .line 98
-    return v2
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->setSelectedIndex(I)V
+
+    return v1
 
     .line 100
-    .end local v0    # "index":I
     :cond_6
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
 
-    iget-object v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->items:Lcom/badlogic/gdx/utils/Array;
+    iget-object p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->items:Lcom/badlogic/gdx/utils/Array;
 
-    iget-object v3, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
+    iget-object p2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
 
-    invoke-virtual {v3}, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->getSelected()Ljava/lang/Object;
+    invoke-virtual {p2}, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->getSelected()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p2
 
-    invoke-virtual {v0, v3, v1}, Lcom/badlogic/gdx/utils/Array;->indexOf(Ljava/lang/Object;Z)I
+    invoke-virtual {p1, p2, v0}, Lcom/badlogic/gdx/utils/Array;->indexOf(Ljava/lang/Object;Z)I
 
-    move-result v0
+    move-result p1
 
-    sub-int/2addr v0, v2
+    sub-int/2addr p1, v1
+
+    if-gez p1, :cond_7
 
     .line 101
-    .restart local v0    # "index":I
-    if-gez v0, :cond_7
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
+    iget-object p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->items:Lcom/badlogic/gdx/utils/Array;
 
-    iget-object v1, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->items:Lcom/badlogic/gdx/utils/Array;
+    iget p1, p1, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    iget v1, v1, Lcom/badlogic/gdx/utils/Array;->size:I
-
-    add-int/lit8 v0, v1, -0x1
+    sub-int/2addr p1, v1
 
     .line 102
     :cond_7
-    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
+    iget-object p2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
 
-    invoke-virtual {v1, v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->setSelectedIndex(I)V
+    invoke-virtual {p2, p1}, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->setSelectedIndex(I)V
 
-    .line 103
-    return v2
+    return v1
 
     .line 82
-    .end local v0    # "index":I
     :cond_8
     invoke-static {}, Lcom/badlogic/gdx/scenes/scene2d/utils/UIUtils;->ctrl()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_9
+    if-eqz p1, :cond_9
 
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
 
-    iget-object v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->selection:Lcom/badlogic/gdx/scenes/scene2d/utils/ArraySelection;
+    iget-object p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->selection:Lcom/badlogic/gdx/scenes/scene2d/utils/ArraySelection;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/utils/ArraySelection;->getMultiple()Z
+    invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/utils/ArraySelection;->getMultiple()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_9
+    if-eqz p1, :cond_9
 
     .line 83
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
 
-    iget-object v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->selection:Lcom/badlogic/gdx/scenes/scene2d/utils/ArraySelection;
+    iget-object p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->selection:Lcom/badlogic/gdx/scenes/scene2d/utils/ArraySelection;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/utils/ArraySelection;->clear()V
+    invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/utils/ArraySelection;->clear()V
 
     .line 84
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
 
-    iget-object v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->selection:Lcom/badlogic/gdx/scenes/scene2d/utils/ArraySelection;
+    iget-object p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->selection:Lcom/badlogic/gdx/scenes/scene2d/utils/ArraySelection;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
+    iget-object p2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
 
-    iget-object v1, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->items:Lcom/badlogic/gdx/utils/Array;
+    iget-object p2, p2, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->items:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/utils/ArraySelection;->addAll(Lcom/badlogic/gdx/utils/Array;)V
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/scenes/scene2d/utils/ArraySelection;->addAll(Lcom/badlogic/gdx/utils/Array;)V
 
-    .line 85
-    return v2
-
-    .line 108
-    :cond_9
-    :goto_0
     return v1
+
+    :cond_9
+    :goto_1
+    return v0
 
     .line 89
     :cond_a
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->setSelectedIndex(I)V
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->setSelectedIndex(I)V
 
-    .line 90
-    return v2
+    return v1
 .end method
 
 .method public keyTyped(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;C)Z
-    .locals 7
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "character"    # C
+    .locals 5
 
     .line 112
-    .local p0, "this":Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;, "Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;"
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
 
-    iget-boolean v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->typeToSelect:Z
+    iget-boolean p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->typeToSelect:Z
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    return v1
+    return v0
 
     .line 113
     :cond_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v2
+    move-result-wide v1
 
     .line 114
-    .local v2, "time":J
-    iget-wide v4, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->typeTimeout:J
+    iget-wide v3, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->typeTimeout:J
 
-    cmp-long v0, v2, v4
+    cmp-long p1, v1, v3
 
-    if-lez v0, :cond_1
+    if-lez p1, :cond_1
 
-    const-string v0, ""
+    const-string p1, ""
 
-    iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->prefix:Ljava/lang/String;
+    iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->prefix:Ljava/lang/String;
+
+    :cond_1
+    const-wide/16 v3, 0x12c
+
+    add-long/2addr v1, v3
 
     .line 115
-    :cond_1
-    const-wide/16 v4, 0x12c
-
-    add-long/2addr v4, v2
-
-    iput-wide v4, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->typeTimeout:J
+    iput-wide v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->typeTimeout:J
 
     .line 116
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v4, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->prefix:Ljava/lang/String;
+    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->prefix:Ljava/lang/String;
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     invoke-static {p2}, Ljava/lang/Character;->toLowerCase(C)C
 
-    move-result v4
+    move-result p2
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->prefix:Ljava/lang/String;
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->prefix:Ljava/lang/String;
 
     .line 117
-    const/4 v0, 0x0
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
 
-    .local v0, "i":I
-    iget-object v4, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
+    iget-object p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->items:Lcom/badlogic/gdx/utils/Array;
 
-    iget-object v4, v4, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->items:Lcom/badlogic/gdx/utils/Array;
+    iget p1, p1, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    iget v4, v4, Lcom/badlogic/gdx/utils/Array;->size:I
+    move p2, v0
 
-    .local v4, "n":I
     :goto_0
-    if-ge v0, v4, :cond_3
+    if-ge p2, p1, :cond_3
 
     .line 118
-    iget-object v5, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
+    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
 
-    iget-object v6, v5, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->items:Lcom/badlogic/gdx/utils/Array;
+    iget-object v2, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->items:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v6, v0}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, p2}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v2
 
-    invoke-virtual {v5, v6}, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->toString(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v1, v2}, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->toString(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    iget-object v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->prefix:Ljava/lang/String;
+    iget-object v2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->prefix:Ljava/lang/String;
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v5
+    move-result v1
 
-    if-eqz v5, :cond_2
+    if-eqz v1, :cond_2
 
     .line 119
-    iget-object v5, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/List$1;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/List;
 
-    invoke-virtual {v5, v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->setSelectedIndex(I)V
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/scenes/scene2d/ui/List;->setSelectedIndex(I)V
 
-    .line 120
     goto :goto_1
 
-    .line 117
     :cond_2
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p2, p2, 0x1
 
     goto :goto_0
 
-    .line 123
-    .end local v0    # "i":I
-    .end local v4    # "n":I
     :cond_3
     :goto_1
-    return v1
+    return v0
 .end method

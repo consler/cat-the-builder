@@ -42,13 +42,13 @@
 
     sput-object v0, Lio/reactivex/internal/util/ListAddBiConsumer;->INSTANCE:Lio/reactivex/internal/util/ListAddBiConsumer;
 
-    .line 20
     const/4 v1, 0x1
 
     new-array v1, v1, [Lio/reactivex/internal/util/ListAddBiConsumer;
 
     aput-object v0, v1, v2
 
+    .line 20
     sput-object v1, Lio/reactivex/internal/util/ListAddBiConsumer;->$VALUES:[Lio/reactivex/internal/util/ListAddBiConsumer;
 
     return-void
@@ -91,18 +91,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lio/reactivex/internal/util/ListAddBiConsumer;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 20
     const-class v0, Lio/reactivex/internal/util/ListAddBiConsumer;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lio/reactivex/internal/util/ListAddBiConsumer;
+    check-cast p0, Lio/reactivex/internal/util/ListAddBiConsumer;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lio/reactivex/internal/util/ListAddBiConsumer;
@@ -123,9 +122,7 @@
 
 # virtual methods
 .method public bridge synthetic apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
-    .param p2, "x1"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -133,21 +130,17 @@
     .end annotation
 
     .line 20
-    move-object v0, p1
+    check-cast p1, Ljava/util/List;
 
-    check-cast v0, Ljava/util/List;
+    invoke-virtual {p0, p1, p2}, Lio/reactivex/internal/util/ListAddBiConsumer;->apply(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;
 
-    invoke-virtual {p0, v0, p2}, Lio/reactivex/internal/util/ListAddBiConsumer;->apply(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public apply(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;
     .locals 0
-    .param p1, "t1"    # Ljava/util/List;
-    .param p2, "t2"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -157,6 +150,5 @@
     .line 32
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 33
     return-object p1
 .end method

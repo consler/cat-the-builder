@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/app/MediaRouteControllerDialog;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
     .line 334
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$2;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
@@ -37,14 +36,12 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
-    .param p1, "v"    # Landroid/view/View;
+    .locals 0
 
     .line 337
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$2;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$2;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
-    invoke-virtual {v0}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->dismiss()V
+    invoke-virtual {p1}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->dismiss()V
 
-    .line 338
     return-void
 .end method

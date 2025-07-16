@@ -1,5 +1,6 @@
 .class public Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
 .super Ljava/lang/Object;
+.source ""
 
 # interfaces
 .implements Ljava/lang/Cloneable;
@@ -14,7 +15,7 @@
 
 
 # static fields
-.field private static final TAG:Ljava/lang/String;
+.field private static final TAG:Ljava/lang/String; = "GrsBaseInfo"
 
 
 # instance fields
@@ -41,15 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
-
-    const-class v0, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->TAG:Ljava/lang/String;
+    .locals 0
 
     return-void
 .end method
@@ -62,217 +55,203 @@
     return-void
 .end method
 
+.method public constructor <init>(Landroid/content/Context;)V
+    .locals 1
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    invoke-static {}, Lcom/huawei/hms/framework/network/grs/GrsApp;->getInstance()Lcom/huawei/hms/framework/network/grs/GrsApp;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Lcom/huawei/hms/framework/network/grs/GrsApp;->getIssueCountryCode(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->issueCountry:Ljava/lang/String;
+
+    return-void
+.end method
+
 .method private getStringBuffer(Ljava/lang/StringBuffer;ZLandroid/content/Context;)Ljava/lang/StringBuffer;
-    .locals 4
+    .locals 3
 
     invoke-virtual {p0}, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->getAndroidVersion()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    const-string v1, "&"
+
+    const-string v2, "="
+
+    if-nez v0, :cond_1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result v0
 
-    const-string v2, "&"
-
-    const-string v3, "="
-
-    if-nez v1, :cond_1
-
-    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    :cond_0
-    const-string v1, "android_version"
+    if-nez v0, :cond_0
 
     invoke-virtual {p1, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {p1, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    :cond_0
+    const-string v0, "android_version"
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     :cond_1
     invoke-virtual {p0}, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->getRomVersion()Ljava/lang/String;
 
+    move-result-object p2
+
+    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
     move-result-object v0
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_3
-
-    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    :cond_2
-    const-string v1, "rom_version"
+    if-nez v0, :cond_2
 
     invoke-virtual {p1, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {p1, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    :cond_2
+    const-string v0, "rom_version"
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     :cond_3
     invoke-virtual {p0}, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->getDeviceModel()Ljava/lang/String;
 
+    move-result-object p2
+
+    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_5
+
+    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
     move-result-object v0
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_5
-
-    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_4
-
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    :cond_4
-    const-string v1, "device_model"
+    if-nez v0, :cond_4
 
     invoke-virtual {p1, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {p1, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    :cond_4
+    const-string v0, "device_model"
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    :cond_5
-    new-instance v0, Lcom/huawei/hms/framework/network/grs/a/c;
-
-    invoke-direct {v0, p3}, Lcom/huawei/hms/framework/network/grs/a/c;-><init>(Landroid/content/Context;)V
-
-    invoke-virtual {v0}, Lcom/huawei/hms/framework/network/grs/a/c;->a()Ljava/lang/String;
-
-    move-result-object p3
-
-    invoke-static {p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_7
-
-    if-nez p2, :cond_7
-
-    :try_start_0
-    const-string p2, "UTF-8"
-
-    invoke-static {p3, p2}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p2
-
-    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
-
-    move-result-object p3
-
-    invoke-static {p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result p3
-
-    if-nez p3, :cond_6
-
     invoke-virtual {p1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    :cond_6
-    const-string p3, "cp"
-
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    invoke-virtual {p1, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
     invoke-virtual {p1, p2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-    :try_end_0
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
-
-    :catch_0
-    move-exception p2
-
-    sget-object p3, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->TAG:Ljava/lang/String;
-
-    const-string v0, "cp UnsupportedEncodingException."
-
-    invoke-static {p3, v0, p2}, Lcom/huawei/hms/framework/common/Logger;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    :cond_7
-    :goto_0
+    :cond_5
     invoke-virtual {p0}, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->getCountrySource()Ljava/lang/String;
 
     move-result-object p2
 
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result p3
+    move-result v0
 
-    if-nez p3, :cond_9
+    if-nez v0, :cond_7
 
     invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object p3
+    move-result-object v0
 
-    invoke-static {p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result p3
+    move-result v0
 
-    if-nez p3, :cond_8
+    if-nez v0, :cond_6
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    :cond_6
+    const-string v0, "country_source"
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     invoke-virtual {p1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    :cond_7
+    invoke-virtual {p1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result p2
+
+    if-nez p2, :cond_8
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
     :cond_8
-    const-string p3, "country_source"
-
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    invoke-virtual {p1, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    const-string p2, "package_name"
 
     invoke-virtual {p1, p2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    :cond_9
+    move-result-object p2
+
+    invoke-virtual {p2, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object p2
+
+    invoke-virtual {p3}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object p3
+
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
     return-object p1
 .end method
 
 .method private isEqual(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 2
-
-    const/4 v0, 0x1
+    .locals 0
 
     if-nez p1, :cond_0
 
     if-nez p2, :cond_0
 
-    return v0
+    const/4 p1, 0x1
+
+    return p1
 
     :cond_0
-    const/4 v1, 0x0
-
     if-eqz p1, :cond_2
 
     if-nez p2, :cond_1
@@ -284,13 +263,13 @@
 
     move-result p1
 
-    if-eqz p1, :cond_2
-
-    return v0
+    return p1
 
     :cond_2
     :goto_0
-    return v1
+    const/4 p1, 0x0
+
+    return p1
 .end method
 
 
@@ -331,15 +310,13 @@
 
     if-eqz p1, :cond_3
 
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
 
-    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    const-class v3, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;
 
-    move-result-object v3
-
-    if-eq v2, v3, :cond_1
+    if-eq v3, v2, :cond_1
 
     goto :goto_1
 
@@ -546,7 +523,7 @@
 .end method
 
 .method public getGrsParasKey(ZZLandroid/content/Context;)Ljava/lang/String;
-    .locals 4
+    .locals 2
 
     new-instance v0, Ljava/lang/StringBuffer;
 
@@ -556,53 +533,34 @@
 
     move-result-object v1
 
-    invoke-static {v1}, Lcom/huawei/hms/framework/network/grs/local/b;->a(Ljava/lang/String;)Lcom/huawei/hms/framework/network/grs/local/b;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/huawei/hms/framework/network/grs/local/b;->a()Lcom/huawei/hms/framework/network/grs/local/model/a;
+    invoke-static {v1, p0}, Lcom/huawei/hms/framework/network/grs/f/b;->a(Ljava/lang/String;Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;)Lcom/huawei/hms/framework/network/grs/f/b;
 
     move-result-object v1
 
     if-eqz v1, :cond_0
 
-    invoke-virtual {v1}, Lcom/huawei/hms/framework/network/grs/local/model/a;->a()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/huawei/hms/framework/network/grs/f/b;->a()Lcom/huawei/hms/framework/network/grs/local/model/a;
 
     move-result-object v1
 
     goto :goto_0
 
     :cond_0
-    const-string v1, ""
+    const/4 v1, 0x0
 
     :goto_0
-    invoke-virtual {p0}, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->getAppName()Ljava/lang/String;
+    if-eqz v1, :cond_1
 
-    move-result-object v2
+    invoke-virtual {v1}, Lcom/huawei/hms/framework/network/grs/local/model/a;->b()Ljava/lang/String;
 
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    move-result-object v1
 
-    move-result v3
-
-    if-nez v3, :cond_1
-
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    const-string v3, "app_name"
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    const-string v3, "="
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    goto :goto_1
 
     :cond_1
+    const-string v1, ""
+
+    :goto_1
     invoke-virtual {p0, p1, p2, v1, p3}, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->getGrsReqParamJoint(ZZLjava/lang/String;Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object p1
@@ -639,7 +597,7 @@
 .end method
 
 .method public getGrsReqParamJoint(ZZLjava/lang/String;Landroid/content/Context;)Ljava/lang/String;
-    .locals 4
+    .locals 3
 
     new-instance v0, Ljava/lang/StringBuffer;
 
@@ -651,8 +609,6 @@
 
     move-result v1
 
-    const-string v2, "="
-
     if-eqz v1, :cond_0
 
     sget-object p3, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->TAG:Ljava/lang/String;
@@ -661,25 +617,24 @@
 
     invoke-static {p3, v1}, Lcom/huawei/hms/framework/common/Logger;->v(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_0
     invoke-static {p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    const-string v3, "app_name"
+    const-string v2, "app_name="
 
     if-nez v1, :cond_1
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
     invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    :goto_0
-    invoke-virtual {v0, p3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-result-object v1
 
-    goto :goto_1
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    goto :goto_0
 
     :cond_1
     invoke-virtual {p0}, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->getAppName()Ljava/lang/String;
@@ -692,18 +647,18 @@
 
     if-nez p3, :cond_2
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
     invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    invoke-virtual {p0}, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->getAppName()Ljava/lang/String;
 
     move-result-object p3
 
-    goto :goto_0
+    invoke-virtual {p0}, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->getAppName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p3, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     :cond_2
-    :goto_1
+    :goto_0
     invoke-virtual {p0}, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->getVersionName()Ljava/lang/String;
 
     move-result-object p3
@@ -712,7 +667,7 @@
 
     move-result v1
 
-    const-string v3, "&"
+    const-string v2, "&"
 
     if-nez v1, :cond_4
 
@@ -726,16 +681,16 @@
 
     if-nez v1, :cond_3
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     :cond_3
-    const-string v1, "app_version"
+    const-string v1, "app_version="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-result-object v1
 
-    invoke-virtual {v0, p3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     :cond_4
     invoke-virtual {p0}, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->getUid()Ljava/lang/String;
@@ -758,40 +713,38 @@
 
     if-nez v1, :cond_5
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     :cond_5
-    const-string v1, "uid"
+    const-string v1, "uid="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
     if-eqz p1, :cond_6
 
-    invoke-static {p3}, Lcom/huawei/hms/framework/network/grs/c/b;->b(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p3}, Lcom/huawei/hms/framework/network/grs/h/b;->b(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
-    :goto_2
+    :goto_1
     invoke-virtual {v0, p1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    goto :goto_3
+    goto :goto_2
 
     :cond_6
     if-eqz p2, :cond_7
 
-    invoke-static {p3}, Lcom/huawei/hms/framework/network/grs/c/b;->a(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p3}, Lcom/huawei/hms/framework/network/grs/h/b;->a(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
-    goto :goto_2
+    goto :goto_1
 
     :cond_7
     invoke-virtual {v0, p3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     :cond_8
-    :goto_3
+    :goto_2
     invoke-virtual {p0}, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->getRegCountry()Ljava/lang/String;
 
     move-result-object p1
@@ -820,16 +773,16 @@
 
     if-nez p3, :cond_9
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     :cond_9
-    const-string p3, "reg_country"
+    const-string p3, "reg_country="
 
     invoke-virtual {v0, p3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    move-result-object p3
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     :cond_a
     invoke-virtual {p0}, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->getSerCountry()Ljava/lang/String;
@@ -858,14 +811,12 @@
 
     if-nez p3, :cond_b
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     :cond_b
-    const-string p3, "ser_country"
+    const-string p3, "ser_country="
 
     invoke-virtual {v0, p3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
@@ -896,14 +847,12 @@
 
     if-nez p3, :cond_d
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     :cond_d
-    const-string p3, "issue_country"
+    const-string p3, "issue_country="
 
     invoke-virtual {v0, p3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
@@ -1000,16 +949,46 @@
 .end method
 
 .method public setIssueCountry(Ljava/lang/String;)V
-    .locals 0
+    .locals 1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
+    if-eqz p1, :cond_0
+
+    sget-object v0, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object p1
+
+    goto :goto_0
+
+    :cond_0
+    const-string p1, ""
+
+    :goto_0
     iput-object p1, p0, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->issueCountry:Ljava/lang/String;
 
     return-void
 .end method
 
 .method public setRegCountry(Ljava/lang/String;)V
-    .locals 0
+    .locals 1
 
+    if-eqz p1, :cond_0
+
+    sget-object v0, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object p1
+
+    goto :goto_0
+
+    :cond_0
+    const-string p1, ""
+
+    :goto_0
     iput-object p1, p0, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->regCountry:Ljava/lang/String;
 
     return-void
@@ -1024,8 +1003,22 @@
 .end method
 
 .method public setSerCountry(Ljava/lang/String;)V
-    .locals 0
+    .locals 1
 
+    if-eqz p1, :cond_0
+
+    sget-object v0, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object p1
+
+    goto :goto_0
+
+    :cond_0
+    const-string p1, ""
+
+    :goto_0
     iput-object p1, p0, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->serCountry:Ljava/lang/String;
 
     return-void
@@ -1033,6 +1026,8 @@
 
 .method public setUid(Ljava/lang/String;)V
     .locals 0
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     iput-object p1, p0, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->uid:Ljava/lang/String;
 
@@ -1047,7 +1042,7 @@
     return-void
 .end method
 
-.method uniqueCode()I
+.method public uniqueCode()I
     .locals 3
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1058,25 +1053,39 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "#"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v2, p0, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->serCountry:Ljava/lang/String;
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v2, p0, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->regCountry:Ljava/lang/String;
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Lcom/huawei/hms/framework/network/grs/GrsBaseInfo;->issueCountry:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

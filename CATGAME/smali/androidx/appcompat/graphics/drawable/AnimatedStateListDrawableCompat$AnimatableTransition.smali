@@ -21,17 +21,15 @@
 # direct methods
 .method constructor <init>(Landroid/graphics/drawable/Animatable;)V
     .locals 1
-    .param p1, "a"    # Landroid/graphics/drawable/Animatable;
 
-    .line 370
     const/4 v0, 0x0
 
+    .line 370
     invoke-direct {p0, v0}, Landroidx/appcompat/graphics/drawable/AnimatedStateListDrawableCompat$Transition;-><init>(Landroidx/appcompat/graphics/drawable/AnimatedStateListDrawableCompat$1;)V
 
     .line 371
     iput-object p1, p0, Landroidx/appcompat/graphics/drawable/AnimatedStateListDrawableCompat$AnimatableTransition;->mA:Landroid/graphics/drawable/Animatable;
 
-    .line 372
     return-void
 .end method
 
@@ -45,7 +43,6 @@
 
     invoke-interface {v0}, Landroid/graphics/drawable/Animatable;->start()V
 
-    .line 377
     return-void
 .end method
 
@@ -57,6 +54,5 @@
 
     invoke-interface {v0}, Landroid/graphics/drawable/Animatable;->stop()V
 
-    .line 382
     return-void
 .end method

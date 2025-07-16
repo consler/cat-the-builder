@@ -29,7 +29,6 @@
 .method public isChangingLayout()Z
     .locals 1
 
-    .line 49
     const/4 v0, 0x1
 
     return v0

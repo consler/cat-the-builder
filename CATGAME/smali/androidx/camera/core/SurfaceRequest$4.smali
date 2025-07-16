@@ -37,7 +37,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/SurfaceRequest;Landroidx/core/util/Consumer;Landroid/view/Surface;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/core/SurfaceRequest;
 
     .line 299
     iput-object p1, p0, Landroidx/camera/core/SurfaceRequest$4;->this$0:Landroidx/camera/core/SurfaceRequest;
@@ -55,41 +54,39 @@
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
     .locals 3
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 308
     instance-of v0, p1, Landroidx/camera/core/SurfaceRequest$RequestCancelledException;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Camera surface session should only fail with request cancellation. Instead failed due to:\n"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v0, v1}, Landroidx/core/util/Preconditions;->checkState(ZLjava/lang/String;)V
+    move-result-object p1
+
+    invoke-static {v0, p1}, Landroidx/core/util/Preconditions;->checkState(ZLjava/lang/String;)V
 
     .line 311
-    iget-object v0, p0, Landroidx/camera/core/SurfaceRequest$4;->val$resultListener:Landroidx/core/util/Consumer;
+    iget-object p1, p0, Landroidx/camera/core/SurfaceRequest$4;->val$resultListener:Landroidx/core/util/Consumer;
+
+    const/4 v0, 0x1
 
     iget-object v1, p0, Landroidx/camera/core/SurfaceRequest$4;->val$surface:Landroid/view/Surface;
 
-    const/4 v2, 0x1
+    invoke-static {v0, v1}, Landroidx/camera/core/SurfaceRequest$Result;->of(ILandroid/view/Surface;)Landroidx/camera/core/SurfaceRequest$Result;
 
-    invoke-static {v2, v1}, Landroidx/camera/core/SurfaceRequest$Result;->of(ILandroid/view/Surface;)Landroidx/camera/core/SurfaceRequest$Result;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-interface {p1, v0}, Landroidx/core/util/Consumer;->accept(Ljava/lang/Object;)V
 
-    invoke-interface {v0, v1}, Landroidx/core/util/Consumer;->accept(Ljava/lang/Object;)V
-
-    .line 312
     return-void
 .end method
 
@@ -105,22 +102,20 @@
 .end method
 
 .method public onSuccess(Ljava/lang/Void;)V
-    .locals 3
-    .param p1, "result"    # Ljava/lang/Void;
+    .locals 2
 
     .line 302
-    iget-object v0, p0, Landroidx/camera/core/SurfaceRequest$4;->val$resultListener:Landroidx/core/util/Consumer;
+    iget-object p1, p0, Landroidx/camera/core/SurfaceRequest$4;->val$resultListener:Landroidx/core/util/Consumer;
+
+    const/4 v0, 0x0
 
     iget-object v1, p0, Landroidx/camera/core/SurfaceRequest$4;->val$surface:Landroid/view/Surface;
 
-    const/4 v2, 0x0
+    invoke-static {v0, v1}, Landroidx/camera/core/SurfaceRequest$Result;->of(ILandroid/view/Surface;)Landroidx/camera/core/SurfaceRequest$Result;
 
-    invoke-static {v2, v1}, Landroidx/camera/core/SurfaceRequest$Result;->of(ILandroid/view/Surface;)Landroidx/camera/core/SurfaceRequest$Result;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-interface {p1, v0}, Landroidx/core/util/Consumer;->accept(Ljava/lang/Object;)V
 
-    invoke-interface {v0, v1}, Landroidx/core/util/Consumer;->accept(Ljava/lang/Object;)V
-
-    .line 304
     return-void
 .end method

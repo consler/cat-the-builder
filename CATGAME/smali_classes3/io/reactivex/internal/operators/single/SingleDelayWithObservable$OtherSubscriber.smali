@@ -74,9 +74,6 @@
     .end annotation
 
     .line 53
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber;, "Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber<TT;TU;>;"
-    .local p1, "actual":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
-    .local p2, "source":Lio/reactivex/SingleSource;, "Lio/reactivex/SingleSource<TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 54
@@ -85,7 +82,6 @@
     .line 55
     iput-object p2, p0, Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber;->source:Lio/reactivex/SingleSource;
 
-    .line 56
     return-void
 .end method
 
@@ -95,10 +91,8 @@
     .locals 0
 
     .line 93
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber;, "Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber<TT;TU;>;"
     invoke-static {p0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 94
     return-void
 .end method
 
@@ -106,7 +100,6 @@
     .locals 1
 
     .line 98
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber;, "Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber<TT;TU;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -124,18 +117,16 @@
     .locals 3
 
     .line 84
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber;, "Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber<TT;TU;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 85
     return-void
 
-    .line 87
     :cond_0
     const/4 v0, 0x1
 
+    .line 87
     iput-boolean v0, p0, Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber;->done:Z
 
     .line 88
@@ -149,16 +140,13 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/SingleSource;->subscribe(Lio/reactivex/SingleObserver;)V
 
-    .line 89
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 74
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber;, "Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber<TT;TU;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber;->done:Z
 
     if-eqz v0, :cond_0
@@ -166,13 +154,12 @@
     .line 75
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 76
     return-void
 
-    .line 78
     :cond_0
     const/4 v0, 0x1
 
+    .line 78
     iput-boolean v0, p0, Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber;->done:Z
 
     .line 79
@@ -180,12 +167,11 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/SingleObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 80
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TU;)V"
@@ -193,41 +179,35 @@
     .end annotation
 
     .line 68
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber;, "Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber<TT;TU;>;"
-    .local p1, "value":Ljava/lang/Object;, "TU;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lio/reactivex/disposables/Disposable;
+    check-cast p1, Lio/reactivex/disposables/Disposable;
 
-    invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
+    invoke-interface {p1}, Lio/reactivex/disposables/Disposable;->dispose()V
 
     .line 69
     invoke-virtual {p0}, Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber;->onComplete()V
 
-    .line 70
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
-    .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
+    .locals 0
 
     .line 60
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber;, "Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber<TT;TU;>;"
     invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->set(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 62
-    iget-object v0, p0, Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber;->actual:Lio/reactivex/SingleObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/single/SingleDelayWithObservable$OtherSubscriber;->actual:Lio/reactivex/SingleObserver;
 
-    invoke-interface {v0, p0}, Lio/reactivex/SingleObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/SingleObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 64
     :cond_0
     return-void
 .end method

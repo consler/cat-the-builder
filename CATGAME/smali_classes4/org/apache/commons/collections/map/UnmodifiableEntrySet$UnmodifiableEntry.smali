@@ -17,25 +17,22 @@
 # direct methods
 .method protected constructor <init>(Ljava/util/Map$Entry;)V
     .locals 0
-    .param p1, "entry"    # Ljava/util/Map$Entry;
 
     .line 155
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/keyvalue/AbstractMapEntryDecorator;-><init>(Ljava/util/Map$Entry;)V
 
-    .line 156
     return-void
 .end method
 
 
 # virtual methods
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 0
 
     .line 159
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method

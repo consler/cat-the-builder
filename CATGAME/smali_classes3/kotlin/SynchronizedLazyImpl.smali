@@ -21,11 +21,6 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u00000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0002\u0008\u0006\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u000e\n\u0002\u0008\u0002\u0008\u0002\u0018\u0000*\u0006\u0008\u0000\u0010\u0001 \u00012\u0008\u0012\u0004\u0012\u0002H\u00010\u00022\u00060\u0003j\u0002`\u0004B\u001f\u0012\u000c\u0010\u0005\u001a\u0008\u0012\u0004\u0012\u00028\u00000\u0006\u0012\n\u0008\u0002\u0010\u0007\u001a\u0004\u0018\u00010\u0008\u00a2\u0006\u0002\u0010\tJ\u0008\u0010\u000e\u001a\u00020\u000fH\u0016J\u0008\u0010\u0010\u001a\u00020\u0011H\u0016J\u0008\u0010\u0012\u001a\u00020\u0008H\u0002R\u0010\u0010\n\u001a\u0004\u0018\u00010\u0008X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u0005\u001a\n\u0012\u0004\u0012\u00028\u0000\u0018\u00010\u0006X\u0088\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0008X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0014\u0010\u000b\u001a\u00028\u00008VX\u0096\u0004\u00a2\u0006\u0006\u001a\u0004\u0008\u000c\u0010\r\u00a8\u0006\u0013"
     }
@@ -54,9 +49,10 @@
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x1
+        0x6,
+        0x0
     }
+    xi = 0x30
 .end annotation
 
 
@@ -78,8 +74,6 @@
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function0;Ljava/lang/Object;)V
     .locals 1
-    .param p1, "initializer"    # Lkotlin/jvm/functions/Function0;
-    .param p2, "lock"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -101,22 +95,17 @@
     iput-object p1, p0, Lkotlin/SynchronizedLazyImpl;->initializer:Lkotlin/jvm/functions/Function0;
 
     .line 57
-    sget-object v0, Lkotlin/UNINITIALIZED_VALUE;->INSTANCE:Lkotlin/UNINITIALIZED_VALUE;
+    sget-object p1, Lkotlin/UNINITIALIZED_VALUE;->INSTANCE:Lkotlin/UNINITIALIZED_VALUE;
 
-    iput-object v0, p0, Lkotlin/SynchronizedLazyImpl;->_value:Ljava/lang/Object;
+    iput-object p1, p0, Lkotlin/SynchronizedLazyImpl;->_value:Ljava/lang/Object;
+
+    if-nez p2, :cond_0
+
+    move-object p2, p0
 
     .line 59
-    if-eqz p2, :cond_0
-
-    move-object v0, p2
-
-    goto :goto_0
-
     :cond_0
-    move-object v0, p0
-
-    :goto_0
-    iput-object v0, p0, Lkotlin/SynchronizedLazyImpl;->lock:Ljava/lang/Object;
+    iput-object p2, p0, Lkotlin/SynchronizedLazyImpl;->lock:Ljava/lang/Object;
 
     return-void
 .end method
@@ -128,9 +117,9 @@
 
     if-eqz p3, :cond_0
 
-    .line 55
     const/4 p2, 0x0
 
+    .line 55
     :cond_0
     invoke-direct {p0, p1, p2}, Lkotlin/SynchronizedLazyImpl;-><init>(Lkotlin/jvm/functions/Function0;Ljava/lang/Object;)V
 
@@ -155,7 +144,7 @@
 
 # virtual methods
 .method public getValue()Ljava/lang/Object;
-    .locals 6
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -166,83 +155,61 @@
     iget-object v0, p0, Lkotlin/SynchronizedLazyImpl;->_value:Ljava/lang/Object;
 
     .line 64
-    .local v0, "_v1":Ljava/lang/Object;
     sget-object v1, Lkotlin/UNINITIALIZED_VALUE;->INSTANCE:Lkotlin/UNINITIALIZED_VALUE;
 
     if-eq v0, v1, :cond_0
 
-    .line 65
-    nop
-
-    .line 66
     return-object v0
 
     .line 69
     :cond_0
-    iget-object v1, p0, Lkotlin/SynchronizedLazyImpl;->lock:Ljava/lang/Object;
+    iget-object v0, p0, Lkotlin/SynchronizedLazyImpl;->lock:Ljava/lang/Object;
 
-    monitor-enter v1
-
-    const/4 v2, 0x0
+    monitor-enter v0
 
     .line 70
-    .local v2, "$i$a$-synchronized-SynchronizedLazyImpl$value$1":I
     :try_start_0
-    iget-object v3, p0, Lkotlin/SynchronizedLazyImpl;->_value:Ljava/lang/Object;
+    iget-object v1, p0, Lkotlin/SynchronizedLazyImpl;->_value:Ljava/lang/Object;
 
     .line 71
-    .local v3, "_v2":Ljava/lang/Object;
-    sget-object v4, Lkotlin/UNINITIALIZED_VALUE;->INSTANCE:Lkotlin/UNINITIALIZED_VALUE;
+    sget-object v2, Lkotlin/UNINITIALIZED_VALUE;->INSTANCE:Lkotlin/UNINITIALIZED_VALUE;
 
-    if-eq v3, v4, :cond_1
+    if-eq v1, v2, :cond_1
 
-    .line 72
     goto :goto_0
 
     .line 74
     :cond_1
-    iget-object v4, p0, Lkotlin/SynchronizedLazyImpl;->initializer:Lkotlin/jvm/functions/Function0;
+    iget-object v1, p0, Lkotlin/SynchronizedLazyImpl;->initializer:Lkotlin/jvm/functions/Function0;
 
-    invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
-    invoke-interface {v4}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
+    invoke-interface {v1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v1
 
     .line 75
-    .local v4, "typedValue":Ljava/lang/Object;
-    iput-object v4, p0, Lkotlin/SynchronizedLazyImpl;->_value:Ljava/lang/Object;
+    iput-object v1, p0, Lkotlin/SynchronizedLazyImpl;->_value:Ljava/lang/Object;
+
+    const/4 v2, 0x0
 
     .line 76
-    const/4 v5, 0x0
-
-    check-cast v5, Lkotlin/jvm/functions/Function0;
-
-    iput-object v5, p0, Lkotlin/SynchronizedLazyImpl;->initializer:Lkotlin/jvm/functions/Function0;
+    iput-object v2, p0, Lkotlin/SynchronizedLazyImpl;->initializer:Lkotlin/jvm/functions/Function0;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 77
-    move-object v3, v4
-
-    .line 71
-    .end local v2    # "$i$a$-synchronized-SynchronizedLazyImpl$value$1":I
-    .end local v3    # "_v2":Ljava/lang/Object;
-    .end local v4    # "typedValue":Ljava/lang/Object;
-    :goto_0
-    nop
-
     .line 69
-    monitor-exit v1
+    :goto_0
+    monitor-exit v0
 
-    return-object v3
+    return-object v1
 
     :catchall_0
-    move-exception v2
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
 
-    throw v2
+    throw v1
 .end method
 
 .method public isInitialized()Z

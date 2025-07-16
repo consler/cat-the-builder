@@ -62,7 +62,6 @@
 
 .method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
     .locals 0
-    .param p1, "$constructor_marker"    # Lkotlin/jvm/internal/DefaultConstructorMarker;
 
     .line 148
     invoke-direct {p0}, Landroidx/room/TransactionElement$Key;-><init>()V

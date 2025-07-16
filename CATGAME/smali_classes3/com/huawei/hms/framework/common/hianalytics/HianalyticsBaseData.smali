@@ -1,13 +1,16 @@
 .class public abstract Lcom/huawei/hms/framework/common/hianalytics/HianalyticsBaseData;
 .super Ljava/lang/Object;
+.source "HianalyticsBaseData.java"
 
 
 # static fields
-.field private static final SDK_NAME:Ljava/lang/String; = "sdk_name"
+.field public static final EVENT_ID:Ljava/lang/String; = "url_request"
 
-.field private static final SDK_TYPE:Ljava/lang/String; = "sdk_type"
+.field public static final SDK_NAME:Ljava/lang/String; = "sdk_name"
 
-.field private static final SDK_VERSION:Ljava/lang/String; = "sdk_version"
+.field public static final SDK_TYPE:Ljava/lang/String; = "sdk_type"
+
+.field public static final SDK_VERSION:Ljava/lang/String; = "sdk_version"
 
 .field private static final TAG:Ljava/lang/String; = "HianalyticsBaseData"
 
@@ -29,8 +32,10 @@
 .method public constructor <init>()V
     .locals 3
 
+    .line 42
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 37
     new-instance v0, Ljava/util/LinkedHashMap;
 
     invoke-direct {v0}, Ljava/util/LinkedHashMap;-><init>()V
@@ -41,21 +46,15 @@
 
     const-string v2, "UxPP"
 
+    .line 43
     invoke-virtual {v0, v1, v2}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 44
     iget-object v0, p0, Lcom/huawei/hms/framework/common/hianalytics/HianalyticsBaseData;->data:Ljava/util/LinkedHashMap;
 
     const-string v1, "sdk_name"
 
-    const-string v2, "Restclient"
-
-    invoke-virtual {v0, v1, v2}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/huawei/hms/framework/common/hianalytics/HianalyticsBaseData;->data:Ljava/util/LinkedHashMap;
-
-    const-string v1, "sdk_version"
-
-    const-string v2, "4.0.2.300"
+    const-string v2, "networkkit"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -76,6 +75,7 @@
         }
     .end annotation
 
+    .line 116
     iget-object v0, p0, Lcom/huawei/hms/framework/common/hianalytics/HianalyticsBaseData;->data:Ljava/util/LinkedHashMap;
 
     return-object v0
@@ -86,23 +86,18 @@
 
     if-nez p1, :cond_0
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    .line 72
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "key = null : value = "
 
-    const-string v1, "key = "
+    invoke-direct {p1, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    const-string p1, " : value = "
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -112,20 +107,21 @@
 
     goto :goto_0
 
+    .line 74
     :cond_0
     iget-object v0, p0, Lcom/huawei/hms/framework/common/hianalytics/HianalyticsBaseData;->data:Ljava/util/LinkedHashMap;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, ""
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 
@@ -144,6 +140,7 @@
 
     goto :goto_0
 
+    .line 58
     :cond_0
     iget-object v0, p0, Lcom/huawei/hms/framework/common/hianalytics/HianalyticsBaseData;->data:Ljava/util/LinkedHashMap;
 
@@ -151,25 +148,30 @@
 
     goto :goto_1
 
+    .line 56
     :cond_1
     :goto_0
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "key = "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, " : value = "
+    move-result-object p1
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " : value = "
 
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
+
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -196,6 +198,7 @@
 
     if-eqz p1, :cond_1
 
+    .line 86
     invoke-virtual {p1}, Ljava/util/LinkedHashMap;->isEmpty()Z
 
     move-result v0
@@ -204,6 +207,7 @@
 
     goto :goto_0
 
+    .line 89
     :cond_0
     iget-object v0, p0, Lcom/huawei/hms/framework/common/hianalytics/HianalyticsBaseData;->data:Ljava/util/LinkedHashMap;
 
@@ -217,23 +221,45 @@
 
     const-string v0, "data is null"
 
+    .line 87
     invoke-static {p1, v0}, Lcom/huawei/hms/framework/common/Logger;->v(Ljava/lang/String;Ljava/lang/Object;)V
 
     :goto_1
     return-object p0
 .end method
 
+.method public putIfNotDefault(Ljava/lang/String;JJ)Lcom/huawei/hms/framework/common/hianalytics/HianalyticsBaseData;
+    .locals 0
+
+    cmp-long p4, p2, p4
+
+    if-nez p4, :cond_0
+
+    return-object p0
+
+    .line 106
+    :cond_0
+    invoke-virtual {p0, p1, p2, p3}, Lcom/huawei/hms/framework/common/hianalytics/HianalyticsBaseData;->put(Ljava/lang/String;J)Lcom/huawei/hms/framework/common/hianalytics/HianalyticsBaseData;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
 .method public toString()Ljava/lang/String;
     .locals 4
 
+    .line 126
     new-instance v0, Lorg/json/JSONObject;
 
     invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
+    .line 127
     invoke-virtual {p0}, Lcom/huawei/hms/framework/common/hianalytics/HianalyticsBaseData;->get()Ljava/util/LinkedHashMap;
 
     move-result-object v1
 
+    .line 129
     :try_start_0
     invoke-virtual {v1}, Ljava/util/LinkedHashMap;->entrySet()Ljava/util/Set;
 
@@ -256,6 +282,7 @@
 
     check-cast v2, Ljava/util/Map$Entry;
 
+    .line 130
     invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v3
@@ -279,8 +306,10 @@
 
     const-string v3, "catch JSONException"
 
+    .line 133
     invoke-static {v2, v3, v1}, Lcom/huawei/hms/framework/common/Logger;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
+    .line 135
     :cond_0
     invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 

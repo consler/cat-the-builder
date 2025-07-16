@@ -65,9 +65,6 @@
     .end annotation
 
     .line 36
-    .local p0, "this":Lio/reactivex/internal/observers/ConsumerSingleObserver;, "Lio/reactivex/internal/observers/ConsumerSingleObserver<TT;>;"
-    .local p1, "onSuccess":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
-    .local p2, "onError":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Ljava/lang/Throwable;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 37
@@ -76,7 +73,6 @@
     .line 38
     iput-object p2, p0, Lio/reactivex/internal/observers/ConsumerSingleObserver;->onError:Lio/reactivex/functions/Consumer;
 
-    .line 39
     return-void
 .end method
 
@@ -86,10 +82,8 @@
     .locals 0
 
     .line 70
-    .local p0, "this":Lio/reactivex/internal/observers/ConsumerSingleObserver;, "Lio/reactivex/internal/observers/ConsumerSingleObserver<TT;>;"
     invoke-static {p0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 71
     return-void
 .end method
 
@@ -97,7 +91,6 @@
     .locals 2
 
     .line 75
-    .local p0, "this":Lio/reactivex/internal/observers/ConsumerSingleObserver;, "Lio/reactivex/internal/observers/ConsumerSingleObserver<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/observers/ConsumerSingleObserver;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -119,10 +112,8 @@
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 4
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 43
-    .local p0, "this":Lio/reactivex/internal/observers/ConsumerSingleObserver;, "Lio/reactivex/internal/observers/ConsumerSingleObserver<TT;>;"
     sget-object v0, Lio/reactivex/internal/disposables/DisposableHelper;->DISPOSED:Lio/reactivex/internal/disposables/DisposableHelper;
 
     invoke-virtual {p0, v0}, Lio/reactivex/internal/observers/ConsumerSingleObserver;->lazySet(Ljava/lang/Object;)V
@@ -135,15 +126,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 49
     goto :goto_0
 
-    .line 46
     :catchall_0
     move-exception v0
 
     .line 47
-    .local v0, "ex":Ljava/lang/Throwable;
     invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 48
@@ -157,29 +145,24 @@
 
     aput-object p1, v2, v3
 
-    const/4 v3, 0x1
+    const/4 p1, 0x1
 
-    aput-object v0, v2, v3
+    aput-object v0, v2, p1
 
     invoke-direct {v1, v2}, Lio/reactivex/exceptions/CompositeException;-><init>([Ljava/lang/Throwable;)V
 
     invoke-static {v1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 50
-    .end local v0    # "ex":Ljava/lang/Throwable;
     :goto_0
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 0
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 54
-    .local p0, "this":Lio/reactivex/internal/observers/ConsumerSingleObserver;, "Lio/reactivex/internal/observers/ConsumerSingleObserver<TT;>;"
     invoke-static {p0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 55
     return-void
 .end method
 
@@ -192,8 +175,6 @@
     .end annotation
 
     .line 59
-    .local p0, "this":Lio/reactivex/internal/observers/ConsumerSingleObserver;, "Lio/reactivex/internal/observers/ConsumerSingleObserver<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     sget-object v0, Lio/reactivex/internal/disposables/DisposableHelper;->DISPOSED:Lio/reactivex/internal/disposables/DisposableHelper;
 
     invoke-virtual {p0, v0}, Lio/reactivex/internal/observers/ConsumerSingleObserver;->lazySet(Ljava/lang/Object;)V
@@ -206,22 +187,17 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 65
     goto :goto_0
 
-    .line 62
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     .line 63
-    .local v0, "ex":Ljava/lang/Throwable;
-    invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 64
-    invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 66
-    .end local v0    # "ex":Ljava/lang/Throwable;
     :goto_0
     return-void
 .end method

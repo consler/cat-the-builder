@@ -51,10 +51,8 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/utils/SortedIntList;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/utils/SortedIntList;
 
     .line 123
-    .local p0, "this":Lcom/badlogic/gdx/utils/SortedIntList$Iterator;, "Lcom/badlogic/gdx/utils/SortedIntList<TE;>.Iterator;"
     iput-object p1, p0, Lcom/badlogic/gdx/utils/SortedIntList$Iterator;->this$0:Lcom/badlogic/gdx/utils/SortedIntList;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -68,7 +66,6 @@
     .locals 1
 
     .line 129
-    .local p0, "this":Lcom/badlogic/gdx/utils/SortedIntList$Iterator;, "Lcom/badlogic/gdx/utils/SortedIntList<TE;>.Iterator;"
     iget-object v0, p0, Lcom/badlogic/gdx/utils/SortedIntList$Iterator;->position:Lcom/badlogic/gdx/utils/SortedIntList$Node;
 
     if-eqz v0, :cond_0
@@ -95,7 +92,6 @@
     .end annotation
 
     .line 134
-    .local p0, "this":Lcom/badlogic/gdx/utils/SortedIntList$Iterator;, "Lcom/badlogic/gdx/utils/SortedIntList<TE;>.Iterator;"
     iget-object v0, p0, Lcom/badlogic/gdx/utils/SortedIntList$Iterator;->position:Lcom/badlogic/gdx/utils/SortedIntList$Node;
 
     iput-object v0, p0, Lcom/badlogic/gdx/utils/SortedIntList$Iterator;->previousPosition:Lcom/badlogic/gdx/utils/SortedIntList$Node;
@@ -115,7 +111,6 @@
     .locals 1
 
     .line 123
-    .local p0, "this":Lcom/badlogic/gdx/utils/SortedIntList$Iterator;, "Lcom/badlogic/gdx/utils/SortedIntList<TE;>.Iterator;"
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/SortedIntList$Iterator;->next()Lcom/badlogic/gdx/utils/SortedIntList$Node;
 
     move-result-object v0
@@ -127,7 +122,6 @@
     .locals 2
 
     .line 142
-    .local p0, "this":Lcom/badlogic/gdx/utils/SortedIntList$Iterator;, "Lcom/badlogic/gdx/utils/SortedIntList<TE;>.Iterator;"
     iget-object v0, p0, Lcom/badlogic/gdx/utils/SortedIntList$Iterator;->previousPosition:Lcom/badlogic/gdx/utils/SortedIntList$Node;
 
     if-eqz v0, :cond_2
@@ -181,7 +175,6 @@
 
     iput v1, v0, Lcom/badlogic/gdx/utils/SortedIntList;->size:I
 
-    .line 156
     :cond_2
     return-void
 .end method
@@ -197,18 +190,16 @@
     .end annotation
 
     .line 159
-    .local p0, "this":Lcom/badlogic/gdx/utils/SortedIntList$Iterator;, "Lcom/badlogic/gdx/utils/SortedIntList<TE;>.Iterator;"
     iget-object v0, p0, Lcom/badlogic/gdx/utils/SortedIntList$Iterator;->this$0:Lcom/badlogic/gdx/utils/SortedIntList;
 
     iget-object v0, v0, Lcom/badlogic/gdx/utils/SortedIntList;->first:Lcom/badlogic/gdx/utils/SortedIntList$Node;
 
     iput-object v0, p0, Lcom/badlogic/gdx/utils/SortedIntList$Iterator;->position:Lcom/badlogic/gdx/utils/SortedIntList$Node;
 
-    .line 160
     const/4 v0, 0x0
 
+    .line 160
     iput-object v0, p0, Lcom/badlogic/gdx/utils/SortedIntList$Iterator;->previousPosition:Lcom/badlogic/gdx/utils/SortedIntList$Node;
 
-    .line 161
     return-object p0
 .end method

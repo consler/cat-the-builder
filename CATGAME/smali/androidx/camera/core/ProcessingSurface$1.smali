@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ProcessingSurface;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/core/ProcessingSurface;
 
     .line 154
     iput-object p1, p0, Landroidx/camera/core/ProcessingSurface$1;->this$0:Landroidx/camera/core/ProcessingSurface;
@@ -47,22 +46,19 @@
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "t"    # Ljava/lang/Throwable;
 
-    .line 164
     const-string v0, "ProcessingSurfaceTextur"
 
     const-string v1, "Failed to extract Listenable<Surface>."
 
+    .line 164
     invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 165
     return-void
 .end method
 
 .method public onSuccess(Landroid/view/Surface;)V
     .locals 3
-    .param p1, "surface"    # Landroid/view/Surface;
 
     .line 157
     iget-object v0, p0, Landroidx/camera/core/ProcessingSurface$1;->this$0:Landroidx/camera/core/ProcessingSurface;
@@ -84,18 +80,16 @@
     .line 159
     monitor-exit v0
 
-    .line 160
     return-void
 
-    .line 159
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public bridge synthetic onSuccess(Ljava/lang/Object;)V

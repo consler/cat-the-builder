@@ -15,15 +15,10 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nZoomableImageView.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ZoomableImageView.kt\norg/catrobat/paintroid/colorpicker/ZoomableImageView\n+ 2 View.kt\nandroidx/core/view/ViewKt\n*L\n1#1,368:1\n306#2:369\n318#2,4:370\n307#2:374\n*E\n*S KotlinDebug\n*F\n+ 1 ZoomableImageView.kt\norg/catrobat/paintroid/colorpicker/ZoomableImageView\n*L\n314#1:369\n314#1,4:370\n314#1:374\n*E\n"
+    value = "SMAP\nZoomableImageView.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ZoomableImageView.kt\norg/catrobat/paintroid/colorpicker/ZoomableImageView\n+ 2 View.kt\nandroidx/core/view/ViewKt\n*L\n1#1,368:1\n306#2:369\n318#2,4:370\n307#2:374\n*S KotlinDebug\n*F\n+ 1 ZoomableImageView.kt\norg/catrobat/paintroid/colorpicker/ZoomableImageView\n*L\n314#1:369\n314#1:370,4\n314#1:374\n*E\n"
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u0000\u0094\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u0008\n\u0002\u0008\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0014\n\u0002\u0008\u0002\n\u0002\u0010\u0007\n\u0002\u0008\u0003\n\u0002\u0018\u0002\n\u0002\u0008\u0004\n\u0002\u0010\u0002\n\u0002\u0008\u0008\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u000e\n\u0002\u0018\u0002\n\u0002\u0008\t\u0018\u00002\u00020\u00012\u00020\u00022\u00020\u0003:\u0001OB\u000f\u0008\u0016\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u00a2\u0006\u0002\u0010\u0006B\u0019\u0008\u0016\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0008\u0010\u0007\u001a\u0004\u0018\u00010\u0008\u00a2\u0006\u0002\u0010\tB!\u0008\u0016\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0008\u0010\u0007\u001a\u0004\u0018\u00010\u0008\u0012\u0006\u0010\n\u001a\u00020\u000b\u00a2\u0006\u0002\u0010\u000cJ\u0006\u0010)\u001a\u00020*J\u0008\u0010+\u001a\u00020*H\u0002J \u0010,\u001a\u00020!2\u0006\u0010-\u001a\u00020!2\u0006\u0010.\u001a\u00020!2\u0006\u0010/\u001a\u00020!H\u0002J \u00100\u001a\u00020!2\u0006\u00101\u001a\u00020!2\u0006\u0010.\u001a\u00020!2\u0006\u0010/\u001a\u00020!H\u0002J\u0010\u00102\u001a\u0002032\u0006\u00104\u001a\u000205H\u0016J\u0010\u00106\u001a\u00020*2\u0006\u00107\u001a\u000208H\u0014J(\u00109\u001a\u0002032\u0006\u0010:\u001a\u0002052\u0006\u0010;\u001a\u0002052\u0006\u0010<\u001a\u00020!2\u0006\u0010=\u001a\u00020!H\u0016J\u0010\u0010>\u001a\u00020*2\u0006\u00104\u001a\u000205H\u0016J\u0018\u0010?\u001a\u00020*2\u0006\u0010@\u001a\u00020\u000b2\u0006\u0010A\u001a\u00020\u000bH\u0014J(\u0010B\u001a\u0002032\u0006\u0010:\u001a\u0002052\u0006\u0010;\u001a\u0002052\u0006\u0010<\u001a\u00020!2\u0006\u0010=\u001a\u00020!H\u0016J\u0010\u0010C\u001a\u00020*2\u0006\u00104\u001a\u000205H\u0016J\u0010\u0010D\u001a\u0002032\u0006\u00104\u001a\u000205H\u0016J\u001a\u0010E\u001a\u0002032\u0008\u0010F\u001a\u0004\u0018\u00010G2\u0006\u0010H\u001a\u000205H\u0016J\u0010\u0010I\u001a\u00020*2\u0006\u0010J\u001a\u00020\u0016H\u0002J\u0010\u0010K\u001a\u00020*2\u0006\u0010L\u001a\u00020\u001aH\u0016J\u000e\u0010M\u001a\u00020*2\u0006\u0010\u0017\u001a\u00020\u0018J\u0008\u0010N\u001a\u00020*H\u0002R\u000e\u0010\r\u001a\u00020\u000bX\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u000fX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0016X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0018X\u0082.\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u001aX\u0082.\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u001cX\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u001d\u001a\u00020\u001eX\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u001f\u001a\u00020\u000bX\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010 \u001a\u00020!X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\"\u001a\u00020!X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010#\u001a\u00020!X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010$\u001a\u00020%X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010&\u001a\u00020\u0016X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\'\u001a\u00020!X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010(\u001a\u00020!X\u0082\u000e\u00a2\u0006\u0002\n\u0000\u00a8\u0006P"
     }
@@ -108,14 +103,15 @@
         "setListener",
         "updateLP",
         "ScaleListener",
-        "colorpicker_release"
+        "colorpicker_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -158,9 +154,24 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$0OakniG9toNjDX5wXMPbwH9plz4(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;Landroid/view/ViewGroup$LayoutParams;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->updateLP$lambda-4$lambda-3(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;Landroid/view/ViewGroup$LayoutParams;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$t8lYXnvoolYBuKgqUiS_eaQOFPY(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;)V
+    .locals 0
+
+    invoke-static {p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->_init_$lambda-0(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;)V
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 5
-    .param p1, "context"    # Landroid/content/Context;
 
     const-string v0, "context"
 
@@ -170,18 +181,18 @@
     invoke-direct {p0, p1}, Landroidx/appcompat/widget/AppCompatImageView;-><init>(Landroid/content/Context;)V
 
     .line 66
-    new-instance v0, Landroid/graphics/Rect;
+    new-instance p1, Landroid/graphics/Rect;
 
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {p1}, Landroid/graphics/Rect;-><init>()V
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->canvasRect:Landroid/graphics/Rect;
+    iput-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->canvasRect:Landroid/graphics/Rect;
 
     .line 67
-    new-instance v0, Landroid/graphics/Paint;
+    new-instance p1, Landroid/graphics/Paint;
 
-    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
+    invoke-direct {p1}, Landroid/graphics/Paint;-><init>()V
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->boarderPaint:Landroid/graphics/Paint;
+    iput-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->boarderPaint:Landroid/graphics/Paint;
 
     .line 68
     new-instance v0, Landroid/graphics/Paint;
@@ -191,140 +202,128 @@
     iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->checkeredPattern:Landroid/graphics/Paint;
 
     .line 73
-    new-instance v0, Landroid/graphics/Matrix;
+    new-instance v1, Landroid/graphics/Matrix;
 
-    invoke-direct {v0}, Landroid/graphics/Matrix;-><init>()V
+    invoke-direct {v1}, Landroid/graphics/Matrix;-><init>()V
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mMatrix:Landroid/graphics/Matrix;
+    iput-object v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mMatrix:Landroid/graphics/Matrix;
+
+    const/16 v1, 0x9
+
+    new-array v2, v1, [F
 
     .line 74
-    const/16 v0, 0x9
+    iput-object v2, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->matrixValues:[F
 
-    new-array v1, v0, [F
-
-    iput-object v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->matrixValues:[F
+    const/high16 v2, 0x3f800000    # 1.0f
 
     .line 76
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    iput v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->saveScale:F
+    iput v2, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->saveScale:F
 
     .line 83
-    new-instance v1, Landroid/graphics/PointF;
+    new-instance v2, Landroid/graphics/PointF;
 
-    invoke-direct {v1}, Landroid/graphics/PointF;-><init>()V
+    invoke-direct {v2}, Landroid/graphics/PointF;-><init>()V
 
-    iput-object v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->lastPoint:Landroid/graphics/PointF;
+    iput-object v2, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->lastPoint:Landroid/graphics/PointF;
 
     .line 84
-    new-instance v1, Landroid/graphics/PointF;
+    new-instance v2, Landroid/graphics/PointF;
 
-    invoke-direct {v1}, Landroid/graphics/PointF;-><init>()V
+    invoke-direct {v2}, Landroid/graphics/PointF;-><init>()V
 
-    iput-object v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->startPoint:Landroid/graphics/PointF;
+    iput-object v2, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->startPoint:Landroid/graphics/PointF;
 
-    .line 93
-    nop
+    const/16 v2, 0x8
 
     .line 94
-    const/16 v1, 0x8
+    invoke-virtual {p0, v2}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setVisibility(I)V
 
-    invoke-virtual {p0, v1}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setVisibility(I)V
+    const/4 v2, 0x1
 
     .line 95
-    const/4 v1, 0x1
-
-    invoke-super {p0, v1}, Landroidx/appcompat/widget/AppCompatImageView;->setClickable(Z)V
+    invoke-super {p0, v2}, Landroidx/appcompat/widget/AppCompatImageView;->setClickable(Z)V
 
     .line 96
-    new-instance v1, Landroid/view/ScaleGestureDetector;
+    new-instance v2, Landroid/view/ScaleGestureDetector;
+
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    new-instance v4, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView$ScaleListener;
+
+    invoke-direct {v4, p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView$ScaleListener;-><init>(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;)V
+
+    check-cast v4, Landroid/view/ScaleGestureDetector$OnScaleGestureListener;
+
+    invoke-direct {v2, v3, v4}, Landroid/view/ScaleGestureDetector;-><init>(Landroid/content/Context;Landroid/view/ScaleGestureDetector$OnScaleGestureListener;)V
+
+    iput-object v2, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->scaleDetector:Landroid/view/ScaleGestureDetector;
+
+    new-array v1, v1, [F
+
+    .line 98
+    iput-object v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->matrixValues:[F
+
+    .line 99
+    iget-object v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mMatrix:Landroid/graphics/Matrix;
+
+    invoke-virtual {p0, v1}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setImageMatrix(Landroid/graphics/Matrix;)V
+
+    .line 100
+    sget-object v1, Landroid/widget/ImageView$ScaleType;->MATRIX:Landroid/widget/ImageView$ScaleType;
+
+    invoke-virtual {p0, v1}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
+
+    .line 102
+    new-instance v1, Landroid/view/GestureDetector;
 
     invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
-    new-instance v3, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView$ScaleListener;
+    move-object v3, p0
 
-    invoke-direct {v3, p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView$ScaleListener;-><init>(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;)V
+    check-cast v3, Landroid/view/GestureDetector$OnGestureListener;
 
-    check-cast v3, Landroid/view/ScaleGestureDetector$OnScaleGestureListener;
+    invoke-direct {v1, v2, v3}, Landroid/view/GestureDetector;-><init>(Landroid/content/Context;Landroid/view/GestureDetector$OnGestureListener;)V
 
-    invoke-direct {v1, v2, v3}, Landroid/view/ScaleGestureDetector;-><init>(Landroid/content/Context;Landroid/view/ScaleGestureDetector$OnScaleGestureListener;)V
-
-    iput-object v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->scaleDetector:Landroid/view/ScaleGestureDetector;
-
-    .line 98
-    new-array v0, v0, [F
-
-    iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->matrixValues:[F
-
-    .line 99
-    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mMatrix:Landroid/graphics/Matrix;
-
-    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setImageMatrix(Landroid/graphics/Matrix;)V
-
-    .line 100
-    sget-object v0, Landroid/widget/ImageView$ScaleType;->MATRIX:Landroid/widget/ImageView$ScaleType;
-
-    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
-
-    .line 102
-    new-instance v0, Landroid/view/GestureDetector;
-
-    invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    move-object v2, p0
-
-    check-cast v2, Landroid/view/GestureDetector$OnGestureListener;
-
-    invoke-direct {v0, v1, v2}, Landroid/view/GestureDetector;-><init>(Landroid/content/Context;Landroid/view/GestureDetector$OnGestureListener;)V
-
-    iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->gestureDetector:Landroid/view/GestureDetector;
+    iput-object v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->gestureDetector:Landroid/view/GestureDetector;
 
     .line 103
-    move-object v0, p0
+    move-object v1, p0
 
-    check-cast v0, Landroid/view/View$OnTouchListener;
+    check-cast v1, Landroid/view/View$OnTouchListener;
 
-    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
-
-    .line 105
-    nop
+    invoke-virtual {p0, v1}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
     .line 106
     invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object v1
 
     .line 107
-    sget v1, Lorg/catrobat/paintroid/colorpicker/R$color;->pocketpaint_color_picker_surface_background:I
+    sget v2, Lorg/catrobat/paintroid/colorpicker/R$color;->pocketpaint_color_picker_surface_background:I
 
     .line 105
-    invoke-static {v0, v1}, Landroidx/core/content/ContextCompat;->getColor(Landroid/content/Context;I)I
+    invoke-static {v1, v2}, Landroidx/core/content/ContextCompat;->getColor(Landroid/content/Context;I)I
 
-    move-result v0
+    move-result v1
 
-    iput v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->backgroundSurfaceColor:I
-
-    .line 110
-    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->boarderPaint:Landroid/graphics/Paint;
+    iput v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->backgroundSurfaceColor:I
 
     const/high16 v1, -0x1000000
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
+    .line 110
+    invoke-virtual {p1, v1}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 111
-    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->boarderPaint:Landroid/graphics/Paint;
-
     sget-object v1, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+    invoke-virtual {p1, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
     .line 112
-    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->boarderPaint:Landroid/graphics/Paint;
-
     new-instance v1, Landroid/graphics/PorterDuffXfermode;
 
     sget-object v2, Landroid/graphics/PorterDuff$Mode;->SRC:Landroid/graphics/PorterDuff$Mode;
@@ -333,79 +332,58 @@
 
     check-cast v1, Landroid/graphics/Xfermode;
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
-
-    .line 114
-    nop
+    invoke-virtual {p1, v1}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
 
     .line 115
     invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object p1
 
     sget v1, Lorg/catrobat/paintroid/colorpicker/R$drawable;->pocketpaint_checkeredbg:I
 
-    invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
+    invoke-static {p1, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
-    move-result-object v0
-
-    .line 114
-    nop
+    move-result-object p1
 
     .line 116
-    .local v0, "checkerboard":Landroid/graphics/Bitmap;
     new-instance v1, Landroid/graphics/BitmapShader;
 
     sget-object v2, Landroid/graphics/Shader$TileMode;->REPEAT:Landroid/graphics/Shader$TileMode;
 
     sget-object v3, Landroid/graphics/Shader$TileMode;->REPEAT:Landroid/graphics/Shader$TileMode;
 
-    invoke-direct {v1, v0, v2, v3}, Landroid/graphics/BitmapShader;-><init>(Landroid/graphics/Bitmap;Landroid/graphics/Shader$TileMode;Landroid/graphics/Shader$TileMode;)V
+    invoke-direct {v1, p1, v2, v3}, Landroid/graphics/BitmapShader;-><init>(Landroid/graphics/Bitmap;Landroid/graphics/Shader$TileMode;Landroid/graphics/Shader$TileMode;)V
 
     .line 117
-    .local v1, "shader":Landroid/graphics/BitmapShader;
-    iget-object v2, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->checkeredPattern:Landroid/graphics/Paint;
+    check-cast v1, Landroid/graphics/Shader;
 
-    move-object v3, v1
-
-    check-cast v3, Landroid/graphics/Shader;
-
-    invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
 
     .line 118
-    iget-object v2, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->checkeredPattern:Landroid/graphics/Paint;
+    new-instance p1, Landroid/graphics/PorterDuffXfermode;
 
-    new-instance v3, Landroid/graphics/PorterDuffXfermode;
+    sget-object v1, Landroid/graphics/PorterDuff$Mode;->SRC:Landroid/graphics/PorterDuff$Mode;
 
-    sget-object v4, Landroid/graphics/PorterDuff$Mode;->SRC:Landroid/graphics/PorterDuff$Mode;
+    invoke-direct {p1, v1}, Landroid/graphics/PorterDuffXfermode;-><init>(Landroid/graphics/PorterDuff$Mode;)V
 
-    invoke-direct {v3, v4}, Landroid/graphics/PorterDuffXfermode;-><init>(Landroid/graphics/PorterDuff$Mode;)V
+    check-cast p1, Landroid/graphics/Xfermode;
 
-    check-cast v3, Landroid/graphics/Xfermode;
-
-    invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
+    invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
 
     .line 120
-    new-instance v2, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView$1;
+    new-instance p1, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView$$ExternalSyntheticLambda0;
 
-    invoke-direct {v2, p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView$1;-><init>(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;)V
+    invoke-direct {p1, p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView$$ExternalSyntheticLambda0;-><init>(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;)V
 
-    check-cast v2, Ljava/lang/Runnable;
+    const-wide/16 v0, 0x96
 
-    const-wide/16 v3, 0x96
+    invoke-virtual {p0, p1, v0, v1}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    invoke-virtual {p0, v2, v3, v4}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    .line 121
-    .end local v0    # "checkerboard":Landroid/graphics/Bitmap;
-    .end local v1    # "shader":Landroid/graphics/BitmapShader;
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 5
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .locals 4
 
     const-string v0, "context"
 
@@ -415,25 +393,25 @@
     invoke-direct {p0, p1, p2}, Landroidx/appcompat/widget/AppCompatImageView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     .line 66
-    new-instance v0, Landroid/graphics/Rect;
+    new-instance p1, Landroid/graphics/Rect;
 
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {p1}, Landroid/graphics/Rect;-><init>()V
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->canvasRect:Landroid/graphics/Rect;
+    iput-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->canvasRect:Landroid/graphics/Rect;
 
     .line 67
-    new-instance v0, Landroid/graphics/Paint;
+    new-instance p1, Landroid/graphics/Paint;
 
-    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
+    invoke-direct {p1}, Landroid/graphics/Paint;-><init>()V
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->boarderPaint:Landroid/graphics/Paint;
+    iput-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->boarderPaint:Landroid/graphics/Paint;
 
     .line 68
-    new-instance v0, Landroid/graphics/Paint;
+    new-instance p2, Landroid/graphics/Paint;
 
-    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
+    invoke-direct {p2}, Landroid/graphics/Paint;-><init>()V
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->checkeredPattern:Landroid/graphics/Paint;
+    iput-object p2, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->checkeredPattern:Landroid/graphics/Paint;
 
     .line 73
     new-instance v0, Landroid/graphics/Matrix;
@@ -442,16 +420,16 @@
 
     iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mMatrix:Landroid/graphics/Matrix;
 
-    .line 74
     const/16 v0, 0x9
 
     new-array v1, v0, [F
 
+    .line 74
     iput-object v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->matrixValues:[F
 
-    .line 76
     const/high16 v1, 0x3f800000    # 1.0f
 
+    .line 76
     iput v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->saveScale:F
 
     .line 83
@@ -468,17 +446,14 @@
 
     iput-object v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->startPoint:Landroid/graphics/PointF;
 
-    .line 93
-    nop
-
-    .line 94
     const/16 v1, 0x8
 
+    .line 94
     invoke-virtual {p0, v1}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setVisibility(I)V
 
-    .line 95
     const/4 v1, 0x1
 
+    .line 95
     invoke-super {p0, v1}, Landroidx/appcompat/widget/AppCompatImageView;->setClickable(Z)V
 
     .line 96
@@ -498,9 +473,9 @@
 
     iput-object v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->scaleDetector:Landroid/view/ScaleGestureDetector;
 
-    .line 98
     new-array v0, v0, [F
 
+    .line 98
     iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->matrixValues:[F
 
     .line 99
@@ -535,9 +510,6 @@
 
     invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 105
-    nop
-
     .line 106
     invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getContext()Landroid/content/Context;
 
@@ -553,462 +525,358 @@
 
     iput v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->backgroundSurfaceColor:I
 
+    const/high16 v0, -0x1000000
+
     .line 110
-    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->boarderPaint:Landroid/graphics/Paint;
-
-    const/high16 v1, -0x1000000
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 111
-    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->boarderPaint:Landroid/graphics/Paint;
+    sget-object v0, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
 
-    sget-object v1, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+    invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
     .line 112
-    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->boarderPaint:Landroid/graphics/Paint;
+    new-instance v0, Landroid/graphics/PorterDuffXfermode;
 
-    new-instance v1, Landroid/graphics/PorterDuffXfermode;
+    sget-object v1, Landroid/graphics/PorterDuff$Mode;->SRC:Landroid/graphics/PorterDuff$Mode;
 
-    sget-object v2, Landroid/graphics/PorterDuff$Mode;->SRC:Landroid/graphics/PorterDuff$Mode;
+    invoke-direct {v0, v1}, Landroid/graphics/PorterDuffXfermode;-><init>(Landroid/graphics/PorterDuff$Mode;)V
 
-    invoke-direct {v1, v2}, Landroid/graphics/PorterDuffXfermode;-><init>(Landroid/graphics/PorterDuff$Mode;)V
+    check-cast v0, Landroid/graphics/Xfermode;
 
-    check-cast v1, Landroid/graphics/Xfermode;
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
-
-    .line 114
-    nop
+    invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
 
     .line 115
     invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object p1
 
-    sget v1, Lorg/catrobat/paintroid/colorpicker/R$drawable;->pocketpaint_checkeredbg:I
+    sget v0, Lorg/catrobat/paintroid/colorpicker/R$drawable;->pocketpaint_checkeredbg:I
 
-    invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
+    invoke-static {p1, v0}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
-    move-result-object v0
-
-    .line 114
-    nop
+    move-result-object p1
 
     .line 116
-    .local v0, "checkerboard":Landroid/graphics/Bitmap;
-    new-instance v1, Landroid/graphics/BitmapShader;
+    new-instance v0, Landroid/graphics/BitmapShader;
+
+    sget-object v1, Landroid/graphics/Shader$TileMode;->REPEAT:Landroid/graphics/Shader$TileMode;
 
     sget-object v2, Landroid/graphics/Shader$TileMode;->REPEAT:Landroid/graphics/Shader$TileMode;
 
-    sget-object v3, Landroid/graphics/Shader$TileMode;->REPEAT:Landroid/graphics/Shader$TileMode;
-
-    invoke-direct {v1, v0, v2, v3}, Landroid/graphics/BitmapShader;-><init>(Landroid/graphics/Bitmap;Landroid/graphics/Shader$TileMode;Landroid/graphics/Shader$TileMode;)V
+    invoke-direct {v0, p1, v1, v2}, Landroid/graphics/BitmapShader;-><init>(Landroid/graphics/Bitmap;Landroid/graphics/Shader$TileMode;Landroid/graphics/Shader$TileMode;)V
 
     .line 117
-    .local v1, "shader":Landroid/graphics/BitmapShader;
-    iget-object v2, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->checkeredPattern:Landroid/graphics/Paint;
+    check-cast v0, Landroid/graphics/Shader;
 
-    move-object v3, v1
-
-    check-cast v3, Landroid/graphics/Shader;
-
-    invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
+    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
 
     .line 118
-    iget-object v2, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->checkeredPattern:Landroid/graphics/Paint;
+    new-instance p1, Landroid/graphics/PorterDuffXfermode;
 
-    new-instance v3, Landroid/graphics/PorterDuffXfermode;
+    sget-object v0, Landroid/graphics/PorterDuff$Mode;->SRC:Landroid/graphics/PorterDuff$Mode;
 
-    sget-object v4, Landroid/graphics/PorterDuff$Mode;->SRC:Landroid/graphics/PorterDuff$Mode;
+    invoke-direct {p1, v0}, Landroid/graphics/PorterDuffXfermode;-><init>(Landroid/graphics/PorterDuff$Mode;)V
 
-    invoke-direct {v3, v4}, Landroid/graphics/PorterDuffXfermode;-><init>(Landroid/graphics/PorterDuff$Mode;)V
+    check-cast p1, Landroid/graphics/Xfermode;
 
-    check-cast v3, Landroid/graphics/Xfermode;
-
-    invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
+    invoke-virtual {p2, p1}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
 
     .line 120
-    new-instance v2, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView$1;
+    new-instance p1, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView$$ExternalSyntheticLambda0;
 
-    invoke-direct {v2, p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView$1;-><init>(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;)V
+    invoke-direct {p1, p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView$$ExternalSyntheticLambda0;-><init>(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;)V
 
-    check-cast v2, Ljava/lang/Runnable;
+    const-wide/16 v0, 0x96
 
-    const-wide/16 v3, 0x96
+    invoke-virtual {p0, p1, v0, v1}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    invoke-virtual {p0, v2, v3, v4}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    .line 121
-    .end local v0    # "checkerboard":Landroid/graphics/Bitmap;
-    .end local v1    # "shader":Landroid/graphics/BitmapShader;
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 5
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
-    .param p3, "defStyleAttr"    # I
+    .locals 3
 
     const-string v0, "context"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 90
-    nop
-
     .line 91
     invoke-direct {p0, p1, p2, p3}, Landroidx/appcompat/widget/AppCompatImageView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 66
-    new-instance v0, Landroid/graphics/Rect;
+    new-instance p1, Landroid/graphics/Rect;
 
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {p1}, Landroid/graphics/Rect;-><init>()V
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->canvasRect:Landroid/graphics/Rect;
+    iput-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->canvasRect:Landroid/graphics/Rect;
 
     .line 67
-    new-instance v0, Landroid/graphics/Paint;
+    new-instance p1, Landroid/graphics/Paint;
 
-    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
+    invoke-direct {p1}, Landroid/graphics/Paint;-><init>()V
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->boarderPaint:Landroid/graphics/Paint;
+    iput-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->boarderPaint:Landroid/graphics/Paint;
 
     .line 68
-    new-instance v0, Landroid/graphics/Paint;
+    new-instance p2, Landroid/graphics/Paint;
 
-    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
+    invoke-direct {p2}, Landroid/graphics/Paint;-><init>()V
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->checkeredPattern:Landroid/graphics/Paint;
+    iput-object p2, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->checkeredPattern:Landroid/graphics/Paint;
 
     .line 73
-    new-instance v0, Landroid/graphics/Matrix;
+    new-instance p3, Landroid/graphics/Matrix;
 
-    invoke-direct {v0}, Landroid/graphics/Matrix;-><init>()V
+    invoke-direct {p3}, Landroid/graphics/Matrix;-><init>()V
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mMatrix:Landroid/graphics/Matrix;
+    iput-object p3, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mMatrix:Landroid/graphics/Matrix;
+
+    const/16 p3, 0x9
+
+    new-array v0, p3, [F
 
     .line 74
-    const/16 v0, 0x9
-
-    new-array v1, v0, [F
-
-    iput-object v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->matrixValues:[F
-
-    .line 76
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    iput v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->saveScale:F
-
-    .line 83
-    new-instance v1, Landroid/graphics/PointF;
-
-    invoke-direct {v1}, Landroid/graphics/PointF;-><init>()V
-
-    iput-object v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->lastPoint:Landroid/graphics/PointF;
-
-    .line 84
-    new-instance v1, Landroid/graphics/PointF;
-
-    invoke-direct {v1}, Landroid/graphics/PointF;-><init>()V
-
-    iput-object v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->startPoint:Landroid/graphics/PointF;
-
-    .line 93
-    nop
-
-    .line 94
-    const/16 v1, 0x8
-
-    invoke-virtual {p0, v1}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setVisibility(I)V
-
-    .line 95
-    const/4 v1, 0x1
-
-    invoke-super {p0, v1}, Landroidx/appcompat/widget/AppCompatImageView;->setClickable(Z)V
-
-    .line 96
-    new-instance v1, Landroid/view/ScaleGestureDetector;
-
-    invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    new-instance v3, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView$ScaleListener;
-
-    invoke-direct {v3, p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView$ScaleListener;-><init>(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;)V
-
-    check-cast v3, Landroid/view/ScaleGestureDetector$OnScaleGestureListener;
-
-    invoke-direct {v1, v2, v3}, Landroid/view/ScaleGestureDetector;-><init>(Landroid/content/Context;Landroid/view/ScaleGestureDetector$OnScaleGestureListener;)V
-
-    iput-object v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->scaleDetector:Landroid/view/ScaleGestureDetector;
-
-    .line 98
-    new-array v0, v0, [F
-
     iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->matrixValues:[F
 
-    .line 99
-    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mMatrix:Landroid/graphics/Matrix;
+    const/high16 v0, 0x3f800000    # 1.0f
 
-    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setImageMatrix(Landroid/graphics/Matrix;)V
+    .line 76
+    iput v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->saveScale:F
 
-    .line 100
-    sget-object v0, Landroid/widget/ImageView$ScaleType;->MATRIX:Landroid/widget/ImageView$ScaleType;
+    .line 83
+    new-instance v0, Landroid/graphics/PointF;
 
-    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
+    invoke-direct {v0}, Landroid/graphics/PointF;-><init>()V
 
-    .line 102
-    new-instance v0, Landroid/view/GestureDetector;
+    iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->lastPoint:Landroid/graphics/PointF;
+
+    .line 84
+    new-instance v0, Landroid/graphics/PointF;
+
+    invoke-direct {v0}, Landroid/graphics/PointF;-><init>()V
+
+    iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->startPoint:Landroid/graphics/PointF;
+
+    const/16 v0, 0x8
+
+    .line 94
+    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setVisibility(I)V
+
+    const/4 v0, 0x1
+
+    .line 95
+    invoke-super {p0, v0}, Landroidx/appcompat/widget/AppCompatImageView;->setClickable(Z)V
+
+    .line 96
+    new-instance v0, Landroid/view/ScaleGestureDetector;
 
     invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    move-object v2, p0
+    new-instance v2, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView$ScaleListener;
 
-    check-cast v2, Landroid/view/GestureDetector$OnGestureListener;
+    invoke-direct {v2, p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView$ScaleListener;-><init>(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;)V
 
-    invoke-direct {v0, v1, v2}, Landroid/view/GestureDetector;-><init>(Landroid/content/Context;Landroid/view/GestureDetector$OnGestureListener;)V
+    check-cast v2, Landroid/view/ScaleGestureDetector$OnScaleGestureListener;
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->gestureDetector:Landroid/view/GestureDetector;
+    invoke-direct {v0, v1, v2}, Landroid/view/ScaleGestureDetector;-><init>(Landroid/content/Context;Landroid/view/ScaleGestureDetector$OnScaleGestureListener;)V
 
-    .line 103
-    move-object v0, p0
+    iput-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->scaleDetector:Landroid/view/ScaleGestureDetector;
 
-    check-cast v0, Landroid/view/View$OnTouchListener;
+    new-array p3, p3, [F
 
-    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+    .line 98
+    iput-object p3, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->matrixValues:[F
 
-    .line 105
-    nop
+    .line 99
+    iget-object p3, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mMatrix:Landroid/graphics/Matrix;
 
-    .line 106
+    invoke-virtual {p0, p3}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setImageMatrix(Landroid/graphics/Matrix;)V
+
+    .line 100
+    sget-object p3, Landroid/widget/ImageView$ScaleType;->MATRIX:Landroid/widget/ImageView$ScaleType;
+
+    invoke-virtual {p0, p3}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
+
+    .line 102
+    new-instance p3, Landroid/view/GestureDetector;
+
     invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
+    move-object v1, p0
+
+    check-cast v1, Landroid/view/GestureDetector$OnGestureListener;
+
+    invoke-direct {p3, v0, v1}, Landroid/view/GestureDetector;-><init>(Landroid/content/Context;Landroid/view/GestureDetector$OnGestureListener;)V
+
+    iput-object p3, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->gestureDetector:Landroid/view/GestureDetector;
+
+    .line 103
+    move-object p3, p0
+
+    check-cast p3, Landroid/view/View$OnTouchListener;
+
+    invoke-virtual {p0, p3}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+
+    .line 106
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getContext()Landroid/content/Context;
+
+    move-result-object p3
+
     .line 107
-    sget v1, Lorg/catrobat/paintroid/colorpicker/R$color;->pocketpaint_color_picker_surface_background:I
+    sget v0, Lorg/catrobat/paintroid/colorpicker/R$color;->pocketpaint_color_picker_surface_background:I
 
     .line 105
-    invoke-static {v0, v1}, Landroidx/core/content/ContextCompat;->getColor(Landroid/content/Context;I)I
+    invoke-static {p3, v0}, Landroidx/core/content/ContextCompat;->getColor(Landroid/content/Context;I)I
 
-    move-result v0
+    move-result p3
 
-    iput v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->backgroundSurfaceColor:I
+    iput p3, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->backgroundSurfaceColor:I
+
+    const/high16 p3, -0x1000000
 
     .line 110
-    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->boarderPaint:Landroid/graphics/Paint;
-
-    const/high16 v1, -0x1000000
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-virtual {p1, p3}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 111
-    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->boarderPaint:Landroid/graphics/Paint;
+    sget-object p3, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
 
-    sget-object v1, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+    invoke-virtual {p1, p3}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
     .line 112
-    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->boarderPaint:Landroid/graphics/Paint;
+    new-instance p3, Landroid/graphics/PorterDuffXfermode;
 
-    new-instance v1, Landroid/graphics/PorterDuffXfermode;
+    sget-object v0, Landroid/graphics/PorterDuff$Mode;->SRC:Landroid/graphics/PorterDuff$Mode;
 
-    sget-object v2, Landroid/graphics/PorterDuff$Mode;->SRC:Landroid/graphics/PorterDuff$Mode;
+    invoke-direct {p3, v0}, Landroid/graphics/PorterDuffXfermode;-><init>(Landroid/graphics/PorterDuff$Mode;)V
 
-    invoke-direct {v1, v2}, Landroid/graphics/PorterDuffXfermode;-><init>(Landroid/graphics/PorterDuff$Mode;)V
+    check-cast p3, Landroid/graphics/Xfermode;
 
-    check-cast v1, Landroid/graphics/Xfermode;
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
-
-    .line 114
-    nop
+    invoke-virtual {p1, p3}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
 
     .line 115
     invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object p1
 
-    sget v1, Lorg/catrobat/paintroid/colorpicker/R$drawable;->pocketpaint_checkeredbg:I
+    sget p3, Lorg/catrobat/paintroid/colorpicker/R$drawable;->pocketpaint_checkeredbg:I
 
-    invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
+    invoke-static {p1, p3}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
-    move-result-object v0
-
-    .line 114
-    nop
+    move-result-object p1
 
     .line 116
-    .local v0, "checkerboard":Landroid/graphics/Bitmap;
-    new-instance v1, Landroid/graphics/BitmapShader;
+    new-instance p3, Landroid/graphics/BitmapShader;
 
-    sget-object v2, Landroid/graphics/Shader$TileMode;->REPEAT:Landroid/graphics/Shader$TileMode;
+    sget-object v0, Landroid/graphics/Shader$TileMode;->REPEAT:Landroid/graphics/Shader$TileMode;
 
-    sget-object v3, Landroid/graphics/Shader$TileMode;->REPEAT:Landroid/graphics/Shader$TileMode;
+    sget-object v1, Landroid/graphics/Shader$TileMode;->REPEAT:Landroid/graphics/Shader$TileMode;
 
-    invoke-direct {v1, v0, v2, v3}, Landroid/graphics/BitmapShader;-><init>(Landroid/graphics/Bitmap;Landroid/graphics/Shader$TileMode;Landroid/graphics/Shader$TileMode;)V
+    invoke-direct {p3, p1, v0, v1}, Landroid/graphics/BitmapShader;-><init>(Landroid/graphics/Bitmap;Landroid/graphics/Shader$TileMode;Landroid/graphics/Shader$TileMode;)V
 
     .line 117
-    .local v1, "shader":Landroid/graphics/BitmapShader;
-    iget-object v2, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->checkeredPattern:Landroid/graphics/Paint;
+    check-cast p3, Landroid/graphics/Shader;
 
-    move-object v3, v1
-
-    check-cast v3, Landroid/graphics/Shader;
-
-    invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
+    invoke-virtual {p2, p3}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
 
     .line 118
-    iget-object v2, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->checkeredPattern:Landroid/graphics/Paint;
+    new-instance p1, Landroid/graphics/PorterDuffXfermode;
 
-    new-instance v3, Landroid/graphics/PorterDuffXfermode;
+    sget-object p3, Landroid/graphics/PorterDuff$Mode;->SRC:Landroid/graphics/PorterDuff$Mode;
 
-    sget-object v4, Landroid/graphics/PorterDuff$Mode;->SRC:Landroid/graphics/PorterDuff$Mode;
+    invoke-direct {p1, p3}, Landroid/graphics/PorterDuffXfermode;-><init>(Landroid/graphics/PorterDuff$Mode;)V
 
-    invoke-direct {v3, v4}, Landroid/graphics/PorterDuffXfermode;-><init>(Landroid/graphics/PorterDuff$Mode;)V
+    check-cast p1, Landroid/graphics/Xfermode;
 
-    check-cast v3, Landroid/graphics/Xfermode;
-
-    invoke-virtual {v2, v3}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
+    invoke-virtual {p2, p1}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
 
     .line 120
-    new-instance v2, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView$1;
+    new-instance p1, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView$$ExternalSyntheticLambda0;
 
-    invoke-direct {v2, p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView$1;-><init>(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;)V
+    invoke-direct {p1, p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView$$ExternalSyntheticLambda0;-><init>(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;)V
 
-    check-cast v2, Ljava/lang/Runnable;
+    const-wide/16 p2, 0x96
 
-    const-wide/16 v3, 0x96
+    invoke-virtual {p0, p1, p2, p3}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    invoke-virtual {p0, v2, v3, v4}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    .line 121
-    .end local v0    # "checkerboard":Landroid/graphics/Bitmap;
-    .end local v1    # "shader":Landroid/graphics/BitmapShader;
     return-void
 .end method
 
-.method public static final synthetic access$getMBitmap$p(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;)Landroid/graphics/Bitmap;
-    .locals 2
-    .param p0, "$this"    # Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
+.method private static final _init_$lambda-0(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;)V
+    .locals 1
 
-    .line 57
-    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mBitmap:Landroid/graphics/Bitmap;
+    const-string v0, "this$0"
 
-    if-nez v0, :cond_0
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v1, "mBitmap"
+    const/4 v0, 0x0
 
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    .line 120
+    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setVisibility(I)V
 
-    :cond_0
-    return-object v0
+    return-void
 .end method
 
 .method public static final synthetic access$getMMatrix$p(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;)Landroid/graphics/Matrix;
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
+    .locals 0
 
     .line 57
-    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mMatrix:Landroid/graphics/Matrix;
+    iget-object p0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mMatrix:Landroid/graphics/Matrix;
 
-    return-object v0
-.end method
-
-.method public static final synthetic access$getMode$p(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;)I
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
-
-    .line 57
-    iget v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mode:I
-
-    return v0
+    return-object p0
 .end method
 
 .method public static final synthetic access$getOrigHeight$p(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;)F
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
+    .locals 0
 
     .line 57
-    iget v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->origHeight:F
+    iget p0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->origHeight:F
 
-    return v0
+    return p0
 .end method
 
 .method public static final synthetic access$getOrigWidth$p(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;)F
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
+    .locals 0
 
     .line 57
-    iget v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->origWidth:F
+    iget p0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->origWidth:F
 
-    return v0
+    return p0
 .end method
 
 .method public static final synthetic access$getSaveScale$p(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;)F
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
+    .locals 0
 
     .line 57
-    iget v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->saveScale:F
+    iget p0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->saveScale:F
 
-    return v0
+    return p0
 .end method
 
 .method public static final synthetic access$getViewHeight$p(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;)F
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
+    .locals 0
 
     .line 57
-    iget v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewHeight:F
+    iget p0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewHeight:F
 
-    return v0
+    return p0
 .end method
 
 .method public static final synthetic access$getViewWidth$p(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;)F
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
-
-    .line 57
-    iget v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewWidth:F
-
-    return v0
-.end method
-
-.method public static final synthetic access$setMBitmap$p(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;Landroid/graphics/Bitmap;)V
     .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
-    .param p1, "<set-?>"    # Landroid/graphics/Bitmap;
 
     .line 57
-    iput-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mBitmap:Landroid/graphics/Bitmap;
+    iget p0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewWidth:F
 
-    return-void
-.end method
-
-.method public static final synthetic access$setMMatrix$p(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;Landroid/graphics/Matrix;)V
-    .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
-    .param p1, "<set-?>"    # Landroid/graphics/Matrix;
-
-    .line 57
-    iput-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mMatrix:Landroid/graphics/Matrix;
-
-    return-void
+    return p0
 .end method
 
 .method public static final synthetic access$setMode$p(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;I)V
     .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
-    .param p1, "<set-?>"    # I
 
     .line 57
     iput p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mode:I
@@ -1016,32 +884,8 @@
     return-void
 .end method
 
-.method public static final synthetic access$setOrigHeight$p(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;F)V
-    .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
-    .param p1, "<set-?>"    # F
-
-    .line 57
-    iput p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->origHeight:F
-
-    return-void
-.end method
-
-.method public static final synthetic access$setOrigWidth$p(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;F)V
-    .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
-    .param p1, "<set-?>"    # F
-
-    .line 57
-    iput p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->origWidth:F
-
-    return-void
-.end method
-
 .method public static final synthetic access$setSaveScale$p(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;F)V
     .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
-    .param p1, "<set-?>"    # F
 
     .line 57
     iput p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->saveScale:F
@@ -1049,30 +893,8 @@
     return-void
 .end method
 
-.method public static final synthetic access$setViewHeight$p(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;F)V
-    .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
-    .param p1, "<set-?>"    # F
-
-    .line 57
-    iput p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewHeight:F
-
-    return-void
-.end method
-
-.method public static final synthetic access$setViewWidth$p(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;F)V
-    .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
-    .param p1, "<set-?>"    # F
-
-    .line 57
-    iput p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewWidth:F
-
-    return-void
-.end method
-
 .method private final fitToScreen()V
-    .locals 10
+    .locals 4
 
     .line 167
     invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
@@ -1085,10 +907,6 @@
 
     move-result-object v0
 
-    const-string v1, "drawable"
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v0
@@ -1098,8 +916,6 @@
     invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
@@ -1115,8 +931,6 @@
 
     move-result-object v0
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v0
@@ -1124,429 +938,486 @@
     int-to-float v0, v0
 
     .line 171
-    .local v0, "imageWidth":F
     invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v2, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+    invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v1
 
     int-to-float v1, v1
 
     .line 172
-    .local v1, "imageHeight":F
     iget v2, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewWidth:F
 
     div-float/2addr v2, v0
 
     .line 173
-    .local v2, "scaleX":F
     iget v3, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewHeight:F
 
     div-float/2addr v3, v1
 
     .line 174
-    .local v3, "scaleY":F
     invoke-static {v2, v3}, Lkotlin/ranges/RangesKt;->coerceAtMost(FF)F
 
-    move-result v4
+    move-result v2
 
     .line 175
-    .local v4, "scale":F
-    iget-object v5, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mMatrix:Landroid/graphics/Matrix;
+    iget-object v3, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mMatrix:Landroid/graphics/Matrix;
 
-    invoke-virtual {v5, v4, v4}, Landroid/graphics/Matrix;->setScale(FF)V
+    invoke-virtual {v3, v2, v2}, Landroid/graphics/Matrix;->setScale(FF)V
 
     .line 178
-    iget v5, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewHeight:F
+    iget v3, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewHeight:F
 
-    mul-float v6, v4, v1
+    mul-float/2addr v1, v2
 
-    sub-float/2addr v5, v6
+    sub-float/2addr v3, v1
 
     .line 179
-    .local v5, "redundantYSpace":F
-    iget v6, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewWidth:F
+    iget v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewWidth:F
 
-    mul-float v7, v4, v0
+    mul-float/2addr v2, v0
 
-    sub-float/2addr v6, v7
+    sub-float/2addr v1, v2
 
-    .line 180
-    .local v6, "redundantXSpace":F
-    const/4 v7, 0x2
+    const/high16 v0, 0x40000000    # 2.0f
 
-    int-to-float v7, v7
+    div-float/2addr v3, v0
 
-    div-float/2addr v5, v7
-
-    .line 181
-    div-float/2addr v6, v7
+    div-float/2addr v1, v0
 
     .line 182
-    iget-object v8, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mMatrix:Landroid/graphics/Matrix;
+    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mMatrix:Landroid/graphics/Matrix;
 
-    invoke-virtual {v8, v6, v5}, Landroid/graphics/Matrix;->postTranslate(FF)Z
+    invoke-virtual {v0, v1, v3}, Landroid/graphics/Matrix;->postTranslate(FF)Z
 
     .line 183
-    iget v8, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewWidth:F
+    iget v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewWidth:F
 
-    mul-float v9, v7, v6
+    const/4 v2, 0x2
 
-    sub-float/2addr v8, v9
+    int-to-float v2, v2
 
-    iput v8, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->origWidth:F
+    mul-float/2addr v1, v2
+
+    sub-float/2addr v0, v1
+
+    iput v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->origWidth:F
 
     .line 184
-    iget v8, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewHeight:F
+    iget v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewHeight:F
 
-    mul-float/2addr v7, v5
+    mul-float/2addr v2, v3
 
-    sub-float/2addr v8, v7
+    sub-float/2addr v0, v2
 
-    iput v8, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->origHeight:F
+    iput v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->origHeight:F
 
     .line 185
-    iget-object v7, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mMatrix:Landroid/graphics/Matrix;
+    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mMatrix:Landroid/graphics/Matrix;
 
-    invoke-virtual {p0, v7}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setImageMatrix(Landroid/graphics/Matrix;)V
+    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setImageMatrix(Landroid/graphics/Matrix;)V
 
-    .line 186
-    return-void
-
-    .line 168
-    .end local v0    # "imageWidth":F
-    .end local v1    # "imageHeight":F
-    .end local v2    # "scaleX":F
-    .end local v3    # "scaleY":F
-    .end local v4    # "scale":F
-    .end local v5    # "redundantYSpace":F
-    .end local v6    # "redundantXSpace":F
     :cond_1
     :goto_0
     return-void
 .end method
 
 .method private final getCorrectTranslation(FFF)F
-    .locals 3
-    .param p1, "trans"    # F
-    .param p2, "viewSize"    # F
-    .param p3, "contentSize"    # F
+    .locals 2
 
-    .line 200
-    const/4 v0, 0x0
-
-    .line 201
-    .local v0, "minTrans":F
-    const/4 v1, 0x0
-
-    .line 202
-    .local v1, "maxTrans":F
-    cmpg-float v2, p3, p2
-
-    if-gtz v2, :cond_0
-
-    .line 203
-    const/4 v0, 0x0
-
-    .line 204
-    sub-float v1, p2, p3
-
-    goto :goto_0
-
-    .line 206
-    :cond_0
-    sub-float v0, p2, p3
-
-    .line 207
-    const/4 v1, 0x0
-
-    .line 208
-    :goto_0
-    nop
-
-    .line 209
-    nop
-
-    .line 210
-    cmpg-float v2, p1, v0
-
-    if-gez v2, :cond_1
-
-    neg-float v2, p1
-
-    add-float/2addr v2, v0
-
-    goto :goto_1
-
-    .line 211
-    :cond_1
-    cmpl-float v2, p1, v1
-
-    if-lez v2, :cond_2
-
-    neg-float v2, p1
-
-    add-float/2addr v2, v1
-
-    goto :goto_1
-
-    .line 212
-    :cond_2
-    const/4 v2, 0x0
-
-    .line 209
-    :goto_1
-    return v2
-.end method
-
-.method private final getFixDragTrans(FFF)F
-    .locals 1
-    .param p1, "delta"    # F
-    .param p2, "viewSize"    # F
-    .param p3, "contentSize"    # F
-
-    .line 217
     cmpg-float v0, p3, p2
+
+    const/4 v1, 0x0
 
     if-gtz v0, :cond_0
 
-    .line 218
-    const/4 v0, 0x0
+    sub-float/2addr p2, p3
+
+    move p3, p2
+
+    move p2, v1
 
     goto :goto_0
 
-    .line 219
     :cond_0
-    move v0, p1
+    sub-float/2addr p2, p3
 
-    .line 217
+    move p3, v1
+
     :goto_0
-    return v0
+    cmpg-float v0, p1, p2
+
+    if-gez v0, :cond_1
+
+    neg-float p1, p1
+
+    add-float v1, p1, p2
+
+    goto :goto_1
+
+    :cond_1
+    cmpl-float p2, p1, p3
+
+    if-lez p2, :cond_2
+
+    neg-float p1, p1
+
+    add-float v1, p1, p3
+
+    :cond_2
+    :goto_1
+    return v1
+.end method
+
+.method private final getFixDragTrans(FFF)F
+    .locals 0
+
+    cmpg-float p2, p3, p2
+
+    if-gtz p2, :cond_0
+
+    const/4 p1, 0x0
+
+    :cond_0
+    return p1
 .end method
 
 .method private final performColorColorChanged(Landroid/graphics/PointF;)V
-    .locals 10
-    .param p1, "point"    # Landroid/graphics/PointF;
+    .locals 6
 
     .line 338
     iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mBitmap:Landroid/graphics/Bitmap;
 
+    const/4 v1, 0x0
+
     if-nez v0, :cond_0
 
-    const-string v1, "mBitmap"
+    const-string v0, "mBitmap"
 
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    move-object v0, v1
 
     .line 339
-    .local v0, "bitmap":Landroid/graphics/Bitmap;
     :cond_0
-    new-instance v1, Landroid/graphics/Matrix;
+    new-instance v2, Landroid/graphics/Matrix;
 
-    invoke-direct {v1}, Landroid/graphics/Matrix;-><init>()V
+    invoke-direct {v2}, Landroid/graphics/Matrix;-><init>()V
 
     .line 340
-    .local v1, "inverse":Landroid/graphics/Matrix;
     invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getImageMatrix()Landroid/graphics/Matrix;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v2, v1}, Landroid/graphics/Matrix;->invert(Landroid/graphics/Matrix;)Z
+    invoke-virtual {v3, v2}, Landroid/graphics/Matrix;->invert(Landroid/graphics/Matrix;)Z
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [F
 
     .line 341
-    const/4 v2, 0x2
+    iget v4, p1, Landroid/graphics/PointF;->x:F
 
-    new-array v2, v2, [F
+    const/4 v5, 0x0
 
-    iget v3, p1, Landroid/graphics/PointF;->x:F
+    aput v4, v3, v5
 
-    const/4 v4, 0x0
+    iget p1, p1, Landroid/graphics/PointF;->y:F
 
-    aput v3, v2, v4
+    const/4 v4, 0x1
 
-    iget v3, p1, Landroid/graphics/PointF;->y:F
-
-    const/4 v5, 0x1
-
-    aput v3, v2, v5
+    aput p1, v3, v4
 
     .line 342
-    .local v2, "touchPoint":[F
-    invoke-virtual {v1, v2}, Landroid/graphics/Matrix;->mapPoints([F)V
+    invoke-virtual {v2, v3}, Landroid/graphics/Matrix;->mapPoints([F)V
 
-    .line 343
-    aget v3, v2, v4
+    aget p1, v3, v5
 
-    float-to-int v3, v3
+    float-to-int p1, p1
 
-    .line 344
-    .local v3, "xPixel":I
-    aget v4, v2, v5
+    aget v2, v3, v4
 
-    float-to-int v4, v4
+    float-to-int v2, v2
+
+    if-ltz p1, :cond_1
 
     .line 345
-    .local v4, "yPixel":I
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
 
-    move-result v5
+    move-result v3
 
-    if-gez v3, :cond_1
+    if-ge p1, v3, :cond_1
+
+    move v3, v4
 
     goto :goto_0
 
     :cond_1
-    if-le v5, v3, :cond_4
+    move v3, v5
+
+    :goto_0
+    if-eqz v3, :cond_5
+
+    if-ltz v2, :cond_2
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
 
-    move-result v5
+    move-result v3
 
-    if-ltz v4, :cond_4
+    if-ge v2, v3, :cond_2
 
-    if-gt v5, v4, :cond_2
+    move v5, v4
 
-    goto :goto_0
+    :cond_2
+    if-nez v5, :cond_3
+
+    goto :goto_2
 
     .line 350
-    :cond_2
-    invoke-virtual {v0, v3, v4}, Landroid/graphics/Bitmap;->getPixel(II)I
+    :cond_3
+    invoke-virtual {v0, p1, v2}, Landroid/graphics/Bitmap;->getPixel(II)I
 
-    move-result v5
-
-    .line 351
-    .local v5, "touchedPixelRGB":I
-    nop
+    move-result p1
 
     .line 352
-    invoke-static {v5}, Landroid/graphics/Color;->alpha(I)I
+    invoke-static {p1}, Landroid/graphics/Color;->alpha(I)I
 
-    move-result v6
+    move-result v0
 
     .line 353
-    invoke-static {v5}, Landroid/graphics/Color;->red(I)I
+    invoke-static {p1}, Landroid/graphics/Color;->red(I)I
 
-    move-result v7
+    move-result v2
 
     .line 354
-    invoke-static {v5}, Landroid/graphics/Color;->green(I)I
+    invoke-static {p1}, Landroid/graphics/Color;->green(I)I
 
-    move-result v8
+    move-result v3
 
     .line 355
-    invoke-static {v5}, Landroid/graphics/Color;->blue(I)I
+    invoke-static {p1}, Landroid/graphics/Color;->blue(I)I
 
-    move-result v9
+    move-result p1
 
     .line 351
-    invoke-static {v6, v7, v8, v9}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {v0, v2, v3, p1}, Landroid/graphics/Color;->argb(IIII)I
 
-    move-result v6
+    move-result p1
 
     .line 358
-    .local v6, "colorValue":I
-    iget-object v7, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->listener:Lorg/catrobat/paintroid/colorpicker/OnImageViewPointClickedListener;
+    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->listener:Lorg/catrobat/paintroid/colorpicker/OnImageViewPointClickedListener;
 
-    if-nez v7, :cond_3
+    if-nez v0, :cond_4
 
-    const-string v8, "listener"
+    const-string v0, "listener"
 
-    invoke-static {v8}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    :cond_3
-    invoke-interface {v7, v6}, Lorg/catrobat/paintroid/colorpicker/OnImageViewPointClickedListener;->colorChanged(I)V
+    goto :goto_1
 
-    .line 359
-    return-void
-
-    .line 347
-    .end local v5    # "touchedPixelRGB":I
-    .end local v6    # "colorValue":I
     :cond_4
-    :goto_0
+    move-object v1, v0
+
+    :goto_1
+    invoke-interface {v1, p1}, Lorg/catrobat/paintroid/colorpicker/OnImageViewPointClickedListener;->colorChanged(I)V
+
+    :cond_5
+    :goto_2
     return-void
 .end method
 
 .method private final updateLP()V
-    .locals 8
+    .locals 3
 
     .line 314
     move-object v0, p0
 
-    .local v0, "$this$updateLayoutParams$iv":Landroid/view/View;
-    const/4 v1, 0x0
-
-    .line 369
-    .local v1, "$i$f$updateLayoutParams":I
-    move-object v2, v0
-
-    .local v2, "$this$updateLayoutParams$iv$iv":Landroid/view/View;
-    const/4 v3, 0x0
+    check-cast v0, Landroid/view/View;
 
     .line 370
-    .local v3, "$i$f$updateLayoutParamsTyped":I
-    invoke-virtual {v2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object v4
+    move-result-object v1
 
-    if-eqz v4, :cond_0
-
-    .line 371
-    .local v4, "params$iv$iv":Landroid/view/ViewGroup$LayoutParams;
-    move-object v5, v4
-
-    .local v5, "$this$updateLayoutParams":Landroid/view/ViewGroup$LayoutParams;
-    const/4 v6, 0x0
+    if-eqz v1, :cond_0
 
     .line 315
-    .local v6, "$i$a$-updateLayoutParams-ZoomableImageView$updateLP$1":I
-    new-instance v7, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView$updateLP$$inlined$updateLayoutParams$lambda$1;
+    new-instance v2, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView$$ExternalSyntheticLambda1;
 
-    invoke-direct {v7, v5, p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView$updateLP$$inlined$updateLayoutParams$lambda$1;-><init>(Landroid/view/ViewGroup$LayoutParams;Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;)V
+    invoke-direct {v2, p0, v1}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView$$ExternalSyntheticLambda1;-><init>(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;Landroid/view/ViewGroup$LayoutParams;)V
 
-    check-cast v7, Ljava/lang/Runnable;
-
-    invoke-virtual {p0, v7}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->post(Ljava/lang/Runnable;)Z
-
-    .line 334
-    nop
+    invoke-virtual {p0, v2}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->post(Ljava/lang/Runnable;)Z
 
     .line 372
-    .end local v5    # "$this$updateLayoutParams":Landroid/view/ViewGroup$LayoutParams;
-    .end local v6    # "$i$a$-updateLayoutParams-ZoomableImageView$updateLP$1":I
-    invoke-virtual {v2, v4}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 373
-    nop
-
-    .line 374
-    .end local v2    # "$this$updateLayoutParams$iv$iv":Landroid/view/View;
-    .end local v3    # "$i$f$updateLayoutParamsTyped":I
-    .end local v4    # "params$iv$iv":Landroid/view/ViewGroup$LayoutParams;
-    nop
-
-    .line 335
-    .end local v0    # "$this$updateLayoutParams$iv":Landroid/view/View;
-    .end local v1    # "$i$f$updateLayoutParams":I
     return-void
 
     .line 370
-    .restart local v0    # "$this$updateLayoutParams$iv":Landroid/view/View;
-    .restart local v1    # "$i$f$updateLayoutParams":I
-    .restart local v2    # "$this$updateLayoutParams$iv$iv":Landroid/view/View;
-    .restart local v3    # "$i$f$updateLayoutParamsTyped":I
     :cond_0
-    new-instance v4, Lkotlin/TypeCastException;
+    new-instance v0, Lkotlin/TypeCastException;
 
-    const-string v5, "null cannot be cast to non-null type android.view.ViewGroup.LayoutParams"
+    const-string v1, "null cannot be cast to non-null type android.view.ViewGroup.LayoutParams"
 
-    invoke-direct {v4, v5}, Lkotlin/TypeCastException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lkotlin/TypeCastException;-><init>(Ljava/lang/String;)V
 
-    throw v4
+    throw v0
+.end method
+
+.method private static final updateLP$lambda-4$lambda-3(Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;Landroid/view/ViewGroup$LayoutParams;)V
+    .locals 3
+
+    const-string v0, "this$0"
+
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "$this_updateLayoutParams"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 316
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0x1e
+
+    if-lt v0, v1, :cond_1
+
+    .line 317
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getContext()Landroid/content/Context;
+
+    move-result-object p0
+
+    const-string v0, "window"
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_0
+
+    check-cast p0, Landroid/view/WindowManager;
+
+    .line 318
+    invoke-interface {p0}, Landroid/view/WindowManager;->getCurrentWindowMetrics()Landroid/view/WindowMetrics;
+
+    move-result-object p0
+
+    const-string v0, "windowManager.currentWindowMetrics"
+
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 319
+    invoke-virtual {p0}, Landroid/view/WindowMetrics;->getWindowInsets()Landroid/view/WindowInsets;
+
+    move-result-object v0
+
+    .line 320
+    invoke-static {}, Landroid/view/WindowInsets$Type;->navigationBars()I
+
+    move-result v1
+
+    invoke-static {}, Landroid/view/WindowInsets$Type;->displayCutout()I
+
+    move-result v2
+
+    or-int/2addr v1, v2
+
+    .line 319
+    invoke-virtual {v0, v1}, Landroid/view/WindowInsets;->getInsetsIgnoringVisibility(I)Landroid/graphics/Insets;
+
+    move-result-object v0
+
+    const-string v1, "windowMetrics.windowInse\u2026t()\n                    )"
+
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 322
+    iget v1, v0, Landroid/graphics/Insets;->right:I
+
+    iget v2, v0, Landroid/graphics/Insets;->left:I
+
+    add-int/2addr v1, v2
+
+    .line 323
+    iget v2, v0, Landroid/graphics/Insets;->top:I
+
+    iget v0, v0, Landroid/graphics/Insets;->bottom:I
+
+    add-int/2addr v2, v0
+
+    .line 324
+    invoke-virtual {p0}, Landroid/view/WindowMetrics;->getBounds()Landroid/graphics/Rect;
+
+    move-result-object p0
+
+    const-string v0, "windowMetrics.bounds"
+
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 325
+    invoke-virtual {p0}, Landroid/graphics/Rect;->width()I
+
+    move-result v0
+
+    sub-int/2addr v0, v1
+
+    iput v0, p1, Landroid/view/ViewGroup$LayoutParams;->width:I
+
+    .line 326
+    invoke-virtual {p0}, Landroid/graphics/Rect;->height()I
+
+    move-result p0
+
+    sub-int/2addr p0, v2
+
+    iput p0, p1, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    goto :goto_1
+
+    .line 317
+    :cond_0
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "null cannot be cast to non-null type android.view.WindowManager"
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    .line 328
+    :cond_1
+    new-instance v0, Landroid/graphics/Point;
+
+    invoke-direct {v0}, Landroid/graphics/Point;-><init>()V
+
+    .line 329
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getDisplay()Landroid/view/Display;
+
+    move-result-object p0
+
+    if-nez p0, :cond_2
+
+    goto :goto_0
+
+    :cond_2
+    invoke-virtual {p0, v0}, Landroid/view/Display;->getSize(Landroid/graphics/Point;)V
+
+    .line 330
+    :goto_0
+    iget p0, v0, Landroid/graphics/Point;->y:I
+
+    iput p0, p1, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    .line 331
+    iget p0, v0, Landroid/graphics/Point;->x:I
+
+    iput p0, p1, Landroid/view/ViewGroup$LayoutParams;->width:I
+
+    :goto_1
+    return-void
 .end method
 
 
@@ -1568,14 +1439,12 @@
 
     aget v1, v0, v1
 
-    .line 191
-    .local v1, "transX":F
     const/4 v2, 0x5
 
+    .line 191
     aget v0, v0, v2
 
     .line 192
-    .local v0, "transY":F
     iget v2, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewWidth:F
 
     iget v3, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->origWidth:F
@@ -1586,62 +1455,77 @@
 
     invoke-direct {p0, v1, v2, v3}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getCorrectTranslation(FFF)F
 
-    move-result v2
+    move-result v1
 
     .line 193
-    .local v2, "fixTransX":F
-    iget v3, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewHeight:F
+    iget v2, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewHeight:F
 
-    iget v4, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->origHeight:F
+    iget v3, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->origHeight:F
 
-    iget v5, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->saveScale:F
+    iget v4, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->saveScale:F
 
-    mul-float/2addr v4, v5
+    mul-float/2addr v3, v4
 
-    invoke-direct {p0, v0, v3, v4}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getCorrectTranslation(FFF)F
+    invoke-direct {p0, v0, v2, v3}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getCorrectTranslation(FFF)F
 
-    move-result v3
+    move-result v0
 
-    .line 194
-    .local v3, "fixTransY":F
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    cmpg-float v5, v2, v4
+    cmpg-float v3, v1, v2
 
-    if-nez v5, :cond_0
+    const/4 v4, 0x1
 
-    cmpg-float v4, v3, v4
+    const/4 v5, 0x0
 
-    if-eqz v4, :cond_1
+    if-nez v3, :cond_0
+
+    move v3, v4
+
+    goto :goto_0
+
+    :cond_0
+    move v3, v5
+
+    :goto_0
+    if-eqz v3, :cond_2
+
+    cmpg-float v2, v0, v2
+
+    if-nez v2, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    move v4, v5
+
+    :goto_1
+    if-nez v4, :cond_3
 
     .line 195
-    :cond_0
-    iget-object v4, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mMatrix:Landroid/graphics/Matrix;
+    :cond_2
+    iget-object v2, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mMatrix:Landroid/graphics/Matrix;
 
-    invoke-virtual {v4, v2, v3}, Landroid/graphics/Matrix;->postTranslate(FF)Z
+    invoke-virtual {v2, v1, v0}, Landroid/graphics/Matrix;->postTranslate(FF)Z
 
-    .line 197
-    :cond_1
+    :cond_3
     return-void
 .end method
 
 .method public onDown(Landroid/view/MotionEvent;)Z
     .locals 1
-    .param p1, "motionEvent"    # Landroid/view/MotionEvent;
 
     const-string v0, "motionEvent"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 361
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 5
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
+    .locals 6
 
     const-string v0, "canvas"
 
@@ -1656,181 +1540,123 @@
     invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->setMatrix(Landroid/graphics/Matrix;)V
 
     .line 235
-    move-object v0, p0
+    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mBitmap:Landroid/graphics/Bitmap;
 
-    check-cast v0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;
-
-    iget-object v0, v0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mBitmap:Landroid/graphics/Bitmap;
-
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3
 
     .line 236
-    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->canvasRect:Landroid/graphics/Rect;
-
-    iget-object v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mBitmap:Landroid/graphics/Bitmap;
+    iget-object v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->canvasRect:Landroid/graphics/Rect;
 
     const-string v2, "mBitmap"
 
-    if-nez v1, :cond_0
+    const/4 v3, 0x0
+
+    if-nez v0, :cond_0
 
     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    move-object v0, v3
 
     :cond_0
-    invoke-virtual {v1}, Landroid/graphics/Bitmap;->getWidth()I
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
 
-    move-result v1
+    move-result v0
 
-    iget-object v3, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mBitmap:Landroid/graphics/Bitmap;
+    iget-object v4, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mBitmap:Landroid/graphics/Bitmap;
 
-    if-nez v3, :cond_1
+    if-nez v4, :cond_1
 
     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
+    move-object v4, v3
+
     :cond_1
-    invoke-virtual {v3}, Landroid/graphics/Bitmap;->getHeight()I
+    invoke-virtual {v4}, Landroid/graphics/Bitmap;->getHeight()I
 
-    move-result v3
+    move-result v4
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    invoke-virtual {v0, v4, v4, v1, v3}, Landroid/graphics/Rect;->set(IIII)V
+    invoke-virtual {v1, v5, v5, v0, v4}, Landroid/graphics/Rect;->set(IIII)V
 
-    .line 237
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    .line 241
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
-    const/16 v1, 0x1a
+    .line 242
+    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->canvasRect:Landroid/graphics/Rect;
 
-    if-ge v0, v1, :cond_2
+    invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->clipOutRect(Landroid/graphics/Rect;)Z
 
-    .line 238
+    .line 243
     iget v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->backgroundSurfaceColor:I
 
     sget-object v1, Landroid/graphics/PorterDuff$Mode;->SRC:Landroid/graphics/PorterDuff$Mode;
 
     invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->drawColor(ILandroid/graphics/PorterDuff$Mode;)V
 
-    goto :goto_0
-
-    .line 240
-    :cond_2
-    move-object v0, p1
-
-    .local v0, "$this$apply":Landroid/graphics/Canvas;
-    const/4 v1, 0x0
-
-    .line 241
-    .local v1, "$i$a$-apply-ZoomableImageView$onDraw$2":I
-    invoke-virtual {v0}, Landroid/graphics/Canvas;->save()I
-
-    .line 242
-    iget-object v3, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->canvasRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v0, v3}, Landroid/graphics/Canvas;->clipOutRect(Landroid/graphics/Rect;)Z
-
-    .line 243
-    iget v3, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->backgroundSurfaceColor:I
-
-    sget-object v4, Landroid/graphics/PorterDuff$Mode;->SRC:Landroid/graphics/PorterDuff$Mode;
-
-    invoke-virtual {v0, v3, v4}, Landroid/graphics/Canvas;->drawColor(ILandroid/graphics/PorterDuff$Mode;)V
-
     .line 244
-    invoke-virtual {v0}, Landroid/graphics/Canvas;->restore()V
-
-    .line 245
-    nop
-
-    .line 240
-    .end local v0    # "$this$apply":Landroid/graphics/Canvas;
-    .end local v1    # "$i$a$-apply-ZoomableImageView$onDraw$2":I
-    nop
-
-    .line 246
-    :goto_0
-    nop
-
-    .line 248
-    move-object v0, p1
-
-    .restart local v0    # "$this$apply":Landroid/graphics/Canvas;
-    const/4 v1, 0x0
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
     .line 249
-    .local v1, "$i$a$-apply-ZoomableImageView$onDraw$3":I
-    iget-object v3, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->canvasRect:Landroid/graphics/Rect;
+    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->canvasRect:Landroid/graphics/Rect;
 
-    iget-object v4, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->checkeredPattern:Landroid/graphics/Paint;
+    iget-object v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->checkeredPattern:Landroid/graphics/Paint;
 
-    invoke-virtual {v0, v3, v4}, Landroid/graphics/Canvas;->drawRect(Landroid/graphics/Rect;Landroid/graphics/Paint;)V
+    invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->drawRect(Landroid/graphics/Rect;Landroid/graphics/Paint;)V
 
     .line 250
-    iget-object v3, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->canvasRect:Landroid/graphics/Rect;
+    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->canvasRect:Landroid/graphics/Rect;
 
-    iget-object v4, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->boarderPaint:Landroid/graphics/Paint;
+    iget-object v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->boarderPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v0, v3, v4}, Landroid/graphics/Canvas;->drawRect(Landroid/graphics/Rect;Landroid/graphics/Paint;)V
+    invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->drawRect(Landroid/graphics/Rect;Landroid/graphics/Paint;)V
 
     .line 251
-    iget-object v3, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mBitmap:Landroid/graphics/Bitmap;
+    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mBitmap:Landroid/graphics/Bitmap;
 
-    if-nez v3, :cond_3
+    if-nez v0, :cond_2
 
     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
+    move-object v0, v3
+
+    :cond_2
+    const/4 v1, 0x0
+
+    invoke-virtual {p1, v0, v1, v1, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+
     :cond_3
-    const/4 v2, 0x0
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v0, v3, v4, v4, v2}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
-
-    .line 252
-    nop
-
-    .line 254
-    .end local v0    # "$this$apply":Landroid/graphics/Canvas;
-    .end local v1    # "$i$a$-apply-ZoomableImageView$onDraw$3":I
-    :cond_4
     return-void
 .end method
 
 .method public onFling(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
-    .locals 1
-    .param p1, "mE"    # Landroid/view/MotionEvent;
-    .param p2, "mE1"    # Landroid/view/MotionEvent;
-    .param p3, "v"    # F
-    .param p4, "v1"    # F
+    .locals 0
 
-    const-string v0, "mE"
+    const-string p3, "mE"
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "mE1"
+    const-string p1, "mE1"
 
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 366
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public onLongPress(Landroid/view/MotionEvent;)V
     .locals 1
-    .param p1, "motionEvent"    # Landroid/view/MotionEvent;
 
     const-string v0, "motionEvent"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 365
     return-void
 .end method
 
 .method protected onMeasure(II)V
-    .locals 2
-    .param p1, "widthMeasureSpec"    # I
-    .param p2, "heightMeasureSpec"    # I
+    .locals 0
 
     .line 223
     invoke-super {p0, p1, p2}, Landroidx/appcompat/widget/AppCompatImageView;->onMeasure(II)V
@@ -1838,402 +1664,369 @@
     .line 224
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
-    move-result v0
+    move-result p1
 
-    int-to-float v0, v0
+    int-to-float p1, p1
 
-    iput v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewWidth:F
+    iput p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewWidth:F
 
     .line 225
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
-    move-result v0
+    move-result p1
 
-    int-to-float v0, v0
+    int-to-float p1, p1
 
-    iput v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewHeight:F
+    iput p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewHeight:F
 
     .line 226
-    iget v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->saveScale:F
+    iget p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->saveScale:F
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    const/high16 p2, 0x3f800000    # 1.0f
 
-    cmpg-float v0, v0, v1
+    cmpg-float p1, p1, p2
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
+
+    const/4 p1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p1, 0x0
+
+    :goto_0
+    if-eqz p1, :cond_1
 
     .line 227
     invoke-direct {p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->fitToScreen()V
 
-    .line 229
-    :cond_0
+    :cond_1
     return-void
 .end method
 
 .method public onScroll(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
-    .locals 1
-    .param p1, "mE"    # Landroid/view/MotionEvent;
-    .param p2, "mE1"    # Landroid/view/MotionEvent;
-    .param p3, "v"    # F
-    .param p4, "v1"    # F
+    .locals 0
 
-    const-string v0, "mE"
+    const-string p3, "mE"
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "mE1"
+    const-string p1, "mE1"
 
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 364
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public onShowPress(Landroid/view/MotionEvent;)V
     .locals 1
-    .param p1, "motionEvent"    # Landroid/view/MotionEvent;
 
     const-string v0, "motionEvent"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 362
     return-void
 .end method
 
 .method public onSingleTapUp(Landroid/view/MotionEvent;)Z
     .locals 1
-    .param p1, "motionEvent"    # Landroid/view/MotionEvent;
 
     const-string v0, "motionEvent"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 363
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 10
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "event"    # Landroid/view/MotionEvent;
+    .locals 7
 
-    const-string v0, "event"
+    const-string p1, "event"
 
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 257
-    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->scaleDetector:Landroid/view/ScaleGestureDetector;
+    iget-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->scaleDetector:Landroid/view/ScaleGestureDetector;
 
-    invoke-virtual {v0, p2}, Landroid/view/ScaleGestureDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
+    invoke-virtual {p1, p2}, Landroid/view/ScaleGestureDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     .line 258
-    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->gestureDetector:Landroid/view/GestureDetector;
+    iget-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->gestureDetector:Landroid/view/GestureDetector;
 
-    invoke-virtual {v0, p2}, Landroid/view/GestureDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
+    invoke-virtual {p1, p2}, Landroid/view/GestureDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     .line 259
-    new-instance v0, Landroid/graphics/PointF;
+    new-instance p1, Landroid/graphics/PointF;
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
 
-    move-result v1
+    move-result v0
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
 
-    move-result v2
+    move-result v1
 
-    invoke-direct {v0, v1, v2}, Landroid/graphics/PointF;-><init>(FF)V
+    invoke-direct {p1, v0, v1}, Landroid/graphics/PointF;-><init>(FF)V
 
     .line 260
-    .local v0, "currentPoint":Landroid/graphics/PointF;
     invoke-direct {p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->updateLP()V
 
     .line 261
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    if-eqz v1, :cond_5
+    if-eqz v0, :cond_5
 
-    if-eq v1, v3, :cond_4
+    if-eq v0, v2, :cond_4
 
-    const/4 v4, 0x2
+    const/4 v3, 0x2
 
-    if-eq v1, v4, :cond_2
+    if-eq v0, v3, :cond_2
 
-    const/4 v3, 0x5
+    const/4 p2, 0x5
 
-    if-eq v1, v3, :cond_1
+    if-eq v0, p2, :cond_1
 
-    const/4 v3, 0x6
+    const/4 p1, 0x6
 
-    if-eq v1, v3, :cond_0
+    if-eq v0, p1, :cond_0
 
     goto/16 :goto_0
 
     .line 307
     :cond_0
-    iput v2, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mode:I
+    iput v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mode:I
 
     goto/16 :goto_0
 
     .line 268
     :cond_1
-    iget-object v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->lastPoint:Landroid/graphics/PointF;
+    iget-object p2, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->lastPoint:Landroid/graphics/PointF;
 
-    invoke-virtual {v1, v0}, Landroid/graphics/PointF;->set(Landroid/graphics/PointF;)V
+    invoke-virtual {p2, p1}, Landroid/graphics/PointF;->set(Landroid/graphics/PointF;)V
 
     .line 269
-    iget-object v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->startPoint:Landroid/graphics/PointF;
+    iget-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->startPoint:Landroid/graphics/PointF;
 
-    iget-object v3, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->lastPoint:Landroid/graphics/PointF;
+    iget-object p2, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->lastPoint:Landroid/graphics/PointF;
 
-    invoke-virtual {v1, v3}, Landroid/graphics/PointF;->set(Landroid/graphics/PointF;)V
+    invoke-virtual {p1, p2}, Landroid/graphics/PointF;->set(Landroid/graphics/PointF;)V
 
     .line 270
-    iput v4, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mode:I
+    iput v3, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mode:I
 
     goto/16 :goto_0
 
     .line 273
     :cond_2
-    iget v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mode:I
+    iget v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mode:I
 
-    if-ne v1, v4, :cond_3
+    if-ne v0, v3, :cond_3
 
-    iget v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->saveScale:F
+    iget v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->saveScale:F
 
-    const/high16 v4, 0x3f400000    # 0.75f
+    const/high16 v3, 0x3f400000    # 0.75f
 
-    cmpl-float v1, v1, v4
+    cmpl-float v0, v0, v3
 
-    if-lez v1, :cond_3
+    if-lez v0, :cond_3
 
     .line 274
-    iget v1, v0, Landroid/graphics/PointF;->x:F
+    iget v0, p1, Landroid/graphics/PointF;->x:F
+
+    iget-object v3, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->lastPoint:Landroid/graphics/PointF;
+
+    iget v3, v3, Landroid/graphics/PointF;->x:F
+
+    sub-float/2addr v0, v3
+
+    .line 275
+    iget v3, p1, Landroid/graphics/PointF;->y:F
 
     iget-object v4, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->lastPoint:Landroid/graphics/PointF;
 
-    iget v4, v4, Landroid/graphics/PointF;->x:F
+    iget v4, v4, Landroid/graphics/PointF;->y:F
 
-    sub-float/2addr v1, v4
-
-    .line 275
-    .local v1, "dx":F
-    iget v4, v0, Landroid/graphics/PointF;->y:F
-
-    iget-object v5, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->lastPoint:Landroid/graphics/PointF;
-
-    iget v5, v5, Landroid/graphics/PointF;->y:F
-
-    sub-float/2addr v4, v5
-
-    .line 276
-    .local v4, "dy":F
-    nop
-
-    .line 277
-    nop
+    sub-float/2addr v3, v4
 
     .line 278
-    iget v5, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewWidth:F
+    iget v4, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewWidth:F
 
     .line 279
-    iget v6, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->origWidth:F
+    iget v5, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->origWidth:F
 
-    iget v7, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->saveScale:F
+    iget v6, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->saveScale:F
 
-    mul-float/2addr v6, v7
+    mul-float/2addr v5, v6
 
     .line 276
-    invoke-direct {p0, v1, v5, v6}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getFixDragTrans(FFF)F
+    invoke-direct {p0, v0, v4, v5}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getFixDragTrans(FFF)F
 
-    move-result v5
-
-    .line 281
-    .local v5, "fixTransX":F
-    nop
-
-    .line 282
-    nop
+    move-result v0
 
     .line 283
-    iget v6, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewHeight:F
+    iget v4, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->viewHeight:F
 
     .line 284
-    iget v7, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->origHeight:F
+    iget v5, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->origHeight:F
 
-    iget v8, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->saveScale:F
+    iget v6, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->saveScale:F
 
-    mul-float/2addr v7, v8
+    mul-float/2addr v5, v6
 
     .line 281
-    invoke-direct {p0, v4, v6, v7}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getFixDragTrans(FFF)F
+    invoke-direct {p0, v3, v4, v5}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->getFixDragTrans(FFF)F
 
-    move-result v6
+    move-result v3
 
     .line 286
-    .local v6, "fixTransY":F
-    iget-object v7, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mMatrix:Landroid/graphics/Matrix;
+    iget-object v4, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mMatrix:Landroid/graphics/Matrix;
 
-    invoke-virtual {v7, v5, v6}, Landroid/graphics/Matrix;->postTranslate(FF)Z
+    invoke-virtual {v4, v0, v3}, Landroid/graphics/Matrix;->postTranslate(FF)Z
 
     .line 287
     invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->correctTranslation()V
 
     .line 288
-    iget-object v7, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->lastPoint:Landroid/graphics/PointF;
+    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->lastPoint:Landroid/graphics/PointF;
 
-    iget v8, v0, Landroid/graphics/PointF;->x:F
+    iget v3, p1, Landroid/graphics/PointF;->x:F
 
-    iget v9, v0, Landroid/graphics/PointF;->y:F
+    iget p1, p1, Landroid/graphics/PointF;->y:F
 
-    invoke-virtual {v7, v8, v9}, Landroid/graphics/PointF;->set(FF)V
+    invoke-virtual {v0, v3, p1}, Landroid/graphics/PointF;->set(FF)V
 
     .line 291
-    .end local v1    # "dx":F
-    .end local v4    # "dy":F
-    .end local v5    # "fixTransX":F
-    .end local v6    # "fixTransY":F
     :cond_3
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getPointerCount()I
 
-    move-result v1
+    move-result p1
 
-    if-ne v1, v3, :cond_6
+    if-ne p1, v2, :cond_6
 
-    iget v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mode:I
+    iget p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mode:I
 
-    if-ne v1, v3, :cond_6
+    if-ne p1, v2, :cond_6
 
     .line 292
-    new-instance v1, Landroid/graphics/PointF;
+    new-instance p1, Landroid/graphics/PointF;
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
 
-    move-result v3
+    move-result v0
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
 
-    move-result v4
+    move-result p2
 
-    invoke-direct {v1, v3, v4}, Landroid/graphics/PointF;-><init>(FF)V
+    invoke-direct {p1, v0, p2}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-direct {p0, v1}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->performColorColorChanged(Landroid/graphics/PointF;)V
+    invoke-direct {p0, p1}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->performColorColorChanged(Landroid/graphics/PointF;)V
 
     goto :goto_0
 
-    .line 297
     :cond_4
-    const/4 v1, 0x3
+    const/4 p1, 0x3
 
-    iput v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mode:I
+    .line 297
+    iput p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mode:I
 
     .line 298
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
 
-    move-result v1
+    move-result p1
 
-    iget-object v4, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->startPoint:Landroid/graphics/PointF;
+    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->startPoint:Landroid/graphics/PointF;
 
-    iget v4, v4, Landroid/graphics/PointF;->x:F
+    iget v0, v0, Landroid/graphics/PointF;->x:F
 
-    sub-float/2addr v1, v4
+    sub-float/2addr p1, v0
 
-    invoke-static {v1}, Ljava/lang/Math;->abs(F)F
+    invoke-static {p1}, Ljava/lang/Math;->abs(F)F
 
-    move-result v1
+    move-result p1
 
-    float-to-int v1, v1
+    float-to-int p1, p1
 
     .line 299
-    .local v1, "xDiff":I
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
 
-    move-result v4
+    move-result v0
 
-    iget-object v5, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->startPoint:Landroid/graphics/PointF;
+    iget-object v3, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->startPoint:Landroid/graphics/PointF;
 
-    iget v5, v5, Landroid/graphics/PointF;->y:F
+    iget v3, v3, Landroid/graphics/PointF;->y:F
 
-    sub-float/2addr v4, v5
+    sub-float/2addr v0, v3
 
-    invoke-static {v4}, Ljava/lang/Math;->abs(F)F
+    invoke-static {v0}, Ljava/lang/Math;->abs(F)F
 
-    move-result v4
+    move-result v0
 
-    float-to-int v4, v4
+    float-to-int v0, v0
 
-    .line 300
-    .local v4, "yDiff":I
-    if-ge v1, v3, :cond_6
+    if-ge p1, v2, :cond_6
 
-    if-ge v4, v3, :cond_6
+    if-ge v0, v2, :cond_6
 
     .line 301
     invoke-virtual {p0}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->performClick()Z
 
     .line 302
-    new-instance v3, Landroid/graphics/PointF;
+    new-instance p1, Landroid/graphics/PointF;
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
 
-    move-result v5
+    move-result v0
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
 
-    move-result v6
+    move-result p2
 
-    invoke-direct {v3, v5, v6}, Landroid/graphics/PointF;-><init>(FF)V
+    invoke-direct {p1, v0, p2}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-direct {p0, v3}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->performColorColorChanged(Landroid/graphics/PointF;)V
+    invoke-direct {p0, p1}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->performColorColorChanged(Landroid/graphics/PointF;)V
 
-    .end local v1    # "xDiff":I
-    .end local v4    # "yDiff":I
     goto :goto_0
 
     .line 263
     :cond_5
-    iget-object v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->lastPoint:Landroid/graphics/PointF;
+    iget-object p2, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->lastPoint:Landroid/graphics/PointF;
 
-    invoke-virtual {v1, v0}, Landroid/graphics/PointF;->set(Landroid/graphics/PointF;)V
+    invoke-virtual {p2, p1}, Landroid/graphics/PointF;->set(Landroid/graphics/PointF;)V
 
     .line 264
-    iget-object v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->startPoint:Landroid/graphics/PointF;
+    iget-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->startPoint:Landroid/graphics/PointF;
 
-    iget-object v4, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->lastPoint:Landroid/graphics/PointF;
+    iget-object p2, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->lastPoint:Landroid/graphics/PointF;
 
-    invoke-virtual {v1, v4}, Landroid/graphics/PointF;->set(Landroid/graphics/PointF;)V
+    invoke-virtual {p1, p2}, Landroid/graphics/PointF;->set(Landroid/graphics/PointF;)V
 
     .line 265
-    iput v3, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mode:I
-
-    .line 308
-    :cond_6
-    :goto_0
-    nop
+    iput v2, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mode:I
 
     .line 309
-    iget-object v1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mMatrix:Landroid/graphics/Matrix;
+    :cond_6
+    :goto_0
+    iget-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->mMatrix:Landroid/graphics/Matrix;
 
-    invoke-virtual {p0, v1}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setImageMatrix(Landroid/graphics/Matrix;)V
+    invoke-virtual {p0, p1}, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->setImageMatrix(Landroid/graphics/Matrix;)V
 
-    .line 310
-    return v2
+    return v1
 .end method
 
 .method public setImageBitmap(Landroid/graphics/Bitmap;)V
     .locals 1
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
     const-string v0, "bitmap"
 
@@ -2251,13 +2044,11 @@
     .line 131
     invoke-super {p0, p1}, Landroidx/appcompat/widget/AppCompatImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 132
     return-void
 .end method
 
 .method public final setListener(Lorg/catrobat/paintroid/colorpicker/OnImageViewPointClickedListener;)V
     .locals 1
-    .param p1, "listener"    # Lorg/catrobat/paintroid/colorpicker/OnImageViewPointClickedListener;
 
     const-string v0, "listener"
 
@@ -2266,6 +2057,5 @@
     .line 124
     iput-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ZoomableImageView;->listener:Lorg/catrobat/paintroid/colorpicker/OnImageViewPointClickedListener;
 
-    .line 125
     return-void
 .end method

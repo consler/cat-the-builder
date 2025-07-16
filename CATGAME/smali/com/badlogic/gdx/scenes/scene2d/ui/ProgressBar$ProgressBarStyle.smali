@@ -39,13 +39,11 @@
     .line 385
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 386
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;)V
     .locals 1
-    .param p1, "style"    # Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;
 
     .line 393
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -86,18 +84,15 @@
     iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->disabledKnobBefore:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
     .line 401
-    iget-object v0, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->disabledKnobAfter:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
+    iget-object p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->disabledKnobAfter:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
-    iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->disabledKnobAfter:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
+    iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->disabledKnobAfter:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
-    .line 402
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;)V
     .locals 0
-    .param p1, "background"    # Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
-    .param p2, "knob"    # Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
     .line 388
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -108,6 +103,5 @@
     .line 390
     iput-object p2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ProgressBar$ProgressBarStyle;->knob:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
-    .line 391
     return-void
 .end method

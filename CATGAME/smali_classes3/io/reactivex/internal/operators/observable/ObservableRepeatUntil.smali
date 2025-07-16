@@ -28,7 +28,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/Observable;Lio/reactivex/functions/BooleanSupplier;)V
     .locals 0
-    .param p2, "until"    # Lio/reactivex/functions/BooleanSupplier;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -40,14 +39,11 @@
     .end annotation
 
     .line 27
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRepeatUntil;, "Lio/reactivex/internal/operators/observable/ObservableRepeatUntil<TT;>;"
-    .local p1, "source":Lio/reactivex/Observable;, "Lio/reactivex/Observable<TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/observable/AbstractObservableWithUpstream;-><init>(Lio/reactivex/ObservableSource;)V
 
     .line 28
     iput-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableRepeatUntil;->until:Lio/reactivex/functions/BooleanSupplier;
 
-    .line 29
     return-void
 .end method
 
@@ -64,14 +60,11 @@
     .end annotation
 
     .line 33
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRepeatUntil;, "Lio/reactivex/internal/operators/observable/ObservableRepeatUntil<TT;>;"
-    .local p1, "s":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     new-instance v0, Lio/reactivex/internal/disposables/SequentialDisposable;
 
     invoke-direct {v0}, Lio/reactivex/internal/disposables/SequentialDisposable;-><init>()V
 
     .line 34
-    .local v0, "sd":Lio/reactivex/internal/disposables/SequentialDisposable;
     invoke-interface {p1, v0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 36
@@ -84,9 +77,7 @@
     invoke-direct {v1, p1, v2, v0, v3}, Lio/reactivex/internal/operators/observable/ObservableRepeatUntil$RepeatUntilObserver;-><init>(Lio/reactivex/Observer;Lio/reactivex/functions/BooleanSupplier;Lio/reactivex/internal/disposables/SequentialDisposable;Lio/reactivex/ObservableSource;)V
 
     .line 37
-    .local v1, "rs":Lio/reactivex/internal/operators/observable/ObservableRepeatUntil$RepeatUntilObserver;, "Lio/reactivex/internal/operators/observable/ObservableRepeatUntil$RepeatUntilObserver<TT;>;"
     invoke-virtual {v1}, Lio/reactivex/internal/operators/observable/ObservableRepeatUntil$RepeatUntilObserver;->subscribeNext()V
 
-    .line 38
     return-void
 .end method

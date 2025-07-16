@@ -40,16 +40,13 @@
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "v"    # Ljava/lang/Object;
 
-    .line 686
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .line 690
     const-string v0, "EmptyConsumer"
 
     return-object v0

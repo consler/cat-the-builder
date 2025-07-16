@@ -39,7 +39,6 @@
 
 .method public final createInputMergerWithDefaultFallback(Ljava/lang/String;)Landroidx/work/InputMerger;
     .locals 1
-    .param p1, "className"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -54,8 +53,6 @@
 
     move-result-object v0
 
-    .line 60
-    .local v0, "inputMerger":Landroidx/work/InputMerger;
     if-nez v0, :cond_0
 
     .line 61
@@ -63,7 +60,6 @@
 
     move-result-object v0
 
-    .line 63
     :cond_0
     return-object v0
 .end method

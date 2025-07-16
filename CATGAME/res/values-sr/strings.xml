@@ -28,7 +28,6 @@
     <string name="abc_shareactionprovider_share_with">Делите помоћу</string>
     <string name="abc_shareactionprovider_share_with_application">Делите помоћу апликације %s</string>
     <string name="abc_toolbar_collapse_description">Скупи</string>
-    <string name="accept">Accept</string>
     <string name="accessibility_font_dyslexic">Dyslexic</string>
     <string name="accessibility_font_regular">Обично</string>
     <string name="accessibility_font_serif">Serif</string>
@@ -467,7 +466,6 @@ Please wait…"</string>
     <string name="cowbell">cowbell</string>
     <string name="crash_cymbal">crash cymbal</string>
     <string name="data_label">Име</string>
-    <string name="decline">Decline</string>
     <string name="declined_terms_of_use_and_service_alert">To use our app, it is necessary to accept our Terms of Use and Service. However, if you don’t feel comfortable to do so, you can use our free web-services on</string>
     <string name="default_cast_project_background_name">Позадина</string>
     <string name="default_cast_project_cloud_name">Clouds</string>
@@ -677,7 +675,7 @@ Please wait…"</string>
     <string name="formula_editor_bracket_open">(</string>
     <string name="formula_editor_changes_discarded">Changes discarded!</string>
     <string name="formula_editor_choose_object_variable">Properties of this actor or object</string>
-    <string name="formula_editor_compute">Compute</string>
+    <string name="formula_editor_confirm">Confirm</string>
     <string name="formula_editor_data">Подаци</string>
     <string name="formula_editor_data_dialog_is_list">Make it a list</string>
     <string name="formula_editor_decimal_mark">.</string>
@@ -1013,6 +1011,7 @@ To combine logical formulas you can use logical operations such as \"AND\", \"OR
     <string name="marketing_more_on_google_play">Више апликација на App продавници</string>
     <string name="merge">Обједини</string>
     <string name="merging_project_text">These two projects cannot yet be merged</string>
+    <string name="mlkit_asr_machine_learning_kit">Обезбеђује ML Кит</string>
     <string name="mode">Mode:</string>
     <string name="modified_at_x">Modified: %1$s</string>
     <string name="mr_button_content_description">Дугме Пребаци</string>
@@ -1343,7 +1342,6 @@ Do you want to install it?"</string>
     <string name="set_notes_and_credits">Set notes and credits</string>
     <string name="set_tempo_to">Set tempo to</string>
     <string name="settings">Подешавања</string>
-    <string name="share_website_text">share.catrob.at</string>
     <string name="shared_at_x">Shared: %1$s</string>
     <string name="show_details">Прикажи детаље</string>
     <string name="show_password">Прикажи лозинку</string>

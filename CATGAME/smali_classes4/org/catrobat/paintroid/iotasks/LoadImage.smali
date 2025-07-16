@@ -12,13 +12,8 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
-        "\u0000V\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0008\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\u0008\u0003\u0018\u0000 \u001b2\u00020\u0001:\u0002\u001b\u001cB?\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0008\u0010\u0006\u001a\u0004\u0018\u00010\u0007\u0012\u0006\u0010\u0008\u001a\u00020\t\u0012\u0006\u0010\n\u001a\u00020\u000b\u0012\u0006\u0010\u000c\u001a\u00020\r\u0012\u0006\u0010\u000e\u001a\u00020\u000f\u00a2\u0006\u0002\u0010\u0010J\u0006\u0010\u0013\u001a\u00020\u0014J\u0018\u0010\u0015\u001a\u00020\u00162\u0006\u0010\u0006\u001a\u00020\u00072\u0006\u0010\u0017\u001a\u00020\u0018H\u0002J\u001a\u0010\u0019\u001a\u0004\u0018\u00010\u001a2\u0006\u0010\u0006\u001a\u00020\u00072\u0006\u0010\u0017\u001a\u00020\u0018H\u0002R\u0014\u0010\u0011\u001a\u0008\u0012\u0004\u0012\u00020\u00030\u0012X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0014\u0010\u0008\u001a\u0008\u0012\u0004\u0012\u00020\t0\u0012X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0010\u0010\u0006\u001a\u0004\u0018\u00010\u0007X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000c\u001a\u00020\rX\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u001d"
+        "\u0000\\\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0008\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\u0008\u0003\u0018\u0000 \u001d2\u00020\u0001:\u0002\u001d\u001eBG\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0008\u0010\u0006\u001a\u0004\u0018\u00010\u0007\u0012\u0006\u0010\u0008\u001a\u00020\t\u0012\u0006\u0010\n\u001a\u00020\u000b\u0012\u0006\u0010\u000c\u001a\u00020\r\u0012\u0006\u0010\u000e\u001a\u00020\u000f\u0012\u0006\u0010\u0010\u001a\u00020\u0011\u00a2\u0006\u0002\u0010\u0012J\u0006\u0010\u0015\u001a\u00020\u0016J\u0018\u0010\u0017\u001a\u00020\u00182\u0006\u0010\u0006\u001a\u00020\u00072\u0006\u0010\u0019\u001a\u00020\u001aH\u0002J\u001a\u0010\u001b\u001a\u0004\u0018\u00010\u001c2\u0006\u0010\u0006\u001a\u00020\u00072\u0006\u0010\u0019\u001a\u00020\u001aH\u0002R\u0014\u0010\u0013\u001a\u0008\u0012\u0004\u0012\u00020\u00030\u0014X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000c\u001a\u00020\rX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0014\u0010\u0008\u001a\u0008\u0012\u0004\u0012\u00020\t0\u0014X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0010\u0010\u0006\u001a\u0004\u0018\u00010\u0007X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u001f"
     }
     d2 = {
         "Lorg/catrobat/paintroid/iotasks/LoadImage;",
@@ -33,11 +28,13 @@
         "Landroid/content/Context;",
         "scaleImage",
         "",
-        "workspace",
-        "Lorg/catrobat/paintroid/tools/Workspace;",
+        "commandSerializer",
+        "Lorg/catrobat/paintroid/command/serialization/CommandSerializer;",
         "scopeIO",
         "Lkotlinx/coroutines/CoroutineScope;",
-        "(Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;ILandroid/net/Uri;Landroid/content/Context;ZLorg/catrobat/paintroid/tools/Workspace;Lkotlinx/coroutines/CoroutineScope;)V",
+        "idlingResource",
+        "Landroidx/test/espresso/idling/CountingIdlingResource;",
+        "(Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;ILandroid/net/Uri;Landroid/content/Context;ZLorg/catrobat/paintroid/command/serialization/CommandSerializer;Lkotlinx/coroutines/CoroutineScope;Landroidx/test/espresso/idling/CountingIdlingResource;)V",
         "callbackRef",
         "Ljava/lang/ref/WeakReference;",
         "execute",
@@ -50,14 +47,15 @@
         "",
         "Companion",
         "LoadImageCallback",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -78,6 +76,8 @@
     .end annotation
 .end field
 
+.field private final commandSerializer:Lorg/catrobat/paintroid/command/serialization/CommandSerializer;
+
 .field private final context:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -88,6 +88,8 @@
     .end annotation
 .end field
 
+.field private final idlingResource:Landroidx/test/espresso/idling/CountingIdlingResource;
+
 .field private final requestCode:I
 
 .field private final scaleImage:Z
@@ -95,8 +97,6 @@
 .field private final scopeIO:Lkotlinx/coroutines/CoroutineScope;
 
 .field private final uri:Landroid/net/Uri;
-
-.field private final workspace:Lorg/catrobat/paintroid/tools/Workspace;
 
 
 # direct methods
@@ -111,27 +111,16 @@
 
     sput-object v0, Lorg/catrobat/paintroid/iotasks/LoadImage;->Companion:Lorg/catrobat/paintroid/iotasks/LoadImage$Companion;
 
-    .line 122
-    const-class v0, Lorg/catrobat/paintroid/iotasks/LoadImage;
+    const-string v0, "LoadImage"
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v0
-
+    .line 131
     sput-object v0, Lorg/catrobat/paintroid/iotasks/LoadImage;->TAG:Ljava/lang/String;
 
     return-void
 .end method
 
-.method public constructor <init>(Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;ILandroid/net/Uri;Landroid/content/Context;ZLorg/catrobat/paintroid/tools/Workspace;Lkotlinx/coroutines/CoroutineScope;)V
+.method public constructor <init>(Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;ILandroid/net/Uri;Landroid/content/Context;ZLorg/catrobat/paintroid/command/serialization/CommandSerializer;Lkotlinx/coroutines/CoroutineScope;Landroidx/test/espresso/idling/CountingIdlingResource;)V
     .locals 1
-    .param p1, "callback"    # Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;
-    .param p2, "requestCode"    # I
-    .param p3, "uri"    # Landroid/net/Uri;
-    .param p4, "context"    # Landroid/content/Context;
-    .param p5, "scaleImage"    # Z
-    .param p6, "workspace"    # Lorg/catrobat/paintroid/tools/Workspace;
-    .param p7, "scopeIO"    # Lkotlinx/coroutines/CoroutineScope;
 
     const-string v0, "callback"
 
@@ -141,7 +130,7 @@
 
     invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "workspace"
+    const-string v0, "commandSerializer"
 
     invoke-static {p6, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -149,58 +138,75 @@
 
     invoke-static {p7, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
+    const-string v0, "idlingResource"
+
+    invoke-static {p8, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 39
     iput p2, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->requestCode:I
 
+    .line 40
     iput-object p3, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->uri:Landroid/net/Uri;
 
+    .line 42
     iput-boolean p5, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->scaleImage:Z
 
-    iput-object p6, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
+    .line 43
+    iput-object p6, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->commandSerializer:Lorg/catrobat/paintroid/command/serialization/CommandSerializer;
 
+    .line 44
     iput-object p7, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->scopeIO:Lkotlinx/coroutines/CoroutineScope;
 
-    .line 46
-    new-instance v0, Ljava/lang/ref/WeakReference;
-
-    invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
-
-    iput-object v0, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->callbackRef:Ljava/lang/ref/WeakReference;
+    .line 45
+    iput-object p8, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->idlingResource:Landroidx/test/espresso/idling/CountingIdlingResource;
 
     .line 47
-    new-instance v0, Ljava/lang/ref/WeakReference;
+    new-instance p2, Ljava/lang/ref/WeakReference;
 
-    invoke-direct {v0, p4}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p2, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->context:Ljava/lang/ref/WeakReference;
+    iput-object p2, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->callbackRef:Ljava/lang/ref/WeakReference;
+
+    .line 48
+    new-instance p1, Ljava/lang/ref/WeakReference;
+
+    invoke-direct {p1, p4}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+
+    iput-object p1, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->context:Ljava/lang/ref/WeakReference;
 
     return-void
 .end method
 
 .method public static final synthetic access$getBitmapReturnValue(Lorg/catrobat/paintroid/iotasks/LoadImage;Landroid/net/Uri;Landroid/content/ContentResolver;)Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/iotasks/LoadImage;
-    .param p1, "uri"    # Landroid/net/Uri;
-    .param p2, "resolver"    # Landroid/content/ContentResolver;
+    .locals 0
 
     .line 37
     invoke-direct {p0, p1, p2}, Lorg/catrobat/paintroid/iotasks/LoadImage;->getBitmapReturnValue(Landroid/net/Uri;Landroid/content/ContentResolver;)Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
+.end method
+
+.method public static final synthetic access$getIdlingResource$p(Lorg/catrobat/paintroid/iotasks/LoadImage;)Landroidx/test/espresso/idling/CountingIdlingResource;
+    .locals 0
+
+    .line 37
+    iget-object p0, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->idlingResource:Landroidx/test/espresso/idling/CountingIdlingResource;
+
+    return-object p0
 .end method
 
 .method public static final synthetic access$getRequestCode$p(Lorg/catrobat/paintroid/iotasks/LoadImage;)I
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/iotasks/LoadImage;
+    .locals 0
 
     .line 37
-    iget v0, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->requestCode:I
+    iget p0, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->requestCode:I
 
-    return v0
+    return p0
 .end method
 
 .method public static final synthetic access$getTAG$cp()Ljava/lang/String;
@@ -213,29 +219,25 @@
 .end method
 
 .method public static final synthetic access$getUri$p(Lorg/catrobat/paintroid/iotasks/LoadImage;)Landroid/net/Uri;
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/iotasks/LoadImage;
+    .locals 0
 
     .line 37
-    iget-object v0, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->uri:Landroid/net/Uri;
+    iget-object p0, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->uri:Landroid/net/Uri;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private final getBitmapReturnValue(Landroid/net/Uri;Landroid/content/ContentResolver;)Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;
-    .locals 4
-    .param p1, "uri"    # Landroid/net/Uri;
-    .param p2, "resolver"    # Landroid/content/ContentResolver;
+    .locals 3
 
-    .line 62
+    .line 65
     invoke-direct {p0, p1, p2}, Lorg/catrobat/paintroid/iotasks/LoadImage;->getMimeType(Landroid/net/Uri;Landroid/content/ContentResolver;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 63
-    .local v0, "mimeType":Ljava/lang/String;
     const-string v1, "application/zip"
 
+    .line 66
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
@@ -246,127 +248,105 @@
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     goto :goto_0
 
-    .line 74
+    .line 78
     :cond_0
-    iget-boolean v1, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->scaleImage:Z
+    iget-boolean v0, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->scaleImage:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    .line 75
-    sget-object v1, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
+    .line 79
+    sget-object v0, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
 
-    iget-object v2, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->context:Ljava/lang/ref/WeakReference;
+    iget-object v1, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->context:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/content/Context;
-
-    invoke-virtual {v1, p2, p1, v2}, Lorg/catrobat/paintroid/FileIO;->getScaledBitmapFromUri(Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/content/Context;)Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v1
 
-    goto :goto_2
+    check-cast v1, Landroid/content/Context;
 
-    .line 77
-    :cond_1
-    sget-object v1, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
+    invoke-virtual {v0, p2, p1, v1}, Lorg/catrobat/paintroid/FileIO;->getScaledBitmapFromUri(Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/content/Context;)Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;
 
-    iget-object v2, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->context:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/content/Context;
-
-    invoke-virtual {v1, p2, p1, v2}, Lorg/catrobat/paintroid/FileIO;->getBitmapReturnValueFromUri(Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/content/Context;)Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;
-
-    move-result-object v1
-
-    goto :goto_2
-
-    .line 64
-    :cond_2
-    :goto_0
-    nop
-
-    .line 65
-    :try_start_0
-    new-instance v1, Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;
-
-    iget-object v2, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
-
-    invoke-interface {v2}, Lorg/catrobat/paintroid/tools/Workspace;->getCommandSerializationHelper()Lorg/catrobat/paintroid/command/serialization/CommandSerializationUtilities;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Lorg/catrobat/paintroid/command/serialization/CommandSerializationUtilities;->readFromFile(Landroid/net/Uri;)Lorg/catrobat/paintroid/model/CommandManagerModel;
-
-    move-result-object v2
-
-    invoke-direct {v1, v2}, Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;-><init>(Lorg/catrobat/paintroid/model/CommandManagerModel;)V
-    :try_end_0
-    .catch Lorg/catrobat/paintroid/command/serialization/CommandSerializationUtilities$NotCatrobatImageException; {:try_start_0 .. :try_end_0} :catch_0
+    move-result-object p1
 
     goto :goto_1
 
-    .line 66
-    :catch_0
-    move-exception v1
+    .line 81
+    :cond_1
+    sget-object v0, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
 
-    .line 67
-    .local v1, "e":Lorg/catrobat/paintroid/command/serialization/CommandSerializationUtilities$NotCatrobatImageException;
-    sget-object v2, Lorg/catrobat/paintroid/iotasks/LoadImage;->TAG:Ljava/lang/String;
+    iget-object v1, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->context:Ljava/lang/ref/WeakReference;
 
-    const-string v3, "Image might be an ora file instead"
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v1
+
+    check-cast v1, Landroid/content/Context;
+
+    invoke-virtual {v0, p2, p1, v1}, Lorg/catrobat/paintroid/FileIO;->getBitmapReturnValueFromUri(Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/content/Context;)Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;
+
+    move-result-object p1
+
+    goto :goto_1
 
     .line 68
-    nop
+    :cond_2
+    :goto_0
+    :try_start_0
+    iget-object v0, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->commandSerializer:Lorg/catrobat/paintroid/command/serialization/CommandSerializer;
+
+    invoke-virtual {v0, p1}, Lorg/catrobat/paintroid/command/serialization/CommandSerializer;->readFromFile(Landroid/net/Uri;)Lorg/catrobat/paintroid/command/serialization/CatrobatFileContent;
+
+    move-result-object v0
 
     .line 69
-    nop
+    new-instance v1, Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;
 
-    .line 70
-    nop
-
-    .line 68
-    invoke-static {p2, p1}, Lorg/catrobat/paintroid/iotasks/OpenRasterFileFormatConversion;->importOraFile(Landroid/content/ContentResolver;Landroid/net/Uri;)Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/command/serialization/CatrobatFileContent;->getCommandModel()Lorg/catrobat/paintroid/model/CommandManagerModel;
 
     move-result-object v2
 
-    move-object v1, v2
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/command/serialization/CatrobatFileContent;->getColorHistory()Lorg/catrobat/paintroid/colorpicker/ColorHistory;
 
-    .line 64
-    .end local v1    # "e":Lorg/catrobat/paintroid/command/serialization/CommandSerializationUtilities$NotCatrobatImageException;
+    move-result-object v0
+
+    invoke-direct {v1, v2, v0}, Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;-><init>(Lorg/catrobat/paintroid/model/CommandManagerModel;Lorg/catrobat/paintroid/colorpicker/ColorHistory;)V
+    :try_end_0
+    .catch Lorg/catrobat/paintroid/command/serialization/CommandSerializer$NotCatrobatImageException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-object p1, v1
+
+    goto :goto_1
+
+    .line 71
+    :catch_0
+    sget-object v0, Lorg/catrobat/paintroid/iotasks/LoadImage;->TAG:Ljava/lang/String;
+
+    const-string v1, "Image might be an ora file instead"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 72
+    sget-object v0, Lorg/catrobat/paintroid/iotasks/OpenRasterFileFormatConversion;->Companion:Lorg/catrobat/paintroid/iotasks/OpenRasterFileFormatConversion$Companion;
+
+    invoke-virtual {v0, p2, p1}, Lorg/catrobat/paintroid/iotasks/OpenRasterFileFormatConversion$Companion;->importOraFile(Landroid/content/ContentResolver;Landroid/net/Uri;)Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;
+
+    move-result-object p1
+
     :goto_1
-    const-string v2, "try {\n                Bi\u2026          )\n            }"
-
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 74
-    :goto_2
-    nop
-
-    .line 63
-    return-object v1
+    return-object p1
 .end method
 
 .method private final getMimeType(Landroid/net/Uri;Landroid/content/ContentResolver;)Ljava/lang/String;
-    .locals 4
-    .param p1, "uri"    # Landroid/net/Uri;
-    .param p2, "resolver"    # Landroid/content/ContentResolver;
+    .locals 2
 
-    .line 50
+    .line 51
     invoke-virtual {p1}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
 
     move-result-object v0
@@ -379,88 +359,73 @@
 
     if-eqz v0, :cond_0
 
-    .line 51
+    .line 52
     invoke-virtual {p2, p1}, Landroid/content/ContentResolver;->getType(Landroid/net/Uri;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    goto :goto_0
+    return-object p1
 
-    .line 53
+    .line 54
     :cond_0
     invoke-virtual {p1}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Landroid/webkit/MimeTypeMap;->getFileExtensionFromUrl(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p1}, Landroid/webkit/MimeTypeMap;->getFileExtensionFromUrl(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 54
-    .local v0, "fileExtension":Ljava/lang/String;
-    nop
+    const-string p2, "catrobat-image"
 
     .line 55
-    nop
+    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    .line 54
+    move-result p2
+
+    if-eqz p2, :cond_1
+
+    const-string p1, "application/octet-stream"
+
+    return-object p1
+
+    .line 58
+    :cond_1
     invoke-static {}, Landroid/webkit/MimeTypeMap;->getSingleton()Landroid/webkit/MimeTypeMap;
 
-    move-result-object v1
+    move-result-object p2
 
-    .line 55
-    const-string v2, "fileExtension"
+    const-string v0, "fileExtension"
 
-    invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
+    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    const-string v3, "Locale.US"
+    const-string v1, "US"
 
-    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    if-eqz v0, :cond_1
+    invoke-virtual {p1, v0}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v2
+    const-string v0, "(this as java.lang.String).toLowerCase(locale)"
 
-    const-string v3, "(this as java.lang.String).toLowerCase(locale)"
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Landroid/webkit/MimeTypeMap;->getMimeTypeFromExtension(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Landroid/webkit/MimeTypeMap;->getMimeTypeFromExtension(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
-
-    move-object v0, v1
-
-    .line 50
-    .end local v0    # "fileExtension":Ljava/lang/String;
-    :goto_0
-    nop
-
-    .line 56
-    return-object v0
-
-    .line 55
-    .restart local v0    # "fileExtension":Ljava/lang/String;
-    :cond_1
-    new-instance v1, Ljava/lang/NullPointerException;
-
-    const-string v2, "null cannot be cast to non-null type java.lang.String"
-
-    invoke-direct {v1, v2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw v1
+    return-object p1
 .end method
 
 
 # virtual methods
 .method public final execute()V
-    .locals 9
+    .locals 8
 
-    .line 84
+    .line 88
     iget-object v0, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->callbackRef:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -469,10 +434,9 @@
 
     check-cast v0, Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;
 
-    .line 85
-    .local v0, "callback":Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;
     if-eqz v0, :cond_1
 
+    .line 89
     invoke-interface {v0}, Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;->isFinishing()Z
 
     move-result v1
@@ -481,50 +445,38 @@
 
     goto :goto_0
 
-    .line 88
+    .line 92
     :cond_0
     iget v1, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->requestCode:I
 
     invoke-interface {v0, v1}, Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;->onLoadImagePreExecute(I)V
 
-    .line 90
+    .line 94
     new-instance v1, Lkotlin/jvm/internal/Ref$ObjectRef;
 
     invoke-direct {v1}, Lkotlin/jvm/internal/Ref$ObjectRef;-><init>()V
 
-    const/4 v2, 0x0
+    .line 95
+    iget-object v2, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->scopeIO:Lkotlinx/coroutines/CoroutineScope;
 
-    move-object v3, v2
-
-    check-cast v3, Lorg/catrobat/paintroid/iotasks/BitmapReturnValue;
-
-    iput-object v3, v1, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
-
-    .line 91
-    .local v1, "returnValue":Lkotlin/jvm/internal/Ref$ObjectRef;
-    iget-object v3, p0, Lorg/catrobat/paintroid/iotasks/LoadImage;->scopeIO:Lkotlinx/coroutines/CoroutineScope;
+    const/4 v3, 0x0
 
     const/4 v4, 0x0
 
-    const/4 v5, 0x0
+    new-instance v5, Lorg/catrobat/paintroid/iotasks/LoadImage$execute$1;
 
-    new-instance v6, Lorg/catrobat/paintroid/iotasks/LoadImage$execute$1;
+    const/4 v6, 0x0
 
-    invoke-direct {v6, p0, v0, v1, v2}, Lorg/catrobat/paintroid/iotasks/LoadImage$execute$1;-><init>(Lorg/catrobat/paintroid/iotasks/LoadImage;Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlin/coroutines/Continuation;)V
+    invoke-direct {v5, p0, v0, v1, v6}, Lorg/catrobat/paintroid/iotasks/LoadImage$execute$1;-><init>(Lorg/catrobat/paintroid/iotasks/LoadImage;Lorg/catrobat/paintroid/iotasks/LoadImage$LoadImageCallback;Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlin/coroutines/Continuation;)V
 
-    check-cast v6, Lkotlin/jvm/functions/Function2;
+    check-cast v5, Lkotlin/jvm/functions/Function2;
 
-    const/4 v7, 0x3
+    const/4 v6, 0x3
 
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
-    invoke-static/range {v3 .. v8}, Lkotlinx/coroutines/BuildersKt;->launch$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
+    invoke-static/range {v2 .. v7}, Lkotlinx/coroutines/BuildersKt;->launch$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
 
-    .line 112
-    return-void
-
-    .line 86
-    .end local v1    # "returnValue":Lkotlin/jvm/internal/Ref$ObjectRef;
     :cond_1
     :goto_0
     return-void

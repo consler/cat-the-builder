@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/apache/commons/collections4/multiset/AbstractMultiSet;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -74,8 +74,6 @@
     .end annotation
 
     .line 141
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator;, "Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator<TE;>;"
-    .local p1, "parent":Lorg/apache/commons/collections4/multiset/AbstractMultiSet;, "Lorg/apache/commons/collections4/multiset/AbstractMultiSet<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 142
@@ -84,25 +82,24 @@
     .line 143
     invoke-virtual {p1}, Lorg/apache/commons/collections4/multiset/AbstractMultiSet;->entrySet()Ljava/util/Set;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator;->entryIterator:Ljava/util/Iterator;
+    iput-object p1, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator;->entryIterator:Ljava/util/Iterator;
+
+    const/4 p1, 0x0
 
     .line 144
-    const/4 v0, 0x0
+    iput-object p1, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator;->current:Lorg/apache/commons/collections4/MultiSet$Entry;
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator;->current:Lorg/apache/commons/collections4/MultiSet$Entry;
+    const/4 p1, 0x0
 
     .line 145
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator;->canRemove:Z
 
-    iput-boolean v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator;->canRemove:Z
-
-    .line 146
     return-void
 .end method
 
@@ -112,7 +109,6 @@
     .locals 1
 
     .line 151
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator;, "Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator<TE;>;"
     iget v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator;->itemCount:I
 
     if-gtz v0, :cond_1
@@ -149,7 +145,6 @@
     .end annotation
 
     .line 157
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator;, "Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator<TE;>;"
     iget v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator;->itemCount:I
 
     if-nez v0, :cond_0
@@ -172,10 +167,10 @@
 
     iput v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator;->itemCount:I
 
-    .line 161
     :cond_0
     const/4 v0, 0x1
 
+    .line 161
     iput-boolean v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator;->canRemove:Z
 
     .line 162
@@ -196,10 +191,9 @@
 .end method
 
 .method public remove()V
-    .locals 3
+    .locals 2
 
     .line 169
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator;, "Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator<TE;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator;->canRemove:Z
 
     if-eqz v0, :cond_1
@@ -211,42 +205,38 @@
 
     move-result v0
 
-    .line 173
-    .local v0, "count":I
     const/4 v1, 0x1
 
     if-le v0, v1, :cond_0
 
     .line 174
-    iget-object v1, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator;->parent:Lorg/apache/commons/collections4/multiset/AbstractMultiSet;
+    iget-object v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator;->parent:Lorg/apache/commons/collections4/multiset/AbstractMultiSet;
 
-    iget-object v2, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator;->current:Lorg/apache/commons/collections4/MultiSet$Entry;
+    iget-object v1, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator;->current:Lorg/apache/commons/collections4/MultiSet$Entry;
 
-    invoke-interface {v2}, Lorg/apache/commons/collections4/MultiSet$Entry;->getElement()Ljava/lang/Object;
+    invoke-interface {v1}, Lorg/apache/commons/collections4/MultiSet$Entry;->getElement()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v1, v2}, Lorg/apache/commons/collections4/multiset/AbstractMultiSet;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Lorg/apache/commons/collections4/multiset/AbstractMultiSet;->remove(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     .line 176
     :cond_0
-    iget-object v1, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator;->entryIterator:Ljava/util/Iterator;
+    iget-object v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator;->entryIterator:Ljava/util/Iterator;
 
-    invoke-interface {v1}, Ljava/util/Iterator;->remove()V
+    invoke-interface {v0}, Ljava/util/Iterator;->remove()V
+
+    :goto_0
+    const/4 v0, 0x0
 
     .line 178
-    :goto_0
-    const/4 v1, 0x0
+    iput-boolean v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator;->canRemove:Z
 
-    iput-boolean v1, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$MultiSetIterator;->canRemove:Z
-
-    .line 179
     return-void
 
     .line 170
-    .end local v0    # "count":I
     :cond_1
     new-instance v0, Ljava/lang/IllegalStateException;
 

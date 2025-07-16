@@ -8,6 +8,10 @@
 
 .field public static final DATA_NULL_IN_INTENT:I = -0x7
 
+.field public static final KPMS_UPDATE_FAILED:I = -0xa
+
+.field public static final NOT_SUPPORT_RESOLUTION:I = -0xb
+
 .field public static final NO_AVAILABLE_LIB_ERROR:I = -0x9
 
 .field public static final NO_SOLUTION:I = -0x4

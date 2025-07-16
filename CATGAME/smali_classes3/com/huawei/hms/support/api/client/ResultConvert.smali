@@ -26,10 +26,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 20
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 21
     return-void
 .end method
 
@@ -38,12 +37,12 @@
 .method public final newFailedPendingResult(Lcom/huawei/hms/support/api/client/Status;)Lcom/huawei/hms/support/api/client/PendingResult;
     .locals 2
 
-    .line 46
     const-string v0, "The input status cannot be null"
 
+    .line 1
     invoke-static {p1, v0}, Lcom/huawei/hms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 47
+    .line 2
     invoke-virtual {p1}, Lcom/huawei/hms/support/api/client/Status;->isSuccess()Z
 
     move-result v0
@@ -54,7 +53,7 @@
 
     invoke-static {v0, v1}, Lcom/huawei/hms/common/internal/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
-    .line 48
+    .line 3
     new-instance v0, Lcom/huawei/hms/support/api/client/ResultConvert$FailPendingResult;
 
     invoke-direct {v0, p0, p1}, Lcom/huawei/hms/support/api/client/ResultConvert$FailPendingResult;-><init>(Lcom/huawei/hms/support/api/client/ResultConvert;Lcom/huawei/hms/support/api/client/Status;)V
@@ -65,22 +64,21 @@
 .method public onFailed(Lcom/huawei/hms/support/api/client/Status;)Lcom/huawei/hms/support/api/client/Status;
     .locals 1
 
-    .line 38
     const-string v0, "The input status cannot be null"
 
+    .line 1
     invoke-static {p1, v0}, Lcom/huawei/hms/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 39
+    .line 2
     invoke-virtual {p1}, Lcom/huawei/hms/support/api/client/Status;->getStatusCode()I
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 40
     return-object p1
 
-    .line 42
+    .line 5
     :cond_0
     sget-object p1, Lcom/huawei/hms/support/api/client/Status;->CoreException:Lcom/huawei/hms/support/api/client/Status;
 

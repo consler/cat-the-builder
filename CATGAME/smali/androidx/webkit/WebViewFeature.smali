@@ -106,39 +106,37 @@
 .end method
 
 .method public static isFeatureSupported(Ljava/lang/String;)Z
-    .locals 2
-    .param p0, "feature"    # Ljava/lang/String;
+    .locals 1
 
     .line 456
     invoke-static {p0}, Landroidx/webkit/internal/WebViewFeatureInternal;->getFeature(Ljava/lang/String;)Landroidx/webkit/internal/WebViewFeatureInternal;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 457
-    .local v0, "webviewFeature":Landroidx/webkit/internal/WebViewFeatureInternal;
-    invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByFramework()Z
+    invoke-virtual {p0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByFramework()Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
 
-    invoke-virtual {v0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByWebView()Z
+    invoke-virtual {p0}, Landroidx/webkit/internal/WebViewFeatureInternal;->isSupportedByWebView()Z
 
-    move-result v1
+    move-result p0
 
-    if-eqz v1, :cond_0
+    if-eqz p0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p0, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v1, 0x1
+    const/4 p0, 0x1
 
     :goto_1
-    return v1
+    return p0
 .end method

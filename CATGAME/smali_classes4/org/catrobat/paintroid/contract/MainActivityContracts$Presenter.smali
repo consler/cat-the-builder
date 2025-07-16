@@ -14,13 +14,8 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
-        "\u0000z\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0010\u0008\n\u0002\u0008\u0003\n\u0002\u0010\u0002\n\u0002\u0008\u0005\n\u0002\u0010\u000b\n\u0002\u0008\t\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u0011\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0015\n\u0002\u0008\n\n\u0002\u0018\u0002\n\u0002\u0008\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0004\n\u0002\u0018\u0002\n\u0002\u0008\u0016\n\u0002\u0018\u0002\n\u0002\u0008\u0012\n\u0002\u0018\u0002\n\u0002\u0008\u0002\u0008f\u0018\u00002\u00020\u0001J\u0008\u0010\u000e\u001a\u00020\u000fH&J\u0008\u0010\u0010\u001a\u00020\u000fH&J\u0008\u0010\u0011\u001a\u00020\u000fH&J\u0010\u0010\u0012\u001a\u00020\u000f2\u0006\u0010\u0013\u001a\u00020\u0003H&J\u0008\u0010\u0014\u001a\u00020\u0015H&J\u0008\u0010\u0016\u001a\u00020\u000fH&J\u0008\u0010\u0017\u001a\u00020\u000fH&J\u0008\u0010\u0018\u001a\u00020\u000fH&J\u0008\u0010\u0019\u001a\u00020\u000fH&J\u0008\u0010\u001a\u001a\u00020\u000fH&J\"\u0010\u001b\u001a\u00020\u000f2\u0006\u0010\u001c\u001a\u00020\u000b2\u0006\u0010\u001d\u001a\u00020\u000b2\u0008\u0010\u001e\u001a\u0004\u0018\u00010\u001fH&J+\u0010 \u001a\u00020\u000f2\u0006\u0010\u001c\u001a\u00020\u000b2\u000c\u0010!\u001a\u0008\u0012\u0004\u0012\u00020#0\"2\u0006\u0010$\u001a\u00020%H&\u00a2\u0006\u0002\u0010&J\u0008\u0010\'\u001a\u00020\u000fH&J\u0008\u0010(\u001a\u00020\u000fH&J\u001c\u0010)\u001a\u00020\u000f2\u0008\u0010*\u001a\u0004\u0018\u00010#2\u0008\u0010+\u001a\u0004\u0018\u00010#H&J\u0008\u0010,\u001a\u00020\u000fH&J\u0008\u0010-\u001a\u00020\u000fH&J\u001a\u0010.\u001a\u00020\u000f2\u0008\u0010/\u001a\u0004\u0018\u0001002\u0006\u0010\u001c\u001a\u00020\u000bH&J\u0008\u00101\u001a\u00020\u000fH&J\u0008\u00102\u001a\u00020\u000fH&J\u0008\u00103\u001a\u00020\u000fH&J\u0008\u00104\u001a\u00020\u000fH&J\u0008\u00105\u001a\u00020\u000fH&J\u0012\u00106\u001a\u0004\u0018\u0001072\u0006\u00108\u001a\u000209H&J\u0008\u0010:\u001a\u00020\u000fH&J\u0008\u0010;\u001a\u00020\u000fH&J\u0012\u0010<\u001a\u00020\u000f2\u0008\u0010=\u001a\u0004\u0018\u00010>H&J<\u0010?\u001a\u00020\u000f2\u0006\u0010@\u001a\u00020\u00152\u0006\u0010A\u001a\u00020\u00152\u0006\u0010B\u001a\u00020\u00152\u0006\u0010C\u001a\u00020\u00152\u0008\u0010D\u001a\u0004\u0018\u0001002\u0008\u0010E\u001a\u0004\u0018\u000100H&J\u0008\u0010F\u001a\u00020\u000fH&J\u0008\u0010G\u001a\u00020\u000fH&J\u0008\u0010H\u001a\u00020\u000fH&J\u0010\u0010I\u001a\u00020\u000f2\u0006\u0010J\u001a\u00020\u0015H&J\u0010\u0010K\u001a\u00020\u000f2\u0006\u0010\u001c\u001a\u00020\u000bH&J\u0008\u0010L\u001a\u00020\u000fH&J\u001a\u0010M\u001a\u00020\u000f2\u0006\u0010\u001c\u001a\u00020\u000b2\u0008\u0010/\u001a\u0004\u0018\u000100H&J\u0008\u0010N\u001a\u00020\u000fH&J\u0008\u0010O\u001a\u00020\u000fH&J\u0008\u0010P\u001a\u00020\u000fH&J\u0010\u0010Q\u001a\u00020\u000f2\u0006\u0010R\u001a\u00020\u000bH&J\u0010\u0010S\u001a\u00020\u000f2\u0006\u0010T\u001a\u00020UH&J\u0008\u0010V\u001a\u00020\u000fH&J\u0008\u0010W\u001a\u00020\u000fH&J\u0008\u0010X\u001a\u00020\u000fH&J\u0008\u0010Y\u001a\u00020\u000fH&J\u0008\u0010Z\u001a\u00020\u000fH&J\u0008\u0010[\u001a\u00020\u000fH&J\u0008\u0010\\\u001a\u00020\u000fH&J\u0008\u0010]\u001a\u00020\u000fH&J\u0008\u0010^\u001a\u00020\u000fH&J\u0008\u0010_\u001a\u00020\u000fH&J\u0008\u0010`\u001a\u00020\u000fH&J\u0018\u0010a\u001a\u00020\u000f2\u0006\u0010b\u001a\u00020\u000b2\u0006\u0010J\u001a\u00020\u0015H&J\u0008\u0010c\u001a\u00020\u000fH&J\u0008\u0010d\u001a\u00020\u000fH&J\u0018\u0010e\u001a\u00020\u000f2\u0006\u0010\u001c\u001a\u00020\u000b2\u0006\u0010J\u001a\u00020\u0015H&J\u0010\u0010f\u001a\u00020\u000f2\u0006\u0010g\u001a\u00020hH&J\u0008\u0010i\u001a\u00020\u000fH&R\u0014\u0010\u0002\u001a\u0004\u0018\u00010\u0003X\u00a6\u0004\u00a2\u0006\u0006\u001a\u0004\u0008\u0004\u0010\u0005R\u0012\u0010\u0006\u001a\u00020\u0007X\u00a6\u0004\u00a2\u0006\u0006\u001a\u0004\u0008\u0008\u0010\tR\u0012\u0010\n\u001a\u00020\u000bX\u00a6\u0004\u00a2\u0006\u0006\u001a\u0004\u0008\u000c\u0010\r\u00a8\u0006j"
+        "\u0000\u0084\u0001\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0010\u0008\n\u0002\u0008\u0003\n\u0002\u0010\u0002\n\u0002\u0008\u0006\n\u0002\u0010\u000b\n\u0002\u0008\t\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u0011\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0015\n\u0002\u0008\t\n\u0002\u0018\u0002\n\u0002\u0008\u0006\n\u0002\u0018\u0002\n\u0002\u0008\u0004\n\u0002\u0018\u0002\n\u0002\u0008\u0017\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0011\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0018\u0002\n\u0002\u0008\u0002\u0008f\u0018\u00002\u00020\u0001J\u0008\u0010\u000e\u001a\u00020\u000fH&J\u0008\u0010\u0010\u001a\u00020\u000fH&J\u0008\u0010\u0011\u001a\u00020\u000fH&J\u0008\u0010\u0012\u001a\u00020\u000fH&J\u0010\u0010\u0013\u001a\u00020\u000f2\u0006\u0010\u0014\u001a\u00020\u0003H&J\u0008\u0010\u0015\u001a\u00020\u0016H&J\u0008\u0010\u0017\u001a\u00020\u000fH&J\u0008\u0010\u0018\u001a\u00020\u000fH&J\u0008\u0010\u0019\u001a\u00020\u000fH&J\u0008\u0010\u001a\u001a\u00020\u000fH&J\u0008\u0010\u001b\u001a\u00020\u000fH&J\"\u0010\u001c\u001a\u00020\u000f2\u0006\u0010\u001d\u001a\u00020\u000b2\u0006\u0010\u001e\u001a\u00020\u000b2\u0008\u0010\u001f\u001a\u0004\u0018\u00010 H&J+\u0010!\u001a\u00020\u000f2\u0006\u0010\u001d\u001a\u00020\u000b2\u000c\u0010\"\u001a\u0008\u0012\u0004\u0012\u00020$0#2\u0006\u0010%\u001a\u00020&H&\u00a2\u0006\u0002\u0010\'J\u0008\u0010(\u001a\u00020\u000fH&J\u0008\u0010)\u001a\u00020\u000fH&J\u001c\u0010*\u001a\u00020\u000f2\u0008\u0010+\u001a\u0004\u0018\u00010$2\u0008\u0010,\u001a\u0004\u0018\u00010$H&J\u0008\u0010-\u001a\u00020\u000fH&J\u001a\u0010.\u001a\u00020\u000f2\u0008\u0010/\u001a\u0004\u0018\u0001002\u0006\u0010\u001d\u001a\u00020\u000bH&J\u0008\u00101\u001a\u00020\u000fH&J\u0008\u00102\u001a\u00020\u000fH&J\u0008\u00103\u001a\u00020\u000fH&J\u0008\u00104\u001a\u00020\u000fH&J\u0008\u00105\u001a\u00020\u000fH&J\n\u00106\u001a\u0004\u0018\u000107H&J\u0008\u00108\u001a\u00020\u000fH&J\u0008\u00109\u001a\u00020\u000fH&J\u0012\u0010:\u001a\u00020\u000f2\u0008\u0010;\u001a\u0004\u0018\u00010<H&J\u0008\u0010=\u001a\u00020\u000fH&J<\u0010>\u001a\u00020\u000f2\u0006\u0010?\u001a\u00020\u00162\u0006\u0010@\u001a\u00020\u00162\u0006\u0010A\u001a\u00020\u00162\u0006\u0010B\u001a\u00020\u00162\u0008\u0010C\u001a\u0004\u0018\u0001002\u0008\u0010D\u001a\u0004\u0018\u000100H&J\u0008\u0010E\u001a\u00020\u000fH&J\u0008\u0010F\u001a\u00020\u000fH&J\u0008\u0010G\u001a\u00020\u000fH&J\u0010\u0010H\u001a\u00020\u000f2\u0006\u0010I\u001a\u00020\u0016H&J\u001a\u0010J\u001a\u00020\u000f2\u0006\u0010\u001d\u001a\u00020\u000b2\u0008\u0010/\u001a\u0004\u0018\u000100H&J\u0008\u0010K\u001a\u00020\u000fH&J\u001a\u0010L\u001a\u00020\u000f2\u0006\u0010\u001d\u001a\u00020\u000b2\u0008\u0010/\u001a\u0004\u0018\u000100H&J\u0008\u0010M\u001a\u00020\u000fH&J\u0008\u0010N\u001a\u00020\u000fH&J\u0008\u0010O\u001a\u00020\u000fH&J\u0010\u0010P\u001a\u00020\u000f2\u0006\u0010Q\u001a\u00020\u000bH&J\u0012\u0010R\u001a\u00020\u000f2\u0008\u0010S\u001a\u0004\u0018\u00010TH&J\u0010\u0010U\u001a\u00020\u000f2\u0006\u0010V\u001a\u00020WH&J\u0008\u0010X\u001a\u00020\u000fH&J\u0008\u0010Y\u001a\u00020\u000fH&J\u0008\u0010Z\u001a\u00020\u000fH&J\u0008\u0010[\u001a\u00020\u000fH&J\u0008\u0010\\\u001a\u00020\u000fH&J\u0008\u0010]\u001a\u00020\u000fH&J\u0008\u0010^\u001a\u00020\u000fH&J\u0008\u0010_\u001a\u00020\u000fH&J\u0008\u0010`\u001a\u00020\u000fH&J\u0008\u0010a\u001a\u00020\u000fH&J\u0008\u0010b\u001a\u00020\u000fH&J\u0018\u0010c\u001a\u00020\u000f2\u0006\u0010d\u001a\u00020\u000b2\u0006\u0010I\u001a\u00020\u0016H&J\u0008\u0010e\u001a\u00020\u000fH&J\u0008\u0010f\u001a\u00020\u000fH&J\u0010\u0010g\u001a\u00020\u000f2\u0006\u0010h\u001a\u00020iH&J\u0018\u0010j\u001a\u00020\u000f2\u0006\u0010\u001d\u001a\u00020\u000b2\u0006\u0010I\u001a\u00020\u0016H&J\u0010\u0010k\u001a\u00020\u000f2\u0006\u0010l\u001a\u00020mH&J\u0008\u0010n\u001a\u00020\u000fH&R\u0014\u0010\u0002\u001a\u0004\u0018\u00010\u0003X\u00a6\u0004\u00a2\u0006\u0006\u001a\u0004\u0008\u0004\u0010\u0005R\u0012\u0010\u0006\u001a\u00020\u0007X\u00a6\u0004\u00a2\u0006\u0006\u001a\u0004\u0008\u0008\u0010\tR\u0012\u0010\n\u001a\u00020\u000bX\u00a6\u0004\u00a2\u0006\u0006\u001a\u0004\u0008\u000c\u0010\r\u00a8\u0006o"
     }
     d2 = {
         "Lorg/catrobat/paintroid/contract/MainActivityContracts$Presenter;",
@@ -40,14 +35,15 @@
         "actionCurrentToolClicked",
         "",
         "actionToolsClicked",
+        "addImageToCurrentLayerClicked",
         "backToPocketCodeClicked",
         "bitmapLoadedFromSource",
         "loadedImage",
         "checkForTemporaryFile",
         "",
         "discardImageClicked",
-        "enterFullscreenClicked",
-        "exitFullscreenClicked",
+        "enterHideButtonsClicked",
+        "exitHideButtonsClicked",
         "finishActivity",
         "finishInitialize",
         "handleActivityResult",
@@ -67,7 +63,6 @@
         "initializeFromCleanState",
         "extraPicturePath",
         "extraPictureName",
-        "loadImageClicked",
         "loadNewImage",
         "loadScaledImage",
         "uri",
@@ -78,14 +73,13 @@
         "onCreateTool",
         "onNewImage",
         "openTemporaryFile",
-        "Lorg/catrobat/paintroid/model/CommandManagerModel;",
-        "workspace",
-        "Lorg/catrobat/paintroid/tools/Workspace;",
+        "Lorg/catrobat/paintroid/iotasks/WorkspaceReturnValue;",
         "rateUsClicked",
         "redoClicked",
         "removeMoreOptionsItems",
         "menu",
         "Landroid/view/Menu;",
+        "replaceImageClicked",
         "restoreState",
         "isFullscreen",
         "isSaved",
@@ -106,6 +100,9 @@
         "setAntialiasingOnOkClicked",
         "setBottomNavigationColor",
         "color",
+        "setColorHistoryAfterLoadImage",
+        "colorHistory",
+        "Lorg/catrobat/paintroid/colorpicker/ColorHistory;",
         "setLayerAdapter",
         "layerAdapter",
         "Lorg/catrobat/paintroid/ui/LayerAdapter;",
@@ -124,19 +121,23 @@
         "permissionCode",
         "showPngInformationDialog",
         "showRateUsDialog",
+        "showZoomWindowSettingsClicked",
+        "sharedPreferences",
+        "Lorg/catrobat/paintroid/UserPreferences;",
         "switchBetweenVersions",
         "toolClicked",
         "toolType",
         "Lorg/catrobat/paintroid/tools/ToolType;",
         "undoClicked",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -145,6 +146,9 @@
 .end method
 
 .method public abstract actionToolsClicked()V
+.end method
+
+.method public abstract addImageToCurrentLayerClicked()V
 .end method
 
 .method public abstract backToPocketCodeClicked()V
@@ -159,10 +163,10 @@
 .method public abstract discardImageClicked()V
 .end method
 
-.method public abstract enterFullscreenClicked()V
+.method public abstract enterHideButtonsClicked()V
 .end method
 
-.method public abstract exitFullscreenClicked()V
+.method public abstract exitHideButtonsClicked()V
 .end method
 
 .method public abstract finishActivity()V
@@ -195,9 +199,6 @@
 .method public abstract initializeFromCleanState(Ljava/lang/String;Ljava/lang/String;)V
 .end method
 
-.method public abstract loadImageClicked()V
-.end method
-
 .method public abstract loadNewImage()V
 .end method
 
@@ -219,7 +220,7 @@
 .method public abstract onNewImage()V
 .end method
 
-.method public abstract openTemporaryFile(Lorg/catrobat/paintroid/tools/Workspace;)Lorg/catrobat/paintroid/model/CommandManagerModel;
+.method public abstract openTemporaryFile()Lorg/catrobat/paintroid/iotasks/WorkspaceReturnValue;
 .end method
 
 .method public abstract rateUsClicked()V
@@ -229,6 +230,9 @@
 .end method
 
 .method public abstract removeMoreOptionsItems(Landroid/view/Menu;)V
+.end method
+
+.method public abstract replaceImageClicked()V
 .end method
 
 .method public abstract restoreState(ZZZZLandroid/net/Uri;Landroid/net/Uri;)V
@@ -246,7 +250,7 @@
 .method public abstract saveCopyClicked(Z)V
 .end method
 
-.method public abstract saveCopyConfirmClicked(I)V
+.method public abstract saveCopyConfirmClicked(ILandroid/net/Uri;)V
 .end method
 
 .method public abstract saveImageClicked()V
@@ -265,6 +269,9 @@
 .end method
 
 .method public abstract setBottomNavigationColor(I)V
+.end method
+
+.method public abstract setColorHistoryAfterLoadImage(Lorg/catrobat/paintroid/colorpicker/ColorHistory;)V
 .end method
 
 .method public abstract setLayerAdapter(Lorg/catrobat/paintroid/ui/LayerAdapter;)V
@@ -310,6 +317,9 @@
 .end method
 
 .method public abstract showRateUsDialog()V
+.end method
+
+.method public abstract showZoomWindowSettingsClicked(Lorg/catrobat/paintroid/UserPreferences;)V
 .end method
 
 .method public abstract switchBetweenVersions(IZ)V

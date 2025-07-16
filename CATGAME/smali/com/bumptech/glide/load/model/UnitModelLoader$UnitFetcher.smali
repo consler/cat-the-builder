@@ -48,14 +48,11 @@
     .end annotation
 
     .line 48
-    .local p0, "this":Lcom/bumptech/glide/load/model/UnitModelLoader$UnitFetcher;, "Lcom/bumptech/glide/load/model/UnitModelLoader$UnitFetcher<TModel;>;"
-    .local p1, "resource":Ljava/lang/Object;, "TModel;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 49
     iput-object p1, p0, Lcom/bumptech/glide/load/model/UnitModelLoader$UnitFetcher;->resource:Ljava/lang/Object;
 
-    .line 50
     return-void
 .end method
 
@@ -64,16 +61,12 @@
 .method public cancel()V
     .locals 0
 
-    .line 66
-    .local p0, "this":Lcom/bumptech/glide/load/model/UnitModelLoader$UnitFetcher;, "Lcom/bumptech/glide/load/model/UnitModelLoader$UnitFetcher<TModel;>;"
     return-void
 .end method
 
 .method public cleanup()V
     .locals 0
 
-    .line 61
-    .local p0, "this":Lcom/bumptech/glide/load/model/UnitModelLoader$UnitFetcher;, "Lcom/bumptech/glide/load/model/UnitModelLoader$UnitFetcher<TModel;>;"
     return-void
 .end method
 
@@ -88,7 +81,6 @@
     .end annotation
 
     .line 72
-    .local p0, "this":Lcom/bumptech/glide/load/model/UnitModelLoader$UnitFetcher;, "Lcom/bumptech/glide/load/model/UnitModelLoader$UnitFetcher<TModel;>;"
     iget-object v0, p0, Lcom/bumptech/glide/load/model/UnitModelLoader$UnitFetcher;->resource:Ljava/lang/Object;
 
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -102,15 +94,13 @@
     .locals 1
 
     .line 78
-    .local p0, "this":Lcom/bumptech/glide/load/model/UnitModelLoader$UnitFetcher;, "Lcom/bumptech/glide/load/model/UnitModelLoader$UnitFetcher<TModel;>;"
     sget-object v0, Lcom/bumptech/glide/load/DataSource;->LOCAL:Lcom/bumptech/glide/load/DataSource;
 
     return-object v0
 .end method
 
 .method public loadData(Lcom/bumptech/glide/Priority;Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;)V
-    .locals 1
-    .param p1, "priority"    # Lcom/bumptech/glide/Priority;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -121,12 +111,9 @@
     .end annotation
 
     .line 55
-    .local p0, "this":Lcom/bumptech/glide/load/model/UnitModelLoader$UnitFetcher;, "Lcom/bumptech/glide/load/model/UnitModelLoader$UnitFetcher<TModel;>;"
-    .local p2, "callback":Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;, "Lcom/bumptech/glide/load/data/DataFetcher$DataCallback<-TModel;>;"
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/UnitModelLoader$UnitFetcher;->resource:Ljava/lang/Object;
+    iget-object p1, p0, Lcom/bumptech/glide/load/model/UnitModelLoader$UnitFetcher;->resource:Ljava/lang/Object;
 
-    invoke-interface {p2, v0}, Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;->onDataReady(Ljava/lang/Object;)V
+    invoke-interface {p2, p1}, Lcom/bumptech/glide/load/data/DataFetcher$DataCallback;->onDataReady(Ljava/lang/Object;)V
 
-    .line 56
     return-void
 .end method

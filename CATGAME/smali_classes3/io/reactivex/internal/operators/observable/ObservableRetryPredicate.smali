@@ -39,7 +39,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/Observable;JLio/reactivex/functions/Predicate;)V
     .locals 0
-    .param p2, "count"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -53,9 +52,6 @@
     .end annotation
 
     .line 30
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRetryPredicate;, "Lio/reactivex/internal/operators/observable/ObservableRetryPredicate<TT;>;"
-    .local p1, "source":Lio/reactivex/Observable;, "Lio/reactivex/Observable<TT;>;"
-    .local p4, "predicate":Lio/reactivex/functions/Predicate;, "Lio/reactivex/functions/Predicate<-Ljava/lang/Throwable;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/observable/AbstractObservableWithUpstream;-><init>(Lio/reactivex/ObservableSource;)V
 
     .line 31
@@ -64,14 +60,13 @@
     .line 32
     iput-wide p2, p0, Lio/reactivex/internal/operators/observable/ObservableRetryPredicate;->count:J
 
-    .line 33
     return-void
 .end method
 
 
 # virtual methods
 .method public subscribeActual(Lio/reactivex/Observer;)V
-    .locals 9
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -81,37 +76,30 @@
     .end annotation
 
     .line 37
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRetryPredicate;, "Lio/reactivex/internal/operators/observable/ObservableRetryPredicate<TT;>;"
-    .local p1, "s":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
-    new-instance v0, Lio/reactivex/internal/disposables/SequentialDisposable;
+    new-instance v5, Lio/reactivex/internal/disposables/SequentialDisposable;
 
-    invoke-direct {v0}, Lio/reactivex/internal/disposables/SequentialDisposable;-><init>()V
+    invoke-direct {v5}, Lio/reactivex/internal/disposables/SequentialDisposable;-><init>()V
 
     .line 38
-    .local v0, "sa":Lio/reactivex/internal/disposables/SequentialDisposable;
-    invoke-interface {p1, v0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, v5}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 40
-    new-instance v8, Lio/reactivex/internal/operators/observable/ObservableRetryPredicate$RepeatObserver;
+    new-instance v7, Lio/reactivex/internal/operators/observable/ObservableRetryPredicate$RepeatObserver;
 
-    iget-wide v3, p0, Lio/reactivex/internal/operators/observable/ObservableRetryPredicate;->count:J
+    iget-wide v2, p0, Lio/reactivex/internal/operators/observable/ObservableRetryPredicate;->count:J
 
-    iget-object v5, p0, Lio/reactivex/internal/operators/observable/ObservableRetryPredicate;->predicate:Lio/reactivex/functions/Predicate;
+    iget-object v4, p0, Lio/reactivex/internal/operators/observable/ObservableRetryPredicate;->predicate:Lio/reactivex/functions/Predicate;
 
-    iget-object v7, p0, Lio/reactivex/internal/operators/observable/ObservableRetryPredicate;->source:Lio/reactivex/ObservableSource;
+    iget-object v6, p0, Lio/reactivex/internal/operators/observable/ObservableRetryPredicate;->source:Lio/reactivex/ObservableSource;
 
-    move-object v1, v8
+    move-object v0, v7
 
-    move-object v2, p1
+    move-object v1, p1
 
-    move-object v6, v0
-
-    invoke-direct/range {v1 .. v7}, Lio/reactivex/internal/operators/observable/ObservableRetryPredicate$RepeatObserver;-><init>(Lio/reactivex/Observer;JLio/reactivex/functions/Predicate;Lio/reactivex/internal/disposables/SequentialDisposable;Lio/reactivex/ObservableSource;)V
+    invoke-direct/range {v0 .. v6}, Lio/reactivex/internal/operators/observable/ObservableRetryPredicate$RepeatObserver;-><init>(Lio/reactivex/Observer;JLio/reactivex/functions/Predicate;Lio/reactivex/internal/disposables/SequentialDisposable;Lio/reactivex/ObservableSource;)V
 
     .line 41
-    .local v1, "rs":Lio/reactivex/internal/operators/observable/ObservableRetryPredicate$RepeatObserver;, "Lio/reactivex/internal/operators/observable/ObservableRetryPredicate$RepeatObserver<TT;>;"
-    invoke-virtual {v1}, Lio/reactivex/internal/operators/observable/ObservableRetryPredicate$RepeatObserver;->subscribeNext()V
+    invoke-virtual {v7}, Lio/reactivex/internal/operators/observable/ObservableRetryPredicate$RepeatObserver;->subscribeNext()V
 
-    .line 42
     return-void
 .end method

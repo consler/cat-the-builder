@@ -17,20 +17,20 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 21
     const-string v0, "0123456789abcdef"
 
+    .line 21
     invoke-virtual {v0}, Ljava/lang/String;->toCharArray()[C
 
     move-result-object v0
 
     sput-object v0, Lcom/bumptech/glide/util/Util;->HEX_CHAR_ARRAY:[C
 
-    .line 23
     const/16 v0, 0x40
 
     new-array v0, v0, [C
 
+    .line 23
     sput-object v0, Lcom/bumptech/glide/util/Util;->SHA_256_CHARS:[C
 
     return-void
@@ -42,7 +42,6 @@
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 27
     return-void
 .end method
 
@@ -56,7 +55,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 152
     return-void
 
     .line 150
@@ -80,7 +78,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 145
     return-void
 
     .line 143
@@ -96,24 +93,20 @@
 
 .method public static bothModelsNullEquivalentOrEquals(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 1
-    .param p0, "a"    # Ljava/lang/Object;
-    .param p1, "b"    # Ljava/lang/Object;
 
-    .line 202
     if-nez p0, :cond_1
 
-    .line 203
     if-nez p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 
     .line 205
     :cond_1
@@ -122,62 +115,55 @@
     if-eqz v0, :cond_2
 
     .line 206
-    move-object v0, p0
+    check-cast p0, Lcom/bumptech/glide/load/model/Model;
 
-    check-cast v0, Lcom/bumptech/glide/load/model/Model;
+    invoke-interface {p0, p1}, Lcom/bumptech/glide/load/model/Model;->isEquivalentTo(Ljava/lang/Object;)Z
 
-    invoke-interface {v0, p1}, Lcom/bumptech/glide/load/model/Model;->isEquivalentTo(Ljava/lang/Object;)Z
+    move-result p0
 
-    move-result v0
-
-    return v0
+    return p0
 
     .line 208
     :cond_2
     invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static bothNullOrEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
-    .param p0, "a"    # Ljava/lang/Object;
-    .param p1, "b"    # Ljava/lang/Object;
+    .locals 0
 
-    .line 198
     if-nez p0, :cond_1
 
     if-nez p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     goto :goto_0
 
+    .line 198
     :cond_1
     invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method private static bytesToHex([B[C)Ljava/lang/String;
     .locals 5
-    .param p0, "bytes"    # [B
-    .param p1, "hexChars"    # [C
 
-    .line 44
     const/4 v0, 0x0
 
-    .local v0, "j":I
+    .line 44
     :goto_0
     array-length v1, p0
 
@@ -188,10 +174,9 @@
 
     and-int/lit16 v1, v1, 0xff
 
-    .line 46
-    .local v1, "v":I
     mul-int/lit8 v2, v0, 0x2
 
+    .line 46
     sget-object v3, Lcom/bumptech/glide/util/Util;->HEX_CHAR_ARRAY:[C
 
     ushr-int/lit8 v4, v1, 0x4
@@ -200,36 +185,30 @@
 
     aput-char v4, p1, v2
 
-    .line 47
-    mul-int/lit8 v2, v0, 0x2
-
     add-int/lit8 v2, v2, 0x1
 
-    and-int/lit8 v4, v1, 0xf
+    and-int/lit8 v1, v1, 0xf
 
-    aget-char v3, v3, v4
+    .line 47
+    aget-char v1, v3, v1
 
-    aput-char v3, p1, v2
+    aput-char v1, p1, v2
 
-    .line 44
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 49
-    .end local v0    # "j":I
-    .end local v1    # "v":I
     :cond_0
-    new-instance v0, Ljava/lang/String;
+    new-instance p0, Ljava/lang/String;
 
-    invoke-direct {v0, p1}, Ljava/lang/String;-><init>([C)V
+    invoke-direct {p0, p1}, Ljava/lang/String;-><init>([C)V
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static createQueue(I)Ljava/util/Queue;
     .locals 1
-    .param p0, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -249,86 +228,73 @@
 .end method
 
 .method public static getBitmapByteSize(IILandroid/graphics/Bitmap$Config;)I
-    .locals 2
-    .param p0, "width"    # I
-    .param p1, "height"    # I
-    .param p2, "config"    # Landroid/graphics/Bitmap$Config;
+    .locals 0
+
+    mul-int/2addr p0, p1
 
     .line 99
-    mul-int v0, p0, p1
-
     invoke-static {p2}, Lcom/bumptech/glide/util/Util;->getBytesPerPixel(Landroid/graphics/Bitmap$Config;)I
 
-    move-result v1
+    move-result p1
 
-    mul-int/2addr v0, v1
+    mul-int/2addr p0, p1
 
-    return v0
+    return p0
 .end method
 
 .method public static getBitmapByteSize(Landroid/graphics/Bitmap;)I
     .locals 3
-    .param p0, "bitmap"    # Landroid/graphics/Bitmap;
 
     .line 70
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->isRecycled()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
-
-    .line 81
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x13
-
-    if-lt v0, v1, :cond_0
+    if-nez v0, :cond_0
 
     .line 84
     :try_start_0
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getAllocationByteCount()I
 
-    move-result v0
+    move-result p0
     :try_end_0
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v0
-
-    .line 85
-    :catch_0
-    move-exception v0
+    return p0
 
     .line 91
-    :cond_0
+    :catch_0
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v0
 
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getRowBytes()I
 
-    move-result v1
+    move-result p0
 
-    mul-int/2addr v0, v1
+    mul-int/2addr v0, p0
 
     return v0
 
     .line 71
-    :cond_1
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Cannot obtain size for recycled Bitmap: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     const-string v2, "["
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     .line 75
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getWidth()I
@@ -337,9 +303,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "x"
+    move-result-object v1
+
+    const-string v2, "x"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     .line 77
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getHeight()I
@@ -348,31 +318,35 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, "] "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     .line 79
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v1
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method private static getBytesPerPixel(Landroid/graphics/Bitmap$Config;)I
     .locals 2
-    .param p0, "config"    # Landroid/graphics/Bitmap$Config;
 
-    .line 104
     if-nez p0, :cond_0
 
     .line 105
@@ -384,80 +358,51 @@
 
     invoke-virtual {p0}, Landroid/graphics/Bitmap$Config;->ordinal()I
 
-    move-result v1
+    move-result p0
 
-    aget v0, v0, v1
+    aget p0, v0, p0
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    if-eq v0, v1, :cond_3
+    if-eq p0, v0, :cond_2
 
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
-    if-eq v0, v1, :cond_2
+    if-eq p0, v0, :cond_2
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_2
+    if-eq p0, v1, :cond_2
 
-    const/4 v1, 0x4
-
-    if-eq v0, v1, :cond_1
-
-    .line 122
     const/4 v0, 0x4
 
-    .local v0, "bytesPerPixel":I
+    if-eq p0, v0, :cond_1
+
     goto :goto_0
 
-    .line 118
-    .end local v0    # "bytesPerPixel":I
     :cond_1
     const/16 v0, 0x8
 
-    .line 119
-    .restart local v0    # "bytesPerPixel":I
-    goto :goto_0
-
-    .line 115
-    .end local v0    # "bytesPerPixel":I
     :cond_2
-    const/4 v0, 0x2
-
-    .line 116
-    .restart local v0    # "bytesPerPixel":I
-    goto :goto_0
-
-    .line 111
-    .end local v0    # "bytesPerPixel":I
-    :cond_3
-    const/4 v0, 0x1
-
-    .line 112
-    .restart local v0    # "bytesPerPixel":I
-    nop
-
-    .line 125
     :goto_0
     return v0
 .end method
 
 .method public static getSize(Landroid/graphics/Bitmap;)I
-    .locals 1
-    .param p0, "bitmap"    # Landroid/graphics/Bitmap;
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 61
     invoke-static {p0}, Lcom/bumptech/glide/util/Util;->getBitmapByteSize(Landroid/graphics/Bitmap;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static getSnapshot(Ljava/util/Collection;)Ljava/util/List;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -471,7 +416,6 @@
     .end annotation
 
     .line 183
-    .local p0, "other":Ljava/util/Collection;, "Ljava/util/Collection<TT;>;"
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-interface {p0}, Ljava/util/Collection;->size()I
@@ -481,147 +425,129 @@
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 184
-    .local v0, "result":Ljava/util/List;, "Ljava/util/List<TT;>;"
     invoke-interface {p0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :cond_0
+    :goto_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    .line 185
-    .local v2, "item":Ljava/lang/Object;, "TT;"
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
     .line 186
-    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 188
-    .end local v2    # "item":Ljava/lang/Object;, "TT;"
-    :cond_0
     goto :goto_0
 
-    .line 189
     :cond_1
     return-object v0
 .end method
 
 .method public static hashCode(F)I
     .locals 1
-    .param p0, "value"    # F
 
-    .line 220
     const/16 v0, 0x11
 
+    .line 220
     invoke-static {p0, v0}, Lcom/bumptech/glide/util/Util;->hashCode(FI)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static hashCode(FI)I
-    .locals 1
-    .param p0, "value"    # F
-    .param p1, "accumulator"    # I
+    .locals 0
 
     .line 224
     invoke-static {p0}, Ljava/lang/Float;->floatToIntBits(F)I
 
-    move-result v0
+    move-result p0
 
-    invoke-static {v0, p1}, Lcom/bumptech/glide/util/Util;->hashCode(II)I
+    invoke-static {p0, p1}, Lcom/bumptech/glide/util/Util;->hashCode(II)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static hashCode(I)I
     .locals 1
-    .param p0, "value"    # I
 
-    .line 212
     const/16 v0, 0x11
 
+    .line 212
     invoke-static {p0, v0}, Lcom/bumptech/glide/util/Util;->hashCode(II)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static hashCode(II)I
-    .locals 1
-    .param p0, "value"    # I
-    .param p1, "accumulator"    # I
+    .locals 0
 
-    .line 216
-    mul-int/lit8 v0, p1, 0x1f
+    mul-int/lit8 p1, p1, 0x1f
 
-    add-int/2addr v0, p0
+    add-int/2addr p1, p0
 
-    return v0
+    return p1
 .end method
 
 .method public static hashCode(Ljava/lang/Object;I)I
-    .locals 1
-    .param p0, "object"    # Ljava/lang/Object;
-    .param p1, "accumulator"    # I
+    .locals 0
 
-    .line 228
     if-nez p0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     goto :goto_0
 
+    .line 228
     :cond_0
     invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
 
-    move-result v0
+    move-result p0
 
     :goto_0
-    invoke-static {v0, p1}, Lcom/bumptech/glide/util/Util;->hashCode(II)I
+    invoke-static {p0, p1}, Lcom/bumptech/glide/util/Util;->hashCode(II)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static hashCode(Z)I
     .locals 1
-    .param p0, "value"    # Z
 
-    .line 236
     const/16 v0, 0x11
 
+    .line 236
     invoke-static {p0, v0}, Lcom/bumptech/glide/util/Util;->hashCode(ZI)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static hashCode(ZI)I
-    .locals 1
-    .param p0, "value"    # Z
-    .param p1, "accumulator"    # I
+    .locals 0
 
     .line 232
     invoke-static {p0, p1}, Lcom/bumptech/glide/util/Util;->hashCode(II)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static isOnBackgroundThread()Z
@@ -664,9 +590,7 @@
 
 .method private static isValidDimension(I)Z
     .locals 1
-    .param p0, "dimen"    # I
 
-    .line 134
     if-gtz p0, :cond_1
 
     const/high16 v0, -0x80000000
@@ -676,50 +600,47 @@
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     :goto_1
-    return v0
+    return p0
 .end method
 
 .method public static isValidDimensions(II)Z
-    .locals 1
-    .param p0, "width"    # I
-    .param p1, "height"    # I
+    .locals 0
 
     .line 130
     invoke-static {p0}, Lcom/bumptech/glide/util/Util;->isValidDimension(I)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
     invoke-static {p1}, Lcom/bumptech/glide/util/Util;->isValidDimension(I)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public static sha256BytesToHex([B)Ljava/lang/String;
-    .locals 2
-    .param p0, "bytes"    # [B
+    .locals 1
 
     .line 32
     sget-object v0, Lcom/bumptech/glide/util/Util;->SHA_256_CHARS:[C
@@ -728,23 +649,21 @@
 
     .line 33
     :try_start_0
-    sget-object v1, Lcom/bumptech/glide/util/Util;->SHA_256_CHARS:[C
+    invoke-static {p0, v0}, Lcom/bumptech/glide/util/Util;->bytesToHex([B[C)Ljava/lang/String;
 
-    invoke-static {p0, v1}, Lcom/bumptech/glide/util/Util;->bytesToHex([B[C)Ljava/lang/String;
-
-    move-result-object v1
+    move-result-object p0
 
     monitor-exit v0
 
-    return-object v1
+    return-object p0
+
+    :catchall_0
+    move-exception p0
 
     .line 34
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

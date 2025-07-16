@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/DialogFragment;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/fragment/app/DialogFragment;
 
     .line 94
     iput-object p1, p0, Landroidx/fragment/app/DialogFragment$1;->this$0:Landroidx/fragment/app/DialogFragment;
@@ -50,6 +49,5 @@
 
     invoke-interface {v0, v1}, Landroid/content/DialogInterface$OnDismissListener;->onDismiss(Landroid/content/DialogInterface;)V
 
-    .line 98
     return-void
 .end method

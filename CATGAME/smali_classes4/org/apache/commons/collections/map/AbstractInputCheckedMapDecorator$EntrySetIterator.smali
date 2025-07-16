@@ -21,8 +21,6 @@
 # direct methods
 .method protected constructor <init>(Ljava/util/Iterator;Lorg/apache/commons/collections/map/AbstractInputCheckedMapDecorator;)V
     .locals 0
-    .param p1, "iterator"    # Ljava/util/Iterator;
-    .param p2, "parent"    # Lorg/apache/commons/collections/map/AbstractInputCheckedMapDecorator;
 
     .line 168
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/iterators/AbstractIteratorDecorator;-><init>(Ljava/util/Iterator;)V
@@ -30,7 +28,6 @@
     .line 169
     iput-object p2, p0, Lorg/apache/commons/collections/map/AbstractInputCheckedMapDecorator$EntrySetIterator;->parent:Lorg/apache/commons/collections/map/AbstractInputCheckedMapDecorator;
 
-    .line 170
     return-void
 .end method
 
@@ -49,7 +46,6 @@
     check-cast v0, Ljava/util/Map$Entry;
 
     .line 174
-    .local v0, "entry":Ljava/util/Map$Entry;
     new-instance v1, Lorg/apache/commons/collections/map/AbstractInputCheckedMapDecorator$MapEntry;
 
     iget-object v2, p0, Lorg/apache/commons/collections/map/AbstractInputCheckedMapDecorator$EntrySetIterator;->parent:Lorg/apache/commons/collections/map/AbstractInputCheckedMapDecorator;

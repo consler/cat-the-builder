@@ -84,15 +84,12 @@
     invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
     .line 59
-    .local v0, "handler":Landroid/os/Handler;
     new-instance v1, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService;
 
     invoke-direct {v1, v0}, Landroidx/camera/core/impl/utils/executor/HandlerScheduledExecutorService;-><init>(Landroid/os/Handler;)V
 
     return-object v1
 
-    .line 62
-    .end local v0    # "handler":Landroid/os/Handler;
     :cond_1
     const/4 v0, 0x0
 

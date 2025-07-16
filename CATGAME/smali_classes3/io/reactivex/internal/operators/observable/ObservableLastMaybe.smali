@@ -44,14 +44,11 @@
     .end annotation
 
     .line 30
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableLastMaybe;, "Lio/reactivex/internal/operators/observable/ObservableLastMaybe<TT;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Maybe;-><init>()V
 
     .line 31
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableLastMaybe;->source:Lio/reactivex/ObservableSource;
 
-    .line 32
     return-void
 .end method
 
@@ -68,8 +65,6 @@
     .end annotation
 
     .line 38
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableLastMaybe;, "Lio/reactivex/internal/operators/observable/ObservableLastMaybe<TT;>;"
-    .local p1, "observer":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableLastMaybe;->source:Lio/reactivex/ObservableSource;
 
     new-instance v1, Lio/reactivex/internal/operators/observable/ObservableLastMaybe$LastObserver;
@@ -78,6 +73,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 39
     return-void
 .end method

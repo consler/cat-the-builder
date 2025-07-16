@@ -63,10 +63,10 @@
 
     return-object v0
 
-    .line 36
     :catchall_0
     move-exception v1
 
+    .line 36
     :try_start_1
     monitor-exit v0
     :try_end_1
@@ -79,11 +79,9 @@
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
     .locals 0
-    .param p1, "command"    # Ljava/lang/Runnable;
 
     .line 43
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
 
-    .line 44
     return-void
 .end method

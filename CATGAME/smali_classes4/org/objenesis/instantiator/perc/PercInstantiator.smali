@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -41,11 +41,8 @@
     .end annotation
 
     .line 41
-    .local p0, "this":Lorg/objenesis/instantiator/perc/PercInstantiator;, "Lorg/objenesis/instantiator/perc/PercInstantiator<TT;>;"
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 39
     const/4 v0, 0x2
 
     new-array v1, v0, [Ljava/lang/Object;
@@ -56,6 +53,7 @@
 
     aput-object v2, v1, v3
 
+    .line 39
     sget-object v2, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     const/4 v4, 0x1
@@ -64,60 +62,53 @@
 
     iput-object v1, p0, Lorg/objenesis/instantiator/perc/PercInstantiator;->typeArgs:[Ljava/lang/Object;
 
-    .line 43
     aput-object p1, v1, v3
 
     .line 46
     :try_start_0
-    const-class v1, Ljava/io/ObjectInputStream;
+    const-class p1, Ljava/io/ObjectInputStream;
 
-    const-string v2, "newInstance"
+    const-string v1, "newInstance"
 
     new-array v0, v0, [Ljava/lang/Class;
 
-    const-class v5, Ljava/lang/Class;
+    const-class v2, Ljava/lang/Class;
 
-    aput-object v5, v0, v3
+    aput-object v2, v0, v3
 
-    sget-object v3, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
+    sget-object v2, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
-    aput-object v3, v0, v4
+    aput-object v2, v0, v4
 
-    invoke-virtual {v1, v2, v0}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {p1, v1, v0}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lorg/objenesis/instantiator/perc/PercInstantiator;->newInstanceMethod:Ljava/lang/reflect/Method;
+    iput-object p1, p0, Lorg/objenesis/instantiator/perc/PercInstantiator;->newInstanceMethod:Ljava/lang/reflect/Method;
 
     .line 48
-    invoke-virtual {v0, v4}, Ljava/lang/reflect/Method;->setAccessible(Z)V
+    invoke-virtual {p1, v4}, Ljava/lang/reflect/Method;->setAccessible(Z)V
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 52
-    nop
-
-    .line 53
     return-void
 
-    .line 50
     :catch_0
-    move-exception v0
+    move-exception p1
 
     goto :goto_0
 
     :catch_1
-    move-exception v0
+    move-exception p1
 
     .line 51
-    .local v0, "e":Ljava/lang/Exception;
     :goto_0
-    new-instance v1, Lorg/objenesis/ObjenesisException;
+    new-instance v0, Lorg/objenesis/ObjenesisException;
 
-    invoke-direct {v1, v0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 
@@ -131,15 +122,14 @@
     .end annotation
 
     .line 58
-    .local p0, "this":Lorg/objenesis/instantiator/perc/PercInstantiator;, "Lorg/objenesis/instantiator/perc/PercInstantiator<TT;>;"
     :try_start_0
     iget-object v0, p0, Lorg/objenesis/instantiator/perc/PercInstantiator;->newInstanceMethod:Ljava/lang/reflect/Method;
 
-    const/4 v1, 0x0
+    iget-object v1, p0, Lorg/objenesis/instantiator/perc/PercInstantiator;->typeArgs:[Ljava/lang/Object;
 
-    iget-object v2, p0, Lorg/objenesis/instantiator/perc/PercInstantiator;->typeArgs:[Ljava/lang/Object;
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v2, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
     :try_end_0
@@ -147,12 +137,10 @@
 
     return-object v0
 
-    .line 59
     :catch_0
     move-exception v0
 
     .line 60
-    .local v0, "e":Ljava/lang/Exception;
     new-instance v1, Lorg/objenesis/ObjenesisException;
 
     invoke-direct {v1, v0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V

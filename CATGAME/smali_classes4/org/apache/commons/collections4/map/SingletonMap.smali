@@ -65,15 +65,13 @@
     .locals 1
 
     .line 78
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 79
     const/4 v0, 0x0
 
+    .line 79
     iput-object v0, p0, Lorg/apache/commons/collections4/map/SingletonMap;->key:Ljava/lang/Object;
 
-    .line 80
     return-void
 .end method
 
@@ -86,9 +84,6 @@
     .end annotation
 
     .line 89
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 90
@@ -97,7 +92,6 @@
     .line 91
     iput-object p2, p0, Lorg/apache/commons/collections4/map/SingletonMap;->value:Ljava/lang/Object;
 
-    .line 92
     return-void
 .end method
 
@@ -112,8 +106,6 @@
     .end annotation
 
     .line 111
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
-    .local p1, "mapEntry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 112
@@ -126,11 +118,10 @@
     .line 113
     invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/map/SingletonMap;->value:Ljava/lang/Object;
+    iput-object p1, p0, Lorg/apache/commons/collections4/map/SingletonMap;->value:Ljava/lang/Object;
 
-    .line 114
     return-void
 .end method
 
@@ -145,8 +136,6 @@
     .end annotation
 
     .line 124
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 125
@@ -161,46 +150,43 @@
     .line 128
     invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Map$Entry;
+    check-cast p1, Ljava/util/Map$Entry;
 
     .line 129
-    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+TV;>;"
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lorg/apache/commons/collections4/map/SingletonMap;->key:Ljava/lang/Object;
+    iput-object v0, p0, Lorg/apache/commons/collections4/map/SingletonMap;->key:Ljava/lang/Object;
 
     .line 130
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    iput-object v1, p0, Lorg/apache/commons/collections4/map/SingletonMap;->value:Ljava/lang/Object;
+    iput-object p1, p0, Lorg/apache/commons/collections4/map/SingletonMap;->value:Ljava/lang/Object;
 
-    .line 131
     return-void
 
     .line 126
-    .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+TV;>;"
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "The map size must be 1"
+    const-string v0, "The map size must be 1"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public constructor <init>(Lorg/apache/commons/collections4/KeyValue;)V
@@ -214,8 +200,6 @@
     .end annotation
 
     .line 100
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
-    .local p1, "keyValue":Lorg/apache/commons/collections4/KeyValue;, "Lorg/apache/commons/collections4/KeyValue<TK;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 101
@@ -228,11 +212,10 @@
     .line 102
     invoke-interface {p1}, Lorg/apache/commons/collections4/KeyValue;->getValue()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/map/SingletonMap;->value:Ljava/lang/Object;
+    iput-object p1, p0, Lorg/apache/commons/collections4/map/SingletonMap;->value:Ljava/lang/Object;
 
-    .line 103
     return-void
 .end method
 
@@ -242,7 +225,6 @@
     .locals 1
 
     .line 312
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -259,7 +241,6 @@
     .end annotation
 
     .line 63
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/SingletonMap;->clone()Lorg/apache/commons/collections4/map/SingletonMap;
 
     move-result-object v0
@@ -268,7 +249,7 @@
 .end method
 
 .method public clone()Lorg/apache/commons/collections4/map/SingletonMap;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -278,7 +259,6 @@
     .end annotation
 
     .line 555
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
     :try_start_0
     invoke-super {p0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
@@ -290,43 +270,35 @@
 
     return-object v0
 
-    .line 556
-    :catch_0
-    move-exception v0
-
     .line 557
-    .local v0, "ex":Ljava/lang/CloneNotSupportedException;
-    new-instance v1, Ljava/lang/InternalError;
+    :catch_0
+    new-instance v0, Ljava/lang/InternalError;
 
-    invoke-direct {v1}, Ljava/lang/InternalError;-><init>()V
+    invoke-direct {v0}, Ljava/lang/InternalError;-><init>()V
 
-    throw v1
+    throw v0
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 0
 
     .line 234
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/map/SingletonMap;->isEqualKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "value"    # Ljava/lang/Object;
+    .locals 0
 
     .line 245
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/map/SingletonMap;->isEqualValue(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public entrySet()Ljava/util/Set;
@@ -341,7 +313,6 @@
     .end annotation
 
     .line 325
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/keyvalue/TiedMapEntry;
 
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/SingletonMap;->getKey()Ljava/lang/Object;
@@ -351,25 +322,20 @@
     invoke-direct {v0, p0, v1}, Lorg/apache/commons/collections4/keyvalue/TiedMapEntry;-><init>(Ljava/util/Map;Ljava/lang/Object;)V
 
     .line 326
-    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     invoke-static {v0}, Ljava/util/Collections;->singleton(Ljava/lang/Object;)Ljava/util/Set;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 3
 
-    .line 569
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
     const/4 v0, 0x1
 
     if-ne p1, p0, :cond_0
 
-    .line 570
     return v0
 
     .line 572
@@ -380,63 +346,57 @@
 
     if-nez v1, :cond_1
 
-    .line 573
     return v2
 
     .line 575
     :cond_1
-    move-object v1, p1
-
-    check-cast v1, Ljava/util/Map;
+    check-cast p1, Ljava/util/Map;
 
     .line 576
-    .local v1, "other":Ljava/util/Map;, "Ljava/util/Map<**>;"
-    invoke-interface {v1}, Ljava/util/Map;->size()I
+    invoke-interface {p1}, Ljava/util/Map;->size()I
 
-    move-result v3
+    move-result v1
 
-    if-eq v3, v0, :cond_2
+    if-eq v1, v0, :cond_2
 
-    .line 577
     return v2
 
     .line 579
     :cond_2
-    invoke-interface {v1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+    invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-interface {v3}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p1
 
-    check-cast v3, Ljava/util/Map$Entry;
+    check-cast p1, Ljava/util/Map$Entry;
 
     .line 580
-    .local v3, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
-    invoke-interface {v3}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-virtual {p0, v4}, Lorg/apache/commons/collections4/map/SingletonMap;->isEqualKey(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v1}, Lorg/apache/commons/collections4/map/SingletonMap;->isEqualKey(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v1
 
-    if-eqz v4, :cond_3
+    if-eqz v1, :cond_3
 
-    invoke-interface {v3}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-virtual {p0, v4}, Lorg/apache/commons/collections4/map/SingletonMap;->isEqualValue(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/map/SingletonMap;->isEqualValue(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result p1
 
-    if-eqz v4, :cond_3
+    if-eqz p1, :cond_3
 
     goto :goto_0
 
@@ -456,7 +416,6 @@
     .end annotation
 
     .line 368
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/SingletonMap;->getKey()Ljava/lang/Object;
 
     move-result-object v0
@@ -465,8 +424,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -476,23 +434,21 @@
     .end annotation
 
     .line 199
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/map/SingletonMap;->isEqualKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 200
-    iget-object v0, p0, Lorg/apache/commons/collections4/map/SingletonMap;->value:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/map/SingletonMap;->value:Ljava/lang/Object;
 
-    return-object v0
+    return-object p1
 
-    .line 202
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getKey()Ljava/lang/Object;
@@ -504,7 +460,6 @@
     .end annotation
 
     .line 142
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/SingletonMap;->key:Ljava/lang/Object;
 
     return-object v0
@@ -519,7 +474,6 @@
     .end annotation
 
     .line 152
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/SingletonMap;->value:Ljava/lang/Object;
 
     return-object v0
@@ -529,7 +483,6 @@
     .locals 3
 
     .line 590
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/SingletonMap;->getKey()Ljava/lang/Object;
 
     move-result-object v0
@@ -573,15 +526,12 @@
     :goto_1
     xor-int/2addr v0, v1
 
-    .line 590
     return v0
 .end method
 
 .method public isEmpty()Z
     .locals 1
 
-    .line 222
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
     const/4 v0, 0x0
 
     return v0
@@ -589,73 +539,75 @@
 
 .method protected isEqualKey(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
+
+    if-nez p1, :cond_1
 
     .line 411
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
+    invoke-virtual {p0}, Lorg/apache/commons/collections4/map/SingletonMap;->getKey()Ljava/lang/Object;
+
+    move-result-object p1
+
+    if-nez p1, :cond_0
+
+    const/4 p1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p1, 0x0
+
+    goto :goto_0
+
+    :cond_1
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/SingletonMap;->getKey()Ljava/lang/Object;
 
     move-result-object v0
 
-    if-nez p1, :cond_1
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    :cond_1
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method protected isEqualValue(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "value"    # Ljava/lang/Object;
-
-    .line 421
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
-    invoke-virtual {p0}, Lorg/apache/commons/collections4/map/SingletonMap;->getValue()Ljava/lang/Object;
-
-    move-result-object v0
 
     if-nez p1, :cond_1
 
-    if-nez v0, :cond_0
+    .line 421
+    invoke-virtual {p0}, Lorg/apache/commons/collections4/map/SingletonMap;->getValue()Ljava/lang/Object;
 
-    const/4 v0, 0x1
+    move-result-object p1
+
+    if-nez p1, :cond_0
+
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
     :cond_1
+    invoke-virtual {p0}, Lorg/apache/commons/collections4/map/SingletonMap;->getValue()Ljava/lang/Object;
+
+    move-result-object v0
+
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public isFull()Z
     .locals 1
 
-    .line 176
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
     const/4 v0, 0x1
 
     return v0
@@ -672,7 +624,6 @@
     .end annotation
 
     .line 338
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/SingletonMap;->key:Ljava/lang/Object;
 
     invoke-static {v0}, Ljava/util/Collections;->singleton(Ljava/lang/Object;)Ljava/util/Set;
@@ -691,7 +642,6 @@
     .end annotation
 
     .line 378
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/SingletonMap;->getKey()Ljava/lang/Object;
 
     move-result-object v0
@@ -703,7 +653,6 @@
     .locals 1
 
     .line 63
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/SingletonMap;->mapIterator()Lorg/apache/commons/collections4/OrderedMapIterator;
 
     move-result-object v0
@@ -722,7 +671,6 @@
     .end annotation
 
     .line 358
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;
 
     invoke-direct {v0, p0}, Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;-><init>(Lorg/apache/commons/collections4/map/SingletonMap;)V
@@ -733,47 +681,39 @@
 .method public maxSize()I
     .locals 1
 
-    .line 186
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public nextKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TK;"
         }
     .end annotation
 
-    .line 389
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public previousKey(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TK;"
         }
     .end annotation
 
-    .line 400
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -781,35 +721,32 @@
     .end annotation
 
     .line 262
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/map/SingletonMap;->isEqualKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 263
     invoke-virtual {p0, p2}, Lorg/apache/commons/collections4/map/SingletonMap;->setValue(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 265
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Cannot put new key/value pair - Map is fixed size singleton"
+    const-string p2, "Cannot put new key/value pair - Map is fixed size singleton"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -819,8 +756,6 @@
     .end annotation
 
     .line 281
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     invoke-interface {p1}, Ljava/util/Map;->size()I
 
     move-result v0
@@ -834,52 +769,47 @@
     .line 286
     invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Map$Entry;
+    check-cast p1, Ljava/util/Map$Entry;
 
     .line 287
-    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+TV;>;"
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {p0, v1, v2}, Lorg/apache/commons/collections4/map/SingletonMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, p1}, Lorg/apache/commons/collections4/map/SingletonMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 288
     return-void
 
     .line 291
-    .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TK;+TV;>;"
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "The map size must be 0 or 1"
+    const-string v0, "The map size must be 0 or 1"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 283
     :cond_1
     return-void
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -889,12 +819,11 @@
     .end annotation
 
     .line 304
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
@@ -906,23 +835,17 @@
     .end annotation
 
     .line 162
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/SingletonMap;->value:Ljava/lang/Object;
 
     .line 163
-    .local v0, "old":Ljava/lang/Object;, "TV;"
     iput-object p1, p0, Lorg/apache/commons/collections4/map/SingletonMap;->value:Ljava/lang/Object;
 
-    .line 164
     return-object v0
 .end method
 
 .method public size()I
     .locals 1
 
-    .line 212
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
     const/4 v0, 0x1
 
     return v0
@@ -932,17 +855,18 @@
     .locals 3
 
     .line 601
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
     new-instance v0, Ljava/lang/StringBuilder;
 
     const/16 v1, 0x80
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
-    .line 602
     const/16 v1, 0x7b
 
+    .line 602
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     .line 603
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/SingletonMap;->getKey()Ljava/lang/Object;
@@ -965,10 +889,14 @@
     :goto_0
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const/16 v1, 0x3d
 
     .line 604
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     .line 605
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/SingletonMap;->getValue()Ljava/lang/Object;
@@ -987,17 +915,20 @@
     :goto_1
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const/16 v1, 0x7d
 
     .line 606
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     .line 607
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 601
     return-object v0
 .end method
 
@@ -1012,7 +943,6 @@
     .end annotation
 
     .line 350
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/map/SingletonMap$SingletonValues;
 
     invoke-direct {v0, p0}, Lorg/apache/commons/collections4/map/SingletonMap$SingletonValues;-><init>(Lorg/apache/commons/collections4/map/SingletonMap;)V

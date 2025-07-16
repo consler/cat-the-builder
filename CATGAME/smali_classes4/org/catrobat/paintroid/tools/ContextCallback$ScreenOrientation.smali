@@ -22,11 +22,6 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u0000\u000c\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0002\u0008\u0004\u0008\u0086\u0001\u0018\u00002\u0008\u0012\u0004\u0012\u00020\u00000\u0001B\u0007\u0008\u0002\u00a2\u0006\u0002\u0010\u0002j\u0002\u0008\u0003j\u0002\u0008\u0004\u00a8\u0006\u0005"
     }
@@ -36,14 +31,15 @@
         "(Ljava/lang/String;I)V",
         "PORTRAIT",
         "LANDSCAPE",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -56,36 +52,55 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 4
+.method private static final synthetic $values()[Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;
+    .locals 3
 
     const/4 v0, 0x2
 
     new-array v0, v0, [Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;
 
-    new-instance v1, Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;
+    const/4 v1, 0x0
 
-    const-string v2, "PORTRAIT"
+    sget-object v2, Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;->PORTRAIT:Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;
 
-    const/4 v3, 0x0
+    aput-object v2, v0, v1
 
-    invoke-direct {v1, v2, v3}, Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;-><init>(Ljava/lang/String;I)V
+    const/4 v1, 0x1
 
-    sput-object v1, Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;->PORTRAIT:Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;
+    sget-object v2, Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;->LANDSCAPE:Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;
 
-    aput-object v1, v0, v3
+    aput-object v2, v0, v1
 
-    new-instance v1, Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;
+    return-object v0
+.end method
 
-    const-string v2, "LANDSCAPE"
+.method static constructor <clinit>()V
+    .locals 3
 
-    const/4 v3, 0x1
+    .line 49
+    new-instance v0, Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;
 
-    invoke-direct {v1, v2, v3}, Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;-><init>(Ljava/lang/String;I)V
+    const-string v1, "PORTRAIT"
 
-    sput-object v1, Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;->LANDSCAPE:Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;
+    const/4 v2, 0x0
 
-    aput-object v1, v0, v3
+    invoke-direct {v0, v1, v2}, Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;->PORTRAIT:Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;
+
+    new-instance v0, Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;
+
+    const-string v1, "LANDSCAPE"
+
+    const/4 v2, 0x1
+
+    invoke-direct {v0, v1, v2}, Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;->LANDSCAPE:Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;
+
+    invoke-static {}, Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;->$values()[Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;
+
+    move-result-object v0
 
     sput-object v0, Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;->$VALUES:[Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;
 
@@ -94,8 +109,6 @@
 
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .param p1, "$enum$name"    # Ljava/lang/String;
-    .param p2, "$enum$ordinal"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -127,7 +140,7 @@
 
     sget-object v0, Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;->$VALUES:[Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;
 
-    invoke-virtual {v0}, [Lorg/catrobat/paintroid/tools/ContextCallback$ScreenOrientation;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, [Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

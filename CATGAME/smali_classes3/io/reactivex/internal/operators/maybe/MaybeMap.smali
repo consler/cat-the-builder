@@ -48,15 +48,11 @@
     .end annotation
 
     .line 34
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeMap;, "Lio/reactivex/internal/operators/maybe/MaybeMap<TT;TR;>;"
-    .local p1, "source":Lio/reactivex/MaybeSource;, "Lio/reactivex/MaybeSource<TT;>;"
-    .local p2, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+TR;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/maybe/AbstractMaybeWithUpstream;-><init>(Lio/reactivex/MaybeSource;)V
 
     .line 35
     iput-object p2, p0, Lio/reactivex/internal/operators/maybe/MaybeMap;->mapper:Lio/reactivex/functions/Function;
 
-    .line 36
     return-void
 .end method
 
@@ -73,8 +69,6 @@
     .end annotation
 
     .line 40
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeMap;, "Lio/reactivex/internal/operators/maybe/MaybeMap<TT;TR;>;"
-    .local p1, "observer":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeMap;->source:Lio/reactivex/MaybeSource;
 
     new-instance v1, Lio/reactivex/internal/operators/maybe/MaybeMap$MapMaybeObserver;
@@ -85,6 +79,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/MaybeSource;->subscribe(Lio/reactivex/MaybeObserver;)V
 
-    .line 41
     return-void
 .end method

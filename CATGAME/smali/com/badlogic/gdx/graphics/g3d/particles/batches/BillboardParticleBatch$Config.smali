@@ -27,14 +27,11 @@
     .line 104
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 105
     return-void
 .end method
 
 .method public constructor <init>(ZLcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;)V
     .locals 0
-    .param p1, "useGPU"    # Z
-    .param p2, "mode"    # Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;
 
     .line 107
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,6 +42,5 @@
     .line 109
     iput-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/batches/BillboardParticleBatch$Config;->mode:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleShader$AlignMode;
 
-    .line 110
     return-void
 .end method

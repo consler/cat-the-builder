@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/LinkedHashSet;)V
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -39,7 +39,6 @@
     .end annotation
 
     .line 336
-    .local p1, "cameraInternals":Ljava/util/LinkedHashSet;, "Ljava/util/LinkedHashSet<Landroidx/camera/core/impl/CameraInternal;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 337
@@ -52,40 +51,36 @@
     .line 338
     invoke-virtual {p1}, Ljava/util/LinkedHashSet;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroidx/camera/core/impl/CameraInternal;
+    check-cast v0, Landroidx/camera/core/impl/CameraInternal;
 
     .line 339
-    .local v1, "cameraInternal":Landroidx/camera/core/impl/CameraInternal;
-    iget-object v2, p0, Landroidx/camera/core/internal/CameraUseCaseAdapter$CameraId;->mIds:Ljava/util/List;
+    iget-object v1, p0, Landroidx/camera/core/internal/CameraUseCaseAdapter$CameraId;->mIds:Ljava/util/List;
 
-    invoke-interface {v1}, Landroidx/camera/core/impl/CameraInternal;->getCameraInfoInternal()Landroidx/camera/core/impl/CameraInfoInternal;
+    invoke-interface {v0}, Landroidx/camera/core/impl/CameraInternal;->getCameraInfoInternal()Landroidx/camera/core/impl/CameraInfoInternal;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-interface {v3}, Landroidx/camera/core/impl/CameraInfoInternal;->getCameraId()Ljava/lang/String;
+    invoke-interface {v0}, Landroidx/camera/core/impl/CameraInfoInternal;->getCameraId()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 340
-    .end local v1    # "cameraInternal":Landroidx/camera/core/impl/CameraInternal;
     goto :goto_0
 
-    .line 341
     :cond_0
     return-void
 .end method
@@ -93,8 +88,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
-    .param p1, "cameraId"    # Ljava/lang/Object;
+    .locals 1
 
     .line 345
     instance-of v0, p1, Landroidx/camera/core/internal/CameraUseCaseAdapter$CameraId;
@@ -104,23 +98,20 @@
     .line 346
     iget-object v0, p0, Landroidx/camera/core/internal/CameraUseCaseAdapter$CameraId;->mIds:Ljava/util/List;
 
-    move-object v1, p1
+    check-cast p1, Landroidx/camera/core/internal/CameraUseCaseAdapter$CameraId;
 
-    check-cast v1, Landroidx/camera/core/internal/CameraUseCaseAdapter$CameraId;
+    iget-object p1, p1, Landroidx/camera/core/internal/CameraUseCaseAdapter$CameraId;->mIds:Ljava/util/List;
 
-    iget-object v1, v1, Landroidx/camera/core/internal/CameraUseCaseAdapter$CameraId;->mIds:Ljava/util/List;
+    invoke-interface {v0, p1}, Ljava/util/List;->equals(Ljava/lang/Object;)Z
 
-    invoke-interface {v0, v1}, Ljava/util/List;->equals(Ljava/lang/Object;)Z
+    move-result p1
 
-    move-result v0
+    return p1
 
-    return v0
-
-    .line 348
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public hashCode()I

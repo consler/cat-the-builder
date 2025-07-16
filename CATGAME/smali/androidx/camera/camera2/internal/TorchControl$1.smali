@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/camera2/internal/TorchControl;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/camera2/internal/TorchControl;
 
     .line 196
     iput-object p1, p0, Landroidx/camera/camera2/internal/TorchControl$1;->this$0:Landroidx/camera/camera2/internal/TorchControl;
@@ -37,115 +36,104 @@
 
 # virtual methods
 .method public onCaptureResult(Landroid/hardware/camera2/TotalCaptureResult;)Z
-    .locals 8
-    .param p1, "captureResult"    # Landroid/hardware/camera2/TotalCaptureResult;
-
-    .line 200
-    const/4 v0, 0x0
+    .locals 4
 
     .line 201
-    .local v0, "completerToSet":Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;, "Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer<Ljava/lang/Void;>;"
-    iget-object v1, p0, Landroidx/camera/camera2/internal/TorchControl$1;->this$0:Landroidx/camera/camera2/internal/TorchControl;
+    iget-object v0, p0, Landroidx/camera/camera2/internal/TorchControl$1;->this$0:Landroidx/camera/camera2/internal/TorchControl;
 
-    iget-object v1, v1, Landroidx/camera/camera2/internal/TorchControl;->mEnableTorchLock:Ljava/lang/Object;
+    iget-object v0, v0, Landroidx/camera/camera2/internal/TorchControl;->mEnableTorchLock:Ljava/lang/Object;
 
-    monitor-enter v1
+    monitor-enter v0
 
     .line 202
     :try_start_0
-    iget-object v2, p0, Landroidx/camera/camera2/internal/TorchControl$1;->this$0:Landroidx/camera/camera2/internal/TorchControl;
+    iget-object v1, p0, Landroidx/camera/camera2/internal/TorchControl$1;->this$0:Landroidx/camera/camera2/internal/TorchControl;
 
-    iget-object v2, v2, Landroidx/camera/camera2/internal/TorchControl;->mEnableTorchCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
+    iget-object v1, v1, Landroidx/camera/camera2/internal/TorchControl;->mEnableTorchCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
+
+    const/4 v2, 0x0
 
     const/4 v3, 0x0
 
-    const/4 v4, 0x0
-
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
     .line 203
     invoke-virtual {p1}, Landroid/hardware/camera2/TotalCaptureResult;->getRequest()Landroid/hardware/camera2/CaptureRequest;
 
-    move-result-object v2
+    move-result-object p1
 
     .line 204
-    .local v2, "captureRequest":Landroid/hardware/camera2/CaptureRequest;
-    sget-object v5, Landroid/hardware/camera2/CaptureRequest;->FLASH_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
+    sget-object v1, Landroid/hardware/camera2/CaptureRequest;->FLASH_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
-    invoke-virtual {v2, v5}, Landroid/hardware/camera2/CaptureRequest;->get(Landroid/hardware/camera2/CaptureRequest$Key;)Ljava/lang/Object;
+    invoke-virtual {p1, v1}, Landroid/hardware/camera2/CaptureRequest;->get(Landroid/hardware/camera2/CaptureRequest$Key;)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object p1
 
-    check-cast v5, Ljava/lang/Integer;
+    check-cast p1, Ljava/lang/Integer;
 
-    .line 205
-    .local v5, "flashMode":Ljava/lang/Integer;
-    if-eqz v5, :cond_0
+    if-eqz p1, :cond_0
 
     .line 206
-    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    move-result v6
+    move-result p1
 
-    const/4 v7, 0x2
+    const/4 v1, 0x2
 
-    if-ne v6, v7, :cond_0
+    if-ne p1, v1, :cond_0
 
-    const/4 v6, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    move v6, v4
+    move p1, v2
 
     .line 208
-    .local v6, "torchEnabled":Z
     :goto_0
-    iget-object v7, p0, Landroidx/camera/camera2/internal/TorchControl$1;->this$0:Landroidx/camera/camera2/internal/TorchControl;
+    iget-object v1, p0, Landroidx/camera/camera2/internal/TorchControl$1;->this$0:Landroidx/camera/camera2/internal/TorchControl;
 
-    iget-boolean v7, v7, Landroidx/camera/camera2/internal/TorchControl;->mTargetTorchEnabled:Z
+    iget-boolean v1, v1, Landroidx/camera/camera2/internal/TorchControl;->mTargetTorchEnabled:Z
 
-    if-ne v6, v7, :cond_1
+    if-ne p1, v1, :cond_1
 
     .line 209
-    iget-object v7, p0, Landroidx/camera/camera2/internal/TorchControl$1;->this$0:Landroidx/camera/camera2/internal/TorchControl;
+    iget-object p1, p0, Landroidx/camera/camera2/internal/TorchControl$1;->this$0:Landroidx/camera/camera2/internal/TorchControl;
 
-    iget-object v7, v7, Landroidx/camera/camera2/internal/TorchControl;->mEnableTorchCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
-
-    move-object v0, v7
+    iget-object p1, p1, Landroidx/camera/camera2/internal/TorchControl;->mEnableTorchCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
     .line 210
-    iget-object v7, p0, Landroidx/camera/camera2/internal/TorchControl$1;->this$0:Landroidx/camera/camera2/internal/TorchControl;
+    iget-object v1, p0, Landroidx/camera/camera2/internal/TorchControl$1;->this$0:Landroidx/camera/camera2/internal/TorchControl;
 
-    iput-object v3, v7, Landroidx/camera/camera2/internal/TorchControl;->mEnableTorchCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
+    iput-object v3, v1, Landroidx/camera/camera2/internal/TorchControl;->mEnableTorchCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
+
+    goto :goto_1
+
+    :cond_1
+    move-object p1, v3
 
     .line 213
-    .end local v2    # "captureRequest":Landroid/hardware/camera2/CaptureRequest;
-    .end local v5    # "flashMode":Ljava/lang/Integer;
-    .end local v6    # "torchEnabled":Z
-    :cond_1
-    monitor-exit v1
+    :goto_1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 214
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
     .line 215
-    invoke-virtual {v0, v3}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v3}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
 
-    .line 218
     :cond_2
-    return v4
+    return v2
+
+    :catchall_0
+    move-exception p1
 
     .line 213
-    :catchall_0
-    move-exception v2
-
     :try_start_1
-    monitor-exit v1
+    monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v2
+    throw p1
 .end method

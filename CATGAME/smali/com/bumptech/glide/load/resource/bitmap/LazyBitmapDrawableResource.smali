@@ -35,8 +35,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/content/res/Resources;Lcom/bumptech/glide/load/engine/Resource;)V
-    .locals 1
-    .param p1, "resources"    # Landroid/content/res/Resources;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -48,34 +47,31 @@
     .end annotation
 
     .line 57
-    .local p2, "bitmapResource":Lcom/bumptech/glide/load/engine/Resource;, "Lcom/bumptech/glide/load/engine/Resource<Landroid/graphics/Bitmap;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 58
     invoke-static {p1}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/content/res/Resources;
+    check-cast p1, Landroid/content/res/Resources;
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/LazyBitmapDrawableResource;->resources:Landroid/content/res/Resources;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/LazyBitmapDrawableResource;->resources:Landroid/content/res/Resources;
 
     .line 59
     invoke-static {p2}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/bumptech/glide/load/engine/Resource;
+    check-cast p1, Lcom/bumptech/glide/load/engine/Resource;
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/LazyBitmapDrawableResource;->bitmapResource:Lcom/bumptech/glide/load/engine/Resource;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/LazyBitmapDrawableResource;->bitmapResource:Lcom/bumptech/glide/load/engine/Resource;
 
-    .line 60
     return-void
 .end method
 
 .method public static obtain(Landroid/content/res/Resources;Lcom/bumptech/glide/load/engine/Resource;)Lcom/bumptech/glide/load/engine/Resource;
     .locals 1
-    .param p0, "resources"    # Landroid/content/res/Resources;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -89,14 +85,11 @@
         }
     .end annotation
 
-    .line 50
-    .local p1, "bitmapResource":Lcom/bumptech/glide/load/engine/Resource;, "Lcom/bumptech/glide/load/engine/Resource<Landroid/graphics/Bitmap;>;"
     if-nez p1, :cond_0
 
-    .line 51
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
     .line 53
     :cond_0
@@ -108,14 +101,9 @@
 .end method
 
 .method public static obtain(Landroid/content/Context;Landroid/graphics/Bitmap;)Lcom/bumptech/glide/load/resource/bitmap/LazyBitmapDrawableResource;
-    .locals 2
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
-
-    .line 30
-    nop
 
     .line 32
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -125,51 +113,43 @@
     .line 33
     invoke-static {p0}, Lcom/bumptech/glide/Glide;->get(Landroid/content/Context;)Lcom/bumptech/glide/Glide;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Lcom/bumptech/glide/Glide;->getBitmapPool()Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
+    invoke-virtual {p0}, Lcom/bumptech/glide/Glide;->getBitmapPool()Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-static {p1, v1}, Lcom/bumptech/glide/load/resource/bitmap/BitmapResource;->obtain(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;)Lcom/bumptech/glide/load/resource/bitmap/BitmapResource;
+    invoke-static {p1, p0}, Lcom/bumptech/glide/load/resource/bitmap/BitmapResource;->obtain(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;)Lcom/bumptech/glide/load/resource/bitmap/BitmapResource;
 
-    move-result-object v1
+    move-result-object p0
 
     .line 31
-    invoke-static {v0, v1}, Lcom/bumptech/glide/load/resource/bitmap/LazyBitmapDrawableResource;->obtain(Landroid/content/res/Resources;Lcom/bumptech/glide/load/engine/Resource;)Lcom/bumptech/glide/load/engine/Resource;
+    invoke-static {v0, p0}, Lcom/bumptech/glide/load/resource/bitmap/LazyBitmapDrawableResource;->obtain(Landroid/content/res/Resources;Lcom/bumptech/glide/load/engine/Resource;)Lcom/bumptech/glide/load/engine/Resource;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/bumptech/glide/load/resource/bitmap/LazyBitmapDrawableResource;
+    check-cast p0, Lcom/bumptech/glide/load/resource/bitmap/LazyBitmapDrawableResource;
 
-    .line 30
-    return-object v0
+    return-object p0
 .end method
 
 .method public static obtain(Landroid/content/res/Resources;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Landroid/graphics/Bitmap;)Lcom/bumptech/glide/load/resource/bitmap/LazyBitmapDrawableResource;
-    .locals 1
-    .param p0, "resources"    # Landroid/content/res/Resources;
-    .param p1, "bitmapPool"    # Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
-    .param p2, "bitmap"    # Landroid/graphics/Bitmap;
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
-
-    .line 43
-    nop
 
     .line 44
     invoke-static {p2, p1}, Lcom/bumptech/glide/load/resource/bitmap/BitmapResource;->obtain(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;)Lcom/bumptech/glide/load/resource/bitmap/BitmapResource;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {p0, v0}, Lcom/bumptech/glide/load/resource/bitmap/LazyBitmapDrawableResource;->obtain(Landroid/content/res/Resources;Lcom/bumptech/glide/load/engine/Resource;)Lcom/bumptech/glide/load/engine/Resource;
+    invoke-static {p0, p1}, Lcom/bumptech/glide/load/resource/bitmap/LazyBitmapDrawableResource;->obtain(Landroid/content/res/Resources;Lcom/bumptech/glide/load/engine/Resource;)Lcom/bumptech/glide/load/engine/Resource;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/bumptech/glide/load/resource/bitmap/LazyBitmapDrawableResource;
+    check-cast p0, Lcom/bumptech/glide/load/resource/bitmap/LazyBitmapDrawableResource;
 
-    .line 43
-    return-object v0
+    return-object p0
 .end method
 
 
@@ -251,7 +231,6 @@
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/engine/Initializable;->initialize()V
 
-    .line 89
     :cond_0
     return-void
 .end method
@@ -264,6 +243,5 @@
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/engine/Resource;->recycle()V
 
-    .line 82
     return-void
 .end method

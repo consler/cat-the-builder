@@ -18,19 +18,19 @@
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 23
     const/4 v0, 0x1
 
+    .line 23
     iput-short v0, p0, Lcom/badlogic/gdx/physics/box2d/Filter;->categoryBits:S
 
-    .line 26
     const/4 v0, -0x1
 
+    .line 26
     iput-short v0, p0, Lcom/badlogic/gdx/physics/box2d/Filter;->maskBits:S
 
-    .line 30
     const/4 v0, 0x0
 
+    .line 30
     iput-short v0, p0, Lcom/badlogic/gdx/physics/box2d/Filter;->groupIndex:S
 
     return-void

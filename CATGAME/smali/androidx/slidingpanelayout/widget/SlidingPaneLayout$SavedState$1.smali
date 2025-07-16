@@ -40,7 +40,6 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroidx/slidingpanelayout/widget/SlidingPaneLayout$SavedState;
     .locals 2
-    .param p1, "in"    # Landroid/os/Parcel;
 
     .line 1503
     new-instance v0, Landroidx/slidingpanelayout/widget/SlidingPaneLayout$SavedState;
@@ -53,18 +52,16 @@
 .end method
 
 .method public createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroidx/slidingpanelayout/widget/SlidingPaneLayout$SavedState;
-    .locals 2
-    .param p1, "in"    # Landroid/os/Parcel;
-    .param p2, "loader"    # Ljava/lang/ClassLoader;
+    .locals 1
 
     .line 1498
-    new-instance v0, Landroidx/slidingpanelayout/widget/SlidingPaneLayout$SavedState;
+    new-instance p2, Landroidx/slidingpanelayout/widget/SlidingPaneLayout$SavedState;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-direct {v0, p1, v1}, Landroidx/slidingpanelayout/widget/SlidingPaneLayout$SavedState;-><init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
+    invoke-direct {p2, p1, v0}, Landroidx/slidingpanelayout/widget/SlidingPaneLayout$SavedState;-><init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
 
-    return-object v0
+    return-object p2
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -90,13 +87,12 @@
 .end method
 
 .method public newArray(I)[Landroidx/slidingpanelayout/widget/SlidingPaneLayout$SavedState;
-    .locals 1
-    .param p1, "size"    # I
+    .locals 0
 
     .line 1508
-    new-array v0, p1, [Landroidx/slidingpanelayout/widget/SlidingPaneLayout$SavedState;
+    new-array p1, p1, [Landroidx/slidingpanelayout/widget/SlidingPaneLayout$SavedState;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;

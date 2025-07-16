@@ -15,8 +15,6 @@
 # direct methods
 .method private constructor <init>(Ljava/io/InputStream;Z)V
     .locals 0
-    .param p1, "stream"    # Ljava/io/InputStream;
-    .param p2, "closeStreamAfterReading"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -37,13 +35,11 @@
     .line 66
     iput-boolean p2, p0, Lcom/google/crypto/tink/BinaryKeysetReader;->closeStreamAfterReading:Z
 
-    .line 67
     return-void
 .end method
 
 .method public static withBytes([B)Lcom/google/crypto/tink/KeysetReader;
-    .locals 3
-    .param p0, "bytes"    # [B
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -60,16 +56,15 @@
 
     invoke-direct {v1, p0}, Ljava/io/ByteArrayInputStream;-><init>([B)V
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
-    invoke-direct {v0, v1, v2}, Lcom/google/crypto/tink/BinaryKeysetReader;-><init>(Ljava/io/InputStream;Z)V
+    invoke-direct {v0, v1, p0}, Lcom/google/crypto/tink/BinaryKeysetReader;-><init>(Ljava/io/InputStream;Z)V
 
     return-object v0
 .end method
 
 .method public static withFile(Ljava/io/File;)Lcom/google/crypto/tink/KeysetReader;
-    .locals 3
-    .param p0, "file"    # Ljava/io/File;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -92,16 +87,15 @@
 
     invoke-direct {v1, p0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
-    invoke-direct {v0, v1, v2}, Lcom/google/crypto/tink/BinaryKeysetReader;-><init>(Ljava/io/InputStream;Z)V
+    invoke-direct {v0, v1, p0}, Lcom/google/crypto/tink/BinaryKeysetReader;-><init>(Ljava/io/InputStream;Z)V
 
     return-object v0
 .end method
 
 .method public static withInputStream(Ljava/io/InputStream;)Lcom/google/crypto/tink/KeysetReader;
     .locals 2
-    .param p0, "stream"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -145,10 +139,6 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 73
-    .local v0, "keyset":Lcom/google/crypto/tink/proto/Keyset;
-    nop
-
     .line 75
     iget-boolean v1, p0, Lcom/google/crypto/tink/BinaryKeysetReader;->closeStreamAfterReading:Z
 
@@ -159,15 +149,13 @@
 
     invoke-virtual {v1}, Ljava/io/InputStream;->close()V
 
-    .line 73
     :cond_0
     return-object v0
 
-    .line 75
-    .end local v0    # "keyset":Lcom/google/crypto/tink/proto/Keyset;
     :catchall_0
     move-exception v0
 
+    .line 75
     iget-boolean v1, p0, Lcom/google/crypto/tink/BinaryKeysetReader;->closeStreamAfterReading:Z
 
     if-eqz v1, :cond_1
@@ -205,10 +193,6 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 86
-    .local v0, "keyset":Lcom/google/crypto/tink/proto/EncryptedKeyset;
-    nop
-
     .line 88
     iget-boolean v1, p0, Lcom/google/crypto/tink/BinaryKeysetReader;->closeStreamAfterReading:Z
 
@@ -219,15 +203,13 @@
 
     invoke-virtual {v1}, Ljava/io/InputStream;->close()V
 
-    .line 86
     :cond_0
     return-object v0
 
-    .line 88
-    .end local v0    # "keyset":Lcom/google/crypto/tink/proto/EncryptedKeyset;
     :catchall_0
     move-exception v0
 
+    .line 88
     iget-boolean v1, p0, Lcom/google/crypto/tink/BinaryKeysetReader;->closeStreamAfterReading:Z
 
     if-eqz v1, :cond_1

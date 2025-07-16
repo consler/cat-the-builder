@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/utils/OrderedSet;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -47,16 +47,13 @@
     .end annotation
 
     .line 133
-    .local p0, "this":Lcom/badlogic/gdx/utils/OrderedSet$OrderedSetIterator;, "Lcom/badlogic/gdx/utils/OrderedSet$OrderedSetIterator<TT;>;"
-    .local p1, "set":Lcom/badlogic/gdx/utils/OrderedSet;, "Lcom/badlogic/gdx/utils/OrderedSet<TT;>;"
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;-><init>(Lcom/badlogic/gdx/utils/ObjectSet;)V
 
     .line 134
-    iget-object v0, p1, Lcom/badlogic/gdx/utils/OrderedSet;->items:Lcom/badlogic/gdx/utils/Array;
+    iget-object p1, p1, Lcom/badlogic/gdx/utils/OrderedSet;->items:Lcom/badlogic/gdx/utils/Array;
 
-    iput-object v0, p0, Lcom/badlogic/gdx/utils/OrderedSet$OrderedSetIterator;->items:Lcom/badlogic/gdx/utils/Array;
+    iput-object p1, p0, Lcom/badlogic/gdx/utils/OrderedSet$OrderedSetIterator;->items:Lcom/badlogic/gdx/utils/Array;
 
-    .line 135
     return-void
 .end method
 
@@ -71,7 +68,6 @@
     .end annotation
 
     .line 143
-    .local p0, "this":Lcom/badlogic/gdx/utils/OrderedSet$OrderedSetIterator;, "Lcom/badlogic/gdx/utils/OrderedSet$OrderedSetIterator<TT;>;"
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/OrderedSet$OrderedSetIterator;->hasNext:Z
 
     if-eqz v0, :cond_2
@@ -91,7 +87,6 @@
     move-result-object v0
 
     .line 146
-    .local v0, "key":Ljava/lang/Object;, "TT;"
     iget v1, p0, Lcom/badlogic/gdx/utils/OrderedSet$OrderedSetIterator;->nextIndex:I
 
     const/4 v2, 0x1
@@ -117,11 +112,9 @@
     :goto_0
     iput-boolean v2, p0, Lcom/badlogic/gdx/utils/OrderedSet$OrderedSetIterator;->hasNext:Z
 
-    .line 148
     return-object v0
 
     .line 144
-    .end local v0    # "key":Ljava/lang/Object;, "TT;"
     :cond_1
     new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
@@ -144,7 +137,6 @@
     .locals 2
 
     .line 152
-    .local p0, "this":Lcom/badlogic/gdx/utils/OrderedSet$OrderedSetIterator;, "Lcom/badlogic/gdx/utils/OrderedSet$OrderedSetIterator<TT;>;"
     iget v0, p0, Lcom/badlogic/gdx/utils/OrderedSet$OrderedSetIterator;->nextIndex:I
 
     if-ltz v0, :cond_0
@@ -165,7 +157,6 @@
 
     invoke-virtual {v0, v1}, Lcom/badlogic/gdx/utils/OrderedSet;->removeIndex(I)Ljava/lang/Object;
 
-    .line 155
     return-void
 
     .line 152
@@ -182,10 +173,9 @@
 .method public reset()V
     .locals 2
 
-    .line 138
-    .local p0, "this":Lcom/badlogic/gdx/utils/OrderedSet$OrderedSetIterator;, "Lcom/badlogic/gdx/utils/OrderedSet$OrderedSetIterator<TT;>;"
     const/4 v0, 0x0
 
+    .line 138
     iput v0, p0, Lcom/badlogic/gdx/utils/OrderedSet$OrderedSetIterator;->nextIndex:I
 
     .line 139
@@ -200,6 +190,5 @@
     :cond_0
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/OrderedSet$OrderedSetIterator;->hasNext:Z
 
-    .line 140
     return-void
 .end method

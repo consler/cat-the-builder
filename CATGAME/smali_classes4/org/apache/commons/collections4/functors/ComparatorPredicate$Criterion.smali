@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 8
+    .locals 11
 
     .line 83
     new-instance v0, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
@@ -51,70 +51,62 @@
 
     sput-object v0, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;->EQUAL:Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
 
-    new-instance v0, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
+    new-instance v1, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
 
-    const-string v1, "GREATER"
+    const-string v3, "GREATER"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;->GREATER:Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
+    sput-object v1, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;->GREATER:Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
 
-    new-instance v0, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
+    new-instance v3, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
 
-    const-string v1, "LESS"
+    const-string v5, "LESS"
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v1, v4}, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;->LESS:Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
+    sput-object v3, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;->LESS:Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
 
-    new-instance v0, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
+    new-instance v5, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
 
-    const-string v1, "GREATER_OR_EQUAL"
+    const-string v7, "GREATER_OR_EQUAL"
 
-    const/4 v5, 0x3
+    const/4 v8, 0x3
 
-    invoke-direct {v0, v1, v5}, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v5, v7, v8}, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;->GREATER_OR_EQUAL:Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
+    sput-object v5, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;->GREATER_OR_EQUAL:Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
 
-    new-instance v0, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
+    new-instance v7, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
 
-    const-string v1, "LESS_OR_EQUAL"
+    const-string v9, "LESS_OR_EQUAL"
 
-    const/4 v6, 0x4
+    const/4 v10, 0x4
 
-    invoke-direct {v0, v1, v6}, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v7, v9, v10}, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;->LESS_OR_EQUAL:Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
+    sput-object v7, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;->LESS_OR_EQUAL:Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
+
+    const/4 v9, 0x5
+
+    new-array v9, v9, [Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
+
+    aput-object v0, v9, v2
+
+    aput-object v1, v9, v4
+
+    aput-object v3, v9, v6
+
+    aput-object v5, v9, v8
+
+    aput-object v7, v9, v10
 
     .line 82
-    const/4 v1, 0x5
-
-    new-array v1, v1, [Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
-
-    sget-object v7, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;->EQUAL:Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
-
-    aput-object v7, v1, v2
-
-    sget-object v2, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;->GREATER:Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;->LESS:Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;->GREATER_OR_EQUAL:Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
-
-    aput-object v2, v1, v5
-
-    aput-object v0, v1, v6
-
-    sput-object v1, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;->$VALUES:[Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
+    sput-object v9, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;->$VALUES:[Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
 
     return-void
 .end method
@@ -135,18 +127,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 82
     const-class v0, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
+    check-cast p0, Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lorg/apache/commons/collections4/functors/ComparatorPredicate$Criterion;

@@ -46,19 +46,16 @@
     .end annotation
 
     .line 69
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator;, "Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator<TK;TV;>;"
-    .local p1, "iterator":Lorg/apache/commons/collections4/OrderedMapIterator;, "Lorg/apache/commons/collections4/OrderedMapIterator<TK;+TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 70
     iput-object p1, p0, Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator;->iterator:Lorg/apache/commons/collections4/OrderedMapIterator;
 
-    .line 71
     return-void
 .end method
 
 .method public static unmodifiableOrderedMapIterator(Lorg/apache/commons/collections4/OrderedMapIterator;)Lorg/apache/commons/collections4/OrderedMapIterator;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -73,8 +70,6 @@
         }
     .end annotation
 
-    .line 51
-    .local p0, "iterator":Lorg/apache/commons/collections4/OrderedMapIterator;, "Lorg/apache/commons/collections4/OrderedMapIterator<TK;+TV;>;"
     if-eqz p0, :cond_1
 
     .line 54
@@ -82,15 +77,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 56
-    move-object v0, p0
-
-    .line 57
-    .local v0, "tmpIterator":Lorg/apache/commons/collections4/OrderedMapIterator;, "Lorg/apache/commons/collections4/OrderedMapIterator<TK;TV;>;"
-    return-object v0
+    return-object p0
 
     .line 59
-    .end local v0    # "tmpIterator":Lorg/apache/commons/collections4/OrderedMapIterator;, "Lorg/apache/commons/collections4/OrderedMapIterator<TK;TV;>;"
     :cond_0
     new-instance v0, Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator;
 
@@ -100,13 +89,13 @@
 
     .line 52
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "OrderedMapIterator must not be null"
+    const-string v0, "OrderedMapIterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
@@ -120,7 +109,6 @@
     .end annotation
 
     .line 96
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator;, "Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator;->iterator:Lorg/apache/commons/collections4/OrderedMapIterator;
 
     invoke-interface {v0}, Lorg/apache/commons/collections4/OrderedMapIterator;->getKey()Ljava/lang/Object;
@@ -139,7 +127,6 @@
     .end annotation
 
     .line 101
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator;, "Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator;->iterator:Lorg/apache/commons/collections4/OrderedMapIterator;
 
     invoke-interface {v0}, Lorg/apache/commons/collections4/OrderedMapIterator;->getValue()Ljava/lang/Object;
@@ -153,7 +140,6 @@
     .locals 1
 
     .line 76
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator;, "Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator;->iterator:Lorg/apache/commons/collections4/OrderedMapIterator;
 
     invoke-interface {v0}, Lorg/apache/commons/collections4/OrderedMapIterator;->hasNext()Z
@@ -167,7 +153,6 @@
     .locals 1
 
     .line 86
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator;, "Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator;->iterator:Lorg/apache/commons/collections4/OrderedMapIterator;
 
     invoke-interface {v0}, Lorg/apache/commons/collections4/OrderedMapIterator;->hasPrevious()Z
@@ -186,7 +171,6 @@
     .end annotation
 
     .line 81
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator;, "Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator;->iterator:Lorg/apache/commons/collections4/OrderedMapIterator;
 
     invoke-interface {v0}, Lorg/apache/commons/collections4/OrderedMapIterator;->next()Ljava/lang/Object;
@@ -205,7 +189,6 @@
     .end annotation
 
     .line 91
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator;, "Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator;->iterator:Lorg/apache/commons/collections4/OrderedMapIterator;
 
     invoke-interface {v0}, Lorg/apache/commons/collections4/OrderedMapIterator;->previous()Ljava/lang/Object;
@@ -219,7 +202,6 @@
     .locals 2
 
     .line 111
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator;, "Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "remove() is not supported"
@@ -230,7 +212,7 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)TV;"
@@ -238,13 +220,11 @@
     .end annotation
 
     .line 106
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator;, "Lorg/apache/commons/collections4/iterators/UnmodifiableOrderedMapIterator<TK;TV;>;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "setValue() is not supported"
+    const-string v0, "setValue() is not supported"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

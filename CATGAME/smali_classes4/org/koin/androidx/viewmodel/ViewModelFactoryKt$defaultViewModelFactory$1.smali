@@ -54,8 +54,6 @@
 # direct methods
 .method constructor <init>(Lorg/koin/core/scope/Scope;Lorg/koin/androidx/viewmodel/ViewModelParameter;)V
     .locals 0
-    .param p1, "$receiver"    # Lorg/koin/core/scope/Scope;
-    .param p2, "$captured_local_variable$1"    # Lorg/koin/androidx/viewmodel/ViewModelParameter;
 
     .line 48
     iput-object p1, p0, Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$defaultViewModelFactory$1;->$this_defaultViewModelFactory:Lorg/koin/core/scope/Scope;
@@ -70,8 +68,7 @@
 
 # virtual methods
 .method public create(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
-    .locals 4
-    .param p1, "modelClass"    # Ljava/lang/Class;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -87,31 +84,31 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 50
-    iget-object v0, p0, Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$defaultViewModelFactory$1;->$this_defaultViewModelFactory:Lorg/koin/core/scope/Scope;
+    iget-object p1, p0, Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$defaultViewModelFactory$1;->$this_defaultViewModelFactory:Lorg/koin/core/scope/Scope;
+
+    iget-object v0, p0, Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$defaultViewModelFactory$1;->$parameters:Lorg/koin/androidx/viewmodel/ViewModelParameter;
+
+    invoke-virtual {v0}, Lorg/koin/androidx/viewmodel/ViewModelParameter;->getClazz()Lkotlin/reflect/KClass;
+
+    move-result-object v0
 
     iget-object v1, p0, Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$defaultViewModelFactory$1;->$parameters:Lorg/koin/androidx/viewmodel/ViewModelParameter;
 
-    invoke-virtual {v1}, Lorg/koin/androidx/viewmodel/ViewModelParameter;->getClazz()Lkotlin/reflect/KClass;
+    invoke-virtual {v1}, Lorg/koin/androidx/viewmodel/ViewModelParameter;->getQualifier()Lorg/koin/core/qualifier/Qualifier;
 
     move-result-object v1
 
     iget-object v2, p0, Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$defaultViewModelFactory$1;->$parameters:Lorg/koin/androidx/viewmodel/ViewModelParameter;
 
-    invoke-virtual {v2}, Lorg/koin/androidx/viewmodel/ViewModelParameter;->getQualifier()Lorg/koin/core/qualifier/Qualifier;
+    invoke-virtual {v2}, Lorg/koin/androidx/viewmodel/ViewModelParameter;->getParameters()Lkotlin/jvm/functions/Function0;
 
     move-result-object v2
 
-    iget-object v3, p0, Lorg/koin/androidx/viewmodel/ViewModelFactoryKt$defaultViewModelFactory$1;->$parameters:Lorg/koin/androidx/viewmodel/ViewModelParameter;
+    invoke-virtual {p1, v0, v1, v2}, Lorg/koin/core/scope/Scope;->get(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
 
-    invoke-virtual {v3}, Lorg/koin/androidx/viewmodel/ViewModelParameter;->getParameters()Lkotlin/jvm/functions/Function0;
+    move-result-object p1
 
-    move-result-object v3
+    check-cast p1, Landroidx/lifecycle/ViewModel;
 
-    invoke-virtual {v0, v1, v2, v3}, Lorg/koin/core/scope/Scope;->get(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroidx/lifecycle/ViewModel;
-
-    return-object v0
+    return-object p1
 .end method

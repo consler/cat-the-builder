@@ -17,15 +17,10 @@
 # direct methods
 .method public constructor <init>(FFIF)V
     .locals 0
-    .param p1, "value"    # F
-    .param p2, "power"    # F
-    .param p3, "bounces"    # I
-    .param p4, "scale"    # F
 
     .line 275
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/badlogic/gdx/math/Interpolation$Elastic;-><init>(FFIF)V
 
-    .line 276
     return-void
 .end method
 
@@ -33,9 +28,7 @@
 # virtual methods
 .method public apply(F)F
     .locals 5
-    .param p1, "a"    # F
 
-    .line 279
     const/4 v0, 0x0
 
     cmpl-float v1, p1, v0
@@ -44,7 +37,6 @@
 
     return v0
 
-    .line 280
     :cond_0
     const/high16 v0, 0x3f800000    # 1.0f
 
@@ -71,17 +63,17 @@
 
     iget v2, p0, Lcom/badlogic/gdx/math/Interpolation$ElasticOut;->bounces:F
 
-    mul-float/2addr v2, p1
+    mul-float/2addr p1, v2
 
-    invoke-static {v2}, Lcom/badlogic/gdx/math/MathUtils;->sin(F)F
+    invoke-static {p1}, Lcom/badlogic/gdx/math/MathUtils;->sin(F)F
 
-    move-result v2
+    move-result p1
 
-    mul-float/2addr v1, v2
+    mul-float/2addr v1, p1
 
-    iget v2, p0, Lcom/badlogic/gdx/math/Interpolation$ElasticOut;->scale:F
+    iget p1, p0, Lcom/badlogic/gdx/math/Interpolation$ElasticOut;->scale:F
 
-    mul-float/2addr v1, v2
+    mul-float/2addr v1, p1
 
     sub-float/2addr v0, v1
 

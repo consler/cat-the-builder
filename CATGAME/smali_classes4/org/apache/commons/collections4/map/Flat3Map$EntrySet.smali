@@ -50,14 +50,11 @@
     .end annotation
 
     .line 769
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$EntrySet;, "Lorg/apache/commons/collections4/map/Flat3Map$EntrySet<TK;TV;>;"
-    .local p1, "parent":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
 
     .line 770
     iput-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map$EntrySet;->parent:Lorg/apache/commons/collections4/map/Flat3Map;
 
-    .line 771
     return-void
 .end method
 
@@ -67,12 +64,10 @@
     .locals 1
 
     .line 780
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$EntrySet;, "Lorg/apache/commons/collections4/map/Flat3Map$EntrySet<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$EntrySet;->parent:Lorg/apache/commons/collections4/map/Flat3Map;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/map/Flat3Map;->clear()V
 
-    .line 781
     return-void
 .end method
 
@@ -88,7 +83,6 @@
     .end annotation
 
     .line 797
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$EntrySet;, "Lorg/apache/commons/collections4/map/Flat3Map$EntrySet<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$EntrySet;->parent:Lorg/apache/commons/collections4/map/Flat3Map;
 
     invoke-static {v0}, Lorg/apache/commons/collections4/map/Flat3Map;->access$700(Lorg/apache/commons/collections4/map/Flat3Map;)Lorg/apache/commons/collections4/map/AbstractHashedMap;
@@ -143,55 +137,45 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 4
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 2
 
     .line 785
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$EntrySet;, "Lorg/apache/commons/collections4/map/Flat3Map$EntrySet<TK;TV;>;"
     instance-of v0, p1, Ljava/util/Map$Entry;
 
     if-nez v0, :cond_0
 
-    .line 786
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 788
     :cond_0
-    move-object v0, p1
-
-    check-cast v0, Ljava/util/Map$Entry;
+    check-cast p1, Ljava/util/Map$Entry;
 
     .line 789
-    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 790
-    .local v1, "key":Ljava/lang/Object;
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/Flat3Map$EntrySet;->parent:Lorg/apache/commons/collections4/map/Flat3Map;
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$EntrySet;->parent:Lorg/apache/commons/collections4/map/Flat3Map;
 
-    invoke-virtual {v2, v1}, Lorg/apache/commons/collections4/map/Flat3Map;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/map/Flat3Map;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
     .line 791
-    .local v2, "result":Z
-    iget-object v3, p0, Lorg/apache/commons/collections4/map/Flat3Map$EntrySet;->parent:Lorg/apache/commons/collections4/map/Flat3Map;
+    iget-object v1, p0, Lorg/apache/commons/collections4/map/Flat3Map$EntrySet;->parent:Lorg/apache/commons/collections4/map/Flat3Map;
 
-    invoke-virtual {v3, v1}, Lorg/apache/commons/collections4/map/Flat3Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Lorg/apache/commons/collections4/map/Flat3Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 792
-    return v2
+    return v0
 .end method
 
 .method public size()I
     .locals 1
 
     .line 775
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$EntrySet;, "Lorg/apache/commons/collections4/map/Flat3Map$EntrySet<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$EntrySet;->parent:Lorg/apache/commons/collections4/map/Flat3Map;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/map/Flat3Map;->size()I

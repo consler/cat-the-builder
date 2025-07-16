@@ -56,7 +56,6 @@
 # direct methods
 .method constructor <init>(Landroidx/work/WorkQuery$Builder;)V
     .locals 1
-    .param p1, "builder"    # Landroidx/work/WorkQuery$Builder;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -85,11 +84,10 @@
     iput-object v0, p0, Landroidx/work/WorkQuery;->mTags:Ljava/util/List;
 
     .line 54
-    iget-object v0, p1, Landroidx/work/WorkQuery$Builder;->mStates:Ljava/util/List;
+    iget-object p1, p1, Landroidx/work/WorkQuery$Builder;->mStates:Ljava/util/List;
 
-    iput-object v0, p0, Landroidx/work/WorkQuery;->mStates:Ljava/util/List;
+    iput-object p1, p0, Landroidx/work/WorkQuery;->mStates:Ljava/util/List;
 
-    .line 55
     return-void
 .end method
 

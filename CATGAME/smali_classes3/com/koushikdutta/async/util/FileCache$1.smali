@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/util/FileCache;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/util/FileCache;
 
     .line 228
     iput-object p1, p0, Lcom/koushikdutta/async/util/FileCache$1;->this$0:Lcom/koushikdutta/async/util/FileCache;
@@ -46,9 +45,7 @@
 
 # virtual methods
 .method public compare(Ljava/io/File;Ljava/io/File;)I
-    .locals 5
-    .param p1, "lhs"    # Ljava/io/File;
-    .param p2, "rhs"    # Ljava/io/File;
+    .locals 3
 
     .line 231
     invoke-virtual {p1}, Ljava/io/File;->lastModified()J
@@ -56,38 +53,31 @@
     move-result-wide v0
 
     .line 232
-    .local v0, "l":J
     invoke-virtual {p2}, Ljava/io/File;->lastModified()J
 
-    move-result-wide v2
+    move-result-wide p1
 
-    .line 233
-    .local v2, "r":J
-    cmp-long v4, v0, v2
+    cmp-long v2, v0, p1
 
-    if-gez v4, :cond_0
+    if-gez v2, :cond_0
 
-    .line 234
-    const/4 v4, -0x1
+    const/4 p1, -0x1
 
-    return v4
+    return p1
 
-    .line 235
     :cond_0
-    cmp-long v4, v2, v0
+    cmp-long p1, p1, v0
 
-    if-lez v4, :cond_1
+    if-lez p1, :cond_1
 
-    .line 236
-    const/4 v4, 0x1
+    const/4 p1, 0x1
 
-    return v4
+    return p1
 
-    .line 237
     :cond_1
-    const/4 v4, 0x0
+    const/4 p1, 0x0
 
-    return v4
+    return p1
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I

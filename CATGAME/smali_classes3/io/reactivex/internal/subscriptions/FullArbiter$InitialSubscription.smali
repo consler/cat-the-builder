@@ -32,14 +32,11 @@
 .method public cancel()V
     .locals 0
 
-    .line 202
     return-void
 .end method
 
 .method public request(J)V
     .locals 0
-    .param p1, "n"    # J
 
-    .line 197
     return-void
 .end method

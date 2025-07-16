@@ -63,9 +63,6 @@
     .end annotation
 
     .line 268
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableBufferBoundary$BufferCloseObserver;, "Lio/reactivex/internal/operators/observable/ObservableBufferBoundary$BufferCloseObserver<TT;TU;TOpen;TClose;>;"
-    .local p1, "value":Ljava/util/Collection;, "TU;"
-    .local p2, "parent":Lio/reactivex/internal/operators/observable/ObservableBufferBoundary$BufferBoundaryObserver;, "Lio/reactivex/internal/operators/observable/ObservableBufferBoundary$BufferBoundaryObserver<TT;TU;TOpen;TClose;>;"
     invoke-direct {p0}, Lio/reactivex/observers/DisposableObserver;-><init>()V
 
     .line 269
@@ -74,7 +71,6 @@
     .line 270
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableBufferBoundary$BufferCloseObserver;->value:Ljava/util/Collection;
 
-    .line 271
     return-void
 .end method
 
@@ -84,18 +80,16 @@
     .locals 2
 
     .line 289
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableBufferBoundary$BufferCloseObserver;, "Lio/reactivex/internal/operators/observable/ObservableBufferBoundary$BufferCloseObserver<TT;TU;TOpen;TClose;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableBufferBoundary$BufferCloseObserver;->done:Z
 
     if-eqz v0, :cond_0
 
-    .line 290
     return-void
 
-    .line 292
     :cond_0
     const/4 v0, 0x1
 
+    .line 292
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableBufferBoundary$BufferCloseObserver;->done:Z
 
     .line 293
@@ -105,16 +99,13 @@
 
     invoke-virtual {v0, v1, p0}, Lio/reactivex/internal/operators/observable/ObservableBufferBoundary$BufferBoundaryObserver;->close(Ljava/util/Collection;Lio/reactivex/disposables/Disposable;)V
 
-    .line 294
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 280
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableBufferBoundary$BufferCloseObserver;, "Lio/reactivex/internal/operators/observable/ObservableBufferBoundary$BufferCloseObserver<TT;TU;TOpen;TClose;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableBufferBoundary$BufferCloseObserver;->done:Z
 
     if-eqz v0, :cond_0
@@ -122,7 +113,6 @@
     .line 281
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 282
     return-void
 
     .line 284
@@ -131,7 +121,6 @@
 
     invoke-virtual {v0, p1}, Lio/reactivex/internal/operators/observable/ObservableBufferBoundary$BufferBoundaryObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 285
     return-void
 .end method
 
@@ -144,10 +133,7 @@
     .end annotation
 
     .line 275
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableBufferBoundary$BufferCloseObserver;, "Lio/reactivex/internal/operators/observable/ObservableBufferBoundary$BufferCloseObserver<TT;TU;TOpen;TClose;>;"
-    .local p1, "t":Ljava/lang/Object;, "TClose;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableBufferBoundary$BufferCloseObserver;->onComplete()V
 
-    .line 276
     return-void
 .end method

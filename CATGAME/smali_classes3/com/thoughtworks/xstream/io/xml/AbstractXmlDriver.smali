@@ -14,29 +14,24 @@
 
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/io/xml/AbstractXmlDriver;-><init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 36
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
     .locals 0
-    .param p1, "nameCoder"    # Lcom/thoughtworks/xstream/io/naming/NameCoder;
 
     .line 43
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/io/AbstractDriver;-><init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 44
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;)V
     .locals 0
-    .param p1, "replacer"    # Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;
 
     .line 53
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/io/xml/AbstractXmlDriver;-><init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 54
     return-void
 .end method
 
@@ -51,20 +46,17 @@
     move-result-object v0
 
     .line 61
-    .local v0, "nameCoder":Lcom/thoughtworks/xstream/io/naming/NameCoder;
     instance-of v1, v0, Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;
 
     if-eqz v1, :cond_0
 
-    move-object v1, v0
-
-    check-cast v1, Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;
+    check-cast v0, Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    return-object v1
+    return-object v0
 .end method

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter;
 
     .line 120
     iput-object p1, p0, Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter$2;->this$0:Landroidx/browser/browseractions/BrowserActionsFallbackMenuAdapter;
@@ -38,11 +37,9 @@
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
     .locals 0
-    .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 123
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
 
-    .line 124
     return-void
 .end method

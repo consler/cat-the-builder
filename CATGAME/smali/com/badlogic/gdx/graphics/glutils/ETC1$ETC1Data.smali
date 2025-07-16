@@ -30,10 +30,6 @@
 # direct methods
 .method public constructor <init>(IILjava/nio/ByteBuffer;I)V
     .locals 0
-    .param p1, "width"    # I
-    .param p2, "height"    # I
-    .param p3, "compressedData"    # Ljava/nio/ByteBuffer;
-    .param p4, "dataOffset"    # I
 
     .line 55
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,28 +49,22 @@
     .line 60
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->checkNPOT()V
 
-    .line 61
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/files/FileHandle;)V
-    .locals 7
-    .param p1, "pkmFile"    # Lcom/badlogic/gdx/files/FileHandle;
+    .locals 6
 
     .line 63
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 64
     const/16 v0, 0x2800
 
     new-array v0, v0, [B
 
-    .line 65
-    .local v0, "buffer":[B
     const/4 v1, 0x0
 
     .line 67
-    .local v1, "in":Ljava/io/DataInputStream;
     :try_start_0
     new-instance v2, Ljava/io/DataInputStream;
 
@@ -91,162 +81,158 @@
     invoke-direct {v3, v4}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;)V
 
     invoke-direct {v2, v3}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
-
-    move-object v1, v2
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     .line 68
-    invoke-virtual {v1}, Ljava/io/DataInputStream;->readInt()I
+    :try_start_1
+    invoke-virtual {v2}, Ljava/io/DataInputStream;->readInt()I
 
-    move-result v2
+    move-result v1
 
     .line 69
-    .local v2, "fileSize":I
-    invoke-static {v2}, Lcom/badlogic/gdx/utils/BufferUtils;->newUnsafeByteBuffer(I)Ljava/nio/ByteBuffer;
+    invoke-static {v1}, Lcom/badlogic/gdx/utils/BufferUtils;->newUnsafeByteBuffer(I)Ljava/nio/ByteBuffer;
 
-    move-result-object v3
+    move-result-object v1
 
-    iput-object v3, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
-
-    .line 70
-    const/4 v3, 0x0
+    iput-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
 
     .line 71
-    .local v3, "readBytes":I
     :goto_0
-    invoke-virtual {v1, v0}, Ljava/io/DataInputStream;->read([B)I
+    invoke-virtual {v2, v0}, Ljava/io/DataInputStream;->read([B)I
 
-    move-result v4
+    move-result v1
 
-    move v3, v4
+    const/4 v3, -0x1
 
-    const/4 v5, -0x1
+    const/4 v4, 0x0
 
-    const/4 v6, 0x0
-
-    if-eq v4, v5, :cond_0
+    if-eq v1, v3, :cond_0
 
     .line 72
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
+    iget-object v3, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v4, v0, v6, v3}, Ljava/nio/ByteBuffer;->put([BII)Ljava/nio/ByteBuffer;
+    invoke-virtual {v3, v0, v4, v1}, Ljava/nio/ByteBuffer;->put([BII)Ljava/nio/ByteBuffer;
 
     goto :goto_0
 
     .line 74
     :cond_0
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v4, v6}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, v4}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 75
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
 
-    iget-object v5, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
+    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->capacity()I
 
-    invoke-virtual {v5}, Ljava/nio/ByteBuffer;->capacity()I
+    move-result v1
 
-    move-result v5
-
-    invoke-virtual {v4, v5}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 79
-    nop
-
-    .end local v2    # "fileSize":I
-    .end local v3    # "readBytes":I
-    invoke-static {v1}, Lcom/badlogic/gdx/utils/StreamUtils;->closeQuietly(Ljava/io/Closeable;)V
-
-    .line 80
-    nop
+    invoke-static {v2}, Lcom/badlogic/gdx/utils/StreamUtils;->closeQuietly(Ljava/io/Closeable;)V
 
     .line 82
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
 
-    invoke-static {v2, v6}, Lcom/badlogic/gdx/graphics/glutils/ETC1;->getWidthPKM(Ljava/nio/ByteBuffer;I)I
+    invoke-static {p1, v4}, Lcom/badlogic/gdx/graphics/glutils/ETC1;->getWidthPKM(Ljava/nio/ByteBuffer;I)I
 
-    move-result v2
+    move-result p1
 
-    iput v2, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->width:I
+    iput p1, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->width:I
 
     .line 83
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
 
-    invoke-static {v2, v6}, Lcom/badlogic/gdx/graphics/glutils/ETC1;->getHeightPKM(Ljava/nio/ByteBuffer;I)I
+    invoke-static {p1, v4}, Lcom/badlogic/gdx/graphics/glutils/ETC1;->getHeightPKM(Ljava/nio/ByteBuffer;I)I
 
-    move-result v2
+    move-result p1
 
-    iput v2, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->height:I
+    iput p1, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->height:I
 
     .line 84
-    sget v2, Lcom/badlogic/gdx/graphics/glutils/ETC1;->PKM_HEADER_SIZE:I
+    sget p1, Lcom/badlogic/gdx/graphics/glutils/ETC1;->PKM_HEADER_SIZE:I
 
-    iput v2, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->dataOffset:I
+    iput p1, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->dataOffset:I
 
     .line 85
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v3, v2}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, p1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 86
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->checkNPOT()V
 
-    .line 87
     return-void
 
-    .line 79
     :catchall_0
-    move-exception v2
+    move-exception p1
+
+    move-object v1, v2
+
+    goto :goto_2
+
+    :catch_0
+    move-exception v0
+
+    move-object v1, v2
 
     goto :goto_1
 
-    .line 76
-    :catch_0
-    move-exception v2
+    :catchall_1
+    move-exception p1
+
+    goto :goto_2
+
+    :catch_1
+    move-exception v0
 
     .line 77
-    .local v2, "e":Ljava/lang/Exception;
-    :try_start_1
-    new-instance v3, Lcom/badlogic/gdx/utils/GdxRuntimeException;
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "Couldn\'t load pkm file \'"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v5, "\'"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-direct {v3, v4, v2}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    .end local v0    # "buffer":[B
-    .end local v1    # "in":Ljava/io/DataInputStream;
-    .end local p1    # "pkmFile":Lcom/badlogic/gdx/files/FileHandle;
-    throw v3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    .line 79
-    .end local v2    # "e":Ljava/lang/Exception;
-    .restart local v0    # "buffer":[B
-    .restart local v1    # "in":Ljava/io/DataInputStream;
-    .restart local p1    # "pkmFile":Lcom/badlogic/gdx/files/FileHandle;
     :goto_1
-    invoke-static {v1}, Lcom/badlogic/gdx/utils/StreamUtils;->closeQuietly(Ljava/io/Closeable;)V
+    :try_start_2
+    new-instance v2, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Couldn\'t load pkm file \'"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    const-string v3, "\'"
+
+    invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v2, p1, v0}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v2
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    .line 79
+    :goto_2
+    invoke-static {v1}, Lcom/badlogic/gdx/utils/StreamUtils;->closeQuietly(Ljava/io/Closeable;)V
+
+    throw p1
 .end method
 
 .method private checkNPOT()V
@@ -277,7 +263,6 @@
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 93
     :cond_1
     return-void
 .end method
@@ -292,7 +277,6 @@
 
     invoke-static {v0}, Lcom/badlogic/gdx/utils/BufferUtils;->disposeUnsafeByteBuffer(Ljava/nio/ByteBuffer;)V
 
-    .line 129
     return-void
 .end method
 
@@ -327,7 +311,7 @@
 
     const-string v1, "], compressed: "
 
-    const-string/jumbo v2, "x"
+    const-string v2, "x"
 
     if-eqz v0, :cond_1
 
@@ -346,7 +330,7 @@
 
     if-eqz v3, :cond_0
 
-    const-string/jumbo v3, "valid"
+    const-string v3, "valid"
 
     goto :goto_0
 
@@ -356,9 +340,13 @@
     :goto_0
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v3, " pkm ["
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v3, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
 
@@ -368,7 +356,11 @@
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v2, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
 
@@ -379,7 +371,11 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
 
@@ -394,34 +390,41 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 133
     return-object v0
 
     .line 137
     :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v3, "raw ["
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget v3, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->width:I
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v2, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->height:I
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
 
@@ -435,6 +438,8 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -444,182 +449,176 @@
 
 .method public write(Lcom/badlogic/gdx/files/FileHandle;)V
     .locals 7
-    .param p1, "file"    # Lcom/badlogic/gdx/files/FileHandle;
 
-    .line 103
-    const/4 v0, 0x0
+    const/16 v0, 0x2800
 
-    .line 104
-    .local v0, "write":Ljava/io/DataOutputStream;
-    const/16 v1, 0x2800
-
-    new-array v1, v1, [B
-
-    .line 105
-    .local v1, "buffer":[B
-    const/4 v2, 0x0
+    new-array v1, v0, [B
 
     .line 106
-    .local v2, "writtenBytes":I
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 107
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->capacity()I
+    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->capacity()I
 
-    move-result v5
+    move-result v4
 
-    invoke-virtual {v3, v5}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {v2, v4}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+
+    const/4 v2, 0x0
 
     .line 109
     :try_start_0
-    new-instance v3, Ljava/io/DataOutputStream;
+    new-instance v4, Ljava/io/DataOutputStream;
 
     new-instance v5, Ljava/util/zip/GZIPOutputStream;
 
-    invoke-virtual {p1, v4}, Lcom/badlogic/gdx/files/FileHandle;->write(Z)Ljava/io/OutputStream;
+    invoke-virtual {p1, v3}, Lcom/badlogic/gdx/files/FileHandle;->write(Z)Ljava/io/OutputStream;
 
     move-result-object v6
 
     invoke-direct {v5, v6}, Ljava/util/zip/GZIPOutputStream;-><init>(Ljava/io/OutputStream;)V
 
-    invoke-direct {v3, v5}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
-
-    move-object v0, v3
+    invoke-direct {v4, v5}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     .line 110
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
+    :try_start_1
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->capacity()I
+    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->capacity()I
 
-    move-result v3
+    move-result v2
 
-    invoke-virtual {v0, v3}, Ljava/io/DataOutputStream;->writeInt(I)V
+    invoke-virtual {v4, v2}, Ljava/io/DataOutputStream;->writeInt(I)V
+
+    move v2, v3
 
     .line 111
     :goto_0
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
-
-    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->capacity()I
-
-    move-result v3
-
-    if-eq v2, v3, :cond_0
-
-    .line 112
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
-
-    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->remaining()I
-
-    move-result v3
-
-    array-length v5, v1
-
-    invoke-static {v3, v5}, Ljava/lang/Math;->min(II)I
-
-    move-result v3
-
-    .line 113
-    .local v3, "bytesToWrite":I
     iget-object v5, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v5, v1, v4, v3}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
+    invoke-virtual {v5}, Ljava/nio/ByteBuffer;->capacity()I
+
+    move-result v5
+
+    if-eq v2, v5, :cond_0
+
+    .line 112
+    iget-object v5, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
+
+    invoke-virtual {v5}, Ljava/nio/ByteBuffer;->remaining()I
+
+    move-result v5
+
+    invoke-static {v5, v0}, Ljava/lang/Math;->min(II)I
+
+    move-result v5
+
+    .line 113
+    iget-object v6, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
+
+    invoke-virtual {v6, v1, v3, v5}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
 
     .line 114
-    invoke-virtual {v0, v1, v4, v3}, Ljava/io/DataOutputStream;->write([BII)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-virtual {v4, v1, v3, v5}, Ljava/io/DataOutputStream;->write([BII)V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 115
-    add-int/2addr v2, v3
+    add-int/2addr v2, v5
 
-    .line 116
-    .end local v3    # "bytesToWrite":I
     goto :goto_0
 
     .line 120
     :cond_0
-    invoke-static {v0}, Lcom/badlogic/gdx/utils/StreamUtils;->closeQuietly(Ljava/io/Closeable;)V
-
-    .line 121
-    nop
+    invoke-static {v4}, Lcom/badlogic/gdx/utils/StreamUtils;->closeQuietly(Ljava/io/Closeable;)V
 
     .line 122
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
 
-    iget v4, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->dataOffset:I
+    iget v0, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->dataOffset:I
 
-    invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 123
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/glutils/ETC1$ETC1Data;->compressedData:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->capacity()I
+    invoke-virtual {p1}, Ljava/nio/ByteBuffer;->capacity()I
 
-    move-result v4
+    move-result v0
 
-    invoke-virtual {v3, v4}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
-    .line 124
     return-void
 
-    .line 120
     :catchall_0
-    move-exception v3
+    move-exception p1
+
+    move-object v2, v4
+
+    goto :goto_2
+
+    :catch_0
+    move-exception v0
+
+    move-object v2, v4
 
     goto :goto_1
 
-    .line 117
-    :catch_0
-    move-exception v3
+    :catchall_1
+    move-exception p1
+
+    goto :goto_2
+
+    :catch_1
+    move-exception v0
 
     .line 118
-    .local v3, "e":Ljava/lang/Exception;
-    :try_start_1
-    new-instance v4, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    :goto_1
+    :try_start_2
+    new-instance v1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Couldn\'t write PKM file to \'"
+    const-string v4, "Couldn\'t write PKM file to \'"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    const-string v6, "\'"
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v3, "\'"
 
-    move-result-object v5
+    invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v4, v5, v3}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    move-result-object p1
 
-    .end local v0    # "write":Ljava/io/DataOutputStream;
-    .end local v1    # "buffer":[B
-    .end local v2    # "writtenBytes":I
-    .end local p1    # "file":Lcom/badlogic/gdx/files/FileHandle;
-    throw v4
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v1, p1, v0}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v1
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     .line 120
-    .end local v3    # "e":Ljava/lang/Exception;
-    .restart local v0    # "write":Ljava/io/DataOutputStream;
-    .restart local v1    # "buffer":[B
-    .restart local v2    # "writtenBytes":I
-    .restart local p1    # "file":Lcom/badlogic/gdx/files/FileHandle;
-    :goto_1
-    invoke-static {v0}, Lcom/badlogic/gdx/utils/StreamUtils;->closeQuietly(Ljava/io/Closeable;)V
+    :goto_2
+    invoke-static {v2}, Lcom/badlogic/gdx/utils/StreamUtils;->closeQuietly(Ljava/io/Closeable;)V
 
-    throw v3
+    throw p1
 .end method

@@ -37,8 +37,6 @@
 # direct methods
 .method constructor <init>(II)V
     .locals 0
-    .param p1, "index"    # I
-    .param p2, "end"    # I
 
     .line 53
     invoke-direct {p0}, Lio/reactivex/internal/subscriptions/BasicQueueSubscription;-><init>()V
@@ -49,7 +47,6 @@
     .line 55
     iput p2, p0, Lio/reactivex/internal/operators/flowable/FlowableRange$BaseRangeSubscription;->end:I
 
-    .line 56
     return-void
 .end method
 
@@ -58,12 +55,11 @@
 .method public final cancel()V
     .locals 1
 
-    .line 100
     const/4 v0, 0x1
 
+    .line 100
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRange$BaseRangeSubscription;->cancelled:Z
 
-    .line 101
     return-void
 .end method
 
@@ -75,7 +71,6 @@
 
     iput v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRange$BaseRangeSubscription;->index:I
 
-    .line 82
     return-void
 .end method
 
@@ -110,28 +105,26 @@
     iget v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRange$BaseRangeSubscription;->index:I
 
     .line 67
-    .local v0, "i":I
     iget v1, p0, Lio/reactivex/internal/operators/flowable/FlowableRange$BaseRangeSubscription;->end:I
 
     if-ne v0, v1, :cond_0
 
-    .line 68
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    return-object v1
+    return-object v0
 
-    .line 70
     :cond_0
     add-int/lit8 v1, v0, 0x1
 
+    .line 70
     iput v1, p0, Lio/reactivex/internal/operators/flowable/FlowableRange$BaseRangeSubscription;->index:I
 
     .line 71
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public bridge synthetic poll()Ljava/lang/Object;
@@ -152,7 +145,6 @@
 
 .method public final request(J)V
     .locals 4
-    .param p1, "n"    # J
 
     .line 86
     invoke-static {p1, p2}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(J)Z
@@ -172,7 +164,6 @@
 
     if-nez v0, :cond_1
 
-    .line 88
     const-wide v0, 0x7fffffffffffffffL
 
     cmp-long v0, p1, v0
@@ -188,20 +179,17 @@
     :cond_0
     invoke-virtual {p0, p1, p2}, Lio/reactivex/internal/operators/flowable/FlowableRange$BaseRangeSubscription;->slowPath(J)V
 
-    .line 95
     :cond_1
     :goto_0
     return-void
 .end method
 
 .method public final requestFusion(I)I
-    .locals 1
-    .param p1, "mode"    # I
+    .locals 0
 
-    .line 60
-    and-int/lit8 v0, p1, 0x1
+    and-int/lit8 p1, p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method abstract slowPath(J)V

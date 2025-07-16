@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/squareup/picasso/Dispatcher;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/squareup/picasso/Dispatcher;
 
     .line 131
     iput-object p1, p0, Lcom/squareup/picasso/Dispatcher$1;->this$0:Lcom/squareup/picasso/Dispatcher;
@@ -46,6 +45,5 @@
 
     invoke-virtual {v0}, Lcom/squareup/picasso/Dispatcher$NetworkBroadcastReceiver;->unregister()V
 
-    .line 134
     return-void
 .end method

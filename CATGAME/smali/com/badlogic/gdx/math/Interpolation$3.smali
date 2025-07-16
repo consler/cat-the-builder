@@ -27,32 +27,27 @@
 
 # virtual methods
 .method public apply(F)F
-    .locals 4
-    .param p1, "a"    # F
+    .locals 3
 
-    .line 48
     mul-float v0, p1, p1
 
     const/high16 v1, 0x40000000    # 2.0f
 
-    mul-float v2, p1, v1
+    mul-float/2addr p1, v1
 
-    const/high16 v3, 0x40400000    # 3.0f
+    const/high16 v2, 0x40400000    # 3.0f
 
-    sub-float v2, v3, v2
+    sub-float p1, v2, p1
 
-    mul-float/2addr v0, v2
+    mul-float/2addr v0, p1
 
-    .line 49
-    .end local p1    # "a":F
-    .local v0, "a":F
     mul-float p1, v0, v0
 
-    mul-float/2addr v1, v0
+    mul-float/2addr v0, v1
 
-    sub-float/2addr v3, v1
+    sub-float/2addr v2, v0
 
-    mul-float/2addr p1, v3
+    mul-float/2addr p1, v2
 
     return p1
 .end method

@@ -22,126 +22,106 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Class;Ljava/lang/String;)V
-    .locals 1
-    .param p1, "itemType"    # Ljava/lang/Class;
-    .param p2, "itemFieldName"    # Ljava/lang/String;
+    .locals 0
 
     .line 283
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 284
     if-nez p1, :cond_1
 
-    sget-object v0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->class$java$lang$Object:Ljava/lang/Class;
+    .line 284
+    sget-object p1, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->class$java$lang$Object:Ljava/lang/Class;
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const-string v0, "java.lang.Object"
+    const-string p1, "java.lang.Object"
 
-    invoke-static {v0}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->class$(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-static {p1}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->class$(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p1
 
-    sput-object v0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->class$java$lang$Object:Ljava/lang/Class;
+    sput-object p1, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->class$java$lang$Object:Ljava/lang/Class;
 
     goto :goto_0
 
     :cond_0
-    sget-object v0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->class$java$lang$Object:Ljava/lang/Class;
-
-    goto :goto_0
+    sget-object p1, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->class$java$lang$Object:Ljava/lang/Class;
 
     :cond_1
-    move-object v0, p1
-
     :goto_0
-    iput-object v0, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;->itemType:Ljava/lang/Class;
+    iput-object p1, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;->itemType:Ljava/lang/Class;
 
     .line 285
     iput-object p2, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;->itemFieldName:Ljava/lang/String;
 
-    .line 286
     return-void
 .end method
 
 .method private static isEquals(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 1
-    .param p0, "a"    # Ljava/lang/Object;
-    .param p1, "b"    # Ljava/lang/Object;
+    .locals 0
 
-    .line 298
     if-nez p0, :cond_1
 
-    .line 299
     if-nez p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 
     .line 301
     :cond_1
     invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 3
 
     .line 289
     instance-of v0, p1, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     .line 290
-    move-object v0, p1
-
-    check-cast v0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;
+    check-cast p1, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;
 
     .line 291
-    .local v0, "b":Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;
-    iget-object v2, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;->itemType:Ljava/lang/Class;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;->itemType:Ljava/lang/Class;
 
-    iget-object v3, v0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;->itemType:Ljava/lang/Class;
+    iget-object v2, p1, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;->itemType:Ljava/lang/Class;
 
-    invoke-virtual {v2, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v2, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;->itemFieldName:Ljava/lang/String;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;->itemFieldName:Ljava/lang/String;
 
-    iget-object v3, v0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;->itemFieldName:Ljava/lang/String;
+    iget-object p1, p1, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;->itemFieldName:Ljava/lang/String;
 
-    invoke-static {v2, v3}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;->isEquals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, p1}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;->isEquals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_0
+    if-eqz p1, :cond_0
 
     const/4 v1, 0x1
 
     :cond_0
-    return v1
-
-    .line 293
-    .end local v0    # "b":Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;
-    :cond_1
     return v1
 .end method
 
@@ -158,7 +138,6 @@
     shl-int/lit8 v0, v0, 0x7
 
     .line 307
-    .local v0, "hash":I
     iget-object v1, p0, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper$NamedItemType;->itemFieldName:Ljava/lang/String;
 
     if-eqz v1, :cond_0
@@ -170,7 +149,6 @@
 
     add-int/2addr v0, v1
 
-    .line 310
     :cond_0
     return v0
 .end method

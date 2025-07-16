@@ -43,8 +43,6 @@
 # direct methods
 .method public static final createViewModelProvider(Lorg/koin/core/scope/Scope;Lorg/koin/androidx/viewmodel/ViewModelParameter;)Landroidx/lifecycle/ViewModelProvider;
     .locals 3
-    .param p0, "$this$createViewModelProvider"    # Lorg/koin/core/scope/Scope;
-    .param p1, "viewModelParameters"    # Lorg/koin/androidx/viewmodel/ViewModelParameter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -83,9 +81,9 @@
     .line 31
     invoke-static {p0, p1}, Lorg/koin/androidx/viewmodel/ViewModelFactoryKt;->stateViewModelFactory(Lorg/koin/core/scope/Scope;Lorg/koin/androidx/viewmodel/ViewModelParameter;)Landroidx/lifecycle/AbstractSavedStateViewModelFactory;
 
-    move-result-object v2
+    move-result-object p0
 
-    check-cast v2, Landroidx/lifecycle/ViewModelProvider$Factory;
+    check-cast p0, Landroidx/lifecycle/ViewModelProvider$Factory;
 
     goto :goto_0
 
@@ -93,24 +91,17 @@
     :cond_0
     invoke-static {p0, p1}, Lorg/koin/androidx/viewmodel/ViewModelFactoryKt;->defaultViewModelFactory(Lorg/koin/core/scope/Scope;Lorg/koin/androidx/viewmodel/ViewModelParameter;)Landroidx/lifecycle/ViewModelProvider$Factory;
 
-    move-result-object v2
-
-    .line 30
-    :goto_0
-    nop
+    move-result-object p0
 
     .line 28
-    invoke-direct {v0, v1, v2}, Landroidx/lifecycle/ViewModelProvider;-><init>(Landroidx/lifecycle/ViewModelStore;Landroidx/lifecycle/ViewModelProvider$Factory;)V
+    :goto_0
+    invoke-direct {v0, v1, p0}, Landroidx/lifecycle/ViewModelProvider;-><init>(Landroidx/lifecycle/ViewModelStore;Landroidx/lifecycle/ViewModelProvider$Factory;)V
 
     return-object v0
 .end method
 
 .method public static final get(Landroidx/lifecycle/ViewModelProvider;Lorg/koin/androidx/viewmodel/ViewModelParameter;Lorg/koin/core/qualifier/Qualifier;Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
-    .locals 2
-    .param p0, "$this$get"    # Landroidx/lifecycle/ViewModelProvider;
-    .param p1, "viewModelParameters"    # Lorg/koin/androidx/viewmodel/ViewModelParameter;
-    .param p2, "qualifier"    # Lorg/koin/core/qualifier/Qualifier;
-    .param p3, "javaClass"    # Ljava/lang/Class;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -140,22 +131,22 @@
     .line 18
     invoke-virtual {p1}, Lorg/koin/androidx/viewmodel/ViewModelParameter;->getQualifier()Lorg/koin/core/qualifier/Qualifier;
 
-    move-result-object v0
+    move-result-object p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 19
     invoke-static {p2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0, p3}, Landroidx/lifecycle/ViewModelProvider;->get(Ljava/lang/String;Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
+    invoke-virtual {p0, p1, p3}, Landroidx/lifecycle/ViewModelProvider;->get(Ljava/lang/String;Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "get(qualifier.toString(), javaClass)"
+    const-string p1, "get(qualifier.toString(), javaClass)"
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -163,21 +154,18 @@
     :cond_0
     invoke-virtual {p0, p3}, Landroidx/lifecycle/ViewModelProvider;->get(Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "get(javaClass)"
+    const-string p1, "get(javaClass)"
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkExpressionValueIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 18
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final resolveInstance(Landroidx/lifecycle/ViewModelProvider;Lorg/koin/androidx/viewmodel/ViewModelParameter;)Landroidx/lifecycle/ViewModel;
     .locals 2
-    .param p0, "$this$resolveInstance"    # Landroidx/lifecycle/ViewModelProvider;
-    .param p1, "viewModelParameters"    # Lorg/koin/androidx/viewmodel/ViewModelParameter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -207,14 +195,13 @@
     move-result-object v0
 
     .line 10
-    .local v0, "javaClass":Ljava/lang/Class;
     invoke-virtual {p1}, Lorg/koin/androidx/viewmodel/ViewModelParameter;->getQualifier()Lorg/koin/core/qualifier/Qualifier;
 
     move-result-object v1
 
     invoke-static {p0, p1, v1, v0}, Lorg/koin/androidx/viewmodel/ViewModelResolutionKt;->get(Landroidx/lifecycle/ViewModelProvider;Lorg/koin/androidx/viewmodel/ViewModelParameter;Lorg/koin/core/qualifier/Qualifier;Ljava/lang/Class;)Landroidx/lifecycle/ViewModel;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method

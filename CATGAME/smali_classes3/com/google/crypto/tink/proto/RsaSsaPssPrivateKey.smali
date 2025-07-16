@@ -82,7 +82,6 @@
     invoke-direct {v0}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;-><init>()V
 
     .line 958
-    .local v0, "defaultInstance":Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
     sput-object v0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->DEFAULT_INSTANCE:Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
     .line 959
@@ -90,8 +89,6 @@
 
     invoke-static {v1, v0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->registerDefaultInstance(Ljava/lang/Class;Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
-    .line 961
-    .end local v0    # "defaultInstance":Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
     return-void
 .end method
 
@@ -131,7 +128,6 @@
 
     iput-object v0, p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->crt_:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    .line 25
     return-void
 .end method
 
@@ -146,8 +142,6 @@
 
 .method static synthetic access$100(Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;I)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
-    .param p1, "x1"    # I
 
     .line 13
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->setVersion(I)V
@@ -157,8 +151,6 @@
 
 .method static synthetic access$1000(Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
-    .param p1, "x1"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     .line 13
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->setQ(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
@@ -168,7 +160,6 @@
 
 .method static synthetic access$1100(Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
     .line 13
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->clearQ()V
@@ -178,8 +169,6 @@
 
 .method static synthetic access$1200(Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
-    .param p1, "x1"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     .line 13
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->setDp(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
@@ -189,7 +178,6 @@
 
 .method static synthetic access$1300(Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
     .line 13
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->clearDp()V
@@ -199,8 +187,6 @@
 
 .method static synthetic access$1400(Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
-    .param p1, "x1"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     .line 13
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->setDq(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
@@ -210,7 +196,6 @@
 
 .method static synthetic access$1500(Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
     .line 13
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->clearDq()V
@@ -220,8 +205,6 @@
 
 .method static synthetic access$1600(Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
-    .param p1, "x1"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     .line 13
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->setCrt(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
@@ -231,7 +214,6 @@
 
 .method static synthetic access$1700(Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
     .line 13
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->clearCrt()V
@@ -241,7 +223,6 @@
 
 .method static synthetic access$200(Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
     .line 13
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->clearVersion()V
@@ -251,8 +232,6 @@
 
 .method static synthetic access$300(Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
-    .param p1, "x1"    # Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey;
 
     .line 13
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->setPublicKey(Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey;)V
@@ -262,8 +241,6 @@
 
 .method static synthetic access$400(Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
-    .param p1, "x1"    # Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey;
 
     .line 13
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->mergePublicKey(Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey;)V
@@ -273,7 +250,6 @@
 
 .method static synthetic access$500(Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
     .line 13
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->clearPublicKey()V
@@ -283,8 +259,6 @@
 
 .method static synthetic access$600(Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
-    .param p1, "x1"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     .line 13
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->setD(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
@@ -294,7 +268,6 @@
 
 .method static synthetic access$700(Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
     .line 13
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->clearD()V
@@ -304,8 +277,6 @@
 
 .method static synthetic access$800(Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
-    .param p1, "x1"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     .line 13
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->setP(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
@@ -315,7 +286,6 @@
 
 .method static synthetic access$900(Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;)V
     .locals 0
-    .param p0, "x0"    # Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
     .line 13
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->clearP()V
@@ -337,7 +307,6 @@
 
     iput-object v0, p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->crt_:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    .line 401
     return-void
 .end method
 
@@ -355,7 +324,6 @@
 
     iput-object v0, p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->d_:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    .line 173
     return-void
 .end method
 
@@ -373,7 +341,6 @@
 
     iput-object v0, p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->dp_:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    .line 311
     return-void
 .end method
 
@@ -391,7 +358,6 @@
 
     iput-object v0, p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->dq_:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    .line 356
     return-void
 .end method
 
@@ -409,19 +375,17 @@
 
     iput-object v0, p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->p_:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    .line 221
     return-void
 .end method
 
 .method private clearPublicKey()V
     .locals 1
 
-    .line 126
     const/4 v0, 0x0
 
+    .line 126
     iput-object v0, p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->publicKey_:Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey;
 
-    .line 128
     return-void
 .end method
 
@@ -439,19 +403,17 @@
 
     iput-object v0, p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->q_:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    .line 266
     return-void
 .end method
 
 .method private clearVersion()V
     .locals 1
 
-    .line 61
     const/4 v0, 0x0
 
+    .line 61
     iput v0, p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->version_:I
 
-    .line 62
     return-void
 .end method
 
@@ -466,7 +428,6 @@
 
 .method private mergePublicKey(Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey;)V
     .locals 2
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -501,17 +462,17 @@
 
     invoke-virtual {v0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey$Builder;->mergeFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey$Builder;
+    check-cast p1, Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey$Builder;
 
-    invoke-virtual {v0}, Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey$Builder;->buildPartial()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey$Builder;->buildPartial()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey;
+    check-cast p1, Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey;
 
-    iput-object v0, p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->publicKey_:Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey;
+    iput-object p1, p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->publicKey_:Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey;
 
     goto :goto_0
 
@@ -519,7 +480,6 @@
     :cond_0
     iput-object p1, p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->publicKey_:Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey;
 
-    .line 118
     :goto_0
     return-void
 .end method
@@ -541,7 +501,6 @@
 
 .method public static newBuilder(Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;)Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey$Builder;
     .locals 1
-    .param p0, "prototype"    # Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -556,16 +515,15 @@
 
     invoke-virtual {v0, p0}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->createBuilder(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey$Builder;
+    check-cast p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey$Builder;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseDelimitedFrom(Ljava/io/InputStream;)Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
     .locals 1
-    .param p0, "input"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -586,17 +544,15 @@
 
     invoke-static {v0, p0}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->parseDelimitedFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Ljava/io/InputStream;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
+    check-cast p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseDelimitedFrom(Ljava/io/InputStream;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
     .locals 1
-    .param p0, "input"    # Ljava/io/InputStream;
-    .param p1, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -619,16 +575,15 @@
 
     invoke-static {v0, p0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->parseDelimitedFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Ljava/io/InputStream;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
+    check-cast p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
     .locals 1
-    .param p0, "data"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -649,17 +604,15 @@
 
     invoke-static {v0, p0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
+    check-cast p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
     .locals 1
-    .param p0, "data"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
-    .param p1, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -682,16 +635,15 @@
 
     invoke-static {v0, p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
+    check-cast p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom(Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;)Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
     .locals 1
-    .param p0, "input"    # Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -712,17 +664,15 @@
 
     invoke-static {v0, p0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
+    check-cast p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom(Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
     .locals 1
-    .param p0, "input"    # Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;
-    .param p1, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -745,16 +695,15 @@
 
     invoke-static {v0, p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
+    check-cast p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom(Ljava/io/InputStream;)Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
     .locals 1
-    .param p0, "input"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -775,17 +724,15 @@
 
     invoke-static {v0, p0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Ljava/io/InputStream;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
+    check-cast p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom(Ljava/io/InputStream;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
     .locals 1
-    .param p0, "input"    # Ljava/io/InputStream;
-    .param p1, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -808,16 +755,15 @@
 
     invoke-static {v0, p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Ljava/io/InputStream;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
+    check-cast p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom(Ljava/nio/ByteBuffer;)Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
     .locals 1
-    .param p0, "data"    # Ljava/nio/ByteBuffer;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -838,17 +784,15 @@
 
     invoke-static {v0, p0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Ljava/nio/ByteBuffer;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
+    check-cast p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom(Ljava/nio/ByteBuffer;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
     .locals 1
-    .param p0, "data"    # Ljava/nio/ByteBuffer;
-    .param p1, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -871,16 +815,15 @@
 
     invoke-static {v0, p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;Ljava/nio/ByteBuffer;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
+    check-cast p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom([B)Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
     .locals 1
-    .param p0, "data"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -901,17 +844,15 @@
 
     invoke-static {v0, p0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;[B)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
+    check-cast p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parseFrom([BLcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
     .locals 1
-    .param p0, "data"    # [B
-    .param p1, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -934,11 +875,11 @@
 
     invoke-static {v0, p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;[BLcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
+    check-cast p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static parser()Lcom/google/crypto/tink/shaded/protobuf/Parser;
@@ -964,7 +905,6 @@
 
 .method private setCrt(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
     .locals 0
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -980,13 +920,11 @@
     .line 387
     iput-object p1, p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->crt_:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    .line 388
     return-void
 .end method
 
 .method private setD(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
     .locals 0
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1002,13 +940,11 @@
     .line 159
     iput-object p1, p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->d_:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    .line 160
     return-void
 .end method
 
 .method private setDp(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
     .locals 0
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1024,13 +960,11 @@
     .line 297
     iput-object p1, p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->dp_:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    .line 298
     return-void
 .end method
 
 .method private setDq(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
     .locals 0
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1046,13 +980,11 @@
     .line 342
     iput-object p1, p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->dq_:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    .line 343
     return-void
 .end method
 
 .method private setP(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
     .locals 0
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1068,13 +1000,11 @@
     .line 206
     iput-object p1, p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->p_:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    .line 207
     return-void
 .end method
 
 .method private setPublicKey(Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey;)V
     .locals 0
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1090,13 +1020,11 @@
     .line 97
     iput-object p1, p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->publicKey_:Lcom/google/crypto/tink/proto/RsaSsaPssPublicKey;
 
-    .line 99
     return-void
 .end method
 
 .method private setQ(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
     .locals 0
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1112,13 +1040,11 @@
     .line 252
     iput-object p1, p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->q_:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    .line 253
     return-void
 .end method
 
 .method private setVersion(I)V
     .locals 0
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -1131,17 +1057,13 @@
     .line 50
     iput p1, p0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->version_:I
 
-    .line 51
     return-void
 .end method
 
 
 # virtual methods
 .method protected final dynamicMethod(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$MethodToInvoke;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 4
-    .param p1, "method"    # Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$MethodToInvoke;
-    .param p2, "arg0"    # Ljava/lang/Object;
-    .param p3, "arg1"    # Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -1156,183 +1078,167 @@
     .end annotation
 
     .line 899
-    sget-object v0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey$1;->$SwitchMap$com$google$protobuf$GeneratedMessageLite$MethodToInvoke:[I
+    sget-object p2, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey$1;->$SwitchMap$com$google$protobuf$GeneratedMessageLite$MethodToInvoke:[I
 
     invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$MethodToInvoke;->ordinal()I
 
-    move-result v1
+    move-result p1
 
-    aget v0, v0, v1
+    aget p1, p2, p1
 
-    const/4 v1, 0x1
+    const/4 p2, 0x1
 
-    const/4 v2, 0x0
+    const/4 p3, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch p1, :pswitch_data_0
 
     .line 948
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 
-    .line 945
     :pswitch_0
-    return-object v2
+    return-object p3
 
     .line 942
     :pswitch_1
-    invoke-static {v1}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
+    invoke-static {p2}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 927
     :pswitch_2
-    sget-object v0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->PARSER:Lcom/google/crypto/tink/shaded/protobuf/Parser;
+    sget-object p1, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->PARSER:Lcom/google/crypto/tink/shaded/protobuf/Parser;
 
-    .line 928
-    .local v0, "parser":Lcom/google/crypto/tink/shaded/protobuf/Parser;, "Lcom/google/crypto/tink/shaded/protobuf/Parser<Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;>;"
-    if-nez v0, :cond_1
+    if-nez p1, :cond_1
 
     .line 929
-    const-class v1, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
+    const-class p2, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
-    monitor-enter v1
+    monitor-enter p2
 
     .line 930
     :try_start_0
-    sget-object v2, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->PARSER:Lcom/google/crypto/tink/shaded/protobuf/Parser;
+    sget-object p1, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->PARSER:Lcom/google/crypto/tink/shaded/protobuf/Parser;
 
-    move-object v0, v2
-
-    .line 931
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 932
-    new-instance v2, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$DefaultInstanceBasedParser;
+    new-instance p1, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$DefaultInstanceBasedParser;
 
-    sget-object v3, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->DEFAULT_INSTANCE:Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
+    sget-object p3, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->DEFAULT_INSTANCE:Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
-    invoke-direct {v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$DefaultInstanceBasedParser;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
-
-    move-object v0, v2
+    invoke-direct {p1, p3}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$DefaultInstanceBasedParser;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
     .line 935
-    sput-object v0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->PARSER:Lcom/google/crypto/tink/shaded/protobuf/Parser;
+    sput-object p1, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->PARSER:Lcom/google/crypto/tink/shaded/protobuf/Parser;
 
     .line 937
     :cond_0
-    monitor-exit v1
+    monitor-exit p2
 
     goto :goto_0
 
     :catchall_0
-    move-exception v2
+    move-exception p1
 
-    monitor-exit v1
+    monitor-exit p2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v2
+    throw p1
 
-    .line 939
     :cond_1
     :goto_0
-    return-object v0
+    return-object p1
 
     .line 924
-    .end local v0    # "parser":Lcom/google/crypto/tink/shaded/protobuf/Parser;, "Lcom/google/crypto/tink/shaded/protobuf/Parser<Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;>;"
     :pswitch_3
-    sget-object v0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->DEFAULT_INSTANCE:Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
+    sget-object p1, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->DEFAULT_INSTANCE:Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
-    return-object v0
+    return-object p1
 
-    .line 907
     :pswitch_4
-    const/16 v0, 0x8
+    const/16 p1, 0x8
 
-    new-array v0, v0, [Ljava/lang/Object;
+    new-array p1, p1, [Ljava/lang/Object;
 
-    const/4 v2, 0x0
+    const/4 p3, 0x0
 
-    const-string v3, "version_"
+    const-string v0, "version_"
 
-    aput-object v3, v0, v2
+    aput-object v0, p1, p3
 
-    const-string v2, "publicKey_"
+    const-string p3, "publicKey_"
 
-    aput-object v2, v0, v1
+    aput-object p3, p1, p2
 
-    const/4 v1, 0x2
+    const/4 p2, 0x2
 
-    const-string v2, "d_"
+    const-string p3, "d_"
 
-    aput-object v2, v0, v1
+    aput-object p3, p1, p2
 
-    const/4 v1, 0x3
+    const/4 p2, 0x3
 
-    const-string v2, "p_"
+    const-string p3, "p_"
 
-    aput-object v2, v0, v1
+    aput-object p3, p1, p2
 
-    const/4 v1, 0x4
+    const/4 p2, 0x4
 
-    const-string v2, "q_"
+    const-string p3, "q_"
 
-    aput-object v2, v0, v1
+    aput-object p3, p1, p2
 
-    const/4 v1, 0x5
+    const/4 p2, 0x5
 
-    const-string v2, "dp_"
+    const-string p3, "dp_"
 
-    aput-object v2, v0, v1
+    aput-object p3, p1, p2
 
-    const/4 v1, 0x6
+    const/4 p2, 0x6
 
-    const-string v2, "dq_"
+    const-string p3, "dq_"
 
-    aput-object v2, v0, v1
+    aput-object p3, p1, p2
 
-    const/4 v1, 0x7
+    const/4 p2, 0x7
 
-    const-string v2, "crt_"
+    const-string p3, "crt_"
 
-    aput-object v2, v0, v1
+    aput-object p3, p1, p2
 
-    .line 917
-    .local v0, "objects":[Ljava/lang/Object;
-    const-string v1, "\u0000\u0008\u0000\u0000\u0001\u0008\u0008\u0000\u0000\u0000\u0001\u000b\u0002\t\u0003\n\u0004\n\u0005\n\u0006\n\u0007\n\u0008\n"
+    const-string p2, "\u0000\u0008\u0000\u0000\u0001\u0008\u0008\u0000\u0000\u0000\u0001\u000b\u0002\t\u0003\n\u0004\n\u0005\n\u0006\n\u0007\n\u0008\n"
 
     .line 920
-    .local v1, "info":Ljava/lang/String;
-    sget-object v2, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->DEFAULT_INSTANCE:Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
+    sget-object p3, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->DEFAULT_INSTANCE:Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
-    invoke-static {v2, v1, v0}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->newMessageInfo(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p3, p2, p1}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;->newMessageInfo(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 
     .line 904
-    .end local v0    # "objects":[Ljava/lang/Object;
-    .end local v1    # "info":Ljava/lang/String;
     :pswitch_5
-    new-instance v0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey$Builder;
+    new-instance p1, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey$Builder;
 
-    invoke-direct {v0, v2}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey$Builder;-><init>(Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey$1;)V
+    invoke-direct {p1, p3}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey$Builder;-><init>(Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey$1;)V
 
-    return-object v0
+    return-object p1
 
     .line 901
     :pswitch_6
-    new-instance v0, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
+    new-instance p1, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;
 
-    invoke-direct {v0}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;-><init>()V
+    invoke-direct {p1}, Lcom/google/crypto/tink/proto/RsaSsaPssPrivateKey;-><init>()V
 
-    return-object v0
+    return-object p1
 
     :pswitch_data_0
     .packed-switch 0x1

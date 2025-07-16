@@ -27,18 +27,18 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .line 35
     const/16 v0, 0x100
 
     new-array v1, v0, [I
 
+    .line 35
     fill-array-data v1, :array_0
 
     sput-object v1, Lcom/koushikdutta/async/http/spdy/Huffman;->CODES:[I
 
-    .line 63
     new-array v0, v0, [B
 
+    .line 63
     fill-array-data v0, :array_1
 
     sput-object v0, Lcom/koushikdutta/async/http/spdy/Huffman;->CODE_LENGTHS:[B
@@ -589,15 +589,11 @@
     .line 86
     invoke-direct {p0}, Lcom/koushikdutta/async/http/spdy/Huffman;->buildTree()V
 
-    .line 87
     return-void
 .end method
 
 .method private addCode(IIB)V
-    .locals 7
-    .param p1, "sym"    # I
-    .param p2, "code"    # I
-    .param p3, "len"    # B
+    .locals 4
 
     .line 171
     new-instance v0, Lcom/koushikdutta/async/http/spdy/Huffman$Node;
@@ -605,118 +601,97 @@
     invoke-direct {v0, p1, p3}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;-><init>(II)V
 
     .line 173
-    .local v0, "terminal":Lcom/koushikdutta/async/http/spdy/Huffman$Node;
-    iget-object v1, p0, Lcom/koushikdutta/async/http/spdy/Huffman;->root:Lcom/koushikdutta/async/http/spdy/Huffman$Node;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/spdy/Huffman;->root:Lcom/koushikdutta/async/http/spdy/Huffman$Node;
 
-    .line 174
-    .local v1, "current":Lcom/koushikdutta/async/http/spdy/Huffman$Node;
     :goto_0
-    const/16 v2, 0x8
+    const/16 v1, 0x8
 
-    if-le p3, v2, :cond_2
+    if-le p3, v1, :cond_2
 
-    .line 175
-    add-int/lit8 v2, p3, -0x8
+    add-int/lit8 p3, p3, -0x8
 
-    int-to-byte p3, v2
+    int-to-byte p3, p3
 
-    .line 176
-    ushr-int v2, p2, p3
+    ushr-int v1, p2, p3
 
-    and-int/lit16 v2, v2, 0xff
+    and-int/lit16 v1, v1, 0xff
 
     .line 177
-    .local v2, "i":I
-    invoke-static {v1}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;->access$000(Lcom/koushikdutta/async/http/spdy/Huffman$Node;)[Lcom/koushikdutta/async/http/spdy/Huffman$Node;
+    invoke-static {p1}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;->access$000(Lcom/koushikdutta/async/http/spdy/Huffman$Node;)[Lcom/koushikdutta/async/http/spdy/Huffman$Node;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
     .line 180
-    invoke-static {v1}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;->access$000(Lcom/koushikdutta/async/http/spdy/Huffman$Node;)[Lcom/koushikdutta/async/http/spdy/Huffman$Node;
+    invoke-static {p1}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;->access$000(Lcom/koushikdutta/async/http/spdy/Huffman$Node;)[Lcom/koushikdutta/async/http/spdy/Huffman$Node;
 
-    move-result-object v3
+    move-result-object v2
 
-    aget-object v3, v3, v2
+    aget-object v2, v2, v1
 
-    if-nez v3, :cond_0
+    if-nez v2, :cond_0
 
     .line 181
-    invoke-static {v1}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;->access$000(Lcom/koushikdutta/async/http/spdy/Huffman$Node;)[Lcom/koushikdutta/async/http/spdy/Huffman$Node;
+    invoke-static {p1}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;->access$000(Lcom/koushikdutta/async/http/spdy/Huffman$Node;)[Lcom/koushikdutta/async/http/spdy/Huffman$Node;
 
-    move-result-object v3
+    move-result-object v2
 
-    new-instance v4, Lcom/koushikdutta/async/http/spdy/Huffman$Node;
+    new-instance v3, Lcom/koushikdutta/async/http/spdy/Huffman$Node;
 
-    invoke-direct {v4}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;-><init>()V
+    invoke-direct {v3}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;-><init>()V
 
-    aput-object v4, v3, v2
+    aput-object v3, v2, v1
 
     .line 183
     :cond_0
-    invoke-static {v1}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;->access$000(Lcom/koushikdutta/async/http/spdy/Huffman$Node;)[Lcom/koushikdutta/async/http/spdy/Huffman$Node;
+    invoke-static {p1}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;->access$000(Lcom/koushikdutta/async/http/spdy/Huffman$Node;)[Lcom/koushikdutta/async/http/spdy/Huffman$Node;
 
-    move-result-object v3
+    move-result-object p1
 
-    aget-object v1, v3, v2
+    aget-object p1, p1, v1
 
-    .line 184
-    .end local v2    # "i":I
     goto :goto_0
 
     .line 178
-    .restart local v2    # "i":I
     :cond_1
-    new-instance v3, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v4, "invalid dictionary: prefix not unique"
+    const-string p2, "invalid dictionary: prefix not unique"
 
-    invoke-direct {v3, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw p1
 
-    .line 186
-    .end local v2    # "i":I
     :cond_2
-    rsub-int/lit8 v2, p3, 0x8
+    sub-int/2addr v1, p3
 
-    .line 187
-    .local v2, "shift":I
-    shl-int v3, p2, v2
+    shl-int/2addr p2, v1
 
-    and-int/lit16 v3, v3, 0xff
+    and-int/lit16 p2, p2, 0xff
 
-    .line 188
-    .local v3, "start":I
-    const/4 v4, 0x1
+    const/4 p3, 0x1
 
-    shl-int/2addr v4, v2
+    shl-int/2addr p3, v1
 
-    .line 189
-    .local v4, "end":I
-    move v5, v3
+    move v1, p2
 
-    .local v5, "i":I
     :goto_1
-    add-int v6, v3, v4
+    add-int v2, p2, p3
 
-    if-ge v5, v6, :cond_3
+    if-ge v1, v2, :cond_3
 
     .line 190
-    invoke-static {v1}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;->access$000(Lcom/koushikdutta/async/http/spdy/Huffman$Node;)[Lcom/koushikdutta/async/http/spdy/Huffman$Node;
+    invoke-static {p1}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;->access$000(Lcom/koushikdutta/async/http/spdy/Huffman$Node;)[Lcom/koushikdutta/async/http/spdy/Huffman$Node;
 
-    move-result-object v6
+    move-result-object v2
 
-    aput-object v0, v6, v5
+    aput-object v0, v2, v1
 
-    .line 189
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 192
-    .end local v5    # "i":I
     :cond_3
     return-void
 .end method
@@ -724,10 +699,9 @@
 .method private buildTree()V
     .locals 3
 
-    .line 165
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 165
     :goto_0
     sget-object v1, Lcom/koushikdutta/async/http/spdy/Huffman;->CODE_LENGTHS:[B
 
@@ -744,13 +718,10 @@
 
     invoke-direct {p0, v0, v2, v1}, Lcom/koushikdutta/async/http/spdy/Huffman;->addCode(IIB)V
 
-    .line 165
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 168
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
@@ -767,8 +738,7 @@
 
 # virtual methods
 .method decode([B)[B
-    .locals 8
-    .param p1, "buf"    # [B
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -781,297 +751,243 @@
     invoke-direct {v0}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
     .line 128
-    .local v0, "baos":Ljava/io/ByteArrayOutputStream;
     iget-object v1, p0, Lcom/koushikdutta/async/http/spdy/Huffman;->root:Lcom/koushikdutta/async/http/spdy/Huffman$Node;
 
-    .line 129
-    .local v1, "node":Lcom/koushikdutta/async/http/spdy/Huffman$Node;
     const/4 v2, 0x0
 
-    .line 130
-    .local v2, "current":I
-    const/4 v3, 0x0
+    move v3, v2
+
+    move v4, v3
 
     .line 131
-    .local v3, "nbits":I
-    const/4 v4, 0x0
-
-    .local v4, "i":I
     :goto_0
     array-length v5, p1
 
-    if-ge v4, v5, :cond_2
+    if-ge v2, v5, :cond_2
 
     .line 132
-    aget-byte v5, p1, v4
+    aget-byte v5, p1, v2
 
     and-int/lit16 v5, v5, 0xff
 
-    .line 133
-    .local v5, "b":I
-    shl-int/lit8 v6, v2, 0x8
+    shl-int/lit8 v3, v3, 0x8
 
-    or-int v2, v6, v5
+    or-int/2addr v3, v5
 
-    .line 134
-    add-int/lit8 v3, v3, 0x8
+    add-int/lit8 v4, v4, 0x8
 
-    .line 135
     :goto_1
-    const/16 v6, 0x8
+    const/16 v5, 0x8
 
-    if-lt v3, v6, :cond_1
+    if-lt v4, v5, :cond_1
 
-    .line 136
-    add-int/lit8 v6, v3, -0x8
+    add-int/lit8 v5, v4, -0x8
 
-    ushr-int v6, v2, v6
+    ushr-int v5, v3, v5
 
-    and-int/lit16 v6, v6, 0xff
+    and-int/lit16 v5, v5, 0xff
 
     .line 137
-    .local v6, "c":I
     invoke-static {v1}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;->access$000(Lcom/koushikdutta/async/http/spdy/Huffman$Node;)[Lcom/koushikdutta/async/http/spdy/Huffman$Node;
 
-    move-result-object v7
+    move-result-object v1
 
-    aget-object v1, v7, v6
+    aget-object v1, v1, v5
 
     .line 138
     invoke-static {v1}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;->access$000(Lcom/koushikdutta/async/http/spdy/Huffman$Node;)[Lcom/koushikdutta/async/http/spdy/Huffman$Node;
 
-    move-result-object v7
+    move-result-object v5
 
-    if-nez v7, :cond_0
+    if-nez v5, :cond_0
 
     .line 140
-    invoke-static {v1}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;->access$100(Lcom/koushikdutta/async/http/spdy/Huffman$Node;)I
-
-    move-result v7
-
-    invoke-virtual {v0, v7}, Ljava/io/ByteArrayOutputStream;->write(I)V
-
-    .line 141
-    invoke-static {v1}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;->access$200(Lcom/koushikdutta/async/http/spdy/Huffman$Node;)I
-
-    move-result v7
-
-    sub-int/2addr v3, v7
-
-    .line 142
-    iget-object v1, p0, Lcom/koushikdutta/async/http/spdy/Huffman;->root:Lcom/koushikdutta/async/http/spdy/Huffman$Node;
-
-    goto :goto_2
-
-    .line 145
-    :cond_0
-    add-int/lit8 v3, v3, -0x8
-
-    .line 147
-    .end local v6    # "c":I
-    :goto_2
-    goto :goto_1
-
-    .line 131
-    .end local v5    # "b":I
-    :cond_1
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_0
-
-    .line 150
-    .end local v4    # "i":I
-    :cond_2
-    :goto_3
-    if-lez v3, :cond_4
-
-    .line 151
-    rsub-int/lit8 v4, v3, 0x8
-
-    shl-int v4, v2, v4
-
-    and-int/lit16 v4, v4, 0xff
-
-    .line 152
-    .local v4, "c":I
-    invoke-static {v1}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;->access$000(Lcom/koushikdutta/async/http/spdy/Huffman$Node;)[Lcom/koushikdutta/async/http/spdy/Huffman$Node;
-
-    move-result-object v5
-
-    aget-object v1, v5, v4
-
-    .line 153
-    invoke-static {v1}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;->access$000(Lcom/koushikdutta/async/http/spdy/Huffman$Node;)[Lcom/koushikdutta/async/http/spdy/Huffman$Node;
-
-    move-result-object v5
-
-    if-nez v5, :cond_4
-
-    invoke-static {v1}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;->access$200(Lcom/koushikdutta/async/http/spdy/Huffman$Node;)I
-
-    move-result v5
-
-    if-le v5, v3, :cond_3
-
-    .line 154
-    goto :goto_4
-
-    .line 156
-    :cond_3
     invoke-static {v1}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;->access$100(Lcom/koushikdutta/async/http/spdy/Huffman$Node;)I
 
     move-result v5
 
     invoke-virtual {v0, v5}, Ljava/io/ByteArrayOutputStream;->write(I)V
 
-    .line 157
+    .line 141
     invoke-static {v1}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;->access$200(Lcom/koushikdutta/async/http/spdy/Huffman$Node;)I
 
-    move-result v5
+    move-result v1
 
-    sub-int/2addr v3, v5
+    sub-int/2addr v4, v1
+
+    .line 142
+    iget-object v1, p0, Lcom/koushikdutta/async/http/spdy/Huffman;->root:Lcom/koushikdutta/async/http/spdy/Huffman$Node;
+
+    goto :goto_1
+
+    :cond_0
+    add-int/lit8 v4, v4, -0x8
+
+    goto :goto_1
+
+    :cond_1
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    :goto_2
+    if-lez v4, :cond_4
+
+    rsub-int/lit8 p1, v4, 0x8
+
+    shl-int p1, v3, p1
+
+    and-int/lit16 p1, p1, 0xff
+
+    .line 152
+    invoke-static {v1}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;->access$000(Lcom/koushikdutta/async/http/spdy/Huffman$Node;)[Lcom/koushikdutta/async/http/spdy/Huffman$Node;
+
+    move-result-object v1
+
+    aget-object p1, v1, p1
+
+    .line 153
+    invoke-static {p1}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;->access$000(Lcom/koushikdutta/async/http/spdy/Huffman$Node;)[Lcom/koushikdutta/async/http/spdy/Huffman$Node;
+
+    move-result-object v1
+
+    if-nez v1, :cond_4
+
+    invoke-static {p1}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;->access$200(Lcom/koushikdutta/async/http/spdy/Huffman$Node;)I
+
+    move-result v1
+
+    if-le v1, v4, :cond_3
+
+    goto :goto_3
+
+    .line 156
+    :cond_3
+    invoke-static {p1}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;->access$100(Lcom/koushikdutta/async/http/spdy/Huffman$Node;)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Ljava/io/ByteArrayOutputStream;->write(I)V
+
+    .line 157
+    invoke-static {p1}, Lcom/koushikdutta/async/http/spdy/Huffman$Node;->access$200(Lcom/koushikdutta/async/http/spdy/Huffman$Node;)I
+
+    move-result p1
+
+    sub-int/2addr v4, p1
 
     .line 158
     iget-object v1, p0, Lcom/koushikdutta/async/http/spdy/Huffman;->root:Lcom/koushikdutta/async/http/spdy/Huffman$Node;
 
-    .line 159
-    .end local v4    # "c":I
-    goto :goto_3
+    goto :goto_2
 
     .line 161
     :cond_4
-    :goto_4
+    :goto_3
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
-    move-result-object v4
+    move-result-object p1
 
-    return-object v4
+    return-object p1
 .end method
 
 .method encode([BLjava/io/OutputStream;)V
-    .locals 9
-    .param p1, "data"    # [B
-    .param p2, "out"    # Ljava/io/OutputStream;
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 90
     const-wide/16 v0, 0x0
 
-    .line 91
-    .local v0, "current":J
     const/4 v2, 0x0
 
-    .line 93
-    .local v2, "n":I
-    const/4 v3, 0x0
+    move v3, v2
 
-    .local v3, "i":I
+    .line 93
     :goto_0
     array-length v4, p1
 
     const/16 v5, 0xff
 
-    if-ge v3, v4, :cond_1
+    if-ge v2, v4, :cond_1
 
     .line 94
-    aget-byte v4, p1, v3
+    aget-byte v4, p1, v2
 
     and-int/2addr v4, v5
 
     .line 95
-    .local v4, "b":I
     sget-object v5, Lcom/koushikdutta/async/http/spdy/Huffman;->CODES:[I
 
     aget v5, v5, v4
 
     .line 96
-    .local v5, "code":I
     sget-object v6, Lcom/koushikdutta/async/http/spdy/Huffman;->CODE_LENGTHS:[B
 
-    aget-byte v6, v6, v4
+    aget-byte v4, v6, v4
 
-    .line 98
-    .local v6, "nbits":I
-    shl-long/2addr v0, v6
+    shl-long/2addr v0, v4
 
-    .line 99
-    int-to-long v7, v5
+    int-to-long v5, v5
 
-    or-long/2addr v0, v7
+    or-long/2addr v0, v5
 
-    .line 100
-    add-int/2addr v2, v6
+    add-int/2addr v3, v4
 
-    .line 102
     :goto_1
-    const/16 v7, 0x8
+    const/16 v4, 0x8
 
-    if-lt v2, v7, :cond_0
+    if-lt v3, v4, :cond_0
 
-    .line 103
-    add-int/lit8 v2, v2, -0x8
+    add-int/lit8 v3, v3, -0x8
+
+    shr-long v4, v0, v3
+
+    long-to-int v4, v4
 
     .line 104
-    shr-long v7, v0, v2
-
-    long-to-int v7, v7
-
-    invoke-virtual {p2, v7}, Ljava/io/OutputStream;->write(I)V
+    invoke-virtual {p2, v4}, Ljava/io/OutputStream;->write(I)V
 
     goto :goto_1
 
-    .line 93
-    .end local v4    # "b":I
-    .end local v5    # "code":I
-    .end local v6    # "nbits":I
     :cond_0
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 108
-    .end local v3    # "i":I
     :cond_1
-    if-lez v2, :cond_2
+    if-lez v3, :cond_2
 
-    .line 109
-    rsub-int/lit8 v3, v2, 0x8
+    rsub-int/lit8 p1, v3, 0x8
 
-    shl-long/2addr v0, v3
+    shl-long/2addr v0, p1
 
-    .line 110
-    ushr-int v3, v5, v2
+    ushr-int p1, v5, v3
 
-    int-to-long v3, v3
+    int-to-long v2, p1
 
-    or-long/2addr v0, v3
+    or-long/2addr v0, v2
+
+    long-to-int p1, v0
 
     .line 111
-    long-to-int v3, v0
+    invoke-virtual {p2, p1}, Ljava/io/OutputStream;->write(I)V
 
-    invoke-virtual {p2, v3}, Ljava/io/OutputStream;->write(I)V
-
-    .line 113
     :cond_2
     return-void
 .end method
 
 .method encodedLength([B)I
-    .locals 6
-    .param p1, "bytes"    # [B
+    .locals 5
 
-    .line 116
     const-wide/16 v0, 0x0
 
-    .line 118
-    .local v0, "len":J
     const/4 v2, 0x0
 
-    .local v2, "i":I
+    .line 118
     :goto_0
     array-length v3, p1
 
@@ -1083,33 +999,28 @@
     and-int/lit16 v3, v3, 0xff
 
     .line 120
-    .local v3, "b":I
     sget-object v4, Lcom/koushikdutta/async/http/spdy/Huffman;->CODE_LENGTHS:[B
 
-    aget-byte v4, v4, v3
+    aget-byte v3, v4, v3
 
-    int-to-long v4, v4
+    int-to-long v3, v3
 
-    add-long/2addr v0, v4
+    add-long/2addr v0, v3
 
-    .line 118
-    .end local v3    # "b":I
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 123
-    .end local v2    # "i":I
     :cond_0
     const-wide/16 v2, 0x7
 
-    add-long/2addr v2, v0
+    add-long/2addr v0, v2
 
-    const/4 v4, 0x3
+    const/4 p1, 0x3
 
-    shr-long/2addr v2, v4
+    shr-long/2addr v0, p1
 
-    long-to-int v2, v2
+    long-to-int p1, v0
 
-    return v2
+    return p1
 .end method

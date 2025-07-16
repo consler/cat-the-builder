@@ -20,36 +20,55 @@
 
 # direct methods
 .method constructor <init>(Landroidx/core/view/WindowInsetsCompat;Landroid/view/WindowInsets;)V
-    .locals 1
-    .param p1, "host"    # Landroidx/core/view/WindowInsetsCompat;
-    .param p2, "insets"    # Landroid/view/WindowInsets;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "host",
+            "insets"
+        }
+    .end annotation
 
-    .line 711
+    .line 1195
     invoke-direct {p0, p1, p2}, Landroidx/core/view/WindowInsetsCompat$Impl20;-><init>(Landroidx/core/view/WindowInsetsCompat;Landroid/view/WindowInsets;)V
 
-    .line 708
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl21;->mStableInsets:Landroidx/core/graphics/Insets;
+    .line 1192
+    iput-object p1, p0, Landroidx/core/view/WindowInsetsCompat$Impl21;->mStableInsets:Landroidx/core/graphics/Insets;
 
-    .line 712
     return-void
 .end method
 
 .method constructor <init>(Landroidx/core/view/WindowInsetsCompat;Landroidx/core/view/WindowInsetsCompat$Impl21;)V
-    .locals 1
-    .param p1, "host"    # Landroidx/core/view/WindowInsetsCompat;
-    .param p2, "other"    # Landroidx/core/view/WindowInsetsCompat$Impl21;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "host",
+            "other"
+        }
+    .end annotation
 
-    .line 715
+    .line 1199
     invoke-direct {p0, p1, p2}, Landroidx/core/view/WindowInsetsCompat$Impl20;-><init>(Landroidx/core/view/WindowInsetsCompat;Landroidx/core/view/WindowInsetsCompat$Impl20;)V
 
-    .line 708
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl21;->mStableInsets:Landroidx/core/graphics/Insets;
+    .line 1192
+    iput-object p1, p0, Landroidx/core/view/WindowInsetsCompat$Impl21;->mStableInsets:Landroidx/core/graphics/Insets;
 
-    .line 716
+    .line 1200
+    iget-object p1, p2, Landroidx/core/view/WindowInsetsCompat$Impl21;->mStableInsets:Landroidx/core/graphics/Insets;
+
+    iput-object p1, p0, Landroidx/core/view/WindowInsetsCompat$Impl21;->mStableInsets:Landroidx/core/graphics/Insets;
+
     return-void
 .end method
 
@@ -58,7 +77,7 @@
 .method consumeStableInsets()Landroidx/core/view/WindowInsetsCompat;
     .locals 1
 
-    .line 726
+    .line 1211
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl21;->mPlatformInsets:Landroid/view/WindowInsets;
 
     invoke-virtual {v0}, Landroid/view/WindowInsets;->consumeStableInsets()Landroid/view/WindowInsets;
@@ -75,7 +94,7 @@
 .method consumeSystemWindowInsets()Landroidx/core/view/WindowInsetsCompat;
     .locals 1
 
-    .line 732
+    .line 1217
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl21;->mPlatformInsets:Landroid/view/WindowInsets;
 
     invoke-virtual {v0}, Landroid/view/WindowInsets;->consumeSystemWindowInsets()Landroid/view/WindowInsets;
@@ -92,48 +111,48 @@
 .method final getStableInsets()Landroidx/core/graphics/Insets;
     .locals 4
 
-    .line 738
+    .line 1223
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl21;->mStableInsets:Landroidx/core/graphics/Insets;
 
     if-nez v0, :cond_0
 
-    .line 739
+    .line 1224
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl21;->mPlatformInsets:Landroid/view/WindowInsets;
 
-    .line 740
+    .line 1225
     invoke-virtual {v0}, Landroid/view/WindowInsets;->getStableInsetLeft()I
 
     move-result v0
 
     iget-object v1, p0, Landroidx/core/view/WindowInsetsCompat$Impl21;->mPlatformInsets:Landroid/view/WindowInsets;
 
-    .line 741
+    .line 1226
     invoke-virtual {v1}, Landroid/view/WindowInsets;->getStableInsetTop()I
 
     move-result v1
 
     iget-object v2, p0, Landroidx/core/view/WindowInsetsCompat$Impl21;->mPlatformInsets:Landroid/view/WindowInsets;
 
-    .line 742
+    .line 1227
     invoke-virtual {v2}, Landroid/view/WindowInsets;->getStableInsetRight()I
 
     move-result v2
 
     iget-object v3, p0, Landroidx/core/view/WindowInsetsCompat$Impl21;->mPlatformInsets:Landroid/view/WindowInsets;
 
-    .line 743
+    .line 1228
     invoke-virtual {v3}, Landroid/view/WindowInsets;->getStableInsetBottom()I
 
     move-result v3
 
-    .line 739
+    .line 1224
     invoke-static {v0, v1, v2, v3}, Landroidx/core/graphics/Insets;->of(IIII)Landroidx/core/graphics/Insets;
 
     move-result-object v0
 
     iput-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl21;->mStableInsets:Landroidx/core/graphics/Insets;
 
-    .line 745
+    .line 1230
     :cond_0
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl21;->mStableInsets:Landroidx/core/graphics/Insets;
 
@@ -143,7 +162,7 @@
 .method isConsumed()Z
     .locals 1
 
-    .line 720
+    .line 1205
     iget-object v0, p0, Landroidx/core/view/WindowInsetsCompat$Impl21;->mPlatformInsets:Landroid/view/WindowInsets;
 
     invoke-virtual {v0}, Landroid/view/WindowInsets;->isConsumed()Z
@@ -151,4 +170,21 @@
     move-result v0
 
     return v0
+.end method
+
+.method public setStableInsets(Landroidx/core/graphics/Insets;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "stableInsets"
+        }
+    .end annotation
+
+    .line 1235
+    iput-object p1, p0, Landroidx/core/view/WindowInsetsCompat$Impl21;->mStableInsets:Landroidx/core/graphics/Insets;
+
+    return-void
 .end method

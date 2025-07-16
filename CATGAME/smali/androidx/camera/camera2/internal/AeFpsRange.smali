@@ -17,15 +17,14 @@
 
 # direct methods
 .method constructor <init>(Landroid/hardware/camera2/CameraCharacteristics;)V
-    .locals 3
-    .param p1, "cameraCharacteristics"    # Landroid/hardware/camera2/CameraCharacteristics;
+    .locals 2
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 30
     const/4 v0, 0x0
 
+    .line 30
     iput-object v0, p0, Landroidx/camera/camera2/internal/AeFpsRange;->mAeTargetFpsRange:Landroid/util/Range;
 
     .line 35
@@ -38,45 +37,40 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    .line 37
-    .local v0, "hardwareLevel":Ljava/lang/Integer;
     if-eqz v0, :cond_0
 
     .line 38
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, 0x2
+    const/4 v1, 0x2
 
-    if-ne v1, v2, :cond_0
+    if-ne v0, v1, :cond_0
 
     .line 39
-    sget-object v1, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AE_AVAILABLE_TARGET_FPS_RANGES:Landroid/hardware/camera2/CameraCharacteristics$Key;
+    sget-object v0, Landroid/hardware/camera2/CameraCharacteristics;->CONTROL_AE_AVAILABLE_TARGET_FPS_RANGES:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     .line 40
-    invoke-virtual {p1, v1}, Landroid/hardware/camera2/CameraCharacteristics;->get(Landroid/hardware/camera2/CameraCharacteristics$Key;)Ljava/lang/Object;
+    invoke-virtual {p1, v0}, Landroid/hardware/camera2/CameraCharacteristics;->get(Landroid/hardware/camera2/CameraCharacteristics$Key;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, [Landroid/util/Range;
+    check-cast p1, [Landroid/util/Range;
 
     .line 42
-    .local v1, "ranges":[Landroid/util/Range;, "[Landroid/util/Range<Ljava/lang/Integer;>;"
-    invoke-static {v1}, Landroidx/camera/camera2/internal/AeFpsRange;->pickSuitableFpsRange([Landroid/util/Range;)Landroid/util/Range;
+    invoke-static {p1}, Landroidx/camera/camera2/internal/AeFpsRange;->pickSuitableFpsRange([Landroid/util/Range;)Landroid/util/Range;
 
-    move-result-object v2
+    move-result-object p1
 
-    iput-object v2, p0, Landroidx/camera/camera2/internal/AeFpsRange;->mAeTargetFpsRange:Landroid/util/Range;
+    iput-object p1, p0, Landroidx/camera/camera2/internal/AeFpsRange;->mAeTargetFpsRange:Landroid/util/Range;
 
-    .line 44
-    .end local v1    # "ranges":[Landroid/util/Range;, "[Landroid/util/Range<Ljava/lang/Integer;>;"
     :cond_0
     return-void
 .end method
 
 .method private static getCorrectedFpsRange(Landroid/util/Range;)Landroid/util/Range;
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -90,7 +84,6 @@
     .end annotation
 
     .line 61
-    .local p0, "fpsRange":Landroid/util/Range;, "Landroid/util/Range<Ljava/lang/Integer;>;"
     invoke-virtual {p0}, Landroid/util/Range;->getUpper()Ljava/lang/Comparable;
 
     move-result-object v0
@@ -102,7 +95,6 @@
     move-result v0
 
     .line 62
-    .local v0, "newUpper":I
     invoke-virtual {p0}, Landroid/util/Range;->getLower()Ljava/lang/Comparable;
 
     move-result-object v1
@@ -114,7 +106,6 @@
     move-result v1
 
     .line 63
-    .local v1, "newLower":I
     invoke-virtual {p0}, Landroid/util/Range;->getUpper()Ljava/lang/Comparable;
 
     move-result-object v2
@@ -132,15 +123,15 @@
     .line 64
     invoke-virtual {p0}, Landroid/util/Range;->getUpper()Ljava/lang/Comparable;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Ljava/lang/Integer;
+    check-cast v0, Ljava/lang/Integer;
 
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    move-result v2
+    move-result v0
 
-    div-int/lit16 v0, v2, 0x3e8
+    div-int/2addr v0, v3
 
     .line 67
     :cond_0
@@ -159,31 +150,31 @@
     .line 68
     invoke-virtual {p0}, Landroid/util/Range;->getLower()Ljava/lang/Comparable;
 
-    move-result-object v2
+    move-result-object p0
 
-    check-cast v2, Ljava/lang/Integer;
+    check-cast p0, Ljava/lang/Integer;
 
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
 
-    move-result v2
+    move-result p0
 
-    div-int/lit16 v1, v2, 0x3e8
+    div-int/lit16 v1, p0, 0x3e8
 
     .line 71
     :cond_1
-    new-instance v2, Landroid/util/Range;
+    new-instance p0, Landroid/util/Range;
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v1
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-direct {v2, v3, v4}, Landroid/util/Range;-><init>(Ljava/lang/Comparable;Ljava/lang/Comparable;)V
+    invoke-direct {p0, v1, v0}, Landroid/util/Range;-><init>(Ljava/lang/Comparable;Ljava/lang/Comparable;)V
 
-    return-object v2
+    return-object p0
 .end method
 
 .method private static pickSuitableFpsRange([Landroid/util/Range;)Landroid/util/Range;
@@ -200,22 +191,19 @@
         }
     .end annotation
 
-    .line 83
-    .local p0, "availableFpsRanges":[Landroid/util/Range;, "[Landroid/util/Range<Ljava/lang/Integer;>;"
-    if-eqz p0, :cond_5
-
-    array-length v0, p0
-
-    if-nez v0, :cond_0
-
-    goto :goto_2
-
-    .line 87
-    :cond_0
     const/4 v0, 0x0
 
+    if-eqz p0, :cond_4
+
+    .line 83
+    array-length v1, p0
+
+    if-nez v1, :cond_0
+
+    goto :goto_3
+
     .line 88
-    .local v0, "pickedRange":Landroid/util/Range;, "Landroid/util/Range<Ljava/lang/Integer;>;"
+    :cond_0
     array-length v1, p0
 
     const/4 v2, 0x0
@@ -226,7 +214,6 @@
     aget-object v3, p0, v2
 
     .line 89
-    .local v3, "fpsRange":Landroid/util/Range;, "Landroid/util/Range<Ljava/lang/Integer;>;"
     invoke-static {v3}, Landroidx/camera/camera2/internal/AeFpsRange;->getCorrectedFpsRange(Landroid/util/Range;)Landroid/util/Range;
 
     move-result-object v3
@@ -246,15 +233,10 @@
 
     if-eq v4, v5, :cond_1
 
-    .line 91
-    goto :goto_1
+    goto :goto_2
 
-    .line 94
     :cond_1
     if-nez v0, :cond_2
-
-    .line 95
-    move-object v0, v3
 
     goto :goto_1
 
@@ -282,27 +264,17 @@
 
     if-ge v4, v5, :cond_3
 
-    .line 98
+    :goto_1
     move-object v0, v3
 
-    .line 88
-    .end local v3    # "fpsRange":Landroid/util/Range;, "Landroid/util/Range<Ljava/lang/Integer;>;"
     :cond_3
-    :goto_1
+    :goto_2
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 103
     :cond_4
-    return-object v0
-
-    .line 84
-    .end local v0    # "pickedRange":Landroid/util/Range;, "Landroid/util/Range<Ljava/lang/Integer;>;"
-    :cond_5
-    :goto_2
-    const/4 v0, 0x0
-
+    :goto_3
     return-object v0
 .end method
 
@@ -310,7 +282,6 @@
 # virtual methods
 .method public addAeFpsRangeOptions(Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;)V
     .locals 2
-    .param p1, "configBuilder"    # Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
 
     .line 50
     iget-object v0, p0, Landroidx/camera/camera2/internal/AeFpsRange;->mAeTargetFpsRange:Landroid/util/Range;
@@ -324,7 +295,6 @@
 
     invoke-virtual {p1, v0, v1}, Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;->setCaptureRequestOption(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
 
-    .line 54
     :cond_0
     return-void
 .end method

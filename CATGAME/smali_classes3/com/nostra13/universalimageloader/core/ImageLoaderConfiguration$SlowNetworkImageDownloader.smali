@@ -24,7 +24,6 @@
 # direct methods
 .method public constructor <init>(Lcom/nostra13/universalimageloader/core/download/ImageDownloader;)V
     .locals 0
-    .param p1, "wrappedDownloader"    # Lcom/nostra13/universalimageloader/core/download/ImageDownloader;
 
     .line 639
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,16 +31,13 @@
     .line 640
     iput-object p1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$SlowNetworkImageDownloader;->wrappedDownloader:Lcom/nostra13/universalimageloader/core/download/ImageDownloader;
 
-    .line 641
     return-void
 .end method
 
 
 # virtual methods
 .method public getStream(Ljava/lang/String;Ljava/lang/Object;)Ljava/io/InputStream;
-    .locals 3
-    .param p1, "imageUri"    # Ljava/lang/String;
-    .param p2, "extra"    # Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -53,38 +49,36 @@
 
     invoke-interface {v0, p1, p2}, Lcom/nostra13/universalimageloader/core/download/ImageDownloader;->getStream(Ljava/lang/String;Ljava/lang/Object;)Ljava/io/InputStream;
 
-    move-result-object v0
+    move-result-object p2
 
     .line 646
-    .local v0, "imageStream":Ljava/io/InputStream;
-    sget-object v1, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$1;->$SwitchMap$com$nostra13$universalimageloader$core$download$ImageDownloader$Scheme:[I
+    sget-object v0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$1;->$SwitchMap$com$nostra13$universalimageloader$core$download$ImageDownloader$Scheme:[I
 
     invoke-static {p1}, Lcom/nostra13/universalimageloader/core/download/ImageDownloader$Scheme;->ofUri(Ljava/lang/String;)Lcom/nostra13/universalimageloader/core/download/ImageDownloader$Scheme;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v2}, Lcom/nostra13/universalimageloader/core/download/ImageDownloader$Scheme;->ordinal()I
+    invoke-virtual {p1}, Lcom/nostra13/universalimageloader/core/download/ImageDownloader$Scheme;->ordinal()I
 
-    move-result v2
+    move-result p1
 
-    aget v1, v1, v2
+    aget p1, v0, p1
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    if-eq v1, v2, :cond_0
+    if-eq p1, v0, :cond_0
 
-    const/4 v2, 0x2
+    const/4 v0, 0x2
 
-    if-eq v1, v2, :cond_0
+    if-eq p1, v0, :cond_0
 
-    .line 651
-    return-object v0
+    return-object p2
 
     .line 649
     :cond_0
-    new-instance v1, Lcom/nostra13/universalimageloader/core/assist/FlushedInputStream;
+    new-instance p1, Lcom/nostra13/universalimageloader/core/assist/FlushedInputStream;
 
-    invoke-direct {v1, v0}, Lcom/nostra13/universalimageloader/core/assist/FlushedInputStream;-><init>(Ljava/io/InputStream;)V
+    invoke-direct {p1, p2}, Lcom/nostra13/universalimageloader/core/assist/FlushedInputStream;-><init>(Ljava/io/InputStream;)V
 
-    return-object v1
+    return-object p1
 .end method

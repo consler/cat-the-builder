@@ -60,14 +60,11 @@
     .end annotation
 
     .line 130
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/LazyField$LazyIterator;, "Lcom/google/crypto/tink/shaded/protobuf/LazyField$LazyIterator<TK;>;"
-    .local p1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/util/Map$Entry<TK;Ljava/lang/Object;>;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 131
     iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/LazyField$LazyIterator;->iterator:Ljava/util/Iterator;
 
-    .line 132
     return-void
 .end method
 
@@ -77,7 +74,6 @@
     .locals 1
 
     .line 136
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/LazyField$LazyIterator;, "Lcom/google/crypto/tink/shaded/protobuf/LazyField$LazyIterator<TK;>;"
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/LazyField$LazyIterator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -91,7 +87,6 @@
     .locals 1
 
     .line 127
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/LazyField$LazyIterator;, "Lcom/google/crypto/tink/shaded/protobuf/LazyField$LazyIterator<TK;>;"
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/LazyField$LazyIterator;->next()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -112,7 +107,6 @@
     .end annotation
 
     .line 142
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/LazyField$LazyIterator;, "Lcom/google/crypto/tink/shaded/protobuf/LazyField$LazyIterator<TK;>;"
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/LazyField$LazyIterator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -122,7 +116,6 @@
     check-cast v0, Ljava/util/Map$Entry;
 
     .line 143
-    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;*>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v1
@@ -140,7 +133,6 @@
 
     return-object v1
 
-    .line 146
     :cond_0
     return-object v0
 .end method
@@ -149,11 +141,9 @@
     .locals 1
 
     .line 151
-    .local p0, "this":Lcom/google/crypto/tink/shaded/protobuf/LazyField$LazyIterator;, "Lcom/google/crypto/tink/shaded/protobuf/LazyField$LazyIterator<TK;>;"
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/LazyField$LazyIterator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 152
     return-void
 .end method

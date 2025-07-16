@@ -46,37 +46,33 @@
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/util/OptionalInt;
-    .locals 2
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
-    .param p3, "type"    # Ljava/lang/Class;
+    .locals 0
 
     .line 74
     invoke-virtual {p2}, Lcom/esotericsoftware/kryo/io/Input;->readBoolean()Z
 
-    move-result v0
+    move-result p1
+
+    if-eqz p1, :cond_0
 
     .line 75
-    .local v0, "present":Z
-    if-eqz v0, :cond_0
-
     invoke-virtual {p2}, Lcom/esotericsoftware/kryo/io/Input;->readInt()I
 
-    move-result v1
+    move-result p1
 
-    invoke-static {v1}, Ljava/util/OptionalInt;->of(I)Ljava/util/OptionalInt;
+    invoke-static {p1}, Ljava/util/OptionalInt;->of(I)Ljava/util/OptionalInt;
 
-    move-result-object v1
+    move-result-object p1
 
     goto :goto_0
 
     :cond_0
     invoke-static {}, Ljava/util/OptionalInt;->empty()Ljava/util/OptionalInt;
 
-    move-result-object v1
+    move-result-object p1
 
     :goto_0
-    return-object v1
+    return-object p1
 .end method
 
 .method public bridge synthetic write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
@@ -91,32 +87,28 @@
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/util/OptionalInt;)V
-    .locals 1
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p3, "object"    # Ljava/util/OptionalInt;
+    .locals 0
 
     .line 69
     invoke-virtual {p3}, Ljava/util/OptionalInt;->isPresent()Z
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p2, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeBoolean(Z)V
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeBoolean(Z)V
 
     .line 70
     invoke-virtual {p3}, Ljava/util/OptionalInt;->isPresent()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     invoke-virtual {p3}, Ljava/util/OptionalInt;->getAsInt()I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p2, v0}, Lcom/esotericsoftware/kryo/io/Output;->writeInt(I)V
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeInt(I)V
 
-    .line 71
     :cond_0
     return-void
 .end method

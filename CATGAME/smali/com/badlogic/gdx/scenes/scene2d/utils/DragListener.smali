@@ -40,9 +40,9 @@
     .line 28
     invoke-direct {p0}, Lcom/badlogic/gdx/scenes/scene2d/InputListener;-><init>()V
 
-    .line 29
     const/high16 v0, 0x41600000    # 14.0f
 
+    .line 29
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragListener;->tapSquareSize:F
 
     const/high16 v0, -0x40800000    # -1.0f
@@ -55,9 +55,9 @@
 
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragListener;->stageTouchDownY:F
 
-    .line 31
     const/4 v0, -0x1
 
+    .line 31
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragListener;->pressedPointer:I
 
     return-void
@@ -68,50 +68,34 @@
 .method public cancel()V
     .locals 1
 
-    .line 83
     const/4 v0, 0x0
 
+    .line 83
     iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragListener;->dragging:Z
 
-    .line 84
     const/4 v0, -0x1
 
+    .line 84
     iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragListener;->pressedPointer:I
 
-    .line 85
     return-void
 .end method
 
 .method public drag(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;FFI)V
     .locals 0
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
-    .param p4, "pointer"    # I
 
-    .line 76
     return-void
 .end method
 
 .method public dragStart(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;FFI)V
     .locals 0
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
-    .param p4, "pointer"    # I
 
-    .line 73
     return-void
 .end method
 
 .method public dragStop(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;FFI)V
     .locals 0
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
-    .param p4, "pointer"    # I
 
-    .line 79
     return-void
 .end method
 
@@ -265,55 +249,42 @@
 
 .method public setButton(I)V
     .locals 0
-    .param p1, "button"    # I
 
     .line 161
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragListener;->button:I
 
-    .line 162
     return-void
 .end method
 
 .method public setDragStartX(F)V
     .locals 0
-    .param p1, "dragStartX"    # F
 
     .line 121
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragListener;->dragStartX:F
 
-    .line 122
     return-void
 .end method
 
 .method public setDragStartY(F)V
     .locals 0
-    .param p1, "dragStartY"    # F
 
     .line 129
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragListener;->dragStartY:F
 
-    .line 130
     return-void
 .end method
 
 .method public setTapSquareSize(F)V
     .locals 0
-    .param p1, "halfTapSquareSize"    # F
 
     .line 93
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragListener;->tapSquareSize:F
 
-    .line 94
     return-void
 .end method
 
 .method public touchDown(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;FFII)Z
     .locals 3
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
-    .param p4, "pointer"    # I
-    .param p5, "button"    # I
 
     .line 36
     iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragListener;->pressedPointer:I
@@ -326,10 +297,10 @@
 
     return v1
 
-    .line 37
     :cond_0
     if-nez p4, :cond_1
 
+    .line 37
     iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragListener;->button:I
 
     if-eq v0, v2, :cond_1
@@ -351,29 +322,24 @@
     .line 41
     invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/InputEvent;->getStageX()F
 
-    move-result v0
+    move-result p2
 
-    iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragListener;->stageTouchDownX:F
+    iput p2, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragListener;->stageTouchDownX:F
 
     .line 42
     invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/InputEvent;->getStageY()F
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragListener;->stageTouchDownY:F
+    iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragListener;->stageTouchDownY:F
 
-    .line 43
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public touchDragged(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;FFI)V
     .locals 2
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
-    .param p4, "pointer"    # I
 
     .line 47
     iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragListener;->pressedPointer:I
@@ -416,10 +382,10 @@
 
     if-lez v0, :cond_2
 
-    .line 49
     :cond_1
     const/4 v0, 0x1
 
+    .line 49
     iput-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragListener;->dragging:Z
 
     .line 50
@@ -462,28 +428,22 @@
     .line 61
     invoke-virtual {p0, p1, p2, p3, p4}, Lcom/badlogic/gdx/scenes/scene2d/utils/DragListener;->drag(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;FFI)V
 
-    .line 63
     :cond_3
     return-void
 .end method
 
 .method public touchUp(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;FFII)V
-    .locals 1
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
-    .param p4, "pointer"    # I
-    .param p5, "button"    # I
+    .locals 0
 
     .line 66
-    iget v0, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragListener;->pressedPointer:I
+    iget p5, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragListener;->pressedPointer:I
 
-    if-ne p4, v0, :cond_1
+    if-ne p4, p5, :cond_1
 
     .line 67
-    iget-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragListener;->dragging:Z
+    iget-boolean p5, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragListener;->dragging:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p5, :cond_0
 
     invoke-virtual {p0, p1, p2, p3, p4}, Lcom/badlogic/gdx/scenes/scene2d/utils/DragListener;->dragStop(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;FFI)V
 
@@ -491,7 +451,6 @@
     :cond_0
     invoke-virtual {p0}, Lcom/badlogic/gdx/scenes/scene2d/utils/DragListener;->cancel()V
 
-    .line 70
     :cond_1
     return-void
 .end method

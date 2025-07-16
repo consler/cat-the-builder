@@ -60,10 +60,8 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections4/bidimap/TreeBidiMap;)V
     .locals 0
-    .param p1, "this$0"    # Lorg/apache/commons/collections4/bidimap/TreeBidiMap;
 
     .line 2115
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     iput-object p1, p0, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->this$0:Lorg/apache/commons/collections4/bidimap/TreeBidiMap;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -77,43 +75,37 @@
     .locals 1
 
     .line 2210
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->this$0:Lorg/apache/commons/collections4/bidimap/TreeBidiMap;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap;->clear()V
 
-    .line 2211
     return-void
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 2146
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->this$0:Lorg/apache/commons/collections4/bidimap/TreeBidiMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap;->containsValue(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "value"    # Ljava/lang/Object;
 
     .line 2151
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->this$0:Lorg/apache/commons/collections4/bidimap/TreeBidiMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public entrySet()Ljava/util/Set;
@@ -128,7 +120,6 @@
     .end annotation
 
     .line 2231
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->inverseEntrySet:Ljava/util/Set;
 
     if-nez v0, :cond_0
@@ -151,19 +142,17 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 2252
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->this$0:Lorg/apache/commons/collections4/bidimap/TreeBidiMap;
 
     sget-object v1, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;->VALUE:Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;
 
     invoke-static {v0, p1, v1}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap;->access$3100(Lorg/apache/commons/collections4/bidimap/TreeBidiMap;Ljava/lang/Object;Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public firstKey()Ljava/lang/Comparable;
@@ -175,7 +164,6 @@
     .end annotation
 
     .line 2156
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->this$0:Lorg/apache/commons/collections4/bidimap/TreeBidiMap;
 
     invoke-static {v0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap;->access$2700(Lorg/apache/commons/collections4/bidimap/TreeBidiMap;)I
@@ -226,7 +214,6 @@
     .locals 1
 
     .line 2115
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->firstKey()Ljava/lang/Comparable;
 
     move-result-object v0
@@ -236,7 +223,6 @@
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Comparable;
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -246,21 +232,19 @@
     .end annotation
 
     .line 2136
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->this$0:Lorg/apache/commons/collections4/bidimap/TreeBidiMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap;->getKey(Ljava/lang/Object;)Ljava/lang/Comparable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
     .line 2115
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->get(Ljava/lang/Object;)Ljava/lang/Comparable;
 
     move-result-object p1
@@ -270,7 +254,6 @@
 
 .method public getKey(Ljava/lang/Object;)Ljava/lang/Comparable;
     .locals 1
-    .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -280,21 +263,19 @@
     .end annotation
 
     .line 2141
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->this$0:Lorg/apache/commons/collections4/bidimap/TreeBidiMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap;->get(Ljava/lang/Object;)Ljava/lang/Comparable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic getKey(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
     .line 2115
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->getKey(Ljava/lang/Object;)Ljava/lang/Comparable;
 
     move-result-object p1
@@ -306,7 +287,6 @@
     .locals 2
 
     .line 2257
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->this$0:Lorg/apache/commons/collections4/bidimap/TreeBidiMap;
 
     sget-object v1, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;->VALUE:Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;
@@ -322,7 +302,6 @@
     .locals 1
 
     .line 2115
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->inverseBidiMap()Lorg/apache/commons/collections4/OrderedBidiMap;
 
     move-result-object v0
@@ -341,7 +320,6 @@
     .end annotation
 
     .line 2247
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->this$0:Lorg/apache/commons/collections4/bidimap/TreeBidiMap;
 
     return-object v0
@@ -351,7 +329,6 @@
     .locals 1
 
     .line 2131
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->this$0:Lorg/apache/commons/collections4/bidimap/TreeBidiMap;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap;->isEmpty()Z
@@ -372,7 +349,6 @@
     .end annotation
 
     .line 2215
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->inverseKeySet:Ljava/util/Set;
 
     if-nez v0, :cond_0
@@ -404,7 +380,6 @@
     .end annotation
 
     .line 2164
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->this$0:Lorg/apache/commons/collections4/bidimap/TreeBidiMap;
 
     invoke-static {v0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap;->access$2700(Lorg/apache/commons/collections4/bidimap/TreeBidiMap;)I
@@ -455,7 +430,6 @@
     .locals 1
 
     .line 2115
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->lastKey()Ljava/lang/Comparable;
 
     move-result-object v0
@@ -467,7 +441,6 @@
     .locals 1
 
     .line 2115
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->mapIterator()Lorg/apache/commons/collections4/OrderedMapIterator;
 
     move-result-object v0
@@ -486,7 +459,6 @@
     .end annotation
 
     .line 2239
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->isEmpty()Z
 
     move-result v0
@@ -514,7 +486,7 @@
 .end method
 
 .method public nextKey(Ljava/lang/Comparable;)Ljava/lang/Comparable;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)TV;"
@@ -522,8 +494,6 @@
     .end annotation
 
     .line 2172
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
-    .local p1, "key":Ljava/lang/Comparable;, "TV;"
     invoke-static {p1}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap;->access$2800(Ljava/lang/Object;)V
 
     .line 2173
@@ -533,36 +503,34 @@
 
     invoke-static {v0, p1, v1}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap;->access$2900(Lorg/apache/commons/collections4/bidimap/TreeBidiMap;Ljava/lang/Object;Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;)Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Node;
 
-    move-result-object v1
+    move-result-object p1
 
-    sget-object v2, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;->VALUE:Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;
+    sget-object v1, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;->VALUE:Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;
 
-    invoke-static {v0, v1, v2}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap;->access$2400(Lorg/apache/commons/collections4/bidimap/TreeBidiMap;Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Node;Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;)Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Node;
+    invoke-static {v0, p1, v1}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap;->access$2400(Lorg/apache/commons/collections4/bidimap/TreeBidiMap;Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Node;Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;)Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Node;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 2174
-    .local v0, "node":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Node;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Node<TK;TV;>;"
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
+    .line 2174
     :cond_0
-    invoke-virtual {v0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Node;->getValue()Ljava/lang/Comparable;
+    invoke-virtual {p1}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Node;->getValue()Ljava/lang/Comparable;
 
-    move-result-object v1
+    move-result-object p1
 
     :goto_0
-    return-object v1
+    return-object p1
 .end method
 
 .method public bridge synthetic nextKey(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
     .line 2115
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     check-cast p1, Ljava/lang/Comparable;
 
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->nextKey(Ljava/lang/Comparable;)Ljava/lang/Comparable;
@@ -573,7 +541,7 @@
 .end method
 
 .method public previousKey(Ljava/lang/Comparable;)Ljava/lang/Comparable;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)TV;"
@@ -581,8 +549,6 @@
     .end annotation
 
     .line 2179
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
-    .local p1, "key":Ljava/lang/Comparable;, "TV;"
     invoke-static {p1}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap;->access$2800(Ljava/lang/Object;)V
 
     .line 2180
@@ -592,36 +558,34 @@
 
     invoke-static {v0, p1, v1}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap;->access$2900(Lorg/apache/commons/collections4/bidimap/TreeBidiMap;Ljava/lang/Object;Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;)Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Node;
 
-    move-result-object v1
+    move-result-object p1
 
-    sget-object v2, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;->VALUE:Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;
+    sget-object v1, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;->VALUE:Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;
 
-    invoke-static {v0, v1, v2}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap;->access$2500(Lorg/apache/commons/collections4/bidimap/TreeBidiMap;Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Node;Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;)Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Node;
+    invoke-static {v0, p1, v1}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap;->access$2500(Lorg/apache/commons/collections4/bidimap/TreeBidiMap;Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Node;Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;)Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Node;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 2181
-    .local v0, "node":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Node;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Node<TK;TV;>;"
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
+    .line 2181
     :cond_0
-    invoke-virtual {v0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Node;->getValue()Ljava/lang/Comparable;
+    invoke-virtual {p1}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Node;->getValue()Ljava/lang/Comparable;
 
-    move-result-object v1
+    move-result-object p1
 
     :goto_0
-    return-object v1
+    return-object p1
 .end method
 
 .method public bridge synthetic previousKey(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
     .line 2115
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     check-cast p1, Ljava/lang/Comparable;
 
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->previousKey(Ljava/lang/Comparable;)Ljava/lang/Comparable;
@@ -640,20 +604,15 @@
     .end annotation
 
     .line 2186
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
-    .local p1, "key":Ljava/lang/Comparable;, "TV;"
-    .local p2, "value":Ljava/lang/Comparable;, "TK;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->get(Ljava/lang/Object;)Ljava/lang/Comparable;
 
     move-result-object v0
 
     .line 2187
-    .local v0, "result":Ljava/lang/Comparable;, "TK;"
     iget-object v1, p0, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->this$0:Lorg/apache/commons/collections4/bidimap/TreeBidiMap;
 
     invoke-static {v1, p2, p1}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap;->access$3000(Lorg/apache/commons/collections4/bidimap/TreeBidiMap;Ljava/lang/Comparable;Ljava/lang/Comparable;)V
 
-    .line 2188
     return-object v0
 .end method
 
@@ -661,7 +620,6 @@
     .locals 0
 
     .line 2115
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     check-cast p1, Ljava/lang/Comparable;
 
     check-cast p2, Ljava/lang/Comparable;
@@ -674,7 +632,7 @@
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -684,57 +642,50 @@
     .end annotation
 
     .line 2193
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<+TV;+TK;>;"
     invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map$Entry;
+
+    .line 2194
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Ljava/util/Map$Entry;
+    check-cast v1, Ljava/lang/Comparable;
 
-    .line 2194
-    .local v1, "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TV;+TK;>;"
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Ljava/lang/Comparable;
+    check-cast v0, Ljava/lang/Comparable;
 
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-virtual {p0, v1, v0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->put(Ljava/lang/Comparable;Ljava/lang/Comparable;)Ljava/lang/Comparable;
 
-    move-result-object v3
-
-    check-cast v3, Ljava/lang/Comparable;
-
-    invoke-virtual {p0, v2, v3}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->put(Ljava/lang/Comparable;Ljava/lang/Comparable;)Ljava/lang/Comparable;
-
-    .line 2195
-    .end local v1    # "e":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<+TV;+TK;>;"
     goto :goto_0
 
-    .line 2196
     :cond_0
     return-void
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Comparable;
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -744,21 +695,19 @@
     .end annotation
 
     .line 2200
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->this$0:Lorg/apache/commons/collections4/bidimap/TreeBidiMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap;->removeValue(Ljava/lang/Object;)Ljava/lang/Comparable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic remove(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
     .line 2115
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->remove(Ljava/lang/Object;)Ljava/lang/Comparable;
 
     move-result-object p1
@@ -768,7 +717,6 @@
 
 .method public removeValue(Ljava/lang/Object;)Ljava/lang/Comparable;
     .locals 1
-    .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -778,21 +726,19 @@
     .end annotation
 
     .line 2205
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->this$0:Lorg/apache/commons/collections4/bidimap/TreeBidiMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap;->remove(Ljava/lang/Object;)Ljava/lang/Comparable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic removeValue(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
     .line 2115
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->removeValue(Ljava/lang/Object;)Ljava/lang/Comparable;
 
     move-result-object p1
@@ -804,7 +750,6 @@
     .locals 1
 
     .line 2126
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->this$0:Lorg/apache/commons/collections4/bidimap/TreeBidiMap;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap;->size()I
@@ -818,7 +763,6 @@
     .locals 2
 
     .line 2262
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->this$0:Lorg/apache/commons/collections4/bidimap/TreeBidiMap;
 
     sget-object v1, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;->VALUE:Lorg/apache/commons/collections4/bidimap/TreeBidiMap$DataElement;
@@ -834,7 +778,6 @@
     .locals 1
 
     .line 2115
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->values()Ljava/util/Set;
 
     move-result-object v0
@@ -853,7 +796,6 @@
     .end annotation
 
     .line 2223
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;, "Lorg/apache/commons/collections4/bidimap/TreeBidiMap<TK;TV;>.Inverse;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/TreeBidiMap$Inverse;->inverseValuesSet:Ljava/util/Set;
 
     if-nez v0, :cond_0

@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/AsyncHttpClient;Lcom/koushikdutta/async/future/SimpleFuture;Lcom/koushikdutta/async/http/AsyncHttpClient$WebSocketConnectCallback;Lcom/koushikdutta/async/http/AsyncHttpRequest;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/AsyncHttpClient;
 
     .line 666
     iput-object p1, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$11;->this$0:Lcom/koushikdutta/async/http/AsyncHttpClient;
@@ -49,33 +48,29 @@
 
 # virtual methods
 .method public onConnectCompleted(Ljava/lang/Exception;Lcom/koushikdutta/async/http/AsyncHttpResponse;)V
-    .locals 3
-    .param p1, "ex"    # Ljava/lang/Exception;
-    .param p2, "response"    # Lcom/koushikdutta/async/http/AsyncHttpResponse;
+    .locals 1
 
-    .line 669
     if-eqz p1, :cond_1
 
     .line 670
-    iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$11;->val$ret:Lcom/koushikdutta/async/future/SimpleFuture;
+    iget-object p2, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$11;->val$ret:Lcom/koushikdutta/async/future/SimpleFuture;
 
-    invoke-virtual {v0, p1}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Exception;)Z
+    invoke-virtual {p2, p1}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Exception;)Z
 
-    move-result v0
+    move-result p2
 
-    if-eqz v0, :cond_0
+    if-eqz p2, :cond_0
 
     .line 671
-    iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$11;->val$callback:Lcom/koushikdutta/async/http/AsyncHttpClient$WebSocketConnectCallback;
+    iget-object p2, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$11;->val$callback:Lcom/koushikdutta/async/http/AsyncHttpClient$WebSocketConnectCallback;
 
-    if-eqz v0, :cond_0
+    if-eqz p2, :cond_0
+
+    const/4 v0, 0x0
 
     .line 672
-    const/4 v1, 0x0
+    invoke-interface {p2, p1, v0}, Lcom/koushikdutta/async/http/AsyncHttpClient$WebSocketConnectCallback;->onCompleted(Ljava/lang/Exception;Lcom/koushikdutta/async/http/WebSocket;)V
 
-    invoke-interface {v0, p1, v1}, Lcom/koushikdutta/async/http/AsyncHttpClient$WebSocketConnectCallback;->onCompleted(Ljava/lang/Exception;Lcom/koushikdutta/async/http/WebSocket;)V
-
-    .line 674
     :cond_0
     return-void
 
@@ -89,56 +84,49 @@
 
     invoke-static {v0, p2}, Lcom/koushikdutta/async/http/WebSocketImpl;->finishHandshake(Lcom/koushikdutta/async/http/Headers;Lcom/koushikdutta/async/http/AsyncHttpResponse;)Lcom/koushikdutta/async/http/WebSocket;
 
-    move-result-object v0
+    move-result-object p2
 
-    .line 677
-    .local v0, "ws":Lcom/koushikdutta/async/http/WebSocket;
-    if-nez v0, :cond_2
+    if-nez p2, :cond_2
 
     .line 678
-    new-instance v1, Lcom/koushikdutta/async/http/WebSocketHandshakeException;
+    new-instance p1, Lcom/koushikdutta/async/http/WebSocketHandshakeException;
 
-    const-string v2, "Unable to complete websocket handshake"
+    const-string v0, "Unable to complete websocket handshake"
 
-    invoke-direct {v1, v2}, Lcom/koushikdutta/async/http/WebSocketHandshakeException;-><init>(Ljava/lang/String;)V
-
-    move-object p1, v1
+    invoke-direct {p1, v0}, Lcom/koushikdutta/async/http/WebSocketHandshakeException;-><init>(Ljava/lang/String;)V
 
     .line 679
-    iget-object v1, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$11;->val$ret:Lcom/koushikdutta/async/future/SimpleFuture;
+    iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$11;->val$ret:Lcom/koushikdutta/async/future/SimpleFuture;
 
-    invoke-virtual {v1, p1}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Exception;)Z
+    invoke-virtual {v0, p1}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Exception;)Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_3
+    if-nez v0, :cond_3
 
-    .line 680
     return-void
 
     .line 683
     :cond_2
-    iget-object v1, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$11;->val$ret:Lcom/koushikdutta/async/future/SimpleFuture;
+    iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$11;->val$ret:Lcom/koushikdutta/async/future/SimpleFuture;
 
-    invoke-virtual {v1, v0}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p2}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_3
+    if-nez v0, :cond_3
 
-    .line 684
     return-void
 
     .line 686
     :cond_3
-    iget-object v1, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$11;->val$callback:Lcom/koushikdutta/async/http/AsyncHttpClient$WebSocketConnectCallback;
+    iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncHttpClient$11;->val$callback:Lcom/koushikdutta/async/http/AsyncHttpClient$WebSocketConnectCallback;
 
-    if-eqz v1, :cond_4
+    if-eqz v0, :cond_4
 
     .line 687
-    invoke-interface {v1, p1, v0}, Lcom/koushikdutta/async/http/AsyncHttpClient$WebSocketConnectCallback;->onCompleted(Ljava/lang/Exception;Lcom/koushikdutta/async/http/WebSocket;)V
+    invoke-interface {v0, p1, p2}, Lcom/koushikdutta/async/http/AsyncHttpClient$WebSocketConnectCallback;->onCompleted(Ljava/lang/Exception;Lcom/koushikdutta/async/http/WebSocket;)V
 
-    .line 688
     :cond_4
     return-void
 .end method

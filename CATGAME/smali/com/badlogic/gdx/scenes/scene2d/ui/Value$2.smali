@@ -28,36 +28,33 @@
 # virtual methods
 .method public get(Lcom/badlogic/gdx/scenes/scene2d/Actor;)F
     .locals 1
-    .param p1, "context"    # Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
     .line 78
     instance-of v0, p1, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;
 
     if-eqz v0, :cond_0
 
-    move-object v0, p1
+    check-cast p1, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;
 
-    check-cast v0, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;
+    invoke-interface {p1}, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;->getMinHeight()F
 
-    invoke-interface {v0}, Lcom/badlogic/gdx/scenes/scene2d/utils/Layout;->getMinHeight()F
+    move-result p1
 
-    move-result v0
+    return p1
 
-    return v0
-
-    .line 79
     :cond_0
     if-nez p1, :cond_1
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
+    .line 79
     :cond_1
     invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/Actor;->getHeight()F
 
-    move-result v0
+    move-result p1
 
     :goto_0
-    return v0
+    return p1
 .end method

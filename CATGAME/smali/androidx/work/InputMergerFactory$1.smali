@@ -27,8 +27,7 @@
 
 # virtual methods
 .method public createInputMerger(Ljava/lang/String;)Landroidx/work/InputMerger;
-    .locals 1
-    .param p1, "className"    # Ljava/lang/String;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -38,8 +37,7 @@
         }
     .end annotation
 
-    .line 78
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method

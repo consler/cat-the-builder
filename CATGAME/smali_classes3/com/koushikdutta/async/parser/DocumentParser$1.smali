@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/parser/DocumentParser;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/parser/DocumentParser;
 
     .line 26
     iput-object p1, p0, Lcom/koushikdutta/async/parser/DocumentParser$1;->this$0:Lcom/koushikdutta/async/parser/DocumentParser;
@@ -43,8 +42,7 @@
 
 # virtual methods
 .method protected transform(Lcom/koushikdutta/async/ByteBufferList;)V
-    .locals 3
-    .param p1, "result"    # Lcom/koushikdutta/async/ByteBufferList;
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -57,24 +55,21 @@
     move-result-object v0
 
     .line 30
-    .local v0, "dbf":Ljavax/xml/parsers/DocumentBuilderFactory;
     invoke-virtual {v0}, Ljavax/xml/parsers/DocumentBuilderFactory;->newDocumentBuilder()Ljavax/xml/parsers/DocumentBuilder;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 31
-    .local v1, "db":Ljavax/xml/parsers/DocumentBuilder;
-    new-instance v2, Lcom/koushikdutta/async/stream/ByteBufferListInputStream;
+    new-instance v1, Lcom/koushikdutta/async/stream/ByteBufferListInputStream;
 
-    invoke-direct {v2, p1}, Lcom/koushikdutta/async/stream/ByteBufferListInputStream;-><init>(Lcom/koushikdutta/async/ByteBufferList;)V
+    invoke-direct {v1, p1}, Lcom/koushikdutta/async/stream/ByteBufferListInputStream;-><init>(Lcom/koushikdutta/async/ByteBufferList;)V
 
-    invoke-virtual {v1, v2}, Ljavax/xml/parsers/DocumentBuilder;->parse(Ljava/io/InputStream;)Lorg/w3c/dom/Document;
+    invoke-virtual {v0, v1}, Ljavax/xml/parsers/DocumentBuilder;->parse(Ljava/io/InputStream;)Lorg/w3c/dom/Document;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {p0, v2}, Lcom/koushikdutta/async/parser/DocumentParser$1;->setComplete(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Lcom/koushikdutta/async/parser/DocumentParser$1;->setComplete(Ljava/lang/Object;)Z
 
-    .line 32
     return-void
 .end method
 

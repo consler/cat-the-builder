@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/Dialog$4;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/badlogic/gdx/scenes/scene2d/ui/Dialog$4;
 
     .line 261
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Dialog$4$1;->this$1:Lcom/badlogic/gdx/scenes/scene2d/ui/Dialog$4;
@@ -75,6 +74,5 @@
 
     iput-boolean v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Dialog;->cancelHide:Z
 
-    .line 266
     return-void
 .end method

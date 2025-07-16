@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/backends/android/AndroidMusic;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/backends/android/AndroidMusic;
 
     .line 197
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidMusic$1;->this$0:Lcom/badlogic/gdx/backends/android/AndroidMusic;
@@ -48,6 +47,5 @@
 
     invoke-interface {v0, v1}, Lcom/badlogic/gdx/audio/Music$OnCompletionListener;->onCompletion(Lcom/badlogic/gdx/audio/Music;)V
 
-    .line 201
     return-void
 .end method

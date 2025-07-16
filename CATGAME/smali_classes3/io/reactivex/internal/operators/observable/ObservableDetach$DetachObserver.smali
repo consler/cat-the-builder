@@ -55,14 +55,11 @@
     .end annotation
 
     .line 44
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver;, "Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 45
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver;->actual:Lio/reactivex/Observer;
 
-    .line 46
     return-void
 .end method
 
@@ -72,11 +69,9 @@
     .locals 2
 
     .line 50
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver;, "Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver;->s:Lio/reactivex/disposables/Disposable;
 
     .line 51
-    .local v0, "s":Lio/reactivex/disposables/Disposable;
     sget-object v1, Lio/reactivex/internal/util/EmptyComponent;->INSTANCE:Lio/reactivex/internal/util/EmptyComponent;
 
     iput-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver;->s:Lio/reactivex/disposables/Disposable;
@@ -91,7 +86,6 @@
     .line 53
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 54
     return-void
 .end method
 
@@ -99,7 +93,6 @@
     .locals 1
 
     .line 58
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver;, "Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->isDisposed()Z
@@ -113,11 +106,9 @@
     .locals 2
 
     .line 85
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver;, "Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver;->actual:Lio/reactivex/Observer;
 
     .line 86
-    .local v0, "a":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     sget-object v1, Lio/reactivex/internal/util/EmptyComponent;->INSTANCE:Lio/reactivex/internal/util/EmptyComponent;
 
     iput-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver;->s:Lio/reactivex/disposables/Disposable;
@@ -132,20 +123,16 @@
     .line 88
     invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 89
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 77
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver;, "Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver;->actual:Lio/reactivex/Observer;
 
     .line 78
-    .local v0, "a":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     sget-object v1, Lio/reactivex/internal/util/EmptyComponent;->INSTANCE:Lio/reactivex/internal/util/EmptyComponent;
 
     iput-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver;->s:Lio/reactivex/disposables/Disposable;
@@ -160,7 +147,6 @@
     .line 80
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 81
     return-void
 .end method
 
@@ -173,22 +159,17 @@
     .end annotation
 
     .line 72
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver;, "Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver;->actual:Lio/reactivex/Observer;
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
-    .line 73
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 63
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver;, "Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -201,11 +182,10 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver;->s:Lio/reactivex/disposables/Disposable;
 
     .line 66
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableDetach$DetachObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v0, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 68
     :cond_0
     return-void
 .end method

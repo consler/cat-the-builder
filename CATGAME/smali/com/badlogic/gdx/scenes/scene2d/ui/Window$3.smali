@@ -29,7 +29,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/Window;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
     .line 91
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
@@ -40,9 +39,7 @@
 .end method
 
 .method private updateEdge(FF)V
-    .locals 12
-    .param p1, "x"    # F
-    .param p2, "y"    # F
+    .locals 8
 
     .line 95
     iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
@@ -56,14 +53,12 @@
     div-float/2addr v0, v1
 
     .line 96
-    .local v0, "border":F
     iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
     invoke-virtual {v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getWidth()F
 
     move-result v1
 
-    .local v1, "width":F
     iget-object v2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
     invoke-virtual {v2}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getHeight()F
@@ -71,223 +66,209 @@
     move-result v2
 
     .line 97
-    .local v2, "height":F
     iget-object v3, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
     invoke-virtual {v3}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getPadTop()F
 
     move-result v3
 
-    .local v3, "padTop":F
     iget-object v4, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
     invoke-virtual {v4}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getPadLeft()F
 
     move-result v4
 
-    .local v4, "padLeft":F
     iget-object v5, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
     invoke-virtual {v5}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getPadBottom()F
 
     move-result v5
 
-    .local v5, "padBottom":F
     iget-object v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
     invoke-virtual {v6}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getPadRight()F
 
     move-result v6
 
-    .line 98
-    .local v6, "padRight":F
-    move v7, v4
-
-    .local v7, "left":F
-    sub-float v8, v1, v6
-
-    .local v8, "right":F
-    move v9, v5
+    sub-float/2addr v1, v6
 
     .line 99
-    .local v9, "bottom":F
-    iget-object v10, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    const/4 v11, 0x0
+    const/4 v7, 0x0
 
-    iput v11, v10, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
+    iput v7, v6, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
 
     .line 100
-    iget-object v10, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    iget-boolean v10, v10, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->isResizable:Z
+    iget-boolean v6, v6, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->isResizable:Z
 
-    if-eqz v10, :cond_6
+    if-eqz v6, :cond_6
 
-    sub-float v10, v7, v0
+    sub-float v6, v4, v0
 
-    cmpl-float v10, p1, v10
+    cmpl-float v6, p1, v6
 
-    if-ltz v10, :cond_6
+    if-ltz v6, :cond_6
 
-    add-float v10, v8, v0
+    add-float v6, v1, v0
 
-    cmpg-float v10, p1, v10
+    cmpg-float v6, p1, v6
 
-    if-gtz v10, :cond_6
+    if-gtz v6, :cond_6
 
-    sub-float v10, v9, v0
+    sub-float v6, v5, v0
 
-    cmpl-float v10, p2, v10
+    cmpl-float v6, p2, v6
 
-    if-ltz v10, :cond_6
+    if-ltz v6, :cond_6
+
+    add-float v6, v4, v0
+
+    cmpg-float v6, p1, v6
+
+    if-gez v6, :cond_0
 
     .line 101
-    add-float v10, v7, v0
+    iget-object v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    cmpg-float v10, p1, v10
+    iget v7, v6, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
 
-    if-gez v10, :cond_0
+    or-int/lit8 v7, v7, 0x8
 
-    iget-object v10, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iput v7, v6, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
 
-    iget v11, v10, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
+    :cond_0
+    sub-float v6, v1, v0
 
-    or-int/lit8 v11, v11, 0x8
+    cmpl-float v6, p1, v6
 
-    iput v11, v10, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
+    if-lez v6, :cond_1
 
     .line 102
-    :cond_0
-    sub-float v10, v8, v0
+    iget-object v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    cmpl-float v10, p1, v10
+    iget v7, v6, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
 
-    if-lez v10, :cond_1
+    or-int/lit8 v7, v7, 0x10
 
-    iget-object v10, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iput v7, v6, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
 
-    iget v11, v10, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
+    :cond_1
+    add-float v6, v5, v0
 
-    or-int/lit8 v11, v11, 0x10
+    cmpg-float v6, p2, v6
 
-    iput v11, v10, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
+    if-gez v6, :cond_2
 
     .line 103
-    :cond_1
-    add-float v10, v9, v0
+    iget-object v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    cmpg-float v10, p2, v10
+    iget v7, v6, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
 
-    if-gez v10, :cond_2
+    or-int/lit8 v7, v7, 0x4
 
-    iget-object v10, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
-
-    iget v11, v10, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
-
-    or-int/lit8 v11, v11, 0x4
-
-    iput v11, v10, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
+    iput v7, v6, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
 
     .line 104
     :cond_2
-    iget-object v10, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    iget v10, v10, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
+    iget v6, v6, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
 
-    if-eqz v10, :cond_3
+    if-eqz v6, :cond_3
 
-    const/high16 v10, 0x41c80000    # 25.0f
+    const/high16 v6, 0x41c80000    # 25.0f
 
-    add-float/2addr v0, v10
+    add-float/2addr v0, v6
+
+    :cond_3
+    add-float v6, v4, v0
+
+    cmpg-float v6, p1, v6
+
+    if-gez v6, :cond_4
 
     .line 105
-    :cond_3
-    add-float v10, v7, v0
+    iget-object v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    cmpg-float v10, p1, v10
+    iget v7, v6, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
 
-    if-gez v10, :cond_4
+    or-int/lit8 v7, v7, 0x8
 
-    iget-object v10, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iput v7, v6, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
 
-    iget v11, v10, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
+    :cond_4
+    sub-float v6, v1, v0
 
-    or-int/lit8 v11, v11, 0x8
+    cmpl-float v6, p1, v6
 
-    iput v11, v10, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
+    if-lez v6, :cond_5
 
     .line 106
-    :cond_4
-    sub-float v10, v8, v0
+    iget-object v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    cmpl-float v10, p1, v10
+    iget v7, v6, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
 
-    if-lez v10, :cond_5
+    or-int/lit8 v7, v7, 0x10
 
-    iget-object v10, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iput v7, v6, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
 
-    iget v11, v10, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
+    :cond_5
+    add-float/2addr v5, v0
 
-    or-int/lit8 v11, v11, 0x10
+    cmpg-float v0, p2, v5
 
-    iput v11, v10, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
+    if-gez v0, :cond_6
 
     .line 107
-    :cond_5
-    add-float v10, v9, v0
+    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    cmpg-float v10, p2, v10
+    iget v5, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
 
-    if-gez v10, :cond_6
+    or-int/lit8 v5, v5, 0x4
 
-    iget-object v10, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
-
-    iget v11, v10, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
-
-    or-int/lit8 v11, v11, 0x4
-
-    iput v11, v10, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
+    iput v5, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
 
     .line 109
     :cond_6
-    iget-object v10, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    iget-boolean v10, v10, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->isMovable:Z
+    iget-boolean v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->isMovable:Z
 
-    if-eqz v10, :cond_7
+    if-eqz v0, :cond_7
 
-    iget-object v10, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    iget v10, v10, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
+    iget v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
 
-    if-nez v10, :cond_7
+    if-nez v0, :cond_7
 
-    cmpg-float v10, p2, v2
+    cmpg-float v0, p2, v2
 
-    if-gtz v10, :cond_7
+    if-gtz v0, :cond_7
 
-    sub-float v10, v2, v3
+    sub-float/2addr v2, v3
 
-    cmpl-float v10, p2, v10
+    cmpl-float p2, p2, v2
 
-    if-ltz v10, :cond_7
+    if-ltz p2, :cond_7
 
-    cmpl-float v10, p1, v7
+    cmpl-float p2, p1, v4
 
-    if-ltz v10, :cond_7
+    if-ltz p2, :cond_7
 
-    cmpg-float v10, p1, v8
+    cmpg-float p1, p1, v1
 
-    if-gtz v10, :cond_7
+    if-gtz p1, :cond_7
 
-    iget-object v10, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    const/16 v11, 0x20
+    const/16 p2, 0x20
 
-    iput v11, v10, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
+    iput p2, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
 
-    .line 110
     :cond_7
     return-void
 .end method
@@ -295,88 +276,69 @@
 
 # virtual methods
 .method public keyDown(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;I)Z
-    .locals 1
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "keycode"    # I
+    .locals 0
 
     .line 183
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    iget-boolean v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->isModal:Z
+    iget-boolean p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->isModal:Z
 
-    return v0
+    return p1
 .end method
 
 .method public keyTyped(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;C)Z
-    .locals 1
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "character"    # C
+    .locals 0
 
     .line 191
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    iget-boolean v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->isModal:Z
+    iget-boolean p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->isModal:Z
 
-    return v0
+    return p1
 .end method
 
 .method public keyUp(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;I)Z
-    .locals 1
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "keycode"    # I
+    .locals 0
 
     .line 187
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    iget-boolean v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->isModal:Z
+    iget-boolean p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->isModal:Z
 
-    return v0
+    return p1
 .end method
 
 .method public mouseMoved(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;FF)Z
-    .locals 1
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
+    .locals 0
 
     .line 174
     invoke-direct {p0, p2, p3}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->updateEdge(FF)V
 
     .line 175
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    iget-boolean v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->isModal:Z
+    iget-boolean p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->isModal:Z
 
-    return v0
+    return p1
 .end method
 
 .method public scrolled(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;FFI)Z
-    .locals 1
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
-    .param p4, "amount"    # I
+    .locals 0
 
     .line 179
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    iget-boolean v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->isModal:Z
+    iget-boolean p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->isModal:Z
 
-    return v0
+    return p1
 .end method
 
 .method public touchDown(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;FFII)Z
-    .locals 4
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
-    .param p4, "pointer"    # I
-    .param p5, "button"    # I
+    .locals 1
 
-    .line 113
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    const/4 v1, 0x1
+    const/4 p4, 0x1
 
     if-nez p5, :cond_1
 
@@ -384,21 +346,21 @@
     invoke-direct {p0, p2, p3}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->updateEdge(FF)V
 
     .line 115
-    iget-object v2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object p5, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    iget v3, v2, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
+    iget v0, p5, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
 
-    if-eqz v3, :cond_0
+    if-eqz v0, :cond_0
 
-    move v3, v1
+    move v0, p4
 
     goto :goto_0
 
     :cond_0
-    move v3, v0
+    move v0, p1
 
     :goto_0
-    iput-boolean v3, v2, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->dragging:Z
+    iput-boolean v0, p5, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->dragging:Z
 
     .line 116
     iput p2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->startX:F
@@ -407,451 +369,398 @@
     iput p3, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->startY:F
 
     .line 118
-    iget-object v2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object p5, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    invoke-virtual {v2}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getWidth()F
+    invoke-virtual {p5}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getWidth()F
 
-    move-result v2
+    move-result p5
 
-    sub-float v2, p2, v2
+    sub-float/2addr p2, p5
 
-    iput v2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->lastX:F
+    iput p2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->lastX:F
 
     .line 119
-    iget-object v2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object p2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    invoke-virtual {v2}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getHeight()F
+    invoke-virtual {p2}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getHeight()F
 
-    move-result v2
+    move-result p2
 
-    sub-float v2, p3, v2
+    sub-float/2addr p3, p2
 
-    iput v2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->lastY:F
+    iput p3, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->lastY:F
 
     .line 121
     :cond_1
-    iget-object v2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object p2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    iget v2, v2, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
+    iget p2, p2, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
 
-    if-nez v2, :cond_2
+    if-nez p2, :cond_2
 
-    iget-object v2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object p2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    iget-boolean v2, v2, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->isModal:Z
+    iget-boolean p2, p2, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->isModal:Z
 
-    if-eqz v2, :cond_3
+    if-eqz p2, :cond_3
 
     :cond_2
-    move v0, v1
+    move p1, p4
 
     :cond_3
-    return v0
+    return p1
 .end method
 
 .method public touchDragged(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;FFI)V
-    .locals 16
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
-    .param p4, "pointer"    # I
+    .locals 9
 
     .line 129
-    move-object/from16 v0, p0
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    iget-object v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-boolean p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->dragging:Z
 
-    iget-boolean v1, v1, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->dragging:Z
-
-    if-nez v1, :cond_0
+    if-nez p1, :cond_0
 
     return-void
 
     .line 130
     :cond_0
-    iget-object v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    invoke-virtual {v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getWidth()F
+    invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getWidth()F
+
+    move-result p1
+
+    iget-object p4, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+
+    invoke-virtual {p4}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getHeight()F
+
+    move-result p4
+
+    .line 131
+    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+
+    invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getX()F
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+
+    invoke-virtual {v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getY()F
 
     move-result v1
 
-    .local v1, "width":F
-    iget-object v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    .line 133
+    iget-object v2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    invoke-virtual {v2}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getHeight()F
+    invoke-virtual {v2}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getMinWidth()F
 
     move-result v2
 
-    .line 131
-    .local v2, "height":F
-    iget-object v3, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object v3, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    invoke-virtual {v3}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getX()F
+    invoke-virtual {v3}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getMaxWidth()F
+
+    .line 134
+    iget-object v3, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+
+    invoke-virtual {v3}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getMinHeight()F
 
     move-result v3
 
-    .local v3, "windowX":F
-    iget-object v4, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object v4, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    invoke-virtual {v4}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getY()F
-
-    move-result v4
-
-    .line 133
-    .local v4, "windowY":F
-    iget-object v5, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
-
-    invoke-virtual {v5}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getMinWidth()F
-
-    move-result v5
-
-    .local v5, "minWidth":F
-    iget-object v6, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
-
-    invoke-virtual {v6}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getMaxWidth()F
-
-    move-result v6
-
-    .line 134
-    .local v6, "maxWidth":F
-    iget-object v7, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
-
-    invoke-virtual {v7}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getMinHeight()F
-
-    move-result v7
-
-    .local v7, "minHeight":F
-    iget-object v8, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
-
-    invoke-virtual {v8}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getMaxHeight()F
-
-    move-result v8
+    invoke-virtual {v4}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getMaxHeight()F
 
     .line 135
-    .local v8, "maxHeight":F
-    iget-object v9, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object v4, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    invoke-virtual {v9}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getStage()Lcom/badlogic/gdx/scenes/scene2d/Stage;
+    invoke-virtual {v4}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getStage()Lcom/badlogic/gdx/scenes/scene2d/Stage;
 
-    move-result-object v9
+    move-result-object v4
 
     .line 136
-    .local v9, "stage":Lcom/badlogic/gdx/scenes/scene2d/Stage;
-    iget-object v10, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object v5, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    iget-boolean v10, v10, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->keepWithinStage:Z
+    iget-boolean v5, v5, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->keepWithinStage:Z
 
-    if-eqz v10, :cond_1
+    if-eqz v5, :cond_1
 
-    if-eqz v9, :cond_1
+    if-eqz v4, :cond_1
 
-    iget-object v10, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object v5, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    invoke-virtual {v10}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getParent()Lcom/badlogic/gdx/scenes/scene2d/Group;
+    invoke-virtual {v5}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->getParent()Lcom/badlogic/gdx/scenes/scene2d/Group;
 
-    move-result-object v10
+    move-result-object v5
 
-    invoke-virtual {v9}, Lcom/badlogic/gdx/scenes/scene2d/Stage;->getRoot()Lcom/badlogic/gdx/scenes/scene2d/Group;
+    invoke-virtual {v4}, Lcom/badlogic/gdx/scenes/scene2d/Stage;->getRoot()Lcom/badlogic/gdx/scenes/scene2d/Group;
 
-    move-result-object v11
+    move-result-object v6
 
-    if-ne v10, v11, :cond_1
+    if-ne v5, v6, :cond_1
 
-    const/4 v10, 0x1
+    const/4 v5, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v10, 0x0
+    const/4 v5, 0x0
 
     .line 138
-    .local v10, "clampPosition":Z
     :goto_0
-    iget-object v11, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    iget v11, v11, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
+    iget v6, v6, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
 
-    and-int/lit8 v11, v11, 0x20
+    and-int/lit8 v6, v6, 0x20
 
-    if-eqz v11, :cond_2
+    if-eqz v6, :cond_2
 
     .line 139
-    iget v11, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->startX:F
+    iget v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->startX:F
 
-    sub-float v11, p2, v11
+    sub-float v6, p2, v6
 
-    .local v11, "amountX":F
-    iget v12, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->startY:F
+    iget v7, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->startY:F
 
-    sub-float v12, p3, v12
+    sub-float v7, p3, v7
 
-    .line 140
-    .local v12, "amountY":F
-    add-float/2addr v3, v11
+    add-float/2addr v0, v6
 
-    .line 141
-    add-float/2addr v4, v12
+    add-float/2addr v1, v7
 
     .line 143
-    .end local v11    # "amountX":F
-    .end local v12    # "amountY":F
     :cond_2
-    iget-object v11, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    iget v11, v11, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
+    iget v6, v6, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
 
-    and-int/lit8 v11, v11, 0x8
+    and-int/lit8 v6, v6, 0x8
 
-    const/4 v12, 0x0
+    const/4 v7, 0x0
 
-    if-eqz v11, :cond_5
+    if-eqz v6, :cond_5
 
     .line 144
-    iget v11, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->startX:F
+    iget v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->startX:F
 
-    sub-float v11, p2, v11
+    sub-float v6, p2, v6
 
-    .line 145
-    .restart local v11    # "amountX":F
-    sub-float v13, v1, v11
+    sub-float v8, p1, v6
 
-    cmpg-float v13, v13, v5
+    cmpg-float v8, v8, v2
 
-    if-gez v13, :cond_3
+    if-gez v8, :cond_3
 
-    sub-float v13, v5, v1
+    sub-float v6, v2, p1
 
-    neg-float v11, v13
+    neg-float v6, v6
 
-    .line 146
     :cond_3
-    if-eqz v10, :cond_4
+    if-eqz v5, :cond_4
 
-    add-float v13, v3, v11
+    add-float v8, v0, v6
 
-    cmpg-float v13, v13, v12
+    cmpg-float v8, v8, v7
 
-    if-gez v13, :cond_4
+    if-gez v8, :cond_4
 
-    neg-float v11, v3
+    neg-float v6, v0
 
-    .line 147
     :cond_4
-    sub-float/2addr v1, v11
+    sub-float/2addr p1, v6
 
-    .line 148
-    add-float/2addr v3, v11
+    add-float/2addr v0, v6
 
     .line 150
-    .end local v11    # "amountX":F
     :cond_5
-    iget-object v11, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    iget v11, v11, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
+    iget v6, v6, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
 
-    and-int/lit8 v11, v11, 0x4
+    and-int/lit8 v6, v6, 0x4
 
-    if-eqz v11, :cond_8
+    if-eqz v6, :cond_8
 
     .line 151
-    iget v11, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->startY:F
+    iget v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->startY:F
 
-    sub-float v11, p3, v11
+    sub-float v6, p3, v6
 
-    .line 152
-    .local v11, "amountY":F
-    sub-float v13, v2, v11
+    sub-float v8, p4, v6
 
-    cmpg-float v13, v13, v7
+    cmpg-float v8, v8, v3
 
-    if-gez v13, :cond_6
+    if-gez v8, :cond_6
 
-    sub-float v13, v7, v2
+    sub-float v6, v3, p4
 
-    neg-float v11, v13
+    neg-float v6, v6
 
-    .line 153
     :cond_6
-    if-eqz v10, :cond_7
+    if-eqz v5, :cond_7
 
-    add-float v13, v4, v11
+    add-float v8, v1, v6
 
-    cmpg-float v12, v13, v12
+    cmpg-float v7, v8, v7
 
-    if-gez v12, :cond_7
+    if-gez v7, :cond_7
 
-    neg-float v11, v4
+    neg-float v6, v1
 
-    .line 154
     :cond_7
-    sub-float/2addr v2, v11
+    sub-float/2addr p4, v6
 
-    .line 155
-    add-float/2addr v4, v11
+    add-float/2addr v1, v6
 
     .line 157
-    .end local v11    # "amountY":F
     :cond_8
-    iget-object v11, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    iget v11, v11, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
+    iget v6, v6, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
 
-    and-int/lit8 v11, v11, 0x10
+    and-int/lit8 v6, v6, 0x10
 
-    if-eqz v11, :cond_b
+    if-eqz v6, :cond_b
 
     .line 158
-    iget v11, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->lastX:F
+    iget v6, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->lastX:F
 
-    sub-float v11, p2, v11
+    sub-float/2addr p2, v6
 
-    sub-float/2addr v11, v1
+    sub-float/2addr p2, p1
 
-    .line 159
-    .local v11, "amountX":F
-    add-float v12, v1, v11
+    add-float v6, p1, p2
 
-    cmpg-float v12, v12, v5
+    cmpg-float v6, v6, v2
 
-    if-gez v12, :cond_9
+    if-gez v6, :cond_9
 
-    sub-float v11, v5, v1
+    sub-float p2, v2, p1
+
+    :cond_9
+    if-eqz v5, :cond_a
+
+    add-float v2, v0, p1
+
+    add-float/2addr v2, p2
 
     .line 160
-    :cond_9
-    if-eqz v10, :cond_a
+    invoke-virtual {v4}, Lcom/badlogic/gdx/scenes/scene2d/Stage;->getWidth()F
 
-    add-float v12, v3, v1
+    move-result v6
 
-    add-float/2addr v12, v11
+    cmpl-float v2, v2, v6
 
-    invoke-virtual {v9}, Lcom/badlogic/gdx/scenes/scene2d/Stage;->getWidth()F
+    if-lez v2, :cond_a
 
-    move-result v13
+    invoke-virtual {v4}, Lcom/badlogic/gdx/scenes/scene2d/Stage;->getWidth()F
 
-    cmpl-float v12, v12, v13
+    move-result p2
 
-    if-lez v12, :cond_a
+    sub-float/2addr p2, v0
 
-    invoke-virtual {v9}, Lcom/badlogic/gdx/scenes/scene2d/Stage;->getWidth()F
+    sub-float/2addr p2, p1
 
-    move-result v12
-
-    sub-float/2addr v12, v3
-
-    sub-float v11, v12, v1
-
-    .line 161
     :cond_a
-    add-float/2addr v1, v11
+    add-float/2addr p1, p2
 
     .line 163
-    .end local v11    # "amountX":F
     :cond_b
-    iget-object v11, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object p2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    iget v11, v11, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
+    iget p2, p2, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->edge:I
 
-    and-int/lit8 v11, v11, 0x2
+    and-int/lit8 p2, p2, 0x2
 
-    if-eqz v11, :cond_e
+    if-eqz p2, :cond_e
 
     .line 164
-    iget v11, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->lastY:F
+    iget p2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->lastY:F
 
-    sub-float v11, p3, v11
+    sub-float/2addr p3, p2
 
-    sub-float/2addr v11, v2
+    sub-float/2addr p3, p4
 
-    .line 165
-    .local v11, "amountY":F
-    add-float v12, v2, v11
+    add-float p2, p4, p3
 
-    cmpg-float v12, v12, v7
+    cmpg-float p2, p2, v3
 
-    if-gez v12, :cond_c
+    if-gez p2, :cond_c
 
-    sub-float v11, v7, v2
+    sub-float p3, v3, p4
+
+    :cond_c
+    if-eqz v5, :cond_d
+
+    add-float p2, v1, p4
+
+    add-float/2addr p2, p3
 
     .line 166
-    :cond_c
-    if-eqz v10, :cond_d
+    invoke-virtual {v4}, Lcom/badlogic/gdx/scenes/scene2d/Stage;->getHeight()F
 
-    add-float v12, v4, v2
+    move-result v2
 
-    add-float/2addr v12, v11
+    cmpl-float p2, p2, v2
 
-    invoke-virtual {v9}, Lcom/badlogic/gdx/scenes/scene2d/Stage;->getHeight()F
-
-    move-result v13
-
-    cmpl-float v12, v12, v13
-
-    if-lez v12, :cond_d
+    if-lez p2, :cond_d
 
     .line 167
-    invoke-virtual {v9}, Lcom/badlogic/gdx/scenes/scene2d/Stage;->getHeight()F
+    invoke-virtual {v4}, Lcom/badlogic/gdx/scenes/scene2d/Stage;->getHeight()F
 
-    move-result v12
+    move-result p2
 
-    sub-float/2addr v12, v4
+    sub-float/2addr p2, v1
 
-    sub-float v11, v12, v2
+    sub-float p3, p2, p4
 
-    .line 168
     :cond_d
-    add-float/2addr v2, v11
+    add-float/2addr p4, p3
 
     .line 170
-    .end local v11    # "amountY":F
     :cond_e
-    iget-object v11, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object p2, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
+    invoke-static {v0}, Ljava/lang/Math;->round(F)I
 
-    move-result v12
+    move-result p3
 
-    int-to-float v12, v12
-
-    invoke-static {v4}, Ljava/lang/Math;->round(F)I
-
-    move-result v13
-
-    int-to-float v13, v13
+    int-to-float p3, p3
 
     invoke-static {v1}, Ljava/lang/Math;->round(F)I
 
-    move-result v14
+    move-result v0
 
-    int-to-float v14, v14
+    int-to-float v0, v0
 
-    invoke-static {v2}, Ljava/lang/Math;->round(F)I
+    invoke-static {p1}, Ljava/lang/Math;->round(F)I
 
-    move-result v15
+    move-result p1
 
-    int-to-float v15, v15
+    int-to-float p1, p1
 
-    invoke-virtual {v11, v12, v13, v14, v15}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->setBounds(FFFF)V
+    invoke-static {p4}, Ljava/lang/Math;->round(F)I
 
-    .line 171
+    move-result p4
+
+    int-to-float p4, p4
+
+    invoke-virtual {p2, p3, v0, p1, p4}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->setBounds(FFFF)V
+
     return-void
 .end method
 
 .method public touchUp(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;FFII)V
-    .locals 2
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
-    .param p4, "pointer"    # I
-    .param p5, "button"    # I
+    .locals 0
 
     .line 125
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$3;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    iput-boolean v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->dragging:Z
+    iput-boolean p2, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->dragging:Z
 
-    .line 126
     return-void
 .end method

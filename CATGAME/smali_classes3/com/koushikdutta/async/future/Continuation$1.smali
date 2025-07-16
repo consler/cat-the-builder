@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/future/Continuation;Lcom/koushikdutta/async/future/Cancellable;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/future/Continuation;
 
     .line 30
     iput-object p1, p0, Lcom/koushikdutta/async/future/Continuation$1;->this$0:Lcom/koushikdutta/async/future/Continuation;
@@ -48,6 +47,5 @@
 
     invoke-interface {v0}, Lcom/koushikdutta/async/future/Cancellable;->cancel()Z
 
-    .line 34
     return-void
 .end method

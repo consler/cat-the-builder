@@ -51,7 +51,6 @@
     .line 23
     invoke-direct {p0}, Lio/reactivex/Observable;-><init>()V
 
-    .line 24
     return-void
 .end method
 
@@ -60,7 +59,6 @@
 .method public call()Ljava/lang/Object;
     .locals 1
 
-    .line 33
     const/4 v0, 0x0
 
     return-object v0
@@ -79,9 +77,7 @@
     .end annotation
 
     .line 28
-    .local p1, "o":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-Ljava/lang/Object;>;"
     invoke-static {p1}, Lio/reactivex/internal/disposables/EmptyDisposable;->complete(Lio/reactivex/Observer;)V
 
-    .line 29
     return-void
 .end method

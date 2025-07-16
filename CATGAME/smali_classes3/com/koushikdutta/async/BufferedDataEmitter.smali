@@ -22,15 +22,14 @@
 
 # direct methods
 .method public constructor <init>(Lcom/koushikdutta/async/DataEmitter;)V
-    .locals 2
-    .param p1, "emitter"    # Lcom/koushikdutta/async/DataEmitter;
+    .locals 1
 
     .line 8
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 34
     const/4 v0, 0x0
 
+    .line 34
     iput-boolean v0, p0, Lcom/koushikdutta/async/BufferedDataEmitter;->mEnded:Z
 
     .line 45
@@ -51,15 +50,14 @@
     invoke-interface {p1, v0}, Lcom/koushikdutta/async/DataEmitter;->setDataCallback(Lcom/koushikdutta/async/callback/DataCallback;)V
 
     .line 18
-    iget-object v0, p0, Lcom/koushikdutta/async/BufferedDataEmitter;->mEmitter:Lcom/koushikdutta/async/DataEmitter;
+    iget-object p1, p0, Lcom/koushikdutta/async/BufferedDataEmitter;->mEmitter:Lcom/koushikdutta/async/DataEmitter;
 
-    new-instance v1, Lcom/koushikdutta/async/BufferedDataEmitter$2;
+    new-instance v0, Lcom/koushikdutta/async/BufferedDataEmitter$2;
 
-    invoke-direct {v1, p0}, Lcom/koushikdutta/async/BufferedDataEmitter$2;-><init>(Lcom/koushikdutta/async/BufferedDataEmitter;)V
+    invoke-direct {v0, p0}, Lcom/koushikdutta/async/BufferedDataEmitter$2;-><init>(Lcom/koushikdutta/async/BufferedDataEmitter;)V
 
-    invoke-interface {v0, v1}, Lcom/koushikdutta/async/DataEmitter;->setEndCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
+    invoke-interface {p1, v0}, Lcom/koushikdutta/async/DataEmitter;->setEndCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
 
-    .line 27
     return-void
 .end method
 
@@ -86,7 +84,6 @@
 
     invoke-interface {v0}, Lcom/koushikdutta/async/DataEmitter;->close()V
 
-    .line 32
     return-void
 .end method
 
@@ -124,7 +121,6 @@
 .method public isChunked()Z
     .locals 1
 
-    .line 62
     const/4 v0, 0x0
 
     return v0
@@ -195,7 +191,6 @@
 
     invoke-interface {v0, v1}, Lcom/koushikdutta/async/callback/CompletedCallback;->onCompleted(Ljava/lang/Exception;)V
 
-    .line 43
     :cond_1
     return-void
 .end method
@@ -208,7 +203,6 @@
 
     invoke-interface {v0}, Lcom/koushikdutta/async/DataEmitter;->pause()V
 
-    .line 68
     return-void
 .end method
 
@@ -223,13 +217,11 @@
     .line 73
     invoke-virtual {p0}, Lcom/koushikdutta/async/BufferedDataEmitter;->onDataAvailable()V
 
-    .line 74
     return-void
 .end method
 
 .method public setDataCallback(Lcom/koushikdutta/async/callback/DataCallback;)V
-    .locals 2
-    .param p1, "callback"    # Lcom/koushikdutta/async/callback/DataCallback;
+    .locals 1
 
     .line 50
     iget-object v0, p0, Lcom/koushikdutta/async/BufferedDataEmitter;->mDataCallback:Lcom/koushikdutta/async/callback/DataCallback;
@@ -239,27 +231,24 @@
     .line 52
     iput-object p1, p0, Lcom/koushikdutta/async/BufferedDataEmitter;->mDataCallback:Lcom/koushikdutta/async/callback/DataCallback;
 
-    .line 53
     return-void
 
     .line 51
     :cond_0
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    const-string v1, "Buffered Data Emitter callback may only be set once"
+    const-string v0, "Buffered Data Emitter callback may only be set once"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setEndCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
     .locals 0
-    .param p1, "callback"    # Lcom/koushikdutta/async/callback/CompletedCallback;
 
     .line 85
     iput-object p1, p0, Lcom/koushikdutta/async/BufferedDataEmitter;->mEndCallback:Lcom/koushikdutta/async/callback/CompletedCallback;
 
-    .line 86
     return-void
 .end method

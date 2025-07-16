@@ -32,7 +32,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/parser/StringParser;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/parser/StringParser;
 
     .line 30
     iput-object p1, p0, Lcom/koushikdutta/async/parser/StringParser$1;->this$0:Lcom/koushikdutta/async/parser/StringParser;
@@ -48,7 +47,6 @@
 # virtual methods
 .method protected transform(Lcom/koushikdutta/async/ByteBufferList;)V
     .locals 2
-    .param p1, "result"    # Lcom/koushikdutta/async/ByteBufferList;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -60,10 +58,9 @@
 
     iget-object v0, v0, Lcom/koushikdutta/async/parser/StringParser;->forcedCharset:Ljava/nio/charset/Charset;
 
-    .line 34
-    .local v0, "charsetToUse":Ljava/nio/charset/Charset;
     if-nez v0, :cond_0
 
+    .line 34
     iget-object v1, p0, Lcom/koushikdutta/async/parser/StringParser$1;->val$charset:Ljava/lang/String;
 
     if-eqz v1, :cond_0
@@ -77,11 +74,10 @@
     :cond_0
     invoke-virtual {p1, v0}, Lcom/koushikdutta/async/ByteBufferList;->readString(Ljava/nio/charset/Charset;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {p0, v1}, Lcom/koushikdutta/async/parser/StringParser$1;->setComplete(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Lcom/koushikdutta/async/parser/StringParser$1;->setComplete(Ljava/lang/Object;)Z
 
-    .line 37
     return-void
 .end method
 

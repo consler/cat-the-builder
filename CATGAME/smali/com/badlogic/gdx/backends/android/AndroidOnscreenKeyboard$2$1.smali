@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard$2;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard$2;
 
     .line 133
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard$2$1;->this$1:Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard$2;
@@ -69,10 +68,9 @@
 
     check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
-    .line 138
-    .local v0, "input":Landroid/view/inputmethod/InputMethodManager;
     if-eqz v0, :cond_0
 
+    .line 138
     iget-object v1, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard$2$1;->this$1:Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard$2;
 
     iget-object v1, v1, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard$2;->this$0:Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;
@@ -83,7 +81,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->showSoftInput(Landroid/view/View;I)Z
 
-    .line 139
     :cond_0
     return-void
 .end method

@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/parser/ByteBufferListParser;Lcom/koushikdutta/async/future/SimpleFuture;Lcom/koushikdutta/async/ByteBufferList;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/parser/ByteBufferListParser;
 
     .line 34
     iput-object p1, p0, Lcom/koushikdutta/async/parser/ByteBufferListParser$3;->this$0:Lcom/koushikdutta/async/parser/ByteBufferListParser;
@@ -45,10 +44,8 @@
 
 # virtual methods
 .method public onCompleted(Ljava/lang/Exception;)V
-    .locals 2
-    .param p1, "ex"    # Ljava/lang/Exception;
+    .locals 1
 
-    .line 37
     if-eqz p1, :cond_0
 
     .line 38
@@ -56,35 +53,29 @@
 
     invoke-virtual {v0, p1}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Exception;)Z
 
-    .line 39
     return-void
 
     .line 43
     :cond_0
     :try_start_0
-    iget-object v0, p0, Lcom/koushikdutta/async/parser/ByteBufferListParser$3;->val$ret:Lcom/koushikdutta/async/future/SimpleFuture;
+    iget-object p1, p0, Lcom/koushikdutta/async/parser/ByteBufferListParser$3;->val$ret:Lcom/koushikdutta/async/future/SimpleFuture;
 
-    iget-object v1, p0, Lcom/koushikdutta/async/parser/ByteBufferListParser$3;->val$bb:Lcom/koushikdutta/async/ByteBufferList;
+    iget-object v0, p0, Lcom/koushikdutta/async/parser/ByteBufferListParser$3;->val$bb:Lcom/koushikdutta/async/ByteBufferList;
 
-    invoke-virtual {v0, v1}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Object;)Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 47
     goto :goto_0
 
-    .line 45
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 46
-    .local v0, "e":Ljava/lang/Exception;
-    iget-object v1, p0, Lcom/koushikdutta/async/parser/ByteBufferListParser$3;->val$ret:Lcom/koushikdutta/async/future/SimpleFuture;
+    iget-object v0, p0, Lcom/koushikdutta/async/parser/ByteBufferListParser$3;->val$ret:Lcom/koushikdutta/async/future/SimpleFuture;
 
-    invoke-virtual {v1, v0}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Exception;)Z
+    invoke-virtual {v0, p1}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Exception;)Z
 
-    .line 48
-    .end local v0    # "e":Ljava/lang/Exception;
     :goto_0
     return-void
 .end method

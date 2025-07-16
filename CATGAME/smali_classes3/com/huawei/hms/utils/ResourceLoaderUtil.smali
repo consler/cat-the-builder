@@ -4,16 +4,16 @@
 
 
 # static fields
-.field private static a:Landroid/content/Context;
+.field public static a:Landroid/content/Context;
 
-.field private static b:Ljava/lang/String;
+.field public static b:Ljava/lang/String;
 
 
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
-    .line 16
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -22,7 +22,7 @@
 .method public static getAnimId(Ljava/lang/String;)I
     .locals 3
 
-    .line 71
+    .line 1
     sget-object v0, Lcom/huawei/hms/utils/ResourceLoaderUtil;->a:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -43,7 +43,7 @@
 .method public static getColorId(Ljava/lang/String;)I
     .locals 3
 
-    .line 75
+    .line 1
     sget-object v0, Lcom/huawei/hms/utils/ResourceLoaderUtil;->a:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -64,7 +64,7 @@
 .method public static getDrawable(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
     .locals 1
 
-    .line 87
+    .line 1
     sget-object v0, Lcom/huawei/hms/utils/ResourceLoaderUtil;->a:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -85,7 +85,7 @@
 .method public static getDrawableId(Ljava/lang/String;)I
     .locals 3
 
-    .line 59
+    .line 1
     sget-object v0, Lcom/huawei/hms/utils/ResourceLoaderUtil;->a:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -106,7 +106,7 @@
 .method public static getIdId(Ljava/lang/String;)I
     .locals 3
 
-    .line 55
+    .line 1
     sget-object v0, Lcom/huawei/hms/utils/ResourceLoaderUtil;->a:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -127,7 +127,7 @@
 .method public static getLayoutId(Ljava/lang/String;)I
     .locals 3
 
-    .line 51
+    .line 1
     sget-object v0, Lcom/huawei/hms/utils/ResourceLoaderUtil;->a:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -148,7 +148,7 @@
 .method public static getString(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
 
-    .line 79
+    .line 1
     sget-object v0, Lcom/huawei/hms/utils/ResourceLoaderUtil;->a:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -169,7 +169,7 @@
 .method public static varargs getString(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
     .locals 1
 
-    .line 83
+    .line 2
     sget-object v0, Lcom/huawei/hms/utils/ResourceLoaderUtil;->a:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -190,7 +190,7 @@
 .method public static getStringId(Ljava/lang/String;)I
     .locals 3
 
-    .line 67
+    .line 1
     sget-object v0, Lcom/huawei/hms/utils/ResourceLoaderUtil;->a:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -211,7 +211,7 @@
 .method public static getStyleId(Ljava/lang/String;)I
     .locals 3
 
-    .line 63
+    .line 1
     sget-object v0, Lcom/huawei/hms/utils/ResourceLoaderUtil;->a:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -232,7 +232,7 @@
 .method public static getmContext()Landroid/content/Context;
     .locals 1
 
-    .line 39
+    .line 1
     sget-object v0, Lcom/huawei/hms/utils/ResourceLoaderUtil;->a:Landroid/content/Context;
 
     return-object v0
@@ -241,16 +241,15 @@
 .method public static setmContext(Landroid/content/Context;)V
     .locals 0
 
-    .line 46
+    .line 1
     sput-object p0, Lcom/huawei/hms/utils/ResourceLoaderUtil;->a:Landroid/content/Context;
 
-    .line 47
+    .line 2
     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object p0
 
     sput-object p0, Lcom/huawei/hms/utils/ResourceLoaderUtil;->b:Ljava/lang/String;
 
-    .line 48
     return-void
 .end method

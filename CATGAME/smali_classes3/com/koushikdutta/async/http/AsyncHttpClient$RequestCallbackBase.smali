@@ -33,7 +33,6 @@
     .locals 0
 
     .line 478
-    .local p0, "this":Lcom/koushikdutta/async/http/AsyncHttpClient$RequestCallbackBase;, "Lcom/koushikdutta/async/http/AsyncHttpClient$RequestCallbackBase<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,20 +42,12 @@
 # virtual methods
 .method public onConnect(Lcom/koushikdutta/async/http/AsyncHttpResponse;)V
     .locals 0
-    .param p1, "response"    # Lcom/koushikdutta/async/http/AsyncHttpResponse;
 
-    .line 484
-    .local p0, "this":Lcom/koushikdutta/async/http/AsyncHttpClient$RequestCallbackBase;, "Lcom/koushikdutta/async/http/AsyncHttpClient$RequestCallbackBase<TT;>;"
     return-void
 .end method
 
 .method public onProgress(Lcom/koushikdutta/async/http/AsyncHttpResponse;JJ)V
     .locals 0
-    .param p1, "response"    # Lcom/koushikdutta/async/http/AsyncHttpResponse;
-    .param p2, "downloaded"    # J
-    .param p4, "total"    # J
 
-    .line 481
-    .local p0, "this":Lcom/koushikdutta/async/http/AsyncHttpClient$RequestCallbackBase;, "Lcom/koushikdutta/async/http/AsyncHttpClient$RequestCallbackBase<TT;>;"
     return-void
 .end method

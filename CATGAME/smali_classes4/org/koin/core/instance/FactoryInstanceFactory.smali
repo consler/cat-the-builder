@@ -54,8 +54,6 @@
 # direct methods
 .method public constructor <init>(Lorg/koin/core/Koin;Lorg/koin/core/definition/BeanDefinition;)V
     .locals 1
-    .param p1, "koin"    # Lorg/koin/core/Koin;
-    .param p2, "beanDefinition"    # Lorg/koin/core/definition/BeanDefinition;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -72,9 +70,6 @@
     const-string v0, "beanDefinition"
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 26
-    nop
 
     .line 27
     invoke-direct {p0, p1, p2}, Lorg/koin/core/instance/InstanceFactory;-><init>(Lorg/koin/core/Koin;Lorg/koin/core/definition/BeanDefinition;)V
@@ -110,14 +105,12 @@
 
     check-cast v0, Lkotlin/Unit;
 
-    .line 33
     :cond_0
     return-void
 .end method
 
 .method public get(Lorg/koin/core/instance/InstanceContext;)Ljava/lang/Object;
     .locals 1
-    .param p1, "context"    # Lorg/koin/core/instance/InstanceContext;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -133,15 +126,14 @@
     .line 36
     invoke-virtual {p0, p1}, Lorg/koin/core/instance/FactoryInstanceFactory;->create(Lorg/koin/core/instance/InstanceContext;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public isCreated()Z
     .locals 1
 
-    .line 29
     const/4 v0, 0x0
 
     return v0

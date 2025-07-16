@@ -50,13 +50,13 @@
 
     sput-object v0, Lio/reactivex/internal/operators/single/SingleInternalHelper$ToObservable;->INSTANCE:Lio/reactivex/internal/operators/single/SingleInternalHelper$ToObservable;
 
-    .line 104
     const/4 v1, 0x1
 
     new-array v1, v1, [Lio/reactivex/internal/operators/single/SingleInternalHelper$ToObservable;
 
     aput-object v0, v1, v2
 
+    .line 104
     sput-object v1, Lio/reactivex/internal/operators/single/SingleInternalHelper$ToObservable;->$VALUES:[Lio/reactivex/internal/operators/single/SingleInternalHelper$ToObservable;
 
     return-void
@@ -78,18 +78,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lio/reactivex/internal/operators/single/SingleInternalHelper$ToObservable;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 104
     const-class v0, Lio/reactivex/internal/operators/single/SingleInternalHelper$ToObservable;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lio/reactivex/internal/operators/single/SingleInternalHelper$ToObservable;
+    check-cast p0, Lio/reactivex/internal/operators/single/SingleInternalHelper$ToObservable;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lio/reactivex/internal/operators/single/SingleInternalHelper$ToObservable;
@@ -111,7 +110,6 @@
 # virtual methods
 .method public apply(Lio/reactivex/SingleSource;)Lio/reactivex/Observable;
     .locals 1
-    .param p1, "v"    # Lio/reactivex/SingleSource;
 
     .line 110
     new-instance v0, Lio/reactivex/internal/operators/single/SingleToObservable;
@@ -122,8 +120,7 @@
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -131,13 +128,11 @@
     .end annotation
 
     .line 104
-    move-object v0, p1
+    check-cast p1, Lio/reactivex/SingleSource;
 
-    check-cast v0, Lio/reactivex/SingleSource;
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/single/SingleInternalHelper$ToObservable;->apply(Lio/reactivex/SingleSource;)Lio/reactivex/Observable;
 
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/single/SingleInternalHelper$ToObservable;->apply(Lio/reactivex/SingleSource;)Lio/reactivex/Observable;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method

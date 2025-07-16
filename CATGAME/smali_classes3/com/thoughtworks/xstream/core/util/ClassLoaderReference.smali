@@ -18,7 +18,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/ClassLoader;)V
     .locals 0
-    .param p1, "reference"    # Ljava/lang/ClassLoader;
 
     .line 32
     invoke-direct {p0}, Ljava/lang/ClassLoader;-><init>()V
@@ -26,7 +25,6 @@
     .line 33
     iput-object p1, p0, Lcom/thoughtworks/xstream/core/util/ClassLoaderReference;->reference:Ljava/lang/ClassLoader;
 
-    .line 34
     return-void
 .end method
 
@@ -54,7 +52,6 @@
 
 .method public loadClass(Ljava/lang/String;)Ljava/lang/Class;
     .locals 1
-    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/ClassNotFoundException;
@@ -66,18 +63,16 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/ClassLoader;->loadClass(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public setReference(Ljava/lang/ClassLoader;)V
     .locals 0
-    .param p1, "reference"    # Ljava/lang/ClassLoader;
 
     .line 60
     iput-object p1, p0, Lcom/thoughtworks/xstream/core/util/ClassLoaderReference;->reference:Ljava/lang/ClassLoader;
 
-    .line 61
     return-void
 .end method

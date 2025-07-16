@@ -52,7 +52,6 @@
     move-result-object v0
 
     .line 506
-    .local v0, "key":Ljava/lang/Object;
     iget-object v1, p0, Lorg/apache/commons/collections/BeanMap$11;->this$0:Lorg/apache/commons/collections/BeanMap;
 
     invoke-virtual {v1, v0}, Lorg/apache/commons/collections/BeanMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -60,7 +59,6 @@
     move-result-object v1
 
     .line 507
-    .local v1, "value":Ljava/lang/Object;
     new-instance v2, Lorg/apache/commons/collections/BeanMap$MyMapEntry;
 
     iget-object v3, p0, Lorg/apache/commons/collections/BeanMap$11;->this$0:Lorg/apache/commons/collections/BeanMap;

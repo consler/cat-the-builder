@@ -54,13 +54,11 @@
     .end annotation
 
     .line 652
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectFloatMap$MapIterator;, "Lcom/badlogic/gdx/utils/ObjectFloatMap$MapIterator<TK;>;"
-    .local p1, "map":Lcom/badlogic/gdx/utils/ObjectFloatMap;, "Lcom/badlogic/gdx/utils/ObjectFloatMap<TK;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 650
     const/4 v0, 0x1
 
+    .line 650
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$MapIterator;->valid:Z
 
     .line 653
@@ -69,7 +67,6 @@
     .line 654
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/ObjectFloatMap$MapIterator;->reset()V
 
-    .line 655
     return-void
 .end method
 
@@ -78,10 +75,9 @@
 .method findNextIndex()V
     .locals 4
 
-    .line 664
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectFloatMap$MapIterator;, "Lcom/badlogic/gdx/utils/ObjectFloatMap$MapIterator<TK;>;"
     const/4 v0, 0x0
 
+    .line 664
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$MapIterator;->hasNext:Z
 
     .line 665
@@ -90,7 +86,6 @@
     iget-object v0, v0, Lcom/badlogic/gdx/utils/ObjectFloatMap;->keyTable:[Ljava/lang/Object;
 
     .line 666
-    .local v0, "keyTable":[Ljava/lang/Object;, "[TK;"
     iget-object v1, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$MapIterator;->map:Lcom/badlogic/gdx/utils/ObjectFloatMap;
 
     iget v1, v1, Lcom/badlogic/gdx/utils/ObjectFloatMap;->capacity:I
@@ -101,7 +96,6 @@
 
     add-int/2addr v1, v2
 
-    .local v1, "n":I
     :cond_0
     iget v2, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$MapIterator;->nextIndex:I
 
@@ -121,8 +115,6 @@
     .line 668
     iput-boolean v3, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$MapIterator;->hasNext:Z
 
-    .line 672
-    .end local v1    # "n":I
     :cond_1
     return-void
 .end method
@@ -131,7 +123,6 @@
     .locals 3
 
     .line 675
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectFloatMap$MapIterator;, "Lcom/badlogic/gdx/utils/ObjectFloatMap$MapIterator<TK;>;"
     iget v0, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$MapIterator;->currentIndex:I
 
     if-ltz v0, :cond_1
@@ -174,10 +165,10 @@
 
     aput-object v2, v0, v1
 
-    .line 683
     :goto_0
     const/4 v0, -0x1
 
+    .line 683
     iput v0, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$MapIterator;->currentIndex:I
 
     .line 684
@@ -189,7 +180,6 @@
 
     iput v1, v0, Lcom/badlogic/gdx/utils/ObjectFloatMap;->size:I
 
-    .line 685
     return-void
 
     .line 675
@@ -206,10 +196,9 @@
 .method public reset()V
     .locals 1
 
-    .line 658
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectFloatMap$MapIterator;, "Lcom/badlogic/gdx/utils/ObjectFloatMap$MapIterator<TK;>;"
     const/4 v0, -0x1
 
+    .line 658
     iput v0, p0, Lcom/badlogic/gdx/utils/ObjectFloatMap$MapIterator;->currentIndex:I
 
     .line 659
@@ -218,6 +207,5 @@
     .line 660
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/ObjectFloatMap$MapIterator;->findNextIndex()V
 
-    .line 661
     return-void
 .end method

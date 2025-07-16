@@ -25,13 +25,11 @@
 
     invoke-direct {p0, v0}, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderer;-><init>(Lcom/badlogic/gdx/graphics/g3d/particles/renderers/ParticleControllerRenderData;)V
 
-    .line 34
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/particles/batches/BillboardParticleBatch;)V
     .locals 0
-    .param p1, "batch"    # Lcom/badlogic/gdx/graphics/g3d/particles/batches/BillboardParticleBatch;
 
     .line 37
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/BillboardRenderer;-><init>()V
@@ -39,7 +37,6 @@
     .line 38
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/BillboardRenderer;->setBatch(Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch;)Z
 
-    .line 39
     return-void
 .end method
 
@@ -159,7 +156,6 @@
 
     iput-object v1, v0, Lcom/badlogic/gdx/graphics/g3d/particles/renderers/BillboardControllerRenderData;->rotationChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$FloatChannel;
 
-    .line 48
     return-void
 .end method
 
@@ -179,7 +175,7 @@
 .end method
 
 .method public isCompatible(Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -189,8 +185,7 @@
     .end annotation
 
     .line 57
-    .local p1, "batch":Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch;, "Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch<*>;"
-    instance-of v0, p1, Lcom/badlogic/gdx/graphics/g3d/particles/batches/BillboardParticleBatch;
+    instance-of p1, p1, Lcom/badlogic/gdx/graphics/g3d/particles/batches/BillboardParticleBatch;
 
-    return v0
+    return p1
 .end method

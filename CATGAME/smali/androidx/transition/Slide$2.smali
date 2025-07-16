@@ -18,9 +18,9 @@
 .method constructor <init>()V
     .locals 1
 
-    .line 100
     const/4 v0, 0x0
 
+    .line 100
     invoke-direct {p0, v0}, Landroidx/transition/Slide$CalculateSlideHorizontal;-><init>(Landroidx/transition/Slide$1;)V
 
     return-void
@@ -29,9 +29,7 @@
 
 # virtual methods
 .method public getGoneX(Landroid/view/ViewGroup;Landroid/view/View;)F
-    .locals 3
-    .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
-    .param p2, "view"    # Landroid/view/View;
+    .locals 2
 
     .line 103
     invoke-static {p1}, Landroidx/core/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
@@ -48,45 +46,37 @@
     const/4 v1, 0x0
 
     :goto_0
-    move v0, v1
-
-    .line 106
-    .local v0, "isRtl":Z
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
     .line 107
     invoke-virtual {p2}, Landroid/view/View;->getTranslationX()F
 
-    move-result v1
+    move-result p2
 
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getWidth()I
 
-    move-result v2
+    move-result p1
 
-    int-to-float v2, v2
+    int-to-float p1, p1
 
-    add-float/2addr v1, v2
+    add-float/2addr p2, p1
 
-    .local v1, "x":F
     goto :goto_1
 
     .line 109
-    .end local v1    # "x":F
     :cond_1
     invoke-virtual {p2}, Landroid/view/View;->getTranslationX()F
 
-    move-result v1
+    move-result p2
 
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getWidth()I
 
-    move-result v2
+    move-result p1
 
-    int-to-float v2, v2
+    int-to-float p1, p1
 
-    sub-float/2addr v1, v2
+    sub-float/2addr p2, p1
 
-    .line 111
-    .restart local v1    # "x":F
     :goto_1
-    return v1
+    return p2
 .end method

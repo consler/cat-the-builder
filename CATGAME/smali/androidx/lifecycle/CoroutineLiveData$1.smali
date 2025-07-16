@@ -80,17 +80,18 @@
 .end method
 
 .method public final invoke()V
-    .locals 2
+    .locals 3
 
     .line 222
     iget-object v0, p0, Landroidx/lifecycle/CoroutineLiveData$1;->this$0:Landroidx/lifecycle/CoroutineLiveData;
 
     const/4 v1, 0x0
 
-    check-cast v1, Landroidx/lifecycle/BlockRunner;
+    move-object v2, v1
+
+    check-cast v2, Landroidx/lifecycle/BlockRunner;
 
     invoke-static {v0, v1}, Landroidx/lifecycle/CoroutineLiveData;->access$setBlockRunner$p(Landroidx/lifecycle/CoroutineLiveData;Landroidx/lifecycle/BlockRunner;)V
 
-    .line 223
     return-void
 .end method

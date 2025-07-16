@@ -59,20 +59,16 @@
         }
     .end annotation
 
-    .line 618
-    .local p0, "this":Lcom/badlogic/gdx/utils/Array$ArrayIterator;, "Lcom/badlogic/gdx/utils/Array$ArrayIterator<TT;>;"
-    .local p1, "array":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<TT;>;"
     const/4 v0, 0x1
 
+    .line 618
     invoke-direct {p0, p1, v0}, Lcom/badlogic/gdx/utils/Array$ArrayIterator;-><init>(Lcom/badlogic/gdx/utils/Array;Z)V
 
-    .line 619
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/utils/Array;Z)V
     .locals 1
-    .param p2, "allowRemove"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -82,13 +78,11 @@
     .end annotation
 
     .line 621
-    .local p0, "this":Lcom/badlogic/gdx/utils/Array$ArrayIterator;, "Lcom/badlogic/gdx/utils/Array$ArrayIterator<TT;>;"
-    .local p1, "array":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 613
     const/4 v0, 0x1
 
+    .line 613
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/Array$ArrayIterator;->valid:Z
 
     .line 622
@@ -97,7 +91,6 @@
     .line 623
     iput-boolean p2, p0, Lcom/badlogic/gdx/utils/Array$ArrayIterator;->allowRemove:Z
 
-    .line 624
     return-void
 .end method
 
@@ -107,7 +100,6 @@
     .locals 2
 
     .line 627
-    .local p0, "this":Lcom/badlogic/gdx/utils/Array$ArrayIterator;, "Lcom/badlogic/gdx/utils/Array$ArrayIterator<TT;>;"
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/Array$ArrayIterator;->valid:Z
 
     if-eqz v0, :cond_1
@@ -152,8 +144,6 @@
         }
     .end annotation
 
-    .line 654
-    .local p0, "this":Lcom/badlogic/gdx/utils/Array$ArrayIterator;, "Lcom/badlogic/gdx/utils/Array$ArrayIterator<TT;>;"
     return-object p0
 .end method
 
@@ -166,7 +156,6 @@
     .end annotation
 
     .line 635
-    .local p0, "this":Lcom/badlogic/gdx/utils/Array$ArrayIterator;, "Lcom/badlogic/gdx/utils/Array$ArrayIterator<TT;>;"
     iget v0, p0, Lcom/badlogic/gdx/utils/Array$ArrayIterator;->index:I
 
     iget-object v1, p0, Lcom/badlogic/gdx/utils/Array$ArrayIterator;->array:Lcom/badlogic/gdx/utils/Array;
@@ -224,7 +213,6 @@
     .locals 2
 
     .line 644
-    .local p0, "this":Lcom/badlogic/gdx/utils/Array$ArrayIterator;, "Lcom/badlogic/gdx/utils/Array$ArrayIterator<TT;>;"
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/Array$ArrayIterator;->allowRemove:Z
 
     if-eqz v0, :cond_0
@@ -241,7 +229,6 @@
 
     invoke-virtual {v1, v0}, Lcom/badlogic/gdx/utils/Array;->removeIndex(I)Ljava/lang/Object;
 
-    .line 647
     return-void
 
     .line 644
@@ -258,12 +245,10 @@
 .method public reset()V
     .locals 1
 
-    .line 650
-    .local p0, "this":Lcom/badlogic/gdx/utils/Array$ArrayIterator;, "Lcom/badlogic/gdx/utils/Array$ArrayIterator<TT;>;"
     const/4 v0, 0x0
 
+    .line 650
     iput v0, p0, Lcom/badlogic/gdx/utils/Array$ArrayIterator;->index:I
 
-    .line 651
     return-void
 .end method

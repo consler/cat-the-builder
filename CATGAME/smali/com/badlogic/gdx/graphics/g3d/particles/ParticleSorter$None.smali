@@ -27,9 +27,9 @@
     .line 31
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleSorter;-><init>()V
 
-    .line 32
     const/4 v0, 0x0
 
+    .line 32
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleSorter$None;->currentCapacity:I
 
     return-void
@@ -39,7 +39,6 @@
 # virtual methods
 .method public ensureCapacity(I)V
     .locals 2
-    .param p1, "capacity"    # I
 
     .line 37
     iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleSorter$None;->currentCapacity:I
@@ -51,10 +50,8 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleSorter$None;->indices:[I
 
-    .line 39
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     if-ge v0, p1, :cond_0
 
@@ -63,23 +60,20 @@
 
     aput v0, v1, v0
 
-    .line 39
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 41
-    .end local v0    # "i":I
     :cond_0
     iput p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleSorter$None;->currentCapacity:I
 
-    .line 43
     :cond_1
     return-void
 .end method
 
 .method public sort(Lcom/badlogic/gdx/utils/Array;)[I
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -91,8 +85,7 @@
     .end annotation
 
     .line 47
-    .local p1, "renderData":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<TT;>;"
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleSorter$None;->indices:[I
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleSorter$None;->indices:[I
 
-    return-object v0
+    return-object p1
 .end method

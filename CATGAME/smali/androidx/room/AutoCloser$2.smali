@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/room/AutoCloser;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/room/AutoCloser;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010
@@ -137,20 +136,16 @@
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 125
     goto :goto_0
 
-    .line 123
     :catch_0
     move-exception v1
 
     .line 124
-    .local v1, "e":Ljava/io/IOException;
     :try_start_2
     invoke-static {v1}, Landroidx/room/util/SneakyThrow;->reThrow(Ljava/lang/Exception;)V
 
     .line 126
-    .end local v1    # "e":Ljava/io/IOException;
     :goto_0
     iget-object v1, p0, Landroidx/room/AutoCloser$2;->this$0:Landroidx/room/AutoCloser;
 
@@ -162,7 +157,6 @@
     :cond_2
     monitor-exit v0
 
-    .line 129
     return-void
 
     .line 114
@@ -175,10 +169,10 @@
 
     throw v1
 
-    .line 128
     :catchall_0
     move-exception v1
 
+    .line 128
     monitor-exit v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0

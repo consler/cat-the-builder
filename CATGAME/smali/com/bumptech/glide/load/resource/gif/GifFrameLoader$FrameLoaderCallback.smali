@@ -42,8 +42,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)Z
-    .locals 3
-    .param p1, "msg"    # Landroid/os/Message;
+    .locals 2
 
     .line 302
     iget v0, p1, Landroid/os/Message;->what:I
@@ -53,21 +52,18 @@
     if-ne v0, v1, :cond_0
 
     .line 303
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;
+    check-cast p1, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;
 
     .line 304
-    .local v0, "target":Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;
-    iget-object v2, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$FrameLoaderCallback;->this$0:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$FrameLoaderCallback;->this$0:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;
 
-    invoke-virtual {v2, v0}, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->onFrameReady(Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;)V
+    invoke-virtual {v0, p1}, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->onFrameReady(Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;)V
 
-    .line 305
     return v1
 
     .line 306
-    .end local v0    # "target":Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;
     :cond_0
     iget v0, p1, Landroid/os/Message;->what:I
 
@@ -76,22 +72,19 @@
     if-ne v0, v1, :cond_1
 
     .line 307
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;
+    check-cast p1, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;
 
     .line 308
-    .restart local v0    # "target":Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;
-    iget-object v1, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$FrameLoaderCallback;->this$0:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$FrameLoaderCallback;->this$0:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;
 
-    iget-object v1, v1, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->requestManager:Lcom/bumptech/glide/RequestManager;
+    iget-object v0, v0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->requestManager:Lcom/bumptech/glide/RequestManager;
 
-    invoke-virtual {v1, v0}, Lcom/bumptech/glide/RequestManager;->clear(Lcom/bumptech/glide/request/target/Target;)V
+    invoke-virtual {v0, p1}, Lcom/bumptech/glide/RequestManager;->clear(Lcom/bumptech/glide/request/target/Target;)V
 
-    .line 310
-    .end local v0    # "target":Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/engine/DecodeJob$DiskCacheProvider;)V
     .locals 2
-    .param p1, "diskCacheProvider"    # Lcom/bumptech/glide/load/engine/DecodeJob$DiskCacheProvider;
 
     .line 488
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,9 +42,9 @@
 
     invoke-direct {v0, p0}, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory$1;-><init>(Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;)V
 
-    .line 477
     const/16 v1, 0x96
 
+    .line 477
     invoke-static {v1, v0}, Lcom/bumptech/glide/util/pool/FactoryPools;->threadSafe(ILcom/bumptech/glide/util/pool/FactoryPools$Factory;)Landroidx/core/util/Pools$Pool;
 
     move-result-object v0
@@ -55,26 +54,13 @@
     .line 489
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;->diskCacheProvider:Lcom/bumptech/glide/load/engine/DecodeJob$DiskCacheProvider;
 
-    .line 490
     return-void
 .end method
 
 
 # virtual methods
 .method build(Lcom/bumptech/glide/GlideContext;Ljava/lang/Object;Lcom/bumptech/glide/load/engine/EngineKey;Lcom/bumptech/glide/load/Key;IILjava/lang/Class;Ljava/lang/Class;Lcom/bumptech/glide/Priority;Lcom/bumptech/glide/load/engine/DiskCacheStrategy;Ljava/util/Map;ZZZLcom/bumptech/glide/load/Options;Lcom/bumptech/glide/load/engine/DecodeJob$Callback;)Lcom/bumptech/glide/load/engine/DecodeJob;
-    .locals 21
-    .param p1, "glideContext"    # Lcom/bumptech/glide/GlideContext;
-    .param p2, "model"    # Ljava/lang/Object;
-    .param p3, "loadKey"    # Lcom/bumptech/glide/load/engine/EngineKey;
-    .param p4, "signature"    # Lcom/bumptech/glide/load/Key;
-    .param p5, "width"    # I
-    .param p6, "height"    # I
-    .param p9, "priority"    # Lcom/bumptech/glide/Priority;
-    .param p10, "diskCacheStrategy"    # Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
-    .param p12, "isTransformationRequired"    # Z
-    .param p13, "isScaleOnlyOrNoTransform"    # Z
-    .param p14, "onlyRetrieveFromCache"    # Z
-    .param p15, "options"    # Lcom/bumptech/glide/load/Options;
+    .locals 19
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -104,10 +90,6 @@
         }
     .end annotation
 
-    .local p7, "resourceClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p8, "transcodeClass":Ljava/lang/Class;, "Ljava/lang/Class<TR;>;"
-    .local p11, "transformations":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Class<*>;Lcom/bumptech/glide/load/Transformation<*>;>;"
-    .local p16, "callback":Lcom/bumptech/glide/load/engine/DecodeJob$Callback;, "Lcom/bumptech/glide/load/engine/DecodeJob$Callback<TR;>;"
     move-object/from16 v0, p0
 
     move-object/from16 v2, p1
@@ -155,16 +137,11 @@
 
     move-result-object v1
 
-    move-object/from16 v19, v1
+    check-cast v1, Lcom/bumptech/glide/load/engine/DecodeJob;
 
-    check-cast v19, Lcom/bumptech/glide/load/engine/DecodeJob;
-
-    .local v19, "result":Lcom/bumptech/glide/load/engine/DecodeJob;, "Lcom/bumptech/glide/load/engine/DecodeJob<TR;>;"
-    move-object/from16 v1, v19
+    move-object/from16 p1, v1
 
     .line 511
-    move-object/from16 v20, v1
-
     iget v1, v0, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;->creationOrder:I
 
     move/from16 v18, v1
@@ -173,7 +150,7 @@
 
     iput v1, v0, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;->creationOrder:I
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, p1
 
     invoke-virtual/range {v1 .. v18}, Lcom/bumptech/glide/load/engine/DecodeJob;->init(Lcom/bumptech/glide/GlideContext;Ljava/lang/Object;Lcom/bumptech/glide/load/engine/EngineKey;Lcom/bumptech/glide/load/Key;IILjava/lang/Class;Ljava/lang/Class;Lcom/bumptech/glide/Priority;Lcom/bumptech/glide/load/engine/DiskCacheStrategy;Ljava/util/Map;ZZZLcom/bumptech/glide/load/Options;Lcom/bumptech/glide/load/engine/DecodeJob$Callback;I)Lcom/bumptech/glide/load/engine/DecodeJob;
 

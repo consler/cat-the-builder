@@ -16,7 +16,7 @@
 
 # virtual methods
 .method getFactory()Ljavax/xml/datatype/DatatypeFactory;
-    .locals 2
+    .locals 1
 
     .line 39
     :try_start_0
@@ -28,13 +28,8 @@
 
     return-object v0
 
-    .line 40
     :catch_0
-    move-exception v0
+    const/4 v0, 0x0
 
-    .line 41
-    .local v0, "e":Ljavax/xml/datatype/DatatypeConfigurationException;
-    const/4 v1, 0x0
-
-    return-object v1
+    return-object v0
 .end method

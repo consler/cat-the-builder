@@ -34,9 +34,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Calendar;Ljava/util/Calendar;)V
-    .locals 2
-    .param p1, "startFinal"    # Ljava/util/Calendar;
-    .param p2, "endFinal"    # Ljava/util/Calendar;
+    .locals 1
 
     .line 1803
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,14 +45,13 @@
     .line 1805
     iput-object p1, p0, Lorg/apache/commons/lang3/time/DateUtils$DateIterator;->spot:Ljava/util/Calendar;
 
+    const/4 p2, 0x5
+
+    const/4 v0, -0x1
+
     .line 1806
-    const/4 v0, 0x5
+    invoke-virtual {p1, p2, v0}, Ljava/util/Calendar;->add(II)V
 
-    const/4 v1, -0x1
-
-    invoke-virtual {p1, v0, v1}, Ljava/util/Calendar;->add(II)V
-
-    .line 1807
     return-void
 .end method
 

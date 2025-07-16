@@ -56,102 +56,88 @@
 
 .method private deliverCaptureResultToListeners(Landroidx/camera/core/impl/CameraCaptureResult;)V
     .locals 5
-    .param p1, "captureResult"    # Landroidx/camera/core/impl/CameraCaptureResult;
 
     .line 1843
     iget-object v0, p0, Landroidx/camera/core/ImageCapture$CaptureCallbackChecker;->mCaptureResultListeners:Ljava/util/Set;
 
     monitor-enter v0
 
-    .line 1844
-    const/4 v1, 0x0
-
     .line 1845
-    .local v1, "removeSet":Ljava/util/Set;, "Ljava/util/Set<Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultListener;>;"
     :try_start_0
-    new-instance v2, Ljava/util/HashSet;
+    new-instance v1, Ljava/util/HashSet;
 
-    iget-object v3, p0, Landroidx/camera/core/ImageCapture$CaptureCallbackChecker;->mCaptureResultListeners:Ljava/util/Set;
+    iget-object v2, p0, Landroidx/camera/core/ImageCapture$CaptureCallbackChecker;->mCaptureResultListeners:Ljava/util/Set;
 
-    invoke-direct {v2, v3}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
+    invoke-direct {v1, v2}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
 
-    invoke-virtual {v2}, Ljava/util/HashSet;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v1}, Ljava/util/HashSet;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v1
 
+    const/4 v2, 0x0
+
+    :cond_0
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
     if-eqz v3, :cond_2
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultListener;
 
     .line 1847
-    .local v3, "listener":Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultListener;
     invoke-interface {v3, p1}, Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultListener;->onCaptureResult(Landroidx/camera/core/impl/CameraCaptureResult;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_0
 
-    .line 1848
-    if-nez v1, :cond_0
+    if-nez v2, :cond_1
 
     .line 1849
-    new-instance v4, Ljava/util/HashSet;
+    new-instance v2, Ljava/util/HashSet;
 
-    invoke-direct {v4}, Ljava/util/HashSet;-><init>()V
-
-    move-object v1, v4
+    invoke-direct {v2}, Ljava/util/HashSet;-><init>()V
 
     .line 1851
-    :cond_0
-    invoke-interface {v1, v3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    .line 1853
-    .end local v3    # "listener":Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultListener;
     :cond_1
+    invoke-interface {v2, v3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
     goto :goto_0
 
-    .line 1854
     :cond_2
-    if-eqz v1, :cond_3
+    if-eqz v2, :cond_3
 
     .line 1855
-    iget-object v2, p0, Landroidx/camera/core/ImageCapture$CaptureCallbackChecker;->mCaptureResultListeners:Ljava/util/Set;
+    iget-object p1, p0, Landroidx/camera/core/ImageCapture$CaptureCallbackChecker;->mCaptureResultListeners:Ljava/util/Set;
 
-    invoke-interface {v2, v1}, Ljava/util/Set;->removeAll(Ljava/util/Collection;)Z
+    invoke-interface {p1, v2}, Ljava/util/Set;->removeAll(Ljava/util/Collection;)Z
 
     .line 1857
-    .end local v1    # "removeSet":Ljava/util/Set;, "Ljava/util/Set<Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultListener;>;"
     :cond_3
     monitor-exit v0
 
-    .line 1858
     return-void
 
-    .line 1857
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 
 # virtual methods
 .method addListener(Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultListener;)V
     .locals 2
-    .param p1, "listener"    # Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultListener;
 
     .line 1862
     iget-object v0, p0, Landroidx/camera/core/ImageCapture$CaptureCallbackChecker;->mCaptureResultListeners:Ljava/util/Set;
@@ -167,18 +153,16 @@
     .line 1864
     monitor-exit v0
 
-    .line 1865
     return-void
 
-    .line 1864
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method checkCaptureResult(Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultChecker;)Lcom/google/common/util/concurrent/ListenableFuture;
@@ -195,22 +179,20 @@
         }
     .end annotation
 
-    .line 1791
-    .local p1, "checker":Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultChecker;, "Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultChecker<TT;>;"
     const-wide/16 v0, 0x0
 
     const/4 v2, 0x0
 
+    .line 1791
     invoke-virtual {p0, p1, v0, v1, v2}, Landroidx/camera/core/ImageCapture$CaptureCallbackChecker;->checkCaptureResult(Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultChecker;JLjava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method checkCaptureResult(Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultChecker;JLjava/lang/Object;)Lcom/google/common/util/concurrent/ListenableFuture;
     .locals 10
-    .param p2, "timeoutInMs"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -223,20 +205,15 @@
         }
     .end annotation
 
-    .line 1808
-    .local p1, "checker":Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultChecker;, "Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultChecker<TT;>;"
-    .local p4, "defValue":Ljava/lang/Object;, "TT;"
     const-wide/16 v0, 0x0
 
     cmp-long v2, p2, v0
 
     if-ltz v2, :cond_1
 
-    .line 1812
-    cmp-long v2, p2, v0
-
     if-eqz v2, :cond_0
 
+    .line 1812
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
@@ -245,8 +222,7 @@
     move-wide v5, v0
 
     .line 1814
-    .local v5, "startTimeInMs":J
-    new-instance v0, Landroidx/camera/core/-$$Lambda$ImageCapture$CaptureCallbackChecker$RVxDy_zAdeqk9wi1C8KZybyVmF8;
+    new-instance v0, Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$$ExternalSyntheticLambda0;
 
     move-object v2, v0
 
@@ -258,45 +234,39 @@
 
     move-object v9, p4
 
-    invoke-direct/range {v2 .. v9}, Landroidx/camera/core/-$$Lambda$ImageCapture$CaptureCallbackChecker$RVxDy_zAdeqk9wi1C8KZybyVmF8;-><init>(Landroidx/camera/core/ImageCapture$CaptureCallbackChecker;Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultChecker;JJLjava/lang/Object;)V
+    invoke-direct/range {v2 .. v9}, Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$$ExternalSyntheticLambda0;-><init>(Landroidx/camera/core/ImageCapture$CaptureCallbackChecker;Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultChecker;JJLjava/lang/Object;)V
 
     invoke-static {v0}, Landroidx/concurrent/futures/CallbackToFutureAdapter;->getFuture(Landroidx/concurrent/futures/CallbackToFutureAdapter$Resolver;)Lcom/google/common/util/concurrent/ListenableFuture;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 1809
-    .end local v5    # "startTimeInMs":J
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "Invalid timeout value: "
 
-    const-string v2, "Invalid timeout value: "
+    invoke-direct {p4, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p4, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
-.method public synthetic lambda$checkCaptureResult$0$ImageCapture$CaptureCallbackChecker(Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultChecker;JJLjava/lang/Object;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)Ljava/lang/Object;
+.method synthetic lambda$checkCaptureResult$0$androidx-camera-core-ImageCapture$CaptureCallbackChecker(Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultChecker;JJLjava/lang/Object;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)Ljava/lang/Object;
     .locals 10
-    .param p1, "checker"    # Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultChecker;
-    .param p2, "startTimeInMs"    # J
-    .param p4, "timeoutInMs"    # J
-    .param p6, "defValue"    # Ljava/lang/Object;
-    .param p7, "completer"    # Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -326,7 +296,6 @@
 
     invoke-virtual {p0, v9}, Landroidx/camera/core/ImageCapture$CaptureCallbackChecker;->addListener(Landroidx/camera/core/ImageCapture$CaptureCallbackChecker$CaptureResultListener;)V
 
-    .line 1835
     const-string v1, "checkCaptureResult"
 
     return-object v1
@@ -334,11 +303,9 @@
 
 .method public onCaptureCompleted(Landroidx/camera/core/impl/CameraCaptureResult;)V
     .locals 0
-    .param p1, "cameraCaptureResult"    # Landroidx/camera/core/impl/CameraCaptureResult;
 
     .line 1778
     invoke-direct {p0, p1}, Landroidx/camera/core/ImageCapture$CaptureCallbackChecker;->deliverCaptureResultToListeners(Landroidx/camera/core/impl/CameraCaptureResult;)V
 
-    .line 1779
     return-void
 .end method

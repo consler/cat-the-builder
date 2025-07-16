@@ -14,11 +14,6 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u0000\u0017\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u0007\n\u0000*\u0001\u0000\u0008\n\u0018\u00002\u00020\u0001J\u0010\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u0005H\u0014\u00a8\u0006\u0006"
     }
@@ -29,14 +24,15 @@
         "",
         "value",
         "",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -47,16 +43,10 @@
 # direct methods
 .method constructor <init>(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)V
     .locals 0
-    .param p1, "this$0"    # Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
 
-    .line 66
     iput-object p1, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$2;->this$0:Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;
 
+    .line 71
     invoke-direct {p0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$TransformToolSizeTextWatcher;-><init>()V
 
     return-void
@@ -66,20 +56,21 @@
 # virtual methods
 .method protected setValue(F)V
     .locals 1
-    .param p1, "value"    # F
 
-    .line 68
+    .line 73
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView$2;->this$0:Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;
 
     invoke-static {v0}, Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;->access$getCallback$p(Lorg/catrobat/paintroid/ui/tools/DefaultTransformToolOptionsView;)Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
+    goto :goto_0
+
+    :cond_0
     invoke-interface {v0, p1}, Lorg/catrobat/paintroid/tools/options/TransformToolOptionsView$Callback;->setBoxHeight(F)V
 
-    .line 69
-    :cond_0
+    :goto_0
     return-void
 .end method

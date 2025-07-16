@@ -25,7 +25,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nScope.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Scope.kt\norg/koin/core/scope/Scope$injectOrNull$1\n+ 2 Scope.kt\norg/koin/core/scope/Scope\n*L\n1#1,396:1\n134#2:397\n*E\n*S KotlinDebug\n*F\n+ 1 Scope.kt\norg/koin/core/scope/Scope$injectOrNull$1\n*L\n105#1:397\n*E\n"
+    value = "SMAP\nScope.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Scope.kt\norg/koin/core/scope/Scope$injectOrNull$1\n+ 2 Scope.kt\norg/koin/core/scope/Scope\n*L\n1#1,395:1\n134#2:396\n*E\n*S KotlinDebug\n*F\n+ 1 Scope.kt\norg/koin/core/scope/Scope$injectOrNull$1\n*L\n105#1:396\n*E\n"
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public final invoke()Ljava/lang/Object;
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -90,37 +90,26 @@
     .line 105
     iget-object v0, p0, Lorg/koin/core/scope/Scope$injectOrNull$1;->this$0:Lorg/koin/core/scope/Scope;
 
-    .local v0, "this_$iv":Lorg/koin/core/scope/Scope;
     iget-object v1, p0, Lorg/koin/core/scope/Scope$injectOrNull$1;->$qualifier:Lorg/koin/core/qualifier/Qualifier;
 
-    .local v1, "qualifier$iv":Lorg/koin/core/qualifier/Qualifier;
     iget-object v2, p0, Lorg/koin/core/scope/Scope$injectOrNull$1;->$parameters:Lkotlin/jvm/functions/Function0;
 
-    .local v2, "parameters$iv":Lkotlin/jvm/functions/Function0;
-    const/4 v3, 0x0
+    const/4 v3, 0x4
 
-    .line 397
-    .local v3, "$i$f$getOrNull":I
-    const/4 v4, 0x4
+    const-string v4, "T"
 
-    const-string v5, "T"
+    .line 396
+    invoke-static {v3, v4}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
-    invoke-static {v4, v5}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
+    const-class v3, Ljava/lang/Object;
 
-    const-class v4, Ljava/lang/Object;
+    invoke-static {v3}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    invoke-static {v4}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+    move-result-object v3
 
-    move-result-object v4
-
-    invoke-virtual {v0, v4, v1, v2}, Lorg/koin/core/scope/Scope;->getOrNull(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+    invoke-virtual {v0, v3, v1, v2}, Lorg/koin/core/scope/Scope;->getOrNull(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 105
-    .end local v0    # "this_$iv":Lorg/koin/core/scope/Scope;
-    .end local v1    # "qualifier$iv":Lorg/koin/core/qualifier/Qualifier;
-    .end local v2    # "parameters$iv":Lkotlin/jvm/functions/Function0;
-    .end local v3    # "$i$f$getOrNull":I
     return-object v0
 .end method

@@ -28,7 +28,6 @@
     <string name="abc_shareactionprovider_share_with">ഇനിപ്പറയുന്നതുമായി പങ്കിടുക</string>
     <string name="abc_shareactionprovider_share_with_application">%s എന്നതുമായി പങ്കിടുക</string>
     <string name="abc_toolbar_collapse_description">ചുരുക്കുക</string>
-    <string name="accept">Accept</string>
     <string name="accessibility_font_dyslexic">Dyslexic</string>
     <string name="accessibility_font_regular">Regular</string>
     <string name="accessibility_font_serif">Serif</string>
@@ -477,7 +476,6 @@ Please wait…"</string>
     <string name="crash_cymbal">crash cymbal</string>
     <string name="data_label">Name</string>
     <string name="data_value">Value</string>
-    <string name="decline">Decline</string>
     <string name="declined_terms_of_use_and_service_alert">To use our app, it is necessary to accept our Terms of Use and Service. However, if you don’t feel comfortable to do so, you can use our free web-services on</string>
     <string name="default_broadcast_message_name">Message</string>
     <string name="default_cast_project_background_name">Background</string>
@@ -699,7 +697,7 @@ Please wait…"</string>
     <string name="formula_editor_bracket_open">(</string>
     <string name="formula_editor_changes_discarded">Changes discarded!</string>
     <string name="formula_editor_choose_object_variable">Properties of this actor or object</string>
-    <string name="formula_editor_compute">Compute</string>
+    <string name="formula_editor_confirm">Confirm</string>
     <string name="formula_editor_data">Data</string>
     <string name="formula_editor_data_dialog_is_list">Make it a list</string>
     <string name="formula_editor_decimal_mark">.</string>
@@ -999,33 +997,11 @@ variables or lists"</string>
     <string name="hint_objects">Your program consists of different actors and objects that can interact with each other. To add a new actor or object, tap the \"+\" symbol.</string>
     <string name="hint_scripts">The script defines the behavior of your actor or object. To add bricks to the script, tap the \"+\" symbol.</string>
     <string name="hint_sounds">Here you can add new sounds to your actor or object. Remember using a brick from the sound category.</string>
-    <string name="hms_abort">നിർത്തുക</string>
-    <string name="hms_abort_message">ഡൗൺലോഡ് ചെയ്യൽ നിർത്തണോ?</string>
-    <string name="hms_bindfaildlg_message">%1$s Huawei Mobile Services ഉപയോഗിക്കാനാവില്ല. ഒപ്‌റ്റിമൈസർ (ഫോൺ മാനേജർ) സമാരംഭിക്കുക അല്ലെങ്കിൽ ക്രമീകരണത്തിലേക്ക് പോവുക, %2$s എന്നതിനുള്ള എല്ലാ അനുമതികളും പ്രവർത്തനസജ്ജമാക്കി (സ്വയമേവ സമാരംഭിക്കുക, സെക്കൻഡറി ലോഞ്ച് എന്നിവ ഉൾപ്പെടെ) വീണ്ടും ശ്രമിക്കുക.</string>
-    <string name="hms_cancel">റദ്ദാക്കുക</string>
-    <string name="hms_check_failure">അപ്ഡേറ്റുകൾക്കായി പരിശോധിക്കുന്നത് പരാജയപ്പെട്ടു.</string>
-    <string name="hms_check_no_update">നിങ്ങളുടെ പതിപ്പ് അപ്‌റ്റുഡേറ്റാണ്.</string>
-    <string name="hms_checking">അപ്ഡേറ്റുകൾക്കായി പരിശോധിക്കുന്നു…</string>
+    <string name="hms_apk_not_installed_hints">HMS Core ഇല്ലാതെ %1$s എന്നതിലെ ചില സവിശേഷതകൾ ശരിയായി പ്രവർത്തിച്ചേക്കില്ല, അത് നിങ്ങളുടെ ഉപകരണത്തിൽ ഇൻസ്റ്റാൾ ചെയ്‌തിട്ടില്ല.</string>
+    <string name="hms_bindfaildlg_message">%1$s HMS Core ഉപയോഗിക്കാനാവില്ല. ഒപ്‌റ്റിമൈസർ (ഫോൺ മാനേജർ) സമാരംഭിക്കുക അല്ലെങ്കിൽ ക്രമീകരണത്തിലേക്ക് പോവുക, %2$s എന്നതിനുള്ള എല്ലാ അനുമതികളും പ്രവർത്തനസജ്ജമാക്കി (സ്വയമേവ സമാരംഭിക്കുക, സെക്കൻഡറി ലോഞ്ച് എന്നിവ ഉൾപ്പെടെ) വീണ്ടും ശ്രമിക്കുക.</string>
     <string name="hms_confirm">ശരി</string>
-    <string name="hms_download_failure">Huawei Mobile Services പാക്കേജ് ഡൗൺലോഡ് ചെയ്യുന്നത് പരാജയപ്പെട്ടു.</string>
-    <string name="hms_download_no_space">സ്വതന്ത്ര സ്ഥലം വേണ്ടത്രയില്ല. ഡൗൺലോഡ് പൂർത്തിയാക്കാനാവില്ല.</string>
-    <string name="hms_download_retry">ഡൗൺലോഡ് പരാജയപ്പെട്ടു. വീണ്ടും ശ്രമിക്കണോ?</string>
-    <string name="hms_downloading">"Huawei Mobile Services ഡൗൺലോഡ് ചെയ്യുന്നു
-പുരോഗതി: %d%%"</string>
-    <string name="hms_downloading_loading">ഡൗൺലോഡ് ചെയ്യുന്നു</string>
-    <string name="hms_downloading_new">HMS ഡൗൺലോഡ് ചെയ്യുന്നു</string>
-    <string name="hms_gamebox_name">HUAWEI GameCenter</string>
-    <string name="hms_install">ഇൻസ്റ്റാൾ ചെയ്യുക</string>
-    <string name="hms_install_message">ഈ സവിശേഷത ഉപയോഗിക്കാൻ Huawei Mobile Services ഇൻസ്റ്റാൾ ചെയ്തിരിക്കണം. ഇൻസ്റ്റാൾ ചെയ്യണോ?</string>
-    <string name="hms_retry">വീണ്ടും ശ്രമിക്കുക</string>
-    <string name="hms_update">അപ്‌ഡേറ്റ് ചെയ്യുക</string>
-    <string name="hms_update_continue">ഡൗൺലോഡ് ചെയ്യുക</string>
-    <string name="hms_update_message">ഈ സവിശേഷത ഉപയോഗിക്കാൻ ഏറ്റവും പുതിയ Huawei Mobile Services പതിപ്പിലേക്ക് അപ്‌ഡേറ്റ് ചെയ്യുക. ഇപ്പോൾ അപ്‌ഡേറ്റ് ചെയ്യണോ?</string>
-    <string name="hms_update_message_new">"ഇനിപ്പറയുന്ന ആപ്പിന്‍റെ ഏറ്റവും പുതിയ പതിപ്പ് ഈ സേവനത്തിനാവശ്യമാണ്:
-
-%1$s"</string>
-    <string name="hms_update_nettype">Wi-Fi കണക്ഷൻ ഇല്ല. മൊബൈൽ ഡാറ്റ ഉപയോഗിച്ച് ഡൗൺലോഡ് ചെയ്യണോ?</string>
-    <string name="hms_update_title">Huawei Mobile Services</string>
+    <string name="hms_is_spoof">നിങ്ങളുടെ ഉപകരണത്തിൽ HMS Core-ന്റെ ഒരു അനൗദ്യോഗിക പതിപ്പ് (%1$s) ഇൻസ്റ്റാൾ ചെയ്‌തിട്ടുണ്ടെന്ന് തോന്നുന്നു. ക്രമീകരണത്തിൽ HMS Core അൺഇൻസ്റ്റാൾ ചെയ്‌ത ശേഷം ഔദ്യോഗിക പതിപ്പ് ഇൻസ്റ്റാൾ ചെയ്യാൻ ഈ ആപ്പിലേക്ക് മടങ്ങിവരുക.</string>
+    <string name="hms_spoof_hints">ശ്രദ്ധിക്കുക</string>
     <string name="html_label">Insert HTML text</string>
     <string name="ignore">Ignore</string>
     <string name="import_project">Import project</string>
@@ -1078,6 +1054,7 @@ variables or lists"</string>
     <string name="marketing_more_on_google_play">More apps on App store</string>
     <string name="merge">Merge</string>
     <string name="merging_project_text">These two projects cannot yet be merged</string>
+    <string name="mlkit_asr_machine_learning_kit">ML Kit നൽകുന്നത്</string>
     <string name="mode">Mode:</string>
     <string name="modified_at_x">Modified: %1$s</string>
     <string name="mr_button_content_description">കാസ്റ്റ് ബട്ടൺ</string>
@@ -1365,7 +1342,7 @@ Do you want to install it?"</string>
     <string name="project_options_aspect_ratio">Keep original aspect ratio</string>
     <string name="project_options_delete_project">Delete project</string>
     <string name="project_options_description">Description</string>
-    <string name="project_options_more_details">More details</string>
+    <string name="project_options_more_details">Project Properties</string>
     <string name="project_options_notes_and_credits">Credits</string>
     <string name="project_options_tags">Tags</string>
     <string name="raspi_settings_gpio_version">GPIO Version</string>
@@ -1418,7 +1395,6 @@ Do you want to install it?"</string>
     <string name="set_notes_and_credits">Set notes and credits</string>
     <string name="set_tempo_to">Set tempo to</string>
     <string name="settings">Settings</string>
-    <string name="share_website_text">share.catrob.at</string>
     <string name="shared_at_x">Shared: %1$s</string>
     <string name="show_details">Show details</string>
     <string name="show_password">Show password</string>
@@ -1501,29 +1477,6 @@ stretch"</string>
     <string name="upload_project_dialog_title">Upload project</string>
     <string name="upload_tag_dialog_title">Please choose up to three categories</string>
     <string name="upload_tags_maximum_error">Selecting more than 3 tags is not possible.</string>
-    <string name="upsdk_app_dl_installing">AppGallery ഡൗൺലോഡ് ചെയ്യുന്നു</string>
-    <string name="upsdk_app_download_info_new">ഇൻസ്റ്റാൾ ചെയ്യുക</string>
-    <string name="upsdk_app_size">വലുപ്പം</string>
-    <string name="upsdk_app_version">പതിപ്പ്</string>
-    <string name="upsdk_cancel">റദ്ദാക്കുക</string>
-    <string name="upsdk_checking_update_prompt">അപ്ഡേറ്റുകൾക്കായി പരിശോധിക്കുന്നു…</string>
-    <string name="upsdk_choice_update">അപ്ഡേറ്റ് ലഭ്യം. ഏറ്റവും പുതിയ പതിപ്പ് ഡൗൺലോഡ് ചെയ്ത് ഇൻസ്റ്റാൾ ചെയ്യുക.</string>
-    <string name="upsdk_connect_server_fail_prompt_toast">സെർവറിലേക്ക് കണക്റ്റ് ചെയ്യാനാവില്ല. പിന്നീട് വീണ്ടും ശ്രമിക്കുക.</string>
-    <string name="upsdk_detail">വിശദാംശങ്ങൾ</string>
-    <string name="upsdk_getting_message_fail_prompt_toast">വിവരങ്ങൾ വീണ്ടെടുക്കാനാവുന്നില്ല. പിന്നീട് വീണ്ടും ശ്രമിക്കുക.</string>
-    <string name="upsdk_install">അപ്ഡേറ്റ് ചെയ്യുന്നതിന് AppGallery ഇൻസ്റ്റാൾ ചെയ്യുക. ഇപ്പോൾ ഇൻ‌സ്റ്റാൾ ചെയ്യണോ?</string>
-    <string name="upsdk_no_available_network_prompt_toast">ഇന്‍റർനെറ്റ് കണക്ഷൻ ഇല്ല. നിങ്ങളുടെ നെറ്റ്‌വർക്ക് ക്രമീകരണം പരിശോധിക്കുക.</string>
-    <string name="upsdk_ota_app_name">ആപ്പ്</string>
-    <string name="upsdk_ota_cancel">പിന്നീട്</string>
-    <string name="upsdk_ota_force_cancel_new">എക്സിറ്റ് ചെയ്യുക</string>
-    <string name="upsdk_ota_notify_updatebtn">അപ്‌ഡേറ്റ് ചെയ്യുക</string>
-    <string name="upsdk_ota_title">പുതിയ പതിപ്പ്</string>
-    <string name="upsdk_storage_utils">%1$s MB</string>
-    <string name="upsdk_third_app_dl_cancel_download_prompt_ex">ഇൻസ്റ്റാളേഷൻ റദ്ദാക്കണോ?</string>
-    <string name="upsdk_third_app_dl_install_failed">ഇൻസ്റ്റാളേഷൻ പരാജയപ്പെട്ടു.</string>
-    <string name="upsdk_third_app_dl_sure_cancel_download">ഉണ്ട്</string>
-    <string name="upsdk_update_check_no_new_version">നിങ്ങളുടെ പതിപ്പ് അപ്‌റ്റുഡേറ്റാണ്.</string>
-    <string name="upsdk_updating">അപ്‌ഡേറ്റ് ചെയ്യുന്നു</string>
     <string name="user_logged_in">Login successful</string>
     <string name="username">ഉപയോക്തൃനാമം</string>
     <string name="vibraphone">vibraphone</string>

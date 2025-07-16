@@ -76,7 +76,6 @@
 
 .method public constructor <init>(Ljava/util/Map;)V
     .locals 1
-    .param p1, "data"    # Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -216,7 +215,6 @@
 
 .method public final get(Ljava/lang/String;)Ljava/lang/Object;
     .locals 3
-    .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -254,23 +252,25 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "missing property for \'"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v2, 0x27
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    const/16 v1, 0x27
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Lorg/koin/core/error/MissingPropertyException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Lorg/koin/core/error/MissingPropertyException;-><init>(Ljava/lang/String;)V
 
     check-cast v0, Ljava/lang/Throwable;
 
@@ -278,8 +278,7 @@
 .end method
 
 .method public final getOrNull(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 2
-    .param p1, "key"    # Ljava/lang/String;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -299,16 +298,16 @@
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    instance-of v1, v0, Ljava/lang/Object;
+    instance-of v0, p1, Ljava/lang/Object;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :cond_0
-    return-object v0
+    return-object p1
 .end method
 
 .method public hashCode()I
@@ -332,9 +331,7 @@
 .end method
 
 .method public final set(Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -356,18 +353,16 @@
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 30
     return-void
 
-    .line 29
     :cond_0
-    new-instance v0, Lkotlin/TypeCastException;
+    new-instance p1, Lkotlin/TypeCastException;
 
-    const-string v1, "null cannot be cast to non-null type kotlin.Any"
+    const-string p2, "null cannot be cast to non-null type kotlin.Any"
 
-    invoke-direct {v0, v1}, Lkotlin/TypeCastException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Lkotlin/TypeCastException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -375,19 +370,21 @@
 
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "Properties(data="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v1, p0, Lorg/koin/core/definition/Properties;->data:Ljava/util/Map;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ")"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

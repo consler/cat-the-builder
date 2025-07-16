@@ -165,43 +165,42 @@
 .method static constructor <clinit>()V
     .locals 5
 
-    .line 22
     const/16 v0, 0x9
 
     new-array v0, v0, [I
 
+    .line 22
     fill-array-data v0, :array_0
 
     sput-object v0, Landroidx/vectordrawable/graphics/drawable/AndroidResources;->STYLEABLE_VECTOR_DRAWABLE_TYPE_ARRAY:[I
 
-    .line 36
     const/16 v0, 0x8
 
     new-array v1, v0, [I
 
+    .line 36
     fill-array-data v1, :array_1
 
     sput-object v1, Landroidx/vectordrawable/graphics/drawable/AndroidResources;->STYLEABLE_VECTOR_DRAWABLE_GROUP:[I
 
-    .line 49
     const/16 v1, 0xe
 
     new-array v1, v1, [I
 
+    .line 49
     fill-array-data v1, :array_2
 
     sput-object v1, Landroidx/vectordrawable/graphics/drawable/AndroidResources;->STYLEABLE_VECTOR_DRAWABLE_PATH:[I
 
-    .line 70
     const/4 v1, 0x3
 
     new-array v1, v1, [I
 
+    .line 70
     fill-array-data v1, :array_3
 
     sput-object v1, Landroidx/vectordrawable/graphics/drawable/AndroidResources;->STYLEABLE_VECTOR_DRAWABLE_CLIP_PATH:[I
 
-    .line 77
     const/4 v1, 0x1
 
     new-array v2, v1, [I
@@ -212,61 +211,62 @@
 
     aput v3, v2, v4
 
+    .line 77
     sput-object v2, Landroidx/vectordrawable/graphics/drawable/AndroidResources;->STYLEABLE_ANIMATED_VECTOR_DRAWABLE:[I
 
-    .line 81
     const/4 v2, 0x2
 
     new-array v2, v2, [I
 
+    .line 81
     fill-array-data v2, :array_4
 
     sput-object v2, Landroidx/vectordrawable/graphics/drawable/AndroidResources;->STYLEABLE_ANIMATED_VECTOR_DRAWABLE_TARGET:[I
 
-    .line 91
     new-array v0, v0, [I
 
+    .line 91
     fill-array-data v0, :array_5
 
     sput-object v0, Landroidx/vectordrawable/graphics/drawable/AndroidResources;->STYLEABLE_ANIMATOR:[I
 
-    .line 104
     new-array v0, v1, [I
 
     const v1, 0x10102e2
 
     aput v1, v0, v4
 
+    .line 104
     sput-object v0, Landroidx/vectordrawable/graphics/drawable/AndroidResources;->STYLEABLE_ANIMATOR_SET:[I
 
-    .line 109
     const/4 v0, 0x4
 
     new-array v1, v0, [I
 
+    .line 109
     fill-array-data v1, :array_6
 
     sput-object v1, Landroidx/vectordrawable/graphics/drawable/AndroidResources;->STYLEABLE_PROPERTY_VALUES_HOLDER:[I
 
-    .line 117
     new-array v1, v0, [I
 
+    .line 117
     fill-array-data v1, :array_7
 
     sput-object v1, Landroidx/vectordrawable/graphics/drawable/AndroidResources;->STYLEABLE_KEYFRAME:[I
 
-    .line 125
     new-array v0, v0, [I
 
+    .line 125
     fill-array-data v0, :array_8
 
     sput-object v0, Landroidx/vectordrawable/graphics/drawable/AndroidResources;->STYLEABLE_PROPERTY_ANIMATOR:[I
 
-    .line 134
     const/4 v0, 0x5
 
     new-array v0, v0, [I
 
+    .line 134
     fill-array-data v0, :array_9
 
     sput-object v0, Landroidx/vectordrawable/graphics/drawable/AndroidResources;->STYLEABLE_PATH_INTERPOLATOR:[I
@@ -383,6 +383,5 @@
     .line 151
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 152
     return-void
 .end method

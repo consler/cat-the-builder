@@ -62,41 +62,39 @@
     sput-object v0, Landroidx/camera/camera2/internal/SupportedSizeConstraints;->ALL_API_LEVELS:Landroid/util/Range;
 
     .line 55
-    new-instance v0, Ljava/util/TreeMap;
+    new-instance v2, Ljava/util/TreeMap;
 
-    new-instance v2, Landroidx/camera/camera2/internal/SupportedSizeConstraints$1;
+    new-instance v3, Landroidx/camera/camera2/internal/SupportedSizeConstraints$1;
 
-    invoke-direct {v2}, Landroidx/camera/camera2/internal/SupportedSizeConstraints$1;-><init>()V
+    invoke-direct {v3}, Landroidx/camera/camera2/internal/SupportedSizeConstraints$1;-><init>()V
 
-    invoke-direct {v0, v2}, Ljava/util/TreeMap;-><init>(Ljava/util/Comparator;)V
+    invoke-direct {v2, v3}, Ljava/util/TreeMap;-><init>(Ljava/util/Comparator;)V
 
-    sput-object v0, Landroidx/camera/camera2/internal/SupportedSizeConstraints;->EXCLUDED_SIZES_MAP:Ljava/util/Map;
+    sput-object v2, Landroidx/camera/camera2/internal/SupportedSizeConstraints;->EXCLUDED_SIZES_MAP:Ljava/util/Map;
+
+    const-string v3, "OnePlus"
+
+    const-string v4, "OnePlus6T"
+
+    const-string v5, "allmodels"
+
+    const-string v6, "0"
 
     .line 91
-    const-string v2, "OnePlus"
+    invoke-static {v3, v4, v5, v6}, Landroidx/camera/camera2/internal/CameraDeviceId;->create(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroidx/camera/camera2/internal/CameraDeviceId;
 
-    const-string v3, "OnePlus6T"
+    move-result-object v4
 
-    const-string v4, "allmodels"
-
-    const-string v5, "0"
-
-    invoke-static {v2, v3, v4, v5}, Landroidx/camera/camera2/internal/CameraDeviceId;->create(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroidx/camera/camera2/internal/CameraDeviceId;
-
-    move-result-object v3
+    const/16 v7, 0x100
 
     .line 93
-    const/16 v6, 0x100
-
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v6
-
-    invoke-static {v6}, Ljava/util/Collections;->singleton(Ljava/lang/Object;)Ljava/util/Set;
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v7
 
-    sget-object v8, Landroidx/camera/camera2/internal/SupportedSizeConstraints;->ALL_API_LEVELS:Landroid/util/Range;
+    invoke-static {v7}, Ljava/util/Collections;->singleton(Ljava/lang/Object;)Ljava/util/Set;
+
+    move-result-object v8
 
     const/4 v9, 0x2
 
@@ -130,33 +128,29 @@
     move-result-object v10
 
     .line 93
-    invoke-static {v7, v8, v10}, Landroidx/camera/camera2/internal/SupportedSizeConstraints$ExcludedSizeConstraint;->create(Ljava/util/Set;Landroid/util/Range;Ljava/util/List;)Landroidx/camera/camera2/internal/SupportedSizeConstraints$ExcludedSizeConstraint;
+    invoke-static {v8, v0, v10}, Landroidx/camera/camera2/internal/SupportedSizeConstraints$ExcludedSizeConstraint;->create(Ljava/util/Set;Landroid/util/Range;Ljava/util/List;)Landroidx/camera/camera2/internal/SupportedSizeConstraints$ExcludedSizeConstraint;
 
-    move-result-object v7
+    move-result-object v8
 
     .line 92
-    invoke-static {v7}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {v8}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v7
+    move-result-object v8
 
     .line 91
-    invoke-interface {v0, v3, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v4, v8}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v4, "OnePlus6"
 
     .line 96
-    sget-object v0, Landroidx/camera/camera2/internal/SupportedSizeConstraints;->EXCLUDED_SIZES_MAP:Ljava/util/Map;
-
-    const-string v3, "OnePlus6"
-
-    invoke-static {v2, v3, v4, v5}, Landroidx/camera/camera2/internal/CameraDeviceId;->create(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroidx/camera/camera2/internal/CameraDeviceId;
-
-    move-result-object v2
-
-    .line 98
-    invoke-static {v6}, Ljava/util/Collections;->singleton(Ljava/lang/Object;)Ljava/util/Set;
+    invoke-static {v3, v4, v5, v6}, Landroidx/camera/camera2/internal/CameraDeviceId;->create(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroidx/camera/camera2/internal/CameraDeviceId;
 
     move-result-object v3
 
-    sget-object v4, Landroidx/camera/camera2/internal/SupportedSizeConstraints;->ALL_API_LEVELS:Landroid/util/Range;
+    .line 98
+    invoke-static {v7}, Ljava/util/Collections;->singleton(Ljava/lang/Object;)Ljava/util/Set;
+
+    move-result-object v4
 
     new-array v5, v9, [Landroid/util/Size;
 
@@ -178,19 +172,18 @@
     move-result-object v1
 
     .line 98
-    invoke-static {v3, v4, v1}, Landroidx/camera/camera2/internal/SupportedSizeConstraints$ExcludedSizeConstraint;->create(Ljava/util/Set;Landroid/util/Range;Ljava/util/List;)Landroidx/camera/camera2/internal/SupportedSizeConstraints$ExcludedSizeConstraint;
+    invoke-static {v4, v0, v1}, Landroidx/camera/camera2/internal/SupportedSizeConstraints$ExcludedSizeConstraint;->create(Ljava/util/Set;Landroid/util/Range;Ljava/util/List;)Landroidx/camera/camera2/internal/SupportedSizeConstraints$ExcludedSizeConstraint;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 97
-    invoke-static {v1}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {v0}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 96
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v3, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 102
     return-void
 .end method
 
@@ -200,14 +193,11 @@
     .line 133
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 134
     return-void
 .end method
 
 .method static getExcludedSizes(Ljava/lang/String;I)Ljava/util/List;
-    .locals 7
-    .param p0, "cameraId"    # Ljava/lang/String;
-    .param p1, "imageFormat"    # I
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -228,13 +218,12 @@
 
     invoke-static {v0, v1, v2, p0}, Landroidx/camera/camera2/internal/CameraDeviceId;->create(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroidx/camera/camera2/internal/CameraDeviceId;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 115
-    .local v0, "cameraDeviceId":Landroidx/camera/camera2/internal/CameraDeviceId;
-    sget-object v1, Landroidx/camera/camera2/internal/SupportedSizeConstraints;->EXCLUDED_SIZES_MAP:Ljava/util/Map;
+    sget-object v0, Landroidx/camera/camera2/internal/SupportedSizeConstraints;->EXCLUDED_SIZES_MAP:Ljava/util/Map;
 
-    invoke-interface {v1, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+    invoke-interface {v0, p0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v1
 
@@ -245,92 +234,81 @@
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 117
-    .local v1, "excludedSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
-    sget-object v2, Landroidx/camera/camera2/internal/SupportedSizeConstraints;->EXCLUDED_SIZES_MAP:Ljava/util/Map;
-
     .line 118
-    invoke-interface {v2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Ljava/util/List;
+
+    .line 120
+    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :cond_0
+    :goto_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroidx/camera/camera2/internal/SupportedSizeConstraints$ExcludedSizeConstraint;
+
+    .line 121
+    invoke-virtual {v0}, Landroidx/camera/camera2/internal/SupportedSizeConstraints$ExcludedSizeConstraint;->getAffectedFormats()Ljava/util/Set;
 
     move-result-object v2
 
-    check-cast v2, Ljava/util/List;
-
-    .line 120
-    .local v2, "excludedSizeConstraintList":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/camera2/internal/SupportedSizeConstraints$ExcludedSizeConstraint;>;"
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v3
 
-    :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v2, v3}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_1
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Landroidx/camera/camera2/internal/SupportedSizeConstraints$ExcludedSizeConstraint;
-
-    .line 121
-    .local v4, "constraint":Landroidx/camera/camera2/internal/SupportedSizeConstraints$ExcludedSizeConstraint;
-    invoke-virtual {v4}, Landroidx/camera/camera2/internal/SupportedSizeConstraints$ExcludedSizeConstraint;->getAffectedFormats()Ljava/util/Set;
-
-    move-result-object v5
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v6
-
-    invoke-interface {v5, v6}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_0
+    if-eqz v2, :cond_0
 
     .line 122
-    invoke-virtual {v4}, Landroidx/camera/camera2/internal/SupportedSizeConstraints$ExcludedSizeConstraint;->getAffectedApiLevels()Landroid/util/Range;
+    invoke-virtual {v0}, Landroidx/camera/camera2/internal/SupportedSizeConstraints$ExcludedSizeConstraint;->getAffectedApiLevels()Landroid/util/Range;
 
-    move-result-object v5
+    move-result-object v2
 
-    sget v6, Landroid/os/Build$VERSION;->SDK_INT:I
+    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v6
+    move-result-object v3
 
-    invoke-virtual {v5, v6}, Landroid/util/Range;->contains(Ljava/lang/Comparable;)Z
+    invoke-virtual {v2, v3}, Landroid/util/Range;->contains(Ljava/lang/Comparable;)Z
 
-    move-result v5
+    move-result v2
 
-    if-eqz v5, :cond_0
+    if-eqz v2, :cond_0
 
     .line 123
-    invoke-virtual {v4}, Landroidx/camera/camera2/internal/SupportedSizeConstraints$ExcludedSizeConstraint;->getExcludedSizes()Ljava/util/List;
+    invoke-virtual {v0}, Landroidx/camera/camera2/internal/SupportedSizeConstraints$ExcludedSizeConstraint;->getExcludedSizes()Ljava/util/List;
 
-    move-result-object v5
+    move-result-object v0
 
-    invoke-interface {v1, v5}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+    invoke-interface {v1, v0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 125
-    .end local v4    # "constraint":Landroidx/camera/camera2/internal/SupportedSizeConstraints$ExcludedSizeConstraint;
-    :cond_0
     goto :goto_0
 
-    .line 127
     :cond_1
     return-object v1
 
     .line 130
-    .end local v1    # "excludedSizes":Ljava/util/List;, "Ljava/util/List<Landroid/util/Size;>;"
-    .end local v2    # "excludedSizeConstraintList":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/camera2/internal/SupportedSizeConstraints$ExcludedSizeConstraint;>;"
     :cond_2
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method

@@ -74,7 +74,6 @@
 
     iput p1, p0, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->expectedModCount:I
 
-    .line 837
     return-void
 .end method
 
@@ -92,7 +91,6 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 868
     return-void
 
     .line 866
@@ -134,12 +132,13 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 3
+    .locals 2
 
     .line 841
     invoke-direct {p0}, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->checkMod()V
 
     .line 842
+    :cond_0
     :goto_0
     invoke-direct {p0}, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->nextNull()Z
 
@@ -151,88 +150,77 @@
     iget-object v0, p0, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->entry:Lorg/apache/commons/collections/ReferenceMap$Entry;
 
     .line 844
-    .local v0, "e":Lorg/apache/commons/collections/ReferenceMap$Entry;
     iget v1, p0, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->index:I
 
-    .line 845
-    .local v1, "i":I
     :goto_1
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_1
 
-    .line 846
     add-int/lit8 v1, v1, -0x1
 
     .line 847
-    iget-object v2, p0, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->this$0:Lorg/apache/commons/collections/ReferenceMap;
+    iget-object v0, p0, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->this$0:Lorg/apache/commons/collections/ReferenceMap;
 
-    invoke-static {v2}, Lorg/apache/commons/collections/ReferenceMap;->access$700(Lorg/apache/commons/collections/ReferenceMap;)[Lorg/apache/commons/collections/ReferenceMap$Entry;
+    invoke-static {v0}, Lorg/apache/commons/collections/ReferenceMap;->access$700(Lorg/apache/commons/collections/ReferenceMap;)[Lorg/apache/commons/collections/ReferenceMap$Entry;
 
-    move-result-object v2
+    move-result-object v0
 
-    aget-object v0, v2, v1
+    aget-object v0, v0, v1
 
     goto :goto_1
 
     .line 849
-    :cond_0
+    :cond_1
     iput-object v0, p0, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->entry:Lorg/apache/commons/collections/ReferenceMap$Entry;
 
     .line 850
     iput v1, p0, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->index:I
 
-    .line 851
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
+
+    const/4 v0, 0x0
 
     .line 852
-    const/4 v2, 0x0
-
-    iput-object v2, p0, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->currentKey:Ljava/lang/Object;
+    iput-object v0, p0, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->currentKey:Ljava/lang/Object;
 
     .line 853
-    iput-object v2, p0, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->currentValue:Ljava/lang/Object;
+    iput-object v0, p0, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->currentValue:Ljava/lang/Object;
 
-    .line 854
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    return v2
+    return v0
 
     .line 856
-    :cond_1
+    :cond_2
     invoke-virtual {v0}, Lorg/apache/commons/collections/ReferenceMap$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    iput-object v2, p0, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->nextKey:Ljava/lang/Object;
+    iput-object v1, p0, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->nextKey:Ljava/lang/Object;
 
     .line 857
     invoke-virtual {v0}, Lorg/apache/commons/collections/ReferenceMap$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    iput-object v2, p0, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->nextValue:Ljava/lang/Object;
+    iput-object v0, p0, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->nextValue:Ljava/lang/Object;
 
     .line 858
     invoke-direct {p0}, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->nextNull()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_2
+    if-eqz v0, :cond_0
 
-    iget-object v2, p0, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->entry:Lorg/apache/commons/collections/ReferenceMap$Entry;
+    iget-object v0, p0, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->entry:Lorg/apache/commons/collections/ReferenceMap$Entry;
 
-    iget-object v2, v2, Lorg/apache/commons/collections/ReferenceMap$Entry;->next:Lorg/apache/commons/collections/ReferenceMap$Entry;
+    iget-object v0, v0, Lorg/apache/commons/collections/ReferenceMap$Entry;->next:Lorg/apache/commons/collections/ReferenceMap$Entry;
 
-    iput-object v2, p0, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->entry:Lorg/apache/commons/collections/ReferenceMap$Entry;
+    iput-object v0, p0, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->entry:Lorg/apache/commons/collections/ReferenceMap$Entry;
 
-    .line 859
-    .end local v0    # "e":Lorg/apache/commons/collections/ReferenceMap$Entry;
-    .end local v1    # "i":I
-    :cond_2
     goto :goto_0
 
-    .line 860
     :cond_3
     const/4 v0, 0x1
 
@@ -300,9 +288,9 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->currentValue:Ljava/lang/Object;
 
-    .line 882
     const/4 v0, 0x0
 
+    .line 882
     iput-object v0, p0, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->nextKey:Ljava/lang/Object;
 
     .line 883
@@ -332,9 +320,9 @@
 
     invoke-virtual {v0, v1}, Lorg/apache/commons/collections/ReferenceMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 897
     const/4 v0, 0x0
 
+    .line 897
     iput-object v0, p0, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->previous:Lorg/apache/commons/collections/ReferenceMap$Entry;
 
     .line 898
@@ -352,7 +340,6 @@
 
     iput v0, p0, Lorg/apache/commons/collections/ReferenceMap$EntryIterator;->expectedModCount:I
 
-    .line 901
     return-void
 
     .line 895

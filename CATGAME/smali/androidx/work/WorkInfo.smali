@@ -35,12 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/UUID;Landroidx/work/WorkInfo$State;Landroidx/work/Data;Ljava/util/List;Landroidx/work/Data;I)V
-    .locals 1
-    .param p1, "id"    # Ljava/util/UUID;
-    .param p2, "state"    # Landroidx/work/WorkInfo$State;
-    .param p3, "outputData"    # Landroidx/work/Data;
-    .param p5, "progress"    # Landroidx/work/Data;
-    .param p6, "runAttemptCount"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -75,7 +70,6 @@
     .end annotation
 
     .line 53
-    .local p4, "tags":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 54
@@ -88,11 +82,11 @@
     iput-object p3, p0, Landroidx/work/WorkInfo;->mOutputData:Landroidx/work/Data;
 
     .line 57
-    new-instance v0, Ljava/util/HashSet;
+    new-instance p1, Ljava/util/HashSet;
 
-    invoke-direct {v0, p4}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
+    invoke-direct {p1, p4}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
 
-    iput-object v0, p0, Landroidx/work/WorkInfo;->mTags:Ljava/util/Set;
+    iput-object p1, p0, Landroidx/work/WorkInfo;->mTags:Ljava/util/Set;
 
     .line 58
     iput-object p5, p0, Landroidx/work/WorkInfo;->mProgress:Landroidx/work/Data;
@@ -100,15 +94,13 @@
     .line 59
     iput p6, p0, Landroidx/work/WorkInfo;->mRunAttemptCount:I
 
-    .line 60
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -118,19 +110,18 @@
         }
     .end annotation
 
-    .line 121
     if-ne p0, p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
-    .line 122
     :cond_0
     const/4 v0, 0x0
 
     if-eqz p1, :cond_7
 
+    .line 122
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
@@ -145,69 +136,66 @@
 
     .line 124
     :cond_1
-    move-object v1, p1
-
-    check-cast v1, Landroidx/work/WorkInfo;
+    check-cast p1, Landroidx/work/WorkInfo;
 
     .line 126
-    .local v1, "workInfo":Landroidx/work/WorkInfo;
-    iget v2, p0, Landroidx/work/WorkInfo;->mRunAttemptCount:I
+    iget v1, p0, Landroidx/work/WorkInfo;->mRunAttemptCount:I
 
-    iget v3, v1, Landroidx/work/WorkInfo;->mRunAttemptCount:I
+    iget v2, p1, Landroidx/work/WorkInfo;->mRunAttemptCount:I
 
-    if-eq v2, v3, :cond_2
+    if-eq v1, v2, :cond_2
 
     return v0
 
     .line 127
     :cond_2
-    iget-object v2, p0, Landroidx/work/WorkInfo;->mId:Ljava/util/UUID;
+    iget-object v1, p0, Landroidx/work/WorkInfo;->mId:Ljava/util/UUID;
 
-    iget-object v3, v1, Landroidx/work/WorkInfo;->mId:Ljava/util/UUID;
+    iget-object v2, p1, Landroidx/work/WorkInfo;->mId:Ljava/util/UUID;
 
-    invoke-virtual {v2, v3}, Ljava/util/UUID;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/util/UUID;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_3
+    if-nez v1, :cond_3
 
     return v0
 
     .line 128
     :cond_3
-    iget-object v2, p0, Landroidx/work/WorkInfo;->mState:Landroidx/work/WorkInfo$State;
+    iget-object v1, p0, Landroidx/work/WorkInfo;->mState:Landroidx/work/WorkInfo$State;
 
-    iget-object v3, v1, Landroidx/work/WorkInfo;->mState:Landroidx/work/WorkInfo$State;
+    iget-object v2, p1, Landroidx/work/WorkInfo;->mState:Landroidx/work/WorkInfo$State;
 
-    if-eq v2, v3, :cond_4
+    if-eq v1, v2, :cond_4
 
     return v0
 
     .line 129
     :cond_4
-    iget-object v2, p0, Landroidx/work/WorkInfo;->mOutputData:Landroidx/work/Data;
+    iget-object v1, p0, Landroidx/work/WorkInfo;->mOutputData:Landroidx/work/Data;
 
-    iget-object v3, v1, Landroidx/work/WorkInfo;->mOutputData:Landroidx/work/Data;
+    iget-object v2, p1, Landroidx/work/WorkInfo;->mOutputData:Landroidx/work/Data;
 
-    invoke-virtual {v2, v3}, Landroidx/work/Data;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Landroidx/work/Data;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_5
+    if-nez v1, :cond_5
 
     return v0
 
     .line 130
     :cond_5
-    iget-object v2, p0, Landroidx/work/WorkInfo;->mTags:Ljava/util/Set;
+    iget-object v1, p0, Landroidx/work/WorkInfo;->mTags:Ljava/util/Set;
 
-    iget-object v3, v1, Landroidx/work/WorkInfo;->mTags:Ljava/util/Set;
+    iget-object v2, p1, Landroidx/work/WorkInfo;->mTags:Ljava/util/Set;
 
-    invoke-interface {v2, v3}, Ljava/util/Set;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v1, v2}, Ljava/util/Set;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_6
+    if-nez v1, :cond_6
 
     return v0
 
@@ -215,16 +203,14 @@
     :cond_6
     iget-object v0, p0, Landroidx/work/WorkInfo;->mProgress:Landroidx/work/Data;
 
-    iget-object v2, v1, Landroidx/work/WorkInfo;->mProgress:Landroidx/work/Data;
+    iget-object p1, p1, Landroidx/work/WorkInfo;->mProgress:Landroidx/work/Data;
 
-    invoke-virtual {v0, v2}, Landroidx/work/Data;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Landroidx/work/Data;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
-    .line 122
-    .end local v1    # "workInfo":Landroidx/work/WorkInfo;
     :cond_7
     :goto_0
     return v0
@@ -293,7 +279,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .locals 2
 
     .line 136
     iget-object v0, p0, Landroidx/work/WorkInfo;->mId:Ljava/util/UUID;
@@ -302,70 +288,58 @@
 
     move-result v0
 
+    mul-int/lit8 v0, v0, 0x1f
+
     .line 137
-    .local v0, "result":I
-    mul-int/lit8 v1, v0, 0x1f
+    iget-object v1, p0, Landroidx/work/WorkInfo;->mState:Landroidx/work/WorkInfo$State;
 
-    iget-object v2, p0, Landroidx/work/WorkInfo;->mState:Landroidx/work/WorkInfo$State;
+    invoke-virtual {v1}, Landroidx/work/WorkInfo$State;->hashCode()I
 
-    invoke-virtual {v2}, Landroidx/work/WorkInfo$State;->hashCode()I
+    move-result v1
 
-    move-result v2
+    add-int/2addr v0, v1
 
-    add-int/2addr v1, v2
+    mul-int/lit8 v0, v0, 0x1f
 
     .line 138
-    .end local v0    # "result":I
-    .local v1, "result":I
-    mul-int/lit8 v0, v1, 0x1f
+    iget-object v1, p0, Landroidx/work/WorkInfo;->mOutputData:Landroidx/work/Data;
 
-    iget-object v2, p0, Landroidx/work/WorkInfo;->mOutputData:Landroidx/work/Data;
+    invoke-virtual {v1}, Landroidx/work/Data;->hashCode()I
 
-    invoke-virtual {v2}, Landroidx/work/Data;->hashCode()I
+    move-result v1
 
-    move-result v2
+    add-int/2addr v0, v1
 
-    add-int/2addr v0, v2
+    mul-int/lit8 v0, v0, 0x1f
 
     .line 139
-    .end local v1    # "result":I
-    .restart local v0    # "result":I
-    mul-int/lit8 v1, v0, 0x1f
+    iget-object v1, p0, Landroidx/work/WorkInfo;->mTags:Ljava/util/Set;
 
-    iget-object v2, p0, Landroidx/work/WorkInfo;->mTags:Ljava/util/Set;
+    invoke-interface {v1}, Ljava/util/Set;->hashCode()I
 
-    invoke-interface {v2}, Ljava/util/Set;->hashCode()I
+    move-result v1
 
-    move-result v2
+    add-int/2addr v0, v1
 
-    add-int/2addr v1, v2
+    mul-int/lit8 v0, v0, 0x1f
 
     .line 140
-    .end local v0    # "result":I
-    .restart local v1    # "result":I
-    mul-int/lit8 v0, v1, 0x1f
+    iget-object v1, p0, Landroidx/work/WorkInfo;->mProgress:Landroidx/work/Data;
 
-    iget-object v2, p0, Landroidx/work/WorkInfo;->mProgress:Landroidx/work/Data;
+    invoke-virtual {v1}, Landroidx/work/Data;->hashCode()I
 
-    invoke-virtual {v2}, Landroidx/work/Data;->hashCode()I
+    move-result v1
 
-    move-result v2
+    add-int/2addr v0, v1
 
-    add-int/2addr v0, v2
+    mul-int/lit8 v0, v0, 0x1f
 
     .line 141
-    .end local v1    # "result":I
-    .restart local v0    # "result":I
-    mul-int/lit8 v1, v0, 0x1f
+    iget v1, p0, Landroidx/work/WorkInfo;->mRunAttemptCount:I
 
-    iget v2, p0, Landroidx/work/WorkInfo;->mRunAttemptCount:I
+    add-int/2addr v0, v1
 
-    add-int/2addr v1, v2
-
-    .line 142
-    .end local v0    # "result":I
-    .restart local v1    # "result":I
-    return v1
+    return v0
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -374,55 +348,69 @@
     .line 147
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "WorkInfo{mId=\'"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v1, p0, Landroidx/work/WorkInfo;->mId:Ljava/util/UUID;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const/16 v1, 0x27
+    move-result-object v0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    const-string v1, ", mState="
+    const-string v1, "\', mState="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Landroidx/work/WorkInfo;->mState:Landroidx/work/WorkInfo$State;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", mOutputData="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Landroidx/work/WorkInfo;->mOutputData:Landroidx/work/Data;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", mTags="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Landroidx/work/WorkInfo;->mTags:Ljava/util/Set;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", mProgress="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Landroidx/work/WorkInfo;->mProgress:Landroidx/work/Data;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const/16 v1, 0x7d
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

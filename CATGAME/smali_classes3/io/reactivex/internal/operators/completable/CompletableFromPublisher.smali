@@ -43,14 +43,11 @@
     .end annotation
 
     .line 26
-    .local p0, "this":Lio/reactivex/internal/operators/completable/CompletableFromPublisher;, "Lio/reactivex/internal/operators/completable/CompletableFromPublisher<TT;>;"
-    .local p1, "flowable":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Completable;-><init>()V
 
     .line 27
     iput-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableFromPublisher;->flowable:Lorg/reactivestreams/Publisher;
 
-    .line 28
     return-void
 .end method
 
@@ -58,10 +55,8 @@
 # virtual methods
 .method protected subscribeActual(Lio/reactivex/CompletableObserver;)V
     .locals 2
-    .param p1, "cs"    # Lio/reactivex/CompletableObserver;
 
     .line 32
-    .local p0, "this":Lio/reactivex/internal/operators/completable/CompletableFromPublisher;, "Lio/reactivex/internal/operators/completable/CompletableFromPublisher<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableFromPublisher;->flowable:Lorg/reactivestreams/Publisher;
 
     new-instance v1, Lio/reactivex/internal/operators/completable/CompletableFromPublisher$FromPublisherSubscriber;
@@ -70,6 +65,5 @@
 
     invoke-interface {v0, v1}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
 
-    .line 33
     return-void
 .end method

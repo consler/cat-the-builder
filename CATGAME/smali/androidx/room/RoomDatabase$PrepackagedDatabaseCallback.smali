@@ -28,7 +28,6 @@
 # virtual methods
 .method public onOpenPrepackagedDatabase(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
     .locals 0
-    .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -38,6 +37,5 @@
         }
     .end annotation
 
-    .line 1508
     return-void
 .end method

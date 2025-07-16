@@ -16,44 +16,37 @@
 # direct methods
 .method public constructor <init>(Ljava/io/OutputStream;)V
     .locals 1
-    .param p1, "outputStream"    # Ljava/io/OutputStream;
 
-    .line 19
     const/4 v0, 0x0
 
+    .line 19
     invoke-direct {p0, p1, v0}, Lar/com/hjg/pngj/PngIDatChunkOutputStream;-><init>(Ljava/io/OutputStream;I)V
 
-    .line 20
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/OutputStream;I)V
-    .locals 1
-    .param p1, "outputStream"    # Ljava/io/OutputStream;
-    .param p2, "size"    # I
+    .locals 0
 
-    .line 23
     if-lez p2, :cond_0
-
-    move v0, p2
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x8000
+    const p2, 0x8000
 
+    .line 23
     :goto_0
-    invoke-direct {p0, v0}, Lar/com/hjg/pngj/ProgressiveOutputStream;-><init>(I)V
+    invoke-direct {p0, p2}, Lar/com/hjg/pngj/ProgressiveOutputStream;-><init>(I)V
+
+    const/4 p2, 0x0
 
     .line 16
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lar/com/hjg/pngj/PngIDatChunkOutputStream;->prefix:[B
+    iput-object p2, p0, Lar/com/hjg/pngj/PngIDatChunkOutputStream;->prefix:[B
 
     .line 24
     iput-object p1, p0, Lar/com/hjg/pngj/PngIDatChunkOutputStream;->outputStream:Ljava/io/OutputStream;
 
-    .line 25
     return-void
 .end method
 
@@ -61,8 +54,6 @@
 # virtual methods
 .method protected final flushBuffer([BI)V
     .locals 4
-    .param p1, "b"    # [B
-    .param p2, "len"    # I
 
     .line 29
     iget-object v0, p0, Lar/com/hjg/pngj/PngIDatChunkOutputStream;->prefix:[B
@@ -79,7 +70,6 @@
     add-int/2addr v0, p2
 
     .line 30
-    .local v0, "len2":I
     :goto_0
     new-instance v1, Lar/com/hjg/pngj/chunks/ChunkRaw;
 
@@ -89,8 +79,6 @@
 
     invoke-direct {v1, v0, v2, v3}, Lar/com/hjg/pngj/chunks/ChunkRaw;-><init>(I[BZ)V
 
-    .line 31
-    .local v1, "c":Lar/com/hjg/pngj/chunks/ChunkRaw;
     if-ne p2, v0, :cond_1
 
     .line 32
@@ -98,11 +86,10 @@
 
     .line 36
     :cond_1
-    iget-object v2, p0, Lar/com/hjg/pngj/PngIDatChunkOutputStream;->outputStream:Ljava/io/OutputStream;
+    iget-object p1, p0, Lar/com/hjg/pngj/PngIDatChunkOutputStream;->outputStream:Ljava/io/OutputStream;
 
-    invoke-virtual {v1, v2}, Lar/com/hjg/pngj/chunks/ChunkRaw;->writeChunk(Ljava/io/OutputStream;)V
+    invoke-virtual {v1, p1}, Lar/com/hjg/pngj/chunks/ChunkRaw;->writeChunk(Ljava/io/OutputStream;)V
 
-    .line 37
     return-void
 .end method
 
@@ -119,15 +106,13 @@
 
 .method setPrefix([B)V
     .locals 3
-    .param p1, "pref"    # [B
 
-    .line 40
     if-nez p1, :cond_0
 
-    .line 41
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lar/com/hjg/pngj/PngIDatChunkOutputStream;->prefix:[B
+    .line 41
+    iput-object p1, p0, Lar/com/hjg/pngj/PngIDatChunkOutputStream;->prefix:[B
 
     goto :goto_0
 
@@ -146,14 +131,12 @@
 
     invoke-static {p1, v2, v0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 46
     :goto_0
     return-void
 .end method
 
 .method public bridge synthetic setSize(I)V
     .locals 0
-    .param p1, "x0"    # I
 
     .line 11
     invoke-super {p0, p1}, Lar/com/hjg/pngj/ProgressiveOutputStream;->setSize(I)V

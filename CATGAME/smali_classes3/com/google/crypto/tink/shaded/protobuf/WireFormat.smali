@@ -59,48 +59,44 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .line 178
     const/4 v0, 0x1
 
     const/4 v1, 0x3
 
+    .line 178
     invoke-static {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->makeTag(II)I
 
     move-result v2
 
     sput v2, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->MESSAGE_SET_ITEM_TAG:I
 
-    .line 179
     const/4 v2, 0x4
 
+    .line 179
     invoke-static {v0, v2}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->makeTag(II)I
 
     move-result v0
 
     sput v0, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->MESSAGE_SET_ITEM_END_TAG:I
 
+    const/4 v0, 0x0
+
+    const/4 v2, 0x2
+
     .line 180
-    const/4 v0, 0x2
+    invoke-static {v2, v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->makeTag(II)I
 
-    const/4 v2, 0x0
+    move-result v0
 
-    invoke-static {v0, v2}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->makeTag(II)I
-
-    move-result v2
-
-    sput v2, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->MESSAGE_SET_TYPE_ID_TAG:I
-
-    .line 181
-    nop
+    sput v0, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->MESSAGE_SET_TYPE_ID_TAG:I
 
     .line 182
-    invoke-static {v1, v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->makeTag(II)I
+    invoke-static {v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->makeTag(II)I
 
     move-result v0
 
     sput v0, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->MESSAGE_SET_MESSAGE_TAG:I
 
-    .line 181
     return-void
 .end method
 
@@ -114,43 +110,33 @@
 .end method
 
 .method public static getTagFieldNumber(I)I
-    .locals 1
-    .param p0, "tag"    # I
+    .locals 0
 
-    .line 72
-    ushr-int/lit8 v0, p0, 0x3
+    ushr-int/lit8 p0, p0, 0x3
 
-    return v0
+    return p0
 .end method
 
 .method public static getTagWireType(I)I
-    .locals 1
-    .param p0, "tag"    # I
+    .locals 0
 
-    .line 67
-    and-int/lit8 v0, p0, 0x7
+    and-int/lit8 p0, p0, 0x7
 
-    return v0
+    return p0
 .end method
 
 .method static makeTag(II)I
-    .locals 1
-    .param p0, "fieldNumber"    # I
-    .param p1, "wireType"    # I
+    .locals 0
 
-    .line 77
-    shl-int/lit8 v0, p0, 0x3
+    shl-int/lit8 p0, p0, 0x3
 
-    or-int/2addr v0, p1
+    or-int/2addr p0, p1
 
-    return v0
+    return p0
 .end method
 
 .method static readPrimitiveField(Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;Lcom/google/crypto/tink/shaded/protobuf/WireFormat$Utf8Validation;)Ljava/lang/Object;
-    .locals 2
-    .param p0, "input"    # Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;
-    .param p1, "type"    # Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;
-    .param p2, "utf8Validation"    # Lcom/google/crypto/tink/shaded/protobuf/WireFormat$Utf8Validation;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -162,222 +148,222 @@
 
     invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;->ordinal()I
 
-    move-result v1
+    move-result p1
 
-    aget v0, v0, v1
+    aget p1, v0, p1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch p1, :pswitch_data_0
 
     .line 269
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance p0, Ljava/lang/RuntimeException;
 
-    const-string v1, "There is no way to get here, but the compiler thinks otherwise."
+    const-string p1, "There is no way to get here, but the compiler thinks otherwise."
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 266
     :pswitch_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "readPrimitiveField() cannot handle enums."
+    const-string p1, "readPrimitiveField() cannot handle enums."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 262
     :pswitch_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "readPrimitiveField() cannot handle embedded messages."
+    const-string p1, "readPrimitiveField() cannot handle embedded messages."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 260
     :pswitch_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "readPrimitiveField() cannot handle nested groups."
+    const-string p1, "readPrimitiveField() cannot handle nested groups."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 258
     :pswitch_3
     invoke-virtual {p2, p0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat$Utf8Validation;->readString(Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 255
     :pswitch_4
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;->readSInt64()J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 253
     :pswitch_5
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;->readSInt32()I
 
-    move-result v0
+    move-result p0
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 251
     :pswitch_6
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;->readSFixed64()J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 249
     :pswitch_7
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;->readSFixed32()I
 
-    move-result v0
+    move-result p0
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 247
     :pswitch_8
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;->readUInt32()I
 
-    move-result v0
+    move-result p0
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 245
     :pswitch_9
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;->readBytes()Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 243
     :pswitch_a
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;->readBool()Z
 
-    move-result v0
+    move-result p0
 
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 241
     :pswitch_b
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;->readFixed32()I
 
-    move-result v0
+    move-result p0
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 239
     :pswitch_c
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;->readFixed64()J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 237
     :pswitch_d
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;->readInt32()I
 
-    move-result v0
+    move-result p0
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 235
     :pswitch_e
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;->readUInt64()J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 233
     :pswitch_f
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;->readInt64()J
 
-    move-result-wide v0
+    move-result-wide p0
 
-    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 231
     :pswitch_10
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;->readFloat()F
 
-    move-result v0
+    move-result p0
 
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static {p0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 229
     :pswitch_11
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;->readDouble()D
 
-    move-result-wide v0
+    move-result-wide p0
 
-    invoke-static {v0, v1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+    invoke-static {p0, p1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     :pswitch_data_0
     .packed-switch 0x1

@@ -14,9 +14,6 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/reflect/Field;Ljava/lang/reflect/Field;)V
     .locals 0
-    .param p1, "id"    # I
-    .param p2, "caseField"    # Ljava/lang/reflect/Field;
-    .param p3, "valueField"    # Ljava/lang/reflect/Field;
 
     .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +27,6 @@
     .line 46
     iput-object p3, p0, Lcom/google/crypto/tink/shaded/protobuf/OneofInfo;->valueField:Ljava/lang/reflect/Field;
 
-    .line 47
     return-void
 .end method
 

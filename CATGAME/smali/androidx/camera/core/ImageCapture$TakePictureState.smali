@@ -36,9 +36,9 @@
 
     iput-object v0, p0, Landroidx/camera/core/ImageCapture$TakePictureState;->mPreCaptureState:Landroidx/camera/core/impl/CameraCaptureResult;
 
-    .line 1757
     const/4 v0, 0x0
 
+    .line 1757
     iput-boolean v0, p0, Landroidx/camera/core/ImageCapture$TakePictureState;->mIsAfTriggered:Z
 
     .line 1758

@@ -17,13 +17,11 @@
     .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 46
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/ListIterator;)V
     .locals 0
-    .param p1, "iterator"    # Ljava/util/ListIterator;
 
     .line 55
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,7 +29,6 @@
     .line 56
     iput-object p1, p0, Lorg/apache/commons/collections/iterators/ProxyListIterator;->iterator:Ljava/util/ListIterator;
 
-    .line 57
     return-void
 .end method
 
@@ -39,7 +36,6 @@
 # virtual methods
 .method public add(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
     .line 68
     invoke-virtual {p0}, Lorg/apache/commons/collections/iterators/ProxyListIterator;->getListIterator()Ljava/util/ListIterator;
@@ -48,7 +44,6 @@
 
     invoke-interface {v0, p1}, Ljava/util/ListIterator;->add(Ljava/lang/Object;)V
 
-    .line 69
     return-void
 .end method
 
@@ -161,13 +156,11 @@
 
     invoke-interface {v0}, Ljava/util/ListIterator;->remove()V
 
-    .line 132
     return-void
 .end method
 
 .method public set(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "o"    # Ljava/lang/Object;
 
     .line 140
     invoke-virtual {p0}, Lorg/apache/commons/collections/iterators/ProxyListIterator;->getListIterator()Ljava/util/ListIterator;
@@ -176,17 +169,14 @@
 
     invoke-interface {v0, p1}, Ljava/util/ListIterator;->set(Ljava/lang/Object;)V
 
-    .line 141
     return-void
 .end method
 
 .method public setListIterator(Ljava/util/ListIterator;)V
     .locals 0
-    .param p1, "iterator"    # Ljava/util/ListIterator;
 
     .line 159
     iput-object p1, p0, Lorg/apache/commons/collections/iterators/ProxyListIterator;->iterator:Ljava/util/ListIterator;
 
-    .line 160
     return-void
 .end method

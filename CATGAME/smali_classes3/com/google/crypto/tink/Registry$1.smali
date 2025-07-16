@@ -64,7 +64,7 @@
 .end method
 
 .method public getKeyManager(Ljava/lang/Class;)Lcom/google/crypto/tink/KeyManager;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -93,7 +93,6 @@
     .end annotation
 
     .line 140
-    .local p1, "primitiveClass":Ljava/lang/Class;, "Ljava/lang/Class<TQ;>;"
     iget-object v0, p0, Lcom/google/crypto/tink/Registry$1;->val$localKeyManager:Lcom/google/crypto/tink/KeyManager;
 
     invoke-interface {v0}, Lcom/google/crypto/tink/KeyManager;->getPrimitiveClass()Ljava/lang/Class;
@@ -102,27 +101,24 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 145
-    iget-object v0, p0, Lcom/google/crypto/tink/Registry$1;->val$localKeyManager:Lcom/google/crypto/tink/KeyManager;
+    iget-object p1, p0, Lcom/google/crypto/tink/Registry$1;->val$localKeyManager:Lcom/google/crypto/tink/KeyManager;
 
-    .line 146
-    .local v0, "result":Lcom/google/crypto/tink/KeyManager;, "Lcom/google/crypto/tink/KeyManager<TQ;>;"
-    return-object v0
+    return-object p1
 
     .line 141
-    .end local v0    # "result":Lcom/google/crypto/tink/KeyManager;, "Lcom/google/crypto/tink/KeyManager<TQ;>;"
     :cond_0
-    new-instance v0, Ljava/lang/InternalError;
+    new-instance p1, Ljava/lang/InternalError;
 
-    const-string v1, "This should never be called, as we always first check supportedPrimitives."
+    const-string v0, "This should never be called, as we always first check supportedPrimitives."
 
-    invoke-direct {v0, v1}, Ljava/lang/InternalError;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/InternalError;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public getUntypedKeyManager()Lcom/google/crypto/tink/KeyManager;
@@ -142,8 +138,7 @@
 .end method
 
 .method public parseKey(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
-    .locals 1
-    .param p1, "serializedKey"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -160,10 +155,9 @@
         }
     .end annotation
 
-    .line 172
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public publicKeyManagerClassOrNull()Ljava/lang/Class;
@@ -176,7 +170,6 @@
         }
     .end annotation
 
-    .line 166
     const/4 v0, 0x0
 
     return-object v0

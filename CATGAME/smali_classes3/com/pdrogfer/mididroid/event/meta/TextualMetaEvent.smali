@@ -10,10 +10,6 @@
 # direct methods
 .method protected constructor <init>(JJILjava/lang/String;)V
     .locals 7
-    .param p1, "tick"    # J
-    .param p3, "delta"    # J
-    .param p5, "type"    # I
-    .param p6, "text"    # Ljava/lang/String;
 
     .line 31
     new-instance v6, Lcom/pdrogfer/mididroid/util/VariableLengthInt;
@@ -37,7 +33,6 @@
     .line 33
     invoke-virtual {p0, p6}, Lcom/pdrogfer/mididroid/event/meta/TextualMetaEvent;->setText(Ljava/lang/String;)V
 
-    .line 34
     return-void
 .end method
 
@@ -45,7 +40,6 @@
 # virtual methods
 .method public compareTo(Lcom/pdrogfer/mididroid/event/MidiEvent;)I
     .locals 7
-    .param p1, "other"    # Lcom/pdrogfer/mididroid/event/MidiEvent;
 
     .line 65
     iget-wide v0, p0, Lcom/pdrogfer/mididroid/event/meta/TextualMetaEvent;->mTick:J
@@ -69,9 +63,9 @@
 
     move-result-wide v5
 
-    cmp-long v0, v3, v5
+    cmp-long p1, v3, v5
 
-    if-gez v0, :cond_0
+    if-gez p1, :cond_0
 
     goto :goto_0
 
@@ -112,9 +106,9 @@
 
     move-result-wide v5
 
-    cmp-long v0, v3, v5
+    cmp-long p1, v3, v5
 
-    if-gez v0, :cond_2
+    if-gez p1, :cond_2
 
     move v1, v2
 
@@ -127,26 +121,22 @@
 
     if-nez v0, :cond_4
 
-    .line 76
     return v2
 
     .line 79
     :cond_4
-    move-object v0, p1
-
-    check-cast v0, Lcom/pdrogfer/mididroid/event/meta/TextualMetaEvent;
+    check-cast p1, Lcom/pdrogfer/mididroid/event/meta/TextualMetaEvent;
 
     .line 81
-    .local v0, "o":Lcom/pdrogfer/mididroid/event/meta/TextualMetaEvent;
-    iget-object v1, p0, Lcom/pdrogfer/mididroid/event/meta/TextualMetaEvent;->mText:Ljava/lang/String;
+    iget-object v0, p0, Lcom/pdrogfer/mididroid/event/meta/TextualMetaEvent;->mText:Ljava/lang/String;
 
-    iget-object v2, v0, Lcom/pdrogfer/mididroid/event/meta/TextualMetaEvent;->mText:Ljava/lang/String;
+    iget-object p1, p1, Lcom/pdrogfer/mididroid/event/meta/TextualMetaEvent;->mText:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
+    invoke-virtual {v0, p1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
@@ -195,8 +185,7 @@
 .end method
 
 .method protected setText(Ljava/lang/String;)V
-    .locals 2
-    .param p1, "t"    # Ljava/lang/String;
+    .locals 1
 
     .line 38
     iput-object p1, p0, Lcom/pdrogfer/mididroid/event/meta/TextualMetaEvent;->mText:Ljava/lang/String;
@@ -206,13 +195,12 @@
 
     invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object v1
+    move-result-object p1
 
-    array-length v1, v1
+    array-length p1, p1
 
-    invoke-virtual {v0, v1}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;->setValue(I)V
+    invoke-virtual {v0, p1}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;->setValue(I)V
 
-    .line 40
     return-void
 .end method
 
@@ -230,13 +218,19 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ": "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-object v1, p0, Lcom/pdrogfer/mididroid/event/meta/TextualMetaEvent;->mText:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -247,7 +241,6 @@
 
 .method public writeToFile(Ljava/io/OutputStream;)V
     .locals 1
-    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -275,6 +268,5 @@
 
     invoke-virtual {p1, v0}, Ljava/io/OutputStream;->write([B)V
 
-    .line 60
     return-void
 .end method

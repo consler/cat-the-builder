@@ -89,7 +89,7 @@
 
 # virtual methods
 .method public final invoke()Landroidx/lifecycle/ViewModel;
-    .locals 11
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -97,56 +97,33 @@
     .end annotation
 
     .line 19
-    iget-object v6, p0, Lorg/koin/androidx/viewmodel/koin/KoinStateVMExtKt$stateViewModel$1;->$this_stateViewModel:Lorg/koin/core/Koin;
+    iget-object v0, p0, Lorg/koin/androidx/viewmodel/koin/KoinStateVMExtKt$stateViewModel$1;->$this_stateViewModel:Lorg/koin/core/Koin;
 
-    .local v6, "$this$getStateViewModel$iv":Lorg/koin/core/Koin;
-    iget-object v7, p0, Lorg/koin/androidx/viewmodel/koin/KoinStateVMExtKt$stateViewModel$1;->$owner:Landroidx/savedstate/SavedStateRegistryOwner;
+    iget-object v1, p0, Lorg/koin/androidx/viewmodel/koin/KoinStateVMExtKt$stateViewModel$1;->$owner:Landroidx/savedstate/SavedStateRegistryOwner;
 
-    .local v7, "owner$iv":Landroidx/savedstate/SavedStateRegistryOwner;
-    iget-object v8, p0, Lorg/koin/androidx/viewmodel/koin/KoinStateVMExtKt$stateViewModel$1;->$qualifier:Lorg/koin/core/qualifier/Qualifier;
+    iget-object v3, p0, Lorg/koin/androidx/viewmodel/koin/KoinStateVMExtKt$stateViewModel$1;->$qualifier:Lorg/koin/core/qualifier/Qualifier;
 
-    .local v8, "qualifier$iv":Lorg/koin/core/qualifier/Qualifier;
-    iget-object v9, p0, Lorg/koin/androidx/viewmodel/koin/KoinStateVMExtKt$stateViewModel$1;->$bundle:Landroid/os/Bundle;
+    iget-object v4, p0, Lorg/koin/androidx/viewmodel/koin/KoinStateVMExtKt$stateViewModel$1;->$bundle:Landroid/os/Bundle;
 
-    .local v9, "bundle$iv":Landroid/os/Bundle;
     iget-object v5, p0, Lorg/koin/androidx/viewmodel/koin/KoinStateVMExtKt$stateViewModel$1;->$parameters:Lkotlin/jvm/functions/Function0;
 
-    .local v5, "parameters$iv":Lkotlin/jvm/functions/Function0;
-    const/4 v10, 0x0
+    const/4 v2, 0x4
+
+    const-string v6, "T"
 
     .line 41
-    .local v10, "$i$f$getStateViewModel":I
-    const/4 v0, 0x4
+    invoke-static {v2, v6}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
-    const-string v1, "T"
+    const-class v2, Landroidx/lifecycle/ViewModel;
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
-
-    const-class v0, Landroidx/lifecycle/ViewModel;
-
-    invoke-static {v0}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+    invoke-static {v2}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
     move-result-object v2
-
-    move-object v0, v6
-
-    move-object v1, v7
-
-    move-object v3, v8
-
-    move-object v4, v9
 
     invoke-static/range {v0 .. v5}, Lorg/koin/androidx/viewmodel/koin/KoinStateVMExtKt;->getStateViewModel(Lorg/koin/core/Koin;Landroidx/savedstate/SavedStateRegistryOwner;Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Landroid/os/Bundle;Lkotlin/jvm/functions/Function0;)Landroidx/lifecycle/ViewModel;
 
     move-result-object v0
 
-    .line 19
-    .end local v5    # "parameters$iv":Lkotlin/jvm/functions/Function0;
-    .end local v6    # "$this$getStateViewModel$iv":Lorg/koin/core/Koin;
-    .end local v7    # "owner$iv":Landroidx/savedstate/SavedStateRegistryOwner;
-    .end local v8    # "qualifier$iv":Lorg/koin/core/qualifier/Qualifier;
-    .end local v9    # "bundle$iv":Landroid/os/Bundle;
-    .end local v10    # "$i$f$getStateViewModel":I
     return-object v0
 .end method
 

@@ -42,28 +42,19 @@
 # direct methods
 .method private constructor <init>(CCZ)V
     .locals 1
-    .param p1, "start"    # C
-    .param p2, "end"    # C
-    .param p3, "negated"    # Z
 
     .line 67
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 68
     if-le p1, p2, :cond_0
 
-    .line 69
-    move v0, p1
+    move v0, p2
 
-    .line 70
-    .local v0, "temp":C
-    move p1, p2
+    move p2, p1
 
-    .line 71
-    move p2, v0
+    move p1, v0
 
     .line 74
-    .end local v0    # "temp":C
     :cond_0
     iput-char p1, p0, Lorg/apache/commons/lang3/CharRange;->start:C
 
@@ -73,43 +64,38 @@
     .line 76
     iput-boolean p3, p0, Lorg/apache/commons/lang3/CharRange;->negated:Z
 
-    .line 77
     return-void
 .end method
 
 .method static synthetic access$100(Lorg/apache/commons/lang3/CharRange;)Z
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/lang3/CharRange;
+    .locals 0
 
     .line 33
-    iget-boolean v0, p0, Lorg/apache/commons/lang3/CharRange;->negated:Z
+    iget-boolean p0, p0, Lorg/apache/commons/lang3/CharRange;->negated:Z
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$200(Lorg/apache/commons/lang3/CharRange;)C
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/lang3/CharRange;
+    .locals 0
 
     .line 33
-    iget-char v0, p0, Lorg/apache/commons/lang3/CharRange;->start:C
+    iget-char p0, p0, Lorg/apache/commons/lang3/CharRange;->start:C
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$300(Lorg/apache/commons/lang3/CharRange;)C
-    .locals 1
-    .param p0, "x0"    # Lorg/apache/commons/lang3/CharRange;
+    .locals 0
 
     .line 33
-    iget-char v0, p0, Lorg/apache/commons/lang3/CharRange;->end:C
+    iget-char p0, p0, Lorg/apache/commons/lang3/CharRange;->end:C
 
-    return v0
+    return p0
 .end method
 
 .method public static is(C)Lorg/apache/commons/lang3/CharRange;
     .locals 2
-    .param p0, "ch"    # C
 
     .line 88
     new-instance v0, Lorg/apache/commons/lang3/CharRange;
@@ -123,8 +109,6 @@
 
 .method public static isIn(CC)Lorg/apache/commons/lang3/CharRange;
     .locals 2
-    .param p0, "start"    # C
-    .param p1, "end"    # C
 
     .line 113
     new-instance v0, Lorg/apache/commons/lang3/CharRange;
@@ -138,7 +122,6 @@
 
 .method public static isNot(C)Lorg/apache/commons/lang3/CharRange;
     .locals 2
-    .param p0, "ch"    # C
 
     .line 100
     new-instance v0, Lorg/apache/commons/lang3/CharRange;
@@ -152,8 +135,6 @@
 
 .method public static isNotIn(CC)Lorg/apache/commons/lang3/CharRange;
     .locals 2
-    .param p0, "start"    # C
-    .param p1, "end"    # C
 
     .line 126
     new-instance v0, Lorg/apache/commons/lang3/CharRange;
@@ -168,8 +149,7 @@
 
 # virtual methods
 .method public contains(C)Z
-    .locals 4
-    .param p1, "ch"    # C
+    .locals 3
 
     .line 170
     iget-char v0, p0, Lorg/apache/commons/lang3/CharRange;->start:C
@@ -184,17 +164,17 @@
 
     if-gt p1, v0, :cond_0
 
-    move v0, v1
+    move p1, v1
 
     goto :goto_0
 
     :cond_0
-    move v0, v2
+    move p1, v2
 
     :goto_0
-    iget-boolean v3, p0, Lorg/apache/commons/lang3/CharRange;->negated:Z
+    iget-boolean v0, p0, Lorg/apache/commons/lang3/CharRange;->negated:Z
 
-    if-eq v0, v3, :cond_1
+    if-eq p1, v0, :cond_1
 
     goto :goto_1
 
@@ -207,9 +187,7 @@
 
 .method public contains(Lorg/apache/commons/lang3/CharRange;)Z
     .locals 5
-    .param p1, "range"    # Lorg/apache/commons/lang3/CharRange;
 
-    .line 182
     const/4 v0, 0x1
 
     const/4 v1, 0x0
@@ -224,11 +202,12 @@
     move v2, v1
 
     :goto_0
-    new-array v3, v1, [Ljava/lang/Object;
+    const-string v3, "The Range must not be null"
 
-    const-string v4, "The Range must not be null"
+    new-array v4, v1, [Ljava/lang/Object;
 
-    invoke-static {v2, v4, v3}, Lorg/apache/commons/lang3/Validate;->isTrue(ZLjava/lang/String;[Ljava/lang/Object;)V
+    .line 182
+    invoke-static {v2, v3, v4}, Lorg/apache/commons/lang3/Validate;->isTrue(ZLjava/lang/String;[Ljava/lang/Object;)V
 
     .line 183
     iget-boolean v2, p0, Lorg/apache/commons/lang3/CharRange;->negated:Z
@@ -249,9 +228,9 @@
 
     iget-char v2, p0, Lorg/apache/commons/lang3/CharRange;->end:C
 
-    iget-char v3, p1, Lorg/apache/commons/lang3/CharRange;->end:C
+    iget-char p1, p1, Lorg/apache/commons/lang3/CharRange;->end:C
 
-    if-gt v2, v3, :cond_1
+    if-gt v2, p1, :cond_1
 
     goto :goto_1
 
@@ -269,11 +248,11 @@
 
     if-lt v2, v3, :cond_4
 
-    iget-char v2, p1, Lorg/apache/commons/lang3/CharRange;->start:C
+    iget-char p1, p1, Lorg/apache/commons/lang3/CharRange;->start:C
 
-    iget-char v3, p0, Lorg/apache/commons/lang3/CharRange;->end:C
+    iget-char v2, p0, Lorg/apache/commons/lang3/CharRange;->end:C
 
-    if-le v2, v3, :cond_3
+    if-le p1, v2, :cond_3
 
     goto :goto_2
 
@@ -291,15 +270,15 @@
     if-eqz v2, :cond_7
 
     .line 190
-    iget-char v2, p0, Lorg/apache/commons/lang3/CharRange;->start:C
+    iget-char p1, p0, Lorg/apache/commons/lang3/CharRange;->start:C
 
-    if-nez v2, :cond_6
+    if-nez p1, :cond_6
 
-    iget-char v2, p0, Lorg/apache/commons/lang3/CharRange;->end:C
+    iget-char p1, p0, Lorg/apache/commons/lang3/CharRange;->end:C
 
-    const v3, 0xffff
+    const v2, 0xffff
 
-    if-ne v2, v3, :cond_6
+    if-ne p1, v2, :cond_6
 
     goto :goto_3
 
@@ -319,9 +298,9 @@
 
     iget-char v2, p0, Lorg/apache/commons/lang3/CharRange;->end:C
 
-    iget-char v3, p1, Lorg/apache/commons/lang3/CharRange;->end:C
+    iget-char p1, p1, Lorg/apache/commons/lang3/CharRange;->end:C
 
-    if-lt v2, v3, :cond_8
+    if-lt v2, p1, :cond_8
 
     goto :goto_4
 
@@ -333,15 +312,12 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 4
 
-    .line 206
     const/4 v0, 0x1
 
     if-ne p1, p0, :cond_0
 
-    .line 207
     return v0
 
     .line 209
@@ -352,34 +328,30 @@
 
     if-nez v1, :cond_1
 
-    .line 210
     return v2
 
     .line 212
     :cond_1
-    move-object v1, p1
-
-    check-cast v1, Lorg/apache/commons/lang3/CharRange;
+    check-cast p1, Lorg/apache/commons/lang3/CharRange;
 
     .line 213
-    .local v1, "other":Lorg/apache/commons/lang3/CharRange;
-    iget-char v3, p0, Lorg/apache/commons/lang3/CharRange;->start:C
+    iget-char v1, p0, Lorg/apache/commons/lang3/CharRange;->start:C
 
-    iget-char v4, v1, Lorg/apache/commons/lang3/CharRange;->start:C
+    iget-char v3, p1, Lorg/apache/commons/lang3/CharRange;->start:C
 
-    if-ne v3, v4, :cond_2
+    if-ne v1, v3, :cond_2
 
-    iget-char v3, p0, Lorg/apache/commons/lang3/CharRange;->end:C
+    iget-char v1, p0, Lorg/apache/commons/lang3/CharRange;->end:C
 
-    iget-char v4, v1, Lorg/apache/commons/lang3/CharRange;->end:C
+    iget-char v3, p1, Lorg/apache/commons/lang3/CharRange;->end:C
 
-    if-ne v3, v4, :cond_2
+    if-ne v1, v3, :cond_2
 
-    iget-boolean v3, p0, Lorg/apache/commons/lang3/CharRange;->negated:Z
+    iget-boolean v1, p0, Lorg/apache/commons/lang3/CharRange;->negated:Z
 
-    iget-boolean v4, v1, Lorg/apache/commons/lang3/CharRange;->negated:Z
+    iget-boolean p1, p1, Lorg/apache/commons/lang3/CharRange;->negated:Z
 
-    if-ne v3, v4, :cond_2
+    if-ne v1, p1, :cond_2
 
     goto :goto_0
 
@@ -475,16 +447,15 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 235
-    .local v0, "buf":Ljava/lang/StringBuilder;
     invoke-virtual {p0}, Lorg/apache/commons/lang3/CharRange;->isNegated()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 236
     const/16 v1, 0x5e
 
+    .line 236
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 238
@@ -500,9 +471,9 @@
 
     if-eq v1, v2, :cond_1
 
-    .line 240
     const/16 v1, 0x2d
 
+    .line 240
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 241
@@ -514,12 +485,11 @@
     :cond_1
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lorg/apache/commons/lang3/CharRange;->iToString:Ljava/lang/String;
+    iput-object v0, p0, Lorg/apache/commons/lang3/CharRange;->iToString:Ljava/lang/String;
 
     .line 245
-    .end local v0    # "buf":Ljava/lang/StringBuilder;
     :cond_2
     iget-object v0, p0, Lorg/apache/commons/lang3/CharRange;->iToString:Ljava/lang/String;
 

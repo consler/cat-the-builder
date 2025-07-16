@@ -22,9 +22,9 @@
 .method private constructor <init>(Lorg/apache/commons/collections/StaticBucketMap;)V
     .locals 1
 
-    .line 555
     const/4 v0, 0x0
 
+    .line 555
     invoke-direct {p0, p1, v0}, Lorg/apache/commons/collections/StaticBucketMap$EntryIterator;-><init>(Lorg/apache/commons/collections/StaticBucketMap;Lorg/apache/commons/collections/StaticBucketMap$1;)V
 
     iput-object p1, p0, Lorg/apache/commons/collections/StaticBucketMap$KeyIterator;->this$0:Lorg/apache/commons/collections/StaticBucketMap;
@@ -34,8 +34,6 @@
 
 .method synthetic constructor <init>(Lorg/apache/commons/collections/StaticBucketMap;Lorg/apache/commons/collections/StaticBucketMap$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/collections/StaticBucketMap;
-    .param p2, "x1"    # Lorg/apache/commons/collections/StaticBucketMap$1;
 
     .line 555
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/StaticBucketMap$KeyIterator;-><init>(Lorg/apache/commons/collections/StaticBucketMap;)V

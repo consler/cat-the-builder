@@ -32,7 +32,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard$2;Landroid/view/View;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard$2;
 
     .line 143
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard$2$2;->this$1:Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard$2;
@@ -41,12 +40,12 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    const/4 p1, 0x2
+
+    new-array p1, p1, [I
+
     .line 144
-    const/4 p2, 0x2
-
-    new-array p2, p2, [I
-
-    iput-object p2, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard$2$2;->screenloc:[I
+    iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard$2$2;->screenloc:[I
 
     return-void
 .end method
@@ -76,17 +75,15 @@
 
     iput v0, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard$2$2;->keyboardHeight:I
 
-    .line 152
     if-lez v0, :cond_0
 
+    .line 152
     iput-boolean v1, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard$2$2;->keyboardShowing:Z
 
-    .line 153
     :cond_0
-    iget v0, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard$2$2;->keyboardHeight:I
-
     if-nez v0, :cond_1
 
+    .line 153
     iget-boolean v0, p0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard$2$2;->keyboardShowing:Z
 
     if-eqz v0, :cond_1
@@ -109,7 +106,6 @@
 
     iput-object v2, v0, Lcom/badlogic/gdx/backends/android/AndroidOnscreenKeyboard;->dialog:Landroid/app/Dialog;
 
-    .line 157
     :cond_1
     return v1
 .end method

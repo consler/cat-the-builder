@@ -29,7 +29,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/Skin;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/scenes/scene2d/ui/Skin;
 
     .line 539
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Skin$4;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Skin;
@@ -42,73 +41,90 @@
 
 # virtual methods
 .method public read(Lcom/badlogic/gdx/utils/Json;Lcom/badlogic/gdx/utils/JsonValue;Ljava/lang/Class;)Lcom/badlogic/gdx/graphics/Color;
-    .locals 7
-    .param p1, "json"    # Lcom/badlogic/gdx/utils/Json;
-    .param p2, "jsonData"    # Lcom/badlogic/gdx/utils/JsonValue;
-    .param p3, "type"    # Ljava/lang/Class;
+    .locals 5
 
     .line 541
     invoke-virtual {p2}, Lcom/badlogic/gdx/utils/JsonValue;->isString()Z
 
-    move-result v0
+    move-result p3
 
-    if-eqz v0, :cond_0
+    if-eqz p3, :cond_0
 
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Skin$4;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Skin;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Skin$4;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Skin;
 
     invoke-virtual {p2}, Lcom/badlogic/gdx/utils/JsonValue;->asString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    const-class v2, Lcom/badlogic/gdx/graphics/Color;
+    const-class p3, Lcom/badlogic/gdx/graphics/Color;
 
-    invoke-virtual {v0, v1, v2}, Lcom/badlogic/gdx/scenes/scene2d/ui/Skin;->get(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p1, p2, p3}, Lcom/badlogic/gdx/scenes/scene2d/ui/Skin;->get(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/badlogic/gdx/graphics/Color;
+    check-cast p1, Lcom/badlogic/gdx/graphics/Color;
 
-    return-object v0
+    return-object p1
 
     .line 542
     :cond_0
-    const-class v0, Ljava/lang/String;
+    const-class p3, Ljava/lang/String;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
+
+    move-object v1, v0
 
     check-cast v1, Ljava/lang/String;
 
-    const-string v2, "hex"
+    const-string v1, "hex"
 
-    invoke-virtual {p1, v2, v0, v1, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Object;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
+    invoke-virtual {p1, v1, p3, v0, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Object;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p3
 
-    check-cast v0, Ljava/lang/String;
+    check-cast p3, Ljava/lang/String;
+
+    if-eqz p3, :cond_1
 
     .line 543
-    .local v0, "hex":Ljava/lang/String;
-    if-eqz v0, :cond_1
+    invoke-static {p3}, Lcom/badlogic/gdx/graphics/Color;->valueOf(Ljava/lang/String;)Lcom/badlogic/gdx/graphics/Color;
 
-    invoke-static {v0}, Lcom/badlogic/gdx/graphics/Color;->valueOf(Ljava/lang/String;)Lcom/badlogic/gdx/graphics/Color;
+    move-result-object p1
 
-    move-result-object v1
-
-    return-object v1
+    return-object p1
 
     .line 544
     :cond_1
+    sget-object p3, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
+
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v1
+
+    const-string v2, "r"
+
+    invoke-virtual {p1, v2, p3, v1, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Object;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
+
+    move-result-object p3
+
+    check-cast p3, Ljava/lang/Float;
+
+    invoke-virtual {p3}, Ljava/lang/Float;->floatValue()F
+
+    move-result p3
+
+    .line 545
     sget-object v1, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
-    const/4 v2, 0x0
+    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    move-result-object v2
 
-    move-result-object v3
+    const-string v3, "g"
 
-    const-string v4, "r"
-
-    invoke-virtual {p1, v4, v1, v3, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Object;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
+    invoke-virtual {p1, v3, v1, v2, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Object;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -118,75 +134,52 @@
 
     move-result v1
 
-    .line 545
-    .local v1, "r":F
-    sget-object v3, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
+    .line 546
+    sget-object v2, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
-    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v4
+    move-result-object v0
 
-    const-string v5, "g"
+    const-string v3, "b"
 
-    invoke-virtual {p1, v5, v3, v4, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Object;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
+    invoke-virtual {p1, v3, v2, v0, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Object;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Float;
+
+    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
+
+    move-result v0
+
+    .line 547
+    sget-object v2, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
+
+    const/high16 v3, 0x3f800000    # 1.0f
+
+    invoke-static {v3}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
     move-result-object v3
 
-    check-cast v3, Ljava/lang/Float;
+    const-string v4, "a"
 
-    invoke-virtual {v3}, Ljava/lang/Float;->floatValue()F
+    invoke-virtual {p1, v4, v2, v3, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Object;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
 
-    move-result v3
+    move-result-object p1
 
-    .line 546
-    .local v3, "g":F
-    sget-object v4, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
+    check-cast p1, Ljava/lang/Float;
 
-    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
 
-    move-result-object v2
-
-    const-string v5, "b"
-
-    invoke-virtual {p1, v5, v4, v2, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Object;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/Float;
-
-    invoke-virtual {v2}, Ljava/lang/Float;->floatValue()F
-
-    move-result v2
-
-    .line 547
-    .local v2, "b":F
-    sget-object v4, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
-
-    const/high16 v5, 0x3f800000    # 1.0f
-
-    invoke-static {v5}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v5
-
-    const-string v6, "a"
-
-    invoke-virtual {p1, v6, v4, v5, p2}, Lcom/badlogic/gdx/utils/Json;->readValue(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Object;Lcom/badlogic/gdx/utils/JsonValue;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/lang/Float;
-
-    invoke-virtual {v4}, Ljava/lang/Float;->floatValue()F
-
-    move-result v4
+    move-result p1
 
     .line 548
-    .local v4, "a":F
-    new-instance v5, Lcom/badlogic/gdx/graphics/Color;
+    new-instance p2, Lcom/badlogic/gdx/graphics/Color;
 
-    invoke-direct {v5, v1, v3, v2, v4}, Lcom/badlogic/gdx/graphics/Color;-><init>(FFFF)V
+    invoke-direct {p2, p3, v1, v0, p1}, Lcom/badlogic/gdx/graphics/Color;-><init>(FFFF)V
 
-    return-object v5
+    return-object p2
 .end method
 
 .method public bridge synthetic read(Lcom/badlogic/gdx/utils/Json;Lcom/badlogic/gdx/utils/JsonValue;Ljava/lang/Class;)Ljava/lang/Object;

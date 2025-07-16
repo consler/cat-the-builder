@@ -29,7 +29,6 @@
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/shaded/protobuf/ByteString$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString$1;
 
     .line 123
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/ByteString$ArraysByteArrayCopier;-><init>()V
@@ -40,17 +39,14 @@
 
 # virtual methods
 .method public copyFrom([BII)[B
-    .locals 1
-    .param p1, "bytes"    # [B
-    .param p2, "offset"    # I
-    .param p3, "size"    # I
+    .locals 0
+
+    add-int/2addr p3, p2
 
     .line 126
-    add-int v0, p2, p3
+    invoke-static {p1, p2, p3}, Ljava/util/Arrays;->copyOfRange([BII)[B
 
-    invoke-static {p1, p2, v0}, Ljava/util/Arrays;->copyOfRange([BII)[B
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method

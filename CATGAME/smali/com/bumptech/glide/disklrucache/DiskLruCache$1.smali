@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/disklrucache/DiskLruCache;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/bumptech/glide/disklrucache/DiskLruCache;
 
     .line 166
     iput-object p1, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache$1;->this$0:Lcom/bumptech/glide/disklrucache/DiskLruCache;
@@ -122,10 +121,8 @@
     :cond_1
     monitor-exit v0
 
-    .line 178
     return-object v2
 
-    .line 177
     :catchall_0
     move-exception v1
 

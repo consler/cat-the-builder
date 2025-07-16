@@ -17,11 +17,6 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u0000\u0017\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u0008\n\u0000*\u0001\u0000\u0008\n\u0018\u00002\u00020\u0001J\u0010\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u0005H\u0016\u00a8\u0006\u0006"
     }
@@ -32,14 +27,15 @@
         "",
         "color",
         "",
-        "colorpicker_release"
+        "colorpicker_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -50,16 +46,10 @@
 # direct methods
 .method constructor <init>(Lorg/catrobat/paintroid/colorpicker/ColorPickerView;)V
     .locals 0
-    .param p1, "this$0"    # Lorg/catrobat/paintroid/colorpicker/ColorPickerView;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
 
-    .line 181
     iput-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerView$onAttachedToWindow$4;->this$0:Lorg/catrobat/paintroid/colorpicker/ColorPickerView;
 
+    .line 181
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -69,7 +59,6 @@
 # virtual methods
 .method public colorChanged(I)V
     .locals 2
-    .param p1, "color"    # I
 
     .line 183
     iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerView$onAttachedToWindow$4;->this$0:Lorg/catrobat/paintroid/colorpicker/ColorPickerView;
@@ -82,6 +71,5 @@
 
     invoke-virtual {v0, p1, v1}, Lorg/catrobat/paintroid/colorpicker/ColorPickerView;->setSelectedColor(ILandroid/view/View;)V
 
-    .line 184
     return-void
 .end method

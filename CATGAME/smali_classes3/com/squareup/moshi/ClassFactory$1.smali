@@ -59,18 +59,16 @@
         }
     .end annotation
 
-    .line 46
     const/4 v0, 0x0
 
     .line 47
-    .local v0, "args":[Ljava/lang/Object;
     iget-object v1, p0, Lcom/squareup/moshi/ClassFactory$1;->val$constructor:Ljava/lang/reflect/Constructor;
 
     invoke-virtual {v1, v0}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public toString()Ljava/lang/String;

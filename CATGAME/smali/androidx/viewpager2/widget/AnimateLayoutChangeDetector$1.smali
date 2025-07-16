@@ -32,7 +32,6 @@
 # direct methods
 .method constructor <init>(Landroidx/viewpager2/widget/AnimateLayoutChangeDetector;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/viewpager2/widget/AnimateLayoutChangeDetector;
 
     .line 94
     iput-object p1, p0, Landroidx/viewpager2/widget/AnimateLayoutChangeDetector$1;->this$0:Landroidx/viewpager2/widget/AnimateLayoutChangeDetector;
@@ -60,18 +59,16 @@
 .end method
 
 .method public compare([I[I)I
-    .locals 2
-    .param p1, "lhs"    # [I
-    .param p2, "rhs"    # [I
+    .locals 1
 
-    .line 97
     const/4 v0, 0x0
 
-    aget v1, p1, v0
+    .line 97
+    aget p1, p1, v0
 
-    aget v0, p2, v0
+    aget p2, p2, v0
 
-    sub-int/2addr v1, v0
+    sub-int/2addr p1, p2
 
-    return v1
+    return p1
 .end method

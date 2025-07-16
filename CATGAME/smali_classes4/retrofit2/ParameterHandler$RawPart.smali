@@ -73,19 +73,16 @@
 
 .method apply(Lretrofit2/RequestBuilder;Lokhttp3/MultipartBody$Part;)V
     .locals 0
-    .param p1, "builder"    # Lretrofit2/RequestBuilder;
-    .param p2, "value"    # Lokhttp3/MultipartBody$Part;
+    .param p2    # Lokhttp3/MultipartBody$Part;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .line 362
     if-eqz p2, :cond_0
 
     .line 363
     invoke-virtual {p1, p2}, Lretrofit2/RequestBuilder;->addPart(Lokhttp3/MultipartBody$Part;)V
 
-    .line 365
     :cond_0
     return-void
 .end method

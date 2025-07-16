@@ -13,8 +13,6 @@
 # direct methods
 .method public constructor <init>(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;)V
     .locals 0
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
 
     .line 37
     invoke-direct {p0, p2}, Lcom/esotericsoftware/kryo/io/KryoDataOutput;-><init>(Lcom/esotericsoftware/kryo/io/Output;)V
@@ -22,7 +20,6 @@
     .line 38
     iput-object p1, p0, Lcom/esotericsoftware/kryo/io/KryoObjectOutput;->kryo:Lcom/esotericsoftware/kryo/Kryo;
 
-    .line 39
     return-void
 .end method
 
@@ -41,7 +38,6 @@
 
     invoke-virtual {v0}, Lcom/esotericsoftware/kryo/io/Output;->close()V
 
-    .line 51
     return-void
 .end method
 
@@ -58,13 +54,11 @@
 
     invoke-virtual {v0}, Lcom/esotericsoftware/kryo/io/Output;->flush()V
 
-    .line 47
     return-void
 .end method
 
 .method public writeObject(Ljava/lang/Object;)V
     .locals 2
-    .param p1, "object"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -78,6 +72,5 @@
 
     invoke-virtual {v0, v1, p1}, Lcom/esotericsoftware/kryo/Kryo;->writeClassAndObject(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
 
-    .line 43
     return-void
 .end method

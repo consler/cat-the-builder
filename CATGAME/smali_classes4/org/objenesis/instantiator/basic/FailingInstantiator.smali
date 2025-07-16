@@ -35,11 +35,8 @@
     .end annotation
 
     .line 31
-    .local p0, "this":Lorg/objenesis/instantiator/basic/FailingInstantiator;, "Lorg/objenesis/instantiator/basic/FailingInstantiator<TT;>;"
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 32
     return-void
 .end method
 
@@ -54,7 +51,6 @@
     .end annotation
 
     .line 38
-    .local p0, "this":Lorg/objenesis/instantiator/basic/FailingInstantiator;, "Lorg/objenesis/instantiator/basic/FailingInstantiator<TT;>;"
     new-instance v0, Lorg/objenesis/ObjenesisException;
 
     const-string v1, "Always failing"

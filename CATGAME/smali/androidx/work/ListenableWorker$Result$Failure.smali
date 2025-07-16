@@ -22,18 +22,16 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 468
+    .line 515
     sget-object v0, Landroidx/work/Data;->EMPTY:Landroidx/work/Data;
 
     invoke-direct {p0, v0}, Landroidx/work/ListenableWorker$Result$Failure;-><init>(Landroidx/work/Data;)V
 
-    .line 469
     return-void
 .end method
 
 .method public constructor <init>(Landroidx/work/Data;)V
     .locals 0
-    .param p1, "outputData"    # Landroidx/work/Data;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -43,21 +41,19 @@
         }
     .end annotation
 
-    .line 476
+    .line 523
     invoke-direct {p0}, Landroidx/work/ListenableWorker$Result;-><init>()V
 
-    .line 477
+    .line 524
     iput-object p1, p0, Landroidx/work/ListenableWorker$Result$Failure;->mOutputData:Landroidx/work/Data;
 
-    .line 478
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -67,17 +63,16 @@
         }
     .end annotation
 
-    .line 490
     if-ne p0, p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
-    .line 491
     :cond_0
     if-eqz p1, :cond_2
 
+    .line 535
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -90,67 +85,50 @@
 
     goto :goto_0
 
-    .line 493
+    .line 537
     :cond_1
-    move-object v0, p1
+    check-cast p1, Landroidx/work/ListenableWorker$Result$Failure;
 
-    check-cast v0, Landroidx/work/ListenableWorker$Result$Failure;
+    .line 539
+    iget-object v0, p0, Landroidx/work/ListenableWorker$Result$Failure;->mOutputData:Landroidx/work/Data;
 
-    .line 495
-    .local v0, "failure":Landroidx/work/ListenableWorker$Result$Failure;
-    iget-object v1, p0, Landroidx/work/ListenableWorker$Result$Failure;->mOutputData:Landroidx/work/Data;
+    iget-object p1, p1, Landroidx/work/ListenableWorker$Result$Failure;->mOutputData:Landroidx/work/Data;
 
-    iget-object v2, v0, Landroidx/work/ListenableWorker$Result$Failure;->mOutputData:Landroidx/work/Data;
+    invoke-virtual {v0, p1}, Landroidx/work/Data;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v1, v2}, Landroidx/work/Data;->equals(Ljava/lang/Object;)Z
+    move-result p1
 
-    move-result v1
+    return p1
 
-    return v1
-
-    .line 491
-    .end local v0    # "failure":Landroidx/work/ListenableWorker$Result$Failure;
     :cond_2
     :goto_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public getOutputData()Landroidx/work/Data;
     .locals 1
 
-    .line 485
+    .line 529
     iget-object v0, p0, Landroidx/work/ListenableWorker$Result$Failure;->mOutputData:Landroidx/work/Data;
 
     return-object v0
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .locals 2
 
-    .line 500
-    const-class v0, Landroidx/work/ListenableWorker$Result$Failure;
+    .line 545
+    iget-object v0, p0, Landroidx/work/ListenableWorker$Result$Failure;->mOutputData:Landroidx/work/Data;
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v0}, Landroidx/work/Data;->hashCode()I
 
-    move-result-object v0
+    move-result v0
 
-    .line 501
-    .local v0, "name":Ljava/lang/String;
-    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+    const v1, 0x32793150
 
-    move-result v1
-
-    mul-int/lit8 v1, v1, 0x1f
-
-    iget-object v2, p0, Landroidx/work/ListenableWorker$Result$Failure;->mOutputData:Landroidx/work/Data;
-
-    invoke-virtual {v2}, Landroidx/work/Data;->hashCode()I
-
-    move-result v2
-
-    add-int/2addr v1, v2
+    add-int/2addr v1, v0
 
     return v1
 .end method
@@ -158,22 +136,24 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
-    .line 506
+    .line 550
     new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v1, "Failure {mOutputData="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v1, p0, Landroidx/work/ListenableWorker$Result$Failure;->mOutputData:Landroidx/work/Data;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const/16 v1, 0x7d
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

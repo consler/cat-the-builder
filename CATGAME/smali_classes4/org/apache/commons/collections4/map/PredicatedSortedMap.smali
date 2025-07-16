@@ -42,13 +42,8 @@
     .end annotation
 
     .line 92
-    .local p0, "this":Lorg/apache/commons/collections4/map/PredicatedSortedMap;, "Lorg/apache/commons/collections4/map/PredicatedSortedMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
-    .local p2, "keyPredicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TK;>;"
-    .local p3, "valuePredicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TV;>;"
     invoke-direct {p0, p1, p2, p3}, Lorg/apache/commons/collections4/map/PredicatedMap;-><init>(Ljava/util/Map;Lorg/apache/commons/collections4/Predicate;Lorg/apache/commons/collections4/Predicate;)V
 
-    .line 93
     return-void
 .end method
 
@@ -73,9 +68,6 @@
     .end annotation
 
     .line 78
-    .local p0, "map":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
-    .local p1, "keyPredicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TK;>;"
-    .local p2, "valuePredicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/map/PredicatedSortedMap;
 
     invoke-direct {v0, p0, p1, p2}, Lorg/apache/commons/collections4/map/PredicatedSortedMap;-><init>(Ljava/util/SortedMap;Lorg/apache/commons/collections4/Predicate;Lorg/apache/commons/collections4/Predicate;)V
@@ -96,7 +88,6 @@
     .end annotation
 
     .line 118
-    .local p0, "this":Lorg/apache/commons/collections4/map/PredicatedSortedMap;, "Lorg/apache/commons/collections4/map/PredicatedSortedMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/PredicatedSortedMap;->getSortedMap()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -117,7 +108,6 @@
     .end annotation
 
     .line 108
-    .local p0, "this":Lorg/apache/commons/collections4/map/PredicatedSortedMap;, "Lorg/apache/commons/collections4/map/PredicatedSortedMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/PredicatedSortedMap;->getSortedMap()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -140,7 +130,6 @@
     .end annotation
 
     .line 102
-    .local p0, "this":Lorg/apache/commons/collections4/map/PredicatedSortedMap;, "Lorg/apache/commons/collections4/map/PredicatedSortedMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/PredicatedSortedMap;->map:Ljava/util/Map;
 
     check-cast v0, Ljava/util/SortedMap;
@@ -149,7 +138,7 @@
 .end method
 
 .method public headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",
@@ -159,27 +148,24 @@
     .end annotation
 
     .line 129
-    .local p0, "this":Lorg/apache/commons/collections4/map/PredicatedSortedMap;, "Lorg/apache/commons/collections4/map/PredicatedSortedMap<TK;TV;>;"
-    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/PredicatedSortedMap;->getSortedMap()Ljava/util/SortedMap;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/SortedMap;->headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 130
-    .local v0, "map":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
-    new-instance v1, Lorg/apache/commons/collections4/map/PredicatedSortedMap;
+    new-instance v0, Lorg/apache/commons/collections4/map/PredicatedSortedMap;
 
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/PredicatedSortedMap;->keyPredicate:Lorg/apache/commons/collections4/Predicate;
+    iget-object v1, p0, Lorg/apache/commons/collections4/map/PredicatedSortedMap;->keyPredicate:Lorg/apache/commons/collections4/Predicate;
 
-    iget-object v3, p0, Lorg/apache/commons/collections4/map/PredicatedSortedMap;->valuePredicate:Lorg/apache/commons/collections4/Predicate;
+    iget-object v2, p0, Lorg/apache/commons/collections4/map/PredicatedSortedMap;->valuePredicate:Lorg/apache/commons/collections4/Predicate;
 
-    invoke-direct {v1, v0, v2, v3}, Lorg/apache/commons/collections4/map/PredicatedSortedMap;-><init>(Ljava/util/SortedMap;Lorg/apache/commons/collections4/Predicate;Lorg/apache/commons/collections4/Predicate;)V
+    invoke-direct {v0, p1, v1, v2}, Lorg/apache/commons/collections4/map/PredicatedSortedMap;-><init>(Ljava/util/SortedMap;Lorg/apache/commons/collections4/Predicate;Lorg/apache/commons/collections4/Predicate;)V
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public lastKey()Ljava/lang/Object;
@@ -191,7 +177,6 @@
     .end annotation
 
     .line 113
-    .local p0, "this":Lorg/apache/commons/collections4/map/PredicatedSortedMap;, "Lorg/apache/commons/collections4/map/PredicatedSortedMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/PredicatedSortedMap;->getSortedMap()Ljava/util/SortedMap;
 
     move-result-object v0
@@ -204,7 +189,7 @@
 .end method
 
 .method public subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TK;)",
@@ -214,32 +199,28 @@
     .end annotation
 
     .line 123
-    .local p0, "this":Lorg/apache/commons/collections4/map/PredicatedSortedMap;, "Lorg/apache/commons/collections4/map/PredicatedSortedMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
-    .local p2, "toKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/PredicatedSortedMap;->getSortedMap()Ljava/util/SortedMap;
 
     move-result-object v0
 
     invoke-interface {v0, p1, p2}, Ljava/util/SortedMap;->subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 124
-    .local v0, "map":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
-    new-instance v1, Lorg/apache/commons/collections4/map/PredicatedSortedMap;
+    new-instance p2, Lorg/apache/commons/collections4/map/PredicatedSortedMap;
 
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/PredicatedSortedMap;->keyPredicate:Lorg/apache/commons/collections4/Predicate;
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/PredicatedSortedMap;->keyPredicate:Lorg/apache/commons/collections4/Predicate;
 
-    iget-object v3, p0, Lorg/apache/commons/collections4/map/PredicatedSortedMap;->valuePredicate:Lorg/apache/commons/collections4/Predicate;
+    iget-object v1, p0, Lorg/apache/commons/collections4/map/PredicatedSortedMap;->valuePredicate:Lorg/apache/commons/collections4/Predicate;
 
-    invoke-direct {v1, v0, v2, v3}, Lorg/apache/commons/collections4/map/PredicatedSortedMap;-><init>(Ljava/util/SortedMap;Lorg/apache/commons/collections4/Predicate;Lorg/apache/commons/collections4/Predicate;)V
+    invoke-direct {p2, p1, v0, v1}, Lorg/apache/commons/collections4/map/PredicatedSortedMap;-><init>(Ljava/util/SortedMap;Lorg/apache/commons/collections4/Predicate;Lorg/apache/commons/collections4/Predicate;)V
 
-    return-object v1
+    return-object p2
 .end method
 
 .method public tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)",
@@ -249,25 +230,22 @@
     .end annotation
 
     .line 135
-    .local p0, "this":Lorg/apache/commons/collections4/map/PredicatedSortedMap;, "Lorg/apache/commons/collections4/map/PredicatedSortedMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/PredicatedSortedMap;->getSortedMap()Ljava/util/SortedMap;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/SortedMap;->tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 136
-    .local v0, "map":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
-    new-instance v1, Lorg/apache/commons/collections4/map/PredicatedSortedMap;
+    new-instance v0, Lorg/apache/commons/collections4/map/PredicatedSortedMap;
 
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/PredicatedSortedMap;->keyPredicate:Lorg/apache/commons/collections4/Predicate;
+    iget-object v1, p0, Lorg/apache/commons/collections4/map/PredicatedSortedMap;->keyPredicate:Lorg/apache/commons/collections4/Predicate;
 
-    iget-object v3, p0, Lorg/apache/commons/collections4/map/PredicatedSortedMap;->valuePredicate:Lorg/apache/commons/collections4/Predicate;
+    iget-object v2, p0, Lorg/apache/commons/collections4/map/PredicatedSortedMap;->valuePredicate:Lorg/apache/commons/collections4/Predicate;
 
-    invoke-direct {v1, v0, v2, v3}, Lorg/apache/commons/collections4/map/PredicatedSortedMap;-><init>(Ljava/util/SortedMap;Lorg/apache/commons/collections4/Predicate;Lorg/apache/commons/collections4/Predicate;)V
+    invoke-direct {v0, p1, v1, v2}, Lorg/apache/commons/collections4/map/PredicatedSortedMap;-><init>(Ljava/util/SortedMap;Lorg/apache/commons/collections4/Predicate;Lorg/apache/commons/collections4/Predicate;)V
 
-    return-object v1
+    return-object v0
 .end method

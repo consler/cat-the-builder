@@ -96,8 +96,7 @@
 .end method
 
 .method public setup(Lorg/koin/core/KoinApplication;)V
-    .locals 3
-    .param p1, "koinApplication"    # Lorg/koin/core/KoinApplication;
+    .locals 1
 
     const-string v0, "koinApplication"
 
@@ -106,60 +105,51 @@
     .line 37
     monitor-enter p0
 
-    const/4 v0, 0x0
-
     .line 38
-    .local v0, "$i$a$-synchronized-GlobalContext$setup$1":I
     :try_start_0
-    iget-object v1, p0, Lorg/koin/core/context/GlobalContext;->_koin:Lorg/koin/core/Koin;
+    iget-object v0, p0, Lorg/koin/core/context/GlobalContext;->_koin:Lorg/koin/core/Koin;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     .line 41
     invoke-virtual {p1}, Lorg/koin/core/KoinApplication;->getKoin()Lorg/koin/core/Koin;
 
-    move-result-object v1
+    move-result-object p1
 
-    iput-object v1, p0, Lorg/koin/core/context/GlobalContext;->_koin:Lorg/koin/core/Koin;
+    iput-object p1, p0, Lorg/koin/core/context/GlobalContext;->_koin:Lorg/koin/core/Koin;
 
     .line 42
-    .end local v0    # "$i$a$-synchronized-GlobalContext$setup$1":I
-    sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 37
     monitor-exit p0
 
-    .line 42
     return-void
 
     .line 39
-    .restart local v0    # "$i$a$-synchronized-GlobalContext$setup$1":I
     :cond_0
     :try_start_1
-    new-instance v1, Lorg/koin/core/error/KoinAppAlreadyStartedException;
+    new-instance p1, Lorg/koin/core/error/KoinAppAlreadyStartedException;
 
-    const-string v2, "A Koin Application has already been started"
+    const-string v0, "A Koin Application has already been started"
 
-    invoke-direct {v1, v2}, Lorg/koin/core/error/KoinAppAlreadyStartedException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lorg/koin/core/error/KoinAppAlreadyStartedException;-><init>(Ljava/lang/String;)V
 
-    check-cast v1, Ljava/lang/Throwable;
+    check-cast p1, Ljava/lang/Throwable;
 
-    .end local p1    # "koinApplication":Lorg/koin/core/KoinApplication;
-    throw v1
+    throw p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 37
-    .end local v0    # "$i$a$-synchronized-GlobalContext$setup$1":I
-    .restart local p1    # "koinApplication":Lorg/koin/core/KoinApplication;
     :catchall_0
-    move-exception v0
+    move-exception p1
 
+    .line 37
     monitor-exit p0
 
-    throw v0
+    throw p1
 .end method
 
 .method public stop()V
@@ -168,27 +158,25 @@
     .line 44
     monitor-enter p0
 
+    .line 45
+    :try_start_0
+    iget-object v0, p0, Lorg/koin/core/context/GlobalContext;->_koin:Lorg/koin/core/Koin;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lorg/koin/core/Koin;->close()V
+
+    :cond_0
     const/4 v0, 0x0
 
-    .line 45
-    .local v0, "$i$a$-synchronized-GlobalContext$stop$1":I
-    :try_start_0
-    iget-object v1, p0, Lorg/koin/core/context/GlobalContext;->_koin:Lorg/koin/core/Koin;
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v1}, Lorg/koin/core/Koin;->close()V
-
     .line 46
-    :cond_0
-    const/4 v1, 0x0
+    move-object v1, v0
 
     check-cast v1, Lorg/koin/core/Koin;
 
-    iput-object v1, p0, Lorg/koin/core/context/GlobalContext;->_koin:Lorg/koin/core/Koin;
+    iput-object v0, p0, Lorg/koin/core/context/GlobalContext;->_koin:Lorg/koin/core/Koin;
 
     .line 47
-    .end local v0    # "$i$a$-synchronized-GlobalContext$stop$1":I
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -196,10 +184,8 @@
     .line 44
     monitor-exit p0
 
-    .line 47
     return-void
 
-    .line 44
     :catchall_0
     move-exception v0
 

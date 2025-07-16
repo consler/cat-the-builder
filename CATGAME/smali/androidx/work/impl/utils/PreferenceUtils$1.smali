@@ -34,7 +34,6 @@
 # direct methods
 .method constructor <init>(Landroidx/work/impl/utils/PreferenceUtils;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/work/impl/utils/PreferenceUtils;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010
@@ -56,7 +55,6 @@
 # virtual methods
 .method public apply(Ljava/lang/Long;)Ljava/lang/Long;
     .locals 2
-    .param p1, "value"    # Ljava/lang/Long;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -66,9 +64,9 @@
         }
     .end annotation
 
-    .line 76
     if-eqz p1, :cond_0
 
+    .line 76
     invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v0
@@ -81,9 +79,9 @@
     :goto_0
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;

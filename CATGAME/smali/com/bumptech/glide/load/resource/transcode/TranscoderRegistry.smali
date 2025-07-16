@@ -60,8 +60,6 @@
         }
     .end annotation
 
-    .local p1, "resourceClass":Ljava/lang/Class;, "Ljava/lang/Class<TZ;>;"
-    .local p2, "transcodedClass":Ljava/lang/Class;, "Ljava/lang/Class<TR;>;"
     monitor-enter p0
 
     .line 49
@@ -75,16 +73,15 @@
     .line 50
     invoke-static {}, Lcom/bumptech/glide/load/resource/transcode/UnitTranscoder;->get()Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
 
-    move-result-object v0
+    move-result-object p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-object v0
+    return-object p1
 
     .line 52
-    .end local p0    # "this":Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry;
     :cond_0
     :try_start_1
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry;->transcoders:Ljava/util/List;
@@ -93,7 +90,7 @@
 
     move-result-object v0
 
-    :goto_0
+    :cond_1
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
@@ -107,7 +104,6 @@
     check-cast v1, Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry$Entry;
 
     .line 53
-    .local v1, "entry":Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry$Entry;, "Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry$Entry<**>;"
     invoke-virtual {v1, p1, p2}, Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry$Entry;->handles(Ljava/lang/Class;Ljava/lang/Class;)Z
 
     move-result v2
@@ -115,18 +111,13 @@
     if-eqz v2, :cond_1
 
     .line 54
-    iget-object v0, v1, Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry$Entry;->transcoder:Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
+    iget-object p1, v1, Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry$Entry;->transcoder:Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     monitor-exit p0
 
-    return-object v0
-
-    .line 56
-    .end local v1    # "entry":Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry$Entry;, "Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry$Entry<**>;"
-    :cond_1
-    goto :goto_0
+    return-object p1
 
     .line 58
     :cond_2
@@ -141,27 +132,32 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v2, " to "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    const-string v1, " to "
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 48
-    .end local p1    # "resourceClass":Ljava/lang/Class;, "Ljava/lang/Class<TZ;>;"
-    .end local p2    # "transcodedClass":Ljava/lang/Class;, "Ljava/lang/Class<TR;>;"
     :catchall_0
     move-exception p1
 
@@ -171,7 +167,7 @@
 .end method
 
 .method public declared-synchronized getTranscodeClasses(Ljava/lang/Class;Ljava/lang/Class;)Ljava/util/List;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<Z:",
@@ -189,8 +185,6 @@
         }
     .end annotation
 
-    .local p1, "resourceClass":Ljava/lang/Class;, "Ljava/lang/Class<TZ;>;"
-    .local p2, "transcodeClass":Ljava/lang/Class;, "Ljava/lang/Class<TR;>;"
     monitor-enter p0
 
     .line 65
@@ -200,7 +194,6 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 67
-    .local v0, "transcodeClasses":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Class<TR;>;>;"
     invoke-virtual {p2, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
     move-result v1
@@ -218,7 +211,6 @@
     return-object v0
 
     .line 72
-    .end local p0    # "this":Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry;
     :cond_0
     :try_start_1
     iget-object v1, p0, Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry;->transcoders:Ljava/util/List;
@@ -227,6 +219,7 @@
 
     move-result-object v1
 
+    :cond_1
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -241,21 +234,17 @@
     check-cast v2, Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry$Entry;
 
     .line 73
-    .local v2, "entry":Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry$Entry;, "Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry$Entry<**>;"
     invoke-virtual {v2, p1, p2}, Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry$Entry;->handles(Ljava/lang/Class;Ljava/lang/Class;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
     .line 74
     invoke-interface {v0, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 76
-    .end local v2    # "entry":Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry$Entry;, "Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry$Entry<**>;"
-    :cond_1
     goto :goto_0
 
     .line 78
@@ -264,10 +253,6 @@
 
     return-object v0
 
-    .line 64
-    .end local v0    # "transcodeClasses":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Class<TR;>;>;"
-    .end local p1    # "resourceClass":Ljava/lang/Class;, "Ljava/lang/Class<TZ;>;"
-    .end local p2    # "transcodeClass":Ljava/lang/Class;, "Ljava/lang/Class<TR;>;"
     :catchall_0
     move-exception p1
 
@@ -294,9 +279,6 @@
         }
     .end annotation
 
-    .local p1, "decodedClass":Ljava/lang/Class;, "Ljava/lang/Class<TZ;>;"
-    .local p2, "transcodedClass":Ljava/lang/Class;, "Ljava/lang/Class<TR;>;"
-    .local p3, "transcoder":Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;, "Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder<TZ;TR;>;"
     monitor-enter p0
 
     .line 29
@@ -316,11 +298,6 @@
 
     return-void
 
-    .line 28
-    .end local p0    # "this":Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry;
-    .end local p1    # "decodedClass":Ljava/lang/Class;, "Ljava/lang/Class<TZ;>;"
-    .end local p2    # "transcodedClass":Ljava/lang/Class;, "Ljava/lang/Class<TR;>;"
-    .end local p3    # "transcoder":Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;, "Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder<TZ;TR;>;"
     :catchall_0
     move-exception p1
 

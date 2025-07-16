@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/VideoCapture;Ljava/lang/String;Landroid/util/Size;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/core/VideoCapture;
 
     .line 524
     iput-object p1, p0, Landroidx/camera/core/VideoCapture$3;->this$0:Landroidx/camera/core/VideoCapture;
@@ -45,31 +44,28 @@
 
 # virtual methods
 .method public onError(Landroidx/camera/core/impl/SessionConfig;Landroidx/camera/core/impl/SessionConfig$SessionError;)V
-    .locals 3
-    .param p1, "sessionConfig"    # Landroidx/camera/core/impl/SessionConfig;
-    .param p2, "error"    # Landroidx/camera/core/impl/SessionConfig$SessionError;
+    .locals 1
 
     .line 531
-    iget-object v0, p0, Landroidx/camera/core/VideoCapture$3;->this$0:Landroidx/camera/core/VideoCapture;
+    iget-object p1, p0, Landroidx/camera/core/VideoCapture$3;->this$0:Landroidx/camera/core/VideoCapture;
 
-    iget-object v1, p0, Landroidx/camera/core/VideoCapture$3;->val$cameraId:Ljava/lang/String;
+    iget-object p2, p0, Landroidx/camera/core/VideoCapture$3;->val$cameraId:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Landroidx/camera/core/VideoCapture;->isCurrentCamera(Ljava/lang/String;)Z
+    invoke-virtual {p1, p2}, Landroidx/camera/core/VideoCapture;->isCurrentCamera(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 533
-    iget-object v0, p0, Landroidx/camera/core/VideoCapture$3;->this$0:Landroidx/camera/core/VideoCapture;
+    iget-object p1, p0, Landroidx/camera/core/VideoCapture$3;->this$0:Landroidx/camera/core/VideoCapture;
 
-    iget-object v1, p0, Landroidx/camera/core/VideoCapture$3;->val$cameraId:Ljava/lang/String;
+    iget-object p2, p0, Landroidx/camera/core/VideoCapture$3;->val$cameraId:Ljava/lang/String;
 
-    iget-object v2, p0, Landroidx/camera/core/VideoCapture$3;->val$resolution:Landroid/util/Size;
+    iget-object v0, p0, Landroidx/camera/core/VideoCapture$3;->val$resolution:Landroid/util/Size;
 
-    invoke-virtual {v0, v1, v2}, Landroidx/camera/core/VideoCapture;->setupEncoder(Ljava/lang/String;Landroid/util/Size;)V
+    invoke-virtual {p1, p2, v0}, Landroidx/camera/core/VideoCapture;->setupEncoder(Ljava/lang/String;Landroid/util/Size;)V
 
-    .line 535
     :cond_0
     return-void
 .end method

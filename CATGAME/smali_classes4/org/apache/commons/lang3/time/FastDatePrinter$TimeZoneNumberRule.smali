@@ -54,7 +54,6 @@
 
 .method constructor <init>(Z)V
     .locals 0
-    .param p1, "colon"    # Z
 
     .line 1395
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -62,25 +61,22 @@
     .line 1396
     iput-boolean p1, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneNumberRule;->mColon:Z
 
-    .line 1397
     return-void
 .end method
 
 
 # virtual methods
 .method public appendTo(Ljava/lang/Appendable;Ljava/util/Calendar;)V
-    .locals 4
-    .param p1, "buffer"    # Ljava/lang/Appendable;
-    .param p2, "calendar"    # Ljava/util/Calendar;
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 1413
     const/16 v0, 0xf
 
+    .line 1413
     invoke-virtual {p2, v0}, Ljava/util/Calendar;->get(I)I
 
     move-result v0
@@ -89,72 +85,65 @@
 
     invoke-virtual {p2, v1}, Ljava/util/Calendar;->get(I)I
 
-    move-result v1
+    move-result p2
 
-    add-int/2addr v0, v1
+    add-int/2addr v0, p2
 
-    .line 1415
-    .local v0, "offset":I
     if-gez v0, :cond_0
 
+    const/16 p2, 0x2d
+
     .line 1416
-    const/16 v1, 0x2d
+    invoke-interface {p1, p2}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
 
-    invoke-interface {p1, v1}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
-
-    .line 1417
     neg-int v0, v0
 
     goto :goto_0
 
-    .line 1419
     :cond_0
-    const/16 v1, 0x2b
+    const/16 p2, 0x2b
 
-    invoke-interface {p1, v1}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
+    .line 1419
+    invoke-interface {p1, p2}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
+
+    :goto_0
+    const p2, 0x36ee80
 
     .line 1422
-    :goto_0
-    const v1, 0x36ee80
-
-    div-int v1, v0, v1
+    div-int p2, v0, p2
 
     .line 1423
-    .local v1, "hours":I
-    invoke-static {p1, v1}, Lorg/apache/commons/lang3/time/FastDatePrinter;->access$000(Ljava/lang/Appendable;I)V
+    invoke-static {p1, p2}, Lorg/apache/commons/lang3/time/FastDatePrinter;->access$000(Ljava/lang/Appendable;I)V
 
     .line 1425
-    iget-boolean v2, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneNumberRule;->mColon:Z
+    iget-boolean v1, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneNumberRule;->mColon:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
+
+    const/16 v1, 0x3a
 
     .line 1426
-    const/16 v2, 0x3a
+    invoke-interface {p1, v1}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
 
-    invoke-interface {p1, v2}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
+    :cond_1
+    const v1, 0xea60
 
     .line 1429
-    :cond_1
-    const v2, 0xea60
+    div-int/2addr v0, v1
 
-    div-int v2, v0, v2
+    mul-int/lit8 p2, p2, 0x3c
 
-    mul-int/lit8 v3, v1, 0x3c
-
-    sub-int/2addr v2, v3
+    sub-int/2addr v0, p2
 
     .line 1430
-    .local v2, "minutes":I
-    invoke-static {p1, v2}, Lorg/apache/commons/lang3/time/FastDatePrinter;->access$000(Ljava/lang/Appendable;I)V
+    invoke-static {p1, v0}, Lorg/apache/commons/lang3/time/FastDatePrinter;->access$000(Ljava/lang/Appendable;I)V
 
-    .line 1431
     return-void
 .end method
 
 .method public estimateLength()I
     .locals 1
 
-    .line 1404
     const/4 v0, 0x5
 
     return v0

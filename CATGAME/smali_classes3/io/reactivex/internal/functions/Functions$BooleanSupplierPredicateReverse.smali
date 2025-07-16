@@ -35,23 +35,20 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/functions/BooleanSupplier;)V
     .locals 0
-    .param p1, "supplier"    # Lio/reactivex/functions/BooleanSupplier;
 
     .line 372
-    .local p0, "this":Lio/reactivex/internal/functions/Functions$BooleanSupplierPredicateReverse;, "Lio/reactivex/internal/functions/Functions$BooleanSupplierPredicateReverse<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 373
     iput-object p1, p0, Lio/reactivex/internal/functions/Functions$BooleanSupplierPredicateReverse;->supplier:Lio/reactivex/functions/BooleanSupplier;
 
-    .line 374
     return-void
 .end method
 
 
 # virtual methods
 .method public test(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -65,15 +62,13 @@
     .end annotation
 
     .line 378
-    .local p0, "this":Lio/reactivex/internal/functions/Functions$BooleanSupplierPredicateReverse;, "Lio/reactivex/internal/functions/Functions$BooleanSupplierPredicateReverse<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
-    iget-object v0, p0, Lio/reactivex/internal/functions/Functions$BooleanSupplierPredicateReverse;->supplier:Lio/reactivex/functions/BooleanSupplier;
+    iget-object p1, p0, Lio/reactivex/internal/functions/Functions$BooleanSupplierPredicateReverse;->supplier:Lio/reactivex/functions/BooleanSupplier;
 
-    invoke-interface {v0}, Lio/reactivex/functions/BooleanSupplier;->getAsBoolean()Z
+    invoke-interface {p1}, Lio/reactivex/functions/BooleanSupplier;->getAsBoolean()Z
 
-    move-result v0
+    move-result p1
 
-    xor-int/lit8 v0, v0, 0x1
+    xor-int/lit8 p1, p1, 0x1
 
-    return v0
+    return p1
 .end method

@@ -58,9 +58,6 @@
     .end annotation
 
     .line 259
-    .local p0, "this":Lio/reactivex/subjects/MaybeSubject$MaybeDisposable;, "Lio/reactivex/subjects/MaybeSubject$MaybeDisposable<TT;>;"
-    .local p1, "actual":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
-    .local p2, "parent":Lio/reactivex/subjects/MaybeSubject;, "Lio/reactivex/subjects/MaybeSubject<TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 260
@@ -69,7 +66,6 @@
     .line 261
     invoke-virtual {p0, p2}, Lio/reactivex/subjects/MaybeSubject$MaybeDisposable;->lazySet(Ljava/lang/Object;)V
 
-    .line 262
     return-void
 .end method
 
@@ -78,24 +74,20 @@
 .method public dispose()V
     .locals 1
 
-    .line 266
-    .local p0, "this":Lio/reactivex/subjects/MaybeSubject$MaybeDisposable;, "Lio/reactivex/subjects/MaybeSubject$MaybeDisposable<TT;>;"
     const/4 v0, 0x0
 
+    .line 266
     invoke-virtual {p0, v0}, Lio/reactivex/subjects/MaybeSubject$MaybeDisposable;->getAndSet(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lio/reactivex/subjects/MaybeSubject;
 
-    .line 267
-    .local v0, "parent":Lio/reactivex/subjects/MaybeSubject;, "Lio/reactivex/subjects/MaybeSubject<TT;>;"
     if-eqz v0, :cond_0
 
     .line 268
     invoke-virtual {v0, p0}, Lio/reactivex/subjects/MaybeSubject;->remove(Lio/reactivex/subjects/MaybeSubject$MaybeDisposable;)V
 
-    .line 270
     :cond_0
     return-void
 .end method
@@ -104,7 +96,6 @@
     .locals 1
 
     .line 274
-    .local p0, "this":Lio/reactivex/subjects/MaybeSubject$MaybeDisposable;, "Lio/reactivex/subjects/MaybeSubject$MaybeDisposable<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/subjects/MaybeSubject$MaybeDisposable;->get()Ljava/lang/Object;
 
     move-result-object v0

@@ -38,13 +38,13 @@
 
     sput-object v0, Landroidx/work/impl/utils/futures/DirectExecutor;->INSTANCE:Landroidx/work/impl/utils/futures/DirectExecutor;
 
-    .line 32
     const/4 v1, 0x1
 
     new-array v1, v1, [Landroidx/work/impl/utils/futures/DirectExecutor;
 
     aput-object v0, v1, v2
 
+    .line 32
     sput-object v1, Landroidx/work/impl/utils/futures/DirectExecutor;->$VALUES:[Landroidx/work/impl/utils/futures/DirectExecutor;
 
     return-void
@@ -77,7 +77,6 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/work/impl/utils/futures/DirectExecutor;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8000
@@ -92,11 +91,11 @@
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroidx/work/impl/utils/futures/DirectExecutor;
+    check-cast p0, Landroidx/work/impl/utils/futures/DirectExecutor;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Landroidx/work/impl/utils/futures/DirectExecutor;
@@ -118,7 +117,6 @@
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
     .locals 0
-    .param p1, "command"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -131,14 +129,12 @@
     .line 38
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
 
-    .line 39
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .line 43
     const-string v0, "DirectExecutor"
 
     return-object v0

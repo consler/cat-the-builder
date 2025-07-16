@@ -36,13 +36,11 @@
     .line 45
     invoke-direct {p0}, Ljava/lang/Number;-><init>()V
 
-    .line 46
     return-void
 .end method
 
 .method public constructor <init>(J)V
     .locals 0
-    .param p1, "value"    # J
 
     .line 54
     invoke-direct {p0}, Ljava/lang/Number;-><init>()V
@@ -50,13 +48,11 @@
     .line 55
     iput-wide p1, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
 
-    .line 56
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Number;)V
     .locals 2
-    .param p1, "value"    # Ljava/lang/Number;
 
     .line 65
     invoke-direct {p0}, Ljava/lang/Number;-><init>()V
@@ -68,13 +64,11 @@
 
     iput-wide v0, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
 
-    .line 67
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 2
-    .param p1, "value"    # Ljava/lang/String;
 
     .line 77
     invoke-direct {p0}, Ljava/lang/Number;-><init>()V
@@ -86,7 +80,6 @@
 
     iput-wide v0, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
 
-    .line 79
     return-void
 .end method
 
@@ -94,7 +87,6 @@
 # virtual methods
 .method public add(J)V
     .locals 2
-    .param p1, "operand"    # J
 
     .line 189
     iget-wide v0, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
@@ -103,13 +95,11 @@
 
     iput-wide v0, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
 
-    .line 190
     return-void
 .end method
 
 .method public add(Ljava/lang/Number;)V
     .locals 4
-    .param p1, "operand"    # Ljava/lang/Number;
 
     .line 200
     iget-wide v0, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
@@ -122,13 +112,11 @@
 
     iput-wide v0, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
 
-    .line 201
     return-void
 .end method
 
 .method public addAndGet(J)J
     .locals 2
-    .param p1, "operand"    # J
 
     .line 233
     iget-wide v0, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
@@ -137,13 +125,11 @@
 
     iput-wide v0, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
 
-    .line 234
     return-wide v0
 .end method
 
 .method public addAndGet(Ljava/lang/Number;)J
     .locals 4
-    .param p1, "operand"    # Ljava/lang/Number;
 
     .line 247
     iget-wide v0, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
@@ -156,7 +142,6 @@
 
     iput-wide v0, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
 
-    .line 248
     return-wide v0
 .end method
 
@@ -175,7 +160,6 @@
 
 .method public compareTo(Lorg/apache/commons/lang3/mutable/MutableLong;)I
     .locals 4
-    .param p1, "other"    # Lorg/apache/commons/lang3/mutable/MutableLong;
 
     .line 368
     iget-wide v0, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
@@ -184,9 +168,9 @@
 
     invoke-static {v0, v1, v2, v3}, Lorg/apache/commons/lang3/math/NumberUtils;->compare(JJ)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public decrement()V
@@ -201,7 +185,6 @@
 
     iput-wide v0, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
 
-    .line 154
     return-void
 .end method
 
@@ -217,7 +200,6 @@
 
     iput-wide v0, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
 
-    .line 178
     return-wide v0
 .end method
 
@@ -234,37 +216,30 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 6
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 343
     instance-of v0, p1, Lorg/apache/commons/lang3/mutable/MutableLong;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     .line 344
     iget-wide v2, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
 
-    move-object v0, p1
+    check-cast p1, Lorg/apache/commons/lang3/mutable/MutableLong;
 
-    check-cast v0, Lorg/apache/commons/lang3/mutable/MutableLong;
-
-    invoke-virtual {v0}, Lorg/apache/commons/lang3/mutable/MutableLong;->longValue()J
+    invoke-virtual {p1}, Lorg/apache/commons/lang3/mutable/MutableLong;->longValue()J
 
     move-result-wide v4
 
-    cmp-long v0, v2, v4
+    cmp-long p1, v2, v4
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     const/4 v1, 0x1
 
     :cond_0
-    return v1
-
-    .line 346
-    :cond_1
     return v1
 .end method
 
@@ -280,84 +255,66 @@
 .end method
 
 .method public getAndAdd(J)J
-    .locals 4
-    .param p1, "operand"    # J
+    .locals 2
 
     .line 260
     iget-wide v0, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
 
+    add-long/2addr p1, v0
+
     .line 261
-    .local v0, "last":J
-    iget-wide v2, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
+    iput-wide p1, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
 
-    add-long/2addr v2, p1
-
-    iput-wide v2, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
-
-    .line 262
     return-wide v0
 .end method
 
 .method public getAndAdd(Ljava/lang/Number;)J
-    .locals 6
-    .param p1, "operand"    # Ljava/lang/Number;
+    .locals 4
 
     .line 275
     iget-wide v0, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
 
     .line 276
-    .local v0, "last":J
-    iget-wide v2, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
-
     invoke-virtual {p1}, Ljava/lang/Number;->longValue()J
 
-    move-result-wide v4
+    move-result-wide v2
 
-    add-long/2addr v2, v4
+    add-long/2addr v2, v0
 
     iput-wide v2, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
 
-    .line 277
     return-wide v0
 .end method
 
 .method public getAndDecrement()J
-    .locals 6
+    .locals 4
 
     .line 164
     iget-wide v0, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
 
+    const-wide/16 v2, 0x1
+
+    sub-long v2, v0, v2
+
     .line 165
-    .local v0, "last":J
-    iget-wide v2, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
-
-    const-wide/16 v4, 0x1
-
-    sub-long/2addr v2, v4
-
     iput-wide v2, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
 
-    .line 166
     return-wide v0
 .end method
 
 .method public getAndIncrement()J
-    .locals 6
+    .locals 4
 
     .line 130
     iget-wide v0, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
 
+    const-wide/16 v2, 0x1
+
+    add-long/2addr v2, v0
+
     .line 131
-    .local v0, "last":J
-    iget-wide v2, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
-
-    const-wide/16 v4, 0x1
-
-    add-long/2addr v2, v4
-
     iput-wide v2, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
 
-    .line 132
     return-wide v0
 .end method
 
@@ -414,7 +371,6 @@
 
     iput-wide v0, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
 
-    .line 120
     return-void
 .end method
 
@@ -430,7 +386,6 @@
 
     iput-wide v0, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
 
-    .line 144
     return-wide v0
 .end method
 
@@ -456,18 +411,15 @@
 
 .method public setValue(J)V
     .locals 0
-    .param p1, "value"    # J
 
     .line 98
     iput-wide p1, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
 
-    .line 99
     return-void
 .end method
 
 .method public setValue(Ljava/lang/Number;)V
     .locals 2
-    .param p1, "value"    # Ljava/lang/Number;
 
     .line 109
     invoke-virtual {p1}, Ljava/lang/Number;->longValue()J
@@ -476,7 +428,6 @@
 
     iput-wide v0, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
 
-    .line 110
     return-void
 .end method
 
@@ -493,7 +444,6 @@
 
 .method public subtract(J)V
     .locals 2
-    .param p1, "operand"    # J
 
     .line 210
     iget-wide v0, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
@@ -502,13 +452,11 @@
 
     iput-wide v0, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
 
-    .line 211
     return-void
 .end method
 
 .method public subtract(Ljava/lang/Number;)V
     .locals 4
-    .param p1, "operand"    # Ljava/lang/Number;
 
     .line 221
     iget-wide v0, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
@@ -521,7 +469,6 @@
 
     iput-wide v0, p0, Lorg/apache/commons/lang3/mutable/MutableLong;->value:J
 
-    .line 222
     return-void
 .end method
 

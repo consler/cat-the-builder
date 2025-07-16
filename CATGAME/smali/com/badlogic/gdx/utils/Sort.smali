@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public sort(Lcom/badlogic/gdx/utils/Array;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -59,7 +59,6 @@
     .end annotation
 
     .line 31
-    .local p1, "a":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<TT;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/utils/Sort;->comparableTimSort:Lcom/badlogic/gdx/utils/ComparableTimSort;
 
     if-nez v0, :cond_0
@@ -80,16 +79,15 @@
 
     const/4 v2, 0x0
 
-    iget v3, p1, Lcom/badlogic/gdx/utils/Array;->size:I
+    iget p1, p1, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/badlogic/gdx/utils/ComparableTimSort;->doSort([Ljava/lang/Object;II)V
+    invoke-virtual {v0, v1, v2, p1}, Lcom/badlogic/gdx/utils/ComparableTimSort;->doSort([Ljava/lang/Object;II)V
 
-    .line 33
     return-void
 .end method
 
 .method public sort(Lcom/badlogic/gdx/utils/Array;Ljava/util/Comparator;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -103,8 +101,6 @@
     .end annotation
 
     .line 48
-    .local p1, "a":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<TT;>;"
-    .local p2, "c":Ljava/util/Comparator;, "Ljava/util/Comparator<-TT;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/utils/Sort;->timSort:Lcom/badlogic/gdx/utils/TimSort;
 
     if-nez v0, :cond_0
@@ -125,17 +121,15 @@
 
     const/4 v2, 0x0
 
-    iget v3, p1, Lcom/badlogic/gdx/utils/Array;->size:I
+    iget p1, p1, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    invoke-virtual {v0, v1, p2, v2, v3}, Lcom/badlogic/gdx/utils/TimSort;->doSort([Ljava/lang/Object;Ljava/util/Comparator;II)V
+    invoke-virtual {v0, v1, p2, v2, p1}, Lcom/badlogic/gdx/utils/TimSort;->doSort([Ljava/lang/Object;Ljava/util/Comparator;II)V
 
-    .line 50
     return-void
 .end method
 
 .method public sort([Ljava/lang/Object;)V
     .locals 3
-    .param p1, "a"    # [Ljava/lang/Object;
 
     .line 37
     iget-object v0, p0, Lcom/badlogic/gdx/utils/Sort;->comparableTimSort:Lcom/badlogic/gdx/utils/ComparableTimSort;
@@ -158,15 +152,11 @@
 
     invoke-virtual {v0, p1, v1, v2}, Lcom/badlogic/gdx/utils/ComparableTimSort;->doSort([Ljava/lang/Object;II)V
 
-    .line 39
     return-void
 .end method
 
 .method public sort([Ljava/lang/Object;II)V
     .locals 1
-    .param p1, "a"    # [Ljava/lang/Object;
-    .param p2, "fromIndex"    # I
-    .param p3, "toIndex"    # I
 
     .line 43
     iget-object v0, p0, Lcom/badlogic/gdx/utils/Sort;->comparableTimSort:Lcom/badlogic/gdx/utils/ComparableTimSort;
@@ -185,7 +175,6 @@
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/badlogic/gdx/utils/ComparableTimSort;->doSort([Ljava/lang/Object;II)V
 
-    .line 45
     return-void
 .end method
 
@@ -202,8 +191,6 @@
     .end annotation
 
     .line 53
-    .local p1, "a":[Ljava/lang/Object;, "[TT;"
-    .local p2, "c":Ljava/util/Comparator;, "Ljava/util/Comparator<-TT;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/utils/Sort;->timSort:Lcom/badlogic/gdx/utils/TimSort;
 
     if-nez v0, :cond_0
@@ -224,14 +211,11 @@
 
     invoke-virtual {v0, p1, p2, v1, v2}, Lcom/badlogic/gdx/utils/TimSort;->doSort([Ljava/lang/Object;Ljava/util/Comparator;II)V
 
-    .line 55
     return-void
 .end method
 
 .method public sort([Ljava/lang/Object;Ljava/util/Comparator;II)V
     .locals 1
-    .param p3, "fromIndex"    # I
-    .param p4, "toIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -243,8 +227,6 @@
     .end annotation
 
     .line 58
-    .local p1, "a":[Ljava/lang/Object;, "[TT;"
-    .local p2, "c":Ljava/util/Comparator;, "Ljava/util/Comparator<-TT;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/utils/Sort;->timSort:Lcom/badlogic/gdx/utils/TimSort;
 
     if-nez v0, :cond_0
@@ -261,6 +243,5 @@
 
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/badlogic/gdx/utils/TimSort;->doSort([Ljava/lang/Object;Ljava/util/Comparator;II)V
 
-    .line 60
     return-void
 .end method

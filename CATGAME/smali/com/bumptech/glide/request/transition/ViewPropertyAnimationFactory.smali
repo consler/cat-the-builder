@@ -35,25 +35,20 @@
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/request/transition/ViewPropertyTransition$Animator;)V
     .locals 0
-    .param p1, "animator"    # Lcom/bumptech/glide/request/transition/ViewPropertyTransition$Animator;
 
     .line 14
-    .local p0, "this":Lcom/bumptech/glide/request/transition/ViewPropertyAnimationFactory;, "Lcom/bumptech/glide/request/transition/ViewPropertyAnimationFactory<TR;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 15
     iput-object p1, p0, Lcom/bumptech/glide/request/transition/ViewPropertyAnimationFactory;->animator:Lcom/bumptech/glide/request/transition/ViewPropertyTransition$Animator;
 
-    .line 16
     return-void
 .end method
 
 
 # virtual methods
 .method public build(Lcom/bumptech/glide/load/DataSource;Z)Lcom/bumptech/glide/request/transition/Transition;
-    .locals 2
-    .param p1, "dataSource"    # Lcom/bumptech/glide/load/DataSource;
-    .param p2, "isFirstResource"    # Z
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,7 +60,6 @@
     .end annotation
 
     .line 26
-    .local p0, "this":Lcom/bumptech/glide/request/transition/ViewPropertyAnimationFactory;, "Lcom/bumptech/glide/request/transition/ViewPropertyAnimationFactory<TR;>;"
     sget-object v0, Lcom/bumptech/glide/load/DataSource;->MEMORY_CACHE:Lcom/bumptech/glide/load/DataSource;
 
     if-eq p1, v0, :cond_2
@@ -76,31 +70,31 @@
 
     .line 29
     :cond_0
-    iget-object v0, p0, Lcom/bumptech/glide/request/transition/ViewPropertyAnimationFactory;->animation:Lcom/bumptech/glide/request/transition/ViewPropertyTransition;
+    iget-object p1, p0, Lcom/bumptech/glide/request/transition/ViewPropertyAnimationFactory;->animation:Lcom/bumptech/glide/request/transition/ViewPropertyTransition;
 
-    if-nez v0, :cond_1
+    if-nez p1, :cond_1
 
     .line 30
-    new-instance v0, Lcom/bumptech/glide/request/transition/ViewPropertyTransition;
+    new-instance p1, Lcom/bumptech/glide/request/transition/ViewPropertyTransition;
 
-    iget-object v1, p0, Lcom/bumptech/glide/request/transition/ViewPropertyAnimationFactory;->animator:Lcom/bumptech/glide/request/transition/ViewPropertyTransition$Animator;
+    iget-object p2, p0, Lcom/bumptech/glide/request/transition/ViewPropertyAnimationFactory;->animator:Lcom/bumptech/glide/request/transition/ViewPropertyTransition$Animator;
 
-    invoke-direct {v0, v1}, Lcom/bumptech/glide/request/transition/ViewPropertyTransition;-><init>(Lcom/bumptech/glide/request/transition/ViewPropertyTransition$Animator;)V
+    invoke-direct {p1, p2}, Lcom/bumptech/glide/request/transition/ViewPropertyTransition;-><init>(Lcom/bumptech/glide/request/transition/ViewPropertyTransition$Animator;)V
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/transition/ViewPropertyAnimationFactory;->animation:Lcom/bumptech/glide/request/transition/ViewPropertyTransition;
+    iput-object p1, p0, Lcom/bumptech/glide/request/transition/ViewPropertyAnimationFactory;->animation:Lcom/bumptech/glide/request/transition/ViewPropertyTransition;
 
     .line 33
     :cond_1
-    iget-object v0, p0, Lcom/bumptech/glide/request/transition/ViewPropertyAnimationFactory;->animation:Lcom/bumptech/glide/request/transition/ViewPropertyTransition;
+    iget-object p1, p0, Lcom/bumptech/glide/request/transition/ViewPropertyAnimationFactory;->animation:Lcom/bumptech/glide/request/transition/ViewPropertyTransition;
 
-    return-object v0
+    return-object p1
 
     .line 27
     :cond_2
     :goto_0
     invoke-static {}, Lcom/bumptech/glide/request/transition/NoTransition;->get()Lcom/bumptech/glide/request/transition/Transition;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

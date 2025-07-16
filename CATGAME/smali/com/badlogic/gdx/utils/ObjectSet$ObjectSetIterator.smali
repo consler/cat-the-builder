@@ -62,13 +62,11 @@
     .end annotation
 
     .line 521
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;, "Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator<TK;>;"
-    .local p1, "set":Lcom/badlogic/gdx/utils/ObjectSet;, "Lcom/badlogic/gdx/utils/ObjectSet<TK;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 519
     const/4 v0, 0x1
 
+    .line 519
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;->valid:Z
 
     .line 522
@@ -77,17 +75,15 @@
     .line 523
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;->reset()V
 
-    .line 524
     return-void
 .end method
 
 .method private findNextIndex()V
     .locals 4
 
-    .line 533
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;, "Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator<TK;>;"
     const/4 v0, 0x0
 
+    .line 533
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;->hasNext:Z
 
     .line 534
@@ -96,7 +92,6 @@
     iget-object v0, v0, Lcom/badlogic/gdx/utils/ObjectSet;->keyTable:[Ljava/lang/Object;
 
     .line 535
-    .local v0, "keyTable":[Ljava/lang/Object;, "[TK;"
     iget-object v1, p0, Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;->set:Lcom/badlogic/gdx/utils/ObjectSet;
 
     iget v1, v1, Lcom/badlogic/gdx/utils/ObjectSet;->capacity:I
@@ -107,7 +102,6 @@
 
     add-int/2addr v1, v2
 
-    .local v1, "n":I
     :cond_0
     iget v2, p0, Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;->nextIndex:I
 
@@ -127,8 +121,6 @@
     .line 537
     iput-boolean v3, p0, Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;->hasNext:Z
 
-    .line 541
-    .end local v1    # "n":I
     :cond_1
     return-void
 .end method
@@ -139,7 +131,6 @@
     .locals 2
 
     .line 557
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;, "Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator<TK;>;"
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;->valid:Z
 
     if-eqz v0, :cond_0
@@ -170,8 +161,6 @@
         }
     .end annotation
 
-    .line 571
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;, "Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator<TK;>;"
     return-object p0
 .end method
 
@@ -179,7 +168,6 @@
     .locals 1
 
     .line 514
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;, "Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator<TK;>;"
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;->iterator()Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;
 
     move-result-object v0
@@ -196,7 +184,6 @@
     .end annotation
 
     .line 562
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;, "Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator<TK;>;"
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;->hasNext:Z
 
     if-eqz v0, :cond_1
@@ -216,17 +203,14 @@
     aget-object v0, v0, v1
 
     .line 565
-    .local v0, "key":Ljava/lang/Object;, "TK;"
     iput v1, p0, Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;->currentIndex:I
 
     .line 566
     invoke-direct {p0}, Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;->findNextIndex()V
 
-    .line 567
     return-object v0
 
     .line 563
-    .end local v0    # "key":Ljava/lang/Object;, "TK;"
     :cond_0
     new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
@@ -249,7 +233,6 @@
     .locals 3
 
     .line 544
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;, "Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator<TK;>;"
     iget v0, p0, Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;->currentIndex:I
 
     if-ltz v0, :cond_1
@@ -292,10 +275,10 @@
 
     aput-object v2, v0, v1
 
-    .line 552
     :goto_0
     const/4 v0, -0x1
 
+    .line 552
     iput v0, p0, Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;->currentIndex:I
 
     .line 553
@@ -307,7 +290,6 @@
 
     iput v1, v0, Lcom/badlogic/gdx/utils/ObjectSet;->size:I
 
-    .line 554
     return-void
 
     .line 544
@@ -324,10 +306,9 @@
 .method public reset()V
     .locals 1
 
-    .line 527
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;, "Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator<TK;>;"
     const/4 v0, -0x1
 
+    .line 527
     iput v0, p0, Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;->currentIndex:I
 
     .line 528
@@ -336,7 +317,6 @@
     .line 529
     invoke-direct {p0}, Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;->findNextIndex()V
 
-    .line 530
     return-void
 .end method
 
@@ -351,7 +331,6 @@
     .end annotation
 
     .line 583
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;, "Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator<TK;>;"
     new-instance v0, Lcom/badlogic/gdx/utils/Array;
 
     iget-object v1, p0, Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;->set:Lcom/badlogic/gdx/utils/ObjectSet;
@@ -382,8 +361,6 @@
     .end annotation
 
     .line 576
-    .local p0, "this":Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;, "Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator<TK;>;"
-    .local p1, "array":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<TK;>;"
     :goto_0
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/ObjectSet$ObjectSetIterator;->hasNext:Z
 
@@ -398,7 +375,6 @@
 
     goto :goto_0
 
-    .line 578
     :cond_0
     return-object p1
 .end method

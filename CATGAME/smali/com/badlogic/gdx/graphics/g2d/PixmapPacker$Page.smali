@@ -46,7 +46,6 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g2d/PixmapPacker;)V
     .locals 4
-    .param p1, "packer"    # Lcom/badlogic/gdx/graphics/g2d/PixmapPacker;
 
     .line 477
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -88,16 +87,15 @@
 
     invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/g2d/PixmapPacker;->getTransparentColor()Lcom/badlogic/gdx/graphics/Color;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/graphics/Pixmap;->setColor(Lcom/badlogic/gdx/graphics/Color;)V
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/graphics/Pixmap;->setColor(Lcom/badlogic/gdx/graphics/Color;)V
 
     .line 481
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$Page;->image:Lcom/badlogic/gdx/graphics/Pixmap;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$Page;->image:Lcom/badlogic/gdx/graphics/Pixmap;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/Pixmap;->fill()V
+    invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/Pixmap;->fill()V
 
-    .line 482
     return-void
 .end method
 
@@ -141,9 +139,6 @@
 
 .method public updateTexture(Lcom/badlogic/gdx/graphics/Texture$TextureFilter;Lcom/badlogic/gdx/graphics/Texture$TextureFilter;Z)Z
     .locals 9
-    .param p1, "minFilter"    # Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
-    .param p2, "magFilter"    # Lcom/badlogic/gdx/graphics/Texture$TextureFilter;
-    .param p3, "useMipMaps"    # Z
 
     .line 502
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$Page;->texture:Lcom/badlogic/gdx/graphics/Texture;
@@ -153,9 +148,9 @@
     if-eqz v0, :cond_1
 
     .line 503
-    iget-boolean v2, p0, Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$Page;->dirty:Z
+    iget-boolean p1, p0, Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$Page;->dirty:Z
 
-    if-nez v2, :cond_0
+    if-nez p1, :cond_0
 
     return v1
 
@@ -163,9 +158,9 @@
     :cond_0
     invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/Texture;->getTextureData()Lcom/badlogic/gdx/graphics/TextureData;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v0, v2}, Lcom/badlogic/gdx/graphics/Texture;->load(Lcom/badlogic/gdx/graphics/TextureData;)V
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/graphics/Texture;->load(Lcom/badlogic/gdx/graphics/TextureData;)V
 
     goto :goto_0
 
@@ -202,8 +197,7 @@
     :goto_0
     iput-boolean v1, p0, Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$Page;->dirty:Z
 
-    .line 516
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/AsyncHttpRequest;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/AsyncHttpRequest;
 
     .line 13
     iput-object p1, p0, Lcom/koushikdutta/async/http/AsyncHttpRequest$1;->this$0:Lcom/koushikdutta/async/http/AsyncHttpRequest;
@@ -82,7 +81,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 8
+    .locals 7
 
     .line 31
     iget-object v0, p0, Lcom/koushikdutta/async/http/AsyncHttpRequest$1;->this$0:Lcom/koushikdutta/async/http/AsyncHttpRequest;
@@ -138,17 +137,15 @@
 
     move-result-object v0
 
-    .line 34
-    .local v0, "path":Ljava/lang/String;
     if-eqz v0, :cond_1
 
+    .line 34
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v5
 
     if-nez v5, :cond_2
 
-    .line 35
     :cond_1
     const-string v0, "/"
 
@@ -164,10 +161,9 @@
 
     move-result-object v5
 
-    .line 37
-    .local v5, "query":Ljava/lang/String;
     if-eqz v5, :cond_3
 
+    .line 37
     invoke-virtual {v5}, Ljava/lang/String;->length()I
 
     move-result v6
@@ -181,35 +177,41 @@
 
     invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "?"
+    move-result-object v0
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v6, "?"
 
-    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
+
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     .line 40
     :cond_3
-    sget-object v6, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+    sget-object v5, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
     new-array v3, v3, [Ljava/lang/Object;
 
-    iget-object v7, p0, Lcom/koushikdutta/async/http/AsyncHttpRequest$1;->this$0:Lcom/koushikdutta/async/http/AsyncHttpRequest;
+    iget-object v6, p0, Lcom/koushikdutta/async/http/AsyncHttpRequest$1;->this$0:Lcom/koushikdutta/async/http/AsyncHttpRequest;
 
-    invoke-static {v7}, Lcom/koushikdutta/async/http/AsyncHttpRequest;->access$000(Lcom/koushikdutta/async/http/AsyncHttpRequest;)Ljava/lang/String;
+    invoke-static {v6}, Lcom/koushikdutta/async/http/AsyncHttpRequest;->access$000(Lcom/koushikdutta/async/http/AsyncHttpRequest;)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    aput-object v7, v3, v2
+    aput-object v6, v3, v2
 
     aput-object v0, v3, v1
 
-    invoke-static {v6, v4, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v5, v4, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method

@@ -32,13 +32,11 @@
 
 # direct methods
 .method public constructor <init>(Ljava/nio/ByteBuffer;Z)V
-    .locals 2
-    .param p1, "bytebuf"    # Ljava/nio/ByteBuffer;
-    .param p2, "bufferIsImmutable"    # Z
+    .locals 1
 
-    .line 100
     const/4 v0, 0x0
 
+    .line 100
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader;-><init>(Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$1;)V
 
     .line 101
@@ -47,39 +45,38 @@
     .line 102
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->array()[B
 
-    move-result-object v0
+    move-result-object p2
 
-    iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->buffer:[B
+    iput-object p2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->buffer:[B
 
     .line 103
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->arrayOffset()I
 
-    move-result v0
+    move-result p2
 
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->position()I
 
-    move-result v1
+    move-result v0
 
-    add-int/2addr v0, v1
+    add-int/2addr p2, v0
 
-    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iput p2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->initialPos:I
+    iput p2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->initialPos:I
 
     .line 104
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->arrayOffset()I
 
-    move-result v0
+    move-result p2
 
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->limit()I
 
-    move-result v1
+    move-result p1
 
-    add-int/2addr v0, v1
+    add-int/2addr p2, p1
 
-    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->limit:I
+    iput p2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->limit:I
 
-    .line 105
     return-void
 .end method
 
@@ -140,9 +137,7 @@
 .end method
 
 .method private readField(Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;Ljava/lang/Class;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
-    .locals 2
-    .param p1, "fieldType"    # Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;
-    .param p3, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -162,217 +157,216 @@
     .end annotation
 
     .line 1453
-    .local p2, "messageType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     sget-object v0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$1;->$SwitchMap$com$google$protobuf$WireFormat$FieldType:[I
 
     invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;->ordinal()I
 
-    move-result v1
+    move-result p1
 
-    aget v0, v0, v1
+    aget p1, v0, p1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch p1, :pswitch_data_0
 
     .line 1489
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    const-string v1, "unsupported field type."
+    const-string p2, "unsupported field type."
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 1487
     :pswitch_0
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readUInt64()J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 1485
     :pswitch_1
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readUInt32()I
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 1483
     :pswitch_2
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readStringRequireUtf8()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 1481
     :pswitch_3
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readSInt64()J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 1479
     :pswitch_4
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readSInt32()I
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 1477
     :pswitch_5
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readSFixed64()J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 1475
     :pswitch_6
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readSFixed32()I
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 1473
     :pswitch_7
     invoke-virtual {p0, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readMessage(Ljava/lang/Class;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 1471
     :pswitch_8
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readInt64()J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 1469
     :pswitch_9
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readInt32()I
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 1467
     :pswitch_a
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readFloat()F
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 1465
     :pswitch_b
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readFixed64()J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 1463
     :pswitch_c
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readFixed32()I
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 1461
     :pswitch_d
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readEnum()I
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 1459
     :pswitch_e
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readDouble()D
 
-    move-result-wide v0
+    move-result-wide p1
 
-    invoke-static {v0, v1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+    invoke-static {p1, p2}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 1457
     :pswitch_f
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readBytes()Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 1455
     :pswitch_10
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readBool()Z
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -397,8 +391,7 @@
 .end method
 
 .method private readGroup(Lcom/google/crypto/tink/shaded/protobuf/Schema;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
-    .locals 4
-    .param p2, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -418,11 +411,9 @@
     .end annotation
 
     .line 290
-    .local p1, "schema":Lcom/google/crypto/tink/shaded/protobuf/Schema;, "Lcom/google/crypto/tink/shaded/protobuf/Schema<TT;>;"
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->endGroupTag:I
 
     .line 291
-    .local v0, "prevEndGroupTag":I
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
     invoke-static {v1}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagFieldNumber(I)I
@@ -444,28 +435,23 @@
     move-result-object v1
 
     .line 296
-    .local v1, "message":Ljava/lang/Object;, "TT;"
     invoke-interface {p1, v1, p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/Schema;->mergeFrom(Ljava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/Reader;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)V
 
     .line 297
     invoke-interface {p1, v1}, Lcom/google/crypto/tink/shaded/protobuf/Schema;->makeImmutable(Ljava/lang/Object;)V
 
     .line 299
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->endGroupTag:I
+    iget p2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->endGroupTag:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-ne v2, v3, :cond_0
-
-    .line 302
-    nop
+    if-ne p1, p2, :cond_0
 
     .line 305
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->endGroupTag:I
 
-    .line 302
     return-object v1
 
     .line 300
@@ -473,27 +459,20 @@
     :try_start_1
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->parseFailure()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v2
+    move-result-object p1
 
-    .end local v0    # "prevEndGroupTag":I
-    .end local p1    # "schema":Lcom/google/crypto/tink/shaded/protobuf/Schema;, "Lcom/google/crypto/tink/shaded/protobuf/Schema<TT;>;"
-    .end local p2    # "extensionRegistry":Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
-    throw v2
+    throw p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 305
-    .end local v1    # "message":Ljava/lang/Object;, "TT;"
-    .restart local v0    # "prevEndGroupTag":I
-    .restart local p1    # "schema":Lcom/google/crypto/tink/shaded/protobuf/Schema;, "Lcom/google/crypto/tink/shaded/protobuf/Schema<TT;>;"
-    .restart local p2    # "extensionRegistry":Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     :catchall_0
-    move-exception v1
+    move-exception p1
 
+    .line 305
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->endGroupTag:I
 
     .line 306
-    throw v1
+    throw p1
 .end method
 
 .method private readLittleEndian32()I
@@ -504,9 +483,9 @@
         }
     .end annotation
 
-    .line 1619
     const/4 v0, 0x4
 
+    .line 1619
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireBytes(I)V
 
     .line 1620
@@ -524,13 +503,11 @@
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 1630
-    .local v0, "p":I
     iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->buffer:[B
 
-    .line 1631
-    .local v1, "buffer":[B
     add-int/lit8 v2, v0, 0x4
 
+    .line 1631
     iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 1632
@@ -558,17 +535,17 @@
 
     or-int/2addr v2, v3
 
-    add-int/lit8 v3, v0, 0x3
+    add-int/lit8 v0, v0, 0x3
 
-    aget-byte v3, v1, v3
+    aget-byte v0, v1, v0
 
-    and-int/lit16 v3, v3, 0xff
+    and-int/lit16 v0, v0, 0xff
 
-    shl-int/lit8 v3, v3, 0x18
+    shl-int/lit8 v0, v0, 0x18
 
-    or-int/2addr v2, v3
+    or-int/2addr v0, v2
 
-    return v2
+    return v0
 .end method
 
 .method private readLittleEndian64()J
@@ -579,9 +556,9 @@
         }
     .end annotation
 
-    .line 1624
     const/16 v0, 0x8
 
+    .line 1624
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireBytes(I)V
 
     .line 1625
@@ -599,13 +576,11 @@
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 1640
-    .local v0, "p":I
     iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->buffer:[B
 
-    .line 1641
-    .local v1, "buffer":[B
     add-int/lit8 v2, v0, 0x8
 
+    .line 1641
     iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 1642
@@ -701,26 +676,25 @@
 
     or-long/2addr v2, v6
 
-    add-int/lit8 v6, v0, 0x7
+    add-int/lit8 v0, v0, 0x7
 
-    aget-byte v6, v1, v6
+    aget-byte v0, v1, v0
 
-    int-to-long v6, v6
+    int-to-long v0, v0
 
-    and-long/2addr v4, v6
+    and-long/2addr v0, v4
 
-    const/16 v6, 0x38
+    const/16 v4, 0x38
 
-    shl-long/2addr v4, v6
+    shl-long/2addr v0, v4
 
-    or-long/2addr v2, v4
+    or-long/2addr v0, v2
 
-    return-wide v2
+    return-wide v0
 .end method
 
 .method private readMessage(Lcom/google/crypto/tink/shaded/protobuf/Schema;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
-    .locals 5
-    .param p2, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -740,91 +714,71 @@
     .end annotation
 
     .line 250
-    .local p1, "schema":Lcom/google/crypto/tink/shaded/protobuf/Schema;, "Lcom/google/crypto/tink/shaded/protobuf/Schema<TT;>;"
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
     move-result v0
 
     .line 251
-    .local v0, "size":I
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireBytes(I)V
 
     .line 254
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->limit:I
 
     .line 255
-    .local v1, "prevLimit":I
     iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     add-int/2addr v2, v0
 
     .line 256
-    .local v2, "newLimit":I
     iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->limit:I
 
     .line 260
     :try_start_0
     invoke-interface {p1}, Lcom/google/crypto/tink/shaded/protobuf/Schema;->newInstance()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v0
 
     .line 261
-    .local v3, "message":Ljava/lang/Object;, "TT;"
-    invoke-interface {p1, v3, p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/Schema;->mergeFrom(Ljava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/Reader;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)V
+    invoke-interface {p1, v0, p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/Schema;->mergeFrom(Ljava/lang/Object;Lcom/google/crypto/tink/shaded/protobuf/Reader;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)V
 
     .line 262
-    invoke-interface {p1, v3}, Lcom/google/crypto/tink/shaded/protobuf/Schema;->makeImmutable(Ljava/lang/Object;)V
+    invoke-interface {p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/Schema;->makeImmutable(Ljava/lang/Object;)V
 
     .line 264
-    iget v4, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-ne v4, v2, :cond_0
-
-    .line 267
-    nop
+    if-ne p1, v2, :cond_0
 
     .line 270
     iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->limit:I
 
-    .line 267
-    return-object v3
+    return-object v0
 
     .line 265
     :cond_0
     :try_start_1
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->parseFailure()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v4
+    move-result-object p1
 
-    .end local v0    # "size":I
-    .end local v1    # "prevLimit":I
-    .end local v2    # "newLimit":I
-    .end local p1    # "schema":Lcom/google/crypto/tink/shaded/protobuf/Schema;, "Lcom/google/crypto/tink/shaded/protobuf/Schema<TT;>;"
-    .end local p2    # "extensionRegistry":Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
-    throw v4
+    throw p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 270
-    .end local v3    # "message":Ljava/lang/Object;, "TT;"
-    .restart local v0    # "size":I
-    .restart local v1    # "prevLimit":I
-    .restart local v2    # "newLimit":I
-    .restart local p1    # "schema":Lcom/google/crypto/tink/shaded/protobuf/Schema;, "Lcom/google/crypto/tink/shaded/protobuf/Schema<TT;>;"
-    .restart local p2    # "extensionRegistry":Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     :catchall_0
-    move-exception v3
+    move-exception p1
 
+    .line 270
     iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->limit:I
 
     .line 271
-    throw v3
+    throw p1
 .end method
 
 .method private readVarint32()I
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -835,40 +789,30 @@
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 1498
-    .local v0, "i":I
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->limit:I
 
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
-
-    if-eq v1, v2, :cond_8
+    if-eq v1, v0, :cond_8
 
     .line 1503
     iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->buffer:[B
 
     add-int/lit8 v3, v0, 0x1
 
-    .end local v0    # "i":I
-    .local v3, "i":I
     aget-byte v0, v2, v0
 
-    move v4, v0
-
-    .local v4, "x":I
     if-ltz v0, :cond_0
 
     .line 1504
     iput v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 1505
-    return v4
+    return v0
 
-    .line 1506
     :cond_0
     sub-int/2addr v1, v3
 
-    const/16 v0, 0x9
+    const/16 v4, 0x9
 
-    if-ge v1, v0, :cond_1
+    if-ge v1, v4, :cond_1
 
     .line 1507
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint64SlowPath()J
@@ -879,197 +823,130 @@
 
     return v0
 
-    .line 1508
     :cond_1
-    add-int/lit8 v0, v3, 0x1
+    add-int/lit8 v1, v3, 0x1
 
-    .end local v3    # "i":I
-    .restart local v0    # "i":I
-    aget-byte v1, v2, v3
+    .line 1508
+    aget-byte v3, v2, v3
 
-    shl-int/lit8 v1, v1, 0x7
-
-    xor-int/2addr v1, v4
-
-    move v3, v1
-
-    .end local v4    # "x":I
-    .local v3, "x":I
-    if-gez v1, :cond_2
-
-    .line 1509
-    xor-int/lit8 v1, v3, -0x80
-
-    .end local v3    # "x":I
-    .local v1, "x":I
-    goto :goto_1
-
-    .line 1510
-    .end local v1    # "x":I
-    .restart local v3    # "x":I
-    :cond_2
-    add-int/lit8 v1, v0, 0x1
-
-    .end local v0    # "i":I
-    .local v1, "i":I
-    aget-byte v0, v2, v0
-
-    shl-int/lit8 v0, v0, 0xe
+    shl-int/lit8 v3, v3, 0x7
 
     xor-int/2addr v0, v3
 
-    move v3, v0
+    if-gez v0, :cond_2
 
-    if-ltz v0, :cond_3
+    xor-int/lit8 v0, v0, -0x80
 
-    .line 1511
-    xor-int/lit16 v0, v3, 0x3f80
+    goto :goto_0
 
-    move v5, v1
+    :cond_2
+    add-int/lit8 v3, v1, 0x1
 
-    move v1, v0
+    .line 1510
+    aget-byte v1, v2, v1
 
-    move v0, v5
+    shl-int/lit8 v1, v1, 0xe
 
-    .end local v3    # "x":I
-    .local v0, "x":I
-    goto :goto_1
+    xor-int/2addr v0, v1
+
+    if-ltz v0, :cond_4
+
+    xor-int/lit16 v0, v0, 0x3f80
+
+    :cond_3
+    move v1, v3
+
+    goto :goto_0
+
+    :cond_4
+    add-int/lit8 v1, v3, 0x1
 
     .line 1512
-    .end local v0    # "x":I
-    .restart local v3    # "x":I
-    :cond_3
-    add-int/lit8 v0, v1, 0x1
+    aget-byte v3, v2, v3
 
-    .end local v1    # "i":I
-    .local v0, "i":I
-    aget-byte v1, v2, v1
+    shl-int/lit8 v3, v3, 0x15
 
-    shl-int/lit8 v1, v1, 0x15
+    xor-int/2addr v0, v3
 
-    xor-int/2addr v1, v3
+    if-gez v0, :cond_5
 
-    move v3, v1
+    const v2, -0x1fc080
 
-    if-gez v1, :cond_4
+    xor-int/2addr v0, v2
 
-    .line 1513
-    const v1, -0x1fc080
+    goto :goto_0
 
-    xor-int/2addr v1, v3
-
-    .end local v3    # "x":I
-    .local v1, "x":I
-    goto :goto_1
+    :cond_5
+    add-int/lit8 v3, v1, 0x1
 
     .line 1515
-    .end local v1    # "x":I
-    .restart local v3    # "x":I
-    :cond_4
-    add-int/lit8 v1, v0, 0x1
+    aget-byte v1, v2, v1
 
-    .end local v0    # "i":I
-    .local v1, "i":I
-    aget-byte v0, v2, v0
+    shl-int/lit8 v4, v1, 0x1c
 
-    .line 1516
-    .local v0, "y":I
-    shl-int/lit8 v4, v0, 0x1c
+    xor-int/2addr v0, v4
 
-    xor-int/2addr v3, v4
-
-    .line 1517
     const v4, 0xfe03f80
 
-    xor-int/2addr v3, v4
+    xor-int/2addr v0, v4
+
+    if-gez v1, :cond_3
+
+    add-int/lit8 v1, v3, 0x1
 
     .line 1518
-    if-gez v0, :cond_7
+    aget-byte v3, v2, v3
 
-    add-int/lit8 v4, v1, 0x1
+    if-gez v3, :cond_7
 
-    .end local v1    # "i":I
-    .local v4, "i":I
+    add-int/lit8 v3, v1, 0x1
+
     aget-byte v1, v2, v1
 
-    if-gez v1, :cond_6
+    if-gez v1, :cond_3
 
-    add-int/lit8 v1, v4, 0x1
+    add-int/lit8 v1, v3, 0x1
 
-    .end local v4    # "i":I
-    .restart local v1    # "i":I
-    aget-byte v4, v2, v4
+    aget-byte v3, v2, v3
 
-    if-gez v4, :cond_7
+    if-gez v3, :cond_7
 
-    add-int/lit8 v4, v1, 0x1
+    add-int/lit8 v3, v1, 0x1
 
-    .end local v1    # "i":I
-    .restart local v4    # "i":I
     aget-byte v1, v2, v1
 
-    if-gez v1, :cond_6
+    if-gez v1, :cond_3
 
-    add-int/lit8 v1, v4, 0x1
+    add-int/lit8 v1, v3, 0x1
 
-    .end local v4    # "i":I
-    .restart local v1    # "i":I
-    aget-byte v4, v2, v4
+    aget-byte v2, v2, v3
 
-    if-gez v4, :cond_7
-
-    add-int/lit8 v4, v1, 0x1
-
-    .end local v1    # "i":I
-    .restart local v4    # "i":I
-    aget-byte v1, v2, v1
-
-    if-ltz v1, :cond_5
+    if-ltz v2, :cond_6
 
     goto :goto_0
 
     .line 1524
-    :cond_5
+    :cond_6
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->malformedVarint()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
-
-    .line 1518
-    :cond_6
-    :goto_0
-    move v1, v3
-
-    move v0, v4
-
-    goto :goto_1
-
-    .end local v4    # "i":I
-    .restart local v1    # "i":I
-    :cond_7
-    move v0, v1
-
-    move v1, v3
+    throw v0
 
     .line 1527
-    .end local v3    # "x":I
-    .local v0, "i":I
-    .local v1, "x":I
-    :goto_1
-    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    :cond_7
+    :goto_0
+    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 1528
-    return v1
+    return v0
 
     .line 1499
-    .end local v1    # "x":I
     :cond_8
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 .end method
 
 .method private readVarint64SlowPath()J
@@ -1080,14 +957,10 @@
         }
     .end annotation
 
-    .line 1600
     const-wide/16 v0, 0x0
 
-    .line 1601
-    .local v0, "result":J
     const/4 v2, 0x0
 
-    .local v2, "shift":I
     :goto_0
     const/16 v3, 0x40
 
@@ -1098,8 +971,6 @@
 
     move-result v3
 
-    .line 1603
-    .local v3, "b":B
     and-int/lit8 v4, v3, 0x7f
 
     int-to-long v4, v4
@@ -1108,43 +979,37 @@
 
     or-long/2addr v0, v4
 
-    .line 1604
-    and-int/lit16 v4, v3, 0x80
+    and-int/lit16 v3, v3, 0x80
 
-    if-nez v4, :cond_0
+    if-nez v3, :cond_0
 
-    .line 1605
     return-wide v0
 
-    .line 1601
-    .end local v3    # "b":B
     :cond_0
     add-int/lit8 v2, v2, 0x7
 
     goto :goto_0
 
     .line 1608
-    .end local v2    # "shift":I
     :cond_1
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->malformedVarint()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v2
+    move-result-object v0
 
-    throw v2
+    throw v0
 .end method
 
 .method private requireBytes(I)V
     .locals 2
-    .param p1, "size"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 1696
     if-ltz p1, :cond_0
 
+    .line 1696
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->limit:I
 
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
@@ -1153,21 +1018,19 @@
 
     if-gt p1, v0, :cond_0
 
-    .line 1699
     return-void
 
     .line 1697
     :cond_0
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 .end method
 
 .method private requirePosition(I)V
     .locals 1
-    .param p1, "expectedPosition"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1179,21 +1042,19 @@
 
     if-ne v0, p1, :cond_0
 
-    .line 1727
     return-void
 
     .line 1725
     :cond_0
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 .end method
 
 .method private requireWireType(I)V
     .locals 1
-    .param p1, "requiredWireType"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1209,21 +1070,19 @@
 
     if-ne v0, p1, :cond_0
 
-    .line 1705
     return-void
 
     .line 1703
     :cond_0
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 .end method
 
 .method private skipBytes(I)V
     .locals 1
-    .param p1, "size"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1240,7 +1099,6 @@
 
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 1679
     return-void
 .end method
 
@@ -1256,7 +1114,6 @@
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->endGroupTag:I
 
     .line 1683
-    .local v0, "prevEndGroupTag":I
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
     invoke-static {v1}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagFieldNumber(I)I
@@ -1298,16 +1155,15 @@
     .line 1692
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->endGroupTag:I
 
-    .line 1693
     return-void
 
     .line 1690
     :cond_2
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->parseFailure()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 .end method
 
 .method private skipVarint()V
@@ -1325,56 +1181,41 @@
 
     sub-int/2addr v0, v1
 
-    const/16 v1, 0xa
+    const/16 v2, 0xa
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v2, :cond_1
 
     .line 1654
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->buffer:[B
 
-    .line 1655
-    .local v0, "buffer":[B
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
-
-    .line 1656
-    .local v2, "p":I
     const/4 v3, 0x0
 
-    .local v3, "i":I
     :goto_0
-    if-ge v3, v1, :cond_1
+    if-ge v3, v2, :cond_1
+
+    add-int/lit8 v4, v1, 0x1
 
     .line 1657
-    add-int/lit8 v4, v2, 0x1
+    aget-byte v1, v0, v1
 
-    .end local v2    # "p":I
-    .local v4, "p":I
-    aget-byte v2, v0, v2
-
-    if-ltz v2, :cond_0
+    if-ltz v1, :cond_0
 
     .line 1658
     iput v4, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 1659
     return-void
 
-    .line 1656
     :cond_0
     add-int/lit8 v3, v3, 0x1
 
-    move v2, v4
+    move v1, v4
 
     goto :goto_0
 
     .line 1663
-    .end local v0    # "buffer":[B
-    .end local v3    # "i":I
-    .end local v4    # "p":I
     :cond_1
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->skipVarintSlowPath()V
 
-    .line 1664
     return-void
 .end method
 
@@ -1386,10 +1227,8 @@
         }
     .end annotation
 
-    .line 1667
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     const/16 v1, 0xa
 
@@ -1402,17 +1241,14 @@
 
     if-ltz v1, :cond_0
 
-    .line 1669
     return-void
 
-    .line 1667
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 1672
-    .end local v0    # "i":I
     :cond_1
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->malformedVarint()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
@@ -1422,8 +1258,7 @@
 .end method
 
 .method private verifyPackedFixed32Length(I)V
-    .locals 1
-    .param p1, "bytes"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1433,26 +1268,23 @@
     .line 1716
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireBytes(I)V
 
-    .line 1717
-    and-int/lit8 v0, p1, 0x3
+    and-int/lit8 p1, p1, 0x3
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    .line 1721
     return-void
 
     .line 1719
     :cond_0
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->parseFailure()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 .end method
 
 .method private verifyPackedFixed64Length(I)V
-    .locals 1
-    .param p1, "bytes"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1462,21 +1294,19 @@
     .line 1708
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireBytes(I)V
 
-    .line 1709
-    and-int/lit8 v0, p1, 0x7
+    and-int/lit8 p1, p1, 0x7
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    .line 1713
     return-void
 
     .line 1711
     :cond_0
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->parseFailure()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -1498,7 +1328,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 119
     return v1
 
     .line 121
@@ -1514,7 +1343,6 @@
 
     if-ne v0, v2, :cond_1
 
-    .line 123
     return v1
 
     .line 125
@@ -1556,9 +1384,9 @@
         }
     .end annotation
 
-    .line 204
     const/4 v0, 0x0
 
+    .line 204
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
 
     .line 205
@@ -1575,7 +1403,7 @@
 .end method
 
 .method public readBoolList(Ljava/util/List;)V
-    .locals 6
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1592,7 +1420,6 @@
     .end annotation
 
     .line 812
-    .local p1, "target":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Boolean;>;"
     instance-of v0, p1, Lcom/google/crypto/tink/shaded/protobuf/BooleanArrayList;
 
     const/4 v1, 0x1
@@ -1601,7 +1428,7 @@
 
     const/4 v3, 0x2
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_5
 
     .line 813
     move-object v0, p1
@@ -1609,135 +1436,112 @@
     check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/BooleanArrayList;
 
     .line 814
-    .local v0, "plist":Lcom/google/crypto/tink/shaded/protobuf/BooleanArrayList;
-    iget v4, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    invoke-static {v4}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
+    invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
-    move-result v4
+    move-result p1
 
-    if-eqz v4, :cond_3
+    if-eqz p1, :cond_3
 
-    if-ne v4, v3, :cond_2
+    if-ne p1, v3, :cond_2
 
     .line 816
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v3
+    move-result p1
 
     .line 817
-    .local v3, "bytes":I
-    iget v4, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    add-int/2addr v4, v3
+    add-int/2addr v3, p1
 
     .line 818
-    .local v4, "fieldEndPos":I
     :goto_0
-    iget v5, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v5, v4, :cond_1
+    if-ge p1, v3, :cond_1
 
     .line 819
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v5
+    move-result p1
 
-    if-eqz v5, :cond_0
+    if-eqz p1, :cond_0
 
-    move v5, v1
+    move p1, v1
 
     goto :goto_1
 
     :cond_0
-    move v5, v2
+    move p1, v2
 
     :goto_1
-    invoke-virtual {v0, v5}, Lcom/google/crypto/tink/shaded/protobuf/BooleanArrayList;->addBoolean(Z)V
+    invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/BooleanArrayList;->addBoolean(Z)V
 
     goto :goto_0
 
     .line 821
     :cond_1
-    invoke-direct {p0, v4}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requirePosition(I)V
+    invoke-direct {p0, v3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requirePosition(I)V
 
-    .line 822
-    nop
-
-    .line 842
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/BooleanArrayList;
-    .end local v3    # "bytes":I
-    .end local v4    # "fieldEndPos":I
-    goto :goto_5
+    goto :goto_4
 
     .line 840
-    .restart local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/BooleanArrayList;
     :cond_2
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 
     .line 825
     :cond_3
-    :goto_2
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readBool()Z
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BooleanArrayList;->addBoolean(Z)V
+    invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/BooleanArrayList;->addBoolean(Z)V
 
     .line 827
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_4
+    if-eqz p1, :cond_4
 
-    .line 828
     return-void
 
     .line 830
     :cond_4
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 831
-    .local v1, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v2
+    move-result v1
 
     .line 832
-    .local v2, "nextTag":I
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v2, v3, :cond_5
+    if-eq v1, v2, :cond_3
 
     .line 835
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 836
     return-void
 
-    .line 838
-    .end local v1    # "prevPos":I
-    .end local v2    # "nextTag":I
-    :cond_5
-    goto :goto_2
-
     .line 843
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/BooleanArrayList;
-    :cond_6
+    :cond_5
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_9
 
-    if-ne v0, v3, :cond_9
+    if-ne v0, v3, :cond_8
 
     .line 845
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
@@ -1745,65 +1549,56 @@
     move-result v0
 
     .line 846
-    .local v0, "bytes":I
     iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     add-int/2addr v3, v0
 
     .line 847
-    .local v3, "fieldEndPos":I
-    :goto_3
-    iget v4, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    :goto_2
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v4, v3, :cond_8
+    if-ge v0, v3, :cond_7
 
     .line 848
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_7
+    if-eqz v0, :cond_6
 
-    move v4, v1
-
-    goto :goto_4
-
-    :cond_7
-    move v4, v2
-
-    :goto_4
-    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v4
-
-    invoke-interface {p1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    move v0, v1
 
     goto :goto_3
 
-    .line 850
-    :cond_8
-    invoke-direct {p0, v3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requirePosition(I)V
+    :cond_6
+    move v0, v2
 
-    .line 851
-    nop
-
-    .line 872
-    .end local v0    # "bytes":I
-    .end local v3    # "fieldEndPos":I
-    :goto_5
-    return-void
-
-    .line 869
-    :cond_9
-    invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+    :goto_3
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
-    throw v0
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_2
+
+    .line 850
+    :cond_7
+    invoke-direct {p0, v3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requirePosition(I)V
+
+    :goto_4
+    return-void
+
+    .line 869
+    :cond_8
+    invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+
+    move-result-object p1
+
+    throw p1
 
     .line 854
-    :cond_a
-    :goto_6
+    :cond_9
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readBool()Z
 
     move-result v0
@@ -1819,38 +1614,28 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_a
 
-    .line 857
     return-void
 
     .line 859
-    :cond_b
+    :cond_a
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 860
-    .local v0, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
     move-result v1
 
     .line 861
-    .local v1, "nextTag":I
     iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v1, v2, :cond_c
+    if-eq v1, v2, :cond_9
 
     .line 864
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 865
     return-void
-
-    .line 867
-    .end local v0    # "prevPos":I
-    .end local v1    # "nextTag":I
-    :cond_c
-    goto :goto_6
 .end method
 
 .method public readBytes()Lcom/google/crypto/tink/shaded/protobuf/ByteString;
@@ -1861,9 +1646,9 @@
         }
     .end annotation
 
-    .line 311
     const/4 v0, 0x2
 
+    .line 311
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
 
     .line 312
@@ -1871,14 +1656,12 @@
 
     move-result v0
 
-    .line 313
-    .local v0, "size":I
     if-nez v0, :cond_0
 
     .line 314
-    sget-object v1, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->EMPTY:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    sget-object v0, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->EMPTY:Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    return-object v1
+    return-object v0
 
     .line 317
     :cond_0
@@ -1910,18 +1693,14 @@
 
     move-result-object v1
 
-    :goto_0
-    nop
-
     .line 322
-    .local v1, "bytes":Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    :goto_0
     iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     add-int/2addr v2, v0
 
     iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 323
     return-object v1
 .end method
 
@@ -1943,7 +1722,6 @@
     .end annotation
 
     .line 994
-    .local p1, "target":Ljava/util/List;, "Ljava/util/List<Lcom/google/crypto/tink/shaded/protobuf/ByteString;>;"
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
@@ -1955,7 +1733,7 @@
     if-ne v0, v1, :cond_2
 
     .line 999
-    :goto_0
+    :cond_0
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readBytes()Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
     move-result-object v0
@@ -1967,46 +1745,36 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
-    .line 1002
     return-void
 
     .line 1004
-    :cond_0
+    :cond_1
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 1005
-    .local v0, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
     move-result v1
 
     .line 1006
-    .local v1, "nextTag":I
     iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_0
 
     .line 1009
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 1010
     return-void
-
-    .line 1012
-    .end local v0    # "prevPos":I
-    .end local v1    # "nextTag":I
-    :cond_1
-    goto :goto_0
 
     .line 995
     :cond_2
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 .end method
 
 .method public readDouble()D
@@ -2017,9 +1785,9 @@
         }
     .end annotation
 
-    .line 162
     const/4 v0, 0x1
 
+    .line 162
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
 
     .line 163
@@ -2035,7 +1803,7 @@
 .end method
 
 .method public readDoubleList(Ljava/util/List;)V
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2052,14 +1820,13 @@
     .end annotation
 
     .line 364
-    .local p1, "target":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Double;>;"
     instance-of v0, p1, Lcom/google/crypto/tink/shaded/protobuf/DoubleArrayList;
 
     const/4 v1, 0x2
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_3
 
     .line 365
     move-object v0, p1
@@ -2067,70 +1834,58 @@
     check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/DoubleArrayList;
 
     .line 366
-    .local v0, "plist":Lcom/google/crypto/tink/shaded/protobuf/DoubleArrayList;
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    invoke-static {v3}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
+    invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
-    move-result v3
+    move-result p1
 
-    if-eq v3, v2, :cond_2
+    if-eq p1, v2, :cond_1
 
-    if-ne v3, v1, :cond_1
+    if-ne p1, v1, :cond_0
 
     .line 368
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v1
+    move-result p1
 
     .line 369
-    .local v1, "bytes":I
-    invoke-direct {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed64Length(I)V
+    invoke-direct {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed64Length(I)V
 
     .line 370
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    add-int/2addr v2, v1
+    add-int/2addr v1, p1
 
     .line 371
-    .local v2, "fieldEndPos":I
     :goto_0
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v3, v2, :cond_0
+    if-ge p1, v1, :cond_4
 
     .line 372
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian64_NoCheck()J
 
-    move-result-wide v3
+    move-result-wide v2
 
-    invoke-static {v3, v4}, Ljava/lang/Double;->longBitsToDouble(J)D
+    invoke-static {v2, v3}, Ljava/lang/Double;->longBitsToDouble(J)D
 
-    move-result-wide v3
+    move-result-wide v2
 
-    invoke-virtual {v0, v3, v4}, Lcom/google/crypto/tink/shaded/protobuf/DoubleArrayList;->addDouble(D)V
+    invoke-virtual {v0, v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/DoubleArrayList;->addDouble(D)V
 
     goto :goto_0
 
-    .line 394
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/DoubleArrayList;
-    .end local v1    # "bytes":I
-    .end local v2    # "fieldEndPos":I
-    :cond_0
-    goto :goto_3
-
     .line 392
-    .restart local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/DoubleArrayList;
-    :cond_1
+    :cond_0
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 
     .line 377
-    :cond_2
-    :goto_1
+    :cond_1
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readDouble()D
 
     move-result-wide v1
@@ -2140,53 +1895,42 @@
     .line 379
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_3
+    if-eqz p1, :cond_2
 
-    .line 380
     return-void
 
     .line 382
-    :cond_3
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    :cond_2
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 383
-    .local v1, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v2
+    move-result v1
 
     .line 384
-    .local v2, "nextTag":I
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v2, v3, :cond_4
+    if-eq v1, v2, :cond_1
 
     .line 387
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 388
     return-void
 
-    .line 390
-    .end local v1    # "prevPos":I
-    .end local v2    # "nextTag":I
-    :cond_4
-    goto :goto_1
-
     .line 395
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/DoubleArrayList;
-    :cond_5
+    :cond_3
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
     move-result v0
 
-    if-eq v0, v2, :cond_8
+    if-eq v0, v2, :cond_6
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_5
 
     .line 397
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
@@ -2194,7 +1938,6 @@
     move-result v0
 
     .line 398
-    .local v0, "bytes":I
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed64Length(I)V
 
     .line 399
@@ -2203,11 +1946,10 @@
     add-int/2addr v1, v0
 
     .line 400
-    .local v1, "fieldEndPos":I
-    :goto_2
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    :goto_1
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v2, v1, :cond_6
+    if-ge v0, v1, :cond_4
 
     .line 401
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian64_NoCheck()J
@@ -2220,30 +1962,25 @@
 
     invoke-static {v2, v3}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {p1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_1
 
-    .line 424
-    .end local v0    # "bytes":I
-    .end local v1    # "fieldEndPos":I
-    :cond_6
-    :goto_3
+    :cond_4
     return-void
 
     .line 421
-    :cond_7
+    :cond_5
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 
     .line 406
-    :cond_8
-    :goto_4
+    :cond_6
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readDouble()D
 
     move-result-wide v0
@@ -2259,38 +1996,28 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_7
 
-    .line 409
     return-void
 
     .line 411
-    :cond_9
+    :cond_7
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 412
-    .local v0, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
     move-result v1
 
     .line 413
-    .local v1, "nextTag":I
     iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v1, v2, :cond_a
+    if-eq v1, v2, :cond_6
 
     .line 416
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 417
     return-void
-
-    .line 419
-    .end local v0    # "prevPos":I
-    .end local v1    # "nextTag":I
-    :cond_a
-    goto :goto_4
 .end method
 
 .method public readEnum()I
@@ -2301,9 +2028,9 @@
         }
     .end annotation
 
-    .line 334
     const/4 v0, 0x0
 
+    .line 334
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
 
     .line 335
@@ -2315,7 +2042,7 @@
 .end method
 
 .method public readEnumList(Ljava/util/List;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2332,12 +2059,11 @@
     .end annotation
 
     .line 1079
-    .local p1, "target":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     instance-of v0, p1, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
 
     const/4 v1, 0x2
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_3
 
     .line 1080
     move-object v0, p1
@@ -2345,119 +2071,96 @@
     check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
 
     .line 1081
-    .local v0, "plist":Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    invoke-static {v2}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
+    invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_2
+    if-eqz p1, :cond_1
 
-    if-ne v2, v1, :cond_1
+    if-ne p1, v1, :cond_0
 
     .line 1083
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v1
+    move-result p1
 
     .line 1084
-    .local v1, "bytes":I
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    add-int/2addr v2, v1
+    add-int/2addr v1, p1
 
     .line 1085
-    .local v2, "fieldEndPos":I
     :goto_0
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v3, v2, :cond_0
+    if-ge p1, v1, :cond_4
 
     .line 1086
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v3
+    move-result p1
 
-    invoke-virtual {v0, v3}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->addInt(I)V
+    invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->addInt(I)V
 
     goto :goto_0
 
-    .line 1108
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-    .end local v1    # "bytes":I
-    .end local v2    # "fieldEndPos":I
-    :cond_0
-    goto :goto_3
-
     .line 1106
-    .restart local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-    :cond_1
+    :cond_0
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 
     .line 1091
-    :cond_2
-    :goto_1
+    :cond_1
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readEnum()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->addInt(I)V
+    invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->addInt(I)V
 
     .line 1093
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_3
+    if-eqz p1, :cond_2
 
-    .line 1094
     return-void
 
     .line 1096
-    :cond_3
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    :cond_2
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 1097
-    .local v1, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v2
+    move-result v1
 
     .line 1098
-    .local v2, "nextTag":I
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v2, v3, :cond_4
+    if-eq v1, v2, :cond_1
 
     .line 1101
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 1102
     return-void
 
-    .line 1104
-    .end local v1    # "prevPos":I
-    .end local v2    # "nextTag":I
-    :cond_4
-    goto :goto_1
-
     .line 1109
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-    :cond_5
+    :cond_3
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_6
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_5
 
     .line 1111
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
@@ -2465,49 +2168,42 @@
     move-result v0
 
     .line 1112
-    .local v0, "bytes":I
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     add-int/2addr v1, v0
 
     .line 1113
-    .local v1, "fieldEndPos":I
-    :goto_2
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    :goto_1
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v2, v1, :cond_6
+    if-ge v0, v1, :cond_4
 
     .line 1114
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v2
+    move-result v0
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {p1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_2
-
-    .line 1137
-    .end local v0    # "bytes":I
-    .end local v1    # "fieldEndPos":I
-    :cond_6
-    :goto_3
-    return-void
-
-    .line 1134
-    :cond_7
-    invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
-    throw v0
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_1
+
+    :cond_4
+    return-void
+
+    .line 1134
+    :cond_5
+    invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+
+    move-result-object p1
+
+    throw p1
 
     .line 1119
-    :cond_8
-    :goto_4
+    :cond_6
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readEnum()I
 
     move-result v0
@@ -2523,38 +2219,28 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_7
 
-    .line 1122
     return-void
 
     .line 1124
-    :cond_9
+    :cond_7
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 1125
-    .local v0, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
     move-result v1
 
     .line 1126
-    .local v1, "nextTag":I
     iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v1, v2, :cond_a
+    if-eq v1, v2, :cond_6
 
     .line 1129
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 1130
     return-void
-
-    .line 1132
-    .end local v0    # "prevPos":I
-    .end local v1    # "nextTag":I
-    :cond_a
-    goto :goto_4
 .end method
 
 .method public readFixed32()I
@@ -2565,9 +2251,9 @@
         }
     .end annotation
 
-    .line 198
     const/4 v0, 0x5
 
+    .line 198
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
 
     .line 199
@@ -2579,7 +2265,7 @@
 .end method
 
 .method public readFixed32List(Ljava/util/List;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2596,138 +2282,115 @@
     .end annotation
 
     .line 748
-    .local p1, "target":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     instance-of v0, p1, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
 
     const/4 v1, 0x5
 
     const/4 v2, 0x2
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4
 
     .line 749
-    move-object v0, p1
-
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
 
     .line 750
-    .local v0, "plist":Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
-
-    invoke-static {v3}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
-
-    move-result v3
-
-    if-eq v3, v2, :cond_3
-
-    if-ne v3, v1, :cond_2
-
-    .line 761
-    :goto_0
-    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readFixed32()I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->addInt(I)V
-
-    .line 763
-    invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 764
-    return-void
-
-    .line 766
-    :cond_0
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
-
-    .line 767
-    .local v1, "prevPos":I
-    invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
-
-    move-result v2
-
-    .line 768
-    .local v2, "nextTag":I
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
-
-    if-eq v2, v3, :cond_1
-
-    .line 771
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
-
-    .line 772
-    return-void
-
-    .line 774
-    .end local v1    # "prevPos":I
-    .end local v2    # "nextTag":I
-    :cond_1
-    goto :goto_0
-
-    .line 776
-    :cond_2
-    invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
-
-    move-result-object v1
-
-    throw v1
-
-    .line 752
-    :cond_3
-    invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
-
-    move-result v1
-
-    .line 753
-    .local v1, "bytes":I
-    invoke-direct {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed32Length(I)V
-
-    .line 754
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
-
-    add-int/2addr v2, v1
-
-    .line 755
-    .local v2, "fieldEndPos":I
-    :goto_1
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
-
-    if-ge v3, v2, :cond_4
-
-    .line 756
-    invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian32_NoCheck()I
-
-    move-result v3
-
-    invoke-virtual {v0, v3}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->addInt(I)V
-
-    goto :goto_1
-
-    .line 778
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-    .end local v1    # "bytes":I
-    .end local v2    # "fieldEndPos":I
-    :cond_4
-    goto :goto_4
-
-    .line 779
-    :cond_5
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
     move-result v0
 
-    if-eq v0, v2, :cond_9
+    if-eq v0, v2, :cond_3
 
-    if-ne v0, v1, :cond_8
+    if-ne v0, v1, :cond_2
+
+    .line 761
+    :cond_0
+    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readFixed32()I
+
+    move-result v0
+
+    invoke-virtual {p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->addInt(I)V
+
+    .line 763
+    invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    return-void
+
+    .line 766
+    :cond_1
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+
+    .line 767
+    invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+
+    move-result v1
+
+    .line 768
+    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+
+    if-eq v1, v2, :cond_0
+
+    .line 771
+    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+
+    return-void
+
+    .line 776
+    :cond_2
+    invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+
+    move-result-object p1
+
+    throw p1
+
+    .line 752
+    :cond_3
+    invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+
+    move-result v0
+
+    .line 753
+    invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed32Length(I)V
+
+    .line 754
+    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+
+    add-int/2addr v1, v0
+
+    .line 755
+    :goto_0
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+
+    if-ge v0, v1, :cond_9
+
+    .line 756
+    invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian32_NoCheck()I
+
+    move-result v0
+
+    invoke-virtual {p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->addInt(I)V
+
+    goto :goto_0
+
+    .line 779
+    :cond_4
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+
+    invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
+
+    move-result v0
+
+    if-eq v0, v2, :cond_8
+
+    if-ne v0, v1, :cond_7
 
     .line 790
-    :goto_2
+    :cond_5
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readFixed32()I
 
     move-result v0
@@ -2745,7 +2408,6 @@
 
     if-eqz v0, :cond_6
 
-    .line 793
     return-void
 
     .line 795
@@ -2753,45 +2415,35 @@
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 796
-    .local v0, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
     move-result v1
 
     .line 797
-    .local v1, "nextTag":I
     iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v1, v2, :cond_7
+    if-eq v1, v2, :cond_5
 
     .line 800
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 801
     return-void
 
-    .line 803
-    .end local v0    # "prevPos":I
-    .end local v1    # "nextTag":I
-    :cond_7
-    goto :goto_2
-
     .line 805
-    :cond_8
+    :cond_7
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 
     .line 781
-    :cond_9
+    :cond_8
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
     move-result v0
 
     .line 782
-    .local v0, "bytes":I
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed32Length(I)V
 
     .line 783
@@ -2800,30 +2452,25 @@
     add-int/2addr v1, v0
 
     .line 784
-    .local v1, "fieldEndPos":I
-    :goto_3
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    :goto_1
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v2, v1, :cond_a
+    if-ge v0, v1, :cond_9
 
     .line 785
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian32_NoCheck()I
 
-    move-result v2
+    move-result v0
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {p1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_3
+    goto :goto_1
 
-    .line 808
-    .end local v0    # "bytes":I
-    .end local v1    # "fieldEndPos":I
-    :cond_a
-    :goto_4
+    :cond_9
     return-void
 .end method
 
@@ -2835,9 +2482,9 @@
         }
     .end annotation
 
-    .line 192
     const/4 v0, 0x1
 
+    .line 192
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
 
     .line 193
@@ -2849,7 +2496,7 @@
 .end method
 
 .method public readFixed64List(Ljava/util/List;)V
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2866,14 +2513,13 @@
     .end annotation
 
     .line 684
-    .local p1, "target":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Long;>;"
     instance-of v0, p1, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
 
     const/4 v1, 0x2
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_3
 
     .line 685
     move-object v0, p1
@@ -2881,66 +2527,54 @@
     check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
 
     .line 686
-    .local v0, "plist":Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    invoke-static {v3}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
+    invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
-    move-result v3
+    move-result p1
 
-    if-eq v3, v2, :cond_2
+    if-eq p1, v2, :cond_1
 
-    if-ne v3, v1, :cond_1
+    if-ne p1, v1, :cond_0
 
     .line 688
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v1
+    move-result p1
 
     .line 689
-    .local v1, "bytes":I
-    invoke-direct {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed64Length(I)V
+    invoke-direct {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed64Length(I)V
 
     .line 690
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    add-int/2addr v2, v1
+    add-int/2addr v1, p1
 
     .line 691
-    .local v2, "fieldEndPos":I
     :goto_0
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v3, v2, :cond_0
+    if-ge p1, v1, :cond_4
 
     .line 692
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian64_NoCheck()J
 
-    move-result-wide v3
+    move-result-wide v2
 
-    invoke-virtual {v0, v3, v4}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->addLong(J)V
+    invoke-virtual {v0, v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->addLong(J)V
 
     goto :goto_0
 
-    .line 714
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
-    .end local v1    # "bytes":I
-    .end local v2    # "fieldEndPos":I
-    :cond_0
-    goto :goto_3
-
     .line 712
-    .restart local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
-    :cond_1
+    :cond_0
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 
     .line 697
-    :cond_2
-    :goto_1
+    :cond_1
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readFixed64()J
 
     move-result-wide v1
@@ -2950,53 +2584,42 @@
     .line 699
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_3
+    if-eqz p1, :cond_2
 
-    .line 700
     return-void
 
     .line 702
-    :cond_3
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    :cond_2
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 703
-    .local v1, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v2
+    move-result v1
 
     .line 704
-    .local v2, "nextTag":I
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v2, v3, :cond_4
+    if-eq v1, v2, :cond_1
 
     .line 707
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 708
     return-void
 
-    .line 710
-    .end local v1    # "prevPos":I
-    .end local v2    # "nextTag":I
-    :cond_4
-    goto :goto_1
-
     .line 715
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
-    :cond_5
+    :cond_3
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
     move-result v0
 
-    if-eq v0, v2, :cond_8
+    if-eq v0, v2, :cond_6
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_5
 
     .line 717
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
@@ -3004,7 +2627,6 @@
     move-result v0
 
     .line 718
-    .local v0, "bytes":I
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed64Length(I)V
 
     .line 719
@@ -3013,11 +2635,10 @@
     add-int/2addr v1, v0
 
     .line 720
-    .local v1, "fieldEndPos":I
-    :goto_2
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    :goto_1
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v2, v1, :cond_6
+    if-ge v0, v1, :cond_4
 
     .line 721
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian64_NoCheck()J
@@ -3026,30 +2647,25 @@
 
     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {p1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_1
 
-    .line 744
-    .end local v0    # "bytes":I
-    .end local v1    # "fieldEndPos":I
-    :cond_6
-    :goto_3
+    :cond_4
     return-void
 
     .line 741
-    :cond_7
+    :cond_5
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 
     .line 726
-    :cond_8
-    :goto_4
+    :cond_6
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readFixed64()J
 
     move-result-wide v0
@@ -3065,38 +2681,28 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_7
 
-    .line 729
     return-void
 
     .line 731
-    :cond_9
+    :cond_7
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 732
-    .local v0, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
     move-result v1
 
     .line 733
-    .local v1, "nextTag":I
     iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v1, v2, :cond_a
+    if-eq v1, v2, :cond_6
 
     .line 736
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 737
     return-void
-
-    .line 739
-    .end local v0    # "prevPos":I
-    .end local v1    # "nextTag":I
-    :cond_a
-    goto :goto_4
 .end method
 
 .method public readFloat()F
@@ -3107,9 +2713,9 @@
         }
     .end annotation
 
-    .line 168
     const/4 v0, 0x5
 
+    .line 168
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
 
     .line 169
@@ -3125,7 +2731,7 @@
 .end method
 
 .method public readFloatList(Ljava/util/List;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -3142,142 +2748,119 @@
     .end annotation
 
     .line 428
-    .local p1, "target":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Float;>;"
     instance-of v0, p1, Lcom/google/crypto/tink/shaded/protobuf/FloatArrayList;
 
     const/4 v1, 0x5
 
     const/4 v2, 0x2
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4
 
     .line 429
-    move-object v0, p1
-
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/FloatArrayList;
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/FloatArrayList;
 
     .line 430
-    .local v0, "plist":Lcom/google/crypto/tink/shaded/protobuf/FloatArrayList;
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
-
-    invoke-static {v3}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
-
-    move-result v3
-
-    if-eq v3, v2, :cond_3
-
-    if-ne v3, v1, :cond_2
-
-    .line 441
-    :goto_0
-    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readFloat()F
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/FloatArrayList;->addFloat(F)V
-
-    .line 443
-    invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 444
-    return-void
-
-    .line 446
-    :cond_0
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
-
-    .line 447
-    .local v1, "prevPos":I
-    invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
-
-    move-result v2
-
-    .line 448
-    .local v2, "nextTag":I
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
-
-    if-eq v2, v3, :cond_1
-
-    .line 451
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
-
-    .line 452
-    return-void
-
-    .line 454
-    .end local v1    # "prevPos":I
-    .end local v2    # "nextTag":I
-    :cond_1
-    goto :goto_0
-
-    .line 456
-    :cond_2
-    invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
-
-    move-result-object v1
-
-    throw v1
-
-    .line 432
-    :cond_3
-    invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
-
-    move-result v1
-
-    .line 433
-    .local v1, "bytes":I
-    invoke-direct {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed32Length(I)V
-
-    .line 434
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
-
-    add-int/2addr v2, v1
-
-    .line 435
-    .local v2, "fieldEndPos":I
-    :goto_1
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
-
-    if-ge v3, v2, :cond_4
-
-    .line 436
-    invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian32_NoCheck()I
-
-    move-result v3
-
-    invoke-static {v3}, Ljava/lang/Float;->intBitsToFloat(I)F
-
-    move-result v3
-
-    invoke-virtual {v0, v3}, Lcom/google/crypto/tink/shaded/protobuf/FloatArrayList;->addFloat(F)V
-
-    goto :goto_1
-
-    .line 458
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/FloatArrayList;
-    .end local v1    # "bytes":I
-    .end local v2    # "fieldEndPos":I
-    :cond_4
-    goto :goto_4
-
-    .line 459
-    :cond_5
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
     move-result v0
 
-    if-eq v0, v2, :cond_9
+    if-eq v0, v2, :cond_3
 
-    if-ne v0, v1, :cond_8
+    if-ne v0, v1, :cond_2
+
+    .line 441
+    :cond_0
+    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readFloat()F
+
+    move-result v0
+
+    invoke-virtual {p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/FloatArrayList;->addFloat(F)V
+
+    .line 443
+    invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    return-void
+
+    .line 446
+    :cond_1
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+
+    .line 447
+    invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+
+    move-result v1
+
+    .line 448
+    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+
+    if-eq v1, v2, :cond_0
+
+    .line 451
+    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+
+    return-void
+
+    .line 456
+    :cond_2
+    invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+
+    move-result-object p1
+
+    throw p1
+
+    .line 432
+    :cond_3
+    invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+
+    move-result v0
+
+    .line 433
+    invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed32Length(I)V
+
+    .line 434
+    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+
+    add-int/2addr v1, v0
+
+    .line 435
+    :goto_0
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+
+    if-ge v0, v1, :cond_9
+
+    .line 436
+    invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian32_NoCheck()I
+
+    move-result v0
+
+    invoke-static {v0}, Ljava/lang/Float;->intBitsToFloat(I)F
+
+    move-result v0
+
+    invoke-virtual {p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/FloatArrayList;->addFloat(F)V
+
+    goto :goto_0
+
+    .line 459
+    :cond_4
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+
+    invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
+
+    move-result v0
+
+    if-eq v0, v2, :cond_8
+
+    if-ne v0, v1, :cond_7
 
     .line 470
-    :goto_2
+    :cond_5
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readFloat()F
 
     move-result v0
@@ -3295,7 +2878,6 @@
 
     if-eqz v0, :cond_6
 
-    .line 473
     return-void
 
     .line 475
@@ -3303,45 +2885,35 @@
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 476
-    .local v0, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
     move-result v1
 
     .line 477
-    .local v1, "nextTag":I
     iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v1, v2, :cond_7
+    if-eq v1, v2, :cond_5
 
     .line 480
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 481
     return-void
 
-    .line 483
-    .end local v0    # "prevPos":I
-    .end local v1    # "nextTag":I
-    :cond_7
-    goto :goto_2
-
     .line 485
-    :cond_8
+    :cond_7
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 
     .line 461
-    :cond_9
+    :cond_8
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
     move-result v0
 
     .line 462
-    .local v0, "bytes":I
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed32Length(I)V
 
     .line 463
@@ -3350,40 +2922,34 @@
     add-int/2addr v1, v0
 
     .line 464
-    .local v1, "fieldEndPos":I
-    :goto_3
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    :goto_1
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v2, v1, :cond_a
+    if-ge v0, v1, :cond_9
 
     .line 465
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian32_NoCheck()I
 
-    move-result v2
+    move-result v0
 
-    invoke-static {v2}, Ljava/lang/Float;->intBitsToFloat(I)F
+    invoke-static {v0}, Ljava/lang/Float;->intBitsToFloat(I)F
 
-    move-result v2
+    move-result v0
 
-    invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {p1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_3
+    goto :goto_1
 
-    .line 488
-    .end local v0    # "bytes":I
-    .end local v1    # "fieldEndPos":I
-    :cond_a
-    :goto_4
+    :cond_9
     return-void
 .end method
 
 .method public readGroup(Ljava/lang/Class;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
     .locals 1
-    .param p2, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3402,10 +2968,9 @@
         }
     .end annotation
 
-    .line 277
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     const/4 v0, 0x3
 
+    .line 277
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
 
     .line 278
@@ -3415,18 +2980,17 @@
 
     invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/Protobuf;->schemaFor(Ljava/lang/Class;)Lcom/google/crypto/tink/shaded/protobuf/Schema;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readGroup(Lcom/google/crypto/tink/shaded/protobuf/Schema;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
+    invoke-direct {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readGroup(Lcom/google/crypto/tink/shaded/protobuf/Schema;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public readGroupBySchemaWithCheck(Lcom/google/crypto/tink/shaded/protobuf/Schema;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
     .locals 1
-    .param p2, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3445,23 +3009,21 @@
         }
     .end annotation
 
-    .line 284
-    .local p1, "schema":Lcom/google/crypto/tink/shaded/protobuf/Schema;, "Lcom/google/crypto/tink/shaded/protobuf/Schema<TT;>;"
     const/4 v0, 0x3
 
+    .line 284
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
 
     .line 285
     invoke-direct {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readGroup(Lcom/google/crypto/tink/shaded/protobuf/Schema;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public readGroupList(Ljava/util/List;Lcom/google/crypto/tink/shaded/protobuf/Schema;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)V
     .locals 3
-    .param p3, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3483,8 +3045,6 @@
     .end annotation
 
     .line 971
-    .local p1, "target":Ljava/util/List;, "Ljava/util/List<TT;>;"
-    .local p2, "schema":Lcom/google/crypto/tink/shaded/protobuf/Schema;, "Lcom/google/crypto/tink/shaded/protobuf/Schema<TT;>;"
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
@@ -3499,8 +3059,7 @@
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
     .line 976
-    .local v0, "listTag":I
-    :goto_0
+    :cond_0
     invoke-direct {p0, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readGroup(Lcom/google/crypto/tink/shaded/protobuf/Schema;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
 
     move-result-object v1
@@ -3512,50 +3071,37 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
-    .line 979
     return-void
 
     .line 981
-    :cond_0
+    :cond_1
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 982
-    .local v1, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
     move-result v2
 
-    .line 983
-    .local v2, "nextTag":I
-    if-eq v2, v0, :cond_1
+    if-eq v2, v0, :cond_0
 
     .line 986
     iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 987
     return-void
 
-    .line 989
-    .end local v1    # "prevPos":I
-    .end local v2    # "nextTag":I
-    :cond_1
-    goto :goto_0
-
     .line 972
-    .end local v0    # "listTag":I
     :cond_2
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 .end method
 
 .method public readGroupList(Ljava/util/List;Ljava/lang/Class;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)V
     .locals 1
-    .param p3, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3577,21 +3123,17 @@
     .end annotation
 
     .line 963
-    .local p1, "target":Ljava/util/List;, "Ljava/util/List<TT;>;"
-    .local p2, "targetType":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/Protobuf;->getInstance()Lcom/google/crypto/tink/shaded/protobuf/Protobuf;
 
     move-result-object v0
 
     invoke-virtual {v0, p2}, Lcom/google/crypto/tink/shaded/protobuf/Protobuf;->schemaFor(Ljava/lang/Class;)Lcom/google/crypto/tink/shaded/protobuf/Schema;
 
-    move-result-object v0
+    move-result-object p2
 
     .line 964
-    .local v0, "schema":Lcom/google/crypto/tink/shaded/protobuf/Schema;, "Lcom/google/crypto/tink/shaded/protobuf/Schema<TT;>;"
-    invoke-virtual {p0, p1, v0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readGroupList(Ljava/util/List;Lcom/google/crypto/tink/shaded/protobuf/Schema;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)V
+    invoke-virtual {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readGroupList(Ljava/util/List;Lcom/google/crypto/tink/shaded/protobuf/Schema;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)V
 
-    .line 965
     return-void
 .end method
 
@@ -3603,9 +3145,9 @@
         }
     .end annotation
 
-    .line 186
     const/4 v0, 0x0
 
+    .line 186
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
 
     .line 187
@@ -3617,7 +3159,7 @@
 .end method
 
 .method public readInt32List(Ljava/util/List;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -3634,12 +3176,11 @@
     .end annotation
 
     .line 620
-    .local p1, "target":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     instance-of v0, p1, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
 
     const/4 v1, 0x2
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4
 
     .line 621
     move-object v0, p1
@@ -3647,125 +3188,102 @@
     check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
 
     .line 622
-    .local v0, "plist":Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    invoke-static {v2}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
+    invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_2
+    if-eqz p1, :cond_2
 
-    if-ne v2, v1, :cond_1
+    if-ne p1, v1, :cond_1
 
     .line 624
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v1
+    move-result p1
 
     .line 625
-    .local v1, "bytes":I
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    add-int/2addr v2, v1
+    add-int/2addr v1, p1
 
     .line 626
-    .local v2, "fieldEndPos":I
     :goto_0
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v3, v2, :cond_0
+    if-ge p1, v1, :cond_0
 
     .line 627
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v3
+    move-result p1
 
-    invoke-virtual {v0, v3}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->addInt(I)V
+    invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->addInt(I)V
 
     goto :goto_0
 
     .line 629
     :cond_0
-    invoke-direct {p0, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requirePosition(I)V
+    invoke-direct {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requirePosition(I)V
 
-    .line 630
-    nop
-
-    .line 650
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-    .end local v1    # "bytes":I
-    .end local v2    # "fieldEndPos":I
-    goto :goto_3
+    goto :goto_2
 
     .line 648
-    .restart local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
     :cond_1
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 
     .line 633
     :cond_2
-    :goto_1
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readInt32()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->addInt(I)V
+    invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->addInt(I)V
 
     .line 635
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_3
+    if-eqz p1, :cond_3
 
-    .line 636
     return-void
 
     .line 638
     :cond_3
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 639
-    .local v1, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v2
+    move-result v1
 
     .line 640
-    .local v2, "nextTag":I
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v2, v3, :cond_4
+    if-eq v1, v2, :cond_2
 
     .line 643
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 644
     return-void
 
-    .line 646
-    .end local v1    # "prevPos":I
-    .end local v2    # "nextTag":I
-    :cond_4
-    goto :goto_1
-
     .line 651
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-    :cond_5
+    :cond_4
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_7
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_6
 
     .line 653
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
@@ -3773,55 +3291,46 @@
     move-result v0
 
     .line 654
-    .local v0, "bytes":I
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     add-int/2addr v1, v0
 
     .line 655
-    .local v1, "fieldEndPos":I
-    :goto_2
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    :goto_1
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v2, v1, :cond_6
+    if-ge v0, v1, :cond_5
 
     .line 656
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v2
+    move-result v0
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {p1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_2
-
-    .line 658
-    :cond_6
-    invoke-direct {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requirePosition(I)V
-
-    .line 659
-    nop
-
-    .line 680
-    .end local v0    # "bytes":I
-    .end local v1    # "fieldEndPos":I
-    :goto_3
-    return-void
-
-    .line 677
-    :cond_7
-    invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
-    throw v0
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_1
+
+    .line 658
+    :cond_5
+    invoke-direct {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requirePosition(I)V
+
+    :goto_2
+    return-void
+
+    .line 677
+    :cond_6
+    invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+
+    move-result-object p1
+
+    throw p1
 
     .line 662
-    :cond_8
-    :goto_4
+    :cond_7
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readInt32()I
 
     move-result v0
@@ -3837,38 +3346,28 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_8
 
-    .line 665
     return-void
 
     .line 667
-    :cond_9
+    :cond_8
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 668
-    .local v0, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
     move-result v1
 
     .line 669
-    .local v1, "nextTag":I
     iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v1, v2, :cond_a
+    if-eq v1, v2, :cond_7
 
     .line 672
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 673
     return-void
-
-    .line 675
-    .end local v0    # "prevPos":I
-    .end local v1    # "nextTag":I
-    :cond_a
-    goto :goto_4
 .end method
 
 .method public readInt64()J
@@ -3879,9 +3378,9 @@
         }
     .end annotation
 
-    .line 180
     const/4 v0, 0x0
 
+    .line 180
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
 
     .line 181
@@ -3893,7 +3392,7 @@
 .end method
 
 .method public readInt64List(Ljava/util/List;)V
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -3910,12 +3409,11 @@
     .end annotation
 
     .line 556
-    .local p1, "target":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Long;>;"
     instance-of v0, p1, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
 
     const/4 v1, 0x2
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4
 
     .line 557
     move-object v0, p1
@@ -3923,69 +3421,57 @@
     check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
 
     .line 558
-    .local v0, "plist":Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    invoke-static {v2}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
+    invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_2
+    if-eqz p1, :cond_2
 
-    if-ne v2, v1, :cond_1
+    if-ne p1, v1, :cond_1
 
     .line 560
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v1
+    move-result p1
 
     .line 561
-    .local v1, "bytes":I
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    add-int/2addr v2, v1
+    add-int/2addr v1, p1
 
     .line 562
-    .local v2, "fieldEndPos":I
     :goto_0
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v3, v2, :cond_0
+    if-ge p1, v1, :cond_0
 
     .line 563
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint64()J
 
-    move-result-wide v3
+    move-result-wide v2
 
-    invoke-virtual {v0, v3, v4}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->addLong(J)V
+    invoke-virtual {v0, v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->addLong(J)V
 
     goto :goto_0
 
     .line 565
     :cond_0
-    invoke-direct {p0, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requirePosition(I)V
+    invoke-direct {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requirePosition(I)V
 
-    .line 566
-    nop
-
-    .line 586
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
-    .end local v1    # "bytes":I
-    .end local v2    # "fieldEndPos":I
-    goto :goto_3
+    goto :goto_2
 
     .line 584
-    .restart local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
     :cond_1
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 
     .line 569
     :cond_2
-    :goto_1
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readInt64()J
 
     move-result-wide v1
@@ -3995,53 +3481,42 @@
     .line 571
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_3
+    if-eqz p1, :cond_3
 
-    .line 572
     return-void
 
     .line 574
     :cond_3
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 575
-    .local v1, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v2
+    move-result v1
 
     .line 576
-    .local v2, "nextTag":I
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v2, v3, :cond_4
+    if-eq v1, v2, :cond_2
 
     .line 579
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 580
     return-void
 
-    .line 582
-    .end local v1    # "prevPos":I
-    .end local v2    # "nextTag":I
-    :cond_4
-    goto :goto_1
-
     .line 587
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
-    :cond_5
+    :cond_4
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_7
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_6
 
     .line 589
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
@@ -4049,17 +3524,15 @@
     move-result v0
 
     .line 590
-    .local v0, "bytes":I
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     add-int/2addr v1, v0
 
     .line 591
-    .local v1, "fieldEndPos":I
-    :goto_2
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    :goto_1
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v2, v1, :cond_6
+    if-ge v0, v1, :cond_5
 
     .line 592
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint64()J
@@ -4068,36 +3541,29 @@
 
     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {p1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_1
 
     .line 594
-    :cond_6
+    :cond_5
     invoke-direct {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requirePosition(I)V
 
-    .line 595
-    nop
-
-    .line 616
-    .end local v0    # "bytes":I
-    .end local v1    # "fieldEndPos":I
-    :goto_3
+    :goto_2
     return-void
 
     .line 613
-    :cond_7
+    :cond_6
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 
     .line 598
-    :cond_8
-    :goto_4
+    :cond_7
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readInt64()J
 
     move-result-wide v0
@@ -4113,43 +3579,32 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_8
 
-    .line 601
     return-void
 
     .line 603
-    :cond_9
+    :cond_8
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 604
-    .local v0, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
     move-result v1
 
     .line 605
-    .local v1, "nextTag":I
     iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v1, v2, :cond_a
+    if-eq v1, v2, :cond_7
 
     .line 608
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 609
     return-void
-
-    .line 611
-    .end local v0    # "prevPos":I
-    .end local v1    # "nextTag":I
-    :cond_a
-    goto :goto_4
 .end method
 
 .method public readMap(Ljava/util/Map;Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)V
-    .locals 10
-    .param p3, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -4172,11 +3627,9 @@
         }
     .end annotation
 
-    .line 1398
-    .local p1, "target":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    .local p2, "metadata":Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;, "Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata<TK;TV;>;"
     const/4 v0, 0x2
 
+    .line 1398
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
 
     .line 1399
@@ -4185,217 +3638,139 @@
     move-result v1
 
     .line 1400
-    .local v1, "size":I
     invoke-direct {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireBytes(I)V
 
     .line 1403
     iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->limit:I
 
     .line 1404
-    .local v2, "prevLimit":I
     iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     add-int/2addr v3, v1
 
     .line 1405
-    .local v3, "newLimit":I
     iput v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->limit:I
 
     .line 1408
     :try_start_0
-    iget-object v4, p2, Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;->defaultKey:Ljava/lang/Object;
+    iget-object v1, p2, Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;->defaultKey:Ljava/lang/Object;
 
     .line 1409
-    .local v4, "key":Ljava/lang/Object;, "TK;"
-    iget-object v5, p2, Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;->defaultValue:Ljava/lang/Object;
+    iget-object v3, p2, Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;->defaultValue:Ljava/lang/Object;
 
     .line 1411
-    .local v5, "value":Ljava/lang/Object;, "TV;"
     :goto_0
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->getFieldNumber()I
 
-    move-result v6
+    move-result v4
 
-    .line 1412
-    .local v6, "number":I
-    const v7, 0x7fffffff
+    const v5, 0x7fffffff
 
-    if-ne v6, v7, :cond_0
-
-    .line 1413
-    nop
+    if-ne v4, v5, :cond_0
 
     .line 1441
-    .end local v6    # "number":I
-    invoke-interface {p1, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, v1, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1444
-    nop
-
-    .end local v4    # "key":Ljava/lang/Object;, "TK;"
-    .end local v5    # "value":Ljava/lang/Object;, "TV;"
     iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->limit:I
 
-    .line 1445
-    nop
-
-    .line 1446
     return-void
 
-    .line 1416
-    .restart local v4    # "key":Ljava/lang/Object;, "TK;"
-    .restart local v5    # "value":Ljava/lang/Object;, "TV;"
-    .restart local v6    # "number":I
     :cond_0
-    const/4 v7, 0x1
+    const/4 v5, 0x1
 
-    const-string v8, "Unable to parse map entry."
+    const-string v6, "Unable to parse map entry."
 
-    if-eq v6, v7, :cond_3
+    if-eq v4, v5, :cond_3
 
-    if-eq v6, v0, :cond_2
+    if-eq v4, v0, :cond_2
 
     .line 1429
     :try_start_1
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->skipField()Z
 
-    move-result v7
+    move-result v4
 
-    if-eqz v7, :cond_1
+    if-eqz v4, :cond_1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 1430
     :cond_1
-    new-instance v7, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
+    new-instance v4, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    invoke-direct {v7, v8}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v6}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;-><init>(Ljava/lang/String;)V
 
-    .end local v1    # "size":I
-    .end local v2    # "prevLimit":I
-    .end local v3    # "newLimit":I
-    .end local v4    # "key":Ljava/lang/Object;, "TK;"
-    .end local v5    # "value":Ljava/lang/Object;, "TV;"
-    .end local v6    # "number":I
-    .end local p1    # "target":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    .end local p2    # "metadata":Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;, "Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata<TK;TV;>;"
-    .end local p3    # "extensionRegistry":Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
-    throw v7
+    throw v4
 
     .line 1421
-    .restart local v1    # "size":I
-    .restart local v2    # "prevLimit":I
-    .restart local v3    # "newLimit":I
-    .restart local v4    # "key":Ljava/lang/Object;, "TK;"
-    .restart local v5    # "value":Ljava/lang/Object;, "TV;"
-    .restart local v6    # "number":I
-    .restart local p1    # "target":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    .restart local p2    # "metadata":Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;, "Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata<TK;TV;>;"
-    .restart local p3    # "extensionRegistry":Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     :cond_2
-    iget-object v7, p2, Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;->valueType:Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;
+    iget-object v4, p2, Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;->valueType:Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;
 
-    iget-object v9, p2, Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;->defaultValue:Ljava/lang/Object;
+    iget-object v5, p2, Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;->defaultValue:Ljava/lang/Object;
 
     .line 1425
-    invoke-virtual {v9}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v5}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v9
+    move-result-object v5
 
     .line 1423
-    invoke-direct {p0, v7, v9, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readField(Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;Ljava/lang/Class;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
+    invoke-direct {p0, v4, v5, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readField(Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;Ljava/lang/Class;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v3
 
-    move-object v5, v7
-
-    .line 1427
-    goto :goto_1
+    goto :goto_0
 
     .line 1418
     :cond_3
-    iget-object v7, p2, Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;->keyType:Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;
+    iget-object v4, p2, Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;->keyType:Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;
 
-    const/4 v9, 0x0
+    const/4 v5, 0x0
 
-    invoke-direct {p0, v7, v9, v9}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readField(Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;Ljava/lang/Class;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
+    invoke-direct {p0, v4, v5, v5}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readField(Lcom/google/crypto/tink/shaded/protobuf/WireFormat$FieldType;Ljava/lang/Class;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v1
     :try_end_1
     .catch Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    move-object v4, v7
-
-    .line 1419
-    nop
-
-    .line 1439
-    :goto_1
-    goto :goto_2
-
-    .line 1434
-    :catch_0
-    move-exception v7
+    goto :goto_0
 
     .line 1436
-    .local v7, "ignore":Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+    :catch_0
     :try_start_2
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->skipField()Z
 
-    move-result v9
+    move-result v4
 
-    if-eqz v9, :cond_4
+    if-eqz v4, :cond_4
 
-    .line 1440
-    .end local v6    # "number":I
-    .end local v7    # "ignore":Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
-    :goto_2
     goto :goto_0
 
     .line 1437
-    .restart local v6    # "number":I
-    .restart local v7    # "ignore":Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
     :cond_4
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
+    new-instance p1, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    invoke-direct {v0, v8}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v6}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;-><init>(Ljava/lang/String;)V
 
-    .end local v1    # "size":I
-    .end local v2    # "prevLimit":I
-    .end local v3    # "newLimit":I
-    .end local p1    # "target":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    .end local p2    # "metadata":Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;, "Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata<TK;TV;>;"
-    .end local p3    # "extensionRegistry":Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
-    throw v0
+    throw p1
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 1444
-    .end local v4    # "key":Ljava/lang/Object;, "TK;"
-    .end local v5    # "value":Ljava/lang/Object;, "TV;"
-    .end local v6    # "number":I
-    .end local v7    # "ignore":Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
-    .restart local v1    # "size":I
-    .restart local v2    # "prevLimit":I
-    .restart local v3    # "newLimit":I
-    .restart local p1    # "target":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    .restart local p2    # "metadata":Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata;, "Lcom/google/crypto/tink/shaded/protobuf/MapEntryLite$Metadata<TK;TV;>;"
-    .restart local p3    # "extensionRegistry":Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     :catchall_0
-    move-exception v0
+    move-exception p1
 
+    .line 1444
     iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->limit:I
 
     .line 1445
-    throw v0
+    throw p1
 .end method
 
 .method public readMessage(Ljava/lang/Class;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
     .locals 1
-    .param p2, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -4414,10 +3789,9 @@
         }
     .end annotation
 
-    .line 237
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     const/4 v0, 0x2
 
+    .line 237
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
 
     .line 238
@@ -4427,18 +3801,17 @@
 
     invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/Protobuf;->schemaFor(Ljava/lang/Class;)Lcom/google/crypto/tink/shaded/protobuf/Schema;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readMessage(Lcom/google/crypto/tink/shaded/protobuf/Schema;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
+    invoke-direct {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readMessage(Lcom/google/crypto/tink/shaded/protobuf/Schema;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public readMessageBySchemaWithCheck(Lcom/google/crypto/tink/shaded/protobuf/Schema;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
     .locals 1
-    .param p2, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -4457,23 +3830,21 @@
         }
     .end annotation
 
-    .line 244
-    .local p1, "schema":Lcom/google/crypto/tink/shaded/protobuf/Schema;, "Lcom/google/crypto/tink/shaded/protobuf/Schema<TT;>;"
     const/4 v0, 0x2
 
+    .line 244
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
 
     .line 245
     invoke-direct {p0, p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readMessage(Lcom/google/crypto/tink/shaded/protobuf/Schema;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public readMessageList(Ljava/util/List;Lcom/google/crypto/tink/shaded/protobuf/Schema;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)V
     .locals 3
-    .param p3, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -4495,8 +3866,6 @@
     .end annotation
 
     .line 938
-    .local p1, "target":Ljava/util/List;, "Ljava/util/List<TT;>;"
-    .local p2, "schema":Lcom/google/crypto/tink/shaded/protobuf/Schema;, "Lcom/google/crypto/tink/shaded/protobuf/Schema<TT;>;"
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
@@ -4511,8 +3880,7 @@
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
     .line 943
-    .local v0, "listTag":I
-    :goto_0
+    :cond_0
     invoke-direct {p0, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readMessage(Lcom/google/crypto/tink/shaded/protobuf/Schema;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Ljava/lang/Object;
 
     move-result-object v1
@@ -4524,50 +3892,37 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
-    .line 946
     return-void
 
     .line 948
-    :cond_0
+    :cond_1
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 949
-    .local v1, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
     move-result v2
 
-    .line 950
-    .local v2, "nextTag":I
-    if-eq v2, v0, :cond_1
+    if-eq v2, v0, :cond_0
 
     .line 953
     iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 954
     return-void
 
-    .line 956
-    .end local v1    # "prevPos":I
-    .end local v2    # "nextTag":I
-    :cond_1
-    goto :goto_0
-
     .line 939
-    .end local v0    # "listTag":I
     :cond_2
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 .end method
 
 .method public readMessageList(Ljava/util/List;Ljava/lang/Class;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)V
     .locals 1
-    .param p3, "extensionRegistry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -4589,21 +3944,17 @@
     .end annotation
 
     .line 930
-    .local p1, "target":Ljava/util/List;, "Ljava/util/List<TT;>;"
-    .local p2, "targetType":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/Protobuf;->getInstance()Lcom/google/crypto/tink/shaded/protobuf/Protobuf;
 
     move-result-object v0
 
     invoke-virtual {v0, p2}, Lcom/google/crypto/tink/shaded/protobuf/Protobuf;->schemaFor(Ljava/lang/Class;)Lcom/google/crypto/tink/shaded/protobuf/Schema;
 
-    move-result-object v0
+    move-result-object p2
 
     .line 931
-    .local v0, "schema":Lcom/google/crypto/tink/shaded/protobuf/Schema;, "Lcom/google/crypto/tink/shaded/protobuf/Schema<TT;>;"
-    invoke-virtual {p0, p1, v0, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readMessageList(Ljava/util/List;Lcom/google/crypto/tink/shaded/protobuf/Schema;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)V
+    invoke-virtual {p0, p1, p2, p3}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readMessageList(Ljava/util/List;Lcom/google/crypto/tink/shaded/protobuf/Schema;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)V
 
-    .line 932
     return-void
 .end method
 
@@ -4615,9 +3966,9 @@
         }
     .end annotation
 
-    .line 340
     const/4 v0, 0x5
 
+    .line 340
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
 
     .line 341
@@ -4629,7 +3980,7 @@
 .end method
 
 .method public readSFixed32List(Ljava/util/List;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -4646,138 +3997,115 @@
     .end annotation
 
     .line 1141
-    .local p1, "target":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     instance-of v0, p1, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
 
     const/4 v1, 0x5
 
     const/4 v2, 0x2
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4
 
     .line 1142
-    move-object v0, p1
-
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
+    check-cast p1, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
 
     .line 1143
-    .local v0, "plist":Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
-
-    invoke-static {v3}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
-
-    move-result v3
-
-    if-eq v3, v2, :cond_3
-
-    if-ne v3, v1, :cond_2
-
-    .line 1154
-    :goto_0
-    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readSFixed32()I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->addInt(I)V
-
-    .line 1156
-    invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 1157
-    return-void
-
-    .line 1159
-    :cond_0
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
-
-    .line 1160
-    .local v1, "prevPos":I
-    invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
-
-    move-result v2
-
-    .line 1161
-    .local v2, "nextTag":I
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
-
-    if-eq v2, v3, :cond_1
-
-    .line 1164
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
-
-    .line 1165
-    return-void
-
-    .line 1167
-    .end local v1    # "prevPos":I
-    .end local v2    # "nextTag":I
-    :cond_1
-    goto :goto_0
-
-    .line 1169
-    :cond_2
-    invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
-
-    move-result-object v1
-
-    throw v1
-
-    .line 1145
-    :cond_3
-    invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
-
-    move-result v1
-
-    .line 1146
-    .local v1, "bytes":I
-    invoke-direct {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed32Length(I)V
-
-    .line 1147
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
-
-    add-int/2addr v2, v1
-
-    .line 1148
-    .local v2, "fieldEndPos":I
-    :goto_1
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
-
-    if-ge v3, v2, :cond_4
-
-    .line 1149
-    invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian32_NoCheck()I
-
-    move-result v3
-
-    invoke-virtual {v0, v3}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->addInt(I)V
-
-    goto :goto_1
-
-    .line 1171
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-    .end local v1    # "bytes":I
-    .end local v2    # "fieldEndPos":I
-    :cond_4
-    goto :goto_4
-
-    .line 1172
-    :cond_5
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
     move-result v0
 
-    if-eq v0, v2, :cond_9
+    if-eq v0, v2, :cond_3
 
-    if-ne v0, v1, :cond_8
+    if-ne v0, v1, :cond_2
+
+    .line 1154
+    :cond_0
+    invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readSFixed32()I
+
+    move-result v0
+
+    invoke-virtual {p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->addInt(I)V
+
+    .line 1156
+    invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    return-void
+
+    .line 1159
+    :cond_1
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+
+    .line 1160
+    invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+
+    move-result v1
+
+    .line 1161
+    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+
+    if-eq v1, v2, :cond_0
+
+    .line 1164
+    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+
+    return-void
+
+    .line 1169
+    :cond_2
+    invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+
+    move-result-object p1
+
+    throw p1
+
+    .line 1145
+    :cond_3
+    invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
+
+    move-result v0
+
+    .line 1146
+    invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed32Length(I)V
+
+    .line 1147
+    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+
+    add-int/2addr v1, v0
+
+    .line 1148
+    :goto_0
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+
+    if-ge v0, v1, :cond_9
+
+    .line 1149
+    invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian32_NoCheck()I
+
+    move-result v0
+
+    invoke-virtual {p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->addInt(I)V
+
+    goto :goto_0
+
+    .line 1172
+    :cond_4
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+
+    invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
+
+    move-result v0
+
+    if-eq v0, v2, :cond_8
+
+    if-ne v0, v1, :cond_7
 
     .line 1183
-    :goto_2
+    :cond_5
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readSFixed32()I
 
     move-result v0
@@ -4795,7 +4123,6 @@
 
     if-eqz v0, :cond_6
 
-    .line 1186
     return-void
 
     .line 1188
@@ -4803,45 +4130,35 @@
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 1189
-    .local v0, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
     move-result v1
 
     .line 1190
-    .local v1, "nextTag":I
     iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v1, v2, :cond_7
+    if-eq v1, v2, :cond_5
 
     .line 1193
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 1194
     return-void
 
-    .line 1196
-    .end local v0    # "prevPos":I
-    .end local v1    # "nextTag":I
-    :cond_7
-    goto :goto_2
-
     .line 1198
-    :cond_8
+    :cond_7
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 
     .line 1174
-    :cond_9
+    :cond_8
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
     move-result v0
 
     .line 1175
-    .local v0, "bytes":I
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed32Length(I)V
 
     .line 1176
@@ -4850,30 +4167,25 @@
     add-int/2addr v1, v0
 
     .line 1177
-    .local v1, "fieldEndPos":I
-    :goto_3
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    :goto_1
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v2, v1, :cond_a
+    if-ge v0, v1, :cond_9
 
     .line 1178
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian32_NoCheck()I
 
-    move-result v2
+    move-result v0
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {p1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_3
+    goto :goto_1
 
-    .line 1201
-    .end local v0    # "bytes":I
-    .end local v1    # "fieldEndPos":I
-    :cond_a
-    :goto_4
+    :cond_9
     return-void
 .end method
 
@@ -4885,9 +4197,9 @@
         }
     .end annotation
 
-    .line 346
     const/4 v0, 0x1
 
+    .line 346
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
 
     .line 347
@@ -4899,7 +4211,7 @@
 .end method
 
 .method public readSFixed64List(Ljava/util/List;)V
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -4916,14 +4228,13 @@
     .end annotation
 
     .line 1205
-    .local p1, "target":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Long;>;"
     instance-of v0, p1, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
 
     const/4 v1, 0x2
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_3
 
     .line 1206
     move-object v0, p1
@@ -4931,66 +4242,54 @@
     check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
 
     .line 1207
-    .local v0, "plist":Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    invoke-static {v3}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
+    invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
-    move-result v3
+    move-result p1
 
-    if-eq v3, v2, :cond_2
+    if-eq p1, v2, :cond_1
 
-    if-ne v3, v1, :cond_1
+    if-ne p1, v1, :cond_0
 
     .line 1209
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v1
+    move-result p1
 
     .line 1210
-    .local v1, "bytes":I
-    invoke-direct {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed64Length(I)V
+    invoke-direct {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed64Length(I)V
 
     .line 1211
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    add-int/2addr v2, v1
+    add-int/2addr v1, p1
 
     .line 1212
-    .local v2, "fieldEndPos":I
     :goto_0
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v3, v2, :cond_0
+    if-ge p1, v1, :cond_4
 
     .line 1213
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian64_NoCheck()J
 
-    move-result-wide v3
+    move-result-wide v2
 
-    invoke-virtual {v0, v3, v4}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->addLong(J)V
+    invoke-virtual {v0, v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->addLong(J)V
 
     goto :goto_0
 
-    .line 1235
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
-    .end local v1    # "bytes":I
-    .end local v2    # "fieldEndPos":I
-    :cond_0
-    goto :goto_3
-
     .line 1233
-    .restart local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
-    :cond_1
+    :cond_0
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 
     .line 1218
-    :cond_2
-    :goto_1
+    :cond_1
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readSFixed64()J
 
     move-result-wide v1
@@ -5000,53 +4299,42 @@
     .line 1220
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_3
+    if-eqz p1, :cond_2
 
-    .line 1221
     return-void
 
     .line 1223
-    :cond_3
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    :cond_2
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 1224
-    .local v1, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v2
+    move-result v1
 
     .line 1225
-    .local v2, "nextTag":I
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v2, v3, :cond_4
+    if-eq v1, v2, :cond_1
 
     .line 1228
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 1229
     return-void
 
-    .line 1231
-    .end local v1    # "prevPos":I
-    .end local v2    # "nextTag":I
-    :cond_4
-    goto :goto_1
-
     .line 1236
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
-    :cond_5
+    :cond_3
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
     move-result v0
 
-    if-eq v0, v2, :cond_8
+    if-eq v0, v2, :cond_6
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_5
 
     .line 1238
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
@@ -5054,7 +4342,6 @@
     move-result v0
 
     .line 1239
-    .local v0, "bytes":I
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->verifyPackedFixed64Length(I)V
 
     .line 1240
@@ -5063,11 +4350,10 @@
     add-int/2addr v1, v0
 
     .line 1241
-    .local v1, "fieldEndPos":I
-    :goto_2
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    :goto_1
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v2, v1, :cond_6
+    if-ge v0, v1, :cond_4
 
     .line 1242
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readLittleEndian64_NoCheck()J
@@ -5076,30 +4362,25 @@
 
     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {p1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_1
 
-    .line 1265
-    .end local v0    # "bytes":I
-    .end local v1    # "fieldEndPos":I
-    :cond_6
-    :goto_3
+    :cond_4
     return-void
 
     .line 1262
-    :cond_7
+    :cond_5
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 
     .line 1247
-    :cond_8
-    :goto_4
+    :cond_6
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readSFixed64()J
 
     move-result-wide v0
@@ -5115,38 +4396,28 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_7
 
-    .line 1250
     return-void
 
     .line 1252
-    :cond_9
+    :cond_7
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 1253
-    .local v0, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
     move-result v1
 
     .line 1254
-    .local v1, "nextTag":I
     iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v1, v2, :cond_a
+    if-eq v1, v2, :cond_6
 
     .line 1257
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 1258
     return-void
-
-    .line 1260
-    .end local v0    # "prevPos":I
-    .end local v1    # "nextTag":I
-    :cond_a
-    goto :goto_4
 .end method
 
 .method public readSInt32()I
@@ -5157,9 +4428,9 @@
         }
     .end annotation
 
-    .line 352
     const/4 v0, 0x0
 
+    .line 352
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
 
     .line 353
@@ -5175,7 +4446,7 @@
 .end method
 
 .method public readSInt32List(Ljava/util/List;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -5192,12 +4463,11 @@
     .end annotation
 
     .line 1269
-    .local p1, "target":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     instance-of v0, p1, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
 
     const/4 v1, 0x2
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_3
 
     .line 1270
     move-object v0, p1
@@ -5205,123 +4475,100 @@
     check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
 
     .line 1271
-    .local v0, "plist":Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    invoke-static {v2}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
+    invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_2
+    if-eqz p1, :cond_1
 
-    if-ne v2, v1, :cond_1
+    if-ne p1, v1, :cond_0
 
     .line 1273
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v1
+    move-result p1
 
     .line 1274
-    .local v1, "bytes":I
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    add-int/2addr v2, v1
+    add-int/2addr v1, p1
 
     .line 1275
-    .local v2, "fieldEndPos":I
     :goto_0
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v3, v2, :cond_0
+    if-ge p1, v1, :cond_4
 
     .line 1276
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v3
+    move-result p1
 
-    invoke-static {v3}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;->decodeZigZag32(I)I
+    invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;->decodeZigZag32(I)I
 
-    move-result v3
+    move-result p1
 
-    invoke-virtual {v0, v3}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->addInt(I)V
+    invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->addInt(I)V
 
     goto :goto_0
 
-    .line 1298
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-    .end local v1    # "bytes":I
-    .end local v2    # "fieldEndPos":I
-    :cond_0
-    goto :goto_3
-
     .line 1296
-    .restart local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-    :cond_1
+    :cond_0
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 
     .line 1281
-    :cond_2
-    :goto_1
+    :cond_1
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readSInt32()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->addInt(I)V
+    invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->addInt(I)V
 
     .line 1283
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_3
+    if-eqz p1, :cond_2
 
-    .line 1284
     return-void
 
     .line 1286
-    :cond_3
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    :cond_2
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 1287
-    .local v1, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v2
+    move-result v1
 
     .line 1288
-    .local v2, "nextTag":I
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v2, v3, :cond_4
+    if-eq v1, v2, :cond_1
 
     .line 1291
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 1292
     return-void
 
-    .line 1294
-    .end local v1    # "prevPos":I
-    .end local v2    # "nextTag":I
-    :cond_4
-    goto :goto_1
-
     .line 1299
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-    :cond_5
+    :cond_3
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_6
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_5
 
     .line 1301
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
@@ -5329,53 +4576,46 @@
     move-result v0
 
     .line 1302
-    .local v0, "bytes":I
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     add-int/2addr v1, v0
 
     .line 1303
-    .local v1, "fieldEndPos":I
-    :goto_2
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    :goto_1
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v2, v1, :cond_6
+    if-ge v0, v1, :cond_4
 
     .line 1304
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v2
+    move-result v0
 
-    invoke-static {v2}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;->decodeZigZag32(I)I
+    invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;->decodeZigZag32(I)I
 
-    move-result v2
+    move-result v0
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {p1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_2
-
-    .line 1327
-    .end local v0    # "bytes":I
-    .end local v1    # "fieldEndPos":I
-    :cond_6
-    :goto_3
-    return-void
-
-    .line 1324
-    :cond_7
-    invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
-    throw v0
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_1
+
+    :cond_4
+    return-void
+
+    .line 1324
+    :cond_5
+    invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+
+    move-result-object p1
+
+    throw p1
 
     .line 1309
-    :cond_8
-    :goto_4
+    :cond_6
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readSInt32()I
 
     move-result v0
@@ -5391,38 +4631,28 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_7
 
-    .line 1312
     return-void
 
     .line 1314
-    :cond_9
+    :cond_7
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 1315
-    .local v0, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
     move-result v1
 
     .line 1316
-    .local v1, "nextTag":I
     iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v1, v2, :cond_a
+    if-eq v1, v2, :cond_6
 
     .line 1319
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 1320
     return-void
-
-    .line 1322
-    .end local v0    # "prevPos":I
-    .end local v1    # "nextTag":I
-    :cond_a
-    goto :goto_4
 .end method
 
 .method public readSInt64()J
@@ -5433,9 +4663,9 @@
         }
     .end annotation
 
-    .line 358
     const/4 v0, 0x0
 
+    .line 358
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
 
     .line 359
@@ -5451,7 +4681,7 @@
 .end method
 
 .method public readSInt64List(Ljava/util/List;)V
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -5468,12 +4698,11 @@
     .end annotation
 
     .line 1331
-    .local p1, "target":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Long;>;"
     instance-of v0, p1, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
 
     const/4 v1, 0x2
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_3
 
     .line 1332
     move-object v0, p1
@@ -5481,67 +4710,55 @@
     check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
 
     .line 1333
-    .local v0, "plist":Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    invoke-static {v2}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
+    invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_2
+    if-eqz p1, :cond_1
 
-    if-ne v2, v1, :cond_1
+    if-ne p1, v1, :cond_0
 
     .line 1335
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v1
+    move-result p1
 
     .line 1336
-    .local v1, "bytes":I
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    add-int/2addr v2, v1
+    add-int/2addr v1, p1
 
     .line 1337
-    .local v2, "fieldEndPos":I
     :goto_0
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v3, v2, :cond_0
+    if-ge p1, v1, :cond_4
 
     .line 1338
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint64()J
 
-    move-result-wide v3
+    move-result-wide v2
 
-    invoke-static {v3, v4}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;->decodeZigZag64(J)J
+    invoke-static {v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/CodedInputStream;->decodeZigZag64(J)J
 
-    move-result-wide v3
+    move-result-wide v2
 
-    invoke-virtual {v0, v3, v4}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->addLong(J)V
+    invoke-virtual {v0, v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->addLong(J)V
 
     goto :goto_0
 
-    .line 1360
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
-    .end local v1    # "bytes":I
-    .end local v2    # "fieldEndPos":I
-    :cond_0
-    goto :goto_3
-
     .line 1358
-    .restart local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
-    :cond_1
+    :cond_0
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 
     .line 1343
-    :cond_2
-    :goto_1
+    :cond_1
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readSInt64()J
 
     move-result-wide v1
@@ -5551,53 +4768,42 @@
     .line 1345
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_3
+    if-eqz p1, :cond_2
 
-    .line 1346
     return-void
 
     .line 1348
-    :cond_3
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    :cond_2
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 1349
-    .local v1, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v2
+    move-result v1
 
     .line 1350
-    .local v2, "nextTag":I
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v2, v3, :cond_4
+    if-eq v1, v2, :cond_1
 
     .line 1353
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 1354
     return-void
 
-    .line 1356
-    .end local v1    # "prevPos":I
-    .end local v2    # "nextTag":I
-    :cond_4
-    goto :goto_1
-
     .line 1361
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
-    :cond_5
+    :cond_3
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_6
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_5
 
     .line 1363
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
@@ -5605,17 +4811,15 @@
     move-result v0
 
     .line 1364
-    .local v0, "bytes":I
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     add-int/2addr v1, v0
 
     .line 1365
-    .local v1, "fieldEndPos":I
-    :goto_2
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    :goto_1
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v2, v1, :cond_6
+    if-ge v0, v1, :cond_4
 
     .line 1366
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint64()J
@@ -5628,30 +4832,25 @@
 
     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {p1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_1
 
-    .line 1389
-    .end local v0    # "bytes":I
-    .end local v1    # "fieldEndPos":I
-    :cond_6
-    :goto_3
+    :cond_4
     return-void
 
     .line 1386
-    :cond_7
+    :cond_5
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 
     .line 1371
-    :cond_8
-    :goto_4
+    :cond_6
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readSInt64()J
 
     move-result-wide v0
@@ -5667,38 +4866,28 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_7
 
-    .line 1374
     return-void
 
     .line 1376
-    :cond_9
+    :cond_7
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 1377
-    .local v0, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
     move-result v1
 
     .line 1378
-    .local v1, "nextTag":I
     iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v1, v2, :cond_a
+    if-eq v1, v2, :cond_6
 
     .line 1381
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 1382
     return-void
-
-    .line 1384
-    .end local v0    # "prevPos":I
-    .end local v1    # "nextTag":I
-    :cond_a
-    goto :goto_4
 .end method
 
 .method public readString()Ljava/lang/String;
@@ -5709,9 +4898,9 @@
         }
     .end annotation
 
-    .line 210
     const/4 v0, 0x0
 
+    .line 210
     invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readStringInternal(Z)Ljava/lang/String;
 
     move-result-object v0
@@ -5720,17 +4909,16 @@
 .end method
 
 .method public readStringInternal(Z)Ljava/lang/String;
-    .locals 5
-    .param p1, "requireUtf8"    # Z
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 219
     const/4 v0, 0x2
 
+    .line 219
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
 
     .line 220
@@ -5738,33 +4926,30 @@
 
     move-result v0
 
-    .line 221
-    .local v0, "size":I
     if-nez v0, :cond_0
 
-    .line 222
-    const-string v1, ""
+    const-string p1, ""
 
-    return-object v1
+    return-object p1
 
     .line 225
     :cond_0
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireBytes(I)V
 
-    .line 226
     if-eqz p1, :cond_2
 
-    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->buffer:[B
+    .line 226
+    iget-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->buffer:[B
 
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    add-int v3, v2, v0
+    add-int v2, v1, v0
 
-    invoke-static {v1, v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/Utf8;->isValidUtf8([BII)Z
+    invoke-static {p1, v1, v2}, Lcom/google/crypto/tink/shaded/protobuf/Utf8;->isValidUtf8([BII)Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_1
+    if-eqz p1, :cond_1
 
     goto :goto_0
 
@@ -5772,33 +4957,31 @@
     :cond_1
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidUtf8()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 
     .line 229
     :cond_2
     :goto_0
-    new-instance v1, Ljava/lang/String;
+    new-instance p1, Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->buffer:[B
+    iget-object v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->buffer:[B
 
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
-
-    sget-object v4, Lcom/google/crypto/tink/shaded/protobuf/Internal;->UTF_8:Ljava/nio/charset/Charset;
-
-    invoke-direct {v1, v2, v3, v0, v4}, Ljava/lang/String;-><init>([BIILjava/nio/charset/Charset;)V
-
-    .line 230
-    .local v1, "result":Ljava/lang/String;
     iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    add-int/2addr v2, v0
+    sget-object v3, Lcom/google/crypto/tink/shaded/protobuf/Internal;->UTF_8:Ljava/nio/charset/Charset;
 
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    invoke-direct {p1, v1, v2, v0, v3}, Ljava/lang/String;-><init>([BIILjava/nio/charset/Charset;)V
 
-    .line 231
-    return-object v1
+    .line 230
+    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+
+    add-int/2addr v1, v0
+
+    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+
+    return-object p1
 .end method
 
 .method public readStringList(Ljava/util/List;)V
@@ -5818,19 +5001,16 @@
         }
     .end annotation
 
-    .line 876
-    .local p1, "target":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     const/4 v0, 0x0
 
+    .line 876
     invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readStringListInternal(Ljava/util/List;Z)V
 
-    .line 877
     return-void
 .end method
 
 .method public readStringListInternal(Ljava/util/List;Z)V
-    .locals 4
-    .param p2, "requireUtf8"    # Z
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -5847,7 +5027,6 @@
     .end annotation
 
     .line 886
-    .local p1, "target":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
@@ -5856,7 +5035,7 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_5
+    if-ne v0, v1, :cond_4
 
     .line 890
     instance-of v0, p1, Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
@@ -5871,56 +5050,43 @@
     check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
 
     .line 893
-    .local v0, "lazyList":Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
-    :goto_0
+    :cond_0
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readBytes()Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;->add(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
+    invoke-interface {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;->add(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
     .line 895
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_1
 
-    .line 896
     return-void
 
     .line 898
-    :cond_0
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    :cond_1
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 899
-    .local v1, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v2
+    move-result p2
 
     .line 900
-    .local v2, "nextTag":I
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v2, v3, :cond_1
+    if-eq p2, v1, :cond_0
 
     .line 903
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 904
     return-void
 
-    .line 906
-    .end local v1    # "prevPos":I
-    .end local v2    # "nextTag":I
-    :cond_1
-    goto :goto_0
-
     .line 909
-    .end local v0    # "lazyList":Lcom/google/crypto/tink/shaded/protobuf/LazyStringList;
     :cond_2
-    :goto_1
     invoke-virtual {p0, p2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readStringInternal(Z)Ljava/lang/String;
 
     move-result-object v0
@@ -5934,7 +5100,6 @@
 
     if-eqz v0, :cond_3
 
-    .line 912
     return-void
 
     .line 914
@@ -5942,36 +5107,27 @@
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 915
-    .local v0, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
     move-result v1
 
     .line 916
-    .local v1, "nextTag":I
     iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v1, v2, :cond_4
+    if-eq v1, v2, :cond_2
 
     .line 919
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 920
     return-void
 
-    .line 922
-    .end local v0    # "prevPos":I
-    .end local v1    # "nextTag":I
-    :cond_4
-    goto :goto_1
-
     .line 887
-    :cond_5
+    :cond_4
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 .end method
 
 .method public readStringListRequireUtf8(Ljava/util/List;)V
@@ -5991,13 +5147,11 @@
         }
     .end annotation
 
-    .line 881
-    .local p1, "target":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     const/4 v0, 0x1
 
+    .line 881
     invoke-virtual {p0, p1, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readStringListInternal(Ljava/util/List;Z)V
 
-    .line 882
     return-void
 .end method
 
@@ -6009,9 +5163,9 @@
         }
     .end annotation
 
-    .line 215
     const/4 v0, 0x1
 
+    .line 215
     invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readStringInternal(Z)Ljava/lang/String;
 
     move-result-object v0
@@ -6027,9 +5181,9 @@
         }
     .end annotation
 
-    .line 328
     const/4 v0, 0x0
 
+    .line 328
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
 
     .line 329
@@ -6041,7 +5195,7 @@
 .end method
 
 .method public readUInt32List(Ljava/util/List;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -6058,12 +5212,11 @@
     .end annotation
 
     .line 1017
-    .local p1, "target":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     instance-of v0, p1, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
 
     const/4 v1, 0x2
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_3
 
     .line 1018
     move-object v0, p1
@@ -6071,119 +5224,96 @@
     check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
 
     .line 1019
-    .local v0, "plist":Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    invoke-static {v2}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
+    invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_2
+    if-eqz p1, :cond_1
 
-    if-ne v2, v1, :cond_1
+    if-ne p1, v1, :cond_0
 
     .line 1021
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v1
+    move-result p1
 
     .line 1022
-    .local v1, "bytes":I
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    add-int/2addr v2, v1
+    add-int/2addr v1, p1
 
     .line 1023
-    .local v2, "fieldEndPos":I
     :goto_0
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v3, v2, :cond_0
+    if-ge p1, v1, :cond_4
 
     .line 1024
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v3
+    move-result p1
 
-    invoke-virtual {v0, v3}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->addInt(I)V
+    invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->addInt(I)V
 
     goto :goto_0
 
-    .line 1046
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-    .end local v1    # "bytes":I
-    .end local v2    # "fieldEndPos":I
-    :cond_0
-    goto :goto_3
-
     .line 1044
-    .restart local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-    :cond_1
+    :cond_0
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 
     .line 1029
-    :cond_2
-    :goto_1
+    :cond_1
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readUInt32()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->addInt(I)V
+    invoke-virtual {v0, p1}, Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;->addInt(I)V
 
     .line 1031
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_3
+    if-eqz p1, :cond_2
 
-    .line 1032
     return-void
 
     .line 1034
-    :cond_3
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    :cond_2
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 1035
-    .local v1, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v2
+    move-result v1
 
     .line 1036
-    .local v2, "nextTag":I
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v2, v3, :cond_4
+    if-eq v1, v2, :cond_1
 
     .line 1039
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 1040
     return-void
 
-    .line 1042
-    .end local v1    # "prevPos":I
-    .end local v2    # "nextTag":I
-    :cond_4
-    goto :goto_1
-
     .line 1047
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/IntArrayList;
-    :cond_5
+    :cond_3
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_6
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_5
 
     .line 1049
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
@@ -6191,49 +5321,42 @@
     move-result v0
 
     .line 1050
-    .local v0, "bytes":I
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     add-int/2addr v1, v0
 
     .line 1051
-    .local v1, "fieldEndPos":I
-    :goto_2
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    :goto_1
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v2, v1, :cond_6
+    if-ge v0, v1, :cond_4
 
     .line 1052
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v2
+    move-result v0
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {p1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_2
-
-    .line 1075
-    .end local v0    # "bytes":I
-    .end local v1    # "fieldEndPos":I
-    :cond_6
-    :goto_3
-    return-void
-
-    .line 1072
-    :cond_7
-    invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
-    throw v0
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_1
+
+    :cond_4
+    return-void
+
+    .line 1072
+    :cond_5
+    invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
+
+    move-result-object p1
+
+    throw p1
 
     .line 1057
-    :cond_8
-    :goto_4
+    :cond_6
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readUInt32()I
 
     move-result v0
@@ -6249,38 +5372,28 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_7
 
-    .line 1060
     return-void
 
     .line 1062
-    :cond_9
+    :cond_7
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 1063
-    .local v0, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
     move-result v1
 
     .line 1064
-    .local v1, "nextTag":I
     iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v1, v2, :cond_a
+    if-eq v1, v2, :cond_6
 
     .line 1067
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 1068
     return-void
-
-    .line 1070
-    .end local v0    # "prevPos":I
-    .end local v1    # "nextTag":I
-    :cond_a
-    goto :goto_4
 .end method
 
 .method public readUInt64()J
@@ -6291,9 +5404,9 @@
         }
     .end annotation
 
-    .line 174
     const/4 v0, 0x0
 
+    .line 174
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requireWireType(I)V
 
     .line 175
@@ -6305,7 +5418,7 @@
 .end method
 
 .method public readUInt64List(Ljava/util/List;)V
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -6322,12 +5435,11 @@
     .end annotation
 
     .line 492
-    .local p1, "target":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Long;>;"
     instance-of v0, p1, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
 
     const/4 v1, 0x2
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4
 
     .line 493
     move-object v0, p1
@@ -6335,69 +5447,57 @@
     check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
 
     .line 494
-    .local v0, "plist":Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    invoke-static {v2}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
+    invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_2
+    if-eqz p1, :cond_2
 
-    if-ne v2, v1, :cond_1
+    if-ne p1, v1, :cond_1
 
     .line 496
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v1
+    move-result p1
 
     .line 497
-    .local v1, "bytes":I
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    add-int/2addr v2, v1
+    add-int/2addr v1, p1
 
     .line 498
-    .local v2, "fieldEndPos":I
     :goto_0
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v3, v2, :cond_0
+    if-ge p1, v1, :cond_0
 
     .line 499
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint64()J
 
-    move-result-wide v3
+    move-result-wide v2
 
-    invoke-virtual {v0, v3, v4}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->addLong(J)V
+    invoke-virtual {v0, v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;->addLong(J)V
 
     goto :goto_0
 
     .line 501
     :cond_0
-    invoke-direct {p0, v2}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requirePosition(I)V
+    invoke-direct {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requirePosition(I)V
 
-    .line 502
-    nop
-
-    .line 522
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
-    .end local v1    # "bytes":I
-    .end local v2    # "fieldEndPos":I
-    goto :goto_3
+    goto :goto_2
 
     .line 520
-    .restart local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
     :cond_1
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v1
+    move-result-object p1
 
-    throw v1
+    throw p1
 
     .line 505
     :cond_2
-    :goto_1
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readUInt64()J
 
     move-result-wide v1
@@ -6407,53 +5507,42 @@
     .line 507
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->isAtEnd()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_3
+    if-eqz p1, :cond_3
 
-    .line 508
     return-void
 
     .line 510
     :cond_3
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 511
-    .local v1, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
-    move-result v2
+    move-result v1
 
     .line 512
-    .local v2, "nextTag":I
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
+    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v2, v3, :cond_4
+    if-eq v1, v2, :cond_2
 
     .line 515
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 516
     return-void
 
-    .line 518
-    .end local v1    # "prevPos":I
-    .end local v2    # "nextTag":I
-    :cond_4
-    goto :goto_1
-
     .line 523
-    .end local v0    # "plist":Lcom/google/crypto/tink/shaded/protobuf/LongArrayList;
-    :cond_5
+    :cond_4
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
     invoke-static {v0}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->getTagWireType(I)I
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_7
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_6
 
     .line 525
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
@@ -6461,17 +5550,15 @@
     move-result v0
 
     .line 526
-    .local v0, "bytes":I
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     add-int/2addr v1, v0
 
     .line 527
-    .local v1, "fieldEndPos":I
-    :goto_2
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    :goto_1
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    if-ge v2, v1, :cond_6
+    if-ge v0, v1, :cond_5
 
     .line 528
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint64()J
@@ -6480,36 +5567,29 @@
 
     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {p1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_1
 
     .line 530
-    :cond_6
+    :cond_5
     invoke-direct {p0, v1}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->requirePosition(I)V
 
-    .line 531
-    nop
-
-    .line 552
-    .end local v0    # "bytes":I
-    .end local v1    # "fieldEndPos":I
-    :goto_3
+    :goto_2
     return-void
 
     .line 549
-    :cond_7
+    :cond_6
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->invalidWireType()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException$InvalidWireTypeException;
 
-    move-result-object v0
+    move-result-object p1
 
-    throw v0
+    throw p1
 
     .line 534
-    :cond_8
-    :goto_4
+    :cond_7
     invoke-virtual {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readUInt64()J
 
     move-result-wide v0
@@ -6525,42 +5605,32 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_8
 
-    .line 537
     return-void
 
     .line 539
-    :cond_9
+    :cond_8
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 540
-    .local v0, "prevPos":I
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint32()I
 
     move-result v1
 
     .line 541
-    .local v1, "nextTag":I
     iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->tag:I
 
-    if-eq v1, v2, :cond_a
+    if-eq v1, v2, :cond_7
 
     .line 544
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 545
     return-void
-
-    .line 547
-    .end local v0    # "prevPos":I
-    .end local v1    # "nextTag":I
-    :cond_a
-    goto :goto_4
 .end method
 
 .method public readVarint64()J
-    .locals 10
+    .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -6571,7 +5641,6 @@
     iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
     .line 1545
-    .local v0, "i":I
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->limit:I
 
     if-eq v1, v0, :cond_b
@@ -6579,34 +5648,26 @@
     .line 1549
     iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->buffer:[B
 
-    .line 1552
-    .local v2, "buffer":[B
     add-int/lit8 v3, v0, 0x1
 
-    .end local v0    # "i":I
-    .local v3, "i":I
+    .line 1552
     aget-byte v0, v2, v0
 
-    move v4, v0
-
-    .local v4, "y":I
     if-ltz v0, :cond_0
 
     .line 1553
     iput v3, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 1554
-    int-to-long v0, v4
+    int-to-long v0, v0
 
     return-wide v0
 
-    .line 1555
     :cond_0
     sub-int/2addr v1, v3
 
-    const/16 v0, 0x9
+    const/16 v4, 0x9
 
-    if-ge v1, v0, :cond_1
+    if-ge v1, v4, :cond_1
 
     .line 1556
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->readVarint64SlowPath()J
@@ -6615,304 +5676,229 @@
 
     return-wide v0
 
-    .line 1557
     :cond_1
-    add-int/lit8 v0, v3, 0x1
+    add-int/lit8 v1, v3, 0x1
 
-    .end local v3    # "i":I
-    .restart local v0    # "i":I
-    aget-byte v1, v2, v3
+    .line 1557
+    aget-byte v3, v2, v3
 
-    shl-int/lit8 v1, v1, 0x7
-
-    xor-int/2addr v1, v4
-
-    move v3, v1
-
-    .end local v4    # "y":I
-    .local v3, "y":I
-    if-gez v1, :cond_2
-
-    .line 1558
-    xor-int/lit8 v1, v3, -0x80
-
-    int-to-long v4, v1
-
-    .local v4, "x":J
-    goto/16 :goto_0
-
-    .line 1559
-    .end local v4    # "x":J
-    :cond_2
-    add-int/lit8 v1, v0, 0x1
-
-    .end local v0    # "i":I
-    .local v1, "i":I
-    aget-byte v0, v2, v0
-
-    shl-int/lit8 v0, v0, 0xe
+    shl-int/lit8 v3, v3, 0x7
 
     xor-int/2addr v0, v3
 
-    move v3, v0
+    if-gez v0, :cond_2
+
+    xor-int/lit8 v0, v0, -0x80
+
+    :goto_0
+    int-to-long v2, v0
+
+    goto/16 :goto_4
+
+    :cond_2
+    add-int/lit8 v3, v1, 0x1
+
+    .line 1559
+    aget-byte v1, v2, v1
+
+    shl-int/lit8 v1, v1, 0xe
+
+    xor-int/2addr v0, v1
 
     if-ltz v0, :cond_3
 
-    .line 1560
-    xor-int/lit16 v0, v3, 0x3f80
+    xor-int/lit16 v0, v0, 0x3f80
 
-    int-to-long v4, v0
+    int-to-long v0, v0
 
-    move v0, v1
+    move-wide v9, v0
 
-    .restart local v4    # "x":J
-    goto/16 :goto_0
+    move v1, v3
+
+    move-wide v2, v9
+
+    goto/16 :goto_4
+
+    :cond_3
+    add-int/lit8 v1, v3, 0x1
 
     .line 1561
-    .end local v4    # "x":J
-    :cond_3
+    aget-byte v3, v2, v3
+
+    shl-int/lit8 v3, v3, 0x15
+
+    xor-int/2addr v0, v3
+
+    if-gez v0, :cond_4
+
+    const v2, -0x1fc080
+
+    xor-int/2addr v0, v2
+
+    goto :goto_0
+
+    :cond_4
+    int-to-long v3, v0
+
     add-int/lit8 v0, v1, 0x1
-
-    .end local v1    # "i":I
-    .restart local v0    # "i":I
-    aget-byte v1, v2, v1
-
-    shl-int/lit8 v1, v1, 0x15
-
-    xor-int/2addr v1, v3
-
-    move v3, v1
-
-    if-gez v1, :cond_4
-
-    .line 1562
-    const v1, -0x1fc080
-
-    xor-int/2addr v1, v3
-
-    int-to-long v4, v1
-
-    .restart local v4    # "x":J
-    goto/16 :goto_0
 
     .line 1563
-    .end local v4    # "x":J
-    :cond_4
-    int-to-long v4, v3
+    aget-byte v1, v2, v1
 
+    int-to-long v5, v1
+
+    const/16 v1, 0x1c
+
+    shl-long/2addr v5, v1
+
+    xor-long/2addr v3, v5
+
+    const-wide/16 v5, 0x0
+
+    cmp-long v1, v3, v5
+
+    if-ltz v1, :cond_5
+
+    const-wide/32 v1, 0xfe03f80
+
+    :goto_1
+    xor-long v2, v3, v1
+
+    move v1, v0
+
+    goto :goto_4
+
+    :cond_5
     add-int/lit8 v1, v0, 0x1
-
-    .end local v0    # "i":I
-    .restart local v1    # "i":I
-    aget-byte v0, v2, v0
-
-    int-to-long v6, v0
-
-    const/16 v0, 0x1c
-
-    shl-long/2addr v6, v0
-
-    xor-long/2addr v4, v6
-
-    move-wide v6, v4
-
-    .local v6, "x":J
-    const-wide/16 v8, 0x0
-
-    cmp-long v0, v4, v8
-
-    if-ltz v0, :cond_5
-
-    .line 1564
-    const-wide/32 v4, 0xfe03f80
-
-    xor-long/2addr v4, v6
-
-    move v0, v1
-
-    .end local v6    # "x":J
-    .restart local v4    # "x":J
-    goto :goto_0
 
     .line 1565
-    .end local v4    # "x":J
-    .restart local v6    # "x":J
-    :cond_5
+    aget-byte v0, v2, v0
+
+    int-to-long v7, v0
+
+    const/16 v0, 0x23
+
+    shl-long/2addr v7, v0
+
+    xor-long/2addr v3, v7
+
+    cmp-long v0, v3, v5
+
+    if-gez v0, :cond_6
+
+    const-wide v5, -0x7f01fc080L
+
+    :goto_2
+    xor-long v2, v3, v5
+
+    goto :goto_4
+
+    :cond_6
     add-int/lit8 v0, v1, 0x1
-
-    .end local v1    # "i":I
-    .restart local v0    # "i":I
-    aget-byte v1, v2, v1
-
-    int-to-long v4, v1
-
-    const/16 v1, 0x23
-
-    shl-long/2addr v4, v1
-
-    xor-long/2addr v4, v6
-
-    move-wide v6, v4
-
-    cmp-long v1, v4, v8
-
-    if-gez v1, :cond_6
-
-    .line 1566
-    const-wide v4, -0x7f01fc080L
-
-    xor-long/2addr v4, v6
-
-    .end local v6    # "x":J
-    .restart local v4    # "x":J
-    goto :goto_0
 
     .line 1567
-    .end local v4    # "x":J
-    .restart local v6    # "x":J
-    :cond_6
+    aget-byte v1, v2, v1
+
+    int-to-long v7, v1
+
+    const/16 v1, 0x2a
+
+    shl-long/2addr v7, v1
+
+    xor-long/2addr v3, v7
+
+    cmp-long v1, v3, v5
+
+    if-ltz v1, :cond_7
+
+    const-wide v1, 0x3f80fe03f80L
+
+    goto :goto_1
+
+    :cond_7
     add-int/lit8 v1, v0, 0x1
-
-    .end local v0    # "i":I
-    .restart local v1    # "i":I
-    aget-byte v0, v2, v0
-
-    int-to-long v4, v0
-
-    const/16 v0, 0x2a
-
-    shl-long/2addr v4, v0
-
-    xor-long/2addr v4, v6
-
-    move-wide v6, v4
-
-    cmp-long v0, v4, v8
-
-    if-ltz v0, :cond_7
-
-    .line 1568
-    const-wide v4, 0x3f80fe03f80L
-
-    xor-long/2addr v4, v6
-
-    move v0, v1
-
-    .end local v6    # "x":J
-    .restart local v4    # "x":J
-    goto :goto_0
 
     .line 1569
-    .end local v4    # "x":J
-    .restart local v6    # "x":J
-    :cond_7
-    add-int/lit8 v0, v1, 0x1
-
-    .end local v1    # "i":I
-    .restart local v0    # "i":I
-    aget-byte v1, v2, v1
-
-    int-to-long v4, v1
-
-    const/16 v1, 0x31
-
-    shl-long/2addr v4, v1
-
-    xor-long/2addr v4, v6
-
-    move-wide v6, v4
-
-    cmp-long v1, v4, v8
-
-    if-gez v1, :cond_8
-
-    .line 1570
-    const-wide v4, -0x1fc07f01fc080L
-
-    xor-long/2addr v4, v6
-
-    .end local v6    # "x":J
-    .restart local v4    # "x":J
-    goto :goto_0
-
-    .line 1579
-    .end local v4    # "x":J
-    .restart local v6    # "x":J
-    :cond_8
-    add-int/lit8 v1, v0, 0x1
-
-    .end local v0    # "i":I
-    .restart local v1    # "i":I
     aget-byte v0, v2, v0
 
-    int-to-long v4, v0
+    int-to-long v7, v0
 
-    const/16 v0, 0x38
+    const/16 v0, 0x31
 
-    shl-long/2addr v4, v0
+    shl-long/2addr v7, v0
 
-    xor-long/2addr v4, v6
+    xor-long/2addr v3, v7
 
-    .line 1580
-    .end local v6    # "x":J
-    .restart local v4    # "x":J
-    const-wide v6, 0xfe03f80fe03f80L
+    cmp-long v0, v3, v5
 
-    xor-long/2addr v4, v6
+    if-gez v0, :cond_8
 
-    .line 1589
-    cmp-long v0, v4, v8
+    const-wide v5, -0x1fc07f01fc080L
 
-    if-gez v0, :cond_a
+    goto :goto_2
 
-    .line 1590
+    :cond_8
     add-int/lit8 v0, v1, 0x1
 
-    .end local v1    # "i":I
-    .restart local v0    # "i":I
+    .line 1579
     aget-byte v1, v2, v1
 
-    int-to-long v6, v1
+    int-to-long v7, v1
 
-    cmp-long v1, v6, v8
+    const/16 v1, 0x38
 
-    if-ltz v1, :cond_9
+    shl-long/2addr v7, v1
 
-    goto :goto_0
+    xor-long/2addr v3, v7
+
+    const-wide v7, 0xfe03f80fe03f80L
+
+    xor-long/2addr v3, v7
+
+    cmp-long v1, v3, v5
+
+    if-gez v1, :cond_a
+
+    add-int/lit8 v1, v0, 0x1
+
+    .line 1590
+    aget-byte v0, v2, v0
+
+    int-to-long v7, v0
+
+    cmp-long v0, v7, v5
+
+    if-ltz v0, :cond_9
+
+    goto :goto_3
 
     .line 1591
     :cond_9
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->malformedVarint()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 
-    .line 1589
-    .end local v0    # "i":I
-    .restart local v1    # "i":I
     :cond_a
-    move v0, v1
+    move v1, v0
+
+    :goto_3
+    move-wide v2, v3
 
     .line 1595
-    .end local v1    # "i":I
-    .restart local v0    # "i":I
-    :goto_0
-    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
+    :goto_4
+    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->pos:I
 
-    .line 1596
-    return-wide v4
+    return-wide v2
 
     .line 1546
-    .end local v2    # "buffer":[B
-    .end local v3    # "y":I
-    .end local v4    # "x":J
     :cond_b
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;->truncatedMessage()Lcom/google/crypto/tink/shaded/protobuf/InvalidProtocolBufferException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 .end method
 
 .method public skipField()Z
@@ -6962,12 +5948,11 @@
 
     if-ne v0, v2, :cond_1
 
-    .line 150
     const/4 v0, 0x4
 
+    .line 150
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->skipBytes(I)V
 
-    .line 151
     return v1
 
     .line 156
@@ -6982,7 +5967,6 @@
     :cond_2
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->skipGroup()V
 
-    .line 154
     return v1
 
     .line 147
@@ -6993,26 +5977,22 @@
 
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->skipBytes(I)V
 
-    .line 148
     return v1
 
-    .line 144
     :cond_4
     const/16 v0, 0x8
 
+    .line 144
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->skipBytes(I)V
 
-    .line 145
     return v1
 
     .line 141
     :cond_5
     invoke-direct {p0}, Lcom/google/crypto/tink/shaded/protobuf/BinaryReader$SafeHeapReader;->skipVarint()V
 
-    .line 142
     return v1
 
-    .line 136
     :cond_6
     :goto_0
     const/4 v0, 0x0

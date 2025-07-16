@@ -13,7 +13,6 @@
 # direct methods
 .method public constructor <init>(Lcom/thoughtworks/xstream/mapper/Mapper;)V
     .locals 0
-    .param p1, "wrapped"    # Lcom/thoughtworks/xstream/mapper/Mapper;
 
     .line 33
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;-><init>(Lcom/thoughtworks/xstream/mapper/Mapper;)V
@@ -21,7 +20,6 @@
     .line 34
     invoke-direct {p0}, Lcom/thoughtworks/xstream/mapper/CachingMapper;->readResolve()Ljava/lang/Object;
 
-    .line 35
     return-void
 .end method
 
@@ -41,7 +39,6 @@
 
     iput-object v0, p0, Lcom/thoughtworks/xstream/mapper/CachingMapper;->realClassCache:Ljava/util/Map;
 
-    .line 65
     return-object p0
 .end method
 
@@ -55,13 +52,11 @@
 
     invoke-interface {v0}, Ljava/util/Map;->clear()V
 
-    .line 61
     return-void
 .end method
 
 .method public realClass(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 3
-    .param p1, "elementName"    # Ljava/lang/String;
+    .locals 2
 
     .line 38
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/CachingMapper;->realClassCache:Ljava/util/Map;
@@ -70,74 +65,60 @@
 
     move-result-object v0
 
-    .line 39
-    .local v0, "cached":Ljava/lang/Object;
     if-eqz v0, :cond_1
 
     .line 40
-    instance-of v1, v0, Ljava/lang/Class;
+    instance-of p1, v0, Ljava/lang/Class;
 
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
     .line 41
-    move-object v1, v0
+    check-cast v0, Ljava/lang/Class;
 
-    check-cast v1, Ljava/lang/Class;
-
-    return-object v1
+    return-object v0
 
     .line 43
     :cond_0
-    move-object v1, v0
+    check-cast v0, Lcom/thoughtworks/xstream/XStreamException;
 
-    check-cast v1, Lcom/thoughtworks/xstream/XStreamException;
-
-    throw v1
+    throw v0
 
     .line 47
     :cond_1
     :try_start_0
     invoke-super {p0, p1}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->realClass(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 48
-    .local v1, "result":Ljava/lang/Class;
-    iget-object v2, p0, Lcom/thoughtworks/xstream/mapper/CachingMapper;->realClassCache:Ljava/util/Map;
+    iget-object v1, p0, Lcom/thoughtworks/xstream/mapper/CachingMapper;->realClassCache:Ljava/util/Map;
 
-    invoke-interface {v2, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Lcom/thoughtworks/xstream/security/ForbiddenClassException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Lcom/thoughtworks/xstream/mapper/CannotResolveClassException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 49
-    return-object v1
+    return-object v0
 
-    .line 53
-    .end local v1    # "result":Ljava/lang/Class;
     :catch_0
-    move-exception v1
+    move-exception v0
 
     .line 54
-    .local v1, "e":Lcom/thoughtworks/xstream/mapper/CannotResolveClassException;
-    iget-object v2, p0, Lcom/thoughtworks/xstream/mapper/CachingMapper;->realClassCache:Ljava/util/Map;
+    iget-object v1, p0, Lcom/thoughtworks/xstream/mapper/CachingMapper;->realClassCache:Ljava/util/Map;
 
-    invoke-interface {v2, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 55
-    throw v1
+    throw v0
 
-    .line 50
-    .end local v1    # "e":Lcom/thoughtworks/xstream/mapper/CannotResolveClassException;
     :catch_1
-    move-exception v1
+    move-exception v0
 
     .line 51
-    .local v1, "e":Lcom/thoughtworks/xstream/security/ForbiddenClassException;
-    iget-object v2, p0, Lcom/thoughtworks/xstream/mapper/CachingMapper;->realClassCache:Ljava/util/Map;
+    iget-object v1, p0, Lcom/thoughtworks/xstream/mapper/CachingMapper;->realClassCache:Ljava/util/Map;
 
-    invoke-interface {v2, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 52
-    throw v1
+    throw v0
 .end method

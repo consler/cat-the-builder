@@ -37,13 +37,11 @@
     .line 123
     invoke-direct {p0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Button$ButtonStyle;-><init>()V
 
-    .line 124
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/TextButton$TextButtonStyle;)V
     .locals 2
-    .param p1, "style"    # Lcom/badlogic/gdx/scenes/scene2d/ui/TextButton$TextButtonStyle;
 
     .line 132
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Button$ButtonStyle;-><init>(Lcom/badlogic/gdx/scenes/scene2d/ui/Button$ButtonStyle;)V
@@ -130,23 +128,18 @@
 
     new-instance v0, Lcom/badlogic/gdx/graphics/Color;
 
-    iget-object v1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/TextButton$TextButtonStyle;->disabledFontColor:Lcom/badlogic/gdx/graphics/Color;
+    iget-object p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/TextButton$TextButtonStyle;->disabledFontColor:Lcom/badlogic/gdx/graphics/Color;
 
-    invoke-direct {v0, v1}, Lcom/badlogic/gdx/graphics/Color;-><init>(Lcom/badlogic/gdx/graphics/Color;)V
+    invoke-direct {v0, p1}, Lcom/badlogic/gdx/graphics/Color;-><init>(Lcom/badlogic/gdx/graphics/Color;)V
 
     iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TextButton$TextButtonStyle;->disabledFontColor:Lcom/badlogic/gdx/graphics/Color;
 
-    .line 140
     :cond_5
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;Lcom/badlogic/gdx/graphics/g2d/BitmapFont;)V
     .locals 0
-    .param p1, "up"    # Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
-    .param p2, "down"    # Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
-    .param p3, "checked"    # Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
-    .param p4, "font"    # Lcom/badlogic/gdx/graphics/g2d/BitmapFont;
 
     .line 127
     invoke-direct {p0, p1, p2, p3}, Lcom/badlogic/gdx/scenes/scene2d/ui/Button$ButtonStyle;-><init>(Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;)V
@@ -154,6 +147,5 @@
     .line 128
     iput-object p4, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/TextButton$TextButtonStyle;->font:Lcom/badlogic/gdx/graphics/g2d/BitmapFont;
 
-    .line 129
     return-void
 .end method

@@ -48,9 +48,9 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 75
     const/4 p1, 0x0
 
+    .line 75
     iput p1, p0, Lcom/koushikdutta/async/Util$2;->totalRead:I
 
     .line 82
@@ -90,27 +90,26 @@
 
     invoke-virtual {v0}, Lcom/koushikdutta/async/ByteBufferList;->recycle()V
 
-    .line 80
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/io/Closeable;
 
-    iget-object v1, p0, Lcom/koushikdutta/async/Util$2;->val$is:Ljava/io/InputStream;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    .line 80
+    iget-object v2, p0, Lcom/koushikdutta/async/Util$2;->val$is:Ljava/io/InputStream;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     invoke-static {v0}, Lcom/koushikdutta/async/util/StreamUtility;->closeQuietly([Ljava/io/Closeable;)V
 
-    .line 81
     return-void
 .end method
 
 
 # virtual methods
 .method public onWriteable()V
-    .locals 9
+    .locals 7
 
     .line 89
     :cond_0
@@ -131,7 +130,6 @@
     move-result-object v0
 
     .line 92
-    .local v0, "b":Ljava/nio/ByteBuffer;
     iget-wide v1, p0, Lcom/koushikdutta/async/Util$2;->val$max:J
 
     iget v3, p0, Lcom/koushikdutta/async/Util$2;->totalRead:I
@@ -151,64 +149,62 @@
     move-result-wide v1
 
     .line 93
-    .local v1, "toRead":J
     iget-object v3, p0, Lcom/koushikdutta/async/Util$2;->val$is:Ljava/io/InputStream;
 
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->array()[B
 
     move-result-object v4
 
-    long-to-int v5, v1
+    long-to-int v1, v1
 
-    const/4 v6, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {v3, v4, v6, v5}, Ljava/io/InputStream;->read([BII)I
+    invoke-virtual {v3, v4, v2, v1}, Ljava/io/InputStream;->read([BII)I
 
-    move-result v3
+    move-result v1
+
+    const/4 v3, -0x1
+
+    if-eq v1, v3, :cond_2
 
     .line 94
-    .local v3, "read":I
-    const/4 v4, -0x1
+    iget v3, p0, Lcom/koushikdutta/async/Util$2;->totalRead:I
 
-    if-eq v3, v4, :cond_2
+    int-to-long v3, v3
 
-    iget v4, p0, Lcom/koushikdutta/async/Util$2;->totalRead:I
+    iget-wide v5, p0, Lcom/koushikdutta/async/Util$2;->val$max:J
 
-    int-to-long v4, v4
+    cmp-long v3, v3, v5
 
-    iget-wide v7, p0, Lcom/koushikdutta/async/Util$2;->val$max:J
-
-    cmp-long v4, v4, v7
-
-    if-nez v4, :cond_1
+    if-nez v3, :cond_1
 
     goto :goto_0
 
     .line 99
     :cond_1
-    iget-object v4, p0, Lcom/koushikdutta/async/Util$2;->allocator:Lcom/koushikdutta/async/util/Allocator;
+    iget-object v3, p0, Lcom/koushikdutta/async/Util$2;->allocator:Lcom/koushikdutta/async/util/Allocator;
 
-    int-to-long v7, v3
+    int-to-long v4, v1
 
-    invoke-virtual {v4, v7, v8}, Lcom/koushikdutta/async/util/Allocator;->track(J)V
+    invoke-virtual {v3, v4, v5}, Lcom/koushikdutta/async/util/Allocator;->track(J)V
 
     .line 100
-    iget v4, p0, Lcom/koushikdutta/async/Util$2;->totalRead:I
+    iget v3, p0, Lcom/koushikdutta/async/Util$2;->totalRead:I
 
-    add-int/2addr v4, v3
+    add-int/2addr v3, v1
 
-    iput v4, p0, Lcom/koushikdutta/async/Util$2;->totalRead:I
+    iput v3, p0, Lcom/koushikdutta/async/Util$2;->totalRead:I
 
     .line 101
-    invoke-virtual {v0, v6}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, v2}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 102
-    invoke-virtual {v0, v3}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
     .line 103
-    iget-object v4, p0, Lcom/koushikdutta/async/Util$2;->pending:Lcom/koushikdutta/async/ByteBufferList;
+    iget-object v1, p0, Lcom/koushikdutta/async/Util$2;->pending:Lcom/koushikdutta/async/ByteBufferList;
 
-    invoke-virtual {v4, v0}, Lcom/koushikdutta/async/ByteBufferList;->add(Ljava/nio/ByteBuffer;)Lcom/koushikdutta/async/ByteBufferList;
+    invoke-virtual {v1, v0}, Lcom/koushikdutta/async/ByteBufferList;->add(Ljava/nio/ByteBuffer;)Lcom/koushikdutta/async/ByteBufferList;
 
     goto :goto_1
 
@@ -218,19 +214,15 @@
     invoke-direct {p0}, Lcom/koushikdutta/async/Util$2;->cleanup()V
 
     .line 96
-    iget-object v4, p0, Lcom/koushikdutta/async/Util$2;->val$wrapper:Lcom/koushikdutta/async/callback/CompletedCallback;
+    iget-object v0, p0, Lcom/koushikdutta/async/Util$2;->val$wrapper:Lcom/koushikdutta/async/callback/CompletedCallback;
 
-    const/4 v5, 0x0
+    const/4 v1, 0x0
 
-    invoke-interface {v4, v5}, Lcom/koushikdutta/async/callback/CompletedCallback;->onCompleted(Ljava/lang/Exception;)V
+    invoke-interface {v0, v1}, Lcom/koushikdutta/async/callback/CompletedCallback;->onCompleted(Ljava/lang/Exception;)V
 
-    .line 97
     return-void
 
     .line 106
-    .end local v0    # "b":Ljava/nio/ByteBuffer;
-    .end local v1    # "toRead":J
-    .end local v3    # "read":I
     :cond_3
     :goto_1
     iget-object v0, p0, Lcom/koushikdutta/async/Util$2;->val$ds:Lcom/koushikdutta/async/DataSink;
@@ -250,15 +242,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 113
     goto :goto_2
 
-    .line 110
     :catch_0
     move-exception v0
 
     .line 111
-    .local v0, "e":Ljava/lang/Exception;
     invoke-direct {p0}, Lcom/koushikdutta/async/Util$2;->cleanup()V
 
     .line 112
@@ -266,8 +255,6 @@
 
     invoke-interface {v1, v0}, Lcom/koushikdutta/async/callback/CompletedCallback;->onCompleted(Ljava/lang/Exception;)V
 
-    .line 114
-    .end local v0    # "e":Ljava/lang/Exception;
     :goto_2
     return-void
 .end method

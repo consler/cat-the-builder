@@ -53,46 +53,40 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/File;)V
-    .locals 2
-    .param p1, "file"    # Ljava/io/File;
+    .locals 1
 
     .line 147
     invoke-static {p1}, Lar/com/hjg/pngj/PngHelperInternal;->istreamFromFile(Ljava/io/File;)Ljava/io/InputStream;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    invoke-direct {p0, v0, v1}, Lar/com/hjg/pngj/PngReader;-><init>(Ljava/io/InputStream;Z)V
+    invoke-direct {p0, p1, v0}, Lar/com/hjg/pngj/PngReader;-><init>(Ljava/io/InputStream;Z)V
 
-    .line 148
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;)V
     .locals 1
-    .param p1, "inputStream"    # Ljava/io/InputStream;
 
-    .line 106
     const/4 v0, 0x1
 
+    .line 106
     invoke-direct {p0, p1, v0}, Lar/com/hjg/pngj/PngReader;-><init>(Ljava/io/InputStream;Z)V
 
-    .line 107
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;Z)V
-    .locals 6
-    .param p1, "inputStream"    # Ljava/io/InputStream;
-    .param p2, "shouldCloseStream"    # Z
+    .locals 4
 
     .line 115
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 79
     const/4 v0, -0x1
 
+    .line 79
     iput v0, p0, Lar/com/hjg/pngj/PngReader;->rowNum:I
 
     .line 117
@@ -107,150 +101,138 @@
     invoke-virtual {v1, p2}, Lar/com/hjg/pngj/BufferedStreamFeeder;->setCloseStream(Z)V
 
     .line 119
-    new-instance v1, Lar/com/hjg/pngj/ChunkSeqReaderPng;
+    new-instance p1, Lar/com/hjg/pngj/ChunkSeqReaderPng;
 
-    const/4 v2, 0x0
+    const/4 p2, 0x0
 
-    invoke-direct {v1, v2}, Lar/com/hjg/pngj/ChunkSeqReaderPng;-><init>(Z)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/ChunkSeqReaderPng;-><init>(Z)V
 
-    iput-object v1, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
+    iput-object p1, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
 
     .line 120
-    iget-object v1, p0, Lar/com/hjg/pngj/PngReader;->streamFeeder:Lar/com/hjg/pngj/BufferedStreamFeeder;
+    iget-object p1, p0, Lar/com/hjg/pngj/PngReader;->streamFeeder:Lar/com/hjg/pngj/BufferedStreamFeeder;
 
-    const/4 v3, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {v1, v3}, Lar/com/hjg/pngj/BufferedStreamFeeder;->setFailIfNoFeed(Z)V
+    invoke-virtual {p1, v1}, Lar/com/hjg/pngj/BufferedStreamFeeder;->setFailIfNoFeed(Z)V
 
     .line 121
-    iget-object v1, p0, Lar/com/hjg/pngj/PngReader;->streamFeeder:Lar/com/hjg/pngj/BufferedStreamFeeder;
-
-    iget-object v4, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
-
-    const/16 v5, 0x24
-
-    invoke-virtual {v1, v4, v5}, Lar/com/hjg/pngj/BufferedStreamFeeder;->feedFixed(Lar/com/hjg/pngj/IBytesConsumer;I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    .line 123
-    iget-object v1, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
-
-    invoke-virtual {v1}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->getImageInfo()Lar/com/hjg/pngj/ImageInfo;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lar/com/hjg/pngj/PngReader;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
-
-    .line 124
-    iget-object v1, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
-
-    invoke-virtual {v1}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->getDeinterlacer()Lar/com/hjg/pngj/Deinterlacer;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    move v2, v3
-
-    :cond_0
-    iput-boolean v2, p0, Lar/com/hjg/pngj/PngReader;->interlaced:Z
-
-    .line 125
-    const-wide/32 v1, 0x4ca918
-
-    invoke-virtual {p0, v1, v2}, Lar/com/hjg/pngj/PngReader;->setMaxBytesMetadata(J)V
-
-    .line 126
-    const-wide/32 v1, 0x35b42f29
-
-    invoke-virtual {p0, v1, v2}, Lar/com/hjg/pngj/PngReader;->setMaxTotalBytesRead(J)V
-
-    .line 127
-    const-wide/32 v1, 0x1ee258    # 1.0000007E-317
-
-    invoke-virtual {p0, v1, v2}, Lar/com/hjg/pngj/PngReader;->setSkipChunkMaxSize(J)V
-
-    .line 128
-    new-instance v1, Lar/com/hjg/pngj/chunks/PngMetadata;
+    iget-object p1, p0, Lar/com/hjg/pngj/PngReader;->streamFeeder:Lar/com/hjg/pngj/BufferedStreamFeeder;
 
     iget-object v2, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
 
-    iget-object v2, v2, Lar/com/hjg/pngj/ChunkSeqReaderPng;->chunksList:Lar/com/hjg/pngj/chunks/ChunksList;
+    const/16 v3, 0x24
 
-    invoke-direct {v1, v2}, Lar/com/hjg/pngj/chunks/PngMetadata;-><init>(Lar/com/hjg/pngj/chunks/ChunksList;)V
+    invoke-virtual {p1, v2, v3}, Lar/com/hjg/pngj/BufferedStreamFeeder;->feedFixed(Lar/com/hjg/pngj/IBytesConsumer;I)Z
 
-    iput-object v1, p0, Lar/com/hjg/pngj/PngReader;->metadata:Lar/com/hjg/pngj/chunks/PngMetadata;
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    .line 123
+    iget-object p1, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
+
+    invoke-virtual {p1}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->getImageInfo()Lar/com/hjg/pngj/ImageInfo;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lar/com/hjg/pngj/PngReader;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
+
+    .line 124
+    iget-object p1, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
+
+    invoke-virtual {p1}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->getDeinterlacer()Lar/com/hjg/pngj/Deinterlacer;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_0
+
+    move p2, v1
+
+    :cond_0
+    iput-boolean p2, p0, Lar/com/hjg/pngj/PngReader;->interlaced:Z
+
+    const-wide/32 p1, 0x4ca918
+
+    .line 125
+    invoke-virtual {p0, p1, p2}, Lar/com/hjg/pngj/PngReader;->setMaxBytesMetadata(J)V
+
+    const-wide/32 p1, 0x35b42f29
+
+    .line 126
+    invoke-virtual {p0, p1, p2}, Lar/com/hjg/pngj/PngReader;->setMaxTotalBytesRead(J)V
+
+    const-wide/32 p1, 0x1ee258    # 1.0000007E-317
+
+    .line 127
+    invoke-virtual {p0, p1, p2}, Lar/com/hjg/pngj/PngReader;->setSkipChunkMaxSize(J)V
+
+    .line 128
+    new-instance p1, Lar/com/hjg/pngj/chunks/PngMetadata;
+
+    iget-object p2, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
+
+    iget-object p2, p2, Lar/com/hjg/pngj/ChunkSeqReaderPng;->chunksList:Lar/com/hjg/pngj/chunks/ChunksList;
+
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/chunks/PngMetadata;-><init>(Lar/com/hjg/pngj/chunks/ChunksList;)V
+
+    iput-object p1, p0, Lar/com/hjg/pngj/PngReader;->metadata:Lar/com/hjg/pngj/chunks/PngMetadata;
 
     .line 131
     invoke-static {}, Lar/com/hjg/pngj/ImageLineSetDefault;->getFactoryInt()Lar/com/hjg/pngj/IImageLineSetFactory;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {p0, v1}, Lar/com/hjg/pngj/PngReader;->setLineSetFactory(Lar/com/hjg/pngj/IImageLineSetFactory;)V
+    invoke-virtual {p0, p1}, Lar/com/hjg/pngj/PngReader;->setLineSetFactory(Lar/com/hjg/pngj/IImageLineSetFactory;)V
 
     .line 132
     iput v0, p0, Lar/com/hjg/pngj/PngReader;->rowNum:I
 
-    .line 138
-    nop
-
-    .line 139
     return-void
 
     .line 122
     :cond_1
-    new-instance v0, Lar/com/hjg/pngj/PngjInputException;
+    new-instance p1, Lar/com/hjg/pngj/PngjInputException;
 
-    const-string v1, "error reading first 21 bytes"
+    const-string p2, "error reading first 21 bytes"
 
-    invoke-direct {v0, v1}, Lar/com/hjg/pngj/PngjInputException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/PngjInputException;-><init>(Ljava/lang/String;)V
 
-    .end local p1    # "inputStream":Ljava/io/InputStream;
-    .end local p2    # "shouldCloseStream":Z
-    throw v0
+    throw p1
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 133
-    .restart local p1    # "inputStream":Ljava/io/InputStream;
-    .restart local p2    # "shouldCloseStream":Z
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 134
-    .local v0, "e":Ljava/lang/RuntimeException;
-    iget-object v1, p0, Lar/com/hjg/pngj/PngReader;->streamFeeder:Lar/com/hjg/pngj/BufferedStreamFeeder;
+    iget-object p2, p0, Lar/com/hjg/pngj/PngReader;->streamFeeder:Lar/com/hjg/pngj/BufferedStreamFeeder;
 
-    invoke-virtual {v1}, Lar/com/hjg/pngj/BufferedStreamFeeder;->close()V
+    invoke-virtual {p2}, Lar/com/hjg/pngj/BufferedStreamFeeder;->close()V
 
     .line 135
-    iget-object v1, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
+    iget-object p2, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
 
-    if-eqz v1, :cond_2
+    if-eqz p2, :cond_2
 
     .line 136
-    invoke-virtual {v1}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->close()V
+    invoke-virtual {p2}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->close()V
 
     .line 137
     :cond_2
-    throw v0
+    throw p1
 .end method
 
 
 # virtual methods
 .method public addChunkToSkip(Ljava/lang/String;)V
     .locals 1
-    .param p1, "chunkToSkip"    # Ljava/lang/String;
 
     .line 399
     iget-object v0, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
 
     invoke-virtual {v0, p1}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->addChunkToSkip(Ljava/lang/String;)V
 
-    .line 400
     return-void
 .end method
 
@@ -264,46 +246,40 @@
     if-eqz v0, :cond_0
 
     .line 442
-    iget-object v0, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
-
     invoke-virtual {v0}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->close()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 445
-    :cond_0
     goto :goto_0
 
-    .line 443
     :catch_0
     move-exception v0
 
     .line 444
-    .local v0, "e":Ljava/lang/Exception;
     sget-object v1, Lar/com/hjg/pngj/PngHelperInternal;->LOGGER:Ljava/util/logging/Logger;
 
     new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v3, "error closing chunk sequence:"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v2
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/util/logging/Logger;->warning(Ljava/lang/String;)V
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Ljava/util/logging/Logger;->warning(Ljava/lang/String;)V
 
     .line 446
-    .end local v0    # "e":Ljava/lang/Exception;
+    :cond_0
     :goto_0
     iget-object v0, p0, Lar/com/hjg/pngj/PngReader;->streamFeeder:Lar/com/hjg/pngj/BufferedStreamFeeder;
 
@@ -312,17 +288,12 @@
     .line 447
     invoke-virtual {v0}, Lar/com/hjg/pngj/BufferedStreamFeeder;->close()V
 
-    .line 448
     :cond_1
     return-void
 .end method
 
 .method protected createLineSet(ZIII)Lar/com/hjg/pngj/IImageLineSet;
     .locals 6
-    .param p1, "singleCursor"    # Z
-    .param p2, "nlines"    # I
-    .param p3, "noffset"    # I
-    .param p4, "step"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZIII)",
@@ -348,9 +319,9 @@
 
     invoke-interface/range {v0 .. v5}, Lar/com/hjg/pngj/IImageLineSetFactory;->create(Lar/com/hjg/pngj/ImageInfo;ZIII)Lar/com/hjg/pngj/IImageLineSet;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public end()V
@@ -426,13 +397,8 @@
     :cond_2
     invoke-virtual {p0}, Lar/com/hjg/pngj/PngReader;->close()V
 
-    .line 431
-    nop
-
-    .line 432
     return-void
 
-    .line 430
     :catchall_0
     move-exception v0
 
@@ -515,7 +481,6 @@
 
     if-nez v0, :cond_0
 
-    .line 499
     const-wide/16 v0, 0x0
 
     return-wide v0
@@ -544,11 +509,11 @@
 .method public getSimpleDigestHex()Ljava/lang/String;
     .locals 3
 
-    .line 513
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/lang/Object;
 
+    .line 513
     invoke-virtual {p0}, Lar/com/hjg/pngj/PngReader;->getSimpleDigest()J
 
     move-result-wide v1
@@ -605,10 +570,7 @@
 .end method
 
 .method protected loadAllInterlaced(III)V
-    .locals 9
-    .param p1, "nRows"    # I
-    .param p2, "rowOffset"    # I
-    .param p3, "rowStep"    # I
+    .locals 8
 
     .line 334
     iget-object v0, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
@@ -617,163 +579,141 @@
 
     move-result-object v0
 
-    .line 335
-    .local v0, "idat":Lar/com/hjg/pngj/IdatSet;
     const/4 v1, 0x0
 
+    move v2, v1
+
     .line 337
-    .local v1, "nread":I
+    :cond_0
     :goto_0
-    iget-object v2, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
-
-    invoke-virtual {v2}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->getIdatSet()Lar/com/hjg/pngj/IdatSet;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lar/com/hjg/pngj/IdatSet;->isRowReady()Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    .line 338
-    iget-object v2, p0, Lar/com/hjg/pngj/PngReader;->streamFeeder:Lar/com/hjg/pngj/BufferedStreamFeeder;
-
     iget-object v3, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
 
-    invoke-virtual {v2, v3}, Lar/com/hjg/pngj/BufferedStreamFeeder;->feed(Lar/com/hjg/pngj/IBytesConsumer;)I
+    invoke-virtual {v3}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->getIdatSet()Lar/com/hjg/pngj/IdatSet;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lar/com/hjg/pngj/IdatSet;->isRowReady()Z
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    .line 338
+    iget-object v3, p0, Lar/com/hjg/pngj/PngReader;->streamFeeder:Lar/com/hjg/pngj/BufferedStreamFeeder;
+
+    iget-object v4, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
+
+    invoke-virtual {v3, v4}, Lar/com/hjg/pngj/BufferedStreamFeeder;->feed(Lar/com/hjg/pngj/IBytesConsumer;)I
 
     goto :goto_0
 
     .line 339
-    :cond_0
-    iget-object v2, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
+    :cond_1
+    iget-object v3, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
 
-    invoke-virtual {v2}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->getIdatSet()Lar/com/hjg/pngj/IdatSet;
+    invoke-virtual {v3}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->getIdatSet()Lar/com/hjg/pngj/IdatSet;
 
-    move-result-object v2
+    move-result-object v3
 
-    const/4 v3, 0x2
+    const/4 v4, 0x2
 
-    new-array v3, v3, [Ljava/util/zip/Checksum;
+    new-array v4, v4, [Ljava/util/zip/Checksum;
 
-    iget-object v4, p0, Lar/com/hjg/pngj/PngReader;->idatCrca:Ljava/util/zip/CRC32;
+    iget-object v5, p0, Lar/com/hjg/pngj/PngReader;->idatCrca:Ljava/util/zip/CRC32;
 
-    const/4 v5, 0x0
+    aput-object v5, v4, v1
 
-    aput-object v4, v3, v5
-
-    iget-object v4, p0, Lar/com/hjg/pngj/PngReader;->idatCrcb:Ljava/util/zip/Adler32;
+    iget-object v5, p0, Lar/com/hjg/pngj/PngReader;->idatCrcb:Ljava/util/zip/Adler32;
 
     const/4 v6, 0x1
 
-    aput-object v4, v3, v6
+    aput-object v5, v4, v6
 
-    invoke-virtual {v2, v3}, Lar/com/hjg/pngj/IdatSet;->updateCrcs([Ljava/util/zip/Checksum;)V
+    invoke-virtual {v3, v4}, Lar/com/hjg/pngj/IdatSet;->updateCrcs([Ljava/util/zip/Checksum;)V
 
     .line 340
-    iget-object v2, v0, Lar/com/hjg/pngj/IdatSet;->rowinfo:Lar/com/hjg/pngj/RowInfo;
+    iget-object v3, v0, Lar/com/hjg/pngj/IdatSet;->rowinfo:Lar/com/hjg/pngj/RowInfo;
 
-    iget v2, v2, Lar/com/hjg/pngj/RowInfo;->rowNreal:I
+    iget v3, v3, Lar/com/hjg/pngj/RowInfo;->rowNreal:I
+
+    sub-int v4, v3, p2
 
     .line 341
-    .local v2, "rowNumreal":I
-    sub-int v3, v2, p2
+    rem-int/2addr v4, p3
 
-    rem-int/2addr v3, p3
+    if-nez v4, :cond_2
 
-    if-nez v3, :cond_1
+    goto :goto_1
 
-    move v5, v6
+    :cond_2
+    move v6, v1
 
-    :cond_1
-    move v3, v5
-
-    .line 342
-    .local v3, "inset":Z
-    if-eqz v3, :cond_2
+    :goto_1
+    if-eqz v6, :cond_3
 
     .line 343
     iget-object v4, p0, Lar/com/hjg/pngj/PngReader;->imlinesSet:Lar/com/hjg/pngj/IImageLineSet;
 
-    invoke-interface {v4, v2}, Lar/com/hjg/pngj/IImageLineSet;->getImageLine(I)Lar/com/hjg/pngj/IImageLine;
+    invoke-interface {v4, v3}, Lar/com/hjg/pngj/IImageLineSet;->getImageLine(I)Lar/com/hjg/pngj/IImageLine;
 
-    move-result-object v4
+    move-result-object v3
 
     invoke-virtual {v0}, Lar/com/hjg/pngj/IdatSet;->getUnfilteredRow()[B
 
-    move-result-object v5
+    move-result-object v4
+
+    iget-object v5, v0, Lar/com/hjg/pngj/IdatSet;->rowinfo:Lar/com/hjg/pngj/RowInfo;
+
+    iget v5, v5, Lar/com/hjg/pngj/RowInfo;->buflen:I
 
     iget-object v6, v0, Lar/com/hjg/pngj/IdatSet;->rowinfo:Lar/com/hjg/pngj/RowInfo;
 
-    iget v6, v6, Lar/com/hjg/pngj/RowInfo;->buflen:I
+    iget v6, v6, Lar/com/hjg/pngj/RowInfo;->oX:I
 
     iget-object v7, v0, Lar/com/hjg/pngj/IdatSet;->rowinfo:Lar/com/hjg/pngj/RowInfo;
 
-    iget v7, v7, Lar/com/hjg/pngj/RowInfo;->oX:I
+    iget v7, v7, Lar/com/hjg/pngj/RowInfo;->dX:I
 
-    iget-object v8, v0, Lar/com/hjg/pngj/IdatSet;->rowinfo:Lar/com/hjg/pngj/RowInfo;
+    invoke-interface {v3, v4, v5, v6, v7}, Lar/com/hjg/pngj/IImageLine;->readFromPngRaw([BIII)V
 
-    iget v8, v8, Lar/com/hjg/pngj/RowInfo;->dX:I
-
-    invoke-interface {v4, v5, v6, v7, v8}, Lar/com/hjg/pngj/IImageLine;->readFromPngRaw([BIII)V
-
-    .line 345
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     .line 347
-    :cond_2
+    :cond_3
     invoke-virtual {v0}, Lar/com/hjg/pngj/IdatSet;->advanceToNextRow()I
 
-    .line 348
-    .end local v2    # "rowNumreal":I
-    .end local v3    # "inset":Z
-    if-lt v1, p1, :cond_4
+    if-lt v2, p1, :cond_0
 
+    .line 348
     invoke-virtual {v0}, Lar/com/hjg/pngj/IdatSet;->isDone()Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_4
+    if-eqz v3, :cond_0
 
     .line 349
     invoke-virtual {v0}, Lar/com/hjg/pngj/IdatSet;->done()V
 
-    .line 350
-    const/4 v2, 0x0
-
-    .local v2, "i":I
-    move v3, p2
-
-    .local v3, "j":I
-    :goto_1
-    if-ge v2, p1, :cond_3
+    :goto_2
+    if-ge v1, p1, :cond_4
 
     .line 351
-    iget-object v4, p0, Lar/com/hjg/pngj/PngReader;->imlinesSet:Lar/com/hjg/pngj/IImageLineSet;
+    iget-object v0, p0, Lar/com/hjg/pngj/PngReader;->imlinesSet:Lar/com/hjg/pngj/IImageLineSet;
 
-    invoke-interface {v4, v3}, Lar/com/hjg/pngj/IImageLineSet;->getImageLine(I)Lar/com/hjg/pngj/IImageLine;
+    invoke-interface {v0, p2}, Lar/com/hjg/pngj/IImageLineSet;->getImageLine(I)Lar/com/hjg/pngj/IImageLine;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-interface {v4}, Lar/com/hjg/pngj/IImageLine;->endReadFromPngRaw()V
+    invoke-interface {v0}, Lar/com/hjg/pngj/IImageLine;->endReadFromPngRaw()V
 
-    .line 350
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    add-int/2addr v3, p3
+    add-int/2addr p2, p3
 
-    goto :goto_1
+    goto :goto_2
 
-    .line 353
-    .end local v2    # "i":I
-    .end local v3    # "j":I
-    :cond_3
-    return-void
-
-    .line 348
     :cond_4
-    goto :goto_0
+    return-void
 .end method
 
 .method public prepareSimpleDigestComputation()V
@@ -967,7 +907,6 @@
 
     invoke-virtual {v0, v1}, Ljava/util/zip/Adler32;->update(I)V
 
-    .line 495
     return-void
 .end method
 
@@ -993,7 +932,6 @@
 
     goto :goto_0
 
-    .line 165
     :cond_0
     return-void
 .end method
@@ -1015,7 +953,6 @@
 
 .method public readRow(I)Lar/com/hjg/pngj/IImageLine;
     .locals 6
-    .param p1, "nrow"    # I
 
     .line 230
     iget-object v0, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
@@ -1060,15 +997,12 @@
     move-result-object v0
 
     .line 236
-    .local v0, "line":Lar/com/hjg/pngj/IImageLine;
     iget v3, p0, Lar/com/hjg/pngj/PngReader;->rowNum:I
 
     if-ne p1, v3, :cond_2
 
-    .line 237
     return-object v0
 
-    .line 238
     :cond_2
     if-lt p1, v3, :cond_6
 
@@ -1169,34 +1103,32 @@
 
     goto :goto_0
 
-    .line 252
     :cond_5
     return-object v0
 
     .line 239
     :cond_6
-    new-instance v1, Lar/com/hjg/pngj/PngjInputException;
+    new-instance v0, Lar/com/hjg/pngj/PngjInputException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "rows must be read in increasing order: "
 
-    const-string v3, "rows must be read in increasing order: "
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Lar/com/hjg/pngj/PngjInputException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Lar/com/hjg/pngj/PngjInputException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 
     .line 254
-    .end local v0    # "line":Lar/com/hjg/pngj/IImageLine;
     :cond_7
     iget-object v0, p0, Lar/com/hjg/pngj/PngReader;->imlinesSet:Lar/com/hjg/pngj/IImageLineSet;
 
@@ -1229,9 +1161,9 @@
 
     invoke-interface {v0, p1}, Lar/com/hjg/pngj/IImageLineSet;->getImageLine(I)Lar/com/hjg/pngj/IImageLine;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public readRows()Lar/com/hjg/pngj/IImageLineSet;
@@ -1264,9 +1196,6 @@
 
 .method public readRows(III)Lar/com/hjg/pngj/IImageLineSet;
     .locals 6
-    .param p1, "nRows"    # I
-    .param p2, "rowOffset"    # I
-    .param p3, "rowStep"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(III)",
@@ -1289,20 +1218,18 @@
     .line 282
     invoke-virtual {p0}, Lar/com/hjg/pngj/PngReader;->readFirstChunks()V
 
-    .line 283
     :cond_0
     if-gez p1, :cond_1
 
     .line 284
-    iget-object v0, p0, Lar/com/hjg/pngj/PngReader;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
+    iget-object p1, p0, Lar/com/hjg/pngj/PngReader;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
 
-    iget v0, v0, Lar/com/hjg/pngj/ImageInfo;->rows:I
+    iget p1, p1, Lar/com/hjg/pngj/ImageInfo;->rows:I
 
-    sub-int/2addr v0, p2
+    sub-int/2addr p1, p2
 
-    div-int p1, v0, p3
+    div-int/2addr p1, p3
 
-    .line 285
     :cond_1
     const/4 v0, 0x1
 
@@ -1316,6 +1243,7 @@
 
     add-int/2addr v1, p2
 
+    .line 285
     iget-object v2, p0, Lar/com/hjg/pngj/PngReader;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
 
     iget v2, v2, Lar/com/hjg/pngj/ImageInfo;->rows:I
@@ -1327,9 +1255,9 @@
 
     if-gez v1, :cond_6
 
-    .line 289
     const/4 v1, 0x0
 
+    .line 289
     invoke-virtual {p0, v1, p1, p2, p3}, Lar/com/hjg/pngj/PngReader;->createLineSet(ZIII)Lar/com/hjg/pngj/IImageLineSet;
 
     move-result-object v2
@@ -1339,95 +1267,90 @@
     .line 290
     iget-boolean v2, p0, Lar/com/hjg/pngj/PngReader;->interlaced:Z
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_4
 
-    .line 291
     const/4 v2, -0x1
 
-    .line 292
-    .local v2, "m":I
     :goto_0
     add-int/lit8 v3, p1, -0x1
 
-    if-ge v2, v3, :cond_4
+    if-ge v2, v3, :cond_5
 
     .line 293
     :goto_1
-    iget-object v3, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
+    iget-object v2, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
 
-    invoke-virtual {v3}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->getIdatSet()Lar/com/hjg/pngj/IdatSet;
+    invoke-virtual {v2}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->getIdatSet()Lar/com/hjg/pngj/IdatSet;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Lar/com/hjg/pngj/IdatSet;->isRowReady()Z
+    invoke-virtual {v2}, Lar/com/hjg/pngj/IdatSet;->isRowReady()Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_2
+    if-nez v2, :cond_2
 
     .line 294
-    iget-object v3, p0, Lar/com/hjg/pngj/PngReader;->streamFeeder:Lar/com/hjg/pngj/BufferedStreamFeeder;
+    iget-object v2, p0, Lar/com/hjg/pngj/PngReader;->streamFeeder:Lar/com/hjg/pngj/BufferedStreamFeeder;
 
-    iget-object v4, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
+    iget-object v3, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
 
-    invoke-virtual {v3, v4}, Lar/com/hjg/pngj/BufferedStreamFeeder;->feed(Lar/com/hjg/pngj/IBytesConsumer;)I
+    invoke-virtual {v2, v3}, Lar/com/hjg/pngj/BufferedStreamFeeder;->feed(Lar/com/hjg/pngj/IBytesConsumer;)I
 
     goto :goto_1
 
     .line 295
     :cond_2
-    iget v3, p0, Lar/com/hjg/pngj/PngReader;->rowNum:I
+    iget v2, p0, Lar/com/hjg/pngj/PngReader;->rowNum:I
 
-    add-int/2addr v3, v0
+    add-int/2addr v2, v0
 
-    iput v3, p0, Lar/com/hjg/pngj/PngReader;->rowNum:I
+    iput v2, p0, Lar/com/hjg/pngj/PngReader;->rowNum:I
 
     .line 296
-    iget-object v3, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
+    iget-object v2, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
 
-    invoke-virtual {v3}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->getIdatSet()Lar/com/hjg/pngj/IdatSet;
+    invoke-virtual {v2}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->getIdatSet()Lar/com/hjg/pngj/IdatSet;
 
-    move-result-object v3
+    move-result-object v2
 
-    const/4 v4, 0x2
+    const/4 v3, 0x2
 
-    new-array v4, v4, [Ljava/util/zip/Checksum;
+    new-array v3, v3, [Ljava/util/zip/Checksum;
 
-    iget-object v5, p0, Lar/com/hjg/pngj/PngReader;->idatCrca:Ljava/util/zip/CRC32;
+    iget-object v4, p0, Lar/com/hjg/pngj/PngReader;->idatCrca:Ljava/util/zip/CRC32;
 
-    aput-object v5, v4, v1
+    aput-object v4, v3, v1
 
-    iget-object v5, p0, Lar/com/hjg/pngj/PngReader;->idatCrcb:Ljava/util/zip/Adler32;
+    iget-object v4, p0, Lar/com/hjg/pngj/PngReader;->idatCrcb:Ljava/util/zip/Adler32;
 
-    aput-object v5, v4, v0
+    aput-object v4, v3, v0
 
-    invoke-virtual {v3, v4}, Lar/com/hjg/pngj/IdatSet;->updateCrcs([Ljava/util/zip/Checksum;)V
+    invoke-virtual {v2, v3}, Lar/com/hjg/pngj/IdatSet;->updateCrcs([Ljava/util/zip/Checksum;)V
 
     .line 297
-    iget v3, p0, Lar/com/hjg/pngj/PngReader;->rowNum:I
+    iget v2, p0, Lar/com/hjg/pngj/PngReader;->rowNum:I
 
-    sub-int v4, v3, p2
+    sub-int v3, v2, p2
 
-    div-int v2, v4, p3
+    div-int/2addr v3, p3
 
-    .line 298
-    if-lt v3, p2, :cond_3
+    if-lt v2, p2, :cond_3
 
-    mul-int v4, p3, v2
+    mul-int v4, p3, v3
 
     add-int/2addr v4, p2
 
-    if-ne v4, v3, :cond_3
+    if-ne v4, v2, :cond_3
 
     .line 299
     iget-object v4, p0, Lar/com/hjg/pngj/PngReader;->imlinesSet:Lar/com/hjg/pngj/IImageLineSet;
 
-    invoke-interface {v4, v3}, Lar/com/hjg/pngj/IImageLineSet;->getImageLine(I)Lar/com/hjg/pngj/IImageLine;
+    invoke-interface {v4, v2}, Lar/com/hjg/pngj/IImageLineSet;->getImageLine(I)Lar/com/hjg/pngj/IImageLine;
 
-    move-result-object v3
+    move-result-object v2
 
     .line 300
-    .local v3, "line":Lar/com/hjg/pngj/IImageLine;
     iget-object v4, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
 
     invoke-virtual {v4}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->getIdatSet()Lar/com/hjg/pngj/IdatSet;
@@ -1444,70 +1367,66 @@
 
     add-int/2addr v5, v0
 
-    invoke-interface {v3, v4, v5, v1, v0}, Lar/com/hjg/pngj/IImageLine;->readFromPngRaw([BIII)V
+    invoke-interface {v2, v4, v5, v1, v0}, Lar/com/hjg/pngj/IImageLine;->readFromPngRaw([BIII)V
 
     .line 302
-    invoke-interface {v3}, Lar/com/hjg/pngj/IImageLine;->endReadFromPngRaw()V
+    invoke-interface {v2}, Lar/com/hjg/pngj/IImageLine;->endReadFromPngRaw()V
 
     .line 304
-    .end local v3    # "line":Lar/com/hjg/pngj/IImageLine;
     :cond_3
-    iget-object v3, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
+    iget-object v2, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
 
-    invoke-virtual {v3}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->getIdatSet()Lar/com/hjg/pngj/IdatSet;
+    invoke-virtual {v2}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->getIdatSet()Lar/com/hjg/pngj/IdatSet;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Lar/com/hjg/pngj/IdatSet;->advanceToNextRow()I
+    invoke-virtual {v2}, Lar/com/hjg/pngj/IdatSet;->advanceToNextRow()I
+
+    move v2, v3
 
     goto :goto_0
 
-    .line 306
-    .end local v2    # "m":I
-    :cond_4
-    goto :goto_2
-
     .line 307
-    :cond_5
+    :cond_4
     invoke-virtual {p0, p1, p2, p3}, Lar/com/hjg/pngj/PngReader;->loadAllInterlaced(III)V
 
     .line 309
-    :goto_2
-    iget-object v0, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
+    :cond_5
+    iget-object p1, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
 
-    invoke-virtual {v0}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->getIdatSet()Lar/com/hjg/pngj/IdatSet;
+    invoke-virtual {p1}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->getIdatSet()Lar/com/hjg/pngj/IdatSet;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lar/com/hjg/pngj/IdatSet;->done()V
+    invoke-virtual {p1}, Lar/com/hjg/pngj/IdatSet;->done()V
 
     .line 310
     invoke-virtual {p0}, Lar/com/hjg/pngj/PngReader;->end()V
 
     .line 311
-    iget-object v0, p0, Lar/com/hjg/pngj/PngReader;->imlinesSet:Lar/com/hjg/pngj/IImageLineSet;
+    iget-object p1, p0, Lar/com/hjg/pngj/PngReader;->imlinesSet:Lar/com/hjg/pngj/IImageLineSet;
 
-    return-object v0
+    return-object p1
 
     .line 288
     :cond_6
-    new-instance v0, Lar/com/hjg/pngj/PngjInputException;
+    new-instance p1, Lar/com/hjg/pngj/PngjInputException;
 
-    const-string v1, "readRows cannot be mixed with readRow"
+    const-string p2, "readRows cannot be mixed with readRow"
 
-    invoke-direct {v0, v1}, Lar/com/hjg/pngj/PngjInputException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/PngjInputException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 286
     :cond_7
-    new-instance v0, Lar/com/hjg/pngj/PngjInputException;
+    new-instance p1, Lar/com/hjg/pngj/PngjInputException;
 
-    const-string v1, "bad args"
+    const-string p2, "bad args"
 
-    invoke-direct {v0, v1}, Lar/com/hjg/pngj/PngjInputException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/PngjInputException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public readSkippingAllRows()V
@@ -1536,33 +1455,28 @@
     :cond_0
     invoke-virtual {p0}, Lar/com/hjg/pngj/PngReader;->end()V
 
-    .line 364
     return-void
 .end method
 
 .method public setChunkLoadBehaviour(Lar/com/hjg/pngj/chunks/ChunkLoadBehaviour;)V
     .locals 1
-    .param p1, "chunkLoadBehaviour"    # Lar/com/hjg/pngj/chunks/ChunkLoadBehaviour;
 
     .line 176
     iget-object v0, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
 
     invoke-virtual {v0, p1}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->setChunkLoadBehaviour(Lar/com/hjg/pngj/chunks/ChunkLoadBehaviour;)V
 
-    .line 177
     return-void
 .end method
 
 .method public varargs setChunksToSkip([Ljava/lang/String;)V
     .locals 1
-    .param p1, "chunksToSkip"    # [Ljava/lang/String;
 
     .line 395
     iget-object v0, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
 
     invoke-virtual {v0, p1}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->setChunksToSkip([Ljava/lang/String;)V
 
-    .line 396
     return-void
 .end method
 
@@ -1576,7 +1490,6 @@
 
     invoke-virtual {v0, v1}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->setCheckCrc(Z)V
 
-    .line 462
     return-void
 .end method
 
@@ -1593,62 +1506,52 @@
     .end annotation
 
     .line 322
-    .local p1, "factory":Lar/com/hjg/pngj/IImageLineSetFactory;, "Lar/com/hjg/pngj/IImageLineSetFactory<+Lar/com/hjg/pngj/IImageLine;>;"
     iput-object p1, p0, Lar/com/hjg/pngj/PngReader;->imageLineSetFactory:Lar/com/hjg/pngj/IImageLineSetFactory;
 
-    .line 323
     return-void
 .end method
 
 .method public setMaxBytesMetadata(J)V
     .locals 1
-    .param p1, "maxBytesMetadata"    # J
 
     .line 379
     iget-object v0, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
 
     invoke-virtual {v0, p1, p2}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->setMaxBytesMetadata(J)V
 
-    .line 380
     return-void
 .end method
 
 .method public setMaxTotalBytesRead(J)V
     .locals 1
-    .param p1, "maxTotalBytesToRead"    # J
 
     .line 371
     iget-object v0, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
 
     invoke-virtual {v0, p1, p2}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->setMaxTotalBytesRead(J)V
 
-    .line 372
     return-void
 .end method
 
 .method public setShouldCloseStream(Z)V
     .locals 1
-    .param p1, "shouldCloseStream"    # Z
 
     .line 408
     iget-object v0, p0, Lar/com/hjg/pngj/PngReader;->streamFeeder:Lar/com/hjg/pngj/BufferedStreamFeeder;
 
     invoke-virtual {v0, p1}, Lar/com/hjg/pngj/BufferedStreamFeeder;->setCloseStream(Z)V
 
-    .line 409
     return-void
 .end method
 
 .method public setSkipChunkMaxSize(J)V
     .locals 1
-    .param p1, "skipChunkMaxSize"    # J
 
     .line 387
     iget-object v0, p0, Lar/com/hjg/pngj/PngReader;->chunkseq:Lar/com/hjg/pngj/ChunkSeqReaderPng;
 
     invoke-virtual {v0, p1, p2}, Lar/com/hjg/pngj/ChunkSeqReaderPng;->setSkipChunkMaxSize(J)V
 
-    .line 388
     return-void
 .end method
 
@@ -1668,13 +1571,19 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " interlaced="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-boolean v1, p0, Lar/com/hjg/pngj/PngReader;->interlaced:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1699,6 +1608,8 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     iget-boolean v1, p0, Lar/com/hjg/pngj/PngReader;->interlaced:Z
 
     if-eqz v1, :cond_0
@@ -1712,6 +1623,8 @@
 
     :goto_0
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

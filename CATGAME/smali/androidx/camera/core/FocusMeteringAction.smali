@@ -61,7 +61,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/FocusMeteringAction$Builder;)V
     .locals 2
-    .param p1, "builder"    # Landroidx/camera/core/FocusMeteringAction$Builder;
 
     .line 97
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -98,7 +97,6 @@
 
     iput-wide v0, p0, Landroidx/camera/core/FocusMeteringAction;->mAutoCancelDurationInMillis:J
 
-    .line 102
     return-void
 .end method
 

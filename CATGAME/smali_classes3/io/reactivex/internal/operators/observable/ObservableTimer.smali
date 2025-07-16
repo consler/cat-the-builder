@@ -30,9 +30,6 @@
 # direct methods
 .method public constructor <init>(JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)V
     .locals 0
-    .param p1, "delay"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p4, "scheduler"    # Lio/reactivex/Scheduler;
 
     .line 27
     invoke-direct {p0}, Lio/reactivex/Observable;-><init>()V
@@ -46,14 +43,13 @@
     .line 30
     iput-object p4, p0, Lio/reactivex/internal/operators/observable/ObservableTimer;->scheduler:Lio/reactivex/Scheduler;
 
-    .line 31
     return-void
 .end method
 
 
 # virtual methods
 .method public subscribeActual(Lio/reactivex/Observer;)V
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,30 +61,26 @@
     .end annotation
 
     .line 35
-    .local p1, "s":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-Ljava/lang/Long;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableTimer$TimerObserver;
 
     invoke-direct {v0, p1}, Lio/reactivex/internal/operators/observable/ObservableTimer$TimerObserver;-><init>(Lio/reactivex/Observer;)V
 
     .line 36
-    .local v0, "ios":Lio/reactivex/internal/operators/observable/ObservableTimer$TimerObserver;
     invoke-interface {p1, v0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 38
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableTimer;->scheduler:Lio/reactivex/Scheduler;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableTimer;->scheduler:Lio/reactivex/Scheduler;
 
-    iget-wide v2, p0, Lio/reactivex/internal/operators/observable/ObservableTimer;->delay:J
+    iget-wide v1, p0, Lio/reactivex/internal/operators/observable/ObservableTimer;->delay:J
 
-    iget-object v4, p0, Lio/reactivex/internal/operators/observable/ObservableTimer;->unit:Ljava/util/concurrent/TimeUnit;
+    iget-object v3, p0, Lio/reactivex/internal/operators/observable/ObservableTimer;->unit:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v1, v0, v2, v3, v4}, Lio/reactivex/Scheduler;->scheduleDirect(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
+    invoke-virtual {p1, v0, v1, v2, v3}, Lio/reactivex/Scheduler;->scheduleDirect(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 40
-    .local v1, "d":Lio/reactivex/disposables/Disposable;
-    invoke-virtual {v0, v1}, Lio/reactivex/internal/operators/observable/ObservableTimer$TimerObserver;->setResource(Lio/reactivex/disposables/Disposable;)V
+    invoke-virtual {v0, p1}, Lio/reactivex/internal/operators/observable/ObservableTimer$TimerObserver;->setResource(Lio/reactivex/disposables/Disposable;)V
 
-    .line 41
     return-void
 .end method

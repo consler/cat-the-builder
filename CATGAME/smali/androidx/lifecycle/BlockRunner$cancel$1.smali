@@ -123,15 +123,9 @@
 
     invoke-direct {v0, v1, p2}, Landroidx/lifecycle/BlockRunner$cancel$1;-><init>(Landroidx/lifecycle/BlockRunner;Lkotlin/coroutines/Continuation;)V
 
-    move-object v1, p1
+    check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
-    check-cast v1, Lkotlinx/coroutines/CoroutineScope;
-
-    move-object v1, p1
-
-    check-cast v1, Lkotlinx/coroutines/CoroutineScope;
-
-    iput-object v1, v0, Landroidx/lifecycle/BlockRunner$cancel$1;->p$:Lkotlinx/coroutines/CoroutineScope;
+    iput-object p1, v0, Landroidx/lifecycle/BlockRunner$cancel$1;->p$:Lkotlinx/coroutines/CoroutineScope;
 
     return-object v0
 .end method
@@ -157,8 +151,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 6
-    .param p1, "$result"    # Ljava/lang/Object;
+    .locals 5
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -169,18 +162,11 @@
 
     const/4 v2, 0x1
 
-    const/4 v3, 0x0
-
     if-eqz v1, :cond_1
 
     if-ne v1, v2, :cond_0
 
-    move-object v0, v3
-
-    .local v0, "$this$launch":Lkotlinx/coroutines/CoroutineScope;
-    iget-object v1, p0, Landroidx/lifecycle/BlockRunner$cancel$1;->L$0:Ljava/lang/Object;
-
-    move-object v0, v1
+    iget-object v0, p0, Landroidx/lifecycle/BlockRunner$cancel$1;->L$0:Ljava/lang/Object;
 
     check-cast v0, Lkotlinx/coroutines/CoroutineScope;
 
@@ -189,85 +175,81 @@
     goto :goto_0
 
     .line 194
-    .end local v0    # "$this$launch":Lkotlinx/coroutines/CoroutineScope;
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "call to \'resume\' before \'invoke\' with coroutine"
+    const-string v0, "call to \'resume\' before \'invoke\' with coroutine"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 186
     :cond_1
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    iget-object v1, p0, Landroidx/lifecycle/BlockRunner$cancel$1;->p$:Lkotlinx/coroutines/CoroutineScope;
+    iget-object p1, p0, Landroidx/lifecycle/BlockRunner$cancel$1;->p$:Lkotlinx/coroutines/CoroutineScope;
 
     .line 187
-    .local v1, "$this$launch":Lkotlinx/coroutines/CoroutineScope;
-    iget-object v4, p0, Landroidx/lifecycle/BlockRunner$cancel$1;->this$0:Landroidx/lifecycle/BlockRunner;
+    iget-object v1, p0, Landroidx/lifecycle/BlockRunner$cancel$1;->this$0:Landroidx/lifecycle/BlockRunner;
 
-    invoke-static {v4}, Landroidx/lifecycle/BlockRunner;->access$getTimeoutInMs$p(Landroidx/lifecycle/BlockRunner;)J
+    invoke-static {v1}, Landroidx/lifecycle/BlockRunner;->access$getTimeoutInMs$p(Landroidx/lifecycle/BlockRunner;)J
 
-    move-result-wide v4
+    move-result-wide v3
 
-    iput-object v1, p0, Landroidx/lifecycle/BlockRunner$cancel$1;->L$0:Ljava/lang/Object;
+    iput-object p1, p0, Landroidx/lifecycle/BlockRunner$cancel$1;->L$0:Ljava/lang/Object;
 
     iput v2, p0, Landroidx/lifecycle/BlockRunner$cancel$1;->label:I
 
-    invoke-static {v4, v5, p0}, Lkotlinx/coroutines/DelayKt;->delay(JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    invoke-static {v3, v4, p0}, Lkotlinx/coroutines/DelayKt;->delay(JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object p1
 
-    if-ne v4, v0, :cond_2
+    if-ne p1, v0, :cond_2
 
-    .line 186
     return-object v0
 
-    .line 187
-    :cond_2
-    move-object v0, v1
-
     .line 188
-    .end local v1    # "$this$launch":Lkotlinx/coroutines/CoroutineScope;
-    .restart local v0    # "$this$launch":Lkotlinx/coroutines/CoroutineScope;
+    :cond_2
     :goto_0
-    iget-object v1, p0, Landroidx/lifecycle/BlockRunner$cancel$1;->this$0:Landroidx/lifecycle/BlockRunner;
+    iget-object p1, p0, Landroidx/lifecycle/BlockRunner$cancel$1;->this$0:Landroidx/lifecycle/BlockRunner;
 
-    invoke-static {v1}, Landroidx/lifecycle/BlockRunner;->access$getLiveData$p(Landroidx/lifecycle/BlockRunner;)Landroidx/lifecycle/CoroutineLiveData;
+    invoke-static {p1}, Landroidx/lifecycle/BlockRunner;->access$getLiveData$p(Landroidx/lifecycle/BlockRunner;)Landroidx/lifecycle/CoroutineLiveData;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1}, Landroidx/lifecycle/CoroutineLiveData;->hasActiveObservers()Z
+    invoke-virtual {p1}, Landroidx/lifecycle/CoroutineLiveData;->hasActiveObservers()Z
 
-    move-result v1
+    move-result p1
 
-    if-nez v1, :cond_4
+    if-nez p1, :cond_4
 
     .line 191
-    iget-object v1, p0, Landroidx/lifecycle/BlockRunner$cancel$1;->this$0:Landroidx/lifecycle/BlockRunner;
+    iget-object p1, p0, Landroidx/lifecycle/BlockRunner$cancel$1;->this$0:Landroidx/lifecycle/BlockRunner;
 
-    invoke-static {v1}, Landroidx/lifecycle/BlockRunner;->access$getRunningJob$p(Landroidx/lifecycle/BlockRunner;)Lkotlinx/coroutines/Job;
+    invoke-static {p1}, Landroidx/lifecycle/BlockRunner;->access$getRunningJob$p(Landroidx/lifecycle/BlockRunner;)Lkotlinx/coroutines/Job;
 
-    move-result-object v1
+    move-result-object p1
 
-    if-eqz v1, :cond_3
+    const/4 v0, 0x0
 
-    invoke-static {v1, v3, v2, v3}, Lkotlinx/coroutines/Job$DefaultImpls;->cancel$default(Lkotlinx/coroutines/Job;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
+    if-eqz p1, :cond_3
+
+    invoke-static {p1, v0, v2, v0}, Lkotlinx/coroutines/Job$DefaultImpls;->cancel$default(Lkotlinx/coroutines/Job;Ljava/util/concurrent/CancellationException;ILjava/lang/Object;)V
 
     .line 192
     :cond_3
-    iget-object v1, p0, Landroidx/lifecycle/BlockRunner$cancel$1;->this$0:Landroidx/lifecycle/BlockRunner;
+    iget-object p1, p0, Landroidx/lifecycle/BlockRunner$cancel$1;->this$0:Landroidx/lifecycle/BlockRunner;
 
-    check-cast v3, Lkotlinx/coroutines/Job;
+    move-object v1, v0
 
-    invoke-static {v1, v3}, Landroidx/lifecycle/BlockRunner;->access$setRunningJob$p(Landroidx/lifecycle/BlockRunner;Lkotlinx/coroutines/Job;)V
+    check-cast v1, Lkotlinx/coroutines/Job;
+
+    invoke-static {p1, v0}, Landroidx/lifecycle/BlockRunner;->access$setRunningJob$p(Landroidx/lifecycle/BlockRunner;Lkotlinx/coroutines/Job;)V
 
     .line 194
     :cond_4
-    sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    return-object v1
+    return-object p1
 .end method

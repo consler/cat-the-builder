@@ -56,24 +56,22 @@
 
 # virtual methods
 .method public compare(Landroidx/mediarouter/media/MediaRouter$RouteInfo;Landroidx/mediarouter/media/MediaRouter$RouteInfo;)I
-    .locals 2
-    .param p1, "lhs"    # Landroidx/mediarouter/media/MediaRouter$RouteInfo;
-    .param p2, "rhs"    # Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+    .locals 0
 
     .line 1565
     invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
     invoke-virtual {p2}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->compareToIgnoreCase(Ljava/lang/String;)I
+    invoke-virtual {p1, p2}, Ljava/lang/String;->compareToIgnoreCase(Ljava/lang/String;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I

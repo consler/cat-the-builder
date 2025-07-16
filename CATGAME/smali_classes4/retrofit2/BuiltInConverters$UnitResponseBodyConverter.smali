@@ -75,14 +75,13 @@
 .end method
 
 .method public convert(Lokhttp3/ResponseBody;)Lkotlin/Unit;
-    .locals 1
-    .param p1, "value"    # Lokhttp3/ResponseBody;
+    .locals 0
 
     .line 81
     invoke-virtual {p1}, Lokhttp3/ResponseBody;->close()V
 
     .line 82
-    sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    return-object v0
+    return-object p1
 .end method

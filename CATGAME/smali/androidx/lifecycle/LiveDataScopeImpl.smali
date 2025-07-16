@@ -80,8 +80,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/lifecycle/CoroutineLiveData;Lkotlin/coroutines/CoroutineContext;)V
     .locals 1
-    .param p1, "target"    # Landroidx/lifecycle/CoroutineLiveData;
-    .param p2, "context"    # Lkotlin/coroutines/CoroutineContext;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -108,19 +106,19 @@
     .line 90
     invoke-static {}, Lkotlinx/coroutines/Dispatchers;->getMain()Lkotlinx/coroutines/MainCoroutineDispatcher;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lkotlinx/coroutines/MainCoroutineDispatcher;->getImmediate()Lkotlinx/coroutines/MainCoroutineDispatcher;
+    invoke-virtual {p1}, Lkotlinx/coroutines/MainCoroutineDispatcher;->getImmediate()Lkotlinx/coroutines/MainCoroutineDispatcher;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lkotlin/coroutines/CoroutineContext;
+    check-cast p1, Lkotlin/coroutines/CoroutineContext;
 
-    invoke-interface {p2, v0}, Lkotlin/coroutines/CoroutineContext;->plus(Lkotlin/coroutines/CoroutineContext;)Lkotlin/coroutines/CoroutineContext;
+    invoke-interface {p2, p1}, Lkotlin/coroutines/CoroutineContext;->plus(Lkotlin/coroutines/CoroutineContext;)Lkotlin/coroutines/CoroutineContext;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/lifecycle/LiveDataScopeImpl;->coroutineContext:Lkotlin/coroutines/CoroutineContext;
+    iput-object p1, p0, Landroidx/lifecycle/LiveDataScopeImpl;->coroutineContext:Lkotlin/coroutines/CoroutineContext;
 
     return-void
 .end method
@@ -129,8 +127,6 @@
 # virtual methods
 .method public emit(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
     .locals 3
-    .param p1, "value"    # Ljava/lang/Object;
-    .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;",
@@ -155,16 +151,13 @@
 
     invoke-static {v0, v1, p2}, Lkotlinx/coroutines/BuildersKt;->withContext(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 100
-    return-object v0
+    return-object p1
 .end method
 
 .method public emitSource(Landroidx/lifecycle/LiveData;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
     .locals 3
-    .param p1, "source"    # Landroidx/lifecycle/LiveData;
-    .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -191,10 +184,9 @@
 
     invoke-static {v0, v1, p2}, Lkotlinx/coroutines/BuildersKt;->withContext(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 95
-    return-object v0
+    return-object p1
 .end method
 
 .method public getLatestValue()Ljava/lang/Object;
@@ -233,7 +225,6 @@
 
 .method public final setTarget$lifecycle_livedata_ktx_release(Landroidx/lifecycle/CoroutineLiveData;)V
     .locals 1
-    .param p1, "<set-?>"    # Landroidx/lifecycle/CoroutineLiveData;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

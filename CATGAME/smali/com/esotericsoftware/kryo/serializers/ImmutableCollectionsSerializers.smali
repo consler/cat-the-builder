@@ -25,11 +25,10 @@
 
 .method public static addDefaultSerializers(Lcom/esotericsoftware/kryo/Kryo;)V
     .locals 1
-    .param p0, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
 
-    .line 37
     const-string v0, "java.util.ImmutableCollections"
 
+    .line 37
     invoke-static {v0}, Lcom/esotericsoftware/kryo/util/Util;->isClassAvailable(Ljava/lang/String;)Z
 
     move-result v0
@@ -45,7 +44,6 @@
     .line 40
     invoke-static {p0}, Lcom/esotericsoftware/kryo/serializers/ImmutableCollectionsSerializers$JdkImmutableSetSerializer;->addDefaultSerializers(Lcom/esotericsoftware/kryo/Kryo;)V
 
-    .line 42
     :cond_0
     return-void
 .end method

@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Comparable;Ljava/lang/Comparable;)I
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;TT;)I"
@@ -46,13 +46,11 @@
     .end annotation
 
     .line 7480
-    .local p1, "o1":Ljava/lang/Comparable;, "TT;"
-    .local p2, "o2":Ljava/lang/Comparable;, "TT;"
     invoke-interface {p1, p2}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I

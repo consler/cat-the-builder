@@ -40,46 +40,41 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroidx/customview/view/AbsSavedState;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .line 100
     const/4 v0, 0x0
 
+    .line 100
     invoke-virtual {p0, p1, v0}, Landroidx/customview/view/AbsSavedState$2;->createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroidx/customview/view/AbsSavedState;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroidx/customview/view/AbsSavedState;
-    .locals 3
-    .param p1, "in"    # Landroid/os/Parcel;
-    .param p2, "loader"    # Ljava/lang/ClassLoader;
+    .locals 0
 
     .line 91
     invoke-virtual {p1, p2}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 92
-    .local v0, "superState":Landroid/os/Parcelable;
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 95
-    sget-object v1, Landroidx/customview/view/AbsSavedState;->EMPTY_STATE:Landroidx/customview/view/AbsSavedState;
+    sget-object p1, Landroidx/customview/view/AbsSavedState;->EMPTY_STATE:Landroidx/customview/view/AbsSavedState;
 
-    return-object v1
+    return-object p1
 
     .line 93
     :cond_0
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v2, "superState must be null"
+    const-string p2, "superState must be null"
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -105,13 +100,12 @@
 .end method
 
 .method public newArray(I)[Landroidx/customview/view/AbsSavedState;
-    .locals 1
-    .param p1, "size"    # I
+    .locals 0
 
     .line 105
-    new-array v0, p1, [Landroidx/customview/view/AbsSavedState;
+    new-array p1, p1, [Landroidx/customview/view/AbsSavedState;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;

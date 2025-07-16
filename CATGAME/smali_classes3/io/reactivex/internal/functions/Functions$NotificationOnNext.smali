@@ -55,21 +55,18 @@
     .end annotation
 
     .line 287
-    .local p0, "this":Lio/reactivex/internal/functions/Functions$NotificationOnNext;, "Lio/reactivex/internal/functions/Functions$NotificationOnNext<TT;>;"
-    .local p1, "onNotification":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-Lio/reactivex/Notification<TT;>;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 288
     iput-object p1, p0, Lio/reactivex/internal/functions/Functions$NotificationOnNext;->onNotification:Lio/reactivex/functions/Consumer;
 
-    .line 289
     return-void
 .end method
 
 
 # virtual methods
 .method public accept(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -83,16 +80,13 @@
     .end annotation
 
     .line 293
-    .local p0, "this":Lio/reactivex/internal/functions/Functions$NotificationOnNext;, "Lio/reactivex/internal/functions/Functions$NotificationOnNext<TT;>;"
-    .local p1, "v":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/functions/Functions$NotificationOnNext;->onNotification:Lio/reactivex/functions/Consumer;
 
     invoke-static {p1}, Lio/reactivex/Notification;->createOnNext(Ljava/lang/Object;)Lio/reactivex/Notification;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Lio/reactivex/functions/Consumer;->accept(Ljava/lang/Object;)V
+    invoke-interface {v0, p1}, Lio/reactivex/functions/Consumer;->accept(Ljava/lang/Object;)V
 
-    .line 294
     return-void
 .end method

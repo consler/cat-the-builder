@@ -22,36 +22,34 @@
 
 # virtual methods
 .method public act(F)Z
-    .locals 2
-    .param p1, "delta"    # F
+    .locals 1
 
     .line 30
-    iget-boolean v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AddListenerAction;->capture:Z
+    iget-boolean p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AddListenerAction;->capture:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 31
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AddListenerAction;->target:Lcom/badlogic/gdx/scenes/scene2d/Actor;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AddListenerAction;->target:Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AddListenerAction;->listener:Lcom/badlogic/gdx/scenes/scene2d/EventListener;
+    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AddListenerAction;->listener:Lcom/badlogic/gdx/scenes/scene2d/EventListener;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/Actor;->addCaptureListener(Lcom/badlogic/gdx/scenes/scene2d/EventListener;)Z
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/scenes/scene2d/Actor;->addCaptureListener(Lcom/badlogic/gdx/scenes/scene2d/EventListener;)Z
 
     goto :goto_0
 
     .line 33
     :cond_0
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AddListenerAction;->target:Lcom/badlogic/gdx/scenes/scene2d/Actor;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AddListenerAction;->target:Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    iget-object v1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AddListenerAction;->listener:Lcom/badlogic/gdx/scenes/scene2d/EventListener;
+    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AddListenerAction;->listener:Lcom/badlogic/gdx/scenes/scene2d/EventListener;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/Actor;->addListener(Lcom/badlogic/gdx/scenes/scene2d/EventListener;)Z
+    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/scenes/scene2d/Actor;->addListener(Lcom/badlogic/gdx/scenes/scene2d/EventListener;)Z
 
-    .line 34
     :goto_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public getCapture()Z
@@ -78,33 +76,28 @@
     .line 54
     invoke-super {p0}, Lcom/badlogic/gdx/scenes/scene2d/Action;->reset()V
 
-    .line 55
     const/4 v0, 0x0
 
+    .line 55
     iput-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AddListenerAction;->listener:Lcom/badlogic/gdx/scenes/scene2d/EventListener;
 
-    .line 56
     return-void
 .end method
 
 .method public setCapture(Z)V
     .locals 0
-    .param p1, "capture"    # Z
 
     .line 50
     iput-boolean p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AddListenerAction;->capture:Z
 
-    .line 51
     return-void
 .end method
 
 .method public setListener(Lcom/badlogic/gdx/scenes/scene2d/EventListener;)V
     .locals 0
-    .param p1, "listener"    # Lcom/badlogic/gdx/scenes/scene2d/EventListener;
 
     .line 42
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/AddListenerAction;->listener:Lcom/badlogic/gdx/scenes/scene2d/EventListener;
 
-    .line 43
     return-void
 .end method

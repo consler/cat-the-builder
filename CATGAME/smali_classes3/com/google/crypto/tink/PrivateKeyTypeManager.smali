@@ -60,16 +60,11 @@
     .end annotation
 
     .line 35
-    .local p0, "this":Lcom/google/crypto/tink/PrivateKeyTypeManager;, "Lcom/google/crypto/tink/PrivateKeyTypeManager<TKeyProtoT;TPublicKeyProtoT;>;"
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<TKeyProtoT;>;"
-    .local p2, "publicKeyClazz":Ljava/lang/Class;, "Ljava/lang/Class<TPublicKeyProtoT;>;"
-    .local p3, "factories":[Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;, "[Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory<*TKeyProtoT;>;"
     invoke-direct {p0, p1, p3}, Lcom/google/crypto/tink/KeyTypeManager;-><init>(Ljava/lang/Class;[Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;)V
 
     .line 36
     iput-object p2, p0, Lcom/google/crypto/tink/PrivateKeyTypeManager;->publicKeyClazz:Ljava/lang/Class;
 
-    .line 37
     return-void
 .end method
 
@@ -109,7 +104,6 @@
     .end annotation
 
     .line 43
-    .local p0, "this":Lcom/google/crypto/tink/PrivateKeyTypeManager;, "Lcom/google/crypto/tink/PrivateKeyTypeManager<TKeyProtoT;TPublicKeyProtoT;>;"
     iget-object v0, p0, Lcom/google/crypto/tink/PrivateKeyTypeManager;->publicKeyClazz:Ljava/lang/Class;
 
     return-object v0

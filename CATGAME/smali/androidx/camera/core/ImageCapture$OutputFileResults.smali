@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/net/Uri;)V
     .locals 0
-    .param p1, "savedUri"    # Landroid/net/Uri;
 
     .line 1653
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,7 +28,6 @@
     .line 1654
     iput-object p1, p0, Landroidx/camera/core/ImageCapture$OutputFileResults;->mSavedUri:Landroid/net/Uri;
 
-    .line 1655
     return-void
 .end method
 

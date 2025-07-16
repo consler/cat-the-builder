@@ -72,9 +72,7 @@
 
 # direct methods
 .method constructor <init>(Lio/reactivex/CompletableObserver;I)V
-    .locals 1
-    .param p1, "actual"    # Lio/reactivex/CompletableObserver;
-    .param p2, "prefetch"    # I
+    .locals 0
 
     .line 70
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
@@ -86,27 +84,26 @@
     iput p2, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->prefetch:I
 
     .line 73
-    new-instance v0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber$ConcatInnerObserver;
+    new-instance p1, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber$ConcatInnerObserver;
 
-    invoke-direct {v0, p0}, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber$ConcatInnerObserver;-><init>(Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;)V
+    invoke-direct {p1, p0}, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber$ConcatInnerObserver;-><init>(Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;)V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->inner:Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber$ConcatInnerObserver;
+    iput-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->inner:Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber$ConcatInnerObserver;
 
     .line 74
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iput-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    shr-int/lit8 p1, p2, 0x2
+
+    sub-int/2addr p2, p1
 
     .line 75
-    shr-int/lit8 v0, p2, 0x2
+    iput p2, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->limit:I
 
-    sub-int v0, p2, v0
-
-    iput v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->limit:I
-
-    .line 76
     return-void
 .end method
 
@@ -125,12 +122,11 @@
 
     invoke-static {v0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 151
     return-void
 .end method
 
 .method drain()V
-    .locals 6
+    .locals 5
 
     .line 159
     invoke-virtual {p0}, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->getAndIncrement()I
@@ -139,92 +135,74 @@
 
     if-eqz v0, :cond_0
 
-    .line 160
     return-void
 
-    .line 159
-    :cond_0
-    const/4 v0, 0x0
-
     .line 164
-    :goto_0
+    :cond_0
     invoke-virtual {p0}, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->isDisposed()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    .line 165
     return-void
 
     .line 168
     :cond_1
-    iget-boolean v1, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->active:Z
+    iget-boolean v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->active:Z
 
-    if-nez v1, :cond_5
+    if-nez v0, :cond_5
 
     .line 170
-    iget-boolean v1, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->done:Z
+    iget-boolean v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->done:Z
 
     .line 175
-    .local v1, "d":Z
     :try_start_0
-    iget-object v2, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
+    iget-object v1, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
-    invoke-interface {v2}, Lio/reactivex/internal/fuseable/SimpleQueue;->poll()Ljava/lang/Object;
+    invoke-interface {v1}, Lio/reactivex/internal/fuseable/SimpleQueue;->poll()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Lio/reactivex/CompletableSource;
+    check-cast v1, Lio/reactivex/CompletableSource;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-object v0, v2
-
-    .line 180
-    .local v0, "cs":Lio/reactivex/CompletableSource;
-    nop
-
-    .line 182
     const/4 v2, 0x0
 
     const/4 v3, 0x1
 
-    if-nez v0, :cond_2
+    if-nez v1, :cond_2
 
     move v4, v3
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_2
     move v4, v2
 
-    .line 184
-    .local v4, "empty":Z
-    :goto_1
-    if-eqz v1, :cond_4
+    :goto_0
+    if-eqz v0, :cond_4
 
     if-eqz v4, :cond_4
 
     .line 185
-    iget-object v5, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    invoke-virtual {v5, v2, v3}, Ljava/util/concurrent/atomic/AtomicBoolean;->compareAndSet(ZZ)Z
+    invoke-virtual {v0, v2, v3}, Ljava/util/concurrent/atomic/AtomicBoolean;->compareAndSet(ZZ)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_3
+    if-eqz v0, :cond_3
 
     .line 186
-    iget-object v2, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->actual:Lio/reactivex/CompletableObserver;
+    iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->actual:Lio/reactivex/CompletableObserver;
 
-    invoke-interface {v2}, Lio/reactivex/CompletableObserver;->onComplete()V
+    invoke-interface {v0}, Lio/reactivex/CompletableObserver;->onComplete()V
 
-    .line 188
     :cond_3
     return-void
 
-    .line 191
     :cond_4
     if-nez v4, :cond_5
 
@@ -232,73 +210,54 @@
     iput-boolean v3, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->active:Z
 
     .line 193
-    iget-object v2, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->inner:Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber$ConcatInnerObserver;
+    iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->inner:Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber$ConcatInnerObserver;
 
-    invoke-interface {v0, v2}, Lio/reactivex/CompletableSource;->subscribe(Lio/reactivex/CompletableObserver;)V
+    invoke-interface {v1, v0}, Lio/reactivex/CompletableSource;->subscribe(Lio/reactivex/CompletableObserver;)V
 
     .line 194
     invoke-virtual {p0}, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->request()V
 
-    goto :goto_2
+    goto :goto_1
 
-    .line 176
-    .end local v0    # "cs":Lio/reactivex/CompletableSource;
-    .end local v4    # "empty":Z
     :catchall_0
-    move-exception v2
+    move-exception v0
 
     .line 177
-    .restart local v0    # "cs":Lio/reactivex/CompletableSource;
-    .local v2, "ex":Ljava/lang/Throwable;
-    invoke-static {v2}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 178
-    invoke-virtual {p0, v2}, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->innerError(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->innerError(Ljava/lang/Throwable;)V
 
-    .line 179
     return-void
 
     .line 198
-    .end local v0    # "cs":Lio/reactivex/CompletableSource;
-    .end local v1    # "d":Z
-    .end local v2    # "ex":Ljava/lang/Throwable;
     :cond_5
-    :goto_2
+    :goto_1
     invoke-virtual {p0}, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->decrementAndGet()I
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_6
+    if-nez v0, :cond_0
 
-    .line 199
-    nop
-
-    .line 202
     return-void
-
-    .line 198
-    :cond_6
-    goto :goto_0
 .end method
 
 .method innerComplete()V
     .locals 1
 
-    .line 226
     const/4 v0, 0x0
 
+    .line 226
     iput-boolean v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->active:Z
 
     .line 227
     invoke-virtual {p0}, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->drain()V
 
-    .line 228
     return-void
 .end method
 
 .method innerError(Ljava/lang/Throwable;)V
     .locals 3
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 217
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -329,7 +288,6 @@
     :cond_0
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 223
     :goto_0
     return-void
 .end method
@@ -356,21 +314,19 @@
 .method public onComplete()V
     .locals 1
 
-    .line 143
     const/4 v0, 0x1
 
+    .line 143
     iput-boolean v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->done:Z
 
     .line 144
     invoke-virtual {p0}, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->drain()V
 
-    .line 145
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 3
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 133
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -401,14 +357,12 @@
     :cond_0
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 139
     :goto_0
     return-void
 .end method
 
 .method public onNext(Lio/reactivex/CompletableSource;)V
     .locals 1
-    .param p1, "t"    # Lio/reactivex/CompletableSource;
 
     .line 122
     iget v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->sourceFused:I
@@ -420,45 +374,39 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/internal/fuseable/SimpleQueue;->offer(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 124
-    new-instance v0, Lio/reactivex/exceptions/MissingBackpressureException;
+    new-instance p1, Lio/reactivex/exceptions/MissingBackpressureException;
 
-    invoke-direct {v0}, Lio/reactivex/exceptions/MissingBackpressureException;-><init>()V
+    invoke-direct {p1}, Lio/reactivex/exceptions/MissingBackpressureException;-><init>()V
 
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 125
     return-void
 
     .line 128
     :cond_0
     invoke-virtual {p0}, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->drain()V
 
-    .line 129
     return-void
 .end method
 
 .method public bridge synthetic onNext(Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
+    .locals 0
 
     .line 43
-    move-object v0, p1
+    check-cast p1, Lio/reactivex/CompletableSource;
 
-    check-cast v0, Lio/reactivex/CompletableSource;
-
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->onNext(Lio/reactivex/CompletableSource;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->onNext(Lio/reactivex/CompletableSource;)V
 
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 6
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 80
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->s:Lorg/reactivestreams/Subscription;
@@ -487,7 +435,6 @@
     int-to-long v2, v0
 
     .line 85
-    .local v2, "r":J
     :goto_0
     instance-of v0, p1, Lio/reactivex/internal/fuseable/QueueSubscription;
 
@@ -498,16 +445,13 @@
 
     check-cast v0, Lio/reactivex/internal/fuseable/QueueSubscription;
 
-    .line 89
-    .local v0, "qs":Lio/reactivex/internal/fuseable/QueueSubscription;, "Lio/reactivex/internal/fuseable/QueueSubscription<Lio/reactivex/CompletableSource;>;"
     const/4 v4, 0x3
 
+    .line 89
     invoke-interface {v0, v4}, Lio/reactivex/internal/fuseable/QueueSubscription;->requestFusion(I)I
 
     move-result v4
 
-    .line 91
-    .local v4, "m":I
     const/4 v5, 0x1
 
     if-ne v4, v5, :cond_1
@@ -522,17 +466,15 @@
     iput-boolean v5, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->done:Z
 
     .line 95
-    iget-object v1, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->actual:Lio/reactivex/CompletableObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->actual:Lio/reactivex/CompletableObserver;
 
-    invoke-interface {v1, p0}, Lio/reactivex/CompletableObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/CompletableObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 96
     invoke-virtual {p0}, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->drain()V
 
-    .line 97
     return-void
 
-    .line 99
     :cond_1
     const/4 v5, 0x2
 
@@ -545,19 +487,16 @@
     iput-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
     .line 102
-    iget-object v1, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->actual:Lio/reactivex/CompletableObserver;
+    iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->actual:Lio/reactivex/CompletableObserver;
 
-    invoke-interface {v1, p0}, Lio/reactivex/CompletableObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {v0, p0}, Lio/reactivex/CompletableObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 103
     invoke-interface {p1, v2, v3}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 104
     return-void
 
     .line 108
-    .end local v0    # "qs":Lio/reactivex/internal/fuseable/QueueSubscription;, "Lio/reactivex/internal/fuseable/QueueSubscription<Lio/reactivex/CompletableSource;>;"
-    .end local v4    # "m":I
     :cond_2
     iget v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->prefetch:I
 
@@ -595,8 +534,6 @@
     .line 116
     invoke-interface {p1, v2, v3}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 118
-    .end local v2    # "r":J
     :cond_4
     return-void
 .end method
@@ -617,14 +554,13 @@
     add-int/2addr v0, v1
 
     .line 207
-    .local v0, "p":I
     iget v1, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->limit:I
 
     if-ne v0, v1, :cond_0
 
-    .line 208
     const/4 v1, 0x0
 
+    .line 208
     iput v1, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->consumed:I
 
     .line 209
@@ -640,8 +576,6 @@
     :cond_0
     iput v0, p0, Lio/reactivex/internal/operators/completable/CompletableConcat$CompletableConcatSubscriber;->consumed:I
 
-    .line 214
-    .end local v0    # "p":I
     :cond_1
     :goto_0
     return-void

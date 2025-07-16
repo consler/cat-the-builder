@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .locals 7
 
     .line 21
     new-instance v0, Lio/reactivex/internal/util/ErrorMode;
@@ -39,43 +39,39 @@
     sput-object v0, Lio/reactivex/internal/util/ErrorMode;->IMMEDIATE:Lio/reactivex/internal/util/ErrorMode;
 
     .line 23
-    new-instance v0, Lio/reactivex/internal/util/ErrorMode;
+    new-instance v1, Lio/reactivex/internal/util/ErrorMode;
 
-    const-string v1, "BOUNDARY"
+    const-string v3, "BOUNDARY"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Lio/reactivex/internal/util/ErrorMode;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Lio/reactivex/internal/util/ErrorMode;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lio/reactivex/internal/util/ErrorMode;->BOUNDARY:Lio/reactivex/internal/util/ErrorMode;
+    sput-object v1, Lio/reactivex/internal/util/ErrorMode;->BOUNDARY:Lio/reactivex/internal/util/ErrorMode;
 
     .line 25
-    new-instance v0, Lio/reactivex/internal/util/ErrorMode;
+    new-instance v3, Lio/reactivex/internal/util/ErrorMode;
 
-    const-string v1, "END"
+    const-string v5, "END"
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v1, v4}, Lio/reactivex/internal/util/ErrorMode;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Lio/reactivex/internal/util/ErrorMode;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lio/reactivex/internal/util/ErrorMode;->END:Lio/reactivex/internal/util/ErrorMode;
+    sput-object v3, Lio/reactivex/internal/util/ErrorMode;->END:Lio/reactivex/internal/util/ErrorMode;
+
+    const/4 v5, 0x3
+
+    new-array v5, v5, [Lio/reactivex/internal/util/ErrorMode;
+
+    aput-object v0, v5, v2
+
+    aput-object v1, v5, v4
+
+    aput-object v3, v5, v6
 
     .line 19
-    const/4 v1, 0x3
-
-    new-array v1, v1, [Lio/reactivex/internal/util/ErrorMode;
-
-    sget-object v5, Lio/reactivex/internal/util/ErrorMode;->IMMEDIATE:Lio/reactivex/internal/util/ErrorMode;
-
-    aput-object v5, v1, v2
-
-    sget-object v2, Lio/reactivex/internal/util/ErrorMode;->BOUNDARY:Lio/reactivex/internal/util/ErrorMode;
-
-    aput-object v2, v1, v3
-
-    aput-object v0, v1, v4
-
-    sput-object v1, Lio/reactivex/internal/util/ErrorMode;->$VALUES:[Lio/reactivex/internal/util/ErrorMode;
+    sput-object v5, Lio/reactivex/internal/util/ErrorMode;->$VALUES:[Lio/reactivex/internal/util/ErrorMode;
 
     return-void
 .end method
@@ -96,18 +92,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lio/reactivex/internal/util/ErrorMode;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 19
     const-class v0, Lio/reactivex/internal/util/ErrorMode;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lio/reactivex/internal/util/ErrorMode;
+    check-cast p0, Lio/reactivex/internal/util/ErrorMode;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lio/reactivex/internal/util/ErrorMode;

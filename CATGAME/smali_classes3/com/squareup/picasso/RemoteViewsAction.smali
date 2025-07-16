@@ -34,18 +34,7 @@
 # direct methods
 .method constructor <init>(Lcom/squareup/picasso/Picasso;Lcom/squareup/picasso/Request;Landroid/widget/RemoteViews;IIIILjava/lang/Object;Ljava/lang/String;Lcom/squareup/picasso/Callback;)V
     .locals 12
-    .param p1, "picasso"    # Lcom/squareup/picasso/Picasso;
-    .param p2, "data"    # Lcom/squareup/picasso/Request;
-    .param p3, "remoteViews"    # Landroid/widget/RemoteViews;
-    .param p4, "viewId"    # I
-    .param p5, "errorResId"    # I
-    .param p6, "memoryPolicy"    # I
-    .param p7, "networkPolicy"    # I
-    .param p8, "tag"    # Ljava/lang/Object;
-    .param p9, "key"    # Ljava/lang/String;
-    .param p10, "callback"    # Lcom/squareup/picasso/Callback;
 
-    .line 37
     move-object v11, p0
 
     const/4 v2, 0x0
@@ -70,24 +59,24 @@
 
     move-object/from16 v9, p8
 
+    .line 37
     invoke-direct/range {v0 .. v10}, Lcom/squareup/picasso/Action;-><init>(Lcom/squareup/picasso/Picasso;Ljava/lang/Object;Lcom/squareup/picasso/Request;IIILandroid/graphics/drawable/Drawable;Ljava/lang/String;Ljava/lang/Object;Z)V
 
-    .line 38
     move-object v0, p3
 
+    .line 38
     iput-object v0, v11, Lcom/squareup/picasso/RemoteViewsAction;->remoteViews:Landroid/widget/RemoteViews;
 
-    .line 39
-    move/from16 v1, p4
+    move/from16 v0, p4
 
-    iput v1, v11, Lcom/squareup/picasso/RemoteViewsAction;->viewId:I
+    .line 39
+    iput v0, v11, Lcom/squareup/picasso/RemoteViewsAction;->viewId:I
+
+    move-object/from16 v0, p10
 
     .line 40
-    move-object/from16 v2, p10
+    iput-object v0, v11, Lcom/squareup/picasso/RemoteViewsAction;->callback:Lcom/squareup/picasso/Callback;
 
-    iput-object v2, v11, Lcom/squareup/picasso/RemoteViewsAction;->callback:Lcom/squareup/picasso/Callback;
-
-    .line 41
     return-void
 .end method
 
@@ -104,47 +93,42 @@
 
     if-eqz v0, :cond_0
 
-    .line 54
     const/4 v0, 0x0
 
+    .line 54
     iput-object v0, p0, Lcom/squareup/picasso/RemoteViewsAction;->callback:Lcom/squareup/picasso/Callback;
 
-    .line 56
     :cond_0
     return-void
 .end method
 
 .method complete(Landroid/graphics/Bitmap;Lcom/squareup/picasso/Picasso$LoadedFrom;)V
-    .locals 2
-    .param p1, "result"    # Landroid/graphics/Bitmap;
-    .param p2, "from"    # Lcom/squareup/picasso/Picasso$LoadedFrom;
+    .locals 1
 
     .line 44
-    iget-object v0, p0, Lcom/squareup/picasso/RemoteViewsAction;->remoteViews:Landroid/widget/RemoteViews;
+    iget-object p2, p0, Lcom/squareup/picasso/RemoteViewsAction;->remoteViews:Landroid/widget/RemoteViews;
 
-    iget v1, p0, Lcom/squareup/picasso/RemoteViewsAction;->viewId:I
+    iget v0, p0, Lcom/squareup/picasso/RemoteViewsAction;->viewId:I
 
-    invoke-virtual {v0, v1, p1}, Landroid/widget/RemoteViews;->setImageViewBitmap(ILandroid/graphics/Bitmap;)V
+    invoke-virtual {p2, v0, p1}, Landroid/widget/RemoteViews;->setImageViewBitmap(ILandroid/graphics/Bitmap;)V
 
     .line 45
     invoke-virtual {p0}, Lcom/squareup/picasso/RemoteViewsAction;->update()V
 
     .line 46
-    iget-object v0, p0, Lcom/squareup/picasso/RemoteViewsAction;->callback:Lcom/squareup/picasso/Callback;
+    iget-object p1, p0, Lcom/squareup/picasso/RemoteViewsAction;->callback:Lcom/squareup/picasso/Callback;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 47
-    invoke-interface {v0}, Lcom/squareup/picasso/Callback;->onSuccess()V
+    invoke-interface {p1}, Lcom/squareup/picasso/Callback;->onSuccess()V
 
-    .line 49
     :cond_0
     return-void
 .end method
 
 .method public error(Ljava/lang/Exception;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Exception;
 
     .line 59
     iget v0, p0, Lcom/squareup/picasso/RemoteViewsAction;->errorResId:I
@@ -165,7 +149,6 @@
     .line 63
     invoke-interface {v0, p1}, Lcom/squareup/picasso/Callback;->onError(Ljava/lang/Exception;)V
 
-    .line 65
     :cond_1
     return-void
 .end method
@@ -209,7 +192,6 @@
 
 .method setImageResource(I)V
     .locals 2
-    .param p1, "resId"    # I
 
     .line 75
     iget-object v0, p0, Lcom/squareup/picasso/RemoteViewsAction;->remoteViews:Landroid/widget/RemoteViews;
@@ -221,7 +203,6 @@
     .line 76
     invoke-virtual {p0}, Lcom/squareup/picasso/RemoteViewsAction;->update()V
 
-    .line 77
     return-void
 .end method
 

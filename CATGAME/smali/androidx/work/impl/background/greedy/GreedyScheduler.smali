@@ -42,9 +42,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 53
     const-string v0, "GreedyScheduler"
 
+    .line 53
     invoke-static {v0}, Landroidx/work/Logger;->tagWithPrefix(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -55,11 +55,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/Configuration;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/impl/WorkManagerImpl;)V
-    .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "configuration"    # Landroidx/work/Configuration;
-    .param p3, "taskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
-    .param p4, "workManagerImpl"    # Landroidx/work/impl/WorkManagerImpl;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -92,39 +88,35 @@
     iput-object p4, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
 
     .line 73
-    new-instance v0, Landroidx/work/impl/constraints/WorkConstraintsTracker;
+    new-instance p4, Landroidx/work/impl/constraints/WorkConstraintsTracker;
 
-    invoke-direct {v0, p1, p3, p0}, Landroidx/work/impl/constraints/WorkConstraintsTracker;-><init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/impl/constraints/WorkConstraintsCallback;)V
+    invoke-direct {p4, p1, p3, p0}, Landroidx/work/impl/constraints/WorkConstraintsTracker;-><init>(Landroid/content/Context;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/impl/constraints/WorkConstraintsCallback;)V
 
-    iput-object v0, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mWorkConstraintsTracker:Landroidx/work/impl/constraints/WorkConstraintsTracker;
+    iput-object p4, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mWorkConstraintsTracker:Landroidx/work/impl/constraints/WorkConstraintsTracker;
 
     .line 74
-    new-instance v0, Landroidx/work/impl/background/greedy/DelayedWorkTracker;
+    new-instance p1, Landroidx/work/impl/background/greedy/DelayedWorkTracker;
 
     invoke-virtual {p2}, Landroidx/work/Configuration;->getRunnableScheduler()Landroidx/work/RunnableScheduler;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, p0, v1}, Landroidx/work/impl/background/greedy/DelayedWorkTracker;-><init>(Landroidx/work/impl/background/greedy/GreedyScheduler;Landroidx/work/RunnableScheduler;)V
+    invoke-direct {p1, p0, p2}, Landroidx/work/impl/background/greedy/DelayedWorkTracker;-><init>(Landroidx/work/impl/background/greedy/GreedyScheduler;Landroidx/work/RunnableScheduler;)V
 
-    iput-object v0, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mDelayedWorkTracker:Landroidx/work/impl/background/greedy/DelayedWorkTracker;
+    iput-object p1, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mDelayedWorkTracker:Landroidx/work/impl/background/greedy/DelayedWorkTracker;
 
     .line 75
-    new-instance v0, Ljava/lang/Object;
+    new-instance p1, Ljava/lang/Object;
 
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p1}, Ljava/lang/Object;-><init>()V
 
-    iput-object v0, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mLock:Ljava/lang/Object;
+    iput-object p1, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mLock:Ljava/lang/Object;
 
-    .line 76
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/impl/WorkManagerImpl;Landroidx/work/impl/constraints/WorkConstraintsTracker;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "workManagerImpl"    # Landroidx/work/impl/WorkManagerImpl;
-    .param p3, "workConstraintsTracker"    # Landroidx/work/impl/constraints/WorkConstraintsTracker;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -158,13 +150,12 @@
     iput-object p3, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mWorkConstraintsTracker:Landroidx/work/impl/constraints/WorkConstraintsTracker;
 
     .line 86
-    new-instance v0, Ljava/lang/Object;
+    new-instance p1, Ljava/lang/Object;
 
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p1}, Ljava/lang/Object;-><init>()V
 
-    iput-object v0, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mLock:Ljava/lang/Object;
+    iput-object p1, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mLock:Ljava/lang/Object;
 
-    .line 87
     return-void
 .end method
 
@@ -179,20 +170,18 @@
     move-result-object v0
 
     .line 164
-    .local v0, "configuration":Landroidx/work/Configuration;
     iget-object v1, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mContext:Landroid/content/Context;
 
     invoke-static {v1, v0}, Landroidx/work/impl/utils/ProcessUtils;->isDefaultProcess(Landroid/content/Context;Landroidx/work/Configuration;)Z
 
-    move-result v1
+    move-result v0
 
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mInDefaultProcess:Ljava/lang/Boolean;
+    iput-object v0, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mInDefaultProcess:Ljava/lang/Boolean;
 
-    .line 165
     return-void
 .end method
 
@@ -213,19 +202,17 @@
 
     invoke-virtual {v0, p0}, Landroidx/work/impl/Processor;->addExecutionListener(Landroidx/work/impl/ExecutionListener;)V
 
-    .line 234
     const/4 v0, 0x1
 
+    .line 234
     iput-boolean v0, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mRegisteredExecutionListener:Z
 
-    .line 236
     :cond_0
     return-void
 .end method
 
 .method private removeConstraintTrackingFor(Ljava/lang/String;)V
     .locals 7
-    .param p1, "workSpecId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -248,7 +235,7 @@
 
     move-result-object v1
 
-    :goto_0
+    :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
@@ -262,7 +249,6 @@
     check-cast v2, Landroidx/work/impl/model/WorkSpec;
 
     .line 219
-    .local v2, "constrainedWorkSpec":Landroidx/work/impl/model/WorkSpec;
     iget-object v3, v2, Landroidx/work/impl/model/WorkSpec;->id:Ljava/lang/String;
 
     invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -290,56 +276,44 @@
 
     invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p1
 
-    new-array v5, v6, [Ljava/lang/Throwable;
+    new-array v4, v6, [Ljava/lang/Throwable;
 
-    invoke-virtual {v1, v3, v4, v5}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {v1, v3, p1, v4}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
     .line 221
-    iget-object v1, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mConstrainedWorkSpecs:Ljava/util/Set;
+    iget-object p1, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mConstrainedWorkSpecs:Ljava/util/Set;
 
-    invoke-interface {v1, v2}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
+    invoke-interface {p1, v2}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
     .line 222
-    iget-object v1, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mWorkConstraintsTracker:Landroidx/work/impl/constraints/WorkConstraintsTracker;
+    iget-object p1, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mWorkConstraintsTracker:Landroidx/work/impl/constraints/WorkConstraintsTracker;
 
-    iget-object v3, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mConstrainedWorkSpecs:Ljava/util/Set;
+    iget-object v1, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mConstrainedWorkSpecs:Ljava/util/Set;
 
-    invoke-virtual {v1, v3}, Landroidx/work/impl/constraints/WorkConstraintsTracker;->replace(Ljava/lang/Iterable;)V
-
-    .line 223
-    goto :goto_1
-
-    .line 225
-    .end local v2    # "constrainedWorkSpec":Landroidx/work/impl/model/WorkSpec;
-    :cond_0
-    goto :goto_0
+    invoke-virtual {p1, v1}, Landroidx/work/impl/constraints/WorkConstraintsTracker;->replace(Ljava/lang/Iterable;)V
 
     .line 226
     :cond_1
-    :goto_1
     monitor-exit v0
 
-    .line 227
     return-void
 
-    .line 226
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 
 # virtual methods
 .method public cancel(Ljava/lang/String;)V
     .locals 5
-    .param p1, "workSpecId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -372,17 +346,16 @@
     .line 174
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
-    move-result-object v0
+    move-result-object p1
 
-    sget-object v2, Landroidx/work/impl/background/greedy/GreedyScheduler;->TAG:Ljava/lang/String;
+    sget-object v0, Landroidx/work/impl/background/greedy/GreedyScheduler;->TAG:Ljava/lang/String;
+
+    const-string v2, "Ignoring schedule request in non-main process"
 
     new-array v1, v1, [Ljava/lang/Throwable;
 
-    const-string v3, "Ignoring schedule request in non-main process"
+    invoke-virtual {p1, v0, v2, v1}, Landroidx/work/Logger;->info(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
-    invoke-virtual {v0, v2, v3, v1}, Landroidx/work/Logger;->info(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
-
-    .line 175
     return-void
 
     .line 178
@@ -426,21 +399,19 @@
 
     invoke-virtual {v0, p1}, Landroidx/work/impl/WorkManagerImpl;->stopWork(Ljava/lang/String;)V
 
-    .line 185
     return-void
 .end method
 
 .method public hasLimitedSchedulingSlots()Z
     .locals 1
 
-    .line 96
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public onAllConstraintsMet(Ljava/util/List;)V
-    .locals 7
+    .locals 6
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -460,68 +431,63 @@
     .end annotation
 
     .line 189
-    .local p1, "workSpecIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v0, Ljava/lang/String;
 
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    .line 190
+    invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v1
 
-    check-cast v1, Ljava/lang/String;
+    sget-object v2, Landroidx/work/impl/background/greedy/GreedyScheduler;->TAG:Ljava/lang/String;
 
-    .line 190
-    .local v1, "workSpecId":Ljava/lang/String;
-    invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
+    const/4 v3, 0x1
 
-    move-result-object v2
+    new-array v3, v3, [Ljava/lang/Object;
 
-    sget-object v3, Landroidx/work/impl/background/greedy/GreedyScheduler;->TAG:Ljava/lang/String;
+    const/4 v4, 0x0
 
-    const/4 v4, 0x1
+    aput-object v0, v3, v4
 
-    new-array v4, v4, [Ljava/lang/Object;
-
-    const/4 v5, 0x0
-
-    aput-object v1, v4, v5
+    const-string v5, "Constraints met: Scheduling work ID %s"
 
     .line 192
-    const-string v6, "Constraints met: Scheduling work ID %s"
+    invoke-static {v5, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v6, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v4
-
-    new-array v5, v5, [Ljava/lang/Throwable;
+    new-array v4, v4, [Ljava/lang/Throwable;
 
     .line 190
-    invoke-virtual {v2, v3, v4, v5}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {v1, v2, v3, v4}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
     .line 193
-    iget-object v2, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
+    iget-object v1, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
 
-    invoke-virtual {v2, v1}, Landroidx/work/impl/WorkManagerImpl;->startWork(Ljava/lang/String;)V
+    invoke-virtual {v1, v0}, Landroidx/work/impl/WorkManagerImpl;->startWork(Ljava/lang/String;)V
 
-    .line 194
-    .end local v1    # "workSpecId":Ljava/lang/String;
     goto :goto_0
 
-    .line 195
     :cond_0
     return-void
 .end method
 
 .method public onAllConstraintsNotMet(Ljava/util/List;)V
-    .locals 7
+    .locals 6
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -541,70 +507,63 @@
     .end annotation
 
     .line 199
-    .local p1, "workSpecIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v0, Ljava/lang/String;
 
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    .line 200
+    invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v1
 
-    check-cast v1, Ljava/lang/String;
+    sget-object v2, Landroidx/work/impl/background/greedy/GreedyScheduler;->TAG:Ljava/lang/String;
 
-    .line 200
-    .local v1, "workSpecId":Ljava/lang/String;
-    invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
+    const/4 v3, 0x1
 
-    move-result-object v2
+    new-array v3, v3, [Ljava/lang/Object;
 
-    sget-object v3, Landroidx/work/impl/background/greedy/GreedyScheduler;->TAG:Ljava/lang/String;
+    const/4 v4, 0x0
 
-    const/4 v4, 0x1
+    aput-object v0, v3, v4
 
-    new-array v4, v4, [Ljava/lang/Object;
-
-    const/4 v5, 0x0
-
-    aput-object v1, v4, v5
+    const-string v5, "Constraints not met: Cancelling work ID %s"
 
     .line 201
-    const-string v6, "Constraints not met: Cancelling work ID %s"
+    invoke-static {v5, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v6, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v4
-
-    new-array v5, v5, [Ljava/lang/Throwable;
+    new-array v4, v4, [Ljava/lang/Throwable;
 
     .line 200
-    invoke-virtual {v2, v3, v4, v5}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {v1, v2, v3, v4}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
     .line 202
-    iget-object v2, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
+    iget-object v1, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
 
-    invoke-virtual {v2, v1}, Landroidx/work/impl/WorkManagerImpl;->stopWork(Ljava/lang/String;)V
+    invoke-virtual {v1, v0}, Landroidx/work/impl/WorkManagerImpl;->stopWork(Ljava/lang/String;)V
 
-    .line 203
-    .end local v1    # "workSpecId":Ljava/lang/String;
     goto :goto_0
 
-    .line 204
     :cond_0
     return-void
 .end method
 
 .method public onExecuted(Ljava/lang/String;Z)V
     .locals 0
-    .param p1, "workSpecId"    # Ljava/lang/String;
-    .param p2, "needsReschedule"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -619,13 +578,11 @@
     .line 208
     invoke-direct {p0, p1}, Landroidx/work/impl/background/greedy/GreedyScheduler;->removeConstraintTrackingFor(Ljava/lang/String;)V
 
-    .line 211
     return-void
 .end method
 
 .method public varargs schedule([Landroidx/work/impl/model/WorkSpec;)V
-    .locals 17
-    .param p1, "workSpecs"    # [Landroidx/work/impl/model/WorkSpec;
+    .locals 13
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -636,343 +593,287 @@
     .end annotation
 
     .line 101
-    move-object/from16 v1, p0
-
-    move-object/from16 v2, p1
-
-    iget-object v0, v1, Landroidx/work/impl/background/greedy/GreedyScheduler;->mInDefaultProcess:Ljava/lang/Boolean;
+    iget-object v0, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mInDefaultProcess:Ljava/lang/Boolean;
 
     if-nez v0, :cond_0
 
     .line 102
-    invoke-direct/range {p0 .. p0}, Landroidx/work/impl/background/greedy/GreedyScheduler;->checkDefaultProcess()V
+    invoke-direct {p0}, Landroidx/work/impl/background/greedy/GreedyScheduler;->checkDefaultProcess()V
 
     .line 105
     :cond_0
-    iget-object v0, v1, Landroidx/work/impl/background/greedy/GreedyScheduler;->mInDefaultProcess:Ljava/lang/Boolean;
+    iget-object v0, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mInDefaultProcess:Ljava/lang/Boolean;
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
     if-nez v0, :cond_1
 
     .line 106
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
-    move-result-object v0
+    move-result-object p1
 
-    sget-object v4, Landroidx/work/impl/background/greedy/GreedyScheduler;->TAG:Ljava/lang/String;
+    sget-object v0, Landroidx/work/impl/background/greedy/GreedyScheduler;->TAG:Ljava/lang/String;
 
-    const-string v5, "Ignoring schedule request in a secondary process"
+    const-string v2, "Ignoring schedule request in a secondary process"
 
-    new-array v3, v3, [Ljava/lang/Throwable;
+    new-array v1, v1, [Ljava/lang/Throwable;
 
-    invoke-virtual {v0, v4, v5, v3}, Landroidx/work/Logger;->info(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {p1, v0, v2, v1}, Landroidx/work/Logger;->info(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
-    .line 107
     return-void
 
     .line 110
     :cond_1
-    invoke-direct/range {p0 .. p0}, Landroidx/work/impl/background/greedy/GreedyScheduler;->registerExecutionListenerIfNeeded()V
+    invoke-direct {p0}, Landroidx/work/impl/background/greedy/GreedyScheduler;->registerExecutionListenerIfNeeded()V
 
     .line 116
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
-    move-object v4, v0
-
     .line 117
-    .local v4, "constrainedWorkSpecs":Ljava/util/Set;, "Ljava/util/Set<Landroidx/work/impl/model/WorkSpec;>;"
-    new-instance v0, Ljava/util/HashSet;
+    new-instance v2, Ljava/util/HashSet;
 
-    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
-
-    move-object v5, v0
+    invoke-direct {v2}, Ljava/util/HashSet;-><init>()V
 
     .line 119
-    .local v5, "constrainedWorkSpecIds":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
-    array-length v0, v2
+    array-length v3, p1
 
-    move v6, v3
+    move v4, v1
 
     :goto_0
-    const/4 v7, 0x1
+    const/4 v5, 0x1
 
-    if-ge v6, v0, :cond_8
+    if-ge v4, v3, :cond_7
 
-    aget-object v8, v2, v6
+    aget-object v6, p1, v4
 
     .line 120
-    .local v8, "workSpec":Landroidx/work/impl/model/WorkSpec;
-    invoke-virtual {v8}, Landroidx/work/impl/model/WorkSpec;->calculateNextRunTime()J
+    invoke-virtual {v6}, Landroidx/work/impl/model/WorkSpec;->calculateNextRunTime()J
+
+    move-result-wide v7
+
+    .line 121
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v9
 
-    .line 121
-    .local v9, "nextRunTime":J
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v11
-
     .line 122
-    .local v11, "now":J
-    iget-object v13, v8, Landroidx/work/impl/model/WorkSpec;->state:Landroidx/work/WorkInfo$State;
+    iget-object v11, v6, Landroidx/work/impl/model/WorkSpec;->state:Landroidx/work/WorkInfo$State;
 
-    sget-object v14, Landroidx/work/WorkInfo$State;->ENQUEUED:Landroidx/work/WorkInfo$State;
+    sget-object v12, Landroidx/work/WorkInfo$State;->ENQUEUED:Landroidx/work/WorkInfo$State;
 
-    if-ne v13, v14, :cond_7
+    if-ne v11, v12, :cond_6
 
-    .line 123
-    cmp-long v13, v11, v9
+    cmp-long v7, v9, v7
 
-    if-gez v13, :cond_3
+    if-gez v7, :cond_2
 
     .line 125
-    iget-object v7, v1, Landroidx/work/impl/background/greedy/GreedyScheduler;->mDelayedWorkTracker:Landroidx/work/impl/background/greedy/DelayedWorkTracker;
+    iget-object v5, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mDelayedWorkTracker:Landroidx/work/impl/background/greedy/DelayedWorkTracker;
 
-    if-eqz v7, :cond_2
+    if-eqz v5, :cond_6
 
     .line 126
-    invoke-virtual {v7, v8}, Landroidx/work/impl/background/greedy/DelayedWorkTracker;->schedule(Landroidx/work/impl/model/WorkSpec;)V
+    invoke-virtual {v5, v6}, Landroidx/work/impl/background/greedy/DelayedWorkTracker;->schedule(Landroidx/work/impl/model/WorkSpec;)V
 
-    move/from16 v16, v0
-
-    goto/16 :goto_1
-
-    .line 125
-    :cond_2
-    move/from16 v16, v0
-
-    goto/16 :goto_1
+    goto :goto_1
 
     .line 128
-    :cond_3
-    invoke-virtual {v8}, Landroidx/work/impl/model/WorkSpec;->hasConstraints()Z
+    :cond_2
+    invoke-virtual {v6}, Landroidx/work/impl/model/WorkSpec;->hasConstraints()Z
 
-    move-result v13
+    move-result v7
 
-    if-eqz v13, :cond_6
+    if-eqz v7, :cond_5
 
     .line 129
-    sget v13, Landroid/os/Build$VERSION;->SDK_INT:I
+    iget-object v7, v6, Landroidx/work/impl/model/WorkSpec;->constraints:Landroidx/work/Constraints;
 
-    const/16 v14, 0x17
+    invoke-virtual {v7}, Landroidx/work/Constraints;->requiresDeviceIdle()Z
 
-    if-lt v13, v14, :cond_4
+    move-result v7
 
-    iget-object v13, v8, Landroidx/work/impl/model/WorkSpec;->constraints:Landroidx/work/Constraints;
-
-    invoke-virtual {v13}, Landroidx/work/Constraints;->requiresDeviceIdle()Z
-
-    move-result v13
-
-    if-eqz v13, :cond_4
+    if-eqz v7, :cond_3
 
     .line 131
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
-    move-result-object v13
-
-    sget-object v14, Landroidx/work/impl/background/greedy/GreedyScheduler;->TAG:Ljava/lang/String;
-
-    const-string v15, "Ignoring WorkSpec %s, Requires device idle."
-
-    new-array v7, v7, [Ljava/lang/Object;
-
-    aput-object v8, v7, v3
-
-    .line 132
-    invoke-static {v15, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
     move-result-object v7
 
-    new-array v15, v3, [Ljava/lang/Throwable;
+    sget-object v8, Landroidx/work/impl/background/greedy/GreedyScheduler;->TAG:Ljava/lang/String;
+
+    const-string v9, "Ignoring WorkSpec %s, Requires device idle."
+
+    new-array v5, v5, [Ljava/lang/Object;
+
+    aput-object v6, v5, v1
+
+    .line 132
+    invoke-static {v9, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v5
+
+    new-array v6, v1, [Ljava/lang/Throwable;
 
     .line 131
-    invoke-virtual {v13, v14, v7, v15}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
-
-    move/from16 v16, v0
+    invoke-virtual {v7, v8, v5, v6}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
     goto :goto_1
 
     .line 134
-    :cond_4
-    sget v13, Landroid/os/Build$VERSION;->SDK_INT:I
+    :cond_3
+    iget-object v7, v6, Landroidx/work/impl/model/WorkSpec;->constraints:Landroidx/work/Constraints;
 
-    const/16 v14, 0x18
+    invoke-virtual {v7}, Landroidx/work/Constraints;->hasContentUriTriggers()Z
 
-    if-lt v13, v14, :cond_5
+    move-result v7
 
-    iget-object v13, v8, Landroidx/work/impl/model/WorkSpec;->constraints:Landroidx/work/Constraints;
-
-    invoke-virtual {v13}, Landroidx/work/Constraints;->hasContentUriTriggers()Z
-
-    move-result v13
-
-    if-eqz v13, :cond_5
+    if-eqz v7, :cond_4
 
     .line 136
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
-    move-result-object v13
-
-    sget-object v14, Landroidx/work/impl/background/greedy/GreedyScheduler;->TAG:Ljava/lang/String;
-
-    const-string v15, "Ignoring WorkSpec %s, Requires ContentUri triggers."
-
-    new-array v7, v7, [Ljava/lang/Object;
-
-    aput-object v8, v7, v3
-
-    .line 137
-    invoke-static {v15, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
     move-result-object v7
 
-    new-array v15, v3, [Ljava/lang/Throwable;
+    sget-object v8, Landroidx/work/impl/background/greedy/GreedyScheduler;->TAG:Ljava/lang/String;
+
+    const-string v9, "Ignoring WorkSpec %s, Requires ContentUri triggers."
+
+    new-array v5, v5, [Ljava/lang/Object;
+
+    aput-object v6, v5, v1
+
+    .line 137
+    invoke-static {v9, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v5
+
+    new-array v6, v1, [Ljava/lang/Throwable;
 
     .line 136
-    invoke-virtual {v13, v14, v7, v15}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
-
-    move/from16 v16, v0
+    invoke-virtual {v7, v8, v5, v6}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
     goto :goto_1
 
     .line 140
-    :cond_5
-    invoke-interface {v4, v8}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    :cond_4
+    invoke-interface {v0, v6}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 141
-    iget-object v7, v8, Landroidx/work/impl/model/WorkSpec;->id:Ljava/lang/String;
+    iget-object v5, v6, Landroidx/work/impl/model/WorkSpec;->id:Ljava/lang/String;
 
-    invoke-interface {v5, v7}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    move/from16 v16, v0
+    invoke-interface {v2, v5}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
     .line 144
-    :cond_6
+    :cond_5
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
-    move-result-object v13
+    move-result-object v7
 
-    sget-object v14, Landroidx/work/impl/background/greedy/GreedyScheduler;->TAG:Ljava/lang/String;
+    sget-object v8, Landroidx/work/impl/background/greedy/GreedyScheduler;->TAG:Ljava/lang/String;
 
-    const-string v15, "Starting work for %s"
+    const-string v9, "Starting work for %s"
 
-    new-array v7, v7, [Ljava/lang/Object;
+    new-array v5, v5, [Ljava/lang/Object;
 
-    move/from16 v16, v0
+    iget-object v10, v6, Landroidx/work/impl/model/WorkSpec;->id:Ljava/lang/String;
 
-    iget-object v0, v8, Landroidx/work/impl/model/WorkSpec;->id:Ljava/lang/String;
+    aput-object v10, v5, v1
 
-    aput-object v0, v7, v3
+    invoke-static {v9, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v15, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v5
 
-    move-result-object v0
+    new-array v9, v1, [Ljava/lang/Throwable;
 
-    new-array v7, v3, [Ljava/lang/Throwable;
-
-    invoke-virtual {v13, v14, v0, v7}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {v7, v8, v5, v9}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
     .line 145
-    iget-object v0, v1, Landroidx/work/impl/background/greedy/GreedyScheduler;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
+    iget-object v5, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mWorkManagerImpl:Landroidx/work/impl/WorkManagerImpl;
 
-    iget-object v7, v8, Landroidx/work/impl/model/WorkSpec;->id:Ljava/lang/String;
+    iget-object v6, v6, Landroidx/work/impl/model/WorkSpec;->id:Ljava/lang/String;
 
-    invoke-virtual {v0, v7}, Landroidx/work/impl/WorkManagerImpl;->startWork(Ljava/lang/String;)V
+    invoke-virtual {v5, v6}, Landroidx/work/impl/WorkManagerImpl;->startWork(Ljava/lang/String;)V
 
-    goto :goto_1
-
-    .line 122
-    :cond_7
-    move/from16 v16, v0
-
-    .line 119
-    .end local v8    # "workSpec":Landroidx/work/impl/model/WorkSpec;
-    .end local v9    # "nextRunTime":J
-    .end local v11    # "now":J
+    :cond_6
     :goto_1
-    add-int/lit8 v6, v6, 0x1
-
-    move/from16 v0, v16
+    add-int/lit8 v4, v4, 0x1
 
     goto/16 :goto_0
 
     .line 152
-    :cond_8
-    iget-object v6, v1, Landroidx/work/impl/background/greedy/GreedyScheduler;->mLock:Ljava/lang/Object;
+    :cond_7
+    iget-object p1, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mLock:Ljava/lang/Object;
 
-    monitor-enter v6
+    monitor-enter p1
 
     .line 153
     :try_start_0
-    invoke-interface {v4}, Ljava/util/Set;->isEmpty()Z
+    invoke-interface {v0}, Ljava/util/Set;->isEmpty()Z
 
-    move-result v0
+    move-result v3
 
-    if-nez v0, :cond_9
+    if-nez v3, :cond_8
 
     .line 154
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
-    move-result-object v0
+    move-result-object v3
 
-    sget-object v8, Landroidx/work/impl/background/greedy/GreedyScheduler;->TAG:Ljava/lang/String;
+    sget-object v4, Landroidx/work/impl/background/greedy/GreedyScheduler;->TAG:Ljava/lang/String;
 
-    const-string v9, "Starting tracking for [%s]"
+    const-string v6, "Starting tracking for [%s]"
 
-    new-array v7, v7, [Ljava/lang/Object;
+    new-array v5, v5, [Ljava/lang/Object;
 
-    const-string v10, ","
+    const-string v7, ","
 
     .line 155
-    invoke-static {v10, v5}, Landroid/text/TextUtils;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
+    invoke-static {v7, v2}, Landroid/text/TextUtils;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v2
 
-    aput-object v10, v7, v3
+    aput-object v2, v5, v1
 
     .line 154
-    invoke-static {v9, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v6, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v2
 
-    new-array v3, v3, [Ljava/lang/Throwable;
+    new-array v1, v1, [Ljava/lang/Throwable;
 
-    invoke-virtual {v0, v8, v7, v3}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {v3, v4, v2, v1}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
     .line 156
-    iget-object v0, v1, Landroidx/work/impl/background/greedy/GreedyScheduler;->mConstrainedWorkSpecs:Ljava/util/Set;
+    iget-object v1, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mConstrainedWorkSpecs:Ljava/util/Set;
 
-    invoke-interface {v0, v4}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
+    invoke-interface {v1, v0}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
 
     .line 157
-    iget-object v0, v1, Landroidx/work/impl/background/greedy/GreedyScheduler;->mWorkConstraintsTracker:Landroidx/work/impl/constraints/WorkConstraintsTracker;
+    iget-object v0, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mWorkConstraintsTracker:Landroidx/work/impl/constraints/WorkConstraintsTracker;
 
-    iget-object v3, v1, Landroidx/work/impl/background/greedy/GreedyScheduler;->mConstrainedWorkSpecs:Ljava/util/Set;
+    iget-object v1, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mConstrainedWorkSpecs:Ljava/util/Set;
 
-    invoke-virtual {v0, v3}, Landroidx/work/impl/constraints/WorkConstraintsTracker;->replace(Ljava/lang/Iterable;)V
+    invoke-virtual {v0, v1}, Landroidx/work/impl/constraints/WorkConstraintsTracker;->replace(Ljava/lang/Iterable;)V
 
     .line 159
-    :cond_9
-    monitor-exit v6
+    :cond_8
+    monitor-exit p1
 
-    .line 160
     return-void
 
-    .line 159
     :catchall_0
     move-exception v0
 
-    monitor-exit v6
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -981,7 +882,6 @@
 
 .method public setDelayedWorkTracker(Landroidx/work/impl/background/greedy/DelayedWorkTracker;)V
     .locals 0
-    .param p1, "delayedWorkTracker"    # Landroidx/work/impl/background/greedy/DelayedWorkTracker;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -994,6 +894,5 @@
     .line 91
     iput-object p1, p0, Landroidx/work/impl/background/greedy/GreedyScheduler;->mDelayedWorkTracker:Landroidx/work/impl/background/greedy/DelayedWorkTracker;
 
-    .line 92
     return-void
 .end method

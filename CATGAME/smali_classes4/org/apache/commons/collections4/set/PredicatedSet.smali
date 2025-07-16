@@ -38,12 +38,8 @@
     .end annotation
 
     .line 79
-    .local p0, "this":Lorg/apache/commons/collections4/set/PredicatedSet;, "Lorg/apache/commons/collections4/set/PredicatedSet<TE;>;"
-    .local p1, "set":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
-    .local p2, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TE;>;"
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections4/collection/PredicatedCollection;-><init>(Ljava/util/Collection;Lorg/apache/commons/collections4/Predicate;)V
 
-    .line 80
     return-void
 .end method
 
@@ -64,8 +60,6 @@
     .end annotation
 
     .line 63
-    .local p0, "set":Ljava/util/Set;, "Ljava/util/Set<TE;>;"
-    .local p1, "predicate":Lorg/apache/commons/collections4/Predicate;, "Lorg/apache/commons/collections4/Predicate<-TE;>;"
     new-instance v0, Lorg/apache/commons/collections4/set/PredicatedSet;
 
     invoke-direct {v0, p0, p1}, Lorg/apache/commons/collections4/set/PredicatedSet;-><init>(Ljava/util/Set;Lorg/apache/commons/collections4/Predicate;)V
@@ -79,7 +73,6 @@
     .locals 1
 
     .line 43
-    .local p0, "this":Lorg/apache/commons/collections4/set/PredicatedSet;, "Lorg/apache/commons/collections4/set/PredicatedSet<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/PredicatedSet;->decorated()Ljava/util/Set;
 
     move-result-object v0
@@ -98,7 +91,6 @@
     .end annotation
 
     .line 89
-    .local p0, "this":Lorg/apache/commons/collections4/set/PredicatedSet;, "Lorg/apache/commons/collections4/set/PredicatedSet<TE;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/collection/PredicatedCollection;->decorated()Ljava/util/Collection;
 
     move-result-object v0
@@ -110,42 +102,39 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
 
-    .line 94
-    .local p0, "this":Lorg/apache/commons/collections4/set/PredicatedSet;, "Lorg/apache/commons/collections4/set/PredicatedSet<TE;>;"
     if-eq p1, p0, :cond_1
 
+    .line 94
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/PredicatedSet;->decorated()Ljava/util/Set;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/Set;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     :goto_1
-    return v0
+    return p1
 .end method
 
 .method public hashCode()I
     .locals 1
 
     .line 99
-    .local p0, "this":Lorg/apache/commons/collections4/set/PredicatedSet;, "Lorg/apache/commons/collections4/set/PredicatedSet<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/PredicatedSet;->decorated()Ljava/util/Set;
 
     move-result-object v0

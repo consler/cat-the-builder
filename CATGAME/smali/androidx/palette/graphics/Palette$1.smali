@@ -34,129 +34,122 @@
 .end method
 
 .method private isBlack([F)Z
-    .locals 2
-    .param p1, "hslColor"    # [F
+    .locals 1
 
-    .line 973
     const/4 v0, 0x2
 
-    aget v0, p1, v0
+    .line 973
+    aget p1, p1, v0
 
-    const v1, 0x3d4ccccd    # 0.05f
+    const v0, 0x3d4ccccd    # 0.05f
 
-    cmpg-float v0, v0, v1
+    cmpg-float p1, p1, v0
 
-    if-gtz v0, :cond_0
+    if-gtz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method private isNearRedILine([F)Z
-    .locals 4
-    .param p1, "hslColor"    # [F
+    .locals 3
 
-    .line 987
     const/4 v0, 0x0
 
+    .line 987
     aget v1, p1, v0
 
     const/high16 v2, 0x41200000    # 10.0f
 
-    cmpl-float v1, v1, v2
+    cmpl-float v2, v1, v2
 
-    const/4 v2, 0x1
+    if-ltz v2, :cond_0
 
-    if-ltz v1, :cond_0
+    const/high16 v2, 0x42140000    # 37.0f
 
-    aget v1, p1, v0
-
-    const/high16 v3, 0x42140000    # 37.0f
-
-    cmpg-float v1, v1, v3
+    cmpg-float v1, v1, v2
 
     if-gtz v1, :cond_0
 
-    aget v1, p1, v2
+    const/4 v1, 0x1
 
-    const v3, 0x3f51eb85    # 0.82f
+    aget p1, p1, v1
 
-    cmpg-float v1, v1, v3
+    const v2, 0x3f51eb85    # 0.82f
 
-    if-gtz v1, :cond_0
+    cmpg-float p1, p1, v2
 
-    move v0, v2
+    if-gtz p1, :cond_0
+
+    move v0, v1
 
     :cond_0
     return v0
 .end method
 
 .method private isWhite([F)Z
-    .locals 2
-    .param p1, "hslColor"    # [F
+    .locals 1
 
-    .line 980
     const/4 v0, 0x2
 
-    aget v0, p1, v0
+    .line 980
+    aget p1, p1, v0
 
-    const v1, 0x3f733333    # 0.95f
+    const v0, 0x3f733333    # 0.95f
 
-    cmpl-float v0, v0, v1
+    cmpl-float p1, p1, v0
 
-    if-ltz v0, :cond_0
+    if-ltz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 
 # virtual methods
 .method public isAllowed(I[F)Z
-    .locals 1
-    .param p1, "rgb"    # I
-    .param p2, "hsl"    # [F
+    .locals 0
 
     .line 966
     invoke-direct {p0, p2}, Landroidx/palette/graphics/Palette$1;->isWhite([F)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     invoke-direct {p0, p2}, Landroidx/palette/graphics/Palette$1;->isBlack([F)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     invoke-direct {p0, p2}, Landroidx/palette/graphics/Palette$1;->isNearRedILine([F)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method

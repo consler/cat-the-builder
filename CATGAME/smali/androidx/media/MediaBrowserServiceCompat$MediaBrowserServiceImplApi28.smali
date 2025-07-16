@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/media/MediaBrowserServiceCompat;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/media/MediaBrowserServiceCompat;
 
     .line 649
     iput-object p1, p0, Landroidx/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi28;->this$0:Landroidx/media/MediaBrowserServiceCompat;

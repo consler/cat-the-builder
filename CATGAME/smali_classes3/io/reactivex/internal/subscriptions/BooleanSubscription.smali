@@ -25,12 +25,11 @@
 .method public cancel()V
     .locals 1
 
-    .line 34
     const/4 v0, 0x1
 
+    .line 34
     invoke-virtual {p0, v0}, Lio/reactivex/internal/subscriptions/BooleanSubscription;->lazySet(Z)V
 
-    .line 35
     return-void
 .end method
 
@@ -47,12 +46,10 @@
 
 .method public request(J)V
     .locals 0
-    .param p1, "n"    # J
 
     .line 29
     invoke-static {p1, p2}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(J)Z
 
-    .line 30
     return-void
 .end method
 
@@ -62,11 +59,9 @@
     .line 47
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "BooleanSubscription(cancelled="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lio/reactivex/internal/subscriptions/BooleanSubscription;->get()Z
 
@@ -74,9 +69,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ")"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

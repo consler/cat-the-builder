@@ -64,14 +64,11 @@
     .end annotation
 
     .line 78
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ConstantTransformer;, "Lorg/apache/commons/collections4/functors/ConstantTransformer<TI;TO;>;"
-    .local p1, "constantToReturn":Ljava/lang/Object;, "TO;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 79
     iput-object p1, p0, Lorg/apache/commons/collections4/functors/ConstantTransformer;->iConstant:Ljava/lang/Object;
 
-    .line 80
     return-void
 .end method
 
@@ -89,16 +86,14 @@
         }
     .end annotation
 
-    .line 65
-    .local p0, "constantToReturn":Ljava/lang/Object;, "TO;"
     if-nez p0, :cond_0
 
     .line 66
     invoke-static {}, Lorg/apache/commons/collections4/functors/ConstantTransformer;->nullTransformer()Lorg/apache/commons/collections4/Transformer;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 68
     :cond_0
@@ -132,16 +127,12 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 3
 
-    .line 108
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ConstantTransformer;, "Lorg/apache/commons/collections4/functors/ConstantTransformer<TI;TO;>;"
     const/4 v0, 0x1
 
     if-ne p1, p0, :cond_0
 
-    .line 109
     return v0
 
     .line 111
@@ -152,38 +143,34 @@
 
     if-nez v1, :cond_1
 
-    .line 112
     return v2
 
     .line 114
     :cond_1
-    move-object v1, p1
+    check-cast p1, Lorg/apache/commons/collections4/functors/ConstantTransformer;
 
-    check-cast v1, Lorg/apache/commons/collections4/functors/ConstantTransformer;
+    invoke-virtual {p1}, Lorg/apache/commons/collections4/functors/ConstantTransformer;->getConstant()Ljava/lang/Object;
 
-    invoke-virtual {v1}, Lorg/apache/commons/collections4/functors/ConstantTransformer;->getConstant()Ljava/lang/Object;
+    move-result-object p1
+
+    .line 115
+    invoke-virtual {p0}, Lorg/apache/commons/collections4/functors/ConstantTransformer;->getConstant()Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 115
-    .local v1, "otherConstant":Ljava/lang/Object;
-    invoke-virtual {p0}, Lorg/apache/commons/collections4/functors/ConstantTransformer;->getConstant()Ljava/lang/Object;
+    if-eq p1, v1, :cond_3
 
-    move-result-object v3
-
-    if-eq v1, v3, :cond_3
-
-    if-eqz v1, :cond_2
+    if-eqz p1, :cond_2
 
     invoke-virtual {p0}, Lorg/apache/commons/collections4/functors/ConstantTransformer;->getConstant()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v1, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result p1
 
-    if-eqz v3, :cond_2
+    if-eqz p1, :cond_2
 
     goto :goto_0
 
@@ -204,7 +191,6 @@
     .end annotation
 
     .line 100
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ConstantTransformer;, "Lorg/apache/commons/collections4/functors/ConstantTransformer<TI;TO;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/ConstantTransformer;->iConstant:Ljava/lang/Object;
 
     return-object v0
@@ -213,42 +199,32 @@
 .method public hashCode()I
     .locals 2
 
-    .line 123
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ConstantTransformer;, "Lorg/apache/commons/collections4/functors/ConstantTransformer<TI;TO;>;"
-    const-string v0, "ConstantTransformer"
-
-    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
-
-    move-result v0
-
-    shl-int/lit8 v0, v0, 0x2
-
     .line 124
-    .local v0, "result":I
     invoke-virtual {p0}, Lorg/apache/commons/collections4/functors/ConstantTransformer;->getConstant()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-eqz v1, :cond_0
+    const v1, -0x89c552c
+
+    if-eqz v0, :cond_0
 
     .line 125
     invoke-virtual {p0}, Lorg/apache/commons/collections4/functors/ConstantTransformer;->getConstant()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
+    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
-    move-result v1
+    move-result v0
 
-    or-int/2addr v0, v1
+    or-int/2addr v1, v0
 
-    .line 127
     :cond_0
-    return v0
+    return v1
 .end method
 
 .method public transform(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TI;)TO;"
@@ -256,9 +232,7 @@
     .end annotation
 
     .line 90
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ConstantTransformer;, "Lorg/apache/commons/collections4/functors/ConstantTransformer<TI;TO;>;"
-    .local p1, "input":Ljava/lang/Object;, "TI;"
-    iget-object v0, p0, Lorg/apache/commons/collections4/functors/ConstantTransformer;->iConstant:Ljava/lang/Object;
+    iget-object p1, p0, Lorg/apache/commons/collections4/functors/ConstantTransformer;->iConstant:Ljava/lang/Object;
 
-    return-object v0
+    return-object p1
 .end method

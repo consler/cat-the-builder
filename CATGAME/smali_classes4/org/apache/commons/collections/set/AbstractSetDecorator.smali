@@ -13,18 +13,15 @@
     .line 40
     invoke-direct {p0}, Lorg/apache/commons/collections/collection/AbstractCollectionDecorator;-><init>()V
 
-    .line 41
     return-void
 .end method
 
 .method protected constructor <init>(Ljava/util/Set;)V
     .locals 0
-    .param p1, "set"    # Ljava/util/Set;
 
     .line 50
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/collection/AbstractCollectionDecorator;-><init>(Ljava/util/Collection;)V
 
-    .line 51
     return-void
 .end method
 

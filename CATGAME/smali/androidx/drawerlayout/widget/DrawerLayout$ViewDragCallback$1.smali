@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/drawerlayout/widget/DrawerLayout$ViewDragCallback;)V
     .locals 0
-    .param p1, "this$1"    # Landroidx/drawerlayout/widget/DrawerLayout$ViewDragCallback;
 
     .line 2146
     iput-object p1, p0, Landroidx/drawerlayout/widget/DrawerLayout$ViewDragCallback$1;->this$1:Landroidx/drawerlayout/widget/DrawerLayout$ViewDragCallback;
@@ -44,6 +43,5 @@
 
     invoke-virtual {v0}, Landroidx/drawerlayout/widget/DrawerLayout$ViewDragCallback;->peekDrawer()V
 
-    .line 2149
     return-void
 .end method

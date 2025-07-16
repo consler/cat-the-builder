@@ -35,7 +35,6 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/lang3/ClassUtils$1;Lorg/apache/commons/lang3/mutable/MutableObject;)V
     .locals 0
-    .param p1, "this$0"    # Lorg/apache/commons/lang3/ClassUtils$1;
 
     .line 1387
     iput-object p1, p0, Lorg/apache/commons/lang3/ClassUtils$1$1;->this$0:Lorg/apache/commons/lang3/ClassUtils$1;
@@ -92,7 +91,6 @@
     check-cast v0, Ljava/lang/Class;
 
     .line 1397
-    .local v0, "result":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     iget-object v1, p0, Lorg/apache/commons/lang3/ClassUtils$1$1;->val$next:Lorg/apache/commons/lang3/mutable/MutableObject;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSuperclass()Ljava/lang/Class;
@@ -101,7 +99,6 @@
 
     invoke-virtual {v1, v2}, Lorg/apache/commons/lang3/mutable/MutableObject;->setValue(Ljava/lang/Object;)V
 
-    .line 1398
     return-object v0
 .end method
 

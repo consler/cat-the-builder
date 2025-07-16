@@ -55,9 +55,6 @@
     .end annotation
 
     .line 34
-    .local p0, "this":Lio/reactivex/internal/observers/ResumeSingleObserver;, "Lio/reactivex/internal/observers/ResumeSingleObserver<TT;>;"
-    .local p1, "parent":Ljava/util/concurrent/atomic/AtomicReference;, "Ljava/util/concurrent/atomic/AtomicReference<Lio/reactivex/disposables/Disposable;>;"
-    .local p2, "actual":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 35
@@ -66,7 +63,6 @@
     .line 36
     iput-object p2, p0, Lio/reactivex/internal/observers/ResumeSingleObserver;->actual:Lio/reactivex/SingleObserver;
 
-    .line 37
     return-void
 .end method
 
@@ -74,29 +70,23 @@
 # virtual methods
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 51
-    .local p0, "this":Lio/reactivex/internal/observers/ResumeSingleObserver;, "Lio/reactivex/internal/observers/ResumeSingleObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/observers/ResumeSingleObserver;->actual:Lio/reactivex/SingleObserver;
 
     invoke-interface {v0, p1}, Lio/reactivex/SingleObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 52
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 41
-    .local p0, "this":Lio/reactivex/internal/observers/ResumeSingleObserver;, "Lio/reactivex/internal/observers/ResumeSingleObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/observers/ResumeSingleObserver;->parent:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    .line 42
     return-void
 .end method
 
@@ -109,12 +99,9 @@
     .end annotation
 
     .line 46
-    .local p0, "this":Lio/reactivex/internal/observers/ResumeSingleObserver;, "Lio/reactivex/internal/observers/ResumeSingleObserver<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/observers/ResumeSingleObserver;->actual:Lio/reactivex/SingleObserver;
 
     invoke-interface {v0, p1}, Lio/reactivex/SingleObserver;->onSuccess(Ljava/lang/Object;)V
 
-    .line 47
     return-void
 .end method

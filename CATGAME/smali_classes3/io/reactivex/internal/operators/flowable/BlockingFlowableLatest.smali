@@ -48,14 +48,11 @@
     .end annotation
 
     .line 36
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/BlockingFlowableLatest;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableLatest<TT;>;"
-    .local p1, "source":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 37
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableLatest;->source:Lorg/reactivestreams/Publisher;
 
-    .line 38
     return-void
 .end method
 
@@ -72,13 +69,11 @@
     .end annotation
 
     .line 42
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/BlockingFlowableLatest;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableLatest<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/BlockingFlowableLatest$LatestSubscriberIterator;
 
     invoke-direct {v0}, Lio/reactivex/internal/operators/flowable/BlockingFlowableLatest$LatestSubscriberIterator;-><init>()V
 
     .line 43
-    .local v0, "lio":Lio/reactivex/internal/operators/flowable/BlockingFlowableLatest$LatestSubscriberIterator;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableLatest$LatestSubscriberIterator<TT;>;"
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableLatest;->source:Lorg/reactivestreams/Publisher;
 
     invoke-static {v1}, Lio/reactivex/Flowable;->fromPublisher(Lorg/reactivestreams/Publisher;)Lio/reactivex/Flowable;
@@ -91,6 +86,5 @@
 
     invoke-virtual {v1, v0}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 44
     return-object v0
 .end method

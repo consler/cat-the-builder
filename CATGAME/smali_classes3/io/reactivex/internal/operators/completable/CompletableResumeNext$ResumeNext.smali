@@ -34,8 +34,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/completable/CompletableResumeNext;Lio/reactivex/CompletableObserver;Lio/reactivex/internal/disposables/SequentialDisposable;)V
     .locals 0
-    .param p2, "s"    # Lio/reactivex/CompletableObserver;
-    .param p3, "sd"    # Lio/reactivex/internal/disposables/SequentialDisposable;
 
     .line 49
     iput-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableResumeNext$ResumeNext;->this$0:Lio/reactivex/internal/operators/completable/CompletableResumeNext;
@@ -48,7 +46,6 @@
     .line 51
     iput-object p3, p0, Lio/reactivex/internal/operators/completable/CompletableResumeNext$ResumeNext;->sd:Lio/reactivex/internal/disposables/SequentialDisposable;
 
-    .line 52
     return-void
 .end method
 
@@ -62,114 +59,92 @@
 
     invoke-interface {v0}, Lio/reactivex/CompletableObserver;->onComplete()V
 
-    .line 57
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
-    .locals 6
-    .param p1, "e"    # Ljava/lang/Throwable;
+    .locals 5
 
     .line 64
-    const/4 v0, 0x0
-
     :try_start_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/completable/CompletableResumeNext$ResumeNext;->this$0:Lio/reactivex/internal/operators/completable/CompletableResumeNext;
+    iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableResumeNext$ResumeNext;->this$0:Lio/reactivex/internal/operators/completable/CompletableResumeNext;
 
-    iget-object v1, v1, Lio/reactivex/internal/operators/completable/CompletableResumeNext;->errorMapper:Lio/reactivex/functions/Function;
+    iget-object v0, v0, Lio/reactivex/internal/operators/completable/CompletableResumeNext;->errorMapper:Lio/reactivex/functions/Function;
 
-    invoke-interface {v1, p1}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Lio/reactivex/functions/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lio/reactivex/CompletableSource;
+    check-cast v0, Lio/reactivex/CompletableSource;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-object v0, v1
-
-    .line 69
-    .local v0, "c":Lio/reactivex/CompletableSource;
-    nop
-
-    .line 71
     if-nez v0, :cond_0
 
     .line 72
-    new-instance v1, Ljava/lang/NullPointerException;
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string v2, "The CompletableConsumable returned is null"
+    const-string v1, "The CompletableConsumable returned is null"
 
-    invoke-direct {v1, v2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
     .line 73
-    .local v1, "npe":Ljava/lang/NullPointerException;
-    invoke-virtual {v1, p1}, Ljava/lang/NullPointerException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, p1}, Ljava/lang/NullPointerException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 74
-    iget-object v2, p0, Lio/reactivex/internal/operators/completable/CompletableResumeNext$ResumeNext;->s:Lio/reactivex/CompletableObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/completable/CompletableResumeNext$ResumeNext;->s:Lio/reactivex/CompletableObserver;
 
-    invoke-interface {v2, v1}, Lio/reactivex/CompletableObserver;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {p1, v0}, Lio/reactivex/CompletableObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 75
     return-void
 
     .line 78
-    .end local v1    # "npe":Ljava/lang/NullPointerException;
     :cond_0
-    new-instance v1, Lio/reactivex/internal/operators/completable/CompletableResumeNext$ResumeNext$OnErrorObserver;
+    new-instance p1, Lio/reactivex/internal/operators/completable/CompletableResumeNext$ResumeNext$OnErrorObserver;
 
-    invoke-direct {v1, p0}, Lio/reactivex/internal/operators/completable/CompletableResumeNext$ResumeNext$OnErrorObserver;-><init>(Lio/reactivex/internal/operators/completable/CompletableResumeNext$ResumeNext;)V
+    invoke-direct {p1, p0}, Lio/reactivex/internal/operators/completable/CompletableResumeNext$ResumeNext$OnErrorObserver;-><init>(Lio/reactivex/internal/operators/completable/CompletableResumeNext$ResumeNext;)V
 
-    invoke-interface {v0, v1}, Lio/reactivex/CompletableSource;->subscribe(Lio/reactivex/CompletableObserver;)V
+    invoke-interface {v0, p1}, Lio/reactivex/CompletableSource;->subscribe(Lio/reactivex/CompletableObserver;)V
 
-    .line 79
     return-void
 
-    .line 65
-    .end local v0    # "c":Lio/reactivex/CompletableSource;
     :catchall_0
-    move-exception v1
+    move-exception v0
 
     .line 66
-    .restart local v0    # "c":Lio/reactivex/CompletableSource;
-    .local v1, "ex":Ljava/lang/Throwable;
-    invoke-static {v1}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
+    invoke-static {v0}, Lio/reactivex/exceptions/Exceptions;->throwIfFatal(Ljava/lang/Throwable;)V
 
     .line 67
-    iget-object v2, p0, Lio/reactivex/internal/operators/completable/CompletableResumeNext$ResumeNext;->s:Lio/reactivex/CompletableObserver;
+    iget-object v1, p0, Lio/reactivex/internal/operators/completable/CompletableResumeNext$ResumeNext;->s:Lio/reactivex/CompletableObserver;
 
-    new-instance v3, Lio/reactivex/exceptions/CompositeException;
+    new-instance v2, Lio/reactivex/exceptions/CompositeException;
 
-    const/4 v4, 0x2
+    const/4 v3, 0x2
 
-    new-array v4, v4, [Ljava/lang/Throwable;
+    new-array v3, v3, [Ljava/lang/Throwable;
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    aput-object v1, v4, v5
+    aput-object v0, v3, v4
 
-    const/4 v5, 0x1
+    const/4 v0, 0x1
 
-    aput-object p1, v4, v5
+    aput-object p1, v3, v0
 
-    invoke-direct {v3, v4}, Lio/reactivex/exceptions/CompositeException;-><init>([Ljava/lang/Throwable;)V
+    invoke-direct {v2, v3}, Lio/reactivex/exceptions/CompositeException;-><init>([Ljava/lang/Throwable;)V
 
-    invoke-interface {v2, v3}, Lio/reactivex/CompletableObserver;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v1, v2}, Lio/reactivex/CompletableObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 68
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 83
     iget-object v0, p0, Lio/reactivex/internal/operators/completable/CompletableResumeNext$ResumeNext;->sd:Lio/reactivex/internal/disposables/SequentialDisposable;
 
     invoke-virtual {v0, p1}, Lio/reactivex/internal/disposables/SequentialDisposable;->update(Lio/reactivex/disposables/Disposable;)Z
 
-    .line 84
     return-void
 .end method

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/ActionBarOverlayLayout;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/appcompat/widget/ActionBarOverlayLayout;
 
     .line 128
     iput-object p1, p0, Landroidx/appcompat/widget/ActionBarOverlayLayout$2;->this$0:Landroidx/appcompat/widget/ActionBarOverlayLayout;
@@ -70,6 +69,5 @@
 
     iput-object v1, v0, Landroidx/appcompat/widget/ActionBarOverlayLayout;->mCurrentActionBarTopAnimator:Landroid/view/ViewPropertyAnimator;
 
-    .line 134
     return-void
 .end method

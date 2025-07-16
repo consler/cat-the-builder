@@ -38,13 +38,11 @@
 
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
-    .line 280
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/proto/EciesHkdfKemParams$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/proto/EciesHkdfKemParams$1;
 
     .line 272
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/EciesHkdfKemParams$Builder;-><init>()V
@@ -67,7 +65,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/EciesHkdfKemParams;->access$300(Lcom/google/crypto/tink/proto/EciesHkdfKemParams;)V
 
-    .line 346
     return-object p0
 .end method
 
@@ -84,7 +81,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/EciesHkdfKemParams;->access$600(Lcom/google/crypto/tink/proto/EciesHkdfKemParams;)V
 
-    .line 412
     return-object p0
 .end method
 
@@ -101,7 +97,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/EciesHkdfKemParams;->access$800(Lcom/google/crypto/tink/proto/EciesHkdfKemParams;)V
 
-    .line 452
     return-object p0
 .end method
 
@@ -182,7 +177,6 @@
 
 .method public setCurveType(Lcom/google/crypto/tink/proto/EllipticCurveType;)Lcom/google/crypto/tink/proto/EciesHkdfKemParams$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/EllipticCurveType;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -202,13 +196,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EciesHkdfKemParams;->access$200(Lcom/google/crypto/tink/proto/EciesHkdfKemParams;Lcom/google/crypto/tink/proto/EllipticCurveType;)V
 
-    .line 333
     return-object p0
 .end method
 
 .method public setCurveTypeValue(I)Lcom/google/crypto/tink/proto/EciesHkdfKemParams$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -228,13 +220,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EciesHkdfKemParams;->access$100(Lcom/google/crypto/tink/proto/EciesHkdfKemParams;I)V
 
-    .line 307
     return-object p0
 .end method
 
 .method public setHkdfHashType(Lcom/google/crypto/tink/proto/HashType;)Lcom/google/crypto/tink/proto/EciesHkdfKemParams$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/HashType;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -254,13 +244,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EciesHkdfKemParams;->access$500(Lcom/google/crypto/tink/proto/EciesHkdfKemParams;Lcom/google/crypto/tink/proto/HashType;)V
 
-    .line 399
     return-object p0
 .end method
 
 .method public setHkdfHashTypeValue(I)Lcom/google/crypto/tink/proto/EciesHkdfKemParams$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -280,13 +268,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EciesHkdfKemParams;->access$400(Lcom/google/crypto/tink/proto/EciesHkdfKemParams;I)V
 
-    .line 373
     return-object p0
 .end method
 
 .method public setHkdfSalt(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/EciesHkdfKemParams$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -306,6 +292,5 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/EciesHkdfKemParams;->access$700(Lcom/google/crypto/tink/proto/EciesHkdfKemParams;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    .line 439
     return-object p0
 .end method

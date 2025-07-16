@@ -29,28 +29,15 @@
 
 # direct methods
 .method public constructor <init>(Lorg/apache/commons/collections/DefaultMapBag;Ljava/util/Iterator;)V
-    .locals 2
-    .param p1, "parent"    # Lorg/apache/commons/collections/DefaultMapBag;
-    .param p2, "support"    # Ljava/util/Iterator;
+    .locals 1
 
     .line 221
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 216
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lorg/apache/commons/collections/DefaultMapBag$BagIterator;->_parent:Lorg/apache/commons/collections/DefaultMapBag;
-
-    .line 217
-    iput-object v0, p0, Lorg/apache/commons/collections/DefaultMapBag$BagIterator;->_support:Ljava/util/Iterator;
-
-    .line 218
-    iput-object v0, p0, Lorg/apache/commons/collections/DefaultMapBag$BagIterator;->_current:Ljava/lang/Object;
-
     .line 219
-    const/4 v1, 0x0
-
-    iput v1, p0, Lorg/apache/commons/collections/DefaultMapBag$BagIterator;->_mods:I
+    iput v0, p0, Lorg/apache/commons/collections/DefaultMapBag$BagIterator;->_mods:I
 
     .line 222
     iput-object p1, p0, Lorg/apache/commons/collections/DefaultMapBag$BagIterator;->_parent:Lorg/apache/commons/collections/DefaultMapBag;
@@ -58,17 +45,18 @@
     .line 223
     iput-object p2, p0, Lorg/apache/commons/collections/DefaultMapBag$BagIterator;->_support:Ljava/util/Iterator;
 
+    const/4 p2, 0x0
+
     .line 224
-    iput-object v0, p0, Lorg/apache/commons/collections/DefaultMapBag$BagIterator;->_current:Ljava/lang/Object;
+    iput-object p2, p0, Lorg/apache/commons/collections/DefaultMapBag$BagIterator;->_current:Ljava/lang/Object;
 
     .line 225
     invoke-static {p1}, Lorg/apache/commons/collections/DefaultMapBag;->access$000(Lorg/apache/commons/collections/DefaultMapBag;)I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lorg/apache/commons/collections/DefaultMapBag$BagIterator;->_mods:I
+    iput p1, p0, Lorg/apache/commons/collections/DefaultMapBag$BagIterator;->_mods:I
 
-    .line 226
     return-void
 .end method
 
@@ -110,7 +98,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/DefaultMapBag$BagIterator;->_current:Ljava/lang/Object;
 
-    .line 237
     return-object v0
 
     .line 234
@@ -157,7 +144,6 @@
 
     iput v0, p0, Lorg/apache/commons/collections/DefaultMapBag$BagIterator;->_mods:I
 
-    .line 247
     return-void
 
     .line 242

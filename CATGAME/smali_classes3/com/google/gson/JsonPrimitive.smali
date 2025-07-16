@@ -9,8 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Boolean;)V
-    .locals 1
-    .param p1, "bool"    # Ljava/lang/Boolean;
+    .locals 0
 
     .line 42
     invoke-direct {p0}, Lcom/google/gson/JsonElement;-><init>()V
@@ -18,17 +17,15 @@
     .line 43
     invoke-static {p1}, Lcom/google/gson/internal/$Gson$Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
+    iput-object p1, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
 
-    .line 44
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Character;)V
-    .locals 1
-    .param p1, "c"    # Ljava/lang/Character;
+    .locals 0
 
     .line 70
     invoke-direct {p0}, Lcom/google/gson/JsonElement;-><init>()V
@@ -36,23 +33,21 @@
     .line 73
     invoke-static {p1}, Lcom/google/gson/internal/$Gson$Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/lang/Character;
+    check-cast p1, Ljava/lang/Character;
 
-    invoke-virtual {v0}, Ljava/lang/Character;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/Character;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
+    iput-object p1, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
 
-    .line 74
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Number;)V
-    .locals 1
-    .param p1, "number"    # Ljava/lang/Number;
+    .locals 0
 
     .line 51
     invoke-direct {p0}, Lcom/google/gson/JsonElement;-><init>()V
@@ -60,17 +55,15 @@
     .line 52
     invoke-static {p1}, Lcom/google/gson/internal/$Gson$Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
+    iput-object p1, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
 
-    .line 53
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "string"    # Ljava/lang/String;
+    .locals 0
 
     .line 60
     invoke-direct {p0}, Lcom/google/gson/JsonElement;-><init>()V
@@ -78,62 +71,54 @@
     .line 61
     invoke-static {p1}, Lcom/google/gson/internal/$Gson$Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
+    iput-object p1, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
 
-    .line 62
     return-void
 .end method
 
 .method private static isIntegral(Lcom/google/gson/JsonPrimitive;)Z
-    .locals 3
-    .param p0, "primitive"    # Lcom/google/gson/JsonPrimitive;
+    .locals 2
 
     .line 288
-    iget-object v0, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
+    iget-object p0, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
 
-    instance-of v1, v0, Ljava/lang/Number;
+    instance-of v0, p0, Ljava/lang/Number;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_1
 
     .line 289
-    check-cast v0, Ljava/lang/Number;
+    check-cast p0, Ljava/lang/Number;
 
     .line 290
-    .local v0, "number":Ljava/lang/Number;
-    instance-of v1, v0, Ljava/math/BigInteger;
+    instance-of v0, p0, Ljava/math/BigInteger;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    instance-of v1, v0, Ljava/lang/Long;
+    instance-of v0, p0, Ljava/lang/Long;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    instance-of v1, v0, Ljava/lang/Integer;
+    instance-of v0, p0, Ljava/lang/Integer;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    instance-of v1, v0, Ljava/lang/Short;
+    instance-of v0, p0, Ljava/lang/Short;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    instance-of v1, v0, Ljava/lang/Byte;
+    instance-of p0, p0, Ljava/lang/Byte;
 
-    if-eqz v1, :cond_1
+    if-eqz p0, :cond_1
 
     :cond_0
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
     :cond_1
-    return v2
-
-    .line 293
-    .end local v0    # "number":Ljava/lang/Number;
-    :cond_2
-    return v2
+    return v1
 .end method
 
 
@@ -152,28 +137,24 @@
 .method public deepCopy()Lcom/google/gson/JsonPrimitive;
     .locals 0
 
-    .line 82
     return-object p0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 8
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 6
 
-    .line 260
     const/4 v0, 0x1
 
     if-ne p0, p1, :cond_0
 
-    .line 261
     return v0
 
-    .line 263
     :cond_0
     const/4 v1, 0x0
 
     if-eqz p1, :cond_9
 
+    .line 263
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -184,24 +165,21 @@
 
     if-eq v2, v3, :cond_1
 
-    goto/16 :goto_3
+    goto :goto_3
 
     .line 266
     :cond_1
-    move-object v2, p1
-
-    check-cast v2, Lcom/google/gson/JsonPrimitive;
+    check-cast p1, Lcom/google/gson/JsonPrimitive;
 
     .line 267
-    .local v2, "other":Lcom/google/gson/JsonPrimitive;
-    iget-object v3, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
+    iget-object v2, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
 
-    if-nez v3, :cond_3
+    if-nez v2, :cond_3
 
     .line 268
-    iget-object v3, v2, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
+    iget-object p1, p1, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
 
-    if-nez v3, :cond_2
+    if-nez p1, :cond_2
 
     goto :goto_0
 
@@ -215,36 +193,36 @@
     :cond_3
     invoke-static {p0}, Lcom/google/gson/JsonPrimitive;->isIntegral(Lcom/google/gson/JsonPrimitive;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_5
+    if-eqz v2, :cond_5
 
-    invoke-static {v2}, Lcom/google/gson/JsonPrimitive;->isIntegral(Lcom/google/gson/JsonPrimitive;)Z
+    invoke-static {p1}, Lcom/google/gson/JsonPrimitive;->isIntegral(Lcom/google/gson/JsonPrimitive;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_5
+    if-eqz v2, :cond_5
 
     .line 271
     invoke-virtual {p0}, Lcom/google/gson/JsonPrimitive;->getAsNumber()Ljava/lang/Number;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Ljava/lang/Number;->longValue()J
+    invoke-virtual {v2}, Ljava/lang/Number;->longValue()J
 
-    move-result-wide v3
+    move-result-wide v2
 
-    invoke-virtual {v2}, Lcom/google/gson/JsonPrimitive;->getAsNumber()Ljava/lang/Number;
+    invoke-virtual {p1}, Lcom/google/gson/JsonPrimitive;->getAsNumber()Ljava/lang/Number;
 
-    move-result-object v5
+    move-result-object p1
 
-    invoke-virtual {v5}, Ljava/lang/Number;->longValue()J
+    invoke-virtual {p1}, Ljava/lang/Number;->longValue()J
 
-    move-result-wide v5
+    move-result-wide v4
 
-    cmp-long v3, v3, v5
+    cmp-long p1, v2, v4
 
-    if-nez v3, :cond_4
+    if-nez p1, :cond_4
 
     goto :goto_1
 
@@ -256,13 +234,13 @@
 
     .line 273
     :cond_5
-    iget-object v3, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
+    iget-object v2, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
 
-    instance-of v3, v3, Ljava/lang/Number;
+    instance-of v3, v2, Ljava/lang/Number;
 
     if-eqz v3, :cond_8
 
-    iget-object v3, v2, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
+    iget-object v3, p1, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
 
     instance-of v3, v3, Ljava/lang/Number;
 
@@ -271,39 +249,37 @@
     .line 274
     invoke-virtual {p0}, Lcom/google/gson/JsonPrimitive;->getAsNumber()Ljava/lang/Number;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Ljava/lang/Number;->doubleValue()D
+    invoke-virtual {v2}, Ljava/lang/Number;->doubleValue()D
 
-    move-result-wide v3
+    move-result-wide v2
 
     .line 277
-    .local v3, "a":D
-    invoke-virtual {v2}, Lcom/google/gson/JsonPrimitive;->getAsNumber()Ljava/lang/Number;
+    invoke-virtual {p1}, Lcom/google/gson/JsonPrimitive;->getAsNumber()Ljava/lang/Number;
 
-    move-result-object v5
+    move-result-object p1
 
-    invoke-virtual {v5}, Ljava/lang/Number;->doubleValue()D
+    invoke-virtual {p1}, Ljava/lang/Number;->doubleValue()D
 
-    move-result-wide v5
+    move-result-wide v4
+
+    cmpl-double p1, v2, v4
+
+    if-eqz p1, :cond_7
 
     .line 278
-    .local v5, "b":D
-    cmpl-double v7, v3, v5
+    invoke-static {v2, v3}, Ljava/lang/Double;->isNaN(D)Z
 
-    if-eqz v7, :cond_7
+    move-result p1
 
-    invoke-static {v3, v4}, Ljava/lang/Double;->isNaN(D)Z
+    if-eqz p1, :cond_6
 
-    move-result v7
+    invoke-static {v4, v5}, Ljava/lang/Double;->isNaN(D)Z
 
-    if-eqz v7, :cond_6
+    move-result p1
 
-    invoke-static {v5, v6}, Ljava/lang/Double;->isNaN(D)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_6
+    if-eqz p1, :cond_6
 
     goto :goto_2
 
@@ -315,21 +291,15 @@
     return v0
 
     .line 280
-    .end local v3    # "a":D
-    .end local v5    # "b":D
     :cond_8
-    iget-object v0, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
+    iget-object p1, p1, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
 
-    iget-object v1, v2, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
+    invoke-virtual {v2, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    move-result p1
 
-    move-result v0
+    return p1
 
-    return v0
-
-    .line 264
-    .end local v2    # "other":Lcom/google/gson/JsonPrimitive;
     :cond_9
     :goto_3
     return v1
@@ -390,7 +360,6 @@
 
     invoke-direct {v0, v1}, Ljava/math/BigInteger;-><init>(Ljava/lang/String;)V
 
-    .line 183
     :goto_0
     return-object v0
 .end method
@@ -728,7 +697,6 @@
 
     if-nez v0, :cond_0
 
-    .line 244
     const/16 v0, 0x1f
 
     return v0
@@ -752,8 +720,7 @@
 
     move-result-wide v2
 
-    .line 249
-    .local v2, "value":J
+    :goto_0
     ushr-long v0, v2, v1
 
     xor-long/2addr v0, v2
@@ -763,7 +730,6 @@
     return v0
 
     .line 251
-    .end local v2    # "value":J
     :cond_1
     iget-object v0, p0, Lcom/google/gson/JsonPrimitive;->value:Ljava/lang/Object;
 
@@ -784,18 +750,9 @@
 
     move-result-wide v2
 
-    .line 253
-    .restart local v2    # "value":J
-    ushr-long v0, v2, v1
-
-    xor-long/2addr v0, v2
-
-    long-to-int v0, v0
-
-    return v0
+    goto :goto_0
 
     .line 255
-    .end local v2    # "value":J
     :cond_2
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 

@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public merge(Ljava/util/List;)Landroidx/work/Data;
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -37,46 +37,40 @@
     .end annotation
 
     .line 36
-    .local p1, "inputs":Ljava/util/List;, "Ljava/util/List<Landroidx/work/Data;>;"
     new-instance v0, Landroidx/work/Data$Builder;
 
     invoke-direct {v0}, Landroidx/work/Data$Builder;-><init>()V
 
     .line 37
-    .local v0, "output":Landroidx/work/Data$Builder;
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
     .line 39
-    .local v1, "mergedValues":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroidx/work/Data;
+    check-cast v2, Landroidx/work/Data;
 
     .line 40
-    .local v3, "input":Landroidx/work/Data;
-    invoke-virtual {v3}, Landroidx/work/Data;->getKeyValueMap()Ljava/util/Map;
+    invoke-virtual {v2}, Landroidx/work/Data;->getKeyValueMap()Ljava/util/Map;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-interface {v1, v4}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
+    invoke-interface {v1, v2}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
 
-    .line 41
-    .end local v3    # "input":Landroidx/work/Data;
     goto :goto_0
 
     .line 43
@@ -86,7 +80,7 @@
     .line 44
     invoke-virtual {v0}, Landroidx/work/Data$Builder;->build()Landroidx/work/Data;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 .end method

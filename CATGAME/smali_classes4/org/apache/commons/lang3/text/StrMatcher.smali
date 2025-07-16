@@ -136,13 +136,11 @@
     .line 220
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 221
     return-void
 .end method
 
 .method public static charMatcher(C)Lorg/apache/commons/lang3/text/StrMatcher;
     .locals 1
-    .param p0, "ch"    # C
 
     .line 167
     new-instance v0, Lorg/apache/commons/lang3/text/StrMatcher$CharMatcher;
@@ -154,7 +152,6 @@
 
 .method public static charSetMatcher(Ljava/lang/String;)Lorg/apache/commons/lang3/text/StrMatcher;
     .locals 2
-    .param p0, "chars"    # Ljava/lang/String;
 
     .line 193
     invoke-static {p0}, Lorg/apache/commons/lang3/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -164,9 +161,9 @@
     if-eqz v0, :cond_0
 
     .line 194
-    sget-object v0, Lorg/apache/commons/lang3/text/StrMatcher;->NONE_MATCHER:Lorg/apache/commons/lang3/text/StrMatcher;
+    sget-object p0, Lorg/apache/commons/lang3/text/StrMatcher;->NONE_MATCHER:Lorg/apache/commons/lang3/text/StrMatcher;
 
-    return-object v0
+    return-object p0
 
     .line 196
     :cond_0
@@ -185,9 +182,9 @@
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
 
-    move-result v1
+    move-result p0
 
-    invoke-direct {v0, v1}, Lorg/apache/commons/lang3/text/StrMatcher$CharMatcher;-><init>(C)V
+    invoke-direct {v0, p0}, Lorg/apache/commons/lang3/text/StrMatcher$CharMatcher;-><init>(C)V
 
     return-object v0
 
@@ -197,20 +194,19 @@
 
     invoke-virtual {p0}, Ljava/lang/String;->toCharArray()[C
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Lorg/apache/commons/lang3/text/StrMatcher$CharSetMatcher;-><init>([C)V
+    invoke-direct {v0, p0}, Lorg/apache/commons/lang3/text/StrMatcher$CharSetMatcher;-><init>([C)V
 
     return-object v0
 .end method
 
 .method public static varargs charSetMatcher([C)Lorg/apache/commons/lang3/text/StrMatcher;
     .locals 2
-    .param p0, "chars"    # [C
 
-    .line 177
     if-eqz p0, :cond_2
 
+    .line 177
     array-length v0, p0
 
     if-nez v0, :cond_0
@@ -230,9 +226,9 @@
 
     const/4 v1, 0x0
 
-    aget-char v1, p0, v1
+    aget-char p0, p0, v1
 
-    invoke-direct {v0, v1}, Lorg/apache/commons/lang3/text/StrMatcher$CharMatcher;-><init>(C)V
+    invoke-direct {v0, p0}, Lorg/apache/commons/lang3/text/StrMatcher$CharMatcher;-><init>(C)V
 
     return-object v0
 
@@ -247,9 +243,9 @@
     .line 178
     :cond_2
     :goto_0
-    sget-object v0, Lorg/apache/commons/lang3/text/StrMatcher;->NONE_MATCHER:Lorg/apache/commons/lang3/text/StrMatcher;
+    sget-object p0, Lorg/apache/commons/lang3/text/StrMatcher;->NONE_MATCHER:Lorg/apache/commons/lang3/text/StrMatcher;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static commaMatcher()Lorg/apache/commons/lang3/text/StrMatcher;
@@ -317,7 +313,6 @@
 
 .method public static stringMatcher(Ljava/lang/String;)Lorg/apache/commons/lang3/text/StrMatcher;
     .locals 1
-    .param p0, "str"    # Ljava/lang/String;
 
     .line 209
     invoke-static {p0}, Lorg/apache/commons/lang3/StringUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -327,9 +322,9 @@
     if-eqz v0, :cond_0
 
     .line 210
-    sget-object v0, Lorg/apache/commons/lang3/text/StrMatcher;->NONE_MATCHER:Lorg/apache/commons/lang3/text/StrMatcher;
+    sget-object p0, Lorg/apache/commons/lang3/text/StrMatcher;->NONE_MATCHER:Lorg/apache/commons/lang3/text/StrMatcher;
 
-    return-object v0
+    return-object p0
 
     .line 212
     :cond_0
@@ -362,19 +357,17 @@
 # virtual methods
 .method public isMatch([CI)I
     .locals 2
-    .param p1, "buffer"    # [C
-    .param p2, "pos"    # I
+
+    const/4 v0, 0x0
 
     .line 271
-    array-length v0, p1
+    array-length v1, p1
 
-    const/4 v1, 0x0
+    invoke-virtual {p0, p1, p2, v0, v1}, Lorg/apache/commons/lang3/text/StrMatcher;->isMatch([CIII)I
 
-    invoke-virtual {p0, p1, p2, v1, v0}, Lorg/apache/commons/lang3/text/StrMatcher;->isMatch([CIII)I
+    move-result p1
 
-    move-result v0
-
-    return v0
+    return p1
 .end method
 
 .method public abstract isMatch([CIII)I

@@ -48,7 +48,6 @@
     .locals 2
 
     .line 45
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker;, "Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 37
@@ -67,59 +66,52 @@
 
     iput-object v0, p0, Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker;->changeSupport:Ljava/beans/PropertyChangeSupport;
 
-    .line 47
     return-void
 .end method
 
 .method protected static isOpen(Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker$State;)Z
     .locals 1
-    .param p0, "state"    # Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker$State;
 
     .line 100
     sget-object v0, Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker$State;->OPEN:Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker$State;
 
     if-ne p0, v0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 
 # virtual methods
 .method public addChangeListener(Ljava/beans/PropertyChangeListener;)V
     .locals 1
-    .param p1, "listener"    # Ljava/beans/PropertyChangeListener;
 
     .line 123
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker;, "Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker<TT;>;"
     iget-object v0, p0, Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker;->changeSupport:Ljava/beans/PropertyChangeSupport;
 
     invoke-virtual {v0, p1}, Ljava/beans/PropertyChangeSupport;->addPropertyChangeListener(Ljava/beans/PropertyChangeListener;)V
 
-    .line 124
     return-void
 .end method
 
 .method protected changeState(Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker$State;)V
-    .locals 4
-    .param p1, "newState"    # Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker$State;
+    .locals 3
 
     .line 110
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker;, "Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker<TT;>;"
     iget-object v0, p0, Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker;->state:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {p1}, Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker$State;->oppositeState()Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker$State;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1, p1}, Ljava/util/concurrent/atomic/AtomicReference;->compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, v1, p1}, Lcom/google/android/gms/common/api/internal/zap$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -136,13 +128,12 @@
 
     invoke-static {p1}, Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker;->isOpen(Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker$State;)Z
 
-    move-result v2
+    move-result p1
 
-    const-string v3, "open"
+    const-string v2, "open"
 
-    invoke-virtual {v0, v3, v1, v2}, Ljava/beans/PropertyChangeSupport;->firePropertyChange(Ljava/lang/String;ZZ)V
+    invoke-virtual {v0, v2, v1, p1}, Ljava/beans/PropertyChangeSupport;->firePropertyChange(Ljava/lang/String;ZZ)V
 
-    .line 113
     :cond_0
     return-void
 .end method
@@ -154,12 +145,10 @@
     .locals 1
 
     .line 82
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker;, "Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker<TT;>;"
     sget-object v0, Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker$State;->CLOSED:Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker$State;
 
     invoke-virtual {p0, v0}, Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker;->changeState(Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker$State;)V
 
-    .line 83
     return-void
 .end method
 
@@ -175,7 +164,6 @@
     .locals 1
 
     .line 62
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker;, "Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker<TT;>;"
     invoke-virtual {p0}, Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker;->isOpen()Z
 
     move-result v0
@@ -189,7 +177,6 @@
     .locals 1
 
     .line 54
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker;, "Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker<TT;>;"
     iget-object v0, p0, Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker;->state:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -209,25 +196,20 @@
     .locals 1
 
     .line 90
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker;, "Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker<TT;>;"
     sget-object v0, Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker$State;->OPEN:Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker$State;
 
     invoke-virtual {p0, v0}, Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker;->changeState(Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker$State;)V
 
-    .line 91
     return-void
 .end method
 
 .method public removeChangeListener(Ljava/beans/PropertyChangeListener;)V
     .locals 1
-    .param p1, "listener"    # Ljava/beans/PropertyChangeListener;
 
     .line 132
-    .local p0, "this":Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker;, "Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker<TT;>;"
     iget-object v0, p0, Lorg/apache/commons/lang3/concurrent/AbstractCircuitBreaker;->changeSupport:Ljava/beans/PropertyChangeSupport;
 
     invoke-virtual {v0, p1}, Ljava/beans/PropertyChangeSupport;->removePropertyChangeListener(Ljava/beans/PropertyChangeListener;)V
 
-    .line 133
     return-void
 .end method

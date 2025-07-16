@@ -29,7 +29,6 @@
 
     sput-object v0, Landroidx/webkit/internal/WebViewGlueCommunicator$LAZY_FACTORY_HOLDER;->INSTANCE:Landroidx/webkit/internal/WebViewProviderFactory;
 
-    .line 54
     return-void
 .end method
 

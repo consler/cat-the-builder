@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker;Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;)V
     .locals 0
-    .param p2, "timedRunnable"    # Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;
 
     .line 137
     iput-object p1, p0, Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker$AppendToQueueTask;->this$0:Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker;
@@ -36,7 +35,6 @@
     .line 138
     iput-object p2, p0, Lio/reactivex/internal/schedulers/TrampolineScheduler$TrampolineWorker$AppendToQueueTask;->timedRunnable:Lio/reactivex/internal/schedulers/TrampolineScheduler$TimedRunnable;
 
-    .line 139
     return-void
 .end method
 
@@ -61,6 +59,5 @@
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/PriorityBlockingQueue;->remove(Ljava/lang/Object;)Z
 
-    .line 145
     return-void
 .end method

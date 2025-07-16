@@ -49,14 +49,11 @@
     .end annotation
 
     .line 32
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureDrop;, "Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureDrop<TT;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
     .line 33
     iput-object p0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureDrop;->onDrop:Lio/reactivex/functions/Consumer;
 
-    .line 34
     return-void
 .end method
 
@@ -73,15 +70,11 @@
     .end annotation
 
     .line 37
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureDrop;, "Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureDrop<TT;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p2, "onDrop":Lio/reactivex/functions/Consumer;, "Lio/reactivex/functions/Consumer<-TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
     .line 38
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureDrop;->onDrop:Lio/reactivex/functions/Consumer;
 
-    .line 39
     return-void
 .end method
 
@@ -95,9 +88,6 @@
         }
     .end annotation
 
-    .line 44
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureDrop;, "Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureDrop<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     return-void
 .end method
 
@@ -112,8 +102,6 @@
     .end annotation
 
     .line 48
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureDrop;, "Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureDrop<TT;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureDrop;->source:Lio/reactivex/Flowable;
 
     new-instance v1, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureDrop$BackpressureDropSubscriber;
@@ -124,6 +112,5 @@
 
     invoke-virtual {v0, v1}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 49
     return-void
 .end method

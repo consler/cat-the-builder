@@ -40,23 +40,18 @@
     .end annotation
 
     .line 31
-    .local p1, "enumType":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/lang/Enum;>;"
     invoke-direct {p0}, Lcom/esotericsoftware/kryo/serializers/MapSerializer;-><init>()V
 
     .line 32
     iput-object p1, p0, Lcom/esotericsoftware/kryo/serializers/EnumMapSerializer;->enumType:Ljava/lang/Class;
 
-    .line 33
     return-void
 .end method
 
 
 # virtual methods
 .method protected create(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;I)Ljava/util/EnumMap;
-    .locals 2
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
-    .param p4, "size"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,14 +66,13 @@
     .end annotation
 
     .line 36
-    .local p3, "type":Ljava/lang/Class;, "Ljava/lang/Class<+Ljava/util/EnumMap;>;"
-    new-instance v0, Ljava/util/EnumMap;
+    new-instance p1, Ljava/util/EnumMap;
 
-    iget-object v1, p0, Lcom/esotericsoftware/kryo/serializers/EnumMapSerializer;->enumType:Ljava/lang/Class;
+    iget-object p2, p0, Lcom/esotericsoftware/kryo/serializers/EnumMapSerializer;->enumType:Ljava/lang/Class;
 
-    invoke-direct {v0, v1}, Ljava/util/EnumMap;-><init>(Ljava/lang/Class;)V
+    invoke-direct {p1, p2}, Ljava/util/EnumMap;-><init>(Ljava/lang/Class;)V
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected bridge synthetic create(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;I)Ljava/util/Map;
@@ -93,16 +87,14 @@
 .end method
 
 .method protected createCopy(Lcom/esotericsoftware/kryo/Kryo;Ljava/util/EnumMap;)Ljava/util/EnumMap;
-    .locals 1
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "original"    # Ljava/util/EnumMap;
+    .locals 0
 
     .line 40
-    new-instance v0, Ljava/util/EnumMap;
+    new-instance p1, Ljava/util/EnumMap;
 
-    invoke-direct {v0, p2}, Ljava/util/EnumMap;-><init>(Ljava/util/EnumMap;)V
+    invoke-direct {p1, p2}, Ljava/util/EnumMap;-><init>(Ljava/util/EnumMap;)V
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected bridge synthetic createCopy(Lcom/esotericsoftware/kryo/Kryo;Ljava/util/Map;)Ljava/util/Map;

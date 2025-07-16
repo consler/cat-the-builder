@@ -21,8 +21,18 @@
 # direct methods
 .method constructor <init>(Landroid/view/inputmethod/InputConnection;ZLandroidx/core/view/inputmethod/InputConnectionCompat$OnCommitContentListener;)V
     .locals 0
-    .param p1, "target"    # Landroid/view/inputmethod/InputConnection;
-    .param p2, "mutable"    # Z
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x1010
+        }
+        names = {
+            "target",
+            "mutable",
+            "val$listener"
+        }
+    .end annotation
 
     .line 271
     iput-object p3, p0, Landroidx/core/view/inputmethod/InputConnectionCompat$1;->val$listener:Landroidx/core/view/inputmethod/InputConnectionCompat$OnCommitContentListener;
@@ -36,9 +46,18 @@
 # virtual methods
 .method public commitContent(Landroid/view/inputmethod/InputContentInfo;ILandroid/os/Bundle;)Z
     .locals 2
-    .param p1, "inputContentInfo"    # Landroid/view/inputmethod/InputContentInfo;
-    .param p2, "flags"    # I
-    .param p3, "opts"    # Landroid/os/Bundle;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "inputContentInfo",
+            "flags",
+            "opts"
+        }
+    .end annotation
 
     .line 275
     iget-object v0, p0, Landroidx/core/view/inputmethod/InputConnectionCompat$1;->val$listener:Landroidx/core/view/inputmethod/InputConnectionCompat$OnCommitContentListener;
@@ -53,16 +72,15 @@
 
     if-eqz v0, :cond_0
 
-    .line 277
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
     .line 279
     :cond_0
     invoke-super {p0, p1, p2, p3}, Landroid/view/inputmethod/InputConnectionWrapper;->commitContent(Landroid/view/inputmethod/InputContentInfo;ILandroid/os/Bundle;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

@@ -50,10 +50,9 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 42
-    .local p0, "this":Lio/reactivex/internal/subscribers/FutureSubscriber;, "Lio/reactivex/internal/subscribers/FutureSubscriber<TT;>;"
     const/4 v0, 0x1
 
+    .line 42
     invoke-direct {p0, v0}, Ljava/util/concurrent/CountDownLatch;-><init>(I)V
 
     .line 43
@@ -63,7 +62,6 @@
 
     iput-object v0, p0, Lio/reactivex/internal/subscribers/FutureSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
-    .line 44
     return-void
 .end method
 
@@ -72,75 +70,61 @@
 .method public cancel()V
     .locals 0
 
-    .line 165
-    .local p0, "this":Lio/reactivex/internal/subscribers/FutureSubscriber;, "Lio/reactivex/internal/subscribers/FutureSubscriber<TT;>;"
     return-void
 .end method
 
 .method public cancel(Z)Z
-    .locals 3
-    .param p1, "mayInterruptIfRunning"    # Z
+    .locals 2
 
     .line 49
-    .local p0, "this":Lio/reactivex/internal/subscribers/FutureSubscriber;, "Lio/reactivex/internal/subscribers/FutureSubscriber<TT;>;"
-    :goto_0
-    iget-object v0, p0, Lio/reactivex/internal/subscribers/FutureSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
+    :cond_0
+    iget-object p1, p0, Lio/reactivex/internal/subscribers/FutureSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lorg/reactivestreams/Subscription;
+    check-cast p1, Lorg/reactivestreams/Subscription;
+
+    if-eq p1, p0, :cond_3
 
     .line 50
-    .local v0, "a":Lorg/reactivestreams/Subscription;
-    if-eq v0, p0, :cond_3
+    sget-object v0, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
+
+    if-ne p1, v0, :cond_1
+
+    goto :goto_0
+
+    .line 54
+    :cond_1
+    iget-object v0, p0, Lio/reactivex/internal/subscribers/FutureSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     sget-object v1, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
 
-    if-ne v0, v1, :cond_0
+    invoke-static {v0, p1, v1}, Lcom/google/android/gms/common/api/internal/zap$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    goto :goto_1
+    move-result v0
 
-    .line 54
-    :cond_0
-    iget-object v1, p0, Lio/reactivex/internal/subscribers/FutureSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
+    if-eqz v0, :cond_0
 
-    sget-object v2, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
-
-    invoke-virtual {v1, v0, v2}, Ljava/util/concurrent/atomic/AtomicReference;->compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    .line 55
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_2
 
     .line 56
-    invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
+    invoke-interface {p1}, Lorg/reactivestreams/Subscription;->cancel()V
 
     .line 58
-    :cond_1
+    :cond_2
     invoke-virtual {p0}, Lio/reactivex/internal/subscribers/FutureSubscriber;->countDown()V
 
-    .line 59
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    return v1
+    return p1
 
-    .line 61
-    .end local v0    # "a":Lorg/reactivestreams/Subscription;
-    :cond_2
-    goto :goto_0
-
-    .line 51
-    .restart local v0    # "a":Lorg/reactivestreams/Subscription;
     :cond_3
-    :goto_1
-    const/4 v1, 0x0
+    :goto_0
+    const/4 p1, 0x0
 
-    return v1
+    return p1
 .end method
 
 .method public get()Ljava/lang/Object;
@@ -159,7 +143,6 @@
     .end annotation
 
     .line 76
-    .local p0, "this":Lio/reactivex/internal/subscribers/FutureSubscriber;, "Lio/reactivex/internal/subscribers/FutureSubscriber<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/subscribers/FutureSubscriber;->getCount()J
 
     move-result-wide v0
@@ -187,14 +170,12 @@
     .line 84
     iget-object v0, p0, Lio/reactivex/internal/subscribers/FutureSubscriber;->error:Ljava/lang/Throwable;
 
-    .line 85
-    .local v0, "ex":Ljava/lang/Throwable;
     if-nez v0, :cond_1
 
     .line 88
-    iget-object v1, p0, Lio/reactivex/internal/subscribers/FutureSubscriber;->value:Ljava/lang/Object;
+    iget-object v0, p0, Lio/reactivex/internal/subscribers/FutureSubscriber;->value:Ljava/lang/Object;
 
-    return-object v1
+    return-object v0
 
     .line 86
     :cond_1
@@ -205,7 +186,6 @@
     throw v1
 
     .line 82
-    .end local v0    # "ex":Ljava/lang/Throwable;
     :cond_2
     new-instance v0, Ljava/util/concurrent/CancellationException;
 
@@ -216,8 +196,6 @@
 
 .method public get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
     .locals 4
-    .param p1, "timeout"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J",
@@ -235,7 +213,6 @@
     .end annotation
 
     .line 93
-    .local p0, "this":Lio/reactivex/internal/subscribers/FutureSubscriber;, "Lio/reactivex/internal/subscribers/FutureSubscriber<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/subscribers/FutureSubscriber;->getCount()J
 
     move-result-wide v0
@@ -252,64 +229,60 @@
     .line 95
     invoke-virtual {p0, p1, p2, p3}, Lio/reactivex/internal/subscribers/FutureSubscriber;->await(JLjava/util/concurrent/TimeUnit;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
     .line 96
     :cond_0
-    new-instance v0, Ljava/util/concurrent/TimeoutException;
+    new-instance p1, Ljava/util/concurrent/TimeoutException;
 
-    invoke-direct {v0}, Ljava/util/concurrent/TimeoutException;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/TimeoutException;-><init>()V
 
-    throw v0
+    throw p1
 
     .line 100
     :cond_1
     :goto_0
     invoke-virtual {p0}, Lio/reactivex/internal/subscribers/FutureSubscriber;->isCancelled()Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_3
+    if-nez p1, :cond_3
 
     .line 104
-    iget-object v0, p0, Lio/reactivex/internal/subscribers/FutureSubscriber;->error:Ljava/lang/Throwable;
+    iget-object p1, p0, Lio/reactivex/internal/subscribers/FutureSubscriber;->error:Ljava/lang/Throwable;
 
-    .line 105
-    .local v0, "ex":Ljava/lang/Throwable;
-    if-nez v0, :cond_2
+    if-nez p1, :cond_2
 
     .line 108
-    iget-object v1, p0, Lio/reactivex/internal/subscribers/FutureSubscriber;->value:Ljava/lang/Object;
+    iget-object p1, p0, Lio/reactivex/internal/subscribers/FutureSubscriber;->value:Ljava/lang/Object;
 
-    return-object v1
+    return-object p1
 
     .line 106
     :cond_2
-    new-instance v1, Ljava/util/concurrent/ExecutionException;
+    new-instance p2, Ljava/util/concurrent/ExecutionException;
 
-    invoke-direct {v1, v0}, Ljava/util/concurrent/ExecutionException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p2, p1}, Ljava/util/concurrent/ExecutionException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw p2
 
     .line 101
-    .end local v0    # "ex":Ljava/lang/Throwable;
     :cond_3
-    new-instance v0, Ljava/util/concurrent/CancellationException;
+    new-instance p1, Ljava/util/concurrent/CancellationException;
 
-    invoke-direct {v0}, Ljava/util/concurrent/CancellationException;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/CancellationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public isCancelled()Z
     .locals 1
 
     .line 66
-    .local p0, "this":Lio/reactivex/internal/subscribers/FutureSubscriber;, "Lio/reactivex/internal/subscribers/FutureSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/FutureSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -329,7 +302,6 @@
     .locals 4
 
     .line 71
-    .local p0, "this":Lio/reactivex/internal/subscribers/FutureSubscriber;, "Lio/reactivex/internal/subscribers/FutureSubscriber<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/subscribers/FutureSubscriber;->getCount()J
 
     move-result-wide v0
@@ -355,7 +327,6 @@
     .locals 2
 
     .line 146
-    .local p0, "this":Lio/reactivex/internal/subscribers/FutureSubscriber;, "Lio/reactivex/internal/subscribers/FutureSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/FutureSubscriber;->value:Ljava/lang/Object;
 
     if-nez v0, :cond_0
@@ -369,12 +340,10 @@
 
     invoke-virtual {p0, v0}, Lio/reactivex/internal/subscribers/FutureSubscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 148
     return-void
 
     .line 151
     :cond_0
-    :goto_0
     iget-object v0, p0, Lio/reactivex/internal/subscribers/FutureSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -383,51 +352,38 @@
 
     check-cast v0, Lorg/reactivestreams/Subscription;
 
-    .line 152
-    .local v0, "a":Lorg/reactivestreams/Subscription;
-    if-eq v0, p0, :cond_3
+    if-eq v0, p0, :cond_2
 
+    .line 152
     sget-object v1, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
 
     if-ne v0, v1, :cond_1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 155
     :cond_1
     iget-object v1, p0, Lio/reactivex/internal/subscribers/FutureSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v1, v0, p0}, Ljava/util/concurrent/atomic/AtomicReference;->compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v1, v0, p0}, Lcom/google/android/gms/common/api/internal/zap$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_0
 
     .line 156
     invoke-virtual {p0}, Lio/reactivex/internal/subscribers/FutureSubscriber;->countDown()V
 
-    .line 157
-    return-void
-
-    .line 159
-    .end local v0    # "a":Lorg/reactivestreams/Subscription;
     :cond_2
-    goto :goto_0
-
-    .line 153
-    .restart local v0    # "a":Lorg/reactivestreams/Subscription;
-    :cond_3
-    :goto_1
+    :goto_0
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 131
-    .local p0, "this":Lio/reactivex/internal/subscribers/FutureSubscriber;, "Lio/reactivex/internal/subscribers/FutureSubscriber<TT;>;"
-    :goto_0
+    :cond_0
     iget-object v0, p0, Lio/reactivex/internal/subscribers/FutureSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
@@ -436,52 +392,43 @@
 
     check-cast v0, Lorg/reactivestreams/Subscription;
 
-    .line 132
-    .local v0, "a":Lorg/reactivestreams/Subscription;
     if-eq v0, p0, :cond_2
 
+    .line 132
     sget-object v1, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 136
-    :cond_0
+    :cond_1
     iput-object p1, p0, Lio/reactivex/internal/subscribers/FutureSubscriber;->error:Ljava/lang/Throwable;
 
     .line 137
     iget-object v1, p0, Lio/reactivex/internal/subscribers/FutureSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v1, v0, p0}, Ljava/util/concurrent/atomic/AtomicReference;->compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v1, v0, p0}, Lcom/google/android/gms/common/api/internal/zap$$ExternalSyntheticBackportWithForwarding0;->m(Ljava/util/concurrent/atomic/AtomicReference;Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_0
 
     .line 138
     invoke-virtual {p0}, Lio/reactivex/internal/subscribers/FutureSubscriber;->countDown()V
 
-    .line 139
     return-void
 
-    .line 141
-    .end local v0    # "a":Lorg/reactivestreams/Subscription;
-    :cond_1
-    goto :goto_0
-
     .line 133
-    .restart local v0    # "a":Lorg/reactivestreams/Subscription;
     :cond_2
-    :goto_1
+    :goto_0
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 134
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -489,49 +436,43 @@
     .end annotation
 
     .line 120
-    .local p0, "this":Lio/reactivex/internal/subscribers/FutureSubscriber;, "Lio/reactivex/internal/subscribers/FutureSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/FutureSubscriber;->value:Ljava/lang/Object;
 
     if-eqz v0, :cond_0
 
     .line 121
-    iget-object v0, p0, Lio/reactivex/internal/subscribers/FutureSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object p1, p0, Lio/reactivex/internal/subscribers/FutureSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lorg/reactivestreams/Subscription;
+    check-cast p1, Lorg/reactivestreams/Subscription;
 
-    invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
+    invoke-interface {p1}, Lorg/reactivestreams/Subscription;->cancel()V
 
     .line 122
-    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
+    new-instance p1, Ljava/lang/IndexOutOfBoundsException;
 
-    const-string v1, "More than one element received"
+    const-string v0, "More than one element received"
 
-    invoke-direct {v0, v1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/subscribers/FutureSubscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/subscribers/FutureSubscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 123
     return-void
 
     .line 125
     :cond_0
     iput-object p1, p0, Lio/reactivex/internal/subscribers/FutureSubscriber;->value:Ljava/lang/Object;
 
-    .line 126
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 113
-    .local p0, "this":Lio/reactivex/internal/subscribers/FutureSubscriber;, "Lio/reactivex/internal/subscribers/FutureSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/FutureSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lorg/reactivestreams/Subscription;)Z
@@ -540,21 +481,17 @@
 
     if-eqz v0, :cond_0
 
-    .line 114
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 114
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 116
     :cond_0
     return-void
 .end method
 
 .method public request(J)V
     .locals 0
-    .param p1, "n"    # J
 
-    .line 170
-    .local p0, "this":Lio/reactivex/internal/subscribers/FutureSubscriber;, "Lio/reactivex/internal/subscribers/FutureSubscriber<TT;>;"
     return-void
 .end method

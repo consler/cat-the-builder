@@ -57,15 +57,13 @@
 .method public constructor <init>()V
     .locals 2
 
-    .line 70
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/CollatingIterator;, "Lorg/apache/commons/collections4/iterators/CollatingIterator<TE;>;"
     const/4 v0, 0x0
 
     const/4 v1, 0x2
 
+    .line 70
     invoke-direct {p0, v0, v1}, Lorg/apache/commons/collections4/iterators/CollatingIterator;-><init>(Ljava/util/Comparator;I)V
 
-    .line 71
     return-void
 .end method
 
@@ -79,20 +77,16 @@
         }
     .end annotation
 
-    .line 82
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/CollatingIterator;, "Lorg/apache/commons/collections4/iterators/CollatingIterator<TE;>;"
-    .local p1, "comp":Ljava/util/Comparator;, "Ljava/util/Comparator<-TE;>;"
     const/4 v0, 0x2
 
+    .line 82
     invoke-direct {p0, p1, v0}, Lorg/apache/commons/collections4/iterators/CollatingIterator;-><init>(Ljava/util/Comparator;I)V
 
-    .line 83
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Comparator;I)V
     .locals 1
-    .param p2, "initIterCapacity"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -102,13 +96,11 @@
     .end annotation
 
     .line 96
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/CollatingIterator;, "Lorg/apache/commons/collections4/iterators/CollatingIterator<TE;>;"
-    .local p1, "comp":Ljava/util/Comparator;, "Ljava/util/Comparator<-TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 43
     const/4 v0, 0x0
 
+    .line 43
     iput-object v0, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->comparator:Ljava/util/Comparator;
 
     .line 46
@@ -120,9 +112,9 @@
     .line 52
     iput-object v0, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->valueSet:Ljava/util/BitSet;
 
-    .line 58
     const/4 v0, -0x1
 
+    .line 58
     iput v0, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->lastReturned:I
 
     .line 97
@@ -135,12 +127,11 @@
     .line 98
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/iterators/CollatingIterator;->setComparator(Ljava/util/Comparator;)V
 
-    .line 99
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Comparator;Ljava/util/Collection;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -153,9 +144,6 @@
     .end annotation
 
     .line 149
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/CollatingIterator;, "Lorg/apache/commons/collections4/iterators/CollatingIterator<TE;>;"
-    .local p1, "comp":Ljava/util/Comparator;, "Ljava/util/Comparator<-TE;>;"
-    .local p2, "iterators":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/util/Iterator<+TE;>;>;"
     invoke-interface {p2}, Ljava/util/Collection;->size()I
 
     move-result v0
@@ -165,30 +153,26 @@
     .line 150
     invoke-interface {p2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result p2
 
-    if-eqz v1, :cond_0
+    if-eqz p2, :cond_0
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p2
 
-    check-cast v1, Ljava/util/Iterator;
+    check-cast p2, Ljava/util/Iterator;
 
     .line 151
-    .local v1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
-    invoke-virtual {p0, v1}, Lorg/apache/commons/collections4/iterators/CollatingIterator;->addIterator(Ljava/util/Iterator;)V
+    invoke-virtual {p0, p2}, Lorg/apache/commons/collections4/iterators/CollatingIterator;->addIterator(Ljava/util/Iterator;)V
 
-    .line 152
-    .end local v1    # "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     goto :goto_0
 
-    .line 153
     :cond_0
     return-void
 .end method
@@ -207,13 +191,9 @@
         }
     .end annotation
 
-    .line 114
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/CollatingIterator;, "Lorg/apache/commons/collections4/iterators/CollatingIterator<TE;>;"
-    .local p1, "comp":Ljava/util/Comparator;, "Ljava/util/Comparator<-TE;>;"
-    .local p2, "a":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
-    .local p3, "b":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     const/4 v0, 0x2
 
+    .line 114
     invoke-direct {p0, p1, v0}, Lorg/apache/commons/collections4/iterators/CollatingIterator;-><init>(Ljava/util/Comparator;I)V
 
     .line 115
@@ -222,12 +202,11 @@
     .line 116
     invoke-virtual {p0, p3}, Lorg/apache/commons/collections4/iterators/CollatingIterator;->addIterator(Ljava/util/Iterator;)V
 
-    .line 117
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Comparator;[Ljava/util/Iterator;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -239,40 +218,33 @@
     .end annotation
 
     .line 130
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/CollatingIterator;, "Lorg/apache/commons/collections4/iterators/CollatingIterator<TE;>;"
-    .local p1, "comp":Ljava/util/Comparator;, "Ljava/util/Comparator<-TE;>;"
-    .local p2, "iterators":[Ljava/util/Iterator;, "[Ljava/util/Iterator<+TE;>;"
     array-length v0, p2
 
     invoke-direct {p0, p1, v0}, Lorg/apache/commons/collections4/iterators/CollatingIterator;-><init>(Ljava/util/Comparator;I)V
 
     .line 131
-    array-length v0, p2
+    array-length p1, p2
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    if-ge v1, v0, :cond_0
+    if-ge v0, p1, :cond_0
 
-    aget-object v2, p2, v1
+    aget-object v1, p2, v0
 
     .line 132
-    .local v2, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
-    invoke-virtual {p0, v2}, Lorg/apache/commons/collections4/iterators/CollatingIterator;->addIterator(Ljava/util/Iterator;)V
+    invoke-virtual {p0, v1}, Lorg/apache/commons/collections4/iterators/CollatingIterator;->addIterator(Ljava/util/Iterator;)V
 
-    .line 131
-    .end local v2    # "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 134
     :cond_0
     return-void
 .end method
 
 .method private anyHasNext(Ljava/util/List;)Z
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -283,89 +255,72 @@
     .end annotation
 
     .line 391
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/CollatingIterator;, "Lorg/apache/commons/collections4/iterators/CollatingIterator<TE;>;"
-    .local p1, "iters":Ljava/util/List;, "Ljava/util/List<Ljava/util/Iterator<+TE;>;>;"
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :cond_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/util/Iterator;
+    check-cast v0, Ljava/util/Iterator;
 
     .line 392
-    .local v1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 p1, 0x1
+
+    return p1
+
+    :cond_1
+    const/4 p1, 0x0
+
+    return p1
+.end method
+
+.method private anyValueSet(Ljava/util/BitSet;)Z
+    .locals 3
+
+    const/4 v0, 0x0
+
+    move v1, v0
+
+    .line 378
+    :goto_0
+    invoke-virtual {p1}, Ljava/util/BitSet;->size()I
+
+    move-result v2
+
+    if-ge v1, v2, :cond_1
+
+    .line 379
+    invoke-virtual {p1, v1}, Ljava/util/BitSet;->get(I)Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 393
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
-    .line 395
-    .end local v1    # "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     :cond_0
-    goto :goto_0
-
-    .line 396
-    :cond_1
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method private anyValueSet(Ljava/util/BitSet;)Z
-    .locals 2
-    .param p1, "set"    # Ljava/util/BitSet;
-
-    .line 378
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/CollatingIterator;, "Lorg/apache/commons/collections4/iterators/CollatingIterator<TE;>;"
-    const/4 v0, 0x0
-
-    .local v0, "i":I
-    :goto_0
-    invoke-virtual {p1}, Ljava/util/BitSet;->size()I
-
-    move-result v1
-
-    if-ge v0, v1, :cond_1
-
-    .line 379
-    invoke-virtual {p1, v0}, Ljava/util/BitSet;->get(I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 380
-    const/4 v1, 0x1
-
-    return v1
-
-    .line 378
-    :cond_0
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 383
-    .end local v0    # "i":I
     :cond_1
-    const/4 v0, 0x0
-
     return v0
 .end method
 
@@ -378,12 +333,10 @@
     .end annotation
 
     .line 336
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/CollatingIterator;, "Lorg/apache/commons/collections4/iterators/CollatingIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->values:Ljava/util/List;
 
     if-nez v0, :cond_0
 
-    .line 339
     return-void
 
     .line 337
@@ -399,10 +352,8 @@
 
 .method private clear(I)V
     .locals 2
-    .param p1, "i"    # I
 
     .line 325
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/CollatingIterator;, "Lorg/apache/commons/collections4/iterators/CollatingIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->values:Ljava/util/List;
 
     const/4 v1, 0x0
@@ -414,133 +365,115 @@
 
     invoke-virtual {v0, p1}, Ljava/util/BitSet;->clear(I)V
 
-    .line 327
     return-void
 .end method
 
 .method private least()I
     .locals 6
 
-    .line 348
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/CollatingIterator;, "Lorg/apache/commons/collections4/iterators/CollatingIterator<TE;>;"
     const/4 v0, -0x1
 
-    .line 349
-    .local v0, "leastIndex":I
     const/4 v1, 0x0
 
-    .line 350
-    .local v1, "leastObject":Ljava/lang/Object;, "TE;"
     const/4 v2, 0x0
 
-    .local v2, "i":I
+    move v3, v0
+
+    .line 350
     :goto_0
-    iget-object v3, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->values:Ljava/util/List;
+    iget-object v4, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->values:Ljava/util/List;
 
-    invoke-interface {v3}, Ljava/util/List;->size()I
+    invoke-interface {v4}, Ljava/util/List;->size()I
 
-    move-result v3
+    move-result v4
 
-    if-ge v2, v3, :cond_4
+    if-ge v2, v4, :cond_4
 
     .line 351
-    iget-object v3, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->valueSet:Ljava/util/BitSet;
+    iget-object v4, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->valueSet:Ljava/util/BitSet;
 
-    invoke-virtual {v3, v2}, Ljava/util/BitSet;->get(I)Z
+    invoke-virtual {v4, v2}, Ljava/util/BitSet;->get(I)Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_0
+    if-nez v4, :cond_0
 
     .line 352
     invoke-direct {p0, v2}, Lorg/apache/commons/collections4/iterators/CollatingIterator;->set(I)Z
 
     .line 354
     :cond_0
-    iget-object v3, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->valueSet:Ljava/util/BitSet;
+    iget-object v4, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->valueSet:Ljava/util/BitSet;
 
-    invoke-virtual {v3, v2}, Ljava/util/BitSet;->get(I)Z
+    invoke-virtual {v4, v2}, Ljava/util/BitSet;->get(I)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_3
+    if-eqz v4, :cond_3
 
-    .line 355
-    const/4 v3, -0x1
-
-    if-ne v0, v3, :cond_1
-
-    .line 356
-    move v0, v2
+    if-ne v3, v0, :cond_1
 
     .line 357
-    iget-object v3, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->values:Ljava/util/List;
+    iget-object v1, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->values:Ljava/util/List;
 
-    invoke-interface {v3, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
+
+    move v3, v2
 
     goto :goto_1
 
     .line 359
     :cond_1
-    iget-object v3, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->values:Ljava/util/List;
+    iget-object v4, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->values:Ljava/util/List;
 
-    invoke-interface {v3, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v4, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v4
 
     .line 360
-    .local v3, "curObject":Ljava/lang/Object;, "TE;"
-    iget-object v4, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->comparator:Ljava/util/Comparator;
+    iget-object v5, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->comparator:Ljava/util/Comparator;
 
-    if-eqz v4, :cond_2
+    if-eqz v5, :cond_2
 
     .line 363
-    invoke-interface {v4, v3, v1}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    invoke-interface {v5, v4, v1}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
-    move-result v4
+    move-result v5
 
-    if-gez v4, :cond_3
+    if-gez v5, :cond_3
 
-    .line 364
-    move-object v1, v3
+    move v3, v2
 
-    .line 365
-    move v0, v2
+    move-object v1, v4
 
     goto :goto_1
 
     .line 361
     :cond_2
-    new-instance v4, Ljava/lang/NullPointerException;
+    new-instance v0, Ljava/lang/NullPointerException;
 
-    const-string v5, "You must invoke setComparator() to set a comparator first."
+    const-string v1, "You must invoke setComparator() to set a comparator first."
 
-    invoke-direct {v4, v5}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v4
+    throw v0
 
-    .line 350
-    .end local v3    # "curObject":Ljava/lang/Object;, "TE;"
     :cond_3
     :goto_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 370
-    .end local v2    # "i":I
     :cond_4
-    return v0
+    return v3
 .end method
 
 .method private set(I)Z
-    .locals 3
-    .param p1, "i"    # I
+    .locals 2
 
     .line 309
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/CollatingIterator;, "Lorg/apache/commons/collections4/iterators/CollatingIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->iterators:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -550,7 +483,6 @@
     check-cast v0, Ljava/util/Iterator;
 
     .line 310
-    .local v0, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
@@ -562,44 +494,41 @@
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {v1, p1, v2}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, p1, v0}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
     .line 312
-    iget-object v1, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->valueSet:Ljava/util/BitSet;
+    iget-object v0, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->valueSet:Ljava/util/BitSet;
 
-    invoke-virtual {v1, p1}, Ljava/util/BitSet;->set(I)V
+    invoke-virtual {v0, p1}, Ljava/util/BitSet;->set(I)V
 
-    .line 313
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    return v1
+    return p1
 
     .line 315
     :cond_0
-    iget-object v1, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->values:Ljava/util/List;
+    iget-object v0, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->values:Ljava/util/List;
 
-    const/4 v2, 0x0
-
-    invoke-interface {v1, p1, v2}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
-
-    .line 316
-    iget-object v1, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->valueSet:Ljava/util/BitSet;
-
-    invoke-virtual {v1, p1}, Ljava/util/BitSet;->clear(I)V
-
-    .line 317
     const/4 v1, 0x0
 
-    return v1
+    invoke-interface {v0, p1, v1}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
+
+    .line 316
+    iget-object v0, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->valueSet:Ljava/util/BitSet;
+
+    invoke-virtual {v0, p1}, Ljava/util/BitSet;->clear(I)V
+
+    const/4 p1, 0x0
+
+    return p1
 .end method
 
 .method private start()V
     .locals 3
 
     .line 290
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/CollatingIterator;, "Lorg/apache/commons/collections4/iterators/CollatingIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->values:Ljava/util/List;
 
     if-nez v0, :cond_0
@@ -630,10 +559,9 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->valueSet:Ljava/util/BitSet;
 
-    .line 293
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 293
     :goto_0
     iget-object v1, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->iterators:Ljava/util/List;
 
@@ -655,13 +583,10 @@
 
     invoke-virtual {v1, v0}, Ljava/util/BitSet;->clear(I)V
 
-    .line 293
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 298
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
@@ -669,7 +594,7 @@
 
 # virtual methods
 .method public addIterator(Ljava/util/Iterator;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -679,11 +604,8 @@
     .end annotation
 
     .line 165
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/CollatingIterator;, "Lorg/apache/commons/collections4/iterators/CollatingIterator<TE;>;"
-    .local p1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/iterators/CollatingIterator;->checkNotStarted()V
 
-    .line 166
     if-eqz p1, :cond_0
 
     .line 169
@@ -691,18 +613,17 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 170
     return-void
 
     .line 167
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "Iterator must not be null"
+    const-string v0, "Iterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public getComparator()Ljava/util/Comparator;
@@ -716,7 +637,6 @@
     .end annotation
 
     .line 204
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/CollatingIterator;, "Lorg/apache/commons/collections4/iterators/CollatingIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->comparator:Ljava/util/Comparator;
 
     return-object v0
@@ -726,14 +646,12 @@
     .locals 2
 
     .line 277
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/CollatingIterator;, "Lorg/apache/commons/collections4/iterators/CollatingIterator<TE;>;"
     iget v0, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->lastReturned:I
 
     const/4 v1, -0x1
 
     if-eq v0, v1, :cond_0
 
-    .line 281
     return v0
 
     .line 278
@@ -759,7 +677,6 @@
     .end annotation
 
     .line 195
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/CollatingIterator;, "Lorg/apache/commons/collections4/iterators/CollatingIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->iterators:Ljava/util/List;
 
     invoke-static {v0}, Lorg/apache/commons/collections4/list/UnmodifiableList;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
@@ -773,7 +690,6 @@
     .locals 1
 
     .line 231
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/CollatingIterator;, "Lorg/apache/commons/collections4/iterators/CollatingIterator<TE;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/iterators/CollatingIterator;->start()V
 
     .line 232
@@ -823,7 +739,6 @@
     .end annotation
 
     .line 243
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/CollatingIterator;, "Lorg/apache/commons/collections4/iterators/CollatingIterator<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/iterators/CollatingIterator;->hasNext()Z
 
     move-result v0
@@ -835,8 +750,6 @@
 
     move-result v0
 
-    .line 247
-    .local v0, "leastIndex":I
     const/4 v1, -0x1
 
     if-eq v0, v1, :cond_0
@@ -849,26 +762,22 @@
     move-result-object v1
 
     .line 251
-    .local v1, "val":Ljava/lang/Object;, "TE;"
     invoke-direct {p0, v0}, Lorg/apache/commons/collections4/iterators/CollatingIterator;->clear(I)V
 
     .line 252
     iput v0, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->lastReturned:I
 
-    .line 253
     return-object v1
 
     .line 248
-    .end local v1    # "val":Ljava/lang/Object;, "TE;"
     :cond_0
-    new-instance v1, Ljava/util/NoSuchElementException;
+    new-instance v0, Ljava/util/NoSuchElementException;
 
-    invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
+    invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
 
-    throw v1
+    throw v0
 
     .line 244
-    .end local v0    # "leastIndex":I
     :cond_1
     new-instance v0, Ljava/util/NoSuchElementException;
 
@@ -881,7 +790,6 @@
     .locals 2
 
     .line 264
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/CollatingIterator;, "Lorg/apache/commons/collections4/iterators/CollatingIterator<TE;>;"
     iget v0, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->lastReturned:I
 
     const/4 v1, -0x1
@@ -899,7 +807,6 @@
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 268
     return-void
 
     .line 265
@@ -924,20 +831,16 @@
     .end annotation
 
     .line 218
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/CollatingIterator;, "Lorg/apache/commons/collections4/iterators/CollatingIterator<TE;>;"
-    .local p1, "comp":Ljava/util/Comparator;, "Ljava/util/Comparator<-TE;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/iterators/CollatingIterator;->checkNotStarted()V
 
     .line 219
     iput-object p1, p0, Lorg/apache/commons/collections4/iterators/CollatingIterator;->comparator:Ljava/util/Comparator;
 
-    .line 220
     return-void
 .end method
 
 .method public setIterator(ILjava/util/Iterator;)V
-    .locals 2
-    .param p1, "index"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -947,11 +850,8 @@
     .end annotation
 
     .line 182
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/CollatingIterator;, "Lorg/apache/commons/collections4/iterators/CollatingIterator<TE;>;"
-    .local p2, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<+TE;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/iterators/CollatingIterator;->checkNotStarted()V
 
-    .line 183
     if-eqz p2, :cond_0
 
     .line 186
@@ -959,16 +859,15 @@
 
     invoke-interface {v0, p1, p2}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    .line 187
     return-void
 
     .line 184
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "Iterator must not be null"
+    const-string p2, "Iterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

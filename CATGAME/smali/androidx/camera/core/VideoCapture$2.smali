@@ -32,7 +32,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/VideoCapture;Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;Ljava/lang/String;Landroid/util/Size;Ljava/io/File;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/core/VideoCapture;
 
     .line 389
     iput-object p1, p0, Landroidx/camera/core/VideoCapture$2;->this$0:Landroidx/camera/core/VideoCapture;
@@ -68,18 +67,15 @@
 
     move-result v0
 
-    .line 394
-    .local v0, "errorOccurred":Z
     if-nez v0, :cond_0
 
     .line 395
-    iget-object v1, p0, Landroidx/camera/core/VideoCapture$2;->val$postListener:Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;
+    iget-object v0, p0, Landroidx/camera/core/VideoCapture$2;->val$postListener:Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;
 
-    iget-object v2, p0, Landroidx/camera/core/VideoCapture$2;->val$saveLocation:Ljava/io/File;
+    iget-object v1, p0, Landroidx/camera/core/VideoCapture$2;->val$saveLocation:Ljava/io/File;
 
-    invoke-interface {v1, v2}, Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;->onVideoSaved(Ljava/io/File;)V
+    invoke-interface {v0, v1}, Landroidx/camera/core/VideoCapture$OnVideoSavedCallback;->onVideoSaved(Ljava/io/File;)V
 
-    .line 397
     :cond_0
     return-void
 .end method

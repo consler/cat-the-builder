@@ -29,7 +29,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ImageCapture;Landroidx/camera/core/ImageCapture$OutputFileOptions;Ljava/util/concurrent/Executor;Landroidx/camera/core/ImageSaver$OnImageSavedCallback;Landroidx/camera/core/ImageCapture$OnImageSavedCallback;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/core/ImageCapture;
 
     .line 685
     iput-object p1, p0, Landroidx/camera/core/ImageCapture$4;->this$0:Landroidx/camera/core/ImageCapture;
@@ -51,7 +50,6 @@
 # virtual methods
 .method public onCaptureSuccess(Landroidx/camera/core/ImageProxy;)V
     .locals 8
-    .param p1, "image"    # Landroidx/camera/core/ImageProxy;
 
     .line 688
     iget-object v0, p0, Landroidx/camera/core/ImageCapture$4;->this$0:Landroidx/camera/core/ImageCapture;
@@ -84,19 +82,16 @@
     .line 688
     invoke-interface {v0, v7}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 695
     return-void
 .end method
 
 .method public onError(Landroidx/camera/core/ImageCaptureException;)V
     .locals 1
-    .param p1, "exception"    # Landroidx/camera/core/ImageCaptureException;
 
     .line 699
     iget-object v0, p0, Landroidx/camera/core/ImageCapture$4;->val$imageSavedCallback:Landroidx/camera/core/ImageCapture$OnImageSavedCallback;
 
     invoke-interface {v0, p1}, Landroidx/camera/core/ImageCapture$OnImageSavedCallback;->onError(Landroidx/camera/core/ImageCaptureException;)V
 
-    .line 700
     return-void
 .end method

@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/model/ByteArrayLoader$StreamFactory;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/bumptech/glide/load/model/ByteArrayLoader$StreamFactory;
 
     .line 130
     iput-object p1, p0, Lcom/bumptech/glide/load/model/ByteArrayLoader$StreamFactory$1;->this$0:Lcom/bumptech/glide/load/model/ByteArrayLoader$StreamFactory;
@@ -47,7 +46,6 @@
 # virtual methods
 .method public convert([B)Ljava/io/InputStream;
     .locals 1
-    .param p1, "model"    # [B
 
     .line 133
     new-instance v0, Ljava/io/ByteArrayInputStream;

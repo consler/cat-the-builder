@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/HybiParser;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/HybiParser;
 
     .line 166
     iput-object p1, p0, Lcom/koushikdutta/async/http/HybiParser$3;->this$0:Lcom/koushikdutta/async/http/HybiParser;
@@ -37,54 +36,46 @@
 
 # virtual methods
 .method public onDataAvailable(Lcom/koushikdutta/async/DataEmitter;Lcom/koushikdutta/async/ByteBufferList;)V
-    .locals 3
-    .param p1, "emitter"    # Lcom/koushikdutta/async/DataEmitter;
-    .param p2, "bb"    # Lcom/koushikdutta/async/ByteBufferList;
+    .locals 0
 
     .line 169
-    iget-object v0, p0, Lcom/koushikdutta/async/http/HybiParser$3;->this$0:Lcom/koushikdutta/async/http/HybiParser;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/HybiParser$3;->this$0:Lcom/koushikdutta/async/http/HybiParser;
 
-    invoke-static {v0}, Lcom/koushikdutta/async/http/HybiParser;->access$200(Lcom/koushikdutta/async/http/HybiParser;)I
+    invoke-static {p1}, Lcom/koushikdutta/async/http/HybiParser;->access$200(Lcom/koushikdutta/async/http/HybiParser;)I
 
-    move-result v0
+    move-result p1
 
-    new-array v0, v0, [B
+    new-array p1, p1, [B
 
     .line 170
-    .local v0, "bytes":[B
-    invoke-virtual {p2, v0}, Lcom/koushikdutta/async/ByteBufferList;->get([B)V
+    invoke-virtual {p2, p1}, Lcom/koushikdutta/async/ByteBufferList;->get([B)V
 
     .line 172
     :try_start_0
-    iget-object v1, p0, Lcom/koushikdutta/async/http/HybiParser$3;->this$0:Lcom/koushikdutta/async/http/HybiParser;
+    iget-object p2, p0, Lcom/koushikdutta/async/http/HybiParser$3;->this$0:Lcom/koushikdutta/async/http/HybiParser;
 
-    invoke-static {v1, v0}, Lcom/koushikdutta/async/http/HybiParser;->access$300(Lcom/koushikdutta/async/http/HybiParser;[B)V
+    invoke-static {p2, p1}, Lcom/koushikdutta/async/http/HybiParser;->access$300(Lcom/koushikdutta/async/http/HybiParser;[B)V
     :try_end_0
     .catch Lcom/koushikdutta/async/http/HybiParser$ProtocolError; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 177
     goto :goto_0
 
-    .line 174
     :catch_0
-    move-exception v1
+    move-exception p1
 
     .line 175
-    .local v1, "e":Lcom/koushikdutta/async/http/HybiParser$ProtocolError;
-    iget-object v2, p0, Lcom/koushikdutta/async/http/HybiParser$3;->this$0:Lcom/koushikdutta/async/http/HybiParser;
+    iget-object p2, p0, Lcom/koushikdutta/async/http/HybiParser$3;->this$0:Lcom/koushikdutta/async/http/HybiParser;
 
-    invoke-virtual {v2, v1}, Lcom/koushikdutta/async/http/HybiParser;->report(Ljava/lang/Exception;)V
+    invoke-virtual {p2, p1}, Lcom/koushikdutta/async/http/HybiParser;->report(Ljava/lang/Exception;)V
 
     .line 176
-    invoke-virtual {v1}, Lcom/koushikdutta/async/http/HybiParser$ProtocolError;->printStackTrace()V
+    invoke-virtual {p1}, Lcom/koushikdutta/async/http/HybiParser$ProtocolError;->printStackTrace()V
 
     .line 178
-    .end local v1    # "e":Lcom/koushikdutta/async/http/HybiParser$ProtocolError;
     :goto_0
-    iget-object v1, p0, Lcom/koushikdutta/async/http/HybiParser$3;->this$0:Lcom/koushikdutta/async/http/HybiParser;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/HybiParser$3;->this$0:Lcom/koushikdutta/async/http/HybiParser;
 
-    invoke-virtual {v1}, Lcom/koushikdutta/async/http/HybiParser;->parse()V
+    invoke-virtual {p1}, Lcom/koushikdutta/async/http/HybiParser;->parse()V
 
-    .line 179
     return-void
 .end method

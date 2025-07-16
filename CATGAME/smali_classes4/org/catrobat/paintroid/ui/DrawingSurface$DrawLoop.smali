@@ -17,11 +17,6 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0010\u0002\n\u0000\u0008\u0082\u0004\u0018\u00002\u00020\u0001B\u0005\u00a2\u0006\u0002\u0010\u0002J\u0008\u0010\u0007\u001a\u00020\u0008H\u0016R\u0011\u0010\u0003\u001a\u00020\u0004\u00a2\u0006\u0008\n\u0000\u001a\u0004\u0008\u0005\u0010\u0006\u00a8\u0006\t"
     }
@@ -35,14 +30,15 @@
         "()Landroid/view/SurfaceHolder;",
         "run",
         "",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -54,29 +50,32 @@
 
 # direct methods
 .method public constructor <init>(Lorg/catrobat/paintroid/ui/DrawingSurface;)V
-    .locals 2
-    .param p1, "this$0"    # Lorg/catrobat/paintroid/ui/DrawingSurface;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
         }
     .end annotation
 
-    .line 259
+    const-string v0, "this$0"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 247
     iput-object p1, p0, Lorg/catrobat/paintroid/ui/DrawingSurface$DrawLoop;->this$0:Lorg/catrobat/paintroid/ui/DrawingSurface;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 260
+    .line 248
     invoke-virtual {p1}, Lorg/catrobat/paintroid/ui/DrawingSurface;->getHolder()Landroid/view/SurfaceHolder;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "getHolder()"
+    const-string v0, "getHolder()"
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/ui/DrawingSurface$DrawLoop;->holder:Landroid/view/SurfaceHolder;
+    iput-object p1, p0, Lorg/catrobat/paintroid/ui/DrawingSurface$DrawLoop;->holder:Landroid/view/SurfaceHolder;
 
     return-void
 .end method
@@ -86,341 +85,331 @@
 .method public final getHolder()Landroid/view/SurfaceHolder;
     .locals 1
 
-    .line 260
+    .line 248
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/DrawingSurface$DrawLoop;->holder:Landroid/view/SurfaceHolder;
 
     return-object v0
 .end method
 
 .method public run()V
-    .locals 7
+    .locals 8
 
-    .line 262
+    .line 250
     iget-object v0, p0, Lorg/catrobat/paintroid/ui/DrawingSurface$DrawLoop;->this$0:Lorg/catrobat/paintroid/ui/DrawingSurface;
 
     invoke-static {v0}, Lorg/catrobat/paintroid/ui/DrawingSurface;->access$getSurfaceLock$p(Lorg/catrobat/paintroid/ui/DrawingSurface;)Ljava/lang/Object;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-nez v0, :cond_0
 
-    .local v0, "it":Ljava/lang/Object;
-    const/4 v1, 0x0
+    goto :goto_1
 
-    .line 263
-    .local v1, "$i$a$-let-DrawingSurface$DrawLoop$run$1":I
+    :cond_0
+    iget-object v1, p0, Lorg/catrobat/paintroid/ui/DrawingSurface$DrawLoop;->this$0:Lorg/catrobat/paintroid/ui/DrawingSurface;
+
+    .line 251
     monitor-enter v0
 
-    const/4 v2, 0x0
-
-    .line 264
-    .local v2, "$i$a$-synchronized-DrawingSurface$DrawLoop$run$1$1":I
+    .line 252
     :try_start_0
-    iget-object v3, p0, Lorg/catrobat/paintroid/ui/DrawingSurface$DrawLoop;->this$0:Lorg/catrobat/paintroid/ui/DrawingSurface;
+    invoke-static {v1}, Lorg/catrobat/paintroid/ui/DrawingSurface;->access$getSurfaceDirty$p(Lorg/catrobat/paintroid/ui/DrawingSurface;)Z
 
-    invoke-static {v3}, Lorg/catrobat/paintroid/ui/DrawingSurface;->access$getSurfaceDirty$p(Lorg/catrobat/paintroid/ui/DrawingSurface;)Z
+    move-result v2
 
-    move-result v3
+    if-nez v2, :cond_1
 
-    if-nez v3, :cond_0
+    invoke-static {v1}, Lorg/catrobat/paintroid/ui/DrawingSurface;->access$getSurfaceReady$p(Lorg/catrobat/paintroid/ui/DrawingSurface;)Z
 
-    iget-object v3, p0, Lorg/catrobat/paintroid/ui/DrawingSurface$DrawLoop;->this$0:Lorg/catrobat/paintroid/ui/DrawingSurface;
-
-    invoke-static {v3}, Lorg/catrobat/paintroid/ui/DrawingSurface;->access$getSurfaceReady$p(Lorg/catrobat/paintroid/ui/DrawingSurface;)Z
-
-    move-result v3
+    move-result v2
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_4
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_1
 
-    .line 265
-    nop
-
-    .line 266
+    .line 254
     :try_start_1
     invoke-virtual {v0}, Ljava/lang/Object;->wait()V
     :try_end_1
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_4
 
     goto :goto_0
 
-    .line 267
+    .line 256
     :catch_0
-    move-exception v3
-
-    .line 268
-    .end local v2    # "$i$a$-synchronized-DrawingSurface$DrawLoop$run$1$1":I
     monitor-exit v0
 
     return-void
 
-    .line 271
-    .restart local v2    # "$i$a$-synchronized-DrawingSurface$DrawLoop$run$1$1":I
-    :cond_0
-    :try_start_2
-    iget-object v3, p0, Lorg/catrobat/paintroid/ui/DrawingSurface$DrawLoop;->this$0:Lorg/catrobat/paintroid/ui/DrawingSurface;
-
-    const/4 v4, 0x0
-
-    invoke-static {v3, v4}, Lorg/catrobat/paintroid/ui/DrawingSurface;->access$setSurfaceDirty$p(Lorg/catrobat/paintroid/ui/DrawingSurface;Z)V
-
-    .line 272
-    :goto_0
-    nop
-
-    .line 273
-    iget-object v3, p0, Lorg/catrobat/paintroid/ui/DrawingSurface$DrawLoop;->this$0:Lorg/catrobat/paintroid/ui/DrawingSurface;
-
-    invoke-static {v3}, Lorg/catrobat/paintroid/ui/DrawingSurface;->access$getSurfaceReady$p(Lorg/catrobat/paintroid/ui/DrawingSurface;)Z
-
-    move-result v3
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    if-nez v3, :cond_1
-
-    .line 274
-    .end local v2    # "$i$a$-synchronized-DrawingSurface$DrawLoop$run$1$1":I
-    monitor-exit v0
-
-    return-void
-
-    .line 276
-    .restart local v2    # "$i$a$-synchronized-DrawingSurface$DrawLoop$run$1$1":I
     :cond_1
-    nop
+    const/4 v2, 0x0
 
-    .end local v2    # "$i$a$-synchronized-DrawingSurface$DrawLoop$run$1$1":I
-    :try_start_3
-    sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    .line 259
+    :try_start_2
+    invoke-static {v1, v2}, Lorg/catrobat/paintroid/ui/DrawingSurface;->access$setSurfaceDirty$p(Lorg/catrobat/paintroid/ui/DrawingSurface;Z)V
 
-    .line 263
-    monitor-exit v0
+    .line 261
+    :goto_0
+    invoke-static {v1}, Lorg/catrobat/paintroid/ui/DrawingSurface;->access$getSurfaceReady$p(Lorg/catrobat/paintroid/ui/DrawingSurface;)Z
 
-    .line 277
-    nop
+    move-result v1
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_4
+
+    if-nez v1, :cond_2
 
     .line 262
-    .end local v0    # "it":Ljava/lang/Object;
-    .end local v1    # "$i$a$-let-DrawingSurface$DrawLoop$run$1":I
-    goto :goto_1
-
-    .line 263
-    .restart local v0    # "it":Ljava/lang/Object;
-    .restart local v1    # "$i$a$-let-DrawingSurface$DrawLoop$run$1":I
-    :catchall_0
-    move-exception v2
-
     monitor-exit v0
 
-    throw v2
+    return-void
 
-    .line 279
-    .end local v0    # "it":Ljava/lang/Object;
-    .end local v1    # "$i$a$-let-DrawingSurface$DrawLoop$run$1":I
+    .line 264
     :cond_2
+    :try_start_3
+    sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_4
+
+    .line 251
+    monitor-exit v0
+
+    .line 268
     :goto_1
-    const/4 v0, 0x0
+    iget-object v0, p0, Lorg/catrobat/paintroid/ui/DrawingSurface$DrawLoop;->holder:Landroid/view/SurfaceHolder;
 
-    check-cast v0, Landroid/graphics/Canvas;
+    iget-object v1, p0, Lorg/catrobat/paintroid/ui/DrawingSurface$DrawLoop;->this$0:Lorg/catrobat/paintroid/ui/DrawingSurface;
 
-    .line 280
-    .local v0, "canvas":Ljava/lang/Object;
-    iget-object v1, p0, Lorg/catrobat/paintroid/ui/DrawingSurface$DrawLoop;->holder:Landroid/view/SurfaceHolder;
-
-    monitor-enter v1
+    monitor-enter v0
 
     const/4 v2, 0x0
 
-    .line 281
-    .local v2, "$i$a$-synchronized-DrawingSurface$DrawLoop$run$2":I
-    nop
-
-    .line 282
+    .line 270
     :try_start_4
-    iget-object v3, p0, Lorg/catrobat/paintroid/ui/DrawingSurface$DrawLoop;->holder:Landroid/view/SurfaceHolder;
+    invoke-static {v1}, Lorg/catrobat/paintroid/ui/DrawingSurface;->access$getIdlingResource$p(Lorg/catrobat/paintroid/ui/DrawingSurface;)Landroidx/test/espresso/idling/CountingIdlingResource;
+
+    move-result-object v3
+
+    if-nez v3, :cond_3
+
+    const-string v3, "idlingResource"
+
+    invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    move-object v3, v2
+
+    :cond_3
+    invoke-virtual {v3}, Landroidx/test/espresso/idling/CountingIdlingResource;->increment()V
+
+    .line 271
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/ui/DrawingSurface$DrawLoop;->getHolder()Landroid/view/SurfaceHolder;
+
+    move-result-object v3
 
     invoke-interface {v3}, Landroid/view/SurfaceHolder;->lockCanvas()Landroid/graphics/Canvas;
 
     move-result-object v3
-
-    move-object v0, v3
-
-    .line 283
-    if-eqz v0, :cond_3
-
-    move-object v3, v0
-
-    .local v3, "it":Landroid/graphics/Canvas;
-    const/4 v4, 0x0
-
-    .line 284
-    .local v4, "$i$a$-let-DrawingSurface$DrawLoop$run$2$1":I
-    iget-object v5, p0, Lorg/catrobat/paintroid/ui/DrawingSurface$DrawLoop;->this$0:Lorg/catrobat/paintroid/ui/DrawingSurface;
-
-    invoke-static {v5, v3}, Lorg/catrobat/paintroid/ui/DrawingSurface;->access$doDraw(Lorg/catrobat/paintroid/ui/DrawingSurface;Landroid/graphics/Canvas;)V
-
-    .line 285
-    nop
-
-    .end local v3    # "it":Landroid/graphics/Canvas;
-    .end local v4    # "$i$a$-let-DrawingSurface$DrawLoop$run$2$1":I
-    sget-object v3, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
     :try_end_4
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_4 .. :try_end_4} :catch_1
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_4 .. :try_end_4} :catch_2
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    .line 283
-    :cond_3
-    nop
+    if-nez v3, :cond_4
 
-    .line 289
-    if-eqz v0, :cond_4
+    goto :goto_2
 
-    move-object v3, v0
-
-    .restart local v3    # "it":Landroid/graphics/Canvas;
-    const/4 v4, 0x0
-
-    .line 290
-    .local v4, "$i$a$-let-DrawingSurface$DrawLoop$run$2$2":I
-    :try_start_5
-    iget-object v5, p0, Lorg/catrobat/paintroid/ui/DrawingSurface$DrawLoop;->holder:Landroid/view/SurfaceHolder;
-
-    invoke-interface {v5, v3}, Landroid/view/SurfaceHolder;->unlockCanvasAndPost(Landroid/graphics/Canvas;)V
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_2
-
-    .line 291
-    nop
-
-    .line 289
-    .end local v3    # "it":Landroid/graphics/Canvas;
-    .end local v4    # "$i$a$-let-DrawingSurface$DrawLoop$run$2$2":I
+    .line 273
     :cond_4
-    :goto_2
-    nop
+    :try_start_5
+    invoke-static {v1, v3}, Lorg/catrobat/paintroid/ui/DrawingSurface;->access$doDraw(Lorg/catrobat/paintroid/ui/DrawingSurface;Landroid/graphics/Canvas;)V
+    :try_end_5
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_5 .. :try_end_5} :catch_1
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    .line 292
+    .line 279
+    :goto_2
+    :try_start_6
+    invoke-static {v1}, Lorg/catrobat/paintroid/ui/DrawingSurface;->access$getIdlingResource$p(Lorg/catrobat/paintroid/ui/DrawingSurface;)Landroidx/test/espresso/idling/CountingIdlingResource;
+
+    move-result-object v1
+
+    if-nez v1, :cond_5
+
+    const-string v1, "idlingResource"
+
+    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
     goto :goto_3
+
+    :cond_5
+    move-object v2, v1
+
+    :goto_3
+    invoke-virtual {v2}, Landroidx/test/espresso/idling/CountingIdlingResource;->decrement()V
+
+    if-nez v3, :cond_6
+
+    goto :goto_6
+
+    .line 281
+    :cond_6
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/ui/DrawingSurface$DrawLoop;->getHolder()Landroid/view/SurfaceHolder;
+
+    move-result-object v1
+
+    invoke-interface {v1, v3}, Landroid/view/SurfaceHolder;->unlockCanvasAndPost(Landroid/graphics/Canvas;)V
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_3
+
+    goto :goto_6
+
+    :catchall_0
+    move-exception v4
+
+    move-object v7, v4
+
+    move-object v4, v3
+
+    move-object v3, v7
+
+    goto :goto_7
+
+    :catch_1
+    move-exception v4
+
+    move-object v7, v4
+
+    move-object v4, v3
+
+    move-object v3, v7
+
+    goto :goto_4
 
     :catchall_1
     move-exception v3
 
-    goto :goto_4
+    move-object v4, v2
 
-    .line 286
-    :catch_1
+    goto :goto_7
+
+    :catch_2
     move-exception v3
 
-    .line 287
-    .local v3, "e":Ljava/lang/IllegalArgumentException;
-    :try_start_6
+    move-object v4, v2
+
+    .line 277
+    :goto_4
+    :try_start_7
     invoke-static {}, Lorg/catrobat/paintroid/ui/DrawingSurface;->access$getTAG$cp()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    const-string v5, "run: "
+    const-string v6, "run: "
 
-    move-object v6, v3
+    check-cast v3, Ljava/lang/Throwable;
 
-    check-cast v6, Ljava/lang/Throwable;
+    invoke-static {v5, v6, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    invoke-static {v4, v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    move-result v3
 
-    move-result v4
-
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
-
-    .line 289
-    .end local v3    # "e":Ljava/lang/IllegalArgumentException;
-    if-eqz v0, :cond_4
-
-    move-object v3, v0
-
-    .local v3, "it":Landroid/graphics/Canvas;
-    const/4 v4, 0x0
-
-    .line 290
-    .restart local v4    # "$i$a$-let-DrawingSurface$DrawLoop$run$2$2":I
-    :try_start_7
-    iget-object v5, p0, Lorg/catrobat/paintroid/ui/DrawingSurface$DrawLoop;->holder:Landroid/view/SurfaceHolder;
-
-    invoke-interface {v5, v3}, Landroid/view/SurfaceHolder;->unlockCanvasAndPost(Landroid/graphics/Canvas;)V
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_2
 
-    .line 291
-    nop
-
-    .end local v3    # "it":Landroid/graphics/Canvas;
-    .end local v4    # "$i$a$-let-DrawingSurface$DrawLoop$run$2$2":I
-    goto :goto_2
-
-    .line 289
-    :goto_3
-    nop
-
-    .line 280
-    .end local v2    # "$i$a$-synchronized-DrawingSurface$DrawLoop$run$2":I
-    monitor-exit v1
-
-    .line 294
-    return-void
-
-    .line 289
-    .restart local v2    # "$i$a$-synchronized-DrawingSurface$DrawLoop$run$2":I
-    :goto_4
-    if-eqz v0, :cond_5
-
-    move-object v4, v0
-
-    .local v4, "it":Landroid/graphics/Canvas;
-    const/4 v5, 0x0
-
-    .line 290
-    .local v5, "$i$a$-let-DrawingSurface$DrawLoop$run$2$2":I
+    .line 279
     :try_start_8
-    iget-object v6, p0, Lorg/catrobat/paintroid/ui/DrawingSurface$DrawLoop;->holder:Landroid/view/SurfaceHolder;
+    invoke-static {v1}, Lorg/catrobat/paintroid/ui/DrawingSurface;->access$getIdlingResource$p(Lorg/catrobat/paintroid/ui/DrawingSurface;)Landroidx/test/espresso/idling/CountingIdlingResource;
 
-    invoke-interface {v6, v4}, Landroid/view/SurfaceHolder;->unlockCanvasAndPost(Landroid/graphics/Canvas;)V
+    move-result-object v1
 
-    .line 291
-    nop
+    if-nez v1, :cond_7
 
-    .end local v4    # "it":Landroid/graphics/Canvas;
-    .end local v5    # "$i$a$-let-DrawingSurface$DrawLoop$run$2$2":I
+    const-string v1, "idlingResource"
+
+    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
     goto :goto_5
 
-    .line 280
-    .end local v2    # "$i$a$-synchronized-DrawingSurface$DrawLoop$run$2":I
-    :catchall_2
-    move-exception v2
+    :cond_7
+    move-object v2, v1
+
+    :goto_5
+    invoke-virtual {v2}, Landroidx/test/espresso/idling/CountingIdlingResource;->decrement()V
+
+    if-nez v4, :cond_8
 
     goto :goto_6
 
-    .line 289
-    .restart local v2    # "$i$a$-synchronized-DrawingSurface$DrawLoop$run$2":I
-    :cond_5
-    :goto_5
-    nop
+    .line 281
+    :cond_8
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/ui/DrawingSurface$DrawLoop;->getHolder()Landroid/view/SurfaceHolder;
 
-    .end local v0    # "canvas":Ljava/lang/Object;
-    throw v3
+    move-result-object v1
+
+    invoke-interface {v1, v4}, Landroid/view/SurfaceHolder;->unlockCanvasAndPost(Landroid/graphics/Canvas;)V
     :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_2
+    .catchall {:try_start_8 .. :try_end_8} :catchall_3
+
+    .line 268
+    :goto_6
+    monitor-exit v0
+
+    return-void
+
+    :catchall_2
+    move-exception v3
+
+    .line 279
+    :goto_7
+    :try_start_9
+    invoke-static {v1}, Lorg/catrobat/paintroid/ui/DrawingSurface;->access$getIdlingResource$p(Lorg/catrobat/paintroid/ui/DrawingSurface;)Landroidx/test/espresso/idling/CountingIdlingResource;
+
+    move-result-object v1
+
+    if-nez v1, :cond_9
+
+    const-string v1, "idlingResource"
+
+    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    goto :goto_8
+
+    :cond_9
+    move-object v2, v1
+
+    :goto_8
+    invoke-virtual {v2}, Landroidx/test/espresso/idling/CountingIdlingResource;->decrement()V
+
+    if-nez v4, :cond_a
+
+    goto :goto_9
+
+    .line 281
+    :cond_a
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/ui/DrawingSurface$DrawLoop;->getHolder()Landroid/view/SurfaceHolder;
+
+    move-result-object v1
+
+    invoke-interface {v1, v4}, Landroid/view/SurfaceHolder;->unlockCanvasAndPost(Landroid/graphics/Canvas;)V
 
     .line 280
-    .end local v2    # "$i$a$-synchronized-DrawingSurface$DrawLoop$run$2":I
-    .restart local v0    # "canvas":Ljava/lang/Object;
-    :goto_6
-    monitor-exit v1
+    :goto_9
+    throw v3
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_3
 
-    throw v2
+    :catchall_3
+    move-exception v1
+
+    .line 268
+    monitor-exit v0
+
+    throw v1
+
+    :catchall_4
+    move-exception v1
+
+    .line 251
+    monitor-exit v0
+
+    throw v1
 .end method

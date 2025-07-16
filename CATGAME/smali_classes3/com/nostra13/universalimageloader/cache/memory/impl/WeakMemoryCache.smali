@@ -17,7 +17,6 @@
 # virtual methods
 .method protected createReference(Landroid/graphics/Bitmap;)Ljava/lang/ref/Reference;
     .locals 1
-    .param p1, "value"    # Landroid/graphics/Bitmap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

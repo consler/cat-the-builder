@@ -30,8 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;I)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;
-    .param p2, "initialCapacity"    # I
 
     .line 57
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch$1;->this$0:Lcom/badlogic/gdx/graphics/g3d/decals/DecalBatch;

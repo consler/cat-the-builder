@@ -17,11 +17,6 @@
 # virtual methods
 .method buildKey(Ljava/lang/Object;Lcom/bumptech/glide/load/Key;IILjava/util/Map;Ljava/lang/Class;Ljava/lang/Class;Lcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/engine/EngineKey;
     .locals 10
-    .param p1, "model"    # Ljava/lang/Object;
-    .param p2, "signature"    # Lcom/bumptech/glide/load/Key;
-    .param p3, "width"    # I
-    .param p4, "height"    # I
-    .param p8, "options"    # Lcom/bumptech/glide/load/Options;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -44,9 +39,6 @@
     .end annotation
 
     .line 20
-    .local p5, "transformations":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Class<*>;Lcom/bumptech/glide/load/Transformation<*>;>;"
-    .local p6, "resourceClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p7, "transcodeClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     new-instance v9, Lcom/bumptech/glide/load/engine/EngineKey;
 
     move-object v0, v9

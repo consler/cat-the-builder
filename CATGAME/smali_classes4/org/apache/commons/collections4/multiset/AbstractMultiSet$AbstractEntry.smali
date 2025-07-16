@@ -33,7 +33,6 @@
     .locals 0
 
     .line 412
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMultiSet$AbstractEntry;, "Lorg/apache/commons/collections4/multiset/AbstractMultiSet$AbstractEntry<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,125 +41,102 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 6
-    .param p1, "object"    # Ljava/lang/Object;
+    .locals 4
 
     .line 416
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMultiSet$AbstractEntry;, "Lorg/apache/commons/collections4/multiset/AbstractMultiSet$AbstractEntry<TE;>;"
     instance-of v0, p1, Lorg/apache/commons/collections4/MultiSet$Entry;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     .line 417
-    move-object v0, p1
-
-    check-cast v0, Lorg/apache/commons/collections4/MultiSet$Entry;
+    check-cast p1, Lorg/apache/commons/collections4/MultiSet$Entry;
 
     .line 418
-    .local v0, "other":Lorg/apache/commons/collections4/MultiSet$Entry;, "Lorg/apache/commons/collections4/MultiSet$Entry<*>;"
-    invoke-virtual {p0}, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$AbstractEntry;->getElement()Ljava/lang/Object;
-
-    move-result-object v2
-
-    .line 419
-    .local v2, "element":Ljava/lang/Object;, "TE;"
-    invoke-interface {v0}, Lorg/apache/commons/collections4/MultiSet$Entry;->getElement()Ljava/lang/Object;
-
-    move-result-object v3
-
-    .line 421
-    .local v3, "otherElement":Ljava/lang/Object;
-    invoke-virtual {p0}, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$AbstractEntry;->getCount()I
-
-    move-result v4
-
-    invoke-interface {v0}, Lorg/apache/commons/collections4/MultiSet$Entry;->getCount()I
-
-    move-result v5
-
-    if-ne v4, v5, :cond_1
-
-    if-eq v2, v3, :cond_0
-
-    if-eqz v2, :cond_1
-
-    .line 423
-    invoke-virtual {v2, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    :cond_0
-    const/4 v1, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    nop
-
-    .line 421
-    :goto_0
-    return v1
-
-    .line 425
-    .end local v0    # "other":Lorg/apache/commons/collections4/MultiSet$Entry;, "Lorg/apache/commons/collections4/MultiSet$Entry<*>;"
-    .end local v2    # "element":Ljava/lang/Object;, "TE;"
-    .end local v3    # "otherElement":Ljava/lang/Object;
-    :cond_2
-    return v1
-.end method
-
-.method public hashCode()I
-    .locals 3
-
-    .line 430
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMultiSet$AbstractEntry;, "Lorg/apache/commons/collections4/multiset/AbstractMultiSet$AbstractEntry<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$AbstractEntry;->getElement()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 431
-    .local v0, "element":Ljava/lang/Object;, "TE;"
+    .line 419
+    invoke-interface {p1}, Lorg/apache/commons/collections4/MultiSet$Entry;->getElement()Ljava/lang/Object;
+
+    move-result-object v2
+
+    .line 421
+    invoke-virtual {p0}, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$AbstractEntry;->getCount()I
+
+    move-result v3
+
+    invoke-interface {p1}, Lorg/apache/commons/collections4/MultiSet$Entry;->getCount()I
+
+    move-result p1
+
+    if-ne v3, p1, :cond_1
+
+    if-eq v0, v2, :cond_0
+
+    if-eqz v0, :cond_1
+
+    .line 423
+    invoke-virtual {v0, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    :cond_0
+    const/4 v1, 0x1
+
+    :cond_1
+    return v1
+.end method
+
+.method public hashCode()I
+    .locals 2
+
+    .line 430
+    invoke-virtual {p0}, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$AbstractEntry;->getElement()Ljava/lang/Object;
+
+    move-result-object v0
+
     if-nez v0, :cond_0
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     goto :goto_0
 
+    .line 431
     :cond_0
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
-    move-result v1
+    move-result v0
 
     :goto_0
     invoke-virtual {p0}, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$AbstractEntry;->getCount()I
 
-    move-result v2
+    move-result v1
 
-    xor-int/2addr v1, v2
+    xor-int/2addr v0, v1
 
-    return v1
+    return v0
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 3
 
-    .line 436
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMultiSet$AbstractEntry;, "Lorg/apache/commons/collections4/multiset/AbstractMultiSet$AbstractEntry<TE;>;"
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Object;
 
+    const/4 v1, 0x0
+
+    .line 436
     invoke-virtual {p0}, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$AbstractEntry;->getElement()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    const/4 v2, 0x0
-
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     invoke-virtual {p0}, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$AbstractEntry;->getCount()I
 

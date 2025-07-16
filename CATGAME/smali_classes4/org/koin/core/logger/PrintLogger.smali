@@ -50,7 +50,6 @@
 
 .method public constructor <init>(Lorg/koin/core/logger/Level;)V
     .locals 1
-    .param p1, "level"    # Lorg/koin/core/logger/Level;
 
     const-string v0, "level"
 
@@ -82,8 +81,6 @@
 # virtual methods
 .method public log(Lorg/koin/core/logger/Level;Ljava/lang/String;)V
     .locals 3
-    .param p1, "level"    # Lorg/koin/core/logger/Level;
-    .param p2, "msg"    # Ljava/lang/String;
 
     const-string v0, "level"
 
@@ -127,32 +124,33 @@
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     .line 27
-    .local v0, "printer":Ljava/io/PrintStream;
     :goto_0
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "["
 
-    const/16 v2, 0x5b
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v2, "] [Koin] "
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "] [Koin] "
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    move-result-object p1
 
-    .line 29
-    .end local v0    # "printer":Ljava/io/PrintStream;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {v0, p1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
     :cond_1
     return-void
 .end method

@@ -30,10 +30,8 @@
 # direct methods
 .method constructor <init>(Lcom/esotericsoftware/kryo/util/Pool;I)V
     .locals 0
-    .param p1, "this$0"    # Lcom/esotericsoftware/kryo/util/Pool;
 
     .line 55
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/Pool$2;, "Lcom/esotericsoftware/kryo/util/Pool$2;"
     iput-object p1, p0, Lcom/esotericsoftware/kryo/util/Pool$2;->this$0:Lcom/esotericsoftware/kryo/util/Pool;
 
     iput p2, p0, Lcom/esotericsoftware/kryo/util/Pool$2;->val$maximumCapacity:I
@@ -54,8 +52,6 @@
     .end annotation
 
     .line 57
-    .local p0, "this":Lcom/esotericsoftware/kryo/util/Pool$2;, "Lcom/esotericsoftware/kryo/util/Pool$2;"
-    .local p1, "object":Ljava/lang/Object;, "TT;"
     invoke-virtual {p0}, Lcom/esotericsoftware/kryo/util/Pool$2;->size()I
 
     move-result v0
@@ -64,16 +60,15 @@
 
     if-lt v0, v1, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 58
     :cond_0
     invoke-super {p0, p1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    .line 59
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method

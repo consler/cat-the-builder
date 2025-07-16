@@ -21,8 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/ActivityChooserView;Landroid/view/View;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/appcompat/widget/ActivityChooserView;
-    .param p2, "src"    # Landroid/view/View;
 
     .line 260
     iput-object p1, p0, Landroidx/appcompat/widget/ActivityChooserView$4;->this$0:Landroidx/appcompat/widget/ActivityChooserView;
@@ -55,7 +53,6 @@
 
     invoke-virtual {v0}, Landroidx/appcompat/widget/ActivityChooserView;->showPopup()Z
 
-    .line 269
     const/4 v0, 0x1
 
     return v0
@@ -69,7 +66,6 @@
 
     invoke-virtual {v0}, Landroidx/appcompat/widget/ActivityChooserView;->dismissPopup()Z
 
-    .line 275
     const/4 v0, 0x1
 
     return v0

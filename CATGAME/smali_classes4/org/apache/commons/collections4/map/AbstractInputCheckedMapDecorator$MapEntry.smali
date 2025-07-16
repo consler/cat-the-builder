@@ -48,9 +48,6 @@
     .end annotation
 
     .line 199
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator$MapEntry;, "Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator<TK;TV;>.MapEntry;"
-    .local p2, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    .local p3, "parent":Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator<TK;TV;>;"
     iput-object p1, p0, Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator$MapEntry;->this$0:Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator;
 
     .line 200
@@ -59,7 +56,6 @@
     .line 201
     iput-object p3, p0, Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator$MapEntry;->parent:Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator;
 
-    .line 202
     return-void
 .end method
 
@@ -74,8 +70,6 @@
     .end annotation
 
     .line 206
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator$MapEntry;, "Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator<TK;TV;>.MapEntry;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator$MapEntry;->parent:Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/map/AbstractInputCheckedMapDecorator;->checkSetValue(Ljava/lang/Object;)Ljava/lang/Object;
@@ -89,7 +83,7 @@
 
     invoke-interface {v0, p1}, Ljava/util/Map$Entry;->setValue(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

@@ -24,27 +24,24 @@
 
 # direct methods
 .method protected constructor <init>(Ljava/util/Iterator;Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;)V
-    .locals 1
-    .param p1, "iterator"    # Ljava/util/Iterator;
-    .param p2, "parent"    # Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;
+    .locals 0
 
     .line 511
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/iterators/AbstractIteratorDecorator;-><init>(Ljava/util/Iterator;)V
 
-    .line 501
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap$ValuesIterator;->lastValue:Ljava/lang/Object;
+    .line 501
+    iput-object p1, p0, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap$ValuesIterator;->lastValue:Ljava/lang/Object;
+
+    const/4 p1, 0x0
 
     .line 503
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap$ValuesIterator;->canRemove:Z
+    iput-boolean p1, p0, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap$ValuesIterator;->canRemove:Z
 
     .line 512
     iput-object p2, p0, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap$ValuesIterator;->parent:Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;
 
-    .line 513
     return-void
 .end method
 
@@ -60,12 +57,11 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap$ValuesIterator;->lastValue:Ljava/lang/Object;
 
-    .line 517
     const/4 v1, 0x1
 
+    .line 517
     iput-boolean v1, p0, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap$ValuesIterator;->canRemove:Z
 
-    .line 518
     return-object v0
 .end method
 
@@ -93,17 +89,16 @@
 
     invoke-interface {v0, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 527
     const/4 v0, 0x0
 
+    .line 527
     iput-object v0, p0, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap$ValuesIterator;->lastValue:Ljava/lang/Object;
 
-    .line 528
     const/4 v0, 0x0
 
+    .line 528
     iput-boolean v0, p0, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap$ValuesIterator;->canRemove:Z
 
-    .line 529
     return-void
 
     .line 523

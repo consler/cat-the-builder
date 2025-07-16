@@ -40,10 +40,8 @@
     .locals 0
 
     .line 44
-    .local p0, "this":Lorg/apache/commons/lang3/mutable/MutableObject;, "Lorg/apache/commons/lang3/mutable/MutableObject<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 45
     return-void
 .end method
 
@@ -56,14 +54,11 @@
     .end annotation
 
     .line 53
-    .local p0, "this":Lorg/apache/commons/lang3/mutable/MutableObject;, "Lorg/apache/commons/lang3/mutable/MutableObject<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 54
     iput-object p1, p0, Lorg/apache/commons/lang3/mutable/MutableObject;->value:Ljava/lang/Object;
 
-    .line 55
     return-void
 .end method
 
@@ -71,25 +66,19 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 3
-    .param p1, "obj"    # Ljava/lang/Object;
 
-    .line 93
-    .local p0, "this":Lorg/apache/commons/lang3/mutable/MutableObject;, "Lorg/apache/commons/lang3/mutable/MutableObject<TT;>;"
     const/4 v0, 0x0
 
     if-nez p1, :cond_0
 
-    .line 94
     return v0
 
-    .line 96
     :cond_0
     if-ne p0, p1, :cond_1
 
-    .line 97
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
     .line 99
     :cond_1
@@ -104,24 +93,19 @@
     if-ne v1, v2, :cond_2
 
     .line 100
-    move-object v0, p1
-
-    check-cast v0, Lorg/apache/commons/lang3/mutable/MutableObject;
+    check-cast p1, Lorg/apache/commons/lang3/mutable/MutableObject;
 
     .line 101
-    .local v0, "that":Lorg/apache/commons/lang3/mutable/MutableObject;, "Lorg/apache/commons/lang3/mutable/MutableObject<*>;"
-    iget-object v1, p0, Lorg/apache/commons/lang3/mutable/MutableObject;->value:Ljava/lang/Object;
+    iget-object v0, p0, Lorg/apache/commons/lang3/mutable/MutableObject;->value:Ljava/lang/Object;
 
-    iget-object v2, v0, Lorg/apache/commons/lang3/mutable/MutableObject;->value:Ljava/lang/Object;
+    iget-object p1, p1, Lorg/apache/commons/lang3/mutable/MutableObject;->value:Ljava/lang/Object;
 
-    invoke-virtual {v1, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 
-    .line 103
-    .end local v0    # "that":Lorg/apache/commons/lang3/mutable/MutableObject;, "Lorg/apache/commons/lang3/mutable/MutableObject<*>;"
     :cond_2
     return v0
 .end method
@@ -135,7 +119,6 @@
     .end annotation
 
     .line 65
-    .local p0, "this":Lorg/apache/commons/lang3/mutable/MutableObject;, "Lorg/apache/commons/lang3/mutable/MutableObject<TT;>;"
     iget-object v0, p0, Lorg/apache/commons/lang3/mutable/MutableObject;->value:Ljava/lang/Object;
 
     return-object v0
@@ -145,7 +128,6 @@
     .locals 1
 
     .line 113
-    .local p0, "this":Lorg/apache/commons/lang3/mutable/MutableObject;, "Lorg/apache/commons/lang3/mutable/MutableObject<TT;>;"
     iget-object v0, p0, Lorg/apache/commons/lang3/mutable/MutableObject;->value:Ljava/lang/Object;
 
     if-nez v0, :cond_0
@@ -172,11 +154,8 @@
     .end annotation
 
     .line 75
-    .local p0, "this":Lorg/apache/commons/lang3/mutable/MutableObject;, "Lorg/apache/commons/lang3/mutable/MutableObject<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     iput-object p1, p0, Lorg/apache/commons/lang3/mutable/MutableObject;->value:Ljava/lang/Object;
 
-    .line 76
     return-void
 .end method
 
@@ -184,7 +163,6 @@
     .locals 1
 
     .line 124
-    .local p0, "this":Lorg/apache/commons/lang3/mutable/MutableObject;, "Lorg/apache/commons/lang3/mutable/MutableObject<TT;>;"
     iget-object v0, p0, Lorg/apache/commons/lang3/mutable/MutableObject;->value:Ljava/lang/Object;
 
     if-nez v0, :cond_0

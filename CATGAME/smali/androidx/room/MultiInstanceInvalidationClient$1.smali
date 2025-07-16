@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/room/MultiInstanceInvalidationClient;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/room/MultiInstanceInvalidationClient;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010
@@ -43,7 +42,6 @@
 # virtual methods
 .method public onInvalidation([Ljava/lang/String;)V
     .locals 2
-    .param p1, "tables"    # [Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -64,6 +62,5 @@
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 90
     return-void
 .end method

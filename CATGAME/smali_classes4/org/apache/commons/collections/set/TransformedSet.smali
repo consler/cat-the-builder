@@ -13,20 +13,15 @@
 # direct methods
 .method protected constructor <init>(Ljava/util/Set;Lorg/apache/commons/collections/Transformer;)V
     .locals 0
-    .param p1, "set"    # Ljava/util/Set;
-    .param p2, "transformer"    # Lorg/apache/commons/collections/Transformer;
 
     .line 70
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections/collection/TransformedCollection;-><init>(Ljava/util/Collection;Lorg/apache/commons/collections/Transformer;)V
 
-    .line 71
     return-void
 .end method
 
 .method public static decorate(Ljava/util/Set;Lorg/apache/commons/collections/Transformer;)Ljava/util/Set;
     .locals 1
-    .param p0, "set"    # Ljava/util/Set;
-    .param p1, "transformer"    # Lorg/apache/commons/collections/Transformer;
 
     .line 55
     new-instance v0, Lorg/apache/commons/collections/set/TransformedSet;

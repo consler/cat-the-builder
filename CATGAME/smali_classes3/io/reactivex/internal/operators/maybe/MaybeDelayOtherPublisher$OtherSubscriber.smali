@@ -68,28 +68,22 @@
     .end annotation
 
     .line 117
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber;, "Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber<TT;>;"
-    .local p1, "actual":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
     .line 118
     iput-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber;->actual:Lio/reactivex/MaybeObserver;
 
-    .line 119
     return-void
 .end method
 
 
 # virtual methods
 .method public onComplete()V
-    .locals 3
+    .locals 2
 
     .line 150
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber;, "Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber;->error:Ljava/lang/Throwable;
 
-    .line 151
-    .local v0, "e":Ljava/lang/Throwable;
     if-eqz v0, :cond_0
 
     .line 152
@@ -101,47 +95,39 @@
 
     .line 154
     :cond_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber;->value:Ljava/lang/Object;
+    iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber;->value:Ljava/lang/Object;
 
-    .line 155
-    .local v1, "v":Ljava/lang/Object;, "TT;"
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 156
-    iget-object v2, p0, Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber;->actual:Lio/reactivex/MaybeObserver;
+    iget-object v1, p0, Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber;->actual:Lio/reactivex/MaybeObserver;
 
-    invoke-interface {v2, v1}, Lio/reactivex/MaybeObserver;->onSuccess(Ljava/lang/Object;)V
+    invoke-interface {v1, v0}, Lio/reactivex/MaybeObserver;->onSuccess(Ljava/lang/Object;)V
 
     goto :goto_0
 
     .line 158
     :cond_1
-    iget-object v2, p0, Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber;->actual:Lio/reactivex/MaybeObserver;
+    iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber;->actual:Lio/reactivex/MaybeObserver;
 
-    invoke-interface {v2}, Lio/reactivex/MaybeObserver;->onComplete()V
+    invoke-interface {v0}, Lio/reactivex/MaybeObserver;->onComplete()V
 
-    .line 161
-    .end local v1    # "v":Ljava/lang/Object;, "TT;"
     :goto_0
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 5
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 140
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber;, "Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber;->error:Ljava/lang/Throwable;
 
-    .line 141
-    .local v0, "e":Ljava/lang/Throwable;
     if-nez v0, :cond_0
 
     .line 142
-    iget-object v1, p0, Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber;->actual:Lio/reactivex/MaybeObserver;
+    iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber;->actual:Lio/reactivex/MaybeObserver;
 
-    invoke-interface {v1, p1}, Lio/reactivex/MaybeObserver;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v0, p1}, Lio/reactivex/MaybeObserver;->onError(Ljava/lang/Throwable;)V
 
     goto :goto_0
 
@@ -159,71 +145,63 @@
 
     aput-object v0, v3, v4
 
-    const/4 v4, 0x1
+    const/4 v0, 0x1
 
-    aput-object p1, v3, v4
+    aput-object p1, v3, v0
 
     invoke-direct {v2, v3}, Lio/reactivex/exceptions/CompositeException;-><init>([Ljava/lang/Throwable;)V
 
     invoke-interface {v1, v2}, Lio/reactivex/MaybeObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 146
     :goto_0
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "t"    # Ljava/lang/Object;
+    .locals 1
 
     .line 130
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber;, "Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lorg/reactivestreams/Subscription;
+    check-cast p1, Lorg/reactivestreams/Subscription;
 
     .line 131
-    .local v0, "s":Lorg/reactivestreams/Subscription;
-    sget-object v1, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
+    sget-object v0, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
 
-    if-eq v0, v1, :cond_0
+    if-eq p1, v0, :cond_0
 
     .line 132
-    sget-object v1, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
+    sget-object v0, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->CANCELLED:Lio/reactivex/internal/subscriptions/SubscriptionHelper;
 
-    invoke-virtual {p0, v1}, Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber;->lazySet(Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber;->lazySet(Ljava/lang/Object;)V
 
     .line 133
-    invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
+    invoke-interface {p1}, Lorg/reactivestreams/Subscription;->cancel()V
 
     .line 134
     invoke-virtual {p0}, Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber;->onComplete()V
 
-    .line 136
     :cond_0
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 123
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber;, "Lio/reactivex/internal/operators/maybe/MaybeDelayOtherPublisher$OtherSubscriber<TT;>;"
     invoke-static {p0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->setOnce(Ljava/util/concurrent/atomic/AtomicReference;Lorg/reactivestreams/Subscription;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 124
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 124
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 126
     :cond_0
     return-void
 .end method

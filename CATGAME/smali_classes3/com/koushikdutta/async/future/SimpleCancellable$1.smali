@@ -24,7 +24,6 @@
     .line 76
     invoke-virtual {p0}, Lcom/koushikdutta/async/future/SimpleCancellable$1;->setComplete()Z
 
-    .line 77
     return-void
 .end method
 

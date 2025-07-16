@@ -24,9 +24,9 @@
 .method public static getInstance()Landroidx/webkit/ProxyController;
     .locals 2
 
-    .line 70
     const-string v0, "PROXY_OVERRIDE"
 
+    .line 70
     invoke-static {v0}, Landroidx/webkit/WebViewFeature;->isFeatureSupported(Ljava/lang/String;)Z
 
     move-result v0

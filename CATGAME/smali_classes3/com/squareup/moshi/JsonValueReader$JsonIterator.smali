@@ -39,9 +39,6 @@
 # direct methods
 .method constructor <init>(Lcom/squareup/moshi/JsonReader$Token;[Ljava/lang/Object;I)V
     .locals 0
-    .param p1, "endToken"    # Lcom/squareup/moshi/JsonReader$Token;
-    .param p2, "array"    # [Ljava/lang/Object;
-    .param p3, "next"    # I
 
     .line 402
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +52,6 @@
     .line 405
     iput p3, p0, Lcom/squareup/moshi/JsonValueReader$JsonIterator;->next:I
 
-    .line 406
     return-void
 .end method
 

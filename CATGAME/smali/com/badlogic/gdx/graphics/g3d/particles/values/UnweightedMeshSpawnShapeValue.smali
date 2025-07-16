@@ -24,13 +24,11 @@
     .line 37
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/g3d/particles/values/MeshSpawnShapeValue;-><init>()V
 
-    .line 38
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;)V
     .locals 0
-    .param p1, "value"    # Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;
 
     .line 33
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/values/MeshSpawnShapeValue;-><init>(Lcom/badlogic/gdx/graphics/g3d/particles/values/MeshSpawnShapeValue;)V
@@ -38,7 +36,6 @@
     .line 34
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->load(Lcom/badlogic/gdx/graphics/g3d/particles/values/ParticleValue;)V
 
-    .line 35
     return-void
 .end method
 
@@ -56,9 +53,7 @@
 .end method
 
 .method public setMesh(Lcom/badlogic/gdx/graphics/Mesh;Lcom/badlogic/gdx/graphics/g3d/Model;)V
-    .locals 3
-    .param p1, "mesh"    # Lcom/badlogic/gdx/graphics/Mesh;
-    .param p2, "model"    # Lcom/badlogic/gdx/graphics/g3d/Model;
+    .locals 1
 
     .line 42
     invoke-super {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/particles/values/MeshSpawnShapeValue;->setMesh(Lcom/badlogic/gdx/graphics/Mesh;Lcom/badlogic/gdx/graphics/g3d/Model;)V
@@ -66,91 +61,86 @@
     .line 43
     invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/Mesh;->getVertexSize()I
 
-    move-result v0
+    move-result p2
 
-    div-int/lit8 v0, v0, 0x4
+    div-int/lit8 p2, p2, 0x4
 
-    iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->vertexSize:I
+    iput p2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->vertexSize:I
+
+    const/4 p2, 0x1
 
     .line 44
-    const/4 v0, 0x1
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/graphics/Mesh;->getVertexAttribute(I)Lcom/badlogic/gdx/graphics/VertexAttribute;
 
-    invoke-virtual {p1, v0}, Lcom/badlogic/gdx/graphics/Mesh;->getVertexAttribute(I)Lcom/badlogic/gdx/graphics/VertexAttribute;
+    move-result-object p2
 
-    move-result-object v0
+    iget p2, p2, Lcom/badlogic/gdx/graphics/VertexAttribute;->offset:I
 
-    iget v0, v0, Lcom/badlogic/gdx/graphics/VertexAttribute;->offset:I
+    div-int/lit8 p2, p2, 0x4
 
-    div-int/lit8 v0, v0, 0x4
-
-    iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->positionOffset:I
+    iput p2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->positionOffset:I
 
     .line 45
     invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/Mesh;->getNumIndices()I
 
-    move-result v0
+    move-result p2
 
-    .line 46
-    .local v0, "indicesCount":I
-    if-lez v0, :cond_0
+    if-lez p2, :cond_0
 
     .line 47
-    new-array v1, v0, [S
+    new-array p2, p2, [S
 
-    iput-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->indices:[S
+    iput-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->indices:[S
 
     .line 48
-    invoke-virtual {p1, v1}, Lcom/badlogic/gdx/graphics/Mesh;->getIndices([S)V
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/graphics/Mesh;->getIndices([S)V
 
     .line 49
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->indices:[S
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->indices:[S
 
-    array-length v1, v1
+    array-length p2, p2
 
-    div-int/lit8 v1, v1, 0x3
+    div-int/lit8 p2, p2, 0x3
 
-    iput v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->triangleCount:I
+    iput p2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->triangleCount:I
 
     goto :goto_0
 
-    .line 51
     :cond_0
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    iput-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->indices:[S
+    .line 51
+    iput-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->indices:[S
 
     .line 52
     :goto_0
     invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/Mesh;->getNumVertices()I
 
-    move-result v1
+    move-result p2
 
-    iput v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->vertexCount:I
+    iput p2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->vertexCount:I
 
     .line 53
-    iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->vertexSize:I
+    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->vertexSize:I
 
-    mul-int/2addr v1, v2
+    mul-int/2addr p2, v0
 
-    new-array v1, v1, [F
+    new-array p2, p2, [F
 
-    iput-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->vertices:[F
+    iput-object p2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->vertices:[F
 
     .line 54
-    invoke-virtual {p1, v1}, Lcom/badlogic/gdx/graphics/Mesh;->getVertices([F)[F
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/graphics/Mesh;->getVertices([F)[F
 
-    .line 55
     return-void
 .end method
 
 .method public spawnAux(Lcom/badlogic/gdx/math/Vector3;F)V
-    .locals 24
-    .param p1, "vector"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "percent"    # F
+    .locals 17
 
-    .line 59
     move-object/from16 v0, p0
 
+    .line 59
     iget-object v1, v0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->indices:[S
 
     if-nez v1, :cond_0
@@ -169,97 +159,52 @@
     mul-int/2addr v1, v2
 
     .line 62
-    .local v1, "triangleIndex":I
     iget v3, v0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->positionOffset:I
 
-    add-int/2addr v3, v1
+    add-int/2addr v1, v3
 
-    .local v3, "p1Offset":I
-    add-int v4, v3, v2
+    add-int v3, v1, v2
 
-    .local v4, "p2Offset":I
-    add-int/2addr v2, v4
+    add-int/2addr v2, v3
 
     .line 63
-    .local v2, "p3Offset":I
-    iget-object v5, v0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->vertices:[F
+    iget-object v4, v0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->vertices:[F
 
-    aget v16, v5, v3
+    aget v5, v4, v1
 
-    .local v16, "x1":F
-    add-int/lit8 v6, v3, 0x1
+    add-int/lit8 v6, v1, 0x1
 
-    aget v17, v5, v6
+    aget v6, v4, v6
 
-    .local v17, "y1":F
-    add-int/lit8 v6, v3, 0x2
+    add-int/lit8 v1, v1, 0x2
 
-    aget v18, v5, v6
+    aget v7, v4, v1
 
-    .local v18, "z1":F
-    aget v19, v5, v4
+    aget v8, v4, v3
 
-    .local v19, "x2":F
-    add-int/lit8 v6, v4, 0x1
+    add-int/lit8 v1, v3, 0x1
 
-    aget v20, v5, v6
+    aget v9, v4, v1
 
-    .local v20, "y2":F
-    add-int/lit8 v6, v4, 0x2
+    add-int/lit8 v3, v3, 0x2
 
-    aget v21, v5, v6
+    aget v10, v4, v3
 
-    .local v21, "z2":F
-    aget v22, v5, v2
+    aget v11, v4, v2
 
-    .local v22, "x3":F
-    add-int/lit8 v6, v2, 0x1
+    add-int/lit8 v1, v2, 0x1
 
-    aget v23, v5, v6
+    aget v12, v4, v1
 
-    .local v23, "y3":F
-    add-int/lit8 v6, v2, 0x2
+    add-int/lit8 v2, v2, 0x2
 
-    aget v5, v5, v6
+    aget v13, v4, v2
+
+    move-object/from16 v14, p1
 
     .line 64
-    .local v5, "z3":F
-    move/from16 v6, v16
+    invoke-static/range {v5 .. v14}, Lcom/badlogic/gdx/graphics/g3d/particles/values/MeshSpawnShapeValue$Triangle;->pick(FFFFFFFFFLcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move/from16 v7, v17
-
-    move/from16 v8, v18
-
-    move/from16 v9, v19
-
-    move/from16 v10, v20
-
-    move/from16 v11, v21
-
-    move/from16 v12, v22
-
-    move/from16 v13, v23
-
-    move v14, v5
-
-    move-object/from16 v15, p1
-
-    invoke-static/range {v6 .. v15}, Lcom/badlogic/gdx/graphics/g3d/particles/values/MeshSpawnShapeValue$Triangle;->pick(FFFFFFFFFLcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
-
-    .line 65
-    .end local v1    # "triangleIndex":I
-    .end local v2    # "p3Offset":I
-    .end local v3    # "p1Offset":I
-    .end local v4    # "p2Offset":I
-    .end local v5    # "z3":F
-    .end local v16    # "x1":F
-    .end local v17    # "y1":F
-    .end local v18    # "z1":F
-    .end local v19    # "x2":F
-    .end local v20    # "y2":F
-    .end local v21    # "z2":F
-    .end local v22    # "x3":F
-    .end local v23    # "y3":F
     goto :goto_0
 
     .line 67
@@ -275,7 +220,6 @@
     mul-int/lit8 v1, v1, 0x3
 
     .line 68
-    .restart local v1    # "triangleIndex":I
     iget-object v2, v0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->indices:[S
 
     aget-short v3, v2, v1
@@ -288,7 +232,6 @@
 
     add-int/2addr v3, v5
 
-    .restart local v3    # "p1Offset":I
     add-int/lit8 v6, v1, 0x1
 
     aget-short v6, v2, v6
@@ -297,96 +240,53 @@
 
     add-int/2addr v6, v5
 
+    add-int/lit8 v1, v1, 0x2
+
     .line 69
-    .local v6, "p2Offset":I
-    add-int/lit8 v7, v1, 0x2
+    aget-short v1, v2, v1
 
-    aget-short v2, v2, v7
+    mul-int/2addr v1, v4
 
-    mul-int/2addr v2, v4
-
-    add-int/2addr v2, v5
+    add-int/2addr v1, v5
 
     .line 70
-    .restart local v2    # "p3Offset":I
-    iget-object v4, v0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->vertices:[F
+    iget-object v2, v0, Lcom/badlogic/gdx/graphics/g3d/particles/values/UnweightedMeshSpawnShapeValue;->vertices:[F
 
-    aget v5, v4, v3
+    aget v7, v2, v3
 
-    .local v5, "x1":F
-    add-int/lit8 v7, v3, 0x1
+    add-int/lit8 v4, v3, 0x1
 
-    aget v17, v4, v7
+    aget v8, v2, v4
 
-    .restart local v17    # "y1":F
-    add-int/lit8 v7, v3, 0x2
+    add-int/lit8 v3, v3, 0x2
 
-    aget v18, v4, v7
+    aget v9, v2, v3
 
-    .restart local v18    # "z1":F
-    aget v19, v4, v6
+    aget v10, v2, v6
 
-    .restart local v19    # "x2":F
-    add-int/lit8 v7, v6, 0x1
+    add-int/lit8 v3, v6, 0x1
 
-    aget v20, v4, v7
+    aget v11, v2, v3
 
-    .restart local v20    # "y2":F
-    add-int/lit8 v7, v6, 0x2
+    add-int/lit8 v6, v6, 0x2
 
-    aget v21, v4, v7
+    aget v12, v2, v6
 
-    .restart local v21    # "z2":F
-    aget v22, v4, v2
+    aget v13, v2, v1
 
-    .restart local v22    # "x3":F
-    add-int/lit8 v7, v2, 0x1
+    add-int/lit8 v3, v1, 0x1
 
-    aget v23, v4, v7
+    aget v14, v2, v3
 
-    .restart local v23    # "y3":F
-    add-int/lit8 v7, v2, 0x2
+    add-int/lit8 v1, v1, 0x2
 
-    aget v4, v4, v7
-
-    .line 71
-    .local v4, "z3":F
-    move v7, v5
-
-    move/from16 v8, v17
-
-    move/from16 v9, v18
-
-    move/from16 v10, v19
-
-    move/from16 v11, v20
-
-    move/from16 v12, v21
-
-    move/from16 v13, v22
-
-    move/from16 v14, v23
-
-    move v15, v4
+    aget v15, v2, v1
 
     move-object/from16 v16, p1
 
+    .line 71
     invoke-static/range {v7 .. v16}, Lcom/badlogic/gdx/graphics/g3d/particles/values/MeshSpawnShapeValue$Triangle;->pick(FFFFFFFFFLcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    .line 73
-    .end local v1    # "triangleIndex":I
-    .end local v2    # "p3Offset":I
-    .end local v3    # "p1Offset":I
-    .end local v4    # "z3":F
-    .end local v5    # "x1":F
-    .end local v6    # "p2Offset":I
-    .end local v17    # "y1":F
-    .end local v18    # "z1":F
-    .end local v19    # "x2":F
-    .end local v20    # "y2":F
-    .end local v21    # "z2":F
-    .end local v22    # "x3":F
-    .end local v23    # "y3":F
     :goto_0
     return-void
 .end method

@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -42,12 +42,11 @@
     .end annotation
 
     .line 56
-    .local p1, "captureStageList":Ljava/util/List;, "Ljava/util/List<Landroidx/camera/core/impl/CaptureStage;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 57
     if-eqz p1, :cond_0
 
+    .line 57
     invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
@@ -61,22 +60,21 @@
 
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/camera/core/CaptureBundles$CaptureBundleImpl;->mCaptureStageList:Ljava/util/List;
+    iput-object p1, p0, Landroidx/camera/core/CaptureBundles$CaptureBundleImpl;->mCaptureStageList:Ljava/util/List;
 
-    .line 62
     return-void
 
     .line 60
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Cannot set an empty CaptureStage list."
+    const-string v0, "Cannot set an empty CaptureStage list."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 

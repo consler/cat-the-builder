@@ -24,18 +24,16 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 79
     const/16 v0, 0x14
 
+    .line 79
     invoke-direct {p0, v0}, Lorg/apache/commons/collections/list/NodeCachingLinkedList;-><init>(I)V
 
-    .line 80
     return-void
 .end method
 
 .method public constructor <init>(I)V
     .locals 0
-    .param p1, "maximumCacheSize"    # I
 
     .line 98
     invoke-direct {p0}, Lorg/apache/commons/collections/list/AbstractLinkedList;-><init>()V
@@ -46,29 +44,25 @@
     .line 100
     invoke-virtual {p0}, Lorg/apache/commons/collections/list/NodeCachingLinkedList;->init()V
 
-    .line 101
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Collection;)V
-    .locals 1
-    .param p1, "coll"    # Ljava/util/Collection;
+    .locals 0
 
     .line 88
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/list/AbstractLinkedList;-><init>(Ljava/util/Collection;)V
 
+    const/16 p1, 0x14
+
     .line 89
-    const/16 v0, 0x14
+    iput p1, p0, Lorg/apache/commons/collections/list/NodeCachingLinkedList;->maximumCacheSize:I
 
-    iput v0, p0, Lorg/apache/commons/collections/list/NodeCachingLinkedList;->maximumCacheSize:I
-
-    .line 90
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 0
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -82,13 +76,11 @@
     .line 244
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections/list/NodeCachingLinkedList;->doReadObject(Ljava/io/ObjectInputStream;)V
 
-    .line 245
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 0
-    .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -101,7 +93,6 @@
     .line 236
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections/list/NodeCachingLinkedList;->doWriteObject(Ljava/io/ObjectOutputStream;)V
 
-    .line 237
     return-void
 .end method
 
@@ -109,7 +100,6 @@
 # virtual methods
 .method protected addNodeToCache(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;)V
     .locals 2
-    .param p1, "node"    # Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     .line 168
     invoke-virtual {p0}, Lorg/apache/commons/collections/list/NodeCachingLinkedList;->isCacheFull()Z
@@ -118,17 +108,15 @@
 
     if-eqz v0, :cond_0
 
-    .line 170
     return-void
 
     .line 173
     :cond_0
     iget-object v0, p0, Lorg/apache/commons/collections/list/NodeCachingLinkedList;->firstCachedNode:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    .line 174
-    .local v0, "nextCachedNode":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
     const/4 v1, 0x0
 
+    .line 174
     iput-object v1, p1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->previous:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     .line 175
@@ -141,41 +129,36 @@
     iput-object p1, p0, Lorg/apache/commons/collections/list/NodeCachingLinkedList;->firstCachedNode:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     .line 178
-    iget v1, p0, Lorg/apache/commons/collections/list/NodeCachingLinkedList;->cacheSize:I
+    iget p1, p0, Lorg/apache/commons/collections/list/NodeCachingLinkedList;->cacheSize:I
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v1, p0, Lorg/apache/commons/collections/list/NodeCachingLinkedList;->cacheSize:I
+    iput p1, p0, Lorg/apache/commons/collections/list/NodeCachingLinkedList;->cacheSize:I
 
-    .line 179
     return-void
 .end method
 
 .method protected createNode(Ljava/lang/Object;)Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
-    .locals 2
-    .param p1, "value"    # Ljava/lang/Object;
+    .locals 1
 
     .line 190
     invoke-virtual {p0}, Lorg/apache/commons/collections/list/NodeCachingLinkedList;->getNodeFromCache()Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     move-result-object v0
 
-    .line 191
-    .local v0, "cachedNode":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
     if-nez v0, :cond_0
 
     .line 192
     invoke-super {p0, p1}, Lorg/apache/commons/collections/list/AbstractLinkedList;->createNode(Ljava/lang/Object;)Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 194
     :cond_0
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->setValue(Ljava/lang/Object;)V
 
-    .line 195
     return-object v0
 .end method
 
@@ -198,7 +181,6 @@
 
     if-nez v0, :cond_0
 
-    .line 142
     return-object v1
 
     .line 144
@@ -206,7 +188,6 @@
     iget-object v0, p0, Lorg/apache/commons/collections/list/NodeCachingLinkedList;->firstCachedNode:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     .line 145
-    .local v0, "cachedNode":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
     iget-object v2, v0, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     iput-object v2, p0, Lorg/apache/commons/collections/list/NodeCachingLinkedList;->firstCachedNode:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
@@ -221,7 +202,6 @@
 
     iput v1, p0, Lorg/apache/commons/collections/list/NodeCachingLinkedList;->cacheSize:I
 
-    .line 149
     return-object v0
 .end method
 
@@ -263,47 +243,36 @@
     move-result v0
 
     .line 221
-    .local v0, "numberOfNodesToCache":I
     iget-object v1, p0, Lorg/apache/commons/collections/list/NodeCachingLinkedList;->header:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     iget-object v1, v1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
-    .line 222
-    .local v1, "node":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
     const/4 v2, 0x0
 
-    .local v2, "currentIndex":I
     :goto_0
     if-ge v2, v0, :cond_0
 
-    .line 223
-    move-object v3, v1
-
     .line 224
-    .local v3, "oldNode":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
-    iget-object v1, v1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
+    iget-object v3, v1, Lorg/apache/commons/collections/list/AbstractLinkedList$Node;->next:Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     .line 225
-    invoke-virtual {p0, v3}, Lorg/apache/commons/collections/list/NodeCachingLinkedList;->addNodeToCache(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;)V
+    invoke-virtual {p0, v1}, Lorg/apache/commons/collections/list/NodeCachingLinkedList;->addNodeToCache(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;)V
 
-    .line 222
-    .end local v3    # "oldNode":Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
     add-int/lit8 v2, v2, 0x1
+
+    move-object v1, v3
 
     goto :goto_0
 
     .line 227
-    .end local v2    # "currentIndex":I
     :cond_0
     invoke-super {p0}, Lorg/apache/commons/collections/list/AbstractLinkedList;->removeAllNodes()V
 
-    .line 228
     return-void
 .end method
 
 .method protected removeNode(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;)V
     .locals 0
-    .param p1, "node"    # Lorg/apache/commons/collections/list/AbstractLinkedList$Node;
 
     .line 206
     invoke-super {p0, p1}, Lorg/apache/commons/collections/list/AbstractLinkedList;->removeNode(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;)V
@@ -311,13 +280,11 @@
     .line 207
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections/list/NodeCachingLinkedList;->addNodeToCache(Lorg/apache/commons/collections/list/AbstractLinkedList$Node;)V
 
-    .line 208
     return-void
 .end method
 
 .method protected setMaximumCacheSize(I)V
     .locals 0
-    .param p1, "maximumCacheSize"    # I
 
     .line 119
     iput p1, p0, Lorg/apache/commons/collections/list/NodeCachingLinkedList;->maximumCacheSize:I
@@ -325,7 +292,6 @@
     .line 120
     invoke-virtual {p0}, Lorg/apache/commons/collections/list/NodeCachingLinkedList;->shrinkCacheToMaximumSize()V
 
-    .line 121
     return-void
 .end method
 
@@ -345,7 +311,6 @@
 
     goto :goto_0
 
-    .line 131
     :cond_0
     return-void
 .end method

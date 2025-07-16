@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroidx/recyclerview/widget/DefaultItemAnimator;Ljava/util/ArrayList;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/recyclerview/widget/DefaultItemAnimator;
 
     .line 168
     iput-object p1, p0, Landroidx/recyclerview/widget/DefaultItemAnimator$3;->this$0:Landroidx/recyclerview/widget/DefaultItemAnimator;
@@ -64,13 +63,10 @@
     check-cast v1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
     .line 172
-    .local v1, "holder":Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     iget-object v2, p0, Landroidx/recyclerview/widget/DefaultItemAnimator$3;->this$0:Landroidx/recyclerview/widget/DefaultItemAnimator;
 
     invoke-virtual {v2, v1}, Landroidx/recyclerview/widget/DefaultItemAnimator;->animateAddImpl(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
 
-    .line 173
-    .end local v1    # "holder":Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     goto :goto_0
 
     .line 174
@@ -88,6 +84,5 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 176
     return-void
 .end method

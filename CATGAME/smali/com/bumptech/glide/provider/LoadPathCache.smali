@@ -86,7 +86,6 @@
 
     sput-object v6, Lcom/bumptech/glide/provider/LoadPathCache;->NO_PATHS_SIGNAL:Lcom/bumptech/glide/load/engine/LoadPath;
 
-    .line 18
     return-void
 .end method
 
@@ -129,9 +128,6 @@
     .end annotation
 
     .line 78
-    .local p1, "dataClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p2, "resourceClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p3, "transcodeClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     iget-object v0, p0, Lcom/bumptech/glide/provider/LoadPathCache;->keyRef:Ljava/util/concurrent/atomic/AtomicReference;
 
     const/4 v1, 0x0
@@ -142,29 +138,24 @@
 
     check-cast v0, Lcom/bumptech/glide/util/MultiClassKey;
 
-    .line 79
-    .local v0, "key":Lcom/bumptech/glide/util/MultiClassKey;
     if-nez v0, :cond_0
 
     .line 80
-    new-instance v1, Lcom/bumptech/glide/util/MultiClassKey;
+    new-instance v0, Lcom/bumptech/glide/util/MultiClassKey;
 
-    invoke-direct {v1}, Lcom/bumptech/glide/util/MultiClassKey;-><init>()V
-
-    move-object v0, v1
+    invoke-direct {v0}, Lcom/bumptech/glide/util/MultiClassKey;-><init>()V
 
     .line 82
     :cond_0
     invoke-virtual {v0, p1, p2, p3}, Lcom/bumptech/glide/util/MultiClassKey;->set(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;)V
 
-    .line 83
     return-object v0
 .end method
 
 
 # virtual methods
 .method public get(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;)Lcom/bumptech/glide/load/engine/LoadPath;
-    .locals 3
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<Data:",
@@ -186,54 +177,47 @@
     .end annotation
 
     .line 54
-    .local p1, "dataClass":Ljava/lang/Class;, "Ljava/lang/Class<TData;>;"
-    .local p2, "resourceClass":Ljava/lang/Class;, "Ljava/lang/Class<TTResource;>;"
-    .local p3, "transcodeClass":Ljava/lang/Class;, "Ljava/lang/Class<TTranscode;>;"
     invoke-direct {p0, p1, p2, p3}, Lcom/bumptech/glide/provider/LoadPathCache;->getKey(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;)Lcom/bumptech/glide/util/MultiClassKey;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 56
-    .local v0, "key":Lcom/bumptech/glide/util/MultiClassKey;
-    iget-object v1, p0, Lcom/bumptech/glide/provider/LoadPathCache;->cache:Landroidx/collection/ArrayMap;
+    iget-object p2, p0, Lcom/bumptech/glide/provider/LoadPathCache;->cache:Landroidx/collection/ArrayMap;
 
-    monitor-enter v1
+    monitor-enter p2
 
     .line 57
     :try_start_0
-    iget-object v2, p0, Lcom/bumptech/glide/provider/LoadPathCache;->cache:Landroidx/collection/ArrayMap;
+    iget-object p3, p0, Lcom/bumptech/glide/provider/LoadPathCache;->cache:Landroidx/collection/ArrayMap;
 
-    invoke-virtual {v2, v0}, Landroidx/collection/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p3, p1}, Landroidx/collection/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p3
 
-    check-cast v2, Lcom/bumptech/glide/load/engine/LoadPath;
+    check-cast p3, Lcom/bumptech/glide/load/engine/LoadPath;
 
     .line 58
-    .local v2, "result":Lcom/bumptech/glide/load/engine/LoadPath;, "Lcom/bumptech/glide/load/engine/LoadPath<***>;"
-    monitor-exit v1
+    monitor-exit p2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 59
-    iget-object v1, p0, Lcom/bumptech/glide/provider/LoadPathCache;->keyRef:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object p2, p0, Lcom/bumptech/glide/provider/LoadPathCache;->keyRef:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v1, v0}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
+    invoke-virtual {p2, p1}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
 
-    .line 61
-    return-object v2
+    return-object p3
+
+    :catchall_0
+    move-exception p1
 
     .line 58
-    .end local v2    # "result":Lcom/bumptech/glide/load/engine/LoadPath;, "Lcom/bumptech/glide/load/engine/LoadPath<***>;"
-    :catchall_0
-    move-exception v2
-
     :try_start_1
-    monitor-exit v1
+    monitor-exit p2
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v2
+    throw p1
 .end method
 
 .method public isEmptyLoadPath(Lcom/bumptech/glide/load/engine/LoadPath;)Z
@@ -247,18 +231,17 @@
     .end annotation
 
     .line 42
-    .local p1, "path":Lcom/bumptech/glide/load/engine/LoadPath;, "Lcom/bumptech/glide/load/engine/LoadPath<***>;"
     sget-object v0, Lcom/bumptech/glide/provider/LoadPathCache;->NO_PATHS_SIGNAL:Lcom/bumptech/glide/load/engine/LoadPath;
 
     invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public put(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;Lcom/bumptech/glide/load/engine/LoadPath;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -274,10 +257,6 @@
     .end annotation
 
     .line 69
-    .local p1, "dataClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p2, "resourceClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p3, "transcodeClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p4, "loadPath":Lcom/bumptech/glide/load/engine/LoadPath;, "Lcom/bumptech/glide/load/engine/LoadPath<***>;"
     iget-object v0, p0, Lcom/bumptech/glide/provider/LoadPathCache;->cache:Landroidx/collection/ArrayMap;
 
     monitor-enter v0
@@ -290,33 +269,29 @@
 
     invoke-direct {v2, p1, p2, p3}, Lcom/bumptech/glide/util/MultiClassKey;-><init>(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;)V
 
-    .line 72
     if-eqz p4, :cond_0
-
-    move-object v3, p4
 
     goto :goto_0
 
+    .line 72
     :cond_0
-    sget-object v3, Lcom/bumptech/glide/provider/LoadPathCache;->NO_PATHS_SIGNAL:Lcom/bumptech/glide/load/engine/LoadPath;
+    sget-object p4, Lcom/bumptech/glide/provider/LoadPathCache;->NO_PATHS_SIGNAL:Lcom/bumptech/glide/load/engine/LoadPath;
 
     .line 70
     :goto_0
-    invoke-virtual {v1, v2, v3}, Landroidx/collection/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v2, p4}, Landroidx/collection/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 73
     monitor-exit v0
 
-    .line 74
     return-void
 
-    .line 73
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method

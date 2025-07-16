@@ -10,9 +10,8 @@
 # direct methods
 .method public constructor <init>(JJ[B)V
     .locals 7
-    .param p1, "tick"    # J
-    .param p3, "delta"    # J
-    .param p5, "data"    # [B
+
+    const/16 v5, 0x7f
 
     .line 32
     new-instance v6, Lcom/pdrogfer/mididroid/util/VariableLengthInt;
@@ -20,8 +19,6 @@
     array-length v0, p5
 
     invoke-direct {v6, v0}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;-><init>(I)V
-
-    const/16 v5, 0x7f
 
     move-object v0, p0
 
@@ -34,7 +31,6 @@
     .line 34
     iput-object p5, p0, Lcom/pdrogfer/mididroid/event/meta/SequencerSpecificEvent;->mData:[B
 
-    .line 35
     return-void
 .end method
 
@@ -42,7 +38,6 @@
 # virtual methods
 .method public compareTo(Lcom/pdrogfer/mididroid/event/MidiEvent;)I
     .locals 7
-    .param p1, "other"    # Lcom/pdrogfer/mididroid/event/MidiEvent;
 
     .line 65
     iget-wide v0, p0, Lcom/pdrogfer/mididroid/event/meta/SequencerSpecificEvent;->mTick:J
@@ -66,9 +61,9 @@
 
     move-result-wide v5
 
-    cmp-long v0, v3, v5
+    cmp-long p1, v3, v5
 
-    if-gez v0, :cond_0
+    if-gez p1, :cond_0
 
     goto :goto_0
 
@@ -109,9 +104,9 @@
 
     move-result-wide v5
 
-    cmp-long v0, v3, v5
+    cmp-long p1, v3, v5
 
-    if-gez v0, :cond_2
+    if-gez p1, :cond_2
 
     move v1, v2
 
@@ -124,35 +119,29 @@
 
     if-nez v0, :cond_4
 
-    .line 76
     return v2
 
     .line 79
     :cond_4
-    move-object v0, p1
-
-    check-cast v0, Lcom/pdrogfer/mididroid/event/meta/SequencerSpecificEvent;
+    check-cast p1, Lcom/pdrogfer/mididroid/event/meta/SequencerSpecificEvent;
 
     .line 81
-    .local v0, "o":Lcom/pdrogfer/mididroid/event/meta/SequencerSpecificEvent;
-    iget-object v1, p0, Lcom/pdrogfer/mididroid/event/meta/SequencerSpecificEvent;->mData:[B
+    iget-object v0, p0, Lcom/pdrogfer/mididroid/event/meta/SequencerSpecificEvent;->mData:[B
 
-    iget-object v3, v0, Lcom/pdrogfer/mididroid/event/meta/SequencerSpecificEvent;->mData:[B
+    iget-object p1, p1, Lcom/pdrogfer/mididroid/event/meta/SequencerSpecificEvent;->mData:[B
 
-    array-length v4, v1
+    array-length v1, v0
 
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v1, v3, v5, v4}, Lcom/pdrogfer/mididroid/util/MidiUtil;->bytesEqual([B[BII)Z
+    invoke-static {v0, p1, v3, v1}, Lcom/pdrogfer/mididroid/util/MidiUtil;->bytesEqual([B[BII)Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_5
+    if-eqz p1, :cond_5
 
-    .line 83
-    return v5
+    return v3
 
-    .line 85
     :cond_5
     return v2
 .end method
@@ -201,28 +190,25 @@
 .end method
 
 .method public setData([B)V
-    .locals 2
-    .param p1, "data"    # [B
+    .locals 1
 
     .line 39
     iput-object p1, p0, Lcom/pdrogfer/mididroid/event/meta/SequencerSpecificEvent;->mData:[B
 
     .line 40
-    iget-object v0, p0, Lcom/pdrogfer/mididroid/event/meta/SequencerSpecificEvent;->mLength:Lcom/pdrogfer/mididroid/util/VariableLengthInt;
+    iget-object p1, p0, Lcom/pdrogfer/mididroid/event/meta/SequencerSpecificEvent;->mLength:Lcom/pdrogfer/mididroid/util/VariableLengthInt;
 
-    iget-object v1, p0, Lcom/pdrogfer/mididroid/event/meta/SequencerSpecificEvent;->mData:[B
+    iget-object v0, p0, Lcom/pdrogfer/mididroid/event/meta/SequencerSpecificEvent;->mData:[B
 
-    array-length v1, v1
+    array-length v0, v0
 
-    invoke-virtual {v0, v1}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;->setValue(I)V
+    invoke-virtual {p1, v0}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;->setValue(I)V
 
-    .line 41
     return-void
 .end method
 
 .method public writeToFile(Ljava/io/OutputStream;)V
     .locals 1
-    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -246,6 +232,5 @@
 
     invoke-virtual {p1, v0}, Ljava/io/OutputStream;->write([B)V
 
-    .line 60
     return-void
 .end method

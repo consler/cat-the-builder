@@ -16,10 +16,6 @@
 # direct methods
 .method constructor <init>(FFFF)V
     .locals 0
-    .param p1, "zoomRatio"    # F
-    .param p2, "maxZoomRatio"    # F
-    .param p3, "minZoomRatio"    # F
-    .param p4, "linearZoom"    # F
 
     .line 20
     invoke-direct {p0}, Landroidx/camera/core/internal/ImmutableZoomState;-><init>()V
@@ -36,22 +32,18 @@
     .line 24
     iput p4, p0, Landroidx/camera/core/internal/AutoValue_ImmutableZoomState;->linearZoom:F
 
-    .line 25
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 4
 
-    .line 59
     const/4 v0, 0x1
 
     if-ne p1, p0, :cond_0
 
-    .line 60
     return v0
 
     .line 62
@@ -63,90 +55,84 @@
     if-eqz v1, :cond_2
 
     .line 63
-    move-object v1, p1
-
-    check-cast v1, Landroidx/camera/core/internal/ImmutableZoomState;
+    check-cast p1, Landroidx/camera/core/internal/ImmutableZoomState;
 
     .line 64
-    .local v1, "that":Landroidx/camera/core/internal/ImmutableZoomState;
-    iget v3, p0, Landroidx/camera/core/internal/AutoValue_ImmutableZoomState;->zoomRatio:F
+    iget v1, p0, Landroidx/camera/core/internal/AutoValue_ImmutableZoomState;->zoomRatio:F
+
+    invoke-static {v1}, Ljava/lang/Float;->floatToIntBits(F)I
+
+    move-result v1
+
+    invoke-virtual {p1}, Landroidx/camera/core/internal/ImmutableZoomState;->getZoomRatio()F
+
+    move-result v3
 
     invoke-static {v3}, Ljava/lang/Float;->floatToIntBits(F)I
 
     move-result v3
 
-    invoke-virtual {v1}, Landroidx/camera/core/internal/ImmutableZoomState;->getZoomRatio()F
+    if-ne v1, v3, :cond_1
 
-    move-result v4
-
-    invoke-static {v4}, Ljava/lang/Float;->floatToIntBits(F)I
-
-    move-result v4
-
-    if-ne v3, v4, :cond_1
-
-    iget v3, p0, Landroidx/camera/core/internal/AutoValue_ImmutableZoomState;->maxZoomRatio:F
+    iget v1, p0, Landroidx/camera/core/internal/AutoValue_ImmutableZoomState;->maxZoomRatio:F
 
     .line 65
+    invoke-static {v1}, Ljava/lang/Float;->floatToIntBits(F)I
+
+    move-result v1
+
+    invoke-virtual {p1}, Landroidx/camera/core/internal/ImmutableZoomState;->getMaxZoomRatio()F
+
+    move-result v3
+
     invoke-static {v3}, Ljava/lang/Float;->floatToIntBits(F)I
 
     move-result v3
 
-    invoke-virtual {v1}, Landroidx/camera/core/internal/ImmutableZoomState;->getMaxZoomRatio()F
+    if-ne v1, v3, :cond_1
 
-    move-result v4
-
-    invoke-static {v4}, Ljava/lang/Float;->floatToIntBits(F)I
-
-    move-result v4
-
-    if-ne v3, v4, :cond_1
-
-    iget v3, p0, Landroidx/camera/core/internal/AutoValue_ImmutableZoomState;->minZoomRatio:F
+    iget v1, p0, Landroidx/camera/core/internal/AutoValue_ImmutableZoomState;->minZoomRatio:F
 
     .line 66
+    invoke-static {v1}, Ljava/lang/Float;->floatToIntBits(F)I
+
+    move-result v1
+
+    invoke-virtual {p1}, Landroidx/camera/core/internal/ImmutableZoomState;->getMinZoomRatio()F
+
+    move-result v3
+
     invoke-static {v3}, Ljava/lang/Float;->floatToIntBits(F)I
 
     move-result v3
 
-    invoke-virtual {v1}, Landroidx/camera/core/internal/ImmutableZoomState;->getMinZoomRatio()F
+    if-ne v1, v3, :cond_1
 
-    move-result v4
-
-    invoke-static {v4}, Ljava/lang/Float;->floatToIntBits(F)I
-
-    move-result v4
-
-    if-ne v3, v4, :cond_1
-
-    iget v3, p0, Landroidx/camera/core/internal/AutoValue_ImmutableZoomState;->linearZoom:F
+    iget v1, p0, Landroidx/camera/core/internal/AutoValue_ImmutableZoomState;->linearZoom:F
 
     .line 67
-    invoke-static {v3}, Ljava/lang/Float;->floatToIntBits(F)I
+    invoke-static {v1}, Ljava/lang/Float;->floatToIntBits(F)I
 
-    move-result v3
+    move-result v1
 
-    invoke-virtual {v1}, Landroidx/camera/core/internal/ImmutableZoomState;->getLinearZoom()F
+    invoke-virtual {p1}, Landroidx/camera/core/internal/ImmutableZoomState;->getLinearZoom()F
 
-    move-result v4
+    move-result p1
 
-    invoke-static {v4}, Ljava/lang/Float;->floatToIntBits(F)I
+    invoke-static {p1}, Ljava/lang/Float;->floatToIntBits(F)I
 
-    move-result v4
+    move-result p1
 
-    if-ne v3, v4, :cond_1
+    if-ne v1, p1, :cond_1
 
     goto :goto_0
 
     :cond_1
     move v0, v2
 
-    .line 64
     :goto_0
     return v0
 
-    .line 69
-    .end local v1    # "that":Landroidx/camera/core/internal/ImmutableZoomState;
     :cond_2
     return v2
 .end method
@@ -190,25 +176,17 @@
 .method public hashCode()I
     .locals 3
 
-    .line 74
-    const/4 v0, 0x1
+    .line 76
+    iget v0, p0, Landroidx/camera/core/internal/AutoValue_ImmutableZoomState;->zoomRatio:F
 
-    .line 75
-    .local v0, "h$":I
+    invoke-static {v0}, Ljava/lang/Float;->floatToIntBits(F)I
+
+    move-result v0
+
     const v1, 0xf4243
 
-    mul-int/2addr v0, v1
+    xor-int/2addr v0, v1
 
-    .line 76
-    iget v2, p0, Landroidx/camera/core/internal/AutoValue_ImmutableZoomState;->zoomRatio:F
-
-    invoke-static {v2}, Ljava/lang/Float;->floatToIntBits(F)I
-
-    move-result v2
-
-    xor-int/2addr v0, v2
-
-    .line 77
     mul-int/2addr v0, v1
 
     .line 78
@@ -220,7 +198,6 @@
 
     xor-int/2addr v0, v2
 
-    .line 79
     mul-int/2addr v0, v1
 
     .line 80
@@ -232,7 +209,6 @@
 
     xor-int/2addr v0, v2
 
-    .line 81
     mul-int/2addr v0, v1
 
     .line 82
@@ -244,7 +220,6 @@
 
     xor-int/2addr v0, v1
 
-    .line 83
     return v0
 .end method
 
@@ -254,43 +229,57 @@
     .line 49
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "ImmutableZoomState{zoomRatio="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget v1, p0, Landroidx/camera/core/internal/AutoValue_ImmutableZoomState;->zoomRatio:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", maxZoomRatio="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Landroidx/camera/core/internal/AutoValue_ImmutableZoomState;->maxZoomRatio:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", minZoomRatio="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Landroidx/camera/core/internal/AutoValue_ImmutableZoomState;->minZoomRatio:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ", linearZoom="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Landroidx/camera/core/internal/AutoValue_ImmutableZoomState;->linearZoom:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "}"
+    move-result-object v0
+
+    const-string v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

@@ -48,7 +48,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/SingleObserver;Ljava/lang/Object;)V
     .locals 0
-    .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,7 +61,6 @@
     .end annotation
 
     .line 57
-    .local p1, "actual":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-Ljava/lang/Boolean;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 58
@@ -71,7 +69,6 @@
     .line 59
     iput-object p2, p0, Lio/reactivex/internal/operators/maybe/MaybeContains$ContainsMaybeObserver;->value:Ljava/lang/Object;
 
-    .line 60
     return-void
 .end method
 
@@ -90,7 +87,6 @@
 
     iput-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeContains$ContainsMaybeObserver;->d:Lio/reactivex/disposables/Disposable;
 
-    .line 66
     return-void
 .end method
 
@@ -126,13 +122,11 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/SingleObserver;->onSuccess(Ljava/lang/Object;)V
 
-    .line 97
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 89
     sget-object v0, Lio/reactivex/internal/disposables/DisposableHelper;->DISPOSED:Lio/reactivex/internal/disposables/DisposableHelper;
@@ -144,13 +138,11 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/SingleObserver;->onError(Ljava/lang/Throwable;)V
 
-    .line 91
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "d"    # Lio/reactivex/disposables/Disposable;
 
     .line 75
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeContains$ContainsMaybeObserver;->d:Lio/reactivex/disposables/Disposable;
@@ -165,18 +157,16 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeContains$ContainsMaybeObserver;->d:Lio/reactivex/disposables/Disposable;
 
     .line 77
-    iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeContains$ContainsMaybeObserver;->actual:Lio/reactivex/SingleObserver;
+    iget-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeContains$ContainsMaybeObserver;->actual:Lio/reactivex/SingleObserver;
 
-    invoke-interface {v0, p0}, Lio/reactivex/SingleObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/SingleObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 79
     :cond_0
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/Object;)V
     .locals 2
-    .param p1, "value"    # Ljava/lang/Object;
 
     .line 83
     sget-object v0, Lio/reactivex/internal/disposables/DisposableHelper;->DISPOSED:Lio/reactivex/internal/disposables/DisposableHelper;
@@ -190,14 +180,13 @@
 
     invoke-static {p1, v1}, Lio/reactivex/internal/functions/ObjectHelper;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Lio/reactivex/SingleObserver;->onSuccess(Ljava/lang/Object;)V
+    invoke-interface {v0, p1}, Lio/reactivex/SingleObserver;->onSuccess(Ljava/lang/Object;)V
 
-    .line 85
     return-void
 .end method

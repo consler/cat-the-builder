@@ -35,7 +35,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/ImageAnalysisNonBlockingAnalyzer;Landroidx/camera/core/ImageAnalysisNonBlockingAnalyzer$CacheAnalyzingImageProxy;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/core/ImageAnalysisNonBlockingAnalyzer;
 
     .line 138
     iput-object p1, p0, Landroidx/camera/core/ImageAnalysisNonBlockingAnalyzer$1;->this$0:Landroidx/camera/core/ImageAnalysisNonBlockingAnalyzer;
@@ -50,15 +49,13 @@
 
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
-    .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
+    .locals 0
 
     .line 147
-    iget-object v0, p0, Landroidx/camera/core/ImageAnalysisNonBlockingAnalyzer$1;->val$newPostedImage:Landroidx/camera/core/ImageAnalysisNonBlockingAnalyzer$CacheAnalyzingImageProxy;
+    iget-object p1, p0, Landroidx/camera/core/ImageAnalysisNonBlockingAnalyzer$1;->val$newPostedImage:Landroidx/camera/core/ImageAnalysisNonBlockingAnalyzer$CacheAnalyzingImageProxy;
 
-    invoke-virtual {v0}, Landroidx/camera/core/ImageAnalysisNonBlockingAnalyzer$CacheAnalyzingImageProxy;->close()V
+    invoke-virtual {p1}, Landroidx/camera/core/ImageAnalysisNonBlockingAnalyzer$CacheAnalyzingImageProxy;->close()V
 
-    .line 148
     return-void
 .end method
 
@@ -75,8 +72,6 @@
 
 .method public onSuccess(Ljava/lang/Void;)V
     .locals 0
-    .param p1, "result"    # Ljava/lang/Void;
 
-    .line 142
     return-void
 .end method

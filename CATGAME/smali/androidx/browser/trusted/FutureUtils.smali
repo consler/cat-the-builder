@@ -15,7 +15,6 @@
 
 .method static immediateFailedFuture(Ljava/lang/Throwable;)Lcom/google/common/util/concurrent/ListenableFuture;
     .locals 1
-    .param p0, "cause"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -34,9 +33,7 @@
     move-result-object v0
 
     .line 31
-    .local v0, "future":Landroidx/concurrent/futures/ResolvableFuture;, "Landroidx/concurrent/futures/ResolvableFuture<TT;>;"
     invoke-virtual {v0, p0}, Landroidx/concurrent/futures/ResolvableFuture;->setException(Ljava/lang/Throwable;)Z
 
-    .line 32
     return-object v0
 .end method

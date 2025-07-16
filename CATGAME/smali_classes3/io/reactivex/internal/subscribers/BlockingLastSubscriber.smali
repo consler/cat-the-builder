@@ -20,7 +20,6 @@
     .locals 0
 
     .line 21
-    .local p0, "this":Lio/reactivex/internal/subscribers/BlockingLastSubscriber;, "Lio/reactivex/internal/subscribers/BlockingLastSubscriber<TT;>;"
     invoke-direct {p0}, Lio/reactivex/internal/subscribers/BlockingBaseSubscriber;-><init>()V
 
     return-void
@@ -30,12 +29,10 @@
 # virtual methods
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
-    .line 30
-    .local p0, "this":Lio/reactivex/internal/subscribers/BlockingLastSubscriber;, "Lio/reactivex/internal/subscribers/BlockingLastSubscriber<TT;>;"
     const/4 v0, 0x0
 
+    .line 30
     iput-object v0, p0, Lio/reactivex/internal/subscribers/BlockingLastSubscriber;->value:Ljava/lang/Object;
 
     .line 31
@@ -44,7 +41,6 @@
     .line 32
     invoke-virtual {p0}, Lio/reactivex/internal/subscribers/BlockingLastSubscriber;->countDown()V
 
-    .line 33
     return-void
 .end method
 
@@ -57,10 +53,7 @@
     .end annotation
 
     .line 25
-    .local p0, "this":Lio/reactivex/internal/subscribers/BlockingLastSubscriber;, "Lio/reactivex/internal/subscribers/BlockingLastSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iput-object p1, p0, Lio/reactivex/internal/subscribers/BlockingLastSubscriber;->value:Ljava/lang/Object;
 
-    .line 26
     return-void
 .end method

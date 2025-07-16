@@ -13,18 +13,15 @@
     .line 48
     invoke-direct {p0}, Lorg/apache/commons/collections/map/AbstractMapDecorator;-><init>()V
 
-    .line 49
     return-void
 .end method
 
 .method public constructor <init>(Lorg/apache/commons/collections/OrderedMap;)V
     .locals 0
-    .param p1, "map"    # Lorg/apache/commons/collections/OrderedMap;
 
     .line 58
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/map/AbstractMapDecorator;-><init>(Ljava/util/Map;)V
 
-    .line 59
     return-void
 .end method
 
@@ -88,7 +85,6 @@
 
 .method public nextKey(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 80
     invoke-virtual {p0}, Lorg/apache/commons/collections/map/AbstractOrderedMapDecorator;->getOrderedMap()Lorg/apache/commons/collections/OrderedMap;
@@ -97,9 +93,9 @@
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections/OrderedMap;->nextKey(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public orderedMapIterator()Lorg/apache/commons/collections/OrderedMapIterator;
@@ -119,7 +115,6 @@
 
 .method public previousKey(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 84
     invoke-virtual {p0}, Lorg/apache/commons/collections/map/AbstractOrderedMapDecorator;->getOrderedMap()Lorg/apache/commons/collections/OrderedMap;
@@ -128,7 +123,7 @@
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections/OrderedMap;->previousKey(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

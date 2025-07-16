@@ -22,11 +22,6 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u0000B\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0004\n\u0002\u0018\u0002\n\u0002\u0008\u0005\n\u0002\u0018\u0002\n\u0002\u0008\u0007\n\u0002\u0010\u0002\n\u0002\u0008\u0005\n\u0002\u0018\u0002\n\u0002\u0008\u0002\u0008\u0003\u0018\u0000*\u0004\u0008\u0000\u0010\u0001*\u0004\u0008\u0001\u0010\u00022\u000e\u0012\u0004\u0012\u0002H\u0001\u0012\u0004\u0012\u0002H\u00020\u00032\u0008\u0012\u0004\u0012\u0002H\u00020\u0004BK\u00129\u0010\u0005\u001a5\u0008\u0001\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010\u0003\u0012\u0004\u0012\u00028\u0000\u0012\n\u0012\u0008\u0012\u0004\u0012\u00028\u00010\u0004\u0012\u0006\u0012\u0004\u0018\u00010\u00070\u0006\u00a2\u0006\u0002\u0008\u0008\u0012\u0006\u0010\t\u001a\u00028\u0000\u00f8\u0001\u0000\u00a2\u0006\u0002\u0010\nJ\u0019\u0010\u0015\u001a\u00028\u00012\u0006\u0010\t\u001a\u00028\u0000H\u0096@\u00f8\u0001\u0000\u00a2\u0006\u0002\u0010\u0016Jc\u0010\u0017\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00070\u000429\u0010\u0018\u001a5\u0008\u0001\u0012\u000c\u0012\n\u0012\u0002\u0008\u0003\u0012\u0002\u0008\u00030\u0003\u0012\u0006\u0012\u0004\u0018\u00010\u0007\u0012\u000c\u0012\n\u0012\u0006\u0012\u0004\u0018\u00010\u00070\u0004\u0012\u0006\u0012\u0004\u0018\u00010\u00070\u0006\u00a2\u0006\u0002\u0008\u00082\u000e\u0010\u000b\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00070\u0004H\u0002\u00f8\u0001\u0000\u00a2\u0006\u0002\u0010\u0019J\u001e\u0010\u001a\u001a\u00020\u001b2\u000c\u0010\u0012\u001a\u0008\u0012\u0004\u0012\u00028\u00010\u0013H\u0016\u00f8\u0001\u0000\u00a2\u0006\u0002\u0010\u001cJ\u000b\u0010\u001d\u001a\u00028\u0001\u00a2\u0006\u0002\u0010\u001eJ5\u0010\u0015\u001a\u0002H\u001f\"\u0004\u0008\u0002\u0010 \"\u0004\u0008\u0003\u0010\u001f*\u000e\u0012\u0004\u0012\u0002H \u0012\u0004\u0012\u0002H\u001f0!2\u0006\u0010\t\u001a\u0002H H\u0096@\u00f8\u0001\u0000\u00a2\u0006\u0002\u0010\"R\u0018\u0010\u000b\u001a\u000c\u0012\u0006\u0012\u0004\u0018\u00010\u0007\u0018\u00010\u0004X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u0014\u0010\u000c\u001a\u00020\r8VX\u0096\u0004\u00a2\u0006\u0006\u001a\u0004\u0008\u000e\u0010\u000fRF\u0010\u0010\u001a5\u0008\u0001\u0012\u000c\u0012\n\u0012\u0002\u0008\u0003\u0012\u0002\u0008\u00030\u0003\u0012\u0006\u0012\u0004\u0018\u00010\u0007\u0012\u000c\u0012\n\u0012\u0006\u0012\u0004\u0018\u00010\u00070\u0004\u0012\u0006\u0012\u0004\u0018\u00010\u00070\u0006\u00a2\u0006\u0002\u0008\u0008X\u0082\u000e\u00f8\u0001\u0000\u00a2\u0006\u0004\n\u0002\u0010\u0011R\u001e\u0010\u0012\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00070\u0013X\u0082\u000e\u00f8\u0001\u0000\u00f8\u0001\u0001\u00a2\u0006\u0004\n\u0002\u0010\u0014R\u0010\u0010\t\u001a\u0004\u0018\u00010\u0007X\u0082\u000e\u00a2\u0006\u0002\n\u0000\u0082\u0002\u0008\n\u0002\u0008\u0019\n\u0002\u0008!\u00a8\u0006#"
     }
@@ -71,9 +66,10 @@
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x1
+        0x6,
+        0x0
     }
+    xi = 0x30
 .end annotation
 
 
@@ -114,8 +110,6 @@
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function3;Ljava/lang/Object;)V
     .locals 1
-    .param p1, "block"    # Lkotlin/jvm/functions/Function3;
-    .param p2, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -134,71 +128,36 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 131
-    nop
-
-    .line 134
     const/4 v0, 0x0
 
+    .line 136
     invoke-direct {p0, v0}, Lkotlin/DeepRecursiveScope;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 
-    .line 136
+    .line 138
     iput-object p1, p0, Lkotlin/DeepRecursiveScopeImpl;->function:Lkotlin/jvm/functions/Function3;
 
-    .line 139
+    .line 141
     iput-object p2, p0, Lkotlin/DeepRecursiveScopeImpl;->value:Ljava/lang/Object;
 
-    .line 142
-    move-object v0, p0
+    .line 144
+    move-object p1, p0
 
-    check-cast v0, Lkotlin/coroutines/Continuation;
+    check-cast p1, Lkotlin/coroutines/Continuation;
 
-    iput-object v0, p0, Lkotlin/DeepRecursiveScopeImpl;->cont:Lkotlin/coroutines/Continuation;
+    iput-object p1, p0, Lkotlin/DeepRecursiveScopeImpl;->cont:Lkotlin/coroutines/Continuation;
 
-    .line 145
+    .line 147
     invoke-static {}, Lkotlin/DeepRecursiveKt;->access$getUNDEFINED_RESULT$p()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lkotlin/DeepRecursiveScopeImpl;->result:Ljava/lang/Object;
+    iput-object p1, p0, Lkotlin/DeepRecursiveScopeImpl;->result:Ljava/lang/Object;
 
     return-void
 .end method
 
-.method public static final synthetic access$getCont$p(Lkotlin/DeepRecursiveScopeImpl;)Lkotlin/coroutines/Continuation;
-    .locals 1
-    .param p0, "$this"    # Lkotlin/DeepRecursiveScopeImpl;
-
-    .line 131
-    iget-object v0, p0, Lkotlin/DeepRecursiveScopeImpl;->cont:Lkotlin/coroutines/Continuation;
-
-    return-object v0
-.end method
-
-.method public static final synthetic access$getFunction$p(Lkotlin/DeepRecursiveScopeImpl;)Lkotlin/jvm/functions/Function3;
-    .locals 1
-    .param p0, "$this"    # Lkotlin/DeepRecursiveScopeImpl;
-
-    .line 131
-    iget-object v0, p0, Lkotlin/DeepRecursiveScopeImpl;->function:Lkotlin/jvm/functions/Function3;
-
-    return-object v0
-.end method
-
-.method public static final synthetic access$getResult$p-d1pmJ48(Lkotlin/DeepRecursiveScopeImpl;)Ljava/lang/Object;
-    .locals 1
-    .param p0, "$this"    # Lkotlin/DeepRecursiveScopeImpl;
-
-    .line 131
-    iget-object v0, p0, Lkotlin/DeepRecursiveScopeImpl;->result:Ljava/lang/Object;
-
-    return-object v0
-.end method
-
 .method public static final synthetic access$setCont$p(Lkotlin/DeepRecursiveScopeImpl;Lkotlin/coroutines/Continuation;)V
     .locals 0
-    .param p0, "$this"    # Lkotlin/DeepRecursiveScopeImpl;
-    .param p1, "<set-?>"    # Lkotlin/coroutines/Continuation;
 
     .line 131
     iput-object p1, p0, Lkotlin/DeepRecursiveScopeImpl;->cont:Lkotlin/coroutines/Continuation;
@@ -208,8 +167,6 @@
 
 .method public static final synthetic access$setFunction$p(Lkotlin/DeepRecursiveScopeImpl;Lkotlin/jvm/functions/Function3;)V
     .locals 0
-    .param p0, "$this"    # Lkotlin/DeepRecursiveScopeImpl;
-    .param p1, "<set-?>"    # Lkotlin/jvm/functions/Function3;
 
     .line 131
     iput-object p1, p0, Lkotlin/DeepRecursiveScopeImpl;->function:Lkotlin/jvm/functions/Function3;
@@ -219,8 +176,6 @@
 
 .method public static final synthetic access$setResult$p(Lkotlin/DeepRecursiveScopeImpl;Ljava/lang/Object;)V
     .locals 0
-    .param p0, "$this"    # Lkotlin/DeepRecursiveScopeImpl;
-    .param p1, "<set-?>"    # Ljava/lang/Object;
 
     .line 131
     iput-object p1, p0, Lkotlin/DeepRecursiveScopeImpl;->result:Ljava/lang/Object;
@@ -230,8 +185,6 @@
 
 .method private final crossFunctionCompletion(Lkotlin/jvm/functions/Function3;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
     .locals 2
-    .param p1, "currentFunction"    # Lkotlin/jvm/functions/Function3;
-    .param p2, "cont"    # Lkotlin/coroutines/Continuation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -255,7 +208,7 @@
         }
     .end annotation
 
-    .line 183
+    .line 185
     sget-object v0, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
 
     check-cast v0, Lkotlin/coroutines/CoroutineContext;
@@ -266,16 +219,13 @@
 
     check-cast v1, Lkotlin/coroutines/Continuation;
 
-    .line 189
     return-object v1
 .end method
 
 
 # virtual methods
 .method public callRecursive(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 4
-    .param p1, "value"    # Ljava/lang/Object;
-    .param p2, "$completion"    # Lkotlin/coroutines/Continuation;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;",
@@ -285,59 +235,32 @@
         }
     .end annotation
 
-    .line 155
-    move-object v0, p2
+    .line 159
+    iput-object p2, p0, Lkotlin/DeepRecursiveScopeImpl;->cont:Lkotlin/coroutines/Continuation;
 
-    .local v0, "cont":Lkotlin/coroutines/Continuation;
-    const/4 v1, 0x0
-
-    .line 157
-    .local v1, "$i$a$-suspendCoroutineUninterceptedOrReturn-DeepRecursiveScopeImpl$callRecursive$2":I
-    if-eqz v0, :cond_1
-
-    iput-object v0, p0, Lkotlin/DeepRecursiveScopeImpl;->cont:Lkotlin/coroutines/Continuation;
-
-    .line 158
+    .line 160
     iput-object p1, p0, Lkotlin/DeepRecursiveScopeImpl;->value:Ljava/lang/Object;
 
-    .line 159
+    .line 161
+    invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
+
+    move-result-object p1
+
+    .line 157
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 155
-    .end local v0    # "cont":Lkotlin/coroutines/Continuation;
-    .end local v1    # "$i$a$-suspendCoroutineUninterceptedOrReturn-DeepRecursiveScopeImpl$callRecursive$2":I
-    invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
-
-    move-result-object v1
-
-    if-ne v0, v1, :cond_0
+    if-ne p1, v0, :cond_0
 
     invoke-static {p2}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    .line 160
     :cond_0
-    return-object v0
-
-    .line 157
-    .restart local v0    # "cont":Lkotlin/coroutines/Continuation;
-    .restart local v1    # "$i$a$-suspendCoroutineUninterceptedOrReturn-DeepRecursiveScopeImpl$callRecursive$2":I
-    :cond_1
-    new-instance v2, Ljava/lang/NullPointerException;
-
-    const-string v3, "null cannot be cast to non-null type kotlin.coroutines.Continuation<kotlin.Any?>"
-
-    invoke-direct {v2, v3}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw v2
+    return-object p1
 .end method
 
 .method public callRecursive(Lkotlin/DeepRecursiveFunction;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 8
-    .param p1, "$this$callRecursive"    # Lkotlin/DeepRecursiveFunction;
-    .param p2, "value"    # Ljava/lang/Object;
-    .param p3, "$completion"    # Lkotlin/coroutines/Continuation;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<U:",
@@ -353,136 +276,63 @@
         }
     .end annotation
 
-    .line 162
-    move-object v0, p3
-
-    .local v0, "cont":Lkotlin/coroutines/Continuation;
-    const/4 v1, 0x0
-
-    .line 164
-    .local v1, "$i$a$-suspendCoroutineUninterceptedOrReturn-DeepRecursiveScopeImpl$callRecursive$4":I
+    .line 166
     invoke-virtual {p1}, Lkotlin/DeepRecursiveFunction;->getBlock$kotlin_stdlib()Lkotlin/jvm/functions/Function3;
 
-    move-result-object v2
-
-    if-eqz v2, :cond_4
-
-    .line 165
-    .local v2, "function":Lkotlin/jvm/functions/Function3;
-    move-object v3, p0
-
-    check-cast v3, Lkotlin/DeepRecursiveScopeImpl;
-
-    .local v3, "$this$with":Lkotlin/DeepRecursiveScopeImpl;
-    const/4 v4, 0x0
-
-    .line 166
-    .local v4, "$i$a$-with-DeepRecursiveScopeImpl$callRecursive$4$1":I
-    iget-object v5, v3, Lkotlin/DeepRecursiveScopeImpl;->function:Lkotlin/jvm/functions/Function3;
+    move-result-object p1
 
     .line 167
-    .local v5, "currentFunction":Lkotlin/jvm/functions/Function3;
-    const-string v6, "null cannot be cast to non-null type kotlin.coroutines.Continuation<kotlin.Any?>"
+    move-object v0, p0
 
-    if-eq v2, v5, :cond_1
+    check-cast v0, Lkotlin/DeepRecursiveScopeImpl;
 
-    .line 169
-    iput-object v2, v3, Lkotlin/DeepRecursiveScopeImpl;->function:Lkotlin/jvm/functions/Function3;
+    .line 168
+    iget-object v0, p0, Lkotlin/DeepRecursiveScopeImpl;->function:Lkotlin/jvm/functions/Function3;
 
-    .line 170
-    if-eqz v0, :cond_0
+    if-eq p1, v0, :cond_0
 
-    invoke-direct {v3, v5, v0}, Lkotlin/DeepRecursiveScopeImpl;->crossFunctionCompletion(Lkotlin/jvm/functions/Function3;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
+    .line 171
+    iput-object p1, p0, Lkotlin/DeepRecursiveScopeImpl;->function:Lkotlin/jvm/functions/Function3;
 
-    move-result-object v6
+    .line 172
+    invoke-direct {p0, v0, p3}, Lkotlin/DeepRecursiveScopeImpl;->crossFunctionCompletion(Lkotlin/jvm/functions/Function3;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
 
-    iput-object v6, v3, Lkotlin/DeepRecursiveScopeImpl;->cont:Lkotlin/coroutines/Continuation;
+    move-result-object p1
+
+    iput-object p1, p0, Lkotlin/DeepRecursiveScopeImpl;->cont:Lkotlin/coroutines/Continuation;
 
     goto :goto_0
 
-    :cond_0
-    new-instance v7, Ljava/lang/NullPointerException;
-
-    invoke-direct {v7, v6}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw v7
-
-    .line 173
-    :cond_1
-    if-eqz v0, :cond_3
-
-    iput-object v0, v3, Lkotlin/DeepRecursiveScopeImpl;->cont:Lkotlin/coroutines/Continuation;
-
-    .line 174
-    :goto_0
-    nop
-
     .line 175
-    iput-object p2, v3, Lkotlin/DeepRecursiveScopeImpl;->value:Ljava/lang/Object;
-
-    .line 176
-    .end local v5    # "currentFunction":Lkotlin/jvm/functions/Function3;
-    nop
-
-    .line 165
-    .end local v3    # "$this$with":Lkotlin/DeepRecursiveScopeImpl;
-    .end local v4    # "$i$a$-with-DeepRecursiveScopeImpl$callRecursive$4$1":I
-    nop
+    :cond_0
+    iput-object p3, p0, Lkotlin/DeepRecursiveScopeImpl;->cont:Lkotlin/coroutines/Continuation;
 
     .line 177
+    :goto_0
+    iput-object p2, p0, Lkotlin/DeepRecursiveScopeImpl;->value:Ljava/lang/Object;
+
+    .line 179
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 162
-    .end local v0    # "cont":Lkotlin/coroutines/Continuation;
-    .end local v1    # "$i$a$-suspendCoroutineUninterceptedOrReturn-DeepRecursiveScopeImpl$callRecursive$4":I
-    .end local v2    # "function":Lkotlin/jvm/functions/Function3;
+    .line 164
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p2
 
-    if-ne v0, v1, :cond_2
+    if-ne p1, p2, :cond_1
 
     invoke-static {p3}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    .line 178
-    :cond_2
-    return-object v0
-
-    .line 173
-    .restart local v0    # "cont":Lkotlin/coroutines/Continuation;
-    .restart local v1    # "$i$a$-suspendCoroutineUninterceptedOrReturn-DeepRecursiveScopeImpl$callRecursive$4":I
-    .restart local v2    # "function":Lkotlin/jvm/functions/Function3;
-    .restart local v3    # "$this$with":Lkotlin/DeepRecursiveScopeImpl;
-    .restart local v4    # "$i$a$-with-DeepRecursiveScopeImpl$callRecursive$4$1":I
-    .restart local v5    # "currentFunction":Lkotlin/jvm/functions/Function3;
-    :cond_3
-    new-instance v7, Ljava/lang/NullPointerException;
-
-    invoke-direct {v7, v6}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw v7
-
-    .line 164
-    .end local v2    # "function":Lkotlin/jvm/functions/Function3;
-    .end local v3    # "$this$with":Lkotlin/DeepRecursiveScopeImpl;
-    .end local v4    # "$i$a$-with-DeepRecursiveScopeImpl$callRecursive$4$1":I
-    .end local v5    # "currentFunction":Lkotlin/jvm/functions/Function3;
-    :cond_4
-    new-instance v2, Ljava/lang/NullPointerException;
-
-    const-string v3, "null cannot be cast to non-null type kotlin.DeepRecursiveFunctionBlock /* = suspend kotlin.DeepRecursiveScope<*, *>.(kotlin.Any?) -> kotlin.Any? */"
-
-    invoke-direct {v2, v3}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw v2
+    :cond_1
+    return-object p1
 .end method
 
 .method public getContext()Lkotlin/coroutines/CoroutineContext;
     .locals 1
 
-    .line 148
+    .line 150
     sget-object v0, Lkotlin/coroutines/EmptyCoroutineContext;->INSTANCE:Lkotlin/coroutines/EmptyCoroutineContext;
 
     check-cast v0, Lkotlin/coroutines/CoroutineContext;
@@ -492,45 +342,43 @@
 
 .method public resumeWith(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "result"    # Ljava/lang/Object;
 
-    .line 151
     const/4 v0, 0x0
 
-    check-cast v0, Lkotlin/coroutines/Continuation;
-
+    .line 153
     iput-object v0, p0, Lkotlin/DeepRecursiveScopeImpl;->cont:Lkotlin/coroutines/Continuation;
 
-    .line 152
+    .line 154
     iput-object p1, p0, Lkotlin/DeepRecursiveScopeImpl;->result:Ljava/lang/Object;
 
-    .line 153
     return-void
 .end method
 
 .method public final runCallLoop()Ljava/lang/Object;
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TR;"
         }
     .end annotation
 
-    .line 193
+    .line 197
+    :cond_0
     :goto_0
-    nop
-
-    .line 195
     iget-object v0, p0, Lkotlin/DeepRecursiveScopeImpl;->result:Ljava/lang/Object;
 
-    .line 196
-    .local v0, "result":Ljava/lang/Object;
+    .line 198
     iget-object v1, p0, Lkotlin/DeepRecursiveScopeImpl;->cont:Lkotlin/coroutines/Continuation;
 
-    if-eqz v1, :cond_3
+    if-nez v1, :cond_1
 
     .line 199
-    .local v1, "cont":Lkotlin/coroutines/Continuation;
+    invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
+
+    return-object v0
+
+    .line 201
+    :cond_1
     invoke-static {}, Lkotlin/DeepRecursiveKt;->access$getUNDEFINED_RESULT$p()Ljava/lang/Object;
 
     move-result-object v2
@@ -539,120 +387,74 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
-    .line 201
-    nop
-
-    .line 203
+    .line 205
     :try_start_0
-    iget-object v2, p0, Lkotlin/DeepRecursiveScopeImpl;->function:Lkotlin/jvm/functions/Function3;
+    iget-object v0, p0, Lkotlin/DeepRecursiveScopeImpl;->function:Lkotlin/jvm/functions/Function3;
 
-    iget-object v3, p0, Lkotlin/DeepRecursiveScopeImpl;->value:Ljava/lang/Object;
+    iget-object v2, p0, Lkotlin/DeepRecursiveScopeImpl;->value:Ljava/lang/Object;
 
-    if-eqz v2, :cond_0
+    const/4 v3, 0x3
 
-    const/4 v4, 0x3
+    invoke-static {v0, v3}, Lkotlin/jvm/internal/TypeIntrinsics;->beforeCheckcastToFunctionOfArity(Ljava/lang/Object;I)Ljava/lang/Object;
 
-    invoke-static {v2, v4}, Lkotlin/jvm/internal/TypeIntrinsics;->beforeCheckcastToFunctionOfArity(Ljava/lang/Object;I)Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object v2
+    check-cast v0, Lkotlin/jvm/functions/Function3;
 
-    check-cast v2, Lkotlin/jvm/functions/Function3;
+    invoke-interface {v0, p0, v2, v1}, Lkotlin/jvm/functions/Function3;->invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v2, p0, v3, v1}, Lkotlin/jvm/functions/Function3;->invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
+    move-result-object v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 201
-    nop
-
-    .line 209
-    .local v2, "r":Ljava/lang/Object;
+    .line 211
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-eq v2, v3, :cond_2
+    if-eq v0, v2, :cond_0
 
-    .line 210
-    sget-object v3, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+    .line 212
+    sget-object v2, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
 
-    invoke-static {v2}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-interface {v1, v3}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
+    invoke-interface {v1, v0}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
-    .end local v2    # "r":Ljava/lang/Object;
-    goto :goto_1
-
-    .line 203
-    :cond_0
-    :try_start_1
-    new-instance v2, Ljava/lang/NullPointerException;
-
-    const-string v3, "null cannot be cast to non-null type (R, P, kotlin.coroutines.Continuation<T>) -> kotlin.Any?"
-
-    invoke-direct {v2, v3}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    .end local v0    # "result":Ljava/lang/Object;
-    .end local v1    # "cont":Lkotlin/coroutines/Continuation;
-    throw v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    .line 204
-    .restart local v0    # "result":Ljava/lang/Object;
-    .restart local v1    # "cont":Lkotlin/coroutines/Continuation;
-    :catchall_0
-    move-exception v2
-
-    .line 205
-    .local v2, "e":Ljava/lang/Throwable;
-    sget-object v3, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
-
-    invoke-static {v2}, Lkotlin/ResultKt;->createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    invoke-static {v3}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    invoke-interface {v1, v3}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
-
-    .line 206
     goto :goto_0
 
-    .line 213
-    .end local v2    # "e":Ljava/lang/Throwable;
-    :cond_1
+    :catchall_0
+    move-exception v0
+
+    .line 207
+    sget-object v2, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+
+    invoke-static {v0}, Lkotlin/ResultKt;->createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    invoke-interface {v1, v0}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
+
+    goto :goto_0
+
+    .line 215
+    :cond_2
     invoke-static {}, Lkotlin/DeepRecursiveKt;->access$getUNDEFINED_RESULT$p()Ljava/lang/Object;
 
     move-result-object v2
 
     iput-object v2, p0, Lkotlin/DeepRecursiveScopeImpl;->result:Ljava/lang/Object;
 
-    .line 214
+    .line 216
     invoke-interface {v1, v0}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
 
-    .line 215
-    .end local v0    # "result":Ljava/lang/Object;
-    .end local v1    # "cont":Lkotlin/coroutines/Continuation;
-    :cond_2
-    :goto_1
-    nop
-
-    .line 193
     goto :goto_0
-
-    .line 197
-    .restart local v0    # "result":Ljava/lang/Object;
-    :cond_3
-    invoke-static {v0}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-
-    return-object v0
 .end method

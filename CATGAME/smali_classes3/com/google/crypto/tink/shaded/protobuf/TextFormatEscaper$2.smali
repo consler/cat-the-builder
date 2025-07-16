@@ -37,14 +37,13 @@
 # virtual methods
 .method public byteAt(I)B
     .locals 1
-    .param p1, "offset"    # I
 
     .line 134
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/TextFormatEscaper$2;->val$input:[B
 
-    aget-byte v0, v0, p1
+    aget-byte p1, v0, p1
 
-    return v0
+    return p1
 .end method
 
 .method public size()I

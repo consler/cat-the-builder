@@ -48,15 +48,11 @@
     .end annotation
 
     .line 26
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableAny;, "Lio/reactivex/internal/operators/flowable/FlowableAny<TT;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p2, "predicate":Lio/reactivex/functions/Predicate;, "Lio/reactivex/functions/Predicate<-TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
     .line 27
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableAny;->predicate:Lio/reactivex/functions/Predicate;
 
-    .line 28
     return-void
 .end method
 
@@ -75,8 +71,6 @@
     .end annotation
 
     .line 32
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableAny;, "Lio/reactivex/internal/operators/flowable/FlowableAny<TT;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-Ljava/lang/Boolean;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableAny;->source:Lio/reactivex/Flowable;
 
     new-instance v1, Lio/reactivex/internal/operators/flowable/FlowableAny$AnySubscriber;
@@ -87,6 +81,5 @@
 
     invoke-virtual {v0, v1}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 33
     return-void
 .end method

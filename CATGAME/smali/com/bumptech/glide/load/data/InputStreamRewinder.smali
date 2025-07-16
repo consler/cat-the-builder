@@ -33,9 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;)V
-    .locals 2
-    .param p1, "is"    # Ljava/io/InputStream;
-    .param p2, "byteArrayPool"    # Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;
+    .locals 1
 
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,12 +45,11 @@
 
     iput-object v0, p0, Lcom/bumptech/glide/load/data/InputStreamRewinder;->bufferedStream:Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;
 
+    const/high16 p1, 0x500000
+
     .line 25
-    const/high16 v1, 0x500000
+    invoke-virtual {v0, p1}, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;->mark(I)V
 
-    invoke-virtual {v0, v1}, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;->mark(I)V
-
-    .line 26
     return-void
 .end method
 
@@ -66,7 +63,6 @@
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;->release()V
 
-    .line 38
     return-void
 .end method
 
@@ -78,7 +74,6 @@
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;->fixMarkLimit()V
 
-    .line 42
     return-void
 .end method
 

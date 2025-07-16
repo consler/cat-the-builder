@@ -14,13 +14,11 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Collection;)V
-    .locals 2
-    .param p1, "coll"    # Ljava/util/Collection;
+    .locals 1
 
     .line 57
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 58
     if-eqz p1, :cond_0
 
     .line 61
@@ -29,18 +27,17 @@
     .line 62
     invoke-virtual {p0}, Lorg/apache/commons/collections/iterators/LoopingIterator;->reset()V
 
-    .line 63
     return-void
 
     .line 59
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "The collection must not be null"
+    const-string v0, "The collection must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -121,7 +118,6 @@
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 109
     return-void
 .end method
 
@@ -137,7 +133,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/iterators/LoopingIterator;->iterator:Ljava/util/Iterator;
 
-    .line 116
     return-void
 .end method
 

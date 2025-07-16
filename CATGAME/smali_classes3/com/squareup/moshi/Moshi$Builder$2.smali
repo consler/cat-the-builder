@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/squareup/moshi/Moshi$Builder;Ljava/lang/reflect/Type;Ljava/lang/Class;Lcom/squareup/moshi/JsonAdapter;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/squareup/moshi/Moshi$Builder;
 
     .line 216
     iput-object p1, p0, Lcom/squareup/moshi/Moshi$Builder$2;->this$0:Lcom/squareup/moshi/Moshi$Builder;
@@ -49,9 +48,7 @@
 
 # virtual methods
 .method public create(Ljava/lang/reflect/Type;Ljava/util/Set;Lcom/squareup/moshi/Moshi;)Lcom/squareup/moshi/JsonAdapter;
-    .locals 2
-    .param p1, "targetType"    # Ljava/lang/reflect/Type;
-    .param p3, "moshi"    # Lcom/squareup/moshi/Moshi;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,41 +68,39 @@
     .end annotation
 
     .line 219
-    .local p2, "annotations":Ljava/util/Set;, "Ljava/util/Set<+Ljava/lang/annotation/Annotation;>;"
-    iget-object v0, p0, Lcom/squareup/moshi/Moshi$Builder$2;->val$type:Ljava/lang/reflect/Type;
+    iget-object p3, p0, Lcom/squareup/moshi/Moshi$Builder$2;->val$type:Ljava/lang/reflect/Type;
 
-    invoke-static {v0, p1}, Lcom/squareup/moshi/internal/Util;->typesMatch(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Z
+    invoke-static {p3, p1}, Lcom/squareup/moshi/internal/Util;->typesMatch(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 220
     invoke-interface {p2}, Ljava/util/Set;->size()I
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x1
+    const/4 p3, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne p1, p3, :cond_0
 
-    iget-object v0, p0, Lcom/squareup/moshi/Moshi$Builder$2;->val$annotation:Ljava/lang/Class;
+    iget-object p1, p0, Lcom/squareup/moshi/Moshi$Builder$2;->val$annotation:Ljava/lang/Class;
 
     .line 221
-    invoke-static {p2, v0}, Lcom/squareup/moshi/internal/Util;->isAnnotationPresent(Ljava/util/Set;Ljava/lang/Class;)Z
+    invoke-static {p2, p1}, Lcom/squareup/moshi/internal/Util;->isAnnotationPresent(Ljava/util/Set;Ljava/lang/Class;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 222
-    iget-object v0, p0, Lcom/squareup/moshi/Moshi$Builder$2;->val$jsonAdapter:Lcom/squareup/moshi/JsonAdapter;
+    iget-object p1, p0, Lcom/squareup/moshi/Moshi$Builder$2;->val$jsonAdapter:Lcom/squareup/moshi/JsonAdapter;
 
-    return-object v0
+    return-object p1
 
-    .line 224
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method

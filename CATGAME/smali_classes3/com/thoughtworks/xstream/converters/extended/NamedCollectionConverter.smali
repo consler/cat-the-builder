@@ -16,25 +16,17 @@
 # direct methods
 .method public constructor <init>(Lcom/thoughtworks/xstream/mapper/Mapper;Ljava/lang/String;Ljava/lang/Class;)V
     .locals 1
-    .param p1, "mapper"    # Lcom/thoughtworks/xstream/mapper/Mapper;
-    .param p2, "itemName"    # Ljava/lang/String;
-    .param p3, "itemType"    # Ljava/lang/Class;
 
-    .line 47
     const/4 v0, 0x0
 
+    .line 47
     invoke-direct {p0, v0, p1, p2, p3}, Lcom/thoughtworks/xstream/converters/extended/NamedCollectionConverter;-><init>(Ljava/lang/Class;Lcom/thoughtworks/xstream/mapper/Mapper;Ljava/lang/String;Ljava/lang/Class;)V
 
-    .line 48
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;Lcom/thoughtworks/xstream/mapper/Mapper;Ljava/lang/String;Ljava/lang/Class;)V
     .locals 0
-    .param p1, "type"    # Ljava/lang/Class;
-    .param p2, "mapper"    # Lcom/thoughtworks/xstream/mapper/Mapper;
-    .param p3, "itemName"    # Ljava/lang/String;
-    .param p4, "itemType"    # Ljava/lang/Class;
 
     .line 60
     invoke-direct {p0, p2, p1}, Lcom/thoughtworks/xstream/converters/collections/CollectionConverter;-><init>(Lcom/thoughtworks/xstream/mapper/Mapper;Ljava/lang/Class;)V
@@ -45,45 +37,40 @@
     .line 62
     iput-object p4, p0, Lcom/thoughtworks/xstream/converters/extended/NamedCollectionConverter;->type:Ljava/lang/Class;
 
-    .line 63
     return-void
 .end method
 
 .method static synthetic class$(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 2
-    .param p0, "x0"    # Ljava/lang/String;
+    .locals 1
 
     .line 75
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/lang/NoClassDefFoundError;
+    new-instance v0, Ljava/lang/NoClassDefFoundError;
 
-    invoke-direct {v1}, Ljava/lang/NoClassDefFoundError;-><init>()V
+    invoke-direct {v0}, Ljava/lang/NoClassDefFoundError;-><init>()V
 
-    invoke-virtual {v1, v0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, p0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 .end method
 
 
 # virtual methods
 .method protected readBareItem(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
-    .param p1, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .param p2, "context"    # Lcom/thoughtworks/xstream/converters/UnmarshallingContext;
-    .param p3, "current"    # Ljava/lang/Object;
+    .locals 1
 
     .line 91
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/converters/extended/NamedCollectionConverter;->mapper()Lcom/thoughtworks/xstream/mapper/Mapper;
@@ -92,83 +79,73 @@
 
     invoke-static {p1, v0}, Lcom/thoughtworks/xstream/core/util/HierarchicalStreams;->readClassAttribute(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/mapper/Mapper;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
+
+    if-nez p1, :cond_0
 
     .line 92
-    .local v0, "className":Ljava/lang/String;
-    if-nez v0, :cond_0
-
-    iget-object v1, p0, Lcom/thoughtworks/xstream/converters/extended/NamedCollectionConverter;->type:Ljava/lang/Class;
+    iget-object p1, p0, Lcom/thoughtworks/xstream/converters/extended/NamedCollectionConverter;->type:Ljava/lang/Class;
 
     goto :goto_0
 
     :cond_0
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/converters/extended/NamedCollectionConverter;->mapper()Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1, v0}, Lcom/thoughtworks/xstream/mapper/Mapper;->realClass(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-interface {v0, p1}, Lcom/thoughtworks/xstream/mapper/Mapper;->realClass(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 93
-    .local v1, "itemType":Ljava/lang/Class;
     :goto_0
-    sget-object v2, Lcom/thoughtworks/xstream/converters/extended/NamedCollectionConverter;->class$com$thoughtworks$xstream$mapper$Mapper$Null:Ljava/lang/Class;
+    sget-object v0, Lcom/thoughtworks/xstream/converters/extended/NamedCollectionConverter;->class$com$thoughtworks$xstream$mapper$Mapper$Null:Ljava/lang/Class;
 
-    if-nez v2, :cond_1
+    if-nez v0, :cond_1
 
-    const-string v2, "com.thoughtworks.xstream.mapper.Mapper$Null"
+    const-string v0, "com.thoughtworks.xstream.mapper.Mapper$Null"
 
-    invoke-static {v2}, Lcom/thoughtworks/xstream/converters/extended/NamedCollectionConverter;->class$(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-static {v0}, Lcom/thoughtworks/xstream/converters/extended/NamedCollectionConverter;->class$(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object v0
 
-    sput-object v2, Lcom/thoughtworks/xstream/converters/extended/NamedCollectionConverter;->class$com$thoughtworks$xstream$mapper$Mapper$Null:Ljava/lang/Class;
+    sput-object v0, Lcom/thoughtworks/xstream/converters/extended/NamedCollectionConverter;->class$com$thoughtworks$xstream$mapper$Mapper$Null:Ljava/lang/Class;
 
     :cond_1
-    invoke-virtual {v2, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_2
+    if-eqz v0, :cond_2
 
-    .line 94
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
-    return-object v2
+    return-object p1
 
     .line 96
     :cond_2
-    invoke-interface {p2, p3, v1}, Lcom/thoughtworks/xstream/converters/UnmarshallingContext;->convertAnother(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-interface {p2, p3, p1}, Lcom/thoughtworks/xstream/converters/UnmarshallingContext;->convertAnother(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 .end method
 
 .method protected writeCompleteItem(Ljava/lang/Object;Lcom/thoughtworks/xstream/converters/MarshallingContext;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;)V
     .locals 0
-    .param p1, "item"    # Ljava/lang/Object;
-    .param p2, "context"    # Lcom/thoughtworks/xstream/converters/MarshallingContext;
-    .param p3, "writer"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
 
     .line 67
     invoke-virtual {p0, p1, p2, p3}, Lcom/thoughtworks/xstream/converters/extended/NamedCollectionConverter;->writeItem(Ljava/lang/Object;Lcom/thoughtworks/xstream/converters/MarshallingContext;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;)V
 
-    .line 68
     return-void
 .end method
 
 .method protected writeItem(Ljava/lang/Object;Lcom/thoughtworks/xstream/converters/MarshallingContext;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;)V
     .locals 3
-    .param p1, "item"    # Ljava/lang/Object;
-    .param p2, "context"    # Lcom/thoughtworks/xstream/converters/MarshallingContext;
-    .param p3, "writer"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
 
-    .line 75
     if-nez p1, :cond_0
 
+    .line 75
     sget-object v0, Lcom/thoughtworks/xstream/converters/extended/NamedCollectionConverter;->class$com$thoughtworks$xstream$mapper$Mapper$Null:Ljava/lang/Class;
 
     if-nez v0, :cond_1
@@ -189,7 +166,6 @@
     move-result-object v0
 
     .line 76
-    .local v0, "itemType":Ljava/lang/Class;
     :cond_1
     :goto_0
     iget-object v1, p0, Lcom/thoughtworks/xstream/converters/extended/NamedCollectionConverter;->name:Ljava/lang/String;
@@ -216,8 +192,6 @@
 
     move-result-object v1
 
-    .line 79
-    .local v1, "attributeName":Ljava/lang/String;
     if-eqz v1, :cond_2
 
     .line 80
@@ -227,12 +201,10 @@
 
     invoke-interface {v2, v0}, Lcom/thoughtworks/xstream/mapper/Mapper;->serializedClass(Ljava/lang/Class;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {p3, v1, v2}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->addAttribute(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-interface {p3, v1, v0}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->addAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 83
-    .end local v1    # "attributeName":Ljava/lang/String;
     :cond_2
     if-eqz p1, :cond_3
 
@@ -243,6 +215,5 @@
     :cond_3
     invoke-interface {p3}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->endNode()V
 
-    .line 87
     return-void
 .end method

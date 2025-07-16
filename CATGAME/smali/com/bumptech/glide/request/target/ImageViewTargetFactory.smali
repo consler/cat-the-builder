@@ -16,8 +16,7 @@
 
 # virtual methods
 .method public buildTarget(Landroid/widget/ImageView;Ljava/lang/Class;)Lcom/bumptech/glide/request/target/ViewTarget;
-    .locals 3
-    .param p1, "view"    # Landroid/widget/ImageView;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<Z:",
@@ -33,7 +32,6 @@
     .end annotation
 
     .line 17
-    .local p2, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<TZ;>;"
     const-class v0, Landroid/graphics/Bitmap;
 
     invoke-virtual {v0, p2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
@@ -43,11 +41,11 @@
     if-eqz v0, :cond_0
 
     .line 18
-    new-instance v0, Lcom/bumptech/glide/request/target/BitmapImageViewTarget;
+    new-instance p2, Lcom/bumptech/glide/request/target/BitmapImageViewTarget;
 
-    invoke-direct {v0, p1}, Lcom/bumptech/glide/request/target/BitmapImageViewTarget;-><init>(Landroid/widget/ImageView;)V
+    invoke-direct {p2, p1}, Lcom/bumptech/glide/request/target/BitmapImageViewTarget;-><init>(Landroid/widget/ImageView;)V
 
-    return-object v0
+    return-object p2
 
     .line 19
     :cond_0
@@ -60,35 +58,37 @@
     if-eqz v0, :cond_1
 
     .line 20
-    new-instance v0, Lcom/bumptech/glide/request/target/DrawableImageViewTarget;
+    new-instance p2, Lcom/bumptech/glide/request/target/DrawableImageViewTarget;
 
-    invoke-direct {v0, p1}, Lcom/bumptech/glide/request/target/DrawableImageViewTarget;-><init>(Landroid/widget/ImageView;)V
+    invoke-direct {p2, p1}, Lcom/bumptech/glide/request/target/DrawableImageViewTarget;-><init>(Landroid/widget/ImageView;)V
 
-    return-object v0
+    return-object p2
 
     .line 22
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Unhandled class: "
 
-    const-string v2, "Unhandled class: "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    const-string v2, ", try .as*(Class).transcode(ResourceTranscoder)"
+    const-string v0, ", try .as*(Class).transcode(ResourceTranscoder)"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p2
 
-    move-result-object v1
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p2
 
-    throw v0
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p1
 .end method

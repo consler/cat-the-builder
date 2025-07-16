@@ -46,28 +46,26 @@
     sput-object v0, Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;->IEEE_P1363:Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
 
     .line 66
-    new-instance v0, Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
+    new-instance v1, Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
 
-    const-string v1, "DER"
+    const-string v3, "DER"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;->DER:Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
+    sput-object v1, Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;->DER:Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
+
+    aput-object v0, v3, v2
+
+    aput-object v1, v3, v4
 
     .line 64
-    const/4 v1, 0x2
-
-    new-array v1, v1, [Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
-
-    sget-object v4, Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;->IEEE_P1363:Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
-
-    aput-object v4, v1, v2
-
-    aput-object v0, v1, v3
-
-    sput-object v1, Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;->$VALUES:[Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
+    sput-object v3, Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;->$VALUES:[Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
 
     return-void
 .end method
@@ -99,7 +97,6 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8000
@@ -114,11 +111,11 @@
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
+    check-cast p0, Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/google/crypto/tink/subtle/EllipticCurves$EcdsaEncoding;

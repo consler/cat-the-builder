@@ -33,9 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;I)V
-    .locals 10
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "color"    # I
+    .locals 5
 
     .line 53
     invoke-direct {p0, p1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
@@ -43,157 +41,130 @@
     .line 54
     invoke-virtual {p0}, Landroidx/swiperefreshlayout/widget/CircleImageView;->getContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {p1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget v0, v0, Landroid/util/DisplayMetrics;->density:F
+    iget p1, p1, Landroid/util/DisplayMetrics;->density:F
 
-    .line 55
-    .local v0, "density":F
-    const/high16 v1, 0x3fe00000    # 1.75f
+    const/high16 v0, 0x3fe00000    # 1.75f
 
-    mul-float/2addr v1, v0
+    mul-float/2addr v0, p1
+
+    float-to-int v0, v0
+
+    const/4 v1, 0x0
+
+    mul-float/2addr v1, p1
 
     float-to-int v1, v1
 
-    .line 56
-    .local v1, "shadowYOffset":I
-    const/4 v2, 0x0
+    const/high16 v2, 0x40600000    # 3.5f
 
-    mul-float/2addr v2, v0
+    mul-float/2addr v2, p1
 
     float-to-int v2, v2
 
     .line 58
-    .local v2, "shadowXOffset":I
-    const/high16 v3, 0x40600000    # 3.5f
-
-    mul-float/2addr v3, v0
-
-    float-to-int v3, v3
-
-    iput v3, p0, Landroidx/swiperefreshlayout/widget/CircleImageView;->mShadowRadius:I
+    iput v2, p0, Landroidx/swiperefreshlayout/widget/CircleImageView;->mShadowRadius:I
 
     .line 61
     invoke-direct {p0}, Landroidx/swiperefreshlayout/widget/CircleImageView;->elevationSupported()Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
     .line 62
-    new-instance v3, Landroid/graphics/drawable/ShapeDrawable;
+    new-instance v0, Landroid/graphics/drawable/ShapeDrawable;
 
-    new-instance v4, Landroid/graphics/drawable/shapes/OvalShape;
+    new-instance v1, Landroid/graphics/drawable/shapes/OvalShape;
 
-    invoke-direct {v4}, Landroid/graphics/drawable/shapes/OvalShape;-><init>()V
+    invoke-direct {v1}, Landroid/graphics/drawable/shapes/OvalShape;-><init>()V
 
-    invoke-direct {v3, v4}, Landroid/graphics/drawable/ShapeDrawable;-><init>(Landroid/graphics/drawable/shapes/Shape;)V
+    invoke-direct {v0, v1}, Landroid/graphics/drawable/ShapeDrawable;-><init>(Landroid/graphics/drawable/shapes/Shape;)V
+
+    const/high16 v1, 0x40800000    # 4.0f
+
+    mul-float/2addr p1, v1
 
     .line 63
-    .local v3, "circle":Landroid/graphics/drawable/ShapeDrawable;
-    const/high16 v4, 0x40800000    # 4.0f
-
-    mul-float/2addr v4, v0
-
-    invoke-static {p0, v4}, Landroidx/core/view/ViewCompat;->setElevation(Landroid/view/View;F)V
+    invoke-static {p0, p1}, Landroidx/core/view/ViewCompat;->setElevation(Landroid/view/View;F)V
 
     goto :goto_0
 
     .line 65
-    .end local v3    # "circle":Landroid/graphics/drawable/ShapeDrawable;
     :cond_0
-    new-instance v3, Landroidx/swiperefreshlayout/widget/CircleImageView$OvalShadow;
+    new-instance p1, Landroidx/swiperefreshlayout/widget/CircleImageView$OvalShadow;
 
-    iget v4, p0, Landroidx/swiperefreshlayout/widget/CircleImageView;->mShadowRadius:I
+    iget v2, p0, Landroidx/swiperefreshlayout/widget/CircleImageView;->mShadowRadius:I
 
-    invoke-direct {v3, p0, v4}, Landroidx/swiperefreshlayout/widget/CircleImageView$OvalShadow;-><init>(Landroidx/swiperefreshlayout/widget/CircleImageView;I)V
+    invoke-direct {p1, p0, v2}, Landroidx/swiperefreshlayout/widget/CircleImageView$OvalShadow;-><init>(Landroidx/swiperefreshlayout/widget/CircleImageView;I)V
 
     .line 66
-    .local v3, "oval":Landroid/graphics/drawable/shapes/OvalShape;
-    new-instance v4, Landroid/graphics/drawable/ShapeDrawable;
+    new-instance v2, Landroid/graphics/drawable/ShapeDrawable;
 
-    invoke-direct {v4, v3}, Landroid/graphics/drawable/ShapeDrawable;-><init>(Landroid/graphics/drawable/shapes/Shape;)V
+    invoke-direct {v2, p1}, Landroid/graphics/drawable/ShapeDrawable;-><init>(Landroid/graphics/drawable/shapes/Shape;)V
+
+    const/4 p1, 0x1
 
     .line 67
-    .local v4, "circle":Landroid/graphics/drawable/ShapeDrawable;
-    const/4 v5, 0x1
+    invoke-virtual {v2}, Landroid/graphics/drawable/ShapeDrawable;->getPaint()Landroid/graphics/Paint;
 
-    invoke-virtual {v4}, Landroid/graphics/drawable/ShapeDrawable;->getPaint()Landroid/graphics/Paint;
+    move-result-object v3
 
-    move-result-object v6
-
-    invoke-virtual {p0, v5, v6}, Landroidx/swiperefreshlayout/widget/CircleImageView;->setLayerType(ILandroid/graphics/Paint;)V
+    invoke-virtual {p0, p1, v3}, Landroidx/swiperefreshlayout/widget/CircleImageView;->setLayerType(ILandroid/graphics/Paint;)V
 
     .line 68
-    invoke-virtual {v4}, Landroid/graphics/drawable/ShapeDrawable;->getPaint()Landroid/graphics/Paint;
+    invoke-virtual {v2}, Landroid/graphics/drawable/ShapeDrawable;->getPaint()Landroid/graphics/Paint;
 
-    move-result-object v5
+    move-result-object p1
 
-    iget v6, p0, Landroidx/swiperefreshlayout/widget/CircleImageView;->mShadowRadius:I
+    iget v3, p0, Landroidx/swiperefreshlayout/widget/CircleImageView;->mShadowRadius:I
 
-    int-to-float v6, v6
+    int-to-float v3, v3
 
-    int-to-float v7, v2
+    int-to-float v1, v1
 
-    int-to-float v8, v1
+    int-to-float v0, v0
 
-    const/high16 v9, 0x1e000000
+    const/high16 v4, 0x1e000000
 
-    invoke-virtual {v5, v6, v7, v8, v9}, Landroid/graphics/Paint;->setShadowLayer(FFFI)V
+    invoke-virtual {p1, v3, v1, v0, v4}, Landroid/graphics/Paint;->setShadowLayer(FFFI)V
 
     .line 70
-    iget v5, p0, Landroidx/swiperefreshlayout/widget/CircleImageView;->mShadowRadius:I
+    iget p1, p0, Landroidx/swiperefreshlayout/widget/CircleImageView;->mShadowRadius:I
 
     .line 72
-    .local v5, "padding":I
-    invoke-virtual {p0, v5, v5, v5, v5}, Landroidx/swiperefreshlayout/widget/CircleImageView;->setPadding(IIII)V
+    invoke-virtual {p0, p1, p1, p1, p1}, Landroidx/swiperefreshlayout/widget/CircleImageView;->setPadding(IIII)V
 
-    move-object v3, v4
+    move-object v0, v2
 
     .line 74
-    .end local v4    # "circle":Landroid/graphics/drawable/ShapeDrawable;
-    .end local v5    # "padding":I
-    .local v3, "circle":Landroid/graphics/drawable/ShapeDrawable;
     :goto_0
-    invoke-virtual {v3}, Landroid/graphics/drawable/ShapeDrawable;->getPaint()Landroid/graphics/Paint;
+    invoke-virtual {v0}, Landroid/graphics/drawable/ShapeDrawable;->getPaint()Landroid/graphics/Paint;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-virtual {v4, p2}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-virtual {p1, p2}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 75
-    invoke-static {p0, v3}, Landroidx/core/view/ViewCompat;->setBackground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
+    invoke-static {p0, v0}, Landroidx/core/view/ViewCompat;->setBackground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
 
-    .line 76
     return-void
 .end method
 
 .method private elevationSupported()Z
-    .locals 2
-
-    .line 79
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     const/4 v0, 0x1
 
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
     return v0
 .end method
 
@@ -217,7 +188,6 @@
 
     invoke-interface {v0, v1}, Landroid/view/animation/Animation$AnimationListener;->onAnimationEnd(Landroid/view/animation/Animation;)V
 
-    .line 109
     :cond_0
     return-void
 .end method
@@ -240,15 +210,12 @@
 
     invoke-interface {v0, v1}, Landroid/view/animation/Animation$AnimationListener;->onAnimationStart(Landroid/view/animation/Animation;)V
 
-    .line 101
     :cond_0
     return-void
 .end method
 
 .method protected onMeasure(II)V
-    .locals 3
-    .param p1, "widthMeasureSpec"    # I
-    .param p2, "heightMeasureSpec"    # I
+    .locals 1
 
     .line 84
     invoke-super {p0, p1, p2}, Landroid/widget/ImageView;->onMeasure(II)V
@@ -256,52 +223,48 @@
     .line 85
     invoke-direct {p0}, Landroidx/swiperefreshlayout/widget/CircleImageView;->elevationSupported()Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 86
     invoke-virtual {p0}, Landroidx/swiperefreshlayout/widget/CircleImageView;->getMeasuredWidth()I
 
-    move-result v0
+    move-result p1
 
-    iget v1, p0, Landroidx/swiperefreshlayout/widget/CircleImageView;->mShadowRadius:I
+    iget p2, p0, Landroidx/swiperefreshlayout/widget/CircleImageView;->mShadowRadius:I
 
-    mul-int/lit8 v1, v1, 0x2
+    mul-int/lit8 p2, p2, 0x2
 
-    add-int/2addr v0, v1
+    add-int/2addr p1, p2
 
     invoke-virtual {p0}, Landroidx/swiperefreshlayout/widget/CircleImageView;->getMeasuredHeight()I
 
-    move-result v1
+    move-result p2
 
-    iget v2, p0, Landroidx/swiperefreshlayout/widget/CircleImageView;->mShadowRadius:I
+    iget v0, p0, Landroidx/swiperefreshlayout/widget/CircleImageView;->mShadowRadius:I
 
-    mul-int/lit8 v2, v2, 0x2
+    mul-int/lit8 v0, v0, 0x2
 
-    add-int/2addr v1, v2
+    add-int/2addr p2, v0
 
-    invoke-virtual {p0, v0, v1}, Landroidx/swiperefreshlayout/widget/CircleImageView;->setMeasuredDimension(II)V
+    invoke-virtual {p0, p1, p2}, Landroidx/swiperefreshlayout/widget/CircleImageView;->setMeasuredDimension(II)V
 
-    .line 89
     :cond_0
     return-void
 .end method
 
 .method public setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
     .locals 0
-    .param p1, "listener"    # Landroid/view/animation/Animation$AnimationListener;
 
     .line 92
     iput-object p1, p0, Landroidx/swiperefreshlayout/widget/CircleImageView;->mListener:Landroid/view/animation/Animation$AnimationListener;
 
-    .line 93
     return-void
 .end method
 
 .method public setBackgroundColor(I)V
     .locals 1
-    .param p1, "color"    # I
 
     .line 122
     invoke-virtual {p0}, Landroidx/swiperefreshlayout/widget/CircleImageView;->getBackground()Landroid/graphics/drawable/Drawable;
@@ -325,14 +288,12 @@
 
     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 125
     :cond_0
     return-void
 .end method
 
 .method public setBackgroundColorRes(I)V
     .locals 1
-    .param p1, "colorRes"    # I
 
     .line 117
     invoke-virtual {p0}, Landroidx/swiperefreshlayout/widget/CircleImageView;->getContext()Landroid/content/Context;
@@ -341,10 +302,9 @@
 
     invoke-static {v0, p1}, Landroidx/core/content/ContextCompat;->getColor(Landroid/content/Context;I)I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p0, v0}, Landroidx/swiperefreshlayout/widget/CircleImageView;->setBackgroundColor(I)V
+    invoke-virtual {p0, p1}, Landroidx/swiperefreshlayout/widget/CircleImageView;->setBackgroundColor(I)V
 
-    .line 118
     return-void
 .end method

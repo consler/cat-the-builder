@@ -54,13 +54,11 @@
 
     iput-object v0, p0, Lio/reactivex/internal/subscriptions/AsyncSubscription;->actual:Ljava/util/concurrent/atomic/AtomicReference;
 
-    .line 40
     return-void
 .end method
 
 .method public constructor <init>(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "resource"    # Lio/reactivex/disposables/Disposable;
 
     .line 43
     invoke-direct {p0}, Lio/reactivex/internal/subscriptions/AsyncSubscription;-><init>()V
@@ -70,7 +68,6 @@
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/atomic/AtomicReference;->lazySet(Ljava/lang/Object;)V
 
-    .line 45
     return-void
 .end method
 
@@ -82,7 +79,6 @@
     .line 54
     invoke-virtual {p0}, Lio/reactivex/internal/subscriptions/AsyncSubscription;->dispose()V
 
-    .line 55
     return-void
 .end method
 
@@ -99,7 +95,6 @@
 
     invoke-static {v0}, Lio/reactivex/internal/disposables/DisposableHelper;->dispose(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 61
     return-void
 .end method
 
@@ -130,54 +125,48 @@
 
 .method public replaceResource(Lio/reactivex/disposables/Disposable;)Z
     .locals 1
-    .param p1, "r"    # Lio/reactivex/disposables/Disposable;
 
     .line 84
     iget-object v0, p0, Lio/reactivex/internal/subscriptions/AsyncSubscription;->resource:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->replace(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public request(J)V
     .locals 1
-    .param p1, "n"    # J
 
     .line 49
     iget-object v0, p0, Lio/reactivex/internal/subscriptions/AsyncSubscription;->actual:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0, p0, p1, p2}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->deferredRequest(Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/concurrent/atomic/AtomicLong;J)V
 
-    .line 50
     return-void
 .end method
 
 .method public setResource(Lio/reactivex/disposables/Disposable;)Z
     .locals 1
-    .param p1, "r"    # Lio/reactivex/disposables/Disposable;
 
     .line 75
     iget-object v0, p0, Lio/reactivex/internal/subscriptions/AsyncSubscription;->resource:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->set(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/Disposable;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public setSubscription(Lorg/reactivestreams/Subscription;)V
     .locals 1
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 92
     iget-object v0, p0, Lio/reactivex/internal/subscriptions/AsyncSubscription;->actual:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-static {v0, p0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->deferredSetOnce(Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/concurrent/atomic/AtomicLong;Lorg/reactivestreams/Subscription;)Z
 
-    .line 93
     return-void
 .end method

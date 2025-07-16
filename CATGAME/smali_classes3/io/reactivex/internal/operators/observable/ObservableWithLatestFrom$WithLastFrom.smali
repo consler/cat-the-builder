@@ -50,8 +50,6 @@
     .end annotation
 
     .line 122
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom$WithLastFrom;, "Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom<TT;TU;TR;>.WithLastFrom;"
-    .local p2, "wlf":Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom$WithLatestFromObserver;, "Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom$WithLatestFromObserver<TT;TU;TR;>;"
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom$WithLastFrom;->this$0:Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,7 +57,6 @@
     .line 123
     iput-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom$WithLastFrom;->wlf:Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom$WithLatestFromObserver;
 
-    .line 124
     return-void
 .end method
 
@@ -68,22 +65,17 @@
 .method public onComplete()V
     .locals 0
 
-    .line 144
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom$WithLastFrom;, "Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom<TT;TU;TR;>.WithLastFrom;"
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 138
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom$WithLastFrom;, "Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom<TT;TU;TR;>.WithLastFrom;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom$WithLastFrom;->wlf:Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom$WithLatestFromObserver;
 
     invoke-virtual {v0, p1}, Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom$WithLatestFromObserver;->otherError(Ljava/lang/Throwable;)V
 
-    .line 139
     return-void
 .end method
 
@@ -96,26 +88,20 @@
     .end annotation
 
     .line 133
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom$WithLastFrom;, "Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom<TT;TU;TR;>.WithLastFrom;"
-    .local p1, "t":Ljava/lang/Object;, "TU;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom$WithLastFrom;->wlf:Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom$WithLatestFromObserver;
 
     invoke-virtual {v0, p1}, Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom$WithLatestFromObserver;->lazySet(Ljava/lang/Object;)V
 
-    .line 134
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 128
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom$WithLastFrom;, "Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom<TT;TU;TR;>.WithLastFrom;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom$WithLastFrom;->wlf:Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom$WithLatestFromObserver;
 
     invoke-virtual {v0, p1}, Lio/reactivex/internal/operators/observable/ObservableWithLatestFrom$WithLatestFromObserver;->setOther(Lio/reactivex/disposables/Disposable;)Z
 
-    .line 129
     return-void
 .end method

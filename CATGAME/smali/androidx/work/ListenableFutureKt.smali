@@ -5,15 +5,10 @@
 
 # annotations
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nListenableFuture.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ListenableFuture.kt\nandroidx/work/ListenableFutureKt\n+ 2 CancellableContinuation.kt\nkotlinx/coroutines/CancellableContinuationKt\n*L\n1#1,63:1\n308#2,11:64\n*E\n*S KotlinDebug\n*F\n+ 1 ListenableFuture.kt\nandroidx/work/ListenableFutureKt\n*L\n46#1,11:64\n*E\n"
+    value = "SMAP\nListenableFuture.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ListenableFuture.kt\nandroidx/work/ListenableFutureKt\n+ 2 CancellableContinuation.kt\nkotlinx/coroutines/CancellableContinuationKt\n*L\n1#1,92:1\n310#2,11:93\n*S KotlinDebug\n*F\n+ 1 ListenableFuture.kt\nandroidx/work/ListenableFutureKt\n*L\n48#1:93,11\n*E\n"
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u0000\u000c\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\u001a!\u0010\u0000\u001a\u0002H\u0001\"\u0004\u0008\u0000\u0010\u0001*\u0008\u0012\u0004\u0012\u0002H\u00010\u0002H\u0087H\u00f8\u0001\u0000\u00a2\u0006\u0002\u0010\u0003\u0082\u0002\u0004\n\u0002\u0008\u0019\u00a8\u0006\u0004"
     }
@@ -27,17 +22,16 @@
     k = 0x2
     mv = {
         0x1,
-        0x4,
+        0x5,
         0x1
     }
+    xi = 0x30
 .end annotation
 
 
 # direct methods
 .method public static final await(Lcom/google/common/util/concurrent/ListenableFuture;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 9
-    .param p0, "$this$await"    # Lcom/google/common/util/concurrent/ListenableFuture;
-    .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -51,277 +45,216 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
-
-    .line 39
-    .local v0, "$i$f$await":I
+    .line 41
     invoke-interface {p0}, Lcom/google/common/util/concurrent/ListenableFuture;->isDone()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    .line 40
-    nop
-
-    .line 41
+    .line 43
     :try_start_0
     invoke-interface {p0}, Lcom/google/common/util/concurrent/ListenableFuture;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p0
     :try_end_0
     .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v1
+    return-object p0
 
-    .line 42
     :catch_0
-    move-exception v1
+    move-exception p0
 
-    .line 43
-    .local v1, "e":Ljava/util/concurrent/ExecutionException;
-    invoke-virtual {v1}, Ljava/util/concurrent/ExecutionException;->getCause()Ljava/lang/Throwable;
+    .line 45
+    invoke-virtual {p0}, Ljava/util/concurrent/ExecutionException;->getCause()Ljava/lang/Throwable;
 
-    move-result-object v2
+    move-result-object p1
 
-    if-eqz v2, :cond_0
+    if-nez p1, :cond_0
 
-    goto :goto_0
+    move-object p1, p0
+
+    check-cast p1, Ljava/lang/Throwable;
 
     :cond_0
-    move-object v2, v1
+    throw p1
 
-    check-cast v2, Ljava/lang/Throwable;
-
-    :goto_0
-    throw v2
-
-    .line 46
-    .end local v1    # "e":Ljava/util/concurrent/ExecutionException;
+    .line 94
     :cond_1
-    const/4 v1, 0x0
+    new-instance v0, Lkotlinx/coroutines/CancellableContinuationImpl;
 
-    .line 64
-    .local v1, "$i$f$suspendCancellableCoroutine":I
-    move-object v2, p1
+    invoke-static {p1}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->intercepted(Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
 
-    .local v2, "uCont$iv":Lkotlin/coroutines/Continuation;
-    const/4 v3, 0x0
+    move-result-object v1
 
-    .line 65
-    .local v3, "$i$a$-suspendCoroutineUninterceptedOrReturn-CancellableContinuationKt$suspendCancellableCoroutine$2$iv":I
-    new-instance v4, Lkotlinx/coroutines/CancellableContinuationImpl;
+    const/4 v2, 0x1
 
-    invoke-static {v2}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->intercepted(Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
+    invoke-direct {v0, v1, v2}, Lkotlinx/coroutines/CancellableContinuationImpl;-><init>(Lkotlin/coroutines/Continuation;I)V
 
-    move-result-object v5
+    .line 100
+    invoke-virtual {v0}, Lkotlinx/coroutines/CancellableContinuationImpl;->initCancellability()V
 
-    const/4 v6, 0x1
+    .line 101
+    move-object v1, v0
 
-    invoke-direct {v4, v5, v6}, Lkotlinx/coroutines/CancellableContinuationImpl;-><init>(Lkotlin/coroutines/Continuation;I)V
+    check-cast v1, Lkotlinx/coroutines/CancellableContinuation;
 
-    .line 71
-    .local v4, "cancellable$iv":Lkotlinx/coroutines/CancellableContinuationImpl;
-    invoke-virtual {v4}, Lkotlinx/coroutines/CancellableContinuationImpl;->initCancellability()V
+    .line 49
+    new-instance v2, Landroidx/work/ListenableFutureKt$await$2$1;
 
-    .line 72
-    move-object v5, v4
+    invoke-direct {v2, v1, p0}, Landroidx/work/ListenableFutureKt$await$2$1;-><init>(Lkotlinx/coroutines/CancellableContinuation;Lcom/google/common/util/concurrent/ListenableFuture;)V
 
-    check-cast v5, Lkotlinx/coroutines/CancellableContinuation;
-
-    .local v5, "cancellableContinuation":Lkotlinx/coroutines/CancellableContinuation;
-    const/4 v6, 0x0
-
-    .line 47
-    .local v6, "$i$a$-suspendCancellableCoroutine-ListenableFutureKt$await$2":I
-    nop
-
-    .line 48
-    new-instance v7, Landroidx/work/ListenableFutureKt$await$$inlined$suspendCancellableCoroutine$lambda$1;
-
-    invoke-direct {v7, v5, p0}, Landroidx/work/ListenableFutureKt$await$$inlined$suspendCancellableCoroutine$lambda$1;-><init>(Lkotlinx/coroutines/CancellableContinuation;Lcom/google/common/util/concurrent/ListenableFuture;)V
-
-    check-cast v7, Ljava/lang/Runnable;
-
-    .line 59
-    sget-object v8, Landroidx/work/DirectExecutor;->INSTANCE:Landroidx/work/DirectExecutor;
-
-    check-cast v8, Ljava/util/concurrent/Executor;
-
-    .line 47
-    invoke-interface {p0, v7, v8}, Lcom/google/common/util/concurrent/ListenableFuture;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
+    check-cast v2, Ljava/lang/Runnable;
 
     .line 61
-    nop
+    sget-object v3, Landroidx/work/DirectExecutor;->INSTANCE:Landroidx/work/DirectExecutor;
 
-    .line 73
-    .end local v5    # "cancellableContinuation":Lkotlinx/coroutines/CancellableContinuation;
-    .end local v6    # "$i$a$-suspendCancellableCoroutine-ListenableFutureKt$await$2":I
-    invoke-virtual {v4}, Lkotlinx/coroutines/CancellableContinuationImpl;->getResult()Ljava/lang/Object;
+    check-cast v3, Ljava/util/concurrent/Executor;
 
-    move-result-object v4
+    .line 49
+    invoke-interface {p0, v2, v3}, Lcom/google/common/util/concurrent/ListenableFuture;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
 
     .line 64
-    .end local v2    # "uCont$iv":Lkotlin/coroutines/Continuation;
-    .end local v3    # "$i$a$-suspendCoroutineUninterceptedOrReturn-CancellableContinuationKt$suspendCancellableCoroutine$2$iv":I
-    .end local v4    # "cancellable$iv":Lkotlinx/coroutines/CancellableContinuationImpl;
+    new-instance v2, Landroidx/work/ListenableFutureKt$await$2$2;
+
+    invoke-direct {v2, p0}, Landroidx/work/ListenableFutureKt$await$2$2;-><init>(Lcom/google/common/util/concurrent/ListenableFuture;)V
+
+    check-cast v2, Lkotlin/jvm/functions/Function1;
+
+    invoke-interface {v1, v2}, Lkotlinx/coroutines/CancellableContinuation;->invokeOnCancellation(Lkotlin/jvm/functions/Function1;)V
+
+    .line 102
+    invoke-virtual {v0}, Lkotlinx/coroutines/CancellableContinuationImpl;->getResult()Ljava/lang/Object;
+
+    move-result-object p0
+
+    .line 93
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    if-ne v4, v2, :cond_2
+    if-ne p0, v0, :cond_2
 
     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    .line 74
     :cond_2
-    nop
-
-    .line 46
-    .end local v1    # "$i$f$suspendCancellableCoroutine":I
-    return-object v4
+    return-object p0
 .end method
 
 .method private static final await$$forInline(Lcom/google/common/util/concurrent/ListenableFuture;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 10
-    .param p0, "$this$await"    # Lcom/google/common/util/concurrent/ListenableFuture;
-
-    const/4 v0, 0x0
-
-    .line 39
-    .local v0, "$i$f$await":I
-    invoke-interface {p0}, Lcom/google/common/util/concurrent/ListenableFuture;->isDone()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    .line 40
-    nop
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<R:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lcom/google/common/util/concurrent/ListenableFuture<",
+            "TR;>;",
+            "Lkotlin/coroutines/Continuation<",
+            "-TR;>;)",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
 
     .line 41
+    invoke-interface {p0}, Lcom/google/common/util/concurrent/ListenableFuture;->isDone()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 43
     :try_start_0
     invoke-interface {p0}, Lcom/google/common/util/concurrent/ListenableFuture;->get()Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p0
     :try_end_0
     .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object p1
+    return-object p0
 
-    .line 42
     :catch_0
-    move-exception p1
+    move-exception p0
 
-    .line 43
-    .local p1, "e":Ljava/util/concurrent/ExecutionException;
-    invoke-virtual {p1}, Ljava/util/concurrent/ExecutionException;->getCause()Ljava/lang/Throwable;
+    .line 45
+    invoke-virtual {p0}, Ljava/util/concurrent/ExecutionException;->getCause()Ljava/lang/Throwable;
+
+    move-result-object p1
+
+    if-nez p1, :cond_0
+
+    move-object p1, p0
+
+    check-cast p1, Ljava/lang/Throwable;
+
+    :cond_0
+    throw p1
+
+    :cond_1
+    const/4 v0, 0x0
+
+    .line 93
+    invoke-static {v0}, Lkotlin/jvm/internal/InlineMarker;->mark(I)V
+
+    .line 94
+    new-instance v0, Lkotlinx/coroutines/CancellableContinuationImpl;
+
+    invoke-static {p1}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->intercepted(Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    const/4 v2, 0x1
 
-    goto :goto_0
+    invoke-direct {v0, v1, v2}, Lkotlinx/coroutines/CancellableContinuationImpl;-><init>(Lkotlin/coroutines/Continuation;I)V
 
-    :cond_0
-    move-object v1, p1
+    .line 100
+    invoke-virtual {v0}, Lkotlinx/coroutines/CancellableContinuationImpl;->initCancellability()V
 
-    check-cast v1, Ljava/lang/Throwable;
+    .line 101
+    move-object v1, v0
 
-    :goto_0
-    throw v1
+    check-cast v1, Lkotlinx/coroutines/CancellableContinuation;
 
-    .line 44
-    .end local p1    # "e":Ljava/util/concurrent/ExecutionException;
-    :cond_1
-    nop
+    .line 49
+    new-instance v3, Landroidx/work/ListenableFutureKt$await$2$1;
 
-    .line 46
-    const/4 v1, 0x0
+    invoke-direct {v3, v1, p0}, Landroidx/work/ListenableFutureKt$await$2$1;-><init>(Lkotlinx/coroutines/CancellableContinuation;Lcom/google/common/util/concurrent/ListenableFuture;)V
 
-    .line 64
-    .local v1, "$i$f$suspendCancellableCoroutine":I
-    const/4 v2, 0x0
-
-    invoke-static {v2}, Lkotlin/jvm/internal/InlineMarker;->mark(I)V
-
-    move-object v2, p1
-
-    .local v2, "uCont$iv":Lkotlin/coroutines/Continuation;
-    const/4 v3, 0x0
-
-    .line 65
-    .local v3, "$i$a$-suspendCoroutineUninterceptedOrReturn-CancellableContinuationKt$suspendCancellableCoroutine$2$iv":I
-    new-instance v4, Lkotlinx/coroutines/CancellableContinuationImpl;
-
-    invoke-static {v2}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->intercepted(Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-
-    move-result-object v5
-
-    const/4 v6, 0x1
-
-    invoke-direct {v4, v5, v6}, Lkotlinx/coroutines/CancellableContinuationImpl;-><init>(Lkotlin/coroutines/Continuation;I)V
-
-    .line 71
-    .local v4, "cancellable$iv":Lkotlinx/coroutines/CancellableContinuationImpl;
-    invoke-virtual {v4}, Lkotlinx/coroutines/CancellableContinuationImpl;->initCancellability()V
-
-    .line 72
-    move-object v5, v4
-
-    check-cast v5, Lkotlinx/coroutines/CancellableContinuation;
-
-    .local v5, "cancellableContinuation":Lkotlinx/coroutines/CancellableContinuation;
-    const/4 v7, 0x0
-
-    .line 47
-    .local v7, "$i$a$-suspendCancellableCoroutine-ListenableFutureKt$await$2":I
-    nop
-
-    .line 48
-    new-instance v8, Landroidx/work/ListenableFutureKt$await$$inlined$suspendCancellableCoroutine$lambda$1;
-
-    invoke-direct {v8, v5, p0}, Landroidx/work/ListenableFutureKt$await$$inlined$suspendCancellableCoroutine$lambda$1;-><init>(Lkotlinx/coroutines/CancellableContinuation;Lcom/google/common/util/concurrent/ListenableFuture;)V
-
-    check-cast v8, Ljava/lang/Runnable;
-
-    .line 59
-    sget-object v9, Landroidx/work/DirectExecutor;->INSTANCE:Landroidx/work/DirectExecutor;
-
-    check-cast v9, Ljava/util/concurrent/Executor;
-
-    .line 47
-    invoke-interface {p0, v8, v9}, Lcom/google/common/util/concurrent/ListenableFuture;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
+    check-cast v3, Ljava/lang/Runnable;
 
     .line 61
-    nop
+    sget-object v4, Landroidx/work/DirectExecutor;->INSTANCE:Landroidx/work/DirectExecutor;
 
-    .line 73
-    .end local v5    # "cancellableContinuation":Lkotlinx/coroutines/CancellableContinuation;
-    .end local v7    # "$i$a$-suspendCancellableCoroutine-ListenableFutureKt$await$2":I
-    invoke-virtual {v4}, Lkotlinx/coroutines/CancellableContinuationImpl;->getResult()Ljava/lang/Object;
+    check-cast v4, Ljava/util/concurrent/Executor;
 
-    move-result-object v4
+    .line 49
+    invoke-interface {p0, v3, v4}, Lcom/google/common/util/concurrent/ListenableFuture;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
 
     .line 64
-    .end local v2    # "uCont$iv":Lkotlin/coroutines/Continuation;
-    .end local v3    # "$i$a$-suspendCoroutineUninterceptedOrReturn-CancellableContinuationKt$suspendCancellableCoroutine$2$iv":I
-    .end local v4    # "cancellable$iv":Lkotlinx/coroutines/CancellableContinuationImpl;
+    new-instance v3, Landroidx/work/ListenableFutureKt$await$2$2;
+
+    invoke-direct {v3, p0}, Landroidx/work/ListenableFutureKt$await$2$2;-><init>(Lcom/google/common/util/concurrent/ListenableFuture;)V
+
+    check-cast v3, Lkotlin/jvm/functions/Function1;
+
+    invoke-interface {v1, v3}, Lkotlinx/coroutines/CancellableContinuation;->invokeOnCancellation(Lkotlin/jvm/functions/Function1;)V
+
+    .line 102
+    invoke-virtual {v0}, Lkotlinx/coroutines/CancellableContinuationImpl;->getResult()Ljava/lang/Object;
+
+    move-result-object p0
+
+    .line 93
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    if-ne v4, v2, :cond_2
+    if-ne p0, v0, :cond_2
 
     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
     :cond_2
-    invoke-static {v6}, Lkotlin/jvm/internal/InlineMarker;->mark(I)V
+    invoke-static {v2}, Lkotlin/jvm/internal/InlineMarker;->mark(I)V
 
-    .line 74
-    nop
-
-    .line 46
-    .end local v1    # "$i$f$suspendCancellableCoroutine":I
-    return-object v4
+    return-object p0
 .end method

@@ -12,8 +12,6 @@
 # direct methods
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/xml/QNameMap;Ljavax/xml/stream/XMLStreamReader;)V
     .locals 1
-    .param p1, "qnameMap"    # Lcom/thoughtworks/xstream/io/xml/QNameMap;
-    .param p2, "in"    # Ljavax/xml/stream/XMLStreamReader;
 
     .line 35
     new-instance v0, Lcom/thoughtworks/xstream/io/xml/XmlFriendlyNameCoder;
@@ -22,15 +20,11 @@
 
     invoke-direct {p0, p1, p2, v0}, Lcom/thoughtworks/xstream/io/xml/StaxReader;-><init>(Lcom/thoughtworks/xstream/io/xml/QNameMap;Ljavax/xml/stream/XMLStreamReader;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 36
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/xml/QNameMap;Ljavax/xml/stream/XMLStreamReader;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
     .locals 0
-    .param p1, "qnameMap"    # Lcom/thoughtworks/xstream/io/xml/QNameMap;
-    .param p2, "in"    # Ljavax/xml/stream/XMLStreamReader;
-    .param p3, "replacer"    # Lcom/thoughtworks/xstream/io/naming/NameCoder;
 
     .line 42
     invoke-direct {p0, p3}, Lcom/thoughtworks/xstream/io/xml/AbstractPullReader;-><init>(Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
@@ -44,20 +38,15 @@
     .line 45
     invoke-virtual {p0}, Lcom/thoughtworks/xstream/io/xml/StaxReader;->moveDown()V
 
-    .line 46
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/xml/QNameMap;Ljavax/xml/stream/XMLStreamReader;Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;)V
     .locals 0
-    .param p1, "qnameMap"    # Lcom/thoughtworks/xstream/io/xml/QNameMap;
-    .param p2, "in"    # Ljavax/xml/stream/XMLStreamReader;
-    .param p3, "replacer"    # Lcom/thoughtworks/xstream/io/xml/XmlFriendlyReplacer;
 
     .line 53
     invoke-direct {p0, p1, p2, p3}, Lcom/thoughtworks/xstream/io/xml/StaxReader;-><init>(Lcom/thoughtworks/xstream/io/xml/QNameMap;Ljavax/xml/stream/XMLStreamReader;Lcom/thoughtworks/xstream/io/naming/NameCoder;)V
 
-    .line 54
     return-void
 .end method
 
@@ -65,7 +54,6 @@
 # virtual methods
 .method public appendErrors(Lcom/thoughtworks/xstream/converters/ErrorWriter;)V
     .locals 2
-    .param p1, "errorWriter"    # Lcom/thoughtworks/xstream/converters/ErrorWriter;
 
     .line 104
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/xml/StaxReader;->in:Ljavax/xml/stream/XMLStreamReader;
@@ -86,7 +74,6 @@
 
     invoke-interface {p1, v1, v0}, Lcom/thoughtworks/xstream/converters/ErrorWriter;->add(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 105
     return-void
 .end method
 
@@ -101,18 +88,12 @@
     :try_end_0
     .catch Ljavax/xml/stream/XMLStreamException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 112
-    nop
-
-    .line 113
     return-void
 
-    .line 110
     :catch_0
     move-exception v0
 
     .line 111
-    .local v0, "e":Ljavax/xml/stream/XMLStreamException;
     new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
 
     invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V
@@ -122,36 +103,34 @@
 
 .method public getAttribute(I)Ljava/lang/String;
     .locals 1
-    .param p1, "index"    # I
 
     .line 92
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/xml/StaxReader;->in:Ljavax/xml/stream/XMLStreamReader;
 
     invoke-interface {v0, p1}, Ljavax/xml/stream/XMLStreamReader;->getAttributeValue(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getAttribute(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
-    .param p1, "name"    # Ljava/lang/String;
+    .locals 2
 
     .line 88
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/xml/StaxReader;->in:Ljavax/xml/stream/XMLStreamReader;
 
+    const/4 v1, 0x0
+
     invoke-virtual {p0, p1}, Lcom/thoughtworks/xstream/io/xml/StaxReader;->encodeAttribute(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v2, 0x0
+    invoke-interface {v0, v1, p1}, Ljavax/xml/stream/XMLStreamReader;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-interface {v0, v2, v1}, Ljavax/xml/stream/XMLStreamReader;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public getAttributeCount()I
@@ -169,20 +148,19 @@
 
 .method public getAttributeName(I)Ljava/lang/String;
     .locals 1
-    .param p1, "index"    # I
 
     .line 100
     iget-object v0, p0, Lcom/thoughtworks/xstream/io/xml/StaxReader;->in:Ljavax/xml/stream/XMLStreamReader;
 
     invoke-interface {v0, p1}, Ljavax/xml/stream/XMLStreamReader;->getAttributeLocalName(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/thoughtworks/xstream/io/xml/StaxReader;->decodeAttribute(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, p1}, Lcom/thoughtworks/xstream/io/xml/StaxReader;->decodeAttribute(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected pullElementName()Ljava/lang/String;
@@ -196,14 +174,13 @@
     move-result-object v0
 
     .line 80
-    .local v0, "qname":Ljavax/xml/namespace/QName;
     iget-object v1, p0, Lcom/thoughtworks/xstream/io/xml/StaxReader;->qnameMap:Lcom/thoughtworks/xstream/io/xml/QNameMap;
 
     invoke-virtual {v1, v0}, Lcom/thoughtworks/xstream/io/xml/QNameMap;->getJavaClassName(Ljavax/xml/namespace/QName;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method protected pullNextEvent()I
@@ -243,35 +220,28 @@
 
     if-eq v0, v1, :cond_2
 
-    .line 70
     const/4 v0, 0x0
 
     return v0
 
-    .line 68
     :cond_0
     return v3
 
-    .line 66
     :cond_1
     const/4 v0, 0x3
 
     return v0
 
-    .line 64
     :cond_2
     return v2
 
-    .line 61
     :cond_3
     return v1
 
-    .line 72
     :catch_0
     move-exception v0
 
     .line 73
-    .local v0, "e":Ljavax/xml/stream/XMLStreamException;
     new-instance v1, Lcom/thoughtworks/xstream/io/StreamException;
 
     invoke-direct {v1, v0}, Lcom/thoughtworks/xstream/io/StreamException;-><init>(Ljava/lang/Throwable;)V

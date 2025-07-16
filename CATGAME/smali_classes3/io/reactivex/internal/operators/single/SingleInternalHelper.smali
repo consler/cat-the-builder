@@ -70,7 +70,6 @@
     .end annotation
 
     .line 101
-    .local p0, "sources":Ljava/lang/Iterable;, "Ljava/lang/Iterable<+Lio/reactivex/SingleSource<+TT;>;>;"
     new-instance v0, Lio/reactivex/internal/operators/single/SingleInternalHelper$ToFlowableIterable;
 
     invoke-direct {v0, p0}, Lio/reactivex/internal/operators/single/SingleInternalHelper$ToFlowableIterable;-><init>(Ljava/lang/Iterable;)V

@@ -29,8 +29,6 @@
 # direct methods
 .method constructor <init>(Landroidx/work/impl/model/DependencyDao_Impl;Landroidx/room/RoomDatabase;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/work/impl/model/DependencyDao_Impl;
-    .param p2, "database"    # Landroidx/room/RoomDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
@@ -54,8 +52,6 @@
 # virtual methods
 .method public bind(Landroidx/sqlite/db/SupportSQLiteStatement;Landroidx/work/impl/model/Dependency;)V
     .locals 2
-    .param p1, "stmt"    # Landroidx/sqlite/db/SupportSQLiteStatement;
-    .param p2, "value"    # Landroidx/work/impl/model/Dependency;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -100,11 +96,10 @@
 
     .line 39
     :cond_1
-    iget-object v0, p2, Landroidx/work/impl/model/Dependency;->prerequisiteId:Ljava/lang/String;
+    iget-object p2, p2, Landroidx/work/impl/model/Dependency;->prerequisiteId:Ljava/lang/String;
 
-    invoke-interface {p1, v1, v0}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindString(ILjava/lang/String;)V
+    invoke-interface {p1, v1, p2}, Landroidx/sqlite/db/SupportSQLiteStatement;->bindString(ILjava/lang/String;)V
 
-    .line 41
     :goto_1
     return-void
 .end method
@@ -133,7 +128,6 @@
 .method public createQuery()Ljava/lang/String;
     .locals 1
 
-    .line 26
     const-string v0, "INSERT OR IGNORE INTO `Dependency` (`work_spec_id`,`prerequisite_id`) VALUES (?,?)"
 
     return-object v0

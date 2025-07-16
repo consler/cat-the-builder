@@ -36,16 +36,12 @@
 
 # virtual methods
 .method public finishedLoading(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Ljava/lang/Class;)V
-    .locals 1
-    .param p1, "assetManager"    # Lcom/badlogic/gdx/assets/AssetManager;
-    .param p2, "fileName"    # Ljava/lang/String;
-    .param p3, "type"    # Ljava/lang/Class;
+    .locals 0
 
     .line 258
-    iget v0, p0, Lcom/badlogic/gdx/graphics/Cubemap$1;->val$refCount:I
+    iget p3, p0, Lcom/badlogic/gdx/graphics/Cubemap$1;->val$refCount:I
 
-    invoke-virtual {p1, p2, v0}, Lcom/badlogic/gdx/assets/AssetManager;->setReferenceCount(Ljava/lang/String;I)V
+    invoke-virtual {p1, p2, p3}, Lcom/badlogic/gdx/assets/AssetManager;->setReferenceCount(Ljava/lang/String;I)V
 
-    .line 259
     return-void
 .end method

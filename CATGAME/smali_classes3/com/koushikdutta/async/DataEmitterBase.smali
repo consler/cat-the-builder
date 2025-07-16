@@ -29,7 +29,6 @@
 .method public charset()Ljava/lang/String;
     .locals 1
 
-    .line 44
     const/4 v0, 0x0
 
     return-object v0
@@ -55,20 +54,18 @@
 
 .method protected report(Ljava/lang/Exception;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Exception;
 
     .line 12
     iget-boolean v0, p0, Lcom/koushikdutta/async/DataEmitterBase;->ended:Z
 
     if-eqz v0, :cond_0
 
-    .line 13
     return-void
 
-    .line 14
     :cond_0
     const/4 v0, 0x1
 
+    .line 14
     iput-boolean v0, p0, Lcom/koushikdutta/async/DataEmitterBase;->ended:Z
 
     .line 15
@@ -85,29 +82,24 @@
 
     invoke-interface {v0, p1}, Lcom/koushikdutta/async/callback/CompletedCallback;->onCompleted(Ljava/lang/Exception;)V
 
-    .line 17
     :cond_1
     return-void
 .end method
 
 .method public setDataCallback(Lcom/koushikdutta/async/callback/DataCallback;)V
     .locals 0
-    .param p1, "callback"    # Lcom/koushikdutta/async/callback/DataCallback;
 
     .line 34
     iput-object p1, p0, Lcom/koushikdutta/async/DataEmitterBase;->mDataCallback:Lcom/koushikdutta/async/callback/DataCallback;
 
-    .line 35
     return-void
 .end method
 
 .method public final setEndCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
     .locals 0
-    .param p1, "callback"    # Lcom/koushikdutta/async/callback/CompletedCallback;
 
     .line 21
     iput-object p1, p0, Lcom/koushikdutta/async/DataEmitterBase;->endCallback:Lcom/koushikdutta/async/callback/CompletedCallback;
 
-    .line 22
     return-void
 .end method

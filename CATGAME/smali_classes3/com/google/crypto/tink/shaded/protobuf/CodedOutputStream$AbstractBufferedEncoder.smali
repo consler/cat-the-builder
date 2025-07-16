@@ -26,52 +26,48 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 2
-    .param p1, "bufferSize"    # I
+    .locals 1
 
-    .line 2240
     const/4 v0, 0x0
 
+    .line 2240
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;-><init>(Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$1;)V
 
-    .line 2241
     if-ltz p1, :cond_0
 
-    .line 2248
     const/16 v0, 0x14
 
+    .line 2248
     invoke-static {p1, v0}, Ljava/lang/Math;->max(II)I
 
-    move-result v0
+    move-result p1
 
-    new-array v0, v0, [B
+    new-array p1, p1, [B
 
-    iput-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->buffer:[B
+    iput-object p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->buffer:[B
 
     .line 2249
-    array-length v0, v0
+    array-length p1, p1
 
-    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->limit:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->limit:I
 
-    .line 2250
     return-void
 
     .line 2242
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "bufferSize must be >= 0"
+    const-string v0, "bufferSize must be >= 0"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
 # virtual methods
 .method final buffer(B)V
     .locals 3
-    .param p1, "value"    # B
 
     .line 2269
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->buffer:[B
@@ -85,19 +81,17 @@
     aput-byte p1, v0, v1
 
     .line 2270
-    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
 
-    .line 2271
     return-void
 .end method
 
 .method final bufferFixed32NoTag(I)V
     .locals 4
-    .param p1, "value"    # I
 
     .line 2365
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->buffer:[B
@@ -106,18 +100,13 @@
 
     add-int/lit8 v2, v1, 0x1
 
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->position:I
-
     and-int/lit16 v3, p1, 0xff
 
     int-to-byte v3, v3
 
     aput-byte v3, v0, v1
 
-    .line 2366
     add-int/lit8 v1, v2, 0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->position:I
 
     shr-int/lit8 v3, p1, 0x8
 
@@ -125,12 +114,10 @@
 
     int-to-byte v3, v3
 
+    .line 2366
     aput-byte v3, v0, v2
 
-    .line 2367
     add-int/lit8 v2, v1, 0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->position:I
 
     shr-int/lit8 v3, p1, 0x10
 
@@ -138,35 +125,34 @@
 
     int-to-byte v3, v3
 
+    .line 2367
     aput-byte v3, v0, v1
 
-    .line 2368
     add-int/lit8 v1, v2, 0x1
 
+    .line 2368
     iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->position:I
 
-    shr-int/lit8 v1, p1, 0x18
+    shr-int/lit8 p1, p1, 0x18
 
-    and-int/lit16 v1, v1, 0xff
+    and-int/lit16 p1, p1, 0xff
 
-    int-to-byte v1, v1
+    int-to-byte p1, p1
 
-    aput-byte v1, v0, v2
+    aput-byte p1, v0, v2
 
     .line 2369
-    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
 
-    add-int/lit8 v0, v0, 0x4
+    add-int/lit8 p1, p1, 0x4
 
-    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
 
-    .line 2370
     return-void
 .end method
 
 .method final bufferFixed64NoTag(J)V
     .locals 8
-    .param p1, "value"    # J
 
     .line 2377
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->buffer:[B
@@ -174,8 +160,6 @@
     iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->position:I
 
     add-int/lit8 v2, v1, 0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->position:I
 
     const-wide/16 v3, 0xff
 
@@ -187,10 +171,7 @@
 
     aput-byte v5, v0, v1
 
-    .line 2378
     add-int/lit8 v1, v2, 0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->position:I
 
     const/16 v5, 0x8
 
@@ -202,12 +183,10 @@
 
     int-to-byte v6, v6
 
+    .line 2378
     aput-byte v6, v0, v2
 
-    .line 2379
     add-int/lit8 v2, v1, 0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->position:I
 
     const/16 v6, 0x10
 
@@ -219,12 +198,10 @@
 
     int-to-byte v6, v6
 
+    .line 2379
     aput-byte v6, v0, v1
 
-    .line 2380
     add-int/lit8 v1, v2, 0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->position:I
 
     const/16 v6, 0x18
 
@@ -236,12 +213,10 @@
 
     int-to-byte v3, v3
 
+    .line 2380
     aput-byte v3, v0, v2
 
-    .line 2381
     add-int/lit8 v2, v1, 0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->position:I
 
     const/16 v3, 0x20
 
@@ -253,12 +228,10 @@
 
     int-to-byte v3, v3
 
+    .line 2381
     aput-byte v3, v0, v1
 
-    .line 2382
     add-int/lit8 v1, v2, 0x1
-
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->position:I
 
     const/16 v3, 0x28
 
@@ -270,12 +243,10 @@
 
     int-to-byte v3, v3
 
+    .line 2382
     aput-byte v3, v0, v2
 
-    .line 2383
     add-int/lit8 v2, v1, 0x1
-
-    iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->position:I
 
     const/16 v3, 0x30
 
@@ -287,41 +258,39 @@
 
     int-to-byte v3, v3
 
+    .line 2383
     aput-byte v3, v0, v1
 
-    .line 2384
     add-int/lit8 v1, v2, 0x1
 
+    .line 2384
     iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->position:I
 
     const/16 v1, 0x38
 
-    shr-long v3, p1, v1
+    shr-long/2addr p1, v1
 
-    long-to-int v1, v3
+    long-to-int p1, p1
 
-    and-int/lit16 v1, v1, 0xff
+    and-int/lit16 p1, p1, 0xff
 
-    int-to-byte v1, v1
+    int-to-byte p1, p1
 
-    aput-byte v1, v0, v2
+    aput-byte p1, v0, v2
 
     .line 2385
-    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
 
-    add-int/2addr v0, v5
+    add-int/2addr p1, v5
 
-    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
 
-    .line 2386
     return-void
 .end method
 
 .method final bufferInt32NoTag(I)V
     .locals 2
-    .param p1, "value"    # I
 
-    .line 2286
     if-ltz p1, :cond_0
 
     .line 2287
@@ -329,36 +298,31 @@
 
     goto :goto_0
 
-    .line 2290
     :cond_0
     int-to-long v0, p1
 
+    .line 2290
     invoke-virtual {p0, v0, v1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->bufferUInt64NoTag(J)V
 
-    .line 2292
     :goto_0
     return-void
 .end method
 
 .method final bufferTag(II)V
-    .locals 1
-    .param p1, "fieldNumber"    # I
-    .param p2, "wireType"    # I
+    .locals 0
 
     .line 2278
     invoke-static {p1, p2}, Lcom/google/crypto/tink/shaded/protobuf/WireFormat;->makeTag(II)I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->bufferUInt32NoTag(I)V
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->bufferUInt32NoTag(I)V
 
-    .line 2279
     return-void
 .end method
 
 .method final bufferUInt32NoTag(I)V
     .locals 6
-    .param p1, "value"    # I
 
     .line 2299
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->access$100()Z
@@ -372,8 +336,6 @@
 
     int-to-long v0, v0
 
-    .line 2302
-    .local v0, "originalPos":J
     :goto_0
     and-int/lit8 v2, p1, -0x80
 
@@ -390,40 +352,29 @@
 
     int-to-long v3, v3
 
-    int-to-byte v5, p1
+    int-to-byte p1, p1
 
-    invoke-static {v2, v3, v4, v5}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->putByte([BJB)V
-
-    .line 2304
-    nop
+    invoke-static {v2, v3, v4, p1}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->putByte([BJB)V
 
     .line 2310
-    iget v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->position:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->position:I
 
-    int-to-long v2, v2
+    int-to-long v2, p1
 
     sub-long/2addr v2, v0
 
-    long-to-int v2, v2
+    long-to-int p1, v2
 
     .line 2311
-    .local v2, "delta":I
-    iget v3, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
+    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
 
-    add-int/2addr v3, v2
+    add-int/2addr v0, p1
 
-    iput v3, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
+    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
 
-    .line 2312
-    .end local v0    # "originalPos":J
-    .end local v2    # "delta":I
-    nop
-
-    .line 2325
     return-void
 
     .line 2306
-    .restart local v0    # "originalPos":J
     :cond_0
     iget-object v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->buffer:[B
 
@@ -443,13 +394,10 @@
 
     invoke-static {v2, v3, v4, v5}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->putByte([BJB)V
 
-    .line 2307
     ushr-int/lit8 p1, p1, 0x7
 
     goto :goto_0
 
-    .line 2314
-    .end local v0    # "originalPos":J
     :cond_1
     :goto_1
     and-int/lit8 v0, p1, -0x80
@@ -465,18 +413,17 @@
 
     iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->position:I
 
-    int-to-byte v2, p1
+    int-to-byte p1, p1
 
-    aput-byte v2, v0, v1
+    aput-byte p1, v0, v1
 
     .line 2316
-    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
 
-    .line 2317
     return-void
 
     .line 2319
@@ -504,7 +451,6 @@
 
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
 
-    .line 2321
     ushr-int/lit8 p1, p1, 0x7
 
     goto :goto_1
@@ -512,7 +458,6 @@
 
 .method final bufferUInt64NoTag(J)V
     .locals 11
-    .param p1, "value"    # J
 
     .line 2332
     invoke-static {}, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream;->access$100()Z
@@ -532,8 +477,6 @@
 
     int-to-long v6, v0
 
-    .line 2335
-    .local v6, "originalPos":J
     :goto_0
     and-long v8, p1, v4
 
@@ -552,42 +495,31 @@
 
     int-to-long v1, v1
 
-    long-to-int v3, p1
+    long-to-int p1, p1
 
-    int-to-byte v3, v3
+    int-to-byte p1, p1
 
-    invoke-static {v0, v1, v2, v3}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->putByte([BJB)V
-
-    .line 2337
-    nop
+    invoke-static {v0, v1, v2, p1}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->putByte([BJB)V
 
     .line 2343
-    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->position:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->position:I
 
-    int-to-long v0, v0
+    int-to-long p1, p1
 
-    sub-long/2addr v0, v6
+    sub-long/2addr p1, v6
 
-    long-to-int v0, v0
+    long-to-int p1, p1
 
     .line 2344
-    .local v0, "delta":I
-    iget v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
+    iget p2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
 
-    add-int/2addr v1, v0
+    add-int/2addr p2, p1
 
-    iput v1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
+    iput p2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
 
-    .line 2345
-    .end local v0    # "delta":I
-    .end local v6    # "originalPos":J
-    nop
-
-    .line 2358
     return-void
 
     .line 2339
-    .restart local v6    # "originalPos":J
     :cond_0
     iget-object v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->buffer:[B
 
@@ -609,13 +541,10 @@
 
     invoke-static {v0, v8, v9, v10}, Lcom/google/crypto/tink/shaded/protobuf/UnsafeUtil;->putByte([BJB)V
 
-    .line 2340
     ushr-long/2addr p1, v1
 
     goto :goto_0
 
-    .line 2347
-    .end local v6    # "originalPos":J
     :cond_1
     :goto_1
     and-long v6, p1, v4
@@ -633,20 +562,19 @@
 
     iput v2, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->position:I
 
-    long-to-int v2, p1
+    long-to-int p1, p1
 
-    int-to-byte v2, v2
+    int-to-byte p1, p1
 
-    aput-byte v2, v0, v1
+    aput-byte p1, v0, v1
 
     .line 2349
-    iget v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
+    iget p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
+    iput p1, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
 
-    .line 2350
     return-void
 
     .line 2352
@@ -676,7 +604,6 @@
 
     iput v0, p0, Lcom/google/crypto/tink/shaded/protobuf/CodedOutputStream$AbstractBufferedEncoder;->totalBytesWritten:I
 
-    .line 2354
     ushr-long/2addr p1, v1
 
     goto :goto_1

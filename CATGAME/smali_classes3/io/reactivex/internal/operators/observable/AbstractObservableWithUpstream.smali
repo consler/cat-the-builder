@@ -45,14 +45,11 @@
     .end annotation
 
     .line 34
-    .local p0, "this":Lio/reactivex/internal/operators/observable/AbstractObservableWithUpstream;, "Lio/reactivex/internal/operators/observable/AbstractObservableWithUpstream<TT;TU;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Observable;-><init>()V
 
     .line 35
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/AbstractObservableWithUpstream;->source:Lio/reactivex/ObservableSource;
 
-    .line 36
     return-void
 .end method
 
@@ -69,7 +66,6 @@
     .end annotation
 
     .line 40
-    .local p0, "this":Lio/reactivex/internal/operators/observable/AbstractObservableWithUpstream;, "Lio/reactivex/internal/operators/observable/AbstractObservableWithUpstream<TT;TU;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/AbstractObservableWithUpstream;->source:Lio/reactivex/ObservableSource;
 
     return-object v0

@@ -74,44 +74,36 @@
 
 .method public setDragActor(Lcom/badlogic/gdx/scenes/scene2d/Actor;)V
     .locals 0
-    .param p1, "dragActor"    # Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
     .line 317
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragAndDrop$Payload;->dragActor:Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    .line 318
     return-void
 .end method
 
 .method public setInvalidDragActor(Lcom/badlogic/gdx/scenes/scene2d/Actor;)V
     .locals 0
-    .param p1, "invalidDragActor"    # Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
     .line 333
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragAndDrop$Payload;->invalidDragActor:Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    .line 334
     return-void
 .end method
 
 .method public setObject(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "object"    # Ljava/lang/Object;
 
     .line 345
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragAndDrop$Payload;->object:Ljava/lang/Object;
 
-    .line 346
     return-void
 .end method
 
 .method public setValidDragActor(Lcom/badlogic/gdx/scenes/scene2d/Actor;)V
     .locals 0
-    .param p1, "validDragActor"    # Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
     .line 325
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/utils/DragAndDrop$Payload;->validDragActor:Lcom/badlogic/gdx/scenes/scene2d/Actor;
 
-    .line 326
     return-void
 .end method

@@ -24,22 +24,22 @@
     .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 27
     const v0, 0x3e4ccccd    # 0.2f
 
+    .line 27
     iput v0, p0, Lcom/badlogic/gdx/physics/box2d/FixtureDef;->friction:F
 
-    .line 30
     const/4 v0, 0x0
 
+    .line 30
     iput v0, p0, Lcom/badlogic/gdx/physics/box2d/FixtureDef;->restitution:F
 
     .line 33
     iput v0, p0, Lcom/badlogic/gdx/physics/box2d/FixtureDef;->density:F
 
-    .line 36
     const/4 v0, 0x0
 
+    .line 36
     iput-boolean v0, p0, Lcom/badlogic/gdx/physics/box2d/FixtureDef;->isSensor:Z
 
     .line 39

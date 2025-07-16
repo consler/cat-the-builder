@@ -40,22 +40,28 @@
 # direct methods
 .method constructor <init>(Landroidx/core/app/JobIntentService;)V
     .locals 1
-    .param p1, "service"    # Landroidx/core/app/JobIntentService;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "service"
+        }
+    .end annotation
 
-    .line 275
+    .line 279
     invoke-direct {p0, p1}, Landroid/app/job/JobServiceEngine;-><init>(Landroid/app/Service;)V
 
-    .line 249
+    .line 253
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Landroidx/core/app/JobIntentService$JobServiceEngineImpl;->mLock:Ljava/lang/Object;
 
-    .line 276
+    .line 280
     iput-object p1, p0, Landroidx/core/app/JobIntentService$JobServiceEngineImpl;->mService:Landroidx/core/app/JobIntentService;
 
-    .line 277
     return-void
 .end method
 
@@ -64,7 +70,7 @@
 .method public compatGetBinder()Landroid/os/IBinder;
     .locals 1
 
-    .line 281
+    .line 285
     invoke-virtual {p0}, Landroidx/core/app/JobIntentService$JobServiceEngineImpl;->getBinder()Landroid/os/IBinder;
 
     move-result-object v0
@@ -75,12 +81,12 @@
 .method public dequeueWork()Landroidx/core/app/JobIntentService$GenericWorkItem;
     .locals 3
 
-    .line 311
+    .line 315
     iget-object v0, p0, Landroidx/core/app/JobIntentService$JobServiceEngineImpl;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 312
+    .line 316
     :try_start_0
     iget-object v1, p0, Landroidx/core/app/JobIntentService$JobServiceEngineImpl;->mParams:Landroid/app/job/JobParameters;
 
@@ -88,29 +94,25 @@
 
     if-nez v1, :cond_0
 
-    .line 313
+    .line 317
     monitor-exit v0
 
     return-object v2
 
-    .line 315
+    .line 319
     :cond_0
-    iget-object v1, p0, Landroidx/core/app/JobIntentService$JobServiceEngineImpl;->mParams:Landroid/app/job/JobParameters;
-
     invoke-virtual {v1}, Landroid/app/job/JobParameters;->dequeueWork()Landroid/app/job/JobWorkItem;
 
     move-result-object v1
 
-    .line 316
-    .local v1, "work":Landroid/app/job/JobWorkItem;
+    .line 320
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 317
     if-eqz v1, :cond_1
 
-    .line 318
+    .line 322
     invoke-virtual {v1}, Landroid/app/job/JobWorkItem;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -123,22 +125,20 @@
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->setExtrasClassLoader(Ljava/lang/ClassLoader;)V
 
-    .line 319
+    .line 323
     new-instance v0, Landroidx/core/app/JobIntentService$JobServiceEngineImpl$WrapperWorkItem;
 
     invoke-direct {v0, p0, v1}, Landroidx/core/app/JobIntentService$JobServiceEngineImpl$WrapperWorkItem;-><init>(Landroidx/core/app/JobIntentService$JobServiceEngineImpl;Landroid/app/job/JobWorkItem;)V
 
     return-object v0
 
-    .line 321
     :cond_1
     return-object v2
 
-    .line 316
-    .end local v1    # "work":Landroid/app/job/JobWorkItem;
     :catchall_0
     move-exception v1
 
+    .line 320
     :try_start_1
     monitor-exit v0
     :try_end_1
@@ -148,61 +148,71 @@
 .end method
 
 .method public onStartJob(Landroid/app/job/JobParameters;)Z
-    .locals 2
-    .param p1, "params"    # Landroid/app/job/JobParameters;
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "params"
+        }
+    .end annotation
 
-    .line 287
+    .line 291
     iput-object p1, p0, Landroidx/core/app/JobIntentService$JobServiceEngineImpl;->mParams:Landroid/app/job/JobParameters;
 
-    .line 289
-    iget-object v0, p0, Landroidx/core/app/JobIntentService$JobServiceEngineImpl;->mService:Landroidx/core/app/JobIntentService;
+    .line 293
+    iget-object p1, p0, Landroidx/core/app/JobIntentService$JobServiceEngineImpl;->mService:Landroidx/core/app/JobIntentService;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v1}, Landroidx/core/app/JobIntentService;->ensureProcessorRunningLocked(Z)V
+    invoke-virtual {p1, v0}, Landroidx/core/app/JobIntentService;->ensureProcessorRunningLocked(Z)V
 
-    .line 290
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public onStopJob(Landroid/app/job/JobParameters;)Z
-    .locals 3
-    .param p1, "params"    # Landroid/app/job/JobParameters;
-
-    .line 296
-    iget-object v0, p0, Landroidx/core/app/JobIntentService$JobServiceEngineImpl;->mService:Landroidx/core/app/JobIntentService;
-
-    invoke-virtual {v0}, Landroidx/core/app/JobIntentService;->doStopCurrentWork()Z
-
-    move-result v0
-
-    .line 297
-    .local v0, "result":Z
-    iget-object v1, p0, Landroidx/core/app/JobIntentService$JobServiceEngineImpl;->mLock:Ljava/lang/Object;
-
-    monitor-enter v1
+    .locals 2
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "params"
+        }
+    .end annotation
 
     .line 300
-    const/4 v2, 0x0
+    iget-object p1, p0, Landroidx/core/app/JobIntentService$JobServiceEngineImpl;->mService:Landroidx/core/app/JobIntentService;
 
+    invoke-virtual {p1}, Landroidx/core/app/JobIntentService;->doStopCurrentWork()Z
+
+    move-result p1
+
+    .line 301
+    iget-object v0, p0, Landroidx/core/app/JobIntentService$JobServiceEngineImpl;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    const/4 v1, 0x0
+
+    .line 304
     :try_start_0
-    iput-object v2, p0, Landroidx/core/app/JobIntentService$JobServiceEngineImpl;->mParams:Landroid/app/job/JobParameters;
+    iput-object v1, p0, Landroidx/core/app/JobIntentService$JobServiceEngineImpl;->mParams:Landroid/app/job/JobParameters;
 
-    .line 301
-    monitor-exit v1
+    .line 305
+    monitor-exit v0
 
-    .line 302
-    return v0
+    return p1
 
-    .line 301
     :catchall_0
-    move-exception v2
+    move-exception p1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v2
+    throw p1
 .end method

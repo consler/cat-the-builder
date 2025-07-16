@@ -22,15 +22,10 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nSerializablePath.kt\nKotlin\n*S Kotlin\n*F\n+ 1 SerializablePath.kt\norg/catrobat/paintroid/command/serialization/SerializablePath\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,211:1\n1819#2,2:212\n*E\n*S KotlinDebug\n*F\n+ 1 SerializablePath.kt\norg/catrobat/paintroid/command/serialization/SerializablePath\n*L\n33#1,2:212\n*E\n"
+    value = "SMAP\nSerializablePath.kt\nKotlin\n*S Kotlin\n*F\n+ 1 SerializablePath.kt\norg/catrobat/paintroid/command/serialization/SerializablePath\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,211:1\n1849#2,2:212\n*S KotlinDebug\n*F\n+ 1 SerializablePath.kt\norg/catrobat/paintroid/command/serialization/SerializablePath\n*L\n33#1:212,2\n*E\n"
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u0000*\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0008\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\u0008\u0018\u0008\u0016\u0018\u00002\u00020\u0001:\u000c\u001d\u001e\u001f !\"#$%&\'(B\u0007\u0008\u0016\u00a2\u0006\u0002\u0010\u0002B\u001f\u0008\u0016\u0012\u0016\u0010\u0003\u001a\u0012\u0012\u0004\u0012\u00020\u00050\u0004j\u0008\u0012\u0004\u0012\u00020\u0005`\u0006\u00a2\u0006\u0002\u0010\u0007B\u000f\u0008\u0016\u0012\u0006\u0010\u0008\u001a\u00020\u0000\u00a2\u0006\u0002\u0010\tJ8\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u00112\u0006\u0010\u0013\u001a\u00020\u00112\u0006\u0010\u0014\u001a\u00020\u00112\u0006\u0010\u0015\u001a\u00020\u00112\u0006\u0010\u0016\u001a\u00020\u0011H\u0016J\u0018\u0010\u0017\u001a\u00020\u000f2\u0006\u0010\u0018\u001a\u00020\u00112\u0006\u0010\u0019\u001a\u00020\u0011H\u0016J\u0018\u0010\u001a\u001a\u00020\u000f2\u0006\u0010\u0018\u001a\u00020\u00112\u0006\u0010\u0019\u001a\u00020\u0011H\u0016J(\u0010\u001b\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u00112\u0006\u0010\u0013\u001a\u00020\u00112\u0006\u0010\u0014\u001a\u00020\u0011H\u0016J\u0008\u0010\u001c\u001a\u00020\u000fH\u0016R*\u0010\n\u001a\u0012\u0012\u0004\u0012\u00020\u00050\u0004j\u0008\u0012\u0004\u0012\u00020\u0005`\u0006X\u0086\u000e\u00a2\u0006\u000e\n\u0000\u001a\u0004\u0008\u000b\u0010\u000c\"\u0004\u0008\r\u0010\u0007\u00a8\u0006)"
     }
@@ -76,14 +71,15 @@
         "Quad",
         "Rewind",
         "SerializableAction",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -117,8 +113,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/ArrayList;)V
-    .locals 7
-    .param p1, "actions"    # Ljava/util/ArrayList;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -143,66 +138,41 @@
     iput-object v0, p0, Lorg/catrobat/paintroid/command/serialization/SerializablePath;->serializableActions:Ljava/util/ArrayList;
 
     .line 33
-    move-object v0, p1
-
-    check-cast v0, Ljava/lang/Iterable;
-
-    .local v0, "$this$forEach$iv":Ljava/lang/Iterable;
-    const/4 v1, 0x0
+    check-cast p1, Ljava/lang/Iterable;
 
     .line 212
-    .local v1, "$i$f$forEach":I
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object p1
 
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v0
 
-    .local v3, "element$iv":Ljava/lang/Object;
-    move-object v4, v3
-
-    check-cast v4, Lorg/catrobat/paintroid/command/serialization/SerializablePath$SerializableAction;
-
-    .local v4, "it":Lorg/catrobat/paintroid/command/serialization/SerializablePath$SerializableAction;
-    const/4 v5, 0x0
+    check-cast v0, Lorg/catrobat/paintroid/command/serialization/SerializablePath$SerializableAction;
 
     .line 34
-    .local v5, "$i$a$-forEach-SerializablePath$1":I
-    move-object v6, p0
+    move-object v1, p0
 
-    check-cast v6, Landroid/graphics/Path;
+    check-cast v1, Landroid/graphics/Path;
 
-    invoke-interface {v4, v6}, Lorg/catrobat/paintroid/command/serialization/SerializablePath$SerializableAction;->perform(Landroid/graphics/Path;)V
+    invoke-interface {v0, v1}, Lorg/catrobat/paintroid/command/serialization/SerializablePath$SerializableAction;->perform(Landroid/graphics/Path;)V
 
-    .line 35
-    nop
-
-    .end local v3    # "element$iv":Ljava/lang/Object;
-    .end local v4    # "it":Lorg/catrobat/paintroid/command/serialization/SerializablePath$SerializableAction;
-    .end local v5    # "$i$a$-forEach-SerializablePath$1":I
     goto :goto_0
 
-    .line 213
     :cond_0
-    nop
-
-    .end local v0    # "$this$forEach$iv":Ljava/lang/Iterable;
-    .end local v1    # "$i$f$forEach":I
     return-void
 .end method
 
 .method public constructor <init>(Lorg/catrobat/paintroid/command/serialization/SerializablePath;)V
-    .locals 2
-    .param p1, "src"    # Lorg/catrobat/paintroid/command/serialization/SerializablePath;
+    .locals 1
 
     const-string v0, "src"
 
@@ -223,11 +193,11 @@
     iput-object v0, p0, Lorg/catrobat/paintroid/command/serialization/SerializablePath;->serializableActions:Ljava/util/ArrayList;
 
     .line 39
-    iget-object v1, p1, Lorg/catrobat/paintroid/command/serialization/SerializablePath;->serializableActions:Ljava/util/ArrayList;
+    iget-object p1, p1, Lorg/catrobat/paintroid/command/serialization/SerializablePath;->serializableActions:Ljava/util/ArrayList;
 
-    check-cast v1, Ljava/util/Collection;
+    check-cast p1, Ljava/util/Collection;
 
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
     return-void
 .end method
@@ -236,12 +206,6 @@
 # virtual methods
 .method public cubicTo(FFFFFF)V
     .locals 9
-    .param p1, "x1"    # F
-    .param p2, "y1"    # F
-    .param p3, "x2"    # F
-    .param p4, "y2"    # F
-    .param p5, "x3"    # F
-    .param p6, "y3"    # F
 
     .line 58
     iget-object v0, p0, Lorg/catrobat/paintroid/command/serialization/SerializablePath;->serializableActions:Ljava/util/ArrayList;
@@ -269,7 +233,6 @@
     .line 59
     invoke-super/range {p0 .. p6}, Landroid/graphics/Path;->cubicTo(FFFFFF)V
 
-    .line 60
     return-void
 .end method
 
@@ -292,8 +255,6 @@
 
 .method public lineTo(FF)V
     .locals 2
-    .param p1, "x"    # F
-    .param p2, "y"    # F
 
     .line 48
     iget-object v0, p0, Lorg/catrobat/paintroid/command/serialization/SerializablePath;->serializableActions:Ljava/util/ArrayList;
@@ -307,14 +268,11 @@
     .line 49
     invoke-super {p0, p1, p2}, Landroid/graphics/Path;->lineTo(FF)V
 
-    .line 50
     return-void
 .end method
 
 .method public moveTo(FF)V
     .locals 2
-    .param p1, "x"    # F
-    .param p2, "y"    # F
 
     .line 43
     iget-object v0, p0, Lorg/catrobat/paintroid/command/serialization/SerializablePath;->serializableActions:Ljava/util/ArrayList;
@@ -328,16 +286,11 @@
     .line 44
     invoke-super {p0, p1, p2}, Landroid/graphics/Path;->moveTo(FF)V
 
-    .line 45
     return-void
 .end method
 
 .method public quadTo(FFFF)V
     .locals 2
-    .param p1, "x1"    # F
-    .param p2, "y1"    # F
-    .param p3, "x2"    # F
-    .param p4, "y2"    # F
 
     .line 53
     iget-object v0, p0, Lorg/catrobat/paintroid/command/serialization/SerializablePath;->serializableActions:Ljava/util/ArrayList;
@@ -351,7 +304,6 @@
     .line 54
     invoke-super {p0, p1, p2, p3, p4}, Landroid/graphics/Path;->quadTo(FFFF)V
 
-    .line 55
     return-void
 .end method
 
@@ -366,13 +318,11 @@
     .line 64
     invoke-super {p0}, Landroid/graphics/Path;->rewind()V
 
-    .line 65
     return-void
 .end method
 
 .method public final setSerializableActions(Ljava/util/ArrayList;)V
     .locals 1
-    .param p1, "<set-?>"    # Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

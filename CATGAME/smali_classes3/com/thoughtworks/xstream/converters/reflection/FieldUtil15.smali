@@ -19,13 +19,12 @@
 
 # virtual methods
 .method public isSynthetic(Ljava/lang/reflect/Field;)Z
-    .locals 1
-    .param p1, "field"    # Ljava/lang/reflect/Field;
+    .locals 0
 
     .line 19
     invoke-virtual {p1}, Ljava/lang/reflect/Field;->isSynthetic()Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

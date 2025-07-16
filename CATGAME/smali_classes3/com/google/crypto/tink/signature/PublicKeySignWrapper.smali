@@ -49,7 +49,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/Registry;->registerPrimitiveWrapper(Lcom/google/crypto/tink/PrimitiveWrapper;)V
 
-    .line 82
     return-void
 .end method
 
@@ -111,7 +110,6 @@
     .end annotation
 
     .line 61
-    .local p1, "primitives":Lcom/google/crypto/tink/PrimitiveSet;, "Lcom/google/crypto/tink/PrimitiveSet<Lcom/google/crypto/tink/PublicKeySign;>;"
     new-instance v0, Lcom/google/crypto/tink/signature/PublicKeySignWrapper$WrappedPublicKeySign;
 
     invoke-direct {v0, p1}, Lcom/google/crypto/tink/signature/PublicKeySignWrapper$WrappedPublicKeySign;-><init>(Lcom/google/crypto/tink/PrimitiveSet;)V

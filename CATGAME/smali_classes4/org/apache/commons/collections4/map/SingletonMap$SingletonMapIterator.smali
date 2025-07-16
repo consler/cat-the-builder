@@ -60,24 +60,21 @@
     .end annotation
 
     .line 434
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;, "Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator<TK;TV;>;"
-    .local p1, "parent":Lorg/apache/commons/collections4/map/SingletonMap;, "Lorg/apache/commons/collections4/map/SingletonMap<TK;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 430
     const/4 v0, 0x1
 
+    .line 430
     iput-boolean v0, p0, Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;->hasNext:Z
 
-    .line 431
     const/4 v0, 0x0
 
+    .line 431
     iput-boolean v0, p0, Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;->canGetSet:Z
 
     .line 435
     iput-object p1, p0, Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;->parent:Lorg/apache/commons/collections4/map/SingletonMap;
 
-    .line 436
     return-void
 .end method
 
@@ -92,7 +89,6 @@
     .end annotation
 
     .line 474
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;, "Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator<TK;TV;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;->canGetSet:Z
 
     if-eqz v0, :cond_0
@@ -126,7 +122,6 @@
     .end annotation
 
     .line 482
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;, "Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator<TK;TV;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;->canGetSet:Z
 
     if-eqz v0, :cond_0
@@ -155,7 +150,6 @@
     .locals 1
 
     .line 440
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;, "Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator<TK;TV;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;->hasNext:Z
 
     return v0
@@ -165,7 +159,6 @@
     .locals 1
 
     .line 455
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;, "Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator<TK;TV;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;->hasNext:Z
 
     xor-int/lit8 v0, v0, 0x1
@@ -182,19 +175,18 @@
     .end annotation
 
     .line 445
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;, "Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator<TK;TV;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;->hasNext:Z
 
     if-eqz v0, :cond_0
 
-    .line 448
     const/4 v0, 0x0
 
+    .line 448
     iput-boolean v0, p0, Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;->hasNext:Z
 
-    .line 449
     const/4 v0, 0x1
 
+    .line 449
     iput-boolean v0, p0, Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;->canGetSet:Z
 
     .line 450
@@ -226,7 +218,6 @@
     .end annotation
 
     .line 460
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;, "Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator<TK;TV;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;->hasNext:Z
 
     const/4 v1, 0x1
@@ -260,7 +251,6 @@
     .locals 1
 
     .line 469
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;, "Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -271,18 +261,16 @@
 .method public reset()V
     .locals 1
 
-    .line 498
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;, "Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator<TK;TV;>;"
     const/4 v0, 0x1
 
+    .line 498
     iput-boolean v0, p0, Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;->hasNext:Z
 
-    .line 499
     return-void
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)TV;"
@@ -290,8 +278,6 @@
     .end annotation
 
     .line 490
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;, "Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator<TK;TV;>;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;->canGetSet:Z
 
     if-eqz v0, :cond_0
@@ -301,31 +287,29 @@
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/map/SingletonMap;->setValue(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 491
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "setValue() can only be called after next() and before remove()"
+    const-string v0, "setValue() can only be called after next() and before remove()"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 2
 
     .line 503
-    .local p0, "this":Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;, "Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator<TK;TV;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;->hasNext:Z
 
     if-eqz v0, :cond_0
 
-    .line 504
     const-string v0, "Iterator[]"
 
     return-object v0
@@ -334,11 +318,9 @@
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "Iterator["
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;->getKey()Ljava/lang/Object;
 
@@ -346,9 +328,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/SingletonMap$SingletonMapIterator;->getValue()Ljava/lang/Object;
 
@@ -356,9 +342,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

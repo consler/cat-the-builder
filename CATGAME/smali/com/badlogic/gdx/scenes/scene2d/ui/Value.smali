@@ -96,7 +96,6 @@
 
 .method public static percentHeight(F)Lcom/badlogic/gdx/scenes/scene2d/ui/Value;
     .locals 1
-    .param p0, "percent"    # F
 
     .line 127
     new-instance v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Value$8;
@@ -107,11 +106,8 @@
 .end method
 
 .method public static percentHeight(FLcom/badlogic/gdx/scenes/scene2d/Actor;)Lcom/badlogic/gdx/scenes/scene2d/ui/Value;
-    .locals 2
-    .param p0, "percent"    # F
-    .param p1, "actor"    # Lcom/badlogic/gdx/scenes/scene2d/Actor;
+    .locals 1
 
-    .line 146
     if-eqz p1, :cond_0
 
     .line 147
@@ -123,18 +119,17 @@
 
     .line 146
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "actor cannot be null."
+    const-string p1, "actor cannot be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static percentWidth(F)Lcom/badlogic/gdx/scenes/scene2d/ui/Value;
     .locals 1
-    .param p0, "percent"    # F
 
     .line 118
     new-instance v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Value$7;
@@ -145,11 +140,8 @@
 .end method
 
 .method public static percentWidth(FLcom/badlogic/gdx/scenes/scene2d/Actor;)Lcom/badlogic/gdx/scenes/scene2d/ui/Value;
-    .locals 2
-    .param p0, "percent"    # F
-    .param p1, "actor"    # Lcom/badlogic/gdx/scenes/scene2d/Actor;
+    .locals 1
 
-    .line 136
     if-eqz p1, :cond_0
 
     .line 137
@@ -161,13 +153,13 @@
 
     .line 136
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "actor cannot be null."
+    const-string p1, "actor cannot be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
@@ -175,9 +167,9 @@
 .method public get()F
     .locals 1
 
-    .line 28
     const/4 v0, 0x0
 
+    .line 28
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Value;->get(Lcom/badlogic/gdx/scenes/scene2d/Actor;)F
 
     move-result v0

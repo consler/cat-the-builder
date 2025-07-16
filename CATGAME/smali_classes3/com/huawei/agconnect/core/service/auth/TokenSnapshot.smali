@@ -1,6 +1,5 @@
 .class public interface abstract Lcom/huawei/agconnect/core/service/auth/TokenSnapshot;
 .super Ljava/lang/Object;
-.source "TokenSnapshot.java"
 
 
 # annotations

@@ -28,89 +28,74 @@
 
     iput-object v0, p0, Lorg/apache/commons/lang3/exception/ContextedRuntimeException;->exceptionContext:Lorg/apache/commons/lang3/exception/ExceptionContext;
 
-    .line 102
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "message"    # Ljava/lang/String;
+    .locals 0
 
     .line 112
     invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     .line 113
-    new-instance v0, Lorg/apache/commons/lang3/exception/DefaultExceptionContext;
+    new-instance p1, Lorg/apache/commons/lang3/exception/DefaultExceptionContext;
 
-    invoke-direct {v0}, Lorg/apache/commons/lang3/exception/DefaultExceptionContext;-><init>()V
+    invoke-direct {p1}, Lorg/apache/commons/lang3/exception/DefaultExceptionContext;-><init>()V
 
-    iput-object v0, p0, Lorg/apache/commons/lang3/exception/ContextedRuntimeException;->exceptionContext:Lorg/apache/commons/lang3/exception/ExceptionContext;
+    iput-object p1, p0, Lorg/apache/commons/lang3/exception/ContextedRuntimeException;->exceptionContext:Lorg/apache/commons/lang3/exception/ExceptionContext;
 
-    .line 114
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 1
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "cause"    # Ljava/lang/Throwable;
+    .locals 0
 
     .line 137
     invoke-direct {p0, p1, p2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 138
-    new-instance v0, Lorg/apache/commons/lang3/exception/DefaultExceptionContext;
+    new-instance p1, Lorg/apache/commons/lang3/exception/DefaultExceptionContext;
 
-    invoke-direct {v0}, Lorg/apache/commons/lang3/exception/DefaultExceptionContext;-><init>()V
+    invoke-direct {p1}, Lorg/apache/commons/lang3/exception/DefaultExceptionContext;-><init>()V
 
-    iput-object v0, p0, Lorg/apache/commons/lang3/exception/ContextedRuntimeException;->exceptionContext:Lorg/apache/commons/lang3/exception/ExceptionContext;
+    iput-object p1, p0, Lorg/apache/commons/lang3/exception/ContextedRuntimeException;->exceptionContext:Lorg/apache/commons/lang3/exception/ExceptionContext;
 
-    .line 139
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;Lorg/apache/commons/lang3/exception/ExceptionContext;)V
-    .locals 1
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "cause"    # Ljava/lang/Throwable;
-    .param p3, "context"    # Lorg/apache/commons/lang3/exception/ExceptionContext;
+    .locals 0
 
     .line 149
     invoke-direct {p0, p1, p2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 150
     if-nez p3, :cond_0
 
     .line 151
-    new-instance v0, Lorg/apache/commons/lang3/exception/DefaultExceptionContext;
+    new-instance p3, Lorg/apache/commons/lang3/exception/DefaultExceptionContext;
 
-    invoke-direct {v0}, Lorg/apache/commons/lang3/exception/DefaultExceptionContext;-><init>()V
-
-    move-object p3, v0
+    invoke-direct {p3}, Lorg/apache/commons/lang3/exception/DefaultExceptionContext;-><init>()V
 
     .line 153
     :cond_0
     iput-object p3, p0, Lorg/apache/commons/lang3/exception/ContextedRuntimeException;->exceptionContext:Lorg/apache/commons/lang3/exception/ExceptionContext;
 
-    .line 154
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Throwable;)V
-    .locals 1
-    .param p1, "cause"    # Ljava/lang/Throwable;
+    .locals 0
 
     .line 124
     invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     .line 125
-    new-instance v0, Lorg/apache/commons/lang3/exception/DefaultExceptionContext;
+    new-instance p1, Lorg/apache/commons/lang3/exception/DefaultExceptionContext;
 
-    invoke-direct {v0}, Lorg/apache/commons/lang3/exception/DefaultExceptionContext;-><init>()V
+    invoke-direct {p1}, Lorg/apache/commons/lang3/exception/DefaultExceptionContext;-><init>()V
 
-    iput-object v0, p0, Lorg/apache/commons/lang3/exception/ContextedRuntimeException;->exceptionContext:Lorg/apache/commons/lang3/exception/ExceptionContext;
+    iput-object p1, p0, Lorg/apache/commons/lang3/exception/ContextedRuntimeException;->exceptionContext:Lorg/apache/commons/lang3/exception/ExceptionContext;
 
-    .line 126
     return-void
 .end method
 
@@ -118,15 +103,12 @@
 # virtual methods
 .method public addContextValue(Ljava/lang/String;Ljava/lang/Object;)Lorg/apache/commons/lang3/exception/ContextedRuntimeException;
     .locals 1
-    .param p1, "label"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/Object;
 
     .line 172
     iget-object v0, p0, Lorg/apache/commons/lang3/exception/ContextedRuntimeException;->exceptionContext:Lorg/apache/commons/lang3/exception/ExceptionContext;
 
     invoke-interface {v0, p1, p2}, Lorg/apache/commons/lang3/exception/ExceptionContext;->addContextValue(Ljava/lang/String;Ljava/lang/Object;)Lorg/apache/commons/lang3/exception/ExceptionContext;
 
-    .line 173
     return-object p0
 .end method
 
@@ -187,7 +169,6 @@
 
 .method public getContextValues(Ljava/lang/String;)Ljava/util/List;
     .locals 1
-    .param p1, "label"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -204,37 +185,35 @@
 
     invoke-interface {v0, p1}, Lorg/apache/commons/lang3/exception/ExceptionContext;->getContextValues(Ljava/lang/String;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getFirstContextValue(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
-    .param p1, "label"    # Ljava/lang/String;
 
     .line 208
     iget-object v0, p0, Lorg/apache/commons/lang3/exception/ContextedRuntimeException;->exceptionContext:Lorg/apache/commons/lang3/exception/ExceptionContext;
 
     invoke-interface {v0, p1}, Lorg/apache/commons/lang3/exception/ExceptionContext;->getFirstContextValue(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getFormattedExceptionMessage(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p1, "baseMessage"    # Ljava/lang/String;
 
     .line 254
     iget-object v0, p0, Lorg/apache/commons/lang3/exception/ContextedRuntimeException;->exceptionContext:Lorg/apache/commons/lang3/exception/ExceptionContext;
 
     invoke-interface {v0, p1}, Lorg/apache/commons/lang3/exception/ExceptionContext;->getFormattedExceptionMessage(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getMessage()Ljava/lang/String;
@@ -265,15 +244,12 @@
 
 .method public setContextValue(Ljava/lang/String;Ljava/lang/Object;)Lorg/apache/commons/lang3/exception/ContextedRuntimeException;
     .locals 1
-    .param p1, "label"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/Object;
 
     .line 191
     iget-object v0, p0, Lorg/apache/commons/lang3/exception/ContextedRuntimeException;->exceptionContext:Lorg/apache/commons/lang3/exception/ExceptionContext;
 
     invoke-interface {v0, p1, p2}, Lorg/apache/commons/lang3/exception/ExceptionContext;->setContextValue(Ljava/lang/String;Ljava/lang/Object;)Lorg/apache/commons/lang3/exception/ExceptionContext;
 
-    .line 192
     return-object p0
 .end method
 

@@ -49,14 +49,11 @@
     .end annotation
 
     .line 36
-    .local p0, "this":Lio/reactivex/internal/operators/observable/BlockingObservableNext;, "Lio/reactivex/internal/operators/observable/BlockingObservableNext<TT;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 37
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/BlockingObservableNext;->source:Lio/reactivex/ObservableSource;
 
-    .line 38
     return-void
 .end method
 
@@ -73,13 +70,11 @@
     .end annotation
 
     .line 42
-    .local p0, "this":Lio/reactivex/internal/operators/observable/BlockingObservableNext;, "Lio/reactivex/internal/operators/observable/BlockingObservableNext<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/BlockingObservableNext$NextObserver;
 
     invoke-direct {v0}, Lio/reactivex/internal/operators/observable/BlockingObservableNext$NextObserver;-><init>()V
 
     .line 43
-    .local v0, "nextObserver":Lio/reactivex/internal/operators/observable/BlockingObservableNext$NextObserver;, "Lio/reactivex/internal/operators/observable/BlockingObservableNext$NextObserver<TT;>;"
     new-instance v1, Lio/reactivex/internal/operators/observable/BlockingObservableNext$NextIterator;
 
     iget-object v2, p0, Lio/reactivex/internal/operators/observable/BlockingObservableNext;->source:Lio/reactivex/ObservableSource;

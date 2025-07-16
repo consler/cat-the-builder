@@ -33,14 +33,11 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 8
+    .locals 9
 
-    .line 40
-    nop
-
-    .line 41
     const-wide/16 v0, 0x2
 
+    .line 41
     invoke-static {v0, v1}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
 
     move-result-object v2
@@ -63,318 +60,260 @@
 
     sput-object v2, Lcom/google/crypto/tink/subtle/Ed25519Constants;->P_BI:Ljava/math/BigInteger;
 
-    .line 42
-    nop
+    const-wide/32 v3, -0x1db41
 
     .line 43
-    const-wide/32 v2, -0x1db41
-
-    invoke-static {v2, v3}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
-
-    move-result-object v2
-
-    const-wide/32 v3, 0x1db42
-
     invoke-static {v3, v4}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
 
     move-result-object v3
 
-    sget-object v4, Lcom/google/crypto/tink/subtle/Ed25519Constants;->P_BI:Ljava/math/BigInteger;
+    const-wide/32 v4, 0x1db42
 
-    invoke-virtual {v3, v4}, Ljava/math/BigInteger;->modInverse(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-static {v4, v5}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Ljava/math/BigInteger;->modInverse(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-virtual {v3, v2}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    move-result-object v2
+    move-result-object v3
 
-    sget-object v3, Lcom/google/crypto/tink/subtle/Ed25519Constants;->P_BI:Ljava/math/BigInteger;
-
-    invoke-virtual {v2, v3}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
-
-    move-result-object v2
-
-    sput-object v2, Lcom/google/crypto/tink/subtle/Ed25519Constants;->D_BI:Ljava/math/BigInteger;
+    sput-object v3, Lcom/google/crypto/tink/subtle/Ed25519Constants;->D_BI:Ljava/math/BigInteger;
 
     .line 44
     invoke-static {v0, v1}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
 
-    move-result-object v2
+    move-result-object v4
 
-    sget-object v3, Lcom/google/crypto/tink/subtle/Ed25519Constants;->D_BI:Ljava/math/BigInteger;
+    invoke-virtual {v4, v3}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    invoke-virtual {v2, v3}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    move-result-object v4
 
-    move-result-object v2
+    invoke-virtual {v4, v2}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    sget-object v3, Lcom/google/crypto/tink/subtle/Ed25519Constants;->P_BI:Ljava/math/BigInteger;
+    move-result-object v4
 
-    invoke-virtual {v2, v3}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
-
-    move-result-object v2
-
-    sput-object v2, Lcom/google/crypto/tink/subtle/Ed25519Constants;->D2_BI:Ljava/math/BigInteger;
-
-    .line 45
-    nop
+    sput-object v4, Lcom/google/crypto/tink/subtle/Ed25519Constants;->D2_BI:Ljava/math/BigInteger;
 
     .line 46
     invoke-static {v0, v1}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
 
     move-result-object v0
 
-    sget-object v1, Lcom/google/crypto/tink/subtle/Ed25519Constants;->P_BI:Ljava/math/BigInteger;
+    sget-object v1, Ljava/math/BigInteger;->ONE:Ljava/math/BigInteger;
 
-    sget-object v2, Ljava/math/BigInteger;->ONE:Ljava/math/BigInteger;
-
-    invoke-virtual {v1, v2}, Ljava/math/BigInteger;->subtract(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-virtual {v2, v1}, Ljava/math/BigInteger;->subtract(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
     move-result-object v1
 
-    const-wide/16 v2, 0x4
+    const-wide/16 v5, 0x4
 
-    invoke-static {v2, v3}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+    invoke-static {v5, v6}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
 
-    move-result-object v4
+    move-result-object v7
 
-    invoke-virtual {v1, v4}, Ljava/math/BigInteger;->divide(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-virtual {v1, v7}, Ljava/math/BigInteger;->divide(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
     move-result-object v1
 
-    sget-object v4, Lcom/google/crypto/tink/subtle/Ed25519Constants;->P_BI:Ljava/math/BigInteger;
-
-    invoke-virtual {v0, v1, v4}, Ljava/math/BigInteger;->modPow(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-virtual {v0, v1, v2}, Ljava/math/BigInteger;->modPow(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
     move-result-object v0
 
     sput-object v0, Lcom/google/crypto/tink/subtle/Ed25519Constants;->SQRTM1_BI:Ljava/math/BigInteger;
 
     .line 103
-    new-instance v0, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
+    new-instance v1, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
 
-    const/4 v1, 0x0
+    const/4 v7, 0x0
 
-    invoke-direct {v0, v1}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;-><init>(Lcom/google/crypto/tink/subtle/Ed25519Constants$1;)V
+    invoke-direct {v1, v7}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;-><init>(Lcom/google/crypto/tink/subtle/Ed25519Constants$1;)V
 
     .line 104
-    .local v0, "b":Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
-    invoke-static {v2, v3}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+    invoke-static {v5, v6}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
 
-    move-result-object v1
+    move-result-object v5
 
-    const-wide/16 v2, 0x5
+    const-wide/16 v6, 0x5
 
-    invoke-static {v2, v3}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+    invoke-static {v6, v7}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v2}, Ljava/math/BigInteger;->modInverse(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v2}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
     move-result-object v2
 
-    sget-object v3, Lcom/google/crypto/tink/subtle/Ed25519Constants;->P_BI:Ljava/math/BigInteger;
-
-    invoke-virtual {v2, v3}, Ljava/math/BigInteger;->modInverse(Ljava/math/BigInteger;)Ljava/math/BigInteger;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/google/crypto/tink/subtle/Ed25519Constants;->P_BI:Ljava/math/BigInteger;
-
-    invoke-virtual {v1, v2}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$102(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-static {v1, v2}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$102(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
     .line 105
-    invoke-static {v0}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$100(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Ljava/math/BigInteger;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/google/crypto/tink/subtle/Ed25519Constants;->recoverX(Ljava/math/BigInteger;)Ljava/math/BigInteger;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$202(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;Ljava/math/BigInteger;)Ljava/math/BigInteger;
-
-    .line 107
-    sget-object v1, Lcom/google/crypto/tink/subtle/Ed25519Constants;->D_BI:Ljava/math/BigInteger;
-
-    invoke-static {v1}, Lcom/google/crypto/tink/subtle/Ed25519Constants;->toLittleEndian(Ljava/math/BigInteger;)[B
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/google/crypto/tink/subtle/Field25519;->expand([B)[J
-
-    move-result-object v1
-
-    sput-object v1, Lcom/google/crypto/tink/subtle/Ed25519Constants;->D:[J
-
-    .line 108
-    sget-object v1, Lcom/google/crypto/tink/subtle/Ed25519Constants;->D2_BI:Ljava/math/BigInteger;
-
-    invoke-static {v1}, Lcom/google/crypto/tink/subtle/Ed25519Constants;->toLittleEndian(Ljava/math/BigInteger;)[B
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/google/crypto/tink/subtle/Field25519;->expand([B)[J
-
-    move-result-object v1
-
-    sput-object v1, Lcom/google/crypto/tink/subtle/Ed25519Constants;->D2:[J
-
-    .line 109
-    sget-object v1, Lcom/google/crypto/tink/subtle/Ed25519Constants;->SQRTM1_BI:Ljava/math/BigInteger;
-
-    invoke-static {v1}, Lcom/google/crypto/tink/subtle/Ed25519Constants;->toLittleEndian(Ljava/math/BigInteger;)[B
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/google/crypto/tink/subtle/Field25519;->expand([B)[J
-
-    move-result-object v1
-
-    sput-object v1, Lcom/google/crypto/tink/subtle/Ed25519Constants;->SQRTM1:[J
-
-    .line 111
-    move-object v1, v0
-
-    .line 112
-    .local v1, "bi":Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
-    const/4 v2, 0x2
-
-    new-array v2, v2, [I
-
-    fill-array-data v2, :array_0
-
-    const-class v3, Lcom/google/crypto/tink/subtle/Ed25519$CachedXYT;
-
-    invoke-static {v3, v2}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$100(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Ljava/math/BigInteger;
 
     move-result-object v2
 
-    check-cast v2, [[Lcom/google/crypto/tink/subtle/Ed25519$CachedXYT;
+    invoke-static {v2}, Lcom/google/crypto/tink/subtle/Ed25519Constants;->recoverX(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    sput-object v2, Lcom/google/crypto/tink/subtle/Ed25519Constants;->B_TABLE:[[Lcom/google/crypto/tink/subtle/Ed25519$CachedXYT;
+    move-result-object v2
 
-    .line 113
-    const/4 v2, 0x0
+    invoke-static {v1, v2}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$202(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    .local v2, "i":I
-    :goto_0
-    const/16 v3, 0x20
+    .line 107
+    invoke-static {v3}, Lcom/google/crypto/tink/subtle/Ed25519Constants;->toLittleEndian(Ljava/math/BigInteger;)[B
 
-    const/16 v4, 0x8
+    move-result-object v2
 
-    if-ge v2, v3, :cond_2
+    invoke-static {v2}, Lcom/google/crypto/tink/subtle/Field25519;->expand([B)[J
 
-    .line 114
+    move-result-object v2
+
+    sput-object v2, Lcom/google/crypto/tink/subtle/Ed25519Constants;->D:[J
+
+    .line 108
+    invoke-static {v4}, Lcom/google/crypto/tink/subtle/Ed25519Constants;->toLittleEndian(Ljava/math/BigInteger;)[B
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/google/crypto/tink/subtle/Field25519;->expand([B)[J
+
+    move-result-object v2
+
+    sput-object v2, Lcom/google/crypto/tink/subtle/Ed25519Constants;->D2:[J
+
+    .line 109
+    invoke-static {v0}, Lcom/google/crypto/tink/subtle/Ed25519Constants;->toLittleEndian(Ljava/math/BigInteger;)[B
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/google/crypto/tink/subtle/Field25519;->expand([B)[J
+
+    move-result-object v0
+
+    sput-object v0, Lcom/google/crypto/tink/subtle/Ed25519Constants;->SQRTM1:[J
+
+    const/4 v0, 0x2
+
+    new-array v0, v0, [I
+
+    .line 112
+    fill-array-data v0, :array_0
+
+    const-class v2, Lcom/google/crypto/tink/subtle/Ed25519$CachedXYT;
+
+    invoke-static {v2, v0}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, [[Lcom/google/crypto/tink/subtle/Ed25519$CachedXYT;
+
+    sput-object v0, Lcom/google/crypto/tink/subtle/Ed25519Constants;->B_TABLE:[[Lcom/google/crypto/tink/subtle/Ed25519$CachedXYT;
+
+    const/4 v0, 0x0
+
+    move v2, v0
+
     move-object v3, v1
 
-    .line 115
-    .local v3, "bij":Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
-    const/4 v5, 0x0
+    :goto_0
+    const/16 v4, 0x20
 
-    .local v5, "j":I
+    const/16 v5, 0x8
+
+    if-ge v2, v4, :cond_2
+
+    move v4, v0
+
+    move-object v6, v3
+
     :goto_1
-    if-ge v5, v4, :cond_0
+    if-ge v4, v5, :cond_0
 
     .line 116
-    sget-object v6, Lcom/google/crypto/tink/subtle/Ed25519Constants;->B_TABLE:[[Lcom/google/crypto/tink/subtle/Ed25519$CachedXYT;
+    sget-object v7, Lcom/google/crypto/tink/subtle/Ed25519Constants;->B_TABLE:[[Lcom/google/crypto/tink/subtle/Ed25519$CachedXYT;
 
-    aget-object v6, v6, v2
+    aget-object v7, v7, v2
 
-    invoke-static {v3}, Lcom/google/crypto/tink/subtle/Ed25519Constants;->getCachedXYT(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Lcom/google/crypto/tink/subtle/Ed25519$CachedXYT;
+    invoke-static {v6}, Lcom/google/crypto/tink/subtle/Ed25519Constants;->getCachedXYT(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Lcom/google/crypto/tink/subtle/Ed25519$CachedXYT;
 
-    move-result-object v7
+    move-result-object v8
 
-    aput-object v7, v6, v5
+    aput-object v8, v7, v4
 
     .line 117
-    invoke-static {v3, v1}, Lcom/google/crypto/tink/subtle/Ed25519Constants;->edwards(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
+    invoke-static {v6, v3}, Lcom/google/crypto/tink/subtle/Ed25519Constants;->edwards(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
 
-    move-result-object v3
+    move-result-object v6
 
-    .line 115
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_1
 
-    .line 119
-    .end local v5    # "j":I
     :cond_0
-    const/4 v5, 0x0
+    move v4, v0
 
-    .restart local v5    # "j":I
     :goto_2
-    if-ge v5, v4, :cond_1
+    if-ge v4, v5, :cond_1
 
     .line 120
-    invoke-static {v1, v1}, Lcom/google/crypto/tink/subtle/Ed25519Constants;->edwards(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
+    invoke-static {v3, v3}, Lcom/google/crypto/tink/subtle/Ed25519Constants;->edwards(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
 
-    move-result-object v1
+    move-result-object v3
 
-    .line 119
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_2
 
-    .line 113
-    .end local v3    # "bij":Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
-    .end local v5    # "j":I
     :cond_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 123
-    .end local v2    # "i":I
-    :cond_2
-    move-object v1, v0
-
     .line 124
-    invoke-static {v0, v0}, Lcom/google/crypto/tink/subtle/Ed25519Constants;->edwards(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
+    :cond_2
+    invoke-static {v1, v1}, Lcom/google/crypto/tink/subtle/Ed25519Constants;->edwards(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
 
     move-result-object v2
 
-    .line 125
-    .local v2, "b2":Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
-    new-array v3, v4, [Lcom/google/crypto/tink/subtle/Ed25519$CachedXYT;
+    new-array v3, v5, [Lcom/google/crypto/tink/subtle/Ed25519$CachedXYT;
 
+    .line 125
     sput-object v3, Lcom/google/crypto/tink/subtle/Ed25519Constants;->B2:[Lcom/google/crypto/tink/subtle/Ed25519$CachedXYT;
 
-    .line 126
-    const/4 v3, 0x0
-
-    .local v3, "i":I
     :goto_3
-    if-ge v3, v4, :cond_3
+    if-ge v0, v5, :cond_3
 
     .line 127
-    sget-object v5, Lcom/google/crypto/tink/subtle/Ed25519Constants;->B2:[Lcom/google/crypto/tink/subtle/Ed25519$CachedXYT;
+    sget-object v3, Lcom/google/crypto/tink/subtle/Ed25519Constants;->B2:[Lcom/google/crypto/tink/subtle/Ed25519$CachedXYT;
 
     invoke-static {v1}, Lcom/google/crypto/tink/subtle/Ed25519Constants;->getCachedXYT(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Lcom/google/crypto/tink/subtle/Ed25519$CachedXYT;
 
-    move-result-object v6
+    move-result-object v4
 
-    aput-object v6, v5, v3
+    aput-object v4, v3, v0
 
     .line 128
     invoke-static {v1, v2}, Lcom/google/crypto/tink/subtle/Ed25519Constants;->edwards(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
 
     move-result-object v1
 
-    .line 126
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_3
 
-    .line 130
-    .end local v0    # "b":Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
-    .end local v1    # "bi":Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
-    .end local v2    # "b2":Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
-    .end local v3    # "i":I
     :cond_3
     return-void
 
@@ -397,9 +336,7 @@
 .end method
 
 .method private static edwards(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
-    .locals 5
-    .param p0, "a"    # Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
-    .param p1, "b"    # Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
+    .locals 6
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -419,7 +356,6 @@
     invoke-direct {v0, v1}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;-><init>(Lcom/google/crypto/tink/subtle/Ed25519Constants$1;)V
 
     .line 71
-    .local v0, "o":Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
     sget-object v1, Lcom/google/crypto/tink/subtle/Ed25519Constants;->D_BI:Ljava/math/BigInteger;
 
     invoke-static {p0}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$200(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Ljava/math/BigInteger;
@@ -460,28 +396,12 @@
 
     move-result-object v1
 
-    .line 72
-    .local v1, "xxyy":Ljava/math/BigInteger;
-    nop
-
     .line 73
     invoke-static {p0}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$200(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Ljava/math/BigInteger;
 
-    move-result-object v2
+    move-result-object v3
 
     invoke-static {p1}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$100(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Ljava/math/BigInteger;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
-
-    move-result-object v2
-
-    invoke-static {p1}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$200(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Ljava/math/BigInteger;
-
-    move-result-object v3
-
-    invoke-static {p0}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$100(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Ljava/math/BigInteger;
 
     move-result-object v4
 
@@ -489,58 +409,51 @@
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-static {p1}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$200(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Ljava/math/BigInteger;
 
-    move-result-object v2
+    move-result-object v4
 
-    sget-object v3, Ljava/math/BigInteger;->ONE:Ljava/math/BigInteger;
+    invoke-static {p0}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$100(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Ljava/math/BigInteger;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+
+    move-result-object v3
+
+    sget-object v4, Ljava/math/BigInteger;->ONE:Ljava/math/BigInteger;
 
     .line 74
-    invoke-virtual {v3, v1}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-virtual {v4, v1}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Ljava/math/BigInteger;->modInverse(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
     move-result-object v3
-
-    sget-object v4, Lcom/google/crypto/tink/subtle/Ed25519Constants;->P_BI:Ljava/math/BigInteger;
-
-    invoke-virtual {v3, v4}, Ljava/math/BigInteger;->modInverse(Ljava/math/BigInteger;)Ljava/math/BigInteger;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
-
-    move-result-object v2
-
-    sget-object v3, Lcom/google/crypto/tink/subtle/Ed25519Constants;->P_BI:Ljava/math/BigInteger;
 
     .line 75
-    invoke-virtual {v2, v3}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-virtual {v3, v2}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    move-result-object v2
+    move-result-object v3
 
     .line 72
-    invoke-static {v0, v2}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$202(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;Ljava/math/BigInteger;)Ljava/math/BigInteger;
-
-    .line 76
-    nop
+    invoke-static {v0, v3}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$202(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
     .line 77
     invoke-static {p0}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$100(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Ljava/math/BigInteger;
 
-    move-result-object v2
+    move-result-object v3
 
     invoke-static {p1}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$100(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Ljava/math/BigInteger;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
-
-    move-result-object v2
-
-    invoke-static {p0}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$200(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Ljava/math/BigInteger;
-
-    move-result-object v3
-
-    invoke-static {p1}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$200(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Ljava/math/BigInteger;
 
     move-result-object v4
 
@@ -548,44 +461,50 @@
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-static {p0}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$200(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Ljava/math/BigInteger;
 
-    move-result-object v2
+    move-result-object p0
 
-    sget-object v3, Ljava/math/BigInteger;->ONE:Ljava/math/BigInteger;
+    invoke-static {p1}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$200(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Ljava/math/BigInteger;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+
+    move-result-object p0
+
+    invoke-virtual {v3, p0}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+
+    move-result-object p0
+
+    sget-object p1, Ljava/math/BigInteger;->ONE:Ljava/math/BigInteger;
 
     .line 78
-    invoke-virtual {v3, v1}, Ljava/math/BigInteger;->subtract(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-virtual {p1, v1}, Ljava/math/BigInteger;->subtract(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    move-result-object v3
+    move-result-object p1
 
-    sget-object v4, Lcom/google/crypto/tink/subtle/Ed25519Constants;->P_BI:Ljava/math/BigInteger;
+    invoke-virtual {p1, v2}, Ljava/math/BigInteger;->modInverse(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    invoke-virtual {v3, v4}, Ljava/math/BigInteger;->modInverse(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    move-result-object p1
 
-    move-result-object v3
+    invoke-virtual {p0, p1}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    invoke-virtual {v2, v3}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
-
-    move-result-object v2
-
-    sget-object v3, Lcom/google/crypto/tink/subtle/Ed25519Constants;->P_BI:Ljava/math/BigInteger;
+    move-result-object p0
 
     .line 79
-    invoke-virtual {v2, v3}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-virtual {p0, v2}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    move-result-object v2
+    move-result-object p0
 
     .line 76
-    invoke-static {v0, v2}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$102(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-static {v0, p0}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$102(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    .line 80
     return-object v0
 .end method
 
 .method private static getCachedXYT(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Lcom/google/crypto/tink/subtle/Ed25519$CachedXYT;
-    .locals 5
-    .param p0, "p"    # Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;
+    .locals 6
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -628,52 +547,17 @@
     .line 98
     invoke-static {p0}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$100(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Ljava/math/BigInteger;
 
-    move-result-object v2
-
-    invoke-static {p0}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$200(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Ljava/math/BigInteger;
-
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Ljava/math/BigInteger;->subtract(Ljava/math/BigInteger;)Ljava/math/BigInteger;
-
-    move-result-object v2
-
-    sget-object v3, Lcom/google/crypto/tink/subtle/Ed25519Constants;->P_BI:Ljava/math/BigInteger;
-
-    invoke-virtual {v2, v3}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
-
-    move-result-object v2
-
-    invoke-static {v2}, Lcom/google/crypto/tink/subtle/Ed25519Constants;->toLittleEndian(Ljava/math/BigInteger;)[B
-
-    move-result-object v2
-
-    invoke-static {v2}, Lcom/google/crypto/tink/subtle/Field25519;->expand([B)[J
-
-    move-result-object v2
-
-    sget-object v3, Lcom/google/crypto/tink/subtle/Ed25519Constants;->D2_BI:Ljava/math/BigInteger;
-
-    .line 99
     invoke-static {p0}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$200(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Ljava/math/BigInteger;
 
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-virtual {v3, v4}, Ljava/math/BigInteger;->subtract(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
     move-result-object v3
 
-    invoke-static {p0}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$100(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Ljava/math/BigInteger;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
-
-    move-result-object v3
-
-    sget-object v4, Lcom/google/crypto/tink/subtle/Ed25519Constants;->P_BI:Ljava/math/BigInteger;
-
-    invoke-virtual {v3, v4}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-virtual {v3, v2}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
     move-result-object v3
 
@@ -685,15 +569,44 @@
 
     move-result-object v3
 
-    invoke-direct {v0, v1, v2, v3}, Lcom/google/crypto/tink/subtle/Ed25519$CachedXYT;-><init>([J[J[J)V
+    sget-object v4, Lcom/google/crypto/tink/subtle/Ed25519Constants;->D2_BI:Ljava/math/BigInteger;
 
-    .line 96
+    .line 99
+    invoke-static {p0}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$200(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Ljava/math/BigInteger;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+
+    move-result-object v4
+
+    invoke-static {p0}, Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;->access$100(Lcom/google/crypto/tink/subtle/Ed25519Constants$Point;)Ljava/math/BigInteger;
+
+    move-result-object p0
+
+    invoke-virtual {v4, p0}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v2}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+
+    move-result-object p0
+
+    invoke-static {p0}, Lcom/google/crypto/tink/subtle/Ed25519Constants;->toLittleEndian(Ljava/math/BigInteger;)[B
+
+    move-result-object p0
+
+    invoke-static {p0}, Lcom/google/crypto/tink/subtle/Field25519;->expand([B)[J
+
+    move-result-object p0
+
+    invoke-direct {v0, v1, v3, p0}, Lcom/google/crypto/tink/subtle/Ed25519$CachedXYT;-><init>([J[J[J)V
+
     return-object v0
 .end method
 
 .method private static recoverX(Ljava/math/BigInteger;)Ljava/math/BigInteger;
     .locals 5
-    .param p0, "y"    # Ljava/math/BigInteger;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -703,12 +616,9 @@
         }
     .end annotation
 
-    .line 55
-    nop
-
-    .line 56
     const/4 v0, 0x2
 
+    .line 56
     invoke-virtual {p0, v0}, Ljava/math/BigInteger;->pow(I)Ljava/math/BigInteger;
 
     move-result-object v1
@@ -725,41 +635,38 @@
     .line 58
     invoke-virtual {p0, v0}, Ljava/math/BigInteger;->pow(I)Ljava/math/BigInteger;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-virtual {v2, v3}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-virtual {v2, p0}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    move-result-object v2
+    move-result-object p0
 
-    sget-object v3, Ljava/math/BigInteger;->ONE:Ljava/math/BigInteger;
+    sget-object v2, Ljava/math/BigInteger;->ONE:Ljava/math/BigInteger;
 
-    invoke-virtual {v2, v3}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-virtual {p0, v2}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    move-result-object v2
+    move-result-object p0
 
-    sget-object v3, Lcom/google/crypto/tink/subtle/Ed25519Constants;->P_BI:Ljava/math/BigInteger;
-
-    invoke-virtual {v2, v3}, Ljava/math/BigInteger;->modInverse(Ljava/math/BigInteger;)Ljava/math/BigInteger;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
-
-    move-result-object v1
-
-    .line 59
-    .local v1, "xx":Ljava/math/BigInteger;
     sget-object v2, Lcom/google/crypto/tink/subtle/Ed25519Constants;->P_BI:Ljava/math/BigInteger;
+
+    invoke-virtual {p0, v2}, Ljava/math/BigInteger;->modInverse(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+
+    move-result-object p0
+
+    invoke-virtual {v1, p0}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+
+    move-result-object p0
 
     const-wide/16 v3, 0x3
 
+    .line 59
     invoke-static {v3, v4}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-virtual {v2, v1}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    move-result-object v2
+    move-result-object v1
 
     const-wide/16 v3, 0x8
 
@@ -767,78 +674,67 @@
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Ljava/math/BigInteger;->divide(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-virtual {v1, v3}, Ljava/math/BigInteger;->divide(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    move-result-object v2
+    move-result-object v1
 
-    sget-object v3, Lcom/google/crypto/tink/subtle/Ed25519Constants;->P_BI:Ljava/math/BigInteger;
+    invoke-virtual {p0, v1, v2}, Ljava/math/BigInteger;->modPow(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    invoke-virtual {v1, v2, v3}, Ljava/math/BigInteger;->modPow(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;
-
-    move-result-object v2
+    move-result-object v1
 
     .line 60
-    .local v2, "x":Ljava/math/BigInteger;
-    invoke-virtual {v2, v0}, Ljava/math/BigInteger;->pow(I)Ljava/math/BigInteger;
+    invoke-virtual {v1, v0}, Ljava/math/BigInteger;->pow(I)Ljava/math/BigInteger;
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Ljava/math/BigInteger;->subtract(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-virtual {v0, p0}, Ljava/math/BigInteger;->subtract(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    move-result-object v0
+    move-result-object p0
 
-    sget-object v3, Lcom/google/crypto/tink/subtle/Ed25519Constants;->P_BI:Ljava/math/BigInteger;
+    invoke-virtual {p0, v2}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    invoke-virtual {v0, v3}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    move-result-object p0
 
-    move-result-object v0
+    sget-object v0, Ljava/math/BigInteger;->ZERO:Ljava/math/BigInteger;
 
-    sget-object v3, Ljava/math/BigInteger;->ZERO:Ljava/math/BigInteger;
+    invoke-virtual {p0, v0}, Ljava/math/BigInteger;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v3}, Ljava/math/BigInteger;->equals(Ljava/lang/Object;)Z
+    move-result p0
 
-    move-result v0
-
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     .line 61
-    sget-object v0, Lcom/google/crypto/tink/subtle/Ed25519Constants;->SQRTM1_BI:Ljava/math/BigInteger;
+    sget-object p0, Lcom/google/crypto/tink/subtle/Ed25519Constants;->SQRTM1_BI:Ljava/math/BigInteger;
 
-    invoke-virtual {v2, v0}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    invoke-virtual {v1, p0}, Ljava/math/BigInteger;->multiply(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    move-result-object v0
+    move-result-object p0
 
-    sget-object v3, Lcom/google/crypto/tink/subtle/Ed25519Constants;->P_BI:Ljava/math/BigInteger;
+    invoke-virtual {p0, v2}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    invoke-virtual {v0, v3}, Ljava/math/BigInteger;->mod(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    move-result-object v1
 
-    move-result-object v2
+    :cond_0
+    const/4 p0, 0x0
 
     .line 63
-    :cond_0
-    const/4 v0, 0x0
+    invoke-virtual {v1, p0}, Ljava/math/BigInteger;->testBit(I)Z
 
-    invoke-virtual {v2, v0}, Ljava/math/BigInteger;->testBit(I)Z
+    move-result p0
 
-    move-result v0
-
-    if-eqz v0, :cond_1
+    if-eqz p0, :cond_1
 
     .line 64
-    sget-object v0, Lcom/google/crypto/tink/subtle/Ed25519Constants;->P_BI:Ljava/math/BigInteger;
+    invoke-virtual {v2, v1}, Ljava/math/BigInteger;->subtract(Ljava/math/BigInteger;)Ljava/math/BigInteger;
 
-    invoke-virtual {v0, v2}, Ljava/math/BigInteger;->subtract(Ljava/math/BigInteger;)Ljava/math/BigInteger;
+    move-result-object v1
 
-    move-result-object v2
-
-    .line 66
     :cond_1
-    return-object v2
+    return-object v1
 .end method
 
 .method private static toLittleEndian(Ljava/math/BigInteger;)[B
-    .locals 5
-    .param p0, "n"    # Ljava/math/BigInteger;
+    .locals 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -848,72 +744,50 @@
         }
     .end annotation
 
-    .line 84
     const/16 v0, 0x20
 
     new-array v1, v0, [B
 
     .line 85
-    .local v1, "b":[B
     invoke-virtual {p0}, Ljava/math/BigInteger;->toByteArray()[B
 
-    move-result-object v2
+    move-result-object p0
 
     .line 86
-    .local v2, "nBytes":[B
-    array-length v3, v2
+    array-length v2, p0
 
-    sub-int/2addr v0, v3
+    sub-int/2addr v0, v2
 
-    array-length v3, v2
+    array-length v2, p0
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v2, v4, v1, v0, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p0, v3, v1, v0, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 87
-    const/4 v0, 0x0
-
-    .local v0, "i":I
     :goto_0
-    array-length v3, v1
+    const/16 p0, 0x10
 
-    div-int/lit8 v3, v3, 0x2
-
-    if-ge v0, v3, :cond_0
+    if-ge v3, p0, :cond_0
 
     .line 88
-    aget-byte v3, v1, v0
+    aget-byte p0, v1, v3
+
+    rsub-int/lit8 v0, v3, 0x20
+
+    add-int/lit8 v0, v0, -0x1
 
     .line 89
-    .local v3, "t":B
-    array-length v4, v1
+    aget-byte v2, v1, v0
 
-    sub-int/2addr v4, v0
-
-    add-int/lit8 v4, v4, -0x1
-
-    aget-byte v4, v1, v4
-
-    aput-byte v4, v1, v0
+    aput-byte v2, v1, v3
 
     .line 90
-    array-length v4, v1
+    aput-byte p0, v1, v0
 
-    sub-int/2addr v4, v0
-
-    add-int/lit8 v4, v4, -0x1
-
-    aput-byte v3, v1, v4
-
-    .line 87
-    .end local v3    # "t":B
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 92
-    .end local v0    # "i":I
     :cond_0
     return-object v1
 .end method

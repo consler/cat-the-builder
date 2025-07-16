@@ -33,7 +33,6 @@
 
     iput-object v0, p0, Lcom/opencsv/validators/LineValidatorAggregator;->validators:Ljava/util/List;
 
-    .line 23
     return-void
 .end method
 
@@ -41,9 +40,7 @@
 # virtual methods
 .method public addValidator(Lcom/opencsv/validators/LineValidator;)V
     .locals 1
-    .param p1, "validator"    # Lcom/opencsv/validators/LineValidator;
 
-    .line 31
     if-eqz p1, :cond_0
 
     .line 32
@@ -51,14 +48,12 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 34
     :cond_0
     return-void
 .end method
 
 .method public isValid(Ljava/lang/String;)Z
-    .locals 3
-    .param p1, "line"    # Ljava/lang/String;
+    .locals 2
 
     .line 44
     iget-object v0, p0, Lcom/opencsv/validators/LineValidatorAggregator;->validators:Ljava/util/List;
@@ -67,7 +62,7 @@
 
     move-result-object v0
 
-    :goto_0
+    :cond_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
@@ -81,33 +76,24 @@
     check-cast v1, Lcom/opencsv/validators/LineValidator;
 
     .line 45
-    .local v1, "validator":Lcom/opencsv/validators/LineValidator;
     invoke-interface {v1, p1}, Lcom/opencsv/validators/LineValidator;->isValid(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
-    .line 46
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
-    .line 48
-    .end local v1    # "validator":Lcom/opencsv/validators/LineValidator;
-    :cond_0
-    goto :goto_0
-
-    .line 49
     :cond_1
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public validate(Ljava/lang/String;)V
-    .locals 5
-    .param p1, "line"    # Ljava/lang/String;
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/opencsv/exceptions/CsvValidationException;
@@ -122,7 +108,6 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 62
-    .local v0, "combinedExceptionMessage":Ljava/lang/StringBuilder;
     iget-object v1, p0, Lcom/opencsv/validators/LineValidatorAggregator;->validators:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -143,57 +128,50 @@
     check-cast v2, Lcom/opencsv/validators/LineValidator;
 
     .line 64
-    .local v2, "validator":Lcom/opencsv/validators/LineValidator;
     :try_start_0
     invoke-interface {v2, p1}, Lcom/opencsv/validators/LineValidator;->validate(Ljava/lang/String;)V
     :try_end_0
     .catch Lcom/opencsv/exceptions/CsvValidationException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 67
-    goto :goto_1
+    goto :goto_0
 
-    .line 65
     :catch_0
-    move-exception v3
+    move-exception v2
 
     .line 66
-    .local v3, "ex":Lcom/opencsv/exceptions/CsvValidationException;
-    invoke-virtual {v3}, Lcom/opencsv/exceptions/CsvValidationException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/opencsv/exceptions/CsvValidationException;->getMessage()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, "\n"
+    move-result-object v2
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v3, "\n"
 
-    .line 68
-    .end local v2    # "validator":Lcom/opencsv/validators/LineValidator;
-    .end local v3    # "ex":Lcom/opencsv/exceptions/CsvValidationException;
-    :goto_1
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     goto :goto_0
 
     .line 70
     :cond_0
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
-    move-result v1
+    move-result p1
 
-    if-gtz v1, :cond_1
+    if-gtz p1, :cond_1
 
-    .line 73
     return-void
 
     .line 71
     :cond_1
-    new-instance v1, Lcom/opencsv/exceptions/CsvValidationException;
+    new-instance p1, Lcom/opencsv/exceptions/CsvValidationException;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-direct {v1, v2}, Lcom/opencsv/exceptions/CsvValidationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lcom/opencsv/exceptions/CsvValidationException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 .end method

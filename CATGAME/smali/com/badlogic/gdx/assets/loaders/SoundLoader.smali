@@ -27,12 +27,10 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/assets/loaders/FileHandleResolver;)V
     .locals 0
-    .param p1, "resolver"    # Lcom/badlogic/gdx/assets/loaders/FileHandleResolver;
 
     .line 34
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/assets/loaders/AsynchronousAssetLoader;-><init>(Lcom/badlogic/gdx/assets/loaders/FileHandleResolver;)V
 
-    .line 35
     return-void
 .end method
 
@@ -52,10 +50,7 @@
 .end method
 
 .method public getDependencies(Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/loaders/SoundLoader$SoundParameter;)Lcom/badlogic/gdx/utils/Array;
-    .locals 1
-    .param p1, "fileName"    # Ljava/lang/String;
-    .param p2, "file"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p3, "parameter"    # Lcom/badlogic/gdx/assets/loaders/SoundLoader$SoundParameter;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,10 +64,9 @@
         }
     .end annotation
 
-    .line 60
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected getLoadedSound()Lcom/badlogic/gdx/audio/Sound;
@@ -96,43 +90,32 @@
 .end method
 
 .method public loadAsync(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/loaders/SoundLoader$SoundParameter;)V
-    .locals 1
-    .param p1, "manager"    # Lcom/badlogic/gdx/assets/AssetManager;
-    .param p2, "fileName"    # Ljava/lang/String;
-    .param p3, "file"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p4, "parameter"    # Lcom/badlogic/gdx/assets/loaders/SoundLoader$SoundParameter;
+    .locals 0
 
     .line 48
-    sget-object v0, Lcom/badlogic/gdx/Gdx;->audio:Lcom/badlogic/gdx/Audio;
+    sget-object p1, Lcom/badlogic/gdx/Gdx;->audio:Lcom/badlogic/gdx/Audio;
 
-    invoke-interface {v0, p3}, Lcom/badlogic/gdx/Audio;->newSound(Lcom/badlogic/gdx/files/FileHandle;)Lcom/badlogic/gdx/audio/Sound;
+    invoke-interface {p1, p3}, Lcom/badlogic/gdx/Audio;->newSound(Lcom/badlogic/gdx/files/FileHandle;)Lcom/badlogic/gdx/audio/Sound;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/badlogic/gdx/assets/loaders/SoundLoader;->sound:Lcom/badlogic/gdx/audio/Sound;
+    iput-object p1, p0, Lcom/badlogic/gdx/assets/loaders/SoundLoader;->sound:Lcom/badlogic/gdx/audio/Sound;
 
-    .line 49
     return-void
 .end method
 
 .method public loadSync(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/loaders/SoundLoader$SoundParameter;)Lcom/badlogic/gdx/audio/Sound;
-    .locals 2
-    .param p1, "manager"    # Lcom/badlogic/gdx/assets/AssetManager;
-    .param p2, "fileName"    # Ljava/lang/String;
-    .param p3, "file"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p4, "parameter"    # Lcom/badlogic/gdx/assets/loaders/SoundLoader$SoundParameter;
+    .locals 0
 
     .line 53
-    iget-object v0, p0, Lcom/badlogic/gdx/assets/loaders/SoundLoader;->sound:Lcom/badlogic/gdx/audio/Sound;
+    iget-object p1, p0, Lcom/badlogic/gdx/assets/loaders/SoundLoader;->sound:Lcom/badlogic/gdx/audio/Sound;
+
+    const/4 p2, 0x0
 
     .line 54
-    .local v0, "sound":Lcom/badlogic/gdx/audio/Sound;
-    const/4 v1, 0x0
+    iput-object p2, p0, Lcom/badlogic/gdx/assets/loaders/SoundLoader;->sound:Lcom/badlogic/gdx/audio/Sound;
 
-    iput-object v1, p0, Lcom/badlogic/gdx/assets/loaders/SoundLoader;->sound:Lcom/badlogic/gdx/audio/Sound;
-
-    .line 55
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic loadSync(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/AssetLoaderParameters;)Ljava/lang/Object;

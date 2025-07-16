@@ -1,20 +1,26 @@
 .class public final synthetic Lorg/catrobat/paintroid/command/implementation/RotateCommand$WhenMappings;
 .super Ljava/lang/Object;
+.source "RotateCommand.kt"
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lorg/catrobat/paintroid/command/implementation/RotateCommand;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1001
+    name = "WhenMappings"
+.end annotation
+
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     k = 0x3
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -23,7 +29,7 @@
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
+.method static constructor <clinit>()V
     .locals 3
 
     invoke-static {}, Lorg/catrobat/paintroid/command/implementation/RotateCommand$RotateDirection;->values()[Lorg/catrobat/paintroid/command/implementation/RotateCommand$RotateDirection;
@@ -33,8 +39,6 @@
     array-length v0, v0
 
     new-array v0, v0, [I
-
-    sput-object v0, Lorg/catrobat/paintroid/command/implementation/RotateCommand$WhenMappings;->$EnumSwitchMapping$0:[I
 
     sget-object v1, Lorg/catrobat/paintroid/command/implementation/RotateCommand$RotateDirection;->ROTATE_RIGHT:Lorg/catrobat/paintroid/command/implementation/RotateCommand$RotateDirection;
 
@@ -46,8 +50,6 @@
 
     aput v2, v0, v1
 
-    sget-object v0, Lorg/catrobat/paintroid/command/implementation/RotateCommand$WhenMappings;->$EnumSwitchMapping$0:[I
-
     sget-object v1, Lorg/catrobat/paintroid/command/implementation/RotateCommand$RotateDirection;->ROTATE_LEFT:Lorg/catrobat/paintroid/command/implementation/RotateCommand$RotateDirection;
 
     invoke-virtual {v1}, Lorg/catrobat/paintroid/command/implementation/RotateCommand$RotateDirection;->ordinal()I
@@ -57,6 +59,8 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
+
+    sput-object v0, Lorg/catrobat/paintroid/command/implementation/RotateCommand$WhenMappings;->$EnumSwitchMapping$0:[I
 
     return-void
 .end method

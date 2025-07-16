@@ -20,10 +20,8 @@
     .locals 0
 
     .line 63
-    .local p0, "this":Landroidx/concurrent/futures/ResolvableFuture;, "Landroidx/concurrent/futures/ResolvableFuture<TV;>;"
     invoke-direct {p0}, Landroidx/concurrent/futures/AbstractResolvableFuture;-><init>()V
 
-    .line 64
     return-void
 .end method
 
@@ -50,7 +48,7 @@
 
 # virtual methods
 .method public set(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)Z"
@@ -58,30 +56,26 @@
     .end annotation
 
     .line 50
-    .local p0, "this":Landroidx/concurrent/futures/ResolvableFuture;, "Landroidx/concurrent/futures/ResolvableFuture<TV;>;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
     invoke-super {p0, p1}, Landroidx/concurrent/futures/AbstractResolvableFuture;->set(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public setException(Ljava/lang/Throwable;)Z
-    .locals 1
-    .param p1, "throwable"    # Ljava/lang/Throwable;
+    .locals 0
 
     .line 55
-    .local p0, "this":Landroidx/concurrent/futures/ResolvableFuture;, "Landroidx/concurrent/futures/ResolvableFuture<TV;>;"
     invoke-super {p0, p1}, Landroidx/concurrent/futures/AbstractResolvableFuture;->setException(Ljava/lang/Throwable;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public setFuture(Lcom/google/common/util/concurrent/ListenableFuture;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -91,11 +85,9 @@
     .end annotation
 
     .line 60
-    .local p0, "this":Landroidx/concurrent/futures/ResolvableFuture;, "Landroidx/concurrent/futures/ResolvableFuture<TV;>;"
-    .local p1, "future":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<+TV;>;"
     invoke-super {p0, p1}, Landroidx/concurrent/futures/AbstractResolvableFuture;->setFuture(Lcom/google/common/util/concurrent/ListenableFuture;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

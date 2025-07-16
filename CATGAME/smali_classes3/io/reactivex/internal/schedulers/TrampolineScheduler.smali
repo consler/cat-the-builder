@@ -37,7 +37,6 @@
     .line 46
     invoke-direct {p0}, Lio/reactivex/Scheduler;-><init>()V
 
-    .line 47
     return-void
 .end method
 
@@ -64,23 +63,19 @@
 .end method
 
 .method public scheduleDirect(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
-    .locals 1
-    .param p1, "run"    # Ljava/lang/Runnable;
+    .locals 0
 
     .line 52
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
 
     .line 53
-    sget-object v0, Lio/reactivex/internal/disposables/EmptyDisposable;->INSTANCE:Lio/reactivex/internal/disposables/EmptyDisposable;
+    sget-object p1, Lio/reactivex/internal/disposables/EmptyDisposable;->INSTANCE:Lio/reactivex/internal/disposables/EmptyDisposable;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public scheduleDirect(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
-    .locals 2
-    .param p1, "run"    # Ljava/lang/Runnable;
-    .param p2, "delay"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
+    .locals 0
 
     .line 60
     :try_start_0
@@ -91,28 +86,24 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 65
     goto :goto_0
 
-    .line 62
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 63
-    .local v0, "ex":Ljava/lang/InterruptedException;
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v1}, Ljava/lang/Thread;->interrupt()V
+    invoke-virtual {p2}, Ljava/lang/Thread;->interrupt()V
 
     .line 64
-    invoke-static {v0}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
+    invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
     .line 66
-    .end local v0    # "ex":Ljava/lang/InterruptedException;
     :goto_0
-    sget-object v0, Lio/reactivex/internal/disposables/EmptyDisposable;->INSTANCE:Lio/reactivex/internal/disposables/EmptyDisposable;
+    sget-object p1, Lio/reactivex/internal/disposables/EmptyDisposable;->INSTANCE:Lio/reactivex/internal/disposables/EmptyDisposable;
 
-    return-object v0
+    return-object p1
 .end method

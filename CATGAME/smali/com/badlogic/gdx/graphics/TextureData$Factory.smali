@@ -26,16 +26,12 @@
 
 .method public static loadFromFile(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/graphics/Pixmap$Format;Z)Lcom/badlogic/gdx/graphics/TextureData;
     .locals 2
-    .param p0, "file"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p1, "format"    # Lcom/badlogic/gdx/graphics/Pixmap$Format;
-    .param p2, "useMipMaps"    # Z
 
-    .line 94
     if-nez p0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
     .line 95
     :cond_0
@@ -75,11 +71,11 @@
 
     if-eqz v0, :cond_2
 
-    new-instance v0, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;
+    new-instance p1, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;
 
-    invoke-direct {v0, p0, p2}, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;-><init>(Lcom/badlogic/gdx/files/FileHandle;Z)V
+    invoke-direct {p1, p0, p2}, Lcom/badlogic/gdx/graphics/glutils/ETC1TextureData;-><init>(Lcom/badlogic/gdx/files/FileHandle;Z)V
 
-    return-object v0
+    return-object p1
 
     .line 97
     :cond_2
@@ -124,24 +120,22 @@
     .line 97
     :cond_4
     :goto_0
-    new-instance v0, Lcom/badlogic/gdx/graphics/glutils/KTXTextureData;
+    new-instance p1, Lcom/badlogic/gdx/graphics/glutils/KTXTextureData;
 
-    invoke-direct {v0, p0, p2}, Lcom/badlogic/gdx/graphics/glutils/KTXTextureData;-><init>(Lcom/badlogic/gdx/files/FileHandle;Z)V
+    invoke-direct {p1, p0, p2}, Lcom/badlogic/gdx/graphics/glutils/KTXTextureData;-><init>(Lcom/badlogic/gdx/files/FileHandle;Z)V
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public static loadFromFile(Lcom/badlogic/gdx/files/FileHandle;Z)Lcom/badlogic/gdx/graphics/TextureData;
     .locals 1
-    .param p0, "file"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p1, "useMipMaps"    # Z
 
-    .line 90
     const/4 v0, 0x0
 
+    .line 90
     invoke-static {p0, v0, p1}, Lcom/badlogic/gdx/graphics/TextureData$Factory;->loadFromFile(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/graphics/Pixmap$Format;Z)Lcom/badlogic/gdx/graphics/TextureData;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

@@ -432,6 +432,9 @@
     .end annotation
 .end method
 
+.method public abstract hasUnfinishedWork()Z
+.end method
+
 .method public abstract incrementWorkSpecRunAttemptCount(Ljava/lang/String;)I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {

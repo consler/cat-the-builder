@@ -27,29 +27,25 @@
 
 # virtual methods
 .method public get(Lcom/badlogic/gdx/scenes/scene2d/Actor;)F
-    .locals 2
-    .param p1, "context"    # Lcom/badlogic/gdx/scenes/scene2d/Actor;
+    .locals 0
 
     .line 1278
-    move-object v0, p1
+    check-cast p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Table;
 
-    check-cast v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Table;
+    iget-object p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/Table;->background:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
 
-    iget-object v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Table;->background:Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
+    if-nez p1, :cond_0
 
-    .line 1279
-    .local v0, "background":Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;
-    if-nez v0, :cond_0
-
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
+    .line 1279
     :cond_0
-    invoke-interface {v0}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getTopHeight()F
+    invoke-interface {p1}, Lcom/badlogic/gdx/scenes/scene2d/utils/Drawable;->getTopHeight()F
 
-    move-result v1
+    move-result p1
 
     :goto_0
-    return v1
+    return p1
 .end method

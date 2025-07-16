@@ -49,14 +49,11 @@
     .end annotation
 
     .line 567
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView;, "Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView<TK;>;"
-    .local p1, "parent":Lorg/apache/commons/collections4/map/ListOrderedMap;, "Lorg/apache/commons/collections4/map/ListOrderedMap<TK;*>;"
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
 
     .line 568
     iput-object p1, p0, Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView;->parent:Lorg/apache/commons/collections4/map/ListOrderedMap;
 
-    .line 569
     return-void
 .end method
 
@@ -66,28 +63,24 @@
     .locals 1
 
     .line 583
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView;, "Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView<TK;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView;->parent:Lorg/apache/commons/collections4/map/ListOrderedMap;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/map/ListOrderedMap;->clear()V
 
-    .line 584
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "value"    # Ljava/lang/Object;
 
     .line 578
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView;, "Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView<TK;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView;->parent:Lorg/apache/commons/collections4/map/ListOrderedMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/map/ListOrderedMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
@@ -101,7 +94,6 @@
     .end annotation
 
     .line 588
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView;, "Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView<TK;>;"
     new-instance v0, Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView$1;
 
     iget-object v1, p0, Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView;->parent:Lorg/apache/commons/collections4/map/ListOrderedMap;
@@ -123,7 +115,6 @@
     .locals 1
 
     .line 573
-    .local p0, "this":Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView;, "Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView<TK;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/ListOrderedMap$KeySetView;->parent:Lorg/apache/commons/collections4/map/ListOrderedMap;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/map/ListOrderedMap;->size()I

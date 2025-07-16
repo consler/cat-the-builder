@@ -45,6 +45,5 @@
 
     invoke-interface {v0, v1}, Lcom/google/common/util/concurrent/ListenableFuture;->cancel(Z)Z
 
-    .line 233
     return-void
 .end method

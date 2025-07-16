@@ -34,7 +34,7 @@
 
 # direct methods
 .method protected constructor <init>(Ljava/util/Iterator;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -44,28 +44,24 @@
     .end annotation
 
     .line 41
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractUntypedIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractUntypedIteratorDecorator<TI;TO;>;"
-    .local p1, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<TI;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 42
     if-eqz p1, :cond_0
 
     .line 45
     iput-object p1, p0, Lorg/apache/commons/collections4/iterators/AbstractUntypedIteratorDecorator;->iterator:Ljava/util/Iterator;
 
-    .line 46
     return-void
 
     .line 43
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "Iterator must not be null"
+    const-string v0, "Iterator must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -81,7 +77,6 @@
     .end annotation
 
     .line 54
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractUntypedIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractUntypedIteratorDecorator<TI;TO;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/AbstractUntypedIteratorDecorator;->iterator:Ljava/util/Iterator;
 
     return-object v0
@@ -91,7 +86,6 @@
     .locals 1
 
     .line 59
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractUntypedIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractUntypedIteratorDecorator<TI;TO;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/AbstractUntypedIteratorDecorator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -105,11 +99,9 @@
     .locals 1
 
     .line 64
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/AbstractUntypedIteratorDecorator;, "Lorg/apache/commons/collections4/iterators/AbstractUntypedIteratorDecorator<TI;TO;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/iterators/AbstractUntypedIteratorDecorator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 65
     return-void
 .end method

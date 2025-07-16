@@ -25,29 +25,14 @@
 # direct methods
 .method public constructor <init>(IIIIII)V
     .locals 1
-    .param p1, "width"    # I
-    .param p2, "height"    # I
-    .param p3, "mipMapLevel"    # I
-    .param p4, "internalFormat"    # I
-    .param p5, "format"    # I
-    .param p6, "type"    # I
 
     .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 31
     const/4 v0, 0x0
-
-    iput v0, p0, Lcom/badlogic/gdx/graphics/glutils/GLOnlyTextureData;->width:I
-
-    .line 32
-    iput v0, p0, Lcom/badlogic/gdx/graphics/glutils/GLOnlyTextureData;->height:I
 
     .line 33
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/GLOnlyTextureData;->isPrepared:Z
-
-    .line 36
-    iput v0, p0, Lcom/badlogic/gdx/graphics/glutils/GLOnlyTextureData;->mipLevel:I
 
     .line 52
     iput p1, p0, Lcom/badlogic/gdx/graphics/glutils/GLOnlyTextureData;->width:I
@@ -67,7 +52,6 @@
     .line 57
     iput p6, p0, Lcom/badlogic/gdx/graphics/glutils/GLOnlyTextureData;->type:I
 
-    .line 58
     return-void
 .end method
 
@@ -75,7 +59,6 @@
 # virtual methods
 .method public consumeCustomData(I)V
     .locals 10
-    .param p1, "target"    # I
 
     .line 78
     sget-object v0, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
@@ -88,11 +71,11 @@
 
     iget v5, p0, Lcom/badlogic/gdx/graphics/glutils/GLOnlyTextureData;->height:I
 
+    const/4 v6, 0x0
+
     iget v7, p0, Lcom/badlogic/gdx/graphics/glutils/GLOnlyTextureData;->format:I
 
     iget v8, p0, Lcom/badlogic/gdx/graphics/glutils/GLOnlyTextureData;->type:I
-
-    const/4 v6, 0x0
 
     const/4 v9, 0x0
 
@@ -100,7 +83,6 @@
 
     invoke-interface/range {v0 .. v9}, Lcom/badlogic/gdx/graphics/GL20;->glTexImage2D(IIIIIIIILjava/nio/Buffer;)V
 
-    .line 79
     return-void
 .end method
 
@@ -169,7 +151,6 @@
 .method public isManaged()Z
     .locals 1
 
-    .line 113
     const/4 v0, 0x0
 
     return v0
@@ -192,12 +173,11 @@
 
     if-nez v0, :cond_0
 
-    .line 73
     const/4 v0, 0x1
 
+    .line 73
     iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/glutils/GLOnlyTextureData;->isPrepared:Z
 
-    .line 74
     return-void
 
     .line 72
@@ -214,7 +194,6 @@
 .method public useMipMaps()Z
     .locals 1
 
-    .line 108
     const/4 v0, 0x0
 
     return v0

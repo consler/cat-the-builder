@@ -34,27 +34,22 @@
 # virtual methods
 .method public final onCustomTabsServiceConnected(Landroid/content/ComponentName;Landroidx/browser/customtabs/CustomTabsClient;)V
     .locals 2
-    .param p1, "name"    # Landroid/content/ComponentName;
-    .param p2, "client"    # Landroidx/browser/customtabs/CustomTabsClient;
 
-    .line 148
     const-wide/16 v0, 0x0
 
+    .line 148
     invoke-virtual {p2, v0, v1}, Landroidx/browser/customtabs/CustomTabsClient;->warmup(J)Z
 
     .line 152
-    iget-object v0, p0, Landroidx/browser/customtabs/CustomTabsClient$1;->val$applicationContext:Landroid/content/Context;
+    iget-object p1, p0, Landroidx/browser/customtabs/CustomTabsClient$1;->val$applicationContext:Landroid/content/Context;
 
-    invoke-virtual {v0, p0}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
+    invoke-virtual {p1, p0}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
-    .line 153
     return-void
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 0
-    .param p1, "componentName"    # Landroid/content/ComponentName;
 
-    .line 156
     return-void
 .end method

@@ -39,7 +39,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/media/MediaRouteProvider;)V
     .locals 1
-    .param p1, "provider"    # Landroidx/mediarouter/media/MediaRouteProvider;
 
     .line 1835
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,11 +56,10 @@
     .line 1837
     invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouteProvider;->getMetadata()Landroidx/mediarouter/media/MediaRouteProvider$ProviderMetadata;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/mediarouter/media/MediaRouter$ProviderInfo;->mMetadata:Landroidx/mediarouter/media/MediaRouteProvider$ProviderMetadata;
+    iput-object p1, p0, Landroidx/mediarouter/media/MediaRouter$ProviderInfo;->mMetadata:Landroidx/mediarouter/media/MediaRouteProvider$ProviderMetadata;
 
-    .line 1838
     return-void
 .end method
 
@@ -69,7 +67,6 @@
 # virtual methods
 .method findRouteByDescriptorId(Ljava/lang/String;)Landroidx/mediarouter/media/MediaRouter$RouteInfo;
     .locals 3
-    .param p1, "id"    # Ljava/lang/String;
 
     .line 1904
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouter$ProviderInfo;->mRoutes:Ljava/util/List;
@@ -78,11 +75,8 @@
 
     move-result v0
 
-    .line 1905
-    .local v0, "count":I
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_1
 
@@ -104,33 +98,29 @@
     if-eqz v2, :cond_0
 
     .line 1907
-    iget-object v2, p0, Landroidx/mediarouter/media/MediaRouter$ProviderInfo;->mRoutes:Ljava/util/List;
+    iget-object p1, p0, Landroidx/mediarouter/media/MediaRouter$ProviderInfo;->mRoutes:Ljava/util/List;
 
-    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    check-cast v2, Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+    check-cast p1, Landroidx/mediarouter/media/MediaRouter$RouteInfo;
 
-    return-object v2
+    return-object p1
 
-    .line 1905
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 1910
-    .end local v1    # "i":I
     :cond_1
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 .end method
 
 .method findRouteIndexByDescriptorId(Ljava/lang/String;)I
     .locals 3
-    .param p1, "id"    # Ljava/lang/String;
 
     .line 1894
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouter$ProviderInfo;->mRoutes:Ljava/util/List;
@@ -139,11 +129,8 @@
 
     move-result v0
 
-    .line 1895
-    .local v0, "count":I
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_1
 
@@ -164,21 +151,17 @@
 
     if-eqz v2, :cond_0
 
-    .line 1897
     return v1
 
-    .line 1895
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 1900
-    .end local v1    # "i":I
     :cond_1
-    const/4 v1, -0x1
+    const/4 p1, -0x1
 
-    return v1
+    return p1
 .end method
 
 .method public getComponentName()Landroid/content/ComponentName;
@@ -220,7 +203,7 @@
 .end method
 
 .method getResources()Landroid/content/res/Resources;
-    .locals 4
+    .locals 3
 
     .line 1871
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouter$ProviderInfo;->mResources:Landroid/content/res/Resources;
@@ -237,54 +220,49 @@
     move-result-object v0
 
     .line 1873
-    .local v0, "packageName":Ljava/lang/String;
     sget-object v1, Landroidx/mediarouter/media/MediaRouter;->sGlobal:Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
 
     invoke-virtual {v1, v0}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->getProviderContext(Ljava/lang/String;)Landroid/content/Context;
 
     move-result-object v1
 
-    .line 1874
-    .local v1, "context":Landroid/content/Context;
     if-eqz v1, :cond_0
 
     .line 1875
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v2
+    move-result-object v0
 
-    iput-object v2, p0, Landroidx/mediarouter/media/MediaRouter$ProviderInfo;->mResources:Landroid/content/res/Resources;
+    iput-object v0, p0, Landroidx/mediarouter/media/MediaRouter$ProviderInfo;->mResources:Landroid/content/res/Resources;
 
     goto :goto_0
 
     .line 1877
     :cond_0
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "Unable to obtain resources for route provider package: "
 
-    const-string v3, "Unable to obtain resources for route provider package: "
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    const-string v3, "MediaRouter"
+    const-string v1, "MediaRouter"
 
-    invoke-static {v3, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x1
 
     .line 1879
-    const/4 v2, 0x1
-
-    iput-boolean v2, p0, Landroidx/mediarouter/media/MediaRouter$ProviderInfo;->mResourcesNotAvailable:Z
+    iput-boolean v0, p0, Landroidx/mediarouter/media/MediaRouter$ProviderInfo;->mResourcesNotAvailable:Z
 
     .line 1882
-    .end local v0    # "packageName":Ljava/lang/String;
-    .end local v1    # "context":Landroid/content/Context;
     :cond_1
     :goto_0
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouter$ProviderInfo;->mResources:Landroid/content/res/Resources;
@@ -347,11 +325,9 @@
     .line 1919
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "MediaRouter.RouteProviderInfo{ packageName="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter$ProviderInfo;->getPackageName()Ljava/lang/String;
 
@@ -359,9 +335,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " }"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -372,7 +352,6 @@
 
 .method updateDescriptor(Landroidx/mediarouter/media/MediaRouteProviderDescriptor;)Z
     .locals 1
-    .param p1, "descriptor"    # Landroidx/mediarouter/media/MediaRouteProviderDescriptor;
 
     .line 1886
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouter$ProviderInfo;->mDescriptor:Landroidx/mediarouter/media/MediaRouteProviderDescriptor;
@@ -382,14 +361,12 @@
     .line 1887
     iput-object p1, p0, Landroidx/mediarouter/media/MediaRouter$ProviderInfo;->mDescriptor:Landroidx/mediarouter/media/MediaRouteProviderDescriptor;
 
-    .line 1888
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
-    .line 1890
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

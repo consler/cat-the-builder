@@ -33,9 +33,16 @@
 # direct methods
 .method constructor <init>(Landroidx/core/graphics/TypefaceCompatBaseImpl;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/core/graphics/TypefaceCompatBaseImpl;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x8010
+        }
+        names = {
+            "this$0"
+        }
+    .end annotation
 
-    .line 153
+    .line 154
     iput-object p1, p0, Landroidx/core/graphics/TypefaceCompatBaseImpl$2;->this$0:Landroidx/core/graphics/TypefaceCompatBaseImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,21 +53,36 @@
 
 # virtual methods
 .method public getWeight(Landroidx/core/content/res/FontResourcesParserCompat$FontFileResourceEntry;)I
-    .locals 1
-    .param p1, "entry"    # Landroidx/core/content/res/FontResourcesParserCompat$FontFileResourceEntry;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "entry"
+        }
+    .end annotation
 
-    .line 156
+    .line 157
     invoke-virtual {p1}, Landroidx/core/content/res/FontResourcesParserCompat$FontFileResourceEntry;->getWeight()I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic getWeight(Ljava/lang/Object;)I
     .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1000
+        }
+        names = {
+            "entry"
+        }
+    .end annotation
 
-    .line 153
+    .line 154
     check-cast p1, Landroidx/core/content/res/FontResourcesParserCompat$FontFileResourceEntry;
 
     invoke-virtual {p0, p1}, Landroidx/core/graphics/TypefaceCompatBaseImpl$2;->getWeight(Landroidx/core/content/res/FontResourcesParserCompat$FontFileResourceEntry;)I
@@ -71,21 +93,36 @@
 .end method
 
 .method public isItalic(Landroidx/core/content/res/FontResourcesParserCompat$FontFileResourceEntry;)Z
-    .locals 1
-    .param p1, "entry"    # Landroidx/core/content/res/FontResourcesParserCompat$FontFileResourceEntry;
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "entry"
+        }
+    .end annotation
 
-    .line 161
+    .line 162
     invoke-virtual {p1}, Landroidx/core/content/res/FontResourcesParserCompat$FontFileResourceEntry;->isItalic()Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic isItalic(Ljava/lang/Object;)Z
     .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1000
+        }
+        names = {
+            "entry"
+        }
+    .end annotation
 
-    .line 153
+    .line 154
     check-cast p1, Landroidx/core/content/res/FontResourcesParserCompat$FontFileResourceEntry;
 
     invoke-virtual {p0, p1}, Landroidx/core/graphics/TypefaceCompatBaseImpl$2;->isItalic(Landroidx/core/content/res/FontResourcesParserCompat$FontFileResourceEntry;)Z

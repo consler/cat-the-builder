@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/RequestManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/bumptech/glide/RequestManager;
 
     .line 83
     iput-object p1, p0, Lcom/bumptech/glide/RequestManager$1;->this$0:Lcom/bumptech/glide/RequestManager;
@@ -48,6 +47,5 @@
 
     invoke-interface {v0, v1}, Lcom/bumptech/glide/manager/Lifecycle;->addListener(Lcom/bumptech/glide/manager/LifecycleListener;)V
 
-    .line 87
     return-void
 .end method

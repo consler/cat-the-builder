@@ -42,7 +42,6 @@
 
     sput-wide v0, Lio/reactivex/Scheduler;->CLOCK_DRIFT_TOLERANCE_NANOSECONDS:J
 
-    .line 42
     return-void
 .end method
 
@@ -52,7 +51,6 @@
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 437
     return-void
 .end method
 
@@ -72,7 +70,6 @@
 
 .method public now(Ljava/util/concurrent/TimeUnit;)J
     .locals 3
-    .param p1, "unit"    # Ljava/util/concurrent/TimeUnit;
 
     .line 74
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -90,25 +87,21 @@
 
 .method public scheduleDirect(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
     .locals 3
-    .param p1, "run"    # Ljava/lang/Runnable;
+
+    const-wide/16 v0, 0x0
 
     .line 111
-    sget-object v0, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
+    sget-object v2, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
 
-    const-wide/16 v1, 0x0
+    invoke-virtual {p0, p1, v0, v1, v2}, Lio/reactivex/Scheduler;->scheduleDirect(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
 
-    invoke-virtual {p0, p1, v1, v2, v0}, Lio/reactivex/Scheduler;->scheduleDirect(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public scheduleDirect(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
-    .locals 3
-    .param p1, "run"    # Ljava/lang/Runnable;
-    .param p2, "delay"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
+    .locals 2
 
     .line 129
     invoke-virtual {p0}, Lio/reactivex/Scheduler;->createWorker()Lio/reactivex/Scheduler$Worker;
@@ -116,92 +109,72 @@
     move-result-object v0
 
     .line 131
-    .local v0, "w":Lio/reactivex/Scheduler$Worker;
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onSchedule(Ljava/lang/Runnable;)Ljava/lang/Runnable;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 133
-    .local v1, "decoratedRun":Ljava/lang/Runnable;
-    new-instance v2, Lio/reactivex/Scheduler$DisposeTask;
+    new-instance v1, Lio/reactivex/Scheduler$DisposeTask;
 
-    invoke-direct {v2, v1, v0}, Lio/reactivex/Scheduler$DisposeTask;-><init>(Ljava/lang/Runnable;Lio/reactivex/Scheduler$Worker;)V
+    invoke-direct {v1, p1, v0}, Lio/reactivex/Scheduler$DisposeTask;-><init>(Ljava/lang/Runnable;Lio/reactivex/Scheduler$Worker;)V
 
     .line 135
-    .local v2, "task":Lio/reactivex/Scheduler$DisposeTask;
-    invoke-virtual {v0, v2, p2, p3, p4}, Lio/reactivex/Scheduler$Worker;->schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
+    invoke-virtual {v0, v1, p2, p3, p4}, Lio/reactivex/Scheduler$Worker;->schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
 
-    .line 137
-    return-object v2
+    return-object v1
 .end method
 
 .method public schedulePeriodicallyDirect(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
-    .locals 10
-    .param p1, "run"    # Ljava/lang/Runnable;
-    .param p2, "initialDelay"    # J
-    .param p4, "period"    # J
-    .param p6, "unit"    # Ljava/util/concurrent/TimeUnit;
+    .locals 8
 
     .line 160
     invoke-virtual {p0}, Lio/reactivex/Scheduler;->createWorker()Lio/reactivex/Scheduler$Worker;
 
-    move-result-object v7
+    move-result-object v0
 
     .line 162
-    .local v7, "w":Lio/reactivex/Scheduler$Worker;
     invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onSchedule(Ljava/lang/Runnable;)Ljava/lang/Runnable;
 
-    move-result-object v8
+    move-result-object p1
 
     .line 164
-    .local v8, "decoratedRun":Ljava/lang/Runnable;
-    new-instance v0, Lio/reactivex/Scheduler$PeriodicDirectTask;
+    new-instance v7, Lio/reactivex/Scheduler$PeriodicDirectTask;
 
-    invoke-direct {v0, v8, v7}, Lio/reactivex/Scheduler$PeriodicDirectTask;-><init>(Ljava/lang/Runnable;Lio/reactivex/Scheduler$Worker;)V
+    invoke-direct {v7, p1, v0}, Lio/reactivex/Scheduler$PeriodicDirectTask;-><init>(Ljava/lang/Runnable;Lio/reactivex/Scheduler$Worker;)V
 
-    move-object v9, v0
-
-    .line 166
-    .local v9, "periodicTask":Lio/reactivex/Scheduler$PeriodicDirectTask;
-    move-object v0, v7
-
-    move-object v1, v9
+    move-object v1, v7
 
     move-wide v2, p2
 
     move-wide v4, p4
 
-    move-object/from16 v6, p6
+    move-object v6, p6
 
+    .line 166
     invoke-virtual/range {v0 .. v6}, Lio/reactivex/Scheduler$Worker;->schedulePeriodically(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 167
-    .local v0, "d":Lio/reactivex/disposables/Disposable;
-    sget-object v1, Lio/reactivex/internal/disposables/EmptyDisposable;->INSTANCE:Lio/reactivex/internal/disposables/EmptyDisposable;
+    sget-object p2, Lio/reactivex/internal/disposables/EmptyDisposable;->INSTANCE:Lio/reactivex/internal/disposables/EmptyDisposable;
 
-    if-ne v0, v1, :cond_0
+    if-ne p1, p2, :cond_0
 
-    .line 168
-    return-object v0
+    return-object p1
 
-    .line 171
     :cond_0
-    return-object v9
+    return-object v7
 .end method
 
 .method public shutdown()V
     .locals 0
 
-    .line 95
     return-void
 .end method
 
 .method public start()V
     .locals 0
 
-    .line 85
     return-void
 .end method
 
@@ -225,7 +198,6 @@
     .end annotation
 
     .line 252
-    .local p1, "combine":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<Lio/reactivex/Flowable<Lio/reactivex/Flowable<Lio/reactivex/Completable;>;>;Lio/reactivex/Completable;>;"
     new-instance v0, Lio/reactivex/internal/schedulers/SchedulerWhen;
 
     invoke-direct {v0, p1, p0}, Lio/reactivex/internal/schedulers/SchedulerWhen;-><init>(Lio/reactivex/functions/Function;Lio/reactivex/Scheduler;)V

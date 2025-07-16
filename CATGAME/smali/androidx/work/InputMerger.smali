@@ -11,9 +11,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 40
     const-string v0, "InputMerger"
 
+    .line 40
     invoke-static {v0}, Landroidx/work/Logger;->tagWithPrefix(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -33,8 +33,7 @@
 .end method
 
 .method public static fromClassName(Ljava/lang/String;)Landroidx/work/InputMerger;
-    .locals 6
-    .param p0, "className"    # Ljava/lang/String;
+    .locals 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -51,24 +50,20 @@
     move-result-object v0
 
     .line 63
-    .local v0, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-virtual {v0}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroidx/work/InputMerger;
+    check-cast v0, Landroidx/work/InputMerger;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v1
+    return-object v0
 
-    .line 64
-    .end local v0    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :catch_0
     move-exception v0
 
     .line 65
-    .local v0, "e":Ljava/lang/Exception;
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
     move-result-object v1
@@ -77,33 +72,31 @@
 
     new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v4, "Trouble instantiating + "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v3
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const/4 v4, 0x1
+    move-result-object p0
 
-    new-array v4, v4, [Ljava/lang/Throwable;
+    const/4 v3, 0x1
 
-    const/4 v5, 0x0
+    new-array v3, v3, [Ljava/lang/Throwable;
 
-    aput-object v0, v4, v5
+    const/4 v4, 0x0
 
-    invoke-virtual {v1, v2, v3, v4}, Landroidx/work/Logger;->error(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    aput-object v0, v3, v4
 
-    .line 67
-    .end local v0    # "e":Ljava/lang/Exception;
-    const/4 v0, 0x0
+    invoke-virtual {v1, v2, p0, v3}, Landroidx/work/Logger;->error(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
-    return-object v0
+    const/4 p0, 0x0
+
+    return-object p0
 .end method
 
 

@@ -13,20 +13,15 @@
 # direct methods
 .method protected constructor <init>(Lorg/apache/commons/collections/SortedBag;Lorg/apache/commons/collections/Transformer;)V
     .locals 0
-    .param p1, "bag"    # Lorg/apache/commons/collections/SortedBag;
-    .param p2, "transformer"    # Lorg/apache/commons/collections/Transformer;
 
     .line 72
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections/bag/TransformedBag;-><init>(Lorg/apache/commons/collections/Bag;Lorg/apache/commons/collections/Transformer;)V
 
-    .line 73
     return-void
 .end method
 
 .method public static decorate(Lorg/apache/commons/collections/SortedBag;Lorg/apache/commons/collections/Transformer;)Lorg/apache/commons/collections/SortedBag;
     .locals 1
-    .param p0, "bag"    # Lorg/apache/commons/collections/SortedBag;
-    .param p1, "transformer"    # Lorg/apache/commons/collections/Transformer;
 
     .line 57
     new-instance v0, Lorg/apache/commons/collections/bag/TransformedSortedBag;

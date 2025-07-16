@@ -14,13 +14,11 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/List;)V
-    .locals 2
-    .param p1, "list"    # Ljava/util/List;
+    .locals 1
 
     .line 59
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 60
     if-eqz p1, :cond_0
 
     .line 63
@@ -29,32 +27,29 @@
     .line 64
     invoke-virtual {p0}, Lorg/apache/commons/collections/iterators/LoopingListIterator;->reset()V
 
-    .line 65
     return-void
 
     .line 61
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "The list must not be null"
+    const-string v0, "The list must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 220
     iget-object v0, p0, Lorg/apache/commons/collections/iterators/LoopingListIterator;->iterator:Ljava/util/ListIterator;
 
     invoke-interface {v0, p1}, Ljava/util/ListIterator;->add(Ljava/lang/Object;)V
 
-    .line 221
     return-void
 .end method
 
@@ -154,7 +149,6 @@
 
     if-nez v0, :cond_0
 
-    .line 115
     const/4 v0, 0x0
 
     return v0
@@ -201,11 +195,9 @@
 
     if-nez v0, :cond_1
 
-    .line 148
     const/4 v0, 0x0
 
     .line 149
-    .local v0, "result":Ljava/lang/Object;
     :goto_0
     iget-object v1, p0, Lorg/apache/commons/collections/iterators/LoopingListIterator;->iterator:Ljava/util/ListIterator;
 
@@ -216,9 +208,9 @@
     if-eqz v1, :cond_0
 
     .line 150
-    iget-object v1, p0, Lorg/apache/commons/collections/iterators/LoopingListIterator;->iterator:Ljava/util/ListIterator;
+    iget-object v0, p0, Lorg/apache/commons/collections/iterators/LoopingListIterator;->iterator:Ljava/util/ListIterator;
 
-    invoke-interface {v1}, Ljava/util/ListIterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/ListIterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -230,11 +222,9 @@
 
     invoke-interface {v1}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
 
-    .line 153
     return-object v0
 
     .line 155
-    .end local v0    # "result":Ljava/lang/Object;
     :cond_1
     iget-object v0, p0, Lorg/apache/commons/collections/iterators/LoopingListIterator;->iterator:Ljava/util/ListIterator;
 
@@ -316,7 +306,6 @@
 
     invoke-interface {v0}, Ljava/util/ListIterator;->remove()V
 
-    .line 202
     return-void
 .end method
 
@@ -332,20 +321,17 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/iterators/LoopingListIterator;->iterator:Ljava/util/ListIterator;
 
-    .line 244
     return-void
 .end method
 
 .method public set(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 236
     iget-object v0, p0, Lorg/apache/commons/collections/iterators/LoopingListIterator;->iterator:Ljava/util/ListIterator;
 
     invoke-interface {v0, p1}, Ljava/util/ListIterator;->set(Ljava/lang/Object;)V
 
-    .line 237
     return-void
 .end method
 

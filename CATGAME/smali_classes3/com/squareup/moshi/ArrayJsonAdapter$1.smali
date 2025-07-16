@@ -30,9 +30,7 @@
 
 # virtual methods
 .method public create(Ljava/lang/reflect/Type;Ljava/util/Set;Lcom/squareup/moshi/Moshi;)Lcom/squareup/moshi/JsonAdapter;
-    .locals 4
-    .param p1, "type"    # Ljava/lang/reflect/Type;
-    .param p3, "moshi"    # Lcom/squareup/moshi/Moshi;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -52,50 +50,45 @@
     .end annotation
 
     .line 35
-    .local p2, "annotations":Ljava/util/Set;, "Ljava/util/Set<+Ljava/lang/annotation/Annotation;>;"
     invoke-static {p1}, Lcom/squareup/moshi/Types;->arrayComponentType(Ljava/lang/reflect/Type;)Ljava/lang/reflect/Type;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 36
-    .local v0, "elementType":Ljava/lang/reflect/Type;
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    return-object v1
+    return-object v0
 
     .line 37
     :cond_0
     invoke-interface {p2}, Ljava/util/Set;->isEmpty()Z
 
-    move-result v2
+    move-result p2
 
-    if-nez v2, :cond_1
+    if-nez p2, :cond_1
 
-    return-object v1
+    return-object v0
 
     .line 38
     :cond_1
-    invoke-static {v0}, Lcom/squareup/moshi/Types;->getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;
+    invoke-static {p1}, Lcom/squareup/moshi/Types;->getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object p2
 
     .line 39
-    .local v1, "elementClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    invoke-virtual {p3, v0}, Lcom/squareup/moshi/Moshi;->adapter(Ljava/lang/reflect/Type;)Lcom/squareup/moshi/JsonAdapter;
+    invoke-virtual {p3, p1}, Lcom/squareup/moshi/Moshi;->adapter(Ljava/lang/reflect/Type;)Lcom/squareup/moshi/JsonAdapter;
 
-    move-result-object v2
+    move-result-object p1
 
     .line 40
-    .local v2, "elementAdapter":Lcom/squareup/moshi/JsonAdapter;, "Lcom/squareup/moshi/JsonAdapter<Ljava/lang/Object;>;"
-    new-instance v3, Lcom/squareup/moshi/ArrayJsonAdapter;
+    new-instance p3, Lcom/squareup/moshi/ArrayJsonAdapter;
 
-    invoke-direct {v3, v1, v2}, Lcom/squareup/moshi/ArrayJsonAdapter;-><init>(Ljava/lang/Class;Lcom/squareup/moshi/JsonAdapter;)V
+    invoke-direct {p3, p2, p1}, Lcom/squareup/moshi/ArrayJsonAdapter;-><init>(Ljava/lang/Class;Lcom/squareup/moshi/JsonAdapter;)V
 
-    invoke-virtual {v3}, Lcom/squareup/moshi/ArrayJsonAdapter;->nullSafe()Lcom/squareup/moshi/JsonAdapter;
+    invoke-virtual {p3}, Lcom/squareup/moshi/ArrayJsonAdapter;->nullSafe()Lcom/squareup/moshi/JsonAdapter;
 
-    move-result-object v3
+    move-result-object p1
 
-    return-object v3
+    return-object p1
 .end method

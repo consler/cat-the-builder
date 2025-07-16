@@ -26,14 +26,13 @@
 # direct methods
 .method public constructor <init>(Lar/com/hjg/pngj/ImageInfo;)V
     .locals 1
-    .param p1, "imgInfo"    # Lar/com/hjg/pngj/ImageInfo;
 
     .line 33
     invoke-direct {p0, p1}, Lar/com/hjg/pngj/pixels/PixelsWriter;-><init>(Lar/com/hjg/pngj/ImageInfo;)V
 
-    .line 30
     const/4 v0, 0x0
 
+    .line 30
     iput v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->adaptNextRow:I
 
     .line 34
@@ -43,7 +42,6 @@
 
     iput-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->filtersPerformance:Lar/com/hjg/pngj/pixels/FiltersPerformance;
 
-    .line 35
     return-void
 .end method
 
@@ -55,7 +53,6 @@
     .line 134
     invoke-super {p0}, Lar/com/hjg/pngj/pixels/PixelsWriter;->close()V
 
-    .line 135
     return-void
 .end method
 
@@ -80,7 +77,7 @@
 
     iput-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->curfilterType:Lar/com/hjg/pngj/FilterType;
 
-    goto/16 :goto_1
+    goto/16 :goto_3
 
     .line 96
     :cond_0
@@ -105,7 +102,7 @@
 
     iput-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->curfilterType:Lar/com/hjg/pngj/FilterType;
 
-    goto/16 :goto_1
+    goto/16 :goto_3
 
     .line 98
     :cond_1
@@ -128,7 +125,7 @@
 
     iput-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->curfilterType:Lar/com/hjg/pngj/FilterType;
 
-    goto :goto_1
+    goto/16 :goto_3
 
     .line 100
     :cond_2
@@ -154,7 +151,7 @@
 
     iput-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->curfilterType:Lar/com/hjg/pngj/FilterType;
 
-    goto :goto_1
+    goto :goto_3
 
     .line 103
     :cond_3
@@ -180,20 +177,16 @@
 
     move-result-object v0
 
-    .local v0, "arr$":[Lar/com/hjg/pngj/FilterType;
     array-length v1, v0
 
-    .local v1, "len$":I
-    const/4 v3, 0x0
+    move v3, v2
 
-    .local v3, "i$":I
     :goto_0
     if-ge v3, v1, :cond_4
 
     aget-object v4, v0, v3
 
     .line 106
-    .local v4, "ftype":Lar/com/hjg/pngj/FilterType;
     iget-object v5, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->filtersPerformance:Lar/com/hjg/pngj/pixels/FiltersPerformance;
 
     iget-object v6, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->rowb:[B
@@ -204,16 +197,11 @@
 
     invoke-virtual {v5, v4, v6, v7, v8}, Lar/com/hjg/pngj/pixels/FiltersPerformance;->updateFromRaw(Lar/com/hjg/pngj/FilterType;[B[BI)V
 
-    .line 105
-    .end local v4    # "ftype":Lar/com/hjg/pngj/FilterType;
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     .line 107
-    .end local v0    # "arr$":[Lar/com/hjg/pngj/FilterType;
-    .end local v1    # "len$":I
-    .end local v3    # "i$":I
     :cond_4
     iget-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->filtersPerformance:Lar/com/hjg/pngj/pixels/FiltersPerformance;
 
@@ -238,27 +226,28 @@
 
     int-to-double v0, v0
 
-    iget-wide v2, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->adaptSkipIncreaseFactor:D
+    iget-wide v3, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->adaptSkipIncreaseFactor:D
 
-    mul-double/2addr v0, v2
+    mul-double/2addr v0, v3
 
     invoke-static {v0, v1}, Ljava/lang/Math;->round(D)J
 
     move-result-wide v0
 
-    long-to-int v2, v0
+    long-to-int v0, v0
+
+    goto :goto_1
 
     :cond_5
     move v0, v2
 
     .line 111
-    .local v0, "skip":I
+    :goto_1
     iget v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->adaptMaxSkip:I
 
     if-le v0, v1, :cond_6
 
-    .line 112
-    iget v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->adaptMaxSkip:I
+    move v0, v1
 
     .line 113
     :cond_6
@@ -266,23 +255,24 @@
 
     if-nez v1, :cond_7
 
-    .line 114
-    const/4 v0, 0x0
+    goto :goto_2
+
+    :cond_7
+    move v2, v0
 
     .line 115
-    :cond_7
-    iget v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->currentRow:I
+    :goto_2
+    iget v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->currentRow:I
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    add-int/2addr v1, v0
+    add-int/2addr v0, v2
 
-    iput v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->adaptNextRow:I
+    iput v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->adaptNextRow:I
 
     .line 120
-    .end local v0    # "skip":I
     :cond_8
-    :goto_1
+    :goto_3
     iget v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->currentRow:I
 
     if-nez v0, :cond_9
@@ -304,7 +294,6 @@
 
     iput-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->curfilterType:Lar/com/hjg/pngj/FilterType;
 
-    .line 123
     :cond_9
     return-void
 
@@ -314,17 +303,17 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "not implemented filter: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->getFilterType()Lar/com/hjg/pngj/FilterType;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -337,7 +326,6 @@
 
 .method protected filterAndWrite([B)V
     .locals 3
-    .param p1, "rowb"    # [B
 
     .line 81
     iget-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->rowb:[B
@@ -356,38 +344,33 @@
 
     invoke-virtual {p0, v0, p1, v1, v2}, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->filterRowWithFilterType(Lar/com/hjg/pngj/FilterType;[B[B[B)[B
 
-    move-result-object v0
+    move-result-object p1
 
     .line 85
-    .local v0, "filtered":[B
-    invoke-virtual {p0, v0}, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->sendToCompressedStream([B)V
+    invoke-virtual {p0, p1}, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->sendToCompressedStream([B)V
 
     .line 87
-    iget-object v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->rowb:[B
+    iget-object p1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->rowb:[B
 
     .line 88
-    .local v1, "aux":[B
-    iget-object v2, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->rowbprev:[B
+    iget-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->rowbprev:[B
 
-    iput-object v2, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->rowb:[B
+    iput-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->rowb:[B
 
     .line 89
-    iput-object v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->rowbprev:[B
+    iput-object p1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->rowbprev:[B
 
-    .line 90
     return-void
 
     .line 82
-    .end local v0    # "filtered":[B
-    .end local v1    # "aux":[B
     :cond_0
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    const-string v1, "??"
+    const-string v0, "??"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public getRowb()[B
@@ -579,17 +562,17 @@
 
     if-ne v0, v3, :cond_9
 
-    .line 63
     const/16 v0, 0xc8
 
+    .line 63
     iput v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->adaptMaxSkip:I
 
     .line 64
     iput v2, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->adaptSkipIncreaseSinceRow:I
 
-    .line 65
     const-wide/high16 v0, 0x3fd0000000000000L    # 0.25
 
+    .line 65
     iput-wide v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->adaptSkipIncreaseFactor:D
 
     goto :goto_2
@@ -602,19 +585,19 @@
 
     if-ne v0, v2, :cond_a
 
-    .line 67
     const/16 v0, 0x8
 
+    .line 67
     iput v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->adaptMaxSkip:I
 
-    .line 68
     const/16 v0, 0x20
 
+    .line 68
     iput v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->adaptSkipIncreaseSinceRow:I
 
-    .line 69
     const-wide v0, 0x3f8999999999999aL    # 0.0125
 
+    .line 69
     iput-wide v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->adaptSkipIncreaseFactor:D
 
     goto :goto_2
@@ -630,14 +613,14 @@
     .line 71
     iput v1, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->adaptMaxSkip:I
 
-    .line 72
     const/16 v0, 0x80
 
+    .line 72
     iput v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->adaptSkipIncreaseSinceRow:I
 
-    .line 73
     const-wide v0, 0x3f81111111111111L    # 0.008333333333333333
 
+    .line 73
     iput-wide v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->adaptSkipIncreaseFactor:D
 
     goto :goto_2
@@ -648,15 +631,15 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "bad filter "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v2, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->filterType:Lar/com/hjg/pngj/FilterType;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -666,7 +649,6 @@
 
     throw v0
 
-    .line 77
     :cond_c
     :goto_2
     return-void
@@ -674,39 +656,33 @@
 
 .method public setFilterWeights([D)V
     .locals 1
-    .param p1, "weights"    # [D
 
     .line 155
     iget-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->filtersPerformance:Lar/com/hjg/pngj/pixels/FiltersPerformance;
 
     invoke-virtual {v0, p1}, Lar/com/hjg/pngj/pixels/FiltersPerformance;->setFilterWeights([D)V
 
-    .line 156
     return-void
 .end method
 
 .method public setPreferenceForNone(D)V
     .locals 1
-    .param p1, "preferenceForNone"    # D
 
     .line 141
     iget-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->filtersPerformance:Lar/com/hjg/pngj/pixels/FiltersPerformance;
 
     invoke-virtual {v0, p1, p2}, Lar/com/hjg/pngj/pixels/FiltersPerformance;->setPreferenceForNone(D)V
 
-    .line 142
     return-void
 .end method
 
 .method public tuneMemory(D)V
     .locals 1
-    .param p1, "m"    # D
 
     .line 148
     iget-object v0, p0, Lar/com/hjg/pngj/pixels/PixelsWriterDefault;->filtersPerformance:Lar/com/hjg/pngj/pixels/FiltersPerformance;
 
     invoke-virtual {v0, p1, p2}, Lar/com/hjg/pngj/pixels/FiltersPerformance;->tuneMemory(D)V
 
-    .line 149
     return-void
 .end method

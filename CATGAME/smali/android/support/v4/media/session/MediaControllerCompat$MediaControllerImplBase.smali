@@ -27,8 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/v4/media/session/MediaSessionCompat$Token;)V
-    .locals 1
-    .param p1, "token"    # Landroid/support/v4/media/session/MediaSessionCompat$Token;
+    .locals 0
 
     .line 1534
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,25 +35,23 @@
     .line 1535
     invoke-virtual {p1}, Landroid/support/v4/media/session/MediaSessionCompat$Token;->getToken()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/os/IBinder;
+    check-cast p1, Landroid/os/IBinder;
 
-    invoke-static {v0}, Landroid/support/v4/media/session/IMediaSession$Stub;->asInterface(Landroid/os/IBinder;)Landroid/support/v4/media/session/IMediaSession;
+    invoke-static {p1}, Landroid/support/v4/media/session/IMediaSession$Stub;->asInterface(Landroid/os/IBinder;)Landroid/support/v4/media/session/IMediaSession;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplBase;->mBinder:Landroid/support/v4/media/session/IMediaSession;
+    iput-object p1, p0, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplBase;->mBinder:Landroid/support/v4/media/session/IMediaSession;
 
-    .line 1536
     return-void
 .end method
 
 
 # virtual methods
 .method public addQueueItem(Landroid/support/v4/media/MediaDescriptionCompat;)V
-    .locals 6
-    .param p1, "description"    # Landroid/support/v4/media/MediaDescriptionCompat;
+    .locals 4
 
     .line 1621
     :try_start_0
@@ -64,65 +61,51 @@
 
     move-result-wide v0
 
-    .line 1622
-    .local v0, "flags":J
     const-wide/16 v2, 0x4
 
-    and-long/2addr v2, v0
+    and-long/2addr v0, v2
 
-    const-wide/16 v4, 0x0
+    const-wide/16 v2, 0x0
 
-    cmp-long v2, v2, v4
+    cmp-long v0, v0, v2
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
     .line 1626
-    iget-object v2, p0, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplBase;->mBinder:Landroid/support/v4/media/session/IMediaSession;
+    iget-object v0, p0, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplBase;->mBinder:Landroid/support/v4/media/session/IMediaSession;
 
-    invoke-interface {v2, p1}, Landroid/support/v4/media/session/IMediaSession;->addQueueItem(Landroid/support/v4/media/MediaDescriptionCompat;)V
+    invoke-interface {v0, p1}, Landroid/support/v4/media/session/IMediaSession;->addQueueItem(Landroid/support/v4/media/MediaDescriptionCompat;)V
 
-    .line 1629
-    .end local v0    # "flags":J
     goto :goto_0
 
     .line 1623
-    .restart local v0    # "flags":J
     :cond_0
-    new-instance v2, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v3, "This session doesn\'t support queue management operations"
+    const-string v0, "This session doesn\'t support queue management operations"
 
-    invoke-direct {v2, v3}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    .end local p1    # "description":Landroid/support/v4/media/MediaDescriptionCompat;
-    throw v2
+    throw p1
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1627
-    .end local v0    # "flags":J
-    .restart local p1    # "description":Landroid/support/v4/media/MediaDescriptionCompat;
     :catch_0
-    move-exception v0
+    move-exception p1
+
+    const-string v0, "MediaControllerCompat"
+
+    const-string v1, "Dead object in addQueueItem."
 
     .line 1628
-    .local v0, "e":Landroid/os/RemoteException;
-    const-string v1, "MediaControllerCompat"
+    invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    const-string v2, "Dead object in addQueueItem."
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 1630
-    .end local v0    # "e":Landroid/os/RemoteException;
     :goto_0
     return-void
 .end method
 
 .method public addQueueItem(Landroid/support/v4/media/MediaDescriptionCompat;I)V
-    .locals 6
-    .param p1, "description"    # Landroid/support/v4/media/MediaDescriptionCompat;
-    .param p2, "index"    # I
+    .locals 4
 
     .line 1635
     :try_start_0
@@ -132,67 +115,51 @@
 
     move-result-wide v0
 
-    .line 1636
-    .local v0, "flags":J
     const-wide/16 v2, 0x4
 
-    and-long/2addr v2, v0
+    and-long/2addr v0, v2
 
-    const-wide/16 v4, 0x0
+    const-wide/16 v2, 0x0
 
-    cmp-long v2, v2, v4
+    cmp-long v0, v0, v2
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
     .line 1640
-    iget-object v2, p0, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplBase;->mBinder:Landroid/support/v4/media/session/IMediaSession;
+    iget-object v0, p0, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplBase;->mBinder:Landroid/support/v4/media/session/IMediaSession;
 
-    invoke-interface {v2, p1, p2}, Landroid/support/v4/media/session/IMediaSession;->addQueueItemAt(Landroid/support/v4/media/MediaDescriptionCompat;I)V
+    invoke-interface {v0, p1, p2}, Landroid/support/v4/media/session/IMediaSession;->addQueueItemAt(Landroid/support/v4/media/MediaDescriptionCompat;I)V
 
-    .line 1643
-    .end local v0    # "flags":J
     goto :goto_0
 
     .line 1637
-    .restart local v0    # "flags":J
     :cond_0
-    new-instance v2, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v3, "This session doesn\'t support queue management operations"
+    const-string p2, "This session doesn\'t support queue management operations"
 
-    invoke-direct {v2, v3}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    .end local p1    # "description":Landroid/support/v4/media/MediaDescriptionCompat;
-    .end local p2    # "index":I
-    throw v2
+    throw p1
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1641
-    .end local v0    # "flags":J
-    .restart local p1    # "description":Landroid/support/v4/media/MediaDescriptionCompat;
-    .restart local p2    # "index":I
     :catch_0
-    move-exception v0
+    move-exception p1
+
+    const-string p2, "MediaControllerCompat"
+
+    const-string v0, "Dead object in addQueueItemAt."
 
     .line 1642
-    .local v0, "e":Landroid/os/RemoteException;
-    const-string v1, "MediaControllerCompat"
+    invoke-static {p2, v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    const-string v2, "Dead object in addQueueItemAt."
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 1644
-    .end local v0    # "e":Landroid/os/RemoteException;
     :goto_0
     return-void
 .end method
 
 .method public adjustVolume(II)V
-    .locals 3
-    .param p1, "direction"    # I
-    .param p2, "flags"    # I
+    .locals 2
 
     .line 1765
     :try_start_0
@@ -204,32 +171,25 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1768
     goto :goto_0
 
-    .line 1766
     :catch_0
-    move-exception v0
+    move-exception p1
+
+    const-string p2, "MediaControllerCompat"
+
+    const-string v0, "Dead object in adjustVolume."
 
     .line 1767
-    .local v0, "e":Landroid/os/RemoteException;
-    const-string v1, "MediaControllerCompat"
+    invoke-static {p2, v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    const-string v2, "Dead object in adjustVolume."
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 1769
-    .end local v0    # "e":Landroid/os/RemoteException;
     :goto_0
     return-void
 .end method
 
 .method public dispatchMediaButtonEvent(Landroid/view/KeyEvent;)Z
-    .locals 3
-    .param p1, "event"    # Landroid/view/KeyEvent;
+    .locals 2
 
-    .line 1568
     if-eqz p1, :cond_0
 
     .line 1572
@@ -240,37 +200,32 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1575
     goto :goto_0
 
-    .line 1573
     :catch_0
-    move-exception v0
+    move-exception p1
+
+    const-string v0, "MediaControllerCompat"
+
+    const-string v1, "Dead object in dispatchMediaButtonEvent."
 
     .line 1574
-    .local v0, "e":Landroid/os/RemoteException;
-    const-string v1, "MediaControllerCompat"
+    invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    const-string v2, "Dead object in dispatchMediaButtonEvent."
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 1576
-    .end local v0    # "e":Landroid/os/RemoteException;
     :goto_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 1569
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "event may not be null."
+    const-string v0, "event may not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public getExtras()Landroid/os/Bundle;
@@ -288,20 +243,16 @@
 
     return-object v0
 
-    .line 1674
     :catch_0
     move-exception v0
 
-    .line 1675
-    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "MediaControllerCompat"
 
     const-string v2, "Dead object in getExtras."
 
+    .line 1675
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 1677
-    .end local v0    # "e":Landroid/os/RemoteException;
     const/4 v0, 0x0
 
     return-object v0
@@ -322,20 +273,16 @@
 
     return-wide v0
 
-    .line 1724
     :catch_0
     move-exception v0
 
-    .line 1725
-    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "MediaControllerCompat"
 
     const-string v2, "Dead object in getFlags."
 
+    .line 1725
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 1727
-    .end local v0    # "e":Landroid/os/RemoteException;
     const-wide/16 v0, 0x0
 
     return-wide v0
@@ -344,7 +291,6 @@
 .method public getMediaController()Ljava/lang/Object;
     .locals 1
 
-    .line 1808
     const/4 v0, 0x0
 
     return-object v0
@@ -365,20 +311,16 @@
 
     return-object v0
 
-    .line 1602
     :catch_0
     move-exception v0
 
-    .line 1603
-    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "MediaControllerCompat"
 
     const-string v2, "Dead object in getMetadata."
 
+    .line 1603
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 1605
-    .end local v0    # "e":Landroid/os/RemoteException;
     const/4 v0, 0x0
 
     return-object v0
@@ -399,20 +341,16 @@
 
     return-object v0
 
-    .line 1790
     :catch_0
     move-exception v0
 
-    .line 1791
-    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "MediaControllerCompat"
 
     const-string v2, "Dead object in getPackageName."
 
+    .line 1791
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 1793
-    .end local v0    # "e":Landroid/os/RemoteException;
     const/4 v0, 0x0
 
     return-object v0
@@ -430,7 +368,6 @@
     move-result-object v0
 
     .line 1734
-    .local v0, "info":Landroid/support/v4/media/session/ParcelableVolumeInfo;
     new-instance v7, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;
 
     iget v2, v0, Landroid/support/v4/media/session/ParcelableVolumeInfo;->volumeType:I
@@ -449,28 +386,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-object v1, v7
+    return-object v7
 
-    .line 1736
-    .local v1, "pi":Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;
-    return-object v1
-
-    .line 1737
-    .end local v0    # "info":Landroid/support/v4/media/session/ParcelableVolumeInfo;
-    .end local v1    # "pi":Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;
     :catch_0
     move-exception v0
 
-    .line 1738
-    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "MediaControllerCompat"
 
     const-string v2, "Dead object in getPlaybackInfo."
 
+    .line 1738
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 1740
-    .end local v0    # "e":Landroid/os/RemoteException;
     const/4 v0, 0x0
 
     return-object v0
@@ -491,20 +418,16 @@
 
     return-object v0
 
-    .line 1592
     :catch_0
     move-exception v0
 
-    .line 1593
-    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "MediaControllerCompat"
 
     const-string v2, "Dead object in getPlaybackState."
 
+    .line 1593
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 1595
-    .end local v0    # "e":Landroid/os/RemoteException;
     const/4 v0, 0x0
 
     return-object v0
@@ -533,20 +456,16 @@
 
     return-object v0
 
-    .line 1612
     :catch_0
     move-exception v0
 
-    .line 1613
-    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "MediaControllerCompat"
 
     const-string v2, "Dead object in getQueue."
 
+    .line 1613
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 1615
-    .end local v0    # "e":Landroid/os/RemoteException;
     const/4 v0, 0x0
 
     return-object v0
@@ -567,20 +486,16 @@
 
     return-object v0
 
-    .line 1664
     :catch_0
     move-exception v0
 
-    .line 1665
-    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "MediaControllerCompat"
 
     const-string v2, "Dead object in getQueueTitle."
 
+    .line 1665
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 1667
-    .end local v0    # "e":Landroid/os/RemoteException;
     const/4 v0, 0x0
 
     return-object v0
@@ -601,20 +516,16 @@
 
     return v0
 
-    .line 1684
     :catch_0
     move-exception v0
 
-    .line 1685
-    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "MediaControllerCompat"
 
     const-string v2, "Dead object in getRatingType."
 
+    .line 1685
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 1687
-    .end local v0    # "e":Landroid/os/RemoteException;
     const/4 v0, 0x0
 
     return v0
@@ -635,20 +546,16 @@
 
     return v0
 
-    .line 1704
     :catch_0
     move-exception v0
 
-    .line 1705
-    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "MediaControllerCompat"
 
     const-string v2, "Dead object in getRepeatMode."
 
+    .line 1705
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 1707
-    .end local v0    # "e":Landroid/os/RemoteException;
     const/4 v0, -0x1
 
     return v0
@@ -669,20 +576,16 @@
 
     return-object v0
 
-    .line 1747
     :catch_0
     move-exception v0
 
-    .line 1748
-    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "MediaControllerCompat"
 
     const-string v2, "Dead object in getSessionActivity."
 
+    .line 1748
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 1750
-    .end local v0    # "e":Landroid/os/RemoteException;
     const/4 v0, 0x0
 
     return-object v0
@@ -703,23 +606,19 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1802
     goto :goto_0
 
-    .line 1800
     :catch_0
     move-exception v0
 
-    .line 1801
-    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "MediaControllerCompat"
 
     const-string v2, "Dead object in getSessionInfo."
 
+    .line 1801
     invoke-static {v1, v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 1803
-    .end local v0    # "e":Landroid/os/RemoteException;
     :goto_0
     iget-object v0, p0, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplBase;->mSessionInfo:Landroid/os/Bundle;
 
@@ -755,20 +654,16 @@
 
     return v0
 
-    .line 1714
     :catch_0
     move-exception v0
 
-    .line 1715
-    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "MediaControllerCompat"
 
     const-string v2, "Dead object in getShuffleMode."
 
+    .line 1715
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 1717
-    .end local v0    # "e":Landroid/os/RemoteException;
     const/4 v0, -0x1
 
     return v0
@@ -813,20 +708,16 @@
 
     return v0
 
-    .line 1694
     :catch_0
     move-exception v0
 
-    .line 1695
-    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "MediaControllerCompat"
 
     const-string v2, "Dead object in isCaptioningEnabled."
 
+    .line 1695
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 1697
-    .end local v0    # "e":Landroid/os/RemoteException;
     const/4 v0, 0x0
 
     return v0
@@ -835,87 +726,77 @@
 .method public isSessionReady()Z
     .locals 1
 
-    .line 1783
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public registerCallback(Landroid/support/v4/media/session/MediaControllerCompat$Callback;Landroid/os/Handler;)V
-    .locals 4
-    .param p1, "callback"    # Landroid/support/v4/media/session/MediaControllerCompat$Callback;
-    .param p2, "handler"    # Landroid/os/Handler;
+    .locals 3
 
-    .line 1540
     if-eqz p1, :cond_0
 
+    const/4 p2, 0x0
+
     .line 1544
-    const/4 v0, 0x0
-
     :try_start_0
-    iget-object v1, p0, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplBase;->mBinder:Landroid/support/v4/media/session/IMediaSession;
+    iget-object v0, p0, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplBase;->mBinder:Landroid/support/v4/media/session/IMediaSession;
 
-    invoke-interface {v1}, Landroid/support/v4/media/session/IMediaSession;->asBinder()Landroid/os/IBinder;
+    invoke-interface {v0}, Landroid/support/v4/media/session/IMediaSession;->asBinder()Landroid/os/IBinder;
 
-    move-result-object v1
+    move-result-object v0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-interface {v1, p1, v2}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
+    invoke-interface {v0, p1, v1}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
 
     .line 1545
-    iget-object v1, p0, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplBase;->mBinder:Landroid/support/v4/media/session/IMediaSession;
+    iget-object v0, p0, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplBase;->mBinder:Landroid/support/v4/media/session/IMediaSession;
 
-    iget-object v2, p1, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->mIControllerCallback:Landroid/support/v4/media/session/IMediaControllerCallback;
+    iget-object v1, p1, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->mIControllerCallback:Landroid/support/v4/media/session/IMediaControllerCallback;
 
-    invoke-interface {v1, v2}, Landroid/support/v4/media/session/IMediaSession;->registerCallbackListener(Landroid/support/v4/media/session/IMediaControllerCallback;)V
+    invoke-interface {v0, v1}, Landroid/support/v4/media/session/IMediaSession;->registerCallbackListener(Landroid/support/v4/media/session/IMediaControllerCallback;)V
+
+    const/16 v0, 0xd
 
     .line 1546
-    const/16 v1, 0xd
-
-    invoke-virtual {p1, v1, v0, v0}, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->postToHandler(ILjava/lang/Object;Landroid/os/Bundle;)V
+    invoke-virtual {p1, v0, p2, p2}, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->postToHandler(ILjava/lang/Object;Landroid/os/Bundle;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1550
     goto :goto_0
 
-    .line 1547
     :catch_0
-    move-exception v1
+    move-exception v0
+
+    const-string v1, "MediaControllerCompat"
+
+    const-string v2, "Dead object in registerCallback."
 
     .line 1548
-    .local v1, "e":Landroid/os/RemoteException;
-    const-string v2, "MediaControllerCompat"
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    const-string v3, "Dead object in registerCallback."
-
-    invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    const/16 v0, 0x8
 
     .line 1549
-    const/16 v2, 0x8
+    invoke-virtual {p1, v0, p2, p2}, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->postToHandler(ILjava/lang/Object;Landroid/os/Bundle;)V
 
-    invoke-virtual {p1, v2, v0, v0}, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->postToHandler(ILjava/lang/Object;Landroid/os/Bundle;)V
-
-    .line 1551
-    .end local v1    # "e":Landroid/os/RemoteException;
     :goto_0
     return-void
 
     .line 1541
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "callback may not be null."
+    const-string p2, "callback may not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public removeQueueItem(Landroid/support/v4/media/MediaDescriptionCompat;)V
-    .locals 6
-    .param p1, "description"    # Landroid/support/v4/media/MediaDescriptionCompat;
+    .locals 4
 
     .line 1649
     :try_start_0
@@ -925,66 +806,51 @@
 
     move-result-wide v0
 
-    .line 1650
-    .local v0, "flags":J
     const-wide/16 v2, 0x4
 
-    and-long/2addr v2, v0
+    and-long/2addr v0, v2
 
-    const-wide/16 v4, 0x0
+    const-wide/16 v2, 0x0
 
-    cmp-long v2, v2, v4
+    cmp-long v0, v0, v2
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
     .line 1654
-    iget-object v2, p0, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplBase;->mBinder:Landroid/support/v4/media/session/IMediaSession;
+    iget-object v0, p0, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplBase;->mBinder:Landroid/support/v4/media/session/IMediaSession;
 
-    invoke-interface {v2, p1}, Landroid/support/v4/media/session/IMediaSession;->removeQueueItem(Landroid/support/v4/media/MediaDescriptionCompat;)V
+    invoke-interface {v0, p1}, Landroid/support/v4/media/session/IMediaSession;->removeQueueItem(Landroid/support/v4/media/MediaDescriptionCompat;)V
 
-    .line 1657
-    .end local v0    # "flags":J
     goto :goto_0
 
     .line 1651
-    .restart local v0    # "flags":J
     :cond_0
-    new-instance v2, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v3, "This session doesn\'t support queue management operations"
+    const-string v0, "This session doesn\'t support queue management operations"
 
-    invoke-direct {v2, v3}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    .end local p1    # "description":Landroid/support/v4/media/MediaDescriptionCompat;
-    throw v2
+    throw p1
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1655
-    .end local v0    # "flags":J
-    .restart local p1    # "description":Landroid/support/v4/media/MediaDescriptionCompat;
     :catch_0
-    move-exception v0
+    move-exception p1
+
+    const-string v0, "MediaControllerCompat"
+
+    const-string v1, "Dead object in removeQueueItem."
 
     .line 1656
-    .local v0, "e":Landroid/os/RemoteException;
-    const-string v1, "MediaControllerCompat"
+    invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    const-string v2, "Dead object in removeQueueItem."
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 1658
-    .end local v0    # "e":Landroid/os/RemoteException;
     :goto_0
     return-void
 .end method
 
 .method public sendCommand(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/ResultReceiver;)V
-    .locals 3
-    .param p1, "command"    # Ljava/lang/String;
-    .param p2, "params"    # Landroid/os/Bundle;
-    .param p3, "cb"    # Landroid/os/ResultReceiver;
+    .locals 2
 
     .line 1774
     :try_start_0
@@ -992,7 +858,7 @@
 
     if-nez p3, :cond_0
 
-    const/4 v1, 0x0
+    const/4 p3, 0x0
 
     goto :goto_0
 
@@ -1001,36 +867,31 @@
 
     invoke-direct {v1, p3}, Landroid/support/v4/media/session/MediaSessionCompat$ResultReceiverWrapper;-><init>(Landroid/os/ResultReceiver;)V
 
+    move-object p3, v1
+
     :goto_0
-    invoke-interface {v0, p1, p2, v1}, Landroid/support/v4/media/session/IMediaSession;->sendCommand(Ljava/lang/String;Landroid/os/Bundle;Landroid/support/v4/media/session/MediaSessionCompat$ResultReceiverWrapper;)V
+    invoke-interface {v0, p1, p2, p3}, Landroid/support/v4/media/session/IMediaSession;->sendCommand(Ljava/lang/String;Landroid/os/Bundle;Landroid/support/v4/media/session/MediaSessionCompat$ResultReceiverWrapper;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1778
     goto :goto_1
 
-    .line 1776
     :catch_0
-    move-exception v0
+    move-exception p1
+
+    const-string p2, "MediaControllerCompat"
+
+    const-string p3, "Dead object in sendCommand."
 
     .line 1777
-    .local v0, "e":Landroid/os/RemoteException;
-    const-string v1, "MediaControllerCompat"
+    invoke-static {p2, p3, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    const-string v2, "Dead object in sendCommand."
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 1779
-    .end local v0    # "e":Landroid/os/RemoteException;
     :goto_1
     return-void
 .end method
 
 .method public setVolumeTo(II)V
-    .locals 3
-    .param p1, "value"    # I
-    .param p2, "flags"    # I
+    .locals 2
 
     .line 1756
     :try_start_0
@@ -1042,32 +903,25 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1759
     goto :goto_0
 
-    .line 1757
     :catch_0
-    move-exception v0
+    move-exception p1
+
+    const-string p2, "MediaControllerCompat"
+
+    const-string v0, "Dead object in setVolumeTo."
 
     .line 1758
-    .local v0, "e":Landroid/os/RemoteException;
-    const-string v1, "MediaControllerCompat"
+    invoke-static {p2, v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    const-string v2, "Dead object in setVolumeTo."
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 1760
-    .end local v0    # "e":Landroid/os/RemoteException;
     :goto_0
     return-void
 .end method
 
 .method public unregisterCallback(Landroid/support/v4/media/session/MediaControllerCompat$Callback;)V
-    .locals 3
-    .param p1, "callback"    # Landroid/support/v4/media/session/MediaControllerCompat$Callback;
+    .locals 2
 
-    .line 1555
     if-eqz p1, :cond_0
 
     .line 1559
@@ -1091,33 +945,28 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1563
     goto :goto_0
 
-    .line 1561
     :catch_0
-    move-exception v0
+    move-exception p1
+
+    const-string v0, "MediaControllerCompat"
+
+    const-string v1, "Dead object in unregisterCallback."
 
     .line 1562
-    .local v0, "e":Landroid/os/RemoteException;
-    const-string v1, "MediaControllerCompat"
+    invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    const-string v2, "Dead object in unregisterCallback."
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 1564
-    .end local v0    # "e":Landroid/os/RemoteException;
     :goto_0
     return-void
 
     .line 1556
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "callback may not be null."
+    const-string v0, "callback may not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

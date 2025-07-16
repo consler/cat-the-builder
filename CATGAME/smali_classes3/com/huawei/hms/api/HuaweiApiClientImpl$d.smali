@@ -27,36 +27,34 @@
 .method public constructor <init>(Lcom/huawei/hms/support/api/client/ApiClient;Ljava/lang/String;Lcom/huawei/hms/core/aidl/IMessageEntity;)V
     .locals 0
 
-    .line 1482
+    .line 1
     invoke-direct {p0, p1, p2, p3}, Lcom/huawei/hms/support/api/PendingResultImpl;-><init>(Lcom/huawei/hms/support/api/client/ApiClient;Ljava/lang/String;Lcom/huawei/hms/core/aidl/IMessageEntity;)V
 
-    .line 1483
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Lcom/huawei/hms/core/aidl/IMessageEntity;)Lcom/huawei/hms/support/api/client/Status;
+.method public bridge synthetic onComplete(Lcom/huawei/hms/core/aidl/IMessageEntity;)Lcom/huawei/hms/support/api/client/Result;
+    .locals 0
+
+    .line 1
+    invoke-virtual {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl$d;->onComplete(Lcom/huawei/hms/core/aidl/IMessageEntity;)Lcom/huawei/hms/support/api/client/Status;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public onComplete(Lcom/huawei/hms/core/aidl/IMessageEntity;)Lcom/huawei/hms/support/api/client/Status;
     .locals 1
 
-    .line 1487
+    .line 2
     new-instance p1, Lcom/huawei/hms/support/api/client/Status;
 
     const/4 v0, 0x0
 
     invoke-direct {p1, v0}, Lcom/huawei/hms/support/api/client/Status;-><init>(I)V
-
-    .line 1488
-    return-object p1
-.end method
-
-.method public synthetic onComplete(Lcom/huawei/hms/core/aidl/IMessageEntity;)Lcom/huawei/hms/support/api/client/Result;
-    .locals 0
-
-    .line 1480
-    invoke-virtual {p0, p1}, Lcom/huawei/hms/api/HuaweiApiClientImpl$d;->a(Lcom/huawei/hms/core/aidl/IMessageEntity;)Lcom/huawei/hms/support/api/client/Status;
-
-    move-result-object p1
 
     return-object p1
 .end method

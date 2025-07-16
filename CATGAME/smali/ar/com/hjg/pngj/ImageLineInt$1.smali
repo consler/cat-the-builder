@@ -39,20 +39,18 @@
 
 # virtual methods
 .method public bridge synthetic createImageLine(Lar/com/hjg/pngj/ImageInfo;)Lar/com/hjg/pngj/IImageLine;
-    .locals 1
-    .param p1, "x0"    # Lar/com/hjg/pngj/ImageInfo;
+    .locals 0
 
     .line 187
     invoke-virtual {p0, p1}, Lar/com/hjg/pngj/ImageLineInt$1;->createImageLine(Lar/com/hjg/pngj/ImageInfo;)Lar/com/hjg/pngj/ImageLineInt;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public createImageLine(Lar/com/hjg/pngj/ImageInfo;)Lar/com/hjg/pngj/ImageLineInt;
     .locals 1
-    .param p1, "iminfo"    # Lar/com/hjg/pngj/ImageInfo;
 
     .line 189
     new-instance v0, Lar/com/hjg/pngj/ImageLineInt;

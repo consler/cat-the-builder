@@ -32,8 +32,6 @@
 
 .method synthetic constructor <init>(Lorg/apache/commons/collections/ReferenceMap;Lorg/apache/commons/collections/ReferenceMap$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/collections/ReferenceMap;
-    .param p2, "x1"    # Lorg/apache/commons/collections/ReferenceMap$1;
 
     .line 913
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/ReferenceMap$KeyIterator;-><init>(Lorg/apache/commons/collections/ReferenceMap;)V

@@ -11,9 +11,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 44
     const-string v0, "Alarms"
 
+    .line 44
     invoke-static {v0}, Landroidx/work/Logger;->tagWithPrefix(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -26,18 +26,14 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 135
+    .line 141
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 136
     return-void
 .end method
 
 .method public static cancelAlarm(Landroid/content/Context;Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;)V
-    .locals 8
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "workManager"    # Landroidx/work/impl/WorkManagerImpl;
-    .param p2, "workSpecId"    # Ljava/lang/String;
+    .locals 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -54,69 +50,61 @@
     .line 87
     invoke-virtual {p1}, Landroidx/work/impl/WorkManagerImpl;->getWorkDatabase()Landroidx/work/impl/WorkDatabase;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 88
-    .local v0, "workDatabase":Landroidx/work/impl/WorkDatabase;
-    invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->systemIdInfoDao()Landroidx/work/impl/model/SystemIdInfoDao;
+    invoke-virtual {p1}, Landroidx/work/impl/WorkDatabase;->systemIdInfoDao()Landroidx/work/impl/model/SystemIdInfoDao;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 89
-    .local v1, "systemIdInfoDao":Landroidx/work/impl/model/SystemIdInfoDao;
-    invoke-interface {v1, p2}, Landroidx/work/impl/model/SystemIdInfoDao;->getSystemIdInfo(Ljava/lang/String;)Landroidx/work/impl/model/SystemIdInfo;
+    invoke-interface {p1, p2}, Landroidx/work/impl/model/SystemIdInfoDao;->getSystemIdInfo(Ljava/lang/String;)Landroidx/work/impl/model/SystemIdInfo;
 
-    move-result-object v2
+    move-result-object v0
 
-    .line 90
-    .local v2, "systemIdInfo":Landroidx/work/impl/model/SystemIdInfo;
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
     .line 91
-    iget v3, v2, Landroidx/work/impl/model/SystemIdInfo;->systemId:I
+    iget v0, v0, Landroidx/work/impl/model/SystemIdInfo;->systemId:I
 
-    invoke-static {p0, p2, v3}, Landroidx/work/impl/background/systemalarm/Alarms;->cancelExactAlarm(Landroid/content/Context;Ljava/lang/String;I)V
+    invoke-static {p0, p2, v0}, Landroidx/work/impl/background/systemalarm/Alarms;->cancelExactAlarm(Landroid/content/Context;Ljava/lang/String;I)V
 
     .line 92
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
-    move-result-object v3
+    move-result-object p0
 
-    sget-object v4, Landroidx/work/impl/background/systemalarm/Alarms;->TAG:Ljava/lang/String;
+    sget-object v0, Landroidx/work/impl/background/systemalarm/Alarms;->TAG:Ljava/lang/String;
 
-    const/4 v5, 0x1
+    const/4 v1, 0x1
 
-    new-array v5, v5, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
-    const/4 v6, 0x0
+    const/4 v2, 0x0
 
-    aput-object p2, v5, v6
+    aput-object p2, v1, v2
+
+    const-string v3, "Removing SystemIdInfo for workSpecId (%s)"
 
     .line 93
-    const-string v7, "Removing SystemIdInfo for workSpecId (%s)"
+    invoke-static {v3, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v7, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v5
-
-    new-array v6, v6, [Ljava/lang/Throwable;
+    new-array v2, v2, [Ljava/lang/Throwable;
 
     .line 92
-    invoke-virtual {v3, v4, v5, v6}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+    invoke-virtual {p0, v0, v1, v2}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
 
     .line 94
-    invoke-interface {v1, p2}, Landroidx/work/impl/model/SystemIdInfoDao;->removeSystemIdInfo(Ljava/lang/String;)V
+    invoke-interface {p1, p2}, Landroidx/work/impl/model/SystemIdInfoDao;->removeSystemIdInfo(Ljava/lang/String;)V
 
-    .line 96
     :cond_0
     return-void
 .end method
 
 .method private static cancelExactAlarm(Landroid/content/Context;Ljava/lang/String;I)V
-    .locals 9
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "workSpecId"    # Ljava/lang/String;
-    .param p2, "alarmId"    # I
+    .locals 5
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -130,9 +118,9 @@
         }
     .end annotation
 
-    .line 103
     const-string v0, "alarm"
 
+    .line 103
     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
@@ -140,74 +128,65 @@
     check-cast v0, Landroid/app/AlarmManager;
 
     .line 104
-    .local v0, "alarmManager":Landroid/app/AlarmManager;
     invoke-static {p0, p1}, Landroidx/work/impl/background/systemalarm/CommandHandler;->createDelayMetIntent(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
 
     move-result-object v1
 
-    .line 105
-    .local v1, "delayMet":Landroid/content/Intent;
-    const/high16 v2, 0x20000000
+    const/high16 v2, 0x24000000
 
+    .line 109
     invoke-static {p0, p2, v1, v2}, Landroid/app/PendingIntent;->getService(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
-    move-result-object v2
+    move-result-object p0
 
-    .line 107
-    .local v2, "pendingIntent":Landroid/app/PendingIntent;
-    if-eqz v2, :cond_0
+    if-eqz p0, :cond_0
 
     if-eqz v0, :cond_0
 
-    .line 108
+    .line 111
     invoke-static {}, Landroidx/work/Logger;->get()Landroidx/work/Logger;
 
-    move-result-object v3
+    move-result-object v1
 
-    sget-object v4, Landroidx/work/impl/background/systemalarm/Alarms;->TAG:Ljava/lang/String;
+    sget-object v2, Landroidx/work/impl/background/systemalarm/Alarms;->TAG:Ljava/lang/String;
 
-    const/4 v5, 0x2
+    const/4 v3, 0x2
 
-    new-array v5, v5, [Ljava/lang/Object;
+    new-array v3, v3, [Ljava/lang/Object;
 
-    const/4 v6, 0x0
+    const/4 v4, 0x0
 
-    aput-object p1, v5, v6
+    aput-object p1, v3, v4
 
-    const/4 v7, 0x1
-
-    .line 111
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v8
-
-    aput-object v8, v5, v7
-
-    .line 108
-    const-string v7, "Cancelling existing alarm with (workSpecId, systemId) (%s, %s)"
-
-    invoke-static {v7, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v5
-
-    new-array v6, v6, [Ljava/lang/Throwable;
-
-    invoke-virtual {v3, v4, v5, v6}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
-
-    .line 112
-    invoke-virtual {v0, v2}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
+    const/4 p1, 0x1
 
     .line 114
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p2
+
+    aput-object p2, v3, p1
+
+    const-string p1, "Cancelling existing alarm with (workSpecId, systemId) (%s, %s)"
+
+    .line 111
+    invoke-static {p1, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p1
+
+    new-array p2, v4, [Ljava/lang/Throwable;
+
+    invoke-virtual {v1, v2, p1, p2}, Landroidx/work/Logger;->debug(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Throwable;)V
+
+    .line 115
+    invoke-virtual {v0, p0}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
+
     :cond_0
     return-void
 .end method
 
 .method public static setAlarm(Landroid/content/Context;Landroidx/work/impl/WorkManagerImpl;Ljava/lang/String;J)V
-    .locals 6
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "workManager"    # Landroidx/work/impl/WorkManagerImpl;
-    .param p2, "workSpecId"    # Ljava/lang/String;
-    .param p3, "triggerAtMillis"    # J
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -226,75 +205,60 @@
     .line 60
     invoke-virtual {p1}, Landroidx/work/impl/WorkManagerImpl;->getWorkDatabase()Landroidx/work/impl/WorkDatabase;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 61
-    .local v0, "workDatabase":Landroidx/work/impl/WorkDatabase;
-    invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->systemIdInfoDao()Landroidx/work/impl/model/SystemIdInfoDao;
+    invoke-virtual {p1}, Landroidx/work/impl/WorkDatabase;->systemIdInfoDao()Landroidx/work/impl/model/SystemIdInfoDao;
+
+    move-result-object v0
+
+    .line 62
+    invoke-interface {v0, p2}, Landroidx/work/impl/model/SystemIdInfoDao;->getSystemIdInfo(Ljava/lang/String;)Landroidx/work/impl/model/SystemIdInfo;
 
     move-result-object v1
 
-    .line 62
-    .local v1, "systemIdInfoDao":Landroidx/work/impl/model/SystemIdInfoDao;
-    invoke-interface {v1, p2}, Landroidx/work/impl/model/SystemIdInfoDao;->getSystemIdInfo(Ljava/lang/String;)Landroidx/work/impl/model/SystemIdInfo;
-
-    move-result-object v2
-
-    .line 63
-    .local v2, "systemIdInfo":Landroidx/work/impl/model/SystemIdInfo;
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
     .line 64
-    iget v3, v2, Landroidx/work/impl/model/SystemIdInfo;->systemId:I
+    iget p1, v1, Landroidx/work/impl/model/SystemIdInfo;->systemId:I
 
-    invoke-static {p0, p2, v3}, Landroidx/work/impl/background/systemalarm/Alarms;->cancelExactAlarm(Landroid/content/Context;Ljava/lang/String;I)V
+    invoke-static {p0, p2, p1}, Landroidx/work/impl/background/systemalarm/Alarms;->cancelExactAlarm(Landroid/content/Context;Ljava/lang/String;I)V
 
     .line 65
-    iget v3, v2, Landroidx/work/impl/model/SystemIdInfo;->systemId:I
+    iget p1, v1, Landroidx/work/impl/model/SystemIdInfo;->systemId:I
 
-    invoke-static {p0, p2, v3, p3, p4}, Landroidx/work/impl/background/systemalarm/Alarms;->setExactAlarm(Landroid/content/Context;Ljava/lang/String;IJ)V
+    invoke-static {p0, p2, p1, p3, p4}, Landroidx/work/impl/background/systemalarm/Alarms;->setExactAlarm(Landroid/content/Context;Ljava/lang/String;IJ)V
 
     goto :goto_0
 
     .line 67
     :cond_0
-    new-instance v3, Landroidx/work/impl/utils/IdGenerator;
+    new-instance v1, Landroidx/work/impl/utils/IdGenerator;
 
-    invoke-direct {v3, v0}, Landroidx/work/impl/utils/IdGenerator;-><init>(Landroidx/work/impl/WorkDatabase;)V
+    invoke-direct {v1, p1}, Landroidx/work/impl/utils/IdGenerator;-><init>(Landroidx/work/impl/WorkDatabase;)V
 
     .line 68
-    .local v3, "idGenerator":Landroidx/work/impl/utils/IdGenerator;
-    invoke-virtual {v3}, Landroidx/work/impl/utils/IdGenerator;->nextAlarmManagerId()I
+    invoke-virtual {v1}, Landroidx/work/impl/utils/IdGenerator;->nextAlarmManagerId()I
 
-    move-result v4
+    move-result p1
 
     .line 69
-    .local v4, "alarmId":I
-    new-instance v5, Landroidx/work/impl/model/SystemIdInfo;
+    new-instance v1, Landroidx/work/impl/model/SystemIdInfo;
 
-    invoke-direct {v5, p2, v4}, Landroidx/work/impl/model/SystemIdInfo;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, p2, p1}, Landroidx/work/impl/model/SystemIdInfo;-><init>(Ljava/lang/String;I)V
 
     .line 70
-    .local v5, "newSystemIdInfo":Landroidx/work/impl/model/SystemIdInfo;
-    invoke-interface {v1, v5}, Landroidx/work/impl/model/SystemIdInfoDao;->insertSystemIdInfo(Landroidx/work/impl/model/SystemIdInfo;)V
+    invoke-interface {v0, v1}, Landroidx/work/impl/model/SystemIdInfoDao;->insertSystemIdInfo(Landroidx/work/impl/model/SystemIdInfo;)V
 
     .line 71
-    invoke-static {p0, p2, v4, p3, p4}, Landroidx/work/impl/background/systemalarm/Alarms;->setExactAlarm(Landroid/content/Context;Ljava/lang/String;IJ)V
+    invoke-static {p0, p2, p1, p3, p4}, Landroidx/work/impl/background/systemalarm/Alarms;->setExactAlarm(Landroid/content/Context;Ljava/lang/String;IJ)V
 
-    .line 73
-    .end local v3    # "idGenerator":Landroidx/work/impl/utils/IdGenerator;
-    .end local v4    # "alarmId":I
-    .end local v5    # "newSystemIdInfo":Landroidx/work/impl/model/SystemIdInfo;
     :goto_0
     return-void
 .end method
 
 .method private static setExactAlarm(Landroid/content/Context;Ljava/lang/String;IJ)V
-    .locals 6
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "workSpecId"    # Ljava/lang/String;
-    .param p2, "alarmId"    # I
-    .param p3, "triggerAtMillis"    # J
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -310,53 +274,34 @@
         }
     .end annotation
 
-    .line 122
     const-string v0, "alarm"
 
+    .line 125
     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/app/AlarmManager;
 
-    .line 123
-    .local v0, "alarmManager":Landroid/app/AlarmManager;
+    .line 130
     invoke-static {p0, p1}, Landroidx/work/impl/background/systemalarm/CommandHandler;->createDelayMetIntent(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
 
-    move-result-object v1
+    move-result-object p1
 
-    .line 124
-    .local v1, "delayMet":Landroid/content/Intent;
-    const/high16 v2, 0x8000000
+    const/high16 v1, 0xc000000
 
-    invoke-static {p0, p2, v1, v2}, Landroid/app/PendingIntent;->getService(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+    .line 131
+    invoke-static {p0, p2, p1, v1}, Landroid/app/PendingIntent;->getService(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
-    move-result-object v2
+    move-result-object p0
 
-    .line 126
-    .local v2, "pendingIntent":Landroid/app/PendingIntent;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
-    .line 127
-    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
+    const/4 p1, 0x0
 
-    const/16 v4, 0x13
+    .line 134
+    invoke-virtual {v0, p1, p3, p4, p0}, Landroid/app/AlarmManager;->setExact(IJLandroid/app/PendingIntent;)V
 
-    const/4 v5, 0x0
-
-    if-lt v3, v4, :cond_0
-
-    .line 128
-    invoke-virtual {v0, v5, p3, p4, v2}, Landroid/app/AlarmManager;->setExact(IJLandroid/app/PendingIntent;)V
-
-    goto :goto_0
-
-    .line 130
     :cond_0
-    invoke-virtual {v0, v5, p3, p4, v2}, Landroid/app/AlarmManager;->set(IJLandroid/app/PendingIntent;)V
-
-    .line 133
-    :cond_1
-    :goto_0
     return-void
 .end method

@@ -62,14 +62,11 @@
     .end annotation
 
     .line 66
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ConstantFactory;, "Lorg/apache/commons/collections4/functors/ConstantFactory<TT;>;"
-    .local p1, "constantToReturn":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 67
     iput-object p1, p0, Lorg/apache/commons/collections4/functors/ConstantFactory;->iConstant:Ljava/lang/Object;
 
-    .line 68
     return-void
 .end method
 
@@ -85,14 +82,12 @@
         }
     .end annotation
 
-    .line 53
-    .local p0, "constantToReturn":Ljava/lang/Object;, "TT;"
     if-nez p0, :cond_0
 
     .line 54
-    sget-object v0, Lorg/apache/commons/collections4/functors/ConstantFactory;->NULL_INSTANCE:Lorg/apache/commons/collections4/Factory;
+    sget-object p0, Lorg/apache/commons/collections4/functors/ConstantFactory;->NULL_INSTANCE:Lorg/apache/commons/collections4/Factory;
 
-    return-object v0
+    return-object p0
 
     .line 56
     :cond_0
@@ -114,7 +109,6 @@
     .end annotation
 
     .line 77
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ConstantFactory;, "Lorg/apache/commons/collections4/functors/ConstantFactory<TT;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/ConstantFactory;->iConstant:Ljava/lang/Object;
 
     return-object v0
@@ -129,7 +123,6 @@
     .end annotation
 
     .line 87
-    .local p0, "this":Lorg/apache/commons/collections4/functors/ConstantFactory;, "Lorg/apache/commons/collections4/functors/ConstantFactory<TT;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/ConstantFactory;->iConstant:Ljava/lang/Object;
 
     return-object v0

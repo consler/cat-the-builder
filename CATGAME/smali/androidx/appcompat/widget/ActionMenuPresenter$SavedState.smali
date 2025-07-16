@@ -53,13 +53,11 @@
     .line 594
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 595
     return-void
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
-    .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
+    .locals 0
 
     .line 597
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -67,11 +65,10 @@
     .line 598
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Landroidx/appcompat/widget/ActionMenuPresenter$SavedState;->openSubMenuId:I
+    iput p1, p0, Landroidx/appcompat/widget/ActionMenuPresenter$SavedState;->openSubMenuId:I
 
-    .line 599
     return-void
 .end method
 
@@ -80,22 +77,18 @@
 .method public describeContents()I
     .locals 1
 
-    .line 603
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
+    .locals 0
 
     .line 608
-    iget v0, p0, Landroidx/appcompat/widget/ActionMenuPresenter$SavedState;->openSubMenuId:I
+    iget p2, p0, Landroidx/appcompat/widget/ActionMenuPresenter$SavedState;->openSubMenuId:I
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 609
     return-void
 .end method

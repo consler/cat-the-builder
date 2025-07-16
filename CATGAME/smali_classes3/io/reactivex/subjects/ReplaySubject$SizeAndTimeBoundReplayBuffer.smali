@@ -70,73 +70,66 @@
 
 # direct methods
 .method constructor <init>(IJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)V
-    .locals 4
-    .param p1, "maxSize"    # I
-    .param p2, "maxAge"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
+    .locals 1
 
     .line 923
-    .local p0, "this":Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;, "Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer<TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
-    .line 924
     const-string v0, "maxSize"
 
+    .line 924
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->maxSize:I
+    iput p1, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->maxSize:I
+
+    const-string p1, "maxAge"
 
     .line 925
-    const-string v0, "maxAge"
+    invoke-static {p2, p3, p1}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(JLjava/lang/String;)J
 
-    invoke-static {p2, p3, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(JLjava/lang/String;)J
+    move-result-wide p1
 
-    move-result-wide v0
+    iput-wide p1, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->maxAge:J
 
-    iput-wide v0, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->maxAge:J
+    const-string p1, "unit is null"
 
     .line 926
-    const-string v0, "unit is null"
+    invoke-static {p4, p1}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-static {p4, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
+    check-cast p1, Ljava/util/concurrent/TimeUnit;
 
-    check-cast v0, Ljava/util/concurrent/TimeUnit;
+    iput-object p1, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->unit:Ljava/util/concurrent/TimeUnit;
 
-    iput-object v0, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->unit:Ljava/util/concurrent/TimeUnit;
+    const-string p1, "scheduler is null"
 
     .line 927
-    const-string v0, "scheduler is null"
+    invoke-static {p5, p1}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-static {p5, v0}, Lio/reactivex/internal/functions/ObjectHelper;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
+    check-cast p1, Lio/reactivex/Scheduler;
 
-    check-cast v0, Lio/reactivex/Scheduler;
-
-    iput-object v0, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->scheduler:Lio/reactivex/Scheduler;
+    iput-object p1, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->scheduler:Lio/reactivex/Scheduler;
 
     .line 928
-    new-instance v0, Lio/reactivex/subjects/ReplaySubject$TimedNode;
+    new-instance p1, Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    const-wide/16 v2, 0x0
+    const-wide/16 p3, 0x0
 
-    invoke-direct {v0, v1, v2, v3}, Lio/reactivex/subjects/ReplaySubject$TimedNode;-><init>(Ljava/lang/Object;J)V
+    invoke-direct {p1, p2, p3, p4}, Lio/reactivex/subjects/ReplaySubject$TimedNode;-><init>(Ljava/lang/Object;J)V
 
     .line 929
-    .local v0, "h":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
-    iput-object v0, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->tail:Lio/reactivex/subjects/ReplaySubject$TimedNode;
+    iput-object p1, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->tail:Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
     .line 930
-    iput-object v0, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->head:Lio/reactivex/subjects/ReplaySubject$TimedNode;
+    iput-object p1, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->head:Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
-    .line 931
     return-void
 .end method
 
@@ -151,8 +144,6 @@
     .end annotation
 
     .line 983
-    .local p0, "this":Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;, "Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     new-instance v0, Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
     iget-object v1, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->scheduler:Lio/reactivex/Scheduler;
@@ -166,36 +157,31 @@
     invoke-direct {v0, p1, v1, v2}, Lio/reactivex/subjects/ReplaySubject$TimedNode;-><init>(Ljava/lang/Object;J)V
 
     .line 984
-    .local v0, "n":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
-    iget-object v1, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->tail:Lio/reactivex/subjects/ReplaySubject$TimedNode;
+    iget-object p1, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->tail:Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
     .line 986
-    .local v1, "t":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
     iput-object v0, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->tail:Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
     .line 987
-    iget v2, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->size:I
+    iget v1, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->size:I
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    iput v2, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->size:I
+    iput v1, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->size:I
 
     .line 988
-    invoke-virtual {v1, v0}, Lio/reactivex/subjects/ReplaySubject$TimedNode;->set(Ljava/lang/Object;)V
+    invoke-virtual {p1, v0}, Lio/reactivex/subjects/ReplaySubject$TimedNode;->set(Ljava/lang/Object;)V
 
     .line 990
     invoke-virtual {p0}, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->trim()V
 
-    .line 991
     return-void
 .end method
 
 .method public addFinal(Ljava/lang/Object;)V
-    .locals 4
-    .param p1, "notificationLite"    # Ljava/lang/Object;
+    .locals 3
 
     .line 995
-    .local p0, "this":Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;, "Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer<TT;>;"
     new-instance v0, Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
     const-wide v1, 0x7fffffffffffffffL
@@ -203,32 +189,29 @@
     invoke-direct {v0, p1, v1, v2}, Lio/reactivex/subjects/ReplaySubject$TimedNode;-><init>(Ljava/lang/Object;J)V
 
     .line 996
-    .local v0, "n":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
-    iget-object v1, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->tail:Lio/reactivex/subjects/ReplaySubject$TimedNode;
+    iget-object p1, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->tail:Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
     .line 998
-    .local v1, "t":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
     iput-object v0, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->tail:Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
     .line 999
-    iget v2, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->size:I
+    iget v1, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->size:I
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    add-int/2addr v2, v3
+    add-int/2addr v1, v2
 
-    iput v2, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->size:I
+    iput v1, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->size:I
 
     .line 1000
-    invoke-virtual {v1, v0}, Lio/reactivex/subjects/ReplaySubject$TimedNode;->lazySet(Ljava/lang/Object;)V
+    invoke-virtual {p1, v0}, Lio/reactivex/subjects/ReplaySubject$TimedNode;->lazySet(Ljava/lang/Object;)V
 
     .line 1001
     invoke-virtual {p0}, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->trimFinal()V
 
     .line 1003
-    iput-boolean v3, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->done:Z
+    iput-boolean v2, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->done:Z
 
-    .line 1004
     return-void
 .end method
 
@@ -244,11 +227,9 @@
     .end annotation
 
     .line 1033
-    .local p0, "this":Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;, "Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer<TT;>;"
     iget-object v0, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->head:Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
     .line 1035
-    .local v0, "index":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
     iget-object v1, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->scheduler:Lio/reactivex/Scheduler;
 
     iget-object v2, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->unit:Ljava/util/concurrent/TimeUnit;
@@ -262,51 +243,43 @@
     sub-long/2addr v1, v3
 
     .line 1036
-    .local v1, "limit":J
     invoke-virtual {v0}, Lio/reactivex/subjects/ReplaySubject$TimedNode;->get()Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
-    .line 1037
-    .local v3, "next":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
     :goto_0
-    if-eqz v3, :cond_1
+    move-object v6, v3
+
+    move-object v3, v0
+
+    move-object v0, v6
+
+    if-eqz v0, :cond_1
 
     .line 1038
-    iget-wide v4, v3, Lio/reactivex/subjects/ReplaySubject$TimedNode;->time:J
+    iget-wide v4, v0, Lio/reactivex/subjects/ReplaySubject$TimedNode;->time:J
 
-    .line 1039
-    .local v4, "ts":J
-    cmp-long v6, v4, v1
+    cmp-long v4, v4, v1
 
-    if-lez v6, :cond_0
+    if-lez v4, :cond_0
 
-    .line 1040
     goto :goto_1
 
-    .line 1042
-    :cond_0
-    move-object v0, v3
-
     .line 1043
+    :cond_0
     invoke-virtual {v0}, Lio/reactivex/subjects/ReplaySubject$TimedNode;->get()Ljava/lang/Object;
 
-    move-result-object v6
-
-    move-object v3, v6
+    move-result-object v3
 
     check-cast v3, Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
-    .line 1044
-    .end local v4    # "ts":J
     goto :goto_0
 
-    .line 1045
     :cond_1
     :goto_1
-    return-object v0
+    return-object v3
 .end method
 
 .method public getValue()Ljava/lang/Object;
@@ -317,85 +290,66 @@
         }
     .end annotation
 
-    .line 1009
-    .local p0, "this":Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;, "Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer<TT;>;"
-    const/4 v0, 0x0
-
     .line 1010
-    .local v0, "prev":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
-    iget-object v1, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->head:Lio/reactivex/subjects/ReplaySubject$TimedNode;
+    iget-object v0, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->head:Lio/reactivex/subjects/ReplaySubject$TimedNode;
+
+    const/4 v1, 0x0
+
+    move-object v2, v1
 
     .line 1013
-    .local v1, "h":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
     :goto_0
-    invoke-virtual {v1}, Lio/reactivex/subjects/ReplaySubject$TimedNode;->get()Ljava/lang/Object;
+    invoke-virtual {v0}, Lio/reactivex/subjects/ReplaySubject$TimedNode;->get()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Lio/reactivex/subjects/ReplaySubject$TimedNode;
+    check-cast v3, Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
-    .line 1014
-    .local v2, "next":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
-    if-nez v2, :cond_3
-
-    .line 1015
-    nop
+    if-nez v3, :cond_3
 
     .line 1021
-    .end local v2    # "next":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
-    iget-object v2, v1, Lio/reactivex/subjects/ReplaySubject$TimedNode;->value:Ljava/lang/Object;
+    iget-object v0, v0, Lio/reactivex/subjects/ReplaySubject$TimedNode;->value:Ljava/lang/Object;
 
-    .line 1022
-    .local v2, "v":Ljava/lang/Object;
-    if-nez v2, :cond_0
+    if-nez v0, :cond_0
 
-    .line 1023
-    const/4 v3, 0x0
-
-    return-object v3
+    return-object v1
 
     .line 1025
     :cond_0
-    invoke-static {v2}, Lio/reactivex/internal/util/NotificationLite;->isComplete(Ljava/lang/Object;)Z
+    invoke-static {v0}, Lio/reactivex/internal/util/NotificationLite;->isComplete(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_2
+    if-nez v1, :cond_2
 
-    invoke-static {v2}, Lio/reactivex/internal/util/NotificationLite;->isError(Ljava/lang/Object;)Z
+    invoke-static {v0}, Lio/reactivex/internal/util/NotificationLite;->isError(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_1
+    if-eqz v1, :cond_1
 
     goto :goto_1
 
-    .line 1029
     :cond_1
-    return-object v2
+    return-object v0
 
     .line 1026
     :cond_2
     :goto_1
-    iget-object v3, v0, Lio/reactivex/subjects/ReplaySubject$TimedNode;->value:Ljava/lang/Object;
+    iget-object v0, v2, Lio/reactivex/subjects/ReplaySubject$TimedNode;->value:Ljava/lang/Object;
 
-    return-object v3
+    return-object v0
 
-    .line 1017
-    .local v2, "next":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
     :cond_3
-    move-object v0, v1
+    move-object v2, v0
 
-    .line 1018
-    move-object v1, v2
+    move-object v0, v3
 
-    .line 1019
-    .end local v2    # "next":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
     goto :goto_0
 .end method
 
 .method public getValues([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TT;)[TT;"
@@ -403,104 +357,83 @@
     .end annotation
 
     .line 1051
-    .local p0, "this":Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;, "Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer<TT;>;"
-    .local p1, "array":[Ljava/lang/Object;, "[TT;"
     invoke-virtual {p0}, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->getHead()Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
     move-result-object v0
 
     .line 1052
-    .local v0, "h":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
     invoke-virtual {p0, v0}, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->size(Lio/reactivex/subjects/ReplaySubject$TimedNode;)I
 
     move-result v1
 
-    .line 1054
-    .local v1, "s":I
     const/4 v2, 0x0
+
+    const/4 v3, 0x0
 
     if-nez v1, :cond_0
 
     .line 1055
-    array-length v3, p1
+    array-length v0, p1
 
-    if-eqz v3, :cond_3
+    if-eqz v0, :cond_3
 
     .line 1056
-    const/4 v3, 0x0
-
     aput-object v2, p1, v3
 
     goto :goto_1
 
     .line 1059
     :cond_0
-    array-length v3, p1
+    array-length v4, p1
 
-    if-ge v3, v1, :cond_1
+    if-ge v4, v1, :cond_1
 
     .line 1060
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v3}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
+    invoke-virtual {p1}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-static {v3, v1}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
+    invoke-static {p1, v1}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
 
-    move-result-object v3
-
-    check-cast v3, [Ljava/lang/Object;
-
-    move-object p1, v3
+    move-result-object p1
 
     check-cast p1, [Ljava/lang/Object;
 
-    .line 1063
-    :cond_1
-    const/4 v3, 0x0
+    check-cast p1, [Ljava/lang/Object;
 
-    .line 1064
-    .local v3, "i":I
+    :cond_1
     :goto_0
     if-eq v3, v1, :cond_2
 
     .line 1065
     invoke-virtual {v0}, Lio/reactivex/subjects/ReplaySubject$TimedNode;->get()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v0
 
-    check-cast v4, Lio/reactivex/subjects/ReplaySubject$TimedNode;
+    check-cast v0, Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
     .line 1066
-    .local v4, "next":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
-    iget-object v5, v4, Lio/reactivex/subjects/ReplaySubject$TimedNode;->value:Ljava/lang/Object;
+    iget-object v4, v0, Lio/reactivex/subjects/ReplaySubject$TimedNode;->value:Ljava/lang/Object;
 
-    aput-object v5, p1, v3
+    aput-object v4, p1, v3
 
-    .line 1067
     add-int/lit8 v3, v3, 0x1
 
-    .line 1068
-    move-object v0, v4
-
-    .line 1069
-    .end local v4    # "next":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
     goto :goto_0
 
     .line 1070
     :cond_2
-    array-length v4, p1
+    array-length v0, p1
 
-    if-le v4, v1, :cond_3
+    if-le v0, v1, :cond_3
 
     .line 1071
     aput-object v2, p1, v1
 
-    .line 1075
-    .end local v3    # "i":I
     :cond_3
     :goto_1
     return-object p1
@@ -517,174 +450,146 @@
     .end annotation
 
     .line 1081
-    .local p0, "this":Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;, "Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer<TT;>;"
-    .local p1, "rs":Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;, "Lio/reactivex/subjects/ReplaySubject$ReplayDisposable<TT;>;"
     invoke-virtual {p1}, Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;->getAndIncrement()I
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 1082
     return-void
 
-    .line 1085
-    :cond_0
-    const/4 v0, 0x1
-
     .line 1086
-    .local v0, "missed":I
-    iget-object v1, p1, Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;->actual:Lio/reactivex/Observer;
+    :cond_0
+    iget-object v0, p1, Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;->actual:Lio/reactivex/Observer;
 
     .line 1088
-    .local v1, "a":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
-    iget-object v2, p1, Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;->index:Ljava/lang/Object;
+    iget-object v1, p1, Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;->index:Ljava/lang/Object;
 
-    check-cast v2, Lio/reactivex/subjects/ReplaySubject$TimedNode;
+    check-cast v1, Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
-    .line 1089
-    .local v2, "index":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
-    if-nez v2, :cond_1
+    const/4 v2, 0x1
+
+    if-nez v1, :cond_1
 
     .line 1090
     invoke-virtual {p0}, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->getHead()Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
-    move-result-object v2
+    move-result-object v1
+
+    :cond_1
+    move v3, v2
 
     .line 1095
-    :cond_1
+    :cond_2
     :goto_0
-    iget-boolean v3, p1, Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;->cancelled:Z
+    iget-boolean v4, p1, Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;->cancelled:Z
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    if-eqz v3, :cond_2
+    if-eqz v4, :cond_3
 
     .line 1096
-    iput-object v4, p1, Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;->index:Ljava/lang/Object;
+    iput-object v5, p1, Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;->index:Ljava/lang/Object;
 
-    .line 1097
     return-void
 
     .line 1101
-    :cond_2
+    :cond_3
     :goto_1
-    iget-boolean v3, p1, Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;->cancelled:Z
+    iget-boolean v4, p1, Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;->cancelled:Z
 
-    if-eqz v3, :cond_3
+    if-eqz v4, :cond_4
 
     .line 1102
-    iput-object v4, p1, Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;->index:Ljava/lang/Object;
+    iput-object v5, p1, Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;->index:Ljava/lang/Object;
 
-    .line 1103
     return-void
 
     .line 1106
-    :cond_3
-    invoke-virtual {v2}, Lio/reactivex/subjects/ReplaySubject$TimedNode;->get()Ljava/lang/Object;
+    :cond_4
+    invoke-virtual {v1}, Lio/reactivex/subjects/ReplaySubject$TimedNode;->get()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Lio/reactivex/subjects/ReplaySubject$TimedNode;
+    check-cast v4, Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
-    .line 1108
-    .local v3, "n":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
-    if-nez v3, :cond_5
-
-    .line 1109
-    nop
+    if-nez v4, :cond_6
 
     .line 1133
-    .end local v3    # "n":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
-    invoke-virtual {v2}, Lio/reactivex/subjects/ReplaySubject$TimedNode;->get()Ljava/lang/Object;
+    invoke-virtual {v1}, Lio/reactivex/subjects/ReplaySubject$TimedNode;->get()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v4
 
-    if-eqz v3, :cond_4
+    if-eqz v4, :cond_5
 
-    .line 1134
     goto :goto_0
 
     .line 1137
-    :cond_4
-    iput-object v2, p1, Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;->index:Ljava/lang/Object;
+    :cond_5
+    iput-object v1, p1, Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;->index:Ljava/lang/Object;
+
+    neg-int v3, v3
 
     .line 1139
-    neg-int v3, v0
-
     invoke-virtual {p1, v3}, Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;->addAndGet(I)I
 
-    move-result v0
+    move-result v3
 
-    .line 1140
-    if-nez v0, :cond_1
+    if-nez v3, :cond_2
 
-    .line 1141
-    nop
-
-    .line 1144
     return-void
 
     .line 1112
-    .restart local v3    # "n":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
-    :cond_5
-    iget-object v5, v3, Lio/reactivex/subjects/ReplaySubject$TimedNode;->value:Ljava/lang/Object;
+    :cond_6
+    iget-object v1, v4, Lio/reactivex/subjects/ReplaySubject$TimedNode;->value:Ljava/lang/Object;
 
     .line 1114
-    .local v5, "o":Ljava/lang/Object;
     iget-boolean v6, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->done:Z
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_8
 
     .line 1115
-    invoke-virtual {v3}, Lio/reactivex/subjects/ReplaySubject$TimedNode;->get()Ljava/lang/Object;
+    invoke-virtual {v4}, Lio/reactivex/subjects/ReplaySubject$TimedNode;->get()Ljava/lang/Object;
 
     move-result-object v6
 
-    if-nez v6, :cond_7
+    if-nez v6, :cond_8
 
     .line 1117
-    invoke-static {v5}, Lio/reactivex/internal/util/NotificationLite;->isComplete(Ljava/lang/Object;)Z
+    invoke-static {v1}, Lio/reactivex/internal/util/NotificationLite;->isComplete(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v3
 
-    if-eqz v6, :cond_6
+    if-eqz v3, :cond_7
 
     .line 1118
-    invoke-interface {v1}, Lio/reactivex/Observer;->onComplete()V
+    invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
     goto :goto_2
 
     .line 1120
-    :cond_6
-    invoke-static {v5}, Lio/reactivex/internal/util/NotificationLite;->getError(Ljava/lang/Object;)Ljava/lang/Throwable;
+    :cond_7
+    invoke-static {v1}, Lio/reactivex/internal/util/NotificationLite;->getError(Ljava/lang/Object;)Ljava/lang/Throwable;
 
-    move-result-object v6
+    move-result-object v1
 
-    invoke-interface {v1, v6}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
+    invoke-interface {v0, v1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
     .line 1122
     :goto_2
-    iput-object v4, p1, Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;->index:Ljava/lang/Object;
+    iput-object v5, p1, Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;->index:Ljava/lang/Object;
 
     .line 1123
-    const/4 v4, 0x1
+    iput-boolean v2, p1, Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;->cancelled:Z
 
-    iput-boolean v4, p1, Lio/reactivex/subjects/ReplaySubject$ReplayDisposable;->cancelled:Z
-
-    .line 1124
     return-void
 
     .line 1128
-    :cond_7
-    invoke-interface {v1, v5}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
+    :cond_8
+    invoke-interface {v0, v1}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
-    .line 1130
-    move-object v2, v3
+    move-object v1, v4
 
-    .line 1131
-    .end local v3    # "n":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
-    .end local v5    # "o":Ljava/lang/Object;
     goto :goto_1
 .end method
 
@@ -692,7 +597,6 @@
     .locals 1
 
     .line 1148
-    .local p0, "this":Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;, "Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->getHead()Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
     move-result-object v0
@@ -705,7 +609,7 @@
 .end method
 
 .method size(Lio/reactivex/subjects/ReplaySubject$TimedNode;)I
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -715,13 +619,8 @@
         }
     .end annotation
 
-    .line 1152
-    .local p0, "this":Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;, "Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer<TT;>;"
-    .local p1, "h":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
     const/4 v0, 0x0
 
-    .line 1153
-    .local v0, "s":I
     :goto_0
     const v1, 0x7fffffff
 
@@ -734,46 +633,36 @@
 
     check-cast v1, Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
-    .line 1155
-    .local v1, "next":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
     if-nez v1, :cond_1
 
     .line 1156
-    iget-object v2, p1, Lio/reactivex/subjects/ReplaySubject$TimedNode;->value:Ljava/lang/Object;
+    iget-object p1, p1, Lio/reactivex/subjects/ReplaySubject$TimedNode;->value:Ljava/lang/Object;
 
     .line 1157
-    .local v2, "o":Ljava/lang/Object;
-    invoke-static {v2}, Lio/reactivex/internal/util/NotificationLite;->isComplete(Ljava/lang/Object;)Z
+    invoke-static {p1}, Lio/reactivex/internal/util/NotificationLite;->isComplete(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_0
+    if-nez v1, :cond_0
 
-    invoke-static {v2}, Lio/reactivex/internal/util/NotificationLite;->isError(Ljava/lang/Object;)Z
+    invoke-static {p1}, Lio/reactivex/internal/util/NotificationLite;->isError(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result p1
 
-    if-eqz v3, :cond_2
+    if-eqz p1, :cond_2
 
-    .line 1158
     :cond_0
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_1
 
-    .line 1162
-    .end local v2    # "o":Ljava/lang/Object;
     :cond_1
     add-int/lit8 v0, v0, 0x1
 
-    .line 1163
     move-object p1, v1
 
-    .line 1164
-    .end local v1    # "next":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
     goto :goto_0
 
-    .line 1166
     :cond_2
     :goto_1
     return v0
@@ -783,33 +672,30 @@
     .locals 6
 
     .line 934
-    .local p0, "this":Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;, "Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer<TT;>;"
     iget v0, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->size:I
 
     iget v1, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->maxSize:I
 
     if-le v0, v1, :cond_0
 
-    .line 935
     add-int/lit8 v0, v0, -0x1
 
+    .line 935
     iput v0, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->size:I
 
     .line 936
     iget-object v0, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->head:Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
     .line 937
-    .local v0, "h":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
     invoke-virtual {v0}, Lio/reactivex/subjects/ReplaySubject$TimedNode;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lio/reactivex/subjects/ReplaySubject$TimedNode;
+    check-cast v0, Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
-    iput-object v1, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->head:Lio/reactivex/subjects/ReplaySubject$TimedNode;
+    iput-object v0, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->head:Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
     .line 939
-    .end local v0    # "h":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
     :cond_0
     iget-object v0, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->scheduler:Lio/reactivex/Scheduler;
 
@@ -824,11 +710,9 @@
     sub-long/2addr v0, v2
 
     .line 941
-    .local v0, "limit":J
     iget-object v2, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->head:Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
     .line 944
-    .local v2, "h":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
     :goto_0
     invoke-virtual {v2}, Lio/reactivex/subjects/ReplaySubject$TimedNode;->get()Ljava/lang/Object;
 
@@ -836,14 +720,11 @@
 
     check-cast v3, Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
-    .line 945
-    .local v3, "next":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
     if-nez v3, :cond_1
 
     .line 946
     iput-object v2, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->head:Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
-    .line 947
     goto :goto_1
 
     .line 950
@@ -857,21 +738,12 @@
     .line 951
     iput-object v2, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->head:Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
-    .line 952
-    nop
-
-    .line 958
-    .end local v3    # "next":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
     :goto_1
     return-void
 
-    .line 955
-    .restart local v3    # "next":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
     :cond_2
     move-object v2, v3
 
-    .line 956
-    .end local v3    # "next":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
     goto :goto_0
 .end method
 
@@ -879,7 +751,6 @@
     .locals 6
 
     .line 961
-    .local p0, "this":Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;, "Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer<TT;>;"
     iget-object v0, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->scheduler:Lio/reactivex/Scheduler;
 
     iget-object v1, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->unit:Ljava/util/concurrent/TimeUnit;
@@ -893,11 +764,9 @@
     sub-long/2addr v0, v2
 
     .line 963
-    .local v0, "limit":J
     iget-object v2, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->head:Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
     .line 966
-    .local v2, "h":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
     :goto_0
     invoke-virtual {v2}, Lio/reactivex/subjects/ReplaySubject$TimedNode;->get()Ljava/lang/Object;
 
@@ -906,7 +775,6 @@
     check-cast v3, Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
     .line 967
-    .local v3, "next":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
     invoke-virtual {v3}, Lio/reactivex/subjects/ReplaySubject$TimedNode;->get()Ljava/lang/Object;
 
     move-result-object v4
@@ -916,7 +784,6 @@
     .line 968
     iput-object v2, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->head:Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
-    .line 969
     goto :goto_1
 
     .line 972
@@ -930,20 +797,11 @@
     .line 973
     iput-object v2, p0, Lio/reactivex/subjects/ReplaySubject$SizeAndTimeBoundReplayBuffer;->head:Lio/reactivex/subjects/ReplaySubject$TimedNode;
 
-    .line 974
-    nop
-
-    .line 979
-    .end local v3    # "next":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
     :goto_1
     return-void
 
-    .line 977
-    .restart local v3    # "next":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
     :cond_1
     move-object v2, v3
 
-    .line 978
-    .end local v3    # "next":Lio/reactivex/subjects/ReplaySubject$TimedNode;, "Lio/reactivex/subjects/ReplaySubject$TimedNode<Ljava/lang/Object;>;"
     goto :goto_0
 .end method

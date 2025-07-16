@@ -46,15 +46,11 @@
     .end annotation
 
     .line 27
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTakeUntilPredicate;, "Lio/reactivex/internal/operators/flowable/FlowableTakeUntilPredicate<TT;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
-    .local p2, "predicate":Lio/reactivex/functions/Predicate;, "Lio/reactivex/functions/Predicate<-TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
     .line 28
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableTakeUntilPredicate;->predicate:Lio/reactivex/functions/Predicate;
 
-    .line 29
     return-void
 .end method
 
@@ -71,8 +67,6 @@
     .end annotation
 
     .line 33
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTakeUntilPredicate;, "Lio/reactivex/internal/operators/flowable/FlowableTakeUntilPredicate<TT;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTakeUntilPredicate;->source:Lio/reactivex/Flowable;
 
     new-instance v1, Lio/reactivex/internal/operators/flowable/FlowableTakeUntilPredicate$InnerSubscriber;
@@ -83,6 +77,5 @@
 
     invoke-virtual {v0, v1}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 34
     return-void
 .end method

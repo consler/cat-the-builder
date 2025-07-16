@@ -26,11 +26,7 @@
 
 # direct methods
 .method public constructor <init>(FFIF)V
-    .locals 2
-    .param p1, "value"    # F
-    .param p2, "power"    # F
-    .param p3, "bounces"    # I
-    .param p4, "scale"    # F
+    .locals 0
 
     .line 244
     invoke-direct {p0}, Lcom/badlogic/gdx/math/Interpolation;-><init>()V
@@ -44,32 +40,31 @@
     .line 247
     iput p4, p0, Lcom/badlogic/gdx/math/Interpolation$Elastic;->scale:F
 
+    int-to-float p1, p3
+
+    const p2, 0x40490fdb    # (float)Math.PI
+
+    mul-float/2addr p1, p2
+
     .line 248
-    int-to-float v0, p3
+    rem-int/lit8 p3, p3, 0x2
 
-    const v1, 0x40490fdb    # (float)Math.PI
+    if-nez p3, :cond_0
 
-    mul-float/2addr v0, v1
-
-    rem-int/lit8 v1, p3, 0x2
-
-    if-nez v1, :cond_0
-
-    const/4 v1, 0x1
+    const/4 p2, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, -0x1
+    const/4 p2, -0x1
 
     :goto_0
-    int-to-float v1, v1
+    int-to-float p2, p2
 
-    mul-float/2addr v0, v1
+    mul-float/2addr p1, p2
 
-    iput v0, p0, Lcom/badlogic/gdx/math/Interpolation$Elastic;->bounces:F
+    iput p1, p0, Lcom/badlogic/gdx/math/Interpolation$Elastic;->bounces:F
 
-    .line 249
     return-void
 .end method
 
@@ -77,9 +72,7 @@
 # virtual methods
 .method public apply(F)F
     .locals 7
-    .param p1, "a"    # F
 
-    .line 252
     const/high16 v0, 0x3f000000    # 0.5f
 
     cmpg-float v0, p1, v0
@@ -90,7 +83,6 @@
 
     if-gtz v0, :cond_0
 
-    .line 253
     mul-float/2addr p1, v1
 
     .line 254
@@ -114,27 +106,25 @@
 
     iget v2, p0, Lcom/badlogic/gdx/math/Interpolation$Elastic;->bounces:F
 
-    mul-float/2addr v2, p1
+    mul-float/2addr p1, v2
 
-    invoke-static {v2}, Lcom/badlogic/gdx/math/MathUtils;->sin(F)F
+    invoke-static {p1}, Lcom/badlogic/gdx/math/MathUtils;->sin(F)F
 
-    move-result v2
+    move-result p1
 
-    mul-float/2addr v0, v2
+    mul-float/2addr v0, p1
 
-    iget v2, p0, Lcom/badlogic/gdx/math/Interpolation$Elastic;->scale:F
+    iget p1, p0, Lcom/badlogic/gdx/math/Interpolation$Elastic;->scale:F
 
-    mul-float/2addr v0, v2
+    mul-float/2addr v0, p1
 
     div-float/2addr v0, v1
 
     return v0
 
-    .line 256
     :cond_0
     sub-float p1, v2, p1
 
-    .line 257
     mul-float/2addr p1, v1
 
     .line 258
@@ -158,17 +148,17 @@
 
     iget v3, p0, Lcom/badlogic/gdx/math/Interpolation$Elastic;->bounces:F
 
-    mul-float/2addr v3, p1
+    mul-float/2addr p1, v3
 
-    invoke-static {v3}, Lcom/badlogic/gdx/math/MathUtils;->sin(F)F
+    invoke-static {p1}, Lcom/badlogic/gdx/math/MathUtils;->sin(F)F
 
-    move-result v3
+    move-result p1
 
-    mul-float/2addr v0, v3
+    mul-float/2addr v0, p1
 
-    iget v3, p0, Lcom/badlogic/gdx/math/Interpolation$Elastic;->scale:F
+    iget p1, p0, Lcom/badlogic/gdx/math/Interpolation$Elastic;->scale:F
 
-    mul-float/2addr v0, v3
+    mul-float/2addr v0, p1
 
     div-float/2addr v0, v1
 

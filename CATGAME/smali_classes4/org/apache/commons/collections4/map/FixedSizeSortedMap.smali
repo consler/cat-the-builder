@@ -40,11 +40,8 @@
     .end annotation
 
     .line 91
-    .local p0, "this":Lorg/apache/commons/collections4/map/FixedSizeSortedMap;, "Lorg/apache/commons/collections4/map/FixedSizeSortedMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/map/AbstractSortedMapDecorator;-><init>(Ljava/util/SortedMap;)V
 
-    .line 92
     return-void
 .end method
 
@@ -65,7 +62,6 @@
     .end annotation
 
     .line 80
-    .local p0, "map":Ljava/util/SortedMap;, "Ljava/util/SortedMap<TK;TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/map/FixedSizeSortedMap;
 
     invoke-direct {v0, p0}, Lorg/apache/commons/collections4/map/FixedSizeSortedMap;-><init>(Ljava/util/SortedMap;)V
@@ -74,8 +70,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 1
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -84,25 +79,22 @@
     .end annotation
 
     .line 124
-    .local p0, "this":Lorg/apache/commons/collections4/map/FixedSizeSortedMap;, "Lorg/apache/commons/collections4/map/FixedSizeSortedMap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
     .line 125
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Map;
+    check-cast p1, Ljava/util/Map;
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/map/FixedSizeSortedMap;->map:Ljava/util/Map;
+    iput-object p1, p0, Lorg/apache/commons/collections4/map/FixedSizeSortedMap;->map:Ljava/util/Map;
 
-    .line 126
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -110,7 +102,6 @@
     .end annotation
 
     .line 111
-    .local p0, "this":Lorg/apache/commons/collections4/map/FixedSizeSortedMap;, "Lorg/apache/commons/collections4/map/FixedSizeSortedMap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
     .line 112
@@ -118,7 +109,6 @@
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    .line 113
     return-void
 .end method
 
@@ -128,7 +118,6 @@
     .locals 2
 
     .line 147
-    .local p0, "this":Lorg/apache/commons/collections4/map/FixedSizeSortedMap;, "Lorg/apache/commons/collections4/map/FixedSizeSortedMap<TK;TV;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Map is fixed size"
@@ -150,7 +139,6 @@
     .end annotation
 
     .line 157
-    .local p0, "this":Lorg/apache/commons/collections4/map/FixedSizeSortedMap;, "Lorg/apache/commons/collections4/map/FixedSizeSortedMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/FixedSizeSortedMap;->map:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
@@ -175,7 +163,6 @@
     .end annotation
 
     .line 100
-    .local p0, "this":Lorg/apache/commons/collections4/map/FixedSizeSortedMap;, "Lorg/apache/commons/collections4/map/FixedSizeSortedMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/FixedSizeSortedMap;->map:Ljava/util/Map;
 
     check-cast v0, Ljava/util/SortedMap;
@@ -194,8 +181,6 @@
     .end annotation
 
     .line 178
-    .local p0, "this":Lorg/apache/commons/collections4/map/FixedSizeSortedMap;, "Lorg/apache/commons/collections4/map/FixedSizeSortedMap<TK;TV;>;"
-    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     new-instance v0, Lorg/apache/commons/collections4/map/FixedSizeSortedMap;
 
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/FixedSizeSortedMap;->getSortedMap()Ljava/util/SortedMap;
@@ -204,9 +189,9 @@
 
     invoke-interface {v1, p1}, Ljava/util/SortedMap;->headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Lorg/apache/commons/collections4/map/FixedSizeSortedMap;-><init>(Ljava/util/SortedMap;)V
+    invoke-direct {v0, p1}, Lorg/apache/commons/collections4/map/FixedSizeSortedMap;-><init>(Ljava/util/SortedMap;)V
 
     return-object v0
 .end method
@@ -214,8 +199,6 @@
 .method public isFull()Z
     .locals 1
 
-    .line 188
-    .local p0, "this":Lorg/apache/commons/collections4/map/FixedSizeSortedMap;, "Lorg/apache/commons/collections4/map/FixedSizeSortedMap<TK;TV;>;"
     const/4 v0, 0x1
 
     return v0
@@ -232,7 +215,6 @@
     .end annotation
 
     .line 162
-    .local p0, "this":Lorg/apache/commons/collections4/map/FixedSizeSortedMap;, "Lorg/apache/commons/collections4/map/FixedSizeSortedMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/FixedSizeSortedMap;->map:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->keySet()Ljava/util/Set;
@@ -250,7 +232,6 @@
     .locals 1
 
     .line 193
-    .local p0, "this":Lorg/apache/commons/collections4/map/FixedSizeSortedMap;, "Lorg/apache/commons/collections4/map/FixedSizeSortedMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/FixedSizeSortedMap;->size()I
 
     move-result v0
@@ -259,7 +240,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -267,9 +248,6 @@
     .end annotation
 
     .line 131
-    .local p0, "this":Lorg/apache/commons/collections4/map/FixedSizeSortedMap;, "Lorg/apache/commons/collections4/map/FixedSizeSortedMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/FixedSizeSortedMap;->map:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -283,19 +261,19 @@
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 132
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Cannot put new key/value pair - Map is fixed size"
+    const-string p2, "Cannot put new key/value pair - Map is fixed size"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public putAll(Ljava/util/Map;)V
@@ -309,8 +287,6 @@
     .end annotation
 
     .line 139
-    .local p0, "this":Lorg/apache/commons/collections4/map/FixedSizeSortedMap;, "Lorg/apache/commons/collections4/map/FixedSizeSortedMap<TK;TV;>;"
-    .local p1, "mapToCopy":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     invoke-interface {p1}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
     move-result-object v0
@@ -330,23 +306,21 @@
 
     invoke-interface {v0, p1}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
 
-    .line 143
     return-void
 
     .line 140
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Cannot put new key/value pair - Map is fixed size"
+    const-string v0, "Cannot put new key/value pair - Map is fixed size"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
-    .param p1, "key"    # Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -356,14 +330,13 @@
     .end annotation
 
     .line 152
-    .local p0, "this":Lorg/apache/commons/collections4/map/FixedSizeSortedMap;, "Lorg/apache/commons/collections4/map/FixedSizeSortedMap<TK;TV;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "Map is fixed size"
+    const-string v0, "Map is fixed size"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
@@ -377,9 +350,6 @@
     .end annotation
 
     .line 173
-    .local p0, "this":Lorg/apache/commons/collections4/map/FixedSizeSortedMap;, "Lorg/apache/commons/collections4/map/FixedSizeSortedMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
-    .local p2, "toKey":Ljava/lang/Object;, "TK;"
     new-instance v0, Lorg/apache/commons/collections4/map/FixedSizeSortedMap;
 
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/FixedSizeSortedMap;->getSortedMap()Ljava/util/SortedMap;
@@ -388,9 +358,9 @@
 
     invoke-interface {v1, p1, p2}, Ljava/util/SortedMap;->subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Lorg/apache/commons/collections4/map/FixedSizeSortedMap;-><init>(Ljava/util/SortedMap;)V
+    invoke-direct {v0, p1}, Lorg/apache/commons/collections4/map/FixedSizeSortedMap;-><init>(Ljava/util/SortedMap;)V
 
     return-object v0
 .end method
@@ -406,8 +376,6 @@
     .end annotation
 
     .line 183
-    .local p0, "this":Lorg/apache/commons/collections4/map/FixedSizeSortedMap;, "Lorg/apache/commons/collections4/map/FixedSizeSortedMap<TK;TV;>;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     new-instance v0, Lorg/apache/commons/collections4/map/FixedSizeSortedMap;
 
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/FixedSizeSortedMap;->getSortedMap()Ljava/util/SortedMap;
@@ -416,9 +384,9 @@
 
     invoke-interface {v1, p1}, Ljava/util/SortedMap;->tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Lorg/apache/commons/collections4/map/FixedSizeSortedMap;-><init>(Ljava/util/SortedMap;)V
+    invoke-direct {v0, p1}, Lorg/apache/commons/collections4/map/FixedSizeSortedMap;-><init>(Ljava/util/SortedMap;)V
 
     return-object v0
 .end method
@@ -434,7 +402,6 @@
     .end annotation
 
     .line 167
-    .local p0, "this":Lorg/apache/commons/collections4/map/FixedSizeSortedMap;, "Lorg/apache/commons/collections4/map/FixedSizeSortedMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/FixedSizeSortedMap;->map:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->values()Ljava/util/Collection;

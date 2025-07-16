@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Landroidx/fragment/app/FragmentTransitionImpl;Ljava/util/ArrayList;Ljava/util/Map;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/fragment/app/FragmentTransitionImpl;
 
     .line 314
     iput-object p1, p0, Landroidx/fragment/app/FragmentTransitionImpl$3;->this$0:Landroidx/fragment/app/FragmentTransitionImpl;
@@ -54,11 +53,8 @@
 
     move-result v0
 
-    .line 318
-    .local v0, "numSharedElements":I
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -72,35 +68,26 @@
     check-cast v2, Landroid/view/View;
 
     .line 320
-    .local v2, "view":Landroid/view/View;
     invoke-static {v2}, Landroidx/core/view/ViewCompat;->getTransitionName(Landroid/view/View;)Ljava/lang/String;
 
     move-result-object v3
 
     .line 321
-    .local v3, "name":Ljava/lang/String;
     iget-object v4, p0, Landroidx/fragment/app/FragmentTransitionImpl$3;->val$nameOverrides:Ljava/util/Map;
 
     invoke-interface {v4, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Ljava/lang/String;
+    check-cast v3, Ljava/lang/String;
 
     .line 322
-    .local v4, "inName":Ljava/lang/String;
-    invoke-static {v2, v4}, Landroidx/core/view/ViewCompat;->setTransitionName(Landroid/view/View;Ljava/lang/String;)V
+    invoke-static {v2, v3}, Landroidx/core/view/ViewCompat;->setTransitionName(Landroid/view/View;Ljava/lang/String;)V
 
-    .line 318
-    .end local v2    # "view":Landroid/view/View;
-    .end local v3    # "name":Ljava/lang/String;
-    .end local v4    # "inName":Ljava/lang/String;
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 324
-    .end local v1    # "i":I
     :cond_0
     return-void
 .end method

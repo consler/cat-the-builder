@@ -30,7 +30,7 @@
 .method constructor <init>()V
     .locals 0
 
-    .line 2125
+    .line 2126
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,9 +40,16 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroidx/core/widget/NestedScrollView$SavedState;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "in"
+        }
+    .end annotation
 
-    .line 2128
+    .line 2129
     new-instance v0, Landroidx/core/widget/NestedScrollView$SavedState;
 
     invoke-direct {v0, p1}, Landroidx/core/widget/NestedScrollView$SavedState;-><init>(Landroid/os/Parcel;)V
@@ -52,8 +59,16 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1000
+        }
+        names = {
+            "in"
+        }
+    .end annotation
 
-    .line 2125
+    .line 2126
     invoke-virtual {p0, p1}, Landroidx/core/widget/NestedScrollView$SavedState$1;->createFromParcel(Landroid/os/Parcel;)Landroidx/core/widget/NestedScrollView$SavedState;
 
     move-result-object p1
@@ -62,19 +77,34 @@
 .end method
 
 .method public newArray(I)[Landroidx/core/widget/NestedScrollView$SavedState;
-    .locals 1
-    .param p1, "size"    # I
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "size"
+        }
+    .end annotation
 
-    .line 2133
-    new-array v0, p1, [Landroidx/core/widget/NestedScrollView$SavedState;
+    .line 2134
+    new-array p1, p1, [Landroidx/core/widget/NestedScrollView$SavedState;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x1000
+        }
+        names = {
+            "size"
+        }
+    .end annotation
 
-    .line 2125
+    .line 2126
     invoke-virtual {p0, p1}, Landroidx/core/widget/NestedScrollView$SavedState$1;->newArray(I)[Landroidx/core/widget/NestedScrollView$SavedState;
 
     move-result-object p1

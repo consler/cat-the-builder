@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public isSupported(Ljava/lang/Class;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -39,15 +39,13 @@
         }
     .end annotation
 
-    .line 155
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public messageInfoFor(Ljava/lang/Class;)Lcom/google/crypto/tink/shaded/protobuf/MessageInfo;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -58,12 +56,11 @@
     .end annotation
 
     .line 160
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "This should never be called."
+    const-string v0, "This should never be called."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

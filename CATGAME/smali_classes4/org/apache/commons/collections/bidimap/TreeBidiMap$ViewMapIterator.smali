@@ -23,23 +23,20 @@
 
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections/bidimap/TreeBidiMap;I)V
-    .locals 1
-    .param p1, "main"    # Lorg/apache/commons/collections/bidimap/TreeBidiMap;
-    .param p2, "orderType"    # I
+    .locals 0
 
     .line 1638
     invoke-direct {p0, p1, p2, p2}, Lorg/apache/commons/collections/bidimap/TreeBidiMap$ViewIterator;-><init>(Lorg/apache/commons/collections/bidimap/TreeBidiMap;II)V
 
     .line 1639
-    iget v0, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$ViewMapIterator;->dataType:I
+    iget p1, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$ViewMapIterator;->dataType:I
 
-    invoke-static {v0}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->access$2300(I)I
+    invoke-static {p1}, Lorg/apache/commons/collections/bidimap/TreeBidiMap;->access$2300(I)I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$ViewMapIterator;->oppositeType:I
+    iput p1, p0, Lorg/apache/commons/collections/bidimap/TreeBidiMap$ViewMapIterator;->oppositeType:I
 
-    .line 1640
     return-void
 .end method
 
@@ -106,13 +103,12 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 0
 
     .line 1657
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method

@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroidx/room/TransactionExecutor;Ljava/lang/Runnable;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/room/TransactionExecutor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
@@ -66,13 +65,8 @@
 
     invoke-virtual {v0}, Landroidx/room/TransactionExecutor;->scheduleNext()V
 
-    .line 50
-    nop
-
-    .line 51
     return-void
 
-    .line 49
     :catchall_0
     move-exception v0
 

@@ -31,27 +31,21 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
-        "\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@\u00a2\u0006\u0004\u0008\u0003\u0010\u0004"
+        "\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"
     }
     d2 = {
         "<anonymous>",
         "",
-        "Lkotlinx/coroutines/CoroutineScope;",
-        "invoke",
-        "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"
+        "Lkotlinx/coroutines/CoroutineScope;"
     }
     k = 0x3
     mv = {
         0x1,
-        0x4,
+        0x5,
         0x1
     }
+    xi = 0x30
 .end annotation
 
 .annotation runtime Lkotlin/coroutines/jvm/internal/DebugMetadata;
@@ -59,7 +53,7 @@
     f = "CoroutineWorker.kt"
     i = {}
     l = {
-        0x45
+        0x44
     }
     m = "invokeSuspend"
     n = {}
@@ -76,6 +70,16 @@
 # direct methods
 .method constructor <init>(Landroidx/work/CoroutineWorker;Lkotlin/coroutines/Continuation;)V
     .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroidx/work/CoroutineWorker;",
+            "Lkotlin/coroutines/Continuation<",
+            "-",
+            "Landroidx/work/CoroutineWorker$startWork$1;",
+            ">;)V"
+        }
+    .end annotation
 
     iput-object p1, p0, Landroidx/work/CoroutineWorker$startWork$1;->this$0:Landroidx/work/CoroutineWorker;
 
@@ -89,7 +93,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -102,23 +106,44 @@
         }
     .end annotation
 
-    const-string v0, "completion"
+    new-instance p1, Landroidx/work/CoroutineWorker$startWork$1;
 
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    iget-object v0, p0, Landroidx/work/CoroutineWorker$startWork$1;->this$0:Landroidx/work/CoroutineWorker;
 
-    new-instance v0, Landroidx/work/CoroutineWorker$startWork$1;
+    invoke-direct {p1, v0, p2}, Landroidx/work/CoroutineWorker$startWork$1;-><init>(Landroidx/work/CoroutineWorker;Lkotlin/coroutines/Continuation;)V
 
-    iget-object v1, p0, Landroidx/work/CoroutineWorker$startWork$1;->this$0:Landroidx/work/CoroutineWorker;
+    check-cast p1, Lkotlin/coroutines/Continuation;
 
-    invoke-direct {v0, v1, p2}, Landroidx/work/CoroutineWorker$startWork$1;-><init>(Landroidx/work/CoroutineWorker;Lkotlin/coroutines/Continuation;)V
-
-    return-object v0
+    return-object p1
 .end method
 
-.method public final invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+.method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
+    check-cast p1, Lkotlinx/coroutines/CoroutineScope;
+
     check-cast p2, Lkotlin/coroutines/Continuation;
+
+    invoke-virtual {p0, p1, p2}, Landroidx/work/CoroutineWorker$startWork$1;->invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lkotlinx/coroutines/CoroutineScope;",
+            "Lkotlin/coroutines/Continuation<",
+            "-",
+            "Lkotlin/Unit;",
+            ">;)",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
 
     invoke-virtual {p0, p1, p2}, Landroidx/work/CoroutineWorker$startWork$1;->create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
 
@@ -136,13 +161,13 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 5
+    .locals 3
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 67
+    .line 66
     iget v1, p0, Landroidx/work/CoroutineWorker$startWork$1;->label:I
 
     const/4 v2, 0x1
@@ -151,30 +176,19 @@
 
     if-ne v1, v2, :cond_0
 
-    move-object v0, p0
-
-    .local v0, "this":Landroidx/work/CoroutineWorker$startWork$1;
-    .local p1, "$result":Ljava/lang/Object;
     :try_start_0
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-object v1, v0
-
-    move-object v0, p1
-
     goto :goto_0
 
-    .line 71
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     goto :goto_1
 
-    .line 74
-    .end local v0    # "this":Landroidx/work/CoroutineWorker$startWork$1;
-    .end local p1    # "$result":Ljava/lang/Object;
+    .line 73
     :cond_0
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -184,111 +198,58 @@
 
     throw p1
 
-    .line 67
+    .line 66
     :cond_1
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
+    .line 68
+    :try_start_1
+    iget-object p1, p0, Landroidx/work/CoroutineWorker$startWork$1;->this$0:Landroidx/work/CoroutineWorker;
+
     move-object v1, p0
 
-    .line 68
-    .local v1, "this":Landroidx/work/CoroutineWorker$startWork$1;
-    .restart local p1    # "$result":Ljava/lang/Object;
-    nop
+    check-cast v1, Lkotlin/coroutines/Continuation;
 
-    .line 69
-    :try_start_1
-    iget-object v3, v1, Landroidx/work/CoroutineWorker$startWork$1;->this$0:Landroidx/work/CoroutineWorker;
+    iput v2, p0, Landroidx/work/CoroutineWorker$startWork$1;->label:I
 
-    iput v2, v1, Landroidx/work/CoroutineWorker$startWork$1;->label:I
+    invoke-virtual {p1, v1}, Landroidx/work/CoroutineWorker;->doWork(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
-    invoke-virtual {v3, v1}, Landroidx/work/CoroutineWorker;->doWork(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_2
+    if-ne p1, v0, :cond_2
 
-    if-ne v2, v0, :cond_2
-
-    .line 67
     return-object v0
 
-    .line 69
+    .line 66
     :cond_2
-    move-object v0, p1
-
-    move-object p1, v2
-
-    .line 67
-    .end local p1    # "$result":Ljava/lang/Object;
-    .local v0, "$result":Ljava/lang/Object;
     :goto_0
-    :try_start_2
     check-cast p1, Landroidx/work/ListenableWorker$Result;
 
-    .line 70
-    .local p1, "result":Landroidx/work/ListenableWorker$Result;
-    iget-object v2, v1, Landroidx/work/CoroutineWorker$startWork$1;->this$0:Landroidx/work/CoroutineWorker;
+    .line 69
+    iget-object v0, p0, Landroidx/work/CoroutineWorker$startWork$1;->this$0:Landroidx/work/CoroutineWorker;
 
-    invoke-virtual {v2}, Landroidx/work/CoroutineWorker;->getFuture$work_runtime_ktx_release()Landroidx/work/impl/utils/futures/SettableFuture;
+    invoke-virtual {v0}, Landroidx/work/CoroutineWorker;->getFuture$work_runtime_ktx_release()Landroidx/work/impl/utils/futures/SettableFuture;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2, p1}, Landroidx/work/impl/utils/futures/SettableFuture;->set(Ljava/lang/Object;)Z
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    invoke-virtual {v0, p1}, Landroidx/work/impl/utils/futures/SettableFuture;->set(Ljava/lang/Object;)Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_2
 
     .line 71
-    .end local p1    # "result":Landroidx/work/ListenableWorker$Result;
-    :catchall_1
-    move-exception p1
-
-    move-object v4, v1
-
-    move-object v1, p1
-
-    move-object p1, v0
-
-    move-object v0, v4
-
-    goto :goto_1
-
-    .end local v0    # "$result":Ljava/lang/Object;
-    .local p1, "$result":Ljava/lang/Object;
-    :catchall_2
-    move-exception v0
-
-    move-object v4, v1
-
-    move-object v1, v0
-
-    move-object v0, v4
-
-    .line 72
-    .local v0, "this":Landroidx/work/CoroutineWorker$startWork$1;
-    .local v1, "t":Ljava/lang/Throwable;
     :goto_1
-    iget-object v2, v0, Landroidx/work/CoroutineWorker$startWork$1;->this$0:Landroidx/work/CoroutineWorker;
+    iget-object v0, p0, Landroidx/work/CoroutineWorker$startWork$1;->this$0:Landroidx/work/CoroutineWorker;
 
-    invoke-virtual {v2}, Landroidx/work/CoroutineWorker;->getFuture$work_runtime_ktx_release()Landroidx/work/impl/utils/futures/SettableFuture;
+    invoke-virtual {v0}, Landroidx/work/CoroutineWorker;->getFuture$work_runtime_ktx_release()Landroidx/work/impl/utils/futures/SettableFuture;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2, v1}, Landroidx/work/impl/utils/futures/SettableFuture;->setException(Ljava/lang/Throwable;)Z
-
-    move-object v1, v0
-
-    move-object v0, p1
+    invoke-virtual {v0, p1}, Landroidx/work/impl/utils/futures/SettableFuture;->setException(Ljava/lang/Throwable;)Z
 
     .line 73
-    .end local p1    # "$result":Ljava/lang/Object;
-    .local v0, "$result":Ljava/lang/Object;
-    .local v1, "this":Landroidx/work/CoroutineWorker$startWork$1;
     :goto_2
-    nop
-
-    .line 74
     sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p1

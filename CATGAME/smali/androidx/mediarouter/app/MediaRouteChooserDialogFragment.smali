@@ -22,17 +22,16 @@
     .line 49
     invoke-direct {p0}, Landroidx/fragment/app/DialogFragment;-><init>()V
 
-    .line 39
     const/4 v0, 0x0
 
+    .line 39
     iput-boolean v0, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mUseDynamicGroup:Z
 
-    .line 50
     const/4 v0, 0x1
 
+    .line 50
     invoke-virtual {p0, v0}, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->setCancelable(Z)V
 
-    .line 51
     return-void
 .end method
 
@@ -49,36 +48,32 @@
 
     move-result-object v0
 
-    .line 66
-    .local v0, "args":Landroid/os/Bundle;
     if-eqz v0, :cond_0
 
-    .line 67
     const-string v1, "selector"
 
+    .line 67
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v1}, Landroidx/mediarouter/media/MediaRouteSelector;->fromBundle(Landroid/os/Bundle;)Landroidx/mediarouter/media/MediaRouteSelector;
+    invoke-static {v0}, Landroidx/mediarouter/media/MediaRouteSelector;->fromBundle(Landroid/os/Bundle;)Landroidx/mediarouter/media/MediaRouteSelector;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mSelector:Landroidx/mediarouter/media/MediaRouteSelector;
+    iput-object v0, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mSelector:Landroidx/mediarouter/media/MediaRouteSelector;
 
     .line 69
     :cond_0
-    iget-object v1, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mSelector:Landroidx/mediarouter/media/MediaRouteSelector;
+    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mSelector:Landroidx/mediarouter/media/MediaRouteSelector;
 
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
 
     .line 70
-    sget-object v1, Landroidx/mediarouter/media/MediaRouteSelector;->EMPTY:Landroidx/mediarouter/media/MediaRouteSelector;
+    sget-object v0, Landroidx/mediarouter/media/MediaRouteSelector;->EMPTY:Landroidx/mediarouter/media/MediaRouteSelector;
 
-    iput-object v1, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mSelector:Landroidx/mediarouter/media/MediaRouteSelector;
+    iput-object v0, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mSelector:Landroidx/mediarouter/media/MediaRouteSelector;
 
-    .line 73
-    .end local v0    # "args":Landroid/os/Bundle;
     :cond_1
     return-void
 .end method
@@ -98,60 +93,54 @@
 .end method
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 2
-    .param p1, "newConfig"    # Landroid/content/res/Configuration;
+    .locals 1
 
     .line 155
     invoke-super {p0, p1}, Landroidx/fragment/app/DialogFragment;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
     .line 156
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mDialog:Landroid/app/Dialog;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mDialog:Landroid/app/Dialog;
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    .line 157
     return-void
 
     .line 159
     :cond_0
-    iget-boolean v1, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mUseDynamicGroup:Z
+    iget-boolean v0, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mUseDynamicGroup:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 160
-    check-cast v0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
+    check-cast p1, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
 
-    invoke-virtual {v0}, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;->updateLayout()V
+    invoke-virtual {p1}, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;->updateLayout()V
 
     goto :goto_0
 
     .line 162
     :cond_1
-    check-cast v0, Landroidx/mediarouter/app/MediaRouteChooserDialog;
+    check-cast p1, Landroidx/mediarouter/app/MediaRouteChooserDialog;
 
-    invoke-virtual {v0}, Landroidx/mediarouter/app/MediaRouteChooserDialog;->updateLayout()V
+    invoke-virtual {p1}, Landroidx/mediarouter/app/MediaRouteChooserDialog;->updateLayout()V
 
-    .line 164
     :goto_0
     return-void
 .end method
 
 .method public onCreateChooserDialog(Landroid/content/Context;Landroid/os/Bundle;)Landroidx/mediarouter/app/MediaRouteChooserDialog;
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "savedInstanceState"    # Landroid/os/Bundle;
+    .locals 0
 
     .line 138
-    new-instance v0, Landroidx/mediarouter/app/MediaRouteChooserDialog;
+    new-instance p2, Landroidx/mediarouter/app/MediaRouteChooserDialog;
 
-    invoke-direct {v0, p1}, Landroidx/mediarouter/app/MediaRouteChooserDialog;-><init>(Landroid/content/Context;)V
+    invoke-direct {p2, p1}, Landroidx/mediarouter/app/MediaRouteChooserDialog;-><init>(Landroid/content/Context;)V
 
-    return-object v0
+    return-object p2
 .end method
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 2
-    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
+    .locals 1
 
     .line 143
     iget-boolean v0, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mUseDynamicGroup:Z
@@ -161,22 +150,24 @@
     .line 144
     invoke-virtual {p0}, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->getContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->onCreateDynamicChooserDialog(Landroid/content/Context;)Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
+    invoke-virtual {p0, p1}, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->onCreateDynamicChooserDialog(Landroid/content/Context;)Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mDialog:Landroid/app/Dialog;
+    iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mDialog:Landroid/app/Dialog;
 
     .line 145
+    move-object v0, p1
+
     check-cast v0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
 
     invoke-virtual {p0}, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->getRouteSelector()Landroidx/mediarouter/media/MediaRouteSelector;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;->setRouteSelector(Landroidx/mediarouter/media/MediaRouteSelector;)V
+    invoke-virtual {p1, v0}, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;->setRouteSelector(Landroidx/mediarouter/media/MediaRouteSelector;)V
 
     goto :goto_0
 
@@ -188,29 +179,30 @@
 
     invoke-virtual {p0, v0, p1}, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->onCreateChooserDialog(Landroid/content/Context;Landroid/os/Bundle;)Landroidx/mediarouter/app/MediaRouteChooserDialog;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mDialog:Landroid/app/Dialog;
+    iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mDialog:Landroid/app/Dialog;
 
     .line 148
+    move-object v0, p1
+
     check-cast v0, Landroidx/mediarouter/app/MediaRouteChooserDialog;
 
     invoke-virtual {p0}, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->getRouteSelector()Landroidx/mediarouter/media/MediaRouteSelector;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroidx/mediarouter/app/MediaRouteChooserDialog;->setRouteSelector(Landroidx/mediarouter/media/MediaRouteSelector;)V
+    invoke-virtual {p1, v0}, Landroidx/mediarouter/app/MediaRouteChooserDialog;->setRouteSelector(Landroidx/mediarouter/media/MediaRouteSelector;)V
 
     .line 150
     :goto_0
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mDialog:Landroid/app/Dialog;
+    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mDialog:Landroid/app/Dialog;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public onCreateDynamicChooserDialog(Landroid/content/Context;)Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
 
     .line 127
     new-instance v0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
@@ -222,9 +214,7 @@
 
 .method public setRouteSelector(Landroidx/mediarouter/media/MediaRouteSelector;)V
     .locals 3
-    .param p1, "selector"    # Landroidx/mediarouter/media/MediaRouteSelector;
 
-    .line 96
     if-eqz p1, :cond_3
 
     .line 100
@@ -247,73 +237,66 @@
 
     move-result-object v0
 
-    .line 105
-    .local v0, "args":Landroid/os/Bundle;
     if-nez v0, :cond_0
 
     .line 106
-    new-instance v1, Landroid/os/Bundle;
+    new-instance v0, Landroid/os/Bundle;
 
-    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    move-object v0, v1
+    :cond_0
+    const-string v1, "selector"
 
     .line 108
-    :cond_0
     invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouteSelector;->asBundle()Landroid/os/Bundle;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string v2, "selector"
-
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
     .line 109
     invoke-virtual {p0, v0}, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->setArguments(Landroid/os/Bundle;)V
 
     .line 111
-    iget-object v1, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mDialog:Landroid/app/Dialog;
+    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mDialog:Landroid/app/Dialog;
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
     .line 112
-    iget-boolean v2, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mUseDynamicGroup:Z
+    iget-boolean v1, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mUseDynamicGroup:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
     .line 113
-    check-cast v1, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
+    check-cast v0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
 
-    invoke-virtual {v1, p1}, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;->setRouteSelector(Landroidx/mediarouter/media/MediaRouteSelector;)V
+    invoke-virtual {v0, p1}, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;->setRouteSelector(Landroidx/mediarouter/media/MediaRouteSelector;)V
 
     goto :goto_0
 
     .line 115
     :cond_1
-    check-cast v1, Landroidx/mediarouter/app/MediaRouteChooserDialog;
+    check-cast v0, Landroidx/mediarouter/app/MediaRouteChooserDialog;
 
-    invoke-virtual {v1, p1}, Landroidx/mediarouter/app/MediaRouteChooserDialog;->setRouteSelector(Landroidx/mediarouter/media/MediaRouteSelector;)V
+    invoke-virtual {v0, p1}, Landroidx/mediarouter/app/MediaRouteChooserDialog;->setRouteSelector(Landroidx/mediarouter/media/MediaRouteSelector;)V
 
-    .line 119
-    .end local v0    # "args":Landroid/os/Bundle;
     :cond_2
     :goto_0
     return-void
 
     .line 97
     :cond_3
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "selector must not be null"
+    const-string v0, "selector must not be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method setUseDynamicGroup(Z)V
-    .locals 2
-    .param p1, "useDynamicGroup"    # Z
+    .locals 1
 
     .line 83
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mDialog:Landroid/app/Dialog;
@@ -323,16 +306,15 @@
     .line 86
     iput-boolean p1, p0, Landroidx/mediarouter/app/MediaRouteChooserDialogFragment;->mUseDynamicGroup:Z
 
-    .line 87
     return-void
 
     .line 84
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "This must be called before creating dialog"
+    const-string v0, "This must be called before creating dialog"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

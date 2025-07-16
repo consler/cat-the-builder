@@ -53,21 +53,18 @@
     .end annotation
 
     .line 2323
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$SingletonIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeEntrySet.SingletonIterator;"
-    .local p2, "entry":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry<TK;TV;>;"
     iput-object p1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$SingletonIterator;->this$1:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2321
     const/4 p1, 0x0
 
+    .line 2321
     iput p1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$SingletonIterator;->hit:I
 
     .line 2324
     iput-object p2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$SingletonIterator;->entry:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
-    .line 2325
     return-void
 .end method
 
@@ -77,7 +74,6 @@
     .locals 1
 
     .line 2329
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$SingletonIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeEntrySet.SingletonIterator;"
     iget v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$SingletonIterator;->hit:I
 
     if-nez v0, :cond_0
@@ -97,7 +93,6 @@
     .locals 1
 
     .line 2317
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$SingletonIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeEntrySet.SingletonIterator;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$SingletonIterator;->next()Ljava/util/Map$Entry;
 
     move-result-object v0
@@ -116,14 +111,13 @@
     .end annotation
 
     .line 2334
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$SingletonIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeEntrySet.SingletonIterator;"
     iget v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$SingletonIterator;->hit:I
 
     if-nez v0, :cond_0
 
-    .line 2338
     add-int/lit8 v0, v0, 0x1
 
+    .line 2338
     iput v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$SingletonIterator;->hit:I
 
     .line 2339
@@ -144,16 +138,15 @@
     .locals 2
 
     .line 2344
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$SingletonIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.PrefixRangeEntrySet.SingletonIterator;"
     iget v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$SingletonIterator;->hit:I
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_0
 
-    .line 2348
     add-int/2addr v0, v1
 
+    .line 2348
     iput v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$PrefixRangeEntrySet$SingletonIterator;->hit:I
 
     .line 2349
@@ -165,7 +158,6 @@
 
     invoke-virtual {v0, v1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->removeEntry(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;)Ljava/lang/Object;
 
-    .line 2350
     return-void
 
     .line 2345

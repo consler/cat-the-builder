@@ -48,8 +48,6 @@
     .end annotation
 
     .line 40
-    .local p0, "this":Lorg/objenesis/instantiator/sun/UnsafeFactoryInstantiator;, "Lorg/objenesis/instantiator/sun/UnsafeFactoryInstantiator<TT;>;"
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 41
@@ -62,14 +60,13 @@
     .line 42
     iput-object p1, p0, Lorg/objenesis/instantiator/sun/UnsafeFactoryInstantiator;->type:Ljava/lang/Class;
 
-    .line 43
     return-void
 .end method
 
 
 # virtual methods
 .method public newInstance()Ljava/lang/Object;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -77,15 +74,12 @@
     .end annotation
 
     .line 47
-    .local p0, "this":Lorg/objenesis/instantiator/sun/UnsafeFactoryInstantiator;, "Lorg/objenesis/instantiator/sun/UnsafeFactoryInstantiator<TT;>;"
     :try_start_0
     iget-object v0, p0, Lorg/objenesis/instantiator/sun/UnsafeFactoryInstantiator;->type:Ljava/lang/Class;
 
     iget-object v1, p0, Lorg/objenesis/instantiator/sun/UnsafeFactoryInstantiator;->unsafe:Lsun/misc/Unsafe;
 
-    iget-object v2, p0, Lorg/objenesis/instantiator/sun/UnsafeFactoryInstantiator;->type:Ljava/lang/Class;
-
-    invoke-virtual {v1, v2}, Lsun/misc/Unsafe;->allocateInstance(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {v1, v0}, Lsun/misc/Unsafe;->allocateInstance(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -97,12 +91,10 @@
 
     return-object v0
 
-    .line 48
     :catch_0
     move-exception v0
 
     .line 49
-    .local v0, "e":Ljava/lang/InstantiationException;
     new-instance v1, Lorg/objenesis/ObjenesisException;
 
     invoke-direct {v1, v0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V

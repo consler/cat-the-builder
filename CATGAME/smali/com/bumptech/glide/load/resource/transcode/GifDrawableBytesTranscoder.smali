@@ -30,8 +30,7 @@
 
 # virtual methods
 .method public transcode(Lcom/bumptech/glide/load/engine/Resource;Lcom/bumptech/glide/load/Options;)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 4
-    .param p2, "options"    # Lcom/bumptech/glide/load/Options;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -46,28 +45,25 @@
     .end annotation
 
     .line 22
-    .local p1, "toTranscode":Lcom/bumptech/glide/load/engine/Resource;, "Lcom/bumptech/glide/load/engine/Resource<Lcom/bumptech/glide/load/resource/gif/GifDrawable;>;"
     invoke-interface {p1}, Lcom/bumptech/glide/load/engine/Resource;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;
+    check-cast p1, Lcom/bumptech/glide/load/resource/gif/GifDrawable;
 
     .line 23
-    .local v0, "gifData":Lcom/bumptech/glide/load/resource/gif/GifDrawable;
-    invoke-virtual {v0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->getBuffer()Ljava/nio/ByteBuffer;
+    invoke-virtual {p1}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->getBuffer()Ljava/nio/ByteBuffer;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 24
-    .local v1, "byteBuffer":Ljava/nio/ByteBuffer;
-    new-instance v2, Lcom/bumptech/glide/load/resource/bytes/BytesResource;
+    new-instance p2, Lcom/bumptech/glide/load/resource/bytes/BytesResource;
 
-    invoke-static {v1}, Lcom/bumptech/glide/util/ByteBufferUtil;->toBytes(Ljava/nio/ByteBuffer;)[B
+    invoke-static {p1}, Lcom/bumptech/glide/util/ByteBufferUtil;->toBytes(Ljava/nio/ByteBuffer;)[B
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-direct {v2, v3}, Lcom/bumptech/glide/load/resource/bytes/BytesResource;-><init>([B)V
+    invoke-direct {p2, p1}, Lcom/bumptech/glide/load/resource/bytes/BytesResource;-><init>([B)V
 
-    return-object v2
+    return-object p2
 .end method

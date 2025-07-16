@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .locals 9
 
     .line 19
     new-instance v0, Lcom/koushikdutta/async/http/spdy/HeadersMode;
@@ -41,58 +41,52 @@
     sput-object v0, Lcom/koushikdutta/async/http/spdy/HeadersMode;->SPDY_SYN_STREAM:Lcom/koushikdutta/async/http/spdy/HeadersMode;
 
     .line 20
-    new-instance v0, Lcom/koushikdutta/async/http/spdy/HeadersMode;
+    new-instance v1, Lcom/koushikdutta/async/http/spdy/HeadersMode;
 
-    const-string v1, "SPDY_REPLY"
+    const-string v3, "SPDY_REPLY"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Lcom/koushikdutta/async/http/spdy/HeadersMode;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Lcom/koushikdutta/async/http/spdy/HeadersMode;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/koushikdutta/async/http/spdy/HeadersMode;->SPDY_REPLY:Lcom/koushikdutta/async/http/spdy/HeadersMode;
+    sput-object v1, Lcom/koushikdutta/async/http/spdy/HeadersMode;->SPDY_REPLY:Lcom/koushikdutta/async/http/spdy/HeadersMode;
 
     .line 21
-    new-instance v0, Lcom/koushikdutta/async/http/spdy/HeadersMode;
+    new-instance v3, Lcom/koushikdutta/async/http/spdy/HeadersMode;
 
-    const-string v1, "SPDY_HEADERS"
+    const-string v5, "SPDY_HEADERS"
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v1, v4}, Lcom/koushikdutta/async/http/spdy/HeadersMode;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Lcom/koushikdutta/async/http/spdy/HeadersMode;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/koushikdutta/async/http/spdy/HeadersMode;->SPDY_HEADERS:Lcom/koushikdutta/async/http/spdy/HeadersMode;
+    sput-object v3, Lcom/koushikdutta/async/http/spdy/HeadersMode;->SPDY_HEADERS:Lcom/koushikdutta/async/http/spdy/HeadersMode;
 
     .line 22
-    new-instance v0, Lcom/koushikdutta/async/http/spdy/HeadersMode;
+    new-instance v5, Lcom/koushikdutta/async/http/spdy/HeadersMode;
 
-    const-string v1, "HTTP_20_HEADERS"
+    const-string v7, "HTTP_20_HEADERS"
 
-    const/4 v5, 0x3
+    const/4 v8, 0x3
 
-    invoke-direct {v0, v1, v5}, Lcom/koushikdutta/async/http/spdy/HeadersMode;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v5, v7, v8}, Lcom/koushikdutta/async/http/spdy/HeadersMode;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/koushikdutta/async/http/spdy/HeadersMode;->HTTP_20_HEADERS:Lcom/koushikdutta/async/http/spdy/HeadersMode;
+    sput-object v5, Lcom/koushikdutta/async/http/spdy/HeadersMode;->HTTP_20_HEADERS:Lcom/koushikdutta/async/http/spdy/HeadersMode;
+
+    const/4 v7, 0x4
+
+    new-array v7, v7, [Lcom/koushikdutta/async/http/spdy/HeadersMode;
+
+    aput-object v0, v7, v2
+
+    aput-object v1, v7, v4
+
+    aput-object v3, v7, v6
+
+    aput-object v5, v7, v8
 
     .line 18
-    const/4 v1, 0x4
-
-    new-array v1, v1, [Lcom/koushikdutta/async/http/spdy/HeadersMode;
-
-    sget-object v6, Lcom/koushikdutta/async/http/spdy/HeadersMode;->SPDY_SYN_STREAM:Lcom/koushikdutta/async/http/spdy/HeadersMode;
-
-    aput-object v6, v1, v2
-
-    sget-object v2, Lcom/koushikdutta/async/http/spdy/HeadersMode;->SPDY_REPLY:Lcom/koushikdutta/async/http/spdy/HeadersMode;
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/koushikdutta/async/http/spdy/HeadersMode;->SPDY_HEADERS:Lcom/koushikdutta/async/http/spdy/HeadersMode;
-
-    aput-object v2, v1, v4
-
-    aput-object v0, v1, v5
-
-    sput-object v1, Lcom/koushikdutta/async/http/spdy/HeadersMode;->$VALUES:[Lcom/koushikdutta/async/http/spdy/HeadersMode;
+    sput-object v7, Lcom/koushikdutta/async/http/spdy/HeadersMode;->$VALUES:[Lcom/koushikdutta/async/http/spdy/HeadersMode;
 
     return-void
 .end method
@@ -113,18 +107,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/koushikdutta/async/http/spdy/HeadersMode;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 18
     const-class v0, Lcom/koushikdutta/async/http/spdy/HeadersMode;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/koushikdutta/async/http/spdy/HeadersMode;
+    check-cast p0, Lcom/koushikdutta/async/http/spdy/HeadersMode;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/koushikdutta/async/http/spdy/HeadersMode;

@@ -27,51 +27,42 @@
 
 # virtual methods
 .method public getSampleSizeRounding(IIII)Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$SampleSizeRounding;
-    .locals 1
-    .param p1, "sourceWidth"    # I
-    .param p2, "sourceHeight"    # I
-    .param p3, "requestedWidth"    # I
-    .param p4, "requestedHeight"    # I
+    .locals 0
 
     .line 208
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$SampleSizeRounding;->QUALITY:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$SampleSizeRounding;
+    sget-object p1, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$SampleSizeRounding;->QUALITY:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$SampleSizeRounding;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getScaleFactor(IIII)F
-    .locals 3
-    .param p1, "sourceWidth"    # I
-    .param p2, "sourceHeight"    # I
-    .param p3, "requestedWidth"    # I
-    .param p4, "requestedHeight"    # I
+    .locals 0
 
     .line 201
-    div-int v0, p2, p4
+    div-int/2addr p2, p4
 
-    div-int v1, p1, p3
+    div-int/2addr p1, p3
 
-    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
+    invoke-static {p2, p1}, Ljava/lang/Math;->min(II)I
 
-    move-result v0
+    move-result p1
 
-    .line 202
-    .local v0, "minIntegerFactor":I
-    const/high16 v1, 0x3f800000    # 1.0f
+    const/high16 p2, 0x3f800000    # 1.0f
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     goto :goto_0
 
+    .line 202
     :cond_0
-    invoke-static {v0}, Ljava/lang/Integer;->highestOneBit(I)I
+    invoke-static {p1}, Ljava/lang/Integer;->highestOneBit(I)I
 
-    move-result v2
+    move-result p1
 
-    int-to-float v2, v2
+    int-to-float p1, p1
 
-    div-float/2addr v1, v2
+    div-float/2addr p2, p1
 
     :goto_0
-    return v1
+    return p2
 .end method

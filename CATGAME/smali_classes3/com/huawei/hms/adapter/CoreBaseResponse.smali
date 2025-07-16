@@ -32,10 +32,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 46
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 47
     return-void
 .end method
 
@@ -44,7 +43,7 @@
 .method public getIntent()Landroid/content/Intent;
     .locals 1
 
-    .line 32
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/adapter/CoreBaseResponse;->intent:Landroid/content/Intent;
 
     return-object v0
@@ -53,7 +52,7 @@
 .method public getJsonBody()Ljava/lang/String;
     .locals 1
 
-    .line 66
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/adapter/CoreBaseResponse;->jsonBody:Ljava/lang/String;
 
     return-object v0
@@ -62,7 +61,7 @@
 .method public getJsonHeader()Ljava/lang/String;
     .locals 1
 
-    .line 58
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/adapter/CoreBaseResponse;->jsonHeader:Ljava/lang/String;
 
     return-object v0
@@ -71,7 +70,7 @@
 .method public getPendingIntent()Landroid/app/PendingIntent;
     .locals 1
 
-    .line 50
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/adapter/CoreBaseResponse;->pendingIntent:Landroid/app/PendingIntent;
 
     return-object v0
@@ -80,39 +79,35 @@
 .method public setIntent(Landroid/content/Intent;)V
     .locals 0
 
-    .line 36
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/adapter/CoreBaseResponse;->intent:Landroid/content/Intent;
 
-    .line 37
     return-void
 .end method
 
 .method public setJsonBody(Ljava/lang/String;)V
     .locals 0
 
-    .line 70
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/adapter/CoreBaseResponse;->jsonBody:Ljava/lang/String;
 
-    .line 71
     return-void
 .end method
 
 .method public setJsonHeader(Ljava/lang/String;)V
     .locals 0
 
-    .line 62
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/adapter/CoreBaseResponse;->jsonHeader:Ljava/lang/String;
 
-    .line 63
     return-void
 .end method
 
 .method public setPendingIntent(Landroid/app/PendingIntent;)V
     .locals 0
 
-    .line 54
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/adapter/CoreBaseResponse;->pendingIntent:Landroid/app/PendingIntent;
 
-    .line 55
     return-void
 .end method

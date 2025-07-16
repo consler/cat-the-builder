@@ -25,13 +25,11 @@
     .line 72
     invoke-direct {p0}, Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;-><init>()V
 
-    .line 73
     return-void
 .end method
 
 .method public constructor <init>(Z)V
     .locals 0
-    .param p1, "flipV"    # Z
 
     .line 75
     invoke-direct {p0}, Lcom/badlogic/gdx/assets/loaders/ModelLoader$ModelParameters;-><init>()V
@@ -39,6 +37,5 @@
     .line 76
     iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/loader/ObjLoader$ObjLoaderParameters;->flipV:Z
 
-    .line 77
     return-void
 .end method

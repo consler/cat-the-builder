@@ -42,13 +42,8 @@
 # direct methods
 .method constructor <init>(IJLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;)V
     .locals 0
-    .param p1, "bufferSize"    # I
-    .param p2, "maxAge"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
 
     .line 1192
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReplay$ScheduledReplayBufferTask;, "Lio/reactivex/internal/operators/flowable/FlowableReplay$ScheduledReplayBufferTask<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 1193
@@ -63,7 +58,6 @@
     .line 1196
     iput-object p5, p0, Lio/reactivex/internal/operators/flowable/FlowableReplay$ScheduledReplayBufferTask;->scheduler:Lio/reactivex/Scheduler;
 
-    .line 1197
     return-void
 .end method
 
@@ -80,7 +74,6 @@
     .end annotation
 
     .line 1201
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReplay$ScheduledReplayBufferTask;, "Lio/reactivex/internal/operators/flowable/FlowableReplay$ScheduledReplayBufferTask<TT;>;"
     new-instance v6, Lio/reactivex/internal/operators/flowable/FlowableReplay$SizeAndTimeBoundReplayBuffer;
 
     iget v1, p0, Lio/reactivex/internal/operators/flowable/FlowableReplay$ScheduledReplayBufferTask;->bufferSize:I
@@ -107,7 +100,6 @@
     .end annotation
 
     .line 1186
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableReplay$ScheduledReplayBufferTask;, "Lio/reactivex/internal/operators/flowable/FlowableReplay$ScheduledReplayBufferTask<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableReplay$ScheduledReplayBufferTask;->call()Lio/reactivex/internal/operators/flowable/FlowableReplay$ReplayBuffer;
 
     move-result-object v0

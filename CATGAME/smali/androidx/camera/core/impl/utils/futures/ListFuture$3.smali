@@ -28,10 +28,8 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/impl/utils/futures/ListFuture;ILcom/google/common/util/concurrent/ListenableFuture;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/core/impl/utils/futures/ListFuture;
 
     .line 132
-    .local p0, "this":Landroidx/camera/core/impl/utils/futures/ListFuture$3;, "Landroidx/camera/core/impl/utils/futures/ListFuture$3;"
     iput-object p1, p0, Landroidx/camera/core/impl/utils/futures/ListFuture$3;->this$0:Landroidx/camera/core/impl/utils/futures/ListFuture;
 
     iput p2, p0, Landroidx/camera/core/impl/utils/futures/ListFuture$3;->val$index:I
@@ -49,7 +47,6 @@
     .locals 3
 
     .line 135
-    .local p0, "this":Landroidx/camera/core/impl/utils/futures/ListFuture$3;, "Landroidx/camera/core/impl/utils/futures/ListFuture$3;"
     iget-object v0, p0, Landroidx/camera/core/impl/utils/futures/ListFuture$3;->this$0:Landroidx/camera/core/impl/utils/futures/ListFuture;
 
     iget v1, p0, Landroidx/camera/core/impl/utils/futures/ListFuture$3;->val$index:I
@@ -58,6 +55,5 @@
 
     invoke-virtual {v0, v1, v2}, Landroidx/camera/core/impl/utils/futures/ListFuture;->setOneValue(ILjava/util/concurrent/Future;)V
 
-    .line 136
     return-void
 .end method

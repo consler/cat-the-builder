@@ -67,7 +67,7 @@
 .end method
 
 .method runInternal()Ljava/util/List;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -84,30 +84,25 @@
 
     move-result-object v0
 
-    .line 129
-    .local v0, "workDatabase":Landroidx/work/impl/WorkDatabase;
-    nop
-
     .line 130
     invoke-virtual {v0}, Landroidx/work/impl/WorkDatabase;->workSpecDao()Landroidx/work/impl/model/WorkSpecDao;
 
-    move-result-object v1
+    move-result-object v0
 
-    iget-object v2, p0, Landroidx/work/impl/utils/StatusRunnable$3;->val$tag:Ljava/lang/String;
+    iget-object v1, p0, Landroidx/work/impl/utils/StatusRunnable$3;->val$tag:Ljava/lang/String;
 
-    invoke-interface {v1, v2}, Landroidx/work/impl/model/WorkSpecDao;->getWorkStatusPojoForTag(Ljava/lang/String;)Ljava/util/List;
+    invoke-interface {v0, v1}, Landroidx/work/impl/model/WorkSpecDao;->getWorkStatusPojoForTag(Ljava/lang/String;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 132
-    .local v1, "workInfoPojos":Ljava/util/List;, "Ljava/util/List<Landroidx/work/impl/model/WorkSpec$WorkInfoPojo;>;"
-    sget-object v2, Landroidx/work/impl/model/WorkSpec;->WORK_INFO_MAPPER:Landroidx/arch/core/util/Function;
+    sget-object v1, Landroidx/work/impl/model/WorkSpec;->WORK_INFO_MAPPER:Landroidx/arch/core/util/Function;
 
-    invoke-interface {v2, v1}, Landroidx/arch/core/util/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, v0}, Landroidx/arch/core/util/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Ljava/util/List;
+    check-cast v0, Ljava/util/List;
 
-    return-object v2
+    return-object v0
 .end method

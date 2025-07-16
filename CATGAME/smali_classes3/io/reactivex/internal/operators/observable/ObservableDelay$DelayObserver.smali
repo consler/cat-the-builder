@@ -62,10 +62,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/Observer;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler$Worker;Z)V
     .locals 0
-    .param p2, "delay"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "w"    # Lio/reactivex/Scheduler$Worker;
-    .param p6, "delayError"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -78,8 +74,6 @@
     .end annotation
 
     .line 63
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;, "Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 64
@@ -97,7 +91,6 @@
     .line 68
     iput-boolean p6, p0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;->delayError:Z
 
-    .line 69
     return-void
 .end method
 
@@ -107,7 +100,6 @@
     .locals 1
 
     .line 96
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;, "Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
@@ -117,7 +109,6 @@
 
     invoke-virtual {v0}, Lio/reactivex/Scheduler$Worker;->dispose()V
 
-    .line 98
     return-void
 .end method
 
@@ -125,7 +116,6 @@
     .locals 1
 
     .line 102
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;, "Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;->w:Lio/reactivex/Scheduler$Worker;
 
     invoke-virtual {v0}, Lio/reactivex/Scheduler$Worker;->isDisposed()Z
@@ -139,7 +129,6 @@
     .locals 5
 
     .line 91
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;, "Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;->w:Lio/reactivex/Scheduler$Worker;
 
     new-instance v1, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver$OnComplete;
@@ -152,25 +141,22 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Lio/reactivex/Scheduler$Worker;->schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
 
-    .line 92
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
-    .locals 5
-    .param p1, "t"    # Ljava/lang/Throwable;
+    .locals 4
 
     .line 86
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;, "Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;->w:Lio/reactivex/Scheduler$Worker;
 
     new-instance v1, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver$OnError;
 
     invoke-direct {v1, p0, p1}, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver$OnError;-><init>(Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;Ljava/lang/Throwable;)V
 
-    iget-boolean v2, p0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;->delayError:Z
+    iget-boolean p1, p0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;->delayError:Z
 
-    if-eqz v2, :cond_0
+    if-eqz p1, :cond_0
 
     iget-wide v2, p0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;->delay:J
 
@@ -180,16 +166,15 @@
     const-wide/16 v2, 0x0
 
     :goto_0
-    iget-object v4, p0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;->unit:Ljava/util/concurrent/TimeUnit;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;->unit:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Lio/reactivex/Scheduler$Worker;->schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
+    invoke-virtual {v0, v1, v2, v3, p1}, Lio/reactivex/Scheduler$Worker;->schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
 
-    .line 87
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -197,8 +182,6 @@
     .end annotation
 
     .line 81
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;, "Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;->w:Lio/reactivex/Scheduler$Worker;
 
     new-instance v1, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver$OnNext;
@@ -207,20 +190,17 @@
 
     iget-wide v2, p0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;->delay:J
 
-    iget-object v4, p0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;->unit:Ljava/util/concurrent/TimeUnit;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;->unit:Ljava/util/concurrent/TimeUnit;
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Lio/reactivex/Scheduler$Worker;->schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
+    invoke-virtual {v0, v1, v2, v3, p1}, Lio/reactivex/Scheduler$Worker;->schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
 
-    .line 82
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 73
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;, "Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -233,11 +213,10 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;->s:Lio/reactivex/disposables/Disposable;
 
     .line 75
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableDelay$DelayObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v0, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 77
     :cond_0
     return-void
 .end method

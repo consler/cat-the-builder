@@ -16,9 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/koushikdutta/async/http/WebSocket;Ljava/lang/String;)V
-    .locals 1
-    .param p1, "webSocket"    # Lcom/koushikdutta/async/http/WebSocket;
-    .param p2, "sessionId"    # Ljava/lang/String;
+    .locals 0
 
     .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,13 +28,12 @@
     iput-object p2, p0, Lcom/koushikdutta/async/http/socketio/transport/WebSocketTransport;->sessionId:Ljava/lang/String;
 
     .line 16
-    new-instance v0, Lcom/koushikdutta/async/callback/DataCallback$NullDataCallback;
+    new-instance p2, Lcom/koushikdutta/async/callback/DataCallback$NullDataCallback;
 
-    invoke-direct {v0}, Lcom/koushikdutta/async/callback/DataCallback$NullDataCallback;-><init>()V
+    invoke-direct {p2}, Lcom/koushikdutta/async/callback/DataCallback$NullDataCallback;-><init>()V
 
-    invoke-interface {p1, v0}, Lcom/koushikdutta/async/http/WebSocket;->setDataCallback(Lcom/koushikdutta/async/callback/DataCallback;)V
+    invoke-interface {p1, p2}, Lcom/koushikdutta/async/http/WebSocket;->setDataCallback(Lcom/koushikdutta/async/callback/DataCallback;)V
 
-    .line 17
     return-void
 .end method
 
@@ -50,7 +47,6 @@
 
     invoke-interface {v0}, Lcom/koushikdutta/async/http/WebSocket;->close()V
 
-    .line 32
     return-void
 .end method
 
@@ -79,7 +75,6 @@
 .method public heartbeats()Z
     .locals 1
 
-    .line 65
     const/4 v0, 0x1
 
     return v0
@@ -100,43 +95,36 @@
 
 .method public send(Ljava/lang/String;)V
     .locals 1
-    .param p1, "message"    # Ljava/lang/String;
 
     .line 41
     iget-object v0, p0, Lcom/koushikdutta/async/http/socketio/transport/WebSocketTransport;->webSocket:Lcom/koushikdutta/async/http/WebSocket;
 
     invoke-interface {v0, p1}, Lcom/koushikdutta/async/http/WebSocket;->send(Ljava/lang/String;)V
 
-    .line 42
     return-void
 .end method
 
 .method public setClosedCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
     .locals 1
-    .param p1, "handler"    # Lcom/koushikdutta/async/callback/CompletedCallback;
 
     .line 26
     iget-object v0, p0, Lcom/koushikdutta/async/http/socketio/transport/WebSocketTransport;->webSocket:Lcom/koushikdutta/async/http/WebSocket;
 
     invoke-interface {v0, p1}, Lcom/koushikdutta/async/http/WebSocket;->setClosedCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
 
-    .line 27
     return-void
 .end method
 
 .method public setStringCallback(Lcom/koushikdutta/async/http/socketio/transport/SocketIOTransport$StringCallback;)V
     .locals 2
-    .param p1, "callback"    # Lcom/koushikdutta/async/http/socketio/transport/SocketIOTransport$StringCallback;
 
     .line 46
     iget-object v0, p0, Lcom/koushikdutta/async/http/socketio/transport/WebSocketTransport;->stringCallback:Lcom/koushikdutta/async/http/socketio/transport/SocketIOTransport$StringCallback;
 
     if-ne v0, p1, :cond_0
 
-    .line 47
     return-void
 
-    .line 49
     :cond_0
     if-nez p1, :cond_1
 
@@ -163,6 +151,5 @@
     :goto_0
     iput-object p1, p0, Lcom/koushikdutta/async/http/socketio/transport/WebSocketTransport;->stringCallback:Lcom/koushikdutta/async/http/socketio/transport/SocketIOTransport$StringCallback;
 
-    .line 61
     return-void
 .end method

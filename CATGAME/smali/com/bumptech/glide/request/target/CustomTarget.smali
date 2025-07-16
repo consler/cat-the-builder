@@ -31,23 +31,18 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 54
-    .local p0, "this":Lcom/bumptech/glide/request/target/CustomTarget;, "Lcom/bumptech/glide/request/target/CustomTarget<TT;>;"
     const/high16 v0, -0x80000000
 
+    .line 54
     invoke-direct {p0, v0, v0}, Lcom/bumptech/glide/request/target/CustomTarget;-><init>(II)V
 
-    .line 55
     return-void
 .end method
 
 .method public constructor <init>(II)V
     .locals 3
-    .param p1, "width"    # I
-    .param p2, "height"    # I
 
     .line 66
-    .local p0, "this":Lcom/bumptech/glide/request/target/CustomTarget;, "Lcom/bumptech/glide/request/target/CustomTarget<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 67
@@ -63,7 +58,6 @@
     .line 77
     iput p2, p0, Lcom/bumptech/glide/request/target/CustomTarget;->height:I
 
-    .line 78
     return-void
 
     .line 68
@@ -72,25 +66,29 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Width and height must both be > 0 or Target#SIZE_ORIGINAL, but given width: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v2, " and height: "
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " and height: "
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
@@ -101,7 +99,6 @@
     .locals 1
 
     .line 123
-    .local p0, "this":Lcom/bumptech/glide/request/target/CustomTarget;, "Lcom/bumptech/glide/request/target/CustomTarget<TT;>;"
     iget-object v0, p0, Lcom/bumptech/glide/request/target/CustomTarget;->request:Lcom/bumptech/glide/request/Request;
 
     return-object v0
@@ -109,79 +106,58 @@
 
 .method public final getSize(Lcom/bumptech/glide/request/target/SizeReadyCallback;)V
     .locals 2
-    .param p1, "cb"    # Lcom/bumptech/glide/request/target/SizeReadyCallback;
 
     .line 107
-    .local p0, "this":Lcom/bumptech/glide/request/target/CustomTarget;, "Lcom/bumptech/glide/request/target/CustomTarget<TT;>;"
     iget v0, p0, Lcom/bumptech/glide/request/target/CustomTarget;->width:I
 
     iget v1, p0, Lcom/bumptech/glide/request/target/CustomTarget;->height:I
 
     invoke-interface {p1, v0, v1}, Lcom/bumptech/glide/request/target/SizeReadyCallback;->onSizeReady(II)V
 
-    .line 108
     return-void
 .end method
 
 .method public onDestroy()V
     .locals 0
 
-    .line 93
-    .local p0, "this":Lcom/bumptech/glide/request/target/CustomTarget;, "Lcom/bumptech/glide/request/target/CustomTarget<TT;>;"
     return-void
 .end method
 
 .method public onLoadFailed(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .param p1, "errorDrawable"    # Landroid/graphics/drawable/Drawable;
 
-    .line 103
-    .local p0, "this":Lcom/bumptech/glide/request/target/CustomTarget;, "Lcom/bumptech/glide/request/target/CustomTarget<TT;>;"
     return-void
 .end method
 
 .method public onLoadStarted(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .param p1, "placeholder"    # Landroid/graphics/drawable/Drawable;
 
-    .line 98
-    .local p0, "this":Lcom/bumptech/glide/request/target/CustomTarget;, "Lcom/bumptech/glide/request/target/CustomTarget<TT;>;"
     return-void
 .end method
 
 .method public onStart()V
     .locals 0
 
-    .line 83
-    .local p0, "this":Lcom/bumptech/glide/request/target/CustomTarget;, "Lcom/bumptech/glide/request/target/CustomTarget<TT;>;"
     return-void
 .end method
 
 .method public onStop()V
     .locals 0
 
-    .line 88
-    .local p0, "this":Lcom/bumptech/glide/request/target/CustomTarget;, "Lcom/bumptech/glide/request/target/CustomTarget<TT;>;"
     return-void
 .end method
 
 .method public final removeCallback(Lcom/bumptech/glide/request/target/SizeReadyCallback;)V
     .locals 0
-    .param p1, "cb"    # Lcom/bumptech/glide/request/target/SizeReadyCallback;
 
-    .line 113
-    .local p0, "this":Lcom/bumptech/glide/request/target/CustomTarget;, "Lcom/bumptech/glide/request/target/CustomTarget<TT;>;"
     return-void
 .end method
 
 .method public final setRequest(Lcom/bumptech/glide/request/Request;)V
     .locals 0
-    .param p1, "request"    # Lcom/bumptech/glide/request/Request;
 
     .line 117
-    .local p0, "this":Lcom/bumptech/glide/request/target/CustomTarget;, "Lcom/bumptech/glide/request/target/CustomTarget<TT;>;"
     iput-object p1, p0, Lcom/bumptech/glide/request/target/CustomTarget;->request:Lcom/bumptech/glide/request/Request;
 
-    .line 118
     return-void
 .end method

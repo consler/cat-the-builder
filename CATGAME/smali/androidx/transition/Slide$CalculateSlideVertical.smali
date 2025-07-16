@@ -29,7 +29,6 @@
 
 .method synthetic constructor <init>(Landroidx/transition/Slide$1;)V
     .locals 0
-    .param p1, "x0"    # Landroidx/transition/Slide$1;
 
     .line 85
     invoke-direct {p0}, Landroidx/transition/Slide$CalculateSlideVertical;-><init>()V
@@ -40,14 +39,12 @@
 
 # virtual methods
 .method public getGoneX(Landroid/view/ViewGroup;Landroid/view/View;)F
-    .locals 1
-    .param p1, "sceneRoot"    # Landroid/view/ViewGroup;
-    .param p2, "view"    # Landroid/view/View;
+    .locals 0
 
     .line 89
     invoke-virtual {p2}, Landroid/view/View;->getTranslationX()F
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

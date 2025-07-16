@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/SurfaceRequest;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/core/SurfaceRequest;
 
     .line 159
     iput-object p1, p0, Landroidx/camera/core/SurfaceRequest$2;->this$0:Landroidx/camera/core/SurfaceRequest;

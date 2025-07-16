@@ -13,7 +13,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 15
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -24,7 +24,7 @@
 .method public getCode()I
     .locals 1
 
-    .line 28
+    .line 1
     iget v0, p0, Lcom/huawei/hms/activity/internal/BusResponseResult;->b:I
 
     return v0
@@ -33,7 +33,7 @@
 .method public getIntent()Landroid/content/Intent;
     .locals 1
 
-    .line 20
+    .line 1
     iget-object v0, p0, Lcom/huawei/hms/activity/internal/BusResponseResult;->a:Landroid/content/Intent;
 
     return-object v0
@@ -42,19 +42,17 @@
 .method public setCode(I)V
     .locals 0
 
-    .line 32
+    .line 1
     iput p1, p0, Lcom/huawei/hms/activity/internal/BusResponseResult;->b:I
 
-    .line 33
     return-void
 .end method
 
 .method public setIntent(Landroid/content/Intent;)V
     .locals 0
 
-    .line 24
+    .line 1
     iput-object p1, p0, Lcom/huawei/hms/activity/internal/BusResponseResult;->a:Landroid/content/Intent;
 
-    .line 25
     return-void
 .end method

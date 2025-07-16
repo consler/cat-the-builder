@@ -19,7 +19,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 16
+    .line 1
     invoke-direct {p0}, Lcom/huawei/hms/support/api/client/PendingResult;-><init>()V
 
     return-void

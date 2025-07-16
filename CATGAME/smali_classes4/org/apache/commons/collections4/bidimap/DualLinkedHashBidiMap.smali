@@ -30,7 +30,6 @@
     .locals 2
 
     .line 49
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualLinkedHashBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualLinkedHashBidiMap<TK;TV;>;"
     new-instance v0, Ljava/util/LinkedHashMap;
 
     invoke-direct {v0}, Ljava/util/LinkedHashMap;-><init>()V
@@ -41,7 +40,6 @@
 
     invoke-direct {p0, v0, v1}, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap;-><init>(Ljava/util/Map;Ljava/util/Map;)V
 
-    .line 50
     return-void
 .end method
 
@@ -56,8 +54,6 @@
     .end annotation
 
     .line 59
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualLinkedHashBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualLinkedHashBidiMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     new-instance v0, Ljava/util/LinkedHashMap;
 
     invoke-direct {v0}, Ljava/util/LinkedHashMap;-><init>()V
@@ -71,7 +67,6 @@
     .line 60
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/bidimap/DualLinkedHashBidiMap;->putAll(Ljava/util/Map;)V
 
-    .line 61
     return-void
 .end method
 
@@ -90,19 +85,13 @@
     .end annotation
 
     .line 72
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualLinkedHashBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualLinkedHashBidiMap<TK;TV;>;"
-    .local p1, "normalMap":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    .local p2, "reverseMap":Ljava/util/Map;, "Ljava/util/Map<TV;TK;>;"
-    .local p3, "inverseBidiMap":Lorg/apache/commons/collections4/BidiMap;, "Lorg/apache/commons/collections4/BidiMap<TV;TK;>;"
     invoke-direct {p0, p1, p2, p3}, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap;-><init>(Ljava/util/Map;Ljava/util/Map;Lorg/apache/commons/collections4/BidiMap;)V
 
-    .line 73
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 1
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -111,7 +100,6 @@
     .end annotation
 
     .line 97
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualLinkedHashBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualLinkedHashBidiMap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
     .line 98
@@ -131,21 +119,18 @@
     .line 101
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Map;
+    check-cast p1, Ljava/util/Map;
 
     .line 102
-    .local v0, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    invoke-virtual {p0, v0}, Lorg/apache/commons/collections4/bidimap/DualLinkedHashBidiMap;->putAll(Ljava/util/Map;)V
+    invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/bidimap/DualLinkedHashBidiMap;->putAll(Ljava/util/Map;)V
 
-    .line 103
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -153,7 +138,6 @@
     .end annotation
 
     .line 92
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualLinkedHashBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualLinkedHashBidiMap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
     .line 93
@@ -161,7 +145,6 @@
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    .line 94
     return-void
 .end method
 
@@ -184,10 +167,6 @@
     .end annotation
 
     .line 86
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/DualLinkedHashBidiMap;, "Lorg/apache/commons/collections4/bidimap/DualLinkedHashBidiMap<TK;TV;>;"
-    .local p1, "normalMap":Ljava/util/Map;, "Ljava/util/Map<TV;TK;>;"
-    .local p2, "reverseMap":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    .local p3, "inverseBidiMap":Lorg/apache/commons/collections4/BidiMap;, "Lorg/apache/commons/collections4/BidiMap<TK;TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/bidimap/DualLinkedHashBidiMap;
 
     invoke-direct {v0, p1, p2, p3}, Lorg/apache/commons/collections4/bidimap/DualLinkedHashBidiMap;-><init>(Ljava/util/Map;Ljava/util/Map;Lorg/apache/commons/collections4/BidiMap;)V

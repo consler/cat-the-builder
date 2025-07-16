@@ -16,8 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;)V
-    .locals 1
-    .param p1, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
+    .locals 0
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,11 +27,10 @@
     .line 30
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->getAttributeCount()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/thoughtworks/xstream/io/AttributeNameIterator;->count:I
+    iput p1, p0, Lcom/thoughtworks/xstream/io/AttributeNameIterator;->count:I
 
-    .line 31
     return-void
 .end method
 

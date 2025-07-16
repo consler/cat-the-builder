@@ -14,9 +14,7 @@
 # direct methods
 .method public constructor <init>(Ljava/io/Writer;)V
     .locals 6
-    .param p1, "writer"    # Ljava/io/Writer;
 
-    .line 39
     const/16 v2, 0x2c
 
     const/16 v3, 0x22
@@ -29,19 +27,14 @@
 
     move-object v1, p1
 
+    .line 39
     invoke-direct/range {v0 .. v5}, Lcom/opencsv/CSVWriter;-><init>(Ljava/io/Writer;CCCLjava/lang/String;)V
 
-    .line 40
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/Writer;CCCLjava/lang/String;)V
     .locals 0
-    .param p1, "writer"    # Ljava/io/Writer;
-    .param p2, "separator"    # C
-    .param p3, "quotechar"    # C
-    .param p4, "escapechar"    # C
-    .param p5, "lineEnd"    # Ljava/lang/String;
 
     .line 52
     invoke-direct {p0, p1, p5}, Lcom/opencsv/AbstractCSVWriter;-><init>(Ljava/io/Writer;Ljava/lang/String;)V
@@ -55,39 +48,34 @@
     .line 55
     iput-char p2, p0, Lcom/opencsv/CSVWriter;->separator:C
 
-    .line 56
     return-void
 .end method
 
 .method private appendQuoteCharacterIfNeeded(ZLjava/lang/Appendable;Ljava/lang/Boolean;)V
-    .locals 1
-    .param p1, "applyQuotesToAll"    # Z
-    .param p2, "appendable"    # Ljava/lang/Appendable;
-    .param p3, "stringContainsSpecialCharacters"    # Ljava/lang/Boolean;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 95
     if-nez p1, :cond_0
 
+    .line 95
     invoke-virtual {p3}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     :cond_0
-    iget-char v0, p0, Lcom/opencsv/CSVWriter;->quotechar:C
+    iget-char p1, p0, Lcom/opencsv/CSVWriter;->quotechar:C
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 96
-    invoke-interface {p2, v0}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
+    invoke-interface {p2, p1}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
 
-    .line 98
     :cond_1
     return-void
 .end method
@@ -96,7 +84,6 @@
 # virtual methods
 .method protected checkCharactersToEscape(C)Z
     .locals 3
-    .param p1, "nextChar"    # C
 
     .line 148
     iget-char v0, p0, Lcom/opencsv/CSVWriter;->quotechar:C
@@ -140,8 +127,6 @@
 
 .method protected processCharacter(Ljava/lang/Appendable;C)V
     .locals 1
-    .param p1, "appendable"    # Ljava/lang/Appendable;
-    .param p2, "nextChar"    # C
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -168,24 +153,20 @@
     :cond_0
     invoke-interface {p1, p2}, Ljava/lang/Appendable;->append(C)Ljava/lang/Appendable;
 
-    .line 137
     return-void
 .end method
 
 .method protected processLine(Ljava/lang/String;Ljava/lang/Appendable;)V
     .locals 2
-    .param p1, "nextElement"    # Ljava/lang/String;
-    .param p2, "appendable"    # Ljava/lang/Appendable;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 120
     const/4 v0, 0x0
 
-    .local v0, "j":I
+    .line 120
     :goto_0
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -199,24 +180,18 @@
     move-result v1
 
     .line 122
-    .local v1, "nextChar":C
     invoke-virtual {p0, p2, v1}, Lcom/opencsv/CSVWriter;->processCharacter(Ljava/lang/Appendable;C)V
 
-    .line 120
-    .end local v1    # "nextChar":C
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 124
-    .end local v0    # "j":I
     :cond_0
     return-void
 .end method
 
 .method protected stringContainsSpecialCharacters(Ljava/lang/String;)Z
     .locals 2
-    .param p1, "line"    # Ljava/lang/String;
 
     .line 106
     iget-char v0, p0, Lcom/opencsv/CSVWriter;->quotechar:C
@@ -247,68 +222,60 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 109
     const-string v0, "\n"
 
+    .line 109
     invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    .line 110
     const-string v0, "\r"
 
+    .line 110
     invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    .line 106
     :goto_1
-    return v0
+    return p1
 .end method
 
 .method protected writeNext([Ljava/lang/String;ZLjava/lang/Appendable;)V
     .locals 4
-    .param p1, "nextLine"    # [Ljava/lang/String;
-    .param p2, "applyQuotesToAll"    # Z
-    .param p3, "appendable"    # Ljava/lang/Appendable;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 61
     if-nez p1, :cond_0
 
-    .line 62
     return-void
 
-    .line 65
     :cond_0
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 65
     :goto_0
     array-length v1, p1
 
     if-ge v0, v1, :cond_4
 
-    .line 67
     if-eqz v0, :cond_1
 
     .line 68
@@ -320,11 +287,8 @@
     :cond_1
     aget-object v1, p1, v0
 
-    .line 73
-    .local v1, "nextElement":Ljava/lang/String;
     if-nez v1, :cond_2
 
-    .line 74
     goto :goto_2
 
     .line 77
@@ -338,7 +302,6 @@
     move-result-object v2
 
     .line 79
-    .local v2, "stringContainsSpecialCharacters":Ljava/lang/Boolean;
     invoke-direct {p0, p2, p3, v2}, Lcom/opencsv/CSVWriter;->appendQuoteCharacterIfNeeded(ZLjava/lang/Appendable;Ljava/lang/Boolean;)V
 
     .line 81
@@ -361,30 +324,25 @@
     :goto_1
     invoke-direct {p0, p2, p3, v2}, Lcom/opencsv/CSVWriter;->appendQuoteCharacterIfNeeded(ZLjava/lang/Appendable;Ljava/lang/Boolean;)V
 
-    .line 65
-    .end local v1    # "nextElement":Ljava/lang/String;
-    .end local v2    # "stringContainsSpecialCharacters":Ljava/lang/Boolean;
     :goto_2
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 90
-    .end local v0    # "i":I
     :cond_4
-    iget-object v0, p0, Lcom/opencsv/CSVWriter;->lineEnd:Ljava/lang/String;
+    iget-object p1, p0, Lcom/opencsv/CSVWriter;->lineEnd:Ljava/lang/String;
 
-    invoke-interface {p3, v0}, Ljava/lang/Appendable;->append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
+    invoke-interface {p3, p1}, Ljava/lang/Appendable;->append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
 
     .line 91
-    iget-object v0, p0, Lcom/opencsv/CSVWriter;->writer:Ljava/io/Writer;
+    iget-object p1, p0, Lcom/opencsv/CSVWriter;->writer:Ljava/io/Writer;
 
     invoke-virtual {p3}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v0, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    .line 92
     return-void
 .end method

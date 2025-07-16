@@ -36,7 +36,6 @@
     .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 15
     return-void
 .end method
 
@@ -59,83 +58,70 @@
 .end method
 
 .method public static shutdownAndAwaitTermination(Ljava/util/concurrent/ExecutorService;)V
-    .locals 4
-    .param p0, "pool"    # Ljava/util/concurrent/ExecutorService;
-
-    .line 46
-    const-wide/16 v0, 0x5
+    .locals 3
 
     .line 47
-    .local v0, "shutdownSeconds":J
     invoke-interface {p0}, Ljava/util/concurrent/ExecutorService;->shutdownNow()Ljava/util/List;
 
     .line 49
     :try_start_0
-    sget-object v2, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
+    sget-object v0, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-interface {p0, v0, v1, v2}, Ljava/util/concurrent/ExecutorService;->awaitTermination(JLjava/util/concurrent/TimeUnit;)Z
+    const-wide/16 v1, 0x5
 
-    move-result v2
+    invoke-interface {p0, v1, v2, v0}, Ljava/util/concurrent/ExecutorService;->awaitTermination(JLjava/util/concurrent/TimeUnit;)Z
 
-    if-nez v2, :cond_1
+    move-result v0
+
+    if-nez v0, :cond_1
 
     .line 50
     invoke-interface {p0}, Ljava/util/concurrent/ExecutorService;->shutdownNow()Ljava/util/List;
 
     .line 51
-    sget-object v2, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
+    sget-object v0, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-interface {p0, v0, v1, v2}, Ljava/util/concurrent/ExecutorService;->awaitTermination(JLjava/util/concurrent/TimeUnit;)Z
+    invoke-interface {p0, v1, v2, v0}, Ljava/util/concurrent/ExecutorService;->awaitTermination(JLjava/util/concurrent/TimeUnit;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
     goto :goto_0
 
     .line 52
     :cond_0
-    new-instance v2, Ljava/lang/RuntimeException;
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    const-string v3, "Failed to shutdown"
+    const-string v1, "Failed to shutdown"
 
-    invoke-direct {v2, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    .end local v0    # "shutdownSeconds":J
-    .end local p0    # "pool":Ljava/util/concurrent/ExecutorService;
-    throw v2
+    throw v0
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 59
-    .restart local v0    # "shutdownSeconds":J
-    .restart local p0    # "pool":Ljava/util/concurrent/ExecutorService;
     :cond_1
     :goto_0
-    nop
-
-    .line 60
     return-void
 
-    .line 55
     :catch_0
-    move-exception v2
+    move-exception v0
 
     .line 56
-    .local v2, "ie":Ljava/lang/InterruptedException;
     invoke-interface {p0}, Ljava/util/concurrent/ExecutorService;->shutdownNow()Ljava/util/List;
 
     .line 57
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-virtual {v3}, Ljava/lang/Thread;->interrupt()V
+    invoke-virtual {p0}, Ljava/lang/Thread;->interrupt()V
 
     .line 58
-    new-instance v3, Ljava/lang/RuntimeException;
+    new-instance p0, Ljava/lang/RuntimeException;
 
-    invoke-direct {v3, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p0, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v3
+    throw p0
 .end method

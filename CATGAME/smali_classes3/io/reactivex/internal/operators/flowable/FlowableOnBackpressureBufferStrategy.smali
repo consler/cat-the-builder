@@ -32,9 +32,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/Flowable;JLio/reactivex/functions/Action;Lio/reactivex/BackpressureOverflowStrategy;)V
     .locals 0
-    .param p2, "bufferSize"    # J
-    .param p4, "onOverflow"    # Lio/reactivex/functions/Action;
-    .param p5, "strategy"    # Lio/reactivex/BackpressureOverflowStrategy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -47,8 +44,6 @@
     .end annotation
 
     .line 43
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBufferStrategy;, "Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBufferStrategy<TT;>;"
-    .local p1, "source":Lio/reactivex/Flowable;, "Lio/reactivex/Flowable<TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
     .line 44
@@ -60,7 +55,6 @@
     .line 46
     iput-object p5, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBufferStrategy;->strategy:Lio/reactivex/BackpressureOverflowStrategy;
 
-    .line 47
     return-void
 .end method
 
@@ -77,8 +71,6 @@
     .end annotation
 
     .line 51
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBufferStrategy;, "Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBufferStrategy<TT;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBufferStrategy;->source:Lio/reactivex/Flowable;
 
     new-instance v7, Lio/reactivex/internal/operators/flowable/FlowableOnBackpressureBufferStrategy$OnBackpressureBufferStrategySubscriber;
@@ -97,6 +89,5 @@
 
     invoke-virtual {v0, v7}, Lio/reactivex/Flowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 52
     return-void
 .end method

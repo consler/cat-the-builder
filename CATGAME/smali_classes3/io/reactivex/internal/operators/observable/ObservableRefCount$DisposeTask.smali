@@ -26,10 +26,8 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/operators/observable/ObservableRefCount;Lio/reactivex/disposables/CompositeDisposable;)V
     .locals 0
-    .param p2, "current"    # Lio/reactivex/disposables/CompositeDisposable;
 
     .line 205
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRefCount$DisposeTask;, "Lio/reactivex/internal/operators/observable/ObservableRefCount<TT;>.DisposeTask;"
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableRefCount$DisposeTask;->this$0:Lio/reactivex/internal/operators/observable/ObservableRefCount;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +35,6 @@
     .line 206
     iput-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableRefCount$DisposeTask;->current:Lio/reactivex/disposables/CompositeDisposable;
 
-    .line 207
     return-void
 .end method
 
@@ -47,7 +44,6 @@
     .locals 2
 
     .line 211
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableRefCount$DisposeTask;, "Lio/reactivex/internal/operators/observable/ObservableRefCount<TT;>.DisposeTask;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableRefCount$DisposeTask;->this$0:Lio/reactivex/internal/operators/observable/ObservableRefCount;
 
     iget-object v0, v0, Lio/reactivex/internal/operators/observable/ObservableRefCount;->lock:Ljava/util/concurrent/locks/ReentrantLock;
@@ -120,13 +116,8 @@
 
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 227
-    nop
-
-    .line 228
     return-void
 
-    .line 226
     :catchall_0
     move-exception v0
 

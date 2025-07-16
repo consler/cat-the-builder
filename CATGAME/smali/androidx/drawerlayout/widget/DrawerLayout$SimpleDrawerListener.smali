@@ -31,33 +31,24 @@
 # virtual methods
 .method public onDrawerClosed(Landroid/view/View;)V
     .locals 0
-    .param p1, "drawerView"    # Landroid/view/View;
 
-    .line 298
     return-void
 .end method
 
 .method public onDrawerOpened(Landroid/view/View;)V
     .locals 0
-    .param p1, "drawerView"    # Landroid/view/View;
 
-    .line 294
     return-void
 .end method
 
 .method public onDrawerSlide(Landroid/view/View;F)V
     .locals 0
-    .param p1, "drawerView"    # Landroid/view/View;
-    .param p2, "slideOffset"    # F
 
-    .line 290
     return-void
 .end method
 
 .method public onDrawerStateChanged(I)V
     .locals 0
-    .param p1, "newState"    # I
 
-    .line 302
     return-void
 .end method

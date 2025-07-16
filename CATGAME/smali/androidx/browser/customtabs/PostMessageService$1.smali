@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/browser/customtabs/PostMessageService;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/browser/customtabs/PostMessageService;
 
     .line 34
     iput-object p1, p0, Landroidx/browser/customtabs/PostMessageService$1;->this$0:Landroidx/browser/customtabs/PostMessageService;
@@ -35,8 +34,6 @@
 # virtual methods
 .method public onMessageChannelReady(Landroid/support/customtabs/ICustomTabsCallback;Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
-    .param p2, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -46,15 +43,11 @@
     .line 40
     invoke-interface {p1, p2}, Landroid/support/customtabs/ICustomTabsCallback;->onMessageChannelReady(Landroid/os/Bundle;)V
 
-    .line 41
     return-void
 .end method
 
 .method public onPostMessage(Landroid/support/customtabs/ICustomTabsCallback;Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "callback"    # Landroid/support/customtabs/ICustomTabsCallback;
-    .param p2, "message"    # Ljava/lang/String;
-    .param p3, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -64,6 +57,5 @@
     .line 47
     invoke-interface {p1, p2, p3}, Landroid/support/customtabs/ICustomTabsCallback;->onPostMessage(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 48
     return-void
 .end method

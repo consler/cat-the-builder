@@ -18,11 +18,11 @@
 
 
 # static fields
-.field private static sChannel:I
+.field private static sChannel:I = -0x1
 
-.field private static sId:I
+.field private static sId:I = -0x1
 
-.field private static sType:I
+.field private static sType:I = -0x1
 
 
 # instance fields
@@ -33,26 +33,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
-
-    .line 81
-    const/4 v0, -0x1
-
-    sput v0, Lcom/pdrogfer/mididroid/event/MidiEvent;->sId:I
-
-    .line 82
-    sput v0, Lcom/pdrogfer/mididroid/event/MidiEvent;->sType:I
-
-    .line 83
-    sput v0, Lcom/pdrogfer/mididroid/event/MidiEvent;->sChannel:I
+    .locals 0
 
     return-void
 .end method
 
 .method public constructor <init>(JJ)V
-    .locals 2
-    .param p1, "tick"    # J
-    .param p3, "delta"    # J
+    .locals 0
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,210 +48,178 @@
     iput-wide p1, p0, Lcom/pdrogfer/mididroid/event/MidiEvent;->mTick:J
 
     .line 34
-    new-instance v0, Lcom/pdrogfer/mididroid/util/VariableLengthInt;
+    new-instance p1, Lcom/pdrogfer/mididroid/util/VariableLengthInt;
 
-    long-to-int v1, p3
+    long-to-int p2, p3
 
-    invoke-direct {v0, v1}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;-><init>(I)V
+    invoke-direct {p1, p2}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;-><init>(I)V
 
-    iput-object v0, p0, Lcom/pdrogfer/mididroid/event/MidiEvent;->mDelta:Lcom/pdrogfer/mididroid/util/VariableLengthInt;
+    iput-object p1, p0, Lcom/pdrogfer/mididroid/event/MidiEvent;->mDelta:Lcom/pdrogfer/mididroid/util/VariableLengthInt;
 
-    .line 35
     return-void
 .end method
 
 .method public static final parseEvent(JJLjava/io/InputStream;)Lcom/pdrogfer/mididroid/event/MidiEvent;
-    .locals 17
-    .param p0, "tick"    # J
-    .param p2, "delta"    # J
-    .param p4, "in"    # Ljava/io/InputStream;
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 87
-    move-object/from16 v7, p4
-
     const/4 v0, 0x1
 
-    invoke-virtual {v7, v0}, Ljava/io/InputStream;->mark(I)V
-
-    .line 88
-    const/4 v0, 0x0
+    .line 87
+    invoke-virtual {p4, v0}, Ljava/io/InputStream;->mark(I)V
 
     .line 90
-    .local v0, "reset":Z
-    invoke-virtual/range {p4 .. p4}, Ljava/io/InputStream;->read()I
+    invoke-virtual {p4}, Ljava/io/InputStream;->read()I
 
-    move-result v8
+    move-result v1
 
     .line 91
-    .local v8, "id":I
-    invoke-static {v8}, Lcom/pdrogfer/mididroid/event/MidiEvent;->verifyIdentifier(I)Z
+    invoke-static {v1}, Lcom/pdrogfer/mididroid/event/MidiEvent;->verifyIdentifier(I)Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
     .line 93
-    invoke-virtual/range {p4 .. p4}, Ljava/io/InputStream;->reset()V
-
-    .line 94
-    const/4 v0, 0x1
-
-    move v9, v0
+    invoke-virtual {p4}, Ljava/io/InputStream;->reset()V
 
     goto :goto_0
 
-    .line 91
     :cond_0
-    move v9, v0
+    const/4 v0, 0x0
 
     .line 97
-    .end local v0    # "reset":Z
-    .local v9, "reset":Z
     :goto_0
-    sget v4, Lcom/pdrogfer/mididroid/event/MidiEvent;->sType:I
+    sget v5, Lcom/pdrogfer/mididroid/event/MidiEvent;->sType:I
 
-    const/16 v0, 0x8
+    const/16 v1, 0x8
 
-    if-lt v4, v0, :cond_1
+    if-lt v5, v1, :cond_1
 
-    const/16 v0, 0xe
+    const/16 v1, 0xe
 
-    if-gt v4, v0, :cond_1
+    if-gt v5, v1, :cond_1
 
     .line 99
-    sget v5, Lcom/pdrogfer/mididroid/event/MidiEvent;->sChannel:I
+    sget v6, Lcom/pdrogfer/mididroid/event/MidiEvent;->sChannel:I
 
-    move-wide/from16 v0, p0
+    move-wide v1, p0
 
-    move-wide/from16 v2, p2
+    move-wide v3, p2
 
-    move-object/from16 v6, p4
+    move-object v7, p4
 
-    invoke-static/range {v0 .. v6}, Lcom/pdrogfer/mididroid/event/ChannelEvent;->parseChannelEvent(JJIILjava/io/InputStream;)Lcom/pdrogfer/mididroid/event/ChannelEvent;
+    invoke-static/range {v1 .. v7}, Lcom/pdrogfer/mididroid/event/ChannelEvent;->parseChannelEvent(JJIILjava/io/InputStream;)Lcom/pdrogfer/mididroid/event/ChannelEvent;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 101
     :cond_1
-    sget v0, Lcom/pdrogfer/mididroid/event/MidiEvent;->sId:I
+    sget v1, Lcom/pdrogfer/mididroid/event/MidiEvent;->sId:I
 
-    const/16 v1, 0xff
+    const/16 v2, 0xff
 
-    if-ne v0, v1, :cond_2
+    if-ne v1, v2, :cond_2
 
     .line 103
-    invoke-static/range {p0 .. p4}, Lcom/pdrogfer/mididroid/event/meta/MetaEvent;->parseMetaEvent(JJLjava/io/InputStream;)Lcom/pdrogfer/mididroid/event/meta/MetaEvent;
+    invoke-static {p0, p1, p2, p3, p4}, Lcom/pdrogfer/mididroid/event/meta/MetaEvent;->parseMetaEvent(JJLjava/io/InputStream;)Lcom/pdrogfer/mididroid/event/meta/MetaEvent;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
-    .line 105
     :cond_2
-    const/16 v1, 0xf0
+    const/16 v2, 0xf0
 
-    if-eq v0, v1, :cond_5
+    if-eq v1, v2, :cond_5
 
-    const/16 v1, 0xf7
+    const/16 v2, 0xf7
 
-    if-ne v0, v1, :cond_3
+    if-ne v1, v2, :cond_3
 
     goto :goto_1
 
     .line 114
     :cond_3
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object p0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string p2, "Unable to handle status byte, skipping: "
 
-    const-string v2, "Unable to handle status byte, skipping: "
+    invoke-direct {p1, p2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget p2, Lcom/pdrogfer/mididroid/event/MidiEvent;->sId:I
 
-    sget v2, Lcom/pdrogfer/mididroid/event/MidiEvent;->sId:I
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 115
-    if-eqz v9, :cond_4
+    if-eqz v0, :cond_4
 
     .line 117
-    invoke-virtual/range {p4 .. p4}, Ljava/io/InputStream;->read()I
+    invoke-virtual {p4}, Ljava/io/InputStream;->read()I
 
-    .line 121
     :cond_4
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
     .line 107
     :cond_5
     :goto_1
     new-instance v0, Lcom/pdrogfer/mididroid/util/VariableLengthInt;
 
-    invoke-direct {v0, v7}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;-><init>(Ljava/io/InputStream;)V
+    invoke-direct {v0, p4}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;-><init>(Ljava/io/InputStream;)V
 
     .line 108
-    .local v0, "size":Lcom/pdrogfer/mididroid/util/VariableLengthInt;
     invoke-virtual {v0}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;->getValue()I
 
-    move-result v1
+    move-result v0
 
-    new-array v1, v1, [B
+    new-array v7, v0, [B
 
     .line 109
-    .local v1, "data":[B
-    invoke-virtual {v7, v1}, Ljava/io/InputStream;->read([B)I
+    invoke-virtual {p4, v7}, Ljava/io/InputStream;->read([B)I
 
     .line 110
-    new-instance v2, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;
+    new-instance p4, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;
 
-    sget v11, Lcom/pdrogfer/mididroid/event/MidiEvent;->sId:I
+    sget v2, Lcom/pdrogfer/mididroid/event/MidiEvent;->sId:I
 
-    move-object v10, v2
+    move-object v1, p4
 
-    move-wide/from16 v12, p0
+    move-wide v3, p0
 
-    move-wide/from16 v14, p2
+    move-wide v5, p2
 
-    move-object/from16 v16, v1
+    invoke-direct/range {v1 .. v7}, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;-><init>(IJJ[B)V
 
-    invoke-direct/range {v10 .. v16}, Lcom/pdrogfer/mididroid/event/SystemExclusiveEvent;-><init>(IJJ[B)V
-
-    return-object v2
+    return-object p4
 .end method
 
 .method private static verifyIdentifier(I)Z
-    .locals 4
-    .param p0, "id"    # I
+    .locals 3
 
     .line 126
     sput p0, Lcom/pdrogfer/mididroid/event/MidiEvent;->sId:I
 
-    .line 128
     shr-int/lit8 v0, p0, 0x4
 
-    .line 129
-    .local v0, "type":I
     and-int/lit8 v1, p0, 0xf
 
-    .line 131
-    .local v1, "channel":I
     const/16 v2, 0x8
 
     if-lt v0, v2, :cond_0
@@ -284,30 +239,28 @@
 
     goto :goto_0
 
-    .line 137
     :cond_0
-    const/16 v2, 0xff
+    const/16 v1, 0xff
 
-    const/4 v3, -0x1
+    const/4 v2, -0x1
 
-    if-ne p0, v2, :cond_1
+    if-ne p0, v1, :cond_1
 
     .line 139
     sput p0, Lcom/pdrogfer/mididroid/event/MidiEvent;->sId:I
 
     .line 140
-    sput v3, Lcom/pdrogfer/mididroid/event/MidiEvent;->sType:I
+    sput v2, Lcom/pdrogfer/mididroid/event/MidiEvent;->sType:I
 
     .line 141
-    sput v3, Lcom/pdrogfer/mididroid/event/MidiEvent;->sChannel:I
+    sput v2, Lcom/pdrogfer/mididroid/event/MidiEvent;->sChannel:I
 
     goto :goto_0
 
-    .line 143
     :cond_1
-    const/16 v2, 0xf
+    const/16 v1, 0xf
 
-    if-ne v0, v2, :cond_2
+    if-ne v0, v1, :cond_2
 
     .line 145
     sput p0, Lcom/pdrogfer/mididroid/event/MidiEvent;->sId:I
@@ -316,19 +269,17 @@
     sput v0, Lcom/pdrogfer/mididroid/event/MidiEvent;->sType:I
 
     .line 147
-    sput v3, Lcom/pdrogfer/mididroid/event/MidiEvent;->sChannel:I
+    sput v2, Lcom/pdrogfer/mididroid/event/MidiEvent;->sChannel:I
 
-    .line 153
     :goto_0
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
-    return v2
+    return p0
 
-    .line 151
     :cond_2
-    const/4 v2, 0x0
+    const/4 p0, 0x0
 
-    return v2
+    return p0
 .end method
 
 
@@ -380,15 +331,12 @@
 .end method
 
 .method public requiresStatusByte(Lcom/pdrogfer/mididroid/event/MidiEvent;)Z
-    .locals 3
-    .param p1, "prevEvent"    # Lcom/pdrogfer/mididroid/event/MidiEvent;
+    .locals 2
 
-    .line 61
     const/4 v0, 0x1
 
     if-nez p1, :cond_0
 
-    .line 63
     return v0
 
     .line 65
@@ -397,7 +345,6 @@
 
     if-eqz v1, :cond_1
 
-    .line 67
     return v0
 
     .line 69
@@ -408,36 +355,32 @@
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_2
+    if-eqz p1, :cond_2
 
-    .line 71
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
-    .line 73
     :cond_2
     return v0
 .end method
 
 .method public setDelta(J)V
-    .locals 2
-    .param p1, "d"    # J
+    .locals 1
 
     .line 49
     iget-object v0, p0, Lcom/pdrogfer/mididroid/event/MidiEvent;->mDelta:Lcom/pdrogfer/mididroid/util/VariableLengthInt;
 
-    long-to-int v1, p1
+    long-to-int p1, p1
 
-    invoke-virtual {v0, v1}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;->setValue(I)V
+    invoke-virtual {v0, p1}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;->setValue(I)V
 
-    .line 50
     return-void
 .end method
 
@@ -447,19 +390,21 @@
     .line 159
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, ""
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-wide v1, p0, Lcom/pdrogfer/mididroid/event/MidiEvent;->mTick:J
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " ("
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget-object v1, p0, Lcom/pdrogfer/mididroid/event/MidiEvent;->mDelta:Lcom/pdrogfer/mididroid/util/VariableLengthInt;
 
@@ -469,9 +414,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "): "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -483,6 +432,8 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -491,9 +442,7 @@
 .end method
 
 .method public writeToFile(Ljava/io/OutputStream;Z)V
-    .locals 1
-    .param p1, "out"    # Ljava/io/OutputStream;
-    .param p2, "writeType"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -501,14 +450,13 @@
     .end annotation
 
     .line 78
-    iget-object v0, p0, Lcom/pdrogfer/mididroid/event/MidiEvent;->mDelta:Lcom/pdrogfer/mididroid/util/VariableLengthInt;
+    iget-object p2, p0, Lcom/pdrogfer/mididroid/event/MidiEvent;->mDelta:Lcom/pdrogfer/mididroid/util/VariableLengthInt;
 
-    invoke-virtual {v0}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;->getBytes()[B
+    invoke-virtual {p2}, Lcom/pdrogfer/mididroid/util/VariableLengthInt;->getBytes()[B
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {p1, v0}, Ljava/io/OutputStream;->write([B)V
+    invoke-virtual {p1, p2}, Ljava/io/OutputStream;->write([B)V
 
-    .line 79
     return-void
 .end method

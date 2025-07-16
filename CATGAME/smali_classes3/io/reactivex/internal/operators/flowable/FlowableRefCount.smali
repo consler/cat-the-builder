@@ -52,8 +52,6 @@
     .end annotation
 
     .line 122
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableRefCount;, "Lio/reactivex/internal/operators/flowable/FlowableRefCount<TT;>;"
-    .local p1, "source":Lio/reactivex/flowables/ConnectableFlowable;, "Lio/reactivex/flowables/ConnectableFlowable<TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/flowable/AbstractFlowableWithUpstream;-><init>(Lio/reactivex/Flowable;)V
 
     .line 36
@@ -80,30 +78,26 @@
     .line 123
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableRefCount;->source:Lio/reactivex/flowables/ConnectableFlowable;
 
-    .line 124
     return-void
 .end method
 
 .method private disconnect(Lio/reactivex/disposables/CompositeDisposable;)Lio/reactivex/disposables/Disposable;
     .locals 1
-    .param p1, "current"    # Lio/reactivex/disposables/CompositeDisposable;
 
     .line 176
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableRefCount;, "Lio/reactivex/internal/operators/flowable/FlowableRefCount<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableRefCount$DisposeTask;
 
     invoke-direct {v0, p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableRefCount$DisposeTask;-><init>(Lio/reactivex/internal/operators/flowable/FlowableRefCount;Lio/reactivex/disposables/CompositeDisposable;)V
 
     invoke-static {v0}, Lio/reactivex/disposables/Disposables;->fromRunnable(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method private onSubscribe(Lorg/reactivestreams/Subscriber;Ljava/util/concurrent/atomic/AtomicBoolean;)Lio/reactivex/functions/Consumer;
     .locals 1
-    .param p2, "writeLocked"    # Ljava/util/concurrent/atomic/AtomicBoolean;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -118,8 +112,6 @@
     .end annotation
 
     .line 162
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableRefCount;, "Lio/reactivex/internal/operators/flowable/FlowableRefCount<TT;>;"
-    .local p1, "subscriber":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableRefCount$DisposeConsumer;
 
     invoke-direct {v0, p0, p1, p2}, Lio/reactivex/internal/operators/flowable/FlowableRefCount$DisposeConsumer;-><init>(Lio/reactivex/internal/operators/flowable/FlowableRefCount;Lorg/reactivestreams/Subscriber;Ljava/util/concurrent/atomic/AtomicBoolean;)V
@@ -130,8 +122,7 @@
 
 # virtual methods
 .method doSubscribe(Lorg/reactivestreams/Subscriber;Lio/reactivex/disposables/CompositeDisposable;)V
-    .locals 3
-    .param p2, "currentBase"    # Lio/reactivex/disposables/CompositeDisposable;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -143,33 +134,28 @@
     .end annotation
 
     .line 167
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableRefCount;, "Lio/reactivex/internal/operators/flowable/FlowableRefCount<TT;>;"
-    .local p1, "subscriber":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-direct {p0, p2}, Lio/reactivex/internal/operators/flowable/FlowableRefCount;->disconnect(Lio/reactivex/disposables/CompositeDisposable;)Lio/reactivex/disposables/Disposable;
 
     move-result-object v0
 
     .line 169
-    .local v0, "d":Lio/reactivex/disposables/Disposable;
     new-instance v1, Lio/reactivex/internal/operators/flowable/FlowableRefCount$ConnectionSubscriber;
 
     invoke-direct {v1, p0, p1, p2, v0}, Lio/reactivex/internal/operators/flowable/FlowableRefCount$ConnectionSubscriber;-><init>(Lio/reactivex/internal/operators/flowable/FlowableRefCount;Lorg/reactivestreams/Subscriber;Lio/reactivex/disposables/CompositeDisposable;Lio/reactivex/disposables/Disposable;)V
 
     .line 170
-    .local v1, "connection":Lio/reactivex/internal/operators/flowable/FlowableRefCount$ConnectionSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableRefCount<TT;>.ConnectionSubscriber;"
     invoke-interface {p1, v1}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
     .line 172
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableRefCount;->source:Lio/reactivex/flowables/ConnectableFlowable;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableRefCount;->source:Lio/reactivex/flowables/ConnectableFlowable;
 
-    invoke-virtual {v2, v1}, Lio/reactivex/flowables/ConnectableFlowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
+    invoke-virtual {p1, v1}, Lio/reactivex/flowables/ConnectableFlowable;->subscribe(Lio/reactivex/FlowableSubscriber;)V
 
-    .line 173
     return-void
 .end method
 
 .method public subscribeActual(Lorg/reactivestreams/Subscriber;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -179,8 +165,6 @@
     .end annotation
 
     .line 129
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableRefCount;, "Lio/reactivex/internal/operators/flowable/FlowableRefCount<TT;>;"
-    .local p1, "subscriber":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRefCount;->lock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
@@ -194,7 +178,7 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_1
 
     .line 132
     new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -202,57 +186,51 @@
     invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
 
     .line 138
-    .local v0, "writeLocked":Ljava/util/concurrent/atomic/AtomicBoolean;
     :try_start_0
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableRefCount;->source:Lio/reactivex/flowables/ConnectableFlowable;
 
     invoke-direct {p0, p1, v0}, Lio/reactivex/internal/operators/flowable/FlowableRefCount;->onSubscribe(Lorg/reactivestreams/Subscriber;Ljava/util/concurrent/atomic/AtomicBoolean;)Lio/reactivex/functions/Consumer;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Lio/reactivex/flowables/ConnectableFlowable;->connect(Lio/reactivex/functions/Consumer;)V
+    invoke-virtual {v1, p1}, Lio/reactivex/flowables/ConnectableFlowable;->connect(Lio/reactivex/functions/Consumer;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 143
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_2
 
     .line 145
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableRefCount;->lock:Ljava/util/concurrent/locks/ReentrantLock;
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableRefCount;->lock:Ljava/util/concurrent/locks/ReentrantLock;
 
-    invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
+    invoke-virtual {p1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 148
-    .end local v0    # "writeLocked":Ljava/util/concurrent/atomic/AtomicBoolean;
-    :cond_0
     goto :goto_0
 
-    .line 143
-    .restart local v0    # "writeLocked":Ljava/util/concurrent/atomic/AtomicBoolean;
     :catchall_0
-    move-exception v1
+    move-exception p1
 
+    .line 143
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_0
 
     .line 145
-    iget-object v2, p0, Lio/reactivex/internal/operators/flowable/FlowableRefCount;->lock:Ljava/util/concurrent/locks/ReentrantLock;
+    iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRefCount;->lock:Ljava/util/concurrent/locks/ReentrantLock;
 
-    invoke-virtual {v2}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
+    invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    :cond_1
-    throw v1
+    :cond_0
+    throw p1
 
     .line 151
-    .end local v0    # "writeLocked":Ljava/util/concurrent/atomic/AtomicBoolean;
-    :cond_2
+    :cond_1
     :try_start_1
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRefCount;->baseDisposable:Lio/reactivex/disposables/CompositeDisposable;
 
@@ -261,24 +239,20 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     .line 154
+    iget-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableRefCount;->lock:Ljava/util/concurrent/locks/ReentrantLock;
+
+    invoke-virtual {p1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
+
+    :cond_2
+    :goto_0
+    return-void
+
+    :catchall_1
+    move-exception p1
+
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableRefCount;->lock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 155
-    nop
-
-    .line 158
-    :goto_0
-    return-void
-
-    .line 154
-    :catchall_1
-    move-exception v0
-
-    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableRefCount;->lock:Ljava/util/concurrent/locks/ReentrantLock;
-
-    invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
-
-    throw v0
+    throw p1
 .end method

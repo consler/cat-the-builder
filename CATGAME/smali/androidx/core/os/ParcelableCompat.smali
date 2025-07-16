@@ -26,6 +26,15 @@
 
 .method public static newCreator(Landroidx/core/os/ParcelableCompatCreatorCallbacks;)Landroid/os/Parcelable$Creator;
     .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "callbacks"
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -42,7 +51,6 @@
     .end annotation
 
     .line 41
-    .local p0, "callbacks":Landroidx/core/os/ParcelableCompatCreatorCallbacks;, "Landroidx/core/os/ParcelableCompatCreatorCallbacks<TT;>;"
     new-instance v0, Landroidx/core/os/ParcelableCompat$ParcelableCompatCreatorHoneycombMR2;
 
     invoke-direct {v0, p0}, Landroidx/core/os/ParcelableCompat$ParcelableCompatCreatorHoneycombMR2;-><init>(Landroidx/core/os/ParcelableCompatCreatorCallbacks;)V

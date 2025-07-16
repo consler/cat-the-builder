@@ -46,11 +46,8 @@
     .end annotation
 
     .line 464
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractLinkedMap$KeySetIterator;, "Lorg/apache/commons/collections4/map/AbstractLinkedMap$KeySetIterator<TK;>;"
-    .local p1, "parent":Lorg/apache/commons/collections4/map/AbstractLinkedMap;, "Lorg/apache/commons/collections4/map/AbstractLinkedMap<TK;*>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkIterator;-><init>(Lorg/apache/commons/collections4/map/AbstractLinkedMap;)V
 
-    .line 465
     return-void
 .end method
 
@@ -65,7 +62,6 @@
     .end annotation
 
     .line 469
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractLinkedMap$KeySetIterator;, "Lorg/apache/commons/collections4/map/AbstractLinkedMap$KeySetIterator<TK;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkIterator;->nextEntry()Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
 
     move-result-object v0
@@ -86,7 +82,6 @@
     .end annotation
 
     .line 474
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractLinkedMap$KeySetIterator;, "Lorg/apache/commons/collections4/map/AbstractLinkedMap$KeySetIterator<TK;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkIterator;->previousEntry()Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
 
     move-result-object v0

@@ -55,7 +55,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/Observer;I)V
     .locals 0
-    .param p2, "count"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,8 +64,6 @@
     .end annotation
 
     .line 45
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver;, "Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     invoke-direct {p0}, Ljava/util/ArrayDeque;-><init>()V
 
     .line 46
@@ -75,7 +72,6 @@
     .line 47
     iput p2, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver;->count:I
 
-    .line 48
     return-void
 .end method
 
@@ -85,14 +81,13 @@
     .locals 1
 
     .line 91
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver;, "Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver;->cancelled:Z
 
     if-nez v0, :cond_0
 
-    .line 92
     const/4 v0, 0x1
 
+    .line 92
     iput-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver;->cancelled:Z
 
     .line 93
@@ -100,7 +95,6 @@
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 95
     :cond_0
     return-void
 .end method
@@ -109,27 +103,23 @@
     .locals 1
 
     .line 99
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver;, "Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver;->cancelled:Z
 
     return v0
 .end method
 
 .method public onComplete()V
-    .locals 3
+    .locals 2
 
     .line 73
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver;, "Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver;->actual:Lio/reactivex/Observer;
 
     .line 75
-    .local v0, "a":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     :goto_0
     iget-boolean v1, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver;->cancelled:Z
 
     if-eqz v1, :cond_0
 
-    .line 76
     return-void
 
     .line 78
@@ -138,19 +128,16 @@
 
     move-result-object v1
 
-    .line 79
-    .local v1, "v":Ljava/lang/Object;, "TT;"
     if-nez v1, :cond_2
 
     .line 80
-    iget-boolean v2, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver;->cancelled:Z
+    iget-boolean v1, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver;->cancelled:Z
 
-    if-nez v2, :cond_1
+    if-nez v1, :cond_1
 
     .line 81
     invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 83
     :cond_1
     return-void
 
@@ -158,22 +145,17 @@
     :cond_2
     invoke-interface {v0, v1}, Lio/reactivex/Observer;->onNext(Ljava/lang/Object;)V
 
-    .line 86
-    .end local v1    # "v":Ljava/lang/Object;, "TT;"
     goto :goto_0
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 68
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver;, "Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver;->actual:Lio/reactivex/Observer;
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 69
     return-void
 .end method
 
@@ -186,8 +168,6 @@
     .end annotation
 
     .line 60
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver;, "Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget v0, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver;->count:I
 
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver;->size()I
@@ -203,16 +183,13 @@
     :cond_0
     invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver;->offer(Ljava/lang/Object;)Z
 
-    .line 64
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 52
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver;, "Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -225,11 +202,10 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver;->s:Lio/reactivex/disposables/Disposable;
 
     .line 54
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLast$TakeLastObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v0, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 56
     :cond_0
     return-void
 .end method

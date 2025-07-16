@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/ListPopupWindow;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/appcompat/widget/ListPopupWindow;
 
     .line 1167
     iput-object p1, p0, Landroidx/appcompat/widget/ListPopupWindow$2;->this$0:Landroidx/appcompat/widget/ListPopupWindow;
@@ -37,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 1
 
     .line 1171
     iget-object v0, p0, Landroidx/appcompat/widget/ListPopupWindow$2;->this$0:Landroidx/appcompat/widget/ListPopupWindow;
@@ -46,22 +45,20 @@
 
     move-result-object v0
 
-    .line 1172
-    .local v0, "view":Landroid/view/View;
     if-eqz v0, :cond_0
 
+    .line 1172
     invoke-virtual {v0}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 1173
-    iget-object v1, p0, Landroidx/appcompat/widget/ListPopupWindow$2;->this$0:Landroidx/appcompat/widget/ListPopupWindow;
+    iget-object v0, p0, Landroidx/appcompat/widget/ListPopupWindow$2;->this$0:Landroidx/appcompat/widget/ListPopupWindow;
 
-    invoke-virtual {v1}, Landroidx/appcompat/widget/ListPopupWindow;->show()V
+    invoke-virtual {v0}, Landroidx/appcompat/widget/ListPopupWindow;->show()V
 
-    .line 1175
     :cond_0
     return-void
 .end method

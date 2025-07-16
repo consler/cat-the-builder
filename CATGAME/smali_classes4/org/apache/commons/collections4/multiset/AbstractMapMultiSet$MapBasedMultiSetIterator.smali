@@ -80,8 +80,6 @@
     .end annotation
 
     .line 168
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator;, "Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator<TE;>;"
-    .local p1, "parent":Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet;, "Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet<TE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 169
@@ -102,24 +100,23 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator;->entryIterator:Ljava/util/Iterator;
 
-    .line 171
     const/4 v0, 0x0
 
+    .line 171
     iput-object v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator;->current:Ljava/util/Map$Entry;
 
     .line 172
     invoke-static {p1}, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet;->access$100(Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet;)I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator;->mods:I
+    iput p1, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator;->mods:I
+
+    const/4 p1, 0x0
 
     .line 173
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator;->canRemove:Z
 
-    iput-boolean v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator;->canRemove:Z
-
-    .line 174
     return-void
 .end method
 
@@ -129,7 +126,6 @@
     .locals 1
 
     .line 179
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator;, "Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator<TE;>;"
     iget v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator;->itemCount:I
 
     if-gtz v0, :cond_1
@@ -166,7 +162,6 @@
     .end annotation
 
     .line 185
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator;, "Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator;->parent:Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet;
 
     invoke-static {v0}, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet;->access$100(Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet;)I
@@ -204,10 +199,10 @@
 
     iput v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator;->itemCount:I
 
-    .line 192
     :cond_0
     const/4 v0, 0x1
 
+    .line 192
     iput-boolean v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator;->canRemove:Z
 
     .line 193
@@ -239,7 +234,6 @@
     .locals 3
 
     .line 200
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator;, "Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator;->parent:Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet;
 
     invoke-static {v0}, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet;->access$100(Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet;)I
@@ -265,7 +259,6 @@
     check-cast v0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MutableInteger;
 
     .line 207
-    .local v0, "mut":Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MutableInteger;
     iget v1, v0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MutableInteger;->value:I
 
     const/4 v2, 0x1
@@ -283,26 +276,24 @@
 
     .line 210
     :cond_0
-    iget-object v1, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator;->entryIterator:Ljava/util/Iterator;
+    iget-object v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator;->entryIterator:Ljava/util/Iterator;
 
-    invoke-interface {v1}, Ljava/util/Iterator;->remove()V
+    invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
     .line 212
     :goto_0
-    iget-object v1, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator;->parent:Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet;
+    iget-object v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator;->parent:Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet;
 
-    invoke-static {v1}, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet;->access$210(Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet;)I
+    invoke-static {v0}, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet;->access$210(Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet;)I
+
+    const/4 v0, 0x0
 
     .line 213
-    const/4 v1, 0x0
+    iput-boolean v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator;->canRemove:Z
 
-    iput-boolean v1, p0, Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MapBasedMultiSetIterator;->canRemove:Z
-
-    .line 214
     return-void
 
     .line 204
-    .end local v0    # "mut":Lorg/apache/commons/collections4/multiset/AbstractMapMultiSet$MutableInteger;
     :cond_1
     new-instance v0, Ljava/lang/IllegalStateException;
 

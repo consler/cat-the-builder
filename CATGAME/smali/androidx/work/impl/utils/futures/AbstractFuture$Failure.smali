@@ -43,8 +43,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/Throwable;)V
-    .locals 1
-    .param p1, "exception"    # Ljava/lang/Throwable;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -60,12 +59,11 @@
     .line 234
     invoke-static {p1}, Landroidx/work/impl/utils/futures/AbstractFuture;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/lang/Throwable;
+    check-cast p1, Ljava/lang/Throwable;
 
-    iput-object v0, p0, Landroidx/work/impl/utils/futures/AbstractFuture$Failure;->exception:Ljava/lang/Throwable;
+    iput-object p1, p0, Landroidx/work/impl/utils/futures/AbstractFuture$Failure;->exception:Ljava/lang/Throwable;
 
-    .line 235
     return-void
 .end method

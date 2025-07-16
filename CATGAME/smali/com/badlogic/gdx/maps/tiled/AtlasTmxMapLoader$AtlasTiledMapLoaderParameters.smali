@@ -25,9 +25,9 @@
     .line 45
     invoke-direct {p0}, Lcom/badlogic/gdx/maps/tiled/BaseTmxMapLoader$Parameters;-><init>()V
 
-    .line 47
     const/4 v0, 0x0
 
+    .line 47
     iput-boolean v0, p0, Lcom/badlogic/gdx/maps/tiled/AtlasTmxMapLoader$AtlasTiledMapLoaderParameters;->forceTextureFilters:Z
 
     return-void

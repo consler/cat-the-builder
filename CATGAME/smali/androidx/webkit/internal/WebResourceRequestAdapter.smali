@@ -10,7 +10,6 @@
 # direct methods
 .method public constructor <init>(Lorg/chromium/support_lib_boundary/WebResourceRequestBoundaryInterface;)V
     .locals 0
-    .param p1, "boundaryInterface"    # Lorg/chromium/support_lib_boundary/WebResourceRequestBoundaryInterface;
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -18,7 +17,6 @@
     .line 31
     iput-object p1, p0, Landroidx/webkit/internal/WebResourceRequestAdapter;->mBoundaryInterface:Lorg/chromium/support_lib_boundary/WebResourceRequestBoundaryInterface;
 
-    .line 32
     return-void
 .end method
 

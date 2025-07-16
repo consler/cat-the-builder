@@ -8,6 +8,14 @@
 
 .field public static final KIT_UPDATE_RESULT:Ljava/lang/String; = "kit_update_result"
 
+.field public static final RESULT_UPDATE_BREAK:I = 0x3
+
+.field public static final RESULT_UPDATE_CANCEL:I = 0x2
+
+.field public static final RESULT_UPDATE_FAILED:I = 0x0
+
+.field public static final RESULT_UPDATE_SUCCESS:I = 0x1
+
 .field public static final UPDATE_PACKAGE_NAME:Ljava/lang/String; = "kitUpdatePackageName"
 
 
@@ -15,7 +23,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 13
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

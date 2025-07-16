@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroidx/sqlite/db/framework/FrameworkSQLiteDatabase;Landroidx/sqlite/db/SupportSQLiteQuery;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/sqlite/db/framework/FrameworkSQLiteDatabase;
 
     .line 175
     iput-object p1, p0, Landroidx/sqlite/db/framework/FrameworkSQLiteDatabase$2;->this$0:Landroidx/sqlite/db/framework/FrameworkSQLiteDatabase;
@@ -41,25 +40,21 @@
 
 # virtual methods
 .method public newCursor(Landroid/database/sqlite/SQLiteDatabase;Landroid/database/sqlite/SQLiteCursorDriver;Ljava/lang/String;Landroid/database/sqlite/SQLiteQuery;)Landroid/database/Cursor;
-    .locals 2
-    .param p1, "db"    # Landroid/database/sqlite/SQLiteDatabase;
-    .param p2, "masterQuery"    # Landroid/database/sqlite/SQLiteCursorDriver;
-    .param p3, "editTable"    # Ljava/lang/String;
-    .param p4, "query"    # Landroid/database/sqlite/SQLiteQuery;
+    .locals 1
 
     .line 179
-    iget-object v0, p0, Landroidx/sqlite/db/framework/FrameworkSQLiteDatabase$2;->val$supportQuery:Landroidx/sqlite/db/SupportSQLiteQuery;
+    iget-object p1, p0, Landroidx/sqlite/db/framework/FrameworkSQLiteDatabase$2;->val$supportQuery:Landroidx/sqlite/db/SupportSQLiteQuery;
 
-    new-instance v1, Landroidx/sqlite/db/framework/FrameworkSQLiteProgram;
+    new-instance v0, Landroidx/sqlite/db/framework/FrameworkSQLiteProgram;
 
-    invoke-direct {v1, p4}, Landroidx/sqlite/db/framework/FrameworkSQLiteProgram;-><init>(Landroid/database/sqlite/SQLiteProgram;)V
+    invoke-direct {v0, p4}, Landroidx/sqlite/db/framework/FrameworkSQLiteProgram;-><init>(Landroid/database/sqlite/SQLiteProgram;)V
 
-    invoke-interface {v0, v1}, Landroidx/sqlite/db/SupportSQLiteQuery;->bindTo(Landroidx/sqlite/db/SupportSQLiteProgram;)V
+    invoke-interface {p1, v0}, Landroidx/sqlite/db/SupportSQLiteQuery;->bindTo(Landroidx/sqlite/db/SupportSQLiteProgram;)V
 
     .line 180
-    new-instance v0, Landroid/database/sqlite/SQLiteCursor;
+    new-instance p1, Landroid/database/sqlite/SQLiteCursor;
 
-    invoke-direct {v0, p2, p3, p4}, Landroid/database/sqlite/SQLiteCursor;-><init>(Landroid/database/sqlite/SQLiteCursorDriver;Ljava/lang/String;Landroid/database/sqlite/SQLiteQuery;)V
+    invoke-direct {p1, p2, p3, p4}, Landroid/database/sqlite/SQLiteCursor;-><init>(Landroid/database/sqlite/SQLiteCursorDriver;Ljava/lang/String;Landroid/database/sqlite/SQLiteQuery;)V
 
-    return-object v0
+    return-object p1
 .end method

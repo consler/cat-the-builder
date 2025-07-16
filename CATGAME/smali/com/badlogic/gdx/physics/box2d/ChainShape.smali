@@ -15,11 +15,11 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 159
     const/4 v0, 0x2
 
     new-array v0, v0, [F
 
+    .line 159
     sput-object v0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->verts:[F
 
     return-void
@@ -31,9 +31,9 @@
     .line 28
     invoke-direct {p0}, Lcom/badlogic/gdx/physics/box2d/Shape;-><init>()V
 
-    .line 26
     const/4 v0, 0x0
 
+    .line 26
     iput-boolean v0, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->isLooped:Z
 
     .line 29
@@ -43,26 +43,23 @@
 
     iput-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->addr:J
 
-    .line 30
     return-void
 .end method
 
 .method constructor <init>(J)V
     .locals 1
-    .param p1, "addr"    # J
 
     .line 36
     invoke-direct {p0}, Lcom/badlogic/gdx/physics/box2d/Shape;-><init>()V
 
-    .line 26
     const/4 v0, 0x0
 
+    .line 26
     iput-boolean v0, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->isLooped:Z
 
     .line 37
     iput-wide p1, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->addr:J
 
-    .line 38
     return-void
 .end method
 
@@ -91,16 +88,15 @@
 # virtual methods
 .method public createChain([F)V
     .locals 6
-    .param p1, "vertices"    # [F
 
     .line 85
     iget-wide v1, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->addr:J
 
+    const/4 v4, 0x0
+
     array-length v0, p1
 
     div-int/lit8 v5, v0, 0x2
-
-    const/4 v4, 0x0
 
     move-object v0, p0
 
@@ -108,20 +104,16 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/physics/box2d/ChainShape;->jniCreateChain(J[FII)V
 
+    const/4 p1, 0x0
+
     .line 86
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->isLooped:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->isLooped:Z
-
-    .line 87
     return-void
 .end method
 
 .method public createChain([FII)V
     .locals 6
-    .param p1, "vertices"    # [F
-    .param p2, "offset"    # I
-    .param p3, "length"    # I
 
     .line 94
     iget-wide v1, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->addr:J
@@ -136,34 +128,31 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/physics/box2d/ChainShape;->jniCreateChain(J[FII)V
 
+    const/4 p1, 0x0
+
     .line 95
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->isLooped:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->isLooped:Z
-
-    .line 96
     return-void
 .end method
 
 .method public createChain([Lcom/badlogic/gdx/math/Vector2;)V
     .locals 7
-    .param p1, "vertices"    # [Lcom/badlogic/gdx/math/Vector2;
 
     .line 101
     array-length v0, p1
 
     mul-int/lit8 v0, v0, 0x2
 
-    new-array v0, v0, [F
+    new-array v4, v0, [F
+
+    const/4 v0, 0x0
+
+    move v1, v0
+
+    move v2, v1
 
     .line 102
-    .local v0, "verts":[F
-    const/4 v1, 0x0
-
-    .local v1, "i":I
-    const/4 v2, 0x0
-
-    .local v2, "j":I
     :goto_0
     array-length v3, p1
 
@@ -176,18 +165,17 @@
 
     iget v3, v3, Lcom/badlogic/gdx/math/Vector2;->x:F
 
-    aput v3, v0, v1
+    aput v3, v4, v1
 
-    .line 104
     add-int/lit8 v3, v1, 0x1
 
-    aget-object v4, p1, v2
+    .line 104
+    aget-object v5, p1, v2
 
-    iget v4, v4, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iget v5, v5, Lcom/badlogic/gdx/math/Vector2;->y:F
 
-    aput v4, v0, v3
+    aput v5, v4, v3
 
-    .line 102
     add-int/lit8 v1, v1, 0x2
 
     add-int/lit8 v2, v2, 0x1
@@ -195,8 +183,6 @@
     goto :goto_0
 
     .line 106
-    .end local v1    # "i":I
-    .end local v2    # "j":I
     :cond_0
     iget-wide v2, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->addr:J
 
@@ -206,31 +192,25 @@
 
     move-object v1, p0
 
-    move-object v4, v0
-
     invoke-direct/range {v1 .. v6}, Lcom/badlogic/gdx/physics/box2d/ChainShape;->jniCreateChain(J[FII)V
 
     .line 107
-    const/4 v1, 0x0
+    iput-boolean v0, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->isLooped:Z
 
-    iput-boolean v1, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->isLooped:Z
-
-    .line 108
     return-void
 .end method
 
 .method public createLoop([F)V
     .locals 6
-    .param p1, "vertices"    # [F
 
     .line 48
     iget-wide v1, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->addr:J
 
+    const/4 v4, 0x0
+
     array-length v0, p1
 
     div-int/lit8 v5, v0, 0x2
-
-    const/4 v4, 0x0
 
     move-object v0, p0
 
@@ -238,20 +218,16 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/physics/box2d/ChainShape;->jniCreateLoop(J[FII)V
 
+    const/4 p1, 0x1
+
     .line 49
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->isLooped:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->isLooped:Z
-
-    .line 50
     return-void
 .end method
 
 .method public createLoop([FII)V
     .locals 6
-    .param p1, "vertices"    # [F
-    .param p2, "offset"    # I
-    .param p3, "length"    # I
 
     .line 57
     iget-wide v1, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->addr:J
@@ -266,38 +242,35 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/badlogic/gdx/physics/box2d/ChainShape;->jniCreateLoop(J[FII)V
 
+    const/4 p1, 0x1
+
     .line 58
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->isLooped:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->isLooped:Z
-
-    .line 59
     return-void
 .end method
 
 .method public createLoop([Lcom/badlogic/gdx/math/Vector2;)V
-    .locals 7
-    .param p1, "vertices"    # [Lcom/badlogic/gdx/math/Vector2;
+    .locals 8
 
     .line 64
     array-length v0, p1
 
     mul-int/lit8 v0, v0, 0x2
 
-    new-array v0, v0, [F
+    new-array v4, v0, [F
 
-    .line 65
-    .local v0, "verts":[F
     const/4 v1, 0x0
 
-    .local v1, "i":I
-    const/4 v2, 0x0
+    move v2, v1
 
-    .local v2, "j":I
+    .line 65
     :goto_0
     array-length v3, p1
 
     mul-int/lit8 v3, v3, 0x2
+
+    const/4 v7, 0x1
 
     if-ge v1, v3, :cond_0
 
@@ -306,48 +279,38 @@
 
     iget v3, v3, Lcom/badlogic/gdx/math/Vector2;->x:F
 
-    aput v3, v0, v1
+    aput v3, v4, v1
 
-    .line 67
     add-int/lit8 v3, v1, 0x1
 
-    aget-object v4, p1, v2
+    .line 67
+    aget-object v5, p1, v2
 
-    iget v4, v4, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iget v5, v5, Lcom/badlogic/gdx/math/Vector2;->y:F
 
-    aput v4, v0, v3
+    aput v5, v4, v3
 
-    .line 65
     add-int/lit8 v1, v1, 0x2
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/2addr v2, v7
 
     goto :goto_0
 
     .line 69
-    .end local v1    # "i":I
-    .end local v2    # "j":I
     :cond_0
     iget-wide v2, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->addr:J
 
     const/4 v5, 0x0
 
-    array-length v1, v0
-
-    div-int/lit8 v6, v1, 0x2
+    div-int/lit8 v6, v0, 0x2
 
     move-object v1, p0
-
-    move-object v4, v0
 
     invoke-direct/range {v1 .. v6}, Lcom/badlogic/gdx/physics/box2d/ChainShape;->jniCreateLoop(J[FII)V
 
     .line 70
-    const/4 v1, 0x1
+    iput-boolean v7, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->isLooped:Z
 
-    iput-boolean v1, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->isLooped:Z
-
-    .line 71
     return-void
 .end method
 
@@ -362,8 +325,6 @@
 
 .method public getVertex(ILcom/badlogic/gdx/math/Vector2;)V
     .locals 3
-    .param p1, "index"    # I
-    .param p2, "vertex"    # Lcom/badlogic/gdx/math/Vector2;
 
     .line 165
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->addr:J
@@ -373,24 +334,23 @@
     invoke-direct {p0, v0, v1, p1, v2}, Lcom/badlogic/gdx/physics/box2d/ChainShape;->jniGetVertex(JI[F)V
 
     .line 166
-    sget-object v0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->verts:[F
+    sget-object p1, Lcom/badlogic/gdx/physics/box2d/ChainShape;->verts:[F
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    aget v0, v0, v1
+    aget p1, p1, v0
 
-    iput v0, p2, Lcom/badlogic/gdx/math/Vector2;->x:F
+    iput p1, p2, Lcom/badlogic/gdx/math/Vector2;->x:F
 
     .line 167
-    sget-object v0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->verts:[F
+    sget-object p1, Lcom/badlogic/gdx/physics/box2d/ChainShape;->verts:[F
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    aget v0, v0, v1
+    aget p1, p1, v0
 
-    iput v0, p2, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iput p1, p2, Lcom/badlogic/gdx/math/Vector2;->y:F
 
-    .line 168
     return-void
 .end method
 
@@ -418,58 +378,48 @@
 
 .method public setNextVertex(FF)V
     .locals 2
-    .param p1, "nextVertexX"    # F
-    .param p2, "nextVertexY"    # F
 
     .line 141
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->addr:J
 
     invoke-direct {p0, v0, v1, p1, p2}, Lcom/badlogic/gdx/physics/box2d/ChainShape;->jniSetNextVertex(JFF)V
 
-    .line 142
     return-void
 .end method
 
 .method public setNextVertex(Lcom/badlogic/gdx/math/Vector2;)V
-    .locals 2
-    .param p1, "nextVertex"    # Lcom/badlogic/gdx/math/Vector2;
+    .locals 1
 
     .line 136
     iget v0, p1, Lcom/badlogic/gdx/math/Vector2;->x:F
 
-    iget v1, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
 
-    invoke-virtual {p0, v0, v1}, Lcom/badlogic/gdx/physics/box2d/ChainShape;->setNextVertex(FF)V
+    invoke-virtual {p0, v0, p1}, Lcom/badlogic/gdx/physics/box2d/ChainShape;->setNextVertex(FF)V
 
-    .line 137
     return-void
 .end method
 
 .method public setPrevVertex(FF)V
     .locals 2
-    .param p1, "prevVertexX"    # F
-    .param p2, "prevVertexY"    # F
 
     .line 126
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/ChainShape;->addr:J
 
     invoke-direct {p0, v0, v1, p1, p2}, Lcom/badlogic/gdx/physics/box2d/ChainShape;->jniSetPrevVertex(JFF)V
 
-    .line 127
     return-void
 .end method
 
 .method public setPrevVertex(Lcom/badlogic/gdx/math/Vector2;)V
-    .locals 2
-    .param p1, "prevVertex"    # Lcom/badlogic/gdx/math/Vector2;
+    .locals 1
 
     .line 121
     iget v0, p1, Lcom/badlogic/gdx/math/Vector2;->x:F
 
-    iget v1, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
 
-    invoke-virtual {p0, v0, v1}, Lcom/badlogic/gdx/physics/box2d/ChainShape;->setPrevVertex(FF)V
+    invoke-virtual {p0, v0, p1}, Lcom/badlogic/gdx/physics/box2d/ChainShape;->setPrevVertex(FF)V
 
-    .line 122
     return-void
 .end method

@@ -63,9 +63,6 @@
     .end annotation
 
     .line 49
-    .local p1, "fragments":Ljava/util/Collection;, "Ljava/util/Collection<Landroidx/fragment/app/Fragment;>;"
-    .local p2, "childNonConfigs":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Landroidx/fragment/app/FragmentManagerNonConfig;>;"
-    .local p3, "viewModelStores":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Landroidx/lifecycle/ViewModelStore;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 50
@@ -77,7 +74,6 @@
     .line 52
     iput-object p3, p0, Landroidx/fragment/app/FragmentManagerNonConfig;->mViewModelStores:Ljava/util/Map;
 
-    .line 53
     return-void
 .end method
 
@@ -138,23 +134,21 @@
 
 .method isRetaining(Landroidx/fragment/app/Fragment;)Z
     .locals 1
-    .param p1, "f"    # Landroidx/fragment/app/Fragment;
 
     .line 57
     iget-object v0, p0, Landroidx/fragment/app/FragmentManagerNonConfig;->mFragments:Ljava/util/Collection;
 
     if-nez v0, :cond_0
 
-    .line 58
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 60
     :cond_0
     invoke-interface {v0, p1}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

@@ -47,14 +47,11 @@
     .end annotation
 
     .line 938
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractHashedMap$KeySet;, "Lorg/apache/commons/collections4/map/AbstractHashedMap$KeySet<TK;>;"
-    .local p1, "parent":Lorg/apache/commons/collections4/map/AbstractHashedMap;, "Lorg/apache/commons/collections4/map/AbstractHashedMap<TK;*>;"
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
 
     .line 939
     iput-object p1, p0, Lorg/apache/commons/collections4/map/AbstractHashedMap$KeySet;->parent:Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
-    .line 940
     return-void
 .end method
 
@@ -64,28 +61,24 @@
     .locals 1
 
     .line 949
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractHashedMap$KeySet;, "Lorg/apache/commons/collections4/map/AbstractHashedMap$KeySet<TK;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/AbstractHashedMap$KeySet;->parent:Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/map/AbstractHashedMap;->clear()V
 
-    .line 950
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 954
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractHashedMap$KeySet;, "Lorg/apache/commons/collections4/map/AbstractHashedMap$KeySet<TK;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/AbstractHashedMap$KeySet;->parent:Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/map/AbstractHashedMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
@@ -99,7 +92,6 @@
     .end annotation
 
     .line 966
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractHashedMap$KeySet;, "Lorg/apache/commons/collections4/map/AbstractHashedMap$KeySet<TK;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/AbstractHashedMap$KeySet;->parent:Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/map/AbstractHashedMap;->createKeySetIterator()Ljava/util/Iterator;
@@ -111,10 +103,8 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 959
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractHashedMap$KeySet;, "Lorg/apache/commons/collections4/map/AbstractHashedMap$KeySet<TK;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/AbstractHashedMap$KeySet;->parent:Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/map/AbstractHashedMap;->containsKey(Ljava/lang/Object;)Z
@@ -122,12 +112,10 @@
     move-result v0
 
     .line 960
-    .local v0, "result":Z
     iget-object v1, p0, Lorg/apache/commons/collections4/map/AbstractHashedMap$KeySet;->parent:Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
     invoke-virtual {v1, p1}, Lorg/apache/commons/collections4/map/AbstractHashedMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 961
     return v0
 .end method
 
@@ -135,7 +123,6 @@
     .locals 1
 
     .line 944
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractHashedMap$KeySet;, "Lorg/apache/commons/collections4/map/AbstractHashedMap$KeySet<TK;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/AbstractHashedMap$KeySet;->parent:Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/map/AbstractHashedMap;->size()I

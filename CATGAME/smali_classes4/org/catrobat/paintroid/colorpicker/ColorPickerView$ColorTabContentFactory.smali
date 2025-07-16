@@ -17,11 +17,6 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\u0008\u0080\u0004\u0018\u00002\u00020\u0001B\u0005\u00a2\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0016\u00a8\u0006\u0007"
     }
@@ -33,14 +28,15 @@
         "Landroid/view/View;",
         "tag",
         "",
-        "colorpicker_release"
+        "colorpicker_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -50,13 +46,16 @@
 
 # direct methods
 .method public constructor <init>(Lorg/catrobat/paintroid/colorpicker/ColorPickerView;)V
-    .locals 0
-    .param p1, "this$0"    # Lorg/catrobat/paintroid/colorpicker/ColorPickerView;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
         }
     .end annotation
+
+    const-string v0, "this$0"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 201
     iput-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerView$ColorTabContentFactory;->this$0:Lorg/catrobat/paintroid/colorpicker/ColorPickerView;
@@ -70,7 +69,6 @@
 # virtual methods
 .method public createTabContent(Ljava/lang/String;)Landroid/view/View;
     .locals 2
-    .param p1, "tag"    # Ljava/lang/String;
 
     const-string v0, "tag"
 
@@ -93,76 +91,75 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 204
     const-string v0, "RGB"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
-    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerView$ColorTabContentFactory;->this$0:Lorg/catrobat/paintroid/colorpicker/ColorPickerView;
+    .line 204
+    iget-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerView$ColorTabContentFactory;->this$0:Lorg/catrobat/paintroid/colorpicker/ColorPickerView;
 
-    invoke-virtual {v0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerView;->getRgbSelectorView()Lorg/catrobat/paintroid/colorpicker/RgbSelectorView;
+    invoke-virtual {p1}, Lorg/catrobat/paintroid/colorpicker/ColorPickerView;->getRgbSelectorView()Lorg/catrobat/paintroid/colorpicker/RgbSelectorView;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/view/View;
+    check-cast p1, Landroid/view/View;
 
     goto :goto_0
 
-    .line 205
     :cond_0
     const-string v0, "PRE"
 
+    .line 203
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
-    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerView$ColorTabContentFactory;->this$0:Lorg/catrobat/paintroid/colorpicker/ColorPickerView;
+    .line 205
+    iget-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerView$ColorTabContentFactory;->this$0:Lorg/catrobat/paintroid/colorpicker/ColorPickerView;
 
-    invoke-static {v0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerView;->access$getPreSelectorView$p(Lorg/catrobat/paintroid/colorpicker/ColorPickerView;)Lorg/catrobat/paintroid/colorpicker/PresetSelectorView;
+    invoke-static {p1}, Lorg/catrobat/paintroid/colorpicker/ColorPickerView;->access$getPreSelectorView$p(Lorg/catrobat/paintroid/colorpicker/ColorPickerView;)Lorg/catrobat/paintroid/colorpicker/PresetSelectorView;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/view/View;
+    check-cast p1, Landroid/view/View;
 
     goto :goto_0
 
-    .line 206
     :cond_1
     const-string v0, "HSV"
 
+    .line 203
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
-    iget-object v0, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerView$ColorTabContentFactory;->this$0:Lorg/catrobat/paintroid/colorpicker/ColorPickerView;
+    .line 206
+    iget-object p1, p0, Lorg/catrobat/paintroid/colorpicker/ColorPickerView$ColorTabContentFactory;->this$0:Lorg/catrobat/paintroid/colorpicker/ColorPickerView;
 
-    invoke-static {v0}, Lorg/catrobat/paintroid/colorpicker/ColorPickerView;->access$getHsvSelectorView$p(Lorg/catrobat/paintroid/colorpicker/ColorPickerView;)Lorg/catrobat/paintroid/colorpicker/HSVSelectorView;
+    invoke-static {p1}, Lorg/catrobat/paintroid/colorpicker/ColorPickerView;->access$getHsvSelectorView$p(Lorg/catrobat/paintroid/colorpicker/ColorPickerView;)Lorg/catrobat/paintroid/colorpicker/HSVSelectorView;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/view/View;
+    check-cast p1, Landroid/view/View;
 
-    .line 203
     :goto_0
-    return-object v0
+    return-object p1
 
     .line 207
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Invalid TAG"
+    const-string v0, "Invalid TAG"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    check-cast v0, Ljava/lang/Throwable;
-
-    throw v0
+    throw p1
 .end method

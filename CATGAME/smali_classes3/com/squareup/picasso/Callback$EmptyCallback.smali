@@ -31,15 +31,12 @@
 # virtual methods
 .method public onError(Ljava/lang/Exception;)V
     .locals 0
-    .param p1, "e"    # Ljava/lang/Exception;
 
-    .line 29
     return-void
 .end method
 
 .method public onSuccess()V
     .locals 0
 
-    .line 26
     return-void
 .end method

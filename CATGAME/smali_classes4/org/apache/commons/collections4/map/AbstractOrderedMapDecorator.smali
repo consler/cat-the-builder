@@ -27,10 +27,8 @@
     .locals 0
 
     .line 48
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator<TK;TV;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/map/AbstractMapDecorator;-><init>()V
 
-    .line 49
     return-void
 .end method
 
@@ -45,11 +43,8 @@
     .end annotation
 
     .line 58
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator<TK;TV;>;"
-    .local p1, "map":Lorg/apache/commons/collections4/OrderedMap;, "Lorg/apache/commons/collections4/OrderedMap<TK;TV;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/map/AbstractMapDecorator;-><init>(Ljava/util/Map;)V
 
-    .line 59
     return-void
 .end method
 
@@ -59,7 +54,6 @@
     .locals 1
 
     .line 40
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator;->decorated()Lorg/apache/commons/collections4/OrderedMap;
 
     move-result-object v0
@@ -78,7 +72,6 @@
     .end annotation
 
     .line 68
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator<TK;TV;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/map/AbstractMapDecorator;->decorated()Ljava/util/Map;
 
     move-result-object v0
@@ -97,7 +90,6 @@
     .end annotation
 
     .line 74
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator;->decorated()Lorg/apache/commons/collections4/OrderedMap;
 
     move-result-object v0
@@ -118,7 +110,6 @@
     .end annotation
 
     .line 79
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator;->decorated()Lorg/apache/commons/collections4/OrderedMap;
 
     move-result-object v0
@@ -134,7 +125,6 @@
     .locals 1
 
     .line 40
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator;->mapIterator()Lorg/apache/commons/collections4/OrderedMapIterator;
 
     move-result-object v0
@@ -153,7 +143,6 @@
     .end annotation
 
     .line 94
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator;->decorated()Lorg/apache/commons/collections4/OrderedMap;
 
     move-result-object v0
@@ -174,17 +163,15 @@
     .end annotation
 
     .line 84
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator;->decorated()Lorg/apache/commons/collections4/OrderedMap;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/OrderedMap;->nextKey(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public previousKey(Ljava/lang/Object;)Ljava/lang/Object;
@@ -196,15 +183,13 @@
     .end annotation
 
     .line 89
-    .local p0, "this":Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator;, "Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/AbstractOrderedMapDecorator;->decorated()Lorg/apache/commons/collections4/OrderedMap;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Lorg/apache/commons/collections4/OrderedMap;->previousKey(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

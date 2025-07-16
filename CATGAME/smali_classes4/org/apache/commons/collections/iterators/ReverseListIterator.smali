@@ -17,14 +17,13 @@
 # direct methods
 .method public constructor <init>(Ljava/util/List;)V
     .locals 1
-    .param p1, "list"    # Ljava/util/List;
 
     .line 57
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 48
     const/4 v0, 0x1
 
+    .line 48
     iput-boolean v0, p0, Lorg/apache/commons/collections/iterators/ReverseListIterator;->validForUpdate:Z
 
     .line 58
@@ -37,28 +36,26 @@
 
     invoke-interface {p1, v0}, Ljava/util/List;->listIterator(I)Ljava/util/ListIterator;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lorg/apache/commons/collections/iterators/ReverseListIterator;->iterator:Ljava/util/ListIterator;
+    iput-object p1, p0, Lorg/apache/commons/collections/iterators/ReverseListIterator;->iterator:Ljava/util/ListIterator;
 
-    .line 60
     return-void
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 1
 
     .line 160
     iget-boolean v0, p0, Lorg/apache/commons/collections/iterators/ReverseListIterator;->validForUpdate:Z
 
     if-eqz v0, :cond_0
 
-    .line 163
     const/4 v0, 0x0
 
+    .line 163
     iput-boolean v0, p0, Lorg/apache/commons/collections/iterators/ReverseListIterator;->validForUpdate:Z
 
     .line 164
@@ -67,22 +64,21 @@
     invoke-interface {v0, p1}, Ljava/util/ListIterator;->add(Ljava/lang/Object;)V
 
     .line 165
-    iget-object v0, p0, Lorg/apache/commons/collections/iterators/ReverseListIterator;->iterator:Ljava/util/ListIterator;
+    iget-object p1, p0, Lorg/apache/commons/collections/iterators/ReverseListIterator;->iterator:Ljava/util/ListIterator;
 
-    invoke-interface {v0}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
 
-    .line 166
     return-void
 
     .line 161
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Cannot add to list until next() or previous() called"
+    const-string v0, "Cannot add to list until next() or previous() called"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public hasNext()Z
@@ -121,13 +117,11 @@
 
     move-result-object v0
 
-    .line 80
-    .local v0, "obj":Ljava/lang/Object;
     const/4 v1, 0x1
 
+    .line 80
     iput-boolean v1, p0, Lorg/apache/commons/collections/iterators/ReverseListIterator;->validForUpdate:Z
 
-    .line 81
     return-object v0
 .end method
 
@@ -154,13 +148,11 @@
 
     move-result-object v0
 
-    .line 110
-    .local v0, "obj":Ljava/lang/Object;
     const/4 v1, 0x1
 
+    .line 110
     iput-boolean v1, p0, Lorg/apache/commons/collections/iterators/ReverseListIterator;->validForUpdate:Z
 
-    .line 111
     return-object v0
 .end method
 
@@ -190,7 +182,6 @@
 
     invoke-interface {v0}, Ljava/util/ListIterator;->remove()V
 
-    .line 134
     return-void
 
     .line 131
@@ -220,13 +211,11 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/iterators/ReverseListIterator;->iterator:Ljava/util/ListIterator;
 
-    .line 174
     return-void
 .end method
 
 .method public set(Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 1
 
     .line 144
     iget-boolean v0, p0, Lorg/apache/commons/collections/iterators/ReverseListIterator;->validForUpdate:Z
@@ -238,16 +227,15 @@
 
     invoke-interface {v0, p1}, Ljava/util/ListIterator;->set(Ljava/lang/Object;)V
 
-    .line 148
     return-void
 
     .line 145
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Cannot set to list until next() or previous() called"
+    const-string v0, "Cannot set to list until next() or previous() called"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

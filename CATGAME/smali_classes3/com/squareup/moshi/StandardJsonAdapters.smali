@@ -191,16 +191,11 @@
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 33
     return-void
 .end method
 
 .method static rangeCheckNextInt(Lcom/squareup/moshi/JsonReader;Ljava/lang/String;II)I
-    .locals 5
-    .param p0, "reader"    # Lcom/squareup/moshi/JsonReader;
-    .param p1, "typeMessage"    # Ljava/lang/String;
-    .param p2, "min"    # I
-    .param p3, "max"    # I
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -212,51 +207,48 @@
 
     move-result v0
 
-    .line 78
-    .local v0, "value":I
     if-lt v0, p2, :cond_0
 
     if-gt v0, p3, :cond_0
 
-    .line 82
     return v0
 
     .line 79
     :cond_0
-    new-instance v1, Lcom/squareup/moshi/JsonDataException;
+    new-instance p2, Lcom/squareup/moshi/JsonDataException;
 
-    const/4 v2, 0x3
+    const/4 p3, 0x3
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array p3, p3, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    const/4 v1, 0x0
 
-    aput-object p1, v2, v3
+    aput-object p1, p3, v1
 
-    const/4 v3, 0x1
+    const/4 p1, 0x1
 
     .line 80
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v0
 
-    aput-object v4, v2, v3
+    aput-object v0, p3, p1
 
-    const/4 v3, 0x2
+    const/4 p1, 0x2
 
     invoke-virtual {p0}, Lcom/squareup/moshi/JsonReader;->getPath()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p0
 
-    aput-object v4, v2, v3
+    aput-object p0, p3, p1
 
-    const-string v3, "Expected %s but was %s at path %s"
+    const-string p0, "Expected %s but was %s at path %s"
 
-    invoke-static {v3, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, p3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-direct {v1, v2}, Lcom/squareup/moshi/JsonDataException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p0}, Lcom/squareup/moshi/JsonDataException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p2
 .end method

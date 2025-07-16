@@ -41,9 +41,9 @@
 .method public clear()V
     .locals 2
 
-    .line 46
     const/4 v0, 0x0
 
+    .line 46
     iput-boolean v0, p0, Landroidx/recyclerview/widget/GapWorker$Task;->immediate:Z
 
     .line 47
@@ -52,14 +52,13 @@
     .line 48
     iput v0, p0, Landroidx/recyclerview/widget/GapWorker$Task;->distanceToItem:I
 
-    .line 49
     const/4 v1, 0x0
 
+    .line 49
     iput-object v1, p0, Landroidx/recyclerview/widget/GapWorker$Task;->view:Landroidx/recyclerview/widget/RecyclerView;
 
     .line 50
     iput v0, p0, Landroidx/recyclerview/widget/GapWorker$Task;->position:I
 
-    .line 51
     return-void
 .end method

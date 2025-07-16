@@ -39,8 +39,6 @@
 # direct methods
 .method public constructor <init>(Lorg/reactivestreams/Publisher;II)V
     .locals 0
-    .param p2, "parallelism"    # I
-    .param p3, "prefetch"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,8 +48,6 @@
     .end annotation
 
     .line 41
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelFromPublisher;, "Lio/reactivex/internal/operators/parallel/ParallelFromPublisher<TT;>;"
-    .local p1, "source":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
     invoke-direct {p0}, Lio/reactivex/parallel/ParallelFlowable;-><init>()V
 
     .line 42
@@ -63,7 +59,6 @@
     .line 44
     iput p3, p0, Lio/reactivex/internal/operators/parallel/ParallelFromPublisher;->prefetch:I
 
-    .line 45
     return-void
 .end method
 
@@ -73,7 +68,6 @@
     .locals 1
 
     .line 49
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelFromPublisher;, "Lio/reactivex/internal/operators/parallel/ParallelFromPublisher<TT;>;"
     iget v0, p0, Lio/reactivex/internal/operators/parallel/ParallelFromPublisher;->parallelism:I
 
     return v0
@@ -90,15 +84,12 @@
     .end annotation
 
     .line 54
-    .local p0, "this":Lio/reactivex/internal/operators/parallel/ParallelFromPublisher;, "Lio/reactivex/internal/operators/parallel/ParallelFromPublisher<TT;>;"
-    .local p1, "subscribers":[Lorg/reactivestreams/Subscriber;, "[Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/parallel/ParallelFromPublisher;->validate([Lorg/reactivestreams/Subscriber;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 55
     return-void
 
     .line 58
@@ -113,6 +104,5 @@
 
     invoke-interface {v0, v1}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
 
-    .line 59
     return-void
 .end method

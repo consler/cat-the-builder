@@ -26,7 +26,6 @@
 
 .method synthetic constructor <init>(Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$1;)V
     .locals 0
-    .param p1, "x0"    # Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$1;
 
     .line 1423
     invoke-direct {p0}, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VObject;-><init>()V
@@ -39,18 +38,15 @@
 .method public isStateful()Z
     .locals 1
 
-    .line 1430
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public onStateChanged([I)Z
-    .locals 1
-    .param p1, "stateSet"    # [I
+    .locals 0
 
-    .line 1438
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

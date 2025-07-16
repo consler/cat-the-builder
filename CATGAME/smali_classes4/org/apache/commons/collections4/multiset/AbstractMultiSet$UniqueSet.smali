@@ -47,14 +47,11 @@
     .end annotation
 
     .line 319
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMultiSet$UniqueSet;, "Lorg/apache/commons/collections4/multiset/AbstractMultiSet$UniqueSet<TE;>;"
-    .local p1, "parent":Lorg/apache/commons/collections4/multiset/AbstractMultiSet;, "Lorg/apache/commons/collections4/multiset/AbstractMultiSet<TE;>;"
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
 
     .line 320
     iput-object p1, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$UniqueSet;->parent:Lorg/apache/commons/collections4/multiset/AbstractMultiSet;
 
-    .line 321
     return-void
 .end method
 
@@ -64,28 +61,24 @@
     .locals 1
 
     .line 350
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMultiSet$UniqueSet;, "Lorg/apache/commons/collections4/multiset/AbstractMultiSet$UniqueSet<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$UniqueSet;->parent:Lorg/apache/commons/collections4/multiset/AbstractMultiSet;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/multiset/AbstractMultiSet;->clear()V
 
-    .line 351
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 330
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMultiSet$UniqueSet;, "Lorg/apache/commons/collections4/multiset/AbstractMultiSet$UniqueSet<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$UniqueSet;->parent:Lorg/apache/commons/collections4/multiset/AbstractMultiSet;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/multiset/AbstractMultiSet;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public containsAll(Ljava/util/Collection;)Z
@@ -99,15 +92,13 @@
     .end annotation
 
     .line 335
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMultiSet$UniqueSet;, "Lorg/apache/commons/collections4/multiset/AbstractMultiSet$UniqueSet<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$UniqueSet;->parent:Lorg/apache/commons/collections4/multiset/AbstractMultiSet;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/multiset/AbstractMultiSet;->containsAll(Ljava/util/Collection;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
@@ -121,7 +112,6 @@
     .end annotation
 
     .line 325
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMultiSet$UniqueSet;, "Lorg/apache/commons/collections4/multiset/AbstractMultiSet$UniqueSet<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$UniqueSet;->parent:Lorg/apache/commons/collections4/multiset/AbstractMultiSet;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/multiset/AbstractMultiSet;->createUniqueSetIterator()Ljava/util/Iterator;
@@ -133,10 +123,8 @@
 
 .method public remove(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 340
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMultiSet$UniqueSet;, "Lorg/apache/commons/collections4/multiset/AbstractMultiSet$UniqueSet<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$UniqueSet;->parent:Lorg/apache/commons/collections4/multiset/AbstractMultiSet;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/multiset/AbstractMultiSet;->getCount(Ljava/lang/Object;)I
@@ -145,26 +133,25 @@
 
     invoke-virtual {v0, p1, v1}, Lorg/apache/commons/collections4/multiset/AbstractMultiSet;->remove(Ljava/lang/Object;I)I
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public size()I
     .locals 1
 
     .line 345
-    .local p0, "this":Lorg/apache/commons/collections4/multiset/AbstractMultiSet$UniqueSet;, "Lorg/apache/commons/collections4/multiset/AbstractMultiSet$UniqueSet<TE;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multiset/AbstractMultiSet$UniqueSet;->parent:Lorg/apache/commons/collections4/multiset/AbstractMultiSet;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/multiset/AbstractMultiSet;->uniqueElements()I

@@ -18,80 +18,69 @@
     .line 62
     invoke-direct {p0}, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;-><init>()V
 
-    .line 53
     const/4 v0, -0x1
 
+    .line 53
     iput v0, p0, Lorg/apache/commons/collections/iterators/ObjectArrayListIterator;->lastItemIndex:I
 
-    .line 63
     return-void
 .end method
 
 .method public constructor <init>([Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "array"    # [Ljava/lang/Object;
+    .locals 0
 
     .line 73
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;-><init>([Ljava/lang/Object;)V
 
+    const/4 p1, -0x1
+
     .line 53
-    const/4 v0, -0x1
+    iput p1, p0, Lorg/apache/commons/collections/iterators/ObjectArrayListIterator;->lastItemIndex:I
 
-    iput v0, p0, Lorg/apache/commons/collections/iterators/ObjectArrayListIterator;->lastItemIndex:I
-
-    .line 74
     return-void
 .end method
 
 .method public constructor <init>([Ljava/lang/Object;I)V
-    .locals 1
-    .param p1, "array"    # [Ljava/lang/Object;
-    .param p2, "start"    # I
+    .locals 0
 
     .line 86
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;-><init>([Ljava/lang/Object;I)V
 
+    const/4 p1, -0x1
+
     .line 53
-    const/4 v0, -0x1
+    iput p1, p0, Lorg/apache/commons/collections/iterators/ObjectArrayListIterator;->lastItemIndex:I
 
-    iput v0, p0, Lorg/apache/commons/collections/iterators/ObjectArrayListIterator;->lastItemIndex:I
-
-    .line 87
     return-void
 .end method
 
 .method public constructor <init>([Ljava/lang/Object;II)V
-    .locals 1
-    .param p1, "array"    # [Ljava/lang/Object;
-    .param p2, "start"    # I
-    .param p3, "end"    # I
+    .locals 0
 
     .line 101
     invoke-direct {p0, p1, p2, p3}, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;-><init>([Ljava/lang/Object;II)V
 
+    const/4 p1, -0x1
+
     .line 53
-    const/4 v0, -0x1
+    iput p1, p0, Lorg/apache/commons/collections/iterators/ObjectArrayListIterator;->lastItemIndex:I
 
-    iput v0, p0, Lorg/apache/commons/collections/iterators/ObjectArrayListIterator;->lastItemIndex:I
-
-    .line 102
     return-void
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 1
 
     .line 170
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "add() method is not supported"
+    const-string v0, "add() method is not supported"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public hasPrevious()Z
@@ -223,18 +212,16 @@
     .line 202
     invoke-super {p0}, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;->reset()V
 
-    .line 203
     const/4 v0, -0x1
 
+    .line 203
     iput v0, p0, Lorg/apache/commons/collections/iterators/ObjectArrayListIterator;->lastItemIndex:I
 
-    .line 204
     return-void
 .end method
 
 .method public set(Ljava/lang/Object;)V
     .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 191
     iget v0, p0, Lorg/apache/commons/collections/iterators/ObjectArrayListIterator;->lastItemIndex:I
@@ -250,16 +237,15 @@
 
     aput-object p1, v0, v1
 
-    .line 196
     return-void
 
     .line 192
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "must call next() or previous() before a call to set()"
+    const-string v0, "must call next() or previous() before a call to set()"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

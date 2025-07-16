@@ -44,7 +44,6 @@
     .locals 0
 
     .line 1608
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.TrieMapIterator;"
     iput-object p1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieIterator;-><init>(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;)V
@@ -54,11 +53,8 @@
 
 .method synthetic constructor <init>(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
-    .param p2, "x1"    # Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$1;
 
     .line 1608
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.TrieMapIterator;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;-><init>(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;)V
 
     return-void
@@ -75,7 +71,6 @@
     .end annotation
 
     .line 1619
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.TrieMapIterator;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;->current:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
     if-eqz v0, :cond_0
@@ -107,7 +102,6 @@
     .end annotation
 
     .line 1627
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.TrieMapIterator;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;->current:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
     if-eqz v0, :cond_0
@@ -134,7 +128,6 @@
     .locals 1
 
     .line 1643
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.TrieMapIterator;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;->previous:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
     if-eqz v0, :cond_0
@@ -159,7 +152,6 @@
     .end annotation
 
     .line 1614
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.TrieMapIterator;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;->nextEntry()Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
     move-result-object v0
@@ -182,16 +174,13 @@
     .end annotation
 
     .line 1653
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.TrieMapIterator;"
     invoke-super {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieIterator;->nextEntry()Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
     move-result-object v0
 
     .line 1654
-    .local v0, "nextEntry":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry<TK;TV;>;"
     iput-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;->previous:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
-    .line 1655
     return-object v0
 .end method
 
@@ -204,7 +193,6 @@
     .end annotation
 
     .line 1648
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.TrieMapIterator;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;->previousEntry()Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
     move-result-object v0
@@ -227,7 +215,6 @@
     .end annotation
 
     .line 1659
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.TrieMapIterator;"
     iget v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;->expectedModCount:I
 
     iget-object v1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
@@ -239,8 +226,6 @@
     .line 1663
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;->previous:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
-    .line 1664
-    .local v0, "e":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry<TK;TV;>;"
     if-eqz v0, :cond_0
 
     .line 1668
@@ -261,20 +246,19 @@
     iput-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;->current:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
     .line 1671
-    iget-object v1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;->current:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
+    iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;->current:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
-    return-object v1
+    return-object v0
 
     .line 1665
     :cond_0
-    new-instance v1, Ljava/util/NoSuchElementException;
+    new-instance v0, Ljava/util/NoSuchElementException;
 
-    invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
+    invoke-direct {v0}, Ljava/util/NoSuchElementException;-><init>()V
 
-    throw v1
+    throw v0
 
     .line 1660
-    .end local v0    # "e":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry<TK;TV;>;"
     :cond_1
     new-instance v0, Ljava/util/ConcurrentModificationException;
 
@@ -292,8 +276,6 @@
     .end annotation
 
     .line 1635
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.TrieMapIterator;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieMapIterator;->current:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;
 
     if-eqz v0, :cond_0
@@ -303,15 +285,15 @@
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$TrieEntry;->setValue(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 1636
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/IllegalStateException;-><init>()V
 
-    throw v0
+    throw p1
 .end method

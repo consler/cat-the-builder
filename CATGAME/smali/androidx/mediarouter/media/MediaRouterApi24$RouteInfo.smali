@@ -21,22 +21,18 @@
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 29
     return-void
 .end method
 
 .method public static getDeviceType(Ljava/lang/Object;)I
-    .locals 1
-    .param p0, "routeObj"    # Ljava/lang/Object;
+    .locals 0
 
     .line 25
-    move-object v0, p0
+    check-cast p0, Landroid/media/MediaRouter$RouteInfo;
 
-    check-cast v0, Landroid/media/MediaRouter$RouteInfo;
+    invoke-virtual {p0}, Landroid/media/MediaRouter$RouteInfo;->getDeviceType()I
 
-    invoke-virtual {v0}, Landroid/media/MediaRouter$RouteInfo;->getDeviceType()I
+    move-result p0
 
-    move-result v0
-
-    return v0
+    return p0
 .end method

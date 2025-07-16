@@ -18,39 +18,33 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
 
     .line 28
     invoke-direct {p0, p1}, Landroidx/media/MediaSessionManagerImplApi21;-><init>(Landroid/content/Context;)V
 
-    .line 29
-    nop
-
-    .line 30
     const-string v0, "media_session"
 
+    .line 30
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/media/session/MediaSessionManager;
+    check-cast p1, Landroid/media/session/MediaSessionManager;
 
-    iput-object v0, p0, Landroidx/media/MediaSessionManagerImplApi28;->mObject:Landroid/media/session/MediaSessionManager;
+    iput-object p1, p0, Landroidx/media/MediaSessionManagerImplApi28;->mObject:Landroid/media/session/MediaSessionManager;
 
-    .line 31
     return-void
 .end method
 
 
 # virtual methods
 .method public isTrustedForMediaControl(Landroidx/media/MediaSessionManager$RemoteUserInfoImpl;)Z
-    .locals 1
-    .param p1, "userInfo"    # Landroidx/media/MediaSessionManager$RemoteUserInfoImpl;
+    .locals 0
 
     .line 44
     invoke-super {p0, p1}, Landroidx/media/MediaSessionManagerImplApi21;->isTrustedForMediaControl(Landroidx/media/MediaSessionManager$RemoteUserInfoImpl;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

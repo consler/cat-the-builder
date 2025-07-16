@@ -119,17 +119,13 @@
 # virtual methods
 .method public activateParticles(II)V
     .locals 0
-    .param p1, "startIndex"    # I
-    .param p2, "count"    # I
 
-    .line 41
     return-void
 .end method
 
 .method public allocateChannels()V
     .locals 0
 
-    .line 70
     return-void
 .end method
 
@@ -139,89 +135,68 @@
 .method public dispose()V
     .locals 0
 
-    .line 64
     return-void
 .end method
 
 .method public end()V
     .locals 0
 
-    .line 61
     return-void
 .end method
 
 .method public init()V
     .locals 0
 
-    .line 53
     return-void
 .end method
 
 .method public killParticles(II)V
     .locals 0
-    .param p1, "startIndex"    # I
-    .param p2, "count"    # I
 
-    .line 45
     return-void
 .end method
 
 .method public load(Lcom/badlogic/gdx/assets/AssetManager;Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;)V
     .locals 0
-    .param p1, "manager"    # Lcom/badlogic/gdx/assets/AssetManager;
-    .param p2, "data"    # Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;
 
-    .line 82
     return-void
 .end method
 
 .method public read(Lcom/badlogic/gdx/utils/Json;Lcom/badlogic/gdx/utils/JsonValue;)V
     .locals 0
-    .param p1, "json"    # Lcom/badlogic/gdx/utils/Json;
-    .param p2, "jsonData"    # Lcom/badlogic/gdx/utils/JsonValue;
 
-    .line 90
     return-void
 .end method
 
 .method public save(Lcom/badlogic/gdx/assets/AssetManager;Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;)V
     .locals 0
-    .param p1, "manager"    # Lcom/badlogic/gdx/assets/AssetManager;
-    .param p2, "data"    # Lcom/badlogic/gdx/graphics/g3d/particles/ResourceData;
 
-    .line 78
     return-void
 .end method
 
 .method public set(Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;)V
     .locals 0
-    .param p1, "particleController"    # Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
 
     .line 73
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleControllerComponent;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
 
-    .line 74
     return-void
 .end method
 
 .method public start()V
     .locals 0
 
-    .line 57
     return-void
 .end method
 
 .method public update()V
     .locals 0
 
-    .line 49
     return-void
 .end method
 
 .method public write(Lcom/badlogic/gdx/utils/Json;)V
     .locals 0
-    .param p1, "json"    # Lcom/badlogic/gdx/utils/Json;
 
-    .line 86
     return-void
 .end method

@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/reactivestreams/Subscriber;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -66,42 +66,39 @@
     .end annotation
 
     .line 56
-    .local p0, "this":Lio/reactivex/internal/subscribers/StrictSubscriber;, "Lio/reactivex/internal/subscribers/StrictSubscriber<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
 
     .line 57
     iput-object p1, p0, Lio/reactivex/internal/subscribers/StrictSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
     .line 58
-    new-instance v0, Lio/reactivex/internal/util/AtomicThrowable;
+    new-instance p1, Lio/reactivex/internal/util/AtomicThrowable;
 
-    invoke-direct {v0}, Lio/reactivex/internal/util/AtomicThrowable;-><init>()V
+    invoke-direct {p1}, Lio/reactivex/internal/util/AtomicThrowable;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/subscribers/StrictSubscriber;->error:Lio/reactivex/internal/util/AtomicThrowable;
+    iput-object p1, p0, Lio/reactivex/internal/subscribers/StrictSubscriber;->error:Lio/reactivex/internal/util/AtomicThrowable;
 
     .line 59
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicLong;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicLong;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/subscribers/StrictSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
+    iput-object p1, p0, Lio/reactivex/internal/subscribers/StrictSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
     .line 60
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicReference;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/subscribers/StrictSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
+    iput-object p1, p0, Lio/reactivex/internal/subscribers/StrictSubscriber;->s:Ljava/util/concurrent/atomic/AtomicReference;
 
     .line 61
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/subscribers/StrictSubscriber;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iput-object p1, p0, Lio/reactivex/internal/subscribers/StrictSubscriber;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    .line 62
     return-void
 .end method
 
@@ -111,7 +108,6 @@
     .locals 1
 
     .line 76
-    .local p0, "this":Lio/reactivex/internal/subscribers/StrictSubscriber;, "Lio/reactivex/internal/subscribers/StrictSubscriber<TT;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/subscribers/StrictSubscriber;->done:Z
 
     if-nez v0, :cond_0
@@ -121,7 +117,6 @@
 
     invoke-static {v0}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->cancel(Ljava/util/concurrent/atomic/AtomicReference;)Z
 
-    .line 79
     :cond_0
     return-void
 .end method
@@ -129,10 +124,9 @@
 .method public onComplete()V
     .locals 2
 
-    .line 108
-    .local p0, "this":Lio/reactivex/internal/subscribers/StrictSubscriber;, "Lio/reactivex/internal/subscribers/StrictSubscriber<TT;>;"
     const/4 v0, 0x1
 
+    .line 108
     iput-boolean v0, p0, Lio/reactivex/internal/subscribers/StrictSubscriber;->done:Z
 
     .line 109
@@ -142,18 +136,15 @@
 
     invoke-static {v0, p0, v1}, Lio/reactivex/internal/util/HalfSerializer;->onComplete(Lorg/reactivestreams/Subscriber;Ljava/util/concurrent/atomic/AtomicInteger;Lio/reactivex/internal/util/AtomicThrowable;)V
 
-    .line 110
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "t"    # Ljava/lang/Throwable;
 
-    .line 102
-    .local p0, "this":Lio/reactivex/internal/subscribers/StrictSubscriber;, "Lio/reactivex/internal/subscribers/StrictSubscriber<TT;>;"
     const/4 v0, 0x1
 
+    .line 102
     iput-boolean v0, p0, Lio/reactivex/internal/subscribers/StrictSubscriber;->done:Z
 
     .line 103
@@ -163,7 +154,6 @@
 
     invoke-static {v0, p1, p0, v1}, Lio/reactivex/internal/util/HalfSerializer;->onError(Lorg/reactivestreams/Subscriber;Ljava/lang/Throwable;Ljava/util/concurrent/atomic/AtomicInteger;Lio/reactivex/internal/util/AtomicThrowable;)V
 
-    .line 104
     return-void
 .end method
 
@@ -176,24 +166,19 @@
     .end annotation
 
     .line 97
-    .local p0, "this":Lio/reactivex/internal/subscribers/StrictSubscriber;, "Lio/reactivex/internal/subscribers/StrictSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/StrictSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
     iget-object v1, p0, Lio/reactivex/internal/subscribers/StrictSubscriber;->error:Lio/reactivex/internal/util/AtomicThrowable;
 
     invoke-static {v0, p1, p0, v1}, Lio/reactivex/internal/util/HalfSerializer;->onNext(Lorg/reactivestreams/Subscriber;Ljava/lang/Object;Ljava/util/concurrent/atomic/AtomicInteger;Lio/reactivex/internal/util/AtomicThrowable;)V
 
-    .line 98
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 3
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 83
-    .local p0, "this":Lio/reactivex/internal/subscribers/StrictSubscriber;, "Lio/reactivex/internal/subscribers/StrictSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/subscribers/StrictSubscriber;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     const/4 v1, 0x0
@@ -228,25 +213,21 @@
     invoke-virtual {p0}, Lio/reactivex/internal/subscribers/StrictSubscriber;->cancel()V
 
     .line 91
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "\u00a72.12 violated: onSubscribe must be called at most once"
+    const-string v0, "\u00a72.12 violated: onSubscribe must be called at most once"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v0}, Lio/reactivex/internal/subscribers/StrictSubscriber;->onError(Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1}, Lio/reactivex/internal/subscribers/StrictSubscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 93
     :goto_0
     return-void
 .end method
 
 .method public request(J)V
     .locals 3
-    .param p1, "n"    # J
 
-    .line 66
-    .local p0, "this":Lio/reactivex/internal/subscribers/StrictSubscriber;, "Lio/reactivex/internal/subscribers/StrictSubscriber<TT;>;"
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
@@ -261,19 +242,19 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "\u00a73.9 violated: positive request amount required but it was "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0, v0}, Lio/reactivex/internal/subscribers/StrictSubscriber;->onError(Ljava/lang/Throwable;)V
 
@@ -287,7 +268,6 @@
 
     invoke-static {v0, v1, p1, p2}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->deferredRequest(Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/concurrent/atomic/AtomicLong;J)V
 
-    .line 72
     :goto_0
     return-void
 .end method

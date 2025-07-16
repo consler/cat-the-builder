@@ -35,17 +35,13 @@
     .end annotation
 
     .line 74
-    .local p0, "this":Lorg/apache/commons/collections4/queue/UnmodifiableQueue;, "Lorg/apache/commons/collections4/queue/UnmodifiableQueue<TE;>;"
-    .local p1, "queue":Ljava/util/Queue;, "Ljava/util/Queue<+TE;>;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/queue/AbstractQueueDecorator;-><init>(Ljava/util/Queue;)V
 
-    .line 75
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 1
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -54,19 +50,17 @@
     .end annotation
 
     .line 98
-    .local p0, "this":Lorg/apache/commons/collections4/queue/UnmodifiableQueue;, "Lorg/apache/commons/collections4/queue/UnmodifiableQueue<TE;>;"
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
     .line 99
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/Collection;
+    check-cast p1, Ljava/util/Collection;
 
-    invoke-virtual {p0, v0}, Lorg/apache/commons/collections4/queue/UnmodifiableQueue;->setCollection(Ljava/util/Collection;)V
+    invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/queue/UnmodifiableQueue;->setCollection(Ljava/util/Collection;)V
 
-    .line 100
     return-void
 .end method
 
@@ -85,20 +79,13 @@
     .end annotation
 
     .line 57
-    .local p0, "queue":Ljava/util/Queue;, "Ljava/util/Queue<+TE;>;"
     instance-of v0, p0, Lorg/apache/commons/collections4/Unmodifiable;
 
     if-eqz v0, :cond_0
 
-    .line 59
-    move-object v0, p0
-
-    .line 60
-    .local v0, "tmpQueue":Ljava/util/Queue;, "Ljava/util/Queue<TE;>;"
-    return-object v0
+    return-object p0
 
     .line 62
-    .end local v0    # "tmpQueue":Ljava/util/Queue;, "Ljava/util/Queue<TE;>;"
     :cond_0
     new-instance v0, Lorg/apache/commons/collections4/queue/UnmodifiableQueue;
 
@@ -109,7 +96,6 @@
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -117,7 +103,6 @@
     .end annotation
 
     .line 85
-    .local p0, "this":Lorg/apache/commons/collections4/queue/UnmodifiableQueue;, "Lorg/apache/commons/collections4/queue/UnmodifiableQueue<TE;>;"
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
     .line 86
@@ -127,27 +112,24 @@
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    .line 87
     return-void
 .end method
 
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
+    .locals 0
 
     .line 110
-    .local p0, "this":Lorg/apache/commons/collections4/queue/UnmodifiableQueue;, "Lorg/apache/commons/collections4/queue/UnmodifiableQueue<TE;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -157,20 +139,17 @@
     .end annotation
 
     .line 115
-    .local p0, "this":Lorg/apache/commons/collections4/queue/UnmodifiableQueue;, "Lorg/apache/commons/collections4/queue/UnmodifiableQueue<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<+TE;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public clear()V
     .locals 1
 
     .line 120
-    .local p0, "this":Lorg/apache/commons/collections4/queue/UnmodifiableQueue;, "Lorg/apache/commons/collections4/queue/UnmodifiableQueue<TE;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -189,7 +168,6 @@
     .end annotation
 
     .line 105
-    .local p0, "this":Lorg/apache/commons/collections4/queue/UnmodifiableQueue;, "Lorg/apache/commons/collections4/queue/UnmodifiableQueue<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/queue/UnmodifiableQueue;->decorated()Ljava/util/Queue;
 
     move-result-object v0
@@ -206,7 +184,7 @@
 .end method
 
 .method public offer(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)Z"
@@ -214,13 +192,11 @@
     .end annotation
 
     .line 150
-    .local p0, "this":Lorg/apache/commons/collections4/queue/UnmodifiableQueue;, "Lorg/apache/commons/collections4/queue/UnmodifiableQueue<TE;>;"
-    .local p1, "obj":Ljava/lang/Object;, "TE;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public poll()Ljava/lang/Object;
@@ -232,7 +208,6 @@
     .end annotation
 
     .line 155
-    .local p0, "this":Lorg/apache/commons/collections4/queue/UnmodifiableQueue;, "Lorg/apache/commons/collections4/queue/UnmodifiableQueue<TE;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -249,7 +224,6 @@
     .end annotation
 
     .line 160
-    .local p0, "this":Lorg/apache/commons/collections4/queue/UnmodifiableQueue;, "Lorg/apache/commons/collections4/queue/UnmodifiableQueue<TE;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -258,20 +232,18 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
+    .locals 0
 
     .line 125
-    .local p0, "this":Lorg/apache/commons/collections4/queue/UnmodifiableQueue;, "Lorg/apache/commons/collections4/queue/UnmodifiableQueue<TE;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -281,17 +253,15 @@
     .end annotation
 
     .line 138
-    .local p0, "this":Lorg/apache/commons/collections4/queue/UnmodifiableQueue;, "Lorg/apache/commons/collections4/queue/UnmodifiableQueue<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public removeIf(Ljava/util/function/Predicate;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -301,17 +271,15 @@
     .end annotation
 
     .line 133
-    .local p0, "this":Lorg/apache/commons/collections4/queue/UnmodifiableQueue;, "Lorg/apache/commons/collections4/queue/UnmodifiableQueue<TE;>;"
-    .local p1, "filter":Ljava/util/function/Predicate;, "Ljava/util/function/Predicate<-TE;>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -321,11 +289,9 @@
     .end annotation
 
     .line 143
-    .local p0, "this":Lorg/apache/commons/collections4/queue/UnmodifiableQueue;, "Lorg/apache/commons/collections4/queue/UnmodifiableQueue<TE;>;"
-    .local p1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<*>;"
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method

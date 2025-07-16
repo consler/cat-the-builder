@@ -48,13 +48,10 @@
     .end annotation
 
     .line 153
-    .local p0, "this":Lcom/bumptech/glide/load/model/ModelLoaderRegistry$ModelLoaderCache$Entry;, "Lcom/bumptech/glide/load/model/ModelLoaderRegistry$ModelLoaderCache$Entry<TModel;>;"
-    .local p1, "loaders":Ljava/util/List;, "Ljava/util/List<Lcom/bumptech/glide/load/model/ModelLoader<TModel;*>;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 154
     iput-object p1, p0, Lcom/bumptech/glide/load/model/ModelLoaderRegistry$ModelLoaderCache$Entry;->loaders:Ljava/util/List;
 
-    .line 155
     return-void
 .end method

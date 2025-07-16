@@ -21,14 +21,11 @@
 .method public onPostParceling()V
     .locals 0
 
-    .line 45
     return-void
 .end method
 
 .method public onPreParceling(Z)V
     .locals 0
-    .param p1, "isStream"    # Z
 
-    .line 36
     return-void
 .end method

@@ -19,6 +19,12 @@
 .method constructor <init>()V
     .locals 8
 
+    const/4 v1, 0x3
+
+    const/4 v2, 0x3
+
+    const-wide/16 v3, 0x0
+
     .line 37
     sget-object v5, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
@@ -30,23 +36,15 @@
 
     invoke-direct {v7}, Lcom/squareup/picasso/Utils$PicassoThreadFactory;-><init>()V
 
-    const/4 v1, 0x3
-
-    const/4 v2, 0x3
-
-    const-wide/16 v3, 0x0
-
     move-object v0, p0
 
     invoke-direct/range {v0 .. v7}, Ljava/util/concurrent/ThreadPoolExecutor;-><init>(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/ThreadFactory;)V
 
-    .line 39
     return-void
 .end method
 
 .method private setThreadCount(I)V
     .locals 0
-    .param p1, "threadCount"    # I
 
     .line 80
     invoke-virtual {p0, p1}, Lcom/squareup/picasso/PicassoExecutorService;->setCorePoolSize(I)V
@@ -54,7 +52,6 @@
     .line 81
     invoke-virtual {p0, p1}, Lcom/squareup/picasso/PicassoExecutorService;->setMaximumPoolSize(I)V
 
-    .line 82
     return-void
 .end method
 
@@ -62,13 +59,12 @@
 # virtual methods
 .method adjustThreadCount(Landroid/net/NetworkInfo;)V
     .locals 3
-    .param p1, "info"    # Landroid/net/NetworkInfo;
 
-    .line 42
     const/4 v0, 0x3
 
     if-eqz p1, :cond_3
 
+    .line 42
     invoke-virtual {p1}, Landroid/net/NetworkInfo;->isConnectedOrConnecting()Z
 
     move-result v1
@@ -89,68 +85,60 @@
 
     if-eq v1, v2, :cond_1
 
-    const/4 v2, 0x6
+    const/4 p1, 0x6
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, p1, :cond_1
 
-    const/16 v2, 0x9
+    const/16 p1, 0x9
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, p1, :cond_1
 
     .line 75
     invoke-direct {p0, v0}, Lcom/squareup/picasso/PicassoExecutorService;->setThreadCount(I)V
 
     goto :goto_0
 
-    .line 50
     :cond_1
-    const/4 v0, 0x4
+    const/4 p1, 0x4
 
-    invoke-direct {p0, v0}, Lcom/squareup/picasso/PicassoExecutorService;->setThreadCount(I)V
+    .line 50
+    invoke-direct {p0, p1}, Lcom/squareup/picasso/PicassoExecutorService;->setThreadCount(I)V
 
-    .line 51
     goto :goto_0
 
     .line 53
     :cond_2
     invoke-virtual {p1}, Landroid/net/NetworkInfo;->getSubtype()I
 
-    move-result v1
+    move-result p1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_0
 
-    packed-switch v1, :pswitch_data_1
+    packed-switch p1, :pswitch_data_1
 
     .line 71
     invoke-direct {p0, v0}, Lcom/squareup/picasso/PicassoExecutorService;->setThreadCount(I)V
 
-    .line 73
     goto :goto_0
 
     .line 57
     :pswitch_0
     invoke-direct {p0, v0}, Lcom/squareup/picasso/PicassoExecutorService;->setThreadCount(I)V
 
-    .line 58
     goto :goto_0
 
-    .line 64
     :pswitch_1
-    const/4 v0, 0x2
+    const/4 p1, 0x2
 
-    invoke-direct {p0, v0}, Lcom/squareup/picasso/PicassoExecutorService;->setThreadCount(I)V
+    .line 64
+    invoke-direct {p0, p1}, Lcom/squareup/picasso/PicassoExecutorService;->setThreadCount(I)V
 
-    .line 65
     goto :goto_0
 
     .line 68
     :pswitch_2
     invoke-direct {p0, v2}, Lcom/squareup/picasso/PicassoExecutorService;->setThreadCount(I)V
 
-    .line 69
-    nop
-
-    .line 77
     :goto_0
     return-void
 
@@ -159,10 +147,7 @@
     :goto_1
     invoke-direct {p0, v0}, Lcom/squareup/picasso/PicassoExecutorService;->setThreadCount(I)V
 
-    .line 44
     return-void
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -184,8 +169,7 @@
 .end method
 
 .method public submit(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
-    .locals 2
-    .param p1, "task"    # Ljava/lang/Runnable;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -199,16 +183,12 @@
     .line 86
     new-instance v0, Lcom/squareup/picasso/PicassoExecutorService$PicassoFutureTask;
 
-    move-object v1, p1
+    check-cast p1, Lcom/squareup/picasso/BitmapHunter;
 
-    check-cast v1, Lcom/squareup/picasso/BitmapHunter;
-
-    invoke-direct {v0, v1}, Lcom/squareup/picasso/PicassoExecutorService$PicassoFutureTask;-><init>(Lcom/squareup/picasso/BitmapHunter;)V
+    invoke-direct {v0, p1}, Lcom/squareup/picasso/PicassoExecutorService$PicassoFutureTask;-><init>(Lcom/squareup/picasso/BitmapHunter;)V
 
     .line 87
-    .local v0, "ftask":Lcom/squareup/picasso/PicassoExecutorService$PicassoFutureTask;
     invoke-virtual {p0, v0}, Lcom/squareup/picasso/PicassoExecutorService;->execute(Ljava/lang/Runnable;)V
 
-    .line 88
     return-object v0
 .end method

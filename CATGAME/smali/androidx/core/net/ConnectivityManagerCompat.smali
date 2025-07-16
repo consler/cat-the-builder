@@ -30,123 +30,80 @@
 .end method
 
 .method public static getNetworkInfoFromBroadcast(Landroid/net/ConnectivityManager;Landroid/content/Intent;)Landroid/net/NetworkInfo;
-    .locals 2
-    .param p0, "cm"    # Landroid/net/ConnectivityManager;
-    .param p1, "intent"    # Landroid/content/Intent;
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "cm",
+            "intent"
+        }
+    .end annotation
 
-    .line 141
     const-string v0, "networkInfo"
 
+    .line 141
     invoke-virtual {p1, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/net/NetworkInfo;
+    check-cast p1, Landroid/net/NetworkInfo;
 
-    .line 142
-    .local v0, "info":Landroid/net/NetworkInfo;
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 143
-    invoke-virtual {v0}, Landroid/net/NetworkInfo;->getType()I
+    invoke-virtual {p1}, Landroid/net/NetworkInfo;->getType()I
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {p0, v1}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
+    invoke-virtual {p0, p1}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 
-    .line 145
     :cond_0
-    const/4 v1, 0x0
+    const/4 p0, 0x0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static getRestrictBackgroundStatus(Landroid/net/ConnectivityManager;)I
-    .locals 2
-    .param p0, "cm"    # Landroid/net/ConnectivityManager;
-
-    .line 159
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x18
-
-    if-lt v0, v1, :cond_0
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "cm"
+        }
+    .end annotation
 
     .line 160
     invoke-virtual {p0}, Landroid/net/ConnectivityManager;->getRestrictBackgroundStatus()I
 
-    move-result v0
+    move-result p0
 
-    return v0
-
-    .line 162
-    :cond_0
-    const/4 v0, 0x3
-
-    return v0
+    return p0
 .end method
 
 .method public static isActiveNetworkMetered(Landroid/net/ConnectivityManager;)Z
-    .locals 4
-    .param p0, "cm"    # Landroid/net/ConnectivityManager;
-
-    .line 100
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x10
-
-    if-lt v0, v1, :cond_0
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "cm"
+        }
+    .end annotation
 
     .line 101
     invoke-virtual {p0}, Landroid/net/ConnectivityManager;->isActiveNetworkMetered()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
-
-    .line 103
-    :cond_0
-    invoke-virtual {p0}, Landroid/net/ConnectivityManager;->getActiveNetworkInfo()Landroid/net/NetworkInfo;
-
-    move-result-object v0
-
-    .line 104
-    .local v0, "info":Landroid/net/NetworkInfo;
-    const/4 v1, 0x1
-
-    if-nez v0, :cond_1
-
-    .line 106
-    return v1
-
-    .line 109
-    :cond_1
-    invoke-virtual {v0}, Landroid/net/NetworkInfo;->getType()I
-
-    move-result v2
-
-    .line 110
-    .local v2, "type":I
-    if-eq v2, v1, :cond_2
-
-    const/4 v3, 0x7
-
-    if-eq v2, v3, :cond_2
-
-    const/16 v3, 0x9
-
-    if-eq v2, v3, :cond_2
-
-    .line 124
-    return v1
-
-    .line 121
-    :cond_2
-    const/4 v1, 0x0
-
-    return v1
+    return p0
 .end method

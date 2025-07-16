@@ -97,7 +97,6 @@
 
 .method public final invoke(Lkotlin/reflect/KClass;)Ljava/lang/String;
     .locals 1
-    .param p1, "it"    # Lkotlin/reflect/KClass;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -114,7 +113,7 @@
     .line 53
     invoke-static {p1}, Lorg/koin/ext/KClassExtKt;->getFullName(Lkotlin/reflect/KClass;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

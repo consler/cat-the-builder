@@ -21,19 +21,7 @@
 # direct methods
 .method constructor <init>(Lcom/squareup/picasso/Picasso;Lcom/squareup/picasso/Request;Landroid/widget/RemoteViews;I[IIILjava/lang/String;Ljava/lang/Object;ILcom/squareup/picasso/Callback;)V
     .locals 11
-    .param p1, "picasso"    # Lcom/squareup/picasso/Picasso;
-    .param p2, "data"    # Lcom/squareup/picasso/Request;
-    .param p3, "remoteViews"    # Landroid/widget/RemoteViews;
-    .param p4, "viewId"    # I
-    .param p5, "appWidgetIds"    # [I
-    .param p6, "memoryPolicy"    # I
-    .param p7, "networkPolicy"    # I
-    .param p8, "key"    # Ljava/lang/String;
-    .param p9, "tag"    # Ljava/lang/Object;
-    .param p10, "errorResId"    # I
-    .param p11, "callback"    # Lcom/squareup/picasso/Callback;
 
-    .line 109
     move-object v0, p0
 
     move-object v1, p1
@@ -56,14 +44,14 @@
 
     move-object/from16 v10, p11
 
+    .line 109
     invoke-direct/range {v0 .. v10}, Lcom/squareup/picasso/RemoteViewsAction;-><init>(Lcom/squareup/picasso/Picasso;Lcom/squareup/picasso/Request;Landroid/widget/RemoteViews;IIIILjava/lang/Object;Ljava/lang/String;Lcom/squareup/picasso/Callback;)V
 
-    .line 111
     move-object/from16 v1, p5
 
+    .line 111
     iput-object v1, v0, Lcom/squareup/picasso/RemoteViewsAction$AppWidgetAction;->appWidgetIds:[I
 
-    .line 112
     return-void
 .end method
 
@@ -93,13 +81,11 @@
     move-result-object v0
 
     .line 116
-    .local v0, "manager":Landroid/appwidget/AppWidgetManager;
     iget-object v1, p0, Lcom/squareup/picasso/RemoteViewsAction$AppWidgetAction;->appWidgetIds:[I
 
     iget-object v2, p0, Lcom/squareup/picasso/RemoteViewsAction$AppWidgetAction;->remoteViews:Landroid/widget/RemoteViews;
 
     invoke-virtual {v0, v1, v2}, Landroid/appwidget/AppWidgetManager;->updateAppWidget([ILandroid/widget/RemoteViews;)V
 
-    .line 117
     return-void
 .end method

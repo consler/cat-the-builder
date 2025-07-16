@@ -39,7 +39,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/SurfaceRequest;Lcom/google/common/util/concurrent/ListenableFuture;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/core/SurfaceRequest;
 
     .line 170
     iput-object p1, p0, Landroidx/camera/core/SurfaceRequest$3;->this$0:Landroidx/camera/core/SurfaceRequest;
@@ -59,7 +58,6 @@
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
     .locals 4
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 186
     instance-of v0, p1, Ljava/util/concurrent/CancellationException;
@@ -79,9 +77,13 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v2
+
     const-string v3, " cancelled."
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -91,37 +93,34 @@
 
     invoke-virtual {v0, v1}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->setException(Ljava/lang/Throwable;)Z
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0}, Landroidx/core/util/Preconditions;->checkState(Z)V
+    invoke-static {p1}, Landroidx/core/util/Preconditions;->checkState(Z)V
 
     goto :goto_0
 
     .line 191
     :cond_0
-    iget-object v0, p0, Landroidx/camera/core/SurfaceRequest$3;->val$sessionStatusCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
+    iget-object p1, p0, Landroidx/camera/core/SurfaceRequest$3;->val$sessionStatusCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v1}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->set(Ljava/lang/Object;)Z
 
-    .line 193
     :goto_0
     return-void
 .end method
 
 .method public onSuccess(Landroid/view/Surface;)V
-    .locals 2
-    .param p1, "result"    # Landroid/view/Surface;
+    .locals 1
 
     .line 176
-    iget-object v0, p0, Landroidx/camera/core/SurfaceRequest$3;->val$terminationFuture:Lcom/google/common/util/concurrent/ListenableFuture;
+    iget-object p1, p0, Landroidx/camera/core/SurfaceRequest$3;->val$terminationFuture:Lcom/google/common/util/concurrent/ListenableFuture;
 
-    iget-object v1, p0, Landroidx/camera/core/SurfaceRequest$3;->val$sessionStatusCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
+    iget-object v0, p0, Landroidx/camera/core/SurfaceRequest$3;->val$sessionStatusCompleter:Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;
 
-    invoke-static {v0, v1}, Landroidx/camera/core/impl/utils/futures/Futures;->propagate(Lcom/google/common/util/concurrent/ListenableFuture;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)V
+    invoke-static {p1, v0}, Landroidx/camera/core/impl/utils/futures/Futures;->propagate(Lcom/google/common/util/concurrent/ListenableFuture;Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;)V
 
-    .line 177
     return-void
 .end method
 

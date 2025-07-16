@@ -15,42 +15,39 @@
 
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/physics/box2d/World;J)V
-    .locals 1
-    .param p1, "world"    # Lcom/badlogic/gdx/physics/box2d/World;
-    .param p2, "addr"    # J
+    .locals 0
 
     .line 38
     invoke-direct {p0, p1, p2, p3}, Lcom/badlogic/gdx/physics/box2d/Joint;-><init>(Lcom/badlogic/gdx/physics/box2d/World;J)V
 
+    const/4 p1, 0x2
+
+    new-array p1, p1, [F
+
     .line 32
-    const/4 v0, 0x2
-
-    new-array v0, v0, [F
-
-    iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJoint;->tmp:[F
+    iput-object p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJoint;->tmp:[F
 
     .line 33
-    new-instance v0, Lcom/badlogic/gdx/math/Vector2;
+    new-instance p1, Lcom/badlogic/gdx/math/Vector2;
 
-    invoke-direct {v0}, Lcom/badlogic/gdx/math/Vector2;-><init>()V
+    invoke-direct {p1}, Lcom/badlogic/gdx/math/Vector2;-><init>()V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJoint;->localAnchorA:Lcom/badlogic/gdx/math/Vector2;
+    iput-object p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJoint;->localAnchorA:Lcom/badlogic/gdx/math/Vector2;
 
     .line 34
-    new-instance v0, Lcom/badlogic/gdx/math/Vector2;
+    new-instance p1, Lcom/badlogic/gdx/math/Vector2;
 
-    invoke-direct {v0}, Lcom/badlogic/gdx/math/Vector2;-><init>()V
+    invoke-direct {p1}, Lcom/badlogic/gdx/math/Vector2;-><init>()V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJoint;->localAnchorB:Lcom/badlogic/gdx/math/Vector2;
+    iput-object p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJoint;->localAnchorB:Lcom/badlogic/gdx/math/Vector2;
 
     .line 35
-    new-instance v0, Lcom/badlogic/gdx/math/Vector2;
+    new-instance p1, Lcom/badlogic/gdx/math/Vector2;
 
-    invoke-direct {v0}, Lcom/badlogic/gdx/math/Vector2;-><init>()V
+    invoke-direct {p1}, Lcom/badlogic/gdx/math/Vector2;-><init>()V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJoint;->localAxisA:Lcom/badlogic/gdx/math/Vector2;
+    iput-object p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJoint;->localAxisA:Lcom/badlogic/gdx/math/Vector2;
 
-    .line 39
     return-void
 .end method
 
@@ -112,27 +109,23 @@
 # virtual methods
 .method public enableLimit(Z)V
     .locals 2
-    .param p1, "flag"    # Z
 
     .line 109
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJoint;->addr:J
 
     invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJoint;->jniEnableLimit(JZ)V
 
-    .line 110
     return-void
 .end method
 
 .method public enableMotor(Z)V
     .locals 2
-    .param p1, "flag"    # Z
 
     .line 159
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJoint;->addr:J
 
     invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJoint;->jniEnableMotor(JZ)V
 
-    .line 160
     return-void
 .end method
 
@@ -283,16 +276,15 @@
 
 .method public getMotorForce(F)F
     .locals 2
-    .param p1, "invDt"    # F
 
     .line 199
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJoint;->addr:J
 
     invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJoint;->jniGetMotorForce(JF)F
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public getMotorSpeed()F
@@ -362,40 +354,33 @@
 
 .method public setLimits(FF)V
     .locals 2
-    .param p1, "lower"    # F
-    .param p2, "upper"    # F
 
     .line 139
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJoint;->addr:J
 
     invoke-direct {p0, v0, v1, p1, p2}, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJoint;->jniSetLimits(JFF)V
 
-    .line 140
     return-void
 .end method
 
 .method public setMaxMotorForce(F)V
     .locals 2
-    .param p1, "force"    # F
 
     .line 189
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJoint;->addr:J
 
     invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJoint;->jniSetMaxMotorForce(JF)V
 
-    .line 190
     return-void
 .end method
 
 .method public setMotorSpeed(F)V
     .locals 2
-    .param p1, "speed"    # F
 
     .line 169
     iget-wide v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJoint;->addr:J
 
     invoke-direct {p0, v0, v1, p1}, Lcom/badlogic/gdx/physics/box2d/joints/PrismaticJoint;->jniSetMotorSpeed(JF)V
 
-    .line 170
     return-void
 .end method

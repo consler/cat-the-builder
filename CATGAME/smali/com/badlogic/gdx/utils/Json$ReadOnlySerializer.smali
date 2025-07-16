@@ -33,7 +33,6 @@
     .locals 0
 
     .line 1210
-    .local p0, "this":Lcom/badlogic/gdx/utils/Json$ReadOnlySerializer;, "Lcom/badlogic/gdx/utils/Json$ReadOnlySerializer<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -55,8 +54,6 @@
 
 .method public write(Lcom/badlogic/gdx/utils/Json;Ljava/lang/Object;Ljava/lang/Class;)V
     .locals 0
-    .param p1, "json"    # Lcom/badlogic/gdx/utils/Json;
-    .param p3, "knownType"    # Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,8 +64,5 @@
         }
     .end annotation
 
-    .line 1212
-    .local p0, "this":Lcom/badlogic/gdx/utils/Json$ReadOnlySerializer;, "Lcom/badlogic/gdx/utils/Json$ReadOnlySerializer<TT;>;"
-    .local p2, "object":Ljava/lang/Object;, "TT;"
     return-void
 .end method

@@ -45,9 +45,7 @@
     .locals 0
 
     .line 519
-    .local p0, "this":Landroidx/loader/content/ModernAsyncTask$WorkerRunnable;, "Landroidx/loader/content/ModernAsyncTask$WorkerRunnable<TParams;TResult;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 520
     return-void
 .end method

@@ -59,33 +59,29 @@
 .end method
 
 .method protected constructor <init>()V
-    .locals 7
+    .locals 6
 
     .line 89
-    .local p0, "this":Lorg/apache/commons/lang3/reflect/TypeLiteral;, "Lorg/apache/commons/lang3/reflect/TypeLiteral<TT;>;"
-    const-class v0, Lorg/apache/commons/lang3/reflect/TypeLiteral;
-
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 90
-    nop
 
     .line 91
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v1, v0}, Lorg/apache/commons/lang3/reflect/TypeUtils;->getTypeArguments(Ljava/lang/reflect/Type;Ljava/lang/Class;)Ljava/util/Map;
+    const-class v1, Lorg/apache/commons/lang3/reflect/TypeLiteral;
 
-    move-result-object v1
+    invoke-static {v0, v1}, Lorg/apache/commons/lang3/reflect/TypeUtils;->getTypeArguments(Ljava/lang/reflect/Type;Ljava/lang/Class;)Ljava/util/Map;
 
-    sget-object v2, Lorg/apache/commons/lang3/reflect/TypeLiteral;->T:Ljava/lang/reflect/TypeVariable;
+    move-result-object v0
 
-    invoke-interface {v1, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object v1, Lorg/apache/commons/lang3/reflect/TypeLiteral;->T:Ljava/lang/reflect/TypeVariable;
 
-    move-result-object v1
+    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast v1, Ljava/lang/reflect/Type;
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/reflect/Type;
 
     const/4 v2, 0x2
 
@@ -100,43 +96,37 @@
 
     aput-object v4, v3, v5
 
-    sget-object v4, Lorg/apache/commons/lang3/reflect/TypeLiteral;->T:Ljava/lang/reflect/TypeVariable;
-
-    invoke-static {v4}, Lorg/apache/commons/lang3/reflect/TypeUtils;->toLongString(Ljava/lang/reflect/TypeVariable;)Ljava/lang/String;
-
-    move-result-object v4
-
-    const/4 v6, 0x1
-
-    aput-object v4, v3, v6
-
-    .line 91
-    const-string v4, "%s does not assign type parameter %s"
-
-    invoke-static {v1, v4, v3}, Lorg/apache/commons/lang3/Validate;->notNull(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v1}, Lorg/apache/commons/lang3/reflect/TypeUtils;->toLongString(Ljava/lang/reflect/TypeVariable;)Ljava/lang/String;
 
     move-result-object v1
 
-    check-cast v1, Ljava/lang/reflect/Type;
+    const/4 v4, 0x1
 
-    iput-object v1, p0, Lorg/apache/commons/lang3/reflect/TypeLiteral;->value:Ljava/lang/reflect/Type;
+    aput-object v1, v3, v4
 
-    .line 94
-    new-array v1, v2, [Ljava/lang/Object;
+    const-string v1, "%s does not assign type parameter %s"
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    .line 91
+    invoke-static {v0, v1, v3}, Lorg/apache/commons/lang3/Validate;->notNull(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    aput-object v0, v1, v5
+    check-cast v0, Ljava/lang/reflect/Type;
 
-    iget-object v0, p0, Lorg/apache/commons/lang3/reflect/TypeLiteral;->value:Ljava/lang/reflect/Type;
+    iput-object v0, p0, Lorg/apache/commons/lang3/reflect/TypeLiteral;->value:Ljava/lang/reflect/Type;
 
+    new-array v1, v2, [Ljava/lang/Object;
+
+    const-string v2, "TypeLiteral"
+
+    aput-object v2, v1, v5
+
+    .line 94
     invoke-static {v0}, Lorg/apache/commons/lang3/reflect/TypeUtils;->toString(Ljava/lang/reflect/Type;)Ljava/lang/String;
 
     move-result-object v0
 
-    aput-object v0, v1, v6
+    aput-object v0, v1, v4
 
     const-string v0, "%s<%s>"
 
@@ -146,24 +136,19 @@
 
     iput-object v0, p0, Lorg/apache/commons/lang3/reflect/TypeLiteral;->toString:Ljava/lang/String;
 
-    .line 95
     return-void
 .end method
 
 
 # virtual methods
 .method public final equals(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 1
 
-    .line 99
-    .local p0, "this":Lorg/apache/commons/lang3/reflect/TypeLiteral;, "Lorg/apache/commons/lang3/reflect/TypeLiteral<TT;>;"
     if-ne p1, p0, :cond_0
 
-    .line 100
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
     .line 102
     :cond_0
@@ -171,35 +156,30 @@
 
     if-nez v0, :cond_1
 
-    .line 103
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 105
     :cond_1
-    move-object v0, p1
-
-    check-cast v0, Lorg/apache/commons/lang3/reflect/TypeLiteral;
+    check-cast p1, Lorg/apache/commons/lang3/reflect/TypeLiteral;
 
     .line 106
-    .local v0, "other":Lorg/apache/commons/lang3/reflect/TypeLiteral;, "Lorg/apache/commons/lang3/reflect/TypeLiteral<*>;"
-    iget-object v1, p0, Lorg/apache/commons/lang3/reflect/TypeLiteral;->value:Ljava/lang/reflect/Type;
+    iget-object v0, p0, Lorg/apache/commons/lang3/reflect/TypeLiteral;->value:Ljava/lang/reflect/Type;
 
-    iget-object v2, v0, Lorg/apache/commons/lang3/reflect/TypeLiteral;->value:Ljava/lang/reflect/Type;
+    iget-object p1, p1, Lorg/apache/commons/lang3/reflect/TypeLiteral;->value:Ljava/lang/reflect/Type;
 
-    invoke-static {v1, v2}, Lorg/apache/commons/lang3/reflect/TypeUtils;->equals(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Z
+    invoke-static {v0, p1}, Lorg/apache/commons/lang3/reflect/TypeUtils;->equals(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Z
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 .end method
 
 .method public getType()Ljava/lang/reflect/Type;
     .locals 1
 
     .line 121
-    .local p0, "this":Lorg/apache/commons/lang3/reflect/TypeLiteral;, "Lorg/apache/commons/lang3/reflect/TypeLiteral<TT;>;"
     iget-object v0, p0, Lorg/apache/commons/lang3/reflect/TypeLiteral;->value:Ljava/lang/reflect/Type;
 
     return-object v0
@@ -209,7 +189,6 @@
     .locals 1
 
     .line 111
-    .local p0, "this":Lorg/apache/commons/lang3/reflect/TypeLiteral;, "Lorg/apache/commons/lang3/reflect/TypeLiteral<TT;>;"
     iget-object v0, p0, Lorg/apache/commons/lang3/reflect/TypeLiteral;->value:Ljava/lang/reflect/Type;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
@@ -225,7 +204,6 @@
     .locals 1
 
     .line 116
-    .local p0, "this":Lorg/apache/commons/lang3/reflect/TypeLiteral;, "Lorg/apache/commons/lang3/reflect/TypeLiteral<TT;>;"
     iget-object v0, p0, Lorg/apache/commons/lang3/reflect/TypeLiteral;->toString:Ljava/lang/String;
 
     return-object v0

@@ -51,8 +51,6 @@
 
 .method public initialize(Landroid/media/MediaMetadataRetriever;Ljava/nio/ByteBuffer;)V
     .locals 1
-    .param p1, "retriever"    # Landroid/media/MediaMetadataRetriever;
-    .param p2, "data"    # Ljava/nio/ByteBuffer;
 
     .line 316
     new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$ByteBufferInitializer$1;
@@ -61,6 +59,5 @@
 
     invoke-virtual {p1, v0}, Landroid/media/MediaMetadataRetriever;->setDataSource(Landroid/media/MediaDataSource;)V
 
-    .line 337
     return-void
 .end method

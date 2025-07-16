@@ -17,12 +17,10 @@
 # direct methods
 .method constructor <init>(Lorg/apache/commons/collections/map/AbstractReferenceMap;)V
     .locals 0
-    .param p1, "parent"    # Lorg/apache/commons/collections/map/AbstractReferenceMap;
 
     .line 812
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/map/AbstractReferenceMap$ReferenceEntrySetIterator;-><init>(Lorg/apache/commons/collections/map/AbstractReferenceMap;)V
 
-    .line 813
     return-void
 .end method
 

@@ -23,7 +23,6 @@
 # direct methods
 .method protected constructor <init>(Lcom/badlogic/gdx/graphics/profiling/GLProfiler;)V
     .locals 2
-    .param p1, "profiler"    # Lcom/badlogic/gdx/graphics/profiling/GLProfiler;
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,64 +39,56 @@
     .line 33
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/profiling/GLInterceptor;->glProfiler:Lcom/badlogic/gdx/graphics/profiling/GLProfiler;
 
-    .line 34
     return-void
 .end method
 
 .method public static resolveErrorNumber(I)Ljava/lang/String;
     .locals 2
-    .param p0, "error"    # I
 
-    .line 37
     packed-switch p0, :pswitch_data_0
 
     .line 49
     :pswitch_0
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "number "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v0
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    return-object v0
+    move-result-object p0
 
-    .line 43
+    return-object p0
+
     :pswitch_1
-    const-string v0, "GL_INVALID_FRAMEBUFFER_OPERATION"
+    const-string p0, "GL_INVALID_FRAMEBUFFER_OPERATION"
 
-    return-object v0
+    return-object p0
 
-    .line 47
     :pswitch_2
-    const-string v0, "GL_OUT_OF_MEMORY"
+    const-string p0, "GL_OUT_OF_MEMORY"
 
-    return-object v0
+    return-object p0
 
-    .line 41
     :pswitch_3
-    const-string v0, "GL_INVALID_OPERATION"
+    const-string p0, "GL_INVALID_OPERATION"
 
-    return-object v0
+    return-object p0
 
-    .line 39
     :pswitch_4
-    const-string v0, "GL_INVALID_VALUE"
+    const-string p0, "GL_INVALID_VALUE"
 
-    return-object v0
+    return-object p0
 
-    .line 45
     :pswitch_5
-    const-string v0, "GL_INVALID_ENUM"
+    const-string p0, "GL_INVALID_ENUM"
 
-    return-object v0
+    return-object p0
 
     :pswitch_data_0
     .packed-switch 0x500
@@ -161,9 +152,9 @@
 .method public reset()V
     .locals 1
 
-    .line 74
     const/4 v0, 0x0
 
+    .line 74
     iput v0, p0, Lcom/badlogic/gdx/graphics/profiling/GLInterceptor;->calls:I
 
     .line 75
@@ -180,6 +171,5 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/math/FloatCounter;->reset()V
 
-    .line 79
     return-void
 .end method

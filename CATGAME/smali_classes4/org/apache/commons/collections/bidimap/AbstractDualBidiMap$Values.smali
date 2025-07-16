@@ -20,7 +20,6 @@
 # direct methods
 .method protected constructor <init>(Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;)V
     .locals 2
-    .param p1, "parent"    # Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;
 
     .line 472
     iget-object v0, p1, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;->maps:[Ljava/util/Map;
@@ -35,7 +34,6 @@
 
     invoke-direct {p0, v0, p1}, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap$View;-><init>(Ljava/util/Collection;Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;)V
 
-    .line 473
     return-void
 .end method
 
@@ -43,7 +41,6 @@
 # virtual methods
 .method public contains(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "value"    # Ljava/lang/Object;
 
     .line 480
     iget-object v0, p0, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap$Values;->parent:Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;
@@ -56,9 +53,9 @@
 
     invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
@@ -79,8 +76,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 4
-    .param p1, "value"    # Ljava/lang/Object;
+    .locals 3
 
     .line 484
     iget-object v0, p0, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap$Values;->parent:Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;
@@ -108,23 +104,19 @@
 
     invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 486
-    .local v0, "key":Ljava/lang/Object;
-    iget-object v3, p0, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap$Values;->parent:Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;
+    iget-object v0, p0, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap$Values;->parent:Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;
 
-    iget-object v3, v3, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;->maps:[Ljava/util/Map;
+    iget-object v0, v0, Lorg/apache/commons/collections/bidimap/AbstractDualBidiMap;->maps:[Ljava/util/Map;
 
-    aget-object v2, v3, v2
+    aget-object v0, v0, v2
 
-    invoke-interface {v2, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 487
     return v1
 
-    .line 489
-    .end local v0    # "key":Ljava/lang/Object;
     :cond_0
     return v2
 .end method

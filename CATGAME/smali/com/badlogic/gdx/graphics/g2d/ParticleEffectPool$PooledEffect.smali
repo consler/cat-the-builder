@@ -21,8 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/graphics/g2d/ParticleEffectPool;Lcom/badlogic/gdx/graphics/g2d/ParticleEffect;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/graphics/g2d/ParticleEffectPool;
-    .param p2, "effect"    # Lcom/badlogic/gdx/graphics/g2d/ParticleEffect;
 
     .line 57
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g2d/ParticleEffectPool$PooledEffect;->this$0:Lcom/badlogic/gdx/graphics/g2d/ParticleEffectPool;
@@ -30,7 +28,6 @@
     .line 58
     invoke-direct {p0, p2}, Lcom/badlogic/gdx/graphics/g2d/ParticleEffect;-><init>(Lcom/badlogic/gdx/graphics/g2d/ParticleEffect;)V
 
-    .line 59
     return-void
 .end method
 
@@ -44,6 +41,5 @@
 
     invoke-virtual {v0, p0}, Lcom/badlogic/gdx/graphics/g2d/ParticleEffectPool;->free(Lcom/badlogic/gdx/graphics/g2d/ParticleEffectPool$PooledEffect;)V
 
-    .line 63
     return-void
 .end method

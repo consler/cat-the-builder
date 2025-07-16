@@ -70,8 +70,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;Ljava/lang/Object;Lcom/bumptech/glide/load/Option$CacheKeyUpdater;)V
-    .locals 1
-    .param p1, "key"    # Ljava/lang/String;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -83,17 +82,14 @@
     .end annotation
 
     .line 90
-    .local p0, "this":Lcom/bumptech/glide/load/Option;, "Lcom/bumptech/glide/load/Option<TT;>;"
-    .local p2, "defaultValue":Ljava/lang/Object;, "TT;"
-    .local p3, "cacheKeyUpdater":Lcom/bumptech/glide/load/Option$CacheKeyUpdater;, "Lcom/bumptech/glide/load/Option$CacheKeyUpdater<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 91
     invoke-static {p1}, Lcom/bumptech/glide/util/Preconditions;->checkNotEmpty(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/Option;->key:Ljava/lang/String;
+    iput-object p1, p0, Lcom/bumptech/glide/load/Option;->key:Ljava/lang/String;
 
     .line 92
     iput-object p2, p0, Lcom/bumptech/glide/load/Option;->defaultValue:Ljava/lang/Object;
@@ -101,19 +97,17 @@
     .line 93
     invoke-static {p3}, Lcom/bumptech/glide/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/bumptech/glide/load/Option$CacheKeyUpdater;
+    check-cast p1, Lcom/bumptech/glide/load/Option$CacheKeyUpdater;
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/Option;->cacheKeyUpdater:Lcom/bumptech/glide/load/Option$CacheKeyUpdater;
+    iput-object p1, p0, Lcom/bumptech/glide/load/Option;->cacheKeyUpdater:Lcom/bumptech/glide/load/Option$CacheKeyUpdater;
 
-    .line 94
     return-void
 .end method
 
 .method public static disk(Ljava/lang/String;Lcom/bumptech/glide/load/Option$CacheKeyUpdater;)Lcom/bumptech/glide/load/Option;
     .locals 2
-    .param p0, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -128,7 +122,6 @@
     .end annotation
 
     .line 72
-    .local p1, "cacheKeyUpdater":Lcom/bumptech/glide/load/Option$CacheKeyUpdater;, "Lcom/bumptech/glide/load/Option$CacheKeyUpdater<TT;>;"
     new-instance v0, Lcom/bumptech/glide/load/Option;
 
     const/4 v1, 0x0
@@ -140,7 +133,6 @@
 
 .method public static disk(Ljava/lang/String;Ljava/lang/Object;Lcom/bumptech/glide/load/Option$CacheKeyUpdater;)Lcom/bumptech/glide/load/Option;
     .locals 1
-    .param p0, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -156,8 +148,6 @@
     .end annotation
 
     .line 86
-    .local p1, "defaultValue":Ljava/lang/Object;, "TT;"
-    .local p2, "cacheKeyUpdater":Lcom/bumptech/glide/load/Option$CacheKeyUpdater;, "Lcom/bumptech/glide/load/Option$CacheKeyUpdater<TT;>;"
     new-instance v0, Lcom/bumptech/glide/load/Option;
 
     invoke-direct {v0, p0, p1, p2}, Lcom/bumptech/glide/load/Option;-><init>(Ljava/lang/String;Ljava/lang/Object;Lcom/bumptech/glide/load/Option$CacheKeyUpdater;)V
@@ -187,7 +177,6 @@
     .locals 2
 
     .line 115
-    .local p0, "this":Lcom/bumptech/glide/load/Option;, "Lcom/bumptech/glide/load/Option<TT;>;"
     iget-object v0, p0, Lcom/bumptech/glide/load/Option;->keyBytes:[B
 
     if-nez v0, :cond_0
@@ -212,7 +201,6 @@
 
 .method public static memory(Ljava/lang/String;)Lcom/bumptech/glide/load/Option;
     .locals 3
-    .param p0, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -228,20 +216,19 @@
     .line 47
     new-instance v0, Lcom/bumptech/glide/load/Option;
 
+    const/4 v1, 0x0
+
     invoke-static {}, Lcom/bumptech/glide/load/Option;->emptyUpdater()Lcom/bumptech/glide/load/Option$CacheKeyUpdater;
 
-    move-result-object v1
+    move-result-object v2
 
-    const/4 v2, 0x0
-
-    invoke-direct {v0, p0, v2, v1}, Lcom/bumptech/glide/load/Option;-><init>(Ljava/lang/String;Ljava/lang/Object;Lcom/bumptech/glide/load/Option$CacheKeyUpdater;)V
+    invoke-direct {v0, p0, v1, v2}, Lcom/bumptech/glide/load/Option;-><init>(Ljava/lang/String;Ljava/lang/Object;Lcom/bumptech/glide/load/Option$CacheKeyUpdater;)V
 
     return-object v0
 .end method
 
 .method public static memory(Ljava/lang/String;Ljava/lang/Object;)Lcom/bumptech/glide/load/Option;
     .locals 2
-    .param p0, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -255,7 +242,6 @@
     .end annotation
 
     .line 59
-    .local p1, "defaultValue":Ljava/lang/Object;, "TT;"
     new-instance v0, Lcom/bumptech/glide/load/Option;
 
     invoke-static {}, Lcom/bumptech/glide/load/Option;->emptyUpdater()Lcom/bumptech/glide/load/Option$CacheKeyUpdater;
@@ -270,38 +256,31 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 1
 
     .line 123
-    .local p0, "this":Lcom/bumptech/glide/load/Option;, "Lcom/bumptech/glide/load/Option<TT;>;"
     instance-of v0, p1, Lcom/bumptech/glide/load/Option;
 
     if-eqz v0, :cond_0
 
     .line 124
-    move-object v0, p1
-
-    check-cast v0, Lcom/bumptech/glide/load/Option;
+    check-cast p1, Lcom/bumptech/glide/load/Option;
 
     .line 125
-    .local v0, "other":Lcom/bumptech/glide/load/Option;, "Lcom/bumptech/glide/load/Option<*>;"
-    iget-object v1, p0, Lcom/bumptech/glide/load/Option;->key:Ljava/lang/String;
+    iget-object v0, p0, Lcom/bumptech/glide/load/Option;->key:Ljava/lang/String;
 
-    iget-object v2, v0, Lcom/bumptech/glide/load/Option;->key:Ljava/lang/String;
+    iget-object p1, p1, Lcom/bumptech/glide/load/Option;->key:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 
-    .line 127
-    .end local v0    # "other":Lcom/bumptech/glide/load/Option;, "Lcom/bumptech/glide/load/Option<*>;"
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public getDefaultValue()Ljava/lang/Object;
@@ -313,7 +292,6 @@
     .end annotation
 
     .line 101
-    .local p0, "this":Lcom/bumptech/glide/load/Option;, "Lcom/bumptech/glide/load/Option<TT;>;"
     iget-object v0, p0, Lcom/bumptech/glide/load/Option;->defaultValue:Ljava/lang/Object;
 
     return-object v0
@@ -323,7 +301,6 @@
     .locals 1
 
     .line 132
-    .local p0, "this":Lcom/bumptech/glide/load/Option;, "Lcom/bumptech/glide/load/Option<TT;>;"
     iget-object v0, p0, Lcom/bumptech/glide/load/Option;->key:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
@@ -337,26 +314,23 @@
     .locals 2
 
     .line 143
-    .local p0, "this":Lcom/bumptech/glide/load/Option;, "Lcom/bumptech/glide/load/Option<TT;>;"
     new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v1, "Option{key=\'"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v1, p0, Lcom/bumptech/glide/load/Option;->key:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v1, 0x27
+    move-result-object v0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    const-string v1, "\'}"
 
-    const/16 v1, 0x7d
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -367,7 +341,6 @@
 
 .method public update(Ljava/lang/Object;Ljava/security/MessageDigest;)V
     .locals 2
-    .param p2, "messageDigest"    # Ljava/security/MessageDigest;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;",
@@ -377,8 +350,6 @@
     .end annotation
 
     .line 110
-    .local p0, "this":Lcom/bumptech/glide/load/Option;, "Lcom/bumptech/glide/load/Option<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     iget-object v0, p0, Lcom/bumptech/glide/load/Option;->cacheKeyUpdater:Lcom/bumptech/glide/load/Option$CacheKeyUpdater;
 
     invoke-direct {p0}, Lcom/bumptech/glide/load/Option;->getKeyBytes()[B
@@ -387,6 +358,5 @@
 
     invoke-interface {v0, v1, p1, p2}, Lcom/bumptech/glide/load/Option$CacheKeyUpdater;->update([BLjava/lang/Object;Ljava/security/MessageDigest;)V
 
-    .line 111
     return-void
 .end method

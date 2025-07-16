@@ -22,20 +22,17 @@
     .line 38
     invoke-direct {p0}, Landroidx/media/AudioAttributesImplApi21;-><init>()V
 
-    .line 39
     return-void
 .end method
 
 .method constructor <init>(Landroid/media/AudioAttributes;)V
     .locals 1
-    .param p1, "audioAttributes"    # Landroid/media/AudioAttributes;
 
-    .line 42
     const/4 v0, -0x1
 
+    .line 42
     invoke-direct {p0, p1, v0}, Landroidx/media/AudioAttributesImplApi21;-><init>(Landroid/media/AudioAttributes;I)V
 
-    .line 43
     return-void
 .end method
 

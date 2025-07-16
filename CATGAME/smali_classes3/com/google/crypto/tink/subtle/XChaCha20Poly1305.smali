@@ -6,7 +6,6 @@
 # direct methods
 .method public constructor <init>([B)V
     .locals 0
-    .param p1, "key"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -25,7 +24,6 @@
     .line 27
     invoke-direct {p0, p1}, Lcom/google/crypto/tink/subtle/ChaCha20Poly1305Base;-><init>([B)V
 
-    .line 28
     return-void
 .end method
 
@@ -87,8 +85,6 @@
 
 .method newChaCha20Instance([BI)Lcom/google/crypto/tink/subtle/ChaCha20Base;
     .locals 1
-    .param p1, "key"    # [B
-    .param p2, "initialCounter"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,

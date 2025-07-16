@@ -110,11 +110,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/lifecycle/CoroutineLiveData;Lkotlin/jvm/functions/Function2;JLkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function0;)V
     .locals 1
-    .param p1, "liveData"    # Landroidx/lifecycle/CoroutineLiveData;
-    .param p2, "block"    # Lkotlin/jvm/functions/Function2;
-    .param p3, "timeoutInMs"    # J
-    .param p5, "scope"    # Lkotlinx/coroutines/CoroutineScope;
-    .param p6, "onDone"    # Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -170,48 +165,43 @@
 .end method
 
 .method public static final synthetic access$getBlock$p(Landroidx/lifecycle/BlockRunner;)Lkotlin/jvm/functions/Function2;
-    .locals 1
-    .param p0, "$this"    # Landroidx/lifecycle/BlockRunner;
+    .locals 0
 
     .line 154
-    iget-object v0, p0, Landroidx/lifecycle/BlockRunner;->block:Lkotlin/jvm/functions/Function2;
+    iget-object p0, p0, Landroidx/lifecycle/BlockRunner;->block:Lkotlin/jvm/functions/Function2;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final synthetic access$getLiveData$p(Landroidx/lifecycle/BlockRunner;)Landroidx/lifecycle/CoroutineLiveData;
-    .locals 1
-    .param p0, "$this"    # Landroidx/lifecycle/BlockRunner;
+    .locals 0
 
     .line 154
-    iget-object v0, p0, Landroidx/lifecycle/BlockRunner;->liveData:Landroidx/lifecycle/CoroutineLiveData;
+    iget-object p0, p0, Landroidx/lifecycle/BlockRunner;->liveData:Landroidx/lifecycle/CoroutineLiveData;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final synthetic access$getOnDone$p(Landroidx/lifecycle/BlockRunner;)Lkotlin/jvm/functions/Function0;
-    .locals 1
-    .param p0, "$this"    # Landroidx/lifecycle/BlockRunner;
+    .locals 0
 
     .line 154
-    iget-object v0, p0, Landroidx/lifecycle/BlockRunner;->onDone:Lkotlin/jvm/functions/Function0;
+    iget-object p0, p0, Landroidx/lifecycle/BlockRunner;->onDone:Lkotlin/jvm/functions/Function0;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final synthetic access$getRunningJob$p(Landroidx/lifecycle/BlockRunner;)Lkotlinx/coroutines/Job;
-    .locals 1
-    .param p0, "$this"    # Landroidx/lifecycle/BlockRunner;
+    .locals 0
 
     .line 154
-    iget-object v0, p0, Landroidx/lifecycle/BlockRunner;->runningJob:Lkotlinx/coroutines/Job;
+    iget-object p0, p0, Landroidx/lifecycle/BlockRunner;->runningJob:Lkotlinx/coroutines/Job;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final synthetic access$getTimeoutInMs$p(Landroidx/lifecycle/BlockRunner;)J
     .locals 2
-    .param p0, "$this"    # Landroidx/lifecycle/BlockRunner;
 
     .line 154
     iget-wide v0, p0, Landroidx/lifecycle/BlockRunner;->timeoutInMs:J
@@ -221,8 +211,6 @@
 
 .method public static final synthetic access$setRunningJob$p(Landroidx/lifecycle/BlockRunner;Lkotlinx/coroutines/Job;)V
     .locals 0
-    .param p0, "$this"    # Landroidx/lifecycle/BlockRunner;
-    .param p1, "<set-?>"    # Lkotlinx/coroutines/Job;
 
     .line 154
     iput-object p1, p0, Landroidx/lifecycle/BlockRunner;->runningJob:Lkotlinx/coroutines/Job;
@@ -277,7 +265,6 @@
 
     iput-object v0, p0, Landroidx/lifecycle/BlockRunner;->cancellationJob:Lkotlinx/coroutines/Job;
 
-    .line 195
     return-void
 
     .line 184
@@ -317,14 +304,13 @@
 
     check-cast v0, Lkotlinx/coroutines/Job;
 
-    iput-object v0, p0, Landroidx/lifecycle/BlockRunner;->cancellationJob:Lkotlinx/coroutines/Job;
+    iput-object v1, p0, Landroidx/lifecycle/BlockRunner;->cancellationJob:Lkotlinx/coroutines/Job;
 
     .line 171
     iget-object v0, p0, Landroidx/lifecycle/BlockRunner;->runningJob:Lkotlinx/coroutines/Job;
 
     if-eqz v0, :cond_1
 
-    .line 172
     return-void
 
     .line 174
@@ -353,6 +339,5 @@
 
     iput-object v0, p0, Landroidx/lifecycle/BlockRunner;->runningJob:Lkotlinx/coroutines/Job;
 
-    .line 179
     return-void
 .end method

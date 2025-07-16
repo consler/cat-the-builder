@@ -21,7 +21,6 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .param p1, "version"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -37,7 +36,6 @@
     .line 210
     iput p1, p0, Landroidx/room/RoomOpenHelper$Delegate;->version:I
 
-    .line 211
     return-void
 .end method
 
@@ -89,7 +87,6 @@
 
 .method protected onPostMigrate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
     .locals 0
-    .param p1, "database"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -99,13 +96,11 @@
         }
     .end annotation
 
-    .line 259
     return-void
 .end method
 
 .method protected onPreMigrate(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
     .locals 0
-    .param p1, "database"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -115,13 +110,11 @@
         }
     .end annotation
 
-    .line 251
     return-void
 .end method
 
 .method protected onValidateSchema(Landroidx/sqlite/db/SupportSQLiteDatabase;)Landroidx/room/RoomOpenHelper$ValidationResult;
-    .locals 3
-    .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -135,20 +128,19 @@
     invoke-virtual {p0, p1}, Landroidx/room/RoomOpenHelper$Delegate;->validateMigration(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
 
     .line 242
-    new-instance v0, Landroidx/room/RoomOpenHelper$ValidationResult;
+    new-instance p1, Landroidx/room/RoomOpenHelper$ValidationResult;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-direct {v0, v1, v2}, Landroidx/room/RoomOpenHelper$ValidationResult;-><init>(ZLjava/lang/String;)V
+    invoke-direct {p1, v0, v1}, Landroidx/room/RoomOpenHelper$ValidationResult;-><init>(ZLjava/lang/String;)V
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected validateMigration(Landroidx/sqlite/db/SupportSQLiteDatabase;)V
-    .locals 2
-    .param p1, "db"    # Landroidx/sqlite/db/SupportSQLiteDatabase;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -162,11 +154,11 @@
     .end annotation
 
     .line 230
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string/jumbo v1, "validateMigration is deprecated"
+    const-string v0, "validateMigration is deprecated"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

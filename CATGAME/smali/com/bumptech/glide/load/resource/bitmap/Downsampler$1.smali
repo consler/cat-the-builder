@@ -31,16 +31,12 @@
 # virtual methods
 .method public onDecodeComplete(Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Landroid/graphics/Bitmap;)V
     .locals 0
-    .param p1, "bitmapPool"    # Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
-    .param p2, "downsampled"    # Landroid/graphics/Bitmap;
 
-    .line 127
     return-void
 .end method
 
 .method public onObtainBounds()V
     .locals 0
 
-    .line 122
     return-void
 .end method

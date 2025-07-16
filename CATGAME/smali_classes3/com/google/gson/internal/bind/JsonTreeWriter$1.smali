@@ -59,15 +59,12 @@
 .end method
 
 .method public write([CII)V
-    .locals 1
-    .param p1, "buffer"    # [C
-    .param p2, "offset"    # I
-    .param p3, "counter"    # I
+    .locals 0
 
     .line 36
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method

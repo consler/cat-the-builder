@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
     .line 182
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
@@ -34,101 +33,95 @@
 
 # virtual methods
 .method public fling(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;FFI)V
-    .locals 3
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
-    .param p4, "button"    # I
+    .locals 1
 
     .line 192
     invoke-static {p2}, Ljava/lang/Math;->abs(F)F
 
-    move-result v0
+    move-result p1
 
-    const/high16 v1, 0x43160000    # 150.0f
+    const/high16 p4, 0x43160000    # 150.0f
 
-    cmpl-float v0, v0, v1
+    cmpl-float p1, p1, p4
 
-    if-lez v0, :cond_0
+    if-lez p1, :cond_0
 
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    iget-boolean v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->scrollX:Z
+    iget-boolean p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->scrollX:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 193
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    iget v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->flingTime:F
+    iget v0, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->flingTime:F
 
-    iput v2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->flingTimer:F
+    iput v0, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->flingTimer:F
 
     .line 194
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    iput p2, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->velocityX:F
+    iput p2, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->velocityX:F
 
     .line 195
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    iget-boolean v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->cancelTouchFocus:Z
+    iget-boolean p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->cancelTouchFocus:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->cancelTouchFocus()V
+    invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->cancelTouchFocus()V
 
     .line 197
     :cond_0
     invoke-static {p3}, Ljava/lang/Math;->abs(F)F
 
-    move-result v0
+    move-result p1
 
-    cmpl-float v0, v0, v1
+    cmpl-float p1, p1, p4
 
-    if-lez v0, :cond_1
+    if-lez p1, :cond_1
 
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    iget-boolean v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->scrollY:Z
+    iget-boolean p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->scrollY:Z
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 198
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    iget v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->flingTime:F
+    iget p2, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->flingTime:F
 
-    iput v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->flingTimer:F
+    iput p2, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->flingTimer:F
 
     .line 199
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    neg-float v1, p3
+    neg-float p2, p3
 
-    iput v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->velocityY:F
+    iput p2, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->velocityY:F
 
     .line 200
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    iget-boolean v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->cancelTouchFocus:Z
+    iget-boolean p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->cancelTouchFocus:Z
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->cancelTouchFocus()V
+    invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->cancelTouchFocus()V
 
-    .line 202
     :cond_1
     return-void
 .end method
 
 .method public handle(Lcom/badlogic/gdx/scenes/scene2d/Event;)Z
-    .locals 2
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/Event;
+    .locals 1
 
     .line 205
     invoke-super {p0, p1}, Lcom/badlogic/gdx/scenes/scene2d/utils/ActorGestureListener;->handle(Lcom/badlogic/gdx/scenes/scene2d/Event;)Z
@@ -138,29 +131,26 @@
     if-eqz v0, :cond_1
 
     .line 206
-    move-object v0, p1
+    check-cast p1, Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
 
-    check-cast v0, Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/InputEvent;->getType()Lcom/badlogic/gdx/scenes/scene2d/InputEvent$Type;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/InputEvent;->getType()Lcom/badlogic/gdx/scenes/scene2d/InputEvent$Type;
+    move-result-object p1
 
-    move-result-object v0
+    sget-object v0, Lcom/badlogic/gdx/scenes/scene2d/InputEvent$Type;->touchDown:Lcom/badlogic/gdx/scenes/scene2d/InputEvent$Type;
 
-    sget-object v1, Lcom/badlogic/gdx/scenes/scene2d/InputEvent$Type;->touchDown:Lcom/badlogic/gdx/scenes/scene2d/InputEvent$Type;
+    if-ne p1, v0, :cond_0
 
-    if-ne v0, v1, :cond_0
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    iput v0, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->flingTimer:F
 
-    iput v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->flingTimer:F
-
-    .line 207
     :cond_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
     .line 208
     :cond_1
@@ -168,102 +158,93 @@
 
     if-eqz v0, :cond_2
 
-    move-object v0, p1
+    check-cast p1, Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
 
-    check-cast v0, Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/InputEvent;->isTouchFocusCancel()Z
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/InputEvent;->isTouchFocusCancel()Z
+    move-result p1
 
-    move-result v0
-
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
     .line 209
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->cancel()V
+    invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->cancel()V
 
-    .line 210
     :cond_2
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public pan(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;FFFF)V
-    .locals 2
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
-    .param p4, "deltaX"    # F
-    .param p5, "deltaY"    # F
+    .locals 0
 
     .line 184
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    const/4 v1, 0x1
+    const/4 p2, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->setScrollbarsVisible(Z)V
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->setScrollbarsVisible(Z)V
 
     .line 185
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    iget v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->amountX:F
+    iget p2, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->amountX:F
 
-    sub-float/2addr v1, p4
+    sub-float/2addr p2, p4
 
-    iput v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->amountX:F
+    iput p2, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->amountX:F
 
     .line 186
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    iget v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->amountY:F
+    iget p2, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->amountY:F
 
-    add-float/2addr v1, p5
+    add-float/2addr p2, p5
 
-    iput v1, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->amountY:F
+    iput p2, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->amountY:F
 
     .line 187
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->clamp()V
+    invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->clamp()V
 
     .line 188
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    iget-boolean v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->cancelTouchFocus:Z
+    iget-boolean p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->cancelTouchFocus:Z
 
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    iget-boolean v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->scrollX:Z
+    iget-boolean p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->scrollX:Z
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    cmpl-float v0, p4, v1
+    cmpl-float p1, p4, p2
 
-    if-nez v0, :cond_1
+    if-nez p1, :cond_1
 
     :cond_0
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    iget-boolean v0, v0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->scrollY:Z
+    iget-boolean p1, p1, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->scrollY:Z
 
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
-    cmpl-float v0, p5, v1
+    cmpl-float p1, p5, p2
 
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
     :cond_1
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->cancelTouchFocus()V
+    invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/ui/ScrollPane;->cancelTouchFocus()V
 
-    .line 189
     :cond_2
     return-void
 .end method

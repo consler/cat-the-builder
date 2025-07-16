@@ -32,8 +32,6 @@
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/engine/Engine;Lcom/bumptech/glide/request/ResourceCallback;Lcom/bumptech/glide/load/engine/EngineJob;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/bumptech/glide/load/engine/Engine;
-    .param p2, "cb"    # Lcom/bumptech/glide/request/ResourceCallback;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -44,7 +42,6 @@
     .end annotation
 
     .line 422
-    .local p3, "engineJob":Lcom/bumptech/glide/load/engine/EngineJob;, "Lcom/bumptech/glide/load/engine/EngineJob<*>;"
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/Engine$LoadStatus;->this$0:Lcom/bumptech/glide/load/engine/Engine;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +52,6 @@
     .line 424
     iput-object p3, p0, Lcom/bumptech/glide/load/engine/Engine$LoadStatus;->engineJob:Lcom/bumptech/glide/load/engine/EngineJob;
 
-    .line 425
     return-void
 .end method
 
@@ -80,10 +76,8 @@
     .line 434
     monitor-exit v0
 
-    .line 435
     return-void
 
-    .line 434
     :catchall_0
     move-exception v1
 

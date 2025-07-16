@@ -20,9 +20,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 48
     const-string v0, "WorkProgressUpdater"
 
+    .line 48
     invoke-static {v0}, Landroidx/work/Logger;->tagWithPrefix(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -34,8 +34,6 @@
 
 .method public constructor <init>(Landroidx/work/impl/WorkDatabase;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;)V
     .locals 0
-    .param p1, "workDatabase"    # Landroidx/work/impl/WorkDatabase;
-    .param p2, "taskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -56,17 +54,13 @@
     .line 62
     iput-object p2, p0, Landroidx/work/impl/utils/WorkProgressUpdater;->mTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
-    .line 63
     return-void
 .end method
 
 
 # virtual methods
 .method public updateProgress(Landroid/content/Context;Ljava/util/UUID;Landroidx/work/Data;)Lcom/google/common/util/concurrent/ListenableFuture;
-    .locals 3
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "id"    # Ljava/util/UUID;
-    .param p3, "data"    # Landroidx/work/Data;
+    .locals 2
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -96,18 +90,16 @@
     .line 71
     invoke-static {}, Landroidx/work/impl/utils/futures/SettableFuture;->create()Landroidx/work/impl/utils/futures/SettableFuture;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 72
-    .local v0, "future":Landroidx/work/impl/utils/futures/SettableFuture;, "Landroidx/work/impl/utils/futures/SettableFuture<Ljava/lang/Void;>;"
-    iget-object v1, p0, Landroidx/work/impl/utils/WorkProgressUpdater;->mTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
+    iget-object v0, p0, Landroidx/work/impl/utils/WorkProgressUpdater;->mTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
-    new-instance v2, Landroidx/work/impl/utils/WorkProgressUpdater$1;
+    new-instance v1, Landroidx/work/impl/utils/WorkProgressUpdater$1;
 
-    invoke-direct {v2, p0, p2, p3, v0}, Landroidx/work/impl/utils/WorkProgressUpdater$1;-><init>(Landroidx/work/impl/utils/WorkProgressUpdater;Ljava/util/UUID;Landroidx/work/Data;Landroidx/work/impl/utils/futures/SettableFuture;)V
+    invoke-direct {v1, p0, p2, p3, p1}, Landroidx/work/impl/utils/WorkProgressUpdater$1;-><init>(Landroidx/work/impl/utils/WorkProgressUpdater;Ljava/util/UUID;Landroidx/work/Data;Landroidx/work/impl/utils/futures/SettableFuture;)V
 
-    invoke-interface {v1, v2}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->executeOnBackgroundThread(Ljava/lang/Runnable;)V
+    invoke-interface {v0, v1}, Landroidx/work/impl/utils/taskexecutor/TaskExecutor;->executeOnBackgroundThread(Ljava/lang/Runnable;)V
 
-    .line 111
-    return-object v0
+    return-object p1
 .end method

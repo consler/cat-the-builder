@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/work/impl/utils/taskexecutor/WorkManagerTaskExecutor;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/work/impl/utils/taskexecutor/WorkManagerTaskExecutor;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010
@@ -46,7 +45,6 @@
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
     .locals 1
-    .param p1, "command"    # Ljava/lang/Runnable;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -61,6 +59,5 @@
 
     invoke-virtual {v0, p1}, Landroidx/work/impl/utils/taskexecutor/WorkManagerTaskExecutor;->postToMainThread(Ljava/lang/Runnable;)V
 
-    .line 49
     return-void
 .end method

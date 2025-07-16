@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public final invoke()Ljava/lang/Object;
-    .locals 8
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -94,55 +94,35 @@
 
     move-result-object v0
 
-    .local v0, "this_$iv":Lorg/koin/core/Koin;
     iget-object v1, p0, Lorg/koin/core/KoinComponentKt$inject$1;->$qualifier:Lorg/koin/core/qualifier/Qualifier;
 
-    .local v1, "qualifier$iv":Lorg/koin/core/qualifier/Qualifier;
     iget-object v2, p0, Lorg/koin/core/KoinComponentKt$inject$1;->$parameters:Lkotlin/jvm/functions/Function0;
 
-    .local v2, "parameters$iv":Lkotlin/jvm/functions/Function0;
-    const/4 v3, 0x0
-
     .line 66
-    .local v3, "$i$f$get":I
     invoke-virtual {v0}, Lorg/koin/core/Koin;->get_scopeRegistry()Lorg/koin/core/registry/ScopeRegistry;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Lorg/koin/core/registry/ScopeRegistry;->getRootScope()Lorg/koin/core/scope/Scope;
+    invoke-virtual {v0}, Lorg/koin/core/registry/ScopeRegistry;->getRootScope()Lorg/koin/core/scope/Scope;
 
-    move-result-object v4
+    move-result-object v0
 
-    .local v4, "this_$iv$iv":Lorg/koin/core/scope/Scope;
-    const/4 v5, 0x0
+    const/4 v3, 0x4
+
+    const-string v4, "T"
 
     .line 67
-    .local v5, "$i$f$get":I
-    const/4 v6, 0x4
+    invoke-static {v3, v4}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
-    const-string v7, "T"
+    const-class v3, Ljava/lang/Object;
 
-    invoke-static {v6, v7}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
+    invoke-static {v3}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    const-class v6, Ljava/lang/Object;
+    move-result-object v3
 
-    invoke-static {v6}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+    invoke-virtual {v0, v3, v1, v2}, Lorg/koin/core/scope/Scope;->get(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v0
 
-    invoke-virtual {v4, v6, v1, v2}, Lorg/koin/core/scope/Scope;->get(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    .line 66
-    .end local v4    # "this_$iv$iv":Lorg/koin/core/scope/Scope;
-    .end local v5    # "$i$f$get":I
-    nop
-
-    .line 55
-    .end local v0    # "this_$iv":Lorg/koin/core/Koin;
-    .end local v1    # "qualifier$iv":Lorg/koin/core/qualifier/Qualifier;
-    .end local v2    # "parameters$iv":Lkotlin/jvm/functions/Function0;
-    .end local v3    # "$i$f$get":I
-    return-object v4
+    return-object v0
 .end method

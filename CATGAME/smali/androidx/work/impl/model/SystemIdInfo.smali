@@ -12,8 +12,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .param p1, "workSpecId"    # Ljava/lang/String;
-    .param p2, "systemId"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -34,15 +32,13 @@
     .line 50
     iput p2, p0, Landroidx/work/impl/model/SystemIdInfo;->systemId:I
 
-    .line 51
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 3
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -52,12 +48,11 @@
         }
     .end annotation
 
-    .line 55
     if-ne p0, p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
     .line 56
     :cond_0
@@ -71,35 +66,32 @@
 
     .line 58
     :cond_1
-    move-object v0, p1
-
-    check-cast v0, Landroidx/work/impl/model/SystemIdInfo;
+    check-cast p1, Landroidx/work/impl/model/SystemIdInfo;
 
     .line 60
-    .local v0, "that":Landroidx/work/impl/model/SystemIdInfo;
-    iget v2, p0, Landroidx/work/impl/model/SystemIdInfo;->systemId:I
+    iget v0, p0, Landroidx/work/impl/model/SystemIdInfo;->systemId:I
 
-    iget v3, v0, Landroidx/work/impl/model/SystemIdInfo;->systemId:I
+    iget v2, p1, Landroidx/work/impl/model/SystemIdInfo;->systemId:I
 
-    if-eq v2, v3, :cond_2
+    if-eq v0, v2, :cond_2
 
     return v1
 
     .line 61
     :cond_2
-    iget-object v1, p0, Landroidx/work/impl/model/SystemIdInfo;->workSpecId:Ljava/lang/String;
+    iget-object v0, p0, Landroidx/work/impl/model/SystemIdInfo;->workSpecId:Ljava/lang/String;
 
-    iget-object v2, v0, Landroidx/work/impl/model/SystemIdInfo;->workSpecId:Ljava/lang/String;
+    iget-object p1, p1, Landroidx/work/impl/model/SystemIdInfo;->workSpecId:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .locals 2
 
     .line 66
     iget-object v0, p0, Landroidx/work/impl/model/SystemIdInfo;->workSpecId:Ljava/lang/String;
@@ -108,16 +100,12 @@
 
     move-result v0
 
+    mul-int/lit8 v0, v0, 0x1f
+
     .line 67
-    .local v0, "result":I
-    mul-int/lit8 v1, v0, 0x1f
+    iget v1, p0, Landroidx/work/impl/model/SystemIdInfo;->systemId:I
 
-    iget v2, p0, Landroidx/work/impl/model/SystemIdInfo;->systemId:I
+    add-int/2addr v0, v1
 
-    add-int/2addr v1, v2
-
-    .line 68
-    .end local v0    # "result":I
-    .local v1, "result":I
-    return v1
+    return v0
 .end method

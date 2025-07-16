@@ -47,9 +47,7 @@
 
 # direct methods
 .method public static final await(Lretrofit2/Call;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 7
-    .param p0, "$this$await"    # Lretrofit2/Call;
-    .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -63,88 +61,60 @@
         }
     .end annotation
 
-    .line 32
-    const/4 v0, 0x0
-
-    .line 121
-    .local v0, "$i$f$suspendCancellableCoroutine":I
-    move-object v1, p1
-
-    .local v1, "uCont$iv":Lkotlin/coroutines/Continuation;
-    const/4 v2, 0x0
-
     .line 122
-    .local v2, "$i$a$-suspendCoroutineUninterceptedOrReturn-CancellableContinuationKt$suspendCancellableCoroutine$2$iv":I
-    new-instance v3, Lkotlinx/coroutines/CancellableContinuationImpl;
+    new-instance v0, Lkotlinx/coroutines/CancellableContinuationImpl;
 
-    invoke-static {v1}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->intercepted(Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-
-    move-result-object v4
-
-    const/4 v5, 0x1
-
-    invoke-direct {v3, v4, v5}, Lkotlinx/coroutines/CancellableContinuationImpl;-><init>(Lkotlin/coroutines/Continuation;I)V
-
-    .line 126
-    .local v3, "cancellable$iv":Lkotlinx/coroutines/CancellableContinuationImpl;
-    move-object v4, v3
-
-    check-cast v4, Lkotlinx/coroutines/CancellableContinuation;
-
-    .local v4, "continuation":Lkotlinx/coroutines/CancellableContinuation;
-    const/4 v5, 0x0
-
-    .line 33
-    .local v5, "$i$a$-suspendCancellableCoroutine-KotlinExtensions$await$2":I
-    new-instance v6, Lretrofit2/KotlinExtensions$await$$inlined$suspendCancellableCoroutine$lambda$1;
-
-    invoke-direct {v6, p0}, Lretrofit2/KotlinExtensions$await$$inlined$suspendCancellableCoroutine$lambda$1;-><init>(Lretrofit2/Call;)V
-
-    check-cast v6, Lkotlin/jvm/functions/Function1;
-
-    invoke-interface {v4, v6}, Lkotlinx/coroutines/CancellableContinuation;->invokeOnCancellation(Lkotlin/jvm/functions/Function1;)V
-
-    .line 36
-    new-instance v6, Lretrofit2/KotlinExtensions$await$2$2;
-
-    invoke-direct {v6, v4}, Lretrofit2/KotlinExtensions$await$2$2;-><init>(Lkotlinx/coroutines/CancellableContinuation;)V
-
-    check-cast v6, Lretrofit2/Callback;
-
-    invoke-interface {p0, v6}, Lretrofit2/Call;->enqueue(Lretrofit2/Callback;)V
-
-    .line 61
-    .end local v4    # "continuation":Lkotlinx/coroutines/CancellableContinuation;
-    .end local v5    # "$i$a$-suspendCancellableCoroutine-KotlinExtensions$await$2":I
-    nop
-
-    .line 127
-    invoke-virtual {v3}, Lkotlinx/coroutines/CancellableContinuationImpl;->getResult()Ljava/lang/Object;
-
-    move-result-object v3
-
-    .line 121
-    .end local v1    # "uCont$iv":Lkotlin/coroutines/Continuation;
-    .end local v2    # "$i$a$-suspendCoroutineUninterceptedOrReturn-CancellableContinuationKt$suspendCancellableCoroutine$2$iv":I
-    .end local v3    # "cancellable$iv":Lkotlinx/coroutines/CancellableContinuationImpl;
-    invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
+    invoke-static {p1}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->intercepted(Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
 
     move-result-object v1
 
-    if-ne v3, v1, :cond_0
+    const/4 v2, 0x1
+
+    invoke-direct {v0, v1, v2}, Lkotlinx/coroutines/CancellableContinuationImpl;-><init>(Lkotlin/coroutines/Continuation;I)V
+
+    .line 126
+    move-object v1, v0
+
+    check-cast v1, Lkotlinx/coroutines/CancellableContinuation;
+
+    .line 33
+    new-instance v2, Lretrofit2/KotlinExtensions$await$$inlined$suspendCancellableCoroutine$lambda$1;
+
+    invoke-direct {v2, p0}, Lretrofit2/KotlinExtensions$await$$inlined$suspendCancellableCoroutine$lambda$1;-><init>(Lretrofit2/Call;)V
+
+    check-cast v2, Lkotlin/jvm/functions/Function1;
+
+    invoke-interface {v1, v2}, Lkotlinx/coroutines/CancellableContinuation;->invokeOnCancellation(Lkotlin/jvm/functions/Function1;)V
+
+    .line 36
+    new-instance v2, Lretrofit2/KotlinExtensions$await$2$2;
+
+    invoke-direct {v2, v1}, Lretrofit2/KotlinExtensions$await$2$2;-><init>(Lkotlinx/coroutines/CancellableContinuation;)V
+
+    check-cast v2, Lretrofit2/Callback;
+
+    invoke-interface {p0, v2}, Lretrofit2/Call;->enqueue(Lretrofit2/Callback;)V
+
+    .line 127
+    invoke-virtual {v0}, Lkotlinx/coroutines/CancellableContinuationImpl;->getResult()Ljava/lang/Object;
+
+    move-result-object p0
+
+    .line 121
+    invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
+
+    move-result-object v0
+
+    if-ne p0, v0, :cond_0
 
     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    .line 128
-    .end local v0    # "$i$f$suspendCancellableCoroutine":I
     :cond_0
-    return-object v3
+    return-object p0
 .end method
 
 .method public static final awaitNullable(Lretrofit2/Call;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 7
-    .param p0, "$this$await"    # Lretrofit2/Call;
-    .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -158,88 +128,60 @@
         }
     .end annotation
 
-    .line 66
-    const/4 v0, 0x0
-
-    .line 129
-    .local v0, "$i$f$suspendCancellableCoroutine":I
-    move-object v1, p1
-
-    .local v1, "uCont$iv":Lkotlin/coroutines/Continuation;
-    const/4 v2, 0x0
-
     .line 130
-    .local v2, "$i$a$-suspendCoroutineUninterceptedOrReturn-CancellableContinuationKt$suspendCancellableCoroutine$2$iv":I
-    new-instance v3, Lkotlinx/coroutines/CancellableContinuationImpl;
+    new-instance v0, Lkotlinx/coroutines/CancellableContinuationImpl;
 
-    invoke-static {v1}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->intercepted(Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-
-    move-result-object v4
-
-    const/4 v5, 0x1
-
-    invoke-direct {v3, v4, v5}, Lkotlinx/coroutines/CancellableContinuationImpl;-><init>(Lkotlin/coroutines/Continuation;I)V
-
-    .line 134
-    .local v3, "cancellable$iv":Lkotlinx/coroutines/CancellableContinuationImpl;
-    move-object v4, v3
-
-    check-cast v4, Lkotlinx/coroutines/CancellableContinuation;
-
-    .local v4, "continuation":Lkotlinx/coroutines/CancellableContinuation;
-    const/4 v5, 0x0
-
-    .line 67
-    .local v5, "$i$a$-suspendCancellableCoroutine-KotlinExtensions$await$4":I
-    new-instance v6, Lretrofit2/KotlinExtensions$await$$inlined$suspendCancellableCoroutine$lambda$2;
-
-    invoke-direct {v6, p0}, Lretrofit2/KotlinExtensions$await$$inlined$suspendCancellableCoroutine$lambda$2;-><init>(Lretrofit2/Call;)V
-
-    check-cast v6, Lkotlin/jvm/functions/Function1;
-
-    invoke-interface {v4, v6}, Lkotlinx/coroutines/CancellableContinuation;->invokeOnCancellation(Lkotlin/jvm/functions/Function1;)V
-
-    .line 70
-    new-instance v6, Lretrofit2/KotlinExtensions$await$4$2;
-
-    invoke-direct {v6, v4}, Lretrofit2/KotlinExtensions$await$4$2;-><init>(Lkotlinx/coroutines/CancellableContinuation;)V
-
-    check-cast v6, Lretrofit2/Callback;
-
-    invoke-interface {p0, v6}, Lretrofit2/Call;->enqueue(Lretrofit2/Callback;)V
-
-    .line 83
-    .end local v4    # "continuation":Lkotlinx/coroutines/CancellableContinuation;
-    .end local v5    # "$i$a$-suspendCancellableCoroutine-KotlinExtensions$await$4":I
-    nop
-
-    .line 135
-    invoke-virtual {v3}, Lkotlinx/coroutines/CancellableContinuationImpl;->getResult()Ljava/lang/Object;
-
-    move-result-object v3
-
-    .line 129
-    .end local v1    # "uCont$iv":Lkotlin/coroutines/Continuation;
-    .end local v2    # "$i$a$-suspendCoroutineUninterceptedOrReturn-CancellableContinuationKt$suspendCancellableCoroutine$2$iv":I
-    .end local v3    # "cancellable$iv":Lkotlinx/coroutines/CancellableContinuationImpl;
-    invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
+    invoke-static {p1}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->intercepted(Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
 
     move-result-object v1
 
-    if-ne v3, v1, :cond_0
+    const/4 v2, 0x1
+
+    invoke-direct {v0, v1, v2}, Lkotlinx/coroutines/CancellableContinuationImpl;-><init>(Lkotlin/coroutines/Continuation;I)V
+
+    .line 134
+    move-object v1, v0
+
+    check-cast v1, Lkotlinx/coroutines/CancellableContinuation;
+
+    .line 67
+    new-instance v2, Lretrofit2/KotlinExtensions$await$$inlined$suspendCancellableCoroutine$lambda$2;
+
+    invoke-direct {v2, p0}, Lretrofit2/KotlinExtensions$await$$inlined$suspendCancellableCoroutine$lambda$2;-><init>(Lretrofit2/Call;)V
+
+    check-cast v2, Lkotlin/jvm/functions/Function1;
+
+    invoke-interface {v1, v2}, Lkotlinx/coroutines/CancellableContinuation;->invokeOnCancellation(Lkotlin/jvm/functions/Function1;)V
+
+    .line 70
+    new-instance v2, Lretrofit2/KotlinExtensions$await$4$2;
+
+    invoke-direct {v2, v1}, Lretrofit2/KotlinExtensions$await$4$2;-><init>(Lkotlinx/coroutines/CancellableContinuation;)V
+
+    check-cast v2, Lretrofit2/Callback;
+
+    invoke-interface {p0, v2}, Lretrofit2/Call;->enqueue(Lretrofit2/Callback;)V
+
+    .line 135
+    invoke-virtual {v0}, Lkotlinx/coroutines/CancellableContinuationImpl;->getResult()Ljava/lang/Object;
+
+    move-result-object p0
+
+    .line 129
+    invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
+
+    move-result-object v0
+
+    if-ne p0, v0, :cond_0
 
     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    .line 136
-    .end local v0    # "$i$f$suspendCancellableCoroutine":I
     :cond_0
-    return-object v3
+    return-object p0
 .end method
 
 .method public static final awaitResponse(Lretrofit2/Call;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 7
-    .param p0, "$this$awaitResponse"    # Lretrofit2/Call;
-    .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -255,87 +197,60 @@
         }
     .end annotation
 
-    .line 87
-    const/4 v0, 0x0
-
-    .line 137
-    .local v0, "$i$f$suspendCancellableCoroutine":I
-    move-object v1, p1
-
-    .local v1, "uCont$iv":Lkotlin/coroutines/Continuation;
-    const/4 v2, 0x0
-
     .line 138
-    .local v2, "$i$a$-suspendCoroutineUninterceptedOrReturn-CancellableContinuationKt$suspendCancellableCoroutine$2$iv":I
-    new-instance v3, Lkotlinx/coroutines/CancellableContinuationImpl;
+    new-instance v0, Lkotlinx/coroutines/CancellableContinuationImpl;
 
-    invoke-static {v1}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->intercepted(Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-
-    move-result-object v4
-
-    const/4 v5, 0x1
-
-    invoke-direct {v3, v4, v5}, Lkotlinx/coroutines/CancellableContinuationImpl;-><init>(Lkotlin/coroutines/Continuation;I)V
-
-    .line 142
-    .local v3, "cancellable$iv":Lkotlinx/coroutines/CancellableContinuationImpl;
-    move-object v4, v3
-
-    check-cast v4, Lkotlinx/coroutines/CancellableContinuation;
-
-    .local v4, "continuation":Lkotlinx/coroutines/CancellableContinuation;
-    const/4 v5, 0x0
-
-    .line 88
-    .local v5, "$i$a$-suspendCancellableCoroutine-KotlinExtensions$awaitResponse$2":I
-    new-instance v6, Lretrofit2/KotlinExtensions$awaitResponse$$inlined$suspendCancellableCoroutine$lambda$1;
-
-    invoke-direct {v6, p0}, Lretrofit2/KotlinExtensions$awaitResponse$$inlined$suspendCancellableCoroutine$lambda$1;-><init>(Lretrofit2/Call;)V
-
-    check-cast v6, Lkotlin/jvm/functions/Function1;
-
-    invoke-interface {v4, v6}, Lkotlinx/coroutines/CancellableContinuation;->invokeOnCancellation(Lkotlin/jvm/functions/Function1;)V
-
-    .line 91
-    new-instance v6, Lretrofit2/KotlinExtensions$awaitResponse$2$2;
-
-    invoke-direct {v6, v4}, Lretrofit2/KotlinExtensions$awaitResponse$2$2;-><init>(Lkotlinx/coroutines/CancellableContinuation;)V
-
-    check-cast v6, Lretrofit2/Callback;
-
-    invoke-interface {p0, v6}, Lretrofit2/Call;->enqueue(Lretrofit2/Callback;)V
-
-    .line 100
-    .end local v4    # "continuation":Lkotlinx/coroutines/CancellableContinuation;
-    .end local v5    # "$i$a$-suspendCancellableCoroutine-KotlinExtensions$awaitResponse$2":I
-    nop
-
-    .line 143
-    invoke-virtual {v3}, Lkotlinx/coroutines/CancellableContinuationImpl;->getResult()Ljava/lang/Object;
-
-    move-result-object v3
-
-    .line 137
-    .end local v1    # "uCont$iv":Lkotlin/coroutines/Continuation;
-    .end local v2    # "$i$a$-suspendCoroutineUninterceptedOrReturn-CancellableContinuationKt$suspendCancellableCoroutine$2$iv":I
-    .end local v3    # "cancellable$iv":Lkotlinx/coroutines/CancellableContinuationImpl;
-    invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
+    invoke-static {p1}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->intercepted(Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
 
     move-result-object v1
 
-    if-ne v3, v1, :cond_0
+    const/4 v2, 0x1
+
+    invoke-direct {v0, v1, v2}, Lkotlinx/coroutines/CancellableContinuationImpl;-><init>(Lkotlin/coroutines/Continuation;I)V
+
+    .line 142
+    move-object v1, v0
+
+    check-cast v1, Lkotlinx/coroutines/CancellableContinuation;
+
+    .line 88
+    new-instance v2, Lretrofit2/KotlinExtensions$awaitResponse$$inlined$suspendCancellableCoroutine$lambda$1;
+
+    invoke-direct {v2, p0}, Lretrofit2/KotlinExtensions$awaitResponse$$inlined$suspendCancellableCoroutine$lambda$1;-><init>(Lretrofit2/Call;)V
+
+    check-cast v2, Lkotlin/jvm/functions/Function1;
+
+    invoke-interface {v1, v2}, Lkotlinx/coroutines/CancellableContinuation;->invokeOnCancellation(Lkotlin/jvm/functions/Function1;)V
+
+    .line 91
+    new-instance v2, Lretrofit2/KotlinExtensions$awaitResponse$2$2;
+
+    invoke-direct {v2, v1}, Lretrofit2/KotlinExtensions$awaitResponse$2$2;-><init>(Lkotlinx/coroutines/CancellableContinuation;)V
+
+    check-cast v2, Lretrofit2/Callback;
+
+    invoke-interface {p0, v2}, Lretrofit2/Call;->enqueue(Lretrofit2/Callback;)V
+
+    .line 143
+    invoke-virtual {v0}, Lkotlinx/coroutines/CancellableContinuationImpl;->getResult()Ljava/lang/Object;
+
+    move-result-object p0
+
+    .line 137
+    invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
+
+    move-result-object v0
+
+    if-ne p0, v0, :cond_0
 
     invoke-static {p1}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
-    .line 144
-    .end local v0    # "$i$f$suspendCancellableCoroutine":I
     :cond_0
-    return-object v3
+    return-object p0
 .end method
 
 .method public static final synthetic create(Lretrofit2/Retrofit;)Ljava/lang/Object;
-    .locals 3
-    .param p0, "$this$create"    # Lretrofit2/Retrofit;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -346,33 +261,28 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
+    const-string v0, "$this$create"
 
-    .local v0, "$i$f$create":I
-    const-string v1, "$this$create"
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {p0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    const/4 v0, 0x4
+
+    const-string v1, "T"
 
     .line 29
-    const/4 v1, 0x4
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
 
-    const-string v2, "T"
+    const-class v0, Ljava/lang/Object;
 
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->reifiedOperationMarker(ILjava/lang/String;)V
+    invoke-virtual {p0, v0}, Lretrofit2/Retrofit;->create(Ljava/lang/Class;)Ljava/lang/Object;
 
-    const-class v1, Ljava/lang/Object;
+    move-result-object p0
 
-    invoke-virtual {p0, v1}, Lretrofit2/Retrofit;->create(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    return-object v1
+    return-object p0
 .end method
 
 .method public static final suspendAndThrow(Ljava/lang/Exception;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 8
-    .param p0, "$this$suspendAndThrow"    # Ljava/lang/Exception;
-    .param p1, "$completion"    # Lkotlin/coroutines/Continuation;
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -399,11 +309,11 @@
 
     if-eqz v1, :cond_0
 
-    iget v1, v0, Lretrofit2/KotlinExtensions$suspendAndThrow$1;->label:I
+    iget p1, v0, Lretrofit2/KotlinExtensions$suspendAndThrow$1;->label:I
 
-    sub-int/2addr v1, v2
+    sub-int/2addr p1, v2
 
-    iput v1, v0, Lretrofit2/KotlinExtensions$suspendAndThrow$1;->label:I
+    iput p1, v0, Lretrofit2/KotlinExtensions$suspendAndThrow$1;->label:I
 
     goto :goto_0
 
@@ -412,112 +322,91 @@
 
     invoke-direct {v0, p1}, Lretrofit2/KotlinExtensions$suspendAndThrow$1;-><init>(Lkotlin/coroutines/Continuation;)V
 
-    .local v0, "$continuation":Lkotlin/coroutines/Continuation;
     :goto_0
-    iget-object v1, v0, Lretrofit2/KotlinExtensions$suspendAndThrow$1;->result:Ljava/lang/Object;
+    iget-object p1, v0, Lretrofit2/KotlinExtensions$suspendAndThrow$1;->result:Ljava/lang/Object;
 
-    .local v1, "$result":Ljava/lang/Object;
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
     .line 112
-    iget v3, v0, Lretrofit2/KotlinExtensions$suspendAndThrow$1;->label:I
+    iget v2, v0, Lretrofit2/KotlinExtensions$suspendAndThrow$1;->label:I
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_2
 
-    if-ne v3, v4, :cond_1
+    if-ne v2, v3, :cond_1
 
-    iget-object v2, v0, Lretrofit2/KotlinExtensions$suspendAndThrow$1;->L$0:Ljava/lang/Object;
-
-    move-object p0, v2
+    iget-object p0, v0, Lretrofit2/KotlinExtensions$suspendAndThrow$1;->L$0:Ljava/lang/Object;
 
     check-cast p0, Ljava/lang/Exception;
 
-    invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
+    invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     goto :goto_1
 
     .line 119
-    .end local v0    # "$continuation":Lkotlin/coroutines/Continuation;
-    .end local v1    # "$result":Ljava/lang/Object;
     :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v1, "call to \'resume\' before \'invoke\' with coroutine"
+    const-string p1, "call to \'resume\' before \'invoke\' with coroutine"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 
     .line 112
-    .restart local v0    # "$continuation":Lkotlin/coroutines/Continuation;
-    .restart local v1    # "$result":Ljava/lang/Object;
     :cond_2
-    invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
+    invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 113
     iput-object p0, v0, Lretrofit2/KotlinExtensions$suspendAndThrow$1;->L$0:Ljava/lang/Object;
 
-    iput v4, v0, Lretrofit2/KotlinExtensions$suspendAndThrow$1;->label:I
+    iput v3, v0, Lretrofit2/KotlinExtensions$suspendAndThrow$1;->label:I
 
-    move-object v3, v0
-
-    check-cast v3, Lkotlin/coroutines/Continuation;
-
-    .local v3, "continuation":Lkotlin/coroutines/Continuation;
-    const/4 v4, 0x0
+    check-cast v0, Lkotlin/coroutines/Continuation;
 
     .line 114
-    .local v4, "$i$a$-suspendCoroutineUninterceptedOrReturn-KotlinExtensions$suspendAndThrow$2":I
     invoke-static {}, Lkotlinx/coroutines/Dispatchers;->getDefault()Lkotlinx/coroutines/CoroutineDispatcher;
 
-    move-result-object v5
+    move-result-object p1
 
-    invoke-interface {v3}, Lkotlin/coroutines/Continuation;->getContext()Lkotlin/coroutines/CoroutineContext;
+    invoke-interface {v0}, Lkotlin/coroutines/Continuation;->getContext()Lkotlin/coroutines/CoroutineContext;
 
-    move-result-object v6
+    move-result-object v2
 
-    new-instance v7, Lretrofit2/KotlinExtensions$suspendAndThrow$$inlined$suspendCoroutineUninterceptedOrReturn$lambda$1;
+    new-instance v3, Lretrofit2/KotlinExtensions$suspendAndThrow$$inlined$suspendCoroutineUninterceptedOrReturn$lambda$1;
 
-    invoke-direct {v7, v3, p0}, Lretrofit2/KotlinExtensions$suspendAndThrow$$inlined$suspendCoroutineUninterceptedOrReturn$lambda$1;-><init>(Lkotlin/coroutines/Continuation;Ljava/lang/Exception;)V
+    invoke-direct {v3, v0, p0}, Lretrofit2/KotlinExtensions$suspendAndThrow$$inlined$suspendCoroutineUninterceptedOrReturn$lambda$1;-><init>(Lkotlin/coroutines/Continuation;Ljava/lang/Exception;)V
 
-    check-cast v7, Ljava/lang/Runnable;
+    check-cast v3, Ljava/lang/Runnable;
 
-    invoke-virtual {v5, v6, v7}, Lkotlinx/coroutines/CoroutineDispatcher;->dispatch(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V
+    invoke-virtual {p1, v2, v3}, Lkotlinx/coroutines/CoroutineDispatcher;->dispatch(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V
 
     .line 117
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p0
 
     .line 113
-    .end local v3    # "continuation":Lkotlin/coroutines/Continuation;
-    .end local v4    # "$i$a$-suspendCoroutineUninterceptedOrReturn-KotlinExtensions$suspendAndThrow$2":I
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object p1
 
-    if-ne v3, v4, :cond_3
+    if-ne p0, p1, :cond_3
 
-    move-object v4, v0
-
-    check-cast v4, Lkotlin/coroutines/Continuation;
-
-    invoke-static {v4}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
+    invoke-static {v0}, Lkotlin/coroutines/jvm/internal/DebugProbesKt;->probeCoroutineSuspended(Lkotlin/coroutines/Continuation;)V
 
     :cond_3
-    if-ne v3, v2, :cond_4
+    if-ne p0, v1, :cond_4
 
-    .line 112
-    return-object v2
+    return-object v1
 
     .line 119
     :cond_4
     :goto_1
-    sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    return-object v2
+    return-object p0
 .end method

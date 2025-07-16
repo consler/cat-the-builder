@@ -93,15 +93,11 @@
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 45
     return-void
 .end method
 
 .method public constructor <init>(FFF)V
     .locals 0
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "z"    # F
 
     .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -109,14 +105,11 @@
     .line 52
     invoke-virtual {p0, p1, p2, p3}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    .line 53
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/math/Vector2;F)V
-    .locals 2
-    .param p1, "vector"    # Lcom/badlogic/gdx/math/Vector2;
-    .param p2, "z"    # F
+    .locals 1
 
     .line 72
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -124,17 +117,15 @@
     .line 73
     iget v0, p1, Lcom/badlogic/gdx/math/Vector2;->x:F
 
-    iget v1, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
 
-    invoke-virtual {p0, v0, v1, p2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p0, v0, p1, p2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    .line 74
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/math/Vector3;)V
     .locals 0
-    .param p1, "vector"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 57
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -142,20 +133,18 @@
     .line 58
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/math/Vector3;->set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    .line 59
     return-void
 .end method
 
 .method public constructor <init>([F)V
     .locals 3
-    .param p1, "values"    # [F
 
     .line 64
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 65
     const/4 v0, 0x0
 
+    .line 65
     aget v0, p1, v0
 
     const/4 v1, 0x1
@@ -164,168 +153,127 @@
 
     const/4 v2, 0x2
 
-    aget v2, p1, v2
+    aget p1, p1, v2
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p0, v0, v1, p1}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    .line 66
     return-void
 .end method
 
 .method public static dot(FFFFFF)F
-    .locals 2
-    .param p0, "x1"    # F
-    .param p1, "y1"    # F
-    .param p2, "z1"    # F
-    .param p3, "x2"    # F
-    .param p4, "y2"    # F
-    .param p5, "z2"    # F
+    .locals 0
 
-    .line 308
-    mul-float v0, p0, p3
+    mul-float/2addr p0, p3
 
-    mul-float v1, p1, p4
+    mul-float/2addr p1, p4
 
-    add-float/2addr v0, v1
+    add-float/2addr p0, p1
 
-    mul-float v1, p2, p5
+    mul-float/2addr p2, p5
 
-    add-float/2addr v0, v1
+    add-float/2addr p0, p2
 
-    return v0
+    return p0
 .end method
 
 .method public static dst(FFFFFF)F
-    .locals 5
-    .param p0, "x1"    # F
-    .param p1, "y1"    # F
-    .param p2, "z1"    # F
-    .param p3, "x2"    # F
-    .param p4, "y2"    # F
-    .param p5, "z2"    # F
+    .locals 0
 
-    .line 249
-    sub-float v0, p3, p0
+    sub-float/2addr p3, p0
 
-    .line 250
-    .local v0, "a":F
-    sub-float v1, p4, p1
+    sub-float/2addr p4, p1
 
-    .line 251
-    .local v1, "b":F
-    sub-float v2, p5, p2
+    sub-float/2addr p5, p2
+
+    mul-float/2addr p3, p3
+
+    mul-float/2addr p4, p4
+
+    add-float/2addr p3, p4
+
+    mul-float/2addr p5, p5
+
+    add-float/2addr p3, p5
+
+    float-to-double p0, p3
 
     .line 252
-    .local v2, "c":F
-    mul-float v3, v0, v0
+    invoke-static {p0, p1}, Ljava/lang/Math;->sqrt(D)D
 
-    mul-float v4, v1, v1
+    move-result-wide p0
 
-    add-float/2addr v3, v4
+    double-to-float p0, p0
 
-    mul-float v4, v2, v2
-
-    add-float/2addr v3, v4
-
-    float-to-double v3, v3
-
-    invoke-static {v3, v4}, Ljava/lang/Math;->sqrt(D)D
-
-    move-result-wide v3
-
-    double-to-float v3, v3
-
-    return v3
+    return p0
 .end method
 
 .method public static dst2(FFFFFF)F
-    .locals 5
-    .param p0, "x1"    # F
-    .param p1, "y1"    # F
-    .param p2, "z1"    # F
-    .param p3, "x2"    # F
-    .param p4, "y2"    # F
-    .param p5, "z2"    # F
+    .locals 0
 
-    .line 273
-    sub-float v0, p3, p0
+    sub-float/2addr p3, p0
 
-    .line 274
-    .local v0, "a":F
-    sub-float v1, p4, p1
+    sub-float/2addr p4, p1
 
-    .line 275
-    .local v1, "b":F
-    sub-float v2, p5, p2
+    sub-float/2addr p5, p2
 
-    .line 276
-    .local v2, "c":F
-    mul-float v3, v0, v0
+    mul-float/2addr p3, p3
 
-    mul-float v4, v1, v1
+    mul-float/2addr p4, p4
 
-    add-float/2addr v3, v4
+    add-float/2addr p3, p4
 
-    mul-float v4, v2, v2
+    mul-float/2addr p5, p5
 
-    add-float/2addr v3, v4
+    add-float/2addr p3, p5
 
-    return v3
+    return p3
 .end method
 
 .method public static len(FFF)F
-    .locals 2
-    .param p0, "x"    # F
-    .param p1, "y"    # F
-    .param p2, "z"    # F
+    .locals 0
+
+    mul-float/2addr p0, p0
+
+    mul-float/2addr p1, p1
+
+    add-float/2addr p0, p1
+
+    mul-float/2addr p2, p2
+
+    add-float/2addr p0, p2
+
+    float-to-double p0, p0
 
     .line 223
-    mul-float v0, p0, p0
+    invoke-static {p0, p1}, Ljava/lang/Math;->sqrt(D)D
 
-    mul-float v1, p1, p1
+    move-result-wide p0
 
-    add-float/2addr v0, v1
+    double-to-float p0, p0
 
-    mul-float v1, p2, p2
-
-    add-float/2addr v0, v1
-
-    float-to-double v0, v0
-
-    invoke-static {v0, v1}, Ljava/lang/Math;->sqrt(D)D
-
-    move-result-wide v0
-
-    double-to-float v0, v0
-
-    return v0
+    return p0
 .end method
 
 .method public static len2(FFF)F
-    .locals 2
-    .param p0, "x"    # F
-    .param p1, "y"    # F
-    .param p2, "z"    # F
+    .locals 0
 
-    .line 233
-    mul-float v0, p0, p0
+    mul-float/2addr p0, p0
 
-    mul-float v1, p1, p1
+    mul-float/2addr p1, p1
 
-    add-float/2addr v0, v1
+    add-float/2addr p0, p1
 
-    mul-float v1, p2, p2
+    mul-float/2addr p2, p2
 
-    add-float/2addr v0, v1
+    add-float/2addr p0, p2
 
-    return v0
+    return p0
 .end method
 
 
 # virtual methods
 .method public add(F)Lcom/badlogic/gdx/math/Vector3;
     .locals 3
-    .param p1, "values"    # F
 
     .line 160
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
@@ -342,53 +290,49 @@
 
     invoke-virtual {p0, v0, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public add(FFF)Lcom/badlogic/gdx/math/Vector3;
-    .locals 3
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "z"    # F
+    .locals 1
 
     .line 152
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
 
     add-float/2addr v0, p1
 
-    iget v1, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
+    iget p1, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    add-float/2addr v1, p2
+    add-float/2addr p1, p2
 
-    iget v2, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p2, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    add-float/2addr v2, p3
+    add-float/2addr p2, p3
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p0, v0, p1, p2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public add(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
-    .locals 3
-    .param p1, "vector"    # Lcom/badlogic/gdx/math/Vector3;
+    .locals 2
 
     .line 143
     iget v0, p1, Lcom/badlogic/gdx/math/Vector3;->x:F
 
     iget v1, p1, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    iget v2, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->add(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p0, v0, v1, p1}, Lcom/badlogic/gdx/math/Vector3;->add(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic add(Lcom/badlogic/gdx/math/Vector;)Lcom/badlogic/gdx/math/Vector;
@@ -405,17 +349,13 @@
 .end method
 
 .method public clamp(FF)Lcom/badlogic/gdx/math/Vector3;
-    .locals 5
-    .param p1, "min"    # F
-    .param p2, "max"    # F
+    .locals 2
 
     .line 645
     invoke-virtual {p0}, Lcom/badlogic/gdx/math/Vector3;->len2()F
 
     move-result v0
 
-    .line 646
-    .local v0, "len2":F
     const/4 v1, 0x0
 
     cmpl-float v1, v0, v1
@@ -424,59 +364,54 @@
 
     return-object p0
 
-    .line 647
     :cond_0
-    mul-float v1, p2, p2
+    mul-float/2addr p2, p2
+
+    cmpl-float v1, v0, p2
+
+    if-lez v1, :cond_1
+
+    div-float/2addr p2, v0
+
+    float-to-double p1, p2
 
     .line 648
-    .local v1, "max2":F
-    cmpl-float v2, v0, v1
+    invoke-static {p1, p2}, Ljava/lang/Math;->sqrt(D)D
 
-    if-lez v2, :cond_1
+    move-result-wide p1
 
-    div-float v2, v1, v0
+    double-to-float p1, p1
 
-    float-to-double v2, v2
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-static {v2, v3}, Ljava/lang/Math;->sqrt(D)D
+    move-result-object p1
 
-    move-result-wide v2
+    return-object p1
 
-    double-to-float v2, v2
-
-    invoke-virtual {p0, v2}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
-
-    move-result-object v2
-
-    return-object v2
-
-    .line 649
     :cond_1
-    mul-float v2, p1, p1
+    mul-float/2addr p1, p1
+
+    cmpg-float p2, v0, p1
+
+    if-gez p2, :cond_2
+
+    div-float/2addr p1, v0
+
+    float-to-double p1, p1
 
     .line 650
-    .local v2, "min2":F
-    cmpg-float v3, v0, v2
+    invoke-static {p1, p2}, Ljava/lang/Math;->sqrt(D)D
 
-    if-gez v3, :cond_2
+    move-result-wide p1
 
-    div-float v3, v2, v0
+    double-to-float p1, p1
 
-    float-to-double v3, v3
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-static {v3, v4}, Ljava/lang/Math;->sqrt(D)D
+    move-result-object p1
 
-    move-result-wide v3
+    return-object p1
 
-    double-to-float v3, v3
-
-    invoke-virtual {p0, v3}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
-
-    move-result-object v3
-
-    return-object v3
-
-    .line 651
     :cond_2
     return-object p0
 .end method
@@ -515,10 +450,7 @@
 .end method
 
 .method public crs(FFF)Lcom/badlogic/gdx/math/Vector3;
-    .locals 5
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "z"    # F
+    .locals 4
 
     .line 338
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
@@ -535,9 +467,9 @@
 
     iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    mul-float v4, v3, p3
+    mul-float/2addr p3, v3
 
-    sub-float/2addr v2, v4
+    sub-float/2addr v2, p3
 
     mul-float/2addr v3, p2
 
@@ -547,14 +479,13 @@
 
     invoke-virtual {p0, v1, v2, v3}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public crs(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
-    .locals 7
-    .param p1, "vector"    # Lcom/badlogic/gdx/math/Vector3;
+    .locals 6
 
     .line 329
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
@@ -571,58 +502,54 @@
 
     sub-float/2addr v2, v5
 
-    iget v5, p1, Lcom/badlogic/gdx/math/Vector3;->x:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    mul-float/2addr v3, v5
+    mul-float/2addr v3, p1
 
-    iget v6, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
+    iget v5, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    mul-float/2addr v1, v6
+    mul-float/2addr v1, v5
 
     sub-float/2addr v3, v1
 
-    mul-float/2addr v6, v4
+    mul-float/2addr v5, v4
 
-    mul-float/2addr v0, v5
+    mul-float/2addr v0, p1
 
-    sub-float/2addr v6, v0
+    sub-float/2addr v5, v0
 
-    invoke-virtual {p0, v2, v3, v6}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p0, v2, v3, v5}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public dot(FFF)F
-    .locals 2
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "z"    # F
+    .locals 1
 
     .line 322
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
 
     mul-float/2addr v0, p1
 
-    iget v1, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
+    iget p1, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    mul-float/2addr v1, p2
+    mul-float/2addr p1, p2
 
-    add-float/2addr v0, v1
+    add-float/2addr v0, p1
 
-    iget v1, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    mul-float/2addr v1, p3
+    mul-float/2addr p1, p3
 
-    add-float/2addr v0, v1
+    add-float/2addr v0, p1
 
     return v0
 .end method
 
 .method public dot(Lcom/badlogic/gdx/math/Vector3;)F
     .locals 3
-    .param p1, "vector"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 313
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
@@ -641,9 +568,9 @@
 
     iget v1, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    iget v2, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    mul-float/2addr v1, v2
+    mul-float/2addr v1, p1
 
     add-float/2addr v0, v1
 
@@ -664,54 +591,47 @@
 .end method
 
 .method public dst(FFF)F
-    .locals 5
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "z"    # F
+    .locals 1
 
     .line 265
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    sub-float v0, p1, v0
+    sub-float/2addr p1, v0
 
     .line 266
-    .local v0, "a":F
-    iget v1, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
+    iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    sub-float v1, p2, v1
+    sub-float/2addr p2, v0
 
     .line 267
-    .local v1, "b":F
-    iget v2, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    sub-float v2, p3, v2
+    sub-float/2addr p3, v0
+
+    mul-float/2addr p1, p1
+
+    mul-float/2addr p2, p2
+
+    add-float/2addr p1, p2
+
+    mul-float/2addr p3, p3
+
+    add-float/2addr p1, p3
+
+    float-to-double p1, p1
 
     .line 268
-    .local v2, "c":F
-    mul-float v3, v0, v0
+    invoke-static {p1, p2}, Ljava/lang/Math;->sqrt(D)D
 
-    mul-float v4, v1, v1
+    move-result-wide p1
 
-    add-float/2addr v3, v4
+    double-to-float p1, p1
 
-    mul-float v4, v2, v2
-
-    add-float/2addr v3, v4
-
-    float-to-double v3, v3
-
-    invoke-static {v3, v4}, Ljava/lang/Math;->sqrt(D)D
-
-    move-result-wide v3
-
-    double-to-float v3, v3
-
-    return v3
+    return p1
 .end method
 
 .method public dst(Lcom/badlogic/gdx/math/Vector3;)F
-    .locals 5
-    .param p1, "vector"    # Lcom/badlogic/gdx/math/Vector3;
+    .locals 3
 
     .line 257
     iget v0, p1, Lcom/badlogic/gdx/math/Vector3;->x:F
@@ -721,7 +641,6 @@
     sub-float/2addr v0, v1
 
     .line 258
-    .local v0, "a":F
     iget v1, p1, Lcom/badlogic/gdx/math/Vector3;->y:F
 
     iget v2, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
@@ -729,34 +648,32 @@
     sub-float/2addr v1, v2
 
     .line 259
-    .local v1, "b":F
-    iget v2, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget v2, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    sub-float/2addr v2, v3
+    sub-float/2addr p1, v2
+
+    mul-float/2addr v0, v0
+
+    mul-float/2addr v1, v1
+
+    add-float/2addr v0, v1
+
+    mul-float/2addr p1, p1
+
+    add-float/2addr v0, p1
+
+    float-to-double v0, v0
 
     .line 260
-    .local v2, "c":F
-    mul-float v3, v0, v0
+    invoke-static {v0, v1}, Ljava/lang/Math;->sqrt(D)D
 
-    mul-float v4, v1, v1
+    move-result-wide v0
 
-    add-float/2addr v3, v4
+    double-to-float p1, v0
 
-    mul-float v4, v2, v2
-
-    add-float/2addr v3, v4
-
-    float-to-double v3, v3
-
-    invoke-static {v3, v4}, Ljava/lang/Math;->sqrt(D)D
-
-    move-result-wide v3
-
-    double-to-float v3, v3
-
-    return v3
+    return p1
 .end method
 
 .method public bridge synthetic dst(Lcom/badlogic/gdx/math/Vector;)F
@@ -773,46 +690,38 @@
 .end method
 
 .method public dst2(FFF)F
-    .locals 5
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "z"    # F
+    .locals 1
 
     .line 293
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    sub-float v0, p1, v0
+    sub-float/2addr p1, v0
 
     .line 294
-    .local v0, "a":F
-    iget v1, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
+    iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    sub-float v1, p2, v1
+    sub-float/2addr p2, v0
 
     .line 295
-    .local v1, "b":F
-    iget v2, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    sub-float v2, p3, v2
+    sub-float/2addr p3, v0
 
-    .line 296
-    .local v2, "c":F
-    mul-float v3, v0, v0
+    mul-float/2addr p1, p1
 
-    mul-float v4, v1, v1
+    mul-float/2addr p2, p2
 
-    add-float/2addr v3, v4
+    add-float/2addr p1, p2
 
-    mul-float v4, v2, v2
+    mul-float/2addr p3, p3
 
-    add-float/2addr v3, v4
+    add-float/2addr p1, p3
 
-    return v3
+    return p1
 .end method
 
 .method public dst2(Lcom/badlogic/gdx/math/Vector3;)F
-    .locals 5
-    .param p1, "point"    # Lcom/badlogic/gdx/math/Vector3;
+    .locals 3
 
     .line 281
     iget v0, p1, Lcom/badlogic/gdx/math/Vector3;->x:F
@@ -822,7 +731,6 @@
     sub-float/2addr v0, v1
 
     .line 282
-    .local v0, "a":F
     iget v1, p1, Lcom/badlogic/gdx/math/Vector3;->y:F
 
     iget v2, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
@@ -830,26 +738,23 @@
     sub-float/2addr v1, v2
 
     .line 283
-    .local v1, "b":F
-    iget v2, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget v2, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    sub-float/2addr v2, v3
+    sub-float/2addr p1, v2
 
-    .line 284
-    .local v2, "c":F
-    mul-float v3, v0, v0
+    mul-float/2addr v0, v0
 
-    mul-float v4, v1, v1
+    mul-float/2addr v1, v1
 
-    add-float/2addr v3, v4
+    add-float/2addr v0, v1
 
-    mul-float v4, v2, v2
+    mul-float/2addr p1, p1
 
-    add-float/2addr v3, v4
+    add-float/2addr v0, p1
 
-    return v3
+    return v0
 .end method
 
 .method public bridge synthetic dst2(Lcom/badlogic/gdx/math/Vector;)F
@@ -867,103 +772,91 @@
 
 .method public epsilonEquals(FFF)Z
     .locals 1
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "z"    # F
 
-    .line 713
     const v0, 0x358637bd    # 1.0E-6f
 
+    .line 713
     invoke-virtual {p0, p1, p2, p3, v0}, Lcom/badlogic/gdx/math/Vector3;->epsilonEquals(FFFF)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public epsilonEquals(FFFF)Z
-    .locals 2
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "z"    # F
-    .param p4, "epsilon"    # F
+    .locals 1
 
     .line 688
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    sub-float v0, p1, v0
+    sub-float/2addr p1, v0
 
-    invoke-static {v0}, Ljava/lang/Math;->abs(F)F
+    invoke-static {p1}, Ljava/lang/Math;->abs(F)F
 
-    move-result v0
+    move-result p1
 
-    cmpl-float v0, v0, p4
+    cmpl-float p1, p1, p4
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    if-lez v0, :cond_0
+    if-lez p1, :cond_0
 
-    return v1
+    return v0
 
     .line 689
     :cond_0
-    iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
+    iget p1, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    sub-float v0, p2, v0
+    sub-float/2addr p2, p1
 
-    invoke-static {v0}, Ljava/lang/Math;->abs(F)F
+    invoke-static {p2}, Ljava/lang/Math;->abs(F)F
 
-    move-result v0
+    move-result p1
 
-    cmpl-float v0, v0, p4
+    cmpl-float p1, p1, p4
 
-    if-lez v0, :cond_1
+    if-lez p1, :cond_1
 
-    return v1
+    return v0
 
     .line 690
     :cond_1
-    iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    sub-float v0, p3, v0
+    sub-float/2addr p3, p1
 
-    invoke-static {v0}, Ljava/lang/Math;->abs(F)F
+    invoke-static {p3}, Ljava/lang/Math;->abs(F)F
 
-    move-result v0
+    move-result p1
 
-    cmpl-float v0, v0, p4
+    cmpl-float p1, p1, p4
 
-    if-lez v0, :cond_2
-
-    return v1
-
-    .line 691
-    :cond_2
-    const/4 v0, 0x1
+    if-lez p1, :cond_2
 
     return v0
+
+    :cond_2
+    const/4 p1, 0x1
+
+    return p1
 .end method
 
 .method public epsilonEquals(Lcom/badlogic/gdx/math/Vector3;)Z
     .locals 1
-    .param p1, "other"    # Lcom/badlogic/gdx/math/Vector3;
 
-    .line 701
     const v0, 0x358637bd    # 1.0E-6f
 
+    .line 701
     invoke-virtual {p0, p1, v0}, Lcom/badlogic/gdx/math/Vector3;->epsilonEquals(Lcom/badlogic/gdx/math/Vector3;F)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public epsilonEquals(Lcom/badlogic/gdx/math/Vector3;F)Z
     .locals 3
-    .param p1, "other"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "epsilon"    # F
 
-    .line 678
     const/4 v0, 0x0
 
     if-nez p1, :cond_0
@@ -1008,27 +901,26 @@
 
     .line 681
     :cond_2
-    iget v1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    iget v2, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget v1, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    sub-float/2addr v1, v2
+    sub-float/2addr p1, v1
 
-    invoke-static {v1}, Ljava/lang/Math;->abs(F)F
+    invoke-static {p1}, Ljava/lang/Math;->abs(F)F
 
-    move-result v1
+    move-result p1
 
-    cmpl-float v1, v1, p2
+    cmpl-float p1, p1, p2
 
-    if-lez v1, :cond_3
+    if-lez p1, :cond_3
 
     return v0
 
-    .line 682
     :cond_3
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic epsilonEquals(Lcom/badlogic/gdx/math/Vector;F)Z
@@ -1045,17 +937,14 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 4
 
-    .line 666
     const/4 v0, 0x1
 
     if-ne p0, p1, :cond_0
 
     return v0
 
-    .line 667
     :cond_0
     const/4 v1, 0x0
 
@@ -1079,125 +968,127 @@
 
     .line 669
     :cond_2
-    move-object v2, p1
-
-    check-cast v2, Lcom/badlogic/gdx/math/Vector3;
+    check-cast p1, Lcom/badlogic/gdx/math/Vector3;
 
     .line 670
-    .local v2, "other":Lcom/badlogic/gdx/math/Vector3;
-    iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
+    iget v2, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
+
+    invoke-static {v2}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToIntBits(F)I
+
+    move-result v2
+
+    iget v3, p1, Lcom/badlogic/gdx/math/Vector3;->x:F
 
     invoke-static {v3}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToIntBits(F)I
 
     move-result v3
 
-    iget v4, v2, Lcom/badlogic/gdx/math/Vector3;->x:F
-
-    invoke-static {v4}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToIntBits(F)I
-
-    move-result v4
-
-    if-eq v3, v4, :cond_3
+    if-eq v2, v3, :cond_3
 
     return v1
 
     .line 671
     :cond_3
-    iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
+    iget v2, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
+
+    invoke-static {v2}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToIntBits(F)I
+
+    move-result v2
+
+    iget v3, p1, Lcom/badlogic/gdx/math/Vector3;->y:F
 
     invoke-static {v3}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToIntBits(F)I
 
     move-result v3
 
-    iget v4, v2, Lcom/badlogic/gdx/math/Vector3;->y:F
-
-    invoke-static {v4}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToIntBits(F)I
-
-    move-result v4
-
-    if-eq v3, v4, :cond_4
+    if-eq v2, v3, :cond_4
 
     return v1
 
     .line 672
     :cond_4
-    iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget v2, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    invoke-static {v3}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToIntBits(F)I
+    invoke-static {v2}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToIntBits(F)I
 
-    move-result v3
+    move-result v2
 
-    iget v4, v2, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    invoke-static {v4}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToIntBits(F)I
+    invoke-static {p1}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToIntBits(F)I
 
-    move-result v4
+    move-result p1
 
-    if-eq v3, v4, :cond_5
+    if-eq v2, p1, :cond_5
 
     return v1
 
-    .line 673
     :cond_5
     return v0
 .end method
 
 .method public fromString(Ljava/lang/String;)Lcom/badlogic/gdx/math/Vector3;
-    .locals 7
-    .param p1, "v"    # Ljava/lang/String;
+    .locals 6
 
-    .line 603
     const/16 v0, 0x2c
 
     const/4 v1, 0x1
 
+    .line 603
     invoke-virtual {p1, v0, v1}, Ljava/lang/String;->indexOf(II)I
 
     move-result v2
 
-    .line 604
-    .local v2, "s0":I
     add-int/lit8 v3, v2, 0x1
 
+    .line 604
     invoke-virtual {p1, v0, v3}, Ljava/lang/String;->indexOf(II)I
 
     move-result v0
 
+    const/4 v4, -0x1
+
+    if-eq v2, v4, :cond_0
+
+    if-eq v0, v4, :cond_0
+
+    const/4 v4, 0x0
+
     .line 605
-    .local v0, "s1":I
-    const/4 v3, -0x1
+    invoke-virtual {p1, v4}, Ljava/lang/String;->charAt(I)C
 
-    if-eq v2, v3, :cond_0
+    move-result v4
 
-    if-eq v0, v3, :cond_0
+    const/16 v5, 0x28
 
-    const/4 v3, 0x0
-
-    invoke-virtual {p1, v3}, Ljava/lang/String;->charAt(I)C
-
-    move-result v3
-
-    const/16 v4, 0x28
-
-    if-ne v3, v4, :cond_0
+    if-ne v4, v5, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v3
+    move-result v4
 
-    sub-int/2addr v3, v1
+    sub-int/2addr v4, v1
 
-    invoke-virtual {p1, v3}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, v4}, Ljava/lang/String;->charAt(I)C
 
-    move-result v3
+    move-result v4
 
-    const/16 v4, 0x29
+    const/16 v5, 0x29
 
-    if-ne v3, v4, :cond_0
+    if-ne v4, v5, :cond_0
 
     .line 607
     :try_start_0
     invoke-virtual {p1, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v2
+
+    .line 608
+    invoke-virtual {p1, v3, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v3
 
@@ -1205,100 +1096,79 @@
 
     move-result v3
 
-    .line 608
-    .local v3, "x":F
-    add-int/lit8 v4, v2, 0x1
+    add-int/2addr v0, v1
 
-    invoke-virtual {p1, v4, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v4}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    .line 609
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v4
 
-    .line 609
-    .local v4, "y":F
-    add-int/lit8 v5, v0, 0x1
+    sub-int/2addr v4, v1
 
-    invoke-virtual {p1}, Ljava/lang/String;->length()I
+    invoke-virtual {p1, v0, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result v6
+    move-result-object v0
 
-    sub-int/2addr v6, v1
+    invoke-static {v0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
-    invoke-virtual {p1, v5, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-
-    move-result v1
+    move-result v0
 
     .line 610
-    .local v1, "z":F
-    invoke-virtual {p0, v3, v4, v1}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p0, v2, v3, v0}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v5
+    move-result-object p1
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v5
-
-    .line 611
-    .end local v1    # "z":F
-    .end local v3    # "x":F
-    .end local v4    # "y":F
-    :catch_0
-    move-exception v1
+    return-object p1
 
     .line 615
+    :catch_0
     :cond_0
-    new-instance v1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "Malformed Vector3: "
 
-    const-string v4, "Malformed Vector3: "
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-direct {v1, v3}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public hasOppositeDirection(Lcom/badlogic/gdx/math/Vector3;)Z
-    .locals 2
-    .param p1, "vector"    # Lcom/badlogic/gdx/math/Vector3;
+    .locals 1
 
     .line 550
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/math/Vector3;->dot(Lcom/badlogic/gdx/math/Vector3;)F
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    cmpg-float v0, v0, v1
+    cmpg-float p1, p1, v0
 
-    if-gez v0, :cond_0
+    if-gez p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic hasOppositeDirection(Lcom/badlogic/gdx/math/Vector;)Z
@@ -1315,29 +1185,28 @@
 .end method
 
 .method public hasSameDirection(Lcom/badlogic/gdx/math/Vector3;)Z
-    .locals 2
-    .param p1, "vector"    # Lcom/badlogic/gdx/math/Vector3;
+    .locals 1
 
     .line 545
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/math/Vector3;->dot(Lcom/badlogic/gdx/math/Vector3;)F
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    cmpl-float v0, v0, v1
+    cmpl-float p1, p1, v0
 
-    if-lez v0, :cond_0
+    if-lez p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic hasSameDirection(Lcom/badlogic/gdx/math/Vector;)Z
@@ -1354,62 +1223,46 @@
 .end method
 
 .method public hashCode()I
-    .locals 4
-
-    .line 656
-    const/16 v0, 0x1f
-
-    .line 657
-    .local v0, "prime":I
-    const/4 v1, 0x1
+    .locals 3
 
     .line 658
-    .local v1, "result":I
-    mul-int/lit8 v2, v1, 0x1f
+    iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
+    invoke-static {v0}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToIntBits(F)I
 
-    invoke-static {v3}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToIntBits(F)I
+    move-result v0
 
-    move-result v3
+    const/16 v1, 0x1f
 
-    add-int/2addr v2, v3
+    add-int/2addr v0, v1
+
+    mul-int/2addr v0, v1
 
     .line 659
-    .end local v1    # "result":I
-    .local v2, "result":I
-    mul-int/lit8 v1, v2, 0x1f
+    iget v2, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
+    invoke-static {v2}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToIntBits(F)I
 
-    invoke-static {v3}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToIntBits(F)I
+    move-result v2
 
-    move-result v3
+    add-int/2addr v0, v2
 
-    add-int/2addr v1, v3
+    mul-int/2addr v0, v1
 
     .line 660
-    .end local v2    # "result":I
-    .restart local v1    # "result":I
-    mul-int/lit8 v2, v1, 0x1f
+    iget v1, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
+    invoke-static {v1}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToIntBits(F)I
 
-    invoke-static {v3}, Lcom/badlogic/gdx/utils/NumberUtils;->floatToIntBits(F)I
+    move-result v1
 
-    move-result v3
+    add-int/2addr v0, v1
 
-    add-int/2addr v2, v3
-
-    .line 661
-    .end local v1    # "result":I
-    .restart local v2    # "result":I
-    return v2
+    return v0
 .end method
 
 .method public idt(Lcom/badlogic/gdx/math/Vector3;)Z
     .locals 2
-    .param p1, "vector"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 244
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
@@ -1430,43 +1283,40 @@
 
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    iget v1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    cmpl-float v0, v0, v1
+    cmpl-float p1, v0, p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public interpolate(Lcom/badlogic/gdx/math/Vector3;FLcom/badlogic/gdx/math/Interpolation;)Lcom/badlogic/gdx/math/Vector3;
     .locals 2
-    .param p1, "target"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "alpha"    # F
-    .param p3, "interpolator"    # Lcom/badlogic/gdx/math/Interpolation;
 
-    .line 563
     const/4 v0, 0x0
 
     const/high16 v1, 0x3f800000    # 1.0f
 
+    .line 563
     invoke-virtual {p3, v0, v1, p2}, Lcom/badlogic/gdx/math/Interpolation;->apply(FFF)F
 
-    move-result v0
+    move-result p2
 
-    invoke-virtual {p0, p1, v0}, Lcom/badlogic/gdx/math/Vector3;->lerp(Lcom/badlogic/gdx/math/Vector3;F)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p0, p1, p2}, Lcom/badlogic/gdx/math/Vector3;->lerp(Lcom/badlogic/gdx/math/Vector3;F)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic interpolate(Lcom/badlogic/gdx/math/Vector;FLcom/badlogic/gdx/math/Interpolation;)Lcom/badlogic/gdx/math/Vector;
@@ -1484,7 +1334,6 @@
 
 .method public isCollinear(Lcom/badlogic/gdx/math/Vector3;)Z
     .locals 1
-    .param p1, "other"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 520
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/math/Vector3;->isOnLine(Lcom/badlogic/gdx/math/Vector3;)Z
@@ -1495,48 +1344,46 @@
 
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/math/Vector3;->hasSameDirection(Lcom/badlogic/gdx/math/Vector3;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public isCollinear(Lcom/badlogic/gdx/math/Vector3;F)Z
-    .locals 1
-    .param p1, "other"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "epsilon"    # F
+    .locals 0
 
     .line 515
     invoke-virtual {p0, p1, p2}, Lcom/badlogic/gdx/math/Vector3;->isOnLine(Lcom/badlogic/gdx/math/Vector3;F)Z
 
-    move-result v0
+    move-result p2
 
-    if-eqz v0, :cond_0
+    if-eqz p2, :cond_0
 
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/math/Vector3;->hasSameDirection(Lcom/badlogic/gdx/math/Vector3;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic isCollinear(Lcom/badlogic/gdx/math/Vector;)Z
@@ -1567,7 +1414,6 @@
 
 .method public isCollinearOpposite(Lcom/badlogic/gdx/math/Vector3;)Z
     .locals 1
-    .param p1, "other"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 530
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/math/Vector3;->isOnLine(Lcom/badlogic/gdx/math/Vector3;)Z
@@ -1578,48 +1424,46 @@
 
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/math/Vector3;->hasOppositeDirection(Lcom/badlogic/gdx/math/Vector3;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public isCollinearOpposite(Lcom/badlogic/gdx/math/Vector3;F)Z
-    .locals 1
-    .param p1, "other"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "epsilon"    # F
+    .locals 0
 
     .line 525
     invoke-virtual {p0, p1, p2}, Lcom/badlogic/gdx/math/Vector3;->isOnLine(Lcom/badlogic/gdx/math/Vector3;F)Z
 
-    move-result v0
+    move-result p2
 
-    if-eqz v0, :cond_0
+    if-eqz p2, :cond_0
 
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/math/Vector3;->hasOppositeDirection(Lcom/badlogic/gdx/math/Vector3;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic isCollinearOpposite(Lcom/badlogic/gdx/math/Vector;)Z
@@ -1649,8 +1493,7 @@
 .end method
 
 .method public isOnLine(Lcom/badlogic/gdx/math/Vector3;)Z
-    .locals 7
-    .param p1, "other"    # Lcom/badlogic/gdx/math/Vector3;
+    .locals 6
 
     .line 510
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
@@ -1667,47 +1510,45 @@
 
     sub-float/2addr v2, v5
 
-    iget v5, p1, Lcom/badlogic/gdx/math/Vector3;->x:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    mul-float/2addr v3, v5
+    mul-float/2addr v3, p1
 
-    iget v6, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
+    iget v5, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    mul-float/2addr v1, v6
+    mul-float/2addr v1, v5
 
     sub-float/2addr v3, v1
 
-    mul-float/2addr v6, v4
+    mul-float/2addr v5, v4
 
-    mul-float/2addr v0, v5
+    mul-float/2addr v0, p1
 
-    sub-float/2addr v6, v0
+    sub-float/2addr v5, v0
 
-    invoke-static {v2, v3, v6}, Lcom/badlogic/gdx/math/Vector3;->len2(FFF)F
+    invoke-static {v2, v3, v5}, Lcom/badlogic/gdx/math/Vector3;->len2(FFF)F
 
-    move-result v0
+    move-result p1
 
-    const v1, 0x358637bd    # 1.0E-6f
+    const v0, 0x358637bd    # 1.0E-6f
 
-    cmpg-float v0, v0, v1
+    cmpg-float p1, p1, v0
 
-    if-gtz v0, :cond_0
+    if-gtz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public isOnLine(Lcom/badlogic/gdx/math/Vector3;F)Z
-    .locals 7
-    .param p1, "other"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "epsilon"    # F
+    .locals 6
 
     .line 505
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
@@ -1724,39 +1565,39 @@
 
     sub-float/2addr v2, v5
 
-    iget v5, p1, Lcom/badlogic/gdx/math/Vector3;->x:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    mul-float/2addr v3, v5
+    mul-float/2addr v3, p1
 
-    iget v6, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
+    iget v5, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    mul-float/2addr v1, v6
+    mul-float/2addr v1, v5
 
     sub-float/2addr v3, v1
 
-    mul-float/2addr v6, v4
+    mul-float/2addr v5, v4
 
-    mul-float/2addr v0, v5
+    mul-float/2addr v0, p1
 
-    sub-float/2addr v6, v0
+    sub-float/2addr v5, v0
 
-    invoke-static {v2, v3, v6}, Lcom/badlogic/gdx/math/Vector3;->len2(FFF)F
+    invoke-static {v2, v3, v5}, Lcom/badlogic/gdx/math/Vector3;->len2(FFF)F
 
-    move-result v0
+    move-result p1
 
-    cmpg-float v0, v0, p2
+    cmpg-float p1, p1, p2
 
-    if-gtz v0, :cond_0
+    if-gtz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic isOnLine(Lcom/badlogic/gdx/math/Vector;)Z
@@ -1786,36 +1627,33 @@
 .end method
 
 .method public isPerpendicular(Lcom/badlogic/gdx/math/Vector3;)Z
-    .locals 1
-    .param p1, "vector"    # Lcom/badlogic/gdx/math/Vector3;
+    .locals 0
 
     .line 535
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/math/Vector3;->dot(Lcom/badlogic/gdx/math/Vector3;)F
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0}, Lcom/badlogic/gdx/math/MathUtils;->isZero(F)Z
+    invoke-static {p1}, Lcom/badlogic/gdx/math/MathUtils;->isZero(F)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public isPerpendicular(Lcom/badlogic/gdx/math/Vector3;F)Z
-    .locals 1
-    .param p1, "vector"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "epsilon"    # F
+    .locals 0
 
     .line 540
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/math/Vector3;->dot(Lcom/badlogic/gdx/math/Vector3;)F
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0, p2}, Lcom/badlogic/gdx/math/MathUtils;->isZero(FF)Z
+    invoke-static {p1, p2}, Lcom/badlogic/gdx/math/MathUtils;->isZero(FF)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic isPerpendicular(Lcom/badlogic/gdx/math/Vector;)Z
@@ -1847,9 +1685,9 @@
 .method public isUnit()Z
     .locals 1
 
-    .line 485
     const v0, 0x3089705f    # 1.0E-9f
 
+    .line 485
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/math/Vector3;->isUnit(F)Z
 
     move-result v0
@@ -1859,7 +1697,6 @@
 
 .method public isUnit(F)Z
     .locals 2
-    .param p1, "margin"    # F
 
     .line 490
     invoke-virtual {p0}, Lcom/badlogic/gdx/math/Vector3;->len2()F
@@ -1874,19 +1711,19 @@
 
     move-result v0
 
-    cmpg-float v0, v0, p1
+    cmpg-float p1, v0, p1
 
-    if-gez v0, :cond_0
+    if-gez p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public isZero()Z
@@ -1926,26 +1763,25 @@
 
 .method public isZero(F)Z
     .locals 1
-    .param p1, "margin"    # F
 
     .line 500
     invoke-virtual {p0}, Lcom/badlogic/gdx/math/Vector3;->len2()F
 
     move-result v0
 
-    cmpg-float v0, v0, p1
+    cmpg-float p1, v0, p1
 
-    if-gez v0, :cond_0
+    if-gez p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public len()F
@@ -2004,8 +1840,6 @@
 
 .method public lerp(Lcom/badlogic/gdx/math/Vector3;F)Lcom/badlogic/gdx/math/Vector3;
     .locals 2
-    .param p1, "target"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "alpha"    # F
 
     .line 555
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
@@ -2036,17 +1870,16 @@
     .line 557
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    iget v1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    sub-float/2addr v1, v0
+    sub-float/2addr p1, v0
 
-    mul-float/2addr v1, p2
+    mul-float/2addr p2, p1
 
-    add-float/2addr v0, v1
+    add-float/2addr v0, p2
 
     iput v0, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    .line 558
     return-object p0
 .end method
 
@@ -2064,17 +1897,16 @@
 .end method
 
 .method public limit(F)Lcom/badlogic/gdx/math/Vector3;
-    .locals 1
-    .param p1, "limit"    # F
+    .locals 0
+
+    mul-float/2addr p1, p1
 
     .line 620
-    mul-float v0, p1, p1
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/math/Vector3;->limit2(F)Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/math/Vector3;->limit2(F)Lcom/badlogic/gdx/math/Vector3;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic limit(F)Lcom/badlogic/gdx/math/Vector;
@@ -2089,34 +1921,30 @@
 .end method
 
 .method public limit2(F)Lcom/badlogic/gdx/math/Vector3;
-    .locals 3
-    .param p1, "limit2"    # F
+    .locals 2
 
     .line 625
     invoke-virtual {p0}, Lcom/badlogic/gdx/math/Vector3;->len2()F
 
     move-result v0
 
-    .line 626
-    .local v0, "len2":F
     cmpl-float v1, v0, p1
 
     if-lez v1, :cond_0
 
+    div-float/2addr p1, v0
+
+    float-to-double v0, p1
+
     .line 627
-    div-float v1, p1, v0
+    invoke-static {v0, v1}, Ljava/lang/Math;->sqrt(D)D
 
-    float-to-double v1, v1
+    move-result-wide v0
 
-    invoke-static {v1, v2}, Ljava/lang/Math;->sqrt(D)D
+    double-to-float p1, v0
 
-    move-result-wide v1
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
 
-    double-to-float v1, v1
-
-    invoke-virtual {p0, v1}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
-
-    .line 629
     :cond_0
     return-object p0
 .end method
@@ -2133,214 +1961,208 @@
 .end method
 
 .method public mul(Lcom/badlogic/gdx/math/Matrix3;)Lcom/badlogic/gdx/math/Vector3;
-    .locals 7
-    .param p1, "matrix"    # Lcom/badlogic/gdx/math/Matrix3;
+    .locals 6
 
     .line 374
-    iget-object v0, p1, Lcom/badlogic/gdx/math/Matrix3;->val:[F
+    iget-object p1, p1, Lcom/badlogic/gdx/math/Matrix3;->val:[F
 
     .line 375
-    .local v0, "l_mat":[F
-    iget v1, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
+    iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aget v2, v0, v2
+    aget v1, p1, v1
 
-    mul-float/2addr v2, v1
+    mul-float/2addr v1, v0
 
-    iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
+    iget v2, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    const/4 v4, 0x3
+    const/4 v3, 0x3
 
-    aget v4, v0, v4
+    aget v3, p1, v3
 
-    mul-float/2addr v4, v3
-
-    add-float/2addr v2, v4
-
-    iget v4, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
-
-    const/4 v5, 0x6
-
-    aget v5, v0, v5
-
-    mul-float/2addr v5, v4
-
-    add-float/2addr v2, v5
-
-    const/4 v5, 0x1
-
-    aget v5, v0, v5
-
-    mul-float/2addr v5, v1
-
-    const/4 v6, 0x4
-
-    aget v6, v0, v6
-
-    mul-float/2addr v6, v3
-
-    add-float/2addr v5, v6
-
-    const/4 v6, 0x7
-
-    aget v6, v0, v6
-
-    mul-float/2addr v6, v4
-
-    add-float/2addr v5, v6
-
-    const/4 v6, 0x2
-
-    aget v6, v0, v6
-
-    mul-float/2addr v1, v6
-
-    const/4 v6, 0x5
-
-    aget v6, v0, v6
-
-    mul-float/2addr v3, v6
+    mul-float/2addr v3, v2
 
     add-float/2addr v1, v3
 
-    const/16 v3, 0x8
+    iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    aget v3, v0, v3
+    const/4 v4, 0x6
+
+    aget v4, p1, v4
 
     mul-float/2addr v4, v3
 
     add-float/2addr v1, v4
 
-    invoke-virtual {p0, v2, v5, v1}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    const/4 v4, 0x1
 
-    move-result-object v1
+    aget v4, p1, v4
 
-    return-object v1
+    mul-float/2addr v4, v0
+
+    const/4 v5, 0x4
+
+    aget v5, p1, v5
+
+    mul-float/2addr v5, v2
+
+    add-float/2addr v4, v5
+
+    const/4 v5, 0x7
+
+    aget v5, p1, v5
+
+    mul-float/2addr v5, v3
+
+    add-float/2addr v4, v5
+
+    const/4 v5, 0x2
+
+    aget v5, p1, v5
+
+    mul-float/2addr v0, v5
+
+    const/4 v5, 0x5
+
+    aget v5, p1, v5
+
+    mul-float/2addr v2, v5
+
+    add-float/2addr v0, v2
+
+    const/16 v2, 0x8
+
+    aget p1, p1, v2
+
+    mul-float/2addr v3, p1
+
+    add-float/2addr v0, v3
+
+    invoke-virtual {p0, v1, v4, v0}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+
+    move-result-object p1
+
+    return-object p1
 .end method
 
 .method public mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
-    .locals 7
-    .param p1, "matrix"    # Lcom/badlogic/gdx/math/Matrix4;
+    .locals 6
 
     .line 354
-    iget-object v0, p1, Lcom/badlogic/gdx/math/Matrix4;->val:[F
+    iget-object p1, p1, Lcom/badlogic/gdx/math/Matrix4;->val:[F
 
     .line 355
-    .local v0, "l_mat":[F
-    iget v1, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
+    iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aget v2, v0, v2
+    aget v1, p1, v1
 
-    mul-float/2addr v2, v1
+    mul-float/2addr v1, v0
 
-    iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
+    iget v2, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    const/4 v4, 0x4
+    const/4 v3, 0x4
 
-    aget v4, v0, v4
+    aget v3, p1, v3
 
-    mul-float/2addr v4, v3
-
-    add-float/2addr v2, v4
-
-    iget v4, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
-
-    const/16 v5, 0x8
-
-    aget v5, v0, v5
-
-    mul-float/2addr v5, v4
-
-    add-float/2addr v2, v5
-
-    const/16 v5, 0xc
-
-    aget v5, v0, v5
-
-    add-float/2addr v2, v5
-
-    const/4 v5, 0x1
-
-    aget v5, v0, v5
-
-    mul-float/2addr v5, v1
-
-    const/4 v6, 0x5
-
-    aget v6, v0, v6
-
-    mul-float/2addr v6, v3
-
-    add-float/2addr v5, v6
-
-    const/16 v6, 0x9
-
-    aget v6, v0, v6
-
-    mul-float/2addr v6, v4
-
-    add-float/2addr v5, v6
-
-    const/16 v6, 0xd
-
-    aget v6, v0, v6
-
-    add-float/2addr v5, v6
-
-    const/4 v6, 0x2
-
-    aget v6, v0, v6
-
-    mul-float/2addr v1, v6
-
-    const/4 v6, 0x6
-
-    aget v6, v0, v6
-
-    mul-float/2addr v3, v6
+    mul-float/2addr v3, v2
 
     add-float/2addr v1, v3
 
-    const/16 v3, 0xa
+    iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    aget v3, v0, v3
+    const/16 v4, 0x8
+
+    aget v4, p1, v4
 
     mul-float/2addr v4, v3
 
     add-float/2addr v1, v4
 
-    const/16 v3, 0xe
+    const/16 v4, 0xc
 
-    aget v3, v0, v3
+    aget v4, p1, v4
 
-    add-float/2addr v1, v3
+    add-float/2addr v1, v4
 
-    invoke-virtual {p0, v2, v5, v1}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    const/4 v4, 0x1
 
-    move-result-object v1
+    aget v4, p1, v4
 
-    return-object v1
+    mul-float/2addr v4, v0
+
+    const/4 v5, 0x5
+
+    aget v5, p1, v5
+
+    mul-float/2addr v5, v2
+
+    add-float/2addr v4, v5
+
+    const/16 v5, 0x9
+
+    aget v5, p1, v5
+
+    mul-float/2addr v5, v3
+
+    add-float/2addr v4, v5
+
+    const/16 v5, 0xd
+
+    aget v5, p1, v5
+
+    add-float/2addr v4, v5
+
+    const/4 v5, 0x2
+
+    aget v5, p1, v5
+
+    mul-float/2addr v0, v5
+
+    const/4 v5, 0x6
+
+    aget v5, p1, v5
+
+    mul-float/2addr v2, v5
+
+    add-float/2addr v0, v2
+
+    const/16 v2, 0xa
+
+    aget v2, p1, v2
+
+    mul-float/2addr v3, v2
+
+    add-float/2addr v0, v3
+
+    const/16 v2, 0xe
+
+    aget p1, p1, v2
+
+    add-float/2addr v0, p1
+
+    invoke-virtual {p0, v1, v4, v0}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+
+    move-result-object p1
+
+    return-object p1
 .end method
 
 .method public mul(Lcom/badlogic/gdx/math/Quaternion;)Lcom/badlogic/gdx/math/Vector3;
-    .locals 1
-    .param p1, "quat"    # Lcom/badlogic/gdx/math/Quaternion;
+    .locals 0
 
     .line 391
     invoke-virtual {p1, p0}, Lcom/badlogic/gdx/math/Quaternion;->transform(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public mul4x3([F)Lcom/badlogic/gdx/math/Vector3;
     .locals 6
-    .param p1, "matrix"    # [F
 
     .line 346
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
@@ -2429,21 +2251,19 @@
 
     const/16 v2, 0xb
 
-    aget v2, p1, v2
+    aget p1, p1, v2
 
-    add-float/2addr v0, v2
+    add-float/2addr v0, p1
 
     invoke-virtual {p0, v1, v4, v0}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public mulAdd(Lcom/badlogic/gdx/math/Vector3;F)Lcom/badlogic/gdx/math/Vector3;
     .locals 2
-    .param p1, "vec"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "scalar"    # F
 
     .line 207
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
@@ -2470,22 +2290,19 @@
     .line 209
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    iget v1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    mul-float/2addr v1, p2
+    mul-float/2addr p1, p2
 
-    add-float/2addr v0, v1
+    add-float/2addr v0, p1
 
     iput v0, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    .line 210
     return-object p0
 .end method
 
 .method public mulAdd(Lcom/badlogic/gdx/math/Vector3;Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
     .locals 3
-    .param p1, "vec"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "mulVec"    # Lcom/badlogic/gdx/math/Vector3;
 
     .line 215
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
@@ -2516,17 +2333,16 @@
     .line 217
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    iget v1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    iget v2, p2, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p2, p2, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    mul-float/2addr v1, v2
+    mul-float/2addr p1, p2
 
-    add-float/2addr v0, v1
+    add-float/2addr v0, p1
 
     iput v0, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    .line 218
     return-object p0
 .end method
 
@@ -2566,8 +2382,6 @@
 
     move-result v0
 
-    .line 302
-    .local v0, "len2":F
     const/4 v1, 0x0
 
     cmpl-float v1, v0, v1
@@ -2582,25 +2396,24 @@
 
     goto :goto_0
 
-    .line 303
     :cond_0
     float-to-double v2, v0
 
+    .line 303
     invoke-static {v2, v3}, Ljava/lang/Math;->sqrt(D)D
 
     move-result-wide v2
 
-    double-to-float v2, v2
+    double-to-float v0, v2
 
-    div-float/2addr v1, v2
+    div-float/2addr v1, v0
 
     invoke-virtual {p0, v1}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 
-    .line 302
     :cond_1
     :goto_0
     return-object p0
@@ -2618,264 +2431,253 @@
 .end method
 
 .method public prj(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
-    .locals 8
-    .param p1, "matrix"    # Lcom/badlogic/gdx/math/Matrix4;
+    .locals 7
 
     .line 400
-    iget-object v0, p1, Lcom/badlogic/gdx/math/Matrix4;->val:[F
+    iget-object p1, p1, Lcom/badlogic/gdx/math/Matrix4;->val:[F
 
     .line 401
-    .local v0, "l_mat":[F
-    iget v1, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
+    iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    const/4 v2, 0x3
+    const/4 v1, 0x3
 
-    aget v2, v0, v2
+    aget v1, p1, v1
 
-    mul-float/2addr v2, v1
+    mul-float/2addr v1, v0
 
-    iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
+    iget v2, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    const/4 v4, 0x7
+    const/4 v3, 0x7
 
-    aget v4, v0, v4
+    aget v3, p1, v3
 
-    mul-float/2addr v4, v3
-
-    add-float/2addr v2, v4
-
-    iget v4, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
-
-    const/16 v5, 0xb
-
-    aget v5, v0, v5
-
-    mul-float/2addr v5, v4
-
-    add-float/2addr v2, v5
-
-    const/16 v5, 0xf
-
-    aget v5, v0, v5
-
-    add-float/2addr v2, v5
-
-    const/high16 v5, 0x3f800000    # 1.0f
-
-    div-float/2addr v5, v2
-
-    .line 402
-    .local v5, "l_w":F
-    const/4 v2, 0x0
-
-    aget v2, v0, v2
-
-    mul-float/2addr v2, v1
-
-    const/4 v6, 0x4
-
-    aget v6, v0, v6
-
-    mul-float/2addr v6, v3
-
-    add-float/2addr v2, v6
-
-    const/16 v6, 0x8
-
-    aget v6, v0, v6
-
-    mul-float/2addr v6, v4
-
-    add-float/2addr v2, v6
-
-    const/16 v6, 0xc
-
-    aget v6, v0, v6
-
-    add-float/2addr v2, v6
-
-    mul-float/2addr v2, v5
-
-    const/4 v6, 0x1
-
-    aget v6, v0, v6
-
-    mul-float/2addr v6, v1
-
-    const/4 v7, 0x5
-
-    aget v7, v0, v7
-
-    mul-float/2addr v7, v3
-
-    add-float/2addr v6, v7
-
-    const/16 v7, 0x9
-
-    aget v7, v0, v7
-
-    mul-float/2addr v7, v4
-
-    add-float/2addr v6, v7
-
-    const/16 v7, 0xd
-
-    aget v7, v0, v7
-
-    add-float/2addr v6, v7
-
-    mul-float/2addr v6, v5
-
-    const/4 v7, 0x2
-
-    aget v7, v0, v7
-
-    mul-float/2addr v1, v7
-
-    const/4 v7, 0x6
-
-    aget v7, v0, v7
-
-    mul-float/2addr v3, v7
+    mul-float/2addr v3, v2
 
     add-float/2addr v1, v3
 
-    const/16 v3, 0xa
+    iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    aget v3, v0, v3
+    const/16 v4, 0xb
+
+    aget v4, p1, v4
 
     mul-float/2addr v4, v3
 
     add-float/2addr v1, v4
 
-    const/16 v3, 0xe
+    const/16 v4, 0xf
 
-    aget v3, v0, v3
+    aget v4, p1, v4
 
-    add-float/2addr v1, v3
+    add-float/2addr v1, v4
 
-    mul-float/2addr v1, v5
+    const/high16 v4, 0x3f800000    # 1.0f
 
-    invoke-virtual {p0, v2, v6, v1}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    div-float/2addr v4, v1
 
-    move-result-object v1
+    const/4 v1, 0x0
 
-    return-object v1
-.end method
+    .line 402
+    aget v1, p1, v1
 
-.method public rot(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
-    .locals 7
-    .param p1, "matrix"    # Lcom/badlogic/gdx/math/Matrix4;
+    mul-float/2addr v1, v0
 
-    .line 412
-    iget-object v0, p1, Lcom/badlogic/gdx/math/Matrix4;->val:[F
+    const/4 v5, 0x4
 
-    .line 413
-    .local v0, "l_mat":[F
-    iget v1, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
+    aget v5, p1, v5
 
-    const/4 v2, 0x0
+    mul-float/2addr v5, v2
 
-    aget v2, v0, v2
-
-    mul-float/2addr v2, v1
-
-    iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
-
-    const/4 v4, 0x4
-
-    aget v4, v0, v4
-
-    mul-float/2addr v4, v3
-
-    add-float/2addr v2, v4
-
-    iget v4, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
+    add-float/2addr v1, v5
 
     const/16 v5, 0x8
 
-    aget v5, v0, v5
+    aget v5, p1, v5
 
-    mul-float/2addr v5, v4
+    mul-float/2addr v5, v3
 
-    add-float/2addr v2, v5
+    add-float/2addr v1, v5
+
+    const/16 v5, 0xc
+
+    aget v5, p1, v5
+
+    add-float/2addr v1, v5
+
+    mul-float/2addr v1, v4
 
     const/4 v5, 0x1
 
-    aget v5, v0, v5
+    aget v5, p1, v5
 
-    mul-float/2addr v5, v1
+    mul-float/2addr v5, v0
 
     const/4 v6, 0x5
 
-    aget v6, v0, v6
+    aget v6, p1, v6
 
-    mul-float/2addr v6, v3
+    mul-float/2addr v6, v2
 
     add-float/2addr v5, v6
 
     const/16 v6, 0x9
 
-    aget v6, v0, v6
+    aget v6, p1, v6
 
-    mul-float/2addr v6, v4
+    mul-float/2addr v6, v3
 
     add-float/2addr v5, v6
 
+    const/16 v6, 0xd
+
+    aget v6, p1, v6
+
+    add-float/2addr v5, v6
+
+    mul-float/2addr v5, v4
+
     const/4 v6, 0x2
 
-    aget v6, v0, v6
+    aget v6, p1, v6
 
-    mul-float/2addr v1, v6
+    mul-float/2addr v0, v6
 
     const/4 v6, 0x6
 
-    aget v6, v0, v6
+    aget v6, p1, v6
 
-    mul-float/2addr v3, v6
+    mul-float/2addr v2, v6
+
+    add-float/2addr v0, v2
+
+    const/16 v2, 0xa
+
+    aget v2, p1, v2
+
+    mul-float/2addr v3, v2
+
+    add-float/2addr v0, v3
+
+    const/16 v2, 0xe
+
+    aget p1, p1, v2
+
+    add-float/2addr v0, p1
+
+    mul-float/2addr v0, v4
+
+    invoke-virtual {p0, v1, v5, v0}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public rot(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    .locals 6
+
+    .line 412
+    iget-object p1, p1, Lcom/badlogic/gdx/math/Matrix4;->val:[F
+
+    .line 413
+    iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
+
+    const/4 v1, 0x0
+
+    aget v1, p1, v1
+
+    mul-float/2addr v1, v0
+
+    iget v2, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
+
+    const/4 v3, 0x4
+
+    aget v3, p1, v3
+
+    mul-float/2addr v3, v2
 
     add-float/2addr v1, v3
 
-    const/16 v3, 0xa
+    iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    aget v3, v0, v3
+    const/16 v4, 0x8
+
+    aget v4, p1, v4
 
     mul-float/2addr v4, v3
 
     add-float/2addr v1, v4
 
-    invoke-virtual {p0, v2, v5, v1}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    const/4 v4, 0x1
 
-    move-result-object v1
+    aget v4, p1, v4
 
-    return-object v1
+    mul-float/2addr v4, v0
+
+    const/4 v5, 0x5
+
+    aget v5, p1, v5
+
+    mul-float/2addr v5, v2
+
+    add-float/2addr v4, v5
+
+    const/16 v5, 0x9
+
+    aget v5, p1, v5
+
+    mul-float/2addr v5, v3
+
+    add-float/2addr v4, v5
+
+    const/4 v5, 0x2
+
+    aget v5, p1, v5
+
+    mul-float/2addr v0, v5
+
+    const/4 v5, 0x6
+
+    aget v5, p1, v5
+
+    mul-float/2addr v2, v5
+
+    add-float/2addr v0, v2
+
+    const/16 v2, 0xa
+
+    aget p1, p1, v2
+
+    mul-float/2addr v3, p1
+
+    add-float/2addr v0, v3
+
+    invoke-virtual {p0, v1, v4, v0}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+
+    move-result-object p1
+
+    return-object p1
 .end method
 
 .method public rotate(FFFF)Lcom/badlogic/gdx/math/Vector3;
     .locals 1
-    .param p1, "degrees"    # F
-    .param p2, "axisX"    # F
-    .param p3, "axisY"    # F
-    .param p4, "axisZ"    # F
 
     .line 449
     sget-object v0, Lcom/badlogic/gdx/math/Vector3;->tmpMat:Lcom/badlogic/gdx/math/Matrix4;
 
     invoke-virtual {v0, p2, p3, p4, p1}, Lcom/badlogic/gdx/math/Matrix4;->setToRotation(FFFF)Lcom/badlogic/gdx/math/Matrix4;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public rotate(Lcom/badlogic/gdx/math/Vector3;F)Lcom/badlogic/gdx/math/Vector3;
     .locals 1
-    .param p1, "axis"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "degrees"    # F
 
     .line 469
     sget-object v0, Lcom/badlogic/gdx/math/Vector3;->tmpMat:Lcom/badlogic/gdx/math/Matrix4;
@@ -2883,40 +2685,32 @@
     invoke-virtual {v0, p1, p2}, Lcom/badlogic/gdx/math/Matrix4;->setToRotation(Lcom/badlogic/gdx/math/Vector3;F)Lcom/badlogic/gdx/math/Matrix4;
 
     .line 470
-    sget-object v0, Lcom/badlogic/gdx/math/Vector3;->tmpMat:Lcom/badlogic/gdx/math/Matrix4;
-
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public rotateRad(FFFF)Lcom/badlogic/gdx/math/Vector3;
     .locals 1
-    .param p1, "radians"    # F
-    .param p2, "axisX"    # F
-    .param p3, "axisY"    # F
-    .param p4, "axisZ"    # F
 
     .line 460
     sget-object v0, Lcom/badlogic/gdx/math/Vector3;->tmpMat:Lcom/badlogic/gdx/math/Matrix4;
 
     invoke-virtual {v0, p2, p3, p4, p1}, Lcom/badlogic/gdx/math/Matrix4;->setToRotationRad(FFFF)Lcom/badlogic/gdx/math/Matrix4;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public rotateRad(Lcom/badlogic/gdx/math/Vector3;F)Lcom/badlogic/gdx/math/Vector3;
     .locals 1
-    .param p1, "axis"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "radians"    # F
 
     .line 479
     sget-object v0, Lcom/badlogic/gdx/math/Vector3;->tmpMat:Lcom/badlogic/gdx/math/Matrix4;
@@ -2924,18 +2718,15 @@
     invoke-virtual {v0, p1, p2}, Lcom/badlogic/gdx/math/Matrix4;->setToRotationRad(Lcom/badlogic/gdx/math/Vector3;F)Lcom/badlogic/gdx/math/Matrix4;
 
     .line 480
-    sget-object v0, Lcom/badlogic/gdx/math/Vector3;->tmpMat:Lcom/badlogic/gdx/math/Matrix4;
-
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/math/Vector3;->mul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public scl(F)Lcom/badlogic/gdx/math/Vector3;
     .locals 3
-    .param p1, "scalar"    # F
 
     .line 188
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
@@ -2952,40 +2743,36 @@
 
     invoke-virtual {p0, v0, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public scl(FFF)Lcom/badlogic/gdx/math/Vector3;
-    .locals 3
-    .param p1, "vx"    # F
-    .param p2, "vy"    # F
-    .param p3, "vz"    # F
+    .locals 1
 
     .line 202
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
 
     mul-float/2addr v0, p1
 
-    iget v1, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
+    iget p1, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    mul-float/2addr v1, p2
+    mul-float/2addr p1, p2
 
-    iget v2, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p2, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    mul-float/2addr v2, p3
+    mul-float/2addr p2, p3
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p0, v0, p1, p2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public scl(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
-    .locals 4
-    .param p1, "other"    # Lcom/badlogic/gdx/math/Vector3;
+    .locals 3
 
     .line 193
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
@@ -3002,15 +2789,15 @@
 
     iget v2, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    iget v3, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    mul-float/2addr v2, v3
+    mul-float/2addr v2, p1
 
     invoke-virtual {p0, v0, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic scl(F)Lcom/badlogic/gdx/math/Vector;
@@ -3039,9 +2826,6 @@
 
 .method public set(FFF)Lcom/badlogic/gdx/math/Vector3;
     .locals 0
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "z"    # F
 
     .line 83
     iput p1, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
@@ -3052,52 +2836,47 @@
     .line 85
     iput p3, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    .line 86
     return-object p0
 .end method
 
 .method public set(Lcom/badlogic/gdx/math/Vector2;F)Lcom/badlogic/gdx/math/Vector3;
-    .locals 2
-    .param p1, "vector"    # Lcom/badlogic/gdx/math/Vector2;
-    .param p2, "z"    # F
+    .locals 1
 
     .line 108
     iget v0, p1, Lcom/badlogic/gdx/math/Vector2;->x:F
 
-    iget v1, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector2;->y:F
 
-    invoke-virtual {p0, v0, v1, p2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p0, v0, p1, p2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public set(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
-    .locals 3
-    .param p1, "vector"    # Lcom/badlogic/gdx/math/Vector3;
+    .locals 2
 
     .line 91
     iget v0, p1, Lcom/badlogic/gdx/math/Vector3;->x:F
 
     iget v1, p1, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    iget v2, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p0, v0, v1, p1}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public set([F)Lcom/badlogic/gdx/math/Vector3;
     .locals 3
-    .param p1, "values"    # [F
 
-    .line 99
     const/4 v0, 0x0
 
+    .line 99
     aget v0, p1, v0
 
     const/4 v1, 0x1
@@ -3106,13 +2885,13 @@
 
     const/4 v2, 0x2
 
-    aget v2, p1, v2
+    aget p1, p1, v2
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p0, v0, v1, p1}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic set(Lcom/badlogic/gdx/math/Vector;)Lcom/badlogic/gdx/math/Vector;
@@ -3129,9 +2908,7 @@
 .end method
 
 .method public setFromSpherical(FF)Lcom/badlogic/gdx/math/Vector3;
-    .locals 6
-    .param p1, "azimuthalAngle"    # F
-    .param p2, "polarAngle"    # F
+    .locals 2
 
     .line 116
     invoke-static {p2}, Lcom/badlogic/gdx/math/MathUtils;->cos(F)F
@@ -3139,48 +2916,43 @@
     move-result v0
 
     .line 117
-    .local v0, "cosPolar":F
     invoke-static {p2}, Lcom/badlogic/gdx/math/MathUtils;->sin(F)F
+
+    move-result p2
+
+    .line 119
+    invoke-static {p1}, Lcom/badlogic/gdx/math/MathUtils;->cos(F)F
 
     move-result v1
 
-    .line 119
-    .local v1, "sinPolar":F
-    invoke-static {p1}, Lcom/badlogic/gdx/math/MathUtils;->cos(F)F
-
-    move-result v2
-
     .line 120
-    .local v2, "cosAzim":F
     invoke-static {p1}, Lcom/badlogic/gdx/math/MathUtils;->sin(F)F
 
-    move-result v3
+    move-result p1
+
+    mul-float/2addr v1, p2
+
+    mul-float/2addr p1, p2
 
     .line 122
-    .local v3, "sinAzim":F
-    mul-float v4, v2, v1
+    invoke-virtual {p0, v1, p1, v0}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    mul-float v5, v3, v1
+    move-result-object p1
 
-    invoke-virtual {p0, v4, v5, v0}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
-
-    move-result-object v4
-
-    return-object v4
+    return-object p1
 .end method
 
 .method public setLength(F)Lcom/badlogic/gdx/math/Vector3;
-    .locals 1
-    .param p1, "len"    # F
+    .locals 0
+
+    mul-float/2addr p1, p1
 
     .line 634
-    mul-float v0, p1, p1
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/math/Vector3;->setLength2(F)Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/math/Vector3;->setLength2(F)Lcom/badlogic/gdx/math/Vector3;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic setLength(F)Lcom/badlogic/gdx/math/Vector;
@@ -3195,16 +2967,13 @@
 .end method
 
 .method public setLength2(F)Lcom/badlogic/gdx/math/Vector3;
-    .locals 3
-    .param p1, "len2"    # F
+    .locals 2
 
     .line 639
     invoke-virtual {p0}, Lcom/badlogic/gdx/math/Vector3;->len2()F
 
     move-result v0
 
-    .line 640
-    .local v0, "oldLen2":F
     const/4 v1, 0x0
 
     cmpl-float v1, v0, v1
@@ -3218,28 +2987,29 @@
     goto :goto_0
 
     :cond_0
-    div-float v1, p1, v0
+    div-float/2addr p1, v0
 
-    float-to-double v1, v1
+    float-to-double v0, p1
 
-    invoke-static {v1, v2}, Ljava/lang/Math;->sqrt(D)D
+    .line 640
+    invoke-static {v0, v1}, Ljava/lang/Math;->sqrt(D)D
 
-    move-result-wide v1
+    move-result-wide v0
 
-    double-to-float v1, v1
+    double-to-float p1, v0
 
-    invoke-virtual {p0, v1}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v1
+    move-result-object p1
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    move-object v1, p0
+    move-object p1, p0
 
     :goto_1
-    return-object v1
+    return-object p1
 .end method
 
 .method public bridge synthetic setLength2(F)Lcom/badlogic/gdx/math/Vector;
@@ -3254,7 +3024,7 @@
 .end method
 
 .method public setToRandomDirection()Lcom/badlogic/gdx/math/Vector3;
-    .locals 5
+    .locals 3
 
     .line 127
     invoke-static {}, Lcom/badlogic/gdx/math/MathUtils;->random()F
@@ -3262,42 +3032,37 @@
     move-result v0
 
     .line 128
-    .local v0, "u":F
     invoke-static {}, Lcom/badlogic/gdx/math/MathUtils;->random()F
 
     move-result v1
 
-    .line 130
-    .local v1, "v":F
     const v2, 0x40c90fdb
 
-    mul-float/2addr v2, v0
+    mul-float/2addr v0, v2
+
+    const/high16 v2, 0x40000000    # 2.0f
+
+    mul-float/2addr v1, v2
+
+    const/high16 v2, 0x3f800000    # 1.0f
+
+    sub-float/2addr v1, v2
+
+    float-to-double v1, v1
 
     .line 131
-    .local v2, "theta":F
-    const/high16 v3, 0x40000000    # 2.0f
+    invoke-static {v1, v2}, Ljava/lang/Math;->acos(D)D
 
-    mul-float/2addr v3, v1
+    move-result-wide v1
 
-    const/high16 v4, 0x3f800000    # 1.0f
-
-    sub-float/2addr v3, v4
-
-    float-to-double v3, v3
-
-    invoke-static {v3, v4}, Ljava/lang/Math;->acos(D)D
-
-    move-result-wide v3
-
-    double-to-float v3, v3
+    double-to-float v1, v1
 
     .line 133
-    .local v3, "phi":F
-    invoke-virtual {p0, v2, v3}, Lcom/badlogic/gdx/math/Vector3;->setFromSpherical(FF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p0, v0, v1}, Lcom/badlogic/gdx/math/Vector3;->setFromSpherical(FF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v4
+    move-result-object v0
 
-    return-object v4
+    return-object v0
 .end method
 
 .method public bridge synthetic setToRandomDirection()Lcom/badlogic/gdx/math/Vector;
@@ -3314,9 +3079,9 @@
 .method public setZero()Lcom/badlogic/gdx/math/Vector3;
     .locals 1
 
-    .line 718
     const/4 v0, 0x0
 
+    .line 718
     iput v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
 
     .line 719
@@ -3325,7 +3090,6 @@
     .line 720
     iput v0, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    .line 721
     return-object p0
 .end method
 
@@ -3341,178 +3105,149 @@
 .end method
 
 .method public slerp(Lcom/badlogic/gdx/math/Vector3;F)Lcom/badlogic/gdx/math/Vector3;
-    .locals 13
-    .param p1, "target"    # Lcom/badlogic/gdx/math/Vector3;
-    .param p2, "alpha"    # F
+    .locals 9
 
     .line 573
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/math/Vector3;->dot(Lcom/badlogic/gdx/math/Vector3;)F
 
     move-result v0
 
-    .line 575
-    .local v0, "dot":F
     float-to-double v1, v0
 
     const-wide v3, 0x3feffbe76c8b4396L    # 0.9995
 
-    cmpl-double v1, v1, v3
+    cmpl-double v3, v1, v3
 
-    if-gtz v1, :cond_2
-
-    float-to-double v1, v0
+    if-gtz v3, :cond_2
 
     const-wide v3, -0x401004189374bc6aL    # -0.9995
 
-    cmpg-double v1, v1, v3
+    cmpg-double v3, v1, v3
 
-    if-gez v1, :cond_0
+    if-gez v3, :cond_0
 
     goto :goto_1
 
     .line 578
     :cond_0
-    float-to-double v1, v0
-
     invoke-static {v1, v2}, Ljava/lang/Math;->acos(D)D
 
     move-result-wide v1
 
     double-to-float v1, v1
 
-    .line 580
-    .local v1, "theta0":F
-    mul-float v2, v1, p2
+    mul-float/2addr v1, p2
+
+    float-to-double v1, v1
 
     .line 582
-    .local v2, "theta":F
-    float-to-double v3, v2
-
-    invoke-static {v3, v4}, Ljava/lang/Math;->sin(D)D
+    invoke-static {v1, v2}, Ljava/lang/Math;->sin(D)D
 
     move-result-wide v3
 
-    double-to-float v3, v3
+    double-to-float p2, v3
 
     .line 583
-    .local v3, "st":F
-    iget v4, p1, Lcom/badlogic/gdx/math/Vector3;->x:F
+    iget v3, p1, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    iget v5, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
+    iget v4, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
+
+    mul-float/2addr v4, v0
+
+    sub-float/2addr v3, v4
+
+    .line 584
+    iget v4, p1, Lcom/badlogic/gdx/math/Vector3;->y:F
+
+    iget v5, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
 
     mul-float/2addr v5, v0
 
     sub-float/2addr v4, v5
 
-    .line 584
-    .local v4, "tx":F
-    iget v5, p1, Lcom/badlogic/gdx/math/Vector3;->y:F
-
-    iget v6, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
-
-    mul-float/2addr v6, v0
-
-    sub-float/2addr v5, v6
-
     .line 585
-    .local v5, "ty":F
-    iget v6, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    iget v7, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget v5, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    mul-float/2addr v7, v0
+    mul-float/2addr v5, v0
 
-    sub-float/2addr v6, v7
+    sub-float/2addr p1, v5
 
-    .line 586
-    .local v6, "tz":F
-    mul-float v7, v4, v4
+    mul-float v0, v3, v3
 
-    mul-float v8, v5, v5
+    mul-float v5, v4, v4
 
-    add-float/2addr v7, v8
+    add-float/2addr v0, v5
 
-    mul-float v8, v6, v6
+    mul-float v5, p1, p1
 
-    add-float/2addr v7, v8
+    add-float/2addr v0, v5
 
-    .line 587
-    .local v7, "l2":F
-    const v8, 0x38d1b717    # 1.0E-4f
+    const v5, 0x38d1b717    # 1.0E-4f
 
-    cmpg-float v8, v7, v8
+    cmpg-float v5, v0, v5
 
-    const/high16 v9, 0x3f800000    # 1.0f
+    const/high16 v6, 0x3f800000    # 1.0f
 
-    if-gez v8, :cond_1
+    if-gez v5, :cond_1
 
     goto :goto_0
 
     :cond_1
-    float-to-double v10, v7
+    float-to-double v7, v0
 
-    invoke-static {v10, v11}, Ljava/lang/Math;->sqrt(D)D
+    .line 587
+    invoke-static {v7, v8}, Ljava/lang/Math;->sqrt(D)D
 
-    move-result-wide v10
+    move-result-wide v7
 
-    double-to-float v8, v10
+    double-to-float v0, v7
 
-    div-float/2addr v9, v8
+    div-float/2addr v6, v0
 
     :goto_0
-    mul-float/2addr v9, v3
+    mul-float/2addr p2, v6
 
     .line 589
-    .local v9, "dl":F
-    float-to-double v10, v2
+    invoke-static {v1, v2}, Ljava/lang/Math;->cos(D)D
 
-    invoke-static {v10, v11}, Ljava/lang/Math;->cos(D)D
+    move-result-wide v0
 
-    move-result-wide v10
+    double-to-float v0, v0
 
-    double-to-float v8, v10
+    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {p0, v8}, Lcom/badlogic/gdx/math/Vector3;->scl(F)Lcom/badlogic/gdx/math/Vector3;
+    move-result-object v0
 
-    move-result-object v8
+    mul-float/2addr v3, p2
 
-    mul-float v10, v4, v9
+    mul-float/2addr v4, p2
 
-    mul-float v11, v5, v9
+    mul-float/2addr p1, p2
 
-    mul-float v12, v6, v9
+    invoke-virtual {v0, v3, v4, p1}, Lcom/badlogic/gdx/math/Vector3;->add(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v8, v10, v11, v12}, Lcom/badlogic/gdx/math/Vector3;->add(FFF)Lcom/badlogic/gdx/math/Vector3;
+    move-result-object p1
 
-    move-result-object v8
+    invoke-virtual {p1}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
 
-    invoke-virtual {v8}, Lcom/badlogic/gdx/math/Vector3;->nor()Lcom/badlogic/gdx/math/Vector3;
+    move-result-object p1
 
-    move-result-object v8
-
-    return-object v8
+    return-object p1
 
     .line 575
-    .end local v1    # "theta0":F
-    .end local v2    # "theta":F
-    .end local v3    # "st":F
-    .end local v4    # "tx":F
-    .end local v5    # "ty":F
-    .end local v6    # "tz":F
-    .end local v7    # "l2":F
-    .end local v9    # "dl":F
     :cond_2
     :goto_1
     invoke-virtual {p0, p1, p2}, Lcom/badlogic/gdx/math/Vector3;->lerp(Lcom/badlogic/gdx/math/Vector3;F)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public sub(F)Lcom/badlogic/gdx/math/Vector3;
     .locals 3
-    .param p1, "value"    # F
 
     .line 183
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
@@ -3529,53 +3264,49 @@
 
     invoke-virtual {p0, v0, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public sub(FFF)Lcom/badlogic/gdx/math/Vector3;
-    .locals 3
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "z"    # F
+    .locals 1
 
     .line 175
     iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
 
     sub-float/2addr v0, p1
 
-    iget v1, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
+    iget p1, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    sub-float/2addr v1, p2
+    sub-float/2addr p1, p2
 
-    iget v2, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p2, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    sub-float/2addr v2, p3
+    sub-float/2addr p2, p3
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p0, v0, p1, p2}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public sub(Lcom/badlogic/gdx/math/Vector3;)Lcom/badlogic/gdx/math/Vector3;
-    .locals 3
-    .param p1, "a_vec"    # Lcom/badlogic/gdx/math/Vector3;
+    .locals 2
 
     .line 165
     iget v0, p1, Lcom/badlogic/gdx/math/Vector3;->x:F
 
     iget v1, p1, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    iget v2, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
+    iget p1, p1, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/badlogic/gdx/math/Vector3;->sub(FFF)Lcom/badlogic/gdx/math/Vector3;
+    invoke-virtual {p0, v0, v1, p1}, Lcom/badlogic/gdx/math/Vector3;->sub(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic sub(Lcom/badlogic/gdx/math/Vector;)Lcom/badlogic/gdx/math/Vector;
@@ -3597,33 +3328,43 @@
     .line 596
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "("
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget v1, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ","
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v2, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     iget v1, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ")"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -3633,394 +3374,382 @@
 .end method
 
 .method public traMul(Lcom/badlogic/gdx/math/Matrix3;)Lcom/badlogic/gdx/math/Vector3;
-    .locals 7
-    .param p1, "matrix"    # Lcom/badlogic/gdx/math/Matrix3;
+    .locals 6
 
     .line 383
-    iget-object v0, p1, Lcom/badlogic/gdx/math/Matrix3;->val:[F
+    iget-object p1, p1, Lcom/badlogic/gdx/math/Matrix3;->val:[F
 
     .line 384
-    .local v0, "l_mat":[F
-    iget v1, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
+    iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aget v2, v0, v2
+    aget v1, p1, v1
 
-    mul-float/2addr v2, v1
+    mul-float/2addr v1, v0
 
-    iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
+    iget v2, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    aget v4, v0, v4
+    aget v3, p1, v3
 
-    mul-float/2addr v4, v3
-
-    add-float/2addr v2, v4
-
-    iget v4, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
-
-    const/4 v5, 0x2
-
-    aget v5, v0, v5
-
-    mul-float/2addr v5, v4
-
-    add-float/2addr v2, v5
-
-    const/4 v5, 0x3
-
-    aget v5, v0, v5
-
-    mul-float/2addr v5, v1
-
-    const/4 v6, 0x4
-
-    aget v6, v0, v6
-
-    mul-float/2addr v6, v3
-
-    add-float/2addr v5, v6
-
-    const/4 v6, 0x5
-
-    aget v6, v0, v6
-
-    mul-float/2addr v6, v4
-
-    add-float/2addr v5, v6
-
-    const/4 v6, 0x6
-
-    aget v6, v0, v6
-
-    mul-float/2addr v1, v6
-
-    const/4 v6, 0x7
-
-    aget v6, v0, v6
-
-    mul-float/2addr v3, v6
+    mul-float/2addr v3, v2
 
     add-float/2addr v1, v3
 
-    const/16 v3, 0x8
+    iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    aget v3, v0, v3
+    const/4 v4, 0x2
+
+    aget v4, p1, v4
 
     mul-float/2addr v4, v3
 
     add-float/2addr v1, v4
 
-    invoke-virtual {p0, v2, v5, v1}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    const/4 v4, 0x3
 
-    move-result-object v1
+    aget v4, p1, v4
 
-    return-object v1
-.end method
-
-.method public traMul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
-    .locals 7
-    .param p1, "matrix"    # Lcom/badlogic/gdx/math/Matrix4;
-
-    .line 364
-    iget-object v0, p1, Lcom/badlogic/gdx/math/Matrix4;->val:[F
-
-    .line 365
-    .local v0, "l_mat":[F
-    iget v1, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
-
-    const/4 v2, 0x0
-
-    aget v2, v0, v2
-
-    mul-float/2addr v2, v1
-
-    iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
-
-    const/4 v4, 0x1
-
-    aget v4, v0, v4
-
-    mul-float/2addr v4, v3
-
-    add-float/2addr v2, v4
-
-    iget v4, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
-
-    const/4 v5, 0x2
-
-    aget v5, v0, v5
-
-    mul-float/2addr v5, v4
-
-    add-float/2addr v2, v5
-
-    const/4 v5, 0x3
-
-    aget v5, v0, v5
-
-    add-float/2addr v2, v5
+    mul-float/2addr v4, v0
 
     const/4 v5, 0x4
 
-    aget v5, v0, v5
+    aget v5, p1, v5
 
-    mul-float/2addr v5, v1
+    mul-float/2addr v5, v2
 
-    const/4 v6, 0x5
+    add-float/2addr v4, v5
 
-    aget v6, v0, v6
+    const/4 v5, 0x5
 
-    mul-float/2addr v6, v3
-
-    add-float/2addr v5, v6
-
-    const/4 v6, 0x6
-
-    aget v6, v0, v6
-
-    mul-float/2addr v6, v4
-
-    add-float/2addr v5, v6
-
-    const/4 v6, 0x7
-
-    aget v6, v0, v6
-
-    add-float/2addr v5, v6
-
-    const/16 v6, 0x8
-
-    aget v6, v0, v6
-
-    mul-float/2addr v1, v6
-
-    const/16 v6, 0x9
-
-    aget v6, v0, v6
-
-    mul-float/2addr v3, v6
-
-    add-float/2addr v1, v3
-
-    const/16 v3, 0xa
-
-    aget v3, v0, v3
-
-    mul-float/2addr v4, v3
-
-    add-float/2addr v1, v4
-
-    const/16 v3, 0xb
-
-    aget v3, v0, v3
-
-    add-float/2addr v1, v3
-
-    invoke-virtual {p0, v2, v5, v1}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
-
-    move-result-object v1
-
-    return-object v1
-.end method
-
-.method public unrotate(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
-    .locals 7
-    .param p1, "matrix"    # Lcom/badlogic/gdx/math/Matrix4;
-
-    .line 422
-    iget-object v0, p1, Lcom/badlogic/gdx/math/Matrix4;->val:[F
-
-    .line 423
-    .local v0, "l_mat":[F
-    iget v1, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
-
-    const/4 v2, 0x0
-
-    aget v2, v0, v2
-
-    mul-float/2addr v2, v1
-
-    iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
-
-    const/4 v4, 0x1
-
-    aget v4, v0, v4
-
-    mul-float/2addr v4, v3
-
-    add-float/2addr v2, v4
-
-    iget v4, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
-
-    const/4 v5, 0x2
-
-    aget v5, v0, v5
-
-    mul-float/2addr v5, v4
-
-    add-float/2addr v2, v5
-
-    const/4 v5, 0x4
-
-    aget v5, v0, v5
-
-    mul-float/2addr v5, v1
-
-    const/4 v6, 0x5
-
-    aget v6, v0, v6
-
-    mul-float/2addr v6, v3
-
-    add-float/2addr v5, v6
-
-    const/4 v6, 0x6
-
-    aget v6, v0, v6
-
-    mul-float/2addr v6, v4
-
-    add-float/2addr v5, v6
-
-    const/16 v6, 0x8
-
-    aget v6, v0, v6
-
-    mul-float/2addr v1, v6
-
-    const/16 v6, 0x9
-
-    aget v6, v0, v6
-
-    mul-float/2addr v3, v6
-
-    add-float/2addr v1, v3
-
-    const/16 v3, 0xa
-
-    aget v3, v0, v3
-
-    mul-float/2addr v4, v3
-
-    add-float/2addr v1, v4
-
-    invoke-virtual {p0, v2, v5, v1}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
-
-    move-result-object v1
-
-    return-object v1
-.end method
-
-.method public untransform(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
-    .locals 7
-    .param p1, "matrix"    # Lcom/badlogic/gdx/math/Matrix4;
-
-    .line 433
-    iget-object v0, p1, Lcom/badlogic/gdx/math/Matrix4;->val:[F
-
-    .line 434
-    .local v0, "l_mat":[F
-    iget v1, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
-
-    const/16 v2, 0xc
-
-    aget v3, v0, v2
-
-    sub-float/2addr v1, v3
-
-    iput v1, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
-
-    .line 435
-    iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
-
-    aget v4, v0, v2
-
-    sub-float/2addr v3, v4
-
-    iput v3, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
-
-    .line 436
-    iget v4, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
-
-    aget v2, v0, v2
-
-    sub-float/2addr v4, v2
-
-    iput v4, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
-
-    .line 437
-    const/4 v2, 0x0
-
-    aget v2, v0, v2
-
-    mul-float/2addr v2, v1
-
-    const/4 v5, 0x1
-
-    aget v5, v0, v5
+    aget v5, p1, v5
 
     mul-float/2addr v5, v3
 
-    add-float/2addr v2, v5
+    add-float/2addr v4, v5
 
-    const/4 v5, 0x2
+    const/4 v5, 0x6
 
-    aget v5, v0, v5
+    aget v5, p1, v5
 
-    mul-float/2addr v5, v4
+    mul-float/2addr v0, v5
 
-    add-float/2addr v2, v5
+    const/4 v5, 0x7
 
-    const/4 v5, 0x4
+    aget v5, p1, v5
 
-    aget v5, v0, v5
+    mul-float/2addr v2, v5
 
-    mul-float/2addr v5, v1
+    add-float/2addr v0, v2
 
-    const/4 v6, 0x5
+    const/16 v2, 0x8
 
-    aget v6, v0, v6
+    aget p1, p1, v2
 
-    mul-float/2addr v6, v3
+    mul-float/2addr v3, p1
 
-    add-float/2addr v5, v6
+    add-float/2addr v0, v3
 
-    const/4 v6, 0x6
+    invoke-virtual {p0, v1, v4, v0}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
 
-    aget v6, v0, v6
+    move-result-object p1
 
-    mul-float/2addr v6, v4
+    return-object p1
+.end method
 
-    add-float/2addr v5, v6
+.method public traMul(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    .locals 6
 
-    const/16 v6, 0x8
+    .line 364
+    iget-object p1, p1, Lcom/badlogic/gdx/math/Matrix4;->val:[F
 
-    aget v6, v0, v6
+    .line 365
+    iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
 
-    mul-float/2addr v1, v6
+    const/4 v1, 0x0
 
-    const/16 v6, 0x9
+    aget v1, p1, v1
 
-    aget v6, v0, v6
+    mul-float/2addr v1, v0
 
-    mul-float/2addr v3, v6
+    iget v2, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
+
+    const/4 v3, 0x1
+
+    aget v3, p1, v3
+
+    mul-float/2addr v3, v2
 
     add-float/2addr v1, v3
 
-    const/16 v3, 0xa
+    iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
 
-    aget v3, v0, v3
+    const/4 v4, 0x2
+
+    aget v4, p1, v4
 
     mul-float/2addr v4, v3
 
     add-float/2addr v1, v4
 
-    invoke-virtual {p0, v2, v5, v1}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+    const/4 v4, 0x3
 
-    move-result-object v1
+    aget v4, p1, v4
 
-    return-object v1
+    add-float/2addr v1, v4
+
+    const/4 v4, 0x4
+
+    aget v4, p1, v4
+
+    mul-float/2addr v4, v0
+
+    const/4 v5, 0x5
+
+    aget v5, p1, v5
+
+    mul-float/2addr v5, v2
+
+    add-float/2addr v4, v5
+
+    const/4 v5, 0x6
+
+    aget v5, p1, v5
+
+    mul-float/2addr v5, v3
+
+    add-float/2addr v4, v5
+
+    const/4 v5, 0x7
+
+    aget v5, p1, v5
+
+    add-float/2addr v4, v5
+
+    const/16 v5, 0x8
+
+    aget v5, p1, v5
+
+    mul-float/2addr v0, v5
+
+    const/16 v5, 0x9
+
+    aget v5, p1, v5
+
+    mul-float/2addr v2, v5
+
+    add-float/2addr v0, v2
+
+    const/16 v2, 0xa
+
+    aget v2, p1, v2
+
+    mul-float/2addr v3, v2
+
+    add-float/2addr v0, v3
+
+    const/16 v2, 0xb
+
+    aget p1, p1, v2
+
+    add-float/2addr v0, p1
+
+    invoke-virtual {p0, v1, v4, v0}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public unrotate(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    .locals 6
+
+    .line 422
+    iget-object p1, p1, Lcom/badlogic/gdx/math/Matrix4;->val:[F
+
+    .line 423
+    iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
+
+    const/4 v1, 0x0
+
+    aget v1, p1, v1
+
+    mul-float/2addr v1, v0
+
+    iget v2, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
+
+    const/4 v3, 0x1
+
+    aget v3, p1, v3
+
+    mul-float/2addr v3, v2
+
+    add-float/2addr v1, v3
+
+    iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
+
+    const/4 v4, 0x2
+
+    aget v4, p1, v4
+
+    mul-float/2addr v4, v3
+
+    add-float/2addr v1, v4
+
+    const/4 v4, 0x4
+
+    aget v4, p1, v4
+
+    mul-float/2addr v4, v0
+
+    const/4 v5, 0x5
+
+    aget v5, p1, v5
+
+    mul-float/2addr v5, v2
+
+    add-float/2addr v4, v5
+
+    const/4 v5, 0x6
+
+    aget v5, p1, v5
+
+    mul-float/2addr v5, v3
+
+    add-float/2addr v4, v5
+
+    const/16 v5, 0x8
+
+    aget v5, p1, v5
+
+    mul-float/2addr v0, v5
+
+    const/16 v5, 0x9
+
+    aget v5, p1, v5
+
+    mul-float/2addr v2, v5
+
+    add-float/2addr v0, v2
+
+    const/16 v2, 0xa
+
+    aget p1, p1, v2
+
+    mul-float/2addr v3, p1
+
+    add-float/2addr v0, v3
+
+    invoke-virtual {p0, v1, v4, v0}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public untransform(Lcom/badlogic/gdx/math/Matrix4;)Lcom/badlogic/gdx/math/Vector3;
+    .locals 6
+
+    .line 433
+    iget-object p1, p1, Lcom/badlogic/gdx/math/Matrix4;->val:[F
+
+    .line 434
+    iget v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
+
+    const/16 v1, 0xc
+
+    aget v1, p1, v1
+
+    sub-float/2addr v0, v1
+
+    iput v0, p0, Lcom/badlogic/gdx/math/Vector3;->x:F
+
+    .line 435
+    iget v2, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
+
+    sub-float/2addr v2, v1
+
+    iput v2, p0, Lcom/badlogic/gdx/math/Vector3;->y:F
+
+    .line 436
+    iget v3, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
+
+    sub-float/2addr v3, v1
+
+    iput v3, p0, Lcom/badlogic/gdx/math/Vector3;->z:F
+
+    const/4 v1, 0x0
+
+    .line 437
+    aget v1, p1, v1
+
+    mul-float/2addr v1, v0
+
+    const/4 v4, 0x1
+
+    aget v4, p1, v4
+
+    mul-float/2addr v4, v2
+
+    add-float/2addr v1, v4
+
+    const/4 v4, 0x2
+
+    aget v4, p1, v4
+
+    mul-float/2addr v4, v3
+
+    add-float/2addr v1, v4
+
+    const/4 v4, 0x4
+
+    aget v4, p1, v4
+
+    mul-float/2addr v4, v0
+
+    const/4 v5, 0x5
+
+    aget v5, p1, v5
+
+    mul-float/2addr v5, v2
+
+    add-float/2addr v4, v5
+
+    const/4 v5, 0x6
+
+    aget v5, p1, v5
+
+    mul-float/2addr v5, v3
+
+    add-float/2addr v4, v5
+
+    const/16 v5, 0x8
+
+    aget v5, p1, v5
+
+    mul-float/2addr v0, v5
+
+    const/16 v5, 0x9
+
+    aget v5, p1, v5
+
+    mul-float/2addr v2, v5
+
+    add-float/2addr v0, v2
+
+    const/16 v2, 0xa
+
+    aget p1, p1, v2
+
+    mul-float/2addr v3, p1
+
+    add-float/2addr v0, v3
+
+    invoke-virtual {p0, v1, v4, v0}, Lcom/badlogic/gdx/math/Vector3;->set(FFF)Lcom/badlogic/gdx/math/Vector3;
+
+    move-result-object p1
+
+    return-object p1
 .end method

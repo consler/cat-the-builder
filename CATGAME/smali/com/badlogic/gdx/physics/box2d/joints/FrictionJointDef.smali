@@ -34,9 +34,9 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/FrictionJointDef;->localAnchorB:Lcom/badlogic/gdx/math/Vector2;
 
-    .line 45
     const/4 v0, 0x0
 
+    .line 45
     iput v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/FrictionJointDef;->maxForce:F
 
     .line 48
@@ -47,17 +47,13 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/FrictionJointDef;->type:Lcom/badlogic/gdx/physics/box2d/JointDef$JointType;
 
-    .line 28
     return-void
 .end method
 
 
 # virtual methods
 .method public initialize(Lcom/badlogic/gdx/physics/box2d/Body;Lcom/badlogic/gdx/physics/box2d/Body;Lcom/badlogic/gdx/math/Vector2;)V
-    .locals 2
-    .param p1, "bodyA"    # Lcom/badlogic/gdx/physics/box2d/Body;
-    .param p2, "bodyB"    # Lcom/badlogic/gdx/physics/box2d/Body;
-    .param p3, "anchor"    # Lcom/badlogic/gdx/math/Vector2;
+    .locals 1
 
     .line 32
     iput-object p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/FrictionJointDef;->bodyA:Lcom/badlogic/gdx/physics/box2d/Body;
@@ -70,19 +66,18 @@
 
     invoke-virtual {p1, p3}, Lcom/badlogic/gdx/physics/box2d/Body;->getLocalPoint(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector2;->set(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/math/Vector2;->set(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
 
     .line 35
-    iget-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/FrictionJointDef;->localAnchorB:Lcom/badlogic/gdx/math/Vector2;
+    iget-object p1, p0, Lcom/badlogic/gdx/physics/box2d/joints/FrictionJointDef;->localAnchorB:Lcom/badlogic/gdx/math/Vector2;
 
     invoke-virtual {p2, p3}, Lcom/badlogic/gdx/physics/box2d/Body;->getLocalPoint(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/math/Vector2;->set(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/math/Vector2;->set(Lcom/badlogic/gdx/math/Vector2;)Lcom/badlogic/gdx/math/Vector2;
 
-    .line 36
     return-void
 .end method

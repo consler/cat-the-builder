@@ -31,27 +31,21 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
-        "\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@\u00a2\u0006\u0004\u0008\u0003\u0010\u0004"
+        "\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"
     }
     d2 = {
         "<anonymous>",
         "",
-        "Lkotlinx/coroutines/CoroutineScope;",
-        "invoke",
-        "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"
+        "Lkotlinx/coroutines/CoroutineScope;"
     }
     k = 0x3
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 .annotation runtime Lkotlin/coroutines/jvm/internal/DebugMetadata;
@@ -59,7 +53,7 @@
     f = "SaveImage.kt"
     i = {}
     l = {
-        0x87
+        0x94
     }
     m = "invokeSuspend"
     n = {}
@@ -71,6 +65,14 @@
 .field final synthetic $callback:Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;
 
 .field final synthetic $currentUri:Lkotlin/jvm/internal/Ref$ObjectRef;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lkotlin/jvm/internal/Ref$ObjectRef<",
+            "Landroid/net/Uri;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field label:I
 
@@ -80,6 +82,20 @@
 # direct methods
 .method constructor <init>(Lorg/catrobat/paintroid/iotasks/SaveImage;Lkotlin/jvm/internal/Ref$ObjectRef;Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;Lkotlin/coroutines/Continuation;)V
     .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lorg/catrobat/paintroid/iotasks/SaveImage;",
+            "Lkotlin/jvm/internal/Ref$ObjectRef<",
+            "Landroid/net/Uri;",
+            ">;",
+            "Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;",
+            "Lkotlin/coroutines/Continuation<",
+            "-",
+            "Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;",
+            ">;)V"
+        }
+    .end annotation
 
     iput-object p1, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
 
@@ -97,7 +113,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -110,27 +126,48 @@
         }
     .end annotation
 
-    const-string v0, "completion"
+    new-instance p1, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;
 
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    iget-object v0, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
 
-    new-instance v0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;
+    iget-object v1, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->$currentUri:Lkotlin/jvm/internal/Ref$ObjectRef;
 
-    iget-object v1, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
+    iget-object v2, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->$callback:Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;
 
-    iget-object v2, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->$currentUri:Lkotlin/jvm/internal/Ref$ObjectRef;
+    invoke-direct {p1, v0, v1, v2, p2}, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;-><init>(Lorg/catrobat/paintroid/iotasks/SaveImage;Lkotlin/jvm/internal/Ref$ObjectRef;Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;Lkotlin/coroutines/Continuation;)V
 
-    iget-object v3, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->$callback:Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;
+    check-cast p1, Lkotlin/coroutines/Continuation;
 
-    invoke-direct {v0, v1, v2, v3, p2}, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;-><init>(Lorg/catrobat/paintroid/iotasks/SaveImage;Lkotlin/jvm/internal/Ref$ObjectRef;Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;Lkotlin/coroutines/Continuation;)V
-
-    return-object v0
+    return-object p1
 .end method
 
-.method public final invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+.method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
+    check-cast p1, Lkotlinx/coroutines/CoroutineScope;
+
     check-cast p2, Lkotlin/coroutines/Continuation;
+
+    invoke-virtual {p0, p1, p2}, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lkotlinx/coroutines/CoroutineScope;",
+            "Lkotlin/coroutines/Continuation<",
+            "-",
+            "Lkotlin/Unit;",
+            ">;)",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
 
     invoke-virtual {p0, p1, p2}, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
 
@@ -148,333 +185,333 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 17
+    .locals 9
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
-    move-result-object v1
-
-    .line 109
-    move-object/from16 v2, p0
-
-    iget v0, v2, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->label:I
-
-    const/4 v3, 0x1
-
-    if-eqz v0, :cond_1
-
-    if-ne v0, v3, :cond_0
-
-    move-object/from16 v0, p0
-
-    .local v0, "this":Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;
-    move-object/from16 v1, p1
-
-    .local v1, "$result":Ljava/lang/Object;
-    invoke-static {v1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-
-    goto/16 :goto_2
-
-    .line 140
-    .end local v0    # "this":Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;
-    .end local v1    # "$result":Ljava/lang/Object;
-    :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string v1, "call to \'resume\' before \'invoke\' with coroutine"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    .line 109
-    :cond_1
-    invoke-static/range {p1 .. p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-
-    move-object/from16 v4, p0
-
-    .local v4, "this":Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;
-    move-object/from16 v5, p1
-
-    .line 110
-    .local v5, "$result":Ljava/lang/Object;
-    nop
-
-    .line 111
-    const/4 v6, 0x0
-
-    :try_start_0
-    iget-object v0, v4, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
-
-    invoke-static {v0}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$getWorkspace$p(Lorg/catrobat/paintroid/iotasks/SaveImage;)Lorg/catrobat/paintroid/tools/Workspace;
-
     move-result-object v0
-
-    invoke-interface {v0}, Lorg/catrobat/paintroid/tools/Workspace;->getBitmapOfAllLayers()Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    .line 112
-    .local v0, "bitmap":Landroid/graphics/Bitmap;
-    sget-object v7, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
-
-    invoke-virtual {v7}, Lorg/catrobat/paintroid/FileIO;->getDefaultFileName()Ljava/lang/String;
-
-    move-result-object v7
-
-    move-object v13, v7
 
     .line 113
-    .local v13, "filename":Ljava/lang/String;
-    iget-object v14, v4, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->$currentUri:Lkotlin/jvm/internal/Ref$ObjectRef;
+    iget v1, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->label:I
 
-    sget-boolean v7, Lorg/catrobat/paintroid/FileIO;->isCatrobatImage:Z
+    const/4 v2, 0x1
 
-    if-eqz v7, :cond_4
+    if-eqz v1, :cond_1
 
-    .line 114
-    iget-object v7, v4, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
+    if-ne v1, v2, :cond_0
 
-    invoke-static {v7}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$getWorkspace$p(Lorg/catrobat/paintroid/iotasks/SaveImage;)Lorg/catrobat/paintroid/tools/Workspace;
+    invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    move-result-object v7
+    goto/16 :goto_3
 
-    invoke-interface {v7}, Lorg/catrobat/paintroid/tools/Workspace;->getBitmapLisOfAllLayers()Ljava/util/List;
+    .line 153
+    :cond_0
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    move-result-object v7
+    const-string v0, "call to \'resume\' before \'invoke\' with coroutine"
 
-    move-object v15, v7
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
+    .line 113
+    :cond_1
+    invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
+
+    const/4 p1, 0x0
 
     .line 115
-    .local v15, "bitmapList":Ljava/util/List;
-    iget-object v7, v4, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
+    :try_start_0
+    iget-object v1, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
 
-    invoke-static {v7}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$getUri$p(Lorg/catrobat/paintroid/iotasks/SaveImage;)Landroid/net/Uri;
+    invoke-static {v1}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$getIdlingResource$p(Lorg/catrobat/paintroid/iotasks/SaveImage;)Landroidx/test/espresso/idling/CountingIdlingResource;
 
-    move-result-object v7
+    move-result-object v1
 
-    if-eqz v7, :cond_3
-
-    sget-object v7, Lorg/catrobat/paintroid/FileIO$FileType;->ORA:Lorg/catrobat/paintroid/FileIO$FileType;
-
-    invoke-virtual {v7}, Lorg/catrobat/paintroid/FileIO$FileType;->toExtension()Ljava/lang/String;
-
-    move-result-object v7
-
-    const/4 v8, 0x0
-
-    const/4 v9, 0x2
-
-    invoke-static {v13, v7, v8, v9, v6}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_3
+    invoke-virtual {v1}, Landroidx/test/espresso/idling/CountingIdlingResource;->increment()V
 
     .line 116
-    iget-object v7, v4, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
+    iget-object v1, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
 
-    invoke-static {v7}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$getUri$p(Lorg/catrobat/paintroid/iotasks/SaveImage;)Landroid/net/Uri;
+    invoke-static {v1}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$getLayerModel$p(Lorg/catrobat/paintroid/iotasks/SaveImage;)Lorg/catrobat/paintroid/contract/LayerContracts$Model;
 
-    move-result-object v9
+    move-result-object v1
 
-    if-eqz v9, :cond_2
+    invoke-interface {v1}, Lorg/catrobat/paintroid/contract/LayerContracts$Model;->getBitmapOfAllLayers()Landroid/graphics/Bitmap;
 
-    .local v9, "it":Landroid/net/Uri;
-    const/16 v16, 0x0
+    move-result-object v7
 
     .line 117
-    .local v16, "$i$a$-let-SaveImage$execute$1$1":I
-    iget-object v7, v4, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
+    sget-object v1, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
 
-    iget-object v8, v4, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->$callback:Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;
+    invoke-virtual {v1}, Lorg/catrobat/paintroid/FileIO;->getDefaultFileName()Ljava/lang/String;
 
-    invoke-interface {v8}, Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;->getContentResolver()Landroid/content/ContentResolver;
+    move-result-object v6
 
-    move-result-object v12
+    .line 118
+    iget-object v1, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->$currentUri:Lkotlin/jvm/internal/Ref$ObjectRef;
 
-    move-object v8, v15
+    sget-object v3, Lorg/catrobat/paintroid/FileIO;->fileType:Lorg/catrobat/paintroid/FileIO$FileType;
 
-    move-object v10, v13
+    sget-object v4, Lorg/catrobat/paintroid/FileIO$FileType;->ORA:Lorg/catrobat/paintroid/FileIO$FileType;
 
-    move-object v11, v0
+    if-ne v3, v4, :cond_4
 
-    invoke-static/range {v7 .. v12}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$saveOraFile(Lorg/catrobat/paintroid/iotasks/SaveImage;Ljava/util/List;Landroid/net/Uri;Ljava/lang/String;Landroid/graphics/Bitmap;Landroid/content/ContentResolver;)Landroid/net/Uri;
+    .line 119
+    iget-object v3, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
 
-    move-result-object v7
+    invoke-static {v3}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$getLayerModel$p(Lorg/catrobat/paintroid/iotasks/SaveImage;)Lorg/catrobat/paintroid/contract/LayerContracts$Model;
 
-    .line 116
-    .end local v9    # "it":Landroid/net/Uri;
-    .end local v16    # "$i$a$-let-SaveImage$execute$1$1":I
+    move-result-object v3
+
+    invoke-interface {v3}, Lorg/catrobat/paintroid/contract/LayerContracts$Model;->getLayers()Ljava/util/List;
+
+    move-result-object v4
+
+    .line 120
+    iget-object v3, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
+
+    invoke-static {v3}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$getUri$p(Lorg/catrobat/paintroid/iotasks/SaveImage;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_3
+
+    sget-object v3, Lorg/catrobat/paintroid/FileIO$FileType;->ORA:Lorg/catrobat/paintroid/FileIO$FileType;
+
+    invoke-virtual {v3}, Lorg/catrobat/paintroid/FileIO$FileType;->toExtension()Ljava/lang/String;
+
+    move-result-object v3
+
+    const/4 v5, 0x0
+
+    const/4 v8, 0x2
+
+    invoke-static {v6, v3, v5, v8, p1}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    .line 121
+    iget-object v3, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
+
+    invoke-static {v3}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$getUri$p(Lorg/catrobat/paintroid/iotasks/SaveImage;)Landroid/net/Uri;
+
+    move-result-object v5
+
+    if-nez v5, :cond_2
+
     goto :goto_0
 
     :cond_2
-    move-object v7, v6
+    iget-object v3, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
 
-    goto :goto_0
+    iget-object v8, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->$callback:Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;
 
-    .line 120
-    :cond_3
-    iget-object v7, v4, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
-
-    iget-object v8, v4, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->$callback:Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;
-
+    .line 122
     invoke-interface {v8}, Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v8
 
-    invoke-static {v7, v15, v13, v0, v8}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$exportOraFile(Lorg/catrobat/paintroid/iotasks/SaveImage;Ljava/util/List;Ljava/lang/String;Landroid/graphics/Bitmap;Landroid/content/ContentResolver;)Landroid/net/Uri;
+    invoke-static/range {v3 .. v8}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$saveOraFile(Lorg/catrobat/paintroid/iotasks/SaveImage;Ljava/util/List;Landroid/net/Uri;Ljava/lang/String;Landroid/graphics/Bitmap;Landroid/content/ContentResolver;)Landroid/net/Uri;
 
-    move-result-object v7
+    move-result-object v3
 
-    .line 121
-    .end local v15    # "bitmapList":Ljava/util/List;
-    .local v7, "imageUri":Landroid/net/Uri;
-    nop
+    goto :goto_1
 
-    .line 115
-    .end local v7    # "imageUri":Landroid/net/Uri;
-    goto :goto_0
+    .line 125
+    :cond_3
+    iget-object v3, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
 
-    .line 123
-    :cond_4
-    sget-object v7, Lorg/catrobat/paintroid/FileIO;->fileType:Lorg/catrobat/paintroid/FileIO$FileType;
+    iget-object v5, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->$callback:Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;
 
-    sget-object v8, Lorg/catrobat/paintroid/FileIO$FileType;->CATROBAT:Lorg/catrobat/paintroid/FileIO$FileType;
+    invoke-interface {v5}, Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;->getContentResolver()Landroid/content/ContentResolver;
 
-    if-ne v7, v8, :cond_5
+    move-result-object v5
 
-    .line 124
-    iget-object v7, v4, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
+    invoke-static {v3, v4, v6, v7, v5}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$exportOraFile(Lorg/catrobat/paintroid/iotasks/SaveImage;Ljava/util/List;Ljava/lang/String;Landroid/graphics/Bitmap;Landroid/content/ContentResolver;)Landroid/net/Uri;
 
-    invoke-static {v7}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$getWorkspace$p(Lorg/catrobat/paintroid/iotasks/SaveImage;)Lorg/catrobat/paintroid/tools/Workspace;
-
-    move-result-object v7
-
-    invoke-interface {v7}, Lorg/catrobat/paintroid/tools/Workspace;->getCommandSerializationHelper()Lorg/catrobat/paintroid/command/serialization/CommandSerializationUtilities;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v13}, Lorg/catrobat/paintroid/command/serialization/CommandSerializationUtilities;->writeToFile(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v7
-
-    .end local v13    # "filename":Ljava/lang/String;
-    goto :goto_0
-
-    .line 126
-    :cond_5
-    iget-object v7, v4, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
-
-    iget-object v8, v4, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->$callback:Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;
-
-    invoke-static {v7, v8, v0}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$getImageUri(Lorg/catrobat/paintroid/iotasks/SaveImage;Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;Landroid/graphics/Bitmap;)Landroid/net/Uri;
-
-    move-result-object v7
-
-    .line 123
-    .end local v0    # "bitmap":Landroid/graphics/Bitmap;
-    :goto_0
-    nop
-
-    .line 113
-    iput-object v7, v14, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    move-result-object v3
 
     goto :goto_1
 
     .line 128
-    :catch_0
-    move-exception v0
+    :cond_4
+    sget-object v3, Lorg/catrobat/paintroid/FileIO;->fileType:Lorg/catrobat/paintroid/FileIO$FileType;
+
+    sget-object v4, Lorg/catrobat/paintroid/FileIO$FileType;->CATROBAT:Lorg/catrobat/paintroid/FileIO$FileType;
+
+    if-ne v3, v4, :cond_7
 
     .line 129
-    .local v0, "e":Ljava/lang/Exception;
-    nop
+    iget-object v3, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
+
+    invoke-static {v3}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$getUri$p(Lorg/catrobat/paintroid/iotasks/SaveImage;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_6
 
     .line 130
-    instance-of v7, v0, Ljava/io/IOException;
+    iget-object v3, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
 
-    if-eqz v7, :cond_6
+    invoke-static {v3}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$getUri$p(Lorg/catrobat/paintroid/iotasks/SaveImage;)Landroid/net/Uri;
 
-    invoke-static {}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$getTAG$cp()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v7
+    if-nez v3, :cond_5
 
-    move-object v8, v0
-
-    check-cast v8, Ljava/lang/Throwable;
-
-    const-string v9, "Can\'t save image file"
-
-    invoke-static {v7, v9, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :goto_0
+    move-object v3, p1
 
     goto :goto_1
 
-    .line 131
-    :cond_6
-    instance-of v7, v0, Ljava/lang/NullPointerException;
+    :cond_5
+    iget-object v4, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
 
-    if-eqz v7, :cond_7
+    iget-object v5, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->$callback:Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;
+
+    .line 131
+    invoke-static {v4}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$getCommandSerializer$p(Lorg/catrobat/paintroid/iotasks/SaveImage;)Lorg/catrobat/paintroid/command/serialization/CommandSerializer;
+
+    move-result-object v4
+
+    invoke-interface {v5}, Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v6, v3, v5}, Lorg/catrobat/paintroid/command/serialization/CommandSerializer;->overWriteFile(Ljava/lang/String;Landroid/net/Uri;Landroid/content/ContentResolver;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    goto :goto_1
+
+    .line 134
+    :cond_6
+    iget-object v3, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
+
+    invoke-static {v3}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$getCommandSerializer$p(Lorg/catrobat/paintroid/iotasks/SaveImage;)Lorg/catrobat/paintroid/command/serialization/CommandSerializer;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v6}, Lorg/catrobat/paintroid/command/serialization/CommandSerializer;->writeToFile(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    goto :goto_1
+
+    .line 137
+    :cond_7
+    iget-object v3, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
+
+    iget-object v4, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->$callback:Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;
+
+    invoke-static {v3, v4, v7}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$getImageUri(Lorg/catrobat/paintroid/iotasks/SaveImage;Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;Landroid/graphics/Bitmap;)Landroid/net/Uri;
+
+    move-result-object v3
+
+    .line 118
+    :goto_1
+    iput-object v3, v1, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
+
+    .line 139
+    iget-object v1, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
+
+    invoke-static {v1}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$getIdlingResource$p(Lorg/catrobat/paintroid/iotasks/SaveImage;)Landroidx/test/espresso/idling/CountingIdlingResource;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroidx/test/espresso/idling/CountingIdlingResource;->decrement()V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_2
+
+    :catch_0
+    move-exception v1
+
+    .line 141
+    iget-object v3, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
+
+    invoke-static {v3}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$getIdlingResource$p(Lorg/catrobat/paintroid/iotasks/SaveImage;)Landroidx/test/espresso/idling/CountingIdlingResource;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroidx/test/espresso/idling/CountingIdlingResource;->decrement()V
+
+    .line 143
+    instance-of v3, v1, Ljava/io/IOException;
+
+    if-eqz v3, :cond_8
 
     invoke-static {}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$getTAG$cp()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v3
 
-    move-object v8, v0
+    const-string v4, "Can\'t save image file"
 
-    check-cast v8, Ljava/lang/Throwable;
+    check-cast v1, Ljava/lang/Throwable;
 
-    const-string v9, "Can\'t load image file"
+    invoke-static {v3, v4, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    invoke-static {v7, v9, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    goto :goto_2
 
-    .line 132
-    .end local v0    # "e":Ljava/lang/Exception;
-    :cond_7
-    :goto_1
-    nop
+    .line 144
+    :cond_8
+    instance-of v3, v1, Ljava/lang/NullPointerException;
 
-    .line 133
-    nop
+    if-eqz v3, :cond_9
 
-    .line 135
+    invoke-static {}, Lorg/catrobat/paintroid/iotasks/SaveImage;->access$getTAG$cp()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string v4, "Can\'t load image file"
+
+    check-cast v1, Ljava/lang/Throwable;
+
+    invoke-static {v3, v4, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    .line 148
+    :cond_9
+    :goto_2
     invoke-static {}, Lkotlinx/coroutines/Dispatchers;->getMain()Lkotlinx/coroutines/MainCoroutineDispatcher;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lkotlin/coroutines/CoroutineContext;
+    check-cast v1, Lkotlin/coroutines/CoroutineContext;
 
-    new-instance v7, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1$2;
+    new-instance v3, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1$3;
 
-    invoke-direct {v7, v4, v6}, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1$2;-><init>(Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;Lkotlin/coroutines/Continuation;)V
+    iget-object v4, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->$callback:Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;
 
-    check-cast v7, Lkotlin/jvm/functions/Function2;
+    iget-object v5, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->this$0:Lorg/catrobat/paintroid/iotasks/SaveImage;
 
-    iput v3, v4, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->label:I
+    iget-object v6, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->$currentUri:Lkotlin/jvm/internal/Ref$ObjectRef;
 
-    invoke-static {v0, v7, v4}, Lkotlinx/coroutines/BuildersKt;->withContext(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    invoke-direct {v3, v4, v5, v6, p1}, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1$3;-><init>(Lorg/catrobat/paintroid/iotasks/SaveImage$SaveImageCallback;Lorg/catrobat/paintroid/iotasks/SaveImage;Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlin/coroutines/Continuation;)V
 
-    move-result-object v0
+    check-cast v3, Lkotlin/jvm/functions/Function2;
 
-    if-ne v0, v1, :cond_8
+    move-object p1, p0
 
-    .line 109
-    return-object v1
+    check-cast p1, Lkotlin/coroutines/Continuation;
 
-    .line 135
-    :cond_8
-    move-object v0, v4
+    iput v2, p0, Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;->label:I
 
-    move-object v1, v5
+    invoke-static {v1, v3, p1}, Lkotlinx/coroutines/BuildersKt;->withContext(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
-    .line 140
-    .end local v4    # "this":Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;
-    .end local v5    # "$result":Ljava/lang/Object;
-    .local v0, "this":Lorg/catrobat/paintroid/iotasks/SaveImage$execute$1;
-    .restart local v1    # "$result":Ljava/lang/Object;
-    :goto_2
-    sget-object v3, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    move-result-object p1
 
-    return-object v3
+    if-ne p1, v0, :cond_a
+
+    return-object v0
+
+    .line 153
+    :cond_a
+    :goto_3
+    sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+
+    return-object p1
 .end method

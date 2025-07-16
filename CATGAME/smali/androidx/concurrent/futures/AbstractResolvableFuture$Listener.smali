@@ -44,8 +44,6 @@
 
 .method constructor <init>(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
     .locals 0
-    .param p1, "task"    # Ljava/lang/Runnable;
-    .param p2, "executor"    # Ljava/util/concurrent/Executor;
 
     .line 210
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,6 +54,5 @@
     .line 212
     iput-object p2, p0, Landroidx/concurrent/futures/AbstractResolvableFuture$Listener;->executor:Ljava/util/concurrent/Executor;
 
-    .line 213
     return-void
 .end method

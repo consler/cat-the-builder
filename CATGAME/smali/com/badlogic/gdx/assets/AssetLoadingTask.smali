@@ -72,25 +72,21 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/assets/AssetManager;Lcom/badlogic/gdx/assets/AssetDescriptor;Lcom/badlogic/gdx/assets/loaders/AssetLoader;Lcom/badlogic/gdx/utils/async/AsyncExecutor;)V
     .locals 2
-    .param p1, "manager"    # Lcom/badlogic/gdx/assets/AssetManager;
-    .param p2, "assetDesc"    # Lcom/badlogic/gdx/assets/AssetDescriptor;
-    .param p3, "loader"    # Lcom/badlogic/gdx/assets/loaders/AssetLoader;
-    .param p4, "threadPool"    # Lcom/badlogic/gdx/utils/async/AsyncExecutor;
 
     .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 41
     const/4 v0, 0x0
 
+    .line 41
     iput-boolean v0, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->asyncDone:Z
 
     .line 42
     iput-boolean v0, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->dependenciesLoaded:Z
 
-    .line 44
     const/4 v1, 0x0
 
+    .line 44
     iput-object v1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->depsFuture:Lcom/badlogic/gdx/utils/async/AsyncResult;
 
     .line 45
@@ -118,29 +114,28 @@
     iput-object p4, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->executor:Lcom/badlogic/gdx/utils/async/AsyncExecutor;
 
     .line 56
-    iget-object v0, p1, Lcom/badlogic/gdx/assets/AssetManager;->log:Lcom/badlogic/gdx/utils/Logger;
+    iget-object p1, p1, Lcom/badlogic/gdx/assets/AssetManager;->log:Lcom/badlogic/gdx/utils/Logger;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Logger;->getLevel()I
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/Logger;->getLevel()I
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x3
+    const/4 p2, 0x3
 
-    if-ne v0, v1, :cond_0
+    if-ne p1, p2, :cond_0
 
     invoke-static {}, Lcom/badlogic/gdx/utils/TimeUtils;->nanoTime()J
 
-    move-result-wide v0
+    move-result-wide p1
 
     goto :goto_0
 
     :cond_0
-    const-wide/16 v0, 0x0
+    const-wide/16 p1, 0x0
 
     :goto_0
-    iput-wide v0, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->startTime:J
+    iput-wide p1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->startTime:J
 
-    .line 57
     return-void
 .end method
 
@@ -153,7 +148,6 @@
     check-cast v0, Lcom/badlogic/gdx/assets/loaders/AsynchronousAssetLoader;
 
     .line 113
-    .local v0, "asyncLoader":Lcom/badlogic/gdx/assets/loaders/AsynchronousAssetLoader;
     iget-boolean v1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->dependenciesLoaded:Z
 
     if-nez v1, :cond_1
@@ -164,13 +158,13 @@
     if-nez v1, :cond_0
 
     .line 115
-    iget-object v1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->executor:Lcom/badlogic/gdx/utils/async/AsyncExecutor;
+    iget-object v0, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->executor:Lcom/badlogic/gdx/utils/async/AsyncExecutor;
 
-    invoke-virtual {v1, p0}, Lcom/badlogic/gdx/utils/async/AsyncExecutor;->submit(Lcom/badlogic/gdx/utils/async/AsyncTask;)Lcom/badlogic/gdx/utils/async/AsyncResult;
+    invoke-virtual {v0, p0}, Lcom/badlogic/gdx/utils/async/AsyncExecutor;->submit(Lcom/badlogic/gdx/utils/async/AsyncTask;)Lcom/badlogic/gdx/utils/async/AsyncResult;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->depsFuture:Lcom/badlogic/gdx/utils/async/AsyncResult;
+    iput-object v0, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->depsFuture:Lcom/badlogic/gdx/utils/async/AsyncResult;
 
     goto/16 :goto_0
 
@@ -192,12 +186,9 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 122
-    nop
-
-    .line 123
     const/4 v1, 0x1
 
+    .line 123
     iput-boolean v1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->dependenciesLoaded:Z
 
     .line 124
@@ -226,44 +217,41 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Lcom/badlogic/gdx/assets/loaders/AsynchronousAssetLoader;->loadSync(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/AssetLoaderParameters;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->asset:Ljava/lang/Object;
+    iput-object v0, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->asset:Ljava/lang/Object;
 
     goto/16 :goto_0
 
-    .line 120
     :catch_0
-    move-exception v1
+    move-exception v0
 
     .line 121
-    .local v1, "e":Ljava/lang/Exception;
-    new-instance v2, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance v1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "Couldn\'t load dependencies of asset: "
 
-    const-string v4, "Couldn\'t load dependencies of asset: "
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->assetDesc:Lcom/badlogic/gdx/assets/AssetDescriptor;
 
-    iget-object v4, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->assetDesc:Lcom/badlogic/gdx/assets/AssetDescriptor;
+    iget-object v3, v3, Lcom/badlogic/gdx/assets/AssetDescriptor;->fileName:Ljava/lang/String;
 
-    iget-object v4, v4, Lcom/badlogic/gdx/assets/AssetDescriptor;->fileName:Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-direct {v2, v3, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v1, v2, v0}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v2
+    throw v1
 
     .line 130
-    .end local v1    # "e":Ljava/lang/Exception;
     :cond_1
     iget-object v1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->loadFuture:Lcom/badlogic/gdx/utils/async/AsyncResult;
 
@@ -274,13 +262,13 @@
     if-nez v1, :cond_2
 
     .line 131
-    iget-object v1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->executor:Lcom/badlogic/gdx/utils/async/AsyncExecutor;
+    iget-object v0, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->executor:Lcom/badlogic/gdx/utils/async/AsyncExecutor;
 
-    invoke-virtual {v1, p0}, Lcom/badlogic/gdx/utils/async/AsyncExecutor;->submit(Lcom/badlogic/gdx/utils/async/AsyncTask;)Lcom/badlogic/gdx/utils/async/AsyncResult;
+    invoke-virtual {v0, p0}, Lcom/badlogic/gdx/utils/async/AsyncExecutor;->submit(Lcom/badlogic/gdx/utils/async/AsyncTask;)Lcom/badlogic/gdx/utils/async/AsyncResult;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->loadFuture:Lcom/badlogic/gdx/utils/async/AsyncResult;
+    iput-object v0, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->loadFuture:Lcom/badlogic/gdx/utils/async/AsyncResult;
 
     goto :goto_0
 
@@ -311,9 +299,9 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Lcom/badlogic/gdx/assets/loaders/AsynchronousAssetLoader;->loadSync(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/AssetLoaderParameters;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->asset:Ljava/lang/Object;
+    iput-object v0, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->asset:Ljava/lang/Object;
 
     goto :goto_0
 
@@ -334,9 +322,6 @@
     invoke-virtual {v1}, Lcom/badlogic/gdx/utils/async/AsyncResult;->get()Ljava/lang/Object;
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
-
-    .line 140
-    nop
 
     .line 141
     iget-object v1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->manager:Lcom/badlogic/gdx/assets/AssetManager;
@@ -359,44 +344,40 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Lcom/badlogic/gdx/assets/loaders/AsynchronousAssetLoader;->loadSync(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/AssetLoaderParameters;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->asset:Ljava/lang/Object;
+    iput-object v0, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->asset:Ljava/lang/Object;
 
     goto :goto_0
 
-    .line 138
     :catch_1
-    move-exception v1
+    move-exception v0
 
     .line 139
-    .restart local v1    # "e":Ljava/lang/Exception;
-    new-instance v2, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance v1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "Couldn\'t load asset: "
 
-    const-string v4, "Couldn\'t load asset: "
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->assetDesc:Lcom/badlogic/gdx/assets/AssetDescriptor;
 
-    iget-object v4, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->assetDesc:Lcom/badlogic/gdx/assets/AssetDescriptor;
+    iget-object v3, v3, Lcom/badlogic/gdx/assets/AssetDescriptor;->fileName:Ljava/lang/String;
 
-    iget-object v4, v4, Lcom/badlogic/gdx/assets/AssetDescriptor;->fileName:Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-direct {v2, v3, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v1, v2, v0}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v2
+    throw v1
 
-    .line 145
-    .end local v1    # "e":Ljava/lang/Exception;
     :cond_4
     :goto_0
     return-void
@@ -411,14 +392,13 @@
     check-cast v0, Lcom/badlogic/gdx/assets/loaders/SynchronousAssetLoader;
 
     .line 97
-    .local v0, "syncLoader":Lcom/badlogic/gdx/assets/loaders/SynchronousAssetLoader;
     iget-boolean v1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->dependenciesLoaded:Z
 
     if-nez v1, :cond_1
 
-    .line 98
     const/4 v1, 0x1
 
+    .line 98
     iput-boolean v1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->dependenciesLoaded:Z
 
     .line 99
@@ -470,29 +450,28 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Lcom/badlogic/gdx/assets/loaders/SynchronousAssetLoader;->load(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/AssetLoaderParameters;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->asset:Ljava/lang/Object;
+    iput-object v0, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->asset:Ljava/lang/Object;
 
-    .line 102
     return-void
 
     .line 104
     :cond_0
-    iget-object v1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->dependencies:Lcom/badlogic/gdx/utils/Array;
+    iget-object v0, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->dependencies:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-direct {p0, v1}, Lcom/badlogic/gdx/assets/AssetLoadingTask;->removeDuplicates(Lcom/badlogic/gdx/utils/Array;)V
+    invoke-direct {p0, v0}, Lcom/badlogic/gdx/assets/AssetLoadingTask;->removeDuplicates(Lcom/badlogic/gdx/utils/Array;)V
 
     .line 105
-    iget-object v1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->manager:Lcom/badlogic/gdx/assets/AssetManager;
+    iget-object v0, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->manager:Lcom/badlogic/gdx/assets/AssetManager;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->assetDesc:Lcom/badlogic/gdx/assets/AssetDescriptor;
+    iget-object v1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->assetDesc:Lcom/badlogic/gdx/assets/AssetDescriptor;
 
-    iget-object v2, v2, Lcom/badlogic/gdx/assets/AssetDescriptor;->fileName:Ljava/lang/String;
+    iget-object v1, v1, Lcom/badlogic/gdx/assets/AssetDescriptor;->fileName:Ljava/lang/String;
 
-    iget-object v3, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->dependencies:Lcom/badlogic/gdx/utils/Array;
+    iget-object v2, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->dependencies:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v1, v2, v3}, Lcom/badlogic/gdx/assets/AssetManager;->injectDependencies(Ljava/lang/String;Lcom/badlogic/gdx/utils/Array;)V
+    invoke-virtual {v0, v1, v2}, Lcom/badlogic/gdx/assets/AssetManager;->injectDependencies(Ljava/lang/String;Lcom/badlogic/gdx/utils/Array;)V
 
     goto :goto_0
 
@@ -518,11 +497,10 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Lcom/badlogic/gdx/assets/loaders/SynchronousAssetLoader;->load(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/AssetLoaderParameters;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->asset:Ljava/lang/Object;
+    iput-object v0, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->asset:Ljava/lang/Object;
 
-    .line 109
     :goto_0
     return-void
 .end method
@@ -539,19 +517,16 @@
     .end annotation
 
     .line 157
-    .local p1, "array":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/assets/AssetDescriptor;>;"
     iget-boolean v0, p1, Lcom/badlogic/gdx/utils/Array;->ordered:Z
 
-    .line 158
-    .local v0, "ordered":Z
     const/4 v1, 0x1
 
+    .line 158
     iput-boolean v1, p1, Lcom/badlogic/gdx/utils/Array;->ordered:Z
 
-    .line 159
     const/4 v2, 0x0
 
-    .local v2, "i":I
+    .line 159
     :goto_0
     iget v3, p1, Lcom/badlogic/gdx/utils/Array;->size:I
 
@@ -567,7 +542,6 @@
     iget-object v3, v3, Lcom/badlogic/gdx/assets/AssetDescriptor;->fileName:Ljava/lang/String;
 
     .line 161
-    .local v3, "fn":Ljava/lang/String;
     invoke-virtual {p1, v2}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
     move-result-object v4
@@ -577,12 +551,10 @@
     iget-object v4, v4, Lcom/badlogic/gdx/assets/AssetDescriptor;->type:Ljava/lang/Class;
 
     .line 162
-    .local v4, "type":Ljava/lang/Class;
     iget v5, p1, Lcom/badlogic/gdx/utils/Array;->size:I
 
     sub-int/2addr v5, v1
 
-    .local v5, "j":I
     :goto_1
     if-le v5, v2, :cond_1
 
@@ -614,34 +586,25 @@
     .line 164
     invoke-virtual {p1, v5}, Lcom/badlogic/gdx/utils/Array;->removeIndex(I)Ljava/lang/Object;
 
-    .line 162
     :cond_0
     add-int/lit8 v5, v5, -0x1
 
     goto :goto_1
 
-    .line 159
-    .end local v3    # "fn":Ljava/lang/String;
-    .end local v4    # "type":Ljava/lang/Class;
-    .end local v5    # "j":I
     :cond_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 167
-    .end local v2    # "i":I
     :cond_2
     iput-boolean v0, p1, Lcom/badlogic/gdx/utils/Array;->ordered:Z
 
-    .line 168
     return-void
 .end method
 
 .method private resolve(Lcom/badlogic/gdx/assets/loaders/AssetLoader;Lcom/badlogic/gdx/assets/AssetDescriptor;)Lcom/badlogic/gdx/files/FileHandle;
     .locals 1
-    .param p1, "loader"    # Lcom/badlogic/gdx/assets/loaders/AssetLoader;
-    .param p2, "assetDesc"    # Lcom/badlogic/gdx/assets/AssetDescriptor;
 
     .line 148
     iget-object v0, p2, Lcom/badlogic/gdx/assets/AssetDescriptor;->file:Lcom/badlogic/gdx/files/FileHandle;
@@ -652,15 +615,15 @@
 
     invoke-virtual {p1, v0}, Lcom/badlogic/gdx/assets/loaders/AssetLoader;->resolve(Ljava/lang/String;)Lcom/badlogic/gdx/files/FileHandle;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p2, Lcom/badlogic/gdx/assets/AssetDescriptor;->file:Lcom/badlogic/gdx/files/FileHandle;
+    iput-object p1, p2, Lcom/badlogic/gdx/assets/AssetDescriptor;->file:Lcom/badlogic/gdx/files/FileHandle;
 
     .line 149
     :cond_0
-    iget-object v0, p2, Lcom/badlogic/gdx/assets/AssetDescriptor;->file:Lcom/badlogic/gdx/files/FileHandle;
+    iget-object p1, p2, Lcom/badlogic/gdx/assets/AssetDescriptor;->file:Lcom/badlogic/gdx/files/FileHandle;
 
-    return-object v0
+    return-object p1
 .end method
 
 
@@ -695,7 +658,6 @@
     check-cast v0, Lcom/badlogic/gdx/assets/loaders/AsynchronousAssetLoader;
 
     .line 63
-    .local v0, "asyncLoader":Lcom/badlogic/gdx/assets/loaders/AsynchronousAssetLoader;
     iget-boolean v1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->dependenciesLoaded:Z
 
     if-nez v1, :cond_1
@@ -729,20 +691,20 @@
     if-eqz v1, :cond_0
 
     .line 66
-    iget-object v1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->dependencies:Lcom/badlogic/gdx/utils/Array;
+    iget-object v0, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->dependencies:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-direct {p0, v1}, Lcom/badlogic/gdx/assets/AssetLoadingTask;->removeDuplicates(Lcom/badlogic/gdx/utils/Array;)V
+    invoke-direct {p0, v0}, Lcom/badlogic/gdx/assets/AssetLoadingTask;->removeDuplicates(Lcom/badlogic/gdx/utils/Array;)V
 
     .line 67
-    iget-object v1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->manager:Lcom/badlogic/gdx/assets/AssetManager;
+    iget-object v0, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->manager:Lcom/badlogic/gdx/assets/AssetManager;
 
-    iget-object v2, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->assetDesc:Lcom/badlogic/gdx/assets/AssetDescriptor;
+    iget-object v1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->assetDesc:Lcom/badlogic/gdx/assets/AssetDescriptor;
 
-    iget-object v2, v2, Lcom/badlogic/gdx/assets/AssetDescriptor;->fileName:Ljava/lang/String;
+    iget-object v1, v1, Lcom/badlogic/gdx/assets/AssetDescriptor;->fileName:Ljava/lang/String;
 
-    iget-object v3, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->dependencies:Lcom/badlogic/gdx/utils/Array;
+    iget-object v2, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->dependencies:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v1, v2, v3}, Lcom/badlogic/gdx/assets/AssetManager;->injectDependencies(Ljava/lang/String;Lcom/badlogic/gdx/utils/Array;)V
+    invoke-virtual {v0, v1, v2}, Lcom/badlogic/gdx/assets/AssetManager;->injectDependencies(Ljava/lang/String;Lcom/badlogic/gdx/utils/Array;)V
 
     goto :goto_0
 
@@ -768,10 +730,10 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Lcom/badlogic/gdx/assets/loaders/AsynchronousAssetLoader;->loadAsync(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/AssetLoaderParameters;)V
 
-    .line 71
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    iput-boolean v1, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->asyncDone:Z
+    .line 71
+    iput-boolean v0, p0, Lcom/badlogic/gdx/assets/AssetLoadingTask;->asyncDone:Z
 
     goto :goto_0
 
@@ -797,11 +759,10 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Lcom/badlogic/gdx/assets/loaders/AsynchronousAssetLoader;->loadAsync(Lcom/badlogic/gdx/assets/AssetManager;Ljava/lang/String;Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/assets/AssetLoaderParameters;)V
 
-    .line 76
     :goto_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public getAsset()Ljava/lang/Object;

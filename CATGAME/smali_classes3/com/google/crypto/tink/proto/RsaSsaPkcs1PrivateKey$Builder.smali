@@ -38,13 +38,11 @@
 
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
-    .line 499
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey$1;
 
     .line 491
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey$Builder;-><init>()V
@@ -67,7 +65,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;->access$1700(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;)V
 
-    .line 889
     return-object p0
 .end method
 
@@ -84,7 +81,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;->access$700(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;)V
 
-    .line 656
     return-object p0
 .end method
 
@@ -101,7 +97,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;->access$1300(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;)V
 
-    .line 797
     return-object p0
 .end method
 
@@ -118,7 +113,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;->access$1500(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;)V
 
-    .line 843
     return-object p0
 .end method
 
@@ -135,7 +129,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;->access$900(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;)V
 
-    .line 705
     return-object p0
 .end method
 
@@ -152,7 +145,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;->access$500(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;)V
 
-    .line 610
     return-object p0
 .end method
 
@@ -169,7 +161,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;->access$1100(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;)V
 
-    .line 751
     return-object p0
 .end method
 
@@ -186,7 +177,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;->access$200(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;)V
 
-    .line 539
     return-object p0
 .end method
 
@@ -327,7 +317,6 @@
 
 .method public mergePublicKey(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PublicKey;)Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/RsaSsaPkcs1PublicKey;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -347,13 +336,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;->access$400(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;Lcom/google/crypto/tink/proto/RsaSsaPkcs1PublicKey;)V
 
-    .line 599
     return-object p0
 .end method
 
 .method public setCrt(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -373,13 +360,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;->access$1600(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    .line 874
     return-object p0
 .end method
 
 .method public setD(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -399,13 +384,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;->access$600(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    .line 641
     return-object p0
 .end method
 
 .method public setDp(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -425,13 +408,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;->access$1200(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    .line 782
     return-object p0
 .end method
 
 .method public setDq(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -451,13 +432,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;->access$1400(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    .line 828
     return-object p0
 .end method
 
 .method public setP(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -477,13 +456,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;->access$800(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    .line 689
     return-object p0
 .end method
 
 .method public setPublicKey(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PublicKey$Builder;)Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey$Builder;
-    .locals 2
-    .param p1, "builderForValue"    # Lcom/google/crypto/tink/proto/RsaSsaPkcs1PublicKey$Builder;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -503,19 +480,17 @@
 
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PublicKey$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PublicKey;
+    check-cast p1, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PublicKey;
 
-    invoke-static {v0, v1}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;->access$300(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;Lcom/google/crypto/tink/proto/RsaSsaPkcs1PublicKey;)V
+    invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;->access$300(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;Lcom/google/crypto/tink/proto/RsaSsaPkcs1PublicKey;)V
 
-    .line 587
     return-object p0
 .end method
 
 .method public setPublicKey(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PublicKey;)Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/proto/RsaSsaPkcs1PublicKey;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -535,13 +510,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;->access$300(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;Lcom/google/crypto/tink/proto/RsaSsaPkcs1PublicKey;)V
 
-    .line 574
     return-object p0
 .end method
 
 .method public setQ(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey$Builder;
     .locals 1
-    .param p1, "value"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -561,13 +534,11 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;->access$1000(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;Lcom/google/crypto/tink/shaded/protobuf/ByteString;)V
 
-    .line 736
     return-object p0
 .end method
 
 .method public setVersion(I)Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -587,6 +558,5 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;->access$100(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;I)V
 
-    .line 526
     return-object p0
 .end method

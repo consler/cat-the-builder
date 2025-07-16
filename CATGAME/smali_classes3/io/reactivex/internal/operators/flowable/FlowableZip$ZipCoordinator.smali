@@ -77,10 +77,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/reactivestreams/Subscriber;Lio/reactivex/functions/Function;IIZ)V
-    .locals 3
-    .param p3, "n"    # I
-    .param p4, "prefetch"    # I
-    .param p5, "delayErrors"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -94,9 +91,6 @@
     .end annotation
 
     .line 106
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;, "Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator<TT;TR;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TR;>;"
-    .local p2, "zipper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-[Ljava/lang/Object;+TR;>;"
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
 
     .line 107
@@ -109,53 +103,47 @@
     iput-boolean p5, p0, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->delayErrors:Z
 
     .line 111
-    new-array v0, p3, [Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber;
+    new-array p1, p3, [Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber;
 
-    .line 112
-    .local v0, "a":[Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber;, "[Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber<TT;TR;>;"
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    .local v1, "i":I
     :goto_0
-    if-ge v1, p3, :cond_0
+    if-ge p2, p3, :cond_0
 
     .line 113
-    new-instance v2, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber;
+    new-instance p5, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber;
 
-    invoke-direct {v2, p0, p4}, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber;-><init>(Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;I)V
+    invoke-direct {p5, p0, p4}, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber;-><init>(Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;I)V
 
-    aput-object v2, v0, v1
+    aput-object p5, p1, p2
 
-    .line 112
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p2, p2, 0x1
 
     goto :goto_0
 
     .line 115
-    .end local v1    # "i":I
     :cond_0
-    new-array v1, p3, [Ljava/lang/Object;
+    new-array p2, p3, [Ljava/lang/Object;
 
-    iput-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->current:[Ljava/lang/Object;
+    iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->current:[Ljava/lang/Object;
 
     .line 116
-    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->subscribers:[Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->subscribers:[Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber;
 
     .line 117
-    new-instance v1, Ljava/util/concurrent/atomic/AtomicLong;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicLong;
 
-    invoke-direct {v1}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicLong;-><init>()V
 
-    iput-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->requested:Ljava/util/concurrent/atomic/AtomicLong;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
     .line 118
-    new-instance v1, Lio/reactivex/internal/util/AtomicThrowable;
+    new-instance p1, Lio/reactivex/internal/util/AtomicThrowable;
 
-    invoke-direct {v1}, Lio/reactivex/internal/util/AtomicThrowable;-><init>()V
+    invoke-direct {p1}, Lio/reactivex/internal/util/AtomicThrowable;-><init>()V
 
-    iput-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->errors:Lio/reactivex/internal/util/AtomicThrowable;
+    iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->errors:Lio/reactivex/internal/util/AtomicThrowable;
 
-    .line 119
     return-void
 .end method
 
@@ -165,20 +153,18 @@
     .locals 1
 
     .line 141
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;, "Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator<TT;TR;>;"
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->cancelled:Z
 
     if-nez v0, :cond_0
 
-    .line 142
     const/4 v0, 0x1
 
+    .line 142
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->cancelled:Z
 
     .line 144
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->cancelAll()V
 
-    .line 146
     :cond_0
     return-void
 .end method
@@ -187,35 +173,24 @@
     .locals 4
 
     .line 158
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;, "Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->subscribers:[Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber;
 
-    .local v0, "arr$":[Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber;
     array-length v1, v0
 
-    .local v1, "len$":I
     const/4 v2, 0x0
 
-    .local v2, "i$":I
     :goto_0
     if-ge v2, v1, :cond_0
 
     aget-object v3, v0, v2
 
     .line 159
-    .local v3, "s":Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber<TT;TR;>;"
     invoke-virtual {v3}, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber;->cancel()V
 
-    .line 158
-    .end local v3    # "s":Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber<TT;TR;>;"
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 161
-    .end local v0    # "arr$":[Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber;
-    .end local v1    # "len$":I
-    .end local v2    # "i$":I
     :cond_0
     return-void
 .end method
@@ -223,16 +198,15 @@
 .method drain()V
     .locals 18
 
-    .line 165
     move-object/from16 v1, p0
 
+    .line 165
     invoke-virtual/range {p0 .. p0}, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->getAndIncrement()I
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 166
     return-void
 
     .line 169
@@ -248,22 +222,19 @@
     .line 172
     iget-object v5, v1, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->current:[Ljava/lang/Object;
 
-    .line 174
     const/4 v7, 0x1
 
     .line 178
-    :goto_0
+    :cond_1
     iget-object v0, v1, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
 
     move-result-wide v8
 
-    .line 179
     const-wide/16 v12, 0x0
 
-    .line 181
-    :goto_1
+    :goto_0
     cmp-long v14, v8, v12
 
     const/4 v15, 0x0
@@ -275,16 +246,15 @@
     .line 183
     iget-boolean v0, v1, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->cancelled:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
-    .line 184
     return-void
 
     .line 187
-    :cond_1
+    :cond_2
     iget-boolean v0, v1, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->delayErrors:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
 
     iget-object v0, v1, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->errors:Lio/reactivex/internal/util/AtomicThrowable;
 
@@ -292,7 +262,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     .line 188
     invoke-virtual/range {p0 .. p0}, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->cancelAll()V
@@ -306,19 +276,14 @@
 
     invoke-interface {v2, v0}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 190
     return-void
 
-    .line 193
-    :cond_2
-    nop
-
-    .line 195
+    :cond_3
     move/from16 v0, v16
 
     move v6, v0
 
-    :goto_2
+    :goto_1
     if-ge v6, v4, :cond_a
 
     .line 196
@@ -336,34 +301,32 @@
     .line 200
     iget-object v10, v10, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
-    .line 202
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_4
 
+    .line 202
     invoke-interface {v10}, Lio/reactivex/internal/fuseable/SimpleQueue;->poll()Ljava/lang/Object;
 
     move-result-object v10
 
-    goto :goto_3
+    goto :goto_2
 
-    :cond_3
+    :cond_4
     move-object v10, v15
 
-    .line 204
-    :goto_3
-    if-nez v10, :cond_4
+    :goto_2
+    if-nez v10, :cond_5
 
     const/16 v17, 0x1
 
-    goto :goto_4
+    goto :goto_3
 
-    :cond_4
+    :cond_5
     move/from16 v17, v16
 
-    .line 205
-    :goto_4
-    if-eqz v11, :cond_6
+    :goto_3
+    if-eqz v11, :cond_7
 
-    if-eqz v17, :cond_6
+    if-eqz v17, :cond_7
 
     .line 206
     invoke-virtual/range {p0 .. p0}, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->cancelAll()V
@@ -377,8 +340,7 @@
 
     check-cast v0, Ljava/lang/Throwable;
 
-    .line 208
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
     .line 209
     iget-object v0, v1, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->errors:Lio/reactivex/internal/util/AtomicThrowable;
@@ -389,36 +351,25 @@
 
     invoke-interface {v2, v0}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    goto :goto_5
+    goto :goto_4
 
     .line 211
-    :cond_5
+    :cond_6
     invoke-interface {v2}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 213
-    :goto_5
+    :goto_4
     return-void
 
-    .line 215
-    :cond_6
-    if-nez v17, :cond_7
+    :cond_7
+    if-nez v17, :cond_8
 
     .line 216
     aput-object v10, v5, v6
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_6
+    goto :goto_5
 
-    .line 218
-    :cond_7
-    const/4 v0, 0x1
-
-    .line 230
-    :goto_6
-    goto :goto_7
-
-    .line 220
     :catchall_0
     move-exception v0
 
@@ -447,26 +398,21 @@
 
     invoke-interface {v2, v0}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 227
     return-void
 
-    .line 229
     :cond_8
     const/4 v0, 0x1
 
-    .line 195
     :cond_9
-    :goto_7
+    :goto_5
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_2
+    goto :goto_1
 
-    .line 234
     :cond_a
     if-eqz v0, :cond_b
 
-    .line 235
-    goto :goto_8
+    goto :goto_6
 
     .line 241
     :cond_b
@@ -489,13 +435,9 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    .line 248
-    nop
-
     .line 250
     invoke-interface {v2, v0}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
-    .line 252
     const-wide/16 v10, 0x1
 
     add-long/2addr v12, v10
@@ -503,10 +445,8 @@
     .line 254
     invoke-static {v5, v15}, Ljava/util/Arrays;->fill([Ljava/lang/Object;Ljava/lang/Object;)V
 
-    .line 255
-    goto/16 :goto_1
+    goto/16 :goto_0
 
-    .line 242
     :catchall_1
     move-exception v0
 
@@ -530,20 +470,17 @@
 
     invoke-interface {v2, v0}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 247
     return-void
 
-    .line 257
     :cond_c
-    :goto_8
-    if-nez v14, :cond_15
+    :goto_6
+    if-nez v14, :cond_14
 
     .line 258
     iget-boolean v0, v1, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->cancelled:Z
 
     if-eqz v0, :cond_d
 
-    .line 259
     return-void
 
     .line 262
@@ -572,15 +509,13 @@
 
     invoke-interface {v2, v0}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 265
     return-void
 
-    .line 268
     :cond_e
     move/from16 v6, v16
 
-    :goto_9
-    if-ge v6, v4, :cond_15
+    :goto_7
+    if-ge v6, v4, :cond_14
 
     .line 269
     aget-object v0, v3, v6
@@ -588,7 +523,7 @@
     .line 270
     aget-object v10, v5, v6
 
-    if-nez v10, :cond_14
+    if-nez v10, :cond_13
 
     .line 272
     :try_start_2
@@ -597,31 +532,29 @@
     .line 273
     iget-object v0, v0, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber;->queue:Lio/reactivex/internal/fuseable/SimpleQueue;
 
-    .line 274
     if-eqz v0, :cond_f
 
+    .line 274
     invoke-interface {v0}, Lio/reactivex/internal/fuseable/SimpleQueue;->poll()Ljava/lang/Object;
 
     move-result-object v0
 
-    goto :goto_a
+    goto :goto_8
 
     :cond_f
     move-object v0, v15
 
-    .line 276
-    :goto_a
+    :goto_8
     if-nez v0, :cond_10
 
     const/4 v11, 0x1
 
-    goto :goto_b
+    goto :goto_9
 
     :cond_10
     move/from16 v11, v16
 
-    .line 277
-    :goto_b
+    :goto_9
     if-eqz v10, :cond_12
 
     if-eqz v11, :cond_12
@@ -638,7 +571,6 @@
 
     check-cast v0, Ljava/lang/Throwable;
 
-    .line 280
     if-eqz v0, :cond_11
 
     .line 281
@@ -650,17 +582,15 @@
 
     invoke-interface {v2, v0}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    goto :goto_c
+    goto :goto_a
 
     .line 283
     :cond_11
     invoke-interface {v2}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 285
-    :goto_c
+    :goto_a
     return-void
 
-    .line 287
     :cond_12
     if-nez v11, :cond_13
 
@@ -669,11 +599,8 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
-    .line 298
-    :cond_13
-    goto :goto_d
+    goto :goto_b
 
-    .line 290
     :catchall_2
     move-exception v0
 
@@ -688,7 +615,7 @@
     .line 293
     iget-boolean v0, v1, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->delayErrors:Z
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_13
 
     .line 294
     invoke-virtual/range {p0 .. p0}, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->cancelAll()V
@@ -702,49 +629,44 @@
 
     invoke-interface {v2, v0}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 296
     return-void
 
-    .line 268
-    :cond_14
-    :goto_d
+    :cond_13
+    :goto_b
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_9
+    goto :goto_7
 
-    .line 304
-    :cond_15
+    :cond_14
     const-wide/16 v10, 0x0
 
     cmp-long v0, v12, v10
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_16
 
     .line 306
     array-length v0, v3
 
     move/from16 v6, v16
 
-    :goto_e
-    if-ge v6, v0, :cond_16
+    :goto_c
+    if-ge v6, v0, :cond_15
 
     aget-object v10, v3, v6
 
     .line 307
     invoke-virtual {v10, v12, v13}, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber;->request(J)V
 
-    .line 306
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_e
+    goto :goto_c
 
-    .line 310
-    :cond_16
+    :cond_15
     const-wide v10, 0x7fffffffffffffffL
 
     cmp-long v0, v8, v10
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_16
 
     .line 311
     iget-object v0, v1, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->requested:Ljava/util/concurrent/atomic/AtomicLong;
@@ -753,31 +675,21 @@
 
     invoke-virtual {v0, v8, v9}, Ljava/util/concurrent/atomic/AtomicLong;->addAndGet(J)J
 
-    .line 315
-    :cond_17
+    :cond_16
     neg-int v0, v7
 
+    .line 315
     invoke-virtual {v1, v0}, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->addAndGet(I)I
 
     move-result v7
 
-    .line 316
-    if-nez v7, :cond_18
+    if-nez v7, :cond_1
 
-    .line 317
-    nop
-
-    .line 320
     return-void
-
-    .line 319
-    :cond_18
-    goto/16 :goto_0
 .end method
 
 .method error(Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber;Ljava/lang/Throwable;)V
     .locals 1
-    .param p2, "e"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -789,8 +701,6 @@
     .end annotation
 
     .line 149
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;, "Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator<TT;TR;>;"
-    .local p1, "inner":Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber<TT;TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->errors:Lio/reactivex/internal/util/AtomicThrowable;
 
     invoke-virtual {v0, p2}, Lio/reactivex/internal/util/AtomicThrowable;->addThrowable(Ljava/lang/Throwable;)Z
@@ -799,10 +709,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 150
-    const/4 v0, 0x1
+    const/4 p2, 0x1
 
-    iput-boolean v0, p1, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber;->done:Z
+    .line 150
+    iput-boolean p2, p1, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber;->done:Z
 
     .line 151
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->drain()V
@@ -813,17 +723,14 @@
     :cond_0
     invoke-static {p2}, Lio/reactivex/plugins/RxJavaPlugins;->onError(Ljava/lang/Throwable;)V
 
-    .line 155
     :goto_0
     return-void
 .end method
 
 .method public request(J)V
     .locals 1
-    .param p1, "n"    # J
 
     .line 133
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;, "Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator<TT;TR;>;"
     invoke-static {p1, p2}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(J)Z
 
     move-result v0
@@ -838,14 +745,12 @@
     .line 135
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->drain()V
 
-    .line 137
     :cond_0
     return-void
 .end method
 
 .method subscribe([Lorg/reactivestreams/Publisher;I)V
     .locals 4
-    .param p2, "n"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -855,17 +760,12 @@
     .end annotation
 
     .line 122
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;, "Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator<TT;TR;>;"
-    .local p1, "sources":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<+TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->subscribers:[Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber;
 
-    .line 123
-    .local v0, "a":[Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber;, "[Lio/reactivex/internal/operators/flowable/FlowableZip$ZipSubscriber<TT;TR;>;"
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
-    if-ge v1, p2, :cond_2
+    if-ge v1, p2, :cond_1
 
     .line 124
     iget-boolean v2, p0, Lio/reactivex/internal/operators/flowable/FlowableZip$ZipCoordinator;->cancelled:Z
@@ -894,18 +794,11 @@
 
     invoke-interface {v2, v3}, Lorg/reactivestreams/Publisher;->subscribe(Lorg/reactivestreams/Subscriber;)V
 
-    .line 123
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 125
     :cond_1
     :goto_1
-    return-void
-
-    .line 129
-    .end local v1    # "i":I
-    :cond_2
     return-void
 .end method

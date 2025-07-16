@@ -39,16 +39,11 @@
 
     invoke-direct {p0, v0, v1, v2}, Lcom/google/crypto/tink/PrivateKeyTypeManager;-><init>(Ljava/lang/Class;Ljava/lang/Class;[Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;)V
 
-    .line 67
     return-void
 .end method
 
 .method public static createKeyTemplate(Lcom/google/crypto/tink/proto/HashType;Lcom/google/crypto/tink/proto/EllipticCurveType;Lcom/google/crypto/tink/proto/EcdsaSignatureEncoding;Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;)Lcom/google/crypto/tink/KeyTemplate;
-    .locals 4
-    .param p0, "hashType"    # Lcom/google/crypto/tink/proto/HashType;
-    .param p1, "curve"    # Lcom/google/crypto/tink/proto/EllipticCurveType;
-    .param p2, "encoding"    # Lcom/google/crypto/tink/proto/EcdsaSignatureEncoding;
-    .param p3, "prefixType"    # Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -72,62 +67,60 @@
     .line 201
     invoke-virtual {v0, p0}, Lcom/google/crypto/tink/proto/EcdsaParams$Builder;->setHashType(Lcom/google/crypto/tink/proto/HashType;)Lcom/google/crypto/tink/proto/EcdsaParams$Builder;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 202
-    invoke-virtual {v0, p1}, Lcom/google/crypto/tink/proto/EcdsaParams$Builder;->setCurve(Lcom/google/crypto/tink/proto/EllipticCurveType;)Lcom/google/crypto/tink/proto/EcdsaParams$Builder;
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/proto/EcdsaParams$Builder;->setCurve(Lcom/google/crypto/tink/proto/EllipticCurveType;)Lcom/google/crypto/tink/proto/EcdsaParams$Builder;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 203
-    invoke-virtual {v0, p2}, Lcom/google/crypto/tink/proto/EcdsaParams$Builder;->setEncoding(Lcom/google/crypto/tink/proto/EcdsaSignatureEncoding;)Lcom/google/crypto/tink/proto/EcdsaParams$Builder;
+    invoke-virtual {p0, p2}, Lcom/google/crypto/tink/proto/EcdsaParams$Builder;->setEncoding(Lcom/google/crypto/tink/proto/EcdsaSignatureEncoding;)Lcom/google/crypto/tink/proto/EcdsaParams$Builder;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 204
-    invoke-virtual {v0}, Lcom/google/crypto/tink/proto/EcdsaParams$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
+    invoke-virtual {p0}, Lcom/google/crypto/tink/proto/EcdsaParams$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/EcdsaParams;
+    check-cast p0, Lcom/google/crypto/tink/proto/EcdsaParams;
 
     .line 205
-    .local v0, "params":Lcom/google/crypto/tink/proto/EcdsaParams;
     invoke-static {}, Lcom/google/crypto/tink/proto/EcdsaKeyFormat;->newBuilder()Lcom/google/crypto/tink/proto/EcdsaKeyFormat$Builder;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1, v0}, Lcom/google/crypto/tink/proto/EcdsaKeyFormat$Builder;->setParams(Lcom/google/crypto/tink/proto/EcdsaParams;)Lcom/google/crypto/tink/proto/EcdsaKeyFormat$Builder;
+    invoke-virtual {p1, p0}, Lcom/google/crypto/tink/proto/EcdsaKeyFormat$Builder;->setParams(Lcom/google/crypto/tink/proto/EcdsaParams;)Lcom/google/crypto/tink/proto/EcdsaKeyFormat$Builder;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Lcom/google/crypto/tink/proto/EcdsaKeyFormat$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
+    invoke-virtual {p0}, Lcom/google/crypto/tink/proto/EcdsaKeyFormat$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Lcom/google/crypto/tink/proto/EcdsaKeyFormat;
+    check-cast p0, Lcom/google/crypto/tink/proto/EcdsaKeyFormat;
 
     .line 206
-    .local v1, "format":Lcom/google/crypto/tink/proto/EcdsaKeyFormat;
-    new-instance v2, Lcom/google/crypto/tink/signature/EcdsaSignKeyManager;
+    new-instance p1, Lcom/google/crypto/tink/signature/EcdsaSignKeyManager;
 
-    invoke-direct {v2}, Lcom/google/crypto/tink/signature/EcdsaSignKeyManager;-><init>()V
+    invoke-direct {p1}, Lcom/google/crypto/tink/signature/EcdsaSignKeyManager;-><init>()V
 
     .line 207
-    invoke-virtual {v2}, Lcom/google/crypto/tink/signature/EcdsaSignKeyManager;->getKeyType()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/signature/EcdsaSignKeyManager;->getKeyType()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1}, Lcom/google/crypto/tink/proto/EcdsaKeyFormat;->toByteArray()[B
+    invoke-virtual {p0}, Lcom/google/crypto/tink/proto/EcdsaKeyFormat;->toByteArray()[B
 
-    move-result-object v3
+    move-result-object p0
 
     .line 206
-    invoke-static {v2, v3, p3}, Lcom/google/crypto/tink/KeyTemplate;->create(Ljava/lang/String;[BLcom/google/crypto/tink/KeyTemplate$OutputPrefixType;)Lcom/google/crypto/tink/KeyTemplate;
+    invoke-static {p1, p0, p3}, Lcom/google/crypto/tink/KeyTemplate;->create(Ljava/lang/String;[BLcom/google/crypto/tink/KeyTemplate$OutputPrefixType;)Lcom/google/crypto/tink/KeyTemplate;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 .end method
 
 .method public static final ecdsaP256Template()Lcom/google/crypto/tink/KeyTemplate;
@@ -170,7 +163,6 @@
 
 .method public static registerPair(Z)V
     .locals 2
-    .param p0, "newKeyAllowed"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -197,7 +189,6 @@
 
     invoke-static {v0, v1, p0}, Lcom/google/crypto/tink/Registry;->registerAsymmetricKeyManagers(Lcom/google/crypto/tink/PrivateKeyTypeManager;Lcom/google/crypto/tink/KeyTypeManager;Z)V
 
-    .line 150
     return-void
 .end method
 
@@ -206,15 +197,13 @@
 .method public getKeyType()Ljava/lang/String;
     .locals 1
 
-    .line 71
     const-string v0, "type.googleapis.com/google.crypto.tink.EcdsaPrivateKey"
 
     return-object v0
 .end method
 
 .method public getPublicKey(Lcom/google/crypto/tink/proto/EcdsaPrivateKey;)Lcom/google/crypto/tink/proto/EcdsaPublicKey;
-    .locals 1
-    .param p1, "key"    # Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -233,9 +222,9 @@
     .line 81
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->getPublicKey()Lcom/google/crypto/tink/proto/EcdsaPublicKey;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic getPublicKey(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
@@ -268,7 +257,6 @@
 .method public getVersion()I
     .locals 1
 
-    .line 76
     const/4 v0, 0x0
 
     return v0
@@ -307,7 +295,6 @@
 
 .method public parseKey(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
     .locals 1
-    .param p1, "byteString"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -330,9 +317,9 @@
 
     invoke-static {p1, v0}, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic parseKey(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
@@ -362,7 +349,6 @@
 
 .method public validateKey(Lcom/google/crypto/tink/proto/EcdsaPrivateKey;)V
     .locals 2
-    .param p1, "privKey"    # Lcom/google/crypto/tink/proto/EcdsaPrivateKey;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -392,15 +378,14 @@
     .line 98
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/EcdsaPrivateKey;->getPublicKey()Lcom/google/crypto/tink/proto/EcdsaPublicKey;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/google/crypto/tink/proto/EcdsaPublicKey;->getParams()Lcom/google/crypto/tink/proto/EcdsaParams;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/EcdsaPublicKey;->getParams()Lcom/google/crypto/tink/proto/EcdsaParams;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Lcom/google/crypto/tink/signature/SigUtil;->validateEcdsaParams(Lcom/google/crypto/tink/proto/EcdsaParams;)V
+    invoke-static {p1}, Lcom/google/crypto/tink/signature/SigUtil;->validateEcdsaParams(Lcom/google/crypto/tink/proto/EcdsaParams;)V
 
-    .line 99
     return-void
 .end method
 

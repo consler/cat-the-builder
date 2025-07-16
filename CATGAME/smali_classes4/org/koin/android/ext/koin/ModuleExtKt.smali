@@ -42,147 +42,101 @@
 
 # direct methods
 .method public static final androidApplication(Lorg/koin/core/scope/Scope;)Landroid/app/Application;
-    .locals 5
-    .param p0, "$this$androidApplication"    # Lorg/koin/core/scope/Scope;
+    .locals 2
 
     const-string v0, "$this$androidApplication"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 41
-    nop
-
-    .line 42
-    move-object v0, p0
+    const/4 v0, 0x0
 
     .line 51
-    .local v0, "this_$iv":Lorg/koin/core/scope/Scope;
-    const/4 v1, 0x0
-
     :try_start_0
-    move-object v2, v1
+    move-object v1, v0
 
-    check-cast v2, Lorg/koin/core/qualifier/Qualifier;
+    check-cast v1, Lorg/koin/core/qualifier/Qualifier;
 
     .line 52
-    .local v2, "qualifier$iv":Lorg/koin/core/qualifier/Qualifier;
+    move-object v1, v0
+
     check-cast v1, Lkotlin/jvm/functions/Function0;
 
-    .local v1, "parameters$iv":Lkotlin/jvm/functions/Function0;
-    const/4 v3, 0x0
-
     .line 54
-    .local v3, "$i$f$get":I
-    const-class v4, Landroid/app/Application;
+    const-class v1, Landroid/app/Application;
 
-    invoke-static {v4}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+    invoke-static {v1}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-virtual {v0, v4, v2, v1}, Lorg/koin/core/scope/Scope;->get(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+    invoke-virtual {p0, v1, v0, v0}, Lorg/koin/core/scope/Scope;->get(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object p0
 
-    .end local v0    # "this_$iv":Lorg/koin/core/scope/Scope;
-    .end local v1    # "parameters$iv":Lkotlin/jvm/functions/Function0;
-    .end local v2    # "qualifier$iv":Lorg/koin/core/qualifier/Qualifier;
-    .end local v3    # "$i$f$get":I
-    check-cast v4, Landroid/app/Application;
+    check-cast p0, Landroid/app/Application;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 41
-    nop
-
-    .line 45
-    return-object v4
-
-    .line 43
-    :catch_0
-    move-exception v0
+    return-object p0
 
     .line 44
-    .local v0, "e":Ljava/lang/Exception;
-    new-instance v1, Lorg/koin/android/error/MissingAndroidContextException;
+    :catch_0
+    new-instance p0, Lorg/koin/android/error/MissingAndroidContextException;
 
-    const-string v2, "Can\'t resolve Application instance. Please use androidContext() function in your KoinApplication configuration."
+    const-string v0, "Can\'t resolve Application instance. Please use androidContext() function in your KoinApplication configuration."
 
-    invoke-direct {v1, v2}, Lorg/koin/android/error/MissingAndroidContextException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Lorg/koin/android/error/MissingAndroidContextException;-><init>(Ljava/lang/String;)V
 
-    check-cast v1, Ljava/lang/Throwable;
+    check-cast p0, Ljava/lang/Throwable;
 
-    throw v1
+    throw p0
 .end method
 
 .method public static final androidContext(Lorg/koin/core/scope/Scope;)Landroid/content/Context;
-    .locals 5
-    .param p0, "$this$androidContext"    # Lorg/koin/core/scope/Scope;
+    .locals 2
 
     const-string v0, "$this$androidContext"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 30
-    nop
-
-    .line 31
-    move-object v0, p0
+    const/4 v0, 0x0
 
     .line 47
-    .local v0, "this_$iv":Lorg/koin/core/scope/Scope;
-    const/4 v1, 0x0
-
     :try_start_0
-    move-object v2, v1
+    move-object v1, v0
 
-    check-cast v2, Lorg/koin/core/qualifier/Qualifier;
+    check-cast v1, Lorg/koin/core/qualifier/Qualifier;
 
     .line 48
-    .local v2, "qualifier$iv":Lorg/koin/core/qualifier/Qualifier;
+    move-object v1, v0
+
     check-cast v1, Lkotlin/jvm/functions/Function0;
 
-    .local v1, "parameters$iv":Lkotlin/jvm/functions/Function0;
-    const/4 v3, 0x0
-
     .line 50
-    .local v3, "$i$f$get":I
-    const-class v4, Landroid/content/Context;
+    const-class v1, Landroid/content/Context;
 
-    invoke-static {v4}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+    invoke-static {v1}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-virtual {v0, v4, v2, v1}, Lorg/koin/core/scope/Scope;->get(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+    invoke-virtual {p0, v1, v0, v0}, Lorg/koin/core/scope/Scope;->get(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object p0
 
-    .end local v0    # "this_$iv":Lorg/koin/core/scope/Scope;
-    .end local v1    # "parameters$iv":Lkotlin/jvm/functions/Function0;
-    .end local v2    # "qualifier$iv":Lorg/koin/core/qualifier/Qualifier;
-    .end local v3    # "$i$f$get":I
-    check-cast v4, Landroid/content/Context;
+    check-cast p0, Landroid/content/Context;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 30
-    nop
-
-    .line 34
-    return-object v4
-
-    .line 32
-    :catch_0
-    move-exception v0
+    return-object p0
 
     .line 33
-    .local v0, "e":Ljava/lang/Exception;
-    new-instance v1, Lorg/koin/android/error/MissingAndroidContextException;
+    :catch_0
+    new-instance p0, Lorg/koin/android/error/MissingAndroidContextException;
 
-    const-string v2, "Can\'t resolve Context instance. Please use androidContext() function in your KoinApplication configuration."
+    const-string v0, "Can\'t resolve Context instance. Please use androidContext() function in your KoinApplication configuration."
 
-    invoke-direct {v1, v2}, Lorg/koin/android/error/MissingAndroidContextException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Lorg/koin/android/error/MissingAndroidContextException;-><init>(Ljava/lang/String;)V
 
-    check-cast v1, Ljava/lang/Throwable;
+    check-cast p0, Ljava/lang/Throwable;
 
-    throw v1
+    throw p0
 .end method

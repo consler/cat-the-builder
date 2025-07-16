@@ -37,7 +37,7 @@
 
 # direct methods
 .method private constructor <init>(Lio/reactivex/Observable;Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -49,22 +49,18 @@
     .end annotation
 
     .line 67
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableCache;, "Lio/reactivex/internal/operators/observable/ObservableCache<TT;>;"
-    .local p1, "source":Lio/reactivex/Observable;, "Lio/reactivex/Observable<TT;>;"
-    .local p2, "state":Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;, "Lio/reactivex/internal/operators/observable/ObservableCache$CacheState<TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/observable/AbstractObservableWithUpstream;-><init>(Lio/reactivex/ObservableSource;)V
 
     .line 68
     iput-object p2, p0, Lio/reactivex/internal/operators/observable/ObservableCache;->state:Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;
 
     .line 69
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableCache;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableCache;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    .line 70
     return-void
 .end method
 
@@ -82,20 +78,18 @@
         }
     .end annotation
 
-    .line 44
-    .local p0, "source":Lio/reactivex/Observable;, "Lio/reactivex/Observable<TT;>;"
     const/16 v0, 0x10
 
+    .line 44
     invoke-static {p0, v0}, Lio/reactivex/internal/operators/observable/ObservableCache;->from(Lio/reactivex/Observable;I)Lio/reactivex/Observable;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static from(Lio/reactivex/Observable;I)Lio/reactivex/Observable;
-    .locals 2
-    .param p1, "capacityHint"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -108,10 +102,9 @@
         }
     .end annotation
 
-    .line 55
-    .local p0, "source":Lio/reactivex/Observable;, "Lio/reactivex/Observable<TT;>;"
     const-string v0, "capacityHint"
 
+    .line 55
     invoke-static {p1, v0}, Lio/reactivex/internal/functions/ObjectHelper;->verifyPositive(ILjava/lang/String;)I
 
     .line 56
@@ -120,16 +113,15 @@
     invoke-direct {v0, p0, p1}, Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;-><init>(Lio/reactivex/Observable;I)V
 
     .line 57
-    .local v0, "state":Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;, "Lio/reactivex/internal/operators/observable/ObservableCache$CacheState<TT;>;"
-    new-instance v1, Lio/reactivex/internal/operators/observable/ObservableCache;
+    new-instance p1, Lio/reactivex/internal/operators/observable/ObservableCache;
 
-    invoke-direct {v1, p0, v0}, Lio/reactivex/internal/operators/observable/ObservableCache;-><init>(Lio/reactivex/Observable;Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;)V
+    invoke-direct {p1, p0, v0}, Lio/reactivex/internal/operators/observable/ObservableCache;-><init>(Lio/reactivex/Observable;Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;)V
 
-    invoke-static {v1}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Observable;)Lio/reactivex/Observable;
+    invoke-static {p1}, Lio/reactivex/plugins/RxJavaPlugins;->onAssembly(Lio/reactivex/Observable;)Lio/reactivex/Observable;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 
@@ -138,7 +130,6 @@
     .locals 1
 
     .line 109
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableCache;, "Lio/reactivex/internal/operators/observable/ObservableCache<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableCache;->state:Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;
 
     invoke-virtual {v0}, Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;->size()I
@@ -152,7 +143,6 @@
     .locals 1
 
     .line 101
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableCache;, "Lio/reactivex/internal/operators/observable/ObservableCache<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableCache;->state:Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;
 
     iget-object v0, v0, Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;->observers:Ljava/util/concurrent/atomic/AtomicReference;
@@ -182,7 +172,6 @@
     .locals 1
 
     .line 93
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableCache;, "Lio/reactivex/internal/operators/observable/ObservableCache<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableCache;->state:Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;
 
     iget-boolean v0, v0, Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;->isConnected:Z
@@ -191,7 +180,7 @@
 .end method
 
 .method protected subscribeActual(Lio/reactivex/Observer;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -201,8 +190,6 @@
     .end annotation
 
     .line 75
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableCache;, "Lio/reactivex/internal/operators/observable/ObservableCache<TT;>;"
-    .local p1, "t":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableCache;->state:Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;
@@ -210,44 +197,42 @@
     invoke-direct {v0, p1, v1}, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;-><init>(Lio/reactivex/Observer;Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;)V
 
     .line 76
-    .local v0, "rp":Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;, "Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable<TT;>;"
     invoke-interface {p1, v0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 78
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableCache;->state:Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableCache;->state:Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;
 
-    invoke-virtual {v1, v0}, Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;->addChild(Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;)Z
+    invoke-virtual {p1, v0}, Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;->addChild(Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;)Z
 
     .line 81
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableCache;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableCache;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
+    invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
 
-    move-result v1
+    move-result p1
 
-    if-nez v1, :cond_0
+    if-nez p1, :cond_0
 
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableCache;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableCache;->once:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    invoke-virtual {v1, v2, v3}, Ljava/util/concurrent/atomic/AtomicBoolean;->compareAndSet(ZZ)Z
+    invoke-virtual {p1, v1, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->compareAndSet(ZZ)Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
     .line 82
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableCache;->state:Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableCache;->state:Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;
 
-    invoke-virtual {v1}, Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;->connect()V
+    invoke-virtual {p1}, Lio/reactivex/internal/operators/observable/ObservableCache$CacheState;->connect()V
 
     .line 85
     :cond_0
     invoke-virtual {v0}, Lio/reactivex/internal/operators/observable/ObservableCache$ReplayDisposable;->replay()V
 
-    .line 86
     return-void
 .end method

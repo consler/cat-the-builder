@@ -26,8 +26,6 @@
 # direct methods
 .method constructor <init>(Landroidx/lifecycle/LifecycleOwner;Landroidx/camera/lifecycle/LifecycleCameraRepository;)V
     .locals 0
-    .param p1, "lifecycleOwner"    # Landroidx/lifecycle/LifecycleOwner;
-    .param p2, "lifecycleCameraRepository"    # Landroidx/camera/lifecycle/LifecycleCameraRepository;
 
     .line 464
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +36,6 @@
     .line 466
     iput-object p2, p0, Landroidx/camera/lifecycle/LifecycleCameraRepository$LifecycleCameraRepositoryObserver;->mLifecycleCameraRepository:Landroidx/camera/lifecycle/LifecycleCameraRepository;
 
-    .line 467
     return-void
 .end method
 
@@ -55,7 +52,6 @@
 
 .method public onDestroy(Landroidx/lifecycle/LifecycleOwner;)V
     .locals 1
-    .param p1, "lifecycleOwner"    # Landroidx/lifecycle/LifecycleOwner;
     .annotation runtime Landroidx/lifecycle/OnLifecycleEvent;
         value = .enum Landroidx/lifecycle/Lifecycle$Event;->ON_DESTROY:Landroidx/lifecycle/Lifecycle$Event;
     .end annotation
@@ -65,13 +61,11 @@
 
     invoke-virtual {v0, p1}, Landroidx/camera/lifecycle/LifecycleCameraRepository;->unregisterLifecycle(Landroidx/lifecycle/LifecycleOwner;)V
 
-    .line 498
     return-void
 .end method
 
 .method public onStart(Landroidx/lifecycle/LifecycleOwner;)V
     .locals 1
-    .param p1, "lifecycleOwner"    # Landroidx/lifecycle/LifecycleOwner;
     .annotation runtime Landroidx/lifecycle/OnLifecycleEvent;
         value = .enum Landroidx/lifecycle/Lifecycle$Event;->ON_START:Landroidx/lifecycle/Lifecycle$Event;
     .end annotation
@@ -81,13 +75,11 @@
 
     invoke-virtual {v0, p1}, Landroidx/camera/lifecycle/LifecycleCameraRepository;->setActive(Landroidx/lifecycle/LifecycleOwner;)V
 
-    .line 480
     return-void
 .end method
 
 .method public onStop(Landroidx/lifecycle/LifecycleOwner;)V
     .locals 1
-    .param p1, "lifecycleOwner"    # Landroidx/lifecycle/LifecycleOwner;
     .annotation runtime Landroidx/lifecycle/OnLifecycleEvent;
         value = .enum Landroidx/lifecycle/Lifecycle$Event;->ON_STOP:Landroidx/lifecycle/Lifecycle$Event;
     .end annotation
@@ -97,6 +89,5 @@
 
     invoke-virtual {v0, p1}, Landroidx/camera/lifecycle/LifecycleCameraRepository;->setInactive(Landroidx/lifecycle/LifecycleOwner;)V
 
-    .line 488
     return-void
 .end method

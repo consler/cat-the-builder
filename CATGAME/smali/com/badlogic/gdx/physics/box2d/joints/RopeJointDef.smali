@@ -46,6 +46,5 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/physics/box2d/joints/RopeJointDef;->type:Lcom/badlogic/gdx/physics/box2d/JointDef$JointType;
 
-    .line 28
     return-void
 .end method

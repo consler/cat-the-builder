@@ -18,14 +18,14 @@
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 21
     const/16 v0, 0x2c
 
+    .line 21
     iput-char v0, p0, Lcom/opencsv/RFC4180ParserBuilder;->separator:C
 
-    .line 22
     const/16 v0, 0x22
 
+    .line 22
     iput-char v0, p0, Lcom/opencsv/RFC4180ParserBuilder;->quoteChar:C
 
     .line 23
@@ -33,7 +33,6 @@
 
     iput-object v0, p0, Lcom/opencsv/RFC4180ParserBuilder;->nullFieldIndicator:Lcom/opencsv/enums/CSVReaderNullFieldIndicator;
 
-    .line 29
     return-void
 .end method
 
@@ -85,33 +84,27 @@
 
 .method public withFieldAsNull(Lcom/opencsv/enums/CSVReaderNullFieldIndicator;)Lcom/opencsv/RFC4180ParserBuilder;
     .locals 0
-    .param p1, "fieldIndicator"    # Lcom/opencsv/enums/CSVReaderNullFieldIndicator;
 
     .line 95
     iput-object p1, p0, Lcom/opencsv/RFC4180ParserBuilder;->nullFieldIndicator:Lcom/opencsv/enums/CSVReaderNullFieldIndicator;
 
-    .line 96
     return-object p0
 .end method
 
 .method public withQuoteChar(C)Lcom/opencsv/RFC4180ParserBuilder;
     .locals 0
-    .param p1, "quoteChar"    # C
 
     .line 84
     iput-char p1, p0, Lcom/opencsv/RFC4180ParserBuilder;->quoteChar:C
 
-    .line 85
     return-object p0
 .end method
 
 .method public withSeparator(C)Lcom/opencsv/RFC4180ParserBuilder;
     .locals 0
-    .param p1, "separator"    # C
 
     .line 71
     iput-char p1, p0, Lcom/opencsv/RFC4180ParserBuilder;->separator:C
 
-    .line 72
     return-object p0
 .end method

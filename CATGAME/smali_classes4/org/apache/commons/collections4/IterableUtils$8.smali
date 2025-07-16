@@ -70,11 +70,8 @@
 
     move-result-object v0
 
-    :goto_0
-    nop
-
     .line 366
-    .local v0, "list":Ljava/util/List;, "Ljava/util/List<TE;>;"
+    :goto_0
     new-instance v1, Lorg/apache/commons/collections4/iterators/ReverseListIterator;
 
     invoke-direct {v1, v0}, Lorg/apache/commons/collections4/iterators/ReverseListIterator;-><init>(Ljava/util/List;)V

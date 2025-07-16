@@ -41,8 +41,6 @@
 # virtual methods
 .method public apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .param p1, "input"    # Ljava/lang/Object;
 
-    .line 139
     return-object p1
 .end method

@@ -49,13 +49,13 @@
 
     sput-object v0, Lio/reactivex/internal/functions/Functions$NaturalComparator;->INSTANCE:Lio/reactivex/internal/functions/Functions$NaturalComparator;
 
-    .line 481
     const/4 v1, 0x1
 
     new-array v1, v1, [Lio/reactivex/internal/functions/Functions$NaturalComparator;
 
     aput-object v0, v1, v2
 
+    .line 481
     sput-object v1, Lio/reactivex/internal/functions/Functions$NaturalComparator;->$VALUES:[Lio/reactivex/internal/functions/Functions$NaturalComparator;
 
     return-void
@@ -77,18 +77,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lio/reactivex/internal/functions/Functions$NaturalComparator;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 481
     const-class v0, Lio/reactivex/internal/functions/Functions$NaturalComparator;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lio/reactivex/internal/functions/Functions$NaturalComparator;
+    check-cast p0, Lio/reactivex/internal/functions/Functions$NaturalComparator;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lio/reactivex/internal/functions/Functions$NaturalComparator;
@@ -109,18 +108,14 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
-    .param p1, "o1"    # Ljava/lang/Object;
-    .param p2, "o2"    # Ljava/lang/Object;
+    .locals 0
 
     .line 487
-    move-object v0, p1
+    check-cast p1, Ljava/lang/Comparable;
 
-    check-cast v0, Ljava/lang/Comparable;
+    invoke-interface {p1, p2}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
 
-    invoke-interface {v0, p2}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
+    move-result p1
 
-    move-result v0
-
-    return v0
+    return p1
 .end method

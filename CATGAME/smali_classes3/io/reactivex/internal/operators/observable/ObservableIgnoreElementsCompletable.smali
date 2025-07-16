@@ -48,14 +48,11 @@
     .end annotation
 
     .line 25
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableIgnoreElementsCompletable;, "Lio/reactivex/internal/operators/observable/ObservableIgnoreElementsCompletable<TT;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Completable;-><init>()V
 
     .line 26
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableIgnoreElementsCompletable;->source:Lio/reactivex/ObservableSource;
 
-    .line 27
     return-void
 .end method
 
@@ -72,7 +69,6 @@
     .end annotation
 
     .line 36
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableIgnoreElementsCompletable;, "Lio/reactivex/internal/operators/observable/ObservableIgnoreElementsCompletable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/observable/ObservableIgnoreElements;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableIgnoreElementsCompletable;->source:Lio/reactivex/ObservableSource;
@@ -88,10 +84,8 @@
 
 .method public subscribeActual(Lio/reactivex/CompletableObserver;)V
     .locals 2
-    .param p1, "t"    # Lio/reactivex/CompletableObserver;
 
     .line 31
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableIgnoreElementsCompletable;, "Lio/reactivex/internal/operators/observable/ObservableIgnoreElementsCompletable<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableIgnoreElementsCompletable;->source:Lio/reactivex/ObservableSource;
 
     new-instance v1, Lio/reactivex/internal/operators/observable/ObservableIgnoreElementsCompletable$IgnoreObservable;
@@ -100,6 +94,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 32
     return-void
 .end method

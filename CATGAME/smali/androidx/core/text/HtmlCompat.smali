@@ -34,92 +34,72 @@
     .line 181
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 182
     return-void
 .end method
 
 .method public static fromHtml(Ljava/lang/String;I)Landroid/text/Spanned;
-    .locals 2
-    .param p0, "source"    # Ljava/lang/String;
-    .param p1, "flags"    # I
-
-    .line 147
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x18
-
-    if-lt v0, v1, :cond_0
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "source",
+            "flags"
+        }
+    .end annotation
 
     .line 148
     invoke-static {p0, p1}, Landroid/text/Html;->fromHtml(Ljava/lang/String;I)Landroid/text/Spanned;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
-
-    .line 150
-    :cond_0
-    invoke-static {p0}, Landroid/text/Html;->fromHtml(Ljava/lang/String;)Landroid/text/Spanned;
-
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method
 
 .method public static fromHtml(Ljava/lang/String;ILandroid/text/Html$ImageGetter;Landroid/text/Html$TagHandler;)Landroid/text/Spanned;
-    .locals 2
-    .param p0, "source"    # Ljava/lang/String;
-    .param p1, "flags"    # I
-    .param p2, "imageGetter"    # Landroid/text/Html$ImageGetter;
-    .param p3, "tagHandler"    # Landroid/text/Html$TagHandler;
-
-    .line 162
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x18
-
-    if-lt v0, v1, :cond_0
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0,
+            0x0,
+            0x0
+        }
+        names = {
+            "source",
+            "flags",
+            "imageGetter",
+            "tagHandler"
+        }
+    .end annotation
 
     .line 163
     invoke-static {p0, p1, p2, p3}, Landroid/text/Html;->fromHtml(Ljava/lang/String;ILandroid/text/Html$ImageGetter;Landroid/text/Html$TagHandler;)Landroid/text/Spanned;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
-
-    .line 165
-    :cond_0
-    invoke-static {p0, p2, p3}, Landroid/text/Html;->fromHtml(Ljava/lang/String;Landroid/text/Html$ImageGetter;Landroid/text/Html$TagHandler;)Landroid/text/Spanned;
-
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method
 
 .method public static toHtml(Landroid/text/Spanned;I)Ljava/lang/String;
-    .locals 2
-    .param p0, "text"    # Landroid/text/Spanned;
-    .param p1, "options"    # I
-
-    .line 175
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x18
-
-    if-lt v0, v1, :cond_0
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "text",
+            "options"
+        }
+    .end annotation
 
     .line 176
     invoke-static {p0, p1}, Landroid/text/Html;->toHtml(Landroid/text/Spanned;I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
-
-    .line 178
-    :cond_0
-    invoke-static {p0}, Landroid/text/Html;->toHtml(Landroid/text/Spanned;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method

@@ -64,116 +64,101 @@
 
 # direct methods
 .method public constructor <init>(Lcom/thoughtworks/xstream/mapper/Mapper;Lcom/thoughtworks/xstream/converters/ConverterRegistry;Lcom/thoughtworks/xstream/converters/ConverterLookup;Lcom/thoughtworks/xstream/core/ClassLoaderReference;Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;)V
-    .locals 4
-    .param p1, "wrapped"    # Lcom/thoughtworks/xstream/mapper/Mapper;
-    .param p2, "converterRegistry"    # Lcom/thoughtworks/xstream/converters/ConverterRegistry;
-    .param p3, "converterLookup"    # Lcom/thoughtworks/xstream/converters/ConverterLookup;
-    .param p4, "classLoaderReference"    # Lcom/thoughtworks/xstream/core/ClassLoaderReference;
-    .param p5, "reflectionProvider"    # Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;
+    .locals 2
 
     .line 89
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;-><init>(Lcom/thoughtworks/xstream/mapper/Mapper;)V
 
     .line 75
-    new-instance v0, Ljava/util/HashMap;
+    new-instance p1, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {p1}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->converterCache:Ljava/util/Map;
+    iput-object p1, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->converterCache:Ljava/util/Map;
 
     .line 77
-    new-instance v0, Ljava/util/HashSet;
+    new-instance p1, Ljava/util/HashSet;
 
-    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
+    invoke-direct {p1}, Ljava/util/HashSet;-><init>()V
 
     .line 78
-    invoke-static {v0}, Ljava/util/Collections;->synchronizedSet(Ljava/util/Set;)Ljava/util/Set;
+    invoke-static {p1}, Ljava/util/Collections;->synchronizedSet(Ljava/util/Set;)Ljava/util/Set;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->annotatedTypes:Ljava/util/Set;
+    iput-object p1, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->annotatedTypes:Ljava/util/Set;
 
     .line 90
     iput-object p2, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->converterRegistry:Lcom/thoughtworks/xstream/converters/ConverterRegistry;
 
     .line 91
-    const-class v1, Ljava/lang/Object;
+    const-class p2, Ljava/lang/Object;
 
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, p2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 92
     invoke-direct {p0}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->setupMappers()V
 
-    .line 93
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->locked:Z
+    .line 93
+    iput-boolean p1, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->locked:Z
 
     .line 95
     invoke-virtual {p4}, Lcom/thoughtworks/xstream/core/ClassLoaderReference;->getReference()Ljava/lang/ClassLoader;
 
-    move-result-object v1
+    move-result-object p2
+
+    const/4 v0, 0x6
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    const/4 v1, 0x0
+
+    aput-object p0, v0, v1
+
+    aput-object p4, v0, p1
+
+    const/4 p1, 0x2
+
+    aput-object p5, v0, p1
+
+    const/4 p1, 0x3
+
+    aput-object p3, v0, p1
 
     .line 96
-    .local v1, "classLoader":Ljava/lang/ClassLoader;
-    const/4 v2, 0x6
+    new-instance p1, Lcom/thoughtworks/xstream/core/JVM;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    invoke-direct {p1}, Lcom/thoughtworks/xstream/core/JVM;-><init>()V
 
-    const/4 v3, 0x0
+    const/4 p3, 0x4
 
-    aput-object p0, v2, v3
+    aput-object p1, v0, p3
 
-    aput-object p4, v2, v0
-
-    const/4 v0, 0x2
-
-    aput-object p5, v2, v0
-
-    const/4 v0, 0x3
-
-    aput-object p3, v2, v0
-
-    new-instance v0, Lcom/thoughtworks/xstream/core/JVM;
-
-    invoke-direct {v0}, Lcom/thoughtworks/xstream/core/JVM;-><init>()V
-
-    const/4 v3, 0x4
-
-    aput-object v0, v2, v3
-
-    if-eqz v1, :cond_0
-
-    move-object v0, v1
+    if-eqz p2, :cond_0
 
     goto :goto_0
 
     :cond_0
-    new-instance v0, Lcom/thoughtworks/xstream/core/util/TypedNull;
+    new-instance p2, Lcom/thoughtworks/xstream/core/util/TypedNull;
 
-    const-class v3, Ljava/lang/ClassLoader;
+    const-class p1, Ljava/lang/ClassLoader;
 
-    invoke-direct {v0, v3}, Lcom/thoughtworks/xstream/core/util/TypedNull;-><init>(Ljava/lang/Class;)V
+    invoke-direct {p2, p1}, Lcom/thoughtworks/xstream/core/util/TypedNull;-><init>(Ljava/lang/Class;)V
 
     :goto_0
-    const/4 v3, 0x5
+    const/4 p1, 0x5
 
-    aput-object v0, v2, v3
+    aput-object p2, v0, p1
 
-    iput-object v2, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->arguments:[Ljava/lang/Object;
+    iput-object v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->arguments:[Ljava/lang/Object;
 
-    .line 99
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/mapper/Mapper;Lcom/thoughtworks/xstream/converters/ConverterRegistry;Lcom/thoughtworks/xstream/converters/ConverterLookup;Ljava/lang/ClassLoader;Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;Lcom/thoughtworks/xstream/core/JVM;)V
     .locals 6
-    .param p1, "wrapped"    # Lcom/thoughtworks/xstream/mapper/Mapper;
-    .param p2, "converterRegistry"    # Lcom/thoughtworks/xstream/converters/ConverterRegistry;
-    .param p3, "converterLookup"    # Lcom/thoughtworks/xstream/converters/ConverterLookup;
-    .param p4, "classLoader"    # Ljava/lang/ClassLoader;
-    .param p5, "reflectionProvider"    # Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;
-    .param p6, "jvm"    # Lcom/thoughtworks/xstream/core/JVM;
 
     .line 112
     new-instance v4, Lcom/thoughtworks/xstream/core/ClassLoaderReference;
@@ -192,23 +177,20 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;-><init>(Lcom/thoughtworks/xstream/mapper/Mapper;Lcom/thoughtworks/xstream/converters/ConverterRegistry;Lcom/thoughtworks/xstream/converters/ConverterLookup;Lcom/thoughtworks/xstream/core/ClassLoaderReference;Lcom/thoughtworks/xstream/converters/reflection/ReflectionProvider;)V
 
-    .line 113
     return-void
 .end method
 
 .method static synthetic access$100(Lcom/thoughtworks/xstream/mapper/AnnotationMapper;)Ljava/util/Set;
-    .locals 1
-    .param p0, "x0"    # Lcom/thoughtworks/xstream/mapper/AnnotationMapper;
+    .locals 0
 
     .line 63
-    iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->annotatedTypes:Ljava/util/Set;
+    iget-object p0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->annotatedTypes:Ljava/util/Set;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private addParametrizedTypes(Ljava/lang/reflect/Type;Ljava/util/Set;)V
-    .locals 8
-    .param p1, "type"    # Ljava/lang/reflect/Type;
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -220,21 +202,17 @@
     .end annotation
 
     .line 233
-    .local p2, "types":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Class<*>;>;"
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     .line 234
-    .local v0, "processedTypes":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/reflect/Type;>;"
     new-instance v1, Lcom/thoughtworks/xstream/mapper/AnnotationMapper$1;
 
     invoke-direct {v1, p0, p2, v0}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper$1;-><init>(Lcom/thoughtworks/xstream/mapper/AnnotationMapper;Ljava/util/Set;Ljava/util/Set;)V
 
-    .line 245
-    .local v1, "localTypes":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/reflect/Type;>;"
     :goto_0
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_6
 
     .line 246
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
@@ -244,661 +222,549 @@
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1
 
     .line 248
-    move-object v2, p1
-
-    check-cast v2, Ljava/lang/Class;
+    check-cast p1, Ljava/lang/Class;
 
     .line 249
-    .local v2, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    invoke-interface {p2, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {p2, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 250
-    invoke-virtual {v2}, Ljava/lang/Class;->isPrimitive()Z
+    invoke-virtual {p1}, Ljava/lang/Class;->isPrimitive()Z
 
-    move-result v4
+    move-result v2
 
-    if-nez v4, :cond_1
+    if-nez v2, :cond_4
 
     .line 251
-    invoke-virtual {v2}, Ljava/lang/Class;->getTypeParameters()[Ljava/lang/reflect/TypeVariable;
+    invoke-virtual {p1}, Ljava/lang/Class;->getTypeParameters()[Ljava/lang/reflect/TypeVariable;
 
-    move-result-object v4
+    move-result-object v2
 
     .line 252
-    .local v4, "typeParameters":[Ljava/lang/reflect/TypeVariable;, "[Ljava/lang/reflect/TypeVariable<*>;"
-    array-length v5, v4
+    array-length v4, v2
 
-    move v6, v3
+    move v5, v3
 
     :goto_1
-    if-ge v6, v5, :cond_0
+    if-ge v5, v4, :cond_0
 
-    aget-object v7, v4, v6
+    aget-object v6, v2, v5
 
     .line 253
-    .local v7, "typeVariable":Ljava/lang/reflect/TypeVariable;, "Ljava/lang/reflect/TypeVariable<*>;"
-    invoke-interface {v1, v7}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v6}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 252
-    .end local v7    # "typeVariable":Ljava/lang/reflect/TypeVariable;, "Ljava/lang/reflect/TypeVariable<*>;"
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_1
 
     .line 255
     :cond_0
-    invoke-virtual {v2}, Ljava/lang/Class;->getGenericSuperclass()Ljava/lang/reflect/Type;
+    invoke-virtual {p1}, Ljava/lang/Class;->getGenericSuperclass()Ljava/lang/reflect/Type;
 
-    move-result-object v5
+    move-result-object v2
 
-    invoke-interface {v1, v5}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 256
-    invoke-virtual {v2}, Ljava/lang/Class;->getGenericInterfaces()[Ljava/lang/reflect/Type;
+    invoke-virtual {p1}, Ljava/lang/Class;->getGenericInterfaces()[Ljava/lang/reflect/Type;
 
-    move-result-object v5
+    move-result-object p1
 
-    array-length v6, v5
+    array-length v2, p1
 
     :goto_2
-    if-ge v3, v6, :cond_1
+    if-ge v3, v2, :cond_4
 
-    aget-object v7, v5, v3
+    aget-object v4, p1, v3
 
     .line 257
-    .local v7, "iface":Ljava/lang/reflect/Type;
-    invoke-interface {v1, v7}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v4}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 256
-    .end local v7    # "iface":Ljava/lang/reflect/Type;
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
     .line 260
-    .end local v2    # "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .end local v4    # "typeParameters":[Ljava/lang/reflect/TypeVariable;, "[Ljava/lang/reflect/TypeVariable<*>;"
     :cond_1
-    goto :goto_6
-
-    :cond_2
     instance-of v2, p1, Ljava/lang/reflect/TypeVariable;
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_2
 
     .line 261
-    move-object v2, p1
-
-    check-cast v2, Ljava/lang/reflect/TypeVariable;
+    check-cast p1, Ljava/lang/reflect/TypeVariable;
 
     .line 262
-    .local v2, "typeVariable":Ljava/lang/reflect/TypeVariable;, "Ljava/lang/reflect/TypeVariable<*>;"
-    invoke-interface {v2}, Ljava/lang/reflect/TypeVariable;->getBounds()[Ljava/lang/reflect/Type;
+    invoke-interface {p1}, Ljava/lang/reflect/TypeVariable;->getBounds()[Ljava/lang/reflect/Type;
 
-    move-result-object v4
+    move-result-object p1
 
     .line 263
-    .local v4, "bounds":[Ljava/lang/reflect/Type;
-    array-length v5, v4
+    array-length v2, p1
 
     :goto_3
-    if-ge v3, v5, :cond_3
+    if-ge v3, v2, :cond_4
 
-    aget-object v6, v4, v3
+    aget-object v4, p1, v3
 
     .line 264
-    .local v6, "bound":Ljava/lang/reflect/Type;
-    invoke-interface {v1, v6}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v4}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 263
-    .end local v6    # "bound":Ljava/lang/reflect/Type;
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_3
 
     .line 266
-    .end local v2    # "typeVariable":Ljava/lang/reflect/TypeVariable;, "Ljava/lang/reflect/TypeVariable<*>;"
-    .end local v4    # "bounds":[Ljava/lang/reflect/Type;
-    :cond_3
-    goto :goto_6
-
-    :cond_4
+    :cond_2
     instance-of v2, p1, Ljava/lang/reflect/ParameterizedType;
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_3
 
     .line 267
-    move-object v2, p1
-
-    check-cast v2, Ljava/lang/reflect/ParameterizedType;
+    check-cast p1, Ljava/lang/reflect/ParameterizedType;
 
     .line 268
-    .local v2, "parametrizedType":Ljava/lang/reflect/ParameterizedType;
-    invoke-interface {v2}, Ljava/lang/reflect/ParameterizedType;->getRawType()Ljava/lang/reflect/Type;
+    invoke-interface {p1}, Ljava/lang/reflect/ParameterizedType;->getRawType()Ljava/lang/reflect/Type;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-interface {v1, v4}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 269
-    invoke-interface {v2}, Ljava/lang/reflect/ParameterizedType;->getActualTypeArguments()[Ljava/lang/reflect/Type;
+    invoke-interface {p1}, Ljava/lang/reflect/ParameterizedType;->getActualTypeArguments()[Ljava/lang/reflect/Type;
 
-    move-result-object v4
+    move-result-object p1
 
     .line 270
-    .local v4, "actualArguments":[Ljava/lang/reflect/Type;
-    array-length v5, v4
+    array-length v2, p1
 
     :goto_4
-    if-ge v3, v5, :cond_5
+    if-ge v3, v2, :cond_4
 
-    aget-object v6, v4, v3
+    aget-object v4, p1, v3
 
     .line 271
-    .local v6, "actualArgument":Ljava/lang/reflect/Type;
-    invoke-interface {v1, v6}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v4}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 270
-    .end local v6    # "actualArgument":Ljava/lang/reflect/Type;
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_4
 
-    .end local v2    # "parametrizedType":Ljava/lang/reflect/ParameterizedType;
-    .end local v4    # "actualArguments":[Ljava/lang/reflect/Type;
-    :cond_5
-    goto :goto_5
-
     .line 273
-    :cond_6
+    :cond_3
     instance-of v2, p1, Ljava/lang/reflect/GenericArrayType;
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_4
 
     .line 274
-    move-object v2, p1
-
-    check-cast v2, Ljava/lang/reflect/GenericArrayType;
+    check-cast p1, Ljava/lang/reflect/GenericArrayType;
 
     .line 275
-    .local v2, "arrayType":Ljava/lang/reflect/GenericArrayType;
-    invoke-interface {v2}, Ljava/lang/reflect/GenericArrayType;->getGenericComponentType()Ljava/lang/reflect/Type;
+    invoke-interface {p1}, Ljava/lang/reflect/GenericArrayType;->getGenericComponentType()Ljava/lang/reflect/Type;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-interface {v1, v3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    goto :goto_6
-
-    .line 273
-    .end local v2    # "arrayType":Ljava/lang/reflect/GenericArrayType;
-    :cond_7
-    :goto_5
-    nop
+    invoke-interface {v1, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 278
-    :goto_6
+    :cond_4
     invoke-interface {v1}, Ljava/util/Set;->isEmpty()Z
 
-    move-result v2
+    move-result p1
 
-    if-nez v2, :cond_8
+    if-nez p1, :cond_5
 
     .line 279
     invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object p1
 
     .line 280
-    .local v2, "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/reflect/Type;>;"
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    move-object p1, v3
-
-    check-cast p1, Ljava/lang/reflect/Type;
+    check-cast v2, Ljava/lang/reflect/Type;
 
     .line 281
-    invoke-interface {v2}, Ljava/util/Iterator;->remove()V
+    invoke-interface {p1}, Ljava/util/Iterator;->remove()V
 
-    .line 282
-    .end local v2    # "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/reflect/Type;>;"
+    move-object p1, v2
+
     goto/16 :goto_0
 
-    .line 283
-    :cond_8
+    :cond_5
     const/4 p1, 0x0
 
     goto/16 :goto_0
 
-    .line 286
-    :cond_9
+    :cond_6
     return-void
 .end method
 
 .method private cacheConverter(Lcom/thoughtworks/xstream/annotations/XStreamConverter;Ljava/lang/Class;)Lcom/thoughtworks/xstream/converters/Converter;
-    .locals 12
-    .param p1, "annotation"    # Lcom/thoughtworks/xstream/annotations/XStreamConverter;
-    .param p2, "targetType"    # Ljava/lang/Class;
-
-    .line 488
-    const/4 v0, 0x0
+    .locals 7
 
     .line 490
-    .local v0, "result":Lcom/thoughtworks/xstream/converters/Converter;
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    if-eqz p2, :cond_0
+
+    .line 491
+    invoke-interface {p1}, Lcom/thoughtworks/xstream/annotations/XStreamConverter;->useImplicitType()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 492
+    invoke-interface {v0, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 494
+    :cond_0
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 491
-    .local v1, "parameter":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Object;>;"
-    if-eqz p2, :cond_0
-
-    invoke-interface {p1}, Lcom/thoughtworks/xstream/annotations/XStreamConverter;->useImplicitType()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    .line 492
-    invoke-interface {v1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 494
-    :cond_0
-    new-instance v2, Ljava/util/ArrayList;
-
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
-
     .line 495
-    .local v2, "arrays":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Object;>;"
     invoke-interface {p1}, Lcom/thoughtworks/xstream/annotations/XStreamConverter;->booleans()[Z
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 496
     invoke-interface {p1}, Lcom/thoughtworks/xstream/annotations/XStreamConverter;->bytes()[B
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 497
     invoke-interface {p1}, Lcom/thoughtworks/xstream/annotations/XStreamConverter;->chars()[C
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 498
     invoke-interface {p1}, Lcom/thoughtworks/xstream/annotations/XStreamConverter;->doubles()[D
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 499
     invoke-interface {p1}, Lcom/thoughtworks/xstream/annotations/XStreamConverter;->floats()[F
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 500
     invoke-interface {p1}, Lcom/thoughtworks/xstream/annotations/XStreamConverter;->ints()[I
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 501
     invoke-interface {p1}, Lcom/thoughtworks/xstream/annotations/XStreamConverter;->longs()[J
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 502
     invoke-interface {p1}, Lcom/thoughtworks/xstream/annotations/XStreamConverter;->shorts()[S
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 503
     invoke-interface {p1}, Lcom/thoughtworks/xstream/annotations/XStreamConverter;->strings()[Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 504
     invoke-interface {p1}, Lcom/thoughtworks/xstream/annotations/XStreamConverter;->types()[Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 505
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object v1
 
-    :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    :cond_1
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    const/4 v3, 0x0
+
+    if-eqz v2, :cond_2
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1
+
+    .line 507
+    invoke-static {v2}, Ljava/lang/reflect/Array;->getLength(Ljava/lang/Object;)I
 
     move-result v4
 
-    if-eqz v4, :cond_2
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v4
-
-    .line 506
-    .local v4, "array":Ljava/lang/Object;
-    if-eqz v4, :cond_1
-
-    .line 507
-    invoke-static {v4}, Ljava/lang/reflect/Array;->getLength(Ljava/lang/Object;)I
-
-    move-result v5
-
-    .line 508
-    .local v5, "length":I
-    const/4 v6, 0x0
-
-    .local v6, "i":I
-    :goto_1
-    if-ge v6, v5, :cond_1
+    :goto_0
+    if-ge v3, v4, :cond_1
 
     .line 509
-    invoke-static {v4, v6}, Ljava/lang/reflect/Array;->get(Ljava/lang/Object;I)Ljava/lang/Object;
+    invoke-static {v2, v3}, Ljava/lang/reflect/Array;->get(Ljava/lang/Object;I)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v5
 
-    invoke-interface {v1, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 508
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
-
-    .line 512
-    .end local v4    # "array":Ljava/lang/Object;
-    .end local v5    # "length":I
-    .end local v6    # "i":I
-    :cond_1
     goto :goto_0
 
     .line 513
     :cond_2
     invoke-interface {p1}, Lcom/thoughtworks/xstream/annotations/XStreamConverter;->nulls()[Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object v1
 
-    array-length v4, v3
+    array-length v2, v1
 
-    const/4 v5, 0x0
+    move v4, v3
 
-    move v6, v5
+    :goto_1
+    if-ge v4, v2, :cond_3
 
-    :goto_2
-    if-ge v6, v4, :cond_3
-
-    aget-object v7, v3, v6
+    aget-object v5, v1, v4
 
     .line 514
-    .local v7, "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    new-instance v8, Lcom/thoughtworks/xstream/core/util/TypedNull;
+    new-instance v6, Lcom/thoughtworks/xstream/core/util/TypedNull;
 
-    invoke-direct {v8, v7}, Lcom/thoughtworks/xstream/core/util/TypedNull;-><init>(Ljava/lang/Class;)V
+    invoke-direct {v6, v5}, Lcom/thoughtworks/xstream/core/util/TypedNull;-><init>(Ljava/lang/Class;)V
 
     .line 515
-    .local v8, "nullType":Lcom/thoughtworks/xstream/core/util/TypedNull;
-    invoke-interface {v1, v8}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 513
-    .end local v7    # "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .end local v8    # "nullType":Lcom/thoughtworks/xstream/core/util/TypedNull;
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v4, v4, 0x1
 
-    goto :goto_2
+    goto :goto_1
 
     .line 517
     :cond_3
     invoke-interface {p1}, Lcom/thoughtworks/xstream/annotations/XStreamConverter;->value()Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object p1
 
     .line 518
-    .local v3, "converterType":Ljava/lang/Class;, "Ljava/lang/Class<+Lcom/thoughtworks/xstream/converters/ConverterMatcher;>;"
-    iget-object v4, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->converterCache:Ljava/util/Map;
+    iget-object v1, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->converterCache:Ljava/util/Map;
 
-    invoke-interface {v4, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/util/Map;
+
+    if-eqz v1, :cond_4
+
+    .line 520
+    invoke-interface {v1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/thoughtworks/xstream/converters/Converter;
+
+    goto :goto_2
+
+    :cond_4
+    const/4 v2, 0x0
+
+    :goto_2
+    if-nez v2, :cond_9
+
+    .line 523
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v2
+
+    if-lez v2, :cond_5
+
+    .line 525
+    iget-object v4, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->arguments:[Ljava/lang/Object;
+
+    array-length v5, v4
+
+    add-int/2addr v5, v2
+
+    new-array v5, v5, [Ljava/lang/Object;
+
+    .line 526
+    array-length v6, v4
+
+    invoke-static {v4, v3, v5, v2, v6}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+
+    .line 527
+    new-array v4, v2, [Ljava/lang/Object;
+
+    invoke-interface {v0, v4}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v4
 
-    check-cast v4, Ljava/util/Map;
-
-    .line 519
-    .local v4, "converterMapping":Ljava/util/Map;, "Ljava/util/Map<Ljava/util/List<Ljava/lang/Object;>;Lcom/thoughtworks/xstream/converters/Converter;>;"
-    if-eqz v4, :cond_4
-
-    .line 520
-    invoke-interface {v4, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v6
-
-    move-object v0, v6
-
-    check-cast v0, Lcom/thoughtworks/xstream/converters/Converter;
-
-    .line 522
-    :cond_4
-    if-nez v0, :cond_9
-
-    .line 523
-    invoke-interface {v1}, Ljava/util/List;->size()I
-
-    move-result v6
-
-    .line 524
-    .local v6, "size":I
-    if-lez v6, :cond_5
-
-    .line 525
-    iget-object v7, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->arguments:[Ljava/lang/Object;
-
-    array-length v8, v7
-
-    add-int/2addr v8, v6
-
-    new-array v8, v8, [Ljava/lang/Object;
-
-    .line 526
-    .local v8, "args":[Ljava/lang/Object;
-    array-length v9, v7
-
-    invoke-static {v7, v5, v8, v6, v9}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    .line 527
-    new-array v7, v6, [Ljava/lang/Object;
-
-    invoke-interface {v1, v7}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-
-    move-result-object v7
-
-    invoke-static {v7, v5, v8, v5, v6}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v4, v3, v5, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     goto :goto_3
 
     .line 529
-    .end local v8    # "args":[Ljava/lang/Object;
     :cond_5
-    iget-object v8, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->arguments:[Ljava/lang/Object;
+    iget-object v5, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->arguments:[Ljava/lang/Object;
 
     .line 534
-    .restart local v8    # "args":[Ljava/lang/Object;
     :goto_3
     :try_start_0
-    const-class v5, Lcom/thoughtworks/xstream/converters/SingleValueConverter;
+    const-class v2, Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
-    invoke-virtual {v5, v3}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    invoke-virtual {v2, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    move-result v5
+    move-result v2
 
-    if-eqz v5, :cond_6
+    if-eqz v2, :cond_6
 
-    const-class v5, Lcom/thoughtworks/xstream/converters/Converter;
+    const-class v2, Lcom/thoughtworks/xstream/converters/Converter;
 
     .line 535
-    invoke-virtual {v5, v3}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    invoke-virtual {v2, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    move-result v5
+    move-result v2
 
-    if-nez v5, :cond_6
-
-    .line 536
-    nop
+    if-nez v2, :cond_6
 
     .line 537
-    invoke-static {v3, v8}, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory;->newInstance(Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1, v5}, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory;->newInstance(Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v2
 
-    check-cast v5, Lcom/thoughtworks/xstream/converters/SingleValueConverter;
+    check-cast v2, Lcom/thoughtworks/xstream/converters/SingleValueConverter;
 
     .line 538
-    .local v5, "svc":Lcom/thoughtworks/xstream/converters/SingleValueConverter;
-    new-instance v7, Lcom/thoughtworks/xstream/converters/SingleValueConverterWrapper;
+    new-instance v3, Lcom/thoughtworks/xstream/converters/SingleValueConverterWrapper;
 
-    invoke-direct {v7, v5}, Lcom/thoughtworks/xstream/converters/SingleValueConverterWrapper;-><init>(Lcom/thoughtworks/xstream/converters/SingleValueConverter;)V
+    invoke-direct {v3, v2}, Lcom/thoughtworks/xstream/converters/SingleValueConverterWrapper;-><init>(Lcom/thoughtworks/xstream/converters/SingleValueConverter;)V
 
-    move-object v5, v7
+    move-object v2, v3
 
-    .line 539
-    .local v5, "converter":Lcom/thoughtworks/xstream/converters/Converter;
     goto :goto_4
 
     .line 540
-    .end local v5    # "converter":Lcom/thoughtworks/xstream/converters/Converter;
     :cond_6
-    invoke-static {v3, v8}, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory;->newInstance(Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1, v5}, Lcom/thoughtworks/xstream/core/util/DependencyInjectionFactory;->newInstance(Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v2
 
-    check-cast v5, Lcom/thoughtworks/xstream/converters/Converter;
+    check-cast v2, Lcom/thoughtworks/xstream/converters/Converter;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 547
-    .restart local v5    # "converter":Lcom/thoughtworks/xstream/converters/Converter;
     :goto_4
-    nop
-
-    .line 548
-    if-nez v4, :cond_7
+    if-nez v1, :cond_7
 
     .line 549
-    new-instance v7, Ljava/util/HashMap;
+    new-instance v1, Ljava/util/HashMap;
 
-    invoke-direct {v7}, Ljava/util/HashMap;-><init>()V
-
-    move-object v4, v7
+    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
     .line 550
-    iget-object v7, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->converterCache:Ljava/util/Map;
+    iget-object p2, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->converterCache:Ljava/util/Map;
 
-    invoke-interface {v7, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p2, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 552
     :cond_7
-    invoke-interface {v4, v1, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 553
-    move-object v0, v5
+    invoke-interface {v1, v0, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_6
 
-    .line 543
-    .end local v5    # "converter":Lcom/thoughtworks/xstream/converters/Converter;
     :catch_0
-    move-exception v5
+    move-exception v0
 
     .line 544
-    .local v5, "e":Ljava/lang/Exception;
-    new-instance v7, Lcom/thoughtworks/xstream/InitializationException;
+    new-instance v1, Lcom/thoughtworks/xstream/InitializationException;
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "Cannot instantiate converter "
 
-    const-string v10, "Cannot instantiate converter "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 545
-    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object p1
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     if-eqz p2, :cond_8
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, " for type "
 
-    const-string v11, " for type "
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 546
     invoke-virtual {p2}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object p2
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p2
 
-    move-result-object v10
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p2
 
     goto :goto_5
 
     :cond_8
-    const-string v10, ""
+    const-string p2, ""
 
     :goto_5
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v9
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v7, v9, v5}, Lcom/thoughtworks/xstream/InitializationException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    move-result-object p1
 
-    throw v7
+    invoke-direct {v1, p1, v0}, Lcom/thoughtworks/xstream/InitializationException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 555
-    .end local v5    # "e":Ljava/lang/Exception;
-    .end local v6    # "size":I
-    .end local v8    # "args":[Ljava/lang/Object;
+    throw v1
+
     :cond_9
     :goto_6
-    return-object v0
+    return-object v2
 .end method
 
 .method private getClass(Ljava/lang/reflect/Type;)Ljava/lang/Class;
-    .locals 2
-    .param p1, "typeArgument"    # Ljava/lang/reflect/Type;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -909,49 +775,42 @@
         }
     .end annotation
 
-    .line 559
-    const/4 v0, 0x0
-
     .line 560
-    .local v0, "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    instance-of v1, p1, Ljava/lang/reflect/ParameterizedType;
+    instance-of v0, p1, Ljava/lang/reflect/ParameterizedType;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 561
-    move-object v1, p1
+    check-cast p1, Ljava/lang/reflect/ParameterizedType;
 
-    check-cast v1, Ljava/lang/reflect/ParameterizedType;
+    invoke-interface {p1}, Ljava/lang/reflect/ParameterizedType;->getRawType()Ljava/lang/reflect/Type;
 
-    invoke-interface {v1}, Ljava/lang/reflect/ParameterizedType;->getRawType()Ljava/lang/reflect/Type;
+    move-result-object p1
 
-    move-result-object v1
-
-    move-object v0, v1
-
-    check-cast v0, Ljava/lang/Class;
+    check-cast p1, Ljava/lang/Class;
 
     goto :goto_0
 
     .line 562
     :cond_0
-    instance-of v1, p1, Ljava/lang/Class;
+    instance-of v0, p1, Ljava/lang/Class;
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 563
-    move-object v0, p1
+    check-cast p1, Ljava/lang/Class;
 
-    check-cast v0, Ljava/lang/Class;
+    goto :goto_0
 
-    .line 565
     :cond_1
+    const/4 p1, 0x0
+
     :goto_0
-    return-object v0
+    return-object p1
 .end method
 
 .method private processAliasAnnotation(Ljava/lang/Class;Ljava/util/Set;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -964,8 +823,6 @@
     .end annotation
 
     .line 318
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p2, "types":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Class<*>;>;"
     const-class v0, Lcom/thoughtworks/xstream/annotations/XStreamAlias;
 
     invoke-virtual {p1, v0}, Ljava/lang/Class;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
@@ -974,8 +831,6 @@
 
     check-cast v0, Lcom/thoughtworks/xstream/annotations/XStreamAlias;
 
-    .line 319
-    .local v0, "aliasAnnotation":Lcom/thoughtworks/xstream/annotations/XStreamAlias;
     if-eqz v0, :cond_1
 
     .line 320
@@ -1013,60 +868,61 @@
     .line 330
     invoke-virtual {p1}, Ljava/lang/Class;->isInterface()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_1
+    if-eqz p1, :cond_1
 
     .line 331
     invoke-interface {v0}, Lcom/thoughtworks/xstream/annotations/XStreamAlias;->impl()Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {p2, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {p2, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     .line 321
     :cond_0
-    new-instance v1, Lcom/thoughtworks/xstream/InitializationException;
+    new-instance p1, Lcom/thoughtworks/xstream/InitializationException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "No "
 
-    const-string v3, "No "
+    invoke-direct {p2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-class v3, Lcom/thoughtworks/xstream/mapper/ClassAliasingMapper;
+    const-class v0, Lcom/thoughtworks/xstream/mapper/ClassAliasingMapper;
 
     .line 322
-    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, " available"
+    move-result-object p2
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, " available"
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-direct {v1, v2}, Lcom/thoughtworks/xstream/InitializationException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v1
+    move-result-object p2
 
-    .line 335
+    invoke-direct {p1, p2}, Lcom/thoughtworks/xstream/InitializationException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
     :cond_1
     :goto_0
     return-void
 .end method
 
 .method private processAliasTypeAnnotation(Ljava/lang/Class;)V
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1076,7 +932,6 @@
     .end annotation
 
     .line 338
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const-class v0, Lcom/thoughtworks/xstream/annotations/XStreamAliasType;
 
     invoke-virtual {p1, v0}, Ljava/lang/Class;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
@@ -1085,8 +940,6 @@
 
     check-cast v0, Lcom/thoughtworks/xstream/annotations/XStreamAliasType;
 
-    .line 339
-    .local v0, "aliasAnnotation":Lcom/thoughtworks/xstream/annotations/XStreamAliasType;
     if-eqz v0, :cond_1
 
     .line 340
@@ -1097,46 +950,47 @@
     .line 345
     invoke-interface {v0}, Lcom/thoughtworks/xstream/annotations/XStreamAliasType;->value()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v1, v2, p1}, Lcom/thoughtworks/xstream/mapper/ClassAliasingMapper;->addTypeAlias(Ljava/lang/String;Ljava/lang/Class;)V
+    invoke-virtual {v1, v0, p1}, Lcom/thoughtworks/xstream/mapper/ClassAliasingMapper;->addTypeAlias(Ljava/lang/String;Ljava/lang/Class;)V
 
     goto :goto_0
 
     .line 341
     :cond_0
-    new-instance v1, Lcom/thoughtworks/xstream/InitializationException;
+    new-instance p1, Lcom/thoughtworks/xstream/InitializationException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "No "
 
-    const-string v3, "No "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-class v3, Lcom/thoughtworks/xstream/mapper/ClassAliasingMapper;
+    const-class v1, Lcom/thoughtworks/xstream/mapper/ClassAliasingMapper;
 
     .line 342
-    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, " available"
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " available"
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-direct {v1, v2}, Lcom/thoughtworks/xstream/InitializationException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v1
+    move-result-object v0
 
-    .line 347
+    invoke-direct {p1, v0}, Lcom/thoughtworks/xstream/InitializationException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
     :cond_1
     :goto_0
     return-void
@@ -1144,12 +998,9 @@
 
 .method private processAnnotations(Ljava/lang/Class;)V
     .locals 2
-    .param p1, "initialType"    # Ljava/lang/Class;
 
-    .line 169
     if-nez p1, :cond_0
 
-    .line 170
     return-void
 
     .line 173
@@ -1161,19 +1012,16 @@
     invoke-direct {v0, p0, v1}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper$UnprocessedTypesSet;-><init>(Lcom/thoughtworks/xstream/mapper/AnnotationMapper;Lcom/thoughtworks/xstream/mapper/AnnotationMapper$1;)V
 
     .line 174
-    .local v0, "types":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Class<*>;>;"
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 175
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->processTypes(Ljava/util/Set;)V
 
-    .line 176
     return-void
 .end method
 
 .method private processAsAttributeAnnotation(Ljava/lang/reflect/Field;)V
-    .locals 4
-    .param p1, "field"    # Ljava/lang/reflect/Field;
+    .locals 2
 
     .line 404
     const-class v0, Lcom/thoughtworks/xstream/annotations/XStreamAsAttribute;
@@ -1185,61 +1033,60 @@
 
     check-cast v0, Lcom/thoughtworks/xstream/annotations/XStreamAsAttribute;
 
-    .line 406
-    .local v0, "asAttributeAnnotation":Lcom/thoughtworks/xstream/annotations/XStreamAsAttribute;
     if-eqz v0, :cond_1
 
     .line 407
-    iget-object v1, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->attributeMapper:Lcom/thoughtworks/xstream/mapper/AttributeMapper;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->attributeMapper:Lcom/thoughtworks/xstream/mapper/AttributeMapper;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 412
-    invoke-virtual {v1, p1}, Lcom/thoughtworks/xstream/mapper/AttributeMapper;->addAttributeFor(Ljava/lang/reflect/Field;)V
+    invoke-virtual {v0, p1}, Lcom/thoughtworks/xstream/mapper/AttributeMapper;->addAttributeFor(Ljava/lang/reflect/Field;)V
 
     goto :goto_0
 
     .line 408
     :cond_0
-    new-instance v1, Lcom/thoughtworks/xstream/InitializationException;
+    new-instance p1, Lcom/thoughtworks/xstream/InitializationException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "No "
 
-    const-string v3, "No "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-class v3, Lcom/thoughtworks/xstream/mapper/AttributeMapper;
+    const-class v1, Lcom/thoughtworks/xstream/mapper/AttributeMapper;
 
     .line 409
-    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, " available"
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " available"
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-direct {v1, v2}, Lcom/thoughtworks/xstream/InitializationException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v1
+    move-result-object v0
 
-    .line 414
+    invoke-direct {p1, v0}, Lcom/thoughtworks/xstream/InitializationException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
     :cond_1
     :goto_0
     return-void
 .end method
 
 .method private processConverterAnnotations(Ljava/lang/Class;)V
-    .locals 8
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1249,7 +1096,6 @@
     .end annotation
 
     .line 289
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->converterRegistry:Lcom/thoughtworks/xstream/converters/ConverterRegistry;
 
     if-eqz v0, :cond_6
@@ -1265,7 +1111,6 @@
     check-cast v0, Lcom/thoughtworks/xstream/annotations/XStreamConverters;
 
     .line 292
-    .local v0, "convertersAnnotation":Lcom/thoughtworks/xstream/annotations/XStreamConverters;
     const-class v1, Lcom/thoughtworks/xstream/annotations/XStreamConverter;
 
     .line 293
@@ -1275,22 +1120,21 @@
 
     check-cast v1, Lcom/thoughtworks/xstream/annotations/XStreamConverter;
 
-    .line 294
-    .local v1, "converterAnnotation":Lcom/thoughtworks/xstream/annotations/XStreamConverter;
     if-eqz v0, :cond_0
 
+    .line 294
     new-instance v2, Ljava/util/ArrayList;
 
     .line 295
     invoke-interface {v0}, Lcom/thoughtworks/xstream/annotations/XStreamConverters;->value()[Lcom/thoughtworks/xstream/annotations/XStreamConverter;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-static {v3}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-direct {v2, v3}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-direct {v2, v0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     goto :goto_0
 
@@ -1299,8 +1143,6 @@
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 297
-    .local v2, "annotations":Ljava/util/List;, "Ljava/util/List<Lcom/thoughtworks/xstream/annotations/XStreamConverter;>;"
     :goto_0
     if-eqz v1, :cond_1
 
@@ -1311,122 +1153,115 @@
     :cond_1
     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object v0
 
+    :cond_2
     :goto_1
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v2
 
-    if-eqz v4, :cond_6
+    if-eqz v2, :cond_6
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v2
 
-    check-cast v4, Lcom/thoughtworks/xstream/annotations/XStreamConverter;
+    check-cast v2, Lcom/thoughtworks/xstream/annotations/XStreamConverter;
 
-    .line 301
-    .local v4, "annotation":Lcom/thoughtworks/xstream/annotations/XStreamConverter;
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
-    move-object v5, p1
+    move-object v3, p1
 
     goto :goto_2
 
-    :cond_2
-    const/4 v5, 0x0
+    :cond_3
+    const/4 v3, 0x0
 
+    .line 301
     :goto_2
-    invoke-direct {p0, v4, v5}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->cacheConverter(Lcom/thoughtworks/xstream/annotations/XStreamConverter;Ljava/lang/Class;)Lcom/thoughtworks/xstream/converters/Converter;
+    invoke-direct {p0, v2, v3}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->cacheConverter(Lcom/thoughtworks/xstream/annotations/XStreamConverter;Ljava/lang/Class;)Lcom/thoughtworks/xstream/converters/Converter;
 
-    move-result-object v5
+    move-result-object v3
 
-    .line 303
-    .local v5, "converter":Lcom/thoughtworks/xstream/converters/Converter;
-    if-eqz v5, :cond_5
+    if-eqz v3, :cond_2
+
+    if-nez v1, :cond_5
 
     .line 304
-    if-nez v1, :cond_4
+    invoke-interface {v3, p1}, Lcom/thoughtworks/xstream/converters/Converter;->canConvert(Ljava/lang/Class;)Z
 
-    invoke-interface {v5, p1}, Lcom/thoughtworks/xstream/converters/Converter;->canConvert(Ljava/lang/Class;)Z
+    move-result v4
 
-    move-result v6
-
-    if-eqz v6, :cond_3
+    if-eqz v4, :cond_4
 
     goto :goto_3
 
     .line 307
-    :cond_3
-    new-instance v3, Lcom/thoughtworks/xstream/InitializationException;
+    :cond_4
+    new-instance v0, Lcom/thoughtworks/xstream/InitializationException;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "Converter "
 
-    const-string v7, "Converter "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 308
-    invoke-interface {v4}, Lcom/thoughtworks/xstream/annotations/XStreamConverter;->value()Ljava/lang/Class;
+    invoke-interface {v2}, Lcom/thoughtworks/xstream/annotations/XStreamConverter;->value()Ljava/lang/Class;
 
-    move-result-object v7
+    move-result-object v2
 
-    invoke-virtual {v7}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v2
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, " cannot handle annotated class "
+    move-result-object v1
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, " cannot handle annotated class "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     .line 310
     invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object p1
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v6
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v3, v6}, Lcom/thoughtworks/xstream/InitializationException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    throw v3
+    invoke-direct {v0, p1}, Lcom/thoughtworks/xstream/InitializationException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 
     .line 305
-    :cond_4
-    :goto_3
-    iget-object v6, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->converterRegistry:Lcom/thoughtworks/xstream/converters/ConverterRegistry;
-
-    invoke-interface {v4}, Lcom/thoughtworks/xstream/annotations/XStreamConverter;->priority()I
-
-    move-result v7
-
-    invoke-interface {v6, v5, v7}, Lcom/thoughtworks/xstream/converters/ConverterRegistry;->registerConverter(Lcom/thoughtworks/xstream/converters/Converter;I)V
-
-    .line 313
-    .end local v4    # "annotation":Lcom/thoughtworks/xstream/annotations/XStreamConverter;
-    .end local v5    # "converter":Lcom/thoughtworks/xstream/converters/Converter;
     :cond_5
+    :goto_3
+    iget-object v4, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->converterRegistry:Lcom/thoughtworks/xstream/converters/ConverterRegistry;
+
+    invoke-interface {v2}, Lcom/thoughtworks/xstream/annotations/XStreamConverter;->priority()I
+
+    move-result v2
+
+    invoke-interface {v4, v3, v2}, Lcom/thoughtworks/xstream/converters/ConverterRegistry;->registerConverter(Lcom/thoughtworks/xstream/converters/Converter;I)V
+
     goto :goto_1
 
-    .line 315
-    .end local v0    # "convertersAnnotation":Lcom/thoughtworks/xstream/annotations/XStreamConverters;
-    .end local v1    # "converterAnnotation":Lcom/thoughtworks/xstream/annotations/XStreamConverter;
-    .end local v2    # "annotations":Ljava/util/List;, "Ljava/util/List<Lcom/thoughtworks/xstream/annotations/XStreamConverter;>;"
     :cond_6
     return-void
 .end method
 
 .method private processFieldAliasAnnotation(Ljava/lang/reflect/Field;)V
-    .locals 5
-    .param p1, "field"    # Ljava/lang/reflect/Field;
+    .locals 3
 
     .line 391
     const-class v0, Lcom/thoughtworks/xstream/annotations/XStreamAlias;
@@ -1437,8 +1272,6 @@
 
     check-cast v0, Lcom/thoughtworks/xstream/annotations/XStreamAlias;
 
-    .line 392
-    .local v0, "aliasAnnotation":Lcom/thoughtworks/xstream/annotations/XStreamAlias;
     if-eqz v0, :cond_1
 
     .line 393
@@ -1446,69 +1279,66 @@
 
     if-eqz v1, :cond_0
 
-    .line 398
-    nop
-
     .line 399
     invoke-interface {v0}, Lcom/thoughtworks/xstream/annotations/XStreamAlias;->value()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
     invoke-virtual {p1}, Ljava/lang/reflect/Field;->getDeclaringClass()Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object v2
 
     invoke-virtual {p1}, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p1
 
     .line 398
-    invoke-virtual {v1, v2, v3, v4}, Lcom/thoughtworks/xstream/mapper/FieldAliasingMapper;->addFieldAlias(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)V
+    invoke-virtual {v1, v0, v2, p1}, Lcom/thoughtworks/xstream/mapper/FieldAliasingMapper;->addFieldAlias(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)V
 
     goto :goto_0
 
     .line 394
     :cond_0
-    new-instance v1, Lcom/thoughtworks/xstream/InitializationException;
+    new-instance p1, Lcom/thoughtworks/xstream/InitializationException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "No "
 
-    const-string v3, "No "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-class v3, Lcom/thoughtworks/xstream/mapper/FieldAliasingMapper;
+    const-class v1, Lcom/thoughtworks/xstream/mapper/FieldAliasingMapper;
 
     .line 395
-    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, " available"
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " available"
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-direct {v1, v2}, Lcom/thoughtworks/xstream/InitializationException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v1
+    move-result-object v0
 
-    .line 401
+    invoke-direct {p1, v0}, Lcom/thoughtworks/xstream/InitializationException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
     :cond_1
     :goto_0
     return-void
 .end method
 
 .method private processImplicitAnnotation(Ljava/lang/reflect/Field;)V
-    .locals 12
-    .param p1, "field"    # Ljava/lang/reflect/Field;
+    .locals 8
 
     .line 417
     const-class v0, Lcom/thoughtworks/xstream/annotations/XStreamImplicit;
@@ -1519,8 +1349,6 @@
 
     check-cast v0, Lcom/thoughtworks/xstream/annotations/XStreamImplicit;
 
-    .line 418
-    .local v0, "implicitAnnotation":Lcom/thoughtworks/xstream/annotations/XStreamImplicit;
     if-eqz v0, :cond_6
 
     .line 419
@@ -1531,22 +1359,19 @@
     .line 424
     invoke-virtual {p1}, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v4
 
     .line 425
-    .local v1, "fieldName":Ljava/lang/String;
     invoke-interface {v0}, Lcom/thoughtworks/xstream/annotations/XStreamImplicit;->itemFieldName()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v1
 
     .line 426
-    .local v8, "itemFieldName":Ljava/lang/String;
     invoke-interface {v0}, Lcom/thoughtworks/xstream/annotations/XStreamImplicit;->keyFieldName()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v0
 
     .line 427
-    .local v9, "keyFieldName":Ljava/lang/String;
     const-class v2, Ljava/util/Map;
 
     invoke-virtual {p1}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
@@ -1555,14 +1380,9 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
-    move-result v10
-
-    .line 428
-    .local v10, "isMap":Z
-    const/4 v2, 0x0
+    move-result v2
 
     .line 429
-    .local v2, "itemType":Ljava/lang/Class;
     invoke-virtual {p1}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
 
     move-result-object v3
@@ -1570,6 +1390,8 @@
     invoke-virtual {v3}, Ljava/lang/Class;->isArray()Z
 
     move-result v3
+
+    const/4 v5, 0x0
 
     if-nez v3, :cond_0
 
@@ -1579,190 +1401,165 @@
     move-result-object v3
 
     .line 431
-    .local v3, "genericType":Ljava/lang/reflect/Type;
-    instance-of v4, v3, Ljava/lang/reflect/ParameterizedType;
+    instance-of v6, v3, Ljava/lang/reflect/ParameterizedType;
 
-    if-eqz v4, :cond_0
+    if-eqz v6, :cond_0
 
     .line 432
-    move-object v4, v3
-
-    check-cast v4, Ljava/lang/reflect/ParameterizedType;
+    check-cast v3, Ljava/lang/reflect/ParameterizedType;
 
     .line 433
-    invoke-interface {v4}, Ljava/lang/reflect/ParameterizedType;->getActualTypeArguments()[Ljava/lang/reflect/Type;
+    invoke-interface {v3}, Ljava/lang/reflect/ParameterizedType;->getActualTypeArguments()[Ljava/lang/reflect/Type;
 
-    move-result-object v4
+    move-result-object v3
 
     .line 434
-    .local v4, "actualTypeArguments":[Ljava/lang/reflect/Type;
-    aget-object v5, v4, v10
+    aget-object v3, v3, v2
 
     .line 435
-    .local v5, "typeArgument":Ljava/lang/reflect/Type;
-    invoke-direct {p0, v5}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->getClass(Ljava/lang/reflect/Type;)Ljava/lang/Class;
+    invoke-direct {p0, v3}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->getClass(Ljava/lang/reflect/Type;)Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object v3
 
-    move-object v11, v2
+    move-object v6, v3
 
     goto :goto_0
 
-    .line 438
-    .end local v3    # "genericType":Ljava/lang/reflect/Type;
-    .end local v4    # "actualTypeArguments":[Ljava/lang/reflect/Type;
-    .end local v5    # "typeArgument":Ljava/lang/reflect/Type;
     :cond_0
-    move-object v11, v2
+    move-object v6, v5
 
-    .end local v2    # "itemType":Ljava/lang/Class;
-    .local v11, "itemType":Ljava/lang/Class;
     :goto_0
-    const-string v2, ""
+    const-string v3, ""
 
-    if-eqz v10, :cond_3
+    if-eqz v2, :cond_3
 
     .line 439
-    iget-object v3, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->implicitCollectionMapper:Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
+    iget-object v2, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->implicitCollectionMapper:Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
 
     .line 440
     invoke-virtual {p1}, Ljava/lang/reflect/Field;->getDeclaringClass()Ljava/lang/Class;
 
-    move-result-object v4
+    move-result-object p1
 
-    const/4 v5, 0x0
-
-    if-eqz v8, :cond_1
+    if-eqz v1, :cond_1
 
     .line 441
-    invoke-virtual {v2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v7
 
-    if-nez v6, :cond_1
-
-    move-object v6, v8
+    if-nez v7, :cond_1
 
     goto :goto_1
 
     :cond_1
-    move-object v6, v5
+    move-object v1, v5
 
     :goto_1
-    if-eqz v9, :cond_2
+    if-eqz v0, :cond_2
 
     .line 442
-    invoke-virtual {v2, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v3
 
-    if-nez v2, :cond_2
+    if-nez v3, :cond_2
 
-    move-object v7, v9
+    move-object v7, v0
 
     goto :goto_2
 
     :cond_2
     move-object v7, v5
 
-    .line 439
     :goto_2
-    move-object v2, v3
+    move-object v3, p1
 
-    move-object v3, v4
+    move-object v5, v1
 
-    move-object v4, v1
-
-    move-object v5, v6
-
-    move-object v6, v11
-
+    .line 439
     invoke-virtual/range {v2 .. v7}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->add(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)V
 
     goto :goto_3
 
-    .line 446
     :cond_3
-    if-eqz v8, :cond_4
+    if-eqz v1, :cond_4
 
-    invoke-virtual {v2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .line 446
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-nez v2, :cond_4
+    if-nez v0, :cond_4
 
     .line 447
-    iget-object v2, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->implicitCollectionMapper:Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->implicitCollectionMapper:Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
 
     .line 448
     invoke-virtual {p1}, Ljava/lang/reflect/Field;->getDeclaringClass()Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object p1
 
     .line 447
-    invoke-virtual {v2, v3, v1, v8, v11}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->add(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)V
+    invoke-virtual {v0, p1, v4, v1, v6}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->add(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)V
 
     goto :goto_3
 
     .line 450
     :cond_4
-    iget-object v2, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->implicitCollectionMapper:Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->implicitCollectionMapper:Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
 
     .line 451
     invoke-virtual {p1}, Ljava/lang/reflect/Field;->getDeclaringClass()Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v2, v3, v1, v11}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->add(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)V
+    invoke-virtual {v0, p1, v4, v6}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->add(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)V
 
     goto :goto_3
 
     .line 420
-    .end local v1    # "fieldName":Ljava/lang/String;
-    .end local v8    # "itemFieldName":Ljava/lang/String;
-    .end local v9    # "keyFieldName":Ljava/lang/String;
-    .end local v10    # "isMap":Z
-    .end local v11    # "itemType":Ljava/lang/Class;
     :cond_5
-    new-instance v1, Lcom/thoughtworks/xstream/InitializationException;
+    new-instance p1, Lcom/thoughtworks/xstream/InitializationException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "No "
 
-    const-string v3, "No "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-class v3, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
+    const-class v1, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
 
     .line 421
-    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, " available"
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " available"
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-direct {v1, v2}, Lcom/thoughtworks/xstream/InitializationException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v1
+    move-result-object v0
 
-    .line 455
+    invoke-direct {p1, v0}, Lcom/thoughtworks/xstream/InitializationException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
     :cond_6
     :goto_3
     return-void
 .end method
 
 .method private processImplicitCollectionAnnotation(Ljava/lang/Class;)V
-    .locals 9
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1775,7 +1572,6 @@
     .end annotation
 
     .line 351
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const-class v0, Lcom/thoughtworks/xstream/annotations/XStreamImplicitCollection;
 
     .line 352
@@ -1785,8 +1581,6 @@
 
     check-cast v0, Lcom/thoughtworks/xstream/annotations/XStreamImplicitCollection;
 
-    .line 353
-    .local v0, "implicitColAnnotation":Lcom/thoughtworks/xstream/annotations/XStreamImplicitCollection;
     if-eqz v0, :cond_4
 
     .line 354
@@ -1800,193 +1594,182 @@
     move-result-object v1
 
     .line 360
-    .local v1, "fieldName":Ljava/lang/String;
     invoke-interface {v0}, Lcom/thoughtworks/xstream/annotations/XStreamImplicitCollection;->item()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 363
-    .local v2, "itemFieldName":Ljava/lang/String;
     :try_start_0
     invoke-virtual {p1, v1}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
-    move-result-object v3
+    move-result-object v2
     :try_end_0
     .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 370
-    .local v3, "field":Ljava/lang/reflect/Field;
-    nop
-
-    .line 371
-    const/4 v4, 0x0
-
     .line 372
-    .local v4, "itemType":Ljava/lang/Class;
-    invoke-virtual {v3}, Ljava/lang/reflect/Field;->getGenericType()Ljava/lang/reflect/Type;
+    invoke-virtual {v2}, Ljava/lang/reflect/Field;->getGenericType()Ljava/lang/reflect/Type;
 
-    move-result-object v5
+    move-result-object v2
 
     .line 373
-    .local v5, "genericType":Ljava/lang/reflect/Type;
-    instance-of v6, v5, Ljava/lang/reflect/ParameterizedType;
+    instance-of v3, v2, Ljava/lang/reflect/ParameterizedType;
 
-    if-eqz v6, :cond_0
+    const/4 v4, 0x0
+
+    if-eqz v3, :cond_0
 
     .line 374
-    move-object v6, v5
-
-    check-cast v6, Ljava/lang/reflect/ParameterizedType;
+    check-cast v2, Ljava/lang/reflect/ParameterizedType;
 
     .line 375
-    invoke-interface {v6}, Ljava/lang/reflect/ParameterizedType;->getActualTypeArguments()[Ljava/lang/reflect/Type;
+    invoke-interface {v2}, Ljava/lang/reflect/ParameterizedType;->getActualTypeArguments()[Ljava/lang/reflect/Type;
 
-    move-result-object v6
+    move-result-object v2
 
-    const/4 v7, 0x0
+    const/4 v3, 0x0
 
-    aget-object v6, v6, v7
+    aget-object v2, v2, v3
 
     .line 376
-    .local v6, "typeArgument":Ljava/lang/reflect/Type;
-    invoke-direct {p0, v6}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->getClass(Ljava/lang/reflect/Type;)Ljava/lang/Class;
+    invoke-direct {p0, v2}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->getClass(Ljava/lang/reflect/Type;)Ljava/lang/Class;
 
-    move-result-object v4
+    move-result-object v2
 
-    .line 378
-    .end local v6    # "typeArgument":Ljava/lang/reflect/Type;
+    goto :goto_0
+
     :cond_0
-    const/4 v6, 0x0
+    move-object v2, v4
 
-    if-nez v4, :cond_1
+    :goto_0
+    if-nez v2, :cond_1
 
     .line 379
-    iget-object v7, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->implicitCollectionMapper:Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->implicitCollectionMapper:Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
 
-    const-class v8, Ljava/lang/Object;
+    const-class v2, Ljava/lang/Object;
 
-    invoke-virtual {v7, p1, v1, v6, v8}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->add(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)V
+    invoke-virtual {v0, p1, v1, v4, v2}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->add(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)V
 
-    goto :goto_0
+    goto :goto_1
+
+    :cond_1
+    const-string v3, ""
 
     .line 381
-    :cond_1
-    const-string v7, ""
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v2, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v3
 
-    move-result v7
-
-    if-eqz v7, :cond_2
+    if-eqz v3, :cond_2
 
     .line 382
-    iget-object v7, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->implicitCollectionMapper:Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->implicitCollectionMapper:Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
 
-    invoke-virtual {v7, p1, v1, v6, v4}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->add(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)V
+    invoke-virtual {v0, p1, v1, v4, v2}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->add(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)V
 
-    goto :goto_0
+    goto :goto_1
 
     .line 384
     :cond_2
-    iget-object v6, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->implicitCollectionMapper:Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
+    iget-object v3, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->implicitCollectionMapper:Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
 
-    invoke-virtual {v6, p1, v1, v2, v4}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->add(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)V
+    invoke-virtual {v3, p1, v1, v0, v2}, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;->add(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)V
 
-    goto :goto_0
-
-    .line 364
-    .end local v3    # "field":Ljava/lang/reflect/Field;
-    .end local v4    # "itemType":Ljava/lang/Class;
-    .end local v5    # "genericType":Ljava/lang/reflect/Type;
-    :catch_0
-    move-exception v3
+    goto :goto_1
 
     .line 365
-    .local v3, "e":Ljava/lang/NoSuchFieldException;
-    new-instance v4, Lcom/thoughtworks/xstream/InitializationException;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v6, " does not have a field named \'"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v6, "\' as required by "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-class v6, Lcom/thoughtworks/xstream/annotations/XStreamImplicitCollection;
-
-    .line 369
-    invoke-virtual {v6}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-direct {v4, v5}, Lcom/thoughtworks/xstream/InitializationException;-><init>(Ljava/lang/String;)V
-
-    throw v4
-
-    .line 355
-    .end local v1    # "fieldName":Ljava/lang/String;
-    .end local v2    # "itemFieldName":Ljava/lang/String;
-    .end local v3    # "e":Ljava/lang/NoSuchFieldException;
-    :cond_3
-    new-instance v1, Lcom/thoughtworks/xstream/InitializationException;
+    :catch_0
+    new-instance v0, Lcom/thoughtworks/xstream/InitializationException;
 
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "No "
+    invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    const-class v3, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    const-string v2, " does not have a field named \'"
+
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    const-string v1, "\' as required by "
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    const-class v1, Lcom/thoughtworks/xstream/annotations/XStreamImplicitCollection;
+
+    .line 369
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Lcom/thoughtworks/xstream/InitializationException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 355
+    :cond_3
+    new-instance p1, Lcom/thoughtworks/xstream/InitializationException;
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    const-string v1, "No "
+
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    const-class v1, Lcom/thoughtworks/xstream/mapper/ImplicitCollectionMapper;
 
     .line 356
-    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, " available"
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " available"
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-direct {v1, v2}, Lcom/thoughtworks/xstream/InitializationException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v1
+    move-result-object v0
 
-    .line 388
+    invoke-direct {p1, v0}, Lcom/thoughtworks/xstream/InitializationException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
     :cond_4
-    :goto_0
+    :goto_1
     return-void
 .end method
 
 .method private processLocalConverterAnnotation(Ljava/lang/reflect/Field;)V
-    .locals 5
-    .param p1, "field"    # Ljava/lang/reflect/Field;
+    .locals 3
 
     .line 471
     const-class v0, Lcom/thoughtworks/xstream/annotations/XStreamConverter;
@@ -1997,8 +1780,6 @@
 
     check-cast v0, Lcom/thoughtworks/xstream/annotations/XStreamConverter;
 
-    .line 472
-    .local v0, "annotation":Lcom/thoughtworks/xstream/annotations/XStreamConverter;
     if-eqz v0, :cond_1
 
     .line 473
@@ -2008,77 +1789,71 @@
 
     invoke-direct {p0, v0, v1}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->cacheConverter(Lcom/thoughtworks/xstream/annotations/XStreamConverter;Ljava/lang/Class;)Lcom/thoughtworks/xstream/converters/Converter;
 
-    move-result-object v1
+    move-result-object v0
 
-    .line 474
-    .local v1, "converter":Lcom/thoughtworks/xstream/converters/Converter;
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 475
-    iget-object v2, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->localConversionMapper:Lcom/thoughtworks/xstream/mapper/LocalConversionMapper;
+    iget-object v1, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->localConversionMapper:Lcom/thoughtworks/xstream/mapper/LocalConversionMapper;
 
-    if-eqz v2, :cond_0
-
-    .line 480
-    nop
+    if-eqz v1, :cond_0
 
     .line 481
     invoke-virtual {p1}, Ljava/lang/reflect/Field;->getDeclaringClass()Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object v2
 
     invoke-virtual {p1}, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p1
 
     .line 480
-    invoke-virtual {v2, v3, v4, v1}, Lcom/thoughtworks/xstream/mapper/LocalConversionMapper;->registerLocalConverter(Ljava/lang/Class;Ljava/lang/String;Lcom/thoughtworks/xstream/converters/Converter;)V
+    invoke-virtual {v1, v2, p1, v0}, Lcom/thoughtworks/xstream/mapper/LocalConversionMapper;->registerLocalConverter(Ljava/lang/Class;Ljava/lang/String;Lcom/thoughtworks/xstream/converters/Converter;)V
 
     goto :goto_0
 
     .line 476
     :cond_0
-    new-instance v2, Lcom/thoughtworks/xstream/InitializationException;
+    new-instance p1, Lcom/thoughtworks/xstream/InitializationException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "No "
 
-    const-string v4, "No "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-class v4, Lcom/thoughtworks/xstream/mapper/LocalConversionMapper;
+    const-class v1, Lcom/thoughtworks/xstream/mapper/LocalConversionMapper;
 
     .line 477
-    invoke-virtual {v4}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, " available"
+    move-result-object v0
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " available"
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-direct {v2, v3}, Lcom/thoughtworks/xstream/InitializationException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v2
+    move-result-object v0
 
-    .line 484
-    .end local v1    # "converter":Lcom/thoughtworks/xstream/converters/Converter;
+    invoke-direct {p1, v0}, Lcom/thoughtworks/xstream/InitializationException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
     :cond_1
     :goto_0
     return-void
 .end method
 
 .method private processOmitFieldAnnotation(Ljava/lang/reflect/Field;)V
-    .locals 4
-    .param p1, "field"    # Ljava/lang/reflect/Field;
+    .locals 2
 
     .line 458
     const-class v0, Lcom/thoughtworks/xstream/annotations/XStreamOmitField;
@@ -2090,69 +1865,68 @@
 
     check-cast v0, Lcom/thoughtworks/xstream/annotations/XStreamOmitField;
 
-    .line 460
-    .local v0, "omitFieldAnnotation":Lcom/thoughtworks/xstream/annotations/XStreamOmitField;
     if-eqz v0, :cond_1
 
     .line 461
-    iget-object v1, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->elementIgnoringMapper:Lcom/thoughtworks/xstream/mapper/ElementIgnoringMapper;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->elementIgnoringMapper:Lcom/thoughtworks/xstream/mapper/ElementIgnoringMapper;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 466
     invoke-virtual {p1}, Ljava/lang/reflect/Field;->getDeclaringClass()Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object v1
 
     invoke-virtual {p1}, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v1, v2, v3}, Lcom/thoughtworks/xstream/mapper/ElementIgnoringMapper;->omitField(Ljava/lang/Class;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, p1}, Lcom/thoughtworks/xstream/mapper/ElementIgnoringMapper;->omitField(Ljava/lang/Class;Ljava/lang/String;)V
 
     goto :goto_0
 
     .line 462
     :cond_0
-    new-instance v1, Lcom/thoughtworks/xstream/InitializationException;
+    new-instance p1, Lcom/thoughtworks/xstream/InitializationException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "No "
 
-    const-string v3, "No "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-class v3, Lcom/thoughtworks/xstream/mapper/ElementIgnoringMapper;
+    const-class v1, Lcom/thoughtworks/xstream/mapper/ElementIgnoringMapper;
 
     .line 463
-    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, " available"
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, " available"
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-direct {v1, v2}, Lcom/thoughtworks/xstream/InitializationException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v1
+    move-result-object v0
 
-    .line 468
+    invoke-direct {p1, v0}, Lcom/thoughtworks/xstream/InitializationException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
     :cond_1
     :goto_0
     return-void
 .end method
 
 .method private processTypes(Ljava/util/Set;)V
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2163,7 +1937,6 @@
     .end annotation
 
     .line 179
-    .local p1, "types":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Class<*>;>;"
     :goto_0
     invoke-interface {p1}, Ljava/util/Set;->isEmpty()Z
 
@@ -2177,7 +1950,6 @@
     move-result-object v0
 
     .line 181
-    .local v0, "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/Class<*>;>;"
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -2185,7 +1957,6 @@
     check-cast v1, Ljava/lang/Class;
 
     .line 182
-    .local v1, "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
     .line 184
@@ -2193,13 +1964,13 @@
 
     .line 185
     :try_start_0
-    iget-object v2, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->annotatedTypes:Ljava/util/Set;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->annotatedTypes:Ljava/util/Set;
 
-    invoke-interface {v2, v1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
     .line 186
     monitor-exit v1
@@ -2213,17 +1984,17 @@
     :try_start_1
     invoke-virtual {v1}, Ljava/lang/Class;->isPrimitive()Z
 
-    move-result v2
+    move-result v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_1
 
     .line 226
     :try_start_2
-    iget-object v2, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->annotatedTypes:Ljava/util/Set;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->annotatedTypes:Ljava/util/Set;
 
-    invoke-interface {v2, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     :goto_1
     monitor-exit v1
@@ -2249,17 +2020,17 @@
     .line 199
     invoke-virtual {v1}, Ljava/lang/Class;->isInterface()Z
 
-    move-result v2
+    move-result v0
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    if-eqz v2, :cond_2
+    if-eqz v0, :cond_2
 
     .line 226
     :try_start_4
-    iget-object v2, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->annotatedTypes:Ljava/util/Set;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->annotatedTypes:Ljava/util/Set;
 
-    invoke-interface {v2, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
@@ -2273,146 +2044,117 @@
     .line 205
     invoke-virtual {v1}, Ljava/lang/Class;->getDeclaredFields()[Ljava/lang/reflect/Field;
 
-    move-result-object v2
+    move-result-object v0
+
+    const/4 v2, 0x0
 
     .line 206
-    .local v2, "fields":[Ljava/lang/reflect/Field;
-    const/4 v3, 0x0
-
-    .local v3, "i":I
     :goto_2
-    array-length v4, v2
+    array-length v3, v0
 
-    if-ge v3, v4, :cond_6
+    if-ge v2, v3, :cond_6
 
     .line 207
-    aget-object v4, v2, v3
+    aget-object v3, v0, v2
 
     .line 208
-    .local v4, "field":Ljava/lang/reflect/Field;
-    invoke-virtual {v4}, Ljava/lang/reflect/Field;->isEnumConstant()Z
+    invoke-virtual {v3}, Ljava/lang/reflect/Field;->isEnumConstant()Z
 
-    move-result v5
+    move-result v4
 
-    if-nez v5, :cond_5
+    if-nez v4, :cond_5
 
     .line 209
-    invoke-virtual {v4}, Ljava/lang/reflect/Field;->getModifiers()I
+    invoke-virtual {v3}, Ljava/lang/reflect/Field;->getModifiers()I
 
-    move-result v5
+    move-result v4
 
-    and-int/lit16 v5, v5, 0x88
+    and-int/lit16 v4, v4, 0x88
 
-    if-lez v5, :cond_3
+    if-lez v4, :cond_3
 
-    .line 210
     goto :goto_3
 
     .line 213
     :cond_3
-    invoke-virtual {v4}, Ljava/lang/reflect/Field;->getGenericType()Ljava/lang/reflect/Type;
+    invoke-virtual {v3}, Ljava/lang/reflect/Field;->getGenericType()Ljava/lang/reflect/Type;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-direct {p0, v5, p1}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->addParametrizedTypes(Ljava/lang/reflect/Type;Ljava/util/Set;)V
+    invoke-direct {p0, v4, p1}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->addParametrizedTypes(Ljava/lang/reflect/Type;Ljava/util/Set;)V
 
     .line 215
-    invoke-virtual {v4}, Ljava/lang/reflect/Field;->isSynthetic()Z
+    invoke-virtual {v3}, Ljava/lang/reflect/Field;->isSynthetic()Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_4
+    if-eqz v4, :cond_4
 
-    .line 216
     goto :goto_3
 
     .line 219
     :cond_4
-    invoke-direct {p0, v4}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->processFieldAliasAnnotation(Ljava/lang/reflect/Field;)V
+    invoke-direct {p0, v3}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->processFieldAliasAnnotation(Ljava/lang/reflect/Field;)V
 
     .line 220
-    invoke-direct {p0, v4}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->processAsAttributeAnnotation(Ljava/lang/reflect/Field;)V
+    invoke-direct {p0, v3}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->processAsAttributeAnnotation(Ljava/lang/reflect/Field;)V
 
     .line 221
-    invoke-direct {p0, v4}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->processImplicitAnnotation(Ljava/lang/reflect/Field;)V
+    invoke-direct {p0, v3}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->processImplicitAnnotation(Ljava/lang/reflect/Field;)V
 
     .line 222
-    invoke-direct {p0, v4}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->processOmitFieldAnnotation(Ljava/lang/reflect/Field;)V
+    invoke-direct {p0, v3}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->processOmitFieldAnnotation(Ljava/lang/reflect/Field;)V
 
     .line 223
-    invoke-direct {p0, v4}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->processLocalConverterAnnotation(Ljava/lang/reflect/Field;)V
+    invoke-direct {p0, v3}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->processLocalConverterAnnotation(Ljava/lang/reflect/Field;)V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    .line 206
-    .end local v4    # "field":Ljava/lang/reflect/Field;
     :cond_5
     :goto_3
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_2
 
     .line 226
-    .end local v2    # "fields":[Ljava/lang/reflect/Field;
-    .end local v3    # "i":I
     :cond_6
     :try_start_6
-    iget-object v2, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->annotatedTypes:Ljava/util/Set;
+    iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->annotatedTypes:Ljava/util/Set;
 
-    invoke-interface {v2, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    .line 227
-    nop
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 228
     monitor-exit v1
 
-    .line 229
-    .end local v0    # "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/Class<*>;>;"
-    .end local v1    # "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     goto/16 :goto_0
 
-    .line 226
-    .restart local v0    # "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/Class<*>;>;"
-    .restart local v1    # "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :catchall_0
-    move-exception v2
+    move-exception p1
 
-    iget-object v3, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->annotatedTypes:Ljava/util/Set;
+    .line 226
+    iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->annotatedTypes:Ljava/util/Set;
 
-    invoke-interface {v3, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 227
-    nop
+    throw p1
 
-    .end local v0    # "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/Class<*>;>;"
-    .end local v1    # "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .end local p1    # "types":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Class<*>;>;"
-    throw v2
+    :catchall_1
+    move-exception p1
 
     .line 228
-    .restart local v0    # "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/Class<*>;>;"
-    .restart local v1    # "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .restart local p1    # "types":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Class<*>;>;"
-    :catchall_1
-    move-exception v2
-
     monitor-exit v1
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
-    throw v2
+    throw p1
 
-    .line 230
-    .end local v0    # "iter":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/Class<*>;>;"
-    .end local v1    # "type":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :cond_7
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 5
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -2431,18 +2173,15 @@
 
     move-result v0
 
-    .line 591
-    .local v0, "max":I
     add-int/lit8 v1, v0, 0x2
 
+    .line 591
     new-array v1, v1, [Ljava/lang/Object;
 
     iput-object v1, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->arguments:[Ljava/lang/Object;
 
-    .line 592
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_1
 
@@ -2460,41 +2199,36 @@
 
     aget-object v3, v2, v1
 
-    instance-of v3, v3, Lcom/thoughtworks/xstream/core/ClassLoaderReference;
+    instance-of v4, v3, Lcom/thoughtworks/xstream/core/ClassLoaderReference;
 
-    if-eqz v3, :cond_0
+    if-eqz v4, :cond_0
+
+    add-int/lit8 v4, v0, 0x1
 
     .line 595
-    add-int/lit8 v3, v0, 0x1
+    check-cast v3, Lcom/thoughtworks/xstream/core/ClassLoaderReference;
 
-    aget-object v4, v2, v1
+    invoke-virtual {v3}, Lcom/thoughtworks/xstream/core/ClassLoaderReference;->getReference()Ljava/lang/ClassLoader;
 
-    check-cast v4, Lcom/thoughtworks/xstream/core/ClassLoaderReference;
+    move-result-object v3
 
-    invoke-virtual {v4}, Lcom/thoughtworks/xstream/core/ClassLoaderReference;->getReference()Ljava/lang/ClassLoader;
+    aput-object v3, v2, v4
 
-    move-result-object v4
-
-    aput-object v4, v2, v3
-
-    .line 592
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 598
-    .end local v1    # "i":I
     :cond_1
-    iget-object v1, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->arguments:[Ljava/lang/Object;
+    iget-object p1, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->arguments:[Ljava/lang/Object;
 
-    new-instance v2, Lcom/thoughtworks/xstream/core/JVM;
+    new-instance v1, Lcom/thoughtworks/xstream/core/JVM;
 
-    invoke-direct {v2}, Lcom/thoughtworks/xstream/core/JVM;-><init>()V
+    invoke-direct {v1}, Lcom/thoughtworks/xstream/core/JVM;-><init>()V
 
-    aput-object v2, v1, v0
+    aput-object v1, p1, v0
 
-    .line 599
     return-void
 .end method
 
@@ -2578,13 +2312,11 @@
 
     iput-object v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->localConversionMapper:Lcom/thoughtworks/xstream/mapper/LocalConversionMapper;
 
-    .line 576
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 3
-    .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2602,13 +2334,10 @@
     add-int/lit8 v0, v0, -0x2
 
     .line 581
-    .local v0, "max":I
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeInt(I)V
 
-    .line 582
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -2619,13 +2348,10 @@
 
     invoke-virtual {p1, v2}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
-    .line 582
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 585
-    .end local v1    # "i":I
     :cond_0
     return-void
 .end method
@@ -2633,21 +2359,18 @@
 
 # virtual methods
 .method public autodetectAnnotations(Z)V
-    .locals 1
-    .param p1, "mode"    # Z
+    .locals 0
+
+    xor-int/lit8 p1, p1, 0x1
 
     .line 152
-    xor-int/lit8 v0, p1, 0x1
+    iput-boolean p1, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->locked:Z
 
-    iput-boolean v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->locked:Z
-
-    .line 153
     return-void
 .end method
 
 .method public defaultImplementationOf(Ljava/lang/Class;)Ljava/lang/Class;
-    .locals 2
-    .param p1, "type"    # Ljava/lang/Class;
+    .locals 1
 
     .line 133
     iget-boolean v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->locked:Z
@@ -2661,26 +2384,22 @@
     :cond_0
     invoke-super {p0, p1}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->defaultImplementationOf(Ljava/lang/Class;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 137
-    .local v0, "defaultImplementation":Ljava/lang/Class;
-    iget-boolean v1, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->locked:Z
+    iget-boolean v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->locked:Z
 
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
 
     .line 138
-    invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->processAnnotations(Ljava/lang/Class;)V
+    invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->processAnnotations(Ljava/lang/Class;)V
 
-    .line 140
     :cond_1
-    return-object v0
+    return-object p1
 .end method
 
 .method public getLocalConverter(Ljava/lang/Class;Ljava/lang/String;)Lcom/thoughtworks/xstream/converters/Converter;
     .locals 1
-    .param p1, "definedIn"    # Ljava/lang/Class;
-    .param p2, "fieldName"    # Ljava/lang/String;
 
     .line 145
     iget-boolean v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->locked:Z
@@ -2694,28 +2413,27 @@
     :cond_0
     invoke-super {p0, p1, p2}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->getLocalConverter(Ljava/lang/Class;Ljava/lang/String;)Lcom/thoughtworks/xstream/converters/Converter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public processAnnotations([Ljava/lang/Class;)V
     .locals 4
-    .param p1, "initialTypes"    # [Ljava/lang/Class;
 
-    .line 156
     if-eqz p1, :cond_2
 
+    .line 156
     array-length v0, p1
 
     if-nez v0, :cond_0
 
     goto :goto_1
 
-    .line 159
     :cond_0
     const/4 v0, 0x1
 
+    .line 159
     iput-boolean v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->locked:Z
 
     .line 161
@@ -2726,7 +2444,6 @@
     invoke-direct {v0, p0, v1}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper$UnprocessedTypesSet;-><init>(Lcom/thoughtworks/xstream/mapper/AnnotationMapper;Lcom/thoughtworks/xstream/mapper/AnnotationMapper$1;)V
 
     .line 162
-    .local v0, "types":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Class<*>;>;"
     array-length v1, p1
 
     const/4 v2, 0x0
@@ -2737,11 +2454,8 @@
     aget-object v3, p1, v2
 
     .line 163
-    .local v3, "initialType":Ljava/lang/Class;
     invoke-interface {v0, v3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 162
-    .end local v3    # "initialType":Ljava/lang/Class;
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
@@ -2750,11 +2464,6 @@
     :cond_1
     invoke-direct {p0, v0}, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->processTypes(Ljava/util/Set;)V
 
-    .line 166
-    return-void
-
-    .line 157
-    .end local v0    # "types":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Class<*>;>;"
     :cond_2
     :goto_1
     return-void
@@ -2762,8 +2471,6 @@
 
 .method public realMember(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
-    .param p2, "serialized"    # Ljava/lang/String;
 
     .line 117
     iget-boolean v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->locked:Z
@@ -2777,14 +2484,13 @@
     :cond_0
     invoke-super {p0, p1, p2}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->realMember(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public serializedClass(Ljava/lang/Class;)Ljava/lang/String;
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
 
     .line 125
     iget-boolean v0, p0, Lcom/thoughtworks/xstream/mapper/AnnotationMapper;->locked:Z
@@ -2798,7 +2504,7 @@
     :cond_0
     invoke-super {p0, p1}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->serializedClass(Ljava/lang/Class;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

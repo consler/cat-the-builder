@@ -13,30 +13,24 @@
 # direct methods
 .method protected constructor <init>(Lorg/apache/commons/collections/Buffer;)V
     .locals 0
-    .param p1, "buffer"    # Lorg/apache/commons/collections/Buffer;
 
     .line 59
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/collection/SynchronizedCollection;-><init>(Ljava/util/Collection;)V
 
-    .line 60
     return-void
 .end method
 
 .method protected constructor <init>(Lorg/apache/commons/collections/Buffer;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "buffer"    # Lorg/apache/commons/collections/Buffer;
-    .param p2, "lock"    # Ljava/lang/Object;
 
     .line 70
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections/collection/SynchronizedCollection;-><init>(Ljava/util/Collection;Ljava/lang/Object;)V
 
-    .line 71
     return-void
 .end method
 
 .method public static decorate(Lorg/apache/commons/collections/Buffer;)Lorg/apache/commons/collections/Buffer;
     .locals 1
-    .param p0, "buffer"    # Lorg/apache/commons/collections/Buffer;
 
     .line 48
     new-instance v0, Lorg/apache/commons/collections/buffer/SynchronizedBuffer;
@@ -70,10 +64,10 @@
 
     return-object v1
 
-    .line 86
     :catchall_0
     move-exception v1
 
+    .line 86
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -114,10 +108,10 @@
 
     return-object v1
 
-    .line 92
     :catchall_0
     move-exception v1
 
+    .line 92
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0

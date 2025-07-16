@@ -32,14 +32,12 @@
 .method public run()V
     .locals 0
 
-    .line 676
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .line 680
     const-string v0, "EmptyAction"
 
     return-object v0

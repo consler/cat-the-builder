@@ -65,8 +65,6 @@
     .end annotation
 
     .line 223
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;, "Lorg/apache/commons/collections4/multimap/AbstractListValuedMap<TK;TV;>.ValuesListIterator;"
-    .local p2, "key":Ljava/lang/Object;, "TK;"
     iput-object p1, p0, Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;->this$0:Lorg/apache/commons/collections4/multimap/AbstractListValuedMap;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -98,13 +96,11 @@
 
     iput-object p1, p0, Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;->iterator:Ljava/util/ListIterator;
 
-    .line 227
     return-void
 .end method
 
 .method public constructor <init>(Lorg/apache/commons/collections4/multimap/AbstractListValuedMap;Ljava/lang/Object;I)V
     .locals 0
-    .param p3, "index"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;I)V"
@@ -112,8 +108,6 @@
     .end annotation
 
     .line 229
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;, "Lorg/apache/commons/collections4/multimap/AbstractListValuedMap<TK;TV;>.ValuesListIterator;"
-    .local p2, "key":Ljava/lang/Object;, "TK;"
     iput-object p1, p0, Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;->this$0:Lorg/apache/commons/collections4/multimap/AbstractListValuedMap;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -145,7 +139,6 @@
 
     iput-object p1, p0, Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;->iterator:Ljava/util/ListIterator;
 
-    .line 233
     return-void
 .end method
 
@@ -160,8 +153,6 @@
     .end annotation
 
     .line 237
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;, "Lorg/apache/commons/collections4/multimap/AbstractListValuedMap<TK;TV;>.ValuesListIterator;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;->this$0:Lorg/apache/commons/collections4/multimap/AbstractListValuedMap;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/multimap/AbstractListValuedMap;->getMap()Ljava/util/Map;
@@ -184,7 +175,6 @@
     move-result-object v0
 
     .line 239
-    .local v0, "list":Ljava/util/List;, "Ljava/util/List<TV;>;"
     iget-object v1, p0, Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;->this$0:Lorg/apache/commons/collections4/multimap/AbstractListValuedMap;
 
     invoke-virtual {v1}, Lorg/apache/commons/collections4/multimap/AbstractListValuedMap;->getMap()Ljava/util/Map;
@@ -201,18 +191,16 @@
     .line 241
     invoke-interface {v0}, Ljava/util/List;->listIterator()Ljava/util/ListIterator;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;->iterator:Ljava/util/ListIterator;
+    iput-object v0, p0, Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;->iterator:Ljava/util/ListIterator;
 
     .line 243
-    .end local v0    # "list":Ljava/util/List;, "Ljava/util/List<TV;>;"
     :cond_0
     iget-object v0, p0, Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;->iterator:Ljava/util/ListIterator;
 
     invoke-interface {v0, p1}, Ljava/util/ListIterator;->add(Ljava/lang/Object;)V
 
-    .line 244
     return-void
 .end method
 
@@ -220,7 +208,6 @@
     .locals 1
 
     .line 248
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;, "Lorg/apache/commons/collections4/multimap/AbstractListValuedMap<TK;TV;>.ValuesListIterator;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;->iterator:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->hasNext()Z
@@ -234,7 +221,6 @@
     .locals 1
 
     .line 253
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;, "Lorg/apache/commons/collections4/multimap/AbstractListValuedMap<TK;TV;>.ValuesListIterator;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;->iterator:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->hasPrevious()Z
@@ -253,7 +239,6 @@
     .end annotation
 
     .line 258
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;, "Lorg/apache/commons/collections4/multimap/AbstractListValuedMap<TK;TV;>.ValuesListIterator;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;->iterator:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->next()Ljava/lang/Object;
@@ -267,7 +252,6 @@
     .locals 1
 
     .line 263
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;, "Lorg/apache/commons/collections4/multimap/AbstractListValuedMap<TK;TV;>.ValuesListIterator;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;->iterator:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->nextIndex()I
@@ -286,7 +270,6 @@
     .end annotation
 
     .line 268
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;, "Lorg/apache/commons/collections4/multimap/AbstractListValuedMap<TK;TV;>.ValuesListIterator;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;->iterator:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
@@ -300,7 +283,6 @@
     .locals 1
 
     .line 273
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;, "Lorg/apache/commons/collections4/multimap/AbstractListValuedMap<TK;TV;>.ValuesListIterator;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;->iterator:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->previousIndex()I
@@ -314,7 +296,6 @@
     .locals 2
 
     .line 278
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;, "Lorg/apache/commons/collections4/multimap/AbstractListValuedMap<TK;TV;>.ValuesListIterator;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;->iterator:Ljava/util/ListIterator;
 
     invoke-interface {v0}, Ljava/util/ListIterator;->remove()V
@@ -339,7 +320,6 @@
 
     invoke-interface {v0, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 282
     :cond_0
     return-void
 .end method
@@ -353,12 +333,9 @@
     .end annotation
 
     .line 286
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;, "Lorg/apache/commons/collections4/multimap/AbstractListValuedMap<TK;TV;>.ValuesListIterator;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lorg/apache/commons/collections4/multimap/AbstractListValuedMap$ValuesListIterator;->iterator:Ljava/util/ListIterator;
 
     invoke-interface {v0, p1}, Ljava/util/ListIterator;->set(Ljava/lang/Object;)V
 
-    .line 287
     return-void
 .end method

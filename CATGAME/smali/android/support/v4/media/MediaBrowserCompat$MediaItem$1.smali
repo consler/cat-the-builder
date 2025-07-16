@@ -40,7 +40,6 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/support/v4/media/MediaBrowserCompat$MediaItem;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
     .line 574
     new-instance v0, Landroid/support/v4/media/MediaBrowserCompat$MediaItem;
@@ -62,13 +61,12 @@
 .end method
 
 .method public newArray(I)[Landroid/support/v4/media/MediaBrowserCompat$MediaItem;
-    .locals 1
-    .param p1, "size"    # I
+    .locals 0
 
     .line 579
-    new-array v0, p1, [Landroid/support/v4/media/MediaBrowserCompat$MediaItem;
+    new-array p1, p1, [Landroid/support/v4/media/MediaBrowserCompat$MediaItem;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;

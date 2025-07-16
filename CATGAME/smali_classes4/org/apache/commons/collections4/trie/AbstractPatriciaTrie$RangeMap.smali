@@ -45,7 +45,6 @@
     .locals 0
 
     .line 1679
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.RangeMap;"
     iput-object p1, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
     invoke-direct {p0}, Ljava/util/AbstractMap;-><init>()V
@@ -55,11 +54,8 @@
 
 .method synthetic constructor <init>(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$1;)V
     .locals 0
-    .param p1, "x0"    # Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
-    .param p2, "x1"    # Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$1;
 
     .line 1679
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.RangeMap;"
     invoke-direct {p0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;-><init>(Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;)V
 
     return-void
@@ -78,7 +74,6 @@
     .end annotation
 
     .line 1712
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.RangeMap;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
     invoke-virtual {v0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->comparator()Ljava/util/Comparator;
@@ -90,10 +85,8 @@
 
 .method public containsKey(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 1717
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.RangeMap;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->castKey(Ljava/lang/Object;)Ljava/lang/Object;
@@ -106,10 +99,9 @@
 
     if-nez v0, :cond_0
 
-    .line 1718
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 1721
     :cond_0
@@ -117,9 +109,9 @@
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method protected abstract createEntrySet()Ljava/util/Set;
@@ -155,7 +147,6 @@
     .end annotation
 
     .line 1752
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.RangeMap;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->entrySet:Ljava/util/Set;
 
     if-nez v0, :cond_0
@@ -176,7 +167,6 @@
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -186,7 +176,6 @@
     .end annotation
 
     .line 1735
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.RangeMap;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->castKey(Ljava/lang/Object;)Ljava/lang/Object;
@@ -199,10 +188,9 @@
 
     if-nez v0, :cond_0
 
-    .line 1736
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 
     .line 1739
     :cond_0
@@ -210,9 +198,9 @@
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected abstract getFromKey()Ljava/lang/Object;
@@ -242,8 +230,6 @@
     .end annotation
 
     .line 1773
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.RangeMap;"
-    .local p1, "toKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->inRange2(Ljava/lang/Object;)Z
 
     move-result v0
@@ -265,9 +251,9 @@
 
     invoke-virtual {p0, v0, v1, p1, v2}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->createRangeMap(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 1774
     :cond_0
@@ -275,26 +261,25 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "ToKey is out of range: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method protected inFromRange(Ljava/lang/Object;Z)Z
-    .locals 5
-    .param p2, "forceInclusive"    # Z
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;Z)Z"
@@ -302,20 +287,16 @@
     .end annotation
 
     .line 1811
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.RangeMap;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->getFromKey()Ljava/lang/Object;
 
     move-result-object v0
 
     .line 1812
-    .local v0, "fromKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->isFromInclusive()Z
 
     move-result v1
 
     .line 1814
-    .local v1, "fromInclusive":Z
     iget-object v2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
     invoke-virtual {v2}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->getKeyAnalyzer()Lorg/apache/commons/collections4/trie/KeyAnalyzer;
@@ -324,13 +305,11 @@
 
     invoke-virtual {v2, p1, v0}, Lorg/apache/commons/collections4/trie/KeyAnalyzer;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
-    move-result v2
+    move-result p1
 
-    .line 1815
-    .local v2, "ret":I
-    const/4 v3, 0x1
+    const/4 v0, 0x1
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
     if-nez v1, :cond_2
 
@@ -338,34 +317,32 @@
 
     goto :goto_1
 
-    .line 1818
     :cond_0
-    if-lez v2, :cond_1
+    if-lez p1, :cond_1
 
     goto :goto_0
 
     :cond_1
-    move v3, v4
+    move v0, v2
 
     :goto_0
-    return v3
+    return v0
 
-    .line 1816
     :cond_2
     :goto_1
-    if-ltz v2, :cond_3
+    if-ltz p1, :cond_3
 
     goto :goto_2
 
     :cond_3
-    move v3, v4
+    move v0, v2
 
     :goto_2
-    return v3
+    return v0
 .end method
 
 .method protected inRange(Ljava/lang/Object;)Z
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)Z"
@@ -373,38 +350,34 @@
     .end annotation
 
     .line 1791
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.RangeMap;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->getFromKey()Ljava/lang/Object;
 
     move-result-object v0
 
     .line 1792
-    .local v0, "fromKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->getToKey()Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 1794
-    .local v1, "toKey":Ljava/lang/Object;, "TK;"
     const/4 v2, 0x0
 
     if-eqz v0, :cond_0
 
+    .line 1794
     invoke-virtual {p0, p1, v2}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->inFromRange(Ljava/lang/Object;Z)Z
 
-    move-result v3
+    move-result v0
 
-    if-eqz v3, :cond_2
+    if-eqz v0, :cond_2
 
     :cond_0
     if-eqz v1, :cond_1
 
     invoke-virtual {p0, p1, v2}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->inToRange(Ljava/lang/Object;Z)Z
 
-    move-result v3
+    move-result p1
 
-    if-eqz v3, :cond_2
+    if-eqz p1, :cond_2
 
     :cond_1
     const/4 v2, 0x1
@@ -414,7 +387,7 @@
 .end method
 
 .method protected inRange2(Ljava/lang/Object;)Z
-    .locals 5
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)Z"
@@ -422,54 +395,46 @@
     .end annotation
 
     .line 1801
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.RangeMap;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->getFromKey()Ljava/lang/Object;
 
     move-result-object v0
 
     .line 1802
-    .local v0, "fromKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->getToKey()Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 1804
-    .local v1, "toKey":Ljava/lang/Object;, "TK;"
-    const/4 v2, 0x1
-
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0, p1, v3}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->inFromRange(Ljava/lang/Object;Z)Z
+    .line 1804
+    invoke-virtual {p0, p1, v2}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->inFromRange(Ljava/lang/Object;Z)Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_1
+    if-eqz v0, :cond_2
 
     :cond_0
-    if-eqz v1, :cond_2
+    const/4 v0, 0x1
 
-    invoke-virtual {p0, p1, v2}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->inToRange(Ljava/lang/Object;Z)Z
+    if-eqz v1, :cond_1
 
-    move-result v4
+    invoke-virtual {p0, p1, v0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->inToRange(Ljava/lang/Object;Z)Z
 
-    if-eqz v4, :cond_1
+    move-result p1
 
-    goto :goto_0
+    if-eqz p1, :cond_2
 
     :cond_1
-    move v2, v3
+    move v2, v0
 
     :cond_2
-    :goto_0
     return v2
 .end method
 
 .method protected inToRange(Ljava/lang/Object;Z)Z
-    .locals 5
-    .param p2, "forceInclusive"    # Z
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;Z)Z"
@@ -477,20 +442,16 @@
     .end annotation
 
     .line 1825
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.RangeMap;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->getToKey()Ljava/lang/Object;
 
     move-result-object v0
 
     .line 1826
-    .local v0, "toKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->isToInclusive()Z
 
     move-result v1
 
     .line 1828
-    .local v1, "toInclusive":Z
     iget-object v2, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
     invoke-virtual {v2}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->getKeyAnalyzer()Lorg/apache/commons/collections4/trie/KeyAnalyzer;
@@ -499,13 +460,11 @@
 
     invoke-virtual {v2, p1, v0}, Lorg/apache/commons/collections4/trie/KeyAnalyzer;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
-    move-result v2
+    move-result p1
 
-    .line 1829
-    .local v2, "ret":I
-    const/4 v3, 0x1
+    const/4 v0, 0x1
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
     if-nez v1, :cond_2
 
@@ -513,30 +472,28 @@
 
     goto :goto_1
 
-    .line 1832
     :cond_0
-    if-gez v2, :cond_1
+    if-gez p1, :cond_1
 
     goto :goto_0
 
     :cond_1
-    move v3, v4
+    move v0, v2
 
     :goto_0
-    return v3
+    return v0
 
-    .line 1830
     :cond_2
     :goto_1
-    if-gtz v2, :cond_3
+    if-gtz p1, :cond_3
 
     goto :goto_2
 
     :cond_3
-    move v3, v4
+    move v0, v2
 
     :goto_2
-    return v3
+    return v0
 .end method
 
 .method protected abstract isFromInclusive()Z
@@ -546,7 +503,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -554,9 +511,6 @@
     .end annotation
 
     .line 1744
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.RangeMap;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->inRange(Ljava/lang/Object;)Z
 
     move-result v0
@@ -568,36 +522,35 @@
 
     invoke-virtual {v0, p1, p2}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 1745
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p2, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "Key is out of range: "
 
-    const-string v2, "Key is out of range: "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p2
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -607,7 +560,6 @@
     .end annotation
 
     .line 1726
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.RangeMap;"
     iget-object v0, p0, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->this$0:Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->castKey(Ljava/lang/Object;)Ljava/lang/Object;
@@ -620,10 +572,9 @@
 
     if-nez v0, :cond_0
 
-    .line 1727
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 
     .line 1730
     :cond_0
@@ -631,13 +582,13 @@
 
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TK;)",
@@ -647,9 +598,6 @@
     .end annotation
 
     .line 1760
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.RangeMap;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
-    .local p2, "toKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->inRange2(Ljava/lang/Object;)Z
 
     move-result v0
@@ -674,53 +622,53 @@
 
     invoke-virtual {p0, p1, v0, p2, v1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->createRangeMap(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 1765
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "ToKey is out of range: "
 
-    const-string v2, "ToKey is out of range: "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 1761
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p2, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "FromKey is out of range: "
 
-    const-string v2, "FromKey is out of range: "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p2
 .end method
 
 .method public tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
@@ -734,8 +682,6 @@
     .end annotation
 
     .line 1781
-    .local p0, "this":Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;, "Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie<TK;TV;>.RangeMap;"
-    .local p1, "fromKey":Ljava/lang/Object;, "TK;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->inRange2(Ljava/lang/Object;)Z
 
     move-result v0
@@ -757,9 +703,9 @@
 
     invoke-virtual {p0, p1, v0, v1, v2}, Lorg/apache/commons/collections4/trie/AbstractPatriciaTrie$RangeMap;->createRangeMap(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 1782
     :cond_0
@@ -767,19 +713,19 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "FromKey is out of range: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
+
+    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method

@@ -27,23 +27,18 @@
 
 # virtual methods
 .method public set(Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;ILcom/badlogic/gdx/graphics/g3d/Renderable;Lcom/badlogic/gdx/graphics/g3d/Attributes;)V
-    .locals 2
-    .param p1, "shader"    # Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;
-    .param p2, "inputID"    # I
-    .param p3, "renderable"    # Lcom/badlogic/gdx/graphics/g3d/Renderable;
-    .param p4, "combinedAttributes"    # Lcom/badlogic/gdx/graphics/g3d/Attributes;
+    .locals 0
 
     .line 164
-    iget-object v0, p1, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;->camera:Lcom/badlogic/gdx/graphics/Camera;
+    iget-object p3, p1, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;->camera:Lcom/badlogic/gdx/graphics/Camera;
 
-    iget v0, v0, Lcom/badlogic/gdx/graphics/Camera;->near:F
+    iget p3, p3, Lcom/badlogic/gdx/graphics/Camera;->near:F
 
-    iget-object v1, p1, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;->camera:Lcom/badlogic/gdx/graphics/Camera;
+    iget-object p4, p1, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;->camera:Lcom/badlogic/gdx/graphics/Camera;
 
-    iget v1, v1, Lcom/badlogic/gdx/graphics/Camera;->far:F
+    iget p4, p4, Lcom/badlogic/gdx/graphics/Camera;->far:F
 
-    invoke-virtual {p1, p2, v0, v1}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;->set(IFF)Z
+    invoke-virtual {p1, p2, p3, p4}, Lcom/badlogic/gdx/graphics/g3d/shaders/BaseShader;->set(IFF)Z
 
-    .line 165
     return-void
 .end method

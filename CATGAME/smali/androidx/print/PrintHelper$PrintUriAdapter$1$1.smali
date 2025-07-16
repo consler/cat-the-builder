@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/print/PrintHelper$PrintUriAdapter$1;)V
     .locals 0
-    .param p1, "this$2"    # Landroidx/print/PrintHelper$PrintUriAdapter$1;
 
     .line 429
     iput-object p1, p0, Landroidx/print/PrintHelper$PrintUriAdapter$1$1;->this$2:Landroidx/print/PrintHelper$PrintUriAdapter$1;
@@ -53,6 +52,5 @@
 
     invoke-virtual {v0, v1}, Landroidx/print/PrintHelper$PrintUriAdapter$1;->cancel(Z)Z
 
-    .line 434
     return-void
 .end method

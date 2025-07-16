@@ -21,33 +21,28 @@
     .line 427
     invoke-direct {p0}, Lorg/apache/commons/lang3/text/StrMatcher;-><init>()V
 
-    .line 428
     return-void
 .end method
 
 
 # virtual methods
 .method public isMatch([CIII)I
-    .locals 2
-    .param p1, "buffer"    # [C
-    .param p2, "pos"    # I
-    .param p3, "bufferStart"    # I
-    .param p4, "bufferEnd"    # I
+    .locals 0
 
     .line 441
-    aget-char v0, p1, p2
+    aget-char p1, p1, p2
 
-    const/16 v1, 0x20
+    const/16 p2, 0x20
 
-    if-gt v0, v1, :cond_0
+    if-gt p1, p2, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method

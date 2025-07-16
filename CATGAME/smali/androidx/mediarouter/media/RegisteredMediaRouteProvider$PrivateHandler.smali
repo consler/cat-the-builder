@@ -21,6 +21,5 @@
     .line 962
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
-    .line 963
     return-void
 .end method

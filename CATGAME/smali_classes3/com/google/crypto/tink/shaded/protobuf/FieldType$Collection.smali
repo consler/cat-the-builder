@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .locals 9
 
     .line 330
     new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
@@ -54,65 +54,58 @@
     sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
     .line 331
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    new-instance v1, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const-string v1, "VECTOR"
+    const-string v3, "VECTOR"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3, v3}, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;-><init>(Ljava/lang/String;IZ)V
+    invoke-direct {v1, v3, v4, v4}, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;-><init>(Ljava/lang/String;IZ)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    sput-object v1, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
     .line 332
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    new-instance v3, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const-string v1, "PACKED_VECTOR"
+    const-string v5, "PACKED_VECTOR"
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v1, v4, v3}, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;-><init>(Ljava/lang/String;IZ)V
+    invoke-direct {v3, v5, v6, v4}, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;-><init>(Ljava/lang/String;IZ)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    sput-object v3, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
     .line 333
-    new-instance v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    new-instance v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    const-string v1, "MAP"
+    const-string v7, "MAP"
 
-    const/4 v5, 0x3
+    const/4 v8, 0x3
 
-    invoke-direct {v0, v1, v5, v2}, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;-><init>(Ljava/lang/String;IZ)V
+    invoke-direct {v5, v7, v8, v2}, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;-><init>(Ljava/lang/String;IZ)V
 
-    sput-object v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->MAP:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    sput-object v5, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->MAP:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+
+    const/4 v7, 0x4
+
+    new-array v7, v7, [Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+
+    aput-object v0, v7, v2
+
+    aput-object v1, v7, v4
+
+    aput-object v3, v7, v6
+
+    aput-object v5, v7, v8
 
     .line 329
-    const/4 v1, 0x4
-
-    new-array v1, v1, [Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    sget-object v6, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->SCALAR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    aput-object v6, v1, v2
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->PACKED_VECTOR:Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
-
-    aput-object v2, v1, v4
-
-    aput-object v0, v1, v5
-
-    sput-object v1, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->$VALUES:[Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    sput-object v7, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->$VALUES:[Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IZ)V
     .locals 0
-    .param p3, "isList"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)V"
@@ -125,24 +118,22 @@
     .line 338
     iput-boolean p3, p0, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;->isList:Z
 
-    .line 339
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 329
     const-class v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
+    check-cast p0, Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/google/crypto/tink/shaded/protobuf/FieldType$Collection;

@@ -21,8 +21,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroidx/camera/core/impl/CameraThreadConfig;)V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "threadConfig"    # Landroidx/camera/core/impl/CameraThreadConfig;
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,19 +38,16 @@
     iput-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraFactory;->mCameraStateRegistry:Landroidx/camera/core/impl/CameraStateRegistry;
 
     .line 50
-    iget-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraFactory;->mThreadConfig:Landroidx/camera/core/impl/CameraThreadConfig;
+    invoke-virtual {p2}, Landroidx/camera/core/impl/CameraThreadConfig;->getSchedulerHandler()Landroid/os/Handler;
 
-    invoke-virtual {v0}, Landroidx/camera/core/impl/CameraThreadConfig;->getSchedulerHandler()Landroid/os/Handler;
+    move-result-object p2
 
-    move-result-object v0
+    invoke-static {p1, p2}, Landroidx/camera/camera2/internal/compat/CameraManagerCompat;->from(Landroid/content/Context;Landroid/os/Handler;)Landroidx/camera/camera2/internal/compat/CameraManagerCompat;
 
-    invoke-static {p1, v0}, Landroidx/camera/camera2/internal/compat/CameraManagerCompat;->from(Landroid/content/Context;Landroid/os/Handler;)Landroidx/camera/camera2/internal/compat/CameraManagerCompat;
+    move-result-object p1
 
-    move-result-object v0
+    iput-object p1, p0, Landroidx/camera/camera2/internal/Camera2CameraFactory;->mCameraManager:Landroidx/camera/camera2/internal/compat/CameraManagerCompat;
 
-    iput-object v0, p0, Landroidx/camera/camera2/internal/Camera2CameraFactory;->mCameraManager:Landroidx/camera/camera2/internal/compat/CameraManagerCompat;
-
-    .line 51
     return-void
 .end method
 
@@ -89,10 +84,6 @@
     :try_end_0
     .catch Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 72
-    .local v0, "camerasList":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    nop
-
     .line 74
     new-instance v1, Ljava/util/LinkedHashSet;
 
@@ -100,23 +91,19 @@
 
     return-object v1
 
-    .line 70
-    .end local v0    # "camerasList":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     :catch_0
     move-exception v0
 
     .line 71
-    .local v0, "e":Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat;
     invoke-static {v0}, Landroidx/camera/camera2/internal/CameraUnavailableExceptionHelper;->createFrom(Landroidx/camera/camera2/internal/compat/CameraAccessExceptionCompat;)Landroidx/camera/core/CameraUnavailableException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 .end method
 
 .method public getCamera(Ljava/lang/String;)Landroidx/camera/core/impl/CameraInternal;
     .locals 7
-    .param p1, "cameraId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroidx/camera/core/CameraUnavailableException;
@@ -160,16 +147,15 @@
 
     invoke-direct/range {v1 .. v6}, Landroidx/camera/camera2/internal/Camera2CameraImpl;-><init>(Landroidx/camera/camera2/internal/compat/CameraManagerCompat;Ljava/lang/String;Landroidx/camera/core/impl/CameraStateRegistry;Ljava/util/concurrent/Executor;Landroid/os/Handler;)V
 
-    .line 60
     return-object v0
 
     .line 57
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "The given camera id is not on the available camera id list."
+    const-string v0, "The given camera id is not on the available camera id list."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

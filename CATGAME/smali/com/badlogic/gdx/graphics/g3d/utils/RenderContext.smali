@@ -26,7 +26,6 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/utils/TextureBinder;)V
     .locals 0
-    .param p1, "textures"    # Lcom/badlogic/gdx/graphics/g3d/utils/TextureBinder;
 
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +33,6 @@
     .line 39
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->textureBinder:Lcom/badlogic/gdx/graphics/g3d/utils/TextureBinder;
 
-    .line 40
     return-void
 .end method
 
@@ -50,9 +48,9 @@
 
     invoke-interface {v0, v1}, Lcom/badlogic/gdx/graphics/GL20;->glDisable(I)V
 
-    .line 45
     const/4 v0, 0x0
 
+    .line 45
     iput v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->depthFunc:I
 
     .line 46
@@ -94,7 +92,6 @@
 
     invoke-interface {v0}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureBinder;->begin()V
 
-    .line 53
     return-void
 .end method
 
@@ -154,15 +151,11 @@
 
     invoke-interface {v0}, Lcom/badlogic/gdx/graphics/g3d/utils/TextureBinder;->end()V
 
-    .line 62
     return-void
 .end method
 
 .method public setBlending(ZII)V
     .locals 2
-    .param p1, "enabled"    # Z
-    .param p2, "sFactor"    # I
-    .param p3, "dFactor"    # I
 
     .line 91
     iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->blending:Z
@@ -172,7 +165,6 @@
     .line 92
     iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->blending:Z
 
-    .line 93
     const/16 v0, 0xbe2
 
     if-eqz p1, :cond_0
@@ -190,24 +182,24 @@
 
     invoke-interface {v1, v0}, Lcom/badlogic/gdx/graphics/GL20;->glDisable(I)V
 
-    .line 98
     :cond_1
     :goto_0
     if-eqz p1, :cond_3
 
-    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->blendSFactor:I
+    .line 98
+    iget p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->blendSFactor:I
 
-    if-ne v0, p2, :cond_2
+    if-ne p1, p2, :cond_2
 
-    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->blendDFactor:I
+    iget p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->blendDFactor:I
 
-    if-eq v0, p3, :cond_3
+    if-eq p1, p3, :cond_3
 
     .line 99
     :cond_2
-    sget-object v0, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
+    sget-object p1, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
 
-    invoke-interface {v0, p2, p3}, Lcom/badlogic/gdx/graphics/GL20;->glBlendFunc(II)V
+    invoke-interface {p1, p2, p3}, Lcom/badlogic/gdx/graphics/GL20;->glBlendFunc(II)V
 
     .line 100
     iput p2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->blendSFactor:I
@@ -215,14 +207,12 @@
     .line 101
     iput p3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->blendDFactor:I
 
-    .line 103
     :cond_3
     return-void
 .end method
 
 .method public setCullFace(I)V
     .locals 2
-    .param p1, "face"    # I
 
     .line 106
     iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->cullFace:I
@@ -232,7 +222,6 @@
     .line 107
     iput p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->cullFace:I
 
-    .line 108
     const/16 v0, 0x404
 
     const/16 v1, 0xb44
@@ -251,9 +240,9 @@
 
     .line 112
     :cond_0
-    sget-object v0, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
+    sget-object p1, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
 
-    invoke-interface {v0, v1}, Lcom/badlogic/gdx/graphics/GL20;->glDisable(I)V
+    invoke-interface {p1, v1}, Lcom/badlogic/gdx/graphics/GL20;->glDisable(I)V
 
     goto :goto_1
 
@@ -269,7 +258,6 @@
 
     invoke-interface {v0, p1}, Lcom/badlogic/gdx/graphics/GL20;->glCullFace(I)V
 
-    .line 114
     :cond_2
     :goto_1
     return-void
@@ -277,7 +265,6 @@
 
 .method public setDepthMask(Z)V
     .locals 1
-    .param p1, "depthMask"    # Z
 
     .line 65
     iget-boolean v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->depthMask:Z
@@ -290,31 +277,25 @@
 
     invoke-interface {v0, p1}, Lcom/badlogic/gdx/graphics/GL20;->glDepthMask(Z)V
 
-    .line 66
     :cond_0
     return-void
 .end method
 
 .method public setDepthTest(I)V
     .locals 2
-    .param p1, "depthFunction"    # I
 
-    .line 69
     const/4 v0, 0x0
 
     const/high16 v1, 0x3f800000    # 1.0f
 
+    .line 69
     invoke-virtual {p0, p1, v0, v1}, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->setDepthTest(IFF)V
 
-    .line 70
     return-void
 .end method
 
 .method public setDepthTest(IFF)V
     .locals 4
-    .param p1, "depthFunction"    # I
-    .param p2, "depthRangeNear"    # F
-    .param p3, "depthRangeFar"    # F
 
     .line 73
     iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->depthFunc:I
@@ -325,15 +306,13 @@
 
     if-eqz v0, :cond_0
 
-    move v0, v1
+    move v3, v1
 
     goto :goto_0
 
     :cond_0
-    move v0, v2
+    move v3, v2
 
-    .line 74
-    .local v0, "wasEnabled":Z
     :goto_0
     if-eqz p1, :cond_1
 
@@ -342,85 +321,78 @@
     :cond_1
     move v1, v2
 
-    .line 75
-    .local v1, "enabled":Z
     :goto_1
-    iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->depthFunc:I
-
-    if-eq v2, p1, :cond_3
+    if-eq v0, p1, :cond_3
 
     .line 76
     iput p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->depthFunc:I
 
-    .line 77
-    const/16 v2, 0xb71
+    const/16 v0, 0xb71
 
     if-eqz v1, :cond_2
 
     .line 78
-    sget-object v3, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
-
-    invoke-interface {v3, v2}, Lcom/badlogic/gdx/graphics/GL20;->glEnable(I)V
-
-    .line 79
     sget-object v2, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
 
-    invoke-interface {v2, p1}, Lcom/badlogic/gdx/graphics/GL20;->glDepthFunc(I)V
+    invoke-interface {v2, v0}, Lcom/badlogic/gdx/graphics/GL20;->glEnable(I)V
+
+    .line 79
+    sget-object v0, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
+
+    invoke-interface {v0, p1}, Lcom/badlogic/gdx/graphics/GL20;->glDepthFunc(I)V
 
     goto :goto_2
 
     .line 81
     :cond_2
-    sget-object v3, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
+    sget-object v2, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
 
-    invoke-interface {v3, v2}, Lcom/badlogic/gdx/graphics/GL20;->glDisable(I)V
+    invoke-interface {v2, v0}, Lcom/badlogic/gdx/graphics/GL20;->glDisable(I)V
 
-    .line 83
     :cond_3
     :goto_2
     if-eqz v1, :cond_7
 
+    if-eqz v3, :cond_4
+
     .line 84
-    if-eqz v0, :cond_4
+    iget v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->depthFunc:I
 
-    iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->depthFunc:I
-
-    if-eq v2, p1, :cond_5
+    if-eq v0, p1, :cond_5
 
     :cond_4
-    sget-object v2, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
+    sget-object v0, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
 
     iput p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->depthFunc:I
 
-    invoke-interface {v2, p1}, Lcom/badlogic/gdx/graphics/GL20;->glDepthFunc(I)V
+    invoke-interface {v0, p1}, Lcom/badlogic/gdx/graphics/GL20;->glDepthFunc(I)V
+
+    :cond_5
+    if-eqz v3, :cond_6
 
     .line 85
-    :cond_5
-    if-eqz v0, :cond_6
+    iget p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->depthRangeNear:F
 
-    iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->depthRangeNear:F
+    cmpl-float p1, p1, p2
 
-    cmpl-float v2, v2, p2
+    if-nez p1, :cond_6
 
-    if-nez v2, :cond_6
+    iget p1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->depthRangeFar:F
 
-    iget v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->depthRangeFar:F
+    cmpl-float p1, p1, p3
 
-    cmpl-float v2, v2, p3
-
-    if-eqz v2, :cond_7
+    if-eqz p1, :cond_7
 
     .line 86
     :cond_6
-    sget-object v2, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
+    sget-object p1, Lcom/badlogic/gdx/Gdx;->gl:Lcom/badlogic/gdx/graphics/GL20;
 
     iput p2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->depthRangeNear:F
 
     iput p3, p0, Lcom/badlogic/gdx/graphics/g3d/utils/RenderContext;->depthRangeFar:F
 
-    invoke-interface {v2, p2, p3}, Lcom/badlogic/gdx/graphics/GL20;->glDepthRangef(FF)V
+    invoke-interface {p1, p2, p3}, Lcom/badlogic/gdx/graphics/GL20;->glDepthRangef(FF)V
 
-    .line 88
     :cond_7
     return-void
 .end method

@@ -48,14 +48,11 @@
     .end annotation
 
     .line 31
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeIgnoreElementCompletable;, "Lio/reactivex/internal/operators/maybe/MaybeIgnoreElementCompletable<TT;>;"
-    .local p1, "source":Lio/reactivex/MaybeSource;, "Lio/reactivex/MaybeSource<TT;>;"
     invoke-direct {p0}, Lio/reactivex/Completable;-><init>()V
 
     .line 32
     iput-object p1, p0, Lio/reactivex/internal/operators/maybe/MaybeIgnoreElementCompletable;->source:Lio/reactivex/MaybeSource;
 
-    .line 33
     return-void
 .end method
 
@@ -72,7 +69,6 @@
     .end annotation
 
     .line 42
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeIgnoreElementCompletable;, "Lio/reactivex/internal/operators/maybe/MaybeIgnoreElementCompletable<TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/maybe/MaybeIgnoreElement;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/maybe/MaybeIgnoreElementCompletable;->source:Lio/reactivex/MaybeSource;
@@ -88,10 +84,8 @@
 
 .method protected subscribeActual(Lio/reactivex/CompletableObserver;)V
     .locals 2
-    .param p1, "observer"    # Lio/reactivex/CompletableObserver;
 
     .line 37
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeIgnoreElementCompletable;, "Lio/reactivex/internal/operators/maybe/MaybeIgnoreElementCompletable<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeIgnoreElementCompletable;->source:Lio/reactivex/MaybeSource;
 
     new-instance v1, Lio/reactivex/internal/operators/maybe/MaybeIgnoreElementCompletable$IgnoreMaybeObserver;
@@ -100,6 +94,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/MaybeSource;->subscribe(Lio/reactivex/MaybeObserver;)V
 
-    .line 38
     return-void
 .end method

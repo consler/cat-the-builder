@@ -40,14 +40,11 @@
     .end annotation
 
     .line 28
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableJust;, "Lio/reactivex/internal/operators/flowable/FlowableJust<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Lio/reactivex/Flowable;-><init>()V
 
     .line 29
     iput-object p1, p0, Lio/reactivex/internal/operators/flowable/FlowableJust;->value:Ljava/lang/Object;
 
-    .line 30
     return-void
 .end method
 
@@ -62,7 +59,6 @@
     .end annotation
 
     .line 39
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableJust;, "Lio/reactivex/internal/operators/flowable/FlowableJust<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableJust;->value:Ljava/lang/Object;
 
     return-object v0
@@ -79,8 +75,6 @@
     .end annotation
 
     .line 34
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableJust;, "Lio/reactivex/internal/operators/flowable/FlowableJust<TT;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     new-instance v0, Lio/reactivex/internal/subscriptions/ScalarSubscription;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableJust;->value:Ljava/lang/Object;
@@ -89,6 +83,5 @@
 
     invoke-interface {p1, v0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
-    .line 35
     return-void
 .end method

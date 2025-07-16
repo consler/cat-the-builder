@@ -34,7 +34,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
-    .param p1, "str"    # Ljava/lang/String;
 
     const-string v0, "str"
 

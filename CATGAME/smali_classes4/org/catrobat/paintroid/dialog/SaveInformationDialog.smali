@@ -10,22 +10,18 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lorg/catrobat/paintroid/dialog/SaveInformationDialog$Companion;
+        Lorg/catrobat/paintroid/dialog/SaveInformationDialog$Companion;,
+        Lorg/catrobat/paintroid/dialog/SaveInformationDialog$WhenMappings;
     }
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nSaveInformationDialog.kt\nKotlin\n*S Kotlin\n*F\n+ 1 SaveInformationDialog.kt\norg/catrobat/paintroid/dialog/SaveInformationDialog\n+ 2 _Arrays.kt\nkotlin/collections/ArraysKt___ArraysKt\n*L\n1#1,235:1\n11298#2:236\n11633#2,3:237\n*E\n*S KotlinDebug\n*F\n+ 1 SaveInformationDialog.kt\norg/catrobat/paintroid/dialog/SaveInformationDialog\n*L\n182#1:236\n182#1,3:237\n*E\n"
+    value = "SMAP\nSaveInformationDialog.kt\nKotlin\n*S Kotlin\n*F\n+ 1 SaveInformationDialog.kt\norg/catrobat/paintroid/dialog/SaveInformationDialog\n+ 2 _Arrays.kt\nkotlin/collections/ArraysKt___ArraysKt\n*L\n1#1,229:1\n11328#2:230\n11663#2,3:231\n*S KotlinDebug\n*F\n+ 1 SaveInformationDialog.kt\norg/catrobat/paintroid/dialog/SaveInformationDialog\n*L\n178#1:230\n178#1:231,3\n*E\n"
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
-        "\u0000\u0088\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0008\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\u0008\u000b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\t\n\u0002\u0008\u0003\n\u0002\u0018\u0002\n\u0002\u0008\u0007\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0004\u0018\u0000 >2\u00020\u00012\u00020\u00022\u00020\u0003:\u0001>B\u0005\u00a2\u0006\u0002\u0010\u0004J\u0010\u0010\u0017\u001a\u00020\u00182\u0006\u0010\u0019\u001a\u00020\u000eH\u0002J\u0010\u0010\u001a\u001a\u00020\u00182\u0006\u0010\u0019\u001a\u00020\u000eH\u0002J\u0008\u0010\u001b\u001a\u00020\u0018H\u0002J\u0008\u0010\u001c\u001a\u00020\u0018H\u0002J\u0008\u0010\u001d\u001a\u00020\u0018H\u0002J\u0010\u0010\u001e\u001a\u00020\u00182\u0006\u0010\u0019\u001a\u00020\u000eH\u0002J\u0010\u0010\u001f\u001a\u00020\u00182\u0006\u0010\u0019\u001a\u00020\u000eH\u0002J\u0010\u0010 \u001a\u00020\u00182\u0006\u0010!\u001a\u00020\u000eH\u0002J\u0012\u0010\"\u001a\u00020\u00182\u0008\u0010#\u001a\u0004\u0018\u00010$H\u0016J\u0012\u0010%\u001a\u00020&2\u0008\u0010#\u001a\u0004\u0018\u00010$H\u0017J0\u0010\'\u001a\u00020\u00182\u000c\u0010(\u001a\u0008\u0012\u0002\u0008\u0003\u0018\u00010)2\u0008\u0010\u0019\u001a\u0004\u0018\u00010\u000e2\u0006\u0010*\u001a\u00020\u00122\u0006\u0010+\u001a\u00020,H\u0016J\u0016\u0010-\u001a\u00020\u00182\u000c\u0010(\u001a\u0008\u0012\u0002\u0008\u0003\u0018\u00010)H\u0016J \u0010.\u001a\u00020\u00182\u0006\u0010/\u001a\u0002002\u0006\u00101\u001a\u00020\u00122\u0006\u00102\u001a\u00020\u000cH\u0016J\u0010\u00103\u001a\u00020\u00182\u0006\u0010/\u001a\u000200H\u0016J\u0010\u00104\u001a\u00020\u00182\u0006\u0010/\u001a\u000200H\u0016J\u001a\u00105\u001a\u00020\u00182\u0006\u0010\u0019\u001a\u00020\u000e2\u0008\u0010#\u001a\u0004\u0018\u00010$H\u0016J*\u00106\u001a\u00020\u00182\u0006\u00107\u001a\u0002082\u0006\u00109\u001a\u00020\u000c2\u0006\u0010:\u001a\u00020;2\u0008\u0008\u0002\u0010<\u001a\u00020\u000cH\u0002J\u0008\u0010=\u001a\u00020\u0018H\u0002R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082.\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0008X\u0082.\u00a2\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082.\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\u000cX\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082.\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082.\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082.\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0016X\u0082.\u00a2\u0006\u0002\n\u0000\u00a8\u0006?"
+        "\u0000\u0086\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0008\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\u0008\u000b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\t\n\u0002\u0008\u0003\n\u0002\u0018\u0002\n\u0002\u0008\u0007\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0003\u0018\u0000 <2\u00020\u00012\u00020\u00022\u00020\u0003:\u0001<B\u0005\u00a2\u0006\u0002\u0010\u0004J\u0010\u0010\u0017\u001a\u00020\u00182\u0006\u0010\u0019\u001a\u00020\u000eH\u0002J\u0010\u0010\u001a\u001a\u00020\u00182\u0006\u0010\u0019\u001a\u00020\u000eH\u0002J\u0008\u0010\u001b\u001a\u00020\u0018H\u0002J\u0008\u0010\u001c\u001a\u00020\u0018H\u0002J\u0008\u0010\u001d\u001a\u00020\u0018H\u0002J\u0010\u0010\u001e\u001a\u00020\u00182\u0006\u0010\u0019\u001a\u00020\u000eH\u0002J\u0010\u0010\u001f\u001a\u00020\u00182\u0006\u0010\u0019\u001a\u00020\u000eH\u0002J\u0010\u0010 \u001a\u00020\u00182\u0006\u0010!\u001a\u00020\u000eH\u0002J\u0012\u0010\"\u001a\u00020\u00182\u0008\u0010#\u001a\u0004\u0018\u00010$H\u0016J\u0012\u0010%\u001a\u00020&2\u0008\u0010#\u001a\u0004\u0018\u00010$H\u0017J0\u0010\'\u001a\u00020\u00182\u000c\u0010(\u001a\u0008\u0012\u0002\u0008\u0003\u0018\u00010)2\u0008\u0010\u0019\u001a\u0004\u0018\u00010\u000e2\u0006\u0010*\u001a\u00020\u00122\u0006\u0010+\u001a\u00020,H\u0016J\u0016\u0010-\u001a\u00020\u00182\u000c\u0010(\u001a\u0008\u0012\u0002\u0008\u0003\u0018\u00010)H\u0016J \u0010.\u001a\u00020\u00182\u0006\u0010/\u001a\u0002002\u0006\u00101\u001a\u00020\u00122\u0006\u00102\u001a\u00020\u000cH\u0016J\u0010\u00103\u001a\u00020\u00182\u0006\u0010/\u001a\u000200H\u0016J\u0010\u00104\u001a\u00020\u00182\u0006\u0010/\u001a\u000200H\u0016J\u001a\u00105\u001a\u00020\u00182\u0006\u0010\u0019\u001a\u00020\u000e2\u0008\u0010#\u001a\u0004\u0018\u00010$H\u0016J\u0018\u00106\u001a\u00020\u00182\u0006\u00107\u001a\u0002082\u0006\u00109\u001a\u00020:H\u0002J\u0008\u0010;\u001a\u00020\u0018H\u0002R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082.\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0008X\u0082.\u00a2\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082.\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\u000cX\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082.\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082.\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082.\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0016X\u0082.\u00a2\u0006\u0002\n\u0000\u00a8\u0006="
     }
     d2 = {
         "Lorg/catrobat/paintroid/dialog/SaveInformationDialog;",
@@ -85,20 +81,19 @@
         "setFileDetails",
         "compressFormat",
         "Landroid/graphics/Bitmap$CompressFormat;",
-        "isCatrobatImage",
         "fileType",
         "Lorg/catrobat/paintroid/FileIO$FileType;",
-        "isJpg",
         "setSpinnerSelection",
         "Companion",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -127,6 +122,30 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$1gX5Gm36PBRD8Qbi-w3WofHskgw(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;Landroid/content/DialogInterface;I)V
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->onCreateDialog$lambda-2(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;Landroid/content/DialogInterface;I)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$MpNFYx0wIYqO79vEDlIbGCI-zyU(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;Landroid/view/View;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->initInfoButton$lambda-3(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$elu-N5WQPcRutJPWOnVikx0hWJk(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;Landroid/content/DialogInterface;I)V
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->onCreateDialog$lambda-1(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;Landroid/content/DialogInterface;I)V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
@@ -145,190 +164,198 @@
     .locals 0
 
     .line 53
-    nop
-
-    .line 54
     invoke-direct {p0}, Lorg/catrobat/paintroid/dialog/MainActivityDialogFragment;-><init>()V
 
     return-void
 .end method
 
-.method public static final synthetic access$getImageName$p(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;)Landroidx/appcompat/widget/AppCompatEditText;
-    .locals 2
-    .param p0, "$this"    # Lorg/catrobat/paintroid/dialog/SaveInformationDialog;
-
-    .line 53
-    iget-object v0, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->imageName:Landroidx/appcompat/widget/AppCompatEditText;
-
-    if-nez v0, :cond_0
-
-    const-string v1, "imageName"
-
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    :cond_0
-    return-object v0
-.end method
-
-.method public static final synthetic access$getPermission$p(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;)I
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/dialog/SaveInformationDialog;
-
-    .line 53
-    iget v0, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->permission:I
-
-    return v0
-.end method
-
-.method public static final synthetic access$isExport$p(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;)Z
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/dialog/SaveInformationDialog;
-
-    .line 53
-    iget-boolean v0, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->isExport:Z
-
-    return v0
-.end method
-
-.method public static final synthetic access$setExport$p(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;Z)V
-    .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/dialog/SaveInformationDialog;
-    .param p1, "<set-?>"    # Z
-
-    .line 53
-    iput-boolean p1, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->isExport:Z
-
-    return-void
-.end method
-
-.method public static final synthetic access$setImageName$p(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;Landroidx/appcompat/widget/AppCompatEditText;)V
-    .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/dialog/SaveInformationDialog;
-    .param p1, "<set-?>"    # Landroidx/appcompat/widget/AppCompatEditText;
-
-    .line 53
-    iput-object p1, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->imageName:Landroidx/appcompat/widget/AppCompatEditText;
-
-    return-void
-.end method
-
-.method public static final synthetic access$setPermission$p(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;I)V
-    .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/dialog/SaveInformationDialog;
-    .param p1, "<set-?>"    # I
-
-    .line 53
-    iput p1, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->permission:I
-
-    return-void
-.end method
-
 .method private final initImageName(Landroid/view/View;)V
-    .locals 3
-    .param p1, "view"    # Landroid/view/View;
+    .locals 2
 
-    .line 190
+    .line 186
     sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_image_name_save_text:I
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "view.findViewById(R.id.p\u2026int_image_name_save_text)"
+    const-string v0, "view.findViewById(R.id.p\u2026int_image_name_save_text)"
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v0, Landroidx/appcompat/widget/AppCompatEditText;
+    check-cast p1, Landroidx/appcompat/widget/AppCompatEditText;
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->imageName:Landroidx/appcompat/widget/AppCompatEditText;
+    iput-object p1, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->imageName:Landroidx/appcompat/widget/AppCompatEditText;
 
-    .line 191
-    if-nez v0, :cond_0
+    const/4 v0, 0x0
 
-    const-string v1, "imageName"
+    if-nez p1, :cond_0
 
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    const-string p1, "imageName"
+
+    .line 187
+    invoke-static {p1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    move-object p1, v0
 
     :cond_0
     iget-object v1, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->fileName:Ljava/lang/String;
 
     if-nez v1, :cond_1
 
-    const-string v2, "fileName"
+    const-string v1, "fileName"
 
-    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    goto :goto_0
 
     :cond_1
-    check-cast v1, Ljava/lang/CharSequence;
+    move-object v0, v1
 
-    invoke-virtual {v0, v1}, Landroidx/appcompat/widget/AppCompatEditText;->setText(Ljava/lang/CharSequence;)V
+    :goto_0
+    check-cast v0, Ljava/lang/CharSequence;
 
-    .line 192
+    invoke-virtual {p1, v0}, Landroidx/appcompat/widget/AppCompatEditText;->setText(Ljava/lang/CharSequence;)V
+
     return-void
 .end method
 
 .method private final initInfoButton(Landroid/view/View;)V
-    .locals 2
-    .param p1, "view"    # Landroid/view/View;
+    .locals 1
 
-    .line 169
+    .line 165
     sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_btn_save_info:I
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "view.findViewById(R.id.pocketpaint_btn_save_info)"
+    const-string v0, "view.findViewById(R.id.pocketpaint_btn_save_info)"
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v0, Landroidx/appcompat/widget/AppCompatImageButton;
+    check-cast p1, Landroidx/appcompat/widget/AppCompatImageButton;
+
+    .line 166
+    new-instance v0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0, p0}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog$$ExternalSyntheticLambda0;-><init>(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;)V
+
+    invoke-virtual {p1, v0}, Landroidx/appcompat/widget/AppCompatImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    return-void
+.end method
+
+.method private static final initInfoButton$lambda-3(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;Landroid/view/View;)V
+    .locals 1
+
+    const-string p1, "this$0"
+
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 167
+    sget-object p1, Lorg/catrobat/paintroid/FileIO;->fileType:Lorg/catrobat/paintroid/FileIO$FileType;
+
+    sget-object v0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog$WhenMappings;->$EnumSwitchMapping$0:[I
+
+    invoke-virtual {p1}, Lorg/catrobat/paintroid/FileIO$FileType;->ordinal()I
+
+    move-result p1
+
+    aget p1, v0, p1
+
+    const/4 v0, 0x1
+
+    if-eq p1, v0, :cond_2
+
+    const/4 v0, 0x2
+
+    if-eq p1, v0, :cond_1
+
+    const/4 v0, 0x3
+
+    if-eq p1, v0, :cond_0
+
+    .line 171
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->getPresenter()Lorg/catrobat/paintroid/contract/MainActivityContracts$Presenter;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Presenter;->showPngInformationDialog()V
+
+    goto :goto_0
 
     .line 170
-    .local v0, "infoButton":Landroidx/appcompat/widget/AppCompatImageButton;
-    new-instance v1, Lorg/catrobat/paintroid/dialog/SaveInformationDialog$initInfoButton$1;
+    :cond_0
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->getPresenter()Lorg/catrobat/paintroid/contract/MainActivityContracts$Presenter;
 
-    invoke-direct {v1, p0}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog$initInfoButton$1;-><init>(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;)V
+    move-result-object p0
 
-    check-cast v1, Landroid/view/View$OnClickListener;
+    invoke-interface {p0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Presenter;->showCatrobatInformationDialog()V
 
-    invoke-virtual {v0, v1}, Landroidx/appcompat/widget/AppCompatImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    goto :goto_0
 
-    .line 178
+    .line 169
+    :cond_1
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->getPresenter()Lorg/catrobat/paintroid/contract/MainActivityContracts$Presenter;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Presenter;->showOraInformationDialog()V
+
+    goto :goto_0
+
+    .line 168
+    :cond_2
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->getPresenter()Lorg/catrobat/paintroid/contract/MainActivityContracts$Presenter;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Presenter;->showJpgInformationDialog()V
+
+    :goto_0
     return-void
 .end method
 
 .method private final initJpgView()V
     .locals 4
 
-    .line 149
+    .line 145
     iget-object v0, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->inflater:Landroid/view/LayoutInflater;
+
+    const/4 v1, 0x0
 
     if-nez v0, :cond_0
 
-    const-string v1, "inflater"
+    const-string v0, "inflater"
 
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    .line 150
+    move-object v0, v1
+
+    .line 146
     :cond_0
-    sget v1, Lorg/catrobat/paintroid/R$layout;->dialog_pocketpaint_save_jpg_sub_dialog:I
+    sget v2, Lorg/catrobat/paintroid/R$layout;->dialog_pocketpaint_save_jpg_sub_dialog:I
 
-    .line 151
-    iget-object v2, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->specificFormatLayout:Landroid/view/ViewGroup;
+    .line 147
+    iget-object v3, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->specificFormatLayout:Landroid/view/ViewGroup;
 
-    if-nez v2, :cond_1
+    if-nez v3, :cond_1
 
     const-string v3, "specificFormatLayout"
 
     invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    .line 152
+    goto :goto_0
+
     :cond_1
+    move-object v1, v3
+
+    :goto_0
     const/4 v3, 0x0
 
-    .line 149
-    invoke-virtual {v0, v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    .line 145
+    invoke-virtual {v0, v2, v1, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v0
 
@@ -338,94 +365,100 @@
 
     iput-object v0, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->jpgView:Landroid/view/View;
 
-    .line 154
     return-void
 .end method
 
 .method private final initPercentage()V
     .locals 3
 
-    .line 163
+    .line 159
     iget-object v0, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->jpgView:Landroid/view/View;
+
+    const/4 v1, 0x0
 
     if-nez v0, :cond_0
 
-    const-string v1, "jpgView"
+    const-string v0, "jpgView"
 
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    move-object v0, v1
 
     :cond_0
-    sget v1, Lorg/catrobat/paintroid/R$id;->pocketpaint_percentage_save_info:I
+    sget v2, Lorg/catrobat/paintroid/R$id;->pocketpaint_percentage_save_info:I
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    const-string v1, "jpgView.findViewById(R.i\u2026int_percentage_save_info)"
+    const-string v2, "jpgView.findViewById(R.i\u2026int_percentage_save_info)"
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     check-cast v0, Landroidx/appcompat/widget/AppCompatTextView;
 
     iput-object v0, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->percentage:Landroidx/appcompat/widget/AppCompatTextView;
 
-    .line 164
-    sget-object v0, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
+    .line 160
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Lorg/catrobat/paintroid/FileIO;->getCompressQuality()I
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result v0
+    sget-object v2, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
 
-    invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-virtual {v2}, Lorg/catrobat/paintroid/FileIO;->getCompressQuality()I
 
-    move-result-object v0
+    move-result v2
 
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const/16 v0, 0x25
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    .line 165
-    .local v0, "percentageString":Ljava/lang/String;
-    iget-object v1, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->percentage:Landroidx/appcompat/widget/AppCompatTextView;
+    const/16 v2, 0x25
 
-    if-nez v1, :cond_1
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 161
+    iget-object v2, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->percentage:Landroidx/appcompat/widget/AppCompatTextView;
+
+    if-nez v2, :cond_1
 
     const-string v2, "percentage"
 
     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
+    goto :goto_0
+
     :cond_1
-    move-object v2, v0
+    move-object v1, v2
 
-    check-cast v2, Ljava/lang/CharSequence;
+    :goto_0
+    check-cast v0, Ljava/lang/CharSequence;
 
-    invoke-virtual {v1, v2}, Landroidx/appcompat/widget/AppCompatTextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v0}, Landroidx/appcompat/widget/AppCompatTextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 166
     return-void
 .end method
 
 .method private final initSeekBar()V
     .locals 2
 
-    .line 157
+    .line 153
     iget-object v0, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->jpgView:Landroid/view/View;
 
     if-nez v0, :cond_0
 
-    const-string v1, "jpgView"
+    const-string v0, "jpgView"
 
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    const/4 v0, 0x0
 
     :cond_0
     sget v1, Lorg/catrobat/paintroid/R$id;->pocketpaint_jpg_seekbar_save_info:I
@@ -440,8 +473,7 @@
 
     check-cast v0, Landroid/widget/SeekBar;
 
-    .line 158
-    .local v0, "seekBar":Landroid/widget/SeekBar;
+    .line 154
     sget-object v1, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
 
     invoke-virtual {v1}, Lorg/catrobat/paintroid/FileIO;->getCompressQuality()I
@@ -450,444 +482,547 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setProgress(I)V
 
-    .line 159
+    .line 155
     move-object v1, p0
 
     check-cast v1, Landroid/widget/SeekBar$OnSeekBarChangeListener;
 
     invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
 
-    .line 160
     return-void
 .end method
 
 .method private final initSpecificFormatLayout(Landroid/view/View;)V
-    .locals 2
-    .param p1, "view"    # Landroid/view/View;
+    .locals 1
 
-    .line 145
+    .line 141
     sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_save_format_specific_options:I
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "view.findViewById(R.id.p\u2026_format_specific_options)"
+    const-string v0, "view.findViewById(R.id.p\u2026_format_specific_options)"
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v0, Landroid/view/ViewGroup;
+    check-cast p1, Landroid/view/ViewGroup;
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->specificFormatLayout:Landroid/view/ViewGroup;
+    iput-object p1, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->specificFormatLayout:Landroid/view/ViewGroup;
 
-    .line 146
     return-void
 .end method
 
 .method private final initSpinner(Landroid/view/View;)V
-    .locals 10
-    .param p1, "view"    # Landroid/view/View;
+    .locals 5
 
-    .line 181
+    .line 177
     sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_save_dialog_spinner:I
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "view.findViewById(R.id.p\u2026aint_save_dialog_spinner)"
+    const-string v0, "view.findViewById(R.id.p\u2026aint_save_dialog_spinner)"
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v0, Landroid/widget/Spinner;
+    check-cast p1, Landroid/widget/Spinner;
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->spinner:Landroid/widget/Spinner;
+    iput-object p1, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->spinner:Landroid/widget/Spinner;
 
-    .line 182
+    .line 178
     invoke-static {}, Lorg/catrobat/paintroid/FileIO$FileType;->values()[Lorg/catrobat/paintroid/FileIO$FileType;
 
-    move-result-object v0
+    move-result-object p1
 
-    .local v0, "$this$map$iv":[Ljava/lang/Object;
-    const/4 v1, 0x0
+    .line 230
+    new-instance v0, Ljava/util/ArrayList;
 
-    .line 236
-    .local v1, "$i$f$map":I
-    new-instance v2, Ljava/util/ArrayList;
+    array-length v1, p1
 
-    array-length v3, v0
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
-    invoke-direct {v2, v3}, Ljava/util/ArrayList;-><init>(I)V
+    check-cast v0, Ljava/util/Collection;
 
-    check-cast v2, Ljava/util/Collection;
+    .line 231
+    array-length v1, p1
 
-    .local v2, "destination$iv$iv":Ljava/util/Collection;
-    move-object v3, v0
-
-    .local v3, "$this$mapTo$iv$iv":[Ljava/lang/Object;
-    const/4 v4, 0x0
-
-    .line 237
-    .local v4, "$i$f$mapTo":I
-    array-length v5, v3
-
-    const/4 v6, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v6, v5, :cond_0
+    if-ge v2, v1, :cond_0
 
-    aget-object v7, v3, v6
+    aget-object v3, p1, v2
 
-    .line 238
-    .local v7, "item$iv$iv":Ljava/lang/Object;
-    move-object v8, v7
+    .line 178
+    invoke-virtual {v3}, Lorg/catrobat/paintroid/FileIO$FileType;->getValue()Ljava/lang/String;
 
-    .local v8, "it":Lorg/catrobat/paintroid/FileIO$FileType;
-    const/4 v9, 0x0
+    move-result-object v3
 
-    .line 182
-    .local v9, "$i$a$-map-SaveInformationDialog$initSpinner$spinnerArray$1":I
-    invoke-virtual {v8}, Lorg/catrobat/paintroid/FileIO$FileType;->getValue()Ljava/lang/String;
+    invoke-interface {v0, v3}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    move-result-object v8
-
-    .end local v8    # "it":Lorg/catrobat/paintroid/FileIO$FileType;
-    .end local v9    # "$i$a$-map-SaveInformationDialog$initSpinner$spinnerArray$1":I
-    invoke-interface {v2, v8}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
-
-    .line 237
-    nop
-
-    .end local v7    # "item$iv$iv":Ljava/lang/Object;
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 239
+    .line 233
     :cond_0
-    nop
+    check-cast v0, Ljava/util/List;
 
-    .end local v2    # "destination$iv$iv":Ljava/util/Collection;
-    .end local v3    # "$this$mapTo$iv$iv":[Ljava/lang/Object;
-    .end local v4    # "$i$f$mapTo":I
-    check-cast v2, Ljava/util/List;
+    .line 179
+    new-instance p1, Landroid/widget/ArrayAdapter;
 
-    .line 236
-    nop
+    iget-object v1, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->spinner:Landroid/widget/Spinner;
 
-    .line 182
-    .end local v0    # "$this$map$iv":[Ljava/lang/Object;
-    .end local v1    # "$i$f$map":I
-    move-object v0, v2
-
-    .line 183
-    .local v0, "spinnerArray":Ljava/util/List;
-    new-instance v1, Landroid/widget/ArrayAdapter;
-
-    iget-object v2, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->spinner:Landroid/widget/Spinner;
+    const/4 v2, 0x0
 
     const-string v3, "spinner"
 
-    if-nez v2, :cond_1
+    if-nez v1, :cond_1
 
     invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    :cond_1
-    invoke-virtual {v2}, Landroid/widget/Spinner;->getContext()Landroid/content/Context;
+    move-object v1, v2
 
-    move-result-object v2
+    :cond_1
+    invoke-virtual {v1}, Landroid/widget/Spinner;->getContext()Landroid/content/Context;
+
+    move-result-object v1
 
     const v4, 0x1090008
 
-    invoke-direct {v1, v2, v4, v0}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;ILjava/util/List;)V
+    invoke-direct {p1, v1, v4, v0}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;ILjava/util/List;)V
 
-    .line 184
-    .local v1, "adapter":Landroid/widget/ArrayAdapter;
-    const v2, 0x1090009
+    const v0, 0x1090009
 
-    invoke-virtual {v1, v2}, Landroid/widget/ArrayAdapter;->setDropDownViewResource(I)V
+    .line 180
+    invoke-virtual {p1, v0}, Landroid/widget/ArrayAdapter;->setDropDownViewResource(I)V
 
-    .line 185
-    iget-object v2, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->spinner:Landroid/widget/Spinner;
+    .line 181
+    iget-object v0, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->spinner:Landroid/widget/Spinner;
 
-    if-nez v2, :cond_2
+    if-nez v0, :cond_2
 
     invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    move-object v0, v2
 
     :cond_2
-    move-object v4, v1
+    check-cast p1, Landroid/widget/SpinnerAdapter;
 
-    check-cast v4, Landroid/widget/SpinnerAdapter;
+    invoke-virtual {v0, p1}, Landroid/widget/Spinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
 
-    invoke-virtual {v2, v4}, Landroid/widget/Spinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
+    .line 182
+    iget-object p1, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->spinner:Landroid/widget/Spinner;
 
-    .line 186
-    iget-object v2, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->spinner:Landroid/widget/Spinner;
-
-    if-nez v2, :cond_3
+    if-nez p1, :cond_3
 
     invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
+    goto :goto_1
+
     :cond_3
-    move-object v3, p0
+    move-object v2, p1
 
-    check-cast v3, Landroid/widget/AdapterView$OnItemSelectedListener;
+    :goto_1
+    move-object p1, p0
 
-    invoke-virtual {v2, v3}, Landroid/widget/Spinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
+    check-cast p1, Landroid/widget/AdapterView$OnItemSelectedListener;
 
-    .line 187
+    invoke-virtual {v2, p1}, Landroid/widget/Spinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
+
     return-void
 .end method
 
 .method private final initViews(Landroid/view/View;)V
     .locals 0
-    .param p1, "customLayout"    # Landroid/view/View;
 
-    .line 135
+    .line 131
     invoke-direct {p0, p1}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->initSpecificFormatLayout(Landroid/view/View;)V
 
-    .line 136
+    .line 132
     invoke-direct {p0}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->initJpgView()V
 
-    .line 137
+    .line 133
     invoke-direct {p0}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->initSeekBar()V
 
-    .line 138
+    .line 134
     invoke-direct {p0}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->initPercentage()V
 
-    .line 139
+    .line 135
     invoke-direct {p0, p1}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->initSpinner(Landroid/view/View;)V
 
-    .line 140
+    .line 136
     invoke-direct {p0, p1}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->initInfoButton(Landroid/view/View;)V
 
-    .line 141
+    .line 137
     invoke-direct {p0, p1}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->initImageName(Landroid/view/View;)V
 
-    .line 142
     return-void
 .end method
 
-.method private final setFileDetails(Landroid/graphics/Bitmap$CompressFormat;ZLorg/catrobat/paintroid/FileIO$FileType;Z)V
+.method private static final onCreateDialog$lambda-1(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;Landroid/content/DialogInterface;I)V
     .locals 3
-    .param p1, "compressFormat"    # Landroid/graphics/Bitmap$CompressFormat;
-    .param p2, "isCatrobatImage"    # Z
-    .param p3, "fileType"    # Lorg/catrobat/paintroid/FileIO$FileType;
-    .param p4, "isJpg"    # Z
 
-    .line 200
+    const-string p1, "this$0"
+
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 117
+    sget-object p1, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
+
+    iget-object p1, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->imageName:Landroidx/appcompat/widget/AppCompatEditText;
+
+    const/4 p2, 0x0
+
+    if-nez p1, :cond_0
+
+    const-string p1, "imageName"
+
+    invoke-static {p1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    move-object p1, p2
+
+    :cond_0
+    invoke-virtual {p1}, Landroidx/appcompat/widget/AppCompatEditText;->getText()Landroid/text/Editable;
+
+    move-result-object p1
+
+    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p1
+
+    sput-object p1, Lorg/catrobat/paintroid/FileIO;->filename:Ljava/lang/String;
+
+    .line 118
+    sget-object p1, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
+
+    sput-object p2, Lorg/catrobat/paintroid/FileIO;->storeImageUri:Landroid/net/Uri;
+
+    .line 119
+    sget-object p1, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
+
+    sget-object p2, Lorg/catrobat/paintroid/FileIO;->fileType:Lorg/catrobat/paintroid/FileIO$FileType;
+
+    sget-object v0, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
+
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/FileIO;->getDefaultFileName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->requireContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v2, "requireContext().contentResolver"
+
+    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    invoke-virtual {p1, p2, v0, v1}, Lorg/catrobat/paintroid/FileIO;->checkFileExists(Lorg/catrobat/paintroid/FileIO$FileType;Ljava/lang/String;Landroid/content/ContentResolver;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    .line 120
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->getPresenter()Lorg/catrobat/paintroid/contract/MainActivityContracts$Presenter;
+
+    move-result-object p1
+
+    iget p2, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->permission:I
+
+    iget-boolean v0, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->isExport:Z
+
+    invoke-interface {p1, p2, v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Presenter;->showOverwriteDialog(IZ)V
+
+    goto :goto_0
+
+    .line 122
+    :cond_1
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->getPresenter()Lorg/catrobat/paintroid/contract/MainActivityContracts$Presenter;
+
+    move-result-object p1
+
+    iget p2, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->permission:I
+
+    iget-boolean v0, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->isExport:Z
+
+    invoke-interface {p1, p2, v0}, Lorg/catrobat/paintroid/contract/MainActivityContracts$Presenter;->switchBetweenVersions(IZ)V
+
+    .line 124
+    :goto_0
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->dismiss()V
+
+    return-void
+.end method
+
+.method private static final onCreateDialog$lambda-2(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;Landroid/content/DialogInterface;I)V
+    .locals 0
+
+    const-string p1, "this$0"
+
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 126
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->dismiss()V
+
+    return-void
+.end method
+
+.method private final setFileDetails(Landroid/graphics/Bitmap$CompressFormat;Lorg/catrobat/paintroid/FileIO$FileType;)V
+    .locals 3
+
+    .line 194
     iget-object v0, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->specificFormatLayout:Landroid/view/ViewGroup;
 
     const-string v1, "specificFormatLayout"
+
+    const/4 v2, 0x0
 
     if-nez v0, :cond_0
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
+    move-object v0, v2
+
     :cond_0
     invoke-virtual {v0}, Landroid/view/ViewGroup;->removeAllViews()V
 
-    .line 201
-    if-eqz p4, :cond_3
+    .line 195
+    sget-object v0, Lorg/catrobat/paintroid/FileIO$FileType;->JPG:Lorg/catrobat/paintroid/FileIO$FileType;
 
-    .line 202
+    if-ne p2, v0, :cond_3
+
+    .line 196
     iget-object v0, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->specificFormatLayout:Landroid/view/ViewGroup;
 
     if-nez v0, :cond_1
 
     invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
+    move-object v0, v2
+
     :cond_1
     iget-object v1, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->jpgView:Landroid/view/View;
 
     if-nez v1, :cond_2
 
-    const-string v2, "jpgView"
+    const-string v1, "jpgView"
 
-    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    goto :goto_0
 
     :cond_2
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    move-object v2, v1
 
-    .line 204
-    :cond_3
-    sput-object p1, Lorg/catrobat/paintroid/FileIO;->compressFormat:Landroid/graphics/Bitmap$CompressFormat;
-
-    .line 205
-    sput-boolean p2, Lorg/catrobat/paintroid/FileIO;->isCatrobatImage:Z
-
-    .line 206
-    sput-object p3, Lorg/catrobat/paintroid/FileIO;->fileType:Lorg/catrobat/paintroid/FileIO$FileType;
-
-    .line 207
-    return-void
-.end method
-
-.method static synthetic setFileDetails$default(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;Landroid/graphics/Bitmap$CompressFormat;ZLorg/catrobat/paintroid/FileIO$FileType;ZILjava/lang/Object;)V
-    .locals 0
-
-    and-int/lit8 p5, p5, 0x8
-
-    if-eqz p5, :cond_0
+    :goto_0
+    invoke-virtual {v0, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 198
-    const/4 p4, 0x0
+    :cond_3
+    sget-object v0, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
 
-    :cond_0
-    invoke-direct {p0, p1, p2, p3, p4}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->setFileDetails(Landroid/graphics/Bitmap$CompressFormat;ZLorg/catrobat/paintroid/FileIO$FileType;Z)V
+    sput-object p1, Lorg/catrobat/paintroid/FileIO;->compressFormat:Landroid/graphics/Bitmap$CompressFormat;
+
+    .line 199
+    sget-object p1, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
+
+    sput-object p2, Lorg/catrobat/paintroid/FileIO;->fileType:Lorg/catrobat/paintroid/FileIO$FileType;
 
     return-void
 .end method
 
 .method private final setSpinnerSelection()V
-    .locals 3
+    .locals 4
 
-    .line 210
-    nop
+    .line 203
+    sget-object v0, Lorg/catrobat/paintroid/FileIO;->fileType:Lorg/catrobat/paintroid/FileIO$FileType;
 
-    .line 211
-    sget-boolean v0, Lorg/catrobat/paintroid/FileIO;->isCatrobatImage:Z
+    sget-object v1, Lorg/catrobat/paintroid/dialog/SaveInformationDialog$WhenMappings;->$EnumSwitchMapping$0:[I
 
-    const-string v1, "spinner"
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/FileIO$FileType;->ordinal()I
 
-    if-eqz v0, :cond_1
+    move-result v0
 
+    aget v0, v1, v0
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    const-string v3, "spinner"
+
+    if-eq v0, v1, :cond_5
+
+    const/4 v1, 0x2
+
+    if-eq v0, v1, :cond_3
+
+    const/4 v1, 0x3
+
+    if-eq v0, v1, :cond_1
+
+    .line 207
     iget-object v0, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->spinner:Landroid/widget/Spinner;
 
     if-nez v0, :cond_0
 
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    :cond_0
-    const/4 v1, 0x2
-
-    invoke-virtual {v0, v1}, Landroid/widget/Spinner;->setSelection(I)V
+    invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 212
+    :cond_0
+    move-object v2, v0
+
+    :goto_0
+    sget-object v0, Lorg/catrobat/paintroid/FileIO$FileType;->PNG:Lorg/catrobat/paintroid/FileIO$FileType;
+
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/FileIO$FileType;->ordinal()I
+
+    move-result v0
+
+    invoke-virtual {v2, v0}, Landroid/widget/Spinner;->setSelection(I)V
+
+    goto :goto_4
+
+    .line 206
     :cond_1
-    sget-object v0, Lorg/catrobat/paintroid/FileIO;->compressFormat:Landroid/graphics/Bitmap$CompressFormat;
-
-    sget-object v2, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
-
-    if-ne v0, v2, :cond_3
-
     iget-object v0, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->spinner:Landroid/widget/Spinner;
 
     if-nez v0, :cond_2
 
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    goto :goto_1
 
     :cond_2
-    const/4 v1, 0x0
+    move-object v2, v0
 
-    invoke-virtual {v0, v1}, Landroid/widget/Spinner;->setSelection(I)V
+    :goto_1
+    sget-object v0, Lorg/catrobat/paintroid/FileIO$FileType;->CATROBAT:Lorg/catrobat/paintroid/FileIO$FileType;
 
-    goto :goto_0
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/FileIO$FileType;->ordinal()I
 
-    .line 213
+    move-result v0
+
+    invoke-virtual {v2, v0}, Landroid/widget/Spinner;->setSelection(I)V
+
+    goto :goto_4
+
+    .line 205
     :cond_3
     iget-object v0, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->spinner:Landroid/widget/Spinner;
 
     if-nez v0, :cond_4
 
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    goto :goto_2
 
     :cond_4
-    const/4 v1, 0x1
+    move-object v2, v0
 
-    invoke-virtual {v0, v1}, Landroid/widget/Spinner;->setSelection(I)V
+    :goto_2
+    sget-object v0, Lorg/catrobat/paintroid/FileIO$FileType;->ORA:Lorg/catrobat/paintroid/FileIO$FileType;
 
-    .line 214
-    :goto_0
-    nop
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/FileIO$FileType;->ordinal()I
 
-    .line 215
+    move-result v0
+
+    invoke-virtual {v2, v0}, Landroid/widget/Spinner;->setSelection(I)V
+
+    goto :goto_4
+
+    .line 204
+    :cond_5
+    iget-object v0, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->spinner:Landroid/widget/Spinner;
+
+    if-nez v0, :cond_6
+
+    invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    goto :goto_3
+
+    :cond_6
+    move-object v2, v0
+
+    :goto_3
+    sget-object v0, Lorg/catrobat/paintroid/FileIO$FileType;->JPG:Lorg/catrobat/paintroid/FileIO$FileType;
+
+    invoke-virtual {v0}, Lorg/catrobat/paintroid/FileIO$FileType;->ordinal()I
+
+    move-result v0
+
+    invoke-virtual {v2, v0}, Landroid/widget/Spinner;->setSelection(I)V
+
+    :goto_4
     return-void
 .end method
 
 
 # virtual methods
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 4
-    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
+    .locals 1
 
-    .line 95
+    .line 93
     invoke-super {p0, p1}, Lorg/catrobat/paintroid/dialog/MainActivityDialogFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 96
+    .line 94
     invoke-virtual {p0}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->requireArguments()Landroid/os/Bundle;
+
+    move-result-object p1
+
+    const-string v0, "requireArguments()"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "permission"
+
+    .line 96
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    iput v0, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->permission:I
+
+    const-string v0, "setName"
+
+    .line 97
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    const-string v1, "requireArguments()"
+    invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    move-result-object v0
 
-    .line 97
-    .local v0, "arguments":Landroid/os/Bundle;
-    move-object v1, v0
+    iput-object v0, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->fileName:Ljava/lang/String;
 
-    .local v1, "$this$apply":Landroid/os/Bundle;
-    const/4 v2, 0x0
+    const-string v0, "isExport"
 
     .line 98
-    .local v2, "$i$a$-apply-SaveInformationDialog$onCreate$1":I
-    const-string v3, "permission"
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
-    invoke-virtual {v1, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+    move-result p1
 
-    move-result v3
+    iput-boolean p1, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->isExport:Z
 
-    iput v3, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->permission:I
-
-    .line 99
-    const-string v3, "setName"
-
-    invoke-virtual {v1, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v3
-
-    iput-object v3, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->fileName:Ljava/lang/String;
-
-    .line 100
-    const-string v3, "isExport"
-
-    invoke-virtual {v1, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v3
-
-    iput-boolean v3, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->isExport:Z
-
-    .line 101
-    nop
-
-    .line 97
-    .end local v1    # "$this$apply":Landroid/os/Bundle;
-    .end local v2    # "$i$a$-apply-SaveInformationDialog$onCreate$1":I
-    nop
-
-    .line 102
     return-void
 .end method
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 4
-    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
+    .locals 3
 
-    .line 112
+    .line 110
     invoke-virtual {p0}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->requireActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object v0
-
-    const-string v1, "requireActivity()"
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-virtual {v0}, Landroidx/fragment/app/FragmentActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
@@ -899,130 +1034,92 @@
 
     iput-object v0, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->inflater:Landroid/view/LayoutInflater;
 
-    .line 113
+    const/4 v1, 0x0
+
     if-nez v0, :cond_0
 
-    const-string v1, "inflater"
+    const-string v0, "inflater"
 
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    .line 111
+    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    move-object v0, v1
 
     :cond_0
-    sget v1, Lorg/catrobat/paintroid/R$layout;->dialog_pocketpaint_save:I
+    sget v2, Lorg/catrobat/paintroid/R$layout;->dialog_pocketpaint_save:I
 
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {v0, v2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
-    .line 114
-    .local v0, "customLayout":Landroid/view/View;
     const-string v1, "customLayout"
 
+    .line 112
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-virtual {p0, v0, p1}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    .line 115
-    nop
-
-    .line 131
-    nop
-
-    .line 115
-    nop
-
-    .line 130
-    nop
-
-    .line 115
-    nop
-
-    .line 118
-    nop
-
-    .line 115
-    nop
-
-    .line 117
-    nop
-
-    .line 115
-    nop
-
-    .line 116
-    nop
-
-    .line 115
-    new-instance v1, Landroidx/appcompat/app/AlertDialog$Builder;
+    .line 113
+    new-instance p1, Landroidx/appcompat/app/AlertDialog$Builder;
 
     invoke-virtual {p0}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->requireContext()Landroid/content/Context;
 
-    move-result-object v2
-
-    sget v3, Lorg/catrobat/paintroid/R$style;->PocketPaintAlertDialog:I
-
-    invoke-direct {v1, v2, v3}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
-
-    .line 116
-    sget v2, Lorg/catrobat/paintroid/R$string;->dialog_save_image_title:I
-
-    invoke-virtual {v1, v2}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
-
     move-result-object v1
 
-    .line 117
-    invoke-virtual {v1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroidx/appcompat/app/AlertDialog$Builder;
+    sget v2, Lorg/catrobat/paintroid/R$style;->PocketPaintAlertDialog:I
 
-    move-result-object v1
+    invoke-direct {p1, v1, v2}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    .line 118
-    sget v2, Lorg/catrobat/paintroid/R$string;->save_button_text:I
+    .line 114
+    sget v1, Lorg/catrobat/paintroid/R$string;->dialog_save_image_title:I
 
-    new-instance v3, Lorg/catrobat/paintroid/dialog/SaveInformationDialog$onCreateDialog$1;
+    invoke-virtual {p1, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
-    invoke-direct {v3, p0}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog$onCreateDialog$1;-><init>(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;)V
-
-    check-cast v3, Landroid/content/DialogInterface$OnClickListener;
-
-    invoke-virtual {v1, v2, v3}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-
-    move-result-object v1
-
-    .line 130
-    sget v2, Lorg/catrobat/paintroid/R$string;->cancel_button_text:I
-
-    new-instance v3, Lorg/catrobat/paintroid/dialog/SaveInformationDialog$onCreateDialog$2;
-
-    invoke-direct {v3, p0}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog$onCreateDialog$2;-><init>(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;)V
-
-    check-cast v3, Landroid/content/DialogInterface$OnClickListener;
-
-    invoke-virtual {v1, v2, v3}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
-
-    move-result-object v1
-
-    .line 131
-    invoke-virtual {v1}, Landroidx/appcompat/app/AlertDialog$Builder;->create()Landroidx/appcompat/app/AlertDialog;
-
-    move-result-object v1
-
-    const-string v2, "AlertDialog.Builder(requ\u2026) }\n            .create()"
-
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    check-cast v1, Landroid/app/Dialog;
+    move-result-object p1
 
     .line 115
-    return-object v1
+    invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroidx/appcompat/app/AlertDialog$Builder;
+
+    move-result-object p1
+
+    .line 116
+    sget v0, Lorg/catrobat/paintroid/R$string;->save_button_text:I
+
+    new-instance v1, Lorg/catrobat/paintroid/dialog/SaveInformationDialog$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1, p0}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog$$ExternalSyntheticLambda1;-><init>(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;)V
+
+    invoke-virtual {p1, v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+
+    move-result-object p1
+
+    .line 126
+    sget v0, Lorg/catrobat/paintroid/R$string;->cancel_button_text:I
+
+    new-instance v1, Lorg/catrobat/paintroid/dialog/SaveInformationDialog$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1, p0}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog$$ExternalSyntheticLambda2;-><init>(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;)V
+
+    invoke-virtual {p1, v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+
+    move-result-object p1
+
+    .line 127
+    invoke-virtual {p1}, Landroidx/appcompat/app/AlertDialog$Builder;->create()Landroidx/appcompat/app/AlertDialog;
+
+    move-result-object p1
+
+    const-string v0, "Builder(requireContext()\u2026) }\n            .create()"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    check-cast p1, Landroid/app/Dialog;
+
+    return-object p1
 .end method
 
 .method public onItemSelected(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 9
-    .param p1, "parent"    # Landroid/widget/AdapterView;
-    .param p2, "view"    # Landroid/view/View;
-    .param p3, "position"    # I
-    .param p4, "id"    # J
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1033,182 +1130,143 @@
         }
     .end annotation
 
-    .line 218
-    if-eqz p1, :cond_0
+    if-nez p1, :cond_0
 
-    invoke-virtual {p1, p3}, Landroid/widget/AdapterView;->getItemAtPosition(I)Ljava/lang/Object;
-
-    move-result-object v0
+    const/4 p1, 0x0
 
     goto :goto_0
 
+    .line 212
     :cond_0
-    const/4 v0, 0x0
+    invoke-virtual {p1, p3}, Landroid/widget/AdapterView;->getItemAtPosition(I)Ljava/lang/Object;
+
+    move-result-object p1
 
     :goto_0
-    invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
-    move-result-object v1
+    move-result-object p2
 
-    const-string v2, "Locale.getDefault()"
+    const-string p3, "getDefault()"
 
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p2, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    if-eqz v0, :cond_5
+    if-eqz p1, :cond_5
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {p1, p2}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "(this as java.lang.String).toLowerCase(locale)"
+    const-string p2, "(this as java.lang.String).toLowerCase(locale)"
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 219
-    sget-object v1, Lorg/catrobat/paintroid/FileIO$FileType;->JPG:Lorg/catrobat/paintroid/FileIO$FileType;
+    .line 213
+    sget-object p2, Lorg/catrobat/paintroid/FileIO$FileType;->JPG:Lorg/catrobat/paintroid/FileIO$FileType;
 
-    invoke-virtual {v1}, Lorg/catrobat/paintroid/FileIO$FileType;->getValue()Ljava/lang/String;
+    invoke-virtual {p2}, Lorg/catrobat/paintroid/FileIO$FileType;->getValue()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p2
 
-    if-eqz v1, :cond_1
+    if-eqz p2, :cond_1
 
-    sget-object v0, Landroid/graphics/Bitmap$CompressFormat;->JPEG:Landroid/graphics/Bitmap$CompressFormat;
+    sget-object p1, Landroid/graphics/Bitmap$CompressFormat;->JPEG:Landroid/graphics/Bitmap$CompressFormat;
 
-    const/4 v1, 0x0
+    sget-object p2, Lorg/catrobat/paintroid/FileIO$FileType;->JPG:Lorg/catrobat/paintroid/FileIO$FileType;
 
-    sget-object v2, Lorg/catrobat/paintroid/FileIO$FileType;->JPG:Lorg/catrobat/paintroid/FileIO$FileType;
-
-    const/4 v3, 0x1
-
-    invoke-direct {p0, v0, v1, v2, v3}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->setFileDetails(Landroid/graphics/Bitmap$CompressFormat;ZLorg/catrobat/paintroid/FileIO$FileType;Z)V
+    invoke-direct {p0, p1, p2}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->setFileDetails(Landroid/graphics/Bitmap$CompressFormat;Lorg/catrobat/paintroid/FileIO$FileType;)V
 
     goto :goto_1
 
-    .line 220
+    .line 214
     :cond_1
-    sget-object v1, Lorg/catrobat/paintroid/FileIO$FileType;->PNG:Lorg/catrobat/paintroid/FileIO$FileType;
+    sget-object p2, Lorg/catrobat/paintroid/FileIO$FileType;->PNG:Lorg/catrobat/paintroid/FileIO$FileType;
 
-    invoke-virtual {v1}, Lorg/catrobat/paintroid/FileIO$FileType;->getValue()Ljava/lang/String;
+    invoke-virtual {p2}, Lorg/catrobat/paintroid/FileIO$FileType;->getValue()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p2
 
-    if-eqz v1, :cond_2
+    if-eqz p2, :cond_2
 
-    sget-object v3, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
+    sget-object p1, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
 
-    const/4 v4, 0x0
+    sget-object p2, Lorg/catrobat/paintroid/FileIO$FileType;->PNG:Lorg/catrobat/paintroid/FileIO$FileType;
 
-    sget-object v5, Lorg/catrobat/paintroid/FileIO$FileType;->PNG:Lorg/catrobat/paintroid/FileIO$FileType;
-
-    const/4 v6, 0x0
-
-    const/16 v7, 0x8
-
-    const/4 v8, 0x0
-
-    move-object v2, p0
-
-    invoke-static/range {v2 .. v8}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->setFileDetails$default(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;Landroid/graphics/Bitmap$CompressFormat;ZLorg/catrobat/paintroid/FileIO$FileType;ZILjava/lang/Object;)V
+    invoke-direct {p0, p1, p2}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->setFileDetails(Landroid/graphics/Bitmap$CompressFormat;Lorg/catrobat/paintroid/FileIO$FileType;)V
 
     goto :goto_1
 
-    .line 221
+    .line 215
     :cond_2
-    sget-object v1, Lorg/catrobat/paintroid/FileIO$FileType;->ORA:Lorg/catrobat/paintroid/FileIO$FileType;
+    sget-object p2, Lorg/catrobat/paintroid/FileIO$FileType;->ORA:Lorg/catrobat/paintroid/FileIO$FileType;
 
-    invoke-virtual {v1}, Lorg/catrobat/paintroid/FileIO$FileType;->getValue()Ljava/lang/String;
+    invoke-virtual {p2}, Lorg/catrobat/paintroid/FileIO$FileType;->getValue()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p2
 
-    if-eqz v1, :cond_3
+    if-eqz p2, :cond_3
 
-    sget-object v3, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
+    sget-object p1, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
 
-    const/4 v4, 0x1
+    sget-object p2, Lorg/catrobat/paintroid/FileIO$FileType;->ORA:Lorg/catrobat/paintroid/FileIO$FileType;
 
-    sget-object v5, Lorg/catrobat/paintroid/FileIO$FileType;->ORA:Lorg/catrobat/paintroid/FileIO$FileType;
-
-    const/4 v6, 0x0
-
-    const/16 v7, 0x8
-
-    const/4 v8, 0x0
-
-    move-object v2, p0
-
-    invoke-static/range {v2 .. v8}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->setFileDetails$default(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;Landroid/graphics/Bitmap$CompressFormat;ZLorg/catrobat/paintroid/FileIO$FileType;ZILjava/lang/Object;)V
+    invoke-direct {p0, p1, p2}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->setFileDetails(Landroid/graphics/Bitmap$CompressFormat;Lorg/catrobat/paintroid/FileIO$FileType;)V
 
     goto :goto_1
 
-    .line 222
+    .line 216
     :cond_3
-    sget-object v1, Lorg/catrobat/paintroid/FileIO$FileType;->CATROBAT:Lorg/catrobat/paintroid/FileIO$FileType;
+    sget-object p2, Lorg/catrobat/paintroid/FileIO$FileType;->CATROBAT:Lorg/catrobat/paintroid/FileIO$FileType;
 
-    invoke-virtual {v1}, Lorg/catrobat/paintroid/FileIO$FileType;->getValue()Ljava/lang/String;
+    invoke-virtual {p2}, Lorg/catrobat/paintroid/FileIO$FileType;->getValue()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_4
+    if-eqz p1, :cond_4
 
-    sget-object v2, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
+    sget-object p1, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
 
-    const/4 v3, 0x0
+    sget-object p2, Lorg/catrobat/paintroid/FileIO$FileType;->CATROBAT:Lorg/catrobat/paintroid/FileIO$FileType;
 
-    sget-object v4, Lorg/catrobat/paintroid/FileIO$FileType;->CATROBAT:Lorg/catrobat/paintroid/FileIO$FileType;
+    invoke-direct {p0, p1, p2}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->setFileDetails(Landroid/graphics/Bitmap$CompressFormat;Lorg/catrobat/paintroid/FileIO$FileType;)V
 
-    const/4 v5, 0x0
-
-    const/16 v6, 0x8
-
-    const/4 v7, 0x0
-
-    move-object v1, p0
-
-    invoke-static/range {v1 .. v7}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->setFileDetails$default(Lorg/catrobat/paintroid/dialog/SaveInformationDialog;Landroid/graphics/Bitmap$CompressFormat;ZLorg/catrobat/paintroid/FileIO$FileType;ZILjava/lang/Object;)V
-
-    .line 223
     :cond_4
     :goto_1
-    nop
-
-    .line 224
     return-void
 
-    .line 218
+    .line 212
     :cond_5
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "null cannot be cast to non-null type java.lang.String"
+    const-string p2, "null cannot be cast to non-null type java.lang.String"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public onNothingSelected(Landroid/widget/AdapterView;)V
     .locals 0
-    .param p1, "parent"    # Landroid/widget/AdapterView;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1217,103 +1275,93 @@
         }
     .end annotation
 
-    .line 226
     return-void
 .end method
 
 .method public onProgressChanged(Landroid/widget/SeekBar;IZ)V
-    .locals 3
-    .param p1, "seekBar"    # Landroid/widget/SeekBar;
-    .param p2, "progress"    # I
-    .param p3, "fromUser"    # Z
+    .locals 1
 
-    const-string v0, "seekBar"
+    const-string p3, "seekBar"
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 228
-    iget-object v0, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->percentage:Landroidx/appcompat/widget/AppCompatTextView;
+    .line 222
+    iget-object p1, p0, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->percentage:Landroidx/appcompat/widget/AppCompatTextView;
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const-string v1, "percentage"
+    const-string p1, "percentage"
 
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    invoke-static {p1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    const/4 p1, 0x0
 
     :cond_0
-    invoke-static {p2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object p3
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/16 v0, 0x25
 
-    const/16 v1, 0x25
+    invoke-virtual {p3, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    move-result-object p3
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p3
 
-    check-cast v1, Ljava/lang/CharSequence;
+    check-cast p3, Ljava/lang/CharSequence;
 
-    invoke-virtual {v0, v1}, Landroidx/appcompat/widget/AppCompatTextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {p1, p3}, Landroidx/appcompat/widget/AppCompatTextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 229
-    sget-object v0, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
+    .line 223
+    sget-object p1, Lorg/catrobat/paintroid/FileIO;->INSTANCE:Lorg/catrobat/paintroid/FileIO;
 
-    invoke-virtual {v0, p2}, Lorg/catrobat/paintroid/FileIO;->setCompressQuality(I)V
+    invoke-virtual {p1, p2}, Lorg/catrobat/paintroid/FileIO;->setCompressQuality(I)V
 
-    .line 230
     return-void
 .end method
 
 .method public onStartTrackingTouch(Landroid/widget/SeekBar;)V
     .locals 1
-    .param p1, "seekBar"    # Landroid/widget/SeekBar;
 
     const-string v0, "seekBar"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 232
     return-void
 .end method
 
 .method public onStopTrackingTouch(Landroid/widget/SeekBar;)V
     .locals 1
-    .param p1, "seekBar"    # Landroid/widget/SeekBar;
 
     const-string v0, "seekBar"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 233
     return-void
 .end method
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
     .locals 1
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "savedInstanceState"    # Landroid/os/Bundle;
 
     const-string v0, "view"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 105
+    .line 103
     invoke-super {p0, p1, p2}, Lorg/catrobat/paintroid/dialog/MainActivityDialogFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    .line 106
+    .line 104
     invoke-direct {p0, p1}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->initViews(Landroid/view/View;)V
 
-    .line 107
+    .line 105
     invoke-direct {p0}, Lorg/catrobat/paintroid/dialog/SaveInformationDialog;->setSpinnerSelection()V
 
-    .line 108
     return-void
 .end method

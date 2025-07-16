@@ -45,10 +45,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroidx/browser/trusted/sharing/ShareTarget$Params;)V
     .locals 0
-    .param p1, "action"    # Ljava/lang/String;
-    .param p2, "method"    # Ljava/lang/String;
-    .param p3, "encodingType"    # Ljava/lang/String;
-    .param p4, "params"    # Landroidx/browser/trusted/sharing/ShareTarget$Params;
 
     .line 130
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -65,71 +61,63 @@
     .line 134
     iput-object p4, p0, Landroidx/browser/trusted/sharing/ShareTarget;->params:Landroidx/browser/trusted/sharing/ShareTarget$Params;
 
-    .line 135
     return-void
 .end method
 
 .method public static fromBundle(Landroid/os/Bundle;)Landroidx/browser/trusted/sharing/ShareTarget;
-    .locals 5
-    .param p0, "bundle"    # Landroid/os/Bundle;
+    .locals 4
 
-    .line 151
     const-string v0, "androidx.browser.trusted.sharing.KEY_ACTION"
 
+    .line 151
     invoke-virtual {p0, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 152
-    .local v0, "action":Ljava/lang/String;
     const-string v1, "androidx.browser.trusted.sharing.KEY_METHOD"
 
+    .line 152
     invoke-virtual {p0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 153
-    .local v1, "method":Ljava/lang/String;
     const-string v2, "androidx.browser.trusted.sharing.KEY_ENCTYPE"
 
+    .line 153
     invoke-virtual {p0, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 154
-    .local v2, "encType":Ljava/lang/String;
     const-string v3, "androidx.browser.trusted.sharing.KEY_PARAMS"
 
+    .line 154
     invoke-virtual {p0, v3}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-static {v3}, Landroidx/browser/trusted/sharing/ShareTarget$Params;->fromBundle(Landroid/os/Bundle;)Landroidx/browser/trusted/sharing/ShareTarget$Params;
+    invoke-static {p0}, Landroidx/browser/trusted/sharing/ShareTarget$Params;->fromBundle(Landroid/os/Bundle;)Landroidx/browser/trusted/sharing/ShareTarget$Params;
 
-    move-result-object v3
+    move-result-object p0
 
-    .line 155
-    .local v3, "params":Landroidx/browser/trusted/sharing/ShareTarget$Params;
     if-eqz v0, :cond_1
 
-    if-nez v3, :cond_0
+    if-nez p0, :cond_0
 
     goto :goto_0
 
     .line 158
     :cond_0
-    new-instance v4, Landroidx/browser/trusted/sharing/ShareTarget;
+    new-instance v3, Landroidx/browser/trusted/sharing/ShareTarget;
 
-    invoke-direct {v4, v0, v1, v2, v3}, Landroidx/browser/trusted/sharing/ShareTarget;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroidx/browser/trusted/sharing/ShareTarget$Params;)V
+    invoke-direct {v3, v0, v1, v2, p0}, Landroidx/browser/trusted/sharing/ShareTarget;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroidx/browser/trusted/sharing/ShareTarget$Params;)V
 
-    return-object v4
+    return-object v3
 
-    .line 156
     :cond_1
     :goto_0
-    const/4 v4, 0x0
+    const/4 p0, 0x0
 
-    return-object v4
+    return-object p0
 .end method
 
 
@@ -142,27 +130,26 @@
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
+    const-string v1, "androidx.browser.trusted.sharing.KEY_ACTION"
+
     .line 141
-    .local v0, "bundle":Landroid/os/Bundle;
-    iget-object v1, p0, Landroidx/browser/trusted/sharing/ShareTarget;->action:Ljava/lang/String;
+    iget-object v2, p0, Landroidx/browser/trusted/sharing/ShareTarget;->action:Ljava/lang/String;
 
-    const-string v2, "androidx.browser.trusted.sharing.KEY_ACTION"
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    const-string v1, "androidx.browser.trusted.sharing.KEY_METHOD"
 
     .line 142
-    iget-object v1, p0, Landroidx/browser/trusted/sharing/ShareTarget;->method:Ljava/lang/String;
+    iget-object v2, p0, Landroidx/browser/trusted/sharing/ShareTarget;->method:Ljava/lang/String;
 
-    const-string v2, "androidx.browser.trusted.sharing.KEY_METHOD"
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    const-string v1, "androidx.browser.trusted.sharing.KEY_ENCTYPE"
 
     .line 143
-    iget-object v1, p0, Landroidx/browser/trusted/sharing/ShareTarget;->encodingType:Ljava/lang/String;
+    iget-object v2, p0, Landroidx/browser/trusted/sharing/ShareTarget;->encodingType:Ljava/lang/String;
 
-    const-string v2, "androidx.browser.trusted.sharing.KEY_ENCTYPE"
-
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 144
     iget-object v1, p0, Landroidx/browser/trusted/sharing/ShareTarget;->params:Landroidx/browser/trusted/sharing/ShareTarget$Params;
@@ -175,6 +162,5 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 145
     return-object v0
 .end method

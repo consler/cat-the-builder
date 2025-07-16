@@ -22,15 +22,7 @@
 # direct methods
 .method constructor <init>(Lcom/squareup/picasso/Picasso;Lcom/squareup/picasso/Request;IILjava/lang/Object;Ljava/lang/String;Lcom/squareup/picasso/Callback;)V
     .locals 12
-    .param p1, "picasso"    # Lcom/squareup/picasso/Picasso;
-    .param p2, "data"    # Lcom/squareup/picasso/Request;
-    .param p3, "memoryPolicy"    # I
-    .param p4, "networkPolicy"    # I
-    .param p5, "tag"    # Ljava/lang/Object;
-    .param p6, "key"    # Ljava/lang/String;
-    .param p7, "callback"    # Lcom/squareup/picasso/Callback;
 
-    .line 27
     move-object v11, p0
 
     const/4 v2, 0x0
@@ -55,6 +47,7 @@
 
     move-object/from16 v9, p5
 
+    .line 27
     invoke-direct/range {v0 .. v10}, Lcom/squareup/picasso/Action;-><init>(Lcom/squareup/picasso/Picasso;Ljava/lang/Object;Lcom/squareup/picasso/Request;IIILandroid/graphics/drawable/Drawable;Ljava/lang/String;Ljava/lang/Object;Z)V
 
     .line 28
@@ -64,12 +57,11 @@
 
     iput-object v0, v11, Lcom/squareup/picasso/FetchAction;->target:Ljava/lang/Object;
 
-    .line 29
     move-object/from16 v0, p7
 
+    .line 29
     iput-object v0, v11, Lcom/squareup/picasso/FetchAction;->callback:Lcom/squareup/picasso/Callback;
 
-    .line 30
     return-void
 .end method
 
@@ -81,36 +73,31 @@
     .line 45
     invoke-super {p0}, Lcom/squareup/picasso/Action;->cancel()V
 
-    .line 46
     const/4 v0, 0x0
 
+    .line 46
     iput-object v0, p0, Lcom/squareup/picasso/FetchAction;->callback:Lcom/squareup/picasso/Callback;
 
-    .line 47
     return-void
 .end method
 
 .method complete(Landroid/graphics/Bitmap;Lcom/squareup/picasso/Picasso$LoadedFrom;)V
-    .locals 1
-    .param p1, "result"    # Landroid/graphics/Bitmap;
-    .param p2, "from"    # Lcom/squareup/picasso/Picasso$LoadedFrom;
+    .locals 0
 
     .line 33
-    iget-object v0, p0, Lcom/squareup/picasso/FetchAction;->callback:Lcom/squareup/picasso/Callback;
+    iget-object p1, p0, Lcom/squareup/picasso/FetchAction;->callback:Lcom/squareup/picasso/Callback;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 34
-    invoke-interface {v0}, Lcom/squareup/picasso/Callback;->onSuccess()V
+    invoke-interface {p1}, Lcom/squareup/picasso/Callback;->onSuccess()V
 
-    .line 36
     :cond_0
     return-void
 .end method
 
 .method error(Ljava/lang/Exception;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Exception;
 
     .line 39
     iget-object v0, p0, Lcom/squareup/picasso/FetchAction;->callback:Lcom/squareup/picasso/Callback;
@@ -120,7 +107,6 @@
     .line 40
     invoke-interface {v0, p1}, Lcom/squareup/picasso/Callback;->onError(Ljava/lang/Exception;)V
 
-    .line 42
     :cond_0
     return-void
 .end method

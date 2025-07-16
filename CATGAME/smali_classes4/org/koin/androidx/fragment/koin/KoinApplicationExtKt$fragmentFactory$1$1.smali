@@ -97,26 +97,24 @@
 .end method
 
 .method public final invoke(Lorg/koin/core/scope/Scope;Lorg/koin/core/parameter/DefinitionParameters;)Lorg/koin/androidx/fragment/android/KoinFragmentFactory;
-    .locals 3
-    .param p1, "$this$single"    # Lorg/koin/core/scope/Scope;
-    .param p2, "it"    # Lorg/koin/core/parameter/DefinitionParameters;
+    .locals 1
 
     const-string v0, "$receiver"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "it"
+    const-string p1, "it"
 
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 13
-    new-instance v0, Lorg/koin/androidx/fragment/android/KoinFragmentFactory;
+    new-instance p1, Lorg/koin/androidx/fragment/android/KoinFragmentFactory;
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    invoke-direct {v0, v1, v2, v1}, Lorg/koin/androidx/fragment/android/KoinFragmentFactory;-><init>(Lorg/koin/core/scope/Scope;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+    invoke-direct {p1, p2, v0, p2}, Lorg/koin/androidx/fragment/android/KoinFragmentFactory;-><init>(Lorg/koin/core/scope/Scope;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 
-    return-object v0
+    return-object p1
 .end method

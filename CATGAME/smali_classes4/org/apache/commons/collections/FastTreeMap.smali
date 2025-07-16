@@ -27,14 +27,14 @@
     .line 88
     invoke-direct {p0}, Ljava/util/TreeMap;-><init>()V
 
-    .line 73
     const/4 v0, 0x0
 
+    .line 73
     iput-object v0, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
 
-    .line 78
     const/4 v0, 0x0
 
+    .line 78
     iput-boolean v0, p0, Lorg/apache/commons/collections/FastTreeMap;->fast:Z
 
     .line 89
@@ -44,25 +44,23 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
 
-    .line 90
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Comparator;)V
     .locals 1
-    .param p1, "comparator"    # Ljava/util/Comparator;
 
     .line 98
     invoke-direct {p0}, Ljava/util/TreeMap;-><init>()V
 
-    .line 73
     const/4 v0, 0x0
 
+    .line 73
     iput-object v0, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
 
-    .line 78
     const/4 v0, 0x0
 
+    .line 78
     iput-boolean v0, p0, Lorg/apache/commons/collections/FastTreeMap;->fast:Z
 
     .line 99
@@ -72,25 +70,23 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
 
-    .line 100
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Map;)V
     .locals 1
-    .param p1, "map"    # Ljava/util/Map;
 
     .line 109
     invoke-direct {p0}, Ljava/util/TreeMap;-><init>()V
 
-    .line 73
     const/4 v0, 0x0
 
+    .line 73
     iput-object v0, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
 
-    .line 78
     const/4 v0, 0x0
 
+    .line 78
     iput-boolean v0, p0, Lorg/apache/commons/collections/FastTreeMap;->fast:Z
 
     .line 110
@@ -100,25 +96,23 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
 
-    .line 111
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/SortedMap;)V
     .locals 1
-    .param p1, "map"    # Ljava/util/SortedMap;
 
     .line 120
     invoke-direct {p0}, Ljava/util/TreeMap;-><init>()V
 
-    .line 73
     const/4 v0, 0x0
 
+    .line 73
     iput-object v0, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
 
-    .line 78
     const/4 v0, 0x0
 
+    .line 78
     iput-boolean v0, p0, Lorg/apache/commons/collections/FastTreeMap;->fast:Z
 
     .line 121
@@ -128,7 +122,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
 
-    .line 122
     return-void
 .end method
 
@@ -182,11 +175,9 @@
     .line 365
     monitor-exit v0
 
-    .line 367
     :goto_0
     return-void
 
-    .line 365
     :catchall_1
     move-exception v1
 
@@ -198,48 +189,42 @@
 .end method
 
 .method public clone()Ljava/lang/Object;
-    .locals 4
-
-    .line 471
-    const/4 v0, 0x0
+    .locals 3
 
     .line 472
-    .local v0, "results":Lorg/apache/commons/collections/FastTreeMap;
-    iget-boolean v1, p0, Lorg/apache/commons/collections/FastTreeMap;->fast:Z
+    iget-boolean v0, p0, Lorg/apache/commons/collections/FastTreeMap;->fast:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 473
+    new-instance v0, Lorg/apache/commons/collections/FastTreeMap;
+
+    iget-object v1, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
+
+    invoke-direct {v0, v1}, Lorg/apache/commons/collections/FastTreeMap;-><init>(Ljava/util/SortedMap;)V
+
+    goto :goto_0
+
+    .line 475
+    :cond_0
+    iget-object v0, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
+
+    monitor-enter v0
+
+    .line 476
+    :try_start_0
     new-instance v1, Lorg/apache/commons/collections/FastTreeMap;
 
     iget-object v2, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
 
     invoke-direct {v1, v2}, Lorg/apache/commons/collections/FastTreeMap;-><init>(Ljava/util/SortedMap;)V
 
-    move-object v0, v1
-
-    goto :goto_0
-
-    .line 475
-    :cond_0
-    iget-object v1, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
-
-    monitor-enter v1
-
-    .line 476
-    :try_start_0
-    new-instance v2, Lorg/apache/commons/collections/FastTreeMap;
-
-    iget-object v3, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
-
-    invoke-direct {v2, v3}, Lorg/apache/commons/collections/FastTreeMap;-><init>(Ljava/util/SortedMap;)V
-
-    move-object v0, v2
-
     .line 477
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-object v0, v1
 
     .line 479
     :goto_0
@@ -249,19 +234,18 @@
 
     invoke-virtual {v0, v1}, Lorg/apache/commons/collections/FastTreeMap;->setFast(Z)V
 
-    .line 480
     return-object v0
 
-    .line 477
     :catchall_0
-    move-exception v2
+    move-exception v1
 
+    .line 477
     :try_start_1
-    monitor-exit v1
+    monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v2
+    throw v1
 .end method
 
 .method public comparator()Ljava/util/Comparator;
@@ -299,10 +283,10 @@
 
     return-object v1
 
-    .line 247
     :catchall_0
     move-exception v1
 
+    .line 247
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -312,7 +296,6 @@
 
 .method public containsKey(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 209
     iget-boolean v0, p0, Lorg/apache/commons/collections/FastTreeMap;->fast:Z
@@ -324,9 +307,9 @@
 
     invoke-virtual {v0, p1}, Ljava/util/TreeMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
     .line 212
     :cond_0
@@ -340,26 +323,25 @@
 
     invoke-virtual {v1, p1}, Ljava/util/TreeMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
     monitor-exit v0
 
-    return v1
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 214
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "value"    # Ljava/lang/Object;
 
     .line 226
     iget-boolean v0, p0, Lorg/apache/commons/collections/FastTreeMap;->fast:Z
@@ -371,9 +353,9 @@
 
     invoke-virtual {v0, p1}, Ljava/util/TreeMap;->containsValue(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
     .line 229
     :cond_0
@@ -387,21 +369,21 @@
 
     invoke-virtual {v1, p1}, Ljava/util/TreeMap;->containsValue(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
     monitor-exit v0
 
-    return v1
+    return p1
+
+    :catchall_0
+    move-exception p1
 
     .line 231
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public entrySet()Ljava/util/Set;
@@ -418,15 +400,12 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 9
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 6
 
-    .line 384
     const/4 v0, 0x1
 
     if-ne p1, p0, :cond_0
 
-    .line 385
     return v0
 
     .line 386
@@ -437,23 +416,113 @@
 
     if-nez v1, :cond_1
 
-    .line 387
     return v2
 
     .line 389
     :cond_1
-    move-object v1, p1
-
-    check-cast v1, Ljava/util/Map;
+    check-cast p1, Ljava/util/Map;
 
     .line 392
-    .local v1, "mo":Ljava/util/Map;
-    iget-boolean v3, p0, Lorg/apache/commons/collections/FastTreeMap;->fast:Z
+    iget-boolean v1, p0, Lorg/apache/commons/collections/FastTreeMap;->fast:Z
 
-    if-eqz v3, :cond_7
+    if-eqz v1, :cond_7
 
     .line 393
-    invoke-interface {v1}, Ljava/util/Map;->size()I
+    invoke-interface {p1}, Ljava/util/Map;->size()I
+
+    move-result v1
+
+    iget-object v3, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
+
+    invoke-virtual {v3}, Ljava/util/TreeMap;->size()I
+
+    move-result v3
+
+    if-eq v1, v3, :cond_2
+
+    return v2
+
+    .line 396
+    :cond_2
+    iget-object v1, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
+
+    invoke-virtual {v1}, Ljava/util/TreeMap;->entrySet()Ljava/util/Set;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    .line 397
+    :cond_3
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_6
+
+    .line 398
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/util/Map$Entry;
+
+    .line 399
+    invoke-interface {v3}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v4
+
+    .line 400
+    invoke-interface {v3}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v3
+
+    if-nez v3, :cond_5
+
+    .line 402
+    invoke-interface {p1, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    if-nez v3, :cond_4
+
+    invoke-interface {p1, v4}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_3
+
+    :cond_4
+    return v2
+
+    .line 406
+    :cond_5
+    invoke-interface {p1, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_3
+
+    return v2
+
+    :cond_6
+    return v0
+
+    .line 413
+    :cond_7
+    iget-object v1, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
+
+    monitor-enter v1
+
+    .line 414
+    :try_start_0
+    invoke-interface {p1}, Ljava/util/Map;->size()I
 
     move-result v3
 
@@ -463,13 +532,15 @@
 
     move-result v4
 
-    if-eq v3, v4, :cond_2
+    if-eq v3, v4, :cond_8
 
-    .line 394
+    .line 415
+    monitor-exit v1
+
     return v2
 
-    .line 396
-    :cond_2
+    .line 417
+    :cond_8
     iget-object v3, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
 
     invoke-virtual {v3}, Ljava/util/TreeMap;->entrySet()Ljava/util/Set;
@@ -480,210 +551,84 @@
 
     move-result-object v3
 
-    .line 397
-    .local v3, "i":Ljava/util/Iterator;
-    :goto_0
+    .line 418
+    :cond_9
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_c
 
-    .line 398
+    .line 419
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Ljava/util/Map$Entry;
 
-    .line 399
-    .local v4, "e":Ljava/util/Map$Entry;
+    .line 420
     invoke-interface {v4}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v5
 
-    .line 400
-    .local v5, "key":Ljava/lang/Object;
+    .line 421
     invoke-interface {v4}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v4
 
-    .line 401
-    .local v6, "value":Ljava/lang/Object;
-    if-nez v6, :cond_4
+    if-nez v4, :cond_b
 
-    .line 402
-    invoke-interface {v1, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    .line 423
+    invoke-interface {p1, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v4
 
-    if-nez v7, :cond_3
+    if-nez v4, :cond_a
 
-    invoke-interface {v1, v5}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-nez v7, :cond_5
-
-    .line 403
-    :cond_3
-    return v2
-
-    .line 406
-    :cond_4
-    invoke-interface {v1, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-nez v7, :cond_5
-
-    .line 407
-    return v2
-
-    .line 410
-    .end local v4    # "e":Ljava/util/Map$Entry;
-    .end local v5    # "key":Ljava/lang/Object;
-    .end local v6    # "value":Ljava/lang/Object;
-    :cond_5
-    goto :goto_0
-
-    .line 411
-    :cond_6
-    return v0
-
-    .line 413
-    .end local v3    # "i":Ljava/util/Iterator;
-    :cond_7
-    iget-object v3, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
-
-    monitor-enter v3
-
-    .line 414
-    :try_start_0
-    invoke-interface {v1}, Ljava/util/Map;->size()I
+    invoke-interface {p1, v5}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v4
 
-    iget-object v5, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
-
-    invoke-virtual {v5}, Ljava/util/TreeMap;->size()I
-
-    move-result v5
-
-    if-eq v4, v5, :cond_8
-
-    .line 415
-    monitor-exit v3
-
-    return v2
-
-    .line 417
-    :cond_8
-    iget-object v4, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
-
-    invoke-virtual {v4}, Ljava/util/TreeMap;->entrySet()Ljava/util/Set;
-
-    move-result-object v4
-
-    invoke-interface {v4}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v4
-
-    .line 418
-    .local v4, "i":Ljava/util/Iterator;
-    :goto_1
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_c
-
-    .line 419
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Ljava/util/Map$Entry;
-
-    .line 420
-    .local v5, "e":Ljava/util/Map$Entry;
-    invoke-interface {v5}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v6
-
-    .line 421
-    .local v6, "key":Ljava/lang/Object;
-    invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v7
-
-    .line 422
-    .local v7, "value":Ljava/lang/Object;
-    if-nez v7, :cond_a
-
-    .line 423
-    invoke-interface {v1, v6}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v8
-
-    if-nez v8, :cond_9
-
-    invoke-interface {v1, v6}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_b
+    if-nez v4, :cond_9
 
     .line 424
-    :cond_9
-    monitor-exit v3
+    :cond_a
+    monitor-exit v1
 
     return v2
 
     .line 427
-    :cond_a
-    invoke-interface {v1, v6}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    :cond_b
+    invoke-interface {p1, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v5
 
-    invoke-virtual {v7, v8}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v4
 
-    if-nez v8, :cond_b
+    if-nez v4, :cond_9
 
     .line 428
-    monitor-exit v3
+    monitor-exit v1
 
     return v2
 
-    .line 431
-    .end local v5    # "e":Ljava/util/Map$Entry;
-    .end local v6    # "key":Ljava/lang/Object;
-    .end local v7    # "value":Ljava/lang/Object;
-    :cond_b
-    goto :goto_1
-
     .line 432
     :cond_c
-    monitor-exit v3
+    monitor-exit v1
 
     return v0
 
-    .line 433
-    .end local v4    # "i":Ljava/util/Iterator;
     :catchall_0
-    move-exception v0
+    move-exception p1
 
-    monitor-exit v3
+    .line 433
+    monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 .method public firstKey()Ljava/lang/Object;
@@ -721,10 +666,10 @@
 
     return-object v1
 
-    .line 262
     :catchall_0
     move-exception v1
 
+    .line 262
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -734,7 +679,6 @@
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 162
     iget-boolean v0, p0, Lorg/apache/commons/collections/FastTreeMap;->fast:Z
@@ -746,9 +690,9 @@
 
     invoke-virtual {v0, p1}, Ljava/util/TreeMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 165
     :cond_0
@@ -762,21 +706,21 @@
 
     invoke-virtual {v1, p1}, Ljava/util/TreeMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
     monitor-exit v0
 
-    return-object v1
+    return-object p1
+
+    :catchall_0
+    move-exception p1
 
     .line 167
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public getFast()Z
@@ -794,34 +738,31 @@
     .line 445
     iget-boolean v0, p0, Lorg/apache/commons/collections/FastTreeMap;->fast:Z
 
+    const/4 v1, 0x0
+
     if-eqz v0, :cond_1
 
-    .line 446
-    const/4 v0, 0x0
-
     .line 447
-    .local v0, "h":I
-    iget-object v1, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
+    iget-object v0, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
 
-    invoke-virtual {v1}, Ljava/util/TreeMap;->entrySet()Ljava/util/Set;
+    invoke-virtual {v0}, Ljava/util/TreeMap;->entrySet()Ljava/util/Set;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 448
-    .local v1, "i":Ljava/util/Iterator;
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
     .line 449
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
@@ -829,27 +770,20 @@
 
     move-result v2
 
-    add-int/2addr v0, v2
+    add-int/2addr v1, v2
 
     goto :goto_0
 
-    .line 451
     :cond_0
-    return v0
+    return v1
 
     .line 453
-    .end local v0    # "h":I
-    .end local v1    # "i":Ljava/util/Iterator;
     :cond_1
     iget-object v0, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
 
     monitor-enter v0
 
-    .line 454
-    const/4 v1, 0x0
-
     .line 455
-    .local v1, "h":I
     :try_start_0
     iget-object v2, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
 
@@ -862,7 +796,6 @@
     move-result-object v2
 
     .line 456
-    .local v2, "i":Ljava/util/Iterator;
     :goto_1
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -889,12 +822,10 @@
 
     return v1
 
-    .line 460
-    .end local v1    # "h":I
-    .end local v2    # "i":Ljava/util/Iterator;
     :catchall_0
     move-exception v1
 
+    .line 460
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -904,7 +835,6 @@
 
 .method public headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
     .locals 2
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 495
     iget-boolean v0, p0, Lorg/apache/commons/collections/FastTreeMap;->fast:Z
@@ -916,9 +846,9 @@
 
     invoke-virtual {v0, p1}, Ljava/util/TreeMap;->headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 498
     :cond_0
@@ -932,21 +862,21 @@
 
     invoke-virtual {v1, p1}, Ljava/util/TreeMap;->headMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v1
+    move-result-object p1
 
     monitor-exit v0
 
-    return-object v1
+    return-object p1
+
+    :catchall_0
+    move-exception p1
 
     .line 500
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public isEmpty()Z
@@ -984,10 +914,10 @@
 
     return v1
 
-    .line 197
     :catchall_0
     move-exception v1
 
+    .line 197
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -1043,10 +973,10 @@
 
     return-object v1
 
-    .line 277
     :catchall_0
     move-exception v1
 
+    .line 277
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -1056,8 +986,6 @@
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
-    .param p1, "key"    # Ljava/lang/Object;
-    .param p2, "value"    # Ljava/lang/Object;
 
     .line 298
     iget-boolean v0, p0, Lorg/apache/commons/collections/FastTreeMap;->fast:Z
@@ -1078,31 +1006,27 @@
     check-cast v0, Ljava/util/TreeMap;
 
     .line 301
-    .local v0, "temp":Ljava/util/TreeMap;
     invoke-virtual {v0, p1, p2}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 302
-    .local v1, "result":Ljava/lang/Object;
     iput-object v0, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
 
     .line 303
     monitor-exit p0
 
-    return-object v1
+    return-object p1
+
+    :catchall_0
+    move-exception p1
 
     .line 304
-    .end local v0    # "temp":Ljava/util/TreeMap;
-    .end local v1    # "result":Ljava/lang/Object;
-    :catchall_0
-    move-exception v0
-
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 
     .line 306
     :cond_0
@@ -1116,26 +1040,25 @@
 
     invoke-virtual {v1, p1, p2}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
     monitor-exit v0
 
-    return-object v1
+    return-object p1
+
+    :catchall_1
+    move-exception p1
 
     .line 308
-    :catchall_1
-    move-exception v1
-
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    throw v1
+    throw p1
 .end method
 
 .method public putAll(Ljava/util/Map;)V
     .locals 2
-    .param p1, "in"    # Ljava/util/Map;
 
     .line 319
     iget-boolean v0, p0, Lorg/apache/commons/collections/FastTreeMap;->fast:Z
@@ -1156,26 +1079,24 @@
     check-cast v0, Ljava/util/TreeMap;
 
     .line 322
-    .local v0, "temp":Ljava/util/TreeMap;
     invoke-virtual {v0, p1}, Ljava/util/TreeMap;->putAll(Ljava/util/Map;)V
 
     .line 323
     iput-object v0, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
 
     .line 324
-    .end local v0    # "temp":Ljava/util/TreeMap;
     monitor-exit p0
 
     goto :goto_0
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 
     .line 326
     :cond_0
@@ -1192,24 +1113,21 @@
     .line 328
     monitor-exit v0
 
-    .line 330
     :goto_0
     return-void
 
-    .line 328
     :catchall_1
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    throw v1
+    throw p1
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 340
     iget-boolean v0, p0, Lorg/apache/commons/collections/FastTreeMap;->fast:Z
@@ -1230,31 +1148,27 @@
     check-cast v0, Ljava/util/TreeMap;
 
     .line 343
-    .local v0, "temp":Ljava/util/TreeMap;
     invoke-virtual {v0, p1}, Ljava/util/TreeMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 344
-    .local v1, "result":Ljava/lang/Object;
     iput-object v0, p0, Lorg/apache/commons/collections/FastTreeMap;->map:Ljava/util/TreeMap;
 
     .line 345
     monitor-exit p0
 
-    return-object v1
+    return-object p1
+
+    :catchall_0
+    move-exception p1
 
     .line 346
-    .end local v0    # "temp":Ljava/util/TreeMap;
-    .end local v1    # "result":Ljava/lang/Object;
-    :catchall_0
-    move-exception v0
-
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 
     .line 348
     :cond_0
@@ -1268,31 +1182,29 @@
 
     invoke-virtual {v1, p1}, Ljava/util/TreeMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
     monitor-exit v0
 
-    return-object v1
+    return-object p1
+
+    :catchall_1
+    move-exception p1
 
     .line 350
-    :catchall_1
-    move-exception v1
-
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    throw v1
+    throw p1
 .end method
 
 .method public setFast(Z)V
     .locals 0
-    .param p1, "fast"    # Z
 
     .line 143
     iput-boolean p1, p0, Lorg/apache/commons/collections/FastTreeMap;->fast:Z
 
-    .line 144
     return-void
 .end method
 
@@ -1331,10 +1243,10 @@
 
     return v1
 
-    .line 182
     :catchall_0
     move-exception v1
 
+    .line 182
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -1344,8 +1256,6 @@
 
 .method public subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
     .locals 2
-    .param p1, "fromKey"    # Ljava/lang/Object;
-    .param p2, "toKey"    # Ljava/lang/Object;
 
     .line 513
     iget-boolean v0, p0, Lorg/apache/commons/collections/FastTreeMap;->fast:Z
@@ -1357,9 +1267,9 @@
 
     invoke-virtual {v0, p1, p2}, Ljava/util/TreeMap;->subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 516
     :cond_0
@@ -1373,26 +1283,25 @@
 
     invoke-virtual {v1, p1, p2}, Ljava/util/TreeMap;->subMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v1
+    move-result-object p1
 
     monitor-exit v0
 
-    return-object v1
+    return-object p1
+
+    :catchall_0
+    move-exception p1
 
     .line 518
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
     .locals 2
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 530
     iget-boolean v0, p0, Lorg/apache/commons/collections/FastTreeMap;->fast:Z
@@ -1404,9 +1313,9 @@
 
     invoke-virtual {v0, p1}, Ljava/util/TreeMap;->tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 533
     :cond_0
@@ -1420,21 +1329,21 @@
 
     invoke-virtual {v1, p1}, Ljava/util/TreeMap;->tailMap(Ljava/lang/Object;)Ljava/util/SortedMap;
 
-    move-result-object v1
+    move-result-object p1
 
     monitor-exit v0
 
-    return-object v1
+    return-object p1
+
+    :catchall_0
+    move-exception p1
 
     .line 535
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public values()Ljava/util/Collection;

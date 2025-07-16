@@ -41,10 +41,9 @@
     .line 34
     invoke-super {p0}, Lcom/badlogic/gdx/maps/MapLayer;->invalidateRenderOffset()V
 
-    .line 35
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 35
     :goto_0
     iget-object v1, p0, Lcom/badlogic/gdx/maps/MapGroupLayer;->layers:Lcom/badlogic/gdx/maps/MapLayers;
 
@@ -62,17 +61,12 @@
     move-result-object v1
 
     .line 37
-    .local v1, "child":Lcom/badlogic/gdx/maps/MapLayer;
     invoke-virtual {v1}, Lcom/badlogic/gdx/maps/MapLayer;->invalidateRenderOffset()V
 
-    .line 35
-    .end local v1    # "child":Lcom/badlogic/gdx/maps/MapLayer;
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 39
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method

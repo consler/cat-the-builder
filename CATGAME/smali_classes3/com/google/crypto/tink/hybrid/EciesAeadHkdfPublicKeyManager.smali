@@ -36,7 +36,6 @@
 
     invoke-direct {p0, v0, v1}, Lcom/google/crypto/tink/KeyTypeManager;-><init>(Ljava/lang/Class;[Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;)V
 
-    .line 65
     return-void
 .end method
 
@@ -45,7 +44,6 @@
 .method public getKeyType()Ljava/lang/String;
     .locals 1
 
-    .line 69
     const-string v0, "type.googleapis.com/google.crypto.tink.EciesAeadHkdfPublicKey"
 
     return-object v0
@@ -54,7 +52,6 @@
 .method public getVersion()I
     .locals 1
 
-    .line 74
     const/4 v0, 0x0
 
     return v0
@@ -71,7 +68,6 @@
 
 .method public parseKey(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;
     .locals 1
-    .param p1, "byteString"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -94,9 +90,9 @@
 
     invoke-static {p1, v0}, Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic parseKey(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
@@ -126,7 +122,6 @@
 
 .method public validateKey(Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;)V
     .locals 2
-    .param p1, "key"    # Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -156,11 +151,10 @@
     .line 92
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/EciesAeadHkdfPublicKey;->getParams()Lcom/google/crypto/tink/proto/EciesAeadHkdfParams;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Lcom/google/crypto/tink/hybrid/HybridUtil;->validate(Lcom/google/crypto/tink/proto/EciesAeadHkdfParams;)V
+    invoke-static {p1}, Lcom/google/crypto/tink/hybrid/HybridUtil;->validate(Lcom/google/crypto/tink/proto/EciesAeadHkdfParams;)V
 
-    .line 93
     return-void
 .end method
 

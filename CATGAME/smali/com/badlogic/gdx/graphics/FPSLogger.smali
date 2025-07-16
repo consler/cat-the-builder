@@ -21,7 +21,6 @@
 
     iput-wide v0, p0, Lcom/badlogic/gdx/graphics/FPSLogger;->startTime:J
 
-    .line 31
     return-void
 .end method
 
@@ -50,11 +49,9 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "fps: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     sget-object v2, Lcom/badlogic/gdx/Gdx;->graphics:Lcom/badlogic/gdx/Graphics;
 
@@ -63,6 +60,8 @@
     move-result v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -79,7 +78,6 @@
 
     iput-wide v0, p0, Lcom/badlogic/gdx/graphics/FPSLogger;->startTime:J
 
-    .line 39
     :cond_0
     return-void
 .end method

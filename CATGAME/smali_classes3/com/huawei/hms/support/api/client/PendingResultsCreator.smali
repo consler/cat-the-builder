@@ -16,7 +16,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 16
+    .line 1
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -33,7 +33,7 @@
         }
     .end annotation
 
-    .line 18
+    .line 1
     new-instance v0, Lcom/huawei/hms/support/api/client/PendingResultsCreator$DiscardedPendingResult;
 
     invoke-direct {v0}, Lcom/huawei/hms/support/api/client/PendingResultsCreator$DiscardedPendingResult;-><init>()V
@@ -53,7 +53,7 @@
         }
     .end annotation
 
-    .line 22
+    .line 2
     new-instance v0, Lcom/huawei/hms/support/api/client/PendingResultsCreator$DiscardedPendingResult;
 
     invoke-direct {v0, p0}, Lcom/huawei/hms/support/api/client/PendingResultsCreator$DiscardedPendingResult;-><init>(Lcom/huawei/hms/support/api/client/Result;)V
@@ -73,12 +73,12 @@
         }
     .end annotation
 
-    .line 30
+    .line 2
     new-instance v0, Lcom/huawei/hms/support/api/client/PendingResultsCreator$InstantPendingResult;
 
     invoke-direct {v0, p0}, Lcom/huawei/hms/support/api/client/PendingResultsCreator$InstantPendingResult;-><init>(Lcom/huawei/hms/support/api/client/Result;)V
 
-    .line 31
+    .line 3
     new-instance p0, Lcom/huawei/hms/common/api/internal/OptionalPendingResultImpl;
 
     invoke-direct {p0, v0}, Lcom/huawei/hms/common/api/internal/OptionalPendingResultImpl;-><init>(Lcom/huawei/hms/support/api/client/PendingResult;)V
@@ -99,7 +99,7 @@
         }
     .end annotation
 
-    .line 26
+    .line 1
     new-instance v0, Lcom/huawei/hms/support/api/client/PendingResultsCreator$InstantPendingResult;
 
     invoke-direct {v0, p0}, Lcom/huawei/hms/support/api/client/PendingResultsCreator$InstantPendingResult;-><init>(Lcom/huawei/hms/support/api/client/Result;)V

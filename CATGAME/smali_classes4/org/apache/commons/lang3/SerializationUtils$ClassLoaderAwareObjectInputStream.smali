@@ -42,93 +42,74 @@
 
     sput-object v0, Lorg/apache/commons/lang3/SerializationUtils$ClassLoaderAwareObjectInputStream;->primitiveTypes:Ljava/util/Map;
 
+    const-string v1, "byte"
+
     .line 244
-    sget-object v1, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
+    sget-object v2, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
 
-    const-string v2, "byte"
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v1, "short"
 
     .line 245
-    sget-object v0, Lorg/apache/commons/lang3/SerializationUtils$ClassLoaderAwareObjectInputStream;->primitiveTypes:Ljava/util/Map;
+    sget-object v2, Ljava/lang/Short;->TYPE:Ljava/lang/Class;
 
-    sget-object v1, Ljava/lang/Short;->TYPE:Ljava/lang/Class;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v2, "short"
-
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v1, "int"
 
     .line 246
-    sget-object v0, Lorg/apache/commons/lang3/SerializationUtils$ClassLoaderAwareObjectInputStream;->primitiveTypes:Ljava/util/Map;
+    sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    sget-object v1, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v2, "int"
-
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v1, "long"
 
     .line 247
-    sget-object v0, Lorg/apache/commons/lang3/SerializationUtils$ClassLoaderAwareObjectInputStream;->primitiveTypes:Ljava/util/Map;
+    sget-object v2, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    sget-object v1, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v2, "long"
-
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v1, "float"
 
     .line 248
-    sget-object v0, Lorg/apache/commons/lang3/SerializationUtils$ClassLoaderAwareObjectInputStream;->primitiveTypes:Ljava/util/Map;
+    sget-object v2, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
-    sget-object v1, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v2, "float"
-
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v1, "double"
 
     .line 249
-    sget-object v0, Lorg/apache/commons/lang3/SerializationUtils$ClassLoaderAwareObjectInputStream;->primitiveTypes:Ljava/util/Map;
+    sget-object v2, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
 
-    sget-object v1, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v2, "double"
-
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v1, "boolean"
 
     .line 250
-    sget-object v0, Lorg/apache/commons/lang3/SerializationUtils$ClassLoaderAwareObjectInputStream;->primitiveTypes:Ljava/util/Map;
+    sget-object v2, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
-    sget-object v1, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v2, "boolean"
-
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v1, "char"
 
     .line 251
-    sget-object v0, Lorg/apache/commons/lang3/SerializationUtils$ClassLoaderAwareObjectInputStream;->primitiveTypes:Ljava/util/Map;
+    sget-object v2, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
 
-    sget-object v1, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v2, "char"
-
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const-string v1, "void"
 
     .line 252
-    sget-object v0, Lorg/apache/commons/lang3/SerializationUtils$ClassLoaderAwareObjectInputStream;->primitiveTypes:Ljava/util/Map;
+    sget-object v2, Ljava/lang/Void;->TYPE:Ljava/lang/Class;
 
-    sget-object v1, Ljava/lang/Void;->TYPE:Ljava/lang/Class;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v2, "void"
-
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 253
     return-void
 .end method
 
 .method constructor <init>(Ljava/io/InputStream;Ljava/lang/ClassLoader;)V
     .locals 0
-    .param p1, "in"    # Ljava/io/InputStream;
-    .param p2, "classLoader"    # Ljava/lang/ClassLoader;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -141,15 +122,13 @@
     .line 266
     iput-object p2, p0, Lorg/apache/commons/lang3/SerializationUtils$ClassLoaderAwareObjectInputStream;->classLoader:Ljava/lang/ClassLoader;
 
-    .line 267
     return-void
 .end method
 
 
 # virtual methods
 .method protected resolveClass(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;
-    .locals 4
-    .param p1, "desc"    # Ljava/io/ObjectStreamClass;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -170,68 +149,58 @@
     .line 279
     invoke-virtual {p1}, Ljava/io/ObjectStreamClass;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
+
+    const/4 v0, 0x0
 
     .line 281
-    .local v0, "name":Ljava/lang/String;
-    const/4 v1, 0x0
-
     :try_start_0
-    iget-object v2, p0, Lorg/apache/commons/lang3/SerializationUtils$ClassLoaderAwareObjectInputStream;->classLoader:Ljava/lang/ClassLoader;
+    iget-object v1, p0, Lorg/apache/commons/lang3/SerializationUtils$ClassLoaderAwareObjectInputStream;->classLoader:Ljava/lang/ClassLoader;
 
-    invoke-static {v0, v1, v2}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
+    invoke-static {p1, v0, v1}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object p1
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v1
-
-    .line 282
-    :catch_0
-    move-exception v2
+    return-object p1
 
     .line 284
-    .local v2, "ex":Ljava/lang/ClassNotFoundException;
+    :catch_0
     :try_start_1
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v3}, Ljava/lang/Thread;->getContextClassLoader()Ljava/lang/ClassLoader;
-
-    move-result-object v3
-
-    invoke-static {v0, v1, v3}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
+    invoke-virtual {v1}, Ljava/lang/Thread;->getContextClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v1
+
+    invoke-static {p1, v0, v1}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
+
+    move-result-object p1
     :try_end_1
     .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
 
-    return-object v1
+    return-object p1
 
-    .line 285
     :catch_1
-    move-exception v1
+    move-exception v0
 
     .line 286
-    .local v1, "cnfe":Ljava/lang/ClassNotFoundException;
-    sget-object v3, Lorg/apache/commons/lang3/SerializationUtils$ClassLoaderAwareObjectInputStream;->primitiveTypes:Ljava/util/Map;
+    sget-object v1, Lorg/apache/commons/lang3/SerializationUtils$ClassLoaderAwareObjectInputStream;->primitiveTypes:Ljava/util/Map;
 
-    invoke-interface {v3, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p1
 
-    check-cast v3, Ljava/lang/Class;
+    check-cast p1, Ljava/lang/Class;
 
-    .line 287
-    .local v3, "cls":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    if-eqz v3, :cond_0
+    if-eqz p1, :cond_0
 
-    .line 288
-    return-object v3
+    return-object p1
 
     .line 290
     :cond_0
-    throw v1
+    throw v0
 .end method

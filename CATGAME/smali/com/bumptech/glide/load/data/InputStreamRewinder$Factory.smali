@@ -33,7 +33,6 @@
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;)V
     .locals 0
-    .param p1, "byteArrayPool"    # Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;
 
     .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +40,6 @@
     .line 52
     iput-object p1, p0, Lcom/bumptech/glide/load/data/InputStreamRewinder$Factory;->byteArrayPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/ArrayPool;
 
-    .line 53
     return-void
 .end method
 
@@ -49,7 +47,6 @@
 # virtual methods
 .method public build(Ljava/io/InputStream;)Lcom/bumptech/glide/load/data/DataRewinder;
     .locals 2
-    .param p1, "data"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

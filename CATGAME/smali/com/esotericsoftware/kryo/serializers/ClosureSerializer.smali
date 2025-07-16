@@ -43,22 +43,19 @@
 
     sput-object v0, Lcom/esotericsoftware/kryo/serializers/ClosureSerializer;->readResolve:Ljava/lang/reflect/Method;
 
-    .line 57
     const/4 v1, 0x1
 
+    .line 57
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 60
     goto :goto_0
 
-    .line 58
     :catch_0
     move-exception v0
 
     .line 59
-    .local v0, "ex":Ljava/lang/Exception;
     new-instance v1, Lcom/esotericsoftware/kryo/KryoException;
 
     const-string v2, "Unable to obtain SerializedLambda#readResolve via reflection."
@@ -67,16 +64,13 @@
 
     throw v1
 
-    .line 62
-    .end local v0    # "ex":Ljava/lang/Exception;
     :cond_0
     :goto_0
     return-void
 .end method
 
 .method private toSerializedLambda(Ljava/lang/Object;)Ljava/lang/invoke/SerializedLambda;
-    .locals 5
-    .param p1, "object"    # Ljava/lang/Object;
+    .locals 4
 
     .line 111
     :try_start_0
@@ -84,7 +78,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "writeReplace"
+    const-string v1, "writeReplace"
 
     const/4 v2, 0x0
 
@@ -94,177 +88,153 @@
 
     move-result-object v0
 
-    .line 112
-    .local v0, "writeReplace":Ljava/lang/reflect/Method;
     const/4 v1, 0x1
 
+    .line 112
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
 
-    .line 113
     new-array v1, v2, [Ljava/lang/Object;
 
+    .line 113
     invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
-    move-object v0, v1
-
-    .line 117
-    .local v0, "replacement":Ljava/lang/Object;
-    nop
-
     .line 119
     :try_start_1
-    move-object v1, v0
-
-    check-cast v1, Ljava/lang/invoke/SerializedLambda;
+    check-cast p1, Ljava/lang/invoke/SerializedLambda;
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    return-object v1
+    return-object p1
 
-    .line 120
     :catch_0
-    move-exception v1
+    move-exception v0
 
     .line 121
-    .local v1, "ex":Ljava/lang/Exception;
-    new-instance v2, Lcom/esotericsoftware/kryo/KryoException;
+    new-instance v1, Lcom/esotericsoftware/kryo/KryoException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "writeReplace must return a SerializedLambda: "
 
-    const-string/jumbo v4, "writeReplace must return a SerializedLambda: "
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-nez p1, :cond_0
 
-    .line 122
-    if-nez v0, :cond_0
-
-    const/4 v4, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
+    .line 122
     :cond_0
-    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-static {v4}, Lcom/esotericsoftware/kryo/util/Util;->className(Ljava/lang/Class;)Ljava/lang/String;
+    invoke-static {p1}, Lcom/esotericsoftware/kryo/util/Util;->className(Ljava/lang/Class;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p1
 
     :goto_0
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v3
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v2, v3, v1}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    move-result-object p1
 
-    throw v2
+    invoke-direct {v1, p1, v0}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 114
-    .end local v0    # "replacement":Ljava/lang/Object;
-    .end local v1    # "ex":Ljava/lang/Exception;
+    throw v1
+
     :catch_1
     move-exception v0
 
     .line 115
-    .local v0, "ex":Ljava/lang/Exception;
-    instance-of v1, p1, Ljava/io/Serializable;
+    instance-of p1, p1, Ljava/io/Serializable;
 
-    if-eqz v1, :cond_1
+    if-eqz p1, :cond_1
 
-    new-instance v1, Lcom/esotericsoftware/kryo/KryoException;
+    new-instance p1, Lcom/esotericsoftware/kryo/KryoException;
 
-    const-string v2, "Error serializing closure."
+    const-string v1, "Error serializing closure."
 
-    invoke-direct {v1, v2, v0}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p1, v1, v0}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v1
+    throw p1
 
     .line 116
     :cond_1
-    new-instance v1, Lcom/esotericsoftware/kryo/KryoException;
+    new-instance p1, Lcom/esotericsoftware/kryo/KryoException;
 
-    const-string v2, "Closure must implement java.io.Serializable."
+    const-string v1, "Closure must implement java.io.Serializable."
 
-    invoke-direct {v1, v2, v0}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p1, v1, v0}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v1
+    throw p1
 .end method
 
 
 # virtual methods
 .method public copy(Lcom/esotericsoftware/kryo/Kryo;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "original"    # Ljava/lang/Object;
+    .locals 1
 
     .line 102
     :try_start_0
-    sget-object v0, Lcom/esotericsoftware/kryo/serializers/ClosureSerializer;->readResolve:Ljava/lang/reflect/Method;
+    sget-object p1, Lcom/esotericsoftware/kryo/serializers/ClosureSerializer;->readResolve:Ljava/lang/reflect/Method;
 
     invoke-direct {p0, p2}, Lcom/esotericsoftware/kryo/serializers/ClosureSerializer;->toSerializedLambda(Ljava/lang/Object;)Ljava/lang/invoke/SerializedLambda;
 
-    move-result-object v1
+    move-result-object p2
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1, p2, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p1
 
-    .line 103
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 104
-    .local v0, "ex":Ljava/lang/Exception;
-    new-instance v1, Lcom/esotericsoftware/kryo/KryoException;
+    new-instance p2, Lcom/esotericsoftware/kryo/KryoException;
 
-    const-string v2, "Error copying closure."
+    const-string v0, "Error copying closure."
 
-    invoke-direct {v1, v2, v0}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p2, v0, p1}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v1
+    throw p2
 .end method
 
 .method public read(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Input;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 16
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "input"    # Lcom/esotericsoftware/kryo/io/Input;
-    .param p3, "type"    # Ljava/lang/Class;
+    .locals 15
+
+    move-object/from16 v0, p2
+
+    const/4 v1, 0x1
 
     .line 86
-    move-object/from16 v1, p2
-
-    const/4 v0, 0x1
-
-    invoke-virtual {v1, v0}, Lcom/esotericsoftware/kryo/io/Input;->readVarInt(Z)I
+    invoke-virtual {v0, v1}, Lcom/esotericsoftware/kryo/io/Input;->readVarInt(Z)I
 
     move-result v2
 
     .line 87
-    .local v2, "count":I
-    new-array v14, v2, [Ljava/lang/Object;
+    new-array v13, v2, [Ljava/lang/Object;
 
-    .line 88
-    .local v14, "capturedArgs":[Ljava/lang/Object;
-    const/4 v3, 0x0
+    const/4 v14, 0x0
 
-    .local v3, "i":I
+    move v3, v14
+
     :goto_0
     if-ge v3, v2, :cond_0
 
@@ -273,17 +243,15 @@
 
     move-result-object v4
 
-    aput-object v4, v14, v3
+    aput-object v4, v13, v3
 
-    .line 88
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     .line 90
-    .end local v3    # "i":I
     :cond_0
-    new-instance v15, Ljava/lang/invoke/SerializedLambda;
+    new-instance v2, Ljava/lang/invoke/SerializedLambda;
 
     invoke-virtual/range {p1 .. p2}, Lcom/esotericsoftware/kryo/Kryo;->readClass(Lcom/esotericsoftware/kryo/io/Input;)Lcom/esotericsoftware/kryo/Registration;
 
@@ -306,7 +274,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v1, v0}, Lcom/esotericsoftware/kryo/io/Input;->readVarInt(Z)I
+    invoke-virtual {v0, v1}, Lcom/esotericsoftware/kryo/io/Input;->readVarInt(Z)I
 
     move-result v8
 
@@ -327,22 +295,17 @@
 
     move-result-object v12
 
-    move-object v3, v15
-
-    move-object v13, v14
+    move-object v3, v2
 
     invoke-direct/range {v3 .. v13}, Ljava/lang/invoke/SerializedLambda;-><init>(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 94
-    .local v3, "serializedLambda":Ljava/lang/invoke/SerializedLambda;
     :try_start_0
     sget-object v0, Lcom/esotericsoftware/kryo/serializers/ClosureSerializer;->readResolve:Ljava/lang/reflect/Method;
 
-    const/4 v4, 0x0
+    new-array v1, v14, [Ljava/lang/Object;
 
-    new-array v4, v4, [Ljava/lang/Object;
-
-    invoke-virtual {v0, v3, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v2, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
     :try_end_0
@@ -350,160 +313,143 @@
 
     return-object v0
 
-    .line 95
     :catch_0
     move-exception v0
 
     .line 96
-    .local v0, "ex":Ljava/lang/Exception;
-    new-instance v4, Lcom/esotericsoftware/kryo/KryoException;
+    new-instance v1, Lcom/esotericsoftware/kryo/KryoException;
 
-    const-string v5, "Error reading closure."
+    const-string v2, "Error reading closure."
 
-    invoke-direct {v4, v5, v0}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v1, v2, v0}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v4
+    throw v1
 .end method
 
 .method public write(Lcom/esotericsoftware/kryo/Kryo;Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
-    .locals 6
-    .param p1, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
-    .param p2, "output"    # Lcom/esotericsoftware/kryo/io/Output;
-    .param p3, "object"    # Ljava/lang/Object;
+    .locals 4
 
     .line 65
     invoke-direct {p0, p3}, Lcom/esotericsoftware/kryo/serializers/ClosureSerializer;->toSerializedLambda(Ljava/lang/Object;)Ljava/lang/invoke/SerializedLambda;
 
-    move-result-object v0
+    move-result-object p3
 
     .line 66
-    .local v0, "serializedLambda":Ljava/lang/invoke/SerializedLambda;
-    invoke-virtual {v0}, Ljava/lang/invoke/SerializedLambda;->getCapturedArgCount()I
+    invoke-virtual {p3}, Ljava/lang/invoke/SerializedLambda;->getCapturedArgCount()I
 
-    move-result v1
+    move-result v0
+
+    const/4 v1, 0x1
 
     .line 67
-    .local v1, "count":I
-    const/4 v2, 0x1
+    invoke-virtual {p2, v0, v1}, Lcom/esotericsoftware/kryo/io/Output;->writeVarInt(IZ)I
 
-    invoke-virtual {p2, v1, v2}, Lcom/esotericsoftware/kryo/io/Output;->writeVarInt(IZ)I
+    const/4 v2, 0x0
 
-    .line 68
-    const/4 v3, 0x0
-
-    .local v3, "i":I
     :goto_0
-    if-ge v3, v1, :cond_0
+    if-ge v2, v0, :cond_0
 
     .line 69
-    invoke-virtual {v0, v3}, Ljava/lang/invoke/SerializedLambda;->getCapturedArg(I)Ljava/lang/Object;
+    invoke-virtual {p3, v2}, Ljava/lang/invoke/SerializedLambda;->getCapturedArg(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {p1, p2, v4}, Lcom/esotericsoftware/kryo/Kryo;->writeClassAndObject(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
+    invoke-virtual {p1, p2, v3}, Lcom/esotericsoftware/kryo/Kryo;->writeClassAndObject(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Object;)V
 
-    .line 68
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 71
-    .end local v3    # "i":I
     :cond_0
     :try_start_0
-    invoke-virtual {v0}, Ljava/lang/invoke/SerializedLambda;->getCapturingClass()Ljava/lang/String;
+    invoke-virtual {p3}, Ljava/lang/invoke/SerializedLambda;->getCapturingClass()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    const/16 v4, 0x2f
+    const/16 v2, 0x2f
 
-    const/16 v5, 0x2e
+    const/16 v3, 0x2e
 
-    invoke-virtual {v3, v4, v5}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
+    invoke-virtual {v0, v2, v3}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-static {v3}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {p1, p2, v3}, Lcom/esotericsoftware/kryo/Kryo;->writeClass(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Registration;
+    invoke-virtual {p1, p2, v0}, Lcom/esotericsoftware/kryo/Kryo;->writeClass(Lcom/esotericsoftware/kryo/io/Output;Ljava/lang/Class;)Lcom/esotericsoftware/kryo/Registration;
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 74
-    nop
-
     .line 75
-    invoke-virtual {v0}, Ljava/lang/invoke/SerializedLambda;->getFunctionalInterfaceClass()Ljava/lang/String;
+    invoke-virtual {p3}, Ljava/lang/invoke/SerializedLambda;->getFunctionalInterfaceClass()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {p2, v3}, Lcom/esotericsoftware/kryo/io/Output;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeString(Ljava/lang/String;)V
 
     .line 76
-    invoke-virtual {v0}, Ljava/lang/invoke/SerializedLambda;->getFunctionalInterfaceMethodName()Ljava/lang/String;
+    invoke-virtual {p3}, Ljava/lang/invoke/SerializedLambda;->getFunctionalInterfaceMethodName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {p2, v3}, Lcom/esotericsoftware/kryo/io/Output;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeString(Ljava/lang/String;)V
 
     .line 77
-    invoke-virtual {v0}, Ljava/lang/invoke/SerializedLambda;->getFunctionalInterfaceMethodSignature()Ljava/lang/String;
+    invoke-virtual {p3}, Ljava/lang/invoke/SerializedLambda;->getFunctionalInterfaceMethodSignature()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {p2, v3}, Lcom/esotericsoftware/kryo/io/Output;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeString(Ljava/lang/String;)V
 
     .line 78
-    invoke-virtual {v0}, Ljava/lang/invoke/SerializedLambda;->getImplMethodKind()I
+    invoke-virtual {p3}, Ljava/lang/invoke/SerializedLambda;->getImplMethodKind()I
 
-    move-result v3
+    move-result p1
 
-    invoke-virtual {p2, v3, v2}, Lcom/esotericsoftware/kryo/io/Output;->writeVarInt(IZ)I
+    invoke-virtual {p2, p1, v1}, Lcom/esotericsoftware/kryo/io/Output;->writeVarInt(IZ)I
 
     .line 79
-    invoke-virtual {v0}, Ljava/lang/invoke/SerializedLambda;->getImplClass()Ljava/lang/String;
+    invoke-virtual {p3}, Ljava/lang/invoke/SerializedLambda;->getImplClass()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {p2, v2}, Lcom/esotericsoftware/kryo/io/Output;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeString(Ljava/lang/String;)V
 
     .line 80
-    invoke-virtual {v0}, Ljava/lang/invoke/SerializedLambda;->getImplMethodName()Ljava/lang/String;
+    invoke-virtual {p3}, Ljava/lang/invoke/SerializedLambda;->getImplMethodName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {p2, v2}, Lcom/esotericsoftware/kryo/io/Output;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeString(Ljava/lang/String;)V
 
     .line 81
-    invoke-virtual {v0}, Ljava/lang/invoke/SerializedLambda;->getImplMethodSignature()Ljava/lang/String;
+    invoke-virtual {p3}, Ljava/lang/invoke/SerializedLambda;->getImplMethodSignature()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {p2, v2}, Lcom/esotericsoftware/kryo/io/Output;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeString(Ljava/lang/String;)V
 
     .line 82
-    invoke-virtual {v0}, Ljava/lang/invoke/SerializedLambda;->getInstantiatedMethodType()Ljava/lang/String;
+    invoke-virtual {p3}, Ljava/lang/invoke/SerializedLambda;->getInstantiatedMethodType()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {p2, v2}, Lcom/esotericsoftware/kryo/io/Output;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Lcom/esotericsoftware/kryo/io/Output;->writeString(Ljava/lang/String;)V
 
-    .line 83
     return-void
 
-    .line 72
     :catch_0
-    move-exception v2
+    move-exception p1
 
     .line 73
-    .local v2, "ex":Ljava/lang/ClassNotFoundException;
-    new-instance v3, Lcom/esotericsoftware/kryo/KryoException;
+    new-instance p2, Lcom/esotericsoftware/kryo/KryoException;
 
-    const-string v4, "Error writing closure."
+    const-string p3, "Error writing closure."
 
-    invoke-direct {v3, v4, v2}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p2, p3, p1}, Lcom/esotericsoftware/kryo/KryoException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v3
+    throw p2
 .end method

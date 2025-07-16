@@ -44,9 +44,6 @@
 # direct methods
 .method constructor <init>(Lretrofit2/RequestFactory;Lokhttp3/Call$Factory;Lretrofit2/Converter;Lretrofit2/CallAdapter;Z)V
     .locals 0
-    .param p1, "requestFactory"    # Lretrofit2/RequestFactory;
-    .param p2, "callFactory"    # Lokhttp3/Call$Factory;
-    .param p5, "isNullable"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -63,9 +60,6 @@
     .end annotation
 
     .line 208
-    .local p0, "this":Lretrofit2/HttpServiceMethod$SuspendForBody;, "Lretrofit2/HttpServiceMethod$SuspendForBody<TResponseT;>;"
-    .local p3, "responseConverter":Lretrofit2/Converter;, "Lretrofit2/Converter<Lokhttp3/ResponseBody;TResponseT;>;"
-    .local p4, "callAdapter":Lretrofit2/CallAdapter;, "Lretrofit2/CallAdapter<TResponseT;Lretrofit2/Call<TResponseT;>;>;"
     invoke-direct {p0, p1, p2, p3}, Lretrofit2/HttpServiceMethod;-><init>(Lretrofit2/RequestFactory;Lokhttp3/Call$Factory;Lretrofit2/Converter;)V
 
     .line 209
@@ -74,15 +68,13 @@
     .line 210
     iput-boolean p5, p0, Lretrofit2/HttpServiceMethod$SuspendForBody;->isNullable:Z
 
-    .line 211
     return-void
 .end method
 
 
 # virtual methods
 .method protected adapt(Lretrofit2/Call;[Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
-    .param p2, "args"    # [Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -95,15 +87,11 @@
     .end annotation
 
     .line 215
-    .local p0, "this":Lretrofit2/HttpServiceMethod$SuspendForBody;, "Lretrofit2/HttpServiceMethod$SuspendForBody<TResponseT;>;"
-    .local p1, "call":Lretrofit2/Call;, "Lretrofit2/Call<TResponseT;>;"
     iget-object v0, p0, Lretrofit2/HttpServiceMethod$SuspendForBody;->callAdapter:Lretrofit2/CallAdapter;
 
     invoke-interface {v0, p1}, Lretrofit2/CallAdapter;->adapt(Lretrofit2/Call;)Ljava/lang/Object;
 
-    move-result-object v0
-
-    move-object p1, v0
+    move-result-object p1
 
     check-cast p1, Lretrofit2/Call;
 
@@ -112,45 +100,41 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    aget-object v0, p2, v0
+    aget-object p2, p2, v0
 
-    check-cast v0, Lkotlin/coroutines/Continuation;
+    check-cast p2, Lkotlin/coroutines/Continuation;
 
     .line 229
-    .local v0, "continuation":Lkotlin/coroutines/Continuation;, "Lkotlin/coroutines/Continuation<TResponseT;>;"
     :try_start_0
-    iget-boolean v1, p0, Lretrofit2/HttpServiceMethod$SuspendForBody;->isNullable:Z
+    iget-boolean v0, p0, Lretrofit2/HttpServiceMethod$SuspendForBody;->isNullable:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 230
-    invoke-static {p1, v0}, Lretrofit2/KotlinExtensions;->awaitNullable(Lretrofit2/Call;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    invoke-static {p1, p2}, Lretrofit2/KotlinExtensions;->awaitNullable(Lretrofit2/Call;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
     goto :goto_0
 
     .line 231
     :cond_0
-    invoke-static {p1, v0}, Lretrofit2/KotlinExtensions;->await(Lretrofit2/Call;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    invoke-static {p1, p2}, Lretrofit2/KotlinExtensions;->await(Lretrofit2/Call;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 229
     :goto_0
-    return-object v1
+    return-object p1
 
-    .line 232
     :catch_0
-    move-exception v1
+    move-exception p1
 
     .line 233
-    .local v1, "e":Ljava/lang/Exception;
-    invoke-static {v1, v0}, Lretrofit2/KotlinExtensions;->suspendAndThrow(Ljava/lang/Exception;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    invoke-static {p1, p2}, Lretrofit2/KotlinExtensions;->suspendAndThrow(Ljava/lang/Exception;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 .end method

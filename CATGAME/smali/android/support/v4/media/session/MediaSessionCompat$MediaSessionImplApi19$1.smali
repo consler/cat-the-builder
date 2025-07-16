@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi19;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi19;
 
     .line 3507
     iput-object p1, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi19$1;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi19;
@@ -37,39 +36,36 @@
 
 # virtual methods
 .method public onMetadataUpdate(ILjava/lang/Object;)V
-    .locals 7
-    .param p1, "key"    # I
-    .param p2, "newValue"    # Ljava/lang/Object;
+    .locals 6
 
-    .line 3510
     const v0, 0x10000001
 
     if-ne p1, v0, :cond_0
 
-    instance-of v0, p2, Landroid/media/Rating;
+    .line 3510
+    instance-of p1, p2, Landroid/media/Rating;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 3512
-    iget-object v1, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi19$1;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi19;
+    iget-object v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi19$1;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi19;
 
-    const/16 v2, 0x13
+    const/16 v1, 0x13
+
+    const/4 v2, -0x1
 
     const/4 v3, -0x1
-
-    const/4 v4, -0x1
 
     .line 3513
     invoke-static {p2}, Landroid/support/v4/media/RatingCompat;->fromRating(Ljava/lang/Object;)Landroid/support/v4/media/RatingCompat;
 
-    move-result-object v5
+    move-result-object v4
 
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
     .line 3512
-    invoke-virtual/range {v1 .. v6}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi19;->postToHandler(IIILjava/lang/Object;Landroid/os/Bundle;)V
+    invoke-virtual/range {v0 .. v5}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi19;->postToHandler(IIILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 3515
     :cond_0
     return-void
 .end method

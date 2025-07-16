@@ -23,8 +23,6 @@
 # direct methods
 .method constructor <init>(Landroid/widget/RemoteViews;I)V
     .locals 0
-    .param p1, "remoteViews"    # Landroid/widget/RemoteViews;
-    .param p2, "viewId"    # I
 
     .line 85
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,29 +33,26 @@
     .line 87
     iput p2, p0, Lcom/squareup/picasso/RemoteViewsAction$RemoteViewsTarget;->viewId:I
 
-    .line 88
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 4
 
-    .line 91
     const/4 v0, 0x1
 
     if-ne p0, p1, :cond_0
 
     return v0
 
-    .line 92
     :cond_0
     const/4 v1, 0x0
 
     if-eqz p1, :cond_3
 
+    .line 92
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -72,27 +67,24 @@
 
     .line 93
     :cond_1
-    move-object v2, p1
-
-    check-cast v2, Lcom/squareup/picasso/RemoteViewsAction$RemoteViewsTarget;
+    check-cast p1, Lcom/squareup/picasso/RemoteViewsAction$RemoteViewsTarget;
 
     .line 94
-    .local v2, "remoteViewsTarget":Lcom/squareup/picasso/RemoteViewsAction$RemoteViewsTarget;
-    iget v3, p0, Lcom/squareup/picasso/RemoteViewsAction$RemoteViewsTarget;->viewId:I
+    iget v2, p0, Lcom/squareup/picasso/RemoteViewsAction$RemoteViewsTarget;->viewId:I
 
-    iget v4, v2, Lcom/squareup/picasso/RemoteViewsAction$RemoteViewsTarget;->viewId:I
+    iget v3, p1, Lcom/squareup/picasso/RemoteViewsAction$RemoteViewsTarget;->viewId:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v2, v3, :cond_2
 
-    iget-object v3, p0, Lcom/squareup/picasso/RemoteViewsAction$RemoteViewsTarget;->remoteViews:Landroid/widget/RemoteViews;
+    iget-object v2, p0, Lcom/squareup/picasso/RemoteViewsAction$RemoteViewsTarget;->remoteViews:Landroid/widget/RemoteViews;
 
-    iget-object v4, v2, Lcom/squareup/picasso/RemoteViewsAction$RemoteViewsTarget;->remoteViews:Landroid/widget/RemoteViews;
+    iget-object p1, p1, Lcom/squareup/picasso/RemoteViewsAction$RemoteViewsTarget;->remoteViews:Landroid/widget/RemoteViews;
 
-    invoke-virtual {v3, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result p1
 
-    if-eqz v3, :cond_2
+    if-eqz p1, :cond_2
 
     goto :goto_0
 
@@ -102,8 +94,6 @@
     :goto_0
     return v0
 
-    .line 92
-    .end local v2    # "remoteViewsTarget":Lcom/squareup/picasso/RemoteViewsAction$RemoteViewsTarget;
     :cond_3
     :goto_1
     return v1

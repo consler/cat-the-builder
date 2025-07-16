@@ -77,37 +77,34 @@
     .end annotation
 
     .line 753
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;, "Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator<TK;TV;>;"
-    .local p1, "parent":Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap;, "Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap<TK;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 743
     const/4 v0, 0x0
 
+    .line 743
     iput-object v0, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->last:Ljava/util/Map$Entry;
 
-    .line 746
     const/4 v0, 0x0
 
+    .line 746
     iput-boolean v0, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->canRemove:Z
 
     .line 754
     iput-object p1, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->parent:Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap;
 
     .line 755
-    iget-object v0, p1, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap;->normalMap:Ljava/util/Map;
+    iget-object p1, p1, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap;->normalMap:Ljava/util/Map;
 
-    invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+    invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->iterator:Ljava/util/Iterator;
+    iput-object p1, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->iterator:Ljava/util/Iterator;
 
-    .line 756
     return-void
 .end method
 
@@ -122,7 +119,6 @@
     .end annotation
 
     .line 785
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;, "Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->last:Ljava/util/Map$Entry;
 
     if-eqz v0, :cond_0
@@ -154,7 +150,6 @@
     .end annotation
 
     .line 794
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;, "Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->last:Ljava/util/Map$Entry;
 
     if-eqz v0, :cond_0
@@ -181,7 +176,6 @@
     .locals 1
 
     .line 760
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;, "Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
@@ -200,7 +194,6 @@
     .end annotation
 
     .line 765
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;, "Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -211,9 +204,9 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->last:Ljava/util/Map$Entry;
 
-    .line 766
     const/4 v1, 0x1
 
+    .line 766
     iput-boolean v1, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->canRemove:Z
 
     .line 767
@@ -228,7 +221,6 @@
     .locals 2
 
     .line 772
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;, "Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator<TK;TV;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->canRemove:Z
 
     if-eqz v0, :cond_0
@@ -241,7 +233,6 @@
     move-result-object v0
 
     .line 777
-    .local v0, "value":Ljava/lang/Object;, "TV;"
     iget-object v1, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->iterator:Ljava/util/Iterator;
 
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
@@ -253,21 +244,19 @@
 
     invoke-interface {v1, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 779
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    iput-object v1, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->last:Ljava/util/Map$Entry;
+    .line 779
+    iput-object v0, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->last:Ljava/util/Map$Entry;
+
+    const/4 v0, 0x0
 
     .line 780
-    const/4 v1, 0x0
+    iput-boolean v0, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->canRemove:Z
 
-    iput-boolean v1, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->canRemove:Z
-
-    .line 781
     return-void
 
     .line 773
-    .end local v0    # "value":Ljava/lang/Object;, "TV;"
     :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -282,7 +271,6 @@
     .locals 1
 
     .line 817
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;, "Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->parent:Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap;
 
     iget-object v0, v0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap;->normalMap:Ljava/util/Map;
@@ -297,17 +285,16 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->iterator:Ljava/util/Iterator;
 
-    .line 818
     const/4 v0, 0x0
 
+    .line 818
     iput-object v0, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->last:Ljava/util/Map$Entry;
 
-    .line 819
     const/4 v0, 0x0
 
+    .line 819
     iput-boolean v0, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->canRemove:Z
 
-    .line 820
     return-void
 .end method
 
@@ -320,8 +307,6 @@
     .end annotation
 
     .line 803
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;, "Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator<TK;TV;>;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->last:Ljava/util/Map$Entry;
 
     if-eqz v0, :cond_2
@@ -358,13 +343,13 @@
 
     .line 809
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Cannot use setValue() when the object being set is already in the map"
+    const-string v0, "Cannot use setValue() when the object being set is already in the map"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 812
     :cond_1
@@ -379,26 +364,25 @@
 
     invoke-virtual {v0, v1, p1}, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 804
     :cond_2
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Iterator setValue() can only be called after next() and before remove()"
+    const-string v0, "Iterator setValue() can only be called after next() and before remove()"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 2
 
     .line 824
-    .local p0, "this":Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;, "Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->last:Ljava/util/Map$Entry;
 
     if-eqz v0, :cond_0
@@ -406,11 +390,9 @@
     .line 825
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "MapIterator["
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->getKey()Ljava/lang/Object;
 
@@ -418,9 +400,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {p0}, Lorg/apache/commons/collections4/bidimap/AbstractDualBidiMap$BidiMapIterator;->getValue()Ljava/lang/Object;
 
@@ -428,9 +414,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -438,7 +428,6 @@
 
     return-object v0
 
-    .line 827
     :cond_0
     const-string v0, "MapIterator[]"
 

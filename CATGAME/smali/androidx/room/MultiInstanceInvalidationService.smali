@@ -37,9 +37,9 @@
     .line 39
     invoke-direct {p0}, Landroid/app/Service;-><init>()V
 
-    .line 42
     const/4 v0, 0x0
 
+    .line 42
     iput v0, p0, Landroidx/room/MultiInstanceInvalidationService;->mMaxClientId:I
 
     .line 46
@@ -69,8 +69,7 @@
 
 # virtual methods
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .locals 1
-    .param p1, "intent"    # Landroid/content/Intent;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -81,7 +80,7 @@
     .end annotation
 
     .line 132
-    iget-object v0, p0, Landroidx/room/MultiInstanceInvalidationService;->mBinder:Landroidx/room/IMultiInstanceInvalidationService$Stub;
+    iget-object p1, p0, Landroidx/room/MultiInstanceInvalidationService;->mBinder:Landroidx/room/IMultiInstanceInvalidationService$Stub;
 
-    return-object v0
+    return-object p1
 .end method

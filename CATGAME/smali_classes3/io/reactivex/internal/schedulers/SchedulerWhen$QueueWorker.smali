@@ -32,8 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lio/reactivex/processors/FlowableProcessor;Lio/reactivex/Scheduler$Worker;)V
-    .locals 1
-    .param p2, "actualWorker"    # Lio/reactivex/Scheduler$Worker;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -46,7 +45,6 @@
     .end annotation
 
     .line 298
-    .local p1, "actionProcessor":Lio/reactivex/processors/FlowableProcessor;, "Lio/reactivex/processors/FlowableProcessor<Lio/reactivex/internal/schedulers/SchedulerWhen$ScheduledAction;>;"
     invoke-direct {p0}, Lio/reactivex/Scheduler$Worker;-><init>()V
 
     .line 299
@@ -56,13 +54,12 @@
     iput-object p2, p0, Lio/reactivex/internal/schedulers/SchedulerWhen$QueueWorker;->actualWorker:Lio/reactivex/Scheduler$Worker;
 
     .line 301
-    new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
 
-    iput-object v0, p0, Lio/reactivex/internal/schedulers/SchedulerWhen$QueueWorker;->unsubscribed:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iput-object p1, p0, Lio/reactivex/internal/schedulers/SchedulerWhen$QueueWorker;->unsubscribed:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    .line 302
     return-void
 .end method
 
@@ -94,7 +91,6 @@
 
     invoke-virtual {v0}, Lio/reactivex/Scheduler$Worker;->dispose()V
 
-    .line 312
     :cond_0
     return-void
 .end method
@@ -113,8 +109,7 @@
 .end method
 
 .method public schedule(Ljava/lang/Runnable;)Lio/reactivex/disposables/Disposable;
-    .locals 2
-    .param p1, "action"    # Ljava/lang/Runnable;
+    .locals 1
 
     .line 332
     new-instance v0, Lio/reactivex/internal/schedulers/SchedulerWhen$ImmediateAction;
@@ -122,20 +117,15 @@
     invoke-direct {v0, p1}, Lio/reactivex/internal/schedulers/SchedulerWhen$ImmediateAction;-><init>(Ljava/lang/Runnable;)V
 
     .line 333
-    .local v0, "immediateAction":Lio/reactivex/internal/schedulers/SchedulerWhen$ImmediateAction;
-    iget-object v1, p0, Lio/reactivex/internal/schedulers/SchedulerWhen$QueueWorker;->actionProcessor:Lio/reactivex/processors/FlowableProcessor;
+    iget-object p1, p0, Lio/reactivex/internal/schedulers/SchedulerWhen$QueueWorker;->actionProcessor:Lio/reactivex/processors/FlowableProcessor;
 
-    invoke-virtual {v1, v0}, Lio/reactivex/processors/FlowableProcessor;->onNext(Ljava/lang/Object;)V
+    invoke-virtual {p1, v0}, Lio/reactivex/processors/FlowableProcessor;->onNext(Ljava/lang/Object;)V
 
-    .line 334
     return-object v0
 .end method
 
 .method public schedule(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Lio/reactivex/disposables/Disposable;
-    .locals 2
-    .param p1, "action"    # Ljava/lang/Runnable;
-    .param p2, "delayTime"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
+    .locals 1
 
     .line 323
     new-instance v0, Lio/reactivex/internal/schedulers/SchedulerWhen$DelayedAction;
@@ -143,11 +133,9 @@
     invoke-direct {v0, p1, p2, p3, p4}, Lio/reactivex/internal/schedulers/SchedulerWhen$DelayedAction;-><init>(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)V
 
     .line 324
-    .local v0, "delayedAction":Lio/reactivex/internal/schedulers/SchedulerWhen$DelayedAction;
-    iget-object v1, p0, Lio/reactivex/internal/schedulers/SchedulerWhen$QueueWorker;->actionProcessor:Lio/reactivex/processors/FlowableProcessor;
+    iget-object p1, p0, Lio/reactivex/internal/schedulers/SchedulerWhen$QueueWorker;->actionProcessor:Lio/reactivex/processors/FlowableProcessor;
 
-    invoke-virtual {v1, v0}, Lio/reactivex/processors/FlowableProcessor;->onNext(Ljava/lang/Object;)V
+    invoke-virtual {p1, v0}, Lio/reactivex/processors/FlowableProcessor;->onNext(Ljava/lang/Object;)V
 
-    .line 325
     return-object v0
 .end method

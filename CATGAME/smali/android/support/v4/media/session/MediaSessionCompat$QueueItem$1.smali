@@ -40,7 +40,6 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/support/v4/media/session/MediaSessionCompat$QueueItem;
     .locals 1
-    .param p1, "p"    # Landroid/os/Parcel;
 
     .line 2070
     new-instance v0, Landroid/support/v4/media/session/MediaSessionCompat$QueueItem;
@@ -62,13 +61,12 @@
 .end method
 
 .method public newArray(I)[Landroid/support/v4/media/session/MediaSessionCompat$QueueItem;
-    .locals 1
-    .param p1, "size"    # I
+    .locals 0
 
     .line 2075
-    new-array v0, p1, [Landroid/support/v4/media/session/MediaSessionCompat$QueueItem;
+    new-array p1, p1, [Landroid/support/v4/media/session/MediaSessionCompat$QueueItem;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;

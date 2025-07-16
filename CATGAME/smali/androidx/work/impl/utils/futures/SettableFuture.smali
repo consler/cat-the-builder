@@ -20,10 +20,8 @@
     .locals 0
 
     .line 64
-    .local p0, "this":Landroidx/work/impl/utils/futures/SettableFuture;, "Landroidx/work/impl/utils/futures/SettableFuture<TV;>;"
     invoke-direct {p0}, Landroidx/work/impl/utils/futures/AbstractFuture;-><init>()V
 
-    .line 65
     return-void
 .end method
 
@@ -50,7 +48,7 @@
 
 # virtual methods
 .method public set(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -67,18 +65,15 @@
     .end annotation
 
     .line 51
-    .local p0, "this":Landroidx/work/impl/utils/futures/SettableFuture;, "Landroidx/work/impl/utils/futures/SettableFuture<TV;>;"
-    .local p1, "value":Ljava/lang/Object;, "TV;"
     invoke-super {p0, p1}, Landroidx/work/impl/utils/futures/AbstractFuture;->set(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public setException(Ljava/lang/Throwable;)Z
-    .locals 1
-    .param p1, "throwable"    # Ljava/lang/Throwable;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -89,16 +84,15 @@
     .end annotation
 
     .line 56
-    .local p0, "this":Landroidx/work/impl/utils/futures/SettableFuture;, "Landroidx/work/impl/utils/futures/SettableFuture<TV;>;"
     invoke-super {p0, p1}, Landroidx/work/impl/utils/futures/AbstractFuture;->setException(Ljava/lang/Throwable;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public setFuture(Lcom/google/common/util/concurrent/ListenableFuture;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -117,11 +111,9 @@
     .end annotation
 
     .line 61
-    .local p0, "this":Landroidx/work/impl/utils/futures/SettableFuture;, "Landroidx/work/impl/utils/futures/SettableFuture<TV;>;"
-    .local p1, "future":Lcom/google/common/util/concurrent/ListenableFuture;, "Lcom/google/common/util/concurrent/ListenableFuture<+TV;>;"
     invoke-super {p0, p1}, Landroidx/work/impl/utils/futures/AbstractFuture;->setFuture(Lcom/google/common/util/concurrent/ListenableFuture;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

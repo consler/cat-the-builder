@@ -37,7 +37,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/socketio/SocketIOConnection$2;Lcom/koushikdutta/async/future/SimpleFuture;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/koushikdutta/async/http/socketio/SocketIOConnection$2;
 
     .line 134
     iput-object p1, p0, Lcom/koushikdutta/async/http/socketio/SocketIOConnection$2$1;->this$1:Lcom/koushikdutta/async/http/socketio/SocketIOConnection$2;
@@ -54,34 +53,29 @@
 
 # virtual methods
 .method public onCompleted(Ljava/lang/Exception;Lcom/koushikdutta/async/http/WebSocket;)V
-    .locals 3
-    .param p1, "e"    # Ljava/lang/Exception;
-    .param p2, "result"    # Lcom/koushikdutta/async/http/WebSocket;
+    .locals 2
 
-    .line 137
     if-eqz p1, :cond_0
 
     .line 138
-    iget-object v0, p0, Lcom/koushikdutta/async/http/socketio/SocketIOConnection$2$1;->val$transport:Lcom/koushikdutta/async/future/SimpleFuture;
+    iget-object p2, p0, Lcom/koushikdutta/async/http/socketio/SocketIOConnection$2$1;->val$transport:Lcom/koushikdutta/async/future/SimpleFuture;
 
-    invoke-virtual {v0, p1}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Exception;)Z
+    invoke-virtual {p2, p1}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Exception;)Z
 
-    .line 139
     return-void
 
     .line 141
     :cond_0
-    iget-object v0, p0, Lcom/koushikdutta/async/http/socketio/SocketIOConnection$2$1;->val$transport:Lcom/koushikdutta/async/future/SimpleFuture;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/socketio/SocketIOConnection$2$1;->val$transport:Lcom/koushikdutta/async/future/SimpleFuture;
 
-    new-instance v1, Lcom/koushikdutta/async/http/socketio/transport/WebSocketTransport;
+    new-instance v0, Lcom/koushikdutta/async/http/socketio/transport/WebSocketTransport;
 
-    iget-object v2, p0, Lcom/koushikdutta/async/http/socketio/SocketIOConnection$2$1;->val$sessionId:Ljava/lang/String;
+    iget-object v1, p0, Lcom/koushikdutta/async/http/socketio/SocketIOConnection$2$1;->val$sessionId:Ljava/lang/String;
 
-    invoke-direct {v1, p2, v2}, Lcom/koushikdutta/async/http/socketio/transport/WebSocketTransport;-><init>(Lcom/koushikdutta/async/http/WebSocket;Ljava/lang/String;)V
+    invoke-direct {v0, p2, v1}, Lcom/koushikdutta/async/http/socketio/transport/WebSocketTransport;-><init>(Lcom/koushikdutta/async/http/WebSocket;Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Lcom/koushikdutta/async/future/SimpleFuture;->setComplete(Ljava/lang/Object;)Z
 
-    .line 142
     return-void
 .end method
 

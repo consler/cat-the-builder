@@ -33,9 +33,9 @@
     .line 170
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 171
     const/4 v0, 0x0
 
+    .line 171
     invoke-static {v0}, Lcom/bumptech/glide/util/Util;->createQueue(I)Ljava/util/Queue;
 
     move-result-object v0
@@ -48,8 +48,7 @@
 
 # virtual methods
 .method declared-synchronized obtain(Ljava/nio/ByteBuffer;)Lcom/bumptech/glide/gifdecoder/GifHeaderParser;
-    .locals 2
-    .param p1, "buffer"    # Ljava/nio/ByteBuffer;
+    .locals 1
 
     monitor-enter p0
 
@@ -63,33 +62,25 @@
 
     check-cast v0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;
 
-    .line 175
-    .local v0, "result":Lcom/bumptech/glide/gifdecoder/GifHeaderParser;
     if-nez v0, :cond_0
 
     .line 176
-    new-instance v1, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;
+    new-instance v0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;
 
-    invoke-direct {v1}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;-><init>()V
-
-    move-object v0, v1
+    invoke-direct {v0}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;-><init>()V
 
     .line 178
-    .end local p0    # "this":Lcom/bumptech/glide/load/resource/gif/ByteBufferGifDecoder$GifHeaderParserPool;
     :cond_0
     invoke-virtual {v0, p1}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->setData(Ljava/nio/ByteBuffer;)Lcom/bumptech/glide/gifdecoder/GifHeaderParser;
 
-    move-result-object v1
+    move-result-object p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-object v1
+    return-object p1
 
-    .line 173
-    .end local v0    # "result":Lcom/bumptech/glide/gifdecoder/GifHeaderParser;
-    .end local p1    # "buffer":Ljava/nio/ByteBuffer;
     :catchall_0
     move-exception p1
 
@@ -100,7 +91,6 @@
 
 .method declared-synchronized release(Lcom/bumptech/glide/gifdecoder/GifHeaderParser;)V
     .locals 1
-    .param p1, "parser"    # Lcom/bumptech/glide/gifdecoder/GifHeaderParser;
 
     monitor-enter p0
 
@@ -120,9 +110,6 @@
 
     return-void
 
-    .line 181
-    .end local p0    # "this":Lcom/bumptech/glide/load/resource/gif/ByteBufferGifDecoder$GifHeaderParserPool;
-    .end local p1    # "parser":Lcom/bumptech/glide/gifdecoder/GifHeaderParser;
     :catchall_0
     move-exception p1
 

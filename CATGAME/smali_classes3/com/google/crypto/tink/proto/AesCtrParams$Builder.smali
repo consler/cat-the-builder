@@ -38,13 +38,11 @@
 
     invoke-direct {p0, v0}, Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite$Builder;-><init>(Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;)V
 
-    .line 134
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/proto/AesCtrParams$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/proto/AesCtrParams$1;
 
     .line 126
     invoke-direct {p0}, Lcom/google/crypto/tink/proto/AesCtrParams$Builder;-><init>()V
@@ -67,7 +65,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/proto/AesCtrParams;->access$200(Lcom/google/crypto/tink/proto/AesCtrParams;)V
 
-    .line 162
     return-object p0
 .end method
 
@@ -88,7 +85,6 @@
 
 .method public setIvSize(I)Lcom/google/crypto/tink/proto/AesCtrParams$Builder;
     .locals 1
-    .param p1, "value"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -108,6 +104,5 @@
 
     invoke-static {v0, p1}, Lcom/google/crypto/tink/proto/AesCtrParams;->access$100(Lcom/google/crypto/tink/proto/AesCtrParams;I)V
 
-    .line 153
     return-object p0
 .end method

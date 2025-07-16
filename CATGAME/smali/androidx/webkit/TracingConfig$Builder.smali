@@ -37,9 +37,9 @@
     .line 208
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 201
     const/4 v0, 0x0
 
+    .line 201
     iput v0, p0, Landroidx/webkit/TracingConfig$Builder;->mPredefinedCategories:I
 
     .line 202
@@ -49,12 +49,11 @@
 
     iput-object v0, p0, Landroidx/webkit/TracingConfig$Builder;->mCustomIncludedCategories:Ljava/util/List;
 
-    .line 203
     const/4 v0, 0x1
 
+    .line 203
     iput v0, p0, Landroidx/webkit/TracingConfig$Builder;->mTracingMode:I
 
-    .line 209
     return-void
 .end method
 
@@ -73,18 +72,15 @@
     .end annotation
 
     .line 274
-    .local p1, "categories":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/lang/String;>;"
     iget-object v0, p0, Landroidx/webkit/TracingConfig$Builder;->mCustomIncludedCategories:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 275
     return-object p0
 .end method
 
 .method public varargs addCategories([I)Landroidx/webkit/TracingConfig$Builder;
     .locals 4
-    .param p1, "predefinedCategories"    # [I
 
     .line 240
     array-length v0, p1
@@ -97,38 +93,32 @@
     aget v2, p1, v1
 
     .line 241
-    .local v2, "categorySet":I
     iget v3, p0, Landroidx/webkit/TracingConfig$Builder;->mPredefinedCategories:I
 
-    or-int/2addr v3, v2
+    or-int/2addr v2, v3
 
-    iput v3, p0, Landroidx/webkit/TracingConfig$Builder;->mPredefinedCategories:I
+    iput v2, p0, Landroidx/webkit/TracingConfig$Builder;->mPredefinedCategories:I
 
-    .line 240
-    .end local v2    # "categorySet":I
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 243
     :cond_0
     return-object p0
 .end method
 
 .method public varargs addCategories([Ljava/lang/String;)Landroidx/webkit/TracingConfig$Builder;
-    .locals 2
-    .param p1, "categories"    # [Ljava/lang/String;
+    .locals 1
 
     .line 260
     iget-object v0, p0, Landroidx/webkit/TracingConfig$Builder;->mCustomIncludedCategories:Ljava/util/List;
 
     invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+    invoke-interface {v0, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 261
     return-object p0
 .end method
 
@@ -151,11 +141,9 @@
 
 .method public setTracingMode(I)Landroidx/webkit/TracingConfig$Builder;
     .locals 0
-    .param p1, "tracingMode"    # I
 
     .line 290
     iput p1, p0, Landroidx/webkit/TracingConfig$Builder;->mTracingMode:I
 
-    .line 291
     return-object p0
 .end method

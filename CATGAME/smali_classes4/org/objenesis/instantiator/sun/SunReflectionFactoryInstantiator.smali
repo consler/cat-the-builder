@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 3
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -46,8 +46,6 @@
     .end annotation
 
     .line 39
-    .local p0, "this":Lorg/objenesis/instantiator/sun/SunReflectionFactoryInstantiator;, "Lorg/objenesis/instantiator/sun/SunReflectionFactoryInstantiator<TT;>;"
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 40
@@ -56,24 +54,22 @@
     move-result-object v0
 
     .line 41
-    .local v0, "javaLangObjectConstructor":Ljava/lang/reflect/Constructor;, "Ljava/lang/reflect/Constructor<Ljava/lang/Object;>;"
     invoke-static {p1, v0}, Lorg/objenesis/instantiator/sun/SunReflectionFactoryHelper;->newConstructorForSerialization(Ljava/lang/Class;Ljava/lang/reflect/Constructor;)Ljava/lang/reflect/Constructor;
 
-    move-result-object v1
+    move-result-object p1
 
-    iput-object v1, p0, Lorg/objenesis/instantiator/sun/SunReflectionFactoryInstantiator;->mungedConstructor:Ljava/lang/reflect/Constructor;
+    iput-object p1, p0, Lorg/objenesis/instantiator/sun/SunReflectionFactoryInstantiator;->mungedConstructor:Ljava/lang/reflect/Constructor;
+
+    const/4 v0, 0x1
 
     .line 43
-    const/4 v2, 0x1
+    invoke-virtual {p1, v0}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
-
-    .line 44
     return-void
 .end method
 
 .method private static getJavaLangObjectConstructor()Ljava/lang/reflect/Constructor;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -89,7 +85,9 @@
 
     const/4 v1, 0x0
 
-    check-cast v1, [Ljava/lang/Class;
+    move-object v2, v1
+
+    check-cast v2, [Ljava/lang/Class;
 
     invoke-virtual {v0, v1}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
@@ -99,12 +97,10 @@
 
     return-object v0
 
-    .line 59
     :catch_0
     move-exception v0
 
     .line 60
-    .local v0, "e":Ljava/lang/NoSuchMethodException;
     new-instance v1, Lorg/objenesis/ObjenesisException;
 
     invoke-direct {v1, v0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V
@@ -115,7 +111,7 @@
 
 # virtual methods
 .method public newInstance()Ljava/lang/Object;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -123,13 +119,14 @@
     .end annotation
 
     .line 48
-    .local p0, "this":Lorg/objenesis/instantiator/sun/SunReflectionFactoryInstantiator;, "Lorg/objenesis/instantiator/sun/SunReflectionFactoryInstantiator<TT;>;"
     :try_start_0
     iget-object v0, p0, Lorg/objenesis/instantiator/sun/SunReflectionFactoryInstantiator;->mungedConstructor:Ljava/lang/reflect/Constructor;
 
     const/4 v1, 0x0
 
-    check-cast v1, [Ljava/lang/Object;
+    move-object v2, v1
+
+    check-cast v2, [Ljava/lang/Object;
 
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -139,12 +136,10 @@
 
     return-object v0
 
-    .line 50
     :catch_0
     move-exception v0
 
     .line 51
-    .local v0, "e":Ljava/lang/Exception;
     new-instance v1, Lorg/objenesis/ObjenesisException;
 
     invoke-direct {v1, v0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V

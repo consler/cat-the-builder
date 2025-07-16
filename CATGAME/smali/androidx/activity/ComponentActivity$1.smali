@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/activity/ComponentActivity;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/activity/ComponentActivity;
 
     .line 74
     iput-object p1, p0, Landroidx/activity/ComponentActivity$1;->this$0:Landroidx/activity/ComponentActivity;
@@ -44,6 +43,5 @@
 
     invoke-static {v0}, Landroidx/activity/ComponentActivity;->access$001(Landroidx/activity/ComponentActivity;)V
 
-    .line 78
     return-void
 .end method

@@ -26,8 +26,7 @@
 .method private constructor <init>(Lcom/google/gson/internal/bind/TreeTypeAdapter;)V
     .locals 0
 
-    .line 153
-    .local p0, "this":Lcom/google/gson/internal/bind/TreeTypeAdapter$GsonContextImpl;, "Lcom/google/gson/internal/bind/TreeTypeAdapter<TT;>.GsonContextImpl;"
+    .line 154
     iput-object p1, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$GsonContextImpl;->this$0:Lcom/google/gson/internal/bind/TreeTypeAdapter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,11 +36,8 @@
 
 .method synthetic constructor <init>(Lcom/google/gson/internal/bind/TreeTypeAdapter;Lcom/google/gson/internal/bind/TreeTypeAdapter$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/gson/internal/bind/TreeTypeAdapter;
-    .param p2, "x1"    # Lcom/google/gson/internal/bind/TreeTypeAdapter$1;
 
-    .line 153
-    .local p0, "this":Lcom/google/gson/internal/bind/TreeTypeAdapter$GsonContextImpl;, "Lcom/google/gson/internal/bind/TreeTypeAdapter<TT;>.GsonContextImpl;"
+    .line 154
     invoke-direct {p0, p1}, Lcom/google/gson/internal/bind/TreeTypeAdapter$GsonContextImpl;-><init>(Lcom/google/gson/internal/bind/TreeTypeAdapter;)V
 
     return-void
@@ -51,8 +47,6 @@
 # virtual methods
 .method public deserialize(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;)Ljava/lang/Object;
     .locals 1
-    .param p1, "json"    # Lcom/google/gson/JsonElement;
-    .param p2, "typeOfT"    # Ljava/lang/reflect/Type;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -70,50 +64,44 @@
         }
     .end annotation
 
-    .line 162
-    .local p0, "this":Lcom/google/gson/internal/bind/TreeTypeAdapter$GsonContextImpl;, "Lcom/google/gson/internal/bind/TreeTypeAdapter<TT;>.GsonContextImpl;"
+    .line 163
     iget-object v0, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$GsonContextImpl;->this$0:Lcom/google/gson/internal/bind/TreeTypeAdapter;
 
     iget-object v0, v0, Lcom/google/gson/internal/bind/TreeTypeAdapter;->gson:Lcom/google/gson/Gson;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/gson/Gson;->fromJson(Lcom/google/gson/JsonElement;Ljava/lang/reflect/Type;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public serialize(Ljava/lang/Object;)Lcom/google/gson/JsonElement;
     .locals 1
-    .param p1, "src"    # Ljava/lang/Object;
 
-    .line 155
-    .local p0, "this":Lcom/google/gson/internal/bind/TreeTypeAdapter$GsonContextImpl;, "Lcom/google/gson/internal/bind/TreeTypeAdapter<TT;>.GsonContextImpl;"
+    .line 156
     iget-object v0, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$GsonContextImpl;->this$0:Lcom/google/gson/internal/bind/TreeTypeAdapter;
 
     iget-object v0, v0, Lcom/google/gson/internal/bind/TreeTypeAdapter;->gson:Lcom/google/gson/Gson;
 
     invoke-virtual {v0, p1}, Lcom/google/gson/Gson;->toJsonTree(Ljava/lang/Object;)Lcom/google/gson/JsonElement;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public serialize(Ljava/lang/Object;Ljava/lang/reflect/Type;)Lcom/google/gson/JsonElement;
     .locals 1
-    .param p1, "src"    # Ljava/lang/Object;
-    .param p2, "typeOfSrc"    # Ljava/lang/reflect/Type;
 
-    .line 158
-    .local p0, "this":Lcom/google/gson/internal/bind/TreeTypeAdapter$GsonContextImpl;, "Lcom/google/gson/internal/bind/TreeTypeAdapter<TT;>.GsonContextImpl;"
+    .line 159
     iget-object v0, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$GsonContextImpl;->this$0:Lcom/google/gson/internal/bind/TreeTypeAdapter;
 
     iget-object v0, v0, Lcom/google/gson/internal/bind/TreeTypeAdapter;->gson:Lcom/google/gson/Gson;
 
     invoke-virtual {v0, p1, p2}, Lcom/google/gson/Gson;->toJsonTree(Ljava/lang/Object;Ljava/lang/reflect/Type;)Lcom/google/gson/JsonElement;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

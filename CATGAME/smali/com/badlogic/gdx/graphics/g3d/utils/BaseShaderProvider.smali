@@ -64,11 +64,8 @@
     check-cast v1, Lcom/badlogic/gdx/graphics/g3d/Shader;
 
     .line 45
-    .local v1, "shader":Lcom/badlogic/gdx/graphics/g3d/Shader;
     invoke-interface {v1}, Lcom/badlogic/gdx/graphics/g3d/Shader;->dispose()V
 
-    .line 46
-    .end local v1    # "shader":Lcom/badlogic/gdx/graphics/g3d/Shader;
     goto :goto_0
 
     .line 47
@@ -77,21 +74,18 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->clear()V
 
-    .line 48
     return-void
 .end method
 
 .method public getShader(Lcom/badlogic/gdx/graphics/g3d/Renderable;)Lcom/badlogic/gdx/graphics/g3d/Shader;
-    .locals 4
-    .param p1, "renderable"    # Lcom/badlogic/gdx/graphics/g3d/Renderable;
+    .locals 3
 
     .line 29
     iget-object v0, p1, Lcom/badlogic/gdx/graphics/g3d/Renderable;->shader:Lcom/badlogic/gdx/graphics/g3d/Shader;
 
-    .line 30
-    .local v0, "suggestedShader":Lcom/badlogic/gdx/graphics/g3d/Shader;
     if-eqz v0, :cond_0
 
+    .line 30
     invoke-interface {v0, p1}, Lcom/badlogic/gdx/graphics/g3d/Shader;->canRender(Lcom/badlogic/gdx/graphics/g3d/Renderable;)Z
 
     move-result v1
@@ -102,55 +96,47 @@
 
     .line 31
     :cond_0
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/utils/BaseShaderProvider;->shaders:Lcom/badlogic/gdx/utils/Array;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/BaseShaderProvider;->shaders:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v1}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :cond_1
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v1, Lcom/badlogic/gdx/graphics/g3d/Shader;
+
+    .line 32
+    invoke-interface {v1, p1}, Lcom/badlogic/gdx/graphics/g3d/Shader;->canRender(Lcom/badlogic/gdx/graphics/g3d/Renderable;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/badlogic/gdx/graphics/g3d/Shader;
-
-    .line 32
-    .local v2, "shader":Lcom/badlogic/gdx/graphics/g3d/Shader;
-    invoke-interface {v2, p1}, Lcom/badlogic/gdx/graphics/g3d/Shader;->canRender(Lcom/badlogic/gdx/graphics/g3d/Renderable;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    return-object v2
-
-    .line 33
-    .end local v2    # "shader":Lcom/badlogic/gdx/graphics/g3d/Shader;
-    :cond_1
-    goto :goto_0
+    return-object v1
 
     .line 34
     :cond_2
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/utils/BaseShaderProvider;->createShader(Lcom/badlogic/gdx/graphics/g3d/Renderable;)Lcom/badlogic/gdx/graphics/g3d/Shader;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 35
-    .local v1, "shader":Lcom/badlogic/gdx/graphics/g3d/Shader;
-    invoke-interface {v1}, Lcom/badlogic/gdx/graphics/g3d/Shader;->init()V
+    invoke-interface {p1}, Lcom/badlogic/gdx/graphics/g3d/Shader;->init()V
 
     .line 36
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/utils/BaseShaderProvider;->shaders:Lcom/badlogic/gdx/utils/Array;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/utils/BaseShaderProvider;->shaders:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v2, v1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 37
-    return-object v1
+    return-object p1
 .end method

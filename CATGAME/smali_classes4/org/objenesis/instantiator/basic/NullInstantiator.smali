@@ -35,11 +35,8 @@
     .end annotation
 
     .line 30
-    .local p0, "this":Lorg/objenesis/instantiator/basic/NullInstantiator;, "Lorg/objenesis/instantiator/basic/NullInstantiator<TT;>;"
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 31
     return-void
 .end method
 
@@ -53,8 +50,6 @@
         }
     .end annotation
 
-    .line 37
-    .local p0, "this":Lorg/objenesis/instantiator/basic/NullInstantiator;, "Lorg/objenesis/instantiator/basic/NullInstantiator<TT;>;"
     const/4 v0, 0x0
 
     return-object v0

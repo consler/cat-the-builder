@@ -37,7 +37,6 @@
 # virtual methods
 .method public get(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
-    .param p1, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -53,14 +52,13 @@
 
     invoke-virtual {v0, p1}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public get(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "key"    # Ljava/lang/String;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -72,46 +70,36 @@
     .end annotation
 
     .line 17
-    .local p2, "defaultValue":Ljava/lang/Object;, "TT;"
     invoke-virtual {p0, p1}, Lcom/koushikdutta/async/util/UntypedHashtable;->get(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 18
-    .local v0, "ret":Ljava/lang/Object;, "TT;"
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    .line 19
     return-object p2
 
-    .line 20
     :cond_0
-    return-object v0
+    return-object p1
 .end method
 
 .method public put(Ljava/lang/String;Ljava/lang/Object;)V
     .locals 1
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/Object;
 
     .line 9
     iget-object v0, p0, Lcom/koushikdutta/async/util/UntypedHashtable;->hash:Ljava/util/Hashtable;
 
     invoke-virtual {v0, p1, p2}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 10
     return-void
 .end method
 
 .method public remove(Ljava/lang/String;)V
     .locals 1
-    .param p1, "key"    # Ljava/lang/String;
 
     .line 13
     iget-object v0, p0, Lcom/koushikdutta/async/util/UntypedHashtable;->hash:Ljava/util/Hashtable;
 
     invoke-virtual {v0, p1}, Ljava/util/Hashtable;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 14
     return-void
 .end method

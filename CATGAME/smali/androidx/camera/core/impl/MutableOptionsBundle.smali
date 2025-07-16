@@ -38,10 +38,8 @@
     .end annotation
 
     .line 38
-    .local p1, "persistentOptions":Ljava/util/TreeMap;, "Ljava/util/TreeMap<Landroidx/camera/core/impl/Config$Option<*>;Ljava/util/Map<Landroidx/camera/core/impl/Config$OptionPriority;Ljava/lang/Object;>;>;"
     invoke-direct {p0, p1}, Landroidx/camera/core/impl/OptionsBundle;-><init>(Ljava/util/TreeMap;)V
 
-    .line 39
     return-void
 .end method
 
@@ -63,8 +61,7 @@
 .end method
 
 .method public static from(Landroidx/camera/core/impl/Config;)Landroidx/camera/core/impl/MutableOptionsBundle;
-    .locals 8
-    .param p0, "otherConfig"    # Landroidx/camera/core/impl/Config;
+    .locals 7
 
     .line 59
     new-instance v0, Ljava/util/TreeMap;
@@ -74,7 +71,6 @@
     invoke-direct {v0, v1}, Ljava/util/TreeMap;-><init>(Ljava/util/Comparator;)V
 
     .line 61
-    .local v0, "persistentOptions":Ljava/util/TreeMap;, "Ljava/util/TreeMap<Landroidx/camera/core/impl/Config$Option<*>;Ljava/util/Map<Landroidx/camera/core/impl/Config$OptionPriority;Ljava/lang/Object;>;>;"
     invoke-interface {p0}, Landroidx/camera/core/impl/Config;->listOptions()Ljava/util/Set;
 
     move-result-object v1
@@ -97,72 +93,61 @@
     check-cast v2, Landroidx/camera/core/impl/Config$Option;
 
     .line 62
-    .local v2, "opt":Landroidx/camera/core/impl/Config$Option;, "Landroidx/camera/core/impl/Config$Option<*>;"
     invoke-interface {p0, v2}, Landroidx/camera/core/impl/Config;->getPriorities(Landroidx/camera/core/impl/Config$Option;)Ljava/util/Set;
 
     move-result-object v3
 
     .line 63
-    .local v3, "priorities":Ljava/util/Set;, "Ljava/util/Set<Landroidx/camera/core/impl/Config$OptionPriority;>;"
     new-instance v4, Landroid/util/ArrayMap;
 
     invoke-direct {v4}, Landroid/util/ArrayMap;-><init>()V
 
     .line 64
-    .local v4, "valuesMap":Ljava/util/Map;, "Ljava/util/Map<Landroidx/camera/core/impl/Config$OptionPriority;Ljava/lang/Object;>;"
     invoke-interface {v3}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :goto_1
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v5
 
-    :goto_1
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v5, Landroidx/camera/core/impl/Config$OptionPriority;
 
-    move-result v6
-
-    if-eqz v6, :cond_0
-
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    .line 65
+    invoke-interface {p0, v2, v5}, Landroidx/camera/core/impl/Config;->retrieveOptionWithPriority(Landroidx/camera/core/impl/Config$Option;Landroidx/camera/core/impl/Config$OptionPriority;)Ljava/lang/Object;
 
     move-result-object v6
 
-    check-cast v6, Landroidx/camera/core/impl/Config$OptionPriority;
+    invoke-interface {v4, v5, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 65
-    .local v6, "priority":Landroidx/camera/core/impl/Config$OptionPriority;
-    invoke-interface {p0, v2, v6}, Landroidx/camera/core/impl/Config;->retrieveOptionWithPriority(Landroidx/camera/core/impl/Config$Option;Landroidx/camera/core/impl/Config$OptionPriority;)Ljava/lang/Object;
-
-    move-result-object v7
-
-    invoke-interface {v4, v6, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 66
-    .end local v6    # "priority":Landroidx/camera/core/impl/Config$OptionPriority;
     goto :goto_1
 
     .line 67
     :cond_0
     invoke-virtual {v0, v2, v4}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 68
-    .end local v2    # "opt":Landroidx/camera/core/impl/Config$Option;, "Landroidx/camera/core/impl/Config$Option<*>;"
-    .end local v3    # "priorities":Ljava/util/Set;, "Ljava/util/Set<Landroidx/camera/core/impl/Config$OptionPriority;>;"
-    .end local v4    # "valuesMap":Ljava/util/Map;, "Ljava/util/Map<Landroidx/camera/core/impl/Config$OptionPriority;Ljava/lang/Object;>;"
     goto :goto_0
 
     .line 70
     :cond_1
-    new-instance v1, Landroidx/camera/core/impl/MutableOptionsBundle;
+    new-instance p0, Landroidx/camera/core/impl/MutableOptionsBundle;
 
-    invoke-direct {v1, v0}, Landroidx/camera/core/impl/MutableOptionsBundle;-><init>(Ljava/util/TreeMap;)V
+    invoke-direct {p0, v0}, Landroidx/camera/core/impl/MutableOptionsBundle;-><init>(Ljava/util/TreeMap;)V
 
-    return-object v1
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public insertOption(Landroidx/camera/core/impl/Config$Option;Landroidx/camera/core/impl/Config$OptionPriority;Ljava/lang/Object;)V
-    .locals 9
-    .param p2, "priority"    # Landroidx/camera/core/impl/Config$OptionPriority;
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<ValueT:",
@@ -176,8 +161,6 @@
     .end annotation
 
     .line 90
-    .local p1, "opt":Landroidx/camera/core/impl/Config$Option;, "Landroidx/camera/core/impl/Config$Option<TValueT;>;"
-    .local p3, "value":Ljava/lang/Object;, "TValueT;"
     iget-object v0, p0, Landroidx/camera/core/impl/MutableOptionsBundle;->mOptions:Ljava/util/TreeMap;
 
     invoke-virtual {v0, p1}, Ljava/util/TreeMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -186,16 +169,12 @@
 
     check-cast v0, Ljava/util/Map;
 
-    .line 92
-    .local v0, "values":Ljava/util/Map;, "Ljava/util/Map<Landroidx/camera/core/impl/Config$OptionPriority;Ljava/lang/Object;>;"
     if-nez v0, :cond_0
 
     .line 94
-    new-instance v1, Landroid/util/ArrayMap;
+    new-instance v0, Landroid/util/ArrayMap;
 
-    invoke-direct {v1}, Landroid/util/ArrayMap;-><init>()V
-
-    move-object v0, v1
+    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
 
     .line 95
     iget-object v1, p0, Landroidx/camera/core/impl/MutableOptionsBundle;->mOptions:Ljava/util/TreeMap;
@@ -205,7 +184,6 @@
     .line 96
     invoke-interface {v0, p2, p3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 97
     return-void
 
     .line 101
@@ -220,95 +198,100 @@
 
     check-cast v1, Landroidx/camera/core/impl/Config$OptionPriority;
 
-    .line 102
-    .local v1, "priority1":Landroidx/camera/core/impl/Config$OptionPriority;
-    move-object v2, p2
-
     .line 103
-    .local v2, "priority2":Landroidx/camera/core/impl/Config$OptionPriority;
     invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
-
-    .line 104
-    .local v3, "value1":Ljava/lang/Object;
-    move-object v4, p3
+    move-result-object v2
 
     .line 105
-    .local v4, "value2":Ljava/lang/Object;, "TValueT;"
-    invoke-virtual {v3, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, p3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v2
 
-    if-nez v5, :cond_2
+    if-nez v2, :cond_2
 
-    invoke-static {v1, v2}, Landroidx/camera/core/impl/Config$-CC;->hasConflict(Landroidx/camera/core/impl/Config$OptionPriority;Landroidx/camera/core/impl/Config$OptionPriority;)Z
+    invoke-static {v1, p2}, Landroidx/camera/core/impl/Config;->hasConflict(Landroidx/camera/core/impl/Config$OptionPriority;Landroidx/camera/core/impl/Config$OptionPriority;)Z
 
-    move-result v5
+    move-result v2
 
-    if-nez v5, :cond_1
+    if-nez v2, :cond_1
 
     goto :goto_0
 
     .line 106
     :cond_1
-    new-instance v5, Ljava/lang/IllegalArgumentException;
+    new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v4, "Option values conflicts: "
 
-    const-string v7, "Option values conflicts: "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Landroidx/camera/core/impl/Config$Option;->getId()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object p1
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, ", existing value ("
+    move-result-object p1
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v3, ", existing value ("
 
-    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, ")="
+    move-result-object p1
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    const-string v3, ")="
+
+    invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
 
     .line 107
     invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v0
 
-    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v8, ", conflicting ("
+    move-result-object p1
 
-    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, ", conflicting ("
 
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v6, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v6
+    invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v5, v6}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    throw v5
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {v2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v2
 
     .line 111
     :cond_2
     :goto_0
     invoke-interface {v0, p2, p3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 112
     return-void
 .end method
 
@@ -325,13 +308,10 @@
     .end annotation
 
     .line 84
-    .local p1, "opt":Landroidx/camera/core/impl/Config$Option;, "Landroidx/camera/core/impl/Config$Option<TValueT;>;"
-    .local p2, "value":Ljava/lang/Object;, "TValueT;"
     sget-object v0, Landroidx/camera/core/impl/MutableOptionsBundle;->DEFAULT_PRIORITY:Landroidx/camera/core/impl/Config$OptionPriority;
 
     invoke-virtual {p0, p1, v0, p2}, Landroidx/camera/core/impl/MutableOptionsBundle;->insertOption(Landroidx/camera/core/impl/Config$Option;Landroidx/camera/core/impl/Config$OptionPriority;Ljava/lang/Object;)V
 
-    .line 85
     return-void
 .end method
 
@@ -348,14 +328,11 @@
     .end annotation
 
     .line 77
-    .local p1, "opt":Landroidx/camera/core/impl/Config$Option;, "Landroidx/camera/core/impl/Config$Option<TValueT;>;"
     iget-object v0, p0, Landroidx/camera/core/impl/MutableOptionsBundle;->mOptions:Ljava/util/TreeMap;
 
     invoke-virtual {v0, p1}, Ljava/util/TreeMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 79
-    .local v0, "value":Ljava/lang/Object;, "TValueT;"
-    return-object v0
+    return-object p1
 .end method

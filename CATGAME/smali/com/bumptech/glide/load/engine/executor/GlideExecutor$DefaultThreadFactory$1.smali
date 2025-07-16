@@ -21,9 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/engine/executor/GlideExecutor$DefaultThreadFactory;Ljava/lang/Runnable;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/bumptech/glide/load/engine/executor/GlideExecutor$DefaultThreadFactory;
-    .param p2, "arg0"    # Ljava/lang/Runnable;
-    .param p3, "arg1"    # Ljava/lang/String;
 
     .line 382
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/executor/GlideExecutor$DefaultThreadFactory$1;->this$0:Lcom/bumptech/glide/load/engine/executor/GlideExecutor$DefaultThreadFactory;
@@ -38,9 +35,9 @@
 .method public run()V
     .locals 2
 
-    .line 386
     const/16 v0, 0x9
 
+    .line 386
     invoke-static {v0}, Landroid/os/Process;->setThreadPriority(I)V
 
     .line 388
@@ -78,23 +75,18 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 396
     goto :goto_0
 
-    .line 394
     :catchall_0
     move-exception v0
 
     .line 395
-    .local v0, "t":Ljava/lang/Throwable;
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/executor/GlideExecutor$DefaultThreadFactory$1;->this$0:Lcom/bumptech/glide/load/engine/executor/GlideExecutor$DefaultThreadFactory;
 
     iget-object v1, v1, Lcom/bumptech/glide/load/engine/executor/GlideExecutor$DefaultThreadFactory;->uncaughtThrowableStrategy:Lcom/bumptech/glide/load/engine/executor/GlideExecutor$UncaughtThrowableStrategy;
 
     invoke-interface {v1, v0}, Lcom/bumptech/glide/load/engine/executor/GlideExecutor$UncaughtThrowableStrategy;->handle(Ljava/lang/Throwable;)V
 
-    .line 397
-    .end local v0    # "t":Ljava/lang/Throwable;
     :goto_0
     return-void
 .end method

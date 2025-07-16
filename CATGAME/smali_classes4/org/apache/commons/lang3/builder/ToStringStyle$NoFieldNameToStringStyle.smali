@@ -25,12 +25,11 @@
     .line 2191
     invoke-direct {p0}, Lorg/apache/commons/lang3/builder/ToStringStyle;-><init>()V
 
-    .line 2192
     const/4 v0, 0x0
 
+    .line 2192
     invoke-virtual {p0, v0}, Lorg/apache/commons/lang3/builder/ToStringStyle$NoFieldNameToStringStyle;->setUseFieldNames(Z)V
 
-    .line 2193
     return-void
 .end method
 

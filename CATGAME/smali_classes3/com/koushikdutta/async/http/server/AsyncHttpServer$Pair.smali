@@ -32,7 +32,6 @@
 
 .method synthetic constructor <init>(Lcom/koushikdutta/async/http/server/AsyncHttpServer$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/koushikdutta/async/http/server/AsyncHttpServer$1;
 
     .line 280
     invoke-direct {p0}, Lcom/koushikdutta/async/http/server/AsyncHttpServer$Pair;-><init>()V

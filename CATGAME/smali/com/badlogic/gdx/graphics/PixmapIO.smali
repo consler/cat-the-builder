@@ -23,51 +23,40 @@
 .end method
 
 .method public static readCIM(Lcom/badlogic/gdx/files/FileHandle;)Lcom/badlogic/gdx/graphics/Pixmap;
-    .locals 1
-    .param p0, "file"    # Lcom/badlogic/gdx/files/FileHandle;
+    .locals 0
 
     .line 55
     invoke-static {p0}, Lcom/badlogic/gdx/graphics/PixmapIO$CIM;->read(Lcom/badlogic/gdx/files/FileHandle;)Lcom/badlogic/gdx/graphics/Pixmap;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static writeCIM(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/graphics/Pixmap;)V
     .locals 0
-    .param p0, "file"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p1, "pixmap"    # Lcom/badlogic/gdx/graphics/Pixmap;
 
     .line 48
     invoke-static {p0, p1}, Lcom/badlogic/gdx/graphics/PixmapIO$CIM;->write(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/graphics/Pixmap;)V
 
-    .line 49
     return-void
 .end method
 
 .method public static writePNG(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/graphics/Pixmap;)V
     .locals 2
-    .param p0, "file"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p1, "pixmap"    # Lcom/badlogic/gdx/graphics/Pixmap;
 
-    .line 79
     const/4 v0, -0x1
 
     const/4 v1, 0x0
 
+    .line 79
     invoke-static {p0, p1, v0, v1}, Lcom/badlogic/gdx/graphics/PixmapIO;->writePNG(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/graphics/Pixmap;IZ)V
 
-    .line 80
     return-void
 .end method
 
 .method public static writePNG(Lcom/badlogic/gdx/files/FileHandle;Lcom/badlogic/gdx/graphics/Pixmap;IZ)V
-    .locals 4
-    .param p0, "file"    # Lcom/badlogic/gdx/files/FileHandle;
-    .param p1, "pixmap"    # Lcom/badlogic/gdx/graphics/Pixmap;
-    .param p2, "compression"    # I
-    .param p3, "flipY"    # Z
+    .locals 3
 
     .line 63
     :try_start_0
@@ -96,7 +85,6 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 65
-    .local v0, "writer":Lcom/badlogic/gdx/graphics/PixmapIO$PNG;
     :try_start_1
     invoke-virtual {v0, p3}, Lcom/badlogic/gdx/graphics/PixmapIO$PNG;->setFlipY(Z)V
 
@@ -112,59 +100,38 @@
     :try_start_2
     invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/PixmapIO$PNG;->dispose()V
 
-    .line 70
-    nop
-
-    .line 73
-    .end local v0    # "writer":Lcom/badlogic/gdx/graphics/PixmapIO$PNG;
-    nop
-
-    .line 74
     return-void
 
-    .line 69
-    .restart local v0    # "writer":Lcom/badlogic/gdx/graphics/PixmapIO$PNG;
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/PixmapIO$PNG;->dispose()V
 
-    .end local p0    # "file":Lcom/badlogic/gdx/files/FileHandle;
-    .end local p1    # "pixmap":Lcom/badlogic/gdx/graphics/Pixmap;
-    .end local p2    # "compression":I
-    .end local p3    # "flipY":Z
-    throw v1
+    throw p1
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 71
-    .end local v0    # "writer":Lcom/badlogic/gdx/graphics/PixmapIO$PNG;
-    .restart local p0    # "file":Lcom/badlogic/gdx/files/FileHandle;
-    .restart local p1    # "pixmap":Lcom/badlogic/gdx/graphics/Pixmap;
-    .restart local p2    # "compression":I
-    .restart local p3    # "flipY":Z
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 72
-    .local v0, "ex":Ljava/io/IOException;
-    new-instance v1, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance p2, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "Error writing PNG: "
 
-    const-string v3, "Error writing PNG: "
+    invoke-direct {p3, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p0
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-direct {v1, v2, v0}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p2, p0, p1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v1
+    throw p2
 .end method

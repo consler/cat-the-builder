@@ -33,11 +33,8 @@
     .end annotation
 
     .line 22
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableIgnoreElements;, "Lio/reactivex/internal/operators/observable/ObservableIgnoreElements<TT;>;"
-    .local p1, "source":Lio/reactivex/ObservableSource;, "Lio/reactivex/ObservableSource<TT;>;"
     invoke-direct {p0, p1}, Lio/reactivex/internal/operators/observable/AbstractObservableWithUpstream;-><init>(Lio/reactivex/ObservableSource;)V
 
-    .line 23
     return-void
 .end method
 
@@ -54,8 +51,6 @@
     .end annotation
 
     .line 27
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableIgnoreElements;, "Lio/reactivex/internal/operators/observable/ObservableIgnoreElements<TT;>;"
-    .local p1, "t":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableIgnoreElements;->source:Lio/reactivex/ObservableSource;
 
     new-instance v1, Lio/reactivex/internal/operators/observable/ObservableIgnoreElements$IgnoreObservable;
@@ -64,6 +59,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/ObservableSource;->subscribe(Lio/reactivex/Observer;)V
 
-    .line 28
     return-void
 .end method

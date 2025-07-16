@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/server/AsyncHttpServer;ILjavax/net/ssl/SSLContext;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/koushikdutta/async/http/server/AsyncHttpServer;
 
     .line 242
     iput-object p1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$2;->this$0:Lcom/koushikdutta/async/http/server/AsyncHttpServer;
@@ -46,7 +45,8 @@
 # virtual methods
 .method public onAccepted(Lcom/koushikdutta/async/AsyncSocket;)V
     .locals 8
-    .param p1, "socket"    # Lcom/koushikdutta/async/AsyncSocket;
+
+    const/4 v1, 0x0
 
     .line 245
     iget v2, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$2;->val$port:I
@@ -57,29 +57,25 @@
 
     move-result-object v3
 
-    new-instance v7, Lcom/koushikdutta/async/http/server/AsyncHttpServer$2$1;
-
-    invoke-direct {v7, p0}, Lcom/koushikdutta/async/http/server/AsyncHttpServer$2$1;-><init>(Lcom/koushikdutta/async/http/server/AsyncHttpServer$2;)V
-
-    const/4 v1, 0x0
-
     const/4 v4, 0x0
 
     const/4 v5, 0x0
 
     const/4 v6, 0x0
 
+    new-instance v7, Lcom/koushikdutta/async/http/server/AsyncHttpServer$2$1;
+
+    invoke-direct {v7, p0}, Lcom/koushikdutta/async/http/server/AsyncHttpServer$2$1;-><init>(Lcom/koushikdutta/async/http/server/AsyncHttpServer$2;)V
+
     move-object v0, p1
 
     invoke-static/range {v0 .. v7}, Lcom/koushikdutta/async/AsyncSSLSocketWrapper;->handshake(Lcom/koushikdutta/async/AsyncSocket;Ljava/lang/String;ILjavax/net/ssl/SSLEngine;[Ljavax/net/ssl/TrustManager;Ljavax/net/ssl/HostnameVerifier;ZLcom/koushikdutta/async/AsyncSSLSocketWrapper$HandshakeCallback;)V
 
-    .line 253
     return-void
 .end method
 
 .method public onCompleted(Ljava/lang/Exception;)V
     .locals 1
-    .param p1, "ex"    # Ljava/lang/Exception;
 
     .line 262
     iget-object v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$2;->this$0:Lcom/koushikdutta/async/http/server/AsyncHttpServer;
@@ -88,13 +84,11 @@
 
     invoke-interface {v0, p1}, Lcom/koushikdutta/async/callback/ListenCallback;->onCompleted(Ljava/lang/Exception;)V
 
-    .line 263
     return-void
 .end method
 
 .method public onListening(Lcom/koushikdutta/async/AsyncServerSocket;)V
     .locals 1
-    .param p1, "socket"    # Lcom/koushikdutta/async/AsyncServerSocket;
 
     .line 257
     iget-object v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$2;->this$0:Lcom/koushikdutta/async/http/server/AsyncHttpServer;
@@ -103,6 +97,5 @@
 
     invoke-interface {v0, p1}, Lcom/koushikdutta/async/callback/ListenCallback;->onListening(Lcom/koushikdutta/async/AsyncServerSocket;)V
 
-    .line 258
     return-void
 .end method

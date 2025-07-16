@@ -78,14 +78,11 @@
     .end annotation
 
     .line 59
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextIterator;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextIterator<TT;>;"
-    .local p1, "items":Lorg/reactivestreams/Publisher;, "Lorg/reactivestreams/Publisher<+TT;>;"
-    .local p2, "observer":Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextSubscriber;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextSubscriber<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 54
     const/4 v0, 0x1
 
+    .line 54
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextIterator;->hasNext:Z
 
     .line 55
@@ -97,7 +94,6 @@
     .line 61
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextIterator;->observer:Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextSubscriber;
 
-    .line 62
     return-void
 .end method
 
@@ -105,7 +101,6 @@
     .locals 4
 
     .line 82
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextIterator;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextIterator<TT;>;"
     :try_start_0
     iget-boolean v0, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextIterator;->started:Z
 
@@ -145,7 +140,6 @@
     move-result-object v0
 
     .line 91
-    .local v0, "nextNotification":Lio/reactivex/Notification;, "Lio/reactivex/Notification<TT;>;"
     invoke-virtual {v0}, Lio/reactivex/Notification;->isOnNext()Z
 
     move-result v2
@@ -160,11 +154,10 @@
     .line 93
     invoke-virtual {v0}, Lio/reactivex/Notification;->getValue()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    iput-object v2, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextIterator;->next:Ljava/lang/Object;
+    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextIterator;->next:Ljava/lang/Object;
 
-    .line 94
     return v1
 
     .line 98
@@ -178,7 +171,6 @@
 
     if-eqz v1, :cond_2
 
-    .line 100
     return v3
 
     .line 102
@@ -192,36 +184,33 @@
     .line 103
     invoke-virtual {v0}, Lio/reactivex/Notification;->getError()Ljava/lang/Throwable;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextIterator;->error:Ljava/lang/Throwable;
+    iput-object v0, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextIterator;->error:Ljava/lang/Throwable;
 
     .line 104
-    invoke-static {v1}, Lio/reactivex/internal/util/ExceptionHelper;->wrapOrThrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
+    invoke-static {v0}, Lio/reactivex/internal/util/ExceptionHelper;->wrapOrThrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 
     .line 106
     :cond_3
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    const-string v2, "Should not reach here"
+    const-string v1, "Should not reach here"
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 107
-    .end local v0    # "nextNotification":Lio/reactivex/Notification;, "Lio/reactivex/Notification<TT;>;"
     :catch_0
     move-exception v0
 
     .line 108
-    .local v0, "e":Ljava/lang/InterruptedException;
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextIterator;->observer:Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextSubscriber;
 
     invoke-virtual {v1}, Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextSubscriber;->dispose()V
@@ -232,9 +221,9 @@
     .line 110
     invoke-static {v0}, Lio/reactivex/internal/util/ExceptionHelper;->wrapOrThrow(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
 
-    move-result-object v1
+    move-result-object v0
 
-    throw v1
+    throw v0
 .end method
 
 
@@ -243,7 +232,6 @@
     .locals 2
 
     .line 66
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextIterator;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextIterator<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextIterator;->error:Ljava/lang/Throwable;
 
     if-nez v0, :cond_3
@@ -255,7 +243,6 @@
 
     if-nez v0, :cond_0
 
-    .line 74
     return v1
 
     .line 77
@@ -294,7 +281,6 @@
     .end annotation
 
     .line 116
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextIterator;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextIterator<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextIterator;->error:Ljava/lang/Throwable;
 
     if-nez v0, :cond_1
@@ -306,9 +292,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 121
     const/4 v0, 0x1
 
+    .line 121
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextIterator;->isNextConsumed:Z
 
     .line 122
@@ -339,7 +325,6 @@
     .locals 2
 
     .line 131
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextIterator;, "Lio/reactivex/internal/operators/flowable/BlockingFlowableNext$NextIterator<TT;>;"
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Read only iterator"

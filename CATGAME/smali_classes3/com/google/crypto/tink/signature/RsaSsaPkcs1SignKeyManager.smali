@@ -22,12 +22,9 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .line 54
-    nop
-
-    .line 55
     const-string v0, "UTF-8"
 
+    .line 55
     invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
 
     move-result-object v0
@@ -40,7 +37,6 @@
 
     sput-object v0, Lcom/google/crypto/tink/signature/RsaSsaPkcs1SignKeyManager;->TEST_MESSAGE:[B
 
-    .line 54
     return-void
 .end method
 
@@ -68,7 +64,6 @@
 
     invoke-direct {p0, v0, v1, v2}, Lcom/google/crypto/tink/PrivateKeyTypeManager;-><init>(Ljava/lang/Class;Ljava/lang/Class;[Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;)V
 
-    .line 105
     return-void
 .end method
 
@@ -82,11 +77,7 @@
 .end method
 
 .method private static createKeyTemplate(Lcom/google/crypto/tink/proto/HashType;ILjava/math/BigInteger;Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;)Lcom/google/crypto/tink/KeyTemplate;
-    .locals 4
-    .param p0, "hashType"    # Lcom/google/crypto/tink/proto/HashType;
-    .param p1, "modulusSize"    # I
-    .param p2, "publicExponent"    # Ljava/math/BigInteger;
-    .param p3, "prefixType"    # Lcom/google/crypto/tink/KeyTemplate$OutputPrefixType;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -109,71 +100,69 @@
 
     invoke-virtual {v0, p0}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params$Builder;->setHashType(Lcom/google/crypto/tink/proto/HashType;)Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params$Builder;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
+    invoke-virtual {p0}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params;
+    check-cast p0, Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params;
 
     .line 292
-    .local v0, "params":Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params;
     invoke-static {}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1KeyFormat;->newBuilder()Lcom/google/crypto/tink/proto/RsaSsaPkcs1KeyFormat$Builder;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 293
-    invoke-virtual {v1, v0}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1KeyFormat$Builder;->setParams(Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params;)Lcom/google/crypto/tink/proto/RsaSsaPkcs1KeyFormat$Builder;
+    invoke-virtual {v0, p0}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1KeyFormat$Builder;->setParams(Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params;)Lcom/google/crypto/tink/proto/RsaSsaPkcs1KeyFormat$Builder;
 
-    move-result-object v1
+    move-result-object p0
 
     .line 294
-    invoke-virtual {v1, p1}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1KeyFormat$Builder;->setModulusSizeInBits(I)Lcom/google/crypto/tink/proto/RsaSsaPkcs1KeyFormat$Builder;
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1KeyFormat$Builder;->setModulusSizeInBits(I)Lcom/google/crypto/tink/proto/RsaSsaPkcs1KeyFormat$Builder;
 
-    move-result-object v1
+    move-result-object p0
 
     .line 295
     invoke-virtual {p2}, Ljava/math/BigInteger;->toByteArray()[B
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-static {v2}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->copyFrom([B)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
+    invoke-static {p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->copyFrom([B)Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1KeyFormat$Builder;->setPublicExponent(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/RsaSsaPkcs1KeyFormat$Builder;
+    invoke-virtual {p0, p1}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1KeyFormat$Builder;->setPublicExponent(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/RsaSsaPkcs1KeyFormat$Builder;
 
-    move-result-object v1
+    move-result-object p0
 
     .line 296
-    invoke-virtual {v1}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1KeyFormat$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
+    invoke-virtual {p0}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1KeyFormat$Builder;->build()Lcom/google/crypto/tink/shaded/protobuf/GeneratedMessageLite;
 
-    move-result-object v1
+    move-result-object p0
 
-    check-cast v1, Lcom/google/crypto/tink/proto/RsaSsaPkcs1KeyFormat;
+    check-cast p0, Lcom/google/crypto/tink/proto/RsaSsaPkcs1KeyFormat;
 
     .line 297
-    .local v1, "format":Lcom/google/crypto/tink/proto/RsaSsaPkcs1KeyFormat;
-    new-instance v2, Lcom/google/crypto/tink/signature/RsaSsaPkcs1SignKeyManager;
+    new-instance p1, Lcom/google/crypto/tink/signature/RsaSsaPkcs1SignKeyManager;
 
-    invoke-direct {v2}, Lcom/google/crypto/tink/signature/RsaSsaPkcs1SignKeyManager;-><init>()V
+    invoke-direct {p1}, Lcom/google/crypto/tink/signature/RsaSsaPkcs1SignKeyManager;-><init>()V
 
     .line 298
-    invoke-virtual {v2}, Lcom/google/crypto/tink/signature/RsaSsaPkcs1SignKeyManager;->getKeyType()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/signature/RsaSsaPkcs1SignKeyManager;->getKeyType()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1KeyFormat;->toByteArray()[B
+    invoke-virtual {p0}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1KeyFormat;->toByteArray()[B
 
-    move-result-object v3
+    move-result-object p0
 
     .line 297
-    invoke-static {v2, v3, p3}, Lcom/google/crypto/tink/KeyTemplate;->create(Ljava/lang/String;[BLcom/google/crypto/tink/KeyTemplate$OutputPrefixType;)Lcom/google/crypto/tink/KeyTemplate;
+    invoke-static {p1, p0, p3}, Lcom/google/crypto/tink/KeyTemplate;->create(Ljava/lang/String;[BLcom/google/crypto/tink/KeyTemplate$OutputPrefixType;)Lcom/google/crypto/tink/KeyTemplate;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 .end method
 
 .method public static final rawRsa3072SsaPkcs1Sha256F4Template()Lcom/google/crypto/tink/KeyTemplate;
@@ -216,7 +205,6 @@
 
 .method public static registerPair(Z)V
     .locals 2
-    .param p0, "newKeyAllowed"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -243,7 +231,6 @@
 
     invoke-static {v0, v1, p0}, Lcom/google/crypto/tink/Registry;->registerAsymmetricKeyManagers(Lcom/google/crypto/tink/PrivateKeyTypeManager;Lcom/google/crypto/tink/KeyTypeManager;Z)V
 
-    .line 207
     return-void
 .end method
 
@@ -290,15 +277,13 @@
 .method public getKeyType()Ljava/lang/String;
     .locals 1
 
-    .line 109
     const-string v0, "type.googleapis.com/google.crypto.tink.RsaSsaPkcs1PrivateKey"
 
     return-object v0
 .end method
 
 .method public getPublicKey(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;)Lcom/google/crypto/tink/proto/RsaSsaPkcs1PublicKey;
-    .locals 1
-    .param p1, "privKeyProto"    # Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;
+    .locals 0
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -317,9 +302,9 @@
     .line 120
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;->getPublicKey()Lcom/google/crypto/tink/proto/RsaSsaPkcs1PublicKey;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic getPublicKey(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
@@ -352,7 +337,6 @@
 .method public getVersion()I
     .locals 1
 
-    .line 114
     const/4 v0, 0x0
 
     return v0
@@ -391,7 +375,6 @@
 
 .method public parseKey(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;
     .locals 1
-    .param p1, "byteString"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -414,9 +397,9 @@
 
     invoke-static {p1, v0}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic parseKey(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
@@ -446,7 +429,6 @@
 
 .method public validateKey(Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;)V
     .locals 3
-    .param p1, "privKey"    # Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -524,15 +506,14 @@
     .line 141
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PrivateKey;->getPublicKey()Lcom/google/crypto/tink/proto/RsaSsaPkcs1PublicKey;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PublicKey;->getParams()Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params;
+    invoke-virtual {p1}, Lcom/google/crypto/tink/proto/RsaSsaPkcs1PublicKey;->getParams()Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Lcom/google/crypto/tink/signature/SigUtil;->validateRsaSsaPkcs1Params(Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params;)V
+    invoke-static {p1}, Lcom/google/crypto/tink/signature/SigUtil;->validateRsaSsaPkcs1Params(Lcom/google/crypto/tink/proto/RsaSsaPkcs1Params;)V
 
-    .line 142
     return-void
 .end method
 

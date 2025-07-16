@@ -46,8 +46,6 @@
 
 .method synthetic constructor <init>(Lcom/koushikdutta/async/http/AsyncHttpClient;Lcom/koushikdutta/async/http/AsyncHttpClient$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/koushikdutta/async/http/AsyncHttpClient;
-    .param p2, "x1"    # Lcom/koushikdutta/async/http/AsyncHttpClient$1;
 
     .line 135
     invoke-direct {p0, p1}, Lcom/koushikdutta/async/http/AsyncHttpClient$FutureAsyncHttpResponse;-><init>(Lcom/koushikdutta/async/http/AsyncHttpClient;)V
@@ -67,7 +65,6 @@
 
     if-nez v0, :cond_0
 
-    .line 143
     const/4 v0, 0x0
 
     return v0
@@ -105,7 +102,6 @@
 
     invoke-virtual {v0, v1}, Lcom/koushikdutta/async/AsyncServer;->removeAllCallbacks(Ljava/lang/Object;)V
 
-    .line 153
     :cond_2
     const/4 v0, 0x1
 

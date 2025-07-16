@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -42,18 +42,15 @@
     .end annotation
 
     .line 36
-    .local p0, "this":Lorg/objenesis/instantiator/gcj/GCJSerializationInstantiator;, "Lorg/objenesis/instantiator/gcj/GCJSerializationInstantiator<TT;>;"
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-direct {p0, p1}, Lorg/objenesis/instantiator/gcj/GCJInstantiatorBase;-><init>(Ljava/lang/Class;)V
 
     .line 37
     invoke-static {p1}, Lorg/objenesis/instantiator/SerializationInstantiatorHelper;->getNonSerializableSuperClass(Ljava/lang/Class;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lorg/objenesis/instantiator/gcj/GCJSerializationInstantiator;->superType:Ljava/lang/Class;
+    iput-object p1, p0, Lorg/objenesis/instantiator/gcj/GCJSerializationInstantiator;->superType:Ljava/lang/Class;
 
-    .line 38
     return-void
 .end method
 
@@ -68,7 +65,6 @@
     .end annotation
 
     .line 43
-    .local p0, "this":Lorg/objenesis/instantiator/gcj/GCJSerializationInstantiator;, "Lorg/objenesis/instantiator/gcj/GCJSerializationInstantiator<TT;>;"
     :try_start_0
     iget-object v0, p0, Lorg/objenesis/instantiator/gcj/GCJSerializationInstantiator;->type:Ljava/lang/Class;
 
@@ -80,17 +76,17 @@
 
     new-array v3, v3, [Ljava/lang/Object;
 
-    const/4 v4, 0x0
+    iget-object v4, p0, Lorg/objenesis/instantiator/gcj/GCJSerializationInstantiator;->type:Ljava/lang/Class;
 
-    iget-object v5, p0, Lorg/objenesis/instantiator/gcj/GCJSerializationInstantiator;->type:Ljava/lang/Class;
+    const/4 v5, 0x0
 
-    aput-object v5, v3, v4
+    aput-object v4, v3, v5
 
-    const/4 v4, 0x1
+    iget-object v4, p0, Lorg/objenesis/instantiator/gcj/GCJSerializationInstantiator;->superType:Ljava/lang/Class;
 
-    iget-object v5, p0, Lorg/objenesis/instantiator/gcj/GCJSerializationInstantiator;->superType:Ljava/lang/Class;
+    const/4 v5, 0x1
 
-    aput-object v5, v3, v4
+    aput-object v4, v3, v5
 
     invoke-virtual {v1, v2, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -104,12 +100,10 @@
 
     return-object v0
 
-    .line 45
     :catch_0
     move-exception v0
 
     .line 46
-    .local v0, "e":Ljava/lang/Exception;
     new-instance v1, Lorg/objenesis/ObjenesisException;
 
     invoke-direct {v1, v0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V

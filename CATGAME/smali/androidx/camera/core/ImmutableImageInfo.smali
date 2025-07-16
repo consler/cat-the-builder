@@ -18,9 +18,6 @@
 
 .method public static create(Ljava/lang/Object;JI)Landroidx/camera/core/ImageInfo;
     .locals 1
-    .param p0, "tag"    # Ljava/lang/Object;
-    .param p1, "timestamp"    # J
-    .param p3, "rotationDegrees"    # I
 
     .line 26
     new-instance v0, Landroidx/camera/core/AutoValue_ImmutableImageInfo;

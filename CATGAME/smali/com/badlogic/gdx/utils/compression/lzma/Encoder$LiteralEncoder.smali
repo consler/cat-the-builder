@@ -35,7 +35,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/utils/compression/lzma/Encoder;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/utils/compression/lzma/Encoder;
 
     .line 70
     iput-object p1, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder;->this$0:Lcom/badlogic/gdx/utils/compression/lzma/Encoder;
@@ -48,9 +47,7 @@
 
 # virtual methods
 .method public Create(II)V
-    .locals 4
-    .param p1, "numPosBits"    # I
-    .param p2, "numPrevBits"    # I
+    .locals 2
 
     .line 136
     iget-object v0, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder;->m_Coders:[Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder$Encoder2;
@@ -71,83 +68,74 @@
     :cond_0
     iput p1, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder;->m_NumPosBits:I
 
-    .line 138
     const/4 v0, 0x1
 
     shl-int v1, v0, p1
 
     sub-int/2addr v1, v0
 
+    .line 138
     iput v1, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder;->m_PosMask:I
 
     .line 139
     iput p2, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder;->m_NumPrevBits:I
 
-    .line 140
-    add-int v1, p2, p1
+    add-int/2addr p2, p1
 
-    shl-int/2addr v0, v1
+    shl-int p1, v0, p2
 
     .line 141
-    .local v0, "numStates":I
-    new-array v1, v0, [Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder$Encoder2;
+    new-array p2, p1, [Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder$Encoder2;
 
-    iput-object v1, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder;->m_Coders:[Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder$Encoder2;
+    iput-object p2, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder;->m_Coders:[Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder$Encoder2;
 
-    .line 142
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    .local v1, "i":I
     :goto_0
-    if-ge v1, v0, :cond_1
+    if-ge p2, p1, :cond_1
 
     .line 143
-    iget-object v2, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder;->m_Coders:[Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder$Encoder2;
+    iget-object v0, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder;->m_Coders:[Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder$Encoder2;
 
-    new-instance v3, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder$Encoder2;
+    new-instance v1, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder$Encoder2;
 
-    invoke-direct {v3, p0}, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder$Encoder2;-><init>(Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder;)V
+    invoke-direct {v1, p0}, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder$Encoder2;-><init>(Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder;)V
 
-    aput-object v3, v2, v1
+    aput-object v1, v0, p2
 
-    .line 142
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p2, p2, 0x1
 
     goto :goto_0
 
-    .line 144
-    .end local v1    # "i":I
     :cond_1
     return-void
 .end method
 
 .method public GetSubCoder(IB)Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder$Encoder2;
-    .locals 4
-    .param p1, "pos"    # I
-    .param p2, "prevByte"    # B
+    .locals 2
 
     .line 153
     iget-object v0, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder;->m_Coders:[Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder$Encoder2;
 
     iget v1, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder;->m_PosMask:I
 
-    and-int/2addr v1, p1
+    and-int/2addr p1, v1
 
-    iget v2, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder;->m_NumPrevBits:I
+    iget v1, p0, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder;->m_NumPrevBits:I
 
-    shl-int/2addr v1, v2
+    shl-int/2addr p1, v1
 
-    and-int/lit16 v3, p2, 0xff
+    and-int/lit16 p2, p2, 0xff
 
-    rsub-int/lit8 v2, v2, 0x8
+    rsub-int/lit8 v1, v1, 0x8
 
-    ushr-int v2, v3, v2
+    ushr-int/2addr p2, v1
 
-    add-int/2addr v1, v2
+    add-int/2addr p1, p2
 
-    aget-object v0, v0, v1
+    aget-object p1, v0, p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public Init()V
@@ -164,11 +152,8 @@
 
     shl-int v0, v1, v0
 
-    .line 148
-    .local v0, "numStates":I
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -179,13 +164,10 @@
 
     invoke-virtual {v2}, Lcom/badlogic/gdx/utils/compression/lzma/Encoder$LiteralEncoder$Encoder2;->Init()V
 
-    .line 148
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 150
-    .end local v1    # "i":I
     :cond_0
     return-void
 .end method

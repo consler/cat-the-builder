@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroidx/work/impl/utils/LiveDataUtils$1;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/work/impl/utils/LiveDataUtils$1;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x8010,
@@ -73,7 +72,6 @@
     move-result-object v1
 
     .line 70
-    .local v1, "newOutput":Ljava/lang/Object;, "TOut;"
     iget-object v2, p0, Landroidx/work/impl/utils/LiveDataUtils$1$1;->this$0:Landroidx/work/impl/utils/LiveDataUtils$1;
 
     iget-object v2, v2, Landroidx/work/impl/utils/LiveDataUtils$1;->mCurrentOutput:Ljava/lang/Object;
@@ -128,15 +126,12 @@
     invoke-virtual {v2, v1}, Landroidx/lifecycle/MediatorLiveData;->postValue(Ljava/lang/Object;)V
 
     .line 78
-    .end local v1    # "newOutput":Ljava/lang/Object;, "TOut;"
     :cond_1
     :goto_0
     monitor-exit v0
 
-    .line 79
     return-void
 
-    .line 78
     :catchall_0
     move-exception v1
 

@@ -21,8 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/appcompat/widget/ListPopupWindow;Landroid/view/View;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/appcompat/widget/ListPopupWindow;
-    .param p2, "src"    # Landroid/view/View;
 
     .line 1140
     iput-object p1, p0, Landroidx/appcompat/widget/ListPopupWindow$1;->this$0:Landroidx/appcompat/widget/ListPopupWindow;

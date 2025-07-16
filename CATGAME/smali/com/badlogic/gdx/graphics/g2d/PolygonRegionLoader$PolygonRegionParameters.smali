@@ -37,17 +37,16 @@
     .line 41
     invoke-direct {p0}, Lcom/badlogic/gdx/assets/AssetLoaderParameters;-><init>()V
 
-    .line 44
     const-string v0, "i "
 
+    .line 44
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader$PolygonRegionParameters;->texturePrefix:Ljava/lang/String;
 
-    .line 48
     const/16 v0, 0x400
 
+    .line 48
     iput v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonRegionLoader$PolygonRegionParameters;->readerBuffer:I
 
-    .line 51
     const-string v1, "png"
 
     const-string v2, "PNG"
@@ -72,10 +71,11 @@
 
     const-string v12, "KTX"
 
-    const-string/jumbo v13, "zktx"
+    const-string v13, "zktx"
 
     const-string v14, "ZKTX"
 
+    .line 51
     filled-new-array/range {v1 .. v14}, [Ljava/lang/String;
 
     move-result-object v0

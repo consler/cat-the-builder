@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -43,8 +43,6 @@
     .end annotation
 
     .line 55
-    .local p0, "this":Lorg/objenesis/instantiator/basic/ObjectStreamClassInstantiator;, "Lorg/objenesis/instantiator/basic/ObjectStreamClassInstantiator<TT;>;"
-    .local p1, "type":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 56
@@ -53,11 +51,10 @@
     .line 57
     invoke-static {p1}, Ljava/io/ObjectStreamClass;->lookup(Ljava/lang/Class;)Ljava/io/ObjectStreamClass;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lorg/objenesis/instantiator/basic/ObjectStreamClassInstantiator;->objStreamClass:Ljava/io/ObjectStreamClass;
+    iput-object p1, p0, Lorg/objenesis/instantiator/basic/ObjectStreamClassInstantiator;->objStreamClass:Ljava/io/ObjectStreamClass;
 
-    .line 58
     return-void
 .end method
 
@@ -85,18 +82,16 @@
 
     sput-object v0, Lorg/objenesis/instantiator/basic/ObjectStreamClassInstantiator;->newInstanceMethod:Ljava/lang/reflect/Method;
 
-    .line 45
     const/4 v1, 0x1
 
+    .line 45
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 49
     goto :goto_1
 
-    .line 47
     :catch_0
     move-exception v0
 
@@ -106,7 +101,6 @@
     move-exception v0
 
     .line 48
-    .local v0, "e":Ljava/lang/Exception;
     :goto_0
     new-instance v1, Lorg/objenesis/ObjenesisException;
 
@@ -114,8 +108,6 @@
 
     throw v1
 
-    .line 51
-    .end local v0    # "e":Ljava/lang/Exception;
     :cond_0
     :goto_1
     return-void
@@ -132,7 +124,6 @@
     .end annotation
 
     .line 64
-    .local p0, "this":Lorg/objenesis/instantiator/basic/ObjectStreamClassInstantiator;, "Lorg/objenesis/instantiator/basic/ObjectStreamClassInstantiator<TT;>;"
     :try_start_0
     sget-object v0, Lorg/objenesis/instantiator/basic/ObjectStreamClassInstantiator;->newInstanceMethod:Ljava/lang/reflect/Method;
 
@@ -150,12 +141,10 @@
 
     return-object v0
 
-    .line 66
     :catch_0
     move-exception v0
 
     .line 67
-    .local v0, "e":Ljava/lang/Exception;
     new-instance v1, Lorg/objenesis/ObjenesisException;
 
     invoke-direct {v1, v0}, Lorg/objenesis/ObjenesisException;-><init>(Ljava/lang/Throwable;)V

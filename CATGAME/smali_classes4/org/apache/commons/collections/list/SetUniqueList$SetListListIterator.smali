@@ -22,22 +22,19 @@
 
 # direct methods
 .method protected constructor <init>(Ljava/util/ListIterator;Ljava/util/Set;)V
-    .locals 1
-    .param p1, "it"    # Ljava/util/ListIterator;
-    .param p2, "set"    # Ljava/util/Set;
+    .locals 0
 
     .line 348
     invoke-direct {p0, p1}, Lorg/apache/commons/collections/iterators/AbstractListIteratorDecorator;-><init>(Ljava/util/ListIterator;)V
 
-    .line 345
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lorg/apache/commons/collections/list/SetUniqueList$SetListListIterator;->last:Ljava/lang/Object;
+    .line 345
+    iput-object p1, p0, Lorg/apache/commons/collections/list/SetUniqueList$SetListListIterator;->last:Ljava/lang/Object;
 
     .line 349
     iput-object p2, p0, Lorg/apache/commons/collections/list/SetUniqueList$SetListListIterator;->set:Ljava/util/Set;
 
-    .line 350
     return-void
 .end method
 
@@ -45,7 +42,6 @@
 # virtual methods
 .method public add(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
 
     .line 369
     iget-object v0, p0, Lorg/apache/commons/collections/list/SetUniqueList$SetListListIterator;->set:Ljava/util/Set;
@@ -64,7 +60,6 @@
 
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 373
     :cond_0
     return-void
 .end method
@@ -79,7 +74,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/list/SetUniqueList$SetListListIterator;->last:Ljava/lang/Object;
 
-    .line 354
     return-object v0
 .end method
 
@@ -93,7 +87,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/list/SetUniqueList$SetListListIterator;->last:Ljava/lang/Object;
 
-    .line 359
     return-object v0
 .end method
 
@@ -110,25 +103,23 @@
 
     invoke-interface {v0, v1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
-    .line 365
     const/4 v0, 0x0
 
+    .line 365
     iput-object v0, p0, Lorg/apache/commons/collections/list/SetUniqueList$SetListListIterator;->last:Ljava/lang/Object;
 
-    .line 366
     return-void
 .end method
 
 .method public set(Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "object"    # Ljava/lang/Object;
+    .locals 1
 
     .line 376
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "ListIterator does not support set"
+    const-string v0, "ListIterator does not support set"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

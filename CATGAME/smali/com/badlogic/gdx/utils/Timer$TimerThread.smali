@@ -73,13 +73,11 @@
     invoke-direct {v0, p0, v2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
 
     .line 258
-    .local v0, "thread":Ljava/lang/Thread;
     invoke-virtual {v0, v1}, Ljava/lang/Thread;->setDaemon(Z)V
 
     .line 259
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
-    .line 260
     return-void
 .end method
 
@@ -124,13 +122,12 @@
 
     invoke-interface {v0, p0}, Lcom/badlogic/gdx/Application;->removeLifecycleListener(Lcom/badlogic/gdx/LifecycleListener;)V
 
-    .line 314
     return-void
 
-    .line 312
     :catchall_0
     move-exception v1
 
+    .line 312
     :try_start_1
     monitor-exit v0
     :try_end_1
@@ -167,10 +164,8 @@
     .line 304
     monitor-exit v0
 
-    .line 305
     return-void
 
-    .line 304
     :catchall_0
     move-exception v1
 
@@ -204,22 +199,19 @@
     sub-long/2addr v1, v3
 
     .line 293
-    .local v1, "delayMillis":J
-    const/4 v3, 0x0
+    iget-object v3, p0, Lcom/badlogic/gdx/utils/Timer$TimerThread;->instances:Lcom/badlogic/gdx/utils/Array;
 
-    .local v3, "i":I
-    iget-object v4, p0, Lcom/badlogic/gdx/utils/Timer$TimerThread;->instances:Lcom/badlogic/gdx/utils/Array;
+    iget v3, v3, Lcom/badlogic/gdx/utils/Array;->size:I
 
-    iget v4, v4, Lcom/badlogic/gdx/utils/Array;->size:I
+    const/4 v4, 0x0
 
-    .local v4, "n":I
     :goto_0
-    if-ge v3, v4, :cond_0
+    if-ge v4, v3, :cond_0
 
     .line 294
     iget-object v5, p0, Lcom/badlogic/gdx/utils/Timer$TimerThread;->instances:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v5, v3}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
+    invoke-virtual {v5, v4}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -227,32 +219,26 @@
 
     invoke-virtual {v5, v1, v2}, Lcom/badlogic/gdx/utils/Timer;->delay(J)V
 
-    .line 293
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
-    .line 295
-    .end local v3    # "i":I
-    .end local v4    # "n":I
     :cond_0
-    const-wide/16 v3, 0x0
+    const-wide/16 v1, 0x0
 
-    iput-wide v3, p0, Lcom/badlogic/gdx/utils/Timer$TimerThread;->pauseMillis:J
+    .line 295
+    iput-wide v1, p0, Lcom/badlogic/gdx/utils/Timer$TimerThread;->pauseMillis:J
 
     .line 296
-    sget-object v3, Lcom/badlogic/gdx/utils/Timer;->threadLock:Ljava/lang/Object;
+    sget-object v1, Lcom/badlogic/gdx/utils/Timer;->threadLock:Ljava/lang/Object;
 
-    invoke-virtual {v3}, Ljava/lang/Object;->notifyAll()V
+    invoke-virtual {v1}, Ljava/lang/Object;->notifyAll()V
 
     .line 297
-    .end local v1    # "delayMillis":J
     monitor-exit v0
 
-    .line 298
     return-void
 
-    .line 297
     :catchall_0
     move-exception v1
 
@@ -264,7 +250,7 @@
 .end method
 
 .method public run()V
-    .locals 11
+    .locals 10
 
     .line 264
     :goto_0
@@ -284,197 +270,168 @@
 
     if-eq v1, v2, :cond_0
 
-    goto/16 :goto_5
-
-    .line 267
-    :cond_0
-    const-wide/16 v1, 0x1388
+    goto :goto_3
 
     .line 268
-    .local v1, "waitMillis":J
-    iget-wide v3, p0, Lcom/badlogic/gdx/utils/Timer$TimerThread;->pauseMillis:J
+    :cond_0
+    iget-wide v1, p0, Lcom/badlogic/gdx/utils/Timer$TimerThread;->pauseMillis:J
 
-    const-wide/16 v5, 0x0
+    const-wide/16 v3, 0x0
 
-    cmp-long v3, v3, v5
+    cmp-long v1, v1, v3
 
-    if-nez v3, :cond_1
+    const-wide/16 v5, 0x1388
+
+    if-nez v1, :cond_1
 
     .line 269
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
-    move-result-wide v3
+    move-result-wide v1
 
     const-wide/32 v7, 0xf4240
 
-    div-long/2addr v3, v7
+    div-long/2addr v1, v7
 
     .line 270
-    .local v3, "timeMillis":J
-    const/4 v7, 0x0
+    iget-object v7, p0, Lcom/badlogic/gdx/utils/Timer$TimerThread;->instances:Lcom/badlogic/gdx/utils/Array;
 
-    .local v7, "i":I
-    iget-object v8, p0, Lcom/badlogic/gdx/utils/Timer$TimerThread;->instances:Lcom/badlogic/gdx/utils/Array;
-
-    iget v8, v8, Lcom/badlogic/gdx/utils/Array;->size:I
+    iget v7, v7, Lcom/badlogic/gdx/utils/Array;->size:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .local v8, "n":I
+    const/4 v8, 0x0
+
     :goto_1
-    if-ge v7, v8, :cond_1
+    if-ge v8, v7, :cond_1
 
     .line 272
     :try_start_1
     iget-object v9, p0, Lcom/badlogic/gdx/utils/Timer$TimerThread;->instances:Lcom/badlogic/gdx/utils/Array;
 
-    invoke-virtual {v9, v7}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
+    invoke-virtual {v9, v8}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
     move-result-object v9
 
     check-cast v9, Lcom/badlogic/gdx/utils/Timer;
 
-    invoke-virtual {v9, v3, v4, v1, v2}, Lcom/badlogic/gdx/utils/Timer;->update(JJ)J
+    invoke-virtual {v9, v1, v2, v5, v6}, Lcom/badlogic/gdx/utils/Timer;->update(JJ)J
 
-    move-result-wide v9
+    move-result-wide v5
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    move-wide v1, v9
-
-    .line 275
-    nop
-
-    .line 270
-    add-int/lit8 v7, v7, 0x1
+    add-int/lit8 v8, v8, 0x1
 
     goto :goto_1
 
-    .line 273
     :catchall_0
-    move-exception v5
+    move-exception v1
 
     .line 274
-    .local v5, "ex":Ljava/lang/Throwable;
     :try_start_2
-    new-instance v6, Lcom/badlogic/gdx/utils/GdxRuntimeException;
+    new-instance v2, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v10, "Task failed: "
+    const-string v4, "Task failed: "
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v10, p0, Lcom/badlogic/gdx/utils/Timer$TimerThread;->instances:Lcom/badlogic/gdx/utils/Array;
+    move-result-object v3
 
-    invoke-virtual {v10, v7}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
+    iget-object v4, p0, Lcom/badlogic/gdx/utils/Timer$TimerThread;->instances:Lcom/badlogic/gdx/utils/Array;
 
-    move-result-object v10
+    invoke-virtual {v4, v8}, Lcom/badlogic/gdx/utils/Array;->get(I)Ljava/lang/Object;
 
-    check-cast v10, Lcom/badlogic/gdx/utils/Timer;
+    move-result-object v4
 
-    invoke-virtual {v10}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    check-cast v4, Lcom/badlogic/gdx/utils/Timer;
 
-    move-result-object v10
+    invoke-virtual {v4}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-virtual {v10}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object v10
+    invoke-virtual {v4}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    move-result-object v3
 
-    invoke-direct {v6, v9, v5}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw v6
+    move-result-object v3
+
+    invoke-direct {v2, v3, v1}, Lcom/badlogic/gdx/utils/GdxRuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v2
 
     .line 279
-    .end local v3    # "timeMillis":J
-    .end local v5    # "ex":Ljava/lang/Throwable;
-    .end local v7    # "i":I
-    .end local v8    # "n":I
     :cond_1
-    sget-object v3, Lcom/badlogic/gdx/utils/Timer;->thread:Lcom/badlogic/gdx/utils/Timer$TimerThread;
+    sget-object v1, Lcom/badlogic/gdx/utils/Timer;->thread:Lcom/badlogic/gdx/utils/Timer$TimerThread;
 
-    if-ne v3, p0, :cond_4
+    if-ne v1, p0, :cond_4
 
-    iget-object v3, p0, Lcom/badlogic/gdx/utils/Timer$TimerThread;->files:Lcom/badlogic/gdx/Files;
+    iget-object v1, p0, Lcom/badlogic/gdx/utils/Timer$TimerThread;->files:Lcom/badlogic/gdx/Files;
 
-    sget-object v4, Lcom/badlogic/gdx/Gdx;->files:Lcom/badlogic/gdx/Files;
+    sget-object v2, Lcom/badlogic/gdx/Gdx;->files:Lcom/badlogic/gdx/Files;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    if-eq v3, v4, :cond_2
+    if-eq v1, v2, :cond_2
 
-    goto :goto_4
+    goto :goto_2
+
+    :cond_2
+    cmp-long v1, v5, v3
+
+    if-lez v1, :cond_3
 
     .line 282
-    :cond_2
-    cmp-long v3, v1, v5
-
-    if-lez v3, :cond_3
-
     :try_start_3
-    sget-object v3, Lcom/badlogic/gdx/utils/Timer;->threadLock:Ljava/lang/Object;
+    sget-object v1, Lcom/badlogic/gdx/utils/Timer;->threadLock:Ljava/lang/Object;
 
-    invoke-virtual {v3, v1, v2}, Ljava/lang/Object;->wait(J)V
+    invoke-virtual {v1, v5, v6}, Ljava/lang/Object;->wait(J)V
     :try_end_3
     .catch Ljava/lang/InterruptedException; {:try_start_3 .. :try_end_3} :catch_0
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    goto :goto_2
-
-    .line 283
-    :catch_0
-    move-exception v3
-
-    goto :goto_3
-
-    .line 284
-    :cond_3
-    :goto_2
-    nop
-
     .line 285
-    .end local v1    # "waitMillis":J
-    :goto_3
+    :catch_0
+    :cond_3
     :try_start_4
     monitor-exit v0
 
     goto :goto_0
 
     .line 279
-    .restart local v1    # "waitMillis":J
     :cond_4
-    :goto_4
+    :goto_2
     monitor-exit v0
 
-    goto :goto_6
+    goto :goto_4
 
     .line 265
-    .end local v1    # "waitMillis":J
     :cond_5
-    :goto_5
+    :goto_3
     monitor-exit v0
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     .line 287
-    :goto_6
+    :goto_4
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/Timer$TimerThread;->dispose()V
 
-    .line 288
     return-void
 
-    .line 285
     :catchall_1
     move-exception v1
 
+    .line 285
     :try_start_5
     monitor-exit v0
     :try_end_5

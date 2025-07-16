@@ -19,12 +19,11 @@
 
 # virtual methods
 .method public canConvert(Ljava/lang/Class;)Z
-    .locals 2
-    .param p1, "type"    # Ljava/lang/Class;
+    .locals 1
 
-    .line 29
     if-eqz p1, :cond_0
 
+    .line 29
     invoke-virtual {p1}, Ljava/lang/Class;->isArray()Z
 
     move-result v0
@@ -33,65 +32,56 @@
 
     invoke-virtual {p1}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p1
 
-    sget-object v1, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
+    sget-object v0, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
 
-    invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public marshal(Ljava/lang/Object;Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;Lcom/thoughtworks/xstream/converters/MarshallingContext;)V
-    .locals 2
-    .param p1, "source"    # Ljava/lang/Object;
-    .param p2, "writer"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;
-    .param p3, "context"    # Lcom/thoughtworks/xstream/converters/MarshallingContext;
+    .locals 0
 
     .line 33
-    move-object v0, p1
+    check-cast p1, [C
 
-    check-cast v0, [C
-
-    check-cast v0, [C
+    check-cast p1, [C
 
     .line 34
-    .local v0, "chars":[C
-    new-instance v1, Ljava/lang/String;
+    new-instance p3, Ljava/lang/String;
 
-    invoke-direct {v1, v0}, Ljava/lang/String;-><init>([C)V
+    invoke-direct {p3, p1}, Ljava/lang/String;-><init>([C)V
 
-    invoke-interface {p2, v1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->setValue(Ljava/lang/String;)V
+    invoke-interface {p2, p3}, Lcom/thoughtworks/xstream/io/HierarchicalStreamWriter;->setValue(Ljava/lang/String;)V
 
-    .line 35
     return-void
 .end method
 
 .method public unmarshal(Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;Lcom/thoughtworks/xstream/converters/UnmarshallingContext;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "reader"    # Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;
-    .param p2, "context"    # Lcom/thoughtworks/xstream/converters/UnmarshallingContext;
+    .locals 0
 
     .line 38
     invoke-interface {p1}, Lcom/thoughtworks/xstream/io/HierarchicalStreamReader;->getValue()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Ljava/lang/String;->toCharArray()[C
+    invoke-virtual {p1}, Ljava/lang/String;->toCharArray()[C
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroidx/coordinatorlayout/widget/CoordinatorLayout;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/coordinatorlayout/widget/CoordinatorLayout;
 
     .line 2020
     iput-object p1, p0, Landroidx/coordinatorlayout/widget/CoordinatorLayout$OnPreDrawListener;->this$0:Landroidx/coordinatorlayout/widget/CoordinatorLayout;
@@ -46,7 +45,6 @@
 
     invoke-virtual {v0, v1}, Landroidx/coordinatorlayout/widget/CoordinatorLayout;->onChildViewsChanged(I)V
 
-    .line 2024
     const/4 v0, 0x1
 
     return v0

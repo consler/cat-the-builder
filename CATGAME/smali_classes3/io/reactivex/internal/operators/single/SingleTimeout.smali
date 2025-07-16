@@ -51,9 +51,6 @@
 # direct methods
 .method public constructor <init>(Lio/reactivex/SingleSource;JLjava/util/concurrent/TimeUnit;Lio/reactivex/Scheduler;Lio/reactivex/SingleSource;)V
     .locals 0
-    .param p2, "timeout"    # J
-    .param p4, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .param p5, "scheduler"    # Lio/reactivex/Scheduler;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,9 +64,6 @@
     .end annotation
 
     .line 35
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleTimeout;, "Lio/reactivex/internal/operators/single/SingleTimeout<TT;>;"
-    .local p1, "source":Lio/reactivex/SingleSource;, "Lio/reactivex/SingleSource<TT;>;"
-    .local p6, "other":Lio/reactivex/SingleSource;, "Lio/reactivex/SingleSource<+TT;>;"
     invoke-direct {p0}, Lio/reactivex/Single;-><init>()V
 
     .line 36
@@ -87,7 +81,6 @@
     .line 40
     iput-object p6, p0, Lio/reactivex/internal/operators/single/SingleTimeout;->other:Lio/reactivex/SingleSource;
 
-    .line 41
     return-void
 .end method
 
@@ -104,14 +97,11 @@
     .end annotation
 
     .line 46
-    .local p0, "this":Lio/reactivex/internal/operators/single/SingleTimeout;, "Lio/reactivex/internal/operators/single/SingleTimeout<TT;>;"
-    .local p1, "s":Lio/reactivex/SingleObserver;, "Lio/reactivex/SingleObserver<-TT;>;"
     new-instance v0, Lio/reactivex/disposables/CompositeDisposable;
 
     invoke-direct {v0}, Lio/reactivex/disposables/CompositeDisposable;-><init>()V
 
     .line 47
-    .local v0, "set":Lio/reactivex/disposables/CompositeDisposable;
     invoke-interface {p1, v0}, Lio/reactivex/SingleObserver;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
     .line 49
@@ -120,7 +110,6 @@
     invoke-direct {v1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>()V
 
     .line 51
-    .local v1, "once":Ljava/util/concurrent/atomic/AtomicBoolean;
     iget-object v2, p0, Lio/reactivex/internal/operators/single/SingleTimeout;->scheduler:Lio/reactivex/Scheduler;
 
     new-instance v3, Lio/reactivex/internal/operators/single/SingleTimeout$TimeoutDispose;
@@ -136,18 +125,16 @@
     move-result-object v2
 
     .line 53
-    .local v2, "timer":Lio/reactivex/disposables/Disposable;
     invoke-virtual {v0, v2}, Lio/reactivex/disposables/CompositeDisposable;->add(Lio/reactivex/disposables/Disposable;)Z
 
     .line 55
-    iget-object v3, p0, Lio/reactivex/internal/operators/single/SingleTimeout;->source:Lio/reactivex/SingleSource;
+    iget-object v2, p0, Lio/reactivex/internal/operators/single/SingleTimeout;->source:Lio/reactivex/SingleSource;
 
-    new-instance v4, Lio/reactivex/internal/operators/single/SingleTimeout$TimeoutObserver;
+    new-instance v3, Lio/reactivex/internal/operators/single/SingleTimeout$TimeoutObserver;
 
-    invoke-direct {v4, p0, v1, v0, p1}, Lio/reactivex/internal/operators/single/SingleTimeout$TimeoutObserver;-><init>(Lio/reactivex/internal/operators/single/SingleTimeout;Ljava/util/concurrent/atomic/AtomicBoolean;Lio/reactivex/disposables/CompositeDisposable;Lio/reactivex/SingleObserver;)V
+    invoke-direct {v3, p0, v1, v0, p1}, Lio/reactivex/internal/operators/single/SingleTimeout$TimeoutObserver;-><init>(Lio/reactivex/internal/operators/single/SingleTimeout;Ljava/util/concurrent/atomic/AtomicBoolean;Lio/reactivex/disposables/CompositeDisposable;Lio/reactivex/SingleObserver;)V
 
-    invoke-interface {v3, v4}, Lio/reactivex/SingleSource;->subscribe(Lio/reactivex/SingleObserver;)V
+    invoke-interface {v2, v3}, Lio/reactivex/SingleSource;->subscribe(Lio/reactivex/SingleObserver;)V
 
-    .line 57
     return-void
 .end method

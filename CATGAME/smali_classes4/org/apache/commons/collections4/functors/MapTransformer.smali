@@ -50,14 +50,11 @@
     .end annotation
 
     .line 62
-    .local p0, "this":Lorg/apache/commons/collections4/functors/MapTransformer;, "Lorg/apache/commons/collections4/functors/MapTransformer<TI;TO;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<-TI;+TO;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 63
     iput-object p1, p0, Lorg/apache/commons/collections4/functors/MapTransformer;->iMap:Ljava/util/Map;
 
-    .line 64
     return-void
 .end method
 
@@ -77,16 +74,14 @@
         }
     .end annotation
 
-    .line 49
-    .local p0, "map":Ljava/util/Map;, "Ljava/util/Map<-TI;+TO;>;"
     if-nez p0, :cond_0
 
     .line 50
     invoke-static {}, Lorg/apache/commons/collections4/functors/ConstantTransformer;->nullTransformer()Lorg/apache/commons/collections4/Transformer;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 52
     :cond_0
@@ -110,7 +105,6 @@
     .end annotation
 
     .line 84
-    .local p0, "this":Lorg/apache/commons/collections4/functors/MapTransformer;, "Lorg/apache/commons/collections4/functors/MapTransformer<TI;TO;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/MapTransformer;->iMap:Ljava/util/Map;
 
     return-object v0
@@ -125,13 +119,11 @@
     .end annotation
 
     .line 74
-    .local p0, "this":Lorg/apache/commons/collections4/functors/MapTransformer;, "Lorg/apache/commons/collections4/functors/MapTransformer<TI;TO;>;"
-    .local p1, "input":Ljava/lang/Object;, "TI;"
     iget-object v0, p0, Lorg/apache/commons/collections4/functors/MapTransformer;->iMap:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
 
     .line 2836
     iput-object p1, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
@@ -35,43 +34,34 @@
 # virtual methods
 .method public addQueueItem(Landroid/support/v4/media/MediaDescriptionCompat;)V
     .locals 1
-    .param p1, "description"    # Landroid/support/v4/media/MediaDescriptionCompat;
 
-    .line 3085
     const/16 v0, 0x19
 
+    .line 3085
     invoke-virtual {p0, v0, p1}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(ILjava/lang/Object;)V
 
-    .line 3086
     return-void
 .end method
 
 .method public addQueueItemAt(Landroid/support/v4/media/MediaDescriptionCompat;I)V
     .locals 1
-    .param p1, "description"    # Landroid/support/v4/media/MediaDescriptionCompat;
-    .param p2, "index"    # I
 
-    .line 3090
     const/16 v0, 0x1a
 
+    .line 3090
     invoke-virtual {p0, v0, p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(ILjava/lang/Object;I)V
 
-    .line 3091
     return-void
 .end method
 
 .method public adjustVolume(IILjava/lang/String;)V
-    .locals 1
-    .param p1, "direction"    # I
-    .param p2, "flags"    # I
-    .param p3, "packageName"    # Ljava/lang/String;
+    .locals 0
 
     .line 2931
-    iget-object v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
+    iget-object p3, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
 
-    invoke-virtual {v0, p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->adjustVolume(II)V
+    invoke-virtual {p3, p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->adjustVolume(II)V
 
-    .line 2932
     return-void
 .end method
 
@@ -83,12 +73,11 @@
         }
     .end annotation
 
-    .line 3006
     const/16 v0, 0x10
 
+    .line 3006
     invoke-virtual {p0, v0}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(I)V
 
-    .line 3007
     return-void
 .end method
 
@@ -112,10 +101,10 @@
 
     return-object v1
 
-    .line 3112
     :catchall_0
     move-exception v1
 
+    .line 3112
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -145,10 +134,10 @@
 
     return-wide v1
 
-    .line 2902
     :catchall_0
     move-exception v1
 
+    .line 2902
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -176,10 +165,10 @@
 
     return-object v1
 
-    .line 2894
     :catchall_0
     move-exception v1
 
+    .line 2894
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -226,13 +215,11 @@
     iget-object v1, v1, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->mState:Landroid/support/v4/media/session/PlaybackStateCompat;
 
     .line 3071
-    .local v1, "state":Landroid/support/v4/media/session/PlaybackStateCompat;
     iget-object v2, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
 
     iget-object v2, v2, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->mMetadata:Landroid/support/v4/media/MediaMetadataCompat;
 
     .line 3072
-    .local v2, "metadata":Landroid/support/v4/media/MediaMetadataCompat;
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -244,12 +231,10 @@
 
     return-object v0
 
-    .line 3072
-    .end local v1    # "state":Landroid/support/v4/media/session/PlaybackStateCompat;
-    .end local v2    # "metadata":Landroid/support/v4/media/MediaMetadataCompat;
     :catchall_0
     move-exception v1
 
+    .line 3072
     :try_start_1
     monitor-exit v0
     :try_end_1
@@ -286,10 +271,10 @@
 
     return-object v1
 
-    .line 3080
     :catchall_0
     move-exception v1
 
+    .line 3080
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -380,7 +365,7 @@
 .end method
 
 .method public getVolumeAttributes()Landroid/support/v4/media/session/ParcelableVolumeInfo;
-    .locals 12
+    .locals 8
 
     .line 2912
     iget-object v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
@@ -393,95 +378,73 @@
     :try_start_0
     iget-object v1, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
 
-    iget v1, v1, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->mVolumeType:I
+    iget v3, v1, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->mVolumeType:I
 
     .line 2914
-    .local v1, "volumeType":I
-    iget-object v2, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
+    iget-object v1, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
 
-    iget v2, v2, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->mLocalStream:I
-
-    move v8, v2
+    iget v4, v1, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->mLocalStream:I
 
     .line 2915
-    .local v8, "stream":I
-    iget-object v2, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
+    iget-object v1, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
 
-    iget-object v2, v2, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->mVolumeProvider:Landroidx/media/VolumeProviderCompat;
+    iget-object v1, v1, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->mVolumeProvider:Landroidx/media/VolumeProviderCompat;
 
-    .line 2916
-    .local v2, "vp":Landroidx/media/VolumeProviderCompat;
-    const/4 v3, 0x2
+    const/4 v2, 0x2
 
-    if-ne v1, v3, :cond_0
+    if-ne v3, v2, :cond_0
 
     .line 2917
-    invoke-virtual {v2}, Landroidx/media/VolumeProviderCompat;->getVolumeControl()I
+    invoke-virtual {v1}, Landroidx/media/VolumeProviderCompat;->getVolumeControl()I
 
-    move-result v3
+    move-result v2
 
     .line 2918
-    .local v3, "controlType":I
-    invoke-virtual {v2}, Landroidx/media/VolumeProviderCompat;->getMaxVolume()I
-
-    move-result v4
-
-    .line 2919
-    .local v4, "max":I
-    invoke-virtual {v2}, Landroidx/media/VolumeProviderCompat;->getCurrentVolume()I
+    invoke-virtual {v1}, Landroidx/media/VolumeProviderCompat;->getMaxVolume()I
 
     move-result v5
 
-    move v9, v3
+    .line 2919
+    invoke-virtual {v1}, Landroidx/media/VolumeProviderCompat;->getCurrentVolume()I
 
-    move v10, v4
+    move-result v1
 
-    move v11, v5
+    move v7, v1
 
-    .local v5, "current":I
-    goto :goto_0
+    move v6, v5
 
-    .line 2921
-    .end local v3    # "controlType":I
-    .end local v4    # "max":I
-    .end local v5    # "current":I
-    :cond_0
-    const/4 v3, 0x2
+    :goto_0
+    move v5, v2
+
+    goto :goto_1
 
     .line 2922
-    .restart local v3    # "controlType":I
-    iget-object v4, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
+    :cond_0
+    iget-object v1, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
 
-    iget-object v4, v4, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->mAudioManager:Landroid/media/AudioManager;
+    iget-object v1, v1, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->mAudioManager:Landroid/media/AudioManager;
 
-    invoke-virtual {v4, v8}, Landroid/media/AudioManager;->getStreamMaxVolume(I)I
+    invoke-virtual {v1, v4}, Landroid/media/AudioManager;->getStreamMaxVolume(I)I
 
-    move-result v4
+    move-result v1
 
     .line 2923
-    .restart local v4    # "max":I
     iget-object v5, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
 
     iget-object v5, v5, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->mAudioManager:Landroid/media/AudioManager;
 
-    invoke-virtual {v5, v8}, Landroid/media/AudioManager;->getStreamVolume(I)I
+    invoke-virtual {v5, v4}, Landroid/media/AudioManager;->getStreamVolume(I)I
 
     move-result v5
 
-    move v9, v3
+    move v6, v1
 
-    move v10, v4
+    move v7, v5
 
-    move v11, v5
+    goto :goto_0
 
     .line 2925
-    .end local v2    # "vp":Landroidx/media/VolumeProviderCompat;
-    .end local v3    # "controlType":I
-    .end local v4    # "max":I
-    .local v9, "controlType":I
-    .local v10, "max":I
-    .local v11, "current":I
-    :goto_0
+    :goto_1
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -491,29 +454,14 @@
 
     move-object v2, v0
 
-    move v3, v1
-
-    move v4, v8
-
-    move v5, v9
-
-    move v6, v10
-
-    move v7, v11
-
     invoke-direct/range {v2 .. v7}, Landroid/support/v4/media/session/ParcelableVolumeInfo;-><init>(IIIII)V
 
     return-object v0
 
-    .line 2925
-    .end local v1    # "volumeType":I
-    .end local v8    # "stream":I
-    .end local v9    # "controlType":I
-    .end local v10    # "max":I
-    .end local v11    # "current":I
     :catchall_0
     move-exception v1
 
+    .line 2925
     :try_start_1
     monitor-exit v0
     :try_end_1
@@ -536,7 +484,6 @@
 .method public isShuffleModeEnabledRemoved()Z
     .locals 1
 
-    .line 3134
     const/4 v0, 0x0
 
     return v0
@@ -545,7 +492,6 @@
 .method public isTransportControlEnabled()Z
     .locals 1
 
-    .line 3146
     const/4 v0, 0x1
 
     return v0
@@ -559,12 +505,11 @@
         }
     .end annotation
 
-    .line 2996
     const/16 v0, 0xe
 
+    .line 2996
     invoke-virtual {p0, v0}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(I)V
 
-    .line 2997
     return-void
 .end method
 
@@ -576,12 +521,11 @@
         }
     .end annotation
 
-    .line 2986
     const/16 v0, 0xc
 
+    .line 2986
     invoke-virtual {p0, v0}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(I)V
 
-    .line 2987
     return-void
 .end method
 
@@ -593,75 +537,64 @@
         }
     .end annotation
 
-    .line 2961
     const/4 v0, 0x7
 
+    .line 2961
     invoke-virtual {p0, v0}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(I)V
 
-    .line 2962
     return-void
 .end method
 
 .method public playFromMediaId(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 1
-    .param p1, "mediaId"    # Ljava/lang/String;
-    .param p2, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .line 2966
     const/16 v0, 0x8
 
+    .line 2966
     invoke-virtual {p0, v0, p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(ILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 2967
     return-void
 .end method
 
 .method public playFromSearch(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 1
-    .param p1, "query"    # Ljava/lang/String;
-    .param p2, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .line 2971
     const/16 v0, 0x9
 
+    .line 2971
     invoke-virtual {p0, v0, p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(ILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 2972
     return-void
 .end method
 
 .method public playFromUri(Landroid/net/Uri;Landroid/os/Bundle;)V
     .locals 1
-    .param p1, "uri"    # Landroid/net/Uri;
-    .param p2, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .line 2976
     const/16 v0, 0xa
 
+    .line 2976
     invoke-virtual {p0, v0, p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(ILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 2977
     return-void
 .end method
 
 .method postToHandler(I)V
     .locals 6
-    .param p1, "what"    # I
 
     .line 3150
     iget-object v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
@@ -678,14 +611,11 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->postToHandler(IIILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 3151
     return-void
 .end method
 
 .method postToHandler(II)V
     .locals 6
-    .param p1, "what"    # I
-    .param p2, "arg1"    # I
 
     .line 3154
     iget-object v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
@@ -702,14 +632,11 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->postToHandler(IIILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 3155
     return-void
 .end method
 
 .method postToHandler(ILjava/lang/Object;)V
     .locals 6
-    .param p1, "what"    # I
-    .param p2, "obj"    # Ljava/lang/Object;
 
     .line 3158
     iget-object v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
@@ -726,15 +653,11 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->postToHandler(IIILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 3159
     return-void
 .end method
 
 .method postToHandler(ILjava/lang/Object;I)V
     .locals 6
-    .param p1, "what"    # I
-    .param p2, "obj"    # Ljava/lang/Object;
-    .param p3, "arg1"    # I
 
     .line 3162
     iget-object v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
@@ -751,15 +674,11 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->postToHandler(IIILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 3163
     return-void
 .end method
 
 .method postToHandler(ILjava/lang/Object;Landroid/os/Bundle;)V
     .locals 6
-    .param p1, "what"    # I
-    .param p2, "obj"    # Ljava/lang/Object;
-    .param p3, "extras"    # Landroid/os/Bundle;
 
     .line 3166
     iget-object v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
@@ -776,7 +695,6 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->postToHandler(IIILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 3167
     return-void
 .end method
 
@@ -788,69 +706,59 @@
         }
     .end annotation
 
-    .line 2941
     const/4 v0, 0x3
 
+    .line 2941
     invoke-virtual {p0, v0}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(I)V
 
-    .line 2942
     return-void
 .end method
 
 .method public prepareFromMediaId(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 1
-    .param p1, "mediaId"    # Ljava/lang/String;
-    .param p2, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .line 2946
     const/4 v0, 0x4
 
+    .line 2946
     invoke-virtual {p0, v0, p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(ILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 2947
     return-void
 .end method
 
 .method public prepareFromSearch(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 1
-    .param p1, "query"    # Ljava/lang/String;
-    .param p2, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .line 2951
     const/4 v0, 0x5
 
+    .line 2951
     invoke-virtual {p0, v0, p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(ILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 2952
     return-void
 .end method
 
 .method public prepareFromUri(Landroid/net/Uri;Landroid/os/Bundle;)V
     .locals 1
-    .param p1, "uri"    # Landroid/net/Uri;
-    .param p2, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .line 2956
     const/4 v0, 0x6
 
+    .line 2956
     invoke-virtual {p0, v0, p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(ILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 2957
     return-void
 .end method
 
@@ -862,55 +770,48 @@
         }
     .end annotation
 
-    .line 3001
     const/16 v0, 0xf
 
+    .line 3001
     invoke-virtual {p0, v0}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(I)V
 
-    .line 3002
     return-void
 .end method
 
 .method public rate(Landroid/support/v4/media/RatingCompat;)V
     .locals 1
-    .param p1, "rating"    # Landroid/support/v4/media/RatingCompat;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .line 3021
     const/16 v0, 0x13
 
+    .line 3021
     invoke-virtual {p0, v0, p1}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(ILjava/lang/Object;)V
 
-    .line 3022
     return-void
 .end method
 
 .method public rateWithExtras(Landroid/support/v4/media/RatingCompat;Landroid/os/Bundle;)V
     .locals 1
-    .param p1, "rating"    # Landroid/support/v4/media/RatingCompat;
-    .param p2, "extras"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .line 3026
     const/16 v0, 0x1f
 
+    .line 3026
     invoke-virtual {p0, v0, p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(ILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 3027
     return-void
 .end method
 
 .method public registerCallbackListener(Landroid/support/v4/media/session/IMediaControllerCallback;)V
-    .locals 5
-    .param p1, "cb"    # Landroid/support/v4/media/session/IMediaControllerCallback;
+    .locals 4
 
     .line 2853
     iget-object v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
@@ -925,15 +826,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2858
-    goto :goto_0
-
-    .line 2856
     :catch_0
-    move-exception v0
-
-    .line 2859
-    :goto_0
     return-void
 
     .line 2861
@@ -943,7 +836,6 @@
     move-result v0
 
     .line 2862
-    .local v0, "uid":I
     new-instance v1, Landroidx/media/MediaSessionManager$RemoteUserInfo;
 
     iget-object v2, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
@@ -951,53 +843,47 @@
     .line 2863
     invoke-virtual {v2, v0}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->getPackageNameForUid(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
     invoke-static {}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->getCallingPid()I
 
-    move-result v3
+    move-result v2
 
     invoke-static {}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->getCallingUid()I
 
-    move-result v4
+    move-result v3
 
-    invoke-direct {v1, v2, v3, v4}, Landroidx/media/MediaSessionManager$RemoteUserInfo;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v1, v0, v2, v3}, Landroidx/media/MediaSessionManager$RemoteUserInfo;-><init>(Ljava/lang/String;II)V
 
     .line 2864
-    .local v1, "info":Landroidx/media/MediaSessionManager$RemoteUserInfo;
-    iget-object v2, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
+    iget-object v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
 
-    iget-object v2, v2, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->mControllerCallbacks:Landroid/os/RemoteCallbackList;
+    iget-object v0, v0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->mControllerCallbacks:Landroid/os/RemoteCallbackList;
 
-    invoke-virtual {v2, p1, v1}, Landroid/os/RemoteCallbackList;->register(Landroid/os/IInterface;Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1, v1}, Landroid/os/RemoteCallbackList;->register(Landroid/os/IInterface;Ljava/lang/Object;)Z
 
-    .line 2865
     return-void
 .end method
 
 .method public removeQueueItem(Landroid/support/v4/media/MediaDescriptionCompat;)V
     .locals 1
-    .param p1, "description"    # Landroid/support/v4/media/MediaDescriptionCompat;
 
-    .line 3095
     const/16 v0, 0x1b
 
+    .line 3095
     invoke-virtual {p0, v0, p1}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(ILjava/lang/Object;)V
 
-    .line 3096
     return-void
 .end method
 
 .method public removeQueueItemAt(I)V
     .locals 1
-    .param p1, "index"    # I
 
-    .line 3100
     const/16 v0, 0x1c
 
+    .line 3100
     invoke-virtual {p0, v0, p1}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(II)V
 
-    .line 3101
     return-void
 .end method
 
@@ -1009,222 +895,194 @@
         }
     .end annotation
 
-    .line 3011
     const/16 v0, 0x11
 
+    .line 3011
     invoke-virtual {p0, v0}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(I)V
 
-    .line 3012
     return-void
 .end method
 
 .method public seekTo(J)V
-    .locals 2
-    .param p1, "pos"    # J
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    const/16 v0, 0x12
+
     .line 3016
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/16 v1, 0x12
+    invoke-virtual {p0, v0, p1}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(ILjava/lang/Object;)V
 
-    invoke-virtual {p0, v1, v0}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(ILjava/lang/Object;)V
-
-    .line 3017
     return-void
 .end method
 
 .method public sendCommand(Ljava/lang/String;Landroid/os/Bundle;Landroid/support/v4/media/session/MediaSessionCompat$ResultReceiverWrapper;)V
-    .locals 2
-    .param p1, "command"    # Ljava/lang/String;
-    .param p2, "args"    # Landroid/os/Bundle;
-    .param p3, "cb"    # Landroid/support/v4/media/session/MediaSessionCompat$ResultReceiverWrapper;
+    .locals 1
 
     .line 2839
     new-instance v0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$Command;
 
     if-nez p3, :cond_0
 
-    const/4 v1, 0x0
+    const/4 p3, 0x0
 
     goto :goto_0
 
     :cond_0
-    iget-object v1, p3, Landroid/support/v4/media/session/MediaSessionCompat$ResultReceiverWrapper;->mResultReceiver:Landroid/os/ResultReceiver;
+    iget-object p3, p3, Landroid/support/v4/media/session/MediaSessionCompat$ResultReceiverWrapper;->mResultReceiver:Landroid/os/ResultReceiver;
 
     :goto_0
-    invoke-direct {v0, p1, p2, v1}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$Command;-><init>(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/ResultReceiver;)V
+    invoke-direct {v0, p1, p2, p3}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$Command;-><init>(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/ResultReceiver;)V
 
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    invoke-virtual {p0, v1, v0}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(ILjava/lang/Object;)V
+    invoke-virtual {p0, p1, v0}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(ILjava/lang/Object;)V
 
-    .line 2841
     return-void
 .end method
 
 .method public sendCustomAction(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 1
-    .param p1, "action"    # Ljava/lang/String;
-    .param p2, "args"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .line 3057
     const/16 v0, 0x14
 
+    .line 3057
     invoke-virtual {p0, v0, p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(ILjava/lang/Object;Landroid/os/Bundle;)V
 
-    .line 3058
     return-void
 .end method
 
 .method public sendMediaButton(Landroid/view/KeyEvent;)Z
     .locals 1
-    .param p1, "mediaButton"    # Landroid/view/KeyEvent;
 
-    .line 2845
     const/16 v0, 0x15
 
+    .line 2845
     invoke-virtual {p0, v0, p1}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(ILjava/lang/Object;)V
 
-    .line 2846
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public setCaptioningEnabled(Z)V
-    .locals 2
-    .param p1, "enabled"    # Z
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
+
+    const/16 v0, 0x1d
 
     .line 3036
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/16 v1, 0x1d
+    invoke-virtual {p0, v0, p1}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(ILjava/lang/Object;)V
 
-    invoke-virtual {p0, v1, v0}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(ILjava/lang/Object;)V
-
-    .line 3037
     return-void
 .end method
 
 .method public setPlaybackSpeed(F)V
-    .locals 2
-    .param p1, "speed"    # F
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    const/16 v0, 0x20
+
     .line 3031
     invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/16 v1, 0x20
+    invoke-virtual {p0, v0, p1}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(ILjava/lang/Object;)V
 
-    invoke-virtual {p0, v1, v0}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(ILjava/lang/Object;)V
-
-    .line 3032
     return-void
 .end method
 
 .method public setRepeatMode(I)V
     .locals 1
-    .param p1, "repeatMode"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .line 3041
     const/16 v0, 0x17
 
+    .line 3041
     invoke-virtual {p0, v0, p1}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(II)V
 
-    .line 3042
     return-void
 .end method
 
 .method public setShuffleMode(I)V
     .locals 1
-    .param p1, "shuffleMode"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .line 3051
     const/16 v0, 0x1e
 
+    .line 3051
     invoke-virtual {p0, v0, p1}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(II)V
 
-    .line 3052
     return-void
 .end method
 
 .method public setShuffleModeEnabledRemoved(Z)V
     .locals 0
-    .param p1, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .line 3047
     return-void
 .end method
 
 .method public setVolumeTo(IILjava/lang/String;)V
-    .locals 1
-    .param p1, "value"    # I
-    .param p2, "flags"    # I
-    .param p3, "packageName"    # Ljava/lang/String;
+    .locals 0
 
     .line 2936
-    iget-object v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
+    iget-object p3, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
 
-    invoke-virtual {v0, p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->setVolumeTo(II)V
+    invoke-virtual {p3, p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->setVolumeTo(II)V
 
-    .line 2937
     return-void
 .end method
 
 .method public skipToQueueItem(J)V
-    .locals 2
-    .param p1, "id"    # J
+    .locals 1
+
+    const/16 v0, 0xb
 
     .line 2981
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/16 v1, 0xb
+    invoke-virtual {p0, v0, p1}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(ILjava/lang/Object;)V
 
-    invoke-virtual {p0, v1, v0}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(ILjava/lang/Object;)V
-
-    .line 2982
     return-void
 .end method
 
@@ -1236,18 +1094,16 @@
         }
     .end annotation
 
-    .line 2991
     const/16 v0, 0xd
 
+    .line 2991
     invoke-virtual {p0, v0}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->postToHandler(I)V
 
-    .line 2992
     return-void
 .end method
 
 .method public unregisterCallbackListener(Landroid/support/v4/media/session/IMediaControllerCallback;)V
     .locals 1
-    .param p1, "cb"    # Landroid/support/v4/media/session/IMediaControllerCallback;
 
     .line 2869
     iget-object v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MediaSessionStub;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
@@ -1256,6 +1112,5 @@
 
     invoke-virtual {v0, p1}, Landroid/os/RemoteCallbackList;->unregister(Landroid/os/IInterface;)Z
 
-    .line 2870
     return-void
 .end method

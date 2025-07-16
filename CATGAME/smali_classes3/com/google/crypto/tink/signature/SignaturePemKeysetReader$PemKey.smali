@@ -32,7 +32,6 @@
 
 .method synthetic constructor <init>(Lcom/google/crypto/tink/signature/SignaturePemKeysetReader$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/google/crypto/tink/signature/SignaturePemKeysetReader$1;
 
     .line 99
     invoke-direct {p0}, Lcom/google/crypto/tink/signature/SignaturePemKeysetReader$PemKey;-><init>()V

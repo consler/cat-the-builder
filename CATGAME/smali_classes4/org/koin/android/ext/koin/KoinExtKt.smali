@@ -41,8 +41,6 @@
 # direct methods
 .method public static final androidContext(Lorg/koin/core/KoinApplication;Landroid/content/Context;)Lorg/koin/core/KoinApplication;
     .locals 5
-    .param p0, "$this$androidContext"    # Lorg/koin/core/KoinApplication;
-    .param p1, "androidContext"    # Landroid/content/Context;
 
     const-string v0, "$this$androidContext"
 
@@ -129,367 +127,180 @@
 
     invoke-static {v3, v3, v4, v2, v1}, Lorg/koin/dsl/ModuleKt;->module$default(ZZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/koin/core/module/Module;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-static {v1}, Lkotlin/collections/CollectionsKt;->listOf(Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {p1}, Lkotlin/collections/CollectionsKt;->listOf(Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Lorg/koin/core/Koin;->loadModules(Ljava/util/List;)V
+    invoke-virtual {v0, p1}, Lorg/koin/core/Koin;->loadModules(Ljava/util/List;)V
 
-    .line 62
     return-object p0
 .end method
 
 .method public static final androidFileProperties(Lorg/koin/core/KoinApplication;Ljava/lang/String;)Lorg/koin/core/KoinApplication;
-    .locals 9
-    .param p0, "$this$androidFileProperties"    # Lorg/koin/core/KoinApplication;
-    .param p1, "koinPropertyFile"    # Ljava/lang/String;
+    .locals 8
 
-    const-string v0, "$this$androidFileProperties"
+    const-string v0, "[Android-Properties] loaded "
 
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v1, "[Android-Properties] no assets/"
 
-    const-string v0, "koinPropertyFile"
+    const-string v2, "[Android-Properties] error for binding properties : "
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v3, "$this$androidFileProperties"
+
+    invoke-static {p0, v3}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v3, "koinPropertyFile"
+
+    invoke-static {p1, v3}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 73
     invoke-virtual {p0}, Lorg/koin/core/KoinApplication;->getKoin()Lorg/koin/core/Koin;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {v0}, Lorg/koin/core/Koin;->createRootScope()V
+    invoke-virtual {v3}, Lorg/koin/core/Koin;->createRootScope()V
 
     .line 74
-    new-instance v0, Ljava/util/Properties;
+    new-instance v3, Ljava/util/Properties;
 
-    invoke-direct {v0}, Ljava/util/Properties;-><init>()V
+    invoke-direct {v3}, Ljava/util/Properties;-><init>()V
 
     .line 75
-    .local v0, "koinProperties":Ljava/util/Properties;
     invoke-virtual {p0}, Lorg/koin/core/KoinApplication;->getKoin()Lorg/koin/core/Koin;
 
-    move-result-object v1
+    move-result-object v4
 
-    .line 100
-    .local v1, "this_$iv":Lorg/koin/core/Koin;
-    const/4 v2, 0x0
-
-    move-object v3, v2
-
-    check-cast v3, Lorg/koin/core/qualifier/Qualifier;
-
-    .line 101
-    .local v3, "qualifier$iv":Lorg/koin/core/qualifier/Qualifier;
-    move-object v4, v2
-
-    check-cast v4, Lkotlin/jvm/functions/Function0;
-
-    .local v4, "parameters$iv":Lkotlin/jvm/functions/Function0;
     const/4 v5, 0x0
 
+    .line 100
+    move-object v6, v5
+
+    check-cast v6, Lorg/koin/core/qualifier/Qualifier;
+
+    .line 101
+    move-object v6, v5
+
+    check-cast v6, Lkotlin/jvm/functions/Function0;
+
     .line 102
-    .local v5, "$i$f$get":I
-    invoke-virtual {v1}, Lorg/koin/core/Koin;->get_scopeRegistry()Lorg/koin/core/registry/ScopeRegistry;
+    invoke-virtual {v4}, Lorg/koin/core/Koin;->get_scopeRegistry()Lorg/koin/core/registry/ScopeRegistry;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-virtual {v6}, Lorg/koin/core/registry/ScopeRegistry;->getRootScope()Lorg/koin/core/scope/Scope;
+    invoke-virtual {v4}, Lorg/koin/core/registry/ScopeRegistry;->getRootScope()Lorg/koin/core/scope/Scope;
 
-    move-result-object v6
-
-    .local v6, "this_$iv$iv":Lorg/koin/core/scope/Scope;
-    const/4 v7, 0x0
+    move-result-object v4
 
     .line 103
-    .local v7, "$i$f$get":I
-    const-class v8, Landroid/content/Context;
+    const-class v6, Landroid/content/Context;
 
-    invoke-static {v8}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
-
-    move-result-object v8
-
-    invoke-virtual {v6, v8, v3, v4}, Lorg/koin/core/scope/Scope;->get(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+    invoke-static {v6}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
 
     move-result-object v6
 
-    .line 102
-    .end local v6    # "this_$iv$iv":Lorg/koin/core/scope/Scope;
-    .end local v7    # "$i$f$get":I
-    nop
+    invoke-virtual {v4, v6, v5, v5}, Lorg/koin/core/scope/Scope;->get(Lkotlin/reflect/KClass;Lorg/koin/core/qualifier/Qualifier;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+
+    move-result-object v4
 
     .line 75
-    .end local v1    # "this_$iv":Lorg/koin/core/Koin;
-    .end local v3    # "qualifier$iv":Lorg/koin/core/qualifier/Qualifier;
-    .end local v4    # "parameters$iv":Lkotlin/jvm/functions/Function0;
-    .end local v5    # "$i$f$get":I
-    move-object v1, v6
-
-    check-cast v1, Landroid/content/Context;
-
-    .line 76
-    .local v1, "androidContext":Landroid/content/Context;
-    nop
+    check-cast v4, Landroid/content/Context;
 
     .line 77
     :try_start_0
-    invoke-virtual {v1}, Landroid/content/Context;->getAssets()Landroid/content/res/AssetManager;
+    invoke-virtual {v4}, Landroid/content/Context;->getAssets()Landroid/content/res/AssetManager;
 
-    move-result-object v3
+    move-result-object v6
 
-    if-eqz v3, :cond_0
+    if-eqz v6, :cond_0
 
-    const-string v4, ""
+    const-string v7, ""
 
-    invoke-virtual {v3, v4}, Landroid/content/res/AssetManager;->list(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {v6, v7}, Landroid/content/res/AssetManager;->list(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v6
 
-    if-eqz v3, :cond_0
+    if-eqz v6, :cond_0
 
-    invoke-static {v3, p1}, Lkotlin/collections/ArraysKt;->contains([Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v6, p1}, Lkotlin/collections/ArraysKt;->contains([Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v6
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
     goto :goto_0
 
     :cond_0
-    const/4 v3, 0x0
+    const/4 v6, 0x0
 
-    .line 78
-    .local v3, "hasFile":Z
     :goto_0
-    if-eqz v3, :cond_1
-
-    .line 79
-    nop
+    if-eqz v6, :cond_1
 
     .line 80
     :try_start_1
-    invoke-virtual {v1}, Landroid/content/Context;->getAssets()Landroid/content/res/AssetManager;
+    invoke-virtual {v4}, Landroid/content/Context;->getAssets()Landroid/content/res/AssetManager;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-virtual {v4, p1}, Landroid/content/res/AssetManager;->open(Ljava/lang/String;)Ljava/io/InputStream;
+    invoke-virtual {v1, p1}, Landroid/content/res/AssetManager;->open(Ljava/lang/String;)Ljava/io/InputStream;
 
-    move-result-object v4
+    move-result-object v1
 
-    check-cast v4, Ljava/io/Closeable;
+    check-cast v1, Ljava/io/Closeable;
 
-    check-cast v2, Ljava/lang/Throwable;
+    move-object v4, v5
+
+    check-cast v4, Ljava/lang/Throwable;
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     :try_start_2
-    move-object v5, v4
+    move-object v4, v1
 
-    check-cast v5, Ljava/io/InputStream;
+    check-cast v4, Ljava/io/InputStream;
 
-    .local v5, "it":Ljava/io/InputStream;
-    const/4 v6, 0x0
+    invoke-virtual {v3, v4}, Ljava/util/Properties;->load(Ljava/io/InputStream;)V
 
-    .local v6, "$i$a$-use-KoinExtKt$androidFileProperties$1":I
-    invoke-virtual {v0, v5}, Ljava/util/Properties;->load(Ljava/io/InputStream;)V
-
-    .end local v5    # "it":Ljava/io/InputStream;
-    .end local v6    # "$i$a$-use-KoinExtKt$androidFileProperties$1":I
-    sget-object v5, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    sget-object v4, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     :try_start_3
-    invoke-static {v4, v2}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
-
-    .line 81
-    nop
+    invoke-static {v1, v5}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     .line 82
     invoke-virtual {p0}, Lorg/koin/core/KoinApplication;->getKoin()Lorg/koin/core/Koin;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Lorg/koin/core/Koin;->get_propertyRegistry()Lorg/koin/core/registry/PropertyRegistry;
+    invoke-virtual {v1}, Lorg/koin/core/Koin;->get_propertyRegistry()Lorg/koin/core/registry/PropertyRegistry;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2, v0}, Lorg/koin/core/registry/PropertyRegistry;->saveProperties(Ljava/util/Properties;)V
+    invoke-virtual {v1, v3}, Lorg/koin/core/registry/PropertyRegistry;->saveProperties(Ljava/util/Properties;)V
 
     .line 81
-    sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 83
-    .local v2, "nb":Lkotlin/Unit;
     invoke-virtual {p0}, Lorg/koin/core/KoinApplication;->getKoin()Lorg/koin/core/Koin;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v4}, Lorg/koin/core/Koin;->get_logger()Lorg/koin/core/logger/Logger;
+    invoke-virtual {v3}, Lorg/koin/core/Koin;->get_logger()Lorg/koin/core/logger/Logger;
 
-    move-result-object v4
-
-    sget-object v5, Lorg/koin/core/logger/Level;->INFO:Lorg/koin/core/logger/Level;
-
-    invoke-virtual {v4, v5}, Lorg/koin/core/logger/Logger;->isAt(Lorg/koin/core/logger/Level;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    .line 84
-    invoke-virtual {p0}, Lorg/koin/core/KoinApplication;->getKoin()Lorg/koin/core/Koin;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Lorg/koin/core/Koin;->get_logger()Lorg/koin/core/logger/Logger;
-
-    move-result-object v4
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "[Android-Properties] loaded "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v6, " properties from assets/koin.properties"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Lorg/koin/core/logger/Logger;->info(Ljava/lang/String;)V
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
-
-    .end local v2    # "nb":Lkotlin/Unit;
-    goto :goto_1
-
-    .line 80
-    :catchall_0
-    move-exception v2
-
-    .end local v0    # "koinProperties":Ljava/util/Properties;
-    .end local v1    # "androidContext":Landroid/content/Context;
-    .end local v3    # "hasFile":Z
-    .end local p0    # "$this$androidFileProperties":Lorg/koin/core/KoinApplication;
-    .end local p1    # "koinPropertyFile":Ljava/lang/String;
-    :try_start_4
-    throw v2
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
-
-    .restart local v0    # "koinProperties":Ljava/util/Properties;
-    .restart local v1    # "androidContext":Landroid/content/Context;
-    .restart local v3    # "hasFile":Z
-    .restart local p0    # "$this$androidFileProperties":Lorg/koin/core/KoinApplication;
-    .restart local p1    # "koinPropertyFile":Ljava/lang/String;
-    :catchall_1
-    move-exception v5
-
-    :try_start_5
-    invoke-static {v4, v2}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
-
-    .end local v0    # "koinProperties":Ljava/util/Properties;
-    .end local v1    # "androidContext":Landroid/content/Context;
-    .end local v3    # "hasFile":Z
-    .end local p0    # "$this$androidFileProperties":Lorg/koin/core/KoinApplication;
-    .end local p1    # "koinPropertyFile":Ljava/lang/String;
-    throw v5
-    :try_end_5
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
-
-    .line 86
-    .restart local v0    # "koinProperties":Ljava/util/Properties;
-    .restart local v1    # "androidContext":Landroid/content/Context;
-    .restart local v3    # "hasFile":Z
-    .restart local p0    # "$this$androidFileProperties":Lorg/koin/core/KoinApplication;
-    .restart local p1    # "koinPropertyFile":Ljava/lang/String;
-    :catch_0
-    move-exception v2
-
-    .line 87
-    .local v2, "e":Ljava/lang/Exception;
-    :try_start_6
-    invoke-virtual {p0}, Lorg/koin/core/KoinApplication;->getKoin()Lorg/koin/core/Koin;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Lorg/koin/core/Koin;->get_logger()Lorg/koin/core/logger/Logger;
-
-    move-result-object v4
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "[Android-Properties] error for binding properties : "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Lorg/koin/core/logger/Logger;->error(Ljava/lang/String;)V
-
-    .line 88
-    .end local v2    # "e":Ljava/lang/Exception;
-    goto :goto_1
-
-    .line 90
-    :cond_1
-    invoke-virtual {p0}, Lorg/koin/core/KoinApplication;->getKoin()Lorg/koin/core/Koin;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lorg/koin/core/Koin;->get_logger()Lorg/koin/core/logger/Logger;
-
-    move-result-object v2
+    move-result-object v3
 
     sget-object v4, Lorg/koin/core/logger/Level;->INFO:Lorg/koin/core/logger/Level;
 
-    invoke-virtual {v2, v4}, Lorg/koin/core/logger/Logger;->isAt(Lorg/koin/core/logger/Level;)Z
+    invoke-virtual {v3, v4}, Lorg/koin/core/logger/Logger;->isAt(Lorg/koin/core/logger/Level;)Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_2
+    if-eqz v3, :cond_2
 
-    .line 91
-    invoke-virtual {p0}, Lorg/koin/core/KoinApplication;->getKoin()Lorg/koin/core/Koin;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lorg/koin/core/Koin;->get_logger()Lorg/koin/core/logger/Logger;
-
-    move-result-object v2
-
-    const-string v4, "[Android-Properties] no assets/koin.properties file to load"
-
-    invoke-virtual {v2, v4}, Lorg/koin/core/logger/Logger;->info(Ljava/lang/String;)V
-    :try_end_6
-    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_1
-
-    .line 93
-    .end local v3    # "hasFile":Z
-    :cond_2
-    goto :goto_1
-
-    .line 94
-    :catch_1
-    move-exception v2
-
-    .line 95
-    .restart local v2    # "e":Ljava/lang/Exception;
+    .line 84
     invoke-virtual {p0}, Lorg/koin/core/KoinApplication;->getKoin()Lorg/koin/core/Koin;
 
     move-result-object v3
@@ -500,27 +311,171 @@
 
     new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    const-string v5, "[Android-Properties] error while loading properties from assets/koin.properties : "
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    const-string v1, " properties from assets/"
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v3, v4}, Lorg/koin/core/logger/Logger;->error(Ljava/lang/String;)V
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 96
-    .end local v2    # "e":Ljava/lang/Exception;
-    :cond_3
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v3, v0}, Lorg/koin/core/logger/Logger;->info(Ljava/lang/String;)V
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v0
+
+    .line 80
+    :try_start_4
+    throw v0
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+
+    :catchall_1
+    move-exception v3
+
+    :try_start_5
+    invoke-static {v1, v0}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+
+    throw v3
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
+
+    :catch_0
+    move-exception v0
+
+    .line 87
+    :try_start_6
+    invoke-virtual {p0}, Lorg/koin/core/KoinApplication;->getKoin()Lorg/koin/core/Koin;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lorg/koin/core/Koin;->get_logger()Lorg/koin/core/logger/Logger;
+
+    move-result-object v1
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Lorg/koin/core/logger/Logger;->error(Ljava/lang/String;)V
+
+    goto :goto_1
+
+    .line 90
+    :cond_1
+    invoke-virtual {p0}, Lorg/koin/core/KoinApplication;->getKoin()Lorg/koin/core/Koin;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lorg/koin/core/Koin;->get_logger()Lorg/koin/core/logger/Logger;
+
+    move-result-object v0
+
+    sget-object v2, Lorg/koin/core/logger/Level;->INFO:Lorg/koin/core/logger/Level;
+
+    invoke-virtual {v0, v2}, Lorg/koin/core/logger/Logger;->isAt(Lorg/koin/core/logger/Level;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 91
+    invoke-virtual {p0}, Lorg/koin/core/KoinApplication;->getKoin()Lorg/koin/core/Koin;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lorg/koin/core/Koin;->get_logger()Lorg/koin/core/logger/Logger;
+
+    move-result-object v0
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, " file to load"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lorg/koin/core/logger/Logger;->info(Ljava/lang/String;)V
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_1
+
+    goto :goto_1
+
+    :catch_1
+    move-exception v0
+
+    .line 95
+    invoke-virtual {p0}, Lorg/koin/core/KoinApplication;->getKoin()Lorg/koin/core/Koin;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lorg/koin/core/Koin;->get_logger()Lorg/koin/core/logger/Logger;
+
+    move-result-object v1
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    const-string v3, "[Android-Properties] error while loading properties from assets/"
+
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    const-string v2, " : "
+
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {v1, p1}, Lorg/koin/core/logger/Logger;->error(Ljava/lang/String;)V
+
+    :cond_2
     :goto_1
-    nop
-
-    .line 97
     return-object p0
 .end method
 
@@ -531,9 +486,9 @@
 
     if-eqz p2, :cond_0
 
-    .line 71
     const-string p1, "koin.properties"
 
+    .line 71
     :cond_0
     invoke-static {p0, p1}, Lorg/koin/android/ext/koin/KoinExtKt;->androidFileProperties(Lorg/koin/core/KoinApplication;Ljava/lang/String;)Lorg/koin/core/KoinApplication;
 
@@ -544,8 +499,6 @@
 
 .method public static final androidLogger(Lorg/koin/core/KoinApplication;Lorg/koin/core/logger/Level;)Lorg/koin/core/KoinApplication;
     .locals 2
-    .param p0, "$this$androidLogger"    # Lorg/koin/core/KoinApplication;
-    .param p1, "level"    # Lorg/koin/core/logger/Level;
 
     const-string v0, "$this$androidLogger"
 
@@ -568,7 +521,6 @@
 
     invoke-virtual {v0, v1}, Lorg/koin/core/Koin;->set_logger(Lorg/koin/core/logger/Logger;)V
 
-    .line 41
     return-object p0
 .end method
 

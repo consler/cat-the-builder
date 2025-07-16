@@ -40,10 +40,6 @@
 # virtual methods
 .method public update([BLjava/lang/Object;Ljava/security/MessageDigest;)V
     .locals 0
-    .param p1, "keyBytes"    # [B
-    .param p2, "value"    # Ljava/lang/Object;
-    .param p3, "messageDigest"    # Ljava/security/MessageDigest;
 
-    .line 30
     return-void
 .end method

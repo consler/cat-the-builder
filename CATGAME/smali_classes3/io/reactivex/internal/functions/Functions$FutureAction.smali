@@ -40,13 +40,11 @@
     .end annotation
 
     .line 155
-    .local p1, "future":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<*>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 156
     iput-object p1, p0, Lio/reactivex/internal/functions/Functions$FutureAction;->future:Ljava/util/concurrent/Future;
 
-    .line 157
     return-void
 .end method
 
@@ -65,6 +63,5 @@
 
     invoke-interface {v0}, Ljava/util/concurrent/Future;->get()Ljava/lang/Object;
 
-    .line 162
     return-void
 .end method

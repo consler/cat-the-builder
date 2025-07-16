@@ -31,137 +31,108 @@
 # virtual methods
 .method public onActivityCreated(Landroid/app/Activity;Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "activity"    # Landroid/app/Activity;
-    .param p2, "bundle"    # Landroid/os/Bundle;
 
-    .line 165
     return-void
 .end method
 
 .method public onActivityDestroyed(Landroid/app/Activity;)V
     .locals 0
-    .param p1, "activity"    # Landroid/app/Activity;
 
-    .line 221
     return-void
 .end method
 
 .method public onActivityPaused(Landroid/app/Activity;)V
     .locals 0
-    .param p1, "activity"    # Landroid/app/Activity;
 
-    .line 198
     return-void
 .end method
 
 .method public onActivityPostCreated(Landroid/app/Activity;Landroid/os/Bundle;)V
-    .locals 1
-    .param p1, "activity"    # Landroid/app/Activity;
-    .param p2, "savedInstanceState"    # Landroid/os/Bundle;
+    .locals 0
 
     .line 170
-    sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_CREATE:Landroidx/lifecycle/Lifecycle$Event;
+    sget-object p2, Landroidx/lifecycle/Lifecycle$Event;->ON_CREATE:Landroidx/lifecycle/Lifecycle$Event;
 
-    invoke-static {p1, v0}, Landroidx/lifecycle/ReportFragment;->dispatch(Landroid/app/Activity;Landroidx/lifecycle/Lifecycle$Event;)V
+    invoke-static {p1, p2}, Landroidx/lifecycle/ReportFragment;->dispatch(Landroid/app/Activity;Landroidx/lifecycle/Lifecycle$Event;)V
 
-    .line 171
     return-void
 .end method
 
 .method public onActivityPostResumed(Landroid/app/Activity;)V
     .locals 1
-    .param p1, "activity"    # Landroid/app/Activity;
 
     .line 188
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_RESUME:Landroidx/lifecycle/Lifecycle$Event;
 
     invoke-static {p1, v0}, Landroidx/lifecycle/ReportFragment;->dispatch(Landroid/app/Activity;Landroidx/lifecycle/Lifecycle$Event;)V
 
-    .line 189
     return-void
 .end method
 
 .method public onActivityPostStarted(Landroid/app/Activity;)V
     .locals 1
-    .param p1, "activity"    # Landroid/app/Activity;
 
     .line 179
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_START:Landroidx/lifecycle/Lifecycle$Event;
 
     invoke-static {p1, v0}, Landroidx/lifecycle/ReportFragment;->dispatch(Landroid/app/Activity;Landroidx/lifecycle/Lifecycle$Event;)V
 
-    .line 180
     return-void
 .end method
 
 .method public onActivityPreDestroyed(Landroid/app/Activity;)V
     .locals 1
-    .param p1, "activity"    # Landroid/app/Activity;
 
     .line 216
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_DESTROY:Landroidx/lifecycle/Lifecycle$Event;
 
     invoke-static {p1, v0}, Landroidx/lifecycle/ReportFragment;->dispatch(Landroid/app/Activity;Landroidx/lifecycle/Lifecycle$Event;)V
 
-    .line 217
     return-void
 .end method
 
 .method public onActivityPrePaused(Landroid/app/Activity;)V
     .locals 1
-    .param p1, "activity"    # Landroid/app/Activity;
 
     .line 193
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_PAUSE:Landroidx/lifecycle/Lifecycle$Event;
 
     invoke-static {p1, v0}, Landroidx/lifecycle/ReportFragment;->dispatch(Landroid/app/Activity;Landroidx/lifecycle/Lifecycle$Event;)V
 
-    .line 194
     return-void
 .end method
 
 .method public onActivityPreStopped(Landroid/app/Activity;)V
     .locals 1
-    .param p1, "activity"    # Landroid/app/Activity;
 
     .line 202
     sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_STOP:Landroidx/lifecycle/Lifecycle$Event;
 
     invoke-static {p1, v0}, Landroidx/lifecycle/ReportFragment;->dispatch(Landroid/app/Activity;Landroidx/lifecycle/Lifecycle$Event;)V
 
-    .line 203
     return-void
 .end method
 
 .method public onActivityResumed(Landroid/app/Activity;)V
     .locals 0
-    .param p1, "activity"    # Landroid/app/Activity;
 
-    .line 184
     return-void
 .end method
 
 .method public onActivitySaveInstanceState(Landroid/app/Activity;Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "activity"    # Landroid/app/Activity;
-    .param p2, "bundle"    # Landroid/os/Bundle;
 
-    .line 212
     return-void
 .end method
 
 .method public onActivityStarted(Landroid/app/Activity;)V
     .locals 0
-    .param p1, "activity"    # Landroid/app/Activity;
 
-    .line 175
     return-void
 .end method
 
 .method public onActivityStopped(Landroid/app/Activity;)V
     .locals 0
-    .param p1, "activity"    # Landroid/app/Activity;
 
-    .line 207
     return-void
 .end method

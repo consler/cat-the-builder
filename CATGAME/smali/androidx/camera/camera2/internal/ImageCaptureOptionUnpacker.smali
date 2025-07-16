@@ -43,8 +43,6 @@
 
 .method private applyPixelHdrPlusChangeForCaptureMode(ILandroidx/camera/camera2/impl/Camera2ImplConfig$Builder;)V
     .locals 2
-    .param p1, "captureMode"    # I
-    .param p2, "builder"    # Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
 
     .line 71
     iget-object v0, p0, Landroidx/camera/camera2/internal/ImageCaptureOptionUnpacker;->mDeviceProperties:Landroidx/camera/core/impl/DeviceProperties;
@@ -103,7 +101,6 @@
 
     if-lt v0, v1, :cond_3
 
-    .line 75
     const/4 v0, 0x1
 
     if-eqz p1, :cond_2
@@ -114,23 +111,23 @@
 
     .line 83
     :cond_1
-    sget-object v0, Landroid/hardware/camera2/CaptureRequest;->CONTROL_ENABLE_ZSL:Landroid/hardware/camera2/CaptureRequest$Key;
+    sget-object p1, Landroid/hardware/camera2/CaptureRequest;->CONTROL_ENABLE_ZSL:Landroid/hardware/camera2/CaptureRequest$Key;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     .line 84
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 83
-    invoke-virtual {p2, v0, v1}, Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;->setCaptureRequestOption(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
+    invoke-virtual {p2, p1, v0}, Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;->setCaptureRequestOption(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
 
     goto :goto_0
 
     .line 78
     :cond_2
-    sget-object v1, Landroid/hardware/camera2/CaptureRequest;->CONTROL_ENABLE_ZSL:Landroid/hardware/camera2/CaptureRequest$Key;
+    sget-object p1, Landroid/hardware/camera2/CaptureRequest;->CONTROL_ENABLE_ZSL:Landroid/hardware/camera2/CaptureRequest$Key;
 
     .line 79
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -138,9 +135,8 @@
     move-result-object v0
 
     .line 78
-    invoke-virtual {p2, v1, v0}, Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;->setCaptureRequestOption(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
+    invoke-virtual {p2, p1, v0}, Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;->setCaptureRequestOption(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
 
-    .line 89
     :cond_3
     :goto_0
     return-void
@@ -150,18 +146,15 @@
 # virtual methods
 .method setDeviceProperty(Landroidx/camera/core/impl/DeviceProperties;)V
     .locals 0
-    .param p1, "deviceProperties"    # Landroidx/camera/core/impl/DeviceProperties;
 
     .line 63
     iput-object p1, p0, Landroidx/camera/camera2/internal/ImageCaptureOptionUnpacker;->mDeviceProperties:Landroidx/camera/core/impl/DeviceProperties;
 
-    .line 64
     return-void
 .end method
 
 .method public unpack(Landroidx/camera/core/impl/UseCaseConfig;Landroidx/camera/core/impl/CaptureConfig$Builder;)V
-    .locals 3
-    .param p2, "builder"    # Landroidx/camera/core/impl/CaptureConfig$Builder;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -173,7 +166,6 @@
     .end annotation
 
     .line 45
-    .local p1, "config":Landroidx/camera/core/impl/UseCaseConfig;, "Landroidx/camera/core/impl/UseCaseConfig<*>;"
     invoke-super {p0, p1, p2}, Landroidx/camera/camera2/internal/Camera2CaptureOptionUnpacker;->unpack(Landroidx/camera/core/impl/UseCaseConfig;Landroidx/camera/core/impl/CaptureConfig$Builder;)V
 
     .line 47
@@ -182,51 +174,44 @@
     if-eqz v0, :cond_1
 
     .line 50
-    move-object v0, p1
-
-    check-cast v0, Landroidx/camera/core/impl/ImageCaptureConfig;
+    check-cast p1, Landroidx/camera/core/impl/ImageCaptureConfig;
 
     .line 52
-    .local v0, "imageCaptureConfig":Landroidx/camera/core/impl/ImageCaptureConfig;
-    new-instance v1, Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
+    new-instance v0, Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
 
-    invoke-direct {v1}, Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;-><init>()V
+    invoke-direct {v0}, Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;-><init>()V
 
     .line 54
-    .local v1, "camera2ConfigBuilder":Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
-    invoke-virtual {v0}, Landroidx/camera/core/impl/ImageCaptureConfig;->hasCaptureMode()Z
+    invoke-virtual {p1}, Landroidx/camera/core/impl/ImageCaptureConfig;->hasCaptureMode()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
     .line 55
-    invoke-virtual {v0}, Landroidx/camera/core/impl/ImageCaptureConfig;->getCaptureMode()I
+    invoke-virtual {p1}, Landroidx/camera/core/impl/ImageCaptureConfig;->getCaptureMode()I
 
-    move-result v2
+    move-result p1
 
-    invoke-direct {p0, v2, v1}, Landroidx/camera/camera2/internal/ImageCaptureOptionUnpacker;->applyPixelHdrPlusChangeForCaptureMode(ILandroidx/camera/camera2/impl/Camera2ImplConfig$Builder;)V
+    invoke-direct {p0, p1, v0}, Landroidx/camera/camera2/internal/ImageCaptureOptionUnpacker;->applyPixelHdrPlusChangeForCaptureMode(ILandroidx/camera/camera2/impl/Camera2ImplConfig$Builder;)V
 
     .line 59
     :cond_0
-    invoke-virtual {v1}, Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;->build()Landroidx/camera/camera2/impl/Camera2ImplConfig;
+    invoke-virtual {v0}, Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;->build()Landroidx/camera/camera2/impl/Camera2ImplConfig;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {p2, v2}, Landroidx/camera/core/impl/CaptureConfig$Builder;->addImplementationOptions(Landroidx/camera/core/impl/Config;)V
+    invoke-virtual {p2, p1}, Landroidx/camera/core/impl/CaptureConfig$Builder;->addImplementationOptions(Landroidx/camera/core/impl/Config;)V
 
-    .line 60
     return-void
 
     .line 48
-    .end local v0    # "imageCaptureConfig":Landroidx/camera/core/impl/ImageCaptureConfig;
-    .end local v1    # "camera2ConfigBuilder":Landroidx/camera/camera2/impl/Camera2ImplConfig$Builder;
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "config is not ImageCaptureConfig"
+    const-string p2, "config is not ImageCaptureConfig"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

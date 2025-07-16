@@ -21,29 +21,24 @@
     .line 38
     invoke-direct {p0}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ModelInfluencer;-><init>()V
 
-    .line 39
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ModelInfluencer$Single;)V
     .locals 0
-    .param p1, "influencer"    # Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ModelInfluencer$Single;
 
     .line 42
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ModelInfluencer;-><init>(Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ModelInfluencer;)V
 
-    .line 43
     return-void
 .end method
 
 .method public varargs constructor <init>([Lcom/badlogic/gdx/graphics/g3d/Model;)V
     .locals 0
-    .param p1, "models"    # [Lcom/badlogic/gdx/graphics/g3d/Model;
 
     .line 46
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ModelInfluencer;-><init>([Lcom/badlogic/gdx/graphics/g3d/Model;)V
 
-    .line 47
     return-void
 .end method
 
@@ -84,19 +79,16 @@
     check-cast v0, Lcom/badlogic/gdx/graphics/g3d/Model;
 
     .line 52
-    .local v0, "first":Lcom/badlogic/gdx/graphics/g3d/Model;
-    const/4 v1, 0x0
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ModelInfluencer$Single;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
 
-    .local v1, "i":I
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ModelInfluencer$Single;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
+    iget-object v1, v1, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->emitter:Lcom/badlogic/gdx/graphics/g3d/particles/emitters/Emitter;
 
-    iget-object v2, v2, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->emitter:Lcom/badlogic/gdx/graphics/g3d/particles/emitters/Emitter;
+    iget v1, v1, Lcom/badlogic/gdx/graphics/g3d/particles/emitters/Emitter;->maxParticleCount:I
 
-    iget v2, v2, Lcom/badlogic/gdx/graphics/g3d/particles/emitters/Emitter;->maxParticleCount:I
+    const/4 v2, 0x0
 
-    .local v2, "c":I
     :goto_0
-    if-ge v1, v2, :cond_0
+    if-ge v2, v1, :cond_0
 
     .line 53
     iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ModelInfluencer$Single;->modelChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$ObjectChannel;
@@ -109,16 +101,12 @@
 
     invoke-direct {v4, v0}, Lcom/badlogic/gdx/graphics/g3d/ModelInstance;-><init>(Lcom/badlogic/gdx/graphics/g3d/Model;)V
 
-    aput-object v4, v3, v1
+    aput-object v4, v3, v2
 
-    .line 52
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 55
-    .end local v1    # "i":I
-    .end local v2    # "c":I
     :cond_0
     return-void
 .end method

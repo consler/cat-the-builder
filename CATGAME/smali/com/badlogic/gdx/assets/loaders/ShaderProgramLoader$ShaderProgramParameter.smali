@@ -41,9 +41,9 @@
     .line 91
     invoke-direct {p0}, Lcom/badlogic/gdx/assets/AssetLoaderParameters;-><init>()V
 
-    .line 99
     const/4 v0, 0x1
 
+    .line 99
     iput-boolean v0, p0, Lcom/badlogic/gdx/assets/loaders/ShaderProgramLoader$ShaderProgramParameter;->logOnCompileFailure:Z
 
     return-void

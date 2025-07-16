@@ -13,7 +13,6 @@
 # direct methods
 .method public constructor <init>(Lorg/apache/commons/collections/PriorityQueue;)V
     .locals 0
-    .param p1, "priorityQueue"    # Lorg/apache/commons/collections/PriorityQueue;
 
     .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -21,7 +20,6 @@
     .line 46
     iput-object p1, p0, Lorg/apache/commons/collections/SynchronizedPriorityQueue;->m_priorityQueue:Lorg/apache/commons/collections/PriorityQueue;
 
-    .line 47
     return-void
 .end method
 
@@ -45,8 +43,6 @@
 
     return-void
 
-    .line 52
-    .end local p0    # "this":Lorg/apache/commons/collections/SynchronizedPriorityQueue;
     :catchall_0
     move-exception v0
 
@@ -57,7 +53,6 @@
 
 .method public declared-synchronized insert(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "element"    # Ljava/lang/Object;
 
     monitor-enter p0
 
@@ -74,9 +69,6 @@
 
     return-void
 
-    .line 70
-    .end local p0    # "this":Lorg/apache/commons/collections/SynchronizedPriorityQueue;
-    .end local p1    # "element":Ljava/lang/Object;
     :catchall_0
     move-exception p1
 
@@ -104,8 +96,6 @@
 
     return v0
 
-    .line 62
-    .end local p0    # "this":Lorg/apache/commons/collections/SynchronizedPriorityQueue;
     :catchall_0
     move-exception v0
 
@@ -138,8 +128,6 @@
 
     return-object v0
 
-    .line 81
-    .end local p0    # "this":Lorg/apache/commons/collections/SynchronizedPriorityQueue;
     :catchall_0
     move-exception v0
 
@@ -172,8 +160,6 @@
 
     return-object v0
 
-    .line 91
-    .end local p0    # "this":Lorg/apache/commons/collections/SynchronizedPriorityQueue;
     :catchall_0
     move-exception v0
 
@@ -201,8 +187,6 @@
 
     return-object v0
 
-    .line 100
-    .end local p0    # "this":Lorg/apache/commons/collections/SynchronizedPriorityQueue;
     :catchall_0
     move-exception v0
 

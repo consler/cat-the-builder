@@ -21,16 +21,15 @@
 # virtual methods
 .method protected delegate(F)Z
     .locals 2
-    .param p1, "delta"    # F
 
     .line 25
     iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/TimeScaleAction;->action:Lcom/badlogic/gdx/scenes/scene2d/Action;
 
     if-nez v0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
     .line 26
     :cond_0
@@ -38,13 +37,13 @@
 
     iget v1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/TimeScaleAction;->scale:F
 
-    mul-float/2addr v1, p1
+    mul-float/2addr p1, v1
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/scenes/scene2d/Action;->act(F)Z
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/scenes/scene2d/Action;->act(F)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public getScale()F
@@ -58,11 +57,9 @@
 
 .method public setScale(F)V
     .locals 0
-    .param p1, "scale"    # F
 
     .line 34
     iput p1, p0, Lcom/badlogic/gdx/scenes/scene2d/actions/TimeScaleAction;->scale:F
 
-    .line 35
     return-void
 .end method

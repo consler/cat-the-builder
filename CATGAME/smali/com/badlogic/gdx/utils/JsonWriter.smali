@@ -37,7 +37,6 @@
 # direct methods
 .method public constructor <init>(Ljava/io/Writer;)V
     .locals 1
-    .param p1, "writer"    # Ljava/io/Writer;
 
     .line 35
     invoke-direct {p0}, Ljava/io/Writer;-><init>()V
@@ -54,15 +53,14 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/utils/JsonWriter;->outputType:Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
 
-    .line 33
     const/4 v0, 0x0
 
+    .line 33
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/JsonWriter;->quoteLongValues:Z
 
     .line 36
     iput-object p1, p0, Lcom/badlogic/gdx/utils/JsonWriter;->writer:Ljava/io/Writer;
 
-    .line 37
     return-void
 .end method
 
@@ -119,12 +117,11 @@
 
     if-eqz v0, :cond_3
 
-    .line 108
     const/4 v0, 0x0
 
+    .line 108
     iput-boolean v0, p0, Lcom/badlogic/gdx/utils/JsonWriter;->named:Z
 
-    .line 110
     :goto_0
     return-void
 
@@ -165,13 +162,11 @@
 
     invoke-virtual {v0, v1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 75
     return-object p0
 .end method
 
 .method public array(Ljava/lang/String;)Lcom/badlogic/gdx/utils/JsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -181,13 +176,13 @@
     .line 117
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/JsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/JsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/JsonWriter;->array()Lcom/badlogic/gdx/utils/JsonWriter;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/JsonWriter;->array()Lcom/badlogic/gdx/utils/JsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public close()V
@@ -217,7 +212,6 @@
 
     invoke-virtual {v0}, Ljava/io/Writer;->close()V
 
-    .line 148
     return-void
 .end method
 
@@ -234,7 +228,6 @@
 
     invoke-virtual {v0}, Ljava/io/Writer;->flush()V
 
-    .line 142
     return-void
 .end method
 
@@ -249,7 +242,6 @@
 
 .method public json(Ljava/lang/String;)Lcom/badlogic/gdx/utils/JsonWriter;
     .locals 1
-    .param p1, "json"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -264,14 +256,11 @@
 
     invoke-virtual {v0, p1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    .line 96
     return-object p0
 .end method
 
 .method public json(Ljava/lang/String;Ljava/lang/String;)Lcom/badlogic/gdx/utils/JsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "json"    # Ljava/lang/String;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -281,18 +270,17 @@
     .line 126
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/JsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/JsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/utils/JsonWriter;->json(Ljava/lang/String;)Lcom/badlogic/gdx/utils/JsonWriter;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/utils/JsonWriter;->json(Ljava/lang/String;)Lcom/badlogic/gdx/utils/JsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/JsonWriter;
     .locals 3
-    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -340,32 +328,31 @@
 
     invoke-virtual {v2, p1}, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;->quoteName(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v0, v2}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {v0, p1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
     .line 61
-    iget-object v0, p0, Lcom/badlogic/gdx/utils/JsonWriter;->writer:Ljava/io/Writer;
+    iget-object p1, p0, Lcom/badlogic/gdx/utils/JsonWriter;->writer:Ljava/io/Writer;
 
-    const/16 v2, 0x3a
+    const/16 v0, 0x3a
 
-    invoke-virtual {v0, v2}, Ljava/io/Writer;->write(I)V
+    invoke-virtual {p1, v0}, Ljava/io/Writer;->write(I)V
 
     .line 62
     iput-boolean v1, p0, Lcom/badlogic/gdx/utils/JsonWriter;->named:Z
 
-    .line 63
     return-object p0
 
     .line 55
     :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Current item must be an object."
+    const-string v0, "Current item must be an object."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public object()Lcom/badlogic/gdx/utils/JsonWriter;
@@ -392,13 +379,11 @@
 
     invoke-virtual {v0, v1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 69
     return-object p0
 .end method
 
 .method public object(Ljava/lang/String;)Lcom/badlogic/gdx/utils/JsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -408,13 +393,13 @@
     .line 113
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/JsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/JsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/utils/JsonWriter;->object()Lcom/badlogic/gdx/utils/JsonWriter;
+    invoke-virtual {p1}, Lcom/badlogic/gdx/utils/JsonWriter;->object()Lcom/badlogic/gdx/utils/JsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public pop()Lcom/badlogic/gdx/utils/JsonWriter;
@@ -464,7 +449,6 @@
     :goto_0
     iput-object v0, p0, Lcom/badlogic/gdx/utils/JsonWriter;->current:Lcom/badlogic/gdx/utils/JsonWriter$JsonObject;
 
-    .line 133
     return-object p0
 
     .line 130
@@ -479,9 +463,7 @@
 .end method
 
 .method public set(Ljava/lang/String;Ljava/lang/Object;)Lcom/badlogic/gdx/utils/JsonWriter;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/Object;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -491,40 +473,35 @@
     .line 121
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/utils/JsonWriter;->name(Ljava/lang/String;)Lcom/badlogic/gdx/utils/JsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Lcom/badlogic/gdx/utils/JsonWriter;->value(Ljava/lang/Object;)Lcom/badlogic/gdx/utils/JsonWriter;
+    invoke-virtual {p1, p2}, Lcom/badlogic/gdx/utils/JsonWriter;->value(Ljava/lang/Object;)Lcom/badlogic/gdx/utils/JsonWriter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public setOutputType(Lcom/badlogic/gdx/utils/JsonWriter$OutputType;)V
     .locals 0
-    .param p1, "outputType"    # Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
 
     .line 45
     iput-object p1, p0, Lcom/badlogic/gdx/utils/JsonWriter;->outputType:Lcom/badlogic/gdx/utils/JsonWriter$OutputType;
 
-    .line 46
     return-void
 .end method
 
 .method public setQuoteLongValues(Z)V
     .locals 0
-    .param p1, "quoteLongValues"    # Z
 
     .line 51
     iput-boolean p1, p0, Lcom/badlogic/gdx/utils/JsonWriter;->quoteLongValues:Z
 
-    .line 52
     return-void
 .end method
 
 .method public value(Ljava/lang/Object;)Lcom/badlogic/gdx/utils/JsonWriter;
     .locals 7
-    .param p1, "value"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -572,30 +549,26 @@
     check-cast v0, Ljava/lang/Number;
 
     .line 84
-    .local v0, "number":Ljava/lang/Number;
     invoke-virtual {v0}, Ljava/lang/Number;->longValue()J
 
     move-result-wide v1
 
     .line 85
-    .local v1, "longValue":J
     invoke-virtual {v0}, Ljava/lang/Number;->doubleValue()D
 
     move-result-wide v3
 
     long-to-double v5, v1
 
-    cmpl-double v3, v3, v5
+    cmpl-double v0, v3, v5
 
-    if-nez v3, :cond_2
+    if-nez v0, :cond_2
 
     invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object p1
 
     .line 87
-    .end local v0    # "number":Ljava/lang/Number;
-    .end local v1    # "longValue":J
     :cond_2
     :goto_0
     invoke-direct {p0}, Lcom/badlogic/gdx/utils/JsonWriter;->requireCommaOrName()V
@@ -607,19 +580,15 @@
 
     invoke-virtual {v1, p1}, Lcom/badlogic/gdx/utils/JsonWriter$OutputType;->quoteValue(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
+    invoke-virtual {v0, p1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    .line 89
     return-object p0
 .end method
 
 .method public write([CII)V
     .locals 1
-    .param p1, "cbuf"    # [C
-    .param p2, "off"    # I
-    .param p3, "len"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -631,6 +600,5 @@
 
     invoke-virtual {v0, p1, p2, p3}, Ljava/io/Writer;->write([CII)V
 
-    .line 138
     return-void
 .end method

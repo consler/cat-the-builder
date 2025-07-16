@@ -62,9 +62,6 @@
     .end annotation
 
     .line 40
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeFlatMapSingleElement;, "Lio/reactivex/internal/operators/maybe/MaybeFlatMapSingleElement<TT;TR;>;"
-    .local p1, "source":Lio/reactivex/MaybeSource;, "Lio/reactivex/MaybeSource<TT;>;"
-    .local p2, "mapper":Lio/reactivex/functions/Function;, "Lio/reactivex/functions/Function<-TT;+Lio/reactivex/SingleSource<+TR;>;>;"
     invoke-direct {p0}, Lio/reactivex/Maybe;-><init>()V
 
     .line 41
@@ -73,7 +70,6 @@
     .line 42
     iput-object p2, p0, Lio/reactivex/internal/operators/maybe/MaybeFlatMapSingleElement;->mapper:Lio/reactivex/functions/Function;
 
-    .line 43
     return-void
 .end method
 
@@ -90,8 +86,6 @@
     .end annotation
 
     .line 47
-    .local p0, "this":Lio/reactivex/internal/operators/maybe/MaybeFlatMapSingleElement;, "Lio/reactivex/internal/operators/maybe/MaybeFlatMapSingleElement<TT;TR;>;"
-    .local p1, "actual":Lio/reactivex/MaybeObserver;, "Lio/reactivex/MaybeObserver<-TR;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/maybe/MaybeFlatMapSingleElement;->source:Lio/reactivex/MaybeSource;
 
     new-instance v1, Lio/reactivex/internal/operators/maybe/MaybeFlatMapSingleElement$FlatMapMaybeObserver;
@@ -102,6 +96,5 @@
 
     invoke-interface {v0, v1}, Lio/reactivex/MaybeSource;->subscribe(Lio/reactivex/MaybeObserver;)V
 
-    .line 48
     return-void
 .end method

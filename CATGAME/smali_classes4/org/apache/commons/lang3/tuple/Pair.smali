@@ -40,7 +40,6 @@
     .locals 0
 
     .line 41
-    .local p0, "this":Lorg/apache/commons/lang3/tuple/Pair;, "Lorg/apache/commons/lang3/tuple/Pair<TL;TR;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -65,8 +64,6 @@
     .end annotation
 
     .line 59
-    .local p0, "left":Ljava/lang/Object;, "TL;"
-    .local p1, "right":Ljava/lang/Object;, "TR;"
     new-instance v0, Lorg/apache/commons/lang3/tuple/ImmutablePair;
 
     invoke-direct {v0, p0, p1}, Lorg/apache/commons/lang3/tuple/ImmutablePair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
@@ -80,7 +77,6 @@
     .locals 0
 
     .line 41
-    .local p0, "this":Lorg/apache/commons/lang3/tuple/Pair;, "Lorg/apache/commons/lang3/tuple/Pair<TL;TR;>;"
     check-cast p1, Lorg/apache/commons/lang3/tuple/Pair;
 
     invoke-virtual {p0, p1}, Lorg/apache/commons/lang3/tuple/Pair;->compareTo(Lorg/apache/commons/lang3/tuple/Pair;)I
@@ -103,8 +99,6 @@
     .end annotation
 
     .line 117
-    .local p0, "this":Lorg/apache/commons/lang3/tuple/Pair;, "Lorg/apache/commons/lang3/tuple/Pair<TL;TR;>;"
-    .local p1, "other":Lorg/apache/commons/lang3/tuple/Pair;, "Lorg/apache/commons/lang3/tuple/Pair<TL;TR;>;"
     new-instance v0, Lorg/apache/commons/lang3/builder/CompareToBuilder;
 
     invoke-direct {v0}, Lorg/apache/commons/lang3/builder/CompareToBuilder;-><init>()V
@@ -128,31 +122,26 @@
 
     invoke-virtual {p1}, Lorg/apache/commons/lang3/tuple/Pair;->getRight()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v0, v1, v2}, Lorg/apache/commons/lang3/builder/CompareToBuilder;->append(Ljava/lang/Object;Ljava/lang/Object;)Lorg/apache/commons/lang3/builder/CompareToBuilder;
+    invoke-virtual {v0, v1, p1}, Lorg/apache/commons/lang3/builder/CompareToBuilder;->append(Ljava/lang/Object;Ljava/lang/Object;)Lorg/apache/commons/lang3/builder/CompareToBuilder;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lorg/apache/commons/lang3/builder/CompareToBuilder;->toComparison()I
+    invoke-virtual {p1}, Lorg/apache/commons/lang3/builder/CompareToBuilder;->toComparison()I
 
-    move-result v0
+    move-result p1
 
-    .line 117
-    return v0
+    return p1
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 4
 
-    .line 129
-    .local p0, "this":Lorg/apache/commons/lang3/tuple/Pair;, "Lorg/apache/commons/lang3/tuple/Pair<TL;TR;>;"
     const/4 v0, 0x1
 
     if-ne p1, p0, :cond_0
 
-    .line 130
     return v0
 
     .line 132
@@ -164,52 +153,46 @@
     if-eqz v1, :cond_2
 
     .line 133
-    move-object v1, p1
-
-    check-cast v1, Ljava/util/Map$Entry;
+    check-cast p1, Ljava/util/Map$Entry;
 
     .line 134
-    .local v1, "other":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     invoke-virtual {p0}, Lorg/apache/commons/lang3/tuple/Pair;->getKey()Ljava/lang/Object;
+
+    move-result-object v1
+
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v3
 
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-static {v1, v3}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result-object v4
+    move-result v1
 
-    invoke-static {v3, v4}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
+    if-eqz v1, :cond_1
 
     .line 135
     invoke-virtual {p0}, Lorg/apache/commons/lang3/tuple/Pair;->getValue()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-static {v3, v4}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v1, p1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result p1
 
-    if-eqz v3, :cond_1
+    if-eqz p1, :cond_1
 
     goto :goto_0
 
     :cond_1
     move v0, v2
 
-    .line 134
     :goto_0
     return v0
 
-    .line 137
-    .end local v1    # "other":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<**>;"
     :cond_2
     return v2
 .end method
@@ -224,7 +207,6 @@
     .end annotation
 
     .line 91
-    .local p0, "this":Lorg/apache/commons/lang3/tuple/Pair;, "Lorg/apache/commons/lang3/tuple/Pair<TL;TR;>;"
     invoke-virtual {p0}, Lorg/apache/commons/lang3/tuple/Pair;->getLeft()Ljava/lang/Object;
 
     move-result-object v0
@@ -258,7 +240,6 @@
     .end annotation
 
     .line 104
-    .local p0, "this":Lorg/apache/commons/lang3/tuple/Pair;, "Lorg/apache/commons/lang3/tuple/Pair<TL;TR;>;"
     invoke-virtual {p0}, Lorg/apache/commons/lang3/tuple/Pair;->getRight()Ljava/lang/Object;
 
     move-result-object v0
@@ -270,7 +251,6 @@
     .locals 3
 
     .line 149
-    .local p0, "this":Lorg/apache/commons/lang3/tuple/Pair;, "Lorg/apache/commons/lang3/tuple/Pair<TL;TR;>;"
     invoke-virtual {p0}, Lorg/apache/commons/lang3/tuple/Pair;->getKey()Ljava/lang/Object;
 
     move-result-object v0
@@ -314,7 +294,6 @@
     :goto_1
     xor-int/2addr v0, v1
 
-    .line 149
     return v0
 .end method
 
@@ -322,14 +301,11 @@
     .locals 2
 
     .line 160
-    .local p0, "this":Lorg/apache/commons/lang3/tuple/Pair;, "Lorg/apache/commons/lang3/tuple/Pair<TL;TR;>;"
     new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v1, "("
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lorg/apache/commons/lang3/tuple/Pair;->getLeft()Ljava/lang/Object;
 
@@ -337,9 +313,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const/16 v1, 0x2c
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {p0}, Lorg/apache/commons/lang3/tuple/Pair;->getRight()Ljava/lang/Object;
 
@@ -347,9 +327,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const/16 v1, 0x29
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -360,33 +344,31 @@
 
 .method public toString(Ljava/lang/String;)Ljava/lang/String;
     .locals 3
-    .param p1, "format"    # Ljava/lang/String;
 
-    .line 175
-    .local p0, "this":Lorg/apache/commons/lang3/tuple/Pair;, "Lorg/apache/commons/lang3/tuple/Pair<TL;TR;>;"
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Object;
 
+    const/4 v1, 0x0
+
+    .line 175
     invoke-virtual {p0}, Lorg/apache/commons/lang3/tuple/Pair;->getLeft()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    const/4 v2, 0x0
+    aput-object v2, v0, v1
 
-    aput-object v1, v0, v2
+    const/4 v1, 0x1
 
     invoke-virtual {p0}, Lorg/apache/commons/lang3/tuple/Pair;->getRight()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    const/4 v2, 0x1
-
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     invoke-static {p1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

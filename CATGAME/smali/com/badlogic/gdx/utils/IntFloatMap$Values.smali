@@ -17,12 +17,10 @@
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/utils/IntFloatMap;)V
     .locals 0
-    .param p1, "map"    # Lcom/badlogic/gdx/utils/IntFloatMap;
 
     .line 799
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IntFloatMap$MapIterator;-><init>(Lcom/badlogic/gdx/utils/IntFloatMap;)V
 
-    .line 800
     return-void
 .end method
 
@@ -77,11 +75,9 @@
 
     iget v0, v0, Lcom/badlogic/gdx/utils/IntFloatMap;->zeroValue:F
 
-    .local v0, "value":F
     goto :goto_0
 
     .line 814
-    .end local v0    # "value":F
     :cond_0
     iget-object v0, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Values;->map:Lcom/badlogic/gdx/utils/IntFloatMap;
 
@@ -92,7 +88,6 @@
     aget v0, v0, v1
 
     .line 815
-    .restart local v0    # "value":F
     :goto_0
     iget v1, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Values;->nextIndex:I
 
@@ -101,11 +96,9 @@
     .line 816
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/IntFloatMap$Values;->findNextIndex()V
 
-    .line 817
     return v0
 
     .line 809
-    .end local v0    # "value":F
     :cond_1
     new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
@@ -157,7 +150,6 @@
     invoke-direct {v0, v2, v1}, Lcom/badlogic/gdx/utils/FloatArray;-><init>(ZI)V
 
     .line 823
-    .local v0, "array":Lcom/badlogic/gdx/utils/FloatArray;
     :goto_0
     iget-boolean v1, p0, Lcom/badlogic/gdx/utils/IntFloatMap$Values;->hasNext:Z
 
@@ -172,7 +164,6 @@
 
     goto :goto_0
 
-    .line 825
     :cond_0
     return-object v0
 .end method

@@ -40,7 +40,6 @@
 
     invoke-direct {p0, v0, v1}, Lcom/google/crypto/tink/KeyTypeManager;-><init>(Ljava/lang/Class;[Lcom/google/crypto/tink/KeyTypeManager$PrimitiveFactory;)V
 
-    .line 48
     return-void
 .end method
 
@@ -78,7 +77,6 @@
 
 .method public static register(Z)V
     .locals 1
-    .param p0, "newKeyAllowed"    # Z
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -101,7 +99,6 @@
 
     invoke-static {v0, p0}, Lcom/google/crypto/tink/Registry;->registerKeyManager(Lcom/google/crypto/tink/KeyTypeManager;Z)V
 
-    .line 109
     return-void
 .end method
 
@@ -142,7 +139,6 @@
 .method public getKeyType()Ljava/lang/String;
     .locals 1
 
-    .line 54
     const-string v0, "type.googleapis.com/google.crypto.tink.XChaCha20Poly1305Key"
 
     return-object v0
@@ -151,7 +147,6 @@
 .method public getVersion()I
     .locals 1
 
-    .line 59
     const/4 v0, 0x0
 
     return v0
@@ -190,7 +185,6 @@
 
 .method public parseKey(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/proto/XChaCha20Poly1305Key;
     .locals 1
-    .param p1, "byteString"    # Lcom/google/crypto/tink/shaded/protobuf/ByteString;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -213,9 +207,9 @@
 
     invoke-static {p1, v0}, Lcom/google/crypto/tink/proto/XChaCha20Poly1305Key;->parseFrom(Lcom/google/crypto/tink/shaded/protobuf/ByteString;Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)Lcom/google/crypto/tink/proto/XChaCha20Poly1305Key;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic parseKey(Lcom/google/crypto/tink/shaded/protobuf/ByteString;)Lcom/google/crypto/tink/shaded/protobuf/MessageLite;
@@ -245,7 +239,6 @@
 
 .method public validateKey(Lcom/google/crypto/tink/proto/XChaCha20Poly1305Key;)V
     .locals 2
-    .param p1, "key"    # Lcom/google/crypto/tink/proto/XChaCha20Poly1305Key;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -275,28 +268,27 @@
     .line 70
     invoke-virtual {p1}, Lcom/google/crypto/tink/proto/XChaCha20Poly1305Key;->getKeyValue()Lcom/google/crypto/tink/shaded/protobuf/ByteString;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->size()I
+    invoke-virtual {p1}, Lcom/google/crypto/tink/shaded/protobuf/ByteString;->size()I
 
-    move-result v0
+    move-result p1
 
-    const/16 v1, 0x20
+    const/16 v0, 0x20
 
-    if-ne v0, v1, :cond_0
+    if-ne p1, v0, :cond_0
 
-    .line 73
     return-void
 
     .line 71
     :cond_0
-    new-instance v0, Ljava/security/GeneralSecurityException;
+    new-instance p1, Ljava/security/GeneralSecurityException;
 
-    const-string v1, "invalid XChaCha20Poly1305Key: incorrect key length"
+    const-string v0, "invalid XChaCha20Poly1305Key: incorrect key length"
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public bridge synthetic validateKey(Lcom/google/crypto/tink/shaded/protobuf/MessageLite;)V

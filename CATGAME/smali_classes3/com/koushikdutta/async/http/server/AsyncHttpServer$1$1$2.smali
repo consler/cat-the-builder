@@ -21,9 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/koushikdutta/async/http/server/AsyncHttpServer$1$1;Lcom/koushikdutta/async/AsyncSocket;Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;)V
     .locals 0
-    .param p1, "this$2"    # Lcom/koushikdutta/async/http/server/AsyncHttpServer$1$1;
-    .param p2, "socket"    # Lcom/koushikdutta/async/AsyncSocket;
-    .param p3, "req"    # Lcom/koushikdutta/async/http/server/AsyncHttpServerRequestImpl;
 
     .line 129
     iput-object p1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$1$1$2;->this$2:Lcom/koushikdutta/async/http/server/AsyncHttpServer$1$1;
@@ -60,50 +57,46 @@
 
     invoke-static {v0}, Lcom/koushikdutta/async/http/server/AsyncHttpServer$1$1;->access$100(Lcom/koushikdutta/async/http/server/AsyncHttpServer$1$1;)V
 
-    .line 147
     return-void
 .end method
 
 .method protected report(Ljava/lang/Exception;)V
-    .locals 2
-    .param p1, "e"    # Ljava/lang/Exception;
+    .locals 1
 
     .line 132
     invoke-super {p0, p1}, Lcom/koushikdutta/async/http/server/AsyncHttpServerResponseImpl;->report(Ljava/lang/Exception;)V
 
-    .line 133
     if-eqz p1, :cond_0
 
     .line 134
-    iget-object v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$1$1$2;->this$2:Lcom/koushikdutta/async/http/server/AsyncHttpServer$1$1;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$1$1$2;->this$2:Lcom/koushikdutta/async/http/server/AsyncHttpServer$1$1;
 
-    iget-object v0, v0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$1$1;->val$socket:Lcom/koushikdutta/async/AsyncSocket;
+    iget-object p1, p1, Lcom/koushikdutta/async/http/server/AsyncHttpServer$1$1;->val$socket:Lcom/koushikdutta/async/AsyncSocket;
 
-    new-instance v1, Lcom/koushikdutta/async/callback/DataCallback$NullDataCallback;
+    new-instance v0, Lcom/koushikdutta/async/callback/DataCallback$NullDataCallback;
 
-    invoke-direct {v1}, Lcom/koushikdutta/async/callback/DataCallback$NullDataCallback;-><init>()V
+    invoke-direct {v0}, Lcom/koushikdutta/async/callback/DataCallback$NullDataCallback;-><init>()V
 
-    invoke-interface {v0, v1}, Lcom/koushikdutta/async/AsyncSocket;->setDataCallback(Lcom/koushikdutta/async/callback/DataCallback;)V
+    invoke-interface {p1, v0}, Lcom/koushikdutta/async/AsyncSocket;->setDataCallback(Lcom/koushikdutta/async/callback/DataCallback;)V
 
     .line 135
-    iget-object v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$1$1$2;->this$2:Lcom/koushikdutta/async/http/server/AsyncHttpServer$1$1;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$1$1$2;->this$2:Lcom/koushikdutta/async/http/server/AsyncHttpServer$1$1;
 
-    iget-object v0, v0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$1$1;->val$socket:Lcom/koushikdutta/async/AsyncSocket;
+    iget-object p1, p1, Lcom/koushikdutta/async/http/server/AsyncHttpServer$1$1;->val$socket:Lcom/koushikdutta/async/AsyncSocket;
 
-    new-instance v1, Lcom/koushikdutta/async/callback/CompletedCallback$NullCompletedCallback;
+    new-instance v0, Lcom/koushikdutta/async/callback/CompletedCallback$NullCompletedCallback;
 
-    invoke-direct {v1}, Lcom/koushikdutta/async/callback/CompletedCallback$NullCompletedCallback;-><init>()V
+    invoke-direct {v0}, Lcom/koushikdutta/async/callback/CompletedCallback$NullCompletedCallback;-><init>()V
 
-    invoke-interface {v0, v1}, Lcom/koushikdutta/async/AsyncSocket;->setEndCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
+    invoke-interface {p1, v0}, Lcom/koushikdutta/async/AsyncSocket;->setEndCallback(Lcom/koushikdutta/async/callback/CompletedCallback;)V
 
     .line 136
-    iget-object v0, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$1$1$2;->this$2:Lcom/koushikdutta/async/http/server/AsyncHttpServer$1$1;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$1$1$2;->this$2:Lcom/koushikdutta/async/http/server/AsyncHttpServer$1$1;
 
-    iget-object v0, v0, Lcom/koushikdutta/async/http/server/AsyncHttpServer$1$1;->val$socket:Lcom/koushikdutta/async/AsyncSocket;
+    iget-object p1, p1, Lcom/koushikdutta/async/http/server/AsyncHttpServer$1$1;->val$socket:Lcom/koushikdutta/async/AsyncSocket;
 
-    invoke-interface {v0}, Lcom/koushikdutta/async/AsyncSocket;->close()V
+    invoke-interface {p1}, Lcom/koushikdutta/async/AsyncSocket;->close()V
 
-    .line 138
     :cond_0
     return-void
 .end method

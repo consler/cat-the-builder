@@ -37,39 +37,31 @@
 .method public constructor <init>()V
     .locals 2
 
-    .line 71
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap;, "Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap<TK;TV;>;"
     const/16 v0, 0x10
 
     const/4 v1, 0x3
 
+    .line 71
     invoke-direct {p0, v0, v1}, Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap;-><init>(II)V
 
-    .line 72
     return-void
 .end method
 
 .method public constructor <init>(I)V
     .locals 1
-    .param p1, "initialListCapacity"    # I
 
-    .line 81
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap;, "Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap<TK;TV;>;"
     const/16 v0, 0x10
 
+    .line 81
     invoke-direct {p0, v0, p1}, Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap;-><init>(II)V
 
-    .line 82
     return-void
 .end method
 
 .method public constructor <init>(II)V
     .locals 1
-    .param p1, "initialMapCapacity"    # I
-    .param p2, "initialListCapacity"    # I
 
     .line 92
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap;, "Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap<TK;TV;>;"
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0, p1}, Ljava/util/HashMap;-><init>(I)V
@@ -79,7 +71,6 @@
     .line 93
     iput p2, p0, Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap;->initialListCapacity:I
 
-    .line 94
     return-void
 .end method
 
@@ -94,8 +85,6 @@
     .end annotation
 
     .line 112
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap;, "Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     invoke-interface {p1}, Ljava/util/Map;->size()I
 
     move-result v0
@@ -107,7 +96,6 @@
     .line 113
     invoke-super {p0, p1}, Lorg/apache/commons/collections4/multimap/AbstractListValuedMap;->putAll(Ljava/util/Map;)Z
 
-    .line 114
     return-void
 .end method
 
@@ -122,8 +110,6 @@
     .end annotation
 
     .line 102
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap;, "Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap<TK;TV;>;"
-    .local p1, "map":Lorg/apache/commons/collections4/MultiValuedMap;, "Lorg/apache/commons/collections4/MultiValuedMap<+TK;+TV;>;"
     invoke-interface {p1}, Lorg/apache/commons/collections4/MultiValuedMap;->size()I
 
     move-result v0
@@ -135,13 +121,11 @@
     .line 103
     invoke-super {p0, p1}, Lorg/apache/commons/collections4/multimap/AbstractListValuedMap;->putAll(Lorg/apache/commons/collections4/MultiValuedMap;)Z
 
-    .line 104
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 1
-    .param p1, "ois"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -150,7 +134,6 @@
     .end annotation
 
     .line 140
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap;, "Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
     .line 141
@@ -163,13 +146,11 @@
     .line 142
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap;->doReadObject(Ljava/io/ObjectInputStream;)V
 
-    .line 143
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 0
-    .param p1, "oos"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -177,13 +158,11 @@
     .end annotation
 
     .line 135
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap;, "Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
     .line 136
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap;->doWriteObject(Ljava/io/ObjectOutputStream;)V
 
-    .line 137
     return-void
 .end method
 
@@ -200,7 +179,6 @@
     .end annotation
 
     .line 119
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap;, "Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap<TK;TV;>;"
     new-instance v0, Ljava/util/ArrayList;
 
     iget v1, p0, Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap;->initialListCapacity:I
@@ -214,7 +192,6 @@
     .locals 1
 
     .line 45
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap;, "Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap;->createCollection()Ljava/util/ArrayList;
 
     move-result-object v0
@@ -226,7 +203,6 @@
     .locals 1
 
     .line 45
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap;, "Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap;->createCollection()Ljava/util/ArrayList;
 
     move-result-object v0
@@ -235,10 +211,9 @@
 .end method
 
 .method public trimToSize()V
-    .locals 3
+    .locals 2
 
     .line 127
-    .local p0, "this":Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap;, "Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/multimap/ArrayListValuedHashMap;->getMap()Ljava/util/Map;
 
     move-result-object v0
@@ -265,21 +240,13 @@
     check-cast v1, Ljava/util/Collection;
 
     .line 128
-    .local v1, "coll":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
-    move-object v2, v1
-
-    check-cast v2, Ljava/util/ArrayList;
+    check-cast v1, Ljava/util/ArrayList;
 
     .line 129
-    .local v2, "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TV;>;"
-    invoke-virtual {v2}, Ljava/util/ArrayList;->trimToSize()V
+    invoke-virtual {v1}, Ljava/util/ArrayList;->trimToSize()V
 
-    .line 130
-    .end local v1    # "coll":Ljava/util/Collection;, "Ljava/util/Collection<TV;>;"
-    .end local v2    # "list":Ljava/util/ArrayList;, "Ljava/util/ArrayList<TV;>;"
     goto :goto_0
 
-    .line 131
     :cond_0
     return-void
 .end method

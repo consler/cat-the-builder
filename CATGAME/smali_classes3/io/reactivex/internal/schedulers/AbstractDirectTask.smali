@@ -76,7 +76,6 @@
 
 .method constructor <init>(Ljava/lang/Runnable;)V
     .locals 0
-    .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 43
     invoke-direct {p0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
@@ -84,7 +83,6 @@
     .line 44
     iput-object p1, p0, Lio/reactivex/internal/schedulers/AbstractDirectTask;->runnable:Ljava/lang/Runnable;
 
-    .line 45
     return-void
 .end method
 
@@ -101,7 +99,6 @@
     check-cast v0, Ljava/util/concurrent/Future;
 
     .line 50
-    .local v0, "f":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<*>;"
     sget-object v1, Lio/reactivex/internal/schedulers/AbstractDirectTask;->FINISHED:Ljava/util/concurrent/FutureTask;
 
     if-eq v0, v1, :cond_1
@@ -117,7 +114,6 @@
 
     if-eqz v1, :cond_1
 
-    .line 52
     if-eqz v0, :cond_1
 
     .line 53
@@ -139,7 +135,6 @@
     :goto_0
     invoke-interface {v0, v1}, Ljava/util/concurrent/Future;->cancel(Z)Z
 
-    .line 57
     :cond_1
     return-void
 .end method
@@ -155,7 +150,6 @@
     check-cast v0, Ljava/util/concurrent/Future;
 
     .line 62
-    .local v0, "f":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<*>;"
     sget-object v1, Lio/reactivex/internal/schedulers/AbstractDirectTask;->FINISHED:Ljava/util/concurrent/FutureTask;
 
     if-eq v0, v1, :cond_1
@@ -167,20 +161,20 @@
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
     :goto_1
-    return v1
+    return v0
 .end method
 
 .method public final setFuture(Ljava/util/concurrent/Future;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -190,8 +184,7 @@
     .end annotation
 
     .line 67
-    .local p1, "future":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<*>;"
-    :goto_0
+    :cond_0
     invoke-virtual {p0}, Lio/reactivex/internal/schedulers/AbstractDirectTask;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -199,59 +192,47 @@
     check-cast v0, Ljava/util/concurrent/Future;
 
     .line 68
-    .local v0, "f":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<*>;"
     sget-object v1, Lio/reactivex/internal/schedulers/AbstractDirectTask;->FINISHED:Ljava/util/concurrent/FutureTask;
 
-    if-ne v0, v1, :cond_0
-
-    .line 69
-    goto :goto_2
-
-    .line 71
-    :cond_0
-    sget-object v1, Lio/reactivex/internal/schedulers/AbstractDirectTask;->DISPOSED:Ljava/util/concurrent/FutureTask;
-
-    if-ne v0, v1, :cond_2
-
-    .line 72
-    iget-object v1, p0, Lio/reactivex/internal/schedulers/AbstractDirectTask;->runner:Ljava/lang/Thread;
-
-    invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
-
-    move-result-object v2
-
-    if-eq v1, v2, :cond_1
-
-    const/4 v1, 0x1
+    if-ne v0, v1, :cond_1
 
     goto :goto_1
 
+    .line 71
     :cond_1
-    const/4 v1, 0x0
+    sget-object v1, Lio/reactivex/internal/schedulers/AbstractDirectTask;->DISPOSED:Ljava/util/concurrent/FutureTask;
 
-    :goto_1
-    invoke-interface {p1, v1}, Ljava/util/concurrent/Future;->cancel(Z)Z
+    if-ne v0, v1, :cond_3
 
-    .line 73
-    goto :goto_2
+    .line 72
+    iget-object v0, p0, Lio/reactivex/internal/schedulers/AbstractDirectTask;->runner:Ljava/lang/Thread;
+
+    invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
+
+    move-result-object v1
+
+    if-eq v0, v1, :cond_2
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-interface {p1, v0}, Ljava/util/concurrent/Future;->cancel(Z)Z
+
+    goto :goto_1
 
     .line 75
-    :cond_2
+    :cond_3
     invoke-virtual {p0, v0, p1}, Lio/reactivex/internal/schedulers/AbstractDirectTask;->compareAndSet(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_3
+    if-eqz v0, :cond_0
 
-    .line 76
-    nop
-
-    .line 79
-    .end local v0    # "f":Ljava/util/concurrent/Future;, "Ljava/util/concurrent/Future<*>;"
-    :goto_2
+    :goto_1
     return-void
-
-    .line 78
-    :cond_3
-    goto :goto_0
 .end method

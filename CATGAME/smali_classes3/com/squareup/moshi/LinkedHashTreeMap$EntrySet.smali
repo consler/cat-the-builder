@@ -29,10 +29,8 @@
 # direct methods
 .method constructor <init>(Lcom/squareup/moshi/LinkedHashTreeMap;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/squareup/moshi/LinkedHashTreeMap;
 
     .line 791
-    .local p0, "this":Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet;, "Lcom/squareup/moshi/LinkedHashTreeMap<TK;TV;>.EntrySet;"
     iput-object p1, p0, Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet;->this$0:Lcom/squareup/moshi/LinkedHashTreeMap;
 
     invoke-direct {p0}, Ljava/util/AbstractSet;-><init>()V
@@ -46,46 +44,40 @@
     .locals 1
 
     .line 822
-    .local p0, "this":Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet;, "Lcom/squareup/moshi/LinkedHashTreeMap<TK;TV;>.EntrySet;"
     iget-object v0, p0, Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet;->this$0:Lcom/squareup/moshi/LinkedHashTreeMap;
 
     invoke-virtual {v0}, Lcom/squareup/moshi/LinkedHashTreeMap;->clear()V
 
-    .line 823
     return-void
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 2
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 1
 
     .line 805
-    .local p0, "this":Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet;, "Lcom/squareup/moshi/LinkedHashTreeMap<TK;TV;>.EntrySet;"
     instance-of v0, p1, Ljava/util/Map$Entry;
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet;->this$0:Lcom/squareup/moshi/LinkedHashTreeMap;
 
-    move-object v1, p1
+    check-cast p1, Ljava/util/Map$Entry;
 
-    check-cast v1, Ljava/util/Map$Entry;
+    invoke-virtual {v0, p1}, Lcom/squareup/moshi/LinkedHashTreeMap;->findByEntry(Ljava/util/Map$Entry;)Lcom/squareup/moshi/LinkedHashTreeMap$Node;
 
-    invoke-virtual {v0, v1}, Lcom/squareup/moshi/LinkedHashTreeMap;->findByEntry(Ljava/util/Map$Entry;)Lcom/squareup/moshi/LinkedHashTreeMap$Node;
+    move-result-object p1
 
-    move-result-object v0
+    if-eqz p1, :cond_0
 
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public iterator()Ljava/util/Iterator;
@@ -100,7 +92,6 @@
     .end annotation
 
     .line 797
-    .local p0, "this":Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet;, "Lcom/squareup/moshi/LinkedHashTreeMap<TK;TV;>.EntrySet;"
     new-instance v0, Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet$1;
 
     invoke-direct {v0, p0}, Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet$1;-><init>(Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet;)V
@@ -109,56 +100,46 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 2
 
     .line 809
-    .local p0, "this":Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet;, "Lcom/squareup/moshi/LinkedHashTreeMap<TK;TV;>.EntrySet;"
     instance-of v0, p1, Ljava/util/Map$Entry;
 
     const/4 v1, 0x0
 
     if-nez v0, :cond_0
 
-    .line 810
     return v1
 
     .line 813
     :cond_0
     iget-object v0, p0, Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet;->this$0:Lcom/squareup/moshi/LinkedHashTreeMap;
 
-    move-object v2, p1
+    check-cast p1, Ljava/util/Map$Entry;
 
-    check-cast v2, Ljava/util/Map$Entry;
+    invoke-virtual {v0, p1}, Lcom/squareup/moshi/LinkedHashTreeMap;->findByEntry(Ljava/util/Map$Entry;)Lcom/squareup/moshi/LinkedHashTreeMap$Node;
 
-    invoke-virtual {v0, v2}, Lcom/squareup/moshi/LinkedHashTreeMap;->findByEntry(Ljava/util/Map$Entry;)Lcom/squareup/moshi/LinkedHashTreeMap$Node;
+    move-result-object p1
 
-    move-result-object v0
+    if-nez p1, :cond_1
 
-    .line 814
-    .local v0, "node":Lcom/squareup/moshi/LinkedHashTreeMap$Node;, "Lcom/squareup/moshi/LinkedHashTreeMap$Node<TK;TV;>;"
-    if-nez v0, :cond_1
-
-    .line 815
     return v1
 
     .line 817
     :cond_1
-    iget-object v1, p0, Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet;->this$0:Lcom/squareup/moshi/LinkedHashTreeMap;
+    iget-object v0, p0, Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet;->this$0:Lcom/squareup/moshi/LinkedHashTreeMap;
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {v1, v0, v2}, Lcom/squareup/moshi/LinkedHashTreeMap;->removeInternal(Lcom/squareup/moshi/LinkedHashTreeMap$Node;Z)V
+    invoke-virtual {v0, p1, v1}, Lcom/squareup/moshi/LinkedHashTreeMap;->removeInternal(Lcom/squareup/moshi/LinkedHashTreeMap$Node;Z)V
 
-    .line 818
-    return v2
+    return v1
 .end method
 
 .method public size()I
     .locals 1
 
     .line 793
-    .local p0, "this":Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet;, "Lcom/squareup/moshi/LinkedHashTreeMap<TK;TV;>.EntrySet;"
     iget-object v0, p0, Lcom/squareup/moshi/LinkedHashTreeMap$EntrySet;->this$0:Lcom/squareup/moshi/LinkedHashTreeMap;
 
     iget v0, v0, Lcom/squareup/moshi/LinkedHashTreeMap;->size:I

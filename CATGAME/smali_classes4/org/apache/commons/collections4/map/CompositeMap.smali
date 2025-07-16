@@ -56,17 +56,15 @@
 .method public constructor <init>()V
     .locals 2
 
-    .line 64
-    .local p0, "this":Lorg/apache/commons/collections4/map/CompositeMap;, "Lorg/apache/commons/collections4/map/CompositeMap<TK;TV;>;"
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/util/Map;
 
     const/4 v1, 0x0
 
+    .line 64
     invoke-direct {p0, v0, v1}, Lorg/apache/commons/collections4/map/CompositeMap;-><init>([Ljava/util/Map;Lorg/apache/commons/collections4/map/CompositeMap$MapMutator;)V
 
-    .line 65
     return-void
 .end method
 
@@ -82,10 +80,6 @@
         }
     .end annotation
 
-    .line 76
-    .local p0, "this":Lorg/apache/commons/collections4/map/CompositeMap;, "Lorg/apache/commons/collections4/map/CompositeMap<TK;TV;>;"
-    .local p1, "one":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    .local p2, "two":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/util/Map;
@@ -94,15 +88,15 @@
 
     aput-object p1, v0, v1
 
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    aput-object p2, v0, v1
+    aput-object p2, v0, p1
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    invoke-direct {p0, v0, v1}, Lorg/apache/commons/collections4/map/CompositeMap;-><init>([Ljava/util/Map;Lorg/apache/commons/collections4/map/CompositeMap$MapMutator;)V
+    .line 76
+    invoke-direct {p0, v0, p1}, Lorg/apache/commons/collections4/map/CompositeMap;-><init>([Ljava/util/Map;Lorg/apache/commons/collections4/map/CompositeMap$MapMutator;)V
 
-    .line 77
     return-void
 .end method
 
@@ -120,11 +114,6 @@
         }
     .end annotation
 
-    .line 88
-    .local p0, "this":Lorg/apache/commons/collections4/map/CompositeMap;, "Lorg/apache/commons/collections4/map/CompositeMap<TK;TV;>;"
-    .local p1, "one":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    .local p2, "two":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
-    .local p3, "mutator":Lorg/apache/commons/collections4/map/CompositeMap$MapMutator;, "Lorg/apache/commons/collections4/map/CompositeMap$MapMutator<TK;TV;>;"
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/util/Map;
@@ -133,13 +122,13 @@
 
     aput-object p1, v0, v1
 
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    aput-object p2, v0, v1
+    aput-object p2, v0, p1
 
+    .line 88
     invoke-direct {p0, v0, p3}, Lorg/apache/commons/collections4/map/CompositeMap;-><init>([Ljava/util/Map;Lorg/apache/commons/collections4/map/CompositeMap$MapMutator;)V
 
-    .line 89
     return-void
 .end method
 
@@ -153,19 +142,16 @@
         }
     .end annotation
 
-    .line 99
-    .local p0, "this":Lorg/apache/commons/collections4/map/CompositeMap;, "Lorg/apache/commons/collections4/map/CompositeMap<TK;TV;>;"
-    .local p1, "composite":[Ljava/util/Map;, "[Ljava/util/Map<TK;TV;>;"
     const/4 v0, 0x0
 
+    .line 99
     invoke-direct {p0, p1, v0}, Lorg/apache/commons/collections4/map/CompositeMap;-><init>([Ljava/util/Map;Lorg/apache/commons/collections4/map/CompositeMap$MapMutator;)V
 
-    .line 100
     return-void
 .end method
 
 .method public constructor <init>([Ljava/util/Map;Lorg/apache/commons/collections4/map/CompositeMap$MapMutator;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -177,42 +163,35 @@
     .end annotation
 
     .line 110
-    .local p0, "this":Lorg/apache/commons/collections4/map/CompositeMap;, "Lorg/apache/commons/collections4/map/CompositeMap<TK;TV;>;"
-    .local p1, "composite":[Ljava/util/Map;, "[Ljava/util/Map<TK;TV;>;"
-    .local p2, "mutator":Lorg/apache/commons/collections4/map/CompositeMap$MapMutator;, "Lorg/apache/commons/collections4/map/CompositeMap$MapMutator<TK;TV;>;"
     invoke-direct {p0}, Lorg/apache/commons/collections4/map/AbstractIterableMap;-><init>()V
 
     .line 111
     iput-object p2, p0, Lorg/apache/commons/collections4/map/CompositeMap;->mutator:Lorg/apache/commons/collections4/map/CompositeMap$MapMutator;
 
+    const/4 p2, 0x0
+
+    new-array p2, p2, [Ljava/util/Map;
+
     .line 112
-    const/4 v0, 0x0
-
-    new-array v0, v0, [Ljava/util/Map;
-
-    iput-object v0, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
+    iput-object p2, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
 
     .line 113
-    array-length v0, p1
+    array-length p2, p1
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p2, p2, -0x1
 
-    .local v0, "i":I
     :goto_0
-    if-ltz v0, :cond_0
+    if-ltz p2, :cond_0
 
     .line 114
-    aget-object v1, p1, v0
+    aget-object v0, p1, p2
 
-    invoke-virtual {p0, v1}, Lorg/apache/commons/collections4/map/CompositeMap;->addComposited(Ljava/util/Map;)V
+    invoke-virtual {p0, v0}, Lorg/apache/commons/collections4/map/CompositeMap;->addComposited(Ljava/util/Map;)V
 
-    .line 113
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p2, p2, -0x1
 
     goto :goto_0
 
-    .line 116
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
@@ -220,7 +199,7 @@
 
 # virtual methods
 .method public declared-synchronized addComposited(Ljava/util/Map;)V
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -235,11 +214,8 @@
         }
     .end annotation
 
-    .local p0, "this":Lorg/apache/commons/collections4/map/CompositeMap;, "Lorg/apache/commons/collections4/map/CompositeMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     monitor-enter p0
 
-    .line 137
     if-eqz p1, :cond_3
 
     .line 138
@@ -250,7 +226,6 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_2
 
@@ -272,7 +247,6 @@
     move-result-object v1
 
     .line 140
-    .local v1, "intersect":Ljava/util/Collection;, "Ljava/util/Collection<TK;>;"
     invoke-interface {v1}, Ljava/util/Collection;->size()I
 
     move-result v2
@@ -285,8 +259,6 @@
     if-eqz v2, :cond_0
 
     .line 144
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/CompositeMap;->mutator:Lorg/apache/commons/collections4/map/CompositeMap$MapMutator;
-
     iget-object v3, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
 
     aget-object v3, v3, v0
@@ -296,18 +268,15 @@
     goto :goto_1
 
     .line 142
-    .end local p0    # "this":Lorg/apache/commons/collections4/map/CompositeMap;, "Lorg/apache/commons/collections4/map/CompositeMap<TK;TV;>;"
     :cond_0
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v3, "Key collision adding Map to CompositeMap"
+    const-string v0, "Key collision adding Map to CompositeMap"
 
-    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p1
 
-    .line 138
-    .end local v1    # "intersect":Ljava/util/Collection;, "Ljava/util/Collection<TK;>;"
     :cond_1
     :goto_1
     add-int/lit8 v0, v0, -0x1
@@ -315,45 +284,34 @@
     goto :goto_0
 
     .line 147
-    .end local v0    # "i":I
     :cond_2
     iget-object v0, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
 
-    array-length v0, v0
+    array-length v1, v0
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    new-array v0, v0, [Ljava/util/Map;
+    new-array v2, v1, [Ljava/util/Map;
 
     .line 148
-    .local v0, "temp":[Ljava/util/Map;, "[Ljava/util/Map<TK;TV;>;"
-    iget-object v1, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
+    array-length v3, v0
 
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
+    const/4 v4, 0x0
 
-    array-length v2, v2
-
-    const/4 v3, 0x0
-
-    invoke-static {v1, v3, v0, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    .line 149
-    array-length v1, v0
+    invoke-static {v0, v4, v2, v4, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     add-int/lit8 v1, v1, -0x1
 
-    aput-object p1, v0, v1
+    .line 149
+    aput-object p1, v2, v1
 
     .line 150
-    iput-object v0, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
+    iput-object v2, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_2
 
-    .line 136
-    .end local v0    # "temp":[Ljava/util/Map;, "[Ljava/util/Map<TK;TV;>;"
-    .end local p1    # "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     :catchall_0
     move-exception p1
 
@@ -362,7 +320,6 @@
     throw p1
 
     .line 152
-    .restart local p1    # "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     :cond_3
     :goto_2
     monitor-exit p0
@@ -374,14 +331,12 @@
     .locals 2
 
     .line 183
-    .local p0, "this":Lorg/apache/commons/collections4/map/CompositeMap;, "Lorg/apache/commons/collections4/map/CompositeMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
 
     array-length v0, v0
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_0
 
@@ -392,23 +347,18 @@
 
     invoke-interface {v1}, Ljava/util/Map;->clear()V
 
-    .line 183
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 186
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
     .locals 3
-    .param p1, "key"    # Ljava/lang/Object;
 
     .line 206
-    .local p0, "this":Lorg/apache/commons/collections4/map/CompositeMap;, "Lorg/apache/commons/collections4/map/CompositeMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
 
     array-length v0, v0
@@ -417,7 +367,6 @@
 
     sub-int/2addr v0, v1
 
-    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_1
 
@@ -432,29 +381,23 @@
 
     if-eqz v2, :cond_0
 
-    .line 208
     return v1
 
-    .line 206
     :cond_0
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 211
-    .end local v0    # "i":I
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public containsValue(Ljava/lang/Object;)Z
     .locals 3
-    .param p1, "value"    # Ljava/lang/Object;
 
     .line 232
-    .local p0, "this":Lorg/apache/commons/collections4/map/CompositeMap;, "Lorg/apache/commons/collections4/map/CompositeMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
 
     array-length v0, v0
@@ -463,7 +406,6 @@
 
     sub-int/2addr v0, v1
 
-    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_1
 
@@ -478,21 +420,17 @@
 
     if-eqz v2, :cond_0
 
-    .line 234
     return v1
 
-    .line 232
     :cond_0
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 237
-    .end local v0    # "i":I
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public entrySet()Ljava/util/Set;
@@ -507,20 +445,17 @@
     .end annotation
 
     .line 259
-    .local p0, "this":Lorg/apache/commons/collections4/map/CompositeMap;, "Lorg/apache/commons/collections4/map/CompositeMap<TK;TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/set/CompositeSet;
 
     invoke-direct {v0}, Lorg/apache/commons/collections4/set/CompositeSet;-><init>()V
 
     .line 260
-    .local v0, "entries":Lorg/apache/commons/collections4/set/CompositeSet;, "Lorg/apache/commons/collections4/set/CompositeSet<Ljava/util/Map$Entry<TK;TV;>;>;"
     iget-object v1, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
 
     array-length v1, v1
 
     add-int/lit8 v1, v1, -0x1
 
-    .local v1, "i":I
     :goto_0
     if-ltz v1, :cond_0
 
@@ -535,59 +470,48 @@
 
     invoke-virtual {v0, v2}, Lorg/apache/commons/collections4/set/CompositeSet;->addComposited(Ljava/util/Set;)V
 
-    .line 260
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
-    .line 263
-    .end local v1    # "i":I
     :cond_0
     return-object v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 1
 
     .line 483
-    .local p0, "this":Lorg/apache/commons/collections4/map/CompositeMap;, "Lorg/apache/commons/collections4/map/CompositeMap<TK;TV;>;"
     instance-of v0, p1, Ljava/util/Map;
 
     if-eqz v0, :cond_0
 
     .line 484
-    move-object v0, p1
-
-    check-cast v0, Ljava/util/Map;
+    check-cast p1, Ljava/util/Map;
 
     .line 485
-    .local v0, "map":Ljava/util/Map;, "Ljava/util/Map<**>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/CompositeMap;->entrySet()Ljava/util/Set;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+    invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-interface {v1, v2}, Ljava/util/Set;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Ljava/util/Set;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 
-    .line 487
-    .end local v0    # "map":Ljava/util/Map;, "Ljava/util/Map<**>;"
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
-    .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -597,14 +521,12 @@
     .end annotation
 
     .line 292
-    .local p0, "this":Lorg/apache/commons/collections4/map/CompositeMap;, "Lorg/apache/commons/collections4/map/CompositeMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
 
     array-length v0, v0
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_1
 
@@ -622,80 +544,69 @@
     .line 294
     iget-object v1, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
 
-    aget-object v1, v1, v0
+    aget-object v0, v1, v0
 
-    invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
-    .line 292
     :cond_0
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 297
-    .end local v0    # "i":I
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public hashCode()I
-    .locals 4
-
-    .line 496
-    .local p0, "this":Lorg/apache/commons/collections4/map/CompositeMap;, "Lorg/apache/commons/collections4/map/CompositeMap<TK;TV;>;"
-    const/4 v0, 0x0
+    .locals 3
 
     .line 497
-    .local v0, "code":I
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/CompositeMap;->entrySet()Ljava/util/Set;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v0
+
+    const/4 v1, 0x0
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Ljava/util/Map$Entry;
 
     .line 498
-    .local v2, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     invoke-interface {v2}, Ljava/util/Map$Entry;->hashCode()I
 
-    move-result v3
+    move-result v2
 
-    add-int/2addr v0, v3
+    add-int/2addr v1, v2
 
-    .line 499
-    .end local v2    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
     goto :goto_0
 
-    .line 500
     :cond_0
-    return v0
+    return v1
 .end method
 
 .method public isEmpty()Z
     .locals 3
 
     .line 307
-    .local p0, "this":Lorg/apache/commons/collections4/map/CompositeMap;, "Lorg/apache/commons/collections4/map/CompositeMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
 
     array-length v0, v0
@@ -704,7 +615,6 @@
 
     sub-int/2addr v0, v1
 
-    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_1
 
@@ -719,19 +629,15 @@
 
     if-nez v2, :cond_0
 
-    .line 309
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    return v1
+    return v0
 
-    .line 307
     :cond_0
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 312
-    .end local v0    # "i":I
     :cond_1
     return v1
 .end method
@@ -747,20 +653,17 @@
     .end annotation
 
     .line 332
-    .local p0, "this":Lorg/apache/commons/collections4/map/CompositeMap;, "Lorg/apache/commons/collections4/map/CompositeMap<TK;TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/set/CompositeSet;
 
     invoke-direct {v0}, Lorg/apache/commons/collections4/set/CompositeSet;-><init>()V
 
     .line 333
-    .local v0, "keys":Lorg/apache/commons/collections4/set/CompositeSet;, "Lorg/apache/commons/collections4/set/CompositeSet<TK;>;"
     iget-object v1, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
 
     array-length v1, v1
 
     add-int/lit8 v1, v1, -0x1
 
-    .local v1, "i":I
     :goto_0
     if-ltz v1, :cond_0
 
@@ -775,13 +678,10 @@
 
     invoke-virtual {v0, v2}, Lorg/apache/commons/collections4/set/CompositeSet;->addComposited(Ljava/util/Set;)V
 
-    .line 333
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
-    .line 336
-    .end local v1    # "i":I
     :cond_0
     return-object v0
 .end method
@@ -795,9 +695,6 @@
     .end annotation
 
     .line 366
-    .local p0, "this":Lorg/apache/commons/collections4/map/CompositeMap;, "Lorg/apache/commons/collections4/map/CompositeMap<TK;TV;>;"
-    .local p1, "key":Ljava/lang/Object;, "TK;"
-    .local p2, "value":Ljava/lang/Object;, "TV;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/CompositeMap;->mutator:Lorg/apache/commons/collections4/map/CompositeMap$MapMutator;
 
     if-eqz v0, :cond_0
@@ -807,19 +704,19 @@
 
     invoke-interface {v0, p0, v1, p1, p2}, Lorg/apache/commons/collections4/map/CompositeMap$MapMutator;->put(Lorg/apache/commons/collections4/map/CompositeMap;[Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 367
     :cond_0
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "No mutator specified"
+    const-string p2, "No mutator specified"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public putAll(Ljava/util/Map;)V
@@ -833,8 +730,6 @@
     .end annotation
 
     .line 396
-    .local p0, "this":Lorg/apache/commons/collections4/map/CompositeMap;, "Lorg/apache/commons/collections4/map/CompositeMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/CompositeMap;->mutator:Lorg/apache/commons/collections4/map/CompositeMap$MapMutator;
 
     if-eqz v0, :cond_0
@@ -844,23 +739,21 @@
 
     invoke-interface {v0, p0, v1, p1}, Lorg/apache/commons/collections4/map/CompositeMap$MapMutator;->putAll(Lorg/apache/commons/collections4/map/CompositeMap;[Ljava/util/Map;Ljava/util/Map;)V
 
-    .line 400
     return-void
 
     .line 397
     :cond_0
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "No mutator specified"
+    const-string v0, "No mutator specified"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
-    .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -870,14 +763,12 @@
     .end annotation
 
     .line 429
-    .local p0, "this":Lorg/apache/commons/collections4/map/CompositeMap;, "Lorg/apache/commons/collections4/map/CompositeMap<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
 
     array-length v0, v0
 
     add-int/lit8 v0, v0, -0x1
 
-    .local v0, "i":I
     :goto_0
     if-ltz v0, :cond_1
 
@@ -895,30 +786,27 @@
     .line 431
     iget-object v1, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
 
-    aget-object v1, v1, v0
+    aget-object v0, v1, v0
 
-    invoke-interface {v1, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
-    .line 429
     :cond_0
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 434
-    .end local v0    # "i":I
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public declared-synchronized removeComposited(Ljava/util/Map;)Ljava/util/Map;
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -929,8 +817,6 @@
         }
     .end annotation
 
-    .local p0, "this":Lorg/apache/commons/collections4/map/CompositeMap;, "Lorg/apache/commons/collections4/map/CompositeMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     monitor-enter p0
 
     .line 162
@@ -939,51 +825,47 @@
 
     array-length v0, v0
 
-    .line 163
-    .local v0, "size":I
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    move v2, v1
+
     :goto_0
-    if-ge v1, v0, :cond_1
+    if-ge v2, v0, :cond_1
 
     .line 164
-    iget-object v2, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
+    iget-object v3, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
 
-    aget-object v2, v2, v1
+    aget-object v3, v3, v2
 
-    invoke-interface {v2, p1}, Ljava/util/Map;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v3, p1}, Ljava/util/Map;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
+
+    add-int/lit8 v3, v0, -0x1
 
     .line 165
-    add-int/lit8 v2, v0, -0x1
-
-    new-array v2, v2, [Ljava/util/Map;
+    new-array v3, v3, [Ljava/util/Map;
 
     .line 166
-    .local v2, "temp":[Ljava/util/Map;, "[Ljava/util/Map<TK;TV;>;"
-    iget-object v3, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
+    iget-object v4, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
 
-    const/4 v4, 0x0
-
-    invoke-static {v3, v4, v2, v4, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v4, v1, v3, v1, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 167
-    iget-object v3, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
+    iget-object v1, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
 
-    add-int/lit8 v4, v1, 0x1
+    add-int/lit8 v4, v2, 0x1
 
-    sub-int v5, v0, v1
+    sub-int/2addr v0, v2
 
-    add-int/lit8 v5, v5, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    invoke-static {v3, v4, v2, v1, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v1, v4, v3, v2, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 168
-    iput-object v2, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
+    iput-object v3, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -992,26 +874,19 @@
 
     return-object p1
 
-    .line 163
-    .end local v2    # "temp":[Ljava/util/Map;, "[Ljava/util/Map<TK;TV;>;"
-    .end local p0    # "this":Lorg/apache/commons/collections4/map/CompositeMap;, "Lorg/apache/commons/collections4/map/CompositeMap<TK;TV;>;"
     :cond_0
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 172
-    .end local v1    # "i":I
     :cond_1
-    const/4 v1, 0x0
-
     monitor-exit p0
 
-    return-object v1
+    const/4 p1, 0x0
 
-    .line 161
-    .end local v0    # "size":I
-    .end local p1    # "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
+    return-object p1
+
     :catchall_0
     move-exception p1
 
@@ -1031,53 +906,43 @@
     .end annotation
 
     .line 125
-    .local p0, "this":Lorg/apache/commons/collections4/map/CompositeMap;, "Lorg/apache/commons/collections4/map/CompositeMap<TK;TV;>;"
-    .local p1, "mutator":Lorg/apache/commons/collections4/map/CompositeMap$MapMutator;, "Lorg/apache/commons/collections4/map/CompositeMap$MapMutator<TK;TV;>;"
     iput-object p1, p0, Lorg/apache/commons/collections4/map/CompositeMap;->mutator:Lorg/apache/commons/collections4/map/CompositeMap$MapMutator;
 
-    .line 126
     return-void
 .end method
 
 .method public size()I
     .locals 3
 
-    .line 446
-    .local p0, "this":Lorg/apache/commons/collections4/map/CompositeMap;, "Lorg/apache/commons/collections4/map/CompositeMap<TK;TV;>;"
-    const/4 v0, 0x0
-
     .line 447
-    .local v0, "size":I
-    iget-object v1, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
+    iget-object v0, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
 
-    array-length v1, v1
+    array-length v0, v0
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    .local v1, "i":I
+    const/4 v1, 0x0
+
     :goto_0
-    if-ltz v1, :cond_0
+    if-ltz v0, :cond_0
 
     .line 448
     iget-object v2, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
 
-    aget-object v2, v2, v1
+    aget-object v2, v2, v0
 
     invoke-interface {v2}, Ljava/util/Map;->size()I
 
     move-result v2
 
-    add-int/2addr v0, v2
+    add-int/2addr v1, v2
 
-    .line 447
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 450
-    .end local v1    # "i":I
     :cond_0
-    return v0
+    return v1
 .end method
 
 .method public values()Ljava/util/Collection;
@@ -1091,20 +956,17 @@
     .end annotation
 
     .line 468
-    .local p0, "this":Lorg/apache/commons/collections4/map/CompositeMap;, "Lorg/apache/commons/collections4/map/CompositeMap<TK;TV;>;"
     new-instance v0, Lorg/apache/commons/collections4/collection/CompositeCollection;
 
     invoke-direct {v0}, Lorg/apache/commons/collections4/collection/CompositeCollection;-><init>()V
 
     .line 469
-    .local v0, "values":Lorg/apache/commons/collections4/collection/CompositeCollection;, "Lorg/apache/commons/collections4/collection/CompositeCollection<TV;>;"
     iget-object v1, p0, Lorg/apache/commons/collections4/map/CompositeMap;->composite:[Ljava/util/Map;
 
     array-length v1, v1
 
     add-int/lit8 v1, v1, -0x1
 
-    .local v1, "i":I
     :goto_0
     if-ltz v1, :cond_0
 
@@ -1119,13 +981,10 @@
 
     invoke-virtual {v0, v2}, Lorg/apache/commons/collections4/collection/CompositeCollection;->addComposited(Ljava/util/Collection;)V
 
-    .line 469
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
-    .line 472
-    .end local v1    # "i":I
     :cond_0
     return-object v0
 .end method

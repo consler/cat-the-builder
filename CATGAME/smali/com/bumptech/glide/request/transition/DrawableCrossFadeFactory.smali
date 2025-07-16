@@ -34,8 +34,6 @@
 # direct methods
 .method protected constructor <init>(IZ)V
     .locals 0
-    .param p1, "duration"    # I
-    .param p2, "isCrossFadeEnabled"    # Z
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,7 +44,6 @@
     .line 25
     iput-boolean p2, p0, Lcom/bumptech/glide/request/transition/DrawableCrossFadeFactory;->isCrossFadeEnabled:Z
 
-    .line 26
     return-void
 .end method
 
@@ -87,9 +84,7 @@
 
 # virtual methods
 .method public build(Lcom/bumptech/glide/load/DataSource;Z)Lcom/bumptech/glide/request/transition/Transition;
-    .locals 1
-    .param p1, "dataSource"    # Lcom/bumptech/glide/load/DataSource;
-    .param p2, "isFirstResource"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -102,14 +97,14 @@
     .end annotation
 
     .line 30
-    sget-object v0, Lcom/bumptech/glide/load/DataSource;->MEMORY_CACHE:Lcom/bumptech/glide/load/DataSource;
+    sget-object p2, Lcom/bumptech/glide/load/DataSource;->MEMORY_CACHE:Lcom/bumptech/glide/load/DataSource;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, p2, :cond_0
 
     .line 31
     invoke-static {}, Lcom/bumptech/glide/request/transition/NoTransition;->get()Lcom/bumptech/glide/request/transition/Transition;
 
-    move-result-object v0
+    move-result-object p1
 
     goto :goto_0
 
@@ -117,9 +112,8 @@
     :cond_0
     invoke-direct {p0}, Lcom/bumptech/glide/request/transition/DrawableCrossFadeFactory;->getResourceTransition()Lcom/bumptech/glide/request/transition/Transition;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 30
     :goto_0
-    return-object v0
+    return-object p1
 .end method

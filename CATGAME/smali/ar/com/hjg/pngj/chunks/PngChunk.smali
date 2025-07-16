@@ -32,20 +32,18 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lar/com/hjg/pngj/ImageInfo;)V
     .locals 1
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "imgInfo"    # Lar/com/hjg/pngj/ImageInfo;
 
     .line 101
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 35
     const/4 v0, 0x0
 
+    .line 35
     iput-boolean v0, p0, Lar/com/hjg/pngj/chunks/PngChunk;->priority:Z
 
-    .line 39
     const/4 v0, -0x1
 
+    .line 39
     iput v0, p0, Lar/com/hjg/pngj/chunks/PngChunk;->chunkGroup:I
 
     .line 102
@@ -57,25 +55,24 @@
     .line 104
     invoke-static {p1}, Lar/com/hjg/pngj/chunks/ChunkHelper;->isCritical(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p2
 
-    iput-boolean v0, p0, Lar/com/hjg/pngj/chunks/PngChunk;->crit:Z
+    iput-boolean p2, p0, Lar/com/hjg/pngj/chunks/PngChunk;->crit:Z
 
     .line 105
     invoke-static {p1}, Lar/com/hjg/pngj/chunks/ChunkHelper;->isPublic(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p2
 
-    iput-boolean v0, p0, Lar/com/hjg/pngj/chunks/PngChunk;->pub:Z
+    iput-boolean p2, p0, Lar/com/hjg/pngj/chunks/PngChunk;->pub:Z
 
     .line 106
     invoke-static {p1}, Lar/com/hjg/pngj/chunks/ChunkHelper;->isSafeToCopy(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p1
 
-    iput-boolean v0, p0, Lar/com/hjg/pngj/chunks/PngChunk;->safe:Z
+    iput-boolean p1, p0, Lar/com/hjg/pngj/chunks/PngChunk;->safe:Z
 
-    .line 107
     return-void
 .end method
 
@@ -86,8 +83,6 @@
 
 .method protected final createEmptyChunk(IZ)Lar/com/hjg/pngj/chunks/ChunkRaw;
     .locals 2
-    .param p1, "len"    # I
-    .param p2, "alloc"    # Z
 
     .line 110
     new-instance v0, Lar/com/hjg/pngj/chunks/ChunkRaw;
@@ -100,8 +95,6 @@
 
     invoke-direct {v0, p1, v1, p2}, Lar/com/hjg/pngj/chunks/ChunkRaw;-><init>(I[BZ)V
 
-    .line 111
-    .local v0, "c":Lar/com/hjg/pngj/chunks/ChunkRaw;
     return-object v0
 .end method
 
@@ -181,12 +174,11 @@
 .method public invalidateRawData()V
     .locals 1
 
-    .line 196
     const/4 v0, 0x0
 
+    .line 196
     iput-object v0, p0, Lar/com/hjg/pngj/chunks/PngChunk;->raw:Lar/com/hjg/pngj/chunks/ChunkRaw;
 
-    .line 197
     return-void
 .end method
 
@@ -195,34 +187,28 @@
 
 .method final setChunkGroup(I)V
     .locals 0
-    .param p1, "chunkGroup"    # I
 
     .line 128
     iput p1, p0, Lar/com/hjg/pngj/chunks/PngChunk;->chunkGroup:I
 
-    .line 129
     return-void
 .end method
 
 .method public setPriority(Z)V
     .locals 0
-    .param p1, "priority"    # Z
 
     .line 136
     iput-boolean p1, p0, Lar/com/hjg/pngj/chunks/PngChunk;->priority:Z
 
-    .line 137
     return-void
 .end method
 
 .method setRaw(Lar/com/hjg/pngj/chunks/ChunkRaw;)V
     .locals 0
-    .param p1, "raw"    # Lar/com/hjg/pngj/chunks/ChunkRaw;
 
     .line 173
     iput-object p1, p0, Lar/com/hjg/pngj/chunks/PngChunk;->raw:Lar/com/hjg/pngj/chunks/ChunkRaw;
 
-    .line 174
     return-void
 .end method
 
@@ -232,19 +218,21 @@
     .line 206
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "chunk id= "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v1, p0, Lar/com/hjg/pngj/chunks/PngChunk;->id:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " (len="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {p0}, Lar/com/hjg/pngj/chunks/PngChunk;->getLen()I
 
@@ -252,9 +240,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, " offset="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {p0}, Lar/com/hjg/pngj/chunks/PngChunk;->getOffset()J
 
@@ -262,9 +254,13 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, ")"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -274,8 +270,7 @@
 .end method
 
 .method final write(Ljava/io/OutputStream;)V
-    .locals 3
-    .param p1, "os"    # Ljava/io/OutputStream;
+    .locals 2
 
     .line 140
     iget-object v0, p0, Lar/com/hjg/pngj/chunks/PngChunk;->raw:Lar/com/hjg/pngj/chunks/ChunkRaw;
@@ -303,28 +298,27 @@
     .line 144
     invoke-virtual {v0, p1}, Lar/com/hjg/pngj/chunks/ChunkRaw;->writeChunk(Ljava/io/OutputStream;)V
 
-    .line 145
     return-void
 
     .line 143
     :cond_2
-    new-instance v0, Lar/com/hjg/pngj/PngjExceptionInternal;
+    new-instance p1, Lar/com/hjg/pngj/PngjExceptionInternal;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "null chunk ! creation failed for "
 
-    const-string v2, "null chunk ! creation failed for "
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Lar/com/hjg/pngj/PngjExceptionInternal;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lar/com/hjg/pngj/PngjExceptionInternal;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

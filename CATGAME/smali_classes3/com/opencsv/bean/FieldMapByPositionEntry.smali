@@ -32,7 +32,6 @@
 # direct methods
 .method public constructor <init>(ILcom/opencsv/bean/BeanField;)V
     .locals 0
-    .param p1, "position"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -44,8 +43,6 @@
     .end annotation
 
     .line 42
-    .local p0, "this":Lcom/opencsv/bean/FieldMapByPositionEntry;, "Lcom/opencsv/bean/FieldMapByPositionEntry<TT;>;"
-    .local p2, "field":Lcom/opencsv/bean/BeanField;, "Lcom/opencsv/bean/BeanField<TT;Ljava/lang/Integer;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 43
@@ -54,7 +51,6 @@
     .line 44
     iput-object p2, p0, Lcom/opencsv/bean/FieldMapByPositionEntry;->field:Lcom/opencsv/bean/BeanField;
 
-    .line 45
     return-void
 .end method
 
@@ -73,7 +69,6 @@
     .end annotation
 
     .line 51
-    .local p0, "this":Lcom/opencsv/bean/FieldMapByPositionEntry;, "Lcom/opencsv/bean/FieldMapByPositionEntry<TT;>;"
     iget-object v0, p0, Lcom/opencsv/bean/FieldMapByPositionEntry;->field:Lcom/opencsv/bean/BeanField;
 
     return-object v0
@@ -83,7 +78,6 @@
     .locals 1
 
     .line 48
-    .local p0, "this":Lcom/opencsv/bean/FieldMapByPositionEntry;, "Lcom/opencsv/bean/FieldMapByPositionEntry<TT;>;"
     iget v0, p0, Lcom/opencsv/bean/FieldMapByPositionEntry;->position:I
 
     return v0

@@ -1,22 +1,15 @@
 .class public Lcom/huawei/hms/framework/common/SystemPropUtils;
 .super Ljava/lang/Object;
+.source "SystemPropUtils.java"
 
 
 # static fields
-.field private static final TAG:Ljava/lang/String;
+.field private static final TAG:Ljava/lang/String; = "SystemPropUtils"
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
-
-    const-class v0, Lcom/huawei/hms/framework/common/SystemPropUtils;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/huawei/hms/framework/common/SystemPropUtils;->TAG:Ljava/lang/String;
+    .locals 0
 
     return-void
 .end method
@@ -24,6 +17,7 @@
 .method public constructor <init>()V
     .locals 0
 
+    .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -32,6 +26,7 @@
 .method public static getProperty(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 5
 
+    .line 30
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
@@ -52,6 +47,7 @@
 
     goto :goto_0
 
+    .line 40
     :cond_0
     :try_start_0
     invoke-static {p2}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -62,6 +58,7 @@
 
     new-array v1, v0, [Ljava/lang/Class;
 
+    .line 41
     const-class v2, Ljava/lang/String;
 
     const/4 v3, 0x0
@@ -84,11 +81,10 @@
 
     aput-object p3, v0, v4
 
+    .line 42
     invoke-virtual {p0, p2, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
-
-    check-cast p0, Ljava/lang/String;
 
     check-cast p0, Ljava/lang/String;
     :try_end_0
@@ -99,6 +95,7 @@
     :catch_0
     move-exception p0
 
+    .line 45
     sget-object p1, Lcom/huawei/hms/framework/common/SystemPropUtils;->TAG:Ljava/lang/String;
 
     const-string p2, "getProperty catch exception: "
@@ -107,6 +104,7 @@
 
     return-object p3
 
+    .line 31
     :cond_1
     :goto_0
     sget-object p0, Lcom/huawei/hms/framework/common/SystemPropUtils;->TAG:Ljava/lang/String;

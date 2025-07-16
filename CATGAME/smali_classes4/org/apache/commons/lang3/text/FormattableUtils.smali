@@ -19,19 +19,12 @@
     .line 57
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 58
     return-void
 .end method
 
 .method public static append(Ljava/lang/CharSequence;Ljava/util/Formatter;III)Ljava/util/Formatter;
     .locals 7
-    .param p0, "seq"    # Ljava/lang/CharSequence;
-    .param p1, "formatter"    # Ljava/util/Formatter;
-    .param p2, "flags"    # I
-    .param p3, "width"    # I
-    .param p4, "precision"    # I
 
-    .line 86
     const/16 v5, 0x20
 
     const/4 v6, 0x0
@@ -46,23 +39,17 @@
 
     move v4, p4
 
+    .line 86
     invoke-static/range {v0 .. v6}, Lorg/apache/commons/lang3/text/FormattableUtils;->append(Ljava/lang/CharSequence;Ljava/util/Formatter;IIICLjava/lang/CharSequence;)Ljava/util/Formatter;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static append(Ljava/lang/CharSequence;Ljava/util/Formatter;IIIC)Ljava/util/Formatter;
     .locals 7
-    .param p0, "seq"    # Ljava/lang/CharSequence;
-    .param p1, "formatter"    # Ljava/util/Formatter;
-    .param p2, "flags"    # I
-    .param p3, "width"    # I
-    .param p4, "precision"    # I
-    .param p5, "padChar"    # C
 
-    .line 103
     const/4 v6, 0x0
 
     move-object v0, p0
@@ -77,24 +64,17 @@
 
     move v5, p5
 
+    .line 103
     invoke-static/range {v0 .. v6}, Lorg/apache/commons/lang3/text/FormattableUtils;->append(Ljava/lang/CharSequence;Ljava/util/Formatter;IIICLjava/lang/CharSequence;)Ljava/util/Formatter;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static append(Ljava/lang/CharSequence;Ljava/util/Formatter;IIICLjava/lang/CharSequence;)Ljava/util/Formatter;
-    .locals 7
-    .param p0, "seq"    # Ljava/lang/CharSequence;
-    .param p1, "formatter"    # Ljava/util/Formatter;
-    .param p2, "flags"    # I
-    .param p3, "width"    # I
-    .param p4, "precision"    # I
-    .param p5, "padChar"    # C
-    .param p6, "ellipsis"    # Ljava/lang/CharSequence;
+    .locals 5
 
-    .line 139
     const/4 v0, 0x0
 
     const/4 v1, 0x1
@@ -103,6 +83,7 @@
 
     if-ltz p4, :cond_1
 
+    .line 139
     invoke-interface {p6}, Ljava/lang/CharSequence;->length()I
 
     move-result v2
@@ -134,9 +115,9 @@
 
     aput-object v4, v3, v1
 
-    .line 139
     const-string v4, "Specified ellipsis \'%1$s\' exceeds precision of %2$s"
 
+    .line 139
     invoke-static {v2, v4, v3}, Lorg/apache/commons/lang3/Validate;->isTrue(ZLjava/lang/String;[Ljava/lang/Object;)V
 
     .line 141
@@ -144,49 +125,45 @@
 
     invoke-direct {v2, p0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/CharSequence;)V
 
-    .line 142
-    .local v2, "buf":Ljava/lang/StringBuilder;
     if-ltz p4, :cond_2
 
+    .line 142
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
     move-result v3
 
     if-ge p4, v3, :cond_2
 
-    .line 143
     const-string v3, ""
 
+    .line 143
     invoke-static {p6, v3}, Lorg/apache/commons/lang3/ObjectUtils;->defaultIfNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p6
 
-    check-cast v3, Ljava/lang/CharSequence;
+    check-cast p6, Ljava/lang/CharSequence;
 
     .line 144
-    .local v3, "_ellipsis":Ljava/lang/CharSequence;
-    invoke-interface {v3}, Ljava/lang/CharSequence;->length()I
+    invoke-interface {p6}, Ljava/lang/CharSequence;->length()I
 
-    move-result v4
+    move-result v3
 
-    sub-int v4, p4, v4
+    sub-int/2addr p4, v3
 
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
 
-    move-result v5
+    move-result p0
 
-    invoke-interface {v3}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface {p6}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object p6
 
-    invoke-virtual {v2, v4, v5, v6}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p4, p0, p6}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 146
-    .end local v3    # "_ellipsis":Ljava/lang/CharSequence;
     :cond_2
-    and-int/lit8 v3, p2, 0x1
+    and-int/lit8 p0, p2, 0x1
 
-    if-ne v3, v1, :cond_3
+    if-ne p0, v1, :cond_3
 
     goto :goto_2
 
@@ -194,59 +171,47 @@
     move v1, v0
 
     .line 147
-    .local v1, "leftJustify":Z
     :goto_2
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->length()I
 
-    move-result v3
+    move-result p0
 
-    .local v3, "i":I
     :goto_3
-    if-ge v3, p3, :cond_5
+    if-ge p0, p3, :cond_5
 
-    .line 148
     if-eqz v1, :cond_4
 
-    move v4, v3
+    move p2, p0
 
     goto :goto_4
 
     :cond_4
-    move v4, v0
+    move p2, v0
 
+    .line 148
     :goto_4
-    invoke-virtual {v2, v4, p5}, Ljava/lang/StringBuilder;->insert(IC)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p2, p5}, Ljava/lang/StringBuilder;->insert(IC)Ljava/lang/StringBuilder;
 
-    .line 147
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 p0, p0, 0x1
 
     goto :goto_3
 
     .line 150
-    .end local v3    # "i":I
     :cond_5
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    new-array v0, v0, [Ljava/lang/Object;
+    new-array p2, v0, [Ljava/lang/Object;
 
-    invoke-virtual {p1, v3, v0}, Ljava/util/Formatter;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/util/Formatter;
+    invoke-virtual {p1, p0, p2}, Ljava/util/Formatter;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/util/Formatter;
 
-    .line 151
     return-object p1
 .end method
 
 .method public static append(Ljava/lang/CharSequence;Ljava/util/Formatter;IIILjava/lang/CharSequence;)Ljava/util/Formatter;
     .locals 7
-    .param p0, "seq"    # Ljava/lang/CharSequence;
-    .param p1, "formatter"    # Ljava/util/Formatter;
-    .param p2, "flags"    # I
-    .param p3, "width"    # I
-    .param p4, "precision"    # I
-    .param p5, "ellipsis"    # Ljava/lang/CharSequence;
 
-    .line 121
     const/16 v5, 0x20
 
     move-object v0, p0
@@ -261,18 +226,17 @@
 
     move-object v6, p5
 
+    .line 121
     invoke-static/range {v0 .. v6}, Lorg/apache/commons/lang3/text/FormattableUtils;->append(Ljava/lang/CharSequence;Ljava/util/Formatter;IIICLjava/lang/CharSequence;)Ljava/util/Formatter;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static toString(Ljava/util/Formattable;)Ljava/lang/String;
     .locals 2
-    .param p0, "formattable"    # Ljava/util/Formattable;
 
-    .line 69
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -281,11 +245,12 @@
 
     aput-object p0, v0, v1
 
-    const-string v1, "%s"
+    const-string p0, "%s"
 
-    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    .line 69
+    invoke-static {p0, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

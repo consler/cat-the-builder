@@ -38,94 +38,76 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;->pool:Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;
 
-    .line 110
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;)V
-    .locals 1
-    .param p1, "particleControllerRandom"    # Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;
+    .locals 0
 
     .line 118
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer;-><init>(Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer;)V
 
     .line 119
-    new-instance v0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;
+    new-instance p1, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;
 
-    invoke-direct {v0, p0}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;-><init>(Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;)V
+    invoke-direct {p1, p0}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;-><init>(Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;)V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;->pool:Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;
+    iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;->pool:Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;
 
-    .line 120
     return-void
 .end method
 
 .method public varargs constructor <init>([Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;)V
-    .locals 1
-    .param p1, "templates"    # [Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
+    .locals 0
 
     .line 113
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer;-><init>([Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;)V
 
     .line 114
-    new-instance v0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;
+    new-instance p1, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;
 
-    invoke-direct {v0, p0}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;-><init>(Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;)V
+    invoke-direct {p1, p0}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;-><init>(Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;)V
 
-    iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;->pool:Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;
+    iput-object p1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;->pool:Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;
 
-    .line 115
     return-void
 .end method
 
 
 # virtual methods
 .method public activateParticles(II)V
-    .locals 4
-    .param p1, "startIndex"    # I
-    .param p2, "count"    # I
+    .locals 2
 
-    .line 139
-    move v0, p1
+    add-int/2addr p2, p1
 
-    .local v0, "i":I
-    add-int v1, p1, p2
-
-    .local v1, "c":I
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge p1, p2, :cond_0
 
     .line 140
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;->pool:Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;->pool:Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;
 
-    invoke-virtual {v2}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;->obtain()Ljava/lang/Object;
+    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;->obtain()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
+    check-cast v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
 
     .line 141
-    .local v2, "controller":Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
-    invoke-virtual {v2}, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->start()V
+    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->start()V
 
     .line 142
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;->particleControllerChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$ObjectChannel;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;->particleControllerChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$ObjectChannel;
 
-    iget-object v3, v3, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$ObjectChannel;->data:[Ljava/lang/Object;
+    iget-object v1, v1, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$ObjectChannel;->data:[Ljava/lang/Object;
 
-    check-cast v3, [Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
+    check-cast v1, [Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
 
-    aput-object v2, v3, v0
+    aput-object v0, v1, p1
 
-    .line 139
-    .end local v2    # "controller":Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
     goto :goto_0
 
-    .line 144
-    .end local v0    # "i":I
-    .end local v1    # "c":I
     :cond_0
     return-void
 .end method
@@ -163,7 +145,6 @@
     .line 134
     invoke-super {p0}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer;->dispose()V
 
-    .line 135
     return-void
 .end method
 
@@ -175,10 +156,9 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;->clear()V
 
-    .line 126
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 126
     :goto_0
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;->controller:Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
 
@@ -197,70 +177,54 @@
 
     invoke-virtual {v1, v2}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;->free(Ljava/lang/Object;)V
 
-    .line 126
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 129
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public killParticles(II)V
-    .locals 5
-    .param p1, "startIndex"    # I
-    .param p2, "count"    # I
+    .locals 2
 
-    .line 148
-    move v0, p1
+    add-int/2addr p2, p1
 
-    .local v0, "i":I
-    add-int v1, p1, p2
-
-    .local v1, "c":I
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge p1, p2, :cond_0
 
     .line 149
-    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;->particleControllerChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$ObjectChannel;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;->particleControllerChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$ObjectChannel;
 
-    iget-object v2, v2, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$ObjectChannel;->data:[Ljava/lang/Object;
+    iget-object v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$ObjectChannel;->data:[Ljava/lang/Object;
 
-    check-cast v2, [Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
+    check-cast v0, [Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
 
-    aget-object v2, v2, v0
+    aget-object v0, v0, p1
 
     .line 150
-    .local v2, "controller":Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
-    invoke-virtual {v2}, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->end()V
+    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;->end()V
 
     .line 151
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;->pool:Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;
+    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;->pool:Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;
 
-    invoke-virtual {v3, v2}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;->free(Ljava/lang/Object;)V
+    invoke-virtual {v1, v0}, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random$ParticleControllerPool;->free(Ljava/lang/Object;)V
 
     .line 152
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;->particleControllerChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$ObjectChannel;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/influencers/ParticleControllerInfluencer$Random;->particleControllerChannel:Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$ObjectChannel;
 
-    iget-object v3, v3, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$ObjectChannel;->data:[Ljava/lang/Object;
+    iget-object v0, v0, Lcom/badlogic/gdx/graphics/g3d/particles/ParallelArray$ObjectChannel;->data:[Ljava/lang/Object;
 
-    check-cast v3, [Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
+    check-cast v0, [Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
 
-    const/4 v4, 0x0
+    const/4 v1, 0x0
 
-    aput-object v4, v3, v0
+    aput-object v1, v0, p1
 
-    .line 148
-    .end local v2    # "controller":Lcom/badlogic/gdx/graphics/g3d/particles/ParticleController;
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
     goto :goto_0
 
-    .line 154
-    .end local v0    # "i":I
-    .end local v1    # "c":I
     :cond_0
     return-void
 .end method

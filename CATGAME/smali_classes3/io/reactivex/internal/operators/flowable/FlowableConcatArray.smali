@@ -38,7 +38,6 @@
 # direct methods
 .method public constructor <init>([Lorg/reactivestreams/Publisher;Z)V
     .locals 0
-    .param p2, "delayError"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -48,8 +47,6 @@
     .end annotation
 
     .line 30
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableConcatArray;, "Lio/reactivex/internal/operators/flowable/FlowableConcatArray<TT;>;"
-    .local p1, "sources":[Lorg/reactivestreams/Publisher;, "[Lorg/reactivestreams/Publisher<+TT;>;"
     invoke-direct {p0}, Lio/reactivex/Flowable;-><init>()V
 
     .line 31
@@ -58,7 +55,6 @@
     .line 32
     iput-boolean p2, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatArray;->delayError:Z
 
-    .line 33
     return-void
 .end method
 
@@ -75,8 +71,6 @@
     .end annotation
 
     .line 37
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableConcatArray;, "Lio/reactivex/internal/operators/flowable/FlowableConcatArray<TT;>;"
-    .local p1, "s":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     new-instance v0, Lio/reactivex/internal/operators/flowable/FlowableConcatArray$ConcatArraySubscriber;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableConcatArray;->sources:[Lorg/reactivestreams/Publisher;
@@ -86,12 +80,10 @@
     invoke-direct {v0, v1, v2, p1}, Lio/reactivex/internal/operators/flowable/FlowableConcatArray$ConcatArraySubscriber;-><init>([Lorg/reactivestreams/Publisher;ZLorg/reactivestreams/Subscriber;)V
 
     .line 38
-    .local v0, "parent":Lio/reactivex/internal/operators/flowable/FlowableConcatArray$ConcatArraySubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableConcatArray$ConcatArraySubscriber<TT;>;"
     invoke-interface {p1, v0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
     .line 40
     invoke-virtual {v0}, Lio/reactivex/internal/operators/flowable/FlowableConcatArray$ConcatArraySubscriber;->onComplete()V
 
-    .line 41
     return-void
 .end method

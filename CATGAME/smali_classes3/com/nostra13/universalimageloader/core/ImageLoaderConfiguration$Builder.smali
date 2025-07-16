@@ -94,14 +94,13 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 4
-    .param p1, "context"    # Landroid/content/Context;
 
     .line 195
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 166
     const/4 v0, 0x0
 
+    .line 166
     iput v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->maxImageWidthForMemoryCache:I
 
     .line 167
@@ -113,9 +112,9 @@
     .line 169
     iput v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->maxImageHeightForDiskCache:I
 
-    .line 170
     const/4 v1, 0x0
 
+    .line 170
     iput-object v1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->processorForDiskCache:Lcom/nostra13/universalimageloader/core/process/BitmapProcessor;
 
     .line 172
@@ -130,9 +129,9 @@
     .line 175
     iput-boolean v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->customExecutorForCachedImages:Z
 
-    .line 177
     const/4 v2, 0x3
 
+    .line 177
     iput v2, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->threadPoolSize:I
 
     .line 178
@@ -149,9 +148,9 @@
     .line 182
     iput v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->memoryCacheSize:I
 
-    .line 183
     const-wide/16 v2, 0x0
 
+    .line 183
     iput-wide v2, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->diskCacheSize:J
 
     .line 184
@@ -178,202 +177,182 @@
     .line 196
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->context:Landroid/content/Context;
+    iput-object p1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->context:Landroid/content/Context;
 
-    .line 197
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Landroid/content/Context;
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
+    .locals 0
 
     .line 149
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->context:Landroid/content/Context;
+    iget-object p0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->context:Landroid/content/Context;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$100(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)I
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
+    .locals 0
 
     .line 149
-    iget v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->maxImageWidthForMemoryCache:I
+    iget p0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->maxImageWidthForMemoryCache:I
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$1000(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Lcom/nostra13/universalimageloader/core/assist/QueueProcessingType;
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
+    .locals 0
 
     .line 149
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->tasksProcessingType:Lcom/nostra13/universalimageloader/core/assist/QueueProcessingType;
+    iget-object p0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->tasksProcessingType:Lcom/nostra13/universalimageloader/core/assist/QueueProcessingType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$1100(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Lcom/nostra13/universalimageloader/cache/disc/DiskCache;
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
+    .locals 0
 
     .line 149
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->diskCache:Lcom/nostra13/universalimageloader/cache/disc/DiskCache;
+    iget-object p0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->diskCache:Lcom/nostra13/universalimageloader/cache/disc/DiskCache;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$1200(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
+    .locals 0
 
     .line 149
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->memoryCache:Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;
+    iget-object p0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->memoryCache:Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$1300(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
+    .locals 0
 
     .line 149
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->defaultDisplayImageOptions:Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
+    iget-object p0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->defaultDisplayImageOptions:Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$1400(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Lcom/nostra13/universalimageloader/core/download/ImageDownloader;
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
+    .locals 0
 
     .line 149
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->downloader:Lcom/nostra13/universalimageloader/core/download/ImageDownloader;
+    iget-object p0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->downloader:Lcom/nostra13/universalimageloader/core/download/ImageDownloader;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$1500(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Lcom/nostra13/universalimageloader/core/decode/ImageDecoder;
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
+    .locals 0
 
     .line 149
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->decoder:Lcom/nostra13/universalimageloader/core/decode/ImageDecoder;
+    iget-object p0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->decoder:Lcom/nostra13/universalimageloader/core/decode/ImageDecoder;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$1600(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
+    .locals 0
 
     .line 149
-    iget-boolean v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->customExecutor:Z
+    iget-boolean p0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->customExecutor:Z
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$1700(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
+    .locals 0
 
     .line 149
-    iget-boolean v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->customExecutorForCachedImages:Z
+    iget-boolean p0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->customExecutorForCachedImages:Z
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$1800(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
+    .locals 0
 
     .line 149
-    iget-boolean v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->writeLogs:Z
+    iget-boolean p0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->writeLogs:Z
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$200(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)I
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
+    .locals 0
 
     .line 149
-    iget v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->maxImageHeightForMemoryCache:I
+    iget p0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->maxImageHeightForMemoryCache:I
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$300(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)I
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
+    .locals 0
 
     .line 149
-    iget v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->maxImageWidthForDiskCache:I
+    iget p0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->maxImageWidthForDiskCache:I
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$400(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)I
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
+    .locals 0
 
     .line 149
-    iget v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->maxImageHeightForDiskCache:I
+    iget p0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->maxImageHeightForDiskCache:I
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$500(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Lcom/nostra13/universalimageloader/core/process/BitmapProcessor;
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
+    .locals 0
 
     .line 149
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->processorForDiskCache:Lcom/nostra13/universalimageloader/core/process/BitmapProcessor;
+    iget-object p0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->processorForDiskCache:Lcom/nostra13/universalimageloader/core/process/BitmapProcessor;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$600(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Ljava/util/concurrent/Executor;
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
+    .locals 0
 
     .line 149
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->taskExecutor:Ljava/util/concurrent/Executor;
+    iget-object p0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->taskExecutor:Ljava/util/concurrent/Executor;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$700(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)Ljava/util/concurrent/Executor;
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
+    .locals 0
 
     .line 149
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->taskExecutorForCachedImages:Ljava/util/concurrent/Executor;
+    iget-object p0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->taskExecutorForCachedImages:Ljava/util/concurrent/Executor;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$800(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)I
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
+    .locals 0
 
     .line 149
-    iget v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->threadPoolSize:I
+    iget p0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->threadPoolSize:I
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$900(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;)I
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
+    .locals 0
 
     .line 149
-    iget v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->threadPriority:I
+    iget p0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->threadPriority:I
 
-    return v0
+    return p0
 .end method
 
 .method private initEmptyFieldsWithDefaultValues()V
@@ -543,7 +522,6 @@
 
     iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->defaultDisplayImageOptions:Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
 
-    .line 598
     :cond_8
     return-void
 .end method
@@ -568,102 +546,91 @@
 
 .method public defaultDisplayImageOptions(Lcom/nostra13/universalimageloader/core/DisplayImageOptions;)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
     .locals 0
-    .param p1, "defaultDisplayImageOptions"    # Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
 
     .line 543
     iput-object p1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->defaultDisplayImageOptions:Lcom/nostra13/universalimageloader/core/DisplayImageOptions;
 
-    .line 544
     return-object p0
 .end method
 
 .method public denyCacheImageMultipleSizesInMemory()Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
     .locals 1
 
-    .line 333
     const/4 v0, 0x1
 
+    .line 333
     iput-boolean v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->denyCacheImageMultipleSizesInMemory:Z
 
-    .line 334
     return-object p0
 .end method
 
 .method public discCache(Lcom/nostra13/universalimageloader/cache/disc/DiskCache;)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
-    .locals 1
-    .param p1, "diskCache"    # Lcom/nostra13/universalimageloader/cache/disc/DiskCache;
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 485
     invoke-virtual {p0, p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->diskCache(Lcom/nostra13/universalimageloader/cache/disc/DiskCache;)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public discCacheExtraOptions(IILcom/nostra13/universalimageloader/core/process/BitmapProcessor;)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
-    .locals 1
-    .param p1, "maxImageWidthForDiskCache"    # I
-    .param p2, "maxImageHeightForDiskCache"    # I
-    .param p3, "processorForDiskCache"    # Lcom/nostra13/universalimageloader/core/process/BitmapProcessor;
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 221
     invoke-virtual {p0, p1, p2, p3}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->diskCacheExtraOptions(IILcom/nostra13/universalimageloader/core/process/BitmapProcessor;)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public discCacheFileCount(I)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
-    .locals 1
-    .param p1, "maxFileCount"    # I
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 439
     invoke-virtual {p0, p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->diskCacheFileCount(I)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public discCacheFileNameGenerator(Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
-    .locals 1
-    .param p1, "fileNameGenerator"    # Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 464
     invoke-virtual {p0, p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->diskCacheFileNameGenerator(Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public discCacheSize(I)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
-    .locals 1
-    .param p1, "maxCacheSize"    # I
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 414
     invoke-virtual {p0, p1}, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->diskCacheSize(I)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public diskCache(Lcom/nostra13/universalimageloader/cache/disc/DiskCache;)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
     .locals 4
-    .param p1, "diskCache"    # Lcom/nostra13/universalimageloader/cache/disc/DiskCache;
 
     .line 503
     iget-wide v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->diskCacheSize:J
@@ -680,13 +647,13 @@
 
     if-lez v0, :cond_1
 
-    .line 504
     :cond_0
-    new-array v0, v1, [Ljava/lang/Object;
+    const-string v0, "diskCache(), diskCacheSize() and diskCacheFileCount calls overlap each other"
 
-    const-string v2, "diskCache(), diskCacheSize() and diskCacheFileCount calls overlap each other"
+    new-array v2, v1, [Ljava/lang/Object;
 
-    invoke-static {v2, v0}, Lcom/nostra13/universalimageloader/utils/L;->w(Ljava/lang/String;[Ljava/lang/Object;)V
+    .line 504
+    invoke-static {v0, v2}, Lcom/nostra13/universalimageloader/utils/L;->w(Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 506
     :cond_1
@@ -694,26 +661,22 @@
 
     if-eqz v0, :cond_2
 
+    const-string v0, "diskCache() and diskCacheFileNameGenerator() calls overlap each other"
+
+    new-array v1, v1, [Ljava/lang/Object;
+
     .line 507
-    new-array v0, v1, [Ljava/lang/Object;
-
-    const-string v1, "diskCache() and diskCacheFileNameGenerator() calls overlap each other"
-
-    invoke-static {v1, v0}, Lcom/nostra13/universalimageloader/utils/L;->w(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v0, v1}, Lcom/nostra13/universalimageloader/utils/L;->w(Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 510
     :cond_2
     iput-object p1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->diskCache:Lcom/nostra13/universalimageloader/cache/disc/DiskCache;
 
-    .line 511
     return-object p0
 .end method
 
 .method public diskCacheExtraOptions(IILcom/nostra13/universalimageloader/core/process/BitmapProcessor;)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
     .locals 0
-    .param p1, "maxImageWidthForDiskCache"    # I
-    .param p2, "maxImageHeightForDiskCache"    # I
-    .param p3, "processorForDiskCache"    # Lcom/nostra13/universalimageloader/core/process/BitmapProcessor;
 
     .line 234
     iput p1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->maxImageWidthForDiskCache:I
@@ -724,15 +687,12 @@
     .line 236
     iput-object p3, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->processorForDiskCache:Lcom/nostra13/universalimageloader/core/process/BitmapProcessor;
 
-    .line 237
     return-object p0
 .end method
 
 .method public diskCacheFileCount(I)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
     .locals 2
-    .param p1, "maxFileCount"    # I
 
-    .line 451
     if-lez p1, :cond_1
 
     .line 453
@@ -740,64 +700,59 @@
 
     if-eqz v0, :cond_0
 
-    .line 454
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Object;
 
     const-string v1, "diskCache(), diskCacheSize() and diskCacheFileCount calls overlap each other"
 
+    .line 454
     invoke-static {v1, v0}, Lcom/nostra13/universalimageloader/utils/L;->w(Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 457
     :cond_0
     iput p1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->diskCacheFileCount:I
 
-    .line 458
     return-object p0
 
     .line 451
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "maxFileCount must be a positive number"
+    const-string v0, "maxFileCount must be a positive number"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public diskCacheFileNameGenerator(Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
     .locals 2
-    .param p1, "fileNameGenerator"    # Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;
 
     .line 474
     iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->diskCache:Lcom/nostra13/universalimageloader/cache/disc/DiskCache;
 
     if-eqz v0, :cond_0
 
-    .line 475
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Object;
 
     const-string v1, "diskCache() and diskCacheFileNameGenerator() calls overlap each other"
 
+    .line 475
     invoke-static {v1, v0}, Lcom/nostra13/universalimageloader/utils/L;->w(Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 478
     :cond_0
     iput-object p1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->diskCacheFileNameGenerator:Lcom/nostra13/universalimageloader/cache/disc/naming/FileNameGenerator;
 
-    .line 479
     return-object p0
 .end method
 
 .method public diskCacheSize(I)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
     .locals 2
-    .param p1, "maxCacheSize"    # I
 
-    .line 426
     if-lez p1, :cond_1
 
     .line 428
@@ -805,87 +760,78 @@
 
     if-eqz v0, :cond_0
 
-    .line 429
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Object;
 
     const-string v1, "diskCache(), diskCacheSize() and diskCacheFileCount calls overlap each other"
 
+    .line 429
     invoke-static {v1, v0}, Lcom/nostra13/universalimageloader/utils/L;->w(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 432
     :cond_0
     int-to-long v0, p1
 
+    .line 432
     iput-wide v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->diskCacheSize:J
 
-    .line 433
     return-object p0
 
     .line 426
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "maxCacheSize must be a positive number"
+    const-string v0, "maxCacheSize must be a positive number"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public imageDecoder(Lcom/nostra13/universalimageloader/core/decode/ImageDecoder;)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
     .locals 0
-    .param p1, "imageDecoder"    # Lcom/nostra13/universalimageloader/core/decode/ImageDecoder;
 
     .line 532
     iput-object p1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->decoder:Lcom/nostra13/universalimageloader/core/decode/ImageDecoder;
 
-    .line 533
     return-object p0
 .end method
 
 .method public imageDownloader(Lcom/nostra13/universalimageloader/core/download/ImageDownloader;)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
     .locals 0
-    .param p1, "imageDownloader"    # Lcom/nostra13/universalimageloader/core/download/ImageDownloader;
 
     .line 521
     iput-object p1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->downloader:Lcom/nostra13/universalimageloader/core/download/ImageDownloader;
 
-    .line 522
     return-object p0
 .end method
 
 .method public memoryCache(Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
     .locals 2
-    .param p1, "memoryCache"    # Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;
 
     .line 403
     iget v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->memoryCacheSize:I
 
     if-eqz v0, :cond_0
 
-    .line 404
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Object;
 
     const-string v1, "memoryCache() and memoryCacheSize() calls overlap each other"
 
+    .line 404
     invoke-static {v1, v0}, Lcom/nostra13/universalimageloader/utils/L;->w(Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 407
     :cond_0
     iput-object p1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->memoryCache:Lcom/nostra13/universalimageloader/cache/memory/MemoryCache;
 
-    .line 408
     return-object p0
 .end method
 
 .method public memoryCacheExtraOptions(II)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
     .locals 0
-    .param p1, "maxImageWidthForMemoryCache"    # I
-    .param p2, "maxImageHeightForMemoryCache"    # I
 
     .line 208
     iput p1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->maxImageWidthForMemoryCache:I
@@ -893,15 +839,12 @@
     .line 209
     iput p2, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->maxImageHeightForMemoryCache:I
 
-    .line 210
     return-object p0
 .end method
 
 .method public memoryCacheSize(I)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
     .locals 2
-    .param p1, "memoryCacheSize"    # I
 
-    .line 359
     if-lez p1, :cond_1
 
     .line 361
@@ -909,38 +852,35 @@
 
     if-eqz v0, :cond_0
 
-    .line 362
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Object;
 
     const-string v1, "memoryCache() and memoryCacheSize() calls overlap each other"
 
+    .line 362
     invoke-static {v1, v0}, Lcom/nostra13/universalimageloader/utils/L;->w(Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 365
     :cond_0
     iput p1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->memoryCacheSize:I
 
-    .line 366
     return-object p0
 
     .line 359
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "memoryCacheSize must be a positive number"
+    const-string v0, "memoryCacheSize must be a positive number"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public memoryCacheSizePercentage(I)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
-    .locals 5
-    .param p1, "availableMemoryPercent"    # I
+    .locals 2
 
-    .line 379
     if-lez p1, :cond_1
 
     const/16 v0, 0x64
@@ -952,13 +892,13 @@
 
     if-eqz v0, :cond_0
 
-    .line 384
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Object;
 
     const-string v1, "memoryCache() and memoryCacheSize() calls overlap each other"
 
+    .line 384
     invoke-static {v1, v0}, Lcom/nostra13/universalimageloader/utils/L;->w(Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 387
@@ -971,40 +911,36 @@
 
     move-result-wide v0
 
+    long-to-float v0, v0
+
+    int-to-float p1, p1
+
+    const/high16 v1, 0x42c80000    # 100.0f
+
+    div-float/2addr p1, v1
+
+    mul-float/2addr v0, p1
+
+    float-to-int p1, v0
+
     .line 388
-    .local v0, "availableMemory":J
-    long-to-float v2, v0
+    iput p1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->memoryCacheSize:I
 
-    int-to-float v3, p1
-
-    const/high16 v4, 0x42c80000    # 100.0f
-
-    div-float/2addr v3, v4
-
-    mul-float/2addr v2, v3
-
-    float-to-int v2, v2
-
-    iput v2, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->memoryCacheSize:I
-
-    .line 389
     return-object p0
 
     .line 380
-    .end local v0    # "availableMemory":J
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "availableMemoryPercent must be in range (0 < % < 100)"
+    const-string v0, "availableMemoryPercent must be in range (0 < % < 100)"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public taskExecutor(Ljava/util/concurrent/Executor;)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
     .locals 2
-    .param p1, "executor"    # Ljava/util/concurrent/Executor;
 
     .line 254
     iget v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->threadPoolSize:I
@@ -1023,7 +959,6 @@
 
     if-eq v0, v1, :cond_1
 
-    .line 255
     :cond_0
     const/4 v0, 0x0
 
@@ -1031,19 +966,18 @@
 
     const-string v1, "threadPoolSize(), threadPriority() and tasksProcessingOrder() calls can overlap taskExecutor() and taskExecutorForCachedImages() calls."
 
+    .line 255
     invoke-static {v1, v0}, Lcom/nostra13/universalimageloader/utils/L;->w(Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 258
     :cond_1
     iput-object p1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->taskExecutor:Ljava/util/concurrent/Executor;
 
-    .line 259
     return-object p0
 .end method
 
 .method public taskExecutorForCachedImages(Ljava/util/concurrent/Executor;)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
     .locals 2
-    .param p1, "executorForCachedImages"    # Ljava/util/concurrent/Executor;
 
     .line 281
     iget v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->threadPoolSize:I
@@ -1062,7 +996,6 @@
 
     if-eq v0, v1, :cond_1
 
-    .line 282
     :cond_0
     const/4 v0, 0x0
 
@@ -1070,19 +1003,18 @@
 
     const-string v1, "threadPoolSize(), threadPriority() and tasksProcessingOrder() calls can overlap taskExecutor() and taskExecutorForCachedImages() calls."
 
+    .line 282
     invoke-static {v1, v0}, Lcom/nostra13/universalimageloader/utils/L;->w(Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 285
     :cond_1
     iput-object p1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->taskExecutorForCachedImages:Ljava/util/concurrent/Executor;
 
-    .line 286
     return-object p0
 .end method
 
 .method public tasksProcessingOrder(Lcom/nostra13/universalimageloader/core/assist/QueueProcessingType;)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
     .locals 2
-    .param p1, "tasksProcessingType"    # Lcom/nostra13/universalimageloader/core/assist/QueueProcessingType;
 
     .line 342
     iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->taskExecutor:Ljava/util/concurrent/Executor;
@@ -1093,7 +1025,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 343
     :cond_0
     const/4 v0, 0x0
 
@@ -1101,19 +1032,18 @@
 
     const-string v1, "threadPoolSize(), threadPriority() and tasksProcessingOrder() calls can overlap taskExecutor() and taskExecutorForCachedImages() calls."
 
+    .line 343
     invoke-static {v1, v0}, Lcom/nostra13/universalimageloader/utils/L;->w(Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 346
     :cond_1
     iput-object p1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->tasksProcessingType:Lcom/nostra13/universalimageloader/core/assist/QueueProcessingType;
 
-    .line 347
     return-object p0
 .end method
 
 .method public threadPoolSize(I)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
     .locals 2
-    .param p1, "threadPoolSize"    # I
 
     .line 294
     iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->taskExecutor:Ljava/util/concurrent/Executor;
@@ -1124,7 +1054,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 295
     :cond_0
     const/4 v0, 0x0
 
@@ -1132,19 +1061,18 @@
 
     const-string v1, "threadPoolSize(), threadPriority() and tasksProcessingOrder() calls can overlap taskExecutor() and taskExecutorForCachedImages() calls."
 
+    .line 295
     invoke-static {v1, v0}, Lcom/nostra13/universalimageloader/utils/L;->w(Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 298
     :cond_1
     iput p1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->threadPoolSize:I
 
-    .line 299
     return-object p0
 .end method
 
 .method public threadPriority(I)Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
     .locals 2
-    .param p1, "threadPriority"    # I
 
     .line 308
     iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->taskExecutor:Ljava/util/concurrent/Executor;
@@ -1155,7 +1083,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 309
     :cond_0
     const/4 v0, 0x0
 
@@ -1163,9 +1090,9 @@
 
     const-string v1, "threadPoolSize(), threadPriority() and tasksProcessingOrder() calls can overlap taskExecutor() and taskExecutorForCachedImages() calls."
 
+    .line 309
     invoke-static {v1, v0}, Lcom/nostra13/universalimageloader/utils/L;->w(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 312
     :cond_1
     const/4 v0, 0x1
 
@@ -1176,7 +1103,6 @@
 
     goto :goto_0
 
-    .line 315
     :cond_2
     const/16 v0, 0xa
 
@@ -1191,7 +1117,6 @@
     :cond_3
     iput p1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->threadPriority:I
 
-    .line 321
     :goto_0
     return-object p0
 .end method
@@ -1199,11 +1124,10 @@
 .method public writeDebugLogs()Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;
     .locals 1
 
-    .line 553
     const/4 v0, 0x1
 
+    .line 553
     iput-boolean v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration$Builder;->writeLogs:Z
 
-    .line 554
     return-object p0
 .end method

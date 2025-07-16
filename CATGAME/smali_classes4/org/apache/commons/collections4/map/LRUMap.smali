@@ -42,111 +42,81 @@
 .method public constructor <init>()V
     .locals 3
 
+    const/high16 v0, 0x3f400000    # 0.75f
+
+    const/4 v1, 0x0
+
+    const/16 v2, 0x64
+
     .line 83
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
-    const/16 v0, 0x64
+    invoke-direct {p0, v2, v0, v1}, Lorg/apache/commons/collections4/map/LRUMap;-><init>(IFZ)V
 
-    const/high16 v1, 0x3f400000    # 0.75f
-
-    const/4 v2, 0x0
-
-    invoke-direct {p0, v0, v1, v2}, Lorg/apache/commons/collections4/map/LRUMap;-><init>(IFZ)V
-
-    .line 84
     return-void
 .end method
 
 .method public constructor <init>(I)V
     .locals 1
-    .param p1, "maxSize"    # I
 
-    .line 93
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
     const/high16 v0, 0x3f400000    # 0.75f
 
+    .line 93
     invoke-direct {p0, p1, v0}, Lorg/apache/commons/collections4/map/LRUMap;-><init>(IF)V
 
-    .line 94
     return-void
 .end method
 
 .method public constructor <init>(IF)V
     .locals 1
-    .param p1, "maxSize"    # I
-    .param p2, "loadFactor"    # F
 
-    .line 131
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
     const/4 v0, 0x0
 
+    .line 131
     invoke-direct {p0, p1, p2, v0}, Lorg/apache/commons/collections4/map/LRUMap;-><init>(IFZ)V
 
-    .line 132
     return-void
 .end method
 
 .method public constructor <init>(IFZ)V
     .locals 0
-    .param p1, "maxSize"    # I
-    .param p2, "loadFactor"    # F
-    .param p3, "scanUntilRemovable"    # Z
 
     .line 161
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
     invoke-direct {p0, p1, p1, p2, p3}, Lorg/apache/commons/collections4/map/LRUMap;-><init>(IIFZ)V
 
-    .line 162
     return-void
 .end method
 
 .method public constructor <init>(II)V
     .locals 1
-    .param p1, "maxSize"    # I
-    .param p2, "initialSize"    # I
 
-    .line 106
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
     const/high16 v0, 0x3f400000    # 0.75f
 
+    .line 106
     invoke-direct {p0, p1, p2, v0}, Lorg/apache/commons/collections4/map/LRUMap;-><init>(IIF)V
 
-    .line 107
     return-void
 .end method
 
 .method public constructor <init>(IIF)V
     .locals 1
-    .param p1, "maxSize"    # I
-    .param p2, "initialSize"    # I
-    .param p3, "loadFactor"    # F
 
-    .line 147
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
     const/4 v0, 0x0
 
+    .line 147
     invoke-direct {p0, p1, p2, p3, v0}, Lorg/apache/commons/collections4/map/LRUMap;-><init>(IIFZ)V
 
-    .line 148
     return-void
 .end method
 
 .method public constructor <init>(IIFZ)V
-    .locals 2
-    .param p1, "maxSize"    # I
-    .param p2, "initialSize"    # I
-    .param p3, "loadFactor"    # F
-    .param p4, "scanUntilRemovable"    # Z
+    .locals 0
 
     .line 181
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
     invoke-direct {p0, p2, p3}, Lorg/apache/commons/collections4/map/AbstractLinkedMap;-><init>(IF)V
 
-    .line 182
-    const/4 v0, 0x1
+    const/4 p3, 0x1
 
-    if-lt p1, v0, :cond_1
+    if-lt p1, p3, :cond_1
 
-    .line 185
     if-gt p2, p1, :cond_0
 
     .line 188
@@ -155,42 +125,37 @@
     .line 189
     iput-boolean p4, p0, Lorg/apache/commons/collections4/map/LRUMap;->scanUntilRemovable:Z
 
-    .line 190
     return-void
 
     .line 186
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "LRUMap initial size must not be greather than max size"
+    const-string p2, "LRUMap initial size must not be greather than max size"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 183
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "LRUMap max size must be greater than 0"
+    const-string p2, "LRUMap max size must be greater than 0"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public constructor <init>(IZ)V
     .locals 1
-    .param p1, "maxSize"    # I
-    .param p2, "scanUntilRemovable"    # Z
 
-    .line 118
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
     const/high16 v0, 0x3f400000    # 0.75f
 
+    .line 118
     invoke-direct {p0, p1, v0, p2}, Lorg/apache/commons/collections4/map/LRUMap;-><init>(IFZ)V
 
-    .line 119
     return-void
 .end method
 
@@ -204,20 +169,16 @@
         }
     .end annotation
 
-    .line 202
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     const/4 v0, 0x0
 
+    .line 202
     invoke-direct {p0, p1, v0}, Lorg/apache/commons/collections4/map/LRUMap;-><init>(Ljava/util/Map;Z)V
 
-    .line 203
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Map;Z)V
     .locals 2
-    .param p2, "scanUntilRemovable"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -227,8 +188,6 @@
     .end annotation
 
     .line 217
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     invoke-interface {p1}, Ljava/util/Map;->size()I
 
     move-result v0
@@ -240,13 +199,11 @@
     .line 218
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/map/LRUMap;->putAll(Ljava/util/Map;)V
 
-    .line 219
     return-void
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 0
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -255,19 +212,16 @@
     .end annotation
 
     .line 503
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
     .line 504
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/map/LRUMap;->doReadObject(Ljava/io/ObjectInputStream;)V
 
-    .line 505
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 0
-    .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -275,38 +229,31 @@
     .end annotation
 
     .line 491
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
     .line 492
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/map/LRUMap;->doWriteObject(Ljava/io/ObjectOutputStream;)V
 
-    .line 493
     return-void
 .end method
 
 
 # virtual methods
 .method protected addMapping(IILjava/lang/Object;Ljava/lang/Object;)V
-    .locals 14
-    .param p1, "hashIndex"    # I
-    .param p2, "hashCode"    # I
+    .locals 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(IITK;TV;)V"
         }
     .end annotation
 
-    .line 321
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
-    .local p3, "key":Ljava/lang/Object;, "TK;"
-    .local p4, "value":Ljava/lang/Object;, "TV;"
     move-object v6, p0
 
-    move-object/from16 v7, p3
+    move-object v4, p3
 
-    move-object/from16 v8, p4
+    move-object/from16 v5, p4
 
+    .line 321
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/LRUMap;->isFull()Z
 
     move-result v0
@@ -318,47 +265,40 @@
 
     iget-object v0, v0, Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;->after:Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
 
-    .line 323
-    .local v0, "reuse":Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;, "Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry<TK;TV;>;"
-    const/4 v1, 0x0
-
     .line 324
-    .local v1, "removeLRUEntry":Z
-    iget-boolean v2, v6, Lorg/apache/commons/collections4/map/LRUMap;->scanUntilRemovable:Z
+    iget-boolean v1, v6, Lorg/apache/commons/collections4/map/LRUMap;->scanUntilRemovable:Z
 
-    const-string v3, " This should not occur if your keys are immutable, and you have used synchronization properly."
+    const-string v2, " This should not occur if your keys are immutable, and you have used synchronization properly."
 
-    const-string v4, " maxSize="
+    const-string v3, " maxSize="
 
-    const-string v5, " size="
+    const-string v7, " size="
 
-    const-string v9, " value="
+    const-string v8, " value="
 
-    const-string v10, " key="
+    const-string v9, " key="
 
-    const-string v11, " header.before="
+    const-string v10, " header.before="
 
-    if-eqz v2, :cond_3
+    if-eqz v1, :cond_3
 
     .line 325
     :goto_0
-    iget-object v2, v6, Lorg/apache/commons/collections4/map/LRUMap;->header:Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
+    iget-object v1, v6, Lorg/apache/commons/collections4/map/LRUMap;->header:Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
 
-    if-eq v0, v2, :cond_1
+    if-eq v0, v1, :cond_1
 
     if-eqz v0, :cond_1
 
     .line 326
     invoke-virtual {p0, v0}, Lorg/apache/commons/collections4/map/LRUMap;->removeLRU(Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    .line 327
     const/4 v1, 0x1
 
-    .line 328
     goto :goto_1
 
     .line 330
@@ -367,72 +307,91 @@
 
     goto :goto_0
 
-    .line 332
     :cond_1
+    const/4 v1, 0x0
+
     :goto_1
     if-eqz v0, :cond_2
-
-    move-object v12, v0
-
-    move v13, v1
 
     goto :goto_2
 
     .line 333
     :cond_2
-    new-instance v2, Ljava/lang/IllegalStateException;
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    new-instance v12, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v11, "Entry.after=null, header.after="
 
-    const-string v13, "Entry.after=null, header.after="
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v13, v6, Lorg/apache/commons/collections4/map/LRUMap;->header:Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
-
-    iget-object v13, v13, Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;->after:Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v12, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v11}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v11, v6, Lorg/apache/commons/collections4/map/LRUMap;->header:Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
 
-    iget-object v11, v11, Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;->before:Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
+    iget-object v11, v11, Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;->after:Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
 
-    invoke-virtual {v12, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v12, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v12, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    iget-object v10, v6, Lorg/apache/commons/collections4/map/LRUMap;->header:Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
 
-    invoke-virtual {v12, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v10, v10, Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;->before:Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
 
-    iget v5, v6, Lorg/apache/commons/collections4/map/LRUMap;->size:I
+    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v12, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v4, v6, Lorg/apache/commons/collections4/map/LRUMap;->maxSize:I
+    move-result-object v1
 
-    invoke-virtual {v12, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-direct {v2, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    throw v2
+    move-result-object v1
+
+    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget v4, v6, Lorg/apache/commons/collections4/map/LRUMap;->size:I
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget v3, v6, Lorg/apache/commons/collections4/map/LRUMap;->maxSize:I
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 
     .line 339
     :cond_3
@@ -440,34 +399,26 @@
 
     move-result v1
 
-    move-object v12, v0
-
-    move v13, v1
-
-    .line 342
-    .end local v0    # "reuse":Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;, "Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry<TK;TV;>;"
-    .end local v1    # "removeLRUEntry":Z
-    .local v12, "reuse":Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;, "Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry<TK;TV;>;"
-    .local v13, "removeLRUEntry":Z
     :goto_2
-    if-eqz v13, :cond_5
+    move-object v11, v0
 
-    .line 343
-    if-eqz v12, :cond_4
+    if-eqz v1, :cond_5
 
-    .line 349
+    if-eqz v11, :cond_4
+
     move-object v0, p0
 
-    move-object v1, v12
+    move-object v1, v11
 
     move v2, p1
 
-    move/from16 v3, p2
+    move v3, p2
 
-    move-object/from16 v4, p3
+    move-object v4, p3
 
     move-object/from16 v5, p4
 
+    .line 349
     invoke-virtual/range {v0 .. v5}, Lorg/apache/commons/collections4/map/LRUMap;->reuseMapping(Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;IILjava/lang/Object;Ljava/lang/Object;)V
 
     goto :goto_3
@@ -478,47 +429,69 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v11, "reuse=null, header.after="
 
-    const-string v2, "reuse=null, header.after="
+    invoke-direct {v1, v11}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v11, v6, Lorg/apache/commons/collections4/map/LRUMap;->header:Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
 
-    iget-object v2, v6, Lorg/apache/commons/collections4/map/LRUMap;->header:Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
+    iget-object v11, v11, Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;->after:Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
 
-    iget-object v2, v2, Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;->after:Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
+    invoke-virtual {v1, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v2, v6, Lorg/apache/commons/collections4/map/LRUMap;->header:Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
-
-    iget-object v2, v2, Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;->before:Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
     invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v1
+
+    iget-object v10, v6, Lorg/apache/commons/collections4/map/LRUMap;->header:Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
+
+    iget-object v10, v10, Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;->before:Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
+
+    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    iget v2, v6, Lorg/apache/commons/collections4/map/LRUMap;->size:I
+    move-result-object v1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    iget v2, v6, Lorg/apache/commons/collections4/map/LRUMap;->maxSize:I
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v1
+
+    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget v4, v6, Lorg/apache/commons/collections4/map/LRUMap;->size:I
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget v3, v6, Lorg/apache/commons/collections4/map/LRUMap;->maxSize:I
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -532,18 +505,13 @@
     :cond_5
     invoke-super/range {p0 .. p4}, Lorg/apache/commons/collections4/map/AbstractLinkedMap;->addMapping(IILjava/lang/Object;Ljava/lang/Object;)V
 
-    .line 353
-    .end local v12    # "reuse":Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;, "Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry<TK;TV;>;"
-    .end local v13    # "removeLRUEntry":Z
-    :goto_3
-    goto :goto_4
+    goto :goto_3
 
     .line 354
     :cond_6
     invoke-super/range {p0 .. p4}, Lorg/apache/commons/collections4/map/AbstractLinkedMap;->addMapping(IILjava/lang/Object;Ljava/lang/Object;)V
 
-    .line 356
-    :goto_4
+    :goto_3
     return-void
 .end method
 
@@ -556,7 +524,6 @@
     .end annotation
 
     .line 66
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/LRUMap;->clone()Lorg/apache/commons/collections4/map/LRUMap;
 
     move-result-object v0
@@ -568,7 +535,6 @@
     .locals 1
 
     .line 66
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/LRUMap;->clone()Lorg/apache/commons/collections4/map/LRUMap;
 
     move-result-object v0
@@ -587,7 +553,6 @@
     .end annotation
 
     .line 481
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/map/AbstractLinkedMap;->clone()Lorg/apache/commons/collections4/map/AbstractHashedMap;
 
     move-result-object v0
@@ -599,7 +564,6 @@
 
 .method protected doReadObject(Ljava/io/ObjectInputStream;)V
     .locals 1
-    .param p1, "in"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -608,7 +572,6 @@
     .end annotation
 
     .line 528
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->readInt()I
 
     move-result v0
@@ -618,13 +581,11 @@
     .line 529
     invoke-super {p0, p1}, Lorg/apache/commons/collections4/map/AbstractLinkedMap;->doReadObject(Ljava/io/ObjectInputStream;)V
 
-    .line 530
     return-void
 .end method
 
 .method protected doWriteObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .param p1, "out"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -632,7 +593,6 @@
     .end annotation
 
     .line 515
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
     iget v0, p0, Lorg/apache/commons/collections4/map/LRUMap;->maxSize:I
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeInt(I)V
@@ -640,13 +600,11 @@
     .line 516
     invoke-super {p0, p1}, Lorg/apache/commons/collections4/map/AbstractLinkedMap;->doWriteObject(Ljava/io/ObjectOutputStream;)V
 
-    .line 517
     return-void
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1, "key"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -655,21 +613,18 @@
         }
     .end annotation
 
-    .line 233
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
     const/4 v0, 0x1
 
+    .line 233
     invoke-virtual {p0, p1, v0}, Lorg/apache/commons/collections4/map/LRUMap;->get(Ljava/lang/Object;Z)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public get(Ljava/lang/Object;Z)Ljava/lang/Object;
-    .locals 2
-    .param p1, "key"    # Ljava/lang/Object;
-    .param p2, "updateToMRU"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -679,41 +634,35 @@
     .end annotation
 
     .line 250
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
     invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/map/LRUMap;->getEntry(Ljava/lang/Object;)Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 251
-    .local v0, "entry":Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;, "Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry<TK;TV;>;"
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    .line 252
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 
-    .line 254
     :cond_0
     if-eqz p2, :cond_1
 
     .line 255
-    invoke-virtual {p0, v0}, Lorg/apache/commons/collections4/map/LRUMap;->moveToMRU(Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;)V
+    invoke-virtual {p0, p1}, Lorg/apache/commons/collections4/map/LRUMap;->moveToMRU(Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;)V
 
     .line 257
     :cond_1
-    invoke-virtual {v0}, Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;->getValue()Ljava/lang/Object;
+    invoke-virtual {p1}, Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;->getValue()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public isFull()Z
     .locals 2
 
     .line 449
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
     iget v0, p0, Lorg/apache/commons/collections4/map/LRUMap;->size:I
 
     iget v1, p0, Lorg/apache/commons/collections4/map/LRUMap;->maxSize:I
@@ -735,7 +684,6 @@
     .locals 1
 
     .line 470
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/map/LRUMap;->scanUntilRemovable:Z
 
     return v0
@@ -745,7 +693,6 @@
     .locals 1
 
     .line 459
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
     iget v0, p0, Lorg/apache/commons/collections4/map/LRUMap;->maxSize:I
 
     return v0
@@ -762,8 +709,6 @@
     .end annotation
 
     .line 269
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
-    .local p1, "entry":Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;, "Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry<TK;TV;>;"
     iget-object v0, p1, Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;->after:Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
 
     iget-object v1, p0, Lorg/apache/commons/collections4/map/LRUMap;->header:Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
@@ -824,13 +769,13 @@
 
     .line 273
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Entry.before is null. This should not occur if your keys are immutable, and you have used synchronization properly."
+    const-string v0, "Entry.before is null. This should not occur if your keys are immutable, and you have used synchronization properly."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 283
     :cond_1
@@ -838,23 +783,22 @@
 
     if-eq p1, v0, :cond_2
 
-    .line 287
     :goto_0
     return-void
 
     .line 284
     :cond_2
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Can\'t move header to MRU This should not occur if your keys are immutable, and you have used synchronization properly."
+    const-string v0, "Can\'t move header to MRU This should not occur if your keys are immutable, and you have used synchronization properly."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method protected removeLRU(Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -863,18 +807,13 @@
         }
     .end annotation
 
-    .line 438
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
-    .local p1, "entry":Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;, "Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry<TK;TV;>;"
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method protected reuseMapping(Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;IILjava/lang/Object;Ljava/lang/Object;)V
-    .locals 16
-    .param p2, "hashIndex"    # I
-    .param p3, "hashCode"    # I
+    .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -883,240 +822,238 @@
         }
     .end annotation
 
+    const-string v0, " This should not occur if your keys are immutable, and you have used synchronization properly."
+
+    const-string v1, " maxSize="
+
+    const-string v2, " size="
+
+    const-string v3, " value="
+
+    const-string v4, " key="
+
+    const/4 v5, 0x1
+
     .line 375
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
-    .local p1, "entry":Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;, "Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry<TK;TV;>;"
-    .local p4, "key":Ljava/lang/Object;, "TK;"
-    .local p5, "value":Ljava/lang/Object;, "TV;"
-    move-object/from16 v1, p0
-
-    move-object/from16 v2, p1
-
-    move-object/from16 v3, p4
-
-    move-object/from16 v4, p5
-
-    const-string v5, " This should not occur if your keys are immutable, and you have used synchronization properly."
-
-    const-string v6, " maxSize="
-
-    const-string v7, " size="
-
-    const-string v8, " value="
-
-    const-string v9, " key="
-
-    const/4 v10, 0x1
-
     :try_start_0
-    iget v0, v2, Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;->hashCode:I
+    iget v6, p1, Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;->hashCode:I
 
-    iget-object v11, v1, Lorg/apache/commons/collections4/map/LRUMap;->data:[Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;
+    iget-object v7, p0, Lorg/apache/commons/collections4/map/LRUMap;->data:[Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;
 
-    array-length v11, v11
+    array-length v7, v7
 
-    invoke-virtual {v1, v0, v11}, Lorg/apache/commons/collections4/map/LRUMap;->hashIndex(II)I
+    invoke-virtual {p0, v6, v7}, Lorg/apache/commons/collections4/map/LRUMap;->hashIndex(II)I
 
-    move-result v0
+    move-result v6
 
     .line 376
-    .local v0, "removeIndex":I
-    iget-object v11, v1, Lorg/apache/commons/collections4/map/LRUMap;->data:[Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;
+    iget-object v7, p0, Lorg/apache/commons/collections4/map/LRUMap;->data:[Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;
 
     .line 377
-    .local v11, "tmp":[Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;, "[Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry<TK;TV;>;"
-    aget-object v12, v11, v0
+    aget-object v7, v7, v6
 
-    .line 378
-    .local v12, "loop":Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;, "Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry<TK;TV;>;"
-    const/4 v13, 0x0
+    const/4 v8, 0x0
 
-    .line 379
-    .local v13, "previous":Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;, "Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry<TK;TV;>;"
     :goto_0
-    if-eq v12, v2, :cond_0
+    if-eq v7, p1, :cond_0
 
-    if-eqz v12, :cond_0
-
-    .line 380
-    move-object v13, v12
+    if-eqz v7, :cond_0
 
     .line 381
-    iget-object v14, v12, Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;->next:Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;
+    iget-object v8, v7, Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;->next:Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;
 
-    move-object v12, v14
+    move-object v9, v8
+
+    move-object v8, v7
+
+    move-object v7, v9
 
     goto :goto_0
 
-    .line 383
     :cond_0
-    if-eqz v12, :cond_1
+    if-eqz v7, :cond_1
 
     .line 391
-    iget v14, v1, Lorg/apache/commons/collections4/map/LRUMap;->modCount:I
+    iget v7, p0, Lorg/apache/commons/collections4/map/LRUMap;->modCount:I
 
-    add-int/2addr v14, v10
+    add-int/2addr v7, v5
 
-    iput v14, v1, Lorg/apache/commons/collections4/map/LRUMap;->modCount:I
+    iput v7, p0, Lorg/apache/commons/collections4/map/LRUMap;->modCount:I
 
     .line 392
-    invoke-virtual {v1, v2, v0, v13}, Lorg/apache/commons/collections4/map/LRUMap;->removeEntry(Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;ILorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;)V
+    invoke-virtual {p0, p1, v6, v8}, Lorg/apache/commons/collections4/map/LRUMap;->removeEntry(Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;ILorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;)V
 
     .line 393
     invoke-virtual/range {p0 .. p5}, Lorg/apache/commons/collections4/map/LRUMap;->reuseEntry(Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;IILjava/lang/Object;Ljava/lang/Object;)V
 
     .line 394
-    invoke-virtual/range {p0 .. p2}, Lorg/apache/commons/collections4/map/LRUMap;->addEntry(Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;I)V
+    invoke-virtual {p0, p1, p2}, Lorg/apache/commons/collections4/map/LRUMap;->addEntry(Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;I)V
 
-    .line 400
-    .end local v0    # "removeIndex":I
-    .end local v11    # "tmp":[Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;, "[Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry<TK;TV;>;"
-    .end local v12    # "loop":Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;, "Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry<TK;TV;>;"
-    .end local v13    # "previous":Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;, "Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry<TK;TV;>;"
-    nop
-
-    .line 401
     return-void
 
     .line 384
-    .restart local v0    # "removeIndex":I
-    .restart local v11    # "tmp":[Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;, "[Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry<TK;TV;>;"
-    .restart local v12    # "loop":Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;, "Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry<TK;TV;>;"
-    .restart local v13    # "previous":Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;, "Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry<TK;TV;>;"
     :cond_1
-    new-instance v14, Ljava/lang/IllegalStateException;
+    new-instance p2, Ljava/lang/IllegalStateException;
 
-    new-instance v15, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v10, "Entry.next=null, data[removeIndex]="
+    const-string v7, "Entry.next=null, data[removeIndex]="
 
-    invoke-virtual {v15, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v10, v1, Lorg/apache/commons/collections4/map/LRUMap;->data:[Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;
+    move-result-object p3
 
-    aget-object v10, v10, v0
+    iget-object v7, p0, Lorg/apache/commons/collections4/map/LRUMap;->data:[Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;
 
-    invoke-virtual {v15, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    aget-object v6, v7, v6
 
-    const-string v10, " previous="
+    invoke-virtual {p3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v15, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p3
 
-    invoke-virtual {v15, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    const-string v6, " previous="
 
-    invoke-virtual {v15, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v15, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p3
 
-    invoke-virtual {v15, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v15, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p3
 
-    invoke-virtual {v15, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v10, v1, Lorg/apache/commons/collections4/map/LRUMap;->size:I
+    move-result-object p3
 
-    invoke-virtual {v15, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v15, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p3
 
-    iget v10, v1, Lorg/apache/commons/collections4/map/LRUMap;->maxSize:I
+    invoke-virtual {p3, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v15, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p3
 
-    invoke-virtual {v15, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p3
 
-    move-result-object v10
+    invoke-virtual {p3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v14, v10}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    move-result-object p3
 
-    .end local p1    # "entry":Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;, "Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry<TK;TV;>;"
-    .end local p2    # "hashIndex":I
-    .end local p3    # "hashCode":I
-    .end local p4    # "key":Ljava/lang/Object;, "TK;"
-    .end local p5    # "value":Ljava/lang/Object;, "TV;"
-    throw v14
+    iget v6, p0, Lorg/apache/commons/collections4/map/LRUMap;->size:I
+
+    invoke-virtual {p3, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object p3
+
+    invoke-virtual {p3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p3
+
+    iget v6, p0, Lorg/apache/commons/collections4/map/LRUMap;->maxSize:I
+
+    invoke-virtual {p3, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object p3
+
+    invoke-virtual {p3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p3
+
+    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p3
+
+    invoke-direct {p2, p3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p2
     :try_end_0
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 395
-    .end local v0    # "removeIndex":I
-    .end local v11    # "tmp":[Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;, "[Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry<TK;TV;>;"
-    .end local v12    # "loop":Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;, "Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry<TK;TV;>;"
-    .end local v13    # "previous":Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;, "Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry<TK;TV;>;"
-    .restart local p1    # "entry":Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;, "Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry<TK;TV;>;"
-    .restart local p2    # "hashIndex":I
-    .restart local p3    # "hashCode":I
-    .restart local p4    # "key":Ljava/lang/Object;, "TK;"
-    .restart local p5    # "value":Ljava/lang/Object;, "TV;"
-    :catch_0
-    move-exception v0
-
     .line 396
-    .local v0, "ex":Ljava/lang/NullPointerException;
-    new-instance v10, Ljava/lang/IllegalStateException;
+    :catch_0
+    new-instance p2, Ljava/lang/IllegalStateException;
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v6, "NPE, entry="
 
-    const-string v12, "NPE, entry="
+    invoke-direct {p3, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object p3
 
-    const-string v12, " entryIsHeader="
+    const-string v6, " entryIsHeader="
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v12, v1, Lorg/apache/commons/collections4/map/LRUMap;->header:Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
+    move-result-object p3
 
-    if-ne v2, v12, :cond_2
+    iget-object v6, p0, Lorg/apache/commons/collections4/map/LRUMap;->header:Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
 
-    const/4 v12, 0x1
+    if-ne p1, v6, :cond_2
 
     goto :goto_1
 
     :cond_2
-    const/4 v12, 0x0
+    const/4 v5, 0x0
 
     :goto_1
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v11, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v11, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    iget v7, v1, Lorg/apache/commons/collections4/map/LRUMap;->size:I
+    invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    iget v6, v1, Lorg/apache/commons/collections4/map/LRUMap;->maxSize:I
+    move-result-object p1
 
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget p3, p0, Lorg/apache/commons/collections4/map/LRUMap;->size:I
 
-    move-result-object v5
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-direct {v10, v5}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    move-result-object p1
 
-    throw v10
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    iget p3, p0, Lorg/apache/commons/collections4/map/LRUMap;->maxSize:I
+
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p2, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p2
 .end method
 
 .method protected updateEntry(Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;Ljava/lang/Object;)V
@@ -1130,9 +1067,6 @@
     .end annotation
 
     .line 300
-    .local p0, "this":Lorg/apache/commons/collections4/map/LRUMap;, "Lorg/apache/commons/collections4/map/LRUMap<TK;TV;>;"
-    .local p1, "entry":Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;, "Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry<TK;TV;>;"
-    .local p2, "newValue":Ljava/lang/Object;, "TV;"
     move-object v0, p1
 
     check-cast v0, Lorg/apache/commons/collections4/map/AbstractLinkedMap$LinkEntry;
@@ -1142,6 +1076,5 @@
     .line 301
     invoke-virtual {p1, p2}, Lorg/apache/commons/collections4/map/AbstractHashedMap$HashEntry;->setValue(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 302
     return-void
 .end method

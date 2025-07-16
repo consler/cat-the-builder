@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 8
+    .locals 11
 
     .line 1271
     new-instance v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
@@ -51,70 +51,62 @@
 
     sput-object v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;->none:Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
 
-    new-instance v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
+    new-instance v1, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
 
-    const-string v1, "all"
+    const-string v3, "all"
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    invoke-direct {v0, v1, v3}, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v1, v3, v4}, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;->all:Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
+    sput-object v1, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;->all:Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
 
-    new-instance v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
+    new-instance v3, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
 
-    const-string v1, "table"
+    const-string v5, "table"
 
-    const/4 v4, 0x2
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v1, v4}, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;->table:Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
+    sput-object v3, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;->table:Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
 
-    new-instance v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
+    new-instance v5, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
 
-    const-string v1, "cell"
+    const-string v7, "cell"
 
-    const/4 v5, 0x3
+    const/4 v8, 0x3
 
-    invoke-direct {v0, v1, v5}, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v5, v7, v8}, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;->cell:Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
+    sput-object v5, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;->cell:Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
 
-    new-instance v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
+    new-instance v7, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
 
-    const-string v1, "actor"
+    const-string v9, "actor"
 
-    const/4 v6, 0x4
+    const/4 v10, 0x4
 
-    invoke-direct {v0, v1, v6}, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v7, v9, v10}, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;->actor:Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
+    sput-object v7, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;->actor:Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
+
+    const/4 v9, 0x5
+
+    new-array v9, v9, [Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
+
+    aput-object v0, v9, v2
+
+    aput-object v1, v9, v4
+
+    aput-object v3, v9, v6
+
+    aput-object v5, v9, v8
+
+    aput-object v7, v9, v10
 
     .line 1270
-    const/4 v1, 0x5
-
-    new-array v1, v1, [Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
-
-    sget-object v7, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;->none:Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
-
-    aput-object v7, v1, v2
-
-    sget-object v2, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;->all:Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;->table:Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;->cell:Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
-
-    aput-object v2, v1, v5
-
-    aput-object v0, v1, v6
-
-    sput-object v1, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;->$VALUES:[Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
+    sput-object v9, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;->$VALUES:[Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
 
     return-void
 .end method
@@ -135,18 +127,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 1270
     const-class v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
+    check-cast p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/badlogic/gdx/scenes/scene2d/ui/Table$Debug;

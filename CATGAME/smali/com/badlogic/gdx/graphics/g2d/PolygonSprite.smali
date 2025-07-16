@@ -35,15 +35,14 @@
 
 # direct methods
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;)V
-    .locals 3
-    .param p1, "region"    # Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;
+    .locals 2
 
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 30
     const/high16 v0, 0x3f800000    # 1.0f
 
+    .line 30
     iput v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->scaleX:F
 
     iput v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->scaleY:F
@@ -72,41 +71,39 @@
 
     int-to-float v0, v0
 
-    iget-object v1, p1, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;->region:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;->region:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
-    iget v1, v1, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->regionHeight:I
+    iget p1, p1, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->regionHeight:I
 
-    int-to-float v1, v1
+    int-to-float p1, p1
 
-    invoke-virtual {p0, v0, v1}, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->setSize(FF)V
+    invoke-virtual {p0, v0, p1}, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->setSize(FF)V
 
     .line 41
-    iget v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->width:F
+    iget p1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->width:F
 
-    const/high16 v1, 0x40000000    # 2.0f
+    const/high16 v0, 0x40000000    # 2.0f
 
-    div-float/2addr v0, v1
+    div-float/2addr p1, v0
 
-    iget v2, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->height:F
+    iget v1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->height:F
 
-    div-float/2addr v2, v1
+    div-float/2addr v1, v0
 
-    invoke-virtual {p0, v0, v2}, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->setOrigin(FF)V
+    invoke-virtual {p0, p1, v1}, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->setOrigin(FF)V
 
-    .line 42
     return-void
 .end method
 
 .method public constructor <init>(Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;)V
     .locals 2
-    .param p1, "sprite"    # Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;
 
     .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 30
     const/high16 v0, 0x3f800000    # 1.0f
 
+    .line 30
     iput v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->scaleX:F
 
     iput v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->scaleY:F
@@ -128,7 +125,6 @@
     .line 46
     invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->set(Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;)V
 
-    .line 47
     return-void
 .end method
 
@@ -136,13 +132,11 @@
 # virtual methods
 .method public draw(Lcom/badlogic/gdx/graphics/g2d/PolygonSpriteBatch;)V
     .locals 10
-    .param p1, "spriteBatch"    # Lcom/badlogic/gdx/graphics/g2d/PolygonSpriteBatch;
 
     .line 260
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->region:Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;
 
     .line 261
-    .local v0, "region":Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;
     iget-object v1, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;->region:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
     iget-object v3, v1, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->texture:Lcom/badlogic/gdx/graphics/Texture;
@@ -151,32 +145,29 @@
 
     move-result-object v4
 
+    const/4 v5, 0x0
+
     iget-object v1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->vertices:[F
 
     array-length v6, v1
 
     iget-object v7, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;->triangles:[S
 
-    iget-object v1, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;->triangles:[S
-
-    array-length v9, v1
-
-    const/4 v5, 0x0
-
     const/4 v8, 0x0
+
+    iget-object v0, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;->triangles:[S
+
+    array-length v9, v0
 
     move-object v2, p1
 
     invoke-virtual/range {v2 .. v9}, Lcom/badlogic/gdx/graphics/g2d/PolygonSpriteBatch;->draw(Lcom/badlogic/gdx/graphics/Texture;[FII[SII)V
 
-    .line 262
     return-void
 .end method
 
 .method public draw(Lcom/badlogic/gdx/graphics/g2d/PolygonSpriteBatch;F)V
     .locals 3
-    .param p1, "spriteBatch"    # Lcom/badlogic/gdx/graphics/g2d/PolygonSpriteBatch;
-    .param p2, "alphaModulation"    # F
 
     .line 265
     invoke-virtual {p0}, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->getColor()Lcom/badlogic/gdx/graphics/Color;
@@ -184,11 +175,9 @@
     move-result-object v0
 
     .line 266
-    .local v0, "color":Lcom/badlogic/gdx/graphics/Color;
     iget v1, v0, Lcom/badlogic/gdx/graphics/Color;->a:F
 
     .line 267
-    .local v1, "oldAlpha":F
     iget v2, v0, Lcom/badlogic/gdx/graphics/Color;->a:F
 
     mul-float/2addr v2, p2
@@ -207,7 +196,6 @@
     .line 271
     invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->setColor(Lcom/badlogic/gdx/graphics/Color;)V
 
-    .line 272
     return-void
 .end method
 
@@ -219,31 +207,27 @@
 
     move-result-object v0
 
-    .line 238
-    .local v0, "vertices":[F
     const/4 v1, 0x0
 
-    aget v2, v0, v1
-
-    .line 239
-    .local v2, "minx":F
-    const/4 v3, 0x1
-
-    aget v4, v0, v3
-
-    .line 240
-    .local v4, "miny":F
+    .line 238
     aget v1, v0, v1
 
-    .line 241
-    .local v1, "maxx":F
-    aget v3, v0, v3
+    const/4 v2, 0x1
+
+    .line 239
+    aget v2, v0, v2
+
+    const/4 v3, 0x5
+
+    move v4, v2
+
+    move v5, v3
+
+    move v2, v1
+
+    move v3, v4
 
     .line 243
-    .local v3, "maxy":F
-    const/4 v5, 0x5
-
-    .local v5, "i":I
     :goto_0
     array-length v6, v0
 
@@ -252,110 +236,72 @@
     .line 244
     aget v6, v0, v5
 
-    .line 245
-    .local v6, "x":F
     add-int/lit8 v7, v5, 0x1
 
+    .line 245
     aget v7, v0, v7
 
-    .line 246
-    .local v7, "y":F
-    cmpl-float v8, v2, v6
+    cmpl-float v8, v1, v6
 
     if-lez v8, :cond_0
 
-    move v8, v6
-
-    goto :goto_1
+    move v1, v6
 
     :cond_0
-    move v8, v2
-
-    :goto_1
-    move v2, v8
-
-    .line 247
-    cmpg-float v8, v1, v6
+    cmpg-float v8, v2, v6
 
     if-gez v8, :cond_1
 
-    move v8, v6
-
-    goto :goto_2
+    move v2, v6
 
     :cond_1
-    move v8, v1
+    cmpl-float v6, v3, v7
 
-    :goto_2
-    move v1, v8
+    if-lez v6, :cond_2
 
-    .line 248
-    cmpl-float v8, v4, v7
-
-    if-lez v8, :cond_2
-
-    move v8, v7
-
-    goto :goto_3
+    move v3, v7
 
     :cond_2
-    move v8, v4
+    cmpg-float v6, v4, v7
 
-    :goto_3
-    move v4, v8
+    if-gez v6, :cond_3
 
-    .line 249
-    cmpg-float v8, v3, v7
-
-    if-gez v8, :cond_3
-
-    move v8, v7
-
-    goto :goto_4
+    move v4, v7
 
     :cond_3
-    move v8, v3
-
-    :goto_4
-    move v3, v8
-
-    .line 243
-    .end local v6    # "x":F
-    .end local v7    # "y":F
     add-int/lit8 v5, v5, 0x5
 
     goto :goto_0
 
     .line 252
-    .end local v5    # "i":I
     :cond_4
-    iget-object v5, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->bounds:Lcom/badlogic/gdx/math/Rectangle;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->bounds:Lcom/badlogic/gdx/math/Rectangle;
 
-    iput v2, v5, Lcom/badlogic/gdx/math/Rectangle;->x:F
+    iput v1, v0, Lcom/badlogic/gdx/math/Rectangle;->x:F
 
     .line 253
-    iget-object v5, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->bounds:Lcom/badlogic/gdx/math/Rectangle;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->bounds:Lcom/badlogic/gdx/math/Rectangle;
 
-    iput v4, v5, Lcom/badlogic/gdx/math/Rectangle;->y:F
+    iput v3, v0, Lcom/badlogic/gdx/math/Rectangle;->y:F
 
     .line 254
-    iget-object v5, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->bounds:Lcom/badlogic/gdx/math/Rectangle;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->bounds:Lcom/badlogic/gdx/math/Rectangle;
 
-    sub-float v6, v1, v2
+    sub-float/2addr v2, v1
 
-    iput v6, v5, Lcom/badlogic/gdx/math/Rectangle;->width:F
+    iput v2, v0, Lcom/badlogic/gdx/math/Rectangle;->width:F
 
     .line 255
-    iget-object v5, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->bounds:Lcom/badlogic/gdx/math/Rectangle;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->bounds:Lcom/badlogic/gdx/math/Rectangle;
 
-    sub-float v6, v3, v4
+    sub-float/2addr v4, v3
 
-    iput v6, v5, Lcom/badlogic/gdx/math/Rectangle;->height:F
+    iput v4, v0, Lcom/badlogic/gdx/math/Rectangle;->height:F
 
     .line 256
-    iget-object v5, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->bounds:Lcom/badlogic/gdx/math/Rectangle;
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->bounds:Lcom/badlogic/gdx/math/Rectangle;
 
-    return-object v5
+    return-object v0
 .end method
 
 .method public getColor()Lcom/badlogic/gdx/graphics/Color;
@@ -451,11 +397,11 @@
 .end method
 
 .method public getVertices()[F
-    .locals 21
+    .locals 20
 
-    .line 203
     move-object/from16 v0, p0
 
+    .line 203
     iget-boolean v1, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->dirty:Z
 
     if-nez v1, :cond_0
@@ -464,72 +410,49 @@
 
     return-object v1
 
-    .line 204
     :cond_0
     const/4 v1, 0x0
 
+    .line 204
     iput-boolean v1, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->dirty:Z
 
     .line 206
-    iget v1, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->originX:F
+    iget v2, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->originX:F
 
     .line 207
-    .local v1, "originX":F
-    iget v2, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->originY:F
+    iget v3, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->originY:F
 
     .line 208
-    .local v2, "originY":F
-    iget v3, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->scaleX:F
+    iget v4, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->scaleX:F
 
     .line 209
-    .local v3, "scaleX":F
-    iget v4, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->scaleY:F
+    iget v5, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->scaleY:F
 
     .line 210
-    .local v4, "scaleY":F
-    iget-object v5, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->region:Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;
+    iget-object v6, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->region:Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;
 
     .line 211
-    .local v5, "region":Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;
-    iget-object v6, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->vertices:[F
+    iget-object v7, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->vertices:[F
 
     .line 212
-    .local v6, "vertices":[F
-    iget-object v7, v5, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;->vertices:[F
+    iget-object v8, v6, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;->vertices:[F
 
     .line 214
-    .local v7, "regionVertices":[F
-    iget v8, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->x:F
-
-    add-float/2addr v8, v1
-
-    .line 215
-    .local v8, "worldOriginX":F
-    iget v9, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->y:F
+    iget v9, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->x:F
 
     add-float/2addr v9, v2
 
+    .line 215
+    iget v10, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->y:F
+
+    add-float/2addr v10, v3
+
     .line 216
-    .local v9, "worldOriginY":F
-    iget v10, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->width:F
+    iget v11, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->width:F
 
-    iget-object v11, v5, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;->region:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+    iget-object v12, v6, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;->region:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
 
-    invoke-virtual {v11}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->getRegionWidth()I
-
-    move-result v11
-
-    int-to-float v11, v11
-
-    div-float/2addr v10, v11
-
-    .line 217
-    .local v10, "sX":F
-    iget v11, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->height:F
-
-    iget-object v12, v5, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;->region:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
-
-    invoke-virtual {v12}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->getRegionHeight()I
+    invoke-virtual {v12}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->getRegionWidth()I
 
     move-result v12
 
@@ -537,16 +460,27 @@
 
     div-float/2addr v11, v12
 
+    .line 217
+    iget v12, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->height:F
+
+    iget-object v6, v6, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;->region:Lcom/badlogic/gdx/graphics/g2d/TextureRegion;
+
+    invoke-virtual {v6}, Lcom/badlogic/gdx/graphics/g2d/TextureRegion;->getRegionHeight()I
+
+    move-result v6
+
+    int-to-float v6, v6
+
+    div-float/2addr v12, v6
+
     .line 218
-    .local v11, "sY":F
-    iget v12, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->rotation:F
+    iget v6, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->rotation:F
 
-    invoke-static {v12}, Lcom/badlogic/gdx/math/MathUtils;->cosDeg(F)F
+    invoke-static {v6}, Lcom/badlogic/gdx/math/MathUtils;->cosDeg(F)F
 
-    move-result v12
+    move-result v6
 
     .line 219
-    .local v12, "cos":F
     iget v13, v0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->rotation:F
 
     invoke-static {v13}, Lcom/badlogic/gdx/math/MathUtils;->sinDeg(F)F
@@ -554,80 +488,65 @@
     move-result v13
 
     .line 222
-    .local v13, "sin":F
-    const/4 v14, 0x0
+    array-length v14, v8
 
-    .local v14, "i":I
-    const/4 v15, 0x0
+    move v15, v1
 
-    .local v15, "v":I
-    array-length v0, v7
-
-    .local v0, "n":I
     :goto_0
-    if-ge v14, v0, :cond_1
+    if-ge v1, v14, :cond_1
 
     .line 223
-    aget v16, v7, v14
+    aget v16, v8, v1
 
-    mul-float v16, v16, v10
+    mul-float v16, v16, v11
 
-    sub-float v16, v16, v1
+    sub-float v16, v16, v2
 
-    mul-float v16, v16, v3
+    mul-float v16, v16, v4
+
+    add-int/lit8 v17, v1, 0x1
 
     .line 224
-    .local v16, "fx":F
-    add-int/lit8 v17, v14, 0x1
+    aget v17, v8, v17
 
-    aget v17, v7, v17
+    mul-float v17, v17, v12
 
-    mul-float v17, v17, v11
+    sub-float v17, v17, v3
 
-    sub-float v17, v17, v2
+    mul-float v17, v17, v5
 
-    mul-float v17, v17, v4
-
-    .line 225
-    .local v17, "fy":F
-    mul-float v18, v12, v16
+    mul-float v18, v6, v16
 
     mul-float v19, v13, v17
 
     sub-float v18, v18, v19
 
-    add-float v18, v18, v8
+    add-float v18, v18, v9
 
-    aput v18, v6, v15
+    .line 225
+    aput v18, v7, v15
 
-    .line 226
     add-int/lit8 v18, v15, 0x1
 
-    mul-float v19, v13, v16
+    mul-float v16, v16, v13
 
-    mul-float v20, v12, v17
+    mul-float v17, v17, v6
 
-    add-float v19, v19, v20
+    add-float v16, v16, v17
 
-    add-float v19, v19, v9
+    add-float v16, v16, v10
 
-    aput v19, v6, v18
+    .line 226
+    aput v16, v7, v18
 
-    .line 222
-    add-int/lit8 v14, v14, 0x2
+    add-int/lit8 v1, v1, 0x2
 
     add-int/lit8 v15, v15, 0x5
 
     goto :goto_0
 
-    .line 228
-    .end local v0    # "n":I
-    .end local v14    # "i":I
-    .end local v15    # "v":I
-    .end local v16    # "fx":F
-    .end local v17    # "fy":F
     :cond_1
-    return-object v6
+    return-object v7
 .end method
 
 .method public getWidth()F
@@ -659,7 +578,6 @@
 
 .method public rotate(F)V
     .locals 1
-    .param p1, "degrees"    # F
 
     .line 178
     iget v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->rotation:F
@@ -668,18 +586,16 @@
 
     iput v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->rotation:F
 
+    const/4 p1, 0x1
+
     .line 179
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->dirty:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->dirty:Z
-
-    .line 180
     return-void
 .end method
 
 .method public scale(F)V
     .locals 1
-    .param p1, "amount"    # F
 
     .line 196
     iget v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->scaleX:F
@@ -695,20 +611,17 @@
 
     iput v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->scaleY:F
 
+    const/4 p1, 0x1
+
     .line 198
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->dirty:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->dirty:Z
-
-    .line 199
     return-void
 .end method
 
 .method public set(Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;)V
-    .locals 2
-    .param p1, "sprite"    # Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;
+    .locals 1
 
-    .line 50
     if-eqz p1, :cond_0
 
     .line 52
@@ -764,30 +677,25 @@
     .line 63
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->color:Lcom/badlogic/gdx/graphics/Color;
 
-    iget-object v1, p1, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->color:Lcom/badlogic/gdx/graphics/Color;
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->color:Lcom/badlogic/gdx/graphics/Color;
 
-    invoke-virtual {v0, v1}, Lcom/badlogic/gdx/graphics/Color;->set(Lcom/badlogic/gdx/graphics/Color;)Lcom/badlogic/gdx/graphics/Color;
+    invoke-virtual {v0, p1}, Lcom/badlogic/gdx/graphics/Color;->set(Lcom/badlogic/gdx/graphics/Color;)Lcom/badlogic/gdx/graphics/Color;
 
-    .line 64
     return-void
 
     .line 50
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "sprite cannot be null."
+    const-string v0, "sprite cannot be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setBounds(FFFF)V
-    .locals 1
-    .param p1, "x"    # F
-    .param p2, "y"    # F
-    .param p3, "width"    # F
-    .param p4, "height"    # F
+    .locals 0
 
     .line 69
     iput p1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->x:F
@@ -801,21 +709,16 @@
     .line 72
     iput p4, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->height:F
 
+    const/4 p1, 0x1
+
     .line 74
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->dirty:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->dirty:Z
-
-    .line 75
     return-void
 .end method
 
 .method public setColor(FFFF)V
-    .locals 4
-    .param p1, "r"    # F
-    .param p2, "g"    # F
-    .param p3, "b"    # F
-    .param p4, "a"    # F
+    .locals 1
 
     .line 157
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->color:Lcom/badlogic/gdx/graphics/Color;
@@ -823,43 +726,36 @@
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/badlogic/gdx/graphics/Color;->set(FFFF)Lcom/badlogic/gdx/graphics/Color;
 
     .line 158
-    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->color:Lcom/badlogic/gdx/graphics/Color;
+    iget-object p1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->color:Lcom/badlogic/gdx/graphics/Color;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/graphics/Color;->toFloatBits()F
+    invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/Color;->toFloatBits()F
 
-    move-result v0
+    move-result p1
 
     .line 159
-    .local v0, "packedColor":F
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->vertices:[F
+    iget-object p2, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->vertices:[F
+
+    const/4 p3, 0x2
 
     .line 160
-    .local v1, "vertices":[F
-    const/4 v2, 0x2
-
-    .local v2, "i":I
     :goto_0
-    array-length v3, v1
+    array-length p4, p2
 
-    if-ge v2, v3, :cond_0
+    if-ge p3, p4, :cond_0
 
     .line 161
-    aput v0, v1, v2
+    aput p1, p2, p3
 
-    .line 160
-    add-int/lit8 v2, v2, 0x5
+    add-int/lit8 p3, p3, 0x5
 
     goto :goto_0
 
-    .line 162
-    .end local v2    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public setColor(Lcom/badlogic/gdx/graphics/Color;)V
-    .locals 4
-    .param p1, "tint"    # Lcom/badlogic/gdx/graphics/Color;
+    .locals 3
 
     .line 148
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->color:Lcom/badlogic/gdx/graphics/Color;
@@ -869,40 +765,32 @@
     .line 149
     invoke-virtual {p1}, Lcom/badlogic/gdx/graphics/Color;->toFloatBits()F
 
-    move-result v0
+    move-result p1
 
     .line 151
-    .local v0, "color":F
-    iget-object v1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->vertices:[F
+    iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->vertices:[F
+
+    const/4 v1, 0x2
 
     .line 152
-    .local v1, "vertices":[F
-    const/4 v2, 0x2
-
-    .local v2, "i":I
     :goto_0
-    array-length v3, v1
+    array-length v2, v0
 
-    if-ge v2, v3, :cond_0
+    if-ge v1, v2, :cond_0
 
     .line 153
-    aput v0, v1, v2
+    aput p1, v0, v1
 
-    .line 152
-    add-int/lit8 v2, v2, 0x5
+    add-int/lit8 v1, v1, 0x5
 
     goto :goto_0
 
-    .line 154
-    .end local v2    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public setOrigin(FF)V
-    .locals 1
-    .param p1, "originX"    # F
-    .param p2, "originY"    # F
+    .locals 0
 
     .line 166
     iput p1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->originX:F
@@ -910,38 +798,33 @@
     .line 167
     iput p2, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->originY:F
 
+    const/4 p1, 0x1
+
     .line 168
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->dirty:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->dirty:Z
-
-    .line 169
     return-void
 .end method
 
 .method public setPosition(FF)V
-    .locals 2
-    .param p1, "x"    # F
-    .param p2, "y"    # F
+    .locals 1
 
     .line 91
     iget v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->x:F
 
-    sub-float v0, p1, v0
+    sub-float/2addr p1, v0
 
-    iget v1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->y:F
+    iget v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->y:F
 
-    sub-float v1, p2, v1
+    sub-float/2addr p2, v0
 
-    invoke-virtual {p0, v0, v1}, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->translate(FF)V
+    invoke-virtual {p0, p1, p2}, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->translate(FF)V
 
-    .line 92
     return-void
 .end method
 
 .method public setRegion(Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;)V
-    .locals 9
-    .param p1, "region"    # Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;
+    .locals 8
 
     .line 325
     iput-object p1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->region:Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;
@@ -950,112 +833,99 @@
     iget-object v0, p1, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;->vertices:[F
 
     .line 328
-    .local v0, "regionVertices":[F
-    iget-object v1, p1, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;->textureCoords:[F
+    iget-object p1, p1, Lcom/badlogic/gdx/graphics/g2d/PolygonRegion;->textureCoords:[F
 
     .line 330
-    .local v1, "textureCoords":[F
-    array-length v2, v0
+    array-length v0, v0
 
-    div-int/lit8 v2, v2, 0x2
+    const/4 v1, 0x2
 
-    mul-int/lit8 v2, v2, 0x5
+    div-int/2addr v0, v1
+
+    mul-int/lit8 v0, v0, 0x5
 
     .line 331
-    .local v2, "verticesLength":I
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->vertices:[F
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->vertices:[F
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
-    array-length v3, v3
+    array-length v2, v2
 
-    if-eq v3, v2, :cond_1
+    if-eq v2, v0, :cond_1
 
     :cond_0
-    new-array v3, v2, [F
+    new-array v2, v0, [F
 
-    iput-object v3, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->vertices:[F
+    iput-object v2, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->vertices:[F
 
     .line 334
     :cond_1
-    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->color:Lcom/badlogic/gdx/graphics/Color;
+    iget-object v2, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->color:Lcom/badlogic/gdx/graphics/Color;
 
-    invoke-virtual {v3}, Lcom/badlogic/gdx/graphics/Color;->toFloatBits()F
+    invoke-virtual {v2}, Lcom/badlogic/gdx/graphics/Color;->toFloatBits()F
 
-    move-result v3
+    move-result v2
 
     .line 335
-    .local v3, "floatColor":F
-    iget-object v4, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->vertices:[F
+    iget-object v3, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->vertices:[F
 
-    .line 336
-    .local v4, "vertices":[F
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    .local v5, "i":I
-    const/4 v6, 0x2
+    move v5, v1
 
-    .local v6, "v":I
     :goto_0
-    if-ge v6, v2, :cond_2
+    if-ge v5, v0, :cond_2
 
     .line 337
-    aput v3, v4, v6
+    aput v2, v3, v5
+
+    add-int/lit8 v6, v5, 0x1
 
     .line 338
-    add-int/lit8 v7, v6, 0x1
+    aget v7, p1, v4
 
-    aget v8, v1, v5
+    aput v7, v3, v6
 
-    aput v8, v4, v7
+    add-int/lit8 v6, v5, 0x2
+
+    add-int/lit8 v7, v4, 0x1
 
     .line 339
-    add-int/lit8 v7, v6, 0x2
+    aget v7, p1, v7
 
-    add-int/lit8 v8, v5, 0x1
+    aput v7, v3, v6
 
-    aget v8, v1, v8
+    add-int/2addr v4, v1
 
-    aput v8, v4, v7
-
-    .line 336
-    add-int/lit8 v5, v5, 0x2
-
-    add-int/lit8 v6, v6, 0x5
+    add-int/lit8 v5, v5, 0x5
 
     goto :goto_0
 
-    .line 342
-    .end local v5    # "i":I
-    .end local v6    # "v":I
     :cond_2
-    const/4 v5, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v5, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->dirty:Z
+    .line 342
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->dirty:Z
 
-    .line 343
     return-void
 .end method
 
 .method public setRotation(F)V
-    .locals 1
-    .param p1, "degrees"    # F
+    .locals 0
 
     .line 172
     iput p1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->rotation:F
 
+    const/4 p1, 0x1
+
     .line 173
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->dirty:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->dirty:Z
-
-    .line 174
     return-void
 .end method
 
 .method public setScale(F)V
-    .locals 1
-    .param p1, "scaleXY"    # F
+    .locals 0
 
     .line 183
     iput p1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->scaleX:F
@@ -1063,19 +933,16 @@
     .line 184
     iput p1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->scaleY:F
 
+    const/4 p1, 0x1
+
     .line 185
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->dirty:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->dirty:Z
-
-    .line 186
     return-void
 .end method
 
 .method public setScale(FF)V
-    .locals 1
-    .param p1, "scaleX"    # F
-    .param p2, "scaleY"    # F
+    .locals 0
 
     .line 189
     iput p1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->scaleX:F
@@ -1083,19 +950,16 @@
     .line 190
     iput p2, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->scaleY:F
 
+    const/4 p1, 0x1
+
     .line 191
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->dirty:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->dirty:Z
-
-    .line 192
     return-void
 .end method
 
 .method public setSize(FF)V
-    .locals 1
-    .param p1, "width"    # F
-    .param p2, "height"    # F
+    .locals 0
 
     .line 81
     iput p1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->width:F
@@ -1103,49 +967,42 @@
     .line 82
     iput p2, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->height:F
 
+    const/4 p1, 0x1
+
     .line 84
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->dirty:Z
 
-    iput-boolean v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->dirty:Z
-
-    .line 85
     return-void
 .end method
 
 .method public setX(F)V
     .locals 1
-    .param p1, "x"    # F
 
     .line 98
     iget v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->x:F
 
-    sub-float v0, p1, v0
+    sub-float/2addr p1, v0
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->translateX(F)V
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->translateX(F)V
 
-    .line 99
     return-void
 .end method
 
 .method public setY(F)V
     .locals 1
-    .param p1, "y"    # F
 
     .line 105
     iget v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->y:F
 
-    sub-float v0, p1, v0
+    sub-float/2addr p1, v0
 
-    invoke-virtual {p0, v0}, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->translateY(F)V
+    invoke-virtual {p0, p1}, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->translateY(F)V
 
-    .line 106
     return-void
 .end method
 
 .method public translate(FF)V
     .locals 4
-    .param p1, "xAmount"    # F
-    .param p2, "yAmount"    # F
 
     .line 135
     iget v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->x:F
@@ -1172,11 +1029,9 @@
     :cond_0
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->vertices:[F
 
-    .line 141
-    .local v0, "vertices":[F
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    .line 141
     :goto_0
     array-length v2, v0
 
@@ -1189,29 +1044,25 @@
 
     aput v2, v0, v1
 
-    .line 143
     add-int/lit8 v2, v1, 0x1
 
+    .line 143
     aget v3, v0, v2
 
     add-float/2addr v3, p2
 
     aput v3, v0, v2
 
-    .line 141
     add-int/lit8 v1, v1, 0x5
 
     goto :goto_0
 
-    .line 145
-    .end local v1    # "i":I
     :cond_1
     return-void
 .end method
 
 .method public translateX(F)V
     .locals 3
-    .param p1, "xAmount"    # F
 
     .line 111
     iget v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->x:F
@@ -1231,11 +1082,9 @@
     :cond_0
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->vertices:[F
 
-    .line 116
-    .local v0, "vertices":[F
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    .line 116
     :goto_0
     array-length v2, v0
 
@@ -1248,20 +1097,16 @@
 
     aput v2, v0, v1
 
-    .line 116
     add-int/lit8 v1, v1, 0x5
 
     goto :goto_0
 
-    .line 118
-    .end local v1    # "i":I
     :cond_1
     return-void
 .end method
 
 .method public translateY(F)V
     .locals 3
-    .param p1, "yAmount"    # F
 
     .line 123
     iget v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->y:F
@@ -1281,11 +1126,9 @@
     :cond_0
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g2d/PolygonSprite;->vertices:[F
 
-    .line 128
-    .local v0, "vertices":[F
     const/4 v1, 0x1
 
-    .local v1, "i":I
+    .line 128
     :goto_0
     array-length v2, v0
 
@@ -1298,13 +1141,10 @@
 
     aput v2, v0, v1
 
-    .line 128
     add-int/lit8 v1, v1, 0x5
 
     goto :goto_0
 
-    .line 130
-    .end local v1    # "i":I
     :cond_1
     return-void
 .end method

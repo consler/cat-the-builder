@@ -53,7 +53,6 @@
 
 .method public build(Ljava/nio/ByteBuffer;)Lcom/bumptech/glide/load/data/DataRewinder;
     .locals 1
-    .param p1, "data"    # Ljava/nio/ByteBuffer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

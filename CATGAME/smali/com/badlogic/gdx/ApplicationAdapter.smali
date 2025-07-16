@@ -21,43 +21,35 @@
 .method public create()V
     .locals 0
 
-    .line 24
     return-void
 .end method
 
 .method public dispose()V
     .locals 0
 
-    .line 44
     return-void
 .end method
 
 .method public pause()V
     .locals 0
 
-    .line 36
     return-void
 .end method
 
 .method public render()V
     .locals 0
 
-    .line 32
     return-void
 .end method
 
 .method public resize(II)V
     .locals 0
-    .param p1, "width"    # I
-    .param p2, "height"    # I
 
-    .line 28
     return-void
 .end method
 
 .method public resume()V
     .locals 0
 
-    .line 40
     return-void
 .end method

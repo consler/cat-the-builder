@@ -25,9 +25,6 @@
 # direct methods
 .method public constructor <init>(III)V
     .locals 0
-    .param p1, "start"    # I
-    .param p2, "end"    # I
-    .param p3, "diag"    # I
 
     .line 317
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +38,6 @@
     .line 320
     iput p3, p0, Lorg/apache/commons/collections4/sequence/SequencesComparator$Snake;->diag:I
 
-    .line 321
     return-void
 .end method
 

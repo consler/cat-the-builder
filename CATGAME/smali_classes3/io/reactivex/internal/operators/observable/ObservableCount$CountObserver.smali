@@ -59,13 +59,11 @@
     .end annotation
 
     .line 37
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-Ljava/lang/Long;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 38
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableCount$CountObserver;->actual:Lio/reactivex/Observer;
 
-    .line 39
     return-void
 .end method
 
@@ -79,7 +77,6 @@
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 53
     return-void
 .end method
 
@@ -115,26 +112,22 @@
 
     invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 74
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 67
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableCount$CountObserver;->actual:Lio/reactivex/Observer;
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 68
     return-void
 .end method
 
 .method public onNext(Ljava/lang/Object;)V
     .locals 4
-    .param p1, "t"    # Ljava/lang/Object;
 
     .line 62
     iget-wide v0, p0, Lio/reactivex/internal/operators/observable/ObservableCount$CountObserver;->count:J
@@ -145,13 +138,11 @@
 
     iput-wide v0, p0, Lio/reactivex/internal/operators/observable/ObservableCount$CountObserver;->count:J
 
-    .line 63
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 43
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableCount$CountObserver;->s:Lio/reactivex/disposables/Disposable;
@@ -166,11 +157,10 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableCount$CountObserver;->s:Lio/reactivex/disposables/Disposable;
 
     .line 45
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableCount$CountObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableCount$CountObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v0, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 47
     :cond_0
     return-void
 .end method

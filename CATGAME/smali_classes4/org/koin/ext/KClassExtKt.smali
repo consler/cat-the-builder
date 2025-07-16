@@ -63,7 +63,6 @@
 
 .method public static final getFullName(Lkotlin/reflect/KClass;)Ljava/lang/String;
     .locals 1
-    .param p0, "$this$getFullName"    # Lkotlin/reflect/KClass;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -101,7 +100,6 @@
 
 .method public static final saveCache(Lkotlin/reflect/KClass;)Ljava/lang/String;
     .locals 3
-    .param p0, "$this$saveCache"    # Lkotlin/reflect/KClass;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -125,7 +123,6 @@
     move-result-object v0
 
     .line 30
-    .local v0, "name":Ljava/lang/String;
     sget-object v1, Lorg/koin/ext/KClassExtKt;->classNames:Ljava/util/Map;
 
     const-string v2, "name"
@@ -134,6 +131,5 @@
 
     invoke-interface {v1, p0, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 31
     return-object v0
 .end method

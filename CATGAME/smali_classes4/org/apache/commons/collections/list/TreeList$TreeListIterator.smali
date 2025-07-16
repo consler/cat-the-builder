@@ -35,8 +35,6 @@
 # direct methods
 .method protected constructor <init>(Lorg/apache/commons/collections/list/TreeList;I)V
     .locals 1
-    .param p1, "parent"    # Lorg/apache/commons/collections/list/TreeList;
-    .param p2, "fromIndex"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IndexOutOfBoundsException;
@@ -63,31 +61,30 @@
 
     if-nez v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
     :cond_0
     invoke-static {p1}, Lorg/apache/commons/collections/list/TreeList;->access$400(Lorg/apache/commons/collections/list/TreeList;)Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p2}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->get(I)Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    invoke-virtual {p1, p2}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->get(I)Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_0
-    iput-object v0, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->next:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    iput-object p1, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->next:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
     .line 815
     iput p2, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->nextIndex:I
 
+    const/4 p1, -0x1
+
     .line 816
-    const/4 v0, -0x1
+    iput p1, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->currentIndex:I
 
-    iput v0, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->currentIndex:I
-
-    .line 817
     return-void
 .end method
 
@@ -95,7 +92,6 @@
 # virtual methods
 .method public add(Ljava/lang/Object;)V
     .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 906
     invoke-virtual {p0}, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->checkModCount()V
@@ -107,31 +103,30 @@
 
     invoke-virtual {v0, v1, p1}, Lorg/apache/commons/collections/list/TreeList;->add(ILjava/lang/Object;)V
 
-    .line 908
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->current:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+    .line 908
+    iput-object p1, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->current:Lorg/apache/commons/collections/list/TreeList$AVLNode;
+
+    const/4 p1, -0x1
 
     .line 909
-    const/4 v0, -0x1
-
-    iput v0, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->currentIndex:I
+    iput p1, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->currentIndex:I
 
     .line 910
-    iget v0, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->nextIndex:I
+    iget p1, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->nextIndex:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v0, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->nextIndex:I
+    iput p1, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->nextIndex:I
 
     .line 911
-    iget v0, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->expectedModCount:I
+    iget p1, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->expectedModCount:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v0, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->expectedModCount:I
+    iput p1, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->expectedModCount:I
 
-    .line 912
     return-void
 .end method
 
@@ -149,7 +144,6 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 830
     return-void
 
     .line 828
@@ -247,7 +241,6 @@
     move-result-object v0
 
     .line 845
-    .local v0, "value":Ljava/lang/Object;
     iget-object v1, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->next:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
     iput-object v1, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->current:Lorg/apache/commons/collections/list/TreeList$AVLNode;
@@ -268,29 +261,29 @@
 
     iput-object v1, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->next:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
-    .line 848
     return-object v0
 
     .line 839
-    .end local v0    # "value":Ljava/lang/Object;
     :cond_1
     new-instance v0, Ljava/util/NoSuchElementException;
 
     new-instance v1, Ljava/lang/StringBuffer;
 
-    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
-
     const-string v2, "No element at index "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
     iget v2, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->nextIndex:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
+    move-result-object v1
+
     const-string v2, "."
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
@@ -364,7 +357,6 @@
     move-result-object v0
 
     .line 866
-    .local v0, "value":Ljava/lang/Object;
     iget-object v1, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->next:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
     iput-object v1, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->current:Lorg/apache/commons/collections/list/TreeList$AVLNode;
@@ -378,11 +370,9 @@
 
     iput v1, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->currentIndex:I
 
-    .line 868
     return-object v0
 
     .line 858
-    .end local v0    # "value":Ljava/lang/Object;
     :cond_1
     new-instance v0, Ljava/util/NoSuchElementException;
 
@@ -431,15 +421,15 @@
 
     if-eq v0, v2, :cond_0
 
-    .line 887
     add-int/lit8 v0, v0, -0x1
 
+    .line 887
     iput v0, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->nextIndex:I
 
-    .line 891
     :cond_0
     const/4 v0, 0x0
 
+    .line 891
     iput-object v0, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->next:Lorg/apache/commons/collections/list/TreeList$AVLNode;
 
     .line 892
@@ -455,7 +445,6 @@
 
     iput v0, p0, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->expectedModCount:I
 
-    .line 895
     return-void
 
     .line 882
@@ -469,7 +458,6 @@
 
 .method public set(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "obj"    # Ljava/lang/Object;
 
     .line 898
     invoke-virtual {p0}, Lorg/apache/commons/collections/list/TreeList$TreeListIterator;->checkModCount()V
@@ -482,14 +470,13 @@
     .line 902
     invoke-virtual {v0, p1}, Lorg/apache/commons/collections/list/TreeList$AVLNode;->setValue(Ljava/lang/Object;)V
 
-    .line 903
     return-void
 
     .line 900
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/IllegalStateException;-><init>()V
 
-    throw v0
+    throw p1
 .end method

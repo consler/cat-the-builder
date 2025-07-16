@@ -45,12 +45,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroidx/work/Configuration;Landroidx/work/impl/utils/taskexecutor/TaskExecutor;Landroidx/work/impl/foreground/ForegroundProcessor;Landroidx/work/impl/WorkDatabase;Ljava/lang/String;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "configuration"    # Landroidx/work/Configuration;
-    .param p3, "workTaskExecutor"    # Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
-    .param p4, "foregroundProcessor"    # Landroidx/work/impl/foreground/ForegroundProcessor;
-    .param p5, "database"    # Landroidx/work/impl/WorkDatabase;
-    .param p6, "workSpecId"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -70,39 +64,38 @@
         }
     .end annotation
 
-    .line 637
+    .line 647
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 629
+    .line 639
     new-instance v0, Landroidx/work/WorkerParameters$RuntimeExtras;
 
     invoke-direct {v0}, Landroidx/work/WorkerParameters$RuntimeExtras;-><init>()V
 
     iput-object v0, p0, Landroidx/work/impl/WorkerWrapper$Builder;->mRuntimeExtras:Landroidx/work/WorkerParameters$RuntimeExtras;
 
-    .line 638
+    .line 648
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroidx/work/impl/WorkerWrapper$Builder;->mAppContext:Landroid/content/Context;
+    iput-object p1, p0, Landroidx/work/impl/WorkerWrapper$Builder;->mAppContext:Landroid/content/Context;
 
-    .line 639
+    .line 649
     iput-object p3, p0, Landroidx/work/impl/WorkerWrapper$Builder;->mWorkTaskExecutor:Landroidx/work/impl/utils/taskexecutor/TaskExecutor;
 
-    .line 640
+    .line 650
     iput-object p4, p0, Landroidx/work/impl/WorkerWrapper$Builder;->mForegroundProcessor:Landroidx/work/impl/foreground/ForegroundProcessor;
 
-    .line 641
+    .line 651
     iput-object p2, p0, Landroidx/work/impl/WorkerWrapper$Builder;->mConfiguration:Landroidx/work/Configuration;
 
-    .line 642
+    .line 652
     iput-object p5, p0, Landroidx/work/impl/WorkerWrapper$Builder;->mWorkDatabase:Landroidx/work/impl/WorkDatabase;
 
-    .line 643
+    .line 653
     iput-object p6, p0, Landroidx/work/impl/WorkerWrapper$Builder;->mWorkSpecId:Ljava/lang/String;
 
-    .line 644
     return-void
 .end method
 
@@ -111,7 +104,7 @@
 .method public build()Landroidx/work/impl/WorkerWrapper;
     .locals 1
 
-    .line 686
+    .line 697
     new-instance v0, Landroidx/work/impl/WorkerWrapper;
 
     invoke-direct {v0, p0}, Landroidx/work/impl/WorkerWrapper;-><init>(Landroidx/work/impl/WorkerWrapper$Builder;)V
@@ -121,7 +114,6 @@
 
 .method public withRuntimeExtras(Landroidx/work/WorkerParameters$RuntimeExtras;)Landroidx/work/impl/WorkerWrapper$Builder;
     .locals 0
-    .param p1, "runtimeExtras"    # Landroidx/work/WorkerParameters$RuntimeExtras;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -131,13 +123,11 @@
         }
     .end annotation
 
-    .line 664
     if-eqz p1, :cond_0
 
-    .line 665
+    .line 675
     iput-object p1, p0, Landroidx/work/impl/WorkerWrapper$Builder;->mRuntimeExtras:Landroidx/work/WorkerParameters$RuntimeExtras;
 
-    .line 667
     :cond_0
     return-object p0
 .end method
@@ -163,17 +153,14 @@
         }
     .end annotation
 
-    .line 652
-    .local p1, "schedulers":Ljava/util/List;, "Ljava/util/List<Landroidx/work/impl/Scheduler;>;"
+    .line 662
     iput-object p1, p0, Landroidx/work/impl/WorkerWrapper$Builder;->mSchedulers:Ljava/util/List;
 
-    .line 653
     return-object p0
 .end method
 
 .method public withWorker(Landroidx/work/ListenableWorker;)Landroidx/work/impl/WorkerWrapper$Builder;
     .locals 0
-    .param p1, "worker"    # Landroidx/work/ListenableWorker;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -183,9 +170,8 @@
         }
     .end annotation
 
-    .line 678
+    .line 688
     iput-object p1, p0, Landroidx/work/impl/WorkerWrapper$Builder;->mWorker:Landroidx/work/ListenableWorker;
 
-    .line 679
     return-object p0
 .end method

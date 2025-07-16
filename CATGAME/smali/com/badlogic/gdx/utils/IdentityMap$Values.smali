@@ -37,11 +37,8 @@
     .end annotation
 
     .line 742
-    .local p0, "this":Lcom/badlogic/gdx/utils/IdentityMap$Values;, "Lcom/badlogic/gdx/utils/IdentityMap$Values<TV;>;"
-    .local p1, "map":Lcom/badlogic/gdx/utils/IdentityMap;, "Lcom/badlogic/gdx/utils/IdentityMap<*TV;>;"
     invoke-direct {p0, p1}, Lcom/badlogic/gdx/utils/IdentityMap$MapIterator;-><init>(Lcom/badlogic/gdx/utils/IdentityMap;)V
 
-    .line 743
     return-void
 .end method
 
@@ -51,7 +48,6 @@
     .locals 2
 
     .line 746
-    .local p0, "this":Lcom/badlogic/gdx/utils/IdentityMap$Values;, "Lcom/badlogic/gdx/utils/IdentityMap$Values<TV;>;"
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/IdentityMap$Values;->valid:Z
 
     if-eqz v0, :cond_0
@@ -82,8 +78,6 @@
         }
     .end annotation
 
-    .line 760
-    .local p0, "this":Lcom/badlogic/gdx/utils/IdentityMap$Values;, "Lcom/badlogic/gdx/utils/IdentityMap$Values<TV;>;"
     return-object p0
 .end method
 
@@ -96,7 +90,6 @@
     .end annotation
 
     .line 751
-    .local p0, "this":Lcom/badlogic/gdx/utils/IdentityMap$Values;, "Lcom/badlogic/gdx/utils/IdentityMap$Values<TV;>;"
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/IdentityMap$Values;->hasNext:Z
 
     if-eqz v0, :cond_1
@@ -116,7 +109,6 @@
     aget-object v0, v0, v1
 
     .line 754
-    .local v0, "value":Ljava/lang/Object;, "TV;"
     iget v1, p0, Lcom/badlogic/gdx/utils/IdentityMap$Values;->nextIndex:I
 
     iput v1, p0, Lcom/badlogic/gdx/utils/IdentityMap$Values;->currentIndex:I
@@ -124,11 +116,9 @@
     .line 755
     invoke-virtual {p0}, Lcom/badlogic/gdx/utils/IdentityMap$Values;->findNextIndex()V
 
-    .line 756
     return-object v0
 
     .line 752
-    .end local v0    # "value":Ljava/lang/Object;, "TV;"
     :cond_0
     new-instance v0, Lcom/badlogic/gdx/utils/GdxRuntimeException;
 
@@ -151,7 +141,6 @@
     .locals 0
 
     .line 740
-    .local p0, "this":Lcom/badlogic/gdx/utils/IdentityMap$Values;, "Lcom/badlogic/gdx/utils/IdentityMap$Values<TV;>;"
     invoke-super {p0}, Lcom/badlogic/gdx/utils/IdentityMap$MapIterator;->remove()V
 
     return-void
@@ -161,7 +150,6 @@
     .locals 0
 
     .line 740
-    .local p0, "this":Lcom/badlogic/gdx/utils/IdentityMap$Values;, "Lcom/badlogic/gdx/utils/IdentityMap$Values<TV;>;"
     invoke-super {p0}, Lcom/badlogic/gdx/utils/IdentityMap$MapIterator;->reset()V
 
     return-void
@@ -178,7 +166,6 @@
     .end annotation
 
     .line 765
-    .local p0, "this":Lcom/badlogic/gdx/utils/IdentityMap$Values;, "Lcom/badlogic/gdx/utils/IdentityMap$Values<TV;>;"
     new-instance v0, Lcom/badlogic/gdx/utils/Array;
 
     iget-object v1, p0, Lcom/badlogic/gdx/utils/IdentityMap$Values;->map:Lcom/badlogic/gdx/utils/IdentityMap;
@@ -190,7 +177,6 @@
     invoke-direct {v0, v2, v1}, Lcom/badlogic/gdx/utils/Array;-><init>(ZI)V
 
     .line 766
-    .local v0, "array":Lcom/badlogic/gdx/utils/Array;
     :goto_0
     iget-boolean v1, p0, Lcom/badlogic/gdx/utils/IdentityMap$Values;->hasNext:Z
 
@@ -205,7 +191,6 @@
 
     goto :goto_0
 
-    .line 768
     :cond_0
     return-object v0
 .end method
@@ -221,8 +206,6 @@
     .end annotation
 
     .line 773
-    .local p0, "this":Lcom/badlogic/gdx/utils/IdentityMap$Values;, "Lcom/badlogic/gdx/utils/IdentityMap$Values<TV;>;"
-    .local p1, "array":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<TV;>;"
     :goto_0
     iget-boolean v0, p0, Lcom/badlogic/gdx/utils/IdentityMap$Values;->hasNext:Z
 
@@ -237,7 +220,6 @@
 
     goto :goto_0
 
-    .line 775
     :cond_0
     return-void
 .end method

@@ -277,9 +277,13 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(I)Ljava/lang/StringBuffer;
 
-    const/16 v3, 0x3b
+    move-result-object v3
 
-    goto :goto_1
+    const/16 v4, 0x3b
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
+
+    goto :goto_2
 
     :cond_1
     const/16 v3, 0x2a
@@ -297,6 +301,7 @@
     :goto_1
     invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
+    :goto_2
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0

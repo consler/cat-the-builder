@@ -10,9 +10,6 @@
 # direct methods
 .method private constructor <init>([BII)V
     .locals 2
-    .param p1, "buf"    # [B
-    .param p2, "start"    # I
-    .param p3, "len"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -34,18 +31,16 @@
 
     iput-object v0, p0, Lcom/google/crypto/tink/subtle/ImmutableByteArray;->data:[B
 
-    .line 68
     const/4 v1, 0x0
 
+    .line 68
     invoke-static {p1, p2, v0, v1, p3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 69
     return-void
 .end method
 
 .method public static of([B)Lcom/google/crypto/tink/subtle/ImmutableByteArray;
     .locals 2
-    .param p0, "data"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -55,32 +50,27 @@
         }
     .end annotation
 
-    .line 34
     if-nez p0, :cond_0
 
-    .line 35
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
-    .line 37
     :cond_0
     const/4 v0, 0x0
 
+    .line 37
     array-length v1, p0
 
     invoke-static {p0, v0, v1}, Lcom/google/crypto/tink/subtle/ImmutableByteArray;->of([BII)Lcom/google/crypto/tink/subtle/ImmutableByteArray;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static of([BII)Lcom/google/crypto/tink/subtle/ImmutableByteArray;
     .locals 1
-    .param p0, "data"    # [B
-    .param p1, "start"    # I
-    .param p2, "len"    # I
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10,
@@ -114,15 +104,13 @@
 
     new-array v1, v1, [B
 
+    const/4 v2, 0x0
+
     .line 57
-    .local v1, "result":[B
-    array-length v2, v0
+    array-length v3, v0
 
-    const/4 v3, 0x0
+    invoke-static {v0, v2, v1, v2, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    invoke-static {v0, v3, v1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    .line 58
     return-object v1
 .end method
 

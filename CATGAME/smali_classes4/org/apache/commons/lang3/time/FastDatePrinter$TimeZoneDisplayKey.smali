@@ -24,11 +24,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/TimeZone;ZILjava/util/Locale;)V
-    .locals 1
-    .param p1, "timeZone"    # Ljava/util/TimeZone;
-    .param p2, "daylight"    # Z
-    .param p3, "style"    # I
-    .param p4, "locale"    # Ljava/util/Locale;
+    .locals 0
 
     .line 1538
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,15 +32,14 @@
     .line 1539
     iput-object p1, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneDisplayKey;->mTimeZone:Ljava/util/TimeZone;
 
-    .line 1540
     if-eqz p2, :cond_0
 
+    const/high16 p1, -0x80000000
+
+    or-int/2addr p1, p3
+
     .line 1541
-    const/high16 v0, -0x80000000
-
-    or-int/2addr v0, p3
-
-    iput v0, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneDisplayKey;->mStyle:I
+    iput p1, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneDisplayKey;->mStyle:I
 
     goto :goto_0
 
@@ -56,22 +51,18 @@
     :goto_0
     iput-object p4, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneDisplayKey;->mLocale:Ljava/util/Locale;
 
-    .line 1546
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 4
 
-    .line 1561
     const/4 v0, 0x1
 
     if-ne p0, p1, :cond_0
 
-    .line 1562
     return v0
 
     .line 1564
@@ -83,51 +74,45 @@
     if-eqz v1, :cond_2
 
     .line 1565
-    move-object v1, p1
-
-    check-cast v1, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneDisplayKey;
+    check-cast p1, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneDisplayKey;
 
     .line 1566
-    .local v1, "other":Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneDisplayKey;
-    iget-object v3, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneDisplayKey;->mTimeZone:Ljava/util/TimeZone;
+    iget-object v1, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneDisplayKey;->mTimeZone:Ljava/util/TimeZone;
 
-    iget-object v4, v1, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneDisplayKey;->mTimeZone:Ljava/util/TimeZone;
+    iget-object v3, p1, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneDisplayKey;->mTimeZone:Ljava/util/TimeZone;
 
     .line 1567
-    invoke-virtual {v3, v4}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_1
+    if-eqz v1, :cond_1
 
-    iget v3, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneDisplayKey;->mStyle:I
+    iget v1, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneDisplayKey;->mStyle:I
 
-    iget v4, v1, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneDisplayKey;->mStyle:I
+    iget v3, p1, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneDisplayKey;->mStyle:I
 
-    if-ne v3, v4, :cond_1
+    if-ne v1, v3, :cond_1
 
-    iget-object v3, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneDisplayKey;->mLocale:Ljava/util/Locale;
+    iget-object v1, p0, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneDisplayKey;->mLocale:Ljava/util/Locale;
 
-    iget-object v4, v1, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneDisplayKey;->mLocale:Ljava/util/Locale;
+    iget-object p1, p1, Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneDisplayKey;->mLocale:Ljava/util/Locale;
 
     .line 1569
-    invoke-virtual {v3, v4}, Ljava/util/Locale;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/util/Locale;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result p1
 
-    if-eqz v3, :cond_1
+    if-eqz p1, :cond_1
 
     goto :goto_0
 
     :cond_1
     move v0, v2
 
-    .line 1566
     :goto_0
     return v0
 
-    .line 1571
-    .end local v1    # "other":Lorg/apache/commons/lang3/time/FastDatePrinter$TimeZoneDisplayKey;
     :cond_2
     return v2
 .end method

@@ -23,8 +23,6 @@
 # direct methods
 .method public constructor <init>(ZLjava/lang/String;)V
     .locals 0
-    .param p1, "isValid"    # Z
-    .param p2, "expectedFoundMsg"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -45,6 +43,5 @@
     .line 274
     iput-object p2, p0, Landroidx/room/RoomOpenHelper$ValidationResult;->expectedFoundMsg:Ljava/lang/String;
 
-    .line 275
     return-void
 .end method

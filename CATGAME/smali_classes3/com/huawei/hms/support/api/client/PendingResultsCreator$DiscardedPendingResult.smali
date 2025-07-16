@@ -27,10 +27,9 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 59
+    .line 1
     invoke-direct {p0}, Lcom/huawei/hms/support/api/client/EmptyPendingResult;-><init>()V
 
-    .line 60
     return-void
 .end method
 
@@ -42,13 +41,12 @@
         }
     .end annotation
 
-    .line 62
+    .line 2
     invoke-direct {p0}, Lcom/huawei/hms/support/api/client/EmptyPendingResult;-><init>()V
 
-    .line 63
-    invoke-virtual {p0, p1}, Lcom/huawei/hms/support/api/client/PendingResultsCreator$DiscardedPendingResult;->setResult(Lcom/huawei/hms/support/api/client/Result;)V
+    .line 3
+    invoke-virtual {p0, p1}, Lcom/huawei/hms/support/api/client/EmptyPendingResult;->setResult(Lcom/huawei/hms/support/api/client/Result;)V
 
-    .line 64
     return-void
 .end method
 
@@ -57,7 +55,6 @@
 .method public isCanceled()Z
     .locals 1
 
-    .line 68
     const/4 v0, 0x1
 
     return v0

@@ -28,8 +28,6 @@
 # direct methods
 .method constructor <init>(Lio/reactivex/internal/schedulers/ExecutorScheduler$ExecutorWorker;Lio/reactivex/internal/disposables/SequentialDisposable;Ljava/lang/Runnable;)V
     .locals 0
-    .param p2, "mar"    # Lio/reactivex/internal/disposables/SequentialDisposable;
-    .param p3, "decoratedRun"    # Ljava/lang/Runnable;
 
     .line 281
     iput-object p1, p0, Lio/reactivex/internal/schedulers/ExecutorScheduler$ExecutorWorker$SequentialDispose;->this$0:Lio/reactivex/internal/schedulers/ExecutorScheduler$ExecutorWorker;
@@ -42,7 +40,6 @@
     .line 283
     iput-object p3, p0, Lio/reactivex/internal/schedulers/ExecutorScheduler$ExecutorWorker$SequentialDispose;->decoratedRun:Ljava/lang/Runnable;
 
-    .line 284
     return-void
 .end method
 
@@ -64,6 +61,5 @@
 
     invoke-virtual {v0, v1}, Lio/reactivex/internal/disposables/SequentialDisposable;->replace(Lio/reactivex/disposables/Disposable;)Z
 
-    .line 289
     return-void
 .end method

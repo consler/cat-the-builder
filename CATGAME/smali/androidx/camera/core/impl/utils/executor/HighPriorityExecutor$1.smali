@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Landroidx/camera/core/impl/utils/executor/HighPriorityExecutor;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/camera/core/impl/utils/executor/HighPriorityExecutor;
 
     .line 35
     iput-object p1, p0, Landroidx/camera/core/impl/utils/executor/HighPriorityExecutor$1;->this$0:Landroidx/camera/core/impl/utils/executor/HighPriorityExecutor;
@@ -41,25 +40,22 @@
 
 # virtual methods
 .method public newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
-    .locals 2
-    .param p1, "r"    # Ljava/lang/Runnable;
+    .locals 1
 
     .line 42
     new-instance v0, Ljava/lang/Thread;
 
     invoke-direct {v0, p1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    .line 43
-    .local v0, "t":Ljava/lang/Thread;
-    const/16 v1, 0xa
+    const/16 p1, 0xa
 
-    invoke-virtual {v0, v1}, Ljava/lang/Thread;->setPriority(I)V
+    .line 43
+    invoke-virtual {v0, p1}, Ljava/lang/Thread;->setPriority(I)V
+
+    const-string p1, "CameraX-camerax_high_priority"
 
     .line 44
-    const-string v1, "CameraX-camerax_high_priority"
+    invoke-virtual {v0, p1}, Ljava/lang/Thread;->setName(Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1}, Ljava/lang/Thread;->setName(Ljava/lang/String;)V
-
-    .line 45
     return-object v0
 .end method

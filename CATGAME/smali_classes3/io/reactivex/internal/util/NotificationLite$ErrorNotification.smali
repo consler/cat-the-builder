@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Throwable;)V
     .locals 0
-    .param p1, "e"    # Ljava/lang/Throwable;
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,15 +35,13 @@
     .line 38
     iput-object p1, p0, Lio/reactivex/internal/util/NotificationLite$ErrorNotification;->e:Ljava/lang/Throwable;
 
-    .line 39
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 1
 
     .line 53
     instance-of v0, p1, Lio/reactivex/internal/util/NotificationLite$ErrorNotification;
@@ -52,28 +49,23 @@
     if-eqz v0, :cond_0
 
     .line 54
-    move-object v0, p1
-
-    check-cast v0, Lio/reactivex/internal/util/NotificationLite$ErrorNotification;
+    check-cast p1, Lio/reactivex/internal/util/NotificationLite$ErrorNotification;
 
     .line 55
-    .local v0, "n":Lio/reactivex/internal/util/NotificationLite$ErrorNotification;
-    iget-object v1, p0, Lio/reactivex/internal/util/NotificationLite$ErrorNotification;->e:Ljava/lang/Throwable;
+    iget-object v0, p0, Lio/reactivex/internal/util/NotificationLite$ErrorNotification;->e:Ljava/lang/Throwable;
 
-    iget-object v2, v0, Lio/reactivex/internal/util/NotificationLite$ErrorNotification;->e:Ljava/lang/Throwable;
+    iget-object p1, p1, Lio/reactivex/internal/util/NotificationLite$ErrorNotification;->e:Ljava/lang/Throwable;
 
-    invoke-static {v1, v2}, Lio/reactivex/internal/functions/ObjectHelper;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, p1}, Lio/reactivex/internal/functions/ObjectHelper;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 
-    .line 57
-    .end local v0    # "n":Lio/reactivex/internal/util/NotificationLite$ErrorNotification;
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public hashCode()I
@@ -95,19 +87,21 @@
     .line 43
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "NotificationLite.Error["
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v1, p0, Lio/reactivex/internal/util/NotificationLite$ErrorNotification;->e:Ljava/lang/Throwable;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

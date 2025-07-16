@@ -44,20 +44,16 @@
         }
     .end annotation
 
-    .line 48
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/SingletonIterator;, "Lorg/apache/commons/collections4/iterators/SingletonIterator<TE;>;"
-    .local p1, "object":Ljava/lang/Object;, "TE;"
     const/4 v0, 0x1
 
+    .line 48
     invoke-direct {p0, p1, v0}, Lorg/apache/commons/collections4/iterators/SingletonIterator;-><init>(Ljava/lang/Object;Z)V
 
-    .line 49
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;Z)V
     .locals 1
-    .param p2, "removeAllowed"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;Z)V"
@@ -65,18 +61,16 @@
     .end annotation
 
     .line 60
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/SingletonIterator;, "Lorg/apache/commons/collections4/iterators/SingletonIterator<TE;>;"
-    .local p1, "object":Ljava/lang/Object;, "TE;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 35
     const/4 v0, 0x1
 
+    .line 35
     iput-boolean v0, p0, Lorg/apache/commons/collections4/iterators/SingletonIterator;->beforeFirst:Z
 
-    .line 37
     const/4 v0, 0x0
 
+    .line 37
     iput-boolean v0, p0, Lorg/apache/commons/collections4/iterators/SingletonIterator;->removed:Z
 
     .line 61
@@ -85,7 +79,6 @@
     .line 62
     iput-boolean p2, p0, Lorg/apache/commons/collections4/iterators/SingletonIterator;->removeAllowed:Z
 
-    .line 63
     return-void
 .end method
 
@@ -95,7 +88,6 @@
     .locals 1
 
     .line 75
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/SingletonIterator;, "Lorg/apache/commons/collections4/iterators/SingletonIterator<TE;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/iterators/SingletonIterator;->beforeFirst:Z
 
     if-eqz v0, :cond_0
@@ -124,7 +116,6 @@
     .end annotation
 
     .line 89
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/SingletonIterator;, "Lorg/apache/commons/collections4/iterators/SingletonIterator<TE;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/iterators/SingletonIterator;->beforeFirst:Z
 
     if-eqz v0, :cond_0
@@ -133,9 +124,9 @@
 
     if-nez v0, :cond_0
 
-    .line 92
     const/4 v0, 0x0
 
+    .line 92
     iput-boolean v0, p0, Lorg/apache/commons/collections4/iterators/SingletonIterator;->beforeFirst:Z
 
     .line 93
@@ -156,7 +147,6 @@
     .locals 1
 
     .line 107
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/SingletonIterator;, "Lorg/apache/commons/collections4/iterators/SingletonIterator<TE;>;"
     iget-boolean v0, p0, Lorg/apache/commons/collections4/iterators/SingletonIterator;->removeAllowed:Z
 
     if-eqz v0, :cond_1
@@ -170,17 +160,16 @@
 
     if-nez v0, :cond_0
 
-    .line 111
     const/4 v0, 0x0
 
+    .line 111
     iput-object v0, p0, Lorg/apache/commons/collections4/iterators/SingletonIterator;->object:Ljava/lang/Object;
 
-    .line 112
     const/4 v0, 0x1
 
+    .line 112
     iput-boolean v0, p0, Lorg/apache/commons/collections4/iterators/SingletonIterator;->removed:Z
 
-    .line 116
     return-void
 
     .line 109
@@ -203,12 +192,10 @@
 .method public reset()V
     .locals 1
 
-    .line 123
-    .local p0, "this":Lorg/apache/commons/collections4/iterators/SingletonIterator;, "Lorg/apache/commons/collections4/iterators/SingletonIterator<TE;>;"
     const/4 v0, 0x1
 
+    .line 123
     iput-boolean v0, p0, Lorg/apache/commons/collections4/iterators/SingletonIterator;->beforeFirst:Z
 
-    .line 124
     return-void
 .end method

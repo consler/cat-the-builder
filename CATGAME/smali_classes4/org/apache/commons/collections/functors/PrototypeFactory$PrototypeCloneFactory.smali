@@ -31,8 +31,6 @@
 # direct methods
 .method private constructor <init>(Ljava/lang/Object;Ljava/lang/reflect/Method;)V
     .locals 0
-    .param p1, "prototype"    # Ljava/lang/Object;
-    .param p2, "method"    # Ljava/lang/reflect/Method;
 
     .line 120
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,15 +41,11 @@
     .line 122
     iput-object p2, p0, Lorg/apache/commons/collections/functors/PrototypeFactory$PrototypeCloneFactory;->iCloneMethod:Ljava/lang/reflect/Method;
 
-    .line 123
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/Object;Ljava/lang/reflect/Method;Lorg/apache/commons/collections/functors/PrototypeFactory$1;)V
     .locals 0
-    .param p1, "x0"    # Ljava/lang/Object;
-    .param p2, "x1"    # Ljava/lang/reflect/Method;
-    .param p3, "x2"    # Lorg/apache/commons/collections/functors/PrototypeFactory$1;
 
     .line 106
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections/functors/PrototypeFactory$PrototypeCloneFactory;-><init>(Ljava/lang/Object;Ljava/lang/reflect/Method;)V
@@ -60,7 +54,7 @@
 .end method
 
 .method private findCloneMethod()V
-    .locals 3
+    .locals 4
 
     .line 130
     :try_start_0
@@ -74,7 +68,9 @@
 
     const/4 v2, 0x0
 
-    check-cast v2, [Ljava/lang/Class;
+    move-object v3, v2
+
+    check-cast v3, [Ljava/lang/Class;
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
@@ -84,30 +80,21 @@
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 134
-    nop
-
-    .line 135
     return-void
 
-    .line 132
-    :catch_0
-    move-exception v0
-
     .line 133
-    .local v0, "ex":Ljava/lang/NoSuchMethodException;
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    :catch_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v2, "PrototypeCloneFactory: The clone method must exist and be public "
+    const-string v1, "PrototypeCloneFactory: The clone method must exist and be public "
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 1
-    .param p1, "is"    # Ljava/io/ObjectInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/ClassNotFoundException;,
@@ -139,13 +126,11 @@
     .line 173
     invoke-virtual {p1}, Ljava/io/ObjectInputStream;->defaultReadObject()V
 
-    .line 174
     return-void
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 1
-    .param p1, "os"    # Ljava/io/ObjectOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -176,14 +161,13 @@
     .line 164
     invoke-virtual {p1}, Ljava/io/ObjectOutputStream;->defaultWriteObject()V
 
-    .line 165
     return-void
 .end method
 
 
 # virtual methods
 .method public create()Ljava/lang/Object;
-    .locals 3
+    .locals 4
 
     .line 144
     iget-object v0, p0, Lorg/apache/commons/collections/functors/PrototypeFactory$PrototypeCloneFactory;->iCloneMethod:Ljava/lang/reflect/Method;
@@ -202,7 +186,9 @@
 
     const/4 v2, 0x0
 
-    check-cast v2, [Ljava/lang/Object;
+    move-object v3, v2
+
+    check-cast v3, [Ljava/lang/Object;
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -213,12 +199,10 @@
 
     return-object v0
 
-    .line 153
     :catch_0
     move-exception v0
 
     .line 154
-    .local v0, "ex":Ljava/lang/reflect/InvocationTargetException;
     new-instance v1, Lorg/apache/commons/collections/FunctorException;
 
     const-string v2, "PrototypeCloneFactory: Clone method threw an exception"
@@ -227,13 +211,10 @@
 
     throw v1
 
-    .line 151
-    .end local v0    # "ex":Ljava/lang/reflect/InvocationTargetException;
     :catch_1
     move-exception v0
 
     .line 152
-    .local v0, "ex":Ljava/lang/IllegalAccessException;
     new-instance v1, Lorg/apache/commons/collections/FunctorException;
 
     const-string v2, "PrototypeCloneFactory: Clone method must be public"

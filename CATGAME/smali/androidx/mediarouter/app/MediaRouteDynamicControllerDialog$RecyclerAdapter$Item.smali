@@ -25,8 +25,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter;Ljava/lang/Object;I)V
     .locals 0
-    .param p2, "data"    # Ljava/lang/Object;
-    .param p3, "type"    # I
 
     .line 1061
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter$Item;->this$1:Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter;
@@ -39,7 +37,6 @@
     .line 1063
     iput p3, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter$Item;->mType:I
 
-    .line 1064
     return-void
 .end method
 

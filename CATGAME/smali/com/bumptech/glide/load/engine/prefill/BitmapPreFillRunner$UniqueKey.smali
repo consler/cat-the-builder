@@ -30,13 +30,12 @@
 
 # virtual methods
 .method public updateDiskCacheKey(Ljava/security/MessageDigest;)V
-    .locals 1
-    .param p1, "messageDigest"    # Ljava/security/MessageDigest;
+    .locals 0
 
     .line 177
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
-    throw v0
+    throw p1
 .end method

@@ -52,7 +52,6 @@
 
     invoke-static {v0}, Lcom/google/crypto/tink/Registry;->registerPrimitiveWrapper(Lcom/google/crypto/tink/PrimitiveWrapper;)V
 
-    .line 92
     return-void
 .end method
 
@@ -120,7 +119,6 @@
     .end annotation
 
     .line 77
-    .local p1, "set":Lcom/google/crypto/tink/PrimitiveSet;, "Lcom/google/crypto/tink/PrimitiveSet<Lcom/google/crypto/tink/prf/Prf;>;"
     new-instance v0, Lcom/google/crypto/tink/prf/PrfSetWrapper$WrappedPrfSet;
 
     const/4 v1, 0x0

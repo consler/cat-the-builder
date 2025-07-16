@@ -18,32 +18,27 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 49
     const/4 v0, 0x0
 
+    .line 49
     invoke-direct {p0, v0, v0}, Lorg/apache/commons/collections/iterators/EnumerationIterator;-><init>(Ljava/util/Enumeration;Ljava/util/Collection;)V
 
-    .line 50
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Enumeration;)V
     .locals 1
-    .param p1, "enumeration"    # Ljava/util/Enumeration;
 
-    .line 59
     const/4 v0, 0x0
 
+    .line 59
     invoke-direct {p0, p1, v0}, Lorg/apache/commons/collections/iterators/EnumerationIterator;-><init>(Ljava/util/Enumeration;Ljava/util/Collection;)V
 
-    .line 60
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Enumeration;Ljava/util/Collection;)V
-    .locals 1
-    .param p1, "enumeration"    # Ljava/util/Enumeration;
-    .param p2, "collection"    # Ljava/util/Collection;
+    .locals 0
 
     .line 70
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,12 +49,11 @@
     .line 72
     iput-object p2, p0, Lorg/apache/commons/collections/iterators/EnumerationIterator;->collection:Ljava/util/Collection;
 
+    const/4 p1, 0x0
+
     .line 73
-    const/4 v0, 0x0
+    iput-object p1, p0, Lorg/apache/commons/collections/iterators/EnumerationIterator;->last:Ljava/lang/Object;
 
-    iput-object v0, p0, Lorg/apache/commons/collections/iterators/EnumerationIterator;->last:Ljava/lang/Object;
-
-    .line 74
     return-void
 .end method
 
@@ -99,7 +93,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections/iterators/EnumerationIterator;->last:Ljava/lang/Object;
 
-    .line 96
     return-object v0
 .end method
 
@@ -119,7 +112,6 @@
     .line 112
     invoke-interface {v0, v1}, Ljava/util/Collection;->remove(Ljava/lang/Object;)Z
 
-    .line 119
     return-void
 
     .line 114
@@ -145,11 +137,9 @@
 
 .method public setEnumeration(Ljava/util/Enumeration;)V
     .locals 0
-    .param p1, "enumeration"    # Ljava/util/Enumeration;
 
     .line 138
     iput-object p1, p0, Lorg/apache/commons/collections/iterators/EnumerationIterator;->enumeration:Ljava/util/Enumeration;
 
-    .line 139
     return-void
 .end method

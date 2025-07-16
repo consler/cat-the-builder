@@ -7,7 +7,6 @@
 .method static constructor <clinit>()V
     .locals 0
 
-    .line 13
     return-void
 .end method
 
@@ -22,7 +21,6 @@
 
 .method public static registerAllExtensions(Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;)V
     .locals 0
-    .param p0, "registry"    # Lcom/google/crypto/tink/shaded/protobuf/ExtensionRegistryLite;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -32,6 +30,5 @@
         }
     .end annotation
 
-    .line 10
     return-void
 .end method

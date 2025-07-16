@@ -20,13 +20,11 @@
 # direct methods
 .method public constructor <init>(Landroid/app/Application;)V
     .locals 0
-    .param p1, "application"    # Landroid/app/Application;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 148
     invoke-direct {p0, p1}, Landroidx/lifecycle/ViewModelProvider$AndroidViewModelFactory;-><init>(Landroid/app/Application;)V
 
-    .line 149
     return-void
 .end method

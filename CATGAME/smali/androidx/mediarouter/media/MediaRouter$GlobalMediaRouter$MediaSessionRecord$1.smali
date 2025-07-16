@@ -21,10 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter$MediaSessionRecord;III)V
     .locals 0
-    .param p1, "this$1"    # Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter$MediaSessionRecord;
-    .param p2, "x0"    # I
-    .param p3, "x1"    # I
-    .param p4, "x2"    # I
 
     .line 3022
     iput-object p1, p0, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter$MediaSessionRecord$1;->this$1:Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter$MediaSessionRecord;
@@ -38,7 +34,6 @@
 # virtual methods
 .method public onAdjustVolume(I)V
     .locals 2
-    .param p1, "direction"    # I
 
     .line 3037
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter$MediaSessionRecord$1;->this$1:Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter$MediaSessionRecord;
@@ -53,13 +48,11 @@
 
     invoke-virtual {v0, v1}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter$CallbackHandler;->post(Ljava/lang/Runnable;)Z
 
-    .line 3045
     return-void
 .end method
 
 .method public onSetVolumeTo(I)V
     .locals 2
-    .param p1, "volume"    # I
 
     .line 3025
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter$MediaSessionRecord$1;->this$1:Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter$MediaSessionRecord;
@@ -74,6 +67,5 @@
 
     invoke-virtual {v0, v1}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter$CallbackHandler;->post(Ljava/lang/Runnable;)Z
 
-    .line 3033
     return-void
 .end method

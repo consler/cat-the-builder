@@ -53,7 +53,6 @@
 
     iput-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleSystem;->effects:Lcom/badlogic/gdx/utils/Array;
 
-    .line 43
     return-void
 .end method
 
@@ -82,14 +81,12 @@
 # virtual methods
 .method public add(Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;)V
     .locals 1
-    .param p1, "effect"    # Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;
 
     .line 50
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleSystem;->effects:Lcom/badlogic/gdx/utils/Array;
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 51
     return-void
 .end method
 
@@ -104,12 +101,10 @@
     .end annotation
 
     .line 46
-    .local p1, "batch":Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch;, "Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch<*>;"
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleSystem;->batches:Lcom/badlogic/gdx/utils/Array;
 
     invoke-virtual {v0, p1}, Lcom/badlogic/gdx/utils/Array;->add(Ljava/lang/Object;)V
 
-    .line 47
     return-void
 .end method
 
@@ -137,13 +132,10 @@
     check-cast v1, Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch;
 
     .line 91
-    .local v1, "batch":Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch;, "Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch<*>;"
     invoke-interface {v1}, Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch;->begin()V
 
-    .end local v1    # "batch":Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch;, "Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch<*>;"
     goto :goto_0
 
-    .line 92
     :cond_0
     return-void
 .end method
@@ -172,14 +164,10 @@
     check-cast v1, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;
 
     .line 97
-    .local v1, "effect":Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;
     invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;->draw()V
 
-    .line 98
-    .end local v1    # "effect":Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;
     goto :goto_0
 
-    .line 99
     :cond_0
     return-void
 .end method
@@ -208,13 +196,10 @@
     check-cast v1, Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch;
 
     .line 104
-    .local v1, "batch":Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch;, "Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch<*>;"
     invoke-interface {v1}, Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch;->end()V
 
-    .end local v1    # "batch":Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch;, "Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch<*>;"
     goto :goto_0
 
-    .line 105
     :cond_0
     return-void
 .end method
@@ -251,8 +236,6 @@
     .end annotation
 
     .line 109
-    .local p1, "renderables":Lcom/badlogic/gdx/utils/Array;, "Lcom/badlogic/gdx/utils/Array<Lcom/badlogic/gdx/graphics/g3d/Renderable;>;"
-    .local p2, "pool":Lcom/badlogic/gdx/utils/Pool;, "Lcom/badlogic/gdx/utils/Pool<Lcom/badlogic/gdx/graphics/g3d/Renderable;>;"
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleSystem;->batches:Lcom/badlogic/gdx/utils/Array;
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->iterator()Ljava/util/Iterator;
@@ -273,20 +256,16 @@
     check-cast v1, Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch;
 
     .line 110
-    .local v1, "batch":Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch;, "Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch<*>;"
     invoke-interface {v1, p1, p2}, Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch;->getRenderables(Lcom/badlogic/gdx/utils/Array;Lcom/badlogic/gdx/utils/Pool;)V
 
-    .end local v1    # "batch":Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch;, "Lcom/badlogic/gdx/graphics/g3d/particles/batches/ParticleBatch<*>;"
     goto :goto_0
 
-    .line 111
     :cond_0
     return-void
 .end method
 
 .method public remove(Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;)V
     .locals 2
-    .param p1, "effect"    # Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;
 
     .line 54
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleSystem;->effects:Lcom/badlogic/gdx/utils/Array;
@@ -295,7 +274,6 @@
 
     invoke-virtual {v0, p1, v1}, Lcom/badlogic/gdx/utils/Array;->removeValue(Ljava/lang/Object;Z)Z
 
-    .line 55
     return-void
 .end method
 
@@ -307,7 +285,6 @@
 
     invoke-virtual {v0}, Lcom/badlogic/gdx/utils/Array;->clear()V
 
-    .line 60
     return-void
 .end method
 
@@ -335,21 +312,16 @@
     check-cast v1, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;
 
     .line 65
-    .local v1, "effect":Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;
     invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;->update()V
 
-    .line 66
-    .end local v1    # "effect":Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;
     goto :goto_0
 
-    .line 67
     :cond_0
     return-void
 .end method
 
 .method public update(F)V
     .locals 2
-    .param p1, "deltaTime"    # F
 
     .line 77
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleSystem;->effects:Lcom/badlogic/gdx/utils/Array;
@@ -372,14 +344,10 @@
     check-cast v1, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;
 
     .line 78
-    .local v1, "effect":Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;
     invoke-virtual {v1, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;->update(F)V
 
-    .line 79
-    .end local v1    # "effect":Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;
     goto :goto_0
 
-    .line 80
     :cond_0
     return-void
 .end method
@@ -408,24 +376,19 @@
     check-cast v1, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;
 
     .line 71
-    .local v1, "effect":Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;
     invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;->update()V
 
     .line 72
     invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;->draw()V
 
-    .line 73
-    .end local v1    # "effect":Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;
     goto :goto_0
 
-    .line 74
     :cond_0
     return-void
 .end method
 
 .method public updateAndDraw(F)V
     .locals 2
-    .param p1, "deltaTime"    # F
 
     .line 82
     iget-object v0, p0, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleSystem;->effects:Lcom/badlogic/gdx/utils/Array;
@@ -448,17 +411,13 @@
     check-cast v1, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;
 
     .line 83
-    .local v1, "effect":Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;
     invoke-virtual {v1, p1}, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;->update(F)V
 
     .line 84
     invoke-virtual {v1}, Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;->draw()V
 
-    .line 85
-    .end local v1    # "effect":Lcom/badlogic/gdx/graphics/g3d/particles/ParticleEffect;
     goto :goto_0
 
-    .line 86
     :cond_0
     return-void
 .end method

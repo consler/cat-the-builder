@@ -27,9 +27,6 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/content/Intent;Landroid/content/BroadcastReceiver$PendingResult;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "intent"    # Landroid/content/Intent;
-    .param p3, "pendingResult"    # Landroid/content/BroadcastReceiver$PendingResult;
 
     .line 143
     invoke-direct {p0}, Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback;-><init>()V
@@ -43,7 +40,6 @@
     .line 146
     iput-object p3, p0, Landroidx/media/session/MediaButtonReceiver$MediaButtonConnectionCallback;->mPendingResult:Landroid/content/BroadcastReceiver$PendingResult;
 
-    .line 147
     return-void
 .end method
 
@@ -60,7 +56,6 @@
 
     invoke-virtual {v0}, Landroid/content/BroadcastReceiver$PendingResult;->finish()V
 
-    .line 179
     return-void
 .end method
 
@@ -85,7 +80,6 @@
     invoke-direct {v0, v1, v2}, Landroid/support/v4/media/session/MediaControllerCompat;-><init>(Landroid/content/Context;Landroid/support/v4/media/session/MediaSessionCompat$Token;)V
 
     .line 158
-    .local v0, "mediaController":Landroid/support/v4/media/session/MediaControllerCompat;
     iget-object v1, p0, Landroidx/media/session/MediaButtonReceiver$MediaButtonConnectionCallback;->mIntent:Landroid/content/Intent;
 
     const-string v2, "android.intent.extra.KEY_EVENT"
@@ -97,36 +91,26 @@
     check-cast v1, Landroid/view/KeyEvent;
 
     .line 159
-    .local v1, "ke":Landroid/view/KeyEvent;
     invoke-virtual {v0, v1}, Landroid/support/v4/media/session/MediaControllerCompat;->dispatchMediaButtonEvent(Landroid/view/KeyEvent;)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 162
-    nop
-
-    .end local v0    # "mediaController":Landroid/support/v4/media/session/MediaControllerCompat;
-    .end local v1    # "ke":Landroid/view/KeyEvent;
     goto :goto_0
 
-    .line 160
     :catch_0
     move-exception v0
 
-    .line 161
-    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "MediaButtonReceiver"
 
     const-string v2, "Failed to create a media controller"
 
+    .line 161
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 163
-    .end local v0    # "e":Landroid/os/RemoteException;
     :goto_0
     invoke-direct {p0}, Landroidx/media/session/MediaButtonReceiver$MediaButtonConnectionCallback;->finish()V
 
-    .line 164
     return-void
 .end method
 
@@ -136,7 +120,6 @@
     .line 173
     invoke-direct {p0}, Landroidx/media/session/MediaButtonReceiver$MediaButtonConnectionCallback;->finish()V
 
-    .line 174
     return-void
 .end method
 
@@ -146,17 +129,14 @@
     .line 168
     invoke-direct {p0}, Landroidx/media/session/MediaButtonReceiver$MediaButtonConnectionCallback;->finish()V
 
-    .line 169
     return-void
 .end method
 
 .method setMediaBrowser(Landroid/support/v4/media/MediaBrowserCompat;)V
     .locals 0
-    .param p1, "mediaBrowser"    # Landroid/support/v4/media/MediaBrowserCompat;
 
     .line 150
     iput-object p1, p0, Landroidx/media/session/MediaButtonReceiver$MediaButtonConnectionCallback;->mMediaBrowser:Landroid/support/v4/media/MediaBrowserCompat;
 
-    .line 151
     return-void
 .end method

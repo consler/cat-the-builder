@@ -60,334 +60,332 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 16
+    .locals 20
 
     .line 33
     new-instance v0, Lorg/apache/commons/lang3/JavaVersion;
 
-    const-string v1, "JAVA_0_9"
+    const-string v1, "0.9"
 
-    const/4 v2, 0x0
+    const-string v2, "JAVA_0_9"
 
-    const/high16 v3, 0x3fc00000    # 1.5f
+    const/4 v3, 0x0
 
-    const-string v4, "0.9"
+    const/high16 v4, 0x3fc00000    # 1.5f
 
-    invoke-direct {v0, v1, v2, v3, v4}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
+    invoke-direct {v0, v2, v3, v4, v1}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
 
     sput-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_0_9:Lorg/apache/commons/lang3/JavaVersion;
 
     .line 38
-    new-instance v0, Lorg/apache/commons/lang3/JavaVersion;
+    new-instance v1, Lorg/apache/commons/lang3/JavaVersion;
 
-    const-string v1, "JAVA_1_1"
+    const v2, 0x3f8ccccd    # 1.1f
 
-    const/4 v4, 0x1
+    const-string v5, "1.1"
 
-    const v5, 0x3f8ccccd    # 1.1f
+    const-string v6, "JAVA_1_1"
 
-    const-string v6, "1.1"
+    const/4 v7, 0x1
 
-    invoke-direct {v0, v1, v4, v5, v6}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
+    invoke-direct {v1, v6, v7, v2, v5}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
 
-    sput-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_1:Lorg/apache/commons/lang3/JavaVersion;
+    sput-object v1, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_1:Lorg/apache/commons/lang3/JavaVersion;
 
     .line 43
-    new-instance v0, Lorg/apache/commons/lang3/JavaVersion;
+    new-instance v2, Lorg/apache/commons/lang3/JavaVersion;
 
-    const-string v1, "JAVA_1_2"
+    const v5, 0x3f99999a    # 1.2f
 
-    const/4 v5, 0x2
+    const-string v6, "1.2"
 
-    const v6, 0x3f99999a    # 1.2f
+    const-string v8, "JAVA_1_2"
 
-    const-string v7, "1.2"
+    const/4 v9, 0x2
 
-    invoke-direct {v0, v1, v5, v6, v7}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
+    invoke-direct {v2, v8, v9, v5, v6}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
 
-    sput-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_2:Lorg/apache/commons/lang3/JavaVersion;
+    sput-object v2, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_2:Lorg/apache/commons/lang3/JavaVersion;
 
     .line 48
-    new-instance v0, Lorg/apache/commons/lang3/JavaVersion;
+    new-instance v5, Lorg/apache/commons/lang3/JavaVersion;
 
-    const-string v1, "JAVA_1_3"
-
-    const/4 v6, 0x3
-
-    const v7, 0x3fa66666    # 1.3f
+    const v6, 0x3fa66666    # 1.3f
 
     const-string v8, "1.3"
 
-    invoke-direct {v0, v1, v6, v7, v8}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
+    const-string v10, "JAVA_1_3"
 
-    sput-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_3:Lorg/apache/commons/lang3/JavaVersion;
+    const/4 v11, 0x3
+
+    invoke-direct {v5, v10, v11, v6, v8}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
+
+    sput-object v5, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_3:Lorg/apache/commons/lang3/JavaVersion;
 
     .line 53
-    new-instance v0, Lorg/apache/commons/lang3/JavaVersion;
-
-    const-string v1, "JAVA_1_4"
-
-    const/4 v7, 0x4
+    new-instance v6, Lorg/apache/commons/lang3/JavaVersion;
 
     const v8, 0x3fb33333    # 1.4f
 
-    const-string v9, "1.4"
+    const-string v10, "1.4"
 
-    invoke-direct {v0, v1, v7, v8, v9}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
+    const-string v12, "JAVA_1_4"
 
-    sput-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_4:Lorg/apache/commons/lang3/JavaVersion;
+    const/4 v13, 0x4
+
+    invoke-direct {v6, v12, v13, v8, v10}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
+
+    sput-object v6, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_4:Lorg/apache/commons/lang3/JavaVersion;
 
     .line 58
-    new-instance v0, Lorg/apache/commons/lang3/JavaVersion;
+    new-instance v8, Lorg/apache/commons/lang3/JavaVersion;
 
-    const-string v1, "JAVA_1_5"
+    const-string v10, "1.5"
 
-    const/4 v8, 0x5
+    const-string v12, "JAVA_1_5"
 
-    const-string v9, "1.5"
+    const/4 v14, 0x5
 
-    invoke-direct {v0, v1, v8, v3, v9}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
+    invoke-direct {v8, v12, v14, v4, v10}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
 
-    sput-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_5:Lorg/apache/commons/lang3/JavaVersion;
+    sput-object v8, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_5:Lorg/apache/commons/lang3/JavaVersion;
 
     .line 63
-    new-instance v0, Lorg/apache/commons/lang3/JavaVersion;
+    new-instance v4, Lorg/apache/commons/lang3/JavaVersion;
 
-    const-string v1, "JAVA_1_6"
+    const v10, 0x3fcccccd    # 1.6f
 
-    const/4 v3, 0x6
+    const-string v12, "1.6"
 
-    const v9, 0x3fcccccd    # 1.6f
+    const-string v15, "JAVA_1_6"
 
-    const-string v10, "1.6"
+    const/4 v14, 0x6
 
-    invoke-direct {v0, v1, v3, v9, v10}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
+    invoke-direct {v4, v15, v14, v10, v12}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
 
-    sput-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_6:Lorg/apache/commons/lang3/JavaVersion;
+    sput-object v4, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_6:Lorg/apache/commons/lang3/JavaVersion;
 
     .line 68
-    new-instance v0, Lorg/apache/commons/lang3/JavaVersion;
+    new-instance v10, Lorg/apache/commons/lang3/JavaVersion;
 
-    const-string v1, "JAVA_1_7"
+    const v12, 0x3fd9999a    # 1.7f
 
-    const/4 v9, 0x7
+    const-string v15, "1.7"
 
-    const v10, 0x3fd9999a    # 1.7f
+    const-string v14, "JAVA_1_7"
 
-    const-string v11, "1.7"
+    const/4 v13, 0x7
 
-    invoke-direct {v0, v1, v9, v10, v11}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
+    invoke-direct {v10, v14, v13, v12, v15}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
 
-    sput-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_7:Lorg/apache/commons/lang3/JavaVersion;
+    sput-object v10, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_7:Lorg/apache/commons/lang3/JavaVersion;
 
     .line 73
-    new-instance v0, Lorg/apache/commons/lang3/JavaVersion;
+    new-instance v12, Lorg/apache/commons/lang3/JavaVersion;
 
-    const-string v1, "JAVA_1_8"
+    const v14, 0x3fe66666    # 1.8f
 
-    const/16 v10, 0x8
+    const-string v15, "1.8"
 
-    const v11, 0x3fe66666    # 1.8f
+    const-string v13, "JAVA_1_8"
 
-    const-string v12, "1.8"
+    const/16 v11, 0x8
 
-    invoke-direct {v0, v1, v10, v11, v12}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
+    invoke-direct {v12, v13, v11, v14, v15}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
 
-    sput-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_8:Lorg/apache/commons/lang3/JavaVersion;
+    sput-object v12, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_8:Lorg/apache/commons/lang3/JavaVersion;
 
     .line 80
-    new-instance v0, Lorg/apache/commons/lang3/JavaVersion;
+    new-instance v13, Lorg/apache/commons/lang3/JavaVersion;
 
-    const-string v1, "JAVA_1_9"
+    const-string v14, "JAVA_1_9"
 
-    const/16 v11, 0x9
+    const/16 v15, 0x9
 
-    const/high16 v12, 0x41100000    # 9.0f
+    const/high16 v11, 0x41100000    # 9.0f
 
-    const-string v13, "9"
+    const-string v9, "9"
 
-    invoke-direct {v0, v1, v11, v12, v13}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
+    invoke-direct {v13, v14, v15, v11, v9}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
 
-    sput-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_9:Lorg/apache/commons/lang3/JavaVersion;
+    sput-object v13, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_9:Lorg/apache/commons/lang3/JavaVersion;
 
     .line 88
-    new-instance v0, Lorg/apache/commons/lang3/JavaVersion;
+    new-instance v14, Lorg/apache/commons/lang3/JavaVersion;
 
-    const-string v1, "JAVA_9"
+    const-string v15, "JAVA_9"
 
-    const/16 v14, 0xa
+    const/16 v7, 0xa
 
-    invoke-direct {v0, v1, v14, v12, v13}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
+    invoke-direct {v14, v15, v7, v11, v9}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
 
-    sput-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_9:Lorg/apache/commons/lang3/JavaVersion;
+    sput-object v14, Lorg/apache/commons/lang3/JavaVersion;->JAVA_9:Lorg/apache/commons/lang3/JavaVersion;
 
     .line 95
-    new-instance v0, Lorg/apache/commons/lang3/JavaVersion;
+    new-instance v9, Lorg/apache/commons/lang3/JavaVersion;
 
-    const-string v1, "JAVA_10"
-
-    const/16 v12, 0xb
-
-    const/high16 v13, 0x41200000    # 10.0f
+    const/high16 v11, 0x41200000    # 10.0f
 
     const-string v15, "10"
 
-    invoke-direct {v0, v1, v12, v13, v15}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
-
-    sput-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_10:Lorg/apache/commons/lang3/JavaVersion;
-
-    .line 102
-    new-instance v0, Lorg/apache/commons/lang3/JavaVersion;
-
-    const-string v1, "JAVA_11"
-
-    const/16 v13, 0xc
-
-    const/high16 v15, 0x41300000    # 11.0f
-
-    const-string v12, "11"
-
-    invoke-direct {v0, v1, v13, v15, v12}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
-
-    sput-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_11:Lorg/apache/commons/lang3/JavaVersion;
-
-    .line 109
-    new-instance v0, Lorg/apache/commons/lang3/JavaVersion;
-
-    const-string v1, "JAVA_12"
-
-    const/16 v12, 0xd
-
-    const/high16 v15, 0x41400000    # 12.0f
-
-    const-string v13, "12"
-
-    invoke-direct {v0, v1, v12, v15, v13}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
-
-    sput-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_12:Lorg/apache/commons/lang3/JavaVersion;
-
-    .line 116
-    new-instance v0, Lorg/apache/commons/lang3/JavaVersion;
-
-    const-string v1, "JAVA_13"
-
-    const/16 v13, 0xe
-
-    const/high16 v15, 0x41500000    # 13.0f
-
-    const-string v12, "13"
-
-    invoke-direct {v0, v1, v13, v15, v12}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
-
-    sput-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_13:Lorg/apache/commons/lang3/JavaVersion;
-
-    .line 121
-    new-instance v0, Lorg/apache/commons/lang3/JavaVersion;
-
-    invoke-static {}, Lorg/apache/commons/lang3/JavaVersion;->maxVersion()F
-
-    move-result v1
-
-    invoke-static {}, Lorg/apache/commons/lang3/JavaVersion;->maxVersion()F
-
-    move-result v12
-
-    invoke-static {v12}, Ljava/lang/Float;->toString(F)Ljava/lang/String;
-
-    move-result-object v12
-
-    const-string v15, "JAVA_RECENT"
-
-    const/16 v13, 0xf
-
-    invoke-direct {v0, v15, v13, v1, v12}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
-
-    sput-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_RECENT:Lorg/apache/commons/lang3/JavaVersion;
-
-    .line 28
-    const/16 v1, 0x10
-
-    new-array v1, v1, [Lorg/apache/commons/lang3/JavaVersion;
-
-    sget-object v12, Lorg/apache/commons/lang3/JavaVersion;->JAVA_0_9:Lorg/apache/commons/lang3/JavaVersion;
-
-    aput-object v12, v1, v2
-
-    sget-object v2, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_1:Lorg/apache/commons/lang3/JavaVersion;
-
-    aput-object v2, v1, v4
-
-    sget-object v2, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_2:Lorg/apache/commons/lang3/JavaVersion;
-
-    aput-object v2, v1, v5
-
-    sget-object v2, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_3:Lorg/apache/commons/lang3/JavaVersion;
-
-    aput-object v2, v1, v6
-
-    sget-object v2, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_4:Lorg/apache/commons/lang3/JavaVersion;
-
-    aput-object v2, v1, v7
-
-    sget-object v2, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_5:Lorg/apache/commons/lang3/JavaVersion;
-
-    aput-object v2, v1, v8
-
-    sget-object v2, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_6:Lorg/apache/commons/lang3/JavaVersion;
-
-    aput-object v2, v1, v3
-
-    sget-object v2, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_7:Lorg/apache/commons/lang3/JavaVersion;
-
-    aput-object v2, v1, v9
-
-    sget-object v2, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_8:Lorg/apache/commons/lang3/JavaVersion;
-
-    aput-object v2, v1, v10
-
-    sget-object v2, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_9:Lorg/apache/commons/lang3/JavaVersion;
-
-    aput-object v2, v1, v11
-
-    sget-object v2, Lorg/apache/commons/lang3/JavaVersion;->JAVA_9:Lorg/apache/commons/lang3/JavaVersion;
-
-    aput-object v2, v1, v14
-
-    sget-object v2, Lorg/apache/commons/lang3/JavaVersion;->JAVA_10:Lorg/apache/commons/lang3/JavaVersion;
+    const-string v7, "JAVA_10"
 
     const/16 v3, 0xb
 
-    aput-object v2, v1, v3
+    invoke-direct {v9, v7, v3, v11, v15}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
 
-    sget-object v2, Lorg/apache/commons/lang3/JavaVersion;->JAVA_11:Lorg/apache/commons/lang3/JavaVersion;
+    sput-object v9, Lorg/apache/commons/lang3/JavaVersion;->JAVA_10:Lorg/apache/commons/lang3/JavaVersion;
 
-    const/16 v3, 0xc
+    .line 102
+    new-instance v7, Lorg/apache/commons/lang3/JavaVersion;
 
-    aput-object v2, v1, v3
+    const/high16 v11, 0x41300000    # 11.0f
 
-    sget-object v2, Lorg/apache/commons/lang3/JavaVersion;->JAVA_12:Lorg/apache/commons/lang3/JavaVersion;
+    const-string v15, "11"
 
-    const/16 v3, 0xd
+    const-string v3, "JAVA_11"
 
-    aput-object v2, v1, v3
+    move-object/from16 v16, v9
 
-    sget-object v2, Lorg/apache/commons/lang3/JavaVersion;->JAVA_13:Lorg/apache/commons/lang3/JavaVersion;
+    const/16 v9, 0xc
+
+    invoke-direct {v7, v3, v9, v11, v15}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
+
+    sput-object v7, Lorg/apache/commons/lang3/JavaVersion;->JAVA_11:Lorg/apache/commons/lang3/JavaVersion;
+
+    .line 109
+    new-instance v3, Lorg/apache/commons/lang3/JavaVersion;
+
+    const/high16 v11, 0x41400000    # 12.0f
+
+    const-string v15, "12"
+
+    const-string v9, "JAVA_12"
+
+    move-object/from16 v17, v7
+
+    const/16 v7, 0xd
+
+    invoke-direct {v3, v9, v7, v11, v15}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
+
+    sput-object v3, Lorg/apache/commons/lang3/JavaVersion;->JAVA_12:Lorg/apache/commons/lang3/JavaVersion;
+
+    .line 116
+    new-instance v9, Lorg/apache/commons/lang3/JavaVersion;
+
+    const/high16 v11, 0x41500000    # 13.0f
+
+    const-string v15, "13"
+
+    const-string v7, "JAVA_13"
+
+    move-object/from16 v18, v3
 
     const/16 v3, 0xe
 
-    aput-object v2, v1, v3
+    invoke-direct {v9, v7, v3, v11, v15}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
 
-    aput-object v0, v1, v13
+    sput-object v9, Lorg/apache/commons/lang3/JavaVersion;->JAVA_13:Lorg/apache/commons/lang3/JavaVersion;
 
-    sput-object v1, Lorg/apache/commons/lang3/JavaVersion;->$VALUES:[Lorg/apache/commons/lang3/JavaVersion;
+    .line 121
+    new-instance v7, Lorg/apache/commons/lang3/JavaVersion;
+
+    invoke-static {}, Lorg/apache/commons/lang3/JavaVersion;->maxVersion()F
+
+    move-result v11
+
+    invoke-static {}, Lorg/apache/commons/lang3/JavaVersion;->maxVersion()F
+
+    move-result v15
+
+    invoke-static {v15}, Ljava/lang/Float;->toString(F)Ljava/lang/String;
+
+    move-result-object v15
+
+    const-string v3, "JAVA_RECENT"
+
+    move-object/from16 v19, v9
+
+    const/16 v9, 0xf
+
+    invoke-direct {v7, v3, v9, v11, v15}, Lorg/apache/commons/lang3/JavaVersion;-><init>(Ljava/lang/String;IFLjava/lang/String;)V
+
+    sput-object v7, Lorg/apache/commons/lang3/JavaVersion;->JAVA_RECENT:Lorg/apache/commons/lang3/JavaVersion;
+
+    const/16 v3, 0x10
+
+    new-array v3, v3, [Lorg/apache/commons/lang3/JavaVersion;
+
+    const/4 v11, 0x0
+
+    aput-object v0, v3, v11
+
+    const/4 v0, 0x1
+
+    aput-object v1, v3, v0
+
+    const/4 v0, 0x2
+
+    aput-object v2, v3, v0
+
+    const/4 v0, 0x3
+
+    aput-object v5, v3, v0
+
+    const/4 v0, 0x4
+
+    aput-object v6, v3, v0
+
+    const/4 v0, 0x5
+
+    aput-object v8, v3, v0
+
+    const/4 v0, 0x6
+
+    aput-object v4, v3, v0
+
+    const/4 v0, 0x7
+
+    aput-object v10, v3, v0
+
+    const/16 v0, 0x8
+
+    aput-object v12, v3, v0
+
+    const/16 v0, 0x9
+
+    aput-object v13, v3, v0
+
+    const/16 v0, 0xa
+
+    aput-object v14, v3, v0
+
+    const/16 v0, 0xb
+
+    aput-object v16, v3, v0
+
+    const/16 v0, 0xc
+
+    aput-object v17, v3, v0
+
+    const/16 v0, 0xd
+
+    aput-object v18, v3, v0
+
+    const/16 v0, 0xe
+
+    aput-object v19, v3, v0
+
+    aput-object v7, v3, v9
+
+    .line 28
+    sput-object v3, Lorg/apache/commons/lang3/JavaVersion;->$VALUES:[Lorg/apache/commons/lang3/JavaVersion;
 
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IFLjava/lang/String;)V
     .locals 0
-    .param p3, "value"    # F
-    .param p4, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(F",
@@ -405,17 +403,15 @@
     .line 141
     iput-object p4, p0, Lorg/apache/commons/lang3/JavaVersion;->name:Ljava/lang/String;
 
-    .line 142
     return-void
 .end method
 
 .method static get(Ljava/lang/String;)Lorg/apache/commons/lang3/JavaVersion;
     .locals 6
-    .param p0, "nom"    # Ljava/lang/String;
 
-    .line 197
     const-string v0, "0.9"
 
+    .line 197
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -423,14 +419,14 @@
     if-eqz v0, :cond_0
 
     .line 198
-    sget-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_0_9:Lorg/apache/commons/lang3/JavaVersion;
+    sget-object p0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_0_9:Lorg/apache/commons/lang3/JavaVersion;
 
-    return-object v0
+    return-object p0
 
-    .line 199
     :cond_0
     const-string v0, "1.1"
 
+    .line 199
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -438,14 +434,14 @@
     if-eqz v0, :cond_1
 
     .line 200
-    sget-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_1:Lorg/apache/commons/lang3/JavaVersion;
+    sget-object p0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_1:Lorg/apache/commons/lang3/JavaVersion;
 
-    return-object v0
+    return-object p0
 
-    .line 201
     :cond_1
     const-string v0, "1.2"
 
+    .line 201
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -453,14 +449,14 @@
     if-eqz v0, :cond_2
 
     .line 202
-    sget-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_2:Lorg/apache/commons/lang3/JavaVersion;
+    sget-object p0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_2:Lorg/apache/commons/lang3/JavaVersion;
 
-    return-object v0
+    return-object p0
 
-    .line 203
     :cond_2
     const-string v0, "1.3"
 
+    .line 203
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -468,14 +464,14 @@
     if-eqz v0, :cond_3
 
     .line 204
-    sget-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_3:Lorg/apache/commons/lang3/JavaVersion;
+    sget-object p0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_3:Lorg/apache/commons/lang3/JavaVersion;
 
-    return-object v0
+    return-object p0
 
-    .line 205
     :cond_3
     const-string v0, "1.4"
 
+    .line 205
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -483,14 +479,14 @@
     if-eqz v0, :cond_4
 
     .line 206
-    sget-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_4:Lorg/apache/commons/lang3/JavaVersion;
+    sget-object p0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_4:Lorg/apache/commons/lang3/JavaVersion;
 
-    return-object v0
+    return-object p0
 
-    .line 207
     :cond_4
     const-string v0, "1.5"
 
+    .line 207
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -498,14 +494,14 @@
     if-eqz v0, :cond_5
 
     .line 208
-    sget-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_5:Lorg/apache/commons/lang3/JavaVersion;
+    sget-object p0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_5:Lorg/apache/commons/lang3/JavaVersion;
 
-    return-object v0
+    return-object p0
 
-    .line 209
     :cond_5
     const-string v0, "1.6"
 
+    .line 209
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -513,14 +509,14 @@
     if-eqz v0, :cond_6
 
     .line 210
-    sget-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_6:Lorg/apache/commons/lang3/JavaVersion;
+    sget-object p0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_6:Lorg/apache/commons/lang3/JavaVersion;
 
-    return-object v0
+    return-object p0
 
-    .line 211
     :cond_6
     const-string v0, "1.7"
 
+    .line 211
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -528,14 +524,14 @@
     if-eqz v0, :cond_7
 
     .line 212
-    sget-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_7:Lorg/apache/commons/lang3/JavaVersion;
+    sget-object p0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_7:Lorg/apache/commons/lang3/JavaVersion;
 
-    return-object v0
+    return-object p0
 
-    .line 213
     :cond_7
     const-string v0, "1.8"
 
+    .line 213
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -543,14 +539,14 @@
     if-eqz v0, :cond_8
 
     .line 214
-    sget-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_8:Lorg/apache/commons/lang3/JavaVersion;
+    sget-object p0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_1_8:Lorg/apache/commons/lang3/JavaVersion;
 
-    return-object v0
+    return-object p0
 
-    .line 215
     :cond_8
     const-string v0, "9"
 
+    .line 215
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -558,14 +554,14 @@
     if-eqz v0, :cond_9
 
     .line 216
-    sget-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_9:Lorg/apache/commons/lang3/JavaVersion;
+    sget-object p0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_9:Lorg/apache/commons/lang3/JavaVersion;
 
-    return-object v0
+    return-object p0
 
-    .line 217
     :cond_9
     const-string v0, "10"
 
+    .line 217
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -573,14 +569,14 @@
     if-eqz v0, :cond_a
 
     .line 218
-    sget-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_10:Lorg/apache/commons/lang3/JavaVersion;
+    sget-object p0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_10:Lorg/apache/commons/lang3/JavaVersion;
 
-    return-object v0
+    return-object p0
 
-    .line 219
     :cond_a
     const-string v0, "11"
 
+    .line 219
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -588,14 +584,14 @@
     if-eqz v0, :cond_b
 
     .line 220
-    sget-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_11:Lorg/apache/commons/lang3/JavaVersion;
+    sget-object p0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_11:Lorg/apache/commons/lang3/JavaVersion;
 
-    return-object v0
+    return-object p0
 
-    .line 221
     :cond_b
     const-string v0, "12"
 
+    .line 221
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -603,14 +599,14 @@
     if-eqz v0, :cond_c
 
     .line 222
-    sget-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_12:Lorg/apache/commons/lang3/JavaVersion;
+    sget-object p0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_12:Lorg/apache/commons/lang3/JavaVersion;
 
-    return-object v0
+    return-object p0
 
-    .line 223
     :cond_c
     const-string v0, "13"
 
+    .line 223
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -618,17 +614,15 @@
     if-eqz v0, :cond_d
 
     .line 224
-    sget-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_13:Lorg/apache/commons/lang3/JavaVersion;
+    sget-object p0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_13:Lorg/apache/commons/lang3/JavaVersion;
 
-    return-object v0
+    return-object p0
 
-    .line 226
     :cond_d
     const/4 v0, 0x0
 
     if-nez p0, :cond_e
 
-    .line 227
     return-object v0
 
     .line 229
@@ -637,8 +631,6 @@
 
     move-result v1
 
-    .line 230
-    .local v1, "v":F
     float-to-double v2, v1
 
     const-wide/high16 v4, 0x3ff0000000000000L    # 1.0
@@ -647,110 +639,95 @@
 
     cmpg-double v2, v2, v4
 
-    if-gez v2, :cond_10
+    if-gez v2, :cond_f
+
+    const/16 v1, 0x2e
 
     .line 231
-    const/16 v2, 0x2e
+    invoke-virtual {p0, v1}, Ljava/lang/String;->indexOf(I)I
+
+    move-result v1
+
+    const/16 v2, 0x2c
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->indexOf(I)I
 
-    move-result v2
+    move-result v3
 
-    const/16 v3, 0x2c
+    invoke-static {v1, v3}, Ljava/lang/Math;->max(II)I
 
-    invoke-virtual {p0, v3}, Ljava/lang/String;->indexOf(I)I
-
-    move-result v4
-
-    invoke-static {v2, v4}, Ljava/lang/Math;->max(II)I
-
-    move-result v2
+    move-result v1
 
     .line 232
-    .local v2, "firstComma":I
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
-    move-result v4
-
-    invoke-virtual {p0, v3, v2}, Ljava/lang/String;->indexOf(II)I
-
     move-result v3
 
-    invoke-static {v4, v3}, Ljava/lang/Math;->max(II)I
+    invoke-virtual {p0, v2, v1}, Ljava/lang/String;->indexOf(II)I
 
-    move-result v3
+    move-result v2
+
+    invoke-static {v3, v2}, Ljava/lang/Math;->max(II)I
+
+    move-result v2
+
+    add-int/lit8 v1, v1, 0x1
 
     .line 233
-    .local v3, "end":I
-    add-int/lit8 v4, v2, 0x1
+    invoke-virtual {p0, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    invoke-virtual {p0, v4, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v4
+    invoke-static {p0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
-    invoke-static {v4}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    move-result p0
 
-    move-result v4
+    const v1, 0x3f666666    # 0.9f
 
-    const v5, 0x3f666666    # 0.9f
+    cmpl-float p0, p0, v1
 
-    cmpl-float v4, v4, v5
-
-    if-lez v4, :cond_f
+    if-lez p0, :cond_10
 
     .line 234
-    sget-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_RECENT:Lorg/apache/commons/lang3/JavaVersion;
+    sget-object p0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_RECENT:Lorg/apache/commons/lang3/JavaVersion;
 
-    return-object v0
+    return-object p0
 
-    .line 233
-    .end local v2    # "firstComma":I
-    .end local v3    # "end":I
     :cond_f
-    goto :goto_0
+    const/high16 p0, 0x41200000    # 10.0f
 
-    .line 236
-    :cond_10
-    const/high16 v2, 0x41200000    # 10.0f
+    cmpl-float p0, v1, p0
 
-    cmpl-float v2, v1, v2
-
-    if-lez v2, :cond_11
+    if-lez p0, :cond_10
 
     .line 237
-    sget-object v0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_RECENT:Lorg/apache/commons/lang3/JavaVersion;
+    sget-object p0, Lorg/apache/commons/lang3/JavaVersion;->JAVA_RECENT:Lorg/apache/commons/lang3/JavaVersion;
 
-    return-object v0
+    return-object p0
 
-    .line 236
-    :cond_11
-    :goto_0
-    nop
-
-    .line 239
+    :cond_10
     return-object v0
 .end method
 
 .method static getJavaVersion(Ljava/lang/String;)Lorg/apache/commons/lang3/JavaVersion;
-    .locals 1
-    .param p0, "nom"    # Ljava/lang/String;
+    .locals 0
 
     .line 184
     invoke-static {p0}, Lorg/apache/commons/lang3/JavaVersion;->get(Ljava/lang/String;)Lorg/apache/commons/lang3/JavaVersion;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private static maxVersion()F
     .locals 2
 
-    .line 261
     const-string v0, "java.specification.version"
 
     const-string v1, "99.0"
 
+    .line 261
     invoke-static {v0, v1}, Ljava/lang/System;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -759,120 +736,110 @@
 
     move-result v0
 
-    .line 262
-    .local v0, "v":F
     const/4 v1, 0x0
 
     cmpl-float v1, v0, v1
 
     if-lez v1, :cond_0
 
-    .line 263
     return v0
 
-    .line 265
     :cond_0
-    const/high16 v1, 0x42c60000    # 99.0f
+    const/high16 v0, 0x42c60000    # 99.0f
 
-    return v1
+    return v0
 .end method
 
 .method private static toFloatVersion(Ljava/lang/String;)F
-    .locals 5
-    .param p0, "value"    # Ljava/lang/String;
+    .locals 3
 
-    .line 275
-    const/4 v0, -0x1
+    const-string v0, "."
 
     .line 276
-    .local v0, "defaultReturnValue":I
-    const-string v1, "."
+    invoke-virtual {p0, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    invoke-virtual {p0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v0
 
-    move-result v1
+    const/high16 v1, -0x40800000    # -1.0f
 
-    const/high16 v2, -0x40800000    # -1.0f
+    if-eqz v0, :cond_1
 
-    if-eqz v1, :cond_1
+    const-string v0, "\\."
 
     .line 277
-    const-string v1, "\\."
+    invoke-virtual {p0, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    invoke-virtual {p0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v1
+    move-result-object p0
 
     .line 278
-    .local v1, "toParse":[Ljava/lang/String;
-    array-length v3, v1
+    array-length v0, p0
 
-    const/4 v4, 0x2
+    const/4 v2, 0x2
 
-    if-lt v3, v4, :cond_0
+    if-lt v0, v2, :cond_0
 
     .line 279
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    aget-object v4, v1, v4
+    aget-object v2, p0, v2
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v4, 0x2e
+    move-result-object v0
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    const/16 v2, 0x2e
 
-    const/4 v4, 0x1
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    aget-object v4, v1, v4
+    move-result-object v0
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/4 v2, 0x1
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    aget-object p0, p0, v2
 
-    move-result-object v3
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v3, v2}, Lorg/apache/commons/lang3/math/NumberUtils;->toFloat(Ljava/lang/String;F)F
+    move-result-object p0
 
-    move-result v2
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    return v2
+    move-result-object p0
 
-    .line 281
-    .end local v1    # "toParse":[Ljava/lang/String;
+    invoke-static {p0, v1}, Lorg/apache/commons/lang3/math/NumberUtils;->toFloat(Ljava/lang/String;F)F
+
+    move-result p0
+
+    return p0
+
     :cond_0
-    nop
-
-    .line 284
-    return v2
+    return v1
 
     .line 282
     :cond_1
-    invoke-static {p0, v2}, Lorg/apache/commons/lang3/math/NumberUtils;->toFloat(Ljava/lang/String;F)F
+    invoke-static {p0, v1}, Lorg/apache/commons/lang3/math/NumberUtils;->toFloat(Ljava/lang/String;F)F
 
-    move-result v1
+    move-result p0
 
-    return v1
+    return p0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lorg/apache/commons/lang3/JavaVersion;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 28
     const-class v0, Lorg/apache/commons/lang3/JavaVersion;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lorg/apache/commons/lang3/JavaVersion;
+    check-cast p0, Lorg/apache/commons/lang3/JavaVersion;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lorg/apache/commons/lang3/JavaVersion;
@@ -893,51 +860,49 @@
 
 # virtual methods
 .method public atLeast(Lorg/apache/commons/lang3/JavaVersion;)Z
-    .locals 2
-    .param p1, "requiredVersion"    # Lorg/apache/commons/lang3/JavaVersion;
+    .locals 1
 
     .line 155
     iget v0, p0, Lorg/apache/commons/lang3/JavaVersion;->value:F
 
-    iget v1, p1, Lorg/apache/commons/lang3/JavaVersion;->value:F
+    iget p1, p1, Lorg/apache/commons/lang3/JavaVersion;->value:F
 
-    cmpl-float v0, v0, v1
+    cmpl-float p1, v0, p1
 
-    if-ltz v0, :cond_0
+    if-ltz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public atMost(Lorg/apache/commons/lang3/JavaVersion;)Z
-    .locals 2
-    .param p1, "requiredVersion"    # Lorg/apache/commons/lang3/JavaVersion;
+    .locals 1
 
     .line 170
     iget v0, p0, Lorg/apache/commons/lang3/JavaVersion;->value:F
 
-    iget v1, p1, Lorg/apache/commons/lang3/JavaVersion;->value:F
+    iget p1, p1, Lorg/apache/commons/lang3/JavaVersion;->value:F
 
-    cmpg-float v0, v0, v1
+    cmpg-float p1, v0, p1
 
-    if-gtz v0, :cond_0
+    if-gtz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public toString()Ljava/lang/String;

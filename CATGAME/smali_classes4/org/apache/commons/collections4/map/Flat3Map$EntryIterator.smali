@@ -59,24 +59,21 @@
     .end annotation
 
     .line 929
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$EntryIterator;, "Lorg/apache/commons/collections4/map/Flat3Map$EntryIterator<TK;TV;>;"
-    .local p1, "parent":Lorg/apache/commons/collections4/map/Flat3Map;, "Lorg/apache/commons/collections4/map/Flat3Map<TK;TV;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 923
     const/4 v0, 0x0
 
+    .line 923
     iput v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$EntryIterator;->nextIndex:I
 
-    .line 924
     const/4 v0, 0x0
 
+    .line 924
     iput-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$EntryIterator;->currentEntry:Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;
 
     .line 930
     iput-object p1, p0, Lorg/apache/commons/collections4/map/Flat3Map$EntryIterator;->parent:Lorg/apache/commons/collections4/map/Flat3Map;
 
-    .line 931
     return-void
 .end method
 
@@ -86,7 +83,6 @@
     .locals 2
 
     .line 934
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$EntryIterator;, "Lorg/apache/commons/collections4/map/Flat3Map$EntryIterator<TK;TV;>;"
     iget v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$EntryIterator;->nextIndex:I
 
     iget-object v1, p0, Lorg/apache/commons/collections4/map/Flat3Map$EntryIterator;->parent:Lorg/apache/commons/collections4/map/Flat3Map;
@@ -119,7 +115,6 @@
     .end annotation
 
     .line 938
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$EntryIterator;, "Lorg/apache/commons/collections4/map/Flat3Map$EntryIterator<TK;TV;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/map/Flat3Map$EntryIterator;->hasNext()Z
 
     move-result v0
@@ -141,7 +136,6 @@
 
     iput-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$EntryIterator;->currentEntry:Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;
 
-    .line 942
     return-object v0
 
     .line 939
@@ -159,14 +153,13 @@
     .locals 3
 
     .line 946
-    .local p0, "this":Lorg/apache/commons/collections4/map/Flat3Map$EntryIterator;, "Lorg/apache/commons/collections4/map/Flat3Map$EntryIterator<TK;TV;>;"
     iget-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$EntryIterator;->currentEntry:Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;
 
     if-eqz v0, :cond_0
 
-    .line 949
     const/4 v1, 0x1
 
+    .line 949
     invoke-virtual {v0, v1}, Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;->setRemoved(Z)V
 
     .line 950
@@ -187,12 +180,11 @@
 
     iput v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$EntryIterator;->nextIndex:I
 
-    .line 952
     const/4 v0, 0x0
 
+    .line 952
     iput-object v0, p0, Lorg/apache/commons/collections4/map/Flat3Map$EntryIterator;->currentEntry:Lorg/apache/commons/collections4/map/Flat3Map$FlatMapEntry;
 
-    .line 953
     return-void
 
     .line 947

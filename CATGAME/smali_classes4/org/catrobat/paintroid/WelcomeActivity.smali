@@ -5,11 +5,6 @@
 
 # annotations
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
         "\u0000`\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u0008\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0015\n\u0002\u0008\u0006\n\u0002\u0018\u0002\n\u0002\u0008\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\u0008\u0003\n\u0002\u0010\u000b\n\u0002\u0008\u0007\n\u0002\u0018\u0002\n\u0002\u0008\u0003\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0003\u0018\u00002\u00020\u0001B\u0005\u00a2\u0006\u0002\u0010\u0002J\u0010\u0010\u001b\u001a\u00020\u001c2\u0006\u0010\u001d\u001a\u00020\u0007H\u0002J\u0008\u0010\u001e\u001a\u00020\u001cH\u0002J\u0008\u0010\u001f\u001a\u00020 H\u0002J\u0010\u0010!\u001a\u00020\u00072\u0006\u0010\"\u001a\u00020\u0007H\u0002J\u0010\u0010#\u001a\u00020\u00072\u0006\u0010$\u001a\u00020\u0007H\u0002J\u0008\u0010%\u001a\u00020\u001cH\u0002J\u0010\u0010&\u001a\u00020 2\u0006\u0010\'\u001a\u00020(H\u0002J\u0008\u0010)\u001a\u00020\u001cH\u0016J\u0012\u0010*\u001a\u00020\u001c2\u0008\u0010+\u001a\u0004\u0018\u00010,H\u0014J\u0018\u0010-\u001a\u00020\u001c2\u0006\u0010.\u001a\u00020/2\u0006\u00100\u001a\u00020/H\u0002J\u0018\u00101\u001a\u00020\u001c2\u0006\u0010.\u001a\u00020/2\u0006\u00100\u001a\u00020/H\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082.\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0082.\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0008\u001a\u00020\u0007X\u0082\u000e\u00a2\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082.\u00a2\u0006\u0002\n\u0000R$\u0010\u000b\u001a\u00020\u000c8\u0006@\u0006X\u0087.\u00a2\u0006\u0014\n\u0000\u0012\u0004\u0008\r\u0010\u0002\u001a\u0004\u0008\u000e\u0010\u000f\"\u0004\u0008\u0010\u0010\u0011R$\u0010\u0012\u001a\u00020\u00138\u0006@\u0006X\u0087.\u00a2\u0006\u0014\n\u0000\u0012\u0004\u0008\u0014\u0010\u0002\u001a\u0004\u0008\u0015\u0010\u0016\"\u0004\u0008\u0017\u0010\u0018R\u000e\u0010\u0019\u001a\u00020\u001aX\u0082\u000e\u00a2\u0006\u0002\n\u0000\u00a8\u00062"
     }
@@ -64,14 +59,15 @@
         "Landroidx/appcompat/widget/AppCompatTextView;",
         "description",
         "setUpUndoAndRedoButtons",
-        "Paintroid_release"
+        "Paintroid_signedRelease"
     }
     k = 0x1
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -94,6 +90,48 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$ByrflSzXPQson4gF75lj7Ij3tL8(Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;Landroid/view/View;)V
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lorg/catrobat/paintroid/WelcomeActivity;->setUpUndoAndRedoButtons$lambda-1(Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$IEPhFzaXgAgcRkuaPLPH6wXMEs4(Lorg/catrobat/paintroid/WelcomeActivity;Landroid/view/View;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lorg/catrobat/paintroid/WelcomeActivity;->onCreate$lambda-3(Lorg/catrobat/paintroid/WelcomeActivity;Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$ReOewjMXNF0sZByqZQ8ixKWFbhg(Lorg/catrobat/paintroid/WelcomeActivity;Landroid/view/View;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lorg/catrobat/paintroid/WelcomeActivity;->onCreate$lambda-4(Lorg/catrobat/paintroid/WelcomeActivity;Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$jsW-He9uxSNLML099qo_GkrPm9M(Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;Lorg/catrobat/paintroid/WelcomeActivity;Landroid/view/MenuItem;)Z
+    .locals 0
+
+    invoke-static {p0, p1, p2, p3}, Lorg/catrobat/paintroid/WelcomeActivity;->setUpNavigationView$lambda-2(Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;Lorg/catrobat/paintroid/WelcomeActivity;Landroid/view/MenuItem;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static synthetic $r8$lambda$rpvJ-5BbYoX8h0tfFxHG5pNES7s(Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;Landroid/view/View;)V
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lorg/catrobat/paintroid/WelcomeActivity;->setUpUndoAndRedoButtons$lambda-0(Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;Landroid/view/View;)V
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -114,8 +152,6 @@
 
 .method public static final synthetic access$addBottomDots(Lorg/catrobat/paintroid/WelcomeActivity;I)V
     .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/WelcomeActivity;
-    .param p1, "currentPage"    # I
 
     .line 46
     invoke-direct {p0, p1}, Lorg/catrobat/paintroid/WelcomeActivity;->addBottomDots(I)V
@@ -124,105 +160,36 @@
 .end method
 
 .method public static final synthetic access$getBtnNext$p(Lorg/catrobat/paintroid/WelcomeActivity;)Landroidx/appcompat/widget/AppCompatButton;
-    .locals 2
-    .param p0, "$this"    # Lorg/catrobat/paintroid/WelcomeActivity;
+    .locals 0
 
     .line 46
-    iget-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity;->btnNext:Landroidx/appcompat/widget/AppCompatButton;
+    iget-object p0, p0, Lorg/catrobat/paintroid/WelcomeActivity;->btnNext:Landroidx/appcompat/widget/AppCompatButton;
 
-    if-nez v0, :cond_0
-
-    const-string v1, "btnNext"
-
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    :cond_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final synthetic access$getBtnSkip$p(Lorg/catrobat/paintroid/WelcomeActivity;)Landroidx/appcompat/widget/AppCompatButton;
-    .locals 2
-    .param p0, "$this"    # Lorg/catrobat/paintroid/WelcomeActivity;
+    .locals 0
 
     .line 46
-    iget-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity;->btnSkip:Landroidx/appcompat/widget/AppCompatButton;
+    iget-object p0, p0, Lorg/catrobat/paintroid/WelcomeActivity;->btnSkip:Landroidx/appcompat/widget/AppCompatButton;
 
-    if-nez v0, :cond_0
-
-    const-string v1, "btnSkip"
-
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    :cond_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public static final synthetic access$getDotsIndex(Lorg/catrobat/paintroid/WelcomeActivity;I)I
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/WelcomeActivity;
-    .param p1, "position"    # I
+    .locals 0
 
     .line 46
     invoke-direct {p0, p1}, Lorg/catrobat/paintroid/WelcomeActivity;->getDotsIndex(I)I
 
-    move-result v0
+    move-result p0
 
-    return v0
-.end method
-
-.method public static final synthetic access$getItem(Lorg/catrobat/paintroid/WelcomeActivity;I)I
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/WelcomeActivity;
-    .param p1, "i"    # I
-
-    .line 46
-    invoke-direct {p0, p1}, Lorg/catrobat/paintroid/WelcomeActivity;->getItem(I)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public static final synthetic access$isRTL(Lorg/catrobat/paintroid/WelcomeActivity;Landroid/content/Context;)Z
-    .locals 1
-    .param p0, "$this"    # Lorg/catrobat/paintroid/WelcomeActivity;
-    .param p1, "context"    # Landroid/content/Context;
-
-    .line 46
-    invoke-direct {p0, p1}, Lorg/catrobat/paintroid/WelcomeActivity;->isRTL(Landroid/content/Context;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public static final synthetic access$setBtnNext$p(Lorg/catrobat/paintroid/WelcomeActivity;Landroidx/appcompat/widget/AppCompatButton;)V
-    .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/WelcomeActivity;
-    .param p1, "<set-?>"    # Landroidx/appcompat/widget/AppCompatButton;
-
-    .line 46
-    iput-object p1, p0, Lorg/catrobat/paintroid/WelcomeActivity;->btnNext:Landroidx/appcompat/widget/AppCompatButton;
-
-    return-void
-.end method
-
-.method public static final synthetic access$setBtnSkip$p(Lorg/catrobat/paintroid/WelcomeActivity;Landroidx/appcompat/widget/AppCompatButton;)V
-    .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/WelcomeActivity;
-    .param p1, "<set-?>"    # Landroidx/appcompat/widget/AppCompatButton;
-
-    .line 46
-    iput-object p1, p0, Lorg/catrobat/paintroid/WelcomeActivity;->btnSkip:Landroidx/appcompat/widget/AppCompatButton;
-
-    return-void
+    return p0
 .end method
 
 .method public static final synthetic access$setUpNavigationView(Lorg/catrobat/paintroid/WelcomeActivity;Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;)V
     .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/WelcomeActivity;
-    .param p1, "head"    # Landroidx/appcompat/widget/AppCompatTextView;
-    .param p2, "description"    # Landroidx/appcompat/widget/AppCompatTextView;
 
     .line 46
     invoke-direct {p0, p1, p2}, Lorg/catrobat/paintroid/WelcomeActivity;->setUpNavigationView(Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;)V
@@ -232,9 +199,6 @@
 
 .method public static final synthetic access$setUpUndoAndRedoButtons(Lorg/catrobat/paintroid/WelcomeActivity;Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;)V
     .locals 0
-    .param p0, "$this"    # Lorg/catrobat/paintroid/WelcomeActivity;
-    .param p1, "head"    # Landroidx/appcompat/widget/AppCompatTextView;
-    .param p2, "description"    # Landroidx/appcompat/widget/AppCompatTextView;
 
     .line 46
     invoke-direct {p0, p1, p2}, Lorg/catrobat/paintroid/WelcomeActivity;->setUpUndoAndRedoButtons(Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;)V
@@ -244,181 +208,158 @@
 
 .method private final addBottomDots(I)V
     .locals 10
-    .param p1, "currentPage"    # I
 
     .line 210
-    iget-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity;->layouts:[I
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/WelcomeActivity;->getLayouts()[I
 
-    if-nez v0, :cond_0
+    move-result-object v0
 
-    const-string v1, "layouts"
-
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    :cond_0
     array-length v0, v0
 
-    new-array v0, v0, [Landroidx/appcompat/widget/AppCompatTextView;
+    new-array v1, v0, [Landroidx/appcompat/widget/AppCompatTextView;
 
     .line 211
-    .local v0, "dots":[Landroidx/appcompat/widget/AppCompatTextView;
     invoke-direct {p0, p1}, Lorg/catrobat/paintroid/WelcomeActivity;->getDotsIndex(I)I
 
-    move-result v1
+    move-result p1
 
     .line 212
-    .local v1, "currentIndex":I
     iget-object v2, p0, Lorg/catrobat/paintroid/WelcomeActivity;->dotsLayout:Landroidx/appcompat/widget/LinearLayoutCompat;
 
-    const-string v3, "dotsLayout"
+    const/4 v3, 0x0
 
-    if-nez v2, :cond_1
+    const-string v4, "dotsLayout"
 
-    invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    if-nez v2, :cond_0
 
-    :cond_1
+    invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    move-object v2, v3
+
+    :cond_0
     invoke-virtual {v2}, Landroidx/appcompat/widget/LinearLayoutCompat;->removeAllViews()V
 
-    .line 213
-    array-length v2, v0
+    add-int/lit8 v2, v0, -0x1
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    move v5, v4
+    if-ltz v2, :cond_3
+
+    move v6, v5
 
     :goto_0
-    if-ge v5, v2, :cond_3
+    add-int/lit8 v7, v6, 0x1
 
     .line 214
-    .local v5, "i":I
-    new-instance v6, Landroidx/appcompat/widget/AppCompatTextView;
+    new-instance v8, Landroidx/appcompat/widget/AppCompatTextView;
 
-    move-object v7, p0
+    move-object v9, p0
 
-    check-cast v7, Landroid/content/Context;
+    check-cast v9, Landroid/content/Context;
 
-    invoke-direct {v6, v7}, Landroidx/appcompat/widget/AppCompatTextView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v8, v9}, Landroidx/appcompat/widget/AppCompatTextView;-><init>(Landroid/content/Context;)V
 
-    move-object v7, v6
-
-    .local v7, "$this$apply":Landroidx/appcompat/widget/AppCompatTextView;
-    const/4 v8, 0x0
-
-    .line 215
-    .local v8, "$i$a$-apply-WelcomeActivity$addBottomDots$1":I
     const-string v9, "\u2022"
 
+    .line 215
     check-cast v9, Ljava/lang/CharSequence;
 
-    invoke-virtual {v7, v9}, Landroidx/appcompat/widget/AppCompatTextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v8, v9}, Landroidx/appcompat/widget/AppCompatTextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 216
     const/high16 v9, 0x41f00000    # 30.0f
 
-    invoke-virtual {v7, v9}, Landroidx/appcompat/widget/AppCompatTextView;->setTextSize(F)V
+    .line 216
+    invoke-virtual {v8, v9}, Landroidx/appcompat/widget/AppCompatTextView;->setTextSize(F)V
 
     .line 217
     iget v9, p0, Lorg/catrobat/paintroid/WelcomeActivity;->colorInactive:I
 
-    invoke-virtual {v7, v9}, Landroidx/appcompat/widget/AppCompatTextView;->setTextColor(I)V
+    invoke-virtual {v8, v9}, Landroidx/appcompat/widget/AppCompatTextView;->setTextColor(I)V
 
     .line 218
-    nop
-
-    .end local v7    # "$this$apply":Landroidx/appcompat/widget/AppCompatTextView;
-    .end local v8    # "$i$a$-apply-WelcomeActivity$addBottomDots$1":I
-    sget-object v7, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    sget-object v9, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     .line 214
-    aput-object v6, v0, v5
+    aput-object v8, v1, v6
 
     .line 219
-    iget-object v6, p0, Lorg/catrobat/paintroid/WelcomeActivity;->dotsLayout:Landroidx/appcompat/widget/LinearLayoutCompat;
+    iget-object v8, p0, Lorg/catrobat/paintroid/WelcomeActivity;->dotsLayout:Landroidx/appcompat/widget/LinearLayoutCompat;
 
-    if-nez v6, :cond_2
+    if-nez v8, :cond_1
 
-    invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    move-object v8, v3
+
+    :cond_1
+    aget-object v6, v1, v6
+
+    check-cast v6, Landroid/view/View;
+
+    invoke-virtual {v8, v6}, Landroidx/appcompat/widget/LinearLayoutCompat;->addView(Landroid/view/View;)V
+
+    if-le v7, v2, :cond_2
+
+    goto :goto_1
 
     :cond_2
-    aget-object v7, v0, v5
-
-    check-cast v7, Landroid/view/View;
-
-    invoke-virtual {v6, v7}, Landroidx/appcompat/widget/LinearLayoutCompat;->addView(Landroid/view/View;)V
-
-    .line 213
-    nop
-
-    .end local v5    # "i":I
-    add-int/lit8 v5, v5, 0x1
+    move v6, v7
 
     goto :goto_0
 
-    .line 221
     :cond_3
-    array-length v2, v0
+    :goto_1
+    const/4 v2, 0x1
 
-    const/4 v3, 0x1
+    if-nez v0, :cond_4
 
-    if-nez v2, :cond_4
-
-    move v4, v3
+    move v5, v2
 
     :cond_4
-    xor-int/lit8 v2, v4, 0x1
+    xor-int/lit8 v0, v5, 0x1
 
-    if-eqz v2, :cond_5
+    if-eqz v0, :cond_6
 
     .line 222
-    aget-object v2, v0, v1
+    aget-object p1, v1, p1
 
-    if-eqz v2, :cond_5
+    if-nez p1, :cond_5
 
-    iget v3, p0, Lorg/catrobat/paintroid/WelcomeActivity;->colorActive:I
+    goto :goto_2
 
-    invoke-virtual {v2, v3}, Landroidx/appcompat/widget/AppCompatTextView;->setTextColor(I)V
-
-    .line 224
     :cond_5
+    iget v0, p0, Lorg/catrobat/paintroid/WelcomeActivity;->colorActive:I
+
+    invoke-virtual {p1, v0}, Landroidx/appcompat/widget/AppCompatTextView;->setTextColor(I)V
+
+    :cond_6
+    :goto_2
     return-void
 .end method
 
 .method private final changeStatusBarColor()V
-    .locals 3
+    .locals 2
 
     .line 229
     invoke-virtual {p0}, Lorg/catrobat/paintroid/WelcomeActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
 
-    .local v0, "$this$run":Landroid/view/Window;
-    const/4 v1, 0x0
+    const/high16 v1, -0x80000000
 
     .line 230
-    .local v1, "$i$a$-run-WelcomeActivity$changeStatusBarColor$1":I
-    const/high16 v2, -0x80000000
+    invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
 
-    invoke-virtual {v0, v2}, Landroid/view/Window;->addFlags(I)V
+    const/4 v1, 0x0
 
     .line 231
-    const/4 v2, 0x0
+    invoke-virtual {v0, v1}, Landroid/view/Window;->setStatusBarColor(I)V
 
-    invoke-virtual {v0, v2}, Landroid/view/Window;->setStatusBarColor(I)V
-
-    .line 232
-    nop
-
-    .line 229
-    .end local v0    # "$this$run":Landroid/view/Window;
-    .end local v1    # "$i$a$-run-WelcomeActivity$changeStatusBarColor$1":I
-    nop
-
-    .line 233
     return-void
 .end method
 
 .method private final defaultLocaleIsRTL()Z
-    .locals 5
+    .locals 4
 
     .line 236
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
@@ -426,7 +367,6 @@
     move-result-object v0
 
     .line 237
-    .local v0, "locale":Ljava/util/Locale;
     invoke-virtual {v0}, Ljava/util/Locale;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -457,34 +397,27 @@
     :goto_0
     if-eqz v1, :cond_1
 
-    .line 238
     return v3
 
     .line 240
     :cond_1
-    const-string v1, "locale"
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
     invoke-virtual {v0}, Ljava/util/Locale;->getDisplayName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, v3}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v0, v3}, Ljava/lang/String;->charAt(I)C
 
-    move-result v1
+    move-result v0
 
-    invoke-static {v1}, Ljava/lang/Character;->getDirectionality(C)B
+    invoke-static {v0}, Ljava/lang/Character;->getDirectionality(C)B
 
-    move-result v1
+    move-result v0
 
-    .line 241
-    .local v1, "directionality":I
-    if-eq v1, v2, :cond_3
+    if-eq v0, v2, :cond_3
 
-    const/4 v4, 0x2
+    const/4 v1, 0x2
 
-    if-ne v1, v4, :cond_2
+    if-ne v0, v1, :cond_2
 
     goto :goto_1
 
@@ -497,8 +430,7 @@
 .end method
 
 .method private final getDotsIndex(I)I
-    .locals 2
-    .param p1, "position"    # I
+    .locals 1
 
     .line 251
     move-object v0, p0
@@ -509,46 +441,30 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity;->layouts:[I
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/WelcomeActivity;->getLayouts()[I
 
-    if-nez v0, :cond_0
+    move-result-object v0
 
-    const-string v1, "layouts"
-
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    :cond_0
     array-length v0, v0
 
     sub-int/2addr v0, p1
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 p1, v0, -0x1
 
-    goto :goto_0
-
-    :cond_1
-    move v0, p1
-
-    :goto_0
-    return v0
+    :cond_0
+    return p1
 .end method
 
 .method private final getItem(I)I
-    .locals 2
-    .param p1, "i"    # I
+    .locals 1
 
     .line 226
-    iget-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity;->viewPager:Landroidx/viewpager/widget/ViewPager;
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/WelcomeActivity;->getViewPager()Landroidx/viewpager/widget/ViewPager;
 
-    if-nez v0, :cond_0
+    move-result-object v0
 
-    const-string v1, "viewPager"
-
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    :cond_0
     invoke-virtual {v0}, Landroidx/viewpager/widget/ViewPager;->getCurrentItem()I
 
     move-result v0
@@ -571,7 +487,7 @@
 .end method
 
 .method private final initViewPager()V
-    .locals 5
+    .locals 4
 
     .line 195
     move-object v0, p0
@@ -580,188 +496,232 @@
 
     invoke-direct {p0, v0}, Lorg/catrobat/paintroid/WelcomeActivity;->isRTL(Landroid/content/Context;)Z
 
-    move-result v0
+    move-result v1
 
-    const-string v1, "layouts"
-
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_0
 
     .line 196
-    iget-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity;->layouts:[I
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/WelcomeActivity;->getLayouts()[I
 
-    if-nez v0, :cond_0
+    move-result-object v1
 
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    :cond_0
-    invoke-static {v0}, Lkotlin/collections/ArraysKt;->reverse([I)V
+    invoke-static {v1}, Lkotlin/collections/ArraysKt;->reverse([I)V
 
     .line 198
-    :cond_1
-    iget-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity;->viewPager:Landroidx/viewpager/widget/ViewPager;
+    :cond_0
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/WelcomeActivity;->getViewPager()Landroidx/viewpager/widget/ViewPager;
 
-    const-string v2, "viewPager"
+    move-result-object v1
 
-    if-nez v0, :cond_2
+    new-instance v2, Lorg/catrobat/paintroid/intro/IntroPageViewAdapter;
 
-    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/WelcomeActivity;->getLayouts()[I
 
-    :cond_2
-    new-instance v3, Lorg/catrobat/paintroid/intro/IntroPageViewAdapter;
+    move-result-object v3
 
-    iget-object v4, p0, Lorg/catrobat/paintroid/WelcomeActivity;->layouts:[I
+    invoke-direct {v2, v3}, Lorg/catrobat/paintroid/intro/IntroPageViewAdapter;-><init>([I)V
 
-    if-nez v4, :cond_3
+    check-cast v2, Landroidx/viewpager/widget/PagerAdapter;
 
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    :cond_3
-    invoke-direct {v3, v4}, Lorg/catrobat/paintroid/intro/IntroPageViewAdapter;-><init>([I)V
-
-    check-cast v3, Landroidx/viewpager/widget/PagerAdapter;
-
-    invoke-virtual {v0, v3}, Landroidx/viewpager/widget/ViewPager;->setAdapter(Landroidx/viewpager/widget/PagerAdapter;)V
+    invoke-virtual {v1, v2}, Landroidx/viewpager/widget/ViewPager;->setAdapter(Landroidx/viewpager/widget/PagerAdapter;)V
 
     .line 199
-    iget-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity;->viewPager:Landroidx/viewpager/widget/ViewPager;
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/WelcomeActivity;->getViewPager()Landroidx/viewpager/widget/ViewPager;
 
-    if-nez v0, :cond_4
+    move-result-object v1
 
-    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    iget-object v2, p0, Lorg/catrobat/paintroid/WelcomeActivity;->viewPagerPageChangeListener:Landroidx/viewpager/widget/ViewPager$OnPageChangeListener;
 
-    :cond_4
-    iget-object v3, p0, Lorg/catrobat/paintroid/WelcomeActivity;->viewPagerPageChangeListener:Landroidx/viewpager/widget/ViewPager$OnPageChangeListener;
-
-    invoke-virtual {v0, v3}, Landroidx/viewpager/widget/ViewPager;->addOnPageChangeListener(Landroidx/viewpager/widget/ViewPager$OnPageChangeListener;)V
+    invoke-virtual {v1, v2}, Landroidx/viewpager/widget/ViewPager;->addOnPageChangeListener(Landroidx/viewpager/widget/ViewPager$OnPageChangeListener;)V
 
     .line 200
-    move-object v0, p0
-
-    check-cast v0, Landroid/content/Context;
-
     invoke-direct {p0, v0}, Lorg/catrobat/paintroid/WelcomeActivity;->isRTL(Landroid/content/Context;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_1
 
     .line 201
-    iget-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity;->layouts:[I
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/WelcomeActivity;->getLayouts()[I
 
-    if-nez v0, :cond_5
+    move-result-object v0
 
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    :cond_5
     array-length v0, v0
 
     .line 202
-    .local v0, "pos":I
-    iget-object v3, p0, Lorg/catrobat/paintroid/WelcomeActivity;->viewPager:Landroidx/viewpager/widget/ViewPager;
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/WelcomeActivity;->getViewPager()Landroidx/viewpager/widget/ViewPager;
 
-    if-nez v3, :cond_6
+    move-result-object v1
 
-    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    :cond_6
-    invoke-virtual {v3, v0}, Landroidx/viewpager/widget/ViewPager;->setCurrentItem(I)V
+    invoke-virtual {v1, v0}, Landroidx/viewpager/widget/ViewPager;->setCurrentItem(I)V
 
     .line 203
-    iget-object v2, p0, Lorg/catrobat/paintroid/WelcomeActivity;->layouts:[I
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/WelcomeActivity;->getLayouts()[I
 
-    if-nez v2, :cond_7
+    move-result-object v0
 
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    array-length v0, v0
 
-    :cond_7
-    array-length v1, v2
-
-    add-int/lit8 v1, v1, -0x1
-
-    invoke-direct {p0, v1}, Lorg/catrobat/paintroid/WelcomeActivity;->addBottomDots(I)V
-
-    .end local v0    # "pos":I
-    goto :goto_0
-
-    .line 205
-    :cond_8
-    const/4 v0, 0x0
+    add-int/lit8 v0, v0, -0x1
 
     invoke-direct {p0, v0}, Lorg/catrobat/paintroid/WelcomeActivity;->addBottomDots(I)V
 
-    .line 206
-    :goto_0
-    nop
+    goto :goto_0
 
-    .line 207
+    :cond_1
+    const/4 v0, 0x0
+
+    .line 205
+    invoke-direct {p0, v0}, Lorg/catrobat/paintroid/WelcomeActivity;->addBottomDots(I)V
+
+    :goto_0
     return-void
 .end method
 
 .method private final isRTL(Landroid/content/Context;)Z
-    .locals 5
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 2
 
     .line 245
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "context.resources"
+    invoke-virtual {p1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    invoke-virtual {p1}, Landroid/content/res/Configuration;->getLayoutDirection()I
 
-    move-result-object v0
+    move-result p1
 
-    const-string v1, "context.resources.configuration"
+    const/4 v0, 0x0
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    const/4 v1, 0x1
 
-    invoke-virtual {v0}, Landroid/content/res/Configuration;->getLayoutDirection()I
+    if-ne p1, v1, :cond_0
 
-    move-result v0
-
-    .line 246
-    .local v0, "layoutDirection":I
-    const/4 v1, 0x0
-
-    const/4 v2, 0x1
-
-    if-ne v0, v2, :cond_0
-
-    move v3, v2
+    move p1, v1
 
     goto :goto_0
 
     :cond_0
-    move v3, v1
+    move p1, v0
+
+    :goto_0
+    if-nez p1, :cond_1
 
     .line 247
-    .local v3, "layoutDirectionIsRTL":Z
-    :goto_0
-    if-nez v3, :cond_1
-
     invoke-direct {p0}, Lorg/catrobat/paintroid/WelcomeActivity;->defaultLocaleIsRTL()Z
 
-    move-result v4
+    move-result p1
 
-    if-eqz v4, :cond_2
+    if-eqz p1, :cond_2
 
     :cond_1
-    move v1, v2
+    move v0, v1
 
     :cond_2
-    return v1
+    return v0
+.end method
+
+.method private static final onCreate$lambda-3(Lorg/catrobat/paintroid/WelcomeActivity;Landroid/view/View;)V
+    .locals 0
+
+    const-string p1, "this$0"
+
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 177
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/WelcomeActivity;->finish()V
+
+    return-void
+.end method
+
+.method private static final onCreate$lambda-4(Lorg/catrobat/paintroid/WelcomeActivity;Landroid/view/View;)V
+    .locals 4
+
+    const-string p1, "this$0"
+
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const/4 p1, 0x1
+
+    .line 180
+    invoke-direct {p0, p1}, Lorg/catrobat/paintroid/WelcomeActivity;->getItem(I)I
+
+    move-result v0
+
+    .line 181
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/WelcomeActivity;->getLayouts()[I
+
+    move-result-object v1
+
+    array-length v1, v1
+
+    sub-int/2addr v1, p1
+
+    const/4 v2, 0x0
+
+    if-le v0, v1, :cond_0
+
+    move v1, p1
+
+    goto :goto_0
+
+    :cond_0
+    move v1, v2
+
+    .line 182
+    :goto_0
+    move-object v3, p0
+
+    check-cast v3, Landroid/content/Context;
+
+    invoke-direct {p0, v3}, Lorg/catrobat/paintroid/WelcomeActivity;->isRTL(Landroid/content/Context;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    const/4 v0, -0x1
+
+    .line 183
+    invoke-direct {p0, v0}, Lorg/catrobat/paintroid/WelcomeActivity;->getItem(I)I
+
+    move-result v0
+
+    if-gez v0, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    move p1, v2
+
+    :goto_1
+    move v1, p1
+
+    :cond_2
+    if-eqz v1, :cond_3
+
+    .line 187
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/WelcomeActivity;->finish()V
+
+    goto :goto_2
+
+    .line 189
+    :cond_3
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/WelcomeActivity;->getViewPager()Landroidx/viewpager/widget/ViewPager;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v0}, Landroidx/viewpager/widget/ViewPager;->setCurrentItem(I)V
+
+    :goto_2
+    return-void
 .end method
 
 .method private final setUpNavigationView(Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;)V
-    .locals 3
-    .param p1, "head"    # Landroidx/appcompat/widget/AppCompatTextView;
-    .param p2, "description"    # Landroidx/appcompat/widget/AppCompatTextView;
-
-    .line 127
-    nop
+    .locals 2
 
     .line 128
     sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_intro_possibilities_bottom_bar:I
@@ -774,48 +734,150 @@
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 127
     check-cast v0, Landroid/widget/RelativeLayout;
-
-    .line 129
-    .local v0, "relativeLayout":Landroid/widget/RelativeLayout;
-    nop
 
     .line 130
     sget v1, Lorg/catrobat/paintroid/R$id;->pocketpaint_bottom_navigation:I
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string v2, "relativeLayout.findViewB\u2026tpaint_bottom_navigation)"
+    const-string v1, "relativeLayout.findViewB\u2026tpaint_bottom_navigation)"
 
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 129
-    check-cast v1, Lcom/google/android/material/bottomnavigation/BottomNavigationView;
+    check-cast v0, Lcom/google/android/material/bottomnavigation/BottomNavigationView;
 
     .line 131
-    .local v1, "navigationView":Lcom/google/android/material/bottomnavigation/BottomNavigationView;
-    new-instance v2, Lorg/catrobat/paintroid/WelcomeActivity$setUpNavigationView$1;
+    new-instance v1, Lorg/catrobat/paintroid/WelcomeActivity$$ExternalSyntheticLambda4;
 
-    invoke-direct {v2, p0, p1, p2}, Lorg/catrobat/paintroid/WelcomeActivity$setUpNavigationView$1;-><init>(Lorg/catrobat/paintroid/WelcomeActivity;Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;)V
+    invoke-direct {v1, p1, p2, p0}, Lorg/catrobat/paintroid/WelcomeActivity$$ExternalSyntheticLambda4;-><init>(Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;Lorg/catrobat/paintroid/WelcomeActivity;)V
 
-    check-cast v2, Lcom/google/android/material/bottomnavigation/BottomNavigationView$OnNavigationItemSelectedListener;
+    invoke-virtual {v0, v1}, Lcom/google/android/material/bottomnavigation/BottomNavigationView;->setOnNavigationItemSelectedListener(Lcom/google/android/material/bottomnavigation/BottomNavigationView$OnNavigationItemSelectedListener;)V
 
-    invoke-virtual {v1, v2}, Lcom/google/android/material/bottomnavigation/BottomNavigationView;->setOnNavigationItemSelectedListener(Lcom/google/android/material/bottomnavigation/BottomNavigationView$OnNavigationItemSelectedListener;)V
-
-    .line 149
     return-void
 .end method
 
-.method private final setUpUndoAndRedoButtons(Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;)V
-    .locals 4
-    .param p1, "head"    # Landroidx/appcompat/widget/AppCompatTextView;
-    .param p2, "description"    # Landroidx/appcompat/widget/AppCompatTextView;
+.method private static final setUpNavigationView$lambda-2(Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;Lorg/catrobat/paintroid/WelcomeActivity;Landroid/view/MenuItem;)Z
+    .locals 1
 
-    .line 110
-    nop
+    const-string v0, "$head"
+
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "$description"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "this$0"
+
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "menuItem"
+
+    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 132
+    invoke-interface {p3}, Landroid/view/MenuItem;->getTitle()Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Landroidx/appcompat/widget/AppCompatTextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 133
+    invoke-interface {p3}, Landroid/view/MenuItem;->getItemId()I
+
+    move-result p0
+
+    .line 134
+    sget p3, Lorg/catrobat/paintroid/R$id;->action_tools:I
+
+    if-ne p0, p3, :cond_0
+
+    .line 136
+    invoke-virtual {p2}, Lorg/catrobat/paintroid/WelcomeActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    sget p2, Lorg/catrobat/paintroid/R$string;->intro_bottom_navigation_tools_description:I
+
+    invoke-virtual {p0, p2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    .line 135
+    invoke-virtual {p1, p0}, Landroidx/appcompat/widget/AppCompatTextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_0
+
+    .line 137
+    :cond_0
+    sget p3, Lorg/catrobat/paintroid/R$id;->action_current_tool:I
+
+    if-ne p0, p3, :cond_1
+
+    .line 139
+    invoke-virtual {p2}, Lorg/catrobat/paintroid/WelcomeActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    sget p2, Lorg/catrobat/paintroid/R$string;->intro_bottom_navigation_current_description:I
+
+    invoke-virtual {p0, p2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    .line 138
+    invoke-virtual {p1, p0}, Landroidx/appcompat/widget/AppCompatTextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_0
+
+    .line 140
+    :cond_1
+    sget p3, Lorg/catrobat/paintroid/R$id;->action_color_picker:I
+
+    if-ne p0, p3, :cond_2
+
+    .line 142
+    invoke-virtual {p2}, Lorg/catrobat/paintroid/WelcomeActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    sget p2, Lorg/catrobat/paintroid/R$string;->intro_bottom_navigation_color_description:I
+
+    invoke-virtual {p0, p2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    .line 141
+    invoke-virtual {p1, p0}, Landroidx/appcompat/widget/AppCompatTextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_0
+
+    .line 145
+    :cond_2
+    invoke-virtual {p2}, Lorg/catrobat/paintroid/WelcomeActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    sget p2, Lorg/catrobat/paintroid/R$string;->intro_bottom_navigation_layers_description:I
+
+    invoke-virtual {p0, p2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    .line 144
+    invoke-virtual {p1, p0}, Landroidx/appcompat/widget/AppCompatTextView;->setText(Ljava/lang/CharSequence;)V
+
+    :goto_0
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method private final setUpUndoAndRedoButtons(Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;)V
+    .locals 3
 
     .line 111
     sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_intro_possibilities_topbar:I
@@ -828,12 +890,7 @@
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 110
     check-cast v0, Lcom/google/android/material/appbar/AppBarLayout;
-
-    .line 112
-    .local v0, "topBar":Lcom/google/android/material/appbar/AppBarLayout;
-    nop
 
     .line 113
     sget v1, Lorg/catrobat/paintroid/R$id;->pocketpaint_btn_top_undo:I
@@ -846,81 +903,141 @@
 
     invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 112
     check-cast v1, Landroidx/appcompat/widget/AppCompatImageButton;
-
-    .line 114
-    .local v1, "undo":Landroidx/appcompat/widget/AppCompatImageButton;
-    nop
 
     .line 115
     sget v2, Lorg/catrobat/paintroid/R$id;->pocketpaint_btn_top_redo:I
 
     invoke-virtual {v0, v2}, Lcom/google/android/material/appbar/AppBarLayout;->findViewById(I)Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v0
 
-    const-string v3, "topBar.findViewById(R.id.pocketpaint_btn_top_redo)"
+    const-string v2, "topBar.findViewById(R.id.pocketpaint_btn_top_redo)"
 
-    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 114
-    check-cast v2, Landroidx/appcompat/widget/AppCompatImageButton;
+    check-cast v0, Landroidx/appcompat/widget/AppCompatImageButton;
 
     .line 116
-    .local v2, "redo":Landroidx/appcompat/widget/AppCompatImageButton;
-    new-instance v3, Lorg/catrobat/paintroid/WelcomeActivity$setUpUndoAndRedoButtons$1;
+    new-instance v2, Lorg/catrobat/paintroid/WelcomeActivity$$ExternalSyntheticLambda2;
 
-    invoke-direct {v3, p1, p2}, Lorg/catrobat/paintroid/WelcomeActivity$setUpUndoAndRedoButtons$1;-><init>(Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;)V
+    invoke-direct {v2, p1, p2}, Lorg/catrobat/paintroid/WelcomeActivity$$ExternalSyntheticLambda2;-><init>(Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;)V
 
-    check-cast v3, Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v1, v3}, Landroidx/appcompat/widget/AppCompatImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v2}, Landroidx/appcompat/widget/AppCompatImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 120
-    new-instance v3, Lorg/catrobat/paintroid/WelcomeActivity$setUpUndoAndRedoButtons$2;
+    new-instance v1, Lorg/catrobat/paintroid/WelcomeActivity$$ExternalSyntheticLambda3;
 
-    invoke-direct {v3, p1, p2}, Lorg/catrobat/paintroid/WelcomeActivity$setUpUndoAndRedoButtons$2;-><init>(Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;)V
+    invoke-direct {v1, p1, p2}, Lorg/catrobat/paintroid/WelcomeActivity$$ExternalSyntheticLambda3;-><init>(Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;)V
 
-    check-cast v3, Landroid/view/View$OnClickListener;
+    invoke-virtual {v0, v1}, Landroidx/appcompat/widget/AppCompatImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    invoke-virtual {v2, v3}, Landroidx/appcompat/widget/AppCompatImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    return-void
+.end method
 
-    .line 124
+.method private static final setUpUndoAndRedoButtons$lambda-0(Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;Landroid/view/View;)V
+    .locals 0
+
+    const-string p2, "$head"
+
+    invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string p2, "$description"
+
+    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 117
+    sget-object p2, Lorg/catrobat/paintroid/tools/ToolType;->UNDO:Lorg/catrobat/paintroid/tools/ToolType;
+
+    invoke-virtual {p2}, Lorg/catrobat/paintroid/tools/ToolType;->getNameResource()I
+
+    move-result p2
+
+    invoke-virtual {p0, p2}, Landroidx/appcompat/widget/AppCompatTextView;->setText(I)V
+
+    .line 118
+    sget-object p0, Lorg/catrobat/paintroid/tools/ToolType;->UNDO:Lorg/catrobat/paintroid/tools/ToolType;
+
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/tools/ToolType;->getHelpTextResource()I
+
+    move-result p0
+
+    invoke-virtual {p1, p0}, Landroidx/appcompat/widget/AppCompatTextView;->setText(I)V
+
+    return-void
+.end method
+
+.method private static final setUpUndoAndRedoButtons$lambda-1(Landroidx/appcompat/widget/AppCompatTextView;Landroidx/appcompat/widget/AppCompatTextView;Landroid/view/View;)V
+    .locals 0
+
+    const-string p2, "$head"
+
+    invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string p2, "$description"
+
+    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 121
+    sget-object p2, Lorg/catrobat/paintroid/tools/ToolType;->REDO:Lorg/catrobat/paintroid/tools/ToolType;
+
+    invoke-virtual {p2}, Lorg/catrobat/paintroid/tools/ToolType;->getNameResource()I
+
+    move-result p2
+
+    invoke-virtual {p0, p2}, Landroidx/appcompat/widget/AppCompatTextView;->setText(I)V
+
+    .line 122
+    sget-object p0, Lorg/catrobat/paintroid/tools/ToolType;->REDO:Lorg/catrobat/paintroid/tools/ToolType;
+
+    invoke-virtual {p0}, Lorg/catrobat/paintroid/tools/ToolType;->getHelpTextResource()I
+
+    move-result p0
+
+    invoke-virtual {p1, p0}, Landroidx/appcompat/widget/AppCompatTextView;->setText(I)V
+
     return-void
 .end method
 
 
 # virtual methods
 .method public final getLayouts()[I
-    .locals 2
+    .locals 1
 
     .line 54
     iget-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity;->layouts:[I
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
-    const-string v1, "layouts"
-
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    return-object v0
 
     :cond_0
+    const-string v0, "layouts"
+
+    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    const/4 v0, 0x0
+
     return-object v0
 .end method
 
 .method public final getViewPager()Landroidx/viewpager/widget/ViewPager;
-    .locals 2
+    .locals 1
 
     .line 51
     iget-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity;->viewPager:Landroidx/viewpager/widget/ViewPager;
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
-    const-string v1, "viewPager"
-
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    return-object v0
 
     :cond_0
+    const-string v0, "viewPager"
+
+    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    const/4 v0, 0x0
+
     return-object v0
 .end method
 
@@ -930,13 +1047,11 @@
     .line 254
     invoke-virtual {p0}, Lorg/catrobat/paintroid/WelcomeActivity;->finish()V
 
-    .line 255
     return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 3
-    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
+    .locals 2
 
     .line 152
     sget v0, Lorg/catrobat/paintroid/R$style;->PocketPaintWelcomeActivityTheme:I
@@ -947,187 +1062,164 @@
     invoke-super {p0, p1}, Landroidx/appcompat/app/AppCompatActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 154
-    nop
-
-    .line 155
     invoke-virtual {p0}, Lorg/catrobat/paintroid/WelcomeActivity;->getWindow()Landroid/view/Window;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "window"
+    invoke-virtual {p1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+    const/16 v0, 0x500
 
-    move-result-object v0
-
-    const-string v1, "window.decorView"
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const/16 v1, 0x500
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setSystemUiVisibility(I)V
+    invoke-virtual {p1, v0}, Landroid/view/View;->setSystemUiVisibility(I)V
 
     .line 156
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x18
-
-    if-lt v0, v1, :cond_0
-
     invoke-virtual {p0}, Lorg/catrobat/paintroid/WelcomeActivity;->isInMultiWindowMode()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
+
+    const/16 p1, 0xa
 
     .line 157
-    const/16 v0, 0xa
-
-    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/WelcomeActivity;->setResult(I)V
+    invoke-virtual {p0, p1}, Lorg/catrobat/paintroid/WelcomeActivity;->setResult(I)V
 
     .line 158
     invoke-virtual {p0}, Lorg/catrobat/paintroid/WelcomeActivity;->finish()V
 
-    .line 159
     return-void
 
     .line 161
     :cond_0
-    sget v0, Lorg/catrobat/paintroid/R$layout;->activity_pocketpaint_welcome:I
+    sget p1, Lorg/catrobat/paintroid/R$layout;->activity_pocketpaint_welcome:I
 
-    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/WelcomeActivity;->setContentView(I)V
+    invoke-virtual {p0, p1}, Lorg/catrobat/paintroid/WelcomeActivity;->setContentView(I)V
 
     .line 162
-    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_view_pager:I
+    sget p1, Lorg/catrobat/paintroid/R$id;->pocketpaint_view_pager:I
 
-    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/WelcomeActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, p1}, Lorg/catrobat/paintroid/WelcomeActivity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "findViewById(R.id.pocketpaint_view_pager)"
+    const-string v0, "findViewById(R.id.pocketpaint_view_pager)"
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v0, Landroidx/viewpager/widget/ViewPager;
+    check-cast p1, Landroidx/viewpager/widget/ViewPager;
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity;->viewPager:Landroidx/viewpager/widget/ViewPager;
+    invoke-virtual {p0, p1}, Lorg/catrobat/paintroid/WelcomeActivity;->setViewPager(Landroidx/viewpager/widget/ViewPager;)V
 
     .line 163
-    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_layout_dots:I
+    sget p1, Lorg/catrobat/paintroid/R$id;->pocketpaint_layout_dots:I
 
-    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/WelcomeActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, p1}, Lorg/catrobat/paintroid/WelcomeActivity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "findViewById(R.id.pocketpaint_layout_dots)"
+    const-string v0, "findViewById(R.id.pocketpaint_layout_dots)"
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v0, Landroidx/appcompat/widget/LinearLayoutCompat;
+    check-cast p1, Landroidx/appcompat/widget/LinearLayoutCompat;
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity;->dotsLayout:Landroidx/appcompat/widget/LinearLayoutCompat;
+    iput-object p1, p0, Lorg/catrobat/paintroid/WelcomeActivity;->dotsLayout:Landroidx/appcompat/widget/LinearLayoutCompat;
 
     .line 164
-    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_btn_skip:I
+    sget p1, Lorg/catrobat/paintroid/R$id;->pocketpaint_btn_skip:I
 
-    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/WelcomeActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, p1}, Lorg/catrobat/paintroid/WelcomeActivity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "findViewById(R.id.pocketpaint_btn_skip)"
+    const-string v0, "findViewById(R.id.pocketpaint_btn_skip)"
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v0, Landroidx/appcompat/widget/AppCompatButton;
+    check-cast p1, Landroidx/appcompat/widget/AppCompatButton;
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity;->btnSkip:Landroidx/appcompat/widget/AppCompatButton;
+    iput-object p1, p0, Lorg/catrobat/paintroid/WelcomeActivity;->btnSkip:Landroidx/appcompat/widget/AppCompatButton;
 
     .line 165
-    sget v0, Lorg/catrobat/paintroid/R$id;->pocketpaint_btn_next:I
+    sget p1, Lorg/catrobat/paintroid/R$id;->pocketpaint_btn_next:I
 
-    invoke-virtual {p0, v0}, Lorg/catrobat/paintroid/WelcomeActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, p1}, Lorg/catrobat/paintroid/WelcomeActivity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "findViewById(R.id.pocketpaint_btn_next)"
+    const-string v0, "findViewById(R.id.pocketpaint_btn_next)"
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    check-cast v0, Landroidx/appcompat/widget/AppCompatButton;
+    check-cast p1, Landroidx/appcompat/widget/AppCompatButton;
 
-    iput-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity;->btnNext:Landroidx/appcompat/widget/AppCompatButton;
+    iput-object p1, p0, Lorg/catrobat/paintroid/WelcomeActivity;->btnNext:Landroidx/appcompat/widget/AppCompatButton;
 
     .line 166
-    move-object v0, p0
+    move-object p1, p0
 
-    check-cast v0, Landroid/content/Context;
+    check-cast p1, Landroid/content/Context;
 
-    sget v1, Lorg/catrobat/paintroid/R$color;->pocketpaint_welcome_dot_active:I
+    sget v0, Lorg/catrobat/paintroid/R$color;->pocketpaint_welcome_dot_active:I
 
-    invoke-static {v0, v1}, Landroidx/core/content/ContextCompat;->getColor(Landroid/content/Context;I)I
+    invoke-static {p1, v0}, Landroidx/core/content/ContextCompat;->getColor(Landroid/content/Context;I)I
 
     move-result v0
 
     iput v0, p0, Lorg/catrobat/paintroid/WelcomeActivity;->colorActive:I
 
     .line 167
-    move-object v0, p0
+    sget v0, Lorg/catrobat/paintroid/R$color;->pocketpaint_welcome_dot_inactive:I
 
-    check-cast v0, Landroid/content/Context;
+    invoke-static {p1, v0}, Landroidx/core/content/ContextCompat;->getColor(Landroid/content/Context;I)I
 
-    sget v1, Lorg/catrobat/paintroid/R$color;->pocketpaint_welcome_dot_inactive:I
+    move-result p1
 
-    invoke-static {v0, v1}, Landroidx/core/content/ContextCompat;->getColor(Landroid/content/Context;I)I
+    iput p1, p0, Lorg/catrobat/paintroid/WelcomeActivity;->colorInactive:I
 
-    move-result v0
+    const/4 p1, 0x5
 
-    iput v0, p0, Lorg/catrobat/paintroid/WelcomeActivity;->colorInactive:I
+    new-array p1, p1, [I
 
-    .line 168
-    const/4 v0, 0x5
-
-    new-array v0, v0, [I
+    const/4 v0, 0x0
 
     .line 169
-    const/4 v1, 0x0
+    sget v1, Lorg/catrobat/paintroid/R$layout;->pocketpaint_slide_intro_welcome:I
 
-    sget v2, Lorg/catrobat/paintroid/R$layout;->pocketpaint_slide_intro_welcome:I
+    aput v1, p1, v0
 
-    aput v2, v0, v1
+    const/4 v0, 0x1
 
     .line 170
-    const/4 v1, 0x1
+    sget v1, Lorg/catrobat/paintroid/R$layout;->pocketpaint_slide_intro_possibilities:I
 
-    sget v2, Lorg/catrobat/paintroid/R$layout;->pocketpaint_slide_intro_possibilities:I
+    aput v1, p1, v0
 
-    aput v2, v0, v1
+    const/4 v0, 0x2
 
     .line 171
-    const/4 v1, 0x2
+    sget v1, Lorg/catrobat/paintroid/R$layout;->pocketpaint_slide_intro_tools_selection:I
 
-    sget v2, Lorg/catrobat/paintroid/R$layout;->pocketpaint_slide_intro_tools_selection:I
+    aput v1, p1, v0
 
-    aput v2, v0, v1
+    const/4 v0, 0x3
 
     .line 172
-    const/4 v1, 0x3
+    sget v1, Lorg/catrobat/paintroid/R$layout;->pocketpaint_slide_intro_landscape:I
 
-    sget v2, Lorg/catrobat/paintroid/R$layout;->pocketpaint_slide_intro_landscape:I
+    aput v1, p1, v0
 
-    aput v2, v0, v1
+    const/4 v0, 0x4
 
     .line 173
-    const/4 v1, 0x4
+    sget v1, Lorg/catrobat/paintroid/R$layout;->pocketpaint_slide_intro_getstarted:I
 
-    sget v2, Lorg/catrobat/paintroid/R$layout;->pocketpaint_slide_intro_getstarted:I
-
-    aput v2, v0, v1
+    aput v1, p1, v0
 
     .line 168
-    iput-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity;->layouts:[I
+    invoke-virtual {p0, p1}, Lorg/catrobat/paintroid/WelcomeActivity;->setLayouts([I)V
 
     .line 175
     invoke-direct {p0}, Lorg/catrobat/paintroid/WelcomeActivity;->changeStatusBarColor()V
@@ -1136,48 +1228,51 @@
     invoke-direct {p0}, Lorg/catrobat/paintroid/WelcomeActivity;->initViewPager()V
 
     .line 177
-    iget-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity;->btnSkip:Landroidx/appcompat/widget/AppCompatButton;
+    iget-object p1, p0, Lorg/catrobat/paintroid/WelcomeActivity;->btnSkip:Landroidx/appcompat/widget/AppCompatButton;
 
-    if-nez v0, :cond_1
+    const/4 v0, 0x0
 
-    const-string v1, "btnSkip"
+    if-nez p1, :cond_1
 
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    const-string p1, "btnSkip"
+
+    invoke-static {p1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    move-object p1, v0
 
     :cond_1
-    new-instance v1, Lorg/catrobat/paintroid/WelcomeActivity$onCreate$1;
+    new-instance v1, Lorg/catrobat/paintroid/WelcomeActivity$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Lorg/catrobat/paintroid/WelcomeActivity$onCreate$1;-><init>(Lorg/catrobat/paintroid/WelcomeActivity;)V
+    invoke-direct {v1, p0}, Lorg/catrobat/paintroid/WelcomeActivity$$ExternalSyntheticLambda0;-><init>(Lorg/catrobat/paintroid/WelcomeActivity;)V
 
-    check-cast v1, Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v0, v1}, Landroidx/appcompat/widget/AppCompatButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {p1, v1}, Landroidx/appcompat/widget/AppCompatButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 178
-    iget-object v0, p0, Lorg/catrobat/paintroid/WelcomeActivity;->btnNext:Landroidx/appcompat/widget/AppCompatButton;
+    iget-object p1, p0, Lorg/catrobat/paintroid/WelcomeActivity;->btnNext:Landroidx/appcompat/widget/AppCompatButton;
 
-    if-nez v0, :cond_2
+    if-nez p1, :cond_2
 
-    const-string v1, "btnNext"
+    const-string p1, "btnNext"
 
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    invoke-static {p1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    goto :goto_0
 
     :cond_2
-    new-instance v1, Lorg/catrobat/paintroid/WelcomeActivity$onCreate$2;
+    move-object v0, p1
 
-    invoke-direct {v1, p0}, Lorg/catrobat/paintroid/WelcomeActivity$onCreate$2;-><init>(Lorg/catrobat/paintroid/WelcomeActivity;)V
+    :goto_0
+    new-instance p1, Lorg/catrobat/paintroid/WelcomeActivity$$ExternalSyntheticLambda1;
 
-    check-cast v1, Landroid/view/View$OnClickListener;
+    invoke-direct {p1, p0}, Lorg/catrobat/paintroid/WelcomeActivity$$ExternalSyntheticLambda1;-><init>(Lorg/catrobat/paintroid/WelcomeActivity;)V
 
-    invoke-virtual {v0, v1}, Landroidx/appcompat/widget/AppCompatButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 192
     return-void
 .end method
 
 .method public final setLayouts([I)V
     .locals 1
-    .param p1, "<set-?>"    # [I
 
     const-string v0, "<set-?>"
 
@@ -1191,7 +1286,6 @@
 
 .method public final setViewPager(Landroidx/viewpager/widget/ViewPager;)V
     .locals 1
-    .param p1, "<set-?>"    # Landroidx/viewpager/widget/ViewPager;
 
     const-string v0, "<set-?>"
 

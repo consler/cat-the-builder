@@ -14,62 +14,43 @@
 .end method
 
 .method public static androidApiLevel()I
-    .locals 3
+    .locals 2
 
-    .line 95
     :try_start_0
     const-string v0, "android.os.Build$VERSION"
 
+    .line 95
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v0
 
-    .line 96
-    .local v0, "buildVersion":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const-string v1, "SDK_INT"
 
+    .line 96
     invoke-virtual {v0, v1}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
-    move-result-object v1
+    move-result-object v0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1, v2}, Ljava/lang/reflect/Field;->getInt(Ljava/lang/Object;)I
+    invoke-virtual {v0, v1}, Ljava/lang/reflect/Field;->getInt(Ljava/lang/Object;)I
 
-    move-result v1
+    move-result v0
     :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v1
+    return v0
 
-    .line 97
-    .end local v0    # "buildVersion":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :catch_0
-    move-exception v0
+    const/4 v0, -0x1
 
-    goto :goto_0
-
-    :catch_1
-    move-exception v0
-
-    goto :goto_0
-
-    :catch_2
-    move-exception v0
-
-    .line 98
-    .local v0, "e":Ljava/lang/ReflectiveOperationException;
-    :goto_0
-    const/4 v1, -0x1
-
-    return v1
+    return v0
 .end method
 
 .method public static bytes2Integer([B)Ljava/math/BigInteger;
     .locals 2
-    .param p0, "bs"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -90,9 +71,7 @@
 .end method
 
 .method public static integer2Bytes(Ljava/math/BigInteger;I)[B
-    .locals 5
-    .param p0, "num"    # Ljava/math/BigInteger;
-    .param p1, "intendedLength"    # I
+    .locals 4
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -113,91 +92,83 @@
     .line 123
     invoke-virtual {p0}, Ljava/math/BigInteger;->toByteArray()[B
 
-    move-result-object v0
+    move-result-object p0
 
     .line 124
-    .local v0, "b":[B
-    array-length v1, v0
+    array-length v0, p0
 
-    if-ne v1, p1, :cond_0
+    if-ne v0, p1, :cond_0
 
-    .line 125
-    return-object v0
+    return-object p0
 
     .line 127
     :cond_0
-    array-length v1, v0
+    array-length v0, p0
 
-    add-int/lit8 v2, p1, 0x1
+    add-int/lit8 v1, p1, 0x1
 
-    const-string v3, "integer too large"
+    const-string v2, "integer too large"
 
-    if-gt v1, v2, :cond_3
+    if-gt v0, v1, :cond_3
 
     .line 130
-    array-length v1, v0
+    array-length v0, p0
 
-    add-int/lit8 v2, p1, 0x1
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
-
-    if-ne v1, v2, :cond_2
+    if-ne v0, v1, :cond_2
 
     .line 131
-    aget-byte v1, v0, v4
+    aget-byte p1, p0, v3
 
-    if-nez v1, :cond_1
+    if-nez p1, :cond_1
 
     .line 132
-    array-length v1, v0
+    array-length p1, p0
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    invoke-static {v0, v2, v1}, Ljava/util/Arrays;->copyOfRange([BII)[B
+    invoke-static {p0, v0, p1}, Ljava/util/Arrays;->copyOfRange([BII)[B
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 
     .line 134
     :cond_1
-    new-instance v1, Ljava/security/GeneralSecurityException;
+    new-instance p0, Ljava/security/GeneralSecurityException;
 
-    invoke-direct {v1, v3}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v2}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 
     .line 138
     :cond_2
-    new-array v1, p1, [B
+    new-array v0, p1, [B
 
     .line 139
-    .local v1, "res":[B
-    array-length v2, v0
+    array-length v1, p0
 
-    sub-int v2, p1, v2
+    sub-int/2addr p1, v1
 
-    array-length v3, v0
+    array-length v1, p0
 
-    invoke-static {v0, v4, v1, v2, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {p0, v3, v0, p1, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 140
-    return-object v1
+    return-object v0
 
     .line 128
-    .end local v1    # "res":[B
     :cond_3
-    new-instance v1, Ljava/security/GeneralSecurityException;
+    new-instance p0, Ljava/security/GeneralSecurityException;
 
-    invoke-direct {v1, v3}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v2}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 .end method
 
 .method public static isAndroid()Z
     .locals 3
 
-    .line 84
     const/4 v0, 0x0
 
     :try_start_0
@@ -205,29 +176,19 @@
 
     const/4 v2, 0x0
 
+    .line 84
     invoke-static {v1, v0, v2}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 85
     const/4 v0, 0x1
 
-    return v0
-
-    .line 86
     :catch_0
-    move-exception v1
-
-    .line 88
-    .local v1, "e":Ljava/lang/Exception;
     return v0
 .end method
 
 .method public static mgf1([BILcom/google/crypto/tink/subtle/Enums$HashType;)[B
-    .locals 9
-    .param p0, "mgfSeed"    # [B
-    .param p1, "maskLen"    # I
-    .param p2, "mgfHash"    # Lcom/google/crypto/tink/subtle/Enums$HashType;
+    .locals 8
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -253,49 +214,45 @@
     .line 147
     invoke-static {p2}, Lcom/google/crypto/tink/subtle/SubtleUtil;->toDigestAlgo(Lcom/google/crypto/tink/subtle/Enums$HashType;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v0, v1}, Lcom/google/crypto/tink/subtle/EngineFactory;->getInstance(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0, p2}, Lcom/google/crypto/tink/subtle/EngineFactory;->getInstance(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p2
 
-    check-cast v0, Ljava/security/MessageDigest;
+    check-cast p2, Ljava/security/MessageDigest;
 
     .line 148
-    .local v0, "digest":Ljava/security/MessageDigest;
-    invoke-virtual {v0}, Ljava/security/MessageDigest;->getDigestLength()I
+    invoke-virtual {p2}, Ljava/security/MessageDigest;->getDigestLength()I
 
-    move-result v1
+    move-result v0
 
     .line 153
-    .local v1, "hLen":I
-    new-array v2, p1, [B
+    new-array v1, p1, [B
 
-    .line 154
-    .local v2, "t":[B
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    .line 155
-    .local v3, "tPos":I
-    const/4 v4, 0x0
+    move v3, v2
 
-    .local v4, "counter":I
+    move v4, v3
+
     :goto_0
     add-int/lit8 v5, p1, -0x1
 
-    div-int/2addr v5, v1
+    .line 155
+    div-int/2addr v5, v0
 
-    if-gt v4, v5, :cond_0
+    if-gt v3, v5, :cond_0
 
     .line 156
-    invoke-virtual {v0}, Ljava/security/MessageDigest;->reset()V
+    invoke-virtual {p2}, Ljava/security/MessageDigest;->reset()V
 
     .line 157
-    invoke-virtual {v0, p0}, Ljava/security/MessageDigest;->update([B)V
+    invoke-virtual {p2, p0}, Ljava/security/MessageDigest;->update([B)V
+
+    int-to-long v5, v3
 
     .line 158
-    int-to-long v5, v4
-
     invoke-static {v5, v6}, Ljava/math/BigInteger;->valueOf(J)Ljava/math/BigInteger;
 
     move-result-object v5
@@ -306,50 +263,39 @@
 
     move-result-object v5
 
-    invoke-virtual {v0, v5}, Ljava/security/MessageDigest;->update([B)V
+    invoke-virtual {p2, v5}, Ljava/security/MessageDigest;->update([B)V
 
     .line 159
-    invoke-virtual {v0}, Ljava/security/MessageDigest;->digest()[B
+    invoke-virtual {p2}, Ljava/security/MessageDigest;->digest()[B
 
     move-result-object v5
 
     .line 160
-    .local v5, "c":[B
-    const/4 v6, 0x0
-
-    array-length v7, v5
-
-    array-length v8, v2
-
-    sub-int/2addr v8, v3
-
-    invoke-static {v7, v8}, Ljava/lang/Math;->min(II)I
-
-    move-result v7
-
-    invoke-static {v5, v6, v2, v3, v7}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    .line 161
     array-length v6, v5
 
-    add-int/2addr v3, v6
+    sub-int v7, p1, v4
 
-    .line 155
-    .end local v5    # "c":[B
-    add-int/lit8 v4, v4, 0x1
+    invoke-static {v6, v7}, Ljava/lang/Math;->min(II)I
+
+    move-result v6
+
+    invoke-static {v5, v2, v1, v4, v6}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+
+    .line 161
+    array-length v5, v5
+
+    add-int/2addr v4, v5
+
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 163
-    .end local v4    # "counter":I
     :cond_0
-    return-object v2
+    return-object v1
 .end method
 
 .method public static putAsUnsigedInt(Ljava/nio/ByteBuffer;J)V
     .locals 2
-    .param p0, "buffer"    # Ljava/nio/ByteBuffer;
-    .param p1, "value"    # J
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0,
@@ -367,7 +313,6 @@
         }
     .end annotation
 
-    .line 173
     const-wide/16 v0, 0x0
 
     cmp-long v0, v0, p1
@@ -380,28 +325,26 @@
 
     if-gez v0, :cond_0
 
+    long-to-int p1, p1
+
     .line 176
-    long-to-int v0, p1
+    invoke-virtual {p0, p1}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    invoke-virtual {p0, v0}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
-
-    .line 177
     return-void
 
     .line 174
     :cond_0
-    new-instance v0, Ljava/security/GeneralSecurityException;
+    new-instance p0, Ljava/security/GeneralSecurityException;
 
-    const-string v1, "Index out of range"
+    const-string p1, "Index out of range"
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static toDigestAlgo(Lcom/google/crypto/tink/subtle/Enums$HashType;)Ljava/lang/String;
     .locals 3
-    .param p0, "hash"    # Lcom/google/crypto/tink/subtle/Enums$HashType;
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -442,10 +385,9 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 72
-    const-string v0, "SHA-512"
+    const-string p0, "SHA-512"
 
-    return-object v0
+    return-object p0
 
     .line 74
     :cond_0
@@ -453,44 +395,40 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "Unsupported hash "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v1
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Ljava/security/GeneralSecurityException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 70
     :cond_1
-    const-string v0, "SHA-384"
+    const-string p0, "SHA-384"
 
-    return-object v0
+    return-object p0
 
-    .line 68
     :cond_2
-    const-string v0, "SHA-256"
+    const-string p0, "SHA-256"
 
-    return-object v0
+    return-object p0
 
-    .line 66
     :cond_3
-    const-string v0, "SHA-1"
+    const-string p0, "SHA-1"
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static toEcdsaAlgo(Lcom/google/crypto/tink/subtle/Enums$HashType;)Ljava/lang/String;
-    .locals 2
-    .param p0, "hash"    # Lcom/google/crypto/tink/subtle/Enums$HashType;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -516,20 +454,23 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v1, "withECDSA"
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, "withECDSA"
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static toRsaSsaPkcs1Algo(Lcom/google/crypto/tink/subtle/Enums$HashType;)Ljava/lang/String;
-    .locals 2
-    .param p0, "hash"    # Lcom/google/crypto/tink/subtle/Enums$HashType;
+    .locals 1
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x0
@@ -555,13 +496,17 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v1, "withRSA"
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, "withRSA"
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method

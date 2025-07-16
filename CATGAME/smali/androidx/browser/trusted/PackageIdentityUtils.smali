@@ -28,44 +28,36 @@
 .end method
 
 .method static getCertificateSHA256Fingerprint(Landroid/content/pm/Signature;)[B
-    .locals 2
-    .param p0, "signature"    # Landroid/content/pm/Signature;
+    .locals 1
 
-    .line 157
     :try_start_0
     const-string v0, "SHA256"
 
+    .line 157
     invoke-static {v0}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
 
     move-result-object v0
 
     invoke-virtual {p0}, Landroid/content/pm/Signature;->toByteArray()[B
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/security/MessageDigest;->digest([B)[B
+    invoke-virtual {v0, p0}, Ljava/security/MessageDigest;->digest([B)[B
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
-    .line 158
     :catch_0
-    move-exception v0
+    const/4 p0, 0x0
 
-    .line 160
-    .local v0, "e":Ljava/security/NoSuchAlgorithmException;
-    const/4 v1, 0x0
-
-    return-object v1
+    return-object p0
 .end method
 
 .method static getFingerprintsForPackage(Ljava/lang/String;Landroid/content/pm/PackageManager;)Ljava/util/List;
-    .locals 3
-    .param p0, "name"    # Ljava/lang/String;
-    .param p1, "pm"    # Landroid/content/pm/PackageManager;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -85,39 +77,29 @@
 
     invoke-interface {v0, p0, p1}, Landroidx/browser/trusted/PackageIdentityUtils$SignaturesCompat;->getFingerprintsForPackage(Ljava/lang/String;Landroid/content/pm/PackageManager;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
-    .line 48
     :catch_0
-    move-exception v0
+    move-exception p0
+
+    const-string p1, "PackageIdentity"
+
+    const-string v0, "Could not get fingerprint for package."
 
     .line 49
-    .local v0, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
-    const-string v1, "PackageIdentity"
+    invoke-static {p1, v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    const-string v2, "Could not get fingerprint for package."
+    const/4 p0, 0x0
 
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 50
-    const/4 v1, 0x0
-
-    return-object v1
+    return-object p0
 .end method
 
 .method private static getImpl()Landroidx/browser/trusted/PackageIdentityUtils$SignaturesCompat;
-    .locals 2
-
-    .line 64
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x1c
-
-    if-lt v0, v1, :cond_0
+    .locals 1
 
     .line 65
     new-instance v0, Landroidx/browser/trusted/PackageIdentityUtils$Api28Implementation;
@@ -125,21 +107,10 @@
     invoke-direct {v0}, Landroidx/browser/trusted/PackageIdentityUtils$Api28Implementation;-><init>()V
 
     return-object v0
-
-    .line 67
-    :cond_0
-    new-instance v0, Landroidx/browser/trusted/PackageIdentityUtils$Pre28Implementation;
-
-    invoke-direct {v0}, Landroidx/browser/trusted/PackageIdentityUtils$Pre28Implementation;-><init>()V
-
-    return-object v0
 .end method
 
 .method static packageMatchesToken(Ljava/lang/String;Landroid/content/pm/PackageManager;Landroidx/browser/trusted/TokenContents;)Z
-    .locals 3
-    .param p0, "name"    # Ljava/lang/String;
-    .param p1, "pm"    # Landroid/content/pm/PackageManager;
-    .param p2, "token"    # Landroidx/browser/trusted/TokenContents;
+    .locals 1
 
     .line 56
     :try_start_0
@@ -149,33 +120,30 @@
 
     invoke-interface {v0, p0, p1, p2}, Landroidx/browser/trusted/PackageIdentityUtils$SignaturesCompat;->packageMatchesToken(Ljava/lang/String;Landroid/content/pm/PackageManager;Landroidx/browser/trusted/TokenContents;)Z
 
-    move-result v0
+    move-result p0
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v0
+    return p0
 
-    .line 57
     :catch_0
-    move-exception v0
+    move-exception p0
 
     goto :goto_0
 
     :catch_1
-    move-exception v0
+    move-exception p0
+
+    :goto_0
+    const-string p1, "PackageIdentity"
+
+    const-string p2, "Could not check if package matches token."
 
     .line 58
-    .local v0, "e":Ljava/lang/Exception;
-    :goto_0
-    const-string v1, "PackageIdentity"
+    invoke-static {p1, p2, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    const-string v2, "Could not check if package matches token."
+    const/4 p0, 0x0
 
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 59
-    const/4 v1, 0x0
-
-    return v1
+    return p0
 .end method

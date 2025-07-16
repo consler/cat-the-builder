@@ -63,9 +63,6 @@
     .end annotation
 
     .line 143
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$FlatMapWithCombinerInner;, "Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$FlatMapWithCombinerInner<TU;TR;TT;>;"
-    .local p1, "combiner":Lio/reactivex/functions/BiFunction;, "Lio/reactivex/functions/BiFunction<-TT;-TU;+TR;>;"
-    .local p2, "t":Ljava/lang/Object;, "TT;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 144
@@ -74,7 +71,6 @@
     .line 145
     iput-object p2, p0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$FlatMapWithCombinerInner;->t:Ljava/lang/Object;
 
-    .line 146
     return-void
 .end method
 
@@ -95,15 +91,13 @@
     .end annotation
 
     .line 150
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$FlatMapWithCombinerInner;, "Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$FlatMapWithCombinerInner<TU;TR;TT;>;"
-    .local p1, "w":Ljava/lang/Object;, "TU;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$FlatMapWithCombinerInner;->combiner:Lio/reactivex/functions/BiFunction;
 
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableInternalHelper$FlatMapWithCombinerInner;->t:Ljava/lang/Object;
 
     invoke-interface {v0, v1, p1}, Lio/reactivex/functions/BiFunction;->apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

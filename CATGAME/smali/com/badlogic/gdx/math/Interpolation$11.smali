@@ -27,21 +27,20 @@
 
 # virtual methods
 .method public apply(F)F
-    .locals 2
-    .param p1, "a"    # F
+    .locals 1
 
-    .line 117
     const v0, 0x40490fdb    # (float)Math.PI
 
-    mul-float/2addr v0, p1
+    mul-float/2addr p1, v0
 
-    const/high16 v1, 0x40000000    # 2.0f
+    const/high16 v0, 0x40000000    # 2.0f
 
-    div-float/2addr v0, v1
+    div-float/2addr p1, v0
 
-    invoke-static {v0}, Lcom/badlogic/gdx/math/MathUtils;->sin(F)F
+    .line 117
+    invoke-static {p1}, Lcom/badlogic/gdx/math/MathUtils;->sin(F)F
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

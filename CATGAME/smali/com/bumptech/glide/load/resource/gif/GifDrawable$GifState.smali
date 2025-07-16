@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;)V
     .locals 0
-    .param p1, "frameLoader"    # Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;
 
     .line 434
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable$ConstantState;-><init>()V
@@ -29,7 +28,6 @@
     .line 435
     iput-object p1, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable$GifState;->frameLoader:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;
 
-    .line 436
     return-void
 .end method
 
@@ -38,7 +36,6 @@
 .method public getChangingConfigurations()I
     .locals 1
 
-    .line 452
     const/4 v0, 0x0
 
     return v0
@@ -56,13 +53,12 @@
 .end method
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
-    .locals 1
-    .param p1, "res"    # Landroid/content/res/Resources;
+    .locals 0
 
     .line 441
     invoke-virtual {p0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable$GifState;->newDrawable()Landroid/graphics/drawable/Drawable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

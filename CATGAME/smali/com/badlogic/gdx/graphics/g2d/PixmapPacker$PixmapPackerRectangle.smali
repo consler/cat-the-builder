@@ -30,30 +30,26 @@
 
 # direct methods
 .method constructor <init>(IIII)V
-    .locals 4
-    .param p1, "x"    # I
-    .param p2, "y"    # I
-    .param p3, "width"    # I
-    .param p4, "height"    # I
+    .locals 2
+
+    int-to-float p1, p1
+
+    int-to-float p2, p2
+
+    int-to-float v0, p3
+
+    int-to-float v1, p4
 
     .line 858
-    int-to-float v0, p1
+    invoke-direct {p0, p1, p2, v0, v1}, Lcom/badlogic/gdx/math/Rectangle;-><init>(FFFF)V
 
-    int-to-float v1, p2
-
-    int-to-float v2, p3
-
-    int-to-float v3, p4
-
-    invoke-direct {p0, v0, v1, v2, v3}, Lcom/badlogic/gdx/math/Rectangle;-><init>(FFFF)V
+    const/4 p1, 0x0
 
     .line 859
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$PixmapPackerRectangle;->offsetX:I
+    iput p1, p0, Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$PixmapPackerRectangle;->offsetX:I
 
     .line 860
-    iput v0, p0, Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$PixmapPackerRectangle;->offsetY:I
+    iput p1, p0, Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$PixmapPackerRectangle;->offsetY:I
 
     .line 861
     iput p3, p0, Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$PixmapPackerRectangle;->originalWidth:I
@@ -61,31 +57,22 @@
     .line 862
     iput p4, p0, Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$PixmapPackerRectangle;->originalHeight:I
 
-    .line 863
     return-void
 .end method
 
 .method constructor <init>(IIIIIIII)V
-    .locals 4
-    .param p1, "x"    # I
-    .param p2, "y"    # I
-    .param p3, "width"    # I
-    .param p4, "height"    # I
-    .param p5, "left"    # I
-    .param p6, "top"    # I
-    .param p7, "originalWidth"    # I
-    .param p8, "originalHeight"    # I
+    .locals 0
+
+    int-to-float p1, p1
+
+    int-to-float p2, p2
+
+    int-to-float p3, p3
+
+    int-to-float p4, p4
 
     .line 866
-    int-to-float v0, p1
-
-    int-to-float v1, p2
-
-    int-to-float v2, p3
-
-    int-to-float v3, p4
-
-    invoke-direct {p0, v0, v1, v2, v3}, Lcom/badlogic/gdx/math/Rectangle;-><init>(FFFF)V
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/badlogic/gdx/math/Rectangle;-><init>(FFFF)V
 
     .line 867
     iput p5, p0, Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$PixmapPackerRectangle;->offsetX:I
@@ -99,6 +86,5 @@
     .line 870
     iput p8, p0, Lcom/badlogic/gdx/graphics/g2d/PixmapPacker$PixmapPackerRectangle;->originalHeight:I
 
-    .line 871
     return-void
 .end method

@@ -22,21 +22,17 @@
 # direct methods
 .method public constructor <init>(Lcom/thoughtworks/xstream/mapper/Mapper;)V
     .locals 1
-    .param p1, "wrapped"    # Lcom/thoughtworks/xstream/mapper/Mapper;
 
-    .line 27
     const-string v0, "dynamic-proxy"
 
+    .line 27
     invoke-direct {p0, p1, v0}, Lcom/thoughtworks/xstream/mapper/DynamicProxyMapper;-><init>(Lcom/thoughtworks/xstream/mapper/Mapper;Ljava/lang/String;)V
 
-    .line 28
     return-void
 .end method
 
 .method public constructor <init>(Lcom/thoughtworks/xstream/mapper/Mapper;Ljava/lang/String;)V
     .locals 0
-    .param p1, "wrapped"    # Lcom/thoughtworks/xstream/mapper/Mapper;
-    .param p2, "alias"    # Ljava/lang/String;
 
     .line 31
     invoke-direct {p0, p1}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;-><init>(Lcom/thoughtworks/xstream/mapper/Mapper;)V
@@ -44,36 +40,34 @@
     .line 32
     iput-object p2, p0, Lcom/thoughtworks/xstream/mapper/DynamicProxyMapper;->alias:Ljava/lang/String;
 
-    .line 33
     return-void
 .end method
 
 .method static synthetic class$(Ljava/lang/String;)Ljava/lang/Class;
-    .locals 2
-    .param p0, "x0"    # Ljava/lang/String;
+    .locals 1
 
     .line 53
     :try_start_0
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
     :catch_0
-    move-exception v0
+    move-exception p0
 
-    new-instance v1, Ljava/lang/NoClassDefFoundError;
+    new-instance v0, Ljava/lang/NoClassDefFoundError;
 
-    invoke-direct {v1}, Ljava/lang/NoClassDefFoundError;-><init>()V
+    invoke-direct {v0}, Ljava/lang/NoClassDefFoundError;-><init>()V
 
-    invoke-virtual {v1, v0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, p0}, Ljava/lang/NoClassDefFoundError;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p0
 
-    throw v0
+    throw p0
 .end method
 
 
@@ -89,7 +83,6 @@
 
 .method public realClass(Ljava/lang/String;)Ljava/lang/Class;
     .locals 1
-    .param p1, "elementName"    # Ljava/lang/String;
 
     .line 52
     iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/DynamicProxyMapper;->alias:Ljava/lang/String;
@@ -101,33 +94,32 @@
     if-eqz v0, :cond_1
 
     .line 53
-    sget-object v0, Lcom/thoughtworks/xstream/mapper/DynamicProxyMapper;->class$com$thoughtworks$xstream$mapper$DynamicProxyMapper$DynamicProxy:Ljava/lang/Class;
+    sget-object p1, Lcom/thoughtworks/xstream/mapper/DynamicProxyMapper;->class$com$thoughtworks$xstream$mapper$DynamicProxyMapper$DynamicProxy:Ljava/lang/Class;
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const-string v0, "com.thoughtworks.xstream.mapper.DynamicProxyMapper$DynamicProxy"
+    const-string p1, "com.thoughtworks.xstream.mapper.DynamicProxyMapper$DynamicProxy"
 
-    invoke-static {v0}, Lcom/thoughtworks/xstream/mapper/DynamicProxyMapper;->class$(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-static {p1}, Lcom/thoughtworks/xstream/mapper/DynamicProxyMapper;->class$(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p1
 
-    sput-object v0, Lcom/thoughtworks/xstream/mapper/DynamicProxyMapper;->class$com$thoughtworks$xstream$mapper$DynamicProxyMapper$DynamicProxy:Ljava/lang/Class;
+    sput-object p1, Lcom/thoughtworks/xstream/mapper/DynamicProxyMapper;->class$com$thoughtworks$xstream$mapper$DynamicProxyMapper$DynamicProxy:Ljava/lang/Class;
 
     :cond_0
-    return-object v0
+    return-object p1
 
     .line 55
     :cond_1
     invoke-super {p0, p1}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->realClass(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public serializedClass(Ljava/lang/Class;)Ljava/lang/String;
     .locals 1
-    .param p1, "type"    # Ljava/lang/Class;
 
     .line 44
     invoke-static {p1}, Ljava/lang/reflect/Proxy;->isProxyClass(Ljava/lang/Class;)Z
@@ -137,26 +129,24 @@
     if-eqz v0, :cond_0
 
     .line 45
-    iget-object v0, p0, Lcom/thoughtworks/xstream/mapper/DynamicProxyMapper;->alias:Ljava/lang/String;
+    iget-object p1, p0, Lcom/thoughtworks/xstream/mapper/DynamicProxyMapper;->alias:Ljava/lang/String;
 
-    return-object v0
+    return-object p1
 
     .line 47
     :cond_0
     invoke-super {p0, p1}, Lcom/thoughtworks/xstream/mapper/MapperWrapper;->serializedClass(Ljava/lang/Class;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public setAlias(Ljava/lang/String;)V
     .locals 0
-    .param p1, "alias"    # Ljava/lang/String;
 
     .line 40
     iput-object p1, p0, Lcom/thoughtworks/xstream/mapper/DynamicProxyMapper;->alias:Ljava/lang/String;
 
-    .line 41
     return-void
 .end method

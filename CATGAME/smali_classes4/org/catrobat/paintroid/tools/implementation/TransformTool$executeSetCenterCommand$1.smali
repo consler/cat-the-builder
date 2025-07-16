@@ -31,27 +31,21 @@
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
-        "\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\u0008\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@\u00a2\u0006\u0004\u0008\u0003\u0010\u0004"
+        "\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"
     }
     d2 = {
         "<anonymous>",
         "",
-        "Lkotlinx/coroutines/CoroutineScope;",
-        "invoke",
-        "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"
+        "Lkotlinx/coroutines/CoroutineScope;"
     }
     k = 0x3
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 .annotation runtime Lkotlin/coroutines/jvm/internal/DebugMetadata;
@@ -59,7 +53,7 @@
     f = "TransformTool.kt"
     i = {}
     l = {
-        0x14c
+        0x159
     }
     m = "invokeSuspend"
     n = {}
@@ -76,6 +70,16 @@
 # direct methods
 .method constructor <init>(Lorg/catrobat/paintroid/tools/implementation/TransformTool;Lkotlin/coroutines/Continuation;)V
     .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lorg/catrobat/paintroid/tools/implementation/TransformTool;",
+            "Lkotlin/coroutines/Continuation<",
+            "-",
+            "Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;",
+            ">;)V"
+        }
+    .end annotation
 
     iput-object p1, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
 
@@ -89,7 +93,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -102,23 +106,44 @@
         }
     .end annotation
 
-    const-string v0, "completion"
+    new-instance p1, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;
 
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    iget-object v0, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
 
-    new-instance v0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;
+    invoke-direct {p1, v0, p2}, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;-><init>(Lorg/catrobat/paintroid/tools/implementation/TransformTool;Lkotlin/coroutines/Continuation;)V
 
-    iget-object v1, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
+    check-cast p1, Lkotlin/coroutines/Continuation;
 
-    invoke-direct {v0, v1, p2}, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;-><init>(Lorg/catrobat/paintroid/tools/implementation/TransformTool;Lkotlin/coroutines/Continuation;)V
-
-    return-object v0
+    return-object p1
 .end method
 
-.method public final invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+.method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
+    check-cast p1, Lkotlinx/coroutines/CoroutineScope;
+
     check-cast p2, Lkotlin/coroutines/Continuation;
+
+    invoke-virtual {p0, p1, p2}, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    return-object p1
+.end method
+
+.method public final invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lkotlinx/coroutines/CoroutineScope;",
+            "Lkotlin/coroutines/Continuation<",
+            "-",
+            "Lkotlin/Unit;",
+            ">;)",
+            "Ljava/lang/Object;"
+        }
+    .end annotation
 
     invoke-virtual {p0, p1, p2}, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
 
@@ -136,13 +161,13 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 8
+    .locals 6
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 320
+    .line 333
     iget v1, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->label:I
 
     const/4 v2, 0x1
@@ -151,17 +176,11 @@
 
     if-ne v1, v2, :cond_0
 
-    move-object v0, p0
-
-    .local v0, "this":Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;
-    .local p1, "$result":Ljava/lang/Object;
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     goto/16 :goto_1
 
-    .line 338
-    .end local v0    # "this":Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;
-    .end local p1    # "$result":Ljava/lang/Object;
+    .line 351
     :cond_0
     new-instance p1, Ljava/lang/IllegalStateException;
 
@@ -171,186 +190,176 @@
 
     throw p1
 
-    .line 320
+    .line 333
     :cond_1
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    move-object v1, p0
+    .line 334
+    iget-object p1, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
 
-    .line 321
-    .local v1, "this":Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;
-    .restart local p1    # "$result":Ljava/lang/Object;
-    iget-object v3, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
+    invoke-static {p1}, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->access$getSetCenterCropAlgorithm$p(Lorg/catrobat/paintroid/tools/implementation/TransformTool;)Lorg/catrobat/paintroid/tools/helper/SetCenterAlgorithm;
 
-    invoke-static {v3}, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->access$getSetCenterCropAlgorithm$p(Lorg/catrobat/paintroid/tools/implementation/TransformTool;)Lorg/catrobat/paintroid/tools/helper/SetCenterAlgorithm;
+    move-result-object p1
 
-    move-result-object v3
+    iget-object v1, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
 
-    iget-object v4, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
+    iget-object v1, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
 
-    iget-object v4, v4, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->workspace:Lorg/catrobat/paintroid/tools/Workspace;
+    invoke-interface {v1}, Lorg/catrobat/paintroid/tools/Workspace;->getBitmapOfAllLayers()Landroid/graphics/Bitmap;
 
-    invoke-interface {v4}, Lorg/catrobat/paintroid/tools/Workspace;->getBitmapOfAllLayers()Landroid/graphics/Bitmap;
+    move-result-object v1
 
-    move-result-object v4
-
-    iget-object v5, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
-
-    iget-object v5, v5, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->toolPosition:Landroid/graphics/PointF;
-
-    invoke-virtual {v3, v4, v5}, Lorg/catrobat/paintroid/tools/helper/SetCenterAlgorithm;->crop(Landroid/graphics/Bitmap;Landroid/graphics/PointF;)Landroid/graphics/Rect;
-
-    move-result-object v3
-
-    .line 322
-    .local v3, "shapeBounds":Landroid/graphics/Rect;
-    const/high16 v4, 0x40000000    # 2.0f
-
-    if-eqz v3, :cond_2
-
-    .line 323
-    iget-object v5, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
-
-    invoke-virtual {v3}, Landroid/graphics/Rect;->width()I
-
-    move-result v6
-
-    int-to-float v6, v6
-
-    const/high16 v7, 0x3f800000    # 1.0f
-
-    add-float/2addr v6, v7
-
-    iput v6, v5, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->boxWidth:F
-
-    .line 324
-    iget-object v5, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
-
-    invoke-virtual {v3}, Landroid/graphics/Rect;->height()I
-
-    move-result v6
-
-    int-to-float v6, v6
-
-    add-float/2addr v6, v7
-
-    iput v6, v5, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->boxHeight:F
-
-    .line 325
-    iget-object v5, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
-
-    iget-object v5, v5, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->toolPosition:Landroid/graphics/PointF;
-
-    iget v6, v3, Landroid/graphics/Rect;->left:I
-
-    int-to-float v6, v6
-
-    invoke-virtual {v3}, Landroid/graphics/Rect;->width()I
-
-    move-result v7
-
-    add-int/2addr v7, v2
-
-    int-to-float v7, v7
-
-    div-float/2addr v7, v4
-
-    add-float/2addr v6, v7
-
-    iput v6, v5, Landroid/graphics/PointF;->x:F
-
-    .line 326
-    iget-object v5, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
-
-    iget-object v5, v5, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->toolPosition:Landroid/graphics/PointF;
-
-    iget v6, v3, Landroid/graphics/Rect;->top:I
-
-    int-to-float v6, v6
-
-    invoke-virtual {v3}, Landroid/graphics/Rect;->height()I
-
-    move-result v7
-
-    add-int/2addr v7, v2
-
-    int-to-float v7, v7
-
-    div-float/2addr v7, v4
-
-    add-float/2addr v6, v7
-
-    iput v6, v5, Landroid/graphics/PointF;->y:F
-
-    .end local v3    # "shapeBounds":Landroid/graphics/Rect;
-    goto :goto_0
-
-    .line 328
-    :cond_2
-    iget-object v3, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
+    iget-object v3, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
 
     iget-object v3, v3, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->toolPosition:Landroid/graphics/PointF;
 
-    iget-object v5, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
+    invoke-virtual {p1, v1, v3}, Lorg/catrobat/paintroid/tools/helper/SetCenterAlgorithm;->crop(Landroid/graphics/Bitmap;Landroid/graphics/PointF;)Landroid/graphics/Rect;
 
-    iget v5, v5, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->boxWidth:F
+    move-result-object p1
 
-    div-float/2addr v5, v4
+    const/high16 v1, 0x40000000    # 2.0f
 
-    iput v5, v3, Landroid/graphics/PointF;->x:F
+    if-eqz p1, :cond_2
 
-    .line 329
-    iget-object v3, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
+    .line 336
+    iget-object v3, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
 
-    iget-object v3, v3, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->toolPosition:Landroid/graphics/PointF;
+    invoke-virtual {p1}, Landroid/graphics/Rect;->width()I
 
-    iget-object v5, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
+    move-result v4
 
-    iget v5, v5, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->boxHeight:F
+    int-to-float v4, v4
 
-    div-float/2addr v5, v4
+    const/high16 v5, 0x3f800000    # 1.0f
 
-    iput v5, v3, Landroid/graphics/PointF;->y:F
+    add-float/2addr v4, v5
 
-    .line 330
-    :goto_0
-    nop
+    iput v4, v3, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->boxWidth:F
 
-    .line 332
-    invoke-static {}, Lkotlinx/coroutines/Dispatchers;->getMain()Lkotlinx/coroutines/MainCoroutineDispatcher;
+    .line 337
+    iget-object v3, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
 
-    move-result-object v3
+    invoke-virtual {p1}, Landroid/graphics/Rect;->height()I
 
-    check-cast v3, Lkotlin/coroutines/CoroutineContext;
+    move-result v4
 
-    new-instance v4, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1$1;
+    int-to-float v4, v4
 
-    const/4 v5, 0x0
+    add-float/2addr v4, v5
 
-    invoke-direct {v4, v1, v5}, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1$1;-><init>(Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;Lkotlin/coroutines/Continuation;)V
-
-    check-cast v4, Lkotlin/jvm/functions/Function2;
-
-    iput v2, v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->label:I
-
-    invoke-static {v3, v4, v1}, Lkotlinx/coroutines/BuildersKt;->withContext(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    if-ne v2, v0, :cond_3
-
-    .line 320
-    return-object v0
-
-    .line 332
-    :cond_3
-    move-object v0, v1
+    iput v4, v3, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->boxHeight:F
 
     .line 338
-    .end local v1    # "this":Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;
-    .restart local v0    # "this":Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;
-    :goto_1
-    sget-object v1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    iget-object v3, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
 
-    return-object v1
+    iget-object v3, v3, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->toolPosition:Landroid/graphics/PointF;
+
+    iget v4, p1, Landroid/graphics/Rect;->left:I
+
+    int-to-float v4, v4
+
+    invoke-virtual {p1}, Landroid/graphics/Rect;->width()I
+
+    move-result v5
+
+    add-int/2addr v5, v2
+
+    int-to-float v5, v5
+
+    div-float/2addr v5, v1
+
+    add-float/2addr v4, v5
+
+    iput v4, v3, Landroid/graphics/PointF;->x:F
+
+    .line 339
+    iget-object v3, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
+
+    iget-object v3, v3, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->toolPosition:Landroid/graphics/PointF;
+
+    iget v4, p1, Landroid/graphics/Rect;->top:I
+
+    int-to-float v4, v4
+
+    invoke-virtual {p1}, Landroid/graphics/Rect;->height()I
+
+    move-result p1
+
+    add-int/2addr p1, v2
+
+    int-to-float p1, p1
+
+    div-float/2addr p1, v1
+
+    add-float/2addr v4, p1
+
+    iput v4, v3, Landroid/graphics/PointF;->y:F
+
+    goto :goto_0
+
+    .line 341
+    :cond_2
+    iget-object p1, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
+
+    iget-object p1, p1, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->toolPosition:Landroid/graphics/PointF;
+
+    iget-object v3, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
+
+    iget v3, v3, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->boxWidth:F
+
+    div-float/2addr v3, v1
+
+    iput v3, p1, Landroid/graphics/PointF;->x:F
+
+    .line 342
+    iget-object p1, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
+
+    iget-object p1, p1, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->toolPosition:Landroid/graphics/PointF;
+
+    iget-object v3, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
+
+    iget v3, v3, Lorg/catrobat/paintroid/tools/implementation/TransformTool;->boxHeight:F
+
+    div-float/2addr v3, v1
+
+    iput v3, p1, Landroid/graphics/PointF;->y:F
+
+    .line 345
+    :goto_0
+    invoke-static {}, Lkotlinx/coroutines/Dispatchers;->getMain()Lkotlinx/coroutines/MainCoroutineDispatcher;
+
+    move-result-object p1
+
+    check-cast p1, Lkotlin/coroutines/CoroutineContext;
+
+    new-instance v1, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1$1;
+
+    iget-object v3, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->this$0:Lorg/catrobat/paintroid/tools/implementation/TransformTool;
+
+    const/4 v4, 0x0
+
+    invoke-direct {v1, v3, v4}, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1$1;-><init>(Lorg/catrobat/paintroid/tools/implementation/TransformTool;Lkotlin/coroutines/Continuation;)V
+
+    check-cast v1, Lkotlin/jvm/functions/Function2;
+
+    move-object v3, p0
+
+    check-cast v3, Lkotlin/coroutines/Continuation;
+
+    iput v2, p0, Lorg/catrobat/paintroid/tools/implementation/TransformTool$executeSetCenterCommand$1;->label:I
+
+    invoke-static {p1, v1, v3}, Lkotlinx/coroutines/BuildersKt;->withContext(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    if-ne p1, v0, :cond_3
+
+    return-object v0
+
+    .line 351
+    :cond_3
+    :goto_1
+    sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+
+    return-object p1
 .end method

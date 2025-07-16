@@ -51,13 +51,11 @@
     .end annotation
 
     .line 39
-    .local p1, "primitives":Lcom/google/crypto/tink/PrimitiveSet;, "Lcom/google/crypto/tink/PrimitiveSet<Lcom/google/crypto/tink/PublicKeySign;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 40
     iput-object p1, p0, Lcom/google/crypto/tink/signature/PublicKeySignWrapper$WrappedPublicKeySign;->primitives:Lcom/google/crypto/tink/PrimitiveSet;
 
-    .line 41
     return-void
 .end method
 
@@ -65,7 +63,6 @@
 # virtual methods
 .method public sign([B)[B
     .locals 6
-    .param p1, "data"    # [B
     .annotation system Ldalvik/annotation/MethodParameters;
         accessFlags = {
             0x10
@@ -106,15 +103,13 @@
 
     if-eqz v0, :cond_0
 
-    .line 46
     new-array v0, v2, [B
 
     aput-byte v3, v0, v3
 
-    .line 47
-    .local v0, "formatVersion":[B
     new-array v4, v1, [[B
 
+    .line 47
     iget-object v5, p0, Lcom/google/crypto/tink/signature/PublicKeySignWrapper$WrappedPublicKeySign;->primitives:Lcom/google/crypto/tink/PrimitiveSet;
 
     .line 48
@@ -149,26 +144,25 @@
 
     invoke-static {v1}, Lcom/google/crypto/tink/subtle/Bytes;->concat([[B)[B
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v5, v1}, Lcom/google/crypto/tink/PublicKeySign;->sign([B)[B
+    invoke-interface {v5, p1}, Lcom/google/crypto/tink/PublicKeySign;->sign([B)[B
 
-    move-result-object v1
+    move-result-object p1
 
-    aput-object v1, v4, v2
+    aput-object p1, v4, v2
 
     .line 47
     invoke-static {v4}, Lcom/google/crypto/tink/subtle/Bytes;->concat([[B)[B
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
-    .line 51
-    .end local v0    # "formatVersion":[B
     :cond_0
     new-array v0, v1, [[B
 
+    .line 51
     iget-object v1, p0, Lcom/google/crypto/tink/signature/PublicKeySignWrapper$WrappedPublicKeySign;->primitives:Lcom/google/crypto/tink/PrimitiveSet;
 
     .line 52
@@ -197,14 +191,14 @@
 
     invoke-interface {v1, p1}, Lcom/google/crypto/tink/PublicKeySign;->sign([B)[B
 
-    move-result-object v1
+    move-result-object p1
 
-    aput-object v1, v0, v2
+    aput-object p1, v0, v2
 
     .line 51
     invoke-static {v0}, Lcom/google/crypto/tink/subtle/Bytes;->concat([[B)[B
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

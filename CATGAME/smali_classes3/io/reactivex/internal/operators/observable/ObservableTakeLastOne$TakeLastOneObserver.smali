@@ -63,14 +63,11 @@
     .end annotation
 
     .line 37
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver;, "Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver<TT;>;"
-    .local p1, "actual":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 38
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver;->actual:Lio/reactivex/Observer;
 
-    .line 39
     return-void
 .end method
 
@@ -79,10 +76,9 @@
 .method public dispose()V
     .locals 1
 
-    .line 76
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver;, "Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver<TT;>;"
     const/4 v0, 0x0
 
+    .line 76
     iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver;->value:Ljava/lang/Object;
 
     .line 77
@@ -90,7 +86,6 @@
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->dispose()V
 
-    .line 78
     return-void
 .end method
 
@@ -98,16 +93,13 @@
     .locals 2
 
     .line 66
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver;, "Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver;->value:Ljava/lang/Object;
 
-    .line 67
-    .local v0, "v":Ljava/lang/Object;, "TT;"
     if-eqz v0, :cond_0
 
-    .line 68
     const/4 v1, 0x0
 
+    .line 68
     iput-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver;->value:Ljava/lang/Object;
 
     .line 69
@@ -117,11 +109,10 @@
 
     .line 71
     :cond_0
-    iget-object v1, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver;->actual:Lio/reactivex/Observer;
+    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v1}, Lio/reactivex/Observer;->onComplete()V
+    invoke-interface {v0}, Lio/reactivex/Observer;->onComplete()V
 
-    .line 72
     return-void
 .end method
 
@@ -129,7 +120,6 @@
     .locals 1
 
     .line 82
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver;, "Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-interface {v0}, Lio/reactivex/disposables/Disposable;->isDisposed()Z
@@ -143,21 +133,17 @@
     .locals 0
 
     .line 62
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver;, "Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver<TT;>;"
     invoke-virtual {p0}, Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver;->emit()V
 
-    .line 63
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
-    .line 56
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver;, "Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver<TT;>;"
     const/4 v0, 0x0
 
+    .line 56
     iput-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver;->value:Ljava/lang/Object;
 
     .line 57
@@ -165,7 +151,6 @@
 
     invoke-interface {v0, p1}, Lio/reactivex/Observer;->onError(Ljava/lang/Throwable;)V
 
-    .line 58
     return-void
 .end method
 
@@ -178,20 +163,15 @@
     .end annotation
 
     .line 51
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver;, "Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver;->value:Ljava/lang/Object;
 
-    .line 52
     return-void
 .end method
 
 .method public onSubscribe(Lio/reactivex/disposables/Disposable;)V
     .locals 1
-    .param p1, "s"    # Lio/reactivex/disposables/Disposable;
 
     .line 43
-    .local p0, "this":Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver;, "Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver;->s:Lio/reactivex/disposables/Disposable;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/disposables/DisposableHelper;->validate(Lio/reactivex/disposables/Disposable;Lio/reactivex/disposables/Disposable;)Z
@@ -204,11 +184,10 @@
     iput-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver;->s:Lio/reactivex/disposables/Disposable;
 
     .line 45
-    iget-object v0, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver;->actual:Lio/reactivex/Observer;
+    iget-object p1, p0, Lio/reactivex/internal/operators/observable/ObservableTakeLastOne$TakeLastOneObserver;->actual:Lio/reactivex/Observer;
 
-    invoke-interface {v0, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
+    invoke-interface {p1, p0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 47
     :cond_0
     return-void
 .end method

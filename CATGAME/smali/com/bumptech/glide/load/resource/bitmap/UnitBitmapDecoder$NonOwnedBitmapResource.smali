@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Landroid/graphics/Bitmap;)V
     .locals 0
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +40,6 @@
     .line 32
     iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/UnitBitmapDecoder$NonOwnedBitmapResource;->bitmap:Landroid/graphics/Bitmap;
 
-    .line 33
     return-void
 .end method
 
@@ -100,6 +98,5 @@
 .method public recycle()V
     .locals 0
 
-    .line 55
     return-void
 .end method

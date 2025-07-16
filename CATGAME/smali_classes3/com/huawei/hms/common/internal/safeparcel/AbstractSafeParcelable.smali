@@ -10,7 +10,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 15
+    .line 1
     invoke-direct {p0}, Lcom/huawei/hms/support/api/client/Result;-><init>()V
 
     return-void
@@ -21,7 +21,6 @@
 .method public final describeContents()I
     .locals 1
 
-    .line 17
     const/4 v0, 0x0
 
     return v0

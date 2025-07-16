@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public newInstance(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -51,7 +51,6 @@
     .end annotation
 
     .line 93
-    .local p1, "c":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     invoke-static {p1}, Lcom/google/gson/internal/UnsafeAllocator$3;->assertInstantiable(Ljava/lang/Class;)V
 
     .line 94
@@ -65,17 +64,17 @@
 
     aput-object p1, v1, v2
 
-    const/4 v2, 0x1
+    const/4 p1, 0x1
 
-    const-class v3, Ljava/lang/Object;
+    const-class v2, Ljava/lang/Object;
 
-    aput-object v3, v1, v2
+    aput-object v2, v1, p1
 
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
-    invoke-virtual {v0, v2, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

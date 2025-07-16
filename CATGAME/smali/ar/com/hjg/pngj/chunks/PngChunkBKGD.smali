@@ -22,14 +22,12 @@
 # direct methods
 .method public constructor <init>(Lar/com/hjg/pngj/ImageInfo;)V
     .locals 1
-    .param p1, "info"    # Lar/com/hjg/pngj/ImageInfo;
 
-    .line 22
     const-string v0, "bKGD"
 
+    .line 22
     invoke-direct {p0, v0, p1}, Lar/com/hjg/pngj/chunks/PngChunkSingle;-><init>(Ljava/lang/String;Lar/com/hjg/pngj/ImageInfo;)V
 
-    .line 23
     return-void
 .end method
 
@@ -38,91 +36,86 @@
 .method public createRawChunk()Lar/com/hjg/pngj/chunks/ChunkRaw;
     .locals 4
 
-    .line 32
-    const/4 v0, 0x0
-
     .line 33
-    .local v0, "c":Lar/com/hjg/pngj/chunks/ChunkRaw;
-    iget-object v1, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
+    iget-object v0, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
 
-    iget-boolean v1, v1, Lar/com/hjg/pngj/ImageInfo;->greyscale:Z
+    iget-boolean v0, v0, Lar/com/hjg/pngj/ImageInfo;->greyscale:Z
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x2
 
     .line 34
-    const/4 v1, 0x2
-
-    invoke-virtual {p0, v1, v2}, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->createEmptyChunk(IZ)Lar/com/hjg/pngj/chunks/ChunkRaw;
+    invoke-virtual {p0, v0, v1}, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->createEmptyChunk(IZ)Lar/com/hjg/pngj/chunks/ChunkRaw;
 
     move-result-object v0
 
     .line 35
     iget v1, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->gray:I
 
-    iget-object v2, v0, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
+    iget-object v3, v0, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
 
-    invoke-static {v1, v2, v3}, Lar/com/hjg/pngj/PngHelperInternal;->writeInt2tobytes(I[BI)V
+    invoke-static {v1, v3, v2}, Lar/com/hjg/pngj/PngHelperInternal;->writeInt2tobytes(I[BI)V
 
     goto :goto_0
 
     .line 36
     :cond_0
-    iget-object v1, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
+    iget-object v0, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
 
-    iget-boolean v1, v1, Lar/com/hjg/pngj/ImageInfo;->indexed:Z
+    iget-boolean v0, v0, Lar/com/hjg/pngj/ImageInfo;->indexed:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 37
-    invoke-virtual {p0, v2, v2}, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->createEmptyChunk(IZ)Lar/com/hjg/pngj/chunks/ChunkRaw;
+    invoke-virtual {p0, v1, v1}, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->createEmptyChunk(IZ)Lar/com/hjg/pngj/chunks/ChunkRaw;
 
     move-result-object v0
 
     .line 38
     iget-object v1, v0, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
 
-    iget v2, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->paletteIndex:I
+    iget v3, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->paletteIndex:I
 
-    int-to-byte v2, v2
+    int-to-byte v3, v3
 
-    aput-byte v2, v1, v3
+    aput-byte v3, v1, v2
 
     goto :goto_0
 
-    .line 40
     :cond_1
-    const/4 v1, 0x6
+    const/4 v0, 0x6
 
-    invoke-virtual {p0, v1, v2}, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->createEmptyChunk(IZ)Lar/com/hjg/pngj/chunks/ChunkRaw;
+    .line 40
+    invoke-virtual {p0, v0, v1}, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->createEmptyChunk(IZ)Lar/com/hjg/pngj/chunks/ChunkRaw;
 
     move-result-object v0
 
     .line 41
     iget v1, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->red:I
 
-    iget-object v2, v0, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
+    iget-object v3, v0, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
 
-    invoke-static {v1, v2, v3}, Lar/com/hjg/pngj/PngHelperInternal;->writeInt2tobytes(I[BI)V
+    invoke-static {v1, v3, v2}, Lar/com/hjg/pngj/PngHelperInternal;->writeInt2tobytes(I[BI)V
 
     .line 42
     iget v1, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->green:I
 
-    iget-object v2, v0, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
+    iget-object v3, v0, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
 
-    invoke-static {v1, v2, v3}, Lar/com/hjg/pngj/PngHelperInternal;->writeInt2tobytes(I[BI)V
+    invoke-static {v1, v3, v2}, Lar/com/hjg/pngj/PngHelperInternal;->writeInt2tobytes(I[BI)V
 
     .line 43
     iget v1, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->blue:I
 
-    iget-object v2, v0, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
+    iget-object v3, v0, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
 
-    invoke-static {v1, v2, v3}, Lar/com/hjg/pngj/PngHelperInternal;->writeInt2tobytes(I[BI)V
+    invoke-static {v1, v3, v2}, Lar/com/hjg/pngj/PngHelperInternal;->writeInt2tobytes(I[BI)V
 
-    .line 45
     :goto_0
     return-object v0
 .end method
@@ -204,13 +197,13 @@
 
     if-nez v0, :cond_0
 
-    .line 109
     const/4 v0, 0x3
 
     new-array v0, v0, [I
 
     const/4 v1, 0x0
 
+    .line 109
     iget v2, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->red:I
 
     aput v2, v0, v1
@@ -242,7 +235,6 @@
 
 .method public parseFromRaw(Lar/com/hjg/pngj/chunks/ChunkRaw;)V
     .locals 2
-    .param p1, "c"    # Lar/com/hjg/pngj/chunks/ChunkRaw;
 
     .line 50
     iget-object v0, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
@@ -254,13 +246,13 @@
     if-eqz v0, :cond_0
 
     .line 51
-    iget-object v0, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
+    iget-object p1, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
 
-    invoke-static {v0, v1}, Lar/com/hjg/pngj/PngHelperInternal;->readInt2fromBytes([BI)I
+    invoke-static {p1, v1}, Lar/com/hjg/pngj/PngHelperInternal;->readInt2fromBytes([BI)I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->gray:I
+    iput p1, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->gray:I
 
     goto :goto_0
 
@@ -273,13 +265,13 @@
     if-eqz v0, :cond_1
 
     .line 53
-    iget-object v0, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
+    iget-object p1, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
 
-    aget-byte v0, v0, v1
+    aget-byte p1, p1, v1
 
-    and-int/lit16 v0, v0, 0xff
+    and-int/lit16 p1, p1, 0xff
 
-    iput v0, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->paletteIndex:I
+    iput p1, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->paletteIndex:I
 
     goto :goto_0
 
@@ -305,24 +297,22 @@
     iput v0, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->green:I
 
     .line 57
-    iget-object v0, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
+    iget-object p1, p1, Lar/com/hjg/pngj/chunks/ChunkRaw;->data:[B
 
-    const/4 v1, 0x4
+    const/4 v0, 0x4
 
-    invoke-static {v0, v1}, Lar/com/hjg/pngj/PngHelperInternal;->readInt2fromBytes([BI)I
+    invoke-static {p1, v0}, Lar/com/hjg/pngj/PngHelperInternal;->readInt2fromBytes([BI)I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->blue:I
+    iput p1, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->blue:I
 
-    .line 59
     :goto_0
     return-void
 .end method
 
 .method public setGray(I)V
-    .locals 2
-    .param p1, "gray"    # I
+    .locals 1
 
     .line 67
     iget-object v0, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
@@ -334,23 +324,21 @@
     .line 69
     iput p1, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->gray:I
 
-    .line 70
     return-void
 
     .line 68
     :cond_0
-    new-instance v0, Lar/com/hjg/pngj/PngjException;
+    new-instance p1, Lar/com/hjg/pngj/PngjException;
 
-    const-string v1, "only gray images support this"
+    const-string v0, "only gray images support this"
 
-    invoke-direct {v0, v1}, Lar/com/hjg/pngj/PngjException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lar/com/hjg/pngj/PngjException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setPaletteIndex(I)V
-    .locals 2
-    .param p1, "i"    # I
+    .locals 1
 
     .line 83
     iget-object v0, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
@@ -362,25 +350,21 @@
     .line 85
     iput p1, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->paletteIndex:I
 
-    .line 86
     return-void
 
     .line 84
     :cond_0
-    new-instance v0, Lar/com/hjg/pngj/PngjException;
+    new-instance p1, Lar/com/hjg/pngj/PngjException;
 
-    const-string v1, "only indexed (pallete) images support this"
+    const-string v0, "only indexed (pallete) images support this"
 
-    invoke-direct {v0, v1}, Lar/com/hjg/pngj/PngjException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lar/com/hjg/pngj/PngjException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setRGB(III)V
-    .locals 2
-    .param p1, "r"    # I
-    .param p2, "g"    # I
-    .param p3, "b"    # I
+    .locals 1
 
     .line 99
     iget-object v0, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->imgInfo:Lar/com/hjg/pngj/ImageInfo;
@@ -404,16 +388,15 @@
     .line 103
     iput p3, p0, Lar/com/hjg/pngj/chunks/PngChunkBKGD;->blue:I
 
-    .line 104
     return-void
 
     .line 100
     :cond_0
-    new-instance v0, Lar/com/hjg/pngj/PngjException;
+    new-instance p1, Lar/com/hjg/pngj/PngjException;
 
-    const-string v1, "only rgb or rgba images support this"
+    const-string p2, "only rgb or rgba images support this"
 
-    invoke-direct {v0, v1}, Lar/com/hjg/pngj/PngjException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Lar/com/hjg/pngj/PngjException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

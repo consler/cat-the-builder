@@ -24,14 +24,14 @@
     .line 62
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 47
     const/4 v0, 0x0
 
+    .line 47
     iput-object v0, p0, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;->array:[Ljava/lang/Object;
 
-    .line 49
     const/4 v0, 0x0
 
+    .line 49
     iput v0, p0, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;->startIndex:I
 
     .line 51
@@ -40,56 +40,47 @@
     .line 53
     iput v0, p0, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;->index:I
 
-    .line 63
     return-void
 .end method
 
 .method public constructor <init>([Ljava/lang/Object;)V
     .locals 2
-    .param p1, "array"    # [Ljava/lang/Object;
+
+    const/4 v0, 0x0
 
     .line 73
-    array-length v0, p1
+    array-length v1, p1
 
-    const/4 v1, 0x0
+    invoke-direct {p0, p1, v0, v1}, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;-><init>([Ljava/lang/Object;II)V
 
-    invoke-direct {p0, p1, v1, v0}, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;-><init>([Ljava/lang/Object;II)V
-
-    .line 74
     return-void
 .end method
 
 .method public constructor <init>([Ljava/lang/Object;I)V
     .locals 1
-    .param p1, "array"    # [Ljava/lang/Object;
-    .param p2, "start"    # I
 
     .line 86
     array-length v0, p1
 
     invoke-direct {p0, p1, p2, v0}, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;-><init>([Ljava/lang/Object;II)V
 
-    .line 87
     return-void
 .end method
 
 .method public constructor <init>([Ljava/lang/Object;II)V
-    .locals 2
-    .param p1, "array"    # [Ljava/lang/Object;
-    .param p2, "start"    # I
-    .param p3, "end"    # I
+    .locals 1
 
     .line 101
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 47
     const/4 v0, 0x0
 
+    .line 47
     iput-object v0, p0, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;->array:[Ljava/lang/Object;
 
-    .line 49
     const/4 v0, 0x0
 
+    .line 49
     iput v0, p0, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;->startIndex:I
 
     .line 51
@@ -98,7 +89,6 @@
     .line 53
     iput v0, p0, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;->index:I
 
-    .line 102
     if-ltz p2, :cond_3
 
     .line 105
@@ -111,7 +101,6 @@
 
     if-gt p2, v0, :cond_1
 
-    .line 111
     if-lt p3, p2, :cond_0
 
     .line 114
@@ -126,48 +115,47 @@
     .line 117
     iput p2, p0, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;->index:I
 
-    .line 118
     return-void
 
     .line 112
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "End index must not be less than start index"
+    const-string p2, "End index must not be less than start index"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 109
     :cond_1
-    new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
+    new-instance p1, Ljava/lang/ArrayIndexOutOfBoundsException;
 
-    const-string v1, "Start index must not be greater than the array length"
+    const-string p2, "Start index must not be greater than the array length"
 
-    invoke-direct {v0, v1}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 106
     :cond_2
-    new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
+    new-instance p1, Ljava/lang/ArrayIndexOutOfBoundsException;
 
-    const-string v1, "End index must not be greater than the array length"
+    const-string p2, "End index must not be greater than the array length"
 
-    invoke-direct {v0, v1}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 103
     :cond_3
-    new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
+    new-instance p1, Ljava/lang/ArrayIndexOutOfBoundsException;
 
-    const-string v1, "Start index must not be less than zero"
+    const-string p2, "Start index must not be less than zero"
 
-    invoke-direct {v0, v1}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -273,13 +261,11 @@
 
     iput v0, p0, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;->index:I
 
-    .line 214
     return-void
 .end method
 
 .method public setArray([Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "array"    # [Ljava/lang/Object;
+    .locals 1
 
     .line 182
     iget-object v0, p0, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;->array:[Ljava/lang/Object;
@@ -289,29 +275,28 @@
     .line 185
     iput-object p1, p0, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;->array:[Ljava/lang/Object;
 
-    .line 186
     const/4 v0, 0x0
 
+    .line 186
     iput v0, p0, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;->startIndex:I
 
     .line 187
-    array-length v1, p1
+    array-length p1, p1
 
-    iput v1, p0, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;->endIndex:I
+    iput p1, p0, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;->endIndex:I
 
     .line 188
     iput v0, p0, Lorg/apache/commons/collections/iterators/ObjectArrayIterator;->index:I
 
-    .line 189
     return-void
 
     .line 183
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "The array to iterate over has already been set"
+    const-string v0, "The array to iterate over has already been set"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

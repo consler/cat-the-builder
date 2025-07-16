@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/scenes/scene2d/ui/Window;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
     .line 85
     iput-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
@@ -34,20 +33,14 @@
 
 # virtual methods
 .method public touchDown(Lcom/badlogic/gdx/scenes/scene2d/InputEvent;FFII)Z
-    .locals 1
-    .param p1, "event"    # Lcom/badlogic/gdx/scenes/scene2d/InputEvent;
-    .param p2, "x"    # F
-    .param p3, "y"    # F
-    .param p4, "pointer"    # I
-    .param p5, "button"    # I
+    .locals 0
 
     .line 87
-    iget-object v0, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
+    iget-object p1, p0, Lcom/badlogic/gdx/scenes/scene2d/ui/Window$2;->this$0:Lcom/badlogic/gdx/scenes/scene2d/ui/Window;
 
-    invoke-virtual {v0}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->toFront()V
+    invoke-virtual {p1}, Lcom/badlogic/gdx/scenes/scene2d/ui/Window;->toFront()V
 
-    .line 88
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

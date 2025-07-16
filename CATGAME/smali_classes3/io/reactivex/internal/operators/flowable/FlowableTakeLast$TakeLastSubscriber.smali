@@ -61,7 +61,6 @@
 # direct methods
 .method constructor <init>(Lorg/reactivestreams/Subscriber;I)V
     .locals 1
-    .param p2, "count"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,8 +70,6 @@
     .end annotation
 
     .line 52
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber<TT;>;"
-    .local p1, "actual":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     invoke-direct {p0}, Ljava/util/ArrayDeque;-><init>()V
 
     .line 48
@@ -95,7 +92,6 @@
     .line 54
     iput p2, p0, Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;->count:I
 
-    .line 55
     return-void
 .end method
 
@@ -104,10 +100,9 @@
 .method public cancel()V
     .locals 1
 
-    .line 95
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber<TT;>;"
     const/4 v0, 0x1
 
+    .line 95
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;->cancelled:Z
 
     .line 96
@@ -115,15 +110,13 @@
 
     invoke-interface {v0}, Lorg/reactivestreams/Subscription;->cancel()V
 
-    .line 97
     return-void
 .end method
 
 .method drain()V
-    .locals 8
+    .locals 9
 
     .line 100
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
@@ -136,7 +129,6 @@
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
     .line 102
-    .local v0, "a":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
     iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
     invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicLong;->get()J
@@ -144,13 +136,11 @@
     move-result-wide v1
 
     .line 104
-    .local v1, "r":J
     :cond_0
     iget-boolean v3, p0, Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;->cancelled:Z
 
     if-eqz v3, :cond_1
 
-    .line 105
     return-void
 
     .line 107
@@ -159,78 +149,66 @@
 
     if-eqz v3, :cond_5
 
-    .line 108
     const-wide/16 v3, 0x0
 
-    .line 110
-    .local v3, "e":J
-    :goto_0
-    cmp-long v5, v3, v1
+    move-wide v5, v3
 
-    if-eqz v5, :cond_4
+    :goto_0
+    cmp-long v7, v5, v1
+
+    if-eqz v7, :cond_4
 
     .line 111
-    iget-boolean v5, p0, Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;->cancelled:Z
+    iget-boolean v7, p0, Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;->cancelled:Z
 
-    if-eqz v5, :cond_2
+    if-eqz v7, :cond_2
 
-    .line 112
     return-void
 
     .line 114
     :cond_2
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;->poll()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v7
 
-    .line 115
-    .local v5, "v":Ljava/lang/Object;, "TT;"
-    if-nez v5, :cond_3
+    if-nez v7, :cond_3
 
     .line 116
     invoke-interface {v0}, Lorg/reactivestreams/Subscriber;->onComplete()V
 
-    .line 117
     return-void
 
     .line 119
     :cond_3
-    invoke-interface {v0, v5}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
+    invoke-interface {v0, v7}, Lorg/reactivestreams/Subscriber;->onNext(Ljava/lang/Object;)V
 
-    .line 120
-    const-wide/16 v6, 0x1
+    const-wide/16 v7, 0x1
 
-    add-long/2addr v3, v6
+    add-long/2addr v5, v7
 
-    .line 121
-    .end local v5    # "v":Ljava/lang/Object;, "TT;"
     goto :goto_0
 
-    .line 122
     :cond_4
-    const-wide/16 v5, 0x0
+    cmp-long v3, v5, v3
 
-    cmp-long v5, v3, v5
+    if-eqz v3, :cond_5
 
-    if-eqz v5, :cond_5
+    const-wide v3, 0x7fffffffffffffffL
 
-    const-wide v5, 0x7fffffffffffffffL
+    cmp-long v3, v1, v3
 
-    cmp-long v5, v1, v5
-
-    if-eqz v5, :cond_5
+    if-eqz v3, :cond_5
 
     .line 123
-    iget-object v5, p0, Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
+    iget-object v1, p0, Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;->requested:Ljava/util/concurrent/atomic/AtomicLong;
 
-    neg-long v6, v3
+    neg-long v2, v5
 
-    invoke-virtual {v5, v6, v7}, Ljava/util/concurrent/atomic/AtomicLong;->addAndGet(J)J
+    invoke-virtual {v1, v2, v3}, Ljava/util/concurrent/atomic/AtomicLong;->addAndGet(J)J
 
     move-result-wide v1
 
     .line 126
-    .end local v3    # "e":J
     :cond_5
     iget-object v3, p0, Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;->wip:Ljava/util/concurrent/atomic/AtomicInteger;
 
@@ -240,9 +218,6 @@
 
     if-nez v3, :cond_0
 
-    .line 128
-    .end local v0    # "a":Lorg/reactivestreams/Subscriber;, "Lorg/reactivestreams/Subscriber<-TT;>;"
-    .end local v1    # "r":J
     :cond_6
     return-void
 .end method
@@ -250,30 +225,25 @@
 .method public onComplete()V
     .locals 1
 
-    .line 81
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber<TT;>;"
     const/4 v0, 0x1
 
+    .line 81
     iput-boolean v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;->done:Z
 
     .line 82
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;->drain()V
 
-    .line 83
     return-void
 .end method
 
 .method public onError(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 76
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;->actual:Lorg/reactivestreams/Subscriber;
 
     invoke-interface {v0, p1}, Lorg/reactivestreams/Subscriber;->onError(Ljava/lang/Throwable;)V
 
-    .line 77
     return-void
 .end method
 
@@ -286,8 +256,6 @@
     .end annotation
 
     .line 68
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber<TT;>;"
-    .local p1, "t":Ljava/lang/Object;, "TT;"
     iget v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;->count:I
 
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;->size()I
@@ -303,16 +271,13 @@
     :cond_0
     invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;->offer(Ljava/lang/Object;)Z
 
-    .line 72
     return-void
 .end method
 
 .method public onSubscribe(Lorg/reactivestreams/Subscription;)V
     .locals 2
-    .param p1, "s"    # Lorg/reactivestreams/Subscription;
 
     .line 59
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber<TT;>;"
     iget-object v0, p0, Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;->s:Lorg/reactivestreams/Subscription;
 
     invoke-static {v0, p1}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(Lorg/reactivestreams/Subscription;Lorg/reactivestreams/Subscription;)Z
@@ -329,22 +294,19 @@
 
     invoke-interface {v0, p0}, Lorg/reactivestreams/Subscriber;->onSubscribe(Lorg/reactivestreams/Subscription;)V
 
-    .line 62
     const-wide v0, 0x7fffffffffffffffL
 
+    .line 62
     invoke-interface {p1, v0, v1}, Lorg/reactivestreams/Subscription;->request(J)V
 
-    .line 64
     :cond_0
     return-void
 .end method
 
 .method public request(J)V
     .locals 1
-    .param p1, "n"    # J
 
     .line 87
-    .local p0, "this":Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;, "Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber<TT;>;"
     invoke-static {p1, p2}, Lio/reactivex/internal/subscriptions/SubscriptionHelper;->validate(J)Z
 
     move-result v0
@@ -359,7 +321,6 @@
     .line 89
     invoke-virtual {p0}, Lio/reactivex/internal/operators/flowable/FlowableTakeLast$TakeLastSubscriber;->drain()V
 
-    .line 91
     :cond_0
     return-void
 .end method

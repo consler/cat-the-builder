@@ -24,32 +24,27 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 51
     const/4 v0, 0x0
 
+    .line 51
     invoke-direct {p0, v0}, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer;-><init>(Ljava/lang/Integer;)V
 
-    .line 52
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Integer;)V
     .locals 1
-    .param p1, "strokeColor"    # Ljava/lang/Integer;
 
-    .line 55
     const/4 v0, 0x0
 
+    .line 55
     invoke-direct {p0, p1, v0}, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer;-><init>(Ljava/lang/Integer;F)V
 
-    .line 56
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Integer;F)V
     .locals 0
-    .param p1, "strokeColor"    # Ljava/lang/Integer;
-    .param p2, "strokeWidth"    # F
 
     .line 58
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -60,44 +55,39 @@
     .line 60
     iput p2, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer;->strokeWidth:F
 
-    .line 61
     return-void
 .end method
 
 
 # virtual methods
 .method public display(Landroid/graphics/Bitmap;Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;Lcom/nostra13/universalimageloader/core/assist/LoadedFrom;)V
-    .locals 3
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
-    .param p2, "imageAware"    # Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;
-    .param p3, "loadedFrom"    # Lcom/nostra13/universalimageloader/core/assist/LoadedFrom;
+    .locals 2
 
     .line 65
-    instance-of v0, p2, Lcom/nostra13/universalimageloader/core/imageaware/ImageViewAware;
+    instance-of p3, p2, Lcom/nostra13/universalimageloader/core/imageaware/ImageViewAware;
 
-    if-eqz v0, :cond_0
+    if-eqz p3, :cond_0
 
     .line 69
-    new-instance v0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;
+    new-instance p3, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;
 
-    iget-object v1, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer;->strokeColor:Ljava/lang/Integer;
+    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer;->strokeColor:Ljava/lang/Integer;
 
-    iget v2, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer;->strokeWidth:F
+    iget v1, p0, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer;->strokeWidth:F
 
-    invoke-direct {v0, p1, v1, v2}, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;-><init>(Landroid/graphics/Bitmap;Ljava/lang/Integer;F)V
+    invoke-direct {p3, p1, v0, v1}, Lcom/nostra13/universalimageloader/core/display/CircleBitmapDisplayer$CircleDrawable;-><init>(Landroid/graphics/Bitmap;Ljava/lang/Integer;F)V
 
-    invoke-interface {p2, v0}, Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;->setImageDrawable(Landroid/graphics/drawable/Drawable;)Z
+    invoke-interface {p2, p3}, Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;->setImageDrawable(Landroid/graphics/drawable/Drawable;)Z
 
-    .line 70
     return-void
 
     .line 66
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "ImageAware should wrap ImageView. ImageViewAware is expected."
+    const-string p2, "ImageAware should wrap ImageView. ImageViewAware is expected."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

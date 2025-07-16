@@ -48,10 +48,6 @@
 # virtual methods
 .method public configureEngine(Ljavax/net/ssl/SSLEngine;Lcom/koushikdutta/async/http/AsyncHttpClientMiddleware$GetSocketData;Ljava/lang/String;I)V
     .locals 1
-    .param p1, "engine"    # Ljavax/net/ssl/SSLEngine;
-    .param p2, "data"    # Lcom/koushikdutta/async/http/AsyncHttpClientMiddleware$GetSocketData;
-    .param p3, "host"    # Ljava/lang/String;
-    .param p4, "port"    # I
 
     .line 87
     invoke-virtual {p0, p1}, Lcom/koushikdutta/async/http/SSLEngineSNIConfigurator;->ensureHolder(Ljavax/net/ssl/SSLEngine;)Lcom/koushikdutta/async/http/SSLEngineSNIConfigurator$EngineHolder;
@@ -59,18 +55,13 @@
     move-result-object v0
 
     .line 88
-    .local v0, "holder":Lcom/koushikdutta/async/http/SSLEngineSNIConfigurator$EngineHolder;
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/koushikdutta/async/http/SSLEngineSNIConfigurator$EngineHolder;->configureEngine(Ljavax/net/ssl/SSLEngine;Lcom/koushikdutta/async/http/AsyncHttpClientMiddleware$GetSocketData;Ljava/lang/String;I)V
 
-    .line 89
     return-void
 .end method
 
 .method public createEngine(Ljavax/net/ssl/SSLContext;Ljava/lang/String;I)Ljavax/net/ssl/SSLEngine;
     .locals 2
-    .param p1, "sslContext"    # Ljavax/net/ssl/SSLContext;
-    .param p2, "peerHost"    # Ljava/lang/String;
-    .param p3, "peerPort"    # I
 
     .line 66
     invoke-virtual {p1}, Ljavax/net/ssl/SSLContext;->getProvider()Ljava/security/Provider;
@@ -87,54 +78,16 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x17
-
-    if-lt v0, v1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 v0, 0x1
-
-    .line 67
-    .local v0, "skipReflection":Z
-    :goto_1
-    if-eqz v0, :cond_2
-
     .line 68
     invoke-virtual {p1, p2, p3}, Ljavax/net/ssl/SSLContext;->createSSLEngine(Ljava/lang/String;I)Ljavax/net/ssl/SSLEngine;
 
-    move-result-object v1
+    move-result-object p1
 
-    .local v1, "engine":Ljavax/net/ssl/SSLEngine;
-    goto :goto_2
-
-    .line 70
-    .end local v1    # "engine":Ljavax/net/ssl/SSLEngine;
-    :cond_2
-    invoke-virtual {p1}, Ljavax/net/ssl/SSLContext;->createSSLEngine()Ljavax/net/ssl/SSLEngine;
-
-    move-result-object v1
-
-    .line 72
-    .restart local v1    # "engine":Ljavax/net/ssl/SSLEngine;
-    :goto_2
-    return-object v1
+    return-object p1
 .end method
 
 .method ensureHolder(Ljavax/net/ssl/SSLEngine;)Lcom/koushikdutta/async/http/SSLEngineSNIConfigurator$EngineHolder;
-    .locals 4
-    .param p1, "engine"    # Ljavax/net/ssl/SSLEngine;
+    .locals 2
 
     .line 76
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -146,7 +99,6 @@
     move-result-object v0
 
     .line 77
-    .local v0, "name":Ljava/lang/String;
     iget-object v1, p0, Lcom/koushikdutta/async/http/SSLEngineSNIConfigurator;->holders:Ljava/util/Hashtable;
 
     invoke-virtual {v1, v0}, Ljava/util/Hashtable;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -155,27 +107,22 @@
 
     check-cast v1, Lcom/koushikdutta/async/http/SSLEngineSNIConfigurator$EngineHolder;
 
-    .line 78
-    .local v1, "holder":Lcom/koushikdutta/async/http/SSLEngineSNIConfigurator$EngineHolder;
     if-nez v1, :cond_0
 
     .line 79
-    new-instance v2, Lcom/koushikdutta/async/http/SSLEngineSNIConfigurator$EngineHolder;
+    new-instance v1, Lcom/koushikdutta/async/http/SSLEngineSNIConfigurator$EngineHolder;
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-direct {v2, v3}, Lcom/koushikdutta/async/http/SSLEngineSNIConfigurator$EngineHolder;-><init>(Ljava/lang/Class;)V
-
-    move-object v1, v2
+    invoke-direct {v1, p1}, Lcom/koushikdutta/async/http/SSLEngineSNIConfigurator$EngineHolder;-><init>(Ljava/lang/Class;)V
 
     .line 80
-    iget-object v2, p0, Lcom/koushikdutta/async/http/SSLEngineSNIConfigurator;->holders:Ljava/util/Hashtable;
+    iget-object p1, p0, Lcom/koushikdutta/async/http/SSLEngineSNIConfigurator;->holders:Ljava/util/Hashtable;
 
-    invoke-virtual {v2, v0, v1}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1, v0, v1}, Ljava/util/Hashtable;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 82
     :cond_0
     return-object v1
 .end method

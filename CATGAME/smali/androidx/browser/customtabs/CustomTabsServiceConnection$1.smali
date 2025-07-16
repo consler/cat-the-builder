@@ -21,10 +21,6 @@
 # direct methods
 .method constructor <init>(Landroidx/browser/customtabs/CustomTabsServiceConnection;Landroid/support/customtabs/ICustomTabsService;Landroid/content/ComponentName;Landroid/content/Context;)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/browser/customtabs/CustomTabsServiceConnection;
-    .param p2, "service"    # Landroid/support/customtabs/ICustomTabsService;
-    .param p3, "componentName"    # Landroid/content/ComponentName;
-    .param p4, "applicationContext"    # Landroid/content/Context;
 
     .line 58
     iput-object p1, p0, Landroidx/browser/customtabs/CustomTabsServiceConnection$1;->this$0:Landroidx/browser/customtabs/CustomTabsServiceConnection;

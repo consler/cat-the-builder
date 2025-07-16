@@ -23,8 +23,6 @@
 # direct methods
 .method public constructor <init>(Ljava/util/Map;Ljava/util/Map;)V
     .locals 0
-    .param p1, "keyedByFieldName"    # Ljava/util/Map;
-    .param p2, "keyedByFieldKey"    # Ljava/util/Map;
 
     .line 219
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,7 +33,6 @@
     .line 221
     iput-object p2, p0, Lcom/thoughtworks/xstream/converters/reflection/FieldDictionary$DictionaryEntry;->keyedByFieldKey:Ljava/util/Map;
 
-    .line 222
     return-void
 .end method
 

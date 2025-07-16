@@ -63,33 +63,27 @@
 
 .method public setLocation(Landroid/location/Location;)V
     .locals 0
-    .param p1, "location"    # Landroid/location/Location;
 
     .line 1747
     iput-object p1, p0, Landroidx/camera/core/ImageCapture$Metadata;->mLocation:Landroid/location/Location;
 
-    .line 1748
     return-void
 .end method
 
 .method public setReversedHorizontal(Z)V
     .locals 0
-    .param p1, "isReversedHorizontal"    # Z
 
     .line 1710
     iput-boolean p1, p0, Landroidx/camera/core/ImageCapture$Metadata;->mIsReversedHorizontal:Z
 
-    .line 1711
     return-void
 .end method
 
 .method public setReversedVertical(Z)V
     .locals 0
-    .param p1, "isReversedVertical"    # Z
 
     .line 1728
     iput-boolean p1, p0, Landroidx/camera/core/ImageCapture$Metadata;->mIsReversedVertical:Z
 
-    .line 1729
     return-void
 .end method

@@ -29,7 +29,6 @@
 # direct methods
 .method constructor <init>(Landroidx/transition/ChangeBounds;Landroid/view/ViewGroup;Landroid/graphics/drawable/BitmapDrawable;Landroid/view/View;F)V
     .locals 0
-    .param p1, "this$0"    # Landroidx/transition/ChangeBounds;
 
     .line 448
     iput-object p1, p0, Landroidx/transition/ChangeBounds$10;->this$0:Landroidx/transition/ChangeBounds;
@@ -50,27 +49,25 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
-    .param p1, "animation"    # Landroid/animation/Animator;
+    .locals 1
 
     .line 451
-    iget-object v0, p0, Landroidx/transition/ChangeBounds$10;->val$sceneRoot:Landroid/view/ViewGroup;
+    iget-object p1, p0, Landroidx/transition/ChangeBounds$10;->val$sceneRoot:Landroid/view/ViewGroup;
 
-    invoke-static {v0}, Landroidx/transition/ViewUtils;->getOverlay(Landroid/view/View;)Landroidx/transition/ViewOverlayImpl;
+    invoke-static {p1}, Landroidx/transition/ViewUtils;->getOverlay(Landroid/view/View;)Landroidx/transition/ViewOverlayImpl;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Landroidx/transition/ChangeBounds$10;->val$drawable:Landroid/graphics/drawable/BitmapDrawable;
+    iget-object v0, p0, Landroidx/transition/ChangeBounds$10;->val$drawable:Landroid/graphics/drawable/BitmapDrawable;
 
-    invoke-interface {v0, v1}, Landroidx/transition/ViewOverlayImpl;->remove(Landroid/graphics/drawable/Drawable;)V
+    invoke-interface {p1, v0}, Landroidx/transition/ViewOverlayImpl;->remove(Landroid/graphics/drawable/Drawable;)V
 
     .line 452
-    iget-object v0, p0, Landroidx/transition/ChangeBounds$10;->val$view:Landroid/view/View;
+    iget-object p1, p0, Landroidx/transition/ChangeBounds$10;->val$view:Landroid/view/View;
 
-    iget v1, p0, Landroidx/transition/ChangeBounds$10;->val$transitionAlpha:F
+    iget v0, p0, Landroidx/transition/ChangeBounds$10;->val$transitionAlpha:F
 
-    invoke-static {v0, v1}, Landroidx/transition/ViewUtils;->setTransitionAlpha(Landroid/view/View;F)V
+    invoke-static {p1, v0}, Landroidx/transition/ViewUtils;->setTransitionAlpha(Landroid/view/View;F)V
 
-    .line 453
     return-void
 .end method

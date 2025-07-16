@@ -5,18 +5,15 @@
 
 # annotations
 .annotation runtime Lkotlin/Metadata;
-    bv = {
-        0x1,
-        0x0,
-        0x3
-    }
     d1 = {
-        "\u0000\u0012\n\u0000\n\u0002\u0010\u000e\n\u0002\u0008\t\n\u0002\u0010\u0008\n\u0002\u0008\u0017\"\u000e\u0010\u0000\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0002\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0003\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0004\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0005\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0006\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0007\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0008\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\t\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\n\u001a\u00020\u000bX\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u000c\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\r\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u000e\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u000f\u001a\u00020\u000bX\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0010\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0011\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0012\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0013\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0014\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0015\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0016\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0017\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0018\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0019\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u001a\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u001b\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u001c\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u001d\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u001e\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u001f\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010 \u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010!\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\u00a8\u0006\""
+        "\u0000 \n\u0000\n\u0002\u0010\u000e\n\u0002\u0008\u0002\n\u0002\u0010\t\n\u0002\u0008\u0008\n\u0002\u0010\u0008\n\u0000\n\u0002\u0010\u0007\n\u0002\u0008\u001d\"\u000e\u0010\u0000\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0002\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0003\u001a\u00020\u0004X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0005\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0006\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0007\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0008\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\t\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\n\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u000b\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u000c\u001a\u00020\rX\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u000e\u001a\u00020\u000fX\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0010\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0011\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0012\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0013\u001a\u00020\rX\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0014\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0015\u001a\u00020\u0004X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0016\u001a\u00020\rX\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0017\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0018\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u0019\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u001a\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u001b\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u001c\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u001d\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u001e\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\u001f\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010 \u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010!\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\"\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010#\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010$\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010%\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010&\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010\'\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010(\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010)\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010*\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\"\u000e\u0010+\u001a\u00020\u0001X\u0086T\u00a2\u0006\u0002\n\u0000\u00a8\u0006,"
     }
     d2 = {
         "ABOUT_DIALOG_FRAGMENT_TAG",
         "",
         "ADVANCED_SETTINGS_DIALOG_FRAGMENT_TAG",
+        "ANIMATION_DURATION",
+        "",
         "CATROBAT_IMAGE_ENDING",
         "CATROBAT_INFORMATION_DIALOG_TAG",
         "CATROID_MEDIA_GALLERY_FRAGMENT_TAG",
@@ -26,11 +23,15 @@
         "INDETERMINATE_PROGRESS_DIALOG_TAG",
         "INVALID_RESOURCE_ID",
         "",
+        "ITALIC_FONT_BOX_ADJUSTMENT",
+        "",
         "JPG_INFORMATION_DIALOG_TAG",
         "LIKE_US_DIALOG_FRAGMENT_TAG",
         "LOAD_DIALOG_FRAGMENT_TAG",
         "MAX_LAYERS",
         "MEDIA_GALLEY_URL",
+        "MEGABYTE_IN_BYTE",
+        "MINIMUM_HEAP_SPACE_FOR_NEW_LAYER",
         "ORA_INFORMATION_DIALOG_TAG",
         "OVERWRITE_INFORMATION_DIALOG_TAG",
         "PAINTROID_PICTURE_NAME",
@@ -43,19 +44,24 @@
         "SAVE_QUESTION_FRAGMENT_TAG",
         "SCALE_IMAGE_FRAGMENT_TAG",
         "SHOW_LIKE_US_DIALOG_SHARED_PREFERENCES_TAG",
+        "SPECIFIC_FILETYPE_SHARED_PREFERENCES_NAME",
         "TEMP_IMAGE_DIRECTORY_NAME",
         "TEMP_IMAGE_NAME",
         "TEMP_IMAGE_PATH",
         "TEMP_IMAGE_TEMP_PATH",
         "TEMP_PICTURE_NAME",
-        "Paintroid_release"
+        "ZOOM_WINDOW_ENABLED_SHARED_PREFERENCES_TAG",
+        "ZOOM_WINDOW_SETTINGS_DIALOG_FRAGMENT_TAG",
+        "ZOOM_WINDOW_ZOOM_PERCENTAGE_SHARED_PREFERENCES_TAG",
+        "Paintroid_signedRelease"
     }
     k = 0x2
     mv = {
         0x1,
-        0x4,
-        0x2
+        0x5,
+        0x1
     }
+    xi = 0x30
 .end annotation
 
 
@@ -63,6 +69,8 @@
 .field public static final ABOUT_DIALOG_FRAGMENT_TAG:Ljava/lang/String; = "aboutdialogfragment"
 
 .field public static final ADVANCED_SETTINGS_DIALOG_FRAGMENT_TAG:Ljava/lang/String; = "advancedsettingsdialogfragment"
+
+.field public static final ANIMATION_DURATION:J = 0xfaL
 
 .field public static final CATROBAT_IMAGE_ENDING:Ljava/lang/String; = "catrobat-image"
 
@@ -80,15 +88,21 @@
 
 .field public static final INVALID_RESOURCE_ID:I = 0x0
 
+.field public static final ITALIC_FONT_BOX_ADJUSTMENT:F = 1.2f
+
 .field public static final JPG_INFORMATION_DIALOG_TAG:Ljava/lang/String; = "jpginformationdialogfragment"
 
 .field public static final LIKE_US_DIALOG_FRAGMENT_TAG:Ljava/lang/String; = "likeusdialogfragment"
 
 .field public static final LOAD_DIALOG_FRAGMENT_TAG:Ljava/lang/String; = "loadbitmapdialogerror"
 
-.field public static final MAX_LAYERS:I = 0x4
+.field public static final MAX_LAYERS:I = 0x64
 
 .field public static final MEDIA_GALLEY_URL:Ljava/lang/String; = "https://share.catrob.at/pocketcode/media-library/looks"
+
+.field public static final MEGABYTE_IN_BYTE:J = 0x100000L
+
+.field public static final MINIMUM_HEAP_SPACE_FOR_NEW_LAYER:I = 0x28
 
 .field public static final ORA_INFORMATION_DIALOG_TAG:Ljava/lang/String; = "orainformationdialogfragment"
 
@@ -114,6 +128,8 @@
 
 .field public static final SHOW_LIKE_US_DIALOG_SHARED_PREFERENCES_TAG:Ljava/lang/String; = "showlikeusdialog"
 
+.field public static final SPECIFIC_FILETYPE_SHARED_PREFERENCES_NAME:Ljava/lang/String; = "Ownfiletypepreferences"
+
 .field public static final TEMP_IMAGE_DIRECTORY_NAME:Ljava/lang/String; = "TemporaryImages"
 
 .field public static final TEMP_IMAGE_NAME:Ljava/lang/String; = "temporaryImage"
@@ -123,3 +139,9 @@
 .field public static final TEMP_IMAGE_TEMP_PATH:Ljava/lang/String; = "TemporaryImages/temporaryImage1.catrobat-image"
 
 .field public static final TEMP_PICTURE_NAME:Ljava/lang/String; = "catroidTemp"
+
+.field public static final ZOOM_WINDOW_ENABLED_SHARED_PREFERENCES_TAG:Ljava/lang/String; = "zoomwindowenabled"
+
+.field public static final ZOOM_WINDOW_SETTINGS_DIALOG_FRAGMENT_TAG:Ljava/lang/String; = "zoomwindowsettingsdialogfragment"
+
+.field public static final ZOOM_WINDOW_ZOOM_PERCENTAGE_SHARED_PREFERENCES_TAG:Ljava/lang/String; = "zoomwindowzoompercentage"

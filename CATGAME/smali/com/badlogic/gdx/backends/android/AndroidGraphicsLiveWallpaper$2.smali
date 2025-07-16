@@ -21,9 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/badlogic/gdx/backends/android/AndroidGraphicsLiveWallpaper;Landroid/content/Context;Lcom/badlogic/gdx/backends/android/surfaceview/ResolutionStrategy;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/badlogic/gdx/backends/android/AndroidGraphicsLiveWallpaper;
-    .param p2, "context"    # Landroid/content/Context;
-    .param p3, "resolutionStrategy"    # Lcom/badlogic/gdx/backends/android/surfaceview/ResolutionStrategy;
 
     .line 87
     iput-object p1, p0, Lcom/badlogic/gdx/backends/android/AndroidGraphicsLiveWallpaper$2;->this$0:Lcom/badlogic/gdx/backends/android/AndroidGraphicsLiveWallpaper;
@@ -54,6 +51,5 @@
     .line 95
     invoke-virtual {p0}, Lcom/badlogic/gdx/backends/android/AndroidGraphicsLiveWallpaper$2;->onDetachedFromWindow()V
 
-    .line 96
     return-void
 .end method

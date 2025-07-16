@@ -56,9 +56,6 @@
 # direct methods
 .method public static final bindScope(Landroidx/lifecycle/LifecycleOwner;Lorg/koin/core/scope/Scope;Landroidx/lifecycle/Lifecycle$Event;)V
     .locals 2
-    .param p0, "$this$bindScope"    # Landroidx/lifecycle/LifecycleOwner;
-    .param p1, "scope"    # Lorg/koin/core/scope/Scope;
-    .param p2, "event"    # Landroidx/lifecycle/Lifecycle$Event;
 
     const-string v0, "$this$bindScope"
 
@@ -85,7 +82,6 @@
 
     invoke-virtual {v0, v1}, Landroidx/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
 
-    .line 54
     return-void
 .end method
 
@@ -106,10 +102,7 @@
 .end method
 
 .method private static final createAndBindAndroidScope(Landroidx/lifecycle/LifecycleOwner;Ljava/lang/String;Lorg/koin/core/qualifier/Qualifier;)Lorg/koin/core/scope/Scope;
-    .locals 3
-    .param p0, "$this$createAndBindAndroidScope"    # Landroidx/lifecycle/LifecycleOwner;
-    .param p1, "scopeId"    # Ljava/lang/String;
-    .param p2, "qualifier"    # Lorg/koin/core/qualifier/Qualifier;
+    .locals 1
 
     .line 42
     invoke-static {p0}, Lorg/koin/androidx/scope/LifecycleOwnerExtKt;->getKoin(Landroidx/lifecycle/LifecycleOwner;)Lorg/koin/core/Koin;
@@ -118,18 +111,16 @@
 
     invoke-virtual {v0, p1, p2, p0}, Lorg/koin/core/Koin;->createScope(Ljava/lang/String;Lorg/koin/core/qualifier/Qualifier;Ljava/lang/Object;)Lorg/koin/core/scope/Scope;
 
-    move-result-object v0
+    move-result-object p1
+
+    const/4 p2, 0x0
+
+    const/4 v0, 0x2
 
     .line 43
-    .local v0, "scope":Lorg/koin/core/scope/Scope;
-    const/4 v1, 0x0
+    invoke-static {p0, p1, p2, v0, p2}, Lorg/koin/androidx/scope/LifecycleOwnerExtKt;->bindScope$default(Landroidx/lifecycle/LifecycleOwner;Lorg/koin/core/scope/Scope;Landroidx/lifecycle/Lifecycle$Event;ILjava/lang/Object;)V
 
-    const/4 v2, 0x2
-
-    invoke-static {p0, v0, v1, v2, v1}, Lorg/koin/androidx/scope/LifecycleOwnerExtKt;->bindScope$default(Landroidx/lifecycle/LifecycleOwner;Lorg/koin/core/scope/Scope;Landroidx/lifecycle/Lifecycle$Event;ILjava/lang/Object;)V
-
-    .line 44
-    return-object v0
+    return-object p1
 .end method
 
 .method public static synthetic currentScope$annotations(Landroidx/lifecycle/LifecycleOwner;)V
@@ -147,7 +138,6 @@
 
 .method public static final getCurrentScope(Landroidx/lifecycle/LifecycleOwner;)Lorg/koin/core/scope/Scope;
     .locals 1
-    .param p0, "$this$currentScope"    # Landroidx/lifecycle/LifecycleOwner;
 
     const-string v0, "$this$currentScope"
 
@@ -156,41 +146,37 @@
     .line 68
     invoke-static {p0}, Lorg/koin/androidx/scope/LifecycleOwnerExtKt;->getOrCreateAndroidScope(Landroidx/lifecycle/LifecycleOwner;)Lorg/koin/core/scope/Scope;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private static final getKoin(Landroidx/lifecycle/LifecycleOwner;)Lorg/koin/core/Koin;
-    .locals 2
-    .param p0, "$this$getKoin"    # Landroidx/lifecycle/LifecycleOwner;
+    .locals 1
 
-    .line 34
     if-eqz p0, :cond_0
 
-    move-object v0, p0
+    .line 34
+    check-cast p0, Landroid/content/ComponentCallbacks;
 
-    check-cast v0, Landroid/content/ComponentCallbacks;
+    invoke-static {p0}, Lorg/koin/android/ext/android/ComponentCallbackExtKt;->getKoin(Landroid/content/ComponentCallbacks;)Lorg/koin/core/Koin;
 
-    invoke-static {v0}, Lorg/koin/android/ext/android/ComponentCallbackExtKt;->getKoin(Landroid/content/ComponentCallbacks;)Lorg/koin/core/Koin;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 
     :cond_0
-    new-instance v0, Lkotlin/TypeCastException;
+    new-instance p0, Lkotlin/TypeCastException;
 
-    const-string v1, "null cannot be cast to non-null type android.content.ComponentCallbacks"
+    const-string v0, "null cannot be cast to non-null type android.content.ComponentCallbacks"
 
-    invoke-direct {v0, v1}, Lkotlin/TypeCastException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Lkotlin/TypeCastException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static final getLifecycleScope(Landroidx/lifecycle/LifecycleOwner;)Lorg/koin/core/scope/Scope;
     .locals 1
-    .param p0, "$this$lifecycleScope"    # Landroidx/lifecycle/LifecycleOwner;
 
     const-string v0, "$this$lifecycleScope"
 
@@ -199,14 +185,13 @@
     .line 60
     invoke-static {p0}, Lorg/koin/androidx/scope/LifecycleOwnerExtKt;->getOrCreateAndroidScope(Landroidx/lifecycle/LifecycleOwner;)Lorg/koin/core/scope/Scope;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private static final getOrCreateAndroidScope(Landroidx/lifecycle/LifecycleOwner;)Lorg/koin/core/scope/Scope;
     .locals 2
-    .param p0, "$this$getOrCreateAndroidScope"    # Landroidx/lifecycle/LifecycleOwner;
 
     .line 37
     invoke-static {p0}, Lorg/koin/ext/InstanceScopeExtKt;->getScopeId(Ljava/lang/Object;)Ljava/lang/String;
@@ -214,7 +199,6 @@
     move-result-object v0
 
     .line 38
-    .local v0, "scopeId":Ljava/lang/String;
     invoke-static {p0}, Lorg/koin/androidx/scope/LifecycleOwnerExtKt;->getKoin(Landroidx/lifecycle/LifecycleOwner;)Lorg/koin/core/Koin;
 
     move-result-object v1
@@ -243,27 +227,26 @@
 .end method
 
 .method public static final getScope(Landroidx/lifecycle/LifecycleOwner;)Lorg/koin/core/scope/Scope;
-    .locals 2
-    .param p0, "$this$scope"    # Landroidx/lifecycle/LifecycleOwner;
+    .locals 1
 
     const-string v0, "$this$scope"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 64
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Don\'t use scope on a lifecycle component. Use lifecycleScope instead"
+    const-string v0, "Don\'t use scope on a lifecycle component. Use lifecycleScope instead"
 
-    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    check-cast v0, Ljava/lang/Throwable;
+    check-cast p0, Ljava/lang/Throwable;
 
-    throw v0
+    throw p0
 .end method
 
 .method public static synthetic scope$annotations(Landroidx/lifecycle/LifecycleOwner;)V

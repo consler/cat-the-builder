@@ -4,6 +4,9 @@
 
 
 # virtual methods
+.method public abstract notifyNoticeObservers(I)V
+.end method
+
 .method public abstract notifyObservers(I)V
 .end method
 

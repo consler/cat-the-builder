@@ -1,6 +1,5 @@
 .class synthetic Lcom/huawei/agconnect/core/Service$1;
 .super Ljava/lang/Object;
-.source "Service.java"
 
 
 # annotations

@@ -26,11 +26,10 @@
 
 .method public static addDefaultSerializers(Lcom/esotericsoftware/kryo/Kryo;)V
     .locals 2
-    .param p0, "kryo"    # Lcom/esotericsoftware/kryo/Kryo;
 
-    .line 38
     const-string v0, "java.util.Optional"
 
+    .line 38
     invoke-static {v0}, Lcom/esotericsoftware/kryo/util/Util;->isClassAvailable(Ljava/lang/String;)Z
 
     move-result v0
@@ -43,10 +42,10 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/esotericsoftware/kryo/Kryo;->addDefaultSerializer(Ljava/lang/Class;Ljava/lang/Class;)V
 
-    .line 39
     :cond_0
     const-string v0, "java.util.OptionalInt"
 
+    .line 39
     invoke-static {v0}, Lcom/esotericsoftware/kryo/util/Util;->isClassAvailable(Ljava/lang/String;)Z
 
     move-result v0
@@ -59,10 +58,10 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/esotericsoftware/kryo/Kryo;->addDefaultSerializer(Ljava/lang/Class;Ljava/lang/Class;)V
 
-    .line 40
     :cond_1
     const-string v0, "java.util.OptionalLong"
 
+    .line 40
     invoke-static {v0}, Lcom/esotericsoftware/kryo/util/Util;->isClassAvailable(Ljava/lang/String;)Z
 
     move-result v0
@@ -75,10 +74,10 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/esotericsoftware/kryo/Kryo;->addDefaultSerializer(Ljava/lang/Class;Ljava/lang/Class;)V
 
-    .line 41
     :cond_2
     const-string v0, "java.util.OptionalDouble"
 
+    .line 41
     invoke-static {v0}, Lcom/esotericsoftware/kryo/util/Util;->isClassAvailable(Ljava/lang/String;)Z
 
     move-result v0
@@ -92,7 +91,6 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/esotericsoftware/kryo/Kryo;->addDefaultSerializer(Ljava/lang/Class;Ljava/lang/Class;)V
 
-    .line 43
     :cond_3
     return-void
 .end method

@@ -46,7 +46,6 @@
 # direct methods
 .method constructor <init>(Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;)V
     .locals 2
-    .param p1, "configuration"    # Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;
 
     .line 58
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -108,24 +107,22 @@
     iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskExecutor:Ljava/util/concurrent/Executor;
 
     .line 62
-    iget-object v0, p1, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->taskExecutorForCachedImages:Ljava/util/concurrent/Executor;
+    iget-object p1, p1, Lcom/nostra13/universalimageloader/core/ImageLoaderConfiguration;->taskExecutorForCachedImages:Ljava/util/concurrent/Executor;
 
-    iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskExecutorForCachedImages:Ljava/util/concurrent/Executor;
+    iput-object p1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskExecutorForCachedImages:Ljava/util/concurrent/Executor;
 
     .line 64
     invoke-static {}, Lcom/nostra13/universalimageloader/core/DefaultConfigurationFactory;->createTaskDistributor()Ljava/util/concurrent/Executor;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskDistributor:Ljava/util/concurrent/Executor;
+    iput-object p1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskDistributor:Ljava/util/concurrent/Executor;
 
-    .line 65
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;)V
     .locals 0
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;
 
     .line 40
     invoke-direct {p0}, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->initExecutorsIfNeed()V
@@ -134,23 +131,21 @@
 .end method
 
 .method static synthetic access$100(Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;)Ljava/util/concurrent/Executor;
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;
+    .locals 0
 
     .line 40
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskExecutorForCachedImages:Ljava/util/concurrent/Executor;
+    iget-object p0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskExecutorForCachedImages:Ljava/util/concurrent/Executor;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$200(Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;)Ljava/util/concurrent/Executor;
-    .locals 1
-    .param p0, "x0"    # Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;
+    .locals 0
 
     .line 40
-    iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskExecutor:Ljava/util/concurrent/Executor;
+    iget-object p0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskExecutor:Ljava/util/concurrent/Executor;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private createTaskExecutor()Ljava/util/concurrent/Executor;
@@ -228,7 +223,6 @@
 
     iput-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskExecutorForCachedImages:Ljava/util/concurrent/Executor;
 
-    .line 98
     :cond_1
     return-void
 .end method
@@ -236,79 +230,71 @@
 
 # virtual methods
 .method cancelDisplayTaskFor(Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;)V
-    .locals 2
-    .param p1, "imageAware"    # Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;
+    .locals 1
 
     .line 128
     iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->cacheKeysForImageAwares:Ljava/util/Map;
 
     invoke-interface {p1}, Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;->getId()I
 
-    move-result v1
+    move-result p1
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 129
     return-void
 .end method
 
 .method denyNetworkDownloads(Z)V
     .locals 1
-    .param p1, "denyNetworkDownloads"    # Z
 
     .line 140
     iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->networkDenied:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 141
     return-void
 .end method
 
 .method fireCallback(Ljava/lang/Runnable;)V
     .locals 1
-    .param p1, "r"    # Ljava/lang/Runnable;
 
     .line 190
     iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskDistributor:Ljava/util/concurrent/Executor;
 
     invoke-interface {v0, p1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 191
     return-void
 .end method
 
 .method getLoadingUriForView(Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;)Ljava/lang/String;
-    .locals 2
-    .param p1, "imageAware"    # Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;
+    .locals 1
 
     .line 110
     iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->cacheKeysForImageAwares:Ljava/util/Map;
 
     invoke-interface {p1}, Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;->getId()I
 
-    move-result v1
+    move-result p1
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/lang/String;
+    check-cast p1, Ljava/lang/String;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method getLockForUri(Ljava/lang/String;)Ljava/util/concurrent/locks/ReentrantLock;
     .locals 2
-    .param p1, "uri"    # Ljava/lang/String;
 
     .line 194
     iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->uriLocks:Ljava/util/Map;
@@ -319,23 +305,18 @@
 
     check-cast v0, Ljava/util/concurrent/locks/ReentrantLock;
 
-    .line 195
-    .local v0, "lock":Ljava/util/concurrent/locks/ReentrantLock;
     if-nez v0, :cond_0
 
     .line 196
-    new-instance v1, Ljava/util/concurrent/locks/ReentrantLock;
+    new-instance v0, Ljava/util/concurrent/locks/ReentrantLock;
 
-    invoke-direct {v1}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V
-
-    move-object v0, v1
+    invoke-direct {v0}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V
 
     .line 197
     iget-object v1, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->uriLocks:Ljava/util/Map;
 
     invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 199
     :cond_0
     return-object v0
 .end method
@@ -360,14 +341,12 @@
 
 .method handleSlowNetwork(Z)V
     .locals 1
-    .param p1, "handleSlowNetwork"    # Z
 
     .line 151
     iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->slowNetwork:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 152
     return-void
 .end method
 
@@ -407,29 +386,25 @@
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 160
     return-void
 .end method
 
 .method prepareDisplayTaskFor(Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;Ljava/lang/String;)V
-    .locals 2
-    .param p1, "imageAware"    # Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;
-    .param p2, "memoryCacheKey"    # Ljava/lang/String;
+    .locals 1
 
     .line 118
     iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->cacheKeysForImageAwares:Ljava/util/Map;
 
     invoke-interface {p1}, Lcom/nostra13/universalimageloader/core/imageaware/ImageAware;->getId()I
 
-    move-result v1
+    move-result p1
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 119
     return-void
 .end method
 
@@ -457,10 +432,8 @@
     .line 167
     monitor-exit v0
 
-    .line 168
     return-void
 
-    .line 167
     :catchall_0
     move-exception v1
 
@@ -514,13 +487,11 @@
 
     invoke-interface {v0}, Ljava/util/Map;->clear()V
 
-    .line 187
     return-void
 .end method
 
 .method submit(Lcom/nostra13/universalimageloader/core/LoadAndDisplayImageTask;)V
     .locals 2
-    .param p1, "task"    # Lcom/nostra13/universalimageloader/core/LoadAndDisplayImageTask;
 
     .line 69
     iget-object v0, p0, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->taskDistributor:Ljava/util/concurrent/Executor;
@@ -531,13 +502,11 @@
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 82
     return-void
 .end method
 
 .method submit(Lcom/nostra13/universalimageloader/core/ProcessAndDisplayImageTask;)V
     .locals 1
-    .param p1, "task"    # Lcom/nostra13/universalimageloader/core/ProcessAndDisplayImageTask;
 
     .line 86
     invoke-direct {p0}, Lcom/nostra13/universalimageloader/core/ImageLoaderEngine;->initExecutorsIfNeed()V
@@ -547,6 +516,5 @@
 
     invoke-interface {v0, p1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 88
     return-void
 .end method

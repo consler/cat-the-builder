@@ -25,9 +25,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/appcompat/widget/MenuPopupWindow;Landroidx/appcompat/view/menu/MenuBuilder;I)V
     .locals 0
-    .param p1, "window"    # Landroidx/appcompat/widget/MenuPopupWindow;
-    .param p2, "menu"    # Landroidx/appcompat/view/menu/MenuBuilder;
-    .param p3, "position"    # I
 
     .line 800
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +38,6 @@
     .line 803
     iput p3, p0, Landroidx/appcompat/view/menu/CascadingMenuPopup$CascadingMenuInfo;->position:I
 
-    .line 804
     return-void
 .end method
 

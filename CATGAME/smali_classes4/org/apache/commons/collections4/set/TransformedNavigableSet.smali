@@ -38,17 +38,13 @@
     .end annotation
 
     .line 101
-    .local p0, "this":Lorg/apache/commons/collections4/set/TransformedNavigableSet;, "Lorg/apache/commons/collections4/set/TransformedNavigableSet<TE;>;"
-    .local p1, "set":Ljava/util/NavigableSet;, "Ljava/util/NavigableSet<TE;>;"
-    .local p2, "transformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TE;+TE;>;"
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections4/set/TransformedSortedSet;-><init>(Ljava/util/SortedSet;Lorg/apache/commons/collections4/Transformer;)V
 
-    .line 102
     return-void
 .end method
 
 .method public static transformedNavigableSet(Ljava/util/NavigableSet;Lorg/apache/commons/collections4/Transformer;)Lorg/apache/commons/collections4/set/TransformedNavigableSet;
-    .locals 7
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -64,14 +60,11 @@
     .end annotation
 
     .line 76
-    .local p0, "set":Ljava/util/NavigableSet;, "Ljava/util/NavigableSet<TE;>;"
-    .local p1, "transformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TE;+TE;>;"
     new-instance v0, Lorg/apache/commons/collections4/set/TransformedNavigableSet;
 
     invoke-direct {v0, p0, p1}, Lorg/apache/commons/collections4/set/TransformedNavigableSet;-><init>(Ljava/util/NavigableSet;Lorg/apache/commons/collections4/Transformer;)V
 
     .line 77
-    .local v0, "decorated":Lorg/apache/commons/collections4/set/TransformedNavigableSet;, "Lorg/apache/commons/collections4/set/TransformedNavigableSet<TE;>;"
     invoke-interface {p0}, Ljava/util/NavigableSet;->size()I
 
     move-result v1
@@ -86,39 +79,33 @@
     check-cast v1, [Ljava/lang/Object;
 
     .line 80
-    .local v1, "values":[Ljava/lang/Object;, "[TE;"
     invoke-interface {p0}, Ljava/util/NavigableSet;->clear()V
 
     .line 81
-    array-length v2, v1
+    array-length p0, v1
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v3, v2, :cond_0
+    if-ge v2, p0, :cond_0
 
-    aget-object v4, v1, v3
+    aget-object v3, v1, v2
 
     .line 82
-    .local v4, "value":Ljava/lang/Object;, "TE;"
     invoke-virtual {v0}, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->decorated()Ljava/util/NavigableSet;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-interface {p1, v4}, Lorg/apache/commons/collections4/Transformer;->transform(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, v3}, Lorg/apache/commons/collections4/Transformer;->transform(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v3
 
-    invoke-interface {v5, v6}, Ljava/util/NavigableSet;->add(Ljava/lang/Object;)Z
+    invoke-interface {v4, v3}, Ljava/util/NavigableSet;->add(Ljava/lang/Object;)Z
 
-    .line 81
-    .end local v4    # "value":Ljava/lang/Object;, "TE;"
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 85
-    .end local v1    # "values":[Ljava/lang/Object;, "[TE;"
     :cond_0
     return-object v0
 .end method
@@ -140,8 +127,6 @@
     .end annotation
 
     .line 56
-    .local p0, "set":Ljava/util/NavigableSet;, "Ljava/util/NavigableSet<TE;>;"
-    .local p1, "transformer":Lorg/apache/commons/collections4/Transformer;, "Lorg/apache/commons/collections4/Transformer<-TE;+TE;>;"
     new-instance v0, Lorg/apache/commons/collections4/set/TransformedNavigableSet;
 
     invoke-direct {v0, p0, p1}, Lorg/apache/commons/collections4/set/TransformedNavigableSet;-><init>(Ljava/util/NavigableSet;Lorg/apache/commons/collections4/Transformer;)V
@@ -160,24 +145,21 @@
     .end annotation
 
     .line 128
-    .local p0, "this":Lorg/apache/commons/collections4/set/TransformedNavigableSet;, "Lorg/apache/commons/collections4/set/TransformedNavigableSet<TE;>;"
-    .local p1, "e":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->decorated()Ljava/util/NavigableSet;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/NavigableSet;->ceiling(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected bridge synthetic decorated()Ljava/util/Collection;
     .locals 1
 
     .line 36
-    .local p0, "this":Lorg/apache/commons/collections4/set/TransformedNavigableSet;, "Lorg/apache/commons/collections4/set/TransformedNavigableSet<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->decorated()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -196,7 +178,6 @@
     .end annotation
 
     .line 111
-    .local p0, "this":Lorg/apache/commons/collections4/set/TransformedNavigableSet;, "Lorg/apache/commons/collections4/set/TransformedNavigableSet<TE;>;"
     invoke-super {p0}, Lorg/apache/commons/collections4/set/TransformedSortedSet;->decorated()Ljava/util/Collection;
 
     move-result-object v0
@@ -217,7 +198,6 @@
     .end annotation
 
     .line 153
-    .local p0, "this":Lorg/apache/commons/collections4/set/TransformedNavigableSet;, "Lorg/apache/commons/collections4/set/TransformedNavigableSet<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->decorated()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -240,7 +220,6 @@
     .end annotation
 
     .line 148
-    .local p0, "this":Lorg/apache/commons/collections4/set/TransformedNavigableSet;, "Lorg/apache/commons/collections4/set/TransformedNavigableSet<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->decorated()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -267,22 +246,19 @@
     .end annotation
 
     .line 123
-    .local p0, "this":Lorg/apache/commons/collections4/set/TransformedNavigableSet;, "Lorg/apache/commons/collections4/set/TransformedNavigableSet<TE;>;"
-    .local p1, "e":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->decorated()Ljava/util/NavigableSet;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/NavigableSet;->floor(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
-    .locals 2
-    .param p2, "inclusive"    # Z
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;Z)",
@@ -292,25 +268,22 @@
     .end annotation
 
     .line 165
-    .local p0, "this":Lorg/apache/commons/collections4/set/TransformedNavigableSet;, "Lorg/apache/commons/collections4/set/TransformedNavigableSet<TE;>;"
-    .local p1, "toElement":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->decorated()Ljava/util/NavigableSet;
 
     move-result-object v0
 
     invoke-interface {v0, p1, p2}, Ljava/util/NavigableSet;->headSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 166
-    .local v0, "head":Ljava/util/NavigableSet;, "Ljava/util/NavigableSet<TE;>;"
-    iget-object v1, p0, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->transformer:Lorg/apache/commons/collections4/Transformer;
+    iget-object p2, p0, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->transformer:Lorg/apache/commons/collections4/Transformer;
 
-    invoke-static {v0, v1}, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->transformingNavigableSet(Ljava/util/NavigableSet;Lorg/apache/commons/collections4/Transformer;)Lorg/apache/commons/collections4/set/TransformedNavigableSet;
+    invoke-static {p1, p2}, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->transformingNavigableSet(Ljava/util/NavigableSet;Lorg/apache/commons/collections4/Transformer;)Lorg/apache/commons/collections4/set/TransformedNavigableSet;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public higher(Ljava/lang/Object;)Ljava/lang/Object;
@@ -322,17 +295,15 @@
     .end annotation
 
     .line 133
-    .local p0, "this":Lorg/apache/commons/collections4/set/TransformedNavigableSet;, "Lorg/apache/commons/collections4/set/TransformedNavigableSet<TE;>;"
-    .local p1, "e":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->decorated()Ljava/util/NavigableSet;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/NavigableSet;->higher(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public lower(Ljava/lang/Object;)Ljava/lang/Object;
@@ -344,17 +315,15 @@
     .end annotation
 
     .line 118
-    .local p0, "this":Lorg/apache/commons/collections4/set/TransformedNavigableSet;, "Lorg/apache/commons/collections4/set/TransformedNavigableSet<TE;>;"
-    .local p1, "e":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->decorated()Ljava/util/NavigableSet;
 
     move-result-object v0
 
     invoke-interface {v0, p1}, Ljava/util/NavigableSet;->lower(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public pollFirst()Ljava/lang/Object;
@@ -366,7 +335,6 @@
     .end annotation
 
     .line 138
-    .local p0, "this":Lorg/apache/commons/collections4/set/TransformedNavigableSet;, "Lorg/apache/commons/collections4/set/TransformedNavigableSet<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->decorated()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -387,7 +355,6 @@
     .end annotation
 
     .line 143
-    .local p0, "this":Lorg/apache/commons/collections4/set/TransformedNavigableSet;, "Lorg/apache/commons/collections4/set/TransformedNavigableSet<TE;>;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->decorated()Ljava/util/NavigableSet;
 
     move-result-object v0
@@ -400,9 +367,7 @@
 .end method
 
 .method public subSet(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;
-    .locals 2
-    .param p2, "fromInclusive"    # Z
-    .param p4, "toInclusive"    # Z
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;ZTE;Z)",
@@ -412,31 +377,26 @@
     .end annotation
 
     .line 159
-    .local p0, "this":Lorg/apache/commons/collections4/set/TransformedNavigableSet;, "Lorg/apache/commons/collections4/set/TransformedNavigableSet<TE;>;"
-    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
-    .local p3, "toElement":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->decorated()Ljava/util/NavigableSet;
 
     move-result-object v0
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljava/util/NavigableSet;->subSet(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 160
-    .local v0, "sub":Ljava/util/NavigableSet;, "Ljava/util/NavigableSet<TE;>;"
-    iget-object v1, p0, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->transformer:Lorg/apache/commons/collections4/Transformer;
+    iget-object p2, p0, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->transformer:Lorg/apache/commons/collections4/Transformer;
 
-    invoke-static {v0, v1}, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->transformingNavigableSet(Ljava/util/NavigableSet;Lorg/apache/commons/collections4/Transformer;)Lorg/apache/commons/collections4/set/TransformedNavigableSet;
+    invoke-static {p1, p2}, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->transformingNavigableSet(Ljava/util/NavigableSet;Lorg/apache/commons/collections4/Transformer;)Lorg/apache/commons/collections4/set/TransformedNavigableSet;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
-    .locals 2
-    .param p2, "inclusive"    # Z
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;Z)",
@@ -446,23 +406,20 @@
     .end annotation
 
     .line 171
-    .local p0, "this":Lorg/apache/commons/collections4/set/TransformedNavigableSet;, "Lorg/apache/commons/collections4/set/TransformedNavigableSet<TE;>;"
-    .local p1, "fromElement":Ljava/lang/Object;, "TE;"
     invoke-virtual {p0}, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->decorated()Ljava/util/NavigableSet;
 
     move-result-object v0
 
     invoke-interface {v0, p1, p2}, Ljava/util/NavigableSet;->tailSet(Ljava/lang/Object;Z)Ljava/util/NavigableSet;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 172
-    .local v0, "tail":Ljava/util/NavigableSet;, "Ljava/util/NavigableSet<TE;>;"
-    iget-object v1, p0, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->transformer:Lorg/apache/commons/collections4/Transformer;
+    iget-object p2, p0, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->transformer:Lorg/apache/commons/collections4/Transformer;
 
-    invoke-static {v0, v1}, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->transformingNavigableSet(Ljava/util/NavigableSet;Lorg/apache/commons/collections4/Transformer;)Lorg/apache/commons/collections4/set/TransformedNavigableSet;
+    invoke-static {p1, p2}, Lorg/apache/commons/collections4/set/TransformedNavigableSet;->transformingNavigableSet(Ljava/util/NavigableSet;Lorg/apache/commons/collections4/Transformer;)Lorg/apache/commons/collections4/set/TransformedNavigableSet;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method

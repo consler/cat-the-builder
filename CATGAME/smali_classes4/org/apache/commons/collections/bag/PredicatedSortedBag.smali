@@ -13,20 +13,15 @@
 # direct methods
 .method protected constructor <init>(Lorg/apache/commons/collections/SortedBag;Lorg/apache/commons/collections/Predicate;)V
     .locals 0
-    .param p1, "bag"    # Lorg/apache/commons/collections/SortedBag;
-    .param p2, "predicate"    # Lorg/apache/commons/collections/Predicate;
 
     .line 78
     invoke-direct {p0, p1, p2}, Lorg/apache/commons/collections/bag/PredicatedBag;-><init>(Lorg/apache/commons/collections/Bag;Lorg/apache/commons/collections/Predicate;)V
 
-    .line 79
     return-void
 .end method
 
 .method public static decorate(Lorg/apache/commons/collections/SortedBag;Lorg/apache/commons/collections/Predicate;)Lorg/apache/commons/collections/SortedBag;
     .locals 1
-    .param p0, "bag"    # Lorg/apache/commons/collections/SortedBag;
-    .param p1, "predicate"    # Lorg/apache/commons/collections/Predicate;
 
     .line 62
     new-instance v0, Lorg/apache/commons/collections/bag/PredicatedSortedBag;

@@ -129,15 +129,9 @@
 
     invoke-direct {v0, v1, v2, p2}, Landroidx/lifecycle/LiveDataScopeImpl$emitSource$2;-><init>(Landroidx/lifecycle/LiveDataScopeImpl;Landroidx/lifecycle/LiveData;Lkotlin/coroutines/Continuation;)V
 
-    move-object v1, p1
+    check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
-    check-cast v1, Lkotlinx/coroutines/CoroutineScope;
-
-    move-object v1, p1
-
-    check-cast v1, Lkotlinx/coroutines/CoroutineScope;
-
-    iput-object v1, v0, Landroidx/lifecycle/LiveDataScopeImpl$emitSource$2;->p$:Lkotlinx/coroutines/CoroutineScope;
+    iput-object p1, v0, Landroidx/lifecycle/LiveDataScopeImpl$emitSource$2;->p$:Lkotlinx/coroutines/CoroutineScope;
 
     return-object v0
 .end method
@@ -163,8 +157,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 5
-    .param p1, "$result"    # Ljava/lang/Object;
+    .locals 4
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -179,66 +172,50 @@
 
     if-ne v1, v2, :cond_0
 
-    const/4 v0, 0x0
-
-    .local v0, "$this$withContext":Lkotlinx/coroutines/CoroutineScope;
-    iget-object v1, p0, Landroidx/lifecycle/LiveDataScopeImpl$emitSource$2;->L$0:Ljava/lang/Object;
-
-    move-object v0, v1
+    iget-object v0, p0, Landroidx/lifecycle/LiveDataScopeImpl$emitSource$2;->L$0:Ljava/lang/Object;
 
     check-cast v0, Lkotlinx/coroutines/CoroutineScope;
 
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    move-object v2, p1
-
     goto :goto_0
 
-    .end local v0    # "$this$withContext":Lkotlinx/coroutines/CoroutineScope;
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "call to \'resume\' before \'invoke\' with coroutine"
+    const-string v0, "call to \'resume\' before \'invoke\' with coroutine"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     :cond_1
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    iget-object v1, p0, Landroidx/lifecycle/LiveDataScopeImpl$emitSource$2;->p$:Lkotlinx/coroutines/CoroutineScope;
+    iget-object p1, p0, Landroidx/lifecycle/LiveDataScopeImpl$emitSource$2;->p$:Lkotlinx/coroutines/CoroutineScope;
 
     .line 94
-    .local v1, "$this$withContext":Lkotlinx/coroutines/CoroutineScope;
-    iget-object v3, p0, Landroidx/lifecycle/LiveDataScopeImpl$emitSource$2;->this$0:Landroidx/lifecycle/LiveDataScopeImpl;
+    iget-object v1, p0, Landroidx/lifecycle/LiveDataScopeImpl$emitSource$2;->this$0:Landroidx/lifecycle/LiveDataScopeImpl;
 
-    invoke-virtual {v3}, Landroidx/lifecycle/LiveDataScopeImpl;->getTarget$lifecycle_livedata_ktx_release()Landroidx/lifecycle/CoroutineLiveData;
+    invoke-virtual {v1}, Landroidx/lifecycle/LiveDataScopeImpl;->getTarget$lifecycle_livedata_ktx_release()Landroidx/lifecycle/CoroutineLiveData;
 
-    move-result-object v3
+    move-result-object v1
 
-    iget-object v4, p0, Landroidx/lifecycle/LiveDataScopeImpl$emitSource$2;->$source:Landroidx/lifecycle/LiveData;
+    iget-object v3, p0, Landroidx/lifecycle/LiveDataScopeImpl$emitSource$2;->$source:Landroidx/lifecycle/LiveData;
 
-    iput-object v1, p0, Landroidx/lifecycle/LiveDataScopeImpl$emitSource$2;->L$0:Ljava/lang/Object;
+    iput-object p1, p0, Landroidx/lifecycle/LiveDataScopeImpl$emitSource$2;->L$0:Ljava/lang/Object;
 
     iput v2, p0, Landroidx/lifecycle/LiveDataScopeImpl$emitSource$2;->label:I
 
-    invoke-virtual {v3, v4, p0}, Landroidx/lifecycle/CoroutineLiveData;->emitSource$lifecycle_livedata_ktx_release(Landroidx/lifecycle/LiveData;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    invoke-virtual {v1, v3, p0}, Landroidx/lifecycle/CoroutineLiveData;->emitSource$lifecycle_livedata_ktx_release(Landroidx/lifecycle/LiveData;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    if-ne v2, v0, :cond_2
+    if-ne p1, v0, :cond_2
 
-    .line 93
     return-object v0
 
-    .line 94
     :cond_2
-    move-object v0, v1
-
-    .line 93
-    .end local v1    # "$this$withContext":Lkotlinx/coroutines/CoroutineScope;
-    .restart local v0    # "$this$withContext":Lkotlinx/coroutines/CoroutineScope;
     :goto_0
-    return-object v2
+    return-object p1
 .end method

@@ -45,7 +45,6 @@
     .line 22
     invoke-direct {p0}, Lio/reactivex/Observable;-><init>()V
 
-    .line 23
     return-void
 .end method
 
@@ -64,11 +63,9 @@
     .end annotation
 
     .line 27
-    .local p1, "o":Lio/reactivex/Observer;, "Lio/reactivex/Observer<-Ljava/lang/Object;>;"
     sget-object v0, Lio/reactivex/internal/disposables/EmptyDisposable;->NEVER:Lio/reactivex/internal/disposables/EmptyDisposable;
 
     invoke-interface {p1, v0}, Lio/reactivex/Observer;->onSubscribe(Lio/reactivex/disposables/Disposable;)V
 
-    .line 28
     return-void
 .end method
